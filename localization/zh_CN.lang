@@ -1,4 +1,5 @@
-﻿attribute.name.generic.movementSpeedAir=Speed(Air)
+﻿
+attribute.name.generic.movementSpeedAir=Speed(Air)
 chat.lotr.allowStructures=你受许生成建筑
 chat.lotr.alreadyProtected=你不可设保护旗帜，这里与另一旗帜的保护重叠
 chat.lotr.autoUnpledge=%s对你失去了信心，你的誓言被打破了！
