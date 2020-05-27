@@ -4069,6 +4069,7 @@ lotr.weaponstat.meleeDamage=近身伤害：+%d
 lotr.weaponstat.meleeSpeed=近身速度：%d%%
 lotr.weaponstat.poison=剧毒
 lotr.weaponstat.protection=通常保护：+%d(%d%%)
+lotr.weaponstat.range=范围: %d%%
 lotr.weaponstat.rangedDamage=远程伤害：+%d%%
 lotr.weaponstat.rangedRange=射程：%d%%
 lotr.weaponstat.rangedSpeed=蓄力速度：%d%%

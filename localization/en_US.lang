@@ -4069,6 +4069,7 @@ lotr.weaponstat.meleeDamage=Melee Damage: +%d
 lotr.weaponstat.meleeSpeed=Melee Speed: %d%%
 lotr.weaponstat.poison=Inflicts poison
 lotr.weaponstat.protection=Common Protection: +%d (%d%%)
+lotr.weaponstat.range=Range: %d%%
 lotr.weaponstat.rangedDamage=Ranged Damage: %d%%
 lotr.weaponstat.rangedRange=Range: %d%%
 lotr.weaponstat.rangedSpeed=Draw Speed: %d%%

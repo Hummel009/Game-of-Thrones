@@ -4069,6 +4069,7 @@ lotr.weaponstat.meleeDamage=Урон в ближнем бою: +%d
 lotr.weaponstat.meleeSpeed=Скорость атаки в ближнем бою: %d%%
 lotr.weaponstat.poison=Отравляет
 lotr.weaponstat.protection=Защита: +%d (%d%%)
+lotr.weaponstat.range=Дальность: %d%%
 lotr.weaponstat.rangedDamage=Бонус к урону: +%d
 lotr.weaponstat.rangedRange=Дальность атаки: %d%%
 lotr.weaponstat.rangedSpeed=Скорость перезарядки: %d%%
