@@ -1,0 +1,10 @@
+﻿You must make a name for yourself in the lands of the North to trade with me.
+Prove that you can be trusted and I will trade with you.
+I'm not sure if you are a supporter of Lord Stark, #.
+Are you a Robb Stark supporter, #?
+I only trade with Robb Stark supporters, #. I don't supply equipment to Lannisters.
+I'm not going to give out armor to every stranger ...
+You must prove your loyalty to Lord Winterfell if you wish to trade with me.
+I don’t trust you enough to hand out the armor yet.
+You must show your loyalty to the Starks, #, before we bargain.
+Only Stark supporters can order equipment from me.

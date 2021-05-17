@@ -1,0 +1,13 @@
+#title:Funktion
+#types:sothoryos
+#author:Hummel009
+#
+Dieses Buch ist etwas ganz Besonderes. Was ist das?
+
+Dieses Buch wird aus einer Textdatei generiert. Blättern Sie durch die Seiten. Diese Funktion war eine sehr beliebte Anfrage und ich denke, sie wird ein fantastisches Gefühl des Eintauchens in die Welt vermitteln.
+
+Es war ein verdammt guter Job! Es war sehr schwierig, einen Code zu entwickeln, der eine Textdatei in ein Minecraft-Buch einfügt und es wunderschön paginiert. Gleichzeitig kriecht der Text nicht aus dem Blatt. Das Buch ist wie ein natürliches.
+
+Dies bedeutet, dass Sie jetzt viele Bücher auf der Welt finden können. Sie fallen von Mobs, sie sind in Truhen ... Ich, Hummel009, schreibe diese Bücher und kombiniere Fragmente aus "Die Welt von Eis und Feuer" J. Martin, damit Sie die Welt von Game of Thrones kennenlernen können.
+
+Deshalb ist dieses Buch so besonders. 
