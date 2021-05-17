@@ -1,1 +1,0 @@
-You can see the folder "LOTR Mod lang files". GOT Mod is built on base of LOTR and has a lot in common with it. You can use LOTR lang file to ease your work.
