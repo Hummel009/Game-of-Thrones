@@ -1,4 +1,7 @@
 ﻿
+entity.got.Thief.name=Thief
+got.achievement.STEAL.desc=Tárgyat lopni egy tolvaj társnak
+got.achievement.STEAL.title=Küldetés teljesítve
 death.attack.got.frost=%1$s Megadta magát a hidegnek
 death.attack.got.plantHurt=%1$s -t megölte egy növény
 death.attack.got.poisonDrink=%1$s Nem jó italt ivott

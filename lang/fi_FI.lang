@@ -1,4 +1,6 @@
 ﻿
+got.achievement.STEAL.desc=Varasta esine varkauskumppanille
+got.achievement.STEAL.title=Tehtävä suoritettu
 death.attack.got.frost=%1$s jäätyi kuoliaaksi
 death.attack.got.plantHurt=%1$s joutui kasvin surmaamaksi
 death.attack.got.poisonDrink=%1$s kulautti kurkkuunsa väärän juoman
