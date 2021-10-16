@@ -2885,7 +2885,6 @@ got.invasion.WILDLING_THENN⇒
 got.invasion.YI_TI.horn⇒
 got.loading⇒
 got.map.essos⇒
-got.map.hidden⇒
 got.map.ibben⇒
 got.map.jade⇒
 got.map.lang⇒
@@ -2923,10 +2922,15 @@ got.miniquest.welcome.speak⇒
 got.music.nowPlaying=Nyt soittamassa:
 got.potion.drinkPoison⇒
 got.potion⇒
+got.shields.ACHIEVEMENT_BRONZE.desc=Palkinto 25 saavutuksen suorittamisesta Valtaistuinpelissa
 got.shields.ACHIEVEMENT_BRONZE.name=Pronssiseikkailijan kilpi
+got.shields.ACHIEVEMENT_GOLD.desc=Palkinto 100 saavutuksen suorittamisesta Valtaistuinpelissa
 got.shields.ACHIEVEMENT_GOLD.name=Kultaseikkailijan kilpi
+got.shields.ACHIEVEMENT_SILVER.desc=Palkinto 50 saavutuksen suorittamisesta Valtaistuinpelissa
 got.shields.ACHIEVEMENT_SILVER.name=Hopeaseikkailijan kilpi
 got.shields.ACHIEVEMENT_VALYRIAN.name⇒
+got.shields.ACHIEVEMENT_VALYRIAN.desc⇒
+got.shields.ALCOHOLIC.desc=Suotu niille, jotka ovat nauttineet runsaasti alkoholijuomia
 got.shields.ALCOHOLIC.name=Alkoholistin kilpi
 got.shields.ARRYN.name⇒
 got.shields.ARRYNGUARD.name⇒
@@ -2953,6 +2957,7 @@ got.shields.SOTHORYOS.name⇒
 got.shields.STORMLANDS.name⇒
 got.shields.SUMMER.name⇒
 got.shields.TARGARYEN.name⇒
+got.shields.TARGARYEN.desc⇒
 got.shields.TYROSH.name⇒
 got.shields.UNSULLIED.name⇒
 got.shields.VOLANTIS.name⇒

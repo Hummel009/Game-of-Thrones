@@ -2885,7 +2885,6 @@ got.invasion.WILDLING_THENN⇒
 got.invasion.YI_TI.horn⇒
 got.loading⇒
 got.map.essos⇒
-got.map.hidden⇒
 got.map.ibben⇒
 got.map.jade⇒
 got.map.lang⇒
@@ -2923,10 +2922,15 @@ got.miniquest.welcome.speak⇒
 got.music.nowPlaying⇒
 got.potion.drinkPoison⇒
 got.potion⇒
+got.shields.ACHIEVEMENT_BRONZE.desc=Награђен за достизањe 25 Достигнућа у Игра престола
 got.shields.ACHIEVEMENT_BRONZE.name=Бронзани Штит Авантуристе
+got.shields.ACHIEVEMENT_GOLD.desc=Награђен за достизањe 100 Достигнућа у Игра престола
 got.shields.ACHIEVEMENT_GOLD.name=Златни Штит Авантуристе
+got.shields.ACHIEVEMENT_SILVER.desc=Награђен за достизањe 50 Достигнућа у Игра престола
 got.shields.ACHIEVEMENT_SILVER.name=Сребрени Штит Авантуристе
 got.shields.ACHIEVEMENT_VALYRIAN.name⇒
+got.shields.ACHIEVEMENT_VALYRIAN.desc⇒
+got.shields.ALCOHOLIC.desc=Награђен за уживање у обилној количини алкохоличних напитака
 got.shields.ALCOHOLIC.name=Штит Алкохоличара
 got.shields.ARRYN.name⇒
 got.shields.ARRYNGUARD.name⇒
@@ -2953,6 +2957,7 @@ got.shields.SOTHORYOS.name⇒
 got.shields.STORMLANDS.name⇒
 got.shields.SUMMER.name⇒
 got.shields.TARGARYEN.name⇒
+got.shields.TARGARYEN.desc⇒
 got.shields.TYROSH.name⇒
 got.shields.UNSULLIED.name⇒
 got.shields.VOLANTIS.name⇒

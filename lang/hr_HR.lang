@@ -2885,7 +2885,6 @@ got.invasion.WILDLING_THENN⇒
 got.invasion.YI_TI.horn⇒
 got.loading⇒
 got.map.essos⇒
-got.map.hidden⇒
 got.map.ibben⇒
 got.map.jade⇒
 got.map.lang⇒
@@ -2928,6 +2927,11 @@ got.shields.ACHIEVEMENT_GOLD.name⇒
 got.shields.ACHIEVEMENT_SILVER.name⇒
 got.shields.ACHIEVEMENT_VALYRIAN.name⇒
 got.shields.ALCOHOLIC.name⇒
+got.shields.ACHIEVEMENT_BRONZE.desc⇒
+got.shields.ACHIEVEMENT_GOLD.desc⇒
+got.shields.ACHIEVEMENT_SILVER.desc⇒
+got.shields.ACHIEVEMENT_VALYRIAN.desc⇒
+got.shields.ALCOHOLIC.desc⇒
 got.shields.ARRYN.name⇒
 got.shields.ARRYNGUARD.name⇒
 got.shields.BRAAVOS.name⇒
@@ -2953,6 +2957,7 @@ got.shields.SOTHORYOS.name⇒
 got.shields.STORMLANDS.name⇒
 got.shields.SUMMER.name⇒
 got.shields.TARGARYEN.name⇒
+got.shields.TARGARYEN.desc⇒
 got.shields.TYROSH.name⇒
 got.shields.UNSULLIED.name⇒
 got.shields.VOLANTIS.name⇒

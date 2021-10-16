@@ -2885,7 +2885,6 @@ got.invasion.WILDLING_THENN⇒
 got.invasion.YI_TI.horn⇒
 got.loading⇒
 got.map.essos⇒
-got.map.hidden⇒
 got.map.ibben⇒
 got.map.jade⇒
 got.map.lang⇒
@@ -2923,10 +2922,15 @@ got.miniquest.welcome.speak⇒
 got.music.nowPlaying=Most megy:
 got.potion.drinkPoison⇒
 got.potion⇒
+got.shields.ACHIEVEMENT_BRONZE.desc=Odaítélve 25 Trónok Harcai mérföldkő teljesítéséért
 got.shields.ACHIEVEMENT_BRONZE.name=A Bronz Fokozatú Felfedező Pajzsa
+got.shields.ACHIEVEMENT_GOLD.desc=Odaítélve 100 Trónok Harcai mérföldkő teljesítéséért
 got.shields.ACHIEVEMENT_GOLD.name=Az Arany Fokozatú  Felfedező Pajzsa
+got.shields.ACHIEVEMENT_SILVER.desc=Odaítélve 50 Trónok Harcai mérföldkő teljesítéséért
 got.shields.ACHIEVEMENT_SILVER.name=Az Ezüst Fokozatú  Felfedező Pajzsa
 got.shields.ACHIEVEMENT_VALYRIAN.name⇒
+got.shields.ACHIEVEMENT_VALYRIAN.desc⇒
+got.shields.ALCOHOLIC.desc=Odaítélve egy kiadós mennyiségű alkohol elfogyasztásáért
 got.shields.ALCOHOLIC.name=Az Alkoholista Pajzsa
 got.shields.ARRYN.name⇒
 got.shields.ARRYNGUARD.name⇒
@@ -2953,6 +2957,7 @@ got.shields.SOTHORYOS.name⇒
 got.shields.STORMLANDS.name⇒
 got.shields.SUMMER.name⇒
 got.shields.TARGARYEN.name⇒
+got.shields.TARGARYEN.desc⇒
 got.shields.TYROSH.name⇒
 got.shields.UNSULLIED.name⇒
 got.shields.VOLANTIS.name⇒
