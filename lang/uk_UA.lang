@@ -28,15 +28,15 @@ dragon.mountNotice=Натискайте %s і %s, щоб летіти вгору
 dragon.owned=Цей дракон не слід Вашим командам. Він або занадто молодий, або вже належить комусь.
 entity.got.AddamMarbrand.name=Аддам Марбранд
 entity.got.AemonTargaryen.name=Еймон Таргаріен
-entity.got.AeronGreyjoy.name⇒
+entity.got.AeronGreyjoy.name≠
 entity.got.AlliserThorne.name=Аллісер Торн
-entity.got.AmoryLorch.name⇒
+entity.got.AmoryLorch.name≠
 entity.got.AndersYronwood.name=Андерс Айронвуд
-entity.got.AndrikTheUnsmilling.name⇒
-entity.got.AnyaWaynwood.name⇒
+entity.got.AndrikTheUnsmilling.name≠
+entity.got.AnyaWaynwood.name≠
 entity.got.ArdrianCeltigar.name=Ардріан Селтігар
-entity.got.AreoHotah.name⇒
-entity.got.ArianneMartell.name⇒
+entity.got.AreoHotah.name≠
+entity.got.ArianneMartell.name≠
 entity.got.ArrowPoison.name=Отруєна стріла
 entity.got.ArrynArcher.name=Лучник Долини Арен
 entity.got.ArrynBaker.name=Булочник Долини Арен
@@ -50,7 +50,7 @@ entity.got.ArrynFarmer.name=Фермер Долини Арен
 entity.got.ArrynFarmhand.name=Робочий Долини Арен
 entity.got.ArrynFishmonger.name=Рибак Долини Арен
 entity.got.ArrynFlorist.name=Квітникар Долини Арен
-entity.got.ArrynGoldsmith.name⇒
+entity.got.ArrynGoldsmith.name≠
 entity.got.ArrynGreengrocer.name=Торговець фруктами Долини Арен
 entity.got.ArrynGuard.name=Страж Чаячьего міста
 entity.got.ArrynLevyman.name=Ополченець Долини Арен
@@ -70,16 +70,16 @@ entity.got.AsshaiShadowbinder.name=Заклинатель тіней Асшая
 entity.got.AsshaiSpherebinder.name=Заклинатель сфери Асшая
 entity.got.AuraneWaters.name=Аура Уотерс
 entity.got.Aurochs.name=Зубр
-entity.got.BaelorBlacktyde.name⇒
+entity.got.BaelorBlacktyde.name≠
 entity.got.BalonGreyjoy.name=Бейлон Грейджой
 entity.got.Banner.name=Прапор
-entity.got.BarbreyDustin.name⇒
+entity.got.BarbreyDustin.name≠
 entity.got.Barrel.name=Бочка
 entity.got.BarristanSelmy.name=Баррістан Селмі
 entity.got.BarrowWight.name=Привид
 entity.got.Bear.name=Ведмідь
 entity.got.BearRug.name=Ведмежа шкура
-entity.got.BenedarBelmore.name⇒
+entity.got.BenedarBelmore.name≠
 entity.got.BenjenStark.name=Бенджі Старк
 entity.got.BericDayne.name=Берик Дейн
 entity.got.BericDondarrion1.name=Берик Дондарріон
@@ -89,7 +89,7 @@ entity.got.BericDondarrion4.name=Берик Дондарріон
 entity.got.BericDondarrion5.name=Берик Дондарріон
 entity.got.BericDondarrion6.name=Берик Дондарріон
 entity.got.Bird.name=Птах
-entity.got.BlackWalderFrey.name⇒
+entity.got.BlackWalderFrey.name≠
 entity.got.Boar.name=Кабан
 entity.got.BraavosArcher.name=Лучник Браавоса
 entity.got.BraavosBaker.name=Пекар Браавоса
@@ -109,17 +109,17 @@ entity.got.BraavosMan.name=Підданий Браавоса
 entity.got.BraavosMason.name=Камнетёс Браавоса
 entity.got.BraavosMiner.name=Шахтар Браавоса
 entity.got.BraavosWarrior.name=Воїн Браавоса
-entity.got.BranStark.name⇒
+entity.got.BranStark.name≠
 entity.got.BrienneTarth.name=Брієнна Тарт
 entity.got.Bronn.name=Броня
 entity.got.BryndenTully.name=Бринда Таллі
 entity.got.BuGai.name=Бу Гай
 entity.got.Butterfly.name=Метелик
 entity.got.Camel.name=Верблюд
-entity.got.CatelynStark.name⇒
+entity.got.CatelynStark.name≠
 entity.got.CerseiLannister.name=Серсея Ланністер
-entity.got.ClementPiper.name⇒
-entity.got.CleyCerwyn.name⇒
+entity.got.ClementPiper.name≠
+entity.got.CleyCerwyn.name≠
 entity.got.Conker.name=Каштан
 entity.got.CotterPyke.name=Коттер Пайк
 entity.got.Craster.name=Крастер
@@ -140,7 +140,7 @@ entity.got.CrownlandsFarmer.name=Фермер Королівських Земе�
 entity.got.CrownlandsFarmhand.name=Робочий Королівських Земель
 entity.got.CrownlandsFishmonger.name=Рибак Королівських Земель
 entity.got.CrownlandsFlorist.name=Квітникар Королівських Земель
-entity.got.CrownlandsGoldsmith.name⇒
+entity.got.CrownlandsGoldsmith.name≠
 entity.got.CrownlandsGreengrocer.name=Торговець фруктами Королівських Земель
 entity.got.CrownlandsGuard.name=Страж Королівської Гавані
 entity.got.CrownlandsLevyman.name=Ополченець Королівських Земель
@@ -148,11 +148,11 @@ entity.got.CrownlandsLevymanArcher.name=Ополченець-лучник Кор
 entity.got.CrownlandsLumberman.name=Лісоруб Королівських Земель
 entity.got.CrownlandsMan.name=Підданий Королівських Земель
 entity.got.CrownlandsMason.name=Камнетёс Королівських Земель
-entity.got.DaarioNaharis.name⇒
+entity.got.DaarioNaharis.name≠
 entity.got.DaenerysTargaryen.name=Дейенеріс Таргаріен
-entity.got.Dagmer.name⇒
+entity.got.Dagmer.name≠
 entity.got.Dart.name=Дротик
-entity.got.DavenLannister.name⇒
+entity.got.DavenLannister.name≠
 entity.got.DavosSeaworth.name=Давос Сіворт
 entity.got.Deer.name=Олень
 entity.got.DenysMallister.name=Денис Маллістер
@@ -172,7 +172,7 @@ entity.got.DorneFarmer.name=Фермер Дорна
 entity.got.DorneFarmhand.name=Робочий Дорна
 entity.got.DorneFishmonger.name=Рибак Дорна
 entity.got.DorneFlorist.name=Квітникар Дорна
-entity.got.DorneGoldsmith.name⇒
+entity.got.DorneGoldsmith.name≠
 entity.got.DorneGreengrocer.name=Торговець фруктами Дорна
 entity.got.DorneLevyman.name=Ополченець Дорна
 entity.got.DorneLevymanArcher.name=Ополченець-лучник Дорна
@@ -198,7 +198,7 @@ entity.got.DragonstoneFarmer.name=Фермер Драконячого Камен
 entity.got.DragonstoneFarmhand.name=Робочий Драконячого Каменя
 entity.got.DragonstoneFishmonger.name=Рибак Драконячого Каменя
 entity.got.DragonstoneFlorist.name=Квітникар Драконячого Каменя
-entity.got.DragonstoneGoldsmith.name⇒
+entity.got.DragonstoneGoldsmith.name≠
 entity.got.DragonstoneGreengrocer.name=Торговець фруктами Драконячого Каменя
 entity.got.DragonstoneLevyman.name=Ополченець Драконячого Каменя
 entity.got.DragonstoneLevymanArcher.name=Ополченець-лучник Драконячого Каменя
@@ -209,24 +209,24 @@ entity.got.DragonstoneSoldier.name=Воїн Драконячого Каменя
 entity.got.DragonstoneSoldierArcher.name=Воїн-лучник Драконячого Каменя
 entity.got.DunstanDrumm.name=Дунстан Драммен
 entity.got.Ebrose.name=Еброз
-entity.got.Edd.name⇒
+entity.got.Edd.name≠
 entity.got.EdmureTully.name=Едмур Таллі
-entity.got.EldonEstermont.name⇒
+entity.got.EldonEstermont.name≠
 entity.got.Elephant.name=Слон
 entity.got.Elk.name=Лось
 entity.got.EllaryaSand.name=Еллара Сенд
-entity.got.ErikIronmaker.name⇒
+entity.got.ErikIronmaker.name≠
 entity.got.EssosBandit.name=Бандит Ессоса
 entity.got.EuronGreyjoy.name=Еурон Грейджой
 entity.got.Fish.name=Риба
 entity.got.Flamingo.name=Фламінго
 entity.got.ForleyPrester.name=Форлі Престер
-entity.got.FranklynFowler.name⇒
+entity.got.FranklynFowler.name≠
 entity.got.GarlanTyrell.name=Гарлан Тіреллі
 entity.got.Gemsbok.name=Орікс
 entity.got.GendryBaratheon.name=Джендрі Баратеон
 entity.got.GeroldDayne.name=Герольд Дейн
-entity.got.GeroldGrafton.name⇒
+entity.got.GeroldGrafton.name≠
 entity.got.GhiscarArcher.name=Лучник Гіскара
 entity.got.GhiscarBaker.name=Пекар Гіскара
 entity.got.GhiscarBannerBearer.name=Прапороносець Гіскара
@@ -259,7 +259,7 @@ entity.got.GiftGuard.name=Страж Нічного Дозору
 entity.got.GiftGuardBannerBearer.name=Прапороносець Нічного Дозору
 entity.got.GiftGuardCaptain.name=Командувач Нічного Дозору
 entity.got.GiftMan.name=Житель Дара
-entity.got.GilwoodHunter.name⇒
+entity.got.GilwoodHunter.name≠
 entity.got.Giraffe.name=Жираф
 entity.got.GiraffeRug.name=Жираф шкура
 entity.got.GiskarCaptain.name=Гіскарскій капітан
@@ -270,19 +270,19 @@ entity.got.GoldenCaptain.name=Капітан загону Золотих Меч�
 entity.got.GoldenSpearman.name=Копейщик загону Золотих Мечів
 entity.got.GoldenWarrior.name=Воїн загону Золотих Мечів
 entity.got.Gorcrow.name=Горкроу
-entity.got.GoroldGoodbrother.name⇒
+entity.got.GoroldGoodbrother.name≠
 entity.got.GregorClegane.name=Григір Кліган
 entity.got.GregorCleganeWight.name=Григір Кліган
-entity.got.GreyWorm.name⇒
-entity.got.GulianSwann.name⇒
-entity.got.GylbertFarwynd.name⇒
-entity.got.HarmenUller.name⇒
-entity.got.Harmune.name⇒
+entity.got.GreyWorm.name≠
+entity.got.GulianSwann.name≠
+entity.got.GylbertFarwynd.name≠
+entity.got.HarmenUller.name≠
+entity.got.Harmune.name≠
 entity.got.HarrasHarlaw.name=Харрас Харлоу
 entity.got.HarroldHardyng.name=Гаррольд Хардінг
-entity.got.HarryStrickland.name⇒
+entity.got.HarryStrickland.name≠
 entity.got.HarysSwyft.name=Харіс Свіфт
-entity.got.HelmanTallhart.name⇒
+entity.got.HelmanTallhart.name≠
 entity.got.HighSepton.name=Верховний Септон
 entity.got.Hillmen.name=Горець
 entity.got.HillmenArcher.name=Горець-лучник
@@ -292,12 +292,12 @@ entity.got.HillmenBartender.name=Горець-бармен
 entity.got.HillmenBerserker.name=Горець-Берсерк
 entity.got.HillmenWarlord.name=Вождь гірських кланів
 entity.got.HillmenWarrior.name=Горець-воїн
-entity.got.HizdahrZoLoraq.name⇒
+entity.got.HizdahrZoLoraq.name≠
 entity.got.Hodor.name=Ходорів
 entity.got.Horse.name=Кінь
 entity.got.HortonRedfort.name=Хортон Редфорта
 entity.got.HosterTully.name=Хостер Таллі
-entity.got.HotPie.name⇒
+entity.got.HotPie.name≠
 entity.got.HowlandReed.name=Хоуленд Рід
 entity.got.Hummel009.name=Hummel009
 entity.got.IbbenArcher.name=Лучник Іббена
@@ -335,7 +335,7 @@ entity.got.IronbornFarmer.name=Фермер Залізних островів
 entity.got.IronbornFarmhand.name=Робочий Залізних островів
 entity.got.IronbornFishmonger.name=Рибак Залізних островів
 entity.got.IronbornFlorist.name=Квітникар Залізних островів
-entity.got.IronbornGoldsmith.name⇒
+entity.got.IronbornGoldsmith.name≠
 entity.got.IronbornGreengrocer.name=Торговець фруктами Залізних островів
 entity.got.IronbornLevyman.name=Ополченець Залізних островів
 entity.got.IronbornLevymanArcher.name=Ополченець-лучник Залізних островів
@@ -347,7 +347,7 @@ entity.got.IronbornSoldierArcher.name=Воїн-лучник Залізних о�
 entity.got.JaimeLannister.name=Джеймі Ланністеров
 entity.got.JanosSlynt.name=Джанос Слінт
 entity.got.JaqenHghar.name=Якен Х'гар
-entity.got.JasonMallister.name⇒
+entity.got.JasonMallister.name≠
 entity.got.JeorMormont.name=Джіора Мормонт
 entity.got.JoffreyBaratheon.name=Джоффрі Баратеон
 entity.got.JogosArcher.name=Лучник Джогос Нхая
@@ -355,9 +355,9 @@ entity.got.JogosChief.name=Вождь Джогос Нхая
 entity.got.JogosMan.name=Кочівник Джогос Нхая
 entity.got.JogosShaman.name=Шаман Джогос Нхая
 entity.got.JohnUmber.name=Джон Амбер
-entity.got.JonConnington.name⇒
+entity.got.JonConnington.name≠
 entity.got.JonSnow.name=Джон Сноу
-entity.got.JonSnow2.name⇒
+entity.got.JonSnow2.name≠
 entity.got.JonosBracken.name=Джонос Бракен
 entity.got.JorahMormont.name=Джорах Мормонт
 entity.got.JungleScorpion.name=Лісовий скорпіон
@@ -409,8 +409,8 @@ entity.got.LorathMan.name=Підданий Лората
 entity.got.LorathMason.name=Камнетёс Лората
 entity.got.LorathMiner.name=Шахтар Лората
 entity.got.LorathWarrior.name=Воїн Лората
-entity.got.LotharFrey.name⇒
-entity.got.Luwin.name⇒
+entity.got.LotharFrey.name≠
+entity.got.Luwin.name≠
 entity.got.LyleCrakehall.name=Лайл Крейкхолл
 entity.got.LynCorbray.name=Лін Корбрей
 entity.got.LysArcher.name=Лучник Лиса
@@ -433,26 +433,26 @@ entity.got.LysMiner.name=Шахтар Лиса
 entity.got.LysSlave.name=Раб Лиса
 entity.got.LysSlaver.name=Работорговець Лиса
 entity.got.LysWarrior.name=Воїн Лиса
-entity.got.LysaArryn.name⇒
+entity.got.LysaArryn.name≠
 entity.got.MaceTyrell.name=Мейс Тіреллі
-entity.got.MaegeMormont.name⇒
+entity.got.MaegeMormont.name≠
 entity.got.Maester.name=Мейстер
 entity.got.Mammoth.name=Мамонт
 entity.got.ManceRayder.name=Манс Грабіжник
-entity.got.ManfreyMartell.name⇒
+entity.got.ManfreyMartell.name≠
 entity.got.Manticore.name=Мантикора
 entity.got.MargaeryTyrell.name=Маргеріт Тіреллі
-entity.got.MaronVolmark.name⇒
+entity.got.MaronVolmark.name≠
 entity.got.MathisRowan.name=Матіс Рован
-entity.got.MatthosSeaworth.name⇒
+entity.got.MatthosSeaworth.name≠
 entity.got.Melisandra.name=Мелісандра
-entity.got.Mellario.name⇒
-entity.got.Mercenary.name⇒
-entity.got.MerynTrant.name⇒
+entity.got.Mellario.name≠
+entity.got.Mercenary.name≠
+entity.got.MerynTrant.name≠
 entity.got.Midges.name=Комарі
-entity.got.Missandei.name⇒
+entity.got.Missandei.name≠
 entity.got.MonfordVelaryon.name=Монфорд Веларіон
-entity.got.Moqorro.name⇒
+entity.got.Moqorro.name≠
 entity.got.MossovyWerewolf.name=Мосовійскій перевертень
 entity.got.MossovyWitcher.name=Мосовійскій мисливець на чудовиськ
 entity.got.MossovyWitcherBannerBearer.name=Мосовійскій прапороносець
@@ -478,7 +478,7 @@ entity.got.MyrMiner.name=Шахтар Миру
 entity.got.MyrSlave.name=Раб Миру
 entity.got.MyrSlaver.name=Работорговець Миру
 entity.got.MyrWarrior.name=Воїн Світу
-entity.got.MyrcellaBaratheon.name⇒
+entity.got.MyrcellaBaratheon.name≠
 entity.got.MysteryWeb.name=Таємниця кокона
 entity.got.NPCRespawner.name=Респавнер NPC
 entity.got.NightKing.name=Король Ночі
@@ -494,7 +494,7 @@ entity.got.NorthFarmer.name=Фермер Півночі
 entity.got.NorthFarmhand.name=Робочий Півночі
 entity.got.NorthFishmonger.name=Рибак Півночі
 entity.got.NorthFlorist.name=Квітникар Півночі
-entity.got.NorthGoldsmith.name⇒
+entity.got.NorthGoldsmith.name≠
 entity.got.NorthGreengrocer.name=Торговець фруктами Півночі
 entity.got.NorthGuard.name=Страж Білій Гавані
 entity.got.NorthHillman.name=Горець Півночі
@@ -533,8 +533,8 @@ entity.got.NorvosMiner.name=Шахтар Норвоса
 entity.got.NorvosWarrior.name=Воїн Норвоса
 entity.got.OberynMartell.name=Оберін Мартелл
 entity.got.OlennaTyrell.name=Оленів Тіреллі
-entity.got.OrtonMerryweather.name⇒
-entity.got.Osha.name⇒
+entity.got.OrtonMerryweather.name≠
+entity.got.Osha.name≠
 entity.got.PaxterRedwyne.name=Пакстер Редвін
 entity.got.Pebble.name=Камінчик
 entity.got.PentosBaker.name=Пекар Пентоса
@@ -559,7 +559,7 @@ entity.got.PetyrBaelish.name=Петир Бейлиш
 entity.got.Plate.name=Тарілка
 entity.got.PodrickPayne.name=Подрік Пейн
 entity.got.Polarbear.name=Сніговий ведмідь
-entity.got.Polliver.name⇒
+entity.got.Polliver.name≠
 entity.got.Pycelle.name=Піцель
 entity.got.QarthArcher.name=Лучник Кварта
 entity.got.QarthBaker.name=Пекар Кварта
@@ -601,13 +601,13 @@ entity.got.QohorMiner.name=Шахтар Квохора
 entity.got.QohorUnsullied.name=Бездоганний Квохора
 entity.got.QuennRoxton.name=Квена Рокстон
 entity.got.QuentenBanefort.name=Квентін Бейнфорт
-entity.got.QuentynMartell.name⇒
-entity.got.QuentynQorgyle.name⇒
-entity.got.Qyburn.name⇒
+entity.got.QuentynMartell.name≠
+entity.got.QuentynQorgyle.name≠
+entity.got.Qyburn.name≠
 entity.got.Rabbit.name=Кролик
 entity.got.RamsayBolton.name=Рамсі Болтон
 entity.got.RandyllTarly.name=Ренділле Тарле
-entity.got.RazdalMoEraz.name⇒
+entity.got.RazdalMoEraz.name≠
 entity.got.ReachArcher.name=Лучник Простіру
 entity.got.ReachBaker.name=Булочник Простіру
 entity.got.ReachBannerBearer.name=Прапороносець Простіру
@@ -620,7 +620,7 @@ entity.got.ReachFarmer.name=Фермер Простіру
 entity.got.ReachFarmhand.name=Робочий Простіру
 entity.got.ReachFishmonger.name=Рибак Простіру
 entity.got.ReachFlorist.name=Квітникар Простіру
-entity.got.ReachGoldsmith.name⇒
+entity.got.ReachGoldsmith.name≠
 entity.got.ReachGreengrocer.name=Торговець фруктами Простіру
 entity.got.ReachGuard.name=Страж Староместа
 entity.got.ReachLevyman.name=Ополченець Простіру
@@ -634,7 +634,7 @@ entity.got.RedScorpion.name=Червоний скорпіон
 entity.got.RenlyBaratheon.name=Ренлі Баратеон
 entity.got.Rhino.name=Носоріг
 entity.got.RickardKarstark.name=Рікард Карстарк
-entity.got.RickonStark.name⇒
+entity.got.RickonStark.name≠
 entity.got.RiverlandsArcher.name=Лучник Річкових Земель
 entity.got.RiverlandsBaker.name=Булочник Річкових Земель
 entity.got.RiverlandsBannerBearer.name=Прапороносець Річкових Земель
@@ -647,7 +647,7 @@ entity.got.RiverlandsFarmer.name=Фермер Річкових Земель
 entity.got.RiverlandsFarmhand.name=Робочий Річкових Земель
 entity.got.RiverlandsFishmonger.name=Рибак Річкових Земель
 entity.got.RiverlandsFlorist.name=Квітникар Річкових Земель
-entity.got.RiverlandsGoldsmith.name⇒
+entity.got.RiverlandsGoldsmith.name≠
 entity.got.RiverlandsGreengrocer.name=Торговець фруктами Річкових Земель
 entity.got.RiverlandsLevyman.name=Ополченець Річкових Земель
 entity.got.RiverlandsLevymanArcher.name=Ополченець-лучник Річкових Земель
@@ -657,25 +657,25 @@ entity.got.RiverlandsMason.name=Камнетёс Річкових Земель
 entity.got.RiverlandsSoldier.name=Воїн Річкових Земель
 entity.got.RiverlandsSoldierArcher.name=Воїн-лучник Річкових Земель
 entity.got.RobbStark.name=Робб Старк
-entity.got.RobinArryn.name⇒
-entity.got.RodrikCassel.name⇒
+entity.got.RobinArryn.name≠
+entity.got.RodrikCassel.name≠
 entity.got.RodrikHarlaw.name=Родрік Харлоу
-entity.got.RodrikRyswell.name⇒
+entity.got.RodrikRyswell.name≠
 entity.got.RooseBolton.name=Русе Болтон
-entity.got.SalladhorSaan.name⇒
-entity.got.SamwellTarly.name⇒
+entity.got.SalladhorSaan.name≠
+entity.got.SamwellTarly.name≠
 entity.got.SandorClegane.name=Сандор Кліган
 entity.got.SansaStark.name=Санса Старк
 entity.got.ScrapTrader.name=Безхатько
 entity.got.Seagull.name=Чайка
 entity.got.SebastonFarman.name=Себастон Фарман
 entity.got.SelwynTarth.name=Сельвина Тарт
-entity.got.SelyseBaratheon.name⇒
+entity.got.SelyseBaratheon.name≠
 entity.got.Shadowcat.name=Сутінковий кіт
-entity.got.Shae.name⇒
+entity.got.Shae.name≠
 entity.got.Shark.name=Акула
 entity.got.Shego.name=Shego
-entity.got.ShireenBaratheon.name⇒
+entity.got.ShireenBaratheon.name≠
 entity.got.SmokeRing.name=Кільце диму
 entity.got.SothoryosBannerBearer.name=Соторійскій прапороносець
 entity.got.SothoryosBlowgunner.name=Соторійскій стрілок
@@ -702,7 +702,7 @@ entity.got.StormlandsFarmer.name=Фермер Штормових Земель
 entity.got.StormlandsFarmhand.name=Робочий Штормових Земель
 entity.got.StormlandsFishmonger.name=Рибак Штормових Земель
 entity.got.StormlandsFlorist.name=Квітникар Штормових Земель
-entity.got.StormlandsGoldsmith.name⇒
+entity.got.StormlandsGoldsmith.name≠
 entity.got.StormlandsGreengrocer.name=Торговець фруктами Штормових Земель
 entity.got.StormlandsLevyman.name=Ополченець Штормових Земель
 entity.got.StormlandsLevymanArcher.name=Ополченець-лучник Штормових Земель
@@ -729,7 +729,7 @@ entity.got.SummerMiner.name=Шахтар Літніх островів
 entity.got.SummerWarlord.name=Командир Літніх островів
 entity.got.SummerWarrior.name=Воїн Літніх островів
 entity.got.Swan.name=Лебідь
-entity.got.SymondTempleton.name⇒
+entity.got.SymondTempleton.name≠
 entity.got.Termite.name=Терміт
 entity.got.Thenn.name=Тенн
 entity.got.ThennArcher.name=Тенн-лучник
@@ -749,12 +749,12 @@ entity.got.ThrownRock.name=Кинутий камінь
 entity.got.ThrownTermite.name=Вибуховою терміт
 entity.got.Tigasa.name=TIGASA
 entity.got.TobhoMott.name=Тобхо Мотт
-entity.got.TommenBaratheon.name⇒
+entity.got.TommenBaratheon.name≠
 entity.got.Tormund.name=Тормунд
 entity.got.TraderRespawn.name=Респаун торговця
 entity.got.TrollSnowball.name=Сніжний ком гіганта
-entity.got.TrystaneMartell.name⇒
-entity.got.TychoNestoris.name⇒
+entity.got.TrystaneMartell.name≠
+entity.got.TychoNestoris.name≠
 entity.got.TyrionLannister.name=Тіріон Ланністер
 entity.got.TyroshBaker.name=Пекар Тірош
 entity.got.TyroshBannerBearer.name=Прапороносець Тірош
@@ -779,7 +779,7 @@ entity.got.TyroshWarrior.name=Воїн Тірош
 entity.got.TytosBlackwood.name=Тітос Блеквуд
 entity.got.TytosBrax.name=Тітос Бракс
 entity.got.TywinLannister.name=Тайвін Ланністер
-entity.got.VargoHoat.name⇒
+entity.got.VargoHoat.name≠
 entity.got.Varys.name=Варіс
 entity.got.VictarionGreyjoy.name=Віктаріон Грейджой
 entity.got.VolantisArcher.name=Лучник Волантіса
@@ -818,7 +818,7 @@ entity.got.WesterlandsFarmer.name=Фермер Західних Земель
 entity.got.WesterlandsFarmhand.name=Робочий Західних Земель
 entity.got.WesterlandsFishmonger.name=Рибак Західних Земель
 entity.got.WesterlandsFlorist.name=Квітникар Західних Земель
-entity.got.WesterlandsGoldsmith.name⇒
+entity.got.WesterlandsGoldsmith.name≠
 entity.got.WesterlandsGreengrocer.name=Торговець фруктами Західних Земель
 entity.got.WesterlandsGuard.name=Страж Ланніспорта
 entity.got.WesterlandsLevyman.name=Ополченець Західних Земель
@@ -840,7 +840,7 @@ entity.got.WildlingAxeThrower.name=Здичавілий-топорометате
 entity.got.WildlingBannerBearer.name=Здичавілий-прапороносець
 entity.got.WildlingChieftain.name=Вождь здичавілих
 entity.got.WillasTyrell.name=Уїлласі Тіреллі
-entity.got.WilliamMooton.name⇒
+entity.got.WilliamMooton.name≠
 entity.got.WoolyRhino.name=Шерстистий носоріг
 entity.got.WymanManderly.name=Віман Мандерлей
 entity.got.Wyvern.name=Віверна
@@ -859,6 +859,8 @@ entity.got.YiTiFarmer.name=Фермер Ї Ті
 entity.got.YiTiFarmhand.name=Робочий Ї Ті
 entity.got.YiTiFirePriest.name=Жрець вогню Ї Ті
 entity.got.YiTiFishmonger.name=Рибак Ї Ті
+entity.got.YiTiFrontier.name≠
+entity.got.YiTiFrontierCrossbower.name≠
 entity.got.YiTiGoldsmith.name=Ювелір Ї Ті
 entity.got.YiTiHunter.name=Мисливець Ї Ті
 entity.got.YiTiLevyman.name=Ополченець Ї Ті
@@ -869,8 +871,8 @@ entity.got.YiTiSamurai.name=Самурай Ї Ті
 entity.got.YiTiShogun.name=Сьогун Ї Ті
 entity.got.YiTiSoldier.name=Солдат Ї Ті
 entity.got.YohnRoyce.name=Джон Ройс
-entity.got.Yoren.name⇒
-entity.got.YoungGriff.name⇒
+entity.got.Yoren.name≠
+entity.got.YoungGriff.name≠
 entity.got.Zebra.name=Зебра
 entity.got.generic.entityName=%s, %s
 entity.gotFishHook.name=Рибальський гачок
@@ -1364,6 +1366,8 @@ got.achievement.WEAR_FULL_MOSSOVY.desc=Екіпіруйте повний ком�
 got.achievement.WEAR_FULL_MOSSOVY.title=На сторожі Мосовіі
 got.achievement.WEAR_FULL_MYR.desc=Екіпіруйте повний комплект броні Миру
 got.achievement.WEAR_FULL_MYR.title=На сторожі Миру
+got.achievement.WEAR_FULL_NOMAD.desc≠
+got.achievement.WEAR_FULL_NOMAD.title≠
 got.achievement.WEAR_FULL_NORTH.desc=Екіпіруйте повний комплект броні Півночі
 got.achievement.WEAR_FULL_NORTH.title=На сторожі Півночі
 got.achievement.WEAR_FULL_NORTHGUARD.desc=Екіпіруйте повний комплект броні вартою Півночі
@@ -1412,10 +1416,12 @@ got.achievement.WEAR_FULL_WESTERLANDSGUARD.desc=Екіпіруйте повни�
 got.achievement.WEAR_FULL_WESTERLANDSGUARD.title=Захисник Західних земель
 got.achievement.WEAR_FULL_WESTKING.desc=Екіпіруйте повний комплект броні Королів Скелі
 got.achievement.WEAR_FULL_WESTKING.title=Король Скелі
-got.achievement.WEAR_FULL_WHITEWALKERS.desc⇒
-got.achievement.WEAR_FULL_WHITEWALKERS.title⇒
+got.achievement.WEAR_FULL_WHITEWALKERS.desc≠
+got.achievement.WEAR_FULL_WHITEWALKERS.title≠
 got.achievement.WEAR_FULL_YITI.desc=Екіпіруйте повний комплект броні Ї Ті
 got.achievement.WEAR_FULL_YITI.title=На сторожі Ї Ті
+got.achievement.WEAR_FULL_YITI_FRONTIER.desc≠
+got.achievement.WEAR_FULL_YITI_FRONTIER.title≠
 got.achievement.WEAR_FULL_YITI_SAMURAI.desc=Екіпіруйте повний комплект броні самураїв Ї Ті
 got.achievement.WEAR_FULL_YITI_SAMURAI.title=Респект бусідо, це кодекс самурая
 got.achievement.category.GENERAL=Загальні
@@ -1433,7 +1439,7 @@ got.alignment.killedByBounty=Убитий метою!
 got.alignment.killedHunter=Убитий мисливець!
 got.alignment.marriage=Весілля
 got.alignment.miniQuest=Міні-квест виконано!
-got.alignment.pickpocket⇒
+got.alignment.pickpocket≠
 got.alignment.vineyardSteal=Крадіжка винограду
 got.attribute.desc=Нагорода за досягнення 100 очок репутації з даною фракцією
 got.biome.alwaysWinter=Землі Вічної Зими
@@ -1599,7 +1605,7 @@ got.capes.QARTH.name=Плащ Кварта
 got.capes.QOHOR.name=Плащ Квохора
 got.capes.REACH.name=Плащ Простіру
 got.capes.RIVERLANDS.name=Плащ Річкових Земель
-got.capes.ROYALGUARD.name⇒
+got.capes.ROYALGUARD.name≠
 got.capes.STORMLANDS.name=Плащ Штормових Земель
 got.capes.TARGARYEN.name=Плащ Таргаріенов
 got.capes.TYROSH.name=Плащ Тірош
@@ -1632,12 +1638,12 @@ got.chat.killedByBounty2=%s незадоволені, і ваша репутац
 got.chat.killedByBounty=%s був убитий своєю метою, %s!
 got.chat.loseTitle=Фракція %s позбавляє вас титулу
 got.chat.mountOwnedByNPC=Ця тварина має господаря. Ви не можете взаємодіяти з ним
-got.chat.pickpocket.inCombat⇒
-got.chat.pickpocket.missed⇒
-got.chat.pickpocket.noticed⇒
-got.chat.pickpocket.otherNoticed⇒
-got.chat.pickpocket.success⇒
-got.chat.pickpocket.watched⇒
+got.chat.pickpocket.inCombat≠
+got.chat.pickpocket.missed≠
+got.chat.pickpocket.noticed≠
+got.chat.pickpocket.otherNoticed≠
+got.chat.pickpocket.success≠
+got.chat.pickpocket.watched≠
 got.chat.pledgeBreakCooldown=Час минув, і світ забув, як ви зрадили фракцію %s
 got.chat.pledgeKillWarn=Обережно! Не вбивай союзників, інакше фракція %s зрадить тебе суду Короля!
 got.chat.protectedLand=Ця земля під захистом %s!
@@ -1805,12 +1811,14 @@ got.container.crafting.asshai=Верстат Асшая
 got.container.crafting.braavos=Верстат Браавоса
 got.container.crafting.crownlands=Верстат Королівських Земель
 got.container.crafting.dorne=Верстат Дорна
+got.container.crafting.dothraki≠
 got.container.crafting.dragonstone=Верстат Драконячого Каменя
 got.container.crafting.ghiscar=Верстат Гіскара
 got.container.crafting.gift=Верстат Нічного Дозору
 got.container.crafting.hillmen=Верстат гірських кланів
 got.container.crafting.ibben=Верстат Іббена
 got.container.crafting.ironborn=Верстат Залізних островів
+got.container.crafting.jogos≠
 got.container.crafting.lhazar=Верстат Лхазара
 got.container.crafting.lorath=Верстат Лората
 got.container.crafting.lys=Верстат Лиса
@@ -2908,7 +2916,7 @@ got.miniquest.collect.progress=%d з %d отримано
 got.miniquest.collect=Зібрати %d %s
 got.miniquest.kill.progress=%d з %d вбито
 got.miniquest.kill=Вбити %d %s
-got.miniquest.pickpocket⇒
+got.miniquest.pickpocket≠
 got.miniquest.progressShort=%d / %d
 got.miniquest.retrieve.progress=%d з %d повернуто
 got.miniquest.retrieve1=Повернути втрачене %s
@@ -2963,6 +2971,7 @@ got.shields.UNSULLIED.name=Щит Бездоганних
 got.shields.VOLANTIS.name=Щит Волантіса
 got.shields.WESTERLANDS.name=Щит Західних Земель
 got.shields.YITI.name=Щит Ї Ті
+got.shields.YITI_FRONTIER.name≠
 got.shields.YITI_SAMURAI.name=Щит самураїв Ї Ті
 got.shields.category.ACHIEVABLE=Разблокіруемий щити
 got.shields.category.ALIGNMENT=Репутаційні щити
@@ -3691,7 +3700,7 @@ got.wp.Hardhome=Суворий Будинок
 got.wp.HarlawHall.info=Колись замок старшої гілки дому Харлоу. Старий замок з сирими стінами, які лорд Теомор Харлоу вініл в смерті спадкоємців і тому вирішив відбудувати новий замок - Десять веж. Старий Харлоухолл відійшов молодшим гілкам роду.
 got.wp.HarlawHall=Харлоухолл
 got.wp.Harrenhal.info=Зруйнований замок колосальних розмірів, заради будівництва якого Харрен Чорний розоряв і вів на праці селян-річковиків. Ледве замок закінчили в Вестерос вторгся Ейгон Завойовник, і непокірний Харрен з сім'єю згоріли заживо в дракона полум'я в одній з веж. Кажуть, Харрен з домочадцями стали злими духами. Так воно чи ні, та тільки жоден з нових власників надовго в замку не засиджується.
-got.wp.Harrenhal⇒
+got.wp.Harrenhal≠
 got.wp.HarridanHill.info=Харренхолл
 got.wp.HarridanHill=Замок молодшої гілки дому Харлоу, васалів старших Харлоу.
 got.wp.Harroway.info=Ведьмин пагорб
@@ -4301,7 +4310,7 @@ item.got.generic.owner=Власник: %s
 item.got.generic.previousOwner=Бывший владелец: %s
 item.got.generic.previousOwnerList=Владельцы:
 item.got.generic.squadron=Ескадрон: %s
-item.got.generic.stolen⇒
+item.got.generic.stolen≠
 item.got.hat.dyed=Фарбована
 item.got.hat.feathered=З пером
 item.got.mqbook.activeQuests=%d активних квестів
@@ -4312,16 +4321,16 @@ item.got.robes.ornament=Прикрашено
 item.got:aegonHelmet.name=Корона Ейгона
 item.got:aleHorn.name=Питний ріг
 item.got:aleHornGold.name=Золотий питної ріг
-item.got:alloySteelAxe.name⇒
-item.got:alloySteelDagger.name⇒
-item.got:alloySteelDaggerPoisoned.name⇒
-item.got:alloySteelHalberd.name⇒
-item.got:alloySteelHoe.name⇒
-item.got:alloySteelIgnot.name⇒
-item.got:alloySteelNugget.name⇒
-item.got:alloySteelPickaxe.name⇒
-item.got:alloySteelShovel.name⇒
-item.got:alloySteelSword.name⇒
+item.got:alloySteelAxe.name≠
+item.got:alloySteelDagger.name≠
+item.got:alloySteelDaggerPoisoned.name≠
+item.got:alloySteelHalberd.name≠
+item.got:alloySteelHoe.name≠
+item.got:alloySteelIgnot.name≠
+item.got:alloySteelNugget.name≠
+item.got:alloySteelPickaxe.name≠
+item.got:alloySteelShovel.name≠
+item.got:alloySteelSword.name≠
 item.got:almond.name=Мигдаль
 item.got:amber.name=Бурштин
 item.got:amethyst.name=Аметист
@@ -4354,67 +4363,68 @@ item.got:asshaiMask.name=Маска заклинателя тіней Асшая
 item.got:asshaiSpear.name=Спис Асшая
 item.got:asshaiStaff.name=Жезл заклинателя тіней Асшая
 item.got:asshaiSword.name=Меч Асшая
-item.got:baelishBrooch.name⇒
+item.got:baelishBrooch.name≠
 item.got:baelishDagger.name=Кинджал Петир Бейлиш
 item.got:banana.name=Банан
 item.got:bananaBread.name=Банановий хліб
 item.got:bananaCake.name=Банановий пиріг
-item.got:banner.aemon.name⇒
-item.got:banner.aemonBook.name⇒
-item.got:banner.aemonrivers.name⇒
+item.got:bane.name≠
+item.got:banner.aemon.name≠
+item.got:banner.aemonBook.name≠
+item.got:banner.aemonrivers.name≠
 item.got:banner.aerion.name=Прапор Аеріона Таргаріена
-item.got:banner.aerionBook.name⇒
-item.got:banner.algood.name⇒
+item.got:banner.aerionBook.name≠
+item.got:banner.algood.name≠
 item.got:banner.allyrion.name=Прапор Алліріонов
 item.got:banner.alqalis.name=Прапор Альквалісов
-item.got:banner.amber.name⇒
+item.got:banner.amber.name≠
 item.got:banner.ambrose.name=Прапор амброзії
-item.got:banner.amorylorch.name⇒
+item.got:banner.amorylorch.name≠
 item.got:banner.andal.name=Прапор Андаль
 item.got:banner.appleton.name=Прапор Епплтон
-item.got:banner.arlan.name⇒
+item.got:banner.arlan.name≠
 item.got:banner.arryn.name=Прапор Арен
-item.got:banner.arrynBook.name⇒
+item.got:banner.arrynBook.name≠
 item.got:banner.arrynGT.name=Прапор Арен з чаячьего міста
-item.got:banner.arrynHD.name⇒
+item.got:banner.arrynHD.name≠
 item.got:banner.ashford.name=Прапор Ешфорд
-item.got:banner.ashwood.name⇒
+item.got:banner.ashwood.name≠
 item.got:banner.astapor.name=Прапор Астапора
-item.got:banner.auranewaters.name⇒
+item.got:banner.auranewaters.name≠
 item.got:banner.baelish.name=Прапор Бейліш
 item.got:banner.baelishBook.name=Прапор Бейліш (Книга)
 item.got:banner.baelishold.name=Прапор Бейліш (Старе)
 item.got:banner.ball.name=Прапор Болл
 item.got:banner.banefort.name=Прапор Бейнфортов
-item.got:banner.banefortBook.name⇒
-item.got:banner.baratheonHD.name⇒
-item.got:banner.barbrey.name⇒
+item.got:banner.banefortBook.name≠
+item.got:banner.baratheonHD.name≠
+item.got:banner.barbrey.name≠
 item.got:banner.baremmon.name=Прапор Бар-Еммонов
 item.got:banner.beesbury.name=Прапор Бісбері
 item.got:banner.belaerys.name=Прапор Белейрісов
 item.got:banner.belmore.name=Прапор Белмор
-item.got:banner.benfrey.name⇒
-item.got:banner.bennis.name⇒
+item.got:banner.benfrey.name≠
+item.got:banner.bennis.name≠
 item.got:banner.bettley.name=Прапор Біттлі
-item.got:banner.bigwalder.name⇒
+item.got:banner.bigwalder.name≠
 item.got:banner.bittersteel.name=Прапор Біттерстіла 
 item.got:banner.blackbar.name=Прапор Блекбаров
 item.got:banner.blackfish.name=Прапор Бринда Таллі
 item.got:banner.blackfishBook.name=Прапор Бринда Таллі (Книга)
 item.got:banner.blackfyre.name=Прапор Блекфайров
-item.got:banner.blackfyreBook.name⇒
+item.got:banner.blackfyreBook.name≠
 item.got:banner.blackmont.name=Прапор Блекмонтов
 item.got:banner.blacks.name=Прапор Черних
-item.got:banner.blacksBook.name⇒
+item.got:banner.blacksBook.name≠
 item.got:banner.blacktyde.name=Прапор Блектайдов
 item.got:banner.blackwood.name=Прапор Блеквуд
-item.got:banner.blackwoodBook.name⇒
-item.got:banner.blanetree.name⇒
+item.got:banner.blackwoodBook.name≠
+item.got:banner.blanetree.name≠
 item.got:banner.bloodraven.name=Прапор Бладрейвена
-item.got:banner.bloodravenBook.name⇒
+item.got:banner.bloodravenBook.name≠
 item.got:banner.blount.name=Прапор Блаунта
-item.got:banner.boggs.name⇒
-item.got:banner.bole.name⇒
+item.got:banner.boggs.name≠
+item.got:banner.bole.name≠
 item.got:banner.bolling.name=Прапор Боллінг
 item.got:banner.bolton.name=Прапор Болтон
 item.got:banner.boltonbook.name=Прапор Болтон (Книга)
@@ -4422,14 +4432,14 @@ item.got:banner.borrell.name=Прапор Боррелл
 item.got:banner.botley.name=Прапор Ботлі
 item.got:banner.braavos.name=Прапор Браавоса
 item.got:banner.bracken.name=Прапор Бракенов
-item.got:banner.brackenBook.name⇒
-item.got:banner.branch.name⇒
-item.got:banner.branfield.name⇒
+item.got:banner.brackenBook.name≠
+item.got:banner.branch.name≠
+item.got:banner.branfield.name≠
 item.got:banner.bravecompanions.name=Прапор Браві хлопці
 item.got:banner.brax.name=Прапор Бракс
 item.got:banner.breakstone.name=Прапор Брейкстоунов
-item.got:banner.bridges.name⇒
-item.got:banner.brightstone.name⇒
+item.got:banner.bridges.name≠
+item.got:banner.brightstone.name≠
 item.got:banner.bronn.name=Прапор броні
 item.got:banner.bronnBook.name=Прапор броні (Книга)
 item.got:banner.broom.name=Прапор Брум
@@ -4440,7 +4450,7 @@ item.got:banner.buckler.name=Прапор баклер
 item.got:banner.buckwell.name=Прапор Баквеллов
 item.got:banner.bullwer.name=Прапор Бульвера
 item.got:banner.burley.name=Прапор Барли
-item.got:banner.bushy.name⇒
+item.got:banner.bushy.name≠
 item.got:banner.butterwell.name=Прапор Баттервеллов
 item.got:banner.byrch.name=Прапор Берч
 item.got:banner.bywater.name=Прапор Байуотеров
@@ -4450,7 +4460,7 @@ item.got:banner.caron.name=Прапор Карон
 item.got:banner.cassel.name=Прапор Кассель
 item.got:banner.casterly.name=Прапор Кастерлі
 item.got:banner.caswell.name=Прапор Касвелл
-item.got:banner.cave.name⇒
+item.got:banner.cave.name≠
 item.got:banner.celtigar.name=Прапор Селтігаров
 item.got:banner.cerwyn.name=Прапор Сервіні
 item.got:banner.charlton.name=Прапор Чарлтон
@@ -4458,8 +4468,8 @@ item.got:banner.chelsted.name=Прапор Челстедов
 item.got:banner.chester.name=Прапор Честер
 item.got:banner.chyttering.name=Прапор Чіттерінгов
 item.got:banner.clegane.name=Прапор Кліганов
-item.got:banner.cleos.name⇒
-item.got:banner.clifton.name⇒
+item.got:banner.cleos.name≠
+item.got:banner.clifton.name≠
 item.got:banner.cockshaw.name=Прапор кокша
 item.got:banner.codd.name=Прапор Кодд
 item.got:banner.coldwater.name=Прапор Колдуотер
@@ -4467,47 +4477,47 @@ item.got:banner.cole.name=Прапор Коль
 item.got:banner.condon.name=Прапор Кондон
 item.got:banner.connington.name=Прапор Коннінгтонов
 item.got:banner.corbray.name=Прапор Корбреев
-item.got:banner.corbrayBook.name⇒
+item.got:banner.corbrayBook.name≠
 item.got:banner.cordwayner.name=Прапор Кордвайнеров
 item.got:banner.costayne.name=Прапор Костейн
 item.got:banner.cox.name=Прапор коксу
-item.got:banner.crabb.name⇒
+item.got:banner.crabb.name≠
 item.got:banner.crakehall.name=Прапор Крейкхоллов
 item.got:banner.crane.name=Прапор Крейн
-item.got:banner.creighton.name⇒
-item.got:banner.cressey.name⇒
+item.got:banner.creighton.name≠
+item.got:banner.cressey.name≠
 item.got:banner.crowl.name=Прапор Кроулі
 item.got:banner.cuy.name=Прапор Кью
-item.got:banner.daemon.name⇒
-item.got:banner.daeron.name⇒
-item.got:banner.daeronBook.name⇒
+item.got:banner.daemon.name≠
+item.got:banner.daeron.name≠
+item.got:banner.daeronBook.name≠
 item.got:banner.dalt.name=Прапор Дальт
 item.got:banner.dalton.name=Прапор Дальтона Грейджоя
-item.got:banner.dargood.name⇒
-item.got:banner.darke.name⇒
+item.got:banner.dargood.name≠
+item.got:banner.darke.name≠
 item.got:banner.darklyn.name=Прапор Дарклінов
-item.got:banner.darkwood.name⇒
+item.got:banner.darkwood.name≠
 item.got:banner.darry.name=Прапор Даррі
 item.got:banner.dayne.name=Прапор Дейн
 item.got:banner.dayneHH.name=Прапор Дейна з Гірського Притулку
-item.got:banner.degore.name⇒
-item.got:banner.derrickfossoway.name⇒
-item.got:banner.doggett.name⇒
+item.got:banner.degore.name≠
+item.got:banner.derrickfossoway.name≠
+item.got:banner.doggett.name≠
 item.got:banner.dondarrion.name=Прапор Дондарріонов
-item.got:banner.dondarrionBook.name⇒
+item.got:banner.dondarrionBook.name≠
 item.got:banner.donniger.name=Прапор Доннігеров
 item.got:banner.dormund.name=Прапор Дормунд
-item.got:banner.drinkwater.name⇒
-item.got:banner.drox.name⇒
+item.got:banner.drinkwater.name≠
+item.got:banner.drox.name≠
 item.got:banner.drumm.name=Прапор драми
-item.got:banner.dryland.name⇒
+item.got:banner.dryland.name≠
 item.got:banner.duncan.name=Прапор Дункана Високого
-item.got:banner.dunn.name⇒
-item.got:banner.durrandon.name⇒
-item.got:banner.durwell.name⇒
+item.got:banner.dunn.name≠
+item.got:banner.durrandon.name≠
+item.got:banner.durwell.name≠
 item.got:banner.dustin.name=Прапор Дастін
 item.got:banner.eddard.name=Прапор Старков
-item.got:banner.edricstorm.name⇒
+item.got:banner.edricstorm.name≠
 item.got:banner.egen.name=Прапор Іген
 item.got:banner.elephants.name=Прапор партії Слонів
 item.got:banner.elesham.name=Прапор Ілшемов
@@ -4522,37 +4532,37 @@ item.got:banner.falwell.name=Прапор Фолвеллов
 item.got:banner.farman.name=Прапор Фарманов
 item.got:banner.farring.name=Прапор Фаррінгов
 item.got:banner.farwynd.name=Прапор Фарвіндов
-item.got:banner.farwyndLL.name⇒
+item.got:banner.farwyndLL.name≠
 item.got:banner.fell.name=Прапор Фелл
 item.got:banner.fenn.name=Прапор феннов
-item.got:banner.ferren.name⇒
+item.got:banner.ferren.name≠
 item.got:banner.fireball.name=Прапор файрболлів
 item.got:banner.firstFlint.name=Прапор Перших Флінтів
-item.got:banner.firstmen.name⇒
+item.got:banner.firstmen.name≠
 item.got:banner.fisher.name=Прапор Фішерів
-item.got:banner.fisherSS.name⇒
-item.got:banner.flintBH.name⇒
+item.got:banner.fisherSS.name≠
+item.got:banner.flintBH.name≠
 item.got:banner.flintFF.name=Прапор Флінтів на крем'яних пальці
 item.got:banner.flintWW.name=Прапор Флінтів у вдови дозорі
 item.got:banner.florent.name=Прапор Флорента
-item.got:banner.florentBook.name⇒
+item.got:banner.florentBook.name≠
 item.got:banner.follard.name=Прапор Фоллардов
 item.got:banner.foote.name=Прапор футів
-item.got:banner.footeN.name⇒
+item.got:banner.footeN.name≠
 item.got:banner.footly.name=Прапор Футлі
 item.got:banner.forrester.name=Прапор Форрестер
-item.got:banner.forresterBook.name⇒
+item.got:banner.forresterBook.name≠
 item.got:banner.fossowayCH.name=Прапор Фоссовеев червоного яблука
 item.got:banner.fossowayNB.name=Прапор Фоссовеев зеленого яблука
 item.got:banner.fowler.name=Прапор Фаулер
-item.got:banner.fowlerBook.name⇒
+item.got:banner.fowlerBook.name≠
 item.got:banner.frey.name=Прапор Фреев
 item.got:banner.freyBook.name=Прапор Фреев (Книга)
-item.got:banner.freyriverrun.name⇒
-item.got:banner.frost.name⇒
-item.got:banner.galtry.name⇒
+item.got:banner.freyriverrun.name≠
+item.got:banner.frost.name≠
+item.got:banner.galtry.name≠
 item.got:banner.gardener.name=Прапор Гарденер
-item.got:banner.gardenerBook.name⇒
+item.got:banner.gardenerBook.name≠
 item.got:banner.gargalen.name=Прапор Гаргаленов
 item.got:banner.gaunt.name=Прапор Гонтів
 item.got:banner.ghiscar.name=Прапор Гіскара
@@ -4561,31 +4571,31 @@ item.got:banner.glover.name=Прапор Гловер
 item.got:banner.goldencompany.name=Прапор Золотих мечів
 item.got:banner.goodbrook.name=Прапор Гудбруков
 item.got:banner.goodbrother.name=Прапор Гудбразеров
-item.got:banner.goodbrotherCL.name⇒
-item.got:banner.goodbrotherCSK.name⇒
-item.got:banner.goodbrotherD.name⇒
-item.got:banner.goodbrotherO.name⇒
-item.got:banner.goodbrotherS.name⇒
-item.got:banner.gormondgoodbrother.name⇒
+item.got:banner.goodbrotherCL.name≠
+item.got:banner.goodbrotherCSK.name≠
+item.got:banner.goodbrotherD.name≠
+item.got:banner.goodbrotherO.name≠
+item.got:banner.goodbrotherS.name≠
+item.got:banner.gormondgoodbrother.name≠
 item.got:banner.gower.name=Прапор Гоуер
 item.got:banner.graceford.name=Прапор Грейсфордов
 item.got:banner.grafton.name=Прапор Графтон
 item.got:banner.grandison.name=Прапор Грандисоном
-item.got:banner.grangoodbrother.name⇒
+item.got:banner.grangoodbrother.name≠
 item.got:banner.greenfield.name=Прапор Грінфілд
 item.got:banner.greens.name=Прапор Зелених
-item.got:banner.greensBook.name⇒
+item.got:banner.greensBook.name≠
 item.got:banner.grell.name=Прапор Грелл
 item.got:banner.greyiron.name=Прапор Грейайронов
 item.got:banner.greyjoy.name=Прапор Грейджоя
-item.got:banner.greyjoyBook.name⇒
-item.got:banner.greyjoyHD.name⇒
+item.got:banner.greyjoyBook.name≠
+item.got:banner.greyjoyHD.name≠
 item.got:banner.greystark.name=Прапор Грейстарков
 item.got:banner.grimm.name=Прапор Гриммов
 item.got:banner.haigh.name=Прапор Хеев
 item.got:banner.hand.name=Прапор Правиці Короля
 item.got:banner.harclay.name=Прапор Харклеев
-item.got:banner.hardy.name⇒
+item.got:banner.hardy.name≠
 item.got:banner.hardyng.name=Прапор Хардінг
 item.got:banner.harlaw.name=Прапор Харлоу
 item.got:banner.harlawGG.name=Прапор Харлоу з Сірого Сада
@@ -4593,71 +4603,71 @@ item.got:banner.harlawHH.name=Прапор Харлоу з Відьминого 
 item.got:banner.harlawHall.name=Прапор Харлоу з Харлоухолла
 item.got:banner.harlawTG.name=Прапор Харлоу з Вежі Верцанія
 item.got:banner.harlton.name=Прапор Харлтонов
-item.got:banner.harroldhardyng.name⇒
+item.got:banner.harroldhardyng.name≠
 item.got:banner.harroway.name=Прапор Харровеев
 item.got:banner.harte.name=Прапор Хартом
-item.got:banner.hastwyck.name⇒
+item.got:banner.hastwyck.name≠
 item.got:banner.hasty.name=Прапор Хасті
-item.got:banner.hawick.name⇒
-item.got:banner.hawthorne.name⇒
+item.got:banner.hawick.name≠
+item.got:banner.hawthorne.name≠
 item.got:banner.hayford.name=Прапор Хейфордов
 item.got:banner.heddle.name=Прапор Хеддлей
-item.got:banner.herston.name⇒
+item.got:banner.herston.name≠
 item.got:banner.hersy.name=Прапор Херси
 item.got:banner.hetherspoon.name=Прапор Хезерспунов
 item.got:banner.hewett.name=Прапор Хьюеттов
 item.got:banner.hightower.name=Прапор Хайтауера
-item.got:banner.hightowerBook.name⇒
+item.got:banner.hightowerBook.name≠
 item.got:banner.hillmen.name=Прапор горян 
 item.got:banner.hoare.name=Прапор Хоаром
-item.got:banner.hogg.name⇒
+item.got:banner.hogg.name≠
 item.got:banner.hollard.name=Прапор Холлардов
 item.got:banner.hornwood.name=Прапор Хорнвудов
-item.got:banner.hornwoodBook.name⇒
+item.got:banner.hornwoodBook.name≠
 item.got:banner.horpe.name=Прапор Хорпов
-item.got:banner.hugh.name⇒
+item.got:banner.hugh.name≠
 item.got:banner.hunt.name=Прапор Хантів
 item.got:banner.hunter.name=Прапор Хантером
-item.got:banner.hutcheson.name⇒
+item.got:banner.hutcheson.name≠
 item.got:banner.ibben.name=Прапор Іббена
-item.got:banner.illifer.name⇒
+item.got:banner.illifer.name≠
 item.got:banner.inchfield.name=Прапор Інчфілдов
 item.got:banner.ironbank.name=Прапор Залізного Банку
-item.got:banner.ironmaker.name⇒
-item.got:banner.ironsmith.name⇒
-item.got:banner.jaremymallister.name⇒
+item.got:banner.ironmaker.name≠
+item.got:banner.ironsmith.name≠
+item.got:banner.jaremymallister.name≠
 item.got:banner.jast.name=Прапор Джаст
 item.got:banner.joffrey.name=Прапор Баратеонов з Королівської Гавані 
-item.got:banner.joffreyHD.name⇒
-item.got:banner.jonconnington.name⇒
-item.got:banner.jonking.name⇒
-item.got:banner.jonsnow.name⇒
+item.got:banner.joffreyHD.name≠
+item.got:banner.jonconnington.name≠
+item.got:banner.jonking.name≠
+item.got:banner.jonsnow.name≠
 item.got:banner.jordayne.name=Прапор Джордейн
 item.got:banner.justman.name=Прапор Джастменов
 item.got:banner.karstark.name=Прапор Карстарков
-item.got:banner.karstarkBook.name⇒
-item.got:banner.kellington.name⇒
+item.got:banner.karstarkBook.name≠
+item.got:banner.kellington.name≠
 item.got:banner.kenningH.name=Прапор Кеннінги з Харлоу
 item.got:banner.kenningK.name=Прапор Кеннінги з Кайса
 item.got:banner.kettleblack.name=Прапор Кеттлблеков
 item.got:banner.kidwell.name=Прапор Кідвелл
 item.got:banner.kingsguard.name=Прапор ордена Королівської гвардії
 item.got:banner.knott.name=Прапор Нотт
-item.got:banner.kyndall.name⇒
-item.got:banner.ladybright.name⇒
-item.got:banner.lake.name⇒
-item.got:banner.langward.name⇒
-item.got:banner.lannett.name⇒
+item.got:banner.kyndall.name≠
+item.got:banner.ladybright.name≠
+item.got:banner.lake.name≠
+item.got:banner.langward.name≠
+item.got:banner.lannett.name≠
 item.got:banner.lannisport.name=Прапор Ланністерів з Ланніспорта
 item.got:banner.lannister.name=Прапор Ланністерів
 item.got:banner.lannisterB.name=Прапор Ланнстеров (голова)
-item.got:banner.lannisterBook.name⇒
-item.got:banner.lannisterC.name⇒
+item.got:banner.lannisterBook.name≠
+item.got:banner.lannisterC.name≠
 item.got:banner.lannisterD.name=Прапор Ланністерів з Даррі
-item.got:banner.lannisterHD.name⇒
+item.got:banner.lannisterHD.name≠
 item.got:banner.lannisterTygett.name=Прапор Тігетта Ланністера
-item.got:banner.lanny.name⇒
-item.got:banner.lantell.name⇒
+item.got:banner.lanny.name≠
+item.got:banner.lantell.name≠
 item.got:banner.laughingTree.name=Прапор Лицаря усміхнені дерева
 item.got:banner.leather.name=Здерта шкіра
 item.got:banner.lefford.name=Прапор Леффордов
@@ -4665,27 +4675,27 @@ item.got:banner.leng.name=Прапор Ленга
 item.got:banner.leygood.name=Прапор Лейгудов
 item.got:banner.lhazar.name=Прапор Лхазара
 item.got:banner.liddle.name=Прапор Ліддл
-item.got:banner.lightfoot.name⇒
-item.got:banner.lipps.name⇒
-item.got:banner.littlewalder.name⇒
+item.got:banner.lightfoot.name≠
+item.got:banner.lipps.name≠
+item.got:banner.littlewalder.name≠
 item.got:banner.locke.name=Прапор Локка
-item.got:banner.lolliston.name⇒
-item.got:banner.longtorpe.name⇒
-item.got:banner.longwaters.name⇒
-item.got:banner.lonmouth.name⇒
+item.got:banner.lolliston.name≠
+item.got:banner.longtorpe.name≠
+item.got:banner.longwaters.name≠
+item.got:banner.lonmouth.name≠
 item.got:banner.loraq.name=Прапор Лорак
 item.got:banner.lorath.name=Прапор Лората
 item.got:banner.lorch.name=Прапор Лорхен
-item.got:banner.lothor.name⇒
+item.got:banner.lothor.name≠
 item.got:banner.lothston.name=Прапор Лотстонов
-item.got:banner.lowther.name⇒
-item.got:banner.lyberr.name⇒
+item.got:banner.lowther.name≠
+item.got:banner.lyberr.name≠
 item.got:banner.lychester.name=Прапор Лічестеров
 item.got:banner.lydden.name=Прапор Лідденов
 item.got:banner.lynderly.name=Прапор Ліндерлі
 item.got:banner.lys.name=Прапор Лиса 
 item.got:banner.maekar.name=Прапор Мейкар Таргаріена
-item.got:banner.maekarBook.name⇒
+item.got:banner.maekarBook.name≠
 item.got:banner.maesters.name=Прапор ордена Мейстер
 item.got:banner.magnar.name=Прапор Магнаров
 item.got:banner.mallery.name=Прапор Маллері
@@ -4697,8 +4707,8 @@ item.got:banner.manwoody.name=Прапор Манвуді
 item.got:banner.marbrand.name=Прапор Марбрандов
 item.got:banner.marsh.name=Прапор Маршів
 item.got:banner.martell.name=Прапор Мартеллі
-item.got:banner.martellBook.name⇒
-item.got:banner.martellHD.name⇒
+item.got:banner.martellBook.name≠
+item.got:banner.martellHD.name≠
 item.got:banner.massey.name=Прапор Масси
 item.got:banner.mazin.name=Прапор Мейзін
 item.got:banner.meadows.name=Прапор Медоуз
@@ -4712,143 +4722,143 @@ item.got:banner.moore.name=Прапор Мурів
 item.got:banner.mooton.name=Прапор мутона
 item.got:banner.mopatis.name=Прапор Мопатіс
 item.got:banner.moreland.name=Прапор Морленд
-item.got:banner.morgryn.name⇒
+item.got:banner.morgryn.name≠
 item.got:banner.mormont.name=Прапор Мормонт
-item.got:banner.mormontBook.name⇒
+item.got:banner.mormontBook.name≠
 item.got:banner.morrigen.name=Прапор Моррігенов
-item.got:banner.morros.name⇒
+item.got:banner.morros.name≠
 item.got:banner.mors.name=Прапор Морса Мартелла
-item.got:banner.morsBook.name⇒
-item.got:banner.moss.name⇒
+item.got:banner.morsBook.name≠
+item.got:banner.moss.name≠
 item.got:banner.mudd.name=Прапор Мадді
 item.got:banner.mullendore.name=Прапор Маллендоров
-item.got:banner.musgood.name⇒
-item.got:banner.myatt.name⇒
+item.got:banner.musgood.name≠
+item.got:banner.myatt.name≠
 item.got:banner.myr.name=Прапор Миру 
 item.got:banner.myre.name=Прапор Майра
 item.got:banner.newghis.name=Прапор Нового Гіса
 item.got:banner.night.name=Прапор Нічного Дозору
 item.got:banner.norcross.name=Прапор Норкроссі
 item.got:banner.norrey.name=Прапор Норрі
-item.got:banner.norridge.name⇒
+item.got:banner.norridge.name≠
 item.got:banner.norvos.name=Прапор Норвоса 
 item.got:banner.null.name=Аварійний банер
 item.got:banner.nymeria.name=Прапор Німера Мартелл
-item.got:banner.oakenfist.name⇒
+item.got:banner.oakenfist.name≠
 item.got:banner.oakheart.name=Прапор Окхартов
-item.got:banner.oberyn.name⇒
-item.got:banner.oldflowers.name⇒
+item.got:banner.oberyn.name≠
+item.got:banner.oldflowers.name≠
 item.got:banner.orkwood.name=Прапор Орквудов
-item.got:banner.orme.name⇒
+item.got:banner.orme.name≠
 item.got:banner.osgrey.name=Прапор Осгреев
-item.got:banner.osgreyll.name⇒
-item.got:banner.overton.name⇒
+item.got:banner.osgreyll.name≠
+item.got:banner.overton.name≠
 item.got:banner.paege.name=Прапор Пегов
 item.got:banner.parren.name=Прапор Парреном
 item.got:banner.patrek.name=Прапор Патреков
 item.got:banner.payne.name=Прапор Пейн
 item.got:banner.peake.name=Прапор Пиків
-item.got:banner.pearse.name⇒
+item.got:banner.pearse.name≠
 item.got:banner.peasebury.name=Прапор Пізберрі
-item.got:banner.peckledon.name⇒
+item.got:banner.peckledon.name≠
 item.got:banner.pendragon.name=Прапор Пендрагона
 item.got:banner.penrose.name=Прапор Пенроз
 item.got:banner.pentos.name=Прапор Пентоса
 item.got:banner.piper.name=Прапор Пайпер
 item.got:banner.plumm.name=Прапор Пламмов
-item.got:banner.pommingham.name⇒
+item.got:banner.pommingham.name≠
 item.got:banner.poole.name=Прапор Кулею
 item.got:banner.poorFellows.name=Прапор Чесних будинків 
 item.got:banner.prester.name=Прапор Престер
 item.got:banner.pryor.name=Прапор Прайор
-item.got:banner.pyle.name⇒
-item.got:banner.pyne.name⇒
+item.got:banner.pyle.name≠
+item.got:banner.pyne.name≠
 item.got:banner.qarth.name=Прапор Кварта
 item.got:banner.qoherys.name=Прапор Квохерісов
 item.got:banner.qohor.name=Прапор Квохора
 item.got:banner.qorgile.name=Прапор Кворгілов
 item.got:banner.rambton.name=Прапор Рамбтонов
-item.got:banner.redbeard.name⇒
+item.got:banner.redbeard.name≠
 item.got:banner.redfort.name=Прапор Редфорта
 item.got:banner.redwyne.name=Прапор Редвінов
-item.got:banner.redwyneBook.name⇒
+item.got:banner.redwyneBook.name≠
 item.got:banner.reed.name=Прапор рідов
-item.got:banner.reedBook.name⇒
-item.got:banner.reedHBO.name⇒
+item.got:banner.reedBook.name≠
+item.got:banner.reedHBO.name≠
 item.got:banner.renly.name=Прапор Баратеонов з Штормового Межі
-item.got:banner.renlyBook.name⇒
-item.got:banner.renlyHD.name⇒
+item.got:banner.renlyBook.name≠
+item.got:banner.renlyHD.name≠
 item.got:banner.renlyguard.name=Прапор ордена Райдужній гвардії
 item.got:banner.reyne.name=Прапор Рейн
-item.got:banner.reyneBook.name⇒
-item.got:banner.rhaegar.name⇒
+item.got:banner.reyneBook.name≠
+item.got:banner.rhaegar.name≠
 item.got:banner.rhllor.name=Прапор шанувальників Р'глора
-item.got:banner.rhysling.name⇒
+item.got:banner.rhysling.name≠
 item.got:banner.rikker.name=Прапор Ріккер
 item.got:banner.risley.name=Прапор Ріслі
 item.got:banner.robb.name=Прапор Робба Старка
-item.got:banner.robbBook.name⇒
+item.got:banner.robbBook.name≠
 item.got:banner.robert.name=Прапор Баратеонов
 item.got:banner.robertB.name=Прапор Баратеонов (голова)
-item.got:banner.robertashford.name⇒
-item.got:banner.robertblackwood.name⇒
-item.got:banner.rodrikryswell.name⇒
-item.got:banner.rogerblackwood.name⇒
+item.got:banner.robertashford.name≠
+item.got:banner.robertblackwood.name≠
+item.got:banner.rodrikryswell.name≠
+item.got:banner.rogerblackwood.name≠
 item.got:banner.rogers.name=Прапор Роджерс
-item.got:banner.rolandblackwood.name⇒
-item.got:banner.rollandStorm.name⇒
-item.got:banner.rollingford.name⇒
+item.got:banner.rolandblackwood.name≠
+item.got:banner.rollandStorm.name≠
+item.got:banner.rollingford.name≠
 item.got:banner.roote.name=Прапор рутовий
 item.got:banner.rosby.name=Прапор Росбі
-item.got:banner.rossart.name⇒
+item.got:banner.rossart.name≠
 item.got:banner.rowan.name=Прапор вання
 item.got:banner.roxton.name=Прапор Рокстоном
 item.got:banner.royce.name=Прапор Ройс
 item.got:banner.royceBook.name=Прапор Ройс (Книга)
 item.got:banner.royceGM.name=Прапор Ройс з місячних врат
-item.got:banner.ruthermont.name⇒
+item.got:banner.ruthermont.name≠
 item.got:banner.ruttiger.name=Прапор Раттігеров
-item.got:banner.ryder.name⇒
+item.got:banner.ryder.name≠
 item.got:banner.ryger.name=Прапор Рігер
 item.got:banner.ryswell.name=Прапор Рісвеллов
 item.got:banner.saan.name=Прапор Саана
 item.got:banner.saltcliffe.name=Прапор Солткліффов
-item.got:banner.sandsnakes.name⇒
+item.got:banner.sandsnakes.name≠
 item.got:banner.santagar.name=Прапор Сантагаров
 item.got:banner.sarsfield.name=Прапор Сарсфілд
 item.got:banner.sarwyck.name=Прапор Сарвіков
-item.got:banner.seasmoke.name⇒
-item.got:banner.seastar.name⇒
+item.got:banner.seasmoke.name≠
+item.got:banner.seastar.name≠
 item.got:banner.seaworth.name=Прапор Сівортов
 item.got:banner.secondsons.name=Прапор Молодших синів
 item.got:banner.selmy.name=Прапор Селмі
 item.got:banner.sept.name=Прапор Септа
 item.got:banner.serrett.name=Прапор Серреттов
-item.got:banner.serrettBook.name⇒
+item.got:banner.serrettBook.name≠
 item.got:banner.serry.name=Прапор Серрі
-item.got:banner.shadrich.name⇒
-item.got:banner.shawney.name⇒
-item.got:banner.shell.name⇒
+item.got:banner.shadrich.name≠
+item.got:banner.shawney.name≠
+item.got:banner.shell.name≠
 item.got:banner.shermer.name=Прапор Шермер
 item.got:banner.shettgtower.name=Прапор Шетті з чаячьей вежі
 item.got:banner.shettgtown.name=Прапор Шетті з чаячьего міста
 item.got:banner.slate.name=Прапор злийте
-item.got:banner.sloane.name⇒
+item.got:banner.sloane.name≠
 item.got:banner.slynt.name=Прапор Слінтов
 item.got:banner.smallwood.name=Прапор Смоллвуд
 item.got:banner.sothoryos.name=Прапор Соторіоса
 item.got:banner.sparr.name=Прапор Спарр
 item.got:banner.sparrow.name=Прапор виробів
 item.got:banner.spicer.name=Прапор Спайсер
-item.got:banner.stackhouse.name⇒
+item.got:banner.stackhouse.name≠
 item.got:banner.stackspear.name=Прапор Стекспіров
 item.got:banner.staedmon.name=Прапор Стедмонов
 item.got:banner.stane.name=Прапор Стейн
 item.got:banner.stannis.name=Прапор Баратеонов з драконячого каменю
-item.got:banner.stannisBook.name⇒
-item.got:banner.stannisHD.name⇒
-item.got:banner.starkD.name⇒
-item.got:banner.starkHD.name⇒
+item.got:banner.stannisBook.name≠
+item.got:banner.stannisHD.name≠
+item.got:banner.starkD.name≠
+item.got:banner.starkHD.name≠
 item.got:banner.staunton.name=Прапор Стоунтон
 item.got:banner.stokeworth.name=Прапор Стоквортов
 item.got:banner.stonehouse.name=Прапор Стоунхаузов
@@ -4857,26 +4867,26 @@ item.got:banner.stormcrows.name=Прапор Воронов-Буревісник
 item.got:banner.stout.name=Прапор Стаут
 item.got:banner.strickland.name=Прапор Стрікленд
 item.got:banner.strong.name=Прапор Стронг
-item.got:banner.suggs.name⇒
+item.got:banner.suggs.name≠
 item.got:banner.summer.name=Прапор Літніх островів
 item.got:banner.sunderland.name=Прапор Сандерленд
 item.got:banner.sunderly.name=Прапор Сандерлі
 item.got:banner.sunglass.name=Прапор Санглассов
 item.got:banner.swann.name=Прапор Сван
-item.got:banner.swannBook.name⇒
+item.got:banner.swannBook.name≠
 item.got:banner.swyft.name=Прапор Свіфт
-item.got:banner.swygert.name⇒
+item.got:banner.swygert.name≠
 item.got:banner.tallad.name=Прапор Талладов
 item.got:banner.tallhart.name=Прапор Толхартов
 item.got:banner.tarbeck.name=Прапор Тарбеков
 item.got:banner.targaryen.name=Прапор Таргаріенов (HD)
 item.got:banner.targaryen2.name=Прапор Таргаріенов
-item.got:banner.targaryenBook.name⇒
+item.got:banner.targaryenBook.name≠
 item.got:banner.tarly.name=Прапор Тарле
-item.got:banner.tarlyBook.name⇒
+item.got:banner.tarlyBook.name≠
 item.got:banner.tarth.name=Прапор Тарту
-item.got:banner.tarthBook.name⇒
-item.got:banner.tarwick.name⇒
+item.got:banner.tarthBook.name≠
+item.got:banner.tarwick.name≠
 item.got:banner.tawney.name=Прапор Тауні
 item.got:banner.teague.name=Прапор тіговий
 item.got:banner.templeton.name=Прапор Темплтон
@@ -4887,74 +4897,74 @@ item.got:banner.toland.name=Прапор Толанда
 item.got:banner.tollett.name=Прапор Толлеттов
 item.got:banner.torrent.name=Прапор торрент
 item.got:banner.towers.name=Прапор Тауерс
-item.got:banner.towersN.name⇒
+item.got:banner.towersN.name≠
 item.got:banner.toyne.name=Прапор Тойн
 item.got:banner.trant.name=Прапор трант
-item.got:banner.truefyre.name⇒
-item.got:banner.tudbury.name⇒
+item.got:banner.truefyre.name≠
+item.got:banner.tudbury.name≠
 item.got:banner.tully.name=Прапор Таллі
 item.got:banner.tullyBook.name=Прапор Таллі (Книга)
-item.got:banner.tullyHD.name⇒
+item.got:banner.tullyHD.name≠
 item.got:banner.turnberry.name=Прапор Торнберри
-item.got:banner.tybolt.name⇒
+item.got:banner.tybolt.name≠
 item.got:banner.tyrell.name=Прапор Тіреллов
 item.got:banner.tyrellBK.name=Прапор Тіреллов з Ясноводной фортеці
-item.got:banner.tyrellHD.name⇒
+item.got:banner.tyrellHD.name≠
 item.got:banner.tyrelll.name=Прапор Лорас Тіреллі
 item.got:banner.tyrion.name=Прапор Тіріона Ланністера
 item.got:banner.tyrosh.name=Прапор Тірош 
-item.got:banner.uffering.name⇒
+item.got:banner.uffering.name≠
 item.got:banner.uller.name=Прапор Уллеров
 item.got:banner.umber.name=Прапор Амбер
 item.got:banner.umberBook.name=Прапор Амбер (Книга)
-item.got:banner.underleaf.name⇒
+item.got:banner.underleaf.name≠
 item.got:banner.upcliff.name=Прапор Апкліффов
 item.got:banner.vaith.name=Прапор Вейт
-item.got:banner.valarr.name⇒
-item.got:banner.valarrBook.name⇒
+item.got:banner.valarr.name≠
+item.got:banner.valarrBook.name≠
 item.got:banner.vanceA.name=Прапор Венс з Притулку Мандрівника
 item.got:banner.vanceWR.name=Прапор Венс з Атранти
 item.got:banner.varner.name=Прапор Варнер
 item.got:banner.velaryon.name=Прапор Веларіонов
-item.got:banner.velaryonBook.name⇒
+item.got:banner.velaryonBook.name≠
 item.got:banner.victarion.name=Прапор Віктаріон Грейджоя
 item.got:banner.vikary.name=Прапор Викари
 item.got:banner.volantis.name=Прапор Волантіса 
 item.got:banner.volmark.name=Прапор Волмарков
-item.got:banner.vultureking.name⇒
+item.got:banner.vultureking.name≠
 item.got:banner.vypren.name=Прапор Віпренов
 item.got:banner.vyrwel.name=Прапор Вірвелов
 item.got:banner.wagstaff.name=Прапор Вагстафф
-item.got:banner.walder.name⇒
+item.got:banner.walder.name≠
 item.got:banner.warriorsSons.name=Прапор Синів Воїна
-item.got:banner.waterman.name⇒
+item.got:banner.waterman.name≠
 item.got:banner.waxley.name=Прапор Вакслі
 item.got:banner.wayn.name=Прапор Уейном
 item.got:banner.waynwood.name=Прапор Уейнвудов
 item.got:banner.webber.name=Прапор Веббер
 item.got:banner.wells.name=Прапор Уеллс
-item.got:banner.wellsD.name⇒
+item.got:banner.wellsD.name≠
 item.got:banner.wendwater.name=Прапор Вендуотеров
 item.got:banner.wensington.name=Прапор Венсінгтонов
-item.got:banner.westbrook.name⇒
+item.got:banner.westbrook.name≠
 item.got:banner.westerling.name=Прапор Вестерлінг
 item.got:banner.westford.name=Прапор Вестфорд
 item.got:banner.whent.name=Прапор Уентов
 item.got:banner.white.name=Білий прапор
-item.got:banner.whitegrove.name⇒
-item.got:banner.whitehead.name⇒
+item.got:banner.whitegrove.name≠
+item.got:banner.whitehead.name≠
 item.got:banner.whitehill.name=Прапор Уайтхілл
-item.got:banner.whitehillBook.name⇒
+item.got:banner.whitehillBook.name≠
 item.got:banner.wildling.name=Прапор здичавілих
 item.got:banner.willum.name=Прапор Віллумом
 item.got:banner.windblown.name=Прапор Гнаних вітром
 item.got:banner.wode.name=Прапор Уодов
-item.got:banner.woodfoot.name⇒
-item.got:banner.woods.name⇒
+item.got:banner.woodfoot.name≠
+item.got:banner.woods.name≠
 item.got:banner.woodwright.name=Прапор Вудрайтов
 item.got:banner.woolfield.name=Прапор Вулфілдов
 item.got:banner.wull.name=Прапор Вуллі
-item.got:banner.wydman.name⇒
+item.got:banner.wydman.name≠
 item.got:banner.wyl.name=Прапор Вілей
 item.got:banner.wylde.name=Прапор Уайлд
 item.got:banner.wynch.name=Прапор Вінчі
@@ -4972,14 +4982,14 @@ item.got:banner.yitiMengo.name=Прапор Менго
 item.got:banner.yitiPearl.name=Прапор Перл
 item.got:banner.yitiPurple.name=Прапор Пурпл
 item.got:banner.yitiQo.name=Прапор До
-item.got:banner.youngGriff.name⇒
+item.got:banner.youngGriff.name≠
 item.got:banner.yronwood.name=Прапор Айронвуд
 item.got:banner.yunkai.name=Прапор Юнкая
 item.got:bannerTab.name=Творці
 item.got:bearRug.name=Ведмежа шкура
 item.got:bericSword.name=Меч Берика Дондарріона
 item.got:berryPie.name=Ягідний пиріг
-item.got:bittersteelHelmet.name⇒
+item.got:bittersteelHelmet.name≠
 item.got:blackArakh.name=Чорний Аракх
 item.got:blackberry.name=Ожина
 item.got:blackfyreBoots.name=Черевики Блекфайров
@@ -4988,6 +4998,7 @@ item.got:blackfyreHelmet.name=Шолом Блекфайров
 item.got:blackfyreLeggings.name=Поножі Блекфайров
 item.got:blackfyreSword.name=Чорне Полум'я
 item.got:blackrootStick.name=Палка з чернокорня
+item.got:blackskinChestplate.name≠
 item.got:blacksmithHammer.name=Молот коваля
 item.got:bloodOfTrueKings.name=Кров Справжніх Королів
 item.got:blueberry.name=Чорниця
@@ -5035,16 +5046,16 @@ item.got:chisel.name=Долото
 item.got:clayMug.name=Необпалених гуртка
 item.got:clayPlate.name=Необпалених тарілка
 item.got:club.name=Дубина гірських кланів
-item.got:cobaltBlue.name⇒
-item.got:coin.1.name⇒
-item.got:coin.1024.name⇒
-item.got:coin.16.name⇒
-item.got:coin.16384.name⇒
-item.got:coin.256.name⇒
-item.got:coin.4.name⇒
-item.got:coin.4096.name⇒
-item.got:coin.64.name⇒
-item.got:coin.nominal.name⇒
+item.got:cobaltBlue.name≠
+item.got:coin.1.name≠
+item.got:coin.1024.name≠
+item.got:coin.16.name≠
+item.got:coin.16384.name≠
+item.got:coin.256.name≠
+item.got:coin.4.name≠
+item.got:coin.4096.name≠
+item.got:coin.64.name≠
+item.got:coin.nominal.name≠
 item.got:commandHorn.halt.name=Ріг командування - зупинити військо
 item.got:commandHorn.name=Ріг командування
 item.got:commandHorn.ready.name=Ріг командування - покликати військо
@@ -5066,6 +5077,7 @@ item.got:crownlandsBoots.name=Черевики вартою Королівськ
 item.got:crownlandsChestplate.name=Нагрудник вартою Королівської гавані
 item.got:crownlandsHelmet.name=Шолом вартою Королівської гавані
 item.got:crownlandsLeggings.name=Поножі вартою Королівської гавані
+item.got:cutwave.name≠
 item.got:daarioArakh.name=Аракх Даар Нахаріса
 item.got:darkSister.name=Темна Сестра
 item.got:darkstar.name=Темна зірка
@@ -5106,6 +5118,7 @@ item.got:essosSpear.name=Спис Ессоса
 item.got:essosSword.name=Меч Ессоса
 item.got:euronDagger.name=Кинджал Еурона Грейджоя
 item.got:featherDyed.name=Фарбоване перо
+item.got:fin.name≠
 item.got:firePot.name=Вогнемет Ї Ті
 item.got:flax.name=Льон
 item.got:flaxSeeds.name=Насіння льону
@@ -5156,17 +5169,25 @@ item.got:gregorCleganeSword.name=Меч Григора Клігана
 item.got:handGold.name=Знак Правиці (1)
 item.got:handSilver.name=Знак Правиці (2)
 item.got:harpy.name=Гарпія
+item.got:hearteater.name≠
 item.got:heartsbane.name=Згубник Сердець
 item.got:hillmenBoots.name=Черевики гірських кланів
 item.got:hillmenChestplate.name=Нагрудник гірських кланів
 item.got:hillmenHelmet.name=Шолом гірських кланів
 item.got:hillmenLeggings.name=Поножі гірських кланів
+item.got:honor.name≠
 item.got:horn.name=Ріг
+item.got:ibbenBoots.name≠
+item.got:ibbenChestplate.name≠
+item.got:ibbenHarpoon.name≠
+item.got:ibbenLeggings.name≠
+item.got:ibbenSword.name≠
 item.got:ice.name=Лід
-item.got:iceHeavySword.name⇒
-item.got:iceShard.name⇒
-item.got:iceSpear.name⇒
+item.got:iceHeavySword.name≠
+item.got:iceShard.name≠
+item.got:iceSpear.name≠
 item.got:iceSword.name=Крижаний меч
+item.got:indomitable.name≠
 item.got:ironBattleaxe.name=Бойова сокира з заліза
 item.got:ironCrossbow.name=Арбалет з заліза
 item.got:ironDagger.name=Кинджал з заліза
@@ -5192,7 +5213,7 @@ item.got:kingsguardHelmet.name=Шолом Королівської гварді�
 item.got:kingsguardLeggings.name=Поножі Королівської гвардії
 item.got:ladyForlorn.name=Леді Відчай
 item.got:lamentation.name=Плач
-item.got:lannisterBrooch.name⇒
+item.got:lannisterBrooch.name≠
 item.got:leatherHat.name=Шкіряна капелюх
 item.got:leek.name=Зелена цибуля
 item.got:leekSoup.name=Цибульний суп
@@ -5301,7 +5322,11 @@ item.got:needle.name=Голка
 item.got:nightKingSword.name=Меч Короля Ночі
 item.got:nightfall.name=Сутінок
 item.got:nomadBattleaxe.name=Бойова сокира кочівників
+item.got:nomadBoots.name≠
 item.got:nomadBow.name=Лук кочівників
+item.got:nomadChestplate.name≠
+item.got:nomadHelmet.name≠
+item.got:nomadLeggings.name≠
 item.got:nomadSpear.name=Спис кочівників
 item.got:nomadSword.name=Аракх кочівників
 item.got:northBoots.name=Черевики Півночі
@@ -5365,6 +5390,7 @@ item.got:pomegranate.name=Гранат
 item.got:pouch.0.name=Маленький мішечок
 item.got:pouch.1.name=Середній мішечок
 item.got:pouch.2.name=Великий мішечок
+item.got:pruner.name≠
 item.got:qarthBoots.name=Черевики Кварта
 item.got:qarthChestplate.name=Нагрудник Кварта
 item.got:qarthHelmet.name=Шолом Кварта
@@ -5393,10 +5419,11 @@ item.got:redkingBoots.name=Черевики Червоного Короля
 item.got:redkingChestplate.name=Нагрудник Червоного Короля
 item.got:redkingHelmet.name=Шолом Червоного Короля
 item.got:redkingLeggings.name=Поножі Червоного Короля
-item.got:renlyBoots.name⇒
-item.got:renlyChestplate.name⇒
-item.got:renlyHelmet.name⇒
-item.got:renlyLeggings.name⇒
+item.got:reminder.name≠
+item.got:renlyBoots.name≠
+item.got:renlyChestplate.name≠
+item.got:renlyHelmet.name≠
+item.got:renlyLeggings.name≠
 item.got:rhaegarSword.name=Меч Рейгара Таргаріена
 item.got:rhinoArmor.name=Носорожий броня
 item.got:rhinoCooked.name=Смажене м'ясо носорога
@@ -5486,6 +5513,7 @@ item.got:targaryenChestplate.name=Нагрудник Таргаріенов
 item.got:targaryenHelmet.name=Шолом Таргаріенов
 item.got:targaryenLeggings.name=Поножі Таргаріенов
 item.got:termite.name=Вибухаючий терміт
+item.got:tidewings.name≠
 item.got:tinIngot.name=Злиток олова
 item.got:topaz.name=Топаз
 item.got:tormundSword.name=Меч Тормунда
@@ -5529,15 +5557,15 @@ item.got:valyrianRing.name=Кільце з валірійской стали
 item.got:valyrianShovel.name=Лопата з валірійской стали
 item.got:valyrianSpear.name=Спис з валірійской стали
 item.got:valyrianSword.name=Меч з валірійской стали
-item.got:velaryonBrooch.name⇒
+item.got:velaryonBrooch.name≠
 item.got:victarionAxe.name=Сокира Віктаріон
-item.got:victarionHelmet.name⇒
+item.got:victarionHelmet.name≠
 item.got:vigilance.name=Пильність
 item.got:volantisBoots.name=Черевики Волантіса
 item.got:volantisChestplate.name=Нагрудник Волантіса
 item.got:volantisHelmet.name=Шолом Волантіса
 item.got:volantisLeggings.name=Поножі Волантіса
-item.got:walkingStick.name⇒
+item.got:walkingStick.name≠
 item.got:waterskin.name=Хутро
 item.got:westerlandsBoots.name=Черевики Західних Земель
 item.got:westerlandsChestplate.name=Нагрудник Західних Земель
@@ -5561,10 +5589,10 @@ item.got:westkingChestplate.name=Нагрудник Королів Скелі
 item.got:westkingHelmet.name=Шолом Королів Скелі
 item.got:westkingLeggings.name=Поножі Королів Скелі
 item.got:wheel.name=Колесо
-item.got:whiteWalkersBoots.name⇒
-item.got:whiteWalkersChestplate.name⇒
-item.got:whiteWalkersHoe.name⇒
-item.got:whiteWalkersLeggings.name⇒
+item.got:whiteWalkersBoots.name≠
+item.got:whiteWalkersChestplate.name≠
+item.got:whiteWalkersHoe.name≠
+item.got:whiteWalkersLeggings.name≠
 item.got:widowWail.name=Вдови Плач
 item.got:wildberry.name=Лісова ягода
 item.got:wildlingAxe.name=Сокира здичавілих
@@ -5581,17 +5609,21 @@ item.got:yam.name=Ямс
 item.got:yamRoast.name=Смажений ямс
 item.got:yitiBattleaxe.name=Нагамакі Ї Ті
 item.got:yitiBoots.name=Черевики Ї Ті
+item.got:yitiBootsFrontier.name≠
 item.got:yitiBootsSamurai.name=Черевики самурая Ї Ті
 item.got:yitiBow.name=Лук Ї Ті
 item.got:yitiChestplate.name=Нагрудник Ї Ті
+item.got:yitiChestplateFrontier.name≠
 item.got:yitiChestplateSamurai.name=Нагрудник самурая Ї Ті
 item.got:yitiDagger.name=Куна Ї Ті
 item.got:yitiDaggerPoisoned.name=Отруєний куна Ї Ті
 item.got:yitiHelmet.name=Шолом Ї Ті
+item.got:yitiHelmetFrontier.name≠
 item.got:yitiHelmetSamurai.name=Шолом самурая Ї Ті
 item.got:yitiHelmetShogune.name=Шолом сьогуна Ї Ті
 item.got:yitiHorseArmor.name=Кінська броня Ї Ті
 item.got:yitiLeggings.name=Поножі Ї Ті
+item.got:yitiLeggingsFrontier.name≠
 item.got:yitiLeggingsSamurai.name=Поножі самурая Ї Ті
 item.got:yitiPike.name=Піка Ї Ті
 item.got:yitiPolearm.name=Нагината Ї Ті
@@ -5665,7 +5697,7 @@ tile.got:blockMetal1.3.name=Блок зі срібла
 tile.got:blockMetal1.4.name=Блок з валірійской стали
 tile.got:blockMetal2.2.name=Блок позолоченої сталі
 tile.got:blockMetal2.3.name=Блок солі
-tile.got:blockMetal2.4.name⇒
+tile.got:blockMetal2.4.name≠
 tile.got:bluebell.name=Дзвіночок
 tile.got:bomb.name=Бомба
 tile.got:boneBlock.name=Кістковий блок
@@ -5985,7 +6017,7 @@ tile.got:mudFarmland.name=Рілля джунглів
 tile.got:mudGrass.name=Трава джунглів
 tile.got:niphredil.name=Баухинія
 tile.got:obsidianGravel.name=Обсидіановий гравій
-tile.got:oreCobalt.name⇒
+tile.got:oreCobalt.name≠
 tile.got:oreCopper.name=Мідна руда
 tile.got:oreGem.0.name=Топазова жила
 tile.got:oreGem.1.name=Аметистова жила
@@ -6388,12 +6420,14 @@ tile.got:tableAsshai.name=Верстат Асшая
 tile.got:tableBraavos.name=Верстат Браавоса
 tile.got:tableCrownlands.name=Верстат Королівських Земель
 tile.got:tableDorne.name=Верстат Дорна
+tile.got:tableDothraki.name≠
 tile.got:tableDragonstone.name=Верстат Драконячого Каменя
 tile.got:tableGhiscar.name=Верстат Гіскара
 tile.got:tableGift.name=Верстат Нічного Дозору
 tile.got:tableHillTribes.name=Верстат гірських кланів
 tile.got:tableIbben.name=Верстат Іббена
 tile.got:tableIronborn.name=Верстат Залізних островів
+tile.got:tableJogos.name≠
 tile.got:tableLhazar.name=Лхазарскій верстак
 tile.got:tableLorath.name=Верстат Лората
 tile.got:tableLys.name=Верстат Лиса

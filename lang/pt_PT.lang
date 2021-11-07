@@ -28,15 +28,15 @@ dragon.mountNotice=Pressione %s e %s para voar para cima e para baixo (pode ser 
 dragon.owned=Não é o seu dragão.
 entity.got.AddamMarbrand.name=Addam Marbrand
 entity.got.AemonTargaryen.name=Aemon Targaryen
-entity.got.AeronGreyjoy.name⇒
+entity.got.AeronGreyjoy.name≠
 entity.got.AlliserThorne.name=Alliser Thorne
-entity.got.AmoryLorch.name⇒
+entity.got.AmoryLorch.name≠
 entity.got.AndersYronwood.name=Anders Yronwood
-entity.got.AndrikTheUnsmilling.name⇒
-entity.got.AnyaWaynwood.name⇒
+entity.got.AndrikTheUnsmilling.name≠
+entity.got.AnyaWaynwood.name≠
 entity.got.ArdrianCeltigar.name=Ardrian Celtigar
-entity.got.AreoHotah.name⇒
-entity.got.ArianneMartell.name⇒
+entity.got.AreoHotah.name≠
+entity.got.ArianneMartell.name≠
 entity.got.ArrowPoison.name=Flecha Envenenada
 entity.got.ArrynArcher.name=Arqueiro do Vale Arryn
 entity.got.ArrynBaker.name=Padeiro de Vale de Arryn
@@ -50,7 +50,7 @@ entity.got.ArrynFarmer.name=Fazendeiro de Vale de Arryn
 entity.got.ArrynFarmhand.name=Agricultor de Vale de Arryn
 entity.got.ArrynFishmonger.name=Peixeiro de Vale de Arryn
 entity.got.ArrynFlorist.name=Florista de Vale de Arryn
-entity.got.ArrynGoldsmith.name⇒
+entity.got.ArrynGoldsmith.name≠
 entity.got.ArrynGreengrocer.name=Verdureiro de Vale de Arryn
 entity.got.ArrynGuard.name=Gulltown Guardian
 entity.got.ArrynLevyman.name=Miliciano de Vale de Arryn
@@ -70,16 +70,16 @@ entity.got.AsshaiShadowbinder.name=Shadowbinder de Asshai
 entity.got.AsshaiSpherebinder.name=Spherebinder de Asshai
 entity.got.AuraneWaters.name=Aurane Waters
 entity.got.Aurochs.name=Auroque
-entity.got.BaelorBlacktyde.name⇒
+entity.got.BaelorBlacktyde.name≠
 entity.got.BalonGreyjoy.name=Balon Greyjoy
 entity.got.Banner.name=Estandarte
-entity.got.BarbreyDustin.name⇒
+entity.got.BarbreyDustin.name≠
 entity.got.Barrel.name=Barril
 entity.got.BarristanSelmy.name=Barristan Selmy
 entity.got.BarrowWight.name=Espectro dos Túmulos
 entity.got.Bear.name=Urso
 entity.got.BearRug.name=Tapede de Urso
-entity.got.BenedarBelmore.name⇒
+entity.got.BenedarBelmore.name≠
 entity.got.BenjenStark.name=Benjen Stark
 entity.got.BericDayne.name=Beric Dayne
 entity.got.BericDondarrion1.name=Beric Dondarrion
@@ -89,7 +89,7 @@ entity.got.BericDondarrion4.name=Beric Dondarrion
 entity.got.BericDondarrion5.name=Beric Dondarrion
 entity.got.BericDondarrion6.name=Beric Dondarrion
 entity.got.Bird.name=Pássaro
-entity.got.BlackWalderFrey.name⇒
+entity.got.BlackWalderFrey.name≠
 entity.got.Boar.name=Javali Selvagem
 entity.got.BraavosArcher.name=Arqueiro de Bravos
 entity.got.BraavosBaker.name=Padeiro de Bravos
@@ -109,17 +109,17 @@ entity.got.BraavosMan.name=Homem de Bravos
 entity.got.BraavosMason.name=Maçom de Bravos
 entity.got.BraavosMiner.name=Mineiro de Bravos
 entity.got.BraavosWarrior.name=Guerreiro de Bravos
-entity.got.BranStark.name⇒
+entity.got.BranStark.name≠
 entity.got.BrienneTarth.name=Brienne Tarth
 entity.got.Bronn.name=Bronn
 entity.got.BryndenTully.name=Brynden Tully
 entity.got.BuGai.name=Bu Gai
 entity.got.Butterfly.name=Borboleta
 entity.got.Camel.name=Camelo
-entity.got.CatelynStark.name⇒
+entity.got.CatelynStark.name≠
 entity.got.CerseiLannister.name=Cersei Lannister
-entity.got.ClementPiper.name⇒
-entity.got.CleyCerwyn.name⇒
+entity.got.ClementPiper.name≠
+entity.got.CleyCerwyn.name≠
 entity.got.Conker.name=Castanha
 entity.got.CotterPyke.name=Cotter Pyke
 entity.got.Craster.name=Craster
@@ -140,7 +140,7 @@ entity.got.CrownlandsFarmer.name=Fazendeiro de Terras da Coroa
 entity.got.CrownlandsFarmhand.name=Fazendeiro de Terras da Coroa
 entity.got.CrownlandsFishmonger.name=Peixeiro de Terras da Coroa
 entity.got.CrownlandsFlorist.name=Florista de Terras da Coroa
-entity.got.CrownlandsGoldsmith.name⇒
+entity.got.CrownlandsGoldsmith.name≠
 entity.got.CrownlandsGreengrocer.name=Verdureiro de Terras da Coroa
 entity.got.CrownlandsGuard.name=Guardião de Porto Real
 entity.got.CrownlandsLevyman.name=Miliciano de Terras da Coroa
@@ -148,11 +148,11 @@ entity.got.CrownlandsLevymanArcher.name=Miliciano Arqueiro de Terras da Coroa
 entity.got.CrownlandsLumberman.name=Lumberman de Terras da Coroa
 entity.got.CrownlandsMan.name=Man de Terras da Coroa
 entity.got.CrownlandsMason.name=Pedreiro de Terras da Coroa
-entity.got.DaarioNaharis.name⇒
+entity.got.DaarioNaharis.name≠
 entity.got.DaenerysTargaryen.name=Daenerys Targaryen
-entity.got.Dagmer.name⇒
+entity.got.Dagmer.name≠
 entity.got.Dart.name=Dardo
-entity.got.DavenLannister.name⇒
+entity.got.DavenLannister.name≠
 entity.got.DavosSeaworth.name=Davos Seaworth
 entity.got.Deer.name=Veado
 entity.got.DenysMallister.name=Denys Mallister
@@ -172,7 +172,7 @@ entity.got.DorneFarmer.name=Fazendeiro de Dorne
 entity.got.DorneFarmhand.name=Agricultor de Dorne
 entity.got.DorneFishmonger.name=Peixeiro de Dorne
 entity.got.DorneFlorist.name=Florista de Dorne
-entity.got.DorneGoldsmith.name⇒
+entity.got.DorneGoldsmith.name≠
 entity.got.DorneGreengrocer.name=Verdureiro de Dorne
 entity.got.DorneLevyman.name=Miliciano de Dorne
 entity.got.DorneLevymanArcher.name=Miliciano Arqueiro de Dorne
@@ -198,7 +198,7 @@ entity.got.DragonstoneFarmer.name=Fazendeiro de Pedra do Dragão
 entity.got.DragonstoneFarmhand.name=Agricultor de Pedra do Dragão
 entity.got.DragonstoneFishmonger.name=Peixeiro de Pedra do Dragão
 entity.got.DragonstoneFlorist.name=Florista de Pedra do Dragão
-entity.got.DragonstoneGoldsmith.name⇒
+entity.got.DragonstoneGoldsmith.name≠
 entity.got.DragonstoneGreengrocer.name=Verdureiro de Pedra do Dragão
 entity.got.DragonstoneLevyman.name=Miliciano de Pedra do Dragão
 entity.got.DragonstoneLevymanArcher.name=Miliciano Arqueiro de Pedra do Dragão
@@ -209,24 +209,24 @@ entity.got.DragonstoneSoldier.name=Guerreiro da Pedra do Dragão
 entity.got.DragonstoneSoldierArcher.name=Guerreiro Arqueiro de Pedra do Dragão
 entity.got.DunstanDrumm.name=Dunstan Drumm
 entity.got.Ebrose.name=Ebrose
-entity.got.Edd.name⇒
+entity.got.Edd.name≠
 entity.got.EdmureTully.name=Edmure Tully
-entity.got.EldonEstermont.name⇒
+entity.got.EldonEstermont.name≠
 entity.got.Elephant.name=Elefante
 entity.got.Elk.name=Alce
 entity.got.EllaryaSand.name=Ellarya Sand
-entity.got.ErikIronmaker.name⇒
+entity.got.ErikIronmaker.name≠
 entity.got.EssosBandit.name=Essos Bandit
 entity.got.EuronGreyjoy.name=Euron Greyjoy
 entity.got.Fish.name=Peixe
 entity.got.Flamingo.name=Flamingo
 entity.got.ForleyPrester.name=Forley Prester
-entity.got.FranklynFowler.name⇒
+entity.got.FranklynFowler.name≠
 entity.got.GarlanTyrell.name=Garlan Tyrell
 entity.got.Gemsbok.name=Órix
 entity.got.GendryBaratheon.name=Gendry Baratheon
 entity.got.GeroldDayne.name=Gerold Dayne
-entity.got.GeroldGrafton.name⇒
+entity.got.GeroldGrafton.name≠
 entity.got.GhiscarArcher.name=Arqueiro de Ghiscar
 entity.got.GhiscarBaker.name=Padeiro de Ghiscar
 entity.got.GhiscarBannerBearer.name=Portador da bandeira de Ghiscar
@@ -259,7 +259,7 @@ entity.got.GiftGuard.name=Guerreiro da noite
 entity.got.GiftGuardBannerBearer.name=Porta-estandarte da Patrulha da Noite
 entity.got.GiftGuardCaptain.name=Capitão da Patrulha da Noite
 entity.got.GiftMan.name=Homem de presente
-entity.got.GilwoodHunter.name⇒
+entity.got.GilwoodHunter.name≠
 entity.got.Giraffe.name=Girafa
 entity.got.GiraffeRug.name=Tapede de Girafa
 entity.got.GiskarCaptain.name=Capitão giskar
@@ -270,19 +270,19 @@ entity.got.GoldenCaptain.name=Capitão da Golden Company
 entity.got.GoldenSpearman.name=Lanceiro da Golden Company
 entity.got.GoldenWarrior.name=Guerreiro da Companhia Dourada
 entity.got.Gorcrow.name=Gralha
-entity.got.GoroldGoodbrother.name⇒
+entity.got.GoroldGoodbrother.name≠
 entity.got.GregorClegane.name=Gregor Clegane
 entity.got.GregorCleganeWight.name=Gregor Clegane
-entity.got.GreyWorm.name⇒
-entity.got.GulianSwann.name⇒
-entity.got.GylbertFarwynd.name⇒
-entity.got.HarmenUller.name⇒
-entity.got.Harmune.name⇒
+entity.got.GreyWorm.name≠
+entity.got.GulianSwann.name≠
+entity.got.GylbertFarwynd.name≠
+entity.got.HarmenUller.name≠
+entity.got.Harmune.name≠
 entity.got.HarrasHarlaw.name=Harras Harlaw
 entity.got.HarroldHardyng.name=Harrold Hardyng
-entity.got.HarryStrickland.name⇒
+entity.got.HarryStrickland.name≠
 entity.got.HarysSwyft.name=Harys Swyft
-entity.got.HelmanTallhart.name⇒
+entity.got.HelmanTallhart.name≠
 entity.got.HighSepton.name=Septão alto
 entity.got.Hillmen.name=Hill Tribes Man
 entity.got.HillmenArcher.name=Hill Tribes Arqueiro
@@ -292,12 +292,12 @@ entity.got.HillmenBartender.name=Hill Tribes Barman
 entity.got.HillmenBerserker.name=Hill Tribes Berserker
 entity.got.HillmenWarlord.name=Hill Tribes Chieftain
 entity.got.HillmenWarrior.name=Hill Tribes Warrior
-entity.got.HizdahrZoLoraq.name⇒
+entity.got.HizdahrZoLoraq.name≠
 entity.got.Hodor.name=Hodor
 entity.got.Horse.name=Cavalo
 entity.got.HortonRedfort.name=Horton Redfort
 entity.got.HosterTully.name=Hoster Tully
-entity.got.HotPie.name⇒
+entity.got.HotPie.name≠
 entity.got.HowlandReed.name=Howland Reed
 entity.got.Hummel009.name=Hummel009
 entity.got.IbbenArcher.name=Arqueiro de Ibben
@@ -335,7 +335,7 @@ entity.got.IronbornFarmer.name=Fazendeiro das Ilhas de Ferro
 entity.got.IronbornFarmhand.name=Agricultor das Ilhas de Ferro
 entity.got.IronbornFishmonger.name=Peixeiro das Ilhas de Ferro
 entity.got.IronbornFlorist.name=Florista das Ilhas de Ferro
-entity.got.IronbornGoldsmith.name⇒
+entity.got.IronbornGoldsmith.name≠
 entity.got.IronbornGreengrocer.name=Verdureiro das Ilhas de Ferro
 entity.got.IronbornLevyman.name=Miliciano das Ilhas de Ferro
 entity.got.IronbornLevymanArcher.name=Miliciano Arqueiro das Ilhas de Ferro
@@ -347,7 +347,7 @@ entity.got.IronbornSoldierArcher.name=Arqueiro guerreiro das Ilhas de Ferro
 entity.got.JaimeLannister.name=Jaime Lannister
 entity.got.JanosSlynt.name=Janos Slynt
 entity.got.JaqenHghar.name=Jaqen H'Ghar
-entity.got.JasonMallister.name⇒
+entity.got.JasonMallister.name≠
 entity.got.JeorMormont.name=Jeor Mormont
 entity.got.JoffreyBaratheon.name=Joffrey Baratheon
 entity.got.JogosArcher.name=Arqueiro dos Jogos Nhai
@@ -355,9 +355,9 @@ entity.got.JogosChief.name=Chieftain de Jogos Nhai
 entity.got.JogosMan.name=Nomad de Jogos Nhai
 entity.got.JogosShaman.name=Xamã dos Jogos Nhai
 entity.got.JohnUmber.name=John Umber
-entity.got.JonConnington.name⇒
+entity.got.JonConnington.name≠
 entity.got.JonSnow.name=Jon Snow
-entity.got.JonSnow2.name⇒
+entity.got.JonSnow2.name≠
 entity.got.JonosBracken.name=Jonos Bracken
 entity.got.JorahMormont.name=Jorah Mormont
 entity.got.JungleScorpion.name=Escorpião da Selva
@@ -409,8 +409,8 @@ entity.got.LorathMan.name=Homem de Lorath
 entity.got.LorathMason.name=Maçom de Lorath
 entity.got.LorathMiner.name=Mineiro de Lorath
 entity.got.LorathWarrior.name=Guerreiro de Lorath
-entity.got.LotharFrey.name⇒
-entity.got.Luwin.name⇒
+entity.got.LotharFrey.name≠
+entity.got.Luwin.name≠
 entity.got.LyleCrakehall.name=Lyle Crakehall
 entity.got.LynCorbray.name=Lyn Corbray
 entity.got.LysArcher.name=Arqueiro de Lys
@@ -433,26 +433,26 @@ entity.got.LysMiner.name=Mineiro de Lys
 entity.got.LysSlave.name=Escravo de Lys
 entity.got.LysSlaver.name=Escravidão de Lys
 entity.got.LysWarrior.name=Guerreiro de Lys
-entity.got.LysaArryn.name⇒
+entity.got.LysaArryn.name≠
 entity.got.MaceTyrell.name=Mace Tyrell
-entity.got.MaegeMormont.name⇒
+entity.got.MaegeMormont.name≠
 entity.got.Maester.name=Meistre
 entity.got.Mammoth.name=Mamute
 entity.got.ManceRayder.name=Mance Rayder
-entity.got.ManfreyMartell.name⇒
+entity.got.ManfreyMartell.name≠
 entity.got.Manticore.name=Manticore
 entity.got.MargaeryTyrell.name=Margaery Tyrell
-entity.got.MaronVolmark.name⇒
+entity.got.MaronVolmark.name≠
 entity.got.MathisRowan.name=Mathis Rowan
-entity.got.MatthosSeaworth.name⇒
+entity.got.MatthosSeaworth.name≠
 entity.got.Melisandra.name=Melisandra
-entity.got.Mellario.name⇒
-entity.got.Mercenary.name⇒
-entity.got.MerynTrant.name⇒
+entity.got.Mellario.name≠
+entity.got.Mercenary.name≠
+entity.got.MerynTrant.name≠
 entity.got.Midges.name=Mosquitos
-entity.got.Missandei.name⇒
+entity.got.Missandei.name≠
 entity.got.MonfordVelaryon.name=Monford Velaryon
-entity.got.Moqorro.name⇒
+entity.got.Moqorro.name≠
 entity.got.MossovyWerewolf.name=Mossovy Werewolf
 entity.got.MossovyWitcher.name=Bruxo Mossovy
 entity.got.MossovyWitcherBannerBearer.name=Portador da bandeira Mossovy
@@ -478,7 +478,7 @@ entity.got.MyrMiner.name=Mineiro de Myr
 entity.got.MyrSlave.name=Escravo de Myr
 entity.got.MyrSlaver.name=Escravidão de Myr
 entity.got.MyrWarrior.name=Guerreiro de Myr
-entity.got.MyrcellaBaratheon.name⇒
+entity.got.MyrcellaBaratheon.name≠
 entity.got.MysteryWeb.name=Teia Misteriosa
 entity.got.NPCRespawner.name=Regenerador de NPC
 entity.got.NightKing.name=Rei da Noite
@@ -494,7 +494,7 @@ entity.got.NorthFarmer.name=Fazendeiro do norte
 entity.got.NorthFarmhand.name=Agricultor do Norte
 entity.got.NorthFishmonger.name=Peixeiro do Norte
 entity.got.NorthFlorist.name=Florista do norte
-entity.got.NorthGoldsmith.name⇒
+entity.got.NorthGoldsmith.name≠
 entity.got.NorthGreengrocer.name=Verdureiro do Norte
 entity.got.NorthGuard.name=Guarda do Porto Branco
 entity.got.NorthHillman.name=North Hillman
@@ -533,8 +533,8 @@ entity.got.NorvosMiner.name=Mineiro de Norvos
 entity.got.NorvosWarrior.name=Guerreiro de Norvos
 entity.got.OberynMartell.name=Oberyn Martell
 entity.got.OlennaTyrell.name=Olenna Tyrell
-entity.got.OrtonMerryweather.name⇒
-entity.got.Osha.name⇒
+entity.got.OrtonMerryweather.name≠
+entity.got.Osha.name≠
 entity.got.PaxterRedwyne.name=Paxter Redwyne
 entity.got.Pebble.name=Seixo
 entity.got.PentosBaker.name=Padeiro de Pentos
@@ -559,7 +559,7 @@ entity.got.PetyrBaelish.name=Petyr Baelish
 entity.got.Plate.name=Prato
 entity.got.PodrickPayne.name=Podrick Payne
 entity.got.Polarbear.name=Urso da neve
-entity.got.Polliver.name⇒
+entity.got.Polliver.name≠
 entity.got.Pycelle.name=Pycelle
 entity.got.QarthArcher.name=Arqueiro de Qarth
 entity.got.QarthBaker.name=Padeiro de Qarth
@@ -601,13 +601,13 @@ entity.got.QohorMiner.name=Mineiro de Qohor
 entity.got.QohorUnsullied.name=Imaculado de Qohor
 entity.got.QuennRoxton.name=Quenn Roxton
 entity.got.QuentenBanefort.name=Quenten Banefort
-entity.got.QuentynMartell.name⇒
-entity.got.QuentynQorgyle.name⇒
-entity.got.Qyburn.name⇒
+entity.got.QuentynMartell.name≠
+entity.got.QuentynQorgyle.name≠
+entity.got.Qyburn.name≠
 entity.got.Rabbit.name=Coelho
 entity.got.RamsayBolton.name=Ramsay Bolton
 entity.got.RandyllTarly.name=Randyll Tarly
-entity.got.RazdalMoEraz.name⇒
+entity.got.RazdalMoEraz.name≠
 entity.got.ReachArcher.name=Arqueiro de Campina
 entity.got.ReachBaker.name=Padeiro de Campina
 entity.got.ReachBannerBearer.name=Portador da bandeira do Campina
@@ -620,7 +620,7 @@ entity.got.ReachFarmer.name=Fazendeiro de Campina
 entity.got.ReachFarmhand.name=Agricultor de Campina
 entity.got.ReachFishmonger.name=Peixeiro de Campina
 entity.got.ReachFlorist.name=Florista de Campina
-entity.got.ReachGoldsmith.name⇒
+entity.got.ReachGoldsmith.name≠
 entity.got.ReachGreengrocer.name=Verdureiro de Campina
 entity.got.ReachGuard.name=Oldtown Guardian
 entity.got.ReachLevyman.name=Miliciano de Campina
@@ -634,7 +634,7 @@ entity.got.RedScorpion.name=Escorpião Vermelho
 entity.got.RenlyBaratheon.name=Renly Baratheon
 entity.got.Rhino.name=Rinoceronte
 entity.got.RickardKarstark.name=Rickard Karstark
-entity.got.RickonStark.name⇒
+entity.got.RickonStark.name≠
 entity.got.RiverlandsArcher.name=Arqueiro de Terras Fluviais
 entity.got.RiverlandsBaker.name=Baker de Terras Fluviais
 entity.got.RiverlandsBannerBearer.name=Portador da bandeira de Terras Fluviais
@@ -647,7 +647,7 @@ entity.got.RiverlandsFarmer.name=Fazendeiro de Terras Fluviais
 entity.got.RiverlandsFarmhand.name=Agricultor de Terras Fluviais
 entity.got.RiverlandsFishmonger.name=Peixeiro de Terras Fluviais
 entity.got.RiverlandsFlorist.name=Florista de Terras Fluviais
-entity.got.RiverlandsGoldsmith.name⇒
+entity.got.RiverlandsGoldsmith.name≠
 entity.got.RiverlandsGreengrocer.name=Verdureiro de Terras Fluviais
 entity.got.RiverlandsLevyman.name=Miliciano de Terras Fluviais
 entity.got.RiverlandsLevymanArcher.name=Miliciano Arqueiro de Terras Fluviais
@@ -657,25 +657,25 @@ entity.got.RiverlandsMason.name=Pedreiro de Terras Fluviais
 entity.got.RiverlandsSoldier.name=Warrior de Terras Fluviais
 entity.got.RiverlandsSoldierArcher.name=Arqueiro guerreiro de Terras Fluviais
 entity.got.RobbStark.name=Robb Stark
-entity.got.RobinArryn.name⇒
-entity.got.RodrikCassel.name⇒
+entity.got.RobinArryn.name≠
+entity.got.RodrikCassel.name≠
 entity.got.RodrikHarlaw.name=Rodrik Harlaw
-entity.got.RodrikRyswell.name⇒
+entity.got.RodrikRyswell.name≠
 entity.got.RooseBolton.name=Roose Bolton
-entity.got.SalladhorSaan.name⇒
-entity.got.SamwellTarly.name⇒
+entity.got.SalladhorSaan.name≠
+entity.got.SamwellTarly.name≠
 entity.got.SandorClegane.name=Sandor Clegane
 entity.got.SansaStark.name=Sansa Stark
 entity.got.ScrapTrader.name=Coletor de Sobras
 entity.got.Seagull.name=Gaivota
 entity.got.SebastonFarman.name=Sebaston Farman
 entity.got.SelwynTarth.name=Selwyn Tarth
-entity.got.SelyseBaratheon.name⇒
+entity.got.SelyseBaratheon.name≠
 entity.got.Shadowcat.name=Shadow Cat
-entity.got.Shae.name⇒
+entity.got.Shae.name≠
 entity.got.Shark.name=Tubarão
 entity.got.Shego.name=Ela vai
-entity.got.ShireenBaratheon.name⇒
+entity.got.ShireenBaratheon.name≠
 entity.got.SmokeRing.name=Anel de Fumaça
 entity.got.SothoryosBannerBearer.name=Portador da bandeira de Sothoryos
 entity.got.SothoryosBlowgunner.name=Sothoryos Arqueiro
@@ -702,7 +702,7 @@ entity.got.StormlandsFarmer.name=Fazendeiro de Terras da Tempestade
 entity.got.StormlandsFarmhand.name=Agricultor de Terras da Tempestade
 entity.got.StormlandsFishmonger.name=Peixeiro de Terras da Tempestade
 entity.got.StormlandsFlorist.name=Florista de Terras da Tempestade
-entity.got.StormlandsGoldsmith.name⇒
+entity.got.StormlandsGoldsmith.name≠
 entity.got.StormlandsGreengrocer.name=Verdureiro de Terras da Tempestade
 entity.got.StormlandsLevyman.name=Miliciano de Terras da Tempestade
 entity.got.StormlandsLevymanArcher.name=Miliciano Arqueiro de Terras da Tempestade
@@ -729,7 +729,7 @@ entity.got.SummerMiner.name=Mineiro das ilhas de verão
 entity.got.SummerWarlord.name=Warlord de Summer Islands
 entity.got.SummerWarrior.name=Guerreiro das Ilhas de Verão
 entity.got.Swan.name=Cisne
-entity.got.SymondTempleton.name⇒
+entity.got.SymondTempleton.name≠
 entity.got.Termite.name=Térmite Explosiva
 entity.got.Thenn.name=Thenn
 entity.got.ThennArcher.name=Thenn Arqueiro
@@ -749,12 +749,12 @@ entity.got.ThrownRock.name=Pedra Atirada
 entity.got.ThrownTermite.name=Térmite Explosiva
 entity.got.Tigasa.name=TIGASA
 entity.got.TobhoMott.name=Tobho Mott
-entity.got.TommenBaratheon.name⇒
+entity.got.TommenBaratheon.name≠
 entity.got.Tormund.name=Tormund
 entity.got.TraderRespawn.name=Regenerador de Negociador
 entity.got.TrollSnowball.name=Bola de Neve de Troll
-entity.got.TrystaneMartell.name⇒
-entity.got.TychoNestoris.name⇒
+entity.got.TrystaneMartell.name≠
+entity.got.TychoNestoris.name≠
 entity.got.TyrionLannister.name=Tyrion Lannister
 entity.got.TyroshBaker.name=Padeiro de Tyrosh
 entity.got.TyroshBannerBearer.name=Portador da bandeira de Tyrosh
@@ -779,7 +779,7 @@ entity.got.TyroshWarrior.name=Guerreiro de Tyrosh
 entity.got.TytosBlackwood.name=Tytos Blackwood
 entity.got.TytosBrax.name=Tytos Brax
 entity.got.TywinLannister.name=Tywin Lannister
-entity.got.VargoHoat.name⇒
+entity.got.VargoHoat.name≠
 entity.got.Varys.name=Varia
 entity.got.VictarionGreyjoy.name=Victarion Greyjoy
 entity.got.VolantisArcher.name=Arqueiro de Volantis
@@ -818,7 +818,7 @@ entity.got.WesterlandsFarmer.name=Fazendeiro de Terras Ocidentais
 entity.got.WesterlandsFarmhand.name=Agricultor de Terras Ocidentais
 entity.got.WesterlandsFishmonger.name=Peixeiro de Terras Ocidentais
 entity.got.WesterlandsFlorist.name=Florista de Terras Ocidentais
-entity.got.WesterlandsGoldsmith.name⇒
+entity.got.WesterlandsGoldsmith.name≠
 entity.got.WesterlandsGreengrocer.name=Verdureiro de Terras Ocidentais
 entity.got.WesterlandsGuard.name=Lannisport Guardian
 entity.got.WesterlandsLevyman.name=Miliciano de Terras Ocidentais
@@ -840,7 +840,7 @@ entity.got.WildlingAxeThrower.name=Lançador de machado selvagem
 entity.got.WildlingBannerBearer.name=Portador da Bandeira Wildling
 entity.got.WildlingChieftain.name=Wildling Chieftain
 entity.got.WillasTyrell.name=Willas Tyrell
-entity.got.WilliamMooton.name⇒
+entity.got.WilliamMooton.name≠
 entity.got.WoolyRhino.name=Wooly Rhino
 entity.got.WymanManderly.name=Wyman Manderly
 entity.got.Wyvern.name=Wyvern
@@ -859,6 +859,8 @@ entity.got.YiTiFarmer.name=Fazendeiro de Yi Ti
 entity.got.YiTiFarmhand.name=Agricultor de Yi Ti
 entity.got.YiTiFirePriest.name=Sacerdote do Fogo de Yi Ti
 entity.got.YiTiFishmonger.name=Peixeiro de Yi Ti
+entity.got.YiTiFrontier.name≠
+entity.got.YiTiFrontierCrossbower.name≠
 entity.got.YiTiGoldsmith.name=Ourives de Yi Ti
 entity.got.YiTiHunter.name=Caçador de Yi Ti
 entity.got.YiTiLevyman.name=Miliciano de Yi Ti
@@ -869,8 +871,8 @@ entity.got.YiTiSamurai.name=Samurai de Yi Ti
 entity.got.YiTiShogun.name=Shogun de Yi Ti
 entity.got.YiTiSoldier.name=Soldado de Yi Ti
 entity.got.YohnRoyce.name=Yohn Royce
-entity.got.Yoren.name⇒
-entity.got.YoungGriff.name⇒
+entity.got.Yoren.name≠
+entity.got.YoungGriff.name≠
 entity.got.Zebra.name=Zebra
 entity.got.generic.entityName=%s, o(a) %s
 entity.gotFishHook.name=Anzol de pesca
@@ -1350,6 +1352,8 @@ got.achievement.WEAR_FULL_MOSSOVY.desc=Use o conjunto completo de Mossovy
 got.achievement.WEAR_FULL_MOSSOVY.title=Guarda de Mossovy
 got.achievement.WEAR_FULL_MYR.desc=Use conjunto completo de Myr
 got.achievement.WEAR_FULL_MYR.title=Guarda de Myr
+got.achievement.WEAR_FULL_NOMAD.desc≠
+got.achievement.WEAR_FULL_NOMAD.title≠
 got.achievement.WEAR_FULL_NORTH.desc=Use conjunto completo de Norte
 got.achievement.WEAR_FULL_NORTH.title=Guarda do Norte
 got.achievement.WEAR_FULL_NORTHGUARD.desc=Use um conjunto completo de guardas do norte
@@ -1398,10 +1402,12 @@ got.achievement.WEAR_FULL_WESTERLANDSGUARD.desc=Use conjunto completo de guarda 
 got.achievement.WEAR_FULL_WESTERLANDSGUARD.title=Capitão da Guarda de Terras Ocidentais
 got.achievement.WEAR_FULL_WESTKING.desc=Vista conjunto completo de reis do oeste
 got.achievement.WEAR_FULL_WESTKING.title=West King
-got.achievement.WEAR_FULL_WHITEWALKERS.desc⇒
-got.achievement.WEAR_FULL_WHITEWALKERS.title⇒
+got.achievement.WEAR_FULL_WHITEWALKERS.desc≠
+got.achievement.WEAR_FULL_WHITEWALKERS.title≠
 got.achievement.WEAR_FULL_YITI.desc=Use conjunto completo de Yi Ti
 got.achievement.WEAR_FULL_YITI.title=Guarda de Yi Ti
+got.achievement.WEAR_FULL_YITI_FRONTIER.desc≠
+got.achievement.WEAR_FULL_YITI_FRONTIER.title≠
 got.achievement.WEAR_FULL_YITI_SAMURAI.desc=Use o conjunto completo de Yi Ti Samurai
 got.achievement.WEAR_FULL_YITI_SAMURAI.title=Yi Ti Samurai
 got.achievement.category.GENERAL=Geral
@@ -1599,7 +1605,7 @@ got.capes.QARTH.name=Cabo de Qarth
 got.capes.QOHOR.name=Cabo de Qohor
 got.capes.REACH.name=Cabo de Campina
 got.capes.RIVERLANDS.name=Cabo de Terras Fluviais
-got.capes.ROYALGUARD.name⇒
+got.capes.ROYALGUARD.name≠
 got.capes.STORMLANDS.name=Cabo de Terras da Tempestade
 got.capes.TARGARYEN.name=Cabo de Targaryen
 got.capes.TYROSH.name=Cabo de Tyrosh
@@ -1633,11 +1639,11 @@ got.chat.killedByBounty=%s foi morto(a) por seu alvo, %s!
 got.chat.loseTitle=Você não é mais digno de portar o título de %s
 got.chat.mountOwnedByNPC=Esta montaria pertence a um NPC - você não pode interagir com ela
 got.chat.pickpocket.inCombat=Você tem sido perseguido
-got.chat.pickpocket.missed⇒
+got.chat.pickpocket.missed≠
 got.chat.pickpocket.noticed=Você foi avistado!
 got.chat.pickpocket.otherNoticed=Você foi avistado!
 got.chat.pickpocket.success= Foi roubado com sucesso
-got.chat.pickpocket.watched⇒
+got.chat.pickpocket.watched≠
 got.chat.pledgeBreakCooldown=O tempo passou, e o mundo se esqueceu que você quebrou seu juramento à %s
 got.chat.pledgeKillWarn=Cuidado! Suas ações correm o risco de quebrar seu juramento à %s
 got.chat.protectedLand=Esta terra está sob a proteção de %s!
@@ -1805,12 +1811,14 @@ got.container.crafting.asshai=Artesanato de Asshai
 got.container.crafting.braavos=Braavos Crafting
 got.container.crafting.crownlands=Criação de Terras da Coroa
 got.container.crafting.dorne=Dorne Crafting
+got.container.crafting.dothraki≠
 got.container.crafting.dragonstone=Criação de Pedra do Dragão
 got.container.crafting.ghiscar=Ghiscar Crafting
 got.container.crafting.gift=Criação de relógios de Nigth
 got.container.crafting.hillmen=Elaboração de tribos nas colinas
 got.container.crafting.ibben=Artesanato Ibbenês
 got.container.crafting.ironborn=Artesanato nas Ilhas de Ferro
+got.container.crafting.jogos≠
 got.container.crafting.lhazar=Lhazar Crafting
 got.container.crafting.lorath=Lorath Crafting
 got.container.crafting.lys=Lys Crafting
@@ -1840,7 +1848,7 @@ got.container.trade.locked=...
 got.container.trade.sell=Vender
 got.container.trade.sellOffer=Vender itens
 got.container.trade.sellPrice=X %d
-got.container.unitTrade.pledge⇒
+got.container.unitTrade.pledge≠
 got.container.unitTrade.requiresAlignment=Requer +%d de reputazione
 got.container.unitTrade.squadronBox=Atribuir esquadrão?
 got.container.unsmeltery=Desfundição
@@ -2556,7 +2564,7 @@ got.gui.dismiss.mount=A montaria desta unidade também será dispensada.
 got.gui.dismiss.rider=O montador desta unidade também será dispensado.
 got.gui.dismiss.warning1=Você tem certeza que deseja dispensar esta unidade?
 got.gui.dismiss.warning2=Você não poderá voltar atrás
-got.gui.factions.alignment.limits⇒
+got.gui.factions.alignment.limits≠
 got.gui.factions.alignment.state=(%s)
 got.gui.factions.alignment=Reputazione:
 got.gui.factions.data.conquest=Conquista Adquirida: %d
@@ -2740,7 +2748,7 @@ got.gui.npc.smith=Ferraria
 got.gui.npc.talk=Falar
 got.gui.npc.trade=Negociar
 got.gui.npcRespawner.blockEnemy.off=Desligado
-got.gui.npcRespawner.blockEnemy.tooltip⇒
+got.gui.npcRespawner.blockEnemy.tooltip≠
 got.gui.npcRespawner.blockEnemy=Bloquear Invocação de Inimigos
 got.gui.npcRespawner.checkHorizontal=Checar alcance X/Z
 got.gui.npcRespawner.checkVerticalMax=Checar Y Máximo
@@ -2963,6 +2971,7 @@ got.shields.UNSULLIED.name=Escudo dos Imaculados
 got.shields.VOLANTIS.name=Escudo de Volantis
 got.shields.WESTERLANDS.name=Shield de Terras Ocidentais
 got.shields.YITI.name=Escudo de Yi Ti
+got.shields.YITI_FRONTIER.name≠
 got.shields.YITI_SAMURAI.name=Escudo de Yi Ti Samurai
 got.shields.category.ACHIEVABLE=Escudos de Conquistas
 got.shields.category.ALIGNMENT=Escudos de Reputazione
@@ -3691,7 +3700,7 @@ got.wp.Hardhome=Hardhome
 got.wp.HarlawHall.info=Uma vez que o castelo do ramo mais antigo da Casa de Harlow. Um antigo castelo com paredes úmidas, que Lord Theomore Harlow culpou pela morte dos herdeiros e, portanto, decidiu reconstruir um novo castelo - as Dez Torres. O velho Harlowhall foi para os ramos mais jovens da família.
 got.wp.HarlawHall=Harlaw Hall
 got.wp.Harrenhal.info=Um castelo em ruínas de tamanho colossal, para cuja construção Harren, o Negro, devastou e levou os camponeses do rio para trabalhar. Assim que o castelo foi concluído, Aegon, o Conquistador, invadiu Westeros, e o rebelde Harren e sua família foram queimados vivos em chamas de dragão em uma das torres. Eles dizem que Harren e sua família se tornaram espíritos malignos. Quer seja verdade ou não, mas nenhum dos novos proprietários fica no castelo por muito tempo.
-got.wp.Harrenhal⇒
+got.wp.Harrenhal≠
 got.wp.HarridanHill.info=O castelo é um ramo secundário da Casa Harlow, vassalos do Ancião Harlow.
 got.wp.HarridanHill=Harridan Hill
 got.wp.Harroway.info=Uma pequena aldeia localizada no cruzamento do Tridente. Recebeu o nome da extinta família Harrowey. Hoje em dia Ruths governa aqui.
@@ -4312,16 +4321,16 @@ item.got.robes.ornament=Enfeite
 item.got:aegonHelmet.name=Coroa de Aegon
 item.got:aleHorn.name=Chifre de Beber
 item.got:aleHornGold.name=Chifre Dourado de Beber
-item.got:alloySteelAxe.name⇒
-item.got:alloySteelDagger.name⇒
-item.got:alloySteelDaggerPoisoned.name⇒
-item.got:alloySteelHalberd.name⇒
-item.got:alloySteelHoe.name⇒
-item.got:alloySteelIgnot.name⇒
-item.got:alloySteelNugget.name⇒
-item.got:alloySteelPickaxe.name⇒
-item.got:alloySteelShovel.name⇒
-item.got:alloySteelSword.name⇒
+item.got:alloySteelAxe.name≠
+item.got:alloySteelDagger.name≠
+item.got:alloySteelDaggerPoisoned.name≠
+item.got:alloySteelHalberd.name≠
+item.got:alloySteelHoe.name≠
+item.got:alloySteelIgnot.name≠
+item.got:alloySteelNugget.name≠
+item.got:alloySteelPickaxe.name≠
+item.got:alloySteelShovel.name≠
+item.got:alloySteelSword.name≠
 item.got:almond.name=Amêndoa
 item.got:amber.name=Âmbar
 item.got:amethyst.name=Ametista
@@ -4354,67 +4363,68 @@ item.got:asshaiMask.name=Máscara Asshai Shadowbinder
 item.got:asshaiSpear.name=Lança Asshai
 item.got:asshaiStaff.name=Cajado Asshai Shadowbinder
 item.got:asshaiSword.name=Espada Asshai
-item.got:baelishBrooch.name⇒
+item.got:baelishBrooch.name≠
 item.got:baelishDagger.name=Punhal de Petyr Baelish
 item.got:banana.name=Banana
 item.got:bananaBread.name=Pão de Banana
 item.got:bananaCake.name=Bolo de Banana
-item.got:banner.aemon.name⇒
-item.got:banner.aemonBook.name⇒
-item.got:banner.aemonrivers.name⇒
+item.got:bane.name≠
+item.got:banner.aemon.name≠
+item.got:banner.aemonBook.name≠
+item.got:banner.aemonrivers.name≠
 item.got:banner.aerion.name=Bandeira de Aerion
-item.got:banner.aerionBook.name⇒
-item.got:banner.algood.name⇒
+item.got:banner.aerionBook.name≠
+item.got:banner.algood.name≠
 item.got:banner.allyrion.name=Bandeira de Allyrion
 item.got:banner.alqalis.name=Bandeira de Alqualis
-item.got:banner.amber.name⇒
+item.got:banner.amber.name≠
 item.got:banner.ambrose.name=Bandeira de Ambrósio
-item.got:banner.amorylorch.name⇒
+item.got:banner.amorylorch.name≠
 item.got:banner.andal.name=Bandeira da andal
 item.got:banner.appleton.name=Banner de Appleton
-item.got:banner.arlan.name⇒
+item.got:banner.arlan.name≠
 item.got:banner.arryn.name=Bandeira de Arryn
-item.got:banner.arrynBook.name⇒
+item.got:banner.arrynBook.name≠
 item.got:banner.arrynGT.name=Bandeira de Arryn do Portão da Lua
-item.got:banner.arrynHD.name⇒
+item.got:banner.arrynHD.name≠
 item.got:banner.ashford.name=Banner de Ashford
-item.got:banner.ashwood.name⇒
+item.got:banner.ashwood.name≠
 item.got:banner.astapor.name=Banner de Astapor
-item.got:banner.auranewaters.name⇒
+item.got:banner.auranewaters.name≠
 item.got:banner.baelish.name=Bandeira de Baelish
 item.got:banner.baelishBook.name=Banner de Baelish (livro)
 item.got:banner.baelishold.name=Banner de Baelish (antigo)
 item.got:banner.ball.name=Bandeira de bola
 item.got:banner.banefort.name=Banner do Banefort
-item.got:banner.banefortBook.name⇒
-item.got:banner.baratheonHD.name⇒
-item.got:banner.barbrey.name⇒
+item.got:banner.banefortBook.name≠
+item.got:banner.baratheonHD.name≠
+item.got:banner.barbrey.name≠
 item.got:banner.baremmon.name=Bandeira de Baremoon
 item.got:banner.beesbury.name=Banner de Beesbury
 item.got:banner.belaerys.name=Banner de Belaerys
 item.got:banner.belmore.name=Bandeira de belmore
-item.got:banner.benfrey.name⇒
-item.got:banner.bennis.name⇒
+item.got:banner.benfrey.name≠
+item.got:banner.bennis.name≠
 item.got:banner.bettley.name=Bandeira de Bettley
-item.got:banner.bigwalder.name⇒
+item.got:banner.bigwalder.name≠
 item.got:banner.bittersteel.name=Banner de Bittersteel
 item.got:banner.blackbar.name=Banner de Blackbar
 item.got:banner.blackfish.name=Banner de Blackfish
 item.got:banner.blackfishBook.name=Banner de Blackfish (livro)
 item.got:banner.blackfyre.name=Banner de Blackfyre
-item.got:banner.blackfyreBook.name⇒
+item.got:banner.blackfyreBook.name≠
 item.got:banner.blackmont.name=Banner de Blackmont
 item.got:banner.blacks.name=Bandeira dos negros
-item.got:banner.blacksBook.name⇒
+item.got:banner.blacksBook.name≠
 item.got:banner.blacktyde.name=Banner de Blacktyde
 item.got:banner.blackwood.name=Banner de Blackwood
-item.got:banner.blackwoodBook.name⇒
-item.got:banner.blanetree.name⇒
+item.got:banner.blackwoodBook.name≠
+item.got:banner.blanetree.name≠
 item.got:banner.bloodraven.name=Banner de Bloodraven
-item.got:banner.bloodravenBook.name⇒
+item.got:banner.bloodravenBook.name≠
 item.got:banner.blount.name=Banner de Blount
-item.got:banner.boggs.name⇒
-item.got:banner.bole.name⇒
+item.got:banner.boggs.name≠
+item.got:banner.bole.name≠
 item.got:banner.bolling.name=Banner de Bolling
 item.got:banner.bolton.name=Bandeira de Bolton
 item.got:banner.boltonbook.name=Banner de Bolton (livro)
@@ -4422,14 +4432,14 @@ item.got:banner.borrell.name=Bandeira de Borrell
 item.got:banner.botley.name=Banner de Botley
 item.got:banner.braavos.name=Bandeira de Bravos
 item.got:banner.bracken.name=Bandeira de Bracken
-item.got:banner.brackenBook.name⇒
-item.got:banner.branch.name⇒
-item.got:banner.branfield.name⇒
+item.got:banner.brackenBook.name≠
+item.got:banner.branch.name≠
+item.got:banner.branfield.name≠
 item.got:banner.bravecompanions.name=Banner de Brave Compasions
 item.got:banner.brax.name=Estandarte da brax
 item.got:banner.breakstone.name=Banner de Breakstone
-item.got:banner.bridges.name⇒
-item.got:banner.brightstone.name⇒
+item.got:banner.bridges.name≠
+item.got:banner.brightstone.name≠
 item.got:banner.bronn.name=Bandeira de Bronn
 item.got:banner.bronnBook.name=Banner de Bronn (livro)
 item.got:banner.broom.name=Bandeira da Vassoura
@@ -4440,7 +4450,7 @@ item.got:banner.buckler.name=Banner de Buckler
 item.got:banner.buckwell.name=Banner de Buckwell
 item.got:banner.bullwer.name=Banner de Bullwer
 item.got:banner.burley.name=Estandarte de burley
-item.got:banner.bushy.name⇒
+item.got:banner.bushy.name≠
 item.got:banner.butterwell.name=Banner de Butterwell
 item.got:banner.byrch.name=Bandeira de Byrch
 item.got:banner.bywater.name=Banner de Bywater
@@ -4450,7 +4460,7 @@ item.got:banner.caron.name=Bandeira de Caron
 item.got:banner.cassel.name=Estandarte de cassel
 item.got:banner.casterly.name=Bandeira de Casterly
 item.got:banner.caswell.name=Banner de Caswell
-item.got:banner.cave.name⇒
+item.got:banner.cave.name≠
 item.got:banner.celtigar.name=Bandeira de Celtigar
 item.got:banner.cerwyn.name=Bandeira de Cerwyn
 item.got:banner.charlton.name=Banner de Charlton
@@ -4458,8 +4468,8 @@ item.got:banner.chelsted.name=Bandeira de Chelsted
 item.got:banner.chester.name=Banner de Chester
 item.got:banner.chyttering.name=Banner de Chyttering
 item.got:banner.clegane.name=Bandeira de Clegane 
-item.got:banner.cleos.name⇒
-item.got:banner.clifton.name⇒
+item.got:banner.cleos.name≠
+item.got:banner.clifton.name≠
 item.got:banner.cockshaw.name=Banner de Cockshaw
 item.got:banner.codd.name=Banner de Codd
 item.got:banner.coldwater.name=Banner de Coldwater
@@ -4467,47 +4477,47 @@ item.got:banner.cole.name=Estandarte de cole
 item.got:banner.condon.name=Bandeira de Condon
 item.got:banner.connington.name=Banner de Connington
 item.got:banner.corbray.name=Bandeira de Corbray
-item.got:banner.corbrayBook.name⇒
+item.got:banner.corbrayBook.name≠
 item.got:banner.cordwayner.name=Banner de Cordwayner
 item.got:banner.costayne.name=Estandarte de Costayne
 item.got:banner.cox.name=Banner de Cox
-item.got:banner.crabb.name⇒
+item.got:banner.crabb.name≠
 item.got:banner.crakehall.name=Banner de Crakehall
 item.got:banner.crane.name=Banner de Crane
-item.got:banner.creighton.name⇒
-item.got:banner.cressey.name⇒
+item.got:banner.creighton.name≠
+item.got:banner.cressey.name≠
 item.got:banner.crowl.name=Bandeira de Crowl
 item.got:banner.cuy.name=Banner de Cuy
-item.got:banner.daemon.name⇒
-item.got:banner.daeron.name⇒
-item.got:banner.daeronBook.name⇒
+item.got:banner.daemon.name≠
+item.got:banner.daeron.name≠
+item.got:banner.daeronBook.name≠
 item.got:banner.dalt.name=Bandeira de Dalt
 item.got:banner.dalton.name=Bandeira de Dalton
-item.got:banner.dargood.name⇒
-item.got:banner.darke.name⇒
+item.got:banner.dargood.name≠
+item.got:banner.darke.name≠
 item.got:banner.darklyn.name=Bandeira de Darklyn
-item.got:banner.darkwood.name⇒
+item.got:banner.darkwood.name≠
 item.got:banner.darry.name=Banner de Darry
 item.got:banner.dayne.name=Banner de Dayne
 item.got:banner.dayneHH.name=Bandeira de Dayne de High Hermitage
-item.got:banner.degore.name⇒
-item.got:banner.derrickfossoway.name⇒
-item.got:banner.doggett.name⇒
+item.got:banner.degore.name≠
+item.got:banner.derrickfossoway.name≠
+item.got:banner.doggett.name≠
 item.got:banner.dondarrion.name=Bandeira de Dondarrion
-item.got:banner.dondarrionBook.name⇒
+item.got:banner.dondarrionBook.name≠
 item.got:banner.donniger.name=Bandeira de Donniger
 item.got:banner.dormund.name=Banner de Dormund
-item.got:banner.drinkwater.name⇒
-item.got:banner.drox.name⇒
+item.got:banner.drinkwater.name≠
+item.got:banner.drox.name≠
 item.got:banner.drumm.name=Bandeira de Drumm
-item.got:banner.dryland.name⇒
+item.got:banner.dryland.name≠
 item.got:banner.duncan.name=Bandeira de Duncan
-item.got:banner.dunn.name⇒
-item.got:banner.durrandon.name⇒
-item.got:banner.durwell.name⇒
+item.got:banner.dunn.name≠
+item.got:banner.durrandon.name≠
+item.got:banner.durwell.name≠
 item.got:banner.dustin.name=Estandarte de dustin
 item.got:banner.eddard.name=Bandeira de Eddard Stark
-item.got:banner.edricstorm.name⇒
+item.got:banner.edricstorm.name≠
 item.got:banner.egen.name=Bandeira de Egen
 item.got:banner.elephants.name=Bandeira dos Elefantes
 item.got:banner.elesham.name=Banner de Elesham
@@ -4522,37 +4532,37 @@ item.got:banner.falwell.name=Bandeira de Falwell
 item.got:banner.farman.name=Banner de Farman
 item.got:banner.farring.name=Bandeira de Farring
 item.got:banner.farwynd.name=Banner de Farwynd
-item.got:banner.farwyndLL.name⇒
+item.got:banner.farwyndLL.name≠
 item.got:banner.fell.name=Bandeira de Caiu
 item.got:banner.fenn.name=Bandeira de Fenn
-item.got:banner.ferren.name⇒
+item.got:banner.ferren.name≠
 item.got:banner.fireball.name=Banner de Fireball
 item.got:banner.firstFlint.name=Estandarte de 
-item.got:banner.firstmen.name⇒
+item.got:banner.firstmen.name≠
 item.got:banner.fisher.name=Bandeira de Fisher
-item.got:banner.fisherSS.name⇒
-item.got:banner.flintBH.name⇒
+item.got:banner.fisherSS.name≠
+item.got:banner.flintBH.name≠
 item.got:banner.flintFF.name=Bandeira de Flint do Dedo de Flint
 item.got:banner.flintWW.name=Bandeira de Pederneira do Relógio da Viúva
 item.got:banner.florent.name=Bandeira de Florent
-item.got:banner.florentBook.name⇒
+item.got:banner.florentBook.name≠
 item.got:banner.follard.name=Banner de Follard
 item.got:banner.foote.name=Bandeira de Foote
-item.got:banner.footeN.name⇒
+item.got:banner.footeN.name≠
 item.got:banner.footly.name=Bandeira de Footly
 item.got:banner.forrester.name=Banner da Forrester
-item.got:banner.forresterBook.name⇒
+item.got:banner.forresterBook.name≠
 item.got:banner.fossowayCH.name=Bandeira de Fossoway do Cider Hall
 item.got:banner.fossowayNB.name=Bandeira de Fossoway de New Barrel
 item.got:banner.fowler.name=Bandeira de Fowler
-item.got:banner.fowlerBook.name⇒
+item.got:banner.fowlerBook.name≠
 item.got:banner.frey.name=Estandarte de frey
 item.got:banner.freyBook.name=Banner de Frey (livro)
-item.got:banner.freyriverrun.name⇒
-item.got:banner.frost.name⇒
-item.got:banner.galtry.name⇒
+item.got:banner.freyriverrun.name≠
+item.got:banner.frost.name≠
+item.got:banner.galtry.name≠
 item.got:banner.gardener.name=Estandarte do jardineiro 
-item.got:banner.gardenerBook.name⇒
+item.got:banner.gardenerBook.name≠
 item.got:banner.gargalen.name=Bandeira de Gargalen 
 item.got:banner.gaunt.name=Banner de Gaunt
 item.got:banner.ghiscar.name=Bandeira do Ghiscar
@@ -4561,31 +4571,31 @@ item.got:banner.glover.name=Bandeira de Glover
 item.got:banner.goldencompany.name=Bandeira da Golden Company
 item.got:banner.goodbrook.name=Bandeira de Goodbrook
 item.got:banner.goodbrother.name=Banner de Goodbrother 
-item.got:banner.goodbrotherCL.name⇒
-item.got:banner.goodbrotherCSK.name⇒
-item.got:banner.goodbrotherD.name⇒
-item.got:banner.goodbrotherO.name⇒
-item.got:banner.goodbrotherS.name⇒
-item.got:banner.gormondgoodbrother.name⇒
+item.got:banner.goodbrotherCL.name≠
+item.got:banner.goodbrotherCSK.name≠
+item.got:banner.goodbrotherD.name≠
+item.got:banner.goodbrotherO.name≠
+item.got:banner.goodbrotherS.name≠
+item.got:banner.gormondgoodbrother.name≠
 item.got:banner.gower.name=Bandeira de Gower
 item.got:banner.graceford.name=Banner de Graceford
 item.got:banner.grafton.name=Banner de Grafton
 item.got:banner.grandison.name=Bandeira de Grandison
-item.got:banner.grangoodbrother.name⇒
+item.got:banner.grangoodbrother.name≠
 item.got:banner.greenfield.name=Banner de Greenfielf
 item.got:banner.greens.name=Bandeira dos Verdes
-item.got:banner.greensBook.name⇒
+item.got:banner.greensBook.name≠
 item.got:banner.grell.name=Bandeira de Grell
 item.got:banner.greyiron.name=Banner de Greyiron
 item.got:banner.greyjoy.name=Banner de Greyjoy
-item.got:banner.greyjoyBook.name⇒
-item.got:banner.greyjoyHD.name⇒
+item.got:banner.greyjoyBook.name≠
+item.got:banner.greyjoyHD.name≠
 item.got:banner.greystark.name=Banner de Greystark
 item.got:banner.grimm.name=Bandeira de Grimm
 item.got:banner.haigh.name=Bandeira de Haigh
 item.got:banner.hand.name=Bandeira da Mão
 item.got:banner.harclay.name=Banner de Harclay
-item.got:banner.hardy.name⇒
+item.got:banner.hardy.name≠
 item.got:banner.hardyng.name=Banner de Hardyng
 item.got:banner.harlaw.name=Bandeira de Harlaw
 item.got:banner.harlawGG.name=Bandeira do Jardim Cinzento Harlaw
@@ -4593,71 +4603,71 @@ item.got:banner.harlawHH.name=Bandeira de Harlaw de Harridan Hill
 item.got:banner.harlawHall.name=Bandeira de Hawlaw do Harlaw Hall
 item.got:banner.harlawTG.name=Bandeira da Torre de Cintilação de Harlaw
 item.got:banner.harlton.name=Banner de Harlton
-item.got:banner.harroldhardyng.name⇒
+item.got:banner.harroldhardyng.name≠
 item.got:banner.harroway.name=Bandeira de Harroway
 item.got:banner.harte.name=Bandeira de Harte
-item.got:banner.hastwyck.name⇒
+item.got:banner.hastwyck.name≠
 item.got:banner.hasty.name=Banner de Hasty
-item.got:banner.hawick.name⇒
-item.got:banner.hawthorne.name⇒
+item.got:banner.hawick.name≠
+item.got:banner.hawthorne.name≠
 item.got:banner.hayford.name=Banner de Hayford
 item.got:banner.heddle.name=Banner de Heddle
-item.got:banner.herston.name⇒
+item.got:banner.herston.name≠
 item.got:banner.hersy.name=Banner de Hersy
 item.got:banner.hetherspoon.name=Bandeira de Hetherspoon 
 item.got:banner.hewett.name=Bandeira de Hewett
 item.got:banner.hightower.name=Banner de Hightower
-item.got:banner.hightowerBook.name⇒
+item.got:banner.hightowerBook.name≠
 item.got:banner.hillmen.name=Banner de Hillmen
 item.got:banner.hoare.name=Bandeira de Hoare
-item.got:banner.hogg.name⇒
+item.got:banner.hogg.name≠
 item.got:banner.hollard.name=Banner de Hollard
 item.got:banner.hornwood.name=Banner de Hornwood 
-item.got:banner.hornwoodBook.name⇒
+item.got:banner.hornwoodBook.name≠
 item.got:banner.horpe.name=Bandeira do Horpe
-item.got:banner.hugh.name⇒
+item.got:banner.hugh.name≠
 item.got:banner.hunt.name=Bandeira da Caça
 item.got:banner.hunter.name=Estandarte do caçador
-item.got:banner.hutcheson.name⇒
+item.got:banner.hutcheson.name≠
 item.got:banner.ibben.name=Bandeira de Ibben
-item.got:banner.illifer.name⇒
+item.got:banner.illifer.name≠
 item.got:banner.inchfield.name=Bandeira de Inchfield
 item.got:banner.ironbank.name=Banner de Ironbank
-item.got:banner.ironmaker.name⇒
-item.got:banner.ironsmith.name⇒
-item.got:banner.jaremymallister.name⇒
+item.got:banner.ironmaker.name≠
+item.got:banner.ironsmith.name≠
+item.got:banner.jaremymallister.name≠
 item.got:banner.jast.name=Bandeira de Jast
 item.got:banner.joffrey.name=Bandeira de Joffrey
-item.got:banner.joffreyHD.name⇒
-item.got:banner.jonconnington.name⇒
-item.got:banner.jonking.name⇒
-item.got:banner.jonsnow.name⇒
+item.got:banner.joffreyHD.name≠
+item.got:banner.jonconnington.name≠
+item.got:banner.jonking.name≠
+item.got:banner.jonsnow.name≠
 item.got:banner.jordayne.name=Banner de Jordayne
 item.got:banner.justman.name=Estandarte de justman
 item.got:banner.karstark.name=Banner de Karstark
-item.got:banner.karstarkBook.name⇒
-item.got:banner.kellington.name⇒
+item.got:banner.karstarkBook.name≠
+item.got:banner.kellington.name≠
 item.got:banner.kenningH.name=Bandeira de Kenning de Harlaw
 item.got:banner.kenningK.name=Bandeira de Kenning Kayce
 item.got:banner.kettleblack.name=Bandeira de Kettleblack
 item.got:banner.kidwell.name=Banner de Kidwell
 item.got:banner.kingsguard.name=Bandeira de Kingsquard
 item.got:banner.knott.name=Banner de Knott
-item.got:banner.kyndall.name⇒
-item.got:banner.ladybright.name⇒
-item.got:banner.lake.name⇒
-item.got:banner.langward.name⇒
-item.got:banner.lannett.name⇒
+item.got:banner.kyndall.name≠
+item.got:banner.ladybright.name≠
+item.got:banner.lake.name≠
+item.got:banner.langward.name≠
+item.got:banner.lannett.name≠
 item.got:banner.lannisport.name=Banner de Lannisport
 item.got:banner.lannister.name=Banner de Lannister
 item.got:banner.lannisterB.name=Banner de Lannister (livro)
-item.got:banner.lannisterBook.name⇒
-item.got:banner.lannisterC.name⇒
+item.got:banner.lannisterBook.name≠
+item.got:banner.lannisterC.name≠
 item.got:banner.lannisterD.name=Bandeira de Lannister de Darry
-item.got:banner.lannisterHD.name⇒
+item.got:banner.lannisterHD.name≠
 item.got:banner.lannisterTygett.name=Bandeira de Tygett Lannister
-item.got:banner.lanny.name⇒
-item.got:banner.lantell.name⇒
+item.got:banner.lanny.name≠
+item.got:banner.lantell.name≠
 item.got:banner.laughingTree.name=Banner de Laughing Tree
 item.got:banner.leather.name=Estandarte de couro
 item.got:banner.lefford.name=Banner de Lefford
@@ -4665,27 +4675,27 @@ item.got:banner.leng.name=Bandeira de Leng
 item.got:banner.leygood.name=Bandeira de Leygood
 item.got:banner.lhazar.name=Bandeira de Lhazar
 item.got:banner.liddle.name=Banner de Liddle
-item.got:banner.lightfoot.name⇒
-item.got:banner.lipps.name⇒
-item.got:banner.littlewalder.name⇒
+item.got:banner.lightfoot.name≠
+item.got:banner.lipps.name≠
+item.got:banner.littlewalder.name≠
 item.got:banner.locke.name=Bandeira de Locke
-item.got:banner.lolliston.name⇒
-item.got:banner.longtorpe.name⇒
-item.got:banner.longwaters.name⇒
-item.got:banner.lonmouth.name⇒
+item.got:banner.lolliston.name≠
+item.got:banner.longtorpe.name≠
+item.got:banner.longwaters.name≠
+item.got:banner.lonmouth.name≠
 item.got:banner.loraq.name=Bandeira de Loraq
 item.got:banner.lorath.name=Bandeira de Lorath
 item.got:banner.lorch.name=Bandeira de Lorch
-item.got:banner.lothor.name⇒
+item.got:banner.lothor.name≠
 item.got:banner.lothston.name=Banner de Lothston
-item.got:banner.lowther.name⇒
-item.got:banner.lyberr.name⇒
+item.got:banner.lowther.name≠
+item.got:banner.lyberr.name≠
 item.got:banner.lychester.name=Bandeira de Lychester
 item.got:banner.lydden.name=Bandeira de Lydden
 item.got:banner.lynderly.name=Estandarte de Lynderly
 item.got:banner.lys.name=Bandeira de Lys
 item.got:banner.maekar.name=Bandeira de Maekar
-item.got:banner.maekarBook.name⇒
+item.got:banner.maekarBook.name≠
 item.got:banner.maesters.name=Bandeira dos Meistres
 item.got:banner.magnar.name=Bandeira de Magnar
 item.got:banner.mallery.name=Banner de Mallery
@@ -4697,8 +4707,8 @@ item.got:banner.manwoody.name=Banner de Manwoody
 item.got:banner.marbrand.name=Banner de Marbrand
 item.got:banner.marsh.name=Banner de Marsh
 item.got:banner.martell.name=Estandarte de Martell
-item.got:banner.martellBook.name⇒
-item.got:banner.martellHD.name⇒
+item.got:banner.martellBook.name≠
+item.got:banner.martellHD.name≠
 item.got:banner.massey.name=Banner de Massey
 item.got:banner.mazin.name=Bandeira de Mazin
 item.got:banner.meadows.name=Banner de Meadows
@@ -4712,143 +4722,143 @@ item.got:banner.moore.name=Bandeira de Moore
 item.got:banner.mooton.name=Bandeira de Mooton
 item.got:banner.mopatis.name=Bandeira de Mopatis
 item.got:banner.moreland.name=Bandeira de Moreland
-item.got:banner.morgryn.name⇒
+item.got:banner.morgryn.name≠
 item.got:banner.mormont.name=Bandeira de Mormont
-item.got:banner.mormontBook.name⇒
+item.got:banner.mormontBook.name≠
 item.got:banner.morrigen.name=Bandeira de Morrigen
-item.got:banner.morros.name⇒
+item.got:banner.morros.name≠
 item.got:banner.mors.name=Bandeira dos Mors
-item.got:banner.morsBook.name⇒
-item.got:banner.moss.name⇒
+item.got:banner.morsBook.name≠
+item.got:banner.moss.name≠
 item.got:banner.mudd.name=Banner de Mudd
 item.got:banner.mullendore.name=Bandeira de Mullenfore 
-item.got:banner.musgood.name⇒
-item.got:banner.myatt.name⇒
+item.got:banner.musgood.name≠
+item.got:banner.myatt.name≠
 item.got:banner.myr.name=Bandeira de Myr
 item.got:banner.myre.name=Bandeira de Myre
 item.got:banner.newghis.name=Bandeira de Newghis
 item.got:banner.night.name=Bandeira da noite
 item.got:banner.norcross.name=Banner de Norcross
 item.got:banner.norrey.name=Bandeira de Norrey
-item.got:banner.norridge.name⇒
+item.got:banner.norridge.name≠
 item.got:banner.norvos.name=Bandeira de Norvos
 item.got:banner.null.name=Banner de Emergência
 item.got:banner.nymeria.name=Bandeira de Nymeria
-item.got:banner.oakenfist.name⇒
+item.got:banner.oakenfist.name≠
 item.got:banner.oakheart.name=Banner de Oakheart
-item.got:banner.oberyn.name⇒
-item.got:banner.oldflowers.name⇒
+item.got:banner.oberyn.name≠
+item.got:banner.oldflowers.name≠
 item.got:banner.orkwood.name=Bandeira de Orkwood
-item.got:banner.orme.name⇒
+item.got:banner.orme.name≠
 item.got:banner.osgrey.name=Banner de Osgrey
-item.got:banner.osgreyll.name⇒
-item.got:banner.overton.name⇒
+item.got:banner.osgreyll.name≠
+item.got:banner.overton.name≠
 item.got:banner.paege.name=Estandarte de Paege
 item.got:banner.parren.name=Bandeira de Parren
 item.got:banner.patrek.name=Bandeira de Patrek
 item.got:banner.payne.name=Bandeira de Payne
 item.got:banner.peake.name=Bandeira de Peake
-item.got:banner.pearse.name⇒
+item.got:banner.pearse.name≠
 item.got:banner.peasebury.name=Banner de Peasebury
-item.got:banner.peckledon.name⇒
+item.got:banner.peckledon.name≠
 item.got:banner.pendragon.name=Bandeira de Pendragon
 item.got:banner.penrose.name=Bandeira de Penrose
 item.got:banner.pentos.name=Estandarte de pentos
 item.got:banner.piper.name=Banner de Piper
 item.got:banner.plumm.name=Bandeira de Plumm
-item.got:banner.pommingham.name⇒
+item.got:banner.pommingham.name≠
 item.got:banner.poole.name=Bandeira de Poole
 item.got:banner.poorFellows.name=Bandeira dos Pobres Companheiros
 item.got:banner.prester.name=Bandeira do Preste
 item.got:banner.pryor.name=Bandeira de Pryor
-item.got:banner.pyle.name⇒
-item.got:banner.pyne.name⇒
+item.got:banner.pyle.name≠
+item.got:banner.pyne.name≠
 item.got:banner.qarth.name=Bandeira de Qarth
 item.got:banner.qoherys.name=Banner de Qoherys
 item.got:banner.qohor.name=Bandeira de Qohor
 item.got:banner.qorgile.name=Bandeira do Qorqile
 item.got:banner.rambton.name=Banner de Rambton
-item.got:banner.redbeard.name⇒
+item.got:banner.redbeard.name≠
 item.got:banner.redfort.name=Bandeira de Redfort
 item.got:banner.redwyne.name=Bandeira de Redwyne
-item.got:banner.redwyneBook.name⇒
+item.got:banner.redwyneBook.name≠
 item.got:banner.reed.name=Banner de Reed
-item.got:banner.reedBook.name⇒
-item.got:banner.reedHBO.name⇒
+item.got:banner.reedBook.name≠
+item.got:banner.reedHBO.name≠
 item.got:banner.renly.name=Estandarte de Renly
-item.got:banner.renlyBook.name⇒
-item.got:banner.renlyHD.name⇒
+item.got:banner.renlyBook.name≠
+item.got:banner.renlyHD.name≠
 item.got:banner.renlyguard.name=Bandeira do Renlyguard
 item.got:banner.reyne.name=Banner de Reyne
-item.got:banner.reyneBook.name⇒
-item.got:banner.rhaegar.name⇒
+item.got:banner.reyneBook.name≠
+item.got:banner.rhaegar.name≠
 item.got:banner.rhllor.name=Bandeira de Rhllor
-item.got:banner.rhysling.name⇒
+item.got:banner.rhysling.name≠
 item.got:banner.rikker.name=Bandeira de Rikker
 item.got:banner.risley.name=Bandeira de Risley
 item.got:banner.robb.name=Bandeira de Robb Stark
-item.got:banner.robbBook.name⇒
+item.got:banner.robbBook.name≠
 item.got:banner.robert.name=Estandarte de robert
 item.got:banner.robertB.name=Banner de Robert (livro)
-item.got:banner.robertashford.name⇒
-item.got:banner.robertblackwood.name⇒
-item.got:banner.rodrikryswell.name⇒
-item.got:banner.rogerblackwood.name⇒
+item.got:banner.robertashford.name≠
+item.got:banner.robertblackwood.name≠
+item.got:banner.rodrikryswell.name≠
+item.got:banner.rogerblackwood.name≠
 item.got:banner.rogers.name=Bandeira de Rogers
-item.got:banner.rolandblackwood.name⇒
-item.got:banner.rollandStorm.name⇒
-item.got:banner.rollingford.name⇒
+item.got:banner.rolandblackwood.name≠
+item.got:banner.rollandStorm.name≠
+item.got:banner.rollingford.name≠
 item.got:banner.roote.name=Bandeira da Raiz
 item.got:banner.rosby.name=Estandarte de rosby
-item.got:banner.rossart.name⇒
+item.got:banner.rossart.name≠
 item.got:banner.rowan.name=Bandeira de Rowan
 item.got:banner.roxton.name=Estandarte de Roxton
 item.got:banner.royce.name=Estandarte de royce
 item.got:banner.royceBook.name=Banner de Royce (livro)
 item.got:banner.royceGM.name=Bandeira de Royce do Portão da Lua
-item.got:banner.ruthermont.name⇒
+item.got:banner.ruthermont.name≠
 item.got:banner.ruttiger.name=Bandeira de Ruttiger
-item.got:banner.ryder.name⇒
+item.got:banner.ryder.name≠
 item.got:banner.ryger.name=Estandarte de Ryger
 item.got:banner.ryswell.name=Bandeira de Ryswell
 item.got:banner.saan.name=Bandeira de Saan
 item.got:banner.saltcliffe.name=Banner de Saltcliffe
-item.got:banner.sandsnakes.name⇒
+item.got:banner.sandsnakes.name≠
 item.got:banner.santagar.name=Bandeira de Santagar
 item.got:banner.sarsfield.name=Banner de Sarsfield
 item.got:banner.sarwyck.name=Bandeira de Sarwyck
-item.got:banner.seasmoke.name⇒
-item.got:banner.seastar.name⇒
+item.got:banner.seasmoke.name≠
+item.got:banner.seastar.name≠
 item.got:banner.seaworth.name=Banner de Seaworth
 item.got:banner.secondsons.name=Banner de Secondsons
 item.got:banner.selmy.name=Banner de Selmy
 item.got:banner.sept.name=Banner de Sept
 item.got:banner.serrett.name=Banner de Serrett
-item.got:banner.serrettBook.name⇒
+item.got:banner.serrettBook.name≠
 item.got:banner.serry.name=Banner de Serry
-item.got:banner.shadrich.name⇒
-item.got:banner.shawney.name⇒
-item.got:banner.shell.name⇒
+item.got:banner.shadrich.name≠
+item.got:banner.shawney.name≠
+item.got:banner.shell.name≠
 item.got:banner.shermer.name=Estandarte de shermer
 item.got:banner.shettgtower.name=Banner de Shettgtower
 item.got:banner.shettgtown.name=Bandeira de Shettgtown
 item.got:banner.slate.name=Banner de Slate
-item.got:banner.sloane.name⇒
+item.got:banner.sloane.name≠
 item.got:banner.slynt.name=Bandeira de Slynt
 item.got:banner.smallwood.name=Banner de Smallwood
 item.got:banner.sothoryos.name=Bandeira de Sothoryos 
 item.got:banner.sparr.name=Banner de Sparr
 item.got:banner.sparrow.name=Bandeira do Pardal 
 item.got:banner.spicer.name=Estandarte de Spicer
-item.got:banner.stackhouse.name⇒
+item.got:banner.stackhouse.name≠
 item.got:banner.stackspear.name=Banner de Stackspear
 item.got:banner.staedmon.name=Bandeira de Staedmon
 item.got:banner.stane.name=Bandeira de Stane
 item.got:banner.stannis.name=Bandeira de Stannis
-item.got:banner.stannisBook.name⇒
-item.got:banner.stannisHD.name⇒
-item.got:banner.starkD.name⇒
-item.got:banner.starkHD.name⇒
+item.got:banner.stannisBook.name≠
+item.got:banner.stannisHD.name≠
+item.got:banner.starkD.name≠
+item.got:banner.starkHD.name≠
 item.got:banner.staunton.name=Banner de Staunton
 item.got:banner.stokeworth.name=Bandeira de Stokeworth
 item.got:banner.stonehouse.name=Banner de Stonehouse
@@ -4857,26 +4867,26 @@ item.got:banner.stormcrows.name=Bandeira dos Corvos da Tempestade
 item.got:banner.stout.name=Banner de Stout
 item.got:banner.strickland.name=Banner de Streickland
 item.got:banner.strong.name=Banner de Strong
-item.got:banner.suggs.name⇒
+item.got:banner.suggs.name≠
 item.got:banner.summer.name=Estandarte de verão
 item.got:banner.sunderland.name=Banner de Sunderland
 item.got:banner.sunderly.name=Banner de Sunderly
 item.got:banner.sunglass.name=Banner de Sunglass
 item.got:banner.swann.name=Bandeira de Swann
-item.got:banner.swannBook.name⇒
+item.got:banner.swannBook.name≠
 item.got:banner.swyft.name=Banner de Swyft
-item.got:banner.swygert.name⇒
+item.got:banner.swygert.name≠
 item.got:banner.tallad.name=Bandeira de Tallad
 item.got:banner.tallhart.name=Bandeira de Tallhart
 item.got:banner.tarbeck.name=Bandeira de Tarbeck
 item.got:banner.targaryen.name=Bandeira de Targaryen
 item.got:banner.targaryen2.name=Bandeira de Targaryen
-item.got:banner.targaryenBook.name⇒
+item.got:banner.targaryenBook.name≠
 item.got:banner.tarly.name=Bandeira de Tarly
-item.got:banner.tarlyBook.name⇒
+item.got:banner.tarlyBook.name≠
 item.got:banner.tarth.name=Bandeira de Tarth
-item.got:banner.tarthBook.name⇒
-item.got:banner.tarwick.name⇒
+item.got:banner.tarthBook.name≠
+item.got:banner.tarwick.name≠
 item.got:banner.tawney.name=Banner de Tawney
 item.got:banner.teague.name=Bandeira do Teague
 item.got:banner.templeton.name=Banner de Templeton
@@ -4887,74 +4897,74 @@ item.got:banner.toland.name=Bandeira de Toland
 item.got:banner.tollett.name=Bandeira de Tollett
 item.got:banner.torrent.name=Banner de Torrent
 item.got:banner.towers.name=Bandeira das Torres
-item.got:banner.towersN.name⇒
+item.got:banner.towersN.name≠
 item.got:banner.toyne.name=Banner de Toyne
 item.got:banner.trant.name=Bandeira de Trant
-item.got:banner.truefyre.name⇒
-item.got:banner.tudbury.name⇒
+item.got:banner.truefyre.name≠
+item.got:banner.tudbury.name≠
 item.got:banner.tully.name=Bandeira de Tully
 item.got:banner.tullyBook.name=Banner de Tully (livro)
-item.got:banner.tullyHD.name⇒
+item.got:banner.tullyHD.name≠
 item.got:banner.turnberry.name=Estandarte de Turnberry
-item.got:banner.tybolt.name⇒
+item.got:banner.tybolt.name≠
 item.got:banner.tyrell.name=Bandeira de Tyrrel
 item.got:banner.tyrellBK.name=Bandeira de Tyrell de Brightwater Keep
-item.got:banner.tyrellHD.name⇒
+item.got:banner.tyrellHD.name≠
 item.got:banner.tyrelll.name=Bandeira de Loras Tyrell
 item.got:banner.tyrion.name=Bandeira de Tyrion
 item.got:banner.tyrosh.name=Bandeira de Tyrosh
-item.got:banner.uffering.name⇒
+item.got:banner.uffering.name≠
 item.got:banner.uller.name=Bandeira de Uller
 item.got:banner.umber.name=Bandeira da Umber
 item.got:banner.umberBook.name=Banner de Umber (livro)
-item.got:banner.underleaf.name⇒
+item.got:banner.underleaf.name≠
 item.got:banner.upcliff.name=Banner de Upcliff
 item.got:banner.vaith.name=Bandeira de Vaith
-item.got:banner.valarr.name⇒
-item.got:banner.valarrBook.name⇒
+item.got:banner.valarr.name≠
+item.got:banner.valarrBook.name≠
 item.got:banner.vanceA.name=Bandeira de Vance de Atranta
 item.got:banner.vanceWR.name=Bandeira de Vance do Wayfarer's Rest
 item.got:banner.varner.name=Estandarte de vanner
 item.got:banner.velaryon.name=Bandeira de Velaryon
-item.got:banner.velaryonBook.name⇒
+item.got:banner.velaryonBook.name≠
 item.got:banner.victarion.name=Bandeira de Victarion
 item.got:banner.vikary.name=Bandeira de Vikary
 item.got:banner.volantis.name=Bandeira de Volantis
 item.got:banner.volmark.name=Bandeira de Volmark
-item.got:banner.vultureking.name⇒
+item.got:banner.vultureking.name≠
 item.got:banner.vypren.name=Banner de Vypren
 item.got:banner.vyrwel.name=Banner de Vyrwel
 item.got:banner.wagstaff.name=Bandeira de Wadstaff
-item.got:banner.walder.name⇒
+item.got:banner.walder.name≠
 item.got:banner.warriorsSons.name=Banner de Warriors Sons
-item.got:banner.waterman.name⇒
+item.got:banner.waterman.name≠
 item.got:banner.waxley.name=Banner de Waxley
 item.got:banner.wayn.name=Banner de Wayn
 item.got:banner.waynwood.name=Banner de Waynwood
 item.got:banner.webber.name=Banner de Webber
 item.got:banner.wells.name=Bandeira de Poços
-item.got:banner.wellsD.name⇒
+item.got:banner.wellsD.name≠
 item.got:banner.wendwater.name=Banner de Wendwater
 item.got:banner.wensington.name=Banner de Wensington
-item.got:banner.westbrook.name⇒
+item.got:banner.westbrook.name≠
 item.got:banner.westerling.name=Bandeira de Westerling
 item.got:banner.westford.name=Banner de Westford
 item.got:banner.whent.name=Bandeira de Whent
 item.got:banner.white.name=Bandeira de Branco
-item.got:banner.whitegrove.name⇒
-item.got:banner.whitehead.name⇒
+item.got:banner.whitegrove.name≠
+item.got:banner.whitehead.name≠
 item.got:banner.whitehill.name=Bandeira de Whitehill
-item.got:banner.whitehillBook.name⇒
+item.got:banner.whitehillBook.name≠
 item.got:banner.wildling.name=Banner de Wildling
 item.got:banner.willum.name=Bandeira de Willum
 item.got:banner.windblown.name=Banner de Windblown
 item.got:banner.wode.name=Bandeira de Wode
-item.got:banner.woodfoot.name⇒
-item.got:banner.woods.name⇒
+item.got:banner.woodfoot.name≠
+item.got:banner.woods.name≠
 item.got:banner.woodwright.name=Banner de Woodwright
 item.got:banner.woolfield.name=Bandeira de Woolfield
 item.got:banner.wull.name=Bandeira de Wull
-item.got:banner.wydman.name⇒
+item.got:banner.wydman.name≠
 item.got:banner.wyl.name=Banner de Wyl
 item.got:banner.wylde.name=Banner de Wylde
 item.got:banner.wynch.name=Bandeira de Wynch
@@ -4972,14 +4982,14 @@ item.got:banner.yitiMengo.name=Bandeira do Mengo
 item.got:banner.yitiPearl.name=Banner de Rearl
 item.got:banner.yitiPurple.name=Bandeira de Roxo
 item.got:banner.yitiQo.name=Banner de Qo
-item.got:banner.youngGriff.name⇒
+item.got:banner.youngGriff.name≠
 item.got:banner.yronwood.name=Banner de Yronwood
 item.got:banner.yunkai.name=Bandeira de Yunkai
 item.got:bannerTab.name=Créditos
 item.got:bearRug.name=Tapete de Pele de Urso
 item.got:bericSword.name=Espada de Beric Dondarrion
 item.got:berryPie.name=Torta de Frutos
-item.got:bittersteelHelmet.name⇒
+item.got:bittersteelHelmet.name≠
 item.got:blackArakh.name=Black Arakh
 item.got:blackberry.name=Amoras Pretas
 item.got:blackfyreBoots.name=Botas Blackfyre
@@ -4988,6 +4998,7 @@ item.got:blackfyreHelmet.name=Capacete Blackfyre
 item.got:blackfyreLeggings.name=Blackfyre Leggings
 item.got:blackfyreSword.name=Blackfyre
 item.got:blackrootStick.name=Vareta de Raiz Negra
+item.got:blackskinChestplate.name≠
 item.got:blacksmithHammer.name=Martelo de Ferreiro
 item.got:bloodOfTrueKings.name=Blood de True Kings
 item.got:blueberry.name=Mirtilos
@@ -5035,16 +5046,16 @@ item.got:chisel.name=Cinzel
 item.got:clayMug.name=Caneca de Argila
 item.got:clayPlate.name=Prato de Argila
 item.got:club.name=Hill Tribe Club
-item.got:cobaltBlue.name⇒
-item.got:coin.1.name⇒
-item.got:coin.1024.name⇒
-item.got:coin.16.name⇒
-item.got:coin.16384.name⇒
-item.got:coin.256.name⇒
-item.got:coin.4.name⇒
-item.got:coin.4096.name⇒
-item.got:coin.64.name⇒
-item.got:coin.nominal.name⇒
+item.got:cobaltBlue.name≠
+item.got:coin.1.name≠
+item.got:coin.1024.name≠
+item.got:coin.16.name≠
+item.got:coin.16384.name≠
+item.got:coin.256.name≠
+item.got:coin.4.name≠
+item.got:coin.4096.name≠
+item.got:coin.64.name≠
+item.got:coin.nominal.name≠
 item.got:commandHorn.halt.name=Trompa de Comando - Parar Unidades
 item.got:commandHorn.name=Trompa de Comando
 item.got:commandHorn.ready.name=Trompa de Comando- Mobilizar Unidades
@@ -5066,6 +5077,7 @@ item.got:crownlandsBoots.name=Botas de capas douradas
 item.got:crownlandsChestplate.name=Chestplate de Golden Cloacks
 item.got:crownlandsHelmet.name=Capacete de Capa Dourada
 item.got:crownlandsLeggings.name=Leggings de Golden Cloacks
+item.got:cutwave.name≠
 item.got:daarioArakh.name=Daario Arakh
 item.got:darkSister.name=Irmã das trevas
 item.got:darkstar.name=Estrela Escura
@@ -5106,6 +5118,7 @@ item.got:essosSpear.name=Lança das Cidades Livres
 item.got:essosSword.name=Cimitarra de Cidades Livres
 item.got:euronDagger.name=Adaga Euron
 item.got:featherDyed.name=Pena Tingida
+item.got:fin.name≠
 item.got:firePot.name=Yi Ti lança-chamas
 item.got:flax.name=Linho
 item.got:flaxSeeds.name=Sementes de Linho
@@ -5156,17 +5169,25 @@ item.got:gregorCleganeSword.name=Espada Gregor Clegane
 item.got:handGold.name=Broche da Mão do Rei (1)
 item.got:handSilver.name=Broche da Mão do Rei (2)
 item.got:harpy.name=Harpia
+item.got:hearteater.name≠
 item.got:heartsbane.name=Heartbane
 item.got:hillmenBoots.name=Botas da tribo da colina
 item.got:hillmenChestplate.name=Hill Tribe Chestplate
 item.got:hillmenHelmet.name=Capacete da tribo da colina
 item.got:hillmenLeggings.name=Caneleiras da tribo da colina
+item.got:honor.name≠
 item.got:horn.name=Chifre
+item.got:ibbenBoots.name≠
+item.got:ibbenChestplate.name≠
+item.got:ibbenHarpoon.name≠
+item.got:ibbenLeggings.name≠
+item.got:ibbenSword.name≠
 item.got:ice.name=Gelo
-item.got:iceHeavySword.name⇒
-item.got:iceShard.name⇒
-item.got:iceSpear.name⇒
+item.got:iceHeavySword.name≠
+item.got:iceShard.name≠
+item.got:iceSpear.name≠
 item.got:iceSword.name=Espada de gelo
+item.got:indomitable.name≠
 item.got:ironBattleaxe.name=Machado de Batalha de Ferro
 item.got:ironCrossbow.name=Besta de Ferro
 item.got:ironDagger.name=Punhal de ferro
@@ -5192,7 +5213,7 @@ item.got:kingsguardHelmet.name=Capacete da Guarda Real
 item.got:kingsguardLeggings.name=Leggings da Guarda Real
 item.got:ladyForlorn.name=Lady Forlorn
 item.got:lamentation.name=Lamentação
-item.got:lannisterBrooch.name⇒
+item.got:lannisterBrooch.name≠
 item.got:leatherHat.name=Chapéu de Couro
 item.got:leek.name=Alho-Poró
 item.got:leekSoup.name=Sopa de Alho-Poró
@@ -5301,7 +5322,11 @@ item.got:needle.name=Agulha
 item.got:nightKingSword.name=Espada King Night
 item.got:nightfall.name=Anoitecer
 item.got:nomadBattleaxe.name=Machado de Batalha Nômade
+item.got:nomadBoots.name≠
 item.got:nomadBow.name=Nomad Bow
+item.got:nomadChestplate.name≠
+item.got:nomadHelmet.name≠
+item.got:nomadLeggings.name≠
 item.got:nomadSpear.name=Lança Nomadi
 item.got:nomadSword.name=Nomad Arakh
 item.got:northBoots.name=Botas Norte
@@ -5365,6 +5390,7 @@ item.got:pomegranate.name=Romã
 item.got:pouch.0.name=Bolsa Pequena
 item.got:pouch.1.name=Bolsa Média
 item.got:pouch.2.name=Bolsa Grande
+item.got:pruner.name≠
 item.got:qarthBoots.name=Botas de Qarth
 item.got:qarthChestplate.name=Chestplate de Qarth
 item.got:qarthHelmet.name=Capacete de Qarth
@@ -5393,10 +5419,11 @@ item.got:redkingBoots.name=Botas Red King
 item.got:redkingChestplate.name=Red King Chestplate
 item.got:redkingHelmet.name=Capacete Red King
 item.got:redkingLeggings.name=Leggings Red King
-item.got:renlyBoots.name⇒
-item.got:renlyChestplate.name⇒
-item.got:renlyHelmet.name⇒
-item.got:renlyLeggings.name⇒
+item.got:reminder.name≠
+item.got:renlyBoots.name≠
+item.got:renlyChestplate.name≠
+item.got:renlyHelmet.name≠
+item.got:renlyLeggings.name≠
 item.got:rhaegarSword.name=Espada Rhaegar Targaryen
 item.got:rhinoArmor.name=Rhino Armor
 item.got:rhinoCooked.name=Rinoceronte Assado
@@ -5486,6 +5513,7 @@ item.got:targaryenChestplate.name=Targaryen Chestpate
 item.got:targaryenHelmet.name=Capacete Targaryen
 item.got:targaryenLeggings.name=Leggings Targaryen
 item.got:termite.name=Térmite Explosiva
+item.got:tidewings.name≠
 item.got:tinIngot.name=Barra de estanho
 item.got:topaz.name=Topázio
 item.got:tormundSword.name=Espada Tormund
@@ -5529,15 +5557,15 @@ item.got:valyrianRing.name=Anel valiriano
 item.got:valyrianShovel.name=Pá valiriana
 item.got:valyrianSpear.name=Valyrian Spear
 item.got:valyrianSword.name=Espada Valiriana
-item.got:velaryonBrooch.name⇒
+item.got:velaryonBrooch.name≠
 item.got:victarionAxe.name=Machado Victarion
-item.got:victarionHelmet.name⇒
+item.got:victarionHelmet.name≠
 item.got:vigilance.name=Vigilância
 item.got:volantisBoots.name=Botas de Volantis
 item.got:volantisChestplate.name=Peito de Volantis
 item.got:volantisHelmet.name=Capacete de Volantis
 item.got:volantisLeggings.name=Perneiras de Volantis
-item.got:walkingStick.name⇒
+item.got:walkingStick.name≠
 item.got:waterskin.name=Odre
 item.got:westerlandsBoots.name=Boots de Terras Ocidentais
 item.got:westerlandsChestplate.name=Chestplate de Terras Ocidentais
@@ -5561,10 +5589,10 @@ item.got:westkingChestplate.name=Placa de Peito dos Reis do Oeste
 item.got:westkingHelmet.name=Capacete dos Reis do Oeste
 item.got:westkingLeggings.name=Leggings de West Kings
 item.got:wheel.name=Roda
-item.got:whiteWalkersBoots.name⇒
-item.got:whiteWalkersChestplate.name⇒
-item.got:whiteWalkersHoe.name⇒
-item.got:whiteWalkersLeggings.name⇒
+item.got:whiteWalkersBoots.name≠
+item.got:whiteWalkersChestplate.name≠
+item.got:whiteWalkersHoe.name≠
+item.got:whiteWalkersLeggings.name≠
 item.got:widowWail.name=Widow Wail
 item.got:wildberry.name=Frutos Silvestres
 item.got:wildlingAxe.name=Machado Selvagem
@@ -5581,17 +5609,21 @@ item.got:yam.name=Inhame
 item.got:yamRoast.name=Inhame Assado
 item.got:yitiBattleaxe.name=Yi Ti Nagamaki
 item.got:yitiBoots.name=Yi Ti Boots
+item.got:yitiBootsFrontier.name≠
 item.got:yitiBootsSamurai.name=Botas Yi Ti Samurai
 item.got:yitiBow.name=Yi Ti Bow
 item.got:yitiChestplate.name=Yi Ti Chestplate
+item.got:yitiChestplateFrontier.name≠
 item.got:yitiChestplateSamurai.name=Yi Ti Samurai Chestplate
 item.got:yitiDagger.name=Yi Ti Kunai
 item.got:yitiDaggerPoisoned.name=Yi Ti Kunai Envenenado
 item.got:yitiHelmet.name=Capacete Yi Ti
+item.got:yitiHelmetFrontier.name≠
 item.got:yitiHelmetSamurai.name=Capacete Yi Ti Samurai
 item.got:yitiHelmetShogune.name=Capacete Yi Ti Shogune
 item.got:yitiHorseArmor.name=Yi Ti Horse Armor
 item.got:yitiLeggings.name=Yi Ti Leggings
+item.got:yitiLeggingsFrontier.name≠
 item.got:yitiLeggingsSamurai.name=Leggings Yi Ti Samurai
 item.got:yitiPike.name=Yi Ti Pike
 item.got:yitiPolearm.name=Yi Ti Naginata
@@ -5665,7 +5697,7 @@ tile.got:blockMetal1.3.name=Bloco de Prata
 tile.got:blockMetal1.4.name=Bloco de aço valiriano
 tile.got:blockMetal2.2.name=Bloco de Ferro Dourado
 tile.got:blockMetal2.3.name=Bloco de Sal
-tile.got:blockMetal2.4.name⇒
+tile.got:blockMetal2.4.name≠
 tile.got:bluebell.name=Campânula Azul
 tile.got:bomb.name=Bombear
 tile.got:boneBlock.name=Bloco de Osso
@@ -5985,7 +6017,7 @@ tile.got:mudFarmland.name=Lama Agrícola da Selva
 tile.got:mudGrass.name=Grama da Selva
 tile.got:niphredil.name=Niphredil
 tile.got:obsidianGravel.name=Cascalho de Obsidiana
-tile.got:oreCobalt.name⇒
+tile.got:oreCobalt.name≠
 tile.got:oreCopper.name=Minério de Cobre
 tile.got:oreGem.0.name=Veio de Topázio
 tile.got:oreGem.1.name=Veio de Ametista
@@ -6388,12 +6420,14 @@ tile.got:tableAsshai.name=Mesa de artesanato de Asshai
 tile.got:tableBraavos.name=Mesa de artesanato Bravos
 tile.got:tableCrownlands.name=Mesa de Fabricação de Terras da Coroa
 tile.got:tableDorne.name=Dorne Crafting Table
+tile.got:tableDothraki.name≠
 tile.got:tableDragonstone.name=Mesa de Criação de Pedra do Dragão
 tile.got:tableGhiscar.name=Ghiscar Crafting Table
 tile.got:tableGift.name=Mesa de trabalho da Night's Watch
 tile.got:tableHillTribes.name=Mesa de artesanato da tribo das colinas
 tile.got:tableIbben.name=Ibben Crafting Table
 tile.got:tableIronborn.name=Mesa de Fabricação das Ilhas de Ferro
+tile.got:tableJogos.name≠
 tile.got:tableLhazar.name=Lhazar Crafting Table
 tile.got:tableLorath.name=Lorath Crafting Table
 tile.got:tableLys.name=Lys Crafting Table
