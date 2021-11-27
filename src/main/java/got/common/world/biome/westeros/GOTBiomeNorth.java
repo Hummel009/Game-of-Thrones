@@ -17,7 +17,6 @@ public class GOTBiomeNorth extends GOTBiomeWesteros {
 	public GOTBiomeNorth(int i, boolean major) {
 		super(i, major);
 		clearBiomeVariants();
-		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
 		this.addBiomeVariant(GOTBiomeVariant.FOREST);
 		this.addBiomeVariant(GOTBiomeVariant.HILLS);
 		this.addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
