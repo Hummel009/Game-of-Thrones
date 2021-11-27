@@ -1,0 +1,30 @@
+package got.common.tileentity;
+
+import got.common.entity.other.GOTEntityRegistry;
+import net.minecraft.entity.*;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntityChest;
+
+public class GOTTileEntitySpawnerChest extends TileEntityChest {
+	public String entityClassName = "";
+
+	public Entity createMob() {
+		return EntityList.createEntityByName(entityClassName, worldObj);
+	}
+
+	@Override
+	public void readFromNBT(NBTTagCompound nbt) {
+		super.readFromNBT(nbt);
+		entityClassName = nbt.getString("MobID");
+	}
+
+	public void setMobID(Class entityClass) {
+		entityClassName = GOTEntityRegistry.getStringFromClass(entityClass);
+	}
+
+	@Override
+	public void writeToNBT(NBTTagCompound nbt) {
+		super.writeToNBT(nbt);
+		nbt.setString("MobID", entityClassName);
+	}
+}

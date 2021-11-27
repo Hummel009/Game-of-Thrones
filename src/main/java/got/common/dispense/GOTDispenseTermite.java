@@ -1,0 +1,13 @@
+package got.common.dispense;
+
+import got.common.entity.other.GOTEntityThrownTermite;
+import net.minecraft.dispenser.*;
+import net.minecraft.entity.IProjectile;
+import net.minecraft.world.World;
+
+public class GOTDispenseTermite extends BehaviorProjectileDispense {
+	@Override
+	public IProjectile getProjectileEntity(World world, IPosition position) {
+		return new GOTEntityThrownTermite(world, position.getX(), position.getY(), position.getZ());
+	}
+}

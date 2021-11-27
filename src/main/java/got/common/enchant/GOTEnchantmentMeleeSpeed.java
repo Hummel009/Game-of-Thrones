@@ -1,0 +1,34 @@
+package got.common.enchant;
+
+import got.common.item.GOTWeaponStats;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.StatCollector;
+
+public class GOTEnchantmentMeleeSpeed extends GOTEnchantment {
+	public float speedFactor;
+
+	public GOTEnchantmentMeleeSpeed(String s, float speed) {
+		super(s, GOTEnchantmentType.MELEE);
+		speedFactor = speed;
+		setValueModifier(speedFactor);
+	}
+
+	@Override
+	public boolean canApply(ItemStack itemstack, boolean considering) {
+		if (super.canApply(itemstack, considering)) {
+			float speed = GOTWeaponStats.getMeleeSpeed(itemstack);
+			return (speed *= speedFactor) <= GOTWeaponStats.MAX_MODIFIABLE_SPEED;
+		}
+		return false;
+	}
+
+	@Override
+	public String getDescription(ItemStack itemstack) {
+		return StatCollector.translateToLocalFormatted("got.enchant.meleeSpeed.desc", formatMultiplicative(speedFactor));
+	}
+
+	@Override
+	public boolean isBeneficial() {
+		return speedFactor >= 1.0f;
+	}
+}

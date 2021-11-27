@@ -1,0 +1,28 @@
+package got.client.gui;
+
+import org.lwjgl.opengl.GL11;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiButton;
+
+public class GOTGuiButtonReforge extends GuiButton {
+	public int minU;
+	public int minV;
+
+	public GOTGuiButtonReforge(int i, int x, int y, int u, int v) {
+		super(i, x, y, 20, 20, "");
+		minU = u;
+		minV = v;
+	}
+
+	@Override
+	public void drawButton(Minecraft mc, int i, int j) {
+		if (visible) {
+			mc.getTextureManager().bindTexture(GOTGuiAnvil.anvilTexture);
+			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+			field_146123_n = i >= xPosition && j >= yPosition && i < xPosition + width && j < yPosition + height;
+			drawTexturedModalRect(xPosition, yPosition, minU + (field_146123_n ? width : 0), minV, width, height);
+			mouseDragged(mc, i, j);
+		}
+	}
+}

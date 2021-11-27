@@ -1,0 +1,86 @@
+package got.client.render.other;
+
+import org.lwjgl.opengl.GL11;
+
+import got.client.GOTTickHandlerClient;
+import got.client.render.animal.GOTRenderBird;
+import got.common.item.other.GOTItemAnimalJar;
+import got.common.tileentity.GOTTileEntityAnimalJar;
+import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.entity.*;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Vec3;
+import net.minecraftforge.client.IItemRenderer;
+
+public class GOTRenderAnimalJar extends TileEntitySpecialRenderer implements IItemRenderer {
+	@Override
+	public boolean handleRenderType(ItemStack itemstack, IItemRenderer.ItemRenderType type) {
+		return true;
+	}
+
+	@Override
+	public void renderItem(IItemRenderer.ItemRenderType type, ItemStack itemstack, Object... data) {
+		if (type == IItemRenderer.ItemRenderType.EQUIPPED || type == IItemRenderer.ItemRenderType.EQUIPPED_FIRST_PERSON) {
+			GL11.glTranslatef(0.5f, 0.5f, 0.5f);
+		}
+		EntityLivingBase viewer = Minecraft.getMinecraft().renderViewEntity;
+		Entity jarEntity = GOTItemAnimalJar.getItemJarEntity(itemstack, viewer.worldObj);
+		if (jarEntity != null) {
+			jarEntity.setLocationAndAngles(0.0, 0.0, 0.0, 0.0f, 0.0f);
+			jarEntity.ticksExisted = viewer.ticksExisted;
+			GL11.glPushMatrix();
+			GL11.glTranslatef(0.0f, -0.5f, 0.0f);
+			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+			GL11.glPushAttrib(1048575);
+			if (type == IItemRenderer.ItemRenderType.ENTITY) {
+				GOTRenderBird.renderStolenItem = false;
+			}
+			RenderManager.instance.renderEntityWithPosYaw(jarEntity, 0.0, 0.0, 0.0, 0.0f, GOTTickHandlerClient.renderTick);
+			GOTRenderBird.renderStolenItem = true;
+			GL11.glPopAttrib();
+			GL11.glPopMatrix();
+		}
+		GL11.glEnable(3008);
+		GL11.glAlphaFunc(516, 0.1f);
+		GL11.glEnable(3042);
+		OpenGlHelper.glBlendFunc(770, 771, 1, 0);
+		RenderBlocks.getInstance().renderBlockAsItem(Block.getBlockFromItem(itemstack.getItem()), itemstack.getItemDamage(), 1.0f);
+		GL11.glDisable(3042);
+	}
+
+	@Override
+	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {
+		GOTTileEntityAnimalJar jar = (GOTTileEntityAnimalJar) tileentity;
+		Entity jarEntity = jar.getOrCreateJarEntity();
+		if (jarEntity != null) {
+			GL11.glPushMatrix();
+			GL11.glTranslatef(0.0f, jar.getEntityBobbing(f), 0.0f);
+			if (jarEntity instanceof EntityLivingBase) {
+				EntityLivingBase jarLiving = (EntityLivingBase) jarEntity;
+				EntityLivingBase viewer = RenderManager.instance.livingPlayer;
+				if (jar.isEntityWatching()) {
+					Vec3 viewerPos = viewer.getPosition(f);
+					Vec3 entityPos = jarLiving.getPosition(f);
+					double dx = entityPos.xCoord - viewerPos.xCoord;
+					double dz = entityPos.zCoord - viewerPos.zCoord;
+					float lookYaw = (float) Math.toDegrees(Math.atan2(dz, dx));
+					jarLiving.rotationYaw = jarLiving.prevRotationYaw = lookYaw += 90.0f;
+				}
+				jarLiving.renderYawOffset = jarLiving.rotationYaw;
+				jarLiving.prevRenderYawOffset = jarLiving.prevRotationYaw;
+			}
+			RenderManager.instance.renderEntityStatic(jarEntity, f, false);
+			GL11.glPopMatrix();
+		}
+	}
+
+	@Override
+	public boolean shouldUseRenderHelper(IItemRenderer.ItemRenderType type, ItemStack itemstack, IItemRenderer.ItemRendererHelper helper) {
+		return true;
+	}
+}

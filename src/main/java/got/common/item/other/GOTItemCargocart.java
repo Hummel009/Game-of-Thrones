@@ -1,0 +1,29 @@
+package got.common.item.other;
+
+import got.common.database.GOTCreativeTabs;
+import got.common.entity.other.GOTEntityCargocart;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.*;
+import net.minecraft.util.*;
+import net.minecraft.world.World;
+
+public class GOTItemCargocart extends Item {
+	public GOTItemCargocart() {
+		setCreativeTab(GOTCreativeTabs.tabMisc);
+	}
+
+	@Override
+	public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn) {
+		Vec3 vec3d = Vec3.createVectorHelper(playerIn.posX, playerIn.posY + playerIn.getEyeHeight(), playerIn.posZ);
+		MovingObjectPosition result = worldIn.rayTraceBlocks(vec3d, Vec3.createVectorHelper(playerIn.getLookVec().xCoord * 5.0 + vec3d.xCoord, playerIn.getLookVec().yCoord * 5.0 + vec3d.yCoord, playerIn.getLookVec().zCoord * 5.0 + vec3d.zCoord), false);
+		if ((result != null && result.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK) && !worldIn.isRemote) {
+			GOTEntityCargocart cart = new GOTEntityCargocart(worldIn, result.hitVec.xCoord, result.hitVec.yCoord, result.hitVec.zCoord);
+			cart.rotationYaw = (playerIn.rotationYaw + 180.0f) % 360.0f;
+			worldIn.spawnEntityInWorld(cart);
+			if (!playerIn.capabilities.isCreativeMode) {
+				--itemStackIn.stackSize;
+			}
+		}
+		return itemStackIn;
+	}
+}

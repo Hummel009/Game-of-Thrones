@@ -1,0 +1,16 @@
+[
+{
+	"modid" : "got",
+	"name" : "Game of Thrones",
+	"version" : "Version 17.5",
+	"credits" : "Hummel009",
+	"authorList": ["Hummel009"],
+	"description": "See ingame mod list!",
+	"logoFile" : "assets/got/logo.png",
+	"url" : "",
+	"updateUrl" : "",
+	"parent" : "",
+	"dependencies": [],
+	"screenshots": []
+}
+]

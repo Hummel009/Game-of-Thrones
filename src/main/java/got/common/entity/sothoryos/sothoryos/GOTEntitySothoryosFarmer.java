@@ -1,0 +1,73 @@
+package got.common.entity.sothoryos.sothoryos;
+
+import got.common.GOTLevelData;
+import got.common.database.*;
+import got.common.entity.other.*;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
+
+public class GOTEntitySothoryosFarmer extends GOTEntitySothoryosMan implements GOTTradeable, GOTUnitTradeable {
+	public GOTEntitySothoryosFarmer(World world) {
+		super(world);
+		canBeMarried = false;
+		addTargetTasks(false);
+	}
+
+	@Override
+	public boolean canTradeWith(EntityPlayer entityplayer) {
+		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityplayer);
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
+	}
+
+	@Override
+	public GOTTradeEntries getBuyPool() {
+		return GOTTradeEntries.COMMON_FARMER_BUY;
+	}
+
+	@Override
+	public GOTTradeEntries getSellPool() {
+		return GOTTradeEntries.COMMON_FARMER_SELL;
+	}
+
+	@Override
+	public String getSpeechBank(EntityPlayer entityplayer) {
+		if (isFriendly(entityplayer)) {
+			return "sothoryos/sothoryos/farmer/friendly";
+		}
+		return "sothoryos/sothoryos/farmer/hostile";
+	}
+
+	@Override
+	public GOTUnitTradeEntries getUnits() {
+		return GOTUnitTradeEntries.SOTHORYOS_FARMER;
+	}
+
+	@Override
+	public GOTInvasions getWarhorn() {
+		return null;
+	}
+
+	@Override
+	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+	}
+
+	@Override
+	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
+		data = super.onSpawnWithEgg(data);
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.sothoryosHoe));
+		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
+		return data;
+	}
+
+	@Override
+	public void onUnitTrade(EntityPlayer entityplayer) {
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+	}
+}
