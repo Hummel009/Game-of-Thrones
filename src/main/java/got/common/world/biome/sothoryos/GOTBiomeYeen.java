@@ -27,7 +27,9 @@ public class GOTBiomeYeen extends GOTBiomeSothoryosJungle {
 		spawnableGOTAmbientList.clear();
 		decorator.treesPerChunk = 0;
 		decorator.flowersPerChunk = 0;
-		decorator.grassPerChunk = 0;
+		decorator.doubleFlowersPerChunk = 0;
+		decorator.doubleGrassPerChunk = 0;
+		decorator.canePerChunk = 0;
 		npcSpawnList.clear();
 		biomeColors.setFoggy(true);
 		SpawnListContainer[] container11 = new SpawnListContainer[1];
