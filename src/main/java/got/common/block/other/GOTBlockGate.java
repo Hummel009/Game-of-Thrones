@@ -16,7 +16,7 @@ import net.minecraft.util.*;
 import net.minecraft.world.*;
 
 public class GOTBlockGate extends Block implements GOTConnectedBlock {
-	public static final int MAX_GATE_RANGE = 16;
+	public static int MAX_GATE_RANGE = 16;
 	public boolean hasConnectedTextures;
 	public boolean fullBlockGate = false;
 

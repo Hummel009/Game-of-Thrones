@@ -3,8 +3,8 @@ package got.common.inventory;
 import java.util.Random;
 
 public class OddmentCollectorNameMischief {
-	public static final String VOWELS = "aeiou";
-	public static final String CONSONANTS = "bcdfghjklmnopqrstvwxyz";
+	public static String VOWELS = "aeiou";
+	public static String CONSONANTS = "bcdfghjklmnopqrstvwxyz";
 
 	public static String garbleName(String name, Random rand) {
 		int deletes = rand.nextInt(3);

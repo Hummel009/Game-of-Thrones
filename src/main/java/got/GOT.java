@@ -54,9 +54,9 @@ public class GOT {
 	public static GOTCommonProxy proxy;
 	@Mod.Instance(value = "got")
 	public static GOT instance;
-	public static final String NAME = "Game of Thrones";
-	public static final String VERSION = "Version 17.5";
-	public static final String[] DEVELOPERS = { "ce924ff6-8450-41ad-865e-89c5897837c4", "9aee5b32-8e19-4d4b-a2d6-1318af62733d", "1f63e38e-4059-4a4f-b7c4-0fac4a48e744", "72fd4cfd-064e-4cf1-874d-74000c152f48", "a05ba4aa-2cd0-43b1-957c-7971c9af53d4", "22be67c2-ba43-48db-b2ba-32857e78ddad" };
+	public static String NAME = "Game of Thrones";
+	public static String VERSION = "Version 17.5";
+	public static String[] DEVELOPERS = { "ce924ff6-8450-41ad-865e-89c5897837c4", "9aee5b32-8e19-4d4b-a2d6-1318af62733d", "1f63e38e-4059-4a4f-b7c4-0fac4a48e744", "72fd4cfd-064e-4cf1-874d-74000c152f48", "a05ba4aa-2cd0-43b1-957c-7971c9af53d4", "22be67c2-ba43-48db-b2ba-32857e78ddad" };
 	public static GOTEventHandler eventHandler;
 	public static GOTPacketHandler packetHandler;
 	public static GOTTickHandlerServer tickHandler;

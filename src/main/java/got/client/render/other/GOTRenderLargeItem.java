@@ -24,9 +24,9 @@ public class GOTRenderLargeItem implements IItemRenderer {
 		sizeFolders.put("large2", 3.0F);
 	}
 
-	public final Item theItem;
-	public final String folderName;
-	public final float largeIconScale;
+	public Item theItem;
+	public String folderName;
+	public float largeIconScale;
 	public IIcon largeIcon;
 	public List<ExtraLargeIconToken> extraTokens = new ArrayList<>();
 

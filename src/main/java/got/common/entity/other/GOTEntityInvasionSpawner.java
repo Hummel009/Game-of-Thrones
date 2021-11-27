@@ -22,7 +22,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.event.ForgeEventFactory;
 
 public class GOTEntityInvasionSpawner extends Entity {
-	public static final int MAX_INVASION_SIZE = 10000;
+	public static int MAX_INVASION_SIZE = 10000;
 	public static double INVASION_FOLLOW_RANGE = 40.0;
 	public float spawnerSpin;
 	public float prevSpawnerSpin;
@@ -484,7 +484,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 		}
 	}
 
-	public static GOTEntityInvasionSpawner locateInvasionNearby(Entity seeker, final UUID id) {
+	public static GOTEntityInvasionSpawner locateInvasionNearby(Entity seeker, UUID id) {
 		World world = seeker.worldObj;
 		double search = 256.0;
 		List invasions = world.selectEntitiesWithinAABB(GOTEntityInvasionSpawner.class, seeker.boundingBox.expand(search, search, search), new IEntitySelector() {

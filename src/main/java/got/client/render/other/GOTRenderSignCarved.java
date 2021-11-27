@@ -19,8 +19,8 @@ import net.minecraft.util.*;
 
 public class GOTRenderSignCarved extends TileEntitySpecialRenderer implements IResourceManagerReloadListener {
 	public BufferedImage cachedBlockAtlasImage;
-	public final Map<IIcon, Integer> iconAverageColors = new HashMap<>();
-	public final Map<IIcon, Integer> iconContrastColors = new HashMap<>();
+	public Map<IIcon, Integer> iconAverageColors = new HashMap<>();
+	public Map<IIcon, Integer> iconContrastColors = new HashMap<>();
 
 	public int averageIconColor(IIcon icon) {
 		if (iconAverageColors.containsKey(icon)) {
