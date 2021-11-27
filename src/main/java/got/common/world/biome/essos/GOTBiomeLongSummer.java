@@ -19,6 +19,7 @@ public class GOTBiomeLongSummer extends GOTBiome {
 		decorator.treesPerChunk = 0;
 		decorator.flowersPerChunk = 0;
 		decorator.grassPerChunk = 2;
+		decorator.addTree(GOTTreeType.CHARRED, 1000);
 		decorator.addTree(GOTTreeType.OAK_DEAD, 1000);
 	}
 

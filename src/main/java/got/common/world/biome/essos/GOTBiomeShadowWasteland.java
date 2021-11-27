@@ -37,10 +37,7 @@ public class GOTBiomeShadowWasteland extends GOTBiome {
 		decorator.flowersPerChunk = 0;
 		decorator.grassPerChunk = 0;
 		decorator.addTree(GOTTreeType.CHARRED, 1000);
-		biomeColors.setSky(5523773);
-		biomeColors.setClouds(3355443);
-		biomeColors.setFog(6710886);
-		biomeColors.setWater(2498845);
+		decorator.addTree(GOTTreeType.OAK_DEAD, 1000);
 		setBanditChance(GOTEventSpawner.EventChance.NEVER);
 		decorator.addVillage(new GOTStructureAsshaiCity(this, 0.1f));
 	}

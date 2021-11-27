@@ -1130,7 +1130,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		shadowLand = new GOTBiomeShadowLand(id++, true).setMinMaxHeight(0.1f, 0.15f).setTemperatureRainfall(1.0f, 0.2f).setColor(0x8E8854).setBiomeName("shadowLand");
 		shadowMountains = new GOTBiomeShadowMountains(id++, true).setMinMaxHeight(2.0f, 2.0f).setTemperatureRainfall(1.0f, 0.2f).setColor(0x635E3B).setBiomeName("shadowMountains");
 		shadowTown = new GOTBiomeShadowTown(id++, true).setMinMaxHeight(0.1f, 0.0f).setTemperatureRainfall(1.0f, 0.2f).setColor(0x8C8340).setBiomeName("shadowTown");
-		shadowWasteland = new GOTBiomeShadowWasteland(id++, true).setMinMaxHeight(0.1f, 0.05f).setTemperatureRainfall(1.0f, 0.2f).setColor(0xA39E60).setBiomeName("shadowWasteland");
+		shadowWasteland = new GOTBiomeShadowWasteland(id++, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.05f).setColor(0xA39E60).setBiomeName("shadowWasteland");
 		skagos = new GOTBiomeSkagos(id++, true).setIsLongWinter().setMinMaxHeight(1.0f, 1.0f).setColor(0x94AF67).setBiomeName("skagos");
 		skirlingPass = new GOTBiomeSkirlingPass(id++, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xC7E3EA).setBiomeName("skirlingPass");
 		sothoryosBushland = new GOTBiomeSothoryosBushland(id++, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x998F3D).setBiomeName("sothoryosBushland");
