@@ -62,16 +62,15 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 				int[] colors = biomeImage.getRGB(0, 0, imageWidth, imageHeight, null, 0, imageWidth);
 				biomeImageData = new byte[imageWidth * imageHeight];
 				for (int i = 0; i < colors.length; ++i) {
-					int color = colors[i];
-					Integer biomeID = GOTDimension.GAME_OF_THRONES.colorsToBiomeIDs.get(color);
-					int cleanUp = biomeID;
-					if (biomeID != null) {
-						GOTGenLayerWorld.biomeImageData[i] = (byte) cleanUp;
-						continue;
-					}
-					FMLLog.log(Level.ERROR, "Found unknown biome on map " + Integer.toHexString(color));
-					GOTGenLayerWorld.biomeImageData[i] = (byte) GOTBiome.ocean.biomeID;
-				}
+                    int color = colors[i];
+                    Integer biomeID = GOTDimension.GAME_OF_THRONES.colorsToBiomeIDs.get(color);
+                    if (biomeID != null) {
+                        GOTGenLayerWorld.biomeImageData[i] = (byte)biomeID.intValue();
+                        continue;
+                    }
+                    FMLLog.log((Level)Level.ERROR, (String)("Found unknown biome on map " + Integer.toHexString(color)), (Object[])new Object[0]);
+                    GOTGenLayerWorld.biomeImageData[i] = (byte)GOTBiome.ocean.biomeID;
+                }
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
