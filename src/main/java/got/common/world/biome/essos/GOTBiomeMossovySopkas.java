@@ -7,14 +7,14 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.feature.GOTTreeType;
+import got.common.world.feature.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
-public class GOTBiomeMossovyMountains extends GOTBiome {
-	public GOTBiomeMossovyMountains(int i, boolean major) {
+public class GOTBiomeMossovySopkas extends GOTBiome {
+	public GOTBiomeMossovySopkas(int i, boolean major) {
 		super(i, major);
 		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
 		decorator.addTree(GOTTreeType.PINE, 20);
@@ -67,6 +67,29 @@ public class GOTBiomeMossovyMountains extends GOTBiome {
 			meta[index] = 2;
 		}
 	}
+	
+	@Override
+	public void decorate(World world, Random random, int i, int k) {
+		int i1;
+		int k1;
+		int i12;
+		int j1;
+		int l;
+		super.decorate(world, random, i, k);
+		GOTWorldGenStreams lavaGen = new GOTWorldGenStreams(Blocks.flowing_lava);
+		for (l = 0; l < 250; ++l) {
+			i12 = i + random.nextInt(16) + 8;
+			j1 = 40 + random.nextInt(120);
+			int k13 = k + random.nextInt(16) + 8;
+			lavaGen.generate(world, random, i12, j1, k13);
+		}
+		if (random.nextInt(1) == 0) {
+			i1 = i + random.nextInt(16) + 8;
+			k1 = k + random.nextInt(16) + 8;
+			j1 = world.getHeightValue(i1, k1);
+			new GOTWorldGenVolcanoCrater().generate(world, random, i1, j1, k1);
+		}
+	}
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
@@ -75,6 +98,6 @@ public class GOTBiomeMossovyMountains extends GOTBiome {
 
 	@Override
 	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ESSOS.getSubregion("mossovyMountains");
+		return GOTBiomeMusic.ESSOS.getSubregion("mossovySopkas");
 	}
 }

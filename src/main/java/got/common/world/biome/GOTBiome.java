@@ -114,7 +114,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome mossovyForest;
 	public static GOTBiome mossovyMarshes;
 	public static GOTBiome mossovySea;
-	public static GOTBiome mossovyMountains;
+	public static GOTBiome mossovySopkas;
 	public static GOTBiome myr;
 	public static GOTBiome myrFlat;
 	public static GOTBiome naath;
@@ -1089,7 +1089,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		mossovyForest = new GOTBiomeMossovyForest(id++, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x617232).setBiomeName("mossovyForest");
 		mossovyMarshes = new GOTBiomeMossovyMarshes(id++, true).setIsLongWinter().setMinMaxHeight(0.0f, 0.1f).setColor(0x677F43).setBiomeName("mossovyMarshes");
 		mossovySea = new GOTBiomeMossovySea(id++, true).setIsLongWinter().setMinMaxHeight(-1.0f, 0.8f).setColor(0x02517F).setBiomeName("mossovySea");
-		mossovyMountains = new GOTBiomeMossovyMountains(id++, true).setIsLongWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0xADADAD).setBiomeName("mossovyMountains");
+		mossovySopkas = new GOTBiomeMossovySopkas(id++, true).setIsLongWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0xADADAD).setBiomeName("mossovySopkas");
 		myr = new GOTBiomeMyr(id++, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x9AA54F).setBiomeName("myr");
 		myrFlat = new GOTBiomeMyrFlat(id++, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0x9AA54E).setBiomeName("myr");
 		naath = new GOTBiomeNaath(id++, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x7DA33C).setBiomeName("naath");
@@ -1129,7 +1129,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		shadowLand = new GOTBiomeShadowLand(id++, true).setMinMaxHeight(0.1f, 0.15f).setTemperatureRainfall(1.0f, 0.2f).setColor(0x8E8854).setBiomeName("shadowLand");
 		shadowMountains = new GOTBiomeShadowMountains(id++, true).setMinMaxHeight(2.0f, 2.0f).setTemperatureRainfall(1.0f, 0.2f).setColor(0x635E3B).setBiomeName("shadowMountains");
 		shadowTown = new GOTBiomeShadowTown(id++, true).setMinMaxHeight(0.1f, 0.0f).setTemperatureRainfall(1.0f, 0.2f).setColor(0x8C8340).setBiomeName("shadowTown");
-		id++;
+		ulos = new GOTBiomeUlos(id++, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x2B4819).setBiomeName("ulos");
 		skagos = new GOTBiomeSkagos(id++, true).setIsLongWinter().setMinMaxHeight(1.0f, 1.0f).setColor(0x94AF67).setBiomeName("skagos");
 		skirlingPass = new GOTBiomeSkirlingPass(id++, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xC7E3EA).setBiomeName("skirlingPass");
 		sothoryosBushland = new GOTBiomeSothoryosBushland(id++, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x998F3D).setBiomeName("sothoryosBushland");
@@ -1183,7 +1183,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		ibbenFlat = new GOTBiomeIbbenFlat(id++, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0x74B748).setBiomeName("ibben");
 		giftNewFlat = new GOTBiomeGiftNewFlat(id++, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0x9CC453).setBiomeName("giftNew");
 		giftOldFlat = new GOTBiomeGiftOldFlat(id++, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xA5C682).setBiomeName("giftOld");
-		ulos = new GOTBiomeUlos(id++, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x2B4819).setBiomeName("ulos");
 	}
 
 	public static void updateWaterColor(int i, int j, int k) {

@@ -4,7 +4,7 @@ import java.util.Random;
 
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
-import got.common.database.GOTAchievement;
+import got.common.database.*;
 import got.common.world.feature.*;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
@@ -27,7 +27,7 @@ public class GOTBiomeValyriaVolcano extends GOTBiomeValyria {
 		decorator.grassPerChunk = -1;
 		decorator.doubleGrassPerChunk = -1;
 		decorator.flowersPerChunk = -1;
-		decorator.addOre(new WorldGenMinable(Blocks.gold_ore, 3), 2.0f, 0, 16);
+		decorator.addOre(new WorldGenMinable(GOTRegistry.oreValyrian, 3), 2.0f, 0, 16);
 	}
 
 	@Override
