@@ -26,10 +26,10 @@ public class GOTBiomeMeereen extends GOTBiomeGhiscar {
 		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureGhiscarCity town = new GOTStructureGhiscarCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Meereen, 0, -1, 2);
-		decorator.addVillage(town);
+		decorator.affix(town);
 		GOTStructurePyramidMeereen pyramid = new GOTStructurePyramidMeereen(this, 0.0f);
 		pyramid.affix(GOTWaypoint.Meereen, 0, -2, 0);
-		decorator.addVillage(pyramid);
+		decorator.affix(pyramid);
 		decorator.addRandomStructure(new GOTStructureGhiscarFightingPit(false), 250);
 	}
 

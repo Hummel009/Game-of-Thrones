@@ -31,7 +31,7 @@ public class GOTBiomeMyrFlat extends GOTBiomeMyr {
 		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureMyrCity town = new GOTStructureMyrCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Myr, -1, 0, 1);
-		decorator.addVillage(town);
+		decorator.affix(town);
 	}
 
 	@Override

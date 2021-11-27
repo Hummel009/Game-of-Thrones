@@ -54,14 +54,8 @@ public class GOTBiomeSothoryosKanuka extends GOTBiome {
 		container[0] = GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
 		container[1] = GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(container);
-		decorator.addVillage(new GOTStructureSothoryosVillage(this, 1.0f));
+		decorator.affix(new GOTStructureSothoryosVillage(this, 1.0f));
 	}
-
-	@Override
-	public boolean canSpawnHostilesInDay() {
-		return true;
-	}
-
 	@Override
 	public void decorate(World world, Random random, int i, int k) {
 		super.decorate(world, random, i, k);

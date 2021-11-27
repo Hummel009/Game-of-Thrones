@@ -26,7 +26,7 @@ public class GOTBiomeLorathFlat extends GOTBiomeLorath {
 		GOTStructureLorathCity town = new GOTStructureLorathCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Lorath);
 		town.affix(GOTWaypoint.Morosh);
-		decorator.addVillage(town);
+		decorator.affix(town);
 	}
 
 	@Override

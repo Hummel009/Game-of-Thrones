@@ -21,7 +21,7 @@ public class GOTBiomeStormlands extends GOTBiomeWesteros {
 		super(i, major);
 		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
 		this.addBiomeVariant(GOTBiomeVariant.FIELD_CORN, 0.2f);
-		decorator.addVillage(new GOTStructureStormlandsCity(this, 1.0f));
+		decorator.affix(new GOTStructureStormlandsCity(this, 1.0f));
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.DRAGONSTONE, GOTEventSpawner.EventChance.UNCOMMON);
 		SpawnListContainer[] container1 = new SpawnListContainer[1];
@@ -36,7 +36,7 @@ public class GOTBiomeStormlands extends GOTBiomeWesteros {
 		GOTStructureRuins ruinsGen = new GOTStructureRuins(this, 0.0f);
 		ruinsGen.affix(GOTWaypoint.Summerhall);
 		ruinsGen.affix(GOTWaypoint.TowerOfJoy);
-		decorator.addVillage(ruinsGen);
+		decorator.affix(ruinsGen);
 	}
 
 	@Override

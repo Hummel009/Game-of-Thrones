@@ -15,7 +15,7 @@ public class GOTBiomeWesterlands extends GOTBiomeWesteros {
 
 	public GOTBiomeWesterlands(int i, boolean major) {
 		super(i, major);
-		decorator.addVillage(new GOTStructureWesterlandsCity(this, 1.0f));
+		decorator.affix(new GOTStructureWesterlandsCity(this, 1.0f));
 		invasionSpawns.addInvasion(GOTInvasions.DRAGONSTONE, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.STORMLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.RIVERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
@@ -39,7 +39,7 @@ public class GOTBiomeWesterlands extends GOTBiomeWesteros {
 		ruins.affix(GOTWaypoint.TarbeckHall);
 		ruins.affix(GOTWaypoint.Castamere);
 		ruins.affix(GOTWaypoint.Goldenhill);
-		decorator.addVillage(ruins);
+		decorator.affix(ruins);
 	}
 
 	@Override

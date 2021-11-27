@@ -53,10 +53,10 @@ public class GOTBiomeStormlandsFlat extends GOTBiomeStormlands {
 		castle.affix(GOTWaypoint.BroadArch);
 		castle.affix(GOTWaypoint.EvenfallHall);
 		castle.affix(GOTWaypoint.StormsEnd);
-		decorator.addVillage(castle);
+		decorator.affix(castle);
 		GOTStructureStormlandsCity town = new GOTStructureStormlandsCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.WeepingTown);
-		decorator.addVillage(town);
+		decorator.affix(town);
 	}
 
 	@Override

@@ -44,7 +44,7 @@ public class GOTBiomeVolantisFlat extends GOTBiomeVolantis {
 		town.affix(GOTWaypoint.Selhorys, -1, 0, 1);
 		town.affix(GOTWaypoint.Elyria);
 		town.affix(GOTWaypoint.Tolos);
-		decorator.addVillage(town);
+		decorator.affix(town);
 	}
 
 	@Override

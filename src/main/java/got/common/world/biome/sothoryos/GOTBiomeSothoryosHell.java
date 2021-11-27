@@ -19,11 +19,6 @@ public class GOTBiomeSothoryosHell extends GOTBiomeSothoryosJungle {
 	}
 
 	@Override
-	public boolean canSpawnHostilesInDay() {
-		return true;
-	}
-
-	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.VISIT_SOTHORYOS_HELL;
 	}

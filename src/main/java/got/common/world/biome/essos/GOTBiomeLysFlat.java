@@ -31,7 +31,7 @@ public class GOTBiomeLysFlat extends GOTBiomeLys {
 		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureLysCity town = new GOTStructureLysCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Lys);
-		decorator.addVillage(town);
+		decorator.affix(town);
 	}
 
 	@Override

@@ -14,7 +14,7 @@ import got.common.world.structure.westeros.riverlands.GOTStructureRiverlandsCity
 public class GOTBiomeRiverlands extends GOTBiomeWesteros {
 	public GOTBiomeRiverlands(int i, boolean major) {
 		super(i, major);
-		decorator.addVillage(new GOTStructureRiverlandsCity(this, 1.0f));
+		decorator.affix(new GOTStructureRiverlandsCity(this, 1.0f));
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.IRONBORN, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.HILL_TRIBES, GOTEventSpawner.EventChance.COMMON);
@@ -31,10 +31,10 @@ public class GOTBiomeRiverlands extends GOTBiomeWesteros {
 		ruins.affix(GOTWaypoint.OldStones);
 		ruins.affix(GOTWaypoint.WhiteWalls);
 		ruins.affix(GOTWaypoint.HoggHall);
-		decorator.addVillage(ruins);
+		decorator.affix(ruins);
 		GOTStructureRuinsBig colossal = new GOTStructureRuinsBig(this, 0.0f);
 		colossal.affix(GOTWaypoint.Harrenhal);
-		decorator.addVillage(colossal);
+		decorator.affix(colossal);
 	}
 
 	@Override

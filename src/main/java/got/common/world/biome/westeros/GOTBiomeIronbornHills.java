@@ -19,7 +19,7 @@ public class GOTBiomeIronbornHills extends GOTBiomeIronborn {
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
 		GOTStructureIronbornCity castle = new GOTStructureIronbornCity(this, 0.0f).setIsCastle();
 		castle.affix(GOTWaypoint.Hammerhorn);
-		decorator.addVillage(castle);
+		decorator.affix(castle);
 	}
 
 	@Override

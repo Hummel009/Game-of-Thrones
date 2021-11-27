@@ -41,7 +41,7 @@ public class GOTBiomeMossovyMarshes extends GOTBiome {
 		rampart.affix(GOTWaypoint.WestPass);
 		rampart.affix(GOTWaypoint.NorthPass);
 		rampart.affix(GOTWaypoint.SouthPass);
-		decorator.addVillage(rampart);
+		decorator.affix(rampart);
 	}
 
 	@Override

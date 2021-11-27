@@ -43,7 +43,7 @@ public class GOTBiomeDothrakiSea extends GOTBiome {
 		camp.affix(GOTWaypoint.VaesLeisi);
 		camp.affix(GOTWaypoint.VaesLeqse);
 		camp.affix(GOTWaypoint.VaesMejhah);
-		decorator.addVillage(camp);
+		decorator.affix(camp);
 	}
 
 	@Override

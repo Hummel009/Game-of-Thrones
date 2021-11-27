@@ -20,7 +20,7 @@ public class GOTBiomeBraavos extends GOTBiomeEssos {
 		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_ALMOND, 0.2f);
 		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
 		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
-		decorator.addVillage(new GOTStructureBraavosCity(this, 1.0f));
+		decorator.affix(new GOTStructureBraavosCity(this, 1.0f));
 		invasionSpawns.addInvasion(GOTInvasions.VOLANTIS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.PENTOS, GOTEventSpawner.EventChance.UNCOMMON);
 		SpawnListContainer[] container1 = new SpawnListContainer[1];

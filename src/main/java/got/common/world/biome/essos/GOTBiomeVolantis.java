@@ -23,7 +23,7 @@ public class GOTBiomeVolantis extends GOTBiomeEssos {
 		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
 		this.addBiomeVariant(GOTBiomeVariant.FIELD_CORN, 0.2f);
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityElephant.class, 8, 1, 1));
-		decorator.addVillage(new GOTStructureVolantisCity(this, 1.0f));
+		decorator.affix(new GOTStructureVolantisCity(this, 1.0f));
 		SpawnListContainer[] container1 = new SpawnListContainer[1];
 		container1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.BRAAVOS_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container1);

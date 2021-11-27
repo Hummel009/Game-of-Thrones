@@ -48,7 +48,7 @@ public class GOTBiomeYiTiFlat extends GOTBiomeYiTi {
 		town.affix(GOTWaypoint.Turrani);
 		town.affix(GOTWaypoint.LengYi);
 		town.affix(GOTWaypoint.LengMa);
-		decorator.addVillage(town);
+		decorator.affix(town);
 	}
 
 	@Override

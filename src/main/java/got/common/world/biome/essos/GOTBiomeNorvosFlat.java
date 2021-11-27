@@ -25,7 +25,7 @@ public class GOTBiomeNorvosFlat extends GOTBiomeNorvos {
 		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureNorvosCity town = new GOTStructureNorvosCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Norvos, 0, -1, 2);
-		decorator.addVillage(town);
+		decorator.affix(town);
 	}
 
 	@Override

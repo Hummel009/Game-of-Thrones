@@ -77,7 +77,7 @@ public class GOTBiomeDorne extends GOTBiome {
 		decorator.addTree(GOTTreeType.PLUM, 5);
 		registerExoticFlowers();
 		setBanditChance(GOTEventSpawner.EventChance.RARE);
-		decorator.addVillage(new GOTStructureDorneCity(this, 1.0f));
+		decorator.affix(new GOTStructureDorneCity(this, 1.0f));
 		SpawnListContainer[] container1 = new SpawnListContainer[1];
 		container1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WESTERLANDS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container1);

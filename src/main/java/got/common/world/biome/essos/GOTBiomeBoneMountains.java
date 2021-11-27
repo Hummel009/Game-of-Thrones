@@ -44,11 +44,6 @@ public class GOTBiomeBoneMountains extends GOTBiome {
 	}
 
 	@Override
-	public boolean canSpawnHostilesInDay() {
-		return true;
-	}
-
-	@Override
 	public void decorate(World world, Random random, int i, int k) {
 		int l;
 		super.decorate(world, random, i, k);

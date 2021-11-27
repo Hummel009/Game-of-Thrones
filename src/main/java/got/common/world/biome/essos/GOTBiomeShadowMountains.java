@@ -34,12 +34,7 @@ public class GOTBiomeShadowMountains extends GOTBiome {
 		biomeColors.setWater(0);
 		enableRocky = true;
 	}
-
-	@Override
-	public boolean canSpawnHostilesInDay() {
-		return true;
-	}
-
+	
 	@Override
 	public void generateMountainTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, int xzIndex, int ySize, int height, int rockDepth, GOTBiomeVariant variant) {
 		int stoneHeight = 110 - rockDepth;

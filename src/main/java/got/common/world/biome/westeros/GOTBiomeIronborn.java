@@ -24,7 +24,7 @@ public class GOTBiomeIronborn extends GOTBiomeWesteros {
 		ruinsGen.affix(GOTWaypoint.GreyironCastle);
 		ruinsGen.affix(GOTWaypoint.HoareKeep);
 		ruinsGen.affix(GOTWaypoint.HoareCastle);
-		decorator.addVillage(ruinsGen);
+		decorator.affix(ruinsGen);
 	}
 
 	@Override

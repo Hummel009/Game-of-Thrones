@@ -23,7 +23,7 @@ public class GOTBiomeNewGhis extends GOTBiomeGhiscar {
 		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureGhiscarCity town = new GOTStructureGhiscarCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.NewGhis);
-		decorator.addVillage(town);
+		decorator.affix(town);
 	}
 
 	@Override

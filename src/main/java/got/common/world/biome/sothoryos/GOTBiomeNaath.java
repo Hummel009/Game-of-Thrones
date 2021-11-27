@@ -61,7 +61,7 @@ public class GOTBiomeNaath extends GOTBiome {
 		npcSpawnList.newFactionList(1).add(container11);
 		GOTStructureSummerVillage colony = new GOTStructureSummerVillage(this, 0.0f);
 		colony.affix(GOTWaypoint.Naath);
-		decorator.addVillage(colony);
+		decorator.affix(colony);
 		invasionSpawns.addInvasion(GOTInvasions.GHISCAR, GOTEventSpawner.EventChance.COMMON);
 	}
 

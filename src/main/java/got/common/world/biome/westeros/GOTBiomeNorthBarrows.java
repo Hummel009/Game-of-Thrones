@@ -30,10 +30,10 @@ public class GOTBiomeNorthBarrows extends GOTBiomeNorth {
 		decorator.addRandomStructure(new GOTStructureBarrow(false), 20);
 		GOTStructureNorthCity castle = new GOTStructureNorthCity(this, 0.0f).setIsCastle();
 		castle.affix(GOTWaypoint.Goldgrass, 0, 1);
-		decorator.addVillage(castle);
+		decorator.affix(castle);
 		GOTStructureNorthCity town = new GOTStructureNorthCity(this, 0.0f).setIsSmallTown();
 		town.affix(GOTWaypoint.Barrowtown, 0, 1, 2);
-		decorator.addVillage(town);
+		decorator.affix(town);
 	}
 
 	@Override

@@ -126,7 +126,7 @@ public class GOTBiomeDecorator {
 		treeTypes.add(new GOTTreeType.WeightedTreeType(type, weight));
 	}
 
-	public void addVillage(GOTVillageGen village) {
+	public void affix(GOTVillageGen village) {
 		villages.add(village);
 	}
 

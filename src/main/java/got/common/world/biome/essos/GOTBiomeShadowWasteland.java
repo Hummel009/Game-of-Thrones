@@ -7,7 +7,7 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.feature.*;
+import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.structure.essos.asshai.GOTStructureAsshaiCity;
@@ -15,13 +15,11 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
-import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class GOTBiomeShadowWasteland extends GOTBiome {
 	public NoiseGeneratorPerlin noiseDirt = new NoiseGeneratorPerlin(new Random(42956029606L), 1);
 	public NoiseGeneratorPerlin noiseGravel = new NoiseGeneratorPerlin(new Random(7185609602367L), 1);
-	public NoiseGeneratorPerlin noiseMordorGravel = new NoiseGeneratorPerlin(new Random(12480634985056L), 1);
-	public WorldGenerator boulderGen = new GOTWorldGenBoulder(Blocks.stone, 0, 1, 2);
+	public NoiseGeneratorPerlin noiseBasaltGravel = new NoiseGeneratorPerlin(new Random(12480634985056L), 1);
 
 	public GOTBiomeShadowWasteland(int i, boolean major) {
 		super(i, major);
@@ -39,7 +37,7 @@ public class GOTBiomeShadowWasteland extends GOTBiome {
 		decorator.addTree(GOTTreeType.CHARRED, 1000);
 		decorator.addTree(GOTTreeType.OAK_DEAD, 1000);
 		setBanditChance(GOTEventSpawner.EventChance.NEVER);
-		decorator.addVillage(new GOTStructureAsshaiCity(this, 0.1f));
+		decorator.affix(new GOTStructureAsshaiCity(this, 0.1f));
 	}
 
 	@Override
@@ -52,8 +50,8 @@ public class GOTBiomeShadowWasteland extends GOTBiome {
 		double d2 = noiseDirt.func_151601_a(i * 0.6, k * 0.6);
 		double d3 = noiseGravel.func_151601_a(i * 0.09, k * 0.09);
 		double d4 = noiseGravel.func_151601_a(i * 0.6, k * 0.6);
-		double d5 = noiseMordorGravel.func_151601_a(i * 0.09, k * 0.09);
-		if (d5 + noiseMordorGravel.func_151601_a(i * 0.6, k * 0.6) > 0.5) {
+		double d5 = noiseBasaltGravel.func_151601_a(i * 0.09, k * 0.09);
+		if (d5 + noiseBasaltGravel.func_151601_a(i * 0.6, k * 0.6) > 0.5) {
 			topBlock = GOTRegistry.basaltGravel;
 			topBlockMeta = 0;
 		} else if (d3 + d4 > 0.6) {

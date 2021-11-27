@@ -21,7 +21,7 @@ public class GOTBiomeIbbenColony extends GOTBiomeEssos {
 		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureIbbenVillage village = new GOTStructureIbbenVillage(this, 0.0f);
 		village.affix(GOTWaypoint.NewIbbish);
-		decorator.addVillage(village);
+		decorator.affix(village);
 	}
 
 	@Override

@@ -34,11 +34,6 @@ public class GOTBiomeTropicalForest extends GOTBiome {
 	}
 
 	@Override
-	public boolean canSpawnHostilesInDay() {
-		return true;
-	}
-
-	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.VISIT_TROPICAL_FOREST;
 	}

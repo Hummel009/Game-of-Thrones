@@ -14,10 +14,10 @@ import got.common.world.structure.westeros.arryn.GOTStructureArrynCity;
 public class GOTBiomeArryn extends GOTBiomeWesteros {
 	public GOTBiomeArryn(int i, boolean major) {
 		super(i, major);
-		decorator.addVillage(new GOTStructureArrynCity(this, 1.0f));
+		decorator.affix(new GOTStructureArrynCity(this, 1.0f));
 		GOTStructureTower towerGen = new GOTStructureTower(this, 0.0f);
 		towerGen.affix(GOTWaypoint.BaelishKeep);
-		decorator.addVillage(towerGen);
+		decorator.affix(towerGen);
 		SpawnListContainer[] container1 = new SpawnListContainer[1];
 		container1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.HILL_TRIBES_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container1);

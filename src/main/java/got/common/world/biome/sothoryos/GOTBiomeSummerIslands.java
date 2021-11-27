@@ -76,7 +76,7 @@ public class GOTBiomeSummerIslands extends GOTBiome {
 		village.affix(GOTWaypoint.Omboru);
 		village.affix(GOTWaypoint.Koj);
 		village.affix(GOTWaypoint.Walano);
-		decorator.addVillage(village);
+		decorator.affix(village);
 		invasionSpawns.addInvasion(GOTInvasions.GHISCAR, GOTEventSpawner.EventChance.COMMON);
 	}
 

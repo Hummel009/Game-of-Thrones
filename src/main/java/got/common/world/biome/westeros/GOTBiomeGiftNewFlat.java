@@ -29,7 +29,7 @@ public class GOTBiomeGiftNewFlat extends GOTBiomeGiftNew {
 		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureGiftVillage village = new GOTStructureGiftVillage(this, 0.0f);
 		village.affix(GOTWaypoint.Queenscrown);
-		decorator.addVillage(village);
+		decorator.affix(village);
 	}
 
 	@Override

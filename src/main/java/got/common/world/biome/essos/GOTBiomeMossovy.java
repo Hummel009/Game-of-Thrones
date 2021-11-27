@@ -46,8 +46,8 @@ public class GOTBiomeMossovy extends GOTBiome {
 		npcSpawnList.newFactionList(10).add(container1);
 		GOTStructureRuinsBig colossal = new GOTStructureRuinsBig(this, 0.0f);
 		colossal.affix(GOTWaypoint.Kadar);
-		decorator.addVillage(colossal);
-		decorator.addVillage(new GOTStructureMossovyVillage(this, 1.0f));
+		decorator.affix(colossal);
+		decorator.affix(new GOTStructureMossovyVillage(this, 1.0f));
 	}
 
 	@Override

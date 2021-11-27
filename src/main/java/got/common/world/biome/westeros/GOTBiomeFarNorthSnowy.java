@@ -24,10 +24,10 @@ public class GOTBiomeFarNorthSnowy extends GOTBiome {
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntitySnowBear.class, 8, 1, 1));
 		GOTStructureHardhome home = new GOTStructureHardhome(this, 0.0f);
 		home.affix(GOTWaypoint.Hardhome);
-		decorator.addVillage(home);
+		decorator.affix(home);
 		GOTStructureNightKing altar = new GOTStructureNightKing(this, 0.0f);
 		altar.affix(GOTWaypoint.Aboba);
-		decorator.addVillage(altar);
+		decorator.affix(altar);
 	}
 
 	@Override

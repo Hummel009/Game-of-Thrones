@@ -44,7 +44,7 @@ public class GOTBiomeCrownlandsFlat extends GOTBiomeCrownlands {
 		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureCrownlandsCity village = new GOTStructureCrownlandsCity(this, 0.0f);
 		village.affix(GOTWaypoint.Briarwhite);
-		decorator.addVillage(village);
+		decorator.affix(village);
 		GOTStructureCrownlandsCity castle = new GOTStructureCrownlandsCity(this, 0.0f).setIsCastle();
 		castle.affix(GOTWaypoint.Antlers);
 		castle.affix(GOTWaypoint.Stokeworth);
@@ -53,16 +53,16 @@ public class GOTBiomeCrownlandsFlat extends GOTBiomeCrownlands {
 		castle.affix(GOTWaypoint.RooksRest, 0, -1);
 		castle.affix(GOTWaypoint.Rosby, 0, -1);
 		castle.affix(GOTWaypoint.Hayford, -1, 0);
-		decorator.addVillage(castle);
+		decorator.affix(castle);
 		GOTStructureCrownlandsCity town = new GOTStructureCrownlandsCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Duskendale, -2, 0, 3);
-		decorator.addVillage(town);
+		decorator.affix(town);
 		GOTStructureCrownlandsCity capital = new GOTStructureCrownlandsCity(this, 0.0f).setIsCapital();
 		capital.affix(GOTWaypoint.KingsLanding, 1, 0, 1);
-		decorator.addVillage(capital);
+		decorator.affix(capital);
 		GOTWaypointRedCastle rc = new GOTWaypointRedCastle(this, 0.0f);
 		rc.affix(GOTWaypoint.KingsLanding, 2, 0, 1);
-		decorator.addVillage(rc);
+		decorator.affix(rc);
 	}
 
 	@Override

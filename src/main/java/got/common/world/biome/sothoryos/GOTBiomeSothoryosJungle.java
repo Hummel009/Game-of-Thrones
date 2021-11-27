@@ -16,7 +16,6 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
 public class GOTBiomeSothoryosJungle extends GOTBiome {
-
 	public GOTBiomeSothoryosJungle(int i, boolean major) {
 		super(i, major);
 		topBlock = GOTRegistry.mudGrass;
@@ -52,11 +51,6 @@ public class GOTBiomeSothoryosJungle extends GOTBiome {
 		decorator.addTree(GOTTreeType.MANGO, 20);
 		decorator.addTree(GOTTreeType.BANANA, 50);
 		registerJungleFlowers();
-	}
-
-	@Override
-	public boolean canSpawnHostilesInDay() {
-		return true;
 	}
 
 	@Override

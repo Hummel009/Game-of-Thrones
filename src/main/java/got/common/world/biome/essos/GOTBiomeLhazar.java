@@ -35,7 +35,7 @@ public class GOTBiomeLhazar extends GOTBiome {
 		village.affix(GOTWaypoint.Hesh);
 		village.affix(GOTWaypoint.Lhazosh);
 		village.affix(GOTWaypoint.Kosrak);
-		decorator.addVillage(village);
+		decorator.affix(village);
 		invasionSpawns.addInvasion(GOTInvasions.DOTHRAKI, GOTEventSpawner.EventChance.UNCOMMON);
 
 	}

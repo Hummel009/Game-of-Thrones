@@ -47,11 +47,6 @@ public class GOTBiomeValyria extends GOTBiome {
 	}
 
 	@Override
-	public boolean canSpawnHostilesInDay() {
-		return true;
-	}
-
-	@Override
 	public void generateBiomeTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, double stoneNoise, int height, GOTBiomeVariant variant) {
 		Block topBlock_pre = topBlock;
 		int topBlockMeta_pre = topBlockMeta;

@@ -50,7 +50,7 @@ public class GOTBiomeGhiscarColony extends GOTBiome {
 		colony.affix(GOTWaypoint.Gogossos);
 		colony.affix(GOTWaypoint.Zamettar, 0, -1, 2);
 		colony.affix(GOTWaypoint.Gorosh);
-		decorator.addVillage(colony);
+		decorator.affix(colony);
 	}
 
 	@Override

@@ -14,7 +14,7 @@ public class GOTBiomeGiftNew extends GOTBiomeWesteros {
 	public GOTBiomeGiftNew(int i, boolean major) {
 		super(i, major);
 		spawnableCreatureList.clear();
-		decorator.addVillage(new GOTStructureGiftVillage(this, 1.0f));
+		decorator.affix(new GOTStructureGiftVillage(this, 1.0f));
 		SpawnListContainer[] container3 = new SpawnListContainer[1];
 		container3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container3);

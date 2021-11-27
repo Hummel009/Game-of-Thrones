@@ -43,13 +43,13 @@ public class GOTBiomeNeck extends GOTBiome {
 		npcSpawnList.newFactionList(1).add(container1);
 		GOTStructureNorthCity castle = new GOTStructureNorthCity(this, 0.0f).setIsCastle();
 		castle.affix(GOTWaypoint.MoatKailin);
-		decorator.addVillage(castle);
+		decorator.affix(castle);
 		GOTStructureNorthCity village = new GOTStructureNorthCity(this, 0.0f);
 		village.affix(GOTWaypoint.GreywaterWatch);
-		decorator.addVillage(village);
+		decorator.affix(village);
 		GOTStructureVictarionLanding camp = new GOTStructureVictarionLanding(this, 0.0f);
 		camp.affix(GOTWaypoint.VictarionLanding);
-		decorator.addVillage(camp);
+		decorator.affix(camp);
 	}
 
 	@Override

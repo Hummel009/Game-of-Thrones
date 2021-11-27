@@ -27,7 +27,7 @@ public class GOTBiomeYiTiWasteland extends GOTBiomeYiTi {
 		tower.affix(GOTWaypoint.FiveForts3);
 		tower.affix(GOTWaypoint.FiveForts4);
 		tower.affix(GOTWaypoint.FiveForts5, 0, 0, 3);
-		decorator.addVillage(tower);
+		decorator.affix(tower);
 	}
 
 	@Override

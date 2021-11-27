@@ -50,10 +50,10 @@ public class GOTBiomeNorth extends GOTBiomeWesteros {
 		npcSpawnList.newFactionList(0).add(container4);
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.IRONBORN, GOTEventSpawner.EventChance.UNCOMMON);
-		decorator.addVillage(new GOTStructureNorthCity(this, 1.0f));
+		decorator.affix(new GOTStructureNorthCity(this, 1.0f));
 		GOTStructureTower towerGen = new GOTStructureTower(this, 0.0f);
 		towerGen.affix(GOTWaypoint.RamseyTower);
-		decorator.addVillage(towerGen);
+		decorator.affix(towerGen);
 	}
 
 	@Override

@@ -44,7 +44,7 @@ public class GOTBiomeDorneDesert extends GOTBiome {
 		npcSpawnList.newFactionList(1).add(container11);
 		GOTStructureDorneCity castle = new GOTStructureDorneCity(this, 0.0f).setIsCastle();
 		castle.affix(GOTWaypoint.Sandstone);
-		decorator.addVillage(castle);
+		decorator.affix(castle);
 	}
 
 	@Override

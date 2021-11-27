@@ -49,7 +49,7 @@ public class GOTBiomeUlos extends GOTBiome {
 		registerForestFlowers();
 		GOTStructureRuinsBig colossal = new GOTStructureRuinsBig(this, 0.0f);
 		colossal.affix(GOTWaypoint.Ulos);
-		decorator.addVillage(colossal);
+		decorator.affix(colossal);
 	}
 
 	@Override

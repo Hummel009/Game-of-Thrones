@@ -53,10 +53,10 @@ public class GOTBiomeNorthFlat extends GOTBiomeNorth {
 		castle.affix(GOTWaypoint.RisvellsCastle, 0, 1);
 		castle.affix(GOTWaypoint.RillwaterCrossing);
 		castle.affix(GOTWaypoint.FlintsFinger);
-		decorator.addVillage(castle);
+		decorator.affix(castle);
 		GOTStructureNorthCity town = new GOTStructureNorthCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.WhiteHarbour, 1);
-		decorator.addVillage(town);
+		decorator.affix(town);
 	}
 
 	@Override

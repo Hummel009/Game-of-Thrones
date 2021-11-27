@@ -27,7 +27,7 @@ public class GOTBiomeIbbenFlat extends GOTBiomeIbben {
 		village.affix(GOTWaypoint.IbNor);
 		village.affix(GOTWaypoint.PortOfIbben);
 		village.affix(GOTWaypoint.IbSar);
-		decorator.addVillage(village);
+		decorator.affix(village);
 	}
 
 	@Override

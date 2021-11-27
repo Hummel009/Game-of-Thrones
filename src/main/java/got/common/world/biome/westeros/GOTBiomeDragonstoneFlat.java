@@ -37,10 +37,10 @@ public class GOTBiomeDragonstoneFlat extends GOTBiomeDragonstone {
 		castle.affix(GOTWaypoint.Stonedance);
 		castle.affix(GOTWaypoint.SweetportSound);
 		castle.affix(GOTWaypoint.ClawIsle);
-		decorator.addVillage(castle);
+		decorator.affix(castle);
 		GOTStructureDragonstoneCity town = new GOTStructureDragonstoneCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Hull);
-		decorator.addVillage(town);
+		decorator.affix(town);
 	}
 
 	@Override

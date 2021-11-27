@@ -25,7 +25,7 @@ public class GOTBiomePentosFlat extends GOTBiomePentos {
 		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructurePentosCity town = new GOTStructurePentosCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Pentos, -1, 0, 1);
-		decorator.addVillage(town);
+		decorator.affix(town);
 	}
 
 	@Override

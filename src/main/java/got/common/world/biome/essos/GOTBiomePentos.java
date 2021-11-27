@@ -20,7 +20,7 @@ public class GOTBiomePentos extends GOTBiomeEssos {
 		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
 		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
 		this.addBiomeVariant(GOTBiomeVariant.FIELD_CORN, 0.2f);
-		decorator.addVillage(new GOTStructurePentosCity(this, 1.0f));
+		decorator.affix(new GOTStructurePentosCity(this, 1.0f));
 		SpawnListContainer[] container1 = new SpawnListContainer[1];
 		container1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.BRAAVOS_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container1);

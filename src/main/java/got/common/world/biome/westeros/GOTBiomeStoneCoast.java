@@ -19,7 +19,7 @@ public class GOTBiomeStoneCoast extends GOTBiomeWesteros {
 		SpawnListContainer[] container2 = new SpawnListContainer[1];
 		container2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(5).add(container2);
-		decorator.addVillage(new GOTStructureNorthCity(this, 1.0f));
+		decorator.affix(new GOTStructureNorthCity(this, 1.0f));
 	}
 
 	@Override

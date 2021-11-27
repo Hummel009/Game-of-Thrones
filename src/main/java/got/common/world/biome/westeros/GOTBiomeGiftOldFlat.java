@@ -27,16 +27,16 @@ public class GOTBiomeGiftOldFlat extends GOTBiomeGiftOld {
 		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureGiftVillage village = new GOTStructureGiftVillage(this, 0.0f);
 		village.affix(GOTWaypoint.Moletown);
-		decorator.addVillage(village);
+		decorator.affix(village);
 		GOTStructureCastleBlack bc = new GOTStructureCastleBlack(this, 0.0f);
 		bc.affix(GOTWaypoint.CastleBlack);
-		decorator.addVillage(bc);
+		decorator.affix(bc);
 		GOTStructureShadowTower st = new GOTStructureShadowTower(this, 0.0f);
 		st.affix(GOTWaypoint.ShadowTower);
-		decorator.addVillage(st);
+		decorator.affix(st);
 		GOTStructureEastWatch ew = new GOTStructureEastWatch(this, 0.0f);
 		ew.affix(GOTWaypoint.EastWatch);
-		decorator.addVillage(ew);
+		decorator.affix(ew);
 	}
 
 	@Override

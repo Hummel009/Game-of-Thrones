@@ -23,7 +23,7 @@ public class GOTBiomeQarth extends GOTBiomeEssos {
 		SpawnListContainer[] container1 = new SpawnListContainer[1];
 		container1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.MANTICORE, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(1).add(container1);
-		decorator.addVillage(new GOTStructureQarthCity(this, 1.0f));
+		decorator.affix(new GOTStructureQarthCity(this, 1.0f));
 	}
 
 	@Override

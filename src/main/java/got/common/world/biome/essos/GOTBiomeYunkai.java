@@ -26,10 +26,10 @@ public class GOTBiomeYunkai extends GOTBiomeGhiscar {
 		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureGhiscarCity town = new GOTStructureGhiscarCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Yunkai, -1, 0, 1);
-		decorator.addVillage(town);
+		decorator.affix(town);
 		GOTStructurePyramidYunkaiAstapor pyramid = new GOTStructurePyramidYunkaiAstapor(this, 0.0f);
 		pyramid.affix(GOTWaypoint.Yunkai, -2, 0);
-		decorator.addVillage(pyramid);
+		decorator.affix(pyramid);
 		decorator.addRandomStructure(new GOTStructureGhiscarFightingPit(false), 250);
 	}
 

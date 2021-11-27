@@ -26,7 +26,7 @@ public class GOTBiomeIronbornFlat extends GOTBiomeIronborn {
 		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureIronbornCity village = new GOTStructureIronbornCity(this, 0.0f);
 		village.affix(GOTWaypoint.Pebbleton);
-		decorator.addVillage(village);
+		decorator.affix(village);
 		GOTStructureIronbornCity castle = new GOTStructureIronbornCity(this, 0.0f).setIsCastle();
 		castle.affix(GOTWaypoint.Blacktyde);
 		castle.affix(GOTWaypoint.Volmark);
@@ -52,14 +52,14 @@ public class GOTBiomeIronbornFlat extends GOTBiomeIronborn {
 		castle.affix(GOTWaypoint.TawneyCastle);
 		castle.affix(GOTWaypoint.Shatterstone);
 		castle.affix(GOTWaypoint.MyreCastle);
-		decorator.addVillage(castle);
+		decorator.affix(castle);
 		GOTStructureTower towerGen = new GOTStructureTower(this, 0.0f);
 		towerGen.affix(GOTWaypoint.TowerOfGlimmering);
-		decorator.addVillage(towerGen);
+		decorator.affix(towerGen);
 		GOTStructureIronbornCity town = new GOTStructureIronbornCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Lordsport);
 		town.affix(GOTWaypoint.RedHaven);
-		decorator.addVillage(town);
+		decorator.affix(town);
 	}
 
 	@Override

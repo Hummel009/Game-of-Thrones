@@ -48,7 +48,7 @@ public class GOTBiomeHauntedForest extends GOTBiome {
 		decorator.addTree(GOTTreeType.PINE, 20);
 		GOTStructureCrasterKeep keep = new GOTStructureCrasterKeep(this, 0.0f);
 		keep.affix(GOTWaypoint.CrastersKeep);
-		decorator.addVillage(keep);
+		decorator.affix(keep);
 	}
 
 	@Override

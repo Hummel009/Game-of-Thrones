@@ -29,7 +29,7 @@ public class GOTBiomeReachFlat extends GOTBiomeReach {
 		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureReachCity village = new GOTStructureReachCity(this, 0.0f);
 		village.affix(GOTWaypoint.Oxcross);
-		decorator.addVillage(village);
+		decorator.affix(village);
 		GOTStructureReachCity castle = new GOTStructureReachCity(this, 0.0f).setIsCastle();
 		castle.affix(GOTWaypoint.SunHouse, 0, -1);
 		castle.affix(GOTWaypoint.GarnetGrove, -1, 0);
@@ -61,7 +61,7 @@ public class GOTBiomeReachFlat extends GOTBiomeReach {
 		castle.affix(GOTWaypoint.GrassyVale);
 		castle.affix(GOTWaypoint.Ashford, 0, 1);
 		castle.affix(GOTWaypoint.Bitterbridge, 0, 1);
-		decorator.addVillage(castle);
+		decorator.affix(castle);
 		GOTStructureReachCity town = new GOTStructureReachCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.StarfishHarbor);
 		town.affix(GOTWaypoint.Vinetown);
@@ -72,14 +72,14 @@ public class GOTBiomeReachFlat extends GOTBiomeReach {
 		town.affix(GOTWaypoint.Tumbleton, 0, -1);
 		town.affix(GOTWaypoint.Smithyton, 0, 1, 2);
 		town.affix(GOTWaypoint.Oldtown, -1, 0, 3);
-		decorator.addVillage(town);
+		decorator.affix(town);
 		GOTStructureTower tower = new GOTStructureTower(this, 0.0f);
 		tower.affix(GOTWaypoint.Standfast);
 		tower.affix(GOTWaypoint.ThreeTowers, -1, 0, 1);
 		tower.affix(GOTWaypoint.ThreeTowers, -1, -1, 1);
 		tower.affix(GOTWaypoint.ThreeTowers, -1, 1, 1);
 		tower.affix(GOTWaypoint.HightowerLitehouse);
-		decorator.addVillage(tower);
+		decorator.affix(tower);
 	}
 
 	@Override

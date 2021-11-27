@@ -36,11 +36,11 @@ public class GOTBiomeCrownlands extends GOTBiomeWesteros {
 		SpawnListContainer[] container7 = new SpawnListContainer[1];
 		container7[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container7);
-		decorator.addVillage(new GOTStructureCrownlandsCity(this, 1.0f));
+		decorator.affix(new GOTStructureCrownlandsCity(this, 1.0f));
 		GOTStructureRuins ruinsGen = new GOTStructureRuins(this, 0.0f);
 		ruinsGen.affix(GOTWaypoint.HollardCastle);
 		ruinsGen.affix(GOTWaypoint.Whispers);
-		decorator.addVillage(ruinsGen);
+		decorator.affix(ruinsGen);
 	}
 
 	@Override

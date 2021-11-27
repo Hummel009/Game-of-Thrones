@@ -24,7 +24,7 @@ public class GOTBiomeQarthFlat extends GOTBiomeQarth {
 		town.affix(GOTWaypoint.Qarth, 0, 1);
 		town.affix(GOTWaypoint.PortYhos, 0, 1);
 		town.affix(GOTWaypoint.Qarkash, 0, 0);
-		decorator.addVillage(town);
+		decorator.affix(town);
 	}
 
 	@Override

@@ -31,7 +31,7 @@ public class GOTBiomeTyroshFlat extends GOTBiomeTyrosh {
 		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureTyroshCity town = new GOTStructureTyroshCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Tyrosh);
-		decorator.addVillage(town);
+		decorator.affix(town);
 	}
 
 	@Override

@@ -26,10 +26,10 @@ public class GOTBiomeAstapor extends GOTBiomeGhiscar {
 		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureGhiscarCity town = new GOTStructureGhiscarCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Astapor, -1, 0, 1);
-		decorator.addVillage(town);
+		decorator.affix(town);
 		GOTStructurePyramidYunkaiAstapor pyramid = new GOTStructurePyramidYunkaiAstapor(this, 0.0f);
 		pyramid.affix(GOTWaypoint.Astapor, -2, 0);
-		decorator.addVillage(pyramid);
+		decorator.affix(pyramid);
 		decorator.addRandomStructure(new GOTStructureGhiscarFightingPit(false), 250);
 	}
 

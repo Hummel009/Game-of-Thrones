@@ -43,12 +43,12 @@ public class GOTBiomeDorneFlat extends GOTBiomeDorne {
 		castle.affix(GOTWaypoint.Spottswood);
 		castle.affix(GOTWaypoint.WaterGardens);
 		castle.affix(GOTWaypoint.Lemonwood);
-		decorator.addVillage(castle);
+		decorator.affix(castle);
 		GOTStructureDorneCity town = new GOTStructureDorneCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.GhastonGrey);
 		town.affix(GOTWaypoint.Sunspear);
 		town.affix(GOTWaypoint.PlankyTown);
-		decorator.addVillage(town);
+		decorator.affix(town);
 	}
 
 	@Override

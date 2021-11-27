@@ -22,7 +22,7 @@ public class GOTBiomeQohorFlat extends GOTBiomeQohor {
 		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureQohorCity town = new GOTStructureQohorCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Qohor, 0, -1, 2);
-		decorator.addVillage(town);
+		decorator.affix(town);
 	}
 
 	@Override

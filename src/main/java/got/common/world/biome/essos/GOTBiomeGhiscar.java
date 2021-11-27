@@ -24,7 +24,7 @@ public class GOTBiomeGhiscar extends GOTBiomeEssos {
 		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
 		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
 		decorator.cactiPerChunk = 1;
-		decorator.addVillage(new GOTStructureGhiscarCity(this, 1.0f));
+		decorator.affix(new GOTStructureGhiscarCity(this, 1.0f));
 	}
 
 	@Override

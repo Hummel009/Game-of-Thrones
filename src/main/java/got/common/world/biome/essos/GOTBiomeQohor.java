@@ -17,7 +17,7 @@ public class GOTBiomeQohor extends GOTBiomeEssos {
 		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
 		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
 		this.addBiomeVariant(GOTBiomeVariant.FIELD_CORN, 0.2f);
-		decorator.addVillage(new GOTStructureQohorCity(this, 1.0f));
+		decorator.affix(new GOTStructureQohorCity(this, 1.0f));
 	}
 
 	@Override

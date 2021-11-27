@@ -28,7 +28,7 @@ public class GOTBiomeBraavosFlat extends GOTBiomeBraavos {
 		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureBraavosCity town = new GOTStructureBraavosCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Braavos, 0, -1, 2);
-		decorator.addVillage(town);
+		decorator.affix(town);
 	}
 
 	@Override

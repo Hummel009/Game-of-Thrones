@@ -68,7 +68,7 @@ public class GOTBiomeYiTi extends GOTBiome {
 		container11[0] = GOTBiomeSpawnList.entry(GOTSpawnList.MANTICORE, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(1).add(container11);
 		registerYiTiPlainsFlowers();
-		decorator.addVillage(new GOTStructureYiTiCity(this, 1.0f));
+		decorator.affix(new GOTStructureYiTiCity(this, 1.0f));
 		invasionSpawns.addInvasion(GOTInvasions.JOGOS, GOTEventSpawner.EventChance.UNCOMMON);
 	}
 

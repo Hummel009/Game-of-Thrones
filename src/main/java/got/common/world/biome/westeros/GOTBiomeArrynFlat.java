@@ -46,11 +46,11 @@ public class GOTBiomeArrynFlat extends GOTBiomeArryn {
 		castle.affix(GOTWaypoint.GateOfTheMoon, 0, 1);
 		castle.affix(GOTWaypoint.WitchIsle);
 		castle.affix(GOTWaypoint.Wickenden);
-		decorator.addVillage(castle);
+		decorator.affix(castle);
 		GOTStructureArrynCity town = new GOTStructureArrynCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Sisterton);
 		town.affix(GOTWaypoint.Gulltown);
-		decorator.addVillage(town);
+		decorator.affix(town);
 	}
 
 	@Override

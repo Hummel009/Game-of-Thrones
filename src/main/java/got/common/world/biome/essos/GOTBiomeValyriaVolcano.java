@@ -31,11 +31,6 @@ public class GOTBiomeValyriaVolcano extends GOTBiomeValyria {
 	}
 
 	@Override
-	public boolean canSpawnHostilesInDay() {
-		return true;
-	}
-
-	@Override
 	public void decorate(World world, Random random, int i, int k) {
 		int i1;
 		int k1;

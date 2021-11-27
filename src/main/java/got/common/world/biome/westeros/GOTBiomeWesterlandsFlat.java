@@ -37,7 +37,7 @@ public class GOTBiomeWesterlandsFlat extends GOTBiomeWesterlands {
 		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureWesterlandsCity village = new GOTStructureWesterlandsCity(this, 0.0f);
 		village.affix(GOTWaypoint.Oxcross);
-		decorator.addVillage(village);
+		decorator.affix(village);
 		GOTStructureWesterlandsCity castle = new GOTStructureWesterlandsCity(this, 0.0f).setIsCastle();
 		castle.affix(GOTWaypoint.Wyndhall);
 		castle.affix(GOTWaypoint.Banefort);
@@ -58,11 +58,11 @@ public class GOTBiomeWesterlandsFlat extends GOTBiomeWesterlands {
 		castle.affix(GOTWaypoint.Kayce, 1, 0);
 		castle.affix(GOTWaypoint.CleganesKeep);
 		castle.affix(GOTWaypoint.CasterlyRock, -1, 0);
-		decorator.addVillage(castle);
+		decorator.affix(castle);
 		GOTStructureWesterlandsCity town = new GOTStructureWesterlandsCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Kayce, 3);
 		town.affix(GOTWaypoint.Lannisport, -1, 0, 3);
-		decorator.addVillage(town);
+		decorator.affix(town);
 	}
 
 	@Override

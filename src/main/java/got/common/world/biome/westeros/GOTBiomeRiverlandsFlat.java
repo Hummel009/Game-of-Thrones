@@ -36,7 +36,7 @@ public class GOTBiomeRiverlandsFlat extends GOTBiomeRiverlands {
 		village.affix(GOTWaypoint.FairMarket);
 		village.affix(GOTWaypoint.Harroway);
 		village.affix(GOTWaypoint.Pennytree);
-		decorator.addVillage(village);
+		decorator.affix(village);
 		GOTStructureRiverlandsCity castle = new GOTStructureRiverlandsCity(this, 0.0f).setIsCastle();
 		castle.affix(GOTWaypoint.Seagard, 0, -1);
 		castle.affix(GOTWaypoint.Darry, 1, 0);
@@ -48,20 +48,20 @@ public class GOTBiomeRiverlandsFlat extends GOTBiomeRiverlands {
 		castle.affix(GOTWaypoint.Riverrun, -1, 0);
 		castle.affix(GOTWaypoint.StoneHedge, 0, 1);
 		castle.affix(GOTWaypoint.Maidenpool, 1, 0);
-		decorator.addVillage(castle);
+		decorator.affix(castle);
 		GOTStructureRiverlandsCity town = new GOTStructureRiverlandsCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.StoneySept);
 		town.affix(GOTWaypoint.Maidenpool, -1, 0, 3);
 		town.affix(GOTWaypoint.Saltpans);
 		town.affix(GOTWaypoint.Seagard, 0, 1, 2);
-		decorator.addVillage(town);
+		decorator.affix(town);
 		GOTStructureTower tower = new GOTStructureTower(this, 0.0f);
 		tower.affix(GOTWaypoint.TwinsRight, -2, 0, 3);
 		tower.affix(GOTWaypoint.TwinsLeft, 1, 0, 1);
-		decorator.addVillage(tower);
+		decorator.affix(tower);
 		GOTStructureCrossroadsInn inn = new GOTStructureCrossroadsInn(this, 0.0f);
 		inn.affix(GOTWaypoint.CrossroadsInn);
-		decorator.addVillage(inn);
+		decorator.affix(inn);
 	}
 
 	@Override

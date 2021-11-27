@@ -43,7 +43,7 @@ public class GOTBiomeFireField extends GOTBiomeReach {
 		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureReachCity castle = new GOTStructureReachCity(this, 0.0f).setIsCastle();
 		castle.affix(GOTWaypoint.Highgarden, 0, -1);
-		decorator.addVillage(castle);
+		decorator.affix(castle);
 	}
 
 	@Override
