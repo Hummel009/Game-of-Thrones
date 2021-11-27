@@ -60,6 +60,7 @@ CHANGELOG
 * Fixed bug with shields/capes GUI
 * Fixed bug with Ibben villages
 
+- Removed Shadow Wasteland
 - Removed Ghiscar Captain
 - Removed Ironborn Corsair
 - Removed levyman riders from units
