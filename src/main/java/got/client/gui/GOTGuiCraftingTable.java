@@ -144,12 +144,6 @@ public abstract class GOTGuiCraftingTable extends GuiContainer {
 		}
 	}
 
-	public static class Mossovy extends GOTGuiCraftingTable {
-		public Mossovy(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(new GOTContainerCraftingTable.Mossovy(inv, world, i, j, k), "mossovy");
-		}
-	}
-
 	public static class Lhazar extends GOTGuiCraftingTable {
 		public Lhazar(InventoryPlayer inv, World world, int i, int j, int k) {
 			super(new GOTContainerCraftingTable.Lhazar(inv, world, i, j, k), "lhazar");
@@ -165,6 +159,12 @@ public abstract class GOTGuiCraftingTable extends GuiContainer {
 	public static class Lys extends GOTGuiCraftingTable {
 		public Lys(InventoryPlayer inv, World world, int i, int j, int k) {
 			super(new GOTContainerCraftingTable.Lys(inv, world, i, j, k), "lys");
+		}
+	}
+
+	public static class Mossovy extends GOTGuiCraftingTable {
+		public Mossovy(InventoryPlayer inv, World world, int i, int j, int k) {
+			super(new GOTContainerCraftingTable.Mossovy(inv, world, i, j, k), "mossovy");
 		}
 	}
 

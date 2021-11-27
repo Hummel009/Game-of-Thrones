@@ -12,22 +12,22 @@ import net.minecraft.util.*;
 import net.minecraftforge.client.*;
 
 public class GOTRenderSpear extends Render {
+
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
 		GOTEntitySpear spear = (GOTEntitySpear) entity;
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float) d, (float) d1, (float) d2);
-		GL11.glRotatef(spear.prevRotationYaw + (spear.rotationYaw - spear.prevRotationYaw) * f1 - 90.0f, 0.0f, 1.0f, 0.0f);
-		GL11.glRotatef(spear.prevRotationPitch + (spear.rotationPitch - spear.prevRotationPitch) * f1, 0.0f, 0.0f, 1.0f);
+		GL11.glRotatef(spear.prevRotationYaw + (spear.rotationYaw - spear.prevRotationYaw) * f1 - 90.0F, 0.0F, 1.0F, 0.0F);
+		GL11.glRotatef(spear.prevRotationPitch + (spear.rotationPitch - spear.prevRotationPitch) * f1, 0.0F, 0.0F, 1.0F);
 		GL11.glEnable(32826);
 		float f2 = spear.shake - f1;
-		if (f2 > 0.0f) {
-			float f3 = -MathHelper.sin(f2 * 3.0f) * f2;
-			GL11.glRotatef(f3, 0.0f, 0.0f, 1.0f);
+		if (f2 > 0.0F) {
+			float f3 = -MathHelper.sin(f2 * 3.0F) * f2;
+			GL11.glRotatef(f3, 0.0F, 0.0F, 1.0F);
 		}
-		GL11.glRotatef(-135.0f, 0.0f, 0.0f, 1.0f);
-		GL11.glTranslatef(0.0f, -1.0f, 0.0f);
-
+		GL11.glRotatef(-135.0F, 0.0F, 0.0F, 1.0F);
+		GL11.glTranslatef(0.0F, -1.0F, 0.0F);
 		ItemStack itemstack = spear.getProjectileItem();
 		IItemRenderer customRenderer = MinecraftForgeClient.getItemRenderer(itemstack, IItemRenderer.ItemRenderType.EQUIPPED);
 		if (customRenderer != null) {
