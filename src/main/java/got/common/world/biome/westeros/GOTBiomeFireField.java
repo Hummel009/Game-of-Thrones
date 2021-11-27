@@ -70,4 +70,9 @@ public class GOTBiomeFireField extends GOTBiomeReach {
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.WESTEROS;
 	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
+	}
 }
