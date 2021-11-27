@@ -57,16 +57,16 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 				int imn = 16 - random.nextInt(3);
 				int imx = 21 + random.nextInt(3);
 				if (dSq > imn * imn && dSq < imx * imx) {
-					return GOTBezierType.ESSOS;
+					return GOTBezierType.PATH_DIRTY;
 				}
 			}
 			if (villageType == VillageType.TOWN) {
 				dSq = i * i + k * k;
 				if (dSq < 576) {
-					return GOTBezierType.ESSOS;
+					return GOTBezierType.PATH_DIRTY;
 				}
 				if (k1 <= 3 && i1 <= 74 || i1 <= 3 && k <= 74) {
-					return GOTBezierType.ESSOS;
+					return GOTBezierType.PATH_DIRTY;
 				}
 			}
 			return null;

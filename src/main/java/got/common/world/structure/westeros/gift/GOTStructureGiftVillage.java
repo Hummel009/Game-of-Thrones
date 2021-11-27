@@ -51,10 +51,10 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 				}
 				int imn = innerSize + random.nextInt(3);
 				if (dSq < imn * imn) {
-					return GOTBezierType.WESTEROS_PATH;
+					return GOTBezierType.PATH_DIRTY;
 				}
 				if (palisade && k < 0 && k > -(innerSize + 12 + 16) && i1 <= 2 + random.nextInt(3)) {
-					return GOTBezierType.WESTEROS_PATH;
+					return GOTBezierType.PATH_DIRTY;
 				}
 			}
 			return null;

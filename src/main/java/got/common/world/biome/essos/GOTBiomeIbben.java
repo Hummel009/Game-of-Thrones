@@ -78,7 +78,7 @@ public class GOTBiomeIbben extends GOTBiome {
 
 	@Override
 	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.WESTEROS_PATH;
+		return GOTBezierType.PATH_DIRTY;
 	}
 
 	@Override

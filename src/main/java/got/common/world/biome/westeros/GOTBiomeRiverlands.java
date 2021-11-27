@@ -54,7 +54,7 @@ public class GOTBiomeRiverlands extends GOTBiomeWesteros {
 
 	@Override
 	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.WESTEROS_PATH;
+		return GOTBezierType.PATH_DIRTY;
 	}
 
 }

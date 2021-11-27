@@ -52,29 +52,29 @@ public class GOTStructureIbbenVillage extends GOTVillageGen {
 				int dSq = i * i + k * k;
 				int imn = 20 + random.nextInt(4);
 				if (dSq < imn * imn) {
-					return GOTBezierType.WESTEROS_PATH;
+					return GOTBezierType.PATH_DIRTY;
 				}
 				int omn = 50 - random.nextInt(4);
 				int omx = 56 + random.nextInt(4);
 				if ((dSq > omn * omn && dSq < omx * omx) || (dSq < 2500 && Math.abs(i1 - k1) <= 2 + random.nextInt(4))) {
-					return GOTBezierType.WESTEROS_PATH;
+					return GOTBezierType.PATH_DIRTY;
 				}
 				if (palisade && k < -56 && k > -81 && i1 <= 2 + random.nextInt(4)) {
-					return GOTBezierType.WESTEROS_PATH;
+					return GOTBezierType.PATH_DIRTY;
 				}
 			}
 			if (villageType == VillageType.FORT) {
 				if (k <= -14 && k >= -49 && i1 <= 2) {
-					return GOTBezierType.IBBEN;
+					return GOTBezierType.PATH_DIRTY;
 				}
 				if (k <= -14 && k >= -17 && i1 <= 37) {
-					return GOTBezierType.WESTEROS_PATH;
+					return GOTBezierType.PATH_DIRTY;
 				}
 				if (k >= -14 && k <= 20 && i1 >= 19 && i1 <= 22) {
-					return GOTBezierType.WESTEROS_PATH;
+					return GOTBezierType.PATH_DIRTY;
 				}
 				if (k >= 20 && k <= 23 && i1 <= 37) {
-					return GOTBezierType.WESTEROS_PATH;
+					return GOTBezierType.PATH_DIRTY;
 				}
 			}
 			return null;

@@ -179,7 +179,7 @@ public class GOTBiomeEssos extends GOTBiome {
 
 	@Override
 	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.ESSOS_PATH;
+		return GOTBezierType.PATH_SANDY;
 	}
 
 	@Override

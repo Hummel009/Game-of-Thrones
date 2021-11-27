@@ -114,20 +114,20 @@ public class GOTStructureNorvosCity extends GOTVillageGen {
 				int kmn = 2;
 				int kmx = 14 + random.nextInt(3);
 				if (i1 <= imx && k1 <= kmx && (i1 > imn || k1 > kmn)) {
-					return GOTBezierType.WESTEROS_PATH;
+					return GOTBezierType.PATH_DIRTY;
 				}
 				imn = 45 - random.nextInt(3);
 				imx = 50 + random.nextInt(3);
 				kmn = 45 - random.nextInt(3);
 				kmx = 50 + random.nextInt(3);
 				if (i1 <= imx && k1 <= kmx && (i1 > imn || k1 > kmn) && (k < 0 || i1 > 7)) {
-					return GOTBezierType.WESTEROS_PATH;
+					return GOTBezierType.PATH_DIRTY;
 				}
 				if (k < 0) {
 					imn = 14;
 					imx = 45;
 					if (i1 + k1 >= imn + imn && i1 + k1 <= imx + imx && Math.abs(i1 - k1) <= (int) (2.5f + random.nextInt(3) * 2.0f)) {
-						return GOTBezierType.WESTEROS_PATH;
+						return GOTBezierType.PATH_DIRTY;
 					}
 				}
 				if (k > 0) {
@@ -136,25 +136,25 @@ public class GOTStructureNorvosCity extends GOTVillageGen {
 					kmn = 14;
 					kmx = 45;
 					if (k1 >= kmn && k1 <= kmx && i1 >= (imn -= random.nextInt(3)) && i1 <= imx) {
-						return GOTBezierType.WESTEROS_PATH;
+						return GOTBezierType.PATH_DIRTY;
 					}
 				}
 			}
 			if (villageType == VillageType.TOWN && i1 <= 72 && k1 <= 42) {
-				return GOTBezierType.ESSOS_TOWN;
+				return GOTBezierType.PATH_SANDY;
 			}
 			if (villageType == VillageType.FORT) {
 				if (i1 <= 3 && k >= -45 && k <= -15) {
-					return GOTBezierType.WESTEROS_PATH;
+					return GOTBezierType.PATH_DIRTY;
 				}
 				if (i1 <= 36 && k >= -27 && k <= -20) {
-					return GOTBezierType.WESTEROS_PATH;
+					return GOTBezierType.PATH_DIRTY;
 				}
 				if (i1 >= 29 && i1 <= 36 && k >= -27 && k <= 39 && (k < -7 || k > 7)) {
-					return GOTBezierType.WESTEROS_PATH;
+					return GOTBezierType.PATH_DIRTY;
 				}
 				if (i1 <= 36 && k >= 20 && k <= 27) {
-					return GOTBezierType.WESTEROS_PATH;
+					return GOTBezierType.PATH_DIRTY;
 				}
 			}
 			return null;

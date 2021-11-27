@@ -14,19 +14,22 @@ public abstract class GOTBezierType {
 			return new BezierBlock(GOTRegistry.woodBeam1, 0);
 		}
 	};
+
 	public static GOTBezierType ICE = new GOTBezierType() {
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
 			return new BezierBlock(GOTRegistry.brickIce, 0);
 		}
 	};
+
 	public static GOTBezierType AIR = new GOTBezierType() {
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
 			return new BezierBlock(Blocks.air, 0);
 		}
 	};
-	public static GOTBezierType WESTEROS = new GOTBezierType() {
+
+	public static GOTBezierType PAVING = new GOTBezierType() {
 
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
@@ -36,7 +39,8 @@ public abstract class GOTBezierType {
 			return new BezierBlock(GOTRegistry.dirtPath, 2);
 		}
 	};
-	public static GOTBezierType WESTEROS_PATH = new GOTBezierType() {
+
+	public static GOTBezierType PATH_DIRTY = new GOTBezierType() {
 
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
@@ -63,7 +67,8 @@ public abstract class GOTBezierType {
 			return new BezierBlock(GOTRegistry.dirtPath, 0);
 		}
 	};
-	public static GOTBezierType COBBLE = new GOTBezierType() {
+
+	public static GOTBezierType VALYRIA = new GOTBezierType() {
 
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
@@ -73,54 +78,8 @@ public abstract class GOTBezierType {
 			return new BezierBlock(Blocks.cobblestone, 0);
 		}
 	};
-	public static GOTBezierType GRASS = new GOTBezierType() {
 
-		@Override
-		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
-			return new BezierBlock(Blocks.grass, 0);
-		}
-	};
-	public static GOTBezierType ESSOS = new GOTBezierType() {
-
-		@Override
-		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
-			if (slab) {
-				return new BezierBlock(GOTRegistry.slabSingle4, 0);
-			}
-			return new BezierBlock(GOTRegistry.brick1, 15);
-		}
-	};
-	public static GOTBezierType ESSOS_PATH = new GOTBezierType() {
-
-		@Override
-		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
-			if (slab) {
-				float f = rand.nextFloat();
-				if (f < 0.33f) {
-					if (rand.nextInt(4) == 0) {
-						return new BezierBlock(GOTRegistry.slabSingle7, 1);
-					}
-					return new BezierBlock(GOTRegistry.slabSingle4, 0);
-				}
-				if (f < 0.67f) {
-					return new BezierBlock(GOTRegistry.slabSingleSand, 0);
-				}
-				return new BezierBlock(GOTRegistry.slabSingleDirt, 1);
-			}
-			float f = rand.nextFloat();
-			if (f < 0.33f) {
-				if (rand.nextInt(4) == 0) {
-					return new BezierBlock(GOTRegistry.brick3, 11);
-				}
-				return new BezierBlock(GOTRegistry.brick1, 15);
-			}
-			if (f < 0.67f) {
-				return top ? new BezierBlock(Blocks.sand, 0) : new BezierBlock(Blocks.sandstone, 0);
-			}
-			return new BezierBlock(GOTRegistry.dirtPath, 0);
-		}
-	};
-	public static GOTBezierType ESSOS_TOWN = new GOTBezierType() {
+	public static GOTBezierType PATH_SANDY = new GOTBezierType() {
 
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
@@ -183,16 +142,6 @@ public abstract class GOTBezierType {
 				return new BezierBlock(GOTRegistry.brick4, 2);
 			}
 			return new BezierBlock(GOTRegistry.brick4, 0);
-		}
-	};
-	public static GOTBezierType IBBEN = new GOTBezierType() {
-
-		@Override
-		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
-			if (slab) {
-				return new BezierBlock(GOTRegistry.slabSingle1, 6);
-			}
-			return new BezierBlock(GOTRegistry.brick1, 4);
 		}
 	};
 

@@ -88,7 +88,7 @@ public class GOTBiomeValyria extends GOTBiome {
 
 	@Override
 	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.COBBLE;
+		return GOTBezierType.VALYRIA;
 	}
 
 }

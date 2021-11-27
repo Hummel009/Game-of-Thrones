@@ -24,7 +24,6 @@ public class GOTBiomeWesteros extends GOTBiome {
 		super(i, major);
 		this.addBiomeVariant(GOTBiomeVariant.DENSEFOREST_BIRCH);
 		this.addBiomeVariant(GOTBiomeVariant.DENSEFOREST_OAK);
-		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
 		this.addBiomeVariant(GOTBiomeVariant.FOREST);
 		this.addBiomeVariant(GOTBiomeVariant.FOREST_ASPEN, 0.2f);
 		this.addBiomeVariant(GOTBiomeVariant.FOREST_BEECH, 0.2f);
@@ -126,7 +125,7 @@ public class GOTBiomeWesteros extends GOTBiome {
 
 	@Override
 	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.WESTEROS_PATH;
+		return GOTBezierType.PATH_DIRTY;
 	}
 
 	@Override

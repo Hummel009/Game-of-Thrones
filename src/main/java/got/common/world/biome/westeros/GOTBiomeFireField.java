@@ -68,7 +68,7 @@ public class GOTBiomeFireField extends GOTBiomeReach {
 
 	@Override
 	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.WESTEROS;
+		return GOTBezierType.PAVING;
 	}
 
 	@Override

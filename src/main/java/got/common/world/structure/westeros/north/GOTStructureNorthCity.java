@@ -88,26 +88,26 @@ public class GOTStructureNorthCity extends GOTVillageGen {
 				int dSq = i * i + k * k;
 				int imn = 20 + random.nextInt(4);
 				if (dSq < imn * imn) {
-					return GOTBezierType.WESTEROS_PATH;
+					return GOTBezierType.PATH_DIRTY;
 				}
 				int omn = 53 - random.nextInt(4);
 				int omx = 60 + random.nextInt(4);
 				if ((dSq > omn * omn && dSq < omx * omx) || (dSq < 2809 && Math.abs(i1 - k1) <= 2 + random.nextInt(4))) {
-					return GOTBezierType.WESTEROS_PATH;
+					return GOTBezierType.PATH_DIRTY;
 				}
 			}
 			if (villageType == VillageType.TOWN && i1 <= 80 && k1 <= 80 && !isSmallTown) {
-				return GOTBezierType.WESTEROS_PATH;
+				return GOTBezierType.PATH_DIRTY;
 			}
 			if (villageType == VillageType.FORT) {
 				if (i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36) {
-					return GOTBezierType.WESTEROS_PATH;
+					return GOTBezierType.PATH_DIRTY;
 				}
 				if (k1 <= 1 && i1 >= 12 && i1 <= 36) {
-					return GOTBezierType.WESTEROS_PATH;
+					return GOTBezierType.PATH_DIRTY;
 				}
 				if (k >= 26 && k <= 28 && i1 <= 12) {
-					return GOTBezierType.WESTEROS_PATH;
+					return GOTBezierType.PATH_DIRTY;
 				}
 			}
 			return null;

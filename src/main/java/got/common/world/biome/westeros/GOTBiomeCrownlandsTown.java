@@ -2,6 +2,7 @@ package got.common.world.biome.westeros;
 
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
+import got.common.world.map.GOTBezierType;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 
@@ -38,6 +39,11 @@ public class GOTBiomeCrownlandsTown extends GOTBiomeCrownlandsFlat {
 		containerLSR[0] = GOTBiomeSpawnList.entry(GOTSpawnList.UNRELIABLE, 10).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(1).add(containerLSR);
 		setBanditChance(GOTEventSpawner.EventChance.NEVER);
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PAVING;
 	}
 
 	@Override

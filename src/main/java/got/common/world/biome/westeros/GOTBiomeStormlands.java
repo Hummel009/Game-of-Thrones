@@ -19,6 +19,7 @@ import net.minecraft.world.gen.feature.WorldGenFlowers;
 public class GOTBiomeStormlands extends GOTBiomeWesteros {
 	public GOTBiomeStormlands(int i, boolean major) {
 		super(i, major);
+		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
 		this.addBiomeVariant(GOTBiomeVariant.FIELD_CORN, 0.2f);
 		decorator.addVillage(new GOTStructureStormlandsCity(this, 1.0f));
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
@@ -69,6 +70,6 @@ public class GOTBiomeStormlands extends GOTBiomeWesteros {
 
 	@Override
 	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.WESTEROS_PATH;
+		return GOTBezierType.PATH_DIRTY;
 	}
 }

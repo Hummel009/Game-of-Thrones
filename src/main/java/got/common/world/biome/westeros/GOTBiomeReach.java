@@ -24,6 +24,7 @@ import net.minecraft.world.gen.feature.WorldGenFlowers;
 public class GOTBiomeReach extends GOTBiomeWesteros {
 	public GOTBiomeReach(int i, boolean major) {
 		super(i, major);
+		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
 		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
 		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_LEMON, 0.2f);
 		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_LIME, 0.2f);
@@ -128,6 +129,6 @@ public class GOTBiomeReach extends GOTBiomeWesteros {
 
 	@Override
 	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.WESTEROS_PATH;
+		return GOTBezierType.PATH_DIRTY;
 	}
 }

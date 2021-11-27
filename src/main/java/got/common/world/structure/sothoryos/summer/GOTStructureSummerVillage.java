@@ -64,10 +64,10 @@ public class GOTStructureSummerVillage extends GOTVillageGen {
 				int imn = 17 - random.nextInt(3);
 				int imx = 22 + random.nextInt(3);
 				if (dSq > imn * imn && dSq < imx * imx) {
-					return GOTBezierType.WESTEROS_PATH;
+					return GOTBezierType.PATH_DIRTY;
 				}
 				if (palisade && k <= -imx && k >= -66 && i1 < 2 + random.nextInt(3)) {
-					return GOTBezierType.WESTEROS_PATH;
+					return GOTBezierType.PATH_DIRTY;
 				}
 			}
 			return null;

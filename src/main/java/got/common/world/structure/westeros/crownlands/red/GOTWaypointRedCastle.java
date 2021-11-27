@@ -79,13 +79,13 @@ public class GOTWaypointRedCastle extends GOTVillageGen {
 			int k1 = Math.abs(k);
 			if (villageType == VillageType.FORT) {
 				if (i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36) {
-					return GOTBezierType.WESTEROS;
+					return GOTBezierType.PAVING;
 				}
 				if (k1 <= 1 && i1 >= 12 && i1 <= 36) {
-					return GOTBezierType.WESTEROS;
+					return GOTBezierType.PAVING;
 				}
 				if (k >= 26 && k <= 28 && i1 <= 12) {
-					return GOTBezierType.WESTEROS;
+					return GOTBezierType.PAVING;
 				}
 			}
 			return null;
