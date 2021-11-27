@@ -4,24 +4,22 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.world.biome.GOTBiome;
+import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 
 public class GOTBiomeLongSummer extends GOTBiome {
 	public GOTBiomeLongSummer(int i, boolean major) {
 		super(i, major);
+		setDisableRain();
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
 		spawnableGOTAmbientList.clear();
-		decorator.clearTrees();
-		decorator.treesPerChunk = -1;
-		biomeColors.setFoggy(true);
-		biomeColors.setFoliage(0x808080);
-		biomeColors.setClouds(0x808080);
-		biomeColors.setFog(0x808080);
-		biomeColors.setWater(0x808080);
-		biomeColors.setGrass(11373417);
-		biomeColors.setSky(8878434);
+		npcSpawnList.clear();
+		decorator.treesPerChunk = 0;
+		decorator.flowersPerChunk = 0;
+		decorator.grassPerChunk = 2;
+		decorator.addTree(GOTTreeType.OAK_DEAD, 1000);
 	}
 
 	@Override
@@ -41,6 +39,6 @@ public class GOTBiomeLongSummer extends GOTBiome {
 
 	@Override
 	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_DIRTY;
+		return GOTBezierType.VALYRIA;
 	}
 }

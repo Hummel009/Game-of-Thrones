@@ -5,7 +5,7 @@ import java.util.Random;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
-import got.common.entity.animal.*;
+import got.common.entity.animal.GOTEntityCamel;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTWorldGenBoulder;

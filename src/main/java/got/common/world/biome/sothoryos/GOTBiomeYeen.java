@@ -16,15 +16,14 @@ public class GOTBiomeYeen extends GOTBiome {
 		super(i, major);
 		topBlock = GOTRegistry.obsidianGravel;
 		fillerBlock = Blocks.obsidian;
+		setDisableRain();
 		spawnableCreatureList.clear();
+		spawnableWaterCreatureList.clear();
 		spawnableGOTAmbientList.clear();
-		spawnableMonsterList.clear();
+		npcSpawnList.clear();
 		SpawnListContainer[] container11 = new SpawnListContainer[1];
 		container11[0] = GOTBiomeSpawnList.entry(GOTSpawnList.JUNGLE_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(1).add(container11);
-		biomeColors.setSky(0);
-		biomeColors.setClouds(0);
-		biomeColors.setFog(0);
 		biomeColors.setWater(0);
 		GOTStructureRuinsBig colossal = new GOTStructureRuinsBig(this, 0.0f);
 		colossal.affix(GOTWaypoint.Yeen);

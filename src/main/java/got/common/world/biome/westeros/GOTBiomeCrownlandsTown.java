@@ -42,12 +42,12 @@ public class GOTBiomeCrownlandsTown extends GOTBiomeCrownlandsFlat {
 	}
 
 	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PAVING;
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.VISIT_KINGS_LANDING;
 	}
 
 	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_KINGS_LANDING;
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PAVING;
 	}
 }

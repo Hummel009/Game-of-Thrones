@@ -1077,7 +1077,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		kingSpears = new GOTBiomeNorthMountains(id++, true).setIsSeasonalWinter().setMinMaxHeight(-1.0f, 2.0f).setColor(0xA0A0A0).setBiomeName("kingSpears");
 		lake = new GOTBiomeLake(id++, false).setTemperatureRainfall(0.8F, 0.8F).setColor(3433630).setBiomeName("lake");
 		lhazar = new GOTBiomeLhazar(id++, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xB5AA46).setBiomeName("lhazar");
-		longSummer = new GOTBiomeLongSummer(id++, true).setMinMaxHeight(0.1f, 0.15f).setTemperatureRainfall(0.8F, 0.8F).setColor(0x95A03D).setBiomeName("longSummer");
+		longSummer = new GOTBiomeLongSummer(id++, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x95A03D).setBiomeName("longSummer");
 		lorath = new GOTBiomeLorath(id++, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xACA344).setBiomeName("lorath");
 		lorathFlat = new GOTBiomeLorathFlat(id++, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xACA346).setBiomeName("lorath");
 		lys = new GOTBiomeLys(id++, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x70A564).setBiomeName("lys");
@@ -1175,7 +1175,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		wetwood = new GOTBiomeWetwood(id++, true).setIsSeasonalWinter().setMinMaxHeight(0.0f, 0.1f).setColor(0x599958).setBiomeName("wetwood");
 		whisperingWood = new GOTBiomeWhisperingWood(id++, true).setIsSeasonalWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x598632).setBiomeName("whisperingWood");
 		wolfswood = new GOTBiomeWolfswood(id++, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x4A7F2A).setBiomeName("wolfswood");
-		yeen = new GOTBiomeYeen(id++, true).setMinMaxHeight(0.1f, 0.15f).setTemperatureRainfall(1.2F, 0.8F).setColor(0x240035).setBiomeName("yeen");
+		yeen = new GOTBiomeYeen(id++, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x240035).setBiomeName("yeen");
 		yiTi = new GOTBiomeYiTi(id++, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xBEB74D).setBiomeName("yiTi");
 		yiTiFlat = new GOTBiomeYiTiFlat(id++, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xBEB74E).setBiomeName("yiTi");
 		yiTiWasteland = new GOTBiomeYiTiWasteland(id++, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xA7A053).setBiomeName("yiTiWasteland");

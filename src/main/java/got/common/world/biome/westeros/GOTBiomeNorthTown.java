@@ -34,12 +34,12 @@ public class GOTBiomeNorthTown extends GOTBiomeNorthFlat {
 	}
 
 	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PAVING;
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.VISIT_NORTH_TOWN;
 	}
 
 	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_NORTH_TOWN;
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PAVING;
 	}
 }

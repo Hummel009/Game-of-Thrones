@@ -30,12 +30,12 @@ public class GOTBiomeReachTown extends GOTBiomeReachFlat {
 	}
 
 	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PAVING;
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.VISIT_REACH_TOWN;
 	}
 
 	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_REACH_TOWN;
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PAVING;
 	}
 }
