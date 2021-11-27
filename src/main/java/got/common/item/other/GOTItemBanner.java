@@ -145,7 +145,7 @@ public class GOTItemBanner extends Item {
 	public void registerIcons(IIconRegister iconregister) {
 		bannerIcons = new IIcon[BannerType.bannerTypes.size()];
 		for (int i = 0; i < bannerIcons.length; ++i) {
-			bannerIcons[i] = iconregister.registerIcon("got:" + BannerType.bannerTypes.get(i).bannerName);
+			bannerIcons[i] = iconregister.registerIcon("got:banner_" + BannerType.bannerTypes.get(i).bannerName);
 		}
 	}
 
