@@ -8,7 +8,7 @@ CHANGELOG
 + Added ability to disable fixed structures and legendary characters. Useful for those, who wants to build your own places.
 + Added walls and coverage for the fixed towns!
 + Added levymans, levyman-archers and soldier-archers to Essos
-
++ Added fixed structures (Stygai, Mossovia hills, etc)
 + Added info about weapon, that can kill walkers or wights
 + Added new speechbanks
 + Added Ulos biome
@@ -21,6 +21,7 @@ CHANGELOG
 + Added septon, red and ironborn priests
 + Enabled vanilla brewing without config
 
+* Improved Asshai mountains
 * Improved valyrian spears. Now can kill walkers and wights while is thrown
 * Improved gift mobs
 * Improved white walker skin
