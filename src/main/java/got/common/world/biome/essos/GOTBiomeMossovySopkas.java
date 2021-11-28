@@ -79,7 +79,7 @@ public class GOTBiomeMossovySopkas extends GOTBiome {
 		GOTWorldGenStreams lavaGen = new GOTWorldGenStreams(Blocks.flowing_lava);
 		for (l = 0; l < 250; ++l) {
 			i12 = i + random.nextInt(16) + 8;
-			j1 = 40 + random.nextInt(120);
+			j1 = 40 + random.nextInt(100);
 			int k13 = k + random.nextInt(16) + 8;
 			lavaGen.generate(world, random, i12, j1, k13);
 		}
