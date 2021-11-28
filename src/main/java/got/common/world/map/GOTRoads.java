@@ -181,14 +181,11 @@ public class GOTRoads {
 		GOTRoads.registerRoad(id++, GOTWaypoint.Baoji, new int[] { 3570, 2227 }, new int[] { 3611, 2256 }, new int[] { 3634, 2281 });
 		GOTRoads.registerRoad(id++, GOTWaypoint.Yibin, GOTWaypoint.Lizhao, new int[] { 3679, 2188 }, new int[] { 3655, 2241 }, new int[] { 3634, 2281 });
 		GOTRoads.registerRoad(id++, GOTWaypoint.Jinqi, new int[] { 3620, 2347 }, new int[] { 3621, 2315 }, new int[] { 3634, 2281 });
-
 		GOTRoads.registerRoad(id++, GOTWaypoint.Yibin, new int[] { 3622, 2031 }, new int[] { 3560, 2023 }, GOTWaypoint.Vaibei);
 		GOTRoads.registerRoad(id++, GOTWaypoint.TraderTown, new int[] { 3411, 1920 }, new int[] { 3473, 1951 }, GOTWaypoint.Vaibei);
 		GOTRoads.registerRoad(id++, GOTWaypoint.FiveForts1, new int[] { 3687, 1921 }, new int[] { 3600, 1973 }, GOTWaypoint.Vaibei);
 		GOTRoads.registerRoad(id++, GOTWaypoint.FiveForts5, new int[] { 3797, 2008 }, new int[] { 3732, 2063 }, GOTWaypoint.Yibin);
-
 		GOTRoads.registerRoad(id++, new int[] { 3634, 2281 }, new int[] { 3688, 2321 }, new int[] { 3756, 2321 }, GOTWaypoint.Yunnan);
-		
 		GOTRoads.registerRoad(id++, GOTWaypoint.Volantis, GOTWaypoint.LittleValyria, GOTWaypoint.Anogaria, GOTWaypoint.Mantarys, GOTWaypoint.Bhorash, new int[] { 2154, 1935 }, GOTWaypoint.Meereen);
 		GOTRoads.registerRoad(id++, GOTWaypoint.VolonTherys, GOTWaypoint.SarMell);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Whitegrove, near(GOTWaypoint.Whitegrove, -1, 0));
