@@ -11,6 +11,9 @@ import got.common.world.structure.westeros.gift.GOTStructureGiftVillage;
 public class GOTBiomeGiftOldFlat extends GOTBiomeGiftOld {
 	public GOTBiomeGiftOldFlat(int i, boolean major) {
 		super(i, major);
+		clearBiomeVariants();
+		decorator.clearVillages();
+		decorator.treesPerChunk = -1;
 		SpawnListContainer[] container0 = new SpawnListContainer[2];
 		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.GIFT_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
 		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.GIFT_GUARDIAN, 4).setSpawnChance(GOTBiome.SPAWN);
@@ -37,9 +40,9 @@ public class GOTBiomeGiftOldFlat extends GOTBiomeGiftOld {
 		GOTStructureEastWatch ew = new GOTStructureEastWatch(this, 0.0f);
 		ew.affix(GOTWaypoint.EastWatch);
 		decorator.affix(ew);
-		GOTStructureWallGate bc1 = new GOTStructureWallGate(this, 0.0f);
-		bc1.affix(GOTWaypoint.CastleBlack, 0, -1);
-		decorator.affix(bc1);
+		GOTStructureWallGate wall = new GOTStructureWallGate(this, 0.0f);
+		wall.affix(GOTWaypoint.CastleBlack, 0, -1);
+		decorator.affix(wall);
 	}
 
 	@Override

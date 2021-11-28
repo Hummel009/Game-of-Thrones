@@ -199,13 +199,13 @@ public class GOTLevelData {
 				}
 			}
 			madePortal = levelData.getInteger("MadePortal");
-			madeGameOfThronesPortal = levelData.getInteger("MadeMiddlePortal");
+			madeGameOfThronesPortal = levelData.getInteger("MadeGameOfThronesPortal");
 			overworldPortalX = levelData.getInteger("OverworldX");
 			overworldPortalY = levelData.getInteger("OverworldY");
 			overworldPortalZ = levelData.getInteger("OverworldZ");
-			gameOfThronesPortalX = levelData.getInteger("MiddleEarthX");
-			gameOfThronesPortalY = levelData.getInteger("MiddleEarthY");
-			gameOfThronesPortalZ = levelData.getInteger("MiddleEarthZ");
+			gameOfThronesPortalX = levelData.getInteger("GameOfThronesX");
+			gameOfThronesPortalY = levelData.getInteger("GameOfThronesY");
+			gameOfThronesPortalZ = levelData.getInteger("GameOfThronesZ");
 			structuresBanned = levelData.getInteger("StructuresBanned");
 			waypointCooldownMax = levelData.hasKey("FastTravel") ? levelData.getInteger("FastTravel") / 20 : levelData.hasKey("WpCdMax") ? levelData.getInteger("WpCdMax") : 600;
 			waypointCooldownMin = levelData.hasKey("FastTravelMin") ? levelData.getInteger("FastTravelMin") / 20 : levelData.hasKey("WpCdMin") ? levelData.getInteger("WpCdMin") : 60;
@@ -219,7 +219,6 @@ public class GOTLevelData {
 				difficulty = null;
 			}
 			difficultyLock = levelData.getBoolean("DifficultyLock");
-			NBTTagCompound travellingTraderData = levelData.getCompoundTag("TravellingTraders");
 			GOTJaqenHgharTracker.load(levelData);
 			GOTLevelData.destroyAllPlayerData();
 			GOTDate.loadDates(levelData);
@@ -260,7 +259,7 @@ public class GOTLevelData {
 		needsSave = true;
 	}
 
-	public static void markMiddleEarthPortalLocation(int i, int j, int k) {
+	public static void markGameOfThronesPortalLocation(int i, int j, int k) {
 		GOTPacketPortalPos packet = new GOTPacketPortalPos(i, j, k);
 		GOTPacketHandler.networkWrapper.sendToAll(packet);
 		GOTLevelData.markDirty();
@@ -282,13 +281,13 @@ public class GOTLevelData {
 				}
 				NBTTagCompound levelData = new NBTTagCompound();
 				levelData.setInteger("MadePortal", madePortal);
-				levelData.setInteger("MadeMiddlePortal", madeGameOfThronesPortal);
+				levelData.setInteger("MadeGameOfThronesPortal", madeGameOfThronesPortal);
 				levelData.setInteger("OverworldX", overworldPortalX);
 				levelData.setInteger("OverworldY", overworldPortalY);
 				levelData.setInteger("OverworldZ", overworldPortalZ);
-				levelData.setInteger("MiddleEarthX", gameOfThronesPortalX);
-				levelData.setInteger("MiddleEarthY", gameOfThronesPortalY);
-				levelData.setInteger("MiddleEarthZ", gameOfThronesPortalZ);
+				levelData.setInteger("GameOfThronesX", gameOfThronesPortalX);
+				levelData.setInteger("GameOfThronesY", gameOfThronesPortalY);
+				levelData.setInteger("GameOfThronesZ", gameOfThronesPortalZ);
 				levelData.setInteger("StructuresBanned", structuresBanned);
 				levelData.setInteger("WpCdMax", waypointCooldownMax);
 				levelData.setInteger("WpCdMin", waypointCooldownMin);
@@ -298,8 +297,6 @@ public class GOTLevelData {
 					levelData.setInteger("SavedDifficulty", difficulty.getDifficultyId());
 				}
 				levelData.setBoolean("DifficultyLock", difficultyLock);
-				NBTTagCompound travellingTraderData = new NBTTagCompound();
-				levelData.setTag("TravellingTraders", travellingTraderData);
 				GOTJaqenHgharTracker.save(levelData);
 				GOTDate.saveDates(levelData);
 				GOTLevelData.saveNBTToFile(GOT_dat, levelData);
@@ -547,7 +544,7 @@ public class GOTLevelData {
 		}
 	}
 
-	public static void setMadeMiddleEarthPortal(int i) {
+	public static void setMadeGameOfThronesPortal(int i) {
 		madeGameOfThronesPortal = i;
 		GOTLevelData.markDirty();
 	}

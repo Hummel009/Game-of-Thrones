@@ -76,16 +76,13 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 	public boolean attackEntityFrom(DamageSource damagesource, float f) {
 		ItemStack itemstack;
 		Entity entity = damagesource.getEntity();
-	    Entity damageSource = damagesource.getSourceOfDamage();
+		Entity damageSource = damagesource.getSourceOfDamage();
 		if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && ((EntityLivingBase) entity).getHeldItem().getItem() instanceof GOTMaterialFinder && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.VALYRIAN || ((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.OBSIDIAN || (GOTMaterialFinder) itemstack.getItem() == GOTRegistry.crowbar)) {
 			return super.attackEntityFrom(damagesource, f);
 		}
-		if (damagesource.getEntity() instanceof GOTEntityGregorClegane || damagesource.getEntity() instanceof GOTEntityAsshaiArchmag) {
+		if (damagesource.getEntity() instanceof GOTEntityGregorClegane || damagesource.getEntity() instanceof GOTEntityAsshaiArchmag || (damageSource instanceof GOTEntitySpear && ((GOTEntitySpear) damageSource).getProjectileItem().getItem() == GOTRegistry.valyrianSpear)) {
 			return super.attackEntityFrom(damagesource, f);
 		}
-		if ((damageSource instanceof GOTEntitySpear && ((GOTEntitySpear)damageSource).getProjectileItem().getItem() == GOTRegistry.valyrianSpear)) {
-	          return super.attackEntityFrom(damagesource, f);
-	    } 
 		return super.attackEntityFrom(damagesource, 0.0f);
 	}
 

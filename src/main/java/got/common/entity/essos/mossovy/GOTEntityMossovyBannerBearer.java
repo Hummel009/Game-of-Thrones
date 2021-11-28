@@ -16,6 +16,36 @@ public class GOTEntityMossovyBannerBearer extends GOTEntityMossovyMan implements
 	}
 
 	@Override
+	public boolean canTradeWith(EntityPlayer entityplayer) {
+		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityplayer);
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
+	}
+
+	@Override
+	public GOTItemBanner.BannerType getBannerType() {
+		return GOTItemBanner.BannerType.NIGHT;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.KILL_WITCHER;
+	}
+
+	@Override
+	public float getMercAlignmentRequired() {
+		return 10.0f;
+	}
+
+	@Override
+	public int getMercBaseCost() {
+		return GOTUnitTradeEntries.SOLDIER + 25;
+	}
+
+	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.mossovySword));
@@ -27,42 +57,12 @@ public class GOTEntityMossovyBannerBearer extends GOTEntityMossovyMan implements
 	}
 
 	@Override
-	public GOTItemBanner.BannerType getBannerType() {
-		return GOTItemBanner.BannerType.NIGHT;
-	}
-
-	@Override
-	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityplayer);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
-	}
-
-	@Override
 	public void onUnitTrade(EntityPlayer entityplayer) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
 	}
 
 	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_WITCHER;
-	}
-
-	@Override
 	public void setupNPCGender() {
 		familyInfo.setMale(true);
-	}
-
-	@Override
-	public float getMercAlignmentRequired() {
-		return 10.0f;
-	}
-
-	@Override
-	public int getMercBaseCost() {
-		return GOTUnitTradeEntries.SOLDIER + 25;
 	}
 }

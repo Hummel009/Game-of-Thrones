@@ -20,23 +20,6 @@ import net.minecraft.world.World;
 
 public class GOTSpawner {
 
-	public static class Asshai extends GOTStructureBase {
-		public Asshai(boolean flag) {
-			super(flag);
-		}
-
-		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
-			spawnLegendaryNPC(new GOTEntityAsshaiArchmag(world), world, 0, 1, 0);
-			return true;
-		}
-
-		public static boolean fixedAt(World world, int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Asshai);
-		}
-	}
-
 	public static class AddamMarbrand extends GOTStructureBase {
 		public AddamMarbrand(boolean flag) {
 			super(flag);
@@ -136,6 +119,23 @@ public class GOTSpawner {
 
 		public static boolean fixedAt(World world, int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.ClawIsle);
+		}
+	}
+
+	public static class Asshai extends GOTStructureBase {
+		public Asshai(boolean flag) {
+			super(flag);
+		}
+
+		@Override
+		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
+			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			spawnLegendaryNPC(new GOTEntityAsshaiArchmag(world), world, 0, 1, 0);
+			return true;
+		}
+
+		public static boolean fixedAt(World world, int i, int k) {
+			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Asshai);
 		}
 	}
 

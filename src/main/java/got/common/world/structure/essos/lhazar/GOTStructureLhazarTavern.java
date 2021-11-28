@@ -121,8 +121,8 @@ public class GOTStructureLhazarTavern extends GOTStructureLhazarBase {
 		}
 		GOTEntityLhazarBartender bartender = new GOTEntityLhazarBartender(world);
 		spawnNPCAndSetHome(bartender, world, 0, 1, 0, 4);
-		int numHaradrim = MathHelper.getRandomIntegerInRange(random, 3, 8);
-		for (int l = 0; l < numHaradrim; ++l) {
+		int men = MathHelper.getRandomIntegerInRange(random, 3, 8);
+		for (int l = 0; l < men; ++l) {
 			GOTEntityLhazarMan haradrim = new GOTEntityLhazarMan(world);
 			spawnNPCAndSetHome(haradrim, world, random.nextBoolean() ? -5 : 5, 1, 0, 16);
 		}

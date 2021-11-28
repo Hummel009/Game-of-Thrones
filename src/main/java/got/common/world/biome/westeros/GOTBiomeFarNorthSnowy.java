@@ -28,6 +28,9 @@ public class GOTBiomeFarNorthSnowy extends GOTBiome {
 		GOTStructureNightKing altar = new GOTStructureNightKing(this, 0.0f);
 		altar.affix(GOTWaypoint.Aboba);
 		decorator.affix(altar);
+		GOTStructureWallGate wall = new GOTStructureWallGate(this, 0.0f);
+		wall.affix(GOTWaypoint.CastleBlack, 0, -1);
+		decorator.affix(wall);
 	}
 
 	@Override

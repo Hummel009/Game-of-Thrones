@@ -19,6 +19,19 @@ public class GOTEnchantmentCombining {
 		allCombineRecipes.add(new CombineRecipe(in, out, cost));
 	}
 
+	public static CombineRecipe getCombinationResult(ItemStack item1, ItemStack item2) {
+		GOTEnchantment mod1;
+		if (item1 != null && item2 != null && item1.getItem() instanceof GOTItemModifierTemplate && item2.getItem() instanceof GOTItemModifierTemplate && (mod1 = GOTItemModifierTemplate.getModifier(item1)) == (GOTItemModifierTemplate.getModifier(item2))) {
+			for (CombineRecipe recipe : allCombineRecipes) {
+				if (recipe.inputMod != mod1) {
+					continue;
+				}
+				return recipe;
+			}
+		}
+		return null;
+	}
+
 	public static void onInit() {
 		GOTEnchantmentCombining.combine(GOTEnchantment.strong1, GOTEnchantment.strong2, 200);
 		GOTEnchantmentCombining.combine(GOTEnchantment.strong2, GOTEnchantment.strong3, 800);
@@ -41,19 +54,6 @@ public class GOTEnchantmentCombining {
 		GOTEnchantmentCombining.combine(GOTEnchantment.rangedStrong1, GOTEnchantment.rangedStrong2, 400);
 		GOTEnchantmentCombining.combine(GOTEnchantment.rangedStrong2, GOTEnchantment.rangedStrong3, 1500);
 		GOTEnchantmentCombining.combine(GOTEnchantment.rangedKnockback1, GOTEnchantment.rangedKnockback2, 2500);
-	}
-
-	public static CombineRecipe getCombinationResult(ItemStack item1, ItemStack item2) {
-		GOTEnchantment mod1;
-		if (item1 != null && item2 != null && item1.getItem() instanceof GOTItemModifierTemplate && item2.getItem() instanceof GOTItemModifierTemplate && (mod1 = GOTItemModifierTemplate.getModifier(item1)) == (GOTItemModifierTemplate.getModifier(item2))) {
-			for (CombineRecipe recipe : allCombineRecipes) {
-				if (recipe.inputMod != mod1) {
-					continue;
-				}
-				return recipe;
-			}
-		}
-		return null;
 	}
 
 	public static class CombineRecipe {

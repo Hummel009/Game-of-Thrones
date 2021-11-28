@@ -56,6 +56,7 @@ public class GOTBiomeSothoryosKanuka extends GOTBiome {
 		npcSpawnList.newFactionList(10).add(container);
 		decorator.affix(new GOTStructureSothoryosVillage(this, 1.0f));
 	}
+
 	@Override
 	public void decorate(World world, Random random, int i, int k) {
 		super.decorate(world, random, i, k);

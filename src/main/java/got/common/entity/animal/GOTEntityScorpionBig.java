@@ -2,7 +2,7 @@ package got.common.entity.animal;
 
 import got.common.database.GOTRegistry;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.block.Block;
@@ -13,7 +13,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.*;
-import net.minecraft.util.*;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public abstract class GOTEntityScorpionBig extends GOTEntityNPC implements GOTBiome.ImmuneToHeat {

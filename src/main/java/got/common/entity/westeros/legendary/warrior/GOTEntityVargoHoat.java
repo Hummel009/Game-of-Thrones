@@ -33,14 +33,6 @@ public class GOTEntityVargoHoat extends GOTEntityHumanBase implements GOTMercena
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "westeros/mercenary/friendly";
-		}
-		return "westeros/mercenary/hostile";
-	}
-
-	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0);
@@ -70,6 +62,14 @@ public class GOTEntityVargoHoat extends GOTEntityHumanBase implements GOTMercena
 	@Override
 	public int getMercBaseCost() {
 		return 200;
+	}
+
+	@Override
+	public String getSpeechBank(EntityPlayer entityplayer) {
+		if (isFriendly(entityplayer)) {
+			return "westeros/mercenary/friendly";
+		}
+		return "westeros/mercenary/hostile";
 	}
 
 	@Override

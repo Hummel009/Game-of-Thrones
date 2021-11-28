@@ -268,8 +268,8 @@ public class GOTStructureGiftStables extends GOTStructureGiftBase {
 		setBlockAndMetadata(world, 3, 6, 4, Blocks.torch, 1);
 		int men = 1;
 		for (int l = 0; l < men; ++l) {
-			GOTEntityGiftMan dunedain = new GOTEntityGiftMan(world);
-			spawnNPCAndSetHome(dunedain, world, 0, 1, 2, 8);
+			GOTEntityGiftMan man = new GOTEntityGiftMan(world);
+			spawnNPCAndSetHome(man, world, 0, 1, 2, 8);
 		}
 		for (int i16 : new int[] { -2, 2 }) {
 			GOTEntityHorse horse = new GOTEntityHorse(world);

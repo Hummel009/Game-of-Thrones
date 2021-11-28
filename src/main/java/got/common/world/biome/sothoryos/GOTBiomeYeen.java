@@ -20,7 +20,7 @@ public class GOTBiomeYeen extends GOTBiomeSothoryosJungle {
 	public NoiseGeneratorPerlin noiseDirt = new NoiseGeneratorPerlin(new Random(42956029606L), 1);
 	public NoiseGeneratorPerlin noiseGravel = new NoiseGeneratorPerlin(new Random(7185609602367L), 1);
 	public NoiseGeneratorPerlin noiseObsidianGravel = new NoiseGeneratorPerlin(new Random(12480634985056L), 1);
-	
+
 	public GOTBiomeYeen(int i, boolean major) {
 		super(i, major);
 		spawnableCreatureList.clear();

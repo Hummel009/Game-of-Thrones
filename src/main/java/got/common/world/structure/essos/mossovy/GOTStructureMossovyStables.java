@@ -268,8 +268,8 @@ public class GOTStructureMossovyStables extends GOTStructureMossovyBase {
 		setBlockAndMetadata(world, 3, 6, 4, Blocks.torch, 1);
 		int men = 1;
 		for (int l = 0; l < men; ++l) {
-			GOTEntityMossovyWitcher dunedain = new GOTEntityMossovyWitcher(world);
-			spawnNPCAndSetHome(dunedain, world, 0, 1, 2, 8);
+			GOTEntityMossovyWitcher man = new GOTEntityMossovyWitcher(world);
+			spawnNPCAndSetHome(man, world, 0, 1, 2, 8);
 		}
 		for (int i16 : new int[] { -2, 2 }) {
 			GOTEntityHorse horse = new GOTEntityHorse(world);

@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class GOTEntityGiftGuard extends GOTEntityGiftMan {
 	public static ItemStack[] militiaWeapons = { new ItemStack(GOTRegistry.westerosSword), new ItemStack(GOTRegistry.westerosHammer), new ItemStack(GOTRegistry.westerosPike), new ItemStack(Items.iron_sword), new ItemStack(Items.iron_axe), new ItemStack(GOTRegistry.ironBattleaxe), new ItemStack(GOTRegistry.ironPike), new ItemStack(GOTRegistry.bronzeSword), new ItemStack(GOTRegistry.bronzeAxe), new ItemStack(GOTRegistry.bronzeBattleaxe) };
-	
+
 	public GOTEntityGiftGuard(World world) {
 		super(world);
 		canBeMarried = false;
@@ -22,15 +22,15 @@ public class GOTEntityGiftGuard extends GOTEntityGiftMan {
 	}
 
 	@Override
-	public EntityAIBase createGiftAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
-	}
-
-	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
+	}
+
+	@Override
+	public EntityAIBase createGiftAttackAI() {
+		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
 	}
 
 	@Override

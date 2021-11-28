@@ -357,7 +357,7 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureMossovyStables.class, "MossovyStables", GOTFaction.MOSSOVY);
 		GOTStructureRegistry.register(id++, GOTStructureMossovySmithy.class, "MossovySmithy", GOTFaction.MOSSOVY);
 		GOTStructureRegistry.register(id++, GOTStructureMossovyVillageLight.class, "MossovyVillageLight", GOTFaction.MOSSOVY);
-		
+
 		GOTStructureRegistry.register(id++, GOTStructureYiTiHouse.class, "YiTiHouse", GOTFaction.YI_TI);
 		GOTStructureRegistry.register(id++, GOTStructureYiTiStables.class, "YiTiStables", GOTFaction.YI_TI);
 		GOTStructureRegistry.register(id++, GOTStructureYiTiTownHouse.class, "YiTiTownHouse", GOTFaction.YI_TI);
@@ -937,7 +937,7 @@ public class GOTStructure {
 			}
 
 		});
-		
+
 		GOTStructureRegistry.register(id++, new GOTStructureYiTiCity(GOTBiome.yiTi, 1.0f), "YiTiVillage", GOTFaction.YI_TI, new GOTStructureRegistry.IVillageProperties<GOTStructureYiTiCity.Instance>() {
 
 			@Override

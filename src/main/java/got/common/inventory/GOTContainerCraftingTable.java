@@ -130,12 +130,6 @@ public abstract class GOTContainerCraftingTable extends ContainerWorkbench {
 		}
 	}
 
-	public static class Mossovy extends GOTContainerCraftingTable {
-		public Mossovy(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.mossovy, GOTRegistry.tableMossovy);
-		}
-	}
-
 	public static class Lhazar extends GOTContainerCraftingTable {
 		public Lhazar(InventoryPlayer inv, World world, int i, int j, int k) {
 			super(inv, world, i, j, k, GOTRecipe.lhazar, GOTRegistry.tableLhazar);
@@ -151,6 +145,12 @@ public abstract class GOTContainerCraftingTable extends ContainerWorkbench {
 	public static class Lys extends GOTContainerCraftingTable {
 		public Lys(InventoryPlayer inv, World world, int i, int j, int k) {
 			super(inv, world, i, j, k, GOTRecipe.lys, GOTRegistry.tableLys);
+		}
+	}
+
+	public static class Mossovy extends GOTContainerCraftingTable {
+		public Mossovy(InventoryPlayer inv, World world, int i, int j, int k) {
+			super(inv, world, i, j, k, GOTRecipe.mossovy, GOTRegistry.tableMossovy);
 		}
 	}
 

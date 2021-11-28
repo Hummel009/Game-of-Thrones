@@ -33,7 +33,7 @@ public class GOTTeleporter extends Teleporter {
 		}
 		entity.setLocationAndAngles(i + 0.5, j + 1.0, k + 0.5, entity.rotationYaw, 0.0f);
 		if (world.provider.dimensionId == GOTDimension.GAME_OF_THRONES.dimensionID && GOTLevelData.madeGameOfThronesPortal == 0) {
-			GOTLevelData.setMadeMiddleEarthPortal(1);
+			GOTLevelData.setMadeGameOfThronesPortal(1);
 			if (makeRingPortal) {
 				if (world.provider instanceof GOTWorldProvider) {
 					((GOTWorldProvider) world.provider).setRingPortalLocation(i, j, k);

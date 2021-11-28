@@ -19,6 +19,8 @@ CHANGELOG
 + Added random villages in gift
 + Added new skins for Free Cities
 + Added septon, red and ironborn priests
++ Added gates in the Wall
+
 + Enabled vanilla brewing without config
 
 * Improved Asshai mountains

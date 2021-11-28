@@ -27,7 +27,7 @@ import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.*;
 import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.init.*;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.*;
 import net.minecraft.item.*;
 import net.minecraft.nbt.*;
@@ -498,35 +498,35 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	@Override
 	public ItemStack getEquipmentInSlot(int i) {
-        if (this.worldObj.isRemote) {
-            if (!this.initFestiveItems) {
-                this.festiveRand.setSeed((long)this.getEntityId() * 341873128712L);
-                if (GOT.isGuyFawkes()) {
-                    if (this.festiveRand.nextInt(3) == 0) {
-                        this.festiveItems[4] = new ItemStack(GOTRegistry.anonymousMask);
-                    }
-                } else if (GOT.isNewYear() && this.festiveRand.nextInt(3) == 0) {
-                    ItemStack hat;
-                    if (this.rand.nextBoolean()) {
-                        hat = new ItemStack(GOTRegistry.leatherHat);
-                        GOTItemLeatherHat.setHatColor(hat, 13378587);
-                        GOTItemLeatherHat.setFeatherColor(hat, 16777215);
-                        this.festiveItems[4] = hat;
-                    } else {
-                        hat = new ItemStack(GOTRegistry.partyHat);
-                        float hue = this.rand.nextFloat();
-                        GOTItemPartyHat.setHatColor(hat, Color.HSBtoRGB(hue, 1.0f, 1.0f));
-                    }
-                    this.festiveItems[4] = hat;
-                }
-                this.initFestiveItems = true;
-            }
-            if (this.festiveItems[i] != null) {
-                return this.festiveItems[i];
-            }
-        }
-        return super.getEquipmentInSlot(i);
-    }
+		if (worldObj.isRemote) {
+			if (!initFestiveItems) {
+				festiveRand.setSeed(getEntityId() * 341873128712L);
+				if (GOT.isGuyFawkes()) {
+					if (festiveRand.nextInt(3) == 0) {
+						festiveItems[4] = new ItemStack(GOTRegistry.anonymousMask);
+					}
+				} else if (GOT.isNewYear() && festiveRand.nextInt(3) == 0) {
+					ItemStack hat;
+					if (rand.nextBoolean()) {
+						hat = new ItemStack(GOTRegistry.leatherHat);
+						GOTItemLeatherHat.setHatColor(hat, 13378587);
+						GOTItemLeatherHat.setFeatherColor(hat, 16777215);
+						festiveItems[4] = hat;
+					} else {
+						hat = new ItemStack(GOTRegistry.partyHat);
+						float hue = rand.nextFloat();
+						GOTItemPartyHat.setHatColor(hat, Color.HSBtoRGB(hue, 1.0f, 1.0f));
+					}
+					festiveItems[4] = hat;
+				}
+				initFestiveItems = true;
+			}
+			if (festiveItems[i] != null) {
+				return festiveItems[i];
+			}
+		}
+		return super.getEquipmentInSlot(i);
+	}
 
 	@Override
 	public int getExperiencePoints(EntityPlayer entityplayer) {

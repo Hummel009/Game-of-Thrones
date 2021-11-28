@@ -582,7 +582,6 @@ public class GOTContainerAnvil extends Container {
 				ArrayList<GOTEnchantment> outputMods = new ArrayList<>(inputModifiers);
 				List<GOTEnchantment> combinerMods = GOTEnchantmentHelper.getEnchantList(combinerItem);
 				if (combinerItemEnchant != null) {
-					Item item;
 					combinerMods.add(combinerItemEnchant);
 				}
 				for (GOTEnchantment combinerMod : combinerMods) {

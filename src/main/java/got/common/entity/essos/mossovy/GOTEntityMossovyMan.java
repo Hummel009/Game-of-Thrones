@@ -38,24 +38,10 @@ public class GOTEntityMossovyMan extends GOTEntityHumanBase implements IPickpock
 	}
 
 	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.MOSSOVY;
-	}
-
-	@Override
-	public GOTFaction getHiringFaction() {
-		return GOTFaction.MOSSOVY;
-	}
-
-	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
-	}
-
-	public EntityAIBase createMossovyAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.4, true);
 	}
 
 	@Override
@@ -63,17 +49,15 @@ public class GOTEntityMossovyMan extends GOTEntityHumanBase implements IPickpock
 		return GOTMiniQuestFactory.MOSSOVY.createQuest(this);
 	}
 
+	public EntityAIBase createMossovyAttackAI() {
+		return new GOTEntityAIAttackOnCollide(this, 1.4, true);
+	}
+
 	@Override
 	public GOTNPCMount createMountToRide() {
 		GOTEntityHorse horse = (GOTEntityHorse) super.createMountToRide();
 		horse.setMountArmor(new ItemStack(GOTRegistry.ironHorseArmor));
 		return horse;
-	}
-
-	public void dropMossovyItems(boolean flag, int i) {
-		if (rand.nextInt(6) == 0) {
-			dropChestContents(GOTChestContents.MOSSOVY, 1, 2 + i);
-		}
 	}
 
 	@Override
@@ -86,6 +70,12 @@ public class GOTEntityMossovyMan extends GOTEntityHumanBase implements IPickpock
 		dropMossovyItems(flag, i);
 	}
 
+	public void dropMossovyItems(boolean flag, int i) {
+		if (rand.nextInt(6) == 0) {
+			dropChestContents(GOTChestContents.MOSSOVY, 1, 2 + i);
+		}
+	}
+
 	@Override
 	public float getAlignmentBonus() {
 		return 1.0f;
@@ -94,6 +84,16 @@ public class GOTEntityMossovyMan extends GOTEntityHumanBase implements IPickpock
 	@Override
 	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
 		return GOTMiniQuestFactory.MOSSOVY;
+	}
+
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.MOSSOVY;
+	}
+
+	@Override
+	public GOTFaction getHiringFaction() {
+		return GOTFaction.MOSSOVY;
 	}
 
 	@Override

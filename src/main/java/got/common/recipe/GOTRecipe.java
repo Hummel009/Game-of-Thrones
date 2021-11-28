@@ -299,36 +299,6 @@ public class GOTRecipe {
 		ghiscar.addAll(commonEssos);
 	}
 
-	public static void createMossovyRecipes() {
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.tableMossovy), "XX", "XX", Character.valueOf('X'), "plankWood"));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.mossovyChestplate), "X X", "XXX", "XXX", Character.valueOf('X'), "ingotIron"));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.mossovyLeggings), "XXX", "X X", "X X", Character.valueOf('X'), "ingotIron"));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.mossovyBoots), "X X", "X X", Character.valueOf('X'), "ingotIron"));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.mossovySword), "X", "X", "Y", Character.valueOf('X'), GOTRegistry.silverIngot, Character.valueOf('Y'), "stickWood"));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.banner, 1, GOTItemBanner.BannerType.MOSSOVY.bannerID), "X", "Y", "Z", Character.valueOf('X'), Blocks.wool, Character.valueOf('Y'), "stickWood", Character.valueOf('Z'), "plankWood"));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.brick1, 4, 0), "XX", "XX", Character.valueOf('X'), new ItemStack(GOTRegistry.rock, 1, 0)));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.slabSingle10, 6, 7), "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.rock, 1, 0)));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.smoothStone, 2, 0), "X", "X", Character.valueOf('X'), new ItemStack(GOTRegistry.rock, 1, 0)));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.slabSingle1, 6, 0), "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.smoothStone, 1, 0)));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.slabSingle1, 6, 1), "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.brick1, 1, 0)));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.stairsBasaltBrick, 4), "X  ", "XX ", "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.brick1, 1, 0)));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.wallStone1, 6, 0), "XXX", "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.rock, 1, 0)));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.wallStone1, 6, 1), "XXX", "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.brick1, 1, 0)));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.slabSingle2, 6, 2), "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.brick1, 1, 7)));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.stairsBasaltBrickCracked, 4), "X  ", "XX ", "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.brick1, 1, 7)));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.wallStone1, 6, 9), "XXX", "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.brick1, 1, 7)));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.chandelier, 2, 12), " X ", "YZY", Character.valueOf('X'), "stickWood", Character.valueOf('Y'), GOTRegistry.fuseItem, Character.valueOf('Z'), "ingotIron"));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.pillar1, 3, 7), "X", "X", "X", Character.valueOf('X'), new ItemStack(GOTRegistry.rock, 1, 0)));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.slabSingle5, 6, 1), "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.pillar1, 1, 7)));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.brick2, 1, 10), "XX", "XX", Character.valueOf('X'), new ItemStack(GOTRegistry.brick1, 1, 0)));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.stairsBasalt, 4), "X  ", "XX ", "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.rock, 1, 0)));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.asshaiTorch), "X", "Y", Character.valueOf('X'), Items.coal, Character.valueOf('Y'), "stickWood"));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.asshaiBars, 16), "XXX", "XXX", Character.valueOf('X'), "ingotIron"));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.skullStaff), "X", "Y", "Y", Character.valueOf('X'), Items.skull, Character.valueOf('Y'), "stickWood"));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.mossovySword), "X", "X", "Y", Character.valueOf('X'), GOTRegistry.silverIngot, Character.valueOf('Y'), "stickWood"));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.mossovyDagger), "X", "Y", Character.valueOf('X'), GOTRegistry.silverIngot, Character.valueOf('Y'), "stickWood"));
-	}
-
 	public static void createGiftRecipes() {
 		gift.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.tableGift), "XX", "XX", Character.valueOf('X'), "plankWood"));
 		gift.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.giftHelmet), "XXX", "X X", Character.valueOf('X'), "ingotIron"));
@@ -431,6 +401,36 @@ public class GOTRecipe {
 		lys.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.lysBoots), "X X", "X X", Character.valueOf('X'), "ingotIron"));
 		lys.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.banner, 1, GOTItemBanner.BannerType.LYS.bannerID), "X", "Y", "Z", Character.valueOf('X'), Blocks.wool, Character.valueOf('Y'), "stickWood", Character.valueOf('Z'), "plankWood"));
 		lys.addAll(commonEssos);
+	}
+
+	public static void createMossovyRecipes() {
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.tableMossovy), "XX", "XX", Character.valueOf('X'), "plankWood"));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.mossovyChestplate), "X X", "XXX", "XXX", Character.valueOf('X'), "ingotIron"));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.mossovyLeggings), "XXX", "X X", "X X", Character.valueOf('X'), "ingotIron"));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.mossovyBoots), "X X", "X X", Character.valueOf('X'), "ingotIron"));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.mossovySword), "X", "X", "Y", Character.valueOf('X'), GOTRegistry.silverIngot, Character.valueOf('Y'), "stickWood"));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.banner, 1, GOTItemBanner.BannerType.MOSSOVY.bannerID), "X", "Y", "Z", Character.valueOf('X'), Blocks.wool, Character.valueOf('Y'), "stickWood", Character.valueOf('Z'), "plankWood"));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.brick1, 4, 0), "XX", "XX", Character.valueOf('X'), new ItemStack(GOTRegistry.rock, 1, 0)));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.slabSingle10, 6, 7), "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.rock, 1, 0)));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.smoothStone, 2, 0), "X", "X", Character.valueOf('X'), new ItemStack(GOTRegistry.rock, 1, 0)));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.slabSingle1, 6, 0), "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.smoothStone, 1, 0)));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.slabSingle1, 6, 1), "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.brick1, 1, 0)));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.stairsBasaltBrick, 4), "X  ", "XX ", "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.brick1, 1, 0)));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.wallStone1, 6, 0), "XXX", "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.rock, 1, 0)));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.wallStone1, 6, 1), "XXX", "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.brick1, 1, 0)));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.slabSingle2, 6, 2), "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.brick1, 1, 7)));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.stairsBasaltBrickCracked, 4), "X  ", "XX ", "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.brick1, 1, 7)));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.wallStone1, 6, 9), "XXX", "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.brick1, 1, 7)));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.chandelier, 2, 12), " X ", "YZY", Character.valueOf('X'), "stickWood", Character.valueOf('Y'), GOTRegistry.fuseItem, Character.valueOf('Z'), "ingotIron"));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.pillar1, 3, 7), "X", "X", "X", Character.valueOf('X'), new ItemStack(GOTRegistry.rock, 1, 0)));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.slabSingle5, 6, 1), "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.pillar1, 1, 7)));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.brick2, 1, 10), "XX", "XX", Character.valueOf('X'), new ItemStack(GOTRegistry.brick1, 1, 0)));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.stairsBasalt, 4), "X  ", "XX ", "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.rock, 1, 0)));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.asshaiTorch), "X", "Y", Character.valueOf('X'), Items.coal, Character.valueOf('Y'), "stickWood"));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.asshaiBars, 16), "XXX", "XXX", Character.valueOf('X'), "ingotIron"));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.skullStaff), "X", "Y", "Y", Character.valueOf('X'), Items.skull, Character.valueOf('Y'), "stickWood"));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.mossovySword), "X", "X", "Y", Character.valueOf('X'), GOTRegistry.silverIngot, Character.valueOf('Y'), "stickWood"));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.mossovyDagger), "X", "Y", Character.valueOf('X'), GOTRegistry.silverIngot, Character.valueOf('Y'), "stickWood"));
 	}
 
 	public static void createMyrRecipes() {

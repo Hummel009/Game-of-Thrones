@@ -50,6 +50,14 @@ public class GOTEntityYoungGriff extends GOTEntityHumanBase {
 	}
 
 	@Override
+	public String getSpeechBank(EntityPlayer entityplayer) {
+		if (isFriendly(entityplayer)) {
+			return "legendary/griff_friendly";
+		}
+		return "legendary/griff_hostile";
+	}
+
+	@Override
 	public int getTotalArmorValue() {
 		return 15;
 	}
@@ -57,14 +65,6 @@ public class GOTEntityYoungGriff extends GOTEntityHumanBase {
 	@Override
 	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
 		setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "legendary/griff_friendly";
-		}
-		return "legendary/griff_hostile";
 	}
 
 	@Override

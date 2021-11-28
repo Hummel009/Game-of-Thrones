@@ -32,32 +32,32 @@ public class GOTStructureWallGate extends GOTVillageGen {
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0, 0);
 			originY += 2;
-			//Vozduh
+			// Vozduh
 			for (int x = -3; x <= 3; ++x) {
 				for (int y = -3; y <= 3; ++y) {
 					for (int z = 0; z <= 6; ++z) {
-						this.setAir(world, x, z, y);
+						setAir(world, x, z, y);
 					}
 				}
 			}
-			//Vorota
+			// Vorota
 			for (int x = -3; x <= 3; ++x) {
 				for (int z = 0; z <= 6; ++z) {
 					setBlockAndMetadata(world, x, z, 3, GOTRegistry.gateIronBars, 2);
 					setBlockAndMetadata(world, x, z, -3, GOTRegistry.gateIronBars, 2);
 				}
 			}
-			//Balki stojachije
+			// Balki stojachije
 			for (int z = 0; z <= 6; ++z) {
 				setBlockAndMetadata(world, -4, z, 3, GOTRegistry.woodBeamV1, 1);
 				setBlockAndMetadata(world, 4, z, 3, GOTRegistry.woodBeamV1, 1);
 				setBlockAndMetadata(world, -4, z, -3, GOTRegistry.woodBeamV1, 1);
 				setBlockAndMetadata(world, 4, z, -3, GOTRegistry.woodBeamV1, 1);
 			}
-			//Balki lezhachije
+			// Balki lezhachije
 			for (int x = -3; x <= 3; ++x) {
-					setBlockAndMetadata(world, x, 7, 3, GOTRegistry.woodBeamV1, 1 | 4);
-					setBlockAndMetadata(world, x, 7, -3, GOTRegistry.woodBeamV1, 1 | 4);
+				setBlockAndMetadata(world, x, 7, 3, GOTRegistry.woodBeamV1, 1 | 4);
+				setBlockAndMetadata(world, x, 7, -3, GOTRegistry.woodBeamV1, 1 | 4);
 			}
 			return true;
 		}

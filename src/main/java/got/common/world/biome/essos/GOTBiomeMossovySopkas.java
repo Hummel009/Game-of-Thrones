@@ -31,6 +31,30 @@ public class GOTBiomeMossovySopkas extends GOTBiome {
 	}
 
 	@Override
+	public void decorate(World world, Random random, int i, int k) {
+		int i1;
+		int k1;
+		int i12;
+		int j1;
+		int l;
+		int k13;
+		super.decorate(world, random, i, k);
+		GOTWorldGenStreams lavaGen = new GOTWorldGenStreams(Blocks.flowing_lava);
+		for (l = 0; l < 250; ++l) {
+			i12 = i + random.nextInt(16) + 8;
+			k13 = k + random.nextInt(16) + 8;
+			j1 = world.getHeightValue(i12, k13);
+			lavaGen.generate(world, random, i12, j1, k13);
+		}
+		if (random.nextInt(1) == 0) {
+			i1 = i + random.nextInt(16) + 8;
+			k1 = k + random.nextInt(16) + 8;
+			j1 = world.getHeightValue(i1, k1);
+			new GOTWorldGenVolcanoCrater().generate(world, random, i1, j1, k1);
+		}
+	}
+
+	@Override
 	public void generateMountainTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, int xzIndex, int ySize, int height, int rockDepth, GOTBiomeVariant variant) {
 		int snowHeight = 150 - rockDepth;
 		int stoneHeight = snowHeight - 40;
@@ -65,30 +89,6 @@ public class GOTBiomeMossovySopkas extends GOTBiome {
 			}
 			blocks[index] = GOTRegistry.rock;
 			meta[index] = 2;
-		}
-	}
-	
-	@Override
-	public void decorate(World world, Random random, int i, int k) {
-		int i1;
-		int k1;
-		int i12;
-		int j1;
-		int l;
-		int k13;
-		super.decorate(world, random, i, k);
-		GOTWorldGenStreams lavaGen = new GOTWorldGenStreams(Blocks.flowing_lava);
-		for (l = 0; l < 250; ++l) {
-			i12 = i + random.nextInt(16) + 8;
-			k13 = k + random.nextInt(16) + 8;
-			j1 = world.getHeightValue(i12, k13);
-			lavaGen.generate(world, random, i12, j1, k13);
-		}
-		if (random.nextInt(1) == 0) {
-			i1 = i + random.nextInt(16) + 8;
-			k1 = k + random.nextInt(16) + 8;
-			j1 = world.getHeightValue(i1, k1);
-			new GOTWorldGenVolcanoCrater().generate(world, random, i1, j1, k1);
 		}
 	}
 

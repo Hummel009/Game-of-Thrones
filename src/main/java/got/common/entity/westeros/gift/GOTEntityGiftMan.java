@@ -14,7 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityGiftMan extends GOTEntityHumanBase implements IPickpocketable {
-	public static ItemStack[] weapons = {new ItemStack(GOTRegistry.ironDagger), new ItemStack(GOTRegistry.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTRegistry.bronzeAxe), new ItemStack(Items.stone_axe) };
+	public static ItemStack[] weapons = { new ItemStack(GOTRegistry.ironDagger), new ItemStack(GOTRegistry.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTRegistry.bronzeAxe), new ItemStack(Items.stone_axe) };
 
 	public GOTEntityGiftMan(World world) {
 		super(world);
@@ -62,12 +62,6 @@ public class GOTEntityGiftMan extends GOTEntityHumanBase implements IPickpocketa
 		return horse;
 	}
 
-	public void dropMossovyItems(boolean flag, int i) {
-		if (rand.nextInt(6) == 0) {
-			dropChestContents(GOTChestContents.WESTEROS, 1, 2 + i);
-		}
-	}
-
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		super.dropFewItems(flag, i);
@@ -76,6 +70,12 @@ public class GOTEntityGiftMan extends GOTEntityHumanBase implements IPickpocketa
 			dropItem(Items.bone, 1);
 		}
 		dropMossovyItems(flag, i);
+	}
+
+	public void dropMossovyItems(boolean flag, int i) {
+		if (rand.nextInt(6) == 0) {
+			dropChestContents(GOTChestContents.WESTEROS, 1, 2 + i);
+		}
 	}
 
 	@Override
@@ -126,7 +126,7 @@ public class GOTEntityGiftMan extends GOTEntityHumanBase implements IPickpocketa
 		npcItemsInv.setIdleItem(null);
 		return data;
 	}
-	
+
 	@Override
 	public void setupNPCGender() {
 		familyInfo.setMale(rand.nextBoolean());

@@ -351,7 +351,7 @@ public class GOTWorldProvider extends WorldProvider {
 	}
 
 	public void setRingPortalLocation(int i, int j, int k) {
-		GOTLevelData.markMiddleEarthPortalLocation(i, j, k);
+		GOTLevelData.markGameOfThronesPortalLocation(i, j, k);
 	}
 
 	@Override

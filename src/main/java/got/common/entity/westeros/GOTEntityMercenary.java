@@ -65,6 +65,14 @@ public class GOTEntityMercenary extends GOTEntityHumanBase implements GOTMercena
 	}
 
 	@Override
+	public String getSpeechBank(EntityPlayer entityplayer) {
+		if (isFriendly(entityplayer)) {
+			return "westeros/mercenary/friendly";
+		}
+		return "westeros/mercenary/hostile";
+	}
+
+	@Override
 	public int getTotalArmorValue() {
 		return 15;
 	}
@@ -89,14 +97,6 @@ public class GOTEntityMercenary extends GOTEntityHumanBase implements GOTMercena
 	@Override
 	public void onUnitTrade(EntityPlayer entityplayer) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "westeros/mercenary/friendly";
-		}
-		return "westeros/mercenary/hostile";
 	}
 
 	@Override

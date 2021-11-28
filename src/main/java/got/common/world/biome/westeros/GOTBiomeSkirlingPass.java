@@ -20,7 +20,7 @@ import net.minecraft.world.gen.NoiseGeneratorPerlin;
 public class GOTBiomeSkirlingPass extends GOTBiome {
 	public NoiseGeneratorPerlin noiseDirt = new NoiseGeneratorPerlin(new Random(42956029606L), 1);
 	public NoiseGeneratorPerlin noiseGravel = new NoiseGeneratorPerlin(new Random(7185609602367L), 1);
-	public NoiseGeneratorPerlin noiseMordorGravel = new NoiseGeneratorPerlin(new Random(12480634985056L), 1);
+	public NoiseGeneratorPerlin noiseIceGravel = new NoiseGeneratorPerlin(new Random(12480634985056L), 1);
 
 	public GOTBiomeSkirlingPass(int i, boolean major) {
 		super(i, major);
@@ -51,8 +51,8 @@ public class GOTBiomeSkirlingPass extends GOTBiome {
 		double d2 = noiseDirt.func_151601_a(i * 0.6, k * 0.6);
 		double d3 = noiseGravel.func_151601_a(i * 0.09, k * 0.09);
 		double d4 = noiseGravel.func_151601_a(i * 0.6, k * 0.6);
-		double d5 = noiseMordorGravel.func_151601_a(i * 0.09, k * 0.09);
-		if (d5 + noiseMordorGravel.func_151601_a(i * 0.6, k * 0.6) > 0.5) {
+		double d5 = noiseIceGravel.func_151601_a(i * 0.09, k * 0.09);
+		if (d5 + noiseIceGravel.func_151601_a(i * 0.6, k * 0.6) > 0.5) {
 			topBlock = Blocks.dirt;
 			topBlockMeta = 1;
 		} else if (d3 + d4 > 0.6) {
