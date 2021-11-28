@@ -20,14 +20,14 @@ import net.minecraftforge.client.IItemRenderer;
 public class GOTRenderLargeItem implements IItemRenderer {
 	public static Map<String, Float> sizeFolders = new HashMap<>();
 	static {
-		sizeFolders.put("large", 2.0F);
-		sizeFolders.put("large2", 3.0F);
+		sizeFolders.put("large", 2.0f);
+		sizeFolders.put("large2", 3.0f);
 	}
-
 	public Item theItem;
 	public String folderName;
 	public float largeIconScale;
 	public IIcon largeIcon;
+
 	public List<ExtraLargeIconToken> extraTokens = new ArrayList<>();
 
 	public GOTRenderLargeItem(Item item, String dir, float f) {
@@ -37,8 +37,8 @@ public class GOTRenderLargeItem implements IItemRenderer {
 	}
 
 	public void doTransformations() {
-		GL11.glTranslatef(-(largeIconScale - 1.0F) / 2.0F, -(largeIconScale - 1.0F) / 2.0F, 0.0F);
-		GL11.glScalef(largeIconScale, largeIconScale, 1.0F);
+		GL11.glTranslatef(-(largeIconScale - 1.0f) / 2.0f, -(largeIconScale - 1.0f) / 2.0f, 0.0f);
+		GL11.glScalef(largeIconScale, largeIconScale, 1.0f);
 	}
 
 	public ExtraLargeIconToken extraIcon(String name) {
@@ -49,7 +49,7 @@ public class GOTRenderLargeItem implements IItemRenderer {
 
 	@Override
 	public boolean handleRenderType(ItemStack itemstack, IItemRenderer.ItemRenderType type) {
-		return (type == IItemRenderer.ItemRenderType.EQUIPPED || type == IItemRenderer.ItemRenderType.EQUIPPED_FIRST_PERSON);
+		return type == IItemRenderer.ItemRenderType.EQUIPPED || type == IItemRenderer.ItemRenderType.EQUIPPED_FIRST_PERSON;
 	}
 
 	public void registerIcons(IIconRegister register) {
@@ -63,7 +63,7 @@ public class GOTRenderLargeItem implements IItemRenderer {
 		String prefix = "got:";
 		String itemName = theItem.getUnlocalizedName();
 		itemName = itemName.substring(itemName.indexOf(prefix) + prefix.length());
-		StringBuilder path = new StringBuilder().append(prefix).append(folderName).append("/").append(itemName);
+		StringBuilder path = new StringBuilder(prefix).append(folderName).append("/").append(itemName);
 		if (!StringUtils.isNullOrEmpty(extra)) {
 			path.append("_").append(extra);
 		}
@@ -72,44 +72,39 @@ public class GOTRenderLargeItem implements IItemRenderer {
 
 	@Override
 	public void renderItem(IItemRenderer.ItemRenderType type, ItemStack itemstack, Object... data) {
+		EntityLivingBase entityliving;
 		GL11.glPushMatrix();
 		Entity holder = (Entity) data[1];
-		boolean isFirstPerson = (holder == (Minecraft.getMinecraft()).thePlayer && (Minecraft.getMinecraft()).gameSettings.thirdPersonView == 0);
+		boolean isFirstPerson = holder == Minecraft.getMinecraft().thePlayer && Minecraft.getMinecraft().gameSettings.thirdPersonView == 0;
 		Item item = itemstack.getItem();
 		if (item instanceof GOTItemSpear && holder instanceof EntityPlayer && ((EntityPlayer) holder).getItemInUse() == itemstack) {
-			GL11.glRotatef(260.0F, 0.0F, 0.0F, 1.0F);
-			GL11.glTranslatef(-1.0F, 0.0F, 0.0F);
+			GL11.glRotatef(260.0f, 0.0f, 0.0f, 1.0f);
+			GL11.glTranslatef(-1.0f, 0.0f, 0.0f);
 		}
-		if (item instanceof GOTItemPike && holder instanceof EntityLivingBase) {
-			EntityLivingBase entityliving = (EntityLivingBase) holder;
-			if (entityliving.getHeldItem() == itemstack && entityliving.swingProgress <= 0.0F) {
-				if (entityliving.isSneaking()) {
-					if (isFirstPerson) {
-						GL11.glRotatef(270.0F, 0.0F, 0.0F, 1.0F);
-						GL11.glTranslatef(-1.0F, 0.0F, 0.0F);
-					} else {
-						GL11.glTranslatef(0.0F, -0.1F, 0.0F);
-						GL11.glRotatef(20.0F, 0.0F, 0.0F, 1.0F);
-					}
-				} else if (!isFirstPerson) {
-					GL11.glTranslatef(0.0F, -0.3F, 0.0F);
-					GL11.glRotatef(40.0F, 0.0F, 0.0F, 1.0F);
-				}
-			}
-		}
-		if (item instanceof GOTItemLance && holder instanceof EntityLivingBase) {
-			EntityLivingBase entityliving = (EntityLivingBase) holder;
-			if (entityliving.getHeldItem() == itemstack) {
+		if (item instanceof GOTItemPike && holder instanceof EntityLivingBase && (entityliving = (EntityLivingBase) holder).getHeldItem() == itemstack && entityliving.swingProgress <= 0.0f) {
+			if (entityliving.isSneaking()) {
 				if (isFirstPerson) {
-					GL11.glRotatef(260.0F, 0.0F, 0.0F, 1.0F);
+					GL11.glRotatef(270.0f, 0.0f, 0.0f, 1.0f);
+					GL11.glTranslatef(-1.0f, 0.0f, 0.0f);
 				} else {
-					GL11.glTranslatef(0.7F, 0.0F, 0.0F);
-					GL11.glRotatef(-30.0F, 0.0F, 0.0F, 1.0F);
+					GL11.glTranslatef(0.0f, -0.1f, 0.0f);
+					GL11.glRotatef(20.0f, 0.0f, 0.0f, 1.0f);
 				}
-				GL11.glTranslatef(-1.0F, 0.0F, 0.0F);
+			} else if (!isFirstPerson) {
+				GL11.glTranslatef(0.0f, -0.3f, 0.0f);
+				GL11.glRotatef(40.0f, 0.0f, 0.0f, 1.0f);
 			}
 		}
-		renderLargeItem();
+		if (item instanceof GOTItemLance && holder instanceof EntityLivingBase && (entityliving = (EntityLivingBase) holder).getHeldItem() == itemstack) {
+			if (isFirstPerson) {
+				GL11.glRotatef(260.0f, 0.0f, 0.0f, 1.0f);
+			} else {
+				GL11.glTranslatef(0.7f, 0.0f, 0.0f);
+				GL11.glRotatef(-30.0f, 0.0f, 0.0f, 1.0f);
+			}
+			GL11.glTranslatef(-1.0f, 0.0f, 0.0f);
+		}
+		this.renderLargeItem();
 		if (itemstack != null && itemstack.hasEffect(0)) {
 			GOTClientProxy.renderEnchantmentEffect();
 		}
@@ -117,19 +112,19 @@ public class GOTRenderLargeItem implements IItemRenderer {
 	}
 
 	public void renderLargeItem() {
-		renderLargeItem(largeIcon);
+		this.renderLargeItem(largeIcon);
 	}
 
 	public void renderLargeItem(ExtraLargeIconToken token) {
-		renderLargeItem(token.icon);
+		this.renderLargeItem(token.icon);
 	}
 
 	public void renderLargeItem(IIcon icon) {
 		doTransformations();
 		Minecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.locationItemsTexture);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		Tessellator tess = Tessellator.instance;
-		ItemRenderer.renderItemIn2D(tess, icon.getMaxU(), icon.getMinV(), icon.getMinU(), icon.getMaxV(), icon.getIconWidth(), icon.getIconHeight(), 0.0625F);
+		ItemRenderer.renderItemIn2D(tess, icon.getMaxU(), icon.getMinV(), icon.getMinU(), icon.getMaxV(), icon.getIconWidth(), icon.getIconHeight(), 0.0625f);
 	}
 
 	@Override
@@ -141,21 +136,22 @@ public class GOTRenderLargeItem implements IItemRenderer {
 		String prefix = "got:";
 		String itemName = item.getUnlocalizedName();
 		itemName = itemName.substring(itemName.indexOf(prefix) + prefix.length());
-		StringBuilder s = new StringBuilder().append(prefix).append("textures/items/").append(folder).append("/").append(itemName);
+		StringBuilder s = new StringBuilder(prefix).append("textures/items/").append(folder).append("/").append(itemName);
 		s.append(".png");
 		return new ResourceLocation(s.toString());
 	}
 
 	public static GOTRenderLargeItem getRendererIfLarge(Item item) {
 		for (String folder : sizeFolders.keySet()) {
-			float iconScale = sizeFolders.get(folder).floatValue();
+			float iconScale = sizeFolders.get(folder);
 			try {
-				ResourceLocation resLoc = getLargeTexturePath(item, folder);
+				ResourceLocation resLoc = GOTRenderLargeItem.getLargeTexturePath(item, folder);
 				IResource res = Minecraft.getMinecraft().getResourceManager().getResource(resLoc);
-				if (res != null) {
-					return new GOTRenderLargeItem(item, folder, iconScale);
+				if (res == null) {
+					continue;
 				}
-			} catch (IOException iOException) {
+				return new GOTRenderLargeItem(item, folder, iconScale);
+			} catch (IOException resLoc) {
 			}
 		}
 		return null;
@@ -169,4 +165,5 @@ public class GOTRenderLargeItem implements IItemRenderer {
 			name = s;
 		}
 	}
+
 }

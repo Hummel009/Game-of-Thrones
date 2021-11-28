@@ -40,6 +40,7 @@ CHANGELOG
 * Improved armor textures
 * Improved unit price balance
 
+* Fixed bug with spear rendering
 * Fixed bug with asshai chandeliers
 * Fixed bug with mob weapons
 * Fixed bug with Yeen and Asshai weather

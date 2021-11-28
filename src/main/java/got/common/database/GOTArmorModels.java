@@ -49,7 +49,8 @@ public class GOTArmorModels {
 		ModelBiped armorModel = getSpecialArmorModel(armor, slot, entity, mainModel);
 		if (armorModel != null) {
 			int color;
-			Item armorItem = armor == null ? null : armor.getItem();
+			Item armorItem;
+			armorItem = armor == null ? null : armor.getItem();
 			if (armorItem instanceof ItemArmor) {
 				Minecraft.getMinecraft().getTextureManager().bindTexture(RenderBiped.getArmorResource(entity, armor, slot, null));
 			}
@@ -197,10 +198,7 @@ public class GOTArmorModels {
 			Item item = itemstack.getItem();
 			boolean isRanged = false;
 			if (itemstack.getItemUseAction() == EnumAction.bow) {
-				if (item instanceof GOTItemSpear) {
-				} else {
-					isRanged = !(item instanceof ItemSword);
-				}
+				isRanged = item instanceof GOTItemSpear ? entity instanceof EntityPlayer : !(item instanceof ItemSword);
 			}
 			if (item instanceof GOTItemSling) {
 				isRanged = true;
@@ -256,14 +254,15 @@ public class GOTArmorModels {
 			model.aimedBow = mainModel.aimedBow;
 			setupHeldItem(model, entity, heldRight, true);
 		} else {
-			ItemStack heldRight = entity == null ? null : entity.getHeldItem();
-			ItemStack heldLeft = entity == null ? null : entity instanceof GOTEntityNPC ? ((GOTEntityNPC) entity).getHeldItemLeft() : null;
+			ItemStack heldRight;
+			heldRight = entity == null ? null : entity.getHeldItem();
+			ItemStack heldLeft = entity == null ? null : (entity instanceof GOTEntityNPC ? ((GOTEntityNPC) entity).getHeldItemLeft() : null);
 			setupHeldItem(model, entity, heldRight, true);
 			setupHeldItem(model, entity, heldLeft, false);
 		}
 	}
 
-	public static void preInit() {
+	public static void setupArmorModels() {
 		INSTANCE = new GOTArmorModels();
 	}
 }
