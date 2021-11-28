@@ -106,7 +106,8 @@ public class GOTRoads {
 		GOTRoads.registerRoad(id++, GOTWaypoint.Highgarden, near(GOTWaypoint.Highgarden, 0, -1));
 		GOTRoads.registerRoad(id++, GOTWaypoint.HornHill, near(GOTWaypoint.HornHill, 0, -1));
 		GOTRoads.registerRoad(id++, GOTWaypoint.Jinqi, near(GOTWaypoint.Jinqi, -1, 0));
-		GOTRoads.registerRoad(id++, GOTWaypoint.Jinqi, new int[] { 3753, 2449 }, new int[] { 3810, 2630 }, GOTWaypoint.Asshai);
+		GOTRoads.registerRoad(id++, GOTWaypoint.Asshai, near(GOTWaypoint.Asshai, -1, 0));
+		GOTRoads.registerRoad(id++, GOTWaypoint.Jinqi, new int[] { 3753, 2449 }, new int[] { 3810, 2630 }, near(GOTWaypoint.Asshai, 0, -1));
 		GOTRoads.registerRoad(id++, GOTWaypoint.KingsLanding, near(GOTWaypoint.KingsLanding, 1, 0));
 		GOTRoads.registerRoad(id++, GOTWaypoint.KingsLanding, near(GOTWaypoint.KingsLanding, 5, 28));
 		GOTRoads.registerRoad(id++, GOTWaypoint.Kingsgrave, near(GOTWaypoint.Kingsgrave, -1, 0));
