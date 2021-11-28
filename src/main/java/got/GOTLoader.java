@@ -2,6 +2,7 @@ package got;
 
 import got.common.*;
 import got.common.database.*;
+import got.common.enchant.GOTEnchantmentCombining;
 import got.common.entity.GOTEntity;
 import got.common.faction.GOTFaction;
 import got.common.item.GOTPoisonedDrinks;
@@ -28,6 +29,7 @@ public class GOTLoader {
 		GOTStructureScan.onInit();
 		GOTRecipeBrewing.onInit();
 		GOTRecipeMillstone.onInit();
+		GOTEnchantmentCombining.onInit();
 		GOTAchievement.onInit();
 		GOTChatEvents.onInit();
 		GOTFaction.onInit();

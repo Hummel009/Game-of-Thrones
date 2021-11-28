@@ -19,7 +19,7 @@ public class GOTEnchantmentCombining {
 		allCombineRecipes.add(new CombineRecipe(in, out, cost));
 	}
 
-	public static void createRecipes() {
+	public static void onInit() {
 		GOTEnchantmentCombining.combine(GOTEnchantment.strong1, GOTEnchantment.strong2, 200);
 		GOTEnchantmentCombining.combine(GOTEnchantment.strong2, GOTEnchantment.strong3, 800);
 		GOTEnchantmentCombining.combine(GOTEnchantment.strong3, GOTEnchantment.strong4, 1600);

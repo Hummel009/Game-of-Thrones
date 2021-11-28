@@ -37,6 +37,9 @@ public class GOTBiomeGiftOldFlat extends GOTBiomeGiftOld {
 		GOTStructureEastWatch ew = new GOTStructureEastWatch(this, 0.0f);
 		ew.affix(GOTWaypoint.EastWatch);
 		decorator.affix(ew);
+		GOTStructureWallGate bc1 = new GOTStructureWallGate(this, 0.0f);
+		bc1.affix(GOTWaypoint.CastleBlack, 0, -1);
+		decorator.affix(bc1);
 	}
 
 	@Override
