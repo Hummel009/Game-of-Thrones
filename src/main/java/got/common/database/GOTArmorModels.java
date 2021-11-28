@@ -262,7 +262,7 @@ public class GOTArmorModels {
 		}
 	}
 
-	public static void setupArmorModels() {
+	public static void preInit() {
 		INSTANCE = new GOTArmorModels();
 	}
 }
