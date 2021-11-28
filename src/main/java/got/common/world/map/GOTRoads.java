@@ -182,7 +182,7 @@ public class GOTRoads {
 		GOTRoads.registerRoad(id++, GOTWaypoint.Yibin, GOTWaypoint.Lizhao, new int[] { 3679, 2188 }, new int[] { 3655, 2241 }, new int[] { 3634, 2281 });
 		GOTRoads.registerRoad(id++, GOTWaypoint.Jinqi, new int[] { 3620, 2347 }, new int[] { 3621, 2315 }, new int[] { 3634, 2281 });
 		GOTRoads.registerRoad(id++, GOTWaypoint.Yibin, new int[] { 3622, 2031 }, new int[] { 3560, 2023 }, GOTWaypoint.Vaibei);
-		GOTRoads.registerRoad(id++, GOTWaypoint.TraderTown, new int[] { 3411, 1920 }, new int[] { 3473, 1951 }, GOTWaypoint.Vaibei);
+		GOTRoads.registerRoad(id++, GOTWaypoint.TraderTown, new int[] { 3411, 1920 }, new int[] { 3473, 1951 }, near(GOTWaypoint.Vaibei, -1, 0));
 		GOTRoads.registerRoad(id++, GOTWaypoint.FiveForts1, new int[] { 3687, 1921 }, new int[] { 3600, 1973 }, GOTWaypoint.Vaibei);
 		GOTRoads.registerRoad(id++, GOTWaypoint.FiveForts5, new int[] { 3797, 2008 }, new int[] { 3732, 2063 }, GOTWaypoint.Yibin);
 		GOTRoads.registerRoad(id++, new int[] { 3634, 2281 }, new int[] { 3688, 2321 }, new int[] { 3756, 2321 }, GOTWaypoint.Yunnan);
@@ -192,6 +192,14 @@ public class GOTRoads {
 		GOTRoads.registerRoad(id++, GOTWaypoint.Whitegrove, near(GOTWaypoint.Whitegrove, -16, 33));
 		GOTRoads.registerRoad(id++, GOTWaypoint.Wyl, near(GOTWaypoint.Wyl, -1, 0));
 		GOTRoads.registerRoad(id++, GOTWaypoint.Yin, near(GOTWaypoint.Yin, 0, 1));
+		GOTRoads.registerRoad(id++, GOTWaypoint.Vaibei, near(GOTWaypoint.Vaibei, -1, 0));
+		GOTRoads.registerRoad(id++, GOTWaypoint.Vaibei, near(GOTWaypoint.Vaibei, 0, -1));
+		GOTRoads.registerRoad(id++, GOTWaypoint.Eijiang, near(GOTWaypoint.Eijiang, 0, 1));
+		GOTRoads.registerRoad(id++, GOTWaypoint.Baoji, near(GOTWaypoint.Baoji, 0, 1));
+		GOTRoads.registerRoad(id++, GOTWaypoint.Manjin, near(GOTWaypoint.Manjin, 1, 0));
+		GOTRoads.registerRoad(id++, GOTWaypoint.Lizhao, near(GOTWaypoint.Lizhao, 1, 0));
+		GOTRoads.registerRoad(id++, GOTWaypoint.Yibin, near(GOTWaypoint.Yibin, -1, 0));
+		GOTRoads.registerRoad(id++, GOTWaypoint.Yunnan, near(GOTWaypoint.Yunnan, 1, 0));
 		GOTRoads.registerRoad(id++, GOTWaypoint.Yronwood, near(GOTWaypoint.Yronwood, 1, 0));
 		GOTRoads.registerRoad(id++, GOTWaypoint.Yronwood, new int[] { 680, 1953 }, GOTWaypoint.Wyl, GOTWaypoint.Blackhaven, GOTWaypoint.Summerhall, GOTWaypoint.Bronzegate);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Yunkai, near(GOTWaypoint.Meereen, -9, 55));
