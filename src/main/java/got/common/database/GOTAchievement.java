@@ -651,7 +651,7 @@ public class GOTAchievement {
 		VISIT_MERCENARY = new GOTAchievement(Category.VISIT, id++, GOTRegistry.goldHelmet, "VISIT_MERCENARY");
 		VISIT_MOSSOVY = new GOTAchievement(Category.VISIT, id++, GOTRegistry.mossovySword, "VISIT_MOSSOVY");
 		VISIT_MOSSOVY_MARSHES = new GOTAchievement(Category.VISIT, id++, GOTRegistry.reeds, "VISIT_MOSSOVY_MARSHES");
-		VISIT_MOSSOVY_SOPKAS = new GOTAchievement(Category.VISIT, id++, Blocks.stone, "VISIT_MOSSOVY_MOUNTAINS");
+		VISIT_MOSSOVY_SOPKAS = new GOTAchievement(Category.VISIT, id++, Blocks.stone, "VISIT_MOSSOVY_SOPKAS");
 		VISIT_MYR = new GOTAchievement(Category.VISIT, id++, GOTRegistry.myrHelmet, "VISIT_MYR");
 		VISIT_NAATH = new GOTAchievement(Category.VISIT, id++, GOTRegistry.summerHelmet, "VISIT_NAATH");
 		VISIT_NECK = new GOTAchievement(Category.VISIT, id++, GOTRegistry.quagmire, "VISIT_NECK");
