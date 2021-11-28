@@ -75,12 +75,13 @@ public class GOTBiomeMossovySopkas extends GOTBiome {
 		int i12;
 		int j1;
 		int l;
+		int k13;
 		super.decorate(world, random, i, k);
 		GOTWorldGenStreams lavaGen = new GOTWorldGenStreams(Blocks.flowing_lava);
 		for (l = 0; l < 250; ++l) {
 			i12 = i + random.nextInt(16) + 8;
-			j1 = 40 + random.nextInt(100);
-			int k13 = k + random.nextInt(16) + 8;
+			k13 = k + random.nextInt(16) + 8;
+			j1 = world.getHeightValue(i12, k13);
 			lavaGen.generate(world, random, i12, j1, k13);
 		}
 		if (random.nextInt(1) == 0) {

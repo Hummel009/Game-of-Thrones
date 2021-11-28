@@ -7,7 +7,9 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.structure.other.GOTStructureRuinsBig;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
@@ -33,6 +35,9 @@ public class GOTBiomeShadowMountains extends GOTBiome {
 		biomeColors.setFog(0);
 		biomeColors.setWater(0);
 		enableRocky = true;
+		GOTStructureRuinsBig colossal = new GOTStructureRuinsBig(this, 0.0f);
+		colossal.affix(GOTWaypoint.Stygai);
+		decorator.affix(colossal);
 	}
 	
 	@Override
