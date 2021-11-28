@@ -27,9 +27,4 @@ public class GOTBiomeSothoryosHell extends GOTBiomeSothoryosJungle {
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.SOTHORYOS.getSubregion("sothoryosHell");
 	}
-
-	@Override
-	public float getChanceToSpawnAnimals() {
-		return 1.0f;
-	}
 }

@@ -157,7 +157,7 @@ public class GOTBiomeDorne extends GOTBiome {
 
 	@Override
 	public float getChanceToSpawnAnimals() {
-		return 0.5f;
+		return 0.25f;
 	}
 
 	@Override

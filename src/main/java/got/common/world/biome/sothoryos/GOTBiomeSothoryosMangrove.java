@@ -77,7 +77,7 @@ public class GOTBiomeSothoryosMangrove extends GOTBiome {
 
 	@Override
 	public float getChanceToSpawnAnimals() {
-		return 0.4f;
+		return 0.25f;
 	}
 
 	@Override

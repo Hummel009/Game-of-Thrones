@@ -123,7 +123,7 @@ public class GOTBiomeUlthosDesert extends GOTBiome {
 
 	@Override
 	public float getChanceToSpawnAnimals() {
-		return 0.02f;
+		return 0.1f;
 	}
 
 	@Override
