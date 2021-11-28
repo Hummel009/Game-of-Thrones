@@ -49,11 +49,15 @@ public class GOTWalls {
 		return leastSqRatio;
 	}
 
+	public static int[] near(GOTWaypoint wp, int x, int y) {
+		return new int[] { wp.imgX + x, wp.imgY + y };
+	}
+
 	public static void onInit() {
 		System.nanoTime();
 		allWalls.clear();
 		wallPointDatabase = new WallPointDatabase();
-		GOTWalls.registerWall("Wall", new int[] { 672, 635 }, new int[] { 762, 634 }, new int[] { 835, 635 });
+		GOTWalls.registerWall("Wall", GOTWaypoint.WestWatch, near(GOTWaypoint.CastleBlack, 0, -1), near(GOTWaypoint.EastWatch, 2, 0));
 		GOTWalls.registerWall("Wall", new int[] { 2659, 1218 }, new int[] { 2676, 1220 }, new int[] { 2693, 1218 });
 		System.nanoTime();
 		for (Map.Entry e : GOTWalls.wallPointDatabase.pointMap.entrySet()) {
