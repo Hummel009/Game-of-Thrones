@@ -11,7 +11,7 @@ public class GOTBiomeShadowTown extends GOTBiomeShadowLand {
 		super(i, major);
 		decorator.flowersPerChunk = 0;
 		GOTStructureAsshaiCity town = new GOTStructureAsshaiCity(this, 0.0f);
-		town.affix(GOTWaypoint.Asshai, 0, 1, 2);
+		town.affix(GOTWaypoint.Asshai, 2);
 		decorator.affix(town);
 	}
 

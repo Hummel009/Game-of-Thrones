@@ -11,6 +11,8 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.fixed.GOTStructureAsshaiFort;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
 public class GOTStructureAsshaiCity extends GOTVillageGen {
@@ -189,17 +191,23 @@ public class GOTStructureAsshaiCity extends GOTVillageGen {
 
 		@Override
 		public GOTBezierType getPath(Random random, int i, int k) {
+			int i1 = Math.abs(i);
+			int k1 = Math.abs(k);
+			if (villageType == VillageType.TOWN && i1 <= 80 && k1 <= 80) {
+				return GOTBezierType.ASSHAI;
+			}
 			return null;
 		}
 
 		@Override
 		public boolean isFlat() {
-			return false;
+			return villageType == VillageType.TOWN;
 		}
 
 		@Override
 		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
-			return false;
+			Block block = world.getBlock(i, j, k);
+			return villageType == VillageType.TOWN && block == Blocks.cobblestone;
 		}
 
 		@Override
