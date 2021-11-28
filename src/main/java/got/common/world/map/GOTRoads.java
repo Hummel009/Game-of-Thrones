@@ -63,7 +63,7 @@ public class GOTRoads {
 		roadPointDatabase = new RoadPointDatabase();
 		GOTRoads.registerRoad(id++, GOTWaypoint.Appleton, near(GOTWaypoint.Appleton, 0, -1));
 		GOTRoads.registerRoad(id++, GOTWaypoint.ArNoy, GOTWaypoint.Chroyane);
-		GOTRoads.registerRoad(id++, GOTWaypoint.Asabhad, GOTWaypoint.SiQo);
+		GOTRoads.registerRoad(id++, GOTWaypoint.Asabhad, new int[] { 3143, 2263 }, new int[] { 3190, 2276 }, GOTWaypoint.SiQo);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Asabhad, near(GOTWaypoint.Asabhad, -1, 0));
 		GOTRoads.registerRoad(id++, GOTWaypoint.Barrowtown, GOTWaypoint.Goldgrass);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Bitterbridge, near(GOTWaypoint.Bitterbridge, 0, 1));
@@ -106,7 +106,6 @@ public class GOTRoads {
 		GOTRoads.registerRoad(id++, GOTWaypoint.Highgarden, near(GOTWaypoint.Highgarden, 0, -1));
 		GOTRoads.registerRoad(id++, GOTWaypoint.HornHill, near(GOTWaypoint.HornHill, 0, -1));
 		GOTRoads.registerRoad(id++, GOTWaypoint.Jinqi, near(GOTWaypoint.Jinqi, -1, 0));
-		GOTRoads.registerRoad(id++, GOTWaypoint.Jinqi, near(GOTWaypoint.Jinqi, 115, -117), GOTWaypoint.FiveForts5);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Jinqi, new int[] { 3753, 2449 }, new int[] { 3810, 2630 }, GOTWaypoint.Asshai);
 		GOTRoads.registerRoad(id++, GOTWaypoint.KingsLanding, near(GOTWaypoint.KingsLanding, 1, 0));
 		GOTRoads.registerRoad(id++, GOTWaypoint.KingsLanding, near(GOTWaypoint.KingsLanding, 5, 28));
@@ -155,9 +154,7 @@ public class GOTRoads {
 		GOTRoads.registerRoad(id++, GOTWaypoint.ThreeTowers, new int[] { 353, 2005 }, GOTWaypoint.GarnetGrove);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Tiqui, near(GOTWaypoint.Tiqui, 0, -1));
 		GOTRoads.registerRoad(id++, GOTWaypoint.Tiqui, near(GOTWaypoint.Tiqui, 1, 0));
-		GOTRoads.registerRoad(id++, near(GOTWaypoint.Tiqui, 1, 0), new int[] { 3580, 2134 }, near(GOTWaypoint.Jinqi, 115, -117));
 		GOTRoads.registerRoad(id++, GOTWaypoint.TorhensSquare, near(GOTWaypoint.BlackPool, -1, 0));
-		GOTRoads.registerRoad(id++, GOTWaypoint.TraderTown, GOTWaypoint.FiveForts1);
 		GOTRoads.registerRoad(id++, GOTWaypoint.TraderTown, near(GOTWaypoint.Tiqui, 1, 0), GOTWaypoint.SiQo, GOTWaypoint.Yin);
 		GOTRoads.registerRoad(id++, GOTWaypoint.TraderTown, near(GOTWaypoint.TraderTown, 0, -1));
 		GOTRoads.registerRoad(id++, GOTWaypoint.TraderTown, near(GOTWaypoint.TraderTown, -1, 0));
@@ -170,8 +167,28 @@ public class GOTRoads {
 		GOTRoads.registerRoad(id++, GOTWaypoint.VaesKhadokh, GOTWaypoint.Saath);
 		GOTRoads.registerRoad(id++, GOTWaypoint.VaesLeqse, GOTWaypoint.VaesDothrak, GOTWaypoint.Kayakayanaya, near(GOTWaypoint.TraderTown, -1, 0));
 		GOTRoads.registerRoad(id++, GOTWaypoint.VaesMejhah, GOTWaypoint.VaesJini, GOTWaypoint.Samyriana, near(GOTWaypoint.TraderTown, -1, 0));
-		GOTRoads.registerRoad(id++, GOTWaypoint.VaesOrvik, GOTWaypoint.VaesShirosi, GOTWaypoint.VaesQosar, GOTWaypoint.Bayasabhad, GOTWaypoint.Tiqui);
-		GOTRoads.registerRoad(id++, GOTWaypoint.VaesQosar, GOTWaypoint.Qarth);
+		GOTRoads.registerRoad(id++, new int[] { 2723, 2245 }, GOTWaypoint.Qarkash);
+		GOTRoads.registerRoad(id++, new int[] { 2723, 2245 }, new int[] { 2763, 2273 }, new int[] { 2834, 2268 }, GOTWaypoint.Qarth);
+		GOTRoads.registerRoad(id++, new int[] { 2723, 2245 }, new int[] { 2687, 2231 }, new int[] { 2626, 2258 }, GOTWaypoint.PortYhos);
+		GOTRoads.registerRoad(id++, new int[] { 2995, 2293 }, new int[] { 2972, 2274 }, new int[] { 2931, 2262 }, GOTWaypoint.Qarth);
+		GOTRoads.registerRoad(id++, new int[] { 2995, 2293 }, new int[] { 3034, 2243 }, new int[] { 3081, 2240 }, GOTWaypoint.Asabhad);
+		GOTRoads.registerRoad(id++, new int[] { 3081, 2240 }, new int[] { 3088, 2202 }, new int[] { 3093, 2162 }, GOTWaypoint.Eijiang);
+		GOTRoads.registerRoad(id++, GOTWaypoint.Bayasabhad, new int[] { 3134, 2098 }, new int[] { 3132, 2128 }, GOTWaypoint.Eijiang);
+		GOTRoads.registerRoad(id++, GOTWaypoint.Tiqui, new int[] { 3240, 2114 }, new int[] { 3193, 2134 }, GOTWaypoint.Eijiang);
+		GOTRoads.registerRoad(id++, GOTWaypoint.Tiqui, new int[] { 3374, 2123 }, new int[] { 3425, 2147 }, GOTWaypoint.Manjin);
+		GOTRoads.registerRoad(id++, GOTWaypoint.Baoji, new int[] { 3476, 2218 }, new int[] { 3454, 2212 }, GOTWaypoint.Manjin);
+		GOTRoads.registerRoad(id++, GOTWaypoint.Baoji, new int[] { 3554, 2181 }, new int[] { 3613, 2167 }, GOTWaypoint.Lizhao);
+		GOTRoads.registerRoad(id++, GOTWaypoint.Baoji, new int[] { 3570, 2227 }, new int[] { 3611, 2256 }, new int[] { 3634, 2281 });
+		GOTRoads.registerRoad(id++, GOTWaypoint.Yibin, GOTWaypoint.Lizhao, new int[] { 3679, 2188 }, new int[] { 3655, 2241 }, new int[] { 3634, 2281 });
+		GOTRoads.registerRoad(id++, GOTWaypoint.Jinqi, new int[] { 3620, 2347 }, new int[] { 3621, 2315 }, new int[] { 3634, 2281 });
+
+		GOTRoads.registerRoad(id++, GOTWaypoint.Yibin, new int[] { 3622, 2031 }, new int[] { 3560, 2023 }, GOTWaypoint.Vaibei);
+		GOTRoads.registerRoad(id++, GOTWaypoint.TraderTown, new int[] { 3411, 1920 }, new int[] { 3473, 1951 }, GOTWaypoint.Vaibei);
+		GOTRoads.registerRoad(id++, GOTWaypoint.FiveForts1, new int[] { 3687, 1921 }, new int[] { 3600, 1973 }, GOTWaypoint.Vaibei);
+		GOTRoads.registerRoad(id++, GOTWaypoint.FiveForts5, new int[] { 3797, 2008 }, new int[] { 3732, 2063 }, GOTWaypoint.Yibin);
+
+		GOTRoads.registerRoad(id++, new int[] { 3634, 2281 }, new int[] { 3688, 2321 }, new int[] { 3756, 2321 }, GOTWaypoint.Yunnan);
+		
 		GOTRoads.registerRoad(id++, GOTWaypoint.Volantis, GOTWaypoint.LittleValyria, GOTWaypoint.Anogaria, GOTWaypoint.Mantarys, GOTWaypoint.Bhorash, new int[] { 2154, 1935 }, GOTWaypoint.Meereen);
 		GOTRoads.registerRoad(id++, GOTWaypoint.VolonTherys, GOTWaypoint.SarMell);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Whitegrove, near(GOTWaypoint.Whitegrove, -1, 0));
