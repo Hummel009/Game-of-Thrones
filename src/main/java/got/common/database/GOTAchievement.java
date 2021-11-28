@@ -158,7 +158,7 @@ public class GOTAchievement {
 	public static GOTAchievement VISIT_MERCENARY;
 	public static GOTAchievement VISIT_MOSSOVY;
 	public static GOTAchievement VISIT_MOSSOVY_MARSHES;
-	public static GOTAchievement VISIT_MOSSOVY_TUNDRA;
+	public static GOTAchievement VISIT_MOSSOVY_SOPKAS;
 	public static GOTAchievement VISIT_MYR;
 	public static GOTAchievement VISIT_NAATH;
 	public static GOTAchievement VISIT_NECK;
@@ -179,7 +179,7 @@ public class GOTAchievement {
 	public static GOTAchievement VISIT_RIVERLANDS;
 	public static GOTAchievement VISIT_SHADOW_LAND;
 	public static GOTAchievement VISIT_SHADOW_MOUNTAINS;
-	public static GOTAchievement VISIT_SHADOW_WASTELAND;
+	public static GOTAchievement VISIT_ULOS;
 	public static GOTAchievement VISIT_SKAGOS;
 	public static GOTAchievement VISIT_SKIRLING_PASS;
 	public static GOTAchievement VISIT_SOTHORYOS_BUSHLAND;
@@ -651,7 +651,7 @@ public class GOTAchievement {
 		VISIT_MERCENARY = new GOTAchievement(Category.VISIT, id++, GOTRegistry.goldHelmet, "VISIT_MERCENARY");
 		VISIT_MOSSOVY = new GOTAchievement(Category.VISIT, id++, GOTRegistry.mossovySword, "VISIT_MOSSOVY");
 		VISIT_MOSSOVY_MARSHES = new GOTAchievement(Category.VISIT, id++, GOTRegistry.reeds, "VISIT_MOSSOVY_MARSHES");
-		VISIT_MOSSOVY_TUNDRA = new GOTAchievement(Category.VISIT, id++, Blocks.grass, "VISIT_MOSSOVY_TUNDRA");
+		VISIT_MOSSOVY_SOPKAS = new GOTAchievement(Category.VISIT, id++, Blocks.stone, "VISIT_MOSSOVY_MOUNTAINS");
 		VISIT_MYR = new GOTAchievement(Category.VISIT, id++, GOTRegistry.myrHelmet, "VISIT_MYR");
 		VISIT_NAATH = new GOTAchievement(Category.VISIT, id++, GOTRegistry.summerHelmet, "VISIT_NAATH");
 		VISIT_NECK = new GOTAchievement(Category.VISIT, id++, GOTRegistry.quagmire, "VISIT_NECK");
@@ -672,7 +672,7 @@ public class GOTAchievement {
 		VISIT_RIVERLANDS = new GOTAchievement(Category.VISIT, id++, GOTRegistry.riverlandsHelmet, "VISIT_RIVERLANDS");
 		VISIT_SHADOW_LAND = new GOTAchievement(Category.VISIT, id++, GOTRegistry.asshaiFlower, "VISIT_SHADOW_LAND");
 		VISIT_SHADOW_MOUNTAINS = new GOTAchievement(Category.VISIT, id++, new ItemStack(GOTRegistry.rock, 1, 0), "VISIT_SHADOW_MOUNTAINS");
-		VISIT_SHADOW_WASTELAND = new GOTAchievement(Category.VISIT, id++, GOTRegistry.asshaiDirt, "VISIT_SHADOW_WASTELAND");
+		VISIT_ULOS = new GOTAchievement(Category.VISIT, id++, GOTRegistry.ulthosTorch, "VISIT_ULOS");
 		VISIT_SKAGOS = new GOTAchievement(Category.VISIT, id++, GOTRegistry.trident, "VISIT_SKAGOS");
 		VISIT_SKIRLING_PASS = new GOTAchievement(Category.VISIT, id++, GOTRegistry.club, "VISIT_SKIRLING_PASS");
 		VISIT_SOTHORYOS_BUSHLAND = new GOTAchievement(Category.VISIT, id++, GOTRegistry.termite, "VISIT_SOTHORYOS_BUSHLAND");
