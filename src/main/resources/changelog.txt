@@ -1,7 +1,7 @@
 CHANGELOG
 
 >>VERSION 17.5
-* Reworked Mossovy. Added table, new mobs, structures villages and fixed genstructures.
+* Reworked Mossovy. Added table, new mobs, structures, villages and fixed genstructures.
 * Reworked economics. New gold, silver and valyrian prices. New prices for all items made of these materials
 * Reworked units, their prices and armor stats. Balance everywhere!
 * Reworked attitude zones, that work in a different way during seasonal changes
@@ -42,6 +42,7 @@ CHANGELOG
 * Improved the gate connection algorithm
 * Improved armor textures
 * Improved unit price balance
+* Improved mossovy witcher balance of stats
 
 * Fixed bug with spear rendering
 * Fixed bug with asshai chandeliers
