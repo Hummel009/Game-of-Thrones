@@ -55,10 +55,7 @@ public class GOTEntityLhazarBlacksmith extends GOTEntityLhazarMan implements GOT
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "essos/lhazar/trader/friendly";
-			}
-			return "essos/lhazar/trader/neutral";
+			return "essos/lhazar/trader/friendly";
 		}
 		return "essos/lhazar/trader/hostile";
 	}
