@@ -104,9 +104,9 @@ public class GOTEntityMossovyMan extends GOTEntityHumanBase implements IPickpock
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "essos/mossovy/friendly";
+			return "essos/mossovy/man/friendly";
 		}
-		return "essos/mossovy/hostile";
+		return "essos/mossovy/man/hostile";
 	}
 
 	@Override

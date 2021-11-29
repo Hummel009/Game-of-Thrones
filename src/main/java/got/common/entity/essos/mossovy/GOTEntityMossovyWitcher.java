@@ -23,6 +23,17 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 	}
 
 	@Override
+	public String getSpeechBank(EntityPlayer entityplayer) {
+		if (isFriendly(entityplayer)) {
+			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+				return "essos/mossovy/witcher/hired";
+			}
+			return "essos/mossovy/witcher/friendly";
+		}
+		return "essos/mossovy/witcher/hostile";
+	}
+
+	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0);
