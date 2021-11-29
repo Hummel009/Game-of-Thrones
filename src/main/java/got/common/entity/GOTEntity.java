@@ -654,9 +654,10 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityJogosShaman.class, "JogosShaman", id++, GOTFaction.JOGOS);
 
 		GOTEntityRegistry.register(GOTEntityMossovyMan.class, "MossovyMan", id++, GOTFaction.MOSSOVY);
-		GOTEntityRegistry.register(GOTEntityMossovyBlacksmith.class, "MossovyBlacksmith", id++, GOTFaction.MOSSOVY);
-		GOTEntityRegistry.register(GOTEntityMossovyBannerBearer.class, "MossovyBannerBearer", id++, GOTFaction.MOSSOVY);
 		GOTEntityRegistry.register(GOTEntityMossovyWitcher.class, "MossovyWitcher", id++, GOTFaction.MOSSOVY);
+		GOTEntityRegistry.register(GOTEntityMossovyBlacksmith.class, "MossovyBlacksmith", id++, GOTFaction.MOSSOVY);
+		GOTEntityRegistry.register(GOTEntityMossovyFarmer.class, "MossovyFarmer", id++, GOTFaction.MOSSOVY);
+		GOTEntityRegistry.register(GOTEntityMossovyBartender.class, "MossovyBartender", id++, GOTFaction.MOSSOVY);
 
 		GOTEntityRegistry.register(GOTEntityYiTiMan.class, "YiTiMan", id++, GOTFaction.YI_TI);
 		GOTEntityRegistry.register(GOTEntityYiTiLevyman.class, "YiTiLevyman", id++, GOTFaction.YI_TI);

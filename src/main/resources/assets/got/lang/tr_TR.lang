@@ -1,67 +1,4 @@
 
-got.achievement.VISIT_MOSSOVY_SOPKAS.desc≠
-got.achievement.VISIT_MOSSOVY_SOPKAS.title≠
-got.achievement.VISIT_ULOS.desc≠
-got.achievement.VISIT_ULOS.title≠
-got.container.crafting.mossovy≠
-item.got:mossovyDagger.name≠
-got.structure.MossovyHouse.name≠
-got.structure.MossovyLodge.name≠
-got.structure.MossovySmithy.name≠
-got.structure.MossovyStables.name≠
-got.structure.MossovyVillage.name≠
-got.structure.MossovyVillageLight.name≠
-entity.got.AsshaiBannerBearer.name≠
-entity.got.MossovyBannerBearer.name≠
-entity.got.MossovyBlacksmith.name≠
-entity.got.MossovyMan.name≠
-tile.got:tableMossovy.name≠
-got.dimension.GameOfThrones.westEssos≠
-got.dimension.GameOfThrones.eastEssos≠
-got.biome.mossovySopkas≠
-item.got.antiking≠
-item.got.antiwight≠
-item.got.antiwalker≠
-entity.got.Septon.name≠
-entity.got.IronbornPriest.name≠
-entity.got.BraavosLevyman.name≠
-entity.got.BraavosLevymanArcher.name≠
-entity.got.BraavosSoldier.name≠
-entity.got.BraavosSoldierArcher.name≠
-entity.got.GhiscarAdmiral.name≠
-entity.got.GhiscarCorsairArcher.name≠
-entity.got.GhiscarLevymanArcher.name≠
-entity.got.LorathLevyman.name≠
-entity.got.LorathLevymanArcher.name≠
-entity.got.LorathSoldier.name≠
-entity.got.LorathSoldierArcher.name≠
-entity.got.LysLevyman.name≠
-entity.got.LysLevymanArcher.name≠
-entity.got.LysSoldier.name≠
-entity.got.LysSoldierArcher.name≠
-entity.got.MyrLevyman.name≠
-entity.got.MyrLevymanArcher.name≠
-entity.got.MyrSoldier.name≠
-entity.got.MyrSoldierArcher.name≠
-entity.got.QarthGuardCaptain.name≠
-entity.got.QarthLevyman.name≠
-entity.got.QarthLevymanArcher.name≠
-entity.got.QohorLevymanArcher.name≠
-entity.got.TyroshLevyman.name≠
-entity.got.TyroshLevymanArcher.name≠
-entity.got.TyroshSoldier.name≠
-entity.got.TyroshSoldierArcher.name≠
-entity.got.VolantisLevyman.name≠
-entity.got.VolantisLevymanArcher.name≠
-entity.got.VolantisSoldier.name≠
-entity.got.VolantisSoldierArcher.name≠
-entity.got.YiTiLevymanCrossbower.name≠
-entity.got.YiTiSoldierCrossbower.name≠
-entity.got.RedPriest.name≠
-item.got:banner.asshai.name≠
-item.got:banner.mossovy.name≠
-item.got:banner.walker.name≠
-got.biome.ulos≠
 attribute.name.generic.movementSpeedAir≠
 color.black≠
 color.blue≠
@@ -126,6 +63,7 @@ entity.got.ArrynSoldierArcher.name≠
 entity.got.AryaStark.name≠
 entity.got.AsshaiAlchemist.name≠
 entity.got.AsshaiArchmag.name≠
+entity.got.AsshaiBannerBearer.name≠
 entity.got.AsshaiCaptain.name≠
 entity.got.AsshaiGuard.name≠
 entity.got.AsshaiMan.name≠
@@ -167,10 +105,14 @@ entity.got.BraavosFlorist.name≠
 entity.got.BraavosGeneral.name≠
 entity.got.BraavosGoldsmith.name≠
 entity.got.BraavosLegionary.name≠
+entity.got.BraavosLevyman.name≠
+entity.got.BraavosLevymanArcher.name≠
 entity.got.BraavosLumberman.name≠
 entity.got.BraavosMan.name≠
 entity.got.BraavosMason.name≠
 entity.got.BraavosMiner.name≠
+entity.got.BraavosSoldier.name≠
+entity.got.BraavosSoldierArcher.name≠
 entity.got.BraavosWarrior.name≠
 entity.got.BranStark.name≠
 entity.got.BrienneTarth.name≠
@@ -290,6 +232,7 @@ entity.got.Gemsbok.name=Ceylan
 entity.got.GendryBaratheon.name≠
 entity.got.GeroldDayne.name≠
 entity.got.GeroldGrafton.name≠
+entity.got.GhiscarAdmiral.name≠
 entity.got.GhiscarArcher.name≠
 entity.got.GhiscarBaker.name≠
 entity.got.GhiscarBannerBearer.name≠
@@ -299,6 +242,7 @@ entity.got.GhiscarBrewer.name≠
 entity.got.GhiscarButcher.name≠
 entity.got.GhiscarCaptain.name≠
 entity.got.GhiscarCorsair.name≠
+entity.got.GhiscarCorsairArcher.name≠
 entity.got.GhiscarFarmer.name≠
 entity.got.GhiscarFishmonger.name≠
 entity.got.GhiscarFlorist.name≠
@@ -308,6 +252,7 @@ entity.got.GhiscarGoldsmith.name≠
 entity.got.GhiscarGuard.name≠
 entity.got.GhiscarHarpy.name≠
 entity.got.GhiscarLevyman.name≠
+entity.got.GhiscarLevymanArcher.name≠
 entity.got.GhiscarLumberman.name≠
 entity.got.GhiscarMan.name≠
 entity.got.GhiscarMason.name≠
@@ -405,6 +350,7 @@ entity.got.IronbornLevymanArcher.name≠
 entity.got.IronbornLumberman.name≠
 entity.got.IronbornMan.name≠
 entity.got.IronbornMason.name≠
+entity.got.IronbornPriest.name≠
 entity.got.IronbornSoldier.name≠
 entity.got.IronbornSoldierArcher.name≠
 entity.got.JaimeLannister.name≠
@@ -467,10 +413,14 @@ entity.got.LorathFlorist.name≠
 entity.got.LorathGeneral.name≠
 entity.got.LorathGoldsmith.name≠
 entity.got.LorathLegionary.name≠
+entity.got.LorathLevyman.name≠
+entity.got.LorathLevymanArcher.name≠
 entity.got.LorathLumberman.name≠
 entity.got.LorathMan.name≠
 entity.got.LorathMason.name≠
 entity.got.LorathMiner.name≠
+entity.got.LorathSoldier.name≠
+entity.got.LorathSoldierArcher.name≠
 entity.got.LorathWarrior.name≠
 entity.got.LotharFrey.name≠
 entity.got.Luwin.name≠
@@ -489,12 +439,16 @@ entity.got.LysFlorist.name≠
 entity.got.LysGeneral.name≠
 entity.got.LysGoldsmith.name≠
 entity.got.LysLegionary.name≠
+entity.got.LysLevyman.name≠
+entity.got.LysLevymanArcher.name≠
 entity.got.LysLumberman.name≠
 entity.got.LysMan.name≠
 entity.got.LysMason.name≠
 entity.got.LysMiner.name≠
 entity.got.LysSlave.name≠
 entity.got.LysSlaver.name≠
+entity.got.LysSoldier.name≠
+entity.got.LysSoldierArcher.name≠
 entity.got.LysWarrior.name≠
 entity.got.LysaArryn.name≠
 entity.got.MaceTyrell.name≠
@@ -516,6 +470,11 @@ entity.got.Midges.name=Bataklık Sineği
 entity.got.Missandei.name≠
 entity.got.MonfordVelaryon.name≠
 entity.got.Moqorro.name≠
+entity.got.MossovyBannerBearer.name≠
+entity.got.MossovyBartender.name≠
+entity.got.MossovyBlacksmith.name≠
+entity.got.MossovyFarmer.name≠
+entity.got.MossovyMan.name≠
 entity.got.MossovyWerewolf.name≠
 entity.got.MossovyWitcher.name≠
 entity.got.MossovyWitcherBannerBearer.name≠
@@ -534,12 +493,16 @@ entity.got.MyrFlorist.name≠
 entity.got.MyrGeneral.name≠
 entity.got.MyrGoldsmith.name≠
 entity.got.MyrLegionary.name≠
+entity.got.MyrLevyman.name≠
+entity.got.MyrLevymanArcher.name≠
 entity.got.MyrLumberman.name≠
 entity.got.MyrMan.name≠
 entity.got.MyrMason.name≠
 entity.got.MyrMiner.name≠
 entity.got.MyrSlave.name≠
 entity.got.MyrSlaver.name≠
+entity.got.MyrSoldier.name≠
+entity.got.MyrSoldierArcher.name≠
 entity.got.MyrWarrior.name≠
 entity.got.MyrcellaBaratheon.name≠
 entity.got.MysteryWeb.name=Gizemli Ağ
@@ -576,7 +539,6 @@ entity.got.NorthMason.name≠
 entity.got.NorthRuinsWraith.name≠
 entity.got.NorthSoldier.name≠
 entity.got.NorthSoldierArcher.name≠
-entity.got.NorvosLevymanArcher.name≠
 entity.got.NorvosBaker.name≠
 entity.got.NorvosBannerBearer.name≠
 entity.got.NorvosBartender.name≠
@@ -589,11 +551,12 @@ entity.got.NorvosFlorist.name≠
 entity.got.NorvosGoldsmith.name≠
 entity.got.NorvosGuard.name≠
 entity.got.NorvosGuardCaptain.name≠
+entity.got.NorvosLevyman.name≠
+entity.got.NorvosLevymanArcher.name≠
 entity.got.NorvosLumberman.name≠
 entity.got.NorvosMan.name≠
 entity.got.NorvosMason.name≠
 entity.got.NorvosMiner.name≠
-entity.got.NorvosLevyman.name≠
 entity.got.OberynMartell.name≠
 entity.got.OlennaTyrell.name≠
 entity.got.OrtonMerryweather.name≠
@@ -637,6 +600,9 @@ entity.got.QarthFlorist.name≠
 entity.got.QarthGeneral.name≠
 entity.got.QarthGoldsmith.name≠
 entity.got.QarthGuard.name≠
+entity.got.QarthGuardCaptain.name≠
+entity.got.QarthLevyman.name≠
+entity.got.QarthLevymanArcher.name≠
 entity.got.QarthLumberman.name≠
 entity.got.QarthMan.name≠
 entity.got.QarthMason.name≠
@@ -657,6 +623,7 @@ entity.got.QohorGoldsmith.name≠
 entity.got.QohorGuard.name≠
 entity.got.QohorGuardCaptain.name≠
 entity.got.QohorLevyman.name≠
+entity.got.QohorLevymanArcher.name≠
 entity.got.QohorLumberman.name≠
 entity.got.QohorMan.name≠
 entity.got.QohorMason.name≠
@@ -693,6 +660,7 @@ entity.got.ReachMan.name≠
 entity.got.ReachMason.name≠
 entity.got.ReachSoldier.name≠
 entity.got.ReachSoldierArcher.name≠
+entity.got.RedPriest.name≠
 entity.got.RedScorpion.name≠
 entity.got.RenlyBaratheon.name≠
 entity.got.Rhino.name=Gergedan
@@ -734,6 +702,7 @@ entity.got.Seagull.name=Martı
 entity.got.SebastonFarman.name≠
 entity.got.SelwynTarth.name≠
 entity.got.SelyseBaratheon.name≠
+entity.got.Septon.name≠
 entity.got.Shadowcat.name≠
 entity.got.Shae.name≠
 entity.got.Shark.name≠
@@ -832,12 +801,16 @@ entity.got.TyroshFlorist.name≠
 entity.got.TyroshGeneral.name≠
 entity.got.TyroshGoldsmith.name≠
 entity.got.TyroshLegionary.name≠
+entity.got.TyroshLevyman.name≠
+entity.got.TyroshLevymanArcher.name≠
 entity.got.TyroshLumberman.name≠
 entity.got.TyroshMan.name≠
 entity.got.TyroshMason.name≠
 entity.got.TyroshMiner.name≠
 entity.got.TyroshSlave.name≠
 entity.got.TyroshSlaver.name≠
+entity.got.TyroshSoldier.name≠
+entity.got.TyroshSoldierArcher.name≠
 entity.got.TyroshWarrior.name≠
 entity.got.TytosBlackwood.name≠
 entity.got.TytosBrax.name≠
@@ -858,12 +831,16 @@ entity.got.VolantisFlorist.name≠
 entity.got.VolantisGeneral.name≠
 entity.got.VolantisGoldsmith.name≠
 entity.got.VolantisLegionary.name≠
+entity.got.VolantisLevyman.name≠
+entity.got.VolantisLevymanArcher.name≠
 entity.got.VolantisLumberman.name≠
 entity.got.VolantisMan.name≠
 entity.got.VolantisMason.name≠
 entity.got.VolantisMiner.name≠
 entity.got.VolantisSlave.name≠
 entity.got.VolantisSlaver.name≠
+entity.got.VolantisSoldier.name≠
+entity.got.VolantisSoldierArcher.name≠
 entity.got.VolantisWarrior.name≠
 entity.got.WalderFrey.name≠
 entity.got.WallBanner.name=Duvar Bayrağı
@@ -927,12 +904,14 @@ entity.got.YiTiFrontierCrossbower.name≠
 entity.got.YiTiGoldsmith.name≠
 entity.got.YiTiHunter.name≠
 entity.got.YiTiLevyman.name≠
+entity.got.YiTiLevymanCrossbower.name≠
 entity.got.YiTiLumberman.name≠
 entity.got.YiTiMan.name≠
 entity.got.YiTiMason.name≠
 entity.got.YiTiSamurai.name≠
 entity.got.YiTiShogun.name≠
 entity.got.YiTiSoldier.name≠
+entity.got.YiTiSoldierCrossbower.name≠
 entity.got.YohnRoyce.name≠
 entity.got.Yoren.name≠
 entity.got.YoungGriff.name≠
@@ -1247,6 +1226,8 @@ got.achievement.VISIT_MOSSOVY.desc≠
 got.achievement.VISIT_MOSSOVY.title≠
 got.achievement.VISIT_MOSSOVY_MARSHES.desc≠
 got.achievement.VISIT_MOSSOVY_MARSHES.title≠
+got.achievement.VISIT_MOSSOVY_SOPKAS.desc≠
+got.achievement.VISIT_MOSSOVY_SOPKAS.title≠
 got.achievement.VISIT_MOSSOVY_TUNDRA.desc≠
 got.achievement.VISIT_MOSSOVY_TUNDRA.title≠
 got.achievement.VISIT_MYR.desc≠
@@ -1331,6 +1312,8 @@ got.achievement.VISIT_TROPICAL_FOREST.desc≠
 got.achievement.VISIT_TROPICAL_FOREST.title≠
 got.achievement.VISIT_TYROSH.desc≠
 got.achievement.VISIT_TYROSH.title≠
+got.achievement.VISIT_ULOS.desc≠
+got.achievement.VISIT_ULOS.title≠
 got.achievement.VISIT_ULTHOS.desc≠
 got.achievement.VISIT_ULTHOS.title≠
 got.achievement.VISIT_ULTHOS_DESERT.desc≠
@@ -1568,6 +1551,7 @@ got.biome.mercenary≠
 got.biome.mossovyForest≠
 got.biome.mossovyMarshes≠
 got.biome.mossovySea≠
+got.biome.mossovySopkas≠
 got.biome.mossovyTundra≠
 got.biome.mossovy≠
 got.biome.myr≠
@@ -1625,6 +1609,7 @@ got.biome.tarth≠
 got.biome.thenn≠
 got.biome.tropicalForest≠
 got.biome.tyrosh≠
+got.biome.ulos≠
 got.biome.ulthosDesert≠
 got.biome.ulthosMountains≠
 got.biome.ulthos≠
@@ -1885,6 +1870,7 @@ got.container.crafting.jogos≠
 got.container.crafting.lhazar≠
 got.container.crafting.lorath≠
 got.container.crafting.lys≠
+got.container.crafting.mossovy≠
 got.container.crafting.myr≠
 got.container.crafting.north≠
 got.container.crafting.norvos≠
@@ -1937,8 +1923,10 @@ got.date.month.november≠
 got.date.month.october≠
 got.date.month.september≠
 got.date≠
+got.dimension.GameOfThrones.eastEssos≠
 got.dimension.GameOfThrones.essos≠
 got.dimension.GameOfThrones.other≠
+got.dimension.GameOfThrones.westEssos≠
 got.dimension.GameOfThrones.westeros≠
 got.dimension.GameOfThrones≠
 got.dimension.enter=Giriliyor %s
@@ -3230,7 +3218,17 @@ got.structure.LysStables.name≠
 got.structure.LysTavern.name≠
 got.structure.LysTower.name≠
 got.structure.LysTraining.name≠
+got.structure.MossovyBarn.name≠
 got.structure.MossovyCamp.name≠
+got.structure.MossovyCastle.name≠
+got.structure.MossovyHouse.name≠
+got.structure.MossovyInn.name≠
+got.structure.MossovyOffice.name≠
+got.structure.MossovySmithy.name≠
+got.structure.MossovyStable.name≠
+got.structure.MossovyThiefHouse.name≠
+got.structure.MossovyVillage.name≠
+got.structure.MossovyVillageLight.name≠
 got.structure.MyrBarracks.name≠
 got.structure.MyrBazaar.name≠
 got.structure.MyrCityBig.name≠
@@ -3610,6 +3608,8 @@ got.wp.Crag.info≠
 got.wp.Crag≠
 got.wp.Crakehall.info≠
 got.wp.Crakehall≠
+got.wp.CrastersKeep.info≠
+got.wp.CrastersKeep≠
 got.wp.CrossroadsInn.info≠
 got.wp.CrossroadsInn≠
 got.wp.CrowSpikeKeep.info≠
@@ -3866,8 +3866,6 @@ got.wp.Koj.info≠
 got.wp.Koj≠
 got.wp.Kosrak.info≠
 got.wp.Kosrak≠
-got.wp.CrastersKeep.info≠
-got.wp.CrastersKeep≠
 got.wp.KrazaajHas.info≠
 got.wp.KrazaajHas≠
 got.wp.Kyth.info≠
@@ -3928,14 +3926,14 @@ got.wp.Mistwood.info≠
 got.wp.Mistwood≠
 got.wp.MoatKailin.info≠
 got.wp.MoatKailin≠
+got.wp.Moletown.info≠
+got.wp.Moletown≠
 got.wp.MormontsKeep.info≠
 got.wp.MormontsKeep≠
 got.wp.Morne.info≠
 got.wp.Morne≠
 got.wp.Morosh.info≠
 got.wp.Morosh≠
-got.wp.Moletown.info≠
-got.wp.Moletown≠
 got.wp.Myr.info≠
 got.wp.MyreCastle.info≠
 got.wp.MyreCastle≠
@@ -4351,6 +4349,9 @@ got.wp.custom.info≠
 got.wp.custom≠
 got.wp.shared.info≠
 got.wp.shared≠
+item.got.antiking≠
+item.got.antiwalker≠
+item.got.antiwight≠
 item.got.banner.protect=Koruma Verilerini Taşır
 item.got.brandingIron.named=%s: %s
 item.got.brandingIron.unnamed=İsimsiz %s
@@ -4452,6 +4453,7 @@ item.got:banner.arrynGT.name≠
 item.got:banner.arrynHD.name≠
 item.got:banner.ashford.name≠
 item.got:banner.ashwood.name≠
+item.got:banner.asshai.name≠
 item.got:banner.astapor.name≠
 item.got:banner.auranewaters.name≠
 item.got:banner.baelish.name≠
@@ -4793,6 +4795,7 @@ item.got:banner.morros.name≠
 item.got:banner.mors.name≠
 item.got:banner.morsBook.name≠
 item.got:banner.moss.name≠
+item.got:banner.mossovy.name≠
 item.got:banner.mudd.name≠
 item.got:banner.mullendore.name≠
 item.got:banner.musgood.name≠
@@ -4999,6 +5002,7 @@ item.got:banner.vypren.name≠
 item.got:banner.vyrwel.name≠
 item.got:banner.wagstaff.name≠
 item.got:banner.walder.name≠
+item.got:banner.walker.name≠
 item.got:banner.warriorsSons.name≠
 item.got:banner.waterman.name≠
 item.got:banner.waxley.name≠
@@ -5321,6 +5325,7 @@ item.got:marzipanChocolate.name=Çikolatalı Acıbadem Kurabiyesi
 item.got:melonSoup.name=Kavun Şurubu
 item.got:mossovyBoots.name≠
 item.got:mossovyChestplate.name≠
+item.got:mossovyDagger.name≠
 item.got:mossovyLeggings.name≠
 item.got:mossovySword.name≠
 item.got:motorGrapplingHook.name≠
@@ -6494,6 +6499,7 @@ tile.got:tableJogos.name≠
 tile.got:tableLhazar.name≠
 tile.got:tableLorath.name≠
 tile.got:tableLys.name≠
+tile.got:tableMossovy.name≠
 tile.got:tableMyr.name≠
 tile.got:tableNorth.name≠
 tile.got:tableNorvos.name≠

@@ -47,12 +47,14 @@ import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.World;
 
 public class GOTSpawnList {
-	public static GOTSpawnList RED_SCORPION = new GOTSpawnList(new GOTSpawnEntry(GOTEntityRedScorpion.class, 10, 1, 2));
-	public static GOTSpawnList DESERT_SCORPION = new GOTSpawnList(new GOTSpawnEntry(GOTEntityDesertScorpion.class, 10, 1, 2));
-	public static GOTSpawnList JUNGLE_SCORPION = new GOTSpawnList(new GOTSpawnEntry(GOTEntityJungleScorpion.class, 10, 1, 2));
-	public static GOTSpawnList MANTICORE = new GOTSpawnList(new GOTSpawnEntry(GOTEntityManticore.class, 10, 1, 2));
-	public static GOTSpawnList CROCODILE = new GOTSpawnList(new GOTSpawnEntry(GOTEntityCrocodile.class, 10, 1, 2));
-	public static GOTSpawnList WYVERN = new GOTSpawnList(new GOTSpawnEntry(GOTEntityWyvern.class, 10, 1, 2));
+	public static GOTSpawnList MOSSOVY_CIVILIAN = new GOTSpawnList(new GOTSpawnEntry(GOTEntityMossovyMan.class, 10, 1, 2));
+	public static GOTSpawnList MOSSOVY_MILITARY = new GOTSpawnList(new GOTSpawnEntry(GOTEntityMossovyWitcher.class, 10, 1, 1));
+	public static GOTSpawnList RED_SCORPION = new GOTSpawnList(new GOTSpawnEntry(GOTEntityRedScorpion.class, 10, 1, 1));
+	public static GOTSpawnList DESERT_SCORPION = new GOTSpawnList(new GOTSpawnEntry(GOTEntityDesertScorpion.class, 10, 1, 1));
+	public static GOTSpawnList JUNGLE_SCORPION = new GOTSpawnList(new GOTSpawnEntry(GOTEntityJungleScorpion.class, 10, 1, 1));
+	public static GOTSpawnList MANTICORE = new GOTSpawnList(new GOTSpawnEntry(GOTEntityManticore.class, 10, 1, 1));
+	public static GOTSpawnList CROCODILE = new GOTSpawnList(new GOTSpawnEntry(GOTEntityCrocodile.class, 10, 1, 1));
+	public static GOTSpawnList WYVERN = new GOTSpawnList(new GOTSpawnEntry(GOTEntityWyvern.class, 10, 1, 1));
 	public static GOTSpawnList GOLDEN_MILITARY = new GOTSpawnList(new GOTSpawnEntry(GOTEntityGoldenWarrior.class, 10, 1, 3), new GOTSpawnEntry(GOTEntityGoldenSpearman.class, 5, 1, 3));
 	public static GOTSpawnList UNRELIABLE = new GOTSpawnList(new GOTSpawnEntry(GOTEntityThief.class, 5, 1, 2), new GOTSpawnEntry(GOTEntityScrapTrader.class, 5, 1, 2));
 	public static GOTSpawnList ARRYN_CIVILIAN = new GOTSpawnList(new GOTSpawnEntry(GOTEntityArrynMan.class, 10, 2, 4));

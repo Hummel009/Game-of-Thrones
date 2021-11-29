@@ -7,23 +7,18 @@ import got.common.entity.animal.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
-import got.common.world.map.GOTWaypoint;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.essos.mossovy.GOTStructureMossovyVillage;
-import got.common.world.structure.other.GOTStructureRuinsBig;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTBiomeMossovy extends GOTBiome {
 	public GOTBiomeMossovy(int i, boolean major) {
 		super(i, major);
 		clearBiomeVariants();
-		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
 		this.addBiomeVariant(GOTBiomeVariant.HILLS);
-		this.addBiomeVariant(GOTBiomeVariant.HILLS_SCRUBLAND, 1.0f);
-		this.addBiomeVariant(GOTBiomeVariant.SCRUBLAND, 1.0f);
-		this.addBiomeVariant(GOTBiomeVariant.STEPPE);
+		this.addBiomeVariant(GOTBiomeVariant.STEPPE, 0.1f);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.SPRUCE, 400);
 		decorator.addTree(GOTTreeType.SPRUCE_THIN, 400);
@@ -44,9 +39,6 @@ public class GOTBiomeMossovy extends GOTBiome {
 		SpawnListContainer[] container1 = new SpawnListContainer[1];
 		container1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_WEREWOLF, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(container1);
-		GOTStructureRuinsBig colossal = new GOTStructureRuinsBig(this, 0.0f);
-		colossal.affix(GOTWaypoint.Kadar);
-		decorator.affix(colossal);
 		decorator.affix(new GOTStructureMossovyVillage(this, 1.0f));
 	}
 

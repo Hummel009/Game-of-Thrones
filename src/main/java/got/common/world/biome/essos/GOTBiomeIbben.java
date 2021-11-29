@@ -19,16 +19,13 @@ public class GOTBiomeIbben extends GOTBiome {
 	public GOTBiomeIbben(int i, boolean major) {
 		super(i, major);
 		clearBiomeVariants();
-		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
 		this.addBiomeVariant(GOTBiomeVariant.FOREST);
 		this.addBiomeVariant(GOTBiomeVariant.HILLS);
 		this.addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
-		this.addBiomeVariant(GOTBiomeVariant.HILLS_SCRUBLAND, 1.0f);
 		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.2f);
 		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
 		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_OLIVE, 0.1f);
 		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_ALMOND, 0.1f);
-		this.addBiomeVariant(GOTBiomeVariant.SCRUBLAND, 1.0f);
 		this.addBiomeVariant(GOTBiomeVariant.STEPPE);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.SPRUCE, 400);

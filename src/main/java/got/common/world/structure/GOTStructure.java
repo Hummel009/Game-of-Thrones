@@ -352,11 +352,14 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureJogosChiefTent.class, "JogosChiefTent", GOTFaction.JOGOS);
 		GOTStructureRegistry.register(id++, GOTStructureJogosMarketTent.class, "JogosShamanTent", GOTFaction.JOGOS);
 
+		GOTStructureRegistry.register(id++, GOTStructureMossovyBarn.class, "MossovyBarn", GOTFaction.MOSSOVY);
+		GOTStructureRegistry.register(id++, GOTStructureMossovyCastle.class, "MossovyCastle", GOTFaction.MOSSOVY);
 		GOTStructureRegistry.register(id++, GOTStructureMossovyHouse.class, "MossovyHouse", GOTFaction.MOSSOVY);
-		GOTStructureRegistry.register(id++, GOTStructureMossovyLodge.class, "MossovyLodge", GOTFaction.MOSSOVY);
-		GOTStructureRegistry.register(id++, GOTStructureMossovyStables.class, "MossovyStables", GOTFaction.MOSSOVY);
+		GOTStructureRegistry.register(id++, GOTStructureMossovyInn.class, "MossovyInn", GOTFaction.MOSSOVY);
+		GOTStructureRegistry.register(id++, GOTStructureMossovyOffice.class, "MossovyOffice", GOTFaction.MOSSOVY);
+		GOTStructureRegistry.register(id++, GOTStructureMossovyThiefHouse.class, "MossovyThiefHouse", GOTFaction.MOSSOVY);
 		GOTStructureRegistry.register(id++, GOTStructureMossovySmithy.class, "MossovySmithy", GOTFaction.MOSSOVY);
-		GOTStructureRegistry.register(id++, GOTStructureMossovyVillageLight.class, "MossovyVillageLight", GOTFaction.MOSSOVY);
+		GOTStructureRegistry.register(id++, GOTStructureMossovyStable.class, "MossovyStable", GOTFaction.MOSSOVY);
 
 		GOTStructureRegistry.register(id++, GOTStructureYiTiHouse.class, "YiTiHouse", GOTFaction.YI_TI);
 		GOTStructureRegistry.register(id++, GOTStructureYiTiStables.class, "YiTiStables", GOTFaction.YI_TI);

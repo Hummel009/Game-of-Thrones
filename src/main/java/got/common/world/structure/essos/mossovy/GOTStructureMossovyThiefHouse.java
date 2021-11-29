@@ -3,13 +3,12 @@
  *
  * Could not load the following classes:
  *  net.minecraft.block.Block
+ *  net.minecraft.block.BlockDoublePlant
  *  net.minecraft.block.BlockGrass
  *  net.minecraft.block.BlockLeaves
+ *  net.minecraft.block.BlockSlab
  *  net.minecraft.entity.EntityCreature
  *  net.minecraft.init.Blocks
- *  net.minecraft.init.Items
- *  net.minecraft.item.Item
- *  net.minecraft.item.ItemStack
  *  net.minecraft.world.World
  */
 package got.common.world.structure.essos.mossovy;
@@ -17,13 +16,15 @@ package got.common.world.structure.essos.mossovy;
 import java.util.Random;
 
 import got.common.database.*;
-import got.common.entity.essos.mossovy.GOTEntityMossovyMan;
-import net.minecraft.init.*;
-import net.minecraft.item.ItemStack;
+import got.common.entity.other.GOTEntityThief;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
-	public GOTStructureMossovyHouse(boolean flag) {
+public class GOTStructureMossovyThiefHouse extends GOTStructureMossovyBase {
+	public String fixedName;
+
+	public GOTStructureMossovyThiefHouse(boolean flag) {
 		super(flag);
 	}
 
@@ -65,7 +66,7 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 				}
 			}
 		}
-		for (i1 = 2; i1 <= 7; ++i1) {
+		for (i1 = 0; i1 <= 7; ++i1) {
 			for (k12 = 3; k12 <= 5; ++k12) {
 				for (j1 = 1; j1 <= 8; ++j1) {
 					setAir(world, i1, j1, k12);
@@ -79,10 +80,29 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 				}
 			}
 		}
-		loadStrScan("mossovy_house");
+		for (i1 = 0; i1 <= 5; ++i1) {
+			for (k12 = -4; k12 <= 4; ++k12) {
+				for (j1 = -2; j1 <= 0; ++j1) {
+					setAir(world, i1, j1, k12);
+				}
+			}
+		}
+		for (i1 = -2; i1 <= -1; ++i1) {
+			k12 = 0;
+			for (j1 = -2; j1 <= 0; ++j1) {
+				setAir(world, i1, j1, k12);
+			}
+		}
+		loadStrScan("mossovy_ruffian_house");
 		associateBlockMetaAlias("BRICK", brickBlock, brickMeta);
-		associateBlockMetaAlias("FLOOR", floorBlock, floorMeta);
-		associateBlockMetaAlias("STONE_WALL", stoneWallBlock, stoneWallMeta);
+		addBlockMetaAliasOption("COBBLE", 3, Blocks.cobblestone, 0);
+		addBlockMetaAliasOption("COBBLE", 1, Blocks.mossy_cobblestone, 0);
+		addBlockMetaAliasOption("COBBLE_SLAB_INV", 3, Blocks.stone_slab, 11);
+		addBlockMetaAliasOption("COBBLE_SLAB_INV", 1, GOTRegistry.slabSingleV, 12);
+		addBlockAliasOption("COBBLE_STAIR", 3, Blocks.stone_stairs);
+		addBlockAliasOption("COBBLE_STAIR", 1, GOTRegistry.stairsCobblestoneMossy);
+		addBlockMetaAliasOption("COBBLE_WALL", 3, Blocks.cobblestone_wall, 0);
+		addBlockMetaAliasOption("COBBLE_WALL", 1, Blocks.cobblestone_wall, 1);
 		associateBlockMetaAlias("PLANK", plankBlock, plankMeta);
 		associateBlockMetaAlias("PLANK_SLAB", plankSlabBlock, plankSlabMeta);
 		associateBlockMetaAlias("PLANK_SLAB_INV", plankSlabBlock, plankSlabMeta | 8);
@@ -100,14 +120,21 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 		associateBlockAlias("ROOF_STAIR", roofStairBlock);
 		associateBlockMetaAlias("TABLE", tableBlock, 0);
 		associateBlockMetaAlias("CARPET", carpetBlock, carpetMeta);
-		addBlockMetaAliasOption("PATH", 5, Blocks.grass, 0);
-		addBlockMetaAliasOption("PATH", 5, Blocks.dirt, 1);
-		addBlockMetaAliasOption("PATH", 5, GOTRegistry.dirtPath, 0);
+		addBlockMetaAliasOption("THATCH_FLOOR", 1, GOTRegistry.thatchFloor, 0);
+		setBlockAliasChance("THATCH_FLOOR", 0.2f);
+		addBlockMetaAliasOption("LEAF_FLOOR", 1, GOTRegistry.fallenLeaves1, 0);
+		setBlockAliasChance("LEAF_FLOOR", 0.3f);
+		addBlockMetaAliasOption("WEB", 1, Blocks.web, 0);
+		setBlockAliasChance("WEB", 0.3f);
+		addBlockMetaAliasOption("PATH", 10, Blocks.grass, 0);
+		addBlockMetaAliasOption("PATH", 10, Blocks.dirt, 1);
+		addBlockMetaAliasOption("PATH", 10, GOTRegistry.dirtPath, 0);
 		addBlockMetaAliasOption("PATH", 5, Blocks.cobblestone, 0);
+		addBlockMetaAliasOption("PATH", 5, Blocks.mossy_cobblestone, 0);
 		associateBlockMetaAlias("LEAF", Blocks.leaves, 4);
 		generateStrScan(world, random, 0, 0, 0);
-		for (i13 = 3; i13 <= 6; ++i13) {
-			for (int step = 0; step < 12 && !isOpaque(world, i13, j12 = -1 - step, k1 = 6 + step); ++step) {
+		for (i13 = 4; i13 <= 6; ++i13) {
+			for (int step = 0; step < 12 && !isOpaque(world, i13, j12 = -1 - step, k1 = 5 + step); ++step) {
 				randPath = random.nextInt(4);
 				switch (randPath) {
 				case 0:
@@ -120,7 +147,11 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 					setBlockAndMetadata(world, i13, j12, k1, GOTRegistry.dirtPath, 0);
 					break;
 				case 3:
-					setBlockAndMetadata(world, i13, j12, k1, Blocks.cobblestone, 0);
+					if (random.nextBoolean()) {
+						setBlockAndMetadata(world, i13, j12, k1, Blocks.cobblestone, 0);
+					} else {
+						setBlockAndMetadata(world, i13, j12, k1, Blocks.mossy_cobblestone, 0);
+					}
 					break;
 				default:
 					break;
@@ -147,7 +178,11 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 				setBlockAndMetadata(world, i12, j12, k1, GOTRegistry.dirtPath, 0);
 				break;
 			case 3:
-				setBlockAndMetadata(world, i12, j12, k1, Blocks.cobblestone, 0);
+				if (random.nextBoolean()) {
+					setBlockAndMetadata(world, i12, j12, k1, Blocks.cobblestone, 0);
+				} else {
+					setBlockAndMetadata(world, i12, j12, k1, Blocks.mossy_cobblestone, 0);
+				}
 				break;
 			default:
 				break;
@@ -160,42 +195,45 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 				--j2;
 			}
 		}
+		setBlockAndMetadata(world, 4, -2, -1, bedBlock, 3);
+		setBlockAndMetadata(world, 3, -2, -1, bedBlock, 11);
+		setBlockAndMetadata(world, 5, -2, 1, bedBlock, 9);
+		setBlockAndMetadata(world, 4, -2, 1, bedBlock, 1);
+		setBlockAndMetadata(world, 0, 5, 0, bedBlock, 3);
+		setBlockAndMetadata(world, -1, 5, 0, bedBlock, 11);
+		placePlateWithCertainty(world, random, 1, -1, -4, GOTRegistry.ceramicPlateBlock, GOTFoods.WESTEROS);
+		this.placeMug(world, random, 0, -1, -4, 0, GOTFoods.WESTEROS_DRINK);
+		this.placeBarrel(world, random, 5, -2, -4, 5, GOTFoods.WESTEROS_DRINK);
+		this.placeBarrel(world, random, 4, -2, -3, 2, GOTFoods.WESTEROS_DRINK);
+		this.placeChest(world, random, 3, -2, -3, 2, GOTChestContents.MOSSOVY);
+		this.placeChest(world, random, -2, -2, 0, 4, GOTChestContents.BARROW);
+		this.placeChest(world, random, 3, -2, 1, 2, GOTChestContents.BARROW);
+		placePlateWithCertainty(world, random, 3, 2, -3, GOTRegistry.plateBlock, GOTFoods.WESTEROS);
+		this.placeMug(world, random, 3, 2, -2, 3, GOTFoods.WESTEROS_DRINK);
+		this.placeChest(world, random, -1, 1, 1, 4, GOTChestContents.MOSSOVY);
+		this.placeChest(world, random, 1, 5, 1, 2, GOTChestContents.MOSSOVY);
 		for (i13 = -6; i13 <= -3; ++i13) {
 			for (int k13 = -3; k13 <= 1; ++k13) {
 				j12 = 1;
-				if (getBlock(world, i13, j12 - 1, k13) != Blocks.grass || random.nextInt(4) != 0) {
+				Block gardenBlock = getBlock(world, i13, j12 - 1, k13);
+				if (gardenBlock != Blocks.grass && gardenBlock != Blocks.dirt || random.nextInt(3) != 0) {
 					continue;
 				}
-				plantFlower(world, random, i13, j12, k13);
+				if (random.nextInt(3) == 0) {
+					setBlockAndMetadata(world, i13, j12, k13, Blocks.double_plant, 2);
+					setBlockAndMetadata(world, i13, j12 + 1, k13, Blocks.double_plant, 10);
+					continue;
+				}
+				plantTallGrass(world, random, i13, j12, k13);
 			}
 		}
-		placeRandomFlowerPot(world, random, 6, 1, 3);
-		placeRandomFlowerPot(world, random, 3, 1, 3);
-		placeRandomFlowerPot(world, random, -1, 5, -1);
-		placeRandomFlowerPot(world, random, 2, 5, 1);
-		plantFlower(world, random, 0, 2, 3);
-		plantFlower(world, random, 8, 6, -1);
-		this.placeChest(world, random, -1, 1, 1, 4, GOTChestContents.MOSSOVY);
-		this.placeChest(world, random, 1, 5, 1, 2, GOTChestContents.MOSSOVY);
-		this.placeMug(world, random, 3, 2, -2, 3, GOTFoods.WESTEROS_DRINK);
-		placePlateWithCertainty(world, random, 3, 2, -3, GOTRegistry.plateBlock, GOTFoods.WESTEROS);
-		setBlockAndMetadata(world, 0, 5, 0, bedBlock, 3);
-		setBlockAndMetadata(world, -1, 5, 0, bedBlock, 11);
-		if (random.nextBoolean()) {
-			spawnItemFrame(world, 2, 3, 0, 3, new ItemStack(Items.clock));
-		}
-		GOTEntityMossovyMan male = new GOTEntityMossovyMan(world);
-		male.familyInfo.setMale(true);
-		male.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
-		spawnNPCAndSetHome(male, world, 0, 1, 0, 16);
-		GOTEntityMossovyMan female = new GOTEntityMossovyMan(world);
-		female.familyInfo.setMale(false);
-		female.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
-		spawnNPCAndSetHome(female, world, 0, 1, 0, 16);
-		GOTEntityMossovyMan child = new GOTEntityMossovyMan(world);
-		child.familyInfo.setMale(random.nextBoolean());
-		child.familyInfo.setChild();
-		spawnNPCAndSetHome(child, world, 0, 1, 0, 16);
+		GOTEntityThief ruffian = new GOTEntityThief(world);
+		spawnNPCAndSetHome(ruffian, world, 0, 1, 0, 16);
 		return true;
+	}
+
+	public GOTStructureMossovyThiefHouse setRuffianName(String name) {
+		fixedName = name;
+		return this;
 	}
 }

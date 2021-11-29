@@ -1,68 +1,4 @@
 ﻿
-got.achievement.VISIT_MOSSOVY_SOPKAS.desc≠
-got.achievement.VISIT_MOSSOVY_SOPKAS.title≠
-got.achievement.VISIT_ULOS.desc≠
-got.achievement.VISIT_ULOS.title≠
-got.container.crafting.mossovy≠
-item.got:mossovyDagger.name≠
-got.structure.MossovyHouse.name≠
-got.structure.MossovyLodge.name≠
-got.structure.MossovySmithy.name≠
-got.structure.MossovyStables.name≠
-got.structure.MossovyVillage.name≠
-got.structure.MossovyVillageLight.name≠
-entity.got.AsshaiBannerBearer.name≠
-entity.got.MossovyBannerBearer.name≠
-entity.got.MossovyBlacksmith.name≠
-entity.got.MossovyMan.name≠
-tile.got:tableMossovy.name≠
-got.dimension.GameOfThrones.westEssos≠
-got.dimension.GameOfThrones.eastEssos≠
-got.biome.mossovySopkas≠
-item.got.antiking≠
-item.got.antiwight≠
-item.got.antiwalker≠
-entity.got.Septon.name≠
-entity.got.IronbornPriest.name≠
-entity.got.BraavosLevyman.name≠
-entity.got.BraavosLevymanArcher.name≠
-entity.got.BraavosSoldier.name≠
-entity.got.BraavosSoldierArcher.name≠
-entity.got.GhiscarAdmiral.name≠
-entity.got.GhiscarCorsairArcher.name≠
-entity.got.GhiscarLevymanArcher.name≠
-entity.got.LorathLevyman.name≠
-entity.got.LorathLevymanArcher.name≠
-entity.got.LorathSoldier.name≠
-entity.got.LorathSoldierArcher.name≠
-entity.got.LysLevyman.name≠
-entity.got.LysLevymanArcher.name≠
-entity.got.LysSoldier.name≠
-entity.got.LysSoldierArcher.name≠
-entity.got.MyrLevyman.name≠
-entity.got.MyrLevymanArcher.name≠
-entity.got.MyrSoldier.name≠
-entity.got.MyrSoldierArcher.name≠
-entity.got.QarthGuardCaptain.name≠
-entity.got.QarthLevyman.name≠
-entity.got.QarthLevymanArcher.name≠
-entity.got.QohorLevymanArcher.name≠
-entity.got.TyroshLevyman.name≠
-entity.got.TyroshLevymanArcher.name≠
-entity.got.TyroshSoldier.name≠
-entity.got.TyroshSoldierArcher.name≠
-entity.got.VolantisLevyman.name≠
-entity.got.VolantisLevymanArcher.name≠
-entity.got.VolantisSoldier.name≠
-entity.got.VolantisSoldierArcher.name≠
-entity.got.YiTiLevymanCrossbower.name≠
-entity.got.YiTiSoldierCrossbower.name≠
-got.invasion.HILL_TRIBES.horn≠
-entity.got.RedPriest.name≠
-item.got:banner.asshai.name≠
-item.got:banner.mossovy.name≠
-item.got:banner.walker.name≠
-got.biome.ulos≠
 attribute.name.generic.movementSpeedAir=速度(Air)
 color.black=黑色
 color.blue=蓝色
@@ -127,6 +63,7 @@ entity.got.ArrynSoldierArcher.name=谷地武装弓箭手
 entity.got.AryaStark.name=Arya Stark
 entity.got.AsshaiAlchemist.name=亚夏炼金术士
 entity.got.AsshaiArchmag.name=亚夏大法师
+entity.got.AsshaiBannerBearer.name≠
 entity.got.AsshaiCaptain.name=亚夏领主
 entity.got.AsshaiGuard.name=亚夏守卫
 entity.got.AsshaiMan.name=亚夏人
@@ -168,10 +105,14 @@ entity.got.BraavosFlorist.name=布拉佛斯花贩
 entity.got.BraavosGeneral.name=布拉佛斯领主
 entity.got.BraavosGoldsmith.name=布拉佛斯金匠
 entity.got.BraavosLegionary.name=布拉佛斯剑士
+entity.got.BraavosLevyman.name≠
+entity.got.BraavosLevymanArcher.name≠
 entity.got.BraavosLumberman.name=布拉佛斯木材商
 entity.got.BraavosMan.name=布拉佛斯人
 entity.got.BraavosMason.name=布拉佛斯石匠
 entity.got.BraavosMiner.name=布拉佛斯矿物商
+entity.got.BraavosSoldier.name≠
+entity.got.BraavosSoldierArcher.name≠
 entity.got.BraavosWarrior.name=布拉佛斯战士
 entity.got.BranStark.name≠
 entity.got.BrienneTarth.name=塔斯岛的布蕾妮
@@ -291,6 +232,7 @@ entity.got.Gemsbok.name=大羚羊
 entity.got.GendryBaratheon.name=詹德利·拜拉席恩
 entity.got.GeroldDayne.name=杰洛·戴恩
 entity.got.GeroldGrafton.name≠
+entity.got.GhiscarAdmiral.name≠
 entity.got.GhiscarArcher.name=吉斯卡弓箭手
 entity.got.GhiscarBaker.name=吉斯卡烘焙师
 entity.got.GhiscarBannerBearer.name=吉斯卡旗手
@@ -300,6 +242,7 @@ entity.got.GhiscarBrewer.name=吉斯卡酒商
 entity.got.GhiscarButcher.name=吉斯卡肉贩
 entity.got.GhiscarCaptain.name=吉斯卡长官
 entity.got.GhiscarCorsair.name=吉斯卡海盗
+entity.got.GhiscarCorsairArcher.name≠
 entity.got.GhiscarFarmer.name=吉斯卡农场主
 entity.got.GhiscarFishmonger.name=吉斯卡鱼贩
 entity.got.GhiscarFlorist.name=吉斯卡花贩
@@ -309,6 +252,7 @@ entity.got.GhiscarGoldsmith.name=吉斯卡金匠
 entity.got.GhiscarGuard.name=渊凯守卫
 entity.got.GhiscarHarpy.name=鹰身女妖之子
 entity.got.GhiscarLevyman.name=吉斯卡民兵
+entity.got.GhiscarLevymanArcher.name≠
 entity.got.GhiscarLumberman.name=吉斯卡木材商
 entity.got.GhiscarMan.name=吉斯卡人
 entity.got.GhiscarMason.name=吉斯卡石匠
@@ -406,6 +350,7 @@ entity.got.IronbornLevymanArcher.name=铁群岛民兵弓箭手
 entity.got.IronbornLumberman.name=铁群岛木材商
 entity.got.IronbornMan.name=铁种
 entity.got.IronbornMason.name=铁群岛石匠
+entity.got.IronbornPriest.name≠
 entity.got.IronbornSoldier.name=铁群岛武装士兵
 entity.got.IronbornSoldierArcher.name=铁群岛武装弓箭手
 entity.got.JaimeLannister.name=詹姆·兰尼斯特
@@ -468,10 +413,14 @@ entity.got.LorathFlorist.name=罗拉斯花贩
 entity.got.LorathGeneral.name=罗拉斯领主
 entity.got.LorathGoldsmith.name=罗拉斯金匠
 entity.got.LorathLegionary.name=罗拉斯护卫者
+entity.got.LorathLevyman.name≠
+entity.got.LorathLevymanArcher.name≠
 entity.got.LorathLumberman.name=罗拉斯木材商
 entity.got.LorathMan.name=罗拉斯人
 entity.got.LorathMason.name=罗拉斯石匠
 entity.got.LorathMiner.name=罗拉斯矿物商
+entity.got.LorathSoldier.name≠
+entity.got.LorathSoldierArcher.name≠
 entity.got.LorathWarrior.name=罗拉斯战士
 entity.got.LotharFrey.name≠
 entity.got.Luwin.name≠
@@ -490,12 +439,16 @@ entity.got.LysFlorist.name=里斯花贩
 entity.got.LysGeneral.name=里斯领主
 entity.got.LysGoldsmith.name=里斯金匠
 entity.got.LysLegionary.name=里斯护卫者
+entity.got.LysLevyman.name≠
+entity.got.LysLevymanArcher.name≠
 entity.got.LysLumberman.name=里斯木材商
 entity.got.LysMan.name=里斯人
 entity.got.LysMason.name=里斯石匠
 entity.got.LysMiner.name=里斯矿材商
 entity.got.LysSlave.name=里斯奴隶
 entity.got.LysSlaver.name=里斯奴隶主
+entity.got.LysSoldier.name≠
+entity.got.LysSoldierArcher.name≠
 entity.got.LysWarrior.name=里斯战士
 entity.got.LysaArryn.name≠
 entity.got.MaceTyrell.name=梅斯·提利尔
@@ -517,6 +470,11 @@ entity.got.Midges.name=血蝇
 entity.got.Missandei.name≠
 entity.got.MonfordVelaryon.name=Monford Velaryon
 entity.got.Moqorro.name≠
+entity.got.MossovyBannerBearer.name≠
+entity.got.MossovyBartender.name≠
+entity.got.MossovyBlacksmith.name≠
+entity.got.MossovyFarmer.name≠
+entity.got.MossovyMan.name≠
 entity.got.MossovyWerewolf.name=摩苏伊狼人
 entity.got.MossovyWitcher.name=摩苏伊狙魔人
 entity.got.MossovyWitcherBannerBearer.name=摩苏伊旗手
@@ -535,12 +493,16 @@ entity.got.MyrFlorist.name=密尔花贩
 entity.got.MyrGeneral.name=密尔领主
 entity.got.MyrGoldsmith.name=密尔金匠
 entity.got.MyrLegionary.name=密尔护卫者
+entity.got.MyrLevyman.name≠
+entity.got.MyrLevymanArcher.name≠
 entity.got.MyrLumberman.name=密尔木材商
 entity.got.MyrMan.name=密尔人
 entity.got.MyrMason.name=密尔石匠
 entity.got.MyrMiner.name=密尔矿物商
 entity.got.MyrSlave.name=密尔奴隶
 entity.got.MyrSlaver.name=密尔奴隶主
+entity.got.MyrSoldier.name≠
+entity.got.MyrSoldierArcher.name≠
 entity.got.MyrWarrior.name=密尔战士
 entity.got.MyrcellaBaratheon.name≠
 entity.got.MysteryWeb.name=神秘网
@@ -577,7 +539,6 @@ entity.got.NorthMason.name=北境石匠
 entity.got.NorthRuinsWraith.name=先民怨魂
 entity.got.NorthSoldier.name=北境武装士兵
 entity.got.NorthSoldierArcher.name=北境武装弓箭手
-entity.got.NorvosLevymanArcher.name=诺佛斯弓箭手
 entity.got.NorvosBaker.name=诺佛斯烘焙师
 entity.got.NorvosBannerBearer.name=诺佛斯旗手
 entity.got.NorvosBartender.name=诺佛斯酒保
@@ -590,11 +551,12 @@ entity.got.NorvosFlorist.name=诺佛斯花贩
 entity.got.NorvosGoldsmith.name=诺佛斯金匠
 entity.got.NorvosGuard.name=诺佛斯守卫
 entity.got.NorvosGuardCaptain.name=诺佛斯守卫队长
+entity.got.NorvosLevyman.name=诺佛斯战士
+entity.got.NorvosLevymanArcher.name=诺佛斯弓箭手
 entity.got.NorvosLumberman.name=诺佛斯木材商
 entity.got.NorvosMan.name=诺佛斯人
 entity.got.NorvosMason.name=诺佛斯石匠
 entity.got.NorvosMiner.name=诺佛斯矿物商
-entity.got.NorvosLevyman.name=诺佛斯战士
 entity.got.OberynMartell.name=奥柏伦·马泰尔
 entity.got.OlennaTyrell.name=Olenna Tyrell
 entity.got.OrtonMerryweather.name≠
@@ -638,6 +600,9 @@ entity.got.QarthFlorist.name=魁尔斯花贩
 entity.got.QarthGeneral.name=魁尔斯领主
 entity.got.QarthGoldsmith.name=魁尔斯金匠
 entity.got.QarthGuard.name=魁尔斯守护者
+entity.got.QarthGuardCaptain.name≠
+entity.got.QarthLevyman.name≠
+entity.got.QarthLevymanArcher.name≠
 entity.got.QarthLumberman.name=魁尔斯木材商
 entity.got.QarthMan.name=魁尔斯人
 entity.got.QarthMason.name=魁尔斯石匠
@@ -658,6 +623,7 @@ entity.got.QohorGoldsmith.name=科霍尔金匠
 entity.got.QohorGuard.name=科霍尔守卫
 entity.got.QohorGuardCaptain.name=科霍尔守卫队长
 entity.got.QohorLevyman.name=科霍尔民兵
+entity.got.QohorLevymanArcher.name≠
 entity.got.QohorLumberman.name=科霍尔木材商
 entity.got.QohorMan.name=科霍尔人
 entity.got.QohorMason.name=科霍尔石匠
@@ -694,6 +660,7 @@ entity.got.ReachMan.name=河湾地人
 entity.got.ReachMason.name=河湾地石匠
 entity.got.ReachSoldier.name=河湾地武装士兵
 entity.got.ReachSoldierArcher.name=河湾地武装弓箭手
+entity.got.RedPriest.name≠
 entity.got.RedScorpion.name=红毒蝎
 entity.got.RenlyBaratheon.name=蓝礼·拜拉席恩
 entity.got.Rhino.name=犀牛
@@ -735,6 +702,7 @@ entity.got.Seagull.name=海鸥
 entity.got.SebastonFarman.name=Sebaston Farman
 entity.got.SelwynTarth.name=Selwyn Tarth
 entity.got.SelyseBaratheon.name≠
+entity.got.Septon.name≠
 entity.got.Shadowcat.name=影子山猫
 entity.got.Shae.name≠
 entity.got.Shark.name=鲨鱼
@@ -833,12 +801,16 @@ entity.got.TyroshFlorist.name=泰洛西花贩
 entity.got.TyroshGeneral.name=泰洛西领主
 entity.got.TyroshGoldsmith.name=泰洛西金匠
 entity.got.TyroshLegionary.name=泰洛西守卫
+entity.got.TyroshLevyman.name≠
+entity.got.TyroshLevymanArcher.name≠
 entity.got.TyroshLumberman.name=泰洛西木材商
 entity.got.TyroshMan.name=泰洛西人
 entity.got.TyroshMason.name=泰洛西石匠
 entity.got.TyroshMiner.name=泰洛西矿材商
 entity.got.TyroshSlave.name=泰洛西奴隶
 entity.got.TyroshSlaver.name=泰洛西奴隶主
+entity.got.TyroshSoldier.name≠
+entity.got.TyroshSoldierArcher.name≠
 entity.got.TyroshWarrior.name=泰洛西战士
 entity.got.TytosBlackwood.name=Tytos Blackwood
 entity.got.TytosBrax.name=Tytos Brax
@@ -859,12 +831,16 @@ entity.got.VolantisFlorist.name=瓦兰提斯花贩
 entity.got.VolantisGeneral.name=瓦兰提斯领主
 entity.got.VolantisGoldsmith.name=瓦兰提斯金匠
 entity.got.VolantisLegionary.name=瓦兰提斯守卫
+entity.got.VolantisLevyman.name≠
+entity.got.VolantisLevymanArcher.name≠
 entity.got.VolantisLumberman.name=瓦兰提斯木材商
 entity.got.VolantisMan.name=瓦兰提斯人
 entity.got.VolantisMason.name=瓦兰提斯石匠
 entity.got.VolantisMiner.name=瓦兰提斯矿材商
 entity.got.VolantisSlave.name=瓦兰提斯奴隶
 entity.got.VolantisSlaver.name=瓦兰提斯奴隶主
+entity.got.VolantisSoldier.name≠
+entity.got.VolantisSoldierArcher.name≠
 entity.got.VolantisWarrior.name=瓦兰提斯战士
 entity.got.WalderFrey.name=瓦德·佛雷
 entity.got.WallBanner.name=墙上旗帜
@@ -928,12 +904,14 @@ entity.got.YiTiFrontierCrossbower.name≠
 entity.got.YiTiGoldsmith.name=夷地金匠
 entity.got.YiTiHunter.name=夷地猎人
 entity.got.YiTiLevyman.name=夷地防人
+entity.got.YiTiLevymanCrossbower.name≠
 entity.got.YiTiLumberman.name=夷地木材商
 entity.got.YiTiMan.name=夷地人
 entity.got.YiTiMason.name=夷地石匠
 entity.got.YiTiSamurai.name=夷地武士
 entity.got.YiTiShogun.name=夷地将领
 entity.got.YiTiSoldier.name=夷地士兵
+entity.got.YiTiSoldierCrossbower.name≠
 entity.got.YohnRoyce.name=约恩·罗伊斯
 entity.got.Yoren.name≠
 entity.got.YoungGriff.name≠
@@ -1264,6 +1242,8 @@ got.achievement.VISIT_MOSSOVY.desc=进入摩苏伊
 got.achievement.VISIT_MOSSOVY.title=恶魔潜藏
 got.achievement.VISIT_MOSSOVY_MARSHES.desc=进入摩苏伊沼泽
 got.achievement.VISIT_MOSSOVY_MARSHES.title=辽阔沼泽
+got.achievement.VISIT_MOSSOVY_SOPKAS.desc≠
+got.achievement.VISIT_MOSSOVY_SOPKAS.title≠
 got.achievement.VISIT_MOSSOVY_TUNDRA.desc=进入摩苏伊苔原
 got.achievement.VISIT_MOSSOVY_TUNDRA.title=世界边缘
 got.achievement.VISIT_MYR.desc=进入密尔
@@ -1348,6 +1328,8 @@ got.achievement.VISIT_TROPICAL_FOREST.desc=进入热带丛林
 got.achievement.VISIT_TROPICAL_FOREST.title=蝎子与大象
 got.achievement.VISIT_TYROSH.desc=进入泰洛西
 got.achievement.VISIT_TYROSH.title=偏安一隅
+got.achievement.VISIT_ULOS.desc≠
+got.achievement.VISIT_ULOS.title≠
 got.achievement.VISIT_ULTHOS.desc=进入乌尔特斯
 got.achievement.VISIT_ULTHOS.title=蜘蛛，迷雾，诡异
 got.achievement.VISIT_ULTHOS_DESERT.desc=进入乌尔特斯沙漠
@@ -1570,6 +1552,7 @@ got.biome.mossovy=摩苏伊
 got.biome.mossovyForest=厄斯索斯森林
 got.biome.mossovyMarshes=摩苏伊湿地
 got.biome.mossovySea=摩苏伊海
+got.biome.mossovySopkas≠
 got.biome.mossovyTundra=摩苏伊苔原
 got.biome.myr=密尔
 got.biome.naath=纳斯
@@ -1626,6 +1609,7 @@ got.biome.tarth=塔斯岛
 got.biome.thenn=瑟恩
 got.biome.tropicalForest=热带丛林
 got.biome.tyrosh=泰洛西
+got.biome.ulos≠
 got.biome.ulthos=乌尔特斯
 got.biome.ulthosDesert=乌尔特斯沙漠
 got.biome.ulthosMountains=乌尔特斯山脉
@@ -1886,6 +1870,7 @@ got.container.crafting.jogos≠
 got.container.crafting.lhazar=拉札尔制作
 got.container.crafting.lorath=罗拉斯制作
 got.container.crafting.lys=里斯制作
+got.container.crafting.mossovy≠
 got.container.crafting.myr=密尔制作
 got.container.crafting.north=北境制作
 got.container.crafting.norvos=诺佛斯制作
@@ -1938,8 +1923,10 @@ got.date.month.november=十一月
 got.date.month.october=十月
 got.date.month.september=九月
 got.date=AC
+got.dimension.GameOfThrones.eastEssos≠
 got.dimension.GameOfThrones.essos=厄斯索斯
 got.dimension.GameOfThrones.other=索斯罗斯 & 乌尔特斯
+got.dimension.GameOfThrones.westEssos≠
 got.dimension.GameOfThrones.westeros=维斯特洛
 got.dimension.GameOfThrones=权力的游戏
 got.dimension.enter=正在重新编写权游第八季
@@ -2935,6 +2922,7 @@ got.invasion.DORNE.horn=召唤奇袭 - 多恩
 got.invasion.DOTHRAKI.horn=召唤奇袭 - 多斯拉克
 got.invasion.DRAGONSTONE.horn=召唤奇袭 - 龙石岛
 got.invasion.GHISCAR.horn=召唤奇袭 - 吉斯卡
+got.invasion.HILL_TRIBES.horn≠
 got.invasion.IBBEN.horn=召唤奇袭 - 伊班
 got.invasion.IRONBORN.horn=召唤奇袭 - 铁群岛
 got.invasion.JOGOS.horn=召唤奇袭 - 鸠格斯人
@@ -3231,7 +3219,17 @@ got.structure.LysStables.name=里斯马厩
 got.structure.LysTavern.name=里斯酒馆
 got.structure.LysTower.name=里斯岗楼
 got.structure.LysTraining.name=里斯训练场
+got.structure.MossovyBarn.name≠
 got.structure.MossovyCamp.name=摩苏伊营地
+got.structure.MossovyCastle.name≠
+got.structure.MossovyHouse.name≠
+got.structure.MossovyInn.name≠
+got.structure.MossovyOffice.name≠
+got.structure.MossovySmithy.name≠
+got.structure.MossovyStable.name≠
+got.structure.MossovyThiefHouse.name≠
+got.structure.MossovyVillage.name≠
+got.structure.MossovyVillageLight.name≠
 got.structure.MyrBarracks.name=密尔营地
 got.structure.MyrBazaar.name=密尔集市
 got.structure.MyrCityBig.name=密尔城市
@@ -3611,6 +3609,8 @@ got.wp.Crag.info=维斯特林家族的家堡。这里的矿藏早已采尽，土
 got.wp.Crag=峭岩城
 got.wp.Crakehall.info=克雷赫家族的家堡。
 got.wp.Crakehall=秧鸡厅
+got.wp.CrastersKeep.info≠
+got.wp.CrastersKeep=卡斯特堡
 got.wp.CrossroadsInn.info=又名旧旅馆、十字路口的旅馆，曾经还叫做双冠客栈、钟鸣客栈、响龙客栈。曾经是戴瑞家族的领地。
 got.wp.CrossroadsInn=十字路口客栈
 got.wp.CrowSpikeKeep.info=古柏勒家族的领地
@@ -3867,8 +3867,6 @@ got.wp.Koj.info=是盛夏群岛中的一座小岛。
 got.wp.Koj=鹿儿岛
 got.wp.Kosrak.info≠
 got.wp.Kosrak=科斯拉克
-got.wp.CrastersKeep.info≠
-got.wp.CrastersKeep=卡斯特堡
 got.wp.KrazaajHas.info≠
 got.wp.KrazaajHas=科拉札吉·札斯克
 got.wp.Kyth.info≠
@@ -3929,14 +3927,14 @@ got.wp.Mistwood.info≠
 got.wp.Mistwood=雾林城
 got.wp.MoatKailin.info≠
 got.wp.MoatKailin=卡林湾
+got.wp.Moletown.info≠
+got.wp.Moletown=骡子镇
 got.wp.MormontsKeep.info≠
 got.wp.MormontsKeep=莫尔蒙堡
 got.wp.Morne.info≠
 got.wp.Morne=墨能
 got.wp.Morosh.info≠
 got.wp.Morosh=摩洛西
-got.wp.Moletown.info≠
-got.wp.Moletown=骡子镇
 got.wp.Myr.info≠
 got.wp.Myr=密尔
 got.wp.MyreCastle.info≠
@@ -4352,6 +4350,9 @@ got.wp.custom.info=远征队 "%d"分享的路径点
 got.wp.custom=%s
 got.wp.shared.info=分享至 %s
 got.wp.shared=%s
+item.got.antiking≠
+item.got.antiwalker≠
+item.got.antiwight≠
 item.got.banner.protect=带有保护数据
 item.got.brandingIron.named=%s: %s
 item.got.brandingIron.unnamed=无名 %s
@@ -4453,6 +4454,7 @@ item.got:banner.arrynGT.name=艾林谷的月门的旗帜
 item.got:banner.arrynHD.name≠
 item.got:banner.ashford.name=乌尔特斯的旗帜
 item.got:banner.ashwood.name≠
+item.got:banner.asshai.name≠
 item.got:banner.astapor.name=阿斯塔波的旗帜
 item.got:banner.auranewaters.name≠
 item.got:banner.baelish.name=贝里席的旗帜
@@ -4794,6 +4796,7 @@ item.got:banner.morros.name≠
 item.got:banner.mors.name=莫尔斯的旗帜
 item.got:banner.morsBook.name≠
 item.got:banner.moss.name≠
+item.got:banner.mossovy.name≠
 item.got:banner.mudd.name=穆德的旗帜
 item.got:banner.mullendore.name=穆伦道尔的旗帜
 item.got:banner.musgood.name≠
@@ -5000,6 +5003,7 @@ item.got:banner.vypren.name=瓦尔平的旗帜
 item.got:banner.vyrwel.name=莱维尔的旗帜
 item.got:banner.wagstaff.name=沃德斯塔夫的旗帜
 item.got:banner.walder.name≠
+item.got:banner.walker.name≠
 item.got:banner.warriorsSons.name=战争之子的旗帜
 item.got:banner.waterman.name≠
 item.got:banner.waxley.name=魏克利的旗帜
@@ -5322,6 +5326,7 @@ item.got:marzipanChocolate.name=巧克力杏仁糖
 item.got:melonSoup.name=瓜汤
 item.got:mossovyBoots.name=摩苏伊靴子
 item.got:mossovyChestplate.name=摩苏伊胸甲
+item.got:mossovyDagger.name≠
 item.got:mossovyLeggings.name=摩苏伊护腿
 item.got:mossovySword.name=银剑
 item.got:motorGrapplingHook.name=电机抓钩
@@ -6495,6 +6500,7 @@ tile.got:tableJogos.name≠
 tile.got:tableLhazar.name=拉札尔工作台
 tile.got:tableLorath.name=罗拉斯工作台
 tile.got:tableLys.name=里斯工作台
+tile.got:tableMossovy.name≠
 tile.got:tableMyr.name=密尔工作台
 tile.got:tableNorth.name=北境工作台
 tile.got:tableNorvos.name=诺佛斯工作台

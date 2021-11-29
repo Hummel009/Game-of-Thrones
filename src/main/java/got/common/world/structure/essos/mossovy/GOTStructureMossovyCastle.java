@@ -8,6 +8,7 @@ import got.common.database.*;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.essos.mossovy.*;
 import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
@@ -275,7 +276,7 @@ public class GOTStructureMossovyCastle extends GOTStructureMossovyBase {
 		}
 		for (j1 = 1; j1 <= 3; ++j1) {
 			for (i1 = -1; i1 <= 1; ++i1) {
-				setBlockAndMetadata(world, i1, j1, -11, gateBlock, 3);
+				setBlockAndMetadata(world, i1, j1, -11, GOTRegistry.gateIronBars, 3);
 			}
 		}
 		for (i14 = -1; i14 <= 1; ++i14) {
@@ -292,9 +293,9 @@ public class GOTStructureMossovyCastle extends GOTStructureMossovyBase {
 		setBlockAndMetadata(world, 2, 8, -12, plankStairBlock, 0);
 		setBlockAndMetadata(world, -1, 7, -12, fenceBlock, fenceMeta);
 		setBlockAndMetadata(world, 1, 7, -12, fenceBlock, fenceMeta);
-		placeWallBanner(world, -2, 6, -12, bannerType, 2);
-		placeWallBanner(world, 0, 7, -12, bannerType, 2);
-		placeWallBanner(world, 2, 6, -12, bannerType, 2);
+		placeWallBanner(world, -2, 6, -12, GOTItemBanner.BannerType.MOSSOVY, 2);
+		placeWallBanner(world, 0, 7, -12, GOTItemBanner.BannerType.MOSSOVY, 2);
+		placeWallBanner(world, 2, 6, -12, GOTItemBanner.BannerType.MOSSOVY, 2);
 		setBlockAndMetadata(world, -2, 3, -13, Blocks.torch, 4);
 		setBlockAndMetadata(world, 2, 3, -13, Blocks.torch, 4);
 		setBlockAndMetadata(world, -2, 3, -9, Blocks.torch, 3);
@@ -314,9 +315,9 @@ public class GOTStructureMossovyCastle extends GOTStructureMossovyBase {
 			if (IntMath.mod(k1, 4) != 2) {
 				continue;
 			}
-			setBlockAndMetadata(world, -2, 1, k1, brickWallBlock, brickWallMeta);
+			setBlockAndMetadata(world, -2, 1, k1, GOTRegistry.wallStoneV, 1);
 			setBlockAndMetadata(world, -2, 2, k1, Blocks.torch, 5);
-			setBlockAndMetadata(world, 2, 1, k1, brickWallBlock, brickWallMeta);
+			setBlockAndMetadata(world, 2, 1, k1, GOTRegistry.wallStoneV, 1);
 			setBlockAndMetadata(world, 2, 2, k1, Blocks.torch, 5);
 		}
 		for (j1 = 1; j1 <= 3; ++j1) {
@@ -460,8 +461,8 @@ public class GOTStructureMossovyCastle extends GOTStructureMossovyBase {
 			}
 			setAir(world, 9, 5, k1);
 		}
-		placeWallBanner(world, -10, 3, 0, bannerType, 1);
-		placeWallBanner(world, 10, 3, 0, bannerType, 3);
+		placeWallBanner(world, -10, 3, 0, GOTItemBanner.BannerType.MOSSOVY, 1);
+		placeWallBanner(world, 10, 3, 0, GOTItemBanner.BannerType.MOSSOVY, 3);
 		for (i1 = -1; i1 <= 1; ++i1) {
 			setBlockAndMetadata(world, i1, 0, 10, brickBlock, brickMeta);
 			for (j12 = 1; j12 <= 3; ++j12) {
@@ -469,12 +470,9 @@ public class GOTStructureMossovyCastle extends GOTStructureMossovyBase {
 			}
 		}
 		setBlockAndMetadata(world, 0, 1, 9, GOTRegistry.commandTable, 0);
-		placeWallBanner(world, 0, 3, 11, bannerType, 2);
-		for (int l = 0; l < 8; ++l) {
+		placeWallBanner(world, 0, 3, 11, GOTItemBanner.BannerType.MOSSOVY, 2);
+		for (int l = 0; l < 10; ++l) {
 			spawnNPCAndSetHome(new GOTEntityMossovyWitcher(world), world, 0, 1, 0, 20);
-		}
-		for (int l = 0; l < 2; ++l) {
-			spawnNPCAndSetHome(new GOTEntityMossovyBannerBearer(world), world, 0, 1, 0, 20);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
 		respawner.setSpawnClass(GOTEntityMossovyWitcher.class);

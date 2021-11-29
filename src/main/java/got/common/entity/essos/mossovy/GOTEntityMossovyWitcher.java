@@ -25,7 +25,7 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(100.0);
+		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 		getEntityAttribute(npcRangedAccuracy).setBaseValue(1.0);
 	}

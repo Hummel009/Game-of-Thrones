@@ -115,6 +115,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome mossovyMarshes;
 	public static GOTBiome mossovySea;
 	public static GOTBiome mossovySopkas;
+	public static GOTBiome mossovyFlat;
 	public static GOTBiome myr;
 	public static GOTBiome myrFlat;
 	public static GOTBiome naath;
@@ -1183,6 +1184,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		ibbenFlat = new GOTBiomeIbbenFlat(id++, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0x74B748).setBiomeName("ibben");
 		giftNewFlat = new GOTBiomeGiftNewFlat(id++, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0x9CC453).setBiomeName("giftNew");
 		giftOldFlat = new GOTBiomeGiftOldFlat(id++, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xA5C682).setBiomeName("giftOld");
+		mossovyFlat = new GOTBiomeMossovyFlat(id++, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0x71843C).setBiomeName("mossovy");
 	}
 
 	public static void updateWaterColor(int i, int j, int k) {

@@ -19,7 +19,6 @@ public class GOTEntityGhiscarUnsullied extends GOTEntityGhiscarLevyman {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
-		getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(40.0);
 	}
 
 	@Override

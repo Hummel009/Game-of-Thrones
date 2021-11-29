@@ -580,6 +580,10 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		placePlate_list(world, random, i, j, k, plateBlock, foodList, true);
 	}
 
+	public void placeRandomFlowerPot(World world, Random random, int i, int j, int k) {
+		placeFlowerPot(world, i, j, k, getRandomFlower(world, random));
+	}
+
 	public void placeRug(GOTEntityRugBase rug, World world, int i, int j, int k, float rotation) {
 		int i1 = i;
 		int k1 = k;

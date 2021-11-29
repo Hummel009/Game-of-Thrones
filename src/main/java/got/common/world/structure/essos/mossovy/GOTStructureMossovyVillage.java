@@ -13,10 +13,10 @@ import net.minecraft.world.World;
 public class GOTStructureMossovyVillage extends GOTVillageGen {
 	public GOTStructureMossovyVillage(GOTBiome biome, float f) {
 		super(biome);
-		gridScale = 12;
-		gridRandomDisplace = 1;
+		gridScale = 16;
+		gridRandomDisplace = 2;
 		spawnChance = f;
-		villageChunkRadius = 4;
+		villageChunkRadius = 6;
 	}
 
 	@Override
@@ -26,75 +26,27 @@ public class GOTStructureMossovyVillage extends GOTVillageGen {
 
 	public class Instance extends GOTVillageGen.AbstractInstance {
 		public VillageType villageType;
-		public int innerSize;
-		public boolean palisade;
 
 		public Instance(GOTStructureMossovyVillage village, World world, int i, int k, Random random, GOTLocationInfo loc) {
 			super(village, world, i, k, random, loc);
 		}
 
 		@Override
+		public void addStructure(GOTStructureBase structure, int x, int z, int r, boolean force) {
+			super.addStructure(structure, x, z, r, force);
+		}
+
+		@Override
 		public void addVillageStructures(Random random) {
-			if (villageType == VillageType.VILLAGE) {
-				setupVillage(random);
-			}
-		}
-
-		@Override
-		public GOTBezierType getPath(Random random, int i, int k) {
-			int i1 = Math.abs(i);
-			int k1 = Math.abs(k);
-			if (villageType == VillageType.VILLAGE) {
-				int dSq = i * i + k * k;
-				if (i1 <= 2 && k1 <= 2) {
-					return null;
-				}
-				int imn = innerSize + random.nextInt(3);
-				if (dSq < imn * imn) {
-					return GOTBezierType.PATH_DIRTY;
-				}
-				if (palisade && k < 0 && k > -(innerSize + 12 + 16) && i1 <= 2 + random.nextInt(3)) {
-					return GOTBezierType.PATH_DIRTY;
-				}
-			}
-			return null;
-		}
-
-		public GOTStructureBase getRandomHouse(Random random) {
-			if (random.nextInt(3) == 0) {
-				int i = random.nextInt(3);
-				switch (i) {
-				case 0:
-					return new GOTStructureMossovySmithy(false);
-				case 1:
-					return new GOTStructureMossovyStables(false);
-				case 2:
-					return new GOTStructureMossovyLodge(false);
-				default:
-					break;
-				}
-			}
-			return new GOTStructureMossovyHouse(false);
-		}
-
-		@Override
-		public boolean isFlat() {
-			return false;
-		}
-
-		@Override
-		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
-			return false;
-		}
-
-		public void setupVillage(Random random) {
+			this.addStructure(new GOTStructureMossovyWell(false), 0, -4, 0, true);
 			this.addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
 				public void setupRespawner(GOTEntityNPCRespawner spawner) {
 					spawner.setSpawnClass(GOTEntityMossovyMan.class);
-					spawner.setCheckRanges(40, -12, 12, 30);
+					spawner.setCheckRanges(40, -12, 12, 40);
 					spawner.setSpawnRanges(20, -6, 6, 64);
+					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
 			this.addStructure(new GOTStructureNPCRespawner(false) {
@@ -102,23 +54,21 @@ public class GOTStructureMossovyVillage extends GOTVillageGen {
 				@Override
 				public void setupRespawner(GOTEntityNPCRespawner spawner) {
 					spawner.setSpawnClass(GOTEntityMossovyWitcher.class);
-					spawner.setCheckRanges(40, -12, 12, 12);
+					spawner.setCheckRanges(40, -12, 12, 16);
 					spawner.setSpawnRanges(20, -6, 6, 64);
+					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			this.addStructure(new GOTStructureMossovyWell(false), 0, -2, 0, true);
-			int lampX = 8;
-			for (int i : new int[] { -lampX, lampX }) {
-				for (int k : new int[] { -lampX, lampX }) {
-					this.addStructure(new GOTStructureMossovyVillageLight(false), i, k, 0);
-				}
-			}
+			this.addStructure(new GOTStructureMossovyOffice(false), -21, 0, 1);
+			this.addStructure(new GOTStructureMossovyBarn(false), 0, -21, 2);
+			this.addStructure(new GOTStructureMossovySmithy(false), 21, 0, 3);
+			this.addStructure(new GOTStructureMossovyInn(false), 0, 21, 0);
 			int houses = 20;
 			float frac = 1.0f / houses;
 			float turn = 0.0f;
 			while (turn < 1.0f) {
-				int l;
 				int k;
+				int l;
 				int i;
 				float turnR = (float) Math.toRadians((turn += frac) * 360.0f);
 				float sin = MathHelper.sin(turnR);
@@ -134,59 +84,76 @@ public class GOTStructureMossovyVillage extends GOTVillageGen {
 				} else if (turn8 >= 7.0f || turn8 < 1.0f) {
 					r = 3;
 				}
-				if (palisade && sin < 0.0f && Math.abs(cos) <= 0.5f) {
-					continue;
-				}
-				if (random.nextInt(3) != 0) {
-					l = innerSize + 3;
-					if (random.nextInt(3) == 0) {
-						l += 12;
-					}
+				if (random.nextBoolean()) {
+					l = 61;
 					i = Math.round(l * cos);
 					k = Math.round(l * sin);
-					this.addStructure(getRandomHouse(random), i, k, r);
+					this.addStructure(new GOTStructureMossovyHouse(false), i, k, r);
 					continue;
 				}
-				if (random.nextInt(4) != 0) {
-					continue;
-				}
-				l = innerSize + 5;
 				if (random.nextInt(3) == 0) {
-					l += 12;
+					continue;
 				}
+				l = 65;
 				i = Math.round(l * cos);
 				k = Math.round(l * sin);
 				this.addStructure(new GOTStructureHayBales(false), i, k, r);
 			}
-			if (palisade) {
-				int rPalisade = innerSize + 12 + 16;
-				int rSq = rPalisade * rPalisade;
-				int rMax = rPalisade + 1;
-				int rSqMax = rMax * rMax;
-				for (int i = -rPalisade; i <= rPalisade; ++i) {
-					for (int k = -rPalisade; k <= rPalisade; ++k) {
-						int dSq;
-						if (Math.abs(i) <= 5 && k < 0 || (dSq = i * i + k * k) < rSq || dSq >= rSqMax) {
-							continue;
-						}
-						this.addStructure(new GOTStructureMossovyVillagePalisade(false), i, k, 0);
-					}
+			int signPos = Math.round(50.0f * MathHelper.cos((float) Math.toRadians(45.0)));
+			int signDisp = Math.round(7.0f * MathHelper.cos((float) Math.toRadians(45.0)));
+			this.addStructure(new GOTStructureMossovyLampPost(false), -signPos, -signPos + signDisp, 1);
+			this.addStructure(new GOTStructureMossovyLampPost(false), signPos, -signPos + signDisp, 3);
+			this.addStructure(new GOTStructureMossovyLampPost(false), -signPos, signPos - signDisp, 1);
+			this.addStructure(new GOTStructureMossovyLampPost(false), signPos, signPos - signDisp, 3);
+			int farmX = 38;
+			int farmZ = 17;
+			int farmSize = 6;
+			this.addStructure(new GOTStructureMossovyThiefHouse(false), -farmX + farmSize, -farmZ, 1);
+			this.addStructure(new GOTStructureMossovyThiefHouse(false), -farmZ + farmSize, -farmX, 1);
+			this.addStructure(new GOTStructureMossovyThiefHouse(false), farmX - farmSize, -farmZ, 3);
+			this.addStructure(new GOTStructureMossovyThiefHouse(false), farmZ - farmSize, -farmX, 3);
+			this.addStructure(new GOTStructureMossovyThiefHouse(false), -farmX + farmSize, farmZ, 1);
+			this.addStructure(new GOTStructureMossovyThiefHouse(false), farmX - farmSize, farmZ, 3);
+
+		}
+
+		@Override
+		public GOTBezierType getPath(Random random, int i, int k) {
+			int i1 = Math.abs(i);
+			int k1 = Math.abs(k);
+			if (villageType == VillageType.VILLAGE) {
+				int dSq = i * i + k * k;
+				int imn = 20 + random.nextInt(4);
+				if (dSq < imn * imn) {
+					return GOTBezierType.PATH_DIRTY;
+				}
+				int omn = 53 - random.nextInt(4);
+				int omx = 60 + random.nextInt(4);
+				if ((dSq > omn * omn && dSq < omx * omx) || (dSq < 2809 && Math.abs(i1 - k1) <= 2 + random.nextInt(4))) {
+					return GOTBezierType.PATH_DIRTY;
 				}
 			}
+			return null;
+		}
+
+		@Override
+		public boolean isFlat() {
+			return false;
+		}
+
+		@Override
+		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
+			return false;
 		}
 
 		@Override
 		public void setupVillageProperties(Random random) {
 			villageType = VillageType.VILLAGE;
-			innerSize = MathHelper.getRandomIntegerInRange(random, 12, 20);
-			palisade = random.nextBoolean();
 		}
 
 	}
 
 	public enum VillageType {
 		VILLAGE;
-
 	}
-
 }
