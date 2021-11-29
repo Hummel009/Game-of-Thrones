@@ -1045,7 +1045,7 @@ public class GOTEventHandler implements IFuelHandler {
 		}
 		if (!world.isRemote && entity.isEntityAlive() && entity.ticksExisted % 20 == 0) {
 			boolean flag = true;
-			if (entity instanceof GOTBiome.ImmuneToFrost || entity instanceof GOTEntityNPC || entity instanceof EntitySheep || entity instanceof EntityHorse || entity instanceof EntitySquid && ((GOTEntityNPC) entity).isImmuneToFrost) {
+			if (entity instanceof GOTBiome.ImmuneToFrost || entity instanceof EntitySheep || entity instanceof EntityHorse || entity instanceof EntitySquid || entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).isImmuneToFrost) {
 				flag = false;
 			}
 			if (entity instanceof EntityPlayer) {
