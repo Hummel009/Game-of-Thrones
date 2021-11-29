@@ -188,6 +188,6 @@ public class GOTEntityJogos extends GOTEntityHumanBase implements IPickpocketabl
 
 	@Override
 	public void setupNPCName() {
-		familyInfo.setName(GOTNames.getNomadName(rand, familyInfo.isMale()));
+		familyInfo.setName(GOTNames.getJogosName(rand, familyInfo.isMale()));
 	}
 }

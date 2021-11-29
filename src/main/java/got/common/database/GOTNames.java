@@ -44,6 +44,10 @@ public class GOTNames {
 		return allNameBanks.get(nameBankName);
 	}
 
+	public static String getJogosName(Random rand, boolean male) {
+		return GOTNames.getRandomName(male ? "jogos_male" : "jogos_female", rand);
+	}
+
 	public static String getNomadName(Random rand, boolean male) {
 		return GOTNames.getRandomName(male ? "nomad_male" : "nomad_female", rand);
 	}
