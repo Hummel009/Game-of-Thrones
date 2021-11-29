@@ -86,4 +86,9 @@ public class GOTBiomeReachFlat extends GOTBiomeReach {
 	public boolean getEnableRiver() {
 		return false;
 	}
+
+	@Override
+	public boolean hasDomesticAnimals() {
+		return true;
+	}
 }

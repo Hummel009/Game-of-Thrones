@@ -29,4 +29,9 @@ public class GOTBiomeDoshKhalin extends GOTBiomeDothrakiSea {
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.ESSOS.getSubregion("doshKhalin");
 	}
+
+	@Override
+	public boolean hasDomesticAnimals() {
+		return true;
+	}
 }

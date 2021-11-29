@@ -31,4 +31,9 @@ public class GOTBiomeQarthFlat extends GOTBiomeQarth {
 	public boolean getEnableRiver() {
 		return false;
 	}
+
+	@Override
+	public boolean hasDomesticAnimals() {
+		return true;
+	}
 }

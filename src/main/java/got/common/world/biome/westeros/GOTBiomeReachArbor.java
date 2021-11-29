@@ -127,4 +127,9 @@ public class GOTBiomeReachArbor extends GOTBiomeWesteros {
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.PATH_DIRTY;
 	}
+
+	@Override
+	public boolean hasDomesticAnimals() {
+		return true;
+	}
 }

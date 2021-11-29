@@ -30,4 +30,9 @@ public class GOTBiomeMossovyFlat extends GOTBiomeMossovy {
 	public boolean getEnableRiver() {
 		return false;
 	}
+
+	@Override
+	public boolean hasDomesticAnimals() {
+		return true;
+	}
 }

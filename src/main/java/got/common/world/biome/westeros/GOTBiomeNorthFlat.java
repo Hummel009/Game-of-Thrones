@@ -63,4 +63,9 @@ public class GOTBiomeNorthFlat extends GOTBiomeNorth {
 	public boolean getEnableRiver() {
 		return false;
 	}
+
+	@Override
+	public boolean hasDomesticAnimals() {
+		return true;
+	}
 }

@@ -75,4 +75,9 @@ public class GOTBiomeFireField extends GOTBiomeReach {
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.PAVING;
 	}
+
+	@Override
+	public boolean hasDomesticAnimals() {
+		return true;
+	}
 }

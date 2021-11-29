@@ -51,4 +51,9 @@ public class GOTBiomeVolantisFlat extends GOTBiomeVolantis {
 	public boolean getEnableRiver() {
 		return false;
 	}
+
+	@Override
+	public boolean hasDomesticAnimals() {
+		return true;
+	}
 }

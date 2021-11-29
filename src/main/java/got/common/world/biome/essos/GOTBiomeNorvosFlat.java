@@ -32,4 +32,9 @@ public class GOTBiomeNorvosFlat extends GOTBiomeNorvos {
 	public boolean getEnableRiver() {
 		return false;
 	}
+
+	@Override
+	public boolean hasDomesticAnimals() {
+		return true;
+	}
 }

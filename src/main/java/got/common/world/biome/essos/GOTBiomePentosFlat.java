@@ -32,4 +32,9 @@ public class GOTBiomePentosFlat extends GOTBiomePentos {
 	public boolean getEnableRiver() {
 		return false;
 	}
+
+	@Override
+	public boolean hasDomesticAnimals() {
+		return true;
+	}
 }

@@ -63,4 +63,9 @@ public class GOTBiomeStormlandsFlat extends GOTBiomeStormlands {
 	public boolean getEnableRiver() {
 		return false;
 	}
+
+	@Override
+	public boolean hasDomesticAnimals() {
+		return true;
+	}
 }

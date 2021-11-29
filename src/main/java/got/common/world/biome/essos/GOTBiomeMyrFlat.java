@@ -38,4 +38,9 @@ public class GOTBiomeMyrFlat extends GOTBiomeMyr {
 	public boolean getEnableRiver() {
 		return false;
 	}
+
+	@Override
+	public boolean hasDomesticAnimals() {
+		return true;
+	}
 }

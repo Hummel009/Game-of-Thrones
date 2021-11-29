@@ -55,4 +55,9 @@ public class GOTBiomeYiTiFlat extends GOTBiomeYiTi {
 	public boolean getEnableRiver() {
 		return false;
 	}
+
+	@Override
+	public boolean hasDomesticAnimals() {
+		return true;
+	}
 }

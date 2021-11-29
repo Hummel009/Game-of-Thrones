@@ -29,4 +29,9 @@ public class GOTBiomeQohorFlat extends GOTBiomeQohor {
 	public boolean getEnableRiver() {
 		return false;
 	}
+
+	@Override
+	public boolean hasDomesticAnimals() {
+		return true;
+	}
 }

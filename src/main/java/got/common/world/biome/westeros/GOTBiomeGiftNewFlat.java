@@ -36,4 +36,9 @@ public class GOTBiomeGiftNewFlat extends GOTBiomeGiftNew {
 	public boolean getEnableRiver() {
 		return false;
 	}
+
+	@Override
+	public boolean hasDomesticAnimals() {
+		return true;
+	}
 }
