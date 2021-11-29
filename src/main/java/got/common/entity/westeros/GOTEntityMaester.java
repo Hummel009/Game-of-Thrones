@@ -109,6 +109,6 @@ public class GOTEntityMaester extends GOTEntityHumanBase implements GOTTradeable
 
 	@Override
 	public void setupNPCName() {
-		familyInfo.setName(GOTNames.getMaesterName(rand, familyInfo.isMale()));
+		familyInfo.setName(GOTNames.getWesterosName(rand, familyInfo.isMale()));
 	}
 }

@@ -23,6 +23,10 @@ public class GOTNames {
 		return GOTNames.getRandomName(male ? "essos_male" : "essos_female", rand);
 	}
 
+	public static String getQarthName(Random rand, boolean male) {
+		return GOTNames.getRandomName(male ? "qarth_male" : "qarth_female", rand);
+	}
+
 	public static String getGhiscarName(Random rand, boolean male) {
 		return GOTNames.getRandomName(male ? "ghiscar_male" : "ghiscar_female", rand);
 	}
@@ -34,10 +38,6 @@ public class GOTNames {
 		String giant4 = GOTNames.getRandomName("giant_2", rand);
 		String giant5 = GOTNames.getRandomName("giant_3", rand);
 		return giant1 + giant2 + giant3 + giant4 + giant5;
-	}
-
-	public static String getMaesterName(Random rand, boolean male) {
-		return GOTNames.getRandomName(male ? "maester" : "maester", rand);
 	}
 
 	public static String[] getNameBank(String nameBankName) {
