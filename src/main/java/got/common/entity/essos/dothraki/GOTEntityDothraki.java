@@ -239,7 +239,7 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements IPickpocket
 
 	@Override
 	public void setupNPCName() {
-		familyInfo.setName(GOTNames.getNomadName(rand, familyInfo.isMale()));
+		familyInfo.setName(GOTNames.getDothrakiName(rand, familyInfo.isMale()));
 	}
 
 	@Override

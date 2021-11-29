@@ -48,8 +48,12 @@ public class GOTNames {
 		return GOTNames.getRandomName(male ? "jogos_male" : "jogos_female", rand);
 	}
 
-	public static String getNomadName(Random rand, boolean male) {
-		return GOTNames.getRandomName(male ? "nomad_male" : "nomad_female", rand);
+	public static String getLhazarName(Random rand, boolean male) {
+		return GOTNames.getRandomName(male ? "lhazar_male" : "lhazar_female", rand);
+	}
+
+	public static String getDothrakiName(Random rand, boolean male) {
+		return GOTNames.getRandomName(male ? "dothraki_male" : "dothraki_female", rand);
 	}
 
 	public static String getRandomName(String nameBankName, Random rand) {
