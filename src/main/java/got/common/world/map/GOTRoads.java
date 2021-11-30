@@ -65,6 +65,9 @@ public class GOTRoads {
 		System.nanoTime();
 		allRoads.clear();
 		roadPointDatabase = new RoadPointDatabase();
+		GOTRoads.registerRoad(id++, GOTWaypoint.Braavos, new int[] { 1174, 1274 }, new int[] { 1194, 1300 }, new int[] { 1208, 1335 });
+		GOTRoads.registerRoad(id++, new int[] { 1251, 1464 }, new int[] { 1246, 1424 }, new int[] { 1227, 1388 }, new int[] { 1208, 1335 });
+		GOTRoads.registerRoad(id++, new int[] { 1251, 1464 }, new int[] { 1267, 1498 }, new int[] { 1314, 1535 }, GOTWaypoint.GhoyanDrohe);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Appleton, near(GOTWaypoint.Appleton, 0, -1));
 		GOTRoads.registerRoad(id++, GOTWaypoint.Asabhad, near(GOTWaypoint.Asabhad, -1, 0));
 		GOTRoads.registerRoad(id++, GOTWaypoint.Asabhad, new int[] { 3143, 2263 }, new int[] { 3190, 2276 }, GOTWaypoint.SiQo);
@@ -140,7 +143,7 @@ public class GOTRoads {
 		GOTRoads.registerRoad(id++, GOTWaypoint.Meereen, ingameXZ(183429, 153350), ingameXZ(175749, 153350), GOTWaypoint.Bhorash);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Meereen, near(GOTWaypoint.Meereen, -9, 55), new int[] { 2219, 2124 }, GOTWaypoint.Astapor);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Moletown, new int[] { 747, 742 }, new int[] { 711, 783 }, new int[] { 672, 826 }, near(GOTWaypoint.Winterfell, 0, -1));
-		GOTRoads.registerRoad(id++, GOTWaypoint.Myr, GOTWaypoint.Chroyane);
+		GOTRoads.registerRoad(id++, GOTWaypoint.Myr, ingameXZ(67636, 146432), GOTWaypoint.Chroyane);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Nightsong, near(GOTWaypoint.Nightsong, 0, 1));
 		GOTRoads.registerRoad(id++, GOTWaypoint.Chroyane, GOTWaypoint.NySar, GOTWaypoint.Norvos);
 		GOTRoads.registerRoad(id++, GOTWaypoint.OldOak, near(GOTWaypoint.OldOak, -1, 0));
