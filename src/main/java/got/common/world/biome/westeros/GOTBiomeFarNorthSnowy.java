@@ -67,4 +67,9 @@ public class GOTBiomeFarNorthSnowy extends GOTBiome {
 	public int spawnCountMultiplier() {
 		return 3;
 	}
+
+	@Override
+	public int getWallTop() {
+		return 150;
+	}
 }

@@ -1345,4 +1345,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	public interface ImmuneToHeat {
 	}
+
+	public int getWallTop() {
+		return 0;
+	}
 }

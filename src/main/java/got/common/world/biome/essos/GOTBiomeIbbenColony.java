@@ -43,4 +43,9 @@ public class GOTBiomeIbbenColony extends GOTBiomeEssos {
 	public GOTBezierType getWallBlock() {
 		return GOTBezierType.WOOD;
 	}
+
+	@Override
+	public int getWallTop() {
+		return 90;
+	}
 }

@@ -53,4 +53,9 @@ public class GOTBiomeGiftOld extends GOTBiomeWesteros {
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.PATH_DIRTY;
 	}
+
+	@Override
+	public int getWallTop() {
+		return 150;
+	}
 }

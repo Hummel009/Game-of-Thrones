@@ -19,46 +19,15 @@ public class GOTBezierGenerator {
 		GOTBezierType roadType = biome.getRoadBlock();
 		GOTBezierType.BridgeType bridgeType = biome.getBridgeBlock();
 		GOTBezierType wallType = biome.getWallBlock();
+		int wallTop = biome.getWallTop();
 
 		if (GOTWalls.isWallAt(i, k)) {
 			int index;
 			int j;
-			int wallTop = 150;
-			for (j = ySize - 1; j > 150; --j) {
-				index = xzIndex * ySize + j;
-				Block block = blocks[index];
-				if (block.isOpaqueCube()) {
-					wallTop = j;
-					break;
-				}
-				if (!block.getMaterial().isLiquid()) {
-					continue;
-				}
-				wallTop = j;
-				int maxBridgeTop = j;
-				float bridgeHeight = 0.0f;
-				for (int j1 = j - 1; j1 > 0 && blocks[xzIndex * ySize + j1].getMaterial().isLiquid(); --j1) {
-					bridgeHeight += 0.5f;
-				}
-				int bridgeHeightInt = (int) Math.floor(bridgeHeight);
-				wallTop += bridgeHeightInt;
-				if ((wallTop = Math.min(wallTop, maxBridgeTop)) >= maxBridgeTop) {
-				} else {
-					float bridgeHeightR = bridgeHeight - bridgeHeightInt;
-					if (bridgeHeightR < 0.5f) {
-					}
-				}
-				break;
-			}
-			for (j = wallTop; j > wallTop - 88 && j > 0; --j) {
+			for (j = wallTop; j > 62; --j) {
 				index = xzIndex * ySize + j;
 				boolean isTop = j == wallTop;
-				boolean isSlab = false;
-				if (isTop && j >= 63) {
-					double avgNoise = (heightNoise[index] + heightNoise[index + 1]) / 2.0;
-					isSlab = avgNoise < 0.0;
-				}
-				GOTBezierType.BezierBlock wallblock = wallType.getBlock(rand, biome, isTop, isSlab);
+				GOTBezierType.BezierBlock wallblock = wallType.getBlock(rand, biome, isTop, false);
 				blocks[index] = wallblock.block;
 				metadata[index] = (byte) wallblock.meta;
 			}

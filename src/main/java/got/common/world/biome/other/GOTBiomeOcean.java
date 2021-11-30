@@ -8,7 +8,6 @@ import got.common.database.GOTRegistry;
 import got.common.entity.animal.GOTEntitySeagull;
 import got.common.world.biome.GOTBiome;
 import got.common.world.feature.*;
-import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
@@ -92,11 +91,6 @@ public class GOTBiomeOcean extends GOTBiome {
 	@Override
 	public boolean getEnableRiver() {
 		return false;
-	}
-
-	@Override
-	public GOTBezierType getWallBlock() {
-		return GOTBezierType.AIR;
 	}
 
 	public static boolean isFrozen(int i, int k) {

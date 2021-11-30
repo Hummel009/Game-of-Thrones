@@ -22,13 +22,6 @@ public abstract class GOTBezierType {
 		}
 	};
 
-	public static GOTBezierType AIR = new GOTBezierType() {
-		@Override
-		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
-			return new BezierBlock(Blocks.air, 0);
-		}
-	};
-
 	public static GOTBezierType PAVING = new GOTBezierType() {
 
 		@Override
