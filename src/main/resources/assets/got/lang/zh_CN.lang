@@ -26,17 +26,17 @@ dragon.lifeStage.hatchling=幼年
 dragon.lifeStage.juvenile=青年
 dragon.mountNotice=按下 %s和 %s以起飞降落(可在设置内更改)
 dragon.owned=这不是你的龙
-entity.got.AddamMarbrand.name=Addam Marbrand
+entity.got.AddamMarbrand.name=亚当·马尔布兰
 entity.got.AemonTargaryen.name=伊蒙·坦格利安
-entity.got.AeronGreyjoy.name≠
+entity.got.AeronGreyjoy.name=伊伦·葛雷乔伊
 entity.got.AlliserThorne.name=艾里沙·索恩
-entity.got.AmoryLorch.name≠
-entity.got.AndersYronwood.name=Anders Yronwood
-entity.got.AndrikTheUnsmilling.name≠
-entity.got.AnyaWaynwood.name≠
-entity.got.ArdrianCeltigar.name=Ardrian Celtigar
-entity.got.AreoHotah.name≠
-entity.got.ArianneMartell.name≠
+entity.got.AmoryLorch.name=亚摩利·洛奇
+entity.got.AndersYronwood.name=安德斯·伊伦伍德
+entity.got.AndrikTheUnsmilling.name=“不苟言笑的”阿德利克
+entity.got.AnyaWaynwood.name=安雅·韦伍德
+entity.got.ArdrianCeltigar.name=阿德里安·赛提加
+entity.got.AreoHotah.name=阿利欧·何塔
+entity.got.ArianneMartell.name=亚莲恩·马泰尔
 entity.got.ArrowPoison.name=淬毒箭
 entity.got.ArrynArcher.name=谷地弓箭手
 entity.got.ArrynBaker.name=谷地烘焙师
@@ -50,7 +50,7 @@ entity.got.ArrynFarmer.name=谷地农场主
 entity.got.ArrynFarmhand.name=谷地农工
 entity.got.ArrynFishmonger.name=谷地鱼贩
 entity.got.ArrynFlorist.name=谷地花贩
-entity.got.ArrynGoldsmith.name≠
+entity.got.ArrynGoldsmith.name=谷底金匠
 entity.got.ArrynGreengrocer.name=谷地果菜贩
 entity.got.ArrynGuard.name=海鸥镇卫士
 entity.got.ArrynLevyman.name=谷地民兵
@@ -60,7 +60,7 @@ entity.got.ArrynMan.name=谷地人
 entity.got.ArrynMason.name=谷地石匠
 entity.got.ArrynSoldier.name=谷地武装士兵
 entity.got.ArrynSoldierArcher.name=谷地武装弓箭手
-entity.got.AryaStark.name=Arya Stark
+entity.got.AryaStark.name=艾莉亚·史塔克
 entity.got.AsshaiAlchemist.name=亚夏炼金术士
 entity.got.AsshaiArchmag.name=亚夏大法师
 entity.got.AsshaiBannerBearer.name≠
@@ -68,19 +68,19 @@ entity.got.AsshaiCaptain.name=亚夏领主
 entity.got.AsshaiGuard.name=亚夏守卫
 entity.got.AsshaiMan.name=亚夏人
 entity.got.AsshaiShadowbinder.name=亚夏缚影士
-entity.got.AsshaiSpherebinder.name=Asshai Spherebinder
-entity.got.AuraneWaters.name=Aurane Waters
+entity.got.AsshaiSpherebinder.name=亚夏边界守护者
+entity.got.AuraneWaters.name=奥雷恩·维水
 entity.got.Aurochs.name=野牛
-entity.got.BaelorBlacktyde.name≠
+entity.got.BaelorBlacktyde.name=贝勒·布莱克泰斯
 entity.got.BalonGreyjoy.name=巴隆·葛雷乔伊
 entity.got.Banner.name=旗帜
-entity.got.BarbreyDustin.name≠
+entity.got.BarbreyDustin.name=芭芭蕾·达斯丁
 entity.got.Barrel.name=木桶
 entity.got.BarristanSelmy.name=巴利斯坦·赛尔弥
 entity.got.BarrowWight.name=影子杀手
 entity.got.Bear.name=熊
 entity.got.BearRug.name=熊皮地毯
-entity.got.BenedarBelmore.name≠
+entity.got.BenedarBelmore.name=本内达·贝尔摩
 entity.got.BenjenStark.name=班扬·史塔克
 entity.got.BericDayne.name=贝里克·戴恩
 entity.got.BericDondarrion1.name=贝里克·唐德利恩
@@ -90,7 +90,7 @@ entity.got.BericDondarrion4.name=贝里克·唐德利恩
 entity.got.BericDondarrion5.name=贝里克·唐德利恩
 entity.got.BericDondarrion6.name=贝里克·唐德利恩
 entity.got.Bird.name=鸟
-entity.got.BlackWalderFrey.name≠
+entity.got.BlackWalderFrey.name=黑瓦德·佛雷
 entity.got.Boar.name=野猪
 entity.got.BraavosArcher.name=布拉佛斯弓箭手
 entity.got.BraavosBaker.name=布拉佛斯烘焙师
@@ -105,26 +105,26 @@ entity.got.BraavosFlorist.name=布拉佛斯花贩
 entity.got.BraavosGeneral.name=布拉佛斯领主
 entity.got.BraavosGoldsmith.name=布拉佛斯金匠
 entity.got.BraavosLegionary.name=布拉佛斯剑士
-entity.got.BraavosLevyman.name≠
-entity.got.BraavosLevymanArcher.name≠
+entity.got.BraavosLevyman.name=布拉佛斯民兵
+entity.got.BraavosLevymanArcher.name=布拉佛斯民兵弓箭手
 entity.got.BraavosLumberman.name=布拉佛斯木材商
 entity.got.BraavosMan.name=布拉佛斯人
 entity.got.BraavosMason.name=布拉佛斯石匠
 entity.got.BraavosMiner.name=布拉佛斯矿物商
-entity.got.BraavosSoldier.name≠
-entity.got.BraavosSoldierArcher.name≠
+entity.got.BraavosSoldier.name=布拉佛斯武装士兵
+entity.got.BraavosSoldierArcher.name=布拉佛斯武装弓箭手
 entity.got.BraavosWarrior.name=布拉佛斯战士
-entity.got.BranStark.name≠
+entity.got.BranStark.name=布兰·史塔克
 entity.got.BrienneTarth.name=塔斯岛的布蕾妮
 entity.got.Bronn.name=Bronn
 entity.got.BryndenTully.name=布林登·徒利
 entity.got.BuGai.name=卜侅
 entity.got.Butterfly.name=蝴蝶
 entity.got.Camel.name=骆驼
-entity.got.CatelynStark.name≠
+entity.got.CatelynStark.name=凯特琳·史塔克
 entity.got.CerseiLannister.name=瑟曦·兰尼斯特
-entity.got.ClementPiper.name≠
-entity.got.CleyCerwyn.name≠
+entity.got.ClementPiper.name=克莱蒙特·派柏
+entity.got.CleyCerwyn.name=克雷·赛文
 entity.got.Conker.name=栗子
 entity.got.CotterPyke.name=卡特·派克
 entity.got.Craster.name=卡斯特
@@ -145,7 +145,7 @@ entity.got.CrownlandsFarmer.name=王领农场主
 entity.got.CrownlandsFarmhand.name=王领农工
 entity.got.CrownlandsFishmonger.name=王领鱼贩
 entity.got.CrownlandsFlorist.name=王领花贩
-entity.got.CrownlandsGoldsmith.name≠
+entity.got.CrownlandsGoldsmith.name=王领金匠
 entity.got.CrownlandsGreengrocer.name=王领果菜贩
 entity.got.CrownlandsGuard.name=王城护卫队
 entity.got.CrownlandsLevyman.name=王领民兵
@@ -153,11 +153,11 @@ entity.got.CrownlandsLevymanArcher.name=王领民兵弓箭手
 entity.got.CrownlandsLumberman.name=王领木材商
 entity.got.CrownlandsMan.name=王领人
 entity.got.CrownlandsMason.name=王领石匠
-entity.got.DaarioNaharis.name≠
+entity.got.DaarioNaharis.name=达里奥·纳哈里斯
 entity.got.DaenerysTargaryen.name=丹妮莉丝·坦格利安
-entity.got.Dagmer.name≠
+entity.got.Dagmer.name=“裂颚”达格摩
 entity.got.Dart.name=飞箭
-entity.got.DavenLannister.name≠
+entity.got.DavenLannister.name=达冯·兰尼斯特
 entity.got.DavosSeaworth.name=戴佛斯·席渥斯
 entity.got.Deer.name=鹿
 entity.got.DenysMallister.name=丹尼斯·梅利斯特
@@ -177,7 +177,7 @@ entity.got.DorneFarmer.name=多恩农场主
 entity.got.DorneFarmhand.name=多恩农工
 entity.got.DorneFishmonger.name=多恩鱼贩
 entity.got.DorneFlorist.name=多恩花贩
-entity.got.DorneGoldsmith.name≠
+entity.got.DorneGoldsmith.name=多恩金匠
 entity.got.DorneGreengrocer.name=多恩果菜商
 entity.got.DorneLevyman.name=多恩民兵
 entity.got.DorneLevymanArcher.name=多恩民兵弓箭手
@@ -203,7 +203,7 @@ entity.got.DragonstoneFarmer.name=龙石岛农场主
 entity.got.DragonstoneFarmhand.name=龙石岛农工
 entity.got.DragonstoneFishmonger.name=龙石岛鱼贩
 entity.got.DragonstoneFlorist.name=龙石岛花贩
-entity.got.DragonstoneGoldsmith.name≠
+entity.got.DragonstoneGoldsmith.name=龙石岛金匠
 entity.got.DragonstoneGreengrocer.name=龙石岛果菜贩
 entity.got.DragonstoneLevyman.name=龙石岛民兵
 entity.got.DragonstoneLevymanArcher.name=龙石岛民兵弓箭手
@@ -214,25 +214,25 @@ entity.got.DragonstoneSoldier.name=龙石岛武装战士
 entity.got.DragonstoneSoldierArcher.name=龙石岛武装弓箭手
 entity.got.DunstanDrumm.name=Dunstan Drumm
 entity.got.Ebrose.name=Ebrose
-entity.got.Edd.name≠
+entity.got.Edd.name=“忧郁的”艾迪
 entity.got.EdmureTully.name=艾德慕·徒利
-entity.got.EldonEstermont.name≠
+entity.got.EldonEstermont.name=埃尔顿·伊斯蒙
 entity.got.Elephant.name=象
 entity.got.Elk.name=麋鹿
 entity.got.EllaryaSand.name=艾拉莉亚·沙德
-entity.got.ErikIronmaker.name≠
+entity.got.ErikIronmaker.name=艾里·艾枚克
 entity.got.EssosBandit.name=厄斯索斯土匪
 entity.got.EuronGreyjoy.name=攸伦·葛雷乔伊
 entity.got.Fish.name=鱼
 entity.got.Flamingo.name=火烈鸟
-entity.got.ForleyPrester.name=Forley Prester
-entity.got.FranklynFowler.name≠
-entity.got.GarlanTyrell.name=Garlan Tyrell
+entity.got.ForleyPrester.name=佛勒·普莱斯特
+entity.got.FranklynFowler.name=福兰克林·佛勒
+entity.got.GarlanTyrell.name=加兰·提利尔
 entity.got.Gemsbok.name=大羚羊
 entity.got.GendryBaratheon.name=詹德利·拜拉席恩
 entity.got.GeroldDayne.name=杰洛·戴恩
-entity.got.GeroldGrafton.name≠
-entity.got.GhiscarAdmiral.name≠
+entity.got.GeroldGrafton.name=杰洛·格拉夫森
+entity.got.GhiscarAdmiral.name=吉斯卡海军上将
 entity.got.GhiscarArcher.name=吉斯卡弓箭手
 entity.got.GhiscarBaker.name=吉斯卡烘焙师
 entity.got.GhiscarBannerBearer.name=吉斯卡旗手
@@ -242,7 +242,7 @@ entity.got.GhiscarBrewer.name=吉斯卡酒商
 entity.got.GhiscarButcher.name=吉斯卡肉贩
 entity.got.GhiscarCaptain.name=吉斯卡长官
 entity.got.GhiscarCorsair.name=吉斯卡海盗
-entity.got.GhiscarCorsairArcher.name≠
+entity.got.GhiscarCorsairArcher.name=吉斯卡海盗弓箭手
 entity.got.GhiscarFarmer.name=吉斯卡农场主
 entity.got.GhiscarFishmonger.name=吉斯卡鱼贩
 entity.got.GhiscarFlorist.name=吉斯卡花贩
@@ -252,7 +252,7 @@ entity.got.GhiscarGoldsmith.name=吉斯卡金匠
 entity.got.GhiscarGuard.name=渊凯守卫
 entity.got.GhiscarHarpy.name=鹰身女妖之子
 entity.got.GhiscarLevyman.name=吉斯卡民兵
-entity.got.GhiscarLevymanArcher.name≠
+entity.got.GhiscarLevymanArcher.name=吉斯卡民兵弓箭手
 entity.got.GhiscarLumberman.name=吉斯卡木材商
 entity.got.GhiscarMan.name=吉斯卡人
 entity.got.GhiscarMason.name=吉斯卡石匠
@@ -267,7 +267,7 @@ entity.got.GiftGuard.name=守夜人
 entity.got.GiftGuardBannerBearer.name=守夜人旗手
 entity.got.GiftGuardCaptain.name=守夜人总司令
 entity.got.GiftMan.name=赠地人
-entity.got.GilwoodHunter.name≠
+entity.got.GilwoodHunter.name=杰伍德·杭特
 entity.got.Giraffe.name=长颈鹿
 entity.got.GiraffeRug.name=长颈鹿皮毯
 entity.got.GiskarCaptain.name=吉斯卡队长
@@ -278,20 +278,20 @@ entity.got.GoldenCaptain.name=黄金团指挥官
 entity.got.GoldenSpearman.name=黄金团掷矛手
 entity.got.GoldenWarrior.name=黄金团战士
 entity.got.Gorcrow.name=乌鸦
-entity.got.GoroldGoodbrother.name≠
+entity.got.GoroldGoodbrother.name=葛欧得·古柏勒
 entity.got.GregorClegane.name=格雷果·克里冈
 entity.got.GregorCleganeWight.name=格雷果·克里冈
-entity.got.GreyWorm.name≠
-entity.got.GulianSwann.name≠
-entity.got.GylbertFarwynd.name≠
-entity.got.HarmenUller.name≠
-entity.got.Harmune.name≠
-entity.got.HarrasHarlaw.name=Harras Harlaw
-entity.got.HarroldHardyng.name=Harrold Hardyng
-entity.got.HarryStrickland.name≠
-entity.got.HarysSwyft.name=Harys Swyft
-entity.got.HelmanTallhart.name≠
-entity.got.HighSepton.name=High Septon
+entity.got.GreyWorm.name=灰虫子
+entity.got.GulianSwann.name=古利安·史文
+entity.got.GylbertFarwynd.name=吉尔伯特·法温
+entity.got.HarmenUller.name=哈曼·乌勒
+entity.got.Harmune.name=哈慕恩
+entity.got.HarrasHarlaw.name=赫拉斯·哈尔洛
+entity.got.HarroldHardyng.name=哈罗德·哈顿
+entity.got.HarryStrickland.name=哈利·斯崔克兰
+entity.got.HarysSwyft.name=哈瑞斯·史威佛
+entity.got.HelmanTallhart.name=赫曼·陶哈
+entity.got.HighSepton.name=总主教
 entity.got.Hillmen.name=高山氏族部落人
 entity.got.HillmenArcher.name=高山氏族部落弓箭手
 entity.got.HillmenAxeThrower.name=高山氏族部落投斧手
@@ -300,12 +300,12 @@ entity.got.HillmenBartender.name=高山氏族部落酒保
 entity.got.HillmenBerserker.name=高山氏族部落狂战士
 entity.got.HillmenWarlord.name=高山氏族部落首领
 entity.got.HillmenWarrior.name=高山氏族部落战士
-entity.got.HizdahrZoLoraq.name≠
+entity.got.HizdahrZoLoraq.name=西茨达拉·佐·洛拉克
 entity.got.Hodor.name=阿多
 entity.got.Horse.name=马
-entity.got.HortonRedfort.name=Horton Redfort
-entity.got.HosterTully.name=Hoster Tully
-entity.got.HotPie.name≠
+entity.got.HortonRedfort.name=霍顿·雷德佛
+entity.got.HosterTully.name=霍斯特·徒利
+entity.got.HotPie.name=热派
 entity.got.HowlandReed.name=霍兰·黎德
 entity.got.Hummel009.name=Hummel009
 entity.got.IbbenArcher.name=伊班弓箭手
@@ -329,7 +329,7 @@ entity.got.IbbenWarrior.name=伊班战士
 entity.got.IceSpider.name=冰蜘蛛
 entity.got.Ifekevron.name=伊佛维隆人
 entity.got.IllyrioMopatis.name=伊利里欧·摩帕提斯
-entity.got.IlynPayne.name=Ilyn Payne
+entity.got.IlynPayne.name=伊林·派恩
 entity.got.IronbornArcher.name=铁群岛弓箭手
 entity.got.IronbornBaker.name=铁群岛烘焙师
 entity.got.IronbornBannerBearer.name=铁群岛旗手
@@ -343,20 +343,20 @@ entity.got.IronbornFarmer.name=铁群岛农场主
 entity.got.IronbornFarmhand.name=铁群岛农工
 entity.got.IronbornFishmonger.name=铁群岛鱼贩
 entity.got.IronbornFlorist.name=铁群岛花贩
-entity.got.IronbornGoldsmith.name≠
+entity.got.IronbornGoldsmith.name=铁群岛金匠
 entity.got.IronbornGreengrocer.name=铁群岛果菜贩
 entity.got.IronbornLevyman.name=铁群岛民兵
 entity.got.IronbornLevymanArcher.name=铁群岛民兵弓箭手
 entity.got.IronbornLumberman.name=铁群岛木材商
 entity.got.IronbornMan.name=铁种
 entity.got.IronbornMason.name=铁群岛石匠
-entity.got.IronbornPriest.name≠
+entity.got.IronbornPriest.name=淹人
 entity.got.IronbornSoldier.name=铁群岛武装士兵
 entity.got.IronbornSoldierArcher.name=铁群岛武装弓箭手
 entity.got.JaimeLannister.name=詹姆·兰尼斯特
-entity.got.JanosSlynt.name=Janos Slynt
+entity.got.JanosSlynt.name=杰诺斯·史林特
 entity.got.JaqenHghar.name=贾坤·赫加尔
-entity.got.JasonMallister.name≠
+entity.got.JasonMallister.name=杰森·梅利斯特
 entity.got.JeorMormont.name=杰奥·莫尔蒙
 entity.got.JoffreyBaratheon.name=乔佛里·拜拉席恩
 entity.got.JogosArcher.name=鸠格斯奈射手
@@ -364,38 +364,38 @@ entity.got.JogosChief.name=鸠格斯奈头颅
 entity.got.JogosMan.name=鸠格斯奈人
 entity.got.JogosShaman.name=鸠格斯奈萨满
 entity.got.JohnUmber.name=琼恩·安柏
-entity.got.JonConnington.name≠
+entity.got.JonConnington.name=琼恩·克林顿
 entity.got.JonSnow.name=琼恩·雪诺
-entity.got.JonSnow2.name≠
-entity.got.JonosBracken.name=Jonos Bracken
+entity.got.JonSnow2.name=琼恩·雪诺
+entity.got.JonosBracken.name=杰诺斯·布雷肯
 entity.got.JorahMormont.name=乔拉·莫尔蒙
 entity.got.JungleScorpion.name=丛林毒蝎
 entity.got.KevanLannister.name=凯冯·兰尼斯特
 entity.got.KineAraw.name=白野牛
 entity.got.Kingsguard.name=御林铁卫
 entity.got.KitraJuvain.name=奇特拉·竺瓦因
-entity.got.KraznysMoNakloz.name=Kraznys Mo Nakloz
+entity.got.KraznysMoNakloz.name=克拉兹尼·莫·纳克罗兹
 entity.got.LancelLannister.name=蓝赛尔·兰尼斯特
 entity.got.LancelLannisterR.name=蓝赛尔·兰尼斯特
-entity.got.LeoLefford.name=Leo Lefford
-entity.got.LeytonHightower.name=Leyton Hightower
-entity.got.LhazarArcher.name=Lhazar Archer
-entity.got.LhazarBaker.name=Lhazar Baker
-entity.got.LhazarBannerBearer.name=Lhazar Banner Bearer
-entity.got.LhazarBartender.name=Lhazar Bartender
-entity.got.LhazarBlacksmith.name=Lhazar Blacksmith
-entity.got.LhazarBrewer.name=Lhazar Brewer
-entity.got.LhazarButcher.name=Lhazar Butcher
-entity.got.LhazarFarmer.name=Lhazar Farmer
-entity.got.LhazarFishmonger.name=Lhazar Fishmonger
-entity.got.LhazarGoldsmith.name=Lhazar Goldsmith
-entity.got.LhazarHunter.name=Lhazar Hunter
-entity.got.LhazarLumberman.name=Lhazar Lumberman
-entity.got.LhazarMan.name=Lhazar Man
-entity.got.LhazarMason.name=Lhazar Mason
-entity.got.LhazarMiner.name=Lhazar Miner
-entity.got.LhazarWarlord.name=Lhazar Warlord
-entity.got.LhazarWarrior.name=Lhazar Warrior
+entity.got.LeoLefford.name=里奥·莱佛德
+entity.got.LeytonHightower.name=雷顿·海塔尔
+entity.got.LhazarArcher.name=拉札弓箭手
+entity.got.LhazarBaker.name=拉札烘焙师
+entity.got.LhazarBannerBearer.name=拉札旗手
+entity.got.LhazarBartender.name=拉札酒保
+entity.got.LhazarBlacksmith.name=拉札铁匠
+entity.got.LhazarBrewer.name=拉札酿酒师傅
+entity.got.LhazarButcher.name=拉札屠夫
+entity.got.LhazarFarmer.name=拉札农夫
+entity.got.LhazarFishmonger.name=拉札鱼贩
+entity.got.LhazarGoldsmith.name=拉札金匠
+entity.got.LhazarHunter.name=拉札猎人
+entity.got.LhazarLumberman.name=拉札伐木工
+entity.got.LhazarMan.name=拉札人
+entity.got.LhazarMason.name=拉札石工
+entity.got.LhazarMiner.name=拉札矿工
+entity.got.LhazarWarlord.name=拉闸军阀
+entity.got.LhazarWarrior.name=拉札战士
 entity.got.Lion.name=狮子
 entity.got.LionRug.name=狮皮地毯
 entity.got.Lioness.name=母狮
@@ -413,19 +413,19 @@ entity.got.LorathFlorist.name=罗拉斯花贩
 entity.got.LorathGeneral.name=罗拉斯领主
 entity.got.LorathGoldsmith.name=罗拉斯金匠
 entity.got.LorathLegionary.name=罗拉斯护卫者
-entity.got.LorathLevyman.name≠
-entity.got.LorathLevymanArcher.name≠
+entity.got.LorathLevyman.name=罗拉斯民兵
+entity.got.LorathLevymanArcher.name=罗拉斯民兵弓箭手
 entity.got.LorathLumberman.name=罗拉斯木材商
 entity.got.LorathMan.name=罗拉斯人
 entity.got.LorathMason.name=罗拉斯石匠
 entity.got.LorathMiner.name=罗拉斯矿物商
-entity.got.LorathSoldier.name≠
-entity.got.LorathSoldierArcher.name≠
+entity.got.LorathSoldier.name=吉斯卡武装士兵
+entity.got.LorathSoldierArcher.name=吉斯卡武装弓箭手
 entity.got.LorathWarrior.name=罗拉斯战士
-entity.got.LotharFrey.name≠
-entity.got.Luwin.name≠
-entity.got.LyleCrakehall.name=Lyle Crakehall
-entity.got.LynCorbray.name=Lyn Corbray
+entity.got.LotharFrey.name=罗索·佛雷
+entity.got.Luwin.name=鲁温
+entity.got.LyleCrakehall.name=李勒·克雷赫
+entity.got.LynCorbray.name=林恩·科布瑞
 entity.got.LysArcher.name=里斯弓箭手
 entity.got.LysBaker.name=里斯烘焙师
 entity.got.LysBannerBearer.name=里斯旗手
@@ -439,37 +439,37 @@ entity.got.LysFlorist.name=里斯花贩
 entity.got.LysGeneral.name=里斯领主
 entity.got.LysGoldsmith.name=里斯金匠
 entity.got.LysLegionary.name=里斯护卫者
-entity.got.LysLevyman.name≠
-entity.got.LysLevymanArcher.name≠
+entity.got.LysLevyman.name=里斯民兵
+entity.got.LysLevymanArcher.name=里斯民兵弓箭手
 entity.got.LysLumberman.name=里斯木材商
 entity.got.LysMan.name=里斯人
 entity.got.LysMason.name=里斯石匠
 entity.got.LysMiner.name=里斯矿材商
 entity.got.LysSlave.name=里斯奴隶
 entity.got.LysSlaver.name=里斯奴隶主
-entity.got.LysSoldier.name≠
-entity.got.LysSoldierArcher.name≠
+entity.got.LysSoldier.name=里斯武装士兵
+entity.got.LysSoldierArcher.name=里斯武装弓箭手
 entity.got.LysWarrior.name=里斯战士
-entity.got.LysaArryn.name≠
+entity.got.LysaArryn.name=莱莎·艾林
 entity.got.MaceTyrell.name=梅斯·提利尔
-entity.got.MaegeMormont.name≠
+entity.got.MaegeMormont.name=梅姬·莫尔蒙
 entity.got.Maester.name=学士
 entity.got.Mammoth.name=长毛象
 entity.got.ManceRayder.name=曼斯·雷德
-entity.got.ManfreyMartell.name≠
+entity.got.ManfreyMartell.name=曼佛里·马泰尔
 entity.got.Manticore.name=蝎尾兽
 entity.got.MargaeryTyrell.name=玛格丽·提利尔
-entity.got.MaronVolmark.name≠
-entity.got.MathisRowan.name=Mathis Rowan
-entity.got.MatthosSeaworth.name≠
+entity.got.MaronVolmark.name=马伦·沃马克
+entity.got.MathisRowan.name=马图斯·罗宛
+entity.got.MatthosSeaworth.name=马索思·席渥斯
 entity.got.Melisandra.name=梅丽珊卓
-entity.got.Mellario.name≠
-entity.got.Mercenary.name≠
-entity.got.MerynTrant.name≠
+entity.got.Mellario.name=梅拉莉欧
+entity.got.Mercenary.name=雇佣兵
+entity.got.MerynTrant.name=马林·特兰
 entity.got.Midges.name=血蝇
-entity.got.Missandei.name≠
-entity.got.MonfordVelaryon.name=Monford Velaryon
-entity.got.Moqorro.name≠
+entity.got.Missandei.name=弥桑黛
+entity.got.MonfordVelaryon.name=莫佛德·瓦列利安
+entity.got.Moqorro.name=马奇罗
 entity.got.MossovyBannerBearer.name≠
 entity.got.MossovyBartender.name≠
 entity.got.MossovyBlacksmith.name≠
@@ -479,7 +479,7 @@ entity.got.MossovyWerewolf.name=摩苏伊狼人
 entity.got.MossovyWitcher.name=摩苏伊狙魔人
 entity.got.MossovyWitcherBannerBearer.name=摩苏伊旗手
 entity.got.MossovyWitcherCaptain.name=摩苏伊队长
-entity.got.Mullin.name=Mullin
+entity.got.Mullin.name=穆林
 entity.got.MyrBaker.name=密尔烘焙师
 entity.got.MyrBannerBearer.name=密尔旗手
 entity.got.MyrBartender.name=密尔酒保
@@ -493,18 +493,18 @@ entity.got.MyrFlorist.name=密尔花贩
 entity.got.MyrGeneral.name=密尔领主
 entity.got.MyrGoldsmith.name=密尔金匠
 entity.got.MyrLegionary.name=密尔护卫者
-entity.got.MyrLevyman.name≠
-entity.got.MyrLevymanArcher.name≠
+entity.got.MyrLevyman.name=密尔民兵
+entity.got.MyrLevymanArcher.name=密尔民兵弓箭手
 entity.got.MyrLumberman.name=密尔木材商
 entity.got.MyrMan.name=密尔人
 entity.got.MyrMason.name=密尔石匠
 entity.got.MyrMiner.name=密尔矿物商
 entity.got.MyrSlave.name=密尔奴隶
 entity.got.MyrSlaver.name=密尔奴隶主
-entity.got.MyrSoldier.name≠
-entity.got.MyrSoldierArcher.name≠
+entity.got.MyrSoldier.name=密尔武装士兵
+entity.got.MyrSoldierArcher.name=密尔武装弓箭手
 entity.got.MyrWarrior.name=密尔战士
-entity.got.MyrcellaBaratheon.name≠
+entity.got.MyrcellaBaratheon.name=弥赛菈·拜拉席恩
 entity.got.MysteryWeb.name=神秘网
 entity.got.NPCRespawner.name=NPC重生处
 entity.got.NightKing.name=夜王
@@ -520,7 +520,7 @@ entity.got.NorthFarmer.name=北境农场主
 entity.got.NorthFarmhand.name=北境农工
 entity.got.NorthFishmonger.name=北境鱼贩
 entity.got.NorthFlorist.name=北境花贩
-entity.got.NorthGoldsmith.name≠
+entity.got.NorthGoldsmith.name=北境金匠
 entity.got.NorthGreengrocer.name=北境果菜贩
 entity.got.NorthGuard.name=白港守卫
 entity.got.NorthHillman.name=北境山区民
@@ -558,10 +558,10 @@ entity.got.NorvosMan.name=诺佛斯人
 entity.got.NorvosMason.name=诺佛斯石匠
 entity.got.NorvosMiner.name=诺佛斯矿物商
 entity.got.OberynMartell.name=奥柏伦·马泰尔
-entity.got.OlennaTyrell.name=Olenna Tyrell
-entity.got.OrtonMerryweather.name≠
-entity.got.Osha.name≠
-entity.got.PaxterRedwyne.name=Paxter Redwyne
+entity.got.OlennaTyrell.name=奥莲娜·雷德温·提利尔
+entity.got.OrtonMerryweather.name=奥顿·玛瑞魏斯
+entity.got.Osha.name=欧莎
+entity.got.PaxterRedwyne.name=派克斯特·雷德温
 entity.got.Pebble.name=石子
 entity.got.PentosBaker.name=潘托斯烘焙师
 entity.got.PentosBannerBearer.name=潘托斯旗手
@@ -583,9 +583,9 @@ entity.got.PentosMason.name=潘托斯石匠
 entity.got.PentosMiner.name=潘托斯矿材商
 entity.got.PetyrBaelish.name=培提尔·贝里席
 entity.got.Plate.name=盘
-entity.got.PodrickPayne.name=Podrick Payne
+entity.got.PodrickPayne.name=波德瑞克·派恩
 entity.got.Polarbear.name=雪熊
-entity.got.Polliver.name≠
+entity.got.Polliver.name=波利佛
 entity.got.Pycelle.name=派席尔
 entity.got.QarthArcher.name=魁尔斯弓箭手
 entity.got.QarthBaker.name=魁尔斯烘焙师
@@ -600,9 +600,9 @@ entity.got.QarthFlorist.name=魁尔斯花贩
 entity.got.QarthGeneral.name=魁尔斯领主
 entity.got.QarthGoldsmith.name=魁尔斯金匠
 entity.got.QarthGuard.name=魁尔斯守护者
-entity.got.QarthGuardCaptain.name≠
-entity.got.QarthLevyman.name≠
-entity.got.QarthLevymanArcher.name≠
+entity.got.QarthGuardCaptain.name=魁尔斯警卫队长
+entity.got.QarthLevyman.name=魁尔斯民兵
+entity.got.QarthLevymanArcher.name=魁尔斯民兵弓箭手
 entity.got.QarthLumberman.name=魁尔斯木材商
 entity.got.QarthMan.name=魁尔斯人
 entity.got.QarthMason.name=魁尔斯石匠
@@ -623,21 +623,21 @@ entity.got.QohorGoldsmith.name=科霍尔金匠
 entity.got.QohorGuard.name=科霍尔守卫
 entity.got.QohorGuardCaptain.name=科霍尔守卫队长
 entity.got.QohorLevyman.name=科霍尔民兵
-entity.got.QohorLevymanArcher.name≠
+entity.got.QohorLevymanArcher.name=科霍尔民兵弓箭手
 entity.got.QohorLumberman.name=科霍尔木材商
 entity.got.QohorMan.name=科霍尔人
 entity.got.QohorMason.name=科霍尔石匠
 entity.got.QohorMiner.name=科霍尔矿物商
 entity.got.QohorUnsullied.name=科霍尔无垢者
 entity.got.QuennRoxton.name=Quenn Roxton
-entity.got.QuentenBanefort.name=Quenten Banefort
-entity.got.QuentynMartell.name≠
-entity.got.QuentynQorgyle.name≠
-entity.got.Qyburn.name≠
+entity.got.QuentenBanefort.name=昆腾·班佛特
+entity.got.QuentynMartell.name=昆廷·马泰尔
+entity.got.QuentynQorgyle.name=昆廷·科格尔
+entity.got.Qyburn.name=科本
 entity.got.Rabbit.name=野兔
 entity.got.RamsayBolton.name=拉姆斯·波顿
-entity.got.RandyllTarly.name=Randyll Tarly
-entity.got.RazdalMoEraz.name≠
+entity.got.RandyllTarly.name=蓝道·塔利
+entity.got.RazdalMoEraz.name=Razdal mo Eraz
 entity.got.ReachArcher.name=河湾地弓箭手
 entity.got.ReachBaker.name=河湾地烘焙师
 entity.got.ReachBannerBearer.name=河湾地旗手
@@ -650,7 +650,7 @@ entity.got.ReachFarmer.name=河湾地农场主
 entity.got.ReachFarmhand.name=河湾地农工
 entity.got.ReachFishmonger.name=河湾地鱼贩
 entity.got.ReachFlorist.name=河湾地花贩
-entity.got.ReachGoldsmith.name≠
+entity.got.ReachGoldsmith.name=河湾地金匠
 entity.got.ReachGreengrocer.name=河湾地果菜贩
 entity.got.ReachGuard.name=旧镇守卫
 entity.got.ReachLevyman.name=河湾地民兵
@@ -660,12 +660,12 @@ entity.got.ReachMan.name=河湾地人
 entity.got.ReachMason.name=河湾地石匠
 entity.got.ReachSoldier.name=河湾地武装士兵
 entity.got.ReachSoldierArcher.name=河湾地武装弓箭手
-entity.got.RedPriest.name≠
+entity.got.RedPriest.name=红袍僧
 entity.got.RedScorpion.name=红毒蝎
 entity.got.RenlyBaratheon.name=蓝礼·拜拉席恩
 entity.got.Rhino.name=犀牛
 entity.got.RickardKarstark.name=瑞卡德·卡史塔克
-entity.got.RickonStark.name≠
+entity.got.RickonStark.name=瑞肯·史塔克
 entity.got.RiverlandsArcher.name=河间地弓箭手
 entity.got.RiverlandsBaker.name=河间地烘焙师
 entity.got.RiverlandsBannerBearer.name=河间地旗手
@@ -678,7 +678,7 @@ entity.got.RiverlandsFarmer.name=河间地农场主
 entity.got.RiverlandsFarmhand.name=河间地农工
 entity.got.RiverlandsFishmonger.name=河间地鱼贩
 entity.got.RiverlandsFlorist.name=河间地花贩
-entity.got.RiverlandsGoldsmith.name≠
+entity.got.RiverlandsGoldsmith.name=河间地金匠
 entity.got.RiverlandsGreengrocer.name=河间地果菜贩
 entity.got.RiverlandsLevyman.name=河间地民兵
 entity.got.RiverlandsLevymanArcher.name=河间地民兵弓箭手
@@ -688,26 +688,26 @@ entity.got.RiverlandsMason.name=河间地石匠
 entity.got.RiverlandsSoldier.name=河间地武装士兵
 entity.got.RiverlandsSoldierArcher.name=河间地武装弓箭手
 entity.got.RobbStark.name=罗柏·史塔克
-entity.got.RobinArryn.name≠
-entity.got.RodrikCassel.name≠
-entity.got.RodrikHarlaw.name=Rodrik Harlaw
-entity.got.RodrikRyswell.name≠
+entity.got.RobinArryn.name=罗宾·艾林
+entity.got.RodrikCassel.name=罗德利克·凯索
+entity.got.RodrikHarlaw.name=罗德利克·哈尔洛
+entity.got.RodrikRyswell.name=罗德利克·莱斯威尔
 entity.got.RooseBolton.name=卢斯·波顿
-entity.got.SalladhorSaan.name≠
-entity.got.SamwellTarly.name≠
+entity.got.SalladhorSaan.name=萨拉多·桑恩
+entity.got.SamwellTarly.name=山姆威尔·塔利
 entity.got.SandorClegane.name=桑铎·克里冈
-entity.got.SansaStark.name=Sansa Stark
+entity.got.SansaStark.name=珊莎·史塔克
 entity.got.ScrapTrader.name=零头收集者
 entity.got.Seagull.name=海鸥
-entity.got.SebastonFarman.name=Sebaston Farman
-entity.got.SelwynTarth.name=Selwyn Tarth
-entity.got.SelyseBaratheon.name≠
-entity.got.Septon.name≠
+entity.got.SebastonFarman.name=塞斯巴顿·法曼
+entity.got.SelwynTarth.name=塞尔温·塔斯
+entity.got.SelyseBaratheon.name=赛丽丝·拜拉席恩
+entity.got.Septon.name=修士
 entity.got.Shadowcat.name=影子山猫
-entity.got.Shae.name≠
+entity.got.Shae.name=雪伊
 entity.got.Shark.name=鲨鱼
 entity.got.Shego.name=Shego
-entity.got.ShireenBaratheon.name≠
+entity.got.ShireenBaratheon.name=希琳·拜拉席恩
 entity.got.SmokeRing.name=烟环
 entity.got.SothoryosBannerBearer.name=索斯罗斯旗手
 entity.got.SothoryosBlowgunner.name=索斯罗斯吹箭手
@@ -734,7 +734,7 @@ entity.got.StormlandsFarmer.name=风暴地农场主
 entity.got.StormlandsFarmhand.name=风暴地农工
 entity.got.StormlandsFishmonger.name=风暴地鱼贩
 entity.got.StormlandsFlorist.name=风暴地花贩
-entity.got.StormlandsGoldsmith.name≠
+entity.got.StormlandsGoldsmith.name=风暴地金匠
 entity.got.StormlandsGreengrocer.name=风暴地果菜贩
 entity.got.StormlandsLevyman.name=风暴地民兵
 entity.got.StormlandsLevymanArcher.name=风暴地民兵弓箭手
@@ -761,7 +761,7 @@ entity.got.SummerMiner.name=盛夏群岛矿物商
 entity.got.SummerWarlord.name=盛夏群岛领主
 entity.got.SummerWarrior.name=盛夏群岛战士
 entity.got.Swan.name=天鹅
-entity.got.SymondTempleton.name≠
+entity.got.SymondTempleton.name=赛蒙·坦帕顿
 entity.got.Termite.name=白蚁
 entity.got.Thenn.name=瑟恩人
 entity.got.ThennArcher.name=瑟恩弓箭手
@@ -774,19 +774,19 @@ entity.got.TheonGreyjoy.name=席恩·葛雷乔伊
 entity.got.TheonGreyjoyV.name=席恩·葛雷乔伊
 entity.got.Thief.name=小偷
 entity.got.Thoros.name=索罗斯
-entity.got.ThreeEyedRaven.name=Three-Eyed Raven
+entity.got.ThreeEyedRaven.name=三眼乌鸦
 entity.got.ThrowingAxe.name=投斧
 entity.got.ThrownFirePot.name=火桶
 entity.got.ThrownRock.name=投石
 entity.got.ThrownTermite.name=爆炸白蚁
 entity.got.Tigasa.name=TIGASA
 entity.got.TobhoMott.name=托布·莫特
-entity.got.TommenBaratheon.name≠
+entity.got.TommenBaratheon.name=托曼·拜拉席恩
 entity.got.Tormund.name=托蒙德
 entity.got.TraderRespawn.name=商人重生处
 entity.got.TrollSnowball.name=巨人雪球
-entity.got.TrystaneMartell.name≠
-entity.got.TychoNestoris.name≠
+entity.got.TrystaneMartell.name=崔斯丹·马泰尔
+entity.got.TychoNestoris.name=泰楚·奈斯托斯
 entity.got.TyrionLannister.name=提利昂·兰尼斯特
 entity.got.TyroshBaker.name=泰洛西烘焙师
 entity.got.TyroshBannerBearer.name=泰洛西旗手
@@ -801,21 +801,21 @@ entity.got.TyroshFlorist.name=泰洛西花贩
 entity.got.TyroshGeneral.name=泰洛西领主
 entity.got.TyroshGoldsmith.name=泰洛西金匠
 entity.got.TyroshLegionary.name=泰洛西守卫
-entity.got.TyroshLevyman.name≠
-entity.got.TyroshLevymanArcher.name≠
+entity.got.TyroshLevyman.name=泰洛西民兵
+entity.got.TyroshLevymanArcher.name=泰洛西民兵弓箭手
 entity.got.TyroshLumberman.name=泰洛西木材商
 entity.got.TyroshMan.name=泰洛西人
 entity.got.TyroshMason.name=泰洛西石匠
 entity.got.TyroshMiner.name=泰洛西矿材商
 entity.got.TyroshSlave.name=泰洛西奴隶
 entity.got.TyroshSlaver.name=泰洛西奴隶主
-entity.got.TyroshSoldier.name≠
-entity.got.TyroshSoldierArcher.name≠
+entity.got.TyroshSoldier.name=泰洛西武装士兵
+entity.got.TyroshSoldierArcher.name=泰洛西武装弓箭手
 entity.got.TyroshWarrior.name=泰洛西战士
-entity.got.TytosBlackwood.name=Tytos Blackwood
-entity.got.TytosBrax.name=Tytos Brax
+entity.got.TytosBlackwood.name=泰陀斯·布莱伍德
+entity.got.TytosBrax.name=泰陀斯·布拉克斯
 entity.got.TywinLannister.name=泰温·兰尼斯特
-entity.got.VargoHoat.name≠
+entity.got.VargoHoat.name=瓦格·霍特
 entity.got.Varys.name=瓦里斯
 entity.got.VictarionGreyjoy.name=维克塔利昂·葛雷乔伊
 entity.got.VolantisArcher.name=瓦兰提斯弓箭手
@@ -831,16 +831,16 @@ entity.got.VolantisFlorist.name=瓦兰提斯花贩
 entity.got.VolantisGeneral.name=瓦兰提斯领主
 entity.got.VolantisGoldsmith.name=瓦兰提斯金匠
 entity.got.VolantisLegionary.name=瓦兰提斯守卫
-entity.got.VolantisLevyman.name≠
-entity.got.VolantisLevymanArcher.name≠
+entity.got.VolantisLevyman.name=瓦兰提斯民兵
+entity.got.VolantisLevymanArcher.name=瓦兰提斯民兵弓箭手
 entity.got.VolantisLumberman.name=瓦兰提斯木材商
 entity.got.VolantisMan.name=瓦兰提斯人
 entity.got.VolantisMason.name=瓦兰提斯石匠
 entity.got.VolantisMiner.name=瓦兰提斯矿材商
 entity.got.VolantisSlave.name=瓦兰提斯奴隶
 entity.got.VolantisSlaver.name=瓦兰提斯奴隶主
-entity.got.VolantisSoldier.name≠
-entity.got.VolantisSoldierArcher.name≠
+entity.got.VolantisSoldier.name=瓦兰提斯武装士兵
+entity.got.VolantisSoldierArcher.name=瓦兰提斯武装弓箭手
 entity.got.VolantisWarrior.name=瓦兰提斯战士
 entity.got.WalderFrey.name=瓦德·佛雷
 entity.got.WallBanner.name=墙上旗帜
@@ -858,7 +858,7 @@ entity.got.WesterlandsFarmer.name=西境农场主
 entity.got.WesterlandsFarmhand.name=西境农工
 entity.got.WesterlandsFishmonger.name=西境鱼贩
 entity.got.WesterlandsFlorist.name=西境花贩
-entity.got.WesterlandsGoldsmith.name≠
+entity.got.WesterlandsGoldsmith.name=西境金匠
 entity.got.WesterlandsGreengrocer.name=西境果菜贩
 entity.got.WesterlandsGuard.name=兰尼斯港守卫
 entity.got.WesterlandsLevyman.name=西境民兵
@@ -879,8 +879,8 @@ entity.got.WildlingArcher.name=自由民弓箭手
 entity.got.WildlingAxeThrower.name=自由民投斧手
 entity.got.WildlingBannerBearer.name=自由民旗手
 entity.got.WildlingChieftain.name=自由民头领
-entity.got.WillasTyrell.name=Willas Tyrell
-entity.got.WilliamMooton.name≠
+entity.got.WillasTyrell.name=维拉斯·提利尔
+entity.got.WilliamMooton.name=威廉·慕頓
 entity.got.WoolyRhino.name=毛犀
 entity.got.WymanManderly.name=威曼·曼德勒
 entity.got.Wyvern.name=双足飞龙
@@ -899,22 +899,22 @@ entity.got.YiTiFarmer.name=夷地农场主
 entity.got.YiTiFarmhand.name=夷地农工
 entity.got.YiTiFirePriest.name=夷地投火手
 entity.got.YiTiFishmonger.name=夷地鱼贩
-entity.got.YiTiFrontier.name≠
-entity.got.YiTiFrontierCrossbower.name≠
+entity.got.YiTiFrontier.name=夷地边境守卫
+entity.got.YiTiFrontierCrossbower.name=夷地边境守卫弩手
 entity.got.YiTiGoldsmith.name=夷地金匠
 entity.got.YiTiHunter.name=夷地猎人
 entity.got.YiTiLevyman.name=夷地防人
-entity.got.YiTiLevymanCrossbower.name≠
+entity.got.YiTiLevymanCrossbower.name=夷地民兵弩手
 entity.got.YiTiLumberman.name=夷地木材商
 entity.got.YiTiMan.name=夷地人
 entity.got.YiTiMason.name=夷地石匠
 entity.got.YiTiSamurai.name=夷地武士
 entity.got.YiTiShogun.name=夷地将领
 entity.got.YiTiSoldier.name=夷地士兵
-entity.got.YiTiSoldierCrossbower.name≠
+entity.got.YiTiSoldierCrossbower.name=夷地武装弩手
 entity.got.YohnRoyce.name=约恩·罗伊斯
-entity.got.Yoren.name≠
-entity.got.YoungGriff.name≠
+entity.got.Yoren.name=尤伦
+entity.got.YoungGriff.name=Young Griff
 entity.got.Zebra.name=斑马
 entity.got.generic.entityName=%s, %s
 entity.gotFishHook.name=饵钓
@@ -1412,8 +1412,8 @@ got.achievement.WEAR_FULL_MOSSOVY.desc=装备整套摩苏伊猎魔人铠甲
 got.achievement.WEAR_FULL_MOSSOVY.title=玻璃膝盖
 got.achievement.WEAR_FULL_MYR.desc=装备整套密尔铠甲
 got.achievement.WEAR_FULL_MYR.title=密尔守卫
-got.achievement.WEAR_FULL_NOMAD.desc≠
-got.achievement.WEAR_FULL_NOMAD.title≠
+got.achievement.WEAR_FULL_NOMAD.desc=装备整套多斯拉克铠甲
+got.achievement.WEAR_FULL_NOMAD.title=比海洋更宽广
 got.achievement.WEAR_FULL_NORTH.desc=装备整套北境铠甲
 got.achievement.WEAR_FULL_NORTH.title=北境刁民
 got.achievement.WEAR_FULL_NORTHGUARD.desc=装备整套北境守卫铠甲
@@ -1462,12 +1462,12 @@ got.achievement.WEAR_FULL_WESTERLANDSGUARD.desc=装备整套西境守卫铠甲
 got.achievement.WEAR_FULL_WESTERLANDSGUARD.title=西境守卫
 got.achievement.WEAR_FULL_WESTKING.desc=装备整套西境之王铠甲
 got.achievement.WEAR_FULL_WESTKING.title=西境之王
-got.achievement.WEAR_FULL_WHITEWALKERS.desc≠
-got.achievement.WEAR_FULL_WHITEWALKERS.title≠
+got.achievement.WEAR_FULL_WHITEWALKERS.desc=装备整套异鬼铠甲
+got.achievement.WEAR_FULL_WHITEWALKERS.title=炮灰流水线
 got.achievement.WEAR_FULL_YITI.desc=装备整套夷地铠甲
 got.achievement.WEAR_FULL_YITI.title=夷地守卫
-got.achievement.WEAR_FULL_YITI_FRONTIER.desc≠
-got.achievement.WEAR_FULL_YITI_FRONTIER.title≠
+got.achievement.WEAR_FULL_YITI_FRONTIER.desc=装备整套夷地边境守卫铠甲
+got.achievement.WEAR_FULL_YITI_FRONTIER.title=就这样进入夷地
 got.achievement.WEAR_FULL_YITI_SAMURAI.desc=装备整套夷地武士铠甲
 got.achievement.WEAR_FULL_YITI_SAMURAI.title=夷地武士
 got.achievement.category.GENERAL=普通
@@ -1604,12 +1604,12 @@ got.biome.stepstones=海盗海岸
 got.biome.stoneCoast=磐石海岸
 got.biome.stormlands=风暴地
 got.biome.stormlandsTown=杜伦岬
-got.biome.summerIslands≠
+got.biome.summerIslands=夏日群岛
 got.biome.tarth=塔斯岛
 got.biome.thenn=瑟恩
 got.biome.tropicalForest=热带丛林
 got.biome.tyrosh=泰洛西
-got.biome.ulos≠
+got.biome.ulos=乌斯岛
 got.biome.ulthos=乌尔特斯
 got.biome.ulthosDesert=乌尔特斯沙漠
 got.biome.ulthosMountains=乌尔特斯山脉
@@ -1653,7 +1653,7 @@ got.capes.QARTH.name=魁尔斯的披风
 got.capes.QOHOR.name=科霍尔的披风
 got.capes.REACH.name=河湾地的披风
 got.capes.RIVERLANDS.name=河间地的披风
-got.capes.ROYALGUARD.name≠
+got.capes.ROYALGUARD.name=金袍子的披风
 got.capes.STORMLANDS.name=风暴地的披风
 got.capes.TARGARYEN.name=坦格利安的披风
 got.capes.TYROSH.name=泰洛西的披风
@@ -1855,18 +1855,18 @@ got.container.bookshelf=书架
 got.container.cargocart=推车
 got.container.coinExchange=兑换钱币
 got.container.crafting.arryn=谷地制作
-got.container.crafting.asshai≠
+got.container.crafting.asshai=亚夏制作
 got.container.crafting.braavos=布拉佛斯制作
 got.container.crafting.crownlands=王领制作
 got.container.crafting.dorne=多恩制作
-got.container.crafting.dothraki≠
+got.container.crafting.dothraki=多斯拉克制作
 got.container.crafting.dragonstone=龙石岛制作
 got.container.crafting.ghiscar=吉斯卡制作
 got.container.crafting.gift=守夜人制作
 got.container.crafting.hillmen=高山氏族部落制作
 got.container.crafting.ibben=伊班制作
 got.container.crafting.ironborn=铁群岛制作
-got.container.crafting.jogos≠
+got.container.crafting.jogos=鸠格斯奈制作
 got.container.crafting.lhazar=拉札尔制作
 got.container.crafting.lorath=罗拉斯制作
 got.container.crafting.lys=里斯制作
@@ -2772,7 +2772,7 @@ got.gui.map.widget.shareCWP=向远征队分享该路径点
 got.gui.map.widget.toggleCWPs=自定义路径点开关
 got.gui.map.widget.toggleHiddenSWPs=隐藏共享路径点开关
 got.gui.map.widget.toggleWPs=路径点显示开关
-got.gui.map.widget.unhideSWP≠
+got.gui.map.widget.unhideSWP=显示共享路径点开关
 got.gui.map.widget.zoomIn=放大
 got.gui.map.widget.zoomOut=缩小
 got.gui.map=地图
@@ -2799,7 +2799,7 @@ got.gui.npc.smith=锻造
 got.gui.npc.talk=谈话
 got.gui.npc.trade=交易
 got.gui.npcRespawner.blockEnemy.off=关闭
-got.gui.npcRespawner.blockEnemy.tooltip≠
+got.gui.npcRespawner.blockEnemy.tooltip=不屏蔽征服生成
 got.gui.npcRespawner.blockEnemy=屏蔽敌人生成
 got.gui.npcRespawner.checkHorizontal=检查XZ范围
 got.gui.npcRespawner.checkVerticalMax=检查最小Y
@@ -2922,7 +2922,7 @@ got.invasion.DORNE.horn=召唤奇袭 - 多恩
 got.invasion.DOTHRAKI.horn=召唤奇袭 - 多斯拉克
 got.invasion.DRAGONSTONE.horn=召唤奇袭 - 龙石岛
 got.invasion.GHISCAR.horn=召唤奇袭 - 吉斯卡
-got.invasion.HILL_TRIBES.horn≠
+got.invasion.HILL_TRIBES.horn=召唤奇袭 - 高山氏族部落
 got.invasion.IBBEN.horn=召唤奇袭 - 伊班
 got.invasion.IRONBORN.horn=召唤奇袭 - 铁群岛
 got.invasion.JOGOS.horn=召唤奇袭 - 鸠格斯人
@@ -2995,7 +2995,7 @@ got.shields.ALCOHOLIC.name=酒鬼盾
 got.shields.ARRYN.name=谷地之盾
 got.shields.ARRYNGUARD.name=海鸥镇守卫之盾
 got.shields.BRAAVOS.name=布拉佛斯之盾
-got.shields.CROWNLANDS.name=都城守备队的盾牌
+got.shields.CROWNLANDS.name=王领的盾牌
 got.shields.DORNE.name=多恩之盾
 got.shields.DRAGONSTONE.name=龙石岛之盾
 got.shields.GHISCAR.name=吉斯卡之盾
@@ -3023,7 +3023,7 @@ got.shields.UNSULLIED.name=无垢者的盾牌
 got.shields.VOLANTIS.name=瓦兰提斯之盾
 got.shields.WESTERLANDS.name=西狮之盾
 got.shields.YITI.name=金国之盾
-got.shields.YITI_FRONTIER.name≠
+got.shields.YITI_FRONTIER.name=夷地边界战士之盾
 got.shields.YITI_SAMURAI.name=夷地之盾
 got.shields.category.ACHIEVABLE=成就盾牌
 got.shields.category.ALIGNMENT=阵营盾牌
@@ -3503,17 +3503,17 @@ got.wp.AcornHall.info=斯莫伍德家族的封城
 got.wp.AcornHall=橡果厅
 got.wp.Adakhakileki.info=坐落于厄斯索斯大陆红色荒原北界，石之路近旁的淬毒海北岸，地处骸骨山脉山麓。维斯·伊尼（伊尼萨尔）位于其东北方。人们对阿达卡基拉基的居民知之甚少，它的名字在多斯拉克语中是“食人者”的意思。
 got.wp.Adakhakileki=阿达卡基拉基
-got.wp.Aegon.info≠
+got.wp.Aegon.info=被艾丽斯·维斯希尔发现，位于夏日群岛西南的一座小岛。
 got.wp.Aegon=伊耿登陆处
 got.wp.Amberly.info=罗杰斯家族的居城
 got.wp.Amberly=安珀利
-got.wp.Anogaria.info=这玩意没介绍，译名也是我蒙的
+got.wp.Anogaria.info=古时瓦雷利亚的哨卫堡垒。
 got.wp.Anogaria=阿诺加利亚
 got.wp.Antlers.info=位于王领，鸦栖堡的西边。是布克威尔家族的家堡。
 got.wp.Antlers=鹿角堡
 got.wp.Appleton.info=河湾地阿普尔顿家族的封地。
 got.wp.Appleton=苹果屯
-got.wp.AquosDhaen.info≠
+got.wp.AquosDhaen.info=最强大，最富有的瓦雷利亚殖民城市之一，于瓦雷利亚的末日中毁灭。
 got.wp.AquosDhaen=潮湿堡
 got.wp.ArNoy.info=位于厄斯索斯内陆的被毁灭的城市。阿·诺颐曾经是一座伟大的洛伊拿人城市。它大约是在洛伊拿人入侵时期被毁灭的。
 got.wp.ArNoy=阿·诺颐
@@ -3529,7 +3529,7 @@ got.wp.Astapor.info=奴隶湾的一座城市，坐落在蠕虫河河口。它以
 got.wp.Astapor=阿斯塔波
 got.wp.Atranta.info=位于河间地，是凡斯家族的家堡。
 got.wp.Atranta=亚兰城
-got.wp.BaelishKeep.info≠
+got.wp.BaelishKeep.info=无名的，贝里席家族的要塞。贝里席家族是资历很浅的新贵族，在五王之战前曾效忠于谷地的艾林家族。贝里席家族由培提尔·贝里席的曾祖父创立，他是一名为科布瑞家族服务的布拉佛斯佣兵。是他的儿子（培提尔的祖父）被授予了这座位于五指半岛最小半岛北端石头上的小小领主的小要塞。
 got.wp.BaelishKeep=贝里席堡
 got.wp.Bandallon.info=河湾地的布莱巴尔家族的族堡。
 got.wp.Bandallon=半圆堡
@@ -3547,9 +3547,9 @@ got.wp.Bhorash.info=一座城市废墟。它位于奴隶湾的北岸、黑色大
 got.wp.Bhorash=巴哈拉西
 got.wp.Bitterbridge.info=河湾地境内卡斯威家族的属地与家堡，是玫瑰大道横跨曼德河的要害。一道古老的石拱桥架设在曼德河上，苦桥因此得名。
 got.wp.Bitterbridge=苦桥
-got.wp.BlackHeart.info≠
+got.wp.BlackHeart.info=已经消亡的托因家族的城堡，在尝试暗杀伊耿三世失败后被夺走。后来被封给克林顿家族。
 got.wp.BlackHeart=黑心望
-got.wp.BlackPool.info≠
+got.wp.BlackPool.info=古时史拉特家族的城堡。在黎明纪元，他们曾是国王，直到史塔克入侵并取代他们，屈居史塔克的臣下。
 got.wp.BlackPool=黑水潭
 got.wp.Blackcrown.info=布尔威家族的族堡，位于河湾地西南部。
 got.wp.Blackcrown=黑冠城
@@ -3587,7 +3587,7 @@ got.wp.CastleBlack.info=历史悠久的要塞，也是守夜人的大本营。
 got.wp.CastleBlack=黑城堡
 got.wp.CastleLychester.info=莱彻斯特家族的族堡。
 got.wp.CastleLychester=莱彻斯特堡
-got.wp.CatfishRock.info≠
+got.wp.CatfishRock.info=旧时皇室的行宫。
 got.wp.CatfishRock=鲶鱼岩
 got.wp.Chroyane.info=曾是洛伊拿人统治的一座伟大的城市，如今只剩一片废墟。这里雾气缭绕，四处都有感染灰鳞病的石民在漫步。
 got.wp.Chroyane=伤心领
@@ -3595,7 +3595,7 @@ got.wp.CiderHall.info=河湾地的果酒厅的佛索威家族的家堡。
 got.wp.CiderHall=果酒厅
 got.wp.ClawIsle.info=赛提加家族海中的古老领地。
 got.wp.ClawIsle=蟹岛
-got.wp.CleganesKeep.info≠
+got.wp.CleganesKeep.info=克里冈堡位于西境，是克里冈家族的家堡。克里冈堡的第一位主人原本是凯岩城的驯兽长，在一次狩猎中救下了被狮子追逐的泰陀斯·兰尼斯特公爵，还因此丢了一条腿。于是兰尼斯特家族将这块领地作为对他的奖赏。目前该城由他的孙子，外号“魔山”的格雷果·克里冈爵士继承。
 got.wp.CleganesKeep=克里冈堡
 got.wp.Coldmoat.info=维伯家族的家堡。它曾属于奥斯格雷家族，在奥蒙德·奥斯格雷抵抗梅葛一世的镇压时被剥夺了领地。
 got.wp.Coldmoat=冷壕堡
@@ -3609,7 +3609,7 @@ got.wp.Crag.info=维斯特林家族的家堡。这里的矿藏早已采尽，土
 got.wp.Crag=峭岩城
 got.wp.Crakehall.info=克雷赫家族的家堡。
 got.wp.Crakehall=秧鸡厅
-got.wp.CrastersKeep.info≠
+got.wp.CrastersKeep.info=
 got.wp.CrastersKeep=卡斯特堡
 got.wp.CrossroadsInn.info=又名旧旅馆、十字路口的旅馆，曾经还叫做双冠客栈、钟鸣客栈、响龙客栈。曾经是戴瑞家族的领地。
 got.wp.CrossroadsInn=十字路口客栈
@@ -3621,7 +3621,7 @@ got.wp.DarkDell.info=河湾地的莱维尔家族的族堡。
 got.wp.DarkDell=幽谷城
 got.wp.Darry.info=戴瑞家族的居城，位于河间地。这座城堡虽然古老，规模却相对较小。
 got.wp.Darry=戴瑞城
-got.wp.DeatsHear.info≠
+got.wp.DeatsHear.info=拜拉席恩的封臣-霍普斯家族的城堡。
 got.wp.DeatsHear=迪茨恩
 got.wp.DeepDen.info=莱顿家族的家堡。
 got.wp.DeepDen=深穴城
@@ -3635,7 +3635,7 @@ got.wp.Doquu.info=盛夏群岛中最南端的岛屿
 got.wp.Doquu=多鲁岛
 got.wp.Downdelving.info=古柏勒家族的领地。
 got.wp.Downdelving=深钻厅
-got.wp.Draconys.info≠
+got.wp.Draconys.info=最强大，最富有的瓦雷利亚殖民城市之一，于瓦雷利亚的末日中毁灭。
 got.wp.Draconys=德拉贡尼斯
 got.wp.Dragonstone.info=位于黑水湾出口处的岛屿，其城堡被雕刻成龙的形状。是从瓦雷利亚自由堡垒流亡而来的坦格利安家族的封地。
 got.wp.Dragonstone=龙石岛
@@ -3653,7 +3653,7 @@ got.wp.Duskendale.info=位于王领的大型城镇。其建于港口旁，道路
 got.wp.Duskendale=暮谷镇
 got.wp.DyreDen.info=布伦家族的家堡。
 got.wp.DyreDen=恐穴堡
-got.wp.EastPass.info≠
+got.wp.EastPass.info=四座荒废的高塔直插云霄。选址意味着是为了防御而建，但是无人知晓他们要如何防卫明明处于防线以内的敌人。
 got.wp.EastPass=东隘口
 got.wp.EastWatch.info=长城最东边的城堡，由卡特·派克率领部分守夜人驻守于此。
 got.wp.EastWatch=东海望
@@ -3697,7 +3697,7 @@ got.wp.FourteenFlames.info=一条延伸跨过瓦雷利亚半岛与大陆连接�
 got.wp.FourteenFlames=十四火峰
 got.wp.Gallowsgrey.info=石阶列岛中的一座岛屿。
 got.wp.Gallowsgrey=灰绞架岛
-got.wp.GarnetGrove.info≠
+got.wp.GarnetGrove.info=提利尔的封臣，柏明艮骑士的城堡。
 got.wp.GarnetGrove=榴红林
 got.wp.GateOfTheMoon.info=月门堡的罗伊斯家族的家堡。月门堡比鹰巢城规模更大。在白雪皑皑的冬季，艾林家族会居住在月门堡内，直到夏季来临才回到鹰巢城。
 got.wp.GateOfTheMoon=月门堡
@@ -3719,469 +3719,469 @@ got.wp.GoldenTooth.info=西境的一处要塞，是莱佛德家族的家堡。
 got.wp.GoldenTooth=金牙城
 got.wp.Goldengrove.info=罗宛家族的族堡。
 got.wp.Goldengrove=金树城
-got.wp.Goldenhill.info≠
+got.wp.Goldenhill.info=一处夏日群岛的最大岛的定居点。
 got.wp.Goldenhill=金溪渡
 got.wp.Goldgrass.info=北境史陶家族的家堡。靠近荒冢屯的东大门。
 got.wp.Goldgrass=金芒堡
-got.wp.Gorosh.info≠
+got.wp.Gorosh.info=吉斯卡流放罪犯的城市，地处偏僻荒凉。索斯罗斯的不治瘟疫与恐怖生物毁灭了许多城市，但此城得以幸存。
 got.wp.Gorosh=戈罗斯
-got.wp.Grandview.info≠
+got.wp.Grandview.info=全视城位于风暴地，是格兰德森家族的居城。
 got.wp.Grandview=全视城
-got.wp.GrassyVale.info≠
+got.wp.GrassyVale.info=绿谷城是河湾地的梅斗家族的家堡。其位于蓝布恩河畔，靠近风暴地。
 got.wp.GrassyVale=绿谷城
-got.wp.Greenfield.info≠
+got.wp.Greenfield.info=绿地城位于西境，是格林菲尔家族的家堡。格林菲尔家族在英雄纪元，用鱼梁木建起了一座巨大的城堡，叫做弓手城，现称为绿地城。
 got.wp.Greenfield=绿地城
-got.wp.Greenguard.info≠
+got.wp.Greenguard.info=绿卫城是长城上的一座被守夜人遗弃的城堡。西边是烽火台，东边是东海望。绿卫堡离东边的东海望只有四里，夹在长城和一个流进海豹湾的深水河的源头。这里有四座石头方塔、六栋较小的配套建筑和六个仓库以及棚屋。在守夜人兴盛的日子里，绿卫堡是他们的造船厂，船只在这里被造完以后，推入河中，于东海望以南二十里的河口入海，北上加入黑衣舰队，如今守夜人几十年没有造过新船了。绿卫堡得名于此地长城的奇特颜色。传说布兰登修建长城的时候，有一群先民、巨人和森林之子强烈反对，他们在长城即将竣工时袭击修建者，却被打得落花流水。长城工程继续，这一段就建在他们的坟墓上，但冰墙被他们的骨骸污染，遂成绿色。
 got.wp.Greenguard=绿卫堡
-got.wp.Greenshield.info≠
+got.wp.Greenshield.info=绿盾岛是河湾地的盾牌列岛中的一个，靠近曼德河口。是切斯塔家族的封地。偷袭盾牌列岛之战后，绿盾岛被铁民征服。战后攸伦·葛雷乔伊一世授予马伦·沃马克绿盾岛头领一职。
 got.wp.Greenshield=绿盾岛
-got.wp.Greenstone.info≠
+got.wp.Greenstone.info=绿石堡位于伊斯蒙岛，是伊斯蒙家族的家堡。伊斯蒙家族是拜拉席恩家族的亲族，在劳勃国王与瑟曦结婚时曾出席宴会，之后劳勃为还礼亲率王室前往伊斯蒙岛，于伊斯蒙的家堡盘桓，以示荣宠。瑟曦相信乔佛里就是诞生于这里她与詹姆结合的夜晚。詹姆嘲笑这里是“绿屎堡”。
 got.wp.Greenstone=绿石堡
-got.wp.GreyGallows.info≠
-got.wp.GreyGallows=灰绞架群岛
-got.wp.GreyGarden.info≠
+got.wp.GreyGallows.info=灰绞架岛是石阶列岛中的一座岛屿。石阶列岛位于厄斯索斯与维斯特洛大陆之间。灰绞架岛在血石岛以南。
+got.wp.GreyGallows=灰绞架岛
+got.wp.GreyGarden.info=灰园堡位于哈尔洛岛，是赫拉斯·哈尔洛爵士的居城。
 got.wp.GreyGarden=灰园堡
-got.wp.GreyGlen.info≠
+got.wp.GreyGlen.info=灰谷城位于谷地，是托勒特家族的家堡。
 got.wp.GreyGlen=灰谷城
-got.wp.Greyguard.info≠
+got.wp.Greyguard.info=灰卫堡是长城上一座被遗弃的守夜人城堡。这座城堡已基本倒塌。废墟中有丛哨兵树，里面那圈不超过一人高的石头和腐烂木头，便是昔日中等大小的主堡以及其附属建筑的所在, 它已被遗弃了200年左右。三千年前，参与打败戈尼和詹德尔一役的弟兄来自灰卫堡，而正是詹德尔的诅咒最终带来了灰卫堡的倒塌，据说詹德尔的子孙——那些苍白憔悴、赤身裸体、瞪着满月般的眼睛、牙齿利如鲨鱼的野人后代——会在夜晚自地底冒出，拖走活人。正因如此，自废弃以后，再没有弟兄在这里扎营，这里的隧道被彻底封闭，巨大的石阶梯被冰雪彻底压塌。
 got.wp.Greyguard=灰卫堡
-got.wp.GreyironCastle.info≠
+got.wp.GreyironCastle.info=位于橡岛，是已消亡的葛雷艾恩家族的城堡。
 got.wp.GreyironCastle=葛雷艾恩堡
-got.wp.GreywaterWatch.info≠
+got.wp.GreywaterWatch.info=灰水望是黎德家族的居城。大概位于颈泽内部，卡林湾的西南方。它建在沼泽中一座漂浮的岛屿上，连渡鸦都找不到具体地点。灰水望没有学士，也没有骑士和武器师傅。有史以来，安达尔人、铁民、佛雷家族和其他所有试图征服灰水望的军队，连找都找不到它。
 got.wp.GreywaterWatch=灰水望
-got.wp.GriffinsRoost.info≠
+got.wp.GriffinsRoost.info=鹫巢堡是克林顿家族的家堡。在劳勃叛乱期间，琼恩·克林顿伯爵被提拔为伊里斯二世的国王之手。琼恩在鸣钟之役失败后，被剥夺了头衔和鹫巢堡，流放到狭海对岸。琼恩的堂弟罗纳德投靠了劳勃·拜拉席恩。劳勃夺取伊里斯二世的王座后，把城堡奖励给了琼恩的堂弟，但没有发还没收的财产，并且把克林顿家族原有的大部分土地赐予其他效忠劳勃的领主。如今鹫巢堡的领主罗兰·克林顿只是个有产骑士。
 got.wp.GriffinsRoost=鹫巢堡
-got.wp.Grimston.info≠
+got.wp.Grimston.info=格林顿城是坐落于灰盾岛上的城堡，格林家族的家堡。在偷袭盾牌列岛一战中，格林顿城被赫拉斯·哈尔洛头领攻打，由赫拉斯·哈尔洛头领一人连杀七个格林家的人后，其中两个重伤，而后格林大人听从了修士说这是神的旨意的建议，献出了城池。
 got.wp.Grimston=格林顿城
-got.wp.Gulltown.info≠
+got.wp.Gulltown.info=海鸥镇是谷地的最主要港口，由格拉夫森家族统治。海鸥镇拥有一个受天然庇护的港湾，它位于鹰巢城东南，螃蟹湾畔。海鸥镇是维斯特洛大陆五大主要城市之一，其规模与白港相约，兰尼斯港、旧镇和君临都比它大。除了统治的格拉夫森家族外，海鸥镇的贵族还有谢特家族和一支艾林家的分支。海鸥镇似乎聚居了不少富商，一些谷地贵族会为了钱而与他们通婚。另外据说海鸥镇的裁缝手艺精湛。
 got.wp.Gulltown=海鸥镇
-got.wp.Hammerhal.info≠
+got.wp.Hammerhal.info=河湾地的考德维那家族的城堡。
 got.wp.Hammerhal=锤厅
-got.wp.Hammerhorn.info≠
+got.wp.Hammerhorn.info=战锤角位于大威克岛的坚石山，是古柏勒家族的居城。城堡有尖利的铁城垛，笨拙结实，筑城巨石采自于城后绝壁，城墙下，无数洞穴和上古坑矿犹如一张张无牙的黑嘴巴。葛欧得的臣民在矿山中劳作，地表之下黑暗的石洞里，很多人由生到死从没目睹过辽阔的海水。
 got.wp.Hammerhorn=战锤角
-got.wp.Hardhome.info≠
+got.wp.Hardhome.info=艰难屯是古时绝境长城以外的野人们的一个聚落。艰难屯位于斯托德之角半岛伸向颤抖海的最尖端。艰难屯附近的海湾形成了一个深水海港，足以让最大的船只停靠。木材和石料都非常丰富。海水中伸手可得各种可食用鱼类，甚至还有海豹和海象的聚集区。聚集区另一边是巨大的悬崖，崖壁布满洞穴。现如今那里没有长期定居者，只有很多洞穴，被守夜人的汉子们称为尖啸穴
 got.wp.Hardhome=艰难堡
-got.wp.HarlawHall.info≠
+got.wp.HarlawHall.info=铁群岛的哈尔洛家族的城堡。
 got.wp.HarlawHall=哈尔洛厅
-got.wp.Harrenhal.info≠
+got.wp.Harrenhal.info=赫伦堡是一座建于征服战争之前的巨大城堡，位于河间地，在神眼湖北岸。它是七大王国中最大的堡垒，但自从征服战争以来，这一直就是一个阴暗且满目疮痍的地方。不过，赫伦堡的大部分已经衰败。河安家族只使用五座塔楼的下三分之二层，留下剩下的部分渐渐变成废墟，城堡的许多地方已经几十年无人涉足。蝙蝠寄居于部分塔楼的顶端。
 got.wp.Harrenhal=赫伦堡
-got.wp.HarridanHill.info≠
+got.wp.HarridanHill.info=
 got.wp.HarridanHill=赫利丹岭
-got.wp.Harroway.info≠
+got.wp.Harroway.info=
 got.wp.Harroway=哈罗威伯爵的小镇
-got.wp.HarvestHall.info≠
+got.wp.HarvestHall.info=赛尔弥家族的族堡是丰收厅。他们的纹章是棕色底色上三把黄色的小麦秸秆，赛尔弥家族只是有产骑士。但在魔龙的狂舞附录中，赛尔弥家族的族长被称为伯爵。
 got.wp.HarvestHall=丰收厅
-got.wp.Hayford.info≠
+got.wp.Hayford.info=王领的哈佛家族的族堡。
 got.wp.Hayford=哈佛城
-got.wp.HaystackHall.info≠
+got.wp.HaystackHall.info=草厅是风暴地的埃洛尔家族的家堡，位于国王大道以东，风息堡以北。
 got.wp.HaystackHall=干草厅
-got.wp.HeartsHome.info≠
+got.wp.HeartsHome.info=心宿城是科布瑞家族的封地，位于艾林谷内，鹰巢城北面。
 got.wp.HeartsHome=心宿城
-got.wp.Hellholt.info≠
+got.wp.Hellholt.info=狱门堡是乌勒家族的居城。它位于万斯河上游广阔沙漠之中,硫磺河沿岸。在第一次多恩战争中，乌勒家族曾撤出狱门堡，留下一座空城给率领大军前来攻打的哈兰·提利尔公爵。哈兰公爵随后率军进攻万斯城，深入沙漠后从此下落不明。10AC，雷妮丝·坦格利安王后骑乘巨龙米拉西斯袭击狱门堡，城上的弩炮击中了龙的眼睛，杀死了它与雷妮丝。
 got.wp.Hellholt=狱门堡
-got.wp.Hesh.info≠
+got.wp.Hesh.info=赫西是拉札的一座城市，位于拉札西的西北面，科斯拉克以西。赫西有一条连通弥林的商路，此路穿过凯塞山口。
 got.wp.Hesh=赫西
-got.wp.HewettTown.info≠
+got.wp.HewettTown.info=河湾地的橡木盾岛上的大镇子，赫威特家族居于此。
 got.wp.HewettTown=赫威特伯爵镇
-got.wp.HighHermitage.info≠
+got.wp.HighHermitage.info=高隐城是戴恩家族的封地。它位于多恩领内,和星坠城在同一条河的沿岸，位于水北。
 got.wp.HighHermitage=高隐城
-got.wp.HighTide.info≠
+got.wp.HighTide.info=高潮城是潮头岛的瓦列利安家族的居城之一，城堡有许多塔楼。高潮城是“海蛇”科利斯·瓦列利安伯爵的驻地，他是七大王国最富有，最有权力的领主之一。依靠多年在厄斯索斯积聚的无数珍宝，科利斯兴建了高潮城，以取代潮湿拥塞的瓦列利安家族旧居，并安放浮木王座。106AC，他与戴蒙·坦格利安亲王在高潮城策划了对石阶列岛的入侵。
 got.wp.HighTide=高潮城
-got.wp.Highgarden.info≠
+got.wp.Highgarden.info=高庭是河湾地位于曼德河畔的城堡。在七国时代这里是园丁家族的居城，征服战争以后被赐给了提利尔家族。高庭坐落在一座山丘上，俯瞰下方的曼德河。滨海大道与玫瑰大道汇聚于此。
 got.wp.Highgarden=高庭
-got.wp.Highpoint.info≠
+got.wp.Highpoint.info=至高堡是北境的白山家族的家堡。位于临冬城之北，在狼林北部和北方山脉之间。格雷果·森林曾经评价其为“神庇护的城堡” 并赞叹至高堡的石匠工艺之高超。
 got.wp.Highpoint=至高堡
-got.wp.HightowerLitehouse.info≠
+got.wp.HightowerLitehouse.info=
 got.wp.HightowerLitehouse=旧镇灯塔
-got.wp.HoareCastle.info≠
+got.wp.HoareCastle.info=霍尔城是大威克岛上的一个城堡，是霍尔家族在统治铁群岛时的家堡之一。霍尔家族起源于橡岛，没人知道大威克岛上的霍尔城是何时建起来的。因为反对劫掠、盐妾和奴隶制，国王哈穆德·霍尔三世最终被以伯劳鸟为首的淹人废黜。在被剜眼、割舌、割鼻之后，他被囚禁在了霍尔城中。造反的淹人们拥立他的弟弟哈根·霍尔为王，并割掉了他母亲莱利娅·兰尼斯特的嘴唇、耳朵和眼皮。怒火中烧的兰尼斯特家族随后进攻了铁群岛。哀兵必胜，兰尼斯特家族的司令官——奥布里·克雷赫爵士打败了新国王“没心肝”哈根·霍尔。在见到了悲惨的哈穆德后，奥布里爵士决定在地牢中给这位废王以最后的慈悲，并命令将城堡夷为平地。
 got.wp.HoareCastle=霍尔城
-got.wp.HoareKeep.info≠
+got.wp.HoareKeep.info=
 got.wp.HoareKeep=霍尔堡
-got.wp.HoarfrostHill.info≠
+got.wp.HoarfrostHill.info=霜雪山是长城上一座被遗弃的守夜人城堡, 位于冰痕城西侧，石门寨东侧。
 got.wp.HoarfrostHill=霜雪山
-got.wp.HoggHall.info≠
+got.wp.HoggHall.info=小羊厅是河间地的一处地点。暂不知道它属于哪个家族。在血龙狂舞期间，小羊厅被瓦格哈尔的龙焰烧成了焦黑的乱石。
 got.wp.HoggHall=小羊厅
-got.wp.HollardCastle.info≠
+got.wp.HollardCastle.info=
 got.wp.HollardCastle=霍拉德堡
 got.wp.HollowHill.info=古老的地方，深邃而隐秘。一个避风港，狼和狮子都找不到的无旗兄弟会的藏身之所。
 got.wp.HollowHill=空山
-got.wp.Holyhall.info≠
+got.wp.Holyhall.info=圣厅镇是河湾地的格雷佛德家族家堡。
 got.wp.Holyhall=圣厅镇
-got.wp.Honeyholt.info≠
+got.wp.Honeyholt.info=蜂巢城是河湾地的毕斯柏里家族的家堡。其位于蜜酒河的东岸。
 got.wp.Honeyholt=蜂巢城
-got.wp.HornHill.info≠
+got.wp.HornHill.info=角陵是河湾地的塔利家族的族堡。它位于高庭南方、旧镇东北方一百里格的内陆，地处树林繁茂的丘陵地带，紧挨着赤红山脉。根据传说，这座城堡是由猎人哈龙和他的双胞胎兄弟赫恩建造的。在河湾王向西部开发前，这座城堡位于一个从角陵一直延伸到夜歌城。
 got.wp.HornHill=角陵
-got.wp.Hornoth.info≠
-got.wp.Hornoth=霍莫斯
-got.wp.Hornvale.info≠
+got.wp.Hornoth.info=霍诺斯是一座被破坏的城市，属于多斯拉克海的萨诺王国。它位于萨恩河转向北的地方附近。霍诺斯和凯斯在萨洛什陷落后被老对手多斯拉克人摧毁。
+got.wp.Hornoth=霍诺斯
+got.wp.Hornvale.info=角谷城位于西境，在金牙城南侧。角谷城是布拉克斯家族的家堡。
 got.wp.Hornvale=角谷城
-got.wp.Hornwood.info≠
+got.wp.Hornwood.info=霍伍德城位于北境的恐怖堡与白港之间，是霍伍德家族的家堡。在拉姆斯·波顿绑架并强迫身为寡妇的霍伍德伯爵夫人与自己结婚后，威曼·曼德勒占领了霍伍德城以避免落入拉姆斯之手。
 got.wp.Hornwood=霍伍德城
 got.wp.Huiji.info=黄金天朝的南部港口。
 got.wp.Huiji=汇稷
-got.wp.Hull.info≠
+got.wp.Hull.info=船壳镇是王领的潮头岛上的一个小镇。它位于潮头堡的城墙下方，并以城堡下方锚定的一排排船体命名。
 got.wp.Hull=船壳镇
-got.wp.IbNor.info≠
+got.wp.IbNor.info=伊班·诺是位于伊班岛北岸的一座城市。
 got.wp.IbNor=伊班·诺
-got.wp.IbSar.info≠
+got.wp.IbSar.info=伊班·萨是远伊班岛上的一座城市。
 got.wp.IbSar=伊班·萨
-got.wp.Ibbish.info≠
+got.wp.Ibbish.info=伊斯是厄斯索斯北部颤抖海沿岸的，一座被毁灭的城市。
 got.wp.Ibbish=伊斯
-got.wp.Icemark.info≠
+got.wp.Icemark.info=冰痕城是长城上一座被遗弃的守夜人城堡，位于长夜堡西侧，霜雪山东侧。
 got.wp.Icemark=冰痕城
-got.wp.IronHolt.info≠
+got.wp.IronHolt.info=铁林城位于铁群岛的派克岛，是温奇家族的家堡。
 got.wp.IronHolt=铁林城
-got.wp.IronOak.info≠
+got.wp.IronOak.info=铁橡城是韦伍德家族的家堡，位于鹰巢城以东。
 got.wp.IronOak=铁橡城
-got.wp.Ironrath.info≠
+got.wp.Ironrath.info=
 got.wp.Ironrath=铁壁堡
-got.wp.IsleOfFaces.info≠
+got.wp.IsleOfFaces.info=千面屿是位于神眼湖中央的一座神圣的岛屿，处于河间地。这座岛是维斯特洛南部地区极少数还生长着鱼梁木的地方之一，其他地方的鱼梁木全部被砍伐后烧掉了。
 got.wp.IsleOfFaces=千面屿
-got.wp.IsleOfWhips.info≠
+got.wp.IsleOfWhips.info=鞭岛是玉海中的一座孤岛，弹丸之地，荒芜贫瘠，因作为运送奴隶的中转站而得名。该岛位于厄斯索斯大陆南端，西临大莫拉克岛，东临莫拉海岛，夷地在其东北方。
 got.wp.IsleOfWhips=鞭岛
-got.wp.IvyHall.info≠
+got.wp.IvyHall.info=常青厅是河湾地的凯德威家族家堡。
 got.wp.IvyHall=常青厅
 got.wp.Jinqi.info=茶褐朝天子定都于此，以确保天朝的边疆免遭来自阴影之地袭掠者的骚扰。
 got.wp.Jinqi=伊契
-got.wp.KDath.info≠
+got.wp.KDath.info=卡达什位于伯劳鸟之地，是厄斯索斯东部的一个半传说的恐怖城市。据说卡达什是世上第一座城市，甚至比时间本身更古老。传说言语无法叙述的邪恶祭典会在卡达什举行来满足疯狂神明的贪欲，其恐怖名声连居住在此地南方的伯劳人（Shyrkes，传说他们有绿色鳞片，是半人半兽的生物）也害怕。不过，没有人可以肯定这座都市真的存在。
 got.wp.KDath=卡达什
-got.wp.Kadar.info≠
+got.wp.Kadar.info=
 got.wp.Kadar=卡达尔
-got.wp.Karhold.info≠
+got.wp.Karhold.info=卡霍城是北境卡史塔克家族的家堡，是一座坚固的堡垒。建造这座城堡的人是卡隆·史塔克，他也是卡史塔克家族的建立者。他命名这座城堡为卡隆之城。最后这个名字演变成了卡霍城。
 got.wp.Karhold=卡霍城
-got.wp.Kayakayanaya.info≠
+got.wp.Kayakayanaya.info=
 got.wp.Kayakayanaya=卡亚卡亚纳亚
-got.wp.Kayce.info≠
+got.wp.Kayce.info=凯切镇位于西境，在仙女岛以南的一个半岛上,是肯宁家族的家堡。
 got.wp.Kayce=凯切镇
-got.wp.KingsLanding.info≠
+got.wp.KingsLanding.info=君临是七大王国的首都，位于维斯特洛东海岸，俯瞰黑水湾。是红堡和王国王座，铁王座的所在地。城市被城墙所环绕，城墙被都城守备队所驻守，或者称之为“金袍子”。穷困的贫民在城市外面建起他们的小棚屋。君临人口非常稠密，但是相比其他城市来说更脏乱而且更难看。城市中垃圾散发的臭气都能在城墙外面闻到。君临也是七大王国的一个重要港口，地位仅次于旧镇。
 got.wp.KingsLanding=君临
-got.wp.Kingsgrave.info≠
+got.wp.Kingsgrave.info=王冢城是多恩领内曼伍笛家族的居城。它位于赤红山脉中。
 got.wp.Kingsgrave=王冢城
-got.wp.Kingshouse.info≠
+got.wp.Kingshouse.info=国王厅是北境斯卡格斯岛，马格拿氏族的族堡。
 got.wp.Kingshouse=国王厅
-got.wp.KissLock.info≠
+got.wp.KissLock.info=
 got.wp.KissLock=吻别哨
-got.wp.Kitra.info≠
+got.wp.Kitra.info=
 got.wp.Kitra=奇特拉的大营
 got.wp.Koj.info=是盛夏群岛中的一座小岛。
 got.wp.Koj=鹿儿岛
-got.wp.Kosrak.info≠
+got.wp.Kosrak.info=科斯拉克是拉札的一座城市，坐落于斯卡札丹河的一条支流旁，赫西以东，拉札西东北面。一条商路自科斯拉克延伸而出，穿过红色荒原，一路向南直抵如今已成废墟的维斯·托罗若城。此外科斯拉克还有一条商路向东北方延伸，通往阿达卡基拉基。
 got.wp.Kosrak=科斯拉克
-got.wp.KrazaajHas.info≠
+got.wp.KrazaajHas.info=科拉札吉·札斯克是东大陆一处吉斯城市废墟。它原名为卡兹达克，不过如今只有它的多斯拉克语名字留存下来，意思是“尖顶山脉”，意指此城的金字塔。
 got.wp.KrazaajHas=科拉札吉·札斯克
-got.wp.Kyth.info≠
+got.wp.Kyth.info=
 got.wp.Kyth=凯萨
-got.wp.Lannisport.info≠
+got.wp.Lannisport.info=兰尼斯港是日落之海沿岸的一个城市，在凯岩城以西，河间大道、黄金大道和滨海大道交汇的地方。在这座港口停泊着兰尼斯特家族的舰队。此外这个城市还以出产金器而闻名。负责维持治安的守备队，与君临或是旧镇的相比，更是以训练有素而出名。
 got.wp.Lannisport=兰尼斯港
-got.wp.LastHearth.info≠
+got.wp.LastHearth.info=最后壁炉城是安柏家族的家堡，其位置靠近新赠地紧挨末江。它在长湖的东北、海豹湾的西边、国王大道的东边。除了守夜人的堡垒，最后的壁炉城就是七大王国最北的城堡了。
 got.wp.LastHearth=最后壁炉城
-got.wp.LastLament.info≠
+got.wp.LastLament.info=最后挽歌镇位于盛夏群岛中的瓦兰诺岛的西北端，与以北的石首岛隔海相望。
 got.wp.LastLament=最后挽歌镇
-got.wp.Lemonwood.info≠
+got.wp.Lemonwood.info=柠檬林是多恩领内达特家族的居城。它位于绿血河口以南，板条镇附近。
 got.wp.Lemonwood=柠檬林
-got.wp.LengMa.info≠
+got.wp.LengMa.info=雷·玛是一座位于玉海东方雷岛上的城市。它位于这座树林密布的岛屿的西部海滨，靠近一条河流的入海口。
 got.wp.LengMa=雷·玛
-got.wp.LengYi.info≠
+got.wp.LengYi.info=雷·夷是雷岛上的一座城市，在玉海东部。它位于这座树林密布的岛屿的北部海滨，夷地的城市伊契在它的东北方。
 got.wp.LengYi=雷·夷
-got.wp.LesserMoraq.info≠
+got.wp.LesserMoraq.info=
 got.wp.LesserMoraq=小莫拉克岛
-got.wp.Lhazosh.info≠
+got.wp.Lhazosh.info=拉札西是拉札的一座城市，位于赫西东南面，科斯拉克西南面。拉札西有一条东南方向延伸的商路，通往如今已成废墟的维斯·奥瑞科城和维斯·希罗丝城。
 got.wp.Lhazosh=拉札西
-got.wp.LittleValyria.info≠
+got.wp.LittleValyria.info=
 got.wp.LittleValyria=小瓦雷利亚
 got.wp.LizardHead.info=盛夏群岛最东部的小群岛。
 got.wp.LizardHead=蜥蜴头
 got.wp.Lizhao.info=与夷滨互相遥望，古国疆界中最东端的壮伟城市，也是金河以西的最后一座城池。
 got.wp.Lizhao=黎朝
-got.wp.LonelyLight.info≠
+got.wp.LonelyLight.info=孤灯堡是法温家族的家堡，从老威克岛向西北方航行八天，经过海豹与海狮的巢穴和无尽的灰色汪洋，才能最终到达那里。
 got.wp.LonelyLight=孤灯堡
-got.wp.LongBarrow.info≠
+got.wp.LongBarrow.info=长车楼是长城上一座被守夜人遗弃的城堡。西边是冰晶门，东边是烽火台。
 got.wp.LongBarrow=长车楼
-got.wp.LongbowHall.info≠
+got.wp.LongbowHall.info=长弓厅是杭特家族的家堡，位于谷地，五指半岛以南。
 got.wp.LongbowHall=长弓厅
-got.wp.Longtable.info≠
+got.wp.Longtable.info=长桌厅位于河湾地的曼德河沿岸，是玛瑞魏斯家族的家堡。
 got.wp.Longtable=长桌厅
-got.wp.Lorath.info≠
+got.wp.Lorath.info=罗拉斯是九大自由贸易城邦之一。它坐落于厄斯索斯北方、颤抖海内一簇岛屿中最大主岛的最西端，背靠罗拉斯湾，在斧头半岛以西、布拉佛斯以东。
 got.wp.Lorath=罗拉斯
-got.wp.Lordsport.info≠
+got.wp.Lordsport.info=君王港位于派克岛，是波特利家族的居地。
 got.wp.Lordsport=君王港
-got.wp.LotusPoint.info≠
+got.wp.LotusPoint.info=莲花港位于盛夏群岛中的瓦兰诺岛的南侧海岸，与鹿儿岛隔海相望。
 got.wp.LotusPoint=莲花港
-got.wp.Lys.info≠
+got.wp.Lys.info=里斯是九个自由贸易城邦之一，位于厄斯索斯。它是一个建在岩石上的小城市，四周围绕着风暴频繁的海。里斯城位于东部大陆的南部沿海，在泰洛西东南，瓦兰提斯以西。根据半官方来源，里斯横跨几个岛屿。里斯的炼金术师广为人知，他们在城里工作，以制造毒药著称，扼死者就是其中之一。
 got.wp.Lys=里斯
-got.wp.Maidenpool.info≠
+got.wp.Maidenpool.info=女泉城是河间地的一个城镇。位于螃蟹湾附近。是慕顿家族的族堡。这座城镇的名字源于这里是传说中佛罗理安初次见到琼琪时，偷看她与姐妹洗澡的地方。女泉城城堡坐落于山丘上，城镇四周有城墙女泉城东是山丘。从女泉城有两条路通往君临。一条通过暮谷镇，另一条沿海岸。经过暮谷城的路花费的时间更少。
 got.wp.Maidenpool=女泉城
 got.wp.Manjin.info=坐落在茂密密林边缘的古老城市，传说是黎明上国的首座都城，但另一座同样雄伟的城市——“保稷”的学者们对此深表怀疑。
 got.wp.Manjin=曼京
-got.wp.Mantarys.info≠
+got.wp.Mantarys.info=玛塔里斯，是一座位于长夏之地北部、叹息之海最北端的城市。一条称为“恶魔之路”的瓦雷利亚大道将它与西边的瓦兰提斯及东边的弥林相连起来。另外此处也有大道通往被毁灭的城市巴哈拉西及奥罗斯。
 got.wp.Mantarys=玛塔里斯
-got.wp.ManticoreIsles.info≠
+got.wp.ManticoreIsles.info=蝎尾兽群岛由玉海东部的七座小岛组成，在厄斯索斯大陆以南。 雷岛和莫拉海岛分别位于其北方和西方。而蝎尾兽群岛以东，则是亚夏和阴影之地。 据说这些岛屿被如此命名是因为其上生活着众多的蝎尾兽。
 got.wp.ManticoreIsles=蝎尾兽群岛
-got.wp.Marahai.info≠
+got.wp.Marahai.info=莫拉海岛是玉海中央一座新月形的岛屿，在厄斯索斯的海岸以南。在莫拉海岛的海湾中还有两座火山小岛。
 got.wp.Marahai=莫拉海岛
-got.wp.Meereen.info≠
+got.wp.Meereen.info=弥林是奴隶湾的一处城邦，坐落于海湾的最北边，矗立于斯卡札丹河畔。它因奴隶贸易而闻名。
 got.wp.Meereen=弥林
-got.wp.MhysaFaer.info≠
+got.wp.MhysaFaer.info=
 got.wp.MhysaFaer=弥莎岛
-got.wp.Mistwood.info≠
+got.wp.Mistwood.info=雾林城是风暴地的梅泰林家族的家堡，位于风怒角。
 got.wp.Mistwood=雾林城
-got.wp.MoatKailin.info≠
+got.wp.MoatKailin.info=卡林湾是巨大沼地颈泽北端的一座废弃城堡。它是北境的一部分，属于史塔克家族的管辖，但是已经有几个世纪无人居住。卡林湾把守着能让军队安全通过颈泽的堤道，让它成为数千年来守卫北境，面对南方侵略的战略要地。对入侵者而言，赢得黎德家族的联盟可以说是安全通过卡林湾的唯一方法。只有这些泽地人才了解那些没有标注在地图上的路线，沼泽间的狭道，芦苇中的水路。但是鉴于黎德和史塔克家族自古以来的紧密关系，这多半不可能发生。
 got.wp.MoatKailin=卡林湾
-got.wp.Moletown.info≠
+got.wp.Moletown.info=
 got.wp.Moletown=骡子镇
-got.wp.MormontsKeep.info≠
+got.wp.MormontsKeep.info=熊岛上莫尔蒙家族的居处。
 got.wp.MormontsKeep=莫尔蒙堡
-got.wp.Morne.info≠
+got.wp.Morne.info=
 got.wp.Morne=墨能
-got.wp.Morosh.info≠
+got.wp.Morosh.info=摩洛西是一座位于厄斯索斯北部的城市，是罗拉斯人建造的殖民地。它处于颤抖海海滨，萨恩河三角洲的北段。摩洛西的西南方是它的贸易伙伴塞阿斯，而它的东南方则是维斯·格拉德卡的废墟。
 got.wp.Morosh=摩洛西
-got.wp.Myr.info≠
+got.wp.Myr.info=密尔是九大自由贸易城邦之一，以优良的手工艺而享有盛誉。贸易是密尔的经济命脉，其手工艺闻名世界，出产蕾丝、地毯、玻璃、眼镜和绿色蜜酒，还有各种加工产成品。其中一个密尔出产的发明是望远镜，此地出产的地毯和蕾丝非常昂贵。
 got.wp.Myr=密尔
-got.wp.MyreCastle.info≠
+got.wp.MyreCastle.info=
 got.wp.MyreCastle=密瑞城
-got.wp.Naath.info≠
+got.wp.Naath.info=纳斯岛，是索斯罗斯大陆西北部海岸外的一个岛屿。它又被称为“蝴蝶之岛”。
 got.wp.Naath=纳斯岛
-got.wp.NaggaHill.info≠
+got.wp.NaggaHill.info=娜伽的肋骨位于铁群岛的老威克岛，是铁民的圣地。整个地区是荒草遍布的山岭，娜伽的肋骨从地底冒出来，仿佛巨大的白色树干，跟大帆船的桅杆一般粗细，高度则有桅杆的两倍。这里坐落着灰海王大厅，铁民自古在此地召开选王会决定他们的君主。
 got.wp.NaggaHill=娜伽的肋骨
-got.wp.Nefer.info≠
+got.wp.Nefer.info=尼芙是一座厄斯索斯大陆上尼盖尔的城市，建立于一条流向颤抖海的河流河口之上。尼芙的北面是千岛群岛.它已经是尼盖尔仅存的一座城市了。
 got.wp.Nefer=尼芙
-got.wp.NewBarrel.info≠
+got.wp.NewBarrel.info=新桶城是新桶城的佛索威家族的封地，位于河湾地。
 got.wp.NewBarrel=新桶城
-got.wp.NewGhis.info≠
+got.wp.NewGhis.info=新吉斯是悲痛海湾中一座岛屿城邦。它是吉斯人的城市，也实施奴隶制。据说西茨达拉·佐·洛拉克在新吉斯有一定影响力。新吉斯是吉斯人最重要，也是规模最小与最年轻的城市。
 got.wp.NewGhis=新吉斯
-got.wp.NewIbbish.info≠
+got.wp.NewIbbish.info=新伊斯是伊班人在厄斯索斯大陆的殖民地城市，位于伊佛维隆诸王国北部森林覆盖的半岛上。 新伊斯向北是鲸鱼湾，东南方有一座伊班城市废墟，这座城如今的多斯拉克语名字是“维斯·阿斯克”。
 got.wp.NewIbbish=新伊斯
-got.wp.Nightfort.info≠
+got.wp.Nightfort.info=长夜堡是长城上的一座守夜人城堡。只有长夜堡的楼梯是从长城本身的冰壁里凿出来的。长夜堡在五王之战两百年前被守夜人遗弃。这里最后的守夜人弟兄被派遣到了深湖居。长夜堡位于冰痕城东侧，深湖居西侧。
 got.wp.Nightfort=长夜堡
-got.wp.Nightsong.info≠
+got.wp.Nightsong.info=夜歌城是卡伦家族的家堡，位于风暴地西南的多恩边疆地，坐落于亲王隘口的北端。
 got.wp.Nightsong=夜歌城
-got.wp.Ninestars.info≠
+got.wp.Ninestars.info=九星城位于谷地，是坦帕顿家族的家堡。
 got.wp.Ninestars=九星城
-got.wp.NorthPass.info≠
+got.wp.NorthPass.info=
 got.wp.NorthPass=北隘口
-got.wp.Norvos.info≠
+got.wp.Norvos.info=诺佛斯是九大自由贸易城邦之一，位于山区之中，是少数不是港口城市的自由城邦。诺佛斯气候寒冷，天空总是乌云密布，山区长年刮着凛冽的大风，这里的阳光苍白昏暗。城邦被群山围绕，茂密的黑森林中有榉木、橡树、松树和大量不同野生动物，像野猪、棕熊、狼或其他猎物。接近城市范围，梯田举目可见，人们住在受木墙保护的庄园与围村内耕种土地。附近的河流湍急又多石，山脉区藏有无数洞穴，栖息着棕熊与狼群，有些甚至保存了古代巨人的骸骨与人类始祖留下的壁画。诺佛斯西北几百里格外一处巨大的岩洞网更是深不见底，人们说那是冥界的入口，“长腿”洛马斯将这个洞穴网封为世界七大自然奇迹之一。
 got.wp.Norvos=诺佛斯
-got.wp.NySar.info≠
+got.wp.NySar.info=娜·萨星是厄斯索斯大陆的一处城市遗址。它座落在洛恩河与娜恩河的交流处。此地是战士女王娜梅莉亚的城邦，在洛伊拿人入侵中被瓦雷利亚自由堡垒的龙摧毁。娜·萨星比葛·多荷大十倍，其码头大得足以停泊半百条船，而娜梅莉亚的粉色与绿色大理石的宫殿遗迹至今依旧留存在娜·萨星的废墟中，成为洛恩河中巨龟的休憩处。
 got.wp.NySar=娜·萨星
-got.wp.Oakenshield.info≠
+got.wp.Oakenshield.info=橡木盾是长城上一座被守夜人军团遗弃的城堡。位于黑城堡以东，水滨寨以西。
 got.wp.Oakenshield=橡木盾
-got.wp.OldAnchor.info≠
+got.wp.OldAnchor.info=老锚地是谷地马尔寇家族的封城。老锚地位于鹰巢城东边的狭海沿岸。
 got.wp.OldAnchor=老锚地
-got.wp.OldCastle.info≠
+got.wp.OldCastle.info=老城是洛克家族的居城，位于北境咬人湾沿岸。
 got.wp.OldCastle=老城
-got.wp.OldGhis.info≠
-got.wp.OldGhis=老吉斯
-got.wp.OldOak.info≠
+got.wp.OldGhis.info=吉斯曾是古吉斯帝国的都城。如今通常被称为古吉斯。由“伟人”格拉兹旦建立。[1] 其象征是鹰身女妖。古吉斯废墟位于东大陆吉斯卡境内，大致在瓦雷利亚悲痛海湾正东方向。五千年前，吉斯为瓦雷利亚所灭，其时，瓦雷利亚尚处于新生。为免有幸存者返回，龙焰将城市焚烧成灰烬，它的每一寸土地皆撒满盐碱、硫磺与枯骨。
+got.wp.OldGhis=古吉斯
+got.wp.OldOak.info=古橡城是奥克赫特家族的族堡，位于河湾地。其位置在河湾地西部，滨海大道的正中处，滨海大道穿城而过通往高庭。
 got.wp.OldOak=古橡城
-got.wp.OldStones.info≠
+got.wp.OldStones.info=荒石城，是穆德家族城堡的残骸，其原名已经早已被人遗忘，当地居民给了它这个新名字。
 got.wp.OldStones=荒石城
-got.wp.Oldtown.info≠
+got.wp.Oldtown.info=旧镇是维斯特洛规模最大的港口，是五大城市之一，也是其中最古老的一座——早在安达尔人入侵前就已由先民建成。旧镇最为著名的就是：这里是为七国大小领主建言献策、妙手回春、通风报信、勤于探索的学士的家——学城的所在地。
 got.wp.Oldtown=旧镇
 got.wp.Omboru.info=盛夏群岛三座主岛中位于中间的一座。
 got.wp.Omboru=奥本卢岛
-got.wp.Orkwood.info≠
+got.wp.Orkwood.info=铁群岛的奥克蒙岛的奥克伍家族的居处。
 got.wp.Orkwood=奥克伍城
-got.wp.Oros.info≠
+got.wp.Oros.info=奥罗斯，是烟海北岸的一处废墟。它位于长夏之地的南部，与特利亚隔海相望，龙道连接着玛塔里斯和奥罗斯。原本是瓦雷利亚自由堡垒的城市，很可能是在末日浩劫中毁灭。
 got.wp.Oros=奥罗斯
-got.wp.Oxcross.info≠
+got.wp.Oxcross.info=牛津镇位于西境，是距离兰尼斯港不到三天骑程的一个村庄。
 got.wp.Oxcross=牛津镇
-got.wp.Parchments.info≠
+got.wp.Parchments.info=
 got.wp.Parchments=羊皮纸城
-got.wp.PearlPalace.info≠
+got.wp.PearlPalace.info=伤心宫是位于伤心领的洛恩河上一座废弃的岛屿宫殿，这个城市一度被称为卡罗尼亚。在一千多年前城市陷落前，洛伊拿人称这个建筑为爱之宫。
 got.wp.PearlPalace=伤心宫
-got.wp.Pebble.info≠
+got.wp.Pebble.info=卵石岛是狭海上一座小岛，位于五指半岛东北。此地由佩奥家族统治，其居民向谷地宣誓效忠。
 got.wp.Pebble=卵石岛
-got.wp.Pebbleton.info≠
+got.wp.Pebbleton.info=卵石镇位于大威克岛，是数千渔民的家园。镇中有座方形塔堡，四角都有角楼，是梅林家族的居城。
 got.wp.Pebbleton=卵石镇
-got.wp.Pennytree.info≠
+got.wp.Pennytree.info=铜板树村是坐落在河间地两个被称作“乳头峰”的小草丘之间的村庄。铜板树村因鸭子池边钉满几百枚铜币的老橡树而得名。这个村庄被十二尺厚的石墙围住，有任何风吹草动，厚重的石墙可以掩护村民们撤退[1]。铜板树村处于石篱城和鸦树城之间尚有争议的边界地区。村庄周围的地区因为布雷肯家族和布莱伍德家族的征战不休而屡次易手。
 got.wp.Pennytree=铜分树村
-got.wp.Pentos.info≠
+got.wp.Pentos.info=潘托斯是九大自由贸易城邦之一，位于厄斯索斯大陆的西部，濒临狭海，与七大王国遥距相望，是最接近君临的自由贸易城邦。
 got.wp.Pentos=潘托斯
-got.wp.PinkmaidenCastle.info≠
+got.wp.PinkmaidenCastle.info=红粉城，是派柏家族的家堡，位于河间地。
 got.wp.PinkmaidenCastle=红粉城
-got.wp.PlankyTown.info≠
+got.wp.PlankyTown.info=板条镇是位于多恩的绿血河口的贸易小镇。来来往往的贸易船只停靠、途经镇内的一个码头。绿血河上的孤儿的家就在这里，他们在这里与来自世界各地的商船作贸易。板条镇比阳戟城的市镇影子城更大，人口更多，是多恩领境内最接近一座真正城市的地方。不过，板条镇完全建立在水上，这座市镇的街道就是木板，这里的厅堂和住宅与商店是形形色色的商船与游艇和撑篙船。当板条镇发展起来后，越来越多自由城邦的船只停泊在板条镇的港口，于是多恩亲王在市镇附近修筑了一座城堡看守港口。
 got.wp.PlankyTown=板条镇
-got.wp.Plumwood.info≠
+got.wp.Plumwood.info=
 got.wp.Plumwood=梅李林
-got.wp.Poddingfield.info≠
+got.wp.Poddingfield.info=荚原城坐落于风暴地，是比兹伯利家族的居城。
 got.wp.Poddingfield=荚原城
-got.wp.PortMoraq.info≠
+got.wp.PortMoraq.info=莫拉克港是大莫拉克岛南端的一座港口城市，临近肉桂海峡。该城向北是一片茂密的雨林，南面是象岛。从玉海返航的商人经常会在莫拉克港停留。
 got.wp.PortMoraq=莫拉克港
-got.wp.PortOfIbben.info≠
+got.wp.PortOfIbben.info=伊班港是伊班岛上的主要城市。根据半官方来源，岛上的灯火由鲸油点燃而成。伊班港以北冰冷荒原上栖息着长毛象。
 got.wp.PortOfIbben=伊班港
-got.wp.PortYhos.info≠
+got.wp.PortYhos.info=耶奥斯港是厄斯索斯大陆上的一座城镇，濒临夏日之海，位于奴隶湾以东。它是魁尔斯势力范围的最西端，处于红色荒原的最南边。其北面坐落着维斯·奥瑞科的废墟，魁卡西则在其东方。
 got.wp.PortYhos=耶奥斯港
-got.wp.Pyke.info≠
+got.wp.Pyke.info=派克岛是铁群岛中的大型岛屿之一。岛上的派克城，则是葛雷乔伊家族的居城。“派克”同样也是铁群岛地区私生子的通用姓氏。
 got.wp.Pyke=派克岛
-got.wp.Qarkash.info≠
+got.wp.Qarkash.info=魁卡西是厄斯索斯大陆上魁尔斯人的一个城镇。它坐落在夏日之海岸边，位于奴隶湾以西。魁尔斯和魁拉恩的废墟都在魁卡西的东方，而在它们北边，是广阔而毫无人烟的红色荒原，耶奥斯港则建于它的西方。
 got.wp.Qarkash=魁卡西
-got.wp.Qarth.info≠
+got.wp.Qarth.info=魁尔斯，是厄斯索斯大陆东南方向上的一个极其巨大和富有的城市，男巫和巨商们的城市。魁尔斯人自称位于世界的中心，是沟通南北的门户，连接东西的桥梁，可想而知，魁尔斯极度的富有，所以这座城市的建筑风格非常壮观、富丽堂皇。魁尔斯名义上的统治者是王族，事实上几个强大的商人公会十三巨子，碧玺兄弟会和香料古公会掌握着城市的实际权力。
 got.wp.Qarth=魁尔斯
-got.wp.Qohor.info≠
+got.wp.Qohor.info=科霍尔，是东大陆的九大自由贸易城邦之一，也是其中一个位于内陆的自由城邦。科霍尔的工匠闻名世界。他们的铁匠掌握一种将颜色渗入金属中的技艺，甚至有的铁匠自称掌握着重铸瓦雷利亚钢的技术。
 got.wp.Qohor=科霍尔
-got.wp.Queenscrown.info≠
+got.wp.Queenscrown.info=后冠镇是绝境长城南面一个被遗弃的村落。亚莉珊·坦格利安皇后曾在村里的塔楼中睡过，因此村民将其顶部的墙壁漆成金色。
 got.wp.Queenscrown=后冠镇
-got.wp.Queensgate.info≠
+got.wp.Queensgate.info=王后门是长城上一座被遗弃的城堡。最初由守夜人军团建造，后来由于军团人手不足而遗弃。王后门位于深湖居以东，黑城堡以西。
 got.wp.Queensgate=王后门
-got.wp.Raenys.info≠
+got.wp.Raenys.info=
 got.wp.Raenys=雷尼斯
-got.wp.RainHouse.info≠
+got.wp.RainHouse.info=雨屋城是风暴地的威尔德家族的家堡，位于风怒角的北岸，面朝破船湾。
 got.wp.RainHouse=雨屋城
-got.wp.RamsGate.info≠
-got.wp.RamsGate=朗门堡
-got.wp.RamseyTower.info≠
+got.wp.RamsGate.info=公羊门是北境的一座要塞，位于断肢河入海口，寡妇望的西边。
+got.wp.RamsGate=公羊门
+got.wp.RamseyTower.info=
 got.wp.RamseyTower=拉姆斯塔
-got.wp.Rathylar.info≠
+got.wp.Rathylar.info=
 got.wp.Rathylar=洛茨拉
-got.wp.RaventreeHall.info≠
+got.wp.RaventreeHall.info=鸦树城是布莱伍德家族的家堡，位于河间地的布莱伍德谷。
 got.wp.RaventreeHall=鸦树城
 got.wp.RedFlowerVale.info=位于盛夏群岛中的扎勒岛，是一条从该岛中部横贯至东部海岸的河谷。
 got.wp.RedFlowerVale=红花谷
-got.wp.RedHaven.info≠
+got.wp.RedHaven.info=
 got.wp.RedHaven=红港
-got.wp.RedLake.info≠
+got.wp.RedLake.info=红湖，是河湾地西北部唯一的一个大湖。同名城堡红湖城坐落在它的北岸。
 got.wp.RedLake=红湖
-got.wp.Redfort.info≠
+got.wp.Redfort.info=红垒是谷地雷德佛家族的家堡，位于鹰巢城东南。
 got.wp.Redfort=红垒
-got.wp.Rhyos.info≠
+got.wp.Rhyos.info=
 got.wp.Rhyos=洛约斯
-got.wp.RillwaterCrossing.info≠
+got.wp.RillwaterCrossing.info=
 got.wp.RillwaterCrossing=奔流河渡口
-got.wp.Rimegate.info≠
+got.wp.Rimegate.info=冰晶门是长城上一座被守夜人军团废弃的城堡。西边是黑貂厅，东边是长车楼。
 got.wp.Rimegate=冰晶门
-got.wp.Ring.info≠
-got.wp.Ring=指环附
-got.wp.RisvellsCastle.info≠
+got.wp.Ring.info=圆环城是河湾地的圆环城的罗克斯顿家族的家堡。
+got.wp.Ring=圆环城
+got.wp.RisvellsCastle.info=
 got.wp.RisvellsCastle=河渡口堡
-got.wp.Riverrun.info≠
+got.wp.Riverrun.info=奔流城是徒利家族祖传几千年的家堡，在安达尔人入侵期间由亚赛尔·徒利大人建立。奔流城位于腾石河与红叉河相交之处。
 got.wp.Riverrun=奔流城
-got.wp.Riverspring.info≠
+got.wp.Riverspring.info=河泉城是位于西境的一座城市和，是萨威克家族的封地。
 got.wp.Riverspring=河泉城
-got.wp.RooksRest.info≠
+got.wp.RooksRest.info=鸦栖堡位于王领东北处，与龙石岛一水相隔，是斯汤顿家族的家堡。
 got.wp.RooksRest=鸦栖堡
-got.wp.Rosby.info≠
+got.wp.Rosby.info=罗斯比城是罗斯比家族的家堡。位于君临北部，是君临到暮谷镇的捷径。罗斯比村镇不大，到处是木条泥土搭成的小屋。
 got.wp.Rosby=罗斯比城
-got.wp.Runestone.info≠
+got.wp.Runestone.info=符石城是罗伊斯家族家堡。它坐落于谷地，海鸥镇的北方。
 got.wp.Runestone=符石城
-got.wp.Ryamsport.info≠
+got.wp.Ryamsport.info=莱安港是河湾地位于雷德温海峡旁的一座小镇港。
 got.wp.Ryamsport=莱安港
-got.wp.Saath.info≠
+got.wp.Saath.info=塞阿斯是厄斯索斯北部一座滨临颤抖海的小型港口城市，它的姊妹城市是塞利斯。塞阿斯有白色的城墙。在古时，伊班人不时尝试夺取萨恩河口，塞阿斯与塞利斯会联手抵抗他们的攻击。塞阿斯是萨洛尔王国最后的遗民，只有不到两万人留存，其他萨洛尔城邦已在数百年前的流血世纪中被多斯拉克人摧毁。曾经强盛的塞阿斯已经衰落，如今只是依靠罗拉斯与伊班岛的支援，其市民经常与罗拉斯的殖民地摩洛西的民众贸易。
 got.wp.Saath=塞阿斯
-got.wp.SableHall.info≠
+got.wp.SableHall.info=黑貂厅是长城上的一座被守夜人军团遗弃的城堡。西边是水滨寨，东边是冰晶门。
 got.wp.SableHall=黑貂厅
-got.wp.Saltcliffe.info≠
+got.wp.Saltcliffe.info=盐崖岛是铁群岛的岛屿之一。这里的贵族包括苏克利夫家族和桑德利家族。
 got.wp.Saltcliffe=盐崖岛
-got.wp.Saltpans.info≠
+got.wp.Saltpans.info=盐场镇 是一个位于河间地，坐落在螃蟹湾边的小镇。是一个贸易港口，可以在此乘到船。一座小城堡统治的小镇,有一座高耸的方形要塞和一堵城墙。城堡俯瞰整个港口。
 got.wp.Saltpans=盐场镇
-got.wp.Saltshore.info≠
+got.wp.Saltshore.info=盐海岸是多恩领内戈根勒斯家族的居城。它位于多恩领南海岸。
 got.wp.Saltshore=盐海岸
-got.wp.Samyriana.info≠
+got.wp.Samyriana.info=沙米利安纳位于远东，是厄斯索斯东部的一个城市，以乳头穿着铁环、双颊镶着红宝石的女战士著称。它曾是Patrimony of Hyrkoon的三座城市堡垒之一， 由Patriarchs of Hyrkoon建立。沙米利安纳位于骸骨山脉的东麓脚下，是石之路的终点，再东边就是大沙海。
 got.wp.Samyriana=沙米利安纳
-got.wp.Sandstone.info≠
+got.wp.Sandstone.info=沙石城是科格尔家族的要塞。它位于万斯河上游、广阔的沙漠中。
 got.wp.Sandstone=沙石城
-got.wp.SarMell.info≠
+got.wp.SarMell.info=萨·梅尔是厄斯索斯大陆上的一座城市废墟。它位于洛恩河的东岸，瓦兰提斯以北。维隆瑟斯镇几乎坐落在它的正西方。
 got.wp.SarMell=萨·梅尔
-got.wp.Sarhoy.info≠
+got.wp.Sarhoy.info=萨霍依是厄斯索斯的一座废墟城市，位于洛恩河的四个出口中之一。 它被瓦兰提斯和瓦雷利亚自由堡垒所摧毁。洛伊拿人在洛恩河口建立了萨霍依，并将其发展成了一座由运河，咸水花园与粉红色石料组成的伟大港口。在第二次香料战争期间，来自瓦雷利亚的三位龙王洗劫了这座城市。战士们被巨龙喷出的龙炎屠杀，而居民则被卖为奴隶。瓦雷利亚人焚毁了城市，并如在古吉斯做的一样，在废墟上撒了盐。在遭受接连的失败之后，娜梅莉亚女王被迫带着她的万船舰队沿洛恩河而下，从萨霍依所在的出海口进入夏日之海。
 got.wp.Sarhoy=萨霍依
-got.wp.Sarsfield.info≠
-got.wp.Sarsfield=萨斯菲尔德
-got.wp.Sathar.info≠
+got.wp.Sarsfield.info=萨斯菲尔德城位于西境，河间大道南侧，凯岩城的东北、金牙城的西南方。它是萨斯菲尔德家族的家堡。
+got.wp.Sarsfield=萨斯菲尔德城
+got.wp.Sathar.info=贾利·卡玛伊是厄斯索斯的古萨洛尔王国留下的城市废墟。它的原名是沙萨尔，但是现在只有它的多斯拉克语名字还保存下来，意思是“哭嚎孩子”。沙萨尔古时被誉为“瀑布之城”，可是在流血世纪间，多斯拉克人的入侵毁灭了这个城邦。
 got.wp.Sathar=沙萨尔
-got.wp.Seagard.info≠
+got.wp.Seagard.info=海疆城是一座城堡和一座城镇，是梅利斯特家族的族堡。海疆城位于河间地西部沿岸，在雄鹰角内，临近蓝叉河的源头。城堡为抵抗铁民的劫掠而修建。
 got.wp.Seagard=海疆城
-got.wp.SealskinPoint.info≠
+got.wp.SealskinPoint.info=海豹皮角位于大威克岛，是法温家族的居城。
 got.wp.SealskinPoint=海豹皮角
-got.wp.SeaworthCastle.info≠
+got.wp.SeaworthCastle.info=
 got.wp.SeaworthCastle=席渥斯堡
-got.wp.Selhorys.info≠
+got.wp.Selhorys.info=赛荷鲁镇是东方大陆的一座有围墙的城镇。尽管它很大，但它仍然被算作一个镇而并非一个城市，受到瓦兰提斯的统辖。它位于赛荷鲁江和洛恩河的交汇处，位于瓦利萨镇的北方，瓦兰提斯的西北。
 got.wp.Selhorys=赛荷鲁镇
-got.wp.SentinelStand.info≠
+got.wp.SentinelStand.info=哨兵楼是长城上一座被遗弃的守夜人城堡。它位于影子塔东侧，灰卫堡西侧。
 got.wp.SentinelStand=哨兵楼
-got.wp.ServinsCastle.info≠
+got.wp.ServinsCastle.info=
 got.wp.ServinsCastle=瑟尔文堡
-got.wp.Sevenstreams.info≠
+got.wp.Sevenstreams.info=七泉镇是河间地的一个村庄，归佛雷家族管辖。若想要饶过蓝叉河，就必须通过七泉镇和布满泥塘和烂路的女巫沼泽。七泉镇一带是蓝叉河的源头，在这里蓝叉河分散成数不清的溪流和河沟。
 got.wp.Sevenstreams=七泉镇
-got.wp.ShadowTower.info≠
+got.wp.ShadowTower.info=影子塔位于长城一端的大山旁，是长城上三座还有守夜人驻守的城堡之一。影子塔位于哨兵楼西侧，西桥望东侧。影子塔由丹尼斯·梅利斯特爵士担任指挥官。
 got.wp.ShadowTower=影子塔
-got.wp.Shandystone.info≠
+got.wp.Shandystone.info=沙岩城是多恩领内一处被遗弃的要塞。它是一座中等规模、有雕纹柱和三重拱门的要塞。在大约200AC左右，沙岩城的井水干涸了，它也因此被守护者遗弃。
 got.wp.Shandystone=沙岩城
-got.wp.SharpPoint.info≠
+got.wp.SharpPoint.info=尖角城位于马赛岬顶端，瞭望塔上燃烧着熊熊烈火。此处是巴尔艾蒙家族的居所。
 got.wp.SharpPoint=尖角
-got.wp.Shatterstone.info≠
+got.wp.Shatterstone.info=碎石堡在铁群岛的老威克岛上，是古柏勒家族的家堡。
 got.wp.Shatterstone=碎石堡
 got.wp.SiQo.info=又称“荣耀的兴都”，是猩红天子在雨林中心建立的新城。
 got.wp.SiQo=兴都
-got.wp.Silverhill.info≠
+got.wp.Silverhill.info=银山城位于西境，在深穴城以南，是沙略特家族的家堡。
 got.wp.Silverhill=银山城
-got.wp.Sisterton.info≠
+got.wp.Sisterton.info=姐妹屯是桑德兰家族的封城，位于咬人湾的三姐妹群岛。姐妹镇是维斯特洛最臭名昭著的走私贩窝点。
 got.wp.Sisterton=姐妹屯
-got.wp.Skane.info≠
+got.wp.Skane.info=斯凯恩岛是一座位于北境的小岛，它坐落于斯卡格斯到西北方。 该岛上的居民很久之前就被斯卡格斯人劫掠杀光或吃掉了。
 got.wp.Skane=斯凯恩岛
-got.wp.SkyReach.info≠
+got.wp.SkyReach.info=天及城是多恩领内佛勒家族的居城。它临近亲王隘口的入口。
 got.wp.SkyReach=天及城
-got.wp.Smithyton.info≠
+got.wp.Smithyton.info=铁匠屯是河湾地的谢莫家族的族堡。
 got.wp.Smithyton=铁匠屯
-got.wp.Snakewood.info≠
+got.wp.Snakewood.info=蛇木城位于谷地，是林德利家族的家堡,  坐落在维斯特洛大陆东岸的狭海之滨。
 got.wp.Snakewood=蛇木城
-got.wp.SouthPass.info≠
+got.wp.SouthPass.info=
 got.wp.SouthPass=南隘口
-got.wp.Southshield.info≠
+got.wp.Southshield.info=南盾岛是河湾地的盾牌列岛中的一个，靠近曼德河口。是西瑞家族的封地。
 got.wp.Southshield=南盾岛
-got.wp.SparrCastle.info≠
+got.wp.SparrCastle.info=
 got.wp.SparrCastle=斯帕城
-got.wp.Spicetown.info≠
+got.wp.Spicetown.info=香料镇是王领的潮头岛上的一个小镇。
 got.wp.Spicetown=香料镇
-got.wp.Spottswood.info≠
+got.wp.Spottswood.info=斑木林是多恩领内桑塔加家族的居城。希尔娃·桑塔加因为她的雀斑被叫做“斑点”希尔娃，但她的朋友们都找借口说，这是她是斑木林继承人的缘故。
 got.wp.Spottswood=斑木林
-got.wp.Standfast.info≠
+got.wp.Standfast.info=坚定堡不仅是一座要塞，而且更是充满了荣耀过往的塔楼。这里曾是奥斯格雷家族最开始的族堡，附近三个村镇的统治中心。其位于河湾地，离海边仅三天骑程。现在坚定堡由于年久失修，庭院里都是散养的鸡群，因而被维伯家族的人戏称为“小鸡塔”。
 got.wp.Standfast=坚定堡
-got.wp.Starfall.info≠
+got.wp.Starfall.info=星坠城，戴恩家族的居城。它位于多恩、夏日之海岸边。那里有一座被称为白石剑塔的高塔。星坠城守卫着多恩的西部港湾。
 got.wp.Starfall=星坠城
-got.wp.StarfishHarbor.info≠
+got.wp.StarfishHarbor.info=海星港是河湾地位于雷德温海峡旁的一座小镇港。
 got.wp.StarfishHarbor=海星港
-got.wp.Starpike.info≠
+got.wp.Starpike.info=星梭城是河湾地内培克家族的家堡。本拥有三座城堡的培克家族，在被剥夺其中两座后只剩下现在的这一座城堡了。
 got.wp.Starpike=星梭城
-got.wp.Stokeworth.info≠
+got.wp.Stokeworth.info=史铎克渥斯堡是史铎克渥斯家族的家堡，位于君临以北不远处。史铎克渥斯堡的学士是法兰肯。
 got.wp.Stokeworth=史铎克渥斯堡
-got.wp.StoneHedge.info≠
+got.wp.StoneHedge.info=石篱城是布雷肯家族的居城，位于河间地。
 got.wp.StoneHedge=石篱城
-got.wp.Stonedance.info≠
-got.wp.Stonedance=石扬堡
-got.wp.Stonedoor.info≠
+got.wp.Stonedance.info=石舞城是王领的马赛家族的家堡，位于马赛岬东侧，面朝狭海。
+got.wp.Stonedance=石舞城
+got.wp.Stonedoor.info=石门寨是长城上一座被遗弃的守夜人城堡。它位于灰卫堡东侧，霜雪山西侧。
 got.wp.Stonedoor=石门寨
-got.wp.Stonehelm.info≠
+got.wp.Stonehelm.info=石盔城是史文家族的族堡。该城位于多恩边疆地东部的红卫地地区，坐落于多恩海北岸的风怒角。该城扼守风暴地内一条大河的河口。
 got.wp.Stonehelm=石盔城
-got.wp.Stonehouse.info≠
+got.wp.Stonehouse.info=石居城是铁群岛上，老威克的石居家族的族堡。
 got.wp.Stonehouse=石居城
-got.wp.StonetreeCastle.info≠
+got.wp.StonetreeCastle.info=斯通垂堡是铁群岛一个小贵族，斯通垂家族的族堡，居于哈尔洛岛。
 got.wp.StonetreeCastle=斯通垂堡
-got.wp.StoneySept.info≠
+got.wp.StoneySept.info=石堂镇，是河间地内一座由城墙围护的小镇。
 got.wp.StoneySept=石堂镇
-got.wp.StormsEnd.info≠
+got.wp.StormsEnd.info=风息堡，是七大王国中最坚固的城堡之一，是拜拉席恩家族的家座，而在其之前的几千年，是古老的风暴王的王位。城堡据说被编织在城墙内的咒语所保护，以防止魔法通过城墙。
 got.wp.StormsEnd=风息堡
-got.wp.Strongsong.info≠
+got.wp.Strongsong.info=洪歌城位于谷地，是贝尔摩家族的家堡。它坐落在鹰巢城的西北。
 got.wp.Strongsong=洪歌城
-got.wp.Stygai.info≠
+got.wp.Stygai.info=斯泰亚是东大陆厄斯索斯的一处城市废墟。它位于阴影之地的山脉中，坐落在亚夏东北方的一片河谷里。死尸之城斯泰亚位于阴影之心，它又被唤作“黑夜之城”，除了正午烈日当空时，这座城市在其余时间都不会被阳光照射到。据说，亚夏以外的阴影之地遍地妖魔怪兽，连缚影士也不敢踏足斯泰亚。
 got.wp.Stygai=斯泰亚
-got.wp.Summerhall.info≠
+got.wp.Summerhall.info=盛夏厅曾是坦格利安家族的夏宫，这座城堡只有少许防御工事。
 got.wp.Summerhall=盛夏厅
-got.wp.SunHouse.info≠
+got.wp.SunHouse.info=阳屋城是库伊家族的族堡，位于河湾地。其位于河湾地南部海岸边。阳屋城外是库伊镇。
 got.wp.SunHouse=阳屋城
-got.wp.Sunderly.info≠
+got.wp.Sunderly.info=桑德利城是盐崖岛的桑德利家族的族堡。
 got.wp.Sunderly=桑德利城
-got.wp.Sunspear.info≠
+got.wp.Sunspear.info=阳戟城是马泰尔家族族堡和多恩首府。它位于绿血河以北，坐落于维斯特洛大陆东南海岸，三面环海。多恩亲王的私人住所流水花园位于阳戟城以西三里格的海滩边，一条滨海道路将它们分开。
 got.wp.Sunspear=阳戟城
 got.wp.SweetLotusVale.info=扎勒岛上的一条河谷。它从该岛中部向南延伸，在檀头镇处入海
 got.wp.SweetLotusVale=甜莲花谷
-got.wp.SweetportSound.info≠
+got.wp.SweetportSound.info=妙港位于王领，是桑格拉斯家族的居所。
 got.wp.SweetportSound=妙港
-got.wp.TallTreesTown.info≠
+got.wp.TallTreesTown.info=高树镇是盛夏群岛上的一个城镇。它是月桂风号的母港。
 got.wp.TallTreesTown=高树镇
-got.wp.TarbeckHall.info≠
+got.wp.TarbeckHall.info=塔贝克厅是位于西境的一座废墟城堡，位于卡斯特梅城和峭岩城附近。这是古老的塔贝克家族的族堡。
 got.wp.TarbeckHall=塔贝克厅
-got.wp.TawneyCastle.info≠
+got.wp.TawneyCastle.info=
 got.wp.TawneyCastle=陶尼堡
-got.wp.Telyria.info≠
+got.wp.Telyria.info=
 got.wp.Telyria=特里瑞亚
 got.wp.TenTowers.info=哈尔洛家族的居城。
 got.wp.TenTowers=十塔城
@@ -4189,161 +4189,161 @@ got.wp.TheEyrie.info=一座古老的城堡，位于艾林谷，是安达尔人�
 got.wp.TheEyrie=鹰巢城
 got.wp.ThePaps.info=位于五指半岛东北角狭海内，效忠谷地的艾林家族。
 got.wp.ThePaps=乳头岛
-got.wp.ThreeEyedRavenCave.info≠
+got.wp.ThreeEyedRavenCave.info=三眼乌鸦石穴位于塞外极北处某地。洞穴隐藏在山丘之下，内部有很多其他山洞与之相连，组成了庞大的洞穴群。幸存的森林之子生活在这里。在一个濒临峡谷的巨大山洞中，布林登大人坐在鱼梁木王座之上。
 got.wp.ThreeEyedRavenCave=三眼乌鸦石穴
-got.wp.ThreeTowers.info≠
+got.wp.ThreeTowers.info=三塔堡是科托因家族的家堡。其位于低语湾南岸的峭壁上，直面 雷德温海峡与低语湾的交界处。
 got.wp.ThreeTowers=三塔堡
 got.wp.Tiqui.info=华紫朝的天子偏好西方丘陵中高塔林立的提岖。
 got.wp.Tiqui=提岖
-got.wp.Tolos.info≠
+got.wp.Tolos.info=托罗斯，是奴隶湾西北岸的一座港口城市。瓦雷利亚大道将它与玛塔里斯和布拉什相连。托罗斯西部坐落着埃利亚之城及其岛屿。黑色大峭壁矗立在托罗斯与布拉什之间。自300AC - 301AC以来，这里的人就一直受到泛滥的血瘟的困扰。
 got.wp.Tolos=脱罗斯
-got.wp.Tor.info≠
+got.wp.Tor.info=托尔城是多恩领内乔戴恩家族的居城。它位于多恩海的南岸。
 got.wp.Tor=托尔城
-got.wp.Torches.info≠
+got.wp.Torches.info=烽火台是长城上的一座被守夜人遗弃的城堡。西边是长车楼，东边是绿卫堡。
 got.wp.Torches=烽火台
-got.wp.TorhensSquare.info≠
+got.wp.TorhensSquare.info=托伦方城是陶哈家族的居城，位于临冬城的西南方的大湖边。它的城墙乃是石砌，三十尺高，四角各有一座方塔，中央还有一座方形碉堡。这是个坚固的堡垒。
 got.wp.TorhensSquare=托伦方城
-got.wp.TorturersDeep.info≠
+got.wp.TorturersDeep.info=
 got.wp.TorturersDeep=酷刑渊
-got.wp.TowerOfGlimmering.info≠
+got.wp.TowerOfGlimmering.info=闪光塔位于哈尔洛岛西岸的悬崖上，是何索·哈尔洛的居城。
 got.wp.TowerOfGlimmering=闪光塔
-got.wp.TowerOfJoy.info≠
+got.wp.TowerOfJoy.info=极乐塔是维斯特洛南部的一座圆塔，靠近多恩的赤红山脉。它位于亲王隘口。随着艾德在298AC殒命贝勒大圣堂，霍兰·黎德成为了极乐塔仅存的见证者。
 got.wp.TowerOfJoy=极乐塔
 got.wp.TraderTown.info=厄斯索斯东部的一个城市。 近来，一个名叫波雄，外号为"鸠格斯奈之锤"的将军，以商贸镇做为首都建国，自称为橙黄朝太祖。
 got.wp.TraderTown=商贸镇
-got.wp.TudburyHoll.info≠
+got.wp.TudburyHoll.info=
 got.wp.TudburyHoll=海龟厅
-got.wp.Tumbleton.info≠
-got.wp.Tumbleton=颠簸屯
-got.wp.Turrani.info≠
+got.wp.Tumbleton.info=腾石镇，是河湾地的傅德利家族的家堡。
+got.wp.Tumbleton=腾石镇
+got.wp.Turrani.info=土拉尼是玉海中雷岛上的一座城市，雷岛树木繁茂，土拉尼坐落在该岛南岸，紧邻一条河流的河口，蝎尾兽群岛位于其北面。土拉尼与雷岛北部的雷·夷城和雷·玛城不同，并非夷地人所建，而是由雷岛的原住民所建。土拉尼盛产香料和宝石，并因此成为了一座富庶之城。
 got.wp.Turrani=土拉尼
-got.wp.TwinsLeft.info≠
+got.wp.TwinsLeft.info=孪河城，又称河渡口，是佛雷家族在渡河口处的要塞，位于河间地。包括两座位于绿叉河两岸的城堡，和一座连接它们的石拱桥。拱桥宽到可以让两辆四轮马车并排通过，并被一座在桥中间叫做卫河塔的塔楼守护。要从北境到西河间地，此处是绿叉河上下几百里内唯一的渡河点，正好坐落在从临冬城到奔流城的大路上。
 got.wp.TwinsLeft=孪河城
-got.wp.TwinsRight.info≠
+got.wp.TwinsRight.info=孪河城，又称河渡口，是佛雷家族在渡河口处的要塞，位于河间地。包括两座位于绿叉河两岸的城堡，和一座连接它们的石拱桥。拱桥宽到可以让两辆四轮马车并排通过，并被一座在桥中间叫做卫河塔的塔楼守护。要从北境到西河间地，此处是绿叉河上下几百里内唯一的渡河点，正好坐落在从临冬城到奔流城的大路上。
 got.wp.TwinsRight=孪河城
-got.wp.Tyria.info≠
+got.wp.Tyria.info=特利亚是一处位于东方大陆的废墟。它在烟海南岸，与之隔海相望的是奥罗斯的废墟。借由瓦雷利亚大道，特利亚与半岛南方的瓦雷利亚城市相连。
 got.wp.Tyria=特利亚
-got.wp.Tyrosh.info≠
+got.wp.Tyrosh.info=泰洛西是一个港口城市，九大自由贸易城邦之一，坐落于石阶列岛北方的一个岛屿上，离争议之地的海岸不远。泰洛西的统治者称为为大君。当地的泰洛西人以贪婪著称。他们常常因争议之地和石阶列岛的主权与他国开战。
 got.wp.Tyrosh=泰洛西
-got.wp.Ulos.info≠
+got.wp.Ulos.info=乌斯岛是藏红花海峡的一个多山的岛屿,  位于乌尔特斯和阴影之地之间。在岛的北岸有一些不知名的民居的废墟。它是已知世界中最东端的岛屿。
 got.wp.Ulos=乌斯岛
-got.wp.Ulthos.info≠
+got.wp.Ulthos.info=乌尔特斯是亚夏以南一块未知大陆，阴影之地与它之间相隔了藏红花海峡。除了它的地理位置和它可能被丛林覆盖之外，就没有任何关于乌尔特斯大陆的资料了。
 got.wp.Ulthos=乌尔特斯
-got.wp.Uplands.info≠
-got.wp.Uplands=高地
-got.wp.VaesAthjikhari.info≠
+got.wp.Uplands.info=高地城是穆伦道尔家族的族堡。它位于旧镇东面，赤红山脉西边。城下的一条支流向西流至旧镇，注入蜜酒河。
+got.wp.Uplands=高地城
+got.wp.VaesAthjikhari.info=维斯·阿斯吉哈卡利是厄斯索斯的古萨洛尔王国留下来的城市遗址。它的古名是塞洛西，不过如今只有它的多斯拉克语名字仍然保存，意思是“疾病之城”。古时塞洛西是有名的学术中心，有一座伟大的图书馆，被誉为“学者之城”。可是在流血世纪时，多斯拉克人征服并毁灭了这座城市。
 got.wp.VaesAthjikhari=维斯·阿斯吉哈卡利
-got.wp.VaesDiaf.info≠
+got.wp.VaesDiaf.info=维斯·迪尔芙是坐落在厄斯索斯大陆多斯拉克海的一座城市，位于萨洛尔王国南面，弥林北面，如今已成废墟。这座城原名“哈扎丹·莫”，“维斯·迪尔芙”是它的多斯拉克语名字，意即“头骨之城”。维斯·迪尔芙是一座丘陵城市，也曾是吉斯帝国一座繁荣的奴隶贸易城市，但瓦雷利亚的末日浩劫之后，流血世纪到来，维斯·迪尔芙毁于多斯拉克人之手。
 got.wp.VaesDiaf=维斯·迪尔芙
-got.wp.VaesDothrak.info≠
+got.wp.VaesDothrak.info=维斯·多斯拉克是多斯拉克人唯一的一座城市，位于多斯拉克海彼端的圣母山下，被称为“世界的子宫”的湖边，又被称为“马王之城”。维斯·多斯拉克没有城墙。它大得足够容纳每一个卡拉萨，就算他们同时归来。这座城市由奴隶和多希卡林，之前所有卡奥的妻子们管理和居住。 在圣城里，携带刀具或流血打斗都被绝对禁止。
 got.wp.VaesDothrak=维斯·多斯拉克
-got.wp.VaesEfe.info≠
+got.wp.VaesEfe.info=维斯·伊芙是一个被毁灭的吉斯卡利城市，位于厄斯索斯中部多斯拉克海的东南边。它在维斯·多斯拉克的南面，斯卡札丹河北方。而在它西南方向的是维斯·梅耶哈和科拉札吉·札斯克。维斯·伊芙在多斯拉克语中意味镣铐之城。
 got.wp.VaesEfe=维斯·伊芙
-got.wp.VaesGorqoyi.info≠
+got.wp.VaesGorqoyi.info=
 got.wp.VaesGorqoyi=维斯·戈乔伊
-got.wp.VaesGraddakh.info≠
+got.wp.VaesGraddakh.info=维斯·格拉德卡是厄斯索斯北方一处城市废墟。它古名是塞利斯，不过现在只有它的多斯拉克语名字还留下来，意思是“污秽之城”。塞利斯是流血世纪间，萨洛尔王国最后一个被多斯拉克人征服的城邦。不过在其被攻陷前，大部分塞利斯的居民已经抛弃了他们的家园了。
 got.wp.VaesGraddakh=维斯·格拉德卡
-got.wp.VaesJini.info≠
+got.wp.VaesJini.info=维斯·伊尼，是厄斯索斯大陆的一座废墟。它位于石之路与丝之路的交汇处、坐落于骸骨山脉西侧的山脚下。它原本叫做伊尼萨尔，城内的居民和沙米利安纳人是远亲。然而现今，它被多斯拉克人称作维斯·伊尼，意为“山羊之城”。
 got.wp.VaesJini=维斯·伊尼
-got.wp.VaesKhadokh.info≠
+got.wp.VaesKhadokh.info=维斯·卡多克是厄斯索斯北部一座已经毁灭的城市。此地原名为爱萨莉亚，不过现在只有它的多斯拉克语名字留下来，意思是“尸骸之城”。这曾是瓦雷利亚自由堡垒建立的殖民地。在流血世纪时，多斯拉克人摧毁了爱萨莉亚。在它存在时，爱萨莉亚藉连接自由贸易城邦与萨洛尔王国的贸易而富裕起来。此城灭亡后人们称它为“失落的自由城邦”。
 got.wp.VaesKhadokh=维斯·卡多克
-got.wp.VaesKhewo.info≠
+got.wp.VaesKhewo.info=维斯·克沃是厄斯索斯大陆西部多斯拉克海的一座城市，坐落在萨洛尔王国南面，如今已成废墟。瓦雷利亚大道连通着维斯·克沃和维斯·卡多克。这座城原名“沙那斯”，“维斯·克沃”是多斯拉克人起的名字，意即“蠕虫之城”。瓦雷利亚的末日浩劫过后，流血世纪到来，这座城毁于多斯拉克人之手。
 got.wp.VaesKhewo=维斯·克沃
-got.wp.VaesLeisi.info≠
+got.wp.VaesLeisi.info=维斯·勒斯，是厄斯索斯北部森林里的一座被毁灭的城镇。它位于伊佛维隆诸王国西部一个伸向颤抖海的小半岛上。新伊斯和同样被毁的维斯·阿斯克都在它的东方。在多斯拉克语中，维斯·勒斯意为“鬼之城”。这里有刻着雕刻的树木和闹鬼的洞窟。一个已经消失的民族曾经居住在这里，他们被多斯拉克人称为伊佛维隆人，或“林中行者”。
 got.wp.VaesLeisi=维斯·勒斯
-got.wp.VaesLeqse.info≠
+got.wp.VaesLeqse.info=维斯·勒科瑟是厄斯索斯大陆北部的古萨洛尔王国遗留的一处城市废墟。其古名是格尔纳西，但是如今只有它的多斯拉克语名字留存下来，意思是“鼠之城”。在流血世纪期间，格尔纳西的国王结盟多斯拉克人进攻其他萨洛尔城邦的君主。可是十二年后，多斯拉克人连格尔纳西也一并攻陷摧毁。
 got.wp.VaesLeqse=维斯·勒科瑟
-got.wp.VaesMejhah.info≠
+got.wp.VaesMejhah.info=维斯·梅耶哈是厄斯索斯大陆上一座被摧毁的吉斯卡利城市，位于多斯拉克海与拉札的交界处。它矗立于斯卡札丹河北部的一条支流边，处在维斯·伊芙和科拉札吉·札斯克之间。维斯·梅耶哈在多斯拉克语中意味妓女之城。
 got.wp.VaesMejhah=维斯·梅耶哈
-got.wp.VaesOrvik.info≠
+got.wp.VaesOrvik.info=维斯·奥瑞科是厄斯索斯一座已成为废墟的城市，它位于红色荒原西南部，南面有耶奥斯港。这里原是一座魁斯人小城，于流血世纪被多斯拉克人摧毁。多斯拉克人从城中带走许多人做奴隶，因此它的多斯拉克语名字翻译过来是“鞭之城”的意思。
 got.wp.VaesOrvik=维斯·奥瑞科
-got.wp.VaesQosar.info≠
+got.wp.VaesQosar.info=维斯·魁萨是厄斯索斯大陆上的一座魁斯城市，如今已成废墟。该城位于红色荒原东南部，其东面有魁卡西，西南方有魁尔斯。这座城原来的名字是魁拉恩，但它于流血世纪毁于多斯拉克人之手，如今人们知晓的是它的多斯拉克语名字“维斯·魁萨”，意即“蜘蛛之城”。
 got.wp.VaesQosar=维斯·魁萨
-got.wp.VaesShirosi.info≠
+got.wp.VaesShirosi.info=维斯·希罗丝是厄斯索斯大陆上的一个小镇，如今已成废墟。该镇位于红色荒原西南部，南面有魁卡西和耶奥斯港。 这座魁斯人的小镇在流血世纪毁于多斯拉克人之手。它的多斯拉克语名字翻译过来是“蝎之城”。
 got.wp.VaesShirosi=维斯·希罗丝
-got.wp.VaesTolorro.info≠
+got.wp.VaesTolorro.info=维斯·托罗若是丹妮莉丝·坦格利安在红色荒原中找到的城市废墟，丹妮的部民给它起了这个名字，在多斯拉克语中，它的意思是“枯骨之城”。环绕城市的高大白墙已成残垣断壁。这座城市是一座小巷组成的迷宫。建筑的空隙很狭窄，正面没有开窗也没有颜色，只有一片惨白。
 got.wp.VaesTolorro=维斯·托罗若
-got.wp.Vahar.info≠
+got.wp.Vahar.info=瓦哈尔是一座城市，位于夏日之海东部一座同名的小岛上，东临大莫拉克岛，西临小莫拉克岛，因香料贸易而致富。
 got.wp.Vahar=瓦哈尔
 got.wp.Vaibei.info=坐落在夷地中央的古老城市。令人值得深思的是，它从未被任何一个朝代定做都城。
 got.wp.Vaibei=魏碑
-got.wp.Vaith.info≠
+got.wp.Vaith.info=万斯城，也叫红丘城，是多恩领内的一处要塞。它位于万斯河上。
 got.wp.Vaith=万斯城
-got.wp.ValyrianRoad.info≠
+got.wp.ValyrianRoad.info=瓦雷利亚大道是瓦雷利亚自由堡垒统治厄斯索斯时期修建的宽阔石路。这些道路笔直，为了货物的快速运输，通常连接经济中心。其中一条位于自由贸易城邦诺佛斯与科霍尔间的广阔土地上。另一条则连接了瓦兰提斯与弥林，自瓦兰提斯向东的路段因其险恶而通常被称为恶魔之路。管距瓦雷利亚自身的毁灭已有四个世纪，这些道路却历久弥新。
 got.wp.ValyrianRoad=瓦雷利亚大道
-got.wp.Valysar.info≠
-got.wp.Valysar=瓦利萨镇
-got.wp.Velos.info≠
+got.wp.Valysar.info=瓦利萨是厄斯索斯大陆的一座城镇，座落于洛恩河西岸，南边是维隆瑟斯镇而北方是赛荷鲁镇。它处于自由城邦瓦兰提斯的管辖下。
+got.wp.Valysar=瓦利萨
+got.wp.Velos.info=瓦罗斯是雪松岛上的一座城市，如今已成废墟。该城坐落在雪松岛最南端，正对奴隶湾。据说瓦雷利亚的末日浩劫来临之时，三百英尺高的巨浪咆哮入城，夺走了成百上千的生命，活下来的只有出海的人，还有一小部分在岛上一座坚固石塔里值守的哨兵，这座石塔位于岛内最高峰，得以幸免于难。塔里的哨兵眼睁睁看着丘陵和山谷尽数被狂暴的海浪吞没，美丽的瓦罗斯连同它的雪松和粉色大理石瞬间消失在眼前。
 got.wp.Velos=瓦罗斯
-got.wp.VictarionLanding.info≠
+got.wp.VictarionLanding.info=
 got.wp.VictarionLanding=维克塔利昂·葛雷乔伊的营地
-got.wp.Vinetown.info≠
+got.wp.Vinetown.info=蔓藤镇是河湾地位于雷德温海峡旁的一座小镇港。
 got.wp.Vinetown=蔓藤镇
-got.wp.Visenya.info≠
+got.wp.Visenya.info=维桑尼亚丘陵是俯瞰君临的三座丘陵之一，其上建有贝勒大圣堂。丘陵的底部是静默修女街道。
 got.wp.Visenya=维桑尼亚
-got.wp.VojjorSamvi.info≠
+got.wp.VojjorSamvi.info=巫加·萨穆伊是厄斯索斯的一座城市,如今已成废墟。该城位于萨洛尔王国东南面，靠近多斯拉克海，西面有维斯·克沃，东南面有贾利·卡玛伊，东北面有维斯·勒科瑟。萨洛尔人原本称其为卡沙斯，也就是“沙漠商队之城”的意思。“巫加·萨穆伊”是它的多斯拉克语名字，意即“破碎的诸神”。
 got.wp.VojjorSamvi=巫加·萨穆伊
-got.wp.Volantis.info≠
+got.wp.Volantis.info=瓦兰提斯位于自由贸易城邦的东南角，争议之地东部，洛恩河的入海口，是距离瓦雷利亚最近的自由贸易城邦。她是瓦雷利亚自由堡垒最早建立的殖民地，历史悠久且实力强大，被誉为“瓦雷利亚的大女儿”、“洛恩河的女王”、“夏日之海的女主人”。
 got.wp.Volantis=瓦兰提斯
-got.wp.Volmark.info≠
+got.wp.Volmark.info=沃马克城位于位于哈尔洛岛，是马伦·沃马克的居城。
 got.wp.Volmark=沃马克城
-got.wp.VolonTherys.info≠
+got.wp.VolonTherys.info=维隆瑟斯镇是厄斯索斯大陆上的城镇。它坐落在洛恩河的西岸。渡河向东是城市萨·梅尔的废墟。维隆瑟斯镇的北方是瓦利萨，西方是橙色海岸。顺着洛恩河流南下，便能到达瓦兰提斯。
 got.wp.VolonTherys=维隆瑟斯镇
-got.wp.VulturesRoost.info≠
+got.wp.VulturesRoost.info=秃鹫巢是多恩领内的一处要塞。它位于赤红山脉的深处。
 got.wp.VulturesRoost=秃鹫巢
 got.wp.Walano.info=盛夏群岛主岛中最北边的一座。
 got.wp.Walano=瓦兰诺岛
-got.wp.WaterGardens.info≠
+got.wp.WaterGardens.info=流水花园是多恩统治者的私人住所。它是一座由喷泉和花园构成的宫殿。它位于阳戟城以西三里格的海滩边，一条滨海道路将它们分开。这里的秋天十分爽朗。白天炎热，夜晚清凉，海上吹来阵阵咸涩的风，还有喷泉和水池。那里也有很多儿童，出身高贵的男孩女孩。贵族家庭与来自多恩各地、各阶层的家庭都会将孩子送来流水花园抚养。在这里，孩子们可以一起在沙滩、水池、喷泉里玩耍。道朗·马泰尔亲王经常在此边看孩子们玩耍边休息思考。
 got.wp.WaterGardens=流水花园
-got.wp.WayfarerRest.info≠
+got.wp.WayfarerRest.info=旅息城位于河间地，是凡斯家族的家堡。
 got.wp.WayfarerRest=旅息城
-got.wp.WeepingTown.info≠
+got.wp.WeepingTown.info=
 got.wp.WeepingTown=哭泣镇
-got.wp.WestPass.info≠
+got.wp.WestPass.info=
 got.wp.WestPass=西隘口
-got.wp.WestWatch.info≠
+got.wp.WestWatch.info=西桥望是守夜人最西边的城堡。这座城堡已被遗弃，位于影子塔的西边，在大峡谷另一侧，头骨桥旁。
 got.wp.WestWatch=西桥望
-got.wp.Whispers.info≠
+got.wp.Whispers.info=轻语堡是蟹爪半岛上的一处城堡废墟，曾是克莱勃家族的家堡。它是一座古老破落的废弃城堡，矗立在悬崖之巅，杂草丛生。之所以被称为“轻语堡”，是因为海水在悬崖下侵蚀出一个个空洞，当波浪穿过地底空穴和通道时，便会发出隆隆响声。
 got.wp.Whispers=轻语堡
-got.wp.WhiteHarbour.info≠
+got.wp.WhiteHarbour.info=白港是一个大港口城市，坐落于临冬城南方，是曼德勒家族的封地。白港是颈泽以北最大的居住地，但是是维斯特洛五大城市中最小的。白港是北境主要的贸易港口，其位于白刃河河口，可以提供更多的贸易机会去更北的地区。
 got.wp.WhiteHarbour=白港
-got.wp.WhiteWalls.info≠
+got.wp.WhiteWalls.info=白墙城是巴特维尔家族的家堡，位于神眼湖畔。五王之战的七八十年前左右，十字路口客栈附近有个渡船码头，人们可以搭摆渡渡过三叉戟河前往哈罗威伯爵的小镇和白墙城，可是后来河流改道，这个渡口便被废弃了。
 got.wp.WhiteWalls=白墙城
-got.wp.WhiteWood.info≠
+got.wp.WhiteWood.info=
 got.wp.WhiteWood=白木林
-got.wp.Whitegrove.info≠
+got.wp.Whitegrove.info=
 got.wp.Whitegrove=白园城
-got.wp.Wickenden.info≠
+got.wp.Wickenden.info=烛穴城位于谷地，螃蟹湾沿岸。是魏克利家族的家堡。
 got.wp.Wickenden=烛穴城
-got.wp.WidowsWatch.info≠
+got.wp.WidowsWatch.info=寡妇望是寡妇望的菲林特家族的领地。它坐落的位置几乎是维斯特洛大陆的最东边。也很靠近狭海的海岸。
 got.wp.WidowsWatch=寡妇望
-got.wp.Winterfell.info≠
+got.wp.Winterfell.info=临冬城是史塔克家族祖传城堡和权力中心，由于该家族的统治权威性而被北境人民长久认定为首府。该城坐落于七大王国北方省份地理中心，国王大道将其与君临和长城连接起来。
 got.wp.Winterfell=临冬城
 got.wp.WitchIsle.info=坐落于艾林谷近海中的众多岛屿之一，曾是厄利夫家族的封地。山谷之王艾利斯特·艾林二世迎娶亚玟·厄利夫后，该岛为艾林家族所有。
 got.wp.WitchIsle=女巫岛
-got.wp.Woodswatch.info≠
+got.wp.Woodswatch.info=水滨寨是长城上一座被守夜人军团遗弃的城堡。西边是橡木盾，东边是黑貂厅。
 got.wp.Woodswatch=水滨寨
-got.wp.Wyl.info≠
+got.wp.Wyl.info=维尔城是维尔家族的居城。它位于多恩领内骨路沿线。
 got.wp.Wyl=维尔城
-got.wp.Wyndhall.info≠
+got.wp.Wyndhall.info=狭厅位于西境，是伊斯兰家族的家堡。
 got.wp.Wyndhall=狭厅
 got.wp.Xon.info=盛夏群岛中的一座岛屿。
 got.wp.Xon=休思岛
-got.wp.Yeen.info≠
+got.wp.Yeen.info=夷林，是索斯罗斯大陆北方的一处巨大城市遗迹，由巨大的油性黑石建造。一条大河从索斯罗斯内陆流出，至夷林时分成多条支流，在夷林的北方冲积成一个三角洲。据记载，这是一个布满蜘蛛和鬼怪的地方，任何重新殖民夷林的尝试最终都会以非常恐怖的结局告终。
 got.wp.Yeen=夷林
 got.wp.Yibin.info=曾是坐落于长河转流处的繁荣城市。三百年前的洪水淹没了整座城市，余下的仅有残垣断壁。
 got.wp.Yibin=夷滨
 got.wp.Yin.info=一座雄伟的港口城市。灰朝、靛蓝朝、珍珠白朝都曾以夷都为都城，统治着整个黄金天朝。如今蔚蓝朝同样将夷作为王都。
 got.wp.Yin=夷都
-got.wp.Yronwood.info≠
+got.wp.Yronwood.info=伊伦伍德城是历代伊伦伍德的居城。它位于多恩领内骨路的入口，被认为是抵抗侵略者的守备要塞。
 got.wp.Yronwood=伊伦伍德城
-got.wp.Yunkai.info≠
+got.wp.Yunkai.info=渊凯 ，又名黄城，是奴隶湾东海岸的一座城市。西边坐落着岛屿雅洛斯岛。其主要出口是奴隶，大多数都是性奴。他们被一群讲着瓦雷利亚语，叫做贤主大人的奴隶主统治着。直到丹妮莉丝·坦格利安攻击并夺取了这座城市，还收编了两个雇佣军团为她服务。
 got.wp.Yunkai=渊凯
 got.wp.Yunnan.info=最东端的都市，因坐落在黎明山脉的山脚下受山脉阴影笼罩从而抹上了几分神秘色彩。
 got.wp.Yunnan=郁南
-got.wp.Zabhad.info≠
+got.wp.Zabhad.info=
 got.wp.Zabhad=扎巴拉
-got.wp.Zamettar.info≠
+got.wp.Zamettar.info=夷门塔，是一座位于索斯罗斯北岸的被毁灭的城市。它位于一个很大的三角洲河口，在蛇蜥群岛的南面、夷林的北方。这座城市曾经是古吉斯帝国的殖民地，后被遗弃。娜梅莉亚率领洛伊拿人迁徙时，曾经在此处停留。 
 got.wp.Zamettar=夷门塔
 got.wp.custom.andMore=以及 %d 
 got.wp.custom.info=远征队 "%d"分享的路径点
@@ -4386,16 +4386,16 @@ item.got.robes.ornament=显(头明饰)
 item.got:aegonHelmet.name=伊耿的王冠
 item.got:aleHorn.name=麦芽酒角
 item.got:aleHornGold.name=金麦芽酒角
-item.got:alloySteelAxe.name≠
-item.got:alloySteelDagger.name≠
-item.got:alloySteelDaggerPoisoned.name≠
-item.got:alloySteelHalberd.name≠
-item.got:alloySteelHoe.name≠
-item.got:alloySteelIgnot.name≠
-item.got:alloySteelNugget.name≠
-item.got:alloySteelPickaxe.name≠
-item.got:alloySteelShovel.name≠
-item.got:alloySteelSword.name≠
+item.got:alloySteelAxe.name=合金钢斧
+item.got:alloySteelDagger.name=合金钢匕首
+item.got:alloySteelDaggerPoisoned.name=合金钢带毒匕首
+item.got:alloySteelHalberd.name=合金钢戟
+item.got:alloySteelHoe.name=合金钢锄头
+item.got:alloySteelIgnot.name=合金钢锭
+item.got:alloySteelNugget.name=合金钢粒
+item.got:alloySteelPickaxe.name=合金钢镐
+item.got:alloySteelShovel.name=合金钢锹
+item.got:alloySteelSword.name=合金钢剑
 item.got:almond.name=杏子
 item.got:amber.name=琥珀
 item.got:amethyst.name=紫水晶
@@ -4428,69 +4428,69 @@ item.got:asshaiMask.name=亚夏缚影士面罩
 item.got:asshaiSpear.name=亚夏矛
 item.got:asshaiStaff.name=缚影士的法杖
 item.got:asshaiSword.name=亚夏剑
-item.got:baelishBrooch.name≠
+item.got:baelishBrooch.name=培提尔贝里席的胸针
 item.got:baelishDagger.name=培提尔贝里席的匕首
 item.got:banana.name=香蕉
 item.got:bananaBread.name=香蕉面包
 item.got:bananaCake.name=香蕉蛋糕
-item.got:bane.name≠
-item.got:banner.aemon.name≠
-item.got:banner.aemonBook.name≠
-item.got:banner.aemonrivers.name≠
+item.got:bane.name=毒药
+item.got:banner.aemon.name=伊蒙·坦格利安的旗帜
+item.got:banner.aemonBook.name=伊蒙·坦格利安的旗帜(原著）
+item.got:banner.aemonrivers.name=伊蒙·河文的旗帜
 item.got:banner.aerion.name=伊利昂的旗帜
-item.got:banner.aerionBook.name≠
-item.got:banner.algood.name≠
+item.got:banner.aerionBook.name=伊利昂的旗帜(旗帜)
+item.got:banner.algood.name=Algood 的旗帜
 item.got:banner.allyrion.name=艾利昂的旗帜
 item.got:banner.alqalis.name=阿夸利斯的旗帜
-item.got:banner.amber.name≠
+item.got:banner.amber.name=安柏的旗帜
 item.got:banner.ambrose.name=安布罗斯的旗帜
-item.got:banner.amorylorch.name≠
+item.got:banner.amorylorch.name=亚摩利·洛奇的旗帜
 item.got:banner.andal.name=安达尔人的旗帜
 item.got:banner.appleton.name=阿普尔顿的旗帜
-item.got:banner.arlan.name≠
+item.got:banner.arlan.name=铜分树村的阿兰爵士的旗帜
 item.got:banner.arryn.name=艾林谷的旗帜
-item.got:banner.arrynBook.name≠
+item.got:banner.arrynBook.name=艾林谷的旗帜(原著)
 item.got:banner.arrynGT.name=艾林谷的月门的旗帜
-item.got:banner.arrynHD.name≠
+item.got:banner.arrynHD.name=艾林谷的旗帜(高清)
 item.got:banner.ashford.name=乌尔特斯的旗帜
-item.got:banner.ashwood.name≠
-item.got:banner.asshai.name≠
+item.got:banner.ashwood.name=阿什伍德的旗帜
+item.got:banner.asshai.name=亚夏旗手
 item.got:banner.astapor.name=阿斯塔波的旗帜
-item.got:banner.auranewaters.name≠
+item.got:banner.auranewaters.name=奥雷恩·维水的旗帜
 item.got:banner.baelish.name=贝里席的旗帜
 item.got:banner.baelishBook.name=贝里席的旗帜（原著）
 item.got:banner.baelishold.name=贝里席的旗帜(旧)
 item.got:banner.ball.name=波尔的旗帜
-item.got:banner.banefort.name=亚夏的旗帜
-item.got:banner.banefortBook.name≠
-item.got:banner.baratheonHD.name≠
-item.got:banner.barbrey.name≠
+item.got:banner.banefort.name=班佛特的旗帜
+item.got:banner.banefortBook.name=班佛特的旗帜(原著)
+item.got:banner.baratheonHD.name=拜拉席恩的旗帜(高清)
+item.got:banner.barbrey.name=芭芭蕾的旗帜
 item.got:banner.baremmon.name=巴尔艾蒙的旗帜
 item.got:banner.beesbury.name=毕斯柏里的旗帜
 item.got:banner.belaerys.name=贝勒里斯的旗帜
 item.got:banner.belmore.name=贝尔摩的旗帜
-item.got:banner.benfrey.name≠
-item.got:banner.bennis.name≠
+item.got:banner.benfrey.name=本佛雷的旗帜
+item.got:banner.bennis.name=本尼斯的旗帜
 item.got:banner.bettley.name=本特利的旗帜
-item.got:banner.bigwalder.name≠
+item.got:banner.bigwalder.name=大瓦德的旗帜
 item.got:banner.bittersteel.name=苦钢的旗帜
 item.got:banner.blackbar.name=布莱巴尔的旗帜
 item.got:banner.blackfish.name=黑鱼的旗帜
 item.got:banner.blackfishBook.name=黑鱼的旗帜 （原著）
 item.got:banner.blackfyre.name=黑火的旗帜
-item.got:banner.blackfyreBook.name≠
+item.got:banner.blackfyreBook.name=黑火的旗帜(原著)
 item.got:banner.blackmont.name=格林的旗帜
 item.got:banner.blacks.name=黑党的旗帜
-item.got:banner.blacksBook.name≠
+item.got:banner.blacksBook.name=黑党的旗帜(原著)
 item.got:banner.blacktyde.name=布莱克泰斯的旗帜
 item.got:banner.blackwood.name=布莱伍德的旗帜
-item.got:banner.blackwoodBook.name≠
-item.got:banner.blanetree.name≠
+item.got:banner.blackwoodBook.name=布莱伍德的旗帜(原著)
+item.got:banner.blanetree.name=班树的旗帜
 item.got:banner.bloodraven.name=血鸦的旗帜
-item.got:banner.bloodravenBook.name≠
+item.got:banner.bloodravenBook.name=血鸦的旗帜(原著)
 item.got:banner.blount.name=布劳恩的旗帜
-item.got:banner.boggs.name≠
-item.got:banner.bole.name≠
+item.got:banner.boggs.name=鲍格斯的旗帜
+item.got:banner.bole.name=树干氏族的旗帜
 item.got:banner.bolling.name=波林的旗帜
 item.got:banner.bolton.name=波顿的旗帜
 item.got:banner.boltonbook.name=波顿的旗帜（原著）
@@ -4498,14 +4498,14 @@ item.got:banner.borrell.name=波内尔的旗帜
 item.got:banner.botley.name=攸伦·葛雷乔伊的旗帜
 item.got:banner.braavos.name=布拉佛斯的旗帜
 item.got:banner.bracken.name=布雷肯的旗帜
-item.got:banner.brackenBook.name≠
-item.got:banner.branch.name≠
-item.got:banner.branfield.name≠
+item.got:banner.brackenBook.name=布雷肯的旗帜(原著)
+item.got:banner.branch.name=树枝氏族的旗帜
+item.got:banner.branfield.name=Branfield的旗帜
 item.got:banner.bravecompanions.name=勇士团的旗帜
 item.got:banner.brax.name=布拉克斯的旗帜
 item.got:banner.breakstone.name=裂石山的旗帜
-item.got:banner.bridges.name≠
-item.got:banner.brightstone.name≠
+item.got:banner.bridges.name=布里吉斯的旗帜
+item.got:banner.brightstone.name=Brightstone的旗帜
 item.got:banner.bronn.name=波隆的旗帜
 item.got:banner.bronnBook.name=波隆的旗帜 （原著）
 item.got:banner.broom.name=布隆的旗帜
@@ -4516,7 +4516,7 @@ item.got:banner.buckler.name=布克勒的旗帜
 item.got:banner.buckwell.name=布克威尔的旗帜
 item.got:banner.bullwer.name=布勒威尔的旗帜
 item.got:banner.burley.name=伯莱利的旗帜
-item.got:banner.bushy.name≠
+item.got:banner.bushy.name=布希的旗帜
 item.got:banner.butterwell.name=巴特威的旗帜
 item.got:banner.byrch.name=拜奇的旗帜
 item.got:banner.bywater.name=拜瓦特的旗帜
@@ -4526,7 +4526,7 @@ item.got:banner.caron.name=卡伦的旗帜
 item.got:banner.cassel.name=凯索的旗帜
 item.got:banner.casterly.name=凯岩城的旗帜
 item.got:banner.caswell.name=卡斯威的旗帜
-item.got:banner.cave.name≠
+item.got:banner.cave.name=凯佛的旗帜
 item.got:banner.celtigar.name=赛提加的旗帜
 item.got:banner.cerwyn.name=赛文的旗帜
 item.got:banner.charlton.name=查尔顿的旗帜
@@ -4534,8 +4534,8 @@ item.got:banner.chelsted.name=切斯德的旗帜
 item.got:banner.chester.name=切斯塔的旗帜
 item.got:banner.chyttering.name=齐特林的旗帜
 item.got:banner.clegane.name=克里冈的旗帜
-item.got:banner.cleos.name≠
-item.got:banner.clifton.name≠
+item.got:banner.cleos.name=克里奥的旗帜
+item.got:banner.clifton.name=克莱夫顿的旗帜
 item.got:banner.cockshaw.name=库克肖的旗帜
 item.got:banner.codd.name=考德的旗帜
 item.got:banner.coldwater.name=寇瓦特的旗帜
@@ -4543,7 +4543,7 @@ item.got:banner.cole.name=科尔的旗帜
 item.got:banner.condon.name=孔顿的旗帜
 item.got:banner.connington.name=克林顿的旗帜
 item.got:banner.corbray.name=科布瑞的旗帜
-item.got:banner.corbrayBook.name≠
+item.got:banner.corbrayBook.name=科布瑞的旗帜(原著)
 item.got:banner.cordwayner.name=考德维那的旗帜
 item.got:banner.costayne.name=科托因的旗帜
 item.got:banner.cox.name=考克斯的旗帜
@@ -4796,7 +4796,7 @@ item.got:banner.morros.name≠
 item.got:banner.mors.name=莫尔斯的旗帜
 item.got:banner.morsBook.name≠
 item.got:banner.moss.name≠
-item.got:banner.mossovy.name≠
+item.got:banner.mossovy.name=摩苏伊旗手
 item.got:banner.mudd.name=穆德的旗帜
 item.got:banner.mullendore.name=穆伦道尔的旗帜
 item.got:banner.musgood.name≠
@@ -5003,7 +5003,7 @@ item.got:banner.vypren.name=瓦尔平的旗帜
 item.got:banner.vyrwel.name=莱维尔的旗帜
 item.got:banner.wagstaff.name=沃德斯塔夫的旗帜
 item.got:banner.walder.name≠
-item.got:banner.walker.name≠
+item.got:banner.walker.name=异鬼旗手
 item.got:banner.warriorsSons.name=战争之子的旗帜
 item.got:banner.waterman.name≠
 item.got:banner.waxley.name=魏克利的旗帜
@@ -5057,7 +5057,7 @@ item.got:bannerTab.name=信誉之旗
 item.got:bearRug.name=熊皮地毯
 item.got:bericSword.name=贝里·唐德利恩的剑
 item.got:berryPie.name=梅馅饼
-item.got:bittersteelHelmet.name≠
+item.got:bittersteelHelmet.name=“寒铁” 伊葛·河文的头盔
 item.got:blackArakh.name=瓦雷利亚钢亚拉克弯刀
 item.got:blackberry.name=黑莓
 item.got:blackfyreBoots.name=黑火靴子
@@ -5066,7 +5066,7 @@ item.got:blackfyreHelmet.name=黑火头盔
 item.got:blackfyreLeggings.name=黑火护腿
 item.got:blackfyreSword.name=黑火
 item.got:blackrootStick.name=黑根木棍
-item.got:blackskinChestplate.name≠
+item.got:blackskinChestplate.name=黑皮护胸
 item.got:blacksmithHammer.name=铁匠锤
 item.got:bloodOfTrueKings.name=真王之血
 item.got:blueberry.name=蓝莓
@@ -5114,16 +5114,16 @@ item.got:chisel.name=凿子
 item.got:clayMug.name=粘土杯
 item.got:clayPlate.name=粘土盘
 item.got:club.name=高山氏族部落棍棒
-item.got:cobaltBlue.name≠
-item.got:coin.1.name≠
-item.got:coin.1024.name≠
-item.got:coin.16.name≠
-item.got:coin.16384.name≠
-item.got:coin.256.name≠
-item.got:coin.4.name≠
-item.got:coin.4096.name≠
-item.got:coin.64.name≠
-item.got:coin.nominal.name≠
+item.got:cobaltBlue.name=钴蓝
+item.got:coin.1.name=铜分
+item.got:coin.1024.name=银月
+item.got:coin.16.name=铜文
+item.got:coin.16384.name=拜大头
+item.got:coin.256.name=银鹿
+item.got:coin.4.name=铜角
+item.got:coin.4096.name=金龙
+item.got:coin.64.name=铜星
+item.got:coin.nominal.name=面值
 item.got:commandHorn.halt.name=命令号角(立定单位)
 item.got:commandHorn.name=命令号角
 item.got:commandHorn.ready.name=命令号角(就绪单位)
@@ -5145,7 +5145,7 @@ item.got:crownlandsBoots.name=王领守卫靴子
 item.got:crownlandsChestplate.name=王领守卫胸甲
 item.got:crownlandsHelmet.name=王领守卫头盔
 item.got:crownlandsLeggings.name=王领守卫护腿
-item.got:cutwave.name≠
+item.got:cutwave.name=断水者
 item.got:daarioArakh.name=达里奥的亚拉克弯刀
 item.got:darkSister.name=黑暗姐妹
 item.got:darkstar.name=黑暗之星
@@ -5186,7 +5186,7 @@ item.got:essosSpear.name=自由联邦矛
 item.got:essosSword.name=自由联邦弯刀
 item.got:euronDagger.name=攸伦的匕首
 item.got:featherDyed.name=染色羽
-item.got:fin.name≠
+item.got:fin.name=鱼翅
 item.got:firePot.name=夷地火桶
 item.got:flax.name=亚麻
 item.got:flaxSeeds.name=亚麻籽
@@ -5237,25 +5237,25 @@ item.got:gregorCleganeSword.name=格雷果·克里冈的巨剑
 item.got:handGold.name=国王之手胸章（金）
 item.got:handSilver.name=国王之手胸章（银）
 item.got:harpy.name=鹰身女妖之面
-item.got:hearteater.name≠
+item.got:hearteater.name=噬心
 item.got:heartsbane.name=碎心
 item.got:hillmenBoots.name=高山氏族部落靴子
 item.got:hillmenChestplate.name=高山氏族部落胸甲
 item.got:hillmenHelmet.name=高山氏族部落头盔
 item.got:hillmenLeggings.name=高山氏族部落护腿
-item.got:honor.name≠
+item.got:honor.name=荣耀
 item.got:horn.name=角
-item.got:ibbenBoots.name≠
-item.got:ibbenChestplate.name≠
-item.got:ibbenHarpoon.name≠
-item.got:ibbenLeggings.name≠
-item.got:ibbenSword.name≠
+item.got:ibbenBoots.name=伊班靴子
+item.got:ibbenChestplate.name=伊班护胸
+item.got:ibbenHarpoon.name=伊班捕鲸叉
+item.got:ibbenLeggings.name=伊班护腿
+item.got:ibbenSword.name=伊班剑
 item.got:ice.name=寒冰
-item.got:iceHeavySword.name≠
-item.got:iceShard.name≠
-item.got:iceSpear.name≠
+item.got:iceHeavySword.name=冰重剑
+item.got:iceShard.name=冰碎片
+item.got:iceSpear.name=冰矛
 item.got:iceSword.name=冰剑
-item.got:indomitable.name≠
+item.got:indomitable.name=不屈
 item.got:ironBattleaxe.name=铁战斧
 item.got:ironCrossbow.name=铁弩
 item.got:ironDagger.name=铁匕首
@@ -5281,7 +5281,7 @@ item.got:kingsguardHelmet.name=御林铁卫头盔
 item.got:kingsguardLeggings.name=御林铁卫护腿
 item.got:ladyForlorn.name=空寂女士
 item.got:lamentation.name=哀悼
-item.got:lannisterBrooch.name≠
+item.got:lannisterBrooch.name=兰尼斯特的胸针
 item.got:leatherHat.name=皮革帽
 item.got:leek.name=韭葱
 item.got:leekSoup.name=韭葱汤
@@ -5391,11 +5391,11 @@ item.got:needle.name=缝衣针
 item.got:nightKingSword.name=夜王的剑
 item.got:nightfall.name=夜临
 item.got:nomadBattleaxe.name=多斯拉克战斧
-item.got:nomadBoots.name≠
+item.got:nomadBoots.name=多斯拉克靴子
 item.got:nomadBow.name=多斯拉克弓
-item.got:nomadChestplate.name≠
-item.got:nomadHelmet.name≠
-item.got:nomadLeggings.name≠
+item.got:nomadChestplate.name=多斯拉克护胸
+item.got:nomadHelmet.name=多斯拉克头盔
+item.got:nomadLeggings.name=多斯拉克护腿
 item.got:nomadSpear.name=多斯拉克矛
 item.got:nomadSword.name=多斯拉克剑
 item.got:northBoots.name=北境靴子
@@ -5459,7 +5459,7 @@ item.got:pomegranate.name=石榴
 item.got:pouch.0.name=小袋子
 item.got:pouch.1.name=中袋子
 item.got:pouch.2.name=大袋子
-item.got:pruner.name≠
+item.got:pruner.name=修枝剪
 item.got:qarthBoots.name=魁尔斯靴子
 item.got:qarthChestplate.name=魁尔斯胸甲
 item.got:qarthHelmet.name=魁尔斯头盔
@@ -5488,11 +5488,11 @@ item.got:redkingBoots.name=红王靴子
 item.got:redkingChestplate.name=红王胸甲
 item.got:redkingHelmet.name=红王头盔
 item.got:redkingLeggings.name=红王护腿
-item.got:reminder.name≠
-item.got:renlyBoots.name≠
-item.got:renlyChestplate.name≠
-item.got:renlyHelmet.name≠
-item.got:renlyLeggings.name≠
+item.got:reminder.name=提醒物
+item.got:renlyBoots.name=蓝礼·拜拉席恩的靴子
+item.got:renlyChestplate.name=蓝礼·拜拉席恩的护胸
+item.got:renlyHelmet.name=蓝礼·拜拉席恩的头盔
+item.got:renlyLeggings.name=蓝礼·拜拉席恩的护腿
 item.got:rhaegarSword.name=雷加·坦格利安的剑
 item.got:rhinoArmor.name=犀牛铠
 item.got:rhinoCooked.name=熟犀牛肉
@@ -5582,7 +5582,7 @@ item.got:targaryenChestplate.name=坦格利安胸甲
 item.got:targaryenHelmet.name=坦格利安头盔
 item.got:targaryenLeggings.name=坦格利安护腿
 item.got:termite.name=爆炸白蚁
-item.got:tidewings.name≠
+item.got:tidewings.name=潮翼
 item.got:tinIngot.name=锡锭
 item.got:topaz.name=黄宝石
 item.got:tormundSword.name=托蒙德的剑
@@ -5626,15 +5626,15 @@ item.got:valyrianRing.name=瓦雷利亚钢戒
 item.got:valyrianShovel.name=瓦雷利亚钢锹
 item.got:valyrianSpear.name=瓦雷利亚钢矛
 item.got:valyrianSword.name=瓦雷利亚钢剑
-item.got:velaryonBrooch.name≠
+item.got:velaryonBrooch.name=瓦列利安的胸针
 item.got:victarionAxe.name=维克塔利昂的巨斧
-item.got:victarionHelmet.name≠
+item.got:victarionHelmet.name=维克塔利昂·葛雷乔伊的头盔
 item.got:vigilance.name=警觉
 item.got:volantisBoots.name=瓦兰提斯靴子
 item.got:volantisChestplate.name=瓦兰提斯胸甲
 item.got:volantisHelmet.name=瓦兰提斯头盔
 item.got:volantisLeggings.name=瓦兰提斯护腿
-item.got:walkingStick.name≠
+item.got:walkingStick.name=手杖
 item.got:waterskin.name=水袋
 item.got:westerlandsBoots.name=西境靴子
 item.got:westerlandsChestplate.name=西境胸甲
@@ -5658,10 +5658,10 @@ item.got:westkingChestplate.name=西境之王胸甲
 item.got:westkingHelmet.name=西境之王头盔
 item.got:westkingLeggings.name=西境之王护腿
 item.got:wheel.name=车轮
-item.got:whiteWalkersBoots.name≠
-item.got:whiteWalkersChestplate.name≠
-item.got:whiteWalkersHoe.name≠
-item.got:whiteWalkersLeggings.name≠
+item.got:whiteWalkersBoots.name=异鬼靴子
+item.got:whiteWalkersChestplate.name=异鬼护胸
+item.got:whiteWalkersHoe.name=异鬼锄
+item.got:whiteWalkersLeggings.name=异鬼护腿
 item.got:widowWail.name=寡妇之嚎
 item.got:wildberry.name=野莓
 item.got:wildlingAxe.name=自由民斧
@@ -5678,21 +5678,21 @@ item.got:yam.name=山药
 item.got:yamRoast.name=烤山药
 item.got:yitiBattleaxe.name=夷地战斧
 item.got:yitiBoots.name=夷地靴子
-item.got:yitiBootsFrontier.name≠
+item.got:yitiBootsFrontier.name=夷地边境守卫靴子
 item.got:yitiBootsSamurai.name=夷地武士靴子
 item.got:yitiBow.name=夷地弓
 item.got:yitiChestplate.name=夷地胸甲
-item.got:yitiChestplateFrontier.name≠
+item.got:yitiChestplateFrontier.name=夷地边境守卫胸甲
 item.got:yitiChestplateSamurai.name=夷地武士胸甲
 item.got:yitiDagger.name=夷地匕首
 item.got:yitiDaggerPoisoned.name=淬毒夷地匕首
 item.got:yitiHelmet.name=夷地头盔
-item.got:yitiHelmetFrontier.name≠
+item.got:yitiHelmetFrontier.name=夷地边境守卫偷窥
 item.got:yitiHelmetSamurai.name=夷地武士头盔
 item.got:yitiHelmetShogune.name=夷地将军头盔
 item.got:yitiHorseArmor.name=夷地马铠
 item.got:yitiLeggings.name=夷地护腿
-item.got:yitiLeggingsFrontier.name≠
+item.got:yitiLeggingsFrontier.name=夷地边境守卫护腿
 item.got:yitiLeggingsSamurai.name=夷地武士护腿
 item.got:yitiPike.name=夷地长矛
 item.got:yitiPolearm.name=夷地战镰
@@ -5766,7 +5766,7 @@ tile.got:blockMetal1.3.name=银块
 tile.got:blockMetal1.4.name=瓦雷利亚钢块
 tile.got:blockMetal2.2.name=镀金铁块
 tile.got:blockMetal2.3.name=盐块
-tile.got:blockMetal2.4.name≠
+tile.got:blockMetal2.4.name=合金钢块
 tile.got:bluebell.name=蓝铃草
 tile.got:bomb.name=炸弹
 tile.got:boneBlock.name=骨块
@@ -6086,7 +6086,7 @@ tile.got:mudFarmland.name=丛林泥耕地
 tile.got:mudGrass.name=丛林草地
 tile.got:niphredil.name=紫荆花
 tile.got:obsidianGravel.name=黑曜石台阶
-tile.got:oreCobalt.name≠
+tile.got:oreCobalt.name=钴矿石
 tile.got:oreCopper.name=铜矿石
 tile.got:oreGem.0.name=黄宝石矿脉
 tile.got:oreGem.1.name=紫水晶矿脉
@@ -6489,14 +6489,14 @@ tile.got:tableAsshai.name=亚夏工作台
 tile.got:tableBraavos.name=布拉佛斯工作台
 tile.got:tableCrownlands.name=王领工作台
 tile.got:tableDorne.name=多恩工作台
-tile.got:tableDothraki.name≠
+tile.got:tableDothraki.name=多斯拉克工作台
 tile.got:tableDragonstone.name=龙石岛工作台
 tile.got:tableGhiscar.name=吉斯卡工作台
 tile.got:tableGift.name=守夜人工作台
 tile.got:tableHillTribes.name=高山氏族部落工作台
 tile.got:tableIbben.name=伊班工作台
 tile.got:tableIronborn.name=铁群岛工作台
-tile.got:tableJogos.name≠
+tile.got:tableJogos.name=鸠格斯奈工作台
 tile.got:tableLhazar.name=拉札尔工作台
 tile.got:tableLorath.name=罗拉斯工作台
 tile.got:tableLys.name=里斯工作台
