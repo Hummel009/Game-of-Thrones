@@ -13,6 +13,8 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTStructureLhazarVillage extends GOTVillageGen {
+	private boolean isTown;
+
 	public GOTStructureLhazarVillage(GOTBiome biome, float f) {
 		super(biome);
 		gridScale = 14;
@@ -26,7 +28,12 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
-	public static class Instance extends GOTVillageGen.AbstractInstance<GOTStructureLhazarVillage> {
+	public GOTStructureLhazarVillage setIsTown() {
+		isTown = true;
+		return this;
+	}
+
+	public class Instance extends GOTVillageGen.AbstractInstance<GOTStructureLhazarVillage> {
 		public VillageType villageType;
 		public int numOuterHouses;
 		public boolean townWall = true;
@@ -38,6 +45,9 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 
 		@Override
 		public void addVillageStructures(Random random) {
+			if (isTown) {
+				villageType = VillageType.TOWN;
+			}
 			if (villageType == VillageType.VILLAGE) {
 				setupVillage(random);
 			} else if (villageType == VillageType.TOWN) {

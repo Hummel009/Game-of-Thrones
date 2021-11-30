@@ -228,6 +228,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 	public static int SPAWN = 500;
 	public static int CONQUEST_SPAWN = 100;
+	public static GOTBiome lhazarFlat;
 	public GOTDimension biomeDimension;
 	public GOTBiomeDecorator decorator;
 	public GOTSpawner spawner;
@@ -1185,6 +1186,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		giftNewFlat = new GOTBiomeGiftNewFlat(id++, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0x9CC453).setBiomeName("giftNew");
 		giftOldFlat = new GOTBiomeGiftOldFlat(id++, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xA5C682).setBiomeName("giftOld");
 		mossovyFlat = new GOTBiomeMossovyFlat(id++, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0x71843C).setBiomeName("mossovy");
+		lhazarFlat = new GOTBiomeLhazarFlat(id++, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xB5AA47).setBiomeName("lhazar");
 	}
 
 	public static void updateWaterColor(int i, int j, int k) {

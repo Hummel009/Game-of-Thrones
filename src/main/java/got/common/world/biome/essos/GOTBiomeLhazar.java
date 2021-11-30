@@ -7,7 +7,8 @@ import got.common.entity.animal.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.*;
 import got.common.world.map.GOTWaypoint.Region;
-import got.common.world.spawning.GOTEventSpawner;
+import got.common.world.spawning.*;
+import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.essos.lhazar.GOTStructureLhazarVillage;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -16,12 +17,12 @@ public class GOTBiomeLhazar extends GOTBiome {
 	public GOTBiomeLhazar(int i, boolean major) {
 		super(i, major);
 		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityLion.class, 4, 2, 4));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityLioness.class, 4, 2, 4));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGiraffe.class, 4, 4, 6));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntitySheep.class, 8, 4, 8));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityRhino.class, 8, 4, 4));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGemsbok.class, 8, 4, 8));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityLion.class, 4, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityLioness.class, 4, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGiraffe.class, 4, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntitySheep.class, 8, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityRhino.class, 2, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGemsbok.class, 8, 1, 2));
 		spawnableGOTAmbientList.clear();
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 5, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 8, 4, 4));
@@ -31,11 +32,10 @@ public class GOTBiomeLhazar extends GOTBiome {
 		decorator.flowersPerChunk = 3;
 		decorator.doubleFlowersPerChunk = 1;
 		registerExoticFlowers();
-		GOTStructureLhazarVillage village = new GOTStructureLhazarVillage(this, 1.0f);
-		village.affix(GOTWaypoint.Hesh);
-		village.affix(GOTWaypoint.Lhazosh);
-		village.affix(GOTWaypoint.Kosrak);
-		decorator.affix(village);
+		SpawnListContainer[] container1 = new SpawnListContainer[1];
+		container1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DOTHRAKI_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
+		npcSpawnList.newFactionList(0).add(container1);
+		decorator.affix(new GOTStructureLhazarVillage(this, 1.0f));
 		invasionSpawns.addInvasion(GOTInvasions.DOTHRAKI, GOTEventSpawner.EventChance.UNCOMMON);
 
 	}
