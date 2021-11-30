@@ -9,6 +9,7 @@ import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
+import got.common.world.map.GOTBezierType;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
@@ -92,5 +93,15 @@ public class GOTBiomeBoneMountains extends GOTBiome {
 	@Override
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.ESSOS.getSubregion("boneMountains");
+	}
+
+	@Override
+	public GOTBezierType getWallBlock() {
+		return GOTBezierType.COBBLEBRICK;
+	}
+
+	@Override
+	public int getWallTop() {
+		return 90;
 	}
 }

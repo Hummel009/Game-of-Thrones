@@ -60,6 +60,7 @@ public class GOTWalls {
 		GOTWalls.registerWall("Wall", GOTWaypoint.WestWatch, near(GOTWaypoint.CastleBlack, 0, -1), near(GOTWaypoint.EastWatch, 2, 0));
 		GOTWalls.registerWall("Wall", new int[] { 2659, 1218 }, new int[] { 2676, 1220 }, new int[] { 2693, 1218 });
 		GOTWalls.registerWall("Wall", new int[] { 3257, 1864 }, new int[] { 3425, 1856 }, new int[] { 3629, 1877 }, new int[] { 3763, 1911 });
+		GOTWalls.registerWall("Wall", new int[] { 3028, 1843 }, new int[] { 3097, 1857 }, new int[] { 3179, 1863 }, new int[] { 3257, 1864 });
 		System.nanoTime();
 		for (Map.Entry e : GOTWalls.wallPointDatabase.pointMap.entrySet()) {
 			((List) e.getValue()).size();
