@@ -1178,7 +1178,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		yeen = new GOTBiomeYeen(id++, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x240035).setBiomeName("yeen");
 		yiTi = new GOTBiomeYiTi(id++, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xBEB74D).setBiomeName("yiTi");
 		yiTiFlat = new GOTBiomeYiTiFlat(id++, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xBEB74E).setBiomeName("yiTi");
-		yiTiWasteland = new GOTBiomeYiTiWasteland(id++, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xA7A053).setBiomeName("yiTiWasteland");
+		yiTiWasteland = new GOTBiomeYiTiWasteland(id++, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xADA647).setBiomeName("yiTiWasteland");
 		yunkai = new GOTBiomeYunkai(id++, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xA3AA48).setBiomeName("yunkai");
 		ibbenMountains = new GOTBiomeIbbenMountains(id++, true).setIsLongWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0x808081).setBiomeName("ibbenMountains");
 		ibbenFlat = new GOTBiomeIbbenFlat(id++, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0x74B748).setBiomeName("ibben");
