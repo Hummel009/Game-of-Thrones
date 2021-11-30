@@ -20,6 +20,7 @@ CHANGELOG
 + Added new skins for Free Cities
 + Added septon, red and ironborn priests
 + Added gates in the Wall
++ Added Great Yi Ti Wall
 
 + Enabled vanilla brewing without config
 
