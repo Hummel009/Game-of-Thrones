@@ -142,7 +142,7 @@ public class GOTRoads {
 		GOTRoads.registerRoad(id++, GOTWaypoint.Moletown, new int[] { 747, 742 }, new int[] { 711, 783 }, new int[] { 672, 826 }, near(GOTWaypoint.Winterfell, 0, -1));
 		GOTRoads.registerRoad(id++, GOTWaypoint.Myr, GOTWaypoint.Chroyane);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Nightsong, near(GOTWaypoint.Nightsong, 0, 1));
-		GOTRoads.registerRoad(id++, GOTWaypoint.NySar, GOTWaypoint.Chroyane);
+		GOTRoads.registerRoad(id++, GOTWaypoint.Chroyane, GOTWaypoint.NySar, GOTWaypoint.Norvos);
 		GOTRoads.registerRoad(id++, GOTWaypoint.OldOak, near(GOTWaypoint.OldOak, -1, 0));
 		GOTRoads.registerRoad(id++, GOTWaypoint.OldOak, new int[] { 438, 1773 }, GOTWaypoint.Highgarden);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Oldtown, near(GOTWaypoint.Oldtown, -1, 0));
@@ -150,6 +150,7 @@ public class GOTRoads {
 		GOTRoads.registerRoad(id++, GOTWaypoint.PortYhos, GOTWaypoint.VaesOrvik);
 		GOTRoads.registerRoad(id++, GOTWaypoint.RamsGate, near(GOTWaypoint.RamsGate, -1, 0));
 		GOTRoads.registerRoad(id++, GOTWaypoint.Rhyos, GOTWaypoint.Oros);
+		GOTRoads.registerRoad(id++, GOTWaypoint.Pentos, GOTWaypoint.GhoyanDrohe, GOTWaypoint.NySar, GOTWaypoint.ArNoy);
 		GOTRoads.registerRoad(id++, GOTWaypoint.RillwaterCrossing, near(GOTWaypoint.RillwaterCrossing, 0, 1));
 		GOTRoads.registerRoad(id++, GOTWaypoint.RisvellsCastle, near(GOTWaypoint.RisvellsCastle, 0, 1));
 		GOTRoads.registerRoad(id++, GOTWaypoint.Riverrun, near(GOTWaypoint.Riverrun, 1, 0));
@@ -182,7 +183,7 @@ public class GOTRoads {
 		GOTRoads.registerRoad(id++, GOTWaypoint.Tumbleton, near(GOTWaypoint.Tumbleton, 0, -1));
 		GOTRoads.registerRoad(id++, GOTWaypoint.TwinsLeft, GOTWaypoint.Seagard);
 		GOTRoads.registerRoad(id++, GOTWaypoint.TwinsRight, GOTWaypoint.TwinsLeft);
-		GOTRoads.registerRoad(id++, GOTWaypoint.VaesGorqoyi, GOTWaypoint.Rathylar, GOTWaypoint.Hornoth, GOTWaypoint.Kyth, GOTWaypoint.Saath);
+		GOTRoads.registerRoad(id++, GOTWaypoint.VaesKhadokh, GOTWaypoint.Rathylar, GOTWaypoint.Hornoth, GOTWaypoint.Kyth, GOTWaypoint.Saath);
 		GOTRoads.registerRoad(id++, GOTWaypoint.VaesLeqse, GOTWaypoint.VaesDothrak, GOTWaypoint.Kayakayanaya);
 		GOTRoads.registerRoad(id++, GOTWaypoint.VaesMejhah, GOTWaypoint.VaesJini, GOTWaypoint.Samyriana, new int[] { 3219, 1895 }, GOTWaypoint.TraderTown);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Vaibei, near(GOTWaypoint.Vaibei, -1, 0));
