@@ -11,6 +11,7 @@ public class GOTWalls {
 	public WallPoint[] wallPoints;
 	public List<WallPoint> endpoints = new ArrayList<>();
 	public String wallName;
+	public static int id = 0;
 
 	public GOTWalls(String name, WallPoint... ends) {
 		wallName = name;
@@ -54,20 +55,15 @@ public class GOTWalls {
 	}
 
 	public static void onInit() {
-		System.nanoTime();
 		allWalls.clear();
 		wallPointDatabase = new WallPointDatabase();
-		GOTWalls.registerWall("Wall", GOTWaypoint.WestWatch, near(GOTWaypoint.CastleBlack, 0, -1), near(GOTWaypoint.EastWatch, 2, 0));
-		GOTWalls.registerWall("Wall", new int[] { 2659, 1218 }, new int[] { 2676, 1220 }, new int[] { 2693, 1218 });
-		GOTWalls.registerWall("Wall", new int[] { 3257, 1864 }, new int[] { 3425, 1856 }, new int[] { 3629, 1877 }, new int[] { 3763, 1911 });
-		GOTWalls.registerWall("Wall", new int[] { 3028, 1843 }, new int[] { 3097, 1857 }, new int[] { 3179, 1863 }, new int[] { 3257, 1864 });
-		System.nanoTime();
-		for (Map.Entry e : GOTWalls.wallPointDatabase.pointMap.entrySet()) {
-			((List) e.getValue()).size();
-		}
+		GOTWalls.registerWall(id++, GOTWaypoint.WestWatch, near(GOTWaypoint.CastleBlack, 0, -1), near(GOTWaypoint.EastWatch, 2, 0));
+		GOTWalls.registerWall(id++, new int[] { 2659, 1218 }, new int[] { 2676, 1220 }, new int[] { 2693, 1218 });
+		GOTWalls.registerWall(id++, new int[] { 3257, 1864 }, new int[] { 3425, 1856 }, new int[] { 3629, 1877 }, new int[] { 3763, 1911 });
+		GOTWalls.registerWall(id++, new int[] { 3028, 1843 }, new int[] { 3097, 1857 }, new int[] { 3179, 1863 }, new int[] { 3257, 1864 });
 	}
 
-	public static void registerWall(String name, Object... waypoints) {
+	public static void registerWall(int num, Object... waypoints) {
 		ArrayList<WallPoint> points = new ArrayList<>();
 		for (Object obj : waypoints) {
 			if (obj instanceof GOTWaypoint) {
@@ -86,7 +82,7 @@ public class GOTWalls {
 			throw new IllegalArgumentException("Wrong wall parameter!");
 		}
 		WallPoint[] array = points.toArray(new WallPoint[0]);
-		GOTWalls[] walls = BezierCurves.getSplines(name, array);
+		GOTWalls[] walls = BezierCurves.getSplines(null, array);
 		allWalls.addAll(Arrays.asList(walls));
 	}
 

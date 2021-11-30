@@ -4,8 +4,6 @@ import java.util.*;
 
 import org.apache.commons.lang3.tuple.Pair;
 
-import cpw.mods.fml.common.FMLLog;
-
 public class GOTRoads {
 	public static List<GOTRoads> allRoads = new ArrayList<>();
 	public static RoadPointDatabase roadPointDatabase = new RoadPointDatabase();
@@ -61,8 +59,6 @@ public class GOTRoads {
 	}
 
 	public static void onInit() {
-		FMLLog.info("Hummel009: Loading bezier curvs");
-		System.nanoTime();
 		allRoads.clear();
 		roadPointDatabase = new RoadPointDatabase();
 		GOTRoads.registerRoad(id++, GOTWaypoint.Appleton, near(GOTWaypoint.Appleton, 0, -1));
@@ -227,10 +223,6 @@ public class GOTRoads {
 		GOTRoads.registerRoad(id++, new int[] { 2995, 2293 }, new int[] { 3034, 2243 }, new int[] { 3081, 2240 }, GOTWaypoint.Asabhad);
 		GOTRoads.registerRoad(id++, new int[] { 3081, 2240 }, new int[] { 3088, 2202 }, new int[] { 3093, 2162 }, GOTWaypoint.Eijiang);
 		GOTRoads.registerRoad(id++, new int[] { 3634, 2281 }, new int[] { 3688, 2321 }, new int[] { 3756, 2321 }, GOTWaypoint.Yunnan);
-		System.nanoTime();
-		for (Map.Entry e : GOTRoads.roadPointDatabase.pointMap.entrySet()) {
-			((List) e.getValue()).size();
-		}
 	}
 
 	public static void registerRoad(int id, Object... waypoints) {

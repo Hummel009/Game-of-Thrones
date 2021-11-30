@@ -225,6 +225,7 @@ public class GOT {
 		GOTLog.logger.info("Hummel009: Registered " + GOTStructure.id + " structures");
 		GOTLog.logger.info("Hummel009: Registered " + GOTBiome.id + " biomes");
 		GOTLog.logger.info("Hummel009: Registered " + GOTRoads.id + " roads");
+		GOTLog.logger.info("Hummel009: Registered " + GOTWalls.id + " walls");
 		GOTLog.logger.info("Hummel009: Registered " + waypoints + " waypoints");
 		GOTLog.logger.info("Hummel009: Registered " + factions + " factions");
 		GOTLog.logger.info("Hummel009: Registered " + items + " items");
