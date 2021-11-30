@@ -11,7 +11,13 @@ public abstract class GOTBezierType {
 	public static GOTBezierType WOOD = new GOTBezierType() {
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
-			return new BezierBlock(GOTRegistry.woodBeam1, 0);
+			return new BezierBlock(Blocks.planks, 1);
+		}
+	};
+	public static GOTBezierType COBBLEBRICK = new GOTBezierType() {
+		@Override
+		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
+			return new BezierBlock(GOTRegistry.cobblebrick, 0);
 		}
 	};
 

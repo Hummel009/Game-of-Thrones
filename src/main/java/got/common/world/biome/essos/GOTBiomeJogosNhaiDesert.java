@@ -122,4 +122,14 @@ public class GOTBiomeJogosNhaiDesert extends GOTBiome {
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.PATH_SANDY;
 	}
+
+	@Override
+	public GOTBezierType getWallBlock() {
+		return GOTBezierType.COBBLEBRICK;
+	}
+
+	@Override
+	public int getWallTop() {
+		return 90;
+	}
 }

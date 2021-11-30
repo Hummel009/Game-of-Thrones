@@ -221,4 +221,14 @@ public class GOTBiomeYiTi extends GOTBiome {
 	public int spawnCountMultiplier() {
 		return 3;
 	}
+
+	@Override
+	public GOTBezierType getWallBlock() {
+		return GOTBezierType.COBBLEBRICK;
+	}
+
+	@Override
+	public int getWallTop() {
+		return 90;
+	}
 }
