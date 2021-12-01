@@ -36,6 +36,7 @@ CHANGELOG
 * Improved faction relations
 * Improved faction, egg & structure colors
 * Improved russian translation
+* Improved chinese translation
 * Improved trade entries
 * Improved Shadow Wasteland
 * Improved season changes in mountains (added attitude zones)
