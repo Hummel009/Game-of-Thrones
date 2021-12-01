@@ -70,7 +70,7 @@ entity.got.AsshaiMan.name≠
 entity.got.AsshaiShadowbinder.name≠
 entity.got.AsshaiSpherebinder.name≠
 entity.got.AuraneWaters.name≠
-entity.got.Aurochs.name=Bölény
+entity.got.Bison.name=Bölény
 entity.got.BaelorBlacktyde.name≠
 entity.got.BalonGreyjoy.name≠
 entity.got.Banner.name=Zászló
@@ -371,7 +371,7 @@ entity.got.JonosBracken.name≠
 entity.got.JorahMormont.name≠
 entity.got.JungleScorpion.name=Dzsungeli Skorpió
 entity.got.KevanLannister.name≠
-entity.got.KineAraw.name=Arawbölény
+entity.got.WhiteBison.name=Arawbölény
 entity.got.Kingsguard.name≠
 entity.got.KitraJuvain.name≠
 entity.got.KraznysMoNakloz.name≠
@@ -5274,7 +5274,7 @@ item.got:kaftanChestplate.name≠
 item.got:kaftanLeggings.name≠
 item.got:katana.name≠
 item.got:kebab.name=Kebab
-item.got:kineArawHorn.name=Arawbölény Szarv
+item.got:WhiteBisonHorn.name=Arawbölény Szarv
 item.got:kingsguardBoots.name≠
 item.got:kingsguardChestplate.name≠
 item.got:kingsguardHelmet.name≠
