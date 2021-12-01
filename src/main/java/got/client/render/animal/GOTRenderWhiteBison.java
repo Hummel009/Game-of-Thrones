@@ -16,8 +16,8 @@ public class GOTRenderWhiteBison extends GOTRenderBison {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		GOTEntityWhiteBison kine = (GOTEntityWhiteBison) entity;
-		return wbisonSkins.getRandomSkin(kine);
+		GOTEntityWhiteBison bison = (GOTEntityWhiteBison) entity;
+		return wbisonSkins.getRandomSkin(bison);
 	}
 
 	@Override

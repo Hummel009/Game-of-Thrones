@@ -7,9 +7,9 @@ public class GOTModelYiTiHelmet extends GOTModelBiped {
 		this(0.0f, false);
 	}
 
-	public GOTModelYiTiHelmet(float f, boolean kineHorns) {
+	public GOTModelYiTiHelmet(float f, boolean bisonHorns) {
 		super(f);
-		if (kineHorns) {
+		if (bisonHorns) {
 			textureWidth = 64;
 			textureHeight = 64;
 		} else {
@@ -34,40 +34,40 @@ public class GOTModelYiTiHelmet extends GOTModelBiped {
 		crest.addBox(-6.0f, -2.0f, 0.0f, 12, 2, 0, 0.0f);
 		crest.rotateAngleX = (float) Math.toRadians(30.0);
 		bipedHead.addChild(crest);
-		if (kineHorns) {
-			ModelRenderer kineHornRight = new ModelRenderer(this, 0, 32);
-			kineHornRight.setRotationPoint(-1.0f - f, -8.0f - f, 0.0f);
-			kineHornRight.addBox(-7.0f, -1.5f, -1.5f, 7, 3, 3, 0.0f);
-			ModelRenderer kineHornRight1 = new ModelRenderer(this, 0, 38);
-			kineHornRight1.setRotationPoint(-7.0f, 0.0f, 0.0f);
-			kineHornRight1.addBox(-5.0f, -1.0f, -1.0f, 6, 2, 2, 0.0f);
-			ModelRenderer kineHornRight2 = new ModelRenderer(this, 0, 42);
-			kineHornRight2.setRotationPoint(-5.0f, 0.0f, 0.0f);
-			kineHornRight2.addBox(-3.0f, -0.5f, -0.5f, 4, 1, 1, 0.0f);
-			ModelRenderer kineHornLeft = new ModelRenderer(this, 0, 32);
-			kineHornLeft.mirror = true;
-			kineHornLeft.setRotationPoint(1.0f + f, -8.0f - f, 0.0f);
-			kineHornLeft.addBox(0.0f, -1.5f, -1.5f, 7, 3, 3, 0.0f);
-			ModelRenderer kineHornLeft1 = new ModelRenderer(this, 0, 38);
-			kineHornLeft1.mirror = true;
-			kineHornLeft1.setRotationPoint(7.0f, 0.0f, 0.0f);
-			kineHornLeft1.addBox(-1.0f, -1.0f, -1.0f, 6, 2, 2, 0.0f);
-			ModelRenderer kineHornLeft2 = new ModelRenderer(this, 0, 42);
-			kineHornLeft2.mirror = true;
-			kineHornLeft2.setRotationPoint(5.0f, 0.0f, 0.0f);
-			kineHornLeft2.addBox(-1.0f, -0.5f, -0.5f, 4, 1, 1, 0.0f);
-			kineHornRight.rotateAngleZ = (float) Math.toRadians(40.0);
-			kineHornLeft.rotateAngleZ = -kineHornRight.rotateAngleZ;
-			kineHornRight1.rotateAngleZ = (float) Math.toRadians(-30.0);
-			kineHornLeft1.rotateAngleZ = -kineHornRight1.rotateAngleZ;
-			kineHornRight2.rotateAngleZ = (float) Math.toRadians(-30.0);
-			kineHornLeft2.rotateAngleZ = -kineHornRight2.rotateAngleZ;
-			bipedHead.addChild(kineHornRight);
-			kineHornRight.addChild(kineHornRight1);
-			kineHornRight1.addChild(kineHornRight2);
-			bipedHead.addChild(kineHornLeft);
-			kineHornLeft.addChild(kineHornLeft1);
-			kineHornLeft1.addChild(kineHornLeft2);
+		if (bisonHorns) {
+			ModelRenderer bisonHornRight = new ModelRenderer(this, 0, 32);
+			bisonHornRight.setRotationPoint(-1.0f - f, -8.0f - f, 0.0f);
+			bisonHornRight.addBox(-7.0f, -1.5f, -1.5f, 7, 3, 3, 0.0f);
+			ModelRenderer bisonHornRight1 = new ModelRenderer(this, 0, 38);
+			bisonHornRight1.setRotationPoint(-7.0f, 0.0f, 0.0f);
+			bisonHornRight1.addBox(-5.0f, -1.0f, -1.0f, 6, 2, 2, 0.0f);
+			ModelRenderer bisonHornRight2 = new ModelRenderer(this, 0, 42);
+			bisonHornRight2.setRotationPoint(-5.0f, 0.0f, 0.0f);
+			bisonHornRight2.addBox(-3.0f, -0.5f, -0.5f, 4, 1, 1, 0.0f);
+			ModelRenderer bisonHornLeft = new ModelRenderer(this, 0, 32);
+			bisonHornLeft.mirror = true;
+			bisonHornLeft.setRotationPoint(1.0f + f, -8.0f - f, 0.0f);
+			bisonHornLeft.addBox(0.0f, -1.5f, -1.5f, 7, 3, 3, 0.0f);
+			ModelRenderer bisonHornLeft1 = new ModelRenderer(this, 0, 38);
+			bisonHornLeft1.mirror = true;
+			bisonHornLeft1.setRotationPoint(7.0f, 0.0f, 0.0f);
+			bisonHornLeft1.addBox(-1.0f, -1.0f, -1.0f, 6, 2, 2, 0.0f);
+			ModelRenderer bisonHornLeft2 = new ModelRenderer(this, 0, 42);
+			bisonHornLeft2.mirror = true;
+			bisonHornLeft2.setRotationPoint(5.0f, 0.0f, 0.0f);
+			bisonHornLeft2.addBox(-1.0f, -0.5f, -0.5f, 4, 1, 1, 0.0f);
+			bisonHornRight.rotateAngleZ = (float) Math.toRadians(40.0);
+			bisonHornLeft.rotateAngleZ = -bisonHornRight.rotateAngleZ;
+			bisonHornRight1.rotateAngleZ = (float) Math.toRadians(-30.0);
+			bisonHornLeft1.rotateAngleZ = -bisonHornRight1.rotateAngleZ;
+			bisonHornRight2.rotateAngleZ = (float) Math.toRadians(-30.0);
+			bisonHornLeft2.rotateAngleZ = -bisonHornRight2.rotateAngleZ;
+			bipedHead.addChild(bisonHornRight);
+			bisonHornRight.addChild(bisonHornRight1);
+			bisonHornRight1.addChild(bisonHornRight2);
+			bipedHead.addChild(bisonHornLeft);
+			bisonHornLeft.addChild(bisonHornLeft1);
+			bisonHornLeft1.addChild(bisonHornLeft2);
 		}
 		bipedHeadwear.cubeList.clear();
 		bipedBody.cubeList.clear();

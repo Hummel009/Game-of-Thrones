@@ -3529,7 +3529,7 @@ public class GOTRegistry {
 		registerItem(mugWhiteGrapeJuice, "mugWhiteGrapeJuice");
 		registerItem(wildlingPolearm, "wildlingPolearm");
 		registerItem(turnipCooked, "turnipCooked");
-		registerItem(whiteBisonHorn, "kineArawHorn");
+		registerItem(whiteBisonHorn, "whiteBisonHorn");
 		registerItem(melonSoup, "melonSoup");
 		registerItem(ceramicMug, "ceramicMug");
 		registerItem(essosPike, "essosPike");
