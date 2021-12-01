@@ -2,6 +2,7 @@ package got.common.world.biome.westeros;
 
 import java.util.*;
 
+import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
@@ -198,7 +199,7 @@ public class GOTBiomeDorneMesa extends GOTBiome {
 
 	@Override
 	public MusicRegion getBiomeMusic() {
-		return null;
+		return GOTBiomeMusic.WESTEROS.getSubregion("halfLife");
 	}
 
 	public byte levelGenerator(int a, int b, int c) {

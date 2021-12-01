@@ -365,7 +365,7 @@ public class GOTRender {
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityHorse.class, new GOTRenderHorse());
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityIceSpider.class, new GOTRenderIceSpider());
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityInvasionSpawner.class, new GOTRenderInvasionSpawner());
-		RenderingRegistry.registerEntityRenderingHandler(GOTEntityKineAraw.class, new GOTRenderKineAraw());
+		RenderingRegistry.registerEntityRenderingHandler(GOTEntityWhiteBison.class, new GOTRenderWhiteBison());
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityLancelLannister.Normal.class, new GOTRenderLancelLannister.Normal());
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityLancelLannister.Religious.class, new GOTRenderLancelLannister.Religious());
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityLingeringEffect.class, new GOTRenderLingeringEffect());

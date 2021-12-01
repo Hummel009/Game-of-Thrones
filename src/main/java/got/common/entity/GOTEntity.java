@@ -78,7 +78,7 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityGorcrow.class, "Gorcrow", id++, 928034);
 		GOTEntityRegistry.register(GOTEntityHorse.class, "Horse", id++, 8601889);
 		GOTEntityRegistry.register(GOTEntityJungleScorpion.class, "JungleScorpion", id++, 2630945);
-		GOTEntityRegistry.register(GOTEntityKineAraw.class, "KineAraw", id++, 16702665);
+		GOTEntityRegistry.register(GOTEntityWhiteBison.class, "KineAraw", id++, 16702665);
 		GOTEntityRegistry.register(GOTEntityLion.class, "Lion", id++, 13345354);
 		GOTEntityRegistry.register(GOTEntityLioness.class, "Lioness", id++, 13346908);
 		GOTEntityRegistry.register(GOTEntityMammoth.class, "Mammoth", id++, 5653040);

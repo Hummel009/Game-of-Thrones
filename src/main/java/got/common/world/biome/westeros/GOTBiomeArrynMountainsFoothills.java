@@ -24,9 +24,9 @@ public class GOTBiomeArrynMountainsFoothills extends GOTBiomeArrynMountains {
 		SpawnListContainer[] container3 = new SpawnListContainer[1];
 		container3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container3);
-		decorator.addRandomStructure(new GOTStructureHillmanHouse(false), 25);
-		decorator.addRandomStructure(new GOTStructureHillmanTavern(false), 100);
-		decorator.addRandomStructure(new GOTStructureHillmanHillFort(false), 150);
+		decorator.addRandomStructure(new GOTStructureHillmanHouse(false), 250);
+		decorator.addRandomStructure(new GOTStructureHillmanTavern(false), 500);
+		decorator.addRandomStructure(new GOTStructureHillmanHillFort(false), 1000);
 		setBanditChance(GOTEventSpawner.EventChance.COMMON);
 	}
 

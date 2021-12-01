@@ -22,7 +22,7 @@ public class GOTBiomeNeck extends GOTBiome {
 		spawnableWaterCreatureList.clear();
 		spawnableGOTAmbientList.clear();
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityMidges.class, 10, 4, 4));
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntitySwan.class, 20, 4, 8));
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntitySwan.class, 2, 1, 2));
 		clearBiomeVariants();
 		variantChance = 1.0f;
 		addBiomeVariantSet(GOTBiomeVariant.SET_SWAMP);

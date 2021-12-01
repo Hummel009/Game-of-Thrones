@@ -15,7 +15,7 @@ public class GOTBiomeIsleOfFaces extends GOTBiomeWesteros {
 	public GOTBiomeIsleOfFaces(int i, boolean major) {
 		super(i, major);
 		clearBiomeVariants();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 10, 1, 1));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 4, 1, 1));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 8, 1, 2));
 		decorator.treesPerChunk = 1;
 		decorator.doubleFlowersPerChunk = 100;

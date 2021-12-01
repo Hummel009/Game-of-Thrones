@@ -7,8 +7,8 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.world.World;
 
-public class GOTEntityKineAraw extends GOTEntityBison {
-	public GOTEntityKineAraw(World world) {
+public class GOTEntityWhiteBison extends GOTEntityBison {
+	public GOTEntityWhiteBison(World world) {
 		super(world);
 		setSize(aurochsWidth * 1.15f, aurochsHeight * 1.15f);
 	}
@@ -27,7 +27,7 @@ public class GOTEntityKineAraw extends GOTEntityBison {
 
 	@Override
 	public EntityCow createChild(EntityAgeable entity) {
-		return new GOTEntityKineAraw(worldObj);
+		return new GOTEntityWhiteBison(worldObj);
 	}
 
 	@Override
