@@ -15,17 +15,6 @@ public class GOTEntityMossovyBlacksmith extends GOTEntityMossovyMan implements G
 		canBeMarried = false;
 		addTargetTasks(false);
 	}
-	
-	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "essos/mossovy/blacksmith/friendly";
-			}
-			return "essos/mossovy/blacksmith/neutral";
-		}
-		return "essos/mossovy/blacksmith/hostile";
-	}
 
 	@Override
 	public boolean canTradeWith(EntityPlayer entityplayer) {
@@ -51,6 +40,17 @@ public class GOTEntityMossovyBlacksmith extends GOTEntityMossovyMan implements G
 	@Override
 	public GOTTradeEntries getSellPool() {
 		return GOTTradeEntries.COMMON_BLACKSMITH_SELL;
+	}
+
+	@Override
+	public String getSpeechBank(EntityPlayer entityplayer) {
+		if (isFriendly(entityplayer)) {
+			if (canTradeWith(entityplayer)) {
+				return "essos/mossovy/blacksmith/friendly";
+			}
+			return "essos/mossovy/blacksmith/neutral";
+		}
+		return "essos/mossovy/blacksmith/hostile";
 	}
 
 	@Override

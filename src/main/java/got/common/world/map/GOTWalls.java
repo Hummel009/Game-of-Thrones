@@ -8,10 +8,10 @@ public class GOTWalls {
 	public static List<GOTWalls> allWalls = new ArrayList<>();
 	public static WallPointDatabase wallPointDatabase = new WallPointDatabase();
 	public static int walls = allWalls.size();
+	public static int id = 0;
 	public WallPoint[] wallPoints;
 	public List<WallPoint> endpoints = new ArrayList<>();
 	public String wallName;
-	public static int id = 0;
 
 	public GOTWalls(String name, WallPoint... ends) {
 		wallName = name;

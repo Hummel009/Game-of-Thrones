@@ -188,12 +188,12 @@ public class GOTBiomeEssos extends GOTBiome {
 	}
 
 	@Override
-	public int spawnCountMultiplier() {
-		return 3;
+	public int getWallTop() {
+		return 90;
 	}
 
 	@Override
-	public int getWallTop() {
-		return 90;
+	public int spawnCountMultiplier() {
+		return 3;
 	}
 }

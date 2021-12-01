@@ -19,12 +19,12 @@ public class GOTNames {
 		return GOTNames.getRandomName(male ? "asshai_male" : "asshai_female", rand);
 	}
 
-	public static String getEssosName(Random rand, boolean male) {
-		return GOTNames.getRandomName(male ? "essos_male" : "essos_female", rand);
+	public static String getDothrakiName(Random rand, boolean male) {
+		return GOTNames.getRandomName(male ? "dothraki_male" : "dothraki_female", rand);
 	}
 
-	public static String getQarthName(Random rand, boolean male) {
-		return GOTNames.getRandomName(male ? "qarth_male" : "qarth_female", rand);
+	public static String getEssosName(Random rand, boolean male) {
+		return GOTNames.getRandomName(male ? "essos_male" : "essos_female", rand);
 	}
 
 	public static String getGhiscarName(Random rand, boolean male) {
@@ -40,10 +40,6 @@ public class GOTNames {
 		return giant1 + giant2 + giant3 + giant4 + giant5;
 	}
 
-	public static String[] getNameBank(String nameBankName) {
-		return allNameBanks.get(nameBankName);
-	}
-
 	public static String getJogosName(Random rand, boolean male) {
 		return GOTNames.getRandomName(male ? "jogos_male" : "jogos_female", rand);
 	}
@@ -52,8 +48,12 @@ public class GOTNames {
 		return GOTNames.getRandomName(male ? "lhazar_male" : "lhazar_female", rand);
 	}
 
-	public static String getDothrakiName(Random rand, boolean male) {
-		return GOTNames.getRandomName(male ? "dothraki_male" : "dothraki_female", rand);
+	public static String[] getNameBank(String nameBankName) {
+		return allNameBanks.get(nameBankName);
+	}
+
+	public static String getQarthName(Random rand, boolean male) {
+		return GOTNames.getRandomName(male ? "qarth_male" : "qarth_female", rand);
 	}
 
 	public static String getRandomName(String nameBankName, Random rand) {

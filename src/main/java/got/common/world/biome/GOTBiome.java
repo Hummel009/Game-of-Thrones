@@ -732,6 +732,10 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return GOTBezierType.ICE;
 	}
 
+	public int getWallTop() {
+		return 0;
+	}
+
 	public boolean hasDomesticAnimals() {
 		return false;
 	}
@@ -1346,9 +1350,5 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	public interface ImmuneToHeat {
-	}
-
-	public int getWallTop() {
-		return 0;
 	}
 }
