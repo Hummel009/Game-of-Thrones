@@ -3,17 +3,14 @@ package got.common.world.biome.essos;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
-import got.common.entity.animal.GOTEntityElephant;
 import got.common.world.biome.GOTBiome;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.essos.gold.GOTStructureGoldenCamp;
-import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTBiomeMercenary extends GOTBiomeEssos {
 	public GOTBiomeMercenary(int i, boolean major) {
 		super(i, major);
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityElephant.class, 8, 1, 1));
 		SpawnListContainer[] container0 = new SpawnListContainer[1];
 		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.GOLDEN_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(container0);

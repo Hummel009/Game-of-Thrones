@@ -25,7 +25,7 @@ public class GOTBiomeFrostfangs extends GOTBiome {
 		npcSpawnList.clear();
 		registerMountainsFlowers();
 		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityShadowcat.class, 8, 2, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityShadowcat.class, 8, 1, 2));
 	}
 
 	@Override

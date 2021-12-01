@@ -31,7 +31,7 @@ public class GOTBiomeDorneDesert extends GOTBiome {
 		topBlock = Blocks.sand;
 		fillerBlock = Blocks.sandstone;
 		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityCamel.class, 10, 2, 6));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityCamel.class, 10, 1, 2));
 		spawnableGOTAmbientList.clear();
 		this.addBiomeVariant(GOTBiomeVariant.STEPPE);
 		this.addBiomeVariant(GOTBiomeVariant.HILLS);

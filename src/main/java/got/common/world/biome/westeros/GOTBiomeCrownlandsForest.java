@@ -15,8 +15,8 @@ public class GOTBiomeCrownlandsForest extends GOTBiomeWesteros {
 		clearBiomeVariants();
 		spawnableCreatureList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 4, 1, 1));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 8, 2, 2));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWildBoar.class, 30, 2, 6));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 8, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWildBoar.class, 30, 2, 4));
 		decorator.treesPerChunk = 10;
 		decorator.flowersPerChunk = 6;
 		decorator.grassPerChunk = 8;

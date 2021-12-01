@@ -7,8 +7,8 @@ import net.minecraft.world.biome.BiomeGenBase;
 public class GOTBiomeRiverlandsForest extends GOTBiomeRiverlands {
 	public GOTBiomeRiverlandsForest(int i, boolean major) {
 		super(i, major);
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 10, 1, 4));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 8, 2, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 10, 1, 1));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 8, 1, 2));
 		clearBiomeVariants();
 		decorator.treesPerChunk = 10;
 		decorator.flowersPerChunk = 4;

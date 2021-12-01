@@ -39,8 +39,8 @@ public class GOTBiomeWesteros extends GOTBiome {
 		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_ALMOND, 0.1f);
 		this.addBiomeVariant(GOTBiomeVariant.SCRUBLAND, 1.0f);
 		this.addBiomeVariant(GOTBiomeVariant.STEPPE);
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityHorse.class, 5, 2, 6));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 3, 1, 4));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityHorse.class, 5, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 3, 1, 1));
 		decorator.addTree(GOTTreeType.OAK, 1000);
 		decorator.addTree(GOTTreeType.OAK_LARGE, 300);
 		decorator.addTree(GOTTreeType.BIRCH, 50);

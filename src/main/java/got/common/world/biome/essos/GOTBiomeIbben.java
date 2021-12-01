@@ -41,8 +41,8 @@ public class GOTBiomeIbben extends GOTBiome {
 		decorator.doubleFlowersPerChunk = 1;
 		registerPlainsFlowers();
 		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWoolyRhino.class, 8, 2, 2));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 8, 2, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWoolyRhino.class, 8, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 8, 1, 2));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityMammoth.class, 8, 1, 1));
 		decorator.affix(new GOTStructureIbbenVillage(this, 1.0f));
 		SpawnListContainer[] container2 = new SpawnListContainer[1];

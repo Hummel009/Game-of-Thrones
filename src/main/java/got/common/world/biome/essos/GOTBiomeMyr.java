@@ -3,13 +3,11 @@ package got.common.world.biome.essos;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
-import got.common.entity.animal.GOTEntityElephant;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.essos.myr.GOTStructureMyrCity;
-import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTBiomeMyr extends GOTBiomeEssos {
 	public GOTBiomeMyr(int i, boolean major) {
@@ -22,7 +20,6 @@ public class GOTBiomeMyr extends GOTBiomeEssos {
 		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
 		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
 		this.addBiomeVariant(GOTBiomeVariant.FIELD_CORN, 0.2f);
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityElephant.class, 8, 1, 1));
 		decorator.affix(new GOTStructureMyrCity(this, 1.0f));
 		SpawnListContainer[] container1 = new SpawnListContainer[1];
 		container1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.VOLANTIS_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);

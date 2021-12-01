@@ -24,7 +24,7 @@ public class GOTBiomeMassy extends GOTBiomeDragonstone {
 		clearBiomeVariants();
 		spawnableCreatureList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 4, 1, 1));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 8, 2, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 8, 1, 2));
 		decorator.treesPerChunk = 10;
 		decorator.flowersPerChunk = 6;
 		decorator.grassPerChunk = 8;

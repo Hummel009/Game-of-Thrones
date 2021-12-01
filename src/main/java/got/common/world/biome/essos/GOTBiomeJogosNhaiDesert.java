@@ -32,7 +32,7 @@ public class GOTBiomeJogosNhaiDesert extends GOTBiome {
 		this.addBiomeVariant(GOTBiomeVariant.STEPPE);
 		this.addBiomeVariant(GOTBiomeVariant.HILLS);
 		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityCamel.class, 10, 2, 6));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityCamel.class, 10, 1, 2));
 		spawnableGOTAmbientList.clear();
 		SpawnListContainer[] container11 = new SpawnListContainer[1];
 		container11[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);

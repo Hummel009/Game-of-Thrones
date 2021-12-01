@@ -28,9 +28,9 @@ public class GOTBiomeYiTi extends GOTBiome {
 	public GOTBiomeYiTi(int i, boolean major) {
 		super(i, major);
 		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityHorse.class, 5, 2, 6));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityKineAraw.class, 6, 4, 4));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 4, 1, 4));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityHorse.class, 5, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityKineAraw.class, 6, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 4, 1, 1));
 		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
 		this.addBiomeVariant(GOTBiomeVariant.FOREST);
 		this.addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);

@@ -19,7 +19,7 @@ public class GOTBiomeUlos extends GOTBiome {
 	public GOTBiomeUlos(int i, boolean major) {
 		super(i, major);
 		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 30, 4, 6));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 30, 1, 2));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 10, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGorcrow.class, 4, 4, 4));
 		decorator.treesPerChunk = 12;
