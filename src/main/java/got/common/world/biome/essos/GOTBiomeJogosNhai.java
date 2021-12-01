@@ -56,7 +56,7 @@ public class GOTBiomeJogosNhai extends GOTBiome {
 
 	@Override
 	public float getChanceToSpawnAnimals() {
-		return 0.25f;
+		return 0.2f;
 	}
 
 	@Override
