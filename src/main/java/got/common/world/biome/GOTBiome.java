@@ -280,21 +280,21 @@ public abstract class GOTBiome extends BiomeGenBase {
 		spawnableMonsterList.clear();
 		spawnableCaveCreatureList.clear();
 		if (hasDomesticAnimals()) {
-			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntitySheep.class, 12, 4, 4));
-			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityPig.class, 10, 4, 4));
-			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityChicken.class, 10, 4, 4));
-			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityCow.class, 8, 4, 4));
-			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 5, 4, 4));
+			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntitySheep.class, 12, 1, 2));
+			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityPig.class, 10, 2, 4));
+			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityChicken.class, 10, 1, 2));
+			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityCow.class, 8, 1, 2));
+			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 5, 1, 2));
 		} else {
-			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntitySheep.class, 12, 4, 4));
-			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWildBoar.class, 10, 4, 4));
-			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityChicken.class, 8, 4, 4));
-			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 10, 4, 4));
-			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBison.class, 6, 4, 4));
+			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntitySheep.class, 12, 1, 2));
+			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWildBoar.class, 10, 2, 4));
+			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityChicken.class, 8, 1, 2));
+			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 10, 1, 2));
+			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBison.class, 6, 1, 2));
 		}
 		spawnableWaterCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityFish.class, 10, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 8, 4, 4));
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityRabbit.class, 8, 4, 4));
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityRabbit.class, 8, 1, 2));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 10, 4, 4));
 		spawnableCaveCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityBat.class, 10, 8, 8));
 		setBanditChance(GOTEventSpawner.EventChance.NEVER);
