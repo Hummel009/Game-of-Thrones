@@ -19,18 +19,18 @@ public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GO
 	public EntityAIBase attackAI;
 	public EntityAIBase panicAI;
 	public boolean prevIsChild = true;
-	public float aurochsWidth;
-	public float aurochsHeight;
+	public float bisonWidth;
+	public float bisonHeight;
 
 	public GOTEntityBison(World world) {
 		super(world);
-		aurochsWidth = 1.5f;
-		aurochsHeight = 1.7f;
-		setSize(aurochsWidth, aurochsHeight);
+		bisonWidth = 1.5f;
+		bisonHeight = 1.7f;
+		setSize(bisonWidth, bisonHeight);
 		EntityAITasks.EntityAITaskEntry panic = GOTEntityUtils.removeAITask(this, EntityAIPanic.class);
 		tasks.addTask(panic.priority, panic.action);
 		panicAI = panic.action;
-		attackAI = createAurochsAttackAI();
+		attackAI = createBisonAttackAI();
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
 	}
 
@@ -60,18 +60,18 @@ public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GO
 		if (flag && isChild() && (attacker = damagesource.getEntity()) instanceof EntityLivingBase) {
 			List list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(12.0, 12.0, 12.0));
 			for (Object element : list) {
-				GOTEntityBison aurochs;
+				GOTEntityBison bison;
 				Entity entity = (Entity) element;
-				if (entity.getClass() != this.getClass() || (aurochs = (GOTEntityBison) entity).isChild()) {
+				if (entity.getClass() != this.getClass() || (bison = (GOTEntityBison) entity).isChild()) {
 					continue;
 				}
-				aurochs.setAttackTarget((EntityLivingBase) attacker);
+				bison.setAttackTarget((EntityLivingBase) attacker);
 			}
 		}
 		return flag;
 	}
 
-	public EntityAIBase createAurochsAttackAI() {
+	public EntityAIBase createBisonAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.7, true);
 	}
 
@@ -109,17 +109,17 @@ public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GO
 
 	@Override
 	public String getDeathSound() {
-		return "got:aurochs.hurt";
+		return "got:bison.hurt";
 	}
 
 	@Override
 	public String getHurtSound() {
-		return "got:aurochs.hurt";
+		return "got:bison.hurt";
 	}
 
 	@Override
 	public String getLivingSound() {
-		return "got:aurochs.say";
+		return "got:bison.say";
 	}
 
 	@Override
@@ -144,13 +144,13 @@ public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GO
 
 	@Override
 	public boolean interact(EntityPlayer entityplayer) {
-		if (isAurochsEnraged()) {
+		if (isBisonEnraged()) {
 			return false;
 		}
 		return super.interact(entityplayer);
 	}
 
-	public boolean isAurochsEnraged() {
+	public boolean isBisonEnraged() {
 		return dataWatcher.getWatchableObjectByte(20) == 1;
 	}
 
@@ -179,12 +179,12 @@ public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GO
 			} else if (riddenByEntity instanceof EntityPlayer) {
 				setAttackTarget(null);
 			}
-			setAurochsEnraged(getAttackTarget() != null);
+			setBisonEnraged(getAttackTarget() != null);
 		}
 		prevIsChild = isChild();
 	}
 
-	public void setAurochsEnraged(boolean flag) {
+	public void setBisonEnraged(boolean flag) {
 		dataWatcher.updateObject(20, flag ? (byte) 1 : 0);
 	}
 

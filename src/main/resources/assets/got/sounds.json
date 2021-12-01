@@ -117,32 +117,32 @@
         ]
     },
     
-    "aurochs.death":
+    "bison.death":
     {
         "category": "neutral",
         "sounds":
         [
-            "aurochs/death"
+            "bison/death"
         ]
     },
     
-    "aurochs.hurt":
+    "bison.hurt":
     {
         "category": "neutral",
         "sounds":
         [
-            "aurochs/hurt1"
+            "bison/hurt1"
         ]
     },
     
-    "aurochs.say":
+    "bison.say":
     {
         "category": "neutral",
         "sounds":
         [
-            "aurochs/say1",
-            "aurochs/say2",
-            "aurochs/say3"
+            "bison/say1",
+            "bison/say2",
+            "bison/say3"
         ]
     },
     

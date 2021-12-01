@@ -59,7 +59,7 @@ public class GOTEntity {
 	public static int id = 0;
 
 	public static void preInit() {
-		GOTEntityRegistry.register(GOTEntityBison.class, "Aurochs", id++, 7488812);
+		GOTEntityRegistry.register(GOTEntityBison.class, "Bison", id++, 7488812);
 		GOTEntityRegistry.register(GOTEntityBear.class, "Bear", id++, 7492416);
 		GOTEntityRegistry.register(GOTEntityBird.class, "Bird", id++, 7451872);
 		GOTEntityRegistry.register(GOTEntityButterfly.class, "Butterfly", id++, 16119285);
@@ -78,7 +78,7 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityGorcrow.class, "Gorcrow", id++, 928034);
 		GOTEntityRegistry.register(GOTEntityHorse.class, "Horse", id++, 8601889);
 		GOTEntityRegistry.register(GOTEntityJungleScorpion.class, "JungleScorpion", id++, 2630945);
-		GOTEntityRegistry.register(GOTEntityWhiteBison.class, "KineAraw", id++, 16702665);
+		GOTEntityRegistry.register(GOTEntityWhiteBison.class, "WhiteBison", id++, 16702665);
 		GOTEntityRegistry.register(GOTEntityLion.class, "Lion", id++, 13345354);
 		GOTEntityRegistry.register(GOTEntityLioness.class, "Lioness", id++, 13346908);
 		GOTEntityRegistry.register(GOTEntityMammoth.class, "Mammoth", id++, 5653040);

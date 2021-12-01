@@ -8,16 +8,16 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderWhiteBison extends GOTRenderBison {
-	public static GOTRandomSkins kineSkins;
+	public static GOTRandomSkins wbisonSkins;
 
 	public GOTRenderWhiteBison() {
-		kineSkins = GOTRandomSkins.loadSkinsList("got:mob/animal/kineAraw");
+		wbisonSkins = GOTRandomSkins.loadSkinsList("got:mob/animal/wbison");
 	}
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
 		GOTEntityWhiteBison kine = (GOTEntityWhiteBison) entity;
-		return kineSkins.getRandomSkin(kine);
+		return wbisonSkins.getRandomSkin(kine);
 	}
 
 	@Override

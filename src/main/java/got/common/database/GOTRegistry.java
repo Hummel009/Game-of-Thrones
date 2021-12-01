@@ -888,7 +888,7 @@ public class GOTRegistry {
 	public static Item kaftanLeggings;
 	public static Item katana;
 	public static Item kebab;
-	public static Item kineArawHorn;
+	public static Item whiteBisonHorn;
 	public static Item kingsguardBoots;
 	public static Item kingsguardChestplate;
 	public static Item kingsguardHelmet;
@@ -2139,7 +2139,7 @@ public class GOTRegistry {
 		kaftanLeggings = new GOTItemKaftan(2);
 		katana = new GOTItemLegendarySword(GOTMaterial.STEEL);
 		kebab = new GOTItemKebab(8, 0.8f, true);
-		kineArawHorn = new Item().setCreativeTab(GOTCreativeTabs.tabMaterials);
+		whiteBisonHorn = new Item().setCreativeTab(GOTCreativeTabs.tabMaterials);
 		kingsguardBoots = new GOTItemArmor(GOTMaterial.KINGSGUARD, 3);
 		kingsguardChestplate = new GOTItemArmor(GOTMaterial.KINGSGUARD, 1);
 		kingsguardHelmet = new GOTItemArmor(GOTMaterial.KINGSGUARD, 0);
@@ -3529,7 +3529,7 @@ public class GOTRegistry {
 		registerItem(mugWhiteGrapeJuice, "mugWhiteGrapeJuice");
 		registerItem(wildlingPolearm, "wildlingPolearm");
 		registerItem(turnipCooked, "turnipCooked");
-		registerItem(kineArawHorn, "kineArawHorn");
+		registerItem(whiteBisonHorn, "kineArawHorn");
 		registerItem(melonSoup, "melonSoup");
 		registerItem(ceramicMug, "ceramicMug");
 		registerItem(essosPike, "essosPike");

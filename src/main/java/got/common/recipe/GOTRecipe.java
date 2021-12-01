@@ -1685,7 +1685,7 @@ public class GOTRecipe {
 		yiti.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.yitiChestplateSamurai), "X X", "XXX", "XXX", Character.valueOf('X'), GOTRegistry.yitiSteelIngot));
 		yiti.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.yitiLeggingsSamurai), "XXX", "X X", "X X", Character.valueOf('X'), GOTRegistry.yitiSteelIngot));
 		yiti.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.yitiBootsSamurai), "X X", "X X", Character.valueOf('X'), GOTRegistry.yitiSteelIngot));
-		yiti.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.yitiHelmetShogune), "XYX", Character.valueOf('X'), GOTRegistry.kineArawHorn, Character.valueOf('Y'), new ItemStack(GOTRegistry.yitiHelmetSamurai, 1, 0)));
+		yiti.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.yitiHelmetShogune), "XYX", Character.valueOf('X'), GOTRegistry.whiteBisonHorn, Character.valueOf('Y'), new ItemStack(GOTRegistry.yitiHelmetSamurai, 1, 0)));
 		yiti.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.yitiBattleaxe), "XXX", "XYX", " Y ", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
 		yiti.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.yitiHelmetFrontier), "YYY", "X X", Character.valueOf('X'), GOTRegistry.yitiSteelIngot, Character.valueOf('Y'), "ingotIron"));
 		yiti.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.yitiChestplateFrontier), "X X", "YXY", "YXY", Character.valueOf('X'), GOTRegistry.yitiSteelIngot, Character.valueOf('Y'), "ingotIron"));
@@ -1862,11 +1862,11 @@ public class GOTRecipe {
 		OreDictionary.registerOre("feather", Items.feather);
 		OreDictionary.registerOre("feather", GOTRegistry.swanFeather);
 		OreDictionary.registerOre("horn", GOTRegistry.rhinoHorn);
-		OreDictionary.registerOre("horn", GOTRegistry.kineArawHorn);
+		OreDictionary.registerOre("horn", GOTRegistry.whiteBisonHorn);
 		OreDictionary.registerOre("horn", GOTRegistry.horn);
 		OreDictionary.registerOre("arrowTip", Items.flint);
 		OreDictionary.registerOre("arrowTip", GOTRegistry.rhinoHorn);
-		OreDictionary.registerOre("arrowTip", GOTRegistry.kineArawHorn);
+		OreDictionary.registerOre("arrowTip", GOTRegistry.whiteBisonHorn);
 		OreDictionary.registerOre("arrowTip", GOTRegistry.horn);
 		OreDictionary.registerOre("poison", GOTRegistry.bottlePoison);
 		OreDictionary.registerOre("vine", Blocks.vine);

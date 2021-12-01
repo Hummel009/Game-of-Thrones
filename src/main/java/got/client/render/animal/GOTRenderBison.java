@@ -10,17 +10,17 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderBison extends RenderLiving {
-	public static GOTRandomSkins aurochsSkins;
+	public static GOTRandomSkins bisonSkins;
 
 	public GOTRenderBison() {
 		super(new GOTModelBison(), 0.5f);
-		aurochsSkins = GOTRandomSkins.loadSkinsList("got:mob/animal/aurochs");
+		bisonSkins = GOTRandomSkins.loadSkinsList("got:mob/animal/bison");
 	}
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		GOTEntityBison aurochs = (GOTEntityBison) entity;
-		return aurochsSkins.getRandomSkin(aurochs);
+		GOTEntityBison bison = (GOTEntityBison) entity;
+		return bisonSkins.getRandomSkin(bison);
 	}
 
 	@Override

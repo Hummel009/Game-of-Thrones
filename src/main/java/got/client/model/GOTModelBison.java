@@ -92,13 +92,13 @@ public class GOTModelBison extends ModelBase {
 
 	@Override
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
-		GOTEntityBison aurochs = (GOTEntityBison) entity;
+		GOTEntityBison bison = (GOTEntityBison) entity;
 		head.rotateAngleX = 0.0f;
 		head.rotateAngleY = 0.0f;
 		head.rotateAngleZ = 0.0f;
 		head.rotateAngleX += (float) Math.toRadians(f4);
 		head.rotateAngleY += (float) Math.toRadians(f3);
-		if (aurochs.isAurochsEnraged()) {
+		if (bison.isBisonEnraged()) {
 			head.rotateAngleX += (float) Math.toRadians(15.0);
 		}
 		head.rotateAngleX += MathHelper.cos(f * 0.2f) * f1 * 0.4f;
