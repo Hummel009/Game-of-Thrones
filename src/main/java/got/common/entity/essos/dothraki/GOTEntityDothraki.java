@@ -157,7 +157,7 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements IPickpocket
 		return "essos/dothraki/man/hostile";
 	}
 
-	public boolean isOrcSkirmishing() {
+	public boolean isDothrakSkirmishing() {
 		return draka > 0;
 	}
 
@@ -179,7 +179,7 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements IPickpocket
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
-		if (!worldObj.isRemote && isOrcSkirmishing()) {
+		if (!worldObj.isRemote && isDothrakSkirmishing()) {
 			if (!GOTConfig.enableDothrakiSkirmish) {
 				draka = 0;
 			} else if (!(getAttackTarget() instanceof GOTEntityDothraki)) {
@@ -203,11 +203,11 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements IPickpocket
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		npcItemsInv.setIdleItemMounted(npcItemsInv.getMeleeWeaponMounted());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.nomadBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.nomadLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.nomadChestplate));
+		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.dothrakiBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.dothrakiLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.dothrakiChestplate));
 		if (rand.nextInt(10) == 0) {
-			setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.nomadHelmet));
+			setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.dothrakiHelmet));
 		} else {
 			setCurrentItemOrArmor(4, null);
 		}

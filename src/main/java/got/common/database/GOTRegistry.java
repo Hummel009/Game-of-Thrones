@@ -44,10 +44,10 @@ public class GOTRegistry {
 	public static Item yitiChestplateFrontier;
 	public static Item yitiLeggingsFrontier;
 	public static Item yitiBootsFrontier;
-	public static Item nomadHelmet;
-	public static Item nomadChestplate;
-	public static Item nomadLeggings;
-	public static Item nomadBoots;
+	public static Item dothrakiHelmet;
+	public static Item dothrakiChestplate;
+	public static Item dothrakiLeggings;
+	public static Item dothrakiBoots;
 	public static Block aleHornBlock;
 	public static Block aleHornGoldBlock;
 	public static Block alloyForge;
@@ -1286,6 +1286,10 @@ public class GOTRegistry {
 	public static Item zebraCooked;
 	public static Item zebraRaw;
 	public static Block tableMossovy;
+	public static Item jogosHelmet;
+	public static Item jogosChestplate;
+	public static Item jogosLeggings;
+	public static Item jogosBoots;
 
 	public static void assignContent() {
 		planks1 = new GOTBlockPlanks1();
@@ -1880,10 +1884,14 @@ public class GOTRegistry {
 		yamCrop = new GOTBlockYamCrop();
 		yitiFlower = new GOTBlockYiTiFlower();
 
-		nomadHelmet = new GOTItemArmor(GOTMaterial.NOMAD, 0);
-		nomadChestplate = new GOTItemArmor(GOTMaterial.NOMAD, 1);
-		nomadLeggings = new GOTItemArmor(GOTMaterial.NOMAD, 2);
-		nomadBoots = new GOTItemArmor(GOTMaterial.NOMAD, 3);
+		jogosHelmet = new GOTItemArmor(GOTMaterial.JOGOS, 0);
+		jogosChestplate = new GOTItemArmor(GOTMaterial.JOGOS, 1);
+		jogosLeggings = new GOTItemArmor(GOTMaterial.JOGOS, 2);
+		jogosBoots = new GOTItemArmor(GOTMaterial.JOGOS, 3);
+		dothrakiHelmet = new GOTItemArmor(GOTMaterial.DOTHRAKI, 0);
+		dothrakiChestplate = new GOTItemArmor(GOTMaterial.DOTHRAKI, 1);
+		dothrakiLeggings = new GOTItemArmor(GOTMaterial.DOTHRAKI, 2);
+		dothrakiBoots = new GOTItemArmor(GOTMaterial.DOTHRAKI, 3);
 		aegonHelmet = new GOTItemArmor(GOTMaterial.HELMET, 0, "aegon").setCreativeTab(GOTCreativeTabs.tabStory);
 		aleHorn = new GOTItemVessel();
 		aleHornGold = new GOTItemVessel();
@@ -2032,7 +2040,7 @@ public class GOTRegistry {
 		dorneChestplate = new GOTItemArmor(GOTMaterial.DORNE, 1);
 		dorneHelmet = new GOTItemArmor(GOTMaterial.DORNE, 0);
 		dorneLeggings = new GOTItemArmor(GOTMaterial.DORNE, 2);
-		dothrakiHorseArmor = new GOTItemMountArmor(GOTMaterial.NOMAD, GOTItemMountArmor.Mount.HORSE);
+		dothrakiHorseArmor = new GOTItemMountArmor(GOTMaterial.DOTHRAKI, GOTItemMountArmor.Mount.HORSE);
 		dragonstoneBoots = new GOTItemArmor(GOTMaterial.DRAGONSTONE, 3);
 		dragonstoneChestplate = new GOTItemArmor(GOTMaterial.DRAGONSTONE, 1);
 		dragonstoneHelmet = new GOTItemArmor(GOTMaterial.DRAGONSTONE, 0);
@@ -3872,10 +3880,14 @@ public class GOTRegistry {
 		registerItem(yitiChestplateFrontier, "yitiChestplateFrontier");
 		registerItem(yitiLeggingsFrontier, "yitiLeggingsFrontier");
 		registerItem(yitiBootsFrontier, "yitiBootsFrontier");
-		registerItem(nomadHelmet, "nomadHelmet");
-		registerItem(nomadChestplate, "nomadChestplate");
-		registerItem(nomadLeggings, "nomadLeggings");
-		registerItem(nomadBoots, "nomadBoots");
+		registerItem(dothrakiHelmet, "dothrakiHelmet");
+		registerItem(dothrakiChestplate, "dothrakiChestplate");
+		registerItem(dothrakiLeggings, "dothrakiLeggings");
+		registerItem(dothrakiBoots, "dothrakiBoots");
 		registerItem(mossovyDagger, "mossovyDagger");
+		registerItem(jogosHelmet, "jogosHelmet");
+		registerItem(jogosChestplate, "jogosChestplate");
+		registerItem(jogosLeggings, "jogosLeggings");
+		registerItem(jogosBoots, "jogosBoots");
 	}
 }

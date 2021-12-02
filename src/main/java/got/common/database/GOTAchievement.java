@@ -763,7 +763,7 @@ public class GOTAchievement {
 		WEAR_FULL_YITI = GOTAchievement.createArmorAchievement(Category.WEAR, id++, GOTRegistry.yitiChestplate, "WEAR_FULL_YITI");
 		WEAR_FULL_YITI_SAMURAI = GOTAchievement.createArmorAchievement(Category.WEAR, id++, GOTRegistry.yitiChestplateSamurai, "WEAR_FULL_YITI_SAMURAI");
 		WEAR_FULL_YITI_FRONTIER = GOTAchievement.createArmorAchievement(Category.WEAR, id++, GOTRegistry.yitiChestplateFrontier, "WEAR_FULL_YITI_FRONTIER");
-		WEAR_FULL_NOMAD = GOTAchievement.createArmorAchievement(Category.WEAR, id++, GOTRegistry.nomadChestplate, "WEAR_FULL_NOMAD");
+		WEAR_FULL_NOMAD = GOTAchievement.createArmorAchievement(Category.WEAR, id++, GOTRegistry.dothrakiChestplate, "WEAR_FULL_NOMAD");
 	}
 
 	public static Comparator<GOTAchievement> sortForDisplay(EntityPlayer entityplayer) {

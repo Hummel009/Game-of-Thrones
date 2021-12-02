@@ -32,12 +32,12 @@ public class GOTEntityAIDothrakiSkirmish extends GOTEntityAINearestAttackableTar
 		if (!GOTConfig.enableDothrakiSkirmish || !canDothrakiSkirmish(theDothraki)) {
 			return false;
 		}
-		if (!theDothraki.isOrcSkirmishing()) {
+		if (!theDothraki.isDothrakSkirmishing()) {
 			int chance = 20000;
 			List nearbyOrcs = theDothraki.worldObj.getEntitiesWithinAABB(GOTEntityDothraki.class, theDothraki.boundingBox.expand(16.0, 8.0, 16.0));
 			for (Object nearbyOrc : nearbyOrcs) {
 				GOTEntityDothraki orc = (GOTEntityDothraki) nearbyOrc;
-				if (!orc.isOrcSkirmishing()) {
+				if (!orc.isDothrakSkirmishing()) {
 					continue;
 				}
 				chance /= 10;

@@ -20,7 +20,7 @@ public class GOTMaterial {
 	public static GOTMaterial COBALT = new GOTMaterial("COBALT").setUses(800).setDamage(3.0f).setProtection(0.7f).setHarvestLevel(4).setSpeed(8.5f).setEnchantability(10);
 	public static GOTMaterial VALYRIAN = new GOTMaterial("VALYRIAN").setUses(2400).setDamage(5.0f).setProtection(0.8f).setHarvestLevel(4).setSpeed(9.0f).setEnchantability(8);
 
-	public static GOTMaterial NOMAD = new GOTMaterial("NOMAD").setIsWeak(Item.getItemFromBlock(GOTRegistry.driedReeds));
+	public static GOTMaterial DOTHRAKI = new GOTMaterial("DOTHRAKI").setIsWeak(Item.getItemFromBlock(GOTRegistry.driedReeds));
 	public static GOTMaterial BONE = new GOTMaterial("BONE").setIsWeak(Items.bone);
 	public static GOTMaterial BRONZE = new GOTMaterial("BRONZE").setIsWeak(GOTRegistry.bronzeIngot);
 	public static GOTMaterial FUR = new GOTMaterial("FUR").setIsWeak(GOTRegistry.fur);
@@ -40,6 +40,7 @@ public class GOTMaterial {
 	public static GOTMaterial BRAAVOS = new GOTMaterial("BRAAVOS").setIsStandart();
 	public static GOTMaterial CROWNLANDS = new GOTMaterial("CROWNLANDS").setIsStandart();
 	public static GOTMaterial DORNE = new GOTMaterial("DORNE").setIsStandart();
+	public static GOTMaterial JOGOS = new GOTMaterial("JOGOS").setIsStandart();
 	public static GOTMaterial DRAGONSTONE = new GOTMaterial("DRAGONSTONE").setIsStandart();
 	public static GOTMaterial GHISCAR = new GOTMaterial("GHISCAR").setIsStandart();
 	public static GOTMaterial GIFT = new GOTMaterial("GIFT").setIsStandart();

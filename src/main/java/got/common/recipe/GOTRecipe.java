@@ -57,7 +57,8 @@ public class GOTRecipe {
 	public static List<IRecipe> qarth = new ArrayList<>();
 	public static List<IRecipe> ghiscar = new ArrayList<>();
 	public static List<IRecipe> asshai = new ArrayList<>();
-	public static List<IRecipe> nomad = new ArrayList<>();
+	public static List<IRecipe> jogos = new ArrayList<>();
+	public static List<IRecipe> dothraki = new ArrayList<>();
 	public static List<IRecipe> commonWesteros = new ArrayList<>();
 	public static List<IRecipe> commonEssos = new ArrayList<>();
 	public static String[] dyeOreNames = { "dyeBlack", "dyeRed", "dyeGreen", "dyeBrown", "dyeBlue", "dyePurple", "dyeCyan", "dyeLightGray", "dyeGray", "dyePink", "dyeLime", "dyeYellow", "dyeLightBlue", "dyeMagenta", "dyeOrange", "dyeWhite" };
@@ -443,15 +444,26 @@ public class GOTRecipe {
 		myr.addAll(commonEssos);
 	}
 
-	public static void createNomadRecipes() {
-		nomad.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.nomadHelmet), "XXX", "X X", Character.valueOf('X'), GOTRegistry.driedReeds));
-		nomad.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.nomadChestplate), "X X", "XXX", "XXX", Character.valueOf('X'), GOTRegistry.driedReeds));
-		nomad.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.nomadLeggings), "XXX", "X X", "X X", Character.valueOf('X'), GOTRegistry.driedReeds));
-		nomad.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.nomadBoots), "X X", "X X", Character.valueOf('X'), GOTRegistry.driedReeds));
-		nomad.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.nomadSpear), "  X", " Y ", "Y  ", Character.valueOf('X'), "ingotBronze", Character.valueOf('Y'), "stickWood"));
-		nomad.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.nomadSword), "X", "X", "Y", Character.valueOf('X'), "ingotBronze", Character.valueOf('Y'), "stickWood"));
-		nomad.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.nomadBattleaxe), "XXX", "XYX", " Y ", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
-		nomad.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.nomadBow), " XY", "X Y", " XY", Character.valueOf('X'), "stickWood", Character.valueOf('Y'), Items.string));
+	public static void createJogosRecipes() {
+		jogos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.jogosHelmet), "XXX", "X X", Character.valueOf('X'), "ingotIron"));
+		jogos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.jogosChestplate), "X X", "XXX", "XXX", Character.valueOf('X'), "ingotIron"));
+		jogos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.jogosLeggings), "XXX", "X X", "X X", Character.valueOf('X'), "ingotIron"));
+		jogos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.jogosBoots), "X X", "X X", Character.valueOf('X'), "ingotIron"));
+		jogos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.nomadSpear), "  X", " Y ", "Y  ", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
+		jogos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.nomadSword), "X", "X", "Y", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
+		jogos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.nomadBattleaxe), "XXX", "XYX", " Y ", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
+		jogos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.nomadBow), " XY", "X Y", " XY", Character.valueOf('X'), "stickWood", Character.valueOf('Y'), Items.string));
+	}
+
+	public static void createDothrakiRecipes() {
+		dothraki.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.dothrakiHelmet), "XXX", "X X", Character.valueOf('X'), GOTRegistry.driedReeds));
+		dothraki.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.dothrakiChestplate), "X X", "XXX", "XXX", Character.valueOf('X'), GOTRegistry.driedReeds));
+		dothraki.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.dothrakiLeggings), "XXX", "X X", "X X", Character.valueOf('X'), GOTRegistry.driedReeds));
+		dothraki.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.dothrakiBoots), "X X", "X X", Character.valueOf('X'), GOTRegistry.driedReeds));
+		dothraki.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.nomadSpear), "  X", " Y ", "Y  ", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
+		dothraki.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.nomadSword), "X", "X", "Y", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
+		dothraki.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.nomadBattleaxe), "XXX", "XYX", " Y ", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
+		dothraki.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.nomadBow), " XY", "X Y", " XY", Character.valueOf('X'), "stickWood", Character.valueOf('Y'), Items.string));
 	}
 
 	public static void createNorthRecipes() {
@@ -1794,7 +1806,8 @@ public class GOTRecipe {
 		GOTRecipe.createQarthRecipes();
 		GOTRecipe.createGhiscarRecipes();
 		GOTRecipe.createAsshaiRecipes();
-		GOTRecipe.createNomadRecipes();
+		GOTRecipe.createJogosRecipes();
+		GOTRecipe.createDothrakiRecipes();
 		GOTRecipe.createMossovyRecipes();
 	}
 

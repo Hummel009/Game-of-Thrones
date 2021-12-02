@@ -20,7 +20,7 @@ public class GOTEntityJogos extends GOTEntityHumanBase implements IPickpocketabl
 	public GOTEntityJogos(World world) {
 		super(world);
 		canBeMarried = true;
-		setSize(0.6f * 0.9f, 1.8f * 0.9f);
+		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
 		tasks.addTask(0, new EntityAISwimming(this));
@@ -170,11 +170,11 @@ public class GOTEntityJogos extends GOTEntityHumanBase implements IPickpocketabl
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		npcItemsInv.setIdleItemMounted(npcItemsInv.getMeleeWeaponMounted());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.nomadBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.nomadLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.nomadChestplate));
+		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.jogosBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.jogosLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.jogosChestplate));
 		if (rand.nextInt(10) == 0) {
-			setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.nomadHelmet));
+			setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.jogosHelmet));
 		} else {
 			setCurrentItemOrArmor(4, null);
 		}

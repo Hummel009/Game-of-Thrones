@@ -84,7 +84,7 @@ public class GOTRender {
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityHillmanWarrior.class, new GOTRenderFactionNPC("westeros/wild"));
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityIbbenWarrior.class, new GOTRenderFactionNPC("essos/ibben"));
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityIronbornMan.class, new GOTRenderFactionNPC("westeros/ironborn"));
-		RenderingRegistry.registerEntityRenderingHandler(GOTEntityJogos.class, new GOTRenderFactionNPC("essos/jogos", 0.9f));
+		RenderingRegistry.registerEntityRenderingHandler(GOTEntityJogos.class, new GOTRenderFactionNPC("essos/jogos"));
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityLhazarMan.class, new GOTRenderFactionNPC("essos/nomad"));
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityLorathMan.class, new GOTRenderFactionNPC("essos/free"));
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityLysMan.class, new GOTRenderFactionNPC("essos/lys"));

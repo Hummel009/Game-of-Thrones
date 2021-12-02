@@ -412,11 +412,7 @@ public enum GOTMiniQuestFactory {
 		NOMAD.addQuest(new GOTMiniQuestCollect.QFCollect("collectNomad").setCollectItem(new ItemStack(GOTRegistry.deerCooked), 5, 10).setRewardFactor(1.5f));
 		NOMAD.addQuest(new GOTMiniQuestCollect.QFCollect("collectNomad").setCollectItem(new ItemStack(GOTRegistry.deerCooked), 5, 12).setRewardFactor(1.5f));
 		NOMAD.addQuest(new GOTMiniQuestCollect.QFCollect("collectNomad").setCollectItem(new ItemStack(GOTRegistry.nomadBattleaxe), 1, 5).setRewardFactor(3.0f));
-		NOMAD.addQuest(new GOTMiniQuestCollect.QFCollect("collectNomad").setCollectItem(new ItemStack(GOTRegistry.nomadBoots), 1, 5).setRewardFactor(3.0f));
 		NOMAD.addQuest(new GOTMiniQuestCollect.QFCollect("collectNomad").setCollectItem(new ItemStack(GOTRegistry.nomadBow), 1, 5).setRewardFactor(3.0f));
-		NOMAD.addQuest(new GOTMiniQuestCollect.QFCollect("collectNomad").setCollectItem(new ItemStack(GOTRegistry.nomadChestplate), 1, 5).setRewardFactor(3.0f));
-		NOMAD.addQuest(new GOTMiniQuestCollect.QFCollect("collectNomad").setCollectItem(new ItemStack(GOTRegistry.nomadHelmet), 1, 5).setRewardFactor(3.0f));
-		NOMAD.addQuest(new GOTMiniQuestCollect.QFCollect("collectNomad").setCollectItem(new ItemStack(GOTRegistry.nomadLeggings), 1, 5).setRewardFactor(3.0f));
 		NOMAD.addQuest(new GOTMiniQuestCollect.QFCollect("collectNomad").setCollectItem(new ItemStack(GOTRegistry.nomadSpear), 1, 5).setRewardFactor(3.0f));
 		NOMAD.addQuest(new GOTMiniQuestCollect.QFCollect("collectNomad").setCollectItem(new ItemStack(GOTRegistry.nomadSword), 1, 5).setRewardFactor(3.0f));
 
