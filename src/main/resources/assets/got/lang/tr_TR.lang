@@ -1,4 +1,8 @@
 
+item.got:jogosBoots.name≠
+item.got:jogosChestplate.name≠
+item.got:jogosHelmet.name≠
+item.got:jogosLeggings.name≠
 attribute.name.generic.movementSpeedAir≠
 color.black≠
 color.blue≠
@@ -5390,11 +5394,11 @@ item.got:needle.name≠
 item.got:nightKingSword.name≠
 item.got:nightfall.name≠
 item.got:nomadBattleaxe.name≠
-item.got:nomadBoots.name≠
+item.got:dothrakiBoots.name≠
 item.got:nomadBow.name≠
-item.got:nomadChestplate.name≠
-item.got:nomadHelmet.name≠
-item.got:nomadLeggings.name≠
+item.got:dothrakiChestplate.name≠
+item.got:dothrakiHelmet.name≠
+item.got:dothrakiLeggings.name≠
 item.got:nomadSpear.name≠
 item.got:nomadSword.name≠
 item.got:northBoots.name≠

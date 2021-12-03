@@ -1,4 +1,8 @@
 ﻿
+item.got:jogosBoots.name=Ботинки Джогос-Нхая
+item.got:jogosChestplate.name=Нагрудник Джогос-Нхая
+item.got:jogosHelmet.name=Шлем Джогос-Нхая
+item.got:jogosLeggings.name=Поножи Джогос-Нхая
 attribute.name.generic.movementSpeedAir=Скорость (Воздух)
 color.black=Чёрный
 color.blue=Голубой
@@ -5391,11 +5395,11 @@ item.got:needle.name=Игла
 item.got:nightKingSword.name=Меч Короля Ночи
 item.got:nightfall.name=Сумрак
 item.got:nomadBattleaxe.name=Боевой топор кочевников
-item.got:nomadBoots.name=Ботинки кочевников
+item.got:dothrakiBoots.name=Ботинки дотракийцев
 item.got:nomadBow.name=Лук кочевников
-item.got:nomadChestplate.name=Нагрудник кочевников
-item.got:nomadHelmet.name=Шлем кочевников
-item.got:nomadLeggings.name=Поножи кочевников
+item.got:dothrakiChestplate.name=Нагрудник дотракийцев
+item.got:dothrakiHelmet.name=Шлем дотракийцев
+item.got:dothrakiLeggings.name=Поножи дотракийцев
 item.got:nomadSpear.name=Копьё кочевников
 item.got:nomadSword.name=Аракх кочевников
 item.got:northBoots.name=Ботинки Севера

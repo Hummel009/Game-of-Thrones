@@ -1,4 +1,8 @@
 
+item.got:jogosBoots.name≠
+item.got:jogosChestplate.name≠
+item.got:jogosHelmet.name≠
+item.got:jogosLeggings.name≠
 attribute.name.generic.movementSpeedAir=Velocidade (Ar)
 color.black=Preto
 color.blue=Azul
@@ -5391,11 +5395,11 @@ item.got:needle.name=Agulha
 item.got:nightKingSword.name=Espada King Night
 item.got:nightfall.name=Anoitecer
 item.got:nomadBattleaxe.name=Machado de Batalha Nômade
-item.got:nomadBoots.name≠
+item.got:dothrakiBoots.name≠
 item.got:nomadBow.name=Nomad Bow
-item.got:nomadChestplate.name≠
-item.got:nomadHelmet.name≠
-item.got:nomadLeggings.name≠
+item.got:dothrakiChestplate.name≠
+item.got:dothrakiHelmet.name≠
+item.got:dothrakiLeggings.name≠
 item.got:nomadSpear.name=Lança Nomadi
 item.got:nomadSword.name=Nomad Arakh
 item.got:northBoots.name=Botas Norte

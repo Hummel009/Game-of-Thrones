@@ -1,4 +1,8 @@
 
+item.got:jogosBoots.name=Jogos Nhai Boots
+item.got:jogosChestplate.name=Jogos Nhai Chestplate
+item.got:jogosHelmet.name=Jogos Nhai Helmet
+item.got:jogosLeggings.name=Jogos Nhai Leggings
 attribute.name.generic.movementSpeedAir=Speed (Air)
 color.black=Black
 color.blue=Blue
@@ -5391,11 +5395,11 @@ item.got:needle.name=Needle
 item.got:nightKingSword.name=Night King Sword
 item.got:nightfall.name=Nightfall
 item.got:nomadBattleaxe.name=Nomad Battleaxe
-item.got:nomadBoots.name=Nomad Boots
+item.got:dothrakiBoots.name=Dothraki Boots
 item.got:nomadBow.name=Nomad Bow
-item.got:nomadChestplate.name=Nomad Chestplate
-item.got:nomadHelmet.name=Nomad Helmet
-item.got:nomadLeggings.name=Nomad Leggings
+item.got:dothrakiChestplate.name=Dothraki Chestplate
+item.got:dothrakiHelmet.name=Dothraki Helmet
+item.got:dothrakiLeggings.name=Dothraki Leggings
 item.got:nomadSpear.name=Nomadi Spear
 item.got:nomadSword.name=Nomad Arakh
 item.got:northBoots.name=North Boots

@@ -1,4 +1,8 @@
 
+item.got:jogosBoots.name≠
+item.got:jogosChestplate.name≠
+item.got:jogosHelmet.name≠
+item.got:jogosLeggings.name≠
 attribute.name.generic.movementSpeedAir=Швидкість (Повітря)
 color.black=Чорний
 color.blue=Блакитний
@@ -5391,11 +5395,11 @@ item.got:needle.name=Голка
 item.got:nightKingSword.name=Меч Короля Ночі
 item.got:nightfall.name=Сутінок
 item.got:nomadBattleaxe.name=Бойова сокира кочівників
-item.got:nomadBoots.name≠
+item.got:dothrakiBoots.name≠
 item.got:nomadBow.name=Лук кочівників
-item.got:nomadChestplate.name≠
-item.got:nomadHelmet.name≠
-item.got:nomadLeggings.name≠
+item.got:dothrakiChestplate.name≠
+item.got:dothrakiHelmet.name≠
+item.got:dothrakiLeggings.name≠
 item.got:nomadSpear.name=Спис кочівників
 item.got:nomadSword.name=Аракх кочівників
 item.got:northBoots.name=Черевики Півночі

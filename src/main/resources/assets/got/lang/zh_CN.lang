@@ -1,4 +1,8 @@
 ﻿
+item.got:jogosBoots.name≠
+item.got:jogosChestplate.name≠
+item.got:jogosHelmet.name≠
+item.got:jogosLeggings.name≠
 attribute.name.generic.movementSpeedAir=速度(Air)
 color.black=黑色
 color.blue=蓝色
@@ -5391,11 +5395,11 @@ item.got:needle.name=缝衣针
 item.got:nightKingSword.name=夜王的剑
 item.got:nightfall.name=夜临
 item.got:nomadBattleaxe.name=多斯拉克战斧
-item.got:nomadBoots.name=多斯拉克靴子
+item.got:dothrakiBoots.name=多斯拉克靴子
 item.got:nomadBow.name=多斯拉克弓
-item.got:nomadChestplate.name=多斯拉克护胸
-item.got:nomadHelmet.name=多斯拉克头盔
-item.got:nomadLeggings.name=多斯拉克护腿
+item.got:dothrakiChestplate.name=多斯拉克护胸
+item.got:dothrakiHelmet.name=多斯拉克头盔
+item.got:dothrakiLeggings.name=多斯拉克护腿
 item.got:nomadSpear.name=多斯拉克矛
 item.got:nomadSword.name=多斯拉克剑
 item.got:northBoots.name=北境靴子

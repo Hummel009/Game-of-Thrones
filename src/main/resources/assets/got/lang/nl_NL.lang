@@ -1,4 +1,8 @@
 
+item.got:jogosBoots.name≠
+item.got:jogosChestplate.name≠
+item.got:jogosHelmet.name≠
+item.got:jogosLeggings.name≠
 attribute.name.generic.movementSpeedAir=Snelheid (lucht)
 color.black=Zwart
 color.blue=Blauw
@@ -5391,11 +5395,11 @@ item.got:needle.name=Naald
 item.got:nightKingSword.name=Nachtkoning zwaard
 item.got:nightfall.name=Het vallen van de avond
 item.got:nomadBattleaxe.name=Nomad Battleaxe
-item.got:nomadBoots.name≠
+item.got:dothrakiBoots.name≠
 item.got:nomadBow.name=Nomad Bow
-item.got:nomadChestplate.name≠
-item.got:nomadHelmet.name≠
-item.got:nomadLeggings.name≠
+item.got:dothrakiChestplate.name≠
+item.got:dothrakiHelmet.name≠
+item.got:dothrakiLeggings.name≠
 item.got:nomadSpear.name=Nomadi Speer
 item.got:nomadSword.name=Nomad Arakh
 item.got:northBoots.name=Noorden Boots
