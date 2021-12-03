@@ -7,6 +7,7 @@ import got.common.GOTLore;
 import got.common.database.*;
 import got.common.entity.animal.GOTEntityCrocodile;
 import got.common.entity.essos.legendary.quest.*;
+import got.common.entity.essos.legendary.warrior.GOTEntityTugarKhan;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.legendary.captain.GOTEntityRickardKarstark;
 import got.common.entity.westeros.legendary.deco.GOTEntityTommenBaratheon;
@@ -201,8 +202,7 @@ public enum GOTMiniQuestFactory {
 		OBERYN.addQuest(new GOTMiniQuestKillEntity.QFKillEntity("oberyn").setKillEntity(GOTEntityGeroldDayne.class, 1, 1).setRewardFactor(100.0f).setIsLegendary());
 		STANNIS.addQuest(new GOTMiniQuestKillEntity.QFKillEntity("stannis").setKillEntity(GOTEntityRenlyBaratheon.class, 1, 1).setRewardFactor(100.0f).setIsLegendary());
 		RENLY.addQuest(new GOTMiniQuestKillEntity.QFKillEntity("renly").setKillEntity(GOTEntityStannisBaratheon.class, 1, 1).setRewardFactor(100.0f).setIsLegendary());
-		KITRA.addQuest(new GOTMiniQuestKillEntity.QFKillEntity("kitra").setKillEntity(GOTEntityBuGai.class, 1, 1).setRewardFactor(100.0f).setIsLegendary());
-		BUGAI.addQuest(new GOTMiniQuestKillEntity.QFKillEntity("bugai").setKillEntity(GOTEntityKitraJuvain.class, 1, 1).setRewardFactor(100.0f).setIsLegendary());
+		BUGAI.addQuest(new GOTMiniQuestKillEntity.QFKillEntity("bugai").setKillEntity(GOTEntityTugarKhan.class, 1, 1).setRewardFactor(100.0f).setIsLegendary());
 		MARGAERY.addQuest(new GOTMiniQuestKillEntity.QFKillEntity("margaery").setKillEntity(GOTEntityCerseiLannister.class, 1, 1).setRewardFactor(100.0f).setIsLegendary());
 		HOWLAND.addQuest(new GOTMiniQuestKillEntity.QFKillEntity("howland").setKillEntity(GOTEntityCrocodile.class, 50, 50).setRewardFactor(50.0f).setIsLegendary());
 		OLENNA.addQuest(new GOTMiniQuestKillEntity.QFKillEntity("olenna").setKillEntity(GOTEntityJoffreyBaratheon.class, 1, 1).setRewardFactor(100.0f).setIsLegendary());

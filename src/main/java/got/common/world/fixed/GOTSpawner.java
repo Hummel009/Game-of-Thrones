@@ -978,12 +978,12 @@ public class GOTSpawner {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
-			spawnLegendaryNPC(new GOTEntityKitraJuvain(world), world, 0, 1, 10);
+			spawnLegendaryNPC(new GOTEntityTugarKhan(world), world, 0, 1, 10);
 			return true;
 		}
 
 		public static boolean fixedAt(World world, int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Kitra);
+			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Hojdbaatar);
 		}
 	}
 

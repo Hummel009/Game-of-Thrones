@@ -186,7 +186,7 @@ public class GOTRender {
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityJonosBracken.class, new GOTRenderLegendaryNPC("jonos_bracken"));
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityJorahMormont.class, new GOTRenderLegendaryNPC("jorah_mormont"));
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityKevanLannister.class, new GOTRenderLegendaryNPC("kevan_lannister"));
-		RenderingRegistry.registerEntityRenderingHandler(GOTEntityKitraJuvain.class, new GOTRenderLegendaryNPC("kitra_juvain"));
+		RenderingRegistry.registerEntityRenderingHandler(GOTEntityTugarKhan.class, new GOTRenderLegendaryNPC("tugar_khan", 1.3f));
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityLeoLefford.class, new GOTRenderLegendaryNPC("leo_lefford"));
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityLeytonHightower.class, new GOTRenderLegendaryNPC("leyton_hightower"));
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityLorasTyrell.class, new GOTRenderLegendaryNPC("loras_tyrell"));

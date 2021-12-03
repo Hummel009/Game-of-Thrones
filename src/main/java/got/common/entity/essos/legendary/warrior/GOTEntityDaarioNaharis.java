@@ -71,7 +71,7 @@ public class GOTEntityDaarioNaharis extends GOTEntityHumanBase implements GOTMer
 
 	@Override
 	public int getMercBaseCost() {
-		return 1000;
+		return 100;
 	}
 
 	@Override

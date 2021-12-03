@@ -35,7 +35,7 @@ public class GOTBiomeJogosNhai extends GOTBiome {
 		decorator.clearTrees();
 		invasionSpawns.addInvasion(GOTInvasions.YI_TI, GOTEventSpawner.EventChance.UNCOMMON);
 		GOTStructureJogosVillage camp = new GOTStructureJogosVillage(this, 1.0f);
-		camp.affix(GOTWaypoint.Kitra);
+		camp.affix(GOTWaypoint.Hojdbaatar);
 		decorator.affix(camp);
 	}
 

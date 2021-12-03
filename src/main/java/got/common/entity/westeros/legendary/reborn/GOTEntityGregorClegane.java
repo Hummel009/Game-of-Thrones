@@ -74,7 +74,6 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 			super.applyEntityAttributes();
 			getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0);
 			getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
-			getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(40.0);
 		}
 
 		@Override
@@ -133,7 +132,6 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 			super.applyEntityAttributes();
 			getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0);
 			getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
-			getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(40.0);
 		}
 
 		@Override

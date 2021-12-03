@@ -67,7 +67,7 @@ public class GOTAchievement {
 	public static GOTAchievement KILL_JORAH_MORMONT;
 	public static GOTAchievement KILL_KEVAN_LANNISTER;
 	public static GOTAchievement KILL_KHAL;
-	public static GOTAchievement KILL_KITRA_JUVAIN;
+	public static GOTAchievement KILL_TUGAR_KHAN;
 	public static GOTAchievement KILL_LANCEL_LANNISTER;
 	public static GOTAchievement KILL_LORAS_TYRELL;
 	public static GOTAchievement KILL_MAESTER;
@@ -541,7 +541,7 @@ public class GOTAchievement {
 		KILL_JORAH_MORMONT = new GOTAchievement(Category.LEGENDARY, id++, GOTRegistry.harpy, "KILL_JORAH_MORMONT");
 		KILL_KEVAN_LANNISTER = new GOTAchievement(Category.LEGENDARY, id++, GOTRegistry.handGold, "KILL_KEVAN_LANNISTER");
 		KILL_KHAL = new GOTAchievement(Category.KILL, id++, GOTRegistry.lhazarSword, "KILL_KHAL");
-		KILL_KITRA_JUVAIN = new GOTAchievement(Category.LEGENDARY, id++, GOTRegistry.nomadSword, "KILL_KITRA_JUVAIN").createTitle();
+		KILL_TUGAR_KHAN = new GOTAchievement(Category.LEGENDARY, id++, GOTRegistry.nomadSword, "KILL_TUGAR_KHAN").createTitle();
 		KILL_LANCEL_LANNISTER = new GOTAchievement(Category.LEGENDARY, id++, GOTRegistry.gregorCleganeSword, "KILL_LANCEL_LANNISTER");
 		KILL_LORAS_TYRELL = new GOTAchievement(Category.LEGENDARY, id++, GOTRegistry.gregorCleganeSword, "KILL_LORAS_TYRELL");
 		KILL_MAESTER = new GOTAchievement(Category.KILL, id++, Items.book, "KILL_MAESTER");

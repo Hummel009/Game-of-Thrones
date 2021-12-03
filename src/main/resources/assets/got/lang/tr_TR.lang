@@ -377,7 +377,7 @@ entity.got.JungleScorpion.name=Orman Akrebi
 entity.got.KevanLannister.name≠
 entity.got.WhiteBison.name=White Bison Öküzü
 entity.got.Kingsguard.name≠
-entity.got.KitraJuvain.name≠
+entity.got.TugarKhan.name≠
 entity.got.KraznysMoNakloz.name≠
 entity.got.LancelLannister.name≠
 entity.got.LancelLannisterR.name≠
@@ -1044,8 +1044,8 @@ got.achievement.KILL_KEVAN_LANNISTER.desc≠
 got.achievement.KILL_KEVAN_LANNISTER.title≠
 got.achievement.KILL_KHAL.desc≠
 got.achievement.KILL_KHAL.title≠
-got.achievement.KILL_KITRA_JUVAIN.desc≠
-got.achievement.KILL_KITRA_JUVAIN.title≠
+got.achievement.KILL_TUGAR_KHAN.desc≠
+got.achievement.KILL_TUGAR_KHAN.title≠
 got.achievement.KILL_KRAZNYS_MO_NAKLOZ.desc≠
 got.achievement.KILL_KRAZNYS_MO_NAKLOZ.title≠
 got.achievement.KILL_LANCEL_LANNISTER.desc≠
@@ -3472,7 +3472,7 @@ got.title.KILL_GREGOR_CLEGANE≠
 got.title.KILL_JAQEN_HGHAR≠
 got.title.KILL_JEOR_MORMONT≠
 got.title.KILL_JON_SNOW≠
-got.title.KILL_KITRA_JUVAIN≠
+got.title.KILL_TUGAR_KHAN≠
 got.title.KILL_NIGHT_KING≠
 got.title.KILL_OBERYN_MARTELL≠
 got.title.KILL_SANDOR_CLEGANE≠
@@ -3864,8 +3864,8 @@ got.wp.Kingshouse.info≠
 got.wp.Kingshouse≠
 got.wp.KissLock.info≠
 got.wp.KissLock≠
-got.wp.Kitra.info≠
-got.wp.Kitra≠
+got.wp.Hojdbaatar.info≠
+got.wp.Hojdbaatar=Hojdbaatar
 got.wp.Koj.info≠
 got.wp.Koj≠
 got.wp.Kosrak.info≠

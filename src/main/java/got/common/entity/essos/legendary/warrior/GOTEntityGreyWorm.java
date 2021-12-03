@@ -76,7 +76,7 @@ public class GOTEntityGreyWorm extends GOTEntityHumanBase implements GOTMercenar
 
 	@Override
 	public int getMercBaseCost() {
-		return 5000;
+		return 100;
 	}
 
 	@Override

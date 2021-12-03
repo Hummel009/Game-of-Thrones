@@ -818,7 +818,7 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityJonosBracken.class, "JonosBracken", id++, 9605778);
 		GOTEntityRegistry.register(GOTEntityJorahMormont.class, "JorahMormont", id++, 9605778);
 		GOTEntityRegistry.register(GOTEntityKevanLannister.class, "KevanLannister", id++, 9605778);
-		GOTEntityRegistry.register(GOTEntityKitraJuvain.class, "KitraJuvain", id++, 9605778);
+		GOTEntityRegistry.register(GOTEntityTugarKhan.class, "TugarKhan", id++, 9605778);
 		GOTEntityRegistry.register(GOTEntityKraznysMoNakloz.class, "KraznysMoNakloz", id++, 9605778);
 		GOTEntityRegistry.register(GOTEntityLancelLannister.Normal.class, "LancelLannister", id++, 9605778);
 		GOTEntityRegistry.register(GOTEntityLancelLannister.Religious.class, "LancelLannisterR", id++);
