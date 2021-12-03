@@ -1290,6 +1290,7 @@ public class GOTRegistry {
 	public static Item jogosChestplate;
 	public static Item jogosLeggings;
 	public static Item jogosBoots;
+	public static Item tugarKhanSword;
 
 	public static void assignContent() {
 		planks1 = new GOTBlockPlanks1();
@@ -2143,6 +2144,7 @@ public class GOTRegistry {
 		jaimeSword = new GOTItemLegendarySword(GOTMaterial.STEEL);
 		joffreyCrossbow = new GOTItemLegendaryCrossbow();
 		justMaid = new GOTItemLegendarySword(GOTMaterial.VALYRIAN);
+		tugarKhanSword = new GOTItemLegendarySword(GOTMaterial.STEEL);
 		kaftanChestplate = new GOTItemKaftan(1);
 		kaftanLeggings = new GOTItemKaftan(2);
 		katana = new GOTItemLegendarySword(GOTMaterial.STEEL);
@@ -3889,5 +3891,6 @@ public class GOTRegistry {
 		registerItem(jogosChestplate, "jogosChestplate");
 		registerItem(jogosLeggings, "jogosLeggings");
 		registerItem(jogosBoots, "jogosBoots");
+		registerItem(tugarKhanSword, "tugarKhanSword");
 	}
 }
