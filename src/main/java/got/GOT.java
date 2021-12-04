@@ -195,7 +195,7 @@ public class GOT {
 	public void postload(FMLPostInitializationEvent event) {
 		proxy.onPostload();
 		for (GOTWaypoint wp: GOTWaypoint.values()) {
-			GOTCommander.addMountain(wp.name(), wp.getX(), wp.getY(), 0.0f, 250);
+			GOTCommander.addMountain(wp.name(), wp.getX(), wp.getY(), 0.1f, 512);
 		}
 		Color baseWater = new Color(4876527);
 		int baseR = baseWater.getRed();
