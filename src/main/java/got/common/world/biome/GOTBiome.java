@@ -249,14 +249,12 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public BiomeColors biomeColors = new BiomeColors(this);
 	public BiomeTerrain biomeTerrain = new BiomeTerrain(this);
 	public float variantChance = 0.4f;
-
 	public boolean isAltitudeZone;
 	public boolean isAlwaysWinter;
 	public boolean isNeverWinter;
 	public boolean isSeasonalWinter;
 	public boolean isLongWinter;
 	public boolean isNeverWinterAZ;
-
 	public boolean isSeasonalWinterAZ;
 
 	public GOTBiome(int i, boolean major) {
