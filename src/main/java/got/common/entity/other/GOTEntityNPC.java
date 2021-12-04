@@ -502,9 +502,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			if (!initFestiveItems) {
 				festiveRand.setSeed(getEntityId() * 341873128712L);
 				if (GOT.isGuyFawkes()) {
-					if (festiveRand.nextInt(3) == 0) {
-						festiveItems[4] = new ItemStack(GOTRegistry.anonymousMask);
-					}
+					festiveItems[4] = new ItemStack(GOTRegistry.anonymousMask);
 				} else if (GOT.isNewYear() && festiveRand.nextInt(3) == 0) {
 					ItemStack hat;
 					if (rand.nextBoolean()) {
