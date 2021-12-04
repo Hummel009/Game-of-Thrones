@@ -34,7 +34,7 @@ public class GOTBiomeJogosNhai extends GOTBiome {
 		decorator.grassPerChunk = 256;
 		decorator.clearTrees();
 		invasionSpawns.addInvasion(GOTInvasions.YI_TI, GOTEventSpawner.EventChance.UNCOMMON);
-		GOTStructureJogosVillage camp = new GOTStructureJogosVillage(this, 1.0f);
+		GOTStructureJogosVillage camp = new GOTStructureJogosVillage(this, 1.0f).setIsBig();
 		camp.affix(GOTWaypoint.Hojdbaatar);
 		decorator.affix(camp);
 	}

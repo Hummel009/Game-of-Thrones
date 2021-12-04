@@ -26,7 +26,7 @@ public class GOTBiomeDothrakiSea extends GOTBiome {
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDikDik.class, 8, 1, 2));
 		decorator.doubleGrassPerChunk = 256;
 		decorator.clearTrees();
-		GOTStructureDothrakiVillage camp = new GOTStructureDothrakiVillage(this, 1.0f);
+		GOTStructureDothrakiVillage camp = new GOTStructureDothrakiVillage(this, 1.0f).setIsBig();
 		camp.affix(GOTWaypoint.Sathar);
 		camp.affix(GOTWaypoint.Kyth);
 		camp.affix(GOTWaypoint.Hornoth);

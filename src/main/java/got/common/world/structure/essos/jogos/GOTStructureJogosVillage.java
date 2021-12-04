@@ -11,6 +11,8 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTStructureJogosVillage extends GOTVillageGen {
+	private boolean isBig;
+	
 	public GOTStructureJogosVillage(GOTBiome biome, float f) {
 		super(biome);
 		gridScale = 12;
@@ -134,6 +136,10 @@ public class GOTStructureJogosVillage extends GOTVillageGen {
 
 		@Override
 		public void setupVillageProperties(Random random) {
+			if (isBig) {
+				villageType = VillageType.BIG;
+				numOuterHouses = 14;
+			}
 			if (random.nextInt(3) == 0) {
 				villageType = VillageType.BIG;
 				numOuterHouses = MathHelper.getRandomIntegerInRange(random, 8, 14);
@@ -148,6 +154,11 @@ public class GOTStructureJogosVillage extends GOTVillageGen {
 	public enum VillageType {
 		SMALL, BIG;
 
+	}
+
+	public GOTStructureJogosVillage setIsBig() {
+		isBig = true;
+		return this;
 	}
 
 }
