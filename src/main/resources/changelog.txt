@@ -9,6 +9,8 @@ CHANGELOG
 
 * Improved Bu Gai Quest
 
+* Fixed bug with Daenerys Targaryen spawning
+
 - Removed Kitra achievement
 - Removed Kitra
 - Removed Kitra's Camp waypoint
