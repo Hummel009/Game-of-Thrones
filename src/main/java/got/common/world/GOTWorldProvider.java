@@ -28,17 +28,20 @@ public class GOTWorldProvider extends WorldProvider {
 	public IRenderHandler gotSkyRenderer;
 	@SideOnly(value = Side.CLIENT)
 	public IRenderHandler gotCloudRenderer;
+	@SideOnly(value = Side.CLIENT)
+	public IRenderHandler gotWeatherRenderer;
+	public boolean spawnHostiles = true;
+	public boolean spawnPeacefuls = true;
 	public double cloudsR;
 	public double cloudsG;
 	public double cloudsB;
 	public double fogR;
 	public double fogG;
 	public double fogB;
-	public IRenderHandler gotWeather;
 
 	@Override
 	public float calculateCelestialAngle(long time, float partialTick) {
-		float daytime = ((int) (time % GOTTime.DAY_LENGTH) + partialTick) / GOTTime.DAY_LENGTH - 0.25f;
+		float daytime = (((int) (time % GOTTime.DAY_LENGTH)) + partialTick) / GOTTime.DAY_LENGTH - 0.25f;
 		if (daytime < 0.0f) {
 			daytime += 1.0f;
 		}
@@ -99,7 +102,7 @@ public class GOTWorldProvider extends WorldProvider {
 		if (!checkLight) {
 			return true;
 		}
-		return j >= 0 && j < worldObj.getHeight() && worldObj.getSavedLightValue(EnumSkyBlock.Block, i, j, k) < 10 && worldObj.getBlock(i, j, k).getMaterial() == Material.air && Blocks.snow_layer.canPlaceBlockAt(worldObj, i, j, k);
+		return j >= 0 && j < worldObj.getHeight() && worldObj.getSavedLightValue(EnumSkyBlock.Block, i, j, k) < 10 && (worldObj.getBlock(i, j, k)).getMaterial() == Material.air && Blocks.snow_layer.canPlaceBlockAt(worldObj, i, j, k);
 	}
 
 	@Override
@@ -284,10 +287,10 @@ public class GOTWorldProvider extends WorldProvider {
 	@Override
 	@SideOnly(value = Side.CLIENT)
 	public IRenderHandler getWeatherRenderer() {
-		if (gotWeather == null) {
-			gotWeather = new GOTRenderWeather();
+		if (gotWeatherRenderer == null) {
+			gotWeatherRenderer = new GOTRenderWeather();
 		}
-		return gotWeather;
+		return gotWeatherRenderer;
 	}
 
 	@Override
@@ -299,7 +302,7 @@ public class GOTWorldProvider extends WorldProvider {
 		return rgb;
 	}
 
-	public float[] modifyFogIntensity(float farPlane, int fogote) {
+	public float[] modifyFogIntensity(float farPlane, int fogMode) {
 		Minecraft mc = Minecraft.getMinecraft();
 		int i = (int) mc.renderViewEntity.posX;
 		int k = (int) mc.renderViewEntity.posZ;
@@ -321,7 +324,7 @@ public class GOTWorldProvider extends WorldProvider {
 					thisFogStart = farPlane * 0.05f;
 					thisFogEnd = Math.min(farPlane, 192.0f) * 0.5f;
 				} else {
-					if (fogote < 0) {
+					if (fogMode < 0) {
 						thisFogStart = 0.0f;
 					} else {
 						thisFogStart = farPlane * 0.75f;
