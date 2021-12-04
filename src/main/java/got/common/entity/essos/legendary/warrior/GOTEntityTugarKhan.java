@@ -40,7 +40,7 @@ public class GOTEntityTugarKhan extends GOTEntityHumanBase {
 	
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.tugarKhanSword, 2);
+		dropItem(GOTRegistry.tugarKhanSword, 1);
 	}
 
 	@Override
@@ -89,10 +89,6 @@ public class GOTEntityTugarKhan extends GOTEntityHumanBase {
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.tugarKhanSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
-	}
-
-	public ItemStack getHeldItemLeft() {
-		return new ItemStack(GOTRegistry.tugarKhanSword);
 	}
 
 	@Override
