@@ -220,13 +220,17 @@ public class GOT {
 		for (Block block : GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Block.class)) {
 			blocks = blocks + 1;
 		}
+		int biomes = 0;
+		for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
+			biomes = biomes + 1;
+		}
 		int waypoints = GOTWaypoint.values().length;
 		int factions = GOTFaction.values().length - 2;
 		GOTLog.logger.info("Hummel009: Registered " + GOTPacketHandler.id + " packets");
 		GOTLog.logger.info("Hummel009: Registered " + GOTItemBanner.id + " banners");
 		GOTLog.logger.info("Hummel009: Registered " + GOTEntity.id + " mobs");
 		GOTLog.logger.info("Hummel009: Registered " + GOTStructure.id + " structures");
-		GOTLog.logger.info("Hummel009: Registered " + GOTBiome.id + " biomes");
+		GOTLog.logger.info("Hummel009: Registered " + biomes + " biomes");
 		GOTLog.logger.info("Hummel009: Registered " + GOTRoads.id + " roads");
 		GOTLog.logger.info("Hummel009: Registered " + GOTWalls.id + " walls");
 		GOTLog.logger.info("Hummel009: Registered " + waypoints + " waypoints");
