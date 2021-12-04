@@ -54,6 +54,37 @@ public class GOTBiomeNorth extends GOTBiomeWesteros {
 		GOTStructureTower towerGen = new GOTStructureTower(this, 0.0f);
 		towerGen.affix(GOTWaypoint.RamseyTower);
 		decorator.affix(towerGen);
+		SpawnListContainer[] container0 = new SpawnListContainer[2];
+		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.NORTH_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
+		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.NORTH_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(10).add(container0);
+		SpawnListContainer[] containerLSR = new SpawnListContainer[1];
+		containerLSR[0] = GOTBiomeSpawnList.entry(GOTSpawnList.UNRELIABLE, 10).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(1).add(containerLSR);
+		GOTStructureNorthCity castle = new GOTStructureNorthCity(this, 0.0f).setIsCastle();
+		castle.affix(GOTWaypoint.MormontsKeep);
+		castle.affix(GOTWaypoint.DeepwoodMotte);
+		castle.affix(GOTWaypoint.Karhold);
+		castle.affix(GOTWaypoint.Winterfell, 1);
+		castle.affix(GOTWaypoint.LastHearth);
+		castle.affix(GOTWaypoint.Dreadfort);
+		castle.affix(GOTWaypoint.DeepwoodMotte);
+		castle.affix(GOTWaypoint.Hornwood);
+		castle.affix(GOTWaypoint.BlackPool);
+		castle.affix(GOTWaypoint.RamsGate);
+		castle.affix(GOTWaypoint.WidowsWatch);
+		castle.affix(GOTWaypoint.OldCastle);
+		castle.affix(GOTWaypoint.ServinsCastle, -1, 0);
+		castle.affix(GOTWaypoint.Ironrath);
+		castle.affix(GOTWaypoint.Highpoint);
+		castle.affix(GOTWaypoint.TorhensSquare);
+		castle.affix(GOTWaypoint.RisvellsCastle, 0, 1);
+		castle.affix(GOTWaypoint.RillwaterCrossing);
+		castle.affix(GOTWaypoint.FlintsFinger);
+		decorator.affix(castle);
+		GOTStructureNorthCity town = new GOTStructureNorthCity(this, 0.0f).setIsTown();
+		town.affix(GOTWaypoint.WhiteHarbour, 1);
+		decorator.affix(town);
 	}
 
 	@Override

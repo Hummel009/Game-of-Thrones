@@ -231,11 +231,11 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 					if (!structureNear && biome.getEnableRiver() && GOTGenLayerBiomeVariantsLake.getFlag(variantsLakesInts[index], 1)) {
 						variant = GOTBiomeVariant.LAKE;
 					}
-				}
-				if ((riverCode = variantsRiversInts[index]) == 2) {
-					variant = GOTBiomeVariant.RIVER;
-				} else if (riverCode == 1 && biome.getEnableRiver() && !structureNear && !mountainNear) {
-					variant = GOTBiomeVariant.RIVER;
+					if ((riverCode = variantsRiversInts[index]) == 2) {
+						variant = GOTBiomeVariant.RIVER;
+					} else if (riverCode == 1 && biome.getEnableRiver() && !structureNear) {
+						variant = GOTBiomeVariant.RIVER;
+					}
 				}
 				variants[index] = variant;
 			}

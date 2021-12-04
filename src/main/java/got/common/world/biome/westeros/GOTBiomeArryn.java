@@ -29,6 +29,35 @@ public class GOTBiomeArryn extends GOTBiomeWesteros {
 		npcSpawnList.newFactionList(0).add(container3);
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.HILL_TRIBES, GOTEventSpawner.EventChance.COMMON);
+		SpawnListContainer[] container0 = new SpawnListContainer[2];
+		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.ARRYN_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
+		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.ARRYN_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(10).add(container0);
+		SpawnListContainer[] containerLSR = new SpawnListContainer[1];
+		containerLSR[0] = GOTBiomeSpawnList.entry(GOTSpawnList.UNRELIABLE, 10).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(1).add(containerLSR);
+		GOTStructureArrynCity castle = new GOTStructureArrynCity(this, 0.0f).setIsCastle();
+		castle.affix(GOTWaypoint.Pebble);
+		castle.affix(GOTWaypoint.ThePaps);
+		castle.affix(GOTWaypoint.ColdwaterBurn);
+		castle.affix(GOTWaypoint.Snakewood);
+		castle.affix(GOTWaypoint.HeartsHome);
+		castle.affix(GOTWaypoint.Strongsong);
+		castle.affix(GOTWaypoint.LongbowHall);
+		castle.affix(GOTWaypoint.OldAnchor);
+		castle.affix(GOTWaypoint.Ninestars);
+		castle.affix(GOTWaypoint.IronOak);
+		castle.affix(GOTWaypoint.Runestone);
+		castle.affix(GOTWaypoint.GreyGlen);
+		castle.affix(GOTWaypoint.Redfort);
+		castle.affix(GOTWaypoint.GateOfTheMoon, 0, 1);
+		castle.affix(GOTWaypoint.WitchIsle);
+		castle.affix(GOTWaypoint.Wickenden);
+		decorator.affix(castle);
+		GOTStructureArrynCity town = new GOTStructureArrynCity(this, 0.0f).setIsTown();
+		town.affix(GOTWaypoint.Sisterton);
+		town.affix(GOTWaypoint.Gulltown);
+		decorator.affix(town);
 	}
 
 	@Override

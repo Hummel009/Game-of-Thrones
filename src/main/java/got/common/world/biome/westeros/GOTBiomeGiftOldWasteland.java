@@ -8,8 +8,8 @@ import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.westeros.gift.GOTStructureGiftVillage;
 
-public class GOTBiomeGiftOldFlat extends GOTBiomeGiftOld {
-	public GOTBiomeGiftOldFlat(int i, boolean major) {
+public class GOTBiomeGiftOldWasteland extends GOTBiomeGiftOld {
+	public GOTBiomeGiftOldWasteland(int i, boolean major) {
 		super(i, major);
 		clearBiomeVariants();
 		decorator.clearVillages();

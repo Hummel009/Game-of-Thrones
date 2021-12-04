@@ -10,7 +10,7 @@ import got.common.world.map.GOTWaypoint.Region;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.*;
 
-public class GOTBiomeTarth extends GOTBiomeStormlandsFlat {
+public class GOTBiomeTarth extends GOTBiomeStormlands {
 	public WorldGenerator chalkBoulder = new GOTWorldGenBoulder(GOTRegistry.rock, 5, 1, 3);
 
 	public GOTBiomeTarth(int i, boolean major) {
