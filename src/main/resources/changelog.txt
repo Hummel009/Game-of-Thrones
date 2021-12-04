@@ -1,5 +1,18 @@
 CHANGELOG
 
+>>VERSION 17.6
+
++ Added Tugar Khan
++ Added Hojtbaatar waypoint
++ Added Jogos Nhai armor
++ Added Tugar Khan achievement
+
+* Improved Bu Gai Quest
+
+- Removed Kitra achievement
+- Removed Kitra
+- Removed Kitra's Camp waypoint
+
 >>VERSION 17.5
 * Reworked Mossovy. Added table, new mobs, structures, villages and fixed genstructures.
 * Reworked economics. New gold, silver and valyrian prices. New prices for all items made of these materials

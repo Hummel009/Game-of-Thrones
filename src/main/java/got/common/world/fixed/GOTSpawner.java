@@ -338,8 +338,8 @@ public class GOTSpawner {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
-			spawnLegendaryNPC(new GOTEntityDaenerysTargaryen(world), world, 2, 1, 10);
-			spawnLegendaryNPC(new GOTEntityJorahMormont(world), world, -2, 1, 10);
+			spawnLegendaryNPC(new GOTEntityDaenerysTargaryen(world), world, 2, k+5, 2);
+			spawnLegendaryNPC(new GOTEntityJorahMormont(world), world, -2, k+5, 2);
 			return true;
 		}
 
@@ -970,15 +970,15 @@ public class GOTSpawner {
 		}
 	}
 
-	public static class KitraJuvain extends GOTStructureBase {
-		public KitraJuvain(boolean flag) {
+	public static class TugarKhan extends GOTStructureBase {
+		public TugarKhan(boolean flag) {
 			super(flag);
 		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
-			spawnLegendaryNPC(new GOTEntityTugarKhan(world), world, 0, 1, 10);
+			spawnLegendaryNPC(new GOTEntityTugarKhan(world), world, 0, k+5, 2);
 			return true;
 		}
 

@@ -410,17 +410,24 @@ public class GOTBiomeDecorator {
 	}
 
 	public GOTStructureBase getFixedStructure(World world, Random random, int i, int k) {
-		if (GOTStructureEuronShip.fixedAt(world, i, k)) {
-			return new GOTStructureEuronShip(false);
+
+		if (GOTSpawner.AddamMarbrand.fixedAt(world, i, k)) {
+			return new GOTSpawner.AddamMarbrand(false);
 		}
-		if (GOTSpawner.Hummel009.fixedAt(world, i, k)) {
-			return new GOTSpawner.Hummel009(false);
+		if (GOTSpawner.AeronGreyjoy.fixedAt(world, i, k)) {
+			return new GOTSpawner.AeronGreyjoy(false);
 		}
-		if (GOTSpawner.Yunkai.fixedAt(world, i, k)) {
-			return new GOTSpawner.Yunkai(false);
+		if (GOTSpawner.AndersYronwood.fixedAt(world, i, k)) {
+			return new GOTSpawner.AndersYronwood(false);
 		}
-		if (GOTSpawner.HizdahrZoLoraq.fixedAt(world, i, k)) {
-			return new GOTSpawner.HizdahrZoLoraq(false);
+		if (GOTSpawner.AndrikTheUnsmilling.fixedAt(world, i, k)) {
+			return new GOTSpawner.AndrikTheUnsmilling(false);
+		}
+		if (GOTSpawner.AnyaWaynwood.fixedAt(world, i, k)) {
+			return new GOTSpawner.AnyaWaynwood(false);
+		}
+		if (GOTSpawner.ArdrianCeltigar.fixedAt(world, i, k)) {
+			return new GOTSpawner.ArdrianCeltigar(false);
 		}
 		if (GOTSpawner.Asshai.fixedAt(world, i, k)) {
 			return new GOTSpawner.Asshai(false);
@@ -428,80 +435,215 @@ public class GOTBiomeDecorator {
 		if (GOTSpawner.Astapor.fixedAt(world, i, k)) {
 			return new GOTSpawner.Astapor(false);
 		}
-		if (GOTSpawner.DaenerysTargaryen.fixedAt(world, i, k)) {
-			return new GOTSpawner.DaenerysTargaryen(false);
+		if (GOTSpawner.BaelorBlacktyde.fixedAt(world, i, k)) {
+			return new GOTSpawner.BaelorBlacktyde(false);
 		}
-		if (GOTSpawner.Mellario.fixedAt(world, i, k)) {
-			return new GOTSpawner.Mellario(false);
+		if (GOTSpawner.BarbreyDustin.fixedAt(world, i, k)) {
+			return new GOTSpawner.BarbreyDustin(false);
 		}
-		if (GOTSpawner.SalladhorSaan.fixedAt(world, i, k)) {
-			return new GOTSpawner.SalladhorSaan(false);
+		if (GOTSpawner.BenedarBelmore.fixedAt(world, i, k)) {
+			return new GOTSpawner.BenedarBelmore(false);
 		}
-		if (GOTSpawner.TychoNestoris.fixedAt(world, i, k)) {
-			return new GOTSpawner.TychoNestoris(false);
+		if (GOTSpawner.BenjenStark.fixedAt(world, i, k)) {
+			return new GOTSpawner.BenjenStark(false);
 		}
-		if (GOTSpawner.KitraJuvain.fixedAt(world, i, k)) {
-			return new GOTSpawner.KitraJuvain(false);
+		if (GOTSpawner.BericDayne.fixedAt(world, i, k)) {
+			return new GOTSpawner.BericDayne(false);
 		}
-		if (GOTSpawner.HarryStrickland.fixedAt(world, i, k)) {
-			return new GOTSpawner.HarryStrickland(false);
-		}
-		if (GOTSpawner.IllyrioMopatis.fixedAt(world, i, k)) {
-			return new GOTSpawner.IllyrioMopatis(false);
-		}
-		if (GOTSpawner.XaroXhoanDaxos.fixedAt(world, i, k)) {
-			return new GOTSpawner.XaroXhoanDaxos(false);
-		}
-		if (GOTSpawner.JonConnington.fixedAt(world, i, k)) {
-			return new GOTSpawner.JonConnington(false);
-		}
-		if (GOTSpawner.YoungGriff.fixedAt(world, i, k)) {
-			return new GOTSpawner.YoungGriff(false);
-		}
-		if (GOTSpawner.Moqorro.fixedAt(world, i, k)) {
-			return new GOTSpawner.Moqorro(false);
+		if (GOTSpawner.BericDondarrion.fixedAt(world, i, k)) {
+			return new GOTSpawner.BericDondarrion(false);
 		}
 		if (GOTSpawner.BuGai.fixedAt(world, i, k)) {
 			return new GOTSpawner.BuGai(false);
 		}
-		if (GOTSpawner.GregorClegane.fixedAt(world, i, k)) {
-			return new GOTSpawner.GregorClegane(false);
-		}
-		if (GOTSpawner.AddamMarbrand.fixedAt(world, i, k)) {
-			return new GOTSpawner.AddamMarbrand(false);
-		}
-		if (GOTSpawner.ForleyPrester.fixedAt(world, i, k)) {
-			return new GOTSpawner.ForleyPrester(false);
-		}
-		if (GOTSpawner.HarysSwyft.fixedAt(world, i, k)) {
-			return new GOTSpawner.HarysSwyft(false);
-		}
-		if (GOTSpawner.LeoLefford.fixedAt(world, i, k)) {
-			return new GOTSpawner.LeoLefford(false);
-		}
-		if (GOTSpawner.LyleCrakehall.fixedAt(world, i, k)) {
-			return new GOTSpawner.LyleCrakehall(false);
-		}
-		if (GOTSpawner.QuentenBanefort.fixedAt(world, i, k)) {
-			return new GOTSpawner.QuentenBanefort(false);
-		}
-		if (GOTSpawner.SebastonFarman.fixedAt(world, i, k)) {
-			return new GOTSpawner.SebastonFarman(false);
-		}
 		if (GOTSpawner.CasterlyRock.fixedAt(world, i, k)) {
 			return new GOTSpawner.CasterlyRock(false);
 		}
-		if (GOTSpawner.Lannisport.fixedAt(world, i, k)) {
-			return new GOTSpawner.Lannisport(false);
+		if (GOTSpawner.ClementPiper.fixedAt(world, i, k)) {
+			return new GOTSpawner.ClementPiper(false);
 		}
-		if (GOTSpawner.TytosBrax.fixedAt(world, i, k)) {
-			return new GOTSpawner.TytosBrax(false);
+		if (GOTSpawner.CleyCerwyn.fixedAt(world, i, k)) {
+			return new GOTSpawner.CleyCerwyn(false);
+		}
+		if (GOTSpawner.DaenerysTargaryen.fixedAt(world, i, k)) {
+			return new GOTSpawner.DaenerysTargaryen(false);
+		}
+		if (GOTSpawner.Dagmer.fixedAt(world, i, k)) {
+			return new GOTSpawner.Dagmer(false);
+		}
+		if (GOTSpawner.Dragonstone.fixedAt(world, i, k)) {
+			return new GOTSpawner.Dragonstone(false);
+		}
+		if (GOTSpawner.Dreadfort.fixedAt(world, i, k)) {
+			return new GOTSpawner.Dreadfort(false);
+		}
+		if (GOTSpawner.Driftmark.fixedAt(world, i, k)) {
+			return new GOTSpawner.Driftmark(false);
+		}
+		if (GOTSpawner.DunstanDrumm.fixedAt(world, i, k)) {
+			return new GOTSpawner.DunstanDrumm(false);
+		}
+		if (GOTSpawner.Ebrose.fixedAt(world, i, k)) {
+			return new GOTSpawner.Ebrose(false);
 		}
 		if (GOTSpawner.EldonEstermont.fixedAt(world, i, k)) {
 			return new GOTSpawner.EldonEstermont(false);
 		}
+		if (GOTSpawner.ErikIronmaker.fixedAt(world, i, k)) {
+			return new GOTSpawner.ErikIronmaker(false);
+		}
+		if (GOTSpawner.ForleyPrester.fixedAt(world, i, k)) {
+			return new GOTSpawner.ForleyPrester(false);
+		}
+		if (GOTSpawner.FranklynFowler.fixedAt(world, i, k)) {
+			return new GOTSpawner.FranklynFowler(false);
+		}
+		if (GOTSpawner.GarlanTyrell.fixedAt(world, i, k)) {
+			return new GOTSpawner.GarlanTyrell(false);
+		}
+		if (GOTSpawner.GateOfTheMoon.fixedAt(world, i, k)) {
+			return new GOTSpawner.GateOfTheMoon(false);
+		}
+		if (GOTSpawner.GeroldDayne.fixedAt(world, i, k)) {
+			return new GOTSpawner.GeroldDayne(false);
+		}
+		if (GOTSpawner.GeroldGrafton.fixedAt(world, i, k)) {
+			return new GOTSpawner.GeroldGrafton(false);
+		}
+		if (GOTSpawner.GilwoodHunter.fixedAt(world, i, k)) {
+			return new GOTSpawner.GilwoodHunter(false);
+		}
+		if (GOTSpawner.GoroldGoodbrother.fixedAt(world, i, k)) {
+			return new GOTSpawner.GoroldGoodbrother(false);
+		}
+		if (GOTSpawner.GregorClegane.fixedAt(world, i, k)) {
+			return new GOTSpawner.GregorClegane(false);
+		}
 		if (GOTSpawner.GulianSwann.fixedAt(world, i, k)) {
 			return new GOTSpawner.GulianSwann(false);
+		}
+		if (GOTSpawner.GylbertFarwynd.fixedAt(world, i, k)) {
+			return new GOTSpawner.GylbertFarwynd(false);
+		}
+		if (GOTSpawner.HarmenUller.fixedAt(world, i, k)) {
+			return new GOTSpawner.HarmenUller(false);
+		}
+		if (GOTSpawner.HarrasHarlaw.fixedAt(world, i, k)) {
+			return new GOTSpawner.HarrasHarlaw(false);
+		}
+		if (GOTSpawner.HarroldHardyng.fixedAt(world, i, k)) {
+			return new GOTSpawner.HarroldHardyng(false);
+		}
+		if (GOTSpawner.HarryStrickland.fixedAt(world, i, k)) {
+			return new GOTSpawner.HarryStrickland(false);
+		}
+		if (GOTSpawner.HarysSwyft.fixedAt(world, i, k)) {
+			return new GOTSpawner.HarysSwyft(false);
+		}
+		if (GOTSpawner.HelmanTallhart.fixedAt(world, i, k)) {
+			return new GOTSpawner.HelmanTallhart(false);
+		}
+		if (GOTSpawner.Highgarden.fixedAt(world, i, k)) {
+			return new GOTSpawner.Highgarden(false);
+		}
+		if (GOTSpawner.HizdahrZoLoraq.fixedAt(world, i, k)) {
+			return new GOTSpawner.HizdahrZoLoraq(false);
+		}
+		if (GOTSpawner.HortonRedfort.fixedAt(world, i, k)) {
+			return new GOTSpawner.HortonRedfort(false);
+		}
+		if (GOTSpawner.HowlandReed.fixedAt(world, i, k)) {
+			return new GOTSpawner.HowlandReed(false);
+		}
+		if (GOTSpawner.Hummel009.fixedAt(world, i, k)) {
+			return new GOTSpawner.Hummel009(false);
+		}
+		if (GOTSpawner.IllyrioMopatis.fixedAt(world, i, k)) {
+			return new GOTSpawner.IllyrioMopatis(false);
+		}
+		if (GOTSpawner.JasonMallister.fixedAt(world, i, k)) {
+			return new GOTSpawner.JasonMallister(false);
+		}
+		if (GOTSpawner.JohnUmber.fixedAt(world, i, k)) {
+			return new GOTSpawner.JohnUmber(false);
+		}
+		if (GOTSpawner.JonConnington.fixedAt(world, i, k)) {
+			return new GOTSpawner.JonConnington(false);
+		}
+		if (GOTSpawner.JonosBracken.fixedAt(world, i, k)) {
+			return new GOTSpawner.JonosBracken(false);
+		}
+		if (GOTSpawner.Lannisport.fixedAt(world, i, k)) {
+			return new GOTSpawner.Lannisport(false);
+		}
+		if (GOTSpawner.LeoLefford.fixedAt(world, i, k)) {
+			return new GOTSpawner.LeoLefford(false);
+		}
+		if (GOTSpawner.LeytonHightower.fixedAt(world, i, k)) {
+			return new GOTSpawner.LeytonHightower(false);
+		}
+		if (GOTSpawner.LyleCrakehall.fixedAt(world, i, k)) {
+			return new GOTSpawner.LyleCrakehall(false);
+		}
+		if (GOTSpawner.LynCorbray.fixedAt(world, i, k)) {
+			return new GOTSpawner.LynCorbray(false);
+		}
+		if (GOTSpawner.MaegeMormont.fixedAt(world, i, k)) {
+			return new GOTSpawner.MaegeMormont(false);
+		}
+		if (GOTSpawner.MaronVolmark.fixedAt(world, i, k)) {
+			return new GOTSpawner.MaronVolmark(false);
+		}
+		if (GOTSpawner.MathisRowan.fixedAt(world, i, k)) {
+			return new GOTSpawner.MathisRowan(false);
+		}
+		if (GOTSpawner.Mellario.fixedAt(world, i, k)) {
+			return new GOTSpawner.Mellario(false);
+		}
+		if (GOTSpawner.Moqorro.fixedAt(world, i, k)) {
+			return new GOTSpawner.Moqorro(false);
+		}
+		if (GOTSpawner.OrtonMerryweather.fixedAt(world, i, k)) {
+			return new GOTSpawner.OrtonMerryweather(false);
+		}
+		if (GOTSpawner.PaxterRedwyne.fixedAt(world, i, k)) {
+			return new GOTSpawner.PaxterRedwyne(false);
+		}
+		if (GOTSpawner.Pyke.fixedAt(world, i, k)) {
+			return new GOTSpawner.Pyke(false);
+		}
+		if (GOTSpawner.QuennRoxton.fixedAt(world, i, k)) {
+			return new GOTSpawner.QuennRoxton(false);
+		}
+		if (GOTSpawner.QuentenBanefort.fixedAt(world, i, k)) {
+			return new GOTSpawner.QuentenBanefort(false);
+		}
+		if (GOTSpawner.QuentynMartell.fixedAt(world, i, k)) {
+			return new GOTSpawner.QuentynMartell(false);
+		}
+		if (GOTSpawner.QuentynQorgyle.fixedAt(world, i, k)) {
+			return new GOTSpawner.QuentynQorgyle(false);
+		}
+		if (GOTSpawner.RandyllTarly.fixedAt(world, i, k)) {
+			return new GOTSpawner.RandyllTarly(false);
+		}
+		if (GOTSpawner.RickardKarstark.fixedAt(world, i, k)) {
+			return new GOTSpawner.RickardKarstark(false);
+		}
+		if (GOTSpawner.Riverrun.fixedAt(world, i, k)) {
+			return new GOTSpawner.Riverrun(false);
+		}
+		if (GOTSpawner.RodrikHarlaw.fixedAt(world, i, k)) {
+			return new GOTSpawner.RodrikHarlaw(false);
+		}
+		if (GOTSpawner.RodrikRyswell.fixedAt(world, i, k)) {
+			return new GOTSpawner.RodrikRyswell(false);
+		}
+		if (GOTSpawner.SalladhorSaan.fixedAt(world, i, k)) {
+			return new GOTSpawner.SalladhorSaan(false);
+		}
+		if (GOTSpawner.SebastonFarman.fixedAt(world, i, k)) {
+			return new GOTSpawner.SebastonFarman(false);
 		}
 		if (GOTSpawner.SelwynTarth.fixedAt(world, i, k)) {
 			return new GOTSpawner.SelwynTarth(false);
@@ -509,197 +651,56 @@ public class GOTBiomeDecorator {
 		if (GOTSpawner.StormsEnd.fixedAt(world, i, k)) {
 			return new GOTSpawner.StormsEnd(false);
 		}
-		if (GOTSpawner.BericDondarrion.fixedAt(world, i, k)) {
-			return new GOTSpawner.BericDondarrion(false);
-		}
-		if (GOTSpawner.Riverrun.fixedAt(world, i, k)) {
-			return new GOTSpawner.Riverrun(false);
-		}
-		if (GOTSpawner.WalderFrey.fixedAt(world, i, k)) {
-			return new GOTSpawner.WalderFrey(false);
-		}
-		if (GOTSpawner.TytosBlackwood.fixedAt(world, i, k)) {
-			return new GOTSpawner.TytosBlackwood(false);
-		}
-		if (GOTSpawner.JonosBracken.fixedAt(world, i, k)) {
-			return new GOTSpawner.JonosBracken(false);
-		}
-		if (GOTSpawner.JasonMallister.fixedAt(world, i, k)) {
-			return new GOTSpawner.JasonMallister(false);
-		}
-		if (GOTSpawner.ClementPiper.fixedAt(world, i, k)) {
-			return new GOTSpawner.ClementPiper(false);
-		}
-		if (GOTSpawner.WilliamMooton.fixedAt(world, i, k)) {
-			return new GOTSpawner.WilliamMooton(false);
-		}
-		if (GOTSpawner.TwinsLeft.fixedAt(world, i, k)) {
-			return new GOTSpawner.TwinsLeft(false);
-		}
-		if (GOTSpawner.GarlanTyrell.fixedAt(world, i, k)) {
-			return new GOTSpawner.GarlanTyrell(false);
-		}
-		if (GOTSpawner.MathisRowan.fixedAt(world, i, k)) {
-			return new GOTSpawner.MathisRowan(false);
-		}
-		if (GOTSpawner.PaxterRedwyne.fixedAt(world, i, k)) {
-			return new GOTSpawner.PaxterRedwyne(false);
-		}
-		if (GOTSpawner.QuennRoxton.fixedAt(world, i, k)) {
-			return new GOTSpawner.QuennRoxton(false);
-		}
-		if (GOTSpawner.RandyllTarly.fixedAt(world, i, k)) {
-			return new GOTSpawner.RandyllTarly(false);
-		}
-		if (GOTSpawner.OrtonMerryweather.fixedAt(world, i, k)) {
-			return new GOTSpawner.OrtonMerryweather(false);
-		}
-		if (GOTSpawner.Ebrose.fixedAt(world, i, k)) {
-			return new GOTSpawner.Ebrose(false);
-		}
-		if (GOTSpawner.LeytonHightower.fixedAt(world, i, k)) {
-			return new GOTSpawner.LeytonHightower(false);
-		}
-		if (GOTSpawner.Winterfell.fixedAt(world, i, k)) {
-			return new GOTSpawner.Winterfell(false);
-		}
-		if (GOTSpawner.Dreadfort.fixedAt(world, i, k)) {
-			return new GOTSpawner.Dreadfort(false);
-		}
-		if (GOTSpawner.RickardKarstark.fixedAt(world, i, k)) {
-			return new GOTSpawner.RickardKarstark(false);
-		}
-		if (GOTSpawner.JohnUmber.fixedAt(world, i, k)) {
-			return new GOTSpawner.JohnUmber(false);
-		}
-		if (GOTSpawner.HelmanTallhart.fixedAt(world, i, k)) {
-			return new GOTSpawner.HelmanTallhart(false);
-		}
-		if (GOTSpawner.WymanManderly.fixedAt(world, i, k)) {
-			return new GOTSpawner.WymanManderly(false);
-		}
-		if (GOTSpawner.MaegeMormont.fixedAt(world, i, k)) {
-			return new GOTSpawner.MaegeMormont(false);
-		}
-		if (GOTSpawner.CleyCerwyn.fixedAt(world, i, k)) {
-			return new GOTSpawner.CleyCerwyn(false);
-		}
-		if (GOTSpawner.RodrikRyswell.fixedAt(world, i, k)) {
-			return new GOTSpawner.RodrikRyswell(false);
-		}
-		if (GOTSpawner.BarbreyDustin.fixedAt(world, i, k)) {
-			return new GOTSpawner.BarbreyDustin(false);
-		}
-		if (GOTSpawner.HowlandReed.fixedAt(world, i, k)) {
-			return new GOTSpawner.HowlandReed(false);
-		}
-		if (GOTSpawner.GoroldGoodbrother.fixedAt(world, i, k)) {
-			return new GOTSpawner.GoroldGoodbrother(false);
-		}
-		if (GOTSpawner.Pyke.fixedAt(world, i, k)) {
-			return new GOTSpawner.Pyke(false);
-		}
-		if (GOTSpawner.DunstanDrumm.fixedAt(world, i, k)) {
-			return new GOTSpawner.DunstanDrumm(false);
-		}
-		if (GOTSpawner.AndrikTheUnsmilling.fixedAt(world, i, k)) {
-			return new GOTSpawner.AndrikTheUnsmilling(false);
-		}
-		if (GOTSpawner.BaelorBlacktyde.fixedAt(world, i, k)) {
-			return new GOTSpawner.BaelorBlacktyde(false);
-		}
-		if (GOTSpawner.ErikIronmaker.fixedAt(world, i, k)) {
-			return new GOTSpawner.ErikIronmaker(false);
-		}
-		if (GOTSpawner.GylbertFarwynd.fixedAt(world, i, k)) {
-			return new GOTSpawner.GylbertFarwynd(false);
-		}
-		if (GOTSpawner.MaronVolmark.fixedAt(world, i, k)) {
-			return new GOTSpawner.MaronVolmark(false);
-		}
-		if (GOTSpawner.HarrasHarlaw.fixedAt(world, i, k)) {
-			return new GOTSpawner.HarrasHarlaw(false);
-		}
-		if (GOTSpawner.RodrikHarlaw.fixedAt(world, i, k)) {
-			return new GOTSpawner.RodrikHarlaw(false);
-		}
-		if (GOTSpawner.Dagmer.fixedAt(world, i, k)) {
-			return new GOTSpawner.Dagmer(false);
-		}
-		if (GOTSpawner.AeronGreyjoy.fixedAt(world, i, k)) {
-			return new GOTSpawner.AeronGreyjoy(false);
-		}
-		if (GOTSpawner.BenjenStark.fixedAt(world, i, k)) {
-			return new GOTSpawner.BenjenStark(false);
-		}
-		if (GOTSpawner.ThreeEyedRaven.fixedAt(world, i, k)) {
-			return new GOTSpawner.ThreeEyedRaven(false);
-		}
-		if (GOTSpawner.Highgarden.fixedAt(world, i, k)) {
-			return new GOTSpawner.Highgarden(false);
-		}
-		if (GOTSpawner.Dragonstone.fixedAt(world, i, k)) {
-			return new GOTSpawner.Dragonstone(false);
-		}
-		if (GOTSpawner.Driftmark.fixedAt(world, i, k)) {
-			return new GOTSpawner.Driftmark(false);
-		}
-		if (GOTSpawner.ArdrianCeltigar.fixedAt(world, i, k)) {
-			return new GOTSpawner.ArdrianCeltigar(false);
-		}
 		if (GOTSpawner.Sunspear.fixedAt(world, i, k)) {
 			return new GOTSpawner.Sunspear(false);
-		}
-		if (GOTSpawner.GeroldDayne.fixedAt(world, i, k)) {
-			return new GOTSpawner.GeroldDayne(false);
-		}
-		if (GOTSpawner.BericDayne.fixedAt(world, i, k)) {
-			return new GOTSpawner.BericDayne(false);
-		}
-		if (GOTSpawner.AndersYronwood.fixedAt(world, i, k)) {
-			return new GOTSpawner.AndersYronwood(false);
-		}
-		if (GOTSpawner.QuentynMartell.fixedAt(world, i, k)) {
-			return new GOTSpawner.QuentynMartell(false);
-		}
-		if (GOTSpawner.FranklynFowler.fixedAt(world, i, k)) {
-			return new GOTSpawner.FranklynFowler(false);
-		}
-		if (GOTSpawner.HarmenUller.fixedAt(world, i, k)) {
-			return new GOTSpawner.HarmenUller(false);
-		}
-		if (GOTSpawner.QuentynQorgyle.fixedAt(world, i, k)) {
-			return new GOTSpawner.QuentynQorgyle(false);
-		}
-		if (GOTSpawner.YohnRoyce.fixedAt(world, i, k)) {
-			return new GOTSpawner.YohnRoyce(false);
-		}
-		if (GOTSpawner.HarroldHardyng.fixedAt(world, i, k)) {
-			return new GOTSpawner.HarroldHardyng(false);
-		}
-		if (GOTSpawner.HortonRedfort.fixedAt(world, i, k)) {
-			return new GOTSpawner.HortonRedfort(false);
-		}
-		if (GOTSpawner.AnyaWaynwood.fixedAt(world, i, k)) {
-			return new GOTSpawner.AnyaWaynwood(false);
-		}
-		if (GOTSpawner.BenedarBelmore.fixedAt(world, i, k)) {
-			return new GOTSpawner.BenedarBelmore(false);
-		}
-		if (GOTSpawner.GilwoodHunter.fixedAt(world, i, k)) {
-			return new GOTSpawner.GilwoodHunter(false);
 		}
 		if (GOTSpawner.SymondTempleton.fixedAt(world, i, k)) {
 			return new GOTSpawner.SymondTempleton(false);
 		}
-		if (GOTSpawner.LynCorbray.fixedAt(world, i, k)) {
-			return new GOTSpawner.LynCorbray(false);
+		if (GOTSpawner.ThreeEyedRaven.fixedAt(world, i, k)) {
+			return new GOTSpawner.ThreeEyedRaven(false);
 		}
-		if (GOTSpawner.GeroldGrafton.fixedAt(world, i, k)) {
-			return new GOTSpawner.GeroldGrafton(false);
+		if (GOTSpawner.TugarKhan.fixedAt(world, i, k)) {
+			return new GOTSpawner.TugarKhan(false);
 		}
-		if (GOTSpawner.GateOfTheMoon.fixedAt(world, i, k)) {
-			return new GOTSpawner.GateOfTheMoon(false);
+		if (GOTSpawner.TwinsLeft.fixedAt(world, i, k)) {
+			return new GOTSpawner.TwinsLeft(false);
+		}
+		if (GOTSpawner.TychoNestoris.fixedAt(world, i, k)) {
+			return new GOTSpawner.TychoNestoris(false);
+		}
+		if (GOTSpawner.TytosBlackwood.fixedAt(world, i, k)) {
+			return new GOTSpawner.TytosBlackwood(false);
+		}
+		if (GOTSpawner.TytosBrax.fixedAt(world, i, k)) {
+			return new GOTSpawner.TytosBrax(false);
+		}
+		if (GOTSpawner.WalderFrey.fixedAt(world, i, k)) {
+			return new GOTSpawner.WalderFrey(false);
+		}
+		if (GOTSpawner.WilliamMooton.fixedAt(world, i, k)) {
+			return new GOTSpawner.WilliamMooton(false);
+		}
+		if (GOTSpawner.Winterfell.fixedAt(world, i, k)) {
+			return new GOTSpawner.Winterfell(false);
+		}
+		if (GOTSpawner.WymanManderly.fixedAt(world, i, k)) {
+			return new GOTSpawner.WymanManderly(false);
+		}
+		if (GOTSpawner.XaroXhoanDaxos.fixedAt(world, i, k)) {
+			return new GOTSpawner.XaroXhoanDaxos(false);
+		}
+		if (GOTSpawner.YohnRoyce.fixedAt(world, i, k)) {
+			return new GOTSpawner.YohnRoyce(false);
+		}
+		if (GOTSpawner.YoungGriff.fixedAt(world, i, k)) {
+			return new GOTSpawner.YoungGriff(false);
+		}
+		if (GOTSpawner.Yunkai.fixedAt(world, i, k)) {
+			return new GOTSpawner.Yunkai(false);
+		}
+		if (GOTStructureEuronShip.fixedAt(world, i, k)) {
+			return new GOTStructureEuronShip(false);
 		}
 		return null;
 	}
