@@ -338,8 +338,8 @@ public class GOTSpawner {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
-			spawnLegendaryNPC(new GOTEntityDaenerysTargaryen(world), world, 2, k+5, 2);
-			spawnLegendaryNPC(new GOTEntityJorahMormont(world), world, -2, k+5, 2);
+			spawnLegendaryNPC(new GOTEntityDaenerysTargaryen(world), world, 0, 5, 3);
+			spawnLegendaryNPC(new GOTEntityJorahMormont(world), world, 0, 5, 3);
 			return true;
 		}
 
@@ -978,7 +978,7 @@ public class GOTSpawner {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
-			spawnLegendaryNPC(new GOTEntityTugarKhan(world), world, 0, k+5, 2);
+			spawnLegendaryNPC(new GOTEntityTugarKhan(world), world, 0, 5, 3);
 			return true;
 		}
 
