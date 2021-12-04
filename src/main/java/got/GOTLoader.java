@@ -34,8 +34,7 @@ public class GOTLoader {
 		GOTChatEvents.onInit();
 		GOTFaction.onInit();
 		GOTStructure.onInit();
-		GOTRoads.onInit();
-		GOTWalls.onInit();
+		GOTBezier.onInit();
 		GOTMiniQuestFactory.onInit();
 		GOTLore.onInit();
 		GOTTitle.onInit();

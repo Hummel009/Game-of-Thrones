@@ -16,12 +16,12 @@ public class GOTBezierGenerator {
 		int chunkZ = k & 0xF;
 		int xzIndex = chunkX * 16 + chunkZ;
 		int ySize = blocks.length / 256;
-		GOTBezierType roadType = biome.getRoadBlock();
+		GOTBezierType bezierType = biome.getRoadBlock();
 		GOTBezierType.BridgeType bridgeType = biome.getBridgeBlock();
 		GOTBezierType wallType = biome.getWallBlock();
 		int wallTop = biome.getWallTop();
 
-		if (GOTWalls.isWallAt(i, k)) {
+		if (GOTBezier.isBezierAt(i, k) && GOTBezier.isWall()) {
 			int index;
 			int j;
 			for (j = wallTop; j > 62; --j) {
@@ -33,12 +33,11 @@ public class GOTBezierGenerator {
 			}
 			return true;
 		}
-
-		if (GOTRoads.isRoadAt(i, k)) {
+		if (GOTBezier.isBezierAt(i, k) && !GOTBezier.isWall()) {
 			int index;
 			int j;
 			int indexLower;
-			int roadTop = 0;
+			int bezierTop = 0;
 			int bridgeBase = 0;
 			boolean bridge = false;
 			boolean bridgeSlab = false;
@@ -46,22 +45,22 @@ public class GOTBezierGenerator {
 				index = xzIndex * ySize + j;
 				Block block = blocks[index];
 				if (block.isOpaqueCube()) {
-					roadTop = j;
+					bezierTop = j;
 					bridge = false;
 					break;
 				}
 				if (!block.getMaterial().isLiquid()) {
 					continue;
 				}
-				bridgeBase = roadTop = j + 1;
+				bridgeBase = bezierTop = j + 1;
 				int maxBridgeTop = j + 6;
 				float bridgeHeight = 0.0f;
 				for (int j1 = j - 1; j1 > 0 && blocks[indexLower = xzIndex * ySize + j1].getMaterial().isLiquid(); --j1) {
 					bridgeHeight += 0.5f;
 				}
 				int bridgeHeightInt = (int) Math.floor(bridgeHeight);
-				roadTop += bridgeHeightInt;
-				if ((roadTop = Math.min(roadTop, maxBridgeTop)) >= maxBridgeTop) {
+				bezierTop += bridgeHeightInt;
+				if ((bezierTop = Math.min(bezierTop, maxBridgeTop)) >= maxBridgeTop) {
 					bridgeSlab = true;
 				} else {
 					float bridgeHeightR = bridgeHeight - bridgeHeightInt;
@@ -78,18 +77,18 @@ public class GOTBezierGenerator {
 				GOTBezierType.BezierBlock bridgeEdge = bridgeType.getEdge(rand);
 				GOTBezierType.BezierBlock bridgeFence = bridgeType.getFence(rand);
 				boolean fence = GOTBezierGenerator.isFenceAt(i, k);
-				int index2 = xzIndex * ySize + roadTop;
+				int index2 = xzIndex * ySize + bezierTop;
 				if (fence) {
 					boolean pillar = GOTBezierGenerator.isPillarAt(i, k);
 					if (pillar) {
 						int pillarIndex;
-						for (int j2 = roadTop + 4; j2 > 0 && !blocks[pillarIndex = xzIndex * ySize + j2].isOpaqueCube(); --j2) {
-							if (j2 >= roadTop + 4) {
+						for (int j2 = bezierTop + 4; j2 > 0 && !blocks[pillarIndex = xzIndex * ySize + j2].isOpaqueCube(); --j2) {
+							if (j2 >= bezierTop + 4) {
 								blocks[pillarIndex] = bridgeFence.block;
 								metadata[pillarIndex] = (byte) bridgeFence.meta;
 								continue;
 							}
-							if (j2 >= roadTop + 3) {
+							if (j2 >= bezierTop + 3) {
 								blocks[pillarIndex] = bridgeBlock.block;
 								metadata[pillarIndex] = (byte) bridgeBlock.meta;
 								continue;
@@ -104,12 +103,12 @@ public class GOTBezierGenerator {
 						int indexUpper = index2 + 1;
 						blocks[indexUpper] = bridgeFence.block;
 						metadata[indexUpper] = (byte) bridgeFence.meta;
-						if (roadTop > bridgeBase) {
+						if (bezierTop > bridgeBase) {
 							int indexLower2 = index2 - 1;
 							blocks[indexLower2] = bridgeEdge.block;
 							metadata[indexLower2] = (byte) bridgeEdge.meta;
 						}
-						if (roadTop - 1 > (support = bridgeBase + 2)) {
+						if (bezierTop - 1 > (support = bridgeBase + 2)) {
 							int indexSupport = xzIndex * ySize + support;
 							blocks[indexSupport] = bridgeFence.block;
 							metadata[indexSupport] = (byte) bridgeFence.meta;
@@ -123,73 +122,73 @@ public class GOTBezierGenerator {
 						blocks[index2] = bridgeBlock.block;
 						metadata[index2] = (byte) bridgeBlock.meta;
 					}
-					if (roadTop > bridgeBase) {
+					if (bezierTop > bridgeBase) {
 						indexLower = index2 - 1;
 						blocks[indexLower] = bridgeBlock.block;
 						metadata[indexLower] = (byte) bridgeBlock.meta;
 					}
 				}
 			} else {
-				for (j = roadTop; j > roadTop - 4 && j > 0; --j) {
+				for (j = bezierTop; j > bezierTop - 4 && j > 0; --j) {
 					index = xzIndex * ySize + j;
-					float repair = roadType.getRepair();
+					float repair = bezierType.getRepair();
 					if (rand.nextFloat() >= repair) {
 						continue;
 					}
-					boolean isTop = j == roadTop;
+					boolean isTop = j == bezierTop;
 					boolean isSlab = false;
 					if (isTop && j >= 63) {
 						double avgNoise = (heightNoise[index] + heightNoise[index + 1]) / 2.0;
 						isSlab = avgNoise < 0.0;
 					}
-					GOTBezierType.BezierBlock roadblock = roadType.getBlock(rand, biome, isTop, isSlab);
-					blocks[index] = roadblock.block;
-					metadata[index] = (byte) roadblock.meta;
+					GOTBezierType.BezierBlock bezierblock = bezierType.getBlock(rand, biome, isTop, isSlab);
+					blocks[index] = bezierblock.block;
+					metadata[index] = (byte) bezierblock.meta;
 				}
 			}
 			return true;
 		}
-		if (roadType.hasFlowers()) {
+		if (bezierType.hasFlowers()) {
 			int index;
 			int i1;
-			int roadTop = 0;
+			int bezierTop = 0;
 			for (int j = ySize - 1; j > 0; --j) {
 				index = xzIndex * ySize + j;
 				Block block = blocks[index];
 				if (!block.isOpaqueCube()) {
 					continue;
 				}
-				roadTop = j;
+				bezierTop = j;
 				break;
 			}
-			boolean adjRoad = false;
+			boolean adjBezier = false;
 			block5: for (i1 = -2; i1 <= 2; ++i1) {
 				for (int k1 = -2; k1 <= 2; ++k1) {
-					if (i1 == 0 && k1 == 0 || !GOTRoads.isRoadAt(i + i1, k + k1)) {
+					if (i1 == 0 && k1 == 0 || !GOTBezier.isBezierAt(i + i1, k + k1)) {
 						continue;
 					}
-					adjRoad = true;
+					adjBezier = true;
 					break block5;
 				}
 			}
-			if (adjRoad) {
-				index = xzIndex * ySize + roadTop + 1;
+			if (adjBezier) {
+				index = xzIndex * ySize + bezierTop + 1;
 				BiomeGenBase.FlowerEntry flower = biome.getRandomFlower(rand);
 				blocks[index] = flower.block;
 				metadata[index] = (byte) flower.metadata;
 			} else {
-				adjRoad = false;
+				adjBezier = false;
 				block7: for (i1 = -3; i1 <= 3; ++i1) {
 					for (int k1 = -3; k1 <= 3; ++k1) {
-						if (Math.abs(i1) <= 2 && Math.abs(k1) <= 2 || !GOTRoads.isRoadAt(i + i1, k + k1)) {
+						if (Math.abs(i1) <= 2 && Math.abs(k1) <= 2 || !GOTBezier.isBezierAt(i + i1, k + k1)) {
 							continue;
 						}
-						adjRoad = true;
+						adjBezier = true;
 						break block7;
 					}
 				}
-				if (adjRoad) {
-					index = xzIndex * ySize + roadTop + 1;
+				if (adjBezier) {
+					index = xzIndex * ySize + bezierTop + 1;
 					blocks[index] = Blocks.leaves;
 					metadata[index] = 4;
 				}
@@ -200,13 +199,13 @@ public class GOTBezierGenerator {
 	}
 
 	public static boolean isBridgeEdgePillar(int i, int k) {
-		return GOTRoads.isRoadAt(i, k) && GOTBezierGenerator.isFenceAt(i, k) && GOTBezierGenerator.isPillarAt(i, k);
+		return GOTBezier.isBezierAt(i, k) && GOTBezierGenerator.isFenceAt(i, k) && GOTBezierGenerator.isPillarAt(i, k);
 	}
 
 	public static boolean isFenceAt(int i, int k) {
 		for (int i1 = -1; i1 <= 1; ++i1) {
 			for (int k1 = -1; k1 <= 1; ++k1) {
-				if (i1 == 0 && k1 == 0 || GOTRoads.isRoadAt(i + i1, k + k1)) {
+				if (i1 == 0 && k1 == 0 || GOTBezier.isBezierAt(i + i1, k + k1)) {
 					continue;
 				}
 				return true;

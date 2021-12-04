@@ -922,7 +922,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 			if (biome.isAlwaysWinter) {
 				biome.setTemperatureRainfall(0.0F, 2.0F);
 				biome.biomeColors.setGrass(0xffffff);
-				biome.biomeColors.setFoggy(true);
 				biome.biomeColors.setSky(4212300);
 				biome.biomeColors.setFog(6188664);
 				biome.biomeColors.setWater(2635588);

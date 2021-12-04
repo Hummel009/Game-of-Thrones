@@ -217,9 +217,8 @@ public class GOTBiomeDecorator {
 			long seed = chunkX * 1879267 ^ chunkZ * 67209689L;
 			seed = seed * seed * 5829687L + seed * 2876L;
 			structureRand.setSeed(seed);
-			boolean roadNear = GOTRoads.isRoadNear(chunkX + 8, chunkZ + 8, 16) >= 0.0f;
-			boolean wallNear = GOTWalls.isWallNear(chunkX + 8, chunkZ + 8, 16) >= 0.0f;
-			if (!roadNear || !wallNear) {
+			boolean bezierNear = GOTBezier.isBezierNear(chunkX + 8, chunkZ + 8, 16) >= 0.0f;
+			if (!bezierNear) {
 				for (RandomStructure randomstructure : randomStructures) {
 					if (structureRand.nextInt(randomstructure.chunkChance) != 0) {
 						continue;

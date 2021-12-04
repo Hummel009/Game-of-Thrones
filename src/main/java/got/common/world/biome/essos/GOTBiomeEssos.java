@@ -116,7 +116,7 @@ public class GOTBiomeEssos extends GOTBiome {
 		}
 		boolean kukuruza;
 		kukuruza = variant == GOTBiomeVariant.FIELD_CORN;
-		if (kukuruza && !GOTRoads.isRoadAt(i, k)) {
+		if (kukuruza && !GOTBezier.isBezierAt(i, k)) {
 			for (int j = 128; j >= 0; --j) {
 				int index = xzIndex * ySize + j;
 				Block above = blocks[index + 1];

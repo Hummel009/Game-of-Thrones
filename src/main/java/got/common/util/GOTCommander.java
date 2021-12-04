@@ -430,9 +430,9 @@ public class GOTCommander {
 		ReflectionHelper.setPrivateValue(GOTMiniQuestFactory.class, factory, new HashMap<>(), "questFactories");
 	}
 
-	public static void removeRoads() {
-		Object dataBase = findAndInvokeConstructor("got.common.world.map.GOTRoads$RoadPointDatabase");
-		ReflectionHelper.setPrivateValue(GOTRoads.class, null, dataBase, "roadPointDatabase");
+	public static void removeBeziers() {
+		Object dataBase = findAndInvokeConstructor("got.common.world.map.GOTBezier$BezierPointDatabase");
+		ReflectionHelper.setPrivateValue(GOTBezier.class, null, dataBase, "bezierPointDatabase");
 	}
 
 	public static void removeShield(GOTShields shield) {
@@ -454,11 +454,6 @@ public class GOTCommander {
 			}
 			GOTCommander.removeShield(shield);
 		}
-	}
-
-	public static void removeWalls() {
-		Object dataBase = findAndInvokeConstructor("got.common.world.map.GOTWalls$WallPointDatabase");
-		ReflectionHelper.setPrivateValue(GOTWalls.class, null, dataBase, "wallPointDatabase");
 	}
 
 	public static void removeWaypoint(GOTWaypoint wp) {

@@ -35,8 +35,8 @@ public class GOTStructureFiveFortsWall extends GOTStructureBase {
 					if (circleDist >= 0.08) {
 						continue;
 					}
-					float roadNear = GOTRoads.isRoadNear(i1, k1, 9);
-					boolean gate = roadNear >= 0.0f;
+					float bezierNear = GOTBezier.isBezierNear(i1, k1, 9);
+					boolean gate = bezierNear >= 0.0f;
 					boolean fences = false;
 					boolean wallEdge = circleDist > 0.025;
 					for (int j1 = wallTop; j1 > 0; --j1) {
@@ -62,7 +62,7 @@ public class GOTStructureFiveFortsWall extends GOTStructureBase {
 							}
 							continue block1;
 						}
-						int lerpGateTop = gateBottom + Math.round((gateTop - gateBottom) * MathHelper.sqrt_float(1.0f - roadNear));
+						int lerpGateTop = gateBottom + Math.round((gateTop - gateBottom) * MathHelper.sqrt_float(1.0f - bezierNear));
 						if (j1 != lerpGateTop) {
 							continue;
 						}

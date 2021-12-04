@@ -5,7 +5,7 @@ import java.util.Random;
 import com.google.common.math.IntMath;
 
 import got.common.world.biome.GOTBiome;
-import got.common.world.map.GOTRoads;
+import got.common.world.map.GOTBezier;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -36,7 +36,7 @@ public class GOTBiomeVariantOrchard extends GOTBiomeVariant {
 		int chunkZ = k & 0xF;
 		int xzIndex = chunkX * 16 + chunkZ;
 		int ySize = blocks.length / 256;
-		if (!GOTRoads.isRoadAt(i, k)) {
+		if (!GOTBezier.isBezierAt(i, k)) {
 			for (int j = 128; j >= 0; --j) {
 				int index = xzIndex * ySize + j;
 				Block above = blocks[index + 1];
