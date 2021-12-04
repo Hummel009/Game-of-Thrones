@@ -9,7 +9,7 @@ import got.common.entity.animal.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.*;
-import got.common.world.map.GOTBezierType;
+import got.common.world.map.*;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
@@ -88,6 +88,36 @@ public class GOTBiomeDorne extends GOTBiome {
 		container11[0] = GOTBiomeSpawnList.entry(GOTSpawnList.RED_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(1).add(container11);
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
+		SpawnListContainer[] container0 = new SpawnListContainer[2];
+		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
+		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(10).add(container0);
+		SpawnListContainer[] containerLSR = new SpawnListContainer[1];
+		containerLSR[0] = GOTBiomeSpawnList.entry(GOTSpawnList.UNRELIABLE, 10).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(1).add(containerLSR);
+		GOTStructureDorneCity castle = new GOTStructureDorneCity(this, 0.0f).setIsCastle();
+		castle.affix(GOTWaypoint.Starfall, 0, -1);
+		castle.affix(GOTWaypoint.HighHermitage);
+		castle.affix(GOTWaypoint.Blackmont);
+		castle.affix(GOTWaypoint.Kingsgrave, -1, 0);
+		castle.affix(GOTWaypoint.SkyReach, 0, 1);
+		castle.affix(GOTWaypoint.Yronwood, 1, 0);
+		castle.affix(GOTWaypoint.Wyl, 0, -1);
+		castle.affix(GOTWaypoint.Vaith);
+		castle.affix(GOTWaypoint.Saltshore);
+		castle.affix(GOTWaypoint.Godsgrace);
+		castle.affix(GOTWaypoint.Tor);
+		castle.affix(GOTWaypoint.Hellholt);
+		castle.affix(GOTWaypoint.GhostHill);
+		castle.affix(GOTWaypoint.Spottswood);
+		castle.affix(GOTWaypoint.WaterGardens);
+		castle.affix(GOTWaypoint.Lemonwood);
+		decorator.affix(castle);
+		GOTStructureDorneCity town = new GOTStructureDorneCity(this, 0.0f).setIsTown();
+		town.affix(GOTWaypoint.GhastonGrey);
+		town.affix(GOTWaypoint.Sunspear);
+		town.affix(GOTWaypoint.PlankyTown);
+		decorator.affix(town);
 	}
 
 	@Override

@@ -40,6 +40,41 @@ public class GOTBiomeWesterlands extends GOTBiomeWesteros {
 		ruins.affix(GOTWaypoint.Castamere);
 		ruins.affix(GOTWaypoint.Goldenhill);
 		decorator.affix(ruins);
+		SpawnListContainer[] container0 = new SpawnListContainer[2];
+		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WESTERLANDS_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
+		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.WESTERLANDS_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(10).add(container0);
+		SpawnListContainer[] containerLSR = new SpawnListContainer[1];
+		containerLSR[0] = GOTBiomeSpawnList.entry(GOTSpawnList.UNRELIABLE, 10).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(1).add(containerLSR);
+		GOTStructureWesterlandsCity village = new GOTStructureWesterlandsCity(this, 0.0f);
+		village.affix(GOTWaypoint.Oxcross);
+		decorator.affix(village);
+		GOTStructureWesterlandsCity castle = new GOTStructureWesterlandsCity(this, 0.0f).setIsCastle();
+		castle.affix(GOTWaypoint.Wyndhall);
+		castle.affix(GOTWaypoint.Banefort);
+		castle.affix(GOTWaypoint.Plumwood);
+		castle.affix(GOTWaypoint.Crag);
+		castle.affix(GOTWaypoint.Ashemark);
+		castle.affix(GOTWaypoint.GoldenTooth, 0, 1);
+		castle.affix(GOTWaypoint.Sarsfield, 0, -1);
+		castle.affix(GOTWaypoint.Hornvale);
+		castle.affix(GOTWaypoint.DeepDen);
+		castle.affix(GOTWaypoint.Riverspring);
+		castle.affix(GOTWaypoint.Silverhill);
+		castle.affix(GOTWaypoint.Greenfield);
+		castle.affix(GOTWaypoint.Cornfield);
+		castle.affix(GOTWaypoint.Crakehall, -1, 0);
+		castle.affix(GOTWaypoint.Faircastle);
+		castle.affix(GOTWaypoint.Feastfires);
+		castle.affix(GOTWaypoint.Kayce, 1, 0);
+		castle.affix(GOTWaypoint.CleganesKeep);
+		castle.affix(GOTWaypoint.CasterlyRock, -1, 0);
+		decorator.affix(castle);
+		GOTStructureWesterlandsCity town = new GOTStructureWesterlandsCity(this, 0.0f).setIsTown();
+		town.affix(GOTWaypoint.Kayce, 3);
+		town.affix(GOTWaypoint.Lannisport, -1, 0, 3);
+		decorator.affix(town);
 	}
 
 	@Override

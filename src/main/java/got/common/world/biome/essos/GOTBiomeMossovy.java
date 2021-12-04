@@ -7,6 +7,7 @@ import got.common.entity.animal.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
@@ -40,6 +41,16 @@ public class GOTBiomeMossovy extends GOTBiome {
 		container1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_WEREWOLF, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(container1);
 		decorator.affix(new GOTStructureMossovyVillage(this, 1.0f));
+		SpawnListContainer[] container0 = new SpawnListContainer[2];
+		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
+		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(10).add(container0);
+		SpawnListContainer[] containerLSR = new SpawnListContainer[1];
+		containerLSR[0] = GOTBiomeSpawnList.entry(GOTSpawnList.UNRELIABLE, 10).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(1).add(containerLSR);
+		GOTStructureMossovyVillage capital = new GOTStructureMossovyVillage(this, 0.0f);
+		capital.affix(GOTWaypoint.Kadar);
+		decorator.affix(capital);
 	}
 
 	@Override

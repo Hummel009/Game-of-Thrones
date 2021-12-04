@@ -5,7 +5,7 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 
-public class GOTBiomeArrynTown extends GOTBiomeArrynFlat {
+public class GOTBiomeArrynTown extends GOTBiomeArryn {
 	public GOTBiomeArrynTown(int i, boolean major) {
 		super(i, major);
 		npcSpawnList.clear();

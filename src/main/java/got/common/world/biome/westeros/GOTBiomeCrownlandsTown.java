@@ -6,7 +6,7 @@ import got.common.world.map.GOTBezierType;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 
-public class GOTBiomeCrownlandsTown extends GOTBiomeCrownlandsFlat {
+public class GOTBiomeCrownlandsTown extends GOTBiomeCrownlands {
 	public GOTBiomeCrownlandsTown(int i, boolean major) {
 		super(i, major);
 		npcSpawnList.clear();

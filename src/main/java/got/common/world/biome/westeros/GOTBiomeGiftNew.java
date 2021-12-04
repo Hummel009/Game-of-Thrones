@@ -4,7 +4,7 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
-import got.common.world.map.GOTBezierType;
+import got.common.world.map.*;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
@@ -22,6 +22,16 @@ public class GOTBiomeGiftNew extends GOTBiomeWesteros {
 		container2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		container2[1] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container2);
+		SpawnListContainer[] container0 = new SpawnListContainer[2];
+		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.GIFT_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
+		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.GIFT_GUARDIAN, 4).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(10).add(container0);
+		SpawnListContainer[] containerLSR = new SpawnListContainer[1];
+		containerLSR[0] = GOTBiomeSpawnList.entry(GOTSpawnList.UNRELIABLE, 10).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(1).add(containerLSR);
+		GOTStructureGiftVillage village = new GOTStructureGiftVillage(this, 0.0f);
+		village.affix(GOTWaypoint.Queenscrown);
+		decorator.affix(village);
 	}
 
 	@Override
