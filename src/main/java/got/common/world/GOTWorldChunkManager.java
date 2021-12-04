@@ -3,6 +3,8 @@ package got.common.world;
 import java.util.*;
 
 import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.relauncher.*;
+import got.GOT;
 import got.common.GOTDimension;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.sothoryos.*;
@@ -71,7 +73,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 			if (v.disableVillages) {
 				return false;
 			}
-			if (!v.absoluteHeight || v.absoluteHeightLevel >= 0.0f) {
+			if (!v.absoluteHeight || (v.absoluteHeightLevel >= 0.0f)) {
 				continue;
 			}
 			return false;
@@ -281,6 +283,15 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 			structureCacheMap.put(structure, cache);
 		}
 		return cache;
+	}
+
+	@Override
+	@SideOnly(value = Side.CLIENT)
+	public float getTemperatureAtHeight(float f, int height) {
+		if (worldObj.isRemote && GOT.isNewYear()) {
+			return 0.0f;
+		}
+		return f;
 	}
 
 	public GOTBiomeVariant[] getVariantsChunkGen(GOTBiomeVariant[] variants, int i, int k, int xSize, int zSize, BiomeGenBase[] biomeSource) {
