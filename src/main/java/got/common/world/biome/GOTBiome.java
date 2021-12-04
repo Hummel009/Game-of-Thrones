@@ -1160,7 +1160,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		yiTiWasteland = new GOTBiomeYiTiWasteland(163, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xBEB74F).setBiomeName("yiTi");
 		yunkai = new GOTBiomeYunkai(164, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xA3AA48).setBiomeName("yunkai");
 		ibbenMountains = new GOTBiomeIbbenMountains(165, true).setIsLongWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0x808081).setBiomeName("ibbenMountains");
-		giftOldFlat = new GOTBiomeGiftOldWasteland(168, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xA5C682).setBiomeName("giftOld");
 	}
 
 	public static void updateWaterColor(int i, int j, int k) {

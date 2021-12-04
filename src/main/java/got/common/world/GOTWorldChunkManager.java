@@ -5,6 +5,7 @@ import java.util.*;
 import cpw.mods.fml.common.FMLLog;
 import got.common.GOTDimension;
 import got.common.world.biome.GOTBiome;
+import got.common.world.biome.sothoryos.*;
 import got.common.world.biome.variant.*;
 import got.common.world.genlayer.*;
 import got.common.world.map.GOTFixedStructures;
@@ -208,32 +209,44 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 				boolean[] flags = GOTFixedStructures._mountainNear_structureNear(worldObj, xPos, zPos);
 				boolean mountainNear = flags[0];
 				boolean structureNear = flags[1];
-				if (!mountainNear) {
-					float variantChance = biome.variantChance;
-					if (variantChance > 0.0f) {
-						for (int pass = 0; pass <= 1; ++pass) {
-							GOTBiomeVariantList variantList;
-							variantList = pass == 0 ? biome.getBiomeVariantsLarge() : biome.getBiomeVariantsSmall();
-							if (variantList.isEmpty()) {
-								continue;
+				boolean fixedVillageNear = biome.decorator.anyFixedVillagesAt(worldObj, xPos, zPos);
+				if (!fixedVillageNear) {
+					if (!mountainNear) {
+						float variantChance = biome.variantChance;
+						if (variantChance > 0.0f) {
+							for (int pass = 0; pass <= 1; ++pass) {
+								GOTBiomeVariantList variantList;
+								variantList = pass == 0 ? biome.getBiomeVariantsLarge() : biome.getBiomeVariantsSmall();
+								if (variantList.isEmpty()) {
+									continue;
+								}
+								int[] sourceInts = pass == 0 ? variantsLargeInts : variantsSmallInts;
+								int variantCode = sourceInts[index];
+								float variantF = (float) variantCode / (float) GOTGenLayerBiomeVariants.RANDOM_MAX;
+								if (variantF < variantChance) {
+									float variantFNormalised = variantF / variantChance;
+									variant = variantList.get(variantFNormalised);
+									break;
+								}
+								variant = GOTBiomeVariant.STANDARD;
 							}
-							int[] sourceInts = pass == 0 ? variantsLargeInts : variantsSmallInts;
-							int variantCode = sourceInts[index];
-							float variantF = (float) variantCode / (float) GOTGenLayerBiomeVariants.RANDOM_MAX;
-							if (variantF < variantChance) {
-								float variantFNormalised = variantF / variantChance;
-								variant = variantList.get(variantFNormalised);
-								break;
-							}
-							variant = GOTBiomeVariant.STANDARD;
 						}
-					}
-					if (!structureNear && biome.getEnableRiver() && GOTGenLayerBiomeVariantsLake.getFlag(variantsLakesInts[index], 1)) {
-						variant = GOTBiomeVariant.LAKE;
+						if (!structureNear && biome.getEnableRiver()) {
+							int lakeCode = variantsLakesInts[index];
+							if (GOTGenLayerBiomeVariantsLake.getFlag(lakeCode, 1)) {
+								variant = GOTBiomeVariant.LAKE;
+							}
+							if (GOTGenLayerBiomeVariantsLake.getFlag(lakeCode, 2) && biome instanceof GOTBiomeSothoryosJungle) {
+								variant = GOTBiomeVariant.LAKE;
+							}
+							if (GOTGenLayerBiomeVariantsLake.getFlag(lakeCode, 4) && biome instanceof GOTBiomeSothoryosMangrove) {
+								variant = GOTBiomeVariant.LAKE;
+							}
+						}
 					}
 					if ((riverCode = variantsRiversInts[index]) == 2) {
 						variant = GOTBiomeVariant.RIVER;
-					} else if (riverCode == 1 && biome.getEnableRiver() && !structureNear) {
+					} else if (riverCode == 1 && biome.getEnableRiver() && !structureNear && !mountainNear) {
 						variant = GOTBiomeVariant.RIVER;
 					}
 				}
