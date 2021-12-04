@@ -818,7 +818,6 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityJonosBracken.class, "JonosBracken", id++, 9605778);
 		GOTEntityRegistry.register(GOTEntityJorahMormont.class, "JorahMormont", id++, 9605778);
 		GOTEntityRegistry.register(GOTEntityKevanLannister.class, "KevanLannister", id++, 9605778);
-		GOTEntityRegistry.register(GOTEntityTugarKhan.class, "TugarKhan", id++, 9605778);
 		GOTEntityRegistry.register(GOTEntityKraznysMoNakloz.class, "KraznysMoNakloz", id++, 9605778);
 		GOTEntityRegistry.register(GOTEntityLancelLannister.Normal.class, "LancelLannister", id++, 9605778);
 		GOTEntityRegistry.register(GOTEntityLancelLannister.Religious.class, "LancelLannisterR", id++);
@@ -892,6 +891,7 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityTommenBaratheon.class, "TommenBaratheon", id++, 9605778);
 		GOTEntityRegistry.register(GOTEntityTormund.class, "Tormund", id++, 9605778);
 		GOTEntityRegistry.register(GOTEntityTrystaneMartell.class, "TrystaneMartell", id++, 9605778);
+		GOTEntityRegistry.register(GOTEntityTugarKhan.class, "TugarKhan", id++, 9605778);
 		GOTEntityRegistry.register(GOTEntityTychoNestoris.class, "TychoNestoris", id++, 9605778);
 		GOTEntityRegistry.register(GOTEntityTyrionLannister.class, "TyrionLannister", id++, 9605778);
 		GOTEntityRegistry.register(GOTEntityTytosBlackwood.class, "TytosBlackwood", id++, 9605778);
@@ -908,8 +908,8 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityYaraGreyjoy.class, "YaraGreyjoy", id++, 9605778);
 		GOTEntityRegistry.register(GOTEntityYgritte.class, "Ygritte", id++, 9605778);
 		GOTEntityRegistry.register(GOTEntityYohnRoyce.class, "YohnRoyce", id++, 9605778);
-		GOTEntityRegistry.register(GOTEntityYoungGriff.class, "YoungGriff", id++, 9605778);
 		GOTEntityRegistry.register(GOTEntityYoren.class, "Yoren", id++, 9605778);
+		GOTEntityRegistry.register(GOTEntityYoungGriff.class, "YoungGriff", id++, 9605778);
 
 		GOTEntityRegistry.register(GOTEntityPortal.class, "Portal", id++, 80, 3, true);
 		GOTEntityRegistry.register(GOTEntitySmokeRing.class, "SmokeRing", id++, 64, 10, true);
