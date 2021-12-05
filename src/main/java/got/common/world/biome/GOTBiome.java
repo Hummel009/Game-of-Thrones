@@ -1057,7 +1057,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		neck = new GOTBiomeNeck(79, true).setIsLongWinter().setMinMaxHeight(0.0f, 0.1f).setColor(0x578C54).setBiomeName("neck");
 		newGhis = new GOTBiomeNewGhis(80, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xA2A86B).setBiomeName("ghiscar");
 		north = new GOTBiomeNorth(81, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(8959044).setBiomeName("north");
-		northBarrows = new GOTBiomeNorthBarrows(82, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x85AF44).setBiomeName("northBarrows");
+		northBarrows = new GOTBiomeNorthBarrows(82, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x87AD4A).setBiomeName("northBarrows");
 		northForest = new GOTBiomeNorthForest(84, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0x538E2F).setBiomeName("northForest");
 		northHills = new GOTBiomeWesteros(85, true).setIsLongWinter().setMinMaxHeight(0.1f, 1f).setColor(0x74A346).setBiomeName("northHills");
 		northMountains = new GOTBiomeNorthMountains(86, true).setIsLongWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0xD8D8D8).setBiomeName("northMountains");

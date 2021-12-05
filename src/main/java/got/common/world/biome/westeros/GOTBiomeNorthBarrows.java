@@ -8,7 +8,9 @@ import got.common.world.structure.other.GOTStructureBarrow;
 public class GOTBiomeNorthBarrows extends GOTBiomeNorth {
 	public GOTBiomeNorthBarrows(int i, boolean major) {
 		super(i, major);
-		decorator.addRandomStructure(new GOTStructureBarrow(false), 50);
+		npcSpawnList.clear();
+		decorator.clearVillages();
+		decorator.addRandomStructure(new GOTStructureBarrow(false), 20);
 	}
 
 	@Override
