@@ -18,14 +18,13 @@ public class GOTBiomeCrackclaw extends GOTBiomeDragonstone {
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 8, 1, 2));
 		enablePodzol = false;
 		decorator.clearTrees();
-		decorator.addTree(GOTTreeType.OAK, 300);
-		decorator.addTree(GOTTreeType.OAK_LARGE, 50);
-		decorator.addTree(GOTTreeType.LARCH, 200);
-		decorator.addTree(GOTTreeType.BEECH, 100);
-		decorator.addTree(GOTTreeType.BEECH_LARGE, 20);
-		decorator.addTree(GOTTreeType.DARK_OAK, 730);
-		decorator.addTree(GOTTreeType.ASPEN, 100);
-		decorator.addTree(GOTTreeType.ASPEN_LARGE, 20);
+		decorator.addTree(GOTTreeType.SPRUCE, 400);
+		decorator.addTree(GOTTreeType.SPRUCE_THIN, 400);
+		decorator.addTree(GOTTreeType.LARCH, 300);
+		decorator.addTree(GOTTreeType.SPRUCE_MEGA, 100);
+		decorator.addTree(GOTTreeType.SPRUCE_MEGA_THIN, 20);
+		decorator.addTree(GOTTreeType.FIR, 500);
+		decorator.addTree(GOTTreeType.PINE, 500);
 		decorator.treesPerChunk = 10;
 		decorator.flowersPerChunk = 6;
 		decorator.grassPerChunk = 8;
@@ -36,6 +35,6 @@ public class GOTBiomeCrackclaw extends GOTBiomeDragonstone {
 
 	@Override
 	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion("cracklaw");
+		return GOTBiomeMusic.WESTEROS.getSubregion("northForest");
 	}
 }

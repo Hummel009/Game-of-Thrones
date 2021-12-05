@@ -8,6 +8,9 @@ CHANGELOG
 + Added Jogos Nhai armor
 + Added Tugar Khan achievement
 
+* Improved massy and cracklaw
+* Improved forests and mountains
+* Improved spawning
 * Improved Bu Gai Quest
 * Improved structures generator
 * Fixed bug with Daenerys Targaryen spawning

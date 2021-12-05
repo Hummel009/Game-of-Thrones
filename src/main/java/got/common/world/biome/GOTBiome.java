@@ -47,7 +47,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome beach;
 	public static GOTBiome beachGravel;
 	public static GOTBiome beachWhite;
-	public static GOTBiome blackIslands;
 	public static GOTBiome boneMountains;
 	public static GOTBiome braavos;
 	public static GOTBiome coldCoast;
@@ -997,7 +996,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		beach = new GOTBiomeBeach(9, false).setBeachBlock(Blocks.sand, 0).setColor(14404247).setBiomeName("beach");
 		beachGravel = new GOTBiomeBeach(10, false).setBeachBlock(Blocks.gravel, 0).setColor(9868704).setBiomeName("beachGravel");
 		beachWhite = new GOTBiomeBeach(11, false).setBeachBlock(GOTRegistry.whiteSand, 0).setColor(15592941).setBiomeName("beachWhite");
-		blackIslands = new GOTBiomeDragonstone(12, true).setIsSeasonalWinter().setMinMaxHeight(0.3f, 0.35f).setColor(0x79AF43).setBiomeName("blackIslands");
 		boneMountains = new GOTBiomeBoneMountains(14, true).setIsNeverWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0xE2E2E2).setBiomeName("boneMountains");
 		braavos = new GOTBiomeBraavos(15, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x969644).setBiomeName("braavos");
 		coldCoast = new GOTBiomeColdCoast(17, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xAFDDCE).setBiomeName("coldCoast");
@@ -1044,7 +1042,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		longSummer = new GOTBiomeLongSummer(62, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x95A03D).setBiomeName("longSummer");
 		lorath = new GOTBiomeLorath(63, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xACA344).setBiomeName("lorath");
 		lys = new GOTBiomeLys(65, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x70A564).setBiomeName("lys");
-		massy = new GOTBiomeMassy(67, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x73A540).setBiomeName("massy");
+		massy = new GOTBiomeMassy(67, true).setIsSeasonalWinter().setMinMaxHeight(0.1f, 1.0f).setColor(0xAFBFAC).setBiomeName("massy");
 		meereen = new GOTBiomeMeereen(69, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xB5AA68).setBiomeName("meereen");
 		mercenary = new GOTBiomeMercenary(70, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x94A058).setBiomeName("mercenary");
 		mossovy = new GOTBiomeMossovy(71, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x71843B).setBiomeName("mossovy");
@@ -1118,7 +1116,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		volantisForest = new GOTBiomeVolantisForest(150, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xCE9F32).setBiomeName("volantisForest");
 		volantisMarshes = new GOTBiomeVolantisMarshes(151, true).setIsNeverWinter().setMinMaxHeight(0.0f, 0.1f).setColor(0x89933e).setBiomeName("volantisMarshes");
 		westerlands = new GOTBiomeWesterlands(152, true).setIsSeasonalWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xA9B542).setBiomeName("westerlands");
-		westerlandsHills = new GOTBiomeWesterlandsHills(154, true).setIsSeasonalWinter().setMinMaxHeight(0.0f, 1f).setColor(0x9CA548).setBiomeName("westerlandsHills");
+		westerlandsHills = new GOTBiomeWesterlandsHills(154, true).setIsSeasonalWinter().setMinMaxHeight(0.1f, 1.0f).setColor(0x9CA548).setBiomeName("westerlandsHills");
 		westerlandsTown = new GOTBiomeWesterlandsTown(155, true).setIsSeasonalWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xBCC94A).setBiomeName("westerlandsTown");
 		westerosForest = new GOTBiomeWesterosForest(156, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(5871922).setBiomeName("westerosForest");
 		wetwood = new GOTBiomeWetwood(157, true).setIsSeasonalWinter().setMinMaxHeight(0.0f, 0.1f).setColor(0x599958).setBiomeName("wetwood");

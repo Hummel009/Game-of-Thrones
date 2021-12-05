@@ -8,6 +8,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 public class GOTBiomeWolfswood extends GOTBiomeNorthForest {
 	public GOTBiomeWolfswood(int i, boolean major) {
 		super(i, major);
+        decorator.treesPerChunk = 6;
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityWolf.class, 30, 4, 8));
 	}
 
