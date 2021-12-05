@@ -32,7 +32,6 @@ public class GOTBiomeDothrakiSea extends GOTBiome {
 		this.addBiomeVariant(GOTBiomeVariant.STEPPE);
 		this.addBiomeVariant(GOTBiomeVariant.STEPPE_BARREN);
 		this.addBiomeVariant(GOTBiomeVariant.HILLS);
-		this.addBiomeVariant(GOTBiomeVariant.SHRUBLAND_OAK);
 		this.addBiomeVariant(GOTBiomeVariant.SAVANNAH_BAOBAB, 3.0f);
 		decorator.grassPerChunk = 256;
 		decorator.clearTrees();
