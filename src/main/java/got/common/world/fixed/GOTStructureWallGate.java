@@ -44,7 +44,7 @@ public class GOTStructureWallGate extends GOTVillageGen {
 			for (int x = -3; x <= 3; ++x) {
 				for (int z = 0; z <= 6; ++z) {
 					setBlockAndMetadata(world, x, z, 3, GOTRegistry.gateIronBars, 2);
-					setBlockAndMetadata(world, x, z, -3, GOTRegistry.gateIronBars, 2);
+					setBlockAndMetadata(world, x, z, -3, GOTRegistry.gateWooden, 2);
 				}
 			}
 			// Balki stojachije
