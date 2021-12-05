@@ -38,7 +38,6 @@ public class GOTBiomeArrynMountains extends GOTBiome {
 		decorator.addTree(GOTTreeType.SPRUCE_MEGA, 100);
 		decorator.addTree(GOTTreeType.SPRUCE_MEGA_THIN, 20);
 		decorator.addTree(GOTTreeType.SPRUCE_THIN, 400);
-		npcSpawnList.clear();
 		registerMountainsFlowers();
 		spawnableCreatureList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityShadowcat.class, 8, 1, 2));

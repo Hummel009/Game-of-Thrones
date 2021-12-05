@@ -116,7 +116,7 @@ public class GOTStructure {
 
 		GOTStructureRegistry.register(id++, GOTStructureHillmanHouse.class, "HillmenHouse", GOTFaction.HILL_TRIBES);
 		GOTStructureRegistry.register(id++, GOTStructureHillmanTavern.class, "HillmenTavern", GOTFaction.HILL_TRIBES);
-		GOTStructureRegistry.register(id++, GOTStructureHillmanHillFort.class, "HillmenHillFort", GOTFaction.HILL_TRIBES);
+		GOTStructureRegistry.register(id++, GOTStructureHillmanFort.class, "HillmenHillFort", GOTFaction.HILL_TRIBES);
 
 		GOTStructureRegistry.register(id++, GOTStructureArrynWatchfort.class, "ArrynWatchfort", GOTFaction.ARRYN);
 		GOTStructureRegistry.register(id++, GOTStructureArrynSmithy.class, "ArrynSmithy", GOTFaction.ARRYN);
@@ -997,6 +997,13 @@ public class GOTStructure {
 
 			@Override
 			public void apply(GOTStructureSothoryosVillage.Instance instance) {
+			}
+		});
+
+		GOTStructureRegistry.register(id++, new GOTStructureHillmanVillage(GOTBiome.sothoryosJungle, 1.0f), "HillmanVillage", GOTFaction.HILL_TRIBES, new GOTStructureRegistry.IVillageProperties<GOTStructureHillmanVillage.Instance>() {
+
+			@Override
+			public void apply(GOTStructureHillmanVillage.Instance instance) {
 			}
 		});
 

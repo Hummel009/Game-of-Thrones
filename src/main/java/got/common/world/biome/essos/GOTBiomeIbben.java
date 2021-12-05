@@ -55,9 +55,6 @@ public class GOTBiomeIbben extends GOTBiome {
 		SpawnListContainer[] container2 = new SpawnListContainer[1];
 		container2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container2);
-		SpawnListContainer[] containerLSR = new SpawnListContainer[1];
-		containerLSR[0] = GOTBiomeSpawnList.entry(GOTSpawnList.UNRELIABLE, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureIbbenVillage village = new GOTStructureIbbenVillage(this, 0.0f);
 		village.affix(GOTWaypoint.IbNor);
 		village.affix(GOTWaypoint.PortOfIbben);

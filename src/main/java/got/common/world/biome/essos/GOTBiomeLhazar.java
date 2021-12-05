@@ -40,9 +40,6 @@ public class GOTBiomeLhazar extends GOTBiome {
 		SpawnListContainer[] container0 = new SpawnListContainer[1];
 		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.LHAZAR_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(container0);
-		SpawnListContainer[] containerLSR = new SpawnListContainer[1];
-		containerLSR[0] = GOTBiomeSpawnList.entry(GOTSpawnList.UNRELIABLE, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureLhazarVillage village = new GOTStructureLhazarVillage(this, 0.0f).setIsTown();
 		village.affix(GOTWaypoint.Hesh, 1, 0, 3);
 		village.affix(GOTWaypoint.Lhazosh, -1, 0, 1);

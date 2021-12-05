@@ -31,9 +31,6 @@ public class GOTBiomeNorvos extends GOTBiomeEssos {
 		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.NORVOS_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
 		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.NORVOS_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(container0);
-		SpawnListContainer[] containerLSR = new SpawnListContainer[1];
-		containerLSR[0] = GOTBiomeSpawnList.entry(GOTSpawnList.UNRELIABLE, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureNorvosCity town = new GOTStructureNorvosCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Norvos, 0, -1, 2);
 		decorator.affix(town);

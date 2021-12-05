@@ -45,9 +45,6 @@ public class GOTBiomeMossovy extends GOTBiome {
 		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
 		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(container0);
-		SpawnListContainer[] containerLSR = new SpawnListContainer[1];
-		containerLSR[0] = GOTBiomeSpawnList.entry(GOTSpawnList.UNRELIABLE, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureMossovyVillage capital = new GOTStructureMossovyVillage(this, 0.0f);
 		capital.affix(GOTWaypoint.Kadar);
 		decorator.affix(capital);

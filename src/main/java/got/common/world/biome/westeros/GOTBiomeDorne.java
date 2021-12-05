@@ -92,9 +92,6 @@ public class GOTBiomeDorne extends GOTBiome {
 		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
 		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(container0);
-		SpawnListContainer[] containerLSR = new SpawnListContainer[1];
-		containerLSR[0] = GOTBiomeSpawnList.entry(GOTSpawnList.UNRELIABLE, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureDorneCity castle = new GOTStructureDorneCity(this, 0.0f).setIsCastle();
 		castle.affix(GOTWaypoint.Starfall, 0, -1);
 		castle.affix(GOTWaypoint.HighHermitage);

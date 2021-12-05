@@ -47,9 +47,6 @@ public class GOTBiomeVolantis extends GOTBiomeEssos {
 		SpawnListContainer[] container5 = new SpawnListContainer[1];
 		container5[0] = GOTBiomeSpawnList.entry(GOTSpawnList.NORVOS_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container5);
-		SpawnListContainer[] containerLSR = new SpawnListContainer[1];
-		containerLSR[0] = GOTBiomeSpawnList.entry(GOTSpawnList.UNRELIABLE, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureVolantisCity town = new GOTStructureVolantisCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Mantarys, 0, -1, 2);
 		town.affix(GOTWaypoint.LittleValyria, 0, 1);

@@ -40,9 +40,6 @@ public class GOTBiomeRiverlands extends GOTBiomeWesteros {
 		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.RIVERLANDS_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
 		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.RIVERLANDS_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(container0);
-		SpawnListContainer[] containerLSR = new SpawnListContainer[1];
-		containerLSR[0] = GOTBiomeSpawnList.entry(GOTSpawnList.UNRELIABLE, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureRiverlandsCity village = new GOTStructureRiverlandsCity(this, 0.0f);
 		village.affix(GOTWaypoint.Sevenstreams);
 		village.affix(GOTWaypoint.FairMarket);

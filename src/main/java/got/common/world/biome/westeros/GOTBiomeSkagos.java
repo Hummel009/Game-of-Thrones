@@ -43,9 +43,6 @@ public class GOTBiomeSkagos extends GOTBiome {
 		container2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_MILITARY, 4).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		container2[1] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container2);
-		SpawnListContainer[] containerLSR = new SpawnListContainer[1];
-		containerLSR[0] = GOTBiomeSpawnList.entry(GOTSpawnList.UNRELIABLE, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(containerLSR);
 		decorator.addRandomStructure(new GOTStructureNorthHillmanCamp(false), 250);
 	}
 

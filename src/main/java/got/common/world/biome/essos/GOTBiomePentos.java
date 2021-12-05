@@ -30,9 +30,6 @@ public class GOTBiomePentos extends GOTBiomeEssos {
 		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.PENTOS_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
 		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.PENTOS_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(container0);
-		SpawnListContainer[] containerLSR = new SpawnListContainer[1];
-		containerLSR[0] = GOTBiomeSpawnList.entry(GOTSpawnList.UNRELIABLE, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructurePentosCity town = new GOTStructurePentosCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Pentos, -1, 0, 1);
 		decorator.affix(town);

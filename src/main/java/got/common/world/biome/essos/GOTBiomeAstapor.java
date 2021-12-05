@@ -21,9 +21,6 @@ public class GOTBiomeAstapor extends GOTBiomeGhiscar {
 		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_UNSULLIED, 4).setSpawnChance(GOTBiome.SPAWN);
 		container0[2] = GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(container0);
-		SpawnListContainer[] containerLSR = new SpawnListContainer[1];
-		containerLSR[0] = GOTBiomeSpawnList.entry(GOTSpawnList.UNRELIABLE, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureGhiscarCity town = new GOTStructureGhiscarCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Astapor, -1, 0, 1);
 		decorator.affix(town);

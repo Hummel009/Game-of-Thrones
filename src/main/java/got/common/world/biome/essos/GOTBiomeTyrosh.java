@@ -37,9 +37,6 @@ public class GOTBiomeTyrosh extends GOTBiomeEssos {
 		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.TYROSH_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
 		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.TYROSH_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(container0);
-		SpawnListContainer[] containerLSR = new SpawnListContainer[1];
-		containerLSR[0] = GOTBiomeSpawnList.entry(GOTSpawnList.UNRELIABLE, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureTyroshCity town = new GOTStructureTyroshCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Tyrosh);
 		decorator.affix(town);

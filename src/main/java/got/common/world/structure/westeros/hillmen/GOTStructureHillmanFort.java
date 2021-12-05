@@ -11,8 +11,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTStructureHillmanHillFort extends GOTStructureHillmanBase {
-	public GOTStructureHillmanHillFort(boolean flag) {
+public class GOTStructureHillmanFort extends GOTStructureHillmanBase {
+	public GOTStructureHillmanFort(boolean flag) {
 		super(flag);
 	}
 

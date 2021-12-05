@@ -33,10 +33,6 @@ public class GOTBiomeGiftOld extends GOTBiomeWesteros {
 		invasionSpawns.addInvasion(GOTInvasions.WILDLING, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.GIANT, GOTEventSpawner.EventChance.RARE);
 		
-		SpawnListContainer[] containerLSR = new SpawnListContainer[1];
-		containerLSR[0] = GOTBiomeSpawnList.entry(GOTSpawnList.UNRELIABLE, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(containerLSR);
-		
 		GOTStructureGiftVillage village = new GOTStructureGiftVillage(this, 0.0f);
 		village.affix(GOTWaypoint.Moletown);
 		decorator.affix(village);

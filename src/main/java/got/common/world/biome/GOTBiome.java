@@ -195,7 +195,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		waterLimitNorth = -40000;
 		waterLimitSouth = 160000;
 	}
-	public static int SPAWN = 500;
+	public static int SPAWN = 750;
 	public static int CONQUEST_SPAWN = 100;
 	public static GOTBiome lhazarFlat;
 	public GOTDimension biomeDimension;
@@ -990,7 +990,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static void preInit() {
 		alwaysWinter = new GOTBiomeAlwaysWinter(1, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xBEDAE0).setBiomeName("alwaysWinter");
 		arryn = new GOTBiomeArryn(3, true).setIsSeasonalWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x73B23C).setBiomeName("arryn");
-		arrynMountainsFoothills = new GOTBiomeArrynMountainsFoothills(5, true).setIsSeasonalWinter().setMinMaxHeight(0.7f, 0.9f).setColor(0x587F3F).setBiomeName("arrynForest");
+		arrynMountainsFoothills = new GOTBiomeArrynMountainsFoothills(5, true).setIsSeasonalWinter().setMinMaxHeight(0.3f, 0.5f).setColor(0x587F3F).setBiomeName("arrynForest");
 		arrynMountains = new GOTBiomeArrynMountains(6, true).setIsSeasonalWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0xC5D3D6).setBiomeName("arrynMountains");
 		arrynTown = new GOTBiomeArrynTown(7, true).setIsSeasonalWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0x73B261).setBiomeName("arrynTown");
 		astapor = new GOTBiomeAstapor(8, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0x89AA68).setBiomeName("astapor");

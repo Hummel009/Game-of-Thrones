@@ -32,9 +32,6 @@ public class GOTBiomeDragonstone extends GOTBiomeWesteros {
 		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DRAGONSTONE_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
 		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.DRAGONSTONE_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(container0);
-		SpawnListContainer[] containerLSR = new SpawnListContainer[1];
-		containerLSR[0] = GOTBiomeSpawnList.entry(GOTSpawnList.UNRELIABLE, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureDragonstoneCity castle = new GOTStructureDragonstoneCity(this, 0.0f).setIsCastle();
 		castle.affix(GOTWaypoint.Dragonstone);
 		castle.affix(GOTWaypoint.HighTide);

@@ -8,11 +8,11 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
 public class GOTStructureBarrow extends GOTStructureBase {
-	public GOTStructureBase ruinsGen = new GOTStructureStoneRuin.STONE(3, 3);
+	public GOTStructureBase ruins = new GOTStructureStoneRuin.STONE(3, 3);
 
 	public GOTStructureBarrow(boolean flag) {
 		super(flag);
-		ruinsGen.restrictions = false;
+		ruins.restrictions = false;
 	}
 
 	@Override
@@ -145,7 +145,7 @@ public class GOTStructureBarrow extends GOTStructureBase {
 		int rX = 0;
 		int rY = height + 1;
 		int rZ = 0;
-		ruinsGen.generate(world, random, getX(rX, rZ), getY(rY), getZ(rX, rZ), getRotationMode());
+		ruins.generate(world, random, getX(rX, rZ), getY(rY), getZ(rX, rZ), getRotationMode());
 		return true;
 	}
 

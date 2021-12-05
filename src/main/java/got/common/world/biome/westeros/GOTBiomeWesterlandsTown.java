@@ -29,9 +29,6 @@ public class GOTBiomeWesterlandsTown extends GOTBiomeWesterlands {
 		SpawnListContainer[] container5 = new SpawnListContainer[1];
 		container5[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container5);
-		SpawnListContainer[] containerLSR = new SpawnListContainer[1];
-		containerLSR[0] = GOTBiomeSpawnList.entry(GOTSpawnList.UNRELIABLE, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(containerLSR);
 		setBanditChance(GOTEventSpawner.EventChance.NEVER);
 	}
 

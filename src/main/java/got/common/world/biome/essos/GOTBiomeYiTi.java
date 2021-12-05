@@ -75,9 +75,6 @@ public class GOTBiomeYiTi extends GOTBiome {
 		container[1] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
 		container[2] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_SAMURAI, 2).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(container);
-		SpawnListContainer[] containerLSR = new SpawnListContainer[1];
-		containerLSR[0] = GOTBiomeSpawnList.entry(GOTSpawnList.UNRELIABLE, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureYiTiCity town = new GOTStructureYiTiCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.TraderTown, 0, -1);
 		town.affix(GOTWaypoint.SiQo, 1, 0);

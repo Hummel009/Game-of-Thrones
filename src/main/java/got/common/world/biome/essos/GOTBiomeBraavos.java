@@ -24,7 +24,6 @@ public class GOTBiomeBraavos extends GOTBiomeEssos {
 		decorator.affix(new GOTStructureBraavosCity(this, 1.0f));
 		invasionSpawns.addInvasion(GOTInvasions.VOLANTIS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.PENTOS, GOTEventSpawner.EventChance.UNCOMMON);
-		
 		SpawnListContainer[] container0 = new SpawnListContainer[2];
 		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.BRAAVOS_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
 		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.BRAAVOS_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
@@ -35,9 +34,6 @@ public class GOTBiomeBraavos extends GOTBiomeEssos {
 		SpawnListContainer[] container2 = new SpawnListContainer[1];
 		container2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.PENTOS_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container2);
-		SpawnListContainer[] containerLSR = new SpawnListContainer[1];
-		containerLSR[0] = GOTBiomeSpawnList.entry(GOTSpawnList.UNRELIABLE, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(containerLSR);
 		GOTStructureBraavosCity town = new GOTStructureBraavosCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Braavos, 0, -1, 2);
 		decorator.affix(town);
