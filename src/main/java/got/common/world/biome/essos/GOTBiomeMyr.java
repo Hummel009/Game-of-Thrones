@@ -28,15 +28,15 @@ public class GOTBiomeMyr extends GOTBiomeEssos {
 		npcSpawnList.newFactionList(10).add(c0);
 		
 		SpawnListContainer[] c1 = new SpawnListContainer[1];
-		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.VOLANTIS_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
+		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.VOLANTIS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c1);
 		
 		SpawnListContainer[] c2 = new SpawnListContainer[1];
-		c2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.TYROSH_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
+		c2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.TYROSH_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c2);
 		
 		SpawnListContainer[] c3 = new SpawnListContainer[1];
-		c3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.LYS_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
+		c3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.LYS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c3);
 		
 		decorator.affix(new GOTStructureMyrCity(this, 1.0f));

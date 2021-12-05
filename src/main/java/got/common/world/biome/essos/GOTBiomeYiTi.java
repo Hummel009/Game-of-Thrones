@@ -62,10 +62,9 @@ public class GOTBiomeYiTi extends GOTBiome {
 		decorator.addTree(GOTTreeType.POMEGRANATE, 500);
 		registerYiTiPlainsFlowers();
 		
-		SpawnListContainer[] c0 = new SpawnListContainer[3];
+		SpawnListContainer[] c0 = new SpawnListContainer[2];
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_CIVILIAN, 4).setSpawnChance(GOTBiome.SPAWN);
 		c0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
-		c0[2] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_SAMURAI, 2).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c0);
 		
 		SpawnListContainer[] c1 = new SpawnListContainer[1];

@@ -28,7 +28,7 @@ public class GOTBiomeBraavos extends GOTBiomeEssos {
 		npcSpawnList.newFactionList(10).add(c0);
 		
 		SpawnListContainer[] c1 = new SpawnListContainer[1];
-		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.VOLANTIS_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
+		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.VOLANTIS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c1);
 		
 		SpawnListContainer[] c2 = new SpawnListContainer[1];

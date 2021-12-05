@@ -56,10 +56,8 @@ public class GOTBiomeJogosNhai extends GOTBiome {
 
 		decorator.affix(new GOTStructureJogosVillage(this, 1.0f));
 		
-		SpawnListContainer[] c1 = new SpawnListContainer[3];
-		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
-		c1[1] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_FRONTIER, 4).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
-		c1[2] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_SAMURAI, 2).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
+		SpawnListContainer[] c1 = new SpawnListContainer[1];
+		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c1);
 		
 		GOTStructureJogosVillage camp = new GOTStructureJogosVillage(this, 0.0f).setIsBig();

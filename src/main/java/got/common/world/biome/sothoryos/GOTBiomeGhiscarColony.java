@@ -35,7 +35,7 @@ public class GOTBiomeGhiscarColony extends GOTBiome {
 		decorator.flowersPerChunk = 3;
 		decorator.doubleFlowersPerChunk = 1;
 		SpawnListContainer[] c0 = new SpawnListContainer[1];
-		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_CORSAIR, 10).setSpawnChance(GOTBiome.SPAWN);
+		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c0);
 		SpawnListContainer[] c1 = new SpawnListContainer[1];
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN);

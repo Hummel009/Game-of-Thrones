@@ -53,7 +53,7 @@ public class GOTBiomeSummerIslands extends GOTBiome {
 		c0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.SUMMER_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c0);
 		SpawnListContainer[] c1 = new SpawnListContainer[1];
-		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_CORSAIR, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
+		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c1);
 		SpawnListContainer[] c11 = new SpawnListContainer[1];
 		c11[0] = GOTBiomeSpawnList.entry(GOTSpawnList.MANTICORE, 1).setSpawnChance(GOTBiome.SPAWN);
