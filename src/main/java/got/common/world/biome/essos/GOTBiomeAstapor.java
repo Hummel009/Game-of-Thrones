@@ -4,7 +4,7 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
-import got.common.world.fixed.GOTStructurePyramidYunkaiAstapor;
+import got.common.world.fixed.GOTStructureGhiscarPyramid1;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
@@ -26,7 +26,7 @@ public class GOTBiomeAstapor extends GOTBiomeGhiscar {
 		town.affix(GOTWaypoint.Astapor, -1, 0, 1);
 		decorator.affix(town);
 		
-		GOTStructurePyramidYunkaiAstapor pyramid = new GOTStructurePyramidYunkaiAstapor(this, 0.0f);
+		GOTStructureGhiscarPyramid1 pyramid = new GOTStructureGhiscarPyramid1(this, 0.0f);
 		pyramid.affix(GOTWaypoint.Astapor, -2, 0);
 		decorator.affix(pyramid);
 		

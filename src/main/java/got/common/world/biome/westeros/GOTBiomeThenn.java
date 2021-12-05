@@ -20,18 +20,17 @@ import net.minecraft.world.biome.BiomeGenBase;
 public class GOTBiomeThenn extends GOTBiome {
 	public GOTBiomeThenn(int i, boolean major) {
 		super(i, major);
-		topBlock = Blocks.grass;
-		fillerBlock = Blocks.dirt;
+		this.addBiomeVariant(GOTBiomeVariant.HILLS);
+		this.addBiomeVariant(GOTBiomeVariant.STEPPE, 0.1f);
+		decorator.clearTrees();
+		decorator.addTree(GOTTreeType.FOTINIA, 20);
 		decorator.treesPerChunk = 2;
+		decorator.grassPerChunk = 6;
 		spawnableCreatureList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDirewolf.class, 6, 1, 2));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWoolyRhino.class, 4, 1, 1));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 8, 1, 2));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityMammoth.class, 1, 1, 1));
-		this.addBiomeVariant(GOTBiomeVariant.HILLS);
-		this.addBiomeVariant(GOTBiomeVariant.STEPPE);
-		decorator.clearTrees();
-		decorator.addTree(GOTTreeType.FOTINIA, 20);
 
 		SpawnListContainer[] c0 = new SpawnListContainer[2];
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(GOTBiome.SPAWN);

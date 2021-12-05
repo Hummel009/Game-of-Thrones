@@ -9,6 +9,7 @@ public class GOTBiomeRedBeach extends GOTBiomeOcean {
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
 		spawnableGOTAmbientList.clear();
+		npcSpawnList.clear();
 		biomeColors.setWater(0x640a0a);
 	}
 

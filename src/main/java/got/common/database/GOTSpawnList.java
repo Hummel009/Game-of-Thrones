@@ -84,7 +84,7 @@ public class GOTSpawnList {
 	public static GOTSpawnList HILL_TRIBES_CIVILIAN = new GOTSpawnList(new GOTSpawnEntry(GOTEntityHillman.class, 10, 1, 2));
 	public static GOTSpawnList HILL_TRIBES_MILITARY = new GOTSpawnList(new GOTSpawnEntry(GOTEntityHillmanWarrior.class, 10, 1, 2), new GOTSpawnEntry(GOTEntityHillmanArcher.class, 5, 1, 2), new GOTSpawnEntry(GOTEntityHillmanAxeThrower.class, 3, 1, 2), new GOTSpawnEntry(GOTEntityHillmanBerserker.class, 3, 1, 2));
 	public static GOTSpawnList IBBEN_CIVILIAN = new GOTSpawnList(new GOTSpawnEntry(GOTEntityIbbenMan.class, 10, 1, 2));
-	public static GOTSpawnList IBBEN_CONQUEST = new GOTSpawnList(new GOTSpawnEntry(GOTEntityIbbenWarrior.class, 10, 1, 2), new GOTSpawnEntry(GOTEntityIbbenArcher.class, 5, 1, 2));
+	public static GOTSpawnList IBBEN_MILITARY = new GOTSpawnList(new GOTSpawnEntry(GOTEntityIbbenWarrior.class, 10, 1, 2), new GOTSpawnEntry(GOTEntityIbbenArcher.class, 5, 1, 2));
 	public static GOTSpawnList IFEKEVRON = new GOTSpawnList(new GOTSpawnEntry(GOTEntityIfekevron.class, 10, 1, 2));
 	public static GOTSpawnList IRONBORN_CIVILIAN = new GOTSpawnList(new GOTSpawnEntry(GOTEntityIronbornMan.class, 10, 1, 2));
 	public static GOTSpawnList IRONBORN_CONQUEST = new GOTSpawnList(new GOTSpawnEntry(GOTEntityIronbornSoldier.class, 10, 1, 2), new GOTSpawnEntry(GOTEntityIronbornSoldierArcher.class, 5, 1, 2));

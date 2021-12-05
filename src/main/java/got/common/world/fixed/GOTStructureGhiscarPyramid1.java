@@ -8,8 +8,8 @@ import got.common.world.structure.essos.ghiscar.GOTStructureGhiscarPyramid;
 import got.common.world.structure.other.*;
 import net.minecraft.world.World;
 
-public class GOTStructurePyramidMeereen extends GOTVillageGen {
-	public GOTStructurePyramidMeereen(GOTBiome biome, float f) {
+public class GOTStructureGhiscarPyramid1 extends GOTVillageGen {
+	public GOTStructureGhiscarPyramid1(GOTBiome biome, float f) {
 		super(biome);
 		gridScale = 10;
 		gridRandomDisplace = 1;
@@ -23,13 +23,13 @@ public class GOTStructurePyramidMeereen extends GOTVillageGen {
 	}
 
 	public static class Instance extends GOTVillageGen.AbstractInstance {
-		public Instance(GOTStructurePyramidMeereen village, World world, int i, int k, Random random, GOTLocationInfo loc) {
+		public Instance(GOTStructureGhiscarPyramid1 village, World world, int i, int k, Random random, GOTLocationInfo loc) {
 			super(village, world, i, k, random, loc);
 		}
 
 		@Override
 		public void addVillageStructures(Random random) {
-			this.addStructure(new GOTStructureGhiscarPyramid(false), 0, 20, 0, true);
+			this.addStructure(new GOTStructureGhiscarPyramid(false), 20, 0, 0, true);
 		}
 
 		@Override

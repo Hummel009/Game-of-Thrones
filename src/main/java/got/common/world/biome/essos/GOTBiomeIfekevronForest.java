@@ -10,7 +10,7 @@ import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 public class GOTBiomeIfekevronForest extends GOTBiomeTropicalForest {
 	public GOTBiomeIfekevronForest(int i, boolean major) {
 		super(i, major);
-		spawnableMonsterList.clear();
+		npcSpawnList.clear();
 		SpawnListContainer[] c = new SpawnListContainer[1];
 		c[0] = GOTBiomeSpawnList.entry(GOTSpawnList.IFEKEVRON, 10).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c);

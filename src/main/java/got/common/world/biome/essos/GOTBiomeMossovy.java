@@ -17,7 +17,6 @@ import net.minecraft.world.biome.BiomeGenBase;
 public class GOTBiomeMossovy extends GOTBiome {
 	public GOTBiomeMossovy(int i, boolean major) {
 		super(i, major);
-		clearBiomeVariants();
 		this.addBiomeVariant(GOTBiomeVariant.HILLS);
 		this.addBiomeVariant(GOTBiomeVariant.STEPPE, 0.1f);
 		decorator.clearTrees();
@@ -35,17 +34,20 @@ public class GOTBiomeMossovy extends GOTBiome {
 		decorator.doubleFlowersPerChunk = 1;
 		registerPlainsFlowers();
 		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWoolyRhino.class, 4, 1, 1));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWoolyRhino.class, 2, 1, 1));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 8, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 4, 1, 1));
+		
+		SpawnListContainer[] c0 = new SpawnListContainer[2];
+		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_CIVILIAN, 4).setSpawnChance(GOTBiome.SPAWN);
+		c0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(10).add(c0);
+		
 		SpawnListContainer[] c1 = new SpawnListContainer[1];
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_WEREWOLF, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c1);
-		decorator.affix(new GOTStructureMossovyVillage(this, 1.0f));
-		SpawnListContainer[] c0 = new SpawnListContainer[2];
-		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
-		c0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(10).add(c0);
-		GOTStructureMossovyVillage capital = new GOTStructureMossovyVillage(this, 0.0f);
+		
+		GOTStructureMossovyVillage capital = new GOTStructureMossovyVillage(this, 1.0f);
 		capital.affix(GOTWaypoint.Kadar);
 		decorator.affix(capital);
 	}

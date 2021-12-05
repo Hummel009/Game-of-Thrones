@@ -21,7 +21,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.WorldGenFlowers;
 
 public class GOTBiomeYiTi extends GOTBiome {
 
@@ -56,25 +56,28 @@ public class GOTBiomeYiTi extends GOTBiome {
 		decorator.doubleGrassPerChunk = 1;
 		decorator.flowersPerChunk = 3;
 		decorator.doubleFlowersPerChunk = 1;
-		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
 		decorator.addTree(GOTTreeType.CHERRY, 500);
 		decorator.addTree(GOTTreeType.LEMON, 500);
 		decorator.addTree(GOTTreeType.LIME, 500);
 		decorator.addTree(GOTTreeType.POMEGRANATE, 500);
+		registerYiTiPlainsFlowers();
+		
+		SpawnListContainer[] c0 = new SpawnListContainer[3];
+		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_CIVILIAN, 4).setSpawnChance(GOTBiome.SPAWN);
+		c0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
+		c0[2] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_SAMURAI, 2).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(10).add(c0);
+		
 		SpawnListContainer[] c1 = new SpawnListContainer[1];
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.JOGOS_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c1);
-		SpawnListContainer[] c11 = new SpawnListContainer[1];
-		c11[0] = GOTBiomeSpawnList.entry(GOTSpawnList.MANTICORE, 1).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(c11);
-		registerYiTiPlainsFlowers();
+		
+		SpawnListContainer[] c2 = new SpawnListContainer[1];
+		c2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.MANTICORE, 1).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(1).add(c2);
+
 		decorator.affix(new GOTStructureYiTiCity(this, 1.0f));
-		invasionSpawns.addInvasion(GOTInvasions.JOGOS, GOTEventSpawner.EventChance.UNCOMMON);
-		SpawnListContainer[] c = new SpawnListContainer[3];
-		c[0] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
-		c[1] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
-		c[2] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_SAMURAI, 2).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(10).add(c);
+		
 		GOTStructureYiTiCity town = new GOTStructureYiTiCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.TraderTown, 0, -1);
 		town.affix(GOTWaypoint.SiQo, 1, 0);
@@ -100,6 +103,8 @@ public class GOTBiomeYiTi extends GOTBiome {
 		town.affix(GOTWaypoint.LengYi);
 		town.affix(GOTWaypoint.LengMa);
 		decorator.affix(town);
+		
+		invasionSpawns.addInvasion(GOTInvasions.JOGOS, GOTEventSpawner.EventChance.UNCOMMON);
 	}
 
 	@Override

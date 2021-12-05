@@ -4,7 +4,7 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
-import got.common.world.fixed.GOTStructurePyramidMeereen;
+import got.common.world.fixed.GOTStructureGhiscarPyramid2;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
@@ -26,7 +26,7 @@ public class GOTBiomeMeereen extends GOTBiomeGhiscar {
 		town.affix(GOTWaypoint.Meereen, 0, -1, 2);
 		decorator.affix(town);
 		
-		GOTStructurePyramidMeereen pyramid = new GOTStructurePyramidMeereen(this, 0.0f);
+		GOTStructureGhiscarPyramid2 pyramid = new GOTStructureGhiscarPyramid2(this, 0.0f);
 		pyramid.affix(GOTWaypoint.Meereen, 0, -2, 0);
 		decorator.affix(pyramid);
 		

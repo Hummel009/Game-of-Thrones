@@ -14,11 +14,14 @@ import net.minecraft.world.biome.BiomeGenBase;
 public class GOTBiomeVolantisMarshes extends GOTBiomeVolantis {
 	public GOTBiomeVolantisMarshes(int i, boolean major) {
 		super(i, major);
+		npcSpawnList.clear();
+		decorator.clearVillages();
+		invasionSpawns.clearInvasions();
+		clearBiomeVariants();
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
 		spawnableGOTAmbientList.clear();
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityMidges.class, 10, 4, 4));
-		clearBiomeVariants();
 		variantChance = 1.0f;
 		addBiomeVariantSet(GOTBiomeVariant.SET_SWAMP);
 		decorator.sandPerChunk = 0;
@@ -30,9 +33,8 @@ public class GOTBiomeVolantisMarshes extends GOTBiomeVolantis {
 		decorator.doubleGrassPerChunk = 8;
 		decorator.canePerChunk = 10;
 		decorator.reedPerChunk = 5;
-		decorator.clearVillages();
-		npcSpawnList.clear();
 		registerSwampFlowers();
+		
 		SpawnListContainer[] c1 = new SpawnListContainer[1];
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(1).add(c1);

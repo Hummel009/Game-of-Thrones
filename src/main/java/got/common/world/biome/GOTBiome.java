@@ -1022,7 +1022,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		giftOld = new GOTBiomeGiftOld(43, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xA5C681).setBiomeName("giftOld");
 		hauntedForest = new GOTBiomeHauntedForest(44, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xA5C9AA).setBiomeName("hauntedForest");
 		ibben = new GOTBiomeIbben(45, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x74B747).setBiomeName("ibben");
-		ibbenBeach = new GOTBiomeIbbenBeach(46, false).setBeachBlock(Blocks.sand, 0).setColor(14204248).setBiomeName("beach").setIsNeverWinter();
 		ibbenColony = new GOTBiomeIbbenColony(47, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x8EA33A).setBiomeName("ibbenColony");
 		ibbenSea = new GOTBiomeOcean(48, true).setIsNeverWinter().setMinMaxHeight(-1.0f, 0.3f).setColor(0x02598E).setBiomeName("ocean");
 		ibbenTaiga = new GOTBiomeIbbenTaiga(49, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x437C1F).setBiomeName("ibbenTaiga");
@@ -1046,7 +1045,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		mossovy = new GOTBiomeMossovy(71, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x71843B).setBiomeName("mossovy");
 		mossovyForest = new GOTBiomeMossovyForest(72, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x617232).setBiomeName("mossovyForest");
 		mossovyMarshes = new GOTBiomeMossovyMarshes(73, true).setIsLongWinter().setMinMaxHeight(0.0f, 0.1f).setColor(0x677F43).setBiomeName("mossovyMarshes");
-		mossovySea = new GOTBiomeMossovySea(74, true).setIsLongWinter().setMinMaxHeight(-1.0f, 0.8f).setColor(0x02517F).setBiomeName("mossovySea");
 		mossovySopkas = new GOTBiomeMossovySopkas(75, true).setIsLongWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0xADADAD).setBiomeName("mossovySopkas");
 		myr = new GOTBiomeMyr(76, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x9AA54F).setBiomeName("myr");
 		naath = new GOTBiomeNaath(78, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x7DA33C).setBiomeName("naath");

@@ -114,7 +114,6 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 		biomes = GOTGenLayerZoom.magnify(1000L, biomes, 1);
 		biomes = new GOTGenLayerBeach(1000L, biomes, dim, GOTBiome.ocean);
 		biomes = new GOTGenLayerRedBeach(1000L, biomes, dim, GOTBiome.redSea);
-		biomes = new GOTGenLayerIbbenBeach(1000L, biomes, dim, GOTBiome.ibbenSea);
 		biomes = GOTGenLayerZoom.magnify(1000L, biomes, 2);
 		biomes = GOTGenLayerZoom.magnify(1000L, biomes, 2);
 		biomes = new GOTGenLayerSmooth(1000L, biomes);

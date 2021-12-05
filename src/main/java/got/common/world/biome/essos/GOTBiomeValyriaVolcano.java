@@ -17,16 +17,10 @@ public class GOTBiomeValyriaVolcano extends GOTBiomeValyria {
 		super(i, major);
 		topBlock = Blocks.stone;
 		fillerBlock = Blocks.stone;
-		npcSpawnList.clear();
-		spawnableCreatureList.clear();
-		spawnableWaterCreatureList.clear();
-		spawnableMonsterList.clear();
-		spawnableGOTAmbientList.clear();
-		decorator.clearTrees();
-		decorator.treesPerChunk = -1;
-		decorator.grassPerChunk = -1;
-		decorator.doubleGrassPerChunk = -1;
-		decorator.flowersPerChunk = -1;
+		decorator.treesPerChunk = 0;
+		decorator.grassPerChunk = 0;
+		decorator.doubleGrassPerChunk = 0;
+		decorator.flowersPerChunk = 0;
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreValyrian, 3), 2.0f, 0, 16);
 	}
 
