@@ -13,7 +13,9 @@ CHANGELOG
 * Improved spawning
 * Improved Bu Gai Quest
 * Improved structures generator
+* Improved wall gate
 
+* Fixed bug with structures of Mossovy
 * Fixed bug with sandstone in Westeros
 * Fixed bug with Daenerys Targaryen spawning
 * Fixed bug with Yi Ti cities
