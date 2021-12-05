@@ -53,11 +53,6 @@ public class GOTBiomeWesterlandsTown extends GOTBiomeWesterlands {
 	}
 
 	@Override
-	public boolean getEnableRiver() {
-		return false;
-	}
-
-	@Override
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.PAVING;
 	}

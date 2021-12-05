@@ -59,7 +59,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome dorneDesert;
 	public static GOTBiome dorneMountains;
 	public static GOTBiome dorneValley;
-	public static GOTBiome doshKhalin;
 	public static GOTBiome dothrakiSea;
 	public static GOTBiome dragonstone;
 	public static GOTBiome essos;
@@ -1008,7 +1007,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		dorneDesert = new GOTBiomeDorneDesert(25, true).setIsNeverWinter().setMinMaxHeight(0.2f, 0.1f).setColor(14074229).setBiomeName("dorneDesert");
 		dorneMountains = new GOTBiomeDorneMountains(27, true).setIsNeverWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0xD6C9CC).setBiomeName("dorneMountains");
 		dorneValley = new GOTBiomeDorne(28, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x9FB253).setBiomeName("dorneValley");
-		doshKhalin = new GOTBiomeDoshKhalin(29, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x9EAA64).setBiomeName("doshKhalin");
 		dothrakiSea = new GOTBiomeDothrakiSea(30, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(10398278).setBiomeName("dothrakiSea");
 		dragonstone = new GOTBiomeDragonstone(31, true).setIsSeasonalWinter().setMinMaxHeight(0.3f, 0.35f).setColor(0x75A83F).setBiomeName("dragonstone");
 		essos = new GOTBiomeEssos(33, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x92A54A).setBiomeName("essos");

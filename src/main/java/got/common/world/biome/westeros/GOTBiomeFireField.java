@@ -38,11 +38,6 @@ public class GOTBiomeFireField extends GOTBiomeReach {
 	}
 
 	@Override
-	public boolean getEnableRiver() {
-		return false;
-	}
-
-	@Override
 	public WorldGenerator getRandomWorldGenForDoubleFlower(Random random) {
 		if (random.nextInt(5) > 0) {
 			WorldGenDoublePlant doubleFlowerGen = new WorldGenDoublePlant();

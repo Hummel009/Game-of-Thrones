@@ -45,11 +45,6 @@ public class GOTBiomeArrynTown extends GOTBiomeArryn {
 	}
 
 	@Override
-	public boolean getEnableRiver() {
-		return false;
-	}
-
-	@Override
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.PAVING;
 	}

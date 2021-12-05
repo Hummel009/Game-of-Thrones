@@ -45,11 +45,6 @@ public class GOTBiomeReachTown extends GOTBiomeReach {
 	}
 
 	@Override
-	public boolean getEnableRiver() {
-		return false;
-	}
-
-	@Override
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.PAVING;
 	}

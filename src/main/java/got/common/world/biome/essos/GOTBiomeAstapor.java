@@ -13,20 +13,23 @@ import got.common.world.structure.essos.ghiscar.*;
 public class GOTBiomeAstapor extends GOTBiomeGhiscar {
 	public GOTBiomeAstapor(int i, boolean major) {
 		super(i, major);
-		clearBiomeVariants();
+		npcSpawnList.clear();
 		decorator.clearVillages();
-		decorator.treesPerChunk = -1;
+		
 		SpawnListContainer[] c0 = new SpawnListContainer[3];
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
 		c0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_UNSULLIED, 4).setSpawnChance(GOTBiome.SPAWN);
 		c0[2] = GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c0);
+		
 		GOTStructureGhiscarCity town = new GOTStructureGhiscarCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Astapor, -1, 0, 1);
 		decorator.affix(town);
+		
 		GOTStructurePyramidYunkaiAstapor pyramid = new GOTStructurePyramidYunkaiAstapor(this, 0.0f);
 		pyramid.affix(GOTWaypoint.Astapor, -2, 0);
 		decorator.affix(pyramid);
+		
 		decorator.addRandomStructure(new GOTStructureGhiscarFightingPit(false), 250);
 	}
 

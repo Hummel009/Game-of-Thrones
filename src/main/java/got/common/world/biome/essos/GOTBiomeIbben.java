@@ -19,14 +19,16 @@ public class GOTBiomeIbben extends GOTBiome {
 	public GOTBiomeIbben(int i, boolean major) {
 		super(i, major);
 		clearBiomeVariants();
+		this.addBiomeVariant(GOTBiomeVariant.DENSEFOREST_BIRCH);
+		this.addBiomeVariant(GOTBiomeVariant.DENSEFOREST_OAK);
 		this.addBiomeVariant(GOTBiomeVariant.FOREST);
+		this.addBiomeVariant(GOTBiomeVariant.FOREST_ASPEN, 0.2f);
+		this.addBiomeVariant(GOTBiomeVariant.FOREST_BEECH, 0.2f);
+		this.addBiomeVariant(GOTBiomeVariant.FOREST_BIRCH, 0.2f);
+		this.addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
+		this.addBiomeVariant(GOTBiomeVariant.FOREST_MAPLE, 0.2f);
 		this.addBiomeVariant(GOTBiomeVariant.HILLS);
 		this.addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_OLIVE, 0.1f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_ALMOND, 0.1f);
-		this.addBiomeVariant(GOTBiomeVariant.STEPPE);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.SPRUCE, 400);
 		decorator.addTree(GOTTreeType.SPRUCE_THIN, 400);
@@ -34,32 +36,37 @@ public class GOTBiomeIbben extends GOTBiome {
 		decorator.addTree(GOTTreeType.SPRUCE_MEGA, 100);
 		decorator.addTree(GOTTreeType.SPRUCE_MEGA_THIN, 20);
 		decorator.addTree(GOTTreeType.FIR, 500);
-		decorator.addTree(GOTTreeType.IBBEN_PINE, 500);
+		decorator.addTree(GOTTreeType.PINE, 500);
 		decorator.grassPerChunk = 6;
 		decorator.doubleGrassPerChunk = 1;
 		decorator.flowersPerChunk = 3;
 		decorator.doubleFlowersPerChunk = 1;
 		registerPlainsFlowers();
+		
 		spawnableCreatureList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWoolyRhino.class, 4, 1, 1));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 8, 1, 2));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityMammoth.class, 2, 1, 1));
-		decorator.affix(new GOTStructureIbbenVillage(this, 1.0f));
-		setBanditChance(GOTEventSpawner.EventChance.COMMON);
-		decorator.addRandomStructure(new GOTStructureBarrow(false), 600);
-		invasionSpawns.addInvasion(GOTInvasions.IRONBORN, GOTEventSpawner.EventChance.UNCOMMON);
+		
 		SpawnListContainer[] c0 = new SpawnListContainer[2];
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.IBBEN_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
 		c0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.IBBEN_CONQUEST, 4).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c0);
+		
 		SpawnListContainer[] c2 = new SpawnListContainer[1];
 		c2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c2);
-		GOTStructureIbbenVillage village = new GOTStructureIbbenVillage(this, 0.0f);
+
+		GOTStructureIbbenVillage village = new GOTStructureIbbenVillage(this, 1.0f);
 		village.affix(GOTWaypoint.IbNor);
 		village.affix(GOTWaypoint.PortOfIbben);
 		village.affix(GOTWaypoint.IbSar);
 		decorator.affix(village);
+		
+		decorator.addRandomStructure(new GOTStructureBarrow(false), 250);
+
+		invasionSpawns.addInvasion(GOTInvasions.IRONBORN, GOTEventSpawner.EventChance.UNCOMMON);
+		setBanditChance(GOTEventSpawner.EventChance.COMMON);
 	}
 
 	@Override
