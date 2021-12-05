@@ -6,7 +6,7 @@ import got.common.entity.animal.*;
 import got.common.world.feature.GOTTreeType;
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class GOTBiomeCrackclaw extends GOTBiomeDragonstone {
+public class GOTBiomeCrackclaw extends GOTBiomeCrownlands {
 	public GOTBiomeCrackclaw(int i, boolean major) {
 		super(i, major);
 		npcSpawnList.clear();
