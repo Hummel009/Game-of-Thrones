@@ -4,6 +4,7 @@ import java.util.*;
 
 import got.common.entity.animal.*;
 import got.common.entity.essos.*;
+import got.common.entity.essos.asshai.*;
 import got.common.entity.essos.braavos.*;
 import got.common.entity.essos.dothraki.*;
 import got.common.entity.essos.ghiscar.*;
@@ -47,6 +48,8 @@ import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.World;
 
 public class GOTSpawnList {
+	public static GOTSpawnList ASSHAI_CIVILIAN = new GOTSpawnList(new GOTSpawnEntry(GOTEntityAsshaiMan.class, 10, 1, 2));
+	public static GOTSpawnList ASSHAI_MILITARY = new GOTSpawnList(new GOTSpawnEntry(GOTEntityAsshaiGuard.class, 10, 1, 2), new GOTSpawnEntry(GOTEntityAsshaiSpherebinder.class, 5, 1, 1), new GOTSpawnEntry(GOTEntityAsshaiShadowbinder.class, 2, 1, 1));
 	public static GOTSpawnList MOSSOVY_CIVILIAN = new GOTSpawnList(new GOTSpawnEntry(GOTEntityMossovyMan.class, 10, 1, 2));
 	public static GOTSpawnList MOSSOVY_MILITARY = new GOTSpawnList(new GOTSpawnEntry(GOTEntityMossovyWitcher.class, 10, 1, 1));
 	public static GOTSpawnList RED_SCORPION = new GOTSpawnList(new GOTSpawnEntry(GOTEntityRedScorpion.class, 10, 1, 1));
