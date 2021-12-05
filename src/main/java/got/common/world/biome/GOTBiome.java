@@ -1079,7 +1079,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		redSea = new GOTBiomeRedSea(107, true).setIsNeverWinter().setMinMaxHeight(-1.0f, 0.3f).setColor(0xC15B32).setBiomeName("redSea");
 		river = new GOTBiomeRiver(108, false).setMinMaxHeight(-0.5f, 0.0f).setColor(3570869).setBiomeName("river");
 		riverlands = new GOTBiomeRiverlands(109, true).setIsSeasonalWinter().setMinMaxHeight(0.1f, 0.15f).setColor(7910726).setBiomeName("riverlands");
-		riverlandsHills = new GOTBiomeRiverlandsForest(111, true).setIsSeasonalWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x4C822A).setBiomeName("riverlandsHills");
+		riverlandsHills = new GOTBiomeWesterosForest(111, true).setIsSeasonalWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x4C822A).setBiomeName("riverlandsHills");
 		shadowLand = new GOTBiomeShadowLand(112, true).setMinMaxHeight(0.1f, 0.15f).setTemperatureRainfall(1.0f, 0.2f).setColor(0x8E8854).setBiomeName("shadowLand");
 		shadowMountains = new GOTBiomeShadowMountains(113, true).setMinMaxHeight(2.0f, 2.0f).setTemperatureRainfall(1.0f, 0.2f).setColor(0x635E3B).setBiomeName("shadowMountains");
 		shadowTown = new GOTBiomeShadowTown(114, true).setMinMaxHeight(0.1f, 0.0f).setTemperatureRainfall(1.0f, 0.2f).setColor(0x8C8340).setBiomeName("shadowTown");

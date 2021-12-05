@@ -32,9 +32,9 @@ public class GOTBiomeYeen extends GOTBiomeSothoryosJungle {
 		decorator.canePerChunk = 0;
 		npcSpawnList.clear();
 		biomeColors.setFoggy(true);
-		SpawnListContainer[] container11 = new SpawnListContainer[1];
-		container11[0] = GOTBiomeSpawnList.entry(GOTSpawnList.JUNGLE_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(container11);
+		SpawnListContainer[] c11 = new SpawnListContainer[1];
+		c11[0] = GOTBiomeSpawnList.entry(GOTSpawnList.JUNGLE_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(1).add(c11);
 		GOTStructureRuinsBig colossal = new GOTStructureRuinsBig(this, 0.0f);
 		colossal.affix(GOTWaypoint.Yeen);
 		decorator.affix(colossal);

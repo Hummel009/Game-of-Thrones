@@ -15,38 +15,38 @@ import got.common.world.structure.westeros.crownlands.red.GOTWaypointRedCastle;
 public class GOTBiomeCrownlands extends GOTBiomeWesteros {
 	public GOTBiomeCrownlands(int i, boolean major) {
 		super(i, major);
-		SpawnListContainer[] container0 = new SpawnListContainer[2];
-		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.CROWNLANDS_CIVILIAN, 4).setSpawnChance(GOTBiome.SPAWN);
-		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.CROWNLANDS_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(6).add(container0);
+		SpawnListContainer[] c0 = new SpawnListContainer[2];
+		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.CROWNLANDS_CIVILIAN, 4).setSpawnChance(GOTBiome.SPAWN);
+		c0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.CROWNLANDS_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(6).add(c0);
 
-		SpawnListContainer[] container1 = new SpawnListContainer[1];
-		container1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WESTERLANDS_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(4).add(container1);
+		SpawnListContainer[] c1 = new SpawnListContainer[1];
+		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WESTERLANDS_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(4).add(c1);
 
-		SpawnListContainer[] container2 = new SpawnListContainer[1];
-		container2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.NORTH_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
-		npcSpawnList.newFactionList(0).add(container2);
+		SpawnListContainer[] c2 = new SpawnListContainer[1];
+		c2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.NORTH_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
+		npcSpawnList.newFactionList(0).add(c2);
 
-		SpawnListContainer[] container3 = new SpawnListContainer[1];
-		container3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DRAGONSTONE_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
-		npcSpawnList.newFactionList(0).add(container3);
+		SpawnListContainer[] c3 = new SpawnListContainer[1];
+		c3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DRAGONSTONE_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
+		npcSpawnList.newFactionList(0).add(c3);
 
-		SpawnListContainer[] container4 = new SpawnListContainer[1];
-		container4[0] = GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
-		npcSpawnList.newFactionList(0).add(container4);
+		SpawnListContainer[] c4 = new SpawnListContainer[1];
+		c4[0] = GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
+		npcSpawnList.newFactionList(0).add(c4);
 
-		SpawnListContainer[] container5 = new SpawnListContainer[1];
-		container5[0] = GOTBiomeSpawnList.entry(GOTSpawnList.STORMLANDS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
-		npcSpawnList.newFactionList(0).add(container5);
+		SpawnListContainer[] c5 = new SpawnListContainer[1];
+		c5[0] = GOTBiomeSpawnList.entry(GOTSpawnList.STORMLANDS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
+		npcSpawnList.newFactionList(0).add(c5);
 
-		SpawnListContainer[] container6 = new SpawnListContainer[1];
-		container6[0] = GOTBiomeSpawnList.entry(GOTSpawnList.RIVERLANDS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
-		npcSpawnList.newFactionList(0).add(container6);
+		SpawnListContainer[] c6 = new SpawnListContainer[1];
+		c6[0] = GOTBiomeSpawnList.entry(GOTSpawnList.RIVERLANDS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
+		npcSpawnList.newFactionList(0).add(c6);
 
-		SpawnListContainer[] container7 = new SpawnListContainer[1];
-		container7[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
-		npcSpawnList.newFactionList(0).add(container7);
+		SpawnListContainer[] c7 = new SpawnListContainer[1];
+		c7[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
+		npcSpawnList.newFactionList(0).add(c7);
 
 		decorator.affix(new GOTStructureCrownlandsCity(this, 1.0f));
 

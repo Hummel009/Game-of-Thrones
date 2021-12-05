@@ -35,9 +35,9 @@ public class GOTBiomeQarthDesert extends GOTBiome {
 		spawnableCreatureList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityCamel.class, 10, 1, 2));
 		spawnableGOTAmbientList.clear();
-		SpawnListContainer[] container11 = new SpawnListContainer[1];
-		container11[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(container11);
+		SpawnListContainer[] c11 = new SpawnListContainer[1];
+		c11[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(1).add(c11);
 		this.addBiomeVariant(GOTBiomeVariant.STEPPE);
 		this.addBiomeVariant(GOTBiomeVariant.HILLS);
 		decorator.grassPerChunk = 0;

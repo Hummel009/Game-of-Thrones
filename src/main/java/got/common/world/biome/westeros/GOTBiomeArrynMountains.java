@@ -6,41 +6,31 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.entity.animal.GOTEntityShadowcat;
-import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.feature.GOTTreeType;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.gen.feature.WorldGenMinable;
 
-public class GOTBiomeArrynMountains extends GOTBiome {
+public class GOTBiomeArrynMountains extends GOTBiomeArryn {
 	public GOTBiomeArrynMountains(int i, boolean major) {
 		super(i, major);
-		spawnableCreatureList.clear();
-		spawnableGOTAmbientList.clear();
-		variantChance = 0.1f;
-		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
-		addBiomeVariant(GOTBiomeVariant.FOREST_LARCH, 0.3f);
-		addBiomeVariant(GOTBiomeVariant.FOREST_MAPLE, 0.3f);
-		addBiomeVariant(GOTBiomeVariant.FOREST_PINE, 0.3f);
-		decorator.biomeGemFactor = 1.0f;
-		decorator.grassPerChunk = 6;
-		decorator.doubleGrassPerChunk = 1;
-		decorator.flowersPerChunk = 3;
-		decorator.doubleFlowersPerChunk = 1;
-		enableRocky = true;
-		decorator.addTree(GOTTreeType.FIR, 500);
-		decorator.addTree(GOTTreeType.LARCH, 300);
-		decorator.addTree(GOTTreeType.MAPLE, 300);
-		decorator.addTree(GOTTreeType.PINE, 500);
-		decorator.addTree(GOTTreeType.SPRUCE, 400);
-		decorator.addTree(GOTTreeType.SPRUCE_MEGA, 100);
-		decorator.addTree(GOTTreeType.SPRUCE_MEGA_THIN, 20);
-		decorator.addTree(GOTTreeType.SPRUCE_THIN, 400);
-		registerMountainsFlowers();
+		npcSpawnList.clear();
 		spawnableCreatureList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityShadowcat.class, 8, 1, 2));
+		decorator.clearVillages();
+		invasionSpawns.clearInvasions();
+		clearBiomeVariants();
+		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
+		decorator.biomeGemFactor = 1.0f;
+		decorator.doubleFlowersPerChunk = 0;
+		decorator.doubleGrassPerChunk = 1;
+		decorator.flowersPerChunk = 1;
+		decorator.grassPerChunk = 4;
+		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
+		enableRocky = true;
+		registerMountainsFlowers();
 	}
 
 	@Override

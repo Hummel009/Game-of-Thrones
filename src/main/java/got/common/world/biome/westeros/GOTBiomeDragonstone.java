@@ -16,22 +16,22 @@ public class GOTBiomeDragonstone extends GOTBiomeWesteros {
 		super(i, major);
 		decorator.addSoil(new WorldGenMinable(GOTRegistry.obsidianGravel, 32), 20.0f, 0, 64);
 
-		SpawnListContainer[] container0 = new SpawnListContainer[2];
-		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DRAGONSTONE_CIVILIAN, 4).setSpawnChance(GOTBiome.SPAWN);
-		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.DRAGONSTONE_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(10).add(container0);
+		SpawnListContainer[] c0 = new SpawnListContainer[2];
+		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DRAGONSTONE_CIVILIAN, 4).setSpawnChance(GOTBiome.SPAWN);
+		c0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.DRAGONSTONE_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(10).add(c0);
 
-		SpawnListContainer[] container1 = new SpawnListContainer[1];
-		container1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WESTERLANDS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
-		npcSpawnList.newFactionList(0).add(container1);
+		SpawnListContainer[] c1 = new SpawnListContainer[1];
+		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WESTERLANDS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
+		npcSpawnList.newFactionList(0).add(c1);
 
-		SpawnListContainer[] container2 = new SpawnListContainer[1];
-		container2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.STORMLANDS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
-		npcSpawnList.newFactionList(0).add(container2);
+		SpawnListContainer[] c2 = new SpawnListContainer[1];
+		c2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.STORMLANDS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
+		npcSpawnList.newFactionList(0).add(c2);
 
-		SpawnListContainer[] container3 = new SpawnListContainer[1];
-		container3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.REACH_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
-		npcSpawnList.newFactionList(0).add(container3);
+		SpawnListContainer[] c3 = new SpawnListContainer[1];
+		c3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.REACH_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
+		npcSpawnList.newFactionList(0).add(c3);
 
 		decorator.affix(new GOTStructureDragonstoneCity(this, 1.0f));
 

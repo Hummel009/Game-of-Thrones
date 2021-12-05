@@ -8,14 +8,19 @@ import net.minecraft.world.biome.BiomeGenBase;
 public class GOTBiomeWesterosForest extends GOTBiomeWesteros {
 	public GOTBiomeWesterosForest(int i, boolean major) {
 		super(i, major);
+		npcSpawnList.clear();
+		decorator.clearVillages();
+		invasionSpawns.clearInvasions();
 		clearBiomeVariants();
+		spawnableCreatureList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 4, 1, 1));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 8, 1, 2));
+		enablePodzol = false;
 		decorator.treesPerChunk = 10;
-		decorator.flowersPerChunk = 4;
-		decorator.doubleFlowersPerChunk = 1;
-		decorator.grassPerChunk = 10;
-		decorator.doubleGrassPerChunk = 4;
+		decorator.flowersPerChunk = 6;
+		decorator.grassPerChunk = 8;
+		decorator.doubleGrassPerChunk = 2;
+		decorator.whiteSand = true;
 		registerForestFlowers();
 	}
 

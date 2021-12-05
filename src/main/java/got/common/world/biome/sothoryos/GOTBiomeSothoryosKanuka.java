@@ -50,10 +50,10 @@ public class GOTBiomeSothoryosKanuka extends GOTBiome {
 		decorator.doubleFlowersPerChunk = 1;
 		decorator.grassPerChunk = 4;
 		decorator.doubleGrassPerChunk = 1;
-		SpawnListContainer[] container = new SpawnListContainer[2];
-		container[0] = GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
-		container[1] = GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(10).add(container);
+		SpawnListContainer[] c = new SpawnListContainer[2];
+		c[0] = GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
+		c[1] = GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(10).add(c);
 		decorator.affix(new GOTStructureSothoryosVillage(this, 1.0f));
 	}
 

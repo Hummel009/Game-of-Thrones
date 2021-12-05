@@ -78,22 +78,22 @@ public class GOTBiomeDorne extends GOTBiome {
 		registerExoticFlowers();
 		setBanditChance(GOTEventSpawner.EventChance.RARE);
 
-		SpawnListContainer[] container0 = new SpawnListContainer[2];
-		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_CIVILIAN, 4).setSpawnChance(GOTBiome.SPAWN);
-		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(10).add(container0);
+		SpawnListContainer[] c0 = new SpawnListContainer[2];
+		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_CIVILIAN, 4).setSpawnChance(GOTBiome.SPAWN);
+		c0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(10).add(c0);
 
-		SpawnListContainer[] container1 = new SpawnListContainer[1];
-		container1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WESTERLANDS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
-		npcSpawnList.newFactionList(0).add(container1);
+		SpawnListContainer[] c1 = new SpawnListContainer[1];
+		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WESTERLANDS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
+		npcSpawnList.newFactionList(0).add(c1);
 
-		SpawnListContainer[] container3 = new SpawnListContainer[1];
-		container3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
-		npcSpawnList.newFactionList(0).add(container3);
+		SpawnListContainer[] c3 = new SpawnListContainer[1];
+		c3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
+		npcSpawnList.newFactionList(0).add(c3);
 
-		SpawnListContainer[] container4 = new SpawnListContainer[1];
-		container4[0] = GOTBiomeSpawnList.entry(GOTSpawnList.RED_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(container4);
+		SpawnListContainer[] c4 = new SpawnListContainer[1];
+		c4[0] = GOTBiomeSpawnList.entry(GOTSpawnList.RED_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(1).add(c4);
 
 		decorator.affix(new GOTStructureDorneCity(this, 1.0f));
 

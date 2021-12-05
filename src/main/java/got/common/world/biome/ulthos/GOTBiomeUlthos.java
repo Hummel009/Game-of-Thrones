@@ -34,12 +34,12 @@ public class GOTBiomeUlthos extends GOTBiome {
 		decorator.addTree(GOTTreeType.FIR, 200);
 		decorator.addTree(GOTTreeType.PINE, 400);
 		registerForestFlowers();
-		SpawnListContainer[] container = new SpawnListContainer[1];
-		container[0] = GOTBiomeSpawnList.entry(GOTSpawnList.ULTHOS, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(10).add(container);
-		SpawnListContainer[] container1 = new SpawnListContainer[1];
-		container1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
-		npcSpawnList.newFactionList(0).add(container1);
+		SpawnListContainer[] c = new SpawnListContainer[1];
+		c[0] = GOTBiomeSpawnList.entry(GOTSpawnList.ULTHOS, 10).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(10).add(c);
+		SpawnListContainer[] c1 = new SpawnListContainer[1];
+		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
+		npcSpawnList.newFactionList(0).add(c1);
 	}
 
 	@Override

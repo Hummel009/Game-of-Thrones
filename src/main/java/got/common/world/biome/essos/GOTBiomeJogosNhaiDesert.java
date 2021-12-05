@@ -34,9 +34,9 @@ public class GOTBiomeJogosNhaiDesert extends GOTBiome {
 		spawnableCreatureList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityCamel.class, 10, 1, 2));
 		spawnableGOTAmbientList.clear();
-		SpawnListContainer[] container11 = new SpawnListContainer[1];
-		container11[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(container11);
+		SpawnListContainer[] c11 = new SpawnListContainer[1];
+		c11[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(1).add(c11);
 		decorator.addOre(new WorldGenMinable(Blocks.lapis_ore, 6), 1.0f, 0, 48);
 		decorator.grassPerChunk = 0;
 		decorator.doubleGrassPerChunk = 0;

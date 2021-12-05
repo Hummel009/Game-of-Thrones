@@ -32,13 +32,16 @@ public class GOTBiomeThenn extends GOTBiome {
 		this.addBiomeVariant(GOTBiomeVariant.STEPPE);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.FOTINIA, 20);
-		SpawnListContainer[] container0 = new SpawnListContainer[2];
-		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(GOTBiome.SPAWN);
-		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_THENN, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(10).add(container0);
-		SpawnListContainer[] container3 = new SpawnListContainer[1];
-		container3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
-		npcSpawnList.newFactionList(0).add(container3);
+		
+		SpawnListContainer[] c0 = new SpawnListContainer[2];
+		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(GOTBiome.SPAWN);
+		c0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_THENN, 10).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(10).add(c0);
+		
+		SpawnListContainer[] c3 = new SpawnListContainer[1];
+		c3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
+		npcSpawnList.newFactionList(0).add(c3);
+		
 		decorator.addRandomStructure(new GOTStructureThennCamp(false), 250);
 	}
 

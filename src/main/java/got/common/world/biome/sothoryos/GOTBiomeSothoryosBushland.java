@@ -52,10 +52,10 @@ public class GOTBiomeSothoryosBushland extends GOTBiome {
 		decorator.addTree(GOTTreeType.BIRCH, 100);
 		decorator.addTree(GOTTreeType.BIRCH_TALL, 100);
 		decorator.addTree(GOTTreeType.BIRCH_LARGE, 25);
-		SpawnListContainer[] container = new SpawnListContainer[2];
-		container[0] = GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
-		container[1] = GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(10).add(container);
+		SpawnListContainer[] c = new SpawnListContainer[2];
+		c[0] = GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
+		c[1] = GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(10).add(c);
 		decorator.affix(new GOTStructureSothoryosVillage(this, 1.0f));
 	}
 

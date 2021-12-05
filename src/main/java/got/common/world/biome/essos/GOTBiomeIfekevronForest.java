@@ -11,9 +11,9 @@ public class GOTBiomeIfekevronForest extends GOTBiomeTropicalForest {
 	public GOTBiomeIfekevronForest(int i, boolean major) {
 		super(i, major);
 		spawnableMonsterList.clear();
-		SpawnListContainer[] container = new SpawnListContainer[1];
-		container[0] = GOTBiomeSpawnList.entry(GOTSpawnList.IFEKEVRON, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(10).add(container);
+		SpawnListContainer[] c = new SpawnListContainer[1];
+		c[0] = GOTBiomeSpawnList.entry(GOTSpawnList.IFEKEVRON, 10).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(10).add(c);
 	}
 
 	@Override

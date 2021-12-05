@@ -35,11 +35,13 @@ public class GOTBiomeSkirlingPass extends GOTBiome {
 		spawnableWaterCreatureList.clear();
 		spawnableCaveCreatureList.clear();
 		spawnableGOTAmbientList.clear();
+		
 		decorator.addRandomStructure(new GOTStructureWildlingCamp(false), 250);
-		SpawnListContainer[] container0 = new SpawnListContainer[2];
-		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(GOTBiome.SPAWN);
-		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(10).add(container0);
+		
+		SpawnListContainer[] c0 = new SpawnListContainer[2];
+		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(GOTBiome.SPAWN);
+		c0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(10).add(c0);
 	}
 
 	@Override

@@ -28,11 +28,11 @@ public class GOTBiomeJogosNhai extends GOTBiome {
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDikDik.class, 8, 1, 2));
 		decorator.grassPerChunk = 256;
 		decorator.clearTrees();
-		SpawnListContainer[] container1 = new SpawnListContainer[3];
-		container1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
-		container1[1] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_FRONTIER, 4).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
-		container1[2] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_SAMURAI, 2).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
-		npcSpawnList.newFactionList(0).add(container1);
+		SpawnListContainer[] c1 = new SpawnListContainer[3];
+		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
+		c1[1] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_FRONTIER, 4).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
+		c1[2] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_SAMURAI, 2).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
+		npcSpawnList.newFactionList(0).add(c1);
 		GOTStructureJogosVillage camp = new GOTStructureJogosVillage(this, 1.0f).setIsBig();
 		camp.affix(GOTWaypoint.Hojdbaatar);
 		decorator.affix(camp);

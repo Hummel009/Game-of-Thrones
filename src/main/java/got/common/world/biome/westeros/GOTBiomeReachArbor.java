@@ -5,33 +5,18 @@ import java.util.Random;
 import com.google.common.math.IntMath;
 
 import got.common.database.*;
-import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.map.*;
-import got.common.world.map.GOTWaypoint.Region;
-import got.common.world.spawning.*;
-import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
+import got.common.world.map.GOTRoads;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-public class GOTBiomeReachArbor extends GOTBiomeWesteros {
+public class GOTBiomeReachArbor extends GOTBiomeReach {
 	public GOTBiomeReachArbor(int i, boolean major) {
 		super(i, major);
 		clearBiomeVariants();
 		this.addBiomeVariant(GOTBiomeVariant.VINEYARD, 8.0f);
-		SpawnListContainer[] container0 = new SpawnListContainer[2];
-		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.REACH_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
-		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.REACH_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(10).add(container0);
-		SpawnListContainer[] container1 = new SpawnListContainer[1];
-		container1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DRAGONSTONE_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
-		npcSpawnList.newFactionList(0).add(container1);
-		SpawnListContainer[] container2 = new SpawnListContainer[1];
-		container2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
-		npcSpawnList.newFactionList(0).add(container2);
-		invasionSpawns.addInvasion(GOTInvasions.IRONBORN, GOTEventSpawner.EventChance.UNCOMMON);
 	}
 
 	@Override
@@ -113,16 +98,6 @@ public class GOTBiomeReachArbor extends GOTBiomeWesteros {
 	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.VISIT_ARBOR;
-	}
-
-	@Override
-	public Region getBiomeWaypoints() {
-		return Region.REACH;
-	}
-
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_DIRTY;
 	}
 
 	@Override

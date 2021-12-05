@@ -5,33 +5,21 @@ import java.util.Random;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
-import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.feature.GOTTreeType;
-import got.common.world.map.GOTBezierType;
-import got.common.world.map.GOTWaypoint.Region;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
-public class GOTBiomeDorneMountains extends GOTBiome {
+public class GOTBiomeDorneMountains extends GOTBiomeDorne {
 	public GOTBiomeDorneMountains(int i, boolean major) {
 		super(i, major);
+		npcSpawnList.clear();
+		spawnableCreatureList.clear();
+		decorator.clearVillages();
+		invasionSpawns.clearInvasions();
+		clearBiomeVariants();
 		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
-		decorator.addTree(GOTTreeType.PALM, 500);
-		decorator.addTree(GOTTreeType.ACACIA, 300);
-		decorator.addTree(GOTTreeType.OAK_DESERT, 400);
-		decorator.addTree(GOTTreeType.DRAGONBLOOD, 200);
-		decorator.addTree(GOTTreeType.DRAGONBLOOD_LARGE, 10);
-		decorator.addTree(GOTTreeType.DATE_PALM, 50);
-		decorator.addTree(GOTTreeType.LEMON, 5);
-		decorator.addTree(GOTTreeType.ORANGE, 5);
-		decorator.addTree(GOTTreeType.LIME, 5);
-		decorator.addTree(GOTTreeType.OLIVE, 5);
-		decorator.addTree(GOTTreeType.OLIVE_LARGE, 10);
-		decorator.addTree(GOTTreeType.ALMOND, 5);
-		decorator.addTree(GOTTreeType.PLUM, 5);
 		decorator.biomeGemFactor = 1.0f;
 		decorator.doubleFlowersPerChunk = 0;
 		decorator.doubleGrassPerChunk = 1;
@@ -39,9 +27,7 @@ public class GOTBiomeDorneMountains extends GOTBiome {
 		decorator.grassPerChunk = 4;
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
 		enableRocky = true;
-		npcSpawnList.clear();
 		registerMountainsFlowers();
-		spawnableCreatureList.clear();
 	}
 
 	@Override
@@ -90,15 +76,5 @@ public class GOTBiomeDorneMountains extends GOTBiome {
 	@Override
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.WESTEROS.getSubregion("dorneMountains");
-	}
-
-	@Override
-	public Region getBiomeWaypoints() {
-		return Region.DORNE;
-	}
-
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_DIRTY;
 	}
 }

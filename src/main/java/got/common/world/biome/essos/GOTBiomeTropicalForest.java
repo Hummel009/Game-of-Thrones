@@ -19,9 +19,9 @@ public class GOTBiomeTropicalForest extends GOTBiome {
 		spawnableGOTAmbientList.clear();
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 10, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 10, 4, 4));
-		SpawnListContainer[] container11 = new SpawnListContainer[1];
-		container11[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(container11);
+		SpawnListContainer[] c11 = new SpawnListContainer[1];
+		c11[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(1).add(c11);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.TROPICAL, 1);
 		decorator.treesPerChunk = 6;

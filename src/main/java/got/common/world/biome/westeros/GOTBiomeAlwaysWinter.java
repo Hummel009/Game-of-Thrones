@@ -25,9 +25,9 @@ public class GOTBiomeAlwaysWinter extends GOTBiome {
 		spawnableWaterCreatureList.clear();
 		spawnableCaveCreatureList.clear();
 		spawnableGOTAmbientList.clear();
-		SpawnListContainer[] container0 = new SpawnListContainer[1];
-		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(10).add(container0);
+		SpawnListContainer[] c0 = new SpawnListContainer[1];
+		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(10).add(c0);
 	}
 
 	@Override

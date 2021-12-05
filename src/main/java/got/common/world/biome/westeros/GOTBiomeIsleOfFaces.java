@@ -8,21 +8,29 @@ import got.common.database.GOTAchievement;
 import got.common.entity.animal.*;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTWaypoint.Region;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.*;
 
 public class GOTBiomeIsleOfFaces extends GOTBiomeWesteros {
 	public GOTBiomeIsleOfFaces(int i, boolean major) {
 		super(i, major);
+		npcSpawnList.clear();
+		decorator.clearVillages();
+		invasionSpawns.clearInvasions();
 		clearBiomeVariants();
+		spawnableCreatureList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 4, 1, 1));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 8, 1, 2));
-		decorator.treesPerChunk = 1;
-		decorator.doubleFlowersPerChunk = 100;
-		decorator.doubleGrassPerChunk = 100;
+		enablePodzol = false;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.WEIRWOOD, 10);
-		registerForestFlowers();
+		decorator.treesPerChunk = 1;
+		decorator.flowersPerChunk = 20;
+		decorator.doubleFlowersPerChunk = 12;
+		decorator.grassPerChunk = 8;
+		decorator.doubleGrassPerChunk = 3;
+		addFlower(Blocks.red_flower, 0, 80);
 	}
 
 	@Override
@@ -37,7 +45,12 @@ public class GOTBiomeIsleOfFaces extends GOTBiomeWesteros {
 
 	@Override
 	public Region getBiomeWaypoints() {
-		return Region.NORTH;
+		return Region.RIVERLANDS;
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
 	}
 
 	@Override

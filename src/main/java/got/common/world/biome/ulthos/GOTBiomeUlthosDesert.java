@@ -27,9 +27,9 @@ public class GOTBiomeUlthosDesert extends GOTBiome {
 		spawnableCreatureList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityCamel.class, 10, 1, 2));
 		spawnableGOTAmbientList.clear();
-		SpawnListContainer[] container1 = new SpawnListContainer[1];
-		container1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(container1);
+		SpawnListContainer[] c1 = new SpawnListContainer[1];
+		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(1).add(c1);
 		variantChance = 0.3f;
 		this.addBiomeVariant(GOTBiomeVariant.STEPPE);
 		this.addBiomeVariant(GOTBiomeVariant.HILLS);

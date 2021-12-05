@@ -13,9 +13,9 @@ import got.common.world.structure.essos.ibben.GOTStructureIbbenVillage;
 public class GOTBiomeIbbenColony extends GOTBiomeEssos {
 	public GOTBiomeIbbenColony(int i, boolean major) {
 		super(i, major);
-		SpawnListContainer[] container = new SpawnListContainer[1];
-		container[0] = GOTBiomeSpawnList.entry(GOTSpawnList.IBBEN_CIVILIAN, 2).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(10).add(container);
+		SpawnListContainer[] c = new SpawnListContainer[1];
+		c[0] = GOTBiomeSpawnList.entry(GOTSpawnList.IBBEN_CIVILIAN, 2).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(10).add(c);
 		GOTStructureIbbenVillage village = new GOTStructureIbbenVillage(this, 0.0f);
 		village.affix(GOTWaypoint.NewIbbish);
 		decorator.affix(village);

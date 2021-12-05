@@ -9,20 +9,18 @@ import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class GOTBiomeCrownlandsForest extends GOTBiomeWesteros {
+public class GOTBiomeCrownlandsForest extends GOTBiomeCrownlands {
 	public GOTBiomeCrownlandsForest(int i, boolean major) {
 		super(i, major);
+		npcSpawnList.clear();
+		decorator.clearVillages();
+		invasionSpawns.clearInvasions();
 		clearBiomeVariants();
 		spawnableCreatureList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 4, 1, 1));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 8, 1, 2));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWildBoar.class, 30, 2, 4));
-		decorator.treesPerChunk = 10;
-		decorator.flowersPerChunk = 6;
-		decorator.grassPerChunk = 8;
-		decorator.doubleGrassPerChunk = 2;
-		decorator.whiteSand = true;
-		registerForestFlowers();
+		enablePodzol = false;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.OAK, 300);
 		decorator.addTree(GOTTreeType.OAK_LARGE, 50);
@@ -30,6 +28,12 @@ public class GOTBiomeCrownlandsForest extends GOTBiomeWesteros {
 		decorator.addTree(GOTTreeType.BEECH, 100);
 		decorator.addTree(GOTTreeType.BEECH_LARGE, 20);
 		decorator.addTree(GOTTreeType.ASPEN, 850);
+		decorator.treesPerChunk = 10;
+		decorator.flowersPerChunk = 6;
+		decorator.grassPerChunk = 8;
+		decorator.doubleGrassPerChunk = 2;
+		decorator.whiteSand = true;
+		registerForestFlowers();
 	}
 
 	@Override

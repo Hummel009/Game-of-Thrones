@@ -34,12 +34,12 @@ public class GOTBiomeGhiscarColony extends GOTBiome {
 		decorator.doubleGrassPerChunk = 1;
 		decorator.flowersPerChunk = 3;
 		decorator.doubleFlowersPerChunk = 1;
-		SpawnListContainer[] container0 = new SpawnListContainer[1];
-		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_CORSAIR, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(10).add(container0);
-		SpawnListContainer[] container1 = new SpawnListContainer[1];
-		container1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(container1);
+		SpawnListContainer[] c0 = new SpawnListContainer[1];
+		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_CORSAIR, 10).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(10).add(c0);
+		SpawnListContainer[] c1 = new SpawnListContainer[1];
+		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(1).add(c1);
 		setBanditChance(GOTEventSpawner.EventChance.COMMON);
 		setBanditEntityClass(GOTEntityEssosBandit.class);
 		GOTStructureGhiscarCity colony = new GOTStructureGhiscarCity(this, 0.0f).setIsColony();

@@ -39,9 +39,9 @@ public class GOTBiomeNeck extends GOTBiome {
 		decorator.addTree(GOTTreeType.WILLOW, 100);
 		registerSwampFlowers();
 		
-		SpawnListContainer[] container1 = new SpawnListContainer[1];
-		container1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(container1);
+		SpawnListContainer[] c1 = new SpawnListContainer[1];
+		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(1).add(c1);
 		
 		GOTStructureNorthCity castle = new GOTStructureNorthCity(this, 0.0f).setIsCastle();
 		castle.affix(GOTWaypoint.MoatKailin);

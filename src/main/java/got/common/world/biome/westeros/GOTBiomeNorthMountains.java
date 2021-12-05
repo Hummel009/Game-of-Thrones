@@ -5,37 +5,29 @@ import java.util.Random;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
-import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.feature.GOTTreeType;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenMinable;
 
-public class GOTBiomeNorthMountains extends GOTBiome {
+public class GOTBiomeNorthMountains extends GOTBiomeNorth {
 	public GOTBiomeNorthMountains(int i, boolean major) {
 		super(i, major);
-		addBiomeVariant(GOTBiomeVariant.FOREST_LARCH, 0.3f);
-		addBiomeVariant(GOTBiomeVariant.FOREST_MAPLE, 0.3f);
-		addBiomeVariant(GOTBiomeVariant.FOREST_PINE, 0.3f);
+		npcSpawnList.clear();
+		spawnableCreatureList.clear();
+		decorator.clearVillages();
+		invasionSpawns.clearInvasions();
+		clearBiomeVariants();
 		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
-		decorator.addTree(GOTTreeType.FIR, 500);
-		decorator.addTree(GOTTreeType.LARCH, 300);
-		decorator.addTree(GOTTreeType.MAPLE, 300);
-		decorator.addTree(GOTTreeType.PINE, 500);
-		decorator.addTree(GOTTreeType.SPRUCE, 400);
-		decorator.addTree(GOTTreeType.SPRUCE_MEGA, 100);
-		decorator.addTree(GOTTreeType.SPRUCE_MEGA_THIN, 20);
-		decorator.addTree(GOTTreeType.SPRUCE_THIN, 400);
 		decorator.biomeGemFactor = 1.0f;
 		decorator.doubleFlowersPerChunk = 0;
 		decorator.doubleGrassPerChunk = 1;
 		decorator.flowersPerChunk = 1;
 		decorator.grassPerChunk = 4;
+		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
 		enableRocky = true;
-		npcSpawnList.clear();
 		registerMountainsFlowers();
-		spawnableCreatureList.clear();
 	}
 
 	@Override

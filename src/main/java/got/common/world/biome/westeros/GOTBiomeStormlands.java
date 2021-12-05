@@ -21,26 +21,26 @@ public class GOTBiomeStormlands extends GOTBiomeWesteros {
 		super(i, major);
 		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
 		this.addBiomeVariant(GOTBiomeVariant.FIELD_CORN, 0.2f);
+		
+		SpawnListContainer[] c0 = new SpawnListContainer[2];
+		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.STORMLANDS_CIVILIAN, 4).setSpawnChance(GOTBiome.SPAWN);
+		c0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.STORMLANDS_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(10).add(c0);
+		
+		SpawnListContainer[] c1 = new SpawnListContainer[1];
+		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DRAGONSTONE_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
+		npcSpawnList.newFactionList(0).add(c1);
+		
+		SpawnListContainer[] c2 = new SpawnListContainer[1];
+		c2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WESTERLANDS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
+		npcSpawnList.newFactionList(0).add(c2);
+		
+		SpawnListContainer[] c3 = new SpawnListContainer[1];
+		c3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
+		npcSpawnList.newFactionList(0).add(c3);
+
 		decorator.affix(new GOTStructureStormlandsCity(this, 1.0f));
-		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
-		invasionSpawns.addInvasion(GOTInvasions.DRAGONSTONE, GOTEventSpawner.EventChance.UNCOMMON);
-		SpawnListContainer[] container1 = new SpawnListContainer[1];
-		container1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DRAGONSTONE_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
-		npcSpawnList.newFactionList(0).add(container1);
-		SpawnListContainer[] container2 = new SpawnListContainer[1];
-		container2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WESTERLANDS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
-		npcSpawnList.newFactionList(0).add(container2);
-		SpawnListContainer[] container3 = new SpawnListContainer[1];
-		container3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
-		npcSpawnList.newFactionList(0).add(container3);
-		GOTStructureRuins ruins = new GOTStructureRuins(this, 0.0f);
-		ruins.affix(GOTWaypoint.Summerhall);
-		ruins.affix(GOTWaypoint.TowerOfJoy);
-		decorator.affix(ruins);
-		SpawnListContainer[] container0 = new SpawnListContainer[2];
-		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.STORMLANDS_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
-		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.STORMLANDS_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(10).add(container0);
+		
 		GOTStructureStormlandsCity castle = new GOTStructureStormlandsCity(this, 0.0f).setIsCastle();
 		castle.affix(GOTWaypoint.Nightsong, 0, 1);
 		castle.affix(GOTWaypoint.Poddingfield);
@@ -66,9 +66,18 @@ public class GOTBiomeStormlands extends GOTBiomeWesteros {
 		castle.affix(GOTWaypoint.EvenfallHall);
 		castle.affix(GOTWaypoint.StormsEnd);
 		decorator.affix(castle);
+		
 		GOTStructureStormlandsCity town = new GOTStructureStormlandsCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.WeepingTown);
 		decorator.affix(town);
+		
+		GOTStructureRuins ruins = new GOTStructureRuins(this, 0.0f);
+		ruins.affix(GOTWaypoint.Summerhall);
+		ruins.affix(GOTWaypoint.TowerOfJoy);
+		decorator.affix(ruins);
+		
+		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
+		invasionSpawns.addInvasion(GOTInvasions.DRAGONSTONE, GOTEventSpawner.EventChance.UNCOMMON);
 	}
 
 	@Override

@@ -16,11 +16,11 @@ public class GOTBiomeMeereen extends GOTBiomeGhiscar {
 		clearBiomeVariants();
 		decorator.clearVillages();
 		decorator.treesPerChunk = -1;
-		SpawnListContainer[] container0 = new SpawnListContainer[3];
-		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
-		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_HARPY, 4).setSpawnChance(GOTBiome.SPAWN);
-		container0[2] = GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(10).add(container0);
+		SpawnListContainer[] c0 = new SpawnListContainer[3];
+		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
+		c0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_HARPY, 4).setSpawnChance(GOTBiome.SPAWN);
+		c0[2] = GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(10).add(c0);
 		GOTStructureGhiscarCity town = new GOTStructureGhiscarCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Meereen, 0, -1, 2);
 		decorator.affix(town);

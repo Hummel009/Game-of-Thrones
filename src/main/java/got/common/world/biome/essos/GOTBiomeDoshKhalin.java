@@ -15,9 +15,9 @@ public class GOTBiomeDoshKhalin extends GOTBiomeDothrakiSea {
 		decorator.clearVillages();
 		decorator.clearTrees();
 		decorator.treesPerChunk = -1;
-		SpawnListContainer[] container = new SpawnListContainer[1];
-		container[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DOTHRAKI_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(10).add(container);
+		SpawnListContainer[] c = new SpawnListContainer[1];
+		c[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DOTHRAKI_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(10).add(c);
 	}
 
 	@Override

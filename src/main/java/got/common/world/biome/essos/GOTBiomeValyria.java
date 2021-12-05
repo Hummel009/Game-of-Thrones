@@ -28,9 +28,9 @@ public class GOTBiomeValyria extends GOTBiome {
 		spawnableWaterCreatureList.clear();
 		spawnableMonsterList.clear();
 		spawnableGOTAmbientList.clear();
-		SpawnListContainer[] container = new SpawnListContainer[1];
-		container[0] = GOTBiomeSpawnList.entry(GOTSpawnList.VALYRIA, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(10).add(container);
+		SpawnListContainer[] c = new SpawnListContainer[1];
+		c[0] = GOTBiomeSpawnList.entry(GOTSpawnList.VALYRIA, 10).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(10).add(c);
 		decorator.clearTrees();
 		decorator.treesPerChunk = 7;
 		decorator.addTree(GOTTreeType.OAK, 200);
