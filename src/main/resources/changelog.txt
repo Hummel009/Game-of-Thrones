@@ -13,6 +13,8 @@ CHANGELOG
 * Improved spawning
 * Improved Bu Gai Quest
 * Improved structures generator
+
+* Fixed bug with sandstone in Westeros
 * Fixed bug with Daenerys Targaryen spawning
 * Fixed bug with Yi Ti cities
 

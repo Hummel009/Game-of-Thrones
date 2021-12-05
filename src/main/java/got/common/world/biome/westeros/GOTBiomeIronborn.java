@@ -18,17 +18,17 @@ public class GOTBiomeIronborn extends GOTBiomeWesteros {
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_CIVILIAN, 4).setSpawnChance(GOTBiome.SPAWN);
 		c0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c0);
-		
+
 		SpawnListContainer[] c1 = new SpawnListContainer[1];
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.NORTH_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c1);
 
 		decorator.affix(new GOTStructureIronbornCity(this, 1.0f));
-		
+
 		GOTStructureIronbornCity village = new GOTStructureIronbornCity(this, 0.0f);
 		village.affix(GOTWaypoint.Pebbleton);
 		decorator.affix(village);
-		
+
 		GOTStructureIronbornCity castle = new GOTStructureIronbornCity(this, 0.0f).setIsCastle();
 		castle.affix(GOTWaypoint.Blacktyde);
 		castle.affix(GOTWaypoint.Volmark);
@@ -56,16 +56,16 @@ public class GOTBiomeIronborn extends GOTBiomeWesteros {
 		castle.affix(GOTWaypoint.MyreCastle);
 		castle.affix(GOTWaypoint.Hammerhorn);
 		decorator.affix(castle);
-		
+
 		GOTStructureIronbornCity town = new GOTStructureIronbornCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Lordsport);
 		town.affix(GOTWaypoint.RedHaven);
 		decorator.affix(town);
-		
+
 		GOTStructureTower tower = new GOTStructureTower(this, 0.0f);
 		tower.affix(GOTWaypoint.TowerOfGlimmering);
 		decorator.affix(tower);
-		
+
 		GOTStructureRuins ruins = new GOTStructureRuins(this, 0.0f);
 		ruins.affix(GOTWaypoint.GreyironCastle);
 		ruins.affix(GOTWaypoint.HoareKeep);

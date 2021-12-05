@@ -32,7 +32,7 @@ public class GOTBiomeArryn extends GOTBiomeWesteros {
 		npcSpawnList.newFactionList(0).add(c3);
 
 		decorator.affix(new GOTStructureArrynCity(this, 1.0f));
-		
+
 		GOTStructureArrynCity castle = new GOTStructureArrynCity(this, 0.0f).setIsCastle();
 		castle.affix(GOTWaypoint.Pebble);
 		castle.affix(GOTWaypoint.ThePaps);

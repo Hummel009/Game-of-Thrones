@@ -5,19 +5,21 @@ import java.util.Random;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
-import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.feature.GOTTreeType;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
-public class GOTBiomeIbbenMountains extends GOTBiome {
+public class GOTBiomeIbbenMountains extends GOTBiomeIbben {
 	public GOTBiomeIbbenMountains(int i, boolean major) {
 		super(i, major);
+		npcSpawnList.clear();
+		spawnableCreatureList.clear();
+		decorator.clearVillages();
+		invasionSpawns.clearInvasions();
+		clearBiomeVariants();
 		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
-		decorator.addTree(GOTTreeType.IBBEN_PINE, 20);
 		decorator.biomeGemFactor = 1.0f;
 		decorator.doubleFlowersPerChunk = 0;
 		decorator.doubleGrassPerChunk = 1;
@@ -25,9 +27,7 @@ public class GOTBiomeIbbenMountains extends GOTBiome {
 		decorator.grassPerChunk = 4;
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
 		enableRocky = true;
-		npcSpawnList.clear();
 		registerMountainsFlowers();
-		spawnableCreatureList.clear();
 	}
 
 	@Override

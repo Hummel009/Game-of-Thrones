@@ -13,7 +13,7 @@ public class GOTBiomeArrynTown extends GOTBiomeArryn {
 		super(i, major);
 		npcSpawnList.clear();
 		decorator.clearVillages();
-		
+
 		SpawnListContainer[] c0 = new SpawnListContainer[2];
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.ARRYN_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
 		c0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.ARRYN_GUARDIAN, 4).setSpawnChance(GOTBiome.SPAWN);

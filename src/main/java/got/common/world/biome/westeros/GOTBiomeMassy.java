@@ -33,7 +33,7 @@ public class GOTBiomeMassy extends GOTBiomeDragonstone {
 		decorator.whiteSand = true;
 		registerForestFlowers();
 	}
-	
+
 	@Override
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.WESTEROS.getSubregion("massy");

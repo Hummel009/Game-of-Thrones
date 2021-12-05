@@ -14,7 +14,7 @@ public class GOTBiomeFireField extends GOTBiomeReach {
 	public GOTBiomeFireField(int i, boolean major) {
 		super(i, major);
 		decorator.clearVillages();
-		
+
 		decorator.treesPerChunk = 0;
 		decorator.flowersPerChunk = 20;
 		decorator.doubleFlowersPerChunk = 12;

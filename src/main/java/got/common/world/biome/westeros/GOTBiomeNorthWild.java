@@ -19,15 +19,15 @@ public class GOTBiomeNorthWild extends GOTBiome {
 		spawnableCreatureList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 4, 1, 1));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 8, 1, 2));
-		
+
 		SpawnListContainer[] c0 = new SpawnListContainer[1];
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.NORTH_HILLMEN, 10).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c0);
-		
+
 		SpawnListContainer[] c3 = new SpawnListContainer[1];
 		c3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c3);
-		
+
 		SpawnListContainer[] c2 = new SpawnListContainer[2];
 		c2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		c2[1] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
@@ -47,7 +47,7 @@ public class GOTBiomeNorthWild extends GOTBiome {
 		decorator.addTree(GOTTreeType.FIR, 500);
 		decorator.addTree(GOTTreeType.PINE, 500);
 		registerForestFlowers();
-		
+
 		decorator.addRandomStructure(new GOTStructureNorthHillmanCamp(false), 250);
 
 		setBanditChance(GOTEventSpawner.EventChance.COMMON);

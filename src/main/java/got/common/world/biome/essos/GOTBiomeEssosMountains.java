@@ -5,31 +5,21 @@ import java.util.Random;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
-import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.feature.GOTTreeType;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
-public class GOTBiomeEssosMountains extends GOTBiome {
+public class GOTBiomeEssosMountains extends GOTBiomeEssos {
 	public GOTBiomeEssosMountains(int i, boolean major) {
 		super(i, major);
+		npcSpawnList.clear();
+		spawnableCreatureList.clear();
+		decorator.clearVillages();
+		invasionSpawns.clearInvasions();
+		clearBiomeVariants();
 		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
-		decorator.addTree(GOTTreeType.CEDAR, 800);
-		decorator.addTree(GOTTreeType.OAK_DESERT, 500);
-		decorator.addTree(GOTTreeType.DATE_PALM, 50);
-		decorator.addTree(GOTTreeType.CYPRESS, 400);
-		decorator.addTree(GOTTreeType.CYPRESS_LARGE, 50);
-		decorator.addTree(GOTTreeType.PALM, 100);
-		decorator.addTree(GOTTreeType.LEMON, 5);
-		decorator.addTree(GOTTreeType.ORANGE, 5);
-		decorator.addTree(GOTTreeType.LIME, 5);
-		decorator.addTree(GOTTreeType.OLIVE, 5);
-		decorator.addTree(GOTTreeType.OLIVE_LARGE, 10);
-		decorator.addTree(GOTTreeType.ALMOND, 5);
-		decorator.addTree(GOTTreeType.PLUM, 5);
 		decorator.biomeGemFactor = 1.0f;
 		decorator.doubleFlowersPerChunk = 0;
 		decorator.doubleGrassPerChunk = 1;
@@ -37,9 +27,7 @@ public class GOTBiomeEssosMountains extends GOTBiome {
 		decorator.grassPerChunk = 4;
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
 		enableRocky = true;
-		npcSpawnList.clear();
 		registerMountainsFlowers();
-		spawnableCreatureList.clear();
 	}
 
 	@Override

@@ -5,35 +5,29 @@ import java.util.Random;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
-import got.common.entity.animal.*;
-import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.feature.GOTTreeType;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.gen.feature.WorldGenMinable;
 
-public class GOTBiomeUlthosMountains extends GOTBiome {
+public class GOTBiomeUlthosMountains extends GOTBiomeUlthos {
 	public GOTBiomeUlthosMountains(int i, boolean major) {
 		super(i, major);
+		npcSpawnList.clear();
 		spawnableCreatureList.clear();
-		spawnableWaterCreatureList.clear();
-		spawnableGOTAmbientList.clear();
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 10, 4, 4));
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGorcrow.class, 6, 4, 4));
-		decorator.treesPerChunk = 3;
-		decorator.logsPerChunk = 3;
-		decorator.flowersPerChunk = 0;
-		decorator.grassPerChunk = 12;
-		decorator.doubleGrassPerChunk = 6;
-		decorator.clearTrees();
-		decorator.addTree(GOTTreeType.ULTHOS_OAK, 200);
-		decorator.addTree(GOTTreeType.ULTHOS_OAK_LARGE, 200);
-		decorator.addTree(GOTTreeType.SPRUCE, 300);
-		decorator.addTree(GOTTreeType.FIR, 1000);
-		decorator.addTree(GOTTreeType.PINE, 300);
-		registerForestFlowers();
+		decorator.clearVillages();
+		invasionSpawns.clearInvasions();
+		clearBiomeVariants();
+		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
+		decorator.biomeGemFactor = 1.0f;
+		decorator.doubleFlowersPerChunk = 0;
+		decorator.doubleGrassPerChunk = 1;
+		decorator.flowersPerChunk = 1;
+		decorator.grassPerChunk = 4;
+		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
+		enableRocky = true;
+		registerMountainsFlowers();
 	}
 
 	@Override

@@ -40,25 +40,25 @@ public class GOTBiomeReach extends GOTBiomeWesteros {
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.REACH_CIVILIAN, 4).setSpawnChance(GOTBiome.SPAWN);
 		c0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.REACH_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c0);
-		
+
 		SpawnListContainer[] c1 = new SpawnListContainer[1];
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DRAGONSTONE_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c1);
-		
+
 		SpawnListContainer[] c2 = new SpawnListContainer[1];
 		c2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c2);
-		
+
 		SpawnListContainer[] c3 = new SpawnListContainer[1];
 		c3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c3);
-		
+
 		decorator.affix(new GOTStructureReachCity(this, 1.0f));
-		
+
 		GOTStructureReachCity village = new GOTStructureReachCity(this, 0.0f);
 		village.affix(GOTWaypoint.Oxcross);
 		decorator.affix(village);
-		
+
 		GOTStructureReachCity castle = new GOTStructureReachCity(this, 0.0f).setIsCastle();
 		castle.affix(GOTWaypoint.SunHouse, 0, -1);
 		castle.affix(GOTWaypoint.GarnetGrove, -1, 0);
@@ -91,7 +91,7 @@ public class GOTBiomeReach extends GOTBiomeWesteros {
 		castle.affix(GOTWaypoint.Ashford, 0, 1);
 		castle.affix(GOTWaypoint.Bitterbridge, 0, 1);
 		decorator.affix(castle);
-		
+
 		GOTStructureReachCity town = new GOTStructureReachCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.StarfishHarbor);
 		town.affix(GOTWaypoint.Vinetown);
@@ -103,7 +103,7 @@ public class GOTBiomeReach extends GOTBiomeWesteros {
 		town.affix(GOTWaypoint.Smithyton, 0, 1, 2);
 		town.affix(GOTWaypoint.Oldtown, -1, 0, 3);
 		decorator.affix(town);
-		
+
 		GOTStructureTower tower = new GOTStructureTower(this, 0.0f);
 		tower.affix(GOTWaypoint.Standfast);
 		tower.affix(GOTWaypoint.ThreeTowers, -1, 0, 1);
@@ -111,7 +111,7 @@ public class GOTBiomeReach extends GOTBiomeWesteros {
 		tower.affix(GOTWaypoint.ThreeTowers, -1, 1, 1);
 		tower.affix(GOTWaypoint.HightowerLitehouse);
 		decorator.affix(tower);
-		
+
 		invasionSpawns.addInvasion(GOTInvasions.DRAGONSTONE, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.IRONBORN, GOTEventSpawner.EventChance.UNCOMMON);
 	}

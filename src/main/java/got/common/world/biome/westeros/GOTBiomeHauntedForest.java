@@ -27,28 +27,28 @@ public class GOTBiomeHauntedForest extends GOTBiome {
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.PINE, 20);
 		decorator.treesPerChunk = 10;
-		
+
 		SpawnListContainer[] c0 = new SpawnListContainer[2];
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(GOTBiome.SPAWN);
 		c0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c0);
-		
+
 		SpawnListContainer[] c2 = new SpawnListContainer[1];
 		c2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(1).add(c2);
-		
+
 		SpawnListContainer[] c3 = new SpawnListContainer[1];
 		c3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c3);
-		
+
 		SpawnListContainer[] c5 = new SpawnListContainer[1];
 		c5[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DRAGONSTONE_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c5);
-		
+
 		SpawnListContainer[] c6 = new SpawnListContainer[1];
 		c6[0] = GOTBiomeSpawnList.entry(GOTSpawnList.GIFT_GUARDIAN, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c6);
-		
+
 		GOTStructureCrasterKeep keep = new GOTStructureCrasterKeep(this, 0.0f);
 		keep.affix(GOTWaypoint.CrastersKeep);
 		decorator.affix(keep);

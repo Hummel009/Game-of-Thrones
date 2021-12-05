@@ -37,7 +37,7 @@ public class GOTBiomeBraavos extends GOTBiomeEssos {
 		GOTStructureBraavosCity town = new GOTStructureBraavosCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Braavos, 0, -1, 2);
 		decorator.affix(town);
-		
+
 	}
 
 	@Override
