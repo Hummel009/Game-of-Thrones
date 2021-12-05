@@ -39,9 +39,11 @@ public class GOTBiomeDorneDesert extends GOTBiome {
 		decorator.grassPerChunk = 0;
 		decorator.doubleGrassPerChunk = 0;
 		decorator.cactiPerChunk = 0;
-		SpawnListContainer[] container11 = new SpawnListContainer[1];
-		container11[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(container11);
+		
+		SpawnListContainer[] container0 = new SpawnListContainer[1];
+		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(1).add(container0);
+		
 		GOTStructureDorneCity castle = new GOTStructureDorneCity(this, 0.0f).setIsCastle();
 		castle.affix(GOTWaypoint.Sandstone);
 		decorator.affix(castle);

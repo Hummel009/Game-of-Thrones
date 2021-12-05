@@ -18,18 +18,20 @@ public class GOTBiomeArryn extends GOTBiomeWesteros {
 		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.ARRYN_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
 		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.ARRYN_CIVILIAN, 4).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(container0);
-		
+
 		SpawnListContainer[] container1 = new SpawnListContainer[1];
 		container1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.HILL_TRIBES_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container1);
-		
+
 		SpawnListContainer[] container2 = new SpawnListContainer[1];
 		container2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WESTERLANDS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container2);
-		
+
 		SpawnListContainer[] container3 = new SpawnListContainer[1];
 		container3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container3);
+
+		decorator.affix(new GOTStructureArrynCity(this, 1.0f));
 		
 		GOTStructureArrynCity castle = new GOTStructureArrynCity(this, 0.0f).setIsCastle();
 		castle.affix(GOTWaypoint.Pebble);
@@ -49,18 +51,16 @@ public class GOTBiomeArryn extends GOTBiomeWesteros {
 		castle.affix(GOTWaypoint.WitchIsle);
 		castle.affix(GOTWaypoint.Wickenden);
 		decorator.affix(castle);
-		
+
 		GOTStructureArrynCity town = new GOTStructureArrynCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Sisterton);
 		town.affix(GOTWaypoint.Gulltown);
 		decorator.affix(town);
-		
+
 		GOTStructureTower tower = new GOTStructureTower(this, 0.0f);
 		tower.affix(GOTWaypoint.BaelishKeep);
 		decorator.affix(tower);
-		
-		decorator.affix(new GOTStructureArrynCity(this, 1.0f));
-		
+
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.HILL_TRIBES, GOTEventSpawner.EventChance.COMMON);
 	}

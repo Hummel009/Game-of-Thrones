@@ -17,16 +17,16 @@ public class GOTBiomeNorth extends GOTBiomeWesteros {
 	public GOTBiomeNorth(int i, boolean major) {
 		super(i, major);
 		clearBiomeVariants();
+		this.addBiomeVariant(GOTBiomeVariant.DENSEFOREST_BIRCH);
+		this.addBiomeVariant(GOTBiomeVariant.DENSEFOREST_OAK);
 		this.addBiomeVariant(GOTBiomeVariant.FOREST);
+		this.addBiomeVariant(GOTBiomeVariant.FOREST_ASPEN, 0.2f);
+		this.addBiomeVariant(GOTBiomeVariant.FOREST_BEECH, 0.2f);
+		this.addBiomeVariant(GOTBiomeVariant.FOREST_BIRCH, 0.2f);
+		this.addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
+		this.addBiomeVariant(GOTBiomeVariant.FOREST_MAPLE, 0.2f);
 		this.addBiomeVariant(GOTBiomeVariant.HILLS);
 		this.addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
-		this.addBiomeVariant(GOTBiomeVariant.HILLS_SCRUBLAND, 1.0f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_OLIVE, 0.1f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_ALMOND, 0.1f);
-		this.addBiomeVariant(GOTBiomeVariant.SCRUBLAND, 1.0f);
-		this.addBiomeVariant(GOTBiomeVariant.STEPPE);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.SPRUCE, 400);
 		decorator.addTree(GOTTreeType.SPRUCE_THIN, 400);
@@ -35,29 +35,31 @@ public class GOTBiomeNorth extends GOTBiomeWesteros {
 		decorator.addTree(GOTTreeType.SPRUCE_MEGA_THIN, 20);
 		decorator.addTree(GOTTreeType.FIR, 500);
 		decorator.addTree(GOTTreeType.PINE, 500);
+		
+		SpawnListContainer[] container0 = new SpawnListContainer[2];
+		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.NORTH_CIVILIAN, 4).setSpawnChance(GOTBiome.SPAWN);
+		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.NORTH_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(10).add(container0);
+		
 		SpawnListContainer[] container1 = new SpawnListContainer[1];
 		container1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WESTERLANDS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container1);
+		
 		SpawnListContainer[] container2 = new SpawnListContainer[1];
 		container2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container2);
+		
 		SpawnListContainer[] container3 = new SpawnListContainer[1];
 		container3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container3);
+		
 		SpawnListContainer[] container4 = new SpawnListContainer[2];
 		container4[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		container4[1] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container4);
-		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
-		invasionSpawns.addInvasion(GOTInvasions.IRONBORN, GOTEventSpawner.EventChance.UNCOMMON);
+		
 		decorator.affix(new GOTStructureNorthCity(this, 1.0f));
-		GOTStructureTower towerGen = new GOTStructureTower(this, 0.0f);
-		towerGen.affix(GOTWaypoint.RamseyTower);
-		decorator.affix(towerGen);
-		SpawnListContainer[] container0 = new SpawnListContainer[2];
-		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.NORTH_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
-		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.NORTH_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(10).add(container0);
+		
 		GOTStructureNorthCity castle = new GOTStructureNorthCity(this, 0.0f).setIsCastle();
 		castle.affix(GOTWaypoint.MormontsKeep);
 		castle.affix(GOTWaypoint.DeepwoodMotte);
@@ -78,10 +80,23 @@ public class GOTBiomeNorth extends GOTBiomeWesteros {
 		castle.affix(GOTWaypoint.RisvellsCastle, 0, 1);
 		castle.affix(GOTWaypoint.RillwaterCrossing);
 		castle.affix(GOTWaypoint.FlintsFinger);
+		castle.affix(GOTWaypoint.Goldgrass, 0, 1);
 		decorator.affix(castle);
+		
+		GOTStructureNorthCity stown = new GOTStructureNorthCity(this, 0.0f).setIsSmallTown();
+		stown.affix(GOTWaypoint.Barrowtown, 0, 1, 2);
+		decorator.affix(stown);
+		
 		GOTStructureNorthCity town = new GOTStructureNorthCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.WhiteHarbour, 1);
 		decorator.affix(town);
+		
+		GOTStructureTower tower = new GOTStructureTower(this, 0.0f);
+		tower.affix(GOTWaypoint.RamseyTower);
+		decorator.affix(tower);
+		
+		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
+		invasionSpawns.addInvasion(GOTInvasions.IRONBORN, GOTEventSpawner.EventChance.UNCOMMON);
 	}
 
 	@Override

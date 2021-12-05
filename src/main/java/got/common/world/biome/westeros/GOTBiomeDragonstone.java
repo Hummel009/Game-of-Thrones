@@ -14,24 +14,27 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 public class GOTBiomeDragonstone extends GOTBiomeWesteros {
 	public GOTBiomeDragonstone(int i, boolean major) {
 		super(i, major);
-		clearBiomeVariants();
 		decorator.addSoil(new WorldGenMinable(GOTRegistry.obsidianGravel, 32), 20.0f, 0, 64);
+
+		SpawnListContainer[] container0 = new SpawnListContainer[2];
+		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DRAGONSTONE_CIVILIAN, 4).setSpawnChance(GOTBiome.SPAWN);
+		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.DRAGONSTONE_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(10).add(container0);
+
 		SpawnListContainer[] container1 = new SpawnListContainer[1];
 		container1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WESTERLANDS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container1);
+
 		SpawnListContainer[] container2 = new SpawnListContainer[1];
 		container2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.STORMLANDS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container2);
+
 		SpawnListContainer[] container3 = new SpawnListContainer[1];
 		container3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.REACH_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container3);
-		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
-		invasionSpawns.addInvasion(GOTInvasions.STORMLANDS, GOTEventSpawner.EventChance.UNCOMMON);
-		invasionSpawns.addInvasion(GOTInvasions.REACH, GOTEventSpawner.EventChance.UNCOMMON);
-		SpawnListContainer[] container0 = new SpawnListContainer[2];
-		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DRAGONSTONE_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
-		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.DRAGONSTONE_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(10).add(container0);
+
+		decorator.affix(new GOTStructureDragonstoneCity(this, 1.0f));
+
 		GOTStructureDragonstoneCity castle = new GOTStructureDragonstoneCity(this, 0.0f).setIsCastle();
 		castle.affix(GOTWaypoint.Dragonstone);
 		castle.affix(GOTWaypoint.HighTide);
@@ -41,9 +44,14 @@ public class GOTBiomeDragonstone extends GOTBiomeWesteros {
 		castle.affix(GOTWaypoint.SweetportSound);
 		castle.affix(GOTWaypoint.ClawIsle);
 		decorator.affix(castle);
+
 		GOTStructureDragonstoneCity town = new GOTStructureDragonstoneCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Hull);
 		decorator.affix(town);
+
+		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
+		invasionSpawns.addInvasion(GOTInvasions.STORMLANDS, GOTEventSpawner.EventChance.UNCOMMON);
+		invasionSpawns.addInvasion(GOTInvasions.REACH, GOTEventSpawner.EventChance.UNCOMMON);
 	}
 
 	@Override

@@ -1,5 +1,7 @@
 package got.common.world.biome.westeros;
 
+import got.client.sound.GOTBiomeMusic;
+import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
@@ -10,6 +12,8 @@ public class GOTBiomeReachTown extends GOTBiomeReach {
 	public GOTBiomeReachTown(int i, boolean major) {
 		super(i, major);
 		npcSpawnList.clear();
+		decorator.clearVillages();
+		
 		SpawnListContainer[] container0 = new SpawnListContainer[2];
 		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.REACH_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
 		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.REACH_GUARDIAN, 4).setSpawnChance(GOTBiome.SPAWN);
@@ -34,5 +38,20 @@ public class GOTBiomeReachTown extends GOTBiomeReach {
 	@Override
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.PAVING;
+	}
+
+	@Override
+	public MusicRegion getBiomeMusic() {
+		return GOTBiomeMusic.WESTEROS.getSubregion("reachTown");
+	}
+
+	@Override
+	public boolean getEnableRiver() {
+		return false;
+	}
+
+	@Override
+	public boolean hasDomesticAnimals() {
+		return true;
 	}
 }

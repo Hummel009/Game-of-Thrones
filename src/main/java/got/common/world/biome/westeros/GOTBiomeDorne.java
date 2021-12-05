@@ -77,21 +77,26 @@ public class GOTBiomeDorne extends GOTBiome {
 		decorator.addTree(GOTTreeType.PLUM, 5);
 		registerExoticFlowers();
 		setBanditChance(GOTEventSpawner.EventChance.RARE);
-		decorator.affix(new GOTStructureDorneCity(this, 1.0f));
+
+		SpawnListContainer[] container0 = new SpawnListContainer[2];
+		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_CIVILIAN, 4).setSpawnChance(GOTBiome.SPAWN);
+		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(10).add(container0);
+
 		SpawnListContainer[] container1 = new SpawnListContainer[1];
 		container1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WESTERLANDS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container1);
+
 		SpawnListContainer[] container3 = new SpawnListContainer[1];
 		container3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container3);
-		SpawnListContainer[] container11 = new SpawnListContainer[1];
-		container11[0] = GOTBiomeSpawnList.entry(GOTSpawnList.RED_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(container11);
-		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
-		SpawnListContainer[] container0 = new SpawnListContainer[2];
-		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
-		container0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(10).add(container0);
+
+		SpawnListContainer[] container4 = new SpawnListContainer[1];
+		container4[0] = GOTBiomeSpawnList.entry(GOTSpawnList.RED_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(1).add(container4);
+
+		decorator.affix(new GOTStructureDorneCity(this, 1.0f));
+
 		GOTStructureDorneCity castle = new GOTStructureDorneCity(this, 0.0f).setIsCastle();
 		castle.affix(GOTWaypoint.Starfall, 0, -1);
 		castle.affix(GOTWaypoint.HighHermitage);
@@ -110,11 +115,14 @@ public class GOTBiomeDorne extends GOTBiome {
 		castle.affix(GOTWaypoint.WaterGardens);
 		castle.affix(GOTWaypoint.Lemonwood);
 		decorator.affix(castle);
+
 		GOTStructureDorneCity town = new GOTStructureDorneCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.GhastonGrey);
 		town.affix(GOTWaypoint.Sunspear);
 		town.affix(GOTWaypoint.PlankyTown);
 		decorator.affix(town);
+
+		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 	}
 
 	@Override

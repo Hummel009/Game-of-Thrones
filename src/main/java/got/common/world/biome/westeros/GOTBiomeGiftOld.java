@@ -14,40 +14,46 @@ import got.common.world.structure.westeros.gift.GOTStructureGiftVillage;
 public class GOTBiomeGiftOld extends GOTBiomeWesteros {
 	public GOTBiomeGiftOld(int i, boolean major) {
 		super(i, major);
-		spawnableCreatureList.clear();
-		spawnableWaterCreatureList.clear();
 		clearBiomeVariants();
-		decorator.clearTrees();
+		spawnableCreatureList.clear();
 		decorator.treesPerChunk = -1;
+		
 		SpawnListContainer[] container0 = new SpawnListContainer[1];
 		container0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.GIFT_GUARDIAN, 10).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(container0);
+		
 		SpawnListContainer[] container3 = new SpawnListContainer[1];
 		container3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container3);
+		
 		SpawnListContainer[] container2 = new SpawnListContainer[2];
 		container2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		container2[1] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(container2);
-		invasionSpawns.addInvasion(GOTInvasions.THENN, GOTEventSpawner.EventChance.RARE);
-		invasionSpawns.addInvasion(GOTInvasions.WILDLING, GOTEventSpawner.EventChance.UNCOMMON);
-		invasionSpawns.addInvasion(GOTInvasions.GIANT, GOTEventSpawner.EventChance.RARE);
-		
+
 		GOTStructureGiftVillage village = new GOTStructureGiftVillage(this, 0.0f);
 		village.affix(GOTWaypoint.Moletown);
 		decorator.affix(village);
-		GOTStructureCastleBlack bc = new GOTStructureCastleBlack(this, 0.0f);
-		bc.affix(GOTWaypoint.CastleBlack);
-		decorator.affix(bc);
-		GOTStructureShadowTower st = new GOTStructureShadowTower(this, 0.0f);
-		st.affix(GOTWaypoint.ShadowTower);
-		decorator.affix(st);
-		GOTStructureEastWatch ew = new GOTStructureEastWatch(this, 0.0f);
-		ew.affix(GOTWaypoint.EastWatch);
-		decorator.affix(ew);
-		GOTStructureWallGate wall = new GOTStructureWallGate(this, 0.0f);
-		wall.affix(GOTWaypoint.CastleBlack, 0, -1);
-		decorator.affix(wall);
+		
+		GOTStructureCastleBlack castle1 = new GOTStructureCastleBlack(this, 0.0f);
+		castle1.affix(GOTWaypoint.CastleBlack);
+		decorator.affix(castle1);
+		
+		GOTStructureShadowTower castle2 = new GOTStructureShadowTower(this, 0.0f);
+		castle2.affix(GOTWaypoint.ShadowTower);
+		decorator.affix(castle2);
+		
+		GOTStructureEastWatch castle3 = new GOTStructureEastWatch(this, 0.0f);
+		castle3.affix(GOTWaypoint.EastWatch);
+		decorator.affix(castle3);
+		
+		GOTStructureWallGate gate = new GOTStructureWallGate(this, 0.0f);
+		gate.affix(GOTWaypoint.CastleBlack, 0, -1);
+		decorator.affix(gate);
+		
+		invasionSpawns.addInvasion(GOTInvasions.THENN, GOTEventSpawner.EventChance.RARE);
+		invasionSpawns.addInvasion(GOTInvasions.WILDLING, GOTEventSpawner.EventChance.UNCOMMON);
+		invasionSpawns.addInvasion(GOTInvasions.GIANT, GOTEventSpawner.EventChance.RARE);
 	}
 
 	@Override
