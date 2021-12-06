@@ -110,6 +110,26 @@ public class GOTEventHandler implements IFuelHandler {
 			event.drops.add(silkDrop);
 		}
 	}
+	
+	@SubscribeEvent
+    public void onLivingHeal(LivingHealEvent event) {
+        EntityLivingBase entity = event.entityLiving;
+        World world = entity.worldObj;
+        if (!world.isRemote && entity instanceof EntityPlayer && !((EntityPlayer)entity).capabilities.isCreativeMode && entity.isEntityAlive()) {
+            GOTBiome biome;
+            int i = MathHelper.floor_double((double)entity.posX);
+            int j = MathHelper.floor_double((double)entity.boundingBox.minY);
+            int k2 = MathHelper.floor_double((double)entity.posZ);
+            BiomeGenBase biomeGenBase = world.getBiomeGenForCoords(i, k2);
+            if (biomeGenBase instanceof GOTBiome && shouldApplyWinterOverlay(world, biome = (GOTBiome)biomeGenBase, entity) && (world.canBlockSeeTheSky(i, j, k2) || entity.isInWater()) && world.getSavedLightValue(EnumSkyBlock.Block, i, j, k2) < 10) {
+                event.amount *= 0.3f;
+            }
+        }
+    }
+	
+    public static boolean shouldApplyWinterOverlay(World world, BiomeGenBase biome, EntityLivingBase entity) {
+        return biome instanceof GOTBiomeAlwaysWinter || GOTDate.AegonCalendar.getSeason() == GOTDate.Season.WINTER && (!(biome instanceof GOTBiome) || !((GOTBiome)biome).isNeverWinter) && world.isRaining() || entity.posY > 150.0;
+    }
 
 	@Override
 	public int getBurnTime(ItemStack itemstack) {
@@ -982,26 +1002,6 @@ public class GOTEventHandler implements IFuelHandler {
 		}
 	}
 
-    public static boolean shouldApplyWinterOverlay(World world, BiomeGenBase biome, EntityLivingBase entity) {
-        return biome instanceof GOTBiomeAlwaysWinter || GOTDate.AegonCalendar.getSeason() == GOTDate.Season.WINTER && (!(biome instanceof GOTBiome) || !((GOTBiome)biome).isNeverWinter) && world.isRaining() || entity.posY > 150.0;
-    }
-    
-    @SubscribeEvent
-    public void onLivingHeal(LivingHealEvent event) {
-        EntityLivingBase entity = event.entityLiving;
-        World world = entity.worldObj;
-        if (!world.isRemote && entity instanceof EntityPlayer && !((EntityPlayer)entity).capabilities.isCreativeMode && entity.isEntityAlive()) {
-            GOTBiome biome;
-            int i = MathHelper.floor_double((double)entity.posX);
-            int j = MathHelper.floor_double((double)entity.boundingBox.minY);
-            int k2 = MathHelper.floor_double((double)entity.posZ);
-            BiomeGenBase biomeGenBase = world.getBiomeGenForCoords(i, k2);
-            if (biomeGenBase instanceof GOTBiome && shouldApplyWinterOverlay(world, biome = (GOTBiome)biomeGenBase, entity) && (world.canBlockSeeTheSky(i, j, k2) || entity.isInWater()) && world.getSavedLightValue(EnumSkyBlock.Block, i, j, k2) < 10) {
-                event.amount *= 0.3f;
-            }
-        }
-    }
-
 	@SubscribeEvent
 	public void onLivingUpdate(LivingEvent.LivingUpdateEvent event) {
 		int k2;
@@ -1076,11 +1076,8 @@ public class GOTEventHandler implements IFuelHandler {
 				j = MathHelper.floor_double(entity.boundingBox.minY);
 				k2 = MathHelper.floor_double(entity.posZ);
 				BiomeGenBase biome = world.getBiomeGenForCoords(i, k2);
-                if ((world.canBlockSeeTheSky(i, j, k2) || entity.isInWater()) && world.getSavedLightValue(EnumSkyBlock.Block, i, j, k2) < 10) {
-    	            if (shouldApplyWinterOverlay(world, biome, entity)) {
-    	                GOT.proxy.showFrostOverlay();
-    	            }
-                    int frostProtection = 30;
+				if ((biome.temperature == 0.0F) && (world.canBlockSeeTheSky(i, j, k2) || entity.isInWater()) && world.getSavedLightValue(EnumSkyBlock.Block, i, j, k2) < 10) {
+					int frostProtection = 50;
 					for (int l1 = 1; l1 < 4; ++l1) {
 						ItemStack armor = entity.getEquipmentInSlot(l1);
 						if (armor == null || !(armor.getItem() instanceof ItemArmor)) {
@@ -1088,30 +1085,18 @@ public class GOTEventHandler implements IFuelHandler {
 						}
 						ItemArmor.ArmorMaterial armorMaterial = ((ItemArmor) armor.getItem()).getArmorMaterial();
 						Item material = armorMaterial.func_151685_b();
+						if (material == Items.leather) {
+							frostProtection += 50;
+							continue;
+						}
 						if ((material == GOTRegistry.fur) || (material == GOTRegistry.iceShard) || (armorMaterial == GOTMaterial.NORTH.toArmorMaterial()) || (armorMaterial == GOTMaterial.REDKING.toArmorMaterial())) {
 							frostProtection += 100;
 							continue;
 						}
-                        if (armorMaterial == GOTMaterial.COBALT.toArmorMaterial()) {
-                            frostProtection += 70;
-                            continue;
-                        }
-                        if (armorMaterial == GOTMaterial.MOSSOVY.toArmorMaterial()) {
-                            frostProtection += 110;
-                            continue;
-                        }
-                        if (armorMaterial == GOTMaterial.HILLMEN.toArmorMaterial()) {
-                            frostProtection += 90;
-                            continue;
-                        }
-                        if (armorMaterial == GOTMaterial.GEMSBOK.toArmorMaterial()) {
-                            frostProtection += 130;
-                            continue;
-                        }
 						if (armorMaterial != GOTMaterial.GIFT.toArmorMaterial()) {
 							continue;
 						}
-                        frostProtection += 40;
+						frostProtection += 50;
 					}
 					if (world.isRaining()) {
 						frostProtection /= 3;
@@ -1123,14 +1108,9 @@ public class GOTEventHandler implements IFuelHandler {
 						frostProtection /= 5;
 					}
 					if (world.rand.nextInt(frostProtection = Math.max(frostProtection, 1)) == 0) {
-						if (biome.temperature == 0.0f) {
-                            entity.attackEntityFrom(GOTDamage.frost, 1.0f);
-                        }
-                        if (shouldApplyWinterOverlay(world, biome, entity)) {
-							entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 600, 1));
-						}
+						entity.attackEntityFrom(GOTDamage.frost, 1.0f);
 					}
-                    if (world.rand.nextInt(frostProtection) == 0 && biome.temperature == 0.0f) {
+					if (world.rand.nextInt(frostProtection) == 0) {
 						entity.attackEntityFrom(GOTDamage.frost, 1.0f);
 					}
 				}
