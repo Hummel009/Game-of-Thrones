@@ -21,7 +21,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class GOTEntityWhiteWalker extends GOTEntityNPC {
-	public static ItemStack[] weapons = { new ItemStack(GOTRegistry.iceSword), new ItemStack(GOTRegistry.iceHeavySword) };
+    public static ItemStack[] weapons = new ItemStack[]{new ItemStack(GOTRegistry.iceSword), new ItemStack(GOTRegistry.iceHeavySword), new ItemStack(GOTRegistry.iceSpear)};
 
 	public GOTEntityWhiteWalker(World world) {
 		super(world);
@@ -59,7 +59,15 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1.0);
+        getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.8);
 	}
+
+    @Override
+    public void onArtificalSpawn() {
+        if (this.canBeMarried && this.getClass() == this.familyInfo.marriageEntityClass && this.rand.nextInt(7) == 0) {
+            this.familyInfo.setChild();
+        }
+    }
 
 	@Override
 	public boolean attackEntityAsMob(Entity entity) {
@@ -88,10 +96,7 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		if (rand.nextInt(1000) == 0) {
-			dropItem(GOTRegistry.iceHoe, 1);
-		}
-		if (rand.nextFloat() <= 0.7f) {
+        if (this.rand.nextFloat() <= 0.525f) {
 			dropItem(GOTRegistry.iceShard, rand.nextInt(2) + 1);
 		}
 	}
@@ -124,13 +129,6 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 	@Override
 	public String getLivingSound() {
 		return "got:walker.say";
-	}
-
-	@Override
-	public void onArtificalSpawn() {
-		if (canBeMarried && this.getClass() == familyInfo.marriageEntityClass && rand.nextInt(7) == 0) {
-			familyInfo.setChild();
-		}
 	}
 
 	@Override

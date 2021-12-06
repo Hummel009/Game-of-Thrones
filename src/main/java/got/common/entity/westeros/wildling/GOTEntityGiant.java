@@ -12,7 +12,7 @@ import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.world.World;
 
 public class GOTEntityGiant extends GOTEntityGiantBase {
-	public static IAttribute thrownRockDamage = new RangedAttribute("got.thrownRockDamage", 5.0, 0.0, 100.0).setDescription("GOT Thrown Rock Damage");
+    public static IAttribute thrownRockDamage = new RangedAttribute("got.thrownRockDamage", 10.0, 0.0, 200.0).setDescription("GOT Thrown Rock Damage");
 	public EntityAIBase rangedAttackAI = getGiantRangedAttackAI();
 	public EntityAIBase meleeAttackAI;
 
@@ -25,6 +25,7 @@ public class GOTEntityGiant extends GOTEntityGiantBase {
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(100.0);
+        getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.253);
 		getEntityAttribute(npcAttackDamage).setBaseValue(7.0);
 		getAttributeMap().registerAttribute(thrownRockDamage);
 	}
@@ -55,7 +56,7 @@ public class GOTEntityGiant extends GOTEntityGiantBase {
 	}
 
 	public EntityAIBase getGiantRangedAttackAI() {
-		return new GOTEntityAIRangedAttack(this, 1.2, 30, 60, 24.0f);
+        return new GOTEntityAIRangedAttack(this, 1.2, 30, 60, 25.0f);
 	}
 
 	@Override

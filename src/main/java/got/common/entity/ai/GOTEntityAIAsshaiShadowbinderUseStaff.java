@@ -36,7 +36,7 @@ public class GOTEntityAIAsshaiShadowbinderUseStaff extends EntityAIBase {
 	@Override
 	public boolean shouldExecute() {
 		int targets = 0;
-		List nearbyEntities = theWorld.getEntitiesWithinAABB(EntityLivingBase.class, wizard.boundingBox.expand(6.0, 6.0, 6.0));
+		List nearbyEntities = theWorld.getEntitiesWithinAABB(EntityLivingBase.class, wizard.boundingBox.expand(10.0, 10.0, 10.0));
 		for (Object element : nearbyEntities) {
 			EntityLivingBase entity = (EntityLivingBase) element;
 			if (!entity.isEntityAlive()) {

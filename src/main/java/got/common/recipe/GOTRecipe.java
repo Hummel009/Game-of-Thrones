@@ -204,7 +204,8 @@ public class GOTRecipe {
 		commonEssos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.slabSingle7, 6, 4), "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.pillar1, 1, 15)));
 		commonEssos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.brick4, 1, 7), " X ", "XYX", " X ", Character.valueOf('X'), "gemLapis", Character.valueOf('Y'), new ItemStack(GOTRegistry.brick1, 1, 15)));
 		commonEssos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.gateEssos, 4), "ZYZ", "YXY", "ZYZ", Character.valueOf('X'), GOTRegistry.gateGear, Character.valueOf('Y'), "plankWood", Character.valueOf('Z'), "ingotIron"));
-		commonEssos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.kebabStand), " X ", " Y ", "ZZZ", Character.valueOf('X'), "plankWood", Character.valueOf('Y'), "stickWood", Character.valueOf('Z'), Blocks.cobblestone));
+		commonEssos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.kebabStandSand), " X ", " Y ", "ZZZ", Character.valueOf('X'), "plankWood", Character.valueOf('Y'), "stickWood", Character.valueOf('Z'), Blocks.sandstone));
+        commonEssos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.kebabStand), " X ", " Y ", "ZZZ", Character.valueOf('X'), "plankWood", Character.valueOf('Y'), "stickWood", Character.valueOf('Z'), Blocks.cobblestone));
 		commonEssos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.shishKebab, 2), "  X", " X ", "Y  ", Character.valueOf('X'), GOTRegistry.kebab, Character.valueOf('Y'), "stickWood"));
 		commonEssos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.essosBow), " XY", "X Y", " XY", Character.valueOf('X'), "stickWood", Character.valueOf('Y'), Items.string));
 		commonEssos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.essosSword), "X", "X", "Y", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
