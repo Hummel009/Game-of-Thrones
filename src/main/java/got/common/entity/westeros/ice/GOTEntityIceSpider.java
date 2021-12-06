@@ -33,15 +33,15 @@ public class GOTEntityIceSpider extends GOTEntitySpiderBase {
 
 	public void addTargetTasks() {
 		int target = addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
-		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityGoldenMan.class, 0, true));
-		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityBandit.class, 0, true));
-		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityScrapTrader.class, 0, true));
-		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityGendryBaratheon.class, 0, true));
-		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityBronn.class, 0, true));
-		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityGeroldDayne.class, 0, true));
-		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityThreeEyedRaven.class, 0, true));
-		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityMaester.class, 0, true));
-		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityWhore.class, 0, true));
+		targetTasks.addTask(target + 1, new GOTEntityAIAttackHostiles(this, GOTEntityGoldenMan.class, 0, true));
+		targetTasks.addTask(target + 1, new GOTEntityAIAttackHostiles(this, GOTEntityBandit.class, 0, true));
+		targetTasks.addTask(target + 1, new GOTEntityAIAttackHostiles(this, GOTEntityScrapTrader.class, 0, true));
+		targetTasks.addTask(target + 1, new GOTEntityAIAttackHostiles(this, GOTEntityGendryBaratheon.class, 0, true));
+		targetTasks.addTask(target + 1, new GOTEntityAIAttackHostiles(this, GOTEntityBronn.class, 0, true));
+		targetTasks.addTask(target + 1, new GOTEntityAIAttackHostiles(this, GOTEntityGeroldDayne.class, 0, true));
+		targetTasks.addTask(target + 1, new GOTEntityAIAttackHostiles(this, GOTEntityThreeEyedRaven.class, 0, true));
+		targetTasks.addTask(target + 1, new GOTEntityAIAttackHostiles(this, GOTEntityMaester.class, 0, true));
+		targetTasks.addTask(target + 1, new GOTEntityAIAttackHostiles(this, GOTEntityWhore.class, 0, true));
 	}
 
 	@Override

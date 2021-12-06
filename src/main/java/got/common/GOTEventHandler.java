@@ -987,12 +987,11 @@ public class GOTEventHandler implements IFuelHandler {
         EntityLivingBase entity = event.entityLiving;
         World world = entity.worldObj;
         if (!world.isRemote && entity instanceof EntityPlayer && !((EntityPlayer)entity).capabilities.isCreativeMode && entity.isEntityAlive()) {
-            GOTBiome biome;
             int i = MathHelper.floor_double((double)entity.posX);
             int j = MathHelper.floor_double((double)entity.boundingBox.minY);
             int k2 = MathHelper.floor_double((double)entity.posZ);
-            BiomeGenBase biomeGenBase = world.getBiomeGenForCoords(i, k2);
-            if (biomeGenBase instanceof GOTBiome && biome.temperature == 0.0f && (world.canBlockSeeTheSky(i, j, k2) || entity.isInWater()) && world.getSavedLightValue(EnumSkyBlock.Block, i, j, k2) < 10) {
+			BiomeGenBase biome = world.getBiomeGenForCoords(i, k2);
+            if (biome instanceof GOTBiome && biome.temperature == 0.0f && (world.canBlockSeeTheSky(i, j, k2) || entity.isInWater()) && world.getSavedLightValue(EnumSkyBlock.Block, i, j, k2) < 10) {
                 event.amount *= 0.3f;
             }
         }
