@@ -29,7 +29,7 @@ public class GOTBiomeValyria extends GOTBiome {
 		biomeColors.setClouds(0x808080);
 		biomeColors.setFog(0x808080);
 		biomeColors.setWater(0x808080);
-		
+
 		SpawnListContainer[] c = new SpawnListContainer[1];
 		c[0] = GOTBiomeSpawnList.entry(GOTSpawnList.VALYRIA, 10).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c);

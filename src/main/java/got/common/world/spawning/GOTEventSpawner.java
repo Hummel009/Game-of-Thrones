@@ -35,92 +35,6 @@ public class GOTEventSpawner {
 		GOTJaqenHgharTracker.performSpawning(world);
 	}
 
-	public static void spawnBomzhs(World world, List<ChunkCoordIntPair> spawnChunks) {
-		Random rand = world.rand;
-		block0: for (ChunkCoordIntPair chunkCoords : spawnChunks) {
-			int i;
-			BiomeGenBase biome;
-			int k;
-			int range;
-			ChunkPosition chunkposition = GOTSpawnerNPCs.getRandomSpawningPointInChunk(world, chunkCoords);
-			if (chunkposition == null || !((biome = world.getBiomeGenForCoords(i = chunkposition.chunkPosX, k = chunkposition.chunkPosZ)) instanceof GOTBiome)) {
-				continue;
-			}
-			GOTBiome gotbiome = (GOTBiome) biome;
-			Class<? extends GOTEntityScrapTrader> bomzhClass = GOTEntityScrapTrader.class;
-			double chance = gotbiome.getBanditChance().chancesPerSecondPerChunk[16];
-			if ((chance <= 0.0) || (world.rand.nextDouble() >= chance) || (world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), GOT.selectNonCreativePlayers())).isEmpty()) {
-				continue;
-			}
-			int bomzhsSpawned = 0;
-			int maxBomzhs = MathHelper.getRandomIntegerInRange(world.rand, 1, 4);
-			for (int attempts = 0; attempts < 32; ++attempts) {
-				Block block;
-				GOTEntityScrapTrader bomzh;
-				int k1;
-				int i1 = i + MathHelper.getRandomIntegerInRange(rand, -32, 32);
-				int j1 = world.getHeightValue(i1, k1 = k + MathHelper.getRandomIntegerInRange(rand, -32, 32));
-				if (j1 <= 60 || (block = world.getBlock(i1, j1 - 1, k1)) != biome.topBlock && block != biome.fillerBlock || world.getBlock(i1, j1, k1).isNormalCube() || world.getBlock(i1, j1 + 1, k1).isNormalCube() || (bomzh = (GOTEntityScrapTrader) EntityList.createEntityByName((GOTEntityRegistry.getStringFromClass(bomzhClass)), world)) == null) {
-					continue;
-				}
-				bomzh.setLocationAndAngles(i1 + 0.5, j1, k1 + 0.5, world.rand.nextFloat() * 360.0f, 0.0f);
-				Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(bomzh, world, ((float) bomzh.posX), ((float) bomzh.posY), ((float) bomzh.posZ));
-				if (canSpawn != Event.Result.ALLOW && (canSpawn != Event.Result.DEFAULT || !bomzh.getCanSpawnHere())) {
-					continue;
-				}
-				bomzh.onSpawnWithEgg(null);
-				world.spawnEntityInWorld(bomzh);
-				bomzh.isNPCPersistent = false;
-				if (++bomzhsSpawned >= maxBomzhs) {
-					continue block0;
-				}
-			}
-		}
-	}
-
-	public static void spawnThiefs(World world, List<ChunkCoordIntPair> spawnChunks) {
-		Random rand = world.rand;
-		block0: for (ChunkCoordIntPair chunkCoords : spawnChunks) {
-			int i;
-			BiomeGenBase biome;
-			int k;
-			int range;
-			ChunkPosition chunkposition = GOTSpawnerNPCs.getRandomSpawningPointInChunk(world, chunkCoords);
-			if (chunkposition == null || !((biome = world.getBiomeGenForCoords(i = chunkposition.chunkPosX, k = chunkposition.chunkPosZ)) instanceof GOTBiome)) {
-				continue;
-			}
-			GOTBiome gotbiome = (GOTBiome) biome;
-			Class<? extends GOTEntityThief> thiefClass = GOTEntityThief.class;
-			double chance = gotbiome.getBanditChance().chancesPerSecondPerChunk[16];
-			if ((chance <= 0.0) || (world.rand.nextDouble() >= chance) || (world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), GOT.selectNonCreativePlayers())).isEmpty()) {
-				continue;
-			}
-			int thiefsSpawned = 0;
-			int maxThiefs = MathHelper.getRandomIntegerInRange(world.rand, 1, 4);
-			for (int attempts = 0; attempts < 32; ++attempts) {
-				Block block;
-				GOTEntityThief thief;
-				int k1;
-				int i1 = i + MathHelper.getRandomIntegerInRange(rand, -32, 32);
-				int j1 = world.getHeightValue(i1, k1 = k + MathHelper.getRandomIntegerInRange(rand, -32, 32));
-				if (j1 <= 60 || (block = world.getBlock(i1, j1 - 1, k1)) != biome.topBlock && block != biome.fillerBlock || world.getBlock(i1, j1, k1).isNormalCube() || world.getBlock(i1, j1 + 1, k1).isNormalCube() || (thief = (GOTEntityThief) EntityList.createEntityByName((GOTEntityRegistry.getStringFromClass(thiefClass)), world)) == null) {
-					continue;
-				}
-				thief.setLocationAndAngles(i1 + 0.5, j1, k1 + 0.5, world.rand.nextFloat() * 360.0f, 0.0f);
-				Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(thief, world, ((float) thief.posX), ((float) thief.posY), ((float) thief.posZ));
-				if (canSpawn != Event.Result.ALLOW && (canSpawn != Event.Result.DEFAULT || !thief.getCanSpawnHere())) {
-					continue;
-				}
-				thief.onSpawnWithEgg(null);
-				world.spawnEntityInWorld(thief);
-				thief.isNPCPersistent = false;
-				if (++thiefsSpawned >= maxThiefs) {
-					continue block0;
-				}
-			}
-		}
-	}
-
 	public static void spawnBandits(World world, List<ChunkCoordIntPair> spawnChunks) {
 		Random rand = world.rand;
 		block0: for (ChunkCoordIntPair chunkCoords : spawnChunks) {
@@ -158,6 +72,49 @@ public class GOTEventSpawner {
 				world.spawnEntityInWorld(bandit);
 				bandit.isNPCPersistent = false;
 				if (++banditsSpawned >= maxBandits) {
+					continue block0;
+				}
+			}
+		}
+	}
+
+	public static void spawnBomzhs(World world, List<ChunkCoordIntPair> spawnChunks) {
+		Random rand = world.rand;
+		block0: for (ChunkCoordIntPair chunkCoords : spawnChunks) {
+			int i;
+			BiomeGenBase biome;
+			int k;
+			int range;
+			ChunkPosition chunkposition = GOTSpawnerNPCs.getRandomSpawningPointInChunk(world, chunkCoords);
+			if (chunkposition == null || !((biome = world.getBiomeGenForCoords(i = chunkposition.chunkPosX, k = chunkposition.chunkPosZ)) instanceof GOTBiome)) {
+				continue;
+			}
+			GOTBiome gotbiome = (GOTBiome) biome;
+			Class<? extends GOTEntityScrapTrader> bomzhClass = GOTEntityScrapTrader.class;
+			double chance = gotbiome.getBanditChance().chancesPerSecondPerChunk[16];
+			if ((chance <= 0.0) || (world.rand.nextDouble() >= chance) || (world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), GOT.selectNonCreativePlayers())).isEmpty()) {
+				continue;
+			}
+			int bomzhsSpawned = 0;
+			int maxBomzhs = MathHelper.getRandomIntegerInRange(world.rand, 1, 4);
+			for (int attempts = 0; attempts < 32; ++attempts) {
+				Block block;
+				GOTEntityScrapTrader bomzh;
+				int k1;
+				int i1 = i + MathHelper.getRandomIntegerInRange(rand, -32, 32);
+				int j1 = world.getHeightValue(i1, k1 = k + MathHelper.getRandomIntegerInRange(rand, -32, 32));
+				if (j1 <= 60 || (block = world.getBlock(i1, j1 - 1, k1)) != biome.topBlock && block != biome.fillerBlock || world.getBlock(i1, j1, k1).isNormalCube() || world.getBlock(i1, j1 + 1, k1).isNormalCube() || (bomzh = (GOTEntityScrapTrader) EntityList.createEntityByName((GOTEntityRegistry.getStringFromClass(bomzhClass)), world)) == null) {
+					continue;
+				}
+				bomzh.setLocationAndAngles(i1 + 0.5, j1, k1 + 0.5, world.rand.nextFloat() * 360.0f, 0.0f);
+				Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(bomzh, world, ((float) bomzh.posX), ((float) bomzh.posY), ((float) bomzh.posZ));
+				if (canSpawn != Event.Result.ALLOW && (canSpawn != Event.Result.DEFAULT || !bomzh.getCanSpawnHere())) {
+					continue;
+				}
+				bomzh.onSpawnWithEgg(null);
+				world.spawnEntityInWorld(bomzh);
+				bomzh.isNPCPersistent = false;
+				if (++bomzhsSpawned >= maxBomzhs) {
 					continue block0;
 				}
 			}
@@ -216,6 +173,49 @@ public class GOTEventSpawner {
 					world.spawnEntityInWorld(invasion);
 					invasion.selectAppropriateBonusFactions();
 					invasion.startInvasion();
+					continue block0;
+				}
+			}
+		}
+	}
+
+	public static void spawnThiefs(World world, List<ChunkCoordIntPair> spawnChunks) {
+		Random rand = world.rand;
+		block0: for (ChunkCoordIntPair chunkCoords : spawnChunks) {
+			int i;
+			BiomeGenBase biome;
+			int k;
+			int range;
+			ChunkPosition chunkposition = GOTSpawnerNPCs.getRandomSpawningPointInChunk(world, chunkCoords);
+			if (chunkposition == null || !((biome = world.getBiomeGenForCoords(i = chunkposition.chunkPosX, k = chunkposition.chunkPosZ)) instanceof GOTBiome)) {
+				continue;
+			}
+			GOTBiome gotbiome = (GOTBiome) biome;
+			Class<? extends GOTEntityThief> thiefClass = GOTEntityThief.class;
+			double chance = gotbiome.getBanditChance().chancesPerSecondPerChunk[16];
+			if ((chance <= 0.0) || (world.rand.nextDouble() >= chance) || (world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), GOT.selectNonCreativePlayers())).isEmpty()) {
+				continue;
+			}
+			int thiefsSpawned = 0;
+			int maxThiefs = MathHelper.getRandomIntegerInRange(world.rand, 1, 4);
+			for (int attempts = 0; attempts < 32; ++attempts) {
+				Block block;
+				GOTEntityThief thief;
+				int k1;
+				int i1 = i + MathHelper.getRandomIntegerInRange(rand, -32, 32);
+				int j1 = world.getHeightValue(i1, k1 = k + MathHelper.getRandomIntegerInRange(rand, -32, 32));
+				if (j1 <= 60 || (block = world.getBlock(i1, j1 - 1, k1)) != biome.topBlock && block != biome.fillerBlock || world.getBlock(i1, j1, k1).isNormalCube() || world.getBlock(i1, j1 + 1, k1).isNormalCube() || (thief = (GOTEntityThief) EntityList.createEntityByName((GOTEntityRegistry.getStringFromClass(thiefClass)), world)) == null) {
+					continue;
+				}
+				thief.setLocationAndAngles(i1 + 0.5, j1, k1 + 0.5, world.rand.nextFloat() * 360.0f, 0.0f);
+				Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(thief, world, ((float) thief.posX), ((float) thief.posY), ((float) thief.posZ));
+				if (canSpawn != Event.Result.ALLOW && (canSpawn != Event.Result.DEFAULT || !thief.getCanSpawnHere())) {
+					continue;
+				}
+				thief.onSpawnWithEgg(null);
+				world.spawnEntityInWorld(thief);
+				thief.isNPCPersistent = false;
+				if (++thiefsSpawned >= maxThiefs) {
 					continue block0;
 				}
 			}

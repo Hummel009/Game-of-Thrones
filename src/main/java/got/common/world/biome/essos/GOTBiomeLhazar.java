@@ -61,19 +61,19 @@ public class GOTBiomeLhazar extends GOTBiome {
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.LHAZAR_CIVILIAN, 4).setSpawnChance(GOTBiome.SPAWN);
 		c0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.LHAZAR_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c0);
-		
+
 		SpawnListContainer[] c1 = new SpawnListContainer[1];
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DOTHRAKI_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c1);
-		
+
 		decorator.affix(new GOTStructureLhazarVillage(this, 1.0f));
-		
+
 		GOTStructureLhazarVillage village = new GOTStructureLhazarVillage(this, 0.0f).setIsTown();
 		village.affix(GOTWaypoint.Hesh, 1, 0, 3);
 		village.affix(GOTWaypoint.Lhazosh, -1, 0, 1);
 		village.affix(GOTWaypoint.Kosrak, 1, 0, 1);
 		decorator.affix(village);
-		
+
 		invasionSpawns.addInvasion(GOTInvasions.DOTHRAKI, GOTEventSpawner.EventChance.UNCOMMON);
 
 	}

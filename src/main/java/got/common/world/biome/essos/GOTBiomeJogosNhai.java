@@ -55,15 +55,15 @@ public class GOTBiomeJogosNhai extends GOTBiome {
 		registerExoticFlowers();
 
 		decorator.affix(new GOTStructureJogosVillage(this, 1.0f));
-		
+
 		SpawnListContainer[] c1 = new SpawnListContainer[1];
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c1);
-		
+
 		GOTStructureJogosVillage camp = new GOTStructureJogosVillage(this, 0.0f).setIsBig();
 		camp.affix(GOTWaypoint.Hojdbaatar);
 		decorator.affix(camp);
-		
+
 		invasionSpawns.addInvasion(GOTInvasions.YI_TI, GOTEventSpawner.EventChance.UNCOMMON);
 	}
 

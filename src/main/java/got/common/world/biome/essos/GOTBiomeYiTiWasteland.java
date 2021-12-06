@@ -13,15 +13,15 @@ public class GOTBiomeYiTiWasteland extends GOTBiomeYiTi {
 	public GOTBiomeYiTiWasteland(int i, boolean major) {
 		super(i, major);
 		clearBiomeVariants();
-		
+
 		SpawnListContainer[] c = new SpawnListContainer[2];
 		c[0] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c);
-		
+
 		SpawnListContainer[] c1 = new SpawnListContainer[1];
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.JOGOS_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c1);
-		
+
 		GOTStructureFiveFortsTower tower = new GOTStructureFiveFortsTower(this, 0.0f);
 		tower.affix(GOTWaypoint.FiveForts1);
 		tower.affix(GOTWaypoint.FiveForts2);

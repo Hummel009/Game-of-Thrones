@@ -29,15 +29,7 @@ public class GOTEntityAINearestAttackableTargetIce extends GOTEntityAINearestAtt
 			}
 			return true;
 		}
-		if (entity instanceof GOTEntityBandit
-		 || entity instanceof GOTEntityGoldenMan
-		 || entity instanceof GOTEntityScrapTrader
-		 || entity instanceof GOTEntityGendryBaratheon
-		 || entity instanceof GOTEntityBronn
-		 || entity instanceof GOTEntityGeroldDayne
-		 || entity instanceof GOTEntityThreeEyedRaven
-		 || entity instanceof GOTEntityMaester
-		 || entity instanceof GOTEntityWhore) {
+		if (entity instanceof GOTEntityBandit || entity instanceof GOTEntityGoldenMan || entity instanceof GOTEntityScrapTrader || entity instanceof GOTEntityGendryBaratheon || entity instanceof GOTEntityBronn || entity instanceof GOTEntityGeroldDayne || entity instanceof GOTEntityThreeEyedRaven || entity instanceof GOTEntityMaester || entity instanceof GOTEntityWhore) {
 			return true;
 		}
 		return false;

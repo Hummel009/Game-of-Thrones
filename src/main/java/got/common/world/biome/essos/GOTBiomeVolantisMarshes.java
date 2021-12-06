@@ -34,7 +34,7 @@ public class GOTBiomeVolantisMarshes extends GOTBiomeVolantis {
 		decorator.canePerChunk = 10;
 		decorator.reedPerChunk = 5;
 		registerSwampFlowers();
-		
+
 		SpawnListContainer[] c1 = new SpawnListContainer[1];
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(1).add(c1);

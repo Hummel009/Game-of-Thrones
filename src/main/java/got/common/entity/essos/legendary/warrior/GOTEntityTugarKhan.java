@@ -37,7 +37,7 @@ public class GOTEntityTugarKhan extends GOTEntityHumanBase {
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 	}
-	
+
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(GOTRegistry.tugarKhanSword, 1);

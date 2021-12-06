@@ -61,22 +61,22 @@ public class GOTBiomeYiTi extends GOTBiome {
 		decorator.addTree(GOTTreeType.LIME, 500);
 		decorator.addTree(GOTTreeType.POMEGRANATE, 500);
 		registerYiTiPlainsFlowers();
-		
+
 		SpawnListContainer[] c0 = new SpawnListContainer[2];
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_CIVILIAN, 4).setSpawnChance(GOTBiome.SPAWN);
 		c0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c0);
-		
+
 		SpawnListContainer[] c1 = new SpawnListContainer[1];
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.JOGOS_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c1);
-		
+
 		SpawnListContainer[] c2 = new SpawnListContainer[1];
 		c2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.MANTICORE, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(1).add(c2);
 
 		decorator.affix(new GOTStructureYiTiCity(this, 1.0f));
-		
+
 		GOTStructureYiTiCity town = new GOTStructureYiTiCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.TraderTown, 0, -1);
 		town.affix(GOTWaypoint.SiQo, 1, 0);
@@ -102,7 +102,7 @@ public class GOTBiomeYiTi extends GOTBiome {
 		town.affix(GOTWaypoint.LengYi);
 		town.affix(GOTWaypoint.LengMa);
 		decorator.affix(town);
-		
+
 		invasionSpawns.addInvasion(GOTInvasions.JOGOS, GOTEventSpawner.EventChance.UNCOMMON);
 	}
 

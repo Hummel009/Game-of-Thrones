@@ -40,13 +40,6 @@ public class GOTEntityWight extends GOTEntityHumanBase {
 		isImmuneToFrost = true;
 	}
 
-    @Override
-    public void onArtificalSpawn() {
-        if (this.canBeMarried && this.getClass() == this.familyInfo.marriageEntityClass && this.rand.nextInt(7) == 0) {
-            this.familyInfo.setChild();
-        }
-    }
-
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
@@ -117,6 +110,13 @@ public class GOTEntityWight extends GOTEntityHumanBase {
 	@Override
 	public String getLivingSound() {
 		return "mob.zombie.say";
+	}
+
+	@Override
+	public void onArtificalSpawn() {
+		if (canBeMarried && this.getClass() == familyInfo.marriageEntityClass && rand.nextInt(7) == 0) {
+			familyInfo.setChild();
+		}
 	}
 
 	@Override

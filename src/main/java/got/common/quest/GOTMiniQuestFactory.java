@@ -6,7 +6,7 @@ import cpw.mods.fml.common.FMLLog;
 import got.common.GOTLore;
 import got.common.database.*;
 import got.common.entity.animal.GOTEntityCrocodile;
-import got.common.entity.essos.legendary.quest.*;
+import got.common.entity.essos.legendary.quest.GOTEntityDaenerysTargaryen;
 import got.common.entity.essos.legendary.warrior.GOTEntityTugarKhan;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.legendary.captain.GOTEntityRickardKarstark;

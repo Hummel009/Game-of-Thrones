@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 
 public class GOTStructureJogosVillage extends GOTVillageGen {
 	private boolean isBig;
-	
+
 	public GOTStructureJogosVillage(GOTBiome biome, float f) {
 		super(biome);
 		gridScale = 12;
@@ -24,6 +24,11 @@ public class GOTStructureJogosVillage extends GOTVillageGen {
 	@Override
 	public GOTVillageGen.AbstractInstance createVillageInstance(World world, int i, int k, Random random, GOTLocationInfo loc) {
 		return new Instance(this, world, i, k, random, loc);
+	}
+
+	public GOTStructureJogosVillage setIsBig() {
+		isBig = true;
+		return this;
 	}
 
 	public class Instance extends GOTVillageGen.AbstractInstance {
@@ -154,11 +159,6 @@ public class GOTStructureJogosVillage extends GOTVillageGen {
 	public enum VillageType {
 		SMALL, BIG;
 
-	}
-
-	public GOTStructureJogosVillage setIsBig() {
-		isBig = true;
-		return this;
 	}
 
 }

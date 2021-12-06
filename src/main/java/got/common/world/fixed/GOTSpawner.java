@@ -970,23 +970,6 @@ public class GOTSpawner {
 		}
 	}
 
-	public static class TugarKhan extends GOTStructureBase {
-		public TugarKhan(boolean flag) {
-			super(flag);
-		}
-
-		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
-			spawnLegendaryNPC(new GOTEntityTugarKhan(world), world, 0, 5, 3);
-			return true;
-		}
-
-		public static boolean fixedAt(World world, int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Hojdbaatar);
-		}
-	}
-
 	public static class Lannisport extends GOTStructureBase {
 		public Lannisport(boolean flag) {
 			super(flag);
@@ -1493,6 +1476,23 @@ public class GOTSpawner {
 
 		public static boolean fixedAt(World world, int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.ThreeEyedRavenCave);
+		}
+	}
+
+	public static class TugarKhan extends GOTStructureBase {
+		public TugarKhan(boolean flag) {
+			super(flag);
+		}
+
+		@Override
+		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
+			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			spawnLegendaryNPC(new GOTEntityTugarKhan(world), world, 0, 5, 3);
+			return true;
+		}
+
+		public static boolean fixedAt(World world, int i, int k) {
+			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Hojdbaatar);
 		}
 	}
 

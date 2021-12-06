@@ -53,7 +53,7 @@ public class GOTBiomeDothrakiSea extends GOTBiome {
 		registerExoticFlowers();
 
 		decorator.affix(new GOTStructureDothrakiVillage(this, 1.0f));
-		
+
 		GOTStructureDothrakiVillage camp = new GOTStructureDothrakiVillage(this, 0.0f).setIsBig();
 		camp.affix(GOTWaypoint.Sathar);
 		camp.affix(GOTWaypoint.Kyth);

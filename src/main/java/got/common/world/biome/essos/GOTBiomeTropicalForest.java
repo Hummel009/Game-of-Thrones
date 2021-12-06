@@ -27,7 +27,7 @@ public class GOTBiomeTropicalForest extends GOTBiome {
 		decorator.grassPerChunk = 10;
 		decorator.doubleGrassPerChunk = 4;
 		registerForestFlowers();
-		
+
 		SpawnListContainer[] c11 = new SpawnListContainer[1];
 		c11[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(1).add(c11);

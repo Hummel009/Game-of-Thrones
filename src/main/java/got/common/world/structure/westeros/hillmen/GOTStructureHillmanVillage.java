@@ -56,7 +56,6 @@ public class GOTStructureHillmanVillage extends GOTVillageGen {
 			int pathSide = 7;
 			int centreSide = 19;
 			this.addStructure(new GOTStructureMossovyWell(false), 0, -2, 0, true);
-			int signX = 12;
 			this.addStructure(new GOTStructureHillmanHouse(false), 0, -centreSide, 2, true);
 			this.addStructure(new GOTStructureHillmanHouse(false), -pathEnd, 0, 1, true);
 			this.addStructure(new GOTStructureHillmanTavern(false), pathEnd, 0, 3, true);
@@ -81,15 +80,13 @@ public class GOTStructureHillmanVillage extends GOTVillageGen {
 
 		@Override
 		public GOTBezierType getPath(Random random, int i, int k) {
-			int innerOut;
-			int outerOut;
 			int i1 = Math.abs(i);
 			int k1 = Math.abs(k);
-				int dSq = i * i + k * k;
-				int imn = 15 + random.nextInt(4);
-				if ((dSq < imn * imn) || (i1 <= 64 && k1 <= 3 + random.nextInt(2))) {
-					return GOTBezierType.PATH_DIRTY;
-				}
+			int dSq = i * i + k * k;
+			int imn = 15 + random.nextInt(4);
+			if ((dSq < imn * imn) || (i1 <= 64 && k1 <= 3 + random.nextInt(2))) {
+				return GOTBezierType.PATH_DIRTY;
+			}
 			return null;
 		}
 
