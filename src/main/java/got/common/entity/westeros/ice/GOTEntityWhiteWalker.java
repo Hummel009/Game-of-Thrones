@@ -3,13 +3,9 @@ package got.common.entity.westeros.ice;
 import got.common.GOTDamage;
 import got.common.database.*;
 import got.common.entity.ai.*;
-import got.common.entity.essos.gold.GOTEntityGoldenMan;
 import got.common.entity.essos.legendary.warrior.GOTEntityAsshaiArchmag;
 import got.common.entity.other.*;
-import got.common.entity.westeros.*;
 import got.common.entity.westeros.legendary.reborn.*;
-import got.common.entity.westeros.legendary.trader.GOTEntityGendryBaratheon;
-import got.common.entity.westeros.legendary.warrior.*;
 import got.common.entity.westeros.wildling.GOTEntityGiant;
 import got.common.faction.GOTFaction;
 import got.common.item.GOTMaterialFinder;
@@ -32,26 +28,13 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
-		addTargetTasks();
 		tasks.addTask(0, new GOTEntityAIAttackOnCollide(this, 1.4, true));
 		tasks.addTask(1, new EntityAIOpenDoor(this, true));
 		tasks.addTask(2, new EntityAIWander(this, 1.0));
 		tasks.addTask(3, new EntityAIWatchClosest2(this, EntityPlayer.class, 8.0f, 0.02f));
 		tasks.addTask(4, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
+		addTargetTasks(true, GOTEntityAINearestAttackableTargetIce.class);
 		isNotHuman = true;
-	}
-
-	public void addTargetTasks() {
-		int target = addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
-		targetTasks.addTask(target + 1, new GOTEntityAIAttackHostiles(this, GOTEntityGoldenMan.class, 0, true));
-		targetTasks.addTask(target + 1, new GOTEntityAIAttackHostiles(this, GOTEntityBandit.class, 0, true));
-		targetTasks.addTask(target + 1, new GOTEntityAIAttackHostiles(this, GOTEntityScrapTrader.class, 0, true));
-		targetTasks.addTask(target + 1, new GOTEntityAIAttackHostiles(this, GOTEntityGendryBaratheon.class, 0, true));
-		targetTasks.addTask(target + 1, new GOTEntityAIAttackHostiles(this, GOTEntityBronn.class, 0, true));
-		targetTasks.addTask(target + 1, new GOTEntityAIAttackHostiles(this, GOTEntityGeroldDayne.class, 0, true));
-		targetTasks.addTask(target + 1, new GOTEntityAIAttackHostiles(this, GOTEntityThreeEyedRaven.class, 0, true));
-		targetTasks.addTask(target + 1, new GOTEntityAIAttackHostiles(this, GOTEntityMaester.class, 0, true));
-		targetTasks.addTask(target + 1, new GOTEntityAIAttackHostiles(this, GOTEntityWhore.class, 0, true));
 	}
 
 	@Override
