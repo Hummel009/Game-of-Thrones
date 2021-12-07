@@ -9,6 +9,7 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.*;
 import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.structure.essos.dothraki.GOTStructureDothrakiVillage;
 import net.minecraft.world.biome.BiomeGenBase;
 
@@ -72,6 +73,7 @@ public class GOTBiomeDothrakiSea extends GOTBiome {
 		camp.affix(GOTWaypoint.VaesLeqse);
 		camp.affix(GOTWaypoint.VaesMejhah);
 		decorator.affix(camp);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

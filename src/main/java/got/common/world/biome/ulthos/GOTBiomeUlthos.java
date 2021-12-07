@@ -9,7 +9,7 @@ import got.common.entity.animal.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTWaypoint.Region;
-import got.common.world.spawning.GOTBiomeSpawnList;
+import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -40,6 +40,7 @@ public class GOTBiomeUlthos extends GOTBiome {
 		SpawnListContainer[] c1 = new SpawnListContainer[1];
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c1);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

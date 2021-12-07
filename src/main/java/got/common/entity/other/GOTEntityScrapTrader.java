@@ -7,6 +7,7 @@ import got.common.database.*;
 import got.common.entity.ai.*;
 import got.common.faction.GOTFaction;
 import got.common.item.other.GOTItemLeatherHat;
+import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,7 +16,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class GOTEntityScrapTrader extends GOTEntityHumanBase implements GOTTradeable.Smith {
+public class GOTEntityScrapTrader extends GOTEntityHumanBase implements GOTTradeable.Smith, GOTBiome.ImmuneToHeat {
 	public GOTEntityScrapTrader(World world) {
 		super(world);
 		canBeMarried = false;
@@ -33,6 +34,7 @@ public class GOTEntityScrapTrader extends GOTEntityHumanBase implements GOTTrade
 		tasks.addTask(6, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(7, new EntityAILookIdle(this));
 		addTargetTasks(false);
+		isImmuneToFrost = true;
 	}
 
 	@Override

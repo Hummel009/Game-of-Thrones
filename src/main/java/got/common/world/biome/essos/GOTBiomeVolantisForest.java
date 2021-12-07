@@ -5,6 +5,7 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.entity.animal.*;
 import got.common.world.feature.GOTTreeType;
+import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTBiomeVolantisForest extends GOTBiomeVolantis {
@@ -33,6 +34,7 @@ public class GOTBiomeVolantisForest extends GOTBiomeVolantis {
 		decorator.doubleGrassPerChunk = 2;
 		decorator.whiteSand = true;
 		registerForestFlowers();
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

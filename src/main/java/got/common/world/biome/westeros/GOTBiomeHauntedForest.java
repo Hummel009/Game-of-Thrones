@@ -9,7 +9,7 @@ import got.common.world.feature.GOTTreeType;
 import got.common.world.fixed.GOTStructureCrasterKeep;
 import got.common.world.map.*;
 import got.common.world.map.GOTWaypoint.Region;
-import got.common.world.spawning.GOTBiomeSpawnList;
+import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -52,6 +52,7 @@ public class GOTBiomeHauntedForest extends GOTBiome {
 		GOTStructureCrasterKeep keep = new GOTStructureCrasterKeep(this, 0.0f);
 		keep.affix(GOTWaypoint.CrastersKeep);
 		decorator.affix(keep);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

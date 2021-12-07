@@ -27,7 +27,7 @@ public class GOTEventSpawner {
 			List<ChunkCoordIntPair> shuffled = GOTSpawnerNPCs.shuffle(eligibleSpawnChunks);
 			GOTEventSpawner.spawnBandits(world, shuffled);
 			GOTEventSpawner.spawnThiefs(world, shuffled);
-			GOTEventSpawner.spawnBomzhs(world, shuffled);
+			GOTEventSpawner.spawnScrapTraders(world, shuffled);
 			if (GOTConfig.enableInvasions) {
 				GOTEventSpawner.spawnInvasions(world, shuffled);
 			}
@@ -48,7 +48,7 @@ public class GOTEventSpawner {
 			}
 			GOTBiome gotbiome = (GOTBiome) biome;
 			Class<? extends GOTEntityBandit> banditClass = gotbiome.getBanditEntityClass();
-			double chance = gotbiome.getBanditChance().chancesPerSecondPerChunk[16];
+			double chance = gotbiome.getUnreliableChance().chancesPerSecondPerChunk[16];
 			if ((chance <= 0.0) || (world.rand.nextDouble() >= chance) || (world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), GOT.selectNonCreativePlayers())).isEmpty()) {
 				continue;
 			}
@@ -78,7 +78,7 @@ public class GOTEventSpawner {
 		}
 	}
 
-	public static void spawnBomzhs(World world, List<ChunkCoordIntPair> spawnChunks) {
+	public static void spawnScrapTraders(World world, List<ChunkCoordIntPair> spawnChunks) {
 		Random rand = world.rand;
 		block0: for (ChunkCoordIntPair chunkCoords : spawnChunks) {
 			int i;
@@ -90,31 +90,31 @@ public class GOTEventSpawner {
 				continue;
 			}
 			GOTBiome gotbiome = (GOTBiome) biome;
-			Class<? extends GOTEntityScrapTrader> bomzhClass = GOTEntityScrapTrader.class;
-			double chance = gotbiome.getBanditChance().chancesPerSecondPerChunk[16];
+			Class<? extends GOTEntityScrapTrader> scrapTraderClass = gotbiome.getScrapTraderEntityClass();
+			double chance = gotbiome.getUnreliableChance().chancesPerSecondPerChunk[16];
 			if ((chance <= 0.0) || (world.rand.nextDouble() >= chance) || (world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), GOT.selectNonCreativePlayers())).isEmpty()) {
 				continue;
 			}
-			int bomzhsSpawned = 0;
-			int maxBomzhs = MathHelper.getRandomIntegerInRange(world.rand, 1, 4);
+			int scrapTradersSpawned = 0;
+			int maxScrapTraders = MathHelper.getRandomIntegerInRange(world.rand, 1, 4);
 			for (int attempts = 0; attempts < 32; ++attempts) {
 				Block block;
-				GOTEntityScrapTrader bomzh;
+				GOTEntityScrapTrader scrapTrader;
 				int k1;
 				int i1 = i + MathHelper.getRandomIntegerInRange(rand, -32, 32);
 				int j1 = world.getHeightValue(i1, k1 = k + MathHelper.getRandomIntegerInRange(rand, -32, 32));
-				if (j1 <= 60 || (block = world.getBlock(i1, j1 - 1, k1)) != biome.topBlock && block != biome.fillerBlock || world.getBlock(i1, j1, k1).isNormalCube() || world.getBlock(i1, j1 + 1, k1).isNormalCube() || (bomzh = (GOTEntityScrapTrader) EntityList.createEntityByName((GOTEntityRegistry.getStringFromClass(bomzhClass)), world)) == null) {
+				if (j1 <= 60 || (block = world.getBlock(i1, j1 - 1, k1)) != biome.topBlock && block != biome.fillerBlock || world.getBlock(i1, j1, k1).isNormalCube() || world.getBlock(i1, j1 + 1, k1).isNormalCube() || (scrapTrader = (GOTEntityScrapTrader) EntityList.createEntityByName((GOTEntityRegistry.getStringFromClass(scrapTraderClass)), world)) == null) {
 					continue;
 				}
-				bomzh.setLocationAndAngles(i1 + 0.5, j1, k1 + 0.5, world.rand.nextFloat() * 360.0f, 0.0f);
-				Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(bomzh, world, ((float) bomzh.posX), ((float) bomzh.posY), ((float) bomzh.posZ));
-				if (canSpawn != Event.Result.ALLOW && (canSpawn != Event.Result.DEFAULT || !bomzh.getCanSpawnHere())) {
+				scrapTrader.setLocationAndAngles(i1 + 0.5, j1, k1 + 0.5, world.rand.nextFloat() * 360.0f, 0.0f);
+				Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(scrapTrader, world, ((float) scrapTrader.posX), ((float) scrapTrader.posY), ((float) scrapTrader.posZ));
+				if (canSpawn != Event.Result.ALLOW && (canSpawn != Event.Result.DEFAULT || !scrapTrader.getCanSpawnHere())) {
 					continue;
 				}
-				bomzh.onSpawnWithEgg(null);
-				world.spawnEntityInWorld(bomzh);
-				bomzh.isNPCPersistent = false;
-				if (++bomzhsSpawned >= maxBomzhs) {
+				scrapTrader.onSpawnWithEgg(null);
+				world.spawnEntityInWorld(scrapTrader);
+				scrapTrader.isNPCPersistent = false;
+				if (++scrapTradersSpawned >= maxScrapTraders) {
 					continue block0;
 				}
 			}
@@ -191,8 +191,8 @@ public class GOTEventSpawner {
 				continue;
 			}
 			GOTBiome gotbiome = (GOTBiome) biome;
-			Class<? extends GOTEntityThief> thiefClass = GOTEntityThief.class;
-			double chance = gotbiome.getBanditChance().chancesPerSecondPerChunk[16];
+			Class<? extends GOTEntityThief> thiefClass = gotbiome.getThiefEntityClass();
+			double chance = gotbiome.getUnreliableChance().chancesPerSecondPerChunk[16];
 			if ((chance <= 0.0) || (world.rand.nextDouble() >= chance) || (world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), GOT.selectNonCreativePlayers())).isEmpty()) {
 				continue;
 			}

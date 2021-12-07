@@ -6,6 +6,7 @@ import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 
@@ -26,6 +27,7 @@ public class GOTBiomeShadowLand extends GOTBiome {
 		biomeColors.setClouds(0);
 		biomeColors.setFog(0);
 		biomeColors.setWater(0);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

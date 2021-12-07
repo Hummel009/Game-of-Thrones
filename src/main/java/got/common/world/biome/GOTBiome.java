@@ -10,7 +10,7 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.*;
 import got.common.database.*;
 import got.common.entity.animal.*;
-import got.common.entity.other.GOTEntityBandit;
+import got.common.entity.other.*;
 import got.common.world.GOTWorldChunkManager;
 import got.common.world.biome.essos.*;
 import got.common.world.biome.other.*;
@@ -212,6 +212,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public List spawnableGOTAmbientList = new ArrayList();
 	public GOTEventSpawner.EventChance banditChance;
 	public Class<? extends GOTEntityBandit> banditEntityClass;
+	public Class<? extends GOTEntityScrapTrader> scrapTraderEntityClass;
+	public Class<? extends GOTEntityThief> thiefEntityClass;
 	public GOTBiomeInvasionSpawns invasionSpawns;
 	public BiomeColors biomeColors = new BiomeColors(this);
 	public BiomeTerrain biomeTerrain = new BiomeTerrain(this);
@@ -262,7 +264,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityRabbit.class, 8, 1, 2));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 10, 4, 4));
 		spawnableCaveCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityBat.class, 10, 8, 8));
-		setBanditChance(GOTEventSpawner.EventChance.NEVER);
+		setUnreliableChance(GOTEventSpawner.EventChance.COMMON);
 		invasionSpawns = new GOTBiomeInvasionSpawns(this);
 	}
 
@@ -473,8 +475,22 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public void generateMountainTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, int xzIndex, int ySize, int height, int rockDepth, GOTBiomeVariant variant) {
 	}
 
-	public GOTEventSpawner.EventChance getBanditChance() {
+	public GOTEventSpawner.EventChance getUnreliableChance() {
 		return banditChance;
+	}
+
+	public Class<? extends GOTEntityThief> getThiefEntityClass() {
+		if (thiefEntityClass == null) {
+			return GOTEntityThief.class;
+		}
+		return thiefEntityClass;
+	}
+
+	public Class<? extends GOTEntityScrapTrader> getScrapTraderEntityClass() {
+		if (scrapTraderEntityClass == null) {
+			return GOTEntityScrapTrader.class;
+		}
+		return scrapTraderEntityClass;
 	}
 
 	public Class<? extends GOTEntityBandit> getBanditEntityClass() {
@@ -795,7 +811,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		addFlower(GOTRegistry.yitiFlower, 4, 10);
 	}
 
-	public void setBanditChance(GOTEventSpawner.EventChance c) {
+	public void setUnreliableChance(GOTEventSpawner.EventChance c) {
 		banditChance = c;
 	}
 

@@ -8,7 +8,7 @@ import got.common.database.*;
 import got.common.entity.animal.GOTEntityWalrus;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.spawning.GOTBiomeSpawnList;
+import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.westeros.wildling.GOTStructureWildlingCamp;
 import net.minecraft.block.Block;
@@ -34,6 +34,7 @@ public class GOTBiomeColdCoast extends GOTBiomeFarNorthSnowy {
 		SpawnListContainer[] c0 = new SpawnListContainer[1];
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c0);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

@@ -10,7 +10,7 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTWaypoint.Region;
-import got.common.world.spawning.GOTBiomeSpawnList;
+import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanCamp;
 import net.minecraft.block.Block;
@@ -46,6 +46,7 @@ public class GOTBiomeSkagos extends GOTBiome {
 		npcSpawnList.newFactionList(0).add(c2);
 
 		decorator.addRandomStructure(new GOTStructureNorthHillmanCamp(false), 250);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

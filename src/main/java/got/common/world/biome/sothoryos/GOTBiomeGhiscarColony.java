@@ -4,7 +4,7 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.entity.animal.*;
-import got.common.entity.other.GOTEntityEssosBandit;
+import got.common.entity.other.GOTEntityBanditEssos;
 import got.common.world.biome.GOTBiome;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.*;
@@ -40,14 +40,13 @@ public class GOTBiomeGhiscarColony extends GOTBiome {
 		SpawnListContainer[] c1 = new SpawnListContainer[1];
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(1).add(c1);
-		setBanditChance(GOTEventSpawner.EventChance.COMMON);
-		setBanditEntityClass(GOTEntityEssosBandit.class);
 		GOTStructureGhiscarCity colony = new GOTStructureGhiscarCity(this, 0.0f).setIsColony();
 		colony.affix(GOTWaypoint.BarterBeach);
 		colony.affix(GOTWaypoint.Gogossos);
 		colony.affix(GOTWaypoint.Zamettar, 0, -1, 2);
 		colony.affix(GOTWaypoint.Gorosh);
 		decorator.affix(colony);
+		setBanditEntityClass(GOTEntityBanditEssos.class);
 	}
 
 	@Override

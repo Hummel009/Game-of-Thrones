@@ -14,7 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class GOTEntityThief extends GOTEntityHumanBase {
+public class GOTEntityThief extends GOTEntityHumanBase implements GOTBiome.ImmuneToHeat {
 	public static ItemStack[] weapons = { new ItemStack(GOTRegistry.ironDagger), new ItemStack(GOTRegistry.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTRegistry.bronzeAxe), new ItemStack(Items.stone_axe) };
 
 	public GOTEntityThief(World world) {
@@ -37,6 +37,7 @@ public class GOTEntityThief extends GOTEntityHumanBase {
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
 		addTargetTasks(false);
+		isImmuneToFrost = true;
 	}
 
 	@Override

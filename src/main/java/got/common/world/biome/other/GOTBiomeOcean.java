@@ -9,6 +9,7 @@ import got.common.entity.animal.GOTEntitySeagull;
 import got.common.world.biome.GOTBiome;
 import got.common.world.feature.*;
 import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntitySquid;
@@ -34,6 +35,7 @@ public class GOTBiomeOcean extends GOTBiome {
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreSalt, 8), 4.0f, 0, 64);
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreSalt, 8, Blocks.sand), 0.5f, 56, 80);
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreSalt, 8, GOTRegistry.whiteSand), 0.5f, 56, 80);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

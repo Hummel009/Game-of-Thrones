@@ -11,6 +11,7 @@ import got.common.world.feature.*;
 import got.common.world.fixed.GOTStructureMossovyRampart;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenFlowers;
 
@@ -42,6 +43,7 @@ public class GOTBiomeMossovyMarshes extends GOTBiome {
 		rampart.affix(GOTWaypoint.NorthPass);
 		rampart.affix(GOTWaypoint.SouthPass);
 		decorator.affix(rampart);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

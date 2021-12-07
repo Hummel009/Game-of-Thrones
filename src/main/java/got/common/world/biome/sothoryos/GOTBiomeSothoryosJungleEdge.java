@@ -1,5 +1,6 @@
 package got.common.world.biome.sothoryos;
 
+import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.structure.sothoryos.sothoryos.GOTStructureSothoryosVillage;
 
 public class GOTBiomeSothoryosJungleEdge extends GOTBiomeSothoryosJungle {
@@ -7,5 +8,6 @@ public class GOTBiomeSothoryosJungleEdge extends GOTBiomeSothoryosJungle {
 		super(i, major);
 		decorator.treesPerChunk = 2;
 		decorator.affix(new GOTStructureSothoryosVillage(this, 1.0f));
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 }

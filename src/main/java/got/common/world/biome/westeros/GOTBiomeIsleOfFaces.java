@@ -8,6 +8,7 @@ import got.common.database.GOTAchievement;
 import got.common.entity.animal.*;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.*;
@@ -31,6 +32,7 @@ public class GOTBiomeIsleOfFaces extends GOTBiomeWesteros {
 		decorator.grassPerChunk = 8;
 		decorator.doubleGrassPerChunk = 3;
 		addFlower(Blocks.red_flower, 0, 80);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

@@ -10,6 +10,7 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.structure.other.GOTStructureRuinsBig;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -50,6 +51,7 @@ public class GOTBiomeUlos extends GOTBiome {
 		GOTStructureRuinsBig colossal = new GOTStructureRuinsBig(this, 0.0f);
 		colossal.affix(GOTWaypoint.Ulos);
 		decorator.affix(colossal);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

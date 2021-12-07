@@ -6,6 +6,7 @@ import got.common.entity.ai.*;
 import got.common.faction.GOTFaction;
 import got.common.inventory.GOTInventoryNPC;
 import got.common.item.other.*;
+import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,7 +16,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 
-public class GOTEntityBandit extends GOTEntityHumanBase implements IBandit {
+public class GOTEntityBandit extends GOTEntityHumanBase implements IBandit, GOTBiome.ImmuneToHeat {
 	public static int MAX_THEFTS = 3;
 	public static ItemStack[] weapons = { new ItemStack(GOTRegistry.bronzeDagger), new ItemStack(GOTRegistry.ironDagger) };
 	public GOTInventoryNPC banditInventory = new GOTInventoryNPC("BanditInventory", this, MAX_THEFTS);
@@ -36,6 +37,7 @@ public class GOTEntityBandit extends GOTEntityHumanBase implements IBandit {
 		tasks.addTask(7, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(8, new EntityAILookIdle(this));
 		this.addTargetTasks(true, GOTEntityAINearestAttackableTargetBandit.class);
+		isImmuneToFrost = true;
 	}
 
 	@Override

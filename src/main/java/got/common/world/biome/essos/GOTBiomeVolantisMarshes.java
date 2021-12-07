@@ -7,7 +7,7 @@ import got.common.entity.animal.GOTEntityMidges;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.map.GOTBezierType;
-import got.common.world.spawning.GOTBiomeSpawnList;
+import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import net.minecraft.world.biome.BiomeGenBase;
 
@@ -38,6 +38,7 @@ public class GOTBiomeVolantisMarshes extends GOTBiomeVolantis {
 		SpawnListContainer[] c1 = new SpawnListContainer[1];
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(1).add(c1);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

@@ -7,6 +7,7 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.spawning.GOTEventSpawner;
 
 public class GOTBiomeLongSummer extends GOTBiome {
 	public GOTBiomeLongSummer(int i, boolean major) {
@@ -21,6 +22,7 @@ public class GOTBiomeLongSummer extends GOTBiome {
 		decorator.grassPerChunk = 2;
 		decorator.addTree(GOTTreeType.CHARRED, 1000);
 		decorator.addTree(GOTTreeType.OAK_DEAD, 1000);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

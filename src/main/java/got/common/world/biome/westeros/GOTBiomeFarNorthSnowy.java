@@ -8,6 +8,7 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.fixed.*;
 import got.common.world.map.*;
 import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
 
@@ -31,6 +32,7 @@ public class GOTBiomeFarNorthSnowy extends GOTBiome {
 		GOTStructureWallGate wall = new GOTStructureWallGate(this, 0.0f);
 		wall.affix(GOTWaypoint.CastleBlack, 0, -1);
 		decorator.affix(wall);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

@@ -6,11 +6,11 @@ import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityEssosBandit extends GOTEntityBandit {
+public class GOTEntityBanditEssos extends GOTEntityBandit {
 	public static ItemStack[] weapons = { new ItemStack(GOTRegistry.bronzeDagger), new ItemStack(GOTRegistry.ironDagger), new ItemStack(GOTRegistry.essosDagger), new ItemStack(GOTRegistry.essosDaggerPoisoned) };
 	public static int[] robeColors = { 3354412, 5984843, 5968655, 3619908, 9007463, 3228720 };
 
-	public GOTEntityEssosBandit(World world) {
+	public GOTEntityBanditEssos(World world) {
 		super(world);
 		canBeMarried = false;
 	}

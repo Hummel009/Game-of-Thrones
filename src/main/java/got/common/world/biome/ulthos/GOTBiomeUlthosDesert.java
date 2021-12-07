@@ -39,7 +39,7 @@ public class GOTBiomeUlthosDesert extends GOTBiome {
 		decorator.doubleFlowersPerChunk = 0;
 		decorator.cactiPerChunk = 0;
 		decorator.addTree(GOTTreeType.OAK_DEAD, 1000);
-		setBanditChance(GOTEventSpawner.EventChance.NEVER);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

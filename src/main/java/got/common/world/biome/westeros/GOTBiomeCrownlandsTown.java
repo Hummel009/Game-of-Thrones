@@ -5,7 +5,7 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
-import got.common.world.spawning.*;
+import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 
 public class GOTBiomeCrownlandsTown extends GOTBiomeCrownlands {
@@ -46,8 +46,6 @@ public class GOTBiomeCrownlandsTown extends GOTBiomeCrownlands {
 		SpawnListContainer[] c7 = new SpawnListContainer[1];
 		c7[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c7);
-
-		setBanditChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

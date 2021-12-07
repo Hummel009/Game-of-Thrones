@@ -5,6 +5,7 @@ import java.util.Random;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
+import got.common.entity.other.GOTEntityBanditEssos;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.map.GOTWaypoint.Region;
@@ -25,6 +26,7 @@ public class GOTBiomeGhiscar extends GOTBiomeEssos {
 		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
 		decorator.cactiPerChunk = 1;
 		decorator.affix(new GOTStructureGhiscarCity(this, 1.0f));
+		setBanditEntityClass(GOTEntityBanditEssos.class);
 	}
 
 	@Override

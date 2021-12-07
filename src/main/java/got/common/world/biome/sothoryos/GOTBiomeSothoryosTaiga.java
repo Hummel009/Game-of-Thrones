@@ -6,6 +6,7 @@ import got.common.database.GOTAchievement;
 import got.common.entity.animal.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.feature.GOTTreeType;
+import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
 
@@ -25,6 +26,7 @@ public class GOTBiomeSothoryosTaiga extends GOTBiome {
 		decorator.clearTrees();
 		decorator.treesPerChunk = 10;
 		decorator.addTree(GOTTreeType.PINE, 20);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

@@ -8,13 +8,11 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTRegistry;
 import got.common.entity.animal.*;
-import got.common.entity.other.GOTEntityEssosBandit;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.*;
 import got.common.world.map.*;
 import got.common.world.map.GOTWaypoint.Region;
-import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -73,8 +71,6 @@ public class GOTBiomeEssos extends GOTBiome {
 		decorator.addTree(GOTTreeType.ACACIA, 50);
 		decorator.addTree(GOTTreeType.BAOBAB, 20);
 		registerExoticFlowers();
-		setBanditChance(GOTEventSpawner.EventChance.COMMON);
-		setBanditEntityClass(GOTEntityEssosBandit.class);
 	}
 
 	@Override

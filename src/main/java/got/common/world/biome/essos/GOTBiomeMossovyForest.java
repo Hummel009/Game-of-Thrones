@@ -3,6 +3,7 @@ package got.common.world.biome.essos;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.world.feature.GOTTreeType;
+import got.common.world.spawning.GOTEventSpawner;
 
 public class GOTBiomeMossovyForest extends GOTBiomeMossovy {
 	public GOTBiomeMossovyForest(int i, boolean major) {
@@ -11,6 +12,7 @@ public class GOTBiomeMossovyForest extends GOTBiomeMossovy {
 		decorator.addTree(GOTTreeType.PINE, 20);
 		decorator.treesPerChunk = 10;
 		decorator.clearVillages();
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package got.common.world.biome.essos;
 
 import got.common.world.biome.other.GOTBiomeOcean;
+import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.block.Block;
 
 public class GOTBiomeRedBeach extends GOTBiomeOcean {
@@ -11,6 +12,7 @@ public class GOTBiomeRedBeach extends GOTBiomeOcean {
 		spawnableGOTAmbientList.clear();
 		npcSpawnList.clear();
 		biomeColors.setWater(0x640a0a);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	public GOTBiomeRedBeach setBeachBlock(Block block, int meta) {

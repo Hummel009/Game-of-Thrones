@@ -8,6 +8,7 @@ import got.common.database.*;
 import got.common.world.feature.*;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
@@ -22,6 +23,7 @@ public class GOTBiomeValyriaVolcano extends GOTBiomeValyria {
 		decorator.doubleGrassPerChunk = 0;
 		decorator.flowersPerChunk = 0;
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreValyrian, 3), 2.0f, 0, 16);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

@@ -8,7 +8,7 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTWaypoint.Region;
-import got.common.world.spawning.*;
+import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.westeros.hillmen.*;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -52,7 +52,6 @@ public class GOTBiomeArrynMountainsFoothills extends GOTBiome {
 		decorator.affix(new GOTStructureHillmanVillage(this, 1.0f));
 		decorator.addRandomStructure(new GOTStructureHillmanFort(false), 500);
 
-		setBanditChance(GOTEventSpawner.EventChance.COMMON);
 	}
 
 	@Override

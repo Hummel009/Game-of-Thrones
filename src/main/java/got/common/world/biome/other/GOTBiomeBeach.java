@@ -2,6 +2,7 @@ package got.common.world.biome.other;
 
 import got.common.entity.animal.GOTEntitySeagull;
 import got.common.world.map.GOTBezierType;
+import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
 
@@ -14,6 +15,7 @@ public class GOTBiomeBeach extends GOTBiomeOcean {
 		spawnableWaterCreatureList.clear();
 		spawnableGOTAmbientList.clear();
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntitySeagull.class, 20, 4, 4));
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

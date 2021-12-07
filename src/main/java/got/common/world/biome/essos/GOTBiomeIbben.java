@@ -66,7 +66,6 @@ public class GOTBiomeIbben extends GOTBiome {
 		decorator.addRandomStructure(new GOTStructureBarrow(false), 250);
 
 		invasionSpawns.addInvasion(GOTInvasions.IRONBORN, GOTEventSpawner.EventChance.UNCOMMON);
-		setBanditChance(GOTEventSpawner.EventChance.COMMON);
 	}
 
 	@Override

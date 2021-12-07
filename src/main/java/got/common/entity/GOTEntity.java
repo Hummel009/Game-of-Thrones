@@ -100,16 +100,19 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityWyvern.class, "Wyvern", id++, 2896659);
 		GOTEntityRegistry.register(GOTEntityZebra.class, "Zebra", id++, 15000804);
 
+		GOTEntityRegistry.register(GOTEntityBandit.class, "WesterosBandit", id++, 0xBABABA);
+		GOTEntityRegistry.register(GOTEntityThief.class, "WesterosThief", id++, 0xBABABA);
+		GOTEntityRegistry.register(GOTEntityScrapTrader.class, "WesterosScrapTrader", id++, 0xBABABA);
+		GOTEntityRegistry.register(GOTEntityBanditEssos.class, "EssosBandit", id++, 0xBABABA);
+		GOTEntityRegistry.register(GOTEntityThiefEssos.class, "EssosThief", id++, 0xBABABA);
+		GOTEntityRegistry.register(GOTEntityScrapTraderEssos.class, "EssosScrapTrader", id++, 0xBABABA);
+		
 		GOTEntityRegistry.register(GOTEntityWhore.class, "Whore", id++, 0xBABABA);
 		GOTEntityRegistry.register(GOTEntityMaester.class, "Maester", id++, 0xBABABA);
 		GOTEntityRegistry.register(GOTEntitySepton.class, "Septon", id++, 0xBABABA);
 		GOTEntityRegistry.register(GOTEntityRedPriest.class, "RedPriest", id++, 0xBABABA);
 		GOTEntityRegistry.register(GOTEntityIronbornPriest.class, "IronbornPriest", id++, 0xBABABA);
-		GOTEntityRegistry.register(GOTEntityBandit.class, "WesterosBandit", id++, 0xBABABA);
-		GOTEntityRegistry.register(GOTEntityThief.class, "Thief", id++, 0xBABABA);
-		GOTEntityRegistry.register(GOTEntityEssosBandit.class, "EssosBandit", id++, 0xBABABA);
 		GOTEntityRegistry.register(GOTEntityBarrowWight.class, "BarrowWight", id++, 0xBABABA);
-		GOTEntityRegistry.register(GOTEntityScrapTrader.class, "ScrapTrader", id++, 0xBABABA);
 		GOTEntityRegistry.register(GOTEntityStoneman.class, "StoneMan", id++, 0xBABABA);
 		GOTEntityRegistry.register(GOTEntityMercenary.class, "Mercenary", id++, 0xBABABA);
 

@@ -11,7 +11,7 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTWorldGenBoulder;
 import got.common.world.map.*;
 import got.common.world.map.GOTWaypoint.Region;
-import got.common.world.spawning.GOTBiomeSpawnList;
+import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.westeros.dorne.GOTStructureDorneCity;
 import net.minecraft.init.Blocks;
@@ -47,6 +47,7 @@ public class GOTBiomeDorneDesert extends GOTBiome {
 		GOTStructureDorneCity castle = new GOTStructureDorneCity(this, 0.0f).setIsCastle();
 		castle.affix(GOTWaypoint.Sandstone);
 		decorator.affix(castle);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

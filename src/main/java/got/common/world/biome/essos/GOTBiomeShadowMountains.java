@@ -10,6 +10,7 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.*;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.structure.other.GOTStructureRuinsBig;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -49,6 +50,7 @@ public class GOTBiomeShadowMountains extends GOTBiome {
 		GOTStructureRuinsBig colossal = new GOTStructureRuinsBig(this, 0.0f);
 		colossal.affix(GOTWaypoint.Stygai);
 		decorator.affix(colossal);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

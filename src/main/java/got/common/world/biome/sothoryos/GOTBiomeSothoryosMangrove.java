@@ -9,7 +9,7 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
-import got.common.world.spawning.GOTBiomeSpawnList;
+import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.sothoryos.sothoryos.GOTStructureSothoryosVillage;
 import net.minecraft.block.material.Material;
@@ -39,6 +39,7 @@ public class GOTBiomeSothoryosMangrove extends GOTBiome {
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(1).add(c1);
 		decorator.affix(new GOTStructureSothoryosVillage(this, 1.0f));
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

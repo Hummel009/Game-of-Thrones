@@ -12,7 +12,6 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.*;
-import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -57,7 +56,6 @@ public class GOTBiomeWesteros extends GOTBiome {
 		decorator.flowersPerChunk = 3;
 		decorator.doubleFlowersPerChunk = 1;
 		registerPlainsFlowers();
-		setBanditChance(GOTEventSpawner.EventChance.COMMON);
 	}
 
 	@Override

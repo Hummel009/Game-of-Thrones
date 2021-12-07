@@ -8,7 +8,7 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTWaypoint.Region;
-import got.common.world.spawning.*;
+import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanCamp;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -50,7 +50,6 @@ public class GOTBiomeNorthWild extends GOTBiome {
 
 		decorator.addRandomStructure(new GOTStructureNorthHillmanCamp(false), 250);
 
-		setBanditChance(GOTEventSpawner.EventChance.COMMON);
 	}
 
 	@Override

@@ -6,6 +6,7 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.entity.animal.*;
+import got.common.entity.other.GOTEntityBanditEssos;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.*;
@@ -76,7 +77,7 @@ public class GOTBiomeDorne extends GOTBiome {
 		decorator.addTree(GOTTreeType.ALMOND, 5);
 		decorator.addTree(GOTTreeType.PLUM, 5);
 		registerExoticFlowers();
-		setBanditChance(GOTEventSpawner.EventChance.RARE);
+		setUnreliableChance(GOTEventSpawner.EventChance.RARE);
 
 		SpawnListContainer[] c0 = new SpawnListContainer[2];
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_CIVILIAN, 4).setSpawnChance(GOTBiome.SPAWN);
@@ -123,6 +124,7 @@ public class GOTBiomeDorne extends GOTBiome {
 		decorator.affix(town);
 
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
+		setBanditEntityClass(GOTEntityBanditEssos.class);
 	}
 
 	@Override

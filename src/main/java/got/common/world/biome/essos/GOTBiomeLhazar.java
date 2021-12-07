@@ -56,6 +56,7 @@ public class GOTBiomeLhazar extends GOTBiome {
 		decorator.addTree(GOTTreeType.ACACIA, 50);
 		decorator.addTree(GOTTreeType.BAOBAB, 20);
 		registerExoticFlowers();
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 
 		SpawnListContainer[] c0 = new SpawnListContainer[2];
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.LHAZAR_CIVILIAN, 4).setSpawnChance(GOTBiome.SPAWN);

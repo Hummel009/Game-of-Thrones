@@ -6,6 +6,7 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.entity.animal.*;
+import got.common.entity.other.GOTEntityBanditEssos;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.*;
@@ -60,6 +61,7 @@ public class GOTBiomeNaath extends GOTBiome {
 		colony.affix(GOTWaypoint.Naath);
 		decorator.affix(colony);
 		invasionSpawns.addInvasion(GOTInvasions.GHISCAR, GOTEventSpawner.EventChance.COMMON);
+		setBanditEntityClass(GOTEntityBanditEssos.class);
 	}
 
 	@Override

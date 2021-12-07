@@ -2,6 +2,7 @@ package got.common.world.biome.other;
 
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.world.biome.GOTBiome;
+import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.block.Block;
 
 public class GOTBiomeLake extends GOTBiome {
@@ -12,6 +13,7 @@ public class GOTBiomeLake extends GOTBiome {
 		spawnableGOTAmbientList.clear();
 		npcSpawnList.clear();
 		decorator.sandPerChunk = 0;
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

@@ -65,6 +65,7 @@ public class GOTBiomeJogosNhai extends GOTBiome {
 		decorator.affix(camp);
 
 		invasionSpawns.addInvasion(GOTInvasions.YI_TI, GOTEventSpawner.EventChance.UNCOMMON);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override
