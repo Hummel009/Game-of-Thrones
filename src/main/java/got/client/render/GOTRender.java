@@ -309,11 +309,11 @@ public class GOTRender {
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityThiefEssos.class, new GOTRenderFactionNPCMonofolder("essos/unreliable"));
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityBandit.class, new GOTRenderFactionNPCMonofolder("westeros/unreliable"));
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityBanditEssos.class, new GOTRenderFactionNPCMonofolder("essos/unreliable"));
+		RenderingRegistry.registerEntityRenderingHandler(GOTEntityScrapTrader.class, new GOTRenderFactionNPCMonofolder("westeros/unreliable"));
+		RenderingRegistry.registerEntityRenderingHandler(GOTEntityScrapTraderEssos.class, new GOTRenderFactionNPCMonofolder("essos/unreliable"));
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityGhiscarUnsullied.class, new GOTRenderFactionNPCMonofolder("essos/unsullied"));
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityMaester.class, new GOTRenderFactionNPCMonofolder("westeros/maester"));
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityQohorUnsullied.class, new GOTRenderFactionNPCMonofolder("essos/unsullied"));
-		RenderingRegistry.registerEntityRenderingHandler(GOTEntityScrapTrader.class, new GOTRenderFactionNPCMonofolder("westeros/unreliable"));
-		RenderingRegistry.registerEntityRenderingHandler(GOTEntityScrapTraderEssos.class, new GOTRenderFactionNPCMonofolder("essos/unreliable"));
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityStoneman.class, new GOTRenderFactionNPCMonofolder("essos/stone"));
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityThennBerserker.class, new GOTRenderFactionNPCMonofolder("westeros/thenn/male", 1.1f));
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityWhore.class, new GOTRenderFactionNPCMonofolder("westeros/whore"));

@@ -1,6 +1,6 @@
 package got.common.entity.other;
 
-import got.common.database.GOTRegistry;
+import got.common.database.*;
 import got.common.item.other.*;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
@@ -32,5 +32,33 @@ public class GOTEntityBanditEssos extends GOTEntityBandit {
 			setCurrentItemOrArmor(4, turban);
 		}
 		return data;
+	}
+	
+	@Override
+	public void setupNPCName() {
+		int i = rand.nextInt(6);
+		switch (i) {
+		case 0:
+			familyInfo.setName(GOTNames.getGhiscarName(rand, true));
+			break;
+		case 1:
+			familyInfo.setName(GOTNames.getWildName(rand, true));
+			break;
+		case 2:
+			familyInfo.setName(GOTNames.getLhazarName(rand, true));
+			break;
+		case 3:
+			familyInfo.setName(GOTNames.getJogosName(rand, true));
+			break;
+		case 4:
+			familyInfo.setName(GOTNames.getDothrakiName(rand, true));
+			break;
+		case 5:
+			familyInfo.setName(GOTNames.getSothoryosName(rand, true));
+			break;
+		default:
+			break;
+		}
+		familyInfo.setName(GOTNames.getWildName(rand, true));
 	}
 }
