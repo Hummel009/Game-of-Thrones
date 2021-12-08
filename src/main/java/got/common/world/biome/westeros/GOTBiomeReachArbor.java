@@ -26,20 +26,6 @@ public class GOTBiomeReachArbor extends GOTBiomeReach {
 		int chunkZ = k & 0xF;
 		int xzIndex = chunkX * 16 + chunkZ;
 		int ySize = blocks.length / 256;
-		double d1 = biomeTerrainNoise.func_151601_a(i * 0.08, k * 0.08);
-		double d2 = biomeTerrainNoise.func_151601_a(i * 0.4, k * 0.4);
-		if (d1 + d2 > 0.1) {
-			int minHeight = height - 8 - random.nextInt(6);
-			for (int j = height - 1; j >= minHeight; --j) {
-				int index = xzIndex * ySize + j;
-				Block block = blocks[index];
-				if (block != Blocks.stone) {
-					continue;
-				}
-				blocks[index] = Blocks.sandstone;
-				meta[index] = 0;
-			}
-		}
 		boolean vineyard;
 		vineyard = variant == GOTBiomeVariant.VINEYARD;
 		if (vineyard && !GOTRoads.isRoadAt(i, k)) {

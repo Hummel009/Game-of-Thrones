@@ -24,8 +24,9 @@ import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.*;
 
 public class GOTBiomeEssos extends GOTBiome {
-	public static NoiseGeneratorPerlin noiseDirt = new NoiseGeneratorPerlin(new Random(12960262626062L), 1);
-	public static NoiseGeneratorPerlin noiseSand = new NoiseGeneratorPerlin(new Random(17860128964L), 1);
+	public static NoiseGeneratorPerlin noiseDirt = new NoiseGeneratorPerlin(new Random(8359286029006L), 1);
+	public static NoiseGeneratorPerlin noiseSand = new NoiseGeneratorPerlin(new Random(473689270272L), 1);
+	public static NoiseGeneratorPerlin noiseRedSand = new NoiseGeneratorPerlin(new Random(3528569078920702727L), 1);
 
 	public GOTBiomeEssos(int i, boolean major) {
 		super(i, major);
@@ -42,7 +43,6 @@ public class GOTBiomeEssos extends GOTBiome {
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 5, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 8, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDikDik.class, 8, 1, 2));
-		decorator.addOre(new WorldGenMinable(Blocks.lapis_ore, 6), 1.0f, 0, 48);
 		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
 		this.addBiomeVariant(GOTBiomeVariant.FOREST);
 		this.addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
@@ -51,25 +51,29 @@ public class GOTBiomeEssos extends GOTBiome {
 		this.addBiomeVariant(GOTBiomeVariant.SHRUBLAND_OAK);
 		this.addBiomeVariant(GOTBiomeVariant.SCRUBLAND_SAND);
 		this.addBiomeVariant(GOTBiomeVariant.HILLS_SCRUBLAND_SAND);
-		decorator.grassPerChunk = 6;
-		decorator.doubleGrassPerChunk = 1;
-		decorator.flowersPerChunk = 3;
+		decorator.addOre(new WorldGenMinable(Blocks.lapis_ore, 6), 1.0f, 0, 48);
+		decorator.grassPerChunk = 8;
+		decorator.doubleGrassPerChunk = 2;
+		decorator.flowersPerChunk = 1;
 		decorator.doubleFlowersPerChunk = 1;
+		decorator.cactiPerChunk = 1;
+		decorator.addTree(GOTTreeType.ACACIA, 300);
+		decorator.addTree(GOTTreeType.ALMOND, 5);
+		decorator.addTree(GOTTreeType.BAOBAB, 20);
 		decorator.addTree(GOTTreeType.CEDAR, 300);
+		decorator.addTree(GOTTreeType.CEDAR_LARGE, 150);
 		decorator.addTree(GOTTreeType.CYPRESS, 500);
 		decorator.addTree(GOTTreeType.CYPRESS_LARGE, 50);
-		decorator.addTree(GOTTreeType.DATE_PALM, 5);
-		decorator.addTree(GOTTreeType.LEMON, 2);
-		decorator.addTree(GOTTreeType.LIME, 2);
-		decorator.addTree(GOTTreeType.OAK_DESERT, 1000);
+		decorator.addTree(GOTTreeType.DATE_PALM, 50);
+		decorator.addTree(GOTTreeType.DRAGONBLOOD, 200);
+		decorator.addTree(GOTTreeType.LEMON, 5);
+		decorator.addTree(GOTTreeType.LIME, 5);
+		decorator.addTree(GOTTreeType.OAK_DESERT, 400);
 		decorator.addTree(GOTTreeType.OLIVE, 5);
-		decorator.addTree(GOTTreeType.OLIVE_LARGE, 5);
-		decorator.addTree(GOTTreeType.ORANGE, 2);
-		decorator.addTree(GOTTreeType.PALM, 100);
-		decorator.addTree(GOTTreeType.PLUM, 2);
-		decorator.addTree(GOTTreeType.CEDAR_LARGE, 150);
-		decorator.addTree(GOTTreeType.ACACIA, 50);
-		decorator.addTree(GOTTreeType.BAOBAB, 20);
+		decorator.addTree(GOTTreeType.OLIVE_LARGE, 10);
+		decorator.addTree(GOTTreeType.ORANGE, 5);
+		decorator.addTree(GOTTreeType.PALM, 500);
+		decorator.addTree(GOTTreeType.PLUM, 5);
 		registerExoticFlowers();
 		
         decorator.addRandomStructure(new GOTStructureDorneObelisk(false), 1000);
@@ -100,23 +104,31 @@ public class GOTBiomeEssos extends GOTBiome {
 		int topBlockMeta_pre = topBlockMeta;
 		Block fillerBlock_pre = fillerBlock;
 		int fillerBlockMeta_pre = fillerBlockMeta;
-		int chunkX = i & 0xF;
-		int chunkZ = k & 0xF;
-		int xzIndex = chunkX * 16 + chunkZ;
-		int ySize = blocks.length / 256;
 		double d1 = noiseDirt.func_151601_a(i * 0.002, k * 0.002);
 		double d2 = noiseDirt.func_151601_a(i * 0.07, k * 0.07);
 		double d3 = noiseDirt.func_151601_a(i * 0.25, k * 0.25);
 		double d4 = noiseSand.func_151601_a(i * 0.002, k * 0.002);
-		if (d4 + noiseSand.func_151601_a(i * 0.07, k * 0.07) + noiseSand.func_151601_a(i * 0.25, k * 0.25) > 1.1) {
+		double d5 = noiseSand.func_151601_a(i * 0.07, k * 0.07);
+		double d6 = noiseSand.func_151601_a(i * 0.25, k * 0.25);
+		double d7 = noiseRedSand.func_151601_a(i * 0.002, k * 0.002);
+		if (d7 + noiseRedSand.func_151601_a(i * 0.07, k * 0.07) + noiseRedSand.func_151601_a(i * 0.25, k * 0.25) > 0.9) {
+			topBlock = Blocks.sand;
+			topBlockMeta = 1;
+			fillerBlock = topBlock;
+			fillerBlockMeta = topBlockMeta;
+		} else if (d4 + d5 + d6 > 1.2) {
 			topBlock = Blocks.sand;
 			topBlockMeta = 0;
 			fillerBlock = topBlock;
 			fillerBlockMeta = topBlockMeta;
-		} else if (d1 + d2 + d3 > 0.6) {
+		} else if (d1 + d2 + d3 > 0.4) {
 			topBlock = Blocks.dirt;
 			topBlockMeta = 1;
 		}
+		int chunkX = i & 0xF;
+		int chunkZ = k & 0xF;
+		int xzIndex = chunkX * 16 + chunkZ;
+		int ySize = blocks.length / 256;
 		boolean kukuruza;
 		kukuruza = variant == GOTBiomeVariant.FIELD_CORN;
 		if (kukuruza && !GOTRoads.isRoadAt(i, k)) {
@@ -144,6 +156,59 @@ public class GOTBiomeEssos extends GOTBiome {
 					blocks[index + j1] = vineBlock;
 					meta[index + j1] = 8;
 				}
+				break;
+			}
+		}
+		boolean vineyard;
+		vineyard = variant == GOTBiomeVariant.VINEYARD;
+		if (vineyard && !GOTRoads.isRoadAt(i, k)) {
+			for (int j = 128; j >= 0; --j) {
+				int index = xzIndex * ySize + j;
+				Block above = blocks[index + 1];
+				Block block = blocks[index];
+				if (block == null || !block.isOpaqueCube() || above != null && above.getMaterial() != Material.air) {
+					continue;
+				}
+				int i1 = IntMath.mod(i, 6);
+				int i2 = IntMath.mod(i, 24);
+				int k1 = IntMath.mod(k, 32);
+				int k2 = IntMath.mod(k, 64);
+				if ((i1 == 0 || i1 == 5) && k1 != 0) {
+					double d;
+					blocks[index] = Blocks.farmland;
+					meta[index] = 0;
+					int h = 2;
+					if (biomeTerrainNoise.func_151601_a(i, k) > 0.0) {
+						++h;
+					}
+					boolean red = biomeTerrainNoise.func_151601_a(i * (d = 0.01), k * d) > 0.0;
+					Block vineBlock = red ? GOTRegistry.grapevineRed : GOTRegistry.grapevineWhite;
+					for (int j1 = 1; j1 <= h; ++j1) {
+						blocks[index + j1] = vineBlock;
+						meta[index + j1] = 7;
+					}
+					break;
+				}
+				if (i1 >= 2 && i1 <= 3) {
+					blocks[index] = GOTRegistry.dirtPath;
+					meta[index] = 0;
+					if (i1 != i2 || (i1 != 2 || k2 != 16) && (i1 != 3 || k2 != 48)) {
+						break;
+					}
+					int h = 3;
+					for (int j1 = 1; j1 <= h; ++j1) {
+						if (j1 == h) {
+							blocks[index + j1] = Blocks.torch;
+							meta[index + j1] = 5;
+							continue;
+						}
+						blocks[index + j1] = GOTRegistry.fence2;
+						meta[index + j1] = 10;
+					}
+					break;
+				}
+				blocks[index] = topBlock;
+				meta[index] = (byte) topBlockMeta;
 				break;
 			}
 		}
