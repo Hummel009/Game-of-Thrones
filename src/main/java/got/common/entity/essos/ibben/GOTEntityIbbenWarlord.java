@@ -8,8 +8,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityIbbenMarshal extends GOTEntityIbbenWarrior implements GOTUnitTradeable {
-	public GOTEntityIbbenMarshal(World world) {
+public class GOTEntityIbbenWarlord extends GOTEntityIbbenWarrior implements GOTUnitTradeable {
+	public GOTEntityIbbenWarlord(World world) {
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(false);
@@ -36,9 +36,9 @@ public class GOTEntityIbbenMarshal extends GOTEntityIbbenWarrior implements GOTU
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "essos/ibben/marshal/friendly";
+				return "essos/ibben/warlord/friendly";
 			}
-			return "essos/ibben/marshal/neutral";
+			return "essos/ibben/warlord/neutral";
 		}
 		return "essos/ibben/warrior/hostile";
 	}

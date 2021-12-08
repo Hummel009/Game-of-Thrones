@@ -188,7 +188,7 @@ public class GOTStructureIbbenVillage extends GOTVillageGen {
 
 				@Override
 				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClass(GOTEntityIbbenMarshal.class);
+					spawner.setSpawnClass(GOTEntityIbbenWarlord.class);
 					spawner.setCheckRanges(2, -12, 12, 40);
 					spawner.setSpawnRanges(20, -6, 6, 64);
 					spawner.setBlockEnemySpawnRange(60);

@@ -635,7 +635,7 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityIbbenWarrior.class, "IbbenWarrior", id++, GOTFaction.IBBEN);
 		GOTEntityRegistry.register(GOTEntityIbbenArcher.class, "IbbenArcher", id++, GOTFaction.IBBEN);
 		GOTEntityRegistry.register(GOTEntityIbbenAxeThrower.class, "IbbenAxeThrower", id++, GOTFaction.IBBEN);
-		GOTEntityRegistry.register(GOTEntityIbbenMarshal.class, "IbbenCaptain", id++, GOTFaction.IBBEN);
+		GOTEntityRegistry.register(GOTEntityIbbenWarlord.class, "IbbenCaptain", id++, GOTFaction.IBBEN);
 		GOTEntityRegistry.register(GOTEntityIbbenBlacksmith.class, "IbbenBlacksmith", id++, GOTFaction.IBBEN);
 		GOTEntityRegistry.register(GOTEntityIbbenMeadhost.class, "IbbenMeadhost", id++, GOTFaction.IBBEN);
 		GOTEntityRegistry.register(GOTEntityIbbenBannerBearer.class, "IbbenBannerBearer", id++, GOTFaction.IBBEN);

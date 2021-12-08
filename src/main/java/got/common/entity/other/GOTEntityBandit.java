@@ -59,6 +59,11 @@ public class GOTEntityBandit extends GOTEntityHumanBase implements IBandit, GOTB
 	}
 
 	@Override
+	public String getNPCName() {
+		return familyInfo.getName();
+	}
+
+	@Override
 	public boolean canTargetPlayerForTheft(EntityPlayer player) {
 		return true;
 	}

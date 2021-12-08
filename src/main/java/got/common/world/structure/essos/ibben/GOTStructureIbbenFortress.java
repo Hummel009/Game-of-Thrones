@@ -472,7 +472,7 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 		}
 		setBlockAndMetadata(world, 0, 1, 9, GOTRegistry.commandTable, 0);
 		placeWallBanner(world, 0, 3, 11, bannerType, 2);
-		GOTEntityIbbenMarshal marshal = new GOTEntityIbbenMarshal(world);
+		GOTEntityIbbenWarlord marshal = new GOTEntityIbbenWarlord(world);
 		marshal.spawnRidingHorse = false;
 		spawnNPCAndSetHome(marshal, world, 0, 1, 0, 8);
 		for (int l = 0; l < 8; ++l) {

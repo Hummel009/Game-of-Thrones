@@ -49,7 +49,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 	}
 
 	public void announceInvasionTo(EntityPlayer entityplayer) {
-		entityplayer.addChatMessage(new ChatComponentTranslation("chat.got.invasion.start", getInvasionType().invasionName()));
+		entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.invasion.start", getInvasionType().invasionName()));
 	}
 
 	@Override
