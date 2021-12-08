@@ -21,7 +21,6 @@ public class GOTBiomeThenn extends GOTBiome {
 	public GOTBiomeThenn(int i, boolean major) {
 		super(i, major);
 		this.addBiomeVariant(GOTBiomeVariant.HILLS);
-		this.addBiomeVariant(GOTBiomeVariant.STEPPE, 0.1f);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.FOTINIA, 20);
 		decorator.treesPerChunk = 2;

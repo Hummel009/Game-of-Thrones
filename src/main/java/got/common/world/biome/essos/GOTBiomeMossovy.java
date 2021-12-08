@@ -18,7 +18,6 @@ public class GOTBiomeMossovy extends GOTBiome {
 	public GOTBiomeMossovy(int i, boolean major) {
 		super(i, major);
 		this.addBiomeVariant(GOTBiomeVariant.HILLS);
-		this.addBiomeVariant(GOTBiomeVariant.STEPPE, 0.1f);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.SPRUCE, 400);
 		decorator.addTree(GOTTreeType.SPRUCE_THIN, 400);

@@ -18,8 +18,6 @@ public class GOTBiomeVariant {
 	public static GOTBiomeVariant FLOWERS = new GOTBiomeVariant(1, "flowers", VariantScale.SMALL).setFlowers(10.0f);
 	public static GOTBiomeVariant FOREST = new GOTBiomeVariantForest(2, "forest");
 	public static GOTBiomeVariant FOREST_LIGHT = new GOTBiomeVariant(3, "forest_light", VariantScale.LARGE).setTrees(3.0f).setGrass(2.0f);
-	public static GOTBiomeVariant STEPPE = new GOTBiomeVariant(4, "steppe", VariantScale.LARGE).setHeight(0.0f, 0.1f).setTrees(0.01f).setGrass(3.0f);
-	public static GOTBiomeVariant STEPPE_BARREN = new GOTBiomeVariant(5, "steppe_barren", VariantScale.LARGE).setHeight(0.0f, 0.1f).setTrees(0.01f).setGrass(0.2f);
 	public static GOTBiomeVariant HILLS = new GOTBiomeVariant(6, "hills", VariantScale.LARGE).setHeight(0.5f, 1.5f).setGrass(0.5f);
 	public static GOTBiomeVariant HILLS_FOREST = new GOTBiomeVariant(7, "hills_forest", VariantScale.LARGE).setHeight(0.5f, 1.5f).setTrees(3.0f);
 	public static GOTBiomeVariant MOUNTAIN = new GOTBiomeVariant(8, "mountain", VariantScale.LARGE).setHeight(1.2f, 3.0f);

@@ -29,7 +29,6 @@ public class GOTBiomeJogosNhaiDesert extends GOTBiome {
 		topBlock = GOTRegistry.whiteSand;
 		fillerBlock = GOTRegistry.whiteSandstone;
 		setDisableRain();
-		this.addBiomeVariant(GOTBiomeVariant.STEPPE);
 		this.addBiomeVariant(GOTBiomeVariant.HILLS);
 		spawnableCreatureList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityCamel.class, 10, 1, 2));

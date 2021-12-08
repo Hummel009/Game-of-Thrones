@@ -27,7 +27,6 @@ public class GOTBiomeSothoryosDesert extends GOTBiome {
 	public GOTBiomeSothoryosDesert(int i, boolean major) {
 		super(i, major);
 		setDisableRain();
-		this.addBiomeVariant(GOTBiomeVariant.STEPPE);
 		this.addBiomeVariant(GOTBiomeVariant.HILLS);
 		topBlock = Blocks.sand;
 		fillerBlock = Blocks.sand;

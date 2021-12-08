@@ -42,8 +42,6 @@ public class GOTBiomeDorne extends GOTBiome {
 		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
 		this.addBiomeVariant(GOTBiomeVariant.FOREST);
 		this.addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
-		this.addBiomeVariant(GOTBiomeVariant.STEPPE);
-		this.addBiomeVariant(GOTBiomeVariant.STEPPE_BARREN);
 		this.addBiomeVariant(GOTBiomeVariant.HILLS);
 		this.addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
 		this.addBiomeVariant(GOTBiomeVariant.SHRUBLAND_OAK);

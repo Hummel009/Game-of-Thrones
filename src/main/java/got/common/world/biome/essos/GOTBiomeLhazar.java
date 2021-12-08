@@ -32,8 +32,6 @@ public class GOTBiomeLhazar extends GOTBiome {
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDikDik.class, 8, 1, 2));
 		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
 		this.addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
-		this.addBiomeVariant(GOTBiomeVariant.STEPPE);
-		this.addBiomeVariant(GOTBiomeVariant.STEPPE_BARREN);
 		this.addBiomeVariant(GOTBiomeVariant.HILLS);
 		decorator.grassPerChunk = 6;
 		decorator.doubleGrassPerChunk = 1;
