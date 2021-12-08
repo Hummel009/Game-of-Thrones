@@ -65,7 +65,6 @@ public class GOTBiomeEssos extends GOTBiome {
 		decorator.addTree(GOTTreeType.CYPRESS, 500);
 		decorator.addTree(GOTTreeType.CYPRESS_LARGE, 50);
 		decorator.addTree(GOTTreeType.DATE_PALM, 50);
-		decorator.addTree(GOTTreeType.DRAGONBLOOD, 200);
 		decorator.addTree(GOTTreeType.LEMON, 5);
 		decorator.addTree(GOTTreeType.LIME, 5);
 		decorator.addTree(GOTTreeType.OAK_DESERT, 400);
@@ -77,7 +76,6 @@ public class GOTBiomeEssos extends GOTBiome {
 		registerExoticFlowers();
 		
         decorator.addRandomStructure(new GOTStructureDorneObelisk(false), 1000);
-        decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
         decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
         decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
         decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
