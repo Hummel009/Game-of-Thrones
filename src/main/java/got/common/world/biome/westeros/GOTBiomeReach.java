@@ -37,7 +37,7 @@ public class GOTBiomeReach extends GOTBiomeWesteros {
 		decorator.addTree(GOTTreeType.OLIVE_LARGE, 10);
 
 		SpawnListContainer[] c0 = new SpawnListContainer[2];
-		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.REACH_CIVILIAN, 4).setSpawnChance(GOTBiome.SPAWN);
+		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.REACH_CONQUEST, 4).setSpawnChance(GOTBiome.SPAWN);
 		c0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.REACH_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c0);
 

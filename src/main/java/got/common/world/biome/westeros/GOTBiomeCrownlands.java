@@ -15,14 +15,13 @@ import got.common.world.structure.westeros.crownlands.red.GOTWaypointRedCastle;
 public class GOTBiomeCrownlands extends GOTBiomeWesteros {
 	public GOTBiomeCrownlands(int i, boolean major) {
 		super(i, major);
-		SpawnListContainer[] c0 = new SpawnListContainer[2];
-		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.CROWNLANDS_CIVILIAN, 4).setSpawnChance(GOTBiome.SPAWN);
-		c0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.CROWNLANDS_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(6).add(c0);
+		SpawnListContainer[] c0 = new SpawnListContainer[1];
+		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.CROWNLANDS_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(5).add(c0);
 
 		SpawnListContainer[] c1 = new SpawnListContainer[1];
-		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WESTERLANDS_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(4).add(c1);
+		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WESTERLANDS_CONQUEST, 4).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(5).add(c1);
 
 		SpawnListContainer[] c2 = new SpawnListContainer[1];
 		c2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.NORTH_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);

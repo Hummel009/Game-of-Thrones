@@ -9,8 +9,7 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.*;
 import got.common.world.map.GOTWaypoint.Region;
-import got.common.world.spawning.*;
-import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
+import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.structure.essos.lhazar.GOTStructureLhazarVillage;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -55,15 +54,6 @@ public class GOTBiomeLhazar extends GOTBiome {
 		decorator.addTree(GOTTreeType.BAOBAB, 20);
 		registerExoticFlowers();
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
-
-		SpawnListContainer[] c0 = new SpawnListContainer[2];
-		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.LHAZAR_CIVILIAN, 4).setSpawnChance(GOTBiome.SPAWN);
-		c0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.LHAZAR_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(10).add(c0);
-
-		SpawnListContainer[] c1 = new SpawnListContainer[1];
-		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DOTHRAKI_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
-		npcSpawnList.newFactionList(0).add(c1);
 
 		decorator.affix(new GOTStructureLhazarVillage(this, 1.0f));
 

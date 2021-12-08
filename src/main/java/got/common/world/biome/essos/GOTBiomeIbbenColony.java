@@ -14,7 +14,7 @@ public class GOTBiomeIbbenColony extends GOTBiomeEssos {
 	public GOTBiomeIbbenColony(int i, boolean major) {
 		super(i, major);
 		SpawnListContainer[] c = new SpawnListContainer[1];
-		c[0] = GOTBiomeSpawnList.entry(GOTSpawnList.IBBEN_CIVILIAN, 2).setSpawnChance(GOTBiome.SPAWN);
+		c[0] = GOTBiomeSpawnList.entry(GOTSpawnList.IBBEN_MILITARY, 2).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c);
 		GOTStructureIbbenVillage village = new GOTStructureIbbenVillage(this, 0.0f);
 		village.affix(GOTWaypoint.NewIbbish);

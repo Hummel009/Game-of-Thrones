@@ -37,9 +37,8 @@ public class GOTBiomeSothoryosSavannah extends GOTBiome {
 		decorator.addTree(GOTTreeType.KANUKA, 100);
 		registerExoticFlowers();
 
-		SpawnListContainer[] c = new SpawnListContainer[2];
-		c[0] = GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);
-		c[1] = GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
+		SpawnListContainer[] c = new SpawnListContainer[1];
+		c[0] = GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c);
 
 		decorator.affix(new GOTStructureSothoryosVillage(this, 1.0f));
