@@ -8,6 +8,7 @@ CHANGELOG
 + Added Jogos Nhai armor
 + Added Tugar Khan achievement
 
+* Improved white walkers attack AI
 * Improved massy and cracklaw
 * Improved forests and mountains
 * Improved spawning
