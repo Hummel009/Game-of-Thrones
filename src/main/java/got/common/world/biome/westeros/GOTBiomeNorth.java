@@ -11,7 +11,7 @@ import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.other.GOTStructureTower;
-import got.common.world.structure.westeros.north.GOTStructureNorthCity;
+import got.common.world.structure.westeros.north.*;
 
 public class GOTBiomeNorth extends GOTBiomeWesteros {
 	public GOTBiomeNorth(int i, boolean major) {
@@ -97,6 +97,8 @@ public class GOTBiomeNorth extends GOTBiomeWesteros {
 
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.IRONBORN, GOTEventSpawner.EventChance.UNCOMMON);
+		
+        decorator.addRandomStructure(new GOTStructureNorthWatchfort(false), 800);
 	}
 
 	@Override

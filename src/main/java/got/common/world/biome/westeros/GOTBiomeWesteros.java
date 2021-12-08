@@ -12,6 +12,8 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.*;
+import got.common.world.structure.other.*;
+import got.common.world.structure.westeros.common.GOTStructureWesterosObelisk;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -55,6 +57,12 @@ public class GOTBiomeWesteros extends GOTBiome {
 		decorator.flowersPerChunk = 3;
 		decorator.doubleFlowersPerChunk = 1;
 		registerPlainsFlowers();
+        decorator.addRandomStructure(new GOTStructureWesterosObelisk(false), 1000);
+        decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
+        decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
+        decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
+        decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
+        decorator.addRandomStructure(new GOTStructureStoneRuin.STONE(1, 4), 400);
 	}
 
 	@Override

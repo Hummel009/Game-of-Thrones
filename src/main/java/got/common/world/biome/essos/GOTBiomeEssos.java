@@ -13,6 +13,8 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.*;
 import got.common.world.map.*;
 import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.structure.other.*;
+import got.common.world.structure.westeros.dorne.GOTStructureDorneObelisk;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -69,6 +71,13 @@ public class GOTBiomeEssos extends GOTBiome {
 		decorator.addTree(GOTTreeType.ACACIA, 50);
 		decorator.addTree(GOTTreeType.BAOBAB, 20);
 		registerExoticFlowers();
+		
+        decorator.addRandomStructure(new GOTStructureDorneObelisk(false), 1000);
+        decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
+        decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
+        decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
+        decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
+        decorator.addRandomStructure(new GOTStructureStoneRuin.SANDSTONE(1, 4), 400);
 	}
 
 	@Override

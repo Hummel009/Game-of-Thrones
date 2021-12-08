@@ -14,7 +14,8 @@ import got.common.world.map.*;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.westeros.dorne.GOTStructureDorneCity;
+import got.common.world.structure.other.*;
+import got.common.world.structure.westeros.dorne.*;
 import net.minecraft.block.Block;
 import net.minecraft.entity.passive.*;
 import net.minecraft.init.Blocks;
@@ -123,6 +124,13 @@ public class GOTBiomeDorne extends GOTBiome {
 
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		setBanditEntityClass(GOTEntityBanditEssos.class);
+		
+        decorator.addRandomStructure(new GOTStructureDorneObelisk(false), 1000);
+        decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
+        decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
+        decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
+        decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
+        decorator.addRandomStructure(new GOTStructureStoneRuin.SANDSTONE(1, 4), 400);
 	}
 
 	@Override
