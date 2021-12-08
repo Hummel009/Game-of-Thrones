@@ -103,18 +103,18 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityBandit.class, "WesterosBandit", id++, 0xBABABA);
 		GOTEntityRegistry.register(GOTEntityThief.class, "WesterosThief", id++, 0xBABABA);
 		GOTEntityRegistry.register(GOTEntityScrapTrader.class, "WesterosScrapTrader", id++, 0xBABABA);
-		GOTEntityRegistry.register(GOTEntityBanditEssos.class, "EssosBandit", id++, 0xBABABA);
-		GOTEntityRegistry.register(GOTEntityThiefEssos.class, "EssosThief", id++, 0xBABABA);
-		GOTEntityRegistry.register(GOTEntityScrapTraderEssos.class, "EssosScrapTrader", id++, 0xBABABA);
+		GOTEntityRegistry.register(GOTEntityBanditEssos.class, "EssosBandit", id++, 13345354);
+		GOTEntityRegistry.register(GOTEntityThiefEssos.class, "EssosThief", id++, 13345354);
+		GOTEntityRegistry.register(GOTEntityScrapTraderEssos.class, "EssosScrapTrader", id++, 13345354);
 		
-		GOTEntityRegistry.register(GOTEntityWhore.class, "Whore", id++, 0xBABABA);
-		GOTEntityRegistry.register(GOTEntityMaester.class, "Maester", id++, 0xBABABA);
-		GOTEntityRegistry.register(GOTEntitySepton.class, "Septon", id++, 0xBABABA);
-		GOTEntityRegistry.register(GOTEntityRedPriest.class, "RedPriest", id++, 0xBABABA);
-		GOTEntityRegistry.register(GOTEntityIronbornPriest.class, "IronbornPriest", id++, 0xBABABA);
-		GOTEntityRegistry.register(GOTEntityBarrowWight.class, "BarrowWight", id++, 0xBABABA);
+		GOTEntityRegistry.register(GOTEntityWhore.class, "Whore", id++, 16087966);
+		GOTEntityRegistry.register(GOTEntityMaester.class, "Maester", id++, 0xffffff);
+		GOTEntityRegistry.register(GOTEntitySepton.class, "Septon", id++, 0xffd700);
+		GOTEntityRegistry.register(GOTEntityRedPriest.class, "RedPriest", id++, 0x7c0a02);
+		GOTEntityRegistry.register(GOTEntityIronbornPriest.class, "IronbornPriest", id++, GOTFaction.IRONBORN);
+		GOTEntityRegistry.register(GOTEntityBarrowWight.class, "BarrowWight", id++, 2896659);
 		GOTEntityRegistry.register(GOTEntityStoneman.class, "StoneMan", id++, 0xBABABA);
-		GOTEntityRegistry.register(GOTEntityMercenary.class, "Mercenary", id++, 0xBABABA);
+		GOTEntityRegistry.register(GOTEntityMercenary.class, "Mercenary", id++, GOTFaction.CROWNLANDS);
 
 		GOTEntityRegistry.register(GOTEntityWhiteWalker.class, "WhiteWalker", id++, GOTFaction.WHITE_WALKER);
 		GOTEntityRegistry.register(GOTEntityWight.class, "Wicht", id++, GOTFaction.WHITE_WALKER);

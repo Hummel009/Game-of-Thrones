@@ -20,7 +20,7 @@ public class GOTEntityScrapTraderEssos extends GOTEntityScrapTrader {
 		data = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(weapons.length);
 		npcItemsInv.setMeleeWeapon(weapons[i].copy());
-		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
+		npcItemsInv.setIdleItem(null);
 		setCurrentItemOrArmor(4, null);
 		if (rand.nextInt(4) == 0) {
 			ItemStack turban = new ItemStack(GOTRegistry.robesHelmet);
