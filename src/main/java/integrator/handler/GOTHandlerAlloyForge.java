@@ -80,7 +80,8 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 			GOTHandlerAlloyForge.CachedForgeRecipe rec2 = new GOTHandlerAlloyForge.CachedForgeRecipe(new ItemStack[] { new ItemStack(GOTRegistry.oreTin), new ItemStack(GOTRegistry.tinIngot) }, new ItemStack[] { ingredient }, new ItemStack(GOTRegistry.bronzeIngot, 2));
 			ret.add(rec1);
 			ret.add(rec2);
-		} else if (NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTRegistry.tinIngot)) || NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTRegistry.oreTin))) {
+		}
+		if (NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTRegistry.tinIngot)) || NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTRegistry.oreTin))) {
 			GOTHandlerAlloyForge.CachedForgeRecipe rec1 = new GOTHandlerAlloyForge.CachedForgeRecipe(new ItemStack[] { ingredient }, new ItemStack[] { new ItemStack(GOTRegistry.oreCopper), new ItemStack(GOTRegistry.copperIngot) }, new ItemStack(GOTRegistry.bronzeIngot, 2));
 			GOTHandlerAlloyForge.CachedForgeRecipe rec2 = new GOTHandlerAlloyForge.CachedForgeRecipe(new ItemStack[] { new ItemStack(GOTRegistry.oreCopper), new ItemStack(GOTRegistry.copperIngot) }, new ItemStack[] { ingredient }, new ItemStack(GOTRegistry.bronzeIngot, 2));
 			ret.add(rec1);

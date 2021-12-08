@@ -3,6 +3,7 @@ CHANGELOG
 >>VERSION 17.6
 * Recoded all the flat biome system
 
++ Added random structures
 + Added Tugar Khan
 + Added Hojtbaatar waypoint
 + Added Jogos Nhai armor
@@ -21,6 +22,7 @@ CHANGELOG
 * Fixed bug with sandstone in Westeros
 * Fixed bug with Daenerys Targaryen spawning
 * Fixed bug with Yi Ti cities
+* Fixed bug with valyrian smelting
 
 - Removed Kitra achievement
 - Removed Kitra

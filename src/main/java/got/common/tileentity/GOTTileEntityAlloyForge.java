@@ -68,9 +68,9 @@ public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, I
 	}
 
 	public boolean canSmelt(int i) {
-		int resultSize;
 		ItemStack alloyResult;
 		ItemStack result;
+		int resultSize;
 		if (inventory[i] == null) {
 			return false;
 		}
@@ -170,7 +170,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, I
 		if (isWidowWail(itemstack) && isOathkeeper(alloyItem) || isOathkeeper(itemstack) && isWidowWail(alloyItem)) {
 			return new ItemStack(GOTRegistry.ice);
 		}
-		if (isCobaltBlue(itemstack) && isIronIngot(alloyItem) || isIronIngot(itemstack) && isCobaltBlue(alloyItem)) {
+		if (isCobalt(itemstack) && isIron(alloyItem) || isIron(itemstack) && isCobalt(alloyItem)) {
 			return new ItemStack(GOTRegistry.alloySteelIgnot);
 		}
 		return null;
@@ -215,6 +215,9 @@ public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, I
 		} else if (item == Items.clay_ball || item == GOTRegistry.redClayBall || item == GOTRegistry.clayMug || item == GOTRegistry.clayPlate || item == GOTRegistry.ceramicPlate) {
 			isStoneMaterial = true;
 		}
+        if (itemstack.getItem() == Item.getItemFromBlock((Block)GOTRegistry.oreValyrian)) {
+            return new ItemStack(GOTRegistry.valyrianIngot);
+        }
 		if (isStoneMaterial || isWood(itemstack)) {
 			return FurnaceRecipes.smelting().getSmeltingResult(itemstack);
 		}
@@ -258,16 +261,12 @@ public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, I
 		return itemstack.getItem() == Items.coal;
 	}
 
-	public boolean isCobaltBlue(ItemStack itemstack) {
+	public boolean isCobalt(ItemStack itemstack) {
 		return itemstack.getItem() == GOTRegistry.cobaltIngot;
 	}
 
 	public boolean isCopper(ItemStack itemstack) {
 		return GOT.isOreNameEqual(itemstack, "oreCopper") || GOT.isOreNameEqual(itemstack, "ingotCopper");
-	}
-
-	public boolean isGold(ItemStack itemstack) {
-		return GOT.isOreNameEqual(itemstack, "oreGold") || GOT.isOreNameEqual(itemstack, "ingotGold");
 	}
 
 	public boolean isGoldNugget(ItemStack itemstack) {
@@ -276,10 +275,6 @@ public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, I
 
 	public boolean isIron(ItemStack itemstack) {
 		return GOT.isOreNameEqual(itemstack, "oreIron") || GOT.isOreNameEqual(itemstack, "ingotIron");
-	}
-
-	public boolean isIronIngot(ItemStack itemstack) {
-		return itemstack.getItem() == Items.iron_ingot;
 	}
 
 	@Override
@@ -301,10 +296,6 @@ public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, I
 		return GOT.isOreNameEqual(itemstack, "oreSilver") || GOT.isOreNameEqual(itemstack, "ingotSilver");
 	}
 
-	public boolean isSilverNugget(ItemStack itemstack) {
-		return GOT.isOreNameEqual(itemstack, "nuggetSilver");
-	}
-
 	public boolean isSmelting() {
 		return forgeSmeltTime > 0;
 	}
@@ -320,10 +311,6 @@ public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, I
 
 	public boolean isValyrianNugget(ItemStack itemstack) {
 		return itemstack.getItem() == GOTRegistry.valyrianNugget;
-	}
-
-	public boolean isValyrianSteel(ItemStack itemstack) {
-		return itemstack.getItem() == Item.getItemFromBlock(GOTRegistry.oreValyrian) || itemstack.getItem() == GOTRegistry.valyrianIngot;
 	}
 
 	public boolean isWidowWail(ItemStack itemstack) {
