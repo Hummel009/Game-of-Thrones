@@ -15,6 +15,7 @@ public class GOTBiomeMeereen extends GOTBiomeGhiscar {
 		super(i, major);
 		npcSpawnList.clear();
 		decorator.clearVillages();
+		decorator.clearRandomStructures();
 
 		SpawnListContainer[] c0 = new SpawnListContainer[3];
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN);

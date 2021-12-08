@@ -15,7 +15,7 @@ import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.other.GOTStructureTower;
-import got.common.world.structure.westeros.reach.GOTStructureReachCity;
+import got.common.world.structure.westeros.reach.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -114,6 +114,8 @@ public class GOTBiomeReach extends GOTBiomeWesteros {
 
 		invasionSpawns.addInvasion(GOTInvasions.DRAGONSTONE, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.IRONBORN, GOTEventSpawner.EventChance.UNCOMMON);
+
+		decorator.addRandomStructure(new GOTStructureReachWatchfort(false), 800);
 	}
 
 	@Override

@@ -57,12 +57,12 @@ public class GOTBiomeWesteros extends GOTBiome {
 		decorator.flowersPerChunk = 3;
 		decorator.doubleFlowersPerChunk = 1;
 		registerPlainsFlowers();
-        decorator.addRandomStructure(new GOTStructureWesterosObelisk(false), 1000);
-        decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
-        decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
-        decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
-        decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
-        decorator.addRandomStructure(new GOTStructureStoneRuin.STONE(1, 4), 400);
+		decorator.addRandomStructure(new GOTStructureWesterosObelisk(false), 1000);
+		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
+		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
+		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
+		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
+		decorator.addRandomStructure(new GOTStructureStoneRuin.STONE(1, 4), 400);
 	}
 
 	@Override

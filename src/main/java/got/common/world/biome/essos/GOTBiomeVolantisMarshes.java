@@ -16,6 +16,7 @@ public class GOTBiomeVolantisMarshes extends GOTBiomeVolantis {
 		super(i, major);
 		npcSpawnList.clear();
 		decorator.clearVillages();
+		decorator.clearRandomStructures();
 		invasionSpawns.clearInvasions();
 		clearBiomeVariants();
 		spawnableCreatureList.clear();

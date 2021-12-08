@@ -157,6 +157,10 @@ public class GOTBiomeDecorator {
 		biomeGems.clear();
 	}
 
+	public void clearRandomStructures() {
+		randomStructures.clear();
+	}
+
 	public void clearTrees() {
 		treeTypes.clear();
 	}

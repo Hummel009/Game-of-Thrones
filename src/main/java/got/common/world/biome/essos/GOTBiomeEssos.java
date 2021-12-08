@@ -74,12 +74,12 @@ public class GOTBiomeEssos extends GOTBiome {
 		decorator.addTree(GOTTreeType.PALM, 500);
 		decorator.addTree(GOTTreeType.PLUM, 5);
 		registerExoticFlowers();
-		
-        decorator.addRandomStructure(new GOTStructureDorneObelisk(false), 1000);
-        decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
-        decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
-        decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
-        decorator.addRandomStructure(new GOTStructureStoneRuin.SANDSTONE(1, 4), 400);
+
+		decorator.addRandomStructure(new GOTStructureDorneObelisk(false), 1000);
+		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
+		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
+		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
+		decorator.addRandomStructure(new GOTStructureStoneRuin.SANDSTONE(1, 4), 400);
 	}
 
 	@Override

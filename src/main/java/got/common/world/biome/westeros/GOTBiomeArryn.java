@@ -9,7 +9,7 @@ import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.other.GOTStructureTower;
-import got.common.world.structure.westeros.arryn.GOTStructureArrynCity;
+import got.common.world.structure.westeros.arryn.*;
 
 public class GOTBiomeArryn extends GOTBiomeWesteros {
 	public GOTBiomeArryn(int i, boolean major) {
@@ -63,6 +63,8 @@ public class GOTBiomeArryn extends GOTBiomeWesteros {
 
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.HILL_TRIBES, GOTEventSpawner.EventChance.COMMON);
+
+		decorator.addRandomStructure(new GOTStructureArrynWatchfort(false), 800);
 	}
 
 	@Override

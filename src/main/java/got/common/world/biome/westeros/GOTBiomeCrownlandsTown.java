@@ -13,6 +13,7 @@ public class GOTBiomeCrownlandsTown extends GOTBiomeCrownlands {
 		super(i, major);
 		npcSpawnList.clear();
 		decorator.clearVillages();
+		decorator.clearRandomStructures();
 
 		SpawnListContainer[] c0 = new SpawnListContainer[2];
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.CROWNLANDS_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);

@@ -9,7 +9,7 @@ import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.other.GOTStructureRuins;
-import got.common.world.structure.westeros.westerlands.GOTStructureWesterlandsCity;
+import got.common.world.structure.westeros.westerlands.*;
 
 public class GOTBiomeWesterlands extends GOTBiomeWesteros {
 
@@ -83,6 +83,8 @@ public class GOTBiomeWesterlands extends GOTBiomeWesteros {
 		invasionSpawns.addInvasion(GOTInvasions.STORMLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.RIVERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.NORTH, GOTEventSpawner.EventChance.UNCOMMON);
+
+		decorator.addRandomStructure(new GOTStructureWesterlandsWatchfort(false), 800);
 	}
 
 	@Override

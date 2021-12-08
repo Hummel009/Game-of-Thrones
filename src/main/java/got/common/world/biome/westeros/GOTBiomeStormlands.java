@@ -12,7 +12,7 @@ import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.other.GOTStructureRuins;
-import got.common.world.structure.westeros.stormlands.GOTStructureStormlandsCity;
+import got.common.world.structure.westeros.stormlands.*;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenFlowers;
 
@@ -78,6 +78,8 @@ public class GOTBiomeStormlands extends GOTBiomeWesteros {
 
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.DRAGONSTONE, GOTEventSpawner.EventChance.UNCOMMON);
+
+		decorator.addRandomStructure(new GOTStructureStormlandsWatchfort(false), 800);
 	}
 
 	@Override

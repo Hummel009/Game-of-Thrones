@@ -18,6 +18,7 @@ public class GOTBiomeEssosMountains extends GOTBiomeEssos {
 		npcSpawnList.clear();
 		spawnableCreatureList.clear();
 		decorator.clearVillages();
+		decorator.clearRandomStructures();
 		invasionSpawns.clearInvasions();
 		clearBiomeVariants();
 		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);

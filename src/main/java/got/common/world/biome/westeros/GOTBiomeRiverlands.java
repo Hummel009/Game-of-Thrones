@@ -10,7 +10,7 @@ import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.other.*;
-import got.common.world.structure.westeros.riverlands.GOTStructureRiverlandsCity;
+import got.common.world.structure.westeros.riverlands.*;
 
 public class GOTBiomeRiverlands extends GOTBiomeWesteros {
 	public GOTBiomeRiverlands(int i, boolean major) {
@@ -83,6 +83,8 @@ public class GOTBiomeRiverlands extends GOTBiomeWesteros {
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.IRONBORN, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.HILL_TRIBES, GOTEventSpawner.EventChance.COMMON);
+
+		decorator.addRandomStructure(new GOTStructureRiverlandsWatchfort(false), 800);
 	}
 
 	@Override

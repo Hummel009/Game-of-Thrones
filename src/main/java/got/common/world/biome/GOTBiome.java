@@ -475,24 +475,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public void generateMountainTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, int xzIndex, int ySize, int height, int rockDepth, GOTBiomeVariant variant) {
 	}
 
-	public GOTEventSpawner.EventChance getUnreliableChance() {
-		return banditChance;
-	}
-
-	public Class<? extends GOTEntityThief> getThiefEntityClass() {
-		if (thiefEntityClass == null) {
-			return GOTEntityThief.class;
-		}
-		return thiefEntityClass;
-	}
-
-	public Class<? extends GOTEntityScrapTrader> getScrapTraderEntityClass() {
-		if (scrapTraderEntityClass == null) {
-			return GOTEntityScrapTrader.class;
-		}
-		return scrapTraderEntityClass;
-	}
-
 	public Class<? extends GOTEntityBandit> getBanditEntityClass() {
 		if (banditEntityClass == null) {
 			return GOTEntityBandit.class;
@@ -674,6 +656,13 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return GOTBezierType.PATH_DIRTY;
 	}
 
+	public Class<? extends GOTEntityScrapTrader> getScrapTraderEntityClass() {
+		if (scrapTraderEntityClass == null) {
+			return GOTEntityScrapTrader.class;
+		}
+		return scrapTraderEntityClass;
+	}
+
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public int getSkyColorByTemp(float f) {
@@ -698,6 +687,13 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return super.getSpawnableList(creatureType);
 	}
 
+	public Class<? extends GOTEntityThief> getThiefEntityClass() {
+		if (thiefEntityClass == null) {
+			return GOTEntityThief.class;
+		}
+		return thiefEntityClass;
+	}
+
 	public WorldGenAbstractTree getTreeGen(World world, Random random, int i, int j, int k) {
 		GOTWorldChunkManager chunkManager = (GOTWorldChunkManager) world.getWorldChunkManager();
 		GOTBiomeVariant variant = chunkManager.getBiomeVariantAt(i, k);
@@ -707,6 +703,10 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	public float getTreeIncreaseChance() {
 		return 0.1f;
+	}
+
+	public GOTEventSpawner.EventChance getUnreliableChance() {
+		return banditChance;
 	}
 
 	public GOTBezierType getWallBlock() {
@@ -811,10 +811,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		addFlower(GOTRegistry.yitiFlower, 4, 10);
 	}
 
-	public void setUnreliableChance(GOTEventSpawner.EventChance c) {
-		banditChance = c;
-	}
-
 	public void setBanditEntityClass(Class<? extends GOTEntityBandit> c) {
 		banditEntityClass = c;
 	}
@@ -891,6 +887,10 @@ public abstract class GOTBiome extends BiomeGenBase {
 		rainfallBase = f1;
 		super.setTemperatureRainfall(f, f1);
 		return this;
+	}
+
+	public void setUnreliableChance(GOTEventSpawner.EventChance c) {
+		banditChance = c;
 	}
 
 	public int spawnCountMultiplier() {

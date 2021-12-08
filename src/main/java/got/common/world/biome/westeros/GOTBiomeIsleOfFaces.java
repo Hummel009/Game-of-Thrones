@@ -18,6 +18,7 @@ public class GOTBiomeIsleOfFaces extends GOTBiomeWesteros {
 		super(i, major);
 		npcSpawnList.clear();
 		decorator.clearVillages();
+		decorator.clearRandomStructures();
 		invasionSpawns.clearInvasions();
 		clearBiomeVariants();
 		spawnableCreatureList.clear();

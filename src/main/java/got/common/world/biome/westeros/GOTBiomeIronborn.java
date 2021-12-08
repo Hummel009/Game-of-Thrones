@@ -9,7 +9,7 @@ import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.other.*;
-import got.common.world.structure.westeros.ironborn.GOTStructureIronbornCity;
+import got.common.world.structure.westeros.ironborn.*;
 
 public class GOTBiomeIronborn extends GOTBiomeWesteros {
 	public GOTBiomeIronborn(int i, boolean major) {
@@ -71,6 +71,8 @@ public class GOTBiomeIronborn extends GOTBiomeWesteros {
 		ruins.affix(GOTWaypoint.HoareKeep);
 		ruins.affix(GOTWaypoint.HoareCastle);
 		decorator.affix(ruins);
+
+		decorator.addRandomStructure(new GOTStructureIronbornWatchfort(false), 800);
 	}
 
 	@Override

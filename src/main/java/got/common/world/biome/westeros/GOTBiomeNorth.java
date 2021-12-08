@@ -97,8 +97,8 @@ public class GOTBiomeNorth extends GOTBiomeWesteros {
 
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.IRONBORN, GOTEventSpawner.EventChance.UNCOMMON);
-		
-        decorator.addRandomStructure(new GOTStructureNorthWatchfort(false), 800);
+
+		decorator.addRandomStructure(new GOTStructureNorthWatchfort(false), 800);
 	}
 
 	@Override

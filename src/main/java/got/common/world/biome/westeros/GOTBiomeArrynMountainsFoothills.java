@@ -10,6 +10,8 @@ import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
+import got.common.world.structure.other.*;
+import got.common.world.structure.westeros.common.GOTStructureWesterosObelisk;
 import got.common.world.structure.westeros.hillmen.*;
 import net.minecraft.world.biome.BiomeGenBase;
 
@@ -51,6 +53,12 @@ public class GOTBiomeArrynMountainsFoothills extends GOTBiome {
 
 		decorator.affix(new GOTStructureHillmanVillage(this, 1.0f));
 		decorator.addRandomStructure(new GOTStructureHillmanFort(false), 500);
+		decorator.addRandomStructure(new GOTStructureWesterosObelisk(false), 1000);
+		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
+		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
+		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
+		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
+		decorator.addRandomStructure(new GOTStructureStoneRuin.STONE(1, 4), 400);
 
 	}
 

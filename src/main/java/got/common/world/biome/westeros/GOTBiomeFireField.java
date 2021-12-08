@@ -18,6 +18,7 @@ public class GOTBiomeFireField extends GOTBiomeReach {
 		super(i, major);
 		npcSpawnList.clear();
 		decorator.clearVillages();
+		decorator.clearRandomStructures();
 
 		SpawnListContainer[] c0 = new SpawnListContainer[2];
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.REACH_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN);

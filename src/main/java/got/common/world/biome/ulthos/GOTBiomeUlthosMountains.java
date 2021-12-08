@@ -17,7 +17,6 @@ public class GOTBiomeUlthosMountains extends GOTBiomeUlthos {
 		super(i, major);
 		npcSpawnList.clear();
 		spawnableCreatureList.clear();
-		decorator.clearVillages();
 		invasionSpawns.clearInvasions();
 		clearBiomeVariants();
 		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);

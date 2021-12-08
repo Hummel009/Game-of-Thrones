@@ -12,6 +12,7 @@ public class GOTBiomeMossovyForest extends GOTBiomeMossovy {
 		decorator.addTree(GOTTreeType.PINE, 20);
 		decorator.treesPerChunk = 10;
 		decorator.clearVillages();
+		decorator.clearRandomStructures();
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 

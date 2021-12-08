@@ -12,7 +12,7 @@ import got.common.world.map.GOTWaypoint;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.westeros.dorne.GOTStructureDorneCity;
+import got.common.world.structure.westeros.dorne.*;
 import net.minecraft.entity.passive.*;
 import net.minecraft.world.biome.BiomeGenBase;
 
@@ -82,6 +82,8 @@ public class GOTBiomeDorne extends GOTBiomeEssos {
 
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		setBanditEntityClass(GOTEntityBanditEssos.class);
+
+		decorator.addRandomStructure(new GOTStructureDorneWatchfort(false), 800);
 	}
 
 	@Override
