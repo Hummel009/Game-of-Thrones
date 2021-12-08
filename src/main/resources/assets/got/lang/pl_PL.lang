@@ -1,4 +1,8 @@
 
+got.achievement.KILL_PRIEST.desc≠
+got.achievement.KILL_PRIEST.title≠
+got.achievement.WEAR_FULL_JOGOS.desc≠
+got.achievement.WEAR_FULL_JOGOS.title≠
 item.got:tugarKhanSword.name≠
 item.got:jogosBoots.name≠
 item.got:jogosChestplate.name≠
@@ -226,7 +230,7 @@ entity.got.Elephant.name=Słoń
 entity.got.Elk.name=Łoś
 entity.got.EllaryaSand.name=Ellarya Sand
 entity.got.ErikIronmaker.name≠
-entity.got.EssosBandit.name=Essos Bandit
+entity.got.EssosBandit.name=Bandit
 entity.got.EuronGreyjoy.name=Euron Greyjoy
 entity.got.Fish.name=Ryba
 entity.got.Flamingo.name=Flaming
@@ -702,7 +706,8 @@ entity.got.SalladhorSaan.name≠
 entity.got.SamwellTarly.name≠
 entity.got.SandorClegane.name=Sandor Clegane
 entity.got.SansaStark.name=Sansa Stark
-entity.got.ScrapTrader.name=Kolekcjoner dziwactw
+entity.got.WesterosScrapTrader.name≠
+entity.got.EssosScrapTrader.name≠
 entity.got.Seagull.name=Mewa
 entity.got.SebastonFarman.name=Sebaston Farman
 entity.got.SelwynTarth.name=Selwyn Tarth
@@ -777,7 +782,8 @@ entity.got.ThennBlacksmith.name=Thenn Kowal
 entity.got.ThennMagnar.name=Thenn Magnar
 entity.got.TheonGreyjoy.name=Theon Greyjoy
 entity.got.TheonGreyjoyV.name=Theon Greyjoy
-entity.got.Thief.name=Thief
+entity.got.WesterosThief.name=Thief
+entity.got.EssosThief.name=Thief
 entity.got.Thoros.name=Thoros
 entity.got.ThreeEyedRaven.name=Trójoczy Kruk
 entity.got.ThrowingAxe.name=Topór miotany
@@ -873,7 +879,7 @@ entity.got.WesterlandsMan.name=Poddany Krainy zachodu
 entity.got.WesterlandsMason.name=Murar Krainy zachodu
 entity.got.WesterlandsSoldier.name=Wojownik Krainy zachodu
 entity.got.WesterlandsSoldierArcher.name=Wojownik-Łucznik Krainy zachodu
-entity.got.WesterosBandit.name=Westeros Bandit
+entity.got.WesterosBandit.name=Bandit
 entity.got.WhiteOryx.name=Biały oryks
 entity.got.WhiteWalker.name=White Walker
 entity.got.Whore.name=Prostytutka
@@ -1417,8 +1423,8 @@ got.achievement.WEAR_FULL_MOSSOVY.desc=Noś pełny zestaw Mossovy
 got.achievement.WEAR_FULL_MOSSOVY.title=Strażnik Mossovy
 got.achievement.WEAR_FULL_MYR.desc=Noś pełny zestaw Myr
 got.achievement.WEAR_FULL_MYR.title=Strażnik Myr
-got.achievement.WEAR_FULL_NOMAD.desc≠
-got.achievement.WEAR_FULL_NOMAD.title≠
+got.achievement.WEAR_FULL_DOTHRAKI.desc≠
+got.achievement.WEAR_FULL_DOTHRAKI.title≠
 got.achievement.WEAR_FULL_NORTH.desc=Noś pełny zestaw North
 got.achievement.WEAR_FULL_NORTH.title=Straż Północy
 got.achievement.WEAR_FULL_NORTHGUARD.desc=Załóż pełny zestaw Północnych strażników

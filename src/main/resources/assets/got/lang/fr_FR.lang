@@ -1,4 +1,8 @@
 ﻿
+got.achievement.KILL_PRIEST.desc≠
+got.achievement.KILL_PRIEST.title≠
+got.achievement.WEAR_FULL_JOGOS.desc≠
+got.achievement.WEAR_FULL_JOGOS.title≠
 item.got:tugarKhanSword.name≠
 item.got:jogosBoots.name≠
 item.got:jogosChestplate.name≠
@@ -226,7 +230,7 @@ entity.got.Elephant.name=L'éléphant
 entity.got.Elk.name=Élan
 entity.got.EllaryaSand.name=Ellarya Sand
 entity.got.ErikIronmaker.name≠
-entity.got.EssosBandit.name=Bandit Essos
+entity.got.EssosBandit.name=Bandit
 entity.got.EuronGreyjoy.name=Euron Greyjoy
 entity.got.Fish.name=Poisson
 entity.got.Flamingo.name=Flamant rose
@@ -702,7 +706,8 @@ entity.got.SalladhorSaan.name≠
 entity.got.SamwellTarly.name≠
 entity.got.SandorClegane.name=Sandor Clegane
 entity.got.SansaStark.name=Sansa Stark
-entity.got.ScrapTrader.name=Collecteur d'étrangetés
+entity.got.WesterosScrapTrader.name≠
+entity.got.EssosScrapTrader.name≠
 entity.got.Seagull.name=Mouette
 entity.got.SebastonFarman.name=Sébaston Farman
 entity.got.SelwynTarth.name=Selwyn Tarth
@@ -777,7 +782,8 @@ entity.got.ThennBlacksmith.name=Thenn Forgeron
 entity.got.ThennMagnar.name=Thenn Magnar
 entity.got.TheonGreyjoy.name=Theon Greyjoy
 entity.got.TheonGreyjoyV.name=Theon Greyjoy
-entity.got.Thief.name=Thief
+entity.got.WesterosThief.name=Thief
+entity.got.EssosThief.name=Thief
 entity.got.Thoros.name=Thoros
 entity.got.ThreeEyedRaven.name=Corbeau à trois yeux
 entity.got.ThrowingAxe.name=Hache de lancer
@@ -873,7 +879,7 @@ entity.got.WesterlandsMan.name=Homme de Terres de l'Ouest
 entity.got.WesterlandsMason.name=Maçon de Terres de l'Ouest
 entity.got.WesterlandsSoldier.name=Guerrier des Terres de l'Ouest
 entity.got.WesterlandsSoldierArcher.name=Guerrier Archer de Terres de l'Ouest
-entity.got.WesterosBandit.name=Bandit de Westeros
+entity.got.WesterosBandit.name=Bandit
 entity.got.WhiteOryx.name=Oryx blanc
 entity.got.WhiteWalker.name=Marcheur blanc
 entity.got.Whore.name=Prostituée
@@ -1403,8 +1409,8 @@ got.achievement.WEAR_FULL_MOSSOVY.desc=Portez un ensemble complet de Mossovy
 got.achievement.WEAR_FULL_MOSSOVY.title=Garde de Mossovy
 got.achievement.WEAR_FULL_MYR.desc=Portez un ensemble complet de Myr
 got.achievement.WEAR_FULL_MYR.title=Garde de Myr
-got.achievement.WEAR_FULL_NOMAD.desc≠
-got.achievement.WEAR_FULL_NOMAD.title≠
+got.achievement.WEAR_FULL_DOTHRAKI.desc≠
+got.achievement.WEAR_FULL_DOTHRAKI.title≠
 got.achievement.WEAR_FULL_NORTH.desc=Portez un ensemble complet de Le Nord
 got.achievement.WEAR_FULL_NORTH.title=Garde du Le Nord
 got.achievement.WEAR_FULL_NORTHGUARD.desc=Portez un ensemble complet de gardes du Le Nord

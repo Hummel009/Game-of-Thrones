@@ -1,4 +1,8 @@
 
+got.achievement.KILL_PRIEST.desc≠
+got.achievement.KILL_PRIEST.title≠
+got.achievement.WEAR_FULL_JOGOS.desc≠
+got.achievement.WEAR_FULL_JOGOS.title≠
 item.got:tugarKhanSword.name≠
 item.got:jogosBoots.name≠
 item.got:jogosChestplate.name≠
@@ -702,7 +706,8 @@ entity.got.SalladhorSaan.name≠
 entity.got.SamwellTarly.name≠
 entity.got.SandorClegane.name≠
 entity.got.SansaStark.name≠
-entity.got.ScrapTrader.name=Çöp Takascısı
+entity.got.WesterosScrapTrader.name≠
+entity.got.EssosScrapTrader.name≠
 entity.got.Seagull.name=Martı
 entity.got.SebastonFarman.name≠
 entity.got.SelwynTarth.name≠
@@ -777,7 +782,8 @@ entity.got.ThennBlacksmith.name≠
 entity.got.ThennMagnar.name≠
 entity.got.TheonGreyjoy.name≠
 entity.got.TheonGreyjoyV.name≠
-entity.got.Thief.name=Thief
+entity.got.WesterosThief.name=Thief
+entity.got.EssosThief.nameThief
 entity.got.Thoros.name≠
 entity.got.ThreeEyedRaven.name≠
 entity.got.ThrowingAxe.name=Fırlatma Baltası
@@ -1401,8 +1407,8 @@ got.achievement.WEAR_FULL_MOSSOVY.desc≠
 got.achievement.WEAR_FULL_MOSSOVY.title≠
 got.achievement.WEAR_FULL_MYR.desc≠
 got.achievement.WEAR_FULL_MYR.title≠
-got.achievement.WEAR_FULL_NOMAD.desc≠
-got.achievement.WEAR_FULL_NOMAD.title≠
+got.achievement.WEAR_FULL_DOTHRAKI.desc≠
+got.achievement.WEAR_FULL_DOTHRAKI.title≠
 got.achievement.WEAR_FULL_NORTH.desc≠
 got.achievement.WEAR_FULL_NORTH.title≠
 got.achievement.WEAR_FULL_NORTHGUARD.desc≠

@@ -1,4 +1,8 @@
 
+got.achievement.KILL_PRIEST.desc≠
+got.achievement.KILL_PRIEST.title≠
+got.achievement.WEAR_FULL_JOGOS.desc≠
+got.achievement.WEAR_FULL_JOGOS.title≠
 item.got:tugarKhanSword.name≠
 item.got:jogosBoots.name≠
 item.got:jogosChestplate.name≠
@@ -226,7 +230,7 @@ entity.got.Elephant.name=Olifant
 entity.got.Elk.name=Elk
 entity.got.EllaryaSand.name=Ellarya Sand
 entity.got.ErikIronmaker.name≠
-entity.got.EssosBandit.name=Essos Bandit
+entity.got.EssosBandit.name=Bandit
 entity.got.EuronGreyjoy.name=Euron Greyjoy
 entity.got.Fish.name= Vis
 entity.got.Flamingo.name=Flamingo
@@ -702,7 +706,8 @@ entity.got.SalladhorSaan.name≠
 entity.got.SamwellTarly.name≠
 entity.got.SandorClegane.name=Sandor Clegane
 entity.got.SansaStark.name=Sansa Stark
-entity.got.ScrapTrader.name=Troepverzamelaar
+entity.got.WesterosScrapTrader.name≠
+entity.got.EssosScrapTrader.name≠
 entity.got.Seagull.name=Zeemeeuw
 entity.got.SebastonFarman.name=Sebaston Farman
 entity.got.SelwynTarth.name=Selwyn Tarth
@@ -777,7 +782,8 @@ entity.got.ThennBlacksmith.name=Thenn smid
 entity.got.ThennMagnar.name=Thenn Magnar
 entity.got.TheonGreyjoy.name=Theon Greyjoy
 entity.got.TheonGreyjoyV.name=Theon Greyjoy
-entity.got.Thief.name=Thief
+entity.got.WesterosThief.name=Thief
+entity.got.EssosThief.name=Thief
 entity.got.Thoros.name=Thoros
 entity.got.ThreeEyedRaven.name=Raaf met drie ogen
 entity.got.ThrowingAxe.name=Werpbijltje
@@ -873,7 +879,7 @@ entity.got.WesterlandsMan.name=Man van Westlanden
 entity.got.WesterlandsMason.name=Metselaar van Westlanden
 entity.got.WesterlandsSoldier.name=Strijder van Westlanden
 entity.got.WesterlandsSoldierArcher.name=Krijger Boogschutter van Westlanden
-entity.got.WesterosBandit.name=Westeros Bandit
+entity.got.WesterosBandit.name=Bandit
 entity.got.WhiteOryx.name=Witte Oryx
 entity.got.WhiteWalker.name=White Walker
 entity.got.Whore.name=Prostitueren
@@ -1403,8 +1409,8 @@ got.achievement.WEAR_FULL_MOSSOVY.desc=Draag een volledige set Mossovy
 got.achievement.WEAR_FULL_MOSSOVY.title=Bewaker van Mossovy
 got.achievement.WEAR_FULL_MYR.desc=Draag een volledige set Myr
 got.achievement.WEAR_FULL_MYR.title=Bewaker van Myr
-got.achievement.WEAR_FULL_NOMAD.desc≠
-got.achievement.WEAR_FULL_NOMAD.title≠
+got.achievement.WEAR_FULL_DOTHRAKI.desc≠
+got.achievement.WEAR_FULL_DOTHRAKI.title≠
 got.achievement.WEAR_FULL_NORTH.desc=Draag een volledige set North
 got.achievement.WEAR_FULL_NORTH.title=Bewaker van het Noorden
 got.achievement.WEAR_FULL_NORTHGUARD.desc=Draag een volledige set North Guards

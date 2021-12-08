@@ -1,4 +1,8 @@
 ﻿
+got.achievement.KILL_PRIEST.desc≠
+got.achievement.KILL_PRIEST.title≠
+got.achievement.WEAR_FULL_JOGOS.desc≠
+got.achievement.WEAR_FULL_JOGOS.title≠
 item.got:tugarKhanSword.name≠
 item.got:jogosBoots.name≠
 item.got:jogosChestplate.name≠
@@ -702,7 +706,8 @@ entity.got.SalladhorSaan.name=萨拉多·桑恩
 entity.got.SamwellTarly.name=山姆威尔·塔利
 entity.got.SandorClegane.name=桑铎·克里冈
 entity.got.SansaStark.name=珊莎·史塔克
-entity.got.ScrapTrader.name=零头收集者
+entity.got.WesterosScrapTrader.name≠
+entity.got.EssosScrapTrader.name≠
 entity.got.Seagull.name=海鸥
 entity.got.SebastonFarman.name=塞斯巴顿·法曼
 entity.got.SelwynTarth.name=塞尔温·塔斯
@@ -777,7 +782,8 @@ entity.got.ThennBlacksmith.name=瑟恩铁匠
 entity.got.ThennMagnar.name=马格纳
 entity.got.TheonGreyjoy.name=席恩·葛雷乔伊
 entity.got.TheonGreyjoyV.name=席恩·葛雷乔伊
-entity.got.Thief.name=小偷
+entity.got.WesterosThief.name=小偷
+entity.got.EssosThief.name=小偷
 entity.got.Thoros.name=索罗斯
 entity.got.ThreeEyedRaven.name=三眼乌鸦
 entity.got.ThrowingAxe.name=投斧
@@ -873,7 +879,7 @@ entity.got.WesterlandsMan.name=西境人
 entity.got.WesterlandsMason.name=西境石匠
 entity.got.WesterlandsSoldier.name=西境武装士兵
 entity.got.WesterlandsSoldierArcher.name=西境武装弓箭手
-entity.got.WesterosBandit.name=维斯特洛土匪
+entity.got.WesterosBandit.name≠
 entity.got.WhiteOryx.name=白色大羚羊
 entity.got.WhiteWalker.name=异鬼
 entity.got.Whore.name=妓女
@@ -1417,8 +1423,8 @@ got.achievement.WEAR_FULL_MOSSOVY.desc=装备整套摩苏伊猎魔人铠甲
 got.achievement.WEAR_FULL_MOSSOVY.title=玻璃膝盖
 got.achievement.WEAR_FULL_MYR.desc=装备整套密尔铠甲
 got.achievement.WEAR_FULL_MYR.title=密尔守卫
-got.achievement.WEAR_FULL_NOMAD.desc=装备整套多斯拉克铠甲
-got.achievement.WEAR_FULL_NOMAD.title=比海洋更宽广
+got.achievement.WEAR_FULL_DOTHRAKI.desc=装备整套多斯拉克铠甲
+got.achievement.WEAR_FULL_DOTHRAKI.title=比海洋更宽广
 got.achievement.WEAR_FULL_NORTH.desc=装备整套北境铠甲
 got.achievement.WEAR_FULL_NORTH.title=北境刁民
 got.achievement.WEAR_FULL_NORTHGUARD.desc=装备整套北境守卫铠甲

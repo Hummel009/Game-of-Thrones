@@ -1,4 +1,8 @@
 
+got.achievement.KILL_PRIEST.desc≠
+got.achievement.KILL_PRIEST.title≠
+got.achievement.WEAR_FULL_JOGOS.desc≠
+got.achievement.WEAR_FULL_JOGOS.title≠
 item.got:tugarKhanSword.name≠
 item.got:jogosBoots.name≠
 item.got:jogosChestplate.name≠
@@ -226,7 +230,7 @@ entity.got.Elephant.name=Elefant
 entity.got.Elk.name=Elch
 entity.got.EllaryaSand.name=Ellaria Sand
 entity.got.ErikIronmaker.name≠
-entity.got.EssosBandit.name=Essos Bandit
+entity.got.EssosBandit.name=Bandit
 entity.got.EuronGreyjoy.name=Euron Graufreud
 entity.got.Fish.name=Fisch
 entity.got.Flamingo.name=Flamingo
@@ -702,7 +706,8 @@ entity.got.SalladhorSaan.name≠
 entity.got.SamwellTarly.name≠
 entity.got.SandorClegane.name=Sandor Clegane
 entity.got.SansaStark.name=Sansa Stark
-entity.got.ScrapTrader.name=Schrotthändler
+entity.got.WesterosScrapTrader.name≠
+entity.got.EssosScrapTrader.name≠
 entity.got.Seagull.name=Möwe
 entity.got.SebastonFarman.name=Sebaston Weitmann
 entity.got.SelwynTarth.name=Selwyn Tarth
@@ -777,7 +782,8 @@ entity.got.ThennBlacksmith.name=Thenn Schmied
 entity.got.ThennMagnar.name=Magnar von Thenn
 entity.got.TheonGreyjoy.name=Theon Graufreud
 entity.got.TheonGreyjoyV.name=Theon Graufreud
-entity.got.Thief.name=Thief
+entity.got.WesterosThief.name=Thief
+entity.got.EssosThief.name=Thief
 entity.got.Thoros.name=Thoros
 entity.got.ThreeEyedRaven.name=Dreiäugiger Rabe
 entity.got.ThrowingAxe.name=Wurfaxt
@@ -873,7 +879,7 @@ entity.got.WesterlandsMan.name=Westlande Bewohner
 entity.got.WesterlandsMason.name=Westlande Steinmetz
 entity.got.WesterlandsSoldier.name=Westlande Krieger
 entity.got.WesterlandsSoldierArcher.name=Westlande Krieger-Bogenschütze
-entity.got.WesterosBandit.name=Westeros Bandit
+entity.got.WesterosBandit.name=Bandit
 entity.got.WhiteOryx.name=Weißer Oryx
 entity.got.WhiteWalker.name=Weißer Wanderer
 entity.got.Whore.name=Freudenmädchen
@@ -1417,8 +1423,8 @@ got.achievement.WEAR_FULL_MOSSOVY.desc=Trage eine vollständige Mossovy-Rüstung
 got.achievement.WEAR_FULL_MOSSOVY.title=Wache von Mossovy
 got.achievement.WEAR_FULL_MYR.desc=Trage eine vollständige Myr-Rüstung!
 got.achievement.WEAR_FULL_MYR.title=Wache von Myr
-got.achievement.WEAR_FULL_NOMAD.desc≠
-got.achievement.WEAR_FULL_NOMAD.title≠
+got.achievement.WEAR_FULL_DOTHRAKI.desc≠
+got.achievement.WEAR_FULL_DOTHRAKI.title≠
 got.achievement.WEAR_FULL_NORTH.desc=Trage eine vollständige Stark-Rüstung!
 got.achievement.WEAR_FULL_NORTH.title=Krieger des Nordens
 got.achievement.WEAR_FULL_NORTHGUARD.desc=Trage eine vollständige Weißwasserhafen-Rüstung!

@@ -1,4 +1,8 @@
 
+got.achievement.KILL_PRIEST.desc≠
+got.achievement.KILL_PRIEST.title≠
+got.achievement.WEAR_FULL_JOGOS.desc≠
+got.achievement.WEAR_FULL_JOGOS.title≠
 item.got:tugarKhanSword.name≠
 item.got:jogosBoots.name≠
 item.got:jogosChestplate.name≠
@@ -226,7 +230,7 @@ entity.got.Elephant.name=Слон
 entity.got.Elk.name=Лось
 entity.got.EllaryaSand.name=Еллара Сенд
 entity.got.ErikIronmaker.name≠
-entity.got.EssosBandit.name=Бандит Ессоса
+entity.got.EssosBandit.name=Бандит
 entity.got.EuronGreyjoy.name=Еурон Грейджой
 entity.got.Fish.name=Риба
 entity.got.Flamingo.name=Фламінго
@@ -702,7 +706,8 @@ entity.got.SalladhorSaan.name≠
 entity.got.SamwellTarly.name≠
 entity.got.SandorClegane.name=Сандор Кліган
 entity.got.SansaStark.name=Санса Старк
-entity.got.ScrapTrader.name=Безхатько
+entity.got.WesterosScrapTrader.name≠
+entity.got.EssosScrapTrader.name≠
 entity.got.Seagull.name=Чайка
 entity.got.SebastonFarman.name=Себастон Фарман
 entity.got.SelwynTarth.name=Сельвина Тарт
@@ -777,7 +782,8 @@ entity.got.ThennBlacksmith.name=Тенн-коваль
 entity.got.ThennMagnar.name=Магнар Теннов
 entity.got.TheonGreyjoy.name=Теона Грейджой
 entity.got.TheonGreyjoyV.name=Теона Грейджой
-entity.got.Thief.name=Thief
+entity.got.WesterosThief.name=Thief
+entity.got.EssosThief.name=Thief
 entity.got.Thoros.name=Торос з Світу
 entity.got.ThreeEyedRaven.name=Трёхглазий Ворон
 entity.got.ThrowingAxe.name=Метальний сокиру
@@ -873,7 +879,7 @@ entity.got.WesterlandsMan.name=Підданий Західних Земель
 entity.got.WesterlandsMason.name=Камнетёс Західних Земель
 entity.got.WesterlandsSoldier.name=Воїн Західних Земель
 entity.got.WesterlandsSoldierArcher.name=Воїн-лучник Західних Земель
-entity.got.WesterosBandit.name=Бандит Вестерос
+entity.got.WesterosBandit.name≠
 entity.got.WhiteOryx.name=Білий Орікс
 entity.got.WhiteWalker.name=Білий ходок
 entity.got.Whore.name=Повія
@@ -1417,8 +1423,8 @@ got.achievement.WEAR_FULL_MOSSOVY.desc=Екіпіруйте повний ком�
 got.achievement.WEAR_FULL_MOSSOVY.title=На сторожі Мосовіі
 got.achievement.WEAR_FULL_MYR.desc=Екіпіруйте повний комплект броні Миру
 got.achievement.WEAR_FULL_MYR.title=На сторожі Миру
-got.achievement.WEAR_FULL_NOMAD.desc≠
-got.achievement.WEAR_FULL_NOMAD.title≠
+got.achievement.WEAR_FULL_DOTHRAKI.desc≠
+got.achievement.WEAR_FULL_DOTHRAKI.title≠
 got.achievement.WEAR_FULL_NORTH.desc=Екіпіруйте повний комплект броні Півночі
 got.achievement.WEAR_FULL_NORTH.title=На сторожі Півночі
 got.achievement.WEAR_FULL_NORTHGUARD.desc=Екіпіруйте повний комплект броні вартою Півночі
