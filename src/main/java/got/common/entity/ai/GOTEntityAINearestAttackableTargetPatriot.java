@@ -2,8 +2,9 @@ package got.common.entity.ai;
 
 import got.GOT;
 import got.common.GOTLevelData;
+import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.command.IEntitySelector;
-import net.minecraft.entity.EntityCreature;
+import net.minecraft.entity.*;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTEntityAINearestAttackableTargetPatriot extends GOTEntityAINearestAttackableTargetBasic {
@@ -19,5 +20,13 @@ public class GOTEntityAINearestAttackableTargetPatriot extends GOTEntityAINeares
 	public boolean isPlayerSuitableAlignmentTarget(EntityPlayer entityplayer) {
 		float alignment = GOTLevelData.getData(entityplayer).getAlignment(GOT.getNPCFaction(taskOwner));
 		return alignment < 50.0f;
+	}
+
+	@Override
+	public boolean isSuitableTarget(EntityLivingBase entity, boolean flag) {
+		if (entity instanceof GOTEntityNPC) {
+			return true;
+		}
+		return false;
 	}
 }
