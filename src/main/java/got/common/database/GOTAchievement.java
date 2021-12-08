@@ -269,7 +269,7 @@ public class GOTAchievement {
 	public static GOTAchievement WEAR_FULL_YITI;
 	public static GOTAchievement WEAR_FULL_YITI_SAMURAI;
 	public static GOTAchievement WEAR_FULL_YITI_FRONTIER;
-	public static GOTAchievement WEAR_FULL_NOMAD;
+	public static GOTAchievement WEAR_FULL_DOTHRAKI;
 	public static GOTAchievement KILL_THOROS;
 	public static GOTAchievement KILL_BARRISTAN_SELMY;
 	public static GOTAchievement KILL_XARO_XHOAN_DAXOS;
@@ -289,6 +289,7 @@ public class GOTAchievement {
 	public static GOTAchievement KILL_EDMURE_TULLY;
 	public static GOTAchievement KILL_ARDRIAN_CELTIGAR;
 	public static GOTAchievement KILL_KRAZNYS_MO_NAKLOZ;
+	public static GOTAchievement WEAR_FULL_JOGOS;
 	public Category category;
 	public int ID;
 	public ItemStack icon;
@@ -763,7 +764,8 @@ public class GOTAchievement {
 		WEAR_FULL_YITI = GOTAchievement.createArmorAchievement(Category.WEAR, id++, GOTRegistry.yitiChestplate, "WEAR_FULL_YITI");
 		WEAR_FULL_YITI_SAMURAI = GOTAchievement.createArmorAchievement(Category.WEAR, id++, GOTRegistry.yitiChestplateSamurai, "WEAR_FULL_YITI_SAMURAI");
 		WEAR_FULL_YITI_FRONTIER = GOTAchievement.createArmorAchievement(Category.WEAR, id++, GOTRegistry.yitiChestplateFrontier, "WEAR_FULL_YITI_FRONTIER");
-		WEAR_FULL_NOMAD = GOTAchievement.createArmorAchievement(Category.WEAR, id++, GOTRegistry.dothrakiChestplate, "WEAR_FULL_NOMAD");
+		WEAR_FULL_DOTHRAKI = GOTAchievement.createArmorAchievement(Category.WEAR, id++, GOTRegistry.dothrakiChestplate, "WEAR_FULL_DOTHRAKI");
+		WEAR_FULL_JOGOS = GOTAchievement.createArmorAchievement(Category.WEAR, id++, GOTRegistry.jogosChestplate, "WEAR_FULL_JOGOS");
 	}
 
 	public static Comparator<GOTAchievement> sortForDisplay(EntityPlayer entityplayer) {

@@ -2,7 +2,7 @@ package got.common.entity.westeros.ice;
 
 import got.common.GOTDamage;
 import got.common.database.*;
-import got.common.entity.ai.GOTEntityAINearestAttackableTargetIce;
+import got.common.entity.ai.*;
 import got.common.entity.essos.legendary.warrior.GOTEntityAsshaiArchmag;
 import got.common.entity.other.*;
 import got.common.entity.westeros.legendary.reborn.*;
@@ -24,7 +24,7 @@ public class GOTEntityIceSpider extends GOTEntitySpiderBase {
 		isChilly = true;
 		isImmuneToFire = true;
 		isNotHuman = true;
-		addTargetTasks(true, GOTEntityAINearestAttackableTargetIce.class);
+		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
 	}
 
 	@Override

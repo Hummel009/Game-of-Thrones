@@ -33,7 +33,7 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 		tasks.addTask(2, new EntityAIWander(this, 1.0));
 		tasks.addTask(3, new EntityAIWatchClosest2(this, EntityPlayer.class, 8.0f, 0.02f));
 		tasks.addTask(4, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
-		addTargetTasks(true, GOTEntityAINearestAttackableTargetIce.class);
+		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
 		isNotHuman = true;
 	}
 

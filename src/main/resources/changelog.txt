@@ -15,6 +15,7 @@ CHANGELOG
 * Improved structures generator
 * Improved wall gate
 
+* Fixed bug with speech and chat
 * Fixed bug with structures of Mossovy
 * Fixed bug with sandstone in Westeros
 * Fixed bug with Daenerys Targaryen spawning
