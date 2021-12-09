@@ -12,7 +12,7 @@ import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.essos.ibben.GOTStructureIbbenVillage;
-import got.common.world.structure.other.GOTStructureBarrow;
+import got.common.world.structure.other.*;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTBiomeIbben extends GOTBiome {
@@ -66,6 +66,11 @@ public class GOTBiomeIbben extends GOTBiome {
 		decorator.addRandomStructure(new GOTStructureBarrow(false), 250);
 
 		invasionSpawns.addInvasion(GOTInvasions.IRONBORN, GOTEventSpawner.EventChance.UNCOMMON);
+		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
+		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
+		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
+		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
+		decorator.addRandomStructure(new GOTStructureStoneRuin.STONE(1, 4), 400);
 	}
 
 	@Override

@@ -811,8 +811,10 @@ public abstract class GOTBiome extends BiomeGenBase {
 		addFlower(GOTRegistry.yitiFlower, 4, 10);
 	}
 
-	public void setBanditEntityClass(Class<? extends GOTEntityBandit> c) {
-		banditEntityClass = c;
+	public void setDarkUnreliable() {
+		banditEntityClass = GOTEntityBanditEssos.class;
+		scrapTraderEntityClass = GOTEntityScrapTraderEssos.class;
+		thiefEntityClass = GOTEntityThiefEssos.class;
 	}
 
 	@Override
@@ -1063,7 +1065,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		mossovyMarshes = new GOTBiomeMossovyMarshes(73, true).setIsLongWinter().setMinMaxHeight(0.0f, 0.1f).setColor(0x677F43).setBiomeName("mossovyMarshes");
 		mossovySopkas = new GOTBiomeMossovySopkas(75, true).setIsLongWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0xADADAD).setBiomeName("mossovySopkas");
 		myr = new GOTBiomeMyr(76, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x9AA54F).setBiomeName("myr");
-		naath = new GOTBiomeNaath(78, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x7DA33C).setBiomeName("naath");
+		naath = new GOTBiomeSummerIslands(78, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x7DA33C).setBiomeName("naath");
 		neck = new GOTBiomeNeck(79, true).setIsLongWinter().setMinMaxHeight(0.0f, 0.1f).setColor(0x578C54).setBiomeName("neck");
 		newGhis = new GOTBiomeNewGhis(80, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xA2A86B).setBiomeName("ghiscar");
 		north = new GOTBiomeNorth(81, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(8959044).setBiomeName("north");

@@ -12,6 +12,7 @@ import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.essos.mossovy.GOTStructureMossovyVillage;
+import got.common.world.structure.other.*;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTBiomeMossovy extends GOTBiome {
@@ -48,6 +49,11 @@ public class GOTBiomeMossovy extends GOTBiome {
 		GOTStructureMossovyVillage capital = new GOTStructureMossovyVillage(this, 1.0f);
 		capital.affix(GOTWaypoint.Kadar);
 		decorator.affix(capital);
+		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
+		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
+		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
+		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
+		decorator.addRandomStructure(new GOTStructureStoneRuin.STONE(1, 4), 400);
 	}
 
 	@Override

@@ -11,6 +11,7 @@ import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
+import got.common.world.structure.other.GOTStructureStoneRuin;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenMinable;
@@ -51,6 +52,8 @@ public class GOTBiomeSothoryosJungle extends GOTBiome {
 		decorator.addTree(GOTTreeType.BANANA, 50);
 		registerJungleFlowers();
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
+		setDarkUnreliable();
+		decorator.addRandomStructure(new GOTStructureStoneRuin.SOTHORYOS(1, 4), 400);
 	}
 
 	@Override

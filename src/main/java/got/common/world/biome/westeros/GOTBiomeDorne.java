@@ -4,7 +4,6 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.entity.animal.*;
-import got.common.entity.other.GOTEntityBanditEssos;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.essos.GOTBiomeEssos;
 import got.common.world.biome.variant.GOTBiomeVariant;
@@ -81,7 +80,7 @@ public class GOTBiomeDorne extends GOTBiomeEssos {
 		decorator.affix(town);
 
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
-		setBanditEntityClass(GOTEntityBanditEssos.class);
+		setDarkUnreliable();
 
 		decorator.addRandomStructure(new GOTStructureDorneWatchfort(false), 800);
 	}

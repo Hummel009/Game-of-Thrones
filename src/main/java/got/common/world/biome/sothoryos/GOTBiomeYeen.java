@@ -30,6 +30,7 @@ public class GOTBiomeYeen extends GOTBiomeSothoryosJungle {
 		decorator.doubleFlowersPerChunk = 0;
 		decorator.doubleGrassPerChunk = 0;
 		decorator.canePerChunk = 0;
+		decorator.clearRandomStructures();
 		npcSpawnList.clear();
 		biomeColors.setFoggy(true);
 		SpawnListContainer[] c11 = new SpawnListContainer[1];

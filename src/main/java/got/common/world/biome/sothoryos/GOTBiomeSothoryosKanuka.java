@@ -14,6 +14,7 @@ import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
+import got.common.world.structure.other.GOTStructureStoneRuin;
 import got.common.world.structure.sothoryos.sothoryos.GOTStructureSothoryosVillage;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -55,6 +56,7 @@ public class GOTBiomeSothoryosKanuka extends GOTBiome {
 		npcSpawnList.newFactionList(10).add(c);
 		decorator.affix(new GOTStructureSothoryosVillage(this, 1.0f));
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
+		decorator.addRandomStructure(new GOTStructureStoneRuin.SOTHORYOS(1, 4), 400);
 	}
 
 	@Override

@@ -50,13 +50,13 @@ public class GOTTickHandlerServer {
 		if (player.ticksExisted % 10 == 0 && !player.capabilities.isCreativeMode) {
 			BiomeGenBase biomeGen = world.getBiomeGenForCoords((int) player.posX, (int) player.posZ);
 			float alignmentSothoryos = GOTLevelData.getData(player).getAlignment(GOTFaction.SOTHORYOS);
-			float alignmentNaath = GOTLevelData.getData(player).getAlignment(GOTFaction.SUMMER_ISLANDS);
-			if (biomeGen instanceof GOTBiomeSothoryosHell && alignmentSothoryos < 50.0f || biomeGen instanceof GOTBiomeNaath && alignmentNaath < 50.0f) {
+			float alignmentSummer = GOTLevelData.getData(player).getAlignment(GOTFaction.SUMMER_ISLANDS);
+			if (biomeGen instanceof GOTBiomeSothoryosHell && alignmentSothoryos < 50.0f || biomeGen instanceof GOTBiomeSummerIslands && alignmentSummer < 50.0f) {
 				player.addPotionEffect(new PotionEffect(Potion.blindness.id, 600, 1));
 				player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 600, 1));
 				player.addPotionEffect(new PotionEffect(Potion.weakness.id, 600));
 			}
-			if (biomeGen instanceof GOTBiomeSothoryosHell && alignmentSothoryos < 0.0f || biomeGen instanceof GOTBiomeNaath && alignmentNaath < 0.0f) {
+			if (biomeGen instanceof GOTBiomeSothoryosHell && alignmentSothoryos < 0.0f || biomeGen instanceof GOTBiomeSummerIslands && alignmentSummer < 0.0f) {
 				player.addPotionEffect(new PotionEffect(Potion.poison.id, 600));
 			}
 		}

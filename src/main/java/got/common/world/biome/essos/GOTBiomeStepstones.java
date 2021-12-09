@@ -6,7 +6,6 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.entity.animal.*;
-import got.common.entity.other.GOTEntityBanditEssos;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.*;
@@ -66,7 +65,7 @@ public class GOTBiomeStepstones extends GOTBiome {
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(1).add(c1);
 		decorator.addRandomStructure(new GOTStructureGhiscarCamp(false), 250);
-		setBanditEntityClass(GOTEntityBanditEssos.class);
+		setDarkUnreliable();
 	}
 
 	@Override

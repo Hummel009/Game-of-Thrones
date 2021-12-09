@@ -3,37 +3,20 @@ package got.common.world.biome.sothoryos;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
-import got.common.entity.animal.*;
-import got.common.entity.other.GOTEntityBanditEssos;
 import got.common.world.biome.GOTBiome;
-import got.common.world.feature.GOTTreeType;
-import got.common.world.map.*;
-import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.essos.ghiscar.GOTStructureGhiscarCity;
-import net.minecraft.world.biome.BiomeGenBase;
+import got.common.world.structure.other.*;
 
-public class GOTBiomeGhiscarColony extends GOTBiome {
+public class GOTBiomeGhiscarColony extends GOTBiomeSothoryosJungle {
 	public GOTBiomeGhiscarColony(int i, boolean major) {
 		super(i, major);
-		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityFlamingo.class, 10, 4, 4));
-		spawnableGOTAmbientList.clear();
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 10, 4, 4));
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 15, 4, 4));
-		decorator.clearTrees();
-		decorator.addTree(GOTTreeType.JUNGLE, 1000);
-		decorator.addTree(GOTTreeType.JUNGLE_LARGE, 500);
-		decorator.addTree(GOTTreeType.MAHOGANY, 500);
-		decorator.addTree(GOTTreeType.JUNGLE_SHRUB, 1000);
-		decorator.addTree(GOTTreeType.MANGO, 20);
-		decorator.addTree(GOTTreeType.BANANA, 50);
-		decorator.treesPerChunk = 2;
-		decorator.grassPerChunk = 6;
-		decorator.doubleGrassPerChunk = 1;
-		decorator.flowersPerChunk = 3;
-		decorator.doubleFlowersPerChunk = 1;
+		decorator.treesPerChunk = 1;
+		npcSpawnList.clear();
+		decorator.clearVillages();
+		decorator.clearRandomStructures();
 		SpawnListContainer[] c0 = new SpawnListContainer[1];
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c0);
@@ -46,7 +29,10 @@ public class GOTBiomeGhiscarColony extends GOTBiome {
 		colony.affix(GOTWaypoint.Zamettar, 0, -1, 2);
 		colony.affix(GOTWaypoint.Gorosh);
 		decorator.affix(colony);
-		setBanditEntityClass(GOTEntityBanditEssos.class);
+		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
+		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
+		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
+		decorator.addRandomStructure(new GOTStructureStoneRuin.SOTHORYOS(1, 4), 400);
 	}
 
 	@Override
@@ -57,20 +43,5 @@ public class GOTBiomeGhiscarColony extends GOTBiome {
 	@Override
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.SOTHORYOS.getSubregion("ghiscarColony");
-	}
-
-	@Override
-	public Region getBiomeWaypoints() {
-		return Region.SOTHORYOS;
-	}
-
-	@Override
-	public float getChanceToSpawnAnimals() {
-		return 0.25f;
-	}
-
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.SOTHORYOS;
 	}
 }

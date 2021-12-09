@@ -9,6 +9,7 @@ import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTBezierType;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
+import got.common.world.structure.other.*;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTBiomeTropicalForest extends GOTBiome {
@@ -32,6 +33,11 @@ public class GOTBiomeTropicalForest extends GOTBiome {
 		c11[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(1).add(c11);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
+		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
+		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
+		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
+		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
+		decorator.addRandomStructure(new GOTStructureStoneRuin.STONE(1, 4), 400);
 	}
 
 	@Override
