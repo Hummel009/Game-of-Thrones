@@ -8,7 +8,10 @@ CHANGELOG
 + Added Hojtbaatar waypoint
 + Added Jogos Nhai armor
 + Added Tugar Khan achievement
++ Added dark variants of scrap trader and thief
 
+* Improved almost all biomes
+* Improved summer islands' strscans
 * Improved white walkers attack AI
 * Improved massy and cracklaw
 * Improved forests and mountains
@@ -17,6 +20,7 @@ CHANGELOG
 * Improved structures generator
 * Improved wall gate
 
+* Fixed bug with alchemist skin
 * Fixed bug with speech and chat
 * Fixed bug with structures of Mossovy
 * Fixed bug with sandstone in Westeros

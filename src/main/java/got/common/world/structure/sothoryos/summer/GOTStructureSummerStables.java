@@ -6,7 +6,7 @@ import got.common.database.*;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.sothoryos.summer.GOTEntitySummerMan;
 import got.common.item.other.GOTItemBanner;
-import net.minecraft.init.*;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -63,9 +63,6 @@ public class GOTStructureSummerStables extends GOTStructureSummerBase {
 		associateBlockMetaAlias("FENCE", fenceBlock, fenceMeta);
 		associateBlockAlias("FENCE_GATE", fenceGateBlock);
 		associateBlockMetaAlias("ROOF", roofBlock, roofMeta);
-		addBlockMetaAliasOption("GROUND", 5, Blocks.grass, 0);
-		addBlockMetaAliasOption("GROUND", 4, Blocks.dirt, 1);
-		addBlockMetaAliasOption("GROUND", 1, Blocks.sand, 0);
 		generateStrScan(world, random, 0, 0, 0);
 		placeWallBanner(world, -2, 4, -4, GOTItemBanner.BannerType.SUMMER, 2);
 		placeWallBanner(world, 2, 4, -4, GOTItemBanner.BannerType.SUMMER, 2);

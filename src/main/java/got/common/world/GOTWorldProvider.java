@@ -115,7 +115,7 @@ public class GOTWorldProvider extends WorldProvider {
 			return worldObj.canSnowAtBody(i, j, k, checkLight);
 		}
 		if (((GOTBiome) biome).isAltitudeZone) {
-			return j >= 140;
+			return j >= 140 && worldObj.canSnowAtBody(i, j, k, checkLight);
 		}
 		return false;
 	}

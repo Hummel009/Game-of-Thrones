@@ -7,7 +7,6 @@ import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.sothoryos.summer.*;
 import got.common.item.other.GOTItemBanner;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -50,35 +49,10 @@ public class GOTStructureSummerFort extends GOTStructureSummerBase {
 				int k2 = Math.abs(k1);
 				boolean bedRegion = i2 <= 3 && k1 >= 5 && k1 <= 9 || i2 <= 2 && k1 == 4 || i2 <= 1 && k1 == 3;
 				int airHeight = 7;
-				for (j1 = 0; j1 <= airHeight; ++j1) {
-					setAir(world, i1, j1, k1);
-				}
 				for (j1 = 0; (j1 >= -1 || !isOpaque(world, i1, j1, k1)) && getY(j1) >= 0; --j1) {
 					if (bedRegion && j1 == 0) {
+						setAir(world, i1, j1, k1);
 						continue;
-					}
-					if (j1 == 0) {
-						int randomGround;
-						if ((i2 <= 11 && k2 <= 11) && random.nextBoolean()) {
-							setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.dirtPath, 0);
-						} else {
-							randomGround = random.nextInt(3);
-							switch (randomGround) {
-							case 0:
-								setBlockAndMetadata(world, i1, j1, k1, Blocks.grass, 0);
-								break;
-							case 1:
-								setBlockAndMetadata(world, i1, j1, k1, Blocks.dirt, 1);
-								break;
-							case 2:
-								setBlockAndMetadata(world, i1, j1, k1, Blocks.sand, 0);
-								break;
-							default:
-								break;
-							}
-						}
-					} else {
-						setBlockAndMetadata(world, i1, j1, k1, Blocks.dirt, 0);
 					}
 					setGrassToDirt(world, i1, j1 - 1, k1);
 				}
