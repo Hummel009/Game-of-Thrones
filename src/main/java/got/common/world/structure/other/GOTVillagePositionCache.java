@@ -6,7 +6,7 @@ import net.minecraft.world.ChunkCoordIntPair;
 
 public class GOTVillagePositionCache {
 	public static int MAX_SIZE = 20000;
-	public Map<ChunkCoordIntPair, GOTLocationInfo> cacheMap = new HashMap<>();
+	public Map<ChunkCoordIntPair, LocationInfo> cacheMap = new HashMap<>();
 
 	public void clearCache() {
 		cacheMap.clear();
@@ -16,11 +16,11 @@ public class GOTVillagePositionCache {
 		return new ChunkCoordIntPair(chunkX, chunkZ);
 	}
 
-	public GOTLocationInfo getLocationAt(int chunkX, int chunkZ) {
+	public LocationInfo getLocationAt(int chunkX, int chunkZ) {
 		return cacheMap.get(getChunkKey(chunkX, chunkZ));
 	}
 
-	public GOTLocationInfo markResult(int chunkX, int chunkZ, GOTLocationInfo result) {
+	public LocationInfo markResult(int chunkX, int chunkZ, LocationInfo result) {
 		if (cacheMap.size() >= 20000) {
 			clearCache();
 		}

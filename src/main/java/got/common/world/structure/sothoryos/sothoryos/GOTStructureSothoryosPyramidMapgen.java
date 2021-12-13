@@ -25,7 +25,7 @@ public class GOTStructureSothoryosPyramidMapgen extends MapGenStructure {
 	public boolean canSpawnStructureAtCoords(int i, int k) {
 		GOTWorldChunkManager worldChunkMgr = (GOTWorldChunkManager) worldObj.getWorldChunkManager();
 		GOTVillagePositionCache cache = worldChunkMgr.getStructureCache(this);
-		GOTLocationInfo cacheLocation = cache.getLocationAt(i, k);
+		LocationInfo cacheLocation = cache.getLocationAt(i, k);
 		if (cacheLocation != null) {
 			return cacheLocation.isPresent();
 		}
@@ -39,10 +39,10 @@ public class GOTStructureSothoryosPyramidMapgen extends MapGenStructure {
 			int i1 = i * 16 + 8;
 			int k1 = k * 16 + 8;
 			if (worldObj.getWorldChunkManager().areBiomesViable(i1, k1, 0, spawnBiomes) && rand.nextInt(spawnChance) == 0) {
-				return cache.markResult(i, k, GOTLocationInfo.RANDOM_GEN_HERE).isPresent();
+				return cache.markResult(i, k, LocationInfo.RANDOM_GEN_HERE).isPresent();
 			}
 		}
-		return cache.markResult(i, k, GOTLocationInfo.NONE_HERE).isPresent();
+		return cache.markResult(i, k, LocationInfo.NONE_HERE).isPresent();
 	}
 
 	@Override

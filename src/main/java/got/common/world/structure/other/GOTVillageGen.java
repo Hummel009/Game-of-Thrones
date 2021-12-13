@@ -4,7 +4,7 @@ import java.util.*;
 
 import got.GOT;
 import got.common.GOTConfig;
-import got.common.util.GOTCentredSquareArray;
+import got.common.util.CentredSquareArray;
 import got.common.world.GOTWorldChunkManager;
 import got.common.world.biome.GOTBiome;
 import got.common.world.genlayer.GOTGenLayerWorld;
@@ -25,7 +25,7 @@ public abstract class GOTVillageGen {
 	public float spawnChance;
 	public int villageChunkRadius;
 	public int fixedVillageChunkRadius;
-	public List<GOTLocationInfo> fixedLocations = new ArrayList<>();
+	public List<LocationInfo> fixedLocations = new ArrayList<>();
 
 	public GOTVillageGen(GOTBiome biome) {
 		villageBiome = biome;
@@ -33,27 +33,25 @@ public abstract class GOTVillageGen {
 		spawnBiomes.add(villageBiome);
 	}
 
-	public GOTLocationInfo addFixedLocation(GOTWaypoint wp, int addX, int addZ, int rotation) {
-		GOTLocationInfo loc = new GOTLocationInfo(wp.getXCoord() + addX, wp.getZCoord() + addZ, rotation, wp.toString()).setFixedLocation(wp);
-		if (!GOTConfig.clearMap) {
-			fixedLocations.add(loc);
-		}
+	public LocationInfo addFixedLocation(GOTWaypoint wp, int addX, int addZ, int rotation) {
+		LocationInfo loc = new LocationInfo(wp.getXCoord() + addX, wp.getZCoord() + addZ, rotation, wp.toString()).setFixedLocation(wp);
+		fixedLocations.add(loc);
 		return loc;
 	}
 
-	public GOTLocationInfo affix(GOTWaypoint wp) {
+	public LocationInfo affix(GOTWaypoint wp) {
 		return addFixedLocation(wp, 0, 0, 0);
 	}
 
-	public GOTLocationInfo affix(GOTWaypoint wp, int rotation) {
+	public LocationInfo affix(GOTWaypoint wp, int rotation) {
 		return addFixedLocation(wp, 0, 0, rotation);
 	}
 
-	public GOTLocationInfo affix(GOTWaypoint wp, int addX, int addZ) {
+	public LocationInfo affix(GOTWaypoint wp, int addX, int addZ) {
 		return addFixedLocation(wp, addX * GOTGenLayerWorld.scale, addZ * GOTGenLayerWorld.scale, 0);
 	}
 
-	public GOTLocationInfo affix(GOTWaypoint wp, int addX, int addZ, int rotation) {
+	public LocationInfo affix(GOTWaypoint wp, int addX, int addZ, int rotation) {
 		return addFixedLocation(wp, addX * GOTGenLayerWorld.scale, addZ * GOTGenLayerWorld.scale, rotation);
 	}
 
@@ -63,7 +61,7 @@ public abstract class GOTVillageGen {
 		}
 		int checkRange = 15;
 		checkRange <<= 4;
-		for (GOTLocationInfo loc : fixedLocations) {
+		for (LocationInfo loc : fixedLocations) {
 			int dx = Math.abs(loc.posX - i);
 			int dz = Math.abs(loc.posZ - k);
 			if (dx > checkRange || dz > checkRange) {
@@ -74,13 +72,13 @@ public abstract class GOTVillageGen {
 		return false;
 	}
 
-	public AbstractInstance<?> createAndSetupVillageInstance(World world, int i, int k, Random random, GOTLocationInfo location) {
+	public AbstractInstance<?> createAndSetupVillageInstance(World world, int i, int k, Random random, LocationInfo location) {
 		AbstractInstance<?> instance = createVillageInstance(world, i, k, random, location);
 		instance.setupBaseAndVillageProperties();
 		return instance;
 	}
 
-	public abstract AbstractInstance<?> createVillageInstance(World var1, int var2, int var3, Random var4, GOTLocationInfo var5);
+	public abstract AbstractInstance<?> createVillageInstance(World var1, int var2, int var3, Random var4, LocationInfo var5);
 
 	public void generateCompleteVillageInstance(AbstractInstance<?> instance, World world, int i, int k) {
 		instance.setupVillageStructures();
@@ -154,7 +152,7 @@ public abstract class GOTVillageGen {
 		if (road != null && j1 > 0 && GOTStructureBase.isSurfaceStatic(world, i, j1, k)) {
 			isPath = true;
 			int slabRange = 1;
-			GOTCentredSquareArray<Integer> slabArray = new GOTCentredSquareArray<>(slabRange);
+			CentredSquareArray<Integer> slabArray = new CentredSquareArray<>(slabRange);
 			slabArray.fill(j1);
 			for (int i2 = -slabRange; i2 <= slabRange; ++i2) {
 				for (int k2 = -slabRange; k2 <= slabRange; ++k2) {
@@ -196,7 +194,7 @@ public abstract class GOTVillageGen {
 			for (int k = chunkZ - checkRange; k <= chunkZ + checkRange; ++k) {
 				int centreZ;
 				int centreX;
-				GOTLocationInfo loc = isVillageCentre(world, i, k);
+				LocationInfo loc = isVillageCentre(world, i, k);
 				if (!loc.isPresent()) {
 					continue;
 				}
@@ -237,15 +235,15 @@ public abstract class GOTVillageGen {
 		return -1;
 	}
 
-	public GOTLocationInfo isVillageCentre(World world, int chunkX, int chunkZ) {
+	public LocationInfo isVillageCentre(World world, int chunkX, int chunkZ) {
 		GOTWorldChunkManager worldChunkMgr = (GOTWorldChunkManager) world.getWorldChunkManager();
 		GOTVillagePositionCache cache = worldChunkMgr.getVillageCache(this);
-		GOTLocationInfo cacheLocation = cache.getLocationAt(chunkX, chunkZ);
+		LocationInfo cacheLocation = cache.getLocationAt(chunkX, chunkZ);
 		if (cacheLocation != null) {
 			return cacheLocation;
 		}
 		if (GOTVillageGen.hasFixedSettlements(world)) {
-			for (GOTLocationInfo loc : fixedLocations) {
+			for (LocationInfo loc : fixedLocations) {
 				int locChunkX = loc.posX >> 4;
 				int locChunkZ = loc.posZ >> 4;
 				if (chunkX == locChunkX && chunkZ == locChunkZ) {
@@ -255,7 +253,7 @@ public abstract class GOTVillageGen {
 				if (Math.abs(chunkX - locChunkX) > locCheckSize || Math.abs(chunkZ - locChunkZ) > locCheckSize) {
 					continue;
 				}
-				return cache.markResult(chunkX, chunkZ, GOTLocationInfo.NONE_HERE);
+				return cache.markResult(chunkX, chunkZ, LocationInfo.NONE_HERE);
 			}
 		}
 		int i2 = MathHelper.floor_double((double) chunkX / (double) gridScale);
@@ -263,7 +261,7 @@ public abstract class GOTVillageGen {
 		GOTVillageGen.seedVillageRand(world, i2, k2);
 		i2 *= gridScale;
 		k2 *= gridScale;
-		if (chunkX == (i2 += MathHelper.getRandomIntegerInRange(villageRand, -gridRandomDisplace, gridRandomDisplace)) && chunkZ == (k2 += MathHelper.getRandomIntegerInRange(villageRand, -gridRandomDisplace, gridRandomDisplace))) {
+		if (chunkX == (i2 += MathHelper.getRandomIntegerInRange(villageRand, (-gridRandomDisplace), gridRandomDisplace)) && chunkZ == (k2 += MathHelper.getRandomIntegerInRange(villageRand, (-gridRandomDisplace), gridRandomDisplace))) {
 			int i1 = chunkX * 16 + 8;
 			int k1 = chunkZ * 16 + 8;
 			int villageRange = villageChunkRadius * 16;
@@ -276,15 +274,18 @@ public abstract class GOTVillageGen {
 				}
 				if (!anythingNear) {
 					GOTVillageGen.seedVillageRand(world, i1, k1);
-					GOTLocationInfo loc = GOTLocationInfo.RANDOM_GEN_HERE;
-					AbstractInstance<?> instance = createAndSetupVillageInstance(world, i1, k1, villageRand, loc);
+					LocationInfo loc = LocationInfo.RANDOM_GEN_HERE;
+					createAndSetupVillageInstance(world, i1, k1, villageRand, loc);
 				}
 			}
 		}
-		return cache.markResult(chunkX, chunkZ, GOTLocationInfo.NONE_HERE);
+		return cache.markResult(chunkX, chunkZ, LocationInfo.NONE_HERE);
 	}
 
 	public static boolean hasFixedSettlements(World world) {
+		if (GOTConfig.clearMap) {
+			return false;
+		}
 		return world.getWorldInfo().getTerrainType() != GOT.worldTypeGOTClassic;
 	}
 
@@ -302,16 +303,16 @@ public abstract class GOTVillageGen {
 		public int centreZ;
 		public int rotationMode;
 		public List<StructureInfo> structures = new ArrayList<>();
-		public GOTLocationInfo gOTStructureLocatorVillage;
+		public final LocationInfo locationInfo;
 
-		public AbstractInstance(V village, World world, int i, int k, Random random, GOTLocationInfo loc) {
+		public AbstractInstance(V village, World world, int i, int k, Random random, LocationInfo loc) {
 			this.instanceVillageBiome = ((GOTVillageGen) village).villageBiome;
 			this.theWorld = world;
 			this.instanceRand = new Random();
 			this.instanceRandSeed = random.nextLong();
 			this.centreX = i;
 			this.centreZ = k;
-			this.gOTStructureLocatorVillage = loc;
+			this.locationInfo = loc;
 		}
 
 		public void addStructure(GOTStructureBase structure, int x, int z, int r) {
@@ -359,7 +360,7 @@ public abstract class GOTVillageGen {
 		}
 
 		public int getStructureRotation(int r) {
-			return (r + this.rotationMode + 2) % 4;
+			return (r + (this.rotationMode + 2)) % 4;
 		}
 
 		public int[] getWorldCoords(int xRel, int zRel) {
@@ -397,7 +398,7 @@ public abstract class GOTVillageGen {
 
 		public void setupBaseAndVillageProperties() {
 			this.setupVillageSeed();
-			this.rotationMode = this.gOTStructureLocatorVillage.isFixedLocation() ? (this.gOTStructureLocatorVillage.rotation + 2) % 4 : this.instanceRand.nextInt(4);
+			this.rotationMode = this.locationInfo.isFixedLocation() ? (this.locationInfo.rotation + 2) % 4 : this.instanceRand.nextInt(4);
 			this.setupVillageProperties(this.instanceRand);
 		}
 

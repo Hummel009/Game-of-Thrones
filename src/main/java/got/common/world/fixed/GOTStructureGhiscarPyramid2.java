@@ -18,12 +18,12 @@ public class GOTStructureGhiscarPyramid2 extends GOTVillageGen {
 	}
 
 	@Override
-	public GOTVillageGen.AbstractInstance createVillageInstance(World world, int i, int k, Random random, GOTLocationInfo loc) {
+	public GOTVillageGen.AbstractInstance createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
 	public static class Instance extends GOTVillageGen.AbstractInstance {
-		public Instance(GOTStructureGhiscarPyramid2 village, World world, int i, int k, Random random, GOTLocationInfo loc) {
+		public Instance(GOTStructureGhiscarPyramid2 village, World world, int i, int k, Random random, LocationInfo loc) {
 			super(village, world, i, k, random, loc);
 		}
 

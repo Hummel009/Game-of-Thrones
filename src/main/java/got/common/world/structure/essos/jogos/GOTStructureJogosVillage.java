@@ -22,7 +22,7 @@ public class GOTStructureJogosVillage extends GOTVillageGen {
 	}
 
 	@Override
-	public GOTVillageGen.AbstractInstance createVillageInstance(World world, int i, int k, Random random, GOTLocationInfo loc) {
+	public GOTVillageGen.AbstractInstance createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
@@ -35,7 +35,7 @@ public class GOTStructureJogosVillage extends GOTVillageGen {
 		public VillageType villageType;
 		public int numOuterHouses;
 
-		public Instance(GOTStructureJogosVillage village, World world, int i, int k, Random random, GOTLocationInfo loc) {
+		public Instance(GOTStructureJogosVillage village, World world, int i, int k, Random random, LocationInfo loc) {
 			super(village, world, i, k, random, loc);
 		}
 

@@ -2,10 +2,10 @@ package got.common.world.structure.other;
 
 import got.common.world.map.GOTWaypoint;
 
-public class GOTLocationInfo {
-	public static GOTLocationInfo RANDOM_GEN_HERE = new GOTLocationInfo(0, 0, 0, "RANDOM_GEN");
-	public static GOTLocationInfo SPAWNED_BY_PLAYER = new GOTLocationInfo(0, 0, 0, "PLAYER_SPAWNED");
-	public static GOTLocationInfo NONE_HERE = new GOTLocationInfo(0, 0, 0, "NONE") {
+public class LocationInfo {
+	public static LocationInfo RANDOM_GEN_HERE = new LocationInfo(0, 0, 0, "RANDOM_GEN");
+	public static LocationInfo SPAWNED_BY_PLAYER = new LocationInfo(0, 0, 0, "PLAYER_SPAWNED");
+	public static LocationInfo NONE_HERE = new LocationInfo(0, 0, 0, "NONE") {
 
 		@Override
 		public boolean isPresent() {
@@ -19,7 +19,7 @@ public class GOTLocationInfo {
 	public boolean isFixedLocation = false;
 	public GOTWaypoint associatedWaypoint;
 
-	public GOTLocationInfo(int x, int z, int r, String s) {
+	public LocationInfo(int x, int z, int r, String s) {
 		posX = x;
 		posZ = z;
 		rotation = r;
@@ -38,7 +38,7 @@ public class GOTLocationInfo {
 		return true;
 	}
 
-	public GOTLocationInfo setFixedLocation(GOTWaypoint wp) {
+	public LocationInfo setFixedLocation(GOTWaypoint wp) {
 		isFixedLocation = true;
 		associatedWaypoint = wp;
 		return this;

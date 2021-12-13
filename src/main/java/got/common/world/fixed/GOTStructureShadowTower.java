@@ -20,7 +20,7 @@ public class GOTStructureShadowTower extends GOTVillageGen {
 	}
 
 	@Override
-	public GOTVillageGen.AbstractInstance createVillageInstance(World world, int i, int k, Random random, GOTLocationInfo loc) {
+	public GOTVillageGen.AbstractInstance createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
@@ -42,7 +42,7 @@ public class GOTStructureShadowTower extends GOTVillageGen {
 	}
 
 	public static class Instance extends GOTVillageGen.AbstractInstance {
-		public Instance(GOTStructureShadowTower village, World world, int i, int k, Random random, GOTLocationInfo loc) {
+		public Instance(GOTStructureShadowTower village, World world, int i, int k, Random random, LocationInfo loc) {
 			super(village, world, i, k, random, loc);
 		}
 

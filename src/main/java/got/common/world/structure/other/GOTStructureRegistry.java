@@ -44,7 +44,7 @@ public class GOTStructureRegistry {
 
 			@Override
 			public boolean generateStructure(World world, EntityPlayer entityplayer, int i, int j, int k) {
-				GOTVillageGen.AbstractInstance<?> instance = village.createAndSetupVillageInstance(world, i, k, world.rand, GOTLocationInfo.SPAWNED_BY_PLAYER);
+				GOTVillageGen.AbstractInstance<?> instance = village.createAndSetupVillageInstance(world, i, k, world.rand, LocationInfo.SPAWNED_BY_PLAYER);
 				instance.setRotation((GOTStructureRegistry.getRotationFromPlayer(entityplayer) + 2) % 4);
 				properties.apply(instance);
 				village.generateCompleteVillageInstance(instance, world, i, k);
@@ -99,7 +99,7 @@ public class GOTStructureRegistry {
 
 			@Override
 			public boolean generateStructure(World world, EntityPlayer entityplayer, int i, int j, int k) {
-				GOTVillageGen.AbstractInstance<?> instance = village.createAndSetupVillageInstance(world, i, k, world.rand, GOTLocationInfo.SPAWNED_BY_PLAYER);
+				GOTVillageGen.AbstractInstance<?> instance = village.createAndSetupVillageInstance(world, i, k, world.rand, LocationInfo.SPAWNED_BY_PLAYER);
 				instance.setRotation((GOTStructureRegistry.getRotationFromPlayer(entityplayer) + 2) % 4);
 				properties.apply(instance);
 				village.generateCompleteVillageInstance(instance, world, i, k);
