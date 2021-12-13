@@ -7,6 +7,7 @@ import got.GOT;
 import got.common.database.GOTRegistry;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityRegistry;
+import got.common.world.biome.GOTBiome.ImmuneToFrost;
 import net.minecraft.block.material.Material;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.*;
@@ -16,7 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 
-public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature {
+public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature, ImmuneToFrost {
 	public static Random violenceRand = new Random();
 	public static boolean wreckBalrogs = false;
 	public float flapPhase;
