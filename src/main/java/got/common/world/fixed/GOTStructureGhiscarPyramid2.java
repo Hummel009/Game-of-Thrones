@@ -39,7 +39,7 @@ public class GOTStructureGhiscarPyramid2 extends GOTVillageGen {
 
 		@Override
 		public boolean isFlat() {
-			return false;
+			return true;
 		}
 
 		@Override

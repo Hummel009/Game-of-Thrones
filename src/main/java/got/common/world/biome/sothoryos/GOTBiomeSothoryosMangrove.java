@@ -27,6 +27,7 @@ public class GOTBiomeSothoryosMangrove extends GOTBiome {
 		decorator.quagmirePerChunk = 1;
 		decorator.treesPerChunk = 5;
 		decorator.grassPerChunk = 8;
+		decorator.waterlilyPerChunk = 4;
 		decorator.addTree(GOTTreeType.MANGROVE, 1000);
 		decorator.addTree(GOTTreeType.ACACIA, 10);
 		decorator.addTree(GOTTreeType.OAK_DESERT, 5);

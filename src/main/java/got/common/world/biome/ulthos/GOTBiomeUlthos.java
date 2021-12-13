@@ -1,7 +1,5 @@
 package got.common.world.biome.ulthos;
 
-import java.util.Random;
-
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
@@ -11,9 +9,7 @@ import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenFlowers;
 
 public class GOTBiomeUlthos extends GOTBiome {
 	public GOTBiomeUlthos(int i, boolean major) {
@@ -41,20 +37,6 @@ public class GOTBiomeUlthos extends GOTBiome {
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c1);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
-	}
-
-	@Override
-	public void decorate(World world, Random random, int i, int k) {
-		int k1;
-		int j1;
-		int i1;
-		super.decorate(world, random, i, k);
-		if (random.nextInt(6) == 0) {
-			i1 = i + random.nextInt(16) + 8;
-			j1 = random.nextInt(128);
-			k1 = k + random.nextInt(16) + 8;
-			new WorldGenFlowers(GOTRegistry.pipeweedPlant).generate(world, random, i1, j1, k1);
-		}
 	}
 
 	@Override

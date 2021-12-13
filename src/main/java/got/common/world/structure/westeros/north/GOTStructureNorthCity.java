@@ -142,7 +142,7 @@ public class GOTStructureNorthCity extends GOTVillageGen {
 
 		@Override
 		public boolean isFlat() {
-			return villageType == VillageType.TOWN;
+			return true;
 		}
 
 		@Override

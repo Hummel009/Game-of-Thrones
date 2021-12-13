@@ -235,7 +235,7 @@ public class GOTStructureNorvosCity extends GOTVillageGen {
 
 		@Override
 		public boolean isFlat() {
-			return false;
+			return true;
 		}
 
 		@Override

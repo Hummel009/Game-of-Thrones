@@ -117,7 +117,7 @@ public class GOTChunkProvider implements IChunkProvider {
 								double blockHeightNoise;
 								int blockIndex = j2 + k2 * 256;
 								blockHeightNoiseArray[blockIndex] = blockHeightNoise = d10 + d15 * k2;
-								blocks[blockIndex] = blockHeightNoise > 0.0 ? Blocks.stone : k1 * 8 + l1 <= 62 ? Blocks.water : Blocks.air;
+								blocks[blockIndex] = blockHeightNoise > 0.0 ? Blocks.stone : (k1 * 8 + l1 <= 62 ? Blocks.water : Blocks.air);
 							}
 							d10 += d12;
 							d11 += d13;
@@ -249,6 +249,10 @@ public class GOTChunkProvider implements IChunkProvider {
 				if (centreBiome instanceof GOTBiome) {
 					GOTBiome lb = (GOTBiome) centreBiome;
 					lb.decorator.checkForVillages(worldObj, xPos, zPos, chunkFlags);
+					if (chunkFlags.isFlatVillage) {
+						avgBaseHeight = avgFlatBiomeHeight;
+						avgHeightVariation = 0.0f;
+					}
 				}
 				avgBaseHeight = (avgBaseHeight * 4.0f - 1.0f) / 8.0f;
 				if (avgHeightVariation == 0.0f) {
@@ -284,7 +288,7 @@ public class GOTChunkProvider implements IChunkProvider {
 					double var34 = noise1[noiseIndex] / 512.0;
 					double var36 = noise2[noiseIndex] / 512.0;
 					double var38 = (noise3[noiseIndex] / 10.0 + 1.0) / 2.0 * avgVariantHillFactor;
-					totalNoise = var38 < 0.0 ? var34 : var38 > 1.0 ? var36 : var34 + (var36 - var34) * var38;
+					totalNoise = var38 < 0.0 ? var34 : (var38 > 1.0 ? var36 : var34 + (var36 - var34) * var38);
 					totalNoise -= var32;
 					if (j1 > ySize - 4) {
 						double var40 = (j1 - (ySize - 4)) / 3.0f;
@@ -311,8 +315,8 @@ public class GOTChunkProvider implements IChunkProvider {
 	@Override
 	public void populate(IChunkProvider ichunkprovider, int i, int j) {
 		int j1;
-		int i1;
 		int k1;
+		int i1;
 		BlockFalling.fallInstantly = true;
 		int k = i * 16;
 		int l = j * 16;
@@ -456,7 +460,7 @@ public class GOTChunkProvider implements IChunkProvider {
 				if (lavaHeight <= 0) {
 					continue;
 				}
-				for (int j = lavaHeight; j >= 0 && !blocks[index = xzIndex * ySize + j].isOpaqueCube(); --j) {
+				for (int j = lavaHeight; j >= 0 && !(blocks[index = xzIndex * ySize + j]).isOpaqueCube(); --j) {
 					blocks[index] = Blocks.lava;
 					metadata[index] = 0;
 				}
@@ -480,6 +484,7 @@ public class GOTChunkProvider implements IChunkProvider {
 
 	public static class ChunkFlags {
 		public boolean isVillage = false;
+		public boolean isFlatVillage = true;
 		public boolean[] bezierFlags = new boolean[256];
 	}
 

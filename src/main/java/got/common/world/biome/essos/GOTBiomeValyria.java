@@ -42,7 +42,7 @@ public class GOTBiomeValyria extends GOTBiome {
 		c[0] = GOTBiomeSpawnList.entry(GOTSpawnList.VALYRIA, 10).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
-		
+
 		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
 		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);

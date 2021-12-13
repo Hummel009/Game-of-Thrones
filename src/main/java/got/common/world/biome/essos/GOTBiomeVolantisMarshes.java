@@ -34,6 +34,7 @@ public class GOTBiomeVolantisMarshes extends GOTBiomeVolantis {
 		decorator.doubleGrassPerChunk = 8;
 		decorator.canePerChunk = 10;
 		decorator.reedPerChunk = 5;
+		decorator.waterlilyPerChunk = 4;
 		registerSwampFlowers();
 
 		SpawnListContainer[] c1 = new SpawnListContainer[1];

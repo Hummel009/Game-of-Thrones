@@ -20,7 +20,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenFlowers;
 
 public class GOTBiomeReach extends GOTBiomeWesteros {
 	public GOTBiomeReach(int i, boolean major) {
@@ -35,6 +34,7 @@ public class GOTBiomeReach extends GOTBiomeWesteros {
 		decorator.addTree(GOTTreeType.LIME, 5);
 		decorator.addTree(GOTTreeType.OLIVE, 5);
 		decorator.addTree(GOTTreeType.OLIVE_LARGE, 10);
+		decorator.generatePipeweed = true;
 
 		SpawnListContainer[] c0 = new SpawnListContainer[2];
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.REACH_CONQUEST, 4).setSpawnChance(GOTBiome.SPAWN);
@@ -116,20 +116,6 @@ public class GOTBiomeReach extends GOTBiomeWesteros {
 		invasionSpawns.addInvasion(GOTInvasions.IRONBORN, GOTEventSpawner.EventChance.UNCOMMON);
 
 		decorator.addRandomStructure(new GOTStructureReachWatchfort(false), 800);
-	}
-
-	@Override
-	public void decorate(World world, Random random, int i, int k) {
-		int k1;
-		int j1;
-		int i1;
-		super.decorate(world, random, i, k);
-		if (random.nextInt(6) == 0) {
-			i1 = i + random.nextInt(16) + 8;
-			j1 = random.nextInt(128);
-			k1 = k + random.nextInt(16) + 8;
-			new WorldGenFlowers(GOTRegistry.pipeweedPlant).generate(world, random, i1, j1, k1);
-		}
 	}
 
 	@Override

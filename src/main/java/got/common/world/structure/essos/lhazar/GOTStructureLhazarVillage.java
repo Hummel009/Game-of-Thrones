@@ -98,7 +98,7 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 
 		@Override
 		public boolean isFlat() {
-			return false;
+			return true;
 		}
 
 		@Override

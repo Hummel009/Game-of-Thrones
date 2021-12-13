@@ -811,12 +811,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		addFlower(GOTRegistry.yitiFlower, 4, 10);
 	}
 
-	public void setDarkUnreliable() {
-		banditEntityClass = GOTEntityBanditEssos.class;
-		scrapTraderEntityClass = GOTEntityScrapTraderEssos.class;
-		thiefEntityClass = GOTEntityThiefEssos.class;
-	}
-
 	@Override
 	public GOTBiome setBiomeName(String s) {
 		return (GOTBiome) super.setBiomeName(s);
@@ -830,6 +824,12 @@ public abstract class GOTBiome extends BiomeGenBase {
 		}
 		biomeDimension.colorsToBiomeIDs.put(color, biomeID);
 		return (GOTBiome) super.setColor(color);
+	}
+
+	public void setDarkUnreliable() {
+		banditEntityClass = GOTEntityBanditEssos.class;
+		scrapTraderEntityClass = GOTEntityScrapTraderEssos.class;
+		thiefEntityClass = GOTEntityThiefEssos.class;
 	}
 
 	public GOTBiome setDisableSnow() {

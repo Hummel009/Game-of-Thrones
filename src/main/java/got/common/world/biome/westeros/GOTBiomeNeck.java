@@ -35,6 +35,7 @@ public class GOTBiomeNeck extends GOTBiome {
 		decorator.doubleGrassPerChunk = 8;
 		decorator.canePerChunk = 10;
 		decorator.reedPerChunk = 5;
+		decorator.waterlilyPerChunk = 4;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.WILLOW, 100);
 		registerSwampFlowers();

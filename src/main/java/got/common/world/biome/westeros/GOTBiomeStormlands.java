@@ -1,7 +1,5 @@
 package got.common.world.biome.westeros;
 
-import java.util.Random;
-
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
@@ -13,14 +11,13 @@ import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.other.GOTStructureRuins;
 import got.common.world.structure.westeros.stormlands.*;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenFlowers;
 
 public class GOTBiomeStormlands extends GOTBiomeWesteros {
 	public GOTBiomeStormlands(int i, boolean major) {
 		super(i, major);
 		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
 		this.addBiomeVariant(GOTBiomeVariant.FIELD_CORN, 0.2f);
+		decorator.generatePipeweed = true;
 
 		SpawnListContainer[] c0 = new SpawnListContainer[2];
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.STORMLANDS_CONQUEST, 4).setSpawnChance(GOTBiome.SPAWN);
@@ -80,20 +77,6 @@ public class GOTBiomeStormlands extends GOTBiomeWesteros {
 		invasionSpawns.addInvasion(GOTInvasions.DRAGONSTONE, GOTEventSpawner.EventChance.UNCOMMON);
 
 		decorator.addRandomStructure(new GOTStructureStormlandsWatchfort(false), 800);
-	}
-
-	@Override
-	public void decorate(World world, Random random, int i, int k) {
-		int k1;
-		int j1;
-		int i1;
-		super.decorate(world, random, i, k);
-		if (random.nextInt(6) == 0) {
-			i1 = i + random.nextInt(16) + 8;
-			j1 = random.nextInt(128);
-			k1 = k + random.nextInt(16) + 8;
-			new WorldGenFlowers(GOTRegistry.pipeweedPlant).generate(world, random, i1, j1, k1);
-		}
 	}
 
 	@Override

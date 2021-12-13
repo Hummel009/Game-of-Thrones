@@ -54,7 +54,7 @@ public class GOTBiomeSothoryosBushland extends GOTBiome {
 		npcSpawnList.newFactionList(10).add(c);
 		decorator.affix(new GOTStructureSothoryosVillage(this, 1.0f));
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
-		
+
 		decorator.addRandomStructure(new GOTStructureStoneRuin.SOTHORYOS(1, 4), 400);
 	}
 

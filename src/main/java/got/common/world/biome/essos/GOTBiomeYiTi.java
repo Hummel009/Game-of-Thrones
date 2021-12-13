@@ -22,7 +22,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenFlowers;
 
 public class GOTBiomeYiTi extends GOTBiome {
 
@@ -55,6 +54,7 @@ public class GOTBiomeYiTi extends GOTBiome {
 		decorator.doubleGrassPerChunk = 1;
 		decorator.flowersPerChunk = 3;
 		decorator.doubleFlowersPerChunk = 1;
+		decorator.generatePipeweed = true;
 		decorator.addTree(GOTTreeType.CHERRY, 500);
 		decorator.addTree(GOTTreeType.LEMON, 500);
 		decorator.addTree(GOTTreeType.LIME, 500);
@@ -109,20 +109,6 @@ public class GOTBiomeYiTi extends GOTBiome {
 		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
 		decorator.addRandomStructure(new GOTStructureStoneRuin.YITI(1, 4), 400);
-	}
-
-	@Override
-	public void decorate(World world, Random random, int i, int k) {
-		int k1;
-		int j1;
-		int i1;
-		super.decorate(world, random, i, k);
-		if (random.nextInt(6) == 0) {
-			i1 = i + random.nextInt(16) + 8;
-			j1 = random.nextInt(128);
-			k1 = k + random.nextInt(16) + 8;
-			new WorldGenFlowers(GOTRegistry.pipeweedPlant).generate(world, random, i1, j1, k1);
-		}
 	}
 
 	@Override
