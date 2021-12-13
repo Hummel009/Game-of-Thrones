@@ -141,19 +141,12 @@ public class GOTBiomeDecorator {
 
 	public void checkForVillages(World world, int i, int k, GOTChunkProvider.ChunkFlags chunkFlags) {
 		chunkFlags.isVillage = false;
-		chunkFlags.isFlatVillage = false;
 		for (GOTVillageGen village : villages) {
 			List<GOTVillageGen.AbstractInstance<?>> instances = village.getNearbyVillagesAtPosition(world, i, k);
 			if (instances.isEmpty()) {
 				continue;
 			}
 			chunkFlags.isVillage = true;
-			for (GOTVillageGen.AbstractInstance<?> inst : instances) {
-				if (!inst.isFlat()) {
-					continue;
-				}
-				chunkFlags.isFlatVillage = true;
-			}
 		}
 	}
 

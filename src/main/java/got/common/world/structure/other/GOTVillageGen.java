@@ -278,10 +278,6 @@ public abstract class GOTVillageGen {
 					GOTVillageGen.seedVillageRand(world, i1, k1);
 					GOTLocationInfo loc = GOTLocationInfo.RANDOM_GEN_HERE;
 					AbstractInstance<?> instance = createAndSetupVillageInstance(world, i1, k1, villageRand, loc);
-					boolean flat = instance.isFlat();
-					if (worldChunkMgr.areBiomesViable(i1, k1, villageRange, spawnBiomes) && worldChunkMgr.areVariantsSuitableVillage(i1, k1, villageRange, flat)) {
-						return cache.markResult(chunkX, chunkZ, loc);
-					}
 				}
 			}
 		}
@@ -392,8 +388,6 @@ public abstract class GOTVillageGen {
 			}
 			return new int[] { xWorld, zWorld };
 		}
-
-		public abstract boolean isFlat();
 
 		public abstract boolean isVillageSpecificSurface(World var1, int var2, int var3, int var4);
 

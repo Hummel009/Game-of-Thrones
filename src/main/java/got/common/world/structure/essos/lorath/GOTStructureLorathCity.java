@@ -234,11 +234,6 @@ public class GOTStructureLorathCity extends GOTVillageGen {
 		}
 
 		@Override
-		public boolean isFlat() {
-			return true;
-		}
-
-		@Override
 		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
 			if (villageType == VillageType.TOWN) {
 				Block block = world.getBlock(i, j, k);
