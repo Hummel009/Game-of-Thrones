@@ -58,11 +58,6 @@ public class GOTStructureNightKing extends GOTVillageGen {
 		}
 
 		@Override
-		public boolean isFlat() {
-			return true;
-		}
-
-		@Override
 		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
 			return false;
 		}
