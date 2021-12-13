@@ -10,7 +10,6 @@ import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.other.GOTStructureRuins;
 import got.common.world.structure.westeros.crownlands.GOTStructureCrownlandsCity;
-import got.common.world.structure.westeros.crownlands.red.GOTWaypointRedCastle;
 
 public class GOTBiomeCrownlands extends GOTBiomeWesteros {
 	public GOTBiomeCrownlands(int i, boolean major) {
@@ -66,14 +65,6 @@ public class GOTBiomeCrownlands extends GOTBiomeWesteros {
 		GOTStructureCrownlandsCity town = new GOTStructureCrownlandsCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Duskendale, -2, 0, 3);
 		decorator.affix(town);
-
-		GOTStructureCrownlandsCity capital = new GOTStructureCrownlandsCity(this, 0.0f).setIsCapital();
-		capital.affix(GOTWaypoint.KingsLanding, 1, 0, 1);
-		decorator.affix(capital);
-
-		GOTWaypointRedCastle rc = new GOTWaypointRedCastle(this, 0.0f);
-		rc.affix(GOTWaypoint.KingsLanding, 2, 0, 1);
-		decorator.affix(rc);
 
 		GOTStructureRuins ruins = new GOTStructureRuins(this, 0.0f);
 		ruins.affix(GOTWaypoint.HollardCastle);

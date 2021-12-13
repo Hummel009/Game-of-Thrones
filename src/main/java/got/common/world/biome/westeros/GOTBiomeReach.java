@@ -101,7 +101,6 @@ public class GOTBiomeReach extends GOTBiomeWesteros {
 		town.affix(GOTWaypoint.Appleton, 0, 1, 2);
 		town.affix(GOTWaypoint.Tumbleton, 0, -1);
 		town.affix(GOTWaypoint.Smithyton, 0, 1, 2);
-		town.affix(GOTWaypoint.Oldtown, -1, 0, 3);
 		decorator.affix(town);
 
 		GOTStructureTower tower = new GOTStructureTower(this, 0.0f);

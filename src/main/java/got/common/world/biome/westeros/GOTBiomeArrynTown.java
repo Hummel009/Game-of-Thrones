@@ -4,9 +4,10 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
-import got.common.world.map.GOTBezierType;
+import got.common.world.map.*;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
+import got.common.world.structure.westeros.arryn.GOTStructureArrynCity;
 
 public class GOTBiomeArrynTown extends GOTBiomeArryn {
 	public GOTBiomeArrynTown(int i, boolean major) {
@@ -31,6 +32,10 @@ public class GOTBiomeArrynTown extends GOTBiomeArryn {
 		SpawnListContainer[] c3 = new SpawnListContainer[1];
 		c3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c3);
+
+		GOTStructureArrynCity town = new GOTStructureArrynCity(this, 0.0f).setIsTown();
+		town.affix(GOTWaypoint.Gulltown);
+		decorator.affix(town);
 	}
 
 	@Override

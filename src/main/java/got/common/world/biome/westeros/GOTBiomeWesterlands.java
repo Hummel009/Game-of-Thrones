@@ -65,12 +65,10 @@ public class GOTBiomeWesterlands extends GOTBiomeWesteros {
 		castle.affix(GOTWaypoint.Feastfires);
 		castle.affix(GOTWaypoint.Kayce, 1, 0);
 		castle.affix(GOTWaypoint.CleganesKeep);
-		castle.affix(GOTWaypoint.CasterlyRock, -1, 0);
 		decorator.affix(castle);
 
 		GOTStructureWesterlandsCity town = new GOTStructureWesterlandsCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Kayce, 3);
-		town.affix(GOTWaypoint.Lannisport, -1, 0, 3);
 		decorator.affix(town);
 
 		GOTStructureRuins ruins = new GOTStructureRuins(this, 0.0f);

@@ -4,9 +4,11 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
-import got.common.world.map.GOTBezierType;
+import got.common.world.map.*;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
+import got.common.world.structure.westeros.crownlands.GOTStructureCrownlandsCity;
+import got.common.world.structure.westeros.crownlands.red.GOTWaypointRedCastle;
 
 public class GOTBiomeCrownlandsTown extends GOTBiomeCrownlands {
 	public GOTBiomeCrownlandsTown(int i, boolean major) {
@@ -47,6 +49,14 @@ public class GOTBiomeCrownlandsTown extends GOTBiomeCrownlands {
 		SpawnListContainer[] c7 = new SpawnListContainer[1];
 		c7[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c7);
+
+		GOTStructureCrownlandsCity capital = new GOTStructureCrownlandsCity(this, 0.0f).setIsCapital();
+		capital.affix(GOTWaypoint.KingsLanding, 1, 0, 1);
+		decorator.affix(capital);
+
+		GOTWaypointRedCastle rc = new GOTWaypointRedCastle(this, 0.0f);
+		rc.affix(GOTWaypoint.KingsLanding, 2, 0, 1);
+		decorator.affix(rc);
 	}
 
 	@Override

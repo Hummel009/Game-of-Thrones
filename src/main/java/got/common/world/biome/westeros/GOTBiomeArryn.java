@@ -54,7 +54,6 @@ public class GOTBiomeArryn extends GOTBiomeWesteros {
 
 		GOTStructureArrynCity town = new GOTStructureArrynCity(this, 0.0f).setIsTown();
 		town.affix(GOTWaypoint.Sisterton);
-		town.affix(GOTWaypoint.Gulltown);
 		decorator.affix(town);
 
 		GOTStructureTower tower = new GOTStructureTower(this, 0.0f);

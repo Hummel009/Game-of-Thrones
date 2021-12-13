@@ -4,9 +4,10 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
-import got.common.world.map.GOTBezierType;
+import got.common.world.map.*;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
+import got.common.world.structure.westeros.north.GOTStructureNorthCity;
 
 public class GOTBiomeNorthTown extends GOTBiomeNorth {
 	public GOTBiomeNorthTown(int i, boolean major) {
@@ -36,6 +37,10 @@ public class GOTBiomeNorthTown extends GOTBiomeNorth {
 		c4[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		c4[1] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c4);
+
+		GOTStructureNorthCity town = new GOTStructureNorthCity(this, 0.0f).setIsTown();
+		town.affix(GOTWaypoint.WhiteHarbour, 1);
+		decorator.affix(town);
 	}
 
 	@Override

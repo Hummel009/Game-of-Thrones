@@ -83,14 +83,6 @@ public class GOTBiomeNorth extends GOTBiomeWesteros {
 		castle.affix(GOTWaypoint.Goldgrass, 0, 1);
 		decorator.affix(castle);
 
-		GOTStructureNorthCity stown = new GOTStructureNorthCity(this, 0.0f).setIsSmallTown();
-		stown.affix(GOTWaypoint.Barrowtown, 0, 1, 2);
-		decorator.affix(stown);
-
-		GOTStructureNorthCity town = new GOTStructureNorthCity(this, 0.0f).setIsTown();
-		town.affix(GOTWaypoint.WhiteHarbour, 1);
-		decorator.affix(town);
-
 		GOTStructureTower tower = new GOTStructureTower(this, 0.0f);
 		tower.affix(GOTWaypoint.RamseyTower);
 		decorator.affix(tower);
