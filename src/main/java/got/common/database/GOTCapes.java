@@ -40,10 +40,6 @@ public enum GOTCapes {
 		alignmentFaction = faction;
 	}
 
-	GOTCapes(String... players) {
-		this(false, players);
-	}
-
 	public boolean canDisplay(EntityPlayer entityplayer) {
 		return !isHidden || canPlayerWear(entityplayer);
 	}
@@ -85,9 +81,9 @@ public enum GOTCapes {
 	}
 
 	public static void preInit() {
-	}
+ }
 
-	public static enum CapeType {
+	public enum CapeType {
 		ALIGNMENT, EXCLUSIVE;
 
 		public List<GOTCapes> list = new ArrayList<>();

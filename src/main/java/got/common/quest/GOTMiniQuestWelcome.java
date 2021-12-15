@@ -63,7 +63,7 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 	@Override
 	public void complete(EntityPlayer entityplayer, GOTEntityNPC npc) {
 		super.complete(entityplayer, npc);
-		updateGreyWanderer();
+		updateJaqenHghar();
 	}
 
 	@Override
@@ -119,14 +119,12 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 
 	@Override
 	public String getQuestObjective() {
-		if (stage == 2) {
-			return StatCollector.translateToLocal("got.miniquest.welcome.book");
-		}
-		if (stage == 5) {
-			KeyBinding keyMenu = GOTKeyHandler.keyBindingMenu;
-			return StatCollector.translateToLocalFormatted("got.miniquest.welcome.map", GameSettings.getKeyDisplayString(keyMenu.getKeyCode()));
-		}
+		KeyBinding keyMenu = GOTKeyHandler.keyBindingMenu;
 		switch (stage) {
+		case 2:
+			return StatCollector.translateToLocal("got.miniquest.welcome.book");
+		case 5:
+			return StatCollector.translateToLocalFormatted("got.miniquest.welcome.map", GameSettings.getKeyDisplayString(keyMenu.getKeyCode()));
 		case 8:
 			KeyBinding keyLeft = GOTKeyHandler.keyBindingAlignmentCycleLeft;
 			KeyBinding keyRight = GOTKeyHandler.keyBindingAlignmentCycleRight;
@@ -136,7 +134,6 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 			KeyBinding keyDown = GOTKeyHandler.keyBindingAlignmentGroupNext;
 			return StatCollector.translateToLocalFormatted("got.miniquest.welcome.alignRegions", GameSettings.getKeyDisplayString(keyUp.getKeyCode()), GameSettings.getKeyDisplayString(keyDown.getKeyCode()));
 		case 11:
-			KeyBinding keyMenu = GOTKeyHandler.keyBindingMenu;
 			return StatCollector.translateToLocalFormatted("got.miniquest.welcome.factions", GameSettings.getKeyDisplayString(keyMenu.getKeyCode()));
 		default:
 			break;
@@ -156,30 +153,44 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 
 	@Override
 	public void handleEvent(GOTMiniQuestEvent event) {
-		if (event instanceof GOTMiniQuestEvent.OpenRedBook && stage == 2) {
-			stage = 3;
-			updateQuest();
-			updateGreyWanderer();
-		}
-		if (event instanceof GOTMiniQuestEvent.ViewMap && stage == 5) {
-			stage = 6;
-			updateQuest();
-			updateGreyWanderer();
-		}
-		if (event instanceof GOTMiniQuestEvent.CycleAlignment && stage == 8) {
-			stage = 9;
-			updateQuest();
-			updateGreyWanderer();
-		}
-		if (event instanceof GOTMiniQuestEvent.CycleAlignmentRegion && stage == 9) {
-			stage = 10;
-			updateQuest();
-			updateGreyWanderer();
-		}
-		if (event instanceof GOTMiniQuestEvent.ViewFactions && stage == 11) {
-			stage = 12;
-			updateQuest();
-			updateGreyWanderer();
+		switch(stage) {
+		case 2:
+			if (event instanceof GOTMiniQuestEvent.OpenRedBook) {
+				stage = 3;
+				updateQuest();
+				updateJaqenHghar();
+			}
+			break;
+		case 5:
+			if (event instanceof GOTMiniQuestEvent.ViewMap) {
+				stage = 6;
+				updateQuest();
+				updateJaqenHghar();
+			}
+			break;
+		case 8:
+			if (event instanceof GOTMiniQuestEvent.CycleAlignment) {
+				stage = 9;
+				updateQuest();
+				updateJaqenHghar();
+			}
+			break;
+		case 9:
+			if (event instanceof GOTMiniQuestEvent.CycleAlignmentRegion) {
+				stage = 10;
+				updateQuest();
+				updateJaqenHghar();
+			}
+			break;
+		case 11:
+			if (event instanceof GOTMiniQuestEvent.ViewFactions) {
+				stage = 12;
+				updateQuest();
+				updateJaqenHghar();
+			}
+			break;
+		default:
+			break;
 		}
 	}
 
@@ -190,67 +201,81 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 
 	@Override
 	public void onInteract(EntityPlayer entityplayer, GOTEntityNPC npc) {
-		updateGreyWanderer();
+		updateJaqenHghar();
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-		if (stage == 1) {
-			ArrayList<ItemStack> dropItems = new ArrayList<>();
+		String line;
+		ArrayList<ItemStack> dropItems = new ArrayList<>();
+		switch(stage) {
+		case 1: 
 			dropItems.add(new ItemStack(GOTRegistry.questBook));
 			npc.dropItemList(dropItems);
-			String line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 4);
+			dropItems.clear();
+			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 4);
 			sendQuoteSpeech(entityplayer, npc, line);
 			quotesStages.add(line);
 			stage = 2;
 			updateQuest();
-		} else if (stage == 2) {
-			String line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 4);
+			break;
+		case 2: 
+			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 4);
 			sendQuoteSpeech(entityplayer, npc, line);
-		} else if (stage == 3) {
-			String line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 5);
+			break;
+		case 3: 
+			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 5);
 			sendQuoteSpeech(entityplayer, npc, line);
 			quotesStages.add(line);
 			stage = 4;
 			updateQuest();
-		} else if (stage == 4) {
-			String line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 6);
+			break;
+		case 4: 
+			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 6);
 			sendQuoteSpeech(entityplayer, npc, line);
 			quotesStages.add(line);
 			stage = 5;
 			updateQuest();
-		} else if (stage == 5) {
-			String line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 6);
+			break;
+		case 5: 
+			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 6);
 			sendQuoteSpeech(entityplayer, npc, line);
-		} else if (stage == 6) {
-			String line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 7);
+			break;
+		case 6: 
+			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 7);
 			sendQuoteSpeech(entityplayer, npc, line);
 			quotesStages.add(line);
 			stage = 7;
 			updateQuest();
-		} else if (stage == 7) {
-			String line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 8);
+			break;
+		case 7: 
+			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 8);
 			sendQuoteSpeech(entityplayer, npc, line);
 			quotesStages.add(line);
 			stage = 8;
 			updateQuest();
-		} else if ((stage == 8) || (stage == 9)) {
-			String line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 8);
+			break;
+		case 8: 
+		case 9: 
+			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 8);
 			sendQuoteSpeech(entityplayer, npc, line);
-		} else if (stage == 10) {
-			String line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 9);
+			break;
+		case 10: 
+			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 9);
 			sendQuoteSpeech(entityplayer, npc, line);
 			quotesStages.add(line);
 			stage = 11;
 			updateQuest();
-		} else if (stage == 11) {
-			String line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 9);
+			break;
+		case 11: 
+			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 9);
 			sendQuoteSpeech(entityplayer, npc, line);
-		} else if (stage == 12) {
-			String line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 10);
+			break;
+		case 12: 
+			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 10);
 			sendQuoteSpeech(entityplayer, npc, line);
 			quotesStages.add(line);
 			stage = 13;
 			updateQuest();
-		} else if (stage == 13) {
-			ArrayList<ItemStack> dropItems = new ArrayList<>();
+			break;
+		case 13: 
 			if (!pd.getQuestData().getGivenFirstPouches()) {
 				dropItems.add(new ItemStack(GOTRegistry.pouch, 1, 0));
 				dropItems.add(new ItemStack(GOTRegistry.pouch, 1, 0));
@@ -258,15 +283,20 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 				pd.getQuestData().setGivenFirstPouches(true);
 			}
 			npc.dropItemList(dropItems);
-			String line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 11);
+			dropItems.clear();
+			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 11);
 			sendQuoteSpeech(entityplayer, npc, line);
 			quotesStages.add(line);
 			stage = 14;
 			updateQuest();
-		} else if (stage == 14) {
+			break;
+		case 14: 
 			stage = 15;
 			updateQuest();
 			complete(entityplayer, npc);
+			break;
+		default:
+			break;
 		}
 	}
 
@@ -293,10 +323,10 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 		quotesStages.add(line);
 		stage = 1;
 		updateQuest();
-		updateGreyWanderer();
+		updateJaqenHghar();
 	}
 
-	public void updateGreyWanderer() {
+	public void updateJaqenHghar() {
 		GOTJaqenHgharTracker.setWandererActive(entityUUID);
 	}
 
@@ -307,24 +337,25 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 		nbt.setBoolean("WMovedOn", movedOn);
 	}
 
-	public static boolean[] forceMenu_Map_Factions(EntityPlayer entityplayer) {
+	public static boolean[] forceMenuMapFactions(EntityPlayer entityplayer) {
 		boolean[] flags = { false, false };
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		List<GOTMiniQuest> activeQuests = pd.getActiveMiniQuests();
 		for (GOTMiniQuest quest : activeQuests) {
-			if (!(quest instanceof GOTMiniQuestWelcome)) {
-				continue;
-			}
-			GOTMiniQuestWelcome qw = (GOTMiniQuestWelcome) quest;
-			if (qw.stage == 5) {
-				flags[0] = true;
+			if ((quest instanceof GOTMiniQuestWelcome)) {
+				GOTMiniQuestWelcome qw = (GOTMiniQuestWelcome) quest;
+				switch(qw.stage) {
+				case 5:
+					flags[0] = true;
+					break;
+				case 11:
+					continue;
+				default:
+					break;
+				}
+				flags[1] = true;
 				break;
 			}
-			if (qw.stage != 11) {
-				continue;
-			}
-			flags[1] = true;
-			break;
 		}
 		return flags;
 	}

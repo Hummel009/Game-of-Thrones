@@ -531,7 +531,7 @@ public abstract class GOTMiniQuest {
 		questToNameMapping.put(questType, name);
 	}
 
-	public static abstract class QuestFactoryBase<Q extends GOTMiniQuest> {
+	public abstract static class QuestFactoryBase<Q extends GOTMiniQuest> {
 		public GOTMiniQuestFactory questFactoryGroup;
 		public String questName;
 		public float rewardFactor = 1.0f;
