@@ -5,15 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>got</groupId>
-    <artifactId>Java_Calculator</artifactId>
-    <version>2.0</version>
+    <artifactId>Game_Of_Thrones</artifactId>
+    <version>17.6</version>
     <name>Java Calculator</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <maven.compiler.source>16</maven.compiler.source>
-        <maven.compiler.target>16</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <!-- Sonar -->
         <sonar.organization>hummel009</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
@@ -22,14 +22,6 @@
         <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
         <sonar.language>java</sonar.language>
     </properties>
-
-    <dependencies>
-        <dependency>
-	        <groupId>com.jtransc</groupId>
-	        <artifactId>jtransc-rt</artifactId>
-	        <version>0.5.0-ALPHA4</version>
-        </dependency>
-    </dependencies>
 
     <build>
         <plugins>
@@ -87,8 +79,8 @@
                 <configuration>
                     <debug>false</debug>
                     <optimize>true</optimize>
-                    <source>16</source>
-                    <target>16</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
         </plugins>
