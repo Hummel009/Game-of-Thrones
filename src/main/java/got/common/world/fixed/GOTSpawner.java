@@ -32,7 +32,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Ashemark);
 		}
 	}
@@ -49,7 +49,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.NaggaHill, 0, 0);
 		}
 	}
@@ -66,7 +66,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Yronwood, 1, 0);
 		}
 	}
@@ -83,7 +83,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.DrummCastle);
 		}
 	}
@@ -100,7 +100,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.IronOak);
 		}
 	}
@@ -117,7 +117,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.ClawIsle);
 		}
 	}
@@ -134,7 +134,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Asshai);
 		}
 	}
@@ -153,7 +153,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Astapor, -1, 0);
 		}
 	}
@@ -170,7 +170,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Blacktyde);
 		}
 	}
@@ -187,7 +187,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Barrowtown, 0, 1);
 		}
 	}
@@ -204,7 +204,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Strongsong);
 		}
 	}
@@ -221,7 +221,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.WhiteWood);
 		}
 	}
@@ -238,7 +238,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Starfall);
 		}
 	}
@@ -256,7 +256,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.HollowHill);
 		}
 	}
@@ -273,7 +273,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Yin, 0, 1);
 		}
 	}
@@ -291,7 +291,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.CasterlyRock, -1, 0);
 		}
 	}
@@ -308,7 +308,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.PinkmaidenCastle);
 		}
 	}
@@ -325,7 +325,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.ServinsCastle, -1, 0);
 		}
 	}
@@ -343,7 +343,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.VaesEfe);
 		}
 	}
@@ -360,7 +360,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Lordsport);
 		}
 	}
@@ -382,7 +382,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Dragonstone);
 		}
 	}
@@ -400,7 +400,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Dreadfort);
 		}
 	}
@@ -418,7 +418,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Driftmark);
 		}
 	}
@@ -435,7 +435,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.DrummCastle);
 		}
 	}
@@ -452,7 +452,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Oldtown, -1, 0);
 		}
 	}
@@ -469,7 +469,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Greenstone);
 		}
 	}
@@ -486,7 +486,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.RedHaven);
 		}
 	}
@@ -503,7 +503,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Feastfires);
 		}
 	}
@@ -520,7 +520,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.SkyReach, 0, 1);
 		}
 	}
@@ -537,7 +537,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.BrightwaterKeep);
 		}
 	}
@@ -555,7 +555,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.GateOfTheMoon, 0, 1);
 		}
 	}
@@ -572,7 +572,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.HighHermitage);
 		}
 	}
@@ -589,7 +589,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Gulltown);
 		}
 	}
@@ -606,7 +606,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.LongbowHall);
 		}
 	}
@@ -623,7 +623,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Hammerhorn);
 		}
 	}
@@ -641,7 +641,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.CleganesKeep);
 		}
 	}
@@ -658,7 +658,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Stonehelm);
 		}
 	}
@@ -675,7 +675,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.LonelyLight);
 		}
 	}
@@ -692,7 +692,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Hellholt);
 		}
 	}
@@ -709,7 +709,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.GreyGarden);
 		}
 	}
@@ -726,7 +726,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.IronOak);
 		}
 	}
@@ -743,7 +743,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Myr, -1, 0);
 		}
 	}
@@ -760,7 +760,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Cornfield);
 		}
 	}
@@ -777,7 +777,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.TorhensSquare);
 		}
 	}
@@ -797,7 +797,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Highgarden, 0, -1);
 		}
 	}
@@ -814,7 +814,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Meereen, 0, -1);
 		}
 	}
@@ -831,7 +831,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Redfort);
 		}
 	}
@@ -848,7 +848,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.GreywaterWatch);
 		}
 	}
@@ -865,7 +865,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, 6861, 3785);
 		}
 	}
@@ -882,7 +882,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Pentos, -1, 0);
 		}
 	}
@@ -899,7 +899,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Seagard, 0, -1);
 		}
 	}
@@ -916,7 +916,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.LastHearth);
 		}
 	}
@@ -933,7 +933,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Tyrosh);
 		}
 	}
@@ -950,7 +950,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.StoneHedge, 0, 1);
 		}
 	}
@@ -984,7 +984,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Lannisport, -1, 0);
 		}
 	}
@@ -1001,7 +1001,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.GoldenTooth, 0, 1);
 		}
 	}
@@ -1018,7 +1018,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.HightowerLitehouse);
 		}
 	}
@@ -1035,7 +1035,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Crakehall, -1, 0);
 		}
 	}
@@ -1052,7 +1052,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.HeartsHome);
 		}
 	}
@@ -1069,7 +1069,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.MormontsKeep);
 		}
 	}
@@ -1086,7 +1086,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Volmark);
 		}
 	}
@@ -1103,7 +1103,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Goldengrove);
 		}
 	}
@@ -1120,7 +1120,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Norvos, 0, -1);
 		}
 	}
@@ -1137,7 +1137,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Volantis, -1, 0);
 		}
 	}
@@ -1154,7 +1154,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Longtable);
 		}
 	}
@@ -1171,7 +1171,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.StarfishHarbor);
 		}
 	}
@@ -1190,7 +1190,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Pyke);
 		}
 	}
@@ -1207,7 +1207,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Ring);
 		}
 	}
@@ -1224,7 +1224,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Banefort);
 		}
 	}
@@ -1241,7 +1241,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Yronwood, 1, 0);
 		}
 	}
@@ -1258,7 +1258,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Sandstone);
 		}
 	}
@@ -1275,7 +1275,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.HornHill);
 		}
 	}
@@ -1292,7 +1292,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Karhold);
 		}
 	}
@@ -1313,7 +1313,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Riverrun, -1, 0);
 		}
 	}
@@ -1330,7 +1330,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.TenTowers);
 		}
 	}
@@ -1347,7 +1347,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.RisvellsCastle, 0, 1);
 		}
 	}
@@ -1364,7 +1364,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Lys);
 		}
 	}
@@ -1381,7 +1381,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Faircastle);
 		}
 	}
@@ -1398,7 +1398,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.EvenfallHall);
 		}
 	}
@@ -1417,7 +1417,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.StormsEnd);
 		}
 	}
@@ -1440,7 +1440,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Sunspear);
 		}
 	}
@@ -1457,7 +1457,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Ninestars);
 		}
 	}
@@ -1474,7 +1474,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.ThreeEyedRavenCave);
 		}
 	}
@@ -1491,7 +1491,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Hojdbaatar);
 		}
 	}
@@ -1509,7 +1509,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.TwinsLeft, 1, 0);
 		}
 	}
@@ -1526,7 +1526,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Braavos, 0, -1);
 		}
 	}
@@ -1543,7 +1543,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.RaventreeHall);
 		}
 	}
@@ -1560,7 +1560,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Hornvale);
 		}
 	}
@@ -1577,7 +1577,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.TwinsRight, -2, 0);
 		}
 	}
@@ -1594,7 +1594,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Maidenpool, 1, 0);
 		}
 	}
@@ -1617,7 +1617,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Winterfell);
 		}
 	}
@@ -1634,7 +1634,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.WhiteHarbour);
 		}
 	}
@@ -1651,7 +1651,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Qarth, 0, 1);
 		}
 	}
@@ -1668,7 +1668,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Runestone);
 		}
 	}
@@ -1685,7 +1685,7 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Tyrosh);
 		}
 	}
@@ -1703,8 +1703,303 @@ public class GOTSpawner {
 			return true;
 		}
 
-		public static boolean fixedAt(World world, int i, int k) {
+		public static boolean fixedAt(int i, int k) {
 			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Yunkai, -1, 0);
 		}
+	}
+	
+	public static GOTStructureBase getFixedStructure(int i, int k) {
+		if (GOTSpawner.AddamMarbrand.fixedAt(i, k)) {
+			return new GOTSpawner.AddamMarbrand(false);
+		}
+		if (GOTSpawner.AeronGreyjoy.fixedAt(i, k)) {
+			return new GOTSpawner.AeronGreyjoy(false);
+		}
+		if (GOTSpawner.AndersYronwood.fixedAt(i, k)) {
+			return new GOTSpawner.AndersYronwood(false);
+		}
+		if (GOTSpawner.AndrikTheUnsmilling.fixedAt(i, k)) {
+			return new GOTSpawner.AndrikTheUnsmilling(false);
+		}
+		if (GOTSpawner.AnyaWaynwood.fixedAt(i, k)) {
+			return new GOTSpawner.AnyaWaynwood(false);
+		}
+		if (GOTSpawner.ArdrianCeltigar.fixedAt(i, k)) {
+			return new GOTSpawner.ArdrianCeltigar(false);
+		}
+		if (GOTSpawner.Asshai.fixedAt(i, k)) {
+			return new GOTSpawner.Asshai(false);
+		}
+		if (GOTSpawner.Astapor.fixedAt(i, k)) {
+			return new GOTSpawner.Astapor(false);
+		}
+		if (GOTSpawner.BaelorBlacktyde.fixedAt(i, k)) {
+			return new GOTSpawner.BaelorBlacktyde(false);
+		}
+		if (GOTSpawner.BarbreyDustin.fixedAt(i, k)) {
+			return new GOTSpawner.BarbreyDustin(false);
+		}
+		if (GOTSpawner.BenedarBelmore.fixedAt(i, k)) {
+			return new GOTSpawner.BenedarBelmore(false);
+		}
+		if (GOTSpawner.BenjenStark.fixedAt(i, k)) {
+			return new GOTSpawner.BenjenStark(false);
+		}
+		if (GOTSpawner.BericDayne.fixedAt(i, k)) {
+			return new GOTSpawner.BericDayne(false);
+		}
+		if (GOTSpawner.BericDondarrion.fixedAt(i, k)) {
+			return new GOTSpawner.BericDondarrion(false);
+		}
+		if (GOTSpawner.BuGai.fixedAt(i, k)) {
+			return new GOTSpawner.BuGai(false);
+		}
+		if (GOTSpawner.CasterlyRock.fixedAt(i, k)) {
+			return new GOTSpawner.CasterlyRock(false);
+		}
+		if (GOTSpawner.ClementPiper.fixedAt(i, k)) {
+			return new GOTSpawner.ClementPiper(false);
+		}
+		if (GOTSpawner.CleyCerwyn.fixedAt(i, k)) {
+			return new GOTSpawner.CleyCerwyn(false);
+		}
+		if (GOTSpawner.DaenerysTargaryen.fixedAt(i, k)) {
+			return new GOTSpawner.DaenerysTargaryen(false);
+		}
+		if (GOTSpawner.Dagmer.fixedAt(i, k)) {
+			return new GOTSpawner.Dagmer(false);
+		}
+		if (GOTSpawner.Dragonstone.fixedAt(i, k)) {
+			return new GOTSpawner.Dragonstone(false);
+		}
+		if (GOTSpawner.Dreadfort.fixedAt(i, k)) {
+			return new GOTSpawner.Dreadfort(false);
+		}
+		if (GOTSpawner.Driftmark.fixedAt(i, k)) {
+			return new GOTSpawner.Driftmark(false);
+		}
+		if (GOTSpawner.DunstanDrumm.fixedAt(i, k)) {
+			return new GOTSpawner.DunstanDrumm(false);
+		}
+		if (GOTSpawner.Ebrose.fixedAt(i, k)) {
+			return new GOTSpawner.Ebrose(false);
+		}
+		if (GOTSpawner.EldonEstermont.fixedAt(i, k)) {
+			return new GOTSpawner.EldonEstermont(false);
+		}
+		if (GOTSpawner.ErikIronmaker.fixedAt(i, k)) {
+			return new GOTSpawner.ErikIronmaker(false);
+		}
+		if (GOTSpawner.ForleyPrester.fixedAt(i, k)) {
+			return new GOTSpawner.ForleyPrester(false);
+		}
+		if (GOTSpawner.FranklynFowler.fixedAt(i, k)) {
+			return new GOTSpawner.FranklynFowler(false);
+		}
+		if (GOTSpawner.GarlanTyrell.fixedAt(i, k)) {
+			return new GOTSpawner.GarlanTyrell(false);
+		}
+		if (GOTSpawner.GateOfTheMoon.fixedAt(i, k)) {
+			return new GOTSpawner.GateOfTheMoon(false);
+		}
+		if (GOTSpawner.GeroldDayne.fixedAt(i, k)) {
+			return new GOTSpawner.GeroldDayne(false);
+		}
+		if (GOTSpawner.GeroldGrafton.fixedAt(i, k)) {
+			return new GOTSpawner.GeroldGrafton(false);
+		}
+		if (GOTSpawner.GilwoodHunter.fixedAt(i, k)) {
+			return new GOTSpawner.GilwoodHunter(false);
+		}
+		if (GOTSpawner.GoroldGoodbrother.fixedAt(i, k)) {
+			return new GOTSpawner.GoroldGoodbrother(false);
+		}
+		if (GOTSpawner.GregorClegane.fixedAt(i, k)) {
+			return new GOTSpawner.GregorClegane(false);
+		}
+		if (GOTSpawner.GulianSwann.fixedAt(i, k)) {
+			return new GOTSpawner.GulianSwann(false);
+		}
+		if (GOTSpawner.GylbertFarwynd.fixedAt(i, k)) {
+			return new GOTSpawner.GylbertFarwynd(false);
+		}
+		if (GOTSpawner.HarmenUller.fixedAt(i, k)) {
+			return new GOTSpawner.HarmenUller(false);
+		}
+		if (GOTSpawner.HarrasHarlaw.fixedAt(i, k)) {
+			return new GOTSpawner.HarrasHarlaw(false);
+		}
+		if (GOTSpawner.HarroldHardyng.fixedAt(i, k)) {
+			return new GOTSpawner.HarroldHardyng(false);
+		}
+		if (GOTSpawner.HarryStrickland.fixedAt(i, k)) {
+			return new GOTSpawner.HarryStrickland(false);
+		}
+		if (GOTSpawner.HarysSwyft.fixedAt(i, k)) {
+			return new GOTSpawner.HarysSwyft(false);
+		}
+		if (GOTSpawner.HelmanTallhart.fixedAt(i, k)) {
+			return new GOTSpawner.HelmanTallhart(false);
+		}
+		if (GOTSpawner.Highgarden.fixedAt(i, k)) {
+			return new GOTSpawner.Highgarden(false);
+		}
+		if (GOTSpawner.HizdahrZoLoraq.fixedAt(i, k)) {
+			return new GOTSpawner.HizdahrZoLoraq(false);
+		}
+		if (GOTSpawner.HortonRedfort.fixedAt(i, k)) {
+			return new GOTSpawner.HortonRedfort(false);
+		}
+		if (GOTSpawner.HowlandReed.fixedAt(i, k)) {
+			return new GOTSpawner.HowlandReed(false);
+		}
+		if (GOTSpawner.Hummel009.fixedAt(i, k)) {
+			return new GOTSpawner.Hummel009(false);
+		}
+		if (GOTSpawner.IllyrioMopatis.fixedAt(i, k)) {
+			return new GOTSpawner.IllyrioMopatis(false);
+		}
+		if (GOTSpawner.JasonMallister.fixedAt(i, k)) {
+			return new GOTSpawner.JasonMallister(false);
+		}
+		if (GOTSpawner.JohnUmber.fixedAt(i, k)) {
+			return new GOTSpawner.JohnUmber(false);
+		}
+		if (GOTSpawner.JonConnington.fixedAt(i, k)) {
+			return new GOTSpawner.JonConnington(false);
+		}
+		if (GOTSpawner.JonosBracken.fixedAt(i, k)) {
+			return new GOTSpawner.JonosBracken(false);
+		}
+		if (GOTSpawner.Lannisport.fixedAt(i, k)) {
+			return new GOTSpawner.Lannisport(false);
+		}
+		if (GOTSpawner.LeoLefford.fixedAt(i, k)) {
+			return new GOTSpawner.LeoLefford(false);
+		}
+		if (GOTSpawner.LeytonHightower.fixedAt(i, k)) {
+			return new GOTSpawner.LeytonHightower(false);
+		}
+		if (GOTSpawner.LyleCrakehall.fixedAt(i, k)) {
+			return new GOTSpawner.LyleCrakehall(false);
+		}
+		if (GOTSpawner.LynCorbray.fixedAt(i, k)) {
+			return new GOTSpawner.LynCorbray(false);
+		}
+		if (GOTSpawner.MaegeMormont.fixedAt(i, k)) {
+			return new GOTSpawner.MaegeMormont(false);
+		}
+		if (GOTSpawner.MaronVolmark.fixedAt(i, k)) {
+			return new GOTSpawner.MaronVolmark(false);
+		}
+		if (GOTSpawner.MathisRowan.fixedAt(i, k)) {
+			return new GOTSpawner.MathisRowan(false);
+		}
+		if (GOTSpawner.Mellario.fixedAt(i, k)) {
+			return new GOTSpawner.Mellario(false);
+		}
+		if (GOTSpawner.Moqorro.fixedAt(i, k)) {
+			return new GOTSpawner.Moqorro(false);
+		}
+		if (GOTSpawner.OrtonMerryweather.fixedAt(i, k)) {
+			return new GOTSpawner.OrtonMerryweather(false);
+		}
+		if (GOTSpawner.PaxterRedwyne.fixedAt(i, k)) {
+			return new GOTSpawner.PaxterRedwyne(false);
+		}
+		if (GOTSpawner.Pyke.fixedAt(i, k)) {
+			return new GOTSpawner.Pyke(false);
+		}
+		if (GOTSpawner.QuennRoxton.fixedAt(i, k)) {
+			return new GOTSpawner.QuennRoxton(false);
+		}
+		if (GOTSpawner.QuentenBanefort.fixedAt(i, k)) {
+			return new GOTSpawner.QuentenBanefort(false);
+		}
+		if (GOTSpawner.QuentynMartell.fixedAt(i, k)) {
+			return new GOTSpawner.QuentynMartell(false);
+		}
+		if (GOTSpawner.QuentynQorgyle.fixedAt(i, k)) {
+			return new GOTSpawner.QuentynQorgyle(false);
+		}
+		if (GOTSpawner.RandyllTarly.fixedAt(i, k)) {
+			return new GOTSpawner.RandyllTarly(false);
+		}
+		if (GOTSpawner.RickardKarstark.fixedAt(i, k)) {
+			return new GOTSpawner.RickardKarstark(false);
+		}
+		if (GOTSpawner.Riverrun.fixedAt(i, k)) {
+			return new GOTSpawner.Riverrun(false);
+		}
+		if (GOTSpawner.RodrikHarlaw.fixedAt(i, k)) {
+			return new GOTSpawner.RodrikHarlaw(false);
+		}
+		if (GOTSpawner.RodrikRyswell.fixedAt(i, k)) {
+			return new GOTSpawner.RodrikRyswell(false);
+		}
+		if (GOTSpawner.SalladhorSaan.fixedAt(i, k)) {
+			return new GOTSpawner.SalladhorSaan(false);
+		}
+		if (GOTSpawner.SebastonFarman.fixedAt(i, k)) {
+			return new GOTSpawner.SebastonFarman(false);
+		}
+		if (GOTSpawner.SelwynTarth.fixedAt(i, k)) {
+			return new GOTSpawner.SelwynTarth(false);
+		}
+		if (GOTSpawner.StormsEnd.fixedAt(i, k)) {
+			return new GOTSpawner.StormsEnd(false);
+		}
+		if (GOTSpawner.Sunspear.fixedAt(i, k)) {
+			return new GOTSpawner.Sunspear(false);
+		}
+		if (GOTSpawner.SymondTempleton.fixedAt(i, k)) {
+			return new GOTSpawner.SymondTempleton(false);
+		}
+		if (GOTSpawner.ThreeEyedRaven.fixedAt(i, k)) {
+			return new GOTSpawner.ThreeEyedRaven(false);
+		}
+		if (GOTSpawner.TugarKhan.fixedAt(i, k)) {
+			return new GOTSpawner.TugarKhan(false);
+		}
+		if (GOTSpawner.TwinsLeft.fixedAt(i, k)) {
+			return new GOTSpawner.TwinsLeft(false);
+		}
+		if (GOTSpawner.TychoNestoris.fixedAt(i, k)) {
+			return new GOTSpawner.TychoNestoris(false);
+		}
+		if (GOTSpawner.TytosBlackwood.fixedAt(i, k)) {
+			return new GOTSpawner.TytosBlackwood(false);
+		}
+		if (GOTSpawner.TytosBrax.fixedAt(i, k)) {
+			return new GOTSpawner.TytosBrax(false);
+		}
+		if (GOTSpawner.WalderFrey.fixedAt(i, k)) {
+			return new GOTSpawner.WalderFrey(false);
+		}
+		if (GOTSpawner.WilliamMooton.fixedAt(i, k)) {
+			return new GOTSpawner.WilliamMooton(false);
+		}
+		if (GOTSpawner.Winterfell.fixedAt(i, k)) {
+			return new GOTSpawner.Winterfell(false);
+		}
+		if (GOTSpawner.WymanManderly.fixedAt(i, k)) {
+			return new GOTSpawner.WymanManderly(false);
+		}
+		if (GOTSpawner.XaroXhoanDaxos.fixedAt(i, k)) {
+			return new GOTSpawner.XaroXhoanDaxos(false);
+		}
+		if (GOTSpawner.YohnRoyce.fixedAt(i, k)) {
+			return new GOTSpawner.YohnRoyce(false);
+		}
+		if (GOTSpawner.YoungGriff.fixedAt(i, k)) {
+			return new GOTSpawner.YoungGriff(false);
+		}
+		if (GOTSpawner.Yunkai.fixedAt(i, k)) {
+			return new GOTSpawner.Yunkai(false);
+		}
+		if (GOTStructureEuronShip.fixedAt(i, k)) {
+			return new GOTStructureEuronShip(false);
+		}
+		return null;
 	}
 }

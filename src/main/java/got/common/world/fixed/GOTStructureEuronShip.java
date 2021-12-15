@@ -27,7 +27,7 @@ public class GOTStructureEuronShip extends GOTStructureIronbornBase {
 		return true;
 	}
 
-	public static boolean fixedAt(World world, int i, int k) {
+	public static boolean fixedAt(int i, int k) {
 		return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Euron);
 	}
 }
