@@ -13,27 +13,14 @@ import net.minecraft.util.StatCollector;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class GOTHandlerBarrel extends ShapelessRecipeHandler {
-	public ArrayList<CachedBarrelRecipe> barrelRecipes = new ArrayList();
-
+	private ArrayList<CachedBarrelRecipe> barrelRecipes = new ArrayList<>();
+	Random rand = new Random();
+	
 	public GOTHandlerBarrel() {
 		for (int i = 0; i < GOTRecipeBrewing.recipes.size(); ++i) {
 			ShapelessOreRecipe rec = GOTRecipeBrewing.recipes.get(i);
 			barrelRecipes.add(getBarrelRecipe(rec));
 		}
-	}
-
-	@Override
-	public void drawBackground(int recipe) {
-		super.drawBackground(recipe);
-	}
-
-	@Override
-	public void drawExtras(int recipe) {
-	}
-
-	@Override
-	public void drawForeground(int recipe) {
-		super.drawForeground(recipe);
 	}
 
 	public CachedBarrelRecipe getBarrelRecipe(ShapelessOreRecipe recipe) {
@@ -84,7 +71,8 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 		for (int i = 0; i < barrelRecipes.size(); ++i) {
 			List<PositionedStack> ingreds;
 			CachedBarrelRecipe recipe = barrelRecipes.get(i);
-			if (!recipe.contains(ingreds = recipe.getIngredients(), ingredient)) {
+			ingreds = recipe.getIngredients();
+			if (!recipe.contains(ingreds, ingredient)) {
 				continue;
 			}
 			recipe.setIngredientPermutation(ingreds, ingredient);
@@ -112,15 +100,15 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 	}
 
 	public class CachedBarrelRecipe extends TemplateRecipeHandler.CachedRecipe {
-		public ArrayList<PositionedStack> recipeIngreds;
-		public PositionedStack recipeResult;
-		public int lastCycleR;
-		public boolean fixedResult;
+		private ArrayList<PositionedStack> recipeIngreds;
+		private PositionedStack recipeResult;
+		private int lastCycleR;
+		private boolean fixedResult;
 
 		public CachedBarrelRecipe(ShapelessRecipeHandler.CachedShapelessRecipe recipe) {
 			lastCycleR = GOTHandlerBarrel.this.cycleticks;
 			fixedResult = false;
-			recipeIngreds = new ArrayList();
+			recipeIngreds = new ArrayList<>();
 			for (int i = 0; i < recipe.getIngredients().size(); ++i) {
 				PositionedStack tmp = new PositionedStack(recipe.ingredients.get(i).items, getX(i), getY(i));
 				tmp.item = recipe.ingredients.get(i).item;
@@ -137,7 +125,6 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 			if (cycle != lastCycleR) {
 				lastCycleR = cycle;
 				if (!fixedResult) {
-					Random rand = new Random();
 					result.setPermutationToRender(rand.nextInt(result.items.length));
 				}
 			}
@@ -174,8 +161,9 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 			case 9: {
 				return 25;
 			}
+			default:
+				return 0;
 			}
-			return 0;
 		}
 
 		public int getY(int i) {
@@ -198,8 +186,9 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 			case 9: {
 				return 42;
 			}
+			default:
+				return 0;
 			}
-			return 0;
 		}
 	}
 

@@ -12,9 +12,9 @@ import net.minecraft.util.StatCollector;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class GOTHandlerTableShapeless extends ShapelessRecipeHandler {
-	public List recipeList;
-	public Class guiClass;
-	public String recipeName;
+	private List<IRecipe> recipeList;
+	private Class<? extends GuiContainer> guiClass;
+	private String recipeName;
 
 	public GOTHandlerTableShapeless(List<IRecipe> recipes, Class<? extends GuiContainer> gui, String name) {
 		recipeList = recipes;
@@ -45,19 +45,17 @@ public class GOTHandlerTableShapeless extends ShapelessRecipeHandler {
 	public void loadCraftingRecipes(ItemStack result) {
 		List<IRecipe> allrecipes = getRecipeList();
 		for (IRecipe irecipe : allrecipes) {
-			if (!NEIServerUtils.areStacksSameTypeCrafting(irecipe.getRecipeOutput(), result)) {
-				continue;
+			if (NEIServerUtils.areStacksSameTypeCrafting(irecipe.getRecipeOutput(), result)) {
+				ShapelessRecipeHandler.CachedShapelessRecipe recipe = null;
+				if (irecipe instanceof ShapelessRecipes) {
+					recipe = new ShapelessRecipeHandler.CachedShapelessRecipe();
+				} else if (irecipe instanceof ShapelessOreRecipe) {
+					recipe = forgeShapelessRecipe((ShapelessOreRecipe) irecipe);
+				}
+				if (recipe != null) {
+					arecipes.add(recipe);
+				}
 			}
-			ShapelessRecipeHandler.CachedShapelessRecipe recipe = null;
-			if (irecipe instanceof ShapelessRecipes) {
-				recipe = new ShapelessRecipeHandler.CachedShapelessRecipe();
-			} else if (irecipe instanceof ShapelessOreRecipe) {
-				recipe = forgeShapelessRecipe((ShapelessOreRecipe) irecipe);
-			}
-			if (recipe == null) {
-				continue;
-			}
-			arecipes.add(recipe);
 		}
 	}
 
@@ -72,10 +70,9 @@ public class GOTHandlerTableShapeless extends ShapelessRecipeHandler {
 				} else if (irecipe instanceof ShapelessOreRecipe) {
 					recipe = forgeShapelessRecipe((ShapelessOreRecipe) irecipe);
 				}
-				if (recipe == null) {
-					continue;
+				if (recipe != null) {
+					arecipes.add(recipe);
 				}
-				arecipes.add(recipe);
 			}
 		} else {
 			super.loadCraftingRecipes(outputId, results);

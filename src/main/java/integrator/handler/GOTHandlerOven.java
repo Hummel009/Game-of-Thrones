@@ -10,7 +10,7 @@ import codechicken.nei.recipe.*;
 import got.client.gui.GOTGuiOven;
 import got.common.tileentity.GOTTileEntityOven;
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.util.StatCollector;
 
@@ -51,7 +51,7 @@ public class GOTHandlerOven extends TemplateRecipeHandler {
 	public void loadCraftingRecipes(ItemStack result) {
 		result.stackSize = 1;
 		if (GOTTileEntityOven.isCookResultAcceptable(result)) {
-			Map map = FurnaceRecipes.smelting().getSmeltingList();
+			Map<ItemStack, Item> map = FurnaceRecipes.smelting().getSmeltingList();
 			Iterator<ItemStack> it = map.keySet().iterator();
 			while (it.hasNext()) {
 				ItemStack itemStack = it.next();
@@ -96,14 +96,14 @@ public class GOTHandlerOven extends TemplateRecipeHandler {
 	}
 
 	public class CachedOvenRecipe extends TemplateRecipeHandler.CachedRecipe {
-		public ArrayList<PositionedStack> ingredients;
-		public ArrayList<PositionedStack> results;
-		public int fuelX;
-		public int fuelY;
+		private ArrayList<PositionedStack> ingredients;
+		private ArrayList<PositionedStack> results;
+		private int fuelX;
+		private int fuelY;
 
 		public CachedOvenRecipe(ItemStack ingredient, ItemStack result) {
-			ingredients = new ArrayList();
-			results = new ArrayList();
+			ingredients = new ArrayList<>();
+			results = new ArrayList<>();
 			fuelX = 75;
 			fuelY = 100;
 			for (int i = 0; i < 9; ++i) {

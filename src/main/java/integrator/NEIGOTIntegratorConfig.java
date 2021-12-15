@@ -1,6 +1,6 @@
 package integrator;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import codechicken.nei.api.*;
 import got.GOT;
@@ -9,7 +9,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 
 public class NEIGOTIntegratorConfig implements IConfigureNEI {
-	public ArrayList<ItemStack> hiddenItems = new ArrayList();
+	private List<ItemStack> hiddenItems;
 
 	@Override
 	public String getName() {
@@ -35,7 +35,7 @@ public class NEIGOTIntegratorConfig implements IConfigureNEI {
 		while (i < 16) {
 			ItemStack s = new ItemStack(stack.getItem(), 1, i);
 			API.hideItem(s);
-			hiddenItems.add(s);
+			getHiddenItems().add(s);
 			++i;
 		}
 	}
@@ -142,5 +142,13 @@ public class NEIGOTIntegratorConfig implements IConfigureNEI {
 		hideItem(GOTRegistry.woodSlabSingle3);
 		hideItem(GOTRegistry.woodSlabSingle4);
 		hideItem(GOTRegistry.woodSlabSingle5);
+	}
+
+	public List<ItemStack> getHiddenItems() {
+		return hiddenItems;
+	}
+
+	public void setHiddenItems(List<ItemStack> hiddenItems) {
+		this.hiddenItems = hiddenItems;
 	}
 }

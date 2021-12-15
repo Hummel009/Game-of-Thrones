@@ -12,9 +12,9 @@ import net.minecraft.util.StatCollector;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
 public class GOTHandlerTableShaped extends ShapedRecipeHandler {
-	public List recipeList;
-	public Class guiClass;
-	public String recipeName;
+	private List<IRecipe> recipeList;
+	private Class<? extends GuiContainer> guiClass;
+	private String recipeName;
 
 	public GOTHandlerTableShaped(List<IRecipe> recipes, Class<? extends GuiContainer> gui, String name) {
 		recipeList = recipes;
@@ -45,19 +45,17 @@ public class GOTHandlerTableShaped extends ShapedRecipeHandler {
 	public void loadCraftingRecipes(ItemStack result) {
 		List<IRecipe> allrecipes = getRecipeList();
 		for (IRecipe irecipe : allrecipes) {
-			if (!NEIServerUtils.areStacksSameTypeCrafting(irecipe.getRecipeOutput(), result)) {
-				continue;
+			if (NEIServerUtils.areStacksSameTypeCrafting(irecipe.getRecipeOutput(), result)) {
+				ShapedRecipeHandler.CachedShapedRecipe recipe = null;
+				if (irecipe instanceof ShapedRecipes) {
+					recipe = new ShapedRecipeHandler.CachedShapedRecipe((ShapedRecipes) irecipe);
+				} else if (irecipe instanceof ShapedOreRecipe) {
+					recipe = forgeShapedRecipe((ShapedOreRecipe) irecipe);
+				}
+				if (recipe != null) {
+					arecipes.add(recipe);
+				}
 			}
-			ShapedRecipeHandler.CachedShapedRecipe recipe = null;
-			if (irecipe instanceof ShapedRecipes) {
-				recipe = new ShapedRecipeHandler.CachedShapedRecipe((ShapedRecipes) irecipe);
-			} else if (irecipe instanceof ShapedOreRecipe) {
-				recipe = forgeShapedRecipe((ShapedOreRecipe) irecipe);
-			}
-			if (recipe == null) {
-				continue;
-			}
-			arecipes.add(recipe);
 		}
 	}
 
@@ -72,10 +70,9 @@ public class GOTHandlerTableShaped extends ShapedRecipeHandler {
 				} else if (irecipe instanceof ShapedOreRecipe) {
 					recipe = forgeShapedRecipe((ShapedOreRecipe) irecipe);
 				}
-				if (recipe == null) {
-					continue;
+				if (recipe != null) {
+					arecipes.add(recipe);
 				}
-				arecipes.add(recipe);
 			}
 		} else {
 			super.loadCraftingRecipes(outputId, results);
