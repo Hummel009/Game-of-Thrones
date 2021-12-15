@@ -779,7 +779,7 @@ public class GOTItemBanner extends Item {
 		OAKENFIST(id++, "oakenfist", GOTFaction.DRAGONSTONE), 
 		SEASMOKE(id++, "seasmoke", GOTFaction.DRAGONSTONE), 
 		DURRANDON(id++, "durrandon", GOTFaction.STORMLANDS), 
-		ÑOLE(id++, "cole", GOTFaction.STORMLANDS), 
+		COLE(id++, "cole", GOTFaction.STORMLANDS), 
 		TOYNE(id++, "toyne", GOTFaction.STORMLANDS), 
 		GARDENER(id++, "gardener", GOTFaction.REACH), 
 		GARDENERBOOK(id++, "gardenerBook", GOTFaction.REACH), 
