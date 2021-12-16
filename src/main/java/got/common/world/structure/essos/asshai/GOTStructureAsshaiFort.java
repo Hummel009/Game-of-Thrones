@@ -1,11 +1,10 @@
-package got.common.world.fixed;
+package got.common.world.structure.essos.asshai;
 
 import java.util.Random;
 
 import got.common.database.*;
 import got.common.entity.essos.asshai.*;
 import got.common.entity.other.GOTEntityNPCRespawner;
-import got.common.world.structure.essos.asshai.GOTStructureAsshaiBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 

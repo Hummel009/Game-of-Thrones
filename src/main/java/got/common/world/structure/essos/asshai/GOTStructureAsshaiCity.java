@@ -8,7 +8,6 @@ import got.common.entity.essos.GOTEntityRedPriest;
 import got.common.entity.essos.asshai.*;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
-import got.common.world.fixed.GOTStructureAsshaiFort;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
 import net.minecraft.block.Block;

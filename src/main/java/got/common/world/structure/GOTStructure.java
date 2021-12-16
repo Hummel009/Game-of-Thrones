@@ -2,7 +2,6 @@ package got.common.world.structure;
 
 import got.common.faction.GOTFaction;
 import got.common.world.biome.GOTBiome;
-import got.common.world.fixed.GOTStructureAsshaiFort;
 import got.common.world.structure.essos.asshai.*;
 import got.common.world.structure.essos.braavos.*;
 import got.common.world.structure.essos.dothraki.*;
