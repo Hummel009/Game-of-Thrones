@@ -31,8 +31,7 @@ public class GOTStructureRuinsBig extends GOTVillageGen {
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			int j2;
 			int j1;
-			rotation = 2;
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			this.setOriginAndRotation(world, i, j, k, 2, 0);
 			originY = 0;
 			int radius = 8;
 			int baseHeight = 40;

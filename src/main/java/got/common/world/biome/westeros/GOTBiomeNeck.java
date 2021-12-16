@@ -7,12 +7,10 @@ import got.common.entity.animal.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
-import got.common.world.fixed.GOTStructureVictarionLanding;
-import got.common.world.map.*;
+import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.westeros.north.GOTStructureNorthCity;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTBiomeNeck extends GOTBiome {
@@ -43,18 +41,6 @@ public class GOTBiomeNeck extends GOTBiome {
 		SpawnListContainer[] c1 = new SpawnListContainer[1];
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(1).add(c1);
-
-		GOTStructureNorthCity castle = new GOTStructureNorthCity(this, 0.0f).setIsCastle();
-		castle.affix(GOTWaypoint.MoatKailin);
-		decorator.affix(castle);
-
-		GOTStructureNorthCity village = new GOTStructureNorthCity(this, 0.0f);
-		village.affix(GOTWaypoint.GreywaterWatch);
-		decorator.affix(village);
-
-		GOTStructureVictarionLanding camp = new GOTStructureVictarionLanding(this, 0.0f);
-		camp.affix(GOTWaypoint.VictarionLanding);
-		decorator.affix(camp);
 	}
 
 	@Override

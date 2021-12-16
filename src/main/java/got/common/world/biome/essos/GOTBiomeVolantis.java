@@ -5,7 +5,6 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.essos.volantis.GOTStructureVolantisCity;
@@ -47,18 +46,7 @@ public class GOTBiomeVolantis extends GOTBiomeEssos {
 		c5[0] = GOTBiomeSpawnList.entry(GOTSpawnList.NORVOS_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c5);
 
-		decorator.affix(new GOTStructureVolantisCity(this, 1.0f));
-
-		GOTStructureVolantisCity town = new GOTStructureVolantisCity(this, 0.0f).setIsTown();
-		town.affix(GOTWaypoint.Mantarys, 0, -1, 2);
-		town.affix(GOTWaypoint.LittleValyria, 0, 1);
-		town.affix(GOTWaypoint.Volantis, -1, 0, 1);
-		town.affix(GOTWaypoint.VolonTherys, 0, 1);
-		town.affix(GOTWaypoint.Valysar, -1, 0, 1);
-		town.affix(GOTWaypoint.Selhorys, -1, 0, 1);
-		town.affix(GOTWaypoint.Elyria);
-		town.affix(GOTWaypoint.Tolos);
-		decorator.affix(town);
+		decorator.addVillage(new GOTStructureVolantisCity(this, 1.0f));
 
 		invasionSpawns.addInvasion(GOTInvasions.BRAAVOS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.TYROSH, GOTEventSpawner.EventChance.UNCOMMON);

@@ -4,11 +4,10 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
-import got.common.world.map.*;
+import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.other.GOTStructureRuins;
 import got.common.world.structure.westeros.crownlands.GOTStructureCrownlandsCity;
 
 public class GOTBiomeCrownlands extends GOTBiomeWesteros {
@@ -46,30 +45,7 @@ public class GOTBiomeCrownlands extends GOTBiomeWesteros {
 		c7[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c7);
 
-		decorator.affix(new GOTStructureCrownlandsCity(this, 1.0f));
-
-		GOTStructureCrownlandsCity village = new GOTStructureCrownlandsCity(this, 0.0f);
-		village.affix(GOTWaypoint.Briarwhite);
-		decorator.affix(village);
-
-		GOTStructureCrownlandsCity castle = new GOTStructureCrownlandsCity(this, 0.0f).setIsCastle();
-		castle.affix(GOTWaypoint.Antlers);
-		castle.affix(GOTWaypoint.Stokeworth);
-		castle.affix(GOTWaypoint.DyreDen);
-		castle.affix(GOTWaypoint.Brownhollow);
-		castle.affix(GOTWaypoint.RooksRest, 0, -1);
-		castle.affix(GOTWaypoint.Rosby, 0, -1);
-		castle.affix(GOTWaypoint.Hayford, -1, 0);
-		decorator.affix(castle);
-
-		GOTStructureCrownlandsCity town = new GOTStructureCrownlandsCity(this, 0.0f).setIsTown();
-		town.affix(GOTWaypoint.Duskendale, -2, 0, 3);
-		decorator.affix(town);
-
-		GOTStructureRuins ruins = new GOTStructureRuins(this, 0.0f);
-		ruins.affix(GOTWaypoint.HollardCastle);
-		ruins.affix(GOTWaypoint.Whispers);
-		decorator.affix(ruins);
+		decorator.addVillage(new GOTStructureCrownlandsCity(this, 1.0f));
 
 		invasionSpawns.addInvasion(GOTInvasions.DRAGONSTONE, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.IRONBORN, GOTEventSpawner.EventChance.UNCOMMON);

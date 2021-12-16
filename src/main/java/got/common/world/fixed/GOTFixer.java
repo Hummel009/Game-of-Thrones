@@ -15,311 +15,838 @@ import got.common.entity.westeros.legendary.quest.*;
 import got.common.entity.westeros.legendary.reborn.*;
 import got.common.entity.westeros.legendary.trader.*;
 import got.common.entity.westeros.legendary.warrior.*;
+import got.common.world.biome.GOTBiome;
 import got.common.world.map.*;
-import got.common.world.structure.other.GOTStructureBase;
+import got.common.world.structure.essos.asshai.GOTStructureAsshaiCity;
+import got.common.world.structure.essos.braavos.GOTStructureBraavosCity;
+import got.common.world.structure.essos.dothraki.GOTStructureDothrakiVillage;
+import got.common.world.structure.essos.ghiscar.GOTStructureGhiscarCity;
+import got.common.world.structure.essos.ibben.GOTStructureIbbenVillage;
+import got.common.world.structure.essos.jogos.GOTStructureJogosVillage;
+import got.common.world.structure.essos.lhazar.GOTStructureLhazarVillage;
+import got.common.world.structure.essos.lorath.GOTStructureLorathCity;
+import got.common.world.structure.essos.lys.GOTStructureLysCity;
+import got.common.world.structure.essos.mossovy.GOTStructureMossovyVillage;
+import got.common.world.structure.essos.myr.GOTStructureMyrCity;
+import got.common.world.structure.essos.norvos.GOTStructureNorvosCity;
+import got.common.world.structure.essos.pentos.GOTStructurePentosCity;
+import got.common.world.structure.essos.qarth.GOTStructureQarthCity;
+import got.common.world.structure.essos.qohor.GOTStructureQohorCity;
+import got.common.world.structure.essos.tyrosh.GOTStructureTyroshCity;
+import got.common.world.structure.essos.volantis.GOTStructureVolantisCity;
+import got.common.world.structure.essos.yiti.GOTStructureYiTiCity;
+import got.common.world.structure.other.*;
+import got.common.world.structure.sothoryos.summer.GOTStructureSummerVillage;
+import got.common.world.structure.westeros.arryn.GOTStructureArrynCity;
+import got.common.world.structure.westeros.crownlands.GOTStructureCrownlandsCity;
+import got.common.world.structure.westeros.crownlands.red.GOTWaypointRedCastle;
+import got.common.world.structure.westeros.dorne.GOTStructureDorneCity;
+import got.common.world.structure.westeros.dragonstone.GOTStructureDragonstoneCity;
+import got.common.world.structure.westeros.gift.GOTStructureGiftVillage;
+import got.common.world.structure.westeros.ironborn.GOTStructureIronbornCity;
+import got.common.world.structure.westeros.north.GOTStructureNorthCity;
+import got.common.world.structure.westeros.reach.GOTStructureReachCity;
+import got.common.world.structure.westeros.riverlands.GOTStructureRiverlandsCity;
+import got.common.world.structure.westeros.stormlands.GOTStructureStormlandsCity;
+import got.common.world.structure.westeros.westerlands.GOTStructureWesterlandsCity;
 import net.minecraft.world.World;
 
-public class GOTSpawner {
+public class GOTFixer {
+	
+	public static void addWaypointLocations(GOTBiome biome) {
+		GOTStructureMyrCity f01 = new GOTStructureMyrCity(biome, 0.0f).setIsTown();
+		f01.affix(GOTWaypoint.Myr, -1, 0, 1);
+		biome.decorator.affix(f01);
+		GOTStructureRuinsBig f02 = new GOTStructureRuinsBig(biome, 0.0f);
+		f02.affix(GOTWaypoint.Ulos);
+		f02.affix(GOTWaypoint.Yeen);
+		f02.affix(GOTWaypoint.Stygai);
+		f02.affix(GOTWaypoint.Harrenhal);
+		biome.decorator.affix(f02);
+		GOTStructureGhiscarCity f03 = new GOTStructureGhiscarCity(biome, 0.0f).setIsColony();
+		f03.affix(GOTWaypoint.BarterBeach);
+		f03.affix(GOTWaypoint.Gogossos);
+		f03.affix(GOTWaypoint.Zamettar, 0, -1, 2);
+		f03.affix(GOTWaypoint.Gorosh);
+		biome.decorator.affix(f03);
+		GOTStructureSummerVillage f04 = new GOTStructureSummerVillage(biome, 1.0f);
+		f04.affix(GOTWaypoint.LastLament);
+		f04.affix(GOTWaypoint.LotusPoint);
+		f04.affix(GOTWaypoint.PearlPalace);
+		f04.affix(GOTWaypoint.TallTreesTown);
+		f04.affix(GOTWaypoint.Ebonhead);
+		f04.affix(GOTWaypoint.RedFlowerVale);
+		f04.affix(GOTWaypoint.GoldenHead);
+		f04.affix(GOTWaypoint.Xon);
+		f04.affix(GOTWaypoint.Doquu);
+		f04.affix(GOTWaypoint.SweetLotusVale);
+		f04.affix(GOTWaypoint.LizardHead);
+		f04.affix(GOTWaypoint.Omboru);
+		f04.affix(GOTWaypoint.Koj);
+		f04.affix(GOTWaypoint.Walano);
+		f04.affix(GOTWaypoint.Naath);
+		biome.decorator.affix(f04);
+		GOTStructureGhiscarCity f05 = new GOTStructureGhiscarCity(biome, 0.0f).setIsTown();
+		f05.affix(GOTWaypoint.Astapor, -1, 0, 1);
+		f05.affix(GOTWaypoint.NewGhis);
+		f05.affix(GOTWaypoint.Meereen, 0, -1, 2);
+		f05.affix(GOTWaypoint.Yunkai, -1, 0, 1);
+		biome.decorator.affix(f05);
+		GOTStructureGhiscarPyramid1 f06 = new GOTStructureGhiscarPyramid1(biome, 0.0f);
+		f06.affix(GOTWaypoint.Astapor, -2, 0);
+		f06.affix(GOTWaypoint.NewGhis, -2, 0);
+		f06.affix(GOTWaypoint.Yunkai, -2, 0);
+		biome.decorator.affix(f06);
+		GOTStructureBraavosCity f07 = new GOTStructureBraavosCity(biome, 0.0f).setIsTown();
+		f07.affix(GOTWaypoint.Braavos, 0, -1, 2);
+		biome.decorator.affix(f07);
+		GOTStructureDothrakiVillage f08 = new GOTStructureDothrakiVillage(biome, 0.0f).setIsBig();
+		f08.affix(GOTWaypoint.Sathar);
+		f08.affix(GOTWaypoint.Kyth);
+		f08.affix(GOTWaypoint.Hornoth);
+		f08.affix(GOTWaypoint.Rathylar);
+		f08.affix(GOTWaypoint.VaesAthjikhari);
+		f08.affix(GOTWaypoint.VaesDiaf);
+		f08.affix(GOTWaypoint.VaesDothrak);
+		f08.affix(GOTWaypoint.VaesEfe);
+		f08.affix(GOTWaypoint.VaesGorqoyi);
+		f08.affix(GOTWaypoint.VaesGraddakh);
+		f08.affix(GOTWaypoint.VaesJini);
+		f08.affix(GOTWaypoint.VaesKhadokh);
+		f08.affix(GOTWaypoint.VaesKhewo);
+		f08.affix(GOTWaypoint.VaesLeisi);
+		f08.affix(GOTWaypoint.VaesLeqse);
+		f08.affix(GOTWaypoint.VaesMejhah);
+		biome.decorator.affix(f08);
+		GOTStructureIbbenVillage f09 = new GOTStructureIbbenVillage(biome, 1.0f);
+		f09.affix(GOTWaypoint.IbNor);
+		f09.affix(GOTWaypoint.PortOfIbben);
+		f09.affix(GOTWaypoint.IbSar);
+		f09.affix(GOTWaypoint.NewIbbish);
+		biome.decorator.affix(f09);
+		GOTStructureFiveFortsTower f10 = new GOTStructureFiveFortsTower(biome, 0.0f);
+		f10.affix(GOTWaypoint.FiveForts1);
+		f10.affix(GOTWaypoint.FiveForts2);
+		f10.affix(GOTWaypoint.FiveForts3);
+		f10.affix(GOTWaypoint.FiveForts4);
+		f10.affix(GOTWaypoint.FiveForts5, 0, 0, 3);
+		biome.decorator.affix(f10);
+		GOTStructureYiTiCity f11 = new GOTStructureYiTiCity(biome, 0.0f).setIsTown();
+		f11.affix(GOTWaypoint.TraderTown, 0, -1);
+		f11.affix(GOTWaypoint.SiQo, 1, 0);
+		f11.affix(GOTWaypoint.Tiqui, 0, -1);
+		f11.affix(GOTWaypoint.Asabhad, -1, 0);
+		f11.affix(GOTWaypoint.Yin, 0, 1, 2);
+		f11.affix(GOTWaypoint.Jinqi, -1, 0, 3);
+		f11.affix(GOTWaypoint.Huiji);
+		f11.affix(GOTWaypoint.Vaibei, 0, -1);
+		f11.affix(GOTWaypoint.Manjin, 1, 0, 3);
+		f11.affix(GOTWaypoint.Lizhao, 1, 0);
+		f11.affix(GOTWaypoint.Baoji, 0, 1, 2);
+		f11.affix(GOTWaypoint.Yibin, -1, 0, 3);
+		f11.affix(GOTWaypoint.Yunnan, 1, 0, 1);
+		f11.affix(GOTWaypoint.Eijiang, 0, 1, 2);
+		f11.affix(GOTWaypoint.LesserMoraq);
+		f11.affix(GOTWaypoint.PortMoraq);
+		f11.affix(GOTWaypoint.Vahar);
+		f11.affix(GOTWaypoint.Faros);
+		f11.affix(GOTWaypoint.Zabhad);
+		f11.affix(GOTWaypoint.Marahai);
+		f11.affix(GOTWaypoint.Turrani);
+		f11.affix(GOTWaypoint.LengYi);
+		f11.affix(GOTWaypoint.LengMa);
+		biome.decorator.affix(f11);
+		GOTStructureVolantisCity f12 = new GOTStructureVolantisCity(biome, 0.0f).setIsTown();
+		f12.affix(GOTWaypoint.Mantarys, 0, -1, 2);
+		f12.affix(GOTWaypoint.LittleValyria, 0, 1);
+		f12.affix(GOTWaypoint.Volantis, -1, 0, 1);
+		f12.affix(GOTWaypoint.VolonTherys, 0, 1);
+		f12.affix(GOTWaypoint.Valysar, -1, 0, 1);
+		f12.affix(GOTWaypoint.Selhorys, -1, 0, 1);
+		f12.affix(GOTWaypoint.Elyria);
+		f12.affix(GOTWaypoint.Tolos);
+		biome.decorator.affix(f12);
+		GOTStructureTyroshCity f13 = new GOTStructureTyroshCity(biome, 0.0f).setIsTown();
+		f13.affix(GOTWaypoint.Tyrosh);
+		biome.decorator.affix(f13);
+		GOTStructureJogosVillage f14 = new GOTStructureJogosVillage(biome, 0.0f).setIsBig();
+		f14.affix(GOTWaypoint.Hojdbaatar);
+		biome.decorator.affix(f14);
+		GOTStructureLhazarVillage f15 = new GOTStructureLhazarVillage(biome, 0.0f).setIsTown();
+		f15.affix(GOTWaypoint.Hesh, 1, 0, 3);
+		f15.affix(GOTWaypoint.Lhazosh, -1, 0, 1);
+		f15.affix(GOTWaypoint.Kosrak, 1, 0, 1);
+		biome.decorator.affix(f15);
+		GOTStructureLorathCity f16 = new GOTStructureLorathCity(biome, 0.0f).setIsTown();
+		f16.affix(GOTWaypoint.Lorath);
+		f16.affix(GOTWaypoint.Morosh);
+		biome.decorator.affix(f16);
+		GOTStructureLysCity f17 = new GOTStructureLysCity(biome, 0.0f).setIsTown();
+		f17.affix(GOTWaypoint.Lys);
+		biome.decorator.affix(f17);
+		GOTStructureGhiscarPyramid2 f18 = new GOTStructureGhiscarPyramid2(biome, 0.0f);
+		f18.affix(GOTWaypoint.Meereen, 0, -2, 0);
+		biome.decorator.affix(f18);
+		GOTStructureNorvosCity f19 = new GOTStructureNorvosCity(biome, 0.0f).setIsTown();
+		f19.affix(GOTWaypoint.Norvos, 0, -1, 2);
+		biome.decorator.affix(f19);
+		GOTStructurePentosCity f20 = new GOTStructurePentosCity(biome, 0.0f).setIsTown();
+		f20.affix(GOTWaypoint.Pentos, -1, 0, 1);
+		biome.decorator.affix(f20);
+		GOTStructureQarthCity f21 = new GOTStructureQarthCity(biome, 0.0f).setIsTown();
+		f21.affix(GOTWaypoint.Qarth, 0, 1);
+		f21.affix(GOTWaypoint.PortYhos, 0, 1);
+		f21.affix(GOTWaypoint.Qarkash, 0, 0);
+		biome.decorator.affix(f21);
+		GOTStructureQohorCity f22 = new GOTStructureQohorCity(biome, 0.0f).setIsTown();
+		f22.affix(GOTWaypoint.Qohor, 0, -1, 2);
+		biome.decorator.affix(f22);
+		GOTStructureAsshaiCity f23 = new GOTStructureAsshaiCity(biome, 0.0f);
+		f23.affix(GOTWaypoint.Asshai, 2);
+		biome.decorator.affix(f23);
+		GOTStructureMossovyVillage f24 = new GOTStructureMossovyVillage(biome, 0.0f);
+		f24.affix(GOTWaypoint.Kadar);
+		biome.decorator.affix(f24);
+		GOTStructureMossovyRampart f25 = new GOTStructureMossovyRampart(biome, 0.0f);
+		f25.affix(GOTWaypoint.EastPass);
+		f25.affix(GOTWaypoint.WestPass);
+		f25.affix(GOTWaypoint.NorthPass);
+		f25.affix(GOTWaypoint.SouthPass);
+		biome.decorator.affix(f25);
+		GOTStructureArrynCity f26 = new GOTStructureArrynCity(biome, 0.0f).setIsCastle();
+		f26.affix(GOTWaypoint.Pebble);
+		f26.affix(GOTWaypoint.ThePaps);
+		f26.affix(GOTWaypoint.ColdwaterBurn);
+		f26.affix(GOTWaypoint.Snakewood);
+		f26.affix(GOTWaypoint.HeartsHome);
+		f26.affix(GOTWaypoint.Strongsong);
+		f26.affix(GOTWaypoint.LongbowHall);
+		f26.affix(GOTWaypoint.OldAnchor);
+		f26.affix(GOTWaypoint.Ninestars);
+		f26.affix(GOTWaypoint.IronOak);
+		f26.affix(GOTWaypoint.Runestone);
+		f26.affix(GOTWaypoint.GreyGlen);
+		f26.affix(GOTWaypoint.Redfort);
+		f26.affix(GOTWaypoint.GateOfTheMoon, 0, 1);
+		f26.affix(GOTWaypoint.WitchIsle);
+		f26.affix(GOTWaypoint.Wickenden);
+		biome.decorator.affix(f26);
+		GOTStructureArrynCity f27 = new GOTStructureArrynCity(biome, 0.0f).setIsTown();
+		f27.affix(GOTWaypoint.Sisterton);
+		biome.decorator.affix(f27);
+		GOTStructureArrynCity f28 = new GOTStructureArrynCity(biome, 0.0f).setIsTown();
+		f28.affix(GOTWaypoint.Gulltown);
+		biome.decorator.affix(f28);
+		GOTStructureCrownlandsCity f29 = new GOTStructureCrownlandsCity(biome, 0.0f);
+		f29.affix(GOTWaypoint.Briarwhite);
+		biome.decorator.affix(f29);
+		GOTStructureCrownlandsCity f30 = new GOTStructureCrownlandsCity(biome, 0.0f).setIsCastle();
+		f30.affix(GOTWaypoint.Antlers);
+		f30.affix(GOTWaypoint.Stokeworth);
+		f30.affix(GOTWaypoint.DyreDen);
+		f30.affix(GOTWaypoint.Brownhollow);
+		f30.affix(GOTWaypoint.RooksRest, 0, -1);
+		f30.affix(GOTWaypoint.Rosby, 0, -1);
+		f30.affix(GOTWaypoint.Hayford, -1, 0);
+		biome.decorator.affix(f30);
+		GOTStructureCrownlandsCity f31 = new GOTStructureCrownlandsCity(biome, 0.0f).setIsTown();
+		f31.affix(GOTWaypoint.Duskendale, -2, 0, 3);
+		biome.decorator.affix(f31);
+		GOTStructureCrownlandsCity f32 = new GOTStructureCrownlandsCity(biome, 0.0f).setIsCapital();
+		f32.affix(GOTWaypoint.KingsLanding, 1, 0, 1);
+		biome.decorator.affix(f32);
+		GOTWaypointRedCastle f33 = new GOTWaypointRedCastle(biome, 0.0f);
+		f33.affix(GOTWaypoint.KingsLanding, 2, 0, 1);
+		biome.decorator.affix(f33);
+		GOTStructureDorneCity f34 = new GOTStructureDorneCity(biome, 0.0f).setIsCastle();
+		f34.affix(GOTWaypoint.Starfall, 0, -1);
+		f34.affix(GOTWaypoint.HighHermitage);
+		f34.affix(GOTWaypoint.Blackmont);
+		f34.affix(GOTWaypoint.Kingsgrave, -1, 0);
+		f34.affix(GOTWaypoint.SkyReach, 0, 1);
+		f34.affix(GOTWaypoint.Yronwood, 1, 0);
+		f34.affix(GOTWaypoint.Wyl, 0, -1);
+		f34.affix(GOTWaypoint.Vaith);
+		f34.affix(GOTWaypoint.Saltshore);
+		f34.affix(GOTWaypoint.Godsgrace);
+		f34.affix(GOTWaypoint.Tor);
+		f34.affix(GOTWaypoint.Hellholt);
+		f34.affix(GOTWaypoint.GhostHill);
+		f34.affix(GOTWaypoint.Spottswood);
+		f34.affix(GOTWaypoint.WaterGardens);
+		f34.affix(GOTWaypoint.Lemonwood);
+		f34.affix(GOTWaypoint.Sandstone);
+		biome.decorator.affix(f34);
+		GOTStructureDorneCity f35 = new GOTStructureDorneCity(biome, 0.0f).setIsTown();
+		f35.affix(GOTWaypoint.GhastonGrey);
+		f35.affix(GOTWaypoint.Sunspear);
+		f35.affix(GOTWaypoint.PlankyTown);
+		biome.decorator.affix(f35);
+		GOTStructureDragonstoneCity f36 = new GOTStructureDragonstoneCity(biome, 0.0f).setIsCastle();
+		f36.affix(GOTWaypoint.Dragonstone);
+		f36.affix(GOTWaypoint.HighTide);
+		f36.affix(GOTWaypoint.Driftmark);
+		f36.affix(GOTWaypoint.SharpPoint);
+		f36.affix(GOTWaypoint.Stonedance);
+		f36.affix(GOTWaypoint.SweetportSound);
+		f36.affix(GOTWaypoint.ClawIsle);
+		biome.decorator.affix(f36);
+		GOTStructureDragonstoneCity f37 = new GOTStructureDragonstoneCity(biome, 0.0f).setIsTown();
+		f37.affix(GOTWaypoint.Hull);
+		biome.decorator.affix(f37);
+		GOTStructureHardhome f38 = new GOTStructureHardhome(biome, 0.0f);
+		f38.affix(GOTWaypoint.Hardhome);
+		biome.decorator.affix(f38);
+		GOTStructureNightKing f39 = new GOTStructureNightKing(biome, 0.0f);
+		f39.affix(GOTWaypoint.Aboba);
+		biome.decorator.affix(f39);
+		GOTStructureReachCity f40 = new GOTStructureReachCity(biome, 0.0f).setIsCastle();
+		f40.affix(GOTWaypoint.Highgarden, 0, -1);
+		biome.decorator.affix(f40);
+		GOTStructureWesterlandsCity f41 = new GOTStructureWesterlandsCity(biome, 0.0f).setIsTown();
+		f41.affix(GOTWaypoint.Lannisport, -1, 0, 3);
+		f41.affix(GOTWaypoint.Kayce, 3);
+		biome.decorator.affix(f41);
+		GOTStructureWesterlandsCity f42 = new GOTStructureWesterlandsCity(biome, 0.0f);
+		f42.affix(GOTWaypoint.Oxcross);
+		biome.decorator.affix(f42);
+		GOTStructureWesterlandsCity f43 = new GOTStructureWesterlandsCity(biome, 0.0f).setIsCastle();
+		f43.affix(GOTWaypoint.CasterlyRock, -1, 0);
+		f43.affix(GOTWaypoint.Wyndhall);
+		f43.affix(GOTWaypoint.Banefort);
+		f43.affix(GOTWaypoint.Plumwood);
+		f43.affix(GOTWaypoint.Crag);
+		f43.affix(GOTWaypoint.Ashemark);
+		f43.affix(GOTWaypoint.GoldenTooth, 0, 1);
+		f43.affix(GOTWaypoint.Sarsfield, 0, -1);
+		f43.affix(GOTWaypoint.Hornvale);
+		f43.affix(GOTWaypoint.DeepDen);
+		f43.affix(GOTWaypoint.Riverspring);
+		f43.affix(GOTWaypoint.Silverhill);
+		f43.affix(GOTWaypoint.Greenfield);
+		f43.affix(GOTWaypoint.Cornfield);
+		f43.affix(GOTWaypoint.Crakehall, -1, 0);
+		f43.affix(GOTWaypoint.Faircastle);
+		f43.affix(GOTWaypoint.Feastfires);
+		f43.affix(GOTWaypoint.Kayce, 1, 0);
+		f43.affix(GOTWaypoint.CleganesKeep);
+		biome.decorator.affix(f43);
+		GOTStructureStormlandsCity f44 = new GOTStructureStormlandsCity(biome, 0.0f).setIsCastle();
+		f44.affix(GOTWaypoint.Nightsong, 0, 1);
+		f44.affix(GOTWaypoint.Poddingfield);
+		f44.affix(GOTWaypoint.HarvestHall);
+		f44.affix(GOTWaypoint.Fawntown);
+		f44.affix(GOTWaypoint.Blackhaven, -1, 0);
+		f44.affix(GOTWaypoint.DeatsHear);
+		f44.affix(GOTWaypoint.Stonehelm);
+		f44.affix(GOTWaypoint.BlackHeart);
+		f44.affix(GOTWaypoint.SeaworthCastle);
+		f44.affix(GOTWaypoint.Amberly);
+		f44.affix(GOTWaypoint.RainHouse);
+		f44.affix(GOTWaypoint.Mistwood);
+		f44.affix(GOTWaypoint.Greenstone);
+		f44.affix(GOTWaypoint.TudburyHoll);
+		f44.affix(GOTWaypoint.Bronzegate, 1, 0);
+		f44.affix(GOTWaypoint.Felwood, 0, 1);
+		f44.affix(GOTWaypoint.Grandview);
+		f44.affix(GOTWaypoint.HaystackHall);
+		f44.affix(GOTWaypoint.Gallowsgrey);
+		f44.affix(GOTWaypoint.Parchments);
+		f44.affix(GOTWaypoint.BroadArch);
+		f44.affix(GOTWaypoint.EvenfallHall);
+		f44.affix(GOTWaypoint.StormsEnd);
+		biome.decorator.affix(f44);
+		GOTStructureStormlandsCity f45 = new GOTStructureStormlandsCity(biome, 0.0f).setIsTown();
+		f45.affix(GOTWaypoint.WeepingTown);
+		biome.decorator.affix(f45);
+		GOTStructureRiverlandsCity f46 = new GOTStructureRiverlandsCity(biome, 0.0f);
+		f46.affix(GOTWaypoint.Sevenstreams);
+		f46.affix(GOTWaypoint.FairMarket);
+		f46.affix(GOTWaypoint.Harroway);
+		f46.affix(GOTWaypoint.Pennytree);
+		biome.decorator.affix(f46);
+		GOTStructureRiverlandsCity f47 = new GOTStructureRiverlandsCity(biome, 0.0f).setIsCastle();
+		f47.affix(GOTWaypoint.Seagard, 0, -1);
+		f47.affix(GOTWaypoint.Darry, 1, 0);
+		f47.affix(GOTWaypoint.AcornHall);
+		f47.affix(GOTWaypoint.Atranta);
+		f47.affix(GOTWaypoint.WayfarerRest);
+		f47.affix(GOTWaypoint.RaventreeHall);
+		f47.affix(GOTWaypoint.PinkmaidenCastle);
+		f47.affix(GOTWaypoint.Riverrun, -1, 0);
+		f47.affix(GOTWaypoint.StoneHedge, 0, 1);
+		f47.affix(GOTWaypoint.Maidenpool, 1, 0);
+		biome.decorator.affix(f47);
+		GOTStructureRiverlandsCity f48 = new GOTStructureRiverlandsCity(biome, 0.0f).setIsTown();
+		f48.affix(GOTWaypoint.StoneySept);
+		f48.affix(GOTWaypoint.Maidenpool, -1, 0, 3);
+		f48.affix(GOTWaypoint.Saltpans);
+		f48.affix(GOTWaypoint.Seagard, 0, 1, 2);
+		biome.decorator.affix(f48);
+		GOTStructureCrossroadsInn f49 = new GOTStructureCrossroadsInn(biome, 0.0f);
+		f49.affix(GOTWaypoint.CrossroadsInn);
+		biome.decorator.affix(f49);
+		GOTStructureReachCity f50 = new GOTStructureReachCity(biome, 0.0f).setIsTown();
+		f50.affix(GOTWaypoint.Oldtown, -1, 0, 3);
+		biome.decorator.affix(f50);
+		GOTStructureReachCity f51 = new GOTStructureReachCity(biome, 0.0f);
+		f51.affix(GOTWaypoint.Oxcross);
+		biome.decorator.affix(f51);
+		GOTStructureReachCity f52 = new GOTStructureReachCity(biome, 0.0f).setIsCastle();
+		f52.affix(GOTWaypoint.SunHouse, 0, -1);
+		f52.affix(GOTWaypoint.GarnetGrove, -1, 0);
+		f52.affix(GOTWaypoint.Blackcrown);
+		f52.affix(GOTWaypoint.Honeyholt);
+		f52.affix(GOTWaypoint.Bandallon);
+		f52.affix(GOTWaypoint.BrightwaterKeep);
+		f52.affix(GOTWaypoint.Uplands);
+		f52.affix(GOTWaypoint.HornHill);
+		f52.affix(GOTWaypoint.Whitegrove, -1, 0);
+		f52.affix(GOTWaypoint.Dunstonbury);
+		f52.affix(GOTWaypoint.Southshield);
+		f52.affix(GOTWaypoint.Greenshield);
+		f52.affix(GOTWaypoint.Grimston);
+		f52.affix(GOTWaypoint.HewettTown, 0, -1);
+		f52.affix(GOTWaypoint.Appleton, 0, -1);
+		f52.affix(GOTWaypoint.OldOak, -1, 0);
+		f52.affix(GOTWaypoint.RedLake);
+		f52.affix(GOTWaypoint.Coldmoat);
+		f52.affix(GOTWaypoint.Goldengrove);
+		f52.affix(GOTWaypoint.Holyhall);
+		f52.affix(GOTWaypoint.DarkDell);
+		f52.affix(GOTWaypoint.Hammerhal);
+		f52.affix(GOTWaypoint.IvyHall);
+		f52.affix(GOTWaypoint.Ring);
+		f52.affix(GOTWaypoint.CiderHall);
+		f52.affix(GOTWaypoint.Longtable);
+		f52.affix(GOTWaypoint.NewBarrel);
+		f52.affix(GOTWaypoint.GrassyVale);
+		f52.affix(GOTWaypoint.Ashford, 0, 1);
+		f52.affix(GOTWaypoint.Bitterbridge, 0, 1);
+		biome.decorator.affix(f52);
+		GOTStructureReachCity f53 = new GOTStructureReachCity(biome, 0.0f).setIsTown();
+		f53.affix(GOTWaypoint.StarfishHarbor);
+		f53.affix(GOTWaypoint.Vinetown);
+		f53.affix(GOTWaypoint.Ryamsport);
+		f53.affix(GOTWaypoint.HewettTown, 0, 1);
+		f53.affix(GOTWaypoint.Ashford, 0, -1);
+		f53.affix(GOTWaypoint.Appleton, 0, 1, 2);
+		f53.affix(GOTWaypoint.Tumbleton, 0, -1);
+		f53.affix(GOTWaypoint.Smithyton, 0, 1, 2);
+		biome.decorator.affix(f53);
+		GOTStructureTower f54 = new GOTStructureTower(biome, 0.0f);
+		f54.affix(GOTWaypoint.Standfast);
+		f54.affix(GOTWaypoint.ThreeTowers, -1, 0, 1);
+		f54.affix(GOTWaypoint.ThreeTowers, -1, -1, 1);
+		f54.affix(GOTWaypoint.ThreeTowers, -1, 1, 1);
+		f54.affix(GOTWaypoint.HightowerLitehouse);
+		f54.affix(GOTWaypoint.TwinsRight, -2, 0, 3);
+		f54.affix(GOTWaypoint.TwinsLeft, 1, 0, 1);
+		f54.affix(GOTWaypoint.BaelishKeep);
+		f54.affix(GOTWaypoint.TowerOfGlimmering);
+		f54.affix(GOTWaypoint.RamseyTower);
+		biome.decorator.affix(f54);
+		GOTStructureNorthCity f55 = new GOTStructureNorthCity(biome, 0.0f).setIsTown();
+		f55.affix(GOTWaypoint.WhiteHarbour, 1);
+		biome.decorator.affix(f55);
+		GOTStructureNorthCity f56 = new GOTStructureNorthCity(biome, 0.0f).setIsSmallTown();
+		f56.affix(GOTWaypoint.Barrowtown, 0, 1, 2);
+		biome.decorator.affix(f56);
+		GOTStructureNorthCity f57 = new GOTStructureNorthCity(biome, 0.0f).setIsCastle();
+		f57.affix(GOTWaypoint.MormontsKeep);
+		f57.affix(GOTWaypoint.DeepwoodMotte);
+		f57.affix(GOTWaypoint.Karhold);
+		f57.affix(GOTWaypoint.Winterfell, 1);
+		f57.affix(GOTWaypoint.LastHearth);
+		f57.affix(GOTWaypoint.Dreadfort);
+		f57.affix(GOTWaypoint.DeepwoodMotte);
+		f57.affix(GOTWaypoint.Hornwood);
+		f57.affix(GOTWaypoint.BlackPool);
+		f57.affix(GOTWaypoint.RamsGate);
+		f57.affix(GOTWaypoint.WidowsWatch);
+		f57.affix(GOTWaypoint.OldCastle);
+		f57.affix(GOTWaypoint.ServinsCastle, -1, 0);
+		f57.affix(GOTWaypoint.Ironrath);
+		f57.affix(GOTWaypoint.Highpoint);
+		f57.affix(GOTWaypoint.TorhensSquare);
+		f57.affix(GOTWaypoint.RisvellsCastle, 0, 1);
+		f57.affix(GOTWaypoint.RillwaterCrossing);
+		f57.affix(GOTWaypoint.FlintsFinger);
+		f57.affix(GOTWaypoint.Goldgrass, 0, 1);
+		f57.affix(GOTWaypoint.MoatKailin);
+		biome.decorator.affix(f57);
+		GOTStructureNorthCity f58 = new GOTStructureNorthCity(biome, 0.0f);
+		f58.affix(GOTWaypoint.GreywaterWatch);
+		biome.decorator.affix(f58);
+		GOTStructureVictarionLanding f59 = new GOTStructureVictarionLanding(biome, 0.0f);
+		f59.affix(GOTWaypoint.VictarionLanding);
+		biome.decorator.affix(f59);
+		GOTStructureIronbornCity f60 = new GOTStructureIronbornCity(biome, 0.0f);
+		f60.affix(GOTWaypoint.Pebbleton);
+		biome.decorator.affix(f60);
+		GOTStructureIronbornCity f61 = new GOTStructureIronbornCity(biome, 0.0f).setIsCastle();
+		f61.affix(GOTWaypoint.Blacktyde);
+		f61.affix(GOTWaypoint.Volmark);
+		f61.affix(GOTWaypoint.LonelyLight);
+		f61.affix(GOTWaypoint.CrowSpikeKeep);
+		f61.affix(GOTWaypoint.Downdelving);
+		f61.affix(GOTWaypoint.CorpseLake);
+		f61.affix(GOTWaypoint.SparrCastle);
+		f61.affix(GOTWaypoint.Sunderly);
+		f61.affix(GOTWaypoint.Saltcliffe);
+		f61.affix(GOTWaypoint.SealskinPoint);
+		f61.affix(GOTWaypoint.Orkwood);
+		f61.affix(GOTWaypoint.DrummCastle);
+		f61.affix(GOTWaypoint.Stonehouse);
+		f61.affix(GOTWaypoint.GreyGarden);
+		f61.affix(GOTWaypoint.TenTowers);
+		f61.affix(GOTWaypoint.HarlawHall);
+		f61.affix(GOTWaypoint.HarridanHill);
+		f61.affix(GOTWaypoint.StonetreeCastle);
+		f61.affix(GOTWaypoint.IronHolt);
+		f61.affix(GOTWaypoint.Pyke);
+		f61.affix(GOTWaypoint.Blackhaven);
+		f61.affix(GOTWaypoint.TawneyCastle);
+		f61.affix(GOTWaypoint.Shatterstone);
+		f61.affix(GOTWaypoint.MyreCastle);
+		f61.affix(GOTWaypoint.Hammerhorn);
+		biome.decorator.affix(f61);
+		GOTStructureIronbornCity f62 = new GOTStructureIronbornCity(biome, 0.0f).setIsTown();
+		f62.affix(GOTWaypoint.Lordsport);
+		f62.affix(GOTWaypoint.RedHaven);
+		biome.decorator.affix(f62);
+		GOTStructureRuins f63 = new GOTStructureRuins(biome, 0.0f);
+		f63.affix(GOTWaypoint.GreyironCastle);
+		f63.affix(GOTWaypoint.HoareKeep);
+		f63.affix(GOTWaypoint.HoareCastle);
+		f63.affix(GOTWaypoint.OldStones);
+		f63.affix(GOTWaypoint.WhiteWalls);
+		f63.affix(GOTWaypoint.HoggHall);
+		f63.affix(GOTWaypoint.Summerhall);
+		f63.affix(GOTWaypoint.TowerOfJoy);
+		f63.affix(GOTWaypoint.TarbeckHall);
+		f63.affix(GOTWaypoint.Castamere);
+		f63.affix(GOTWaypoint.Goldenhill);
+		f63.affix(GOTWaypoint.HollardCastle);
+		f63.affix(GOTWaypoint.Whispers);
+		biome.decorator.affix(f63);
+		GOTStructureCrasterKeep f64 = new GOTStructureCrasterKeep(biome, 0.0f);
+		f64.affix(GOTWaypoint.CrastersKeep);
+		biome.decorator.affix(f64);
+		GOTStructureCastleBlack f65 = new GOTStructureCastleBlack(biome, 0.0f);
+		f65.affix(GOTWaypoint.CastleBlack);
+		biome.decorator.affix(f65);
+		GOTStructureShadowTower f66 = new GOTStructureShadowTower(biome, 0.0f);
+		f66.affix(GOTWaypoint.ShadowTower);
+		biome.decorator.affix(f66);
+		GOTStructureEastWatch f67 = new GOTStructureEastWatch(biome, 0.0f);
+		f67.affix(GOTWaypoint.EastWatch);
+		biome.decorator.affix(f67);
+		GOTStructureWallGate f68 = new GOTStructureWallGate(biome, 0.0f);
+		f68.affix(GOTWaypoint.CastleBlack, 0, -1);
+		biome.decorator.affix(f68);
+		GOTStructureGiftVillage f69 = new GOTStructureGiftVillage(biome, 0.0f);
+		f69.affix(GOTWaypoint.Queenscrown);
+		f69.affix(GOTWaypoint.Moletown);
+		biome.decorator.affix(f69);
+	}
 
 	public static GOTStructureBase getFixedStructure(int i, int k) {
-		if (GOTSpawner.AddamMarbrand.fixedAt(i, k)) {
-			return new GOTSpawner.AddamMarbrand(false);
+		if (GOTFixer.AddamMarbrand.fixedAt(i, k)) {
+			return new GOTFixer.AddamMarbrand();
 		}
-		if (GOTSpawner.AeronGreyjoy.fixedAt(i, k)) {
-			return new GOTSpawner.AeronGreyjoy(false);
+		if (GOTFixer.AeronGreyjoy.fixedAt(i, k)) {
+			return new GOTFixer.AeronGreyjoy();
 		}
-		if (GOTSpawner.AndersYronwood.fixedAt(i, k)) {
-			return new GOTSpawner.AndersYronwood(false);
+		if (GOTFixer.AndersYronwood.fixedAt(i, k)) {
+			return new GOTFixer.AndersYronwood();
 		}
-		if (GOTSpawner.AndrikTheUnsmilling.fixedAt(i, k)) {
-			return new GOTSpawner.AndrikTheUnsmilling(false);
+		if (GOTFixer.AndrikTheUnsmilling.fixedAt(i, k)) {
+			return new GOTFixer.AndrikTheUnsmilling();
 		}
-		if (GOTSpawner.AnyaWaynwood.fixedAt(i, k)) {
-			return new GOTSpawner.AnyaWaynwood(false);
+		if (GOTFixer.AnyaWaynwood.fixedAt(i, k)) {
+			return new GOTFixer.AnyaWaynwood();
 		}
-		if (GOTSpawner.ArdrianCeltigar.fixedAt(i, k)) {
-			return new GOTSpawner.ArdrianCeltigar(false);
+		if (GOTFixer.ArdrianCeltigar.fixedAt(i, k)) {
+			return new GOTFixer.ArdrianCeltigar();
 		}
-		if (GOTSpawner.Asshai.fixedAt(i, k)) {
-			return new GOTSpawner.Asshai(false);
+		if (GOTFixer.Asshai.fixedAt(i, k)) {
+			return new GOTFixer.Asshai();
 		}
-		if (GOTSpawner.Astapor.fixedAt(i, k)) {
-			return new GOTSpawner.Astapor(false);
+		if (GOTFixer.Astapor.fixedAt(i, k)) {
+			return new GOTFixer.Astapor();
 		}
-		if (GOTSpawner.BaelorBlacktyde.fixedAt(i, k)) {
-			return new GOTSpawner.BaelorBlacktyde(false);
+		if (GOTFixer.BaelorBlacktyde.fixedAt(i, k)) {
+			return new GOTFixer.BaelorBlacktyde();
 		}
-		if (GOTSpawner.BarbreyDustin.fixedAt(i, k)) {
-			return new GOTSpawner.BarbreyDustin(false);
+		if (GOTFixer.BarbreyDustin.fixedAt(i, k)) {
+			return new GOTFixer.BarbreyDustin();
 		}
-		if (GOTSpawner.BenedarBelmore.fixedAt(i, k)) {
-			return new GOTSpawner.BenedarBelmore(false);
+		if (GOTFixer.BenedarBelmore.fixedAt(i, k)) {
+			return new GOTFixer.BenedarBelmore();
 		}
-		if (GOTSpawner.BenjenStark.fixedAt(i, k)) {
-			return new GOTSpawner.BenjenStark(false);
+		if (GOTFixer.BenjenStark.fixedAt(i, k)) {
+			return new GOTFixer.BenjenStark();
 		}
-		if (GOTSpawner.BericDayne.fixedAt(i, k)) {
-			return new GOTSpawner.BericDayne(false);
+		if (GOTFixer.BericDayne.fixedAt(i, k)) {
+			return new GOTFixer.BericDayne();
 		}
-		if (GOTSpawner.BericDondarrion.fixedAt(i, k)) {
-			return new GOTSpawner.BericDondarrion(false);
+		if (GOTFixer.BericDondarrion.fixedAt(i, k)) {
+			return new GOTFixer.BericDondarrion();
 		}
-		if (GOTSpawner.BuGai.fixedAt(i, k)) {
-			return new GOTSpawner.BuGai(false);
+		if (GOTFixer.BuGai.fixedAt(i, k)) {
+			return new GOTFixer.BuGai();
 		}
-		if (GOTSpawner.CasterlyRock.fixedAt(i, k)) {
-			return new GOTSpawner.CasterlyRock(false);
+		if (GOTFixer.CasterlyRock.fixedAt(i, k)) {
+			return new GOTFixer.CasterlyRock();
 		}
-		if (GOTSpawner.ClementPiper.fixedAt(i, k)) {
-			return new GOTSpawner.ClementPiper(false);
+		if (GOTFixer.ClementPiper.fixedAt(i, k)) {
+			return new GOTFixer.ClementPiper();
 		}
-		if (GOTSpawner.CleyCerwyn.fixedAt(i, k)) {
-			return new GOTSpawner.CleyCerwyn(false);
+		if (GOTFixer.CleyCerwyn.fixedAt(i, k)) {
+			return new GOTFixer.CleyCerwyn();
 		}
-		if (GOTSpawner.DaenerysTargaryen.fixedAt(i, k)) {
-			return new GOTSpawner.DaenerysTargaryen(false);
+		if (GOTFixer.DaenerysTargaryen.fixedAt(i, k)) {
+			return new GOTFixer.DaenerysTargaryen();
 		}
-		if (GOTSpawner.Dagmer.fixedAt(i, k)) {
-			return new GOTSpawner.Dagmer(false);
+		if (GOTFixer.Dagmer.fixedAt(i, k)) {
+			return new GOTFixer.Dagmer();
 		}
-		if (GOTSpawner.Dragonstone.fixedAt(i, k)) {
-			return new GOTSpawner.Dragonstone(false);
+		if (GOTFixer.Dragonstone.fixedAt(i, k)) {
+			return new GOTFixer.Dragonstone();
 		}
-		if (GOTSpawner.Dreadfort.fixedAt(i, k)) {
-			return new GOTSpawner.Dreadfort(false);
+		if (GOTFixer.Dreadfort.fixedAt(i, k)) {
+			return new GOTFixer.Dreadfort();
 		}
-		if (GOTSpawner.Driftmark.fixedAt(i, k)) {
-			return new GOTSpawner.Driftmark(false);
+		if (GOTFixer.Driftmark.fixedAt(i, k)) {
+			return new GOTFixer.Driftmark();
 		}
-		if (GOTSpawner.DunstanDrumm.fixedAt(i, k)) {
-			return new GOTSpawner.DunstanDrumm(false);
+		if (GOTFixer.DunstanDrumm.fixedAt(i, k)) {
+			return new GOTFixer.DunstanDrumm();
 		}
-		if (GOTSpawner.Ebrose.fixedAt(i, k)) {
-			return new GOTSpawner.Ebrose(false);
+		if (GOTFixer.Ebrose.fixedAt(i, k)) {
+			return new GOTFixer.Ebrose();
 		}
-		if (GOTSpawner.EldonEstermont.fixedAt(i, k)) {
-			return new GOTSpawner.EldonEstermont(false);
+		if (GOTFixer.EldonEstermont.fixedAt(i, k)) {
+			return new GOTFixer.EldonEstermont();
 		}
-		if (GOTSpawner.ErikIronmaker.fixedAt(i, k)) {
-			return new GOTSpawner.ErikIronmaker(false);
+		if (GOTFixer.ErikIronmaker.fixedAt(i, k)) {
+			return new GOTFixer.ErikIronmaker();
 		}
-		if (GOTSpawner.ForleyPrester.fixedAt(i, k)) {
-			return new GOTSpawner.ForleyPrester(false);
+		if (GOTFixer.EuronGreyjoy.fixedAt(i, k)) {
+			return new GOTFixer.EuronGreyjoy();
 		}
-		if (GOTSpawner.FranklynFowler.fixedAt(i, k)) {
-			return new GOTSpawner.FranklynFowler(false);
+		if (GOTFixer.ForleyPrester.fixedAt(i, k)) {
+			return new GOTFixer.ForleyPrester();
 		}
-		if (GOTSpawner.GarlanTyrell.fixedAt(i, k)) {
-			return new GOTSpawner.GarlanTyrell(false);
+		if (GOTFixer.FranklynFowler.fixedAt(i, k)) {
+			return new GOTFixer.FranklynFowler();
 		}
-		if (GOTSpawner.GateOfTheMoon.fixedAt(i, k)) {
-			return new GOTSpawner.GateOfTheMoon(false);
+		if (GOTFixer.GarlanTyrell.fixedAt(i, k)) {
+			return new GOTFixer.GarlanTyrell();
 		}
-		if (GOTSpawner.GeroldDayne.fixedAt(i, k)) {
-			return new GOTSpawner.GeroldDayne(false);
+		if (GOTFixer.GateOfTheMoon.fixedAt(i, k)) {
+			return new GOTFixer.GateOfTheMoon();
 		}
-		if (GOTSpawner.GeroldGrafton.fixedAt(i, k)) {
-			return new GOTSpawner.GeroldGrafton(false);
+		if (GOTFixer.GeroldDayne.fixedAt(i, k)) {
+			return new GOTFixer.GeroldDayne();
 		}
-		if (GOTSpawner.GilwoodHunter.fixedAt(i, k)) {
-			return new GOTSpawner.GilwoodHunter(false);
+		if (GOTFixer.GeroldGrafton.fixedAt(i, k)) {
+			return new GOTFixer.GeroldGrafton();
 		}
-		if (GOTSpawner.GoroldGoodbrother.fixedAt(i, k)) {
-			return new GOTSpawner.GoroldGoodbrother(false);
+		if (GOTFixer.GilwoodHunter.fixedAt(i, k)) {
+			return new GOTFixer.GilwoodHunter();
 		}
-		if (GOTSpawner.GregorClegane.fixedAt(i, k)) {
-			return new GOTSpawner.GregorClegane(false);
+		if (GOTFixer.GoroldGoodbrother.fixedAt(i, k)) {
+			return new GOTFixer.GoroldGoodbrother();
 		}
-		if (GOTSpawner.GulianSwann.fixedAt(i, k)) {
-			return new GOTSpawner.GulianSwann(false);
+		if (GOTFixer.GregorClegane.fixedAt(i, k)) {
+			return new GOTFixer.GregorClegane();
 		}
-		if (GOTSpawner.GylbertFarwynd.fixedAt(i, k)) {
-			return new GOTSpawner.GylbertFarwynd(false);
+		if (GOTFixer.GulianSwann.fixedAt(i, k)) {
+			return new GOTFixer.GulianSwann();
 		}
-		if (GOTSpawner.HarmenUller.fixedAt(i, k)) {
-			return new GOTSpawner.HarmenUller(false);
+		if (GOTFixer.GylbertFarwynd.fixedAt(i, k)) {
+			return new GOTFixer.GylbertFarwynd();
 		}
-		if (GOTSpawner.HarrasHarlaw.fixedAt(i, k)) {
-			return new GOTSpawner.HarrasHarlaw(false);
+		if (GOTFixer.HarmenUller.fixedAt(i, k)) {
+			return new GOTFixer.HarmenUller();
 		}
-		if (GOTSpawner.HarroldHardyng.fixedAt(i, k)) {
-			return new GOTSpawner.HarroldHardyng(false);
+		if (GOTFixer.HarrasHarlaw.fixedAt(i, k)) {
+			return new GOTFixer.HarrasHarlaw();
 		}
-		if (GOTSpawner.HarryStrickland.fixedAt(i, k)) {
-			return new GOTSpawner.HarryStrickland(false);
+		if (GOTFixer.HarroldHardyng.fixedAt(i, k)) {
+			return new GOTFixer.HarroldHardyng();
 		}
-		if (GOTSpawner.HarysSwyft.fixedAt(i, k)) {
-			return new GOTSpawner.HarysSwyft(false);
+		if (GOTFixer.HarryStrickland.fixedAt(i, k)) {
+			return new GOTFixer.HarryStrickland();
 		}
-		if (GOTSpawner.HelmanTallhart.fixedAt(i, k)) {
-			return new GOTSpawner.HelmanTallhart(false);
+		if (GOTFixer.HarysSwyft.fixedAt(i, k)) {
+			return new GOTFixer.HarysSwyft();
 		}
-		if (GOTSpawner.Highgarden.fixedAt(i, k)) {
-			return new GOTSpawner.Highgarden(false);
+		if (GOTFixer.HelmanTallhart.fixedAt(i, k)) {
+			return new GOTFixer.HelmanTallhart();
 		}
-		if (GOTSpawner.HizdahrZoLoraq.fixedAt(i, k)) {
-			return new GOTSpawner.HizdahrZoLoraq(false);
+		if (GOTFixer.Highgarden.fixedAt(i, k)) {
+			return new GOTFixer.Highgarden();
 		}
-		if (GOTSpawner.HortonRedfort.fixedAt(i, k)) {
-			return new GOTSpawner.HortonRedfort(false);
+		if (GOTFixer.HizdahrZoLoraq.fixedAt(i, k)) {
+			return new GOTFixer.HizdahrZoLoraq();
 		}
-		if (GOTSpawner.HowlandReed.fixedAt(i, k)) {
-			return new GOTSpawner.HowlandReed(false);
+		if (GOTFixer.HortonRedfort.fixedAt(i, k)) {
+			return new GOTFixer.HortonRedfort();
 		}
-		if (GOTSpawner.Hummel009.fixedAt(i, k)) {
-			return new GOTSpawner.Hummel009(false);
+		if (GOTFixer.HowlandReed.fixedAt(i, k)) {
+			return new GOTFixer.HowlandReed();
 		}
-		if (GOTSpawner.IllyrioMopatis.fixedAt(i, k)) {
-			return new GOTSpawner.IllyrioMopatis(false);
+		if (GOTFixer.Hummel009.fixedAt(i, k)) {
+			return new GOTFixer.Hummel009();
 		}
-		if (GOTSpawner.JasonMallister.fixedAt(i, k)) {
-			return new GOTSpawner.JasonMallister(false);
+		if (GOTFixer.IllyrioMopatis.fixedAt(i, k)) {
+			return new GOTFixer.IllyrioMopatis();
 		}
-		if (GOTSpawner.JohnUmber.fixedAt(i, k)) {
-			return new GOTSpawner.JohnUmber(false);
+		if (GOTFixer.JasonMallister.fixedAt(i, k)) {
+			return new GOTFixer.JasonMallister();
 		}
-		if (GOTSpawner.JonConnington.fixedAt(i, k)) {
-			return new GOTSpawner.JonConnington(false);
+		if (GOTFixer.JohnUmber.fixedAt(i, k)) {
+			return new GOTFixer.JohnUmber();
 		}
-		if (GOTSpawner.JonosBracken.fixedAt(i, k)) {
-			return new GOTSpawner.JonosBracken(false);
+		if (GOTFixer.JonConnington.fixedAt(i, k)) {
+			return new GOTFixer.JonConnington();
 		}
-		if (GOTSpawner.Lannisport.fixedAt(i, k)) {
-			return new GOTSpawner.Lannisport(false);
+		if (GOTFixer.JonosBracken.fixedAt(i, k)) {
+			return new GOTFixer.JonosBracken();
 		}
-		if (GOTSpawner.LeoLefford.fixedAt(i, k)) {
-			return new GOTSpawner.LeoLefford(false);
+		if (GOTFixer.Lannisport.fixedAt(i, k)) {
+			return new GOTFixer.Lannisport();
 		}
-		if (GOTSpawner.LeytonHightower.fixedAt(i, k)) {
-			return new GOTSpawner.LeytonHightower(false);
+		if (GOTFixer.LeoLefford.fixedAt(i, k)) {
+			return new GOTFixer.LeoLefford();
 		}
-		if (GOTSpawner.LyleCrakehall.fixedAt(i, k)) {
-			return new GOTSpawner.LyleCrakehall(false);
+		if (GOTFixer.LeytonHightower.fixedAt(i, k)) {
+			return new GOTFixer.LeytonHightower();
 		}
-		if (GOTSpawner.LynCorbray.fixedAt(i, k)) {
-			return new GOTSpawner.LynCorbray(false);
+		if (GOTFixer.LyleCrakehall.fixedAt(i, k)) {
+			return new GOTFixer.LyleCrakehall();
 		}
-		if (GOTSpawner.MaegeMormont.fixedAt(i, k)) {
-			return new GOTSpawner.MaegeMormont(false);
+		if (GOTFixer.LynCorbray.fixedAt(i, k)) {
+			return new GOTFixer.LynCorbray();
 		}
-		if (GOTSpawner.MaronVolmark.fixedAt(i, k)) {
-			return new GOTSpawner.MaronVolmark(false);
+		if (GOTFixer.MaegeMormont.fixedAt(i, k)) {
+			return new GOTFixer.MaegeMormont();
 		}
-		if (GOTSpawner.MathisRowan.fixedAt(i, k)) {
-			return new GOTSpawner.MathisRowan(false);
+		if (GOTFixer.MaronVolmark.fixedAt(i, k)) {
+			return new GOTFixer.MaronVolmark();
 		}
-		if (GOTSpawner.Mellario.fixedAt(i, k)) {
-			return new GOTSpawner.Mellario(false);
+		if (GOTFixer.MathisRowan.fixedAt(i, k)) {
+			return new GOTFixer.MathisRowan();
 		}
-		if (GOTSpawner.Moqorro.fixedAt(i, k)) {
-			return new GOTSpawner.Moqorro(false);
+		if (GOTFixer.Mellario.fixedAt(i, k)) {
+			return new GOTFixer.Mellario();
 		}
-		if (GOTSpawner.OrtonMerryweather.fixedAt(i, k)) {
-			return new GOTSpawner.OrtonMerryweather(false);
+		if (GOTFixer.Moqorro.fixedAt(i, k)) {
+			return new GOTFixer.Moqorro();
 		}
-		if (GOTSpawner.PaxterRedwyne.fixedAt(i, k)) {
-			return new GOTSpawner.PaxterRedwyne(false);
+		if (GOTFixer.OrtonMerryweather.fixedAt(i, k)) {
+			return new GOTFixer.OrtonMerryweather();
 		}
-		if (GOTSpawner.Pyke.fixedAt(i, k)) {
-			return new GOTSpawner.Pyke(false);
+		if (GOTFixer.PaxterRedwyne.fixedAt(i, k)) {
+			return new GOTFixer.PaxterRedwyne();
 		}
-		if (GOTSpawner.QuennRoxton.fixedAt(i, k)) {
-			return new GOTSpawner.QuennRoxton(false);
+		if (GOTFixer.Pyke.fixedAt(i, k)) {
+			return new GOTFixer.Pyke();
 		}
-		if (GOTSpawner.QuentenBanefort.fixedAt(i, k)) {
-			return new GOTSpawner.QuentenBanefort(false);
+		if (GOTFixer.QuennRoxton.fixedAt(i, k)) {
+			return new GOTFixer.QuennRoxton();
 		}
-		if (GOTSpawner.QuentynMartell.fixedAt(i, k)) {
-			return new GOTSpawner.QuentynMartell(false);
+		if (GOTFixer.QuentenBanefort.fixedAt(i, k)) {
+			return new GOTFixer.QuentenBanefort();
 		}
-		if (GOTSpawner.QuentynQorgyle.fixedAt(i, k)) {
-			return new GOTSpawner.QuentynQorgyle(false);
+		if (GOTFixer.QuentynMartell.fixedAt(i, k)) {
+			return new GOTFixer.QuentynMartell();
 		}
-		if (GOTSpawner.RandyllTarly.fixedAt(i, k)) {
-			return new GOTSpawner.RandyllTarly(false);
+		if (GOTFixer.QuentynQorgyle.fixedAt(i, k)) {
+			return new GOTFixer.QuentynQorgyle();
 		}
-		if (GOTSpawner.RickardKarstark.fixedAt(i, k)) {
-			return new GOTSpawner.RickardKarstark(false);
+		if (GOTFixer.RandyllTarly.fixedAt(i, k)) {
+			return new GOTFixer.RandyllTarly();
 		}
-		if (GOTSpawner.Riverrun.fixedAt(i, k)) {
-			return new GOTSpawner.Riverrun(false);
+		if (GOTFixer.RickardKarstark.fixedAt(i, k)) {
+			return new GOTFixer.RickardKarstark();
 		}
-		if (GOTSpawner.RodrikHarlaw.fixedAt(i, k)) {
-			return new GOTSpawner.RodrikHarlaw(false);
+		if (GOTFixer.Riverrun.fixedAt(i, k)) {
+			return new GOTFixer.Riverrun();
 		}
-		if (GOTSpawner.RodrikRyswell.fixedAt(i, k)) {
-			return new GOTSpawner.RodrikRyswell(false);
+		if (GOTFixer.RodrikHarlaw.fixedAt(i, k)) {
+			return new GOTFixer.RodrikHarlaw();
 		}
-		if (GOTSpawner.SalladhorSaan.fixedAt(i, k)) {
-			return new GOTSpawner.SalladhorSaan(false);
+		if (GOTFixer.RodrikRyswell.fixedAt(i, k)) {
+			return new GOTFixer.RodrikRyswell();
 		}
-		if (GOTSpawner.SebastonFarman.fixedAt(i, k)) {
-			return new GOTSpawner.SebastonFarman(false);
+		if (GOTFixer.SalladhorSaan.fixedAt(i, k)) {
+			return new GOTFixer.SalladhorSaan();
 		}
-		if (GOTSpawner.SelwynTarth.fixedAt(i, k)) {
-			return new GOTSpawner.SelwynTarth(false);
+		if (GOTFixer.SebastonFarman.fixedAt(i, k)) {
+			return new GOTFixer.SebastonFarman();
 		}
-		if (GOTSpawner.StormsEnd.fixedAt(i, k)) {
-			return new GOTSpawner.StormsEnd(false);
+		if (GOTFixer.SelwynTarth.fixedAt(i, k)) {
+			return new GOTFixer.SelwynTarth();
 		}
-		if (GOTSpawner.Sunspear.fixedAt(i, k)) {
-			return new GOTSpawner.Sunspear(false);
+		if (GOTFixer.StormsEnd.fixedAt(i, k)) {
+			return new GOTFixer.StormsEnd();
 		}
-		if (GOTSpawner.SymondTempleton.fixedAt(i, k)) {
-			return new GOTSpawner.SymondTempleton(false);
+		if (GOTFixer.Sunspear.fixedAt(i, k)) {
+			return new GOTFixer.Sunspear();
 		}
-		if (GOTSpawner.ThreeEyedRaven.fixedAt(i, k)) {
-			return new GOTSpawner.ThreeEyedRaven(false);
+		if (GOTFixer.SymondTempleton.fixedAt(i, k)) {
+			return new GOTFixer.SymondTempleton();
 		}
-		if (GOTSpawner.TugarKhan.fixedAt(i, k)) {
-			return new GOTSpawner.TugarKhan(false);
+		if (GOTFixer.ThreeEyedRaven.fixedAt(i, k)) {
+			return new GOTFixer.ThreeEyedRaven();
 		}
-		if (GOTSpawner.TwinsLeft.fixedAt(i, k)) {
-			return new GOTSpawner.TwinsLeft(false);
+		if (GOTFixer.TugarKhan.fixedAt(i, k)) {
+			return new GOTFixer.TugarKhan();
 		}
-		if (GOTSpawner.TychoNestoris.fixedAt(i, k)) {
-			return new GOTSpawner.TychoNestoris(false);
+		if (GOTFixer.TwinsLeft.fixedAt(i, k)) {
+			return new GOTFixer.TwinsLeft();
 		}
-		if (GOTSpawner.TytosBlackwood.fixedAt(i, k)) {
-			return new GOTSpawner.TytosBlackwood(false);
+		if (GOTFixer.TychoNestoris.fixedAt(i, k)) {
+			return new GOTFixer.TychoNestoris();
 		}
-		if (GOTSpawner.TytosBrax.fixedAt(i, k)) {
-			return new GOTSpawner.TytosBrax(false);
+		if (GOTFixer.TytosBlackwood.fixedAt(i, k)) {
+			return new GOTFixer.TytosBlackwood();
 		}
-		if (GOTSpawner.WalderFrey.fixedAt(i, k)) {
-			return new GOTSpawner.WalderFrey(false);
+		if (GOTFixer.TytosBrax.fixedAt(i, k)) {
+			return new GOTFixer.TytosBrax();
 		}
-		if (GOTSpawner.WilliamMooton.fixedAt(i, k)) {
-			return new GOTSpawner.WilliamMooton(false);
+		if (GOTFixer.WalderFrey.fixedAt(i, k)) {
+			return new GOTFixer.WalderFrey();
 		}
-		if (GOTSpawner.Winterfell.fixedAt(i, k)) {
-			return new GOTSpawner.Winterfell(false);
+		if (GOTFixer.WilliamMooton.fixedAt(i, k)) {
+			return new GOTFixer.WilliamMooton();
 		}
-		if (GOTSpawner.WymanManderly.fixedAt(i, k)) {
-			return new GOTSpawner.WymanManderly(false);
+		if (GOTFixer.Winterfell.fixedAt(i, k)) {
+			return new GOTFixer.Winterfell();
 		}
-		if (GOTSpawner.XaroXhoanDaxos.fixedAt(i, k)) {
-			return new GOTSpawner.XaroXhoanDaxos(false);
+		if (GOTFixer.WymanManderly.fixedAt(i, k)) {
+			return new GOTFixer.WymanManderly();
 		}
-		if (GOTSpawner.YohnRoyce.fixedAt(i, k)) {
-			return new GOTSpawner.YohnRoyce(false);
+		if (GOTFixer.XaroXhoanDaxos.fixedAt(i, k)) {
+			return new GOTFixer.XaroXhoanDaxos();
 		}
-		if (GOTSpawner.YoungGriff.fixedAt(i, k)) {
-			return new GOTSpawner.YoungGriff(false);
+		if (GOTFixer.YohnRoyce.fixedAt(i, k)) {
+			return new GOTFixer.YohnRoyce();
 		}
-		if (GOTSpawner.Yunkai.fixedAt(i, k)) {
-			return new GOTSpawner.Yunkai(false);
+		if (GOTFixer.YoungGriff.fixedAt(i, k)) {
+			return new GOTFixer.YoungGriff();
 		}
-		if (GOTSpawner.EuronGreyjoy.fixedAt(i, k)) {
-			return new GOTSpawner.EuronGreyjoy(false);
+		if (GOTFixer.Yunkai.fixedAt(i, k)) {
+			return new GOTFixer.Yunkai();
 		}
 		return null;
 	}
 
 	public static class AddamMarbrand extends GOTStructureBase {
-		public AddamMarbrand(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -334,9 +861,6 @@ public class GOTSpawner {
 	}
 
 	public static class AeronGreyjoy extends GOTStructureBase {
-		public AeronGreyjoy(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -351,9 +875,6 @@ public class GOTSpawner {
 	}
 
 	public static class AndersYronwood extends GOTStructureBase {
-		public AndersYronwood(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -368,9 +889,6 @@ public class GOTSpawner {
 	}
 
 	public static class AndrikTheUnsmilling extends GOTStructureBase {
-		public AndrikTheUnsmilling(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -385,9 +903,6 @@ public class GOTSpawner {
 	}
 
 	public static class AnyaWaynwood extends GOTStructureBase {
-		public AnyaWaynwood(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -402,9 +917,6 @@ public class GOTSpawner {
 	}
 
 	public static class ArdrianCeltigar extends GOTStructureBase {
-		public ArdrianCeltigar(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -419,9 +931,6 @@ public class GOTSpawner {
 	}
 
 	public static class Asshai extends GOTStructureBase {
-		public Asshai(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -436,9 +945,6 @@ public class GOTSpawner {
 	}
 
 	public static class Astapor extends GOTStructureBase {
-		public Astapor(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -455,9 +961,6 @@ public class GOTSpawner {
 	}
 
 	public static class BaelorBlacktyde extends GOTStructureBase {
-		public BaelorBlacktyde(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -472,9 +975,6 @@ public class GOTSpawner {
 	}
 
 	public static class BarbreyDustin extends GOTStructureBase {
-		public BarbreyDustin(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -489,9 +989,6 @@ public class GOTSpawner {
 	}
 
 	public static class BenedarBelmore extends GOTStructureBase {
-		public BenedarBelmore(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -506,9 +1003,6 @@ public class GOTSpawner {
 	}
 
 	public static class BenjenStark extends GOTStructureBase {
-		public BenjenStark(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -523,9 +1017,6 @@ public class GOTSpawner {
 	}
 
 	public static class BericDayne extends GOTStructureBase {
-		public BericDayne(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -540,9 +1031,6 @@ public class GOTSpawner {
 	}
 
 	public static class BericDondarrion extends GOTStructureBase {
-		public BericDondarrion(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -558,9 +1046,6 @@ public class GOTSpawner {
 	}
 
 	public static class BuGai extends GOTStructureBase {
-		public BuGai(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -575,9 +1060,6 @@ public class GOTSpawner {
 	}
 
 	public static class CasterlyRock extends GOTStructureBase {
-		public CasterlyRock(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -593,9 +1075,6 @@ public class GOTSpawner {
 	}
 
 	public static class ClementPiper extends GOTStructureBase {
-		public ClementPiper(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -610,9 +1089,6 @@ public class GOTSpawner {
 	}
 
 	public static class CleyCerwyn extends GOTStructureBase {
-		public CleyCerwyn(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -627,9 +1103,6 @@ public class GOTSpawner {
 	}
 
 	public static class DaenerysTargaryen extends GOTStructureBase {
-		public DaenerysTargaryen(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -645,9 +1118,6 @@ public class GOTSpawner {
 	}
 
 	public static class Dagmer extends GOTStructureBase {
-		public Dagmer(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -662,9 +1132,6 @@ public class GOTSpawner {
 	}
 
 	public static class Dragonstone extends GOTStructureBase {
-		public Dragonstone(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -684,9 +1151,6 @@ public class GOTSpawner {
 	}
 
 	public static class Dreadfort extends GOTStructureBase {
-		public Dreadfort(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -702,9 +1166,6 @@ public class GOTSpawner {
 	}
 
 	public static class Driftmark extends GOTStructureBase {
-		public Driftmark(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -720,9 +1181,6 @@ public class GOTSpawner {
 	}
 
 	public static class DunstanDrumm extends GOTStructureBase {
-		public DunstanDrumm(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -737,9 +1195,6 @@ public class GOTSpawner {
 	}
 
 	public static class Ebrose extends GOTStructureBase {
-		public Ebrose(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -754,9 +1209,6 @@ public class GOTSpawner {
 	}
 
 	public static class EldonEstermont extends GOTStructureBase {
-		public EldonEstermont(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -771,9 +1223,6 @@ public class GOTSpawner {
 	}
 
 	public static class ErikIronmaker extends GOTStructureBase {
-		public ErikIronmaker(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -788,16 +1237,12 @@ public class GOTSpawner {
 	}
 
 	public static class EuronGreyjoy extends GOTStructureBase {
-		public EuronGreyjoy(boolean flag) {
-			super(flag);
-		}
-
+		
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
-			originY = 54;
 			loadStrScan("euron_ship");
-			generateStrScan(world, random, 20, 1, -58);
+			generateStrScan(world, random, 16, 27, -58);
 			for (int l = 0; l < 10; ++l) {
 				spawnLegendaryNPC(new GOTEntityIronbornSoldier(world), world, 0, 1, 0);
 			}
@@ -811,9 +1256,6 @@ public class GOTSpawner {
 	}
 
 	public static class ForleyPrester extends GOTStructureBase {
-		public ForleyPrester(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -828,9 +1270,6 @@ public class GOTSpawner {
 	}
 
 	public static class FranklynFowler extends GOTStructureBase {
-		public FranklynFowler(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -845,9 +1284,6 @@ public class GOTSpawner {
 	}
 
 	public static class GarlanTyrell extends GOTStructureBase {
-		public GarlanTyrell(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -862,9 +1298,6 @@ public class GOTSpawner {
 	}
 
 	public static class GateOfTheMoon extends GOTStructureBase {
-		public GateOfTheMoon(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -880,9 +1313,6 @@ public class GOTSpawner {
 	}
 
 	public static class GeroldDayne extends GOTStructureBase {
-		public GeroldDayne(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -897,9 +1327,6 @@ public class GOTSpawner {
 	}
 
 	public static class GeroldGrafton extends GOTStructureBase {
-		public GeroldGrafton(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -914,9 +1341,6 @@ public class GOTSpawner {
 	}
 
 	public static class GilwoodHunter extends GOTStructureBase {
-		public GilwoodHunter(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -931,9 +1355,6 @@ public class GOTSpawner {
 	}
 
 	public static class GoroldGoodbrother extends GOTStructureBase {
-		public GoroldGoodbrother(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -948,9 +1369,6 @@ public class GOTSpawner {
 	}
 
 	public static class GregorClegane extends GOTStructureBase {
-		public GregorClegane(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -966,9 +1384,6 @@ public class GOTSpawner {
 	}
 
 	public static class GulianSwann extends GOTStructureBase {
-		public GulianSwann(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -983,9 +1398,6 @@ public class GOTSpawner {
 	}
 
 	public static class GylbertFarwynd extends GOTStructureBase {
-		public GylbertFarwynd(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1000,9 +1412,6 @@ public class GOTSpawner {
 	}
 
 	public static class HarmenUller extends GOTStructureBase {
-		public HarmenUller(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1017,9 +1426,6 @@ public class GOTSpawner {
 	}
 
 	public static class HarrasHarlaw extends GOTStructureBase {
-		public HarrasHarlaw(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1034,9 +1440,6 @@ public class GOTSpawner {
 	}
 
 	public static class HarroldHardyng extends GOTStructureBase {
-		public HarroldHardyng(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1051,9 +1454,6 @@ public class GOTSpawner {
 	}
 
 	public static class HarryStrickland extends GOTStructureBase {
-		public HarryStrickland(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1068,9 +1468,6 @@ public class GOTSpawner {
 	}
 
 	public static class HarysSwyft extends GOTStructureBase {
-		public HarysSwyft(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1085,9 +1482,6 @@ public class GOTSpawner {
 	}
 
 	public static class HelmanTallhart extends GOTStructureBase {
-		public HelmanTallhart(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1102,9 +1496,6 @@ public class GOTSpawner {
 	}
 
 	public static class Highgarden extends GOTStructureBase {
-		public Highgarden(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1122,9 +1513,6 @@ public class GOTSpawner {
 	}
 
 	public static class HizdahrZoLoraq extends GOTStructureBase {
-		public HizdahrZoLoraq(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1139,9 +1527,6 @@ public class GOTSpawner {
 	}
 
 	public static class HortonRedfort extends GOTStructureBase {
-		public HortonRedfort(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1156,9 +1541,6 @@ public class GOTSpawner {
 	}
 
 	public static class HowlandReed extends GOTStructureBase {
-		public HowlandReed(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1173,9 +1555,6 @@ public class GOTSpawner {
 	}
 
 	public static class Hummel009 extends GOTStructureBase {
-		public Hummel009(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1190,9 +1569,6 @@ public class GOTSpawner {
 	}
 
 	public static class IllyrioMopatis extends GOTStructureBase {
-		public IllyrioMopatis(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1207,9 +1583,6 @@ public class GOTSpawner {
 	}
 
 	public static class JasonMallister extends GOTStructureBase {
-		public JasonMallister(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1224,9 +1597,6 @@ public class GOTSpawner {
 	}
 
 	public static class JohnUmber extends GOTStructureBase {
-		public JohnUmber(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1241,9 +1611,6 @@ public class GOTSpawner {
 	}
 
 	public static class JonConnington extends GOTStructureBase {
-		public JonConnington(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1258,9 +1625,6 @@ public class GOTSpawner {
 	}
 
 	public static class JonosBracken extends GOTStructureBase {
-		public JonosBracken(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1275,9 +1639,6 @@ public class GOTSpawner {
 	}
 
 	public static class KingsLanding extends GOTStructureBase {
-		public KingsLanding(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1290,9 +1651,6 @@ public class GOTSpawner {
 	}
 
 	public static class Lannisport extends GOTStructureBase {
-		public Lannisport(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1309,9 +1667,6 @@ public class GOTSpawner {
 	}
 
 	public static class LeoLefford extends GOTStructureBase {
-		public LeoLefford(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1326,9 +1681,6 @@ public class GOTSpawner {
 	}
 
 	public static class LeytonHightower extends GOTStructureBase {
-		public LeytonHightower(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1343,9 +1695,6 @@ public class GOTSpawner {
 	}
 
 	public static class LyleCrakehall extends GOTStructureBase {
-		public LyleCrakehall(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1360,9 +1709,6 @@ public class GOTSpawner {
 	}
 
 	public static class LynCorbray extends GOTStructureBase {
-		public LynCorbray(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1377,9 +1723,6 @@ public class GOTSpawner {
 	}
 
 	public static class MaegeMormont extends GOTStructureBase {
-		public MaegeMormont(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1394,9 +1737,6 @@ public class GOTSpawner {
 	}
 
 	public static class MaronVolmark extends GOTStructureBase {
-		public MaronVolmark(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1411,9 +1751,6 @@ public class GOTSpawner {
 	}
 
 	public static class MathisRowan extends GOTStructureBase {
-		public MathisRowan(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1428,9 +1765,6 @@ public class GOTSpawner {
 	}
 
 	public static class Mellario extends GOTStructureBase {
-		public Mellario(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1445,9 +1779,6 @@ public class GOTSpawner {
 	}
 
 	public static class Moqorro extends GOTStructureBase {
-		public Moqorro(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1462,9 +1793,6 @@ public class GOTSpawner {
 	}
 
 	public static class OrtonMerryweather extends GOTStructureBase {
-		public OrtonMerryweather(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1479,9 +1807,6 @@ public class GOTSpawner {
 	}
 
 	public static class PaxterRedwyne extends GOTStructureBase {
-		public PaxterRedwyne(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1496,9 +1821,6 @@ public class GOTSpawner {
 	}
 
 	public static class Pyke extends GOTStructureBase {
-		public Pyke(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1515,9 +1837,6 @@ public class GOTSpawner {
 	}
 
 	public static class QuennRoxton extends GOTStructureBase {
-		public QuennRoxton(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1532,9 +1851,6 @@ public class GOTSpawner {
 	}
 
 	public static class QuentenBanefort extends GOTStructureBase {
-		public QuentenBanefort(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1549,9 +1865,6 @@ public class GOTSpawner {
 	}
 
 	public static class QuentynMartell extends GOTStructureBase {
-		public QuentynMartell(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1566,9 +1879,6 @@ public class GOTSpawner {
 	}
 
 	public static class QuentynQorgyle extends GOTStructureBase {
-		public QuentynQorgyle(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1583,9 +1893,6 @@ public class GOTSpawner {
 	}
 
 	public static class RandyllTarly extends GOTStructureBase {
-		public RandyllTarly(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1600,9 +1907,6 @@ public class GOTSpawner {
 	}
 
 	public static class RickardKarstark extends GOTStructureBase {
-		public RickardKarstark(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1617,9 +1921,6 @@ public class GOTSpawner {
 	}
 
 	public static class Riverrun extends GOTStructureBase {
-		public Riverrun(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1638,9 +1939,6 @@ public class GOTSpawner {
 	}
 
 	public static class RodrikHarlaw extends GOTStructureBase {
-		public RodrikHarlaw(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1655,9 +1953,6 @@ public class GOTSpawner {
 	}
 
 	public static class RodrikRyswell extends GOTStructureBase {
-		public RodrikRyswell(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1672,9 +1967,6 @@ public class GOTSpawner {
 	}
 
 	public static class SalladhorSaan extends GOTStructureBase {
-		public SalladhorSaan(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1689,9 +1981,6 @@ public class GOTSpawner {
 	}
 
 	public static class SebastonFarman extends GOTStructureBase {
-		public SebastonFarman(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1706,9 +1995,6 @@ public class GOTSpawner {
 	}
 
 	public static class SelwynTarth extends GOTStructureBase {
-		public SelwynTarth(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1723,9 +2009,6 @@ public class GOTSpawner {
 	}
 
 	public static class StormsEnd extends GOTStructureBase {
-		public StormsEnd(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1742,9 +2025,6 @@ public class GOTSpawner {
 	}
 
 	public static class Sunspear extends GOTStructureBase {
-		public Sunspear(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1765,9 +2045,6 @@ public class GOTSpawner {
 	}
 
 	public static class SymondTempleton extends GOTStructureBase {
-		public SymondTempleton(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1782,9 +2059,6 @@ public class GOTSpawner {
 	}
 
 	public static class ThreeEyedRaven extends GOTStructureBase {
-		public ThreeEyedRaven(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1799,9 +2073,6 @@ public class GOTSpawner {
 	}
 
 	public static class TugarKhan extends GOTStructureBase {
-		public TugarKhan(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1816,9 +2087,6 @@ public class GOTSpawner {
 	}
 
 	public static class TwinsLeft extends GOTStructureBase {
-		public TwinsLeft(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1834,9 +2102,6 @@ public class GOTSpawner {
 	}
 
 	public static class TychoNestoris extends GOTStructureBase {
-		public TychoNestoris(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1851,9 +2116,6 @@ public class GOTSpawner {
 	}
 
 	public static class TytosBlackwood extends GOTStructureBase {
-		public TytosBlackwood(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1868,9 +2130,6 @@ public class GOTSpawner {
 	}
 
 	public static class TytosBrax extends GOTStructureBase {
-		public TytosBrax(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1885,9 +2144,6 @@ public class GOTSpawner {
 	}
 
 	public static class WalderFrey extends GOTStructureBase {
-		public WalderFrey(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1902,9 +2158,6 @@ public class GOTSpawner {
 	}
 
 	public static class WilliamMooton extends GOTStructureBase {
-		public WilliamMooton(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1919,9 +2172,6 @@ public class GOTSpawner {
 	}
 
 	public static class Winterfell extends GOTStructureBase {
-		public Winterfell(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1942,9 +2192,6 @@ public class GOTSpawner {
 	}
 
 	public static class WymanManderly extends GOTStructureBase {
-		public WymanManderly(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1959,9 +2206,6 @@ public class GOTSpawner {
 	}
 
 	public static class XaroXhoanDaxos extends GOTStructureBase {
-		public XaroXhoanDaxos(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1976,9 +2220,6 @@ public class GOTSpawner {
 	}
 
 	public static class YohnRoyce extends GOTStructureBase {
-		public YohnRoyce(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -1993,9 +2234,6 @@ public class GOTSpawner {
 	}
 
 	public static class YoungGriff extends GOTStructureBase {
-		public YoungGriff(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -2010,9 +2248,6 @@ public class GOTSpawner {
 	}
 
 	public static class Yunkai extends GOTStructureBase {
-		public Yunkai(boolean flag) {
-			super(flag);
-		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {

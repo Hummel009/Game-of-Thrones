@@ -5,7 +5,6 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.essos.qohor.GOTStructureQohorCity;
@@ -26,11 +25,7 @@ public class GOTBiomeQohor extends GOTBiomeEssos {
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.QOHOR_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c0);
 
-		decorator.affix(new GOTStructureQohorCity(this, 1.0f));
-
-		GOTStructureQohorCity town = new GOTStructureQohorCity(this, 0.0f).setIsTown();
-		town.affix(GOTWaypoint.Qohor, 0, -1, 2);
-		decorator.affix(town);
+		decorator.addVillage(new GOTStructureQohorCity(this, 1.0f));
 	}
 
 	@Override

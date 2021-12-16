@@ -4,11 +4,10 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
-import got.common.world.map.*;
+import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.other.GOTStructureTower;
 import got.common.world.structure.westeros.arryn.*;
 
 public class GOTBiomeArryn extends GOTBiomeWesteros {
@@ -31,34 +30,7 @@ public class GOTBiomeArryn extends GOTBiomeWesteros {
 		c3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c3);
 
-		decorator.affix(new GOTStructureArrynCity(this, 1.0f));
-
-		GOTStructureArrynCity castle = new GOTStructureArrynCity(this, 0.0f).setIsCastle();
-		castle.affix(GOTWaypoint.Pebble);
-		castle.affix(GOTWaypoint.ThePaps);
-		castle.affix(GOTWaypoint.ColdwaterBurn);
-		castle.affix(GOTWaypoint.Snakewood);
-		castle.affix(GOTWaypoint.HeartsHome);
-		castle.affix(GOTWaypoint.Strongsong);
-		castle.affix(GOTWaypoint.LongbowHall);
-		castle.affix(GOTWaypoint.OldAnchor);
-		castle.affix(GOTWaypoint.Ninestars);
-		castle.affix(GOTWaypoint.IronOak);
-		castle.affix(GOTWaypoint.Runestone);
-		castle.affix(GOTWaypoint.GreyGlen);
-		castle.affix(GOTWaypoint.Redfort);
-		castle.affix(GOTWaypoint.GateOfTheMoon, 0, 1);
-		castle.affix(GOTWaypoint.WitchIsle);
-		castle.affix(GOTWaypoint.Wickenden);
-		decorator.affix(castle);
-
-		GOTStructureArrynCity town = new GOTStructureArrynCity(this, 0.0f).setIsTown();
-		town.affix(GOTWaypoint.Sisterton);
-		decorator.affix(town);
-
-		GOTStructureTower tower = new GOTStructureTower(this, 0.0f);
-		tower.affix(GOTWaypoint.BaelishKeep);
-		decorator.affix(tower);
+		decorator.addVillage(new GOTStructureArrynCity(this, 1.0f));
 
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.HILL_TRIBES, GOTEventSpawner.EventChance.COMMON);

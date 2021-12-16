@@ -5,7 +5,6 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.map.GOTWaypoint;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
@@ -30,13 +29,7 @@ public class GOTBiomeQarth extends GOTBiomeEssos {
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.MANTICORE, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(1).add(c1);
 
-		decorator.affix(new GOTStructureQarthCity(this, 1.0f));
-
-		GOTStructureQarthCity town = new GOTStructureQarthCity(this, 0.0f).setIsTown();
-		town.affix(GOTWaypoint.Qarth, 0, 1);
-		town.affix(GOTWaypoint.PortYhos, 0, 1);
-		town.affix(GOTWaypoint.Qarkash, 0, 0);
-		decorator.affix(town);
+		decorator.addVillage(new GOTStructureQarthCity(this, 1.0f));
 	}
 
 	@Override

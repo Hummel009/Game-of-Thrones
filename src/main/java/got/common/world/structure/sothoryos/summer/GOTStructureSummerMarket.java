@@ -174,8 +174,8 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			placeFlowerPot(world, 2, 2, 0, getRandomFlower(world, random));
-			placePlate_item(world, random, 2, 2, 0, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.oliveBread, 1 + random.nextInt(3), 0), true);
-			placePlate_item(world, random, 0, 2, 2, GOTRegistry.ceramicPlateBlock, new ItemStack(Items.bread, 1 + random.nextInt(3), 0), true);
+			placePlateItem(world, random, 2, 2, 0, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.oliveBread, 1 + random.nextInt(3), 0), true);
+			placePlateItem(world, random, 0, 2, 2, GOTRegistry.ceramicPlateBlock, new ItemStack(Items.bread, 1 + random.nextInt(3), 0), true);
 			setBlockAndMetadata(world, 0, 2, 4, GOTRegistry.lemonCake, 0);
 			setBlockAndMetadata(world, 3, 1, 3, GOTRegistry.woodSlabSingle4, 15);
 			setBlockAndMetadata(world, 3, 2, 3, GOTRegistry.marzipanBlock, 0);
@@ -233,9 +233,9 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
-			placePlate_item(world, random, 2, 2, 0, GOTRegistry.ceramicPlateBlock, new ItemStack(GOTRegistry.camelRaw, 1 + random.nextInt(3), 0), true);
-			placePlate_item(world, random, 0, 2, 2, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.kebab, 1 + random.nextInt(3), 0), true);
-			placePlate_item(world, random, 0, 2, 4, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.kebab, 1 + random.nextInt(3), 0), true);
+			placePlateItem(world, random, 2, 2, 0, GOTRegistry.ceramicPlateBlock, new ItemStack(GOTRegistry.camelRaw, 1 + random.nextInt(3), 0), true);
+			placePlateItem(world, random, 0, 2, 2, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.kebab, 1 + random.nextInt(3), 0), true);
+			placePlateItem(world, random, 0, 2, 4, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.kebab, 1 + random.nextInt(3), 0), true);
 			setBlockAndMetadata(world, 3, 1, 3, Blocks.furnace, 2);
 			placeKebabStand(world, random, 3, 2, 3, GOTRegistry.kebabStand, 2);
 			setBlockAndMetadata(world, 2, 3, 3, GOTRegistry.kebabBlock, 0);
@@ -259,9 +259,9 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 			setBlockAndMetadata(world, 3, 1, 3, Blocks.hay_block, 0);
 			setBlockAndMetadata(world, 3, 1, 2, GOTRegistry.berryBush, 9);
 			setBlockAndMetadata(world, 4, 1, 2, GOTRegistry.berryBush, 9);
-			placePlate_item(world, random, 3, 2, 0, GOTRegistry.woodPlateBlock, getRandomFarmFood(random), true);
-			placePlate_item(world, random, 0, 2, 2, GOTRegistry.woodPlateBlock, getRandomFarmFood(random), true);
-			placePlate_item(world, random, 0, 2, 4, GOTRegistry.woodPlateBlock, getRandomFarmFood(random), true);
+			placePlateItem(world, random, 3, 2, 0, GOTRegistry.woodPlateBlock, getRandomFarmFood(random), true);
+			placePlateItem(world, random, 0, 2, 2, GOTRegistry.woodPlateBlock, getRandomFarmFood(random), true);
+			placePlateItem(world, random, 0, 2, 4, GOTRegistry.woodPlateBlock, getRandomFarmFood(random), true);
 			GOTEntitySummerFarmer trader = new GOTEntitySummerFarmer(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 2, 4);
 			return true;
@@ -283,11 +283,11 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
-			placePlate_item(world, random, 2, 2, 0, GOTRegistry.ceramicPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 1), true);
-			placePlate_item(world, random, 0, 2, 3, GOTRegistry.woodPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 0), true);
+			placePlateItem(world, random, 2, 2, 0, GOTRegistry.ceramicPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 1), true);
+			placePlateItem(world, random, 0, 2, 3, GOTRegistry.woodPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 0), true);
 			placeFlowerPot(world, 0, 2, 4, getRandomFlower(world, random));
 			setBlockAndMetadata(world, 3, 1, 3, GOTRegistry.woodSlabSingle4, 15);
-			placePlate_item(world, random, 3, 2, 3, GOTRegistry.woodPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 0), true);
+			placePlateItem(world, random, 3, 2, 3, GOTRegistry.woodPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 0), true);
 			setBlockAndMetadata(world, 2, 1, 4, Blocks.cauldron, 3);
 			placeWeaponRack(world, 4, 2, 2, 6, new ItemStack(Items.fishing_rod));
 			GOTEntitySummerFishmonger trader = new GOTEntitySummerFishmonger(world);
@@ -304,10 +304,10 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
-			placePlate_item(world, random, 2, 2, 0, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.camelRaw, 1 + random.nextInt(3), 0), true);
-			placePlate_item(world, random, 0, 2, 3, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.rabbitRaw, 1 + random.nextInt(3), 0), true);
+			placePlateItem(world, random, 2, 2, 0, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.camelRaw, 1 + random.nextInt(3), 0), true);
+			placePlateItem(world, random, 0, 2, 3, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.rabbitRaw, 1 + random.nextInt(3), 0), true);
 			setBlockAndMetadata(world, 3, 1, 3, GOTRegistry.woodSlabSingle4, 15);
-			placePlate_item(world, random, 3, 2, 3, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.deerRaw, 1 + random.nextInt(3), 0), true);
+			placePlateItem(world, random, 3, 2, 3, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.deerRaw, 1 + random.nextInt(3), 0), true);
 			spawnItemFrame(world, 4, 2, 3, 2, new ItemStack(GOTRegistry.fur));
 			spawnItemFrame(world, 3, 2, 4, 3, new ItemStack(Items.leather));
 			GOTEntitySummerHunter trader = new GOTEntitySummerHunter(world);

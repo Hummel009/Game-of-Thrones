@@ -5,7 +5,6 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.essos.tyrosh.GOTStructureTyroshCity;
@@ -38,11 +37,7 @@ public class GOTBiomeTyrosh extends GOTBiomeEssos {
 		c3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.LYS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c3);
 
-		decorator.affix(new GOTStructureTyroshCity(this, 1.0f));
-
-		GOTStructureTyroshCity town = new GOTStructureTyroshCity(this, 0.0f).setIsTown();
-		town.affix(GOTWaypoint.Tyrosh);
-		decorator.affix(town);
+		decorator.addVillage(new GOTStructureTyroshCity(this, 1.0f));
 
 		invasionSpawns.addInvasion(GOTInvasions.MYR, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.VOLANTIS, GOTEventSpawner.EventChance.UNCOMMON);

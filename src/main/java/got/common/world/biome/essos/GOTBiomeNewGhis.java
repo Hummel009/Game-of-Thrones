@@ -2,11 +2,8 @@ package got.common.world.biome.essos;
 
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
-import got.common.world.fixed.GOTStructureGhiscarPyramid1;
-import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.essos.ghiscar.GOTStructureGhiscarCity;
 
 public class GOTBiomeNewGhis extends GOTBiomeGhiscar {
 	public GOTBiomeNewGhis(int i, boolean major) {
@@ -19,13 +16,5 @@ public class GOTBiomeNewGhis extends GOTBiomeGhiscar {
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN);
 		c0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c0);
-
-		GOTStructureGhiscarCity town = new GOTStructureGhiscarCity(this, 0.0f).setIsTown();
-		town.affix(GOTWaypoint.NewGhis);
-		decorator.affix(town);
-
-		GOTStructureGhiscarPyramid1 pyramid = new GOTStructureGhiscarPyramid1(this, 0.0f);
-		pyramid.affix(GOTWaypoint.NewGhis, -2, 0);
-		decorator.affix(pyramid);
 	}
 }

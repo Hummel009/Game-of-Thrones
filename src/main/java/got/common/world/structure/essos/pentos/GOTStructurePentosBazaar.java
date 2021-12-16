@@ -114,8 +114,8 @@ public class GOTStructurePentosBazaar extends GOTStructurePentosBase {
 			setBlockAndMetadata(world, 0, 1, 1, Blocks.furnace, 2);
 			setBlockAndMetadata(world, -1, 1, 1, GOTRegistry.planks2, 2);
 			setBlockAndMetadata(world, 1, 1, 1, GOTRegistry.planks2, 2);
-			placePlate_item(world, random, -1, 2, 1, GOTRegistry.ceramicPlateBlock, new ItemStack(Items.bread, 1 + random.nextInt(3)), true);
-			placePlate_item(world, random, 1, 2, 1, GOTRegistry.ceramicPlateBlock, new ItemStack(GOTRegistry.oliveBread, 1 + random.nextInt(3)), true);
+			placePlateItem(world, random, -1, 2, 1, GOTRegistry.ceramicPlateBlock, new ItemStack(Items.bread, 1 + random.nextInt(3)), true);
+			placePlateItem(world, random, 1, 2, 1, GOTRegistry.ceramicPlateBlock, new ItemStack(GOTRegistry.oliveBread, 1 + random.nextInt(3)), true);
 			placeFlowerPot(world, random.nextBoolean() ? -2 : 2, 2, 0, getRandomFlower(world, random));
 			GOTEntityPentosBaker trader = new GOTEntityPentosBaker(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
@@ -170,8 +170,8 @@ public class GOTStructurePentosBazaar extends GOTStructurePentosBase {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 0, 1, 1, Blocks.furnace, 2);
 			placeKebabStand(world, random, 0, 2, 1, GOTRegistry.kebabStand, 3);
-			placePlate_item(world, random, -2, 2, 0, GOTRegistry.ceramicPlateBlock, new ItemStack(GOTRegistry.muttonRaw, 1 + random.nextInt(3), 0), true);
-			placePlate_item(world, random, 2, 2, 0, GOTRegistry.ceramicPlateBlock, new ItemStack(GOTRegistry.camelRaw, 1 + random.nextInt(3), 1), true);
+			placePlateItem(world, random, -2, 2, 0, GOTRegistry.ceramicPlateBlock, new ItemStack(GOTRegistry.muttonRaw, 1 + random.nextInt(3), 0), true);
+			placePlateItem(world, random, 2, 2, 0, GOTRegistry.ceramicPlateBlock, new ItemStack(GOTRegistry.camelRaw, 1 + random.nextInt(3), 1), true);
 			GOTEntityPentosButcher trader = new GOTEntityPentosButcher(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
@@ -189,8 +189,8 @@ public class GOTStructurePentosBazaar extends GOTStructurePentosBase {
 			setBlockAndMetadata(world, -1, 1, 1, Blocks.cauldron, 3);
 			setBlockAndMetadata(world, 1, 1, 1, Blocks.hay_block, 0);
 			setBlockAndMetadata(world, -1, 1, -1, Blocks.hay_block, 0);
-			placePlate_item(world, random, -2, 2, 0, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.orange, 1 + random.nextInt(3), 0), true);
-			placePlate_item(world, random, 2, 2, 0, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.lettuce, 1 + random.nextInt(3), 1), true);
+			placePlateItem(world, random, -2, 2, 0, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.orange, 1 + random.nextInt(3), 0), true);
+			placePlateItem(world, random, 2, 2, 0, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.lettuce, 1 + random.nextInt(3), 1), true);
 			GOTEntityPentosFarmer trader = new GOTEntityPentosFarmer(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
@@ -207,8 +207,8 @@ public class GOTStructurePentosBazaar extends GOTStructurePentosBase {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 1, 1, 1, Blocks.cauldron, 3);
 			setBlockAndMetadata(world, -1, 1, -1, Blocks.sponge, 0);
-			placePlate_item(world, random, -2, 2, 0, GOTRegistry.ceramicPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 0), true);
-			placePlate_item(world, random, 2, 2, 0, GOTRegistry.ceramicPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 1), true);
+			placePlateItem(world, random, -2, 2, 0, GOTRegistry.ceramicPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 0), true);
+			placePlateItem(world, random, 2, 2, 0, GOTRegistry.ceramicPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 1), true);
 			GOTEntityPentosFishmonger trader = new GOTEntityPentosFishmonger(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;

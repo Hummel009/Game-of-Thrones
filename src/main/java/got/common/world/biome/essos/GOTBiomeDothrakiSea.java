@@ -7,7 +7,7 @@ import got.common.entity.animal.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
-import got.common.world.map.*;
+import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.structure.essos.dothraki.GOTStructureDothrakiVillage;
@@ -51,26 +51,8 @@ public class GOTBiomeDothrakiSea extends GOTBiome {
 		decorator.addTree(GOTTreeType.BAOBAB, 20);
 		registerExoticFlowers();
 
-		decorator.affix(new GOTStructureDothrakiVillage(this, 1.0f));
+		decorator.addVillage(new GOTStructureDothrakiVillage(this, 1.0f));
 
-		GOTStructureDothrakiVillage camp = new GOTStructureDothrakiVillage(this, 0.0f).setIsBig();
-		camp.affix(GOTWaypoint.Sathar);
-		camp.affix(GOTWaypoint.Kyth);
-		camp.affix(GOTWaypoint.Hornoth);
-		camp.affix(GOTWaypoint.Rathylar);
-		camp.affix(GOTWaypoint.VaesAthjikhari);
-		camp.affix(GOTWaypoint.VaesDiaf);
-		camp.affix(GOTWaypoint.VaesDothrak);
-		camp.affix(GOTWaypoint.VaesEfe);
-		camp.affix(GOTWaypoint.VaesGorqoyi);
-		camp.affix(GOTWaypoint.VaesGraddakh);
-		camp.affix(GOTWaypoint.VaesJini);
-		camp.affix(GOTWaypoint.VaesKhadokh);
-		camp.affix(GOTWaypoint.VaesKhewo);
-		camp.affix(GOTWaypoint.VaesLeisi);
-		camp.affix(GOTWaypoint.VaesLeqse);
-		camp.affix(GOTWaypoint.VaesMejhah);
-		decorator.affix(camp);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 

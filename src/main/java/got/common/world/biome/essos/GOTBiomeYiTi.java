@@ -74,33 +74,7 @@ public class GOTBiomeYiTi extends GOTBiome {
 		c2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.MANTICORE, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(1).add(c2);
 
-		decorator.affix(new GOTStructureYiTiCity(this, 1.0f));
-
-		GOTStructureYiTiCity town = new GOTStructureYiTiCity(this, 0.0f).setIsTown();
-		town.affix(GOTWaypoint.TraderTown, 0, -1);
-		town.affix(GOTWaypoint.SiQo, 1, 0);
-		town.affix(GOTWaypoint.Tiqui, 0, -1);
-		town.affix(GOTWaypoint.Asabhad, -1, 0);
-		town.affix(GOTWaypoint.Yin, 0, 1, 2);
-		town.affix(GOTWaypoint.Jinqi, -1, 0, 3);
-		town.affix(GOTWaypoint.Huiji);
-		town.affix(GOTWaypoint.Vaibei, 0, -1);
-		town.affix(GOTWaypoint.Manjin, 1, 0, 3);
-		town.affix(GOTWaypoint.Lizhao, 1, 0);
-		town.affix(GOTWaypoint.Baoji, 0, 1, 2);
-		town.affix(GOTWaypoint.Yibin, -1, 0, 3);
-		town.affix(GOTWaypoint.Yunnan, 1, 0, 1);
-		town.affix(GOTWaypoint.Eijiang, 0, 1, 2);
-		town.affix(GOTWaypoint.LesserMoraq);
-		town.affix(GOTWaypoint.PortMoraq);
-		town.affix(GOTWaypoint.Vahar);
-		town.affix(GOTWaypoint.Faros);
-		town.affix(GOTWaypoint.Zabhad);
-		town.affix(GOTWaypoint.Marahai);
-		town.affix(GOTWaypoint.Turrani);
-		town.affix(GOTWaypoint.LengYi);
-		town.affix(GOTWaypoint.LengMa);
-		decorator.affix(town);
+		decorator.addVillage(new GOTStructureYiTiCity(this, 1.0f));
 
 		invasionSpawns.addInvasion(GOTInvasions.JOGOS, GOTEventSpawner.EventChance.UNCOMMON);
 

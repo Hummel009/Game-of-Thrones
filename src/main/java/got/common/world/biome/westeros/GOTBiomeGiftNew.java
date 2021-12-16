@@ -4,7 +4,7 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
-import got.common.world.map.*;
+import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
@@ -28,11 +28,7 @@ public class GOTBiomeGiftNew extends GOTBiomeWesteros {
 		c2[1] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c2);
 
-		decorator.affix(new GOTStructureGiftVillage(this, 1.0f));
-
-		GOTStructureGiftVillage village = new GOTStructureGiftVillage(this, 0.0f);
-		village.affix(GOTWaypoint.Queenscrown);
-		decorator.affix(village);
+		decorator.addVillage(new GOTStructureGiftVillage(this, 1.0f));
 	}
 
 	@Override

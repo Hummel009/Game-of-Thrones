@@ -4,7 +4,7 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
-import got.common.world.map.*;
+import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
@@ -33,21 +33,7 @@ public class GOTBiomeDragonstone extends GOTBiomeWesteros {
 		c3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.REACH_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c3);
 
-		decorator.affix(new GOTStructureDragonstoneCity(this, 1.0f));
-
-		GOTStructureDragonstoneCity castle = new GOTStructureDragonstoneCity(this, 0.0f).setIsCastle();
-		castle.affix(GOTWaypoint.Dragonstone);
-		castle.affix(GOTWaypoint.HighTide);
-		castle.affix(GOTWaypoint.Driftmark);
-		castle.affix(GOTWaypoint.SharpPoint);
-		castle.affix(GOTWaypoint.Stonedance);
-		castle.affix(GOTWaypoint.SweetportSound);
-		castle.affix(GOTWaypoint.ClawIsle);
-		decorator.affix(castle);
-
-		GOTStructureDragonstoneCity town = new GOTStructureDragonstoneCity(this, 0.0f).setIsTown();
-		town.affix(GOTWaypoint.Hull);
-		decorator.affix(town);
+		decorator.addVillage(new GOTStructureDragonstoneCity(this, 1.0f));
 
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.STORMLANDS, GOTEventSpawner.EventChance.UNCOMMON);

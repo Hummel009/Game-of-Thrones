@@ -9,11 +9,10 @@ import got.common.entity.animal.GOTEntityCamel;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTWorldGenBoulder;
-import got.common.world.map.*;
+import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.westeros.dorne.GOTStructureDorneCity;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -43,9 +42,6 @@ public class GOTBiomeDorneDesert extends GOTBiome {
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(1).add(c0);
 
-		GOTStructureDorneCity castle = new GOTStructureDorneCity(this, 0.0f).setIsCastle();
-		castle.affix(GOTWaypoint.Sandstone);
-		decorator.affix(castle);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 

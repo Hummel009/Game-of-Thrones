@@ -46,6 +46,12 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		super(flag);
 		notifyChanges = flag;
 	}
+	
+
+	public GOTStructureBase() {
+		super(false);
+		notifyChanges = false;
+	}
 
 	public void addBlockAliasOption(String alias, int weight, Block block) {
 		addBlockMetaAliasOption(alias, weight, block, -1);
@@ -78,7 +84,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		int k1 = k;
 		i = getX(i1, k1);
 		k = getZ(i1, k1);
-		if (!isInSBB(i, j = getY(j), k)) {
+		j = getY(j);
+		if (!isInSBB(i, j, k)) {
 			return;
 		}
 		GOTChestContents.fillChest(world, random, i, j, k, contents, amount);
@@ -182,14 +189,16 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		str.usingPlayer = usingPlayer;
 		str.villageInstance = villageInstance;
 		str.setStructureBB(sbb);
-		return str.generate(world, random, i, j, k, r %= 4);
+		r %= 4;
+		return str.generate(world, random, i, j, k, r);
 	}
 
 	public BiomeGenBase getBiome(World world, int i, int k) {
 		int i1 = i;
 		int k1 = k;
 		i = getX(i1, k1);
-		if (!isInSBB(i, 0, k = getZ(i1, k1))) {
+		k = getZ(i1, k1);
+		if (!isInSBB(i, 0, k)) {
 			return null;
 		}
 		return world.getBiomeGenForCoords(i, k);
@@ -200,7 +209,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		int k1 = k;
 		i = getX(i1, k1);
 		k = getZ(i1, k1);
-		if (!isInSBB(i, j = getY(j), k)) {
+		j = getY(j);
+		if (!isInSBB(i, j, k)) {
 			return Blocks.air;
 		}
 		return world.getBlock(i, j, k);
@@ -211,7 +221,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		int k1 = k;
 		i = getX(i1, k1);
 		k = getZ(i1, k1);
-		if (!isInSBB(i, j = getY(j), k)) {
+		j = getY(j);
+		if (!isInSBB(i, j, k)) {
 			return 0;
 		}
 		return world.getBlockMetadata(i, j, k);
@@ -247,7 +258,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		int k1 = k;
 		i = getX(i1, k1);
 		k = getZ(i1, k1);
-		if (!isInSBB(i, j = getY(j), k)) {
+		j = getY(j);
+		if (!isInSBB(i, j, k)) {
 			return null;
 		}
 		return world.getTileEntity(i, j, k);
@@ -257,7 +269,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		int i1 = i;
 		int k1 = k;
 		i = getX(i1, k1);
-		if (!isInSBB(i, 0, k = getZ(i1, k1))) {
+		k = getZ(i1, k1);
+		if (!isInSBB(i, 0, k)) {
 			return 0;
 		}
 		return world.getTopSolidOrLiquidBlock(i, k) - originY;
@@ -277,8 +290,9 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		case 3: {
 			return originX + z;
 		}
+		default:
+			return originX;
 		}
-		return originX;
 	}
 
 	public int getY(int y) {
@@ -299,8 +313,9 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		case 3: {
 			return originZ + x;
 		}
+		default:
+			return originZ;
 		}
-		return originZ;
 	}
 
 	public boolean hasSBB() {
@@ -312,7 +327,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public boolean isInSBB(int i, int j, int k) {
-		return sbb == null ? true : sbb.isVecInside(i, j, k);
+		return sbb == null || sbb.isVecInside(i, j, k);
 	}
 
 	public boolean isOpaque(World world, int i, int j, int k) {
@@ -332,7 +347,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		int k1 = k;
 		i = getX(i1, k1);
 		k = getZ(i1, k1);
-		if (GOTStructureBase.isSurfaceStatic(world, i, j = getY(j), k)) {
+		j = getY(j);
+		if (GOTStructureBase.isSurfaceStatic(world, i, j, k)) {
 			return true;
 		}
 		return villageInstance != null && villageInstance.isVillageSpecificSurface(world, i, j, k);
@@ -343,7 +359,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		int k1 = k;
 		i = getX(i1, k1);
 		k = getZ(i1, k1);
-		if (!isInSBB(i, j = getY(j), k)) {
+		j = getY(j);
+		if (!isInSBB(i, j, k)) {
 			return;
 		}
 		EntityLeashKnot leash = EntityLeashKnot.func_110129_a(world, i, j, k);
@@ -405,7 +422,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		int k1 = k;
 		i = getX(i1, k1);
 		k = getZ(i1, k1);
-		if (!isInSBB(i, j = getY(j), k)) {
+		j = getY(j);
+		if (!isInSBB(i, j, k)) {
 			return;
 		}
 		for (int l = 0; l < rotationMode; ++l) {
@@ -523,7 +541,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 			int k1 = k;
 			i = getX(i1, k1);
 			k = getZ(i1, k1);
-			if (!isInSBB(i, j = getY(j), k)) {
+			j = getY(j);
+			if (!isInSBB(i, j, k)) {
 				return;
 			}
 			drink = drink.copy();
@@ -541,7 +560,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		int k1 = k;
 		i = getX(i1, k1);
 		k = getZ(i1, k1);
-		if (!isInSBB(i, j = getY(j), k)) {
+		j = getY(j);
+		if (!isInSBB(i, j, k)) {
 			return;
 		}
 		entity.setLocationAndAngles(i + 0.5, j, k + 0.5, 0.0f, 0.0f);
@@ -549,35 +569,36 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public void placePlate(World world, Random random, int i, int j, int k, Block plateBlock, GOTFoods foodList) {
-		placePlate_list(world, random, i, j, k, plateBlock, foodList, false);
+		placePlateList(world, random, i, j, k, plateBlock, foodList, false);
 	}
 
-	public void placePlate_do(World world, Random random, int i, int j, int k, Block plateBlock, ItemStack foodItem, boolean certain) {
+	public void placePlateDo(World world, Random random, int i, int j, int k, Block plateBlock, ItemStack foodItem, boolean certain) {
 		TileEntity tileentity;
 		if (!certain && random.nextBoolean()) {
 			return;
 		}
 		setBlockAndMetadata(world, i, j, k, plateBlock, 0);
-		if ((certain || random.nextBoolean()) && (tileentity = getTileEntity(world, i, j, k)) instanceof GOTTileEntityPlate) {
+		tileentity = getTileEntity(world, i, j, k);
+		if ((certain || random.nextBoolean()) && tileentity instanceof GOTTileEntityPlate) {
 			GOTTileEntityPlate plate = (GOTTileEntityPlate) tileentity;
 			plate.setFoodItem(foodItem);
 		}
 	}
 
-	public void placePlate_item(World world, Random random, int i, int j, int k, Block plateBlock, ItemStack foodItem, boolean certain) {
-		placePlate_do(world, random, i, j, k, plateBlock, foodItem, certain);
+	public void placePlateItem(World world, Random random, int i, int j, int k, Block plateBlock, ItemStack foodItem, boolean certain) {
+		placePlateDo(world, random, i, j, k, plateBlock, foodItem, certain);
 	}
 
-	public void placePlate_list(World world, Random random, int i, int j, int k, Block plateBlock, GOTFoods foodList, boolean certain) {
+	public void placePlateList(World world, Random random, int i, int j, int k, Block plateBlock, GOTFoods foodList, boolean certain) {
 		ItemStack food = foodList.getRandomFoodForPlate(random);
 		if (random.nextInt(4) == 0) {
 			food.stackSize += 1 + random.nextInt(3);
 		}
-		placePlate_item(world, random, i, j, k, plateBlock, food, certain);
+		placePlateItem(world, random, i, j, k, plateBlock, food, certain);
 	}
 
 	public void placePlateWithCertainty(World world, Random random, int i, int j, int k, Block plateBlock, GOTFoods foodList) {
-		placePlate_list(world, random, i, j, k, plateBlock, foodList, true);
+		placePlateList(world, random, i, j, k, plateBlock, foodList, true);
 	}
 
 	public void placeRandomFlowerPot(World world, Random random, int i, int j, int k) {
@@ -589,7 +610,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		int k1 = k;
 		i = getX(i1, k1);
 		k = getZ(i1, k1);
-		if (!isInSBB(i, j = getY(j), k)) {
+		j = getY(j);
+		if (!isInSBB(i, j, k)) {
 			return;
 		}
 		float f = rotation;
@@ -608,9 +630,13 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		}
 		case 3: {
 			f += 90.0f;
+			break;
 		}
+		default:
+			f %= 360.0f;
+			break;
 		}
-		rug.setLocationAndAngles(i + 0.5, j, k + 0.5, f %= 360.0f, 0.0f);
+		rug.setLocationAndAngles(i + 0.5, j, k + 0.5, f, 0.0f);
 		world.spawnEntityInWorld(rug);
 	}
 
@@ -619,9 +645,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		TileEntity te = getTileEntity(world, i, j, k);
 		if (te instanceof TileEntitySign) {
 			TileEntitySign sign = (TileEntitySign) te;
-			for (int l = 0; l < sign.signText.length; ++l) {
-				sign.signText[l] = text[l];
-			}
+			sign.signText = Arrays.copyOf(text, sign.signText.length);
 		}
 	}
 
@@ -631,7 +655,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		if (tileentity instanceof TileEntitySkull) {
 			TileEntitySkull skull = (TileEntitySkull) tileentity;
 			dir += rotationMode * 4;
-			skull.func_145903_a(dir %= 16);
+			dir %= 16;
+			skull.func_145903_a(dir);
 		}
 	}
 
@@ -663,7 +688,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		int k1 = k;
 		i = getX(i1, k1);
 		k = getZ(i1, k1);
-		if (!isInSBB(i, j = getY(j), k)) {
+		j = getY(j);
+		if (!isInSBB(i, j, k)) {
 			return;
 		}
 		for (int l = 0; l < rotationMode; ++l) {
@@ -773,7 +799,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		if (block == Blocks.standing_sign) {
 			int i = meta;
 			i += rotationMode * 4;
-			return i &= 0xF;
+			i &= 0xF;
+			return i;
 		}
 		if (block instanceof BlockBed) {
 			boolean flag;
@@ -983,7 +1010,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		int k1 = k;
 		i = getX(i1, k1);
 		k = getZ(i1, k1);
-		if (!isInSBB(i, j = getY(j), k)) {
+		j = getY(j);
+		if (!isInSBB(i, j, k)) {
 			return;
 		}
 		meta = rotateMeta(block, meta);
@@ -998,7 +1026,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		int k1 = k;
 		i = getX(i1, k1);
 		k = getZ(i1, k1);
-		if (!isInSBB(i, j = getY(j), k)) {
+		j = getY(j);
+		if (!isInSBB(i, j, k)) {
 			return;
 		}
 		world.getBlock(i, j, k).onPlantGrow(world, i, j, k, i, j, k);
@@ -1030,7 +1059,10 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		case 3: {
 			i += shift;
 			k -= shiftX;
+			break;
 		}
+		default:
+			break;
 		}
 		originX = i;
 		originY = j;
@@ -1053,7 +1085,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		int k1 = k;
 		i = getX(i1, k1);
 		k = getZ(i1, k1);
-		if (!isInSBB(i, j = getY(j), k)) {
+		j = getY(j);
+		if (!isInSBB(i, j, k)) {
 			return;
 		}
 		for (int l = 0; l < rotationMode; ++l) {
@@ -1069,7 +1102,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		int k1 = k;
 		i = getX(i1, k1);
 		k = getZ(i1, k1);
-		if (!isInSBB(i, j = getY(j), k)) {
+		j = getY(j);
+		if (!isInSBB(i, j, k)) {
 			return;
 		}
 		entity.setLocationAndAngles(i + 0.5, j, k + 0.5, 0.0f, 0.0f);
@@ -1082,7 +1116,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		int k1 = k;
 		i = getX(i1, k1);
 		k = getZ(i1, k1);
-		if (!isInSBB(i, j = getY(j), k)) {
+		j = getY(j);
+		if (!isInSBB(i, j, k)) {
 			return;
 		}
 		entity.setLocationAndAngles(i + 0.5, j, k + 0.5, 0.0f, 0.0f);
@@ -1098,7 +1133,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		int k1 = k;
 		i = getX(i1, k1);
 		k = getZ(i1, k1);
-		if (!isInSBB(i, j = getY(j), k)) {
+		j = getY(j);
+		if (!isInSBB(i, j, k)) {
 			return;
 		}
 		entity.setLocationAndAngles(i + 0.5, j, k + 0.5, 0.0f, 0.0f);

@@ -41,7 +41,7 @@ public class GOTBiomeSothoryosSavannah extends GOTBiome {
 		c[0] = GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c);
 
-		decorator.affix(new GOTStructureSothoryosVillage(this, 1.0f));
+		decorator.addVillage(new GOTStructureSothoryosVillage(this, 1.0f));
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 

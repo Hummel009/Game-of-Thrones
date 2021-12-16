@@ -7,11 +7,10 @@ import got.common.entity.animal.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
-import got.common.world.map.*;
+import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.essos.ibben.GOTStructureIbbenVillage;
 import got.common.world.structure.other.*;
 import net.minecraft.world.biome.BiomeGenBase;
 
@@ -56,12 +55,6 @@ public class GOTBiomeIbben extends GOTBiome {
 		SpawnListContainer[] c2 = new SpawnListContainer[1];
 		c2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c2);
-
-		GOTStructureIbbenVillage village = new GOTStructureIbbenVillage(this, 1.0f);
-		village.affix(GOTWaypoint.IbNor);
-		village.affix(GOTWaypoint.PortOfIbben);
-		village.affix(GOTWaypoint.IbSar);
-		decorator.affix(village);
 
 		decorator.addRandomStructure(new GOTStructureBarrow(false), 250);
 

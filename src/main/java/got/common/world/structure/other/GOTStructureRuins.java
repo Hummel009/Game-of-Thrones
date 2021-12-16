@@ -52,10 +52,12 @@ public class GOTStructureRuins extends GOTVillageGen {
 			}
 			case 3: {
 				i += 8;
+				break;
 			}
+			default:
+				break;
 			}
-			j = world.getTopSolidOrLiquidBlock(i, k);
-			if (restrictions && world.getBlock(i, j - 1, k) != Blocks.grass) {
+			if (restrictions && world.getBlock(i, world.getTopSolidOrLiquidBlock(i, k) - 1, k) != Blocks.grass) {
 				return false;
 			}
 			for (i1 = i - 7; i1 <= i + 7; ++i1) {
@@ -170,7 +172,10 @@ public class GOTStructureRuins extends GOTVillageGen {
 				}
 				case 3: {
 					i += radius;
+					break;
 				}
+				default:
+					break;
 				}
 			}
 			int sections = 4 + random.nextInt(3);
@@ -192,7 +197,7 @@ public class GOTStructureRuins extends GOTVillageGen {
 					if (distSq >= wallThresholdMin) {
 						for (j1 = j - 1; j1 >= 0; --j1) {
 							Block block = world.getBlock(i1, j1, k12);
-							placeRandomBrick(world, random, i1, j1, k12);
+							placeRandomBrick(world, i1, j1, k12);
 							if (block == Blocks.grass || block == Blocks.dirt || block == Blocks.stone || !restrictions && block.isOpaqueCube()) {
 								break;
 							}
@@ -202,11 +207,11 @@ public class GOTStructureRuins extends GOTVillageGen {
 							if (random.nextInt(20) == 0) {
 								continue;
 							}
-							placeRandomBrick(world, random, i1, j12, k12);
+							placeRandomBrick(world, i1, j12, k12);
 						}
 						int j3 = j2 + 1 + random.nextInt(3);
 						for (int j13 = j2; j13 <= j3; ++j13) {
-							placeRandomBrick(world, random, i1, j13, k12);
+							placeRandomBrick(world, i1, j13, k12);
 						}
 						continue;
 					}
@@ -280,11 +285,15 @@ public class GOTStructureRuins extends GOTVillageGen {
 				}
 				break;
 			}
+			default:
+				break;
 			}
 			for (int l = 0; l < 16; ++l) {
 				int j1;
 				int i13 = i - random.nextInt(radius * 2) + random.nextInt(radius * 2);
-				if (world.getBlock(i13, (j1 = world.getHeightValue(i13, k1 = k - random.nextInt(radius * 2) + random.nextInt(radius * 2))) - 1, k1) != Blocks.grass) {
+				k1 = k - random.nextInt(radius * 2) + random.nextInt(radius * 2);
+				j1 = world.getHeightValue(i13, k1);
+				if (world.getBlock(i13, j1 - 1, k1) != Blocks.grass) {
 					continue;
 				}
 				int randomFeature = random.nextInt(4);
@@ -300,7 +309,7 @@ public class GOTStructureRuins extends GOTVillageGen {
 					}
 					if (flag) {
 						for (j2 = j1; j2 < j1 + randomFeature; ++j2) {
-							placeRandomBrick(world, random, i13, j2, k1);
+							placeRandomBrick(world, i13, j2, k1);
 						}
 					}
 				}
@@ -320,7 +329,7 @@ public class GOTStructureRuins extends GOTVillageGen {
 			}
 		}
 
-		public void placeRandomBrick(World world, Random random, int i, int j, int k) {
+		public void placeRandomBrick(World world, int i, int j, int k) {
 			setBlockAndNotifyAdequately(world, i, j, k, GOTRegistry.brick1, 1);
 		}
 	}

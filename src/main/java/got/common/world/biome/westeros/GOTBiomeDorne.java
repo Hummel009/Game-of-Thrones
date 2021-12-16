@@ -7,7 +7,6 @@ import got.common.entity.animal.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.essos.GOTBiomeEssos;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.map.GOTWaypoint;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
@@ -52,32 +51,7 @@ public class GOTBiomeDorne extends GOTBiomeEssos {
 		c4[0] = GOTBiomeSpawnList.entry(GOTSpawnList.RED_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(1).add(c4);
 
-		decorator.affix(new GOTStructureDorneCity(this, 1.0f));
-
-		GOTStructureDorneCity castle = new GOTStructureDorneCity(this, 0.0f).setIsCastle();
-		castle.affix(GOTWaypoint.Starfall, 0, -1);
-		castle.affix(GOTWaypoint.HighHermitage);
-		castle.affix(GOTWaypoint.Blackmont);
-		castle.affix(GOTWaypoint.Kingsgrave, -1, 0);
-		castle.affix(GOTWaypoint.SkyReach, 0, 1);
-		castle.affix(GOTWaypoint.Yronwood, 1, 0);
-		castle.affix(GOTWaypoint.Wyl, 0, -1);
-		castle.affix(GOTWaypoint.Vaith);
-		castle.affix(GOTWaypoint.Saltshore);
-		castle.affix(GOTWaypoint.Godsgrace);
-		castle.affix(GOTWaypoint.Tor);
-		castle.affix(GOTWaypoint.Hellholt);
-		castle.affix(GOTWaypoint.GhostHill);
-		castle.affix(GOTWaypoint.Spottswood);
-		castle.affix(GOTWaypoint.WaterGardens);
-		castle.affix(GOTWaypoint.Lemonwood);
-		decorator.affix(castle);
-
-		GOTStructureDorneCity town = new GOTStructureDorneCity(this, 0.0f).setIsTown();
-		town.affix(GOTWaypoint.GhastonGrey);
-		town.affix(GOTWaypoint.Sunspear);
-		town.affix(GOTWaypoint.PlankyTown);
-		decorator.affix(town);
+		decorator.addVillage(new GOTStructureDorneCity(this, 1.0f));
 
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		setDarkUnreliable();

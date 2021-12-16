@@ -8,8 +8,6 @@ import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.*;
-import got.common.world.fixed.GOTStructureMossovyRampart;
-import got.common.world.map.GOTWaypoint;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.world.World;
@@ -37,12 +35,6 @@ public class GOTBiomeMossovyMarshes extends GOTBiome {
 		decorator.addTree(GOTTreeType.OAK_DEAD, 100);
 		flowers.clear();
 		addFlower(GOTRegistry.deadMarshPlant, 0, 10);
-		GOTStructureMossovyRampart rampart = new GOTStructureMossovyRampart(this, 0.0f);
-		rampart.affix(GOTWaypoint.EastPass);
-		rampart.affix(GOTWaypoint.WestPass);
-		rampart.affix(GOTWaypoint.NorthPass);
-		rampart.affix(GOTWaypoint.SouthPass);
-		decorator.affix(rampart);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 

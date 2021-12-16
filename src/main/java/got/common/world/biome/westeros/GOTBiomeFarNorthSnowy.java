@@ -5,8 +5,7 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.entity.animal.GOTEntitySnowBear;
 import got.common.world.biome.GOTBiome;
-import got.common.world.fixed.*;
-import got.common.world.map.*;
+import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.init.Blocks;
@@ -23,15 +22,6 @@ public class GOTBiomeFarNorthSnowy extends GOTBiome {
 		spawnableCaveCreatureList.clear();
 		spawnableGOTAmbientList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntitySnowBear.class, 8, 1, 1));
-		GOTStructureHardhome home = new GOTStructureHardhome(this, 0.0f);
-		home.affix(GOTWaypoint.Hardhome);
-		decorator.affix(home);
-		GOTStructureNightKing altar = new GOTStructureNightKing(this, 0.0f);
-		altar.affix(GOTWaypoint.Aboba);
-		decorator.affix(altar);
-		GOTStructureWallGate wall = new GOTStructureWallGate(this, 0.0f);
-		wall.affix(GOTWaypoint.CastleBlack, 0, -1);
-		decorator.affix(wall);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 

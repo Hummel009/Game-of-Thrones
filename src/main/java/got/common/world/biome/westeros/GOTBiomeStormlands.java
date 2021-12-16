@@ -5,11 +5,10 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.map.*;
+import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.other.GOTStructureRuins;
 import got.common.world.structure.westeros.stormlands.*;
 
 public class GOTBiomeStormlands extends GOTBiomeWesteros {
@@ -36,42 +35,7 @@ public class GOTBiomeStormlands extends GOTBiomeWesteros {
 		c3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c3);
 
-		decorator.affix(new GOTStructureStormlandsCity(this, 1.0f));
-
-		GOTStructureStormlandsCity castle = new GOTStructureStormlandsCity(this, 0.0f).setIsCastle();
-		castle.affix(GOTWaypoint.Nightsong, 0, 1);
-		castle.affix(GOTWaypoint.Poddingfield);
-		castle.affix(GOTWaypoint.HarvestHall);
-		castle.affix(GOTWaypoint.Fawntown);
-		castle.affix(GOTWaypoint.Blackhaven, -1, 0);
-		castle.affix(GOTWaypoint.DeatsHear);
-		castle.affix(GOTWaypoint.Stonehelm);
-		castle.affix(GOTWaypoint.BlackHeart);
-		castle.affix(GOTWaypoint.SeaworthCastle);
-		castle.affix(GOTWaypoint.Amberly);
-		castle.affix(GOTWaypoint.RainHouse);
-		castle.affix(GOTWaypoint.Mistwood);
-		castle.affix(GOTWaypoint.Greenstone);
-		castle.affix(GOTWaypoint.TudburyHoll);
-		castle.affix(GOTWaypoint.Bronzegate, 1, 0);
-		castle.affix(GOTWaypoint.Felwood, 0, 1);
-		castle.affix(GOTWaypoint.Grandview);
-		castle.affix(GOTWaypoint.HaystackHall);
-		castle.affix(GOTWaypoint.Gallowsgrey);
-		castle.affix(GOTWaypoint.Parchments);
-		castle.affix(GOTWaypoint.BroadArch);
-		castle.affix(GOTWaypoint.EvenfallHall);
-		castle.affix(GOTWaypoint.StormsEnd);
-		decorator.affix(castle);
-
-		GOTStructureStormlandsCity town = new GOTStructureStormlandsCity(this, 0.0f).setIsTown();
-		town.affix(GOTWaypoint.WeepingTown);
-		decorator.affix(town);
-
-		GOTStructureRuins ruins = new GOTStructureRuins(this, 0.0f);
-		ruins.affix(GOTWaypoint.Summerhall);
-		ruins.affix(GOTWaypoint.TowerOfJoy);
-		decorator.affix(ruins);
+		decorator.addVillage(new GOTStructureStormlandsCity(this, 1.0f));
 
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.DRAGONSTONE, GOTEventSpawner.EventChance.UNCOMMON);

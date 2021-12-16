@@ -6,8 +6,7 @@ import got.common.database.*;
 import got.common.entity.animal.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.feature.GOTTreeType;
-import got.common.world.fixed.GOTStructureCrasterKeep;
-import got.common.world.map.*;
+import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
@@ -48,10 +47,6 @@ public class GOTBiomeHauntedForest extends GOTBiome {
 		SpawnListContainer[] c6 = new SpawnListContainer[1];
 		c6[0] = GOTBiomeSpawnList.entry(GOTSpawnList.GIFT_GUARDIAN, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c6);
-
-		GOTStructureCrasterKeep keep = new GOTStructureCrasterKeep(this, 0.0f);
-		keep.affix(GOTWaypoint.CrastersKeep);
-		decorator.affix(keep);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 

@@ -19,7 +19,7 @@ import got.common.world.biome.ulthos.*;
 import got.common.world.biome.variant.*;
 import got.common.world.biome.westeros.*;
 import got.common.world.feature.GOTTreeType;
-import got.common.world.fixed.GOTSpawner;
+import got.common.world.fixed.GOTFixer;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
@@ -198,7 +198,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome lhazarFlat;
 	public GOTDimension biomeDimension;
 	public GOTBiomeDecorator decorator;
-	public GOTSpawner spawner;
 	public int topBlockMeta = 0;
 	public int fillerBlockMeta = 0;
 	public float temperatureBase;
@@ -266,6 +265,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		spawnableCaveCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityBat.class, 10, 8, 8));
 		setUnreliableChance(GOTEventSpawner.EventChance.COMMON);
 		invasionSpawns = new GOTBiomeInvasionSpawns(this);
+		GOTFixer.addWaypointLocations(this);
 	}
 
 	public void addBiomeF3Info(List info, World world, GOTBiomeVariant variant, int i, int j, int k) {

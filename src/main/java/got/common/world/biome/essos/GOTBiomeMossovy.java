@@ -7,7 +7,6 @@ import got.common.entity.animal.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
-import got.common.world.map.GOTWaypoint;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
@@ -46,9 +45,8 @@ public class GOTBiomeMossovy extends GOTBiome {
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_WEREWOLF, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c1);
 
-		GOTStructureMossovyVillage capital = new GOTStructureMossovyVillage(this, 1.0f);
-		capital.affix(GOTWaypoint.Kadar);
-		decorator.affix(capital);
+		decorator.addVillage(new GOTStructureMossovyVillage(this, 1.0f));
+		
 		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
 		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);

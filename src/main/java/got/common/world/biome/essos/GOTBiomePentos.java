@@ -5,7 +5,6 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.essos.pentos.GOTStructurePentosCity;
@@ -30,11 +29,7 @@ public class GOTBiomePentos extends GOTBiomeEssos {
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.BRAAVOS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c1);
 
-		decorator.affix(new GOTStructurePentosCity(this, 1.0f));
-
-		GOTStructurePentosCity town = new GOTStructurePentosCity(this, 0.0f).setIsTown();
-		town.affix(GOTWaypoint.Pentos, -1, 0, 1);
-		decorator.affix(town);
+		decorator.addVillage(new GOTStructurePentosCity(this, 1.0f));
 
 		invasionSpawns.addInvasion(GOTInvasions.BRAAVOS, GOTEventSpawner.EventChance.UNCOMMON);
 	}

@@ -46,7 +46,9 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 				int j1;
 				int k2;
 				int i2 = Math.abs(i12);
-				if (i2 * i2 + (k2 = Math.abs(k1)) * k2 >= groundRange * groundRange || getBlock(world, i12, (j1 = getTopBlock(world, i12, k1)) - 1, k1) != Blocks.grass || random.nextInt(5) == 0) {
+				k2 = Math.abs(k1);
+				j1 = getTopBlock(world, i12, k1);
+				if (i2 * i2 + k2 * k2 >= groundRange * groundRange || getBlock(world, i12, j1 - 1, k1) != Blocks.grass || random.nextInt(5) == 0) {
 					continue;
 				}
 				setBlockAndMetadata(world, i12, j1 - 1, k1, Blocks.dirt, 1);
@@ -63,7 +65,7 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 			}
 		}
 		originY = getY(highestHeight);
-		generateCentrepiece(world, random, 0, 0, 0);
+		generateCentrepiece(world, 0, 0, 0);
 		GOTEntityNPC captain = getCampCaptain(world, random);
 		if (captain != null) {
 			captain.spawnRidingHorse = false;
@@ -120,7 +122,8 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 			block7: for (int l2 = 0; l2 < 32; ++l2) {
 				int k1;
 				int i15 = MathHelper.getRandomIntegerInRange(random, -farmRange, farmRange);
-				int dSq = i15 * i15 + (k1 = MathHelper.getRandomIntegerInRange(random, -farmRange, farmRange)) * k1;
+				k1 = MathHelper.getRandomIntegerInRange(random, -farmRange, farmRange);
+				int dSq = i15 * i15 + k1 * k1;
 				if (dSq <= minFarmRange * minFarmRange) {
 					continue;
 				}
@@ -211,7 +214,9 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 			for (l = 0; l < 6; ++l) {
 				range = 8;
 				i16 = MathHelper.getRandomIntegerInRange(random, -range, range);
-				if (i16 * i16 + (k1 = MathHelper.getRandomIntegerInRange(random, -range, range)) * k1 <= 20 || !isSurface(world, i16, (j1 = getTopBlock(world, i16, k1)) - 1, k1) || !isReplaceable(world, i16, j1, k1) || !isAir(world, i16, j1 + 1, k1)) {
+				k1 = MathHelper.getRandomIntegerInRange(random, -range, range);
+				j1 = getTopBlock(world, i16, k1);
+				if (i16 * i16 + k1 * k1 <= 20 || !isSurface(world, i16, j1 - 1, k1) || !isReplaceable(world, i16, j1, k1) || !isAir(world, i16, j1 + 1, k1)) {
 					continue;
 				}
 				setBlockAndMetadata(world, i16, j1, k1, fenceBlock, fenceMeta);
@@ -220,7 +225,9 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 			for (l = 0; l < 6; ++l) {
 				range = 12;
 				i16 = MathHelper.getRandomIntegerInRange(random, -range, range);
-				if (i16 * i16 + (k1 = MathHelper.getRandomIntegerInRange(random, -range, range)) * k1 <= 20 || !isSurface(world, i16, (j1 = getTopBlock(world, i16, k1)) - 1, k1) || !isReplaceable(world, i16, j1, k1) || !isAir(world, i16, j1 + 1, k1)) {
+				k1 = MathHelper.getRandomIntegerInRange(random, -range, range);
+				j1 = getTopBlock(world, i16, k1);
+				if (i16 * i16 + k1 * k1 <= 20 || !isSurface(world, i16, j1 - 1, k1) || !isReplaceable(world, i16, j1, k1) || !isAir(world, i16, j1 + 1, k1)) {
 					continue;
 				}
 				this.placeSkull(world, random, i16, j1, k1);
@@ -230,7 +237,7 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 		return true;
 	}
 
-	public void generateCentrepiece(World world, Random random, int i, int j, int k) {
+	public void generateCentrepiece(World world, int i, int j, int k) {
 		for (int i1 = i - 1; i1 <= i + 1; ++i1) {
 			for (int k1 = k - 1; k1 <= k + 1; ++k1) {
 				int j1 = j - 1;

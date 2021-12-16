@@ -4,10 +4,8 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
-import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.essos.ghiscar.GOTStructureGhiscarCity;
 import got.common.world.structure.other.*;
 
 public class GOTBiomeGhiscarColony extends GOTBiomeSothoryosJungle {
@@ -23,12 +21,6 @@ public class GOTBiomeGhiscarColony extends GOTBiomeSothoryosJungle {
 		SpawnListContainer[] c1 = new SpawnListContainer[1];
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(1).add(c1);
-		GOTStructureGhiscarCity colony = new GOTStructureGhiscarCity(this, 0.0f).setIsColony();
-		colony.affix(GOTWaypoint.BarterBeach);
-		colony.affix(GOTWaypoint.Gogossos);
-		colony.affix(GOTWaypoint.Zamettar, 0, -1, 2);
-		colony.affix(GOTWaypoint.Gorosh);
-		decorator.affix(colony);
 		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);

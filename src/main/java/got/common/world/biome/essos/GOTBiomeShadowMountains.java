@@ -8,10 +8,8 @@ import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.*;
-import got.common.world.map.GOTWaypoint;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTEventSpawner;
-import got.common.world.structure.other.GOTStructureRuinsBig;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -47,9 +45,6 @@ public class GOTBiomeShadowMountains extends GOTBiome {
 		biomeColors.setClouds(0);
 		biomeColors.setFog(0);
 		biomeColors.setWater(0);
-		GOTStructureRuinsBig colossal = new GOTStructureRuinsBig(this, 0.0f);
-		colossal.affix(GOTWaypoint.Stygai);
-		decorator.affix(colossal);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 

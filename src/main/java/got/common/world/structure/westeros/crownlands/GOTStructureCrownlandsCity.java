@@ -215,7 +215,7 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 			int wallX;
 			boolean outerTavern = random.nextBoolean();
 			if (isCapital) {
-				this.addStructure(new GOTSpawner.KingsLanding(false), 0, 0, 0);
+				this.addStructure(new GOTFixer.KingsLanding(), 0, 0, 0);
 				this.addStructure(new GOTStructureNPCRespawner(false) {
 
 					@Override

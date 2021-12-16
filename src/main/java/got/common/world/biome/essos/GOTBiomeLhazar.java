@@ -7,7 +7,7 @@ import got.common.entity.animal.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
-import got.common.world.map.*;
+import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.structure.essos.lhazar.GOTStructureLhazarVillage;
@@ -55,13 +55,7 @@ public class GOTBiomeLhazar extends GOTBiome {
 		registerExoticFlowers();
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 
-		decorator.affix(new GOTStructureLhazarVillage(this, 1.0f));
-
-		GOTStructureLhazarVillage village = new GOTStructureLhazarVillage(this, 0.0f).setIsTown();
-		village.affix(GOTWaypoint.Hesh, 1, 0, 3);
-		village.affix(GOTWaypoint.Lhazosh, -1, 0, 1);
-		village.affix(GOTWaypoint.Kosrak, 1, 0, 1);
-		decorator.affix(village);
+		decorator.addVillage(new GOTStructureLhazarVillage(this, 1.0f));
 
 		invasionSpawns.addInvasion(GOTInvasions.DOTHRAKI, GOTEventSpawner.EventChance.UNCOMMON);
 

@@ -59,6 +59,7 @@ public class GOTBiomeDecorator {
 	public List<GOTTreeType.WeightedTreeType> treeTypes = new ArrayList<>();
 	public List<RandomStructure> randomStructures = new ArrayList<>();
 	public List<GOTVillageGen> villages = new ArrayList<>();
+	public List<GOTVillageGen> affixes = new ArrayList<>();
 
 	public GOTBiomeDecorator(GOTBiome gotbiome) {
 		biome = gotbiome;
@@ -127,6 +128,11 @@ public class GOTBiomeDecorator {
 
 	public void affix(GOTVillageGen village) {
 		villages.add(village);
+		affixes.add(village);
+	}
+
+	public void addVillage(GOTVillageGen village) {
+		villages.add(village);
 	}
 
 	public boolean anyFixedVillagesAt(World world, int i, int k) {
@@ -166,6 +172,7 @@ public class GOTBiomeDecorator {
 
 	public void clearVillages() {
 		villages.clear();
+		villages.addAll(affixes);
 	}
 
 	public void decorate() {
@@ -393,7 +400,7 @@ public class GOTBiomeDecorator {
 		this.decorate();
 		if (!GOTConfig.clearMap) {
 			addSpecialStructures(world, random, i, k);
-			GOTStructureBase structure = GOTSpawner.getFixedStructure(i, k);
+			GOTStructureBase structure = GOTFixer.getFixedStructure(i, k);
 			if (structure != null) {
 				structure.generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k), k, 0);
 			}

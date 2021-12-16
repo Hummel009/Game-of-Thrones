@@ -7,10 +7,8 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.other.GOTStructureRuinsBig;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -36,9 +34,6 @@ public class GOTBiomeYeen extends GOTBiomeSothoryosJungle {
 		SpawnListContainer[] c11 = new SpawnListContainer[1];
 		c11[0] = GOTBiomeSpawnList.entry(GOTSpawnList.JUNGLE_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(1).add(c11);
-		GOTStructureRuinsBig colossal = new GOTStructureRuinsBig(this, 0.0f);
-		colossal.affix(GOTWaypoint.Yeen);
-		decorator.affix(colossal);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 

@@ -51,7 +51,7 @@ public class GOTBiomeArrynMountainsFoothills extends GOTBiome {
 		decorator.addTree(GOTTreeType.PINE, 500);
 		registerForestFlowers();
 
-		decorator.affix(new GOTStructureHillmanVillage(this, 1.0f));
+		decorator.addVillage(new GOTStructureHillmanVillage(this, 1.0f));
 		decorator.addRandomStructure(new GOTStructureHillmanFort(false), 500);
 		decorator.addRandomStructure(new GOTStructureWesterosObelisk(false), 1000);
 		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);

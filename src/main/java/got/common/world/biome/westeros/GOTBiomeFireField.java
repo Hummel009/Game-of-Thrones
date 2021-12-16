@@ -6,10 +6,9 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
-import got.common.world.map.*;
+import got.common.world.map.GOTBezierType;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.westeros.reach.GOTStructureReachCity;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.gen.feature.*;
 
@@ -43,10 +42,6 @@ public class GOTBiomeFireField extends GOTBiomeReach {
 		decorator.grassPerChunk = 8;
 		decorator.doubleGrassPerChunk = 3;
 		addFlower(Blocks.red_flower, 0, 80);
-
-		GOTStructureReachCity castle = new GOTStructureReachCity(this, 0.0f).setIsCastle();
-		castle.affix(GOTWaypoint.Highgarden, 0, -1);
-		decorator.affix(castle);
 	}
 
 	@Override

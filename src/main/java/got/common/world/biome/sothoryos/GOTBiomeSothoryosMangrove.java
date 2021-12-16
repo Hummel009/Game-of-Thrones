@@ -38,7 +38,7 @@ public class GOTBiomeSothoryosMangrove extends GOTBiome {
 		SpawnListContainer[] c1 = new SpawnListContainer[1];
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(1).add(c1);
-		decorator.affix(new GOTStructureSothoryosVillage(this, 1.0f));
+		decorator.addVillage(new GOTStructureSothoryosVillage(this, 1.0f));
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 

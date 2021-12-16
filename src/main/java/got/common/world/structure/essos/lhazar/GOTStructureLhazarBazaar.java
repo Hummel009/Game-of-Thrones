@@ -138,7 +138,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 2, 1, 2, Blocks.furnace, 2);
 			setBlockAndMetadata(world, 1, 1, 2, GOTRegistry.chestBasket, 2);
-			placePlate_item(world, random, 1, 2, 0, GOTRegistry.ceramicPlateBlock, new ItemStack(Items.bread, 1 + random.nextInt(3)), true);
+			placePlateItem(world, random, 1, 2, 0, GOTRegistry.ceramicPlateBlock, new ItemStack(Items.bread, 1 + random.nextInt(3)), true);
 			setBlockAndMetadata(world, 3, 2, 2, GOTRegistry.bananaCake, 0);
 			placeWeaponRack(world, 0, 2, 2, 1, new ItemStack(GOTRegistry.rollingPin));
 			GOTEntityLhazarBaker trader = new GOTEntityLhazarBaker(world);
@@ -192,9 +192,9 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
-			placePlate_item(world, random, 1, 2, 0, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.rabbitRaw, 1 + random.nextInt(3)), true);
-			placePlate_item(world, random, 0, 2, 2, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.camelRaw, 1 + random.nextInt(3)), true);
-			placePlate_item(world, random, 3, 2, 1, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.muttonRaw, 1 + random.nextInt(3)), true);
+			placePlateItem(world, random, 1, 2, 0, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.rabbitRaw, 1 + random.nextInt(3)), true);
+			placePlateItem(world, random, 0, 2, 2, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.camelRaw, 1 + random.nextInt(3)), true);
+			placePlateItem(world, random, 3, 2, 1, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.muttonRaw, 1 + random.nextInt(3)), true);
 			this.placeSkull(world, random, 2, 2, 3);
 			GOTEntityLhazarButcher trader = new GOTEntityLhazarButcher(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
@@ -212,7 +212,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 2, 1, 2, Blocks.cauldron, 3);
 			setBlockAndMetadata(world, 1, 2, 3, Blocks.hay_block, 0);
-			placePlate_item(world, random, 3, 2, 1, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.orange, 1 + random.nextInt(3)), true);
+			placePlateItem(world, random, 3, 2, 1, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.orange, 1 + random.nextInt(3)), true);
 			placeFlowerPot(world, 0, 2, 2, getRandomFlower(world, random));
 			GOTEntityLhazarFarmer trader = new GOTEntityLhazarFarmer(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
@@ -229,9 +229,9 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 2, 1, 2, Blocks.cauldron, 3);
-			placePlate_item(world, random, 1, 2, 0, GOTRegistry.woodPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 0), true);
-			placePlate_item(world, random, 0, 2, 2, GOTRegistry.woodPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 1), true);
-			placePlate_item(world, random, 3, 2, 1, GOTRegistry.woodPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 0), true);
+			placePlateItem(world, random, 1, 2, 0, GOTRegistry.woodPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 0), true);
+			placePlateItem(world, random, 0, 2, 2, GOTRegistry.woodPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 1), true);
+			placePlateItem(world, random, 3, 2, 1, GOTRegistry.woodPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 0), true);
 			placeWeaponRack(world, 1, 2, 3, 0, new ItemStack(Items.fishing_rod));
 			GOTEntityLhazarFishmonger trader = new GOTEntityLhazarFishmonger(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
@@ -269,7 +269,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			this.placeSkull(world, random, 2, 3, 2);
 			this.placeSkull(world, random, 3, 2, 2);
 			spawnItemFrame(world, 2, 2, 2, 2, new ItemStack(GOTRegistry.lionFur));
-			placePlate_item(world, random, 1, 2, 0, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.rabbitRaw, 1 + random.nextInt(3)), true);
+			placePlateItem(world, random, 1, 2, 0, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.rabbitRaw, 1 + random.nextInt(3)), true);
 			placeWeaponRack(world, 0, 2, 2, 1, new ItemStack(GOTRegistry.lhazarSpear));
 			GOTEntityLhazarHunter trader = new GOTEntityLhazarHunter(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);

@@ -5,7 +5,6 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.essos.lorath.GOTStructureLorathCity;
@@ -30,12 +29,7 @@ public class GOTBiomeLorath extends GOTBiomeEssos {
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.IBBEN_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c1);
 
-		decorator.affix(new GOTStructureLorathCity(this, 1.0f));
-
-		GOTStructureLorathCity town = new GOTStructureLorathCity(this, 0.0f).setIsTown();
-		town.affix(GOTWaypoint.Lorath);
-		town.affix(GOTWaypoint.Morosh);
-		decorator.affix(town);
+		decorator.addVillage(new GOTStructureLorathCity(this, 1.0f));
 
 		invasionSpawns.addInvasion(GOTInvasions.IBBEN, GOTEventSpawner.EventChance.UNCOMMON);
 	}

@@ -6,11 +6,9 @@ import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
-import got.common.world.map.GOTWaypoint;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.other.GOTStructureTower;
 import got.common.world.structure.westeros.north.*;
 
 public class GOTBiomeNorth extends GOTBiomeWesteros {
@@ -58,34 +56,7 @@ public class GOTBiomeNorth extends GOTBiomeWesteros {
 		c4[1] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c4);
 
-		decorator.affix(new GOTStructureNorthCity(this, 1.0f));
-
-		GOTStructureNorthCity castle = new GOTStructureNorthCity(this, 0.0f).setIsCastle();
-		castle.affix(GOTWaypoint.MormontsKeep);
-		castle.affix(GOTWaypoint.DeepwoodMotte);
-		castle.affix(GOTWaypoint.Karhold);
-		castle.affix(GOTWaypoint.Winterfell, 1);
-		castle.affix(GOTWaypoint.LastHearth);
-		castle.affix(GOTWaypoint.Dreadfort);
-		castle.affix(GOTWaypoint.DeepwoodMotte);
-		castle.affix(GOTWaypoint.Hornwood);
-		castle.affix(GOTWaypoint.BlackPool);
-		castle.affix(GOTWaypoint.RamsGate);
-		castle.affix(GOTWaypoint.WidowsWatch);
-		castle.affix(GOTWaypoint.OldCastle);
-		castle.affix(GOTWaypoint.ServinsCastle, -1, 0);
-		castle.affix(GOTWaypoint.Ironrath);
-		castle.affix(GOTWaypoint.Highpoint);
-		castle.affix(GOTWaypoint.TorhensSquare);
-		castle.affix(GOTWaypoint.RisvellsCastle, 0, 1);
-		castle.affix(GOTWaypoint.RillwaterCrossing);
-		castle.affix(GOTWaypoint.FlintsFinger);
-		castle.affix(GOTWaypoint.Goldgrass, 0, 1);
-		decorator.affix(castle);
-
-		GOTStructureTower tower = new GOTStructureTower(this, 0.0f);
-		tower.affix(GOTWaypoint.RamseyTower);
-		decorator.affix(tower);
+		decorator.addVillage(new GOTStructureNorthCity(this, 1.0f));
 
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.IRONBORN, GOTEventSpawner.EventChance.UNCOMMON);
