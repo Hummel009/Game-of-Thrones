@@ -329,7 +329,7 @@ public class GOTBiomeDecorator {
 			i2 = chunkX + rand.nextInt(16) + 8;
 			int j9 = rand.nextInt(128);
 			int k12 = chunkZ + rand.nextInt(16) + 8;
-			WorldGenerator grassGen = biome.getRandomWorldGenForDoubleGrass(rand);
+			WorldGenerator grassGen = biome.getRandomWorldGenForDoubleGrass();
 			grassGen.generate(worldObj, rand, i2, j9, k12);
 		}
 		for (l7 = 0; l7 < waterlilyPerChunk; ++l7) {
@@ -437,7 +437,7 @@ public class GOTBiomeDecorator {
 	}
 
 	public void genTree(World world, Random random, int i, int j, int k) {
-		WorldGenAbstractTree treeGen = biome.getTreeGen(world, random, i, j, k);
+		WorldGenAbstractTree treeGen = biome.getTreeGen(world, random, i, j);
 		treeGen.generate(world, random, i, j, k);
 	}
 

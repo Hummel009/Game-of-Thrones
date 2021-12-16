@@ -84,7 +84,7 @@ public class GOTBiomeSothoryosKanuka extends GOTBiome {
 			if (world.getHeightValue(i1, k1) <= 75) {
 				continue;
 			}
-			WorldGenerator grassGen = getRandomWorldGenForDoubleGrass(random);
+			WorldGenerator grassGen = getRandomWorldGenForDoubleGrass();
 			grassGen.generate(world, random, i1, j1, k1);
 		}
 	}
@@ -135,7 +135,7 @@ public class GOTBiomeSothoryosKanuka extends GOTBiome {
 	}
 
 	@Override
-	public WorldGenerator getRandomWorldGenForDoubleGrass(Random random) {
+	public WorldGenerator getRandomWorldGenForDoubleGrass() {
 		WorldGenDoublePlant generator = new WorldGenDoublePlant();
 		generator.func_150548_a(3);
 		return generator;

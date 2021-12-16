@@ -268,11 +268,12 @@ public abstract class GOTBiome extends BiomeGenBase {
 		GOTFixer.addWaypointLocations(this);
 	}
 
-	public void addBiomeF3Info(List info, World world, GOTBiomeVariant variant, int i, int j, int k) {
+	public void addBiomeF3Info(List info, World world, GOTBiomeVariant variant) {
 		int colorRGB = color & 0xFFFFFF;
 		String colorString = Integer.toHexString(colorRGB);
+		StringBuilder sb = new StringBuilder(colorString);
 		while (colorString.length() < 6) {
-			colorString = "0" + colorString;
+			sb.insert(0, "0");
 		}
 		info.add("Game of Thrones biome: " + getBiomeDisplayName() + ", ID: " + biomeID + ", c: #" + colorString);
 		info.add("Variant: " + variant.variantName + ", loaded: " + GOTBiomeVariantStorage.getSize(world));
@@ -329,7 +330,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		int ySize = blocks.length / 256;
 		int seaLevel = 63;
 		double stoneNoiseFiller = modifyStoneNoiseForFiller(stoneNoise);
-		int fillerDepthBase = (int) (stoneNoiseFiller / 4.0 + 5.0 + random.nextDouble() * 0.25);
+		int fillerDepthBase = (int) (stoneNoiseFiller / 4.0 + 5.0 + random.nextInt() * 0.25);
 		int fillerDepth = -1;
 		Block top = topBlock;
 		byte topMeta = (byte) topBlockMeta;
@@ -467,7 +468,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 			filler = Blocks.stone;
 			fillerMeta = 0;
 		}
-		int rockDepth = (int) (stoneNoise * 6.0 + 2.0 + random.nextDouble() * 0.25);
+		int rockDepth = (int) (stoneNoise * 6.0 + 2.0 + random.nextInt() * 0.25);
 		generateMountainTerrain(world, random, blocks, meta, i, k, xzIndex, ySize, height, rockDepth, variant);
 		variant.generateVariantTerrain(world, random, blocks, meta, i, k, height, this);
 	}
@@ -567,11 +568,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return true;
 	}
 
-	@Override
-	public boolean getEnableSnow() {
-		return super.getEnableSnow();
-	}
-
 	public Vec3 getFogColor(Vec3 fog) {
 		if (biomeColors.fog != null) {
 			float[] colors = biomeColors.fog.getColorComponents(null);
@@ -582,7 +578,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return fog;
 	}
 
-	public GOTBiomeSpawnList getNPCSpawnList(World world, Random random, int i, int j, int k, GOTBiomeVariant variant) {
+	public GOTBiomeSpawnList getNPCSpawnList() {
 		return npcSpawnList;
 	}
 
@@ -635,12 +631,15 @@ public abstract class GOTBiome extends BiomeGenBase {
 		}
 		case 2: {
 			doubleFlowerGen.func_150548_a(5);
+			break;
 		}
+		default:
+			break;
 		}
 		return doubleFlowerGen;
 	}
 
-	public WorldGenerator getRandomWorldGenForDoubleGrass(Random random) {
+	public WorldGenerator getRandomWorldGenForDoubleGrass() {
 		WorldGenDoublePlant generator = new WorldGenDoublePlant();
 		generator.func_150548_a(2);
 		return generator;
@@ -694,7 +693,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return thiefEntityClass;
 	}
 
-	public WorldGenAbstractTree getTreeGen(World world, Random random, int i, int j, int k) {
+	public WorldGenAbstractTree getTreeGen(World world, Random random, int i, int k) {
 		GOTWorldChunkManager chunkManager = (GOTWorldChunkManager) world.getWorldChunkManager();
 		GOTBiomeVariant variant = chunkManager.getBiomeVariantAt(i, k);
 		GOTTreeType tree = decorator.getRandomTreeForVariant(random, variant);
@@ -784,21 +783,9 @@ public abstract class GOTBiome extends BiomeGenBase {
 		addFlower(GOTRegistry.marigold, 0, 10);
 	}
 
-	public void registerSavannaFlowers() {
+	public void registerDefaultFlowers() {
 		flowers.clear();
 		addDefaultFlowers();
-	}
-
-	public void registerSwampFlowers() {
-		flowers.clear();
-		addDefaultFlowers();
-	}
-
-	public void registerTaigaFlowers() {
-		flowers.clear();
-		addDefaultFlowers();
-		addFlower(Blocks.red_flower, 1, 10);
-		addFlower(GOTRegistry.bluebell, 0, 5);
 	}
 
 	public void registerYiTiPlainsFlowers() {
@@ -818,7 +805,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	@Override
 	public GOTBiome setColor(int color) {
-		Integer existingBiomeID = biomeDimension.colorsToBiomeIDs.get(color |= 0xFF000000);
+		color |= 0xFF000000;
+		Integer existingBiomeID = biomeDimension.colorsToBiomeIDs.get(color);
 		if (existingBiomeID != null) {
 			throw new RuntimeException("GOT biome (ID " + biomeID + ") is duplicating the color of another GOT biome (ID " + existingBiomeID + ")");
 		}
@@ -1143,7 +1131,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		ibbenMountains = new GOTBiomeIbbenMountains(165, true).setIsLongWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0x808081).setBiomeName("ibbenMountains");
 	}
 
-	public static void updateWaterColor(int i, int j, int k) {
+	public static void updateWaterColor(int k) {
 		int min = 0;
 		int max = waterLimitSouth - waterLimitNorth;
 		float latitude = (float) MathHelper.clamp_int(k - waterLimitNorth, min, max) / (float) max;
@@ -1155,7 +1143,10 @@ public abstract class GOTBiome extends BiomeGenBase {
 		float r = dR * latitude;
 		float g = dG * latitude;
 		float b = dB * latitude;
-		Color water = new Color(r += northColors[0], g += northColors[1], b += northColors[2]);
+		r += northColors[0];
+		g += northColors[1];
+		b += northColors[2];
+		Color water = new Color(r, g, b);
 		int waterRGB = water.getRGB();
 		for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.biomeList) {
 			if (biome == null || biome.biomeColors.hasCustomWater()) {

@@ -36,7 +36,7 @@ public class GOTBiomeNeck extends GOTBiome {
 		decorator.waterlilyPerChunk = 4;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.WILLOW, 100);
-		registerSwampFlowers();
+		registerDefaultFlowers();
 
 		SpawnListContainer[] c1 = new SpawnListContainer[1];
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN);

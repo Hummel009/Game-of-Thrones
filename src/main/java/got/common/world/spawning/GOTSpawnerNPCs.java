@@ -71,7 +71,7 @@ public class GOTSpawnerNPCs {
 			GOTBiome gotbiome = (GOTBiome) biome;
 			GOTWorldChunkManager worldChunkMgr = (GOTWorldChunkManager) world.provider.worldChunkMgr;
 			GOTBiomeVariant variant = worldChunkMgr.getBiomeVariantAt(i, k);
-			spawnlist = gotbiome.getNPCSpawnList(world, world.rand, i, j, k, variant);
+			spawnlist = gotbiome.getNPCSpawnList();
 		}
 		if (spawnlist != null) {
 			return spawnlist.getRandomSpawnEntry(world.rand, world, i, j, k);

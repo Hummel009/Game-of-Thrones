@@ -31,7 +31,7 @@ public class GOTBiomeSothoryosMangrove extends GOTBiome {
 		decorator.addTree(GOTTreeType.MANGROVE, 1000);
 		decorator.addTree(GOTTreeType.ACACIA, 10);
 		decorator.addTree(GOTTreeType.OAK_DESERT, 5);
-		registerSwampFlowers();
+		registerDefaultFlowers();
 		SpawnListContainer[] c = new SpawnListContainer[1];
 		c[0] = GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c);

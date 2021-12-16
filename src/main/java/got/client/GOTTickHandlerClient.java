@@ -375,7 +375,7 @@ public class GOTTickHandlerClient {
 						int j = MathHelper.floor_double(viewer.boundingBox.minY);
 						int k = MathHelper.floor_double(viewer.posZ);
 						BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
-						GOTBiome.updateWaterColor(i, j, k);
+						GOTBiome.updateWaterColor(i);
 						GOTCloudRenderer.updateClouds(world);
 						GOTRenderNorthernLights.update(viewer);
 						GOTSpeechClient.update();
@@ -834,7 +834,7 @@ public class GOTTickHandlerClient {
 			GOTBiome biome = (GOTBiome) mc.theWorld.getBiomeGenForCoords(i, k);
 			GOTBiomeVariant variant = chunkManager.getBiomeVariantAt(i, k);
 			event.left.add(null);
-			biome.addBiomeF3Info(event.left, mc.theWorld, variant, i, j, k);
+			biome.addBiomeF3Info(event.left, mc.theWorld, variant);
 			mc.theWorld.theProfiler.endSection();
 		}
 	}
