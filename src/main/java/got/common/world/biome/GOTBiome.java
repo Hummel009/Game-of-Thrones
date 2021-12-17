@@ -330,7 +330,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		int ySize = blocks.length / 256;
 		int seaLevel = 63;
 		double stoneNoiseFiller = modifyStoneNoiseForFiller(stoneNoise);
-		int fillerDepthBase = (int) (stoneNoiseFiller / 4.0 + 5.0 + random.nextInt() * 0.25);
+		int fillerDepthBase = (int) (stoneNoiseFiller / 4.0 + 5.0 + random.nextDouble() * 0.25);
 		int fillerDepth = -1;
 		Block top = topBlock;
 		byte topMeta = (byte) topBlockMeta;
@@ -468,7 +468,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 			filler = Blocks.stone;
 			fillerMeta = 0;
 		}
-		int rockDepth = (int) (stoneNoise * 6.0 + 2.0 + random.nextInt() * 0.25);
+		int rockDepth = (int) (stoneNoise * 6.0 + 2.0 + random.nextDouble() * 0.25);
 		generateMountainTerrain(world, random, blocks, meta, i, k, xzIndex, ySize, height, rockDepth, variant);
 		variant.generateVariantTerrain(world, random, blocks, meta, i, k, height, this);
 	}
