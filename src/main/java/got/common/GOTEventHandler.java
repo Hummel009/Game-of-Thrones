@@ -632,7 +632,7 @@ public class GOTEventHandler implements IFuelHandler {
 			} else if (exploder instanceof EntityTNTPrimed) {
 				protectFilter = GOTBannerProtection.forTNT((EntityTNTPrimed) exploder);
 			} else if (exploder instanceof EntityMinecartTNT) {
-				protectFilter = GOTBannerProtection.forTNTMinecart((EntityMinecartTNT) exploder);
+				protectFilter = GOTBannerProtection.forTNTMinecart();
 			}
 			if (protectFilter != null) {
 				List<ChunkPosition> blockList = expl.affectedBlockPositions;

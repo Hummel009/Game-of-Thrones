@@ -182,7 +182,7 @@ public class GOTBannerProtection {
 		};
 	}
 
-	public static IFilter forTNTMinecart(EntityMinecartTNT minecart) {
+	public static IFilter forTNTMinecart() {
 		return new IFilter() {
 
 			@Override
