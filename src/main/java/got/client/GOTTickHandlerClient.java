@@ -294,7 +294,8 @@ public class GOTTickHandlerClient {
 
 	public float getWightLookFactor() {
 		float f = prevWightLookTick + (wightLookTick - prevWightLookTick) * renderTick;
-		return f /= 100.0f;
+		f /= 100.0f;
+		return f;
 	}
 
 	public boolean isGamePaused(Minecraft mc) {
