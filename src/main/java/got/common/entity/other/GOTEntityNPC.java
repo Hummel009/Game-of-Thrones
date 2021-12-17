@@ -224,7 +224,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public boolean canDropRares() {
-		return !hiredNPCInfo.isActive;
+		return !hiredNPCInfo.isActive || !isNotHuman;
 	}
 
 	public boolean canGetDrunk() {

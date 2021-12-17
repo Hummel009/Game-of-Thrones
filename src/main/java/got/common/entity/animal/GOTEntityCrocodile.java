@@ -25,6 +25,7 @@ public class GOTEntityCrocodile extends GOTEntityNPC implements GOTBiome.ImmuneT
 		tasks.addTask(3, new EntityAIWatchClosest2(this, EntityPlayer.class, 8.0f, 0.02f));
 		tasks.addTask(4, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		spawnsInDarkness = true;
+		isNotHuman = true;
 	}
 
 	@Override

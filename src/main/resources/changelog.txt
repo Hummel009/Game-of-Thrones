@@ -22,6 +22,7 @@ CHANGELOG
 
 * Optimized iron bank code
 
+* Fixed bug with scorpion drop
 * Fixed bug with iron bank
 * Fixed bug with alchemist skin
 * Fixed bug with speech and chat
