@@ -53,7 +53,6 @@ public class GOTEntityWyvern extends GOTEntityNPC implements GOTBiome.ImmuneToHe
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		super.dropFewItems(flag, i);
 		int count = rand.nextInt(3) + rand.nextInt(i + 1);
 		block7: for (int j = 0; j < count; ++j) {
 			int drop = rand.nextInt(5);

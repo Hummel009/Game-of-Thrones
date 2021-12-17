@@ -50,7 +50,6 @@ public class GOTEntityDaenerysTargaryen extends GOTEntityHumanBase {
 		dropItem(GOTRegistry.bloodOfTrueKings, 1);
 		dropItem(GOTRegistry.rhaegarSword, 1);
 		dropItem(GOTRegistry.blackArakh, 1);
-		// dropItem(GOTRegistry.daarioArakh, 1);
 	}
 
 	@Override
