@@ -8,8 +8,8 @@ import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTGuiButtonIronBank extends GuiButton {
-	public GOTGuiButtonIronBank(int id, int x, int y, int w, int h, String text) {
-		super(id, x, y, w, h, text);
+	public GOTGuiButtonIronBank(int id, int x, int y) {
+		super(id, x, y, 28, 28, "");
 	}
 
 	@Override

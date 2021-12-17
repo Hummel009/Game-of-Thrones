@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.*;
 
-public class GOTPacketMoneyGive implements IMessage {
+public class GOTPacketMoneyGive extends GOTPacketMoney implements IMessage {
 	public UUID hummel = UUID.fromString("9aee5b32-8e19-4d4b-a2d6-1318af62733d");
 	public ItemStack item;
 

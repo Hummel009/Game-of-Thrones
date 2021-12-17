@@ -126,26 +126,30 @@ public class GOTCommonProxy implements IGuiHandler {
 		TileEntity barrel;
 		switch (ID) {
 		case 0:
-			if ((oven = world.getTileEntity(i, j, k)) instanceof GOTTileEntityOven) {
+			oven = world.getTileEntity(i, j, k);
+			if (oven instanceof GOTTileEntityOven) {
 				return new GOTGuiOven(entityplayer.inventory, (GOTTileEntityOven) oven);
 			}
 			break;
 		case 2:
 			return new GOTGuiCraftingTable.Ibben(entityplayer.inventory, world, i, j, k);
 		case 3:
-			if ((entity = world.getEntityByID(i)) instanceof GOTTradeable) {
+			entity = world.getEntityByID(i);
+			if (entity instanceof GOTTradeable) {
 				return new GOTGuiTrade(entityplayer.inventory, (GOTTradeable) entity, world);
 			}
 			break;
 		case 4:
-			return new GOTGuiIronBank(entityplayer);
+			return new GOTGuiIronBank();
 		case 5:
-			if ((forge = world.getTileEntity(i, j, k)) instanceof GOTTileEntityAlloyForge) {
+			forge = world.getTileEntity(i, j, k);
+			if (forge instanceof GOTTileEntityAlloyForge) {
 				return new GOTGuiAlloyForge(entityplayer.inventory, (GOTTileEntityAlloyForge) forge);
 			}
 			break;
 		case 7:
-			if ((entity = world.getEntityByID(i)) instanceof GOTUnitTradeable) {
+			entity = world.getEntityByID(i);
+			if (entity instanceof GOTUnitTradeable) {
 				return new GOTGuiUnitTrade(entityplayer, (GOTUnitTradeable) entity, world);
 			}
 			break;
@@ -158,7 +162,8 @@ public class GOTCommonProxy implements IGuiHandler {
 		case 15:
 			return new GOTGuiPouch(entityplayer, i);
 		case 16:
-			if ((barrel = world.getTileEntity(i, j, k)) instanceof GOTTileEntityBarrel) {
+			barrel = world.getTileEntity(i, j, k);
+			if (barrel instanceof GOTTileEntityBarrel) {
 				return new GOTGuiBarrel(entityplayer.inventory, (GOTTileEntityBarrel) barrel);
 			}
 			break;
@@ -170,17 +175,20 @@ public class GOTCommonProxy implements IGuiHandler {
 		case 18:
 			return new GOTGuiCraftingTable.Hillmen(entityplayer.inventory, world, i, j, k);
 		case 19:
-			if ((entity = world.getEntityByID(i)) instanceof GOTTradeable) {
+			entity = world.getEntityByID(i);
+			if (entity instanceof GOTTradeable) {
 				return new GOTGuiTradeInteract((GOTEntityNPC) entity);
 			}
 			break;
 		case 20:
-			if ((entity = world.getEntityByID(i)) instanceof GOTUnitTradeable) {
+			entity = world.getEntityByID(i);
+			if (entity instanceof GOTUnitTradeable) {
 				return new GOTGuiUnitTradeInteract((GOTEntityNPC) entity);
 			}
 			break;
 		case 21:
-			if ((entity = world.getEntityByID(i)) instanceof GOTEntityNPC) {
+			entity = world.getEntityByID(i);
+			if (entity instanceof GOTEntityNPC) {
 				return new GOTGuiHiredInteract((GOTEntityNPC) entity);
 			}
 			break;
@@ -486,14 +494,16 @@ public class GOTCommonProxy implements IGuiHandler {
 			}
 			break;
 		case 4:
-			return new GOTGuiIronBank(entityplayer);
+			return new GOTGuiIronBank();
 		case 5:
-			if ((forge = world.getTileEntity(i, j, k)) instanceof GOTTileEntityAlloyForge) {
+			forge = world.getTileEntity(i, j, k);
+			if (forge instanceof GOTTileEntityAlloyForge) {
 				return new GOTContainerAlloyForge(entityplayer.inventory, (GOTTileEntityAlloyForge) forge);
 			}
 			break;
 		case 7:
-			if ((entity = world.getEntityByID(i)) instanceof GOTUnitTradeable) {
+			entity = world.getEntityByID(i);
+			if (entity instanceof GOTUnitTradeable) {
 				return new GOTContainerUnitTrade(entityplayer, (GOTUnitTradeable) entity, world);
 			}
 			break;
@@ -505,12 +515,14 @@ public class GOTCommonProxy implements IGuiHandler {
 			}
 			break;
 		case 16:
-			if ((barrel = world.getTileEntity(i, j, k)) instanceof GOTTileEntityBarrel) {
+			barrel = world.getTileEntity(i, j, k);
+			if (barrel instanceof GOTTileEntityBarrel) {
 				return new GOTContainerBarrel(entityplayer.inventory, (GOTTileEntityBarrel) barrel);
 			}
 			break;
 		case 17:
-			if ((stand = world.getTileEntity(i, j, k)) instanceof GOTTileEntityArmorStand) {
+			stand = world.getTileEntity(i, j, k);
+			if (stand instanceof GOTTileEntityArmorStand) {
 				return new GOTContainerArmorStand(entityplayer.inventory, (GOTTileEntityArmorStand) stand);
 			}
 			break;

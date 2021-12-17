@@ -20,6 +20,9 @@ CHANGELOG
 * Improved structures generator
 * Improved wall gate
 
+* Optimized iron bank code
+
+* Fixed bug with iron bank
 * Fixed bug with alchemist skin
 * Fixed bug with speech and chat
 * Fixed bug with structures of Mossovy

@@ -264,11 +264,6 @@ public class GOTBiomeDecorator {
 		}
 		if (trees > 0) {
 			float fallenLeaves = trees / 2.0f;
-			int fallenLeavesI = (int) fallenLeaves;
-			float fallenLeavesR = fallenLeaves - fallenLeavesI;
-			if (rand.nextFloat() < fallenLeavesR) {
-				++fallenLeavesI;
-			}
 			l3 = 0;
 			while (l3 < fallenLeaves) {
 				i5 = chunkX + rand.nextInt(16) + 8;
@@ -276,14 +271,7 @@ public class GOTBiomeDecorator {
 				new GOTWorldGenFallenLeaves().generate(worldObj, rand, i5, worldObj.getTopSolidOrLiquidBlock(i5, k4), k4);
 				++l3;
 			}
-		}
-		if (trees > 0) {
 			float bushes = trees / 3.0f;
-			int bushesI = (int) bushes;
-			float bushesR = bushes - bushesI;
-			if (rand.nextFloat() < bushesR) {
-				++bushesI;
-			}
 			l3 = 0;
 			while (l3 < bushes) {
 				i5 = chunkX + rand.nextInt(16) + 8;
@@ -336,8 +324,7 @@ public class GOTBiomeDecorator {
 			int j11;
 			i2 = chunkX + rand.nextInt(16) + 8;
 			int k14 = chunkZ + rand.nextInt(16) + 8;
-			for (j11 = rand.nextInt(128); j11 > 0 && worldObj.getBlock(i2, j11 - 1, k14) == Blocks.air; --j11) {
-			}
+			j11 = rand.nextInt(128);
 			waterlilyGen.generate(worldObj, rand, i2, j11, k14);
 		}
 		for (l7 = 0; l7 < canePerChunk; ++l7) {
@@ -356,8 +343,7 @@ public class GOTBiomeDecorator {
 			int j13;
 			i2 = chunkX + rand.nextInt(16) + 8;
 			k5 = chunkZ + rand.nextInt(16) + 8;
-			for (j13 = rand.nextInt(128); j13 > 0 && worldObj.getBlock(i2, j13 - 1, k5) == Blocks.air; --j13) {
-			}
+			j13 = rand.nextInt(128);
 			if (rand.nextFloat() < dryReedChance) {
 				dryReedGen.generate(worldObj, rand, i2, j13, k5);
 				continue;
@@ -396,7 +382,7 @@ public class GOTBiomeDecorator {
 		worldObj = world;
 		rand = random;
 		chunkX = i;
-		chunkZ = k;
+		chunkZ = k; 
 		this.decorate();
 		if (!GOTConfig.clearMap) {
 			addSpecialStructures(world, random, i, k);
@@ -424,7 +410,7 @@ public class GOTBiomeDecorator {
 
 	public void genStandardOre(float ores, WorldGenerator oreGen, int minHeight, int maxHeight) {
 		while (ores > 0.0f) {
-			boolean generate = ores >= 1.0f ? true : rand.nextFloat() < ores;
+			boolean generate = ores >= 1.0f || rand.nextFloat() < ores;
 			ores -= 1.0f;
 			if (!generate) {
 				continue;

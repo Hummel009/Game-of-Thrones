@@ -65,10 +65,6 @@ public class GOT {
 	public static Map<ItemStack, Integer> buy = new GOTItemStackMapImpl<>();
 	public static Map<ItemStack, Integer> sell = new GOTItemStackMapImpl<>();
 
-	public GOT() {
-		instance = this;
-	}
-
 	@Mod.EventHandler
 	public void load(FMLInitializationEvent event) {
 		proxy.onLoad();
@@ -259,22 +255,22 @@ public class GOT {
 		GOTRegistry.registerItems();
 
 		buy.put(new ItemStack(GOTRegistry.coin, 1, 0), 1);
-		buy.put(new ItemStack(GOTRegistry.coin, 1, 1), 2);
-		buy.put(new ItemStack(GOTRegistry.coin, 1, 2), 4);
-		buy.put(new ItemStack(GOTRegistry.coin, 1, 3), 8);
-		buy.put(new ItemStack(GOTRegistry.coin, 1, 4), 56);
-		buy.put(new ItemStack(GOTRegistry.coin, 1, 5), 392);
-		buy.put(new ItemStack(GOTRegistry.coin, 1, 6), 11760);
-		buy.put(new ItemStack(GOTRegistry.coin, 1, 7), 105840);
+		buy.put(new ItemStack(GOTRegistry.coin, 1, 1), 4);
+		buy.put(new ItemStack(GOTRegistry.coin, 1, 2), 16);
+		buy.put(new ItemStack(GOTRegistry.coin, 1, 3), 64);
+		buy.put(new ItemStack(GOTRegistry.coin, 1, 4), 256);
+		buy.put(new ItemStack(GOTRegistry.coin, 1, 5), 1024);
+		buy.put(new ItemStack(GOTRegistry.coin, 1, 6), 4096);
+		buy.put(new ItemStack(GOTRegistry.coin, 1, 7), 16384);
 
 		sell.put(new ItemStack(GOTRegistry.coin, 1, 0), 1);
-		sell.put(new ItemStack(GOTRegistry.coin, 1, 1), 2);
-		sell.put(new ItemStack(GOTRegistry.coin, 1, 2), 4);
-		sell.put(new ItemStack(GOTRegistry.coin, 1, 3), 8);
-		sell.put(new ItemStack(GOTRegistry.coin, 1, 4), 56);
-		sell.put(new ItemStack(GOTRegistry.coin, 1, 5), 392);
-		sell.put(new ItemStack(GOTRegistry.coin, 1, 6), 11760);
-		sell.put(new ItemStack(GOTRegistry.coin, 1, 7), 105840);
+		sell.put(new ItemStack(GOTRegistry.coin, 1, 1), 4);
+		sell.put(new ItemStack(GOTRegistry.coin, 1, 2), 16);
+		sell.put(new ItemStack(GOTRegistry.coin, 1, 3), 64);
+		sell.put(new ItemStack(GOTRegistry.coin, 1, 4), 256);
+		sell.put(new ItemStack(GOTRegistry.coin, 1, 5), 1024);
+		sell.put(new ItemStack(GOTRegistry.coin, 1, 6), 4096);
+		sell.put(new ItemStack(GOTRegistry.coin, 1, 7), 16384);
 
 		Blocks.dragon_egg.setCreativeTab(GOTCreativeTabs.tabStory);
 		MinecraftForge.EVENT_BUS.register(new GOTTrackingEventHandler());
