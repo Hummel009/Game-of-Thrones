@@ -10,17 +10,31 @@ import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.other.*;
-import got.common.world.structure.westeros.common.GOTStructureWesterosObelisk;
+import got.common.world.structure.other.GOTStructureStoneRuin;
 import got.common.world.structure.westeros.hillmen.*;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTBiomeArrynMountainsFoothills extends GOTBiome {
 	public GOTBiomeArrynMountainsFoothills(int i, boolean major) {
 		super(i, major);
+		this.addBiomeVariant(GOTBiomeVariant.HILLS);
+		decorator.clearTrees();
+		decorator.addTree(GOTTreeType.SPRUCE, 400);
+		decorator.addTree(GOTTreeType.SPRUCE_THIN, 400);
+		decorator.addTree(GOTTreeType.LARCH, 300);
+		decorator.addTree(GOTTreeType.SPRUCE_MEGA, 100);
+		decorator.addTree(GOTTreeType.SPRUCE_MEGA_THIN, 20);
+		decorator.addTree(GOTTreeType.FIR, 500);
+		decorator.addTree(GOTTreeType.PINE, 500);
+		decorator.treesPerChunk = 2;
+		decorator.grassPerChunk = 6;
+		decorator.doubleGrassPerChunk = 1;
+		decorator.flowersPerChunk = 3;
+		decorator.doubleFlowersPerChunk = 1;
+		registerPlainsFlowers();
 		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 4, 1, 1));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 8, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 4, 1, 1));
 
 		SpawnListContainer[] c0 = new SpawnListContainer[2];
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.HILL_TRIBES_CIVILIAN, 4).setSpawnChance(GOTBiome.SPAWN);
@@ -35,29 +49,8 @@ public class GOTBiomeArrynMountainsFoothills extends GOTBiome {
 		c3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c3);
 
-		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST_LARCH, 0.4f);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST_PINE, 0.4f);
-		decorator.treesPerChunk = 0;
-		decorator.grassPerChunk = 6;
-		decorator.doubleGrassPerChunk = 1;
-		decorator.clearTrees();
-		decorator.addTree(GOTTreeType.SPRUCE, 500);
-		decorator.addTree(GOTTreeType.OAK_TALL, 200);
-		decorator.addTree(GOTTreeType.OAK_LARGE, 20);
-		decorator.addTree(GOTTreeType.CHESTNUT, 50);
-		decorator.addTree(GOTTreeType.CHESTNUT_LARGE, 10);
-		decorator.addTree(GOTTreeType.FIR, 500);
-		decorator.addTree(GOTTreeType.PINE, 500);
-		registerForestFlowers();
-
 		decorator.addVillage(new GOTStructureHillmanVillage(this, 1.0f));
 		decorator.addRandomStructure(new GOTStructureHillmanFort(false), 500);
-		decorator.addRandomStructure(new GOTStructureWesterosObelisk(false), 1000);
-		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
-		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
-		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
-		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
 		decorator.addRandomStructure(new GOTStructureStoneRuin.STONE(1, 4), 400);
 
 	}
