@@ -153,7 +153,7 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 
 	@Override
 	public void handleEvent(GOTMiniQuestEvent event) {
-		switch(stage) {
+		switch (stage) {
 		case 2:
 			if (event instanceof GOTMiniQuestEvent.OpenRedBook) {
 				stage = 3;
@@ -205,8 +205,8 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		String line;
 		ArrayList<ItemStack> dropItems = new ArrayList<>();
-		switch(stage) {
-		case 1: 
+		switch (stage) {
+		case 1:
 			dropItems.add(new ItemStack(GOTRegistry.questBook));
 			npc.dropItemList(dropItems);
 			dropItems.clear();
@@ -216,66 +216,66 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 			stage = 2;
 			updateQuest();
 			break;
-		case 2: 
+		case 2:
 			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 4);
 			sendQuoteSpeech(entityplayer, npc, line);
 			break;
-		case 3: 
+		case 3:
 			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 5);
 			sendQuoteSpeech(entityplayer, npc, line);
 			quotesStages.add(line);
 			stage = 4;
 			updateQuest();
 			break;
-		case 4: 
+		case 4:
 			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 6);
 			sendQuoteSpeech(entityplayer, npc, line);
 			quotesStages.add(line);
 			stage = 5;
 			updateQuest();
 			break;
-		case 5: 
+		case 5:
 			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 6);
 			sendQuoteSpeech(entityplayer, npc, line);
 			break;
-		case 6: 
+		case 6:
 			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 7);
 			sendQuoteSpeech(entityplayer, npc, line);
 			quotesStages.add(line);
 			stage = 7;
 			updateQuest();
 			break;
-		case 7: 
+		case 7:
 			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 8);
 			sendQuoteSpeech(entityplayer, npc, line);
 			quotesStages.add(line);
 			stage = 8;
 			updateQuest();
 			break;
-		case 8: 
-		case 9: 
+		case 8:
+		case 9:
 			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 8);
 			sendQuoteSpeech(entityplayer, npc, line);
 			break;
-		case 10: 
+		case 10:
 			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 9);
 			sendQuoteSpeech(entityplayer, npc, line);
 			quotesStages.add(line);
 			stage = 11;
 			updateQuest();
 			break;
-		case 11: 
+		case 11:
 			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 9);
 			sendQuoteSpeech(entityplayer, npc, line);
 			break;
-		case 12: 
+		case 12:
 			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 10);
 			sendQuoteSpeech(entityplayer, npc, line);
 			quotesStages.add(line);
 			stage = 13;
 			updateQuest();
 			break;
-		case 13: 
+		case 13:
 			if (!pd.getQuestData().getGivenFirstPouches()) {
 				dropItems.add(new ItemStack(GOTRegistry.pouch, 1, 0));
 				dropItems.add(new ItemStack(GOTRegistry.pouch, 1, 0));
@@ -290,7 +290,7 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 			stage = 14;
 			updateQuest();
 			break;
-		case 14: 
+		case 14:
 			stage = 15;
 			updateQuest();
 			complete(entityplayer, npc);
@@ -344,7 +344,7 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 		for (GOTMiniQuest quest : activeQuests) {
 			if ((quest instanceof GOTMiniQuestWelcome)) {
 				GOTMiniQuestWelcome qw = (GOTMiniQuestWelcome) quest;
-				switch(qw.stage) {
+				switch (qw.stage) {
 				case 5:
 					flags[0] = true;
 					break;

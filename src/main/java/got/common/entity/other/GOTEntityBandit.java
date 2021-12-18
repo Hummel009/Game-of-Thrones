@@ -59,11 +59,6 @@ public class GOTEntityBandit extends GOTEntityHumanBase implements IBandit, GOTB
 	}
 
 	@Override
-	public String getNPCName() {
-		return familyInfo.getName();
-	}
-
-	@Override
 	public boolean canTargetPlayerForTheft(EntityPlayer player) {
 		return true;
 	}
@@ -102,6 +97,11 @@ public class GOTEntityBandit extends GOTEntityHumanBase implements IBandit, GOTB
 	@Override
 	public int getMaxThefts() {
 		return 3;
+	}
+
+	@Override
+	public String getNPCName() {
+		return familyInfo.getName();
 	}
 
 	@Override
@@ -170,7 +170,7 @@ public class GOTEntityBandit extends GOTEntityHumanBase implements IBandit, GOTB
 	public void setupNPCGender() {
 		familyInfo.setMale(true);
 	}
-	
+
 	@Override
 	public void setupNPCName() {
 		int i = rand.nextInt(4);

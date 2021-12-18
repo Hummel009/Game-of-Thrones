@@ -16,8 +16,8 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTStructureReachCity extends GOTVillageGen {
-	private boolean isTown;
-	private boolean isCastle;
+	public boolean isTown;
+	public boolean isCastle;
 
 	public GOTStructureReachCity(GOTBiome biome, float f) {
 		super(biome);

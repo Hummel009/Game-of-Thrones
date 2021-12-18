@@ -509,7 +509,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 	@Override
 	public void onLoad() {
 		super.onLoad();
-		DRRenderGrappleArrow rga = new DRRenderGrappleArrow(GOTRegistry.grapplingHook);
+		GOTRenderGrappleArrow rga = new GOTRenderGrappleArrow(GOTRegistry.grapplingHook);
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityGrapplingArrow.class, rga);
 
 		customEffectRenderer = new GOTEffectRenderer(Minecraft.getMinecraft());

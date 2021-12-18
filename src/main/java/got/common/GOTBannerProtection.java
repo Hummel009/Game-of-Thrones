@@ -13,7 +13,7 @@ import got.common.entity.other.*;
 import got.common.faction.GOTFaction;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
-import net.minecraft.entity.item.*;
+import net.minecraft.entity.item.EntityTNTPrimed;
 import net.minecraft.entity.player.*;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Blocks;

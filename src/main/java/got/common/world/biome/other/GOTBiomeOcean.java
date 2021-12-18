@@ -39,9 +39,6 @@ public class GOTBiomeOcean extends GOTBiome {
 		int j1;
 		int i1;
 		int k1;
-		int k2;
-		int i2;
-		int l;
 		super.decorate(world, random, i, k);
 		i1 = i + random.nextInt(16) + 8;
 		k1 = k + random.nextInt(16) + 8;

@@ -13,13 +13,13 @@ import net.minecraft.item.*;
 import net.minecraft.util.*;
 
 @SideOnly(Side.CLIENT)
-public class DRRenderGrappleArrow extends Render {
+public class GOTRenderGrappleArrow extends Render {
 	public static ResourceLocation LEASH_KNOT_TEXTURES = new ResourceLocation("textures/entity/lead_knot.png");
 
 	public Item item;
 	public ItemStack itemstack;
 
-	public DRRenderGrappleArrow(Item itemIn) {
+	public GOTRenderGrappleArrow(Item itemIn) {
 		item = itemIn;
 		itemstack = new ItemStack(item);
 

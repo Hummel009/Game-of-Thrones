@@ -10,7 +10,7 @@ import got.common.world.structure.other.*;
 import net.minecraft.world.World;
 
 public class GOTStructureYiTiCity extends GOTVillageGen {
-	private boolean isTown;
+	public boolean isTown;
 
 	public GOTStructureYiTiCity(GOTBiome biome, float f) {
 		super(biome);

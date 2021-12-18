@@ -32,7 +32,7 @@ public class GOTFactionRelations {
 		if (f1 == GOTFaction.HOSTILE || f2 == GOTFaction.HOSTILE) {
 			return Relation.MORTAL_ENEMY;
 		}
-		if ((f1 == GOTFaction.WHITE_WALKER || f2 == GOTFaction.WHITE_WALKER) && !(f1 == f2)) {
+		if ((f1 == GOTFaction.WHITE_WALKER || f2 == GOTFaction.WHITE_WALKER) && (f1 != f2)) {
 			return Relation.MORTAL_ENEMY;
 		}
 		if (f1 == f2) {

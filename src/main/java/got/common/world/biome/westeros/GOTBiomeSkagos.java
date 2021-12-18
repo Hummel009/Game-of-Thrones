@@ -35,7 +35,7 @@ public class GOTBiomeSkagos extends GOTBiome {
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWoolyRhino.class, 2, 1, 1));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 8, 1, 2));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 4, 1, 1));
-		
+
 		SpawnListContainer[] c0 = new SpawnListContainer[1];
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.NORTH_HILLMEN, 10).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c0);

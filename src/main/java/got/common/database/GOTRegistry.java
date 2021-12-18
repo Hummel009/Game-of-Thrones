@@ -1886,7 +1886,7 @@ public class GOTRegistry {
 		yamCrop = new GOTBlockYamCrop();
 		yitiFlower = new GOTBlockYiTiFlower();
 		kelp = new GOTBlockKelp();
-		
+
 		jogosHelmet = new GOTItemArmor(GOTMaterial.JOGOS, 0);
 		jogosChestplate = new GOTItemArmor(GOTMaterial.JOGOS, 1);
 		jogosLeggings = new GOTItemArmor(GOTMaterial.JOGOS, 2);

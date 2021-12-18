@@ -48,7 +48,6 @@ public class GOTStructureSummerFort extends GOTStructureSummerBase {
 				int i2 = Math.abs(i1);
 				int k2 = Math.abs(k1);
 				boolean bedRegion = i2 <= 3 && k1 >= 5 && k1 <= 9 || i2 <= 2 && k1 == 4 || i2 <= 1 && k1 == 3;
-				int airHeight = 7;
 				for (j1 = 0; (j1 >= -1 || !isOpaque(world, i1, j1, k1)) && getY(j1) >= 0; --j1) {
 					if (bedRegion && j1 == 0) {
 						setAir(world, i1, j1, k1);

@@ -16,9 +16,9 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTStructureNorthCity extends GOTVillageGen {
-	private boolean isTown;
-	private boolean isCastle;
-	private boolean isSmallTown;
+	public boolean isTown;
+	public boolean isCastle;
+	public boolean isSmallTown;
 
 	public GOTStructureNorthCity(GOTBiome biome, float f) {
 		super(biome);

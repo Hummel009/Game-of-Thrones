@@ -11,7 +11,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTStructureJogosVillage extends GOTVillageGen {
-	private boolean isBig;
+	public boolean isBig;
 
 	public GOTStructureJogosVillage(GOTBiome biome, float f) {
 		super(biome);

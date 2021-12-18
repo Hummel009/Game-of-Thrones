@@ -46,7 +46,7 @@ public class GOTBiomeMossovy extends GOTBiome {
 		npcSpawnList.newFactionList(10).add(c1);
 
 		decorator.addVillage(new GOTStructureMossovyVillage(this, 1.0f));
-		
+
 		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
 		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);

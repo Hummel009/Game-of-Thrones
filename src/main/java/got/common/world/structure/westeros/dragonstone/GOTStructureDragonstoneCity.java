@@ -16,8 +16,8 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTStructureDragonstoneCity extends GOTVillageGen {
-	private boolean isTown;
-	private boolean isCastle;
+	public boolean isTown;
+	public boolean isCastle;
 
 	public GOTStructureDragonstoneCity(GOTBiome biome, float f) {
 		super(biome);

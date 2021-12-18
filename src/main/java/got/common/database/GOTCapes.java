@@ -81,7 +81,7 @@ public enum GOTCapes {
 	}
 
 	public static void preInit() {
- }
+	}
 
 	public enum CapeType {
 		ALIGNMENT, EXCLUSIVE;

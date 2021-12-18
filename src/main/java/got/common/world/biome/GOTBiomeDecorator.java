@@ -126,13 +126,13 @@ public class GOTBiomeDecorator {
 		treeTypes.add(new GOTTreeType.WeightedTreeType(type, weight));
 	}
 
+	public void addVillage(GOTVillageGen village) {
+		villages.add(village);
+	}
+
 	public void affix(GOTVillageGen village) {
 		villages.add(village);
 		affixes.add(village);
-	}
-
-	public void addVillage(GOTVillageGen village) {
-		villages.add(village);
 	}
 
 	public boolean anyFixedVillagesAt(World world, int i, int k) {
@@ -382,7 +382,7 @@ public class GOTBiomeDecorator {
 		worldObj = world;
 		rand = random;
 		chunkX = i;
-		chunkZ = k; 
+		chunkZ = k;
 		this.decorate();
 		if (!GOTConfig.clearMap) {
 			addSpecialStructures(world, random, i, k);

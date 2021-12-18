@@ -144,7 +144,7 @@ public class GOTEntityScrapTrader extends GOTEntityHumanBase implements GOTTrade
 	public void setupNPCGender() {
 		familyInfo.setMale(true);
 	}
-	
+
 	@Override
 	public void setupNPCName() {
 		int i = rand.nextInt(4);

@@ -954,7 +954,7 @@ public class GOTEventHandler implements IFuelHandler {
 			int j = MathHelper.floor_double(entity.boundingBox.minY);
 			int k2 = MathHelper.floor_double(entity.posZ);
 			BiomeGenBase biomeGenBase = world.getBiomeGenForCoords(i, k2);
-			if (biomeGenBase instanceof GOTBiome && shouldApplyWinterOverlay(world, (GOTBiome) biomeGenBase, entity) && (world.canBlockSeeTheSky(i, j, k2) || entity.isInWater()) && world.getSavedLightValue(EnumSkyBlock.Block, i, j, k2) < 10) {
+			if (biomeGenBase instanceof GOTBiome && shouldApplyWinterOverlay(world, biomeGenBase, entity) && (world.canBlockSeeTheSky(i, j, k2) || entity.isInWater()) && world.getSavedLightValue(EnumSkyBlock.Block, i, j, k2) < 10) {
 				event.amount *= 0.3f;
 			}
 		}

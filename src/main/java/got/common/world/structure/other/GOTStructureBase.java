@@ -42,15 +42,14 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	public Map<String, BlockAliasPool> scanAliases = new HashMap<>();
 	public Map<String, Float> scanAliasChances = new HashMap<>();
 
-	public GOTStructureBase(boolean flag) {
-		super(flag);
-		notifyChanges = flag;
-	}
-	
-
 	public GOTStructureBase() {
 		super(false);
 		notifyChanges = false;
+	}
+
+	public GOTStructureBase(boolean flag) {
+		super(flag);
+		notifyChanges = flag;
 	}
 
 	public void addBlockAliasOption(String alias, int weight, Block block) {

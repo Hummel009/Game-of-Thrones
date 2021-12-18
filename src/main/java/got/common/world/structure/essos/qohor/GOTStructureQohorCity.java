@@ -15,7 +15,7 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 
 public class GOTStructureQohorCity extends GOTVillageGen {
-	private boolean isTown;
+	public boolean isTown;
 
 	public GOTStructureQohorCity(GOTBiome biome, float f) {
 		super(biome);

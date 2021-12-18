@@ -148,7 +148,7 @@ public class GOTEntityThief extends GOTEntityHumanBase implements GOTBiome.Immun
 	public void setupNPCGender() {
 		familyInfo.setMale(true);
 	}
-	
+
 	@Override
 	public void setupNPCName() {
 		int i = rand.nextInt(4);

@@ -215,9 +215,9 @@ public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, I
 		} else if (item == Items.clay_ball || item == GOTRegistry.redClayBall || item == GOTRegistry.clayMug || item == GOTRegistry.clayPlate || item == GOTRegistry.ceramicPlate) {
 			isStoneMaterial = true;
 		}
-        if (itemstack.getItem() == Item.getItemFromBlock((Block)GOTRegistry.oreValyrian)) {
-            return new ItemStack(GOTRegistry.valyrianIngot);
-        }
+		if (itemstack.getItem() == Item.getItemFromBlock(GOTRegistry.oreValyrian)) {
+			return new ItemStack(GOTRegistry.valyrianIngot);
+		}
 		if (isStoneMaterial || isWood(itemstack)) {
 			return FurnaceRecipes.smelting().getSmeltingResult(itemstack);
 		}

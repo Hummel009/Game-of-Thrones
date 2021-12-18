@@ -97,13 +97,6 @@ public class GOTWorldProvider extends WorldProvider {
 	public boolean canRespawnHere() {
 		return true;
 	}
-	
-	public boolean canSnowIgnoreTemp(int i, int j, int k, boolean checkLight) {
-		if (!checkLight) {
-			return true;
-		}
-		return j >= 0 && j < worldObj.getHeight() && worldObj.getSavedLightValue(EnumSkyBlock.Block, i, j, k) < 10 && (worldObj.getBlock(i, j, k)).getMaterial() == Material.air && Blocks.snow_layer.canPlaceBlockAt(worldObj, i, j, k);
-	}
 
 	@Override
 	public boolean canSnowAt(int i, int j, int k, boolean checkLight) {
@@ -118,6 +111,13 @@ public class GOTWorldProvider extends WorldProvider {
 			return j >= 140 && worldObj.canSnowAtBody(i, j, k, checkLight);
 		}
 		return false;
+	}
+
+	public boolean canSnowIgnoreTemp(int i, int j, int k, boolean checkLight) {
+		if (!checkLight) {
+			return true;
+		}
+		return j >= 0 && j < worldObj.getHeight() && worldObj.getSavedLightValue(EnumSkyBlock.Block, i, j, k) < 10 && (worldObj.getBlock(i, j, k)).getMaterial() == Material.air && Blocks.snow_layer.canPlaceBlockAt(worldObj, i, j, k);
 	}
 
 	@Override

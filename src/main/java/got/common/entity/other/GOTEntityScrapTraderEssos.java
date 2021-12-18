@@ -33,7 +33,7 @@ public class GOTEntityScrapTraderEssos extends GOTEntityScrapTrader {
 		}
 		return data;
 	}
-	
+
 	@Override
 	public void setupNPCName() {
 		int i = rand.nextInt(6);

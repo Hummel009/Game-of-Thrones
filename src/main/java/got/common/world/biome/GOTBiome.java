@@ -740,6 +740,11 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return stoneNoise;
 	}
 
+	public void registerDefaultFlowers() {
+		flowers.clear();
+		addDefaultFlowers();
+	}
+
 	public void registerExoticFlowers() {
 		flowers.clear();
 		addFlower(GOTRegistry.essosFlower, 0, 10);
@@ -781,11 +786,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		addFlower(Blocks.yellow_flower, 0, 30);
 		addFlower(GOTRegistry.bluebell, 0, 5);
 		addFlower(GOTRegistry.marigold, 0, 10);
-	}
-
-	public void registerDefaultFlowers() {
-		flowers.clear();
-		addDefaultFlowers();
 	}
 
 	public void registerYiTiPlainsFlowers() {

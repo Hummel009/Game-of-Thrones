@@ -33,7 +33,7 @@ public class GOTEntityBanditEssos extends GOTEntityBandit {
 		}
 		return data;
 	}
-	
+
 	@Override
 	public void setupNPCName() {
 		int i = rand.nextInt(6);

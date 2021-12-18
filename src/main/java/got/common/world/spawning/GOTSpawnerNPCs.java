@@ -7,7 +7,6 @@ import got.common.*;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.world.*;
 import got.common.world.biome.GOTBiome;
-import got.common.world.biome.variant.GOTBiomeVariant;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.*;
@@ -70,7 +69,7 @@ public class GOTSpawnerNPCs {
 		if (biome instanceof GOTBiome && world.provider instanceof GOTWorldProvider) {
 			GOTBiome gotbiome = (GOTBiome) biome;
 			GOTWorldChunkManager worldChunkMgr = (GOTWorldChunkManager) world.provider.worldChunkMgr;
-			GOTBiomeVariant variant = worldChunkMgr.getBiomeVariantAt(i, k);
+			worldChunkMgr.getBiomeVariantAt(i, k);
 			spawnlist = gotbiome.getNPCSpawnList();
 		}
 		if (spawnlist != null) {

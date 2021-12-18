@@ -15,8 +15,8 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 
 public class GOTStructureGhiscarCity extends GOTVillageGen {
-	private boolean isTown;
-	private boolean isColony;
+	public boolean isTown;
+	public boolean isColony;
 
 	public GOTStructureGhiscarCity(GOTBiome biome, float f) {
 		super(biome);

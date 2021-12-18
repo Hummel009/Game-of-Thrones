@@ -830,7 +830,7 @@ public class GOTTickHandlerClient {
 			mc.theWorld.theProfiler.startSection("gotBiomeDisplay");
 			GOTWorldChunkManager chunkManager = (GOTWorldChunkManager) mc.theWorld.getWorldChunkManager();
 			int i = MathHelper.floor_double(mc.thePlayer.posX);
-			int j = MathHelper.floor_double(mc.thePlayer.boundingBox.minY);
+			MathHelper.floor_double(mc.thePlayer.boundingBox.minY);
 			int k = MathHelper.floor_double(mc.thePlayer.posZ);
 			GOTBiome biome = (GOTBiome) mc.theWorld.getBiomeGenForCoords(i, k);
 			GOTBiomeVariant variant = chunkManager.getBiomeVariantAt(i, k);

@@ -13,7 +13,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTStructureLhazarVillage extends GOTVillageGen {
-	private boolean isTown;
+	public boolean isTown;
 
 	public GOTStructureLhazarVillage(GOTBiome biome, float f) {
 		super(biome);
