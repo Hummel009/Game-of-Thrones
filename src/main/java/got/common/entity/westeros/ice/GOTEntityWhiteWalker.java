@@ -13,7 +13,7 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
 
 public class GOTEntityWhiteWalker extends GOTEntityNPC {
@@ -174,5 +174,21 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 			setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.whiteWalkersChestplate));
 		}
 		return data;
+	}
+
+	@Override
+	public boolean getCanSpawnHere() {
+		if (super.getCanSpawnHere()) {
+			if (liftSpawnRestrictions) {
+				return true;
+			}
+			int i = MathHelper.floor_double(posX);
+			int j = MathHelper.floor_double(boundingBox.minY);
+			int k = MathHelper.floor_double(posZ);
+			if (j > 62 && worldObj.getBlock(i, j - 1, k) == worldObj.getBiomeGenForCoords(i, k).topBlock) {
+				return true;
+			}
+		}
+		return false;
 	}
 }

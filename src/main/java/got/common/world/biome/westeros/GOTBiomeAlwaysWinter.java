@@ -7,20 +7,29 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
-import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.feature.GOTWorldGenBoulder;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class GOTBiomeAlwaysWinter extends GOTBiome {
+	public WorldGenerator boulderGenSmall;
+	public WorldGenerator boulderGenLarge;
+	public WorldGenerator clayBoulderGenSmall;
+	public WorldGenerator clayBoulderGenLarge;
+
 	public GOTBiomeAlwaysWinter(int i, boolean major) {
 		super(i, major);
-		clearBiomeVariants();
-		topBlock = Blocks.ice;
+		topBlock = Blocks.snow;
 		fillerBlock = Blocks.ice;
+		boulderGenSmall = new GOTWorldGenBoulder(Blocks.snow, 0, 1, 4);
+		boulderGenLarge = new GOTWorldGenBoulder(Blocks.snow, 0, 5, 8).setHeightCheck(6);
+		clayBoulderGenSmall = new GOTWorldGenBoulder(Blocks.packed_ice, 0, 1, 4);
+		clayBoulderGenLarge = new GOTWorldGenBoulder(Blocks.packed_ice, 0, 5, 10).setHeightCheck(6);
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
 		spawnableCaveCreatureList.clear();
@@ -33,52 +42,45 @@ public class GOTBiomeAlwaysWinter extends GOTBiome {
 
 	@Override
 	public void decorate(World world, Random random, int i, int k) {
+		int k2;
+		int i2;
+		int l;
 		super.decorate(world, random, i, k);
-		Block block = Blocks.ice;
-		Block block2 = Blocks.snow;
-		for (int l2 = 0; l2 < 100; ++l2) {
-			int k3;
-			int j1;
-			int i3 = i + random.nextInt(16) + 8;
-			if (world.getBlock(i3, (j1 = world.getHeightValue(i3, k3 = k + random.nextInt(16) + 8)) - 1, k3) != block) {
+		for (l = 0; l < 20; ++l) {
+			i2 = i + random.nextInt(16) + 8;
+			k2 = k + random.nextInt(16) + 8;
+			if (random.nextInt(5) == 0) {
+				clayBoulderGenSmall.generate(world, random, i2, world.getHeightValue(i2, k2), k2);
 				continue;
 			}
-			int height = j1 + random.nextInt(4);
-			for (int j2 = j1; j2 < height && !GOT.isOpaque(world, i3, j2, k3); ++j2) {
-				world.setBlock(i3, j2, k3, block, 0, 3);
-			}
+			boulderGenSmall.generate(world, random, i2, world.getHeightValue(i2, k2), k2);
 		}
-		for (int l2 = 0; l2 < 100; ++l2) {
-			int k3;
-			int j1;
-			int i3 = i + random.nextInt(16) + 8;
-			if (world.getBlock(i3, (j1 = world.getHeightValue(i3, k3 = k + random.nextInt(16) + 8)) - 1, k3) != block2) {
+		for (l = 0; l < 20; ++l) {
+			i2 = i + random.nextInt(16) + 8;
+			k2 = k + random.nextInt(16) + 8;
+			if (random.nextInt(5) == 0) {
+				clayBoulderGenLarge.generate(world, random, i2, world.getHeightValue(i2, k2), k2);
 				continue;
 			}
-			int height = j1 + random.nextInt(4);
-			for (int j2 = j1; j2 < height && !GOT.isOpaque(world, i3, j2, k3); ++j2) {
-				world.setBlock(i3, j2, k3, block2, 0, 3);
-			}
+			boulderGenLarge.generate(world, random, i2, world.getHeightValue(i2, k2), k2);
 		}
-	}
-
-	@Override
-	public void generateMountainTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, int xzIndex, int ySize, int height, int rockDepth, GOTBiomeVariant variant) {
-		int snowHeight = 100 - rockDepth;
-		int stoneHeight = snowHeight - 30;
-		for (int j = ySize - 1; j >= stoneHeight; --j) {
-			int index = xzIndex * ySize + j;
-			Block block = blocks[index];
-			if (j >= snowHeight && block == topBlock) {
-				blocks[index] = Blocks.snow;
-				meta[index] = 0;
-				continue;
+		for (l = 0; l < 10; ++l) {
+			Block block = Blocks.snow;
+			if (random.nextInt(5) == 0) {
+				block = Blocks.packed_ice;
 			}
-			if (block != topBlock && block != fillerBlock) {
-				continue;
+			for (int l2 = 0; l2 < 10; ++l2) {
+				int j1;
+				int k3;
+				int i3 = i + random.nextInt(16) + 8;
+				if (world.getBlock(i3, (j1 = world.getHeightValue(i3, k3 = k + random.nextInt(16) + 8)) - 1, k3) != block) {
+					continue;
+				}
+				int height = j1 + random.nextInt(4);
+				for (int j2 = j1; j2 < height && !GOT.isOpaque(world, i3, j2, k3); ++j2) {
+					world.setBlock(i3, j2, k3, block, 0, 3);
+				}
 			}
-			blocks[index] = Blocks.snow;
-			meta[index] = 0;
 		}
 	}
 

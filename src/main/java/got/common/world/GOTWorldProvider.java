@@ -9,14 +9,11 @@ import got.common.*;
 import got.common.util.GOTModChecker;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.other.GOTBiomeOcean;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.GameSettings;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.*;
-import net.minecraft.world.*;
+import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.*;
 import net.minecraftforge.client.IRenderHandler;
@@ -55,42 +52,7 @@ public class GOTWorldProvider extends WorldProvider {
 	@Override
 	public boolean canBlockFreeze(int i, int j, int k, boolean isBlockUpdate) {
 		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
-		if (biome instanceof GOTBiomeOcean) {
-			return GOTBiomeOcean.isFrozen(i, k) && canFreeze_ignoreTemp(i, j, k, isBlockUpdate);
-		}
-		if (((GOTBiome) biome).isAlwaysWinter) {
-			return worldObj.canBlockFreezeBody(i, j, k, isBlockUpdate);
-		}
-		if (((GOTBiome) biome).isAltitudeZone) {
-			return j >= 140 && worldObj.canBlockFreezeBody(i, j, k, isBlockUpdate);
-		}
-		return false;
-	}
-
-	public boolean canFreeze_ignoreTemp(int i, int j, int k, boolean isBlockUpdate) {
-		Block block;
-		if (j >= 0 && j < worldObj.getHeight() && worldObj.getSavedLightValue(EnumSkyBlock.Block, i, j, k) < 10 && ((block = worldObj.getBlock(i, j, k)) == Blocks.water || block == Blocks.flowing_water) && worldObj.getBlockMetadata(i, j, k) == 0) {
-			if (!isBlockUpdate) {
-				return true;
-			}
-			boolean surroundWater = true;
-			if (surroundWater && worldObj.getBlock(i - 1, j, k).getMaterial() != Material.water) {
-				surroundWater = false;
-			}
-			if (surroundWater && worldObj.getBlock(i + 1, j, k).getMaterial() != Material.water) {
-				surroundWater = false;
-			}
-			if (surroundWater && worldObj.getBlock(i, j, k - 1).getMaterial() != Material.water) {
-				surroundWater = false;
-			}
-			if (surroundWater && worldObj.getBlock(i, j, k + 1).getMaterial() != Material.water) {
-				surroundWater = false;
-			}
-			if (!surroundWater) {
-				return true;
-			}
-		}
-		return false;
+		return (((biome instanceof GOTBiomeOcean && GOTBiomeOcean.isFrozen(i, k)) || ((GOTBiome) biome).isAltitudeZone && j >= 140 || ((GOTBiome) biome).isAlwaysWinter) && worldObj.canBlockFreezeBody(i, j, k, isBlockUpdate));
 	}
 
 	@Override
@@ -98,26 +60,10 @@ public class GOTWorldProvider extends WorldProvider {
 		return true;
 	}
 
-	public boolean canSnow_ignoreTemp(int i, int j, int k, boolean checkLight) {
-		if (!checkLight) {
-			return true;
-		}
-		return j >= 0 && j < worldObj.getHeight() && worldObj.getSavedLightValue(EnumSkyBlock.Block, i, j, k) < 10 && (worldObj.getBlock(i, j, k)).getMaterial() == Material.air && Blocks.snow_layer.canPlaceBlockAt(worldObj, i, j, k);
-	}
-
 	@Override
 	public boolean canSnowAt(int i, int j, int k, boolean checkLight) {
 		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
-		if (biome instanceof GOTBiomeOcean) {
-			return GOTBiomeOcean.isFrozen(i, k) && canSnow_ignoreTemp(i, j, k, checkLight);
-		}
-		if (((GOTBiome) biome).isAlwaysWinter) {
-			return worldObj.canSnowAtBody(i, j, k, checkLight);
-		}
-		if (((GOTBiome) biome).isAltitudeZone) {
-			return j >= 140 && worldObj.canSnowAtBody(i, j, k, checkLight);
-		}
-		return false;
+		return (((biome instanceof GOTBiomeOcean && GOTBiomeOcean.isFrozen(i, k)) || ((GOTBiome) biome).isAltitudeZone && j >= 140 || ((GOTBiome) biome).isAlwaysWinter) && worldObj.canSnowAtBody(i, j, k, checkLight));
 	}
 
 	@Override
