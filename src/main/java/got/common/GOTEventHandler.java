@@ -120,7 +120,7 @@ public class GOTEventHandler implements IFuelHandler {
 		if (item == Item.getItemFromBlock(GOTRegistry.blockMetal1) && itemstack.getItemDamage() == 10) {
 			return 6000;
 		}
-		if (item == Items.reeds || item == Item.getItemFromBlock(GOTRegistry.reeds) || item == Item.getItemFromBlock(GOTRegistry.driedReeds) || item == Item.getItemFromBlock(GOTRegistry.cornStalk)) {
+		if (item == Items.reeds || item == Item.getItemFromBlock(GOTRegistry.reeds) || item == Item.getItemFromBlock(GOTRegistry.kelp) || item == Item.getItemFromBlock(GOTRegistry.driedReeds) || item == Item.getItemFromBlock(GOTRegistry.cornStalk)) {
 			return 100;
 		}
 		return 0;

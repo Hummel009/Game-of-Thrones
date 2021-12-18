@@ -1291,6 +1291,7 @@ public class GOTRegistry {
 	public static Item jogosLeggings;
 	public static Item jogosBoots;
 	public static Item tugarKhanSword;
+	public static Block kelp;
 
 	public static void assignContent() {
 		planks1 = new GOTBlockPlanks1();
@@ -1884,7 +1885,8 @@ public class GOTRegistry {
 		woodSlabSingle5 = new GOTBlockWoodSlab5(false);
 		yamCrop = new GOTBlockYamCrop();
 		yitiFlower = new GOTBlockYiTiFlower();
-
+		kelp = new GOTBlockKelp();
+		
 		jogosHelmet = new GOTItemArmor(GOTMaterial.JOGOS, 0);
 		jogosChestplate = new GOTItemArmor(GOTMaterial.JOGOS, 1);
 		jogosLeggings = new GOTItemArmor(GOTMaterial.JOGOS, 2);
@@ -3214,6 +3216,7 @@ public class GOTRegistry {
 		registerBlock(tableDothraki, "tableDothraki");
 		registerBlock(tableJogos, "tableJogos");
 		registerBlock(tableMossovy, "tableMossovy");
+		registerBlock(kelp, "kelp", GOTItemKelp.class);
 	}
 
 	public static void registerItem(Item item, String codename) {

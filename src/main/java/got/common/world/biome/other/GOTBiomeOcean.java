@@ -2,6 +2,7 @@ package got.common.world.biome.other;
 
 import java.util.Random;
 
+import got.GOT;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTRegistry;
@@ -45,10 +46,26 @@ public class GOTBiomeOcean extends GOTBiome {
 		int k1;
 		super.decorate(world, random, i, k);
 		if (k > -30000) {
-			if (random.nextInt(12) == 0 && ((j1 = world.getTopSolidOrLiquidBlock(i1 = i + random.nextInt(16) + 8, k1 = k + random.nextInt(16) + 8)) < 60 || random.nextBoolean())) {
+			i1 = i + random.nextInt(16) + 8;
+			k1 = k + random.nextInt(16) + 8;
+			j1 = world.getTopSolidOrLiquidBlock(i1, k1);
+			if (j1 <= 43) {
+				for (int l2 = 0; l2 < 50; ++l2) {
+					int i3 = i + random.nextInt(16) + 8;
+					int k3 = k + random.nextInt(16) + 8;
+					int j3 = world.getTopSolidOrLiquidBlock(i3, k3);
+					if (world.getBlock(i3, j3 - 1, k3) == Blocks.sand || world.getBlock(i3, j3 - 1, k3) == Blocks.dirt ) {
+						int height = j3 + 4 + random.nextInt(4);
+						for (int j2 = j3; j2 < height && !GOT.isOpaque(world, i3, j2, k3); ++j2) {
+							world.setBlock(i3, j2, k3, GOTRegistry.kelp);
+						}
+					}
+				}
+			}
+			if (random.nextInt(12) == 0 && ((j1 = world.getTopSolidOrLiquidBlock(i1, k1)) < 60 || random.nextBoolean())) {
 				spongeGen.generate(world, random, i1, j1, k1);
 			}
-			if (random.nextInt(4) == 0 && ((j1 = world.getTopSolidOrLiquidBlock(i1 = i + random.nextInt(16) + 8, k1 = k + random.nextInt(16) + 8)) < 60 || random.nextBoolean())) {
+			if (random.nextInt(4) == 0 && ((j1 = world.getTopSolidOrLiquidBlock(i1, k1)) < 60 || random.nextBoolean())) {
 				coralGen.generate(world, random, i1, j1, k1);
 			}
 		}
