@@ -8,11 +8,9 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTRegistry;
 import got.common.entity.animal.GOTEntitySeagull;
 import got.common.world.biome.GOTBiome;
-import got.common.world.feature.*;
+import got.common.world.feature.GOTWorldGenSeaBlock;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTEventSpawner;
-import got.common.world.structure.other.GOTStructureBase;
-import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntitySquid;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -45,7 +43,6 @@ public class GOTBiomeOcean extends GOTBiome {
 		int i1;
 		int k1;
 		super.decorate(world, random, i, k);
-		if (k > -30000) {
 			i1 = i + random.nextInt(16) + 8;
 			k1 = k + random.nextInt(16) + 8;
 			j1 = world.getTopSolidOrLiquidBlock(i1, k1);
@@ -54,7 +51,7 @@ public class GOTBiomeOcean extends GOTBiome {
 					int i3 = i + random.nextInt(16) + 8;
 					int k3 = k + random.nextInt(16) + 8;
 					int j3 = world.getTopSolidOrLiquidBlock(i3, k3);
-					if (world.getBlock(i3, j3 - 1, k3) == Blocks.sand || world.getBlock(i3, j3 - 1, k3) == Blocks.dirt ) {
+					if (j3 <= 43 && (world.getBlock(i3, j3 - 1, k3) == Blocks.sand || world.getBlock(i3, j3 - 1, k3) == Blocks.dirt)) {
 						int height = j3 + 4 + random.nextInt(4);
 						for (int j2 = j3; j2 < height && !GOT.isOpaque(world, i3, j2, k3); ++j2) {
 							world.setBlock(i3, j2, k3, GOTRegistry.kelp);
@@ -62,39 +59,14 @@ public class GOTBiomeOcean extends GOTBiome {
 					}
 				}
 			}
-			if (random.nextInt(12) == 0 && ((j1 = world.getTopSolidOrLiquidBlock(i1, k1)) < 60 || random.nextBoolean())) {
-				spongeGen.generate(world, random, i1, j1, k1);
-			}
-			if (random.nextInt(4) == 0 && ((j1 = world.getTopSolidOrLiquidBlock(i1, k1)) < 60 || random.nextBoolean())) {
-				coralGen.generate(world, random, i1, j1, k1);
-			}
-		}
-		if (k >= 64000) {
-			float chance;
-			chance = k >= 130000 ? 1.0f : (k - 64000) / 66000.0f;
-			if (random.nextFloat() < chance && random.nextInt(6) == 0) {
-				int palms = 1 + random.nextInt(2);
-				if (random.nextInt(3) == 0) {
-					++palms;
+			if (k > -23000 && k < 490000) {
+				if (random.nextInt(12) == 0 && ((j1 = world.getTopSolidOrLiquidBlock(i1, k1)) < 60 || random.nextBoolean())) {
+					spongeGen.generate(world, random, i1, j1, k1);
 				}
-				for (int l = 0; l < palms; ++l) {
-					int j12;
-					int k12;
-					int i12 = i + random.nextInt(16) + 8;
-					if (!world.getBlock(i12, j12 = world.getTopSolidOrLiquidBlock(i12, k12 = k + random.nextInt(16) + 8) - 1, k12).isNormalCube() || !GOTStructureBase.isSurfaceStatic(world, i12, j12, k12)) {
-						continue;
-					}
-					Block prevBlock = world.getBlock(i12, j12, k12);
-					int prevMeta = world.getBlockMetadata(i12, j12, k12);
-					world.setBlock(i12, j12, k12, Blocks.dirt, 0, 2);
-					WorldGenAbstractTree palmGen = GOTTreeType.PALM.create(false, random);
-					if (palmGen.generate(world, random, i12, j12 + 1, k12)) {
-						continue;
-					}
-					world.setBlock(i12, j12, k12, prevBlock, prevMeta, 2);
+				if (random.nextInt(4) == 0 && ((j1 = world.getTopSolidOrLiquidBlock(i1, k1)) < 60 || random.nextBoolean())) {
+					coralGen.generate(world, random, i1, j1, k1);
 				}
 			}
-		}
 	}
 
 	@Override
@@ -113,24 +85,6 @@ public class GOTBiomeOcean extends GOTBiome {
 	}
 
 	public static boolean isFrozen(int i, int k) {
-		if (k > -30000) {
-			return false;
-		}
-		int l = -60000 - k;
-		if ((l *= -1) < 1) {
-			return true;
-		}
-		iceRand.setSeed(i * 341873128712L + k * 132897987541L);
-		if ((l -= Math.abs(-30000) / 2) < 0) {
-			l *= -1;
-			if ((l = (int) Math.sqrt(l)) < 2) {
-				l = 2;
-			}
-			return iceRand.nextInt(l) != 0;
-		}
-		if ((l = (int) Math.sqrt(l)) < 2) {
-			l = 2;
-		}
-		return iceRand.nextInt(l) == 0;
+		return ((k <= -23000) || (k >= 490000));
 	}
 }
