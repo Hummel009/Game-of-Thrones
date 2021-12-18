@@ -8,11 +8,9 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTRegistry;
 import got.common.entity.animal.GOTEntitySeagull;
 import got.common.world.biome.GOTBiome;
-import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.feature.*;
+import got.common.world.feature.GOTWorldGenSeaBlock;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTEventSpawner;
-import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntitySquid;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -22,10 +20,6 @@ import net.minecraft.world.gen.feature.*;
 
 public class GOTBiomeOcean extends GOTBiome {
 	public static Random iceRand = new Random();
-	public static int iceLimitSouth = -30000;
-	public static int iceLimitNorth = -60000;
-	public static int palmStartZ = 64000;
-	public static int palmFullZ = 130000;
 	public WorldGenerator spongeGen = new GOTWorldGenSeaBlock(Blocks.sponge, 0, 24);
 	public WorldGenerator coralGen = new GOTWorldGenSeaBlock(GOTRegistry.coralReef, 0, 64);
 	public NoiseGeneratorPerlin noiseIceGravel = new NoiseGeneratorPerlin(new Random(12480634985056L), 1);
@@ -76,20 +70,6 @@ public class GOTBiomeOcean extends GOTBiome {
 	}
 
 	@Override
-	public void generateBiomeTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, double stoneNoise, int height, GOTBiomeVariant variant) {
-		Block topBlock_pre = topBlock;
-		int topBlockMeta_pre = topBlockMeta;
-		double d5 = noiseIceGravel.func_151601_a(i * 0.09, k * 0.09);
-		if (d5 + noiseIceGravel.func_151601_a(i * 0.6, k * 0.6) > 0.5) {
-			topBlock = Blocks.ice;
-			topBlockMeta = 0;
-		} 
-		super.generateBiomeTerrain(world, random, blocks, meta, i, k, stoneNoise, height, variant);
-		topBlock = topBlock_pre;
-		topBlockMeta = topBlockMeta_pre;
-	}
-
-	@Override
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.OCEAN.getSubregion("ocean");
 	}
@@ -105,6 +85,6 @@ public class GOTBiomeOcean extends GOTBiome {
 	}
 
 	public static boolean isFrozen(int i, int k) {
-		return ((k <= -23000) || (k >= 490000)) && iceRand.nextInt(3) == 0;
+		return ((k <= -23000) || (k >= 490000));
 	}
 }
