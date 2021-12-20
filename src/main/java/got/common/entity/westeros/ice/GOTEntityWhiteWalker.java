@@ -22,9 +22,11 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 	public GOTEntityWhiteWalker(World world) {
 		super(world);
 		canBeMarried = false;
+		spawnsInDarkness = true;
 		isImmuneToFrost = true;
-		isImmuneToFire = true;
 		isChilly = true;
+		isImmuneToFire = true;
+		isNotHuman = true;
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
@@ -34,7 +36,6 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 		tasks.addTask(3, new EntityAIWatchClosest2(this, EntityPlayer.class, 8.0f, 0.02f));
 		tasks.addTask(4, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
-		isNotHuman = true;
 	}
 
 	@Override

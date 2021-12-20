@@ -180,8 +180,8 @@ public class GOTSpawnList {
 	public static GOTSpawnList VOLANTIS_MILITARY = new GOTSpawnList(new GOTSpawnEntry(GOTEntityVolantisLevyman.class, 10, 1, 2), new GOTSpawnEntry(GOTEntityVolantisLevymanArcher.class, 5, 1, 2));
 	public static GOTSpawnList VOLANTIS_CONQUEST = new GOTSpawnList(new GOTSpawnEntry(GOTEntityVolantisSoldier.class, 10, 1, 2), new GOTSpawnEntry(GOTEntityVolantisSoldierArcher.class, 5, 1, 2));
 
-	public static GOTSpawnList WALKERS_CONQUEST = new GOTSpawnList(new GOTSpawnEntry(GOTEntityWhiteWalker.class, 10, 1, 1), new GOTSpawnEntry(GOTEntityIceSpider.class, 10, 1, 1));
-	public static GOTSpawnList WALKERS_MILITARY = new GOTSpawnList(new GOTSpawnEntry(GOTEntityWhiteWalker.class, 10, 1, 1));
+	public static GOTSpawnList WALKERS_MILITARY = new GOTSpawnList(new GOTSpawnEntry(GOTEntityWhiteWalker.class, 10, 1, 2));
+	public static GOTSpawnList WALKERS_CONQUEST = new GOTSpawnList(new GOTSpawnEntry(GOTEntityWhiteWalker.class, 10, 1, 2), new GOTSpawnEntry(GOTEntityIceSpider.class, 5, 1, 2));
 
 	public static GOTSpawnList WESTERLANDS_CIVILIAN = new GOTSpawnList(new GOTSpawnEntry(GOTEntityWesterlandsMan.class, 10, 1, 2));
 	public static GOTSpawnList WESTERLANDS_CONQUEST = new GOTSpawnList(new GOTSpawnEntry(GOTEntityWesterlandsSoldier.class, 10, 1, 2), new GOTSpawnEntry(GOTEntityWesterlandsSoldierArcher.class, 5, 1, 2));

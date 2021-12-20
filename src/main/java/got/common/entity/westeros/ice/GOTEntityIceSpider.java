@@ -19,7 +19,7 @@ public class GOTEntityIceSpider extends GOTEntitySpiderBase {
 	public GOTEntityIceSpider(World world) {
 		super(world);
 		canBeMarried = false;
-		spawnsInDarkness = false;
+		spawnsInDarkness = true;
 		isImmuneToFrost = true;
 		isChilly = true;
 		isImmuneToFire = true;

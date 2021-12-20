@@ -19,6 +19,8 @@ public class GOTEntityWightGiant extends GOTEntityGiant {
 	public GOTEntityWightGiant(World world) {
 		super(world);
 		canBeMarried = false;
+		spawnsInDarkness = true;
+		isImmuneToFrost = true;
 		isNotHuman = true;
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
 	}

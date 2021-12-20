@@ -36,8 +36,10 @@ public class GOTEntityWight extends GOTEntityHumanBase {
 		tasks.addTask(4, new EntityAIWatchClosest2(this, GOTEntityWhiteWalker.class, 5.0f, 0.02f));
 		tasks.addTask(5, new EntityAIWatchClosest2(this, GOTEntityWight.class, 5.0f, 0.02f));
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
-		isNotHuman = true;
+		canBeMarried = false;
+		spawnsInDarkness = true;
 		isImmuneToFrost = true;
+		isNotHuman = true;
 	}
 
 	@Override
