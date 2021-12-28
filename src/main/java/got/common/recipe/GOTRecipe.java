@@ -1208,10 +1208,6 @@ public class GOTRecipe {
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(Items.gunpowder, 2), GOTRegistry.termite));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(GOTRegistry.bomb, 1, 1), new ItemStack(GOTRegistry.bomb, 1, 0), Items.gunpowder, "ingotIron"));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(GOTRegistry.bomb, 1, 2), new ItemStack(GOTRegistry.bomb, 1, 1), Items.gunpowder, "ingotIron"));
-		if (GOTConfig.enableGrapplingHooks) {
-			GameRegistry.addRecipe(new ItemStack(GOTRegistry.grapplingHook), "X", "Y", Character.valueOf('X'), new ItemStack(Items.iron_pickaxe), Character.valueOf('Y'), new ItemStack(GOTRegistry.rope));
-			GameRegistry.addRecipe(new ItemStack(GOTRegistry.motorGrapplingHook), "X", "Y", Character.valueOf('X'), new ItemStack(GOTRegistry.grapplingHook), Character.valueOf('Y'), new ItemStack(GOTRegistry.gateGear));
-		}
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTRegistry.alloySteelIgnot, 9), new ItemStack(GOTRegistry.blockMetal2, 1, 4));
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTRegistry.alloySteelNugget, 9), GOTRegistry.alloySteelIgnot);
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTRegistry.amber, 9), new ItemStack(GOTRegistry.blockGem, 1, 4));

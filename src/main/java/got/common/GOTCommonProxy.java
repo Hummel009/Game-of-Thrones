@@ -454,10 +454,6 @@ public class GOTCommonProxy implements IGuiHandler {
 		return 0;
 	}
 
-	public String getkeyname(GOTCommonProxy.keys keyenum) {
-		return null;
-	}
-
 	public int getPlantainRenderID() {
 		return 0;
 	}
@@ -758,23 +754,6 @@ public class GOTCommonProxy implements IGuiHandler {
 	}
 
 	@SubscribeEvent
-	public void onBlockBreak(BreakEvent event) {
-		EntityPlayer player = event.getPlayer();
-		if (player != null) {
-			ItemStack stack = player.getHeldItem();
-			if (stack != null) {
-				Item item = stack.getItem();
-				if (item instanceof GOTItemGrapplingHook) {
-					event.setCanceled(true);
-					return;
-				}
-			}
-		}
-
-		blockbreak(event);
-	}
-
-	@SubscribeEvent
 	public void onLivingAttack(LivingAttackEvent event) {
 		if ((event.source == DamageSource.inWall) && GOTGrappleHelper.attached.contains(event.entity.getEntityId())) {
 			event.setCanceled(true);
@@ -797,10 +776,6 @@ public class GOTCommonProxy implements IGuiHandler {
 	}
 
 	public void onPostload() {
-		if (GOTConfig.enableGrapplingHooks) {
-			FMLCommonHandler.instance().bus().register(this);
-			MinecraftForge.EVENT_BUS.register(this);
-		}
 	}
 
 	public void onPreload() {

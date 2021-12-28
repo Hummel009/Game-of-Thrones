@@ -2,7 +2,6 @@ package got.client;
 
 import java.util.*;
 
-import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
 import com.mojang.authlib.GameProfile;
@@ -24,7 +23,7 @@ import got.common.entity.animal.*;
 import got.common.entity.dragon.GOTEntityDragon3DViewer;
 import got.common.entity.other.*;
 import got.common.faction.*;
-import got.common.item.other.*;
+import got.common.item.other.GOTItemClick;
 import got.common.network.*;
 import got.common.quest.GOTMiniQuest;
 import got.common.tileentity.*;
@@ -37,7 +36,7 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.texture.TextureManager;
-import net.minecraft.client.settings.*;
+import net.minecraft.client.settings.GameSettings;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -103,8 +102,8 @@ public class GOTClientProxy extends GOTCommonProxy {
 	public int ropeRenderID;
 	public int chainRenderID;
 	public int trapdoorRenderID;
-	public boolean leftclick = false;
-	public boolean prevleftclick = false;
+	public boolean leftclick;
+	public boolean prevleftclick;
 	public Map<Integer, Long> enderlaunchtimer = new HashMap<>();
 
 	public int reusetime = 50;
@@ -305,56 +304,6 @@ public class GOTClientProxy extends GOTCommonProxy {
 	}
 
 	@Override
-	public String getkeyname(GOTCommonProxy.keys keyEnum) {
-		KeyBinding binding = null;
-		GameSettings gs = Minecraft.getMinecraft().gameSettings;
-
-		switch(keyEnum) {
-		case KBA:
-			binding = gs.keyBindAttack;
-			break;
-		case KBB:
-			binding = gs.keyBindBack;
-			break;
-		case KBF:
-			binding = gs.keyBindForward;
-			break;
-		case KBJ:
-			binding = gs.keyBindJump;
-			break;
-		case KBL:
-			binding = gs.keyBindLeft;
-			break;
-		case KBR:
-			binding = gs.keyBindRight;
-			break;
-		case KBS:
-			binding = gs.keyBindSneak;
-			break;
-		case KBUI:
-			binding = gs.keyBindUseItem;
-			break;
-		}
-		if (binding == null) {
-			return "";
-		}
-		String displayname;
-		int keycode = binding.getKeyCode();
-		if (keycode == -99) {
-			return "Right Click";
-		}
-		if (keycode == -100) {
-			return "Left Click";
-		}
-		try {
-			displayname = Keyboard.getKeyName(keycode);
-		} catch (ArrayIndexOutOfBoundsException e) {
-			displayname = "???";
-		}
-		return displayname;
-	}
-
-	@Override
 	public int getPlantainRenderID() {
 		return plantainRenderID;
 	}
@@ -459,7 +408,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 
 	@Override
 	public boolean isSneaking(Entity entity) {
-		if (entity == Minecraft.getMinecraft().thePlayer) {
+		if (entity.equals(Minecraft.getMinecraft().thePlayer)) {
 			return (GameSettings.isKeyDown(Minecraft.getMinecraft().gameSettings.keyBindSneak));
 		}
 		return entity.isSneaking();
@@ -515,9 +464,6 @@ public class GOTClientProxy extends GOTCommonProxy {
 	@Override
 	public void onLoad() {
 		super.onLoad();
-		GOTRenderGrappleArrow rga = new GOTRenderGrappleArrow(GOTRegistry.grapplingHook);
-		RenderingRegistry.registerEntityRenderingHandler(GOTEntityGrapplingArrow.class, rga);
-
 		customEffectRenderer = new GOTEffectRenderer(Minecraft.getMinecraft());
 		GOTTextures.load();
 		GOTRender.renderFactionNPC();
@@ -856,19 +802,6 @@ public class GOTClientProxy extends GOTCommonProxy {
 	public static int getAlphaInt(float alphaF) {
 		int alphaI = (int) (alphaF * 255.0f);
 		return MathHelper.clamp_int(alphaI, FONTRENDERER_ALPHA_MIN, 255);
-	}
-
-	public static boolean isactive(ItemStack stack) {
-		EntityPlayer p = Minecraft.getMinecraft().thePlayer;
-		int entityid = p.getEntityId();
-		if (GOTGrappleHelper.controllers.containsKey(entityid)) {
-			Item item = stack.getItem();
-			GOTControllerGrabble controller = GOTGrappleHelper.controllers.get(entityid);
-			if ((item.getClass() == GOTItemGrapplingHook.class && controller.controllerid == GOTGrappleHelper.GRAPPLEID) || (item.getClass() == GOTItemMotorGrapplingHook.class && controller.controllerid == GOTGrappleHelper.HOOKID)) {
-				return true;
-			}
-		}
-		return false;
 	}
 
 	public static void renderEnchantmentEffect() {

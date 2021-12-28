@@ -24,7 +24,6 @@ public class GOTConfig {
 	public static boolean allowBountyQuests;
 	public static boolean enableFastTravel;
 	public static boolean enableConquest;
-	public static boolean enableGrapplingHooks;
 	public static boolean removeGoldenAppleRecipes;
 	public static boolean enablePortals;
 	public static boolean enableDothrakiSkirmish;
@@ -127,7 +126,6 @@ public class GOTConfig {
 	public static void load() {
 		languageCode = config.getString("languageCode", CATEGORY_LANGUAGE, languageCode, "Choose: ru, en, de or zh.");
 		clearMap = config.get(CATEGORY_GAMEPLAY, "No fixed structures and characters", false, "Useful for servers. Disable fixed structures to build your own").getBoolean();
-		enableGrapplingHooks = config.get(CATEGORY_GAMEPLAY, "Enable Grappling hooks. SINGLEPLAYER ONLY!", false).getBoolean();
 		allowBannerProtection = config.get(CATEGORY_GAMEPLAY, "Allow Banner Protection", true).getBoolean();
 		allowSelfProtectingBanners = config.get(CATEGORY_GAMEPLAY, "Allow Self-Protecting Banners", true).getBoolean();
 		allowMiniquests = config.get(CATEGORY_GAMEPLAY, "NPCs give mini-quests", true).getBoolean();

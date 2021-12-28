@@ -3,7 +3,6 @@ package got.common.database;
 import java.util.*;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import got.common.GOTConfig;
 import got.common.block.*;
 import got.common.block.brick.*;
 import got.common.block.leaves.*;
@@ -850,7 +849,6 @@ public class GOTRegistry {
 	public static Item goldRing;
 	public static Item grapeRed;
 	public static Item grapeWhite;
-	public static Item grapplingHook;
 	public static Item gregorCleganeSword;
 	public static Item handGold;
 	public static Item handSilver;
@@ -942,7 +940,6 @@ public class GOTRegistry {
 	public static Item mossovyLeggings;
 	public static Item mossovySword;
 	public static Item mossovyDagger;
-	public static Item motorGrapplingHook;
 	public static Item mug;
 	public static Item mugAle;
 	public static Item mugAppleJuice;
@@ -2107,7 +2104,6 @@ public class GOTRegistry {
 		goldRing = new GOTItemRing();
 		grapeRed = new GOTItemFood(2, 0.2f, false);
 		grapeWhite = new GOTItemFood(2, 0.2f, false);
-		grapplingHook = new GOTItemGrapplingHook();
 		gregorCleganeSword = new GOTItemLegendaryGreatsword(GOTMaterial.WESTERLANDS);
 		handGold = new GOTItemArmor(GOTMaterial.HAND, 1, "gold").setCreativeTab(GOTCreativeTabs.tabStory);
 		handSilver = new GOTItemArmor(GOTMaterial.HAND, 1, "silver").setCreativeTab(GOTCreativeTabs.tabStory);
@@ -2205,7 +2201,6 @@ public class GOTRegistry {
 		mossovyLeggings = new GOTItemArmor(GOTMaterial.MOSSOVY, 2);
 		mossovySword = new GOTItemSword(GOTMaterial.SILVER);
 		mossovyDagger = new GOTItemDagger(GOTMaterial.SILVER);
-		motorGrapplingHook = new GOTItemMotorGrapplingHook();
 		mug = new GOTItemVessel();
 		mugAle = new GOTItemMug(0.3f).setDrinkStats(3, 0.3f);
 		mugAppleJuice = new GOTItemMug(true, true).setDrinkStats(6, 0.6f);
@@ -3855,10 +3850,6 @@ public class GOTRegistry {
 		registerItem(kingsguardBoots, "kingsguardBoots");
 		registerItem(bloodOfTrueKings, "bloodOfTrueKings");
 		registerItem(arrowFire, "arrowFire");
-		if (GOTConfig.enableGrapplingHooks) {
-			registerItem(grapplingHook, "grapplingHook");
-			registerItem(motorGrapplingHook, "motorGrapplingHook");
-		}
 		registerItem(anonymousMask, "anonymousMask");
 		registerItem(alloySteelIgnot, "alloySteelIgnot");
 		registerItem(alloySteelNugget, "alloySteelNugget");
