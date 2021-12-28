@@ -197,7 +197,7 @@ public class GOTCommonProxy implements IGuiHandler {
 			entity = world.getEntityByID(i);
 			if (entity instanceof GOTEntityNPC) {
 				npc = (GOTEntityNPC) entity;
-				if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() == entityplayer && npc.hiredNPCInfo.getTask() == GOTHiredNPCInfo.Task.FARMER) {
+				if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer().equals(entityplayer) && npc.hiredNPCInfo.getTask() == GOTHiredNPCInfo.Task.FARMER) {
 					return new GOTGuiHiredFarmerInventory(entityplayer.inventory, npc);
 				}
 			}
@@ -217,14 +217,13 @@ public class GOTCommonProxy implements IGuiHandler {
 		case 29:
 			GOTEntityNPCRideable npc2;
 			entity = world.getEntityByID(i);
-			int invSize = j;
 			if (entity instanceof GOTEntityHorse) {
 				GOTEntityHorse horse = (GOTEntityHorse) entity;
-				return new GOTGuiMountInventory(entityplayer.inventory, new AnimalChest(horse.getCommandSenderName(), invSize), horse);
+				return new GOTGuiMountInventory(entityplayer.inventory, new AnimalChest(horse.getCommandSenderName(), j), horse);
 			}
 			npc2 = (GOTEntityNPCRideable) entity;
 			if (entity instanceof GOTEntityNPCRideable && npc2.getMountInventory() != null) {
-				return new GOTGuiNPCMountInventory(entityplayer.inventory, new AnimalChest(npc2.getCommandSenderName(), invSize), npc2);
+				return new GOTGuiNPCMountInventory(entityplayer.inventory, new AnimalChest(npc2.getCommandSenderName(), j), npc2);
 			}
 			break;
 		case 32:
@@ -269,7 +268,7 @@ public class GOTCommonProxy implements IGuiHandler {
 			entity = world.getEntityByID(i);
 			if (entity instanceof GOTEntityNPC) {
 				npc = (GOTEntityNPC) entity;
-				if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() == entityplayer && npc.hiredNPCInfo.getTask() == GOTHiredNPCInfo.Task.WARRIOR) {
+				if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer().equals(entityplayer) && npc.hiredNPCInfo.getTask() == GOTHiredNPCInfo.Task.WARRIOR) {
 					return new GOTGuiHiredWarriorInventory(entityplayer.inventory, npc);
 				}
 			}
@@ -484,16 +483,13 @@ public class GOTCommonProxy implements IGuiHandler {
 		TileEntity unsmeltery;
 		TileEntity forge;
 		TileEntity chest;
-		IInventory chest2;
 		GOTEntityNPC npc;
 		TileEntity oven;
 		Entity entity;
 		TileEntity trap;
-		int slot;
 		TileEntity millstone;
 		TileEntity barrel;
 		TileEntity bookshelf;
-		Entity minecart;
 		switch (ID) {
 		case 0:
 			oven = world.getTileEntity(i, j, k);
@@ -548,7 +544,7 @@ public class GOTCommonProxy implements IGuiHandler {
 			entity = world.getEntityByID(i);
 			if (entity instanceof GOTEntityNPC) {
 				npc = (GOTEntityNPC) entity;
-				if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() == entityplayer && npc.hiredNPCInfo.getTask() == GOTHiredNPCInfo.Task.FARMER) {
+				if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer().equals(entityplayer) && npc.hiredNPCInfo.getTask() == GOTHiredNPCInfo.Task.FARMER) {
 					return new GOTContainerHiredFarmerInventory(entityplayer.inventory, npc);
 				}
 			}
@@ -602,7 +598,7 @@ public class GOTCommonProxy implements IGuiHandler {
 			entity = world.getEntityByID(i);
 			if (entity instanceof GOTEntityNPC) {
 				npc = (GOTEntityNPC) entity;
-				if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() == entityplayer && npc.hiredNPCInfo.getTask() == GOTHiredNPCInfo.Task.WARRIOR) {
+				if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer().equals(entityplayer) && npc.hiredNPCInfo.getTask() == GOTHiredNPCInfo.Task.WARRIOR) {
 					return new GOTContainerHiredWarriorInventory(entityplayer.inventory, npc);
 				}
 			}
@@ -691,11 +687,12 @@ public class GOTCommonProxy implements IGuiHandler {
 		default:
 			break;
 		}
-		slot = GOTCommonProxy.unpackSlot(ID);
-		minecart = world.getEntityByID(i);
+		IInventory chest2;
+		int slot = GOTCommonProxy.unpackSlot(ID);
 		if (GOTCommonProxy.testForSlotPackedGuiID(ID, 63) && GOTItemPouch.isHoldingPouch(entityplayer, slot) && (chest2 = GOTItemPouch.getChestInvAt(entityplayer, world, i, j, k)) != null) {
 			return new GOTContainerChestWithPouch(entityplayer, slot, chest2);
 		}
+		Entity minecart = world.getEntityByID(i);
 		if (GOTCommonProxy.testForSlotPackedGuiID(ID, 64) && GOTItemPouch.isHoldingPouch(entityplayer, slot) && minecart instanceof EntityMinecartContainer) {
 			return new GOTContainerChestWithPouch(entityplayer, slot, (EntityMinecartContainer) minecart);
 		}
@@ -883,7 +880,7 @@ public class GOTCommonProxy implements IGuiHandler {
 	}
 
 	public static int packGuiIDWithSlot(int guiID, int slotNo) {
-		return guiID | slotNo << 16;
+		return guiID | (slotNo << 16);
 	}
 
 	public static void sendClientsideGUI(EntityPlayerMP entityplayer, int guiID, int x, int y, int z) {

@@ -239,8 +239,8 @@ public class GOTTitle {
 	}
 
 	public static void onInit() {
-		targaryenF = new GOTTitle("targaryenF").setPlayerExclusive(GOT.DEVELOPERS);
-		targaryenM = new GOTTitle("targaryenM").setPlayerExclusive(GOT.DEVELOPERS);
+		targaryenF = new GOTTitle("targaryenF").setPlayerExclusive(GOT.DEVS);
+		targaryenM = new GOTTitle("targaryenM").setPlayerExclusive(GOT.DEVS);
 	}
 
 	public static class PlayerTitle {

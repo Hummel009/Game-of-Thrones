@@ -70,7 +70,7 @@ public class GOTDate {
 
 	public static class AegonCalendar {
 		public static Date startDate = new Date(298, Month.JULY, 10);
-		public static int currentDay = 0;
+		public static int currentDay;
 		public static Map<Integer, Date> cachedDates = new HashMap<>();
 
 		public static Date getDate() {
@@ -123,15 +123,18 @@ public class GOTDate {
 				int newYear = year;
 				Month newMonth = month;
 				int newDate = monthDate;
-				if (--newDate < 0) {
+				--newDate;
+				if (newDate < 0) {
 					int monthID = newMonth.ordinal();
-					if (--monthID < 0) {
+					--monthID;
+					if (monthID < 0) {
 						monthID = Month.values().length - 1;
 						--newYear;
 					}
 					newMonth = Month.values()[monthID];
 					if (newMonth.isLeapYear && !AegonCalendar.isLeapYear(newYear)) {
-						newMonth = Month.values()[--monthID];
+						--monthID;
+						newMonth = Month.values()[monthID];
 					}
 					newDate = newMonth.days;
 				}
@@ -157,7 +160,8 @@ public class GOTDate {
 						}
 						yearDay += m.days;
 					}
-					int dayID = IntMath.mod((yearDay += monthDate) - 1, Day.values().length);
+					yearDay += monthDate;
+					int dayID = IntMath.mod(yearDay - 1, Day.values().length);
 					day = Day.values()[dayID];
 				}
 				return day;
@@ -191,16 +195,19 @@ public class GOTDate {
 				int newYear = year;
 				Month newMonth = month;
 				int newDate = monthDate;
-				if (++newDate > newMonth.days) {
+				++newDate;
+				if (newDate > newMonth.days) {
 					newDate = 1;
 					int monthID = newMonth.ordinal();
-					if (++monthID >= Month.values().length) {
+					++monthID;
+					if (monthID >= Month.values().length) {
 						monthID = 0;
 						++newYear;
 					}
 					newMonth = Month.values()[monthID];
 					if (newMonth.isLeapYear && !AegonCalendar.isLeapYear(newYear)) {
-						newMonth = Month.values()[++monthID];
+						++monthID;
+						newMonth = Month.values()[monthID];
 					}
 				}
 				return new Date(newYear, newMonth, newDate);

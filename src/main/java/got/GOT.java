@@ -56,7 +56,7 @@ public class GOT {
 	public static GOT instance;
 	public static final String NAME = "Game of Thrones";
 	public static final String VERSION = "Version 17.5";
-	public static String[] DEVELOPERS = { "ce6eec82-0678-4be3-933d-05acb902d558", "ce924ff6-8450-41ad-865e-89c5897837c4", "9aee5b32-8e19-4d4b-a2d6-1318af62733d", "1f63e38e-4059-4a4f-b7c4-0fac4a48e744", "72fd4cfd-064e-4cf1-874d-74000c152f48", "a05ba4aa-2cd0-43b1-957c-7971c9af53d4", "22be67c2-ba43-48db-b2ba-32857e78ddad" };
+	public static String[] DEVS = { "ce6eec82-0678-4be3-933d-05acb902d558", "ce924ff6-8450-41ad-865e-89c5897837c4", "9aee5b32-8e19-4d4b-a2d6-1318af62733d", "1f63e38e-4059-4a4f-b7c4-0fac4a48e744", "72fd4cfd-064e-4cf1-874d-74000c152f48", "a05ba4aa-2cd0-43b1-957c-7971c9af53d4", "22be67c2-ba43-48db-b2ba-32857e78ddad" };
 	public static GOTEventHandler eventHandler;
 	public static GOTPacketHandler packetHandler;
 	public static GOTTickHandlerServer tickHandler;
@@ -107,48 +107,50 @@ public class GOT {
 		}
 		Blocks.fire.setFireInfo(Blocks.acacia_stairs, 5, 20);
 		Blocks.fire.setFireInfo(Blocks.dark_oak_stairs, 5, 20);
-		GOTRegistry.oreCopper.setHarvestLevel("pickaxe", 1);
-		GOTRegistry.oreTin.setHarvestLevel("pickaxe", 1);
-		GOTRegistry.oreSilver.setHarvestLevel("pickaxe", 2);
-		GOTRegistry.oreCobalt.setHarvestLevel("pickaxe", 2);
-		GOTRegistry.oreValyrian.setHarvestLevel("pickaxe", 2);
-		GOTRegistry.blockMetal1.setHarvestLevel("pickaxe", 1, 0);
-		GOTRegistry.blockMetal1.setHarvestLevel("pickaxe", 1, 1);
-		GOTRegistry.blockMetal1.setHarvestLevel("pickaxe", 1, 2);
-		GOTRegistry.blockMetal1.setHarvestLevel("pickaxe", 2, 3);
-		GOTRegistry.blockMetal1.setHarvestLevel("pickaxe", 2, 4);
-		GOTRegistry.blockMetal1.setHarvestLevel("pickaxe", 1, 5);
-		GOTRegistry.blockMetal1.setHarvestLevel("pickaxe", 2, 6);
-		GOTRegistry.blockMetal1.setHarvestLevel("pickaxe", 1, 7);
-		GOTRegistry.blockMetal1.setHarvestLevel("pickaxe", 2, 8);
-		GOTRegistry.blockMetal1.setHarvestLevel("pickaxe", 1, 9);
-		GOTRegistry.blockMetal1.setHarvestLevel("pickaxe", 2, 11);
-		GOTRegistry.blockMetal1.setHarvestLevel("pickaxe", 2, 12);
-		GOTRegistry.blockMetal1.setHarvestLevel("pickaxe", 1, 15);
-		GOTRegistry.oreGlowstone.setHarvestLevel("pickaxe", 1);
-		GOTRegistry.quagmire.setHarvestLevel("shovel", 0);
-		GOTRegistry.quicksand.setHarvestLevel("shovel", 0);
-		GOTRegistry.blockMetal2.setHarvestLevel("pickaxe", 1, 0);
-		GOTRegistry.blockMetal2.setHarvestLevel("pickaxe", 1, 4);
-		GOTRegistry.asshaiDirt.setHarvestLevel("shovel", 0);
-		GOTRegistry.basaltGravel.setHarvestLevel("shovel", 0);
-		GOTRegistry.obsidianGravel.setHarvestLevel("shovel", 0);
-		GOTRegistry.mud.setHarvestLevel("shovel", 0);
-		GOTRegistry.mudGrass.setHarvestLevel("shovel", 0);
-		GOTRegistry.mudFarmland.setHarvestLevel("shovel", 0);
-		GOTRegistry.dirtPath.setHarvestLevel("shovel", 0);
-		GOTRegistry.slabSingleDirt.setHarvestLevel("shovel", 0);
-		GOTRegistry.slabDoubleDirt.setHarvestLevel("shovel", 0);
-		GOTRegistry.slabSingleSand.setHarvestLevel("shovel", 0);
-		GOTRegistry.slabDoubleSand.setHarvestLevel("shovel", 0);
-		GOTRegistry.slabSingleGravel.setHarvestLevel("shovel", 0);
-		GOTRegistry.slabDoubleGravel.setHarvestLevel("shovel", 0);
-		GOTRegistry.whiteSand.setHarvestLevel("shovel", 0);
-		GOTRegistry.stalactiteObsidian.setHarvestLevel("pickaxe", 3);
-		GOTRegistry.oreGem.setHarvestLevel("pickaxe", 2);
-		GOTRegistry.blockGem.setHarvestLevel("pickaxe", 2);
-		GOTRegistry.blockGem.setHarvestLevel("pickaxe", 0, 8);
-		GOTRegistry.redClay.setHarvestLevel("shovel", 0);
+		String pickaxe = "pickaxe";
+		String shovel = "shovel";
+		GOTRegistry.oreCopper.setHarvestLevel(pickaxe, 1);
+		GOTRegistry.oreTin.setHarvestLevel(pickaxe, 1);
+		GOTRegistry.oreSilver.setHarvestLevel(pickaxe, 2);
+		GOTRegistry.oreCobalt.setHarvestLevel(pickaxe, 2);
+		GOTRegistry.oreValyrian.setHarvestLevel(pickaxe, 2);
+		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 1, 0);
+		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 1, 1);
+		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 1, 2);
+		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 2, 3);
+		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 2, 4);
+		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 1, 5);
+		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 2, 6);
+		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 1, 7);
+		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 2, 8);
+		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 1, 9);
+		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 2, 11);
+		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 2, 12);
+		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 1, 15);
+		GOTRegistry.oreGlowstone.setHarvestLevel(pickaxe, 1);
+		GOTRegistry.quagmire.setHarvestLevel(shovel, 0);
+		GOTRegistry.quicksand.setHarvestLevel(shovel, 0);
+		GOTRegistry.blockMetal2.setHarvestLevel(pickaxe, 1, 0);
+		GOTRegistry.blockMetal2.setHarvestLevel(pickaxe, 1, 4);
+		GOTRegistry.asshaiDirt.setHarvestLevel(shovel, 0);
+		GOTRegistry.basaltGravel.setHarvestLevel(shovel, 0);
+		GOTRegistry.obsidianGravel.setHarvestLevel(shovel, 0);
+		GOTRegistry.mud.setHarvestLevel(shovel, 0);
+		GOTRegistry.mudGrass.setHarvestLevel(shovel, 0);
+		GOTRegistry.mudFarmland.setHarvestLevel(shovel, 0);
+		GOTRegistry.dirtPath.setHarvestLevel(shovel, 0);
+		GOTRegistry.slabSingleDirt.setHarvestLevel(shovel, 0);
+		GOTRegistry.slabDoubleDirt.setHarvestLevel(shovel, 0);
+		GOTRegistry.slabSingleSand.setHarvestLevel(shovel, 0);
+		GOTRegistry.slabDoubleSand.setHarvestLevel(shovel, 0);
+		GOTRegistry.slabSingleGravel.setHarvestLevel(shovel, 0);
+		GOTRegistry.slabDoubleGravel.setHarvestLevel(shovel, 0);
+		GOTRegistry.whiteSand.setHarvestLevel(shovel, 0);
+		GOTRegistry.stalactiteObsidian.setHarvestLevel(pickaxe, 3);
+		GOTRegistry.oreGem.setHarvestLevel(pickaxe, 2);
+		GOTRegistry.blockGem.setHarvestLevel(pickaxe, 2);
+		GOTRegistry.blockGem.setHarvestLevel(pickaxe, 0, 8);
+		GOTRegistry.redClay.setHarvestLevel(shovel, 0);
 		GOTLoader.onInit();
 	}
 
@@ -207,15 +209,15 @@ public class GOT {
 		}
 		int items = 0;
 		for (Item item : GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Item.class)) {
-			items = items + 1;
+			items++;
 		}
 		int blocks = 0;
 		for (Block block : GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Block.class)) {
-			blocks = blocks + 1;
+			blocks++;
 		}
 		int biomes = 0;
 		for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
-			biomes = biomes + 1;
+			biomes++;
 		}
 		int waypoints = GOTWaypoint.values().length;
 		int factions = GOTFaction.values().length - 2;
@@ -295,7 +297,7 @@ public class GOT {
 			GOTEntityNPC npc = (GOTEntityNPC) attacker;
 			EntityPlayer hiringPlayer = npc.hiredNPCInfo.getHiringPlayer();
 			if (hiringPlayer != null) {
-				if (target == hiringPlayer || target.riddenByEntity == hiringPlayer) {
+				if (target.equals(hiringPlayer) || target.riddenByEntity.equals(hiringPlayer)) {
 					return false;
 				}
 				GOTEntityNPC targetNPC = null;
@@ -317,14 +319,14 @@ public class GOT {
 			if (attackerFaction.isGoodRelation(getNPCFaction(target)) && attacker.getAttackTarget() != target) {
 				return false;
 			}
-			if (target.riddenByEntity != null && attackerFaction.isGoodRelation(getNPCFaction(target.riddenByEntity)) && attacker.getAttackTarget() != target && attacker.getAttackTarget() != target.riddenByEntity) {
+			if (target.riddenByEntity != null && attackerFaction.isGoodRelation(getNPCFaction(target.riddenByEntity)) && !attacker.getAttackTarget().equals(target) && !attacker.getAttackTarget().equals(target.riddenByEntity)) {
 				return false;
 			}
 			if (!isPlayerDirected) {
-				if (target instanceof EntityPlayer && GOTLevelData.getData((EntityPlayer) target).getAlignment(attackerFaction) >= 0.0f && attacker.getAttackTarget() != target) {
+				if (target instanceof EntityPlayer && GOTLevelData.getData((EntityPlayer) target).getAlignment(attackerFaction) >= 0.0f && !attacker.getAttackTarget().equals(target)) {
 					return false;
 				}
-				if (target.riddenByEntity instanceof EntityPlayer && GOTLevelData.getData((EntityPlayer) target.riddenByEntity).getAlignment(attackerFaction) >= 0.0f && attacker.getAttackTarget() != target && attacker.getAttackTarget() != target.riddenByEntity) {
+				if (target.riddenByEntity instanceof EntityPlayer && GOTLevelData.getData((EntityPlayer) target.riddenByEntity).getAlignment(attackerFaction) >= 0.0f && !attacker.getAttackTarget().equals(target) && !attacker.getAttackTarget().equals(target.riddenByEntity)) {
 					return false;
 				}
 			}
@@ -337,18 +339,14 @@ public class GOT {
 			return false;
 		}
 		GOTPlayerData playerData = GOTLevelData.getData(attacker);
-		boolean friendlyFire = false;
-		boolean friendlyFireEnabled = playerData.getFriendlyFire();
-		if (target instanceof EntityPlayer && target != attacker) {
-			EntityPlayer targetPlayer = (EntityPlayer) target;
-			if (!playerData.isSiegeActive()) {
-				List<GOTFellowship> fellowships = playerData.getFellowships();
-				for (GOTFellowship fs : fellowships) {
-					if (!fs.getPreventPVP() || !fs.containsPlayer(targetPlayer.getUniqueID())) {
-						continue;
-					}
-					return false;
+		if ((target instanceof EntityPlayer && !target.equals(attacker)) && !playerData.isSiegeActive()) {
+			List<GOTFellowship> fellowships = playerData.getFellowships();
+			for (GOTFellowship fs : fellowships) {
+				EntityPlayer targetPlayer = (EntityPlayer) target;
+				if (!fs.getPreventPVP() || !fs.containsPlayer(targetPlayer.getUniqueID())) {
+					continue;
 				}
+				return false;
 			}
 		}
 		Entity targetNPC = null;
@@ -358,16 +356,17 @@ public class GOT {
 		} else if (getNPCFaction(target.riddenByEntity) != GOTFaction.UNALIGNED) {
 			targetNPC = target.riddenByEntity;
 		}
+		boolean friendlyFire = false;
 		if (targetNPC != null) {
 			targetNPCFaction = getNPCFaction(targetNPC);
 			if (targetNPC instanceof GOTEntityNPC) {
 				GOTEntityNPC targetgotNPC = (GOTEntityNPC) targetNPC;
 				GOTHiredNPCInfo hiredInfo = targetgotNPC.hiredNPCInfo;
 				if (hiredInfo.isActive) {
-					if (hiredInfo.getHiringPlayer() == attacker) {
+					if (hiredInfo.getHiringPlayer().equals(attacker)) {
 						return false;
 					}
-					if (targetgotNPC.getAttackTarget() != attacker && !playerData.isSiegeActive()) {
+					if (!targetgotNPC.getAttackTarget().equals(attacker) && !playerData.isSiegeActive()) {
 						UUID hiringPlayerID = hiredInfo.getHiringPlayerUUID();
 						List<GOTFellowship> fellowships = playerData.getFellowships();
 						for (GOTFellowship fs : fellowships) {
@@ -379,10 +378,11 @@ public class GOT {
 					}
 				}
 			}
-			if (targetNPC instanceof EntityLiving && ((EntityLiving) targetNPC).getAttackTarget() != attacker && GOTLevelData.getData(attacker).getAlignment(targetNPCFaction) > 0.0f) {
+			if (targetNPC instanceof EntityLiving && !((EntityLiving) targetNPC).getAttackTarget().equals(attacker) && GOTLevelData.getData(attacker).getAlignment(targetNPCFaction) > 0.0f) {
 				friendlyFire = true;
 			}
 		}
+		boolean friendlyFireEnabled = playerData.getFriendlyFire();
 		if (!friendlyFireEnabled && friendlyFire) {
 			if (warnFriendlyFire) {
 				GOTLevelData.getData(attacker).sendMessageIfNotReceived(GOTGuiMessageTypes.FRIENDLY_FIRE);
