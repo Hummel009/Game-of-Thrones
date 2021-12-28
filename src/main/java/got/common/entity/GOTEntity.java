@@ -56,7 +56,7 @@ import got.common.entity.westeros.wildling.thenn.*;
 import got.common.faction.GOTFaction;
 
 public class GOTEntity {
-	public static int id = 0;
+	public static int id;
 
 	public static void preInit() {
 		GOTEntityRegistry.register(GOTEntityBison.class, "Bison", id++, 7488812);
