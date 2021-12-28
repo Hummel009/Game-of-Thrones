@@ -18,10 +18,10 @@ public class GOTItemMotorGrapplingHook extends GOTItemGrapplingHook {
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 		list.add("Pulls player towards hook");
 		list.add("");
-		list.add(GOT.proxy.getkeyname(GOTCommonProxy.keys.keyBindUseItem) + " - Throw grappling hook");
-		list.add(GOT.proxy.getkeyname(GOTCommonProxy.keys.keyBindUseItem) + " again - Release");
-		list.add("Double-" + GOT.proxy.getkeyname(GOTCommonProxy.keys.keyBindUseItem) + " - Release and throw again");
-		list.add(GOT.proxy.getkeyname(GOTCommonProxy.keys.keyBindJump) + " - Release and jump");
+		list.add(GOT.proxy.getkeyname(GOTCommonProxy.keys.KBUI) + " - Throw grappling hook");
+		list.add(GOT.proxy.getkeyname(GOTCommonProxy.keys.KBUI) + " again - Release");
+		list.add("Double-" + GOT.proxy.getkeyname(GOTCommonProxy.keys.KBUI) + " - Release and throw again");
+		list.add(GOT.proxy.getkeyname(GOTCommonProxy.keys.KBJ) + " - Release and jump");
 	}
 
 	@Override

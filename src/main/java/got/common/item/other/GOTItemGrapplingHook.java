@@ -32,14 +32,14 @@ public class GOTItemGrapplingHook extends Item {
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 		list.add("A basic grappling hook for swinging");
 		list.add("");
-		list.add(GOT.proxy.getkeyname(GOTCommonProxy.keys.keyBindUseItem) + " - Throw grappling hook");
-		list.add(GOT.proxy.getkeyname(GOTCommonProxy.keys.keyBindUseItem) + " again - Release");
-		list.add("Double-" + GOT.proxy.getkeyname(GOTCommonProxy.keys.keyBindUseItem) + " - Release and throw again");
-		list.add(GOT.proxy.getkeyname(GOTCommonProxy.keys.keyBindForward) + ", " + GOT.proxy.getkeyname(GOTCommonProxy.keys.keyBindLeft) + ", " + GOT.proxy.getkeyname(GOTCommonProxy.keys.keyBindBack) + ", " + GOT.proxy.getkeyname(GOTCommonProxy.keys.keyBindRight) + " - Swing");
-		list.add(GOT.proxy.getkeyname(GOTCommonProxy.keys.keyBindJump) + " - Release and jump (while in midair)");
-		list.add(GOT.proxy.getkeyname(GOTCommonProxy.keys.keyBindSneak) + " - Stop swinging");
-		list.add(GOT.proxy.getkeyname(GOTCommonProxy.keys.keyBindSneak) + " + " + GOT.proxy.getkeyname(GOTCommonProxy.keys.keyBindForward) + " - Climb up");
-		list.add(GOT.proxy.getkeyname(GOTCommonProxy.keys.keyBindSneak) + " + " + GOT.proxy.getkeyname(GOTCommonProxy.keys.keyBindBack) + " - Climb down");
+		list.add(GOT.proxy.getkeyname(GOTCommonProxy.keys.KBUI) + " - Throw grappling hook");
+		list.add(GOT.proxy.getkeyname(GOTCommonProxy.keys.KBUI) + " again - Release");
+		list.add("Double-" + GOT.proxy.getkeyname(GOTCommonProxy.keys.KBUI) + " - Release and throw again");
+		list.add(GOT.proxy.getkeyname(GOTCommonProxy.keys.KBF) + ", " + GOT.proxy.getkeyname(GOTCommonProxy.keys.KBL) + ", " + GOT.proxy.getkeyname(GOTCommonProxy.keys.KBB) + ", " + GOT.proxy.getkeyname(GOTCommonProxy.keys.KBR) + " - Swing");
+		list.add(GOT.proxy.getkeyname(GOTCommonProxy.keys.KBJ) + " - Release and jump (while in midair)");
+		list.add(GOT.proxy.getkeyname(GOTCommonProxy.keys.KBS) + " - Stop swinging");
+		list.add(GOT.proxy.getkeyname(GOTCommonProxy.keys.KBS) + " + " + GOT.proxy.getkeyname(GOTCommonProxy.keys.KBF) + " - Climb up");
+		list.add(GOT.proxy.getkeyname(GOTCommonProxy.keys.KBS) + " + " + GOT.proxy.getkeyname(GOTCommonProxy.keys.KBB) + " - Climb down");
 	}
 
 	public GOTEntityGrapplingArrow createarrow(ItemStack stack, World worldIn, EntityLivingBase entityLiving, boolean righthand) {

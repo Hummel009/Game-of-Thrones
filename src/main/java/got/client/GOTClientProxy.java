@@ -105,7 +105,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 	public int trapdoorRenderID;
 	public boolean leftclick = false;
 	public boolean prevleftclick = false;
-	public HashMap<Integer, Long> enderlaunchtimer = new HashMap<>();
+	public Map<Integer, Long> enderlaunchtimer = new HashMap<>();
 
 	public int reusetime = 50;
 
@@ -117,7 +117,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 	@Override
 	public void blockbreak(BreakEvent event) {
 		GOTBlockPos pos = new GOTBlockPos(event.x, event.y, event.z);
-		if ((pos != null) && GOTGrappleHelper.controllerpos.containsKey(pos)) {
+		if (GOTGrappleHelper.controllerpos.containsKey(pos)) {
 			GOTControllerGrabble control = GOTGrappleHelper.controllerpos.get(pos);
 
 			control.unattach();
@@ -305,33 +305,39 @@ public class GOTClientProxy extends GOTCommonProxy {
 	}
 
 	@Override
-	public String getkeyname(GOTCommonProxy.keys keyenum) {
+	public String getkeyname(GOTCommonProxy.keys keyEnum) {
 		KeyBinding binding = null;
-
 		GameSettings gs = Minecraft.getMinecraft().gameSettings;
 
-		if (keyenum == keys.keyBindAttack) {
+		switch(keyEnum) {
+		case KBA:
 			binding = gs.keyBindAttack;
-		} else if (keyenum == keys.keyBindBack) {
+			break;
+		case KBB:
 			binding = gs.keyBindBack;
-		} else if (keyenum == keys.keyBindForward) {
+			break;
+		case KBF:
 			binding = gs.keyBindForward;
-		} else if (keyenum == keys.keyBindJump) {
+			break;
+		case KBJ:
 			binding = gs.keyBindJump;
-		} else if (keyenum == keys.keyBindLeft) {
+			break;
+		case KBL:
 			binding = gs.keyBindLeft;
-		} else if (keyenum == keys.keyBindRight) {
+			break;
+		case KBR:
 			binding = gs.keyBindRight;
-		} else if (keyenum == keys.keyBindSneak) {
+			break;
+		case KBS:
 			binding = gs.keyBindSneak;
-		} else if (keyenum == keys.keyBindUseItem) {
+			break;
+		case KBUI:
 			binding = gs.keyBindUseItem;
+			break;
 		}
-
 		if (binding == null) {
 			return "";
 		}
-
 		String displayname;
 		int keycode = binding.getKeyCode();
 		if (keycode == -99) {
@@ -430,7 +436,8 @@ public class GOTClientProxy extends GOTCommonProxy {
 	public void handleInvasionWatch(int invasionEntityID, boolean overrideAlreadyWatched) {
 		Entity e;
 		GOTInvasionStatus status = GOTTickHandlerClient.watchedInvasion;
-		if ((overrideAlreadyWatched || !status.isActive()) && (e = getClientWorld().getEntityByID(invasionEntityID)) instanceof GOTEntityInvasionSpawner) {
+		e = getClientWorld().getEntityByID(invasionEntityID);
+		if ((overrideAlreadyWatched || !status.isActive()) && e instanceof GOTEntityInvasionSpawner) {
 			status.setWatchedInvasion((GOTEntityInvasionSpawner) e);
 		}
 	}
@@ -462,7 +469,6 @@ public class GOTClientProxy extends GOTCommonProxy {
 	public void launchplayer(EntityPlayer player) {
 		if (enderlaunchtimer.containsKey(player.getEntityId())) {
 			enderlaunchtimer.get(player.getEntityId());
-		} else {
 		}
 		player.worldObj.getTotalWorldTime();
 	}
@@ -481,7 +487,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 			}
 
 			leftclick = (GameSettings.isKeyDown(Minecraft.getMinecraft().gameSettings.keyBindAttack) && Minecraft.getMinecraft().currentScreen == null);
-			if ((prevleftclick != leftclick) && (player != null)) {
+			if (prevleftclick != leftclick) {
 				ItemStack stack = player.getHeldItem();
 				if (stack != null) {
 					Item item = stack.getItem();
