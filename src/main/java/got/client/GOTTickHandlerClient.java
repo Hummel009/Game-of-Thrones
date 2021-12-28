@@ -129,6 +129,13 @@ public class GOTTickHandlerClient {
 		miniquestTracker = new GOTGuiMiniquestTracker();
 	}
 
+	public boolean fancyGraphics(int optifineSetting, Minecraft minecraft) {
+		if (optifineSetting == 0) {
+			return minecraft.gameSettings.fancyGraphics;
+		}
+		return optifineSetting == 2;
+	}
+
 	@SubscribeEvent
 	public void getItemTooltip(ItemTooltipEvent event) {
 		int armorProtect;
@@ -306,13 +313,6 @@ public class GOTTickHandlerClient {
 
 	public void onBurnDamage() {
 		burnTick = 40;
-	}
-	
-	public boolean fancyGraphics(int optifineSetting, Minecraft minecraft) {
-		if (optifineSetting == 0) {
-			return minecraft.gameSettings.fancyGraphics;
-		}
-		return optifineSetting == 2;
 	}
 
 	@SubscribeEvent

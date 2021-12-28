@@ -786,7 +786,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 		GuiScreen gui = mc.currentScreen;
 		if (gui instanceof GOTGuiBanner) {
 			GOTGuiBanner guiBanner = (GOTGuiBanner) gui;
-			if (guiBanner.theBanner == banner) {
+			if (guiBanner.theBanner.equals(banner)) {
 				guiBanner.validateUsername(slot, prevText, valid);
 			}
 		}

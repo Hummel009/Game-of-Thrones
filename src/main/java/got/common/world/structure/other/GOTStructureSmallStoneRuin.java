@@ -224,16 +224,24 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 												i24 = Math.abs(i15);
 												k22 = Math.abs(k14);
 												int randomFloor = random.nextInt(5);
-												if (randomFloor == 0) {
+												switch (randomFloor) {
+												case 0:
 													placeRandomStoneBrick(world, random, i15, pitBottom, k14);
-												} else if (randomFloor == 1) {
+													break;
+												case 1:
 													setBlockAndMetadata(world, i15, pitBottom, k14, Blocks.cobblestone, 0);
-												} else if (randomFloor == 2) {
+													break;
+												case 2:
 													setBlockAndMetadata(world, i15, pitBottom, k14, Blocks.stone, 0);
-												} else if (randomFloor == 3) {
+													break;
+												case 3:
 													setBlockAndMetadata(world, i15, pitBottom, k14, Blocks.gravel, 0);
-												} else if (randomFloor == 4) {
+													break;
+												case 4:
 													setBlockAndMetadata(world, i15, pitBottom, k14, Blocks.dirt, 0);
+													break;
+												default:
+													break;
 												}
 												for (j18 = pitBottom + 1; j18 <= pitBottom + pitHeight; ++j18) {
 													setAir(world, i15, j18, k14);
@@ -878,22 +886,32 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 								} else {
 									int stairDir;
 									int randomWall2 = random.nextInt(7);
-									if (randomWall2 == 0) {
+									switch (randomWall2) {
+									case 0:
 										setBlockAndMetadata(world, i13, j1, k1, Blocks.double_stone_slab, 0);
-									} else if (randomWall2 == 1) {
+										break;
+									case 1:
 										setBlockAndMetadata(world, i13, j1, k1, GOTRegistry.pillar2, 3);
-									} else if (randomWall2 == 2) {
+										break;
+									case 2:
 										setBlockAndMetadata(world, i13, j1, k1, GOTRegistry.clayTile, 0);
-									} else if (randomWall2 == 3) {
+										break;
+									case 3:
 										stairDir = random.nextInt(8);
 										setBlockAndMetadata(world, i13, j1, k1, Blocks.brick_stairs, stairDir);
-									} else if (randomWall2 == 4) {
+										break;
+									case 4:
 										stairDir = random.nextInt(8);
 										setBlockAndMetadata(world, i13, j1, k1, GOTRegistry.stairsClayTile, stairDir);
-									} else if (randomWall2 == 5) {
+										break;
+									case 5:
 										setBlockAndMetadata(world, i13, j1, k1, Blocks.cobblestone, 0);
-									} else if (randomWall2 == 6) {
+										break;
+									case 6:
 										setBlockAndMetadata(world, i13, j1, k1, GOTRegistry.wallStoneV, 6);
+										break;
+									default:
+										break;
 									}
 								}
 								if (random.nextInt(6) == 0) {
@@ -907,18 +925,19 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 								continue;
 							}
 							randomWall = random.nextInt(4);
-							if (randomWall == 0) {
+							switch (randomWall) {
+							case 0:
 								setBlockAndMetadata(world, i13, 1, k1, Blocks.brick_block, 0);
 								continue;
-							}
-							if (randomWall == 1) {
+							case 1:
 								int stairDir = random.nextInt(8);
 								setBlockAndMetadata(world, i13, 1, k1, Blocks.brick_stairs, stairDir);
 								continue;
-							}
-							if (randomWall == 2) {
+							case 2:
 								setBlockAndMetadata(world, i13, 1, k1, GOTRegistry.planksRotten, 0);
 								continue;
+							default:
+								break;
 							}
 							if (randomWall != 3) {
 								continue;

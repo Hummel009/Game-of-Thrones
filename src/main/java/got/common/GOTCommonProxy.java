@@ -4,7 +4,6 @@ import java.util.*;
 
 import com.mojang.authlib.GameProfile;
 
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.network.IGuiHandler;
 import got.GOT;
@@ -30,12 +29,11 @@ import net.minecraft.entity.item.EntityMinecartContainer;
 import net.minecraft.entity.player.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.*;
-import net.minecraft.item.*;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 import net.minecraft.world.*;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.world.BlockEvent.BreakEvent;
 
@@ -869,9 +867,5 @@ public class GOTCommonProxy implements IGuiHandler {
 
 	public static int unpackSlot(int fullID) {
 		return fullID >> 16;
-	}
-
-	public enum keys {
-		KBUI, KBF, KBL, KBB, KBR, KBJ, KBS, KBA
 	}
 }
