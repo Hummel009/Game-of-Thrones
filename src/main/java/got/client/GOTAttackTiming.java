@@ -42,10 +42,7 @@ public class GOTAttackTiming {
 				KeyBinding.onTick(attackKey.getKeyCode());
 			}
 			if (pressed && GOTAttackTiming.mc.objectMouseOver != null && GOTAttackTiming.mc.objectMouseOver.typeOfHit == MovingObjectPosition.MovingObjectType.ENTITY && GOTAttackTiming.mc.objectMouseOver.entityHit instanceof EntityLivingBase) {
-				if (attackTime > 0) {
-					while (attackKey.isPressed()) {
-					}
-				} else {
+				if (attackTime <= 0) {
 					ItemStack itemstack = GOTAttackTiming.mc.thePlayer.getHeldItem();
 					attackTime = fullAttackTime = GOTWeaponStats.getAttackTimePlayer(itemstack);
 					attackItem = itemstack;
@@ -58,7 +55,8 @@ public class GOTAttackTiming {
 	public static void renderAttackMeter(ScaledResolution resolution, float partialTicks) {
 		if (fullAttackTime > 0) {
 			float attackTimeF = prevAttackTime + (attackTime - prevAttackTime) * partialTicks;
-			float meterAmount = 1.0f - (attackTimeF /= fullAttackTime);
+			attackTimeF /= fullAttackTime;
+			float meterAmount = 1.0f - attackTimeF;
 			int minX = resolution.getScaledWidth() / 2 + 120;
 			int maxX = resolution.getScaledWidth() - 20;
 			int maxY = resolution.getScaledHeight() - 10;
