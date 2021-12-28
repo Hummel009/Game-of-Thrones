@@ -236,10 +236,9 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 			float alignment = isOtherPlayer && playerAlignmentMap != null ? playerAlignmentMap.get(currentFaction) : clientPD.getAlignment(currentFaction);
 			int x = guiLeft + xSize / 2;
 			int y = guiTop;
-			GOTTickHandlerClient.renderAlignmentBar(alignment, isOtherPlayer, currentFaction, x, y, true, false, true, true);
+			GOTTickHandlerClient.renderAlignmentBar(alignment, currentFaction, x, y, true, false, true, true);
 			String s = currentFaction.factionSubtitle();
 			this.drawCenteredString(s, x, y += fontRendererObj.FONT_HEIGHT + 22, 16777215);
-			y += fontRendererObj.FONT_HEIGHT * 3;
 			if (!useFullPageTexture()) {
 				if (currentFaction.factionMapInfo != null) {
 					GOTMapRegion mapInfo = currentFaction.factionMapInfo;

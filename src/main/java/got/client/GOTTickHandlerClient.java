@@ -146,7 +146,8 @@ public class GOTTickHandlerClient {
 			name = GOTEnchantmentHelper.getFullEnchantedName(itemstack, name);
 			tooltip.set(0, name);
 		}
-		if (itemstack.getItem() instanceof GOTSquadrons.SquadronItem && !StringUtils.isNullOrEmpty(squadron = GOTSquadrons.getSquadron(itemstack))) {
+		squadron = GOTSquadrons.getSquadron(itemstack);
+		if (itemstack.getItem() instanceof GOTSquadrons.SquadronItem && !StringUtils.isNullOrEmpty(squadron)) {
 			ArrayList<String> newTooltip = new ArrayList<>();
 			newTooltip.add(tooltip.get(0));
 			newTooltip.add(StatCollector.translateToLocalFormatted("item.got.generic.squadron", squadron));
@@ -250,7 +251,8 @@ public class GOTTickHandlerClient {
 				tooltip.add(line);
 			}
 		}
-		if (!(previousOwners = GOTItemOwnership.getPreviousOwners(itemstack)).isEmpty()) {
+		previousOwners = GOTItemOwnership.getPreviousOwners(itemstack);
+		if (!(previousOwners.isEmpty())) {
 			tooltip.add("");
 			ArrayList<String> ownerLines = new ArrayList<>();
 			if (previousOwners.size() == 1) {
@@ -305,6 +307,13 @@ public class GOTTickHandlerClient {
 	public void onBurnDamage() {
 		burnTick = 40;
 	}
+	
+	public boolean fancyGraphics(int optifineSetting, Minecraft minecraft) {
+		if (optifineSetting == 0) {
+			return minecraft.gameSettings.fancyGraphics;
+		}
+		return optifineSetting == 2;
+	}
 
 	@SubscribeEvent
 	public void onClientTick(TickEvent.ClientTickEvent event) {
@@ -325,7 +334,7 @@ public class GOTTickHandlerClient {
 								GameSettings gs = Minecraft.getMinecraft().gameSettings;
 								int renderDistance = gs.renderDistanceChunks;
 								if (renderDistance > 16) {
-									gs.renderDistanceChunks = renderDistance = 16;
+									gs.renderDistanceChunks = renderDistance;
 									gs.saveOptions();
 									GOTLog.logger.info("Hummel009: Render distance was above 16 - set to 16 to prevent a vanilla crash");
 								}
@@ -351,8 +360,7 @@ public class GOTTickHandlerClient {
 								}
 							} catch (Exception field) {
 							}
-							boolean fancyGraphics = optifineSetting == 0 ? minecraft.gameSettings.fancyGraphics : optifineSetting == 1 ? false : optifineSetting == 2;
-							GOTBlockLeavesBase.setAllGraphicsLevels(fancyGraphics);
+							GOTBlockLeavesBase.setAllGraphicsLevels(fancyGraphics(optifineSetting, minecraft));
 						} else {
 							GOTBlockLeavesBase.setAllGraphicsLevels(minecraft.gameSettings.fancyGraphics);
 						}
@@ -437,7 +445,8 @@ public class GOTTickHandlerClient {
 							float brightness = world.getSunBrightness(renderTick);
 							float brightnessThreshold = 0.7f;
 							float bQ = (brightness - brightnessThreshold) / (1.0f - brightnessThreshold);
-							float maxGlare = cQ * (bQ = Math.max(bQ, 0.0f));
+							bQ = Math.max(bQ, 0.0f);
+							float maxGlare = cQ * bQ;
 							if (maxGlare > 0.0f && lookingAtSky && !world.isRaining() && biomeHasSun) {
 								if (sunGlare < maxGlare) {
 									sunGlare += 0.1f * maxGlare;
@@ -472,7 +481,8 @@ public class GOTTickHandlerClient {
 						GOTClientProxy.customEffectRenderer.updateEffects();
 						if (minecraft.renderViewEntity.isPotionActive(Potion.confusion.id)) {
 							float drunkenness = minecraft.renderViewEntity.getActivePotionEffect(Potion.confusion).getDuration();
-							if ((drunkenness /= 20.0f) > 100.0f) {
+							drunkenness /= 20.0f;
+							if (drunkenness > 100.0f) {
 								drunkenness = 100.0f;
 							}
 							minecraft.renderViewEntity.rotationYaw += drunkennessDirection * drunkenness / 20.0f;
@@ -607,7 +617,8 @@ public class GOTTickHandlerClient {
 			if (maxDrawTime > 0.0f) {
 				int i = entityplayer.getItemInUseDuration();
 				usage = i / maxDrawTime;
-				usage = usage > 1.0f ? 1.0f : (usage *= usage);
+				usage *= usage;
+				usage = usage > 1.0f ? 1.0f : usage;
 			}
 		}
 		if (GOTItemCrossbow.isLoaded(itemstack)) {
@@ -730,7 +741,8 @@ public class GOTTickHandlerClient {
 				int i;
 				if (sunGlare > 0.0f && mc.gameSettings.thirdPersonView == 0) {
 					float brightness = prevSunGlare + (sunGlare - prevSunGlare) * partialTicks;
-					renderOverlay(null, brightness *= 1.0f, mc, null);
+					brightness *= 1.0f;
+					renderOverlay(null, brightness, mc, null);
 				}
 				if (playersInPortals.containsKey(entityplayer) && (i = (Integer) playersInPortals.get(entityplayer)) > 0) {
 					renderOverlay(null, 0.1f + i / 100.0f * 0.6f, mc, portalOverlay);
@@ -738,7 +750,8 @@ public class GOTTickHandlerClient {
 				if (GOTConfig.enableFrostfangsMist) {
 					float mistTickF = prevMistTick + (mistTick - prevMistTick) * partialTicks;
 					float mistFactorY = (float) entityplayer.posY / 256.0f;
-					mistFactor = (mistTickF /= 80.0f) * mistFactorY;
+					mistTickF /= 80.0f;
+					mistFactor = mistTickF * mistFactorY;
 					if (mistFactor > 0.0f) {
 						renderOverlay(null, mistFactor * 0.75f, mc, mistOverlay);
 					}
@@ -760,7 +773,8 @@ public class GOTTickHandlerClient {
 				if (GOTConfig.meleeAttackMeter) {
 					GOTAttackTiming.renderAttackMeter(event.resolution, partialTicks);
 				}
-				if (entityplayer.ridingEntity instanceof GOTEntitySpiderBase && (spider = (GOTEntitySpiderBase) entityplayer.ridingEntity).shouldRenderClimbingMeter()) {
+				spider = (GOTEntitySpiderBase) entityplayer.ridingEntity;
+				if (entityplayer.ridingEntity instanceof GOTEntitySpiderBase && spider.shouldRenderClimbingMeter()) {
 					mc.getTextureManager().bindTexture(Gui.icons);
 					GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 					GL11.glDisable(3042);
@@ -871,7 +885,8 @@ public class GOTTickHandlerClient {
 				fogEnd -= fogEnd * (mistFactor * mistOpacityEnd);
 			}
 			float wightFactor = prevWightNearTick + (wightNearTick - prevWightNearTick) * renderTick;
-			if ((wightFactor /= 100.0f) > 0.0f) {
+			wightFactor /= 100.0f;
+			if (wightFactor > 0.0f) {
 				float wightOpacityStart = 0.97f;
 				float wightOpacityEnd = 0.75f;
 				fogStart -= fogStart * (wightFactor * wightOpacityStart);
@@ -890,7 +905,8 @@ public class GOTTickHandlerClient {
 		if (event.phase == TickEvent.Phase.START) {
 			GuiIngame guiIngame;
 			renderTick = event.renderTickTime;
-			if (cancelItemHighlight && GOTReflectionClient.getHighlightedItemTicks(guiIngame = minecraft.ingameGUI) > 0) {
+			guiIngame = minecraft.ingameGUI;
+			if (cancelItemHighlight && GOTReflectionClient.getHighlightedItemTicks(guiIngame) > 0) {
 				GOTReflectionClient.setHighlightedItemTicks(guiIngame, 0);
 				cancelItemHighlight = false;
 			}
@@ -931,7 +947,8 @@ public class GOTTickHandlerClient {
 							fontRenderer.drawString(coords, compassX - fontRenderer.getStringWidth(coords) / 2, compassY + 70, 16777215);
 							int playerX = MathHelper.floor_double(entityplayer.posX);
 							int playerZ = MathHelper.floor_double(entityplayer.posZ);
-							if (GOTClientProxy.doesClientChunkExist(world, playerX, playerZ) && (biome = world.getBiomeGenForCoords(playerX, playerZ)) instanceof GOTBiome) {
+							biome = world.getBiomeGenForCoords(playerX, playerZ);
+							if (GOTClientProxy.doesClientChunkExist(world, playerX, playerZ) && biome instanceof GOTBiome) {
 								String biomeName = ((GOTBiome) biome).getBiomeDisplayName();
 								fontRenderer.drawString(biomeName, compassX - fontRenderer.getStringWidth(biomeName) / 2, compassY - 70, 16777215);
 							}
@@ -1004,7 +1021,6 @@ public class GOTTickHandlerClient {
 					int w = resolution.getScaledWidth();
 					int h = resolution.getScaledHeight();
 					int border = 20;
-					int x = w - border;
 					int y = h - border - lines.size() * minecraft.fontRenderer.FONT_HEIGHT;
 					float alpha = 1.0f;
 					if (musicTrackTick >= 140) {
@@ -1013,7 +1029,7 @@ public class GOTTickHandlerClient {
 						alpha = musicTrackTick / 60.0f;
 					}
 					for (String line : lines) {
-						x = w - border - minecraft.fontRenderer.getStringWidth(line);
+						int x = w - border - minecraft.fontRenderer.getStringWidth(line);
 						minecraft.fontRenderer.drawString(line, x, y, 16777215 + (GOTClientProxy.getAlphaInt(alpha) << 24));
 						y += minecraft.fontRenderer.FONT_HEIGHT;
 					}
@@ -1078,7 +1094,7 @@ public class GOTTickHandlerClient {
 		float alignmentYF = alignmentYPrev + (alignmentYCurrent - alignmentYPrev) * f;
 		boolean text = alignmentYCurrent == alignmentYBase;
 		float alignment = GOTAlignmentTicker.forFaction(viewingFac).getInterpolatedAlignment(f);
-		GOTTickHandlerClient.renderAlignmentBar(alignment, false, viewingFac, alignmentXF, alignmentYF, text, text, text, false);
+		GOTTickHandlerClient.renderAlignmentBar(alignment, viewingFac, alignmentXF, alignmentYF, text, text, text, false);
 	}
 
 	public void renderOverlay(float[] rgb, float alpha, Minecraft mc, ResourceLocation texture) {
@@ -1179,7 +1195,8 @@ public class GOTTickHandlerClient {
 	public static void drawBorderedText(FontRenderer f, int x, int y, String s, int color, float alphaF) {
 		int alpha = (int) (alphaF * 255.0f);
 		alpha = MathHelper.clamp_int(alpha, 4, 255);
-		f.drawString(s, x - 1, y - 1, 0 | (alpha <<= 24));
+		alpha <<= 24;
+		f.drawString(s, x - 1, y - 1, 0 | alpha);
 		f.drawString(s, x, y - 1, 0 | alpha);
 		f.drawString(s, x + 1, y - 1, 0 | alpha);
 		f.drawString(s, x + 1, y, 0 | alpha);
@@ -1209,15 +1226,15 @@ public class GOTTickHandlerClient {
 		return BossStatus.bossName != null && BossStatus.statusBarTime > 0;
 	}
 
-	public static void renderAlignmentBar(float alignment, boolean isOtherPlayer, GOTFaction faction, float x, float y, boolean renderFacName, boolean renderValue, boolean renderLimits, boolean renderLimitValues) {
+	public static void renderAlignmentBar(float alignment, GOTFaction faction, float x, float y, boolean renderFacName, boolean renderValue, boolean renderLimits, boolean renderLimitValues) {
 		Minecraft mc = Minecraft.getMinecraft();
 		EntityClientPlayerMP entityplayer = mc.thePlayer;
 		GOTPlayerData clientPD = GOTLevelData.getData(entityplayer);
 		GOTFactionRank rank = faction.getRank(alignment);
 		boolean pledged = clientPD.isPledgedTo(faction);
 		GOTAlignmentTicker ticker = GOTAlignmentTicker.forFaction(faction);
-		float alignMin = 0.0f;
-		float alignMax = 0.0f;
+		float alignMin;
+		float alignMax;
 		GOTFactionRank rankMin = null;
 		GOTFactionRank rankMax = null;
 		if (!rank.isDummyRank()) {
@@ -1248,7 +1265,8 @@ public class GOTTickHandlerClient {
 				alignMin = alignMax * 10.0f;
 				rankMin = rankMax = GOTFactionRank.RANK_ENEMY;
 				while (alignment <= alignMin) {
-					alignMin = (alignMax *= 10.0f) * 10.0f;
+					alignMax *= 10.0f;
+					alignMin = alignMax * 10.0f;
 				}
 			} else {
 				alignMin = firstRankAlign;
@@ -1282,7 +1300,7 @@ public class GOTTickHandlerClient {
 			GOTTickHandlerClient.drawTexturedModalRect(ringX, ringY, 16 * Math.round(flashTick / 3), 36, ringSize, ringSize);
 		}
 		if (faction.isPlayableAlignmentFaction()) {
-			float alpha = 0.0f;
+			float alpha;
 			boolean definedZone = false;
 			if (faction.inControlZone(entityplayer)) {
 				alpha = 1.0f;
@@ -1298,11 +1316,12 @@ public class GOTTickHandlerClient {
 				GL11.glEnable(3042);
 				OpenGlHelper.glBlendFunc(770, 771, 1, 0);
 				GL11.glColor4f(factionColors[0], factionColors[1], factionColors[2], alpha);
-				GOTTickHandlerClient.drawTexturedModalRect(x - barWidth / 2 - arrowSize, y, 0, y1, arrowSize, arrowSize);
-				GOTTickHandlerClient.drawTexturedModalRect(x + barWidth / 2, y, arrowSize, y1, arrowSize, arrowSize);
+				int aboba = barWidth / 2;
+				GOTTickHandlerClient.drawTexturedModalRect(x - aboba - arrowSize, y, 0, y1, arrowSize, arrowSize);
+				GOTTickHandlerClient.drawTexturedModalRect(x + aboba, y, arrowSize, y1, arrowSize, arrowSize);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, alpha);
-				GOTTickHandlerClient.drawTexturedModalRect(x - barWidth / 2 - arrowSize, y, 0, y0, arrowSize, arrowSize);
-				GOTTickHandlerClient.drawTexturedModalRect(x + barWidth / 2, y, arrowSize, y0, arrowSize, arrowSize);
+				GOTTickHandlerClient.drawTexturedModalRect(x - aboba - arrowSize, y, 0, y0, arrowSize, arrowSize);
+				GOTTickHandlerClient.drawTexturedModalRect(x + aboba, y, arrowSize, y0, arrowSize, arrowSize);
 				GL11.glDisable(3042);
 			}
 		}
