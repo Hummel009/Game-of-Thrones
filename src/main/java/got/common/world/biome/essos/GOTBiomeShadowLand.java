@@ -53,6 +53,6 @@ public class GOTBiomeShadowLand extends GOTBiome {
 	public static boolean isBlackSurface(World world, int i, int j, int k) {
 		Block block = world.getBlock(i, j, k);
 		int meta = world.getBlockMetadata(i, j, k);
-		return block == GOTRegistry.rock && meta == 0 || block == GOTRegistry.basaltGravel;
+		return (block == GOTRegistry.rock && meta == 0) || block == GOTRegistry.basaltGravel;
 	}
 }

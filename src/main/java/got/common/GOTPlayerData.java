@@ -60,11 +60,11 @@ public class GOTPlayerData {
 	public List<GOTMiniQuest> miniQuestsCompleted = new ArrayList<>();
 	public List<UUID> fellowshipIDs = new ArrayList<>();
 	public Map<CWPSharedKey, Integer> cwpSharedUseCounts = new HashMap<>();
-	public Map<GOTDimension.DimensionRegion, GOTFaction> prevRegionFactions = new HashMap<>();
-	public Map<GOTFaction, Float> alignments = new HashMap<>();
-	public Map<GOTFaction, GOTFactionData> factionDataMap = new HashMap<>();
-	public Map<GOTGuiMessageTypes, Boolean> sentMessageTypes = new HashMap<>();
-	public Map<GOTWaypoint, Integer> wpUseCounts = new HashMap<>();
+	public Map<GOTDimension.DimensionRegion, GOTFaction> prevRegionFactions = new EnumMap<>(GOTDimension.DimensionRegion.class);
+	public Map<GOTFaction, Float> alignments = new EnumMap<>(GOTFaction.class);
+	public Map<GOTFaction, GOTFactionData> factionDataMap = new EnumMap<>(GOTFaction.class);
+	public Map<GOTGuiMessageTypes, Boolean> sentMessageTypes = new EnumMap<>(GOTGuiMessageTypes.class);
+	public Map<GOTWaypoint, Integer> wpUseCounts = new EnumMap<>(GOTWaypoint.class);
 	public Map<Integer, Integer> cwpUseCounts = new HashMap<>();
 	public PlayerTitle playerTitle;
 	public Set<CWPSharedKey> cwpSharedHidden = new HashSet<>();
@@ -75,21 +75,21 @@ public class GOTPlayerData {
 	public UUID playerUUID;
 	public UUID trackingMiniQuestID;
 	public UUID uuidToMount;
-	public boolean adminHideMap = false;
-	public boolean askedForJaqen = false;
-	public boolean checkedMenu = false;
+	public boolean adminHideMap;
+	public boolean askedForJaqen;
+	public boolean checkedMenu;
 	public boolean conquestKills = true;
-	public boolean friendlyFire = false;
-	public boolean hideAlignment = false;
-	public boolean hideOnMap = false;
+	public boolean friendlyFire;
+	public boolean hideAlignment;
+	public boolean hideOnMap;
 	public boolean hiredDeathMessages = true;
-	public boolean needsSave = false;
+	public boolean needsSave;
 	public boolean showCustomWaypoints = true;
 	public boolean showHiddenSharedWaypoints = true;
 	public boolean showWaypoints = true;
-	public boolean structuresBanned = false;
-	public boolean tableSwitched = false;
-	public boolean teleportedKW = false;
+	public boolean structuresBanned;
+	public boolean tableSwitched;
+	public boolean teleportedKW;
 	public int alcoholTolerance;
 	public int balance = 0;
 	public int completedBountyQuests;
@@ -158,10 +158,9 @@ public class GOTPlayerData {
 				List<GOTAchievement> earnedAchievements = getEarnedAchievements(GOTDimension.GAME_OF_THRONES);
 				int biomes = 0;
 				for (GOTAchievement earnedAchievement : earnedAchievements) {
-					if (!earnedAchievement.isBiomeAchievement) {
-						continue;
+					if (earnedAchievement.isBiomeAchievement) {
+						++biomes;
 					}
-					++biomes;
 				}
 				if (biomes >= 10) {
 					addAchievement(GOTAchievement.TRAVEL10);
@@ -270,7 +269,8 @@ public class GOTPlayerData {
 
 	public void addAlignmentFromCommand(GOTFaction faction, float add) {
 		float alignment = getAlignment(faction);
-		setAlignment(faction, alignment += add);
+		alignment += add;
+		setAlignment(faction, alignment);
 	}
 
 	public void addCompletedBountyQuest() {
@@ -2645,7 +2645,7 @@ public class GOTPlayerData {
 		EntityPlayer entityplayer;
 		int preCD = pledgeBreakCooldown;
 		GOTFaction preBroken = brokenPledgeFaction;
-		pledgeBreakCooldown = i = Math.max(0, i);
+		pledgeBreakCooldown = i;
 		bigChange = (pledgeBreakCooldown == 0 || preCD == 0) && pledgeBreakCooldown != preCD;
 		if (pledgeBreakCooldown > pledgeBreakCooldownStart) {
 			setPledgeBreakCooldownStart(pledgeBreakCooldown);

@@ -53,7 +53,6 @@ import net.minecraft.world.World;
 
 public class GOTFixer {
 	public static Map<GOTWaypoint, GOTStructureBase> structures = new EnumMap<>(GOTWaypoint.class);
-
 	public static GOTVillageGen f01;
 	public static GOTVillageGen f02;
 	public static GOTVillageGen f03;
