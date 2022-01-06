@@ -52,8 +52,8 @@ import got.common.world.structure.westeros.westerlands.GOTStructureWesterlandsCi
 import net.minecraft.world.World;
 
 public class GOTFixer {
-	public static HashMap<GOTWaypoint, GOTStructureBase> affixes = new HashMap<GOTWaypoint, GOTStructureBase>();
-	
+	public static Map<GOTWaypoint, GOTStructureBase> structures = new EnumMap<>(GOTWaypoint.class);
+
 	public static GOTVillageGen f01;
 	public static GOTVillageGen f02;
 	public static GOTVillageGen f03;
@@ -123,7 +123,7 @@ public class GOTFixer {
 	public static GOTVillageGen f67;
 	public static GOTVillageGen f68;
 
-	public static void addWaypointLocations(GOTBiome biome) {
+	public static void affixWaypointLocations(GOTBiome biome) {
 		f01 = new GOTStructureMyrCity(biome, 0.0f).setIsTown();
 		f02 = new GOTStructureRuinsBig(biome, 0.0f);
 		f03 = new GOTStructureGhiscarCity(biome, 0.0f).setIsColony();
@@ -192,7 +192,7 @@ public class GOTFixer {
 		f66 = new GOTStructureShadowTower(biome, 0.0f);
 		f67 = new GOTStructureEastWatch(biome, 0.0f);
 		f68 = new GOTStructureWallGate(biome, 0.0f);
-		
+
 		f01.affix(GOTWaypoint.Myr, -1, 0, 1);
 		f02.affix(GOTWaypoint.Harrenhal);
 		f02.affix(GOTWaypoint.Stygai);
@@ -549,107 +549,107 @@ public class GOTFixer {
 		f66.affix(GOTWaypoint.ShadowTower);
 		f67.affix(GOTWaypoint.EastWatch);
 		f68.affix(GOTWaypoint.CastleBlack, 0, -1);
-		
+
 		for (GOTVillageGen settlement : GOTCommander.getObjectFieldsOfType(GOTFixer.class, GOTVillageGen.class)) {
 			biome.decorator.affix(settlement);
 		}
 	}
-	
-	public static void setupFixedStructures() {
-		affixes.put(GOTWaypoint.Aboba, new GOTFixer.NightKing());
-		affixes.put(GOTWaypoint.Ashemark, new GOTFixer.AddamMarbrand());
-		affixes.put(GOTWaypoint.Asshai, new GOTFixer.Asshai());
-		affixes.put(GOTWaypoint.Astapor.shift(-1, 0), new GOTFixer.Astapor());
-		affixes.put(GOTWaypoint.Banefort, new GOTFixer.QuentenBanefort());
-		affixes.put(GOTWaypoint.Barrowtown.shift(0, 1), new GOTFixer.BarbreyDustin());
-		affixes.put(GOTWaypoint.Blacktyde, new GOTFixer.BaelorBlacktyde());
-		affixes.put(GOTWaypoint.Braavos.shift(0, -1), new GOTFixer.TychoNestoris());
-		affixes.put(GOTWaypoint.BrightwaterKeep, new GOTFixer.GarlanTyrell());
-		affixes.put(GOTWaypoint.CasterlyRock.shift(-1, 0), new GOTFixer.CasterlyRock());
-		affixes.put(GOTWaypoint.ClawIsle, new GOTFixer.ArdrianCeltigar());
-		affixes.put(GOTWaypoint.CleganesKeep, new GOTFixer.GregorClegane());
-		affixes.put(GOTWaypoint.Cornfield, new GOTFixer.HarysSwyft());
-		affixes.put(GOTWaypoint.Crakehall.shift(-1, 0), new GOTFixer.LyleCrakehall());
-		affixes.put(GOTWaypoint.Dragonstone, new GOTFixer.Dragonstone());
-		affixes.put(GOTWaypoint.Dreadfort, new GOTFixer.Dreadfort());
-		affixes.put(GOTWaypoint.Driftmark, new GOTFixer.Driftmark());
-		affixes.put(GOTWaypoint.DrummCastle, new GOTFixer.DunstanDrumm());
-		affixes.put(GOTWaypoint.Euron, new GOTFixer.EuronGreyjoy());
-		affixes.put(GOTWaypoint.EvenfallHall, new GOTFixer.SelwynTarth());
-		affixes.put(GOTWaypoint.Faircastle, new GOTFixer.SebastonFarman());
-		affixes.put(GOTWaypoint.Feastfires, new GOTFixer.ForleyPrester());
-		affixes.put(GOTWaypoint.GateOfTheMoon.shift(0, 1), new GOTFixer.GateOfTheMoon());
-		affixes.put(GOTWaypoint.GoldenTooth.shift(0, 1), new GOTFixer.LeoLefford());
-		affixes.put(GOTWaypoint.Goldengrove, new GOTFixer.MathisRowan());
-		affixes.put(GOTWaypoint.Greenstone, new GOTFixer.EldonEstermont());
-		affixes.put(GOTWaypoint.GreyGarden, new GOTFixer.HarrasHarlaw());
-		affixes.put(GOTWaypoint.GreywaterWatch, new GOTFixer.HowlandReed());
-		affixes.put(GOTWaypoint.Gulltown, new GOTFixer.GeroldGrafton());
-		affixes.put(GOTWaypoint.Hammerhorn, new GOTFixer.GoroldGoodbrother());
-		affixes.put(GOTWaypoint.HeartsHome, new GOTFixer.LynCorbray());
-		affixes.put(GOTWaypoint.Hellholt, new GOTFixer.HarmenUller());
-		affixes.put(GOTWaypoint.HighHermitage, new GOTFixer.GeroldDayne());
-		affixes.put(GOTWaypoint.Highgarden.shift(0, -1), new GOTFixer.Highgarden());
-		affixes.put(GOTWaypoint.HightowerLitehouse, new GOTFixer.LeytonHightower());
-		affixes.put(GOTWaypoint.Hojdbaatar, new GOTFixer.TugarKhan());
-		affixes.put(GOTWaypoint.HollowHill, new GOTFixer.BericDondarrion());
-		affixes.put(GOTWaypoint.HornHill, new GOTFixer.RandyllTarly());
-		affixes.put(GOTWaypoint.Hornvale, new GOTFixer.TytosBrax());
-		affixes.put(GOTWaypoint.IronOak, new GOTFixer.HarroldHardyng());
-		affixes.put(GOTWaypoint.Karhold, new GOTFixer.RickardKarstark());
-		affixes.put(GOTWaypoint.Lannisport.shift(-1, 0), new GOTFixer.Lannisport());
-		affixes.put(GOTWaypoint.LastHearth, new GOTFixer.JohnUmber());
-		affixes.put(GOTWaypoint.LonelyLight, new GOTFixer.GylbertFarwynd());
-		affixes.put(GOTWaypoint.LongbowHall, new GOTFixer.GilwoodHunter());
-		affixes.put(GOTWaypoint.Longtable, new GOTFixer.OrtonMerryweather());
-		affixes.put(GOTWaypoint.Lordsport, new GOTFixer.Dagmer());
-		affixes.put(GOTWaypoint.Lys, new GOTFixer.SalladhorSaan());
-		affixes.put(GOTWaypoint.Maidenpool.shift(1, 0), new GOTFixer.WilliamMooton());
-		affixes.put(GOTWaypoint.Meereen.shift(0, -1), new GOTFixer.HizdahrZoLoraq());
-		affixes.put(GOTWaypoint.MormontsKeep, new GOTFixer.MaegeMormont());
-		affixes.put(GOTWaypoint.Myr.shift(-1, 0), new GOTFixer.HarryStrickland());
-		affixes.put(GOTWaypoint.NaggaHill, new GOTFixer.AeronGreyjoy());
-		affixes.put(GOTWaypoint.Ninestars, new GOTFixer.SymondTempleton());
-		affixes.put(GOTWaypoint.Norvos.shift(0, -1), new GOTFixer.Mellario());
-		affixes.put(GOTWaypoint.Oldtown.shift(-1, 0), new GOTFixer.Ebrose());
-		affixes.put(GOTWaypoint.Pentos.shift(-1, 0), new GOTFixer.IllyrioMopatis());
-		affixes.put(GOTWaypoint.PinkmaidenCastle, new GOTFixer.ClementPiper());
-		affixes.put(GOTWaypoint.Pyke, new GOTFixer.Pyke());
-		affixes.put(GOTWaypoint.Qarth.shift(0, 1), new GOTFixer.XaroXhoanDaxos());
-		affixes.put(GOTWaypoint.RaventreeHall, new GOTFixer.TytosBlackwood());
-		affixes.put(GOTWaypoint.RedHaven, new GOTFixer.ErikIronmaker());
-		affixes.put(GOTWaypoint.Redfort, new GOTFixer.HortonRedfort());
-		affixes.put(GOTWaypoint.Ring, new GOTFixer.QuennRoxton());
-		affixes.put(GOTWaypoint.RisvellsCastle.shift(0, 1), new GOTFixer.RodrikRyswell());
-		affixes.put(GOTWaypoint.Riverrun.shift(1, 0), new GOTFixer.Riverrun());
-		affixes.put(GOTWaypoint.Runestone, new GOTFixer.YohnRoyce());
-		affixes.put(GOTWaypoint.Sandstone, new GOTFixer.QuentynQorgyle());
-		affixes.put(GOTWaypoint.Seagard.shift(0, -1), new GOTFixer.JasonMallister());
-		affixes.put(GOTWaypoint.ServinsCastle.shift(-1, 0), new GOTFixer.CleyCerwyn());
-		affixes.put(GOTWaypoint.SkyReach.shift(0, 1), new GOTFixer.FranklynFowler());
-		affixes.put(GOTWaypoint.Spider, new GOTFixer.Hummel009());
-		affixes.put(GOTWaypoint.Starfall, new GOTFixer.BericDayne());
-		affixes.put(GOTWaypoint.StarfishHarbor, new GOTFixer.PaxterRedwyne());
-		affixes.put(GOTWaypoint.StoneHedge.shift(0, 1), new GOTFixer.JonosBracken());
-		affixes.put(GOTWaypoint.Stonehelm, new GOTFixer.GulianSwann());
-		affixes.put(GOTWaypoint.StormsEnd, new GOTFixer.StormsEnd());
-		affixes.put(GOTWaypoint.Strongsong, new GOTFixer.BenedarBelmore());
-		affixes.put(GOTWaypoint.Sunspear, new GOTFixer.Sunspear());
-		affixes.put(GOTWaypoint.TenTowers, new GOTFixer.RodrikHarlaw());
-		affixes.put(GOTWaypoint.ThreeEyedRavenCave, new GOTFixer.ThreeEyedRaven());
-		affixes.put(GOTWaypoint.TorhensSquare, new GOTFixer.HelmanTallhart());
-		affixes.put(GOTWaypoint.TwinsLeft.shift(1, 0), new GOTFixer.TwinsLeft());
-		affixes.put(GOTWaypoint.TwinsRight.shift(-2, 0), new GOTFixer.WalderFrey());
-		affixes.put(GOTWaypoint.Tyrosh, new GOTFixer.JonConnington());
-		affixes.put(GOTWaypoint.VaesEfe, new GOTFixer.DaenerysTargaryen());
-		affixes.put(GOTWaypoint.Volantis.shift(-1, 0), new GOTFixer.Moqorro());
-		affixes.put(GOTWaypoint.Volmark, new GOTFixer.MaronVolmark());
-		affixes.put(GOTWaypoint.WhiteHarbour, new GOTFixer.WymanManderly());
-		affixes.put(GOTWaypoint.WhiteWood, new GOTFixer.BenjenStark());
-		affixes.put(GOTWaypoint.Winterfell, new GOTFixer.Winterfell());
-		affixes.put(GOTWaypoint.Yin.shift(0, 1), new GOTFixer.BuGai());
-		affixes.put(GOTWaypoint.Yronwood.shift(1, 0), new GOTFixer.QuentynMartell());
-		affixes.put(GOTWaypoint.Yunkai.shift(-1, 0), new GOTFixer.Yunkai());
+
+	public static void onInit() {
+		structures.put(GOTWaypoint.Aboba, new GOTFixer.NightKing());
+		structures.put(GOTWaypoint.Ashemark, new GOTFixer.AddamMarbrand());
+		structures.put(GOTWaypoint.Asshai, new GOTFixer.Asshai());
+		structures.put(GOTWaypoint.Astapor.shift(-1, 0), new GOTFixer.Astapor());
+		structures.put(GOTWaypoint.Banefort, new GOTFixer.QuentenBanefort());
+		structures.put(GOTWaypoint.Barrowtown.shift(0, 1), new GOTFixer.BarbreyDustin());
+		structures.put(GOTWaypoint.Blacktyde, new GOTFixer.BaelorBlacktyde());
+		structures.put(GOTWaypoint.Braavos.shift(0, -1), new GOTFixer.TychoNestoris());
+		structures.put(GOTWaypoint.BrightwaterKeep, new GOTFixer.GarlanTyrell());
+		structures.put(GOTWaypoint.CasterlyRock.shift(-1, 0), new GOTFixer.CasterlyRock());
+		structures.put(GOTWaypoint.ClawIsle, new GOTFixer.ArdrianCeltigar());
+		structures.put(GOTWaypoint.CleganesKeep, new GOTFixer.GregorClegane());
+		structures.put(GOTWaypoint.Cornfield, new GOTFixer.HarysSwyft());
+		structures.put(GOTWaypoint.Crakehall.shift(-1, 0), new GOTFixer.LyleCrakehall());
+		structures.put(GOTWaypoint.Dragonstone, new GOTFixer.Dragonstone());
+		structures.put(GOTWaypoint.Dreadfort, new GOTFixer.Dreadfort());
+		structures.put(GOTWaypoint.Driftmark, new GOTFixer.Driftmark());
+		structures.put(GOTWaypoint.DrummCastle, new GOTFixer.DunstanDrumm());
+		structures.put(GOTWaypoint.Euron, new GOTFixer.EuronGreyjoy());
+		structures.put(GOTWaypoint.EvenfallHall, new GOTFixer.SelwynTarth());
+		structures.put(GOTWaypoint.Faircastle, new GOTFixer.SebastonFarman());
+		structures.put(GOTWaypoint.Feastfires, new GOTFixer.ForleyPrester());
+		structures.put(GOTWaypoint.GateOfTheMoon.shift(0, 1), new GOTFixer.GateOfTheMoon());
+		structures.put(GOTWaypoint.GoldenTooth.shift(0, 1), new GOTFixer.LeoLefford());
+		structures.put(GOTWaypoint.Goldengrove, new GOTFixer.MathisRowan());
+		structures.put(GOTWaypoint.Greenstone, new GOTFixer.EldonEstermont());
+		structures.put(GOTWaypoint.GreyGarden, new GOTFixer.HarrasHarlaw());
+		structures.put(GOTWaypoint.GreywaterWatch, new GOTFixer.HowlandReed());
+		structures.put(GOTWaypoint.Gulltown, new GOTFixer.GeroldGrafton());
+		structures.put(GOTWaypoint.Hammerhorn, new GOTFixer.GoroldGoodbrother());
+		structures.put(GOTWaypoint.HeartsHome, new GOTFixer.LynCorbray());
+		structures.put(GOTWaypoint.Hellholt, new GOTFixer.HarmenUller());
+		structures.put(GOTWaypoint.HighHermitage, new GOTFixer.GeroldDayne());
+		structures.put(GOTWaypoint.Highgarden.shift(0, -1), new GOTFixer.Highgarden());
+		structures.put(GOTWaypoint.HightowerLitehouse, new GOTFixer.LeytonHightower());
+		structures.put(GOTWaypoint.Hojdbaatar, new GOTFixer.TugarKhan());
+		structures.put(GOTWaypoint.HollowHill, new GOTFixer.BericDondarrion());
+		structures.put(GOTWaypoint.HornHill, new GOTFixer.RandyllTarly());
+		structures.put(GOTWaypoint.Hornvale, new GOTFixer.TytosBrax());
+		structures.put(GOTWaypoint.IronOak, new GOTFixer.HarroldHardyng());
+		structures.put(GOTWaypoint.Karhold, new GOTFixer.RickardKarstark());
+		structures.put(GOTWaypoint.Lannisport.shift(-1, 0), new GOTFixer.Lannisport());
+		structures.put(GOTWaypoint.LastHearth, new GOTFixer.JohnUmber());
+		structures.put(GOTWaypoint.LonelyLight, new GOTFixer.GylbertFarwynd());
+		structures.put(GOTWaypoint.LongbowHall, new GOTFixer.GilwoodHunter());
+		structures.put(GOTWaypoint.Longtable, new GOTFixer.OrtonMerryweather());
+		structures.put(GOTWaypoint.Lordsport, new GOTFixer.Dagmer());
+		structures.put(GOTWaypoint.Lys, new GOTFixer.SalladhorSaan());
+		structures.put(GOTWaypoint.Maidenpool.shift(1, 0), new GOTFixer.WilliamMooton());
+		structures.put(GOTWaypoint.Meereen.shift(0, -1), new GOTFixer.HizdahrZoLoraq());
+		structures.put(GOTWaypoint.MormontsKeep, new GOTFixer.MaegeMormont());
+		structures.put(GOTWaypoint.Myr.shift(-1, 0), new GOTFixer.HarryStrickland());
+		structures.put(GOTWaypoint.NaggaHill, new GOTFixer.AeronGreyjoy());
+		structures.put(GOTWaypoint.Ninestars, new GOTFixer.SymondTempleton());
+		structures.put(GOTWaypoint.Norvos.shift(0, -1), new GOTFixer.Mellario());
+		structures.put(GOTWaypoint.Oldtown.shift(-1, 0), new GOTFixer.Ebrose());
+		structures.put(GOTWaypoint.Pentos.shift(-1, 0), new GOTFixer.IllyrioMopatis());
+		structures.put(GOTWaypoint.PinkmaidenCastle, new GOTFixer.ClementPiper());
+		structures.put(GOTWaypoint.Pyke, new GOTFixer.Pyke());
+		structures.put(GOTWaypoint.Qarth.shift(0, 1), new GOTFixer.XaroXhoanDaxos());
+		structures.put(GOTWaypoint.RaventreeHall, new GOTFixer.TytosBlackwood());
+		structures.put(GOTWaypoint.RedHaven, new GOTFixer.ErikIronmaker());
+		structures.put(GOTWaypoint.Redfort, new GOTFixer.HortonRedfort());
+		structures.put(GOTWaypoint.Ring, new GOTFixer.QuennRoxton());
+		structures.put(GOTWaypoint.RisvellsCastle.shift(0, 1), new GOTFixer.RodrikRyswell());
+		structures.put(GOTWaypoint.Riverrun.shift(1, 0), new GOTFixer.Riverrun());
+		structures.put(GOTWaypoint.Runestone, new GOTFixer.YohnRoyce());
+		structures.put(GOTWaypoint.Sandstone, new GOTFixer.QuentynQorgyle());
+		structures.put(GOTWaypoint.Seagard.shift(0, -1), new GOTFixer.JasonMallister());
+		structures.put(GOTWaypoint.ServinsCastle.shift(-1, 0), new GOTFixer.CleyCerwyn());
+		structures.put(GOTWaypoint.SkyReach.shift(0, 1), new GOTFixer.FranklynFowler());
+		structures.put(GOTWaypoint.Spider, new GOTFixer.Hummel009());
+		structures.put(GOTWaypoint.Starfall, new GOTFixer.BericDayne());
+		structures.put(GOTWaypoint.StarfishHarbor, new GOTFixer.PaxterRedwyne());
+		structures.put(GOTWaypoint.StoneHedge.shift(0, 1), new GOTFixer.JonosBracken());
+		structures.put(GOTWaypoint.Stonehelm, new GOTFixer.GulianSwann());
+		structures.put(GOTWaypoint.StormsEnd, new GOTFixer.StormsEnd());
+		structures.put(GOTWaypoint.Strongsong, new GOTFixer.BenedarBelmore());
+		structures.put(GOTWaypoint.Sunspear, new GOTFixer.Sunspear());
+		structures.put(GOTWaypoint.TenTowers, new GOTFixer.RodrikHarlaw());
+		structures.put(GOTWaypoint.ThreeEyedRavenCave, new GOTFixer.ThreeEyedRaven());
+		structures.put(GOTWaypoint.TorhensSquare, new GOTFixer.HelmanTallhart());
+		structures.put(GOTWaypoint.TwinsLeft.shift(1, 0), new GOTFixer.TwinsLeft());
+		structures.put(GOTWaypoint.TwinsRight.shift(-2, 0), new GOTFixer.WalderFrey());
+		structures.put(GOTWaypoint.Tyrosh, new GOTFixer.JonConnington());
+		structures.put(GOTWaypoint.VaesEfe, new GOTFixer.DaenerysTargaryen());
+		structures.put(GOTWaypoint.Volantis.shift(-1, 0), new GOTFixer.Moqorro());
+		structures.put(GOTWaypoint.Volmark, new GOTFixer.MaronVolmark());
+		structures.put(GOTWaypoint.WhiteHarbour, new GOTFixer.WymanManderly());
+		structures.put(GOTWaypoint.WhiteWood, new GOTFixer.BenjenStark());
+		structures.put(GOTWaypoint.Winterfell, new GOTFixer.Winterfell());
+		structures.put(GOTWaypoint.Yin.shift(0, 1), new GOTFixer.BuGai());
+		structures.put(GOTWaypoint.Yronwood.shift(1, 0), new GOTFixer.QuentynMartell());
+		structures.put(GOTWaypoint.Yunkai.shift(-1, 0), new GOTFixer.Yunkai());
 	}
 
 	public static class AddamMarbrand extends GOTStructureBase {

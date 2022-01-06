@@ -386,9 +386,9 @@ public class GOTBiomeDecorator {
 		this.decorate();
 		if (!GOTConfig.clearMap) {
 			addSpecialStructures(world, random, i, k);
-			for (GOTWaypoint wp : GOTFixer.affixes.keySet()) {
+			for (GOTWaypoint wp : GOTFixer.structures.keySet()) {
 				if (GOTFixedStructures.fixedAt(i, k, wp)) {
-					GOTFixer.affixes.get(wp).generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k), k, 0);
+					GOTFixer.structures.get(wp).generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k), k, 0);
 				}
 			}
 		}

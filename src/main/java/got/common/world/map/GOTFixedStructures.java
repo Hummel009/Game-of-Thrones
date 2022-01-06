@@ -62,14 +62,14 @@ public enum GOTFixedStructures {
 		return new boolean[] { mountainNear, structureNear };
 	}
 
-	public static boolean fixedAtfixedAtMapImageCoords(int i, int k, int x, int z) {
-		return i >> 4 == x >> 4 && k >> 4 == z >> 4;
-	}
-
 	public static boolean fixedAt(int i, int k, GOTWaypoint waypoint) {
 		int x = GOTWaypoint.mapToWorldX(waypoint.pseudoX);
 		int z = GOTWaypoint.mapToWorldZ(waypoint.pseudoY);
 		return GOTFixedStructures.fixedAtfixedAtMapImageCoords(i, k, x, z);
+	}
+
+	public static boolean fixedAtfixedAtMapImageCoords(int i, int k, int x, int z) {
+		return i >> 4 == x >> 4 && k >> 4 == z >> 4;
 	}
 
 	public static boolean hasMapFeatures(World world) {

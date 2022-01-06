@@ -40,13 +40,13 @@ public class GOTLoader {
 		GOTMiniQuestFactory.onInit();
 		GOTLore.onInit();
 		GOTTitle.onInit();
+		GOTFixer.onInit();
 		if (GOTModChecker.hasLOTR()) {
 			GOTRegistry.fallenLeaves1.setCreativeTab(null);
 			GOTRegistry.fallenLeaves2.setCreativeTab(null);
 			GOTRegistry.fallenLeaves3.setCreativeTab(null);
 			GOTRegistry.fallenLeaves4.setCreativeTab(null);
 		}
-		GOTFixer.setupFixedStructures();
 	}
 
 	public static void preInit() {

@@ -48,7 +48,7 @@ public class GOTStructureFiveFortsTower extends GOTVillageGen {
 	}
 
 	public static class Tower extends GOTStructureBase {
-		
+
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			rotationMode = 2;

@@ -265,7 +265,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		spawnableCaveCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityBat.class, 10, 8, 8));
 		setUnreliableChance(GOTEventSpawner.EventChance.COMMON);
 		invasionSpawns = new GOTBiomeInvasionSpawns(this);
-		GOTFixer.addWaypointLocations(this);
+		GOTFixer.affixWaypointLocations(this);
 	}
 
 	public void addBiomeF3Info(List info, World world, GOTBiomeVariant variant) {
