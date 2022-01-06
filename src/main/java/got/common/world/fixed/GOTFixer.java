@@ -419,7 +419,7 @@ public class GOTFixer {
 		f47.affix(GOTWaypoint.Maidenpool, 1, 0);
 		f47.affix(GOTWaypoint.PinkmaidenCastle);
 		f47.affix(GOTWaypoint.RaventreeHall);
-		f47.affix(GOTWaypoint.Riverrun, -1, 0);
+		f47.affix(GOTWaypoint.Riverrun, 1, 0);
 		f47.affix(GOTWaypoint.Seagard, 0, -1);
 		f47.affix(GOTWaypoint.StoneHedge, 0, 1);
 		f47.affix(GOTWaypoint.WayfarerRest);
