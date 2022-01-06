@@ -36,10 +36,6 @@ public class GOTStructureNightKing extends GOTVillageGen {
 			generateStrScan(world, random, 0, 0, 0);
 			return true;
 		}
-
-		public static boolean fixedAt(World world, int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, 613, 314);
-		}
 	}
 
 	public static class Instance extends GOTVillageGen.AbstractInstance {

@@ -62,26 +62,26 @@ public enum GOTFixedStructures {
 		return new boolean[] { mountainNear, structureNear };
 	}
 
-	public static boolean fixedAt(int i, int k, int x, int z) {
+	public static boolean fixedAtfixedAtMapImageCoords(int i, int k, int x, int z) {
 		return i >> 4 == x >> 4 && k >> 4 == z >> 4;
 	}
 
-	public static boolean fixedAtMapImageCoords(int i, int k, GOTWaypoint waypoint) {
+	public static boolean fixedAt(int i, int k, GOTWaypoint waypoint) {
 		int x = GOTWaypoint.mapToWorldX(waypoint.imgX);
 		int z = GOTWaypoint.mapToWorldZ(waypoint.imgY);
-		return GOTFixedStructures.fixedAt(i, k, x, z);
+		return GOTFixedStructures.fixedAtfixedAtMapImageCoords(i, k, x, z);
 	}
 
-	public static boolean fixedAtMapImageCoords(int i, int k, GOTWaypoint waypoint, int a, int b) {
+	public static boolean fixedAt(int i, int k, GOTWaypoint waypoint, int a, int b) {
 		int x = GOTWaypoint.mapToWorldX(waypoint.imgX + a);
 		int z = GOTWaypoint.mapToWorldZ(waypoint.imgY + b);
-		return GOTFixedStructures.fixedAt(i, k, x, z);
+		return GOTFixedStructures.fixedAtfixedAtMapImageCoords(i, k, x, z);
 	}
 
-	public static boolean fixedAtMapImageCoords(int i, int k, int x, int z) {
+	public static boolean fixedAt(int i, int k, int x, int z) {
 		x = GOTWaypoint.mapToWorldX(x);
 		z = GOTWaypoint.mapToWorldZ(z);
-		return GOTFixedStructures.fixedAt(i, k, x, z);
+		return GOTFixedStructures.fixedAtfixedAtMapImageCoords(i, k, x, z);
 	}
 
 	public static boolean hasMapFeatures(World world) {

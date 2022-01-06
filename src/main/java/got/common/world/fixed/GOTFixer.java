@@ -557,295 +557,295 @@ public class GOTFixer {
 	}
 
 	public static GOTStructureBase getFixedStructure(int i, int k) {
-		if (GOTFixer.AddamMarbrand.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Ashemark)) {
 			return new GOTFixer.AddamMarbrand();
 		}
-		if (GOTFixer.AeronGreyjoy.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.NaggaHill)) {
 			return new GOTFixer.AeronGreyjoy();
 		}
-		if (GOTFixer.AndersYronwood.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Yronwood, 1, 0)) {
 			return new GOTFixer.AndersYronwood();
 		}
-		if (GOTFixer.AndrikTheUnsmilling.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.DrummCastle)) {
 			return new GOTFixer.AndrikTheUnsmilling();
 		}
-		if (GOTFixer.AnyaWaynwood.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.IronOak)) {
 			return new GOTFixer.AnyaWaynwood();
 		}
-		if (GOTFixer.ArdrianCeltigar.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.ClawIsle)) {
 			return new GOTFixer.ArdrianCeltigar();
 		}
-		if (GOTFixer.Asshai.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Asshai)) {
 			return new GOTFixer.Asshai();
 		}
-		if (GOTFixer.Astapor.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Astapor, -1, 0)) {
 			return new GOTFixer.Astapor();
 		}
-		if (GOTFixer.BaelorBlacktyde.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Blacktyde)) {
 			return new GOTFixer.BaelorBlacktyde();
 		}
-		if (GOTFixer.BarbreyDustin.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Barrowtown, 0, 1)) {
 			return new GOTFixer.BarbreyDustin();
 		}
-		if (GOTFixer.BenedarBelmore.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Strongsong)) {
 			return new GOTFixer.BenedarBelmore();
 		}
-		if (GOTFixer.BenjenStark.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.WhiteWood)) {
 			return new GOTFixer.BenjenStark();
 		}
-		if (GOTFixer.BericDayne.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Starfall)) {
 			return new GOTFixer.BericDayne();
 		}
-		if (GOTFixer.BericDondarrion.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.HollowHill)) {
 			return new GOTFixer.BericDondarrion();
 		}
-		if (GOTFixer.BuGai.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Yin, 0, 1)) {
 			return new GOTFixer.BuGai();
 		}
-		if (GOTFixer.CasterlyRock.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.CasterlyRock, -1, 0)) {
 			return new GOTFixer.CasterlyRock();
 		}
-		if (GOTFixer.ClementPiper.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.PinkmaidenCastle)) {
 			return new GOTFixer.ClementPiper();
 		}
-		if (GOTFixer.CleyCerwyn.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.ServinsCastle, -1, 0)) {
 			return new GOTFixer.CleyCerwyn();
 		}
-		if (GOTFixer.DaenerysTargaryen.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.VaesEfe)) {
 			return new GOTFixer.DaenerysTargaryen();
 		}
-		if (GOTFixer.Dagmer.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Lordsport)) {
 			return new GOTFixer.Dagmer();
 		}
-		if (GOTFixer.Dragonstone.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Dragonstone)) {
 			return new GOTFixer.Dragonstone();
 		}
-		if (GOTFixer.Dreadfort.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Dreadfort)) {
 			return new GOTFixer.Dreadfort();
 		}
-		if (GOTFixer.Driftmark.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Driftmark)) {
 			return new GOTFixer.Driftmark();
 		}
-		if (GOTFixer.DunstanDrumm.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.DrummCastle)) {
 			return new GOTFixer.DunstanDrumm();
 		}
-		if (GOTFixer.Ebrose.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Oldtown, -1, 0)) {
 			return new GOTFixer.Ebrose();
 		}
-		if (GOTFixer.EldonEstermont.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Greenstone)) {
 			return new GOTFixer.EldonEstermont();
 		}
-		if (GOTFixer.ErikIronmaker.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.RedHaven)) {
 			return new GOTFixer.ErikIronmaker();
 		}
-		if (GOTFixer.EuronGreyjoy.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Euron)) {
 			return new GOTFixer.EuronGreyjoy();
 		}
-		if (GOTFixer.ForleyPrester.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Feastfires)) {
 			return new GOTFixer.ForleyPrester();
 		}
-		if (GOTFixer.FranklynFowler.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.SkyReach, 0, 1)) {
 			return new GOTFixer.FranklynFowler();
 		}
-		if (GOTFixer.GarlanTyrell.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.BrightwaterKeep)) {
 			return new GOTFixer.GarlanTyrell();
 		}
-		if (GOTFixer.GateOfTheMoon.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.GateOfTheMoon, 0, 1)) {
 			return new GOTFixer.GateOfTheMoon();
 		}
-		if (GOTFixer.GeroldDayne.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.HighHermitage)) {
 			return new GOTFixer.GeroldDayne();
 		}
-		if (GOTFixer.GeroldGrafton.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Gulltown)) {
 			return new GOTFixer.GeroldGrafton();
 		}
-		if (GOTFixer.GilwoodHunter.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.LongbowHall)) {
 			return new GOTFixer.GilwoodHunter();
 		}
-		if (GOTFixer.GoroldGoodbrother.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Hammerhorn)) {
 			return new GOTFixer.GoroldGoodbrother();
 		}
-		if (GOTFixer.GregorClegane.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.CleganesKeep)) {
 			return new GOTFixer.GregorClegane();
 		}
-		if (GOTFixer.GulianSwann.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Stonehelm)) {
 			return new GOTFixer.GulianSwann();
 		}
-		if (GOTFixer.GylbertFarwynd.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.LonelyLight)) {
 			return new GOTFixer.GylbertFarwynd();
 		}
-		if (GOTFixer.HarmenUller.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Hellholt)) {
 			return new GOTFixer.HarmenUller();
 		}
-		if (GOTFixer.HarrasHarlaw.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.GreyGarden)) {
 			return new GOTFixer.HarrasHarlaw();
 		}
-		if (GOTFixer.HarroldHardyng.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.IronOak)) {
 			return new GOTFixer.HarroldHardyng();
 		}
-		if (GOTFixer.HarryStrickland.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Myr, -1, 0)) {
 			return new GOTFixer.HarryStrickland();
 		}
-		if (GOTFixer.HarysSwyft.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Cornfield)) {
 			return new GOTFixer.HarysSwyft();
 		}
-		if (GOTFixer.HelmanTallhart.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.TorhensSquare)) {
 			return new GOTFixer.HelmanTallhart();
 		}
-		if (GOTFixer.Highgarden.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Highgarden, 0, -1)) {
 			return new GOTFixer.Highgarden();
 		}
-		if (GOTFixer.HizdahrZoLoraq.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Meereen, 0, -1)) {
 			return new GOTFixer.HizdahrZoLoraq();
 		}
-		if (GOTFixer.HortonRedfort.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Redfort)) {
 			return new GOTFixer.HortonRedfort();
 		}
-		if (GOTFixer.HowlandReed.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.GreywaterWatch)) {
 			return new GOTFixer.HowlandReed();
 		}
-		if (GOTFixer.Hummel009.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, 6861, 3785)) {
 			return new GOTFixer.Hummel009();
 		}
-		if (GOTFixer.IllyrioMopatis.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Pentos, -1, 0)) {
 			return new GOTFixer.IllyrioMopatis();
 		}
-		if (GOTFixer.JasonMallister.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Seagard, 0, -1)) {
 			return new GOTFixer.JasonMallister();
 		}
-		if (GOTFixer.JohnUmber.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.LastHearth)) {
 			return new GOTFixer.JohnUmber();
 		}
-		if (GOTFixer.JonConnington.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Tyrosh)) {
 			return new GOTFixer.JonConnington();
 		}
-		if (GOTFixer.JonosBracken.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.StoneHedge, 0, 1)) {
 			return new GOTFixer.JonosBracken();
 		}
-		if (GOTFixer.Lannisport.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Lannisport, -1, 0)) {
 			return new GOTFixer.Lannisport();
 		}
-		if (GOTFixer.LeoLefford.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.GoldenTooth, 0, 1)) {
 			return new GOTFixer.LeoLefford();
 		}
-		if (GOTFixer.LeytonHightower.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.HightowerLitehouse)) {
 			return new GOTFixer.LeytonHightower();
 		}
-		if (GOTFixer.LyleCrakehall.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Crakehall, -1, 0)) {
 			return new GOTFixer.LyleCrakehall();
 		}
-		if (GOTFixer.LynCorbray.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.HeartsHome)) {
 			return new GOTFixer.LynCorbray();
 		}
-		if (GOTFixer.MaegeMormont.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.MormontsKeep)) {
 			return new GOTFixer.MaegeMormont();
 		}
-		if (GOTFixer.MaronVolmark.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Volmark)) {
 			return new GOTFixer.MaronVolmark();
 		}
-		if (GOTFixer.MathisRowan.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Goldengrove)) {
 			return new GOTFixer.MathisRowan();
 		}
-		if (GOTFixer.Mellario.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Norvos, 0, -1)) {
 			return new GOTFixer.Mellario();
 		}
-		if (GOTFixer.Moqorro.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Volantis, -1, 0)) {
 			return new GOTFixer.Moqorro();
 		}
-		if (GOTFixer.OrtonMerryweather.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Longtable)) {
 			return new GOTFixer.OrtonMerryweather();
 		}
-		if (GOTFixer.PaxterRedwyne.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.StarfishHarbor)) {
 			return new GOTFixer.PaxterRedwyne();
 		}
-		if (GOTFixer.Pyke.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Pyke)) {
 			return new GOTFixer.Pyke();
 		}
-		if (GOTFixer.QuennRoxton.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Ring)) {
 			return new GOTFixer.QuennRoxton();
 		}
-		if (GOTFixer.QuentenBanefort.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Banefort)) {
 			return new GOTFixer.QuentenBanefort();
 		}
-		if (GOTFixer.QuentynMartell.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Yronwood, 1, 0)) {
 			return new GOTFixer.QuentynMartell();
 		}
-		if (GOTFixer.QuentynQorgyle.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Sandstone)) {
 			return new GOTFixer.QuentynQorgyle();
 		}
-		if (GOTFixer.RandyllTarly.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.HornHill)) {
 			return new GOTFixer.RandyllTarly();
 		}
-		if (GOTFixer.RickardKarstark.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Karhold)) {
 			return new GOTFixer.RickardKarstark();
 		}
-		if (GOTFixer.Riverrun.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Riverrun, -1, 0)) {
 			return new GOTFixer.Riverrun();
 		}
-		if (GOTFixer.RodrikHarlaw.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.TenTowers)) {
 			return new GOTFixer.RodrikHarlaw();
 		}
-		if (GOTFixer.RodrikRyswell.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.RisvellsCastle, 0, 1)) {
 			return new GOTFixer.RodrikRyswell();
 		}
-		if (GOTFixer.SalladhorSaan.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Lys)) {
 			return new GOTFixer.SalladhorSaan();
 		}
-		if (GOTFixer.SebastonFarman.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Faircastle)) {
 			return new GOTFixer.SebastonFarman();
 		}
-		if (GOTFixer.SelwynTarth.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.EvenfallHall)) {
 			return new GOTFixer.SelwynTarth();
 		}
-		if (GOTFixer.StormsEnd.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.StormsEnd)) {
 			return new GOTFixer.StormsEnd();
 		}
-		if (GOTFixer.Sunspear.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Sunspear)) {
 			return new GOTFixer.Sunspear();
 		}
-		if (GOTFixer.SymondTempleton.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Ninestars)) {
 			return new GOTFixer.SymondTempleton();
 		}
-		if (GOTFixer.ThreeEyedRaven.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.ThreeEyedRavenCave)) {
 			return new GOTFixer.ThreeEyedRaven();
 		}
-		if (GOTFixer.TugarKhan.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Hojdbaatar)) {
 			return new GOTFixer.TugarKhan();
 		}
-		if (GOTFixer.TwinsLeft.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.TwinsLeft, 1, 0)) {
 			return new GOTFixer.TwinsLeft();
 		}
-		if (GOTFixer.TychoNestoris.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Braavos, 0, -1)) {
 			return new GOTFixer.TychoNestoris();
 		}
-		if (GOTFixer.TytosBlackwood.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.RaventreeHall)) {
 			return new GOTFixer.TytosBlackwood();
 		}
-		if (GOTFixer.TytosBrax.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Hornvale)) {
 			return new GOTFixer.TytosBrax();
 		}
-		if (GOTFixer.WalderFrey.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.TwinsRight, -2, 0)) {
 			return new GOTFixer.WalderFrey();
 		}
-		if (GOTFixer.WilliamMooton.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Maidenpool, 1, 0)) {
 			return new GOTFixer.WilliamMooton();
 		}
-		if (GOTFixer.Winterfell.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Winterfell)) {
 			return new GOTFixer.Winterfell();
 		}
-		if (GOTFixer.WymanManderly.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.WhiteHarbour)) {
 			return new GOTFixer.WymanManderly();
 		}
-		if (GOTFixer.XaroXhoanDaxos.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Qarth, 0, 1)) {
 			return new GOTFixer.XaroXhoanDaxos();
 		}
-		if (GOTFixer.YohnRoyce.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Runestone)) {
 			return new GOTFixer.YohnRoyce();
 		}
-		if (GOTFixer.YoungGriff.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Tyrosh)) {
 			return new GOTFixer.YoungGriff();
 		}
-		if (GOTFixer.Yunkai.fixedAt(i, k)) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Yunkai, -1, 0)) {
 			return new GOTFixer.Yunkai();
 		}
 		return null;
@@ -859,10 +859,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityAddamMarbrand(world), world, 0, 1, 2);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Ashemark);
-		}
 	}
 
 	public static class AeronGreyjoy extends GOTStructureBase {
@@ -872,10 +868,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityAeronGreyjoy(world), world, 0, 1, 2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.NaggaHill, 0, 0);
 		}
 	}
 
@@ -887,10 +879,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityAndersYronwood(world), world, 0, 1, 2);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Yronwood, 1, 0);
-		}
 	}
 
 	public static class AndrikTheUnsmilling extends GOTStructureBase {
@@ -900,10 +888,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityAndrikTheUnsmilling(world), world, -2, 1, -2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.DrummCastle);
 		}
 	}
 
@@ -915,10 +899,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityAnyaWaynwood(world), world, 0, 1, 2);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.IronOak);
-		}
 	}
 
 	public static class ArdrianCeltigar extends GOTStructureBase {
@@ -929,10 +909,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityArdrianCeltigar(world), world, 0, 1, 2);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.ClawIsle);
-		}
 	}
 
 	public static class Asshai extends GOTStructureBase {
@@ -942,10 +918,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityAsshaiArchmag(world), world, 0, 1, 0);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Asshai);
 		}
 	}
 
@@ -959,10 +931,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityGreyWorm(world), world, -1, 1, 1);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Astapor, -1, 0);
-		}
 	}
 
 	public static class BaelorBlacktyde extends GOTStructureBase {
@@ -972,10 +940,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityBaelorBlacktyde(world), world, -2, 1, -2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Blacktyde);
 		}
 	}
 
@@ -987,10 +951,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityBarbreyDustin(world), world, 0, 1, 3);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Barrowtown, 0, 1);
-		}
 	}
 
 	public static class BenedarBelmore extends GOTStructureBase {
@@ -1000,10 +960,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityBenedarBelmore(world), world, 0, 1, 2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Strongsong);
 		}
 	}
 
@@ -1015,10 +971,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityBenjenStark(world), world, 0, 1, 5);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.WhiteWood);
-		}
 	}
 
 	public static class BericDayne extends GOTStructureBase {
@@ -1028,10 +980,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityBericDayne(world), world, -2, 1, 2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Starfall);
 		}
 	}
 
@@ -1044,10 +992,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityThoros(world), world, 0, 1, 3);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.HollowHill);
-		}
 	}
 
 	public static class BuGai extends GOTStructureBase {
@@ -1057,10 +1001,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityBuGai(world), world, 12, 1, 0);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Yin, 0, 1);
 		}
 	}
 
@@ -1073,10 +1013,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityQyburn(world), world, -2, 1, 0);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.CasterlyRock, -1, 0);
-		}
 	}
 
 	public static class ClementPiper extends GOTStructureBase {
@@ -1087,10 +1023,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityClementPiper(world), world, 0, 1, 2);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.PinkmaidenCastle);
-		}
 	}
 
 	public static class CleyCerwyn extends GOTStructureBase {
@@ -1100,10 +1032,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityCleyCerwyn(world), world, 0, 1, 2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.ServinsCastle, -1, 0);
 		}
 	}
 
@@ -1116,10 +1044,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityJorahMormont(world), world, 0, 5, 3);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.VaesEfe);
-		}
 	}
 
 	public static class Dagmer extends GOTStructureBase {
@@ -1129,10 +1053,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityDagmer(world), world, 0, 1, 3);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Lordsport);
 		}
 	}
 
@@ -1149,10 +1069,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityMatthosSeaworth(world), world, 0, 1, -2);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Dragonstone);
-		}
 	}
 
 	public static class Dreadfort extends GOTStructureBase {
@@ -1163,10 +1079,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityRamsayBolton(world), world, 2, 1, 2);
 			spawnLegendaryNPC(new GOTEntityRooseBolton(world), world, -2, 1, -2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Dreadfort);
 		}
 	}
 
@@ -1179,10 +1091,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityAuraneWaters(world), world, 2, 1, 2);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Driftmark);
-		}
 	}
 
 	public static class DunstanDrumm extends GOTStructureBase {
@@ -1192,10 +1100,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityDunstanDrumm(world), world, -2, 1, -2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.DrummCastle);
 		}
 	}
 
@@ -1207,10 +1111,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityEbrose(world), world, 0, 1, 5);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Oldtown, -1, 0);
-		}
 	}
 
 	public static class EldonEstermont extends GOTStructureBase {
@@ -1221,10 +1121,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityEldonEstermont(world), world, 0, 1, 2);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Greenstone);
-		}
 	}
 
 	public static class ErikIronmaker extends GOTStructureBase {
@@ -1234,10 +1130,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityErikIronmaker(world), world, -2, 1, -2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.RedHaven);
 		}
 	}
 
@@ -1254,10 +1146,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityEuronGreyjoy(world), world, 0, 1, 0);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Euron);
-		}
 	}
 
 	public static class ForleyPrester extends GOTStructureBase {
@@ -1267,10 +1155,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityForleyPrester(world), world, 0, 1, 2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Feastfires);
 		}
 	}
 
@@ -1282,10 +1166,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityFranklynFowler(world), world, 0, 1, 2);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.SkyReach, 0, 1);
-		}
 	}
 
 	public static class GarlanTyrell extends GOTStructureBase {
@@ -1295,10 +1175,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityGarlanTyrell(world), world, 2, 1, -2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.BrightwaterKeep);
 		}
 	}
 
@@ -1311,10 +1187,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityLysaArryn(world), world, -2, 1, 0);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.GateOfTheMoon, 0, 1);
-		}
 	}
 
 	public static class GeroldDayne extends GOTStructureBase {
@@ -1324,10 +1196,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityGeroldDayne(world), world, 2, 1, -2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.HighHermitage);
 		}
 	}
 
@@ -1339,10 +1207,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityGeroldGrafton(world), world, 3, 1, 0);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Gulltown);
-		}
 	}
 
 	public static class GilwoodHunter extends GOTStructureBase {
@@ -1353,10 +1217,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityGilwoodHunter(world), world, 0, 1, 2);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.LongbowHall);
-		}
 	}
 
 	public static class GoroldGoodbrother extends GOTStructureBase {
@@ -1366,10 +1226,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityGoroldGoodbrother(world), world, 0, 1, 2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Hammerhorn);
 		}
 	}
 
@@ -1382,10 +1238,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityPolliver(world), world, -2, 1, 0);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.CleganesKeep);
-		}
 	}
 
 	public static class GulianSwann extends GOTStructureBase {
@@ -1395,10 +1247,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityGulianSwann(world), world, 0, 1, 2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Stonehelm);
 		}
 	}
 
@@ -1410,10 +1258,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityGylbertFarwynd(world), world, -2, 1, -2);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.LonelyLight);
-		}
 	}
 
 	public static class HarmenUller extends GOTStructureBase {
@@ -1423,10 +1267,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityHarmenUller(world), world, 0, 1, 2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Hellholt);
 		}
 	}
 
@@ -1438,10 +1278,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityHarrasHarlaw(world), world, 0, 1, 2);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.GreyGarden);
-		}
 	}
 
 	public static class HarroldHardyng extends GOTStructureBase {
@@ -1451,10 +1287,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityHarroldHardyng(world), world, 0, 1, 2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.IronOak);
 		}
 	}
 
@@ -1466,10 +1298,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityHarryStrickland(world), world, -1, 1, -1);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Myr, -1, 0);
-		}
 	}
 
 	public static class HarysSwyft extends GOTStructureBase {
@@ -1480,10 +1308,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityHarysSwyft(world), world, 0, 1, 2);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Cornfield);
-		}
 	}
 
 	public static class HelmanTallhart extends GOTStructureBase {
@@ -1493,10 +1317,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityHelmanTallhart(world), world, 0, 1, 2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.TorhensSquare);
 		}
 	}
 
@@ -1511,10 +1331,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityWillasTyrell(world), world, -2, 1, 2);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Highgarden, 0, -1);
-		}
 	}
 
 	public static class HizdahrZoLoraq extends GOTStructureBase {
@@ -1524,10 +1340,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityHizdahrZoLoraq(world), world, 0, 1, 1);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Meereen, 0, -1);
 		}
 	}
 
@@ -1539,10 +1351,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityHortonRedfort(world), world, 0, 1, 2);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Redfort);
-		}
 	}
 
 	public static class HowlandReed extends GOTStructureBase {
@@ -1552,10 +1360,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityHowlandReed(world), world, 0, 1, 5);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.GreywaterWatch);
 		}
 	}
 
@@ -1567,10 +1371,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityHummel009(world), world, 0, 1, 0);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, 6861, 3785);
-		}
 	}
 
 	public static class IllyrioMopatis extends GOTStructureBase {
@@ -1580,10 +1380,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityIllyrioMopatis(world), world, 3, 1, 0);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Pentos, -1, 0);
 		}
 	}
 
@@ -1595,10 +1391,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityJasonMallister(world), world, 0, 1, 3);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Seagard, 0, -1);
-		}
 	}
 
 	public static class JohnUmber extends GOTStructureBase {
@@ -1608,10 +1400,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityJohnUmber(world), world, 0, 1, 2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.LastHearth);
 		}
 	}
 
@@ -1623,10 +1411,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityJonConnington(world), world, 0, 1, -1);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Tyrosh);
-		}
 	}
 
 	public static class JonosBracken extends GOTStructureBase {
@@ -1636,10 +1420,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityJonosBracken(world), world, 0, 1, 2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.StoneHedge, 0, 1);
 		}
 	}
 
@@ -1665,10 +1445,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityAmoryLorch(world), world, 5, 1, 0);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Lannisport, -1, 0);
-		}
 	}
 
 	public static class LeoLefford extends GOTStructureBase {
@@ -1678,10 +1454,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityLeoLefford(world), world, 2, 1, 2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.GoldenTooth, 0, 1);
 		}
 	}
 
@@ -1693,10 +1465,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityLeytonHightower(world), world, 0, 26, -5);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.HightowerLitehouse);
-		}
 	}
 
 	public static class LyleCrakehall extends GOTStructureBase {
@@ -1706,10 +1474,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityLyleCrakehall(world), world, 2, 1, 2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Crakehall, -1, 0);
 		}
 	}
 
@@ -1721,10 +1485,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityLynCorbray(world), world, 2, 1, 2);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.HeartsHome);
-		}
 	}
 
 	public static class MaegeMormont extends GOTStructureBase {
@@ -1734,10 +1494,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityMaegeMormont(world), world, 0, 1, 2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.MormontsKeep);
 		}
 	}
 
@@ -1749,10 +1505,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityMaronVolmark(world), world, -2, 1, -2);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Volmark);
-		}
 	}
 
 	public static class MathisRowan extends GOTStructureBase {
@@ -1762,10 +1514,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityMathisRowan(world), world, 2, 1, 2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Goldengrove);
 		}
 	}
 
@@ -1777,10 +1525,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityMellario(world), world, 0, 1, 1);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Norvos, 0, -1);
-		}
 	}
 
 	public static class Moqorro extends GOTStructureBase {
@@ -1790,10 +1534,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityMoqorro(world), world, -1, 1, 0);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Volantis, -1, 0);
 		}
 	}
 
@@ -1805,10 +1545,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityOrtonMerryweather(world), world, 0, 1, 2);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Longtable);
-		}
 	}
 
 	public static class PaxterRedwyne extends GOTStructureBase {
@@ -1818,10 +1554,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityPaxterRedwyne(world), world, 0, 1, 5);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.StarfishHarbor);
 		}
 	}
 
@@ -1835,10 +1567,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityTheonGreyjoy.Normal(world), world, -2, 1, 2);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Pyke);
-		}
 	}
 
 	public static class QuennRoxton extends GOTStructureBase {
@@ -1848,10 +1576,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityQuennRoxton(world), world, 0, 1, 2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Ring);
 		}
 	}
 
@@ -1863,10 +1587,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityQuentenBanefort(world), world, 0, 1, 2);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Banefort);
-		}
 	}
 
 	public static class QuentynMartell extends GOTStructureBase {
@@ -1876,10 +1596,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityQuentynMartell(world), world, 0, 1, 2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Yronwood, 1, 0);
 		}
 	}
 
@@ -1891,10 +1607,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityQuentynQorgyle(world), world, 0, 1, 2);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Sandstone);
-		}
 	}
 
 	public static class RandyllTarly extends GOTStructureBase {
@@ -1905,10 +1617,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityRandyllTarly(world), world, 0, 1, 2);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.HornHill);
-		}
 	}
 
 	public static class RickardKarstark extends GOTStructureBase {
@@ -1918,10 +1626,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityRickardKarstark(world), world, 0, 1, 2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Karhold);
 		}
 	}
 
@@ -1937,10 +1641,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityCatelynStark(world), world, 2, 1, 0);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Riverrun, -1, 0);
-		}
 	}
 
 	public static class RodrikHarlaw extends GOTStructureBase {
@@ -1950,10 +1650,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityRodrikHarlaw(world), world, 0, 1, 2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.TenTowers);
 		}
 	}
 
@@ -1965,10 +1661,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityRodrikRyswell(world), world, 0, 1, 2);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.RisvellsCastle, 0, 1);
-		}
 	}
 
 	public static class SalladhorSaan extends GOTStructureBase {
@@ -1978,10 +1670,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntitySalladhorSaan(world), world, 0, 1, -1);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Lys);
 		}
 	}
 
@@ -1993,10 +1681,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntitySebastonFarman(world), world, 0, 1, 2);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Faircastle);
-		}
 	}
 
 	public static class SelwynTarth extends GOTStructureBase {
@@ -2006,10 +1690,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntitySelwynTarth(world), world, 0, 1, 2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.EvenfallHall);
 		}
 	}
 
@@ -2022,10 +1702,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityLorasTyrell(world), world, -2, 1, -2);
 			spawnLegendaryNPC(new GOTEntityBrienneTarth(world), world, -2, 1, 2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.StormsEnd);
 		}
 	}
 
@@ -2043,10 +1719,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityManfreyMartell(world), world, -3, 1, -3);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Sunspear);
-		}
 	}
 
 	public static class SymondTempleton extends GOTStructureBase {
@@ -2056,10 +1728,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntitySymondTempleton(world), world, 0, 1, 2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Ninestars);
 		}
 	}
 
@@ -2071,10 +1739,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityThreeEyedRaven(world), world, 0, 1, 0);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.ThreeEyedRavenCave);
-		}
 	}
 
 	public static class TugarKhan extends GOTStructureBase {
@@ -2084,10 +1748,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityTugarKhan(world), world, 0, 5, 3);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Hojdbaatar);
 		}
 	}
 
@@ -2100,10 +1760,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityLotharFrey(world), world, 4, 1, 0);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.TwinsLeft, 1, 0);
-		}
 	}
 
 	public static class TychoNestoris extends GOTStructureBase {
@@ -2113,10 +1769,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityTychoNestoris(world), world, 0, 1, 1);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Braavos, 0, -1);
 		}
 	}
 
@@ -2128,10 +1780,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityTytosBlackwood(world), world, 2, 1, 0);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.RaventreeHall);
-		}
 	}
 
 	public static class TytosBrax extends GOTStructureBase {
@@ -2141,10 +1789,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityTytosBrax(world), world, 0, 1, 2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Hornvale);
 		}
 	}
 
@@ -2156,10 +1800,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityWalderFrey(world), world, 5, 1, 0);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.TwinsRight, -2, 0);
-		}
 	}
 
 	public static class WilliamMooton extends GOTStructureBase {
@@ -2169,10 +1809,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityWilliamMooton(world), world, 0, 1, 2);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Maidenpool, 1, 0);
 		}
 	}
 
@@ -2190,10 +1826,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityOsha(world), world, 2, 1, 0);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Winterfell);
-		}
 	}
 
 	public static class WymanManderly extends GOTStructureBase {
@@ -2203,10 +1835,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityWymanManderly(world), world, 0, 1, 5);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.WhiteHarbour);
 		}
 	}
 
@@ -2218,10 +1846,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityXaroXhoanDaxos(world), world, 3, 1, 0);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Qarth, 0, 1);
-		}
 	}
 
 	public static class YohnRoyce extends GOTStructureBase {
@@ -2231,10 +1855,6 @@ public class GOTFixer {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityYohnRoyce(world), world, 2, 1, 0);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Runestone);
 		}
 	}
 
@@ -2246,10 +1866,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityYoungGriff(world), world, 0, 1, -1);
 			return true;
 		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Tyrosh);
-		}
 	}
 
 	public static class Yunkai extends GOTStructureBase {
@@ -2260,10 +1876,6 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityDaarioNaharis(world), world, -1, 1, 0);
 			spawnLegendaryNPC(new GOTEntityRazdalMoEraz(world), world, -1, 1, 1);
 			return true;
-		}
-
-		public static boolean fixedAt(int i, int k) {
-			return GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Yunkai, -1, 0);
 		}
 	}
 }

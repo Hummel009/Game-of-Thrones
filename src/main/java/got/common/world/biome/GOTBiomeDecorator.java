@@ -117,7 +117,7 @@ public class GOTBiomeDecorator {
 		new GOTStructureFiveFortsWall(false, GOTWaypoint.FiveForts3).generate(world, random, i, 0, k, 0);
 		new GOTStructureFiveFortsWall(false, GOTWaypoint.FiveForts4).generate(world, random, i, 0, k, 0);
 		new GOTStructureFiveFortsWall(false, GOTWaypoint.FiveForts5).generate(world, random, i, 0, k, 0);
-		if (GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.WhiteWood) || (GOTFixedStructures.fixedAtMapImageCoords(i, k, GOTWaypoint.Winterfell))) {
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.WhiteWood) || (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Winterfell))) {
 			((GOTWorldGenPartyTrees) GOTTreeType.WEIRWOOD.create(false, random)).disableRestrictions().generate(world, random, i + 50, world.getTopSolidOrLiquidBlock(i + 50, k), k);
 		}
 	}
