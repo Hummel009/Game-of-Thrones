@@ -11,10 +11,8 @@ public class GOTRoads {
 	public static int id = 0;
 	public RoadPoint[] roadPoints;
 	public List<RoadPoint> endpoints = new ArrayList<>();
-	public String roadName;
 
-	public GOTRoads(String name, RoadPoint... ends) {
-		roadName = name;
+	public GOTRoads(RoadPoint... ends) {
 		Collections.addAll(endpoints, ends);
 	}
 
@@ -230,20 +228,13 @@ public class GOTRoads {
 			if (obj instanceof GOTWaypoint) {
 				GOTWaypoint wp = (GOTWaypoint) obj;
 				points.add(new RoadPoint(wp.getXCoord(), wp.getZCoord(), true));
-				continue;
-			}
-			if (obj instanceof int[]) {
+			} else if (obj instanceof int[]) {
 				int[] coords = (int[]) obj;
-				if (coords.length == 2) {
-					points.add(new RoadPoint(GOTWaypoint.mapToWorldX(coords[0]), GOTWaypoint.mapToWorldZ(coords[1]), false));
-					continue;
-				}
-				throw new IllegalArgumentException("Coords length must be 2!");
+				points.add(new RoadPoint(GOTWaypoint.mapToWorldX(coords[0]), GOTWaypoint.mapToWorldZ(coords[1]), false));
 			}
-			throw new IllegalArgumentException("Wrong road parameter!");
 		}
 		RoadPoint[] array = points.toArray(new RoadPoint[0]);
-		GOTRoads[] roads = BezierCurves.getSplines("null", array);
+		GOTRoads[] roads = BezierCurves.getSplines(array);
 		allRoads.addAll(Arrays.asList(roads));
 	}
 
@@ -298,11 +289,11 @@ public class GOTRoads {
 			return new double[][] { p1, p2 };
 		}
 
-		public static GOTRoads[] getSplines(String name, RoadPoint[] waypoints) {
+		public static GOTRoads[] getSplines(RoadPoint[] waypoints) {
 			if (waypoints.length == 2) {
 				RoadPoint p1 = waypoints[0];
 				RoadPoint p2 = waypoints[1];
-				GOTRoads road = new GOTRoads(name, p1, p2);
+				GOTRoads road = new GOTRoads(p1, p2);
 				double dx = p2.x - p1.x;
 				double dz = p2.z - p1.z;
 				int roadLength = (int) Math.round(Math.sqrt(dx * dx + dz * dz));
@@ -341,7 +332,7 @@ public class GOTRoads {
 				RoadPoint p2 = waypoints[i + 1];
 				RoadPoint cp1 = controlPoints1[i];
 				RoadPoint cp2 = controlPoints2[i];
-				roads[i] = road = new GOTRoads(name, p1, p2);
+				roads[i] = road = new GOTRoads(p1, p2);
 				double dx = p2.x - p1.x;
 				double dz = p2.z - p1.z;
 				int roadLength = (int) Math.round(Math.sqrt(dx * dx + dz * dz));

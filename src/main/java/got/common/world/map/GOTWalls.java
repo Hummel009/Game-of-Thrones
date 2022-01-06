@@ -11,10 +11,8 @@ public class GOTWalls {
 	public static int id = 0;
 	public WallPoint[] wallPoints;
 	public List<WallPoint> endpoints = new ArrayList<>();
-	public String wallName;
 
-	public GOTWalls(String name, WallPoint... ends) {
-		wallName = name;
+	public GOTWalls(WallPoint... ends) {
 		Collections.addAll(endpoints, ends);
 	}
 
@@ -69,20 +67,13 @@ public class GOTWalls {
 			if (obj instanceof GOTWaypoint) {
 				GOTWaypoint wp = (GOTWaypoint) obj;
 				points.add(new WallPoint(wp.getXCoord(), wp.getZCoord(), true));
-				continue;
-			}
-			if (obj instanceof int[]) {
+			} else if (obj instanceof int[]) {
 				int[] coords = (int[]) obj;
-				if (coords.length == 2) {
-					points.add(new WallPoint(GOTWaypoint.mapToWorldX(coords[0]), GOTWaypoint.mapToWorldZ(coords[1]), false));
-					continue;
-				}
-				throw new IllegalArgumentException("Coords length must be 2!");
+				points.add(new WallPoint(GOTWaypoint.mapToWorldX(coords[0]), GOTWaypoint.mapToWorldZ(coords[1]), false));
 			}
-			throw new IllegalArgumentException("Wrong wall parameter!");
 		}
 		WallPoint[] array = points.toArray(new WallPoint[0]);
-		GOTWalls[] walls = BezierCurves.getSplines(null, array);
+		GOTWalls[] walls = BezierCurves.getSplines(array);
 		allWalls.addAll(Arrays.asList(walls));
 	}
 
@@ -137,11 +128,11 @@ public class GOTWalls {
 			return new double[][] { p1, p2 };
 		}
 
-		public static GOTWalls[] getSplines(String name, WallPoint[] waypoints) {
+		public static GOTWalls[] getSplines(WallPoint[] waypoints) {
 			if (waypoints.length == 2) {
 				WallPoint p1 = waypoints[0];
 				WallPoint p2 = waypoints[1];
-				GOTWalls wall = new GOTWalls(name, p1, p2);
+				GOTWalls wall = new GOTWalls(p1, p2);
 				double dx = p2.x - p1.x;
 				double dz = p2.z - p1.z;
 				int wallLength = (int) Math.round(Math.sqrt(dx * dx + dz * dz));
@@ -180,7 +171,7 @@ public class GOTWalls {
 				WallPoint p2 = waypoints[i + 1];
 				WallPoint cp1 = controlPoints1[i];
 				WallPoint cp2 = controlPoints2[i];
-				walls[i] = wall = new GOTWalls(name, p1, p2);
+				walls[i] = wall = new GOTWalls(p1, p2);
 				double dx = p2.x - p1.x;
 				double dz = p2.z - p1.z;
 				int wallLength = (int) Math.round(Math.sqrt(dx * dx + dz * dz));
