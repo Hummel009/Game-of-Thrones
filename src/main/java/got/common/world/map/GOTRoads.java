@@ -20,10 +20,6 @@ public class GOTRoads {
 		return null;
 	}
 
-	public static int[] ingameXZ(int ingameX, int ingameZ) {
-		return new int[] { (int) ((ingameX / 128) + 809.5D), (int) ((ingameZ / 128) + 729.5D) };
-	}
-
 	public static boolean isRoadAt(int x, int z) {
 		return GOTRoads.isRoadNear(x, z, 4) >= 0.0f;
 	}
@@ -120,11 +116,11 @@ public class GOTRoads {
 		GOTRoads.registerRoad(id++, GOTWaypoint.Kingsgrave, near(GOTWaypoint.Kingsgrave, -1, 0));
 		GOTRoads.registerRoad(id++, GOTWaypoint.Kosrak, near(GOTWaypoint.Kosrak, 1, 0));
 		GOTRoads.registerRoad(id++, GOTWaypoint.KrazaajHas, GOTWaypoint.VaesMejhah);
-		GOTRoads.registerRoad(id++, GOTWaypoint.KrazaajHas, ingameXZ(207427, 149867), GOTWaypoint.Hesh, GOTWaypoint.Lhazosh, new int[] { 2447, 2138 }, GOTWaypoint.VaesOrvik);
+		GOTRoads.registerRoad(id++, GOTWaypoint.KrazaajHas, new int[] { 2430, 1900 }, GOTWaypoint.Hesh, GOTWaypoint.Lhazosh, new int[] { 2447, 2138 }, GOTWaypoint.VaesOrvik);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Lannisport, near(GOTWaypoint.Lannisport, -1, 0));
 		GOTRoads.registerRoad(id++, GOTWaypoint.Lannisport, new int[] { 371, 1622 }, GOTWaypoint.Crakehall);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Lannisport, new int[] { 477, 1572 }, new int[] { 526, 1598 }, new int[] { 570, 1625 }, new int[] { 656, 1606 }, new int[] { 710, 1633 }, GOTWaypoint.KingsLanding);
-		GOTRoads.registerRoad(id++, GOTWaypoint.Lhazosh, ingameXZ(216131, 159723), GOTWaypoint.Kosrak);
+		GOTRoads.registerRoad(id++, GOTWaypoint.Lhazosh, new int[] { 2498, 1977 }, GOTWaypoint.Kosrak);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Lhazosh, near(GOTWaypoint.Lhazosh, -1, 0));
 		GOTRoads.registerRoad(id++, GOTWaypoint.LittleValyria, GOTWaypoint.ValyrianRoad);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Lizhao, near(GOTWaypoint.Lizhao, 1, 0));
@@ -132,10 +128,10 @@ public class GOTRoads {
 		GOTRoads.registerRoad(id++, GOTWaypoint.Manjin, near(GOTWaypoint.Manjin, 1, 0));
 		GOTRoads.registerRoad(id++, GOTWaypoint.Mantarys, new int[] { 1831, 2092 }, GOTWaypoint.Oros);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Meereen, GOTWaypoint.KrazaajHas);
-		GOTRoads.registerRoad(id++, GOTWaypoint.Meereen, ingameXZ(183429, 153350), ingameXZ(175749, 153350), GOTWaypoint.Bhorash);
+		GOTRoads.registerRoad(id++, GOTWaypoint.Meereen, new int[] { 2243, 1928}, new int[] { 2183, 2103}, GOTWaypoint.Bhorash);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Meereen, near(GOTWaypoint.Meereen, -9, 55), new int[] { 2219, 2124 }, GOTWaypoint.Astapor);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Moletown, new int[] { 747, 742 }, new int[] { 711, 783 }, new int[] { 672, 826 }, near(GOTWaypoint.Winterfell, 0, -1));
-		GOTRoads.registerRoad(id++, GOTWaypoint.Myr, ingameXZ(67636, 146432), GOTWaypoint.Chroyane);
+		GOTRoads.registerRoad(id++, GOTWaypoint.Myr, new int[] { 1338, 1874}, GOTWaypoint.Chroyane);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Nightsong, near(GOTWaypoint.Nightsong, 0, 1));
 		GOTRoads.registerRoad(id++, GOTWaypoint.OldOak, near(GOTWaypoint.OldOak, -1, 0));
 		GOTRoads.registerRoad(id++, GOTWaypoint.OldOak, new int[] { 438, 1773 }, GOTWaypoint.Highgarden);
@@ -391,7 +387,7 @@ public class GOTRoads {
 		}
 
 		public List<RoadPoint> getRoadList(int xKey, int zKey, boolean addToMap) {
-			Pair key = Pair.of((Object) xKey, (Object) zKey);
+			Pair<Integer, Integer> key = Pair.of(xKey, zKey);
 			List<RoadPoint> list = pointMap.get(key);
 			if (list == null) {
 				list = new ArrayList<>();

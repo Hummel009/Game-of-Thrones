@@ -230,7 +230,7 @@ public class GOTWalls {
 		}
 
 		public List<WallPoint> getWallList(int xKey, int zKey, boolean addToMap) {
-			Pair key = Pair.of((Object) xKey, (Object) zKey);
+			Pair<Integer, Integer> key = Pair.of(xKey, zKey);
 			List<WallPoint> list = pointMap.get(key);
 			if (list == null) {
 				list = new ArrayList<>();
