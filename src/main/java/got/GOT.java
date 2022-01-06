@@ -250,7 +250,7 @@ public class GOT {
 		GOTBlockReplacement.replaceVanillaItem(Items.cake, new GOTItemPlaceableFood(Blocks.cake).setTextureName("cake").setCreativeTab(CreativeTabs.tabFood));
 		GOTBlockReplacement.replaceVanillaItem(Items.potionitem, new GOTItemPotion().setTextureName("potion"));
 		GOTBlockReplacement.replaceVanillaItem(Items.glass_bottle, new GOTItemGlassBottle().setTextureName("potion_bottle_empty"));
-		GOTConfig.setupAndLoad(event);
+		GOTConfig.setupAndLoad();
 		GOTRegistry.assignContent();
 		GOTRegistry.assignMetadata();
 		GOTRegistry.registerBlocks();

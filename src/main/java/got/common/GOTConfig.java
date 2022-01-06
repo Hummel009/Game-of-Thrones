@@ -5,7 +5,6 @@ import java.util.*;
 
 import cpw.mods.fml.client.config.IConfigElement;
 import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import got.common.util.GOTModChecker;
 import net.minecraft.world.World;
 import net.minecraftforge.common.config.*;
@@ -206,12 +205,12 @@ public class GOTConfig {
 	}
 
 	public static void setStructureTimelapseInterval(int i) {
-		strTimelapseInterval = i = Math.max(i, 0);
+		strTimelapseInterval = i;
 		config.getCategory(CATEGORY_MISC).get("Structure Timelapse Interval").set(strTimelapseInterval);
 		config.save();
 	}
 
-	public static void setupAndLoad(FMLPreInitializationEvent event) {
+	public static void setupAndLoad() {
 		config = new Configuration(new File("config", "GOT.cfg"));
 		GOTConfig.load();
 	}

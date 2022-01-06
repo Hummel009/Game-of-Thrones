@@ -32,7 +32,7 @@ CHANGELOG
 * Fixed bug with Yi Ti cities
 * Fixed bug with valyrian smelting
 
-- Removed Kitra achievement
+- Removed Kitra's achievement
 - Removed Kitra
 - Removed Kitra's Camp waypoint
 - Removed 28 technical biomes
