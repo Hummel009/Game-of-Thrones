@@ -29,7 +29,7 @@ public class GOTStructureFiveFortsTower extends GOTVillageGen {
 
 		@Override
 		public void addVillageStructures(Random random) {
-			this.addStructure(new Tower(false), 0, 0, 0, true);
+			this.addStructure(new Tower(), 0, 0, 0, true);
 		}
 
 		@Override
@@ -48,15 +48,11 @@ public class GOTStructureFiveFortsTower extends GOTVillageGen {
 	}
 
 	public static class Tower extends GOTStructureBase {
-		public Tower(boolean flag) {
-			super(flag);
-		}
-
+		
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			rotationMode = 2;
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
-			setupRandomBlocks(random);
 			loadStrScan("lighthouse");
 			associateBlockMetaAlias("BRICK", GOTRegistry.brick2, 11);
 			generateStrScan(world, random, 0, 0, 0);

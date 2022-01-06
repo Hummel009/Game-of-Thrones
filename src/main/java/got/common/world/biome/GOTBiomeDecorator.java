@@ -9,7 +9,7 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.*;
 import got.common.world.fixed.*;
 import got.common.world.map.*;
-import got.common.world.structure.other.*;
+import got.common.world.structure.other.GOTVillageGen;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
@@ -386,9 +386,10 @@ public class GOTBiomeDecorator {
 		this.decorate();
 		if (!GOTConfig.clearMap) {
 			addSpecialStructures(world, random, i, k);
-			GOTStructureBase structure = GOTFixer.getFixedStructure(i, k);
-			if (structure != null) {
-				structure.generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k), k, 0);
+			for (GOTWaypoint wp : GOTFixer.affixes.keySet()) {
+				if (GOTFixedStructures.fixedAt(i, k, wp)) {
+					GOTFixer.affixes.get(wp).generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k), k, 0);
+				}
 			}
 		}
 	}

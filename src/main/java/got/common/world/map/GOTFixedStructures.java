@@ -67,20 +67,8 @@ public enum GOTFixedStructures {
 	}
 
 	public static boolean fixedAt(int i, int k, GOTWaypoint waypoint) {
-		int x = GOTWaypoint.mapToWorldX(waypoint.imgX);
-		int z = GOTWaypoint.mapToWorldZ(waypoint.imgY);
-		return GOTFixedStructures.fixedAtfixedAtMapImageCoords(i, k, x, z);
-	}
-
-	public static boolean fixedAt(int i, int k, GOTWaypoint waypoint, int a, int b) {
-		int x = GOTWaypoint.mapToWorldX(waypoint.imgX + a);
-		int z = GOTWaypoint.mapToWorldZ(waypoint.imgY + b);
-		return GOTFixedStructures.fixedAtfixedAtMapImageCoords(i, k, x, z);
-	}
-
-	public static boolean fixedAt(int i, int k, int x, int z) {
-		x = GOTWaypoint.mapToWorldX(x);
-		z = GOTWaypoint.mapToWorldZ(z);
+		int x = GOTWaypoint.mapToWorldX(waypoint.pseudoX);
+		int z = GOTWaypoint.mapToWorldZ(waypoint.pseudoY);
 		return GOTFixedStructures.fixedAtfixedAtMapImageCoords(i, k, x, z);
 	}
 
