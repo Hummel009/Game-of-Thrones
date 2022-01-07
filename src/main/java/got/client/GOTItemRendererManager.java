@@ -30,27 +30,25 @@ public class GOTItemRendererManager implements IResourceManagerReloadListener {
 		try {
 			for (Field field : GOTRegistry.class.getFields()) {
 				boolean isLarge;
-				if (!(field.get(null) instanceof Item)) {
-					continue;
+				if ((field.get(null) instanceof Item)) {
+					Item item = (Item) field.get(null);
+					MinecraftForgeClient.registerItemRenderer(item, null);
+					GOTRenderLargeItem largeItemRenderer = GOTRenderLargeItem.getRendererIfLarge(item);
+					isLarge = largeItemRenderer != null;
+					if (item instanceof GOTItemCrossbow) {
+						MinecraftForgeClient.registerItemRenderer(item, new GOTRenderCrossbow());
+					} else if (item instanceof GOTItemBow) {
+						MinecraftForgeClient.registerItemRenderer(item, new GOTRenderBow(largeItemRenderer));
+					} else if (item instanceof GOTItemSword && ((GOTItemSword) item).isGlowing()) {
+						double d = 24.0;
+						MinecraftForgeClient.registerItemRenderer(item, new GOTRenderBlade(d, largeItemRenderer));
+					} else if (isLarge) {
+						MinecraftForgeClient.registerItemRenderer(item, largeItemRenderer);
+					}
+					if (largeItemRenderer != null) {
+						largeItemRenderers.add(largeItemRenderer);
+					}
 				}
-				Item item = (Item) field.get(null);
-				MinecraftForgeClient.registerItemRenderer(item, null);
-				GOTRenderLargeItem largeItemRenderer = GOTRenderLargeItem.getRendererIfLarge(item);
-				isLarge = largeItemRenderer != null;
-				if (item instanceof GOTItemCrossbow) {
-					MinecraftForgeClient.registerItemRenderer(item, new GOTRenderCrossbow());
-				} else if (item instanceof GOTItemBow) {
-					MinecraftForgeClient.registerItemRenderer(item, new GOTRenderBow(largeItemRenderer));
-				} else if (item instanceof GOTItemSword && ((GOTItemSword) item).isGlowing()) {
-					double d = 24.0;
-					MinecraftForgeClient.registerItemRenderer(item, new GOTRenderBlade(d, largeItemRenderer));
-				} else if (isLarge) {
-					MinecraftForgeClient.registerItemRenderer(item, largeItemRenderer);
-				}
-				if (largeItemRenderer == null) {
-					continue;
-				}
-				largeItemRenderers.add(largeItemRenderer);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

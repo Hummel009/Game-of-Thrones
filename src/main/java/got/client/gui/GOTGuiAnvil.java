@@ -80,11 +80,10 @@ public class GOTGuiAnvil extends GuiContainer {
 		if (theAnvil.invOutput.getStackInSlot(0) == null) {
 			boolean flag = false;
 			for (int l = 0; l < theAnvil.invInput.getSizeInventory(); ++l) {
-				if (theAnvil.invInput.getStackInSlot(l) == null) {
-					continue;
+				if (theAnvil.invInput.getStackInSlot(l) != null) {
+					flag = true;
+					break;
 				}
-				flag = true;
-				break;
 			}
 			if (flag) {
 				drawTexturedModalRect(guiLeft + 99, guiTop + 56, xSize, 0, 28, 21);
@@ -184,11 +183,10 @@ public class GOTGuiAnvil extends GuiContainer {
 		List<EnumChatFormatting> itemNameFormatting = theAnvil.getActiveItemNameFormatting();
 		for (EnumChatFormatting formatting : itemNameFormatting) {
 			int formattingID = formatting.ordinal();
-			if (!formatting.isColor() || formattingID >= colorCodes.length) {
-				continue;
+			if (!(!formatting.isColor() || formattingID >= colorCodes.length)) {
+				int color = colorCodes[formattingID];
+				textFieldRename.setTextColor(color);
 			}
-			int color = colorCodes[formattingID];
-			textFieldRename.setTextColor(color);
 		}
 		textFieldRename.drawTextBox();
 		textFieldRename.setTextColor(-1);

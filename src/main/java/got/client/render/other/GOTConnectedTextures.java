@@ -50,33 +50,31 @@ public class GOTConnectedTextures {
 			int key = entry.getKey();
 			Set<IconElement> set = entry.getValue();
 			List<IconElement> list = IconElement.sortIconSet(set);
-			if (!includeNoBase && !list.contains(IconElement.BASE)) {
-				continue;
-			}
-			String iconName = modID + ":textures/blocks/" + baseIconName + "_" + key;
-			if (textureMap.getTextureExtry(iconName) != null) {
-				FMLLog.severe("Icon is already registered for %s", iconName);
-				continue;
-			}
-			BufferedImage iconImage = new BufferedImage(iconWidth, iconHeight, 2);
-			for (IconElement e : list) {
-				BufferedImage baseIconImage = iconElementMap.get(e);
-				for (int i = 0; i < iconImage.getWidth(); ++i) {
-					for (int j = 0; j < iconImage.getHeight(); ++j) {
-						int rgb = baseIconImage.getRGB(i, j);
-						int alpha = rgb & 0xFF000000;
-						if (alpha == 0) {
-							continue;
+			if ((includeNoBase || list.contains(IconElement.BASE))) {
+				String iconName = modID + ":textures/blocks/" + baseIconName + "_" + key;
+				if (textureMap.getTextureExtry(iconName) != null) {
+					FMLLog.severe("Icon is already registered for %s", iconName);
+					continue;
+				}
+				BufferedImage iconImage = new BufferedImage(iconWidth, iconHeight, 2);
+				for (IconElement e : list) {
+					BufferedImage baseIconImage = iconElementMap.get(e);
+					for (int i = 0; i < iconImage.getWidth(); ++i) {
+						for (int j = 0; j < iconImage.getHeight(); ++j) {
+							int rgb = baseIconImage.getRGB(i, j);
+							int alpha = rgb & 0xFF000000;
+							if (alpha != 0) {
+								iconImage.setRGB(i, j, rgb);
+							}
 						}
-						iconImage.setRGB(i, j, rgb);
 					}
 				}
+				GOTBufferedImageIcon icon = new GOTBufferedImageIcon(iconName, iconImage);
+				icon.setIconWidth(iconImage.getWidth());
+				icon.setIconHeight(iconImage.getHeight());
+				textureMap.setTextureEntry(iconName, icon);
+				iconsMap.put(key, icon);
 			}
-			GOTBufferedImageIcon icon = new GOTBufferedImageIcon(iconName, iconImage);
-			icon.setIconWidth(iconImage.getWidth());
-			icon.setIconHeight(iconImage.getHeight());
-			textureMap.setTextureEntry(iconName, icon);
-			iconsMap.put(key, icon);
 		}
 		blockIconsMap.put(blockName, iconsMap);
 	}

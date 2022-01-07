@@ -64,11 +64,10 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 			} catch (ArrayIndexOutOfBoundsException e) {
 				rec.getResult().setPermutationToRender(0);
 			}
-			if (!NEIServerUtils.areStacksSameType((rec.getResult().item), result)) {
-				continue;
+			if (NEIServerUtils.areStacksSameType((rec.getResult().item), result)) {
+				rec.fixedResult = true;
+				arecipes.add(rec);
 			}
-			rec.fixedResult = true;
-			arecipes.add(rec);
 		}
 	}
 
@@ -84,13 +83,12 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 		for (int i = 0; i < barrelRecipes.size(); ++i) {
 			List<PositionedStack> ingreds;
 			CachedBarrelRecipe recipe = barrelRecipes.get(i);
-			if (!recipe.contains(ingreds = recipe.getIngredients(), ingredient)) {
-				continue;
+			if (recipe.contains(ingreds = recipe.getIngredients(), ingredient)) {
+				recipe.setIngredientPermutation(ingreds, ingredient);
+				recipe.fixedResult = false;
+				recipe.getResult().setPermutationToRender(0);
+				arecipes.add(recipe);
 			}
-			recipe.setIngredientPermutation(ingreds, ingredient);
-			recipe.fixedResult = false;
-			recipe.getResult().setPermutationToRender(0);
-			arecipes.add(recipe);
 		}
 	}
 

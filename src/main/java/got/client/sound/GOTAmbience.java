@@ -127,30 +127,27 @@ public class GOTAmbience {
 						int i1 = i + MathHelper.getRandomIntegerInRange(rand, (-xzRange), xzRange);
 						int k1 = k + MathHelper.getRandomIntegerInRange(rand, (-xzRange), xzRange);
 						int j1 = j + MathHelper.getRandomIntegerInRange(rand, -16, 16);
-						if (j1 < minWindHeight || !world.canBlockSeeTheSky(i1, j1, k1)) {
-							continue;
+						if (((j1 >= minWindHeight) && world.canBlockSeeTheSky(i1, j1, k1))) {
+							float windiness = (float) (j1 - minWindHeight) / (float) (fullWindHeight - minWindHeight);
+							if (((windiness = MathHelper.clamp_float(windiness, 0.0f, 1.0f)) >= rand.nextFloat())) {
+								float x1 = i1 + 0.5f;
+								float y1 = j1 + 0.5f;
+								float z1 = k1 + 0.5f;
+								float vol = 1.0f * Math.max(0.25f, windiness);
+								float pitch = 0.8f + rand.nextFloat() * 0.4f;
+								AmbientSoundNoAttentuation wind = new AmbientSoundNoAttentuation(new ResourceLocation("got:ambient.weather.wind"), vol, pitch, x1, y1, z1).calcAmbientVolume(entityplayer, xzRange);
+								mc.getSoundHandler().playSound(wind);
+								playingWindSounds.add(wind);
+								break;
+							}
 						}
-						float windiness = (float) (j1 - minWindHeight) / (float) (fullWindHeight - minWindHeight);
-						if ((windiness = MathHelper.clamp_float(windiness, 0.0f, 1.0f)) < rand.nextFloat()) {
-							continue;
-						}
-						float x1 = i1 + 0.5f;
-						float y1 = j1 + 0.5f;
-						float z1 = k1 + 0.5f;
-						float vol = 1.0f * Math.max(0.25f, windiness);
-						float pitch = 0.8f + rand.nextFloat() * 0.4f;
-						AmbientSoundNoAttentuation wind = new AmbientSoundNoAttentuation(new ResourceLocation("got:ambient.weather.wind"), vol, pitch, x1, y1, z1).calcAmbientVolume(entityplayer, xzRange);
-						mc.getSoundHandler().playSound(wind);
-						playingWindSounds.add(wind);
-						break;
 					}
 				} else {
 					HashSet<ISound> removes = new HashSet<>();
 					for (ISound wind : playingWindSounds) {
-						if (mc.getSoundHandler().isSoundPlaying(wind)) {
-							continue;
+						if (!mc.getSoundHandler().isSoundPlaying(wind)) {
+							removes.add(wind);
 						}
-						removes.add(wind);
 					}
 					playingWindSounds.removeAll(removes);
 				}
@@ -166,54 +163,51 @@ public class GOTAmbience {
 								int k1 = k + MathHelper.getRandomIntegerInRange(rand, (-range), range);
 								int j1 = j + MathHelper.getRandomIntegerInRange(rand, -16, 8);
 								Block block = world.getBlock(i1, j1, k1);
-								if (block.getMaterial() != Material.water || j1 < world.getTopSolidOrLiquidBlock(i1, k1)) {
-									continue;
-								}
-								float x1 = i1 + 0.5f;
-								float y1 = j1 + 0.5f;
-								float z1 = k1 + 0.5f;
-								float vol = 1.0f;
-								float pitch = 0.8f + rand.nextFloat() * 0.4f;
-								AmbientSoundNoAttentuation sea = new AmbientSoundNoAttentuation(new ResourceLocation("got:ambient.terrain.sea"), vol, pitch, x1, y1, z1).calcAmbientVolume(entityplayer, xzRange);
-								mc.getSoundHandler().playSound(sea);
-								playingSeaSounds.add(sea);
-								int j2 = world.getHeightValue(i1, k1) - 1;
-								if (world.getBlock(i1, j2, k1).getMaterial() == Material.water) {
-									double dx = i1 + 0.5 - entityplayer.posX;
-									double dz = k1 + 0.5 - entityplayer.posZ;
-									float angle = (float) Math.atan2(dz, dx);
-									float cos = MathHelper.cos(angle);
-									float sin = MathHelper.sin(angle);
-									float angle90 = angle + (float) Math.toRadians(-90.0);
-									float cos90 = MathHelper.cos(angle90);
-									float sin90 = MathHelper.sin(angle90);
-									float waveSpeed = MathHelper.randomFloatClamp(rand, 0.3f, 0.5f);
-									int waveR = 40 + rand.nextInt(100);
-									for (int w = -waveR; w <= waveR; ++w) {
-										float f = w / 8.0f;
-										double d0 = i1 + 0.5;
-										double d1 = j2 + 1.0 + MathHelper.randomFloatClamp(rand, 0.02f, 0.1f);
-										double d2 = k1 + 0.5;
-										if (world.getBlock(MathHelper.floor_double(d0 += f * cos90), MathHelper.floor_double(d1) - 1, MathHelper.floor_double(d2 += f * sin90)).getMaterial() != Material.water) {
-											continue;
+								if (((block.getMaterial() == Material.water) && (j1 >= world.getTopSolidOrLiquidBlock(i1, k1)))) {
+									float x1 = i1 + 0.5f;
+									float y1 = j1 + 0.5f;
+									float z1 = k1 + 0.5f;
+									float vol = 1.0f;
+									float pitch = 0.8f + rand.nextFloat() * 0.4f;
+									AmbientSoundNoAttentuation sea = new AmbientSoundNoAttentuation(new ResourceLocation("got:ambient.terrain.sea"), vol, pitch, x1, y1, z1).calcAmbientVolume(entityplayer, xzRange);
+									mc.getSoundHandler().playSound(sea);
+									playingSeaSounds.add(sea);
+									int j2 = world.getHeightValue(i1, k1) - 1;
+									if (world.getBlock(i1, j2, k1).getMaterial() == Material.water) {
+										double dx = i1 + 0.5 - entityplayer.posX;
+										double dz = k1 + 0.5 - entityplayer.posZ;
+										float angle = (float) Math.atan2(dz, dx);
+										float cos = MathHelper.cos(angle);
+										float sin = MathHelper.sin(angle);
+										float angle90 = angle + (float) Math.toRadians(-90.0);
+										float cos90 = MathHelper.cos(angle90);
+										float sin90 = MathHelper.sin(angle90);
+										float waveSpeed = MathHelper.randomFloatClamp(rand, 0.3f, 0.5f);
+										int waveR = 40 + rand.nextInt(100);
+										for (int w = -waveR; w <= waveR; ++w) {
+											float f = w / 8.0f;
+											double d0 = i1 + 0.5;
+											double d1 = j2 + 1.0 + MathHelper.randomFloatClamp(rand, 0.02f, 0.1f);
+											double d2 = k1 + 0.5;
+											if ((world.getBlock(MathHelper.floor_double(d0 += f * cos90), MathHelper.floor_double(d1) - 1, MathHelper.floor_double(d2 += f * sin90)).getMaterial() == Material.water)) {
+												double d3 = waveSpeed * -cos;
+												double d4 = 0.0;
+												double d5 = waveSpeed * -sin;
+												GOT.proxy.spawnParticle("wave", d0, d1, d2, d3, d4, d5);
+											}
 										}
-										double d3 = waveSpeed * -cos;
-										double d4 = 0.0;
-										double d5 = waveSpeed * -sin;
-										GOT.proxy.spawnParticle("wave", d0, d1, d2, d3, d4, d5);
 									}
+									break block42;
 								}
-								break block42;
 							}
 						}
 					}
 				} else {
 					HashSet<ISound> removes = new HashSet<>();
 					for (ISound sea : playingSeaSounds) {
-						if (mc.getSoundHandler().isSoundPlaying(sea)) {
-							continue;
+						if (!mc.getSoundHandler().isSoundPlaying(sea)) {
+							removes.add(sea);
 						}
-						removes.add(sea);
 					}
 					playingSeaSounds.removeAll(removes);
 				}

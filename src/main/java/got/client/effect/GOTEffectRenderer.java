@@ -52,32 +52,30 @@ public class GOTEffectRenderer {
 		EntityFX.interpPosZ = entity.lastTickPosZ + (entity.posZ - entity.lastTickPosZ) * f;
 		for (int l = 0; l < particleLayers.length; ++l) {
 			List<EntityFX> layer = particleLayers[l];
-			if (layer.isEmpty()) {
-				continue;
-			}
-			if (l == 0) {
-				mc.getTextureManager().bindTexture(GOTClientProxy.particlesTexture);
-			} else if (l == 1) {
-				mc.getTextureManager().bindTexture(GOTClientProxy.particles2Texture);
-			}
-			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-			GL11.glDepthMask(false);
-			GL11.glEnable(3042);
-			GL11.glBlendFunc(770, 771);
-			GL11.glAlphaFunc(516, 0.003921569f);
-			Tessellator tessellator = Tessellator.instance;
-			tessellator.startDrawingQuads();
-			for (EntityFX particle : layer) {
-				if (particle == null) {
-					continue;
+			if (!layer.isEmpty()) {
+				if (l == 0) {
+					mc.getTextureManager().bindTexture(GOTClientProxy.particlesTexture);
+				} else if (l == 1) {
+					mc.getTextureManager().bindTexture(GOTClientProxy.particles2Texture);
 				}
-				tessellator.setBrightness(particle.getBrightnessForRender(f));
-				particle.renderParticle(tessellator, f, f1, f5, f2, f3, f4);
+				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+				GL11.glDepthMask(false);
+				GL11.glEnable(3042);
+				GL11.glBlendFunc(770, 771);
+				GL11.glAlphaFunc(516, 0.003921569f);
+				Tessellator tessellator = Tessellator.instance;
+				tessellator.startDrawingQuads();
+				for (EntityFX particle : layer) {
+					if (particle != null) {
+						tessellator.setBrightness(particle.getBrightnessForRender(f));
+						particle.renderParticle(tessellator, f, f1, f5, f2, f3, f4);
+					}
+				}
+				tessellator.draw();
+				GL11.glDisable(3042);
+				GL11.glDepthMask(true);
+				GL11.glAlphaFunc(516, 0.1f);
 			}
-			tessellator.draw();
-			GL11.glDisable(3042);
-			GL11.glDepthMask(true);
-			GL11.glAlphaFunc(516, 0.1f);
 		}
 	}
 
@@ -88,10 +86,9 @@ public class GOTEffectRenderer {
 				if (particle != null) {
 					particle.onUpdate();
 				}
-				if (particle != null && !particle.isDead) {
-					continue;
+				if (((particle == null) || particle.isDead)) {
+					layer.remove(i--);
 				}
-				layer.remove(i--);
 			}
 		}
 	}

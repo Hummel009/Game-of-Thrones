@@ -28,10 +28,9 @@ public class GOTRegionTrackPool {
 		Iterator<GOTMusicTrack> it = sortedTracks.iterator();
 		GOTMusicTrack track = null;
 		do {
-			if (it.hasNext()) {
-				continue;
+			if (!it.hasNext()) {
+				return track;
 			}
-			return track;
 		} while ((randWeight -= (track = it.next()).getRegionInfo(region).getWeight()) >= 0.0);
 		return track;
 	}

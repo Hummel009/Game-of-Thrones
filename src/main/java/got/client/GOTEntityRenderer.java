@@ -42,35 +42,25 @@ public class GOTEntityRenderer extends EntityRenderer {
 			for (Object entitie : entities) {
 				double entityDist;
 				Entity entity = (Entity) entitie;
-				if (!entity.canBeCollidedWith()) {
-					continue;
-				}
-				float f = entity.getCollisionBorderSize();
-				AxisAlignedBB entityBB = entity.boundingBox.expand(f, f, f);
-				MovingObjectPosition movingobjectposition = entityBB.calculateIntercept(posVec, sightVec);
-				if (entityBB.isVecInside(posVec)) {
-					if (0.0 >= leastDist && leastDist != 0.0) {
-						continue;
+				if (entity.canBeCollidedWith()) {
+					float f = entity.getCollisionBorderSize();
+					AxisAlignedBB entityBB = entity.boundingBox.expand(f, f, f);
+					MovingObjectPosition movingobjectposition = entityBB.calculateIntercept(posVec, sightVec);
+					if (entityBB.isVecInside(posVec) && ((0.0 < leastDist) || (leastDist == 0.0))) {
+						thePointedEntity = entity;
+						targetVec = movingobjectposition == null ? posVec : movingobjectposition.hitVec;
+						leastDist = 0.0;
+					} else if (((movingobjectposition != null) && (((entityDist = posVec.distanceTo(movingobjectposition.hitVec)) < leastDist) || (leastDist == 0.0)))) {
+						if ((entity.equals(theMC.renderViewEntity.ridingEntity) && !entity.canRiderInteract()) && (leastDist == 0.0)) {
+							thePointedEntity = entity;
+							targetVec = movingobjectposition.hitVec;
+						} else {
+							thePointedEntity = entity;
+							targetVec = movingobjectposition.hitVec;
+							leastDist = entityDist;
+						}
 					}
-					thePointedEntity = entity;
-					targetVec = movingobjectposition == null ? posVec : movingobjectposition.hitVec;
-					leastDist = 0.0;
-					continue;
 				}
-				if (movingobjectposition == null || (entityDist = posVec.distanceTo(movingobjectposition.hitVec)) >= leastDist && leastDist != 0.0) {
-					continue;
-				}
-				if (entity == theMC.renderViewEntity.ridingEntity && !entity.canRiderInteract()) {
-					if (leastDist != 0.0) {
-						continue;
-					}
-					thePointedEntity = entity;
-					targetVec = movingobjectposition.hitVec;
-					continue;
-				}
-				thePointedEntity = entity;
-				targetVec = movingobjectposition.hitVec;
-				leastDist = entityDist;
 			}
 			if (thePointedEntity != null && (leastDist < maxDist || theMC.objectMouseOver == null)) {
 				theMC.objectMouseOver = new MovingObjectPosition(thePointedEntity, targetVec);

@@ -85,18 +85,18 @@ public class GOTRenderCamel extends RenderLiving {
 						int aOverlay = argbOverlay >> 24 & 0xFF;
 						if (aOverlay > 0) {
 							imgDyed.setRGB(i, j, argbOverlay);
-							continue;
+						} else {
+							int argb = imgBase.getRGB(i, j);
+							int a = argb >> 24 & 0xFF;
+							int r = argb >> 16 & 0xFF;
+							int g = argb >> 8 & 0xFF;
+							int b = argb & 0xFF;
+							r = r * carpetR / 255;
+							g = g * carpetG / 255;
+							b = b * carpetB / 255;
+							int dyed = a << 24 | r << 16 | g << 8 | b;
+							imgDyed.setRGB(i, j, dyed);
 						}
-						int argb = imgBase.getRGB(i, j);
-						int a = argb >> 24 & 0xFF;
-						int r = argb >> 16 & 0xFF;
-						int g = argb >> 8 & 0xFF;
-						int b = argb & 0xFF;
-						r = r * carpetR / 255;
-						g = g * carpetG / 255;
-						b = b * carpetB / 255;
-						int dyed = a << 24 | r << 16 | g << 8 | b;
-						imgDyed.setRGB(i, j, dyed);
 					}
 				}
 				res = mc.renderEngine.getDynamicTextureLocation(path, new DynamicTexture(imgDyed));

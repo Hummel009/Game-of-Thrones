@@ -112,18 +112,16 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		int y = windowY + 32;
 		mouseOverPermission = null;
 		for (GOTBannerProtection.Permission p : GOTBannerProtection.Permission.values()) {
-			if (!includeFull && p == GOTBannerProtection.Permission.FULL) {
-				continue;
+			if ((includeFull || (p != GOTBannerProtection.Permission.FULL))) {
+				if (i >= x && i < x + 10 && j >= y && j < y + 10) {
+					mouseOverPermission = p;
+				}
+				this.drawTexturedModalRect(x, y, 200 + ((getEnabled.apply(p)) ? 0 : 20) + (mouseOverPermission == p ? 10 : 0), 160 + p.ordinal() * 10, 10, 10);
+				x += 14;
+				if (p == GOTBannerProtection.Permission.FULL) {
+					x += 4;
+				}
 			}
-			if (i >= x && i < x + 10 && j >= y && j < y + 10) {
-				mouseOverPermission = p;
-			}
-			this.drawTexturedModalRect(x, y, 200 + ((getEnabled.apply(p)) ? 0 : 20) + (mouseOverPermission == p ? 10 : 0), 160 + p.ordinal() * 10, 10, 10);
-			x += 14;
-			if (p != GOTBannerProtection.Permission.FULL) {
-				continue;
-			}
-			x += 4;
 		}
 		if (mouseOverPermission != null) {
 			String permName = StatCollector.translateToLocal("got.gui.bannerEdit.perm." + mouseOverPermission.codeName);
@@ -173,20 +171,18 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 				textBox.drawTextBox();
 				String number = index + 1 + ".";
 				fontRendererObj.drawString(number, guiLeft + 24 - fontRendererObj.getStringWidth(number), textBox.yPosition + 6, 4210752);
-				if (index <= 0 || !validatedUsernames[index]) {
-					continue;
+				if (((index > 0) && validatedUsernames[index])) {
+					mc.getTextureManager().bindTexture(bannerTexture);
+					GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+					int permX = textBox.xPosition + textBox.width + permIconX;
+					int permY = textBox.yPosition + permIconY;
+					boolean mouseOver = i >= permX && i < permX + permIconWidth && j >= permY && j < permY + permIconWidth;
+					this.drawTexturedModalRect(permX, permY, 200 + (mouseOver ? permIconWidth : 0), 150, permIconWidth, permIconWidth);
+					if (mouseOver) {
+						permissionsMouseoverIndex = index;
+						permissionsMouseoverY = textBox.yPosition;
+					}
 				}
-				mc.getTextureManager().bindTexture(bannerTexture);
-				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-				int permX = textBox.xPosition + textBox.width + permIconX;
-				int permY = textBox.yPosition + permIconY;
-				boolean mouseOver = i >= permX && i < permX + permIconWidth && j >= permY && j < permY + permIconWidth;
-				this.drawTexturedModalRect(permX, permY, 200 + (mouseOver ? permIconWidth : 0), 150, permIconWidth, permIconWidth);
-				if (!mouseOver) {
-					continue;
-				}
-				permissionsMouseoverIndex = index;
-				permissionsMouseoverY = textBox.yPosition;
 			}
 			if (hasScrollBar()) {
 				mc.getTextureManager().bindTexture(bannerTexture);
@@ -343,14 +339,13 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		}
 		for (int l = 1; l < allowedPlayers.length; ++l) {
 			GuiTextField textBox = allowedPlayers[l];
-			if (!textBox.getVisible() || !textBox.textboxKeyTyped(c, i)) {
-				continue;
+			if ((textBox.getVisible() && textBox.textboxKeyTyped(c, i))) {
+				validatedUsernames[l] = false;
+				checkUsernames[l] = true;
+				textBox.setTextColor(16777215);
+				updateWhitelistedPlayer(l, null);
+				return;
 			}
-			validatedUsernames[l] = false;
-			checkUsernames[l] = true;
-			textBox.setTextColor(16777215);
-			updateWhitelistedPlayer(l, null);
-			return;
 		}
 		if (permissionsOpenIndex >= 0 && (i == 1 || i == mc.gameSettings.keyBindInventory.getKeyCode())) {
 			permissionsOpenY = -1;
@@ -373,20 +368,18 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		}
 		for (int l = 1; l < allowedPlayers.length; ++l) {
 			GuiTextField textBox = allowedPlayers[l];
-			if (!textBox.getVisible()) {
-				continue;
+			if (textBox.getVisible()) {
+				textBox.mouseClicked(i, j, k);
+				if (!textBox.isFocused() && checkUsernames[l]) {
+					checkUsernameValid(l);
+					checkUsernames[l] = false;
+				}
+				if ((textBox.isFocused() && invalidUsernames[l])) {
+					invalidUsernames[l] = false;
+					textBox.setTextColor(16777215);
+					textBox.setText("");
+				}
 			}
-			textBox.mouseClicked(i, j, k);
-			if (!textBox.isFocused() && checkUsernames[l]) {
-				checkUsernameValid(l);
-				checkUsernames[l] = false;
-			}
-			if (!textBox.isFocused() || !invalidUsernames[l]) {
-				continue;
-			}
-			invalidUsernames[l] = false;
-			textBox.setTextColor(16777215);
-			textBox.setText("");
 		}
 		if (permissionsMouseoverIndex >= 0) {
 			permissionsOpenIndex = permissionsMouseoverIndex;
@@ -465,10 +458,9 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 			if (i < validatedUsernames.length) {
 				validatedUsernames_new[i] = validatedUsernames[i];
 			}
-			if (i >= checkUsernames.length) {
-				continue;
+			if (i < checkUsernames.length) {
+				checkUsernames_new[i] = checkUsernames[i];
 			}
-			checkUsernames_new[i] = checkUsernames[i];
 		}
 		allowedPlayers = allowedPlayers_new;
 		invalidUsernames = invalidUsernames_new;

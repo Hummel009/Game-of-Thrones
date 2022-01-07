@@ -100,10 +100,9 @@ public class GOT {
 			if ((block instanceof GOTBlockSlabBase || block instanceof GOTBlockStairs) && block.getMaterial() == Material.grass) {
 				Blocks.fire.setFireInfo(block, 60, 20);
 			}
-			if (!(block instanceof GOTBlockDaub)) {
-				continue;
+			if (block instanceof GOTBlockDaub) {
+				Blocks.fire.setFireInfo(block, 40, 40);
 			}
-			Blocks.fire.setFireInfo(block, 40, 40);
 		}
 		Blocks.fire.setFireInfo(Blocks.acacia_stairs, 5, 20);
 		Blocks.fire.setFireInfo(Blocks.dark_oak_stairs, 5, 20);
@@ -197,15 +196,14 @@ public class GOT {
 		int baseG = baseWater.getGreen();
 		int baseB = baseWater.getBlue();
 		for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray()) {
-			if (biome == null) {
-				continue;
+			if (biome != null) {
+				Color water = new Color(biome.waterColorMultiplier);
+				float[] rgb = water.getColorComponents(null);
+				int r = (int) (baseR * rgb[0]);
+				int g = (int) (baseG * rgb[1]);
+				int b = (int) (baseB * rgb[2]);
+				biome.waterColorMultiplier = new Color(r, g, b).getRGB();
 			}
-			Color water = new Color(biome.waterColorMultiplier);
-			float[] rgb = water.getColorComponents(null);
-			int r = (int) (baseR * rgb[0]);
-			int g = (int) (baseG * rgb[1]);
-			int b = (int) (baseB * rgb[2]);
-			biome.waterColorMultiplier = new Color(r, g, b).getRGB();
 		}
 		int items = 0;
 		for (Item item : GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Item.class)) {
@@ -343,10 +341,9 @@ public class GOT {
 			List<GOTFellowship> fellowships = playerData.getFellowships();
 			for (GOTFellowship fs : fellowships) {
 				EntityPlayer targetPlayer = (EntityPlayer) target;
-				if (!fs.getPreventPVP() || !fs.containsPlayer(targetPlayer.getUniqueID())) {
-					continue;
+				if ((fs.getPreventPVP() && fs.containsPlayer(targetPlayer.getUniqueID()))) {
+					return false;
 				}
-				return false;
 			}
 		}
 		Entity targetNPC = null;
@@ -370,10 +367,9 @@ public class GOT {
 						UUID hiringPlayerID = hiredInfo.getHiringPlayerUUID();
 						List<GOTFellowship> fellowships = playerData.getFellowships();
 						for (GOTFellowship fs : fellowships) {
-							if (!fs.getPreventHiredFriendlyFire() || !fs.containsPlayer(hiringPlayerID)) {
-								continue;
+							if ((fs.getPreventHiredFriendlyFire() && fs.containsPlayer(hiringPlayerID))) {
+								return false;
 							}
-							return false;
 						}
 					}
 				}
@@ -407,26 +403,25 @@ public class GOT {
 	public static void dropContainerItems(IInventory container, World world, int i, int j, int k) {
 		for (int l = 0; l < container.getSizeInventory(); ++l) {
 			ItemStack item = container.getStackInSlot(l);
-			if (item == null) {
-				continue;
-			}
-			float f = world.rand.nextFloat() * 0.8f + 0.1f;
-			float f1 = world.rand.nextFloat() * 0.8f + 0.1f;
-			float f2 = world.rand.nextFloat() * 0.8f + 0.1f;
-			while (item.stackSize > 0) {
-				int i1 = world.rand.nextInt(21) + 10;
-				if (i1 > item.stackSize) {
-					i1 = item.stackSize;
+			if (item != null) {
+				float f = world.rand.nextFloat() * 0.8f + 0.1f;
+				float f1 = world.rand.nextFloat() * 0.8f + 0.1f;
+				float f2 = world.rand.nextFloat() * 0.8f + 0.1f;
+				while (item.stackSize > 0) {
+					int i1 = world.rand.nextInt(21) + 10;
+					if (i1 > item.stackSize) {
+						i1 = item.stackSize;
+					}
+					item.stackSize -= i1;
+					EntityItem entityItem = new EntityItem(world, i + f, j + f1, k + f2, new ItemStack(item.getItem(), i1, item.getItemDamage()));
+					if (item.hasTagCompound()) {
+						entityItem.getEntityItem().setTagCompound((NBTTagCompound) item.getTagCompound().copy());
+					}
+					entityItem.motionX = world.rand.nextGaussian() * 0.05000000074505806;
+					entityItem.motionY = world.rand.nextGaussian() * 0.05000000074505806 + 0.20000000298023224;
+					entityItem.motionZ = world.rand.nextGaussian() * 0.05000000074505806;
+					world.spawnEntityInWorld(entityItem);
 				}
-				item.stackSize -= i1;
-				EntityItem entityItem = new EntityItem(world, i + f, j + f1, k + f2, new ItemStack(item.getItem(), i1, item.getItemDamage()));
-				if (item.hasTagCompound()) {
-					entityItem.getEntityItem().setTagCompound((NBTTagCompound) item.getTagCompound().copy());
-				}
-				entityItem.motionX = world.rand.nextGaussian() * 0.05000000074505806;
-				entityItem.motionY = world.rand.nextGaussian() * 0.05000000074505806 + 0.20000000298023224;
-				entityItem.motionZ = world.rand.nextGaussian() * 0.05000000074505806;
-				world.spawnEntityInWorld(entityItem);
 			}
 		}
 	}
@@ -463,10 +458,9 @@ public class GOT {
 		Chunk chunk = world.getChunkProvider().provideChunk(i >> 4, k >> 4);
 		for (int j = chunk.getTopFilledSegment() + 15; j > 0; --j) {
 			Block block = world.getBlock(i, j, k);
-			if (!block.getMaterial().blocksMovement() || block.getMaterial() == Material.leaves || block.isFoliage(world, i, j, k)) {
-				continue;
+			if ((block.getMaterial().blocksMovement() && (block.getMaterial() != Material.leaves) && !block.isFoliage(world, i, j, k))) {
+				return j + 1;
 			}
-			return j + 1;
 		}
 		return -1;
 	}
@@ -488,10 +482,9 @@ public class GOT {
 	public static boolean isOreNameEqual(ItemStack itemstack, String name) {
 		ArrayList<ItemStack> list = OreDictionary.getOres(name);
 		for (ItemStack obj : list) {
-			if (!OreDictionary.itemMatches(obj, itemstack, false)) {
-				continue;
+			if (OreDictionary.itemMatches(obj, itemstack, false)) {
+				return true;
 			}
-			return true;
 		}
 		return false;
 	}

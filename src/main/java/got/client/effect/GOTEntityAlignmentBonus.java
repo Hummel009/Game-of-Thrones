@@ -36,10 +36,9 @@ public class GOTEntityAlignmentBonus extends Entity {
 		float highestBonus = 0.0f;
 		for (GOTFaction fac : factionBonusMap.getChangedFactions()) {
 			float bonus = Math.abs(factionBonusMap.get(fac));
-			if ((bonus <= highestBonus)) {
-				continue;
+			if ((bonus > highestBonus)) {
+				highestBonus = bonus;
 			}
-			highestBonus = bonus;
 		}
 		float conq = Math.abs(conquestBonus);
 		if (conq > highestBonus) {

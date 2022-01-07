@@ -26,10 +26,9 @@ public class GOTTrackSorter {
 	public static List<GOTMusicTrack> sortTracks(List<GOTMusicTrack> tracks, Filter filter) {
 		ArrayList<GOTMusicTrack> sorted = new ArrayList<>();
 		for (GOTMusicTrack track : tracks) {
-			if (!filter.accept(track)) {
-				continue;
+			if (filter.accept(track)) {
+				sorted.add(track);
 			}
-			sorted.add(track);
 		}
 		return sorted;
 	}

@@ -99,17 +99,15 @@ public class GOTReplacedMethods {
 				int negated = 0;
 				if (unbreaking > 0) {
 					for (l = 0; l < damages; ++l) {
-						if (!EnchantmentDurability.negateDamage(itemstack, unbreaking, random)) {
-							continue;
+						if (EnchantmentDurability.negateDamage(itemstack, unbreaking, random)) {
+							++negated;
 						}
-						++negated;
 					}
 				}
 				for (l = 0; l < damages; ++l) {
-					if (!GOTEnchantmentHelper.negateDamage(itemstack, random)) {
-						continue;
+					if (GOTEnchantmentHelper.negateDamage(itemstack, random)) {
+						++negated;
 					}
-					++negated;
 				}
 				if ((damages -= negated) <= 0) {
 					return false;
@@ -122,10 +120,9 @@ public class GOTReplacedMethods {
 		public static int c_attemptDamageItem(int unmodified, ItemStack stack, int damages, Random random, EntityLivingBase elb) {
 			int ret = unmodified;
 			for (int i = 0; i < damages; ++i) {
-				if (!GOTEnchantmentHelper.negateDamage(stack, random)) {
-					continue;
+				if (GOTEnchantmentHelper.negateDamage(stack, random)) {
+					--ret;
 				}
-				--ret;
 			}
 			return ret;
 		}
@@ -256,18 +253,16 @@ public class GOTReplacedMethods {
 						int j1;
 						int k1;
 						int i1 = i + random.nextInt(3) - 1;
-						if (!world.blockExists(i1, j1 = j + random.nextInt(5) - 3, k1 = k + random.nextInt(3) - 1) || !world.checkChunksExist(i1 - checkRange, j1 - checkRange, k1 - checkRange, i1 + checkRange, j1 + checkRange, k1 + checkRange) || world.getBlockLightValue(i1, j1 + 1, k1) < 4 || world.getBlockLightOpacity(i1, j1 + 1, k1) > 2) {
-							continue;
+						if ((world.blockExists(i1, j1 = j + random.nextInt(5) - 3, k1 = k + random.nextInt(3) - 1) && world.checkChunksExist(i1 - checkRange, j1 - checkRange, k1 - checkRange, i1 + checkRange, j1 + checkRange, k1 + checkRange) && (world.getBlockLightValue(i1, j1 + 1, k1) >= 4) && (world.getBlockLightOpacity(i1, j1 + 1, k1) <= 2))) {
+							Block block = world.getBlock(i1, j1, k1);
+							int meta = world.getBlockMetadata(i1, j1, k1);
+							if (block == Blocks.dirt && meta == 0) {
+								world.setBlock(i1, j1, k1, Blocks.grass, 0, 3);
+							}
+							if (((block == GOTRegistry.mud) && (meta == 0))) {
+								world.setBlock(i1, j1, k1, GOTRegistry.mudGrass, 0, 3);
+							}
 						}
-						Block block = world.getBlock(i1, j1, k1);
-						int meta = world.getBlockMetadata(i1, j1, k1);
-						if (block == Blocks.dirt && meta == 0) {
-							world.setBlock(i1, j1, k1, Blocks.grass, 0, 3);
-						}
-						if (block != GOTRegistry.mud || meta != 0) {
-							continue;
-						}
-						world.setBlock(i1, j1, k1, GOTRegistry.mudGrass, 0, 3);
 					}
 				}
 			}
@@ -396,28 +391,23 @@ public class GOTReplacedMethods {
 				for (int l = 0; l < tries; ++l) {
 					if (world.blockExists(i += random.nextInt(3) - 1, ++j, k += random.nextInt(3) - 1)) {
 						Block block = world.getBlock(i, j, k);
-						if (block.getMaterial() == Material.air) {
-							if (!StaticLiquid.isFlammable(world, i - 1, j, k) && !StaticLiquid.isFlammable(world, i + 1, j, k) && !StaticLiquid.isFlammable(world, i, j, k - 1) && !StaticLiquid.isFlammable(world, i, j, k + 1) && !StaticLiquid.isFlammable(world, i, j - 1, k) && !StaticLiquid.isFlammable(world, i, j + 1, k)) {
-								continue;
-							}
+						if ((block.getMaterial() == Material.air) && (StaticLiquid.isFlammable(world, i - 1, j, k) || StaticLiquid.isFlammable(world, i + 1, j, k) || StaticLiquid.isFlammable(world, i, j, k - 1) || StaticLiquid.isFlammable(world, i, j, k + 1) || StaticLiquid.isFlammable(world, i, j - 1, k) || StaticLiquid.isFlammable(world, i, j + 1, k))) {
 							world.setBlock(i, j, k, Blocks.fire);
 							return;
 						}
-						if (!block.getMaterial().blocksMovement()) {
-							continue;
+						if (block.getMaterial().blocksMovement()) {
+							return;
 						}
 					}
-					return;
 				}
 				if (tries == 0) {
 					int i1 = i;
 					int k1 = k;
 					for (int l = 0; l < 3; ++l) {
 						i = i1 + random.nextInt(3) - 1;
-						if (!world.blockExists(i, j, k = k1 + random.nextInt(3) - 1) || !world.isAirBlock(i, j + 1, k) || !StaticLiquid.isFlammable(world, i, j, k)) {
-							continue;
+						if ((world.blockExists(i, j, k = k1 + random.nextInt(3) - 1) && world.isAirBlock(i, j + 1, k) && StaticLiquid.isFlammable(world, i, j, k))) {
+							world.setBlock(i, j + 1, k, Blocks.fire);
 						}
-						world.setBlock(i, j + 1, k, Blocks.fire);
 					}
 				}
 			}

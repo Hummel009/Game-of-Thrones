@@ -40,10 +40,9 @@ public enum GOTBiomeMusic {
 
 	public static GOTBiomeMusic forName(String s) {
 		for (GOTBiomeMusic r : GOTBiomeMusic.values()) {
-			if (!s.equalsIgnoreCase(r.regionName)) {
-				continue;
+			if (s.equalsIgnoreCase(r.regionName)) {
+				return r;
 			}
-			return r;
 		}
 		return null;
 	}

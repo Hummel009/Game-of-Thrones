@@ -13,10 +13,9 @@ public enum GOTMusicCategory {
 
 	public static GOTMusicCategory forName(String s) {
 		for (GOTMusicCategory cat : GOTMusicCategory.values()) {
-			if (!s.equalsIgnoreCase(cat.categoryName)) {
-				continue;
+			if (s.equalsIgnoreCase(cat.categoryName)) {
+				return cat;
 			}
-			return cat;
 		}
 		return null;
 	}

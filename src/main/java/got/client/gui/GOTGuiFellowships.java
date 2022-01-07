@@ -177,10 +177,9 @@ public class GOTGuiFellowships extends GOTGuiMenuWBBase {
 	public void alignOptionButtons() {
 		ArrayList<GuiButton> activeOptionButtons = new ArrayList<>();
 		for (GuiButton button : orderedFsOptionButtons) {
-			if (!button.visible) {
-				continue;
+			if (button.visible) {
+				activeOptionButtons.add(button);
 			}
-			activeOptionButtons.add(button);
 		}
 		if (buttonLeave.visible) {
 			activeOptionButtons.add(buttonLeave);
@@ -238,10 +237,9 @@ public class GOTGuiFellowships extends GOTGuiMenuWBBase {
 		int i = 0;
 		ArrayList<String> allPlayers = new ArrayList<>(fs.getAllPlayerNames());
 		for (String player : allPlayers) {
-			if (!GOTGuiFellowships.isPlayerOnline(player)) {
-				continue;
+			if (!(!GOTGuiFellowships.isPlayerOnline(player))) {
+				++i;
 			}
-			++i;
 		}
 		return i;
 	}
@@ -551,11 +549,10 @@ public class GOTGuiFellowships extends GOTGuiMenuWBBase {
 			}
 			for (Object bObj : buttonList) {
 				GuiButton button = (GuiButton) bObj;
-				if (!(button instanceof GOTGuiButtonFsOption) || !button.visible || !button.func_146115_a()) {
-					continue;
+				if (!(!(button instanceof GOTGuiButtonFsOption) || !button.visible || !button.func_146115_a())) {
+					s = button.displayString;
+					this.drawCenteredString(s, guiLeft + xSize / 2, button.yPosition + button.height + 4, 16777215);
 				}
-				s = button.displayString;
-				this.drawCenteredString(s, guiLeft + xSize / 2, button.yPosition + button.height + 4, 16777215);
 			}
 			if (scrollPaneMembers.hasScrollBar) {
 				scrollPaneMembers.drawScrollBar();
@@ -835,9 +832,9 @@ public class GOTGuiFellowships extends GOTGuiMenuWBBase {
 		for (GOTFellowshipClient fs : fellowships) {
 			if (fs.isOwned()) {
 				allFellowshipsLeading.add(fs);
-				continue;
+			} else {
+				allFellowshipsOther.add(fs);
 			}
-			allFellowshipsOther.add(fs);
 		}
 		allFellowshipInvites.clear();
 		allFellowshipInvites.addAll(GOTLevelData.getData(mc.thePlayer).getClientFellowshipInvites());
@@ -863,10 +860,10 @@ public class GOTGuiFellowships extends GOTGuiMenuWBBase {
 				if (displayedFellowshipsOther >= displayedFellowshipsLeading) {
 					--displayedFellowshipsOther;
 					scrollPaneOther.hasScrollBar = true;
-					continue;
+				} else {
+					--displayedFellowshipsLeading;
+					scrollPaneLeading.hasScrollBar = true;
 				}
-				--displayedFellowshipsLeading;
-				scrollPaneLeading.hasScrollBar = true;
 			}
 			scrollPaneLeading.paneX0 = guiLeft;
 			scrollPaneLeading.scrollBarX0 = guiLeft + scrollBarX;
@@ -983,10 +980,9 @@ public class GOTGuiFellowships extends GOTGuiMenuWBBase {
 		List list = mcPlayer.sendQueue.playerInfoList;
 		for (Object obj : list) {
 			GuiPlayerInfo info = (GuiPlayerInfo) obj;
-			if (!info.name.equalsIgnoreCase(player)) {
-				continue;
+			if (info.name.equalsIgnoreCase(player)) {
+				return true;
 			}
-			return true;
 		}
 		return false;
 	}

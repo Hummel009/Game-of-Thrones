@@ -53,10 +53,9 @@ public class GOTGuiHandler {
 	public GuiButton getDifficultyButton(GuiOptions gui, List buttons) {
 		for (Object obj : buttons) {
 			GuiOptionButton button;
-			if (!(obj instanceof GuiOptionButton) || (button = (GuiOptionButton) obj).returnEnumOptions() != GameSettings.Options.DIFFICULTY) {
-				continue;
+			if (((obj instanceof GuiOptionButton) && ((button = (GuiOptionButton) obj).returnEnumOptions() == GameSettings.Options.DIFFICULTY))) {
+				return button;
 			}
-			return button;
 		}
 		return null;
 	}
@@ -119,13 +118,12 @@ public class GOTGuiHandler {
 			}
 			while (Mouse.next()) {
 				int dwheel = Mouse.getEventDWheel();
-				if (dwheel == 0) {
-					continue;
+				if (dwheel != 0) {
+					int scroll = Integer.signum(dwheel);
+					descScrollIndex -= scroll;
+					descScrollIndex = MathHelper.clamp_int(descScrollIndex, 0, GOTInfo.description.length - 1);
+					meta.description = GOTInfo.concatenateDescription(descScrollIndex);
 				}
-				int scroll = Integer.signum(dwheel);
-				descScrollIndex -= scroll;
-				descScrollIndex = MathHelper.clamp_int(descScrollIndex, 0, GOTInfo.description.length - 1);
-				meta.description = GOTInfo.concatenateDescription(descScrollIndex);
 			}
 		}
 		if (gui instanceof GuiContainer && GOTConfig.displayCoinCounts) {
@@ -141,74 +139,72 @@ public class GOTGuiHandler {
 				for (int i = 0; i < container.inventorySlots.size(); ++i) {
 					Slot slot = container.getSlot(i);
 					IInventory inv = slot.inventory;
-					if (inv == null || coinCount_excludedInvTypes.contains(inv.getClass())) {
-						continue;
+					if (((inv != null) && !coinCount_excludedInvTypes.contains(inv.getClass()))) {
+						if (!differentInvs.contains(inv)) {
+							differentInvs.add(inv);
+						}
+						int slotY = slot.yDisplayPosition;
+						if (!invHighestY.containsKey(inv)) {
+							invHighestY.put(inv, slotY);
+						}
+						else {
+							int highestY = invHighestY.get(inv);
+							if (slotY < highestY) {
+								invHighestY.put(inv, slotY);
+							}
+						}
 					}
-					if (!differentInvs.contains(inv)) {
-						differentInvs.add(inv);
-					}
-					int slotY = slot.yDisplayPosition;
-					if (!invHighestY.containsKey(inv)) {
-						invHighestY.put(inv, slotY);
-						continue;
-					}
-					int highestY = invHighestY.get(inv);
-					if (slotY >= highestY) {
-						continue;
-					}
-					invHighestY.put(inv, slotY);
 				}
 				for (IInventory inv : differentInvs) {
 					int coins = GOTItemCoin.getContainerValue(inv, true);
-					if (coins <= 0) {
-						continue;
+					if (coins > 0) {
+						if (guiLeft == -1) {
+							guiLeft = GOTReflectionClient.getGuiLeft(guiContainer);
+							guiTop = GOTReflectionClient.getGuiTop(guiContainer);
+							guiXSize = GOTReflectionClient.getGuiXSize(guiContainer);
+						}
+						int x = gui.width / 2 + guiXSize / 2 + 8;
+						int y = invHighestY.get(inv) + guiTop;
+						String sCoins = String.valueOf(coins);
+						int border = 2;
+						int rectX0 = x - border;
+						int rectX1 = x + 16 + 2 + mc.fontRenderer.getStringWidth(sCoins) + border + 1;
+						int rectY0 = y - border;
+						int rectY1 = y + 16 + border;
+						float a0 = 1.0f;
+						float a1 = 0.1f;
+						GL11.glDisable(3553);
+						GL11.glDisable(3008);
+						GL11.glShadeModel(7425);
+						GL11.glPushMatrix();
+						GL11.glTranslatef(0.0f, 0.0f, -500.0f);
+						Tessellator tessellator = Tessellator.instance;
+						tessellator.startDrawingQuads();
+						tessellator.setColorRGBA_F(0.0f, 0.0f, 0.0f, a1);
+						tessellator.addVertex(rectX1, rectY0, 0.0);
+						tessellator.setColorRGBA_F(0.0f, 0.0f, 0.0f, a0);
+						tessellator.addVertex(rectX0, rectY0, 0.0);
+						tessellator.addVertex(rectX0, rectY1, 0.0);
+						tessellator.setColorRGBA_F(0.0f, 0.0f, 0.0f, a1);
+						tessellator.addVertex(rectX1, rectY1, 0.0);
+						tessellator.draw();
+						GL11.glPopMatrix();
+						GL11.glShadeModel(7424);
+						GL11.glEnable(3008);
+						GL11.glEnable(3553);
+						GL11.glPushMatrix();
+						GL11.glTranslatef(0.0f, 0.0f, 500.0f);
+						GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+						itemRenderer.renderItemIntoGUI(mc.fontRenderer, mc.getTextureManager(), new ItemStack(GOTRegistry.coin), x, y);
+						GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+						GL11.glDisable(2896);
+						mc.fontRenderer.drawString(sCoins, x + 16 + 2, y + (16 - mc.fontRenderer.FONT_HEIGHT + 2) / 2, 16777215);
+						GL11.glPopMatrix();
+						GL11.glDisable(2896);
+						GL11.glEnable(3008);
+						GL11.glEnable(3042);
+						GL11.glDisable(2884);
 					}
-					if (guiLeft == -1) {
-						guiLeft = GOTReflectionClient.getGuiLeft(guiContainer);
-						guiTop = GOTReflectionClient.getGuiTop(guiContainer);
-						guiXSize = GOTReflectionClient.getGuiXSize(guiContainer);
-					}
-					int x = gui.width / 2 + guiXSize / 2 + 8;
-					int y = invHighestY.get(inv) + guiTop;
-					String sCoins = String.valueOf(coins);
-					int border = 2;
-					int rectX0 = x - border;
-					int rectX1 = x + 16 + 2 + mc.fontRenderer.getStringWidth(sCoins) + border + 1;
-					int rectY0 = y - border;
-					int rectY1 = y + 16 + border;
-					float a0 = 1.0f;
-					float a1 = 0.1f;
-					GL11.glDisable(3553);
-					GL11.glDisable(3008);
-					GL11.glShadeModel(7425);
-					GL11.glPushMatrix();
-					GL11.glTranslatef(0.0f, 0.0f, -500.0f);
-					Tessellator tessellator = Tessellator.instance;
-					tessellator.startDrawingQuads();
-					tessellator.setColorRGBA_F(0.0f, 0.0f, 0.0f, a1);
-					tessellator.addVertex(rectX1, rectY0, 0.0);
-					tessellator.setColorRGBA_F(0.0f, 0.0f, 0.0f, a0);
-					tessellator.addVertex(rectX0, rectY0, 0.0);
-					tessellator.addVertex(rectX0, rectY1, 0.0);
-					tessellator.setColorRGBA_F(0.0f, 0.0f, 0.0f, a1);
-					tessellator.addVertex(rectX1, rectY1, 0.0);
-					tessellator.draw();
-					GL11.glPopMatrix();
-					GL11.glShadeModel(7424);
-					GL11.glEnable(3008);
-					GL11.glEnable(3553);
-					GL11.glPushMatrix();
-					GL11.glTranslatef(0.0f, 0.0f, 500.0f);
-					GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-					itemRenderer.renderItemIntoGUI(mc.fontRenderer, mc.getTextureManager(), new ItemStack(GOTRegistry.coin), x, y);
-					GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-					GL11.glDisable(2896);
-					mc.fontRenderer.drawString(sCoins, x + 16 + 2, y + (16 - mc.fontRenderer.FONT_HEIGHT + 2) / 2, 16777215);
-					GL11.glPopMatrix();
-					GL11.glDisable(2896);
-					GL11.glEnable(3008);
-					GL11.glEnable(3042);
-					GL11.glDisable(2884);
 				}
 				mc.theWorld.theProfiler.endSection();
 			}
