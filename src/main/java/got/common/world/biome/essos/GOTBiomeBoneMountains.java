@@ -59,12 +59,11 @@ public class GOTBiomeBoneMountains extends GOTBiome {
 				int k3;
 				int j1;
 				int i3 = i + random.nextInt(16) + 8;
-				if (world.getBlock(i3, (j1 = world.getHeightValue(i3, k3 = k + random.nextInt(16) + 8)) - 1, k3) != block) {
-					continue;
-				}
-				int height = j1 + random.nextInt(4);
-				for (int j2 = j1; j2 < height && !GOT.isOpaque(world, i3, j2, k3); ++j2) {
-					world.setBlock(i3, j2, k3, block, 0, 3);
+				if ((world.getBlock(i3, (j1 = world.getHeightValue(i3, k3 = k + random.nextInt(16) + 8)) - 1, k3) == block)) {
+					int height = j1 + random.nextInt(4);
+					for (int j2 = j1; j2 < height && !GOT.isOpaque(world, i3, j2, k3); ++j2) {
+						world.setBlock(i3, j2, k3, block, 0, 3);
+					}
 				}
 			}
 		}
@@ -77,10 +76,7 @@ public class GOTBiomeBoneMountains extends GOTBiome {
 		for (int j = ySize - 1; j >= sandHeight; --j) {
 			int index = xzIndex * ySize + j;
 			Block block = blocks[index];
-			if (block != topBlock && block != fillerBlock) {
-				continue;
-			}
-			if (j >= stoneHeight) {
+			if (((block == topBlock) || (block == fillerBlock)) && (j >= stoneHeight)) {
 				blocks[index] = GOTRegistry.boneBlock;
 				meta[index] = 0;
 			}

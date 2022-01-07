@@ -34,17 +34,15 @@ public class GOTBiomeSpawnList {
 	public boolean containsEntityClassByDefault(Class<? extends EntityLivingBase> desiredClass, World world) {
 		determineFactions(world);
 		for (FactionContainer facCont : factionContainers) {
-			if (facCont.isEmpty() || facCont.isConquestFaction()) {
-				continue;
-			}
-			for (SpawnListContainer listCont : facCont.spawnLists) {
-				GOTSpawnList list = listCont.spawnList;
-				for (GOTSpawnEntry e : list.getReadOnlyList()) {
-					Class spawnClass = e.entityClass;
-					if (!desiredClass.isAssignableFrom(spawnClass)) {
-						continue;
+			if ((!facCont.isEmpty() && !facCont.isConquestFaction())) {
+				for (SpawnListContainer listCont : facCont.spawnLists) {
+					GOTSpawnList list = listCont.spawnList;
+					for (GOTSpawnEntry e : list.getReadOnlyList()) {
+						Class spawnClass = e.entityClass;
+						if (desiredClass.isAssignableFrom(spawnClass)) {
+							return true;
+						}
 					}
-					return true;
 				}
 			}
 		}
@@ -56,10 +54,9 @@ public class GOTBiomeSpawnList {
 			for (FactionContainer facContainer : factionContainers) {
 				facContainer.determineFaction(world);
 				GOTFaction fac = facContainer.theFaction;
-				if (presentFactions.contains(fac)) {
-					continue;
+				if (!presentFactions.contains(fac)) {
+					presentFactions.add(fac);
 				}
-				presentFactions.add(fac);
 			}
 		}
 	}
@@ -68,12 +65,11 @@ public class GOTBiomeSpawnList {
 		determineFactions(world);
 		ArrayList<GOTSpawnEntry> spawns = new ArrayList<>();
 		for (FactionContainer facCont : factionContainers) {
-			if (facCont.isEmpty()) {
-				continue;
-			}
-			for (SpawnListContainer listCont : facCont.spawnLists) {
-				GOTSpawnList list = listCont.spawnList;
-				spawns.addAll(list.getReadOnlyList());
+			if (!facCont.isEmpty()) {
+				for (SpawnListContainer listCont : facCont.spawnLists) {
+					GOTSpawnList list = listCont.spawnList;
+					spawns.addAll(list.getReadOnlyList());
+				}
 			}
 		}
 		return spawns;
@@ -88,12 +84,11 @@ public class GOTBiomeSpawnList {
 		for (FactionContainer cont : factionContainers) {
 			int weight;
 			float conq;
-			if (cont.isEmpty() || (weight = cont.getFactionWeight(conq = cont.getEffectiveConquestStrength(world, zone))) <= 0) {
-				continue;
+			if ((!cont.isEmpty() && ((weight = cont.getFactionWeight(conq = cont.getEffectiveConquestStrength(world, zone))) > 0))) {
+				totalWeight += weight;
+				cachedFacWeights.put(cont, weight);
+				cachedConqStrengths.put(cont, conq);
 			}
-			totalWeight += weight;
-			cachedFacWeights.put(cont, weight);
-			cachedConqStrengths.put(cont, conq);
 		}
 		if (totalWeight > 0) {
 			FactionContainer chosenFacContainer = null;
@@ -101,15 +96,14 @@ public class GOTBiomeSpawnList {
 			int w = rand.nextInt(totalWeight);
 			for (FactionContainer cont : factionContainers) {
 				int facWeight;
-				if (cont.isEmpty() || !cachedFacWeights.containsKey(cont) || (w -= (facWeight = cachedFacWeights.get(cont))) >= 0) {
-					continue;
-				}
-				chosenFacContainer = cont;
-				if (facWeight <= cont.baseWeight) {
+				if ((!cont.isEmpty() && cachedFacWeights.containsKey(cont) && ((w -= (facWeight = cachedFacWeights.get(cont))) < 0))) {
+					chosenFacContainer = cont;
+					if (facWeight <= cont.baseWeight) {
+						break;
+					}
+					isConquestSpawn = rand.nextFloat() < (float) (facWeight - cont.baseWeight) / (float) facWeight;
 					break;
 				}
-				isConquestSpawn = rand.nextFloat() < (float) (facWeight - cont.baseWeight) / (float) facWeight;
-				break;
 			}
 			if (chosenFacContainer != null) {
 				float conq = cachedConqStrengths.get(chosenFacContainer);
@@ -174,12 +168,9 @@ public class GOTBiomeSpawnList {
 					GOTFaction fac = list.getListCommonFaction(world);
 					if (theFaction == null) {
 						theFaction = fac;
-						continue;
+					} else if (fac != theFaction) {
+						throw new IllegalArgumentException("Faction containers must include spawn lists of only one faction! Mismatched faction " + fac.codeName() + " in biome " + parent.biomeIdentifier);
 					}
-					if (fac == theFaction) {
-						continue;
-					}
-					throw new IllegalArgumentException("Faction containers must include spawn lists of only one faction! Mismatched faction " + fac.codeName() + " in biome " + parent.biomeIdentifier);
 				}
 			}
 		}
@@ -188,10 +179,9 @@ public class GOTBiomeSpawnList {
 			if (GOTConquestGrid.conquestEnabled(world) && !zone.isEmpty()) {
 				float conqStr = zone.getConquestStrength(theFaction, world);
 				for (GOTFaction allyFac : theFaction.getConquestBoostRelations()) {
-					if (parent.isFactionPresent(world, allyFac)) {
-						continue;
+					if (!parent.isFactionPresent(world, allyFac)) {
+						conqStr += zone.getConquestStrength(allyFac, world) * 0.333f;
 					}
-					conqStr += zone.getConquestStrength(allyFac, world) * 0.333f;
 				}
 				return conqStr;
 			}
@@ -209,20 +199,18 @@ public class GOTBiomeSpawnList {
 		public SpawnListContainer getRandomSpawnList(Random rand, float conq) {
 			int totalWeight = 0;
 			for (SpawnListContainer cont : spawnLists) {
-				if (!cont.canSpawnAtConquestLevel(conq)) {
-					continue;
+				if (cont.canSpawnAtConquestLevel(conq)) {
+					totalWeight += cont.weight;
 				}
-				totalWeight += cont.weight;
 			}
 			if (totalWeight > 0) {
 				SpawnListContainer chosenList = null;
 				int w = rand.nextInt(totalWeight);
 				for (SpawnListContainer cont : spawnLists) {
-					if (!cont.canSpawnAtConquestLevel(conq) || (w -= cont.weight) >= 0) {
-						continue;
+					if ((cont.canSpawnAtConquestLevel(conq) && ((w -= cont.weight) < 0))) {
+						chosenList = cont;
+						break;
 					}
-					chosenList = cont;
-					break;
 				}
 				return chosenList;
 			}

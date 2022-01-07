@@ -355,10 +355,9 @@ public class GOTChunkProvider implements IChunkProvider {
 				if (worldObj.isBlockFreezable(i1 + k, j12 - 1, k12 + l)) {
 					worldObj.setBlock(i1 + k, j12 - 1, k12 + l, Blocks.ice, 0, 2);
 				}
-				if (!worldObj.func_147478_e(i1 + k, j12, k12 + l, true)) {
-					continue;
+				if (worldObj.func_147478_e(i1 + k, j12, k12 + l, true)) {
+					worldObj.setBlock(i1 + k, j12, k12 + l, Blocks.snow_layer, 0, 2);
 				}
-				worldObj.setBlock(i1 + k, j12, k12 + l, Blocks.snow_layer, 0, 2);
 			}
 		}
 		BlockFalling.fallInstantly = false;
@@ -387,16 +386,15 @@ public class GOTChunkProvider implements IChunkProvider {
 				for (int j1 = 0; j1 < 256; ++j1) {
 					int blockIndex = i1 << 12 | k1 << 8 | j1;
 					Block block = blocks[blockIndex];
-					if (block == null || block == Blocks.air) {
-						continue;
+					if (((block != null) && (block != Blocks.air))) {
+						byte meta = metadata[blockIndex];
+						int j2 = j1 >> 4;
+						if (blockStorage[j2] == null) {
+							blockStorage[j2] = new ExtendedBlockStorage(j2 << 4, true);
+						}
+						blockStorage[j2].func_150818_a(i1, j1 & 0xF, k1, block);
+						blockStorage[j2].setExtBlockMetadata(i1, j1 & 0xF, k1, meta & 0xF);
 					}
-					byte meta = metadata[blockIndex];
-					int j2 = j1 >> 4;
-					if (blockStorage[j2] == null) {
-						blockStorage[j2] = new ExtendedBlockStorage(j2 << 4, true);
-					}
-					blockStorage[j2].func_150818_a(i1, j1 & 0xF, k1, block);
-					blockStorage[j2].setExtBlockMetadata(i1, j1 & 0xF, k1, meta & 0xF);
 				}
 			}
 		}
@@ -437,24 +435,21 @@ public class GOTChunkProvider implements IChunkProvider {
 				for (int j = ySize - 1; j >= 0; --j) {
 					int index2 = xzIndex * ySize + j;
 					Block block2 = blocks[index2];
-					if (!block2.isOpaqueCube()) {
-						continue;
+					if (block2.isOpaqueCube()) {
+						height = j;
+						break;
 					}
-					height = j;
-					break;
 				}
 				biome.generateBiomeTerrain(worldObj, rand, blocks, metadata, x, z, stoneNoise[xzIndex], height, variant);
-				if (!GOTFixedStructures.hasMapFeatures(worldObj)) {
-					continue;
-				}
-				chunkFlags.bezierFlags[xzIndex] = GOTBezierGenerator.generateBezier(worldObj, rand, x, z, biome, blocks, metadata, blockHeightNoiseArray);
-				int lavaHeight = GOTMountains.getLavaHeight(x, z);
-				if (lavaHeight <= 0) {
-					continue;
-				}
-				for (int j = lavaHeight; j >= 0 && !(blocks[index = xzIndex * ySize + j]).isOpaqueCube(); --j) {
-					blocks[index] = Blocks.lava;
-					metadata[index] = 0;
+				if (GOTFixedStructures.hasMapFeatures(worldObj)) {
+					chunkFlags.bezierFlags[xzIndex] = GOTBezierGenerator.generateBezier(worldObj, rand, x, z, biome, blocks, metadata, blockHeightNoiseArray);
+					int lavaHeight = GOTMountains.getLavaHeight(x, z);
+					if (lavaHeight > 0) {
+						for (int j = lavaHeight; j >= 0 && !(blocks[index = xzIndex * ySize + j]).isOpaqueCube(); --j) {
+							blocks[index] = Blocks.lava;
+							metadata[index] = 0;
+						}
+					}
 				}
 			}
 		}

@@ -47,10 +47,9 @@ public class GOTTileEntityMug extends TileEntity {
 	public GOTItemMug.Vessel getVessel() {
 		if (mugVessel == null) {
 			for (GOTItemMug.Vessel v : GOTItemMug.Vessel.values()) {
-				if (!v.canPlace || v.getBlock() != getBlockType()) {
-					continue;
+				if ((v.canPlace && (v.getBlock() == getBlockType()))) {
+					return v;
 				}
-				return v;
 			}
 			return GOTItemMug.Vessel.MUG;
 		}

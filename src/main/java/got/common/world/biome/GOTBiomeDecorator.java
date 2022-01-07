@@ -137,10 +137,9 @@ public class GOTBiomeDecorator {
 
 	public boolean anyFixedVillagesAt(World world, int i, int k) {
 		for (GOTVillageGen village : villages) {
-			if (!village.anyFixedVillagesAt(world, i, k)) {
-				continue;
+			if (village.anyFixedVillagesAt(world, i, k)) {
+				return true;
 			}
-			return true;
 		}
 		return false;
 	}
@@ -149,10 +148,9 @@ public class GOTBiomeDecorator {
 		chunkFlags.isVillage = false;
 		for (GOTVillageGen village : villages) {
 			List<GOTVillageGen.AbstractInstance<?>> instances = village.getNearbyVillagesAtPosition(world, i, k);
-			if (instances.isEmpty()) {
-				continue;
+			if (!instances.isEmpty()) {
+				chunkFlags.isVillage = true;
 			}
-			chunkFlags.isVillage = true;
 		}
 	}
 
@@ -239,13 +237,12 @@ public class GOTBiomeDecorator {
 			boolean wallNear = GOTWalls.isWallNear(chunkX + 8, chunkZ + 8, 16) >= 0.0f;
 			if (!roadNear || !wallNear) {
 				for (RandomStructure randomstructure : randomStructures) {
-					if (structureRand.nextInt(randomstructure.chunkChance) != 0) {
-						continue;
+					if (structureRand.nextInt(randomstructure.chunkChance) == 0) {
+						int i6 = chunkX + rand.nextInt(16) + 8;
+						k2 = chunkZ + rand.nextInt(16) + 8;
+						j5 = worldObj.getTopSolidOrLiquidBlock(i6, k2);
+						randomstructure.structureGen.generate(worldObj, rand, i6, j5, k2);
 					}
-					int i6 = chunkX + rand.nextInt(16) + 8;
-					k2 = chunkZ + rand.nextInt(16) + 8;
-					j5 = worldObj.getTopSolidOrLiquidBlock(i6, k2);
-					randomstructure.structureGen.generate(worldObj, rand, i6, j5, k2);
 				}
 			}
 			for (GOTVillageGen village : villages) {
@@ -346,9 +343,9 @@ public class GOTBiomeDecorator {
 			j13 = rand.nextInt(128);
 			if (rand.nextFloat() < dryReedChance) {
 				dryReedGen.generate(worldObj, rand, i2, j13, k5);
-				continue;
+			} else {
+				reedGen.generate(worldObj, rand, i2, j13, k5);
 			}
-			reedGen.generate(worldObj, rand, i2, j13, k5);
 		}
 		for (l7 = 0; l7 < cactiPerChunk; ++l7) {
 			i2 = chunkX + rand.nextInt(16) + 8;
@@ -413,13 +410,12 @@ public class GOTBiomeDecorator {
 		while (ores > 0.0f) {
 			boolean generate = ores >= 1.0f || rand.nextFloat() < ores;
 			ores -= 1.0f;
-			if (!generate) {
-				continue;
+			if (generate) {
+				int i = chunkX + rand.nextInt(16);
+				int j = MathHelper.getRandomIntegerInRange(rand, minHeight, maxHeight);
+				int k = chunkZ + rand.nextInt(16);
+				oreGen.generate(worldObj, rand, i, j, k);
 			}
-			int i = chunkX + rand.nextInt(16);
-			int j = MathHelper.getRandomIntegerInRange(rand, minHeight, maxHeight);
-			int k = chunkZ + rand.nextInt(16);
-			oreGen.generate(worldObj, rand, i, j, k);
 		}
 	}
 

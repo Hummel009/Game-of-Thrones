@@ -117,10 +117,9 @@ public class GOTTileEntityArmorStand extends TileEntity implements IInventory {
 		for (int i = 0; i < items.tagCount(); ++i) {
 			NBTTagCompound itemData = items.getCompoundTagAt(i);
 			byte byte0 = itemData.getByte("Slot");
-			if (byte0 < 0 || byte0 >= inventory.length) {
-				continue;
+			if (((byte0 >= 0) && (byte0 < inventory.length))) {
+				inventory[byte0] = ItemStack.loadItemStackFromNBT(itemData);
 			}
-			inventory[byte0] = ItemStack.loadItemStackFromNBT(itemData);
 		}
 	}
 
@@ -153,13 +152,12 @@ public class GOTTileEntityArmorStand extends TileEntity implements IInventory {
 	public void writeArmorStandToNBT(NBTTagCompound nbt) {
 		NBTTagList items = new NBTTagList();
 		for (int i = 0; i < inventory.length; ++i) {
-			if (inventory[i] == null) {
-				continue;
+			if (inventory[i] != null) {
+				NBTTagCompound itemData = new NBTTagCompound();
+				itemData.setByte("Slot", (byte) i);
+				inventory[i].writeToNBT(itemData);
+				items.appendTag(itemData);
 			}
-			NBTTagCompound itemData = new NBTTagCompound();
-			itemData.setByte("Slot", (byte) i);
-			inventory[i].writeToNBT(itemData);
-			items.appendTag(itemData);
 		}
 		nbt.setTag("Items", items);
 	}

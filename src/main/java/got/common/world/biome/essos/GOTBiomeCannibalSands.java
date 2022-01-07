@@ -77,9 +77,9 @@ public class GOTBiomeCannibalSands extends GOTBiome {
 				j1 = world.getHeightValue(i1, k1);
 				if (random.nextBoolean()) {
 					boulderGen.generate(world, random, i1, j1, k1);
-					continue;
+				} else {
+					boulderGenSandstone.generate(world, random, i1, j1, k1);
 				}
-				boulderGenSandstone.generate(world, random, i1, j1, k1);
 			}
 		}
 	}

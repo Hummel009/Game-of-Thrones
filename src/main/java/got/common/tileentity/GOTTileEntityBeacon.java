@@ -90,10 +90,9 @@ public class GOTTileEntityBeacon extends TileEntity {
 			message.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 			for (UUID player : fs.getAllPlayerUUIDs()) {
 				EntityPlayer entityplayer = worldObj.func_152378_a(player);
-				if (entityplayer == null) {
-					continue;
+				if (entityplayer != null) {
+					entityplayer.addChatMessage(message);
 				}
-				entityplayer.addChatMessage(message);
 			}
 		}
 	}
@@ -159,36 +158,31 @@ public class GOTTileEntityBeacon extends TileEntity {
 							Chunk chunk;
 							int i2 = chunkX + i1;
 							int k2 = chunkZ + k1;
-							if (!worldObj.getChunkProvider().chunkExists(i2, k2) || (chunk = worldObj.getChunkFromChunkCoords(i2, k2)) == null) {
-								continue;
-							}
-							for (Object obj : chunk.chunkTileEntityMap.values()) {
-								TileEntity te = (TileEntity) obj;
-								if (te.isInvalid() || !(te instanceof GOTTileEntityBeacon)) {
-									continue;
+							if ((worldObj.getChunkProvider().chunkExists(i2, k2) && ((chunk = worldObj.getChunkFromChunkCoords(i2, k2)) != null))) {
+								for (Object obj : chunk.chunkTileEntityMap.values()) {
+									TileEntity te = (TileEntity) obj;
+									if ((!te.isInvalid() && (te instanceof GOTTileEntityBeacon))) {
+										GOTTileEntityBeacon beacon = (GOTTileEntityBeacon) te;
+										if ((coordsThis.getDistanceSquared(beacon.xCoord, beacon.yCoord, beacon.zCoord) <= 6400.0f)) {
+											nearbyTiles.add(beacon);
+										}
+									}
 								}
-								GOTTileEntityBeacon beacon = (GOTTileEntityBeacon) te;
-								if ((coordsThis.getDistanceSquared(beacon.xCoord, beacon.yCoord, beacon.zCoord) > 6400.0f)) {
-									continue;
-								}
-								nearbyTiles.add(beacon);
 							}
 						}
 					}
 					if (spreadLit) {
 						for (GOTTileEntityBeacon other : nearbyTiles) {
-							if (other.isLit || stateChangeTime <= other.stateChangeTime) {
-								continue;
+							if ((!other.isLit && (stateChangeTime > other.stateChangeTime))) {
+								other.setLit(true);
 							}
-							other.setLit(true);
 						}
 					}
 					if (spreadUnlit) {
 						for (GOTTileEntityBeacon other : nearbyTiles) {
-							if (!other.isLit || stateChangeTime <= other.stateChangeTime) {
-								continue;
+							if ((other.isLit && (stateChangeTime > other.stateChangeTime))) {
+								other.setLit(false);
 							}
-							other.setLit(false);
 						}
 					}
 				}
@@ -196,10 +190,9 @@ public class GOTTileEntityBeacon extends TileEntity {
 		}
 		HashSet<EntityPlayer> removePlayers = new HashSet<>();
 		for (EntityPlayer entityplayer : editingPlayers) {
-			if (!entityplayer.isDead) {
-				continue;
+			if (entityplayer.isDead) {
+				removePlayers.add(entityplayer);
 			}
-			removePlayers.add(entityplayer);
 		}
 		editingPlayers.removeAll(removePlayers);
 	}

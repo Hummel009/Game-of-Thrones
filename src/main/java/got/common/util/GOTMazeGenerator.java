@@ -67,10 +67,10 @@ public class GOTMazeGenerator {
 				}
 				positions.add(new MazePos(x, z));
 				lastDir = dir;
-				continue;
+			} else {
+				positions.remove(randPosIndex);
+				lastDir = null;
 			}
-			positions.remove(randPosIndex);
-			lastDir = null;
 		}
 	}
 
@@ -101,24 +101,21 @@ public class GOTMazeGenerator {
 				for (int z = 0; z < zSize; ++z) {
 					boolean outer;
 					outer = x == 0 + wx || x == xSize - 1 - wx || z == 0 + wz || z == zSize - 1 - wz;
-					if (!outer || !isPath(x, z)) {
-						continue;
+					if ((outer && isPath(x, z))) {
+						int xHalf = x / (xSize / 2);
+						int zHalf = z / (zSize / 2);
+						if (((startXHalf != xHalf) && (startZHalf != zHalf))) {
+							positions.add(new MazePos(x, z));
+						}
 					}
-					int xHalf = x / (xSize / 2);
-					int zHalf = z / (zSize / 2);
-					if (startXHalf == xHalf || startZHalf == zHalf) {
-						continue;
-					}
-					positions.add(new MazePos(x, z));
 				}
 			}
-			if (positions.isEmpty()) {
-				continue;
+			if (!positions.isEmpty()) {
+				MazePos pos = positions.get(random.nextInt(positions.size()));
+				endX = pos.xPos;
+				endZ = pos.zPos;
+				return;
 			}
-			MazePos pos = positions.get(random.nextInt(positions.size()));
-			endX = pos.xPos;
-			endZ = pos.zPos;
-			return;
 		} while (++wx <= xSize / 2 + 1 && ++wz <= zSize / 2 + 1);
 	}
 

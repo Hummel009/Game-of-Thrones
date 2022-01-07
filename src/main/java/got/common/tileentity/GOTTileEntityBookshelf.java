@@ -112,10 +112,9 @@ public class GOTTileEntityBookshelf extends TileEntity implements IInventory {
 		for (int i = 0; i < itemTags.tagCount(); ++i) {
 			NBTTagCompound slotData = itemTags.getCompoundTagAt(i);
 			int slot = slotData.getByte("Slot") & 0xFF;
-			if (slot < 0 || slot >= chestContents.length) {
-				continue;
+			if (((slot >= 0) && (slot < chestContents.length))) {
+				chestContents[slot] = ItemStack.loadItemStackFromNBT(slotData);
 			}
-			chestContents[slot] = ItemStack.loadItemStackFromNBT(slotData);
 		}
 	}
 
@@ -138,10 +137,9 @@ public class GOTTileEntityBookshelf extends TileEntity implements IInventory {
 			List players = worldObj.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(xCoord - range, yCoord - range, zCoord - range, xCoord + 1 + range, yCoord + 1 + range, zCoord + 1 + range));
 			for (Object obj : players) {
 				EntityPlayer entityplayer = (EntityPlayer) obj;
-				if (!(entityplayer.openContainer instanceof GOTContainerBookshelf) || (((GOTContainerBookshelf) entityplayer.openContainer).shelfInv) != this) {
-					continue;
+				if (((entityplayer.openContainer instanceof GOTContainerBookshelf) && ((((GOTContainerBookshelf) entityplayer.openContainer).shelfInv) == this))) {
+					++numPlayersUsing;
 				}
-				++numPlayersUsing;
 			}
 		}
 	}
@@ -151,13 +149,12 @@ public class GOTTileEntityBookshelf extends TileEntity implements IInventory {
 		super.writeToNBT(nbt);
 		NBTTagList itemTags = new NBTTagList();
 		for (int i = 0; i < chestContents.length; ++i) {
-			if (chestContents[i] == null) {
-				continue;
+			if (chestContents[i] != null) {
+				NBTTagCompound slotData = new NBTTagCompound();
+				slotData.setByte("Slot", (byte) i);
+				chestContents[i].writeToNBT(slotData);
+				itemTags.appendTag(slotData);
 			}
-			NBTTagCompound slotData = new NBTTagCompound();
-			slotData.setByte("Slot", (byte) i);
-			chestContents[i].writeToNBT(slotData);
-			itemTags.appendTag(slotData);
 		}
 		nbt.setTag("Items", itemTags);
 	}

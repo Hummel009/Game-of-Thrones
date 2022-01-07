@@ -60,10 +60,9 @@ public abstract class GOTTileEntitySign extends TileEntity {
 	public void readSignText(NBTTagCompound nbt) {
 		for (int i = 0; i < signText.length; ++i) {
 			signText[i] = nbt.getString("Text" + (i + 1));
-			if (signText[i].length() <= 15) {
-				continue;
+			if (signText[i].length() > 15) {
+				signText[i] = signText[i].substring(0, 15);
 			}
-			signText[i] = signText[i].substring(0, 15);
 		}
 	}
 

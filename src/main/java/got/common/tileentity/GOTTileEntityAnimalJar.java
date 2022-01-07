@@ -130,10 +130,9 @@ public class GOTTileEntityAnimalJar extends TileEntity {
 		List players = worldObj.playerEntities;
 		for (Object obj : players) {
 			EntityPlayerMP entityplayer = (EntityPlayerMP) obj;
-			if (!playermanager.isPlayerWatchingChunk(entityplayer, i, k)) {
-				continue;
+			if (playermanager.isPlayerWatchingChunk(entityplayer, i, k)) {
+				entityplayer.playerNetServerHandler.sendPacket(packet);
 			}
-			entityplayer.playerNetServerHandler.sendPacket(packet);
 		}
 	}
 

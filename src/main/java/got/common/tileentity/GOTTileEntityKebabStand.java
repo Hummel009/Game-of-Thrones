@@ -34,13 +34,12 @@ public class GOTTileEntityKebabStand extends TileEntity implements IInventory {
 		boolean added = false;
 		for (int i = 0; i < getSizeInventory(); ++i) {
 			ItemStack itemstack = getStackInSlot(i);
-			if (itemstack != null) {
-				continue;
+			if (itemstack == null) {
+				setInventorySlotContents(i, copyMeat);
+				cooked[i] = false;
+				added = true;
+				break;
 			}
-			setInventorySlotContents(i, copyMeat);
-			cooked[i] = false;
-			added = true;
-			break;
 		}
 		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 		markDirty();
@@ -60,12 +59,11 @@ public class GOTTileEntityKebabStand extends TileEntity implements IInventory {
 		fuelTime -= 200;
 		for (int i = getSizeInventory() - 1; i >= 0; --i) {
 			ItemStack itemstack = getStackInSlot(i);
-			if (itemstack == null || cooked[i]) {
-				continue;
+			if (((itemstack != null) && !cooked[i])) {
+				setInventorySlotContents(i, new ItemStack(GOTRegistry.kebab));
+				cooked[i] = true;
+				break;
 			}
-			setInventorySlotContents(i, new ItemStack(GOTRegistry.kebab));
-			cooked[i] = true;
-			break;
 		}
 	}
 
@@ -123,10 +121,9 @@ public class GOTTileEntityKebabStand extends TileEntity implements IInventory {
 		int meats = 0;
 		for (int i = 0; i < getSizeInventory(); ++i) {
 			ItemStack itemstack = getStackInSlot(i);
-			if (itemstack == null) {
-				continue;
+			if (itemstack != null) {
+				++meats;
 			}
-			++meats;
 		}
 		return meats;
 	}
@@ -167,10 +164,9 @@ public class GOTTileEntityKebabStand extends TileEntity implements IInventory {
 	public boolean hasEmptyMeatSlot() {
 		for (int i = 0; i < getSizeInventory(); ++i) {
 			ItemStack itemstack = getStackInSlot(i);
-			if (itemstack != null) {
-				continue;
+			if (itemstack == null) {
+				return true;
 			}
-			return true;
 		}
 		return false;
 	}
@@ -180,10 +176,9 @@ public class GOTTileEntityKebabStand extends TileEntity implements IInventory {
 			return cookedClient;
 		}
 		for (int i = 0; i < getSizeInventory(); ++i) {
-			if (!cooked[i]) {
-				continue;
+			if (cooked[i]) {
+				return true;
 			}
-			return true;
 		}
 		return false;
 	}
@@ -198,10 +193,9 @@ public class GOTTileEntityKebabStand extends TileEntity implements IInventory {
 	public boolean isFullyCooked() {
 		for (int i = 0; i < getSizeInventory(); ++i) {
 			ItemStack itemstack = getStackInSlot(i);
-			if (itemstack == null || cooked[i]) {
-				continue;
+			if (((itemstack != null) && !cooked[i])) {
+				return false;
 			}
-			return false;
 		}
 		return true;
 	}
@@ -257,14 +251,13 @@ public class GOTTileEntityKebabStand extends TileEntity implements IInventory {
 		for (int i = 0; i < items.tagCount(); ++i) {
 			NBTTagCompound itemData = items.getCompoundTagAt(i);
 			byte slot = itemData.getByte("Slot");
-			if (slot < 0 || slot >= inventory.length) {
-				continue;
+			if (((slot >= 0) && (slot < inventory.length))) {
+				boolean slotItem = itemData.getBoolean("SlotItem");
+				if (slotItem) {
+					inventory[slot] = ItemStack.loadItemStackFromNBT(itemData);
+				}
+				cooked[i] = itemData.getBoolean("SlotCooked");
 			}
-			boolean slotItem = itemData.getBoolean("SlotItem");
-			if (slotItem) {
-				inventory[slot] = ItemStack.loadItemStackFromNBT(itemData);
-			}
-			cooked[i] = itemData.getBoolean("SlotCooked");
 		}
 		cookTime = nbt.getShort("CookTime");
 		fuelTime = nbt.getShort("FuelTime");
@@ -276,23 +269,21 @@ public class GOTTileEntityKebabStand extends TileEntity implements IInventory {
 		ItemStack meat = null;
 		for (i = getSizeInventory() - 1; i >= 0; --i) {
 			itemstack = getStackInSlot(i);
-			if (itemstack == null || !cooked[i]) {
-				continue;
+			if (((itemstack != null) && cooked[i])) {
+				meat = itemstack;
+				setInventorySlotContents(i, null);
+				cooked[i] = false;
+				break;
 			}
-			meat = itemstack;
-			setInventorySlotContents(i, null);
-			cooked[i] = false;
-			break;
 		}
 		if (meat == null) {
 			for (i = getSizeInventory() - 1; i >= 0; --i) {
 				itemstack = getStackInSlot(i);
-				if (itemstack == null || cooked[i]) {
-					continue;
+				if (((itemstack != null) && !cooked[i])) {
+					meat = itemstack;
+					setInventorySlotContents(i, null);
+					break;
 				}
-				meat = itemstack;
-				setInventorySlotContents(i, null);
-				break;
 			}
 		}
 		if (isCooking() && getMeatAmount() == 0) {
@@ -331,17 +322,16 @@ public class GOTTileEntityKebabStand extends TileEntity implements IInventory {
 			IInventory inv = (IInventory) (belowTE);
 			for (int i = 0; i < inv.getSizeInventory(); ++i) {
 				ItemStack itemstack = inv.getStackInSlot(i);
-				if (itemstack == null || !TileEntityFurnace.isItemFuel(itemstack)) {
-					continue;
+				if (((itemstack != null) && TileEntityFurnace.isItemFuel(itemstack))) {
+					int fuel = TileEntityFurnace.getItemBurnTime(itemstack);
+					--itemstack.stackSize;
+					if (itemstack.stackSize <= 0) {
+						inv.setInventorySlotContents(i, null);
+					} else {
+						inv.setInventorySlotContents(i, itemstack);
+					}
+					return fuel;
 				}
-				int fuel = TileEntityFurnace.getItemBurnTime(itemstack);
-				--itemstack.stackSize;
-				if (itemstack.stackSize <= 0) {
-					inv.setInventorySlotContents(i, null);
-				} else {
-					inv.setInventorySlotContents(i, itemstack);
-				}
-				return fuel;
 			}
 		}
 		return 0;

@@ -47,10 +47,9 @@ public class GOTTileEntityOven extends TileEntity implements IInventory, ISidedI
 
 	public boolean canCookAnyItem() {
 		for (int i = 0; i < 9; ++i) {
-			if (!canCook(i)) {
-				continue;
+			if (canCook(i)) {
+				return true;
 			}
-			return true;
 		}
 		return false;
 	}
@@ -222,10 +221,9 @@ public class GOTTileEntityOven extends TileEntity implements IInventory, ISidedI
 		for (int i = 0; i < items.tagCount(); ++i) {
 			NBTTagCompound itemData = items.getCompoundTagAt(i);
 			byte byte0 = itemData.getByte("Slot");
-			if (byte0 < 0 || byte0 >= inventory.length) {
-				continue;
+			if (((byte0 >= 0) && (byte0 < inventory.length))) {
+				inventory[byte0] = ItemStack.loadItemStackFromNBT(itemData);
 			}
-			inventory[byte0] = ItemStack.loadItemStackFromNBT(itemData);
 		}
 		ovenCookTime = nbt.getShort("BurnTime");
 		currentCookTime = nbt.getShort("CookTime");
@@ -294,13 +292,12 @@ public class GOTTileEntityOven extends TileEntity implements IInventory, ISidedI
 		super.writeToNBT(nbt);
 		NBTTagList items = new NBTTagList();
 		for (int i = 0; i < inventory.length; ++i) {
-			if (inventory[i] == null) {
-				continue;
+			if (inventory[i] != null) {
+				NBTTagCompound itemData = new NBTTagCompound();
+				itemData.setByte("Slot", (byte) i);
+				inventory[i].writeToNBT(itemData);
+				items.appendTag(itemData);
 			}
-			NBTTagCompound itemData = new NBTTagCompound();
-			itemData.setByte("Slot", (byte) i);
-			inventory[i].writeToNBT(itemData);
-			items.appendTag(itemData);
 		}
 		nbt.setTag("Items", items);
 		nbt.setShort("BurnTime", (short) ovenCookTime);

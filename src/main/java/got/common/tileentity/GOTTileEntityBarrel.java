@@ -195,22 +195,19 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 			int i;
 			barrelMode = 1;
 			for (i = 0; i < 9; ++i) {
-				if (inventory[i] == null) {
-					continue;
+				if (inventory[i] != null) {
+					ItemStack containerItem = null;
+					if (inventory[i].getItem().hasContainerItem(inventory[i]) && (containerItem = inventory[i].getItem().getContainerItem(inventory[i])).isItemStackDamageable() && containerItem.getItemDamage() > containerItem.getMaxDamage()) {
+						containerItem = null;
+					}
+					--inventory[i].stackSize;
+					if ((inventory[i].stackSize <= 0)) {
+						inventory[i] = null;
+						if (containerItem != null) {
+							inventory[i] = containerItem;
+						}
+					}
 				}
-				ItemStack containerItem = null;
-				if (inventory[i].getItem().hasContainerItem(inventory[i]) && (containerItem = inventory[i].getItem().getContainerItem(inventory[i])).isItemStackDamageable() && containerItem.getItemDamage() > containerItem.getMaxDamage()) {
-					containerItem = null;
-				}
-				--inventory[i].stackSize;
-				if (inventory[i].stackSize > 0) {
-					continue;
-				}
-				inventory[i] = null;
-				if (containerItem == null) {
-					continue;
-				}
-				inventory[i] = containerItem;
 			}
 			if (!worldObj.isRemote) {
 				for (i = 0; i < players.size(); ++i) {
@@ -271,10 +268,9 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 		for (int i = 0; i < items.tagCount(); ++i) {
 			NBTTagCompound itemData = items.getCompoundTagAt(i);
 			byte slot = itemData.getByte("Slot");
-			if (slot < 0 || slot >= inventory.length) {
-				continue;
+			if (((slot >= 0) && (slot < inventory.length))) {
+				inventory[slot] = ItemStack.loadItemStackFromNBT(itemData);
 			}
-			inventory[slot] = ItemStack.loadItemStackFromNBT(itemData);
 		}
 		barrelMode = nbt.getByte("BarrelMode");
 		brewingTime = nbt.getInteger("BrewingTime");
@@ -353,13 +349,12 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 	public void writeBarrelToNBT(NBTTagCompound nbt) {
 		NBTTagList items = new NBTTagList();
 		for (int i = 0; i < inventory.length; ++i) {
-			if (inventory[i] == null) {
-				continue;
+			if (inventory[i] != null) {
+				NBTTagCompound itemData = new NBTTagCompound();
+				itemData.setByte("Slot", (byte) i);
+				inventory[i].writeToNBT(itemData);
+				items.appendTag(itemData);
 			}
-			NBTTagCompound itemData = new NBTTagCompound();
-			itemData.setByte("Slot", (byte) i);
-			inventory[i].writeToNBT(itemData);
-			items.appendTag(itemData);
 		}
 		nbt.setTag("Items", items);
 		nbt.setByte("BarrelMode", (byte) barrelMode);

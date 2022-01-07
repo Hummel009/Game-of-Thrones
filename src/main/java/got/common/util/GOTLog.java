@@ -15,12 +15,11 @@ public class GOTLog {
 			for (Field f : MinecraftServer.class.getDeclaredFields()) {
 				GOTReflection.unlockFinalField(f);
 				Object obj = f.get(null);
-				if (!(obj instanceof Logger)) {
-					continue;
+				if (obj instanceof Logger) {
+					logger = (Logger) obj;
+					logger.info("Hummel009: Found logger");
+					break;
 				}
-				logger = (Logger) obj;
-				logger.info("Hummel009: Found logger");
-				break;
 			}
 		} catch (Exception e) {
 			FMLLog.warning("Hummel009: Failed to find logger!");

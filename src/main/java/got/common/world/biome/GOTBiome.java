@@ -386,87 +386,79 @@ public abstract class GOTBiome extends BiomeGenBase {
 		if (variant.hasMarsh && GOTBiomeVariant.marshNoise.func_151601_a(i * 0.1, k * 0.1) > -0.1) {
 			for (int j = ySize - 1; j >= 0; --j) {
 				int index = xzIndex * ySize + j;
-				if (blocks[index] != null && blocks[index].getMaterial() == Material.air) {
-					continue;
-				}
-				if (j != seaLevel - 1 || blocks[index] == Blocks.water) {
+				if (((blocks[index] == null) || (blocks[index].getMaterial() != Material.air))) {
+					if (j != seaLevel - 1 || blocks[index] == Blocks.water) {
+						break;
+					}
+					blocks[index] = Blocks.water;
 					break;
 				}
-				blocks[index] = Blocks.water;
-				break;
 			}
 		}
 		for (int j = ySize - 1; j >= 0; --j) {
 			int index = xzIndex * ySize + j;
 			if (j <= 0 + random.nextInt(5)) {
 				blocks[index] = Blocks.bedrock;
-				continue;
-			}
-			Block block = blocks[index];
-			if (block == Blocks.air) {
-				fillerDepth = -1;
-				continue;
-			}
-			if (block != Blocks.stone) {
-				continue;
-			}
-			if (fillerDepth == -1) {
-				if (fillerDepthBase <= 0) {
-					top = Blocks.air;
-					topMeta = 0;
-					filler = Blocks.stone;
-					fillerMeta = 0;
-				} else if (j >= seaLevel - 4 && j <= seaLevel + 1) {
-					top = topBlock;
-					topMeta = (byte) topBlockMeta;
-					filler = fillerBlock;
-					fillerMeta = (byte) fillerBlockMeta;
-				}
-				if (j < seaLevel && top == Blocks.air) {
-					top = Blocks.water;
-					topMeta = 0;
-				}
-				fillerDepth = fillerDepthBase;
-				if (j >= seaLevel - 1) {
-					blocks[index] = top;
-					meta[index] = topMeta;
-					continue;
-				}
-				blocks[index] = filler;
-				meta[index] = fillerMeta;
-				continue;
-			}
-			if (fillerDepth <= 0) {
-				continue;
-			}
-			blocks[index] = filler;
-			meta[index] = fillerMeta;
-			if (--fillerDepth == 0) {
-				boolean sand = false;
-				if (filler == Blocks.sand) {
-					if (fillerMeta == 1) {
-						filler = GOTRegistry.redSandstone;
-					} else {
-						filler = Blocks.sandstone;
+			} else {
+				Block block = blocks[index];
+				if (block == Blocks.air) {
+					fillerDepth = -1;
+				} else if (block == Blocks.stone) {
+					if (fillerDepth == -1) {
+						if (fillerDepthBase <= 0) {
+							top = Blocks.air;
+							topMeta = 0;
+							filler = Blocks.stone;
+							fillerMeta = 0;
+						} else if (j >= seaLevel - 4 && j <= seaLevel + 1) {
+							top = topBlock;
+							topMeta = (byte) topBlockMeta;
+							filler = fillerBlock;
+							fillerMeta = (byte) fillerBlockMeta;
+						}
+						if (j < seaLevel && top == Blocks.air) {
+							top = Blocks.water;
+							topMeta = 0;
+						}
+						fillerDepth = fillerDepthBase;
+						if (j >= seaLevel - 1) {
+							blocks[index] = top;
+							meta[index] = topMeta;
+						} else {
+							blocks[index] = filler;
+							meta[index] = fillerMeta;
+						}
+					} else if (fillerDepth > 0) {
+						blocks[index] = filler;
+						meta[index] = fillerMeta;
+						if (--fillerDepth == 0) {
+							boolean sand = false;
+							if (filler == Blocks.sand) {
+								if (fillerMeta == 1) {
+									filler = GOTRegistry.redSandstone;
+								} else {
+									filler = Blocks.sandstone;
+								}
+								fillerMeta = 0;
+								sand = true;
+							}
+							if (filler == GOTRegistry.whiteSand) {
+								filler = GOTRegistry.whiteSandstone;
+								fillerMeta = 0;
+								sand = true;
+							}
+							if (sand) {
+								fillerDepth = 10 + random.nextInt(4);
+							}
+						}
+						if (((fillerDepth == 0) && (fillerBlock != GOTRegistry.rock) && (filler == fillerBlock))) {
+							fillerDepth = 6 + random.nextInt(3);
+							filler = Blocks.stone;
+							fillerMeta = 0;
+						}
 					}
-					fillerMeta = 0;
-					sand = true;
-				}
-				if (filler == GOTRegistry.whiteSand) {
-					filler = GOTRegistry.whiteSandstone;
-					fillerMeta = 0;
-					sand = true;
-				}
-				if (sand) {
-					fillerDepth = 10 + random.nextInt(4);
 				}
 			}
-			if (fillerDepth != 0 || fillerBlock == GOTRegistry.rock || filler != fillerBlock) {
-				continue;
-			}
-			fillerDepth = 6 + random.nextInt(3);
-			filler = Blocks.stone;
-			fillerMeta = 0;
 		}
 		int rockDepth = (int) (stoneNoise * 6.0 + 2.0 + random.nextDouble() * 0.25);
 		generateMountainTerrain(world, random, blocks, meta, i, k, xzIndex, ySize, height, rockDepth, variant);
@@ -889,104 +881,103 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	public static void performSeasonChanges() {
 		for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.biomeList) {
-			if (biome == null) {
-				continue;
-			}
-			if (biome.isAlwaysWinter) {
-				biome.setTemperatureRainfall(0.0F, 2.0F);
-				biome.biomeColors.setGrass(0xffffff);
-				biome.biomeColors.setFoggy(true);
-				biome.biomeColors.setSky(4212300);
-				biome.biomeColors.setFog(6188664);
-				biome.biomeColors.setWater(2635588);
-			}
-			switch (GOTDate.AegonCalendar.getSeason()) {
-			case WINTER:
-				if (biome.isLongWinter || biome.isSeasonalWinter || biome.isSeasonalWinterAZ) {
+			if (biome != null) {
+				if (biome.isAlwaysWinter) {
 					biome.setTemperatureRainfall(0.0F, 2.0F);
 					biome.biomeColors.setGrass(0xffffff);
+					biome.biomeColors.setFoggy(true);
 					biome.biomeColors.setSky(4212300);
 					biome.biomeColors.setFog(6188664);
 					biome.biomeColors.setWater(2635588);
 				}
-				if (biome.isNeverWinter || biome.isNeverWinterAZ) {
-					biome.setTemperatureRainfall(0.28F, 2.0F);
-					biome.biomeColors.resetGrass();
-					biome.biomeColors.setSky(11653858);
+				switch (GOTDate.AegonCalendar.getSeason()) {
+				case WINTER:
+					if (biome.isLongWinter || biome.isSeasonalWinter || biome.isSeasonalWinterAZ) {
+						biome.setTemperatureRainfall(0.0F, 2.0F);
+						biome.biomeColors.setGrass(0xffffff);
+						biome.biomeColors.setSky(4212300);
+						biome.biomeColors.setFog(6188664);
+						biome.biomeColors.setWater(2635588);
+					}
+					if (biome.isNeverWinter || biome.isNeverWinterAZ) {
+						biome.setTemperatureRainfall(0.28F, 2.0F);
+						biome.biomeColors.resetGrass();
+						biome.biomeColors.setSky(11653858);
+					}
+					break;
+				case SPRING:
+					if (biome.isLongWinter || biome.isSeasonalWinter || biome.isSeasonalWinterAZ) {
+						biome.setTemperatureRainfall(0.28F, 0.8F);
+						biome.biomeColors.resetGrass();
+						biome.biomeColors.setSky(11653858);
+						biome.biomeColors.resetFog();
+						biome.biomeColors.setWater(2635588);
+					}
+					if (biome.isNeverWinter) {
+						biome.setTemperatureRainfall(0.8F, 0.8F);
+						biome.biomeColors.resetGrass();
+						biome.biomeColors.resetSky();
+					}
+					if (biome.isNeverWinterAZ) {
+						biome.setTemperatureRainfall(0.28F, 0.8F);
+						biome.biomeColors.resetGrass();
+						biome.biomeColors.resetSky();
+					}
+					break;
+				case SUMMER:
+					if (biome.isLongWinter) {
+						biome.setTemperatureRainfall(0.28F, 0.8F);
+						biome.biomeColors.resetGrass();
+						biome.biomeColors.setSky(11653858);
+						biome.biomeColors.resetFog();
+						biome.biomeColors.setWater(2635588);
+					}
+					if (biome.isSeasonalWinter) {
+						biome.setTemperatureRainfall(0.8F, 0.8F);
+						biome.biomeColors.resetGrass();
+						biome.biomeColors.resetSky();
+						biome.biomeColors.resetFog();
+						biome.biomeColors.resetWater();
+					}
+					if (biome.isSeasonalWinterAZ) {
+						biome.setTemperatureRainfall(0.28F, 0.8F);
+						biome.biomeColors.resetGrass();
+						biome.biomeColors.resetSky();
+						biome.biomeColors.resetFog();
+						biome.biomeColors.resetWater();
+					}
+					if (biome.isNeverWinter) {
+						biome.setTemperatureRainfall(1.2F, 0.4F);
+						biome.biomeColors.setGrass(14538086);
+						biome.biomeColors.setSky(15592678);
+					}
+					if (biome.isNeverWinterAZ) {
+						biome.setTemperatureRainfall(0.28F, 0.8F);
+						biome.biomeColors.setGrass(14538086);
+						biome.biomeColors.setSky(15592678);
+					}
+					break;
+				case AUTUMN:
+					if (biome.isLongWinter || biome.isSeasonalWinter || biome.isSeasonalWinterAZ) {
+						biome.setTemperatureRainfall(0.28F, 2.0F);
+						biome.biomeColors.setGrass(0xd09f4d);
+						biome.biomeColors.setFoggy(true);
+						biome.biomeColors.setSky(11653858);
+						biome.biomeColors.resetFog();
+						biome.biomeColors.setWater(2635588);
+					}
+					if (biome.isNeverWinter) {
+						biome.setTemperatureRainfall(0.8F, 0.8F);
+						biome.biomeColors.resetGrass();
+						biome.biomeColors.resetSky();
+					}
+					if (biome.isNeverWinterAZ) {
+						biome.setTemperatureRainfall(0.28F, 0.8F);
+						biome.biomeColors.resetGrass();
+						biome.biomeColors.resetSky();
+					}
+					break;
 				}
-				break;
-			case SPRING:
-				if (biome.isLongWinter || biome.isSeasonalWinter || biome.isSeasonalWinterAZ) {
-					biome.setTemperatureRainfall(0.28F, 0.8F);
-					biome.biomeColors.resetGrass();
-					biome.biomeColors.setSky(11653858);
-					biome.biomeColors.resetFog();
-					biome.biomeColors.setWater(2635588);
-				}
-				if (biome.isNeverWinter) {
-					biome.setTemperatureRainfall(0.8F, 0.8F);
-					biome.biomeColors.resetGrass();
-					biome.biomeColors.resetSky();
-				}
-				if (biome.isNeverWinterAZ) {
-					biome.setTemperatureRainfall(0.28F, 0.8F);
-					biome.biomeColors.resetGrass();
-					biome.biomeColors.resetSky();
-				}
-				break;
-			case SUMMER:
-				if (biome.isLongWinter) {
-					biome.setTemperatureRainfall(0.28F, 0.8F);
-					biome.biomeColors.resetGrass();
-					biome.biomeColors.setSky(11653858);
-					biome.biomeColors.resetFog();
-					biome.biomeColors.setWater(2635588);
-				}
-				if (biome.isSeasonalWinter) {
-					biome.setTemperatureRainfall(0.8F, 0.8F);
-					biome.biomeColors.resetGrass();
-					biome.biomeColors.resetSky();
-					biome.biomeColors.resetFog();
-					biome.biomeColors.resetWater();
-				}
-				if (biome.isSeasonalWinterAZ) {
-					biome.setTemperatureRainfall(0.28F, 0.8F);
-					biome.biomeColors.resetGrass();
-					biome.biomeColors.resetSky();
-					biome.biomeColors.resetFog();
-					biome.biomeColors.resetWater();
-				}
-				if (biome.isNeverWinter) {
-					biome.setTemperatureRainfall(1.2F, 0.4F);
-					biome.biomeColors.setGrass(14538086);
-					biome.biomeColors.setSky(15592678);
-				}
-				if (biome.isNeverWinterAZ) {
-					biome.setTemperatureRainfall(0.28F, 0.8F);
-					biome.biomeColors.setGrass(14538086);
-					biome.biomeColors.setSky(15592678);
-				}
-				break;
-			case AUTUMN:
-				if (biome.isLongWinter || biome.isSeasonalWinter || biome.isSeasonalWinterAZ) {
-					biome.setTemperatureRainfall(0.28F, 2.0F);
-					biome.biomeColors.setGrass(0xd09f4d);
-					biome.biomeColors.setFoggy(true);
-					biome.biomeColors.setSky(11653858);
-					biome.biomeColors.resetFog();
-					biome.biomeColors.setWater(2635588);
-				}
-				if (biome.isNeverWinter) {
-					biome.setTemperatureRainfall(0.8F, 0.8F);
-					biome.biomeColors.resetGrass();
-					biome.biomeColors.resetSky();
-				}
-				if (biome.isNeverWinterAZ) {
-					biome.setTemperatureRainfall(0.28F, 0.8F);
-					biome.biomeColors.resetGrass();
-					biome.biomeColors.resetSky();
-				}
-				break;
 			}
 		}
 	}
@@ -1149,10 +1140,9 @@ public abstract class GOTBiome extends BiomeGenBase {
 		Color water = new Color(r, g, b);
 		int waterRGB = water.getRGB();
 		for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.biomeList) {
-			if (biome == null || biome.biomeColors.hasCustomWater()) {
-				continue;
+			if (((biome != null) && !biome.biomeColors.hasCustomWater())) {
+				biome.biomeColors.updateWater(waterRGB);
 			}
-			biome.biomeColors.updateWater(waterRGB);
 		}
 	}
 
