@@ -18,7 +18,7 @@ public class GOTStructureDothrakiVillage extends GOTVillageGen {
 		gridScale = 12;
 		gridRandomDisplace = 1;
 		spawnChance = f;
-		villageChunkRadius = 4;
+		villageChunkRadius = 13;
 	}
 
 	@Override
@@ -138,7 +138,7 @@ public class GOTStructureDothrakiVillage extends GOTVillageGen {
 		public void setupVillageProperties(Random random) {
 			if (isBig) {
 				villageType = VillageType.BIG;
-				numOuterHouses = 14;
+				numOuterHouses = 13;
 			}
 			if (random.nextInt(3) == 0) {
 				villageType = VillageType.BIG;

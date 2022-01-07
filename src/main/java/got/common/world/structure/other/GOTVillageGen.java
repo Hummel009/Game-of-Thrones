@@ -34,7 +34,7 @@ public abstract class GOTVillageGen {
 	}
 
 	public LocationInfo addFixedLocation(GOTWaypoint wp, int addX, int addZ, int rotation) {
-		LocationInfo loc = new LocationInfo(wp.getXCoord() + addX, wp.getZCoord() + addZ, rotation, wp.toString()).setFixedLocation(wp);
+		LocationInfo loc = new LocationInfo(wp.getXCoord() + addX, wp.getZCoord() + addZ, rotation, wp.getCodeName()).setFixedLocation(wp);
 		fixedLocations.add(loc);
 		return loc;
 	}
@@ -159,14 +159,17 @@ public abstract class GOTVillageGen {
 					int j2;
 					int i3 = i + i2;
 					int k3 = k + k2;
-					if ((((i2 != 0) || (k2 != 0)) && ((j2 = getTopTerrainBlock(world, i3, k3, biome, true)) > 0) && (j2 < j1))) {
-						slabArray.set(i2, k2, j2);
+					if (i2 == 0 && k2 == 0 || (j2 = getTopTerrainBlock(world, i3, k3, biome, true)) <= 0 || j2 >= j1) {
+						continue;
 					}
+					slabArray.set(i2, k2, j2);
 				}
 			}
-			if ((slabArray.get(-1, 0) < j1 || slabArray.get(1, 0) < j1 || slabArray.get(0, -1) < j1 || slabArray.get(0, 1) < j1) || (slabArray.get(-1, -1) < j1 || slabArray.get(1, -1) < j1 || slabArray.get(-1, 1) < j1 || slabArray.get(1, 1) < j1)) {
+			if (slabArray.get(-1, 0) < j1 || slabArray.get(1, 0) < j1 || slabArray.get(0, -1) < j1 || slabArray.get(0, 1) < j1) {
 				isSlab = true;
-			} 
+			} else if (slabArray.get(-1, -1) < j1 || slabArray.get(1, -1) < j1 || slabArray.get(-1, 1) < j1 || slabArray.get(1, 1) < j1) {
+				isSlab = true;
+			}
 			if (isSlab && world.getBlock(i, j1 + 1, k).isOpaqueCube()) {
 				isSlab = false;
 			}
@@ -192,18 +195,19 @@ public abstract class GOTVillageGen {
 				int centreZ;
 				int centreX;
 				LocationInfo loc = isVillageCentre(world, i, k);
-				if (loc.isPresent()) {
-					if (loc.isFixedLocation()) {
-						centreX = loc.posX;
-						centreZ = loc.posZ;
-					} else {
-						centreX = (i << 4) + 8;
-						centreZ = (k << 4) + 8;
-					}
-					GOTVillageGen.seedVillageRand(world, centreX, centreZ);
-					AbstractInstance<?> instance = createAndSetupVillageInstance(world, centreX, centreZ, villageRand, loc);
-					villages.add(instance);
+				if (!loc.isPresent()) {
+					continue;
 				}
+				if (loc.isFixedLocation()) {
+					centreX = loc.posX;
+					centreZ = loc.posZ;
+				} else {
+					centreX = (i << 4) + 8;
+					centreZ = (k << 4) + 8;
+				}
+				GOTVillageGen.seedVillageRand(world, centreX, centreZ);
+				AbstractInstance<?> instance = createAndSetupVillageInstance(world, centreX, centreZ, villageRand, loc);
+				villages.add(instance);
 			}
 		}
 		return villages;
@@ -271,7 +275,10 @@ public abstract class GOTVillageGen {
 				if (!anythingNear) {
 					GOTVillageGen.seedVillageRand(world, i1, k1);
 					LocationInfo loc = LocationInfo.RANDOM_GEN_HERE;
-					createAndSetupVillageInstance(world, i1, k1, villageRand, loc);
+					AbstractInstance<?> instance = createAndSetupVillageInstance(world, i1, k1, villageRand, loc);
+					if (worldChunkMgr.areBiomesViable(i1, k1, villageRange, spawnBiomes) && worldChunkMgr.areVariantsSuitableVillage(i1, k1, villageRange, false)) {
+						return cache.markResult(chunkX, chunkZ, loc);
+					}
 				}
 			}
 		}

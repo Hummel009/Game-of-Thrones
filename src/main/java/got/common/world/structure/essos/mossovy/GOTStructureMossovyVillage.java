@@ -16,7 +16,7 @@ public class GOTStructureMossovyVillage extends GOTVillageGen {
 		gridScale = 16;
 		gridRandomDisplace = 2;
 		spawnChance = f;
-		villageChunkRadius = 6;
+		villageChunkRadius = 13;
 	}
 
 	@Override

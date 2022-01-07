@@ -22,7 +22,7 @@ public class GOTStructureMyrCity extends GOTVillageGen {
 		gridScale = 14;
 		gridRandomDisplace = 1;
 		spawnChance = f;
-		villageChunkRadius = 5;
+		villageChunkRadius = 13;
 	}
 
 	@Override

@@ -127,12 +127,12 @@ public class GOTFixer {
 		f01 = new GOTStructureMyrCity(biome, 0.0f).setIsTown();
 		f02 = new GOTStructureRuinsBig(biome, 0.0f);
 		f03 = new GOTStructureGhiscarCity(biome, 0.0f).setIsColony();
-		f04 = new GOTStructureSummerVillage(biome, 1.0f);
+		f04 = new GOTStructureSummerVillage(biome, 0.0f);
 		f05 = new GOTStructureGhiscarCity(biome, 0.0f).setIsTown();
 		f06 = new GOTStructureGhiscarPyramid1(biome, 0.0f);
 		f07 = new GOTStructureBraavosCity(biome, 0.0f).setIsTown();
 		f08 = new GOTStructureDothrakiVillage(biome, 0.0f).setIsBig();
-		f09 = new GOTStructureIbbenVillage(biome, 1.0f);
+		f09 = new GOTStructureIbbenVillage(biome, 0.0f);
 		f10 = new GOTStructureFiveFortsTower(biome, 0.0f);
 		f11 = new GOTStructureYiTiCity(biome, 0.0f).setIsTown();
 		f12 = new GOTStructureVolantisCity(biome, 0.0f).setIsTown();
