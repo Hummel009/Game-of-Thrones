@@ -121,26 +121,27 @@ public class GOTBiomeEssos extends GOTBiome {
 				int index = xzIndex * ySize + j;
 				Block above = blocks[index + 1];
 				Block block = blocks[index];
-				if (((block != null) && block.isOpaqueCube() && ((above == null) || (above.getMaterial() == Material.air)))) {
-					IntMath.mod(i, 6);
-					IntMath.mod(i, 24);
-					IntMath.mod(k, 32);
-					IntMath.mod(k, 64);
-					double d;
-					blocks[index] = Blocks.farmland;
-					meta[index] = 0;
-					int h = 2;
-					if (biomeTerrainNoise.func_151601_a(i, k) > 0.0) {
-						++h;
-					}
-					biomeTerrainNoise.func_151601_a(i * (d = 0.01), k * d);
-					Block vineBlock = GOTRegistry.cornStalk;
-					for (int j1 = 1; j1 <= h; ++j1) {
-						blocks[index + j1] = vineBlock;
-						meta[index + j1] = 8;
-					}
-					break;
+				if (block == null || !block.isOpaqueCube() || above != null && above.getMaterial() != Material.air) {
+					continue;
 				}
+				IntMath.mod(i, 6);
+				IntMath.mod(i, 24);
+				IntMath.mod(k, 32);
+				IntMath.mod(k, 64);
+				double d;
+				blocks[index] = Blocks.farmland;
+				meta[index] = 0;
+				int h = 2;
+				if (biomeTerrainNoise.func_151601_a(i, k) > 0.0) {
+					++h;
+				}
+				biomeTerrainNoise.func_151601_a(i * (d = 0.01), k * d);
+				Block vineBlock = GOTRegistry.cornStalk;
+				for (int j1 = 1; j1 <= h; ++j1) {
+					blocks[index + j1] = vineBlock;
+					meta[index + j1] = 8;
+				}
+				break;
 			}
 		}
 		boolean vineyard;
@@ -150,49 +151,50 @@ public class GOTBiomeEssos extends GOTBiome {
 				int index = xzIndex * ySize + j;
 				Block above = blocks[index + 1];
 				Block block = blocks[index];
-				if (((block != null) && block.isOpaqueCube() && ((above == null) || (above.getMaterial() == Material.air)))) {
-					int i1 = IntMath.mod(i, 6);
-					int i2 = IntMath.mod(i, 24);
-					int k1 = IntMath.mod(k, 32);
-					int k2 = IntMath.mod(k, 64);
-					if ((i1 == 0 || i1 == 5) && k1 != 0) {
-						double d;
-						blocks[index] = Blocks.farmland;
-						meta[index] = 0;
-						int h = 2;
-						if (biomeTerrainNoise.func_151601_a(i, k) > 0.0) {
-							++h;
-						}
-						boolean red = biomeTerrainNoise.func_151601_a(i * (d = 0.01), k * d) > 0.0;
-						Block vineBlock = red ? GOTRegistry.grapevineRed : GOTRegistry.grapevineWhite;
-						for (int j1 = 1; j1 <= h; ++j1) {
-							blocks[index + j1] = vineBlock;
-							meta[index + j1] = 7;
-						}
-						break;
+				if (block == null || !block.isOpaqueCube() || above != null && above.getMaterial() != Material.air) {
+					continue;
+				}
+				int i1 = IntMath.mod(i, 6);
+				int i2 = IntMath.mod(i, 24);
+				int k1 = IntMath.mod(k, 32);
+				int k2 = IntMath.mod(k, 64);
+				if ((i1 == 0 || i1 == 5) && k1 != 0) {
+					double d;
+					blocks[index] = Blocks.farmland;
+					meta[index] = 0;
+					int h = 2;
+					if (biomeTerrainNoise.func_151601_a(i, k) > 0.0) {
+						++h;
 					}
-					if (i1 >= 2 && i1 <= 3) {
-						blocks[index] = GOTRegistry.dirtPath;
-						meta[index] = 0;
-						if (i1 != i2 || (i1 != 2 || k2 != 16) && (i1 != 3 || k2 != 48)) {
-							break;
-						}
-						int h = 3;
-						for (int j1 = 1; j1 <= h; ++j1) {
-							if (j1 == h) {
-								blocks[index + j1] = Blocks.torch;
-								meta[index + j1] = 5;
-								continue;
-							}
-							blocks[index + j1] = GOTRegistry.fence2;
-							meta[index + j1] = 10;
-						}
-						break;
+					boolean red = biomeTerrainNoise.func_151601_a(i * (d = 0.01), k * d) > 0.0;
+					Block vineBlock = red ? GOTRegistry.grapevineRed : GOTRegistry.grapevineWhite;
+					for (int j1 = 1; j1 <= h; ++j1) {
+						blocks[index + j1] = vineBlock;
+						meta[index + j1] = 7;
 					}
-					blocks[index] = topBlock;
-					meta[index] = (byte) topBlockMeta;
 					break;
 				}
+				if (i1 >= 2 && i1 <= 3) {
+					blocks[index] = GOTRegistry.dirtPath;
+					meta[index] = 0;
+					if (i1 != i2 || (i1 != 2 || k2 != 16) && (i1 != 3 || k2 != 48)) {
+						break;
+					}
+					int h = 3;
+					for (int j1 = 1; j1 <= h; ++j1) {
+						if (j1 == h) {
+							blocks[index + j1] = Blocks.torch;
+							meta[index + j1] = 5;
+							continue;
+						}
+						blocks[index + j1] = GOTRegistry.fence2;
+						meta[index + j1] = 10;
+					}
+					break;
+				}
+				blocks[index] = topBlock;
+				meta[index] = (byte) topBlockMeta;
+				break;
 			}
 		}
 		super.generateBiomeTerrain(world, random, blocks, meta, i, k, stoneNoise, height, variant);

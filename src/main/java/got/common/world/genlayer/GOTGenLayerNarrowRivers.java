@@ -23,10 +23,11 @@ public class GOTGenLayerNarrowRivers extends GOTGenLayer {
 					block2: for (int range = 1; range <= maxRange; ++range) {
 						for (int k2 = k1 - range; k2 <= k1 + range; ++k2) {
 							for (int i2 = i1 - range; i2 <= i1 + range; ++i2) {
-								if ((((Math.abs(i2 - i1) == range) || (Math.abs(k2 - k1) == range)) && (rivers[i2 + maxRange + (k2 + maxRange) * (xSize + maxRange * 2)] == 0))) {
-									isRiver = 0;
-									break block2;
+								if (Math.abs(i2 - i1) != range && Math.abs(k2 - k1) != range || rivers[i2 + maxRange + (k2 + maxRange) * (xSize + maxRange * 2)] != 0) {
+									continue;
 								}
+								isRiver = 0;
+								break block2;
 							}
 						}
 					}

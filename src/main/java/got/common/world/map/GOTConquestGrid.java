@@ -290,7 +290,7 @@ public class GOTConquestGrid {
 
 	public static float onConquestKill(EntityPlayer entityplayer, GOTFaction pledgeFaction, GOTFaction enemyFaction, float alignBonus) {
 		World world = entityplayer.worldObj;
-		if (!world.isRemote && GOTConquestGrid.conquestEnabled(world) && GOTLevelData.getData(entityplayer).hasEnableConquestKills() && entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) {
+		if (!world.isRemote && GOTConquestGrid.conquestEnabled(world) && GOTLevelData.getData(entityplayer).getEnableConquestKills() && entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) {
 			GOTConquestZone centralZone = GOTConquestGrid.getZoneByEntityCoords(entityplayer);
 			float conqAmount = alignBonus * GOTLevelData.getConquestRate();
 			float conqGain = conqAmount;

@@ -50,9 +50,10 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 		int[] ints = chunkGenLayers[LAYER_BIOME].getInts(worldObj, i1, k1, i3, k3);
 		for (int l = 0; l < i3 * k3; ++l) {
 			GOTBiome biome = gotDimension.biomeList[ints[l]];
-			if (!list.contains(biome)) {
-				return false;
+			if (list.contains(biome)) {
+				continue;
 			}
+			return false;
 		}
 		return true;
 	}
@@ -69,9 +70,13 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 			if (v.hillFactor > 1.6f || requireFlat && v.hillFactor > 1.0f || (v.treeFactor > 1.0f)) {
 				return false;
 			}
-			if (v.disableVillages || (v.absoluteHeight && (v.absoluteHeightLevel < 0.0f))) {
+			if (v.disableVillages) {
 				return false;
 			}
+			if (!v.absoluteHeight || (v.absoluteHeightLevel >= 0.0f)) {
+				continue;
+			}
+			return false;
 		}
 		return true;
 	}
@@ -97,10 +102,11 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 			int xPos = i1 + l % i3 << 2;
 			int zPos = k1 + l / i3 << 2;
 			GOTBiome biome = gotDimension.biomeList[ints[l]];
-			if ((list.contains(biome) && ((chunkpos == null) || (random.nextInt(j + 1) == 0)))) {
-				chunkpos = new ChunkPosition(xPos, 0, zPos);
-				++j;
+			if (!list.contains(biome) || chunkpos != null && random.nextInt(j + 1) != 0) {
+				continue;
 			}
+			chunkpos = new ChunkPosition(xPos, 0, zPos);
+			++j;
 		}
 		return chunkpos;
 	}
@@ -213,17 +219,18 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 							for (int pass = 0; pass <= 1; ++pass) {
 								GOTBiomeVariantList variantList;
 								variantList = pass == 0 ? biome.getBiomeVariantsLarge() : biome.getBiomeVariantsSmall();
-								if (!variantList.isEmpty()) {
-									int[] sourceInts = pass == 0 ? variantsLargeInts : variantsSmallInts;
-									int variantCode = sourceInts[index];
-									float variantF = (float) variantCode / (float) GOTGenLayerBiomeVariants.RANDOM_MAX;
-									if (variantF < variantChance) {
-										float variantFNormalised = variantF / variantChance;
-										variant = variantList.get(variantFNormalised);
-										break;
-									}
-									variant = GOTBiomeVariant.STANDARD;
+								if (variantList.isEmpty()) {
+									continue;
 								}
+								int[] sourceInts = pass == 0 ? variantsLargeInts : variantsSmallInts;
+								int variantCode = sourceInts[index];
+								float variantF = (float) variantCode / (float) GOTGenLayerBiomeVariants.RANDOM_MAX;
+								if (variantF < variantChance) {
+									float variantFNormalised = variantF / variantChance;
+									variant = variantList.get(variantFNormalised);
+									break;
+								}
+								variant = GOTBiomeVariant.STANDARD;
 							}
 						}
 						if (!structureNear && biome.getEnableRiver()) {

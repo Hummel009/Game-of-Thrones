@@ -50,13 +50,20 @@ public class GOTGenLayerZoomVoronoi extends GOTGenLayer {
 						double d11 = (k4 - d11_b) * (k4 - d11_b) + (i4 - d11_a) * (i4 - d11_a);
 						if (d00 < d10 && d00 < d01 && d00 < d11) {
 							ints[index] = int00;
-						} else if (d10 < d00 && d10 < d01 && d10 < d11) {
-							ints[index] = int10;
-						} else if (d01 < d00 && d01 < d10 && d01 < d11) {
-							ints[index] = int01;
-						} else {
-							ints[index] = int11;
+							++index;
+							continue;
 						}
+						if (d10 < d00 && d10 < d01 && d10 < d11) {
+							ints[index] = int10;
+							++index;
+							continue;
+						}
+						if (d01 < d00 && d01 < d10 && d01 < d11) {
+							ints[index] = int01;
+							++index;
+							continue;
+						}
+						ints[index] = int11;
 						++index;
 					}
 				}

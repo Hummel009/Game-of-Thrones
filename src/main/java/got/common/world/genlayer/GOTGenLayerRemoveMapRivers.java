@@ -38,51 +38,55 @@ public class GOTGenLayerRemoveMapRivers extends GOTGenLayer {
 						for (int k2 = k1 - range; k2 <= k1 + range; ++k2) {
 							for (int i2 = i1 - range; i2 <= i1 + range; ++i2) {
 								GOTBiome subBiome;
-								if ((((Math.abs(i2 - i1) == range) || (Math.abs(k2 - k1) == range)) && ((subBiome = dimension.biomeList[subBiomeID = biomes[i2 + maxRange + (k2 + maxRange) * (xSize + maxRange * 2)]]) != GOTBiome.river))) {
-									boolean wateryAdjacent = subBiome.isWateryBiome() && range == 1;
-									HashMap<Integer, Integer> srcMap = wateryAdjacent ? viableBiomesWateryAdjacent : viableBiomes;
-									int count2 = 0;
-									if (srcMap.containsKey(Integer.valueOf(subBiomeID))) {
-										count2 = srcMap.get(Integer.valueOf(subBiomeID));
-									}
-									srcMap.put(subBiomeID, ++count2);
+								if (Math.abs(i2 - i1) != range && Math.abs(k2 - k1) != range || (subBiome = dimension.biomeList[subBiomeID = biomes[i2 + maxRange + (k2 + maxRange) * (xSize + maxRange * 2)]]) == GOTBiome.river) {
+									continue;
 								}
+								boolean wateryAdjacent = subBiome.isWateryBiome() && range == 1;
+								HashMap<Integer, Integer> srcMap = wateryAdjacent ? viableBiomesWateryAdjacent : viableBiomes;
+								int count2 = 0;
+								if (srcMap.containsKey(Integer.valueOf(subBiomeID))) {
+									count2 = srcMap.get(Integer.valueOf(subBiomeID));
+								}
+								srcMap.put(subBiomeID, ++count2);
 							}
 						}
 						HashMap<Integer, Integer> priorityMap = viableBiomes;
 						if (!viableBiomesWateryAdjacent.isEmpty()) {
 							priorityMap = viableBiomesWateryAdjacent;
 						}
-						if (!priorityMap.isEmpty()) {
-							ArrayList<Integer> maxCountBiomes = new ArrayList<>();
-							int maxCount = 0;
-							for (Entry<Integer, Integer> e : priorityMap.entrySet()) {
-								id = e.getKey();
-								count = e.getValue();
-								if (count > maxCount) {
-									maxCount = count;
-								}
-							}
-							Iterator<Entry<Integer, Integer>> subBiomeID1 = priorityMap.entrySet().iterator();
-							while (subBiomeID1.hasNext()) {
-								Map.Entry e = subBiomeID1.next();
-								id = (Integer) e.getKey();
-								count = (Integer) e.getValue();
-								if (count == maxCount) {
-									maxCountBiomes.add(id);
-								}
-							}
-							replaceID = maxCountBiomes.get(nextInt(maxCountBiomes.size()));
-							break;
+						if (priorityMap.isEmpty()) {
+							continue;
 						}
+						ArrayList<Integer> maxCountBiomes = new ArrayList<>();
+						int maxCount = 0;
+						for (Entry<Integer, Integer> e : priorityMap.entrySet()) {
+							id = e.getKey();
+							count = e.getValue();
+							if (count <= maxCount) {
+								continue;
+							}
+							maxCount = count;
+						}
+						Iterator<Entry<Integer, Integer>> subBiomeID1 = priorityMap.entrySet().iterator();
+						while (subBiomeID1.hasNext()) {
+							Map.Entry e = subBiomeID1.next();
+							id = (Integer) e.getKey();
+							count = (Integer) e.getValue();
+							if (count != maxCount) {
+								continue;
+							}
+							maxCountBiomes.add(id);
+						}
+						replaceID = maxCountBiomes.get(nextInt(maxCountBiomes.size()));
+						break;
 					}
 					if (replaceID == -1) {
 						FMLLog.warning("WARNING! GOT map generation failed to replace map river at %d, %d", i, k);
 						ints[i1 + k1 * xSize] = 0;
-					} else {
-						ints[i1 + k1 * xSize] = replaceID;
 						continue;
 					}
+					ints[i1 + k1 * xSize] = replaceID;
+					continue;
 				}
 				ints[i1 + k1 * xSize] = biomeID;
 			}

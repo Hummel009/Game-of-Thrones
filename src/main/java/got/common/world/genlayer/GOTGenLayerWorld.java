@@ -44,9 +44,10 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 					Enumeration<? extends ZipEntry> entries = zip.entries();
 					while (entries.hasMoreElements()) {
 						ZipEntry entry = entries.nextElement();
-						if (entry.getName().equals(imageName)) {
-							biomeImage = ImageIO.read(zip.getInputStream(entry));
+						if (!entry.getName().equals(imageName)) {
+							continue;
 						}
+						biomeImage = ImageIO.read(zip.getInputStream(entry));
 					}
 					zip.close();
 				} else {
@@ -65,10 +66,10 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 					Integer biomeID = GOTDimension.GAME_OF_THRONES.colorsToBiomeIDs.get(color);
 					if (biomeID != null) {
 						GOTGenLayerWorld.biomeImageData[i] = (byte) biomeID.intValue();
-					} else {
-						FMLLog.log(Level.ERROR, "Found unknown biome on map " + Integer.toHexString(color));
-						GOTGenLayerWorld.biomeImageData[i] = (byte) GOTBiome.ocean.biomeID;
+						continue;
 					}
+					FMLLog.log(Level.ERROR, "Found unknown biome on map " + Integer.toHexString(color));
+					GOTGenLayerWorld.biomeImageData[i] = (byte) GOTBiome.ocean.biomeID;
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -126,9 +127,10 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 			if (i <= 2) {
 				lakes = new GOTGenLayerBiomeVariantsLake(300L + i, lakes, i).setLakeFlags(1);
 			}
-			if (i == 3) {
-				lakes = new GOTGenLayerBiomeVariantsLake(500L, lakes, i).setLakeFlags(2, 4);
+			if (i != 3) {
+				continue;
 			}
+			lakes = new GOTGenLayerBiomeVariantsLake(500L, lakes, i).setLakeFlags(2, 4);
 		}
 		for (i = 0; i < 4; ++i) {
 			mapRivers = new GOTGenLayerMapRiverZoom(4000L + i, mapRivers);
