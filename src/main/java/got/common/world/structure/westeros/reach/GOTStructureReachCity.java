@@ -25,7 +25,6 @@ public class GOTStructureReachCity extends GOTVillageGen {
 		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 5;
-
 	}
 
 	@Override
