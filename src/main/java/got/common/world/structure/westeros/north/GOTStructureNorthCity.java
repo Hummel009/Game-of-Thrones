@@ -22,10 +22,10 @@ public class GOTStructureNorthCity extends GOTVillageGen {
 
 	public GOTStructureNorthCity(GOTBiome biome, float f) {
 		super(biome);
-		gridScale = 16;
-		gridRandomDisplace = 2;
+		gridScale = 12;
+		gridRandomDisplace = 1;
 		spawnChance = f;
-		villageChunkRadius = 13;
+		villageChunkRadius = 5;
 	}
 
 	@Override
@@ -62,11 +62,6 @@ public class GOTStructureNorthCity extends GOTVillageGen {
 
 		@Override
 		public void addVillageStructures(Random random) {
-			if (isTown || isSmallTown) {
-				villageType = VillageType.TOWN;
-			} else if (isCastle) {
-				villageType = VillageType.FORT;
-			}
 			switch (villageType) {
 			case TOWN:
 				setupTown(random);
@@ -548,7 +543,13 @@ public class GOTStructureNorthCity extends GOTVillageGen {
 
 		@Override
 		public void setupVillageProperties(Random random) {
-			villageType = VillageType.VILLAGE;
+			if (isTown || isSmallTown ) {
+				villageType = VillageType.TOWN;
+			} else if (isCastle || random.nextInt(4) == 0) {
+				villageType = VillageType.FORT;
+			} else {
+				villageType = VillageType.VILLAGE;
+			}
 		}
 	}
 

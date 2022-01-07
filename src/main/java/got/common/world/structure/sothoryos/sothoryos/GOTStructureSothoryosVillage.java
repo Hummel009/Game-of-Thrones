@@ -10,10 +10,10 @@ import net.minecraft.world.World;
 public class GOTStructureSothoryosVillage extends GOTVillageGen {
 	public GOTStructureSothoryosVillage(GOTBiome biome, float f) {
 		super(biome);
-		gridScale = 10;
+		gridScale = 12;
 		gridRandomDisplace = 1;
 		spawnChance = f;
-		villageChunkRadius = 13;
+		villageChunkRadius = 5;
 	}
 
 	@Override

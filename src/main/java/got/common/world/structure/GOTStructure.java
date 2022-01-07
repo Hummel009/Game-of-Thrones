@@ -398,7 +398,6 @@ public class GOTStructure {
 
 			@Override
 			public void apply(GOTStructureGiftVillage.Instance instance) {
-				instance.villageType = GOTStructureGiftVillage.VillageType.VILLAGE;
 			}
 
 		});
@@ -935,7 +934,6 @@ public class GOTStructure {
 
 			@Override
 			public void apply(GOTStructureMossovyVillage.Instance instance) {
-				instance.villageType = GOTStructureMossovyVillage.VillageType.VILLAGE;
 			}
 
 		});

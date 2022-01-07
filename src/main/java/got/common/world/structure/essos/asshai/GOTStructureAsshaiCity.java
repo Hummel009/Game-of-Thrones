@@ -17,10 +17,10 @@ import net.minecraft.world.World;
 public class GOTStructureAsshaiCity extends GOTVillageGen {
 	public GOTStructureAsshaiCity(GOTBiome biome, float f) {
 		super(biome);
-		gridScale = 16;
-		gridRandomDisplace = 2;
+		gridScale = 12;
+		gridRandomDisplace = 1;
 		spawnChance = f;
-		villageChunkRadius = 13;
+		villageChunkRadius = 5;
 	}
 
 	@Override

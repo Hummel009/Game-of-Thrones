@@ -12,7 +12,7 @@ public class GOTStructureRedCastle extends GOTVillageGen {
 	public GOTStructureRedCastle(GOTBiome biome, float f) {
 		super(biome);
 		gridScale = 16;
-		gridRandomDisplace = 2;
+		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 6;
 	}

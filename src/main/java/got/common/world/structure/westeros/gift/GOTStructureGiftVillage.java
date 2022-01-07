@@ -16,7 +16,7 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 		gridScale = 12;
 		gridRandomDisplace = 1;
 		spawnChance = f;
-		villageChunkRadius = 13;
+		villageChunkRadius = 5;
 	}
 
 	@Override
@@ -25,7 +25,6 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 	}
 
 	public class Instance extends GOTVillageGen.AbstractInstance {
-		public VillageType villageType;
 		public int innerSize;
 		public boolean palisade;
 
@@ -35,54 +34,6 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 
 		@Override
 		public void addVillageStructures(Random random) {
-			if (villageType == VillageType.VILLAGE) {
-				setupVillage(random);
-			}
-		}
-
-		@Override
-		public GOTBezierType getPath(Random random, int i, int k) {
-			int i1 = Math.abs(i);
-			int k1 = Math.abs(k);
-			if (villageType == VillageType.VILLAGE) {
-				int dSq = i * i + k * k;
-				if (i1 <= 2 && k1 <= 2) {
-					return null;
-				}
-				int imn = innerSize + random.nextInt(3);
-				if (dSq < imn * imn) {
-					return GOTBezierType.PATH_DIRTY;
-				}
-				if (palisade && k < 0 && k > -(innerSize + 12 + 16) && i1 <= 2 + random.nextInt(3)) {
-					return GOTBezierType.PATH_DIRTY;
-				}
-			}
-			return null;
-		}
-
-		public GOTStructureBase getRandomHouse(Random random) {
-			if (random.nextInt(3) == 0) {
-				int i = random.nextInt(3);
-				switch (i) {
-				case 0:
-					return new GOTStructureGiftSmithy(false);
-				case 1:
-					return new GOTStructureGiftStables(false);
-				case 2:
-					return new GOTStructureGiftLodge(false);
-				default:
-					break;
-				}
-			}
-			return new GOTStructureGiftHouse(false);
-		}
-
-		@Override
-		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
-			return false;
-		}
-
-		public void setupVillage(Random random) {
 			this.addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
@@ -168,20 +119,55 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 					}
 				}
 			}
+		
+		}
+
+		@Override
+		public GOTBezierType getPath(Random random, int i, int k) {
+			int i1 = Math.abs(i);
+			int k1 = Math.abs(k);
+			if (true) {
+				int dSq = i * i + k * k;
+				if (i1 <= 2 && k1 <= 2) {
+					return null;
+				}
+				int imn = innerSize + random.nextInt(3);
+				if (dSq < imn * imn) {
+					return GOTBezierType.PATH_DIRTY;
+				}
+				if (palisade && k < 0 && k > -(innerSize + 12 + 16) && i1 <= 2 + random.nextInt(3)) {
+					return GOTBezierType.PATH_DIRTY;
+				}
+			}
+			return null;
+		}
+
+		public GOTStructureBase getRandomHouse(Random random) {
+			if (random.nextInt(3) == 0) {
+				int i = random.nextInt(3);
+				switch (i) {
+				case 0:
+					return new GOTStructureGiftSmithy(false);
+				case 1:
+					return new GOTStructureGiftStables(false);
+				case 2:
+					return new GOTStructureGiftLodge(false);
+				default:
+					break;
+				}
+			}
+			return new GOTStructureGiftHouse(false);
+		}
+
+		@Override
+		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
+			return false;
 		}
 
 		@Override
 		public void setupVillageProperties(Random random) {
-			villageType = VillageType.VILLAGE;
 			innerSize = MathHelper.getRandomIntegerInRange(random, 12, 20);
 			palisade = random.nextBoolean();
 		}
-
 	}
-
-	public enum VillageType {
-		VILLAGE;
-
-	}
-
 }

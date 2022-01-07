@@ -19,10 +19,10 @@ public class GOTStructureNorvosCity extends GOTVillageGen {
 
 	public GOTStructureNorvosCity(GOTBiome biome, float f) {
 		super(biome);
-		gridScale = 14;
+		gridScale = 12;
 		gridRandomDisplace = 1;
 		spawnChance = f;
-		villageChunkRadius = 13;
+		villageChunkRadius = 5;
 	}
 
 	@Override
@@ -44,9 +44,6 @@ public class GOTStructureNorvosCity extends GOTVillageGen {
 
 		@Override
 		public void addVillageStructures(Random random) {
-			if (isTown) {
-				villageType = VillageType.TOWN;
-			}
 			switch (villageType) {
 			case VILLAGE:
 				setupVillage(random);
@@ -599,7 +596,13 @@ public class GOTStructureNorvosCity extends GOTVillageGen {
 
 		@Override
 		public void setupVillageProperties(Random random) {
-			villageType = random.nextInt(4) == 0 ? VillageType.FORT : random.nextInt(3) == 0 ? VillageType.TOWN : VillageType.VILLAGE;
+			if (isTown) {
+				villageType = VillageType.TOWN;
+			} else if (random.nextInt(4) == 0) {
+				villageType = VillageType.FORT;
+			} else {
+				villageType = VillageType.VILLAGE;
+			}
 		}
 
 		public void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {

@@ -20,10 +20,10 @@ public class GOTStructureGhiscarCity extends GOTVillageGen {
 
 	public GOTStructureGhiscarCity(GOTBiome biome, float f) {
 		super(biome);
-		gridScale = 14;
+		gridScale = 12;
 		gridRandomDisplace = 1;
 		spawnChance = f;
-		villageChunkRadius = 13;
+		villageChunkRadius = 5;
 	}
 
 	@Override
@@ -50,12 +50,6 @@ public class GOTStructureGhiscarCity extends GOTVillageGen {
 
 		@Override
 		public void addVillageStructures(Random random) {
-			if (isTown) {
-				villageType = VillageType.TOWN;
-			}
-			if (isColony) {
-				villageType = VillageType.FORT;
-			}
 			switch (villageType) {
 			case VILLAGE:
 				setupVillage(random);
@@ -616,7 +610,13 @@ public class GOTStructureGhiscarCity extends GOTVillageGen {
 
 		@Override
 		public void setupVillageProperties(Random random) {
-			villageType = random.nextInt(4) == 0 ? VillageType.FORT : VillageType.VILLAGE;
+			if (isTown) {
+				villageType = VillageType.TOWN;
+			} else if (isColony || random.nextInt(4) == 0) {
+				villageType = VillageType.FORT;
+			} else {
+				villageType = VillageType.VILLAGE;
+			}
 		}
 
 		public void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
