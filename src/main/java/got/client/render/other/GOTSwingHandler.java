@@ -38,10 +38,9 @@ public class GOTSwingHandler {
 					EntityLivingBase entity = e.getKey();
 					SwingTime swt = e.getValue();
 					swt.swingPrev = swt.swing++;
-					if (swt.swing <= swt.swingMax) {
-						continue;
+					if (swt.swing > swt.swingMax) {
+						removes.add(entity);
 					}
-					removes.add(entity);
 				}
 				for (EntityLivingBase entity : removes) {
 					entitySwings.remove(entity);

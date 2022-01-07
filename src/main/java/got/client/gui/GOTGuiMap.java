@@ -380,61 +380,55 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					GOTConquestZone mouseOverZone = null;
 					GOTConquestGrid.ConquestEffective mouseOverEffect = null;
 					for (int pass = 0; pass <= 1; ++pass) {
-						if (pass == 1 && (highestViewedConqStr <= 0.0f)) {
-							continue;
-						}
-						ArrayList<GOTConquestZone> zoneList = pass == 0 ? allZones : zonesInView;
-						for (GOTConquestZone zone : zoneList) {
-							float strength = zone.getConquestStrength(conquestViewingFaction, mc.theWorld);
-							int[] min = GOTConquestGrid.getMinCoordsOnMap(zone);
-							int[] max = GOTConquestGrid.getMaxCoordsOnMap(zone);
-							float[] minF = transformMapCoords(min[0], min[1]);
-							float[] maxF = transformMapCoords(max[0], max[1]);
-							float minX = minF[0];
-							float maxX = maxF[0];
-							float minY = minF[1];
-							float maxY = maxF[1];
-							if ((maxX < mapXMin) || (minX > mapXMax) || (maxY < mapYMin) || (minY > mapYMax)) {
-								continue;
-							}
-							if (pass == 0) {
-								if (strength > highestViewedConqStr) {
-									highestViewedConqStr = strength;
-								}
-								zonesInView.add(zone);
-								continue;
-							}
-							if (pass != 1 || (strength <= 0.0f)) {
-								continue;
-							}
-							float strFrac = strength / highestViewedConqStr;
-							float strAlpha = strFrac = MathHelper.clamp_float(strFrac, 0.0f, 1.0f);
-							if (strength > 0.0f) {
-								strAlpha = Math.max(strAlpha, 0.1f);
-							}
-							GOTConquestGrid.ConquestEffective effect = GOTConquestGrid.getConquestEffectIn(mc.theWorld, zone, conquestViewingFaction);
-							int zoneColor = 0xBB0000 | Math.round(strAlpha * 255.0f) << 24;
-							if (effect == GOTConquestGrid.ConquestEffective.EFFECTIVE) {
-								GOTGuiScreenBase.drawFloatRect(minX, minY, maxX, maxY, zoneColor);
-							} else {
-								int zoneColor2 = 0x1E1E1E | Math.round(strAlpha * 255.0f) << 24;
-								if (effect == GOTConquestGrid.ConquestEffective.ALLY_BOOST) {
-									float zoneYSize = maxY - minY;
-									int strips = 8;
-									for (int l = 0; l < strips; ++l) {
-										float stripYSize = zoneYSize / strips;
-										GOTGuiScreenBase.drawFloatRect(minX, minY + stripYSize * l, maxX, minY + stripYSize * (l + 1), l % 2 == 0 ? zoneColor : zoneColor2);
+						if (((pass != 1) || (highestViewedConqStr > 0.0f))) {
+							ArrayList<GOTConquestZone> zoneList = pass == 0 ? allZones : zonesInView;
+							for (GOTConquestZone zone : zoneList) {
+								float strength = zone.getConquestStrength(conquestViewingFaction, mc.theWorld);
+								int[] min = GOTConquestGrid.getMinCoordsOnMap(zone);
+								int[] max = GOTConquestGrid.getMaxCoordsOnMap(zone);
+								float[] minF = transformMapCoords(min[0], min[1]);
+								float[] maxF = transformMapCoords(max[0], max[1]);
+								float minX = minF[0];
+								float maxX = maxF[0];
+								float minY = minF[1];
+								float maxY = maxF[1];
+								if (((maxX >= mapXMin) && (minX <= mapXMax) && (maxY >= mapYMin) && (minY <= mapYMax))) {
+									if (pass == 0) {
+										if (strength > highestViewedConqStr) {
+											highestViewedConqStr = strength;
+										}
+										zonesInView.add(zone);
+									} else if (((pass == 1) && (strength > 0.0f))) {
+										float strFrac = strength / highestViewedConqStr;
+										float strAlpha = strFrac = MathHelper.clamp_float(strFrac, 0.0f, 1.0f);
+										if (strength > 0.0f) {
+											strAlpha = Math.max(strAlpha, 0.1f);
+										}
+										GOTConquestGrid.ConquestEffective effect = GOTConquestGrid.getConquestEffectIn(mc.theWorld, zone, conquestViewingFaction);
+										int zoneColor = 0xBB0000 | Math.round(strAlpha * 255.0f) << 24;
+										if (effect == GOTConquestGrid.ConquestEffective.EFFECTIVE) {
+											GOTGuiScreenBase.drawFloatRect(minX, minY, maxX, maxY, zoneColor);
+										} else {
+											int zoneColor2 = 0x1E1E1E | Math.round(strAlpha * 255.0f) << 24;
+											if (effect == GOTConquestGrid.ConquestEffective.ALLY_BOOST) {
+												float zoneYSize = maxY - minY;
+												int strips = 8;
+												for (int l = 0; l < strips; ++l) {
+													float stripYSize = zoneYSize / strips;
+													GOTGuiScreenBase.drawFloatRect(minX, minY + stripYSize * l, maxX, minY + stripYSize * (l + 1), l % 2 == 0 ? zoneColor : zoneColor2);
+												}
+											} else if (effect == GOTConquestGrid.ConquestEffective.NO_EFFECT) {
+												GOTGuiScreenBase.drawFloatRect(minX, minY, maxX, maxY, zoneColor2);
+											}
+										}
+										if (((i >= minX) && (i < maxX) && (j >= minY) && (j < maxY))) {
+											mouseOverStr = strength;
+											mouseOverZone = zone;
+											mouseOverEffect = effect;
+										}
 									}
-								} else if (effect == GOTConquestGrid.ConquestEffective.NO_EFFECT) {
-									GOTGuiScreenBase.drawFloatRect(minX, minY, maxX, maxY, zoneColor2);
 								}
 							}
-							if ((i < minX) || (i >= maxX) || (j < minY) || (j >= maxY)) {
-								continue;
-							}
-							mouseOverStr = strength;
-							mouseOverZone = zone;
-							mouseOverEffect = effect;
 						}
 					}
 					GL11.glAlphaFunc(516, alphaFunc);
@@ -713,18 +707,15 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 						if (pass == 0) {
 							int color = 0xBB0000 | Math.round(frac * 255.0f) << 24;
 							Gui.drawRect(x0, y0, x1, y1, color);
-							continue;
+						} else if (((pass == 1) && (l % 2 == 0))) {
+							String keyLabel = GOTAlignmentValues.formatConqForDisplay(strFrac, false);
+							int strX = (int) ((x0 + keyWidth / 2) / labelScaleRel);
+							int strY = (int) ((y0 + keyHeight / 2) / labelScaleRel) - fontRendererObj.FONT_HEIGHT / 2;
+							GL11.glPushMatrix();
+							GL11.glScalef(labelScaleRel, labelScaleRel, 1.0f);
+							this.drawCenteredString(keyLabel, strX, strY, 16777215);
+							GL11.glPopMatrix();
 						}
-						if (pass != 1 || l % 2 != 0) {
-							continue;
-						}
-						String keyLabel = GOTAlignmentValues.formatConqForDisplay(strFrac, false);
-						int strX = (int) ((x0 + keyWidth / 2) / labelScaleRel);
-						int strY = (int) ((y0 + keyHeight / 2) / labelScaleRel) - fontRendererObj.FONT_HEIGHT / 2;
-						GL11.glPushMatrix();
-						GL11.glScalef(labelScaleRel, labelScaleRel, 1.0f);
-						this.drawCenteredString(keyLabel, strX, strY, 16777215);
-						GL11.glPopMatrix();
 					}
 				}
 			}
@@ -817,23 +808,22 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					for (int index = sharesMinMax[0]; index <= sharesMinMax[1]; ++index) {
 						UUID fsID = displayedWPShareList.get(index);
 						GOTFellowshipClient fs = GOTLevelData.getData(mc.thePlayer).getClientFellowshipByID(fsID);
-						if (fs == null) {
-							continue;
-						}
-						fellowshipDrawGUI.drawFellowshipEntry(fs, fsX, fsY, i, j, false, fullWidth);
-						int iconRemoveX = fsX + fellowshipDrawGUI.xSize + iconGap;
-						int iconRemoveY = fsY;
-						boolean mouseOverRemove = false;
-						if (fs == fellowshipDrawGUI.getMouseOverFellowship()) {
-							mouseOverRemove = i >= iconRemoveX && i <= iconRemoveX + iconWidth && j >= iconRemoveY && j <= iconRemoveY + iconWidth;
-							if (mouseOverRemove) {
-								mouseOverRemoveSharedFellowship = fs;
+						if (fs != null) {
+							fellowshipDrawGUI.drawFellowshipEntry(fs, fsX, fsY, i, j, false, fullWidth);
+							int iconRemoveX = fsX + fellowshipDrawGUI.xSize + iconGap;
+							int iconRemoveY = fsY;
+							boolean mouseOverRemove = false;
+							if (fs == fellowshipDrawGUI.getMouseOverFellowship()) {
+								mouseOverRemove = i >= iconRemoveX && i <= iconRemoveX + iconWidth && j >= iconRemoveY && j <= iconRemoveY + iconWidth;
+								if (mouseOverRemove) {
+									mouseOverRemoveSharedFellowship = fs;
+								}
 							}
+							mc.getTextureManager().bindTexture(GOTGuiFellowships.iconsTextures);
+							GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+							this.drawTexturedModalRect(iconRemoveX, iconRemoveY, 8, 16 + (mouseOverRemove ? 0 : iconWidth), iconWidth, iconWidth);
+							fsY = stringY += mc.fontRenderer.FONT_HEIGHT + 5;
 						}
-						mc.getTextureManager().bindTexture(GOTGuiFellowships.iconsTextures);
-						GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-						this.drawTexturedModalRect(iconRemoveX, iconRemoveY, 8, 16 + (mouseOverRemove ? 0 : iconWidth), iconWidth, iconWidth);
-						fsY = stringY += mc.fontRenderer.FONT_HEIGHT + 5;
 					}
 					if (scrollPaneWPShares.hasScrollBar) {
 						scrollPaneWPShares.drawScrollBar();
@@ -1105,11 +1095,10 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		Object packet;
 		GOTGuiMapWidget mouseWidget = null;
 		for (GOTGuiMapWidget widget : mapWidgets) {
-			if (!widget.isMouseOver(i - mapXMin, j - mapYMin, mapWidth, mapHeight)) {
-				continue;
+			if (widget.isMouseOver(i - mapXMin, j - mapYMin, mapWidth, mapHeight)) {
+				mouseWidget = widget;
+				break;
 			}
-			mouseWidget = widget;
-			break;
 		}
 		if (hasOverlay && (creatingWaypointNew || renamingWaypoint || sharingWaypointNew)) {
 			nameWPTextField.mouseClicked(i, j, k);
@@ -1205,11 +1194,10 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				float[] pos;
 				boolean unlocked = waypoint.hasPlayerUnlocked(mc.thePlayer);
 				boolean hidden = waypoint.isHidden();
-				if (!isWaypointVisible(waypoint) || hidden && !unlocked || ((distToWP = Math.sqrt((dx = ((pos = this.transformCoords(waypoint.getXCoord(), waypoint.getZCoord()))[0]) - i) * dx + (dy = (pos[1]) - j) * dy)) > 5.0) || (distToWP > distanceSelectedWP)) {
-					continue;
+				if ((isWaypointVisible(waypoint) && (!hidden || unlocked) && ((distToWP = Math.sqrt((dx = ((pos = this.transformCoords(waypoint.getXCoord(), waypoint.getZCoord()))[0]) - i) * dx + (dy = (pos[1]) - j) * dy)) <= 5.0) && (distToWP <= distanceSelectedWP))) {
+					selectedWaypoint = waypoint;
+					distanceSelectedWP = distToWP;
 				}
-				selectedWaypoint = waypoint;
-				distanceSelectedWP = distToWP;
 			}
 		}
 		super.mouseClicked(i, j, k);
@@ -1324,17 +1312,13 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 						tessellator.addVertex(trans2[0], trans2[1], zLevel);
 					}
 					tessellator.draw();
-					if (mouseControlZone && mouseControlZoneReduced || ((dx = mouseX - (trans = this.transformCoords(zone.xCoord, zone.zCoord))[0]) * dx + (dy = mouseY - trans[1]) * dy > (rScaled = radius * zoomScale) * rScaled)) {
-						continue;
+					if (((!mouseControlZone || !mouseControlZoneReduced) && ((dx = mouseX - (trans = this.transformCoords(zone.xCoord, zone.zCoord))[0]) * dx + (dy = mouseY - trans[1]) * dy <= (rScaled = radius * zoomScale) * rScaled))) {
+						if (pass >= 1) {
+							mouseControlZone = true;
+						} else if (pass == 0) {
+							mouseControlZoneReduced = true;
+						}
 					}
-					if (pass >= 1) {
-						mouseControlZone = true;
-						continue;
-					}
-					if (pass != 0) {
-						continue;
-					}
-					mouseControlZoneReduced = true;
 				}
 			}
 			GL11.glEnable(3553);
@@ -1381,47 +1365,43 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			float x = pos[0];
 			float y = pos[1];
 			float zoomlerp = (zoomExp - label.minZoom) / (label.maxZoom - label.minZoom);
-			if ((zoomlerp <= 0.0f) || (zoomlerp >= 1.0f)) {
-				continue;
-			}
-			float alpha = (0.5f - Math.abs(zoomlerp - 0.5f)) / 0.5f;
-			alpha *= 0.7f;
-			if (GOTGuiMap.isOSRS()) {
-				if (alpha < 0.3f) {
-					continue;
+			if (((zoomlerp > 0.0f) && (zoomlerp < 1.0f))) {
+				float alpha = (0.5f - Math.abs(zoomlerp - 0.5f)) / 0.5f;
+				alpha *= 0.7f;
+				if (GOTGuiMap.isOSRS() && (alpha >= 0.3f)) {
+					alpha = 1.0f;
 				}
-				alpha = 1.0f;
-			}
-			GL11.glPushMatrix();
-			GL11.glTranslatef(x, y, 0.0f);
-			float scale = zoomScale * label.scale;
-			GL11.glScalef(scale, scale, scale);
-			if (!GOTGuiMap.isOSRS()) {
-				GL11.glRotatef(label.angle, 0.0f, 0.0f, 1.0f);
-			}
-			int alphaI = (int) (alpha * 255.0f);
-			alphaI = MathHelper.clamp_int(alphaI, 4, 255);
-			GL11.glEnable(3042);
-			GL11.glBlendFunc(770, 771);
-			float alphaFunc = GL11.glGetFloat(3010);
-			GL11.glAlphaFunc(516, 0.01f);
-			String s = label.getDisplayName();
-			int strX = -fontRendererObj.getStringWidth(s) / 2;
-			int strY = -fontRendererObj.FONT_HEIGHT / 2;
-			if (GOTGuiMap.isOSRS()) {
-				if (label.scale > 2.5f) {
-					fontRendererObj.drawString(s, strX + 1, strY + 1, 0 + (alphaI << 24));
-					fontRendererObj.drawString(s, strX, strY, 16755200 + (alphaI << 24));
+				GL11.glPushMatrix();
+				GL11.glTranslatef(x, y, 0.0f);
+				float scale = zoomScale * label.scale;
+				GL11.glScalef(scale, scale, scale);
+				if (!GOTGuiMap.isOSRS()) {
+					GL11.glRotatef(label.angle, 0.0f, 0.0f, 1.0f);
+				}
+				int alphaI = (int) (alpha * 255.0f);
+				alphaI = MathHelper.clamp_int(alphaI, 4, 255);
+				GL11.glEnable(3042);
+				GL11.glBlendFunc(770, 771);
+				float alphaFunc = GL11.glGetFloat(3010);
+				GL11.glAlphaFunc(516, 0.01f);
+				String s = label.getDisplayName();
+				int strX = -fontRendererObj.getStringWidth(s) / 2;
+				int strY = -fontRendererObj.FONT_HEIGHT / 2;
+				if (GOTGuiMap.isOSRS()) {
+					if (label.scale > 2.5f) {
+						fontRendererObj.drawString(s, strX + 1, strY + 1, 0 + (alphaI << 24));
+						fontRendererObj.drawString(s, strX, strY, 16755200 + (alphaI << 24));
+					} else {
+						fontRendererObj.drawString(s, strX + 1, strY + 1, 0 + (alphaI << 24));
+						fontRendererObj.drawString(s, strX, strY, 16777215 + (alphaI << 24));
+					}
 				} else {
-					fontRendererObj.drawString(s, strX + 1, strY + 1, 0 + (alphaI << 24));
 					fontRendererObj.drawString(s, strX, strY, 16777215 + (alphaI << 24));
 				}
-			} else {
-				fontRendererObj.drawString(s, strX, strY, 16777215 + (alphaI << 24));
+				GL11.glAlphaFunc(516, alphaFunc);
+				GL11.glDisable(3042);
+				GL11.glPopMatrix();
 			}
-			GL11.glAlphaFunc(516, alphaFunc);
-			GL11.glDisable(3042);
-			GL11.glPopMatrix();
 		}
 		endMapClipping();
 	}
@@ -1497,16 +1477,14 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		widgetUnhideSWP.visible = !hasOverlay && isMiddleEarth() && selectedWaypoint instanceof GOTCustomWaypoint && ((GOTCustomWaypoint) selectedWaypoint).isShared() && ((GOTCustomWaypoint) selectedWaypoint).isSharedHidden();
 		GOTGuiMapWidget mouseOverWidget = null;
 		for (GOTGuiMapWidget widget : mapWidgets) {
-			if (!widget.visible) {
-				continue;
+			if (widget.visible) {
+				mc.getTextureManager().bindTexture(mapIconsTexture);
+				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+				this.drawTexturedModalRect(mapXMin + widget.getMapXPos(mapWidth), mapYMin + widget.getMapYPos(mapHeight), widget.getTexU(), widget.getTexV(), widget.width, widget.width);
+				if (widget.isMouseOver(mouseX - mapXMin, mouseY - mapYMin, mapWidth, mapHeight)) {
+					mouseOverWidget = widget;
+				}
 			}
-			mc.getTextureManager().bindTexture(mapIconsTexture);
-			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-			this.drawTexturedModalRect(mapXMin + widget.getMapXPos(mapWidth), mapYMin + widget.getMapYPos(mapHeight), widget.getTexU(), widget.getTexV(), widget.width, widget.width);
-			if (!widget.isMouseOver(mouseX - mapXMin, mouseY - mapYMin, mapWidth, mapHeight)) {
-				continue;
-			}
-			mouseOverWidget = widget;
 		}
 		if (mouseOverWidget != null) {
 			float z = zLevel;
@@ -1530,42 +1508,40 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		List<GOTMiniQuest> quests = GOTLevelData.getData(entityplayer).getActiveMiniQuests();
 		for (GOTMiniQuest quest : quests) {
 			ChunkCoordinates location = quest.getLastLocation();
-			if (location == null) {
-				continue;
+			if (location != null) {
+				float[] pos = this.transformCoords(location.posX, location.posZ);
+				int questX = Math.round(pos[0]);
+				int questY = Math.round(pos[1]);
+				float scale = 0.5f;
+				float invScale = 1.0f / scale;
+				IIcon icon = questBookIcon.getIconIndex();
+				int iconWidthHalf = icon.getIconWidth() / 2;
+				iconWidthHalf = (int) (iconWidthHalf * scale);
+				int iconBorder = iconWidthHalf + 1;
+				questX = Math.max(mapXMin + iconBorder, questX);
+				questX = Math.min(mapXMax - iconBorder - 1, questX);
+				questY = Math.max(mapYMin + iconBorder, questY);
+				questY = Math.min(mapYMax - iconBorder - 1, questY);
+				int iconX = Math.round(questX * invScale);
+				int iconY = Math.round(questY * invScale);
+				GL11.glScalef(scale, scale, scale);
+				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+				GL11.glEnable(2896);
+				GL11.glEnable(2884);
+				renderItem.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), questBookIcon, iconX -= iconWidthHalf, iconY -= iconWidthHalf);
+				GL11.glDisable(2896);
+				GL11.glEnable(3008);
+				GL11.glScalef(invScale, invScale, invScale);
+				double dx = questX - mouseX;
+				double dy = questY - mouseY;
+				double distToQuest = Math.sqrt(dx * dx + dy * dy);
+				if (((distToQuest <= iconWidthHalf + 3) && (distToQuest <= distanceMouseOverQuest))) {
+					mouseOverQuest = quest;
+					mouseOverQuestX = questX;
+					mouseOverQuestY = questY;
+					distanceMouseOverQuest = distToQuest;
+				}
 			}
-			float[] pos = this.transformCoords(location.posX, location.posZ);
-			int questX = Math.round(pos[0]);
-			int questY = Math.round(pos[1]);
-			float scale = 0.5f;
-			float invScale = 1.0f / scale;
-			IIcon icon = questBookIcon.getIconIndex();
-			int iconWidthHalf = icon.getIconWidth() / 2;
-			iconWidthHalf = (int) (iconWidthHalf * scale);
-			int iconBorder = iconWidthHalf + 1;
-			questX = Math.max(mapXMin + iconBorder, questX);
-			questX = Math.min(mapXMax - iconBorder - 1, questX);
-			questY = Math.max(mapYMin + iconBorder, questY);
-			questY = Math.min(mapYMax - iconBorder - 1, questY);
-			int iconX = Math.round(questX * invScale);
-			int iconY = Math.round(questY * invScale);
-			GL11.glScalef(scale, scale, scale);
-			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-			GL11.glEnable(2896);
-			GL11.glEnable(2884);
-			renderItem.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), questBookIcon, iconX -= iconWidthHalf, iconY -= iconWidthHalf);
-			GL11.glDisable(2896);
-			GL11.glEnable(3008);
-			GL11.glScalef(invScale, invScale, invScale);
-			double dx = questX - mouseX;
-			double dy = questY - mouseY;
-			double distToQuest = Math.sqrt(dx * dx + dy * dy);
-			if ((distToQuest > iconWidthHalf + 3) || (distToQuest > distanceMouseOverQuest)) {
-				continue;
-			}
-			mouseOverQuest = quest;
-			mouseOverQuestX = questX;
-			mouseOverQuestY = questY;
-			distanceMouseOverQuest = distToQuest;
 		}
 		if (mouseOverQuest != null && !hasOverlay) {
 			String name = mouseOverQuest.entityName;
@@ -1656,13 +1632,12 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			GameProfile profile = info.profile;
 			String playerName = profile.getName();
 			double distToPlayer = renderPlayerIcon(profile, playerName, playerX = Math.round((pos = this.transformCoords(info.posX, info.posZ))[0]), playerY = Math.round(pos[1]), mouseX, mouseY);
-			if ((distToPlayer > iconWidthHalf + 3) || (distToPlayer > distanceMouseOverPlayer)) {
-				continue;
+			if (((distToPlayer <= iconWidthHalf + 3) && (distToPlayer <= distanceMouseOverPlayer))) {
+				mouseOverPlayerName = playerName;
+				mouseOverPlayerX = playerX;
+				mouseOverPlayerY = playerY;
+				distanceMouseOverPlayer = distToPlayer;
 			}
-			mouseOverPlayerName = playerName;
-			mouseOverPlayerX = playerX;
-			mouseOverPlayerY = playerY;
-			distanceMouseOverPlayer = distToPlayer;
 		}
 		if (mouseOverPlayerName != null && !hasOverlay && !loadingConquestGrid) {
 			int strWidth = mc.fontRenderer.getStringWidth(mouseOverPlayerName);
@@ -1733,58 +1708,54 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 						GL11.glDisable(3042);
 						GL11.glEnable(3553);
 					}
-					if (!labels || x < mapXMin - (clip = 200) || x > mapXMax + clip || y < mapYMin - clip || y > mapYMax + clip) {
-						continue;
-					}
-					float zoomlerp = (zoomExp - -1.0f) / 4.0f;
-					float scale = zoomlerp = Math.min(zoomlerp, 1.0f);
-					String name = null;
-					int nameWidth = fontRendererObj.getStringWidth(name);
-					int nameInterval = (int) ((nameWidth * 2 + 100) * 200.0f / zoomScaleStable);
-					if (i % nameInterval >= interval) {
-						continue;
-					}
-					boolean endNear = false;
-					double dMax = (nameWidth / 2.0 + 25.0) * scale;
-					double dMaxSq = dMax * dMax;
-					for (GOTRoads.RoadPoint end : road.endpoints) {
-						float dy;
-						float[] endPos = this.transformCoords(end.x, end.z);
-						float endX = endPos[0];
-						float dx = x - endX;
-						double dSq = dx * dx + (dy = y - endPos[1]) * dy;
-						if (dSq >= dMaxSq) {
-							continue;
+					if ((labels && (x >= mapXMin - (clip = 200)) && (x <= mapXMax + clip) && (y >= mapYMin - clip) && (y <= mapYMax + clip))) {
+						float zoomlerp = (zoomExp - -1.0f) / 4.0f;
+						float scale = zoomlerp = Math.min(zoomlerp, 1.0f);
+						String name = null;
+						int nameWidth = fontRendererObj.getStringWidth(name);
+						int nameInterval = (int) ((nameWidth * 2 + 100) * 200.0f / zoomScaleStable);
+						if ((i % nameInterval < interval)) {
+							boolean endNear = false;
+							double dMax = (nameWidth / 2.0 + 25.0) * scale;
+							double dMaxSq = dMax * dMax;
+							for (GOTRoads.RoadPoint end : road.endpoints) {
+								float dy;
+								float[] endPos = this.transformCoords(end.x, end.z);
+								float endX = endPos[0];
+								float dx = x - endX;
+								double dSq = dx * dx + (dy = y - endPos[1]) * dy;
+								if (dSq < dMaxSq) {
+									endNear = true;
+								}
+							}
+							if ((!endNear && (zoomlerp > 0.0f))) {
+								setupMapClipping();
+								GL11.glPushMatrix();
+								GL11.glTranslatef(x, y, 0.0f);
+								GL11.glScalef(scale, scale, scale);
+								GOTRoads.RoadPoint nextPoint = road.roadPoints[Math.min(i + 1, road.roadPoints.length - 1)];
+								GOTRoads.RoadPoint prevPoint = road.roadPoints[Math.max(i - 1, 0)];
+								double grad = (nextPoint.z - prevPoint.z) / (nextPoint.x - prevPoint.x);
+								float angle = (float) Math.atan(grad);
+								angle = (float) Math.toDegrees(angle);
+								if (Math.abs(angle) > 90.0f) {
+									angle += 180.0f;
+								}
+								GL11.glRotatef(angle, 0.0f, 0.0f, 1.0f);
+								float alpha = zoomlerp;
+								int alphaI = GOTClientProxy.getAlphaInt(alpha *= 0.8f);
+								GL11.glEnable(3042);
+								GL11.glBlendFunc(770, 771);
+								int strX = -nameWidth / 2;
+								int strY = -15;
+								fontRendererObj.drawString(name, strX + 1, strY + 1, 0 + (alphaI << 24));
+								fontRendererObj.drawString(name, strX, strY, 16777215 + (alphaI << 24));
+								GL11.glDisable(3042);
+								GL11.glPopMatrix();
+								endMapClipping();
+							}
 						}
-						endNear = true;
 					}
-					if (endNear || zoomlerp <= 0.0f) {
-						continue;
-					}
-					setupMapClipping();
-					GL11.glPushMatrix();
-					GL11.glTranslatef(x, y, 0.0f);
-					GL11.glScalef(scale, scale, scale);
-					GOTRoads.RoadPoint nextPoint = road.roadPoints[Math.min(i + 1, road.roadPoints.length - 1)];
-					GOTRoads.RoadPoint prevPoint = road.roadPoints[Math.max(i - 1, 0)];
-					double grad = (nextPoint.z - prevPoint.z) / (nextPoint.x - prevPoint.x);
-					float angle = (float) Math.atan(grad);
-					angle = (float) Math.toDegrees(angle);
-					if (Math.abs(angle) > 90.0f) {
-						angle += 180.0f;
-					}
-					GL11.glRotatef(angle, 0.0f, 0.0f, 1.0f);
-					float alpha = zoomlerp;
-					int alphaI = GOTClientProxy.getAlphaInt(alpha *= 0.8f);
-					GL11.glEnable(3042);
-					GL11.glBlendFunc(770, 771);
-					int strX = -nameWidth / 2;
-					int strY = -15;
-					fontRendererObj.drawString(name, strX + 1, strY + 1, 0 + (alphaI << 24));
-					fontRendererObj.drawString(name, strX, strY, 16777215 + (alphaI << 24));
-					GL11.glDisable(3042);
-					GL11.glPopMatrix();
-					endMapClipping();
 				}
 			}
 		}

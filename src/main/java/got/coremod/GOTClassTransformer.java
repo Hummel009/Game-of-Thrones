@@ -1046,7 +1046,7 @@ public class GOTClassTransformer implements IClassTransformer {
 				method.instructions.insert(newIns);
 				System.out.println("Hummel009: Patched method " + method.name);
 			}
-			
+
 		}
 		ClassWriter writer = new ClassWriter(1);
 		classNode.accept(writer);
@@ -1075,7 +1075,7 @@ public class GOTClassTransformer implements IClassTransformer {
 				newIns.add(new InsnNode(172));
 				method.instructions.insert(newIns);
 				System.out.println("Hummel009: Patched method " + method.name);
-			}			
+			}
 		}
 		ClassWriter writer = new ClassWriter(1);
 		classNode.accept(writer);

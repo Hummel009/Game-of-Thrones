@@ -69,10 +69,9 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 	public boolean canGoLeft() {
 		for (int i = 0; i <= currentShieldID - 1; ++i) {
 			GOTShields shield = currentShieldType.list.get(i);
-			if (!shield.canDisplay(mc.thePlayer)) {
-				continue;
+			if (shield.canDisplay(mc.thePlayer)) {
+				return true;
 			}
-			return true;
 		}
 		return false;
 	}
@@ -80,10 +79,9 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 	public boolean canGoRight() {
 		for (int i = currentShieldID + 1; i <= currentShieldType.list.size() - 1; ++i) {
 			GOTShields shield = currentShieldType.list.get(i);
-			if (!shield.canDisplay(mc.thePlayer)) {
-				continue;
+			if (shield.canDisplay(mc.thePlayer)) {
+				return true;
 			}
-			return true;
 		}
 		return false;
 	}
@@ -190,13 +188,11 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 		while (!currentShield.canDisplay(mc.thePlayer)) {
 			if ((shield < 0 || type != 0) && canGoLeft()) {
 				updateCurrentShield(-1, 0);
-				continue;
-			}
-			if ((shield > 0 || type != 0) && canGoRight()) {
+			} else if ((shield > 0 || type != 0) && canGoRight()) {
 				updateCurrentShield(1, 0);
-				continue;
+			} else {
+				updateCurrentShield(0, 1);
 			}
-			updateCurrentShield(0, 1);
 		}
 	}
 

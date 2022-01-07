@@ -109,127 +109,118 @@ public class GOTRenderWeather extends IRenderHandler {
 						ashy = false;
 						sandy = false;
 					}
-					if (!rainy && !snowy && !ashy && !sandy) {
-						continue;
-					}
-					int k1 = world.getPrecipitationHeight(i1, l);
-					int l1 = l2 - b0;
-					int i2 = l2 + b0;
-					if (l1 < k1) {
-						l1 = k1;
-					}
-					if (i2 < k1) {
-						i2 = k1;
-					}
-					float f8 = 1.0f;
-					int j2 = k1;
-					if (k1 < k) {
-						j2 = k;
-					}
-					if (l1 == i2) {
-						continue;
-					}
-					rand.setSeed(i1 * i1 * 3121 + i1 * 45238971 ^ l * l * 418711 + l * 13761);
-					float f9 = biomegenbase.getFloatTemperature(i1, l1, l);
-					if (ashy) {
-						if (b1 != 1) {
-							if (b1 >= 0) {
-								tessellator.draw();
+					if ((rainy || snowy || ashy || sandy)) {
+						int k1 = world.getPrecipitationHeight(i1, l);
+						int l1 = l2 - b0;
+						int i2 = l2 + b0;
+						if (l1 < k1) {
+							l1 = k1;
+						}
+						if (i2 < k1) {
+							i2 = k1;
+						}
+						float f8 = 1.0f;
+						int j2 = k1;
+						if (k1 < k) {
+							j2 = k;
+						}
+						if (l1 != i2) {
+							rand.setSeed(i1 * i1 * 3121 + i1 * 45238971 ^ l * l * 418711 + l * 13761);
+							float f9 = biomegenbase.getFloatTemperature(i1, l1, l);
+							if (ashy) {
+								if (b1 != 1) {
+									if (b1 >= 0) {
+										tessellator.draw();
+									}
+									b1 = 1;
+									mc.getTextureManager().bindTexture(ashTexture);
+									tessellator.startDrawingQuads();
+								}
+								f10 = ((rendererUpdateCount & 0x1FF) + partialTicks) / 512.0f;
+								f16 = rand.nextFloat() * 0.3f + f5 * 0.003f * (float) rand.nextGaussian();
+								f11 = rand.nextFloat() + f5 * (float) rand.nextGaussian() * 0.001f;
+								d4 = i1 + 0.5f - entitylivingbase.posX;
+								d5 = l + 0.5f - entitylivingbase.posZ;
+								f14 = MathHelper.sqrt_double(d4 * d4 + d5 * d5) / b0;
+								f15 = 1.0f;
+								tessellator.setBrightness((world.getLightBrightnessForSkyBlocks(i1, j2, l, 0) * 3 + 15728880) / 4);
+								tessellator.setColorRGBA_F(f15, f15, f15, ((1.0f - f14 * f14) * 0.3f + 0.5f) * rainStrength);
+								tessellator.setTranslation(-d0 * 1.0, -d1 * 1.0, -d2 * 1.0);
+								tessellator.addVertexWithUV(i1 - f6 + 0.5, l1, l - f7 + 0.5, 0.0f * f8 + f16, l1 * f8 / 4.0f + f10 * f8 + f11);
+								tessellator.addVertexWithUV(i1 + f6 + 0.5, l1, l + f7 + 0.5, 1.0f * f8 + f16, l1 * f8 / 4.0f + f10 * f8 + f11);
+								tessellator.addVertexWithUV(i1 + f6 + 0.5, i2, l + f7 + 0.5, 1.0f * f8 + f16, i2 * f8 / 4.0f + f10 * f8 + f11);
+								tessellator.addVertexWithUV(i1 - f6 + 0.5, i2, l - f7 + 0.5, 0.0f * f8 + f16, i2 * f8 / 4.0f + f10 * f8 + f11);
+							} else if (sandy) {
+								if (b1 != 1) {
+									if (b1 >= 0) {
+										tessellator.draw();
+									}
+									b1 = 1;
+									mc.getTextureManager().bindTexture(sandstormTexture);
+									tessellator.startDrawingQuads();
+								}
+								f10 = ((rendererUpdateCount & 0x1FF) + partialTicks) / 512.0f;
+								f16 = f5 * (0.07f + (float) rand.nextGaussian() * 0.01f);
+								f11 = rand.nextFloat() + f5 * (float) rand.nextGaussian() * 0.001f;
+								d4 = i1 + 0.5f - entitylivingbase.posX;
+								d5 = l + 0.5f - entitylivingbase.posZ;
+								f14 = MathHelper.sqrt_double(d4 * d4 + d5 * d5) / b0;
+								f15 = 1.0f;
+								tessellator.setBrightness((world.getLightBrightnessForSkyBlocks(i1, j2, l, 0) * 3 + 15728880) / 4);
+								tessellator.setColorRGBA_F(f15, f15, f15, ((1.0f - f14 * f14) * 0.3f + 0.5f) * rainStrength);
+								tessellator.setTranslation(-d0 * 1.0, -d1 * 1.0, -d2 * 1.0);
+								tessellator.addVertexWithUV(i1 - f6 + 0.5, l1, l - f7 + 0.5, 0.0f * f8 + f16, l1 * f8 / 4.0f + f10 * f8 + f11);
+								tessellator.addVertexWithUV(i1 + f6 + 0.5, l1, l + f7 + 0.5, 1.0f * f8 + f16, l1 * f8 / 4.0f + f10 * f8 + f11);
+								tessellator.addVertexWithUV(i1 + f6 + 0.5, i2, l + f7 + 0.5, 1.0f * f8 + f16, i2 * f8 / 4.0f + f10 * f8 + f11);
+								tessellator.addVertexWithUV(i1 - f6 + 0.5, i2, l - f7 + 0.5, 0.0f * f8 + f16, i2 * f8 / 4.0f + f10 * f8 + f11);
+							} else if (world.getWorldChunkManager().getTemperatureAtHeight(f9, k1) >= 0.15f) {
+								if (b1 != 0) {
+									if (b1 >= 0) {
+										tessellator.draw();
+									}
+									b1 = 0;
+									mc.getTextureManager().bindTexture(rainTexture);
+									tessellator.startDrawingQuads();
+								}
+								f10 = ((rendererUpdateCount + i1 * i1 * 3121 + i1 * 45238971 + l * l * 418711 + l * 13761 & 0x1F) + partialTicks) / 32.0f * (3.0f + rand.nextFloat());
+								double d3 = i1 + 0.5f - entitylivingbase.posX;
+								d4 = l + 0.5f - entitylivingbase.posZ;
+								float f12 = MathHelper.sqrt_double(d3 * d3 + d4 * d4) / b0;
+								float f13 = 1.0f;
+								tessellator.setBrightness(world.getLightBrightnessForSkyBlocks(i1, j2, l, 0));
+								tessellator.setColorRGBA_F(f13, f13, f13, ((1.0f - f12 * f12) * 0.5f + 0.5f) * rainStrength);
+								tessellator.setTranslation(-d0 * 1.0, -d1 * 1.0, -d2 * 1.0);
+								tessellator.addVertexWithUV(i1 - f6 + 0.5, l1, l - f7 + 0.5, 0.0f * f8, l1 * f8 / 4.0f + f10 * f8);
+								tessellator.addVertexWithUV(i1 + f6 + 0.5, l1, l + f7 + 0.5, 1.0f * f8, l1 * f8 / 4.0f + f10 * f8);
+								tessellator.addVertexWithUV(i1 + f6 + 0.5, i2, l + f7 + 0.5, 1.0f * f8, i2 * f8 / 4.0f + f10 * f8);
+								tessellator.addVertexWithUV(i1 - f6 + 0.5, i2, l - f7 + 0.5, 0.0f * f8, i2 * f8 / 4.0f + f10 * f8);
+							} else {
+								if (b1 != 1) {
+									if (b1 >= 0) {
+										tessellator.draw();
+									}
+									b1 = 1;
+									mc.getTextureManager().bindTexture(snowTexture);
+									tessellator.startDrawingQuads();
+								}
+								f10 = ((rendererUpdateCount & 0x1FF) + partialTicks) / 512.0f;
+								f16 = rand.nextFloat() + f5 * 0.01f * (float) rand.nextGaussian();
+								f11 = rand.nextFloat() + f5 * (float) rand.nextGaussian() * 0.001f;
+								d4 = i1 + 0.5f - entitylivingbase.posX;
+								d5 = l + 0.5f - entitylivingbase.posZ;
+								f14 = MathHelper.sqrt_double(d4 * d4 + d5 * d5) / b0;
+								f15 = 1.0f;
+								tessellator.setBrightness((world.getLightBrightnessForSkyBlocks(i1, j2, l, 0) * 3 + 15728880) / 4);
+								tessellator.setColorRGBA_F(f15, f15, f15, ((1.0f - f14 * f14) * 0.3f + 0.5f) * rainStrength);
+								tessellator.setTranslation(-d0 * 1.0, -d1 * 1.0, -d2 * 1.0);
+								tessellator.addVertexWithUV(i1 - f6 + 0.5, l1, l - f7 + 0.5, 0.0f * f8 + f16, l1 * f8 / 4.0f + f10 * f8 + f11);
+								tessellator.addVertexWithUV(i1 + f6 + 0.5, l1, l + f7 + 0.5, 1.0f * f8 + f16, l1 * f8 / 4.0f + f10 * f8 + f11);
+								tessellator.addVertexWithUV(i1 + f6 + 0.5, i2, l + f7 + 0.5, 1.0f * f8 + f16, i2 * f8 / 4.0f + f10 * f8 + f11);
+								tessellator.addVertexWithUV(i1 - f6 + 0.5, i2, l - f7 + 0.5, 0.0f * f8 + f16, i2 * f8 / 4.0f + f10 * f8 + f11);
 							}
-							b1 = 1;
-							mc.getTextureManager().bindTexture(ashTexture);
-							tessellator.startDrawingQuads();
+							tessellator.setTranslation(0.0, 0.0, 0.0);
 						}
-						f10 = ((rendererUpdateCount & 0x1FF) + partialTicks) / 512.0f;
-						f16 = rand.nextFloat() * 0.3f + f5 * 0.003f * (float) rand.nextGaussian();
-						f11 = rand.nextFloat() + f5 * (float) rand.nextGaussian() * 0.001f;
-						d4 = i1 + 0.5f - entitylivingbase.posX;
-						d5 = l + 0.5f - entitylivingbase.posZ;
-						f14 = MathHelper.sqrt_double(d4 * d4 + d5 * d5) / b0;
-						f15 = 1.0f;
-						tessellator.setBrightness((world.getLightBrightnessForSkyBlocks(i1, j2, l, 0) * 3 + 15728880) / 4);
-						tessellator.setColorRGBA_F(f15, f15, f15, ((1.0f - f14 * f14) * 0.3f + 0.5f) * rainStrength);
-						tessellator.setTranslation(-d0 * 1.0, -d1 * 1.0, -d2 * 1.0);
-						tessellator.addVertexWithUV(i1 - f6 + 0.5, l1, l - f7 + 0.5, 0.0f * f8 + f16, l1 * f8 / 4.0f + f10 * f8 + f11);
-						tessellator.addVertexWithUV(i1 + f6 + 0.5, l1, l + f7 + 0.5, 1.0f * f8 + f16, l1 * f8 / 4.0f + f10 * f8 + f11);
-						tessellator.addVertexWithUV(i1 + f6 + 0.5, i2, l + f7 + 0.5, 1.0f * f8 + f16, i2 * f8 / 4.0f + f10 * f8 + f11);
-						tessellator.addVertexWithUV(i1 - f6 + 0.5, i2, l - f7 + 0.5, 0.0f * f8 + f16, i2 * f8 / 4.0f + f10 * f8 + f11);
-						tessellator.setTranslation(0.0, 0.0, 0.0);
-						continue;
 					}
-					if (sandy) {
-						if (b1 != 1) {
-							if (b1 >= 0) {
-								tessellator.draw();
-							}
-							b1 = 1;
-							mc.getTextureManager().bindTexture(sandstormTexture);
-							tessellator.startDrawingQuads();
-						}
-						f10 = ((rendererUpdateCount & 0x1FF) + partialTicks) / 512.0f;
-						f16 = f5 * (0.07f + (float) rand.nextGaussian() * 0.01f);
-						f11 = rand.nextFloat() + f5 * (float) rand.nextGaussian() * 0.001f;
-						d4 = i1 + 0.5f - entitylivingbase.posX;
-						d5 = l + 0.5f - entitylivingbase.posZ;
-						f14 = MathHelper.sqrt_double(d4 * d4 + d5 * d5) / b0;
-						f15 = 1.0f;
-						tessellator.setBrightness((world.getLightBrightnessForSkyBlocks(i1, j2, l, 0) * 3 + 15728880) / 4);
-						tessellator.setColorRGBA_F(f15, f15, f15, ((1.0f - f14 * f14) * 0.3f + 0.5f) * rainStrength);
-						tessellator.setTranslation(-d0 * 1.0, -d1 * 1.0, -d2 * 1.0);
-						tessellator.addVertexWithUV(i1 - f6 + 0.5, l1, l - f7 + 0.5, 0.0f * f8 + f16, l1 * f8 / 4.0f + f10 * f8 + f11);
-						tessellator.addVertexWithUV(i1 + f6 + 0.5, l1, l + f7 + 0.5, 1.0f * f8 + f16, l1 * f8 / 4.0f + f10 * f8 + f11);
-						tessellator.addVertexWithUV(i1 + f6 + 0.5, i2, l + f7 + 0.5, 1.0f * f8 + f16, i2 * f8 / 4.0f + f10 * f8 + f11);
-						tessellator.addVertexWithUV(i1 - f6 + 0.5, i2, l - f7 + 0.5, 0.0f * f8 + f16, i2 * f8 / 4.0f + f10 * f8 + f11);
-						tessellator.setTranslation(0.0, 0.0, 0.0);
-						continue;
-					}
-					if (world.getWorldChunkManager().getTemperatureAtHeight(f9, k1) >= 0.15f) {
-						if (b1 != 0) {
-							if (b1 >= 0) {
-								tessellator.draw();
-							}
-							b1 = 0;
-							mc.getTextureManager().bindTexture(rainTexture);
-							tessellator.startDrawingQuads();
-						}
-						f10 = ((rendererUpdateCount + i1 * i1 * 3121 + i1 * 45238971 + l * l * 418711 + l * 13761 & 0x1F) + partialTicks) / 32.0f * (3.0f + rand.nextFloat());
-						double d3 = i1 + 0.5f - entitylivingbase.posX;
-						d4 = l + 0.5f - entitylivingbase.posZ;
-						float f12 = MathHelper.sqrt_double(d3 * d3 + d4 * d4) / b0;
-						float f13 = 1.0f;
-						tessellator.setBrightness(world.getLightBrightnessForSkyBlocks(i1, j2, l, 0));
-						tessellator.setColorRGBA_F(f13, f13, f13, ((1.0f - f12 * f12) * 0.5f + 0.5f) * rainStrength);
-						tessellator.setTranslation(-d0 * 1.0, -d1 * 1.0, -d2 * 1.0);
-						tessellator.addVertexWithUV(i1 - f6 + 0.5, l1, l - f7 + 0.5, 0.0f * f8, l1 * f8 / 4.0f + f10 * f8);
-						tessellator.addVertexWithUV(i1 + f6 + 0.5, l1, l + f7 + 0.5, 1.0f * f8, l1 * f8 / 4.0f + f10 * f8);
-						tessellator.addVertexWithUV(i1 + f6 + 0.5, i2, l + f7 + 0.5, 1.0f * f8, i2 * f8 / 4.0f + f10 * f8);
-						tessellator.addVertexWithUV(i1 - f6 + 0.5, i2, l - f7 + 0.5, 0.0f * f8, i2 * f8 / 4.0f + f10 * f8);
-						tessellator.setTranslation(0.0, 0.0, 0.0);
-						continue;
-					}
-					if (b1 != 1) {
-						if (b1 >= 0) {
-							tessellator.draw();
-						}
-						b1 = 1;
-						mc.getTextureManager().bindTexture(snowTexture);
-						tessellator.startDrawingQuads();
-					}
-					f10 = ((rendererUpdateCount & 0x1FF) + partialTicks) / 512.0f;
-					f16 = rand.nextFloat() + f5 * 0.01f * (float) rand.nextGaussian();
-					f11 = rand.nextFloat() + f5 * (float) rand.nextGaussian() * 0.001f;
-					d4 = i1 + 0.5f - entitylivingbase.posX;
-					d5 = l + 0.5f - entitylivingbase.posZ;
-					f14 = MathHelper.sqrt_double(d4 * d4 + d5 * d5) / b0;
-					f15 = 1.0f;
-					tessellator.setBrightness((world.getLightBrightnessForSkyBlocks(i1, j2, l, 0) * 3 + 15728880) / 4);
-					tessellator.setColorRGBA_F(f15, f15, f15, ((1.0f - f14 * f14) * 0.3f + 0.5f) * rainStrength);
-					tessellator.setTranslation(-d0 * 1.0, -d1 * 1.0, -d2 * 1.0);
-					tessellator.addVertexWithUV(i1 - f6 + 0.5, l1, l - f7 + 0.5, 0.0f * f8 + f16, l1 * f8 / 4.0f + f10 * f8 + f11);
-					tessellator.addVertexWithUV(i1 + f6 + 0.5, l1, l + f7 + 0.5, 1.0f * f8 + f16, l1 * f8 / 4.0f + f10 * f8 + f11);
-					tessellator.addVertexWithUV(i1 + f6 + 0.5, i2, l + f7 + 0.5, 1.0f * f8 + f16, i2 * f8 / 4.0f + f10 * f8 + f11);
-					tessellator.addVertexWithUV(i1 - f6 + 0.5, i2, l - f7 + 0.5, 0.0f * f8 + f16, i2 * f8 / 4.0f + f10 * f8 + f11);
-					tessellator.setTranslation(0.0, 0.0, 0.0);
 				}
 			}
 			if (b1 >= 0) {

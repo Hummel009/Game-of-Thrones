@@ -63,54 +63,51 @@ public class GOTGuiTrade extends GuiContainer {
 		for (l = 0; l < containerTrade.tradeInvBuy.getSizeInventory(); ++l) {
 			GOTSlotTrade slotBuy = (GOTSlotTrade) containerTrade.getSlotFromInventory(containerTrade.tradeInvBuy, l);
 			trade = slotBuy.getTrade();
-			if (trade == null) {
-				continue;
-			}
-			if (trade.isAvailable()) {
-				cost = slotBuy.cost();
-				if (cost <= 0) {
+			if (trade != null) {
+				if (trade.isAvailable()) {
+					cost = slotBuy.cost();
+					if (cost <= 0) {
+						continue;
+					}
+					renderCost(Integer.toString(cost), slotBuy.xDisplayPosition + 8, slotBuy.yDisplayPosition + 22);
 					continue;
 				}
-				renderCost(Integer.toString(cost), slotBuy.xDisplayPosition + 8, slotBuy.yDisplayPosition + 22);
-				continue;
+				GL11.glTranslatef(0.0f, 0.0f, 200.0f);
+				x = slotBuy.xDisplayPosition;
+				y = slotBuy.yDisplayPosition;
+				Gui.drawRect(x, y, x + 16, y + 16, lockedTradeColor);
+				GL11.glTranslatef(0.0f, 0.0f, -200.0f);
+				this.drawCenteredString(StatCollector.translateToLocal("got.container.trade.locked"), slotBuy.xDisplayPosition + 8, slotBuy.yDisplayPosition + 22, 4210752);
 			}
-			GL11.glTranslatef(0.0f, 0.0f, 200.0f);
-			x = slotBuy.xDisplayPosition;
-			y = slotBuy.yDisplayPosition;
-			Gui.drawRect(x, y, x + 16, y + 16, lockedTradeColor);
-			GL11.glTranslatef(0.0f, 0.0f, -200.0f);
-			this.drawCenteredString(StatCollector.translateToLocal("got.container.trade.locked"), slotBuy.xDisplayPosition + 8, slotBuy.yDisplayPosition + 22, 4210752);
 		}
 		for (l = 0; l < containerTrade.tradeInvSell.getSizeInventory(); ++l) {
 			GOTSlotTrade slotSell = (GOTSlotTrade) containerTrade.getSlotFromInventory(containerTrade.tradeInvSell, l);
 			trade = slotSell.getTrade();
-			if (trade == null) {
-				continue;
-			}
-			if (trade.isAvailable()) {
-				cost = slotSell.cost();
-				if (cost <= 0) {
+			if (trade != null) {
+				if (trade.isAvailable()) {
+					cost = slotSell.cost();
+					if (cost <= 0) {
+						continue;
+					}
+					renderCost(Integer.toString(cost), slotSell.xDisplayPosition + 8, slotSell.yDisplayPosition + 22);
 					continue;
 				}
-				renderCost(Integer.toString(cost), slotSell.xDisplayPosition + 8, slotSell.yDisplayPosition + 22);
-				continue;
+				GL11.glTranslatef(0.0f, 0.0f, 200.0f);
+				x = slotSell.xDisplayPosition;
+				y = slotSell.yDisplayPosition;
+				Gui.drawRect(x, y, x + 16, y + 16, lockedTradeColor);
+				GL11.glTranslatef(0.0f, 0.0f, -200.0f);
+				this.drawCenteredString(StatCollector.translateToLocal("got.container.trade.locked"), slotSell.xDisplayPosition + 8, slotSell.yDisplayPosition + 22, 4210752);
 			}
-			GL11.glTranslatef(0.0f, 0.0f, 200.0f);
-			x = slotSell.xDisplayPosition;
-			y = slotSell.yDisplayPosition;
-			Gui.drawRect(x, y, x + 16, y + 16, lockedTradeColor);
-			GL11.glTranslatef(0.0f, 0.0f, -200.0f);
-			this.drawCenteredString(StatCollector.translateToLocal("got.container.trade.locked"), slotSell.xDisplayPosition + 8, slotSell.yDisplayPosition + 22, 4210752);
 		}
 		int totalSellPrice = 0;
 		for (int l2 = 0; l2 < containerTrade.tradeInvSellOffer.getSizeInventory(); ++l2) {
 			GOTTradeSellResult sellResult;
 			Slot slotSell = containerTrade.getSlotFromInventory(containerTrade.tradeInvSellOffer, l2);
 			ItemStack item = slotSell.getStack();
-			if (item == null || (sellResult = GOTTradeEntries.getItemSellResult(item, theEntity)) == null) {
-				continue;
+			if (((item != null) && ((sellResult = GOTTradeEntries.getItemSellResult(item, theEntity)) != null))) {
+				totalSellPrice += sellResult.totalSellValue;
 			}
-			totalSellPrice += sellResult.totalSellValue;
 		}
 		if (totalSellPrice > 0) {
 			fontRendererObj.drawString(StatCollector.translateToLocalFormatted("got.container.trade.sellPrice", totalSellPrice), 100, 169, 4210752);

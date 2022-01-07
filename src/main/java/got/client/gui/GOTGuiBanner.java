@@ -483,20 +483,20 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 				GOTBannerWhitelistEntry entry = theBanner.getWhitelistEntry(index);
 				if (entry == null) {
 					whitelistSlots[index] = null;
-					continue;
+				} else {
+					GameProfile profile = entry.profile;
+					if (profile == null) {
+						whitelistSlots[index] = null;
+					} else {
+						String username = profile.getName();
+						if (StringUtils.isBlank(username)) {
+							whitelistSlots[index] = null;
+						} else {
+							whitelistSlots[index] = username;
+							whitelistPerms[index] = entry.encodePermBitFlags();
+						}
+					}
 				}
-				GameProfile profile = entry.profile;
-				if (profile == null) {
-					whitelistSlots[index] = null;
-					continue;
-				}
-				String username = profile.getName();
-				if (StringUtils.isBlank(username)) {
-					whitelistSlots[index] = null;
-					continue;
-				}
-				whitelistSlots[index] = username;
-				whitelistPerms[index] = entry.encodePermBitFlags();
 			}
 			packet.whitelistSlots = whitelistSlots;
 			packet.whitelistPerms = whitelistPerms;

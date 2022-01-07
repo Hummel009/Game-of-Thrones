@@ -29,10 +29,7 @@ public class GOTRenderAlignmentBonus extends Render {
 		GOTAlignmentBonusMap factionBonusMap = alignmentBonus.factionBonusMap;
 		GOTFaction renderFaction = null;
 		boolean showConquest = false;
-		if (alignmentBonus.conquestBonus > 0.0f && playerData.isPledgedTo(viewingFaction)) {
-			renderFaction = viewingFaction;
-			showConquest = true;
-		} else if (alignmentBonus.conquestBonus < 0.0f && (viewingFaction == mainFaction || playerData.isPledgedTo(viewingFaction))) {
+		if ((alignmentBonus.conquestBonus > 0.0f && playerData.isPledgedTo(viewingFaction)) || (alignmentBonus.conquestBonus < 0.0f && (viewingFaction == mainFaction || playerData.isPledgedTo(viewingFaction)))) {
 			renderFaction = viewingFaction;
 			showConquest = true;
 		} else if (!factionBonusMap.isEmpty()) {
@@ -45,28 +42,24 @@ public class GOTRenderAlignmentBonus extends Render {
 			} else {
 				float alignment;
 				for (GOTFaction faction : factionBonusMap.keySet()) {
-					if (!faction.isPlayableAlignmentFaction() || factionBonusMap.get(faction).floatValue() <= 0.0f) {
-						continue;
+					if ((faction.isPlayableAlignmentFaction() && (factionBonusMap.get(faction).floatValue() > 0.0f))) {
+						alignment = playerData.getAlignment(faction);
+						if (((renderFaction == null) || (alignment > playerData.getAlignment(renderFaction)))) {
+							renderFaction = faction;
+						}
 					}
-					alignment = playerData.getAlignment(faction);
-					if (renderFaction != null && alignment <= playerData.getAlignment(renderFaction)) {
-						continue;
-					}
-					renderFaction = faction;
 				}
 				if (renderFaction == null) {
 					if (mainFaction.isPlayableAlignmentFaction() && factionBonusMap.get(mainFaction).floatValue() < 0.0f) {
 						renderFaction = mainFaction;
 					} else {
 						for (GOTFaction faction : factionBonusMap.keySet()) {
-							if (!faction.isPlayableAlignmentFaction() || factionBonusMap.get(faction).floatValue() >= 0.0f) {
-								continue;
+							if ((faction.isPlayableAlignmentFaction() && (factionBonusMap.get(faction).floatValue() < 0.0f))) {
+								alignment = playerData.getAlignment(faction);
+								if (((renderFaction == null) || (alignment > playerData.getAlignment(renderFaction)))) {
+									renderFaction = faction;
+								}
 							}
-							alignment = playerData.getAlignment(faction);
-							if (renderFaction != null && alignment <= playerData.getAlignment(renderFaction)) {
-								continue;
-							}
-							renderFaction = faction;
 						}
 					}
 				}

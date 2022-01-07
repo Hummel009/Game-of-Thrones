@@ -196,13 +196,11 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 		while (!currentCape.canDisplay(mc.thePlayer)) {
 			if ((cape < 0 || type != 0) && canGoLeft()) {
 				updateCurrentCape(-1, 0);
-				continue;
-			}
-			if ((cape > 0 || type != 0) && canGoRight()) {
+			} else if ((cape > 0 || type != 0) && canGoRight()) {
 				updateCurrentCape(1, 0);
-				continue;
+			} else {
+				updateCurrentCape(0, 1);
 			}
-			updateCurrentCape(0, 1);
 		}
 	}
 
