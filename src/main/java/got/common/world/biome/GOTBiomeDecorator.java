@@ -7,7 +7,7 @@ import got.common.database.GOTRegistry;
 import got.common.world.*;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.*;
-import got.common.world.fixed.*;
+import got.common.world.fixed.GOTFixer;
 import got.common.world.map.*;
 import got.common.world.structure.other.GOTVillageGen;
 import net.minecraft.init.Blocks;
@@ -18,7 +18,6 @@ import net.minecraft.world.gen.feature.*;
 public class GOTBiomeDecorator {
 	public World worldObj;
 	public Random rand;
-	public Random structureRand = new Random();
 	public int chunkX;
 	public int chunkZ;
 	public GOTBiome biome;
@@ -40,26 +39,30 @@ public class GOTBiomeDecorator {
 	public WorldGenerator waterlilyGen = new WorldGenWaterlily();
 	public WorldGenerator stalactiteGen = new GOTWorldGenStalactites();
 	public WorldGenerator cactusGen = new WorldGenCactus();
-	public int clayPerChunk = 3;
 	public int sandPerChunk = 4;
-	public int quagmirePerChunk = 0;
-	public int treesPerChunk = 0;
-	public int logsPerChunk = 0;
+	public int clayPerChunk = 3;
+	public int quagmirePerChunk;
+	public int treesPerChunk;
+	public int logsPerChunk;
 	public int flowersPerChunk = 2;
-	public int doubleFlowersPerChunk = 0;
+	public int doubleFlowersPerChunk;
 	public int grassPerChunk = 1;
-	public int doubleGrassPerChunk = 0;
-	public int waterlilyPerChunk = 0;
-	public int canePerChunk = 0;
+	public int doubleGrassPerChunk;
+	public boolean enableFern;
+	public boolean enableSpecialGrasses = true;
+	public int deadBushPerChunk;
+	public int waterlilyPerChunk;
+	public int canePerChunk;
 	public int reedPerChunk = 1;
 	public float dryReedChance = 0.1f;
-	public int cactiPerChunk = 0;
-	public boolean generatePipeweed = false;
-	public boolean whiteSand = false;
+	public int cactiPerChunk;
+	public boolean generatePipeweed;
+	public boolean whiteSand;
 	public List<GOTTreeType.WeightedTreeType> treeTypes = new ArrayList<>();
+	public Random structureRand = new Random();
 	public List<RandomStructure> randomStructures = new ArrayList<>();
 	public List<GOTVillageGen> villages = new ArrayList<>();
-	public List<GOTVillageGen> affixes = new ArrayList<>();
+	public List<GOTVillageGen> fixedVillages = new ArrayList<>();
 
 	public GOTBiomeDecorator(GOTBiome gotbiome) {
 		biome = gotbiome;
@@ -111,28 +114,17 @@ public class GOTBiomeDecorator {
 		biomeSoils.add(new OreGenerant(gen, f, min, max));
 	}
 
-	public void addSpecialStructures(World world, Random random, int i, int k) {
-		new GOTStructureFiveFortsWall(false, GOTWaypoint.FiveForts1).generate(world, random, i, 0, k, 0);
-		new GOTStructureFiveFortsWall(false, GOTWaypoint.FiveForts2).generate(world, random, i, 0, k, 0);
-		new GOTStructureFiveFortsWall(false, GOTWaypoint.FiveForts3).generate(world, random, i, 0, k, 0);
-		new GOTStructureFiveFortsWall(false, GOTWaypoint.FiveForts4).generate(world, random, i, 0, k, 0);
-		new GOTStructureFiveFortsWall(false, GOTWaypoint.FiveForts5).generate(world, random, i, 0, k, 0);
-		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.WhiteWood) || (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Winterfell))) {
-			((GOTWorldGenPartyTrees) GOTTreeType.WEIRWOOD.create(false, random)).disableRestrictions().generate(world, random, i + 50, world.getTopSolidOrLiquidBlock(i + 50, k), k);
-		}
-	}
-
 	public void addTree(GOTTreeType type, int weight) {
 		treeTypes.add(new GOTTreeType.WeightedTreeType(type, weight));
 	}
 
-	public void addVillage(GOTVillageGen village) {
+	public void addFixedVillage(GOTVillageGen village) {
 		villages.add(village);
+		fixedVillages.add(village);
 	}
 
-	public void affix(GOTVillageGen village) {
+	public void addVillage(GOTVillageGen village) {
 		villages.add(village);
-		affixes.add(village);
 	}
 
 	public boolean anyFixedVillagesAt(World world, int i, int k) {
@@ -149,10 +141,9 @@ public class GOTBiomeDecorator {
 		chunkFlags.isVillage = false;
 		for (GOTVillageGen village : villages) {
 			List<GOTVillageGen.AbstractInstance<?>> instances = village.getNearbyVillagesAtPosition(world, i, k);
-			if (instances.isEmpty()) {
-				continue;
+			if (!instances.isEmpty()) {
+				chunkFlags.isVillage = true;
 			}
-			chunkFlags.isVillage = true;
 		}
 	}
 
@@ -172,7 +163,7 @@ public class GOTBiomeDecorator {
 
 	public void clearVillages() {
 		villages.clear();
-		villages.addAll(affixes);
+		villages.addAll(fixedVillages);
 	}
 
 	public void decorate() {
@@ -183,6 +174,7 @@ public class GOTBiomeDecorator {
 		int k3;
 		int k4;
 		int l2;
+		int j;
 		int j2;
 		int i2;
 		int l3;
@@ -190,6 +182,7 @@ public class GOTBiomeDecorator {
 		int l4;
 		int i3;
 		int l5;
+		int l6;
 		int j3;
 		int j4;
 		int k6;
@@ -239,13 +232,12 @@ public class GOTBiomeDecorator {
 			boolean wallNear = GOTWalls.isWallNear(chunkX + 8, chunkZ + 8, 16) >= 0.0f;
 			if (!roadNear || !wallNear) {
 				for (RandomStructure randomstructure : randomStructures) {
-					if (structureRand.nextInt(randomstructure.chunkChance) != 0) {
-						continue;
+					if (structureRand.nextInt(randomstructure.chunkChance) == 0) {
+						int i6 = chunkX + rand.nextInt(16) + 8;
+						k2 = chunkZ + rand.nextInt(16) + 8;
+						j5 = worldObj.getTopSolidOrLiquidBlock(i6, k2);
+						randomstructure.structureGen.generate(worldObj, rand, i6, j5, k2);
 					}
-					int i6 = chunkX + rand.nextInt(16) + 8;
-					k2 = chunkZ + rand.nextInt(16) + 8;
-					j5 = worldObj.getTopSolidOrLiquidBlock(i6, k2);
-					randomstructure.structureGen.generate(worldObj, rand, i6, j5, k2);
 				}
 			}
 			for (GOTVillageGen village : villages) {
@@ -320,6 +312,12 @@ public class GOTBiomeDecorator {
 			WorldGenerator grassGen = biome.getRandomWorldGenForDoubleGrass();
 			grassGen.generate(worldObj, rand, i2, j9, k12);
 		}
+		for (l7 = 0; l7 < deadBushPerChunk; ++l7) {
+			i2 = chunkX + rand.nextInt(16) + 8;
+			int j10 = rand.nextInt(128);
+			int k13 = chunkZ + rand.nextInt(16) + 8;
+			new WorldGenDeadBush(Blocks.deadbush).generate(worldObj, rand, i2, j10, k13);
+		}
 		for (l7 = 0; l7 < waterlilyPerChunk; ++l7) {
 			int j11;
 			i2 = chunkX + rand.nextInt(16) + 8;
@@ -385,7 +383,7 @@ public class GOTBiomeDecorator {
 		chunkZ = k;
 		this.decorate();
 		if (!GOTConfig.clearMap) {
-			addSpecialStructures(world, random, i, k);
+			GOTFixer.addSpecialLocations(world, random, i, k);
 			for (GOTWaypoint wp : GOTFixer.structures.keySet()) {
 				if (GOTFixedStructures.fixedAt(i, k, wp)) {
 					GOTFixer.structures.get(wp).generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k), k, 0);

@@ -17,7 +17,8 @@ import got.common.entity.westeros.legendary.trader.*;
 import got.common.entity.westeros.legendary.warrior.*;
 import got.common.util.GOTCommander;
 import got.common.world.biome.GOTBiome;
-import got.common.world.map.GOTWaypoint;
+import got.common.world.feature.*;
+import got.common.world.map.*;
 import got.common.world.structure.essos.asshai.GOTStructureAsshaiCity;
 import got.common.world.structure.essos.braavos.GOTStructureBraavosCity;
 import got.common.world.structure.essos.dothraki.GOTStructureDothrakiVillage;
@@ -297,6 +298,7 @@ public class GOTFixer {
 		f22.affix(GOTWaypoint.Qohor, 0, -1, 2);
 		f23.affix(GOTWaypoint.Asshai, 2);
 		f24.affix(GOTWaypoint.Kadar);
+		f24.affix(GOTWaypoint.Nefer);
 		f25.affix(GOTWaypoint.EastPass);
 		f25.affix(GOTWaypoint.NorthPass);
 		f25.affix(GOTWaypoint.SouthPass);
@@ -550,7 +552,18 @@ public class GOTFixer {
 		f68.affix(GOTWaypoint.CastleBlack, 0, -1);
 
 		for (GOTVillageGen settlement : GOTCommander.getObjectFieldsOfType(GOTFixer.class, GOTVillageGen.class)) {
-			biome.decorator.affix(settlement);
+			biome.decorator.addFixedVillage(settlement);
+		}
+	}
+	
+	public static void addSpecialLocations(World world, Random random, int i, int k) {
+		new GOTStructureFiveFortsWall(false, GOTWaypoint.FiveForts1).generate(world, random, i, 0, k, 0);
+		new GOTStructureFiveFortsWall(false, GOTWaypoint.FiveForts2).generate(world, random, i, 0, k, 0);
+		new GOTStructureFiveFortsWall(false, GOTWaypoint.FiveForts3).generate(world, random, i, 0, k, 0);
+		new GOTStructureFiveFortsWall(false, GOTWaypoint.FiveForts4).generate(world, random, i, 0, k, 0);
+		new GOTStructureFiveFortsWall(false, GOTWaypoint.FiveForts5).generate(world, random, i, 0, k, 0);
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.WhiteWood) || (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Winterfell))) {
+			((GOTWorldGenPartyTrees) GOTTreeType.WEIRWOOD.create(false, random)).disableRestrictions().generate(world, random, i + 50, world.getTopSolidOrLiquidBlock(i + 50, k), k);
 		}
 	}
 
