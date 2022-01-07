@@ -89,7 +89,7 @@ public class GOTChunkProvider implements IChunkProvider {
 		int l = byte0 + 1;
 		biomesForGeneration = chunkManager.getBiomesForGeneration(biomesForGeneration, i * byte0 - biomeSampleRadius, j * byte0 - biomeSampleRadius, k + biomeSampleWidth, l + biomeSampleWidth);
 		variantsForGeneration = chunkManager.getVariantsChunkGen(variantsForGeneration, i * byte0 - biomeSampleRadius, j * byte0 - biomeSampleRadius, k + biomeSampleWidth, l + biomeSampleWidth, biomesForGeneration);
-		heightNoise = initializeHeightNoise(heightNoise, i * byte0, 0, j * byte0, k, byte3, l);
+		heightNoise = initializeHeightNoise(heightNoise, i * byte0, 0, j * byte0, k, byte3, l, chunkFlags);
 		blockHeightNoiseArray = new double[blocks.length];
 		for (int i1 = 0; i1 < byte0; ++i1) {
 			for (int j1 = 0; j1 < byte0; ++j1) {
@@ -143,7 +143,7 @@ public class GOTChunkProvider implements IChunkProvider {
 		return biome == null ? null : biome.getSpawnableList(creatureType);
 	}
 
-	public double[] initializeHeightNoise(double[] noise, int i, int j, int k, int xSize, int ySize, int zSize) {
+	public double[] initializeHeightNoise(double[] noise, int i, int j, int k, int xSize, int ySize, int zSize, ChunkFlags chunkFlags) {
 		if (noise == null) {
 			noise = new double[xSize * ySize * zSize];
 		}
@@ -245,6 +245,10 @@ public class GOTChunkProvider implements IChunkProvider {
 						float dv = avgHeightVariation - mtnV;
 						avgHeightVariation = mtnV + dv / (1.0f + mountain);
 					}
+				}
+				if (centreBiome instanceof GOTBiome) {
+					GOTBiome lb = (GOTBiome) centreBiome;
+					lb.decorator.checkForVillages(worldObj, xPos, zPos, chunkFlags);
 				}
 				avgBaseHeight = (avgBaseHeight * 4.0f - 1.0f) / 8.0f;
 				if (avgHeightVariation == 0.0f) {
@@ -475,7 +479,7 @@ public class GOTChunkProvider implements IChunkProvider {
 	}
 
 	public static class ChunkFlags {
-		public boolean isVillage = false;
+		public boolean isVillage;
 		public boolean[] bezierFlags = new boolean[256];
 	}
 
