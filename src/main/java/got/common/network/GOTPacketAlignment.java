@@ -23,7 +23,7 @@ public class GOTPacketAlignment implements IMessage {
 			float al = pd.getAlignment(f);
 			alignmentMap.put(f, al);
 		}
-		hideAlignment = pd.getHideAlignment();
+		hideAlignment = pd.hasHideAlignment();
 	}
 
 	@Override

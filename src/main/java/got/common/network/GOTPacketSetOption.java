@@ -34,26 +34,26 @@ public class GOTPacketSetOption implements IMessage {
 			boolean flag;
 			switch (option) {
 			case 0:
-				flag = pd.getFriendlyFire();
+				flag = pd.hasFriendlyFire();
 				pd.setFriendlyFire(!flag);
 				break;
 			case 1:
-				flag = pd.getEnableHiredDeathMessages();
+				flag = pd.hasEnableHiredDeathMessages();
 				pd.setEnableHiredDeathMessages(!flag);
 				break;
 			case 2:
-				flag = pd.getHideAlignment();
+				flag = pd.hasHideAlignment();
 				pd.setHideAlignment(!flag);
 				break;
 			case 3:
-				flag = pd.getHideMapLocation();
+				flag = pd.hasHideMapLocation();
 				pd.setHideMapLocation(!flag);
 				break;
 			case 5:
-				flag = pd.getEnableConquestKills();
+				flag = pd.hasEnableConquestKills();
 				pd.setEnableConquestKills(!flag);
 			case 9:
-				flag = pd.getTableSwitched();
+				flag = pd.hasTableSwitched();
 				pd.setTableSwitched(!flag);
 			default:
 				break;

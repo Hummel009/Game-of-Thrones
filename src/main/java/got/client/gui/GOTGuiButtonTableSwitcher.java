@@ -22,7 +22,7 @@ public class GOTGuiButtonTableSwitcher extends GuiButton {
 
 	@Override
 	public void drawButton(Minecraft mc, int i, int j) {
-		Block block = !GOTLevelData.getData(mc.thePlayer).getTableSwitched() ? Blocks.crafting_table : table;
+		Block block = !GOTLevelData.getData(mc.thePlayer).hasTableSwitched() ? Blocks.crafting_table : table;
 		if (!func_146115_a()) {
 			RenderHelper.enableGUIStandardItemLighting();
 			GL11.glColor3f(1.0f, 1.0f, 1.0f);
