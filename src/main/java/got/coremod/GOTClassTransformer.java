@@ -887,18 +887,18 @@ public class GOTClassTransformer implements IClassTransformer {
 					newIns.add(new InsnNode(172));
 					method.instructions.insert(newIns);
 					System.out.println("Hummel009: Patched method " + method.name);
-					continue;
-				}
-				for (AbstractInsnNode n : method.instructions.toArray()) {
-					if (n.getOpcode() == 100) {
-						InsnList insns = new InsnList();
-						insns.add(new VarInsnNode(25, 0));
-						insns.add(new VarInsnNode(21, 1));
-						insns.add(new VarInsnNode(25, 2));
-						insns.add(new VarInsnNode(25, 3));
-						insns.add(new MethodInsnNode(184, "got/coremod/GOTReplacedMethods$Enchants", "c_attemptDamageItem", "(ILnet/minecraft/item/ItemStack;ILjava/util/Random;Lnet/minecraft/entity/EntityLivingBase;)I", false));
-						method.instructions.insert(n, insns);
-						System.out.println("Hummel009: Patched method " + method.name + " for Cauldron");
+				} else {
+					for (AbstractInsnNode n : method.instructions.toArray()) {
+						if (n.getOpcode() == 100) {
+							InsnList insns = new InsnList();
+							insns.add(new VarInsnNode(25, 0));
+							insns.add(new VarInsnNode(21, 1));
+							insns.add(new VarInsnNode(25, 2));
+							insns.add(new VarInsnNode(25, 3));
+							insns.add(new MethodInsnNode(184, "got/coremod/GOTReplacedMethods$Enchants", "c_attemptDamageItem", "(ILnet/minecraft/item/ItemStack;ILjava/util/Random;Lnet/minecraft/entity/EntityLivingBase;)I", false));
+							method.instructions.insert(n, insns);
+							System.out.println("Hummel009: Patched method " + method.name + " for Cauldron");
+						}
 					}
 				}
 			}
