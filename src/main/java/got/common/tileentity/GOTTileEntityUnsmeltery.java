@@ -93,13 +93,15 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 				ItemStack ingredient = (ItemStack) obj;
 				if (OreDictionary.itemMatches(material, ingredient, false)) {
 					i++;
-				} else {
-					int sub = determineResourcesUsed(ingredient, material, recursiveCheckedRecipes);
-					if (sub > 0) {
-						i += sub;
-					}
+					continue;
 				}
-			} else if (obj instanceof List) {
+				int sub = determineResourcesUsed(ingredient, material, recursiveCheckedRecipes);
+				if (sub > 0) {
+					i += sub;
+				}
+				continue;
+			}
+			if (obj instanceof List) {
 				List<ItemStack> oreIngredients = (List<ItemStack>) obj;
 				boolean matched = false;
 				for (ItemStack ingredient : oreIngredients) {
@@ -110,12 +112,12 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 				}
 				if (matched) {
 					i++;
-				} else {
-					for (ItemStack ingredient : oreIngredients) {
-						int sub = determineResourcesUsed(ingredient, material, recursiveCheckedRecipes);
-						if (sub > 0) {
-							i += sub;
-						}
+					continue;
+				}
+				for (ItemStack ingredient : oreIngredients) {
+					int sub = determineResourcesUsed(ingredient, material, recursiveCheckedRecipes);
+					if (sub > 0) {
+						i += sub;
 					}
 				}
 			}
@@ -153,49 +155,50 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 		label63: for (List recipes : allRecipeLists) {
 			for (Object recipesObj : recipes) {
 				IRecipe irecipe = (IRecipe) recipesObj;
-				if (!recursiveCheckedRecipes.contains(irecipe)) {
-					ItemStack result = irecipe.getRecipeOutput();
-					if (result != null && result.getItem() == itemstack.getItem() && (itemstack.isItemStackDamageable() || result.getItemDamage() == itemstack.getItemDamage())) {
-						recursiveCheckedRecipes.add(irecipe);
-						if (irecipe instanceof ShapedRecipes) {
-							ShapedRecipes shaped = (ShapedRecipes) irecipe;
-							ItemStack[] ingredients = shaped.recipeItems;
-							int i = countMatchingIngredients(material, Arrays.asList(ingredients), recursiveCheckedRecipes);
-							i /= result.stackSize;
-							if (i > 0) {
-								count = i;
-								break label63;
-							}
+				if (recursiveCheckedRecipes.contains(irecipe)) {
+					continue;
+				}
+				ItemStack result = irecipe.getRecipeOutput();
+				if (result != null && result.getItem() == itemstack.getItem() && (itemstack.isItemStackDamageable() || result.getItemDamage() == itemstack.getItemDamage())) {
+					recursiveCheckedRecipes.add(irecipe);
+					if (irecipe instanceof ShapedRecipes) {
+						ShapedRecipes shaped = (ShapedRecipes) irecipe;
+						ItemStack[] ingredients = shaped.recipeItems;
+						int i = countMatchingIngredients(material, Arrays.asList(ingredients), recursiveCheckedRecipes);
+						i /= result.stackSize;
+						if (i > 0) {
+							count = i;
+							break label63;
 						}
-						if (irecipe instanceof ShapelessRecipes) {
-							ShapelessRecipes shapeless = (ShapelessRecipes) irecipe;
-							List ingredients = shapeless.recipeItems;
-							int i = countMatchingIngredients(material, ingredients, recursiveCheckedRecipes);
-							i /= result.stackSize;
-							if (i > 0) {
-								count = i;
-								break label63;
-							}
+					}
+					if (irecipe instanceof ShapelessRecipes) {
+						ShapelessRecipes shapeless = (ShapelessRecipes) irecipe;
+						List ingredients = shapeless.recipeItems;
+						int i = countMatchingIngredients(material, ingredients, recursiveCheckedRecipes);
+						i /= result.stackSize;
+						if (i > 0) {
+							count = i;
+							break label63;
 						}
-						if (irecipe instanceof ShapedOreRecipe) {
-							ShapedOreRecipe shaped = (ShapedOreRecipe) irecipe;
-							Object[] ingredients = shaped.getInput();
-							int i = countMatchingIngredients(material, Arrays.asList(ingredients), recursiveCheckedRecipes);
-							i /= result.stackSize;
-							if (i > 0) {
-								count = i;
-								break label63;
-							}
+					}
+					if (irecipe instanceof ShapedOreRecipe) {
+						ShapedOreRecipe shaped = (ShapedOreRecipe) irecipe;
+						Object[] ingredients = shaped.getInput();
+						int i = countMatchingIngredients(material, Arrays.asList(ingredients), recursiveCheckedRecipes);
+						i /= result.stackSize;
+						if (i > 0) {
+							count = i;
+							break label63;
 						}
-						if (irecipe instanceof ShapelessOreRecipe) {
-							ShapelessOreRecipe shapeless = (ShapelessOreRecipe) irecipe;
-							List ingredients = shapeless.getInput();
-							int i = countMatchingIngredients(material, ingredients, recursiveCheckedRecipes);
-							i /= result.stackSize;
-							if (i > 0) {
-								count = i;
-								break label63;
-							}
+					}
+					if (irecipe instanceof ShapelessOreRecipe) {
+						ShapelessOreRecipe shapeless = (ShapelessOreRecipe) irecipe;
+						List ingredients = shapeless.getInput();
+						int i = countMatchingIngredients(material, ingredients, recursiveCheckedRecipes);
+						i /= result.stackSize;
+						if (i > 0) {
+							count = i;
+							break label63;
 						}
 					}
 				}

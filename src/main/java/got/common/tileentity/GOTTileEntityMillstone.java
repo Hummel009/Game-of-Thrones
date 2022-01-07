@@ -180,9 +180,10 @@ public class GOTTileEntityMillstone extends TileEntity implements IInventory, IS
 		for (int i = 0; i < items.tagCount(); ++i) {
 			NBTTagCompound itemData = items.getCompoundTagAt(i);
 			byte slot = itemData.getByte("Slot");
-			if (((slot >= 0) && (slot < inventory.length))) {
-				inventory[slot] = ItemStack.loadItemStackFromNBT(itemData);
+			if (slot < 0 || slot >= inventory.length) {
+				continue;
 			}
+			inventory[slot] = ItemStack.loadItemStackFromNBT(itemData);
 		}
 		isMilling = nbt.getBoolean("Milling");
 		currentMillTime = nbt.getInteger("MillTime");
@@ -245,12 +246,13 @@ public class GOTTileEntityMillstone extends TileEntity implements IInventory, IS
 		super.writeToNBT(nbt);
 		NBTTagList items = new NBTTagList();
 		for (int i = 0; i < inventory.length; ++i) {
-			if (inventory[i] != null) {
-				NBTTagCompound itemData = new NBTTagCompound();
-				itemData.setByte("Slot", (byte) i);
-				inventory[i].writeToNBT(itemData);
-				items.appendTag(itemData);
+			if (inventory[i] == null) {
+				continue;
 			}
+			NBTTagCompound itemData = new NBTTagCompound();
+			itemData.setByte("Slot", (byte) i);
+			inventory[i].writeToNBT(itemData);
+			items.appendTag(itemData);
 		}
 		nbt.setTag("Items", items);
 		nbt.setBoolean("Milling", isMilling);

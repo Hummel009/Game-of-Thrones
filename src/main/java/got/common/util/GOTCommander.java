@@ -299,17 +299,19 @@ public class GOTCommander {
 		ArrayList<Object> list = new ArrayList<>();
 		try {
 			for (Field field : clazz.getDeclaredFields()) {
-				if (field != null) {
-					Object fieldObj = null;
-					if (Modifier.isStatic(field.getModifiers())) {
-						fieldObj = field.get(null);
-					} else if (instance != null) {
-						fieldObj = field.get(instance);
-					}
-					if (((fieldObj != null) && type.isAssignableFrom(fieldObj.getClass()))) {
-						list.add(fieldObj);
-					}
+				if (field == null) {
+					continue;
 				}
+				Object fieldObj = null;
+				if (Modifier.isStatic(field.getModifiers())) {
+					fieldObj = field.get(null);
+				} else if (instance != null) {
+					fieldObj = field.get(instance);
+				}
+				if (fieldObj == null || !type.isAssignableFrom(fieldObj.getClass())) {
+					continue;
+				}
+				list.add(fieldObj);
 			}
 		} catch (IllegalAccessException | IllegalArgumentException exception) {
 		}
@@ -337,12 +339,13 @@ public class GOTCommander {
 	}
 
 	public static void removeCapesExcept(GOTCapes... capes) {
-		for (GOTCapes cape : GOTCapes.values()) {
+		block0: for (GOTCapes cape : GOTCapes.values()) {
 			for (GOTCapes excludedCape : capes) {
-				if (excludedCape != cape) {
-					GOTCommander.removeCape(cape);
+				if (excludedCape == cape) {
+					continue block0;
 				}
 			}
+			GOTCommander.removeCape(cape);
 		}
 	}
 
@@ -376,12 +379,13 @@ public class GOTCommander {
 	}
 
 	public static void removeFactionsExcept(GOTFaction... factions) {
-		for (GOTFaction faction : GOTFaction.values()) {
+		block0: for (GOTFaction faction : GOTFaction.values()) {
 			for (GOTFaction excludedFaction : factions) {
-				if (excludedFaction != faction) {
-					GOTCommander.removeFaction(faction);
+				if (excludedFaction == faction) {
+					continue block0;
 				}
 			}
+			GOTCommander.removeFaction(faction);
 		}
 	}
 
@@ -407,12 +411,13 @@ public class GOTCommander {
 	}
 
 	public static void removeMapLabelsExcept(GOTLabels... labels) {
-		for (GOTLabels label : GOTLabels.values()) {
+		block0: for (GOTLabels label : GOTLabels.values()) {
 			for (GOTLabels excludedLabel : labels) {
-				if (excludedLabel != label) {
-					GOTCommander.removeMapLabel(label);
+				if (excludedLabel == label) {
+					continue block0;
 				}
 			}
+			GOTCommander.removeMapLabel(label);
 		}
 	}
 
@@ -441,12 +446,13 @@ public class GOTCommander {
 	}
 
 	public static void removeShieldsExcept(GOTShields... shields) {
-		for (GOTShields shield : GOTShields.values()) {
+		block0: for (GOTShields shield : GOTShields.values()) {
 			for (GOTShields excludedShield : shields) {
-				if (excludedShield != shield) {
-					GOTCommander.removeShield(shield);
+				if (excludedShield == shield) {
+					continue block0;
 				}
 			}
+			GOTCommander.removeShield(shield);
 		}
 	}
 
@@ -467,12 +473,13 @@ public class GOTCommander {
 	}
 
 	public static void removeWaypointsExcept(GOTWaypoint... wps) {
-		for (GOTWaypoint wp : GOTWaypoint.values()) {
+		block0: for (GOTWaypoint wp : GOTWaypoint.values()) {
 			for (GOTWaypoint excludedWp : wps) {
-				if (excludedWp != wp) {
-					GOTCommander.removeWaypoint(wp);
+				if (excludedWp == wp) {
+					continue block0;
 				}
 			}
+			GOTCommander.removeWaypoint(wp);
 		}
 	}
 
@@ -509,9 +516,10 @@ public class GOTCommander {
 		for (int i = 0; i < colors.length; ++i) {
 			int color = colors[i];
 			Integer biomeID = GOTDimension.GAME_OF_THRONES.colorsToBiomeIDs.get(color);
-			if (biomeID != null) {
-				biomeImageData[i] = (byte) biomeID.intValue();
+			if (biomeID == null) {
+				continue;
 			}
+			biomeImageData[i] = (byte) biomeID.intValue();
 		}
 		ReflectionHelper.setPrivateValue(GOTGenLayerWorld.class, null, biomeImageData, "biomeImageData");
 	}

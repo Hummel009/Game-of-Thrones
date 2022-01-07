@@ -150,16 +150,18 @@ public class GOTReflection {
 			ArrayList<ICommand> mapremoves = new ArrayList<>();
 			for (Object obj : commandMap.values()) {
 				ICommand command = (ICommand) obj;
-				if (command.getClass() == commandClass) {
-					mapremoves.add(command);
+				if (command.getClass() != commandClass) {
+					continue;
 				}
+				mapremoves.add(command);
 			}
 			commandMap.values().removeAll(mapremoves);
 			ArrayList setremoves = new ArrayList();
 			for (Object obj : commandSet) {
-				if (obj.getClass() == commandClass) {
-					setremoves.add(obj);
+				if (obj.getClass() != commandClass) {
+					continue;
 				}
+				setremoves.add(obj);
 			}
 			commandSet.removeAll(setremoves);
 		} catch (Exception e) {
