@@ -74,20 +74,20 @@ public class GOTTextBody {
 				String line = (String) lineList.get(l);
 				if (d1 > 0) {
 					--d1;
-				} else {
-					if (y < yTop) {
-						break block0;
-					}
-					if (line.equals(LINEBREAK)) {
-						line = "";
-						char br = '-';
-						while (fr.getStringWidth(line + br) < textWidth) {
-							line = line + br;
-						}
-					}
-					fr.drawString(line, x, y, color);
-					y -= lineHeight;
+					continue;
 				}
+				if (y < yTop) {
+					break block0;
+				}
+				if (line.equals(LINEBREAK)) {
+					line = "";
+					char br = '-';
+					while (fr.getStringWidth(line + br) < textWidth) {
+						line = line + br;
+					}
+				}
+				fr.drawString(line, x, y, color);
+				y -= lineHeight;
 			}
 		}
 		return scroll;

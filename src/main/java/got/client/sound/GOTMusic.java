@@ -111,14 +111,16 @@ public class GOTMusic implements IResourceManagerReloadListener {
 					}
 					writer.println(regionString.toString());
 				}
-			} else if ("#CATEGORIES#".equals(line)) {
+				continue;
+			}
+			if ("#CATEGORIES#".equals(line)) {
 				for (Enum category : GOTMusicCategory.values()) {
 					String catString = ((GOTMusicCategory) category).categoryName;
 					writer.println(catString);
 				}
-			} else {
-				writer.println(line);
+				continue;
 			}
+			writer.println(line);
 		}
 		writer.close();
 		reader.close();
@@ -163,102 +165,101 @@ public class GOTMusic implements IResourceManagerReloadListener {
 				JsonObject trackData = e.getAsJsonObject();
 				String filename = trackData.get("file").getAsString();
 				ZipEntry trackEntry = zip.getEntry("assets/musicpacks/" + filename);
-				if (trackEntry != null) {
-					InputStream trackStream = zip.getInputStream(trackEntry);
-					GOTMusicTrack track = new GOTMusicTrack(filename);
-					if (trackData.has("title")) {
-						String title = trackData.get("title").getAsString();
-						track.setTitle(title);
+				if (trackEntry == null) {
+					GOTLog.logger.warn("Hummel009: Track " + filename + " in pack " + zip.getName() + " does not exist!");
+					continue;
+				}
+				InputStream trackStream = zip.getInputStream(trackEntry);
+				GOTMusicTrack track = new GOTMusicTrack(filename);
+				if (trackData.has("title")) {
+					String title = trackData.get("title").getAsString();
+					track.setTitle(title);
+				}
+				JsonArray regions = trackData.get("regions").getAsJsonArray();
+				for (Object r : regions) {
+					GOTBiomeMusic region;
+					JsonObject regionData = ((JsonElement) r).getAsJsonObject();
+					String regionName = regionData.get("name").getAsString();
+					boolean allRegions = false;
+					if ("all".equalsIgnoreCase(regionName)) {
+						region = null;
+						allRegions = true;
+					} else {
+						region = GOTBiomeMusic.forName(regionName);
+						if (region == null) {
+							GOTLog.logger.warn("Hummel009: No region named " + regionName + "!");
+							continue;
+						}
 					}
-					JsonArray regions = trackData.get("regions").getAsJsonArray();
-					for (Object r : regions) {
-						GOTBiomeMusic region;
-						JsonObject regionData = ((JsonElement) r).getAsJsonObject();
-						String regionName = regionData.get("name").getAsString();
-						boolean allRegions = false;
-						if ("all".equalsIgnoreCase(regionName)) {
-							region = null;
-							allRegions = true;
-						} else {
-							region = GOTBiomeMusic.forName(regionName);
-							if (region == null) {
-								GOTLog.logger.warn("Hummel009: No region named " + regionName + "!");
+					ArrayList<String> subregionNames = new ArrayList<>();
+					if (region != null && regionData.has("sub")) {
+						JsonArray subList = regionData.get("sub").getAsJsonArray();
+						for (Object s : subList) {
+							String sub = ((JsonElement) s).getAsString();
+							if (region.hasSubregion(sub)) {
+								subregionNames.add(sub);
 								continue;
 							}
+							GOTLog.logger.warn("Hummel009: No subregion " + sub + " for region " + region.regionName + "!");
 						}
-						ArrayList<String> subregionNames = new ArrayList<>();
-						if (region != null && regionData.has("sub")) {
-							JsonArray subList = regionData.get("sub").getAsJsonArray();
-							for (Object s : subList) {
-								String sub = ((JsonElement) s).getAsString();
-								if (region.hasSubregion(sub)) {
-									subregionNames.add(sub);
-								} else {
-									GOTLog.logger.warn("Hummel009: No subregion " + sub + " for region " + region.regionName + "!");
-								}
+					}
+					ArrayList<GOTMusicCategory> regionCategories = new ArrayList<>();
+					if (region != null && regionData.has("categories")) {
+						JsonArray catList = regionData.get("categories").getAsJsonArray();
+						Iterator<JsonElement> s = catList.iterator();
+						while (s.hasNext()) {
+							JsonElement cat = s.next();
+							String categoryName = cat.getAsString();
+							GOTMusicCategory category = GOTMusicCategory.forName(categoryName);
+							if (category != null) {
+								regionCategories.add(category);
+								continue;
 							}
+							GOTLog.logger.warn("Hummel009: No category named " + categoryName + "!");
 						}
-						ArrayList<GOTMusicCategory> regionCategories = new ArrayList<>();
-						if (region != null && regionData.has("categories")) {
-							JsonArray catList = regionData.get("categories").getAsJsonArray();
-							Iterator<JsonElement> s = catList.iterator();
-							while (s.hasNext()) {
-								JsonElement cat = s.next();
-								String categoryName = cat.getAsString();
-								GOTMusicCategory category = GOTMusicCategory.forName(categoryName);
-								if (category != null) {
-									regionCategories.add(category);
-								} else {
-									GOTLog.logger.warn("Hummel009: No category named " + categoryName + "!");
-								}
-							}
+					}
+					double weight = -1.0;
+					if (regionData.has("weight")) {
+						weight = regionData.get("weight").getAsDouble();
+					}
+					ArrayList<GOTBiomeMusic> regionsAdd = new ArrayList<>();
+					if (allRegions) {
+						regionsAdd.addAll(Arrays.asList(GOTBiomeMusic.values()));
+					} else {
+						regionsAdd.add(region);
+					}
+					for (GOTBiomeMusic reg : regionsAdd) {
+						GOTTrackRegionInfo regInfo = track.createRegionInfo(reg);
+						if (weight >= 0.0) {
+							regInfo.setWeight(weight);
 						}
-						double weight = -1.0;
-						if (regionData.has("weight")) {
-							weight = regionData.get("weight").getAsDouble();
-						}
-						ArrayList<GOTBiomeMusic> regionsAdd = new ArrayList<>();
-						if (allRegions) {
-							regionsAdd.addAll(Arrays.asList(GOTBiomeMusic.values()));
+						if (subregionNames.isEmpty()) {
+							regInfo.addAllSubregions();
 						} else {
-							regionsAdd.add(region);
+							for (String sub : subregionNames) {
+								regInfo.addSubregion(sub);
+							}
 						}
-						for (GOTBiomeMusic reg : regionsAdd) {
-							GOTTrackRegionInfo regInfo = track.createRegionInfo(reg);
-							if (weight >= 0.0) {
-								regInfo.setWeight(weight);
-							}
-							if (subregionNames.isEmpty()) {
-								regInfo.addAllSubregions();
-							} else {
-								for (String sub : subregionNames) {
-									regInfo.addSubregion(sub);
-								}
-							}
-							if (regionCategories.isEmpty()) {
-								regInfo.addAllCategories();
-							} else {
-								for (GOTMusicCategory cat : regionCategories) {
-									regInfo.addCategory(cat);
-								}
-							}
+						if (regionCategories.isEmpty()) {
+							regInfo.addAllCategories();
+							continue;
+						}
+						for (GOTMusicCategory cat : regionCategories) {
+							regInfo.addCategory(cat);
 						}
 					}
-					if (trackData.has("authors")) {
-						JsonArray authorList = trackData.get("authors").getAsJsonArray();
-						Iterator<JsonElement> r = authorList.iterator();
-						while (r.hasNext()) {
-							JsonElement a = r.next();
-							String author = a.getAsString();
-							track.addAuthor(author);
-						}
-					}
-					track.loadTrack(trackStream);
-					packTracks.add(track);
-				} else {
-					GOTLog.logger.warn("Hummel009: Track " + filename + " in pack " + zip.getName() + " does not exist!");
 				}
-
+				if (trackData.has("authors")) {
+					JsonArray authorList = trackData.get("authors").getAsJsonArray();
+					Iterator<JsonElement> r = authorList.iterator();
+					while (r.hasNext()) {
+						JsonElement a = r.next();
+						String author = a.getAsString();
+						track.addAuthor(author);
+					}
+				}
+				track.loadTrack(trackStream);
+				packTracks.add(track);
 			}
 			reader.close();
 			GOTLog.logger.info("Hummel009: Successfully loaded music pack " + zip.getName() + " with " + packTracks.size() + " tracks");

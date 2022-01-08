@@ -31,18 +31,19 @@ public class GOTConnectedTextures {
 		for (Map.Entry<IconElement, BufferedImage> entry : iconElementMap.entrySet()) {
 			IconElement elemt = entry.getKey();
 			BufferedImage img = entry.getValue();
-			if (((elemt != IconElement.BASE) && ((img.getWidth() != iconWidth) || (img.getHeight() != iconHeight)))) {
-				FMLLog.severe("GOT: All connected texture icons for " + baseIconName + " must have the same dimensions!");
-				BufferedImage errored = new BufferedImage(iconWidth, iconHeight, 2);
-				for (int i = 0; i < errored.getWidth(); ++i) {
-					for (int j = 0; j < errored.getHeight(); ++j) {
-						int rgb;
-						rgb = (i + j) % 2 == 0 ? 16711680 : 0;
-						errored.setRGB(i, j, 0xFF000000 | rgb);
-					}
-				}
-				entry.setValue(errored);
+			if (elemt == IconElement.BASE || img.getWidth() == iconWidth && img.getHeight() == iconHeight) {
+				continue;
 			}
+			FMLLog.severe("GOT: All connected texture icons for " + baseIconName + " must have the same dimensions!");
+			BufferedImage errored = new BufferedImage(iconWidth, iconHeight, 2);
+			for (int i = 0; i < errored.getWidth(); ++i) {
+				for (int j = 0; j < errored.getHeight(); ++j) {
+					int rgb;
+					rgb = (i + j) % 2 == 0 ? 16711680 : 0;
+					errored.setRGB(i, j, 0xFF000000 | rgb);
+				}
+			}
+			entry.setValue(errored);
 		}
 		HashMap<Integer, IIcon> iconsMap = new HashMap<>();
 		for (Map.Entry<Integer, Set<IconElement>> entry : IconElement.allCombos.entrySet()) {
@@ -53,26 +54,26 @@ public class GOTConnectedTextures {
 				String iconName = modID + ":textures/blocks/" + baseIconName + "_" + key;
 				if (textureMap.getTextureExtry(iconName) != null) {
 					FMLLog.severe("Icon is already registered for %s", iconName);
-				} else {
-					BufferedImage iconImage = new BufferedImage(iconWidth, iconHeight, 2);
-					for (IconElement e : list) {
-						BufferedImage baseIconImage = iconElementMap.get(e);
-						for (int i = 0; i < iconImage.getWidth(); ++i) {
-							for (int j = 0; j < iconImage.getHeight(); ++j) {
-								int rgb = baseIconImage.getRGB(i, j);
-								int alpha = rgb & 0xFF000000;
-								if (alpha != 0) {
-									iconImage.setRGB(i, j, rgb);
-								}
+					continue;
+				}
+				BufferedImage iconImage = new BufferedImage(iconWidth, iconHeight, 2);
+				for (IconElement e : list) {
+					BufferedImage baseIconImage = iconElementMap.get(e);
+					for (int i = 0; i < iconImage.getWidth(); ++i) {
+						for (int j = 0; j < iconImage.getHeight(); ++j) {
+							int rgb = baseIconImage.getRGB(i, j);
+							int alpha = rgb & 0xFF000000;
+							if (alpha != 0) {
+								iconImage.setRGB(i, j, rgb);
 							}
 						}
 					}
-					GOTBufferedImageIcon icon = new GOTBufferedImageIcon(iconName, iconImage);
-					icon.setIconWidth(iconImage.getWidth());
-					icon.setIconHeight(iconImage.getHeight());
-					textureMap.setTextureEntry(iconName, icon);
-					iconsMap.put(key, icon);
 				}
+				GOTBufferedImageIcon icon = new GOTBufferedImageIcon(iconName, iconImage);
+				icon.setIconWidth(iconImage.getWidth());
+				icon.setIconHeight(iconImage.getHeight());
+				textureMap.setTextureEntry(iconName, icon);
+				iconsMap.put(key, icon);
 			}
 		}
 		blockIconsMap.put(blockName, iconsMap);
@@ -374,9 +375,10 @@ public class GOTConnectedTextures {
 			}
 			for (Set<IconElement> iconSet : permutations) {
 				int key = IconElement.getIconSetKey(iconSet);
-				if (!allCombos.containsKey(key)) {
-					allCombos.put(key, iconSet);
+				if (allCombos.containsKey(key)) {
+					continue;
 				}
+				allCombos.put(key, iconSet);
 			}
 			comparator = new Comparator<IconElement>() {
 
@@ -403,9 +405,10 @@ public class GOTConnectedTextures {
 		public static int getIconSetKey(Set<IconElement> set) {
 			int i = 0;
 			for (IconElement e : IconElement.values()) {
-				if (set.contains(e)) {
-					i |= e.bitFlag;
+				if (!set.contains(e)) {
+					continue;
 				}
+				i |= e.bitFlag;
 			}
 			return i;
 		}

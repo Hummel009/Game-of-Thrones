@@ -37,13 +37,14 @@ public class GOTGuiMenu extends GOTGuiScreenBase {
 		super.drawScreen(i, j, f);
 		for (Object obj : buttonList) {
 			GOTGuiButtonMenu button;
-			if (((obj instanceof GOTGuiButtonMenu) && (button = (GOTGuiButtonMenu) obj).func_146115_a() && (button.displayString != null))) {
-				float z = zLevel;
-				drawCreativeTabHoveringText(button.displayString, i, j);
-				GL11.glDisable(2896);
-				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-				zLevel = z;
+			if (!(obj instanceof GOTGuiButtonMenu) || !(button = (GOTGuiButtonMenu) obj).func_146115_a() || button.displayString == null) {
+				continue;
 			}
+			float z = zLevel;
+			drawCreativeTabHoveringText(button.displayString, i, j);
+			GL11.glDisable(2896);
+			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+			zLevel = z;
 		}
 	}
 
@@ -63,11 +64,12 @@ public class GOTGuiMenu extends GOTGuiScreenBase {
 		buttonList.add(new GOTGuiButtonMenu(this, 8, 0, 0, GOTGuiLanguages.class, StatCollector.translateToLocal("got.gui.languages"), 20));
 		ArrayList<GOTGuiButtonMenu> menuButtons = new ArrayList<>();
 		for (Object obj : buttonList) {
-			if (obj instanceof GOTGuiButtonMenu) {
-				GOTGuiButtonMenu button = (GOTGuiButtonMenu) obj;
-				button.enabled = button.canDisplayMenu();
-				menuButtons.add(button);
+			if (!(obj instanceof GOTGuiButtonMenu)) {
+				continue;
 			}
+			GOTGuiButtonMenu button = (GOTGuiButtonMenu) obj;
+			button.enabled = button.canDisplayMenu();
+			menuButtons.add(button);
 		}
 		int numButtons = menuButtons.size();
 		int numTopRowButtons = (numButtons - 1) / 2 + 1;
@@ -79,23 +81,25 @@ public class GOTGuiMenu extends GOTGuiScreenBase {
 			if (l < numTopRowButtons) {
 				button2.xPosition = topRowLeft + l * 42;
 				button2.yPosition = midY - 5 - 32;
-			} else {
-				button2.xPosition = btmRowLeft + (l - numTopRowButtons) * 42;
-				button2.yPosition = midY + 5;
+				continue;
 			}
+			button2.xPosition = btmRowLeft + (l - numTopRowButtons) * 42;
+			button2.yPosition = midY + 5;
 		}
 	}
 
 	@Override
 	public void keyTyped(char c, int i) {
 		for (Object obj : buttonList) {
-			if (obj instanceof GOTGuiButtonMenu) {
-				GOTGuiButtonMenu button = (GOTGuiButtonMenu) obj;
-				if ((button.visible && button.enabled && (button.menuKeyCode >= 0) && (i == button.menuKeyCode))) {
-					actionPerformed(button);
-					return;
-				}
+			if (!(obj instanceof GOTGuiButtonMenu)) {
+				continue;
 			}
+			GOTGuiButtonMenu button = (GOTGuiButtonMenu) obj;
+			if (!button.visible || !button.enabled || button.menuKeyCode < 0 || i != button.menuKeyCode) {
+				continue;
+			}
+			actionPerformed(button);
+			return;
 		}
 		super.keyTyped(c, i);
 	}

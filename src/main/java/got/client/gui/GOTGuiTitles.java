@@ -105,9 +105,10 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 			this.drawCenteredString(title, guiLeft + xSize / 2, guiTop + 185, 16777215);
 			ArrayList<EnumChatFormatting> colorCodes = new ArrayList<>();
 			for (EnumChatFormatting ecf : EnumChatFormatting.values()) {
-				if (ecf.isColor()) {
-					colorCodes.add(ecf);
+				if (!ecf.isColor()) {
+					continue;
 				}
+				colorCodes.add(ecf);
 			}
 			int colorX = guiLeft + xSize / 2 - (colorBoxWidth * colorCodes.size() + colorBoxGap * (colorCodes.size() - 1)) / 2;
 			int colorY = guiTop + 200;
@@ -143,16 +144,17 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 			titleX = (Integer) ((Pair) entry.getValue().getRight()).getLeft();
 			titleY = (Integer) ((Pair) entry.getValue().getRight()).getRight();
 			boolean mouseOver = entry.getValue().getLeft();
-			if (mouseOver) {
-				int stringWidth = 200;
-				List titleLines = fontRendererObj.listFormattedStringToWidth(desc, stringWidth);
-				int offset = 10;
-				int x = i + offset;
-				int y = j + offset;
-				func_146283_a(titleLines, x, y);
-				GL11.glDisable(2896);
-				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+			if (!mouseOver) {
+				continue;
 			}
+			int stringWidth = 200;
+			List titleLines = fontRendererObj.listFormattedStringToWidth(desc, stringWidth);
+			int offset = 10;
+			int x = i + offset;
+			int y = j + offset;
+			func_146283_a(titleLines, x, y);
+			GL11.glDisable(2896);
+			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		}
 	}
 
@@ -239,9 +241,12 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 		for (GOTTitle title : GOTTitle.allTitles) {
 			if (title.canPlayerUse(mc.thePlayer)) {
 				availableTitles.add(title);
-			} else if (title.canDisplay(mc.thePlayer)) {
-				unavailableTitles.add(title);
+				continue;
 			}
+			if (!title.canDisplay(mc.thePlayer)) {
+				continue;
+			}
+			unavailableTitles.add(title);
 		}
 		Comparator<GOTTitle> sorter = GOTTitle.createTitleSorter(mc.thePlayer);
 		Collections.sort(availableTitles, sorter);

@@ -91,9 +91,10 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 			List brandings = Lists.reverse((List) FMLCommonHandler.instance().getBrandings(true));
 			for (int l = 0; l < brandings.size(); ++l) {
 				String brd = (String) brandings.get(l);
-				if (!Strings.isNullOrEmpty(brd)) {
-					drawString(fontRendererObj, brd, 2, height - (10 + l * (fontRendererObj.FONT_HEIGHT + 1)), -1);
+				if (Strings.isNullOrEmpty(brd)) {
+					continue;
 				}
+				drawString(fontRendererObj, brd, 2, height - (10 + l * (fontRendererObj.FONT_HEIGHT + 1)), -1);
 			}
 			ForgeHooksClient.renderMainMenu(this, fontRendererObj, width, height);
 			String copyright = "Powered by Hummel009";
@@ -126,9 +127,10 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 		for (Object obj : buttonList) {
 			GuiButton button = (GuiButton) obj;
 			int buttonMaxY = button.yPosition + button.height;
-			if (buttonMaxY > lowerButtonMaxY) {
-				lowerButtonMaxY = buttonMaxY;
+			if (buttonMaxY <= lowerButtonMaxY) {
+				continue;
 			}
+			lowerButtonMaxY = buttonMaxY;
 		}
 		int idealMoveDown = 50;
 		int lowestSuitableHeight = height - 25;
@@ -137,10 +139,11 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 		for (int i = 0; i < buttonList.size(); ++i) {
 			GuiButton button = (GuiButton) buttonList.get(i);
 			button.yPosition += moveDown;
-			if (button.getClass() == GuiButton.class) {
-				GOTGuiButton newButton = new GOTGuiButton(button.id, button.xPosition, button.yPosition, button.width, button.height, button.displayString);
-				buttonList.set(i, newButton);
+			if (button.getClass() != GuiButton.class) {
+				continue;
 			}
+			GOTGuiButton newButton = new GOTGuiButton(button.id, button.xPosition, button.yPosition, button.width, button.height, button.displayString);
+			buttonList.set(i, newButton);
 		}
 	}
 

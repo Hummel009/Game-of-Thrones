@@ -184,9 +184,10 @@ public class GOTRenderPlayer {
 				String playerName = entityplayer.getCommandSenderName();
 				List<GOTFellowshipClient> fellowships = GOTLevelData.getData(mc.thePlayer).getClientFellowships();
 				for (GOTFellowshipClient fs : fellowships) {
-					if (fs.isPlayerIn(playerName)) {
-						return true;
+					if (!fs.isPlayerIn(playerName)) {
+						continue;
 					}
+					return true;
 				}
 				return false;
 			}
@@ -199,9 +200,10 @@ public class GOTRenderPlayer {
 		if (GOTConfig.fellowPlayerHealthBars && shouldRenderPlayerHUD(entityplayer)) {
 			List<GOTFellowshipClient> fellowships = GOTLevelData.getData(mc.thePlayer).getClientFellowships();
 			for (GOTFellowshipClient fs : fellowships) {
-				if (fs.isPlayerIn(entityplayer.getCommandSenderName())) {
-					return true;
+				if (!fs.isPlayerIn(entityplayer.getCommandSenderName())) {
+					continue;
 				}
+				return true;
 			}
 		}
 		return false;

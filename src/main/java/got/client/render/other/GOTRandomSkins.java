@@ -79,13 +79,14 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 					break;
 				}
 				++skinCount;
-			} else {
-				skins.add(skin);
-				++skinCount;
-				if (skips > 0) {
-					foundAfterSkip = true;
-				}
+				continue;
 			}
+			skins.add(skin);
+			++skinCount;
+			if (skips <= 0) {
+				continue;
+			}
+			foundAfterSkip = true;
 		} while (true);
 		if (skins.isEmpty()) {
 			FMLLog.warning("GOT: No random skins for %s", skinPath);
@@ -155,27 +156,27 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 				for (ResourceLocation overlay : layerSkins.getAllSkins()) {
 					try {
 						BufferedImage overlayImage = ImageIO.read(mc.getResourceManager().getResource(overlay).getInputStream());
-						if (!layeredImages.isEmpty()) {
-							for (BufferedImage baseImage : layeredImages) {
-								int skinWidth = baseImage.getWidth();
-								int skinHeight = baseImage.getHeight();
-								BufferedImage newImage = new BufferedImage(skinWidth, skinHeight, 2);
-								for (int i = 0; i < skinWidth; ++i) {
-									for (int j = 0; j < skinHeight; ++j) {
-										int opaqueTest;
-										int baseRGB = baseImage.getRGB(i, j);
-										int overlayRGB = overlayImage.getRGB(i, j);
-										if ((overlayRGB & (opaqueTest = -16777216)) == opaqueTest) {
-											newImage.setRGB(i, j, overlayRGB);
-										} else {
-											newImage.setRGB(i, j, baseRGB);
-										}
-									}
-								}
-								tempLayered.add(newImage);
-							}
-						} else {
+						if (layeredImages.isEmpty()) {
 							tempLayered.add(overlayImage);
+							continue;
+						}
+						for (BufferedImage baseImage : layeredImages) {
+							int skinWidth = baseImage.getWidth();
+							int skinHeight = baseImage.getHeight();
+							BufferedImage newImage = new BufferedImage(skinWidth, skinHeight, 2);
+							for (int i = 0; i < skinWidth; ++i) {
+								for (int j = 0; j < skinHeight; ++j) {
+									int opaqueTest;
+									int baseRGB = baseImage.getRGB(i, j);
+									int overlayRGB = overlayImage.getRGB(i, j);
+									if ((overlayRGB & (opaqueTest = -16777216)) == opaqueTest) {
+										newImage.setRGB(i, j, overlayRGB);
+										continue;
+									}
+									newImage.setRGB(i, j, baseRGB);
+								}
+							}
+							tempLayered.add(newImage);
 						}
 					} catch (IOException e) {
 						FMLLog.severe("GOT: Error combining skins " + skinPath + " on layer " + layer + "!");

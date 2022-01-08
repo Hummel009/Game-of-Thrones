@@ -367,9 +367,10 @@ public class GOTRenderNorthernLights {
 			HashSet<AuroraCycle> removes = new HashSet<>();
 			for (AuroraCycle c : waveOscillations) {
 				c.update();
-				if (c.age <= 0) {
-					removes.add(c);
+				if (c.age > 0) {
+					continue;
 				}
+				removes.add(c);
 			}
 			waveOscillations.removeAll(removes);
 		}
@@ -393,9 +394,10 @@ public class GOTRenderNorthernLights {
 			HashSet<AuroraCycle> removes = new HashSet<>();
 			for (AuroraCycle c : glowOscillations) {
 				c.update();
-				if (c.age <= 0) {
-					removes.add(c);
+				if (c.age > 0) {
+					continue;
 				}
+				removes.add(c);
 			}
 			glowOscillations.removeAll(removes);
 		}
