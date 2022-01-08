@@ -64,7 +64,6 @@ public class GOTBiomeVariant {
 	public static GOTBiomeVariant FOREST_CHERRY = new GOTBiomeVariantForest(52, "forest_lemon").addTreeTypes(0.8f, GOTTreeType.CHERRY, 1000);
 	public static GOTBiomeVariant FOREST_LEMON = new GOTBiomeVariantForest(53, "forest_lemon").addTreeTypes(0.8f, GOTTreeType.LEMON, 1000);
 	public static GOTBiomeVariant FOREST_LIME = new GOTBiomeVariantForest(54, "forest_lime").addTreeTypes(0.8f, GOTTreeType.LIME, 1000);
-	public static GOTBiomeVariant FIELD_CORN = new GOTBiomeVariant(55, "field_corn", VariantScale.SMALL).setHeight(0.0f, 0.0f).setTrees(0.0f).setGrass(0.0f).setFlowers(0.0f).disableStructuresVillages();
 	public static GOTBiomeVariant FOREST_WEIRWOOD = new GOTBiomeVariantForest(57, "forest_weirwood").addTreeTypes(0.8f, GOTTreeType.WEIRWOOD);
 	public static GOTBiomeVariant[] SET_SWAMP = { SWAMP_LOWLAND, SWAMP_LOWLAND, SWAMP_LOWLAND, SWAMP_UPLAND };
 	public static GOTBiomeVariant[] SET_MOUNTAINS = { FOREST, FOREST_LIGHT };

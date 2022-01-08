@@ -3,6 +3,7 @@ CHANGELOG
 >>VERSION 17.6
 * Recoded all the flat biome system
 
++ Added random corn plants spawning
 + Added random structures
 + Added Tugar Khan
 + Added Hojtbaatar waypoint
@@ -10,6 +11,7 @@ CHANGELOG
 + Added Tugar Khan achievement
 + Added dark variants of scrap trader and thief
 
+* Improved Yi Ti Roads
 * Improved almost all biomes
 * Improved summer islands' strscans
 * Improved white walkers attack AI
@@ -22,6 +24,7 @@ CHANGELOG
 
 * Optimized iron bank code
 
+* Fixed bug with village spawning
 * Fixed bug with scorpion drop
 * Fixed bug with iron bank
 * Fixed bug with alchemist skin
@@ -32,6 +35,7 @@ CHANGELOG
 * Fixed bug with Yi Ti cities
 * Fixed bug with valyrian smelting
 
+- Removed corn fields
 - Removed Kitra's achievement
 - Removed Kitra
 - Removed Kitra's Camp waypoint

@@ -24,7 +24,7 @@ public class GOTStructureDragonstoneCity extends GOTVillageGen {
 		gridScale = 12;
 		gridRandomDisplace = 1;
 		spawnChance = f;
-		villageChunkRadius = 5;
+		villageChunkRadius = 6;
 	}
 
 	@Override

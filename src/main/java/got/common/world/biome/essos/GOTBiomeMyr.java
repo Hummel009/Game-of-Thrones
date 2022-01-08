@@ -19,7 +19,6 @@ public class GOTBiomeMyr extends GOTBiomeEssos {
 		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_ALMOND, 0.2f);
 		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
 		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.FIELD_CORN, 0.2f);
 
 		SpawnListContainer[] c0 = new SpawnListContainer[2];
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.MYR_CONQUEST, 4).setSpawnChance(GOTBiome.SPAWN);

@@ -36,6 +36,7 @@ public class GOTBiomeDecorator {
 	public WorldGenerator caneGen = new WorldGenReed();
 	public WorldGenerator reedGen = new GOTWorldGenReeds(GOTRegistry.reeds);
 	public WorldGenerator dryReedGen = new GOTWorldGenReeds(GOTRegistry.driedReeds);
+	public WorldGenerator cornGen = new GOTWorldGenCorn();
 	public WorldGenerator waterlilyGen = new WorldGenWaterlily();
 	public WorldGenerator stalactiteGen = new GOTWorldGenStalactites();
 	public WorldGenerator cactusGen = new WorldGenCactus();
@@ -55,6 +56,7 @@ public class GOTBiomeDecorator {
 	public int canePerChunk;
 	public int reedPerChunk = 1;
 	public float dryReedChance = 0.1f;
+    public int cornPerChunk;
 	public int cactiPerChunk;
 	public boolean generatePipeweed;
 	public boolean whiteSand;
@@ -174,7 +176,6 @@ public class GOTBiomeDecorator {
 		int k3;
 		int k4;
 		int l2;
-		int j;
 		int j2;
 		int i2;
 		int l3;
@@ -182,7 +183,6 @@ public class GOTBiomeDecorator {
 		int l4;
 		int i3;
 		int l5;
-		int l6;
 		int j3;
 		int j4;
 		int k6;
@@ -230,7 +230,7 @@ public class GOTBiomeDecorator {
 			structureRand.setSeed(seed);
 			boolean roadNear = GOTRoads.isRoadNear(chunkX + 8, chunkZ + 8, 16) >= 0.0f;
 			boolean wallNear = GOTWalls.isWallNear(chunkX + 8, chunkZ + 8, 16) >= 0.0f;
-			if (!roadNear || !wallNear) {
+			if ((!roadNear && !wallNear && !anyFixedVillagesAt(worldObj, chunkX, chunkZ))) {
 				for (RandomStructure randomstructure : randomStructures) {
 					if (structureRand.nextInt(randomstructure.chunkChance) == 0) {
 						int i6 = chunkX + rand.nextInt(16) + 8;
@@ -348,6 +348,12 @@ public class GOTBiomeDecorator {
 			}
 			reedGen.generate(worldObj, rand, i2, j13, k5);
 		}
+        for (l7 = 0; l7 < cornPerChunk; ++l7) {
+            i2 = chunkX + rand.nextInt(16) + 8;
+            j2 = rand.nextInt(128);
+            int k19 = chunkZ + rand.nextInt(16) + 8;
+            cornGen.generate(worldObj, rand, i2, j2, k19);
+        }
 		for (l7 = 0; l7 < cactiPerChunk; ++l7) {
 			i2 = chunkX + rand.nextInt(16) + 8;
 			j2 = rand.nextInt(128);

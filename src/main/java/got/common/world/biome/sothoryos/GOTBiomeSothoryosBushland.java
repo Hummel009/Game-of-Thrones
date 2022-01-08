@@ -48,6 +48,7 @@ public class GOTBiomeSothoryosBushland extends GOTBiome {
 		decorator.logsPerChunk = 1;
 		decorator.grassPerChunk = 16;
 		decorator.doubleGrassPerChunk = 10;
+        decorator.cornPerChunk = 4;
 		decorator.addTree(GOTTreeType.DRAGONBLOOD, 200);
 		SpawnListContainer[] c = new SpawnListContainer[1];
 		c[0] = GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN);
