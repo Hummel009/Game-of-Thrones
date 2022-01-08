@@ -1059,9 +1059,6 @@ public class GOTClassTransformer implements IClassTransformer {
 			if (!method.name.equals(targetMethodName) && !method.name.equals(targetMethodNameObf) || !method.desc.equals(targetMethodSign) && !method.desc.equals(targetMethodSignObf)) {
 				continue;
 			}
-<<<<<<< HEAD
-
-=======
 			method.instructions.clear();
 			InsnList newIns = new InsnList();
 			newIns.add(new VarInsnNode(25, 0));
@@ -1071,7 +1068,6 @@ public class GOTClassTransformer implements IClassTransformer {
 			newIns.add(new InsnNode(175));
 			method.instructions.insert(newIns);
 			System.out.println("Hummel009: Patched method " + method.name);
->>>>>>> parent of 270f1a9 (Update GOTClassTransformer.java)
 		}
 		ClassWriter writer = new ClassWriter(1);
 		classNode.accept(writer);
@@ -1087,22 +1083,6 @@ public class GOTClassTransformer implements IClassTransformer {
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
 		for (MethodNode method : classNode.methods) {
-<<<<<<< HEAD
-			if (((method.name.equals(targetMethodName) || method.name.equals(targetMethodNameObf)) && (method.desc.equals(targetMethodSign) || method.desc.equals(targetMethodSignObf)))) {
-				method.instructions.clear();
-				method.tryCatchBlocks.clear();
-				method.localVariables.clear();
-				InsnList newIns = new InsnList();
-				newIns.add(new VarInsnNode(25, 1));
-				newIns.add(new VarInsnNode(21, 2));
-				newIns.add(new VarInsnNode(21, 3));
-				newIns.add(new VarInsnNode(21, 4));
-				newIns.add(new MethodInsnNode(184, "got/coremod/GOTReplacedMethods$Spawner", "performSpawning", "(Lnet/minecraft/world/WorldServer;ZZZ)I", false));
-				newIns.add(new InsnNode(172));
-				method.instructions.insert(newIns);
-				System.out.println("Hummel009: Patched method " + method.name);
-			}
-=======
 			if (!method.name.equals(targetMethodName) && !method.name.equals(targetMethodNameObf) || !method.desc.equals(targetMethodSign) && !method.desc.equals(targetMethodSignObf)) {
 				continue;
 			}
@@ -1118,7 +1098,6 @@ public class GOTClassTransformer implements IClassTransformer {
 			newIns.add(new InsnNode(172));
 			method.instructions.insert(newIns);
 			System.out.println("Hummel009: Patched method " + method.name);
->>>>>>> parent of 270f1a9 (Update GOTClassTransformer.java)
 		}
 		ClassWriter writer = new ClassWriter(1);
 		classNode.accept(writer);
