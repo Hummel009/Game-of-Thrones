@@ -38,9 +38,10 @@ public class GOTSpeechClient {
 			UUID key = e.getKey();
 			TimedSpeech speech = e.getValue();
 			speech.time--;
-			if (speech.time > 0) {
-				newMap.put(key, speech);
+			if (speech.time <= 0) {
+				continue;
 			}
+			newMap.put(key, speech);
 		}
 		npcSpeeches = newMap;
 	}

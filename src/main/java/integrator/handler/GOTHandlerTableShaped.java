@@ -45,17 +45,19 @@ public class GOTHandlerTableShaped extends ShapedRecipeHandler {
 	public void loadCraftingRecipes(ItemStack result) {
 		List<IRecipe> allrecipes = getRecipeList();
 		for (IRecipe irecipe : allrecipes) {
-			if (NEIServerUtils.areStacksSameTypeCrafting(irecipe.getRecipeOutput(), result)) {
-				ShapedRecipeHandler.CachedShapedRecipe recipe = null;
-				if (irecipe instanceof ShapedRecipes) {
-					recipe = new ShapedRecipeHandler.CachedShapedRecipe((ShapedRecipes) irecipe);
-				} else if (irecipe instanceof ShapedOreRecipe) {
-					recipe = forgeShapedRecipe((ShapedOreRecipe) irecipe);
-				}
-				if (recipe != null) {
-					arecipes.add(recipe);
-				}
+			if (!NEIServerUtils.areStacksSameTypeCrafting(irecipe.getRecipeOutput(), result)) {
+				continue;
 			}
+			ShapedRecipeHandler.CachedShapedRecipe recipe = null;
+			if (irecipe instanceof ShapedRecipes) {
+				recipe = new ShapedRecipeHandler.CachedShapedRecipe((ShapedRecipes) irecipe);
+			} else if (irecipe instanceof ShapedOreRecipe) {
+				recipe = forgeShapedRecipe((ShapedOreRecipe) irecipe);
+			}
+			if (recipe == null) {
+				continue;
+			}
+			arecipes.add(recipe);
 		}
 	}
 
@@ -70,9 +72,10 @@ public class GOTHandlerTableShaped extends ShapedRecipeHandler {
 				} else if (irecipe instanceof ShapedOreRecipe) {
 					recipe = forgeShapedRecipe((ShapedOreRecipe) irecipe);
 				}
-				if (recipe != null) {
-					arecipes.add(recipe);
+				if (recipe == null) {
+					continue;
 				}
+				arecipes.add(recipe);
 			}
 		} else {
 			super.loadCraftingRecipes(outputId, results);
@@ -94,10 +97,11 @@ public class GOTHandlerTableShaped extends ShapedRecipeHandler {
 			} else if (irecipe instanceof ShapedOreRecipe) {
 				recipe = forgeShapedRecipe((ShapedOreRecipe) irecipe);
 			}
-			if (((recipe != null) && recipe.contains(recipe.ingredients, ingredient))) {
-				recipe.setIngredientPermutation(recipe.ingredients, ingredient);
-				arecipes.add(recipe);
+			if (recipe == null || !recipe.contains(recipe.ingredients, ingredient)) {
+				continue;
 			}
+			recipe.setIngredientPermutation(recipe.ingredients, ingredient);
+			arecipes.add(recipe);
 		}
 	}
 

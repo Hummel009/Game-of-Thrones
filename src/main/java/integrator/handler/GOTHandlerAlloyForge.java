@@ -147,16 +147,17 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 			ArrayList list = new ArrayList();
 			stack.getItem().getSubItems(forgeItem, (CreativeTabs) null, list);
 			for (Object tmp : list) {
-				if (!(tmp instanceof ItemStack)) {
-					if (tmp instanceof Item) {
-						list.remove(tmp);
-						list.add(new ItemStack((Item) tmp, 1, 0));
-					} else if (tmp instanceof Block) {
-						list.remove(tmp);
-						list.add(new ItemStack((Block) tmp, 1, 0));
-					} else {
-						list.remove(tmp);
-					}
+				if (tmp instanceof ItemStack) {
+					continue;
+				}
+				if (tmp instanceof Item) {
+					list.remove(tmp);
+					list.add(new ItemStack((Item) tmp, 1, 0));
+				} else if (tmp instanceof Block) {
+					list.remove(tmp);
+					list.add(new ItemStack((Block) tmp, 1, 0));
+				} else {
+					list.remove(tmp);
 				}
 			}
 			list.add(stack);

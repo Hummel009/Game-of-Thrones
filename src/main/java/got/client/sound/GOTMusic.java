@@ -76,10 +76,10 @@ public class GOTMusic implements IResourceManagerReloadListener {
 		for (GOTBiomeMusic region : track.getAllRegions()) {
 			if (region.hasNoSubregions()) {
 				GOTMusic.getTracksForRegion(region, null).addTrack(track);
-			} else {
-				for (String sub : track.getRegionInfo(region).getSubregions()) {
-					GOTMusic.getTracksForRegion(region, sub).addTrack(track);
-				}
+				continue;
+			}
+			for (String sub : track.getRegionInfo(region).getSubregions()) {
+				GOTMusic.getTracksForRegion(region, sub).addTrack(track);
 			}
 		}
 	}
@@ -275,24 +275,26 @@ public class GOTMusic implements IResourceManagerReloadListener {
 		if (!initSubregions) {
 			for (GOTDimension dim : GOTDimension.values()) {
 				for (GOTBiome biome : dim.biomeList) {
-					if (biome != null) {
-						biome.getBiomeMusic();
+					if (biome == null) {
+						continue;
 					}
+					biome.getBiomeMusic();
 				}
 			}
 			initSubregions = true;
 		}
 		for (File file : musicDir.listFiles()) {
-			if ((file.isFile() && file.getName().endsWith(".zip"))) {
-				try {
-					FileResourcePack resourcePack = new FileResourcePack(file);
-					resourceMgr.reloadResourcePack(resourcePack);
-					ZipFile zipFile = new ZipFile(file);
-					GOTMusic.loadMusicPack(zipFile, resourceMgr);
-				} catch (Exception e) {
-					GOTLog.logger.warn("Hummel009: Failed to load music pack " + file.getName() + "!");
-					e.printStackTrace();
-				}
+			if (!file.isFile() || !file.getName().endsWith(".zip")) {
+				continue;
+			}
+			try {
+				FileResourcePack resourcePack = new FileResourcePack(file);
+				resourceMgr.reloadResourcePack(resourcePack);
+				ZipFile zipFile = new ZipFile(file);
+				GOTMusic.loadMusicPack(zipFile, resourceMgr);
+			} catch (Exception e) {
+				GOTLog.logger.warn("Hummel009: Failed to load music pack " + file.getName() + "!");
+				e.printStackTrace();
 			}
 		}
 		try {

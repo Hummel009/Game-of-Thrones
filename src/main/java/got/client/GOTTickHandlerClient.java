@@ -168,10 +168,11 @@ public class GOTTickHandlerClient {
 			int dmgIndex = -1;
 			for (int i2 = 0; i2 < tooltip.size(); ++i2) {
 				String s = tooltip.get(i2);
-				if (s.startsWith(EnumChatFormatting.BLUE.toString())) {
-					dmgIndex = i2;
-					break;
+				if (!s.startsWith(EnumChatFormatting.BLUE.toString())) {
+					continue;
 				}
+				dmgIndex = i2;
+				break;
 			}
 			if (dmgIndex >= 0) {
 				ArrayList<String> newTooltip = new ArrayList<>();
@@ -235,9 +236,9 @@ public class GOTTickHandlerClient {
 				String enchDesc = ench.getNamedFormattedDescription(itemstack);
 				if (ench.isBeneficial()) {
 					enchGood.add(enchDesc);
-				} else {
-					enchBad.add(enchDesc);
+					continue;
 				}
+				enchBad.add(enchDesc);
 			}
 			tooltip.addAll(enchGood);
 			tooltip.addAll(enchBad);
@@ -529,10 +530,11 @@ public class GOTTickHandlerClient {
 					boolean inPortal = false;
 					for (i = 0; i < portals.size(); ++i) {
 						GOTEntityPortal portal = (GOTEntityPortal) portals.get(i);
-						if (portal.boundingBox.intersectsWith(entityplayer.boundingBox)) {
-							inPortal = true;
-							break;
+						if (!portal.boundingBox.intersectsWith(entityplayer.boundingBox)) {
+							continue;
 						}
+						inPortal = true;
+						break;
 					}
 					if (inPortal) {
 						i = (Integer) playersInPortals.get(entityplayer);
@@ -1160,19 +1162,21 @@ public class GOTTickHandlerClient {
 					GOT.proxy.spawnParticle("asshaiWater", i1 + world.rand.nextFloat(), j1 + 0.75, k1 + world.rand.nextFloat(), 0.0, 0.05, 0.0);
 				}
 			}
-			if (((block.getMaterial() == Material.water) && (meta != 0) && (world.getBlock(i1, j1 - 1, k1).getMaterial() == Material.water))) {
-				for (int i2 = i1 - 1; i2 <= i1 + 1; ++i2) {
-					for (int k2 = k1 - 1; k2 <= k1 + 1; ++k2) {
-						Block adjBlock = world.getBlock(i2, j1 - 1, k2);
-						int adjMeta = world.getBlockMetadata(i2, j1 - 1, k2);
-						if (((adjBlock.getMaterial() == Material.water) && (adjMeta == 0) && world.isAirBlock(i2, j1, k2))) {
-							for (int l1 = 0; l1 < 2; ++l1) {
-								double d = i1 + 0.5 + (i2 - i1) * world.rand.nextFloat();
-								double d1 = j1 + world.rand.nextFloat() * 0.2f;
-								double d2 = k1 + 0.5 + (k2 - k1) * world.rand.nextFloat();
-								world.spawnParticle("explode", d, d1, d2, 0.0, 0.0, 0.0);
-							}
-						}
+			if (block.getMaterial() != Material.water || meta == 0 || world.getBlock(i1, j1 - 1, k1).getMaterial() != Material.water) {
+				continue;
+			}
+			for (int i2 = i1 - 1; i2 <= i1 + 1; ++i2) {
+				for (int k2 = k1 - 1; k2 <= k1 + 1; ++k2) {
+					Block adjBlock = world.getBlock(i2, j1 - 1, k2);
+					int adjMeta = world.getBlockMetadata(i2, j1 - 1, k2);
+					if (adjBlock.getMaterial() != Material.water || adjMeta != 0 || !world.isAirBlock(i2, j1, k2)) {
+						continue;
+					}
+					for (int l1 = 0; l1 < 2; ++l1) {
+						double d = i1 + 0.5 + (i2 - i1) * world.rand.nextFloat();
+						double d1 = j1 + world.rand.nextFloat() * 0.2f;
+						double d2 = k1 + 0.5 + (k2 - k1) * world.rand.nextFloat();
+						world.spawnParticle("explode", d, d1, d2, 0.0, 0.0, 0.0);
 					}
 				}
 			}

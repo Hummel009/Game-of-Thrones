@@ -94,10 +94,11 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 			mc.fontRenderer.drawString(achievement.getTitle(mc.thePlayer), guiLeft + 33, guiTop + offset + 5, textColour);
 			mc.fontRenderer.drawSplitString(achievement.getDescription(mc.thePlayer), guiLeft + 12, guiTop + offset + 24, 184, textColour);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-			if (hasAchievement) {
-				mc.getTextureManager().bindTexture(iconsTexture);
-				this.drawTexturedModalRect(guiLeft + 179, guiTop + offset + 2, 190, 17, 16, 16);
+			if (!hasAchievement) {
+				continue;
 			}
+			mc.getTextureManager().bindTexture(iconsTexture);
+			this.drawTexturedModalRect(guiLeft + 179, guiTop + offset + 2, 190, 17, 16, 16);
 		}
 		GL11.glDisable(2929);
 		GL11.glEnable(3042);
@@ -267,22 +268,24 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 		currentCategoryTakenAchievements.clear();
 		currentCategoryUntakenAchievements.clear();
 		for (GOTAchievement achievement : GOTGuiAchievements.currentCategory.list) {
-			if (achievement.canPlayerEarn(mc.thePlayer)) {
-				if (GOTLevelData.getData(mc.thePlayer).hasAchievement(achievement)) {
-					currentCategoryTakenAchievements.add(achievement);
-				} else {
-					currentCategoryUntakenAchievements.add(achievement);
-				}
+			if (!achievement.canPlayerEarn(mc.thePlayer)) {
+				continue;
 			}
+			if (GOTLevelData.getData(mc.thePlayer).hasAchievement(achievement)) {
+				currentCategoryTakenAchievements.add(achievement);
+				continue;
+			}
+			currentCategoryUntakenAchievements.add(achievement);
 		}
 		currentCategoryTakenCount = currentCategoryTakenAchievements.size();
 		currentCategoryUntakenCount = currentCategoryUntakenAchievements.size();
 		totalTakenCount = GOTLevelData.getData(mc.thePlayer).getEarnedAchievements(currentDimension).size();
 		totalAvailableCount = 0;
 		for (GOTAchievement achievement : GOTGuiAchievements.currentDimension.allAchievements) {
-			if (achievement.canPlayerEarn(mc.thePlayer)) {
-				++totalAvailableCount;
+			if (!achievement.canPlayerEarn(mc.thePlayer)) {
+				continue;
 			}
+			++totalAvailableCount;
 		}
 		Comparator<GOTAchievement> sorter = GOTAchievement.sortForDisplay(mc.thePlayer);
 		Collections.sort(currentCategoryTakenAchievements, sorter);
