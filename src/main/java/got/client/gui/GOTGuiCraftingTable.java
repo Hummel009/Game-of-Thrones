@@ -48,7 +48,7 @@ public abstract class GOTGuiCraftingTable extends GuiContainer {
 	@Override
 	public void drawGuiContainerForegroundLayer(int i, int j) {
 		GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
-		boolean tableSwitched = pd.hasTableSwitched();
+		boolean tableSwitched = pd.getTableSwitched();
 		if (tableSwitched) {
 			String title = StatCollector.translateToLocal("container.crafting");
 			fontRendererObj.drawString(title, 28, 6, 4210752);

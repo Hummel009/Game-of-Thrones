@@ -35,11 +35,11 @@ public class GOTGuiOptions extends GOTGuiMenuWBBase {
 		String s = StatCollector.translateToLocal("got.gui.options.worldSettings");
 		fontRendererObj.drawString(s, guiLeft + 100 - fontRendererObj.getStringWidth(s) / 2, guiTop + 10, 16777215);
 		GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
-		buttonFriendlyFire.setState(pd.hasFriendlyFire());
-		buttonHiredDeathMessages.setState(pd.hasEnableHiredDeathMessages());
-		buttonAlignment.setState(!pd.hasHideAlignment());
-		buttonMapLocation.setState(!pd.hasHideMapLocation());
-		buttonConquest.setState(pd.hasEnableConquestKills());
+		buttonFriendlyFire.setState(pd.getFriendlyFire());
+		buttonHiredDeathMessages.setState(pd.getEnableHiredDeathMessages());
+		buttonAlignment.setState(!pd.getHideAlignment());
+		buttonMapLocation.setState(!pd.getHideMapLocation());
+		buttonConquest.setState(pd.getEnableConquestKills());
 		super.drawScreen(i, j, f);
 		for (Object element : buttonList) {
 			GuiButton button = (GuiButton) element;

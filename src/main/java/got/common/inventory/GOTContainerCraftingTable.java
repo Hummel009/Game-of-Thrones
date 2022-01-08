@@ -44,7 +44,7 @@ public abstract class GOTContainerCraftingTable extends ContainerWorkbench {
 			return;
 		}
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-		boolean tableSwitched = pd.hasTableSwitched();
+		boolean tableSwitched = pd.getTableSwitched();
 		if (tableSwitched) {
 			craftResult.setInventorySlotContents(0, CraftingManager.getInstance().findMatchingRecipe(craftMatrix, theWorld));
 		} else {

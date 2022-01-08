@@ -1187,7 +1187,7 @@ public class GOTEventHandler implements IFuelHandler {
 		World world = entityplayer.worldObj;
 		if (!world.isRemote) {
 			EntityPlayerMP entityplayermp = (EntityPlayerMP) entityplayer;
-			if (world.provider.terrainType instanceof GOTWorldType && entityplayermp.dimension == 0 && !GOTLevelData.getData(entityplayermp).hasTeleportedME()) {
+			if (world.provider.terrainType instanceof GOTWorldType && entityplayermp.dimension == 0 && !GOTLevelData.getData(entityplayermp).getTeleportedME()) {
 				int dimension = GOTDimension.GAME_OF_THRONES.dimensionID;
 				GOTTeleporter teleporter = new GOTTeleporter(DimensionManager.getWorld(dimension), false);
 				MinecraftServer.getServer().getConfigurationManager().transferPlayerToDimension(entityplayermp, dimension, teleporter);
@@ -1202,7 +1202,7 @@ public class GOTEventHandler implements IFuelHandler {
 			GOTDate.sendUpdatePacket(entityplayermp, false);
 			GOTFactionRelations.sendAllRelationsTo(entityplayermp);
 			GOTPlayerData pd = GOTLevelData.getData(entityplayermp);
-			pd.updateFastTravelClockFromLastOnlineTime();
+			pd.updateFastTravelClockFromLastOnlineTime(entityplayermp, world);
 		}
 	}
 

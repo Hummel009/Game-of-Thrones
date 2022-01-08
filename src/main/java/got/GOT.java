@@ -378,7 +378,7 @@ public class GOT {
 				friendlyFire = true;
 			}
 		}
-		boolean friendlyFireEnabled = playerData.hasFriendlyFire();
+		boolean friendlyFireEnabled = playerData.getFriendlyFire();
 		if (!friendlyFireEnabled && friendlyFire) {
 			if (warnFriendlyFire) {
 				GOTLevelData.getData(attacker).sendMessageIfNotReceived(GOTGuiMessageTypes.FRIENDLY_FIRE);

@@ -80,7 +80,7 @@ public class GOTLevelData {
 		HashSet<String> players = new HashSet<>();
 		for (UUID uuid : playerDataMap.keySet()) {
 			String username;
-			if (!GOTLevelData.getData(uuid).hasStructuresBanned()) {
+			if (!GOTLevelData.getData(uuid).getStructuresBanned()) {
 				continue;
 			}
 			GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152652_a(uuid);
@@ -179,7 +179,7 @@ public class GOTLevelData {
 	}
 
 	public static boolean isPlayerBannedForStructures(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).hasStructuresBanned();
+		return GOTLevelData.getData(entityplayer).getStructuresBanned();
 	}
 
 	public static void load() {
@@ -485,7 +485,7 @@ public class GOTLevelData {
 			if (worldPlayer == entityplayer) {
 				continue;
 			}
-			show = !GOTLevelData.getData(worldPlayer).hasHideMapLocation();
+			show = !GOTLevelData.getData(worldPlayer).getHideMapLocation();
 			if (GOTConfig.forceMapLocations == 1) {
 				show = false;
 			} else if (GOTConfig.forceMapLocations == 2) {
@@ -493,7 +493,7 @@ public class GOTLevelData {
 			} else if (!show) {
 				if (isOp && creative) {
 					show = true;
-				} else if (!isOp && GOTLevelData.getData(worldPlayer).hasAdminHideMap()) {
+				} else if (!isOp && GOTLevelData.getData(worldPlayer).getAdminHideMap()) {
 					show = false;
 				} else if (!playerData.isSiegeActive()) {
 					for (GOTFellowship fs : fellowshipsMapShow) {

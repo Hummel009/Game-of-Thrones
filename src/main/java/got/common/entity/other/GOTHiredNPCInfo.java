@@ -221,7 +221,7 @@ public class GOTHiredNPCInfo {
 
 	public void onDeath(DamageSource damagesource) {
 		EntityPlayer hiringPlayer;
-		if (!theEntity.worldObj.isRemote && isActive && getHiringPlayer() != null && GOTLevelData.getData(hiringPlayer = getHiringPlayer()).hasEnableHiredDeathMessages()) {
+		if (!theEntity.worldObj.isRemote && isActive && getHiringPlayer() != null && GOTLevelData.getData(hiringPlayer = getHiringPlayer()).getEnableHiredDeathMessages()) {
 			hiringPlayer.addChatMessage(new ChatComponentTranslation("got.hiredNPC.death", theEntity.func_110142_aN().func_151521_b()));
 		}
 		if (!theEntity.worldObj.isRemote && hiredInventory != null) {

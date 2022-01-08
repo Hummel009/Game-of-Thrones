@@ -180,7 +180,7 @@ public class GOTRenderPlayer {
 
 	public boolean shouldRenderAlignment(EntityPlayer entityplayer) {
 		if (GOTConfig.displayAlignmentAboveHead && shouldRenderPlayerHUD(entityplayer)) {
-			if (GOTLevelData.getData(entityplayer).hasHideAlignment()) {
+			if (GOTLevelData.getData(entityplayer).getHideAlignment()) {
 				String playerName = entityplayer.getCommandSenderName();
 				List<GOTFellowshipClient> fellowships = GOTLevelData.getData(mc.thePlayer).getClientFellowships();
 				for (GOTFellowshipClient fs : fellowships) {
