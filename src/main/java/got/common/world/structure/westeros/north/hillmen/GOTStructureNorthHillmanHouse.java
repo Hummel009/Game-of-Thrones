@@ -46,9 +46,6 @@ public class GOTStructureNorthHillmanHouse extends GOTStructureBase {
 				for (int k12 = -6; k12 <= 6; ++k12) {
 					int j13 = getTopBlock(world, i13, k12);
 					Block block = getBlock(world, i13, j13 - 1, k12);
-					if (block != Blocks.grass && block != Blocks.stone) {
-						return false;
-					}
 					if (j13 < minHeight) {
 						minHeight = j13;
 					}
