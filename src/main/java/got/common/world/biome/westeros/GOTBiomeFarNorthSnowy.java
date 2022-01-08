@@ -52,7 +52,7 @@ public class GOTBiomeFarNorthSnowy extends GOTBiome {
 
 	@Override
 	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_DIRTY;
+		return GOTBezierType.SNOW;
 	}
 
 	@Override

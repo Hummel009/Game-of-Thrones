@@ -46,10 +46,12 @@ import got.common.world.structure.westeros.dragonstone.GOTStructureDragonstoneCi
 import got.common.world.structure.westeros.gift.GOTStructureGiftVillage;
 import got.common.world.structure.westeros.ironborn.GOTStructureIronbornCity;
 import got.common.world.structure.westeros.north.GOTStructureNorthCity;
+import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanVillage;
 import got.common.world.structure.westeros.reach.GOTStructureReachCity;
 import got.common.world.structure.westeros.riverlands.GOTStructureRiverlandsCity;
 import got.common.world.structure.westeros.stormlands.GOTStructureStormlandsCity;
 import got.common.world.structure.westeros.westerlands.GOTStructureWesterlandsCity;
+import got.common.world.structure.westeros.wildling.GOTStructureWildlingVillage;
 import net.minecraft.world.World;
 
 public class GOTFixer {
@@ -122,6 +124,7 @@ public class GOTFixer {
 	public static GOTVillageGen f66;
 	public static GOTVillageGen f67;
 	public static GOTVillageGen f68;
+	public static GOTVillageGen f69;
 
 	public static void affixWaypointLocations(GOTBiome biome) {
 		f01 = new GOTStructureMyrCity(biome, 0.0f).setIsTown();
@@ -161,7 +164,7 @@ public class GOTFixer {
 		f35 = new GOTStructureDorneCity(biome, 0.0f).setIsTown();
 		f36 = new GOTStructureDragonstoneCity(biome, 0.0f).setIsCastle();
 		f37 = new GOTStructureDragonstoneCity(biome, 0.0f).setIsTown();
-		f38 = new GOTStructureHardhome(biome, 0.0f);
+		f38 = new GOTStructureWildlingVillage(biome, 0.0f).setIsHardhome(); 
 		f39 = new GOTStructureGiftVillage(biome, 0.0f);
 		f40 = new GOTStructureReachCity(biome, 0.0f).setIsCastle();
 		f41 = new GOTStructureWesterlandsCity(biome, 0.0f).setIsTown();
@@ -192,6 +195,7 @@ public class GOTFixer {
 		f66 = new GOTStructureShadowTower(biome, 0.0f);
 		f67 = new GOTStructureEastWatch(biome, 0.0f);
 		f68 = new GOTStructureWallGate(biome, 0.0f);
+		f69 = new GOTStructureNorthHillmanVillage(biome, 0.0f);
 
 		f01.affix(GOTWaypoint.Myr, -1, 0, 1);
 		f02.affix(GOTWaypoint.Harrenhal);
@@ -550,6 +554,10 @@ public class GOTFixer {
 		f66.affix(GOTWaypoint.ShadowTower);
 		f67.affix(GOTWaypoint.EastWatch);
 		f68.affix(GOTWaypoint.CastleBlack, 0, -1);
+		f69.affix(GOTWaypoint.Skane);
+		f69.affix(GOTWaypoint.Deepdown);
+		f69.affix(GOTWaypoint.DriftwoodHall);
+		f69.affix(GOTWaypoint.Kingshouse);
 
 		for (GOTVillageGen settlement : GOTCommander.getObjectFieldsOfType(GOTFixer.class, GOTVillageGen.class)) {
 			biome.decorator.addFixedVillage(settlement);

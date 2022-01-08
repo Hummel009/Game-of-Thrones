@@ -10,7 +10,7 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.westeros.wildling.GOTStructureWildlingCamp;
+import got.common.world.structure.westeros.wildling.GOTStructureWildlingVillage;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -28,7 +28,7 @@ public class GOTBiomeColdCoast extends GOTBiomeFarNorthSnowy {
 		spawnableWaterCreatureList.clear();
 		spawnableCaveCreatureList.clear();
 		spawnableGOTAmbientList.clear();
-		decorator.addRandomStructure(new GOTStructureWildlingCamp(false), 100);
+		decorator.addVillage(new GOTStructureWildlingVillage(this, 1.0f));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWalrus.class, 8, 1, 1));
 
 		SpawnListContainer[] c0 = new SpawnListContainer[1];

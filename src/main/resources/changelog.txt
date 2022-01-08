@@ -3,6 +3,8 @@ CHANGELOG
 >>VERSION 17.6
 * Recoded all the flat biome system
 
++ Added skirling pass as a hidden road in mountains
++ Added villages and houses for wildling, thenn and north hillmen
 + Added random corn plants spawning
 + Added random structures
 + Added Tugar Khan
@@ -35,11 +37,13 @@ CHANGELOG
 * Fixed bug with Yi Ti cities
 * Fixed bug with valyrian smelting
 
+- Removed Skirling pass as a biome
 - Removed corn fields
 - Removed Kitra's achievement
 - Removed Kitra
 - Removed Kitra's Camp waypoint
 - Removed 28 technical biomes
+- Removed camps and tents of wildling, thenn and north hillmen
 
 >>VERSION 17.5
 * Reworked Mossovy. Added table, new mobs, structures, villages and fixed genstructures.

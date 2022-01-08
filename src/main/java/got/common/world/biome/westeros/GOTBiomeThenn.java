@@ -12,7 +12,7 @@ import got.common.world.feature.*;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.westeros.wildling.thenn.GOTStructureThennCamp;
+import got.common.world.structure.westeros.wildling.thenn.GOTStructureThennVillage;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -40,7 +40,7 @@ public class GOTBiomeThenn extends GOTBiome {
 		c3[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c3);
 
-		decorator.addRandomStructure(new GOTStructureThennCamp(false), 250);
+		decorator.addVillage(new GOTStructureThennVillage(this, 1.0f));
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 

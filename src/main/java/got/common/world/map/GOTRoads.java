@@ -55,6 +55,7 @@ public class GOTRoads {
 	public static void onInit() {
 		allRoads.clear();
 		roadPointDatabase = new RoadPointDatabase();
+		GOTRoads.registerHiddenRoad(id++, new int[] { 559, 544 }, new int[] { 596, 544 });
 		GOTRoads.registerRoad(id++, GOTWaypoint.Appleton, near(GOTWaypoint.Appleton, 0, -1));
 		GOTRoads.registerRoad(id++, GOTWaypoint.Asabhad, near(GOTWaypoint.Asabhad, -1, 0));
 		GOTRoads.registerRoad(id++, GOTWaypoint.Asabhad, new int[] { 3143, 2263 }, new int[] { 3190, 2276 }, GOTWaypoint.SiQo);
@@ -216,6 +217,21 @@ public class GOTRoads {
 		GOTRoads.registerRoad(id++, new int[] { 2995, 2293 }, new int[] { 3034, 2243 }, new int[] { 3081, 2240 }, GOTWaypoint.Asabhad);
 		GOTRoads.registerRoad(id++, new int[] { 3081, 2240 }, new int[] { 3088, 2202 }, new int[] { 3093, 2162 }, GOTWaypoint.Eijiang);
 		GOTRoads.registerRoad(id++, new int[] { 3634, 2281 }, new int[] { 3688, 2321 }, new int[] { 3756, 2321 }, GOTWaypoint.Yunnan);
+	}
+
+	public static void registerHiddenRoad(int id, Object... waypoints) {
+		ArrayList<RoadPoint> points = new ArrayList<>();
+		for (Object obj : waypoints) {
+			if (obj instanceof GOTWaypoint) {
+				GOTWaypoint wp = (GOTWaypoint) obj;
+				points.add(new RoadPoint(wp.getXCoord(), wp.getZCoord(), true));
+			} else if (obj instanceof int[]) {
+				int[] coords = (int[]) obj;
+				points.add(new RoadPoint(GOTWaypoint.mapToWorldX(coords[0]), GOTWaypoint.mapToWorldZ(coords[1]), false));
+			}
+		}
+		RoadPoint[] array = points.toArray(new RoadPoint[0]);
+		GOTRoads[] roads = BezierCurves.getSplines(array);
 	}
 
 	public static void registerRoad(int id, Object... waypoints) {

@@ -10,7 +10,7 @@ import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanCamp;
+import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanVillage;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTBiomeSkagos extends GOTBiome {
@@ -49,7 +49,7 @@ public class GOTBiomeSkagos extends GOTBiome {
 		c2[1] = GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c2);
 
-		decorator.addRandomStructure(new GOTStructureNorthHillmanCamp(false), 250);
+		decorator.addVillage(new GOTStructureNorthHillmanVillage(this, 1.0f));
 	}
 
 	@Override

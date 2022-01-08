@@ -1077,8 +1077,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		shadowMountains = new GOTBiomeShadowMountains(113, true).setMinMaxHeight(2.0f, 2.0f).setTemperatureRainfall(1.0f, 0.2f).setColor(0x635E3B).setBiomeName("shadowMountains");
 		shadowTown = new GOTBiomeShadowTown(114, true).setMinMaxHeight(0.1f, 0.0f).setTemperatureRainfall(1.0f, 0.2f).setColor(0x8C8340).setBiomeName("shadowTown");
 		ulos = new GOTBiomeUlos(115, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x2B4819).setBiomeName("ulos");
-		skagos = new GOTBiomeSkagos(116, true).setIsLongWinter().setMinMaxHeight(1.0f, 1.0f).setColor(0x94AF67).setBiomeName("skagos");
-		skirlingPass = new GOTBiomeSkirlingPass(117, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xC7E3EA).setBiomeName("skirlingPass");
+		skagos = new GOTBiomeSkagos(116, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x94AF67).setBiomeName("skagos");
 		sothoryosBushland = new GOTBiomeSothoryosBushland(118, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x998F3D).setBiomeName("sothoryosBushland");
 		sothoryosDesert = new GOTBiomeSothoryosDesert(119, true).setIsNeverWinter().setMinMaxHeight(0.2f, 0.1f).setColor(0xDBC68C).setBiomeName("sothoryosDesert");
 		sothoryosDesertCold = new GOTBiomeSothoryosDesertCold(120, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.1f).setColor(0xDAD4AF).setBiomeName("sothoryosDesertCold");
@@ -1098,7 +1097,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		stormlandsTown = new GOTBiomeStormlands(135, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0x84af59).setBiomeName("stormlandsTown");
 		summerIslands = new GOTBiomeSummerIslands(136, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x83A54A).setBiomeName("summerIslands");
 		tarth = new GOTBiomeTarth(137, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x75B241).setBiomeName("tarth");
-		thenn = new GOTBiomeThenn(138, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xC3DDCF).setBiomeName("thenn");
+		thenn = new GOTBiomeThenn(138, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xC3DDCF).setBiomeName("thenn");
 		tropicalForest = new GOTBiomeTropicalForest(139, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x007F0E).setBiomeName("tropicalForest");
 		tyrosh = new GOTBiomeTyrosh(140, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x9AA5A2).setBiomeName("tyrosh");
 		ulthos = new GOTBiomeUlthos(142, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x2B3F19).setBiomeName("ulthos");
