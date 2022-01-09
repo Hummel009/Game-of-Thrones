@@ -44,7 +44,7 @@ public class GOTBiomeSothoryosJungle extends GOTBiome {
 		decorator.grassPerChunk = 15;
 		decorator.doubleGrassPerChunk = 10;
 		decorator.canePerChunk = 5;
-        decorator.cornPerChunk = 10;
+		decorator.cornPerChunk = 10;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.JUNGLE, 1000);
 		decorator.addTree(GOTTreeType.JUNGLE_LARGE, 500);

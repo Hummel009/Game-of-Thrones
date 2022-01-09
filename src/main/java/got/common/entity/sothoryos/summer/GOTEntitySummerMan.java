@@ -122,13 +122,10 @@ public class GOTEntitySummerMan extends GOTEntityHumanBase implements IPickpocke
 
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isDrunkard()) {
-			return "special/drunkard";
-		}
 		if (isFriendly(entityplayer)) {
-			return "sothoryos/summer/man/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "sothoryos/summer/man/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

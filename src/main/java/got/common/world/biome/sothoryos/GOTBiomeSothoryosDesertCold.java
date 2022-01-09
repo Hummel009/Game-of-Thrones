@@ -36,7 +36,7 @@ public class GOTBiomeSothoryosDesertCold extends GOTBiome {
 		decorator.grassPerChunk = 0;
 		decorator.doubleGrassPerChunk = 0;
 		decorator.cactiPerChunk = 0;
-        decorator.deadBushPerChunk = 2;
+		decorator.deadBushPerChunk = 2;
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 

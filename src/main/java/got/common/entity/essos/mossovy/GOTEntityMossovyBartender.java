@@ -46,14 +46,6 @@ public class GOTEntityMossovyBartender extends GOTEntityMossovyMan implements GO
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "essos/mossovy/bartender/friendly";
-		}
-		return "essos/mossovy/bartender/hostile";
-	}
-
-	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
 	}

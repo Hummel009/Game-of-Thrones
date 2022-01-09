@@ -59,12 +59,9 @@ public class GOTEntityGhiscarBlacksmith extends GOTEntityGhiscarMan implements G
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "essos/ghiscar/blacksmith/friendly";
-			}
-			return "essos/ghiscar/blacksmith/neutral";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/ghiscar/blacksmith/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

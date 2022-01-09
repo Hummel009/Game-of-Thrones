@@ -40,11 +40,11 @@ public class GOTEntityReachLevyman extends GOTEntityReachMan {
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "westeros/reach/soldier/hired";
+				return "standart/civilized/hired_soldier";
 			}
-			return "westeros/reach/soldier/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/reach/soldier/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

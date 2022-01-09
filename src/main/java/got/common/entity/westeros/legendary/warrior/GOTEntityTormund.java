@@ -63,9 +63,9 @@ public class GOTEntityTormund extends GOTEntityHumanBase {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "westeros/wildling/man/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/wildling/man/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

@@ -25,7 +25,7 @@ public class GOTEntitySummerFarmhand extends GOTEntitySummerMan implements GOTFa
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-			return "sothoryos/summer/farmhand/hired";
+			return "standart/civilized/hired_farmhand";
 		}
 		return super.getSpeechBank(entityplayer);
 	}

@@ -51,17 +51,6 @@ public class GOTEntitySothoryosSmith extends GOTEntitySothoryosMan implements GO
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "sothoryos/sothoryos/smith/friendly";
-			}
-			return "sothoryos/sothoryos/smith/neutral";
-		}
-		return "sothoryos/sothoryos/smith/hostile";
-	}
-
-	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
 	}

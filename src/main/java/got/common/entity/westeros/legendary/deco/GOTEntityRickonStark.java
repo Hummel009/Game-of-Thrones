@@ -50,9 +50,9 @@ public class GOTEntityRickonStark extends GOTEntityHumanBase {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "westeros/north/man/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/north/man/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

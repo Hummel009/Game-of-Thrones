@@ -25,14 +25,6 @@ public abstract class GOTEntityStormlandsMarketTrader extends GOTEntityStormland
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "westeros/stormlands/marketTrader/friendly";
-		}
-		return "westeros/stormlands/marketTrader/hostile";
-	}
-
-	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
 	}

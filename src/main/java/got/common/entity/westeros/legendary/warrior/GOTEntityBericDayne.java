@@ -61,9 +61,9 @@ public class GOTEntityBericDayne extends GOTEntityHumanBase {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "westeros/dorne/man/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/dorne/man/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

@@ -37,7 +37,7 @@ public class GOTBiomeDorneDesert extends GOTBiome {
 		decorator.grassPerChunk = 0;
 		decorator.doubleGrassPerChunk = 0;
 		decorator.cactiPerChunk = 0;
-        decorator.deadBushPerChunk = 2;
+		decorator.deadBushPerChunk = 2;
 
 		SpawnListContainer[] c0 = new SpawnListContainer[1];
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);

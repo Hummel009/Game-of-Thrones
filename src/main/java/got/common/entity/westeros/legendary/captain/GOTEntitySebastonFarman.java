@@ -63,11 +63,11 @@ public class GOTEntitySebastonFarman extends GOTEntityHumanBase implements GOTUn
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "westeros/westerlands/captain/friendly";
+				return "standart/civilized/usual_friendly";
 			}
-			return "westeros/westerlands/captain/neutral";
+			return "standart/civilized/usual_neutral";
 		}
-		return "westeros/westerlands/soldier/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

@@ -67,9 +67,9 @@ public class GOTEntityVargoHoat extends GOTEntityHumanBase implements GOTMercena
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "westeros/mercenary/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/mercenary/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

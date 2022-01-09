@@ -146,8 +146,7 @@ public class GOTGuiHandler {
 						int slotY = slot.yDisplayPosition;
 						if (!invHighestY.containsKey(inv)) {
 							invHighestY.put(inv, slotY);
-						}
-						else {
+						} else {
 							int highestY = invHighestY.get(inv);
 							if (slotY < highestY) {
 								invHighestY.put(inv, slotY);

@@ -58,7 +58,7 @@ public class GOTEntityGhiscarGladiator extends GOTEntityGhiscarMan {
 
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
-		return "essos/ghiscar/gladiator/neutral";
+		return "standart/special/gladiator";
 	}
 
 	@Override

@@ -127,6 +127,10 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements IPickpocket
 		return false;
 	}
 
+	public String getDothrakiSkirmishSpeech() {
+		return "standart/special/gladiator";
+	}
+
 	@Override
 	public GOTFaction getFaction() {
 		return GOTFaction.DOTHRAKI;
@@ -137,10 +141,6 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements IPickpocket
 		return familyInfo.getName();
 	}
 
-	public String getOrcSkirmishSpeech() {
-		return "essos/ghiscar/gladiator/neutral";
-	}
-
 	@Override
 	public float getPoisonedArrowChance() {
 		return 0.5f;
@@ -148,13 +148,13 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements IPickpocket
 
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isDrunkard()) {
-			return "essos/dothraki/man/neutral";
-		}
 		if (isFriendly(entityplayer)) {
-			return "essos/dothraki/man/friendly";
+			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+				return "standart/wild/hired_soldier";
+			}
+			return "standart/wild/usual_friendly";
 		}
-		return "essos/dothraki/man/hostile";
+		return "standart/wild/usual_hostile";
 	}
 
 	public boolean isDothrakSkirmishing() {
@@ -227,7 +227,7 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements IPickpocket
 			List nearbyPlayers = worldObj.getEntitiesWithinAABB(EntityPlayer.class, boundingBox.expand(24.0, 24.0, 24.0));
 			for (Object nearbyPlayer : nearbyPlayers) {
 				EntityPlayer entityplayer = (EntityPlayer) nearbyPlayer;
-				GOTSpeech.sendSpeech(entityplayer, this, GOTSpeech.getRandomSpeechForPlayer(this, getOrcSkirmishSpeech(), entityplayer));
+				GOTSpeech.sendSpeech(entityplayer, this, GOTSpeech.getRandomSpeechForPlayer(this, getDothrakiSkirmishSpeech(), entityplayer));
 			}
 		}
 	}

@@ -54,7 +54,7 @@ public class GOTBiomeEssos extends GOTBiome {
 		decorator.doubleFlowersPerChunk = 1;
 		decorator.cactiPerChunk = 1;
 		decorator.generatePipeweed = true;
-        decorator.cornPerChunk = 4;
+		decorator.cornPerChunk = 4;
 		decorator.addTree(GOTTreeType.ACACIA, 300);
 		decorator.addTree(GOTTreeType.ALMOND, 5);
 		decorator.addTree(GOTTreeType.BAOBAB, 20);

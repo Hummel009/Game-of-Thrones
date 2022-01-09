@@ -558,7 +558,7 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 
 		@Override
 		public void setupVillageProperties(Random random) {
-			if (isTown || isCapital ) {
+			if (isTown || isCapital) {
 				villageType = VillageType.TOWN;
 			} else if (isCastle || random.nextInt(4) == 0) {
 				villageType = VillageType.FORT;

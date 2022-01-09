@@ -51,12 +51,9 @@ public class GOTEntityDragonstoneBlacksmith extends GOTEntityDragonstoneMan impl
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "westeros/dragonstone/blacksmith/friendly";
-			}
-			return "westeros/dragonstone/blacksmith/neutral";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/dragonstone/blacksmith/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

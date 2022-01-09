@@ -124,13 +124,10 @@ public class GOTEntityIronbornMan extends GOTEntityHumanBase implements IPickpoc
 
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isDrunkard()) {
-			return "special/drunkard";
-		}
 		if (isFriendly(entityplayer)) {
-			return "westeros/ironborn/man/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/ironborn/man/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

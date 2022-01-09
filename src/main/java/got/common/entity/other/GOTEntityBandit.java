@@ -106,7 +106,7 @@ public class GOTEntityBandit extends GOTEntityHumanBase implements IBandit, GOTB
 
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
-		return "special/bandit";
+		return "standart/special/bandit";
 	}
 
 	@Override

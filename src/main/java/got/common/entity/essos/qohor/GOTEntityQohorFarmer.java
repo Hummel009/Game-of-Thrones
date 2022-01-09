@@ -37,14 +37,6 @@ public class GOTEntityQohorFarmer extends GOTEntityQohorMan implements GOTTradea
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "essos/qohor/farmer/friendly";
-		}
-		return "essos/qohor/farmer/hostile";
-	}
-
-	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
 	}

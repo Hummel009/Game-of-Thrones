@@ -24,7 +24,7 @@ public class GOTEntityWesterlandsFarmhand extends GOTEntityWesterlandsMan implem
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-			return "westeros/westerlands/farmhand/hired";
+			return "standart/civilized/hired_farmhand";
 		}
 		return super.getSpeechBank(entityplayer);
 	}

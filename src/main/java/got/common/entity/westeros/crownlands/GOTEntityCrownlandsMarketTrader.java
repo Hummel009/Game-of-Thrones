@@ -25,14 +25,6 @@ public abstract class GOTEntityCrownlandsMarketTrader extends GOTEntityCrownland
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "westeros/crownlands/marketTrader/friendly";
-		}
-		return "westeros/crownlands/marketTrader/hostile";
-	}
-
-	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
 	}

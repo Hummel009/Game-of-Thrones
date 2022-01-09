@@ -26,6 +26,11 @@ public class GOTStructureWildlingVillage extends GOTVillageGen {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
+	public GOTVillageGen setIsHardhome() {
+		isHardhome = true;
+		return this;
+	}
+
 	public class Instance extends GOTVillageGen.AbstractInstance {
 
 		public Instance(GOTStructureWildlingVillage village, World world, int i, int k, Random random, LocationInfo loc) {
@@ -105,11 +110,6 @@ public class GOTStructureWildlingVillage extends GOTVillageGen {
 		public void setupVillageProperties(Random random) {
 		}
 
-	}
-
-	public GOTVillageGen setIsHardhome() {
-		isHardhome = true;
-		return this;
 	}
 
 }

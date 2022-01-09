@@ -72,9 +72,12 @@ public class GOTEntityBronn extends GOTEntityHumanBase implements GOTMercenary {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "essos/gold/friendly";
+			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+				return "standart/civilized/hired_soldier";
+			}
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/gold/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

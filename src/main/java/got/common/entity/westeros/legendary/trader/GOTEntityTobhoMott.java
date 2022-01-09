@@ -67,9 +67,9 @@ public class GOTEntityTobhoMott extends GOTEntityHumanBase implements GOTTradeab
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "westeros/crownlands/blacksmith/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/crownlands/blacksmith/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

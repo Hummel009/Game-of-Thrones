@@ -35,11 +35,11 @@ public class GOTEntityNorthHillmanChieftain extends GOTEntityNorthHillmanWarrior
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "westeros/north/captain/friendly";
+				return "standart/wild/usual_friendly";
 			}
-			return "westeros/north/captain/neutral";
+			return "standart/wild/usual_neutral";
 		}
-		return "westeros/north/soldier/hostile";
+		return "standart/wild/usual_hostile";
 	}
 
 	@Override

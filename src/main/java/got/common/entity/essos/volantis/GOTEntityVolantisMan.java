@@ -125,13 +125,10 @@ public class GOTEntityVolantisMan extends GOTEntityHumanBase implements IPickpoc
 
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isDrunkard()) {
-			return "special/drunkard";
-		}
 		if (isFriendly(entityplayer)) {
-			return "essos/volantis/man/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/volantis/man/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

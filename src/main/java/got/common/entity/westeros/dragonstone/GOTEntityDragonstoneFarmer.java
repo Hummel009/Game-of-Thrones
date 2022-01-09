@@ -40,9 +40,12 @@ public class GOTEntityDragonstoneFarmer extends GOTEntityDragonstoneMan implemen
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "westeros/dragonstone/farmer/friendly";
+			if (canTradeWith(entityplayer)) {
+				return "standart/civilized/usual_friendly";
+			}
+			return "standart/civilized/usual_neutral";
 		}
-		return "westeros/dragonstone/farmer/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

@@ -54,12 +54,9 @@ public class GOTEntitySummerBlacksmith extends GOTEntitySummerMan implements GOT
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "sothoryos/summer/blacksmith/friendly";
-			}
-			return "sothoryos/summer/blacksmith/neutral";
+			return "standart/civilized/usual_friendly";
 		}
-		return "sothoryos/summer/blacksmith/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

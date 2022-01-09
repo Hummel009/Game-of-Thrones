@@ -43,11 +43,11 @@ public class GOTEntityQohorGuardCaptain extends GOTEntityQohorGuard implements G
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "essos/qohor/warlord/friendly";
+				return "standart/civilized/usual_friendly";
 			}
-			return "essos/qohor/warlord/neutral";
+			return "standart/civilized/usual_neutral";
 		}
-		return "essos/qohor/warrior/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

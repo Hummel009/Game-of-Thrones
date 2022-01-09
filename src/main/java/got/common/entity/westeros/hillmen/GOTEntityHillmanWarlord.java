@@ -35,11 +35,11 @@ public class GOTEntityHillmanWarlord extends GOTEntityHillmanWarrior implements 
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "westeros/hillmen/warlord/friendly";
+				return "standart/wild/usual_friendly";
 			}
-			return "westeros/hillmen/warlord/neutral";
+			return "standart/wild/usual_neutral";
 		}
-		return "westeros/hillmen/man/hostile";
+		return "standart/wild/usual_hostile";
 	}
 
 	@Override

@@ -63,12 +63,12 @@ public class GOTEntityManceRayder extends GOTEntityHumanBase implements GOTUnitT
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "westeros/wildling/man/hired";
+			if (canTradeWith(entityplayer)) {
+				return "standart/civilized/usual_friendly";
 			}
-			return "westeros/wildling/man/friendly";
+			return "standart/civilized/usual_neutral";
 		}
-		return "westeros/wildling/man/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

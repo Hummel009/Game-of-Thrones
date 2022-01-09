@@ -64,11 +64,11 @@ public class GOTEntityBaelorBlacktyde extends GOTEntityHumanBase implements GOTU
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "westeros/ironborn/captain/friendly";
+				return "standart/civilized/usual_friendly";
 			}
-			return "westeros/ironborn/captain/neutral";
+			return "standart/civilized/usual_neutral";
 		}
-		return "westeros/ironborn/soldier/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

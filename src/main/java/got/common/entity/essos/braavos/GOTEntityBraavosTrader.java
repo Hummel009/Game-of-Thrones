@@ -31,14 +31,6 @@ public abstract class GOTEntityBraavosTrader extends GOTEntityBraavosMan impleme
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "essos/braavos/bazaarTrader/friendly";
-		}
-		return "essos/braavos/bazaarTrader/hostile";
-	}
-
-	@Override
 	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
 		if (mode == GOTEntityNPC.AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());

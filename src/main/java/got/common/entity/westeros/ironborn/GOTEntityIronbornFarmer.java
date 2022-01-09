@@ -40,9 +40,12 @@ public class GOTEntityIronbornFarmer extends GOTEntityIronbornMan implements GOT
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "westeros/ironborn/farmer/friendly";
+			if (canTradeWith(entityplayer)) {
+				return "standart/civilized/usual_friendly";
+			}
+			return "standart/civilized/usual_neutral";
 		}
-		return "westeros/ironborn/farmer/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

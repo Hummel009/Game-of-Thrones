@@ -24,7 +24,7 @@ public class GOTEntityGhiscarSlave extends GOTEntityGhiscarMan implements GOTFar
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-			return "essos/ghiscar/slave/hired";
+			return "standart/civilized/hired_slave";
 		}
 		return super.getSpeechBank(entityplayer);
 	}

@@ -31,14 +31,6 @@ public abstract class GOTEntityMyrTrader extends GOTEntityMyrMan implements GOTT
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "essos/myr/bazaarTrader/friendly";
-		}
-		return "essos/myr/bazaarTrader/hostile";
-	}
-
-	@Override
 	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
 		if (mode == GOTEntityNPC.AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());

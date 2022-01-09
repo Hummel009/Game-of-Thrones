@@ -45,7 +45,7 @@ public class GOTStructureNorthHillmanHouse extends GOTStructureBase {
 			for (int i13 = -4; i13 <= 4; ++i13) {
 				for (int k12 = -6; k12 <= 6; ++k12) {
 					int j13 = getTopBlock(world, i13, k12);
-					Block block = getBlock(world, i13, j13 - 1, k12);
+					getBlock(world, i13, j13 - 1, k12);
 					if (j13 < minHeight) {
 						minHeight = j13;
 					}
@@ -189,7 +189,7 @@ public class GOTStructureNorthHillmanHouse extends GOTStructureBase {
 			spawnNPCAndSetHome(new GOTEntityNorthHillmanCannibal(world), world, 0, 1, 0, 8);
 		} else if (isWarrior) {
 			int num = random.nextInt(3);
-			switch(num) {
+			switch (num) {
 			case 0:
 				spawnNPCAndSetHome(new GOTEntityNorthHillmanArcher(world), world, 0, 1, 0, 8);
 				break;
@@ -217,13 +217,13 @@ public class GOTStructureNorthHillmanHouse extends GOTStructureBase {
 		return true;
 	}
 
-	public GOTStructureBase setIsWarrior() {
-		isWarrior = true;
+	public GOTStructureBase setIsCannibal() {
+		isCannibal = true;
 		return this;
 	}
 
-	public GOTStructureBase setIsCannibal() {
-		isCannibal = true;
+	public GOTStructureBase setIsWarrior() {
+		isWarrior = true;
 		return this;
 	}
 }

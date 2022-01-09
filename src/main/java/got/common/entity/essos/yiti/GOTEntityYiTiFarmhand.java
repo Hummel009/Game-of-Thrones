@@ -25,7 +25,7 @@ public class GOTEntityYiTiFarmhand extends GOTEntityYiTiMan implements GOTFarmha
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-			return "essos/yiti/farmhand/hired";
+			return "standart/civilized/hired_farmhand";
 		}
 		return super.getSpeechBank(entityplayer);
 	}

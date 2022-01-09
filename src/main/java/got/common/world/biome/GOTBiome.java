@@ -460,7 +460,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 					}
 				}
 			}
-			
+
 		}
 		int rockDepth = (int) (stoneNoise * 6.0 + 2.0 + random.nextDouble() * 0.25);
 		generateMountainTerrain(world, random, blocks, meta, i, k, xzIndex, ySize, height, rockDepth, variant);

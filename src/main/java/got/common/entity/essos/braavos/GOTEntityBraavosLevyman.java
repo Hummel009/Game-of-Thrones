@@ -42,11 +42,11 @@ public class GOTEntityBraavosLevyman extends GOTEntityBraavosMan {
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "essos/braavos/warrior/hired";
+				return "standart/civilized/hired_soldier";
 			}
-			return "essos/braavos/warrior/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/braavos/warrior/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

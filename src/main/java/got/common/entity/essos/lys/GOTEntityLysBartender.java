@@ -46,14 +46,6 @@ public class GOTEntityLysBartender extends GOTEntityLysMan implements GOTTradeab
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "essos/lys/bartender/friendly";
-		}
-		return "essos/lys/bartender/hostile";
-	}
-
-	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
 	}

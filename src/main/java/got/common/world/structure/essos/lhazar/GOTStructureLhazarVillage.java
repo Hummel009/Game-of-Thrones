@@ -45,7 +45,7 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 
 		@Override
 		public void addVillageStructures(Random random) {
-			switch(villageType) {
+			switch (villageType) {
 			case VILLAGE:
 				setupVillage(random);
 				break;

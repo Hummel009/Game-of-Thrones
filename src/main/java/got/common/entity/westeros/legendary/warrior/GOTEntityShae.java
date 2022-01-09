@@ -53,9 +53,9 @@ public class GOTEntityShae extends GOTEntityHumanBase {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "westeros/whore/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/whore/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

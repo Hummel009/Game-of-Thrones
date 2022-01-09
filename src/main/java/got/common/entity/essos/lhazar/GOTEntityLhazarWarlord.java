@@ -35,11 +35,11 @@ public class GOTEntityLhazarWarlord extends GOTEntityLhazarWarrior implements GO
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "essos/lhazar/chieftain/friendly";
+				return "standart/civilized/usual_friendly";
 			}
-			return "essos/lhazar/chieftain/neutral";
+			return "standart/civilized/usual_neutral";
 		}
-		return "essos/lhazar/chieftain/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

@@ -40,11 +40,11 @@ public class GOTEntityWesterlandsLevyman extends GOTEntityWesterlandsMan {
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "westeros/westerlands/soldier/hired";
+				return "standart/civilized/hired_soldier";
 			}
-			return "westeros/westerlands/soldier/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/westerlands/soldier/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

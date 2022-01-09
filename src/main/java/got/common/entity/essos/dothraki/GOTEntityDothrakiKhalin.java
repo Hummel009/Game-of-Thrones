@@ -42,14 +42,6 @@ public class GOTEntityDothrakiKhalin extends GOTEntityDothraki implements GOTTra
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "essos/dothraki/khalin/friendly";
-		}
-		return "essos/dothraki/khalin/hostile";
-	}
-
-	@Override
 	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
 		if (mode == GOTEntityNPC.AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());

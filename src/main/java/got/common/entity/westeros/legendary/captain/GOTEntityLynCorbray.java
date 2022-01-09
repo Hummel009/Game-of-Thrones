@@ -68,11 +68,11 @@ public class GOTEntityLynCorbray extends GOTEntityHumanBase implements GOTUnitTr
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "westeros/arryn/captain/friendly";
+				return "standart/civilized/usual_friendly";
 			}
-			return "westeros/arryn/captain/neutral";
+			return "standart/civilized/usual_neutral";
 		}
-		return "westeros/arryn/soldier/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

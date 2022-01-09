@@ -40,9 +40,12 @@ public class GOTEntityNorthFarmer extends GOTEntityNorthMan implements GOTTradea
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "westeros/north/farmer/friendly";
+			if (canTradeWith(entityplayer)) {
+				return "standart/civilized/usual_friendly";
+			}
+			return "standart/civilized/usual_neutral";
 		}
-		return "westeros/north/farmer/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

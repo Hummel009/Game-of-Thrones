@@ -39,6 +39,17 @@ public class GOTEntityGoldenCaptain extends GOTEntityGoldenWarrior implements GO
 	}
 
 	@Override
+	public String getSpeechBank(EntityPlayer entityplayer) {
+		if (isFriendly(entityplayer)) {
+			if (canTradeWith(entityplayer)) {
+				return "standart/civilized/usual_friendly";
+			}
+			return "standart/civilized/usual_neutral";
+		}
+		return "standart/civilized/usual_hostile";
+	}
+
+	@Override
 	public int getTotalArmorValue() {
 		return 15;
 	}

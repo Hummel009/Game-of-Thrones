@@ -121,11 +121,11 @@ public class GOTEntityThenn extends GOTEntityHumanBase {
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "westeros/wildling/thenn/hired";
+				return "standart/wild/hired_soldier";
 			}
-			return "westeros/wildling/thenn/friendly";
+			return "standart/wild/usual_friendly";
 		}
-		return "westeros/wildling/thenn/hostile";
+		return "standart/wild/usual_hostile";
 	}
 
 	public EntityAIBase getThennAttackAI() {

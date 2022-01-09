@@ -37,14 +37,6 @@ public class GOTEntityPentosFarmer extends GOTEntityPentosMan implements GOTTrad
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "essos/pentos/farmer/friendly";
-		}
-		return "essos/pentos/farmer/hostile";
-	}
-
-	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
 	}

@@ -46,14 +46,6 @@ public class GOTEntityWesterlandsBartender extends GOTEntityWesterlandsMan imple
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "westeros/westerlands/bartender/friendly";
-		}
-		return "westeros/westerlands/bartender/hostile";
-	}
-
-	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
 	}

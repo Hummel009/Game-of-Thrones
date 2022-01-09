@@ -40,9 +40,12 @@ public class GOTEntityIbbenFarmer extends GOTEntityIbbenMan implements GOTTradea
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "essos/ibben/farmer/friendly";
+			if (canTradeWith(entityplayer)) {
+				return "standart/civilized/usual_friendly";
+			}
+			return "standart/civilized/usual_neutral";
 		}
-		return "essos/ibben/farmer/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

@@ -24,7 +24,7 @@ public class GOTEntityReachFarmhand extends GOTEntityReachMan implements GOTFarm
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-			return "westeros/reach/farmhand/hired";
+			return "standart/civilized/hired_farmhand";
 		}
 		return super.getSpeechBank(entityplayer);
 	}

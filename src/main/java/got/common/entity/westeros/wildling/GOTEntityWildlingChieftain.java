@@ -35,11 +35,11 @@ public class GOTEntityWildlingChieftain extends GOTEntityWildling implements GOT
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "westeros/wildling/chief/friendly";
+				return "standart/wild/usual_friendly";
 			}
-			return "westeros/wildling/chief/neutral";
+			return "standart/wild/usual_neutral";
 		}
-		return "westeros/wildling/man/hostile";
+		return "standart/wild/usual_hostile";
 	}
 
 	@Override

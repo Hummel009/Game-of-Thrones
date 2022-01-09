@@ -58,12 +58,9 @@ public class GOTEntityIbbenBlacksmith extends GOTEntityIbbenMan implements GOTTr
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "essos/ibben/blacksmith/friendly";
-			}
-			return "essos/ibben/blacksmith/neutral";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/ibben/blacksmith/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

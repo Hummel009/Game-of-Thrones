@@ -59,12 +59,9 @@ public class GOTEntityTyroshBlacksmith extends GOTEntityTyroshMan implements GOT
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "essos/tyrosh/blacksmith/friendly";
-			}
-			return "essos/tyrosh/blacksmith/neutral";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/tyrosh/blacksmith/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

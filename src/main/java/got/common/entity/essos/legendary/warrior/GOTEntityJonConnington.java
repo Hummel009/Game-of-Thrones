@@ -52,12 +52,9 @@ public class GOTEntityJonConnington extends GOTEntityHumanBase {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "essos/tyrosh/warrior/hired";
-			}
-			return "essos/tyrosh/warrior/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/tyrosh/warrior/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

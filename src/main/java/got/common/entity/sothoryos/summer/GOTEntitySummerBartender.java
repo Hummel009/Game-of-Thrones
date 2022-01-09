@@ -46,14 +46,6 @@ public class GOTEntitySummerBartender extends GOTEntitySummerMan implements GOTT
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "sothoryos/summer/bartender/friendly";
-		}
-		return "sothoryos/summer/bartender/hostile";
-	}
-
-	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
 	}

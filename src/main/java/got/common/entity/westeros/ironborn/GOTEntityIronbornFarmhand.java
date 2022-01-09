@@ -24,7 +24,7 @@ public class GOTEntityIronbornFarmhand extends GOTEntityIronbornMan implements G
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-			return "westeros/ironborn/farmhand/hired";
+			return "standart/civilized/hired_farmhand";
 		}
 		return super.getSpeechBank(entityplayer);
 	}

@@ -124,13 +124,10 @@ public class GOTEntityWesterlandsMan extends GOTEntityHumanBase implements IPick
 
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isDrunkard()) {
-			return "special/drunkard";
-		}
 		if (isFriendly(entityplayer)) {
-			return "westeros/westerlands/man/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/westerlands/man/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

@@ -33,11 +33,11 @@ public class GOTEntityArrynLevyman extends GOTEntityArrynMan {
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "westeros/arryn/soldier/hired";
+				return "standart/civilized/hired_soldier";
 			}
-			return "westeros/arryn/soldier/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/arryn/soldier/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

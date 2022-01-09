@@ -62,12 +62,12 @@ public class GOTEntityYaraGreyjoy extends GOTEntityHumanBase implements GOTUnitT
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "westeros/ironborn/soldier/hired";
+			if (canTradeWith(entityplayer)) {
+				return "standart/civilized/usual_friendly";
 			}
-			return "westeros/ironborn/soldier/friendly";
+			return "standart/civilized/usual_neutral";
 		}
-		return "westeros/ironborn/soldier/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

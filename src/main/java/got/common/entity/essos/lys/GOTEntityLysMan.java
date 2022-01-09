@@ -125,13 +125,10 @@ public class GOTEntityLysMan extends GOTEntityHumanBase implements IPickpocketab
 
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isDrunkard()) {
-			return "special/drunkard";
-		}
 		if (isFriendly(entityplayer)) {
-			return "essos/lys/man/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/lys/man/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

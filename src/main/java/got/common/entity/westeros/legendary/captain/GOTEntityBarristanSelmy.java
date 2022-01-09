@@ -69,12 +69,12 @@ public class GOTEntityBarristanSelmy extends GOTEntityHumanBase implements GOTUn
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "westeros/crownlands/citywatch/hired";
+			if (canTradeWith(entityplayer)) {
+				return "standart/civilized/usual_friendly";
 			}
-			return "westeros/crownlands/citywatch/friendly";
+			return "standart/civilized/usual_neutral";
 		}
-		return "westeros/crownlands/citywatch/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

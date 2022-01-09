@@ -126,6 +126,17 @@ public class GOTFixer {
 	public static GOTVillageGen f68;
 	public static GOTVillageGen f69;
 
+	public static void addSpecialLocations(World world, Random random, int i, int k) {
+		new GOTStructureFiveFortsWall(false, GOTWaypoint.FiveForts1).generate(world, random, i, 0, k, 0);
+		new GOTStructureFiveFortsWall(false, GOTWaypoint.FiveForts2).generate(world, random, i, 0, k, 0);
+		new GOTStructureFiveFortsWall(false, GOTWaypoint.FiveForts3).generate(world, random, i, 0, k, 0);
+		new GOTStructureFiveFortsWall(false, GOTWaypoint.FiveForts4).generate(world, random, i, 0, k, 0);
+		new GOTStructureFiveFortsWall(false, GOTWaypoint.FiveForts5).generate(world, random, i, 0, k, 0);
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.WhiteWood) || (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Winterfell))) {
+			((GOTWorldGenPartyTrees) GOTTreeType.WEIRWOOD.create(false, random)).disableRestrictions().generate(world, random, i + 50, world.getTopSolidOrLiquidBlock(i + 50, k), k);
+		}
+	}
+
 	public static void affixWaypointLocations(GOTBiome biome) {
 		f01 = new GOTStructureMyrCity(biome, 0.0f).setIsTown();
 		f02 = new GOTStructureRuinsBig(biome, 0.0f);
@@ -164,7 +175,7 @@ public class GOTFixer {
 		f35 = new GOTStructureDorneCity(biome, 0.0f).setIsTown();
 		f36 = new GOTStructureDragonstoneCity(biome, 0.0f).setIsCastle();
 		f37 = new GOTStructureDragonstoneCity(biome, 0.0f).setIsTown();
-		f38 = new GOTStructureWildlingVillage(biome, 0.0f).setIsHardhome(); 
+		f38 = new GOTStructureWildlingVillage(biome, 0.0f).setIsHardhome();
 		f39 = new GOTStructureGiftVillage(biome, 0.0f);
 		f40 = new GOTStructureReachCity(biome, 0.0f).setIsCastle();
 		f41 = new GOTStructureWesterlandsCity(biome, 0.0f).setIsTown();
@@ -561,17 +572,6 @@ public class GOTFixer {
 
 		for (GOTVillageGen settlement : GOTCommander.getObjectFieldsOfType(GOTFixer.class, GOTVillageGen.class)) {
 			biome.decorator.addFixedVillage(settlement);
-		}
-	}
-	
-	public static void addSpecialLocations(World world, Random random, int i, int k) {
-		new GOTStructureFiveFortsWall(false, GOTWaypoint.FiveForts1).generate(world, random, i, 0, k, 0);
-		new GOTStructureFiveFortsWall(false, GOTWaypoint.FiveForts2).generate(world, random, i, 0, k, 0);
-		new GOTStructureFiveFortsWall(false, GOTWaypoint.FiveForts3).generate(world, random, i, 0, k, 0);
-		new GOTStructureFiveFortsWall(false, GOTWaypoint.FiveForts4).generate(world, random, i, 0, k, 0);
-		new GOTStructureFiveFortsWall(false, GOTWaypoint.FiveForts5).generate(world, random, i, 0, k, 0);
-		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.WhiteWood) || (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Winterfell))) {
-			((GOTWorldGenPartyTrees) GOTTreeType.WEIRWOOD.create(false, random)).disableRestrictions().generate(world, random, i + 50, world.getTopSolidOrLiquidBlock(i + 50, k), k);
 		}
 	}
 

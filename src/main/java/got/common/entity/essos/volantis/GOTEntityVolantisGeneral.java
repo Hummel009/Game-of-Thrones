@@ -43,11 +43,11 @@ public class GOTEntityVolantisGeneral extends GOTEntityVolantisSoldier implement
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "essos/volantis/warlord/friendly";
+				return "standart/civilized/usual_friendly";
 			}
-			return "essos/volantis/warlord/neutral";
+			return "standart/civilized/usual_neutral";
 		}
-		return "essos/volantis/warrior/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

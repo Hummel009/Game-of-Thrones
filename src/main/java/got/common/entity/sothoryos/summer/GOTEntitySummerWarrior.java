@@ -34,11 +34,11 @@ public class GOTEntitySummerWarrior extends GOTEntitySummerMan {
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "sothoryos/summer/warrior/hired";
+				return "standart/civilized/hired_soldier";
 			}
-			return "sothoryos/summer/warrior/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "sothoryos/summer/warrior/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

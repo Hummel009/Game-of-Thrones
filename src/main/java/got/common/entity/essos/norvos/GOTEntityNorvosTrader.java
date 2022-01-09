@@ -31,14 +31,6 @@ public abstract class GOTEntityNorvosTrader extends GOTEntityNorvosMan implement
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "essos/norvos/bazaarTrader/friendly";
-		}
-		return "essos/norvos/bazaarTrader/hostile";
-	}
-
-	@Override
 	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
 		if (mode == GOTEntityNPC.AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());

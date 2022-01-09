@@ -24,7 +24,7 @@ public class GOTEntityIbbenFarmhand extends GOTEntityIbbenMan implements GOTFarm
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-			return "essos/ibben/farmhand/hired";
+			return "standart/civilized/hired_farmhand";
 		}
 		return super.getSpeechBank(entityplayer);
 	}

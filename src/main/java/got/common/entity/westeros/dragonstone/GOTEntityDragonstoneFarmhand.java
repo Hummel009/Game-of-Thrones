@@ -24,7 +24,7 @@ public class GOTEntityDragonstoneFarmhand extends GOTEntityDragonstoneMan implem
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-			return "westeros/dragonstone/farmhand/hired";
+			return "standart/civilized/hired_farmhand";
 		}
 		return super.getSpeechBank(entityplayer);
 	}

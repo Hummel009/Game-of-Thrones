@@ -60,13 +60,13 @@ public class GOTEntityTugarKhan extends GOTEntityHumanBase {
 
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isDrunkard()) {
-			return "essos/jogos/man/neutral";
-		}
 		if (isFriendly(entityplayer)) {
-			return "essos/jogos/man/friendly";
+			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+				return "standart/wild/hired_soldier";
+			}
+			return "standart/wild/usual_friendly";
 		}
-		return "essos/jogos/man/hostile";
+		return "standart/wild/usual_hostile";
 	}
 
 	@Override

@@ -31,14 +31,6 @@ public abstract class GOTEntityQarthTrader extends GOTEntityQarthMan implements 
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "essos/qarth/bazaarTrader/friendly";
-		}
-		return "essos/qarth/bazaarTrader/hostile";
-	}
-
-	@Override
 	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
 		if (mode == GOTEntityNPC.AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());

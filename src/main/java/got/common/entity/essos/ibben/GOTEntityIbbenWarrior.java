@@ -40,11 +40,11 @@ public class GOTEntityIbbenWarrior extends GOTEntityIbbenMan {
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "essos/ibben/warrior/hired";
+				return "standart/civilized/hired_soldier";
 			}
-			return "essos/ibben/warrior/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/ibben/warrior/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

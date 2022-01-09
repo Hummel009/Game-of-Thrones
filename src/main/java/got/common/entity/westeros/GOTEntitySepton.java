@@ -75,9 +75,9 @@ public class GOTEntitySepton extends GOTEntityHumanBase implements GOTTradeable 
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "westeros/religion/septon_friendly";
+			return "standart/special/father_friendly";
 		}
-		return "westeros/religion/septon_hostile";
+		return "standart/special/father_hostile";
 	}
 
 	@Override

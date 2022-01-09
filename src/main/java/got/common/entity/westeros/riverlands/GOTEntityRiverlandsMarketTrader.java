@@ -25,14 +25,6 @@ public abstract class GOTEntityRiverlandsMarketTrader extends GOTEntityRiverland
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "westeros/riverlands/marketTrader/friendly";
-		}
-		return "westeros/riverlands/marketTrader/hostile";
-	}
-
-	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
 	}

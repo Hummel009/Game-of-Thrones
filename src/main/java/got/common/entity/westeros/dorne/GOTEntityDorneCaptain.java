@@ -43,11 +43,11 @@ public class GOTEntityDorneCaptain extends GOTEntityDorneSoldier implements GOTU
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "westeros/dorne/captain/friendly";
+				return "standart/civilized/usual_friendly";
 			}
-			return "westeros/dorne/captain/neutral";
+			return "standart/civilized/usual_neutral";
 		}
-		return "westeros/dorne/soldier/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

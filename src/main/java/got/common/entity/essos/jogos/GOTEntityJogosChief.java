@@ -36,11 +36,11 @@ public class GOTEntityJogosChief extends GOTEntityJogos implements GOTUnitTradea
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "essos/jogos/chieftain/friendly";
+				return "standart/wild/usual_friendly";
 			}
-			return "essos/jogos/chieftain/neutral";
+			return "standart/wild/usual_neutral";
 		}
-		return "essos/jogos/man/hostile";
+		return "standart/wild/usual_hostile";
 	}
 
 	@Override

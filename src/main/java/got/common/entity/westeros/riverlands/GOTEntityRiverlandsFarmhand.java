@@ -24,7 +24,7 @@ public class GOTEntityRiverlandsFarmhand extends GOTEntityRiverlandsMan implemen
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-			return "westeros/riverlands/farmhand/hired";
+			return "standart/civilized/hired_farmhand";
 		}
 		return super.getSpeechBank(entityplayer);
 	}

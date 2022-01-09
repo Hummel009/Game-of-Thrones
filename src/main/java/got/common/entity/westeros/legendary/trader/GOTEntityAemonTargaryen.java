@@ -62,9 +62,9 @@ public class GOTEntityAemonTargaryen extends GOTEntityHumanBase implements GOTTr
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "westeros/maester/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/maester/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

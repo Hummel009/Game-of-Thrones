@@ -5,7 +5,6 @@ import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -32,17 +31,6 @@ public class GOTEntityWesterlandsSoldier extends GOTEntityWesterlandsLevyman {
 	@Override
 	public float getAlignmentBonus() {
 		return 3.0f;
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "westeros/westerlands/soldier/hired";
-			}
-			return "westeros/westerlands/soldier/friendly";
-		}
-		return "westeros/westerlands/soldier/hostile";
 	}
 
 	@Override

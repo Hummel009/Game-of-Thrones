@@ -46,14 +46,6 @@ public class GOTEntityLhazarBartender extends GOTEntityLhazarMan implements GOTT
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "essos/lhazar/trader/friendly";
-		}
-		return "essos/lhazar/trader/hostile";
-	}
-
-	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
 	}

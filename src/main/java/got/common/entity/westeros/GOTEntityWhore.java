@@ -58,14 +58,9 @@ public class GOTEntityWhore extends GOTEntityHumanBase {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "westeros/whore/friendly";
+			return "standart/special/whore_friendly";
 		}
-		return "westeros/whore/hostile";
-	}
-
-	@Override
-	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		return super.onSpawnWithEgg(data);
+		return "standart/special/whore_hostile";
 	}
 
 	@Override

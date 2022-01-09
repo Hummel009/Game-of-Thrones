@@ -51,12 +51,9 @@ public class GOTEntityArrynBlacksmith extends GOTEntityArrynMan implements GOTTr
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "westeros/arryn/blacksmith/friendly";
-			}
-			return "westeros/arryn/blacksmith/neutral";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/arryn/blacksmith/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

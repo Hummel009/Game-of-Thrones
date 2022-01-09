@@ -31,14 +31,6 @@ public abstract class GOTEntityTyroshTrader extends GOTEntityTyroshMan implement
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "essos/tyrosh/bazaarTrader/friendly";
-		}
-		return "essos/tyrosh/bazaarTrader/hostile";
-	}
-
-	@Override
 	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
 		if (mode == GOTEntityNPC.AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());

@@ -84,15 +84,15 @@ public class GOTEntityScrapTrader extends GOTEntityHumanBase implements GOTTrade
 	}
 
 	public String getSmithSpeechBank() {
-		return "westeros/scrap/smith";
+		return "standart/civilized/usual_friendly";
 	}
 
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "westeros/scrap/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/scrap/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

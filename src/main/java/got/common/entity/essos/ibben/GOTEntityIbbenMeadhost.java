@@ -59,14 +59,6 @@ public class GOTEntityIbbenMeadhost extends GOTEntityIbbenMan implements GOTTrad
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "essos/ibben/bartender/friendly";
-		}
-		return "essos/ibben/bartender/hostile";
-	}
-
-	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
 	}

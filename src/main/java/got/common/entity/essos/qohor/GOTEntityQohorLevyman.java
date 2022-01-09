@@ -42,11 +42,11 @@ public class GOTEntityQohorLevyman extends GOTEntityQohorMan {
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "essos/qohor/warrior/hired";
+				return "standart/civilized/hired_soldier";
 			}
-			return "essos/qohor/warrior/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/qohor/warrior/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

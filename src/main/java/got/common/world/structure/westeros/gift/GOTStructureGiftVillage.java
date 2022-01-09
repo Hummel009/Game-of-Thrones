@@ -119,7 +119,7 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 					}
 				}
 			}
-		
+
 		}
 
 		@Override

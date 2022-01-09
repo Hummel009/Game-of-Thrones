@@ -43,11 +43,11 @@ public class GOTEntityRiverlandsCaptain extends GOTEntityRiverlandsSoldier imple
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "westeros/riverlands/captain/friendly";
+				return "standart/civilized/usual_friendly";
 			}
-			return "westeros/riverlands/captain/neutral";
+			return "standart/civilized/usual_neutral";
 		}
-		return "westeros/riverlands/soldier/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

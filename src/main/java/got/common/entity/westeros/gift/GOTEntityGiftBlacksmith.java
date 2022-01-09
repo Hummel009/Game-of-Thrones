@@ -51,12 +51,9 @@ public class GOTEntityGiftBlacksmith extends GOTEntityGiftMan implements GOTTrad
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "westeros/gift/blacksmith/friendly";
-			}
-			return "westeros/gift/blacksmith/neutral";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/gift/blacksmith/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

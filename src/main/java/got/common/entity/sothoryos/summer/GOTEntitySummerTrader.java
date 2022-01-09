@@ -31,14 +31,6 @@ public abstract class GOTEntitySummerTrader extends GOTEntitySummerMan implement
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "sothoryos/summer/bazaarTrader/friendly";
-		}
-		return "sothoryos/summer/bazaarTrader/hostile";
-	}
-
-	@Override
 	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
 		if (mode == GOTEntityNPC.AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());

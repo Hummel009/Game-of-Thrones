@@ -57,9 +57,9 @@ public class GOTEntityLorasTyrell extends GOTEntityHumanBase {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "westeros/reach/soldier/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/reach/soldier/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

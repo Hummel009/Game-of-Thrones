@@ -59,12 +59,9 @@ public class GOTEntityMyrBlacksmith extends GOTEntityMyrMan implements GOTTradea
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "essos/myr/blacksmith/friendly";
-			}
-			return "essos/myr/blacksmith/neutral";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/myr/blacksmith/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

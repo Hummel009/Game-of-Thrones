@@ -109,9 +109,9 @@ public class GOTEntityGiantBase extends GOTEntityNPC {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "westeros/giant/friendly";
+			return "standart/special/giant_friendly";
 		}
-		return "westeros/giant/hostile";
+		return "standart/special/giant_hostile";
 	}
 
 	@Override

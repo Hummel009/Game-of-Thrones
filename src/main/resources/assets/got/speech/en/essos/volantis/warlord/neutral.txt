@@ -1,9 +1,0 @@
-You must prove that you can be trusted.
-Are you friend or foe of Volantis, #?
-I believe that you should not be trusted. Try to convince me.
-Prove your loyalty to Volantis and I will give you a soldier.
-I respect you as a person, but I do not trust you strongly.
-It's foolish to count on the fact that I'll just take it and believe you, #.
-You need to become a strong ally of Volantis, #.
-You need to do more good deeds for the Volantine people.
-Prove your loyalty to Volantis and I will follow you.

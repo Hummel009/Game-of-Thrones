@@ -25,14 +25,6 @@ public abstract class GOTEntityWesterlandsMarketTrader extends GOTEntityWesterla
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "westeros/westerlands/bazaarTrader/friendly";
-		}
-		return "westeros/westerlands/bazaarTrader/hostile";
-	}
-
-	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
 	}

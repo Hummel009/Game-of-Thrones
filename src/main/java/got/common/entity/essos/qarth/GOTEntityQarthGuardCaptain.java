@@ -43,11 +43,11 @@ public class GOTEntityQarthGuardCaptain extends GOTEntityQarthGuard implements G
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "essos/qarth/warlord/friendly";
+				return "standart/civilized/usual_friendly";
 			}
-			return "essos/qarth/warlord/neutral";
+			return "standart/civilized/usual_neutral";
 		}
-		return "essos/qarth/warrior/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

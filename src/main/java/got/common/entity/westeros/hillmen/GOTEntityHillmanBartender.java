@@ -22,7 +22,7 @@ public class GOTEntityHillmanBartender extends GOTEntityHillman implements GOTTr
 	}
 
 	@Override
-	public void dropDunlendingItems(boolean flag, int i) {
+	public void dropHillmanItems(boolean flag, int i) {
 		int j = rand.nextInt(3) + rand.nextInt(i + 1);
 		block6: for (int k = 0; k < j; ++k) {
 			int l = rand.nextInt(7);
@@ -64,14 +64,6 @@ public class GOTEntityHillmanBartender extends GOTEntityHillman implements GOTTr
 	@Override
 	public GOTTradeEntries getSellPool() {
 		return GOTTradeEntries.COMMON_BARTENDER_SELL;
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "westeros/hillmen/bartender/friendly";
-		}
-		return "westeros/hillmen/man/hostile";
 	}
 
 	@Override

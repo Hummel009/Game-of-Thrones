@@ -53,12 +53,9 @@ public class GOTEntityOsha extends GOTEntityHumanBase {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "westeros/wildling/man/hired";
-			}
-			return "westeros/wildling/man/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/wildling/man/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

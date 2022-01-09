@@ -42,11 +42,11 @@ public class GOTEntityVolantisLevyman extends GOTEntityVolantisMan {
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "essos/volantis/warrior/hired";
+				return "standart/civilized/hired_soldier";
 			}
-			return "essos/volantis/warrior/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/volantis/warrior/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

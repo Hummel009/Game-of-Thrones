@@ -64,11 +64,11 @@ public class GOTEntityDenysMallister extends GOTEntityHumanBase implements GOTUn
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "westeros/gift/captain/friendly";
+				return "standart/civilized/usual_friendly";
 			}
-			return "westeros/gift/captain/neutral";
+			return "standart/civilized/usual_neutral";
 		}
-		return "westeros/gift/guard/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

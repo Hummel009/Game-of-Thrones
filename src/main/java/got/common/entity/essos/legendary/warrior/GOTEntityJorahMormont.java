@@ -57,9 +57,12 @@ public class GOTEntityJorahMormont extends GOTEntityHumanBase {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "legendary/jorah_friendly";
+			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+				return "standart/civilized/hired_soldier";
+			}
+			return "standart/civilized/usual_friendly";
 		}
-		return "legendary/jorah_hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

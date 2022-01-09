@@ -75,9 +75,9 @@ public class GOTEntityRedPriest extends GOTEntityHumanBase implements GOTTradeab
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "essos/religion/red_priest_friendly";
+			return "standart/special/father_friendly";
 		}
-		return "essos/religion/red_priest_hostile";
+		return "standart/special/father_hostile";
 	}
 
 	@Override

@@ -33,11 +33,11 @@ public class GOTEntityCrownlandsLevyman extends GOTEntityCrownlandsMan {
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "westeros/crownlands/soldier/hired";
+				return "standart/civilized/hired_soldier";
 			}
-			return "westeros/crownlands/soldier/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/crownlands/soldier/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

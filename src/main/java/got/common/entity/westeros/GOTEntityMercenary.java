@@ -67,9 +67,12 @@ public class GOTEntityMercenary extends GOTEntityHumanBase implements GOTMercena
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "westeros/mercenary/friendly";
+			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+				return "standart/civilized/hired_soldier";
+			}
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/mercenary/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

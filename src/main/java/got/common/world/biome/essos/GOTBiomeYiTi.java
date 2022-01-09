@@ -45,7 +45,7 @@ public class GOTBiomeYiTi extends GOTBiome {
 		decorator.flowersPerChunk = 3;
 		decorator.doubleFlowersPerChunk = 1;
 		decorator.generatePipeweed = true;
-        decorator.cornPerChunk = 4;
+		decorator.cornPerChunk = 4;
 		decorator.addTree(GOTTreeType.CHERRY, 500);
 		decorator.addTree(GOTTreeType.LEMON, 500);
 		decorator.addTree(GOTTreeType.LIME, 500);

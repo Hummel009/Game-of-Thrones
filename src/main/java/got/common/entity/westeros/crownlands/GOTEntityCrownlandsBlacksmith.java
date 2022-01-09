@@ -51,12 +51,9 @@ public class GOTEntityCrownlandsBlacksmith extends GOTEntityCrownlandsMan implem
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "westeros/crownlands/blacksmith/friendly";
-			}
-			return "westeros/crownlands/blacksmith/neutral";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/crownlands/blacksmith/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

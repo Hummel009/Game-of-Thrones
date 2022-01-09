@@ -40,9 +40,12 @@ public class GOTEntityLysSlaver extends GOTEntityLysMan implements GOTTradeable,
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "essos/lys/slaver/friendly";
+			if (canTradeWith(entityplayer)) {
+				return "standart/civilized/usual_friendly";
+			}
+			return "standart/civilized/usual_neutral";
 		}
-		return "essos/lys/slaver/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

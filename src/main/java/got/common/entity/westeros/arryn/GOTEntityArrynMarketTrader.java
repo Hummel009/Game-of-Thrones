@@ -25,14 +25,6 @@ public abstract class GOTEntityArrynMarketTrader extends GOTEntityArrynMan imple
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "westeros/arryn/marketTrader/friendly";
-		}
-		return "westeros/arryn/marketTrader/hostile";
-	}
-
-	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
 	}

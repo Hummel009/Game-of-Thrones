@@ -124,13 +124,10 @@ public class GOTEntityDragonstoneMan extends GOTEntityHumanBase implements IPick
 
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isDrunkard()) {
-			return "special/drunkard";
-		}
 		if (isFriendly(entityplayer)) {
-			return "westeros/dragonstone/man/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/dragonstone/man/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

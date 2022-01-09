@@ -46,14 +46,6 @@ public class GOTEntityRiverlandsBartender extends GOTEntityRiverlandsMan impleme
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "westeros/riverlands/bartender/friendly";
-		}
-		return "westeros/riverlands/bartender/hostile";
-	}
-
-	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
 	}

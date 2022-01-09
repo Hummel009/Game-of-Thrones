@@ -80,9 +80,9 @@ public class GOTEntityEdmureTully extends GOTEntityHumanBase {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "westeros/riverlands/soldier/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/riverlands/soldier/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

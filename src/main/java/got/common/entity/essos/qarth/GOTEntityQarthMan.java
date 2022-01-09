@@ -125,13 +125,10 @@ public class GOTEntityQarthMan extends GOTEntityHumanBase implements IPickpocket
 
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isDrunkard()) {
-			return "special/drunkard";
-		}
 		if (isFriendly(entityplayer)) {
-			return "essos/qarth/man/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/qarth/man/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

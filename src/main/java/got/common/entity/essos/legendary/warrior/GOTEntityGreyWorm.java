@@ -80,6 +80,17 @@ public class GOTEntityGreyWorm extends GOTEntityHumanBase implements GOTMercenar
 	}
 
 	@Override
+	public String getSpeechBank(EntityPlayer entityplayer) {
+		if (isFriendly(entityplayer)) {
+			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+				return "standart/civilized/hired_soldier";
+			}
+			return "standart/civilized/usual_friendly";
+		}
+		return "standart/civilized/usual_hostile";
+	}
+
+	@Override
 	public int getTotalArmorValue() {
 		return 15;
 	}

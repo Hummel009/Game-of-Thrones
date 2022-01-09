@@ -46,14 +46,6 @@ public class GOTEntityDragonstoneBartender extends GOTEntityDragonstoneMan imple
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "westeros/dragonstone/bartender/friendly";
-		}
-		return "westeros/dragonstone/bartender/hostile";
-	}
-
-	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
 	}

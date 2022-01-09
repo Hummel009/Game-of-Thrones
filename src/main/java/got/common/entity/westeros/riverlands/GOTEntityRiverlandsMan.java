@@ -124,13 +124,10 @@ public class GOTEntityRiverlandsMan extends GOTEntityHumanBase implements IPickp
 
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isDrunkard()) {
-			return "special/drunkard";
-		}
 		if (isFriendly(entityplayer)) {
-			return "westeros/riverlands/man/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/riverlands/man/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

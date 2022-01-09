@@ -59,12 +59,9 @@ public class GOTEntityBraavosBlacksmith extends GOTEntityBraavosMan implements G
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "essos/braavos/blacksmith/friendly";
-			}
-			return "essos/braavos/blacksmith/neutral";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/braavos/blacksmith/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

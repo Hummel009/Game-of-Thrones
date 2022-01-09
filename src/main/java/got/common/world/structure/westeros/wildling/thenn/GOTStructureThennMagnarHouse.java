@@ -49,7 +49,7 @@ public class GOTStructureThennMagnarHouse extends GOTStructureBase {
 			for (int i13 = -5; i13 <= 5; ++i13) {
 				for (int k15 = -6; k15 <= 6; ++k15) {
 					j15 = getTopBlock(world, i13, k15);
-					Block block = getBlock(world, i13, j15 - 1, k15);
+					getBlock(world, i13, j15 - 1, k15);
 					if (j15 < minHeight) {
 						minHeight = j15;
 					}

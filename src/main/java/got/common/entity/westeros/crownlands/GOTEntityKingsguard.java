@@ -5,7 +5,6 @@ import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -33,17 +32,6 @@ public class GOTEntityKingsguard extends GOTEntityCrownlandsLevyman {
 	@Override
 	public float getAlignmentBonus() {
 		return 10.0f;
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "westeros/crownlands/citywatch/hired";
-			}
-			return "westeros/crownlands/citywatch/friendly";
-		}
-		return "westeros/crownlands/citywatch/hostile";
 	}
 
 	@Override

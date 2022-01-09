@@ -63,11 +63,11 @@ public class GOTEntityGulianSwann extends GOTEntityHumanBase implements GOTUnitT
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "westeros/stormlands/captain/friendly";
+				return "standart/civilized/usual_friendly";
 			}
-			return "westeros/stormlands/captain/neutral";
+			return "standart/civilized/usual_neutral";
 		}
-		return "westeros/stormlands/soldier/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

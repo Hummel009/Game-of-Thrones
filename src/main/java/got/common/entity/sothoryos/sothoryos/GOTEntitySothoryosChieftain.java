@@ -35,11 +35,11 @@ public class GOTEntitySothoryosChieftain extends GOTEntitySothoryosWarrior imple
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "sothoryos/sothoryos/chieftain/friendly";
+				return "standart/wild/usual_friendly";
 			}
-			return "sothoryos/sothoryos/chieftain/neutral";
+			return "standart/wild/usual_neutral";
 		}
-		return "sothoryos/sothoryos/warrior/hostile";
+		return "standart/wild/usual_hostile";
 	}
 
 	@Override

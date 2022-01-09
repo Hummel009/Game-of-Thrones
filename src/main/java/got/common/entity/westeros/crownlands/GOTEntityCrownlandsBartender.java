@@ -46,14 +46,6 @@ public class GOTEntityCrownlandsBartender extends GOTEntityCrownlandsMan impleme
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "westeros/crownlands/bartender/friendly";
-		}
-		return "westeros/crownlands/bartender/hostile";
-	}
-
-	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
 	}

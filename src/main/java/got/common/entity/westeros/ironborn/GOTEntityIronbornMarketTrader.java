@@ -25,14 +25,6 @@ public abstract class GOTEntityIronbornMarketTrader extends GOTEntityIronbornMan
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "westeros/ironborn/marketTrader/friendly";
-		}
-		return "westeros/ironborn/marketTrader/hostile";
-	}
-
-	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
 	}

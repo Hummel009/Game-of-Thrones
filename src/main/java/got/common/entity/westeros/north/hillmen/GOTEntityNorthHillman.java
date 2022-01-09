@@ -123,12 +123,9 @@ public class GOTEntityNorthHillman extends GOTEntityHumanBase implements IPickpo
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "westeros/north/soldier/hired";
-			}
-			return "westeros/north/soldier/friendly";
+			return "standart/wild/usual_friendly";
 		}
-		return "westeros/north/soldier/hostile";
+		return "standart/wild/usual_hostile";
 	}
 
 	@Override

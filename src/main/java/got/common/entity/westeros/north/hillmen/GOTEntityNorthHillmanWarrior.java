@@ -2,6 +2,7 @@ package got.common.entity.westeros.north.hillmen;
 
 import got.common.database.GOTRegistry;
 import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.*;
 import net.minecraft.world.World;
@@ -20,6 +21,17 @@ public class GOTEntityNorthHillmanWarrior extends GOTEntityNorthHillman {
 		int color = leatherDyes[i];
 		((ItemArmor) itemstack.getItem()).func_82813_b(itemstack, color);
 		return itemstack;
+	}
+
+	@Override
+	public String getSpeechBank(EntityPlayer entityplayer) {
+		if (isFriendly(entityplayer)) {
+			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+				return "standart/wild/hired_soldier";
+			}
+			return "standart/wild/usual_friendly";
+		}
+		return "standart/wild/usual_hostile";
 	}
 
 	@Override

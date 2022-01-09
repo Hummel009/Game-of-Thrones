@@ -275,7 +275,7 @@ public abstract class GOTVillageGen {
 				if (!anythingNear) {
 					GOTVillageGen.seedVillageRand(world, i1, k1);
 					LocationInfo loc = LocationInfo.RANDOM_GEN_HERE;
-					AbstractInstance<?> instance = createAndSetupVillageInstance(world, i1, k1, villageRand, loc);
+					createAndSetupVillageInstance(world, i1, k1, villageRand, loc);
 					if (worldChunkMgr.areBiomesViable(i1, k1, villageRange, spawnBiomes) && worldChunkMgr.areVariantsSuitableVillage(i1, k1, villageRange, false)) {
 						return cache.markResult(chunkX, chunkZ, loc);
 					}

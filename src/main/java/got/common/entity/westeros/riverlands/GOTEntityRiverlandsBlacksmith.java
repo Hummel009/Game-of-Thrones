@@ -51,12 +51,9 @@ public class GOTEntityRiverlandsBlacksmith extends GOTEntityRiverlandsMan implem
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "westeros/riverlands/blacksmith/friendly";
-			}
-			return "westeros/riverlands/blacksmith/neutral";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/riverlands/blacksmith/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

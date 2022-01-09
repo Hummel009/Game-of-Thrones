@@ -43,11 +43,11 @@ public class GOTEntityDragonstoneCaptain extends GOTEntityDragonstoneSoldier imp
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "westeros/dragonstone/captain/friendly";
+				return "standart/civilized/usual_friendly";
 			}
-			return "westeros/dragonstone/captain/neutral";
+			return "standart/civilized/usual_neutral";
 		}
-		return "westeros/dragonstone/soldier/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

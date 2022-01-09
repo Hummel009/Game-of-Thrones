@@ -25,7 +25,7 @@ public class GOTEntitySothoryosFarmhand extends GOTEntitySothoryosMan implements
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-			return "sothoryos/sothoryos/farmhand/hired";
+			return "standart/civilized/hired_farmhand";
 		}
 		return super.getSpeechBank(entityplayer);
 	}

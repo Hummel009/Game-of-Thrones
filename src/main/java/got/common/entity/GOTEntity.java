@@ -39,6 +39,7 @@ import got.common.entity.westeros.gift.*;
 import got.common.entity.westeros.hillmen.*;
 import got.common.entity.westeros.ice.*;
 import got.common.entity.westeros.ironborn.*;
+import got.common.entity.westeros.legendary.GOTEntityCrasterWife;
 import got.common.entity.westeros.legendary.captain.*;
 import got.common.entity.westeros.legendary.deco.*;
 import got.common.entity.westeros.legendary.quest.*;

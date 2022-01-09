@@ -62,9 +62,9 @@ public class GOTEntityMellario extends GOTEntityHumanBase {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "essos/norvos/man/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/norvos/man/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

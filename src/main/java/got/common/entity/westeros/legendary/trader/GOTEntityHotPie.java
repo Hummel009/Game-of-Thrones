@@ -67,9 +67,9 @@ public class GOTEntityHotPie extends GOTEntityHumanBase implements GOTTradeable 
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "westeros/riverlands/marketTrader/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/riverlands/marketTrader/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

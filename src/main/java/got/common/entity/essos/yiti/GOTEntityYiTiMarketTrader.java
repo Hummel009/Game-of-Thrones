@@ -25,14 +25,6 @@ public abstract class GOTEntityYiTiMarketTrader extends GOTEntityYiTiMan impleme
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "essos/yiti/marketTrader/friendly";
-		}
-		return "essos/yiti/marketTrader/hostile";
-	}
-
-	@Override
 	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
 		if (mode == GOTEntityNPC.AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());

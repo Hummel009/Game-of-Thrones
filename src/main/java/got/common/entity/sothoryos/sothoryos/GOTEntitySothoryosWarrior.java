@@ -4,7 +4,6 @@ import got.common.database.*;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -24,17 +23,6 @@ public class GOTEntitySothoryosWarrior extends GOTEntitySothoryosMan {
 	@Override
 	public float getAlignmentBonus() {
 		return 2.0f;
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "sothoryos/sothoryos/warrior/hired";
-			}
-			return "sothoryos/sothoryos/warrior/friendly";
-		}
-		return "sothoryos/sothoryos/warrior/hostile";
 	}
 
 	@Override

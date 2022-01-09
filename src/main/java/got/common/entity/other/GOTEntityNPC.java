@@ -1296,12 +1296,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	public boolean speakTo(EntityPlayer entityplayer) {
 		String speechBank = getSpeechBank(entityplayer);
-		if ((rand.nextInt(8) == 0) && GOT.isNewYear()) {
-			speechBank = "special/newYear";
-		}
-		if (rand.nextInt(10000) == 0) {
-			speechBank = "special/smilebc";
-		}
 		if (speechBank != null) {
 			this.sendSpeechBank(entityplayer, speechBank);
 			if (getTalkAchievement() != null) {

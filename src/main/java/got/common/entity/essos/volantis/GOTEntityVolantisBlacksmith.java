@@ -59,12 +59,9 @@ public class GOTEntityVolantisBlacksmith extends GOTEntityVolantisMan implements
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "essos/volantis/blacksmith/friendly";
-			}
-			return "essos/volantis/blacksmith/neutral";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/volantis/blacksmith/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

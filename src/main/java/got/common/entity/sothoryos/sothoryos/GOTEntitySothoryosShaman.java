@@ -36,17 +36,6 @@ public class GOTEntitySothoryosShaman extends GOTEntitySothoryosMan implements G
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "sothoryos/sothoryos/shaman/friendly";
-			}
-			return "sothoryos/sothoryos/shaman/neutral";
-		}
-		return "sothoryos/sothoryos/shaman/hostile";
-	}
-
-	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
 	}

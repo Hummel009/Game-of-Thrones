@@ -125,13 +125,10 @@ public class GOTEntityLorathMan extends GOTEntityHumanBase implements IPickpocke
 
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isDrunkard()) {
-			return "special/drunkard";
-		}
 		if (isFriendly(entityplayer)) {
-			return "essos/lorath/man/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/lorath/man/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

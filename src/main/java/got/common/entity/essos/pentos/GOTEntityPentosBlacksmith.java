@@ -59,12 +59,9 @@ public class GOTEntityPentosBlacksmith extends GOTEntityPentosMan implements GOT
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "essos/pentos/blacksmith/friendly";
-			}
-			return "essos/pentos/blacksmith/neutral";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/pentos/blacksmith/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

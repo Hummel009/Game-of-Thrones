@@ -40,9 +40,12 @@ public class GOTEntityCrownlandsFarmer extends GOTEntityCrownlandsMan implements
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "westeros/crownlands/farmer/friendly";
+			if (canTradeWith(entityplayer)) {
+				return "standart/civilized/usual_friendly";
+			}
+			return "standart/civilized/usual_neutral";
 		}
-		return "westeros/crownlands/farmer/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

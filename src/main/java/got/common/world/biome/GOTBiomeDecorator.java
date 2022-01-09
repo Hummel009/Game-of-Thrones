@@ -56,7 +56,7 @@ public class GOTBiomeDecorator {
 	public int canePerChunk;
 	public int reedPerChunk = 1;
 	public float dryReedChance = 0.1f;
-    public int cornPerChunk;
+	public int cornPerChunk;
 	public int cactiPerChunk;
 	public boolean generatePipeweed;
 	public boolean whiteSand;
@@ -100,6 +100,11 @@ public class GOTBiomeDecorator {
 		addGem(new WorldGenMinable(GOTRegistry.oreGem, 5, 4, Blocks.stone), 0.5f, 0, 16);
 	}
 
+	public void addFixedVillage(GOTVillageGen village) {
+		villages.add(village);
+		fixedVillages.add(village);
+	}
+
 	public void addGem(WorldGenerator gen, float f, int min, int max) {
 		biomeGems.add(new OreGenerant(gen, f, min, max));
 	}
@@ -118,11 +123,6 @@ public class GOTBiomeDecorator {
 
 	public void addTree(GOTTreeType type, int weight) {
 		treeTypes.add(new GOTTreeType.WeightedTreeType(type, weight));
-	}
-
-	public void addFixedVillage(GOTVillageGen village) {
-		villages.add(village);
-		fixedVillages.add(village);
 	}
 
 	public void addVillage(GOTVillageGen village) {
@@ -348,12 +348,12 @@ public class GOTBiomeDecorator {
 			}
 			reedGen.generate(worldObj, rand, i2, j13, k5);
 		}
-        for (l7 = 0; l7 < cornPerChunk; ++l7) {
-            i2 = chunkX + rand.nextInt(16) + 8;
-            j2 = rand.nextInt(128);
-            int k19 = chunkZ + rand.nextInt(16) + 8;
-            cornGen.generate(worldObj, rand, i2, j2, k19);
-        }
+		for (l7 = 0; l7 < cornPerChunk; ++l7) {
+			i2 = chunkX + rand.nextInt(16) + 8;
+			j2 = rand.nextInt(128);
+			int k19 = chunkZ + rand.nextInt(16) + 8;
+			cornGen.generate(worldObj, rand, i2, j2, k19);
+		}
 		for (l7 = 0; l7 < cactiPerChunk; ++l7) {
 			i2 = chunkX + rand.nextInt(16) + 8;
 			j2 = rand.nextInt(128);

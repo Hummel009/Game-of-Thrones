@@ -3,7 +3,6 @@ package got.common.entity.westeros.crownlands;
 import got.common.database.*;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -31,17 +30,6 @@ public class GOTEntityCrownlandsGuard extends GOTEntityCrownlandsLevyman {
 	@Override
 	public GOTAchievement getKillAchievement() {
 		return GOTAchievement.BANDIT;
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "westeros/crownlands/citywatch/hired";
-			}
-			return "westeros/crownlands/citywatch/friendly";
-		}
-		return "westeros/crownlands/citywatch/hostile";
 	}
 
 	@Override

@@ -4,6 +4,7 @@ import got.common.database.*;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -23,6 +24,17 @@ public class GOTEntityHillmanWarrior extends GOTEntityHillman {
 	@Override
 	public EntityAIBase getHillmanAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
+	}
+
+	@Override
+	public String getSpeechBank(EntityPlayer entityplayer) {
+		if (isFriendly(entityplayer)) {
+			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+				return "standart/civilized/hired_soldier";
+			}
+			return "standart/civilized/usual_friendly";
+		}
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

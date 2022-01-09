@@ -32,6 +32,17 @@ public class GOTEntityThennMagnar extends GOTEntityThenn implements GOTUnitTrade
 	}
 
 	@Override
+	public String getSpeechBank(EntityPlayer entityplayer) {
+		if (isFriendly(entityplayer)) {
+			if (canTradeWith(entityplayer)) {
+				return "standart/wild/usual_friendly";
+			}
+			return "standart/wild/usual_neutral";
+		}
+		return "standart/wild/usual_hostile";
+	}
+
+	@Override
 	public GOTUnitTradeEntries getUnits() {
 		return GOTUnitTradeEntries.THENN;
 	}

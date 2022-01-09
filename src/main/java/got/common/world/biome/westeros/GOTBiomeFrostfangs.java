@@ -72,11 +72,6 @@ public class GOTBiomeFrostfangs extends GOTBiome {
 	}
 
 	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.SNOW;
-	}
-
-	@Override
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.WESTEROS.getSubregion("frostfangs");
 	}
@@ -89,6 +84,11 @@ public class GOTBiomeFrostfangs extends GOTBiome {
 	@Override
 	public float getChanceToSpawnAnimals() {
 		return 0.1f;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.SNOW;
 	}
 
 	@Override

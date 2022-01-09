@@ -40,9 +40,12 @@ public class GOTEntityVolantisSlaver extends GOTEntityVolantisMan implements GOT
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "essos/volantis/slaver/friendly";
+			if (canTradeWith(entityplayer)) {
+				return "standart/civilized/usual_friendly";
+			}
+			return "standart/civilized/usual_neutral";
 		}
-		return "essos/volantis/slaver/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

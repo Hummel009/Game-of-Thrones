@@ -37,9 +37,9 @@ public class GOTEntityIronbornPriest extends GOTEntityIronbornMan implements GOT
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "ironborn/religion/ironborn_priest_friendly";
+			return "standart/special/father_friendly";
 		}
-		return "ironborn/religion/ironborn_priest_hostile";
+		return "standart/special/father_hostile";
 	}
 
 	@Override

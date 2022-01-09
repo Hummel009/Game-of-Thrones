@@ -52,12 +52,9 @@ public class GOTEntityAuraneWaters extends GOTEntityHumanBase {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "westeros/dragonstone/soldier/hired";
-			}
-			return "westeros/dragonstone/soldier/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/dragonstone/soldier/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

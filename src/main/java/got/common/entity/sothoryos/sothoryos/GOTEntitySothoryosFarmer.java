@@ -36,14 +36,6 @@ public class GOTEntitySothoryosFarmer extends GOTEntitySothoryosMan implements G
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "sothoryos/sothoryos/farmer/friendly";
-		}
-		return "sothoryos/sothoryos/farmer/hostile";
-	}
-
-	@Override
 	public GOTUnitTradeEntries getUnits() {
 		return GOTUnitTradeEntries.SOTHORYOS_FARMER;
 	}

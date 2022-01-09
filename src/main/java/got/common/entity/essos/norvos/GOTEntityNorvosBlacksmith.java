@@ -59,12 +59,9 @@ public class GOTEntityNorvosBlacksmith extends GOTEntityNorvosMan implements GOT
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "essos/norvos/blacksmith/friendly";
-			}
-			return "essos/norvos/blacksmith/neutral";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/norvos/blacksmith/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

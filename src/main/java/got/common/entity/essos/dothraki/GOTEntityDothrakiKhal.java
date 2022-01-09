@@ -46,11 +46,11 @@ public class GOTEntityDothrakiKhal extends GOTEntityDothraki implements GOTUnitT
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "essos/dothraki/khal/friendly";
+				return "standart/wild/usual_friendly";
 			}
-			return "essos/dothraki/khal/neutral";
+			return "standart/wild/usual_neutral";
 		}
-		return "essos/dothraki/man/hostile";
+		return "standart/wild/usual_hostile";
 	}
 
 	@Override

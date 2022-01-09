@@ -5,7 +5,6 @@ import got.common.entity.ai.GOTEntityAIRangedAttack;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -24,17 +23,6 @@ public class GOTEntityNorthLevymanArcher extends GOTEntityNorthLevyman {
 	public void dropFewItems(boolean flag, int i) {
 		super.dropFewItems(flag, i);
 		dropNPCArrows(i);
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "westeros/north/soldier/hired";
-			}
-			return "westeros/north/soldier/friendly";
-		}
-		return "westeros/north/soldier/hostile";
 	}
 
 	@Override

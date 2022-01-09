@@ -40,9 +40,12 @@ public class GOTEntityMyrSlaver extends GOTEntityMyrMan implements GOTTradeable,
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "essos/myr/slaver/friendly";
+			if (canTradeWith(entityplayer)) {
+				return "standart/civilized/usual_friendly";
+			}
+			return "standart/civilized/usual_neutral";
 		}
-		return "essos/myr/slaver/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

@@ -42,11 +42,11 @@ public class GOTEntityGhiscarLevyman extends GOTEntityGhiscarMan {
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "essos/ghiscar/warrior/hired";
+				return "standart/civilized/hired_soldier";
 			}
-			return "essos/ghiscar/warrior/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/ghiscar/warrior/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

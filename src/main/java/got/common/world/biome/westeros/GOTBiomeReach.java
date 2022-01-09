@@ -24,7 +24,7 @@ public class GOTBiomeReach extends GOTBiomeWesteros {
 		decorator.addTree(GOTTreeType.OLIVE, 5);
 		decorator.addTree(GOTTreeType.OLIVE_LARGE, 10);
 		decorator.generatePipeweed = true;
-        decorator.cornPerChunk = 4;
+		decorator.cornPerChunk = 4;
 
 		SpawnListContainer[] c0 = new SpawnListContainer[2];
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.REACH_CONQUEST, 4).setSpawnChance(GOTBiome.SPAWN);

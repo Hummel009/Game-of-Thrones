@@ -29,9 +29,12 @@ public class GOTEntityAsshaiGuard extends GOTEntityAsshaiMan {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "essos/asshai/man/friendly";
+			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+				return "standart/civilized/hired_soldier";
+			}
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/asshai/man/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

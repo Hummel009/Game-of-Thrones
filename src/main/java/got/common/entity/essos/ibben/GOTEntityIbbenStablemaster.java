@@ -38,17 +38,6 @@ public class GOTEntityIbbenStablemaster extends GOTEntityIbbenMan implements GOT
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "essos/ibben/marketTrader/friendly";
-			}
-			return "essos/ibben/marketTrader/neutral";
-		}
-		return "essos/ibben/marketTrader/hostile";
-	}
-
-	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
 	}

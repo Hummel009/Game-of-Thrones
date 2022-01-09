@@ -43,11 +43,11 @@ public class GOTEntityBraavosGeneral extends GOTEntityBraavosSoldier implements 
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "essos/braavos/warlord/friendly";
+				return "standart/civilized/usual_friendly";
 			}
-			return "essos/braavos/warlord/neutral";
+			return "standart/civilized/usual_neutral";
 		}
-		return "essos/braavos/warrior/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

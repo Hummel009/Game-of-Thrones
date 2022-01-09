@@ -90,11 +90,11 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "essos/mossovy/witcher/hired";
+				return "standart/civilized/hired_soldier";
 			}
-			return "essos/mossovy/witcher/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/mossovy/witcher/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

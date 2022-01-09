@@ -237,7 +237,7 @@ public class GOTGuiFellowships extends GOTGuiMenuWBBase {
 		int i = 0;
 		ArrayList<String> allPlayers = new ArrayList<>(fs.getAllPlayerNames());
 		for (String player : allPlayers) {
-			if (!(!GOTGuiFellowships.isPlayerOnline(player))) {
+			if (GOTGuiFellowships.isPlayerOnline(player)) {
 				++i;
 			}
 		}
@@ -549,7 +549,7 @@ public class GOTGuiFellowships extends GOTGuiMenuWBBase {
 			}
 			for (Object bObj : buttonList) {
 				GuiButton button = (GuiButton) bObj;
-				if (!(!(button instanceof GOTGuiButtonFsOption) || !button.visible || !button.func_146115_a())) {
+				if (((button instanceof GOTGuiButtonFsOption) && button.visible && button.func_146115_a())) {
 					s = button.displayString;
 					this.drawCenteredString(s, guiLeft + xSize / 2, button.yPosition + button.height + 4, 16777215);
 				}

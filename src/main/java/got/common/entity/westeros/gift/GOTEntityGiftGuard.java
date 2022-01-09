@@ -47,11 +47,11 @@ public class GOTEntityGiftGuard extends GOTEntityGiftMan {
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "westeros/gift/guard/hired";
+				return "standart/civilized/hired_soldier";
 			}
-			return "westeros/gift/guard/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/gift/guard/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

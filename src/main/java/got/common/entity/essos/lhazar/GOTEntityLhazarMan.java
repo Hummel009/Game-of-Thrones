@@ -126,12 +126,9 @@ public class GOTEntityLhazarMan extends GOTEntityHumanBase implements IPickpocke
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "essos/lhazar/man/hired";
-			}
-			return "essos/lhazar/man/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/lhazar/man/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

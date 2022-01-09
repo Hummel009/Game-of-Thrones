@@ -120,11 +120,11 @@ public class GOTEntityWildling extends GOTEntityHumanBase implements IPickpocket
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "westeros/wildling/man/hired";
+				return "standart/wild/hired_soldier";
 			}
-			return "westeros/wildling/man/friendly";
+			return "standart/wild/usual_friendly";
 		}
-		return "westeros/wildling/man/hostile";
+		return "standart/wild/usual_hostile";
 	}
 
 	public EntityAIBase getWildlingAttackAI() {

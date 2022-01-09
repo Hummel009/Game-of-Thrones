@@ -51,12 +51,9 @@ public class GOTEntityReachBlacksmith extends GOTEntityReachMan implements GOTTr
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "westeros/reach/blacksmith/friendly";
-			}
-			return "westeros/reach/blacksmith/neutral";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/reach/blacksmith/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

@@ -63,11 +63,11 @@ public class GOTEntityKraznysMoNakloz extends GOTEntityHumanBase implements GOTU
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "essos/ghiscar/warlord/friendly";
+				return "standart/civilized/usual_friendly";
 			}
-			return "essos/ghiscar/warlord/neutral";
+			return "standart/civilized/usual_neutral";
 		}
-		return "essos/ghiscar/warrior/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

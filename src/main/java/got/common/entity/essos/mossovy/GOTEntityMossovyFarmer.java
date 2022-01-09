@@ -38,14 +38,6 @@ public class GOTEntityMossovyFarmer extends GOTEntityMossovyMan implements GOTTr
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "essos/mossovy/farmer/friendly";
-		}
-		return "essos/mossovy/farmer/hostile";
-	}
-
-	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
 	}

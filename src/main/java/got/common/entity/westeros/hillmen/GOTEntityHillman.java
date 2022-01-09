@@ -49,12 +49,6 @@ public class GOTEntityHillman extends GOTEntityHumanBase implements IPickpocketa
 		return GOTMiniQuestFactory.WESTEROS.createQuest(this);
 	}
 
-	public void dropDunlendingItems(boolean flag, int i) {
-		if (rand.nextInt(5) == 0) {
-			dropChestContents(GOTChestContents.WESTEROS, 1, 2 + i);
-		}
-	}
-
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		super.dropFewItems(flag, i);
@@ -62,7 +56,13 @@ public class GOTEntityHillman extends GOTEntityHumanBase implements IPickpocketa
 		for (int l = 0; l < bones; ++l) {
 			dropItem(Items.bone, 1);
 		}
-		dropDunlendingItems(flag, i);
+		dropHillmanItems(flag, i);
+	}
+
+	public void dropHillmanItems(boolean flag, int i) {
+		if (rand.nextInt(5) == 0) {
+			dropChestContents(GOTChestContents.WESTEROS, 1, 2 + i);
+		}
 	}
 
 	@Override
@@ -118,16 +118,13 @@ public class GOTEntityHillman extends GOTEntityHumanBase implements IPickpocketa
 
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isDrunkard()) {
-			return "special/drunkard";
-		}
 		if (isFriendly(entityplayer)) {
 			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "westeros/hillmen/man/hired";
+				return "standart/wild/hired_soldier";
 			}
-			return "westeros/hillmen/man/friendly";
+			return "standart/wild/usual_friendly";
 		}
-		return "westeros/hillmen/man/hostile";
+		return "standart/wild/usual_hostile";
 	}
 
 	@Override

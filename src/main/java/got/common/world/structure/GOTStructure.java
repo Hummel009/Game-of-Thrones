@@ -411,7 +411,7 @@ public class GOTStructure {
 			public void apply(GOTStructureThennVillage.Instance instance) {
 			}
 		});
-		
+
 		GOTStructureRegistry.register(id++, new GOTStructureGiftVillage(GOTBiome.giftNew, 1.0f), "GiftVillage", GOTFaction.NIGHT_WATCH, new GOTStructureRegistry.IVillageProperties<GOTStructureGiftVillage.Instance>() {
 
 			@Override

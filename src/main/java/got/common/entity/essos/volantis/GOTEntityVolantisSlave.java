@@ -24,7 +24,7 @@ public class GOTEntityVolantisSlave extends GOTEntityVolantisMan implements GOTF
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-			return "essos/volantis/slave/hired";
+			return "standart/civilized/hired_slave";
 		}
 		return super.getSpeechBank(entityplayer);
 	}

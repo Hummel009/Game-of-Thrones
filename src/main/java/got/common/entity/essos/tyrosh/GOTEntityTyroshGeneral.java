@@ -43,11 +43,11 @@ public class GOTEntityTyroshGeneral extends GOTEntityTyroshSoldier implements GO
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "essos/tyrosh/warlord/friendly";
+				return "standart/civilized/usual_friendly";
 			}
-			return "essos/tyrosh/warlord/neutral";
+			return "standart/civilized/usual_neutral";
 		}
-		return "essos/tyrosh/warrior/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

@@ -58,12 +58,9 @@ public class GOTEntityAreoHotah extends GOTEntityHumanBase {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "westeros/dorne/soldier/hired";
-			}
-			return "westeros/dorne/soldier/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/dorne/soldier/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

@@ -43,11 +43,11 @@ public class GOTEntityCrownlandsCaptain extends GOTEntityCrownlandsGuard impleme
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "westeros/crownlands/captain/friendly";
+				return "standart/civilized/usual_friendly";
 			}
-			return "westeros/crownlands/captain/neutral";
+			return "standart/civilized/usual_neutral";
 		}
-		return "westeros/crownlands/soldier/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

@@ -42,11 +42,11 @@ public class GOTEntityLorathLevyman extends GOTEntityLorathMan {
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "essos/lorath/warrior/hired";
+				return "standart/civilized/hired_soldier";
 			}
-			return "essos/lorath/warrior/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/lorath/warrior/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

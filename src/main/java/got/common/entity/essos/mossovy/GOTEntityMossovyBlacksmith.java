@@ -45,12 +45,9 @@ public class GOTEntityMossovyBlacksmith extends GOTEntityMossovyMan implements G
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "essos/mossovy/blacksmith/friendly";
-			}
-			return "essos/mossovy/blacksmith/neutral";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/mossovy/blacksmith/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

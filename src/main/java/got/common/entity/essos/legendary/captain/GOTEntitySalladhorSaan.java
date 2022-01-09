@@ -63,11 +63,11 @@ public class GOTEntitySalladhorSaan extends GOTEntityHumanBase implements GOTUni
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "essos/lys/warlord/friendly";
+				return "standart/civilized/usual_friendly";
 			}
-			return "essos/lys/warlord/neutral";
+			return "standart/civilized/usual_neutral";
 		}
-		return "essos/lys/warrior/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

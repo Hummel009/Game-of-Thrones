@@ -42,11 +42,11 @@ public class GOTEntityQarthLevyman extends GOTEntityQarthMan {
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "essos/qarth/warrior/hired";
+				return "standart/civilized/hired_soldier";
 			}
-			return "essos/qarth/warrior/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/qarth/warrior/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

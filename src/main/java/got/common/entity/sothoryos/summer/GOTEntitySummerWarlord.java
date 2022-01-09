@@ -35,11 +35,11 @@ public class GOTEntitySummerWarlord extends GOTEntitySummerWarrior implements GO
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "sothoryos/summer/warlord/friendly";
+				return "standart/civilized/usual_friendly";
 			}
-			return "sothoryos/summer/warlord/neutral";
+			return "standart/civilized/usual_neutral";
 		}
-		return "sothoryos/summer/warrior/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

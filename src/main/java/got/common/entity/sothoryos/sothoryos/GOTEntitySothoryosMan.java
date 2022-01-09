@@ -120,16 +120,13 @@ public class GOTEntitySothoryosMan extends GOTEntityHumanBase implements IPickpo
 
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isDrunkard()) {
-			return "special/drunkard";
-		}
 		if (isFriendly(entityplayer)) {
 			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "sothoryos/sothoryos/man/hired";
+				return "standart/wild/hired_soldier";
 			}
-			return "sothoryos/sothoryos/man/friendly";
+			return "standart/wild/usual_friendly";
 		}
-		return "sothoryos/sothoryos/man/hostile";
+		return "standart/wild/usual_hostile";
 	}
 
 	@Override

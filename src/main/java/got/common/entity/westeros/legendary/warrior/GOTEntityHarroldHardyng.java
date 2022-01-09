@@ -57,9 +57,9 @@ public class GOTEntityHarroldHardyng extends GOTEntityHumanBase {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "westeros/arryn/soldier/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/arryn/soldier/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

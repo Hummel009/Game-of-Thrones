@@ -24,7 +24,7 @@ public class GOTEntityLysSlave extends GOTEntityLysMan implements GOTFarmhand {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-			return "essos/lys/slave/hired";
+			return "standart/civilized/hired_slave";
 		}
 		return super.getSpeechBank(entityplayer);
 	}

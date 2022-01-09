@@ -109,6 +109,14 @@ public class GOTEntityGoldenMan extends GOTEntityHumanBase implements IPickpocke
 	}
 
 	@Override
+	public String getSpeechBank(EntityPlayer entityplayer) {
+		if (isFriendly(entityplayer)) {
+			return "standart/civilized/usual_friendly";
+		}
+		return "standart/civilized/usual_hostile";
+	}
+
+	@Override
 	public int getTotalArmorValue() {
 		return 15;
 	}

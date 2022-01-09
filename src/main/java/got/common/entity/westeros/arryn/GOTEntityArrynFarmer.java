@@ -40,9 +40,12 @@ public class GOTEntityArrynFarmer extends GOTEntityArrynMan implements GOTTradea
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "westeros/arryn/farmer/friendly";
+			if (canTradeWith(entityplayer)) {
+				return "standart/civilized/usual_friendly";
+			}
+			return "standart/civilized/usual_neutral";
 		}
-		return "westeros/arryn/farmer/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

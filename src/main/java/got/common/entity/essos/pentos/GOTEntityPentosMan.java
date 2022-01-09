@@ -125,13 +125,10 @@ public class GOTEntityPentosMan extends GOTEntityHumanBase implements IPickpocke
 
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isDrunkard()) {
-			return "special/drunkard";
-		}
 		if (isFriendly(entityplayer)) {
-			return "essos/pentos/man/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/pentos/man/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

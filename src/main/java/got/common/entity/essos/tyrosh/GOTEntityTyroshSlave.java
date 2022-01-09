@@ -24,7 +24,7 @@ public class GOTEntityTyroshSlave extends GOTEntityTyroshMan implements GOTFarmh
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-			return "essos/tyrosh/slave/hired";
+			return "standart/civilized/hired_slave";
 		}
 		return super.getSpeechBank(entityplayer);
 	}

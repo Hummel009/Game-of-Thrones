@@ -98,9 +98,9 @@ public class GOTEntityJonSnow extends GOTEntityHumanBase {
 		@Override
 		public String getSpeechBank(EntityPlayer entityplayer) {
 			if (isFriendly(entityplayer)) {
-				return "westeros/gift/guard/friendly";
+				return "standart/civilized/usual_friendly";
 			}
-			return "westeros/gift/guard/hostile";
+			return "standart/civilized/usual_hostile";
 		}
 
 		@Override

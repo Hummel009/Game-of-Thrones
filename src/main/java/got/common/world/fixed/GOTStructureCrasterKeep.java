@@ -6,7 +6,7 @@ import com.google.common.math.IntMath;
 
 import got.common.database.*;
 import got.common.entity.other.GOTEntityNPCRespawner;
-import got.common.entity.westeros.GOTEntityCrasterWife;
+import got.common.entity.westeros.legendary.GOTEntityCrasterWife;
 import got.common.entity.westeros.legendary.trader.GOTEntityCraster;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;

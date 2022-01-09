@@ -51,12 +51,9 @@ public class GOTEntityIronbornBlacksmith extends GOTEntityIronbornMan implements
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "westeros/ironborn/blacksmith/friendly";
-			}
-			return "westeros/ironborn/blacksmith/neutral";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/ironborn/blacksmith/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

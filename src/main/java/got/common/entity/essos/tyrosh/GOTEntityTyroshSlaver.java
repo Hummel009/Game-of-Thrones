@@ -40,9 +40,12 @@ public class GOTEntityTyroshSlaver extends GOTEntityTyroshMan implements GOTTrad
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "essos/tyrosh/slaver/friendly";
+			if (canTradeWith(entityplayer)) {
+				return "standart/civilized/usual_friendly";
+			}
+			return "standart/civilized/usual_neutral";
 		}
-		return "essos/tyrosh/slaver/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

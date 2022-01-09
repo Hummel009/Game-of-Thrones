@@ -183,7 +183,7 @@ public class GOTGuiAnvil extends GuiContainer {
 		List<EnumChatFormatting> itemNameFormatting = theAnvil.getActiveItemNameFormatting();
 		for (EnumChatFormatting formatting : itemNameFormatting) {
 			int formattingID = formatting.ordinal();
-			if (!(!formatting.isColor() || formattingID >= colorCodes.length)) {
+			if ((formatting.isColor() && (formattingID < colorCodes.length))) {
 				int color = colorCodes[formattingID];
 				textFieldRename.setTextColor(color);
 			}

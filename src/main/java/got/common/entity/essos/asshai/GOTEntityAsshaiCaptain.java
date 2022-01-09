@@ -43,11 +43,11 @@ public class GOTEntityAsshaiCaptain extends GOTEntityAsshaiGuard implements GOTU
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "essos/asshai/captain/friendly";
+				return "standart/civilized/usual_friendly";
 			}
-			return "essos/asshai/captain/neutral";
+			return "standart/civilized/usual_neutral";
 		}
-		return "essos/asshai/man/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

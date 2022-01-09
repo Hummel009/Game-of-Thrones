@@ -57,9 +57,12 @@ public class GOTEntityHarryStrickland extends GOTEntityHumanBase implements GOTU
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "essos/gold/friendly";
+			if (canTradeWith(entityplayer)) {
+				return "standart/civilized/usual_friendly";
+			}
+			return "standart/civilized/usual_neutral";
 		}
-		return "essos/gold/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

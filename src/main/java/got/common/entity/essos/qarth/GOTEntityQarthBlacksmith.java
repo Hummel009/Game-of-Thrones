@@ -59,12 +59,9 @@ public class GOTEntityQarthBlacksmith extends GOTEntityQarthMan implements GOTTr
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "essos/qarth/blacksmith/friendly";
-			}
-			return "essos/qarth/blacksmith/neutral";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/qarth/blacksmith/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

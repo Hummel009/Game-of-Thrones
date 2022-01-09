@@ -59,12 +59,9 @@ public class GOTEntityLysBlacksmith extends GOTEntityLysMan implements GOTTradea
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "essos/lys/blacksmith/friendly";
-			}
-			return "essos/lys/blacksmith/neutral";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/lys/blacksmith/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

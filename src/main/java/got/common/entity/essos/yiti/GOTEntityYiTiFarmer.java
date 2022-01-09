@@ -39,9 +39,12 @@ public class GOTEntityYiTiFarmer extends GOTEntityYiTiMan implements GOTTradeabl
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "essos/yiti/farmer/friendly";
+			if (canTradeWith(entityplayer)) {
+				return "standart/civilized/usual_friendly";
+			}
+			return "standart/civilized/usual_neutral";
 		}
-		return "essos/yiti/farmer/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

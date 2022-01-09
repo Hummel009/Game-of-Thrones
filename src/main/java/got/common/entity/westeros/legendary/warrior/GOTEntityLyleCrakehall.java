@@ -57,12 +57,9 @@ public class GOTEntityLyleCrakehall extends GOTEntityHumanBase {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "westeros/westerlands/soldier/hired";
-			}
-			return "westeros/westerlands/soldier/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "westeros/westerlands/soldier/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

@@ -543,7 +543,7 @@ public class GOTStructureNorthCity extends GOTVillageGen {
 
 		@Override
 		public void setupVillageProperties(Random random) {
-			if (isTown || isSmallTown ) {
+			if (isTown || isSmallTown) {
 				villageType = VillageType.TOWN;
 			} else if (isCastle || random.nextInt(4) == 0) {
 				villageType = VillageType.FORT;

@@ -58,12 +58,9 @@ public class GOTEntityYiTiBlacksmith extends GOTEntityYiTiMan implements GOTTrad
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (canTradeWith(entityplayer)) {
-				return "essos/yiti/blacksmith/friendly";
-			}
-			return "essos/yiti/blacksmith/neutral";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/yiti/blacksmith/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

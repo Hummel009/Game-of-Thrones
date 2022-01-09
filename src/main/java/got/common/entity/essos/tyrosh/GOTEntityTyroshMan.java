@@ -125,13 +125,10 @@ public class GOTEntityTyroshMan extends GOTEntityHumanBase implements IPickpocke
 
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isDrunkard()) {
-			return "special/drunkard";
-		}
 		if (isFriendly(entityplayer)) {
-			return "essos/tyrosh/man/friendly";
+			return "standart/civilized/usual_friendly";
 		}
-		return "essos/tyrosh/man/hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override
