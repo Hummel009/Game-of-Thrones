@@ -2,6 +2,7 @@ CHANGELOG
 
 >>VERSION 17.6
 * Recoded all the flat biome system
+* Reworked all the speechbank system
 
 + Added skirling pass as a hidden road in mountains
 + Added villages and houses for wildling, thenn and north hillmen
@@ -26,6 +27,8 @@ CHANGELOG
 
 * Optimized iron bank code
 
+* Fixed bug with Yi Ti border
+* Fixed bug with attack
 * Fixed bug with village spawning
 * Fixed bug with scorpion drop
 * Fixed bug with iron bank

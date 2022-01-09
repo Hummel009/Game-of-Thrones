@@ -12,7 +12,7 @@ public class GOTBiomeYiTiWasteland extends GOTBiomeYiTi {
 		super(i, major);
 		clearBiomeVariants();
 
-		SpawnListContainer[] c = new SpawnListContainer[2];
+		SpawnListContainer[] c = new SpawnListContainer[1];
 		c[0] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(10).add(c);
 

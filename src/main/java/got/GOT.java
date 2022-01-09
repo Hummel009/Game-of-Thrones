@@ -255,29 +255,17 @@ public class GOT {
 		GOTRegistry.assignMetadata();
 		GOTRegistry.registerBlocks();
 		GOTRegistry.registerItems();
-
-		buy.put(new ItemStack(GOTRegistry.coin, 1, 0), 1);
-		buy.put(new ItemStack(GOTRegistry.coin, 1, 1), 4);
-		buy.put(new ItemStack(GOTRegistry.coin, 1, 2), 16);
-		buy.put(new ItemStack(GOTRegistry.coin, 1, 3), 64);
-		buy.put(new ItemStack(GOTRegistry.coin, 1, 4), 256);
-		buy.put(new ItemStack(GOTRegistry.coin, 1, 5), 1024);
-		buy.put(new ItemStack(GOTRegistry.coin, 1, 6), 4096);
-		buy.put(new ItemStack(GOTRegistry.coin, 1, 7), 16384);
-
-		sell.put(new ItemStack(GOTRegistry.coin, 1, 0), 1);
-		sell.put(new ItemStack(GOTRegistry.coin, 1, 1), 4);
-		sell.put(new ItemStack(GOTRegistry.coin, 1, 2), 16);
-		sell.put(new ItemStack(GOTRegistry.coin, 1, 3), 64);
-		sell.put(new ItemStack(GOTRegistry.coin, 1, 4), 256);
-		sell.put(new ItemStack(GOTRegistry.coin, 1, 5), 1024);
-		sell.put(new ItemStack(GOTRegistry.coin, 1, 6), 4096);
-		sell.put(new ItemStack(GOTRegistry.coin, 1, 7), 16384);
-
 		Blocks.dragon_egg.setCreativeTab(GOTCreativeTabs.tabStory);
 		MinecraftForge.EVENT_BUS.register(new GOTTrackingEventHandler());
 		GOTLoader.preInit();
 		proxy.onPreload();
+
+		int k = 1;
+		for (int i = 0; i < 8; ++i){
+			buy.put(new ItemStack(GOTRegistry.coin, 1, i), k);
+			sell.put(new ItemStack(GOTRegistry.coin, 1, i), k);
+			k *= 4;
+		}
 	}
 
 	public static boolean canDropLoot(World world) {
@@ -297,7 +285,7 @@ public class GOT {
 			GOTEntityNPC npc = (GOTEntityNPC) attacker;
 			EntityPlayer hiringPlayer = npc.hiredNPCInfo.getHiringPlayer();
 			if (hiringPlayer != null) {
-				if (target.equals(hiringPlayer) || target.riddenByEntity.equals(hiringPlayer)) {
+				if (target == hiringPlayer || target.riddenByEntity == hiringPlayer) {
 					return false;
 				}
 				GOTEntityNPC targetNPC = null;
@@ -319,14 +307,14 @@ public class GOT {
 			if (attackerFaction.isGoodRelation(getNPCFaction(target)) && attacker.getAttackTarget() != target) {
 				return false;
 			}
-			if (target.riddenByEntity != null && attackerFaction.isGoodRelation(getNPCFaction(target.riddenByEntity)) && !attacker.getAttackTarget().equals(target) && !attacker.getAttackTarget().equals(target.riddenByEntity)) {
+			if (target.riddenByEntity != null && attackerFaction.isGoodRelation(getNPCFaction(target.riddenByEntity)) && attacker.getAttackTarget() != target && attacker.getAttackTarget() != target.riddenByEntity) {
 				return false;
 			}
 			if (!isPlayerDirected) {
-				if (target instanceof EntityPlayer && GOTLevelData.getData((EntityPlayer) target).getAlignment(attackerFaction) >= 0.0f && !attacker.getAttackTarget().equals(target)) {
+				if (target instanceof EntityPlayer && GOTLevelData.getData((EntityPlayer) target).getAlignment(attackerFaction) >= 0.0f && attacker.getAttackTarget() != target) {
 					return false;
 				}
-				if (target.riddenByEntity instanceof EntityPlayer && GOTLevelData.getData((EntityPlayer) target.riddenByEntity).getAlignment(attackerFaction) >= 0.0f && !attacker.getAttackTarget().equals(target) && !attacker.getAttackTarget().equals(target.riddenByEntity)) {
+				if (target.riddenByEntity instanceof EntityPlayer && GOTLevelData.getData((EntityPlayer) target.riddenByEntity).getAlignment(attackerFaction) >= 0.0f && attacker.getAttackTarget() != target && attacker.getAttackTarget() != target.riddenByEntity) {
 					return false;
 				}
 			}
@@ -339,14 +327,18 @@ public class GOT {
 			return false;
 		}
 		GOTPlayerData playerData = GOTLevelData.getData(attacker);
-		if ((target instanceof EntityPlayer && !target.equals(attacker)) && !playerData.isSiegeActive()) {
-			List<GOTFellowship> fellowships = playerData.getFellowships();
-			for (GOTFellowship fs : fellowships) {
-				EntityPlayer targetPlayer = (EntityPlayer) target;
-				if (!fs.getPreventPVP() || !fs.containsPlayer(targetPlayer.getUniqueID())) {
-					continue;
+		boolean friendlyFire = false;
+		boolean friendlyFireEnabled = playerData.getFriendlyFire();
+		if (target instanceof EntityPlayer && target != attacker) {
+			EntityPlayer targetPlayer = (EntityPlayer) target;
+			if (!playerData.isSiegeActive()) {
+				List<GOTFellowship> fellowships = playerData.getFellowships();
+				for (GOTFellowship fs : fellowships) {
+					if (!fs.getPreventPVP() || !fs.containsPlayer(targetPlayer.getUniqueID())) {
+						continue;
+					}
+					return false;
 				}
-				return false;
 			}
 		}
 		Entity targetNPC = null;
@@ -356,17 +348,16 @@ public class GOT {
 		} else if (getNPCFaction(target.riddenByEntity) != GOTFaction.UNALIGNED) {
 			targetNPC = target.riddenByEntity;
 		}
-		boolean friendlyFire = false;
 		if (targetNPC != null) {
 			targetNPCFaction = getNPCFaction(targetNPC);
 			if (targetNPC instanceof GOTEntityNPC) {
 				GOTEntityNPC targetgotNPC = (GOTEntityNPC) targetNPC;
 				GOTHiredNPCInfo hiredInfo = targetgotNPC.hiredNPCInfo;
 				if (hiredInfo.isActive) {
-					if (hiredInfo.getHiringPlayer().equals(attacker)) {
+					if (hiredInfo.getHiringPlayer() == attacker) {
 						return false;
 					}
-					if (!targetgotNPC.getAttackTarget().equals(attacker) && !playerData.isSiegeActive()) {
+					if (targetgotNPC.getAttackTarget() != attacker && !playerData.isSiegeActive()) {
 						UUID hiringPlayerID = hiredInfo.getHiringPlayerUUID();
 						List<GOTFellowship> fellowships = playerData.getFellowships();
 						for (GOTFellowship fs : fellowships) {
@@ -378,11 +369,10 @@ public class GOT {
 					}
 				}
 			}
-			if (targetNPC instanceof EntityLiving && !((EntityLiving) targetNPC).getAttackTarget().equals(attacker) && GOTLevelData.getData(attacker).getAlignment(targetNPCFaction) > 0.0f) {
+			if (targetNPC instanceof EntityLiving && ((EntityLiving) targetNPC).getAttackTarget() != attacker && GOTLevelData.getData(attacker).getAlignment(targetNPCFaction) > 0.0f) {
 				friendlyFire = true;
 			}
 		}
-		boolean friendlyFireEnabled = playerData.getFriendlyFire();
 		if (!friendlyFireEnabled && friendlyFire) {
 			if (warnFriendlyFire) {
 				GOTLevelData.getData(attacker).sendMessageIfNotReceived(GOTGuiMessageTypes.FRIENDLY_FIRE);
