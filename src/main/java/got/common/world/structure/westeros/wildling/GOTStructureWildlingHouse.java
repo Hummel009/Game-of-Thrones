@@ -25,7 +25,6 @@ public class GOTStructureWildlingHouse extends GOTStructureBase {
 	public Block doorBlock;
 	public Block floorBlock;
 	public int floorMeta;
-	public boolean isWarrior;
 	public boolean isThief;
 
 	public GOTStructureWildlingHouse(boolean flag) {
@@ -188,16 +187,9 @@ public class GOTStructureWildlingHouse extends GOTStructureBase {
 		setBlockAndMetadata(world, 1, 3, 4, Blocks.skull, 2);
 		if (isThief) {
 			spawnNPCAndSetHome(new GOTEntityThief(world), world, 0, 1, 0, 8);
-		} else if (isWarrior) {
-			int num = random.nextInt(2);
-			switch (num) {
-			case 0:
-				spawnNPCAndSetHome(new GOTEntityWildlingArcher(world), world, 0, 1, 0, 8);
-				break;
-			case 1:
-				spawnNPCAndSetHome(new GOTEntityWildlingAxeThrower(world), world, 0, 1, 0, 8);
-				break;
-			}
+		} else if (random.nextInt(4) == 1) {
+			spawnNPCAndSetHome(new GOTEntityWildlingArcher(world), world, 0, 1, 0, 8);
+			spawnNPCAndSetHome(new GOTEntityWildlingAxeThrower(world), world, 0, 1, 0, 8);
 		} else {
 			GOTEntityWildling male = new GOTEntityWildling(world);
 			male.familyInfo.setMale(true);
@@ -217,11 +209,6 @@ public class GOTStructureWildlingHouse extends GOTStructureBase {
 
 	public GOTStructureBase setIsThief() {
 		isThief = true;
-		return this;
-	}
-
-	public GOTStructureBase setIsWarrior() {
-		isWarrior = true;
 		return this;
 	}
 }

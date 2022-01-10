@@ -57,7 +57,7 @@ public class GOTStructureThennVillage extends GOTVillageGen {
 			int centreSide = 19;
 			this.addStructure(new GOTStructureMossovyWell(false), 0, -2, 0, true);
 			this.addStructure(new GOTStructureThennHouse(false).setIsBlacksmith(), 0, -centreSide, 2, true);
-			this.addStructure(new GOTStructureThennHouse(false).setIsWarrior(), -pathEnd, 0, 1, true);
+			this.addStructure(new GOTStructureThennHouse(false), -pathEnd, 0, 1, true);
 			this.addStructure(new GOTStructureThennMagnarHouse(false), pathEnd, 0, 3, true);
 			int rowHouses = 3;
 			for (int l = -rowHouses; l <= rowHouses; ++l) {

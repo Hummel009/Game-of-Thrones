@@ -25,7 +25,6 @@ public class GOTStructureThennHouse extends GOTStructureBase {
 	public Block floorBlock;
 	public int floorMeta;
 	public boolean isBlacksmith;
-	public boolean isWarrior;
 
 	public GOTStructureThennHouse(boolean flag) {
 		super(flag);
@@ -187,19 +186,10 @@ public class GOTStructureThennHouse extends GOTStructureBase {
 		setBlockAndMetadata(world, 1, 3, 4, Blocks.skull, 2);
 		if (isBlacksmith) {
 			spawnNPCAndSetHome(new GOTEntityThennBlacksmith(world), world, 0, 1, 0, 8);
-		} else if (isWarrior) {
-			int num = random.nextInt(3);
-			switch (num) {
-			case 0:
-				spawnNPCAndSetHome(new GOTEntityThennArcher(world), world, 0, 1, 0, 8);
-				break;
-			case 1:
-				spawnNPCAndSetHome(new GOTEntityThennAxeThrower(world), world, 0, 1, 0, 8);
-				break;
-			case 2:
-				spawnNPCAndSetHome(new GOTEntityThennBerserker(world), world, 0, 1, 0, 8);
-				break;
-			}
+		} else if (random.nextInt(4) == 1) {
+			spawnNPCAndSetHome(new GOTEntityThennArcher(world), world, 0, 1, 0, 8);
+			spawnNPCAndSetHome(new GOTEntityThennAxeThrower(world), world, 0, 1, 0, 8);
+			spawnNPCAndSetHome(new GOTEntityThennBerserker(world), world, 0, 1, 0, 8);
 		} else {
 			GOTEntityThenn male = new GOTEntityThenn(world);
 			male.familyInfo.setMale(true);
@@ -219,11 +209,6 @@ public class GOTStructureThennHouse extends GOTStructureBase {
 
 	public GOTStructureBase setIsBlacksmith() {
 		isBlacksmith = true;
-		return this;
-	}
-
-	public GOTStructureBase setIsWarrior() {
-		isWarrior = true;
 		return this;
 	}
 }

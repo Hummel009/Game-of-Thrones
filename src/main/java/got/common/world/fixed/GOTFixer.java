@@ -51,7 +51,6 @@ import got.common.world.structure.westeros.reach.GOTStructureReachCity;
 import got.common.world.structure.westeros.riverlands.GOTStructureRiverlandsCity;
 import got.common.world.structure.westeros.stormlands.GOTStructureStormlandsCity;
 import got.common.world.structure.westeros.westerlands.GOTStructureWesterlandsCity;
-import got.common.world.structure.westeros.wildling.GOTStructureWildlingVillage;
 import net.minecraft.world.World;
 
 public class GOTFixer {
@@ -175,7 +174,7 @@ public class GOTFixer {
 		f35 = new GOTStructureDorneCity(biome, 0.0f).setIsTown();
 		f36 = new GOTStructureDragonstoneCity(biome, 0.0f).setIsCastle();
 		f37 = new GOTStructureDragonstoneCity(biome, 0.0f).setIsTown();
-		f38 = new GOTStructureWildlingVillage(biome, 0.0f).setIsHardhome();
+		f38 = new GOTStructureHardhome(biome, 0.0f);
 		f39 = new GOTStructureGiftVillage(biome, 0.0f);
 		f40 = new GOTStructureReachCity(biome, 0.0f).setIsCastle();
 		f41 = new GOTStructureWesterlandsCity(biome, 0.0f).setIsTown();

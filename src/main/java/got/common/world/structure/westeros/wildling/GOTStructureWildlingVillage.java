@@ -11,8 +11,6 @@ import got.common.world.structure.other.*;
 import net.minecraft.world.World;
 
 public class GOTStructureWildlingVillage extends GOTVillageGen {
-	public boolean isHardhome;
-
 	public GOTStructureWildlingVillage(GOTBiome biome, float f) {
 		super(biome);
 		gridScale = 12;
@@ -24,11 +22,6 @@ public class GOTStructureWildlingVillage extends GOTVillageGen {
 	@Override
 	public GOTVillageGen.AbstractInstance createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 		return new Instance(this, world, i, k, random, loc);
-	}
-
-	public GOTVillageGen setIsHardhome() {
-		isHardhome = true;
-		return this;
 	}
 
 	public class Instance extends GOTVillageGen.AbstractInstance {
@@ -64,12 +57,8 @@ public class GOTStructureWildlingVillage extends GOTVillageGen {
 			int centreSide = 19;
 			this.addStructure(new GOTStructureMossovyWell(false), 0, -2, 0, true);
 			this.addStructure(new GOTStructureWildlingHouse(false).setIsThief(), 0, -centreSide, 2, true);
-			this.addStructure(new GOTStructureWildlingHouse(false).setIsWarrior(), -pathEnd, 0, 1, true);
-			if (isHardhome) {
-				this.addStructure(new GOTStructureWildlingChieftainHouse(false).setIsHardhome(), pathEnd, 0, 3, true);
-			} else {
-				this.addStructure(new GOTStructureWildlingChieftainHouse(false), pathEnd, 0, 3, true);
-			}
+			this.addStructure(new GOTStructureWildlingHouse(false), -pathEnd, 0, 1, true);
+			this.addStructure(new GOTStructureWildlingChieftainHouse(false), pathEnd, 0, 3, true);
 			int rowHouses = 3;
 			for (int l = -rowHouses; l <= rowHouses; ++l) {
 				int i1 = l * 18;
