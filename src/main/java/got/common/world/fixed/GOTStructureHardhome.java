@@ -108,23 +108,6 @@ public class GOTStructureHardhome extends GOTVillageGen {
 
 		@Override
 		public GOTBezierType getPath(Random random, int i, int k) {
-			int innerOut;
-			int outerOut;
-			int i1 = Math.abs(i);
-			int k1 = Math.abs(k);
-			if (true) {
-				innerOut = 18;
-				if (i1 <= innerOut && k1 <= innerOut && (i1 >= 12 || k1 >= 12)) {
-					return GOTBezierType.PATH_DIRTY;
-				}
-				if (i1 <= 3 && k1 >= innerOut && k1 <= 86 || k1 <= 3 && i1 >= innerOut && i1 <= 86) {
-					return GOTBezierType.PATH_DIRTY;
-				}
-				outerOut = 66;
-				if (i1 <= outerOut && k1 <= outerOut && (i1 >= 60 || k1 >= 60)) {
-					return GOTBezierType.PATH_DIRTY;
-				}
-			}
 			return null;
 		}
 

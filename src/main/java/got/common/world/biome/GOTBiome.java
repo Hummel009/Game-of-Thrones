@@ -177,6 +177,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome yiTi;
 	public static GOTBiome yiTiWasteland;
 	public static GOTBiome yunkai;
+	public static GOTBiome lhazarFlat;
 	public static NoiseGeneratorPerlin biomeTerrainNoise;
 	public static Random terrainRand;
 	public static float defaultVariantChance = 0.4f;
@@ -195,7 +196,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 	public static int SPAWN = 500;
 	public static int CONQUEST_SPAWN = 100;
-	public static GOTBiome lhazarFlat;
 	public GOTDimension biomeDimension;
 	public GOTBiomeDecorator decorator;
 	public int topBlockMeta = 0;
@@ -1121,6 +1121,11 @@ public abstract class GOTBiome extends BiomeGenBase {
 		yiTiWasteland = new GOTBiomeYiTiWasteland(163, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xBEB74F).setBiomeName("yiTi");
 		yunkai = new GOTBiomeYunkai(164, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xA3AA48).setBiomeName("yunkai");
 		ibbenMountains = new GOTBiomeIbbenMountains(165, true).setIsLongWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0x808081).setBiomeName("ibbenMountains");
+		for (int i = 1; i < 256; ++i) {
+			if (GOTDimension.GAME_OF_THRONES.biomeList[i] == null) {
+				GOTDimension.GAME_OF_THRONES.biomeList[i] = GOTBiome.ocean;
+			}
+		}
 	}
 
 	public static void updateWaterColor(int k) {
