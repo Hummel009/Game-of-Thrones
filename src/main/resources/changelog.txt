@@ -28,6 +28,7 @@ CHANGELOG
 
 * Optimized iron bank code
 
+* Fixed bug with crashing removed biomes
 * Fixed bug with Yi Ti border
 * Fixed bug with attack
 * Fixed bug with village spawning
