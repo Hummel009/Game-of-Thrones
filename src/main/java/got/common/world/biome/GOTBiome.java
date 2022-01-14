@@ -1121,7 +1121,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		yiTiWasteland = new GOTBiomeYiTiWasteland(163, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xBEB74F).setBiomeName("yiTi");
 		yunkai = new GOTBiomeYunkai(164, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xA3AA48).setBiomeName("yunkai");
 		ibbenMountains = new GOTBiomeIbbenMountains(165, true).setIsLongWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0x808081).setBiomeName("ibbenMountains");
-		for (int i = 1; i < 162; ++i) {
+		for (int i = 1; i < 256; ++i) {
 			if (GOTDimension.GAME_OF_THRONES.biomeList[i] == null) {
 				GOTDimension.GAME_OF_THRONES.biomeList[i] = GOTBiome.ocean;
 			}
