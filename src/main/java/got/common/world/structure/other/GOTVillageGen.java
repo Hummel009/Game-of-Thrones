@@ -48,18 +48,6 @@ public abstract class GOTVillageGen {
 		return loc;
 	}
 
-	public LocationInfo affix(GOTWaypoint wp) {
-		return addFixedLocation(wp, 0, 0, 0);
-	}
-
-	public LocationInfo affix(GOTWaypoint wp, int rotation) {
-		return addFixedLocation(wp, 0, 0, rotation);
-	}
-
-	public LocationInfo affix(GOTWaypoint wp, int addX, int addZ) {
-		return addFixedLocation(wp, addX * GOTGenLayerWorld.scale, addZ * GOTGenLayerWorld.scale, 0);
-	}
-
 	public LocationInfo affix(GOTWaypoint wp, int addX, int addZ, int rotation) {
 		return addFixedLocation(wp, addX * GOTGenLayerWorld.scale, addZ * GOTGenLayerWorld.scale, rotation);
 	}
