@@ -39,7 +39,6 @@ public abstract class GOTVillageGen {
 		return loc;
 	}
 
-	/* Test */
 	public LocationInfo affix(GOTWaypoint... wps) {
 		LocationInfo loc = null;
 		for (GOTWaypoint wp: wps) {
