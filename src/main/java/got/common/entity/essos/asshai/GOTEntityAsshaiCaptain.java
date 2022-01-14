@@ -10,7 +10,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityAsshaiCaptain extends GOTEntityAsshaiGuard implements GOTUnitTradeable {
+public class GOTEntityAsshaiCaptain extends GOTEntityAsshaiWarrior implements GOTUnitTradeable {
 	public GOTEntityAsshaiCaptain(World world) {
 		super(world);
 		canBeMarried = false;

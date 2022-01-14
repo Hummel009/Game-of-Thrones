@@ -12,7 +12,7 @@ import net.minecraft.network.play.server.S27PacketExplosion;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
-public class GOTEntityAsshaiSpherebinder extends GOTEntityAsshaiGuard {
+public class GOTEntityAsshaiSpherebinder extends GOTEntityAsshaiWarrior {
 	public GOTEntityAsshaiSpherebinder(World world) {
 		super(world);
 		canBeMarried = false;

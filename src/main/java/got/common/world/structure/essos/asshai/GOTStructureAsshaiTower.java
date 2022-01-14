@@ -127,7 +127,7 @@ public class GOTStructureAsshaiTower extends GOTStructureBase {
 		}
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClass(GOTEntityAsshaiGuard.class);
+		respawner.setSpawnClass(GOTEntityAsshaiWarrior.class);
 		respawner.setCheckRanges(12, -8, 50, 20);
 		respawner.setSpawnRanges(5, 1, 40, 16);
 		placeNPCRespawner(respawner, world, i, j, k);

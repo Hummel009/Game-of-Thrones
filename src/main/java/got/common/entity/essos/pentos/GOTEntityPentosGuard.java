@@ -8,11 +8,20 @@ import net.minecraft.world.World;
 public class GOTEntityPentosGuard extends GOTEntityPentosLevyman {
 	public GOTEntityPentosGuard(World world) {
 		super(world);
-		canBeMarried = false;
 		spawnRidingHorse = false;
 		npcCape = GOTCapes.PENTOS;
 		npcShield = GOTShields.PENTOS;
 		addTargetTasks(false);
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 5.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.BANDIT;
 	}
 
 	@Override

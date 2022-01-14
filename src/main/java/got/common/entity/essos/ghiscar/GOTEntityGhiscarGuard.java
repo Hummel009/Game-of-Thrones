@@ -8,11 +8,20 @@ import net.minecraft.world.World;
 public class GOTEntityGhiscarGuard extends GOTEntityGhiscarLevyman {
 	public GOTEntityGhiscarGuard(World world) {
 		super(world);
-		canBeMarried = false;
 		spawnRidingHorse = false;
 		npcCape = GOTCapes.GHISCAR;
 		npcShield = GOTShields.GHISCAR;
 		addTargetTasks(false);
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 5.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.BANDIT;
 	}
 
 	@Override

@@ -8,11 +8,20 @@ import net.minecraft.world.World;
 public class GOTEntityQarthGuard extends GOTEntityQarthLevyman {
 	public GOTEntityQarthGuard(World world) {
 		super(world);
-		canBeMarried = false;
 		spawnRidingHorse = false;
 		npcCape = GOTCapes.QARTH;
 		npcShield = GOTShields.QARTH;
 		addTargetTasks(false);
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 5.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.BANDIT;
 	}
 
 	@Override

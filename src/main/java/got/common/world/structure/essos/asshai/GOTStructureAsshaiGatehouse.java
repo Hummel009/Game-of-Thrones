@@ -3,7 +3,7 @@ package got.common.world.structure.essos.asshai;
 import java.util.Random;
 
 import got.common.database.GOTRegistry;
-import got.common.entity.essos.asshai.GOTEntityAsshaiGuard;
+import got.common.entity.essos.asshai.GOTEntityAsshaiWarrior;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -275,7 +275,7 @@ public class GOTStructureAsshaiGatehouse extends GOTStructureAsshaiBase {
 		for (int i1421 : new int[] { -1, 1 }) {
 			j12 = 8;
 			int k17 = 0;
-			GOTEntityAsshaiGuard levyman = new GOTEntityAsshaiGuard(world);
+			GOTEntityAsshaiWarrior levyman = new GOTEntityAsshaiWarrior(world);
 			spawnNPCAndSetHome(levyman, world, i1421, j12, k17, 8);
 		}
 		return true;

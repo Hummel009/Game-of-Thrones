@@ -6,7 +6,7 @@ import net.minecraft.entity.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityAsshaiShadowbinder extends GOTEntityAsshaiGuard {
+public class GOTEntityAsshaiShadowbinder extends GOTEntityAsshaiWarrior {
 	public GOTEntityAsshaiShadowbinder(World world) {
 		super(world);
 		canBeMarried = false;

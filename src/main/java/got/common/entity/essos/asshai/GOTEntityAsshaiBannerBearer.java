@@ -4,7 +4,7 @@ import got.common.entity.other.GOTBannerBearer;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.world.World;
 
-public class GOTEntityAsshaiBannerBearer extends GOTEntityAsshaiGuard implements GOTBannerBearer {
+public class GOTEntityAsshaiBannerBearer extends GOTEntityAsshaiWarrior implements GOTBannerBearer {
 	public GOTEntityAsshaiBannerBearer(World world) {
 		super(world);
 		canBeMarried = false;

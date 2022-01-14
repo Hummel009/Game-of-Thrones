@@ -8,8 +8,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityAsshaiGuard extends GOTEntityAsshaiMan {
-	public GOTEntityAsshaiGuard(World world) {
+public class GOTEntityAsshaiWarrior extends GOTEntityAsshaiMan {
+	public GOTEntityAsshaiWarrior(World world) {
 		super(world);
 		canBeMarried = false;
 		npcCape = GOTCapes.ASSHAI;
@@ -23,7 +23,7 @@ public class GOTEntityAsshaiGuard extends GOTEntityAsshaiMan {
 
 	@Override
 	public float getAlignmentBonus() {
-		return 2.0f;
+		return 3.0f;
 	}
 
 	@Override

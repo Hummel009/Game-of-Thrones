@@ -71,7 +71,7 @@ public class GOTStructureAsshaiCity extends GOTVillageGen {
 
 						@Override
 						public void setupRespawner(GOTEntityNPCRespawner spawner) {
-							spawner.setSpawnClass(GOTEntityAsshaiGuard.class);
+							spawner.setSpawnClass(GOTEntityAsshaiWarrior.class);
 							spawner.setCheckRanges(40, -12, 12, 16);
 							spawner.setSpawnRanges(20, -6, 6, 64);
 							spawner.setBlockEnemySpawnRange(60);

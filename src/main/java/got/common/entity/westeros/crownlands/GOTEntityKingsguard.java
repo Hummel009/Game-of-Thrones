@@ -1,10 +1,8 @@
 package got.common.entity.westeros.crownlands;
 
 import got.common.database.*;
-import got.common.entity.ai.*;
-import got.common.entity.other.GOTEntityNPC;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.EntityAIBase;
+import got.common.entity.ai.GOTEntityAINearestAttackableTargetPatriot;
+import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 

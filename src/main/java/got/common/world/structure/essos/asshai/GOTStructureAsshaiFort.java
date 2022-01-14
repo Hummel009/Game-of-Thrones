@@ -164,7 +164,7 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 			spawnNPCAndSetHome(psychobinder, world, 0, 1, 0, 32);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClasses(GOTEntityAsshaiGuard.class, GOTEntityAsshaiShadowbinder.class);
+		respawner.setSpawnClasses(GOTEntityAsshaiWarrior.class, GOTEntityAsshaiShadowbinder.class);
 		respawner.setCheckRanges(32, -16, 20, 24);
 		respawner.setSpawnRanges(24, -4, 8, 24);
 		placeNPCRespawner(respawner, world, 0, 0, 0);

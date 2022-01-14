@@ -8,11 +8,20 @@ import net.minecraft.world.World;
 public class GOTEntityQohorGuard extends GOTEntityQohorLevyman {
 	public GOTEntityQohorGuard(World world) {
 		super(world);
-		canBeMarried = false;
 		spawnRidingHorse = false;
 		npcCape = GOTCapes.QOHOR;
 		npcShield = GOTShields.QOHOR;
 		addTargetTasks(false);
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 5.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.BANDIT;
 	}
 
 	@Override

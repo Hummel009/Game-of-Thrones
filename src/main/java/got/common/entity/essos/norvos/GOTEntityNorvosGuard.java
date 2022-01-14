@@ -8,11 +8,20 @@ import net.minecraft.world.World;
 public class GOTEntityNorvosGuard extends GOTEntityNorvosLevyman {
 	public GOTEntityNorvosGuard(World world) {
 		super(world);
-		canBeMarried = false;
 		spawnRidingHorse = false;
 		npcCape = GOTCapes.NORVOS;
 		npcShield = GOTShields.NORVOS;
 		addTargetTasks(false);
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 5.0f;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.BANDIT;
 	}
 
 	@Override

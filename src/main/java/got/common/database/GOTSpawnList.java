@@ -54,7 +54,7 @@ public class GOTSpawnList {
 	public static GOTSpawnList ARRYN_MILITARY = new GOTSpawnList(new GOTSpawnEntry(GOTEntityArrynLevyman.class, 10, 1, 2), new GOTSpawnEntry(GOTEntityArrynLevymanArcher.class, 5, 1, 2));
 
 	public static GOTSpawnList ASSHAI_CIVILIAN = new GOTSpawnList(new GOTSpawnEntry(GOTEntityAsshaiMan.class, 10, 1, 2));
-	public static GOTSpawnList ASSHAI_MILITARY = new GOTSpawnList(new GOTSpawnEntry(GOTEntityAsshaiGuard.class, 10, 1, 2), new GOTSpawnEntry(GOTEntityAsshaiSpherebinder.class, 5, 1, 1), new GOTSpawnEntry(GOTEntityAsshaiShadowbinder.class, 2, 1, 1));
+	public static GOTSpawnList ASSHAI_MILITARY = new GOTSpawnList(new GOTSpawnEntry(GOTEntityAsshaiWarrior.class, 10, 1, 2), new GOTSpawnEntry(GOTEntityAsshaiSpherebinder.class, 5, 1, 1), new GOTSpawnEntry(GOTEntityAsshaiShadowbinder.class, 2, 1, 1));
 
 	public static GOTSpawnList BRAAVOS_CIVILIAN = new GOTSpawnList(new GOTSpawnEntry(GOTEntityBraavosMan.class, 10, 1, 2));
 	public static GOTSpawnList BRAAVOS_MILITARY = new GOTSpawnList(new GOTSpawnEntry(GOTEntityBraavosLevyman.class, 10, 1, 2), new GOTSpawnEntry(GOTEntityBraavosLevymanArcher.class, 5, 1, 2));

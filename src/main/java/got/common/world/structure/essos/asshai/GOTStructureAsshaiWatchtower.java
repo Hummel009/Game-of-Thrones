@@ -180,13 +180,13 @@ public class GOTStructureAsshaiWatchtower extends GOTStructureAsshaiBase {
 		setBlockAndMetadata(world, 0, 11, 3, Blocks.torch, 4);
 		setBlockAndMetadata(world, -3, 11, 0, Blocks.torch, 2);
 		setBlockAndMetadata(world, 3, 11, 0, Blocks.torch, 1);
-		GOTEntityAsshaiGuard soldier = new GOTEntityAsshaiGuard(world);
+		GOTEntityAsshaiWarrior soldier = new GOTEntityAsshaiWarrior(world);
 		soldier.spawnRidingHorse = false;
 		spawnNPCAndSetHome(soldier, world, 0, 1, 0, 16);
 		GOTEntityAsshaiShadowbinder levyman = new GOTEntityAsshaiShadowbinder(world);
 		spawnNPCAndSetHome(levyman, world, 0, 11, 1, 16);
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClass(GOTEntityAsshaiGuard.class);
+		respawner.setSpawnClass(GOTEntityAsshaiWarrior.class);
 		respawner.setCheckRanges(16, -12, 8, 6);
 		respawner.setSpawnRanges(3, -6, 6, 16);
 		placeNPCRespawner(respawner, world, 0, 6, 0);
