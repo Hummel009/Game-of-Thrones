@@ -15,6 +15,8 @@ CHANGELOG
 + Added Tugar Khan achievement
 + Added dark variants of scrap trader and thief
 
+* Improved Lannister textures (banner, armor, shield: prod. GothVII & Hummel009)
+* Improved guards: sync between Essos and Westeros
 * Improved Yi Ti Roads
 * Improved almost all biomes
 * Improved summer islands' strscans
