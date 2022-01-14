@@ -261,7 +261,7 @@ public class GOT {
 		proxy.onPreload();
 
 		int k = 1;
-		for (int i = 0; i < 8; ++i){
+		for (int i = 0; i < 8; ++i) {
 			buy.put(new ItemStack(GOTRegistry.coin, 1, i), k);
 			sell.put(new ItemStack(GOTRegistry.coin, 1, i), k);
 			k *= 4;

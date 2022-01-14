@@ -7,7 +7,6 @@ import got.common.GOTConfig;
 import got.common.util.CentredSquareArray;
 import got.common.world.GOTWorldChunkManager;
 import got.common.world.biome.GOTBiome;
-import got.common.world.genlayer.GOTGenLayerWorld;
 import got.common.world.map.*;
 import net.minecraft.block.*;
 import net.minecraft.init.Blocks;
@@ -33,23 +32,13 @@ public abstract class GOTVillageGen {
 		spawnBiomes.add(villageBiome);
 	}
 
-	public LocationInfo addFixedLocation(GOTWaypoint wp, int addX, int addZ, int rotation) {
-		LocationInfo loc = new LocationInfo(wp.getXCoord() + addX, wp.getZCoord() + addZ, rotation, wp.getCodeName()).setFixedLocation(wp);
-		fixedLocations.add(loc);
-		return loc;
-	}
-
 	public LocationInfo affix(GOTWaypoint... wps) {
 		LocationInfo loc = null;
-		for (GOTWaypoint wp: wps) {
-			loc = new LocationInfo(wp.getXCoord(), wp.getZCoord(), 0, wp.getCodeName()).setFixedLocation(wp);
+		for (GOTWaypoint wp : wps) {
+			loc = new LocationInfo(wp.getXCoord() + wp.getAddX(), wp.getZCoord() + wp.getAddZ(), wp.getRotation(), wp.getCodeName()).setFixedLocation(wp);
 			fixedLocations.add(loc);
 		}
 		return loc;
-	}
-
-	public LocationInfo affix(GOTWaypoint wp, int addX, int addZ, int rotation) {
-		return addFixedLocation(wp, addX * GOTGenLayerWorld.scale, addZ * GOTGenLayerWorld.scale, rotation);
 	}
 
 	public boolean anyFixedVillagesAt(World world, int i, int k) {

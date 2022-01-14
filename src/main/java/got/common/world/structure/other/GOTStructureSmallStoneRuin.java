@@ -158,10 +158,8 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 					int j1 = getTopBlock(world, m, k1);
 					for (int j2 = j1; j2 >= pitDepth; j2--) {
 						setAir(world, m, j2, k1);
-						if (i2 == 1 && k2 == 1) {
-							if (random.nextInt(10) == 0) {
-								setBlockAndMetadata(world, m, j2, k1, Blocks.stone_slab, 0);
-							}
+						if ((i2 == 1 && k2 == 1) && (random.nextInt(10) == 0)) {
+							setBlockAndMetadata(world, m, j2, k1, Blocks.stone_slab, 0);
 						}
 					}
 				}
@@ -368,13 +366,11 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 				for (int k1 = -2; k1 <= 2; k1++) {
 					int i2 = Math.abs(n);
 					int k2 = Math.abs(k1);
-					if (i2 == 2 || k2 == 2) {
-						if (random.nextBoolean()) {
-							if (rotten) {
-								setBlockAndMetadata(world, n, 6, k1, GOTRegistry.fenceRotten, 0);
-							} else {
-								setBlockAndMetadata(world, n, 6, k1, Blocks.fence, 0);
-							}
+					if ((i2 == 2 || k2 == 2) && random.nextBoolean()) {
+						if (rotten) {
+							setBlockAndMetadata(world, n, 6, k1, GOTRegistry.fenceRotten, 0);
+						} else {
+							setBlockAndMetadata(world, n, 6, k1, Blocks.fence, 0);
 						}
 					}
 				}
@@ -573,17 +569,15 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 							}
 						}
 					}
-					if (i2 == 4 || k2 == 4) {
-						if (random.nextInt(3) != 0) {
-							if (random.nextInt(3) == 0) {
-								if (random.nextBoolean()) {
-									setBlockAndMetadata(world, i1, 7, m, Blocks.stone_brick_stairs, random.nextInt(4));
-								} else {
-									setBlockAndMetadata(world, i1, 7, m, Blocks.stone_slab, 0);
-								}
+					if ((i2 == 4 || k2 == 4) && (random.nextInt(3) != 0)) {
+						if (random.nextInt(3) == 0) {
+							if (random.nextBoolean()) {
+								setBlockAndMetadata(world, i1, 7, m, Blocks.stone_brick_stairs, random.nextInt(4));
 							} else {
-								placeRandomStoneBrick(world, random, i1, 7, m);
+								setBlockAndMetadata(world, i1, 7, m, Blocks.stone_slab, 0);
 							}
+						} else {
+							placeRandomStoneBrick(world, random, i1, 7, m);
 						}
 					}
 				}
@@ -789,14 +783,21 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 									} else if (randomWall == 3) {
 										int stairDir = random.nextInt(8);
 										setBlockAndMetadata(world, i1, j1, k1, Blocks.brick_stairs, stairDir);
-									} else if (randomWall == 4) {
-										int stairDir = random.nextInt(8);
-										setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.stairsClayTile, stairDir);
-									} else if (randomWall == 5) {
-										setBlockAndMetadata(world, i1, j1, k1, Blocks.cobblestone, 0);
-									} else if (randomWall == 6) {
-										setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.wallStoneV, 6);
-									}
+									} else
+										switch (randomWall) {
+										case 4:
+											int stairDir = random.nextInt(8);
+											setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.stairsClayTile, stairDir);
+											break;
+										case 5:
+											setBlockAndMetadata(world, i1, j1, k1, Blocks.cobblestone, 0);
+											break;
+										case 6:
+											setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.wallStoneV, 6);
+											break;
+										default:
+											break;
+										}
 								}
 								if (random.nextInt(6) == 0) {
 									break;
@@ -806,15 +807,22 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 					} else if (i2 == width - 1 || k2 == width - 1) {
 						if (random.nextInt(3) == 0) {
 							int randomWall = random.nextInt(4);
-							if (randomWall == 0) {
+							switch (randomWall) {
+							case 0:
 								setBlockAndMetadata(world, i1, 1, k1, Blocks.brick_block, 0);
-							} else if (randomWall == 1) {
+								break;
+							case 1:
 								int stairDir = random.nextInt(8);
 								setBlockAndMetadata(world, i1, 1, k1, Blocks.brick_stairs, stairDir);
-							} else if (randomWall == 2) {
+								break;
+							case 2:
 								setBlockAndMetadata(world, i1, 1, k1, GOTRegistry.planksRotten, 0);
-							} else if (randomWall == 3) {
+								break;
+							case 3:
 								setBlockAndMetadata(world, i1, 1, k1, GOTRegistry.fenceRotten, 0);
+								break;
+							default:
+								break;
 							}
 						}
 					} else if (random.nextInt(8) == 0) {

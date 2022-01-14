@@ -24,6 +24,9 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 	public int xCoord;
 	public int zCoord;
 	public boolean isHidden;
+	private int rotation;
+	private int addX;
+	private int addZ;
 
 	GOTWaypoint(Region r, GOTFaction f, int x, int y) {
 		this(r, f, x, y, false);
@@ -40,6 +43,14 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 		xCoord = GOTWaypoint.mapToWorldX(x);
 		zCoord = GOTWaypoint.mapToWorldZ(y);
 		isHidden = hide;
+	}
+
+	public int getAddX() {
+		return addX;
+	}
+
+	public int getAddZ() {
+		return addZ;
 	}
 
 	@Override
@@ -68,6 +79,10 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 	@Override
 	public String getLoreText(EntityPlayer entityplayer) {
 		return StatCollector.translateToLocal("got.wp." + getCodeName() + ".info");
+	}
+
+	public int getRotation() {
+		return rotation;
 	}
 
 	@Override
@@ -112,6 +127,13 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 			}
 		}
 		return false;
+	}
+
+	public GOTWaypoint info(int i, int j, int r) {
+		addX = i * GOTGenLayerWorld.scale;
+		addZ = j * GOTGenLayerWorld.scale;
+		rotation = r;
+		return this;
 	}
 
 	public boolean isCompatibleAlignment(EntityPlayer entityplayer) {

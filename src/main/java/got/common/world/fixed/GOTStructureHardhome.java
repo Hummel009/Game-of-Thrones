@@ -31,7 +31,6 @@ public class GOTStructureHardhome extends GOTVillageGen {
 
 		@Override
 		public void addVillageStructures(Random random) {
-			int marketZ;
 			this.addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
