@@ -9,7 +9,6 @@ import net.minecraft.world.World;
 public class GOTEntityCrownlandsGuard extends GOTEntityCrownlandsLevyman {
 	public GOTEntityCrownlandsGuard(World world) {
 		super(world);
-		canBeMarried = false;
 		spawnRidingHorse = false;
 		npcShield = GOTShields.CROWNLANDS;
 		npcCape = GOTCapes.CROWNLANDS;
@@ -17,14 +16,8 @@ public class GOTEntityCrownlandsGuard extends GOTEntityCrownlandsLevyman {
 	}
 
 	@Override
-	public void applyEntityAttributes() {
-		super.applyEntityAttributes();
-		getEntityAttribute(npcRangedAccuracy).setBaseValue(0.75);
-	}
-
-	@Override
 	public float getAlignmentBonus() {
-		return 3.0f;
+		return 5.0f;
 	}
 
 	@Override
@@ -33,51 +26,11 @@ public class GOTEntityCrownlandsGuard extends GOTEntityCrownlandsLevyman {
 	}
 
 	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
-			if (mounted) {
-				setCurrentItemOrArmor(0, npcItemsInv.getIdleItemMounted());
-			} else {
-				setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
-			}
-		} else if (mounted) {
-			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeaponMounted());
-		} else {
-			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
-		}
-	}
-
-	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(6);
-		switch (i) {
-		case 0:
-		case 1:
-		case 2:
-		case 3:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosHammer));
-			break;
-		case 4:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosSword));
-			break;
-		case 5:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosPike));
-			break;
-		default:
-			break;
-		}
-		if (rand.nextInt(3) == 0) {
-			npcItemsInv.setMeleeWeaponMounted(new ItemStack(GOTRegistry.westerosLance));
-		} else {
-			npcItemsInv.setMeleeWeaponMounted(npcItemsInv.getMeleeWeapon());
-		}
-		if (rand.nextInt(5) == 0) {
-			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosSpear));
-		}
+		setCurrentItemOrArmor(0, new ItemStack(GOTRegistry.westerosPike));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosPike));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		npcItemsInv.setIdleItemMounted(npcItemsInv.getMeleeWeaponMounted());
 		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.crownlandsBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.crownlandsLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.crownlandsChestplate));
