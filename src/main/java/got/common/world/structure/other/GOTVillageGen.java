@@ -39,6 +39,16 @@ public abstract class GOTVillageGen {
 		return loc;
 	}
 
+	/* Test */
+	public LocationInfo affix(GOTWaypoint... wps) {
+		LocationInfo loc = null;
+		for (GOTWaypoint wp: wps) {
+			loc = new LocationInfo(wp.getXCoord(), wp.getZCoord(), 0, wp.getCodeName()).setFixedLocation(wp);
+			fixedLocations.add(loc);
+		}
+		return loc;
+	}
+
 	public LocationInfo affix(GOTWaypoint wp) {
 		return addFixedLocation(wp, 0, 0, 0);
 	}
