@@ -68,7 +68,7 @@ public class GOTEntityDoranMartell extends GOTEntityHumanBase {
 		if (isFriendly(entityplayer)) {
 			return "legendary/doran_friendly";
 		}
-		return "legendary/doran_hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

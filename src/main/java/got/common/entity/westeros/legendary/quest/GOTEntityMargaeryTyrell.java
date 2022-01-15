@@ -68,7 +68,7 @@ public class GOTEntityMargaeryTyrell extends GOTEntityHumanBase {
 		if (isFriendly(entityplayer)) {
 			return "legendary/margaery_friendly";
 		}
-		return "legendary/margaery_hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

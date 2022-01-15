@@ -75,7 +75,7 @@ public class GOTEntityBalonGreyjoy extends GOTEntityHumanBase {
 		if (isFriendly(entityplayer)) {
 			return "legendary/balon_friendly";
 		}
-		return "legendary/balon_hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override
