@@ -310,256 +310,208 @@ public class GOTFixer {
 		structures.put(GOTWaypoint.Yunkai.shift(-1, 0), new GOTFixer.Yunkai());
 	}
 
-	public static class AddamMarbrand extends GOTStructureBase {
+	public static class AddamMarbrand extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityAddamMarbrand(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class AeronGreyjoy extends GOTStructureBase {
+	public static class AeronGreyjoy extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityAeronGreyjoy(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class ArdrianCeltigar extends GOTStructureBase {
+	public static class ArdrianCeltigar extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityArdrianCeltigar(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class Asshai extends GOTStructureBase {
+	public static class Asshai extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityAsshaiArchmag(world), world, 0, 1, 0);
-			return true;
 		}
 	}
 
-	public static class Astapor extends GOTStructureBase {
+	public static class Astapor extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityKraznysMoNakloz(world), world, -1, 1, 0);
 			spawnLegendaryNPC(new GOTEntityMissandei(world), world, -1, 1, -1);
 			spawnLegendaryNPC(new GOTEntityGreyWorm(world), world, -1, 1, 1);
-			return true;
 		}
 	}
 
-	public static class BaelorBlacktyde extends GOTStructureBase {
+	public static class BaelorBlacktyde extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityBaelorBlacktyde(world), world, -2, 1, -2);
-			return true;
 		}
 	}
 
-	public static class BarbreyDustin extends GOTStructureBase {
+	public static class BarbreyDustin extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityBarbreyDustin(world), world, 0, 1, 3);
-			return true;
 		}
 	}
 
-	public static class BenedarBelmore extends GOTStructureBase {
+	public static class BenedarBelmore extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityBenedarBelmore(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class BenjenStark extends GOTStructureBase {
+	public static class BenjenStark extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityBenjenStark(world), world, 0, 1, 5);
-			return true;
 		}
 	}
 
-	public static class BericDayne extends GOTStructureBase {
+	public static class BericDayne extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityBericDayne(world), world, -2, 1, 2);
-			return true;
 		}
 	}
 
-	public static class BericDondarrion extends GOTStructureBase {
+	public static class BericDondarrion extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityBericDondarrion.LifeStage1(world), world, 3, 1, 0);
 			spawnLegendaryNPC(new GOTEntityThoros(world), world, 0, 1, 3);
-			return true;
 		}
 	}
 
-	public static class BuGai extends GOTStructureBase {
+	public static class BuGai extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityBuGai(world), world, 12, 1, 0);
-			return true;
 		}
 	}
 
-	public static class CasterlyRock extends GOTStructureBase {
+	public static class CasterlyRock extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityTywinLannister(world), world, 2, 1, 0);
 			spawnLegendaryNPC(new GOTEntityQyburn(world), world, -2, 1, 0);
-			return true;
 		}
 	}
 
-	public static class ClementPiper extends GOTStructureBase {
+	public static class ClementPiper extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityClementPiper(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class CleyCerwyn extends GOTStructureBase {
+	public static class CleyCerwyn extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityCleyCerwyn(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class DaenerysTargaryen extends GOTStructureBase {
+	public static class DaenerysTargaryen extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityDaenerysTargaryen(world), world, 0, 5, 3);
 			spawnLegendaryNPC(new GOTEntityJorahMormont(world), world, 0, 5, 3);
-			return true;
 		}
 	}
 
-	public static class Dagmer extends GOTStructureBase {
+	public static class Dagmer extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityDagmer(world), world, 0, 1, 3);
-			return true;
 		}
 	}
 
-	public static class Dragonstone extends GOTStructureBase {
+	public static class Dragonstone extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityStannisBaratheon(world), world, -2, 1, -2);
 			spawnLegendaryNPC(new GOTEntityDavosSeaworth(world), world, 2, 1, 2);
 			spawnLegendaryNPC(new GOTEntityMelisandra(world), world, -2, 1, 2);
 			spawnLegendaryNPC(new GOTEntityShireenBaratheon(world), world, 2, 1, -2);
 			spawnLegendaryNPC(new GOTEntitySelyseBaratheon(world), world, 0, 1, 2);
 			spawnLegendaryNPC(new GOTEntityMatthosSeaworth(world), world, 0, 1, -2);
-			return true;
 		}
 	}
 
-	public static class Dreadfort extends GOTStructureBase {
+	public static class Dreadfort extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityRamsayBolton(world), world, 2, 1, 2);
 			spawnLegendaryNPC(new GOTEntityRooseBolton(world), world, -2, 1, -2);
-			return true;
 		}
 	}
 
-	public static class Driftmark extends GOTStructureBase {
+	public static class Driftmark extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityMonfordVelaryon(world), world, -2, 1, -2);
 			spawnLegendaryNPC(new GOTEntityAuraneWaters(world), world, 2, 1, 2);
-			return true;
 		}
 	}
 
-	public static class DunstanDrumm extends GOTStructureBase {
+	public static class DunstanDrumm extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityDunstanDrumm(world), world, -2, 1, -2);
 			spawnLegendaryNPC(new GOTEntityAndrikTheUnsmilling(world), world, -2, 1, -2);
-			return true;
 		}
 	}
 
-	public static class Ebrose extends GOTStructureBase {
+	public static class Ebrose extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityEbrose(world), world, 0, 1, 5);
-			return true;
 		}
 	}
 
-	public static class EldonEstermont extends GOTStructureBase {
+	public static class EldonEstermont extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityEldonEstermont(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class ErikIronmaker extends GOTStructureBase {
+	public static class ErikIronmaker extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityErikIronmaker(world), world, -2, 1, -2);
-			return true;
 		}
 	}
 
@@ -578,394 +530,318 @@ public class GOTFixer {
 		}
 	}
 
-	public static class ForleyPrester extends GOTStructureBase {
+	public static class ForleyPrester extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityForleyPrester(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class FranklynFowler extends GOTStructureBase {
+	public static class FranklynFowler extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityFranklynFowler(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class GarlanTyrell extends GOTStructureBase {
+	public static class GarlanTyrell extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityGarlanTyrell(world), world, 2, 1, -2);
-			return true;
 		}
 	}
 
-	public static class GateOfTheMoon extends GOTStructureBase {
+	public static class GateOfTheMoon extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityRobinArryn(world), world, 0, 1, 2);
 			spawnLegendaryNPC(new GOTEntityLysaArryn(world), world, -2, 1, 0);
-			return true;
 		}
 	}
 
-	public static class GeroldDayne extends GOTStructureBase {
+	public static class GeroldDayne extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityGeroldDayne(world), world, 2, 1, -2);
-			return true;
 		}
 	}
 
-	public static class GeroldGrafton extends GOTStructureBase {
+	public static class GeroldGrafton extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityGeroldGrafton(world), world, 3, 1, 0);
-			return true;
 		}
 	}
 
-	public static class GilwoodHunter extends GOTStructureBase {
+	public static class GilwoodHunter extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityGilwoodHunter(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class GoroldGoodbrother extends GOTStructureBase {
+	public static class GoroldGoodbrother extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityGoroldGoodbrother(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class GregorClegane extends GOTStructureBase {
+	public static class GregorClegane extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityGregorClegane.Alive(world), world, 2, 1, 0);
 			spawnLegendaryNPC(new GOTEntityPolliver(world), world, -2, 1, 0);
-			return true;
 		}
 	}
 
-	public static class GulianSwann extends GOTStructureBase {
+	public static class GulianSwann extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityGulianSwann(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class GylbertFarwynd extends GOTStructureBase {
+	public static class GylbertFarwynd extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityGylbertFarwynd(world), world, -2, 1, -2);
-			return true;
 		}
 	}
 
-	public static class HarmenUller extends GOTStructureBase {
+	public static class HarmenUller extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityHarmenUller(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class HarrasHarlaw extends GOTStructureBase {
+	public static class HarrasHarlaw extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityHarrasHarlaw(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class HarroldHardyng extends GOTStructureBase {
+	public static class HarroldHardyng extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityHarroldHardyng(world), world, 0, 1, 2);
 			spawnLegendaryNPC(new GOTEntityAnyaWaynwood(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class HarryStrickland extends GOTStructureBase {
+	public static class HarryStrickland extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityHarryStrickland(world), world, -1, 1, -1);
-			return true;
 		}
 	}
 
-	public static class HarysSwyft extends GOTStructureBase {
+	public static class HarysSwyft extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityHarysSwyft(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class HelmanTallhart extends GOTStructureBase {
+	public static class HelmanTallhart extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityHelmanTallhart(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class Highgarden extends GOTStructureBase {
+	public static class Highgarden extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityMaceTyrell(world), world, 2, 1, 2);
 			spawnLegendaryNPC(new GOTEntityOlennaTyrell(world), world, -2, 1, -2);
 			spawnLegendaryNPC(new GOTEntityMargaeryTyrell(world), world, 2, 1, -2);
 			spawnLegendaryNPC(new GOTEntityWillasTyrell(world), world, -2, 1, 2);
-			return true;
 		}
 	}
 
-	public static class HizdahrZoLoraq extends GOTStructureBase {
+	public static class HizdahrZoLoraq extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityHizdahrZoLoraq(world), world, 0, 1, 1);
-			return true;
 		}
 	}
 
-	public static class HortonRedfort extends GOTStructureBase {
+	public static class HortonRedfort extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityHortonRedfort(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class HowlandReed extends GOTStructureBase {
+	public static class HowlandReed extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityHowlandReed(world), world, 0, 1, 5);
-			return true;
 		}
 	}
 
-	public static class Hummel009 extends GOTStructureBase {
+	public static class Hummel009 extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityHummel009(world), world, 0, 1, 0);
-			return true;
 		}
 	}
 
-	public static class IllyrioMopatis extends GOTStructureBase {
+	public static class IllyrioMopatis extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityIllyrioMopatis(world), world, 3, 1, 0);
-			return true;
 		}
 	}
 
-	public static class JasonMallister extends GOTStructureBase {
+	public static class JasonMallister extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityJasonMallister(world), world, 0, 1, 3);
-			return true;
 		}
 	}
 
-	public static class JohnUmber extends GOTStructureBase {
+	public static class JohnUmber extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityJohnUmber(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class JonConnington extends GOTStructureBase {
+	public static class JonConnington extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityJonConnington(world), world, 0, 1, -1);
 			spawnLegendaryNPC(new GOTEntityYoungGriff(world), world, 0, 1, -1);
-			return true;
 		}
 	}
 
-	public static class JonosBracken extends GOTStructureBase {
+	public static class JonosBracken extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityJonosBracken(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class KingsLanding extends GOTStructureBase {
+	public static class KingsLanding extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntitySansaStark(world), world, 0, 1, 5);
 			spawnLegendaryNPC(new GOTEntityShae(world), world, 0, 1, 6);
 			spawnLegendaryNPC(new GOTEntityYoren(world), world, 0, 1, 4);
-			return true;
 		}
 	}
 
-	public static class Lannisport extends GOTStructureBase {
+	public static class Lannisport extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityKevanLannister(world), world, 0, 1, 5);
 			spawnLegendaryNPC(new GOTEntityDavenLannister(world), world, 0, 1, -5);
 			spawnLegendaryNPC(new GOTEntityAmoryLorch(world), world, 5, 1, 0);
-			return true;
 		}
 	}
 
-	public static class LeoLefford extends GOTStructureBase {
+	public static class LeoLefford extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityLeoLefford(world), world, 2, 1, 2);
-			return true;
 		}
 	}
 
-	public static class LeytonHightower extends GOTStructureBase {
+	public static class LeytonHightower extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityLeytonHightower(world), world, 0, 26, -5);
-			return true;
 		}
 	}
 
-	public static class LyleCrakehall extends GOTStructureBase {
+	public static class LyleCrakehall extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityLyleCrakehall(world), world, 2, 1, 2);
-			return true;
 		}
 	}
 
-	public static class LynCorbray extends GOTStructureBase {
+	public static class LynCorbray extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityLynCorbray(world), world, 2, 1, 2);
-			return true;
 		}
 	}
 
-	public static class MaegeMormont extends GOTStructureBase {
+	public static class MaegeMormont extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityMaegeMormont(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class MaronVolmark extends GOTStructureBase {
+	public static class MaronVolmark extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityMaronVolmark(world), world, -2, 1, -2);
-			return true;
 		}
 	}
 
-	public static class MathisRowan extends GOTStructureBase {
+	public static class MathisRowan extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityMathisRowan(world), world, 2, 1, 2);
-			return true;
 		}
 	}
 
-	public static class Mellario extends GOTStructureBase {
+	public static class Mellario extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityMellario(world), world, 0, 1, 1);
-			return true;
 		}
 	}
 
-	public static class Moqorro extends GOTStructureBase {
+	public static class Moqorro extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityMoqorro(world), world, -1, 1, 0);
-			return true;
 		}
 	}
 
@@ -981,180 +857,160 @@ public class GOTFixer {
 		}
 	}
 
-	public static class OrtonMerryweather extends GOTStructureBase {
+	public static class OrtonMerryweather extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityOrtonMerryweather(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class PaxterRedwyne extends GOTStructureBase {
+	public static class PaxterRedwyne extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityPaxterRedwyne(world), world, 0, 1, 5);
-			return true;
 		}
 	}
 
-	public static class Pyke extends GOTStructureBase {
+	public static class Pyke extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityBalonGreyjoy(world), world, 2, 1, 2);
 			spawnLegendaryNPC(new GOTEntityYaraGreyjoy(world), world, -2, 1, -2);
 			spawnLegendaryNPC(new GOTEntityTheonGreyjoy.Normal(world), world, -2, 1, 2);
-			return true;
 		}
 	}
 
-	public static class QuennRoxton extends GOTStructureBase {
+	public static class QuennRoxton extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityQuennRoxton(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class QuentenBanefort extends GOTStructureBase {
+	public static class QuentenBanefort extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityQuentenBanefort(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class QuentynMartell extends GOTStructureBase {
+	public static class QuentynMartell extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityQuentynMartell(world), world, 0, 1, 2);
 			spawnLegendaryNPC(new GOTEntityAndersYronwood(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class QuentynQorgyle extends GOTStructureBase {
+	public static class QuentynQorgyle extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityQuentynQorgyle(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class RandyllTarly extends GOTStructureBase {
+	public static class RandyllTarly extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityRandyllTarly(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class RickardKarstark extends GOTStructureBase {
+	public static class RickardKarstark extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityRickardKarstark(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class Riverrun extends GOTStructureBase {
+	public static class Riverrun extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityBryndenTully(world), world, 2, 1, 2);
 			spawnLegendaryNPC(new GOTEntityEdmureTully(world), world, -2, 1, -2);
 			spawnLegendaryNPC(new GOTEntityHosterTully(world), world, 2, 1, -2);
 			spawnLegendaryNPC(new GOTEntityRodrikCassel(world), world, -2, 1, 2);
 			spawnLegendaryNPC(new GOTEntityCatelynStark(world), world, 2, 1, 0);
-			return true;
 		}
 	}
 
-	public static class RodrikHarlaw extends GOTStructureBase {
+	public static class RodrikHarlaw extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityRodrikHarlaw(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class RodrikRyswell extends GOTStructureBase {
+	public static class RodrikRyswell extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityRodrikRyswell(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class SalladhorSaan extends GOTStructureBase {
+	public static class SalladhorSaan extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntitySalladhorSaan(world), world, 0, 1, -1);
-			return true;
 		}
 	}
 
-	public static class SebastonFarman extends GOTStructureBase {
+	public static class SebastonFarman extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntitySebastonFarman(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class SelwynTarth extends GOTStructureBase {
+	public static class SelwynTarth extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntitySelwynTarth(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class StormsEnd extends GOTStructureBase {
+	public static class Spawner extends GOTStructureBase {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			spawnLegendaryNPC(world);
+			return true;
+		}
+
+		public void spawnLegendaryNPC(World world) {
+		}
+	}
+
+	public static class StormsEnd extends Spawner {
+
+		@Override
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityRenlyBaratheon(world), world, 2, 1, 2);
 			spawnLegendaryNPC(new GOTEntityLorasTyrell(world), world, -2, 1, -2);
 			spawnLegendaryNPC(new GOTEntityBrienneTarth(world), world, -2, 1, 2);
-			return true;
 		}
 	}
 
-	public static class Sunspear extends GOTStructureBase {
+	public static class Sunspear extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityOberynMartell(world), world, 3, 1, 0);
 			spawnLegendaryNPC(new GOTEntityDoranMartell(world), world, 0, 1, 3);
 			spawnLegendaryNPC(new GOTEntityEllaryaSand(world), world, 3, 1, 3);
@@ -1162,106 +1018,86 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityTrystaneMartell(world), world, -3, 1, 0);
 			spawnLegendaryNPC(new GOTEntityArianneMartell(world), world, -3, 1, 3);
 			spawnLegendaryNPC(new GOTEntityManfreyMartell(world), world, -3, 1, -3);
-			return true;
 		}
 	}
 
-	public static class SymondTempleton extends GOTStructureBase {
+	public static class SymondTempleton extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntitySymondTempleton(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class ThreeEyedRaven extends GOTStructureBase {
+	public static class ThreeEyedRaven extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityThreeEyedRaven(world), world, 0, 1, 0);
-			return true;
 		}
 	}
 
-	public static class TugarKhan extends GOTStructureBase {
+	public static class TugarKhan extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityTugarKhan(world), world, 0, 5, 3);
-			return true;
 		}
 	}
 
-	public static class TwinsLeft extends GOTStructureBase {
+	public static class TwinsLeft extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityBlackWalderFrey(world), world, 0, 1, -15);
 			spawnLegendaryNPC(new GOTEntityLotharFrey(world), world, 0, 1, -15);
-			return true;
 		}
 	}
 
-	public static class TwinsRight extends GOTStructureBase {
+	public static class TwinsRight extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityWalderFrey(world), world, 0, 1, 15);
-			return true;
 		}
 	}
 
-	public static class TychoNestoris extends GOTStructureBase {
+	public static class TychoNestoris extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityTychoNestoris(world), world, 0, 1, 1);
-			return true;
 		}
 	}
 
-	public static class TytosBlackwood extends GOTStructureBase {
+	public static class TytosBlackwood extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityTytosBlackwood(world), world, 2, 1, 0);
-			return true;
 		}
 	}
 
-	public static class TytosBrax extends GOTStructureBase {
+	public static class TytosBrax extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityTytosBrax(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class WilliamMooton extends GOTStructureBase {
+	public static class WilliamMooton extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityWilliamMooton(world), world, 0, 1, 2);
-			return true;
 		}
 	}
 
-	public static class Winterfell extends GOTStructureBase {
+	public static class Winterfell extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityRobbStark(world), world, 2, 1, 2);
 			spawnLegendaryNPC(new GOTEntityHodor(world), world, -2, 1, -2);
 			spawnLegendaryNPC(new GOTEntityAryaStark(world), world, 2, 1, -2);
@@ -1269,48 +1105,39 @@ public class GOTFixer {
 			spawnLegendaryNPC(new GOTEntityRickonStark(world), world, 0, 1, 2);
 			spawnLegendaryNPC(new GOTEntityLuwin(world), world, 0, 1, -2);
 			spawnLegendaryNPC(new GOTEntityOsha(world), world, 2, 1, 0);
-			return true;
 		}
 	}
 
-	public static class WymanManderly extends GOTStructureBase {
+	public static class WymanManderly extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityWymanManderly(world), world, 0, 1, 5);
-			return true;
 		}
 	}
 
-	public static class XaroXhoanDaxos extends GOTStructureBase {
+	public static class XaroXhoanDaxos extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityXaroXhoanDaxos(world), world, 3, 1, 0);
-			return true;
 		}
 	}
 
-	public static class YohnRoyce extends GOTStructureBase {
+	public static class YohnRoyce extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityYohnRoyce(world), world, 2, 1, 0);
-			return true;
 		}
 	}
 
-	public static class Yunkai extends GOTStructureBase {
+	public static class Yunkai extends Spawner {
 
 		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityDaarioNaharis(world), world, -1, 1, 0);
 			spawnLegendaryNPC(new GOTEntityRazdalMoEraz(world), world, -1, 1, 1);
-			return true;
 		}
 	}
 }
