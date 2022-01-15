@@ -1,0 +1,16 @@
+#title:Myr
+#author:Anario
+#types:essos
+#
+
+Myr, Westeros'un doğusunda bulunan Özgür Şehirlerden biridir. Büyük bir liman olan şehir, Dar Deniz'in bir girişi olan Myrth Denizi olarak bilinen büyük bir su kütlesine bakmaktadır. Kuzeyde Özgür Şehir Pentos, güneyde İhtilaflı Topraklar yer alır.
+
+Myr'den insanlar ve şeyler Myrish olarak bilinir. Şehrin zanaatkarları, dünya çapında lensleri ve şıklıkları ile ünlüdür ve Myr danteli çok aranan bir maldır.
+
+Myr, Özgür Şehirlerin en gelişmişlerinden biridir. En yakın komşuları Lys ve Tyrosh gibi, şehrin ekonomisi ticarete dayalıdır ve Myr, büyük ustalık konusunda bir üne sahiptir: Şehirde üretilen aynalar, lensler ve diğer cam eşyaların eşi benzeri yoktur - net bir Myrish bölmesi cam baharatlarda ağırlığına değer. Myr tekstilleri çok aranan ürünlerdir ve karmaşık danteller, ince dokunmuş halılar ve güzel duvar halıları içerir. Myr'de güzel sanatlar da gelişir ve yerel sanatçılar, yüksek kaliteleriyle tanınan canlı tablolar ve minyatürler üretirler. Şehir iki özel içecek bile üretiyor - yeşil nektar olarak bilinen tatlı yeşil şarap ve ateş şarabı olarak bilinen bir içecek. Özgür Şehirlerin çoğu gibi, Myr de köle ticaretiyle yoğun bir şekilde ilgileniyor ve kölelerin sayısı özgür doğmuş vatandaşlardan üçe bir fazla.
+
+Myr'in erken tarihi bir muammadır. Mevcut haliyle, şehir Valyria Özgür Halkı'nın bir kolonisi olarak kuruldu, ancak bu yerleşimdeki insan yerleşiminin Şafak Çağı'na kadar uzandığını gösteren kanıtlar var. Myrliler ayrıca koyu renk saçlı ve koyu gözlü ve zeytin rengi tenli olmaları ile tanınırlar ve Westeros standartlarına göre egzotik görünümlü olarak kabul edilirler. Bu, bazılarının Myrlilerin benzer renklere sahip Rhoynar halkıyla ilişkili olabileceği teorisini ortaya atmasına neden oldu, ancak bu kesin olarak kanıtlanmadı. Şehir, en zengin ve en önde gelen vatandaşları arasından seçilen bir Yargıçlar konseyi tarafından yönetilir ve Yüksek Valyrian'dan türetilen kendi diline sahiptir. Myr ayrıca, özellikle ünlü arbaletleriyle güçlü bir orduya sahiptir ve şehrin zanaatkarları, stilettos olarak bilinen uzun, ince hançerler üretir (ikincisi, Tyroshi paralı kılıç Daario Naharis'in seçilmiş silahıdır).
+
+Valyria Kıyameti'nden sonra Myr bağımsız oldu ama birkaç yıl sonra yıkılan imparatorluğu yeniden inşa etmeye çalışan Volantis tarafından fethedildi. Volantis, Tyrosh'a da saldırdığında, güçleri, Westerosi Fırtına Kralı, Pentos ve Braavos'tan birlikler ve Myr ve Lys'deki büyük ayaklanmaların dahil olduğu bir koalisyon tarafından geri püskürtüldü ve yenildi. Volantis'in askeri gücü kırıldı ve Myr yeniden bağımsız bir şehir devleti oldu.
+
+Ancak bu ittifaklar kısa sürede dağıldı. Sonuç olarak, Myr ve Lys son üç yüz yılın büyük bir bölümünde sürekli olarak birbirleriyle savaşıyorlar. Kuzeyde Myr ile güneyde Lys arasındaki "Tartışmalı Topraklar", çatışmaların sonuçlarına göre iki şehir arasında sürekli el değiştirdikleri için sözdedir. Tyrosh ve Volantis, ittifaklar değiştikçe Myr veya Lys ile ittifak kurarak zaman zaman bu kan davasının içine çekildiler.
