@@ -25,6 +25,7 @@ public abstract class GOTVillageGen {
 	public int villageChunkRadius;
 	public int fixedVillageChunkRadius;
 	public List<LocationInfo> fixedLocations = new ArrayList<>();
+	public int notCheckRange;
 
 	public GOTVillageGen(GOTBiome biome) {
 		villageBiome = biome;
@@ -45,7 +46,7 @@ public abstract class GOTVillageGen {
 		if (!GOTVillageGen.hasFixedSettlements(world)) {
 			return false;
 		}
-		int checkRange = 15;
+		int checkRange = 15 - notCheckRange;
 		checkRange <<= 4;
 		for (LocationInfo loc : fixedLocations) {
 			int dx = Math.abs(loc.posX - i);

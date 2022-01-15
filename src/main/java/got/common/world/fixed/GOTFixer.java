@@ -192,7 +192,7 @@ public class GOTFixer {
 		f[51].affix(GOTWaypoint.Oxcross);
 		f[52].affix(GOTWaypoint.Appleton.info(0, -1, 0), GOTWaypoint.Ashford.info(0, 1, 0), GOTWaypoint.Bandallon, GOTWaypoint.Goldengrove, GOTWaypoint.GrassyVale, GOTWaypoint.Greenshield, GOTWaypoint.Grimston, GOTWaypoint.Hammerhal, GOTWaypoint.RedLake, GOTWaypoint.Ring, GOTWaypoint.Southshield, GOTWaypoint.Uplands, GOTWaypoint.Holyhall, GOTWaypoint.Honeyholt, GOTWaypoint.HornHill, GOTWaypoint.IvyHall, GOTWaypoint.Longtable, GOTWaypoint.NewBarrel, GOTWaypoint.Blackcrown, GOTWaypoint.BrightwaterKeep, GOTWaypoint.CiderHall, GOTWaypoint.Coldmoat, GOTWaypoint.DarkDell, GOTWaypoint.Dunstonbury, GOTWaypoint.Bitterbridge.info(0, 1, 0), GOTWaypoint.GarnetGrove.info(-1, 0, 0), GOTWaypoint.HewettTown.info(0, -1, 0), GOTWaypoint.OldOak.info(-1, 0, 0), GOTWaypoint.SunHouse.info(0, -1, 0), GOTWaypoint.Whitegrove.info(-1, 0, 0));
 		f[53].affix(GOTWaypoint.Appleton.info(0, 1, 2), GOTWaypoint.Ashford.info(0, -1, 0), GOTWaypoint.HewettTown.info(0, 1, 0), GOTWaypoint.Smithyton.info(0, 1, 2), GOTWaypoint.StarfishHarbor, GOTWaypoint.Vinetown, GOTWaypoint.Ryamsport, GOTWaypoint.Tumbleton.info(0, -1, 0));
-		f[54].affix(GOTWaypoint.ThreeTowers.info(-1, -1, 1), GOTWaypoint.ThreeTowers.info(-1, 0, 1), GOTWaypoint.ThreeTowers.info(-1, 1, 1), GOTWaypoint.TowerOfGlimmering, GOTWaypoint.BaelishKeep, GOTWaypoint.HightowerLitehouse, GOTWaypoint.RamseyTower, GOTWaypoint.Standfast, GOTWaypoint.TwinsLeft.info(1, 0, 1), GOTWaypoint.TwinsRight.info(-2, 0, 3));
+		f[54].affix(GOTWaypoint.ThreeTowers.info(-1, -1, 1), GOTWaypoint.ThreeTowers.info(-1, 0, 1), GOTWaypoint.ThreeTowers.info(-1, 1, 1), GOTWaypoint.TowerOfGlimmering, GOTWaypoint.BaelishKeep, GOTWaypoint.HightowerLitehouse, GOTWaypoint.RamseyTower, GOTWaypoint.Standfast, GOTWaypoint.TwinsLeft.info(0, 0, 2), GOTWaypoint.TwinsRight);
 		f[55].affix(GOTWaypoint.WhiteHarbour.info(0, 0, 1));
 		f[56].affix(GOTWaypoint.Barrowtown.info(0, 1, 2));
 		f[57].affix(GOTWaypoint.Goldgrass.info(0, 1, 0), GOTWaypoint.RisvellsCastle.info(0, 1, 0), GOTWaypoint.ServinsCastle.info(-1, 0, 0), GOTWaypoint.Winterfell.info(0, 0, 1), GOTWaypoint.BlackPool, GOTWaypoint.DeepwoodMotte, GOTWaypoint.Dreadfort, GOTWaypoint.FlintsFinger, GOTWaypoint.Highpoint, GOTWaypoint.TorhensSquare, GOTWaypoint.WidowsWatch, GOTWaypoint.Hornwood, GOTWaypoint.Ironrath, GOTWaypoint.Karhold, GOTWaypoint.LastHearth, GOTWaypoint.MoatKailin, GOTWaypoint.MormontsKeep, GOTWaypoint.OldCastle, GOTWaypoint.RamsGate, GOTWaypoint.RillwaterCrossing);
@@ -296,8 +296,8 @@ public class GOTFixer {
 		structures.put(GOTWaypoint.TenTowers, new GOTFixer.RodrikHarlaw());
 		structures.put(GOTWaypoint.ThreeEyedRavenCave, new GOTFixer.ThreeEyedRaven());
 		structures.put(GOTWaypoint.TorhensSquare, new GOTFixer.HelmanTallhart());
-		structures.put(GOTWaypoint.TwinsLeft.shift(1, 0), new GOTFixer.TwinsLeft());
-		structures.put(GOTWaypoint.TwinsRight.shift(-2, 0), new GOTFixer.WalderFrey());
+		structures.put(GOTWaypoint.TwinsLeft, new GOTFixer.TwinsLeft());
+		structures.put(GOTWaypoint.TwinsRight, new GOTFixer.TwinsRight());
 		structures.put(GOTWaypoint.Tyrosh, new GOTFixer.JonConnington());
 		structures.put(GOTWaypoint.VaesEfe, new GOTFixer.DaenerysTargaryen());
 		structures.put(GOTWaypoint.Volantis.shift(-1, 0), new GOTFixer.Moqorro());
@@ -1201,8 +1201,18 @@ public class GOTFixer {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
-			spawnLegendaryNPC(new GOTEntityBlackWalderFrey(world), world, 5, 1, 0);
-			spawnLegendaryNPC(new GOTEntityLotharFrey(world), world, 4, 1, 0);
+			spawnLegendaryNPC(new GOTEntityBlackWalderFrey(world), world, 0, 1, -15);
+			spawnLegendaryNPC(new GOTEntityLotharFrey(world), world, 0, 1, -15);
+			return true;
+		}
+	}
+
+	public static class TwinsRight extends GOTStructureBase {
+
+		@Override
+		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
+			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			spawnLegendaryNPC(new GOTEntityWalderFrey(world), world, 0, 1, 15);
 			return true;
 		}
 	}
@@ -1233,16 +1243,6 @@ public class GOTFixer {
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(new GOTEntityTytosBrax(world), world, 0, 1, 2);
-			return true;
-		}
-	}
-
-	public static class WalderFrey extends GOTStructureBase {
-
-		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
-			spawnLegendaryNPC(new GOTEntityWalderFrey(world), world, 5, 1, 0);
 			return true;
 		}
 	}

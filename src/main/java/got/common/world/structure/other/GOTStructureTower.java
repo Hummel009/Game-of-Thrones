@@ -19,6 +19,7 @@ public class GOTStructureTower extends GOTVillageGen {
 		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 3;
+		notCheckRange = 13;
 	}
 
 	@Override
@@ -380,7 +381,7 @@ public class GOTStructureTower extends GOTVillageGen {
 
 		@Override
 		public void addVillageStructures(Random random) {
-			this.addStructure(new GOTStructureTowerBase(false), 0, 0, 0, true);
+			this.addStructure(new GOTStructureTowerBase(false), 0, 10, 0, true);
 		}
 
 		@Override
