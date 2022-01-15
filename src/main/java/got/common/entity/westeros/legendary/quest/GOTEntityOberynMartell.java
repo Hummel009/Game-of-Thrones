@@ -82,7 +82,7 @@ public class GOTEntityOberynMartell extends GOTEntityHumanBase {
 		if (isFriendly(entityplayer)) {
 			return "legendary/oberyn_friendly";
 		}
-		return "legendary/oberyn_hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

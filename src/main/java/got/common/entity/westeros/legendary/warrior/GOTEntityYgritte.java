@@ -71,7 +71,7 @@ public class GOTEntityYgritte extends GOTEntityHumanBase {
 		if (isFriendly(entityplayer)) {
 			return "legendary/ygritte_friendly";
 		}
-		return "legendary/ygritte_hostile";
+		return "standart/wild/usual_hostile";
 	}
 
 	@Override

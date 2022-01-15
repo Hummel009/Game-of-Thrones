@@ -64,7 +64,7 @@ public class GOTEntityKevanLannister extends GOTEntityHumanBase implements GOTUn
 		if (isFriendly(entityplayer)) {
 			return "legendary/kevan_friendly";
 		}
-		return "legendary/kevan_hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

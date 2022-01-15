@@ -46,11 +46,6 @@ public enum GOTMiniQuestFactory {
 		setAchievement(GOTAchievement.DO_QUEST);
 	}
 
-	GOTMiniQuestFactory(String s) {
-		baseName = s;
-		setAchievement(GOTAchievement.DO_QUEST);
-	}
-
 	public void addQuest(GOTMiniQuest.QuestFactoryBase factory) {
 		Class questClass = factory.getQuestClass();
 		Class<? extends GOTMiniQuest> registryClass = null;

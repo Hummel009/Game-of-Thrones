@@ -80,7 +80,7 @@ public class GOTEntityXaroXhoanDaxos extends GOTEntityHumanBase implements GOTTr
 		if (isFriendly(entityplayer)) {
 			return "legendary/xaro_friendly";
 		}
-		return "legendary/xaro_hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

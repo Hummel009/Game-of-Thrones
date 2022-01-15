@@ -80,7 +80,7 @@ public class GOTEntityPetyrBaelish extends GOTEntityHumanBase implements GOTTrad
 		if (isFriendly(entityplayer)) {
 			return "legendary/baelish_friendly";
 		}
-		return "legendary/baelish_hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

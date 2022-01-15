@@ -74,7 +74,7 @@ public class GOTEntityBenjenStark extends GOTEntityHumanBase {
 		if (isFriendly(entityplayer)) {
 			return "legendary/benjen_friendly";
 		}
-		return "legendary/benjen_hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

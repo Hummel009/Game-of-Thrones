@@ -52,10 +52,7 @@ public class GOTEntityYoungGriff extends GOTEntityHumanBase {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "standart/civilized/hired_soldier";
-			}
-			return "standart/civilized/usual_friendly";
+			return "legendary/griff_friendly";
 		}
 		return "standart/civilized/usual_hostile";
 	}

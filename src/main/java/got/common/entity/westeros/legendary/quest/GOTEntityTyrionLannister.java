@@ -76,7 +76,7 @@ public class GOTEntityTyrionLannister extends GOTEntityHumanBase {
 		if (isFriendly(entityplayer)) {
 			return "legendary/tyrion_friendly";
 		}
-		return "legendary/tyrion_hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

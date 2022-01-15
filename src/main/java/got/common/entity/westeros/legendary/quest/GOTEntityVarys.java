@@ -70,7 +70,7 @@ public class GOTEntityVarys extends GOTEntityHumanBase {
 		if (isFriendly(entityplayer)) {
 			return "legendary/varys_friendly";
 		}
-		return "legendary/varys_hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

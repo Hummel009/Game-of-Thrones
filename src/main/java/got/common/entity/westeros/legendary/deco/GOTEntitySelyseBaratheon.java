@@ -50,9 +50,9 @@ public class GOTEntitySelyseBaratheon extends GOTEntityHumanBase {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "legendary/selyse_friendly";
+			return "standart/special/father_friendly";
 		}
-		return "legendary/selyse_hostile";
+		return "standart/special/father_hostile";
 	}
 
 	@Override

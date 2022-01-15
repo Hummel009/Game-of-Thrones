@@ -65,7 +65,7 @@ public class GOTEntityCatelynStark extends GOTEntityHumanBase {
 		if (isFriendly(entityplayer)) {
 			return "legendary/catelyn_friendly";
 		}
-		return "legendary/catelyn_hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

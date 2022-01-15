@@ -76,7 +76,7 @@ public class GOTEntityDavosSeaworth extends GOTEntityHumanBase implements GOTTra
 		if (isFriendly(entityplayer)) {
 			return "legendary/davos_friendly";
 		}
-		return "legendary/davos_hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

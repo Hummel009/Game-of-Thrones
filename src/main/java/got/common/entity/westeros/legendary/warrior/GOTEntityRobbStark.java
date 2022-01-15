@@ -63,7 +63,7 @@ public class GOTEntityRobbStark extends GOTEntityHumanBase {
 		if (isFriendly(entityplayer)) {
 			return "legendary/robb_friendly";
 		}
-		return "legendary/robb_hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

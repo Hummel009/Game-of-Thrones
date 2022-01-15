@@ -70,7 +70,7 @@ public class GOTEntityMelisandra extends GOTEntityHumanBase {
 		if (isFriendly(entityplayer)) {
 			return "legendary/melisandra_friendly";
 		}
-		return "legendary/melisandra_hostile";
+		return "standart/special/father_hostile";
 	}
 
 	@Override

@@ -75,7 +75,7 @@ public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
 			if (isFriendly(entityplayer)) {
 				return "legendary/theon_friendly";
 			}
-			return "legendary/theon_hostile";
+			return "standart/civilized/usual_hostile";
 		}
 
 		@Override

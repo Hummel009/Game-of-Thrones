@@ -68,7 +68,7 @@ public class GOTEntityJaimeLannister extends GOTEntityHumanBase {
 		if (isFriendly(entityplayer)) {
 			return "legendary/jaime_friendly";
 		}
-		return "legendary/jaime_hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

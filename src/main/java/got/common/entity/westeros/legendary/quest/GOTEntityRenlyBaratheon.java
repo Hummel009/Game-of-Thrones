@@ -74,7 +74,7 @@ public class GOTEntityRenlyBaratheon extends GOTEntityHumanBase {
 		if (isFriendly(entityplayer)) {
 			return "legendary/renly_friendly";
 		}
-		return "legendary/renly_hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

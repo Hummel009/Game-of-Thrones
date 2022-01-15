@@ -70,7 +70,7 @@ public class GOTEntityOlennaTyrell extends GOTEntityHumanBase {
 		if (isFriendly(entityplayer)) {
 			return "legendary/olenna_friendly";
 		}
-		return "legendary/olenna_hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

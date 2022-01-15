@@ -53,7 +53,7 @@ public class GOTEntityEdd extends GOTEntityHumanBase {
 		if (isFriendly(entityplayer)) {
 			return "legendary/edd_friendly";
 		}
-		return "legendary/edd_hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

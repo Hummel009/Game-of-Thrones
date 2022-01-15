@@ -59,7 +59,7 @@ public class GOTEntityBrienneTarth extends GOTEntityHumanBase {
 		if (isFriendly(entityplayer)) {
 			return "legendary/brienne_friendly";
 		}
-		return "legendary/brienne_hostile";
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override
