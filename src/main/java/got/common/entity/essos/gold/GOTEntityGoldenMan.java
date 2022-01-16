@@ -36,6 +36,7 @@ public class GOTEntityGoldenMan extends GOTEntityHumanBase implements IPickpocke
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
 		addTargetTasks(false);
+		this.npcShield = GOTShields.GOLDENCOMPANY;
 	}
 
 	@Override
