@@ -1,6 +1,9 @@
 CHANGELOG
 
 >>VERSION 17.6
++ Added full Ukrainian edition (lore, speech, names, quests: prod. DDPAT Knife Series)
++ Added full Turkish edition (lore, speech, names, quests: prod. DDPAT Knife Series)
+
 * Recoded all the flat biome system
 * Reworked all the speechbank system
 
@@ -30,6 +33,7 @@ CHANGELOG
 
 * Optimized iron bank code
 
+* Fixed bug with Twins
 * Fixed bug with crashing removed biomes
 * Fixed bug with Yi Ti border
 * Fixed bug with attack

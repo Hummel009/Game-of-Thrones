@@ -6,6 +6,7 @@ import java.net.URI;
 import org.lwjgl.Sys;
 import org.lwjgl.opengl.GL11;
 
+import got.GOT;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.*;
@@ -75,7 +76,8 @@ public class GOTGuiLanguages extends GOTGuiMenuWBBase {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		String s1 = StatCollector.translateToLocal("got.gui.languages");
 		fontRendererObj.drawString(s1, guiLeft + 100 - fontRendererObj.getStringWidth(s1) / 2, guiTop + 10, 16777215);
-		String s2 = StatCollector.translateToLocal("got.gui.languages.guide");
+		String s2 = 
+		StatCollector.translateToLocal("got.gui.languages.guide1") + GOT.langsName + StatCollector.translateToLocal("got.gui.languages.guide2");
 		int x = guiLeft + xSize / 2;
 		int y = guiTop + 40;
 		for (Object element : fontRendererObj.listFormattedStringToWidth(s2, 220)) {

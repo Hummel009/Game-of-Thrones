@@ -2732,7 +2732,8 @@ got.gui.help2≠
 got.gui.hornSelect.haltReady=部隊の待機/戦闘態勢 
 got.gui.hornSelect.summon=部隊招集
 got.gui.hornSelect.title=指揮の角笛の機能選択
-got.gui.languages.guide≠
+got.gui.languages.guide1≠
+got.gui.languages.guide2≠
 got.gui.languages≠
 got.gui.map.conquest.allyBoost=%sの味方のみを支援します。
 got.gui.map.conquest.needRank=%sへの忠誠を宣誓しているので、%s、同盟国、敵、及び宿敵の支配領域を表示できます。\n\n他の全ての派閥（中立及び友好的）の支配領域を表示するには、%s ランクに到達する必要があります（%s 名声値）。
