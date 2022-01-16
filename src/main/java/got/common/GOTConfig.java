@@ -5,6 +5,7 @@ import java.util.*;
 
 import cpw.mods.fml.client.config.IConfigElement;
 import cpw.mods.fml.common.FMLLog;
+import got.GOT;
 import got.common.util.GOTModChecker;
 import net.minecraft.world.World;
 import net.minecraftforge.common.config.*;
@@ -123,7 +124,7 @@ public class GOTConfig {
 	}
 
 	public static void load() {
-		languageCode = config.getString("languageCode", CATEGORY_LANGUAGE, languageCode, "Choose: ru (Russian), uk (Ukrainian), en (English), de (Deutsch), tr (Turkish) or zh (Chinese).");
+		languageCode = config.getString("languageCode", CATEGORY_LANGUAGE, languageCode, "Choose:" + GOT.langsName + ".");
 		clearMap = config.get(CATEGORY_GAMEPLAY, "No fixed structures and characters", false, "Useful for servers. Disable fixed structures to build your own").getBoolean();
 		allowBannerProtection = config.get(CATEGORY_GAMEPLAY, "Allow Banner Protection", true).getBoolean();
 		allowSelfProtectingBanners = config.get(CATEGORY_GAMEPLAY, "Allow Self-Protecting Banners", true).getBoolean();
