@@ -151,7 +151,6 @@ public class GOTArmorModels {
 			map.put(GOTRegistry.valyrianHelmet, new GOTModelLegendaryHelmet(1.0f));
 			map.put(GOTRegistry.victarionHelmet, new GOTModelLegendaryHelmet(1.0f));
 			map.put(GOTRegistry.westerlandsHelmet, new GOTModelWesterlandsHelmet(1.0f));
-			map.put(GOTRegistry.westerlandsguardHelmet, new GOTModelReachHelmet(1.0f));
 			map.put(GOTRegistry.westkingHelmet, new GOTModelWesterlandsHelmet(1.0f));
 			map.put(GOTRegistry.woodPlate, new GOTModelPlateHead());
 			map.put(GOTRegistry.yitiHelmetSamurai, new GOTModelYiTiHelmet(1.0f, false));

@@ -2488,7 +2488,7 @@ public class GOTRegistry {
 		westerlandsLeggings = new GOTItemArmor(GOTMaterial.WESTERLANDS, 2);
 		westerlandsguardBoots = new GOTItemArmor(GOTMaterial.WESTERLANDSGUARD, 3);
 		westerlandsguardChestplate = new GOTItemArmor(GOTMaterial.WESTERLANDSGUARD, 1);
-		westerlandsguardHelmet = new GOTItemArmor(GOTMaterial.WESTERLANDSGUARD, 0, "helmet");
+		westerlandsguardHelmet = new GOTItemArmor(GOTMaterial.WESTERLANDSGUARD, 0);
 		westerlandsguardLeggings = new GOTItemArmor(GOTMaterial.WESTERLANDSGUARD, 2);
 		westerosBow = new GOTItemBow(GOTMaterial.NORTH, 1.125);
 		westerosDagger = new GOTItemDagger(GOTMaterial.NORTH);
