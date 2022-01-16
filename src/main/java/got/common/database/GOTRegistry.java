@@ -1922,7 +1922,7 @@ public class GOTRegistry {
 		arrynLeggings = new GOTItemArmor(GOTMaterial.ARRYN, 2);
 		arrynguardBoots = new GOTItemArmor(GOTMaterial.ARRYNGUARD, 3);
 		arrynguardChestplate = new GOTItemArmor(GOTMaterial.ARRYNGUARD, 1);
-		arrynguardHelmet = new GOTItemArmor(GOTMaterial.ARRYNGUARD, 0, "helmet");
+		arrynguardHelmet = new GOTItemArmor(GOTMaterial.ARRYNGUARD, 0);
 		arrynguardLeggings = new GOTItemArmor(GOTMaterial.ARRYNGUARD, 2);
 		asshaiBattleaxe = new GOTItemBattleaxe(GOTMaterial.ASSHAI);
 		asshaiBoots = new GOTItemArmor(GOTMaterial.ASSHAI, 3);

@@ -119,7 +119,6 @@ public class GOTArmorModels {
 		if (map == null) {
 			map = new HashMap<>();
 			map.put(GOTRegistry.arrynHelmet, new GOTModelArrynHelmet(1.0f));
-			map.put(GOTRegistry.arrynguardHelmet, new GOTModelArrynHelmet(1.0f));
 			map.put(GOTRegistry.asshaiHelmet, new GOTModelAsshaiHelmet(1.0f));
 			map.put(GOTRegistry.bittersteelHelmet, new GOTModelSandorHelmet(1.0f));
 			map.put(GOTRegistry.blackfyreHelmet, new GOTModelLegendaryHelmet(1.0f));
