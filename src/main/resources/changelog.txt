@@ -2,10 +2,11 @@ CHANGELOG
 
 >>VERSION 17.6
 + Added full Ukrainian edition (lore, speech, names, quests: prod. DDPAT Knife Series)
-+ Added full Turkish edition (lore, speech, names, quests: prod. DDPAT Knife Series)
++ Added full Turkish edition (lore, speech, names, quests: prod. Ness)
 
 * Recoded all the flat biome system
 * Reworked all the speechbank system
+* Great texture update (armor sets, shields and banners: prod. Hummel009)
 
 + Added new Hardhome
 + Added skirling pass as a hidden road in mountains
@@ -18,7 +19,6 @@ CHANGELOG
 + Added Tugar Khan achievement
 + Added dark variants of scrap trader and thief
 
-* Improved Lannister textures (banner, armor, shield: prod. GothVII & Hummel009)
 * Improved guards: sync between Essos and Westeros
 * Improved Yi Ti Roads
 * Improved almost all biomes
