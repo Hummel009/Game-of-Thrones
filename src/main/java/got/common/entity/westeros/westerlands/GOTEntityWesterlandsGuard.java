@@ -10,6 +10,7 @@ public class GOTEntityWesterlandsGuard extends GOTEntityWesterlandsSoldier {
 		super(world);
 		spawnRidingHorse = false;
 		addTargetTasks(false);
+		npcShield = GOTShields.WESTERLANDSGUARD;
 	}
 
 	@Override
