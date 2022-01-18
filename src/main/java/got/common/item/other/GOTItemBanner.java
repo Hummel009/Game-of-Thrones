@@ -19,9 +19,12 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class GOTItemBanner extends Item {
+	@SideOnly(value = Side.CLIENT)
+	public IIcon iconBase;
+	@SideOnly(value = Side.CLIENT)
+	public IIcon iconOverlay;
 	public static int id = 0;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] bannerIcons;
 
 	public GOTItemBanner() {
 		setCreativeTab(GOTCreativeTabs.tabBanner);
@@ -31,6 +34,37 @@ public class GOTItemBanner extends Item {
 		setFull3D();
 	}
 
+	@SideOnly(value = Side.CLIENT)
+	@Override
+	public int getColorFromItemStack(ItemStack itemstack, int pass) {
+		if (pass == 0) {
+			return 0xA27F4F;
+		}
+		return GOTItemBanner.getBannerType(itemstack.getItemDamage()).faction.eggColor;
+	}
+
+	@SideOnly(value = Side.CLIENT)
+	@Override
+	public IIcon getIconFromDamageForRenderPass(int i, int pass) {
+		if (pass == 0) {
+			return iconBase;
+		}
+		return iconOverlay;
+	}
+
+	@SideOnly(value = Side.CLIENT)
+	@Override
+	public void registerIcons(IIconRegister iconregister) {
+		iconBase = iconregister.registerIcon(getIconString() + "_base");
+		iconOverlay = iconregister.registerIcon(getIconString() + "_overlay");
+	}
+
+	@SideOnly(value = Side.CLIENT)
+	@Override
+	public boolean requiresMultipleRenderPasses() {
+		return true;
+	}
+
 	@Override
 	@SideOnly(value = Side.CLIENT)
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
@@ -38,15 +72,6 @@ public class GOTItemBanner extends Item {
 		if (protectData != null) {
 			list.add(StatCollector.translateToLocal("item.got.banner.protect"));
 		}
-	}
-
-	@Override
-	@SideOnly(value = Side.CLIENT)
-	public IIcon getIconFromDamage(int i) {
-		if (i >= bannerIcons.length) {
-			i = 0;
-		}
-		return bannerIcons[i];
 	}
 
 	@Override
@@ -138,15 +163,6 @@ public class GOTItemBanner extends Item {
 			}
 		}
 		return false;
-	}
-
-	@SideOnly(value = Side.CLIENT)
-	@Override
-	public void registerIcons(IIconRegister iconregister) {
-		bannerIcons = new IIcon[BannerType.bannerTypes.size()];
-		for (int i = 0; i < bannerIcons.length; ++i) {
-			bannerIcons[i] = iconregister.registerIcon("got:banner_" + BannerType.bannerTypes.get(i).bannerName);
-		}
 	}
 
 	public static BannerType getBannerType(int i) {
