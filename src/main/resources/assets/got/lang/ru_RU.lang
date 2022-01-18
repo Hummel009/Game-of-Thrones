@@ -1,4 +1,13 @@
 ﻿
+item.got:banner.jogos.name=Знамя Джогос-Нхая 
+got.structure.NorthHillmanVillage.name=Деревня горцев Севера
+got.structure.WildlingVillage.name=Деревня одичалых
+got.structure.ThennVillage.name=Деревня теннов
+got.structure.NorthHillmanChieftainHouse.name=Дом вождя горцев Севера
+got.structure.NorthHillmanHouse.name=Дом горцев Севера
+got.structure.ThennMagnarHouse.name=Дом магнара теннов
+got.structure.ThennHouse.name=Дом теннов
+entity.got.JogosBannerBearer.name=Знаменосец Джогос-Нхая
 got.structure.HillmanVillage.name=Деревня горцев
 tile.got:kelp.name=Ламинария
 got.achievement.KILL_PRIEST.desc=Убейте священника
