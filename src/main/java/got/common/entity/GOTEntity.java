@@ -654,6 +654,7 @@ public class GOTEntity {
 
 		GOTEntityRegistry.register(GOTEntityJogos.class, "JogosMan", id++, GOTFaction.JOGOS);
 		GOTEntityRegistry.register(GOTEntityJogosArcher.class, "JogosArcher", id++, GOTFaction.JOGOS);
+		GOTEntityRegistry.register(GOTEntityJogosBannerBearer.class, "JogosBannerBearer", id++, GOTFaction.JOGOS);
 		GOTEntityRegistry.register(GOTEntityJogosChief.class, "JogosChief", id++, GOTFaction.JOGOS);
 		GOTEntityRegistry.register(GOTEntityJogosShaman.class, "JogosShaman", id++, GOTFaction.JOGOS);
 
