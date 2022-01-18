@@ -1,4 +1,15 @@
 ﻿
+got.shields.WESTERLANDSGUARD.name≠
+got.capes.TARGARYEN.desc≠
+item.got:banner.jogos.name≠
+got.structure.NorthHillmanVillage.name≠
+got.structure.WildlingVillage.name≠
+got.structure.ThennVillage.name≠
+got.structure.NorthHillmanChieftainHouse.name≠
+got.structure.NorthHillmanHouse.name≠
+got.structure.ThennMagnarHouse.name≠
+got.structure.ThennHouse.name≠
+entity.got.JogosBannerBearer.name≠
 got.structure.HillmanVillage.name≠
 tile.got:kelp.name≠
 got.achievement.KILL_PRIEST.desc≠

@@ -1,4 +1,6 @@
 ﻿
+got.shields.WESTERLANDSGUARD.name=Щит стражей Ланниспорта
+got.capes.TARGARYEN.desc=Для разработчиков мода Game of Thrones
 item.got:banner.jogos.name=Знамя Джогос-Нхая 
 got.structure.NorthHillmanVillage.name=Деревня горцев Севера
 got.structure.WildlingVillage.name=Деревня одичалых
@@ -1055,7 +1057,7 @@ got.achievement.KILL_JAIME_LANNISTER.title=Отец тебя не спасёт!
 got.achievement.KILL_JAQEN_HGHAR.desc=Убейте Якена Хгара
 got.achievement.KILL_JAQEN_HGHAR.title=Валар Моргулис
 got.achievement.KILL_JEOR_MORMONT.desc=Убейте Джиора Мормонта
-got.achievement.KILL_JEOR_MORMONT.title=Предатель
+got.achievement.KILL_JEOR_MORMONT.title=The impostor is kinda sus
 got.achievement.KILL_JON_SNOW.desc=Убейте Джона Сноу
 got.achievement.KILL_JON_SNOW.title=За Дозор!
 got.achievement.KILL_JORAH_MORMONT.desc=Убейте Джораха Мормонта
