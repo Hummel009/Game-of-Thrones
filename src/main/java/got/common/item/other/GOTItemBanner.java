@@ -38,7 +38,7 @@ public class GOTItemBanner extends Item {
 	@Override
 	public int getColorFromItemStack(ItemStack itemstack, int pass) {
 		if (pass == 0) {
-			return 0xA27F4F;
+			return 0x816641;
 		}
 		return GOTItemBanner.getBannerType(itemstack.getItemDamage()).faction.eggColor;
 	}
