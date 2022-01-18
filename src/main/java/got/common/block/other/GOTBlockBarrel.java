@@ -116,7 +116,7 @@ public class GOTBlockBarrel extends BlockContainer {
 					entityplayer.dropPlayerItemWithRandomChoice(playerDrink, false);
 				}
 				barrel.consumeMugRefill();
-				world.playSoundEffect(i + 0.5, j + 0.5, k + 0.5, "got:textures/model.mug_fill", 0.5f, 0.8f + world.rand.nextFloat() * 0.4f);
+				world.playSoundEffect(i + 0.5, j + 0.5, k + 0.5, "got:item.mug_fill", 0.5f, 0.8f + world.rand.nextFloat() * 0.4f);
 				return true;
 			}
 			if (itemstack != null && item instanceof GOTItemMug && ((GOTItemMug) item).isBrewable) {
@@ -147,7 +147,7 @@ public class GOTBlockBarrel extends BlockContainer {
 							entityplayer.dropPlayerItemWithRandomChoice(emptyMug, false);
 						}
 					}
-					world.playSoundEffect(i + 0.5, j + 0.5, k + 0.5, "got:textures/model.mug_fill", 0.5f, 0.8f + world.rand.nextFloat() * 0.4f);
+					world.playSoundEffect(i + 0.5, j + 0.5, k + 0.5, "got:item.mug_fill", 0.5f, 0.8f + world.rand.nextFloat() * 0.4f);
 					return true;
 				}
 			}

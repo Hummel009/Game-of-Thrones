@@ -64,7 +64,7 @@ public class GOTItemPipe extends Item {
 				smoke.setSmokeColour(color);
 				world.spawnEntityInWorld(smoke);
 			}
-			world.playSoundAtEntity(entityplayer, "got:textures/model.puff", 1.0f, (itemRand.nextFloat() - itemRand.nextFloat()) * 0.2f + 1.0f);
+			world.playSoundAtEntity(entityplayer, "got:item.puff", 1.0f, (itemRand.nextFloat() - itemRand.nextFloat()) * 0.2f + 1.0f);
 		}
 		return itemstack;
 	}

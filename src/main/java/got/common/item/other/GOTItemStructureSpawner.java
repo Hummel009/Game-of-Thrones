@@ -129,7 +129,7 @@ public class GOTItemStructureSpawner extends Item {
 			boolean generated = strProvider.generateStructure(world, entityplayer, i, j, k);
 			if (generated) {
 				lastStructureSpawnTick = 20;
-				world.playSoundAtEntity(entityplayer, "got:textures/model.structureSpawner", 1.0f, 1.0f);
+				world.playSoundAtEntity(entityplayer, "got:item.structureSpawner", 1.0f, 1.0f);
 			}
 			return generated;
 		}

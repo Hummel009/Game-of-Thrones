@@ -105,7 +105,7 @@ public class GOTBlockMug extends BlockContainer {
 					}
 				}
 				mug.setEmpty();
-				world.playSoundAtEntity(entityplayer, "got:textures/model.mug_fill", 0.5f, 0.8f + world.rand.nextFloat() * 0.4f);
+				world.playSoundAtEntity(entityplayer, "got:item.mug_fill", 0.5f, 0.8f + world.rand.nextFloat() * 0.4f);
 				return true;
 			}
 			if (mug.isEmpty() && GOTItemMug.isItemFullDrink(itemstack)) {
@@ -114,7 +114,7 @@ public class GOTBlockMug extends BlockContainer {
 				ItemStack mugFill = itemstack.copy();
 				mugFill.stackSize = 1;
 				mug.setMugItem(mugFill);
-				world.playSoundEffect(i + 0.5, j + 0.5, k + 0.5, "got:textures/model.mug_fill", 0.5f, 0.8f + world.rand.nextFloat() * 0.4f);
+				world.playSoundEffect(i + 0.5, j + 0.5, k + 0.5, "got:item.mug_fill", 0.5f, 0.8f + world.rand.nextFloat() * 0.4f);
 				return true;
 			}
 			if (!mug.isEmpty()) {

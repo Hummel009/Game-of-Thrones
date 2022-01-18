@@ -147,7 +147,7 @@ public class GOTItemCrossbow extends ItemBow {
 				if (!world.isRemote) {
 					world.spawnEntityInWorld(bolt);
 				}
-				world.playSoundAtEntity(entityplayer, "got:textures/model.crossbow", 1.0f, 1.0f / (itemRand.nextFloat() * 0.4f + 1.2f) + charge * 0.5f);
+				world.playSoundAtEntity(entityplayer, "got:item.crossbow", 1.0f, 1.0f / (itemRand.nextFloat() * 0.4f + 1.2f) + charge * 0.5f);
 				itemstack.damageItem(1, entityplayer);
 				if (!world.isRemote) {
 					setLoaded(itemstack, null);
@@ -191,7 +191,7 @@ public class GOTItemCrossbow extends ItemBow {
 	public void onUsingTick(ItemStack itemstack, EntityPlayer entityplayer, int count) {
 		World world = entityplayer.worldObj;
 		if (!world.isRemote && !GOTItemCrossbow.isLoaded(itemstack) && getMaxItemUseDuration(itemstack) - count == getMaxDrawTime()) {
-			world.playSoundAtEntity(entityplayer, "got:textures/model.crossbowLoad", 1.0f, 1.5f + world.rand.nextFloat() * 0.2f);
+			world.playSoundAtEntity(entityplayer, "got:item.crossbowLoad", 1.0f, 1.5f + world.rand.nextFloat() * 0.2f);
 		}
 	}
 

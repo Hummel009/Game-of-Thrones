@@ -255,13 +255,13 @@ public class GOTItemMug extends Item {
 				if (world.getBlock(i, j, k).getMaterial() == Material.water && world.getBlockMetadata(i, j, k) == 0) {
 					--itemstack.stackSize;
 					if (itemstack.stackSize <= 0) {
-						world.playSoundAtEntity(entityplayer, "got:textures/model.mug_fill", 0.5f, 0.8f + world.rand.nextFloat() * 0.4f);
+						world.playSoundAtEntity(entityplayer, "got:item.mug_fill", 0.5f, 0.8f + world.rand.nextFloat() * 0.4f);
 						return filled.copy();
 					}
 					if (!entityplayer.inventory.addItemStackToInventory(filled.copy())) {
 						entityplayer.dropPlayerItemWithRandomChoice(filled.copy(), false);
 					}
-					world.playSoundAtEntity(entityplayer, "got:textures/model.mug_fill", 0.5f, 0.8f + world.rand.nextFloat() * 0.4f);
+					world.playSoundAtEntity(entityplayer, "got:item.mug_fill", 0.5f, 0.8f + world.rand.nextFloat() * 0.4f);
 				}
 			}
 			return itemstack;

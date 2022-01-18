@@ -785,7 +785,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		if (heldItem != null) {
 			GOTItemCrossbow.applyCrossbowModifiers(bolt, heldItem);
 		}
-		playSound("got:textures/model.crossbow", 1.0f, 1.0f / (rand.nextFloat() * 0.4f + 0.8f));
+		playSound("got:item.crossbow", 1.0f, 1.0f / (rand.nextFloat() * 0.4f + 0.8f));
 		worldObj.spawnEntityInWorld(bolt);
 	}
 

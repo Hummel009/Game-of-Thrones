@@ -87,7 +87,7 @@ public class GOTItemSarbacane extends Item {
 					entityplayer.inventory.mainInventory[dartSlot] = null;
 				}
 			}
-			world.playSoundAtEntity(entityplayer, "got:textures/model.dart", 1.0f, 1.0f / (itemRand.nextFloat() * 0.4f + 1.2f) + charge * 0.5f);
+			world.playSoundAtEntity(entityplayer, "got:item.dart", 1.0f, 1.0f / (itemRand.nextFloat() * 0.4f + 1.2f) + charge * 0.5f);
 			if (!world.isRemote) {
 				ItemStack shotDart = dartItem.copy();
 				shotDart.stackSize = 1;

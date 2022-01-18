@@ -82,7 +82,7 @@ public class GOTItemCommandHorn extends Item implements GOTSquadrons.SquadronIte
 		} else if (itemstack.getItemDamage() == 2) {
 			itemstack.setItemDamage(1);
 		}
-		world.playSoundAtEntity(entityplayer, "got:textures/model.horn", 4.0f, 1.0f);
+		world.playSoundAtEntity(entityplayer, "got:item.horn", 4.0f, 1.0f);
 		return itemstack;
 	}
 

@@ -296,7 +296,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 	}
 
 	public void playHorn() {
-		worldObj.playSoundAtEntity(this, "got:textures/model.horn", 4.0f, 0.65f + rand.nextFloat() * 0.1f);
+		worldObj.playSoundAtEntity(this, "got:item.horn", 4.0f, 0.65f + rand.nextFloat() * 0.1f);
 	}
 
 	@Override
