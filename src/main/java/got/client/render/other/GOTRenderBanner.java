@@ -4,6 +4,7 @@ import java.util.*;
 
 import org.lwjgl.opengl.GL11;
 
+import got.GOT;
 import got.client.GOTClientProxy;
 import got.client.model.GOTModelBanner;
 import got.common.GOTBannerProtection;
@@ -109,7 +110,11 @@ public class GOTRenderBanner extends Render {
 	public static ResourceLocation getBannerTexture(GOTItemBanner.BannerType type) {
 		ResourceLocation r = bannerTextures.get(type);
 		if (r == null) {
-			r = new ResourceLocation("got:textures/banner/" + type.bannerName + ".png");
+			if (GOT.isAprilFools()) {
+				r = new ResourceLocation("got:textures/banner/null.png");
+			} else {
+				r = new ResourceLocation("got:textures/banner/" + type.bannerName + ".png");
+			}
 			bannerTextures.put(type, r);
 		}
 		return r;

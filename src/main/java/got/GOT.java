@@ -462,6 +462,11 @@ public class GOT {
 		return -1;
 	}
 
+    public static boolean isAprilFools() {
+        Calendar calendar = Calendar.getInstance();
+        return calendar.get(2) == 3 && calendar.get(5) == 1;
+    }
+
 	public static boolean isGuyFawkes() {
 		Calendar calendar = Calendar.getInstance();
 		return calendar.get(2) == 10 && calendar.get(5) == 5;
