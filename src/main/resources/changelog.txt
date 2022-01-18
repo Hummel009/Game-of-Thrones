@@ -8,6 +8,7 @@ CHANGELOG
 * Reworked all the speechbank system
 * Great texture update (armor sets, shields and banners: prod. Hummel009)
 
++ Added Jogos Nhai banner
 + Added new Hardhome
 + Added skirling pass as a hidden road in mountains
 + Added villages and houses for wildling, thenn and north hillmen

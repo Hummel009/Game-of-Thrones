@@ -4,6 +4,7 @@ import java.util.Random;
 
 import got.common.database.*;
 import got.common.entity.essos.jogos.GOTEntityJogos;
+import got.common.item.other.GOTItemBanner;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -69,6 +70,7 @@ public class GOTStructureJogosTentLarge extends GOTStructureJogosBase {
 		setBlockAndMetadata(world, -4, 1, 5, bedBlock, 8);
 		placeWeaponRack(world, 0, 3, 6, 6, getRandomNomadWeapon(random));
 		this.placeChest(world, random, -4, 1, -5, GOTRegistry.chestBasket, 3, GOTChestContents.NOMAD);
+        this.placeWallBanner(world, 0, 5, 7, GOTItemBanner.BannerType.JOGOS, 2);
 		GOTEntityJogos male = new GOTEntityJogos(world);
 		male.familyInfo.setMale(true);
 		male.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));

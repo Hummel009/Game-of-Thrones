@@ -375,6 +375,7 @@ public class GOTRecipe {
 	}
 
 	public static void createJogosRecipes() {
+		jogos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.banner, 1, GOTItemBanner.BannerType.JOGOS.bannerID), "X", "Y", "Z", Character.valueOf('X'), Blocks.wool, Character.valueOf('Y'), "stickWood", Character.valueOf('Z'), "plankWood"));
 		jogos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.jogosHelmet), "XXX", "X X", Character.valueOf('X'), "ingotIron"));
 		jogos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.jogosChestplate), "X X", "XXX", "XXX", Character.valueOf('X'), "ingotIron"));
 		jogos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.jogosLeggings), "XXX", "X X", "X X", Character.valueOf('X'), "ingotIron"));

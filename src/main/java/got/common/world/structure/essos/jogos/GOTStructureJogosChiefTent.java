@@ -5,6 +5,7 @@ import java.util.Random;
 import got.common.database.*;
 import got.common.entity.animal.GOTEntityCamel;
 import got.common.entity.essos.jogos.*;
+import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
@@ -78,6 +79,12 @@ public class GOTStructureJogosChiefTent extends GOTStructureJogosBase {
 		placePlateWithCertainty(world, random, -6, 2, -5, GOTRegistry.ceramicPlateBlock, GOTFoods.NOMAD);
 		placePlateWithCertainty(world, random, 6, 2, -5, GOTRegistry.ceramicPlateBlock, GOTFoods.NOMAD);
 		this.placeMug(world, random, 4, 2, -5, 2, GOTFoods.NOMAD_DRINK);
+        this.placeWallBanner(world, 0, 3, 7, GOTItemBanner.BannerType.JOGOS, 2);
+        this.placeWallBanner(world, -5, 4, 6, GOTItemBanner.BannerType.JOGOS, 2);
+        this.placeWallBanner(world, 5, 4, 6, GOTItemBanner.BannerType.JOGOS, 2);
+        this.placeWallBanner(world, -12, 4, 0, GOTItemBanner.BannerType.JOGOS, 1);
+        this.placeWallBanner(world, 12, 4, 0, GOTItemBanner.BannerType.JOGOS, 3);
+        this.placeWallBanner(world, 0, 5, -8, GOTItemBanner.BannerType.JOGOS, 2);
 		setBlockAndMetadata(world, -1, 4, -9, Blocks.skull, 2);
 		setBlockAndMetadata(world, 1, 4, -9, Blocks.skull, 2);
 		GOTEntityJogosChief chief = new GOTEntityJogosChief(world);
