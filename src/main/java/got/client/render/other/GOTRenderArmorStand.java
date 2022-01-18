@@ -16,7 +16,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.ForgeHooksClient;
 
 public class GOTRenderArmorStand extends TileEntitySpecialRenderer {
-	public static ResourceLocation standTexture = new ResourceLocation("got:textures/item/armorStand.png");
+	public static ResourceLocation standTexture = new ResourceLocation("got:textures/model/armorStand.png");
 	public static ModelBase standModel = new GOTModelArmorStand();
 	public static ModelBiped modelBipedMain = new ModelBiped(0.0f);
 	public static ModelBiped modelBiped1 = new ModelBiped(1.0f);
