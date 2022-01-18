@@ -17,8 +17,8 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.*;
 
 public class GOTGuiFactions extends GOTGuiMenuWBBase {
-	public static ResourceLocation factionsTexture = new ResourceLocation("got:gui/factions.png");
-	public static ResourceLocation factionsTextureFull = new ResourceLocation("got:gui/factions_full.png");
+	public static ResourceLocation factionsTexture = new ResourceLocation("got:textures/gui/factions.png");
+	public static ResourceLocation factionsTextureFull = new ResourceLocation("got:textures/gui/factions_full.png");
 	public static GOTDimension currentDimension;
 	public static GOTDimension prevDimension;
 	public static GOTDimension.DimensionRegion currentRegion;

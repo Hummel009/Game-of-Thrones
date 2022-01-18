@@ -12,7 +12,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.util.*;
 
 public class GOTGuiCoinExchange extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:gui/coin_exchange.png");
+	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/coin_exchange.png");
 	public GOTContainerCoinExchange theContainer;
 	public GuiButton buttonLeft;
 	public GuiButton buttonRight;

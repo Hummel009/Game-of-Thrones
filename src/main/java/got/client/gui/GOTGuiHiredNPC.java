@@ -10,7 +10,7 @@ import got.common.network.*;
 import net.minecraft.util.*;
 
 public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:gui/npc/hired.png");
+	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/npc/hired.png");
 	public int xSize = 200;
 	public int ySize = 220;
 	public int guiLeft;

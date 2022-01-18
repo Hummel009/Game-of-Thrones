@@ -21,8 +21,8 @@ import net.minecraft.item.*;
 import net.minecraft.util.*;
 
 public class GOTGuiQuestBook extends GOTGuiScreenBase {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:gui/quest/questBook.png");
-	public static ResourceLocation guiTexture_miniquests = new ResourceLocation("got:gui/quest/questBook_miniquests.png");
+	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/quest/questBook.png");
+	public static ResourceLocation guiTexture_miniquests = new ResourceLocation("got:textures/gui/quest/questBook_miniquests.png");
 	public static RenderItem renderItem = new RenderItem();
 	public static boolean viewCompleted = false;
 	public static int trackTicksMax = 40;

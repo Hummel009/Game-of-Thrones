@@ -18,7 +18,7 @@ import net.minecraft.util.*;
 
 public class GOTRenderBanner extends Render {
 	public static Map<GOTItemBanner.BannerType, ResourceLocation> bannerTextures = new HashMap<>();
-	public static ResourceLocation standTexture = new ResourceLocation("got:banner/stand.png");
+	public static ResourceLocation standTexture = new ResourceLocation("got:textures/banner/stand.png");
 	public static GOTModelBanner model = new GOTModelBanner();
 	public static Frustrum bannerFrustum = new Frustrum();
 
@@ -109,7 +109,7 @@ public class GOTRenderBanner extends Render {
 	public static ResourceLocation getBannerTexture(GOTItemBanner.BannerType type) {
 		ResourceLocation r = bannerTextures.get(type);
 		if (r == null) {
-			r = new ResourceLocation("got:banner/" + type.bannerName + ".png");
+			r = new ResourceLocation("got:textures/banner/" + type.bannerName + ".png");
 			bannerTextures.put(type, r);
 		}
 		return r;

@@ -10,7 +10,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class GOTModelCompass extends ModelBase {
 	public static GOTModelCompass compassModel = new GOTModelCompass();
-	public static ResourceLocation compassTexture = new ResourceLocation("got:misc/compass.png");
+	public static ResourceLocation compassTexture = new ResourceLocation("got:textures/misc/compass.png");
 	public ModelRenderer compass;
 	public ModelBase ringotel = new GOTModelPortal(0);
 	public ModelBase writingotelOuter = new GOTModelPortal(1);

@@ -7,7 +7,7 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTGuiButtonBannerWhitelistSlots extends GuiButton {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:gui/banner_edit.png");
+	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/banner_edit.png");
 
 	public GOTGuiButtonBannerWhitelistSlots(int i, int j, int k) {
 		super(i, j, k, 7, 7, "");

@@ -29,7 +29,7 @@ public class GOTItemTurban extends GOTItemRobes {
 
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
-		return "got:armor/robes_turban.png";
+		return "got:textures/armor/robes_turban.png";
 	}
 
 	@SideOnly(value = Side.CLIENT)

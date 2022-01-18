@@ -7,7 +7,7 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTGuiButtonLock extends GuiButton {
-	public static ResourceLocation texture = new ResourceLocation("got:gui/widgets.png");
+	public static ResourceLocation texture = new ResourceLocation("got:textures/gui/widgets.png");
 
 	public GOTGuiButtonLock(int i, int j, int k) {
 		super(i, j, k, 20, 20, "");

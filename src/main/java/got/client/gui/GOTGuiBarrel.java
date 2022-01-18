@@ -14,8 +14,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 
 public class GOTGuiBarrel extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:gui/barrel/barrel.png");
-	public static ResourceLocation brewingTexture = new ResourceLocation("got:gui/barrel/brewing.png");
+	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/barrel/barrel.png");
+	public static ResourceLocation brewingTexture = new ResourceLocation("got:textures/gui/barrel/brewing.png");
 	public GOTTileEntityBarrel theBarrel;
 	public GuiButton brewingButton;
 	public float prevBrewAnim = -1.0f;

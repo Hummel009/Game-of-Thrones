@@ -58,11 +58,11 @@ import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.world.WorldEvent;
 
 public class GOTTickHandlerClient {
-	public static ResourceLocation portalOverlay = new ResourceLocation("got:misc/portal_overlay.png");
-	public static ResourceLocation mistOverlay = new ResourceLocation("got:misc/mist_overlay.png");
-	public static ResourceLocation frostOverlay = new ResourceLocation("got:misc/frost_overlay.png");
-	public static ResourceLocation burnOverlay = new ResourceLocation("got:misc/burn_overlay.png");
-	public static ResourceLocation wightOverlay = new ResourceLocation("got:misc/wight.png");
+	public static ResourceLocation portalOverlay = new ResourceLocation("got:textures/misc/portal_overlay.png");
+	public static ResourceLocation mistOverlay = new ResourceLocation("got:textures/misc/mist_overlay.png");
+	public static ResourceLocation frostOverlay = new ResourceLocation("got:textures/misc/frost_overlay.png");
+	public static ResourceLocation burnOverlay = new ResourceLocation("got:textures/misc/burn_overlay.png");
+	public static ResourceLocation wightOverlay = new ResourceLocation("got:textures/misc/wight.png");
 	public static HashMap playersInPortals = new HashMap();
 	public static int clientTick;
 	public static float renderTick;

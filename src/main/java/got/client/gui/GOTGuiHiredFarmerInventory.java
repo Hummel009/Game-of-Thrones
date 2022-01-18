@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 
 public class GOTGuiHiredFarmerInventory extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:gui/npc/hiredFarmer.png");
+	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/npc/hiredFarmer.png");
 	public GOTEntityNPC theNPC;
 
 	public GOTGuiHiredFarmerInventory(InventoryPlayer inv, GOTEntityNPC entity) {

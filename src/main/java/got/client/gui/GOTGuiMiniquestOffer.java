@@ -16,7 +16,7 @@ import net.minecraft.client.renderer.entity.*;
 import net.minecraft.util.*;
 
 public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:gui/quest/miniquest.png");
+	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/quest/miniquest.png");
 	public static RenderItem renderItem = new RenderItem();
 	public GOTMiniQuest theMiniQuest;
 	public GOTEntityNPC theNPC;

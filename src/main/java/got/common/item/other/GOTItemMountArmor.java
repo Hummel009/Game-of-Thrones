@@ -58,7 +58,7 @@ public class GOTItemMountArmor extends Item {
 			if (materialName.startsWith("got_")) {
 				materialName = materialName.substring("got_".length());
 			}
-			path = "got:armor/mount/" + mountName + "_" + materialName + ".png";
+			path = "got:textures/armor/mount/" + mountName + "_" + materialName + ".png";
 		}
 		return path;
 	}

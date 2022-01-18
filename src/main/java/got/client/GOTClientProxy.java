@@ -50,10 +50,10 @@ import net.minecraftforge.event.world.BlockEvent.BreakEvent;
 
 public class GOTClientProxy extends GOTCommonProxy {
 	public static ResourceLocation enchantmentTexture = new ResourceLocation("textures/misc/enchanted_item_glint.png");
-	public static ResourceLocation alignmentTexture = new ResourceLocation("got:gui/alignment.png");
-	public static ResourceLocation particlesTexture = new ResourceLocation("got:misc/particles.png");
-	public static ResourceLocation particles2Texture = new ResourceLocation("got:misc/particles2.png");
-	public static ResourceLocation customEffectsTexture = new ResourceLocation("got:gui/effects.png");
+	public static ResourceLocation alignmentTexture = new ResourceLocation("got:textures/gui/alignment.png");
+	public static ResourceLocation particlesTexture = new ResourceLocation("got:textures/misc/particles.png");
+	public static ResourceLocation particles2Texture = new ResourceLocation("got:textures/misc/particles2.png");
+	public static ResourceLocation customEffectsTexture = new ResourceLocation("got:textures/gui/effects.png");
 	public static int TESSELLATOR_MAX_BRIGHTNESS = 15728880;
 	public static int FONTRENDERER_ALPHA_MIN = 4;
 	public static GOTEffectRenderer customEffectRenderer;

@@ -14,7 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 
 public class GOTGuiMiniquestTracker extends Gui {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:gui/quest/tracker.png");
+	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/quest/tracker.png");
 	public static RenderItem renderItem = new RenderItem();
 	public static int completeTimeMax = 200;
 	public int width;

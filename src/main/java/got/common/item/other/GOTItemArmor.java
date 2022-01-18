@@ -36,7 +36,7 @@ public class GOTItemArmor extends ItemArmor {
 
 	@Override
 	public String getArmorTexture(ItemStack itemstack, Entity entity, int slot, String type) {
-		path = "got:armor/";
+		path = "got:textures/armor/";
 		String armorName = getArmorName();
 		StringBuilder texture = new StringBuilder(path).append(armorName);
 		if (type != null) {

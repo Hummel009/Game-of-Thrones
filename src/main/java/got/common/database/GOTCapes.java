@@ -26,7 +26,7 @@ public enum GOTCapes {
 		capeType = type;
 		capeID = capeType.list.size();
 		capeType.list.add(this);
-		capeTexture = new ResourceLocation("got:cape/" + name().toLowerCase() + ".png");
+		capeTexture = new ResourceLocation("got:textures/cape/" + name().toLowerCase() + ".png");
 		exclusiveUUIDs = new UUID[players.length];
 		for (int i = 0; i < players.length; ++i) {
 			String s = players[i];

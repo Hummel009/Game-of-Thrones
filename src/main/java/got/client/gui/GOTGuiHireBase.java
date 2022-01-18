@@ -23,7 +23,7 @@ import net.minecraft.util.*;
 import net.minecraft.world.World;
 
 public abstract class GOTGuiHireBase extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:gui/npc/unit_trade.png");
+	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/npc/unit_trade.png");
 	public GOTHireableBase theUnitTrader;
 	public GOTFaction traderFaction;
 	public GOTUnitTradeEntries trades;

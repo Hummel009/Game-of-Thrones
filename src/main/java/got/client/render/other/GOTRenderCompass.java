@@ -12,8 +12,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderCompass extends Render {
-	public static ResourceLocation ringTexture = new ResourceLocation("got:misc/portal.png");
-	public static ResourceLocation writingTexture = new ResourceLocation("got:misc/portal_writing.png");
+	public static ResourceLocation ringTexture = new ResourceLocation("got:textures/misc/portal.png");
+	public static ResourceLocation writingTexture = new ResourceLocation("got:textures/misc/portal_writing.png");
 	public static ModelBase ringotel = new GOTModelPortal(0);
 	public static ModelBase writingotelOuter = new GOTModelPortal(1);
 	public static ModelBase writingotelInner = new GOTModelPortal(1);

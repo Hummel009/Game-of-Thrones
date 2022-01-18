@@ -36,8 +36,8 @@ import net.minecraft.world.chunk.EmptyChunk;
 
 public class GOTGuiMap extends GOTGuiMenuBase {
 	public static Map<UUID, PlayerLocationInfo> playerLocations = new HashMap<>();
-	public static ResourceLocation mapIconsTexture = new ResourceLocation("got:map/mapScreen.png");
-	public static ResourceLocation conquestTexture = new ResourceLocation("got:map/conquest.png");
+	public static ResourceLocation mapIconsTexture = new ResourceLocation("got:textures/map/mapScreen.png");
+	public static ResourceLocation conquestTexture = new ResourceLocation("got:textures/map/conquest.png");
 	public static ItemStack questBookIcon = new ItemStack(GOTRegistry.questBook);
 	public static int BLACK = -16777216;
 	public static int BORDER_COLOR = -6156032;

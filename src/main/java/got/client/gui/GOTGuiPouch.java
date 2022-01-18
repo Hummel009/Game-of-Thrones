@@ -10,7 +10,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.*;
 
 public class GOTGuiPouch extends GuiContainer {
-	public static ResourceLocation texture = new ResourceLocation("got:gui/pouch.png");
+	public static ResourceLocation texture = new ResourceLocation("got:textures/gui/pouch.png");
 	public GOTContainerPouch thePouch;
 	public int pouchRows;
 	public GuiTextField theGuiTextField;

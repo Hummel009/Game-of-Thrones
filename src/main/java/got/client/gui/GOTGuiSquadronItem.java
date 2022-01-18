@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 
 public class GOTGuiSquadronItem extends GOTGuiScreenBase {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:gui/squadronItem.png");
+	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/squadronItem.png");
 	public static RenderItem itemRenderer = new RenderItem();
 	public int xSize = 200;
 	public int ySize = 120;

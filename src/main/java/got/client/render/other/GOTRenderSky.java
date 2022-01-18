@@ -12,9 +12,9 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.client.IRenderHandler;
 
 public class GOTRenderSky extends IRenderHandler {
-	public static ResourceLocation moonTexture = new ResourceLocation("got:sky/moon.png");
-	public static ResourceLocation sunTexture = new ResourceLocation("got:sky/sun.png");
-	public static ResourceLocation earendilTexture = new ResourceLocation("got:sky/earendil.png");
+	public static ResourceLocation moonTexture = new ResourceLocation("got:textures/sky/moon.png");
+	public static ResourceLocation sunTexture = new ResourceLocation("got:textures/sky/sun.png");
+	public static ResourceLocation earendilTexture = new ResourceLocation("got:textures/sky/earendil.png");
 	public GOTWorldProvider worldProvider;
 	public GOTRandomSkins skyTextures;
 	public ResourceLocation currentSkyTexture;
@@ -25,7 +25,7 @@ public class GOTRenderSky extends IRenderHandler {
 		int k;
 		int j;
 		worldProvider = provider;
-		skyTextures = GOTRandomSkins.loadSkinsList("got:sky/night");
+		skyTextures = GOTRandomSkins.loadSkinsList("got:textures/sky/night");
 		Tessellator tessellator = Tessellator.instance;
 		glSkyList = GLAllocation.generateDisplayLists(3);
 		GL11.glNewList(glSkyList, 4864);

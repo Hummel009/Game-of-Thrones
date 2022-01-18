@@ -15,7 +15,7 @@ import net.minecraft.util.*;
 import net.minecraft.world.World;
 
 public class GOTGuiTrade extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:gui/npc/trade.png");
+	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/npc/trade.png");
 	public static int lockedTradeColor = -1610612736;
 	public GOTEntityNPC theEntity;
 	public GOTContainerTrade containerTrade;

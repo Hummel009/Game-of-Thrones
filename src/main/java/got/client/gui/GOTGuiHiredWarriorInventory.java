@@ -11,7 +11,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.util.*;
 
 public class GOTGuiHiredWarriorInventory extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:gui/npc/hiredWarrior.png");
+	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/npc/hiredWarrior.png");
 	public GOTEntityNPC theNPC;
 	public GOTContainerHiredWarriorInventory containerInv;
 

@@ -9,7 +9,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.util.*;
 
 public class GOTGuiChestWithPouch extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:gui/pouch_with_chest.png");
+	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/pouch_with_chest.png");
 	public IInventory pouchInv;
 	public IInventory chestInv;
 	public int chestRows;

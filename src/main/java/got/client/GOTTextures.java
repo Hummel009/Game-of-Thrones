@@ -58,11 +58,11 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	public static Map<ResourceLocation, Integer> averagedPageColors;
 
 	static {
-		overlayTexture = new ResourceLocation("got:map/mapOverlay.png");
-		mapTerrain = new ResourceLocation("got:map/terrain.png");
-		osrsTexture = new ResourceLocation("got:map/osrs.png");
+		overlayTexture = new ResourceLocation("got:textures/map/mapOverlay.png");
+		mapTerrain = new ResourceLocation("got:textures/map/terrain.png");
+		osrsTexture = new ResourceLocation("got:textures/map/osrs.png");
 		particleTextures = new ResourceLocation("textures/particle/particles.png");
-		newWaterParticles = new ResourceLocation("got:misc/waterParticles.png");
+		newWaterParticles = new ResourceLocation("got:textures/misc/waterParticles.png");
 		newWaterU = 0;
 		newWaterV = 8;
 		newWaterWidth = 64;
@@ -409,10 +409,10 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	}
 
 	public static void loadMapTextures() {
-		mapTexture = new ResourceLocation("got:map/map.png");
+		mapTexture = new ResourceLocation("got:textures/map/map.png");
 		try {
 			BufferedImage mapImage = ImageIO.read(mc.getResourceManager().getResource(mapTexture).getInputStream());
-			sepiaMapTexture = GOTTextures.convertToSepia(mapImage, new ResourceLocation("got:map_sepia"));
+			sepiaMapTexture = GOTTextures.convertToSepia(mapImage, new ResourceLocation("got:textures/map_sepia"));
 		} catch (IOException e) {
 			FMLLog.severe("Failed to generate GOT sepia map");
 			e.printStackTrace();

@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 
 public class GOTGuiBrandingIron extends GOTGuiScreenBase {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:gui/brandingIron.png");
+	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/brandingIron.png");
 	public static RenderItem itemRenderer = new RenderItem();
 	public int xSize = 200;
 	public int ySize = 132;

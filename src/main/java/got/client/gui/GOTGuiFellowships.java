@@ -17,7 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 
 public class GOTGuiFellowships extends GOTGuiMenuWBBase {
-	public static ResourceLocation iconsTextures = new ResourceLocation("got:gui/fellowships.png");
+	public static ResourceLocation iconsTextures = new ResourceLocation("got:textures/gui/fellowships.png");
 	public static int MAX_NAME_LENGTH = 40;
 	public static int entrySplit = 5;
 	public static int entryBorder = 10;

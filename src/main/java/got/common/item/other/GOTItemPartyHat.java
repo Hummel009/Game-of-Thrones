@@ -28,7 +28,7 @@ public class GOTItemPartyHat extends GOTItemArmor {
 
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
-		return "got:armor/partyhat.png";
+		return "got:textures/armor/partyhat.png";
 	}
 
 	@SideOnly(value = Side.CLIENT)

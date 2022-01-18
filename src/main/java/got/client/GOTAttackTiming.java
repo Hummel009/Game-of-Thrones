@@ -14,7 +14,7 @@ import net.minecraft.util.*;
 
 public class GOTAttackTiming {
 	public static Minecraft mc = Minecraft.getMinecraft();
-	public static ResourceLocation meterTexture = new ResourceLocation("got:gui/attackMeter.png");
+	public static ResourceLocation meterTexture = new ResourceLocation("got:textures/gui/attackMeter.png");
 	public static RenderItem itemRenderer = new RenderItem();
 	public static int attackTime;
 	public static int prevAttackTime;

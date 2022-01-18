@@ -18,7 +18,7 @@ import net.minecraft.client.gui.*;
 import net.minecraft.util.*;
 
 public class GOTGuiBanner extends GOTGuiScreenBase {
-	public static ResourceLocation bannerTexture = new ResourceLocation("got:gui/banner_edit.png");
+	public static ResourceLocation bannerTexture = new ResourceLocation("got:textures/gui/banner_edit.png");
 	public GOTEntityBanner theBanner;
 	public int xSize = 200;
 	public int ySize = 250;

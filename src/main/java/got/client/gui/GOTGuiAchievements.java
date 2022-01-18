@@ -14,8 +14,8 @@ import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.util.*;
 
 public class GOTGuiAchievements extends GOTGuiMenuBase {
-	public static ResourceLocation pageTexture = new ResourceLocation("got:gui/achievements/page.png");
-	public static ResourceLocation iconsTexture = new ResourceLocation("got:gui/achievements/icons.png");
+	public static ResourceLocation pageTexture = new ResourceLocation("got:textures/gui/achievements/page.png");
+	public static ResourceLocation iconsTexture = new ResourceLocation("got:textures/gui/achievements/icons.png");
 	public static GOTDimension currentDimension;
 	public static GOTDimension prevDimension;
 	public static GOTAchievement.Category currentCategory;

@@ -489,7 +489,7 @@ public class GOTCommander {
 		ReflectionHelper.setPrivateValue(GOTTextures.class, null, res, "mapTexture");
 		try {
 			BufferedImage mapImage = GOTCommander.getImage(Minecraft.getMinecraft().getResourceManager().getResource(res).getInputStream());
-			sepiaMapTexture = GOTCommander.findAndInvokeMethod(new Object[] { mapImage, new ResourceLocation("got:map_sepia") }, GOTTextures.class, null, "convertToSepia", BufferedImage.class, ResourceLocation.class);
+			sepiaMapTexture = GOTCommander.findAndInvokeMethod(new Object[] { mapImage, new ResourceLocation("got:textures/map_sepia") }, GOTTextures.class, null, "convertToSepia", BufferedImage.class, ResourceLocation.class);
 		} catch (IOException e) {
 			FMLLog.severe("Failed to generate GOT sepia map");
 			e.printStackTrace();

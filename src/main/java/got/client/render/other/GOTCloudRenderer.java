@@ -16,7 +16,7 @@ import net.minecraft.util.*;
 import net.minecraftforge.client.IRenderHandler;
 
 public class GOTCloudRenderer extends IRenderHandler {
-	public static ResourceLocation cloudTexture = new ResourceLocation("got:sky/clouds.png");
+	public static ResourceLocation cloudTexture = new ResourceLocation("got:textures/sky/clouds.png");
 	public static int cloudRange;
 	public static Random cloudRand;
 	public static CloudProperty cloudOpacity;

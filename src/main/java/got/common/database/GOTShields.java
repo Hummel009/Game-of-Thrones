@@ -40,7 +40,7 @@ public enum GOTShields {
 		shieldType = type;
 		shieldID = shieldType.list.size();
 		shieldType.list.add(this);
-		shieldTexture = new ResourceLocation("got:shield/" + name().toLowerCase() + ".png");
+		shieldTexture = new ResourceLocation("got:textures/shield/" + name().toLowerCase() + ".png");
 		exclusiveUUIDs = new UUID[players.length];
 		for (int i = 0; i < players.length; ++i) {
 			String s = players[i];

@@ -17,7 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 
 public class GOTGuiAnvil extends GuiContainer {
-	public static ResourceLocation anvilTexture = new ResourceLocation("got:gui/anvil.png");
+	public static ResourceLocation anvilTexture = new ResourceLocation("got:textures/gui/anvil.png");
 	public static int[] colorCodes = new int[16];
 	static {
 		for (int i = 0; i < 16; ++i) {
