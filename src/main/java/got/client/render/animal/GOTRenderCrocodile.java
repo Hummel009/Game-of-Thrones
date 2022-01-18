@@ -7,7 +7,7 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderCrocodile extends RenderLiving {
-	public static ResourceLocation texture = new ResourceLocation("got:mob/animal/crocodile.png");
+	public static ResourceLocation texture = new ResourceLocation("got:textures/entity/animal/crocodile.png");
 
 	public GOTRenderCrocodile() {
 		super(new GOTModelCrocodile(), 0.75f);

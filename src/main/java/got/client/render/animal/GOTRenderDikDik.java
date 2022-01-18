@@ -12,7 +12,7 @@ public class GOTRenderDikDik extends RenderLiving {
 
 	public GOTRenderDikDik() {
 		super(new GOTModelDikDik(), 0.8f);
-		skins = GOTRandomSkins.loadSkinsList("got:mob/animal/dikdik");
+		skins = GOTRandomSkins.loadSkinsList("got:textures/entity/animal/dikdik");
 	}
 
 	@Override

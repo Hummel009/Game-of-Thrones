@@ -41,18 +41,18 @@ public class GOTRenderFactionNPCLayered extends GOTRenderBiped {
 		GOTEntityNPC mob = (GOTEntityNPC) entity;
 		if (mob.familyInfo.isMale()) {
 			if (mob.isChild()) {
-				return GOTRandomSkins.loadSkinsList("got:mob/" + path + "/malechild").getRandomSkin(mob);
+				return GOTRandomSkins.loadSkinsList("got:textures/entity/" + path + "/malechild").getRandomSkin(mob);
 			}
-			return GOTRandomSkins.loadSkinsList("got:mob/" + path + "/male").getRandomSkin(mob);
+			return GOTRandomSkins.loadSkinsList("got:textures/entity/" + path + "/male").getRandomSkin(mob);
 		}
 		if (mob.isChild()) {
-			return GOTRandomSkins.loadSkinsList("got:mob/" + path + "/femalechild").getRandomSkin(mob);
+			return GOTRandomSkins.loadSkinsList("got:textures/entity/" + path + "/femalechild").getRandomSkin(mob);
 		}
-		return GOTRandomSkins.loadSkinsList("got:mob/" + path + "/female").getRandomSkin(mob);
+		return GOTRandomSkins.loadSkinsList("got:textures/entity/" + path + "/female").getRandomSkin(mob);
 	}
 
 	public ResourceLocation getSecondLayerTexture() {
-		return new ResourceLocation("got:mob/" + path + "/" + outfit + ".png");
+		return new ResourceLocation("got:textures/entity/" + path + "/" + outfit + ".png");
 	}
 
 	@Override

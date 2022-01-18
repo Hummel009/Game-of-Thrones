@@ -14,7 +14,7 @@ public class GOTRenderBison extends RenderLiving {
 
 	public GOTRenderBison() {
 		super(new GOTModelBison(), 0.5f);
-		bisonSkins = GOTRandomSkins.loadSkinsList("got:mob/animal/bison");
+		bisonSkins = GOTRandomSkins.loadSkinsList("got:textures/entity/animal/bison");
 	}
 
 	@Override

@@ -27,7 +27,7 @@ public class GOTRenderFactionNPCMonofolder extends GOTRenderBiped {
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
 		GOTEntityNPC mob = (GOTEntityNPC) entity;
-		return GOTRandomSkins.loadSkinsList("got:mob/" + path).getRandomSkin(mob);
+		return GOTRandomSkins.loadSkinsList("got:textures/entity/" + path).getRandomSkin(mob);
 	}
 
 	@Override

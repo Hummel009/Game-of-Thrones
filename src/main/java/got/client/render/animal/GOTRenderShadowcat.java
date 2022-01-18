@@ -17,7 +17,7 @@ public class GOTRenderShadowcat extends RenderLiving {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return new ResourceLocation("got:mob/animal/shadowcat.png");
+		return new ResourceLocation("got:textures/entity/animal/shadowcat.png");
 	}
 
 	@Override

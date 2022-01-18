@@ -9,8 +9,8 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderRhino extends RenderLiving {
-	public static ResourceLocation rhinoTexture = new ResourceLocation("got:mob/animal/rhino/rhino.png");
-	public static ResourceLocation saddleTexture = new ResourceLocation("got:mob/animal/rhino/saddle.png");
+	public static ResourceLocation rhinoTexture = new ResourceLocation("got:textures/entity/animal/rhino/rhino.png");
+	public static ResourceLocation saddleTexture = new ResourceLocation("got:textures/entity/animal/rhino/saddle.png");
 
 	public GOTRenderRhino() {
 		super(new GOTModelRhino(), 0.5f);

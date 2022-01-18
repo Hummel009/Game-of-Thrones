@@ -20,7 +20,7 @@ public class GOTEntityAISmoke extends GOTEntityAIConsumeBase {
 		}
 		smoke.setSmokeColour(color);
 		theEntity.worldObj.spawnEntityInWorld(smoke);
-		theEntity.playSound("got:item.puff", 1.0f, (rand.nextFloat() - rand.nextFloat()) * 0.2f + 1.0f);
+		theEntity.playSound("got:textures/model.puff", 1.0f, (rand.nextFloat() - rand.nextFloat()) * 0.2f + 1.0f);
 		theEntity.heal(2.0f);
 	}
 

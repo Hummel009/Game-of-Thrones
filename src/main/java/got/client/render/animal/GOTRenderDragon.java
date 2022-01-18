@@ -15,8 +15,8 @@ import net.minecraftforge.client.model.*;
 public class GOTRenderDragon extends RenderLiving {
 	public static boolean updateModel;
 	public Map<GOTDragonBreed, GOTModelDragon> stages = new HashMap<>();
-	public ResourceLocation dissolve = new ResourceLocation("got:mob/animal/dragon/dissolve.png");
-	public ResourceLocation eggTexture = new ResourceLocation("got:mob/animal/dragon/egg.obj");
+	public ResourceLocation dissolve = new ResourceLocation("got:textures/entity/animal/dragon/dissolve.png");
+	public ResourceLocation eggTexture = new ResourceLocation("got:textures/entity/animal/dragon/egg.obj");
 	public IModelCustom egg = AdvancedModelLoader.loadModel(eggTexture);
 	public GOTModelDragon model;
 

@@ -23,6 +23,6 @@ public class GOTDispenseCrossbowBolt extends BehaviorProjectileDispense {
 
 	@Override
 	public void playDispenseSound(IBlockSource source) {
-		source.getWorld().playSoundEffect(source.getXInt(), source.getYInt(), source.getZInt(), "got:item.crossbow", 1.0f, 1.2f);
+		source.getWorld().playSoundEffect(source.getXInt(), source.getYInt(), source.getZInt(), "got:textures/model.crossbow", 1.0f, 1.2f);
 	}
 }

@@ -12,13 +12,13 @@ public class GOTRenderDeer extends RenderLiving {
 	public static ResourceLocation saddleTexture;
 
 	static {
-		saddleTexture = new ResourceLocation("got:mob/animal/elk/saddle.png");
+		saddleTexture = new ResourceLocation("got:textures/entity/animal/elk/saddle.png");
 	}
 
 	public GOTRenderDeer() {
 		super(new GOTModelDeer(), 0.5f);
 		setRenderPassModel(new GOTModelDeer(0.5f));
-		elkSkins = GOTRandomSkins.loadSkinsList("got:mob/animal/elk/elk");
+		elkSkins = GOTRandomSkins.loadSkinsList("got:textures/entity/animal/elk/elk");
 	}
 
 	@Override

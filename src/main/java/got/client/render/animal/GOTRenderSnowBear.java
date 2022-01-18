@@ -18,7 +18,7 @@ public class GOTRenderSnowBear extends RenderLiving {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return new ResourceLocation("got:mob/animal/polarbear.png");
+		return new ResourceLocation("got:textures/entity/animal/polarbear.png");
 	}
 
 	@Override

@@ -12,7 +12,7 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderGregorClegane extends GOTRenderBiped {
-	public static ResourceLocation armor = new ResourceLocation("got:mob/legendary/gregor_clegane_3.png");
+	public static ResourceLocation armor = new ResourceLocation("got:textures/entity/legendary/gregor_clegane_3.png");
 	public ModelBiped model = new GOTModelHuman(0.6f, false);
 
 	public GOTRenderGregorClegane() {
@@ -52,7 +52,7 @@ public class GOTRenderGregorClegane extends GOTRenderBiped {
 
 		@Override
 		public ResourceLocation getEntityTexture(Entity entity) {
-			return new ResourceLocation("got:mob/legendary/gregor_clegane_1.png");
+			return new ResourceLocation("got:textures/entity/legendary/gregor_clegane_1.png");
 		}
 	}
 
@@ -62,7 +62,7 @@ public class GOTRenderGregorClegane extends GOTRenderBiped {
 
 		@Override
 		public ResourceLocation getEntityTexture(Entity entity) {
-			return new ResourceLocation("got:mob/legendary/gregor_clegane_2.png");
+			return new ResourceLocation("got:textures/entity/legendary/gregor_clegane_2.png");
 		}
 	}
 }

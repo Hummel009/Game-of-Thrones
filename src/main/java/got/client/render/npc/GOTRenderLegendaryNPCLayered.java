@@ -49,11 +49,11 @@ public class GOTRenderLegendaryNPCLayered extends GOTRenderBiped {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return new ResourceLocation("got:mob/legendary/" + name + "_1.png");
+		return new ResourceLocation("got:textures/entity/legendary/" + name + "_1.png");
 	}
 
 	public ResourceLocation getSecondLayerTexture() {
-		return new ResourceLocation("got:mob/legendary/" + name + "_2.png");
+		return new ResourceLocation("got:textures/entity/legendary/" + name + "_2.png");
 	}
 
 	@Override
@@ -70,7 +70,7 @@ public class GOTRenderLegendaryNPCLayered extends GOTRenderBiped {
 			GL11.glTranslatef(0.0f, 0.0f, 0.125f);
 			GL11.glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
 			GL11.glRotatef(-10.0f, 1.0f, 0.0f, 0.0f);
-			bindTexture(new ResourceLocation("got:mob/legendary/" + name + "_cape.png"));
+			bindTexture(new ResourceLocation("got:textures/entity/legendary/" + name + "_cape.png"));
 			capeModel.renderCloak(0.0625f);
 			GL11.glPopMatrix();
 		}

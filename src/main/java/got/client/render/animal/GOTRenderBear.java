@@ -38,7 +38,7 @@ public class GOTRenderBear extends RenderLiving {
 		String s = type.textureName();
 		ResourceLocation skin = (ResourceLocation) bearSkins.get(s);
 		if (skin == null) {
-			skin = new ResourceLocation("got:mob/animal/bear/" + s + ".png");
+			skin = new ResourceLocation("got:textures/entity/animal/bear/" + s + ".png");
 			bearSkins.put(s, skin);
 		}
 		return skin;

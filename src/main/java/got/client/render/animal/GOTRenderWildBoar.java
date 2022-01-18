@@ -10,8 +10,8 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderWildBoar extends RenderLiving {
-	public static ResourceLocation boarSkin = new ResourceLocation("got:mob/animal/boar/boar.png");
-	public static ResourceLocation saddleTexture = new ResourceLocation("got:mob/animal/boar/saddle.png");
+	public static ResourceLocation boarSkin = new ResourceLocation("got:textures/entity/animal/boar/boar.png");
+	public static ResourceLocation saddleTexture = new ResourceLocation("got:textures/entity/animal/boar/saddle.png");
 
 	public GOTRenderWildBoar() {
 		super(new GOTModelBoar(), 0.7f);

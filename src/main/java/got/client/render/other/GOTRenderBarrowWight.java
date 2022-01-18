@@ -33,7 +33,7 @@ public class GOTRenderBarrowWight extends GOTRenderBiped {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return new ResourceLocation("got:mob/westeros/shadow.png");
+		return new ResourceLocation("got:textures/entity/westeros/shadow.png");
 	}
 
 	@Override

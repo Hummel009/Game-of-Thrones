@@ -18,7 +18,7 @@ public class GOTRenderButterfly extends RenderLiving {
 	public GOTRenderButterfly() {
 		super(new GOTModelButterfly(), 0.2f);
 		for (GOTEntityButterfly.ButterflyType t : GOTEntityButterfly.ButterflyType.values()) {
-			textures.put(t, GOTRandomSkins.loadSkinsList("got:mob/animal/butterfly/" + t.textureDir));
+			textures.put(t, GOTRandomSkins.loadSkinsList("got:textures/entity/animal/butterfly/" + t.textureDir));
 		}
 	}
 

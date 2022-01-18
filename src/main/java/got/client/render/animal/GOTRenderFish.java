@@ -29,7 +29,7 @@ public class GOTRenderFish extends RenderLiving {
 	public GOTRandomSkins getFishSkins(String s) {
 		GOTRandomSkins skins = fishTypeSkins.get(s);
 		if (skins == null) {
-			skins = GOTRandomSkins.loadSkinsList("got:mob/animal/fish/" + s);
+			skins = GOTRandomSkins.loadSkinsList("got:textures/entity/animal/fish/" + s);
 			fishTypeSkins.put(s, skins);
 		}
 		return skins;

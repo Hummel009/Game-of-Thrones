@@ -37,7 +37,7 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 		if (!GOTGenLayerWorld.loadedBiomeImage()) {
 			try {
 				BufferedImage biomeImage = null;
-				imageName = "assets/got/map/map.png";
+				imageName = "assets/got/textures/map/map.png";
 				ModContainer mc = GOT.getModContainer();
 				if (mc.getSource().isFile()) {
 					ZipFile zip = new ZipFile(mc.getSource());

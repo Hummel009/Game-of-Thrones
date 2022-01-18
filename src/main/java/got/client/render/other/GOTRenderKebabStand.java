@@ -13,8 +13,8 @@ import net.minecraft.util.*;
 public class GOTRenderKebabStand extends TileEntitySpecialRenderer {
 	public static GOTModelKebabStand standModel = new GOTModelKebabStand();
 	public static Map<String, ResourceLocation> standTextures = new HashMap<>();
-	public static ResourceLocation rawTexture = new ResourceLocation("got:item/kebab/raw.png");
-	public static ResourceLocation cookedTexture = new ResourceLocation("got:item/kebab/cooked.png");
+	public static ResourceLocation rawTexture = new ResourceLocation("got:textures/model/kebab/raw.png");
+	public static ResourceLocation cookedTexture = new ResourceLocation("got:textures/model/kebab/cooked.png");
 
 	@Override
 	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {
@@ -69,7 +69,7 @@ public class GOTRenderKebabStand extends TileEntitySpecialRenderer {
 			s = "_" + s;
 		}
 		if ((r = standTextures.get(s = "stand" + s)) == null) {
-			r = new ResourceLocation("got:item/kebab/" + s + ".png");
+			r = new ResourceLocation("got:textures/model/kebab/" + s + ".png");
 			standTextures.put(s, r);
 		}
 		return r;

@@ -9,8 +9,8 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderGiraffe extends RenderLiving {
-	public static ResourceLocation texture = new ResourceLocation("got:mob/animal/giraffe/giraffe.png");
-	public static ResourceLocation saddleTexture = new ResourceLocation("got:mob/animal/giraffe/saddle.png");
+	public static ResourceLocation texture = new ResourceLocation("got:textures/entity/animal/giraffe/giraffe.png");
+	public static ResourceLocation saddleTexture = new ResourceLocation("got:textures/entity/animal/giraffe/saddle.png");
 
 	public GOTRenderGiraffe() {
 		super(new GOTModelGiraffe(0.0f), 0.5f);

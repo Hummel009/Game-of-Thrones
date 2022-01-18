@@ -37,7 +37,7 @@ public class GOTRenderLegendaryNPC extends GOTRenderBiped {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return new ResourceLocation("got:mob/legendary/" + name + ".png");
+		return new ResourceLocation("got:textures/entity/legendary/" + name + ".png");
 	}
 
 	@Override

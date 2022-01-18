@@ -15,6 +15,6 @@ public class GOTRenderFactionNPCMonotexture extends GOTRenderBiped {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return new ResourceLocation("got:mob/" + name + ".png");
+		return new ResourceLocation("got:textures/entity/" + name + ".png");
 	}
 }

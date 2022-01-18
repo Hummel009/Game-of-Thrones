@@ -9,7 +9,7 @@ public class GOTRenderWhiteBison extends GOTRenderBison {
 	public static GOTRandomSkins wbisonSkins;
 
 	public GOTRenderWhiteBison() {
-		wbisonSkins = GOTRandomSkins.loadSkinsList("got:mob/animal/wbison");
+		wbisonSkins = GOTRandomSkins.loadSkinsList("got:textures/entity/animal/wbison");
 	}
 
 	@Override

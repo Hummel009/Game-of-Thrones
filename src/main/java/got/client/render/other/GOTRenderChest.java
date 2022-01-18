@@ -85,7 +85,7 @@ public class GOTRenderChest extends TileEntitySpecialRenderer {
 	public static ResourceLocation getChestTexture(String s) {
 		ResourceLocation r = chestTextures.get(s);
 		if (r == null) {
-			r = new ResourceLocation("got:item/chest/" + s + ".png");
+			r = new ResourceLocation("got:textures/model/chest/" + s + ".png");
 			chestTextures.put(s, r);
 		}
 		return r;

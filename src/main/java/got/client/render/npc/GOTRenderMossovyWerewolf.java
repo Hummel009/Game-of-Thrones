@@ -15,6 +15,6 @@ public class GOTRenderMossovyWerewolf extends RenderLiving {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return new ResourceLocation("got:mob/animal/werewolf.png");
+		return new ResourceLocation("got:textures/entity/animal/werewolf.png");
 	}
 }

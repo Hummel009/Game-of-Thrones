@@ -28,7 +28,7 @@ public class GOTRenderLancelLannister extends GOTRenderBiped {
 
 		@Override
 		public ResourceLocation getEntityTexture(Entity entity) {
-			return new ResourceLocation("got:mob/legendary/lancel_lannister_1.png");
+			return new ResourceLocation("got:textures/entity/legendary/lancel_lannister_1.png");
 		}
 	}
 
@@ -38,7 +38,7 @@ public class GOTRenderLancelLannister extends GOTRenderBiped {
 
 		@Override
 		public ResourceLocation getEntityTexture(Entity entity) {
-			return new ResourceLocation("got:mob/legendary/lancel_lannister_2.png");
+			return new ResourceLocation("got:textures/entity/legendary/lancel_lannister_2.png");
 		}
 	}
 }

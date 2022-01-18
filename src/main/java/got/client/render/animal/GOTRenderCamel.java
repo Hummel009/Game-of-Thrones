@@ -17,10 +17,10 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderCamel extends RenderLiving {
-	public static ResourceLocation camelSkin = new ResourceLocation("got:mob/animal/camel/camel.png");
-	public static ResourceLocation saddleTexture = new ResourceLocation("got:mob/animal/camel/saddle.png");
-	public static ResourceLocation carpetBase = new ResourceLocation("got:mob/animal/camel/carpet_base.png");
-	public static ResourceLocation carpetOverlay = new ResourceLocation("got:mob/animal/camel/carpet_overlay.png");
+	public static ResourceLocation camelSkin = new ResourceLocation("got:textures/entity/animal/camel/camel.png");
+	public static ResourceLocation saddleTexture = new ResourceLocation("got:textures/entity/animal/camel/saddle.png");
+	public static ResourceLocation carpetBase = new ResourceLocation("got:textures/entity/animal/camel/carpet_base.png");
+	public static ResourceLocation carpetOverlay = new ResourceLocation("got:textures/entity/animal/camel/carpet_overlay.png");
 	public static Map<String, ResourceLocation> coloredCarpetTextures = new HashMap<>();
 	public GOTModelCamel modelSaddle = new GOTModelCamel(0.5f);
 	public GOTModelCamel modelCarpet = new GOTModelCamel(0.55f);

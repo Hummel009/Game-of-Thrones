@@ -31,7 +31,7 @@ public class GOTEntitySothoryosBlowgunner extends GOTEntitySothoryosMan {
 		if (heldItem != null) {
 			GOTItemSarbacane.applySarbacaneModifiers(dart, heldItem);
 		}
-		playSound("got:item.dart", 1.0f, 1.0f / (rand.nextFloat() * 0.4f + 1.2f) + 0.5f);
+		playSound("got:textures/model.dart", 1.0f, 1.0f / (rand.nextFloat() * 0.4f + 1.2f) + 0.5f);
 		worldObj.spawnEntityInWorld(dart);
 	}
 

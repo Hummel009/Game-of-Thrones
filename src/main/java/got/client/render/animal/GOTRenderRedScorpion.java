@@ -22,7 +22,7 @@ public class GOTRenderRedScorpion extends RenderLiving {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return new ResourceLocation("got:mob/animal/redscorp.png");
+		return new ResourceLocation("got:textures/entity/animal/redscorp.png");
 	}
 
 	@Override

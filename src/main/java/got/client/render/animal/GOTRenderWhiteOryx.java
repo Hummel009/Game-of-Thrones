@@ -6,7 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderWhiteOryx extends GOTRenderGemsbok {
-	public GOTRandomSkins oryxSkins = GOTRandomSkins.loadSkinsList("got:mob/animal/whiteOryx");
+	public GOTRandomSkins oryxSkins = GOTRandomSkins.loadSkinsList("got:textures/entity/animal/whiteOryx");
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {

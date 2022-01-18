@@ -15,17 +15,17 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 
 public class GOTRenderMug extends TileEntitySpecialRenderer {
-	public static ResourceLocation mugTexture = new ResourceLocation("got:item/mug.png");
-	public static ResourceLocation mugClayTexture = new ResourceLocation("got:item/mugClay.png");
-	public static ResourceLocation gobletGoldTexture = new ResourceLocation("got:item/gobletGold.png");
-	public static ResourceLocation gobletSilverTexture = new ResourceLocation("got:item/gobletSilver.png");
-	public static ResourceLocation gobletCopperTexture = new ResourceLocation("got:item/gobletCopper.png");
-	public static ResourceLocation gobletWoodTexture = new ResourceLocation("got:item/gobletWood.png");
-	public static ResourceLocation skullTexture = new ResourceLocation("got:item/skullCup.png");
-	public static ResourceLocation glassTexture = new ResourceLocation("got:item/wineGlass.png");
-	public static ResourceLocation bottleTexture = new ResourceLocation("got:item/glassBottle.png");
-	public static ResourceLocation hornTexture = new ResourceLocation("got:item/aleHorn.png");
-	public static ResourceLocation hornGoldTexture = new ResourceLocation("got:item/aleHornGold.png");
+	public static ResourceLocation mugTexture = new ResourceLocation("got:textures/model/mug.png");
+	public static ResourceLocation mugClayTexture = new ResourceLocation("got:textures/model/mugClay.png");
+	public static ResourceLocation gobletGoldTexture = new ResourceLocation("got:textures/model/gobletGold.png");
+	public static ResourceLocation gobletSilverTexture = new ResourceLocation("got:textures/model/gobletSilver.png");
+	public static ResourceLocation gobletCopperTexture = new ResourceLocation("got:textures/model/gobletCopper.png");
+	public static ResourceLocation gobletWoodTexture = new ResourceLocation("got:textures/model/gobletWood.png");
+	public static ResourceLocation skullTexture = new ResourceLocation("got:textures/model/skullCup.png");
+	public static ResourceLocation glassTexture = new ResourceLocation("got:textures/model/wineGlass.png");
+	public static ResourceLocation bottleTexture = new ResourceLocation("got:textures/model/glassBottle.png");
+	public static ResourceLocation hornTexture = new ResourceLocation("got:textures/model/aleHorn.png");
+	public static ResourceLocation hornGoldTexture = new ResourceLocation("got:textures/model/aleHornGold.png");
 	public static ModelBase mugotel = new GOTModelMug();
 	public static ModelBase gobletModel = new GOTModelGoblet();
 	public static ModelBase skullModel = new GOTModelSkullCup();

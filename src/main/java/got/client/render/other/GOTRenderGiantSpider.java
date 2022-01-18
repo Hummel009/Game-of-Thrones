@@ -6,7 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderGiantSpider extends GOTRenderSpiderBase {
-	public static ResourceLocation[] spiderSkins = { new ResourceLocation("got:mob/ulthos/spider.png"), new ResourceLocation("got:mob/ulthos/spiderSlowness.png"), new ResourceLocation("got:mob/ulthos/spiderPoison.png") };
+	public static ResourceLocation[] spiderSkins = { new ResourceLocation("got:textures/entity/ulthos/spider.png"), new ResourceLocation("got:textures/entity/ulthos/spiderSlowness.png"), new ResourceLocation("got:textures/entity/ulthos/spiderPoison.png") };
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {

@@ -14,7 +14,7 @@ public class GOTRenderRabbit extends RenderLiving {
 
 	public GOTRenderRabbit() {
 		super(new GOTModelRabbit(), 0.3f);
-		rabbitSkins = GOTRandomSkins.loadSkinsList("got:mob/animal/rabbit");
+		rabbitSkins = GOTRandomSkins.loadSkinsList("got:textures/entity/animal/rabbit");
 	}
 
 	@Override

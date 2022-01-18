@@ -9,8 +9,8 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderLion extends RenderLiving {
-	public static ResourceLocation textureLion = new ResourceLocation("got:mob/animal/lion/lion.png");
-	public static ResourceLocation textureLioness = new ResourceLocation("got:mob/animal/lion/lioness.png");
+	public static ResourceLocation textureLion = new ResourceLocation("got:textures/entity/animal/lion/lion.png");
+	public static ResourceLocation textureLioness = new ResourceLocation("got:textures/entity/animal/lion/lioness.png");
 
 	public GOTRenderLion() {
 		super(new GOTModelLion(), 0.5f);

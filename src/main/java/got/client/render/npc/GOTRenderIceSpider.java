@@ -7,6 +7,6 @@ public class GOTRenderIceSpider extends GOTRenderSpiderBase {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return new ResourceLocation("got:mob/westeros/ice/spider.png");
+		return new ResourceLocation("got:textures/entity/westeros/ice/spider.png");
 	}
 }

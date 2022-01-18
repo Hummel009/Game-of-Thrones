@@ -8,7 +8,7 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderTermite extends RenderLiving {
-	public static ResourceLocation texture = new ResourceLocation("got:mob/animal/termite.png");
+	public static ResourceLocation texture = new ResourceLocation("got:textures/entity/animal/termite.png");
 
 	public GOTRenderTermite() {
 		super(new GOTModelTermite(), 0.2f);

@@ -18,7 +18,7 @@ public class GOTRenderElephant extends RenderLiving {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return new ResourceLocation("got:mob/animal/elephant.png");
+		return new ResourceLocation("got:textures/entity/animal/elephant.png");
 	}
 
 	@Override

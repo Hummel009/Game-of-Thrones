@@ -15,7 +15,7 @@ import net.minecraft.util.*;
 import net.minecraftforge.client.IItemRenderer;
 
 public class GOTRenderWeaponRack extends TileEntitySpecialRenderer {
-	public static ResourceLocation rackTexture = new ResourceLocation("got:item/weaponRack.png");
+	public static ResourceLocation rackTexture = new ResourceLocation("got:textures/model/weaponRack.png");
 	public static GOTModelWeaponRack rackModel = new GOTModelWeaponRack();
 
 	@Override

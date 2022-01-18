@@ -32,7 +32,7 @@ public class GOTRenderTyrionLannister extends GOTRenderBiped {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return new ResourceLocation("got:mob/legendary/tyrion_lannister.png");
+		return new ResourceLocation("got:textures/entity/legendary/tyrion_lannister.png");
 	}
 
 	@Override

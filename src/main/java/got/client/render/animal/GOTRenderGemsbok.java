@@ -9,7 +9,7 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderGemsbok extends RenderLiving {
-	public static ResourceLocation texture = new ResourceLocation("got:mob/animal/gemsbok.png");
+	public static ResourceLocation texture = new ResourceLocation("got:textures/entity/animal/gemsbok.png");
 
 	public GOTRenderGemsbok() {
 		super(new GOTModelGemsbok(), 0.5f);

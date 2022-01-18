@@ -12,7 +12,7 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderGiant extends RenderLiving {
-	public ResourceLocation weaponsTexture = new ResourceLocation("got:mob/westeros/giant/weapons.png");
+	public ResourceLocation weaponsTexture = new ResourceLocation("got:textures/entity/westeros/giant/weapons.png");
 	public GOTModelGiant shirtModel = new GOTModelGiant(1.0f, 0);
 	public GOTModelGiant trousersModel = new GOTModelGiant(0.75f, 1);
 	public GOTEntityThrownRock heldRock;
@@ -36,7 +36,7 @@ public class GOTRenderGiant extends RenderLiving {
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
 		GOTEntityNPC mob = (GOTEntityNPC) entity;
-		return GOTRandomSkins.loadSkinsList("got:mob/westeros/" + type + "/giant").getRandomSkin(mob);
+		return GOTRandomSkins.loadSkinsList("got:textures/entity/westeros/" + type + "/giant").getRandomSkin(mob);
 	}
 
 	@Override

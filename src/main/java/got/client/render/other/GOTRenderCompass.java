@@ -13,7 +13,6 @@ import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderCompass extends Render {
 	public static ResourceLocation ringTexture = new ResourceLocation("got:textures/misc/portal.png");
-	public static ResourceLocation writingTexture = new ResourceLocation("got:textures/misc/portal_writing.png");
 	public static ModelBase ringotel = new GOTModelPortal(0);
 	public static ModelBase writingotelOuter = new GOTModelPortal(1);
 	public static ModelBase writingotelInner = new GOTModelPortal(1);
@@ -40,10 +39,6 @@ public class GOTRenderCompass extends Render {
 		GL11.glDisable(2896);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		Tessellator.instance.setBrightness(GOTClientProxy.TESSELLATOR_MAX_BRIGHTNESS);
-		bindTexture(writingTexture);
-		writingotelOuter.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, scale * 1.05f);
-		bindTexture(writingTexture);
-		writingotelInner.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, scale * 0.85f);
 		GL11.glEnable(2896);
 		GL11.glDisable(32826);
 		GL11.glEnable(2884);

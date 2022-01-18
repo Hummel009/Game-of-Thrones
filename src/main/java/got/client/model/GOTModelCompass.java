@@ -38,10 +38,6 @@ public class GOTModelCompass extends ModelBase {
 		compass.render(scale * 2.0f);
 		texturemanager.bindTexture(GOTRenderCompass.ringTexture);
 		ringotel.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, scale);
-		texturemanager.bindTexture(GOTRenderCompass.writingTexture);
-		writingotelOuter.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, scale * 1.05f);
-		texturemanager.bindTexture(GOTRenderCompass.writingTexture);
-		writingotelInner.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, scale * 0.85f);
 		GL11.glDisable(32826);
 		GL11.glEnable(2884);
 		GL11.glPopMatrix();

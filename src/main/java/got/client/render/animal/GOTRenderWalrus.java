@@ -17,7 +17,7 @@ public class GOTRenderWalrus extends RenderLiving {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return new ResourceLocation("got:mob/animal/walrus.png");
+		return new ResourceLocation("got:textures/entity/animal/walrus.png");
 	}
 
 	@Override

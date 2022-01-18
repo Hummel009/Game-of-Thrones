@@ -10,7 +10,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderBeacon extends TileEntitySpecialRenderer {
 	public ModelBase beaconModel = new GOTModelBeacon();
-	public ResourceLocation beaconTexture = new ResourceLocation("got:item/beacon.png");
+	public ResourceLocation beaconTexture = new ResourceLocation("got:textures/model/beacon.png");
 
 	public void renderInvBeacon() {
 		GL11.glRotatef(90.0f, 0.0f, 1.0f, 0.0f);

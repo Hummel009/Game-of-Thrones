@@ -17,7 +17,7 @@ public class GOTRenderWyvern extends RenderLiving {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return new ResourceLocation("got:mob/animal/wyvern.png");
+		return new ResourceLocation("got:textures/entity/animal/wyvern.png");
 	}
 
 	@Override

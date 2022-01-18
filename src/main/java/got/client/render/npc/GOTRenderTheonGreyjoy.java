@@ -28,7 +28,7 @@ public class GOTRenderTheonGreyjoy extends GOTRenderBiped {
 
 		@Override
 		public ResourceLocation getEntityTexture(Entity entity) {
-			return new ResourceLocation("got:mob/legendary/theon_greyjoy_1.png");
+			return new ResourceLocation("got:textures/entity/legendary/theon_greyjoy_1.png");
 		}
 	}
 
@@ -38,7 +38,7 @@ public class GOTRenderTheonGreyjoy extends GOTRenderBiped {
 
 		@Override
 		public ResourceLocation getEntityTexture(Entity entity) {
-			return new ResourceLocation("got:mob/legendary/theon_greyjoy_2.png");
+			return new ResourceLocation("got:textures/entity/legendary/theon_greyjoy_2.png");
 		}
 	}
 }

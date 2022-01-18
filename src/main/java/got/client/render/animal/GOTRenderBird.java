@@ -23,7 +23,7 @@ public class GOTRenderBird extends RenderLiving {
 	public GOTRandomSkins getBirdSkins(String s) {
 		GOTRandomSkins skins = birdTypeSkins.get(s);
 		if (skins == null) {
-			skins = GOTRandomSkins.loadSkinsList("got:mob/animal/bird/" + s);
+			skins = GOTRandomSkins.loadSkinsList("got:textures/entity/animal/bird/" + s);
 			birdTypeSkins.put(s, skins);
 		}
 		return skins;

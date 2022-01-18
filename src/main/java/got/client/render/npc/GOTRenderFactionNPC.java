@@ -30,14 +30,14 @@ public class GOTRenderFactionNPC extends GOTRenderBiped {
 		boolean child = mob.isChild();
 		if (mob.familyInfo.isMale()) {
 			if (child) {
-				return GOTRandomSkins.loadSkinsList("got:mob/" + path + "/malechild").getRandomSkin(mob);
+				return GOTRandomSkins.loadSkinsList("got:textures/entity/" + path + "/malechild").getRandomSkin(mob);
 			}
-			return GOTRandomSkins.loadSkinsList("got:mob/" + path + "/male").getRandomSkin(mob);
+			return GOTRandomSkins.loadSkinsList("got:textures/entity/" + path + "/male").getRandomSkin(mob);
 		}
 		if (child) {
-			return GOTRandomSkins.loadSkinsList("got:mob/" + path + "/femalechild").getRandomSkin(mob);
+			return GOTRandomSkins.loadSkinsList("got:textures/entity/" + path + "/femalechild").getRandomSkin(mob);
 		}
-		return GOTRandomSkins.loadSkinsList("got:mob/" + path + "/female").getRandomSkin(mob);
+		return GOTRandomSkins.loadSkinsList("got:textures/entity/" + path + "/female").getRandomSkin(mob);
 	}
 
 	@Override

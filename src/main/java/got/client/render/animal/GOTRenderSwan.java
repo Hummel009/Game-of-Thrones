@@ -12,6 +12,6 @@ public class GOTRenderSwan extends RenderLiving {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return new ResourceLocation("got:mob/animal/swan.png");
+		return new ResourceLocation("got:textures/entity/animal/swan.png");
 	}
 }

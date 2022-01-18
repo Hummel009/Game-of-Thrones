@@ -54,10 +54,10 @@ public class GOTModelDragon extends ModelBase {
 	public GOTModelDragon(GOTDragonBreed breed) {
 		textureWidth = 256;
 		textureHeight = 256;
-		bodyTexture = new ResourceLocation("got:textures/mob/animal/dragon/body.png");
-		glowTexture = new ResourceLocation("got:textures/mob/animal/dragon/glow.png");
-		saddleTexture = new ResourceLocation("got:textures/mob/animal/dragon/saddle.png");
-		eggTexture = new ResourceLocation("got:textures/mob/animal/dragon/egg.png");
+		bodyTexture = new ResourceLocation("got:textures/entity/animal/dragon/body.png");
+		glowTexture = new ResourceLocation("got:textures/entity/animal/dragon/glow.png");
+		saddleTexture = new ResourceLocation("got:textures/entity/animal/dragon/saddle.png");
+		eggTexture = new ResourceLocation("got:textures/entity/animal/dragon/egg.png");
 		this.breed = breed;
 		setTextureOffset("body.body", 0, 0);
 		setTextureOffset("body.scale", 0, 32);
