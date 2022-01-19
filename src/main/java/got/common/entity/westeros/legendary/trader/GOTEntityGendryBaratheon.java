@@ -58,7 +58,7 @@ public class GOTEntityGendryBaratheon extends GOTEntityHumanBase implements GOTT
 
 	@Override
 	public GOTFaction getFaction() {
-		return GOTFaction.UNALIGNED;
+		return GOTFaction.CROWNLANDS;
 	}
 
 	@Override

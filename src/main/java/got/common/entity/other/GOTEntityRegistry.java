@@ -78,6 +78,11 @@ public class GOTEntityRegistry {
 		register(entityClass, name, id, 80, 3, true);
 	}
 
+	public static void registerLegendaryNPC(Class<? extends Entity> entityClass, String name, int id, GOTFaction faction) {
+		register(entityClass, name, id, 80, 3, true);
+		spawnEggs.put(id, new SpawnEggInfo(id, 9605778, faction.eggColor));
+	}
+
 	public static void register(Class<? extends Entity> entityClass, String name, int id, GOTFaction faction) {
 		register(entityClass, name, id, 80, 3, true);
 		spawnEggs.put(id, new SpawnEggInfo(id, faction.eggColor, faction.eggColor));
