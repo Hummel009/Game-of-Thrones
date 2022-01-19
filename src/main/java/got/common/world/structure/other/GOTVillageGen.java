@@ -43,18 +43,17 @@ public abstract class GOTVillageGen {
 	}
 
 	public boolean anyFixedVillagesAt(World world, int i, int k) {
-		if (!GOTVillageGen.hasFixedSettlements(world)) {
-			return false;
+		if (GOTVillageGen.hasFixedSettlements(world)) {
+			return true;
 		}
 		int checkRange = 15 - notCheckRange;
 		checkRange <<= 4;
 		for (LocationInfo loc : fixedLocations) {
 			int dx = Math.abs(loc.posX - i);
 			int dz = Math.abs(loc.posZ - k);
-			if (dx > checkRange || dz > checkRange) {
-				continue;
+			if ((dx <= checkRange) && (dz <= checkRange)) {
+				return true;
 			}
-			return true;
 		}
 		return false;
 	}

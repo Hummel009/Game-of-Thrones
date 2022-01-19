@@ -631,7 +631,7 @@ public class GOTRecipe {
 		sothoryos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.sothoryosBoots), "X X", "X X", Character.valueOf('X'), "ingotIron"));
 		sothoryos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.sothoryosHelmetChieftain), "X", "Y", Character.valueOf('X'), new ItemStack(GOTRegistry.doubleFlower, 1, 3), Character.valueOf('Y'), new ItemStack(GOTRegistry.sothoryosHelmet, 1, 0)));
 		sothoryos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.sothoryosSarbacane), "XYY", Character.valueOf('X'), "stickWood", Character.valueOf('Y'), GOTRegistry.reeds));
-		sothoryos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.sarbacaneTrap, 4), "X", "Y", "Z", Character.valueOf('X'), GOTRegistry.obsidianShard, Character.valueOf('Y'), "stickWood", Character.valueOf('Z'), "feather"));
+		sothoryos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.dart, 4), "X", "Y", "Z", Character.valueOf('X'), GOTRegistry.obsidianShard, Character.valueOf('Y'), "stickWood", Character.valueOf('Z'), "feather"));
 		sothoryos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.dartPoisoned, 4), " X ", "XYX", " X ", Character.valueOf('X'), GOTRegistry.sarbacaneTrap, Character.valueOf('Y'), "poison"));
 		sothoryos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.sarbacaneTrap), "XXX", "XYX", "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.brick4, 1, 0), Character.valueOf('Y'), new ItemStack(GOTRegistry.sothoryosSarbacane, 1, 0)));
 		sothoryos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.pillar1, 3, 14), "X", "X", "X", Character.valueOf('X'), Blocks.stone));
@@ -877,6 +877,7 @@ public class GOTRecipe {
 		GameRegistry.addRecipe(new ItemStack(GOTRegistry.stairsStoneBrickCracked, 4), "X  ", "XX ", "XXX", Character.valueOf('X'), new ItemStack(Blocks.stonebrick, 1, 2));
 		GameRegistry.addRecipe(new ItemStack(GOTRegistry.stairsStoneBrickMossy, 4), "X  ", "XX ", "XXX", Character.valueOf('X'), new ItemStack(Blocks.stonebrick, 1, 1));
 		GameRegistry.addRecipe(new ItemStack(GOTRegistry.stairsThatch, 4), "X  ", "XX ", "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.thatch, 1, 0));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.woodBeam9, 3, 2), "X", "X", "X", Character.valueOf('X'), new ItemStack(GOTRegistry.planks3, 1, 6)));
 		GameRegistry.addRecipe(new ItemStack(GOTRegistry.stairsUlthos, 4), "X  ", "XX ", "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.planks1, 1, 2));
 		GameRegistry.addRecipe(new ItemStack(GOTRegistry.stairsWeirwood, 4), "X  ", "XX ", "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.planks3, 1, 6));
 		GameRegistry.addRecipe(new ItemStack(GOTRegistry.stairsWhiteSandstone, 4), "X  ", "XX ", "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.whiteSandstone, 1, 0));

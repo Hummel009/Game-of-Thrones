@@ -373,7 +373,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 				return new ItemStack(GOTRegistry.silverIngot);
 			}
 			if (item == GOTRegistry.gobletCopper) {
-				return new ItemStack(GOTRegistry.bronzeIngot);
+				return new ItemStack(GOTRegistry.copperIngot);
 			}
 		}
 		return null;
