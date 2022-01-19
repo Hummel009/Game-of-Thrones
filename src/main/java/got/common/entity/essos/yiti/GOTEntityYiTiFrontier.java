@@ -11,7 +11,7 @@ public class GOTEntityYiTiFrontier extends GOTEntityYiTiLevyman {
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(true);
-		spawnRidingHorse = false;
+		spawnRidingHorse = rand.nextInt(10) == 0;
 		npcShield = GOTShields.YITI_FRONTIER;
 		npcCape = GOTCapes.YITI;
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);

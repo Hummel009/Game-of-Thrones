@@ -3,7 +3,7 @@ package got.common.world.structure.essos.ghiscar;
 import java.util.Random;
 
 import got.common.database.*;
-import got.common.entity.essos.ghiscar.GOTEntityGhiscarLevyman;
+import got.common.entity.essos.ghiscar.*;
 import net.minecraft.world.World;
 
 public class GOTStructureGhiscarBarracks extends GOTStructureGhiscarBase {
@@ -82,7 +82,7 @@ public class GOTStructureGhiscarBarracks extends GOTStructureGhiscarBase {
 		}
 		int warriors = 2 + random.nextInt(3);
 		for (int l = 0; l < warriors; ++l) {
-			GOTEntityGhiscarLevyman npc = new GOTEntityGhiscarLevyman(world);
+			GOTEntityGhiscarLevyman npc = new GOTEntityGhiscarCorsair(world);
 			spawnNPCAndSetHome(npc, world, random.nextBoolean() ? -1 : 0, 1, 0, 16);
 		}
 		return true;

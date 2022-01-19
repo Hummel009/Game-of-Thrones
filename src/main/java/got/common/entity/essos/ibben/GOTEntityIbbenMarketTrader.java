@@ -12,7 +12,6 @@ public abstract class GOTEntityIbbenMarketTrader extends GOTEntityIbbenMan imple
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(false);
-		spawnRidingHorse = false;
 	}
 
 	@Override

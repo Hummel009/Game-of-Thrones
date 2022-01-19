@@ -275,6 +275,7 @@ public class GOTStructureDorneGatehouse extends GOTStructureDorneBase {
 			j12 = 8;
 			int k17 = 0;
 			GOTEntityDorneSoldier levyman = new GOTEntityDorneSoldier(world);
+			levyman.spawnRidingHorse = false;
 			spawnNPCAndSetHome(levyman, world, i1221, j12, k17, 8);
 		}
 		return true;

@@ -12,6 +12,7 @@ public class GOTEntitySummerArcher extends GOTEntitySummerWarrior {
 	public GOTEntitySummerArcher(World world) {
 		super(world);
 		canBeMarried = false;
+		spawnRidingHorse = false;
 	}
 
 	@Override

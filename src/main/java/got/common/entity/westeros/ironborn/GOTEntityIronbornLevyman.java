@@ -16,7 +16,6 @@ public class GOTEntityIronbornLevyman extends GOTEntityIronbornMan {
 	public GOTEntityIronbornLevyman(World world) {
 		super(world);
 		canBeMarried = false;
-		spawnRidingHorse = false;
 		addTargetTasks(true);
 	}
 

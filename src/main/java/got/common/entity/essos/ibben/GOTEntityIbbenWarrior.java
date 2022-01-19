@@ -14,7 +14,6 @@ public class GOTEntityIbbenWarrior extends GOTEntityIbbenMan {
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(true);
-		spawnRidingHorse = false;
 	}
 
 	@Override

@@ -20,6 +20,7 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(true);
+		spawnRidingHorse = rand.nextInt(10) == 0;
 	}
 
 	@Override

@@ -3,7 +3,7 @@ package got.common.world.structure.essos.braavos;
 import java.util.Random;
 
 import got.common.database.*;
-import got.common.entity.essos.braavos.GOTEntityBraavosLevyman;
+import got.common.entity.essos.braavos.GOTEntityBraavosSoldier;
 import net.minecraft.world.World;
 
 public class GOTStructureBraavosBarracks extends GOTStructureBraavosBase {
@@ -82,7 +82,7 @@ public class GOTStructureBraavosBarracks extends GOTStructureBraavosBase {
 		}
 		int warriors = 2 + random.nextInt(3);
 		for (int l = 0; l < warriors; ++l) {
-			GOTEntityBraavosLevyman npc = new GOTEntityBraavosLevyman(world);
+			GOTEntityBraavosSoldier npc = new GOTEntityBraavosSoldier(world);
 			spawnNPCAndSetHome(npc, world, random.nextBoolean() ? -1 : 0, 1, 0, 16);
 		}
 		return true;

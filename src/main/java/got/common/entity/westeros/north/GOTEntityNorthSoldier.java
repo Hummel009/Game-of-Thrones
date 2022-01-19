@@ -2,7 +2,8 @@ package got.common.entity.westeros.north;
 
 import got.common.database.*;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
-import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.animal.GOTEntityHorse;
+import got.common.entity.other.*;
 import got.common.quest.*;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -26,6 +27,13 @@ public class GOTEntityNorthSoldier extends GOTEntityNorthLevyman {
 	@Override
 	public GOTMiniQuest createMiniQuest() {
 		return GOTMiniQuestFactory.WESTEROS.createQuest(this);
+	}
+
+	@Override
+	public GOTNPCMount createMountToRide() {
+		GOTEntityHorse horse = (GOTEntityHorse) super.createMountToRide();
+		horse.setMountArmor(new ItemStack(GOTRegistry.westerosHorseArmor));
+		return horse;
 	}
 
 	@Override

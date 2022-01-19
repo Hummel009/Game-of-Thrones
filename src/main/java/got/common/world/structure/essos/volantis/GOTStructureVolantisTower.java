@@ -62,12 +62,12 @@ public class GOTStructureVolantisTower extends GOTStructureVolantisBase {
 		placeWallBanner(world, 3, 14, 0, bannerType, 1);
 		int warriors = 2;
 		for (int l = 0; l < warriors; ++l) {
-			GOTEntityVolantisLevyman warrior = new GOTEntityVolantisLevyman(world);
+			GOTEntityVolantisSoldier warrior = new GOTEntityVolantisSoldier(world);
 			warrior.spawnRidingHorse = false;
 			spawnNPCAndSetHome(warrior, world, 0, 15, 0, 8);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClasses(GOTEntityVolantisLevyman.class, GOTEntityVolantisLevymanArcher.class);
+		respawner.setSpawnClasses(GOTEntityVolantisSoldier.class, GOTEntityVolantisSoldierArcher.class);
 		respawner.setCheckRanges(8, -4, 20, 8);
 		respawner.setSpawnRanges(2, -1, 16, 8);
 		placeNPCRespawner(respawner, world, 0, 0, 0);

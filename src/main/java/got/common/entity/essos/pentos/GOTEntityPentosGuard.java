@@ -8,7 +8,6 @@ import net.minecraft.world.World;
 public class GOTEntityPentosGuard extends GOTEntityPentosLevyman {
 	public GOTEntityPentosGuard(World world) {
 		super(world);
-		spawnRidingHorse = false;
 		npcCape = GOTCapes.PENTOS;
 		npcShield = GOTShields.PENTOS;
 		addTargetTasks(false);

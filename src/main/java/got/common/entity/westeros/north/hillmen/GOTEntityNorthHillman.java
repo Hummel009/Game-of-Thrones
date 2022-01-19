@@ -2,6 +2,7 @@ package got.common.entity.westeros.north.hillmen;
 
 import got.common.database.*;
 import got.common.entity.ai.*;
+import got.common.entity.animal.GOTEntityWoolyRhino;
 import got.common.entity.other.*;
 import got.common.faction.GOTFaction;
 import got.common.quest.*;
@@ -51,6 +52,13 @@ public class GOTEntityNorthHillman extends GOTEntityHumanBase implements IPickpo
 	@Override
 	public GOTMiniQuest createMiniQuest() {
 		return GOTMiniQuestFactory.WESTEROS.createQuest(this);
+	}
+
+	@Override
+	public GOTNPCMount createMountToRide() {
+		GOTEntityWoolyRhino horse = (GOTEntityWoolyRhino) super.createMountToRide();
+		horse.setMountArmor(new ItemStack(GOTRegistry.rhinoArmor));
+		return horse;
 	}
 
 	@Override

@@ -16,6 +16,7 @@ public class GOTEntityBraavosGeneral extends GOTEntityBraavosSoldier implements 
 		canBeMarried = false;
 		addTargetTasks(false);
 		npcCape = GOTCapes.BRAAVOS;
+		spawnRidingHorse = false;
 	}
 
 	@Override

@@ -8,7 +8,6 @@ import net.minecraft.world.World;
 public class GOTEntityQohorGuard extends GOTEntityQohorLevyman {
 	public GOTEntityQohorGuard(World world) {
 		super(world);
-		spawnRidingHorse = false;
 		npcCape = GOTCapes.QOHOR;
 		npcShield = GOTShields.QOHOR;
 		addTargetTasks(false);

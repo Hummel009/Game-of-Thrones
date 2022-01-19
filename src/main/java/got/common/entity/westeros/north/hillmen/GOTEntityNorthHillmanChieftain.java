@@ -13,6 +13,7 @@ public class GOTEntityNorthHillmanChieftain extends GOTEntityNorthHillmanWarrior
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(false);
+		spawnRidingHorse = false;
 	}
 
 	@Override

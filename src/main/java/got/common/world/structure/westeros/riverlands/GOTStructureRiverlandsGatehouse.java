@@ -275,6 +275,7 @@ public class GOTStructureRiverlandsGatehouse extends GOTStructureRiverlandsBase 
 			j12 = 8;
 			int k17 = 0;
 			GOTEntityRiverlandsSoldier levyman = new GOTEntityRiverlandsSoldier(world);
+			levyman.spawnRidingHorse = false;
 			spawnNPCAndSetHome(levyman, world, i1221, j12, k17, 8);
 		}
 		return true;

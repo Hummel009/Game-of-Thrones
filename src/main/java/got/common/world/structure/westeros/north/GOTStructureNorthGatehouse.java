@@ -276,6 +276,7 @@ public class GOTStructureNorthGatehouse extends GOTStructureNorthBase {
 			j12 = 8;
 			int k17 = 0;
 			GOTEntityNorthSoldier levyman = new GOTEntityNorthSoldier(world);
+			levyman.spawnRidingHorse = false;
 			spawnNPCAndSetHome(levyman, world, i1421, j12, k17, 8);
 		}
 		return true;

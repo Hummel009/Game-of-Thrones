@@ -16,6 +16,7 @@ public class GOTEntityDorneCaptain extends GOTEntityDorneSoldier implements GOTU
 		canBeMarried = false;
 		addTargetTasks(false);
 		npcCape = GOTCapes.DORNE;
+		spawnRidingHorse = false;
 	}
 
 	@Override

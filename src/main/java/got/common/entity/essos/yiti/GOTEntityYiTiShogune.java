@@ -15,6 +15,7 @@ public class GOTEntityYiTiShogune extends GOTEntityYiTiSamurai implements GOTUni
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(false);
+		spawnRidingHorse = false;
 	}
 
 	@Override

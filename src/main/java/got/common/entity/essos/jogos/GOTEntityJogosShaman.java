@@ -12,8 +12,8 @@ public class GOTEntityJogosShaman extends GOTEntityJogos implements GOTTradeable
 	public GOTEntityJogosShaman(World world) {
 		super(world);
 		canBeMarried = false;
-		spawnRidingHorse = false;
 		addTargetTasks(false);
+		spawnRidingHorse = false;
 	}
 
 	@Override

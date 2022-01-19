@@ -3,7 +3,7 @@ package got.common.world.structure.essos.volantis;
 import java.util.Random;
 
 import got.common.database.*;
-import got.common.entity.essos.volantis.GOTEntityVolantisLevyman;
+import got.common.entity.essos.volantis.*;
 import net.minecraft.world.World;
 
 public class GOTStructureVolantisBarracks extends GOTStructureVolantisBase {
@@ -82,7 +82,7 @@ public class GOTStructureVolantisBarracks extends GOTStructureVolantisBase {
 		}
 		int warriors = 2 + random.nextInt(3);
 		for (int l = 0; l < warriors; ++l) {
-			GOTEntityVolantisLevyman npc = new GOTEntityVolantisLevyman(world);
+			GOTEntityVolantisLevyman npc = new GOTEntityVolantisSoldier(world);
 			spawnNPCAndSetHome(npc, world, random.nextBoolean() ? -1 : 0, 1, 0, 16);
 		}
 		return true;

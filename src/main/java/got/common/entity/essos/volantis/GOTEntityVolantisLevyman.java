@@ -17,7 +17,6 @@ public class GOTEntityVolantisLevyman extends GOTEntityVolantisMan {
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(true);
-		spawnRidingHorse = false;
 	}
 
 	@Override

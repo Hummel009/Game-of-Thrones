@@ -10,6 +10,7 @@ public class GOTEntityNorthHillmanMercenary extends GOTEntityNorthHillmanWarrior
 	public GOTEntityNorthHillmanMercenary(World world) {
 		super(world);
 		canBeMarried = false;
+		spawnRidingHorse = false;
 	}
 
 	@Override

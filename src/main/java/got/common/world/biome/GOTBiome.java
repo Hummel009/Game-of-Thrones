@@ -194,7 +194,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		waterLimitNorth = -40000;
 		waterLimitSouth = 160000;
 	}
-	public static int SPAWN = 500;
+	public static int SPAWN = 600;
 	public static int CONQUEST_SPAWN = 100;
 	public GOTDimension biomeDimension;
 	public GOTBiomeDecorator decorator;

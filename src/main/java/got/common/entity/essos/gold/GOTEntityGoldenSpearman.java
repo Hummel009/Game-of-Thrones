@@ -11,7 +11,6 @@ public class GOTEntityGoldenSpearman extends GOTEntityGoldenMan {
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(true);
-		spawnRidingHorse = false;
 	}
 
 	@Override

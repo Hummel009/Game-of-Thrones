@@ -128,7 +128,7 @@ public class GOTStructureLysFortress extends GOTStructureLysBase {
 		setBlockAndMetadata(world, -5, 1, 1, GOTRegistry.commandTable, 0);
 		int warriors = 5 + random.nextInt(5);
 		for (int l = 0; l < warriors; ++l) {
-			GOTEntityLysLevyman warrior = new GOTEntityLysLevyman(world);
+			GOTEntityLysSoldier warrior = new GOTEntityLysSoldier(world);
 			warrior.spawnRidingHorse = false;
 			spawnNPCAndSetHome(warrior, world, 0, 1, 0, 24);
 		}
@@ -139,7 +139,7 @@ public class GOTStructureLysFortress extends GOTStructureLysBase {
 		captain.spawnRidingHorse = false;
 		spawnNPCAndSetHome(captain, world, 0, 1, 4, 8);
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClasses(GOTEntityLysLevyman.class, GOTEntityLysLevymanArcher.class);
+		respawner.setSpawnClasses(GOTEntityLysSoldier.class, GOTEntityLysSoldierArcher.class);
 		respawner.setCheckRanges(24, -8, 20, 16);
 		respawner.setSpawnRanges(12, -4, 6, 24);
 		placeNPCRespawner(respawner, world, 0, 0, 0);

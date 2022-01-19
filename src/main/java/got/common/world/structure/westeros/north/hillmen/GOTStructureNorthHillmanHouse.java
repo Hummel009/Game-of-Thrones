@@ -3,6 +3,7 @@ package got.common.world.structure.westeros.north.hillmen;
 import java.util.Random;
 
 import got.common.database.*;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.north.hillmen.*;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.structure.other.GOTStructureBase;
@@ -191,13 +192,19 @@ public class GOTStructureNorthHillmanHouse extends GOTStructureBase {
 			int num = random.nextInt(3);
 			switch (num) {
 			case 0:
-				spawnNPCAndSetHome(new GOTEntityNorthHillmanArcher(world), world, 0, 1, 0, 8);
+				GOTEntityNPC npc = new GOTEntityNorthHillmanArcher(world);
+				npc.spawnRidingHorse = false;
+				spawnNPCAndSetHome(npc, world, 0, 1, 0, 8);
 				break;
 			case 1:
-				spawnNPCAndSetHome(new GOTEntityNorthHillmanAxeThrower(world), world, 0, 1, 0, 8);
+				GOTEntityNPC npc1 = new GOTEntityNorthHillmanAxeThrower(world);
+				npc1.spawnRidingHorse = false;
+				spawnNPCAndSetHome(npc1, world, 0, 1, 0, 8);
 				break;
 			case 2:
-				spawnNPCAndSetHome(new GOTEntityNorthHillmanWarrior(world), world, 0, 1, 0, 8);
+				GOTEntityNPC npc11 = new GOTEntityNorthHillmanWarrior(world);
+				npc11.spawnRidingHorse = false;
+				spawnNPCAndSetHome(npc11, world, 0, 1, 0, 8);
 				break;
 			}
 		} else {

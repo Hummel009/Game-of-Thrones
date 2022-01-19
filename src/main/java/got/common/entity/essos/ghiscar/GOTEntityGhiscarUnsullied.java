@@ -9,7 +9,6 @@ public class GOTEntityGhiscarUnsullied extends GOTEntityGhiscarLevyman {
 	public GOTEntityGhiscarUnsullied(World world) {
 		super(world);
 		canBeMarried = false;
-		spawnRidingHorse = false;
 		npcCape = GOTCapes.UNSULLIED;
 		npcShield = GOTShields.UNSULLIED;
 	}

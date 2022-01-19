@@ -16,6 +16,7 @@ public class GOTEntityNorthCaptain extends GOTEntityNorthSoldier implements GOTU
 		canBeMarried = false;
 		addTargetTasks(false);
 		npcCape = GOTCapes.NORTH;
+		spawnRidingHorse = false;
 	}
 
 	@Override

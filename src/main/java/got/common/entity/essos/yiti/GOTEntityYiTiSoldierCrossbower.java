@@ -12,6 +12,7 @@ public class GOTEntityYiTiSoldierCrossbower extends GOTEntityYiTiSoldier {
 	public GOTEntityYiTiSoldierCrossbower(World world) {
 		super(world);
 		canBeMarried = false;
+		spawnRidingHorse = false;
 	}
 
 	@Override

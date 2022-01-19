@@ -16,6 +16,7 @@ public class GOTEntityDragonstoneCaptain extends GOTEntityDragonstoneSoldier imp
 		canBeMarried = false;
 		addTargetTasks(false);
 		npcCape = GOTCapes.DRAGONSTONE;
+		spawnRidingHorse = false;
 	}
 
 	@Override

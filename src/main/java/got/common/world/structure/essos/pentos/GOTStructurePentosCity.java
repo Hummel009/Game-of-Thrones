@@ -247,7 +247,7 @@ public class GOTStructurePentosCity extends GOTVillageGen {
 
 				@Override
 				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClass(GOTEntityPentosGuard.class);
+					spawner.setSpawnClass(GOTEntityPentosLevyman.class);
 					spawner.setCheckRanges(60, -12, 12, 4);
 					spawner.setSpawnRanges(24, -6, 6, 32);
 				}

@@ -9,7 +9,7 @@ public class GOTEntityVolantisSoldier extends GOTEntityVolantisLevyman {
 	public GOTEntityVolantisSoldier(World world) {
 		super(world);
 		canBeMarried = false;
-		spawnRidingHorse = false;
+		spawnRidingHorse = rand.nextInt(10) == 0;
 		npcCape = GOTCapes.VOLANTIS;
 		npcShield = GOTShields.VOLANTIS;
 	}

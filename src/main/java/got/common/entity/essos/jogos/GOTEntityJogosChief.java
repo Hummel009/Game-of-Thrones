@@ -13,7 +13,7 @@ public class GOTEntityJogosChief extends GOTEntityJogos implements GOTUnitTradea
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(false);
-		npcCape = null;
+		spawnRidingHorse = false;
 	}
 
 	@Override

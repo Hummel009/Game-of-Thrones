@@ -13,7 +13,6 @@ public class GOTEntityIbbenWarlord extends GOTEntityIbbenWarrior implements GOTU
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(false);
-		spawnRidingHorse = false;
 	}
 
 	@Override

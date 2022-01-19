@@ -16,6 +16,7 @@ public class GOTEntityVolantisGeneral extends GOTEntityVolantisSoldier implement
 		canBeMarried = false;
 		addTargetTasks(false);
 		npcCape = GOTCapes.VOLANTIS;
+		spawnRidingHorse = false;
 	}
 
 	@Override

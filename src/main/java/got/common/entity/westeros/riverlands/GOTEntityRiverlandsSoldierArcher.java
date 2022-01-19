@@ -12,6 +12,7 @@ public class GOTEntityRiverlandsSoldierArcher extends GOTEntityRiverlandsSoldier
 	public GOTEntityRiverlandsSoldierArcher(World world) {
 		super(world);
 		canBeMarried = false;
+		spawnRidingHorse = false;
 	}
 
 	@Override

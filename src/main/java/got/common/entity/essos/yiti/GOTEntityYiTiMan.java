@@ -2,6 +2,7 @@ package got.common.entity.essos.yiti;
 
 import got.common.database.*;
 import got.common.entity.ai.*;
+import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.*;
 import got.common.faction.GOTFaction;
 import got.common.quest.*;
@@ -51,13 +52,15 @@ public class GOTEntityYiTiMan extends GOTEntityHumanBase implements IPickpocketa
 		return GOTMiniQuestFactory.ESSOS.createQuest(this);
 	}
 
-	@Override
-	public GOTNPCMount createMountToRide() {
-		return super.createMountToRide();
-	}
-
 	public EntityAIBase createYiTiAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
+	}
+
+	@Override
+	public GOTNPCMount createMountToRide() {
+		GOTEntityHorse horse = (GOTEntityHorse) super.createMountToRide();
+		horse.setMountArmor(new ItemStack(GOTRegistry.dothrakiHorseArmor));
+		return horse;
 	}
 
 	@Override

@@ -34,7 +34,6 @@ public class GOTEntityMossovyMan extends GOTEntityHumanBase implements IPickpock
 		tasks.addTask(9, new EntityAILookIdle(this));
 		addTargetTasks(true);
 		isImmuneToFrost = true;
-		spawnRidingHorse = false;
 	}
 
 	@Override

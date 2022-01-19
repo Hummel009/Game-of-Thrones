@@ -17,7 +17,6 @@ public class GOTEntityTyroshLevyman extends GOTEntityTyroshMan {
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(true);
-		spawnRidingHorse = false;
 	}
 
 	@Override

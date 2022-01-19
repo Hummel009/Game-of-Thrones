@@ -12,7 +12,6 @@ public class GOTEntityLorathLevymanArcher extends GOTEntityLorathLevyman {
 	public GOTEntityLorathLevymanArcher(World world) {
 		super(world);
 		canBeMarried = false;
-		spawnRidingHorse = false;
 	}
 
 	@Override

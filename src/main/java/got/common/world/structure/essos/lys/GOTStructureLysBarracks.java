@@ -3,7 +3,7 @@ package got.common.world.structure.essos.lys;
 import java.util.Random;
 
 import got.common.database.*;
-import got.common.entity.essos.lys.GOTEntityLysLevyman;
+import got.common.entity.essos.lys.*;
 import net.minecraft.world.World;
 
 public class GOTStructureLysBarracks extends GOTStructureLysBase {
@@ -82,7 +82,7 @@ public class GOTStructureLysBarracks extends GOTStructureLysBase {
 		}
 		int warriors = 2 + random.nextInt(3);
 		for (int l = 0; l < warriors; ++l) {
-			GOTEntityLysLevyman npc = new GOTEntityLysLevyman(world);
+			GOTEntityLysLevyman npc = new GOTEntityLysSoldier(world);
 			spawnNPCAndSetHome(npc, world, random.nextBoolean() ? -1 : 0, 1, 0, 16);
 		}
 		return true;

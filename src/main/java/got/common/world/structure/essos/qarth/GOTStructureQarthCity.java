@@ -247,7 +247,7 @@ public class GOTStructureQarthCity extends GOTVillageGen {
 
 				@Override
 				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClass(GOTEntityQarthGuard.class);
+					spawner.setSpawnClass(GOTEntityQarthLevyman.class);
 					spawner.setCheckRanges(60, -12, 12, 4);
 					spawner.setSpawnRanges(24, -6, 6, 32);
 				}

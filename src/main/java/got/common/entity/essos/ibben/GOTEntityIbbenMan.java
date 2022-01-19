@@ -36,7 +36,6 @@ public class GOTEntityIbbenMan extends GOTEntityHumanBase implements IPickpocket
 		tasks.addTask(7, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
-		spawnRidingHorse = false;
 		isImmuneToFrost = true;
 		addTargetTasks(false);
 	}

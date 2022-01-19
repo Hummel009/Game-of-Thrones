@@ -16,6 +16,7 @@ public class GOTEntityReachCaptain extends GOTEntityReachSoldier implements GOTU
 		canBeMarried = false;
 		addTargetTasks(false);
 		npcCape = GOTCapes.REACH;
+		spawnRidingHorse = false;
 	}
 
 	@Override

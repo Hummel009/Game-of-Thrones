@@ -15,7 +15,7 @@ public class GOTEntitySummerWarrior extends GOTEntitySummerMan {
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(true);
-		spawnRidingHorse = false;
+		spawnRidingHorse = this.rand.nextInt(10) == 0;
 		npcShield = GOTShields.SUMMER;
 	}
 

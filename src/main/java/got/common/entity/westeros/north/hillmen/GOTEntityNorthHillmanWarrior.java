@@ -14,6 +14,7 @@ public class GOTEntityNorthHillmanWarrior extends GOTEntityNorthHillman {
 	public GOTEntityNorthHillmanWarrior(World world) {
 		super(world);
 		canBeMarried = false;
+		spawnRidingHorse = rand.nextInt(10) == 0;
 	}
 
 	public ItemStack dyeLeather(ItemStack itemstack) {

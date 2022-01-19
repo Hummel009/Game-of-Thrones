@@ -30,7 +30,6 @@ public class GOTEntityHummel009 extends GOTEntityNPC {
 		tasks.addTask(9, new EntityAILookIdle(this));
 		isImmuneToFire = true;
 		isImmuneToFrost = true;
-		spawnRidingHorse = false;
 	}
 
 	@Override

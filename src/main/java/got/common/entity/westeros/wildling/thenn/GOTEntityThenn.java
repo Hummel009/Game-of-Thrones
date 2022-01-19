@@ -51,7 +51,7 @@ public class GOTEntityThenn extends GOTEntityHumanBase {
 
 	@Override
 	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.WESTEROS.createQuest(this);
+		return GOTMiniQuestFactory.WILDLING.createQuest(this);
 	}
 
 	@Override
@@ -87,7 +87,7 @@ public class GOTEntityThenn extends GOTEntityHumanBase {
 
 	@Override
 	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.WESTEROS;
+		return GOTMiniQuestFactory.WILDLING;
 	}
 
 	@Override

@@ -5,7 +5,6 @@ import java.util.List;
 import got.common.GOTConfig;
 import got.common.database.*;
 import got.common.entity.ai.*;
-import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.*;
 import got.common.faction.GOTFaction;
 import got.common.quest.*;
@@ -43,7 +42,7 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements IPickpocket
 		tasks.addTask(9, new EntityAILookIdle(this));
 		int target = addTargetTasks(true);
 		targetTasks.addTask(target + 1, new GOTEntityAIDothrakiSkirmish(this, true));
-		npcShield = null;
+		spawnRidingHorse = rand.nextInt(10) == 0;
 	}
 
 	@Override
@@ -66,13 +65,6 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements IPickpocket
 	@Override
 	public GOTMiniQuest createMiniQuest() {
 		return GOTMiniQuestFactory.NOMAD.createQuest(this);
-	}
-
-	@Override
-	public GOTNPCMount createMountToRide() {
-		GOTEntityHorse horse = (GOTEntityHorse) super.createMountToRide();
-		horse.setMountArmor(new ItemStack(GOTRegistry.dothrakiHorseArmor));
-		return horse;
 	}
 
 	@Override

@@ -16,6 +16,7 @@ public class GOTEntityWesterlandsCaptain extends GOTEntityWesterlandsSoldier imp
 		canBeMarried = false;
 		addTargetTasks(false);
 		npcCape = GOTCapes.WESTERLANDS;
+		spawnRidingHorse = false;
 	}
 
 	@Override

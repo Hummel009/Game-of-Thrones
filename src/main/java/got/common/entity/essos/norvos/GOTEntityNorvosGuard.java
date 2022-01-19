@@ -8,7 +8,6 @@ import net.minecraft.world.World;
 public class GOTEntityNorvosGuard extends GOTEntityNorvosLevyman {
 	public GOTEntityNorvosGuard(World world) {
 		super(world);
-		spawnRidingHorse = false;
 		npcCape = GOTCapes.NORVOS;
 		npcShield = GOTShields.NORVOS;
 		addTargetTasks(false);

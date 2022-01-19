@@ -3,7 +3,7 @@ package got.common.world.structure.essos.lorath;
 import java.util.Random;
 
 import got.common.database.*;
-import got.common.entity.essos.lorath.GOTEntityLorathLevyman;
+import got.common.entity.essos.lorath.*;
 import net.minecraft.world.World;
 
 public class GOTStructureLorathBarracks extends GOTStructureLorathBase {
@@ -82,7 +82,7 @@ public class GOTStructureLorathBarracks extends GOTStructureLorathBase {
 		}
 		int warriors = 2 + random.nextInt(3);
 		for (int l = 0; l < warriors; ++l) {
-			GOTEntityLorathLevyman npc = new GOTEntityLorathLevyman(world);
+			GOTEntityLorathLevyman npc = new GOTEntityLorathSoldier(world);
 			spawnNPCAndSetHome(npc, world, random.nextBoolean() ? -1 : 0, 1, 0, 16);
 		}
 		return true;

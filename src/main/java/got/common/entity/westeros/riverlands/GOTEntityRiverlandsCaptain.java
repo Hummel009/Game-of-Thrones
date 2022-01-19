@@ -16,6 +16,7 @@ public class GOTEntityRiverlandsCaptain extends GOTEntityRiverlandsSoldier imple
 		canBeMarried = false;
 		addTargetTasks(false);
 		npcCape = GOTCapes.RIVERLANDS;
+		spawnRidingHorse = false;
 	}
 
 	@Override

@@ -9,7 +9,7 @@ public class GOTEntityLysSoldier extends GOTEntityLysLevyman {
 	public GOTEntityLysSoldier(World world) {
 		super(world);
 		canBeMarried = false;
-		spawnRidingHorse = false;
+		spawnRidingHorse = rand.nextInt(10) == 0;
 		npcCape = GOTCapes.LYS;
 		npcShield = GOTShields.LYS;
 	}

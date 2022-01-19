@@ -3,7 +3,7 @@ package got.common.world.structure.essos.tyrosh;
 import java.util.Random;
 
 import got.common.database.*;
-import got.common.entity.essos.tyrosh.GOTEntityTyroshLevyman;
+import got.common.entity.essos.tyrosh.*;
 import net.minecraft.world.World;
 
 public class GOTStructureTyroshBarracks extends GOTStructureTyroshBase {
@@ -82,7 +82,7 @@ public class GOTStructureTyroshBarracks extends GOTStructureTyroshBase {
 		}
 		int warriors = 2 + random.nextInt(3);
 		for (int l = 0; l < warriors; ++l) {
-			GOTEntityTyroshLevyman npc = new GOTEntityTyroshLevyman(world);
+			GOTEntityTyroshLevyman npc = new GOTEntityTyroshSoldier(world);
 			spawnNPCAndSetHome(npc, world, random.nextBoolean() ? -1 : 0, 1, 0, 16);
 		}
 		return true;

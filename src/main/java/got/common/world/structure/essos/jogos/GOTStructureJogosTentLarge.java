@@ -74,14 +74,17 @@ public class GOTStructureJogosTentLarge extends GOTStructureJogosBase {
 		GOTEntityJogos male = new GOTEntityJogos(world);
 		male.familyInfo.setMale(true);
 		male.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		male.spawnRidingHorse = false;
 		spawnNPCAndSetHome(male, world, 0, 1, 0, 16);
 		GOTEntityJogos female = new GOTEntityJogos(world);
 		female.familyInfo.setMale(false);
 		female.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		female.spawnRidingHorse = false;
 		spawnNPCAndSetHome(female, world, 0, 1, 0, 16);
 		GOTEntityJogos child = new GOTEntityJogos(world);
 		child.familyInfo.setMale(random.nextBoolean());
 		child.familyInfo.setChild();
+		child.spawnRidingHorse = false;
 		spawnNPCAndSetHome(child, world, 0, 1, 0, 16);
 		return true;
 	}

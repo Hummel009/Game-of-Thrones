@@ -2,6 +2,7 @@ package got.common.entity.westeros.ironborn;
 
 import got.common.database.*;
 import got.common.entity.ai.*;
+import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.*;
 import got.common.faction.GOTFaction;
 import got.common.quest.*;
@@ -57,7 +58,9 @@ public class GOTEntityIronbornMan extends GOTEntityHumanBase implements IPickpoc
 
 	@Override
 	public GOTNPCMount createMountToRide() {
-		return super.createMountToRide();
+		GOTEntityHorse horse = (GOTEntityHorse) super.createMountToRide();
+		horse.setMountArmor(new ItemStack(GOTRegistry.westerosHorseArmor));
+		return horse;
 	}
 
 	@Override

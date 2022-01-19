@@ -9,7 +9,7 @@ public class GOTEntityBraavosSoldier extends GOTEntityBraavosLevyman {
 	public GOTEntityBraavosSoldier(World world) {
 		super(world);
 		canBeMarried = false;
-		spawnRidingHorse = false;
+		spawnRidingHorse = rand.nextInt(10) == 0;
 		npcCape = GOTCapes.BRAAVOS;
 		npcShield = GOTShields.BRAAVOS;
 	}

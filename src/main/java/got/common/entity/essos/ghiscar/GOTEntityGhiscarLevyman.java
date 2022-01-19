@@ -17,7 +17,6 @@ public class GOTEntityGhiscarLevyman extends GOTEntityGhiscarMan {
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(true);
-		spawnRidingHorse = false;
 	}
 
 	@Override

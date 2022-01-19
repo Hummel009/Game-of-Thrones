@@ -67,14 +67,17 @@ public class GOTStructureDothrakiTent extends GOTStructureDothrakiBase {
 		this.placeChest(world, random, 0, 1, 5, GOTRegistry.chestBasket, 2, GOTChestContents.NOMAD);
 		GOTEntityDothraki male = new GOTEntityDothraki(world);
 		male.familyInfo.setMale(true);
+		male.spawnRidingHorse = false;
 		male.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
 		spawnNPCAndSetHome(male, world, 0, 1, -1, 16);
 		GOTEntityDothraki female = new GOTEntityDothraki(world);
 		female.familyInfo.setMale(false);
+		female.spawnRidingHorse = false;
 		female.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
 		spawnNPCAndSetHome(female, world, 0, 1, -1, 16);
 		GOTEntityDothraki child = new GOTEntityDothraki(world);
 		child.familyInfo.setMale(random.nextBoolean());
+		child.spawnRidingHorse = false;
 		child.familyInfo.setChild();
 		spawnNPCAndSetHome(child, world, 0, 1, -1, 16);
 		return true;

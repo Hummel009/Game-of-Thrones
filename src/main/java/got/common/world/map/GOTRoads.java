@@ -56,6 +56,7 @@ public class GOTRoads {
 		allRoads.clear();
 		roadPointDatabase = new RoadPointDatabase();
 		GOTRoads.registerHiddenRoad(id++, new int[] { 559, 544 }, new int[] { 596, 544 });
+		GOTRoads.registerRoad(id++, GOTWaypoint.Zamettar, near(GOTWaypoint.Zamettar, 0, -1));
 		GOTRoads.registerRoad(id++, GOTWaypoint.Appleton, near(GOTWaypoint.Appleton, 0, -1));
 		GOTRoads.registerRoad(id++, GOTWaypoint.Asabhad, near(GOTWaypoint.Asabhad, -1, 0));
 		GOTRoads.registerRoad(id++, GOTWaypoint.Asabhad, new int[] { 3143, 2263 }, new int[] { 3190, 2276 }, GOTWaypoint.SiQo);

@@ -8,7 +8,6 @@ import net.minecraft.world.World;
 public class GOTEntityCrownlandsGuard extends GOTEntityCrownlandsLevyman {
 	public GOTEntityCrownlandsGuard(World world) {
 		super(world);
-		spawnRidingHorse = false;
 		npcShield = GOTShields.CROWNLANDS;
 		npcCape = GOTCapes.CROWNLANDS;
 		addTargetTasks(false);

@@ -36,7 +36,7 @@ public class GOTEntityJogos extends GOTEntityHumanBase implements IPickpocketabl
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
 		addTargetTasks(true);
-		npcShield = null;
+		spawnRidingHorse = rand.nextInt(10) == 0;
 	}
 
 	@Override

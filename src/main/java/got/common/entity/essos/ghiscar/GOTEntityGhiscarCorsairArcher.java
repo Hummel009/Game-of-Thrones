@@ -12,7 +12,6 @@ public class GOTEntityGhiscarCorsairArcher extends GOTEntityGhiscarCorsair {
 	public GOTEntityGhiscarCorsairArcher(World world) {
 		super(world);
 		canBeMarried = false;
-		spawnRidingHorse = false;
 	}
 
 	@Override

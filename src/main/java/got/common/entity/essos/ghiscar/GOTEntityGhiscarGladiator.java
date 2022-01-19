@@ -18,7 +18,6 @@ public class GOTEntityGhiscarGladiator extends GOTEntityGhiscarMan {
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(true);
-		spawnRidingHorse = false;
 		npcShield = GOTShields.GHISCAR;
 		int target = addTargetTasks(false);
 		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityGhiscarGladiator.class, 0, true));

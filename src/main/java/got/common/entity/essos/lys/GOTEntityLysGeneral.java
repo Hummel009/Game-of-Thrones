@@ -16,6 +16,7 @@ public class GOTEntityLysGeneral extends GOTEntityLysSoldier implements GOTUnitT
 		canBeMarried = false;
 		addTargetTasks(false);
 		npcCape = GOTCapes.LYS;
+		spawnRidingHorse = false;
 	}
 
 	@Override

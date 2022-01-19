@@ -300,6 +300,7 @@ public class GOTStructureReachWine extends GOTStructureReachBase {
 			}
 		}
 		GOTEntityReachSoldier vintner = new GOTEntityReachSoldier(world);
+		vintner.spawnRidingHorse = false;
 		spawnNPCAndSetHome(vintner, world, 0, 1, 13, 16);
 		return true;
 	}

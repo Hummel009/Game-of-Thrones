@@ -12,7 +12,6 @@ public class GOTEntityIbbenArcher extends GOTEntityIbbenWarrior {
 	public GOTEntityIbbenArcher(World world) {
 		super(world);
 		canBeMarried = false;
-		spawnRidingHorse = false;
 	}
 
 	@Override

@@ -10,7 +10,7 @@ public class GOTEntityYiTiSoldier extends GOTEntityYiTiLevyman {
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(true);
-		spawnRidingHorse = rand.nextInt(6) == 0;
+		spawnRidingHorse = rand.nextInt(10) == 0;
 		npcShield = GOTShields.YITI;
 		npcCape = GOTCapes.YITI;
 	}

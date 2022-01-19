@@ -9,7 +9,6 @@ public class GOTEntityQohorUnsullied extends GOTEntityQohorLevyman {
 	public GOTEntityQohorUnsullied(World world) {
 		super(world);
 		canBeMarried = false;
-		spawnRidingHorse = false;
 		npcCape = GOTCapes.UNSULLIED;
 		npcShield = GOTShields.UNSULLIED;
 	}

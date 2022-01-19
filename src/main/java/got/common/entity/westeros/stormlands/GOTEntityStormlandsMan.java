@@ -2,6 +2,7 @@ package got.common.entity.westeros.stormlands;
 
 import got.common.database.*;
 import got.common.entity.ai.*;
+import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.*;
 import got.common.faction.GOTFaction;
 import got.common.quest.*;
@@ -53,7 +54,9 @@ public class GOTEntityStormlandsMan extends GOTEntityHumanBase implements IPickp
 
 	@Override
 	public GOTNPCMount createMountToRide() {
-		return super.createMountToRide();
+		GOTEntityHorse horse = (GOTEntityHorse) super.createMountToRide();
+		horse.setMountArmor(new ItemStack(GOTRegistry.westerosHorseArmor));
+		return horse;
 	}
 
 	public EntityAIBase createStormlandsAttackAI() {

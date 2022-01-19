@@ -9,7 +9,7 @@ public class GOTEntityLorathSoldier extends GOTEntityLorathLevyman {
 	public GOTEntityLorathSoldier(World world) {
 		super(world);
 		canBeMarried = false;
-		spawnRidingHorse = false;
+		spawnRidingHorse = rand.nextInt(10) == 0;
 		npcCape = GOTCapes.LORATH;
 		npcShield = GOTShields.LORATH;
 	}

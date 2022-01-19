@@ -8,6 +8,7 @@ CHANGELOG
 * Reworked all the speechbank system
 * Great Texture Update (armor sets, shields, capes and banners: prod. Hummel009)
 
++ Added riders to natural spawn
 + Added Moribald Chester
 + Added 4 waypoints
 + Added new Jogos Nhai units
@@ -23,6 +24,8 @@ CHANGELOG
 + Added Tugar Khan achievement
 + Added dark variants of scrap trader and thief
 
+* Improved essos structures
+* Improved roads
 * Improved guards: sync between Essos and Westeros
 * Improved Yi Ti Roads
 * Improved almost all biomes
@@ -37,6 +40,8 @@ CHANGELOG
 
 * Optimized iron bank code
 
+* Fixed bug with riders without horse armor
+* Fixed bug with horses in houses
 * Fixed bug with Twins
 * Fixed bug with crashing removed biomes
 * Fixed bug with Yi Ti border

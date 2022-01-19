@@ -12,7 +12,6 @@ public class GOTEntityVolantisLevymanArcher extends GOTEntityVolantisLevyman {
 	public GOTEntityVolantisLevymanArcher(World world) {
 		super(world);
 		canBeMarried = false;
-		spawnRidingHorse = false;
 	}
 
 	@Override

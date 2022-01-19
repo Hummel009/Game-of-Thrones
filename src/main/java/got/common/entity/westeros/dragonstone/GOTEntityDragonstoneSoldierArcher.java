@@ -12,6 +12,7 @@ public class GOTEntityDragonstoneSoldierArcher extends GOTEntityDragonstoneSoldi
 	public GOTEntityDragonstoneSoldierArcher(World world) {
 		super(world);
 		canBeMarried = false;
+		spawnRidingHorse = false;
 	}
 
 	@Override

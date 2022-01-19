@@ -16,6 +16,7 @@ public class GOTEntityStormlandsCaptain extends GOTEntityStormlandsSoldier imple
 		canBeMarried = false;
 		addTargetTasks(false);
 		npcCape = GOTCapes.STORMLANDS;
+		spawnRidingHorse = false;
 	}
 
 	@Override

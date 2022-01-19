@@ -2,6 +2,7 @@ package got.common.entity.westeros.arryn;
 
 import got.common.database.*;
 import got.common.entity.ai.*;
+import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.*;
 import got.common.faction.GOTFaction;
 import got.common.quest.*;
@@ -53,6 +54,13 @@ public class GOTEntityArrynMan extends GOTEntityHumanBase implements IPickpocket
 	@Override
 	public GOTMiniQuest createMiniQuest() {
 		return GOTMiniQuestFactory.WESTEROS.createQuest(this);
+	}
+
+	@Override
+	public GOTNPCMount createMountToRide() {
+		GOTEntityHorse horse = (GOTEntityHorse) super.createMountToRide();
+		horse.setMountArmor(new ItemStack(GOTRegistry.westerosHorseArmor));
+		return horse;
 	}
 
 	@Override

@@ -276,6 +276,7 @@ public class GOTStructureArrynGatehouse extends GOTStructureArrynBase {
 			j12 = 8;
 			int k17 = 0;
 			GOTEntityArrynSoldier levyman = new GOTEntityArrynSoldier(world);
+			levyman.spawnRidingHorse = false;
 			spawnNPCAndSetHome(levyman, world, i1221, j12, k17, 8);
 		}
 		return true;

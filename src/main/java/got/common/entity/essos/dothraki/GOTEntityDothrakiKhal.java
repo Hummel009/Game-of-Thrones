@@ -14,6 +14,7 @@ public class GOTEntityDothrakiKhal extends GOTEntityDothraki implements GOTUnitT
 		canBeMarried = false;
 		addTargetTasks(false);
 		npcCape = null;
+		spawnRidingHorse = false;
 	}
 
 	@Override

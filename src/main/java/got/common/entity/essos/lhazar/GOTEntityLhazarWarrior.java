@@ -11,7 +11,6 @@ public class GOTEntityLhazarWarrior extends GOTEntityLhazarMan {
 		super(world);
 		canBeMarried = false;
 		this.addTargetTasks(true);
-		spawnRidingHorse = rand.nextInt(10) == 0;
 	}
 
 	@Override

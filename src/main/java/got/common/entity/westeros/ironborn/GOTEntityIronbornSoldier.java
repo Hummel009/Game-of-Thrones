@@ -12,7 +12,6 @@ public class GOTEntityIronbornSoldier extends GOTEntityIronbornLevyman {
 	public GOTEntityIronbornSoldier(World world) {
 		super(world);
 		canBeMarried = false;
-		spawnRidingHorse = false;
 		npcShield = GOTShields.IRONBORN;
 	}
 

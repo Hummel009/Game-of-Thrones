@@ -13,6 +13,7 @@ public class GOTEntitySummerWarlord extends GOTEntitySummerWarrior implements GO
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(false);
+		spawnRidingHorse = false;
 	}
 
 	@Override

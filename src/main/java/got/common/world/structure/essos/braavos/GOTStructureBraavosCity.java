@@ -610,7 +610,7 @@ public class GOTStructureBraavosCity extends GOTVillageGen {
 		}
 
 		public void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
-			spawner.setSpawnClasses(GOTEntityBraavosLevyman.class, GOTEntityBraavosLevymanArcher.class);
+			spawner.setSpawnClasses(GOTEntityBraavosSoldier.class, GOTEntityBraavosSoldierArcher.class);
 		}
 
 	}

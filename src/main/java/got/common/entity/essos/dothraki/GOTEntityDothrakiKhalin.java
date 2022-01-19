@@ -12,8 +12,8 @@ public class GOTEntityDothrakiKhalin extends GOTEntityDothraki implements GOTTra
 	public GOTEntityDothrakiKhalin(World world) {
 		super(world);
 		canBeMarried = false;
-		spawnRidingHorse = false;
 		addTargetTasks(false);
+		spawnRidingHorse = false;
 	}
 
 	@Override

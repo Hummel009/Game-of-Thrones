@@ -606,7 +606,7 @@ public class GOTStructureLysCity extends GOTVillageGen {
 		}
 
 		public void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
-			spawner.setSpawnClasses(GOTEntityLysLevyman.class, GOTEntityLysLevymanArcher.class);
+			spawner.setSpawnClasses(GOTEntityLysSoldier.class, GOTEntityLysSoldierArcher.class);
 		}
 
 	}

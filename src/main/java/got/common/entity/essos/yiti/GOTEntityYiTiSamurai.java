@@ -1,6 +1,8 @@
 package got.common.entity.essos.yiti;
 
 import got.common.database.*;
+import got.common.entity.animal.GOTEntityHorse;
+import got.common.entity.other.GOTNPCMount;
 import net.minecraft.entity.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -10,7 +12,7 @@ public class GOTEntityYiTiSamurai extends GOTEntityYiTiSoldier {
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(true);
-		spawnRidingHorse = false;
+		spawnRidingHorse = rand.nextInt(10) == 0;
 		npcShield = GOTShields.YITI_SAMURAI;
 		npcCape = GOTCapes.YITI_SAMURAI;
 	}
@@ -20,6 +22,13 @@ public class GOTEntityYiTiSamurai extends GOTEntityYiTiSoldier {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0);
 		getEntityAttribute(npcRangedAccuracy).setBaseValue(1.0);
+	}
+
+	@Override
+	public GOTNPCMount createMountToRide() {
+		GOTEntityHorse horse = (GOTEntityHorse) super.createMountToRide();
+		horse.setMountArmor(new ItemStack(GOTRegistry.yitiHorseArmor));
+		return horse;
 	}
 
 	@Override

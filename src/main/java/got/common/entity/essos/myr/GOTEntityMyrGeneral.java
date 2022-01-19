@@ -16,6 +16,7 @@ public class GOTEntityMyrGeneral extends GOTEntityMyrSoldier implements GOTUnitT
 		canBeMarried = false;
 		addTargetTasks(false);
 		npcCape = GOTCapes.MYR;
+		spawnRidingHorse = false;
 	}
 
 	@Override

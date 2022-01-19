@@ -11,7 +11,6 @@ public class GOTEntityGhiscarCorsair extends GOTEntityGhiscarLevyman {
 	public GOTEntityGhiscarCorsair(World world) {
 		super(world);
 		canBeMarried = false;
-		spawnRidingHorse = false;
 		npcShield = GOTShields.GHISCAR;
 	}
 

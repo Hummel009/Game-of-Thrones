@@ -606,7 +606,7 @@ public class GOTStructureLorathCity extends GOTVillageGen {
 		}
 
 		public void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
-			spawner.setSpawnClasses(GOTEntityLorathLevyman.class, GOTEntityLorathLevymanArcher.class);
+			spawner.setSpawnClasses(GOTEntityLorathSoldier.class, GOTEntityLorathSoldierArcher.class);
 		}
 
 	}

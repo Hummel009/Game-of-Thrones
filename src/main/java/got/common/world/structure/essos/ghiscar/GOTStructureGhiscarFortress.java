@@ -128,7 +128,7 @@ public class GOTStructureGhiscarFortress extends GOTStructureGhiscarBase {
 		setBlockAndMetadata(world, -5, 1, 1, GOTRegistry.commandTable, 0);
 		int warriors = 5 + random.nextInt(5);
 		for (int l = 0; l < warriors; ++l) {
-			GOTEntityGhiscarLevyman warrior = new GOTEntityGhiscarLevyman(world);
+			GOTEntityGhiscarCorsair warrior = new GOTEntityGhiscarCorsair(world);
 			warrior.spawnRidingHorse = false;
 			spawnNPCAndSetHome(warrior, world, 0, 1, 0, 24);
 		}
@@ -139,7 +139,7 @@ public class GOTStructureGhiscarFortress extends GOTStructureGhiscarBase {
 		captain.spawnRidingHorse = false;
 		spawnNPCAndSetHome(captain, world, 0, 1, 4, 8);
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClasses(GOTEntityGhiscarLevyman.class, GOTEntityGhiscarLevymanArcher.class);
+		respawner.setSpawnClasses(GOTEntityGhiscarCorsair.class, GOTEntityGhiscarCorsairArcher.class);
 		respawner.setCheckRanges(24, -8, 20, 16);
 		respawner.setSpawnRanges(12, -4, 6, 24);
 		placeNPCRespawner(respawner, world, 0, 0, 0);

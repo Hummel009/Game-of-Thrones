@@ -62,12 +62,12 @@ public class GOTStructureTyroshTower extends GOTStructureTyroshBase {
 		placeWallBanner(world, 3, 14, 0, bannerType, 1);
 		int warriors = 2;
 		for (int l = 0; l < warriors; ++l) {
-			GOTEntityTyroshLevyman warrior = new GOTEntityTyroshLevyman(world);
+			GOTEntityTyroshSoldier warrior = new GOTEntityTyroshSoldier(world);
 			warrior.spawnRidingHorse = false;
 			spawnNPCAndSetHome(warrior, world, 0, 15, 0, 8);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClasses(GOTEntityTyroshLevyman.class, GOTEntityTyroshLevymanArcher.class);
+		respawner.setSpawnClasses(GOTEntityTyroshSoldier.class, GOTEntityTyroshSoldierArcher.class);
 		respawner.setCheckRanges(8, -4, 20, 8);
 		respawner.setSpawnRanges(2, -1, 16, 8);
 		placeNPCRespawner(respawner, world, 0, 0, 0);

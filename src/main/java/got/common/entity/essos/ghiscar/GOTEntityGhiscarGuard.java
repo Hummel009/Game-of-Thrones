@@ -8,7 +8,6 @@ import net.minecraft.world.World;
 public class GOTEntityGhiscarGuard extends GOTEntityGhiscarLevyman {
 	public GOTEntityGhiscarGuard(World world) {
 		super(world);
-		spawnRidingHorse = false;
 		npcCape = GOTCapes.GHISCAR;
 		npcShield = GOTShields.GHISCAR;
 		addTargetTasks(false);

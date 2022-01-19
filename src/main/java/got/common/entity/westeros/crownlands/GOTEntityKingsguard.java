@@ -9,7 +9,6 @@ import net.minecraft.world.World;
 public class GOTEntityKingsguard extends GOTEntityCrownlandsLevyman {
 	public GOTEntityKingsguard(World world) {
 		super(world);
-		spawnRidingHorse = false;
 		npcCape = GOTCapes.ROYALGUARD;
 		this.addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
 	}

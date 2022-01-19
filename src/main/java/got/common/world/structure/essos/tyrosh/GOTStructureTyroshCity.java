@@ -606,7 +606,7 @@ public class GOTStructureTyroshCity extends GOTVillageGen {
 		}
 
 		public void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
-			spawner.setSpawnClasses(GOTEntityTyroshLevyman.class, GOTEntityTyroshLevymanArcher.class);
+			spawner.setSpawnClasses(GOTEntityTyroshSoldier.class, GOTEntityTyroshSoldierArcher.class);
 		}
 
 	}

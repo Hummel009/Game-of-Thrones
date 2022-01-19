@@ -16,6 +16,7 @@ public class GOTEntityArrynCaptain extends GOTEntityArrynSoldier implements GOTU
 		canBeMarried = false;
 		addTargetTasks(false);
 		npcCape = GOTCapes.ARRYN;
+		spawnRidingHorse = false;
 	}
 
 	@Override
