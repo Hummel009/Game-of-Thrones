@@ -753,7 +753,6 @@ public class GOTEntity {
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityHodor.class, "Hodor", id++, GOTFaction.NORTH);
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityHowlandReed.class, "HowlandReed", id++, GOTFaction.NORTH);
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityJohnUmber.class, "JohnUmber", id++, GOTFaction.NORTH);
-		GOTEntityRegistry.registerLegendaryNPC(GOTEntityJonSnow.Stage2.class, "JonSnow2", id++, GOTFaction.NORTH);
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityLuwin.class, "Luwin", id++, GOTFaction.NORTH);
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityMaegeMormont.class, "MaegeMormont", id++, GOTFaction.NORTH);
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityOsha.class, "Osha", id++, GOTFaction.NORTH);
@@ -764,7 +763,6 @@ public class GOTEntity {
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityRodrikCassel.class, "RodrikCassel", id++, GOTFaction.NORTH);
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityRodrikRyswell.class, "RodrikRyswell", id++, GOTFaction.NORTH);
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityRooseBolton.class, "RooseBolton", id++, GOTFaction.NORTH);
-		GOTEntityRegistry.registerLegendaryNPC(GOTEntityTheonGreyjoy.Tormented.class, "TheonGreyjoyV", id++, GOTFaction.NORTH);
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityWymanManderly.class, "WymanManderly", id++, GOTFaction.NORTH);
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityAeronGreyjoy.class, "AeronGreyjoy", id++, GOTFaction.IRONBORN);
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityAndrikTheUnsmilling.class, "AndrikTheUnsmilling", id++, GOTFaction.IRONBORN);
@@ -842,7 +840,6 @@ public class GOTEntity {
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityJanosSlynt.class, "JanosSlynt", id++, GOTFaction.CROWNLANDS);
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityJoffreyBaratheon.class, "JoffreyBaratheon", id++, GOTFaction.CROWNLANDS);
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityLancelLannister.Normal.class, "LancelLannister", id++, GOTFaction.CROWNLANDS);
-		GOTEntityRegistry.registerLegendaryNPC(GOTEntityLancelLannister.Religious.class, "LancelLannisterR", id++, GOTFaction.CROWNLANDS);
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityMerynTrant.class, "MerynTrant", id++, GOTFaction.CROWNLANDS);
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityMyrcellaBaratheon.class, "MyrcellaBaratheon", id++, GOTFaction.CROWNLANDS);
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityPetyrBaelish.class, "PetyrBaelish", id++, GOTFaction.CROWNLANDS);
@@ -916,8 +913,10 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityBericDondarrion.LifeStage5.class, "BericDondarrion5", id++);	
 		GOTEntityRegistry.register(GOTEntityBericDondarrion.LifeStage6.class, "BericDondarrion6", id++);	
 		GOTEntityRegistry.register(GOTEntityGregorClegane.Dead.class, "GregorCleganeWight", id++);	
+		GOTEntityRegistry.register(GOTEntityJonSnow.Stage2.class, "JonSnow2", id++);
+		GOTEntityRegistry.register(GOTEntityLancelLannister.Religious.class, "LancelLannisterR", id++);
+		GOTEntityRegistry.register(GOTEntityTheonGreyjoy.Tormented.class, "TheonGreyjoyV", id++);
 
-		
 		GOTEntityRegistry.register(GOTEntityPortal.class, "Portal", id++, 80, 3, true);
 		GOTEntityRegistry.register(GOTEntitySmokeRing.class, "SmokeRing", id++, 64, 10, true);
 		GOTEntityRegistry.register(GOTEntityBomb.class, "Bomb", id++, 160, 10, true);
