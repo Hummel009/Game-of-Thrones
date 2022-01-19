@@ -4483,7 +4483,6 @@ item.got:banner.arlan.name≠
 item.got:banner.arryn.name≠
 item.got:banner.arrynBook.name≠
 item.got:banner.arrynGT.name≠
-item.got:banner.arrynHD.name≠
 item.got:banner.ashford.name≠
 item.got:banner.ashwood.name≠
 item.got:banner.asshai.name≠
@@ -4495,7 +4494,6 @@ item.got:banner.baelishold.name≠
 item.got:banner.ball.name≠
 item.got:banner.banefort.name≠
 item.got:banner.banefortBook.name≠
-item.got:banner.baratheonHD.name≠
 item.got:banner.barbrey.name≠
 item.got:banner.baremmon.name≠
 item.got:banner.beesbury.name≠
@@ -4687,7 +4685,6 @@ item.got:banner.grell.name≠
 item.got:banner.greyiron.name≠
 item.got:banner.greyjoy.name≠
 item.got:banner.greyjoyBook.name≠
-item.got:banner.greyjoyHD.name≠
 item.got:banner.greystark.name≠
 item.got:banner.grimm.name≠
 item.got:banner.haigh.name≠
@@ -4736,7 +4733,6 @@ item.got:banner.ironsmith.name≠
 item.got:banner.jaremymallister.name≠
 item.got:banner.jast.name≠
 item.got:banner.joffrey.name≠
-item.got:banner.joffreyHD.name≠
 item.got:banner.jonconnington.name≠
 item.got:banner.jonking.name≠
 item.got:banner.jonsnow.name≠
@@ -4762,7 +4758,6 @@ item.got:banner.lannisterB.name≠
 item.got:banner.lannisterBook.name≠
 item.got:banner.lannisterC.name≠
 item.got:banner.lannisterD.name≠
-item.got:banner.lannisterHD.name≠
 item.got:banner.lannisterTygett.name≠
 item.got:banner.lanny.name≠
 item.got:banner.lantell.name≠
@@ -4806,7 +4801,6 @@ item.got:banner.marbrand.name≠
 item.got:banner.marsh.name≠
 item.got:banner.martell.name≠
 item.got:banner.martellBook.name≠
-item.got:banner.martellHD.name≠
 item.got:banner.massey.name≠
 item.got:banner.mazin.name≠
 item.got:banner.meadows.name≠
@@ -4886,7 +4880,6 @@ item.got:banner.reedBook.name≠
 item.got:banner.reedHBO.name≠
 item.got:banner.renly.name≠
 item.got:banner.renlyBook.name≠
-item.got:banner.renlyHD.name≠
 item.got:banner.renlyguard.name≠
 item.got:banner.reyne.name≠
 item.got:banner.reyneBook.name≠
@@ -4955,9 +4948,7 @@ item.got:banner.staedmon.name≠
 item.got:banner.stane.name≠
 item.got:banner.stannis.name≠
 item.got:banner.stannisBook.name≠
-item.got:banner.stannisHD.name≠
 item.got:banner.starkD.name≠
-item.got:banner.starkHD.name≠
 item.got:banner.staunton.name≠
 item.got:banner.stokeworth.name≠
 item.got:banner.stonehouse.name≠
@@ -4979,7 +4970,6 @@ item.got:banner.tallad.name≠
 item.got:banner.tallhart.name≠
 item.got:banner.tarbeck.name≠
 item.got:banner.targaryen.name≠
-item.got:banner.targaryen2.name≠
 item.got:banner.targaryenBook.name≠
 item.got:banner.tarly.name≠
 item.got:banner.tarlyBook.name≠
@@ -5003,12 +4993,10 @@ item.got:banner.truefyre.name≠
 item.got:banner.tudbury.name≠
 item.got:banner.tully.name≠
 item.got:banner.tullyBook.name≠
-item.got:banner.tullyHD.name≠
 item.got:banner.turnberry.name≠
 item.got:banner.tybolt.name≠
 item.got:banner.tyrell.name≠
 item.got:banner.tyrellBK.name≠
-item.got:banner.tyrellHD.name≠
 item.got:banner.tyrelll.name≠
 item.got:banner.tyrion.name≠
 item.got:banner.tyrosh.name≠

@@ -4483,7 +4483,6 @@ item.got:banner.arlan.name=铜分树村的阿兰爵士的旗帜
 item.got:banner.arryn.name=艾林谷的旗帜
 item.got:banner.arrynBook.name=艾林谷的旗帜(原著)
 item.got:banner.arrynGT.name=艾林谷的月门的旗帜
-item.got:banner.arrynHD.name=艾林谷的旗帜(高清)
 item.got:banner.ashford.name=乌尔特斯的旗帜
 item.got:banner.ashwood.name=阿什伍德的旗帜
 item.got:banner.asshai.name=亚夏旗手
@@ -4495,7 +4494,6 @@ item.got:banner.baelishold.name=贝里席的旗帜(旧)
 item.got:banner.ball.name=波尔的旗帜
 item.got:banner.banefort.name=班佛特的旗帜
 item.got:banner.banefortBook.name=班佛特的旗帜(原著)
-item.got:banner.baratheonHD.name=拜拉席恩的旗帜(高清)
 item.got:banner.barbrey.name=芭芭蕾的旗帜
 item.got:banner.baremmon.name=巴尔艾蒙的旗帜
 item.got:banner.beesbury.name=毕斯柏里的旗帜
@@ -4687,7 +4685,6 @@ item.got:banner.grell.name=格瑞尔的旗帜
 item.got:banner.greyiron.name=葛雷艾恩的旗帜
 item.got:banner.greyjoy.name=葛雷乔伊的旗帜
 item.got:banner.greyjoyBook.name≠
-item.got:banner.greyjoyHD.name≠
 item.got:banner.greystark.name=灰史塔克的旗帜
 item.got:banner.grimm.name=格林的旗帜
 item.got:banner.haigh.name=海伊的旗帜
@@ -4736,7 +4733,6 @@ item.got:banner.ironsmith.name≠
 item.got:banner.jaremymallister.name≠
 item.got:banner.jast.name=贾斯特的旗帜
 item.got:banner.joffrey.name=君临的拜拉席恩的旗帜
-item.got:banner.joffreyHD.name≠
 item.got:banner.jonconnington.name≠
 item.got:banner.jonking.name≠
 item.got:banner.jonsnow.name≠
@@ -4762,7 +4758,6 @@ item.got:banner.lannisterB.name=兰尼斯特的旗帜（原著）
 item.got:banner.lannisterBook.name≠
 item.got:banner.lannisterC.name≠
 item.got:banner.lannisterD.name=戴瑞城的兰尼斯特的旗帜
-item.got:banner.lannisterHD.name≠
 item.got:banner.lannisterTygett.name=提盖特·兰尼斯特的旗帜
 item.got:banner.lanny.name≠
 item.got:banner.lantell.name≠
@@ -4806,7 +4801,6 @@ item.got:banner.marbrand.name=苦钢的旗帜
 item.got:banner.marsh.name=马尔锡的旗帜
 item.got:banner.martell.name=马泰尔的旗帜
 item.got:banner.martellBook.name≠
-item.got:banner.martellHD.name≠
 item.got:banner.massey.name=马赛的旗帜
 item.got:banner.mazin.name=马金的旗帜
 item.got:banner.meadows.name=梅斗的旗帜
@@ -4886,7 +4880,6 @@ item.got:banner.reedBook.name≠
 item.got:banner.reedHBO.name≠
 item.got:banner.renly.name=风息堡的拜拉席恩的旗帜
 item.got:banner.renlyBook.name≠
-item.got:banner.renlyHD.name≠
 item.got:banner.renlyguard.name=蓝礼的禁卫的旗帜
 item.got:banner.reyne.name=雷耶斯的旗帜
 item.got:banner.reyneBook.name≠
@@ -4955,9 +4948,7 @@ item.got:banner.staedmon.name=史戴蒙的旗帜
 item.got:banner.stane.name=斯特恩的旗帜
 item.got:banner.stannis.name=龙石岛的拜拉席恩的旗帜
 item.got:banner.stannisBook.name≠
-item.got:banner.stannisHD.name≠
 item.got:banner.starkD.name≠
-item.got:banner.starkHD.name≠
 item.got:banner.staunton.name=斯丹顿的旗帜
 item.got:banner.stokeworth.name=史铎克渥斯的旗帜
 item.got:banner.stonehouse.name=斯通浩斯的旗帜
@@ -4979,7 +4970,6 @@ item.got:banner.tallad.name=塔拉德的旗帜
 item.got:banner.tallhart.name=陶哈的旗帜
 item.got:banner.tarbeck.name=塔贝克的旗帜
 item.got:banner.targaryen.name=坦格利安的旗帜
-item.got:banner.targaryen2.name=坦格利安的旗帜
 item.got:banner.targaryenBook.name≠
 item.got:banner.tarly.name=塔利的旗帜
 item.got:banner.tarlyBook.name≠
@@ -5003,12 +4993,10 @@ item.got:banner.truefyre.name≠
 item.got:banner.tudbury.name≠
 item.got:banner.tully.name=徒利的旗帜
 item.got:banner.tullyBook.name=徒利的旗帜 （原著）
-item.got:banner.tullyHD.name≠
 item.got:banner.turnberry.name=特拔瑞的旗帜
 item.got:banner.tybolt.name≠
 item.got:banner.tyrell.name=提利尔的旗帜
 item.got:banner.tyrellBK.name=亮水城的提利尔的旗帜
-item.got:banner.tyrellHD.name≠
 item.got:banner.tyrelll.name=洛拉斯·提利尔的旗帜
 item.got:banner.tyrion.name=提里昂的旗帜
 item.got:banner.tyrosh.name=泰洛西的旗帜

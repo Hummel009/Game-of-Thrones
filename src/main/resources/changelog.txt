@@ -6,7 +6,7 @@ CHANGELOG
 
 * Recoded all the flat biome system
 * Reworked all the speechbank system
-* Great texture update (armor sets, shields and banners: prod. Hummel009)
+* Great Texture Update (armor sets, shields, capes and banners: prod. Hummel009)
 
 + Added Moribald Chester
 + Added 4 waypoints
@@ -52,6 +52,7 @@ CHANGELOG
 * Fixed bug with Yi Ti cities
 * Fixed bug with valyrian smelting
 
+- Removed HD banners
 - Removed Skirling pass as a biome
 - Removed corn fields
 - Removed Kitra's achievement

@@ -4483,7 +4483,6 @@ item.got:banner.arlan.name≠
 item.got:banner.arryn.name=Прапор Арен
 item.got:banner.arrynBook.name≠
 item.got:banner.arrynGT.name=Прапор Арен з чаячьего міста
-item.got:banner.arrynHD.name≠
 item.got:banner.ashford.name=Прапор Ешфорд
 item.got:banner.ashwood.name≠
 item.got:banner.asshai.name≠
@@ -4495,7 +4494,6 @@ item.got:banner.baelishold.name=Прапор Бейліш (Старе)
 item.got:banner.ball.name=Прапор Болл
 item.got:banner.banefort.name=Прапор Бейнфортов
 item.got:banner.banefortBook.name≠
-item.got:banner.baratheonHD.name≠
 item.got:banner.barbrey.name≠
 item.got:banner.baremmon.name=Прапор Бар-Еммонов
 item.got:banner.beesbury.name=Прапор Бісбері
@@ -4687,7 +4685,6 @@ item.got:banner.grell.name=Прапор Грелл
 item.got:banner.greyiron.name=Прапор Грейайронов
 item.got:banner.greyjoy.name=Прапор Грейджоя
 item.got:banner.greyjoyBook.name≠
-item.got:banner.greyjoyHD.name≠
 item.got:banner.greystark.name=Прапор Грейстарков
 item.got:banner.grimm.name=Прапор Гриммов
 item.got:banner.haigh.name=Прапор Хеев
@@ -4736,7 +4733,6 @@ item.got:banner.ironsmith.name≠
 item.got:banner.jaremymallister.name≠
 item.got:banner.jast.name=Прапор Джаст
 item.got:banner.joffrey.name=Прапор Баратеонов з Королівської Гавані 
-item.got:banner.joffreyHD.name≠
 item.got:banner.jonconnington.name≠
 item.got:banner.jonking.name≠
 item.got:banner.jonsnow.name≠
@@ -4762,7 +4758,6 @@ item.got:banner.lannisterB.name=Прапор Ланнстеров (голова)
 item.got:banner.lannisterBook.name≠
 item.got:banner.lannisterC.name≠
 item.got:banner.lannisterD.name=Прапор Ланністерів з Даррі
-item.got:banner.lannisterHD.name≠
 item.got:banner.lannisterTygett.name=Прапор Тігетта Ланністера
 item.got:banner.lanny.name≠
 item.got:banner.lantell.name≠
@@ -4806,7 +4801,6 @@ item.got:banner.marbrand.name=Прапор Марбрандов
 item.got:banner.marsh.name=Прапор Маршів
 item.got:banner.martell.name=Прапор Мартеллі
 item.got:banner.martellBook.name≠
-item.got:banner.martellHD.name≠
 item.got:banner.massey.name=Прапор Масси
 item.got:banner.mazin.name=Прапор Мейзін
 item.got:banner.meadows.name=Прапор Медоуз
@@ -4886,7 +4880,6 @@ item.got:banner.reedBook.name≠
 item.got:banner.reedHBO.name≠
 item.got:banner.renly.name=Прапор Баратеонов з Штормового Межі
 item.got:banner.renlyBook.name≠
-item.got:banner.renlyHD.name≠
 item.got:banner.renlyguard.name=Прапор ордена Райдужній гвардії
 item.got:banner.reyne.name=Прапор Рейн
 item.got:banner.reyneBook.name≠
@@ -4955,9 +4948,7 @@ item.got:banner.staedmon.name=Прапор Стедмонов
 item.got:banner.stane.name=Прапор Стейн
 item.got:banner.stannis.name=Прапор Баратеонов з драконячого каменю
 item.got:banner.stannisBook.name≠
-item.got:banner.stannisHD.name≠
 item.got:banner.starkD.name≠
-item.got:banner.starkHD.name≠
 item.got:banner.staunton.name=Прапор Стоунтон
 item.got:banner.stokeworth.name=Прапор Стоквортов
 item.got:banner.stonehouse.name=Прапор Стоунхаузов
@@ -4978,8 +4969,7 @@ item.got:banner.swygert.name≠
 item.got:banner.tallad.name=Прапор Талладов
 item.got:banner.tallhart.name=Прапор Толхартов
 item.got:banner.tarbeck.name=Прапор Тарбеков
-item.got:banner.targaryen.name=Прапор Таргаріенов (HD)
-item.got:banner.targaryen2.name=Прапор Таргаріенов
+item.got:banner.targaryen.name=Прапор Таргаріенов
 item.got:banner.targaryenBook.name≠
 item.got:banner.tarly.name=Прапор Тарле
 item.got:banner.tarlyBook.name≠
@@ -5003,12 +4993,10 @@ item.got:banner.truefyre.name≠
 item.got:banner.tudbury.name≠
 item.got:banner.tully.name=Прапор Таллі
 item.got:banner.tullyBook.name=Прапор Таллі (Книга)
-item.got:banner.tullyHD.name≠
 item.got:banner.turnberry.name=Прапор Торнберри
 item.got:banner.tybolt.name≠
 item.got:banner.tyrell.name=Прапор Тіреллов
 item.got:banner.tyrellBK.name=Прапор Тіреллов з Ясноводной фортеці
-item.got:banner.tyrellHD.name≠
 item.got:banner.tyrelll.name=Прапор Лорас Тіреллі
 item.got:banner.tyrion.name=Прапор Тіріона Ланністера
 item.got:banner.tyrosh.name=Прапор Тірош 

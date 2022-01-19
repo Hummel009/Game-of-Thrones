@@ -4483,7 +4483,6 @@ item.got:banner.arlan.name≠
 item.got:banner.arryn.name=Vlag van Arryn
 item.got:banner.arrynBook.name≠
 item.got:banner.arrynGT.name=Vlag van Arryn van Moon Gate
-item.got:banner.arrynHD.name≠
 item.got:banner.ashford.name=Vlag van Ashford
 item.got:banner.ashwood.name≠
 item.got:banner.asshai.name≠
@@ -4495,7 +4494,6 @@ item.got:banner.baelishold.name=Vlag van Baelish (oud)
 item.got:banner.ball.name=Vlag van bal
 item.got:banner.banefort.name=Vlag van Banefort
 item.got:banner.banefortBook.name≠
-item.got:banner.baratheonHD.name≠
 item.got:banner.barbrey.name≠
 item.got:banner.baremmon.name=Vlag van Baremoon
 item.got:banner.beesbury.name=Vlag van Beesbury
@@ -4687,7 +4685,6 @@ item.got:banner.grell.name=Vlag van Grell
 item.got:banner.greyiron.name=Vlag van Greyiron
 item.got:banner.greyjoy.name=Vlag van Greyjoy
 item.got:banner.greyjoyBook.name≠
-item.got:banner.greyjoyHD.name≠
 item.got:banner.greystark.name=Vlag van Greystark
 item.got:banner.grimm.name=Vlag van Grimm
 item.got:banner.haigh.name=Vlag van Haigh
@@ -4736,7 +4733,6 @@ item.got:banner.ironsmith.name≠
 item.got:banner.jaremymallister.name≠
 item.got:banner.jast.name=Vlag van Jast
 item.got:banner.joffrey.name=Vlag van Joffrey
-item.got:banner.joffreyHD.name≠
 item.got:banner.jonconnington.name≠
 item.got:banner.jonking.name≠
 item.got:banner.jonsnow.name≠
@@ -4762,7 +4758,6 @@ item.got:banner.lannisterB.name=Vlag van Lannister (boek)
 item.got:banner.lannisterBook.name≠
 item.got:banner.lannisterC.name≠
 item.got:banner.lannisterD.name=Vlag van Lannister van Darry
-item.got:banner.lannisterHD.name≠
 item.got:banner.lannisterTygett.name=Vlag van Tygett Lannister
 item.got:banner.lanny.name≠
 item.got:banner.lantell.name≠
@@ -4806,7 +4801,6 @@ item.got:banner.marbrand.name=Vlag van Marbrand
 item.got:banner.marsh.name=Vlag van Marsh
 item.got:banner.martell.name=Vlag van Martell
 item.got:banner.martellBook.name≠
-item.got:banner.martellHD.name≠
 item.got:banner.massey.name=Vlag van Massey
 item.got:banner.mazin.name=Vlag van Mazin
 item.got:banner.meadows.name=Vlag van weiden
@@ -4886,7 +4880,6 @@ item.got:banner.reedBook.name≠
 item.got:banner.reedHBO.name≠
 item.got:banner.renly.name=Vlag van Renly
 item.got:banner.renlyBook.name≠
-item.got:banner.renlyHD.name≠
 item.got:banner.renlyguard.name=Vlag van Renlyguard
 item.got:banner.reyne.name=Vlag van Reyne
 item.got:banner.reyneBook.name≠
@@ -4955,9 +4948,7 @@ item.got:banner.staedmon.name=Vlag van Staedmon
 item.got:banner.stane.name=Vlag van Stane
 item.got:banner.stannis.name=Vlag van Stannis
 item.got:banner.stannisBook.name≠
-item.got:banner.stannisHD.name≠
 item.got:banner.starkD.name≠
-item.got:banner.starkHD.name≠
 item.got:banner.staunton.name=Vlag van Staunton
 item.got:banner.stokeworth.name=Vlag van Stokeworth
 item.got:banner.stonehouse.name=Vlag van Stonehouse
@@ -4979,7 +4970,6 @@ item.got:banner.tallad.name=Vlag van Tallad
 item.got:banner.tallhart.name=Vlag van Tallhart
 item.got:banner.tarbeck.name=Vlag van Tarbeck
 item.got:banner.targaryen.name=Vlag van Targaryen
-item.got:banner.targaryen2.name=Vlag van Targaryen
 item.got:banner.targaryenBook.name≠
 item.got:banner.tarly.name=Vlag van Tarly
 item.got:banner.tarlyBook.name≠
@@ -5003,12 +4993,10 @@ item.got:banner.truefyre.name≠
 item.got:banner.tudbury.name≠
 item.got:banner.tully.name=Vlag van Tully
 item.got:banner.tullyBook.name=Vlag van Tully (Boek)
-item.got:banner.tullyHD.name≠
 item.got:banner.turnberry.name=Vlag van Turnberry
 item.got:banner.tybolt.name≠
 item.got:banner.tyrell.name=Vlag van Tyrrel
 item.got:banner.tyrellBK.name=Vlag van Tyrell van Brightwater Keep
-item.got:banner.tyrellHD.name≠
 item.got:banner.tyrelll.name=Vlag van Loras Tyrell
 item.got:banner.tyrion.name=Vlag van Tyrion
 item.got:banner.tyrosh.name=Vlag van Tyrosh

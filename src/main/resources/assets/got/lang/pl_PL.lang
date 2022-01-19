@@ -4483,7 +4483,6 @@ item.got:banner.arlan.name≠
 item.got:banner.arryn.name=Sztandar Arryna
 item.got:banner.arrynBook.name≠
 item.got:banner.arrynGT.name=Sztandar Arryna z Moon Gate
-item.got:banner.arrynHD.name≠
 item.got:banner.ashford.name=Sztandar z Ashford
 item.got:banner.ashwood.name≠
 item.got:banner.asshai.name≠
@@ -4495,7 +4494,6 @@ item.got:banner.baelishold.name=Sztandar Baelish (stary)
 item.got:banner.ball.name=Sztandar piłki
 item.got:banner.banefort.name=Sztandar Banefort
 item.got:banner.banefortBook.name≠
-item.got:banner.baratheonHD.name≠
 item.got:banner.barbrey.name≠
 item.got:banner.baremmon.name=Sztandar Baremoon
 item.got:banner.beesbury.name=Sztandar Beesbury
@@ -4687,7 +4685,6 @@ item.got:banner.grell.name=Sztandar Grella
 item.got:banner.greyiron.name=Sztandar Greyiron
 item.got:banner.greyjoy.name=Sztandar Greyjoya
 item.got:banner.greyjoyBook.name≠
-item.got:banner.greyjoyHD.name≠
 item.got:banner.greystark.name=Sztandar Greystark
 item.got:banner.grimm.name=Sztandar Grimm
 item.got:banner.haigh.name=Sztandar Haigh
@@ -4736,7 +4733,6 @@ item.got:banner.ironsmith.name≠
 item.got:banner.jaremymallister.name≠
 item.got:banner.jast.name=Sztandar Jasta
 item.got:banner.joffrey.name=Sztandar Joffreya
-item.got:banner.joffreyHD.name≠
 item.got:banner.jonconnington.name≠
 item.got:banner.jonking.name≠
 item.got:banner.jonsnow.name≠
@@ -4762,7 +4758,6 @@ item.got:banner.lannisterB.name=Sztandar Lannister (książka)
 item.got:banner.lannisterBook.name≠
 item.got:banner.lannisterC.name≠
 item.got:banner.lannisterD.name=Sztandar Lannistera z Darry
-item.got:banner.lannisterHD.name≠
 item.got:banner.lannisterTygett.name=Sztandar Tygett Lannister
 item.got:banner.lanny.name≠
 item.got:banner.lantell.name≠
@@ -4806,7 +4801,6 @@ item.got:banner.marbrand.name=Sztandar Marbranda
 item.got:banner.marsh.name=Sztandar Marsh
 item.got:banner.martell.name=Sztandar Martell
 item.got:banner.martellBook.name≠
-item.got:banner.martellHD.name≠
 item.got:banner.massey.name=Sztandar Masseya
 item.got:banner.mazin.name=Sztandar Mazina
 item.got:banner.meadows.name=Sztandar łąk
@@ -4886,7 +4880,6 @@ item.got:banner.reedBook.name≠
 item.got:banner.reedHBO.name≠
 item.got:banner.renly.name=Sztandar Renly'ego
 item.got:banner.renlyBook.name≠
-item.got:banner.renlyHD.name≠
 item.got:banner.renlyguard.name=Sztandar Renlyguarda
 item.got:banner.reyne.name=Sztandar Reyne
 item.got:banner.reyneBook.name≠
@@ -4955,9 +4948,7 @@ item.got:banner.staedmon.name=Sztandar Staedmon
 item.got:banner.stane.name=Sztandar Stane'a
 item.got:banner.stannis.name=Sztandar Stannisa
 item.got:banner.stannisBook.name≠
-item.got:banner.stannisHD.name≠
 item.got:banner.starkD.name≠
-item.got:banner.starkHD.name≠
 item.got:banner.staunton.name=Sztandar Staunton
 item.got:banner.stokeworth.name=Sztandar Stokeworth
 item.got:banner.stonehouse.name=Sztandar Stonehouse
@@ -4979,7 +4970,6 @@ item.got:banner.tallad.name=Sztandar Tallada
 item.got:banner.tallhart.name=Sztandar Tallharta
 item.got:banner.tarbeck.name=Sztandar Tarbecka
 item.got:banner.targaryen.name=Sztandar Targaryena
-item.got:banner.targaryen2.name=Sztandar Targaryena
 item.got:banner.targaryenBook.name≠
 item.got:banner.tarly.name=Sztandar Tarly
 item.got:banner.tarlyBook.name≠
@@ -5003,12 +4993,10 @@ item.got:banner.truefyre.name≠
 item.got:banner.tudbury.name≠
 item.got:banner.tully.name=Sztandar Tully
 item.got:banner.tullyBook.name=Sztandar Tully (książka)
-item.got:banner.tullyHD.name≠
 item.got:banner.turnberry.name=Sztandar Turnberry
 item.got:banner.tybolt.name≠
 item.got:banner.tyrell.name=Sztandar Tyrrela
 item.got:banner.tyrellBK.name=Sztandar Tyrella z Brightwater Keep
-item.got:banner.tyrellHD.name≠
 item.got:banner.tyrelll.name=Sztandar Lorasa Tyrella
 item.got:banner.tyrion.name=Sztandar Tyriona
 item.got:banner.tyrosh.name=Sztandar Tyrosha
