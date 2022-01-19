@@ -8,6 +8,8 @@ CHANGELOG
 * Reworked all the speechbank system
 * Great texture update (armor sets, shields and banners: prod. Hummel009)
 
++ Added Moribald Chester
++ Added 4 waypoints
 + Added new Jogos Nhai units
 + Added Jogos Nhai banner
 + Added new Hardhome

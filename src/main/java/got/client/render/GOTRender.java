@@ -205,6 +205,7 @@ public class GOTRender {
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityMerynTrant.class, new GOTRenderLegendaryNPC("meryn_trant"));
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityMissandei.class, new GOTRenderLegendaryNPC("missandei"));
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityMonfordVelaryon.class, new GOTRenderLegendaryNPC("monford_velaryon"));
+		RenderingRegistry.registerEntityRenderingHandler(GOTEntityMoribaldChester.class, new GOTRenderLegendaryNPC("moribald_chester"));
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityMullin.class, new GOTRenderLegendaryNPC("mullin"));
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityMyrcellaBaratheon.class, new GOTRenderLegendaryNPC("myrcella_baratheon", 0.9f));
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityNightKing.class, new GOTRenderLegendaryNPC("night_king", 1.1f));

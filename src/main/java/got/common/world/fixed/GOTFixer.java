@@ -214,7 +214,6 @@ public class GOTFixer {
 	}
 
 	public static void onInit() {
-		structures.put(GOTWaypoint.Aboba, new GOTFixer.NightKing());
 		structures.put(GOTWaypoint.Ashemark, new GOTFixer.AddamMarbrand());
 		structures.put(GOTWaypoint.Asshai, new GOTFixer.Asshai());
 		structures.put(GOTWaypoint.Astapor.shift(-1, 0), new GOTFixer.Astapor());
@@ -239,6 +238,7 @@ public class GOTFixer {
 		structures.put(GOTWaypoint.GateOfTheMoon.shift(0, 1), new GOTFixer.GateOfTheMoon());
 		structures.put(GOTWaypoint.GoldenTooth.shift(0, 1), new GOTFixer.LeoLefford());
 		structures.put(GOTWaypoint.Goldengrove, new GOTFixer.MathisRowan());
+		structures.put(GOTWaypoint.Greenshield, new GOTFixer.MoribaldChester());
 		structures.put(GOTWaypoint.Greenstone, new GOTFixer.EldonEstermont());
 		structures.put(GOTWaypoint.GreyGarden, new GOTFixer.HarrasHarlaw());
 		structures.put(GOTWaypoint.GreywaterWatch, new GOTFixer.HowlandReed());
@@ -267,6 +267,7 @@ public class GOTFixer {
 		structures.put(GOTWaypoint.MormontsKeep, new GOTFixer.MaegeMormont());
 		structures.put(GOTWaypoint.Myr.shift(-1, 0), new GOTFixer.HarryStrickland());
 		structures.put(GOTWaypoint.NaggaHill, new GOTFixer.AeronGreyjoy());
+		structures.put(GOTWaypoint.NightKing, new GOTFixer.NightKing());
 		structures.put(GOTWaypoint.Ninestars, new GOTFixer.SymondTempleton());
 		structures.put(GOTWaypoint.Norvos.shift(0, -1), new GOTFixer.Mellario());
 		structures.put(GOTWaypoint.Oldtown.shift(-1, 0), new GOTFixer.Ebrose());
@@ -834,6 +835,14 @@ public class GOTFixer {
 		@Override
 		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityMellario(world), world, 0, 1, 1);
+		}
+	}
+
+	public static class MoribaldChester extends Spawner {
+
+		@Override
+		public void spawnLegendaryNPC(World world) {
+			spawnLegendaryNPC(new GOTEntityMoribaldChester(world), world, 2, 1, 0);
 		}
 	}
 

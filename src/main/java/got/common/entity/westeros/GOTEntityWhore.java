@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 public class GOTEntityWhore extends GOTEntityHumanBase {
 	public GOTEntityWhore(World world) {
 		super(world);
-		canBeMarried = false;
+		canBeMarried = true;
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
@@ -61,6 +61,11 @@ public class GOTEntityWhore extends GOTEntityHumanBase {
 			return "standart/special/whore_friendly";
 		}
 		return "standart/special/whore_hostile";
+	}
+
+	@Override
+	public boolean canRenameNPC() {
+		return true;
 	}
 
 	@Override
