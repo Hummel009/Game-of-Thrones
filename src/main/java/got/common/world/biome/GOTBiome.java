@@ -224,6 +224,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public boolean isLongWinter;
 	public boolean isNeverWinterAZ;
 	public boolean isSeasonalWinterAZ;
+	public static int[] sus = {2, 4, 12, 13, 16, 20, 26, 29, 32, 46, 52, 64, 66, 68, 74, 77, 83, 90, 93, 96, 98, 103, 110, 117, 134, 141, 149, 153};
 
 	public GOTBiome(int i, boolean major) {
 		this(i, major, GOTDimension.GAME_OF_THRONES);
@@ -1121,10 +1122,9 @@ public abstract class GOTBiome extends BiomeGenBase {
 		yiTiWasteland = new GOTBiomeYiTiWasteland(163, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xBEB74F).setBiomeName("yiTi");
 		yunkai = new GOTBiomeYunkai(164, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xA3AA48).setBiomeName("yunkai");
 		ibbenMountains = new GOTBiomeIbbenMountains(165, true).setIsLongWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0x808081).setBiomeName("ibbenMountains");
-		for (int i = 1; i < 162; ++i) {
-			if (GOTDimension.GAME_OF_THRONES.biomeList[i] == null) {
-				GOTDimension.GAME_OF_THRONES.biomeList[i] = GOTBiome.ocean;
-			}
+		for (int i = 0; i < sus.length; ++i) {
+			int j = sus[i];
+			GOTDimension.GAME_OF_THRONES.biomeList[j] = GOTBiome.ocean;
 		}
 	}
 
