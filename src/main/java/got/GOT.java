@@ -41,7 +41,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.*;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.*;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
@@ -65,7 +65,7 @@ public class GOT {
 	public static Map<ItemStack, Integer> buy = new GOTItemStackMapImpl<>();
 	public static Map<ItemStack, Integer> sell = new GOTItemStackMapImpl<>();
 	public static String langsName = "\u0420\u0443\u0441\u0441\u043A\u0438\u0439 (ru), \u0423\u043A\u0440\u0430\u0457\u043D\u0441\u044C\u043A\u0430 (uk), English (en), Deutsch (de), T\u00FCrk\u00E7e (tr), \u4E2D\u6587 (zh)";
-	
+
 	@Mod.EventHandler
 	public void load(FMLInitializationEvent event) {
 		proxy.onLoad();
@@ -233,6 +233,11 @@ public class GOT {
 		GOTLog.logger.info("Hummel009: Registered " + factions + " factions");
 		GOTLog.logger.info("Hummel009: Registered " + items + " items");
 		GOTLog.logger.info("Hummel009: Registered " + blocks + " blocks");
+		try {
+			GOTLoader.generateWikiaDatabases();
+		} catch (SecurityException | IllegalArgumentException | IllegalAccessException | NoSuchFieldException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Mod.EventHandler
@@ -251,14 +256,9 @@ public class GOT {
 		GOTBlockReplacement.replaceVanillaItem(Items.cake, new GOTItemPlaceableFood(Blocks.cake).setTextureName("cake").setCreativeTab(CreativeTabs.tabFood));
 		GOTBlockReplacement.replaceVanillaItem(Items.potionitem, new GOTItemPotion().setTextureName("potion"));
 		GOTBlockReplacement.replaceVanillaItem(Items.glass_bottle, new GOTItemGlassBottle().setTextureName("potion_bottle_empty"));
-		GOTConfig.setupAndLoad();
-		GOTRegistry.assignContent();
-		GOTRegistry.assignMetadata();
-		GOTRegistry.registerBlocks();
-		GOTRegistry.registerItems();
+		GOTLoader.preInit();
 		Blocks.dragon_egg.setCreativeTab(GOTCreativeTabs.tabStory);
 		MinecraftForge.EVENT_BUS.register(new GOTTrackingEventHandler());
-		GOTLoader.preInit();
 		proxy.onPreload();
 
 		int k = 1;
@@ -462,10 +462,10 @@ public class GOT {
 		return -1;
 	}
 
-    public static boolean isAprilFools() {
-        Calendar calendar = Calendar.getInstance();
-        return calendar.get(2) == 3 && calendar.get(5) == 1;
-    }
+	public static boolean isAprilFools() {
+		Calendar calendar = Calendar.getInstance();
+		return calendar.get(2) == 3 && calendar.get(5) == 1;
+	}
 
 	public static boolean isGuyFawkes() {
 		Calendar calendar = Calendar.getInstance();
