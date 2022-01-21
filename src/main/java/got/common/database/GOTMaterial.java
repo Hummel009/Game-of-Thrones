@@ -17,22 +17,21 @@ public class GOTMaterial {
 
 	public static GOTMaterial ANONYMOUS = new GOTMaterial("ANONYMOUS").setUndamageable().setUses(0).setDamage(0.0f).setProtection(0.0f).setEnchantability(0);
 	public static GOTMaterial HAND = new GOTMaterial("HAND").setUndamageable().setUses(0).setDamage(0.0f).setProtection(0.0f).setEnchantability(0);
-	public static GOTMaterial COBALT = new GOTMaterial("COBALT").setUses(800).setDamage(3.0f).setProtection(0.7f).setHarvestLevel(4).setSpeed(8.5f).setEnchantability(10);
 	public static GOTMaterial VALYRIAN = new GOTMaterial("VALYRIAN").setUses(2400).setDamage(5.0f).setProtection(0.8f).setHarvestLevel(4).setSpeed(9.0f).setEnchantability(8);
 
-	public static GOTMaterial DOTHRAKI = new GOTMaterial("DOTHRAKI").setIsWeak(Item.getItemFromBlock(GOTRegistry.driedReeds));
-	public static GOTMaterial BONE = new GOTMaterial("BONE").setIsWeak(Items.bone);
-	public static GOTMaterial BRONZE = new GOTMaterial("BRONZE").setIsWeak(GOTRegistry.bronzeIngot);
-	public static GOTMaterial FUR = new GOTMaterial("FUR").setIsWeak(GOTRegistry.fur);
-	public static GOTMaterial GEMSBOK = new GOTMaterial("GEMSBOK").setIsWeak(GOTRegistry.gemsbokHide);
-	public static GOTMaterial KAFTAN = new GOTMaterial("KAFTAN").setIsWeak(Item.getItemFromBlock(Blocks.wool));
-	public static GOTMaterial LHAZAR = new GOTMaterial("LHAZAR").setIsWeak(GOTRegistry.gemsbokHide);
-	public static GOTMaterial HORN = new GOTMaterial("HORN").setIsWeak(GOTRegistry.rhinoHorn);
-	public static GOTMaterial LHAZAR_LION = new GOTMaterial("LHAZAR_LION").setIsWeak(GOTRegistry.lionFur);
-	public static GOTMaterial ROBES = new GOTMaterial("ROBES").setIsWeak(Item.getItemFromBlock(Blocks.wool));
-	public static GOTMaterial OBSIDIAN = new GOTMaterial("OBSIDIAN").setIsWeak(GOTRegistry.obsidianShard);
-	public static GOTMaterial SOTHORYOS_GOLD = new GOTMaterial("SOTHORYOS_GOLD").setIsWeak(Items.gold_ingot);
-	public static GOTMaterial FLINT = new GOTMaterial("FLINT").setIsWeak(Items.flint);
+	public static GOTMaterial DOTHRAKI = new GOTMaterial("DOTHRAKI").setIsWeak();
+	public static GOTMaterial BONE = new GOTMaterial("BONE").setIsWeak();
+	public static GOTMaterial BRONZE = new GOTMaterial("BRONZE").setIsWeak();
+	public static GOTMaterial FUR = new GOTMaterial("FUR").setIsWeak();
+	public static GOTMaterial GEMSBOK = new GOTMaterial("GEMSBOK").setIsWeak();
+	public static GOTMaterial KAFTAN = new GOTMaterial("KAFTAN").setIsWeak();
+	public static GOTMaterial LHAZAR = new GOTMaterial("LHAZAR").setIsWeak();
+	public static GOTMaterial HORN = new GOTMaterial("HORN").setIsWeak();
+	public static GOTMaterial LHAZAR_LION = new GOTMaterial("LHAZAR_LION").setIsWeak();
+	public static GOTMaterial ROBES = new GOTMaterial("ROBES").setIsWeak();
+	public static GOTMaterial OBSIDIAN = new GOTMaterial("OBSIDIAN").setIsWeak();
+	public static GOTMaterial SOTHORYOS_GOLD = new GOTMaterial("SOTHORYOS_GOLD").setIsWeak();
+	public static GOTMaterial FLINT = new GOTMaterial("FLINT").setIsWeak();
 
 	public static GOTMaterial IBBEN = new GOTMaterial("IBBEN").setIsStandart();
 	public static GOTMaterial ARRYN = new GOTMaterial("ARRYN").setIsStandart();
@@ -66,38 +65,35 @@ public class GOTMaterial {
 	public static GOTMaterial WESTERLANDS = new GOTMaterial("WESTERLANDS").setIsStandart();
 	public static GOTMaterial YITI = new GOTMaterial("YITI").setIsStandart();
 
-	public static GOTMaterial ROYCE = new GOTMaterial("ROYCE").setIsStrong(GOTRegistry.bronzeIngot);
-	public static GOTMaterial REDKING = new GOTMaterial("REDKING").setIsStrong(Items.iron_ingot);
-	public static GOTMaterial REACHGUARD = new GOTMaterial("REACHGUARD").setIsStrong(Items.iron_ingot);
-	public static GOTMaterial NORTHGUARD = new GOTMaterial("NORTHGUARD").setIsStrong(Items.iron_ingot);
-	public static GOTMaterial KINGSGUARD = new GOTMaterial("KINGSGUARD").setIsStrong(Items.iron_ingot);
-	public static GOTMaterial ARRYNGUARD = new GOTMaterial("ARRYNGUARD").setIsStrong(Items.iron_ingot);
-	public static GOTMaterial BLACKFYRE = new GOTMaterial("BLACKFYRE").setIsStrong(Items.iron_ingot);
-	public static GOTMaterial ICE = new GOTMaterial("ICE").setIsStrong(GOTRegistry.iceShard);
-	public static GOTMaterial HELMET = new GOTMaterial("HELMET").setIsStrong(Items.iron_ingot);
-	public static GOTMaterial YITI_FRONTIER = new GOTMaterial("YITI_FRONTIER").setIsStrong(GOTRegistry.yitiSteelIngot);
-	public static GOTMaterial YITI_SAMURAI = new GOTMaterial("YITI_SAMURAI").setIsStrong(GOTRegistry.yitiSteelIngot);
-	public static GOTMaterial WESTERLANDSGUARD = new GOTMaterial("WESTERLANDSGUARD").setIsStrong(Items.iron_ingot);
-	public static GOTMaterial WESTKING = new GOTMaterial("WESTKING").setIsStrong(Items.iron_ingot);
-	public static GOTMaterial UNSULLIED = new GOTMaterial("UNSULLIED").setIsStrong(Items.iron_ingot);
-	public static GOTMaterial TARGARYEN = new GOTMaterial("TARGARYEN").setIsStrong(Items.iron_ingot);
-	public static GOTMaterial BLACKSKIN = new GOTMaterial("BLACKSKIN").setIsStrong(Items.iron_ingot);
-	public static GOTMaterial SILVER = new GOTMaterial("SILVER").setIsStrong(GOTRegistry.silverIngot);
-	public static GOTMaterial RENLY = new GOTMaterial("RENLY").setIsStrong(Items.iron_ingot);
+	public static GOTMaterial ALLOY_STEEL = new GOTMaterial("COBALT").setIsStrong();
+	public static GOTMaterial ROYCE = new GOTMaterial("ROYCE").setIsStrong();
+	public static GOTMaterial REDKING = new GOTMaterial("REDKING").setIsStrong();
+	public static GOTMaterial REACHGUARD = new GOTMaterial("REACHGUARD").setIsStrong();
+	public static GOTMaterial NORTHGUARD = new GOTMaterial("NORTHGUARD").setIsStrong();
+	public static GOTMaterial KINGSGUARD = new GOTMaterial("KINGSGUARD").setIsStrong();
+	public static GOTMaterial ARRYNGUARD = new GOTMaterial("ARRYNGUARD").setIsStrong();
+	public static GOTMaterial BLACKFYRE = new GOTMaterial("BLACKFYRE").setIsStrong();
+	public static GOTMaterial ICE = new GOTMaterial("ICE").setIsStrong();
+	public static GOTMaterial HELMET = new GOTMaterial("HELMET").setIsStrong();
+	public static GOTMaterial YITI_FRONTIER = new GOTMaterial("YITI_FRONTIER").setIsStrong();
+	public static GOTMaterial YITI_SAMURAI = new GOTMaterial("YITI_SAMURAI").setIsStrong();
+	public static GOTMaterial WESTERLANDSGUARD = new GOTMaterial("WESTERLANDSGUARD").setIsStrong();
+	public static GOTMaterial WESTKING = new GOTMaterial("WESTKING").setIsStrong();
+	public static GOTMaterial UNSULLIED = new GOTMaterial("UNSULLIED").setIsStrong();
+	public static GOTMaterial TARGARYEN = new GOTMaterial("TARGARYEN").setIsStrong();
+	public static GOTMaterial BLACKSKIN = new GOTMaterial("BLACKSKIN").setIsStrong();
+	public static GOTMaterial SILVER = new GOTMaterial("SILVER").setIsStrong();
+	public static GOTMaterial RENLY = new GOTMaterial("RENLY").setIsStrong();
 
 	public String materialName;
-
-	public boolean undamageable = false;
-
+	public boolean undamageable;
 	public int uses;
-
 	public float damage;
-
 	public int[] protection;
 	public int harvestLevel;
 	public float speed;
 	public int enchantability;
-	public boolean canHarvestManFlesh = false;
+	public boolean canHarvestManFlesh;
 	public Item.ToolMaterial toolMaterial;
 	public ItemArmor.ArmorMaterial armorMaterial;
 
@@ -143,13 +139,13 @@ public class GOTMaterial {
 		return this;
 	}
 
-	public GOTMaterial setIsStrong(Item item) {
-		setUses(500).setDamage(3.0f).setProtection(0.6f).setSpeed(6.0f).setHarvestLevel(2).setEnchantability(10).setCraftingItem(item);
+	public GOTMaterial setIsStrong() {
+		setUses(500).setDamage(3.0f).setProtection(0.6f).setSpeed(6.0f).setHarvestLevel(2).setEnchantability(10);
 		return this;
 	}
 
-	public GOTMaterial setIsWeak(Item item) {
-		setUses(200).setDamage(0.0f).setProtection(0.4f).setHarvestLevel(0).setSpeed(0.0f).setEnchantability(8).setCraftingItem(item);
+	public GOTMaterial setIsWeak() {
+		setUses(200).setDamage(0.0f).setProtection(0.4f).setHarvestLevel(0).setSpeed(0.0f).setEnchantability(8);
 		return this;
 	}
 
@@ -204,7 +200,40 @@ public class GOTMaterial {
 	}
 
 	public static void onInit() {
-		COBALT.setCraftingItem(GOTRegistry.cobaltIngot);
+		HAND.setCraftingItem(GOTRegistry.diamond);
+		ANONYMOUS.setCraftingItem(Items.paper);
 		VALYRIAN.setCraftingItem(GOTRegistry.valyrianIngot);
+		DOTHRAKI.setCraftingItem(Item.getItemFromBlock(GOTRegistry.driedReeds));
+		BONE.setCraftingItem(Items.bone);
+		BRONZE.setCraftingItem(GOTRegistry.bronzeIngot);
+		FUR.setCraftingItem(GOTRegistry.fur);
+		GEMSBOK.setCraftingItem(GOTRegistry.gemsbokHide);
+		KAFTAN.setCraftingItem(Item.getItemFromBlock(Blocks.wool));
+		LHAZAR.setCraftingItem(GOTRegistry.gemsbokHide);
+		HORN.setCraftingItem(GOTRegistry.rhinoHorn);
+		LHAZAR_LION.setCraftingItem(GOTRegistry.lionFur);
+		ROBES.setCraftingItem(Item.getItemFromBlock(Blocks.wool));
+		OBSIDIAN.setCraftingItem(GOTRegistry.obsidianShard);
+		SOTHORYOS_GOLD.setCraftingItem(Items.gold_ingot);
+		FLINT.setCraftingItem(Items.flint);
+		ICE.setCraftingItem(GOTRegistry.iceShard);
+		SILVER.setCraftingItem(GOTRegistry.silverIngot);
+		YITI_FRONTIER.setCraftingItem(GOTRegistry.yitiSteelIngot);
+		YITI_SAMURAI.setCraftingItem(GOTRegistry.yitiSteelIngot);
+		ALLOY_STEEL.setCraftingItem(GOTRegistry.alloySteelIgnot);
+		REACHGUARD.setCraftingItem(GOTRegistry.alloySteelIgnot);
+		NORTHGUARD.setCraftingItem(GOTRegistry.alloySteelIgnot);
+		KINGSGUARD.setCraftingItem(GOTRegistry.alloySteelIgnot);
+		ARRYNGUARD.setCraftingItem(GOTRegistry.alloySteelIgnot);
+		WESTERLANDSGUARD.setCraftingItem(GOTRegistry.alloySteelIgnot);
+		UNSULLIED.setCraftingItem(GOTRegistry.alloySteelIgnot);
+		HELMET.setCraftingItem(GOTRegistry.alloySteelIgnot);
+		TARGARYEN.setCraftingItem(GOTRegistry.alloySteelIgnot);
+		BLACKSKIN.setCraftingItem(GOTRegistry.alloySteelIgnot);
+		RENLY.setCraftingItem(GOTRegistry.alloySteelIgnot);
+		REDKING.setCraftingItem(GOTRegistry.alloySteelIgnot);
+		BLACKFYRE.setCraftingItem(GOTRegistry.alloySteelIgnot);
+		WESTKING.setCraftingItem(GOTRegistry.alloySteelIgnot);
+		ROYCE.setCraftingItem(GOTRegistry.bronzeIngot);
 	}
 }

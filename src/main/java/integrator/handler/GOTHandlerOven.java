@@ -39,7 +39,7 @@ public class GOTHandlerOven extends TemplateRecipeHandler {
 
 	@Override
 	public String getGuiTexture() {
-		return "got:gui/oven.png";
+		return "got:textures/gui/oven.png";
 	}
 
 	@Override

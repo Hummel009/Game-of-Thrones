@@ -133,7 +133,7 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 
 	@Override
 	public String getGuiTexture() {
-		return "got:gui/forge.png";
+		return "got:textures/gui/forge.png";
 	}
 
 	@Override
