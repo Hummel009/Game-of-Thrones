@@ -42,7 +42,6 @@ public class GOTBiomeVariant {
 	public static GOTBiomeVariant FOREST_MAPLE = new GOTBiomeVariantForest(30, "forest_maple").addTreeTypes(0.8f, GOTTreeType.MAPLE, 1000, GOTTreeType.MAPLE_LARGE, 150);
 	public static GOTBiomeVariant FOREST_LARCH = new GOTBiomeVariantForest(31, "forest_larch").addTreeTypes(0.8f, GOTTreeType.LARCH, 1000);
 	public static GOTBiomeVariant FOREST_PINE = new GOTBiomeVariantForest(32, "forest_pine").addTreeTypes(0.8f, GOTTreeType.PINE, 1000);
-	public static GOTBiomeVariant ORCHARD_SHIRE = new GOTBiomeVariantOrchard(33, "orchard_shire").addTreeTypes(1.0f, GOTTreeType.APPLE, 100, GOTTreeType.PEAR, 100, GOTTreeType.CHERRY, 10);
 	public static GOTBiomeVariant ORCHARD_APPLE_PEAR = new GOTBiomeVariantOrchard(34, "orchard_apple_pear").addTreeTypes(1.0f, GOTTreeType.APPLE, 100, GOTTreeType.PEAR, 100);
 	public static GOTBiomeVariant ORCHARD_ORANGE = new GOTBiomeVariantOrchard(35, "orchard_orange").addTreeTypes(1.0f, GOTTreeType.ORANGE, 100);
 	public static GOTBiomeVariant ORCHARD_LEMON = new GOTBiomeVariantOrchard(36, "orchard_lemon").addTreeTypes(1.0f, GOTTreeType.LEMON, 100);
@@ -61,7 +60,7 @@ public class GOTBiomeVariant {
 	public static GOTBiomeVariant SCRUBLAND_SAND = new GOTBiomeVariantScrubland(49, "scrubland_sand", Blocks.sandstone).setHeight(0.0f, 0.8f);
 	public static GOTBiomeVariant HILLS_SCRUBLAND_SAND = new GOTBiomeVariantScrubland(50, "hills_scrubland_sand", Blocks.sandstone).setHeight(0.5f, 2.0f);
 	public static GOTBiomeVariant WASTELAND_SAND = new GOTBiomeVariantWasteland(51, "wasteland_sand", Blocks.sandstone).setHeight(0.0f, 0.5f);
-	public static GOTBiomeVariant FOREST_CHERRY = new GOTBiomeVariantForest(52, "forest_lemon").addTreeTypes(0.8f, GOTTreeType.CHERRY, 1000);
+	public static GOTBiomeVariant FOREST_CHERRY = new GOTBiomeVariantForest(52, "forest_cherry").addTreeTypes(0.8f, GOTTreeType.CHERRY, 1000);
 	public static GOTBiomeVariant FOREST_LEMON = new GOTBiomeVariantForest(53, "forest_lemon").addTreeTypes(0.8f, GOTTreeType.LEMON, 1000);
 	public static GOTBiomeVariant FOREST_LIME = new GOTBiomeVariantForest(54, "forest_lime").addTreeTypes(0.8f, GOTTreeType.LIME, 1000);
 	public static GOTBiomeVariant FOREST_WEIRWOOD = new GOTBiomeVariantForest(57, "forest_weirwood").addTreeTypes(0.8f, GOTTreeType.WEIRWOOD);
@@ -111,6 +110,10 @@ public class GOTBiomeVariant {
 	}
 
 	public void decorateVariant(World world, Random random, int i, int k, GOTBiome biome) {
+	}
+	
+	public String getUnlocalizedName() {
+		return "got.variant." + variantName + ".name";
 	}
 
 	public GOTBiomeVariant disableStructuresVillages() {

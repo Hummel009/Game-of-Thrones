@@ -70,11 +70,6 @@ public class GOTBiomeHauntedForest extends GOTBiome {
 	}
 
 	@Override
-	public float getChanceToSpawnAnimals() {
-		return 0.25f;
-	}
-
-	@Override
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.PATH_DIRTY;
 	}

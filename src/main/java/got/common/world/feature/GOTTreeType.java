@@ -555,12 +555,6 @@ public enum GOTTreeType {
 		public WorldGenAbstractTree createTree(boolean flag, Random rand) {
 			return new GOTWorldGenRedwood(flag).setTrunkWidth(2);
 		}
-	}), TROPICAL(new ITreeFactory() {
-
-		@Override
-		public WorldGenAbstractTree createTree(boolean flag, Random rand) {
-			return new GOTWorldGenTropical(flag).setExtraTrunkWidth(1);
-		}
 	}), POMEGRANATE(new ITreeFactory() {
 
 		@Override

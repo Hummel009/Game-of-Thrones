@@ -224,7 +224,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public boolean isLongWinter;
 	public boolean isNeverWinterAZ;
 	public boolean isSeasonalWinterAZ;
-	public static int[] sus = {2, 4, 12, 13, 16, 20, 26, 29, 32, 46, 52, 64, 66, 68, 74, 77, 83, 90, 93, 96, 98, 103, 110, 117, 134, 141, 149, 153};
+	public String type;
+	public static int[] NON_USED = {2, 4, 12, 13, 16, 20, 26, 29, 32, 46, 52, 64, 66, 68, 74, 77, 83, 90, 93, 96, 98, 103, 110, 117, 134, 141, 149, 153};
 
 	public GOTBiome(int i, boolean major) {
 		this(i, major, GOTDimension.GAME_OF_THRONES);
@@ -254,7 +255,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 5, 1, 2));
 		} else {
 			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntitySheep.class, 12, 1, 2));
-			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWildBoar.class, 10, 2, 4));
+			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBoar.class, 10, 2, 4));
 			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityChicken.class, 8, 1, 2));
 			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 10, 1, 2));
 			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBison.class, 6, 1, 2));
@@ -277,7 +278,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 			sb.insert(0, "0");
 		}
 		info.add("Game of Thrones biome: " + getBiomeDisplayName() + ", ID: " + biomeID + ", c: #" + colorString);
-		info.add("Variant: " + variant.variantName + ", loaded: " + GOTBiomeVariantStorage.getSize(world));
+		info.add("Variant: " + StatCollector.translateToLocal(variant.getUnlocalizedName()) + ", loaded: " + GOTBiomeVariantStorage.getSize(world));
 	}
 
 	public void addBiomeVariant(GOTBiomeVariant v) {
@@ -307,7 +308,10 @@ public abstract class GOTBiome extends BiomeGenBase {
 		biomeVariantsLarge.clear();
 		biomeVariantsSmall.clear();
 	}
-
+	
+	public String getName() {
+		return StatCollector.translateToLocal("got.biome." + biomeName);
+	}
 	@Override
 	public BiomeGenBase createMutation() {
 		return this;
@@ -542,7 +546,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	public float getChanceToSpawnAnimals() {
-		return 1.0f;
+		return 0.25f;
 	}
 
 	public Vec3 getCloudColor(Vec3 clouds) {
@@ -822,39 +826,46 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	public GOTBiome setIsAlwaysWinter() {
 		isAlwaysWinter = true;
+		type = "isAlwaysWinter";
 		return this;
 	}
 
 	public GOTBiome setIsLongWinter() {
 		isLongWinter = true;
+		type = "isLongWinter";
 		return this;
 	}
 
 	public GOTBiome setIsLongWinterAZ() {
 		isLongWinter = true;
 		isAltitudeZone = true;
+		type = "isLongWinterAZ";
 		return this;
 	}
 
 	public GOTBiome setIsNeverWinter() {
 		isNeverWinter = true;
+		type = "isNeverWinter";
 		return this;
 	}
 
 	public GOTBiome setIsNeverWinterAZ() {
 		isNeverWinterAZ = true;
 		isAltitudeZone = true;
+		type = "isNeverWinterAZ";
 		return this;
 	}
 
 	public GOTBiome setIsSeasonalWinter() {
 		isSeasonalWinter = true;
+		type = "isSeasonalWinter";
 		return this;
 	}
 
 	public GOTBiome setIsSeasonalWinterAZ() {
 		isSeasonalWinterAZ = true;
 		isAltitudeZone = true;
+		type = "isSeasonalWinterAZ";
 		return this;
 	}
 
@@ -1122,8 +1133,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 		yiTiWasteland = new GOTBiomeYiTiWasteland(163, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xBEB74F).setBiomeName("yiTi");
 		yunkai = new GOTBiomeYunkai(164, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xA3AA48).setBiomeName("yunkai");
 		ibbenMountains = new GOTBiomeIbbenMountains(165, true).setIsLongWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0x808081).setBiomeName("ibbenMountains");
-		for (int i = 0; i < sus.length; ++i) {
-			int j = sus[i];
+		for (int i = 0; i < NON_USED.length; ++i) {
+			int j = NON_USED[i];
 			GOTDimension.GAME_OF_THRONES.biomeList[j] = GOTBiome.ocean;
 		}
 	}

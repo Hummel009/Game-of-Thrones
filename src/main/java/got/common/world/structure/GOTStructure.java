@@ -46,9 +46,15 @@ public class GOTStructure {
 
 	public static void onInit() {
 		GOTStructureRegistry.register(id++, GOTStructureBarrow.class, "Barrow", 9605778);
-		GOTStructureRegistry.register(id++, GOTStructureRuinedHouse.class, "RuinedGiftHouse", 9605778);
-		GOTStructureRegistry.register(id++, GOTStructureBurntHouse.class, "GiftBurntHouse", 9605778);
-		GOTStructureRegistry.register(id++, GOTStructureRottenHouse.class, "GiftRottenHouse", 9605778);
+		GOTStructureRegistry.register(id++, GOTStructureRuinedHouse.class, "RuinedHouse", 9605778);
+		GOTStructureRegistry.register(id++, GOTStructureBurntHouse.class, "BurntHouse", 9605778);
+		GOTStructureRegistry.register(id++, GOTStructureRottenHouse.class, "RottenHouse", 9605778);
+		GOTStructureRegistry.register(id++, GOTStructureSmallStoneRuin.class, "SmallStoneRuin", 9605778);
+		GOTStructureRegistry.register(id++, GOTStructureStoneRuin.STONE.class, "StoneRuinStandart", 9605778);
+		GOTStructureRegistry.register(id++, GOTStructureStoneRuin.YITI.class, "StoneRuinYiTi", 9605778);
+		GOTStructureRegistry.register(id++, GOTStructureStoneRuin.ASSHAI.class, "StoneRuinAsshai", 9605778);
+		GOTStructureRegistry.register(id++, GOTStructureStoneRuin.SANDSTONE.class, "StoneRuinSandstone", 9605778);
+		GOTStructureRegistry.register(id++, GOTStructureStoneRuin.SOTHORYOS.class, "StoneRuinSothoryos", 9605778);
 
 		GOTStructureRegistry.register(id++, GOTStructureWildlingHouse.class, "WildlingHouse", GOTFaction.WILDLING);
 		GOTStructureRegistry.register(id++, GOTStructureWildlingChieftainHouse.class, "WildlingChieftainHouse", GOTFaction.WILDLING);

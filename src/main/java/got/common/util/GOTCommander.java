@@ -299,19 +299,17 @@ public class GOTCommander {
 		ArrayList<Object> list = new ArrayList<>();
 		try {
 			for (Field field : clazz.getDeclaredFields()) {
-				if (field == null) {
-					continue;
+				if (field != null) {
+					Object fieldObj = null;
+					if (Modifier.isStatic(field.getModifiers())) {
+						fieldObj = field.get(null);
+					} else if (instance != null) {
+						fieldObj = field.get(instance);
+					}
+					if (((fieldObj != null) && type.isAssignableFrom(fieldObj.getClass()))) {
+						list.add(fieldObj);
+					}
 				}
-				Object fieldObj = null;
-				if (Modifier.isStatic(field.getModifiers())) {
-					fieldObj = field.get(null);
-				} else if (instance != null) {
-					fieldObj = field.get(instance);
-				}
-				if (fieldObj == null || !type.isAssignableFrom(fieldObj.getClass())) {
-					continue;
-				}
-				list.add(fieldObj);
 			}
 		} catch (IllegalAccessException | IllegalArgumentException exception) {
 		}

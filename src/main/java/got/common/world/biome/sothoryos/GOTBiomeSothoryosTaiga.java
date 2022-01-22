@@ -38,9 +38,4 @@ public class GOTBiomeSothoryosTaiga extends GOTBiome {
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.SOTHORYOS.getSubregion("taiga");
 	}
-
-	@Override
-	public float getChanceToSpawnAnimals() {
-		return 0.25f;
-	}
 }

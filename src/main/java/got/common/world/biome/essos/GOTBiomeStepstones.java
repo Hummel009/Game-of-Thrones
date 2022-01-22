@@ -118,9 +118,4 @@ public class GOTBiomeStepstones extends GOTBiome {
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.ESSOS.getSubregion("stepstones");
 	}
-
-	@Override
-	public float getChanceToSpawnAnimals() {
-		return 0.25f;
-	}
 }

@@ -407,7 +407,7 @@ public class GOTRender {
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityWalrus.class, new GOTRenderWalrus());
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityWhiteOryx.class, new GOTRenderWhiteOryx());
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityWightGiant.class, new GOTRenderGiant("ice"));
-		RenderingRegistry.registerEntityRenderingHandler(GOTEntityWildBoar.class, new GOTRenderWildBoar());
+		RenderingRegistry.registerEntityRenderingHandler(GOTEntityBoar.class, new GOTRenderBoar());
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityWoolyRhino.class, new GOTRenderWoolyRhino());
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityWyvern.class, new GOTRenderWyvern());
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityZebra.class, new GOTRenderZebra());

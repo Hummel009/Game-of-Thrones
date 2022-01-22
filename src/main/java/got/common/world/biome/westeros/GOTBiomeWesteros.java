@@ -8,7 +8,6 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
-import got.common.world.structure.westeros.common.GOTStructureWesterosObelisk;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTBiomeWesteros extends GOTBiome {
@@ -48,7 +47,6 @@ public class GOTBiomeWesteros extends GOTBiome {
 		decorator.flowersPerChunk = 3;
 		decorator.doubleFlowersPerChunk = 1;
 		registerPlainsFlowers();
-		decorator.addRandomStructure(new GOTStructureWesterosObelisk(false), 1000);
 		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
 		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
@@ -59,11 +57,6 @@ public class GOTBiomeWesteros extends GOTBiome {
 	@Override
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.WESTEROS.getSubregion("westeros");
-	}
-
-	@Override
-	public float getChanceToSpawnAnimals() {
-		return 0.25f;
 	}
 
 	@Override

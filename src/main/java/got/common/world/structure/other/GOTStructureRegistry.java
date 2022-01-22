@@ -14,6 +14,7 @@ public class GOTStructureRegistry {
 	public static HashMap<Integer, IStructureProvider> idToClassMapping = new HashMap();
 	public static HashMap<Integer, String> idToStringMapping = new HashMap();
 	public static HashMap<Integer, StructureColorInfo> structureItemSpawners = new LinkedHashMap<>();
+	public static HashMap<Class<? extends WorldGenerator>, String> classToNameMapping = new HashMap();
 
 	public static String getNameFromID(int ID) {
 		return idToStringMapping.get(ID);
@@ -31,12 +32,18 @@ public class GOTStructureRegistry {
 		GOTStructure.onInit();
 	}
 
+	public static String getStructureNameFromClass(Class entityClass) {
+		return classToNameMapping.get(entityClass);
+	}
+
 	public static void register(int id, Class<? extends WorldGenerator> strClass, String name, GOTFaction faction) {
 		GOTStructureRegistry.registerStructure(id, strClass, name, faction.eggColor, faction.eggColor, false);
+		classToNameMapping.put(strClass, name);
 	}
 
 	public static void register(int id, Class<? extends WorldGenerator> strClass, String name, int color) {
 		GOTStructureRegistry.registerStructure(id, strClass, name, color, color, false);
+		classToNameMapping.put(strClass, name);
 	}
 
 	public static void register(int id, GOTVillageGen village, String name, GOTFaction faction, IVillageProperties properties) {

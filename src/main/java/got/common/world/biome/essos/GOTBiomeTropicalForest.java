@@ -21,7 +21,7 @@ public class GOTBiomeTropicalForest extends GOTBiome {
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 10, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 10, 4, 4));
 		decorator.clearTrees();
-		decorator.addTree(GOTTreeType.TROPICAL, 1);
+		decorator.addTree(GOTTreeType.JUNGLE_LARGE, 1);
 		decorator.treesPerChunk = 6;
 		decorator.flowersPerChunk = 4;
 		decorator.doubleFlowersPerChunk = 1;
@@ -48,11 +48,6 @@ public class GOTBiomeTropicalForest extends GOTBiome {
 	@Override
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.ESSOS.getSubregion("tropicalForest");
-	}
-
-	@Override
-	public float getChanceToSpawnAnimals() {
-		return 0.25f;
 	}
 
 	@Override

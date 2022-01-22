@@ -1,2 +1,2 @@
-Wie geht es Ihnen? Wie geht es Ihnen? Hast du dinge
-#, na ja, wie hast du $?
+Wie geht es dir? Was ist los? Hast du Dinge?
+#, na ja, hast du $?

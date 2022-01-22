@@ -123,11 +123,6 @@ public class GOTBiomeSothoryosKanuka extends GOTBiome {
 	}
 
 	@Override
-	public float getChanceToSpawnAnimals() {
-		return 0.25f;
-	}
-
-	@Override
 	public GOTBiome.GrassBlockAndMeta getRandomGrass(Random random) {
 		if (random.nextInt(5) != 0) {
 			return new GOTBiome.GrassBlockAndMeta(Blocks.tallgrass, 2);

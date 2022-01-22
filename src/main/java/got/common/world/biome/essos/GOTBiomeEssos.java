@@ -11,7 +11,6 @@ import got.common.world.feature.*;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.structure.other.*;
-import got.common.world.structure.westeros.dorne.GOTStructureDorneObelisk;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -73,7 +72,6 @@ public class GOTBiomeEssos extends GOTBiome {
 		decorator.addTree(GOTTreeType.PLUM, 5);
 		registerExoticFlowers();
 
-		decorator.addRandomStructure(new GOTStructureDorneObelisk(false), 1000);
 		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
@@ -122,11 +120,6 @@ public class GOTBiomeEssos extends GOTBiome {
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.FREE;
-	}
-
-	@Override
-	public float getChanceToSpawnAnimals() {
-		return 0.25f;
 	}
 
 	@Override

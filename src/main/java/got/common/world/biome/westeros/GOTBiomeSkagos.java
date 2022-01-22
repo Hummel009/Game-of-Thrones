@@ -68,11 +68,6 @@ public class GOTBiomeSkagos extends GOTBiome {
 	}
 
 	@Override
-	public float getChanceToSpawnAnimals() {
-		return 0.25f;
-	}
-
-	@Override
 	public int spawnCountMultiplier() {
 		return 3;
 	}

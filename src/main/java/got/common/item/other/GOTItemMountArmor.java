@@ -108,7 +108,7 @@ public class GOTItemMountArmor extends Item {
 	}
 
 	public boolean isValid(GOTNPCMount mount) {
-		if (mount instanceof GOTEntityGiraffe || mount instanceof GOTEntityDeer || mount instanceof GOTEntityElephant || mount instanceof GOTEntityMammoth || mount instanceof GOTEntityWildBoar || mount instanceof GOTEntityCamel) {
+		if (mount instanceof GOTEntityGiraffe || mount instanceof GOTEntityDeer || mount instanceof GOTEntityElephant || mount instanceof GOTEntityMammoth || mount instanceof GOTEntityBoar || mount instanceof GOTEntityCamel) {
 			return false;
 		}
 		if (mount instanceof GOTEntityRhino || mount instanceof GOTEntityWoolyRhino) {

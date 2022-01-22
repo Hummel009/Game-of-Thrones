@@ -75,11 +75,6 @@ public class GOTBiomeSothoryosJungle extends GOTBiome {
 	}
 
 	@Override
-	public float getChanceToSpawnAnimals() {
-		return 0.25f;
-	}
-
-	@Override
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.SOTHORYOS;
 	}
