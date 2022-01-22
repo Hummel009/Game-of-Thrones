@@ -143,7 +143,7 @@ public class GOTSpawnList {
 	public static GOTSpawnList QARTH_MILITARY = new GOTSpawnList(new GOTSpawnEntry(GOTEntityQarthLevyman.class, 10, 1, 2), new GOTSpawnEntry(GOTEntityQarthLevymanArcher.class, 5, 1, 2));
 
 	public static GOTSpawnList QOHOR_CIVILIAN = new GOTSpawnList(new GOTSpawnEntry(GOTEntityQohorMan.class, 10, 1, 2));
-	public static GOTSpawnList QOHOR_MILITARY = new GOTSpawnList(new GOTSpawnEntry(GOTEntityQohorUnsullied.class, 10, 1, 2), new GOTSpawnEntry(GOTEntityQohorLevymanArcher.class, 5, 1, 2));
+	public static GOTSpawnList QOHOR_MILITARY = new GOTSpawnList(new GOTSpawnEntry(GOTEntityQohorUnsullied.class, 10, 1, 2), new GOTSpawnEntry(GOTEntityQohorLevyman.class, 5, 1, 2), new GOTSpawnEntry(GOTEntityQohorLevymanArcher.class, 2, 1, 2));
 
 	public static GOTSpawnList REACH_CIVILIAN = new GOTSpawnList(new GOTSpawnEntry(GOTEntityReachMan.class, 10, 1, 2));
 	public static GOTSpawnList REACH_CONQUEST = new GOTSpawnList(new GOTSpawnEntry(GOTEntityReachSoldier.class, 10, 1, 2), new GOTSpawnEntry(GOTEntityReachSoldierArcher.class, 5, 1, 2));

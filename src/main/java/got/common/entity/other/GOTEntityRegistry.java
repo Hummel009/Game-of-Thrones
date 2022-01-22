@@ -9,6 +9,7 @@ import got.common.faction.GOTFaction;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.*;
 import net.minecraft.item.*;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 public class GOTEntityRegistry {
@@ -33,6 +34,10 @@ public class GOTEntityRegistry {
 			exception.printStackTrace();
 		}
 		return entity;
+	}
+
+	public static String getEntityName(Class<? extends Entity> entityClass) {
+		return StatCollector.translateToLocal("entity.got." + GOTEntityRegistry.getEntityNameFromClass(entityClass) + ".name");
 	}
 
 	public static Set<String> getAllEntityNames() {

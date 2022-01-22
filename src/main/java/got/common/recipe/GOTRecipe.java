@@ -513,17 +513,7 @@ public class GOTRecipe {
 		pentos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.banner, 1, GOTItemBanner.BannerType.PENTOS.bannerID), "X", "Y", "Z", Character.valueOf('X'), Blocks.wool, Character.valueOf('Y'), "stickWood", Character.valueOf('Z'), "plankWood"));
 		pentos.addAll(commonEssos);
 	}
-
-	public static void createPoisonedArrowRecipes() {
-		ArrayList recipeLists = new ArrayList();
-		for (Object obj : recipeLists) {
-			List recipes = (List) obj;
-			recipes.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.arrowFire, 4), " X ", "XYX", " X ", Character.valueOf('X'), Items.arrow, Character.valueOf('Y'), GOTRegistry.sulfur));
-			recipes.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.arrowPoisoned, 4), " X ", "XYX", " X ", Character.valueOf('X'), Items.arrow, Character.valueOf('Y'), "poison"));
-			recipes.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.crossbowBoltPoisoned, 4), " X ", "XYX", " X ", Character.valueOf('X'), GOTRegistry.crossbowBolt, Character.valueOf('Y'), "poison"));
-		}
-	}
-
+	
 	public static void createQarthRecipes() {
 		qarth.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.tableQarth), "XX", "YY", Character.valueOf('X'), "plankWood", Character.valueOf('Y'), new ItemStack(Blocks.sandstone, 1, 0)));
 		qarth.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.qarthHelmet), "XXX", "X X", Character.valueOf('X'), "ingotIron"));
@@ -1200,6 +1190,9 @@ public class GOTRecipe {
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.wineGlass, 2), "X X", " X ", " X ", Character.valueOf('X'), Blocks.glass));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.woodPlate, 2), "XX", Character.valueOf('X'), "logWood"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.arrow, 4), "X", "Y", "Z", Character.valueOf('X'), "arrowTip", Character.valueOf('Y'), "stickWood", Character.valueOf('Z'), "feather"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.arrowFire, 4), " X ", "XYX", " X ", Character.valueOf('X'), Items.arrow, Character.valueOf('Y'), GOTRegistry.sulfur));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.arrowPoisoned, 4), " X ", "XYX", " X ", Character.valueOf('X'), Items.arrow, Character.valueOf('Y'), "poison"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.crossbowBoltPoisoned, 4), " X ", "XYX", " X ", Character.valueOf('X'), GOTRegistry.crossbowBolt, Character.valueOf('Y'), "poison"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.brewing_stand, 1), " X ", "YYY", Character.valueOf('X'), "stickWood", Character.valueOf('Y'), Blocks.cobblestone));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.clock), " X ", "XYX", " X ", Character.valueOf('X'), "ingotGold", Character.valueOf('Y'), "ingotCopper"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.compass), " X ", "XYX", " X ", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "ingotCopper"));
@@ -1764,7 +1757,6 @@ public class GOTRecipe {
 		RecipeSorter.register("got:partyHatDye", GOTRecipePartyHatDye.class, RecipeSorter.Category.SHAPELESS, "after:minecraft:shapeless");
 		GOTRecipe.modifyStandardRecipes();
 		GOTRecipe.createStandardRecipes();
-		GOTRecipe.createPoisonedArrowRecipes();
 		GOTRecipe.createCommonWesterosRecipes();
 		GOTRecipe.createCommonEssosRecipes();
 		GOTRecipe.createWoodenSlabRecipes();

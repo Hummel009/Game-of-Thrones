@@ -27,6 +27,7 @@ import got.common.world.spawning.GOTSpawnEntry;
 import got.common.world.structure.GOTStructure;
 import got.common.world.structure.other.*;
 import integrator.NEIGOTIntegrator;
+import net.minecraft.entity.*;
 import net.minecraft.item.*;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.StatCollector;
@@ -34,8 +35,8 @@ import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 
 public class GOTLoader {
 	
-	public static void generateWikiaDatabases() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
-		String display = "null";
+	public static void generateWikiaDatabases() throws NoSuchFieldException, IllegalAccessException {
+		String display = "entities";
 		
 		for (Item item : GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Item.class)) {
 			String genInfo = StatCollector.translateToLocal(item.getUnlocalizedName() + ".name") + " || [[File:" + item.getUnlocalizedName().substring(9) + ".png|32px|link=]] ||";
@@ -84,13 +85,17 @@ public class GOTLoader {
 			if ("entities".equals(display)) {
 				GOTLog.logger.info("| " + biome.getName() + " = ");
 				List sus = new ArrayList();
-				sus.addAll(biome.spawnableCreatureList);
-				sus.addAll(biome.spawnableWaterCreatureList);
-				sus.addAll(biome.spawnableCaveCreatureList);
-				sus.addAll(biome.spawnableMonsterList);
+				sus.addAll(biome.getSpawnableList(EnumCreatureType.ambient));
+				sus.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
+				sus.addAll(biome.getSpawnableList(EnumCreatureType.creature));
+				sus.addAll(biome.getSpawnableList(EnumCreatureType.monster));
 				sus.addAll(biome.spawnableGOTAmbientList);
 				for (Object var: sus) { 
-					GOTLog.logger.info("* [["+ StatCollector.translateToLocal("entity.got." + GOTEntityRegistry.getEntityNameFromClass(((SpawnListEntry)var).entityClass) + ".name") + "]];");
+					if (GOTEntityRegistry.classToNameMapping.containsKey(((SpawnListEntry)var).entityClass)) {
+						GOTLog.logger.info("* [["+ GOTEntityRegistry.getEntityName(((SpawnListEntry)var).entityClass) + "]];");
+					} else {
+						GOTLog.logger.info("* "+ StatCollector.translateToLocal("entity." + EntityList.classToStringMapping.get(((SpawnListEntry)var).entityClass) + ".name") + ";");
+					}
 				}
 			}
 			if ("variantList".equals(display)) {
@@ -117,7 +122,7 @@ public class GOTLoader {
 					}
 					for (SpawnListContainer one: cont.spawnLists) { 
 						for (GOTSpawnEntry entry: one.spawnList.spawnList) { 
-							GOTLog.logger.info("* [["+ StatCollector.translateToLocal("entity.got." + GOTEntityRegistry.getEntityNameFromClass(entry.entityClass) + ".name") + "]]; ");
+							GOTLog.logger.info("* [["+ GOTEntityRegistry.getEntityName(entry.entityClass) + "]]; ");
 						}
 					}
 					++i;
@@ -138,13 +143,35 @@ public class GOTLoader {
 		}
 
 		for (GOTUnitTradeEntries entries : GOTCommander.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class)) {
-			for (GOTUnitTradeEntry entry: entries.tradeEntries) {
-				if (entry.mountClass == null) {
-					GOTLog.logger.info("| "+ StatCollector.translateToLocal("entity.got." + GOTEntityRegistry.getEntityNameFromClass(entry.entityClass) + ".name") + " || " + entry.initialCost + " || " + entry.alignmentRequired + (entry.pledgeType == PledgeType.NONE));
-					GOTLog.logger.info("|-");
-				} else {
-					GOTLog.logger.info("| "+ StatCollector.translateToLocal("entity.got." + GOTEntityRegistry.getEntityNameFromClass(entry.entityClass) + ".name") + "(Rider) || " + entry.initialCost + " || " + entry.alignmentRequired + (entry.pledgeType == PledgeType.NONE));
-					GOTLog.logger.info("|-");
+			if ("unitsTable".equals(display)) {
+				for (GOTUnitTradeEntry entry: entries.tradeEntries) {
+					if (entry.mountClass == null) {
+						GOTLog.logger.info("| [["+ GOTEntityRegistry.getEntityName(entry.entityClass) + "]] || {{Bar|coins|" + entry.initialCost*2 + "|size=22}} || +" + entry.alignmentRequired + " || " + (entry.pledgeType == PledgeType.NONE));
+						GOTLog.logger.info("|-");
+					} else {
+						GOTLog.logger.info("| [["+ GOTEntityRegistry.getEntityName(entry.entityClass) + "]] (rider) || {{Bar|coins|" + entry.initialCost*2 + "|size=22}} || +" + entry.alignmentRequired + " || " + (entry.pledgeType == PledgeType.NONE));
+						GOTLog.logger.info("|-");
+					}
+				}
+			}
+			if ("unitsPrice".equals(display)) {
+				for (GOTUnitTradeEntry entry: entries.tradeEntries) {
+					GOTLog.logger.info("| "+ GOTEntityRegistry.getEntityName(entry.entityClass) + " = {{Bar|coins|" + entry.initialCost*2 + "|size=22}}");
+				}
+			}
+			if ("unitsPricePledge".equals(display)) {
+				for (GOTUnitTradeEntry entry: entries.tradeEntries) {
+					GOTLog.logger.info("| "+ GOTEntityRegistry.getEntityName(entry.entityClass) + " = {{Bar|coins|" + entry.initialCost + "|size=22}}");
+				}
+			}
+			if ("unitsRep".equals(display)) {
+				for (GOTUnitTradeEntry entry: entries.tradeEntries) {
+					GOTLog.logger.info("| "+ GOTEntityRegistry.getEntityName(entry.entityClass) + " = +" + entry.alignmentRequired);
+				}
+			}
+			if ("unitsPledge".equals(display)) {
+				for (GOTUnitTradeEntry entry: entries.tradeEntries) {
+					GOTLog.logger.info("| "+ GOTEntityRegistry.getEntityName(entry.entityClass) + " = " + (entry.pledgeType == PledgeType.NONE));
 				}
 			}
 		}

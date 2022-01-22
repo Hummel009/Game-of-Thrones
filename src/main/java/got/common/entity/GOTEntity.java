@@ -115,7 +115,7 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityIronbornPriest.class, "IronbornPriest", id++, GOTFaction.IRONBORN);
 		GOTEntityRegistry.register(GOTEntityBarrowWight.class, "BarrowWight", id++, 2896659);
 		GOTEntityRegistry.register(GOTEntityStoneman.class, "StoneMan", id++, 0xBABABA);
-		GOTEntityRegistry.register(GOTEntityMercenary.class, "Mercenary", id++, GOTFaction.CROWNLANDS);
+		GOTEntityRegistry.register(GOTEntityMercenary.class, "Mercenary", id++, 0xBABABA);
 
 		GOTEntityRegistry.register(GOTEntityWhiteWalker.class, "WhiteWalker", id++, GOTFaction.WHITE_WALKER);
 		GOTEntityRegistry.register(GOTEntityWight.class, "Wicht", id++, GOTFaction.WHITE_WALKER);

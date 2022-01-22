@@ -20,7 +20,7 @@ public class GOTUnitTradeEntry {
 	public float alignmentRequired;
 	public PledgeType pledgeType = PledgeType.NONE;
 	public GOTHiredNPCInfo.Task task = GOTHiredNPCInfo.Task.WARRIOR;
-	public String extraInfo = null;
+	public String extraInfo;
 
 	public GOTUnitTradeEntry(Class c, Class c1, String s, int cost, float alignment) {
 		this(c, cost, alignment);

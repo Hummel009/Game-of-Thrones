@@ -1,5 +1,7 @@
 package got.common.entity.westeros.arryn;
 
+import got.GOT;
+import got.client.gui.GOTGuiHireBase;
 import got.common.GOTLevelData;
 import got.common.database.*;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
@@ -27,7 +29,11 @@ public class GOTEntityArrynCaptain extends GOTEntityArrynSoldier implements GOTU
 
 	@Override
 	public boolean canTradeWith(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 50.0f && isFriendly(entityplayer);
+		if (GOT.isDevMode) {
+			return true;
+		} else {
+			return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 50.0f && isFriendly(entityplayer);
+		}
 	}
 
 	@Override
@@ -53,7 +59,11 @@ public class GOTEntityArrynCaptain extends GOTEntityArrynSoldier implements GOTU
 
 	@Override
 	public GOTUnitTradeEntries getUnits() {
-		return GOTUnitTradeEntries.ARRYN;
+		if (GOT.isDevMode) {
+			return GOTGuiHireBase.ARRYN;
+		} else {
+			return GOTUnitTradeEntries.ARRYN;
+		}
 	}
 
 	@Override
