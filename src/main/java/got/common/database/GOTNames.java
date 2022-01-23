@@ -61,7 +61,7 @@ public class GOTNames {
 			String[] nameBank = GOTNames.getNameBank(nameBankName);
 			return nameBank[rand.nextInt(nameBank.length)];
 		}
-		return "Aboba";
+		return "Impostor";
 	}
 
 	public static String getSothoryosName(Random rand, boolean male) {

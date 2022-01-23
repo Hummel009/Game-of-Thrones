@@ -19,7 +19,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 public class GOTEntityGoldenMan extends GOTEntityHumanBase implements IPickpocketable {
 	public GOTEntityGoldenMan(World world) {
 		super(world);
-		canBeMarried = true;
+		canBeMarried = false;
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
@@ -35,8 +35,19 @@ public class GOTEntityGoldenMan extends GOTEntityHumanBase implements IPickpocke
 		tasks.addTask(7, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
-		addTargetTasks(false);
 		this.npcShield = GOTShields.GOLDENCOMPANY;
+		addTargetTasks(true);
+	}
+
+	@Override
+	public String getSpeechBank(EntityPlayer entityplayer) {
+		if (isFriendly(entityplayer)) {
+			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
+				return "standart/civilized/hired_soldier";
+			}
+			return "standart/civilized/usual_friendly";
+		}
+		return "standart/civilized/usual_hostile";
 	}
 
 	@Override
@@ -44,6 +55,26 @@ public class GOTEntityGoldenMan extends GOTEntityHumanBase implements IPickpocke
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 2.0f;
+	}
+
+	@Override
+	public String getNPCName() {
+		return familyInfo.getName();
+	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
+	}
+
+	@Override
+	public void setupNPCName() {
+		familyInfo.setName(GOTNames.getEssosName(rand, familyInfo.isMale()));
 	}
 
 	public EntityAIBase createGoldAttackAI() {
@@ -71,11 +102,6 @@ public class GOTEntityGoldenMan extends GOTEntityHumanBase implements IPickpocke
 			dropItem(Items.bone, 1);
 		}
 		dropEssosItems(flag, i);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 1.0f;
 	}
 
 	@Override
@@ -110,32 +136,11 @@ public class GOTEntityGoldenMan extends GOTEntityHumanBase implements IPickpocke
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "standart/civilized/usual_friendly";
-		}
-		return "standart/civilized/usual_hostile";
-	}
-
-	@Override
-	public int getTotalArmorValue() {
-		return 15;
-	}
-
-	@Override
 	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
 		if (mode == GOTEntityNPC.AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
 		}
-	}
-
-	@Override
-	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.essosDagger));
-		npcItemsInv.setIdleItem(null);
-		return data;
 	}
 }

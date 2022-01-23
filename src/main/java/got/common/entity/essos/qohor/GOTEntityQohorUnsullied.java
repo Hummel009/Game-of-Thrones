@@ -28,11 +28,6 @@ public class GOTEntityQohorUnsullied extends GOTEntityQohorLevyman {
 	}
 
 	@Override
-	public int getTotalArmorValue() {
-		return 15;
-	}
-
-	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.essosPike));
