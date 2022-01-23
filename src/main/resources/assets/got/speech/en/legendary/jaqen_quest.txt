@@ -1,12 +1,12 @@
 ﻿!RANDOM
-Вы хотите отправиться в приключение, #? В нашим мире много приключений, он широк и полон различных опасностей ... поэтому позвольте человеку сначала дать Вам несколько советов!
-Отлично! У человека есть несколько подарков для Вас.
-Эту книгу Вы найдете особенно полезной. Откройте её и загляните внутрь!
-Алая книга - это журнал ваших заданий. Любой народ может дать Вам большие и маленькие задания. И, конечно же, они вознаградят Вас за помощь!
-Теперь Вы должны научиться пользоваться картой. Ведь это действительно большой мир, и любой порядочный искатель приключений должен знать, как пользоваться картой.
-Король Роберт мёртв. На Железном троне сидит Джоффри, права на трон предъявили братья короля Станнис и Ренли, а Север и Железные острова вот-вот провозгласят независимость. А за морем собирает войско Дейенерис Таргариен. Тебе выбирать. В зависимости от твоих поступков, они будут считать тебя другом или врагом.
-Шкала репутации показывает отношение народов к Вам. Вы должны ознакомиться с ней, #.
-Что же дальше? Ах, да. Меню фракций может рассказать вам больше обо всех народах... их друзьях, врагах и сферах влияния.
-Конечно, в нашем мире есть чем заняться. Ланнистеры, Таргариены, Баратеоны, Старки, Тиреллы - все они лишь спицы в колесе. То одни наверху, то другие, а колесо катится и давит тех, кто на земле.
-Хм... Ох, человек чуть не забыл! Возьмите с собой эти старые кинжалы. Я думаю, Вам они понадобятся больше, чем мне.
-Человек надеется, что всё рассказал Вам, а сейчас я должен идти. Хорошего дня Вам, #!
+Do you want to go on an adventure, #? Our world is full of adventure, it's wide and full of various dangers ... so let the man give you some advice first!
+Great! The man has some gifts for you.
+You will find this book particularly useful. Open it and look inside!
+The scarlet book is a journal of your tasks. Any nation can give you large and small tasks. And, of course, they will reward you for your help!
+Now you must learn how to use the map. After all, it really is a big world, and any decent adventurer should know how to use a map.
+King Robert is dead. Joffrey sits on the Iron Throne, the king's brothers Stannis and Renly have laid claim to the throne, and the North and Iron Islands are about to declare independence. And across the sea Daenerys Targaryen is gathering an army. It's your choice. Depending on your actions, they will consider you friend or foe.
+The reputation scale shows the peoples' attitude towards you. You should familiarize yourself with it.
+What's next? Ah, yes. The factions menu can tell you more about all the peoples... their friends, enemies and spheres of influence.
+Of course, there's plenty to do in our world. The Lannisters, Targaryens, Baratheons, Starks, Tyrells are all just spokes in a wheel. One at the top, one at the bottom, and the wheel rolls and crushes those on the ground.
+Hmm... Oh, the man almost forgot! Take these old daggers with you. I think you'll need them more than I do.
+The man hopes he's told you everything, but now I must go. Have a good day, #!
