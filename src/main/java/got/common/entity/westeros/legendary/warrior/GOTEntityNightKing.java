@@ -19,6 +19,7 @@ public class GOTEntityNightKing extends GOTEntityHumanBase {
 		super(world);
 		canBeMarried = false;
 		setSize(0.6f * 1.1f, 1.8f * 1.1f);
+		setIsLegendaryNPC();
 		addTargetTasks();
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));

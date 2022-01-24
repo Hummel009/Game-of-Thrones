@@ -18,6 +18,7 @@ public class GOTEntityRegistry {
 	public static Map<Class<? extends Entity>, String> classToNameMapping = new HashMap<>();
 	public static Map<Integer, String> IDToStringMapping = new HashMap<>();
 	public static Map<Class<? extends Entity>, Integer> classToIDMapping = new HashMap<>();
+	public static Map<Class<? extends Entity>, GOTFaction> classToFactionMapping = new HashMap<>();
 
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 
@@ -91,6 +92,7 @@ public class GOTEntityRegistry {
 	public static void register(Class<? extends Entity> entityClass, String name, int id, GOTFaction faction) {
 		register(entityClass, name, id, 80, 3, true);
 		spawnEggs.put(id, new SpawnEggInfo(id, faction.eggColor, faction.eggColor));
+		classToFactionMapping.put(entityClass, faction);
 	}
 
 	public static void register(Class<? extends Entity> entityClass, String name, int id, int color) {

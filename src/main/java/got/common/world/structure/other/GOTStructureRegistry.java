@@ -6,7 +6,7 @@ import cpw.mods.fml.common.FMLLog;
 import got.common.faction.GOTFaction;
 import got.common.world.structure.GOTStructure;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.MathHelper;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -15,6 +15,7 @@ public class GOTStructureRegistry {
 	public static HashMap<Integer, String> idToStringMapping = new HashMap();
 	public static HashMap<Integer, StructureColorInfo> structureItemSpawners = new LinkedHashMap<>();
 	public static HashMap<Class<? extends WorldGenerator>, String> classToNameMapping = new HashMap();
+	public static HashMap<Class<? extends WorldGenerator>, GOTFaction> classToFactionMapping = new HashMap();
 
 	public static String getNameFromID(int ID) {
 		return idToStringMapping.get(ID);
@@ -39,6 +40,7 @@ public class GOTStructureRegistry {
 	public static void register(int id, Class<? extends WorldGenerator> strClass, String name, GOTFaction faction) {
 		GOTStructureRegistry.registerStructure(id, strClass, name, faction.eggColor, faction.eggColor, false);
 		classToNameMapping.put(strClass, name);
+		classToFactionMapping.put(strClass, faction);
 	}
 
 	public static void register(int id, Class<? extends WorldGenerator> strClass, String name, int color) {
@@ -64,6 +66,10 @@ public class GOTStructureRegistry {
 			}
 		};
 		GOTStructureRegistry.registerStructure(id, strProvider, name, faction.eggColor, faction.eggColor, false);
+	}
+
+	public static String getStructureName(Class<? extends WorldGenerator> entityClass) {
+		return StatCollector.translateToLocal("got.structure." + GOTStructureRegistry.getStructureNameFromClass(entityClass) + ".name");
 	}
 
 	public static void registerStructure(int id, Class<? extends WorldGenerator> strClass, String name, int colorBG, int colorFG, boolean hide) {

@@ -223,8 +223,9 @@ public class GOT {
 		}
 		int waypoints = GOTWaypoint.values().length;
 		int factions = GOTFaction.values().length - 2;
+		int banners = GOTItemBanner.BannerType.values().length;
 		GOTLog.logger.info("Hummel009: Registered " + GOTPacketHandler.id + " packets");
-		GOTLog.logger.info("Hummel009: Registered " + GOTItemBanner.id + " banners");
+		GOTLog.logger.info("Hummel009: Registered " + banners + " banners");
 		GOTLog.logger.info("Hummel009: Registered " + GOTEntity.id + " mobs");
 		GOTLog.logger.info("Hummel009: Registered " + GOTStructure.id + " structures");
 		GOTLog.logger.info("Hummel009: Registered " + biomes + " biomes");

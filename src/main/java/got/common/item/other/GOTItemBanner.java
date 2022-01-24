@@ -20,7 +20,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class GOTItemBanner extends Item {
-	public static int id = 0;
 	@SideOnly(value = Side.CLIENT)
 	public IIcon iconBase;
 	@SideOnly(value = Side.CLIENT)

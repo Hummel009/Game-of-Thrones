@@ -1,4 +1,5 @@
 ﻿
+got.faction.HOSTILE.name=Враждебная
 got.miniquest.pickpocket.progress=%d из %d украдено
 got.tree.acacia.name=Акация
 got.tree.almond.name=Миндаль
@@ -2598,7 +2599,7 @@ got.faction.STORMLANDS.rank.warrior.f=Воин Штормовых земель
 got.faction.STORMLANDS.rank.warrior=Воин
 got.faction.STORMLANDS.subtitle=Суровые территории на востоке Вестероса
 got.faction.SUMMER_ISLANDS.entity=Люди Летних островов
-got.faction.SUMMER_ISLANDS.name=Наат и Летние острова
+got.faction.SUMMER_ISLANDS.name=Летние острова
 got.faction.SUMMER_ISLANDS.rank.commander.f=Адмирал Летних островов
 got.faction.SUMMER_ISLANDS.rank.commander=Адмирал
 got.faction.SUMMER_ISLANDS.rank.friend.f=Друг Летних островов

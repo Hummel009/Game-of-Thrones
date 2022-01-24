@@ -9,8 +9,7 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
-import got.common.world.spawning.*;
-import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
+import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.structure.essos.jogos.GOTStructureJogosVillage;
 import net.minecraft.world.biome.BiomeGenBase;
 
