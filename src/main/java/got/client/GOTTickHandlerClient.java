@@ -773,8 +773,8 @@ public class GOTTickHandlerClient {
 				if (GOTConfig.meleeAttackMeter) {
 					GOTAttackTiming.renderAttackMeter(event.resolution, partialTicks);
 				}
-                if (entityplayer.ridingEntity instanceof GOTEntitySpiderBase && (spider = (GOTEntitySpiderBase)entityplayer.ridingEntity).shouldRenderClimbingMeter()) {
-                    mc.getTextureManager().bindTexture(Gui.icons);
+				if (entityplayer.ridingEntity instanceof GOTEntitySpiderBase && (spider = (GOTEntitySpiderBase) entityplayer.ridingEntity).shouldRenderClimbingMeter()) {
+					mc.getTextureManager().bindTexture(Gui.icons);
 					GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 					GL11.glDisable(3042);
 					mc.mcProfiler.startSection("spiderClimb");

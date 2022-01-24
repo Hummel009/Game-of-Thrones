@@ -52,15 +52,15 @@ public class GOTEntityYiTiMan extends GOTEntityHumanBase implements IPickpocketa
 		return GOTMiniQuestFactory.ESSOS.createQuest(this);
 	}
 
-	public EntityAIBase createYiTiAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
-	}
-
 	@Override
 	public GOTNPCMount createMountToRide() {
 		GOTEntityHorse horse = (GOTEntityHorse) super.createMountToRide();
 		horse.setMountArmor(new ItemStack(GOTRegistry.dothrakiHorseArmor));
 		return horse;
+	}
+
+	public EntityAIBase createYiTiAttackAI() {
+		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
 	}
 
 	@Override

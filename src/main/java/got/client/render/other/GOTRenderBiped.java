@@ -219,7 +219,7 @@ public abstract class GOTRenderBiped extends RenderBiped {
 
 	public void renderNPCCape(GOTEntityNPC entity) {
 		GOTCapes cape = entity.npcCape;
-		if (((cape != null) && ((entity.npcShield == null) || !GOTRenderShield.renderOnBack))) {
+		if (cape != null) {
 			GOTRenderCape.renderCape(cape, entity, capeModel);
 		}
 	}

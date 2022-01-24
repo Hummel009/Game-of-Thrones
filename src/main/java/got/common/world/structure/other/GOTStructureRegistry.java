@@ -29,12 +29,16 @@ public class GOTStructureRegistry {
 		return idToClassMapping.get(ID);
 	}
 
-	public static void onInit() {
-		GOTStructure.onInit();
+	public static String getStructureName(Class<? extends WorldGenerator> entityClass) {
+		return StatCollector.translateToLocal("got.structure." + GOTStructureRegistry.getStructureNameFromClass(entityClass) + ".name");
 	}
 
 	public static String getStructureNameFromClass(Class entityClass) {
 		return classToNameMapping.get(entityClass);
+	}
+
+	public static void onInit() {
+		GOTStructure.onInit();
 	}
 
 	public static void register(int id, Class<? extends WorldGenerator> strClass, String name, GOTFaction faction) {
@@ -66,10 +70,6 @@ public class GOTStructureRegistry {
 			}
 		};
 		GOTStructureRegistry.registerStructure(id, strProvider, name, faction.eggColor, faction.eggColor, false);
-	}
-
-	public static String getStructureName(Class<? extends WorldGenerator> entityClass) {
-		return StatCollector.translateToLocal("got.structure." + GOTStructureRegistry.getStructureNameFromClass(entityClass) + ".name");
 	}
 
 	public static void registerStructure(int id, Class<? extends WorldGenerator> strClass, String name, int colorBG, int colorFG, boolean hide) {

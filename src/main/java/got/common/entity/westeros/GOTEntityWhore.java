@@ -36,6 +36,11 @@ public class GOTEntityWhore extends GOTEntityHumanBase {
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 	}
 
+	@Override
+	public boolean canRenameNPC() {
+		return true;
+	}
+
 	public EntityAIBase createWhoreAttackAI() {
 		return new EntityAIPanic(this, 1.4);
 	}
@@ -61,11 +66,6 @@ public class GOTEntityWhore extends GOTEntityHumanBase {
 			return "standart/special/whore_friendly";
 		}
 		return "standart/special/whore_hostile";
-	}
-
-	@Override
-	public boolean canRenameNPC() {
-		return true;
 	}
 
 	@Override

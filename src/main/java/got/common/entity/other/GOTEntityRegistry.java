@@ -37,10 +37,6 @@ public class GOTEntityRegistry {
 		return entity;
 	}
 
-	public static String getEntityName(Class<? extends Entity> entityClass) {
-		return StatCollector.translateToLocal("entity.got." + GOTEntityRegistry.getEntityNameFromClass(entityClass) + ".name");
-	}
-
 	public static Set<String> getAllEntityNames() {
 		return Collections.unmodifiableSet(stringToIDMapping.keySet());
 	}
@@ -55,6 +51,10 @@ public class GOTEntityRegistry {
 
 	public static int getEntityIDFromClass(Class entityClass) {
 		return classToIDMapping.get(entityClass);
+	}
+
+	public static String getEntityName(Class<? extends Entity> entityClass) {
+		return StatCollector.translateToLocal("entity.got." + GOTEntityRegistry.getEntityNameFromClass(entityClass) + ".name");
 	}
 
 	public static String getEntityNameFromClass(Class entityClass) {
@@ -84,11 +84,6 @@ public class GOTEntityRegistry {
 		register(entityClass, name, id, 80, 3, true);
 	}
 
-	public static void registerLegendaryNPC(Class<? extends Entity> entityClass, String name, int id, GOTFaction faction) {
-		register(entityClass, name, id, 80, 3, true);
-		spawnEggs.put(id, new SpawnEggInfo(id, 9605778, faction.eggColor));
-	}
-
 	public static void register(Class<? extends Entity> entityClass, String name, int id, GOTFaction faction) {
 		register(entityClass, name, id, 80, 3, true);
 		spawnEggs.put(id, new SpawnEggInfo(id, faction.eggColor, faction.eggColor));
@@ -107,6 +102,11 @@ public class GOTEntityRegistry {
 		IDToStringMapping.put(id, fullName);
 		classToIDMapping.put(entityClass, id);
 		classToNameMapping.put(entityClass, name);
+	}
+
+	public static void registerLegendaryNPC(Class<? extends Entity> entityClass, String name, int id, GOTFaction faction) {
+		register(entityClass, name, id, 80, 3, true);
+		spawnEggs.put(id, new SpawnEggInfo(id, 9605778, faction.eggColor));
 	}
 
 	public static class SpawnEggInfo {

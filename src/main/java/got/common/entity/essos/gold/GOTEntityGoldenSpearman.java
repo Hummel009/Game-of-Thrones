@@ -9,7 +9,7 @@ public class GOTEntityGoldenSpearman extends GOTEntityGoldenWarrior {
 	public GOTEntityGoldenSpearman(World world) {
 		super(world);
 	}
-	
+
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		super.onSpawnWithEgg(data);

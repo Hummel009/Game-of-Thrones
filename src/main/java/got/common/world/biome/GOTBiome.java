@@ -196,6 +196,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 	public static int SPAWN = 600;
 	public static int CONQUEST_SPAWN = 100;
+	public static int[] NON_USED = { 2, 4, 12, 13, 16, 20, 26, 29, 32, 46, 52, 64, 66, 68, 74, 77, 83, 90, 93, 96, 98, 103, 110, 117, 134, 141, 149, 153 };
 	public GOTDimension biomeDimension;
 	public GOTBiomeDecorator decorator;
 	public int topBlockMeta = 0;
@@ -225,7 +226,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public boolean isNeverWinterAZ;
 	public boolean isSeasonalWinterAZ;
 	public String type;
-	public static int[] NON_USED = {2, 4, 12, 13, 16, 20, 26, 29, 32, 46, 52, 64, 66, 68, 74, 77, 83, 90, 93, 96, 98, 103, 110, 117, 134, 141, 149, 153};
 
 	public GOTBiome(int i, boolean major) {
 		this(i, major, GOTDimension.GAME_OF_THRONES);
@@ -308,10 +308,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		biomeVariantsLarge.clear();
 		biomeVariantsSmall.clear();
 	}
-	
-	public String getName() {
-		return StatCollector.translateToLocal("got.biome." + biomeName);
-	}
+
 	@Override
 	public BiomeGenBase createMutation() {
 		return this;
@@ -575,6 +572,10 @@ public abstract class GOTBiome extends BiomeGenBase {
 			fog.zCoord *= colors[2];
 		}
 		return fog;
+	}
+
+	public String getName() {
+		return StatCollector.translateToLocal("got.biome." + biomeName);
 	}
 
 	public GOTBiomeSpawnList getNPCSpawnList() {
@@ -1133,8 +1134,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 		yiTiWasteland = new GOTBiomeYiTiWasteland(163, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xBEB74F).setBiomeName("yiTi");
 		yunkai = new GOTBiomeYunkai(164, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xA3AA48).setBiomeName("yunkai");
 		ibbenMountains = new GOTBiomeIbbenMountains(165, true).setIsLongWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0x808081).setBiomeName("ibbenMountains");
-		for (int i = 0; i < NON_USED.length; ++i) {
-			int j = NON_USED[i];
+		for (int element : NON_USED) {
+			int j = element;
 			GOTDimension.GAME_OF_THRONES.biomeList[j] = GOTBiome.ocean;
 		}
 	}

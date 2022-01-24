@@ -22,17 +22,17 @@ public enum GOTShields {
 		this(ShieldType.ACHIEVABLE, false, new String[0]);
 	}
 
+	GOTShields(boolean hidden, GOTFaction faction) {
+		this(ShieldType.ALIGNMENT, hidden, new String[0]);
+		alignmentFaction = faction;
+	}
+
 	GOTShields(boolean hidden, String... players) {
 		this(ShieldType.EXCLUSIVE, hidden, players);
 	}
 
 	GOTShields(GOTFaction faction) {
 		this(ShieldType.ALIGNMENT, false, new String[0]);
-		alignmentFaction = faction;
-	}
-
-	GOTShields(boolean hidden, GOTFaction faction) {
-		this(ShieldType.ALIGNMENT, hidden, new String[0]);
 		alignmentFaction = faction;
 	}
 

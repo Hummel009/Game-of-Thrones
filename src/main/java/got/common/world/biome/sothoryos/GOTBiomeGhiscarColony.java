@@ -29,11 +29,6 @@ public class GOTBiomeGhiscarColony extends GOTBiomeSothoryosJungle {
 	}
 
 	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_DIRTY;
-	}
-
-	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.VISIT_GHISCAR_COLONY;
 	}
@@ -41,5 +36,10 @@ public class GOTBiomeGhiscarColony extends GOTBiomeSothoryosJungle {
 	@Override
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.SOTHORYOS.getSubregion("ghiscarColony");
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_DIRTY;
 	}
 }

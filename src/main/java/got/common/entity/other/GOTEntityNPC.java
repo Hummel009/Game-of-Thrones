@@ -1239,7 +1239,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public boolean shouldRenderNPCChest() {
-		if (this instanceof GOTEntityWhore && this.hasCustomNameTag() && "Ayase".equalsIgnoreCase(this.getCustomNameTag())) {
+		if (this instanceof GOTEntityWhore && hasCustomNameTag() && "Ayase".equalsIgnoreCase(getCustomNameTag())) {
 			return false;
 		}
 		return !familyInfo.isMale() && !isChild() && getEquipmentInSlot(3) == null;

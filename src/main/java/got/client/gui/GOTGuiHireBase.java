@@ -110,64 +110,64 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 		int reqGap = 18;
 		GL11.glEnable(2896);
 		GL11.glEnable(2884);
-			itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.getTextureManager(), new ItemStack(GOTRegistry.coin), reqX, reqY);
-			GL11.glDisable(2896);
-			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-			int cost = curTrade.getCost(mc.thePlayer, theUnitTrader);
-			fontRendererObj.drawString(String.valueOf(cost), reqXText, reqY + reqYTextBelow, 4210752);
+		itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.getTextureManager(), new ItemStack(GOTRegistry.coin), reqX, reqY);
+		GL11.glDisable(2896);
+		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+		int cost = curTrade.getCost(mc.thePlayer, theUnitTrader);
+		fontRendererObj.drawString(String.valueOf(cost), reqXText, reqY + reqYTextBelow, 4210752);
+		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+		mc.getTextureManager().bindTexture(GOTClientProxy.alignmentTexture);
+		drawTexturedModalRect(reqX, reqY += reqGap, 0, 36, 16, 16);
+		float alignment = curTrade.alignmentRequired;
+		String alignS = GOTAlignmentValues.formatAlignForDisplay(alignment);
+		fontRendererObj.drawString(alignS, reqXText, reqY + reqYTextBelow, 4210752);
+		if (curTrade.getPledgeType() != GOTUnitTradeEntry.PledgeType.NONE) {
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			mc.getTextureManager().bindTexture(GOTClientProxy.alignmentTexture);
-			drawTexturedModalRect(reqX, reqY += reqGap, 0, 36, 16, 16);
-			float alignment = curTrade.alignmentRequired;
-			String alignS = GOTAlignmentValues.formatAlignForDisplay(alignment);
-			fontRendererObj.drawString(alignS, reqXText, reqY + reqYTextBelow, 4210752);
-			if (curTrade.getPledgeType() != GOTUnitTradeEntry.PledgeType.NONE) {
+			drawTexturedModalRect(reqX, reqY += reqGap, 0, 212, 16, 16);
+			String pledge = StatCollector.translateToLocal("got.container.unitTrade.pledge");
+			fontRendererObj.drawString(pledge, reqXText, reqY + reqYTextBelow, 4210752);
+			int i2 = i - guiLeft - reqX;
+			int j2 = j - guiTop - reqY;
+			if (i2 >= 0 && i2 < 16 && j2 >= 0 && j2 < 16) {
+				String pledgeDesc = curTrade.getPledgeType().getCommandReqText(traderFaction);
+				drawCreativeTabHoveringText(pledgeDesc, i - guiLeft, j - guiTop);
+				GL11.glDisable(2896);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-				mc.getTextureManager().bindTexture(GOTClientProxy.alignmentTexture);
-				drawTexturedModalRect(reqX, reqY += reqGap, 0, 212, 16, 16);
-				String pledge = StatCollector.translateToLocal("got.container.unitTrade.pledge");
-				fontRendererObj.drawString(pledge, reqXText, reqY + reqYTextBelow, 4210752);
-				int i2 = i - guiLeft - reqX;
-				int j2 = j - guiTop - reqY;
-				if (i2 >= 0 && i2 < 16 && j2 >= 0 && j2 < 16) {
-					String pledgeDesc = curTrade.getPledgeType().getCommandReqText(traderFaction);
-					drawCreativeTabHoveringText(pledgeDesc, i - guiLeft, j - guiTop);
-					GL11.glDisable(2896);
-					GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-				}
 			}
-			if (((GOTContainerUnitTrade) inventorySlots).alignmentRewardSlots > 0) {
-				Slot slot = inventorySlots.getSlot(0);
-				boolean hasRewardCost = slot.getHasStack();
-				if (hasRewardCost) {
-					GL11.glEnable(2896);
-					GL11.glEnable(2884);
-					itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.getTextureManager(), new ItemStack(GOTRegistry.coin), 160, 100);
-					GL11.glDisable(2896);
-					GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-					cost = GOTSlotAlignmentReward.REWARD_COST;
-					fontRendererObj.drawString(String.valueOf(cost), 179, 104, 4210752);
-				} else if (!slot.getHasStack() && GOTLevelData.getData(mc.thePlayer).getAlignment(traderFaction) < 1500.0f && func_146978_c(slot.xDisplayPosition, slot.yDisplayPosition, 16, 16, i, j)) {
-					drawCreativeTabHoveringText(StatCollector.translateToLocalFormatted("got.container.unitTrade.requiresAlignment", Float.valueOf(1500.0f)), i - guiLeft, j - guiTop);
-					GL11.glDisable(2896);
-					GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-				}
-			}
-			if (curTrade.hasExtraInfo()) {
-				String extraInfo = curTrade.getFormattedExtraInfo();
-				boolean mouseover = i >= guiLeft + 49 && i < guiLeft + 49 + 9 && j >= guiTop + 106 && j < guiTop + 106 + 7;
+		}
+		if (((GOTContainerUnitTrade) inventorySlots).alignmentRewardSlots > 0) {
+			Slot slot = inventorySlots.getSlot(0);
+			boolean hasRewardCost = slot.getHasStack();
+			if (hasRewardCost) {
+				GL11.glEnable(2896);
+				GL11.glEnable(2884);
+				itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.getTextureManager(), new ItemStack(GOTRegistry.coin), 160, 100);
+				GL11.glDisable(2896);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-				mc.getTextureManager().bindTexture(guiTexture);
-				drawTexturedModalRect(49, 106, 220, 38 + (mouseover ? 1 : 0) * 7, 9, 7);
-				if (mouseover) {
-					float z = zLevel;
-					int stringWidth = 200;
-					List desc = fontRendererObj.listFormattedStringToWidth(extraInfo, stringWidth);
-					func_146283_a(desc, i - guiLeft, j - guiTop);
-					GL11.glDisable(2896);
-					GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-					zLevel = z;
-				}
+				cost = GOTSlotAlignmentReward.REWARD_COST;
+				fontRendererObj.drawString(String.valueOf(cost), 179, 104, 4210752);
+			} else if (!slot.getHasStack() && GOTLevelData.getData(mc.thePlayer).getAlignment(traderFaction) < 1500.0f && func_146978_c(slot.xDisplayPosition, slot.yDisplayPosition, 16, 16, i, j)) {
+				drawCreativeTabHoveringText(StatCollector.translateToLocalFormatted("got.container.unitTrade.requiresAlignment", Float.valueOf(1500.0f)), i - guiLeft, j - guiTop);
+				GL11.glDisable(2896);
+				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+			}
+		}
+		if (curTrade.hasExtraInfo()) {
+			String extraInfo = curTrade.getFormattedExtraInfo();
+			boolean mouseover = i >= guiLeft + 49 && i < guiLeft + 49 + 9 && j >= guiTop + 106 && j < guiTop + 106 + 7;
+			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+			mc.getTextureManager().bindTexture(guiTexture);
+			drawTexturedModalRect(49, 106, 220, 38 + (mouseover ? 1 : 0) * 7, 9, 7);
+			if (mouseover) {
+				float z = zLevel;
+				int stringWidth = 200;
+				List desc = fontRendererObj.listFormattedStringToWidth(extraInfo, stringWidth);
+				func_146283_a(desc, i - guiLeft, j - guiTop);
+				GL11.glDisable(2896);
+				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+				zLevel = z;
+			}
 		}
 	}
 

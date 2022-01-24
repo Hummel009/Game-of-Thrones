@@ -513,7 +513,7 @@ public class GOTRecipe {
 		pentos.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.banner, 1, GOTItemBanner.BannerType.PENTOS.bannerID), "X", "Y", "Z", Character.valueOf('X'), Blocks.wool, Character.valueOf('Y'), "stickWood", Character.valueOf('Z'), "plankWood"));
 		pentos.addAll(commonEssos);
 	}
-	
+
 	public static void createQarthRecipes() {
 		qarth.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.tableQarth), "XX", "YY", Character.valueOf('X'), "plankWood", Character.valueOf('Y'), new ItemStack(Blocks.sandstone, 1, 0)));
 		qarth.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.qarthHelmet), "XXX", "X X", Character.valueOf('X'), "ingotIron"));
@@ -1503,8 +1503,8 @@ public class GOTRecipe {
 		unsmelt.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.westkingLeggings), "XXX", "X X", "X X", Character.valueOf('X'), GOTRegistry.alloySteelIgnot));
 		unsmelt.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.westkingBoots), "X X", "X X", Character.valueOf('X'), GOTRegistry.alloySteelIgnot));
 		unsmelt.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.blackfyreHelmet), "XXX", "X X", Character.valueOf('X'), GOTRegistry.alloySteelIgnot));
-		unsmelt.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.blackfyreChestplate), "X X", "XXX", "XXX", Character.valueOf('X'),GOTRegistry.alloySteelIgnot));
-		unsmelt.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.blackfyreLeggings), "XXX", "X X", "X X", Character.valueOf('X'),GOTRegistry.alloySteelIgnot));
+		unsmelt.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.blackfyreChestplate), "X X", "XXX", "XXX", Character.valueOf('X'), GOTRegistry.alloySteelIgnot));
+		unsmelt.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.blackfyreLeggings), "XXX", "X X", "X X", Character.valueOf('X'), GOTRegistry.alloySteelIgnot));
 		unsmelt.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.blackfyreBoots), "X X", "X X", Character.valueOf('X'), GOTRegistry.alloySteelIgnot));
 		unsmelt.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.royceHelmet), "XXX", "X X", Character.valueOf('X'), GOTRegistry.bronzeIngot));
 		unsmelt.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.royceChestplate), "X X", "XXX", "XXX", Character.valueOf('X'), GOTRegistry.bronzeIngot));

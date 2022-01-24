@@ -89,17 +89,8 @@ public class GOTUnitTradeEntries {
 	public static GOTUnitTradeEntries NORTH_HILLMEN = new GOTUnitTradeEntries(50.0f, new GOTUnitTradeEntry(GOTEntityNorthHillmanWarrior.class, SOLDIER, SOLDIER_F), new GOTUnitTradeEntry(GOTEntityNorthHillmanArcher.class, SOLDIERA, SOLDIERA_F), new GOTUnitTradeEntry(GOTEntityNorthHillmanAxeThrower.class, SOLDIERA, SOLDIERA_F), new GOTUnitTradeEntry(GOTEntityNorthHillmanBannerBearer.class, SOLDIER, SOLDIER_F), new GOTUnitTradeEntry(GOTEntityNorthHillmanWarrior.class, GOTEntityWoolyRhino.class, "Rider", SOLDIERH + 30, SOLDIERH_F + 30.0f).setPledgeExclusive());
 	public static GOTUnitTradeEntries GIFT = new GOTUnitTradeEntries(50.0f, new GOTUnitTradeEntry(GOTEntityGiftGuard.class, SOLDIER, SOLDIER_F).setPledgeExclusive(), new GOTUnitTradeEntry(GOTEntityGiftBannerBearer.class, SOLDIER, SOLDIER_F).setPledgeExclusive());
 	public static GOTUnitTradeEntries GOLD = new GOTUnitTradeEntries(0.0f, new GOTUnitTradeEntry(GOTEntityGoldenWarrior.class, SOLDIER, 0.0f), new GOTUnitTradeEntry(GOTEntityGoldenSpearman.class, SOLDIER, 0.0f), new GOTUnitTradeEntry(GOTEntityGoldenBannerBearer.class, SOLDIER, 0.0f));
-	public static GOTUnitTradeEntries IBBEN = new GOTUnitTradeEntries(50.0f, 
-				new GOTUnitTradeEntry(GOTEntityIbbenWarrior.class, SOLDIER, SOLDIER_F), 
-				new GOTUnitTradeEntry(GOTEntityIbbenArcher.class, SOLDIERA, SOLDIERA_F), 
-				new GOTUnitTradeEntry(GOTEntityIbbenAxeThrower.class, SOLDIERA, SOLDIERA_F));
-	public static GOTUnitTradeEntries JOGOS = new GOTUnitTradeEntries(50.0f, 
-				new GOTUnitTradeEntry(GOTEntityJogos.class, SOLDIER, SOLDIER_F), 
-				new GOTUnitTradeEntry(GOTEntityJogosArcher.class, SOLDIERA, SOLDIERA_F), 
-				new GOTUnitTradeEntry(GOTEntityJogosBannerBearer.class, SOLDIER, SOLDIER_F), 
-				new GOTUnitTradeEntry(GOTEntityJogos.class, GOTEntityZebra.class, "Rider", SOLDIERH, SOLDIERH_F), 
-				new GOTUnitTradeEntry(GOTEntityJogosArcher.class, GOTEntityZebra.class, "Rider", SOLDIERHA, SOLDIERHA_F),
-				new GOTUnitTradeEntry(GOTEntityJogosBannerBearer.class, GOTEntityZebra.class, "Rider", SOLDIERH, SOLDIERH_F));
+	public static GOTUnitTradeEntries IBBEN = new GOTUnitTradeEntries(50.0f, new GOTUnitTradeEntry(GOTEntityIbbenWarrior.class, SOLDIER, SOLDIER_F), new GOTUnitTradeEntry(GOTEntityIbbenArcher.class, SOLDIERA, SOLDIERA_F), new GOTUnitTradeEntry(GOTEntityIbbenAxeThrower.class, SOLDIERA, SOLDIERA_F));
+	public static GOTUnitTradeEntries JOGOS = new GOTUnitTradeEntries(50.0f, new GOTUnitTradeEntry(GOTEntityJogos.class, SOLDIER, SOLDIER_F), new GOTUnitTradeEntry(GOTEntityJogosArcher.class, SOLDIERA, SOLDIERA_F), new GOTUnitTradeEntry(GOTEntityJogosBannerBearer.class, SOLDIER, SOLDIER_F), new GOTUnitTradeEntry(GOTEntityJogos.class, GOTEntityZebra.class, "Rider", SOLDIERH, SOLDIERH_F), new GOTUnitTradeEntry(GOTEntityJogosArcher.class, GOTEntityZebra.class, "Rider", SOLDIERHA, SOLDIERHA_F), new GOTUnitTradeEntry(GOTEntityJogosBannerBearer.class, GOTEntityZebra.class, "Rider", SOLDIERH, SOLDIERH_F));
 	public static GOTUnitTradeEntries HILLMEN = new GOTUnitTradeEntries(50.0f, new GOTUnitTradeEntry(GOTEntityHillmanWarrior.class, SOLDIER, SOLDIER_F), new GOTUnitTradeEntry(GOTEntityHillmanArcher.class, SOLDIERA, SOLDIERA_F), new GOTUnitTradeEntry(GOTEntityHillmanAxeThrower.class, SOLDIERA, SOLDIERA_F), new GOTUnitTradeEntry(GOTEntityHillmanBannerBearer.class, SOLDIER, SOLDIER_F), new GOTUnitTradeEntry(GOTEntityHillmanBerserker.class, SOLDIER + 30, SOLDIER_F + 30.0f).setPledgeExclusive());
 	public static GOTUnitTradeEntries DOTHRAKI = new GOTUnitTradeEntries(50.0f, new GOTUnitTradeEntry(GOTEntityDothraki.class, GOTEntityHorse.class, "Rider", LEVYMAN, LEVYMAN_F), new GOTUnitTradeEntry(GOTEntityDothrakiArcher.class, GOTEntityHorse.class, "Rider", LEVYMANA, LEVYMANA_F));
 

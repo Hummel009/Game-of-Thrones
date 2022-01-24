@@ -850,7 +850,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		entities.put(GOTEntityHarryStrickland.class, new GOTEntityHarryStrickland(world));
 		entities.put(GOTEntityThreeEyedRaven.class, new GOTEntityThreeEyedRaven(world));
 		entities.put(GOTEntityVargoHoat.class, new GOTEntityVargoHoat(world));
-		String display = "waypointBiome";
+		String display = "null";
 		for (Class mob : entities.keySet()) {
 			if ("typeTradeable".equals(display) && entities.get(mob) instanceof GOTTradeable && !((GOTEntityNPC) entities.get(mob)).isLegendaryNPC()) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob));
@@ -908,7 +908,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 	}
 
 	public static void generateWikiaDatabases() throws NoSuchFieldException, IllegalAccessException {
-		String display = "capes";
+		String display = "null";
 		if ("factionStructures".equals(display)) {
 			for (GOTFaction fac : GOTFaction.values()) {
 				GOTLog.logger.info("| " + fac.factionName() + " =");
@@ -921,13 +921,13 @@ public class DatabaseGenerator extends GOTStructureBase {
 		}
 		if ("capes".equals(display)) {
 			for (GOTCapes cape : GOTCapes.values()) {
-				GOTLog.logger.info("| " + cape.getCapeName() + " || " + cape.getCapeDesc() + " || [[File:Cape "+ cape.name().toLowerCase() + ".png]]");
+				GOTLog.logger.info("| " + cape.getCapeName() + " || " + cape.getCapeDesc() + " || [[File:Cape " + cape.name().toLowerCase() + ".png]]");
 				GOTLog.logger.info("|-");
 			}
 		}
 		if ("shields".equals(display)) {
 			for (GOTShields shield : GOTShields.values()) {
-				GOTLog.logger.info("| " + shield.getShieldName() + " || " + shield.getShieldDesc() + " || [[File:Shield "+ shield.name().toLowerCase() + ".png]]");
+				GOTLog.logger.info("| " + shield.getShieldName() + " || " + shield.getShieldDesc() + " || [[File:Shield " + shield.name().toLowerCase() + ".png]]");
 				GOTLog.logger.info("|-");
 			}
 		}

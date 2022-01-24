@@ -838,19 +838,19 @@ public class GOTFixer {
 		}
 	}
 
-	public static class MoribaldChester extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityMoribaldChester(world), world, 2, 1, 0);
-		}
-	}
-
 	public static class Moqorro extends Spawner {
 
 		@Override
 		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityMoqorro(world), world, -1, 1, 0);
+		}
+	}
+
+	public static class MoribaldChester extends Spawner {
+
+		@Override
+		public void spawnLegendaryNPC(World world) {
+			spawnLegendaryNPC(new GOTEntityMoribaldChester(world), world, 2, 1, 0);
 		}
 	}
 

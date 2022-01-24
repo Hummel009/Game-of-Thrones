@@ -111,10 +111,6 @@ public class GOTBiomeVariant {
 
 	public void decorateVariant(World world, Random random, int i, int k, GOTBiome biome) {
 	}
-	
-	public String getUnlocalizedName() {
-		return "got.variant." + variantName + ".name";
-	}
 
 	public GOTBiomeVariant disableStructuresVillages() {
 		disableStructures = true;
@@ -137,6 +133,10 @@ public class GOTBiomeVariant {
 	public GOTTreeType getRandomTree(Random random) {
 		WeightedRandom.Item item = WeightedRandom.getRandomItem(random, treeTypes);
 		return ((GOTTreeType.WeightedTreeType) item).treeType;
+	}
+
+	public String getUnlocalizedName() {
+		return "got.variant." + variantName + ".name";
 	}
 
 	public GOTBiomeVariant setAbsoluteHeight(float height, float hills) {

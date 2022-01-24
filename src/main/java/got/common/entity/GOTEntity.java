@@ -907,12 +907,12 @@ public class GOTEntity {
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityHarryStrickland.class, "HarryStrickland", id++, GOTFaction.UNALIGNED);
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityThreeEyedRaven.class, "ThreeEyedRaven", id++, GOTFaction.UNALIGNED);
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityVargoHoat.class, "VargoHoat", id++, GOTFaction.UNALIGNED);
-		GOTEntityRegistry.register(GOTEntityBericDondarrion.LifeStage2.class, "BericDondarrion2", id++);	
-		GOTEntityRegistry.register(GOTEntityBericDondarrion.LifeStage3.class, "BericDondarrion3", id++);	
-		GOTEntityRegistry.register(GOTEntityBericDondarrion.LifeStage4.class, "BericDondarrion4", id++);	
-		GOTEntityRegistry.register(GOTEntityBericDondarrion.LifeStage5.class, "BericDondarrion5", id++);	
-		GOTEntityRegistry.register(GOTEntityBericDondarrion.LifeStage6.class, "BericDondarrion6", id++);	
-		GOTEntityRegistry.register(GOTEntityGregorClegane.Dead.class, "GregorCleganeWight", id++);	
+		GOTEntityRegistry.register(GOTEntityBericDondarrion.LifeStage2.class, "BericDondarrion2", id++);
+		GOTEntityRegistry.register(GOTEntityBericDondarrion.LifeStage3.class, "BericDondarrion3", id++);
+		GOTEntityRegistry.register(GOTEntityBericDondarrion.LifeStage4.class, "BericDondarrion4", id++);
+		GOTEntityRegistry.register(GOTEntityBericDondarrion.LifeStage5.class, "BericDondarrion5", id++);
+		GOTEntityRegistry.register(GOTEntityBericDondarrion.LifeStage6.class, "BericDondarrion6", id++);
+		GOTEntityRegistry.register(GOTEntityGregorClegane.Dead.class, "GregorCleganeWight", id++);
 		GOTEntityRegistry.register(GOTEntityJonSnow.Stage2.class, "JonSnow2", id++);
 		GOTEntityRegistry.register(GOTEntityLancelLannister.Religious.class, "LancelLannisterR", id++);
 		GOTEntityRegistry.register(GOTEntityTheonGreyjoy.Tormented.class, "TheonGreyjoyV", id++);

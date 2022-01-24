@@ -133,9 +133,8 @@ public class GOTRenderPlayer {
 				GL11.glDepthMask(true);
 			}
 		}
-		if (cape != null && (shield == null || shield != null && !GOTRenderShield.renderOnBack)) {
+		if (cape != null) {
 			if (!entityplayer.isInvisible()) {
-
 				Minecraft mc = Minecraft.getMinecraft();
 				ResourceLocation capeTexture = cape.capeTexture;
 				GL11.glPushMatrix();
@@ -148,7 +147,6 @@ public class GOTRenderPlayer {
 				mc.getTextureManager().bindTexture(capeTexture);
 				event.renderer.modelBipedMain.renderCloak(0.0625f);
 				GL11.glPopMatrix();
-
 			} else if (!entityplayer.isInvisibleToPlayer(mc.thePlayer)) {
 				GL11.glPushMatrix();
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 0.15f);

@@ -1036,11 +1036,11 @@ public class GOTStructure {
 			public void apply(GOTStructureSothoryosVillage.Instance instance) {
 			}
 		});
-		
+
 		if (GOT.isDevMode) {
 			GOTStructureRegistry.register(id++, DatabaseGenerator.class, "DatabaseGenerator", 9605778);
 		}
-		
+
 		GOTStructureSothoryosPyramidMapgen.register();
 		GOTStructureGhiscarPyramidMapgen.register();
 	}

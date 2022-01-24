@@ -774,20 +774,25 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 									}
 								} else {
 									int randomWall = random.nextInt(7);
-									if (randomWall == 0) {
+									switch (randomWall) {
+									case 0:
 										setBlockAndMetadata(world, i1, j1, k1, Blocks.double_stone_slab, 0);
-									} else if (randomWall == 1) {
+										break;
+									case 1:
 										setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.pillar2, 3);
-									} else if (randomWall == 2) {
+										break;
+									case 2:
 										setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.clayTile, 0);
-									} else if (randomWall == 3) {
+										break;
+									case 3:
 										int stairDir = random.nextInt(8);
 										setBlockAndMetadata(world, i1, j1, k1, Blocks.brick_stairs, stairDir);
-									} else
+										break;
+									default:
 										switch (randomWall) {
 										case 4:
-											int stairDir = random.nextInt(8);
-											setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.stairsClayTile, stairDir);
+											int stairDir1 = random.nextInt(8);
+											setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.stairsClayTile, stairDir1);
 											break;
 										case 5:
 											setBlockAndMetadata(world, i1, j1, k1, Blocks.cobblestone, 0);
@@ -798,6 +803,8 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 										default:
 											break;
 										}
+										break;
+									}
 								}
 								if (random.nextInt(6) == 0) {
 									break;

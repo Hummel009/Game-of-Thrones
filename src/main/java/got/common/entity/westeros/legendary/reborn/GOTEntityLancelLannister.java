@@ -38,11 +38,8 @@ public class GOTEntityLancelLannister extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.alloySteelDagger));
-		npcItemsInv.setIdleItem(null);
-		return data;
+	public GOTFaction getFaction() {
+		return GOTFaction.CROWNLANDS;
 	}
 
 	@Override
@@ -55,8 +52,11 @@ public class GOTEntityLancelLannister extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.CROWNLANDS;
+	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
+		data = super.onSpawnWithEgg(data);
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.alloySteelDagger));
+		npcItemsInv.setIdleItem(null);
+		return data;
 	}
 
 	public static class Normal extends GOTEntityLancelLannister {

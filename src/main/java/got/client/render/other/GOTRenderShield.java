@@ -2,6 +2,7 @@ package got.client.render.other;
 
 import org.lwjgl.opengl.GL11;
 
+import got.common.GOTLevelData;
 import got.common.database.*;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.item.other.GOTItemArmor;
@@ -17,7 +18,6 @@ public class GOTRenderShield {
 	public static int SHIELD_WIDTH = 32;
 	public static int SHIELD_HEIGHT = 32;
 	public static float MODELSCALE = 0.0625f;
-	public static boolean renderOnBack;
 
 	public static void doRenderShield(float f) {
 		int k;
@@ -98,59 +98,68 @@ public class GOTRenderShield {
 	}
 
 	public static void renderShield(GOTShields shield, EntityLivingBase entity, ModelBiped model) {
-		boolean blocking;
-		ItemStack inUse;
 		Minecraft mc = Minecraft.getMinecraft();
 		ResourceLocation shieldTexture = shield.shieldTexture;
-		ItemStack held = entity == null ? null : entity.getHeldItem();
-		ItemStack heldLeft = entity instanceof GOTEntityNPC ? ((GOTEntityNPC) entity).getHeldItemLeft() : null;
-		inUse = entity instanceof EntityPlayer ? ((EntityPlayer) entity).getItemInUse() : null;
-		boolean holdingSword = entity == null || held != null && (held.getItem() instanceof ItemSword || held.getItem() instanceof ItemTool) && (inUse == null || inUse.getItemUseAction() != EnumAction.bow);
-		blocking = holdingSword && inUse != null && inUse.getItemUseAction() == EnumAction.block;
-		renderOnBack = !holdingSword || holdingSword && heldLeft != null;
-		if (heldLeft != null && entity instanceof GOTEntityNPC) {
-			GOTEntityNPC npc = (GOTEntityNPC) entity;
-			if (npc.npcCape != null) {
-				return;
-			}
+		ItemStack held = null;
+		ItemStack heldLeft = null;
+		ItemStack inUse = null;
+		ItemStack chestplate = null;
+		if (entity != null) {
+			held = entity.getHeldItem();
 		}
-		ItemStack chestplate = entity == null ? null : entity.getEquipmentInSlot(3);
+		if (entity instanceof GOTEntityNPC) {
+			heldLeft = ((GOTEntityNPC) entity).getHeldItemLeft();
+		}
+		if (entity instanceof EntityPlayer) {
+			inUse = ((EntityPlayer) entity).getItemInUse();
+		}
+		if (entity != null) {
+			chestplate = entity.getEquipmentInSlot(3);
+		}
+		boolean holdingSword = held != null && (held.getItem() instanceof ItemSword || held.getItem() instanceof ItemTool) || inUse != null && inUse.getItemUseAction() == EnumAction.bow;
+		boolean blocking = holdingSword && inUse != null && inUse.getItemUseAction() == EnumAction.block;
 		boolean wearingChestplate = chestplate != null && chestplate.getItem().isValidArmor(chestplate, ((GOTItemArmor) GOTRegistry.valyrianChestplate).armorType, entity);
-		boolean renderOnBack = !holdingSword || holdingSword && heldLeft != null;
-		GL11.glPushMatrix();
-		if (renderOnBack) {
-			model.bipedBody.postRender(MODELSCALE);
-		} else {
-			model.bipedLeftArm.postRender(MODELSCALE);
+		boolean renderOnBack = !holdingSword || heldLeft != null;
+		boolean doNotRender = false;
+		if ((entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).npcCape != null && renderOnBack) || (entity instanceof EntityPlayer && GOTLevelData.getData((EntityPlayer) entity).getCape() != null && renderOnBack)) {
+			doNotRender = true;
 		}
-		GL11.glScalef(-1.5f, -1.5f, 1.5f);
-		if (renderOnBack) {
-			GL11.glTranslatef(0.5f, -0.8f, 0.0f);
-			if (wearingChestplate) {
-				GL11.glTranslatef(0.0f, 0.0f, 0.24f);
+		if (!doNotRender) {
+			GL11.glPushMatrix();
+			if (renderOnBack) {
+				model.bipedBody.postRender(MODELSCALE);
 			} else {
-				GL11.glTranslatef(0.0f, 0.0f, 0.16f);
+				model.bipedLeftArm.postRender(MODELSCALE);
 			}
-			GL11.glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
-		} else if (blocking) {
-			GL11.glRotatef(10.0f, 0.0f, 1.0f, 0.0f);
-			GL11.glTranslatef(-0.4f, -0.9f, -0.15f);
-		} else {
-			GL11.glRotatef(60.0f, 0.0f, 1.0f, 0.0f);
-			GL11.glTranslatef(-0.5f, -0.75f, 0.0f);
-			if (wearingChestplate) {
-				GL11.glTranslatef(0.0f, 0.0f, -0.24f);
+			GL11.glScalef(-1.5f, -1.5f, 1.5f);
+			if (renderOnBack) {
+				GL11.glTranslatef(0.5f, -0.8f, 0.0f);
+				if (wearingChestplate) {
+					GL11.glTranslatef(0.0f, 0.0f, 0.24f);
+				} else {
+					GL11.glTranslatef(0.0f, 0.0f, 0.16f);
+				}
+				GL11.glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
+			} else if (blocking) {
+				GL11.glRotatef(10.0f, 0.0f, 1.0f, 0.0f);
+				GL11.glTranslatef(-0.4f, -0.9f, -0.15f);
 			} else {
-				GL11.glTranslatef(0.0f, 0.0f, -0.16f);
+				GL11.glRotatef(60.0f, 0.0f, 1.0f, 0.0f);
+				GL11.glTranslatef(-0.5f, -0.75f, 0.0f);
+				if (wearingChestplate) {
+					GL11.glTranslatef(0.0f, 0.0f, -0.24f);
+				} else {
+					GL11.glTranslatef(0.0f, 0.0f, -0.16f);
+				}
+				GL11.glRotatef(-15.0f, 0.0f, 0.0f, 1.0f);
 			}
-			GL11.glRotatef(-15.0f, 0.0f, 0.0f, 1.0f);
+			mc.getTextureManager().bindTexture(shieldTexture);
+			GL11.glEnable(3008);
+			doRenderShield(0.0f);
+			GL11.glTranslatef(1.0f, 0.0f, 0.0f);
+			GL11.glScalef(-1.0f, 1.0f, 1.0f);
+			doRenderShield(0.5f);
+			GL11.glPopMatrix();
 		}
-		mc.getTextureManager().bindTexture(shieldTexture);
-		GL11.glEnable(3008);
-		doRenderShield(0.0f);
-		GL11.glTranslatef(1.0f, 0.0f, 0.0f);
-		GL11.glScalef(-1.0f, 1.0f, 1.0f);
-		doRenderShield(0.5f);
-		GL11.glPopMatrix();
 	}
 }
