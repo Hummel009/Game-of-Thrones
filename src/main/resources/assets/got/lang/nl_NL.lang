@@ -1,33 +1,4 @@
 
-got.wp.Spider.info≠
-got.wp.Spider≠
-got.wp.NightKing.info≠
-got.wp.NightKing≠
-entity.got.MoribaldChester.name≠
-got.wp.SkirlingPass.info≠
-got.wp.SkirlingPass≠
-got.shields.WESTERLANDSGUARD.name≠
-got.capes.TARGARYEN.desc≠
-item.got:banner.jogos.name≠
-got.structure.NorthHillmanVillage.name≠
-got.structure.WildlingVillage.name≠
-got.structure.ThennVillage.name≠
-got.structure.NorthHillmanChieftainHouse.name≠
-got.structure.NorthHillmanHouse.name≠
-got.structure.ThennMagnarHouse.name≠
-got.structure.ThennHouse.name≠
-entity.got.JogosBannerBearer.name≠
-got.structure.HillmanVillage.name≠
-tile.got:kelp.name≠
-got.achievement.KILL_PRIEST.desc≠
-got.achievement.KILL_PRIEST.title≠
-got.achievement.WEAR_FULL_JOGOS.desc≠
-got.achievement.WEAR_FULL_JOGOS.title≠
-item.got:tugarKhanSword.name≠
-item.got:jogosBoots.name≠
-item.got:jogosChestplate.name≠
-item.got:jogosHelmet.name≠
-item.got:jogosLeggings.name≠
 attribute.name.generic.movementSpeedAir=Snelheid (lucht)
 color.black=Zwart
 color.blue=Blauw
@@ -99,7 +70,6 @@ entity.got.AsshaiMan.name=Man van Asshai
 entity.got.AsshaiShadowbinder.name=Schaduwbinder van Asshai
 entity.got.AsshaiSpherebinder.name=Spherebinder van Asshai
 entity.got.AuraneWaters.name=Aurane Waters
-entity.got.Bison.name=Bison
 entity.got.BaelorBlacktyde.name≠
 entity.got.BalonGreyjoy.name=Balon Greyjoy
 entity.got.Banner.name=Vlag
@@ -119,6 +89,7 @@ entity.got.BericDondarrion4.name=Beric Dondarrion
 entity.got.BericDondarrion5.name=Beric Dondarrion
 entity.got.BericDondarrion6.name=Beric Dondarrion
 entity.got.Bird.name=Vogel
+entity.got.Bison.name=Bison
 entity.got.BlackWalderFrey.name≠
 entity.got.Boar.name=Wild Zwijn
 entity.got.BraavosArcher.name=Boogschutter van Braavos
@@ -251,6 +222,8 @@ entity.got.Elk.name=Elk
 entity.got.EllaryaSand.name=Ellarya Sand
 entity.got.ErikIronmaker.name≠
 entity.got.EssosBandit.name=Bandit
+entity.got.EssosScrapTrader.name≠
+entity.got.EssosThief.name=Thief
 entity.got.EuronGreyjoy.name=Euron Greyjoy
 entity.got.Fish.name= Vis
 entity.got.Flamingo.name=Flamingo
@@ -389,6 +362,7 @@ entity.got.JasonMallister.name≠
 entity.got.JeorMormont.name=Jeor Mormont
 entity.got.JoffreyBaratheon.name=Joffrey Baratheon
 entity.got.JogosArcher.name=Boogschutter van Jogos Nhai
+entity.got.JogosBannerBearer.name≠
 entity.got.JogosChief.name=Hoofdman van Jogos Nhai
 entity.got.JogosMan.name=Nomade van Jogos Nhai
 entity.got.JogosShaman.name=Sjamaan van Jogos Nhai
@@ -400,9 +374,7 @@ entity.got.JonosBracken.name=Jonos Bracken
 entity.got.JorahMormont.name=Jorah Mormont
 entity.got.JungleScorpion.name=Jungleschorpioen
 entity.got.KevanLannister.name=Kevan Lannister
-entity.got.WhiteBison.name=Witte-White Bison
 entity.got.Kingsguard.name=Kingsguard
-entity.got.TugarKhan.name=Tugar Khan
 entity.got.KraznysMoNakloz.name=Kraznys Mo Nakloz
 entity.got.LancelLannister.name=Lancel Lannister
 entity.got.LancelLannisterR.name=Lancel Lannister
@@ -499,6 +471,7 @@ entity.got.Midges.name=Zwerm Muggen
 entity.got.Missandei.name≠
 entity.got.MonfordVelaryon.name=Monford Velaryon
 entity.got.Moqorro.name≠
+entity.got.MoribaldChester.name≠
 entity.got.MossovyBannerBearer.name≠
 entity.got.MossovyBartender.name≠
 entity.got.MossovyBlacksmith.name≠
@@ -726,8 +699,6 @@ entity.got.SalladhorSaan.name≠
 entity.got.SamwellTarly.name≠
 entity.got.SandorClegane.name=Sandor Clegane
 entity.got.SansaStark.name=Sansa Stark
-entity.got.WesterosScrapTrader.name≠
-entity.got.EssosScrapTrader.name≠
 entity.got.Seagull.name=Zeemeeuw
 entity.got.SebastonFarman.name=Sebaston Farman
 entity.got.SelwynTarth.name=Selwyn Tarth
@@ -802,8 +773,6 @@ entity.got.ThennBlacksmith.name=Thenn smid
 entity.got.ThennMagnar.name=Thenn Magnar
 entity.got.TheonGreyjoy.name=Theon Greyjoy
 entity.got.TheonGreyjoyV.name=Theon Greyjoy
-entity.got.WesterosThief.name=Thief
-entity.got.EssosThief.name=Thief
 entity.got.Thoros.name=Thoros
 entity.got.ThreeEyedRaven.name=Raaf met drie ogen
 entity.got.ThrowingAxe.name=Werpbijltje
@@ -817,6 +786,7 @@ entity.got.Tormund.name=Tormund
 entity.got.TraderRespawn.name=Handelaar Respawner
 entity.got.TrollSnowball.name=Trol sneeuwbal
 entity.got.TrystaneMartell.name≠
+entity.got.TugarKhan.name=Tugar Khan
 entity.got.TychoNestoris.name≠
 entity.got.TyrionLannister.name=Tyrion Lannister
 entity.got.TyroshBaker.name=Baker van Tyrosh
@@ -900,6 +870,9 @@ entity.got.WesterlandsMason.name=Metselaar van Westlanden
 entity.got.WesterlandsSoldier.name=Strijder van Westlanden
 entity.got.WesterlandsSoldierArcher.name=Krijger Boogschutter van Westlanden
 entity.got.WesterosBandit.name=Bandit
+entity.got.WesterosScrapTrader.name≠
+entity.got.WesterosThief.name=Thief
+entity.got.WhiteBison.name=Witte-White Bison
 entity.got.WhiteOryx.name=Witte Oryx
 entity.got.WhiteWalker.name=White Walker
 entity.got.Whore.name=Prostitueren
@@ -1073,8 +1046,6 @@ got.achievement.KILL_KEVAN_LANNISTER.desc=Dood Kevan Lannister
 got.achievement.KILL_KEVAN_LANNISTER.title=Minus hand van de koning
 got.achievement.KILL_KHAL.desc=Dood de khal
 got.achievement.KILL_KHAL.title=Khal Killer
-got.achievement.KILL_TUGAR_KHAN.desc=Dood Tugar Khan
-got.achievement.KILL_TUGAR_KHAN.title=Legendarische keizer
 got.achievement.KILL_KRAZNYS_MO_NAKLOZ.desc=Dood Kraznys Mo Nakloz
 got.achievement.KILL_KRAZNYS_MO_NAKLOZ.title=Ruil de draak voor het leger
 got.achievement.KILL_LANCEL_LANNISTER.desc=Dood de religieuze Lancel Lannister
@@ -1101,6 +1072,8 @@ got.achievement.KILL_OBERYN_MARTELL.desc=Dood Oberyn Martell
 got.achievement.KILL_OBERYN_MARTELL.title=Berg
 got.achievement.KILL_PETYR_BAELISH.desc=Dood Petyr Baelish
 got.achievement.KILL_PETYR_BAELISH.title=Chaos is een ladder
+got.achievement.KILL_PRIEST.desc≠
+got.achievement.KILL_PRIEST.title≠
 got.achievement.KILL_RAMSAY_BOLTON.desc=Dood Ramsay Bolton
 got.achievement.KILL_RAMSAY_BOLTON.title=Preventief
 got.achievement.KILL_ROBB_STARK.desc=Dood Robb Stark
@@ -1121,6 +1094,8 @@ got.achievement.KILL_THOROS.desc=Dood Thoros
 got.achievement.KILL_THOROS.title=Hij zal je niet meer redden
 got.achievement.KILL_TORMUND.desc=Dood Tormund
 got.achievement.KILL_TORMUND.title=Het zwaard in de nacht
+got.achievement.KILL_TUGAR_KHAN.desc=Dood Tugar Khan
+got.achievement.KILL_TUGAR_KHAN.title=Legendarische keizer
 got.achievement.KILL_TYRION.desc=Dood Tyrion Lannister
 got.achievement.KILL_TYRION.title=Hoe wil je sterven, Tyrion, zoon van Tywin?
 got.achievement.KILL_TYWIN.desc=Dood Tywin Lannister
@@ -1395,6 +1370,8 @@ got.achievement.WEAR_FULL_CROWNLANDS.desc=Draag een volledige set gouden mantels
 got.achievement.WEAR_FULL_CROWNLANDS.title=Wacht kapitein van King's Landing
 got.achievement.WEAR_FULL_DORNE.desc=Draag een volledige set Dorne
 got.achievement.WEAR_FULL_DORNE.title=Bewaker van Dorne
+got.achievement.WEAR_FULL_DOTHRAKI.desc≠
+got.achievement.WEAR_FULL_DOTHRAKI.title≠
 got.achievement.WEAR_FULL_DRAGONSTONE.desc=Draag een volledige set Drakensteen
 got.achievement.WEAR_FULL_DRAGONSTONE.title=Bewaker van Drakensteen
 got.achievement.WEAR_FULL_FUR.desc=Draag een volledige set bontpantser
@@ -1415,6 +1392,8 @@ got.achievement.WEAR_FULL_HILLMEN.desc=Draag een volledige set Hill Tribes
 got.achievement.WEAR_FULL_HILLMEN.title=Waanzin van Moon Mountains
 got.achievement.WEAR_FULL_IRONBORN.desc=Draag een volledige set IJzereilanden
 got.achievement.WEAR_FULL_IRONBORN.title=Guard van IJzereilanden
+got.achievement.WEAR_FULL_JOGOS.desc≠
+got.achievement.WEAR_FULL_JOGOS.title≠
 got.achievement.WEAR_FULL_KINGSGUARD.desc=Draag een volledige set Kingsguard
 got.achievement.WEAR_FULL_KINGSGUARD.title=Lang leve de koning!
 got.achievement.WEAR_FULL_LHAZAR.desc=Draag een volledige set Lhazar
@@ -1429,8 +1408,6 @@ got.achievement.WEAR_FULL_MOSSOVY.desc=Draag een volledige set Mossovy
 got.achievement.WEAR_FULL_MOSSOVY.title=Bewaker van Mossovy
 got.achievement.WEAR_FULL_MYR.desc=Draag een volledige set Myr
 got.achievement.WEAR_FULL_MYR.title=Bewaker van Myr
-got.achievement.WEAR_FULL_DOTHRAKI.desc≠
-got.achievement.WEAR_FULL_DOTHRAKI.title≠
 got.achievement.WEAR_FULL_NORTH.desc=Draag een volledige set North
 got.achievement.WEAR_FULL_NORTH.title=Bewaker van het Noorden
 got.achievement.WEAR_FULL_NORTHGUARD.desc=Draag een volledige set North Guards
@@ -1686,6 +1663,7 @@ got.capes.REACH.name=Kaap van Bereik
 got.capes.RIVERLANDS.name=Kaap van Rivierlanden
 got.capes.ROYALGUARD.name≠
 got.capes.STORMLANDS.name=Kaap van Stormlanden
+got.capes.TARGARYEN.desc≠
 got.capes.TARGARYEN.name=Kaap van Targaryen
 got.capes.TYROSH.name=Kaap van Tyrosh
 got.capes.UNSULLIED.name=Kaap van Onbezoedeld
@@ -2175,6 +2153,7 @@ got.faction.HILL_TRIBES.rank.warlord=Krijgsheer
 got.faction.HILL_TRIBES.rank.warrior.f=Krijger van Hill-Tribes
 got.faction.HILL_TRIBES.rank.warrior=Krijger
 got.faction.HILL_TRIBES.subtitle=Hill-Tribes van the Vale
+got.faction.HOSTILE.name≠
 got.faction.IBBEN.entity=Mannen van Ibben
 got.faction.IBBEN.name=Ibben
 got.faction.IBBEN.rank.commander.f=Admiraal van Ibben
@@ -3000,6 +2979,7 @@ got.miniquest.collect.progress=%d van de %d gegeven
 got.miniquest.collect=Collect %d %s
 got.miniquest.kill.progress=%d van %d gedood
 got.miniquest.kill=Slay %d %s
+got.miniquest.pickpocket.progress≠
 got.miniquest.pickpocket=Diefstal NPC (Shift + RMB)
 got.miniquest.progressShort=%d / %d
 got.miniquest.retrieve.progress=%d van %d gedood
@@ -3031,6 +3011,8 @@ got.shields.CROWNLANDS.name=Schild van Kroonlanden
 got.shields.DORNE.name=Schild van Dorne
 got.shields.DRAGONSTONE.name=Schild van Drakensteen
 got.shields.GHISCAR.name=Schild van Ghiscar
+got.shields.GOLDENCOMPANY.desc≠
+got.shields.GOLDENCOMPANY.name≠
 got.shields.HILLMEN.name=Schild van heuvelstammen
 got.shields.IRONBORN.name=Schild van ijzeren eilanden
 got.shields.LORATH.name=Schild van Lorath
@@ -3054,6 +3036,7 @@ got.shields.TYROSH.name=Schild van Tyrosh
 got.shields.UNSULLIED.name=Schild van onbezoedeld
 got.shields.VOLANTIS.name=Schild van Volantis
 got.shields.WESTERLANDS.name=Schild van Westlanden
+got.shields.WESTERLANDSGUARD.name≠
 got.shields.YITI.name=Schild van Yi Ti
 got.shields.YITI_FRONTIER.name≠
 got.shields.YITI_SAMURAI.name=Schild van Yi Ti Samurai
@@ -3096,6 +3079,7 @@ got.structure.BraavosStables.name=Stallen van Braavos
 got.structure.BraavosTavern.name=Taverne van Braavos
 got.structure.BraavosTower.name=Toren van Braavos
 got.structure.BraavosTraining.name=Opleiding van Braavos
+got.structure.BurntHouse.name≠
 got.structure.CrownlandsBarn.name=Schuur van Kroonlanden
 got.structure.CrownlandsBath.name=Bad van Kroonlanden
 got.structure.CrownlandsCityBig.name=Stad van Kroonlanden
@@ -3177,6 +3161,7 @@ got.structure.GiftVillage.name=Dorp van Night's Watch
 got.structure.GiftVillageLight.name=Village Light van Night's Watch
 got.structure.GiftWatchtower.name=Wachttoren van Night's Watch
 got.structure.GoldenCamp.name=Kamp van Golden Company
+got.structure.HillmanVillage.name≠
 got.structure.HillmenCampfire.name=Camp van Hill Tribes
 got.structure.HillmenHillFort.name=Fort van Hill Tribes
 got.structure.HillmenHouse.name=House van Hill Tribes
@@ -3282,6 +3267,9 @@ got.structure.NorthCottage.name=Huisje van het Noorden
 got.structure.NorthFortVillage.name=Kasteel van Noorden
 got.structure.NorthFortress.name=Fort van Noorden
 got.structure.NorthHillmanCamp.name=Kamp van Noorden Hillmen
+got.structure.NorthHillmanChieftainHouse.name≠
+got.structure.NorthHillmanHouse.name≠
+got.structure.NorthHillmanVillage.name≠
 got.structure.NorthHouse.name=Little House van Noorden
 got.structure.NorthSmithy.name=Smithy van Noorden
 got.structure.NorthStables.name=Stallen van Noorden
@@ -3375,10 +3363,13 @@ got.structure.RiverlandsTavern.name=Taverne van Rivierlanden
 got.structure.RiverlandsTurret.name=Torentje van Rivierlanden
 got.structure.RiverlandsWatchfort.name=Watchfort van Rivierlanden
 got.structure.RiverlandsWatchtower.name=Uitkijktoren van Rivierlanden
+got.structure.RottenHouse.name≠
 got.structure.RuinedBeaconTower.name=Verwoesste Gondor Bakentoren
 got.structure.RuinedGiftHouse.name=Geruïneerd cadeaushuis
 got.structure.RuinedGiftTower.name=Geruïneerde Gift Tower
+got.structure.RuinedHouse.name≠
 got.structure.RuinedNorthTower.name=Ruïne van Beacon Tower van Noorden
+got.structure.SmallStoneRuin.name≠
 got.structure.SothoryosChieftainPyramid.name=Chieftain's Piramide van Sothoryos
 got.structure.SothoryosHouseLarge.name=Stenen huis van Sothoryos
 got.structure.SothoryosHouseSimple.name=Little House van Sothoryos
@@ -3387,6 +3378,11 @@ got.structure.SothoryosPyramid.name=Piramide van Sothoryos
 got.structure.SothoryosSmithy.name=Sothoryos Smithy
 got.structure.SothoryosVillage.name=Dorp van Sothoryos
 got.structure.SothoryosWatchtower.name=Uitkijktoren van Sothoryos
+got.structure.StoneRuinAsshai.name≠
+got.structure.StoneRuinSandstone.name≠
+got.structure.StoneRuinSothoryos.name≠
+got.structure.StoneRuinStandart.name≠
+got.structure.StoneRuinYiTi.name≠
 got.structure.StormlandsBarn.name=Schuur van Stormlanden
 got.structure.StormlandsBath.name=Bad van Stormlanden
 got.structure.StormlandsCityBig.name=Stad Stormlanden
@@ -3414,6 +3410,9 @@ got.structure.SummerTower.name=Toren van de Zomereilanden
 got.structure.SummerVillage.name=Dorp van de Zomereilanden
 got.structure.SummerVillageRuined.name=Verlaten Dorp van Zomereilanden
 got.structure.ThennCamp.name=ThennCamp
+got.structure.ThennHouse.name≠
+got.structure.ThennMagnarHouse.name≠
+got.structure.ThennVillage.name≠
 got.structure.TyroshBarracks.name=Kazerne van Tyrosh
 got.structure.TyroshBazaar.name=Bazaar van Tyrosh
 got.structure.TyroshCityBig.name=Kasteel van Tyrosh
@@ -3459,6 +3458,7 @@ got.structure.WildlingCamp.name=Kamp van Wildlings
 got.structure.WildlingChieftainHouse.name=Wildling Chieftain House
 got.structure.WildlingHouse.name=Wildling House
 got.structure.WildlingTent.name=Tent van Wildlings
+got.structure.WildlingVillage.name≠
 got.structure.YiTiBath.name=Bad van Yi Ti
 got.structure.YiTiBrewery.name=Brouwerij van Yi Ti
 got.structure.YiTiCaptainTent.name=Grote tent van Yi Ti
@@ -3501,11 +3501,11 @@ got.title.KILL_GREGOR_CLEGANE=Legendarische moordenaar III
 got.title.KILL_JAQEN_HGHAR=Valar Morgulis
 got.title.KILL_JEOR_MORMONT=Bedrieger
 got.title.KILL_JON_SNOW=Voor Night's Watch
-got.title.KILL_TUGAR_KHAN=Legendarische keizer
 got.title.KILL_NIGHT_KING=Legendarische moordenaar I
 got.title.KILL_OBERYN_MARTELL=Berg
 got.title.KILL_SANDOR_CLEGANE=Hondenjager
 got.title.KILL_THE_KING=Kingslayer
+got.title.KILL_TUGAR_KHAN=Legendarische keizer
 got.title.KILL_TYWIN=Statham
 got.title.targaryenF=Stormborn
 got.title.targaryenM=Stormborn
@@ -3517,10 +3517,130 @@ got.titles.unlock.starter=Starters Titels
 got.travellingTrader.arrive=%s is dichtbij aangekomen
 got.travellingTrader.arriveMP=%s is bij %s aangekomen
 got.travellingTrader.depart=%s heeft het gebied verlaten
+got.tree.acacia.name≠
+got.tree.almond.name≠
+got.tree.apple.name≠
+got.tree.aspen.name≠
+got.tree.aspen_large.name≠
+got.tree.banana.name≠
+got.tree.baobab.name≠
+got.tree.beech.name≠
+got.tree.beech_large.name≠
+got.tree.birch.name≠
+got.tree.birch_large.name≠
+got.tree.catalpa.name≠
+got.tree.cedar.name≠
+got.tree.cedar_large.name≠
+got.tree.charred.name≠
+got.tree.cherry.name≠
+got.tree.chestnut.name≠
+got.tree.chestnut_large.name≠
+got.tree.cypress.name≠
+got.tree.cypress_large.name≠
+got.tree.date_palm.name≠
+got.tree.dragonblood.name≠
+got.tree.fir.name≠
+got.tree.fotinia.name≠
+got.tree.holly.name≠
+got.tree.holly_large.name≠
+got.tree.ibben_pine.name≠
+got.tree.jungle.name≠
+got.tree.jungle_large.name≠
+got.tree.jungle_shrub.name≠
+got.tree.kanuka.name≠
+got.tree.larch.name≠
+got.tree.lemon.name≠
+got.tree.lime.name≠
+got.tree.mahogany.name≠
+got.tree.mango.name≠
+got.tree.mangrove.name≠
+got.tree.maple.name≠
+got.tree.maple_large.name≠
+got.tree.oak.name≠
+got.tree.oak_dead.name≠
+got.tree.oak_desert.name≠
+got.tree.oak_large.name≠
+got.tree.oak_party.name≠
+got.tree.oak_tall.name≠
+got.tree.olive.name≠
+got.tree.olive_large.name≠
+got.tree.orange.name≠
+got.tree.palm.name≠
+got.tree.pear.name≠
+got.tree.pine.name≠
+got.tree.plum.name≠
+got.tree.pomegranate.name≠
+got.tree.redwood.name≠
+got.tree.redwood_2.name≠
+got.tree.redwood_3.name≠
+got.tree.redwood_4.name≠
+got.tree.redwood_5.name≠
+got.tree.spruce.name≠
+got.tree.spruce_mega.name≠
+got.tree.spruce_mega_thin.name≠
+got.tree.spruce_thin.name≠
+got.tree.ulthos_green_oak.name≠
+got.tree.ulthos_green_oak_large.name≠
+got.tree.ulthos_oak.name≠
+got.tree.ulthos_oak_large.name≠
+got.tree.ulthos_red_oak.name≠
+got.tree.ulthos_red_oak_large.name≠
+got.tree.weirwood.name≠
+got.tree.willow.name≠
 got.unit.Rider=Rijder
 got.unitinfo.Banner=Vlagdragers verbeteren de gezondheid en het gevecht van soldaten
 got.unitinfo.Corsair=Corsairs stelen meer geld dan soldaten
 got.usemem=Gebruikt RAM
+got.variant.boulders_red.name≠
+got.variant.clearing.name≠
+got.variant.deadForest_oak.name≠
+got.variant.deadForest_oak_spruce.name≠
+got.variant.deadForest_spruce.name≠
+got.variant.denseForest_birch.name≠
+got.variant.denseForest_darkOak.name≠
+got.variant.denseForest_oak.name≠
+got.variant.denseForest_oak_spruce.name≠
+got.variant.denseForest_spruce.name≠
+got.variant.dunes.name≠
+got.variant.flowers.name≠
+got.variant.forest.name≠
+got.variant.forest_aspen.name≠
+got.variant.forest_beech.name≠
+got.variant.forest_birch.name≠
+got.variant.forest_cherry.name≠
+got.variant.forest_larch.name≠
+got.variant.forest_lemon.name≠
+got.variant.forest_light.name≠
+got.variant.forest_lime.name≠
+got.variant.forest_maple.name≠
+got.variant.forest_pine.name≠
+got.variant.forest_weirwood.name≠
+got.variant.hills.name≠
+got.variant.hills_forest.name≠
+got.variant.hills_scrubland.name≠
+got.variant.hills_scrubland_sand.name≠
+got.variant.lake.name≠
+got.variant.mountain.name≠
+got.variant.orchard_almond.name≠
+got.variant.orchard_apple_pear.name≠
+got.variant.orchard_date.name≠
+got.variant.orchard_lemon.name≠
+got.variant.orchard_lime.name≠
+got.variant.orchard_olive.name≠
+got.variant.orchard_orange.name≠
+got.variant.orchard_plum.name≠
+got.variant.orchard_pomegranate.name≠
+got.variant.river.name≠
+got.variant.savannahBaobab.name≠
+got.variant.scrubland.name≠
+got.variant.scrubland_sand.name≠
+got.variant.shrubland_oak.name≠
+got.variant.standard.name≠
+got.variant.swampLowland.name≠
+got.variant.swampUpland.name≠
+got.variant.vineyard.name≠
+got.variant.wasteland.name≠
+got.variant.wasteland_sand.name≠
 got.weaponstat.kb=Terugslag: +%d
 got.weaponstat.meleeDamage=Melee Schade: +%d
 got.weaponstat.meleeSpeed=Melee-snelheid: %d % %
@@ -3833,6 +3953,8 @@ got.wp.HoarfrostHill.info=Een van de verlaten kastelen van de Nachtwacht. De 998
 got.wp.HoarfrostHill=Rijp Hill
 got.wp.HoggHall.info=Het kasteel werd verbrand door Vhagar tijdens de Dans van de Draken.
 got.wp.HoggHall=Hogg Hall
+got.wp.Hojdbaatar.info≠
+got.wp.Hojdbaatar=Hojdbaatar
 got.wp.HollardCastle.info=De ruïnes van het kasteel van Hollard, vernietigd als straf voor het veroveren van Aerys the Mad.
 got.wp.HollardCastle=Hollard Castle
 got.wp.HollowHill.info=De schuilplaats van Berik Dondarrion, leider van de Brotherhood-without-Banners.
@@ -3893,8 +4015,6 @@ got.wp.Kingshouse.info=Het familiedomein van de Magnars uit Skagos. Van het oude
 got.wp.Kingshouse=Kingshouse
 got.wp.KissLock.info=Kasteel van de Ridders van Schedels en Kussen.
 got.wp.KissLock=Kiss Lock
-got.wp.Hojdbaatar.info≠
-got.wp.Hojdbaatar=Hojdbaatar
 got.wp.Koj.info=De grootste scheepswerf van de Zomereilanden.
 got.wp.Koj=Koj
 got.wp.Kosrak.info=Een van de Lkhazar-steden.
@@ -3983,6 +4103,8 @@ got.wp.NewGhis.info=Een slavenstad die zich bij de coalitie tegen Daenerys aansl
 got.wp.NewGhis=Nieuwe Ghis
 got.wp.NewIbbish.info=Een stad gebouwd door de Ibbenians na de val van Ibbish, op een klein schiereiland achter een houten muur die slechts iets kleiner is dan de Wall van the Night's Watch. Zwakke schaduw vergeleken met Ibbish, maar nog steeds de enige kolonie van Ibben op het vasteland.
 got.wp.NewIbbish=Nieuwe Ibbish
+got.wp.NightKing.info≠
+got.wp.NightKing≠
 got.wp.Nightfort.info=Het enorme, eerst gebouwde en eerste verlaten kasteel van de Nachtwacht. Er waren veel angstaanjagende legendes over het kasteel. Hier, in de muur, was een doorgang achter de muur uitgehouwen - de zwarte poort uit het heksenbos.
 got.wp.Nightfort=Nightfort
 got.wp.Nightsong.info=Het voorouderlijke kasteel van Karon, van hen afgenomen ten gunste van de Voeten omdat de Karons Stannis steunden tegen Joffrey Baratheon.
@@ -4149,6 +4271,8 @@ got.wp.Sisterton.info=De hoofdstad van de Three Sisters en de grootste smokkelha
 got.wp.Sisterton=Sisterton
 got.wp.Skane.info=Tegenwoordig herinneren alleen de ruïnes van nederzettingen aan de bewoners van het eiland. Volgens de legende hebben de uit steen geboren Skagos in de oudheid alle lokale vrouwen verkracht en gevangengenomen, en de mannen werden gedood en opgegeten tijdens een feest dat twee weken duurde.
 got.wp.Skane=Skane
+got.wp.SkirlingPass.info≠
+got.wp.SkirlingPass≠
 got.wp.SkyReach.info=Fowler House Castle. Ze noemden zichzelf koningen, totdat Nymeria hen uiteindelijk onderwierp en de laatste koning in gouden kettingen naar de muur verbannen.
 got.wp.SkyReach=SkyBereik
 got.wp.Smithyton.info=De stad House Shermer, die Renly Baratheon noemde onder degenen wiens zwaarden hij naar de troon zou opstijgen.
@@ -4163,6 +4287,8 @@ got.wp.SparrCastle.info=Het kasteel van het Huis van Sparres, vazallen van de Gr
 got.wp.SparrCastle=Sparr Castle
 got.wp.Spicetown.info=De havenstad werd verwoest tijdens de Dans van de Draken.
 got.wp.Spicetown=Spicetown
+got.wp.Spider.info≠
+got.wp.Spider≠
 got.wp.Spottswood.info=Het kasteel van het huis van de Santagars, vazallen van de Martells.
 got.wp.Spottswood=Spottswood
 got.wp.Standfast.info=Een toren verlaten aan de Osgrey na de nederlaag van de Blackfire Rebellion. De scène van het verhaal "The Sworn Sword".
@@ -4733,6 +4859,7 @@ item.got:banner.ironsmith.name≠
 item.got:banner.jaremymallister.name≠
 item.got:banner.jast.name=Vlag van Jast
 item.got:banner.joffrey.name=Vlag van Joffrey
+item.got:banner.jogos.name≠
 item.got:banner.jonconnington.name≠
 item.got:banner.jonking.name≠
 item.got:banner.jonsnow.name≠
@@ -5181,7 +5308,11 @@ item.got:dorneBoots.name=Boots van Dorne
 item.got:dorneChestplate.name=Borstplaat van Dorne
 item.got:dorneHelmet.name=Helm van Dorne
 item.got:dorneLeggings.name=Legging van Dorne
+item.got:dothrakiBoots.name≠
+item.got:dothrakiChestplate.name≠
+item.got:dothrakiHelmet.name≠
 item.got:dothrakiHorseArmor.name=Nomad Horse Armor
+item.got:dothrakiLeggings.name≠
 item.got:dragonstoneBoots.name=Laarzen van Drakensteen
 item.got:dragonstoneChestplate.name=Borstplaat van Drakensteen
 item.got:dragonstoneHelmet.name=Helm van Drakensteen
@@ -5289,12 +5420,15 @@ item.got:ironbornHelmet.name=Helm van IJzereilanden
 item.got:ironbornLeggings.name=Legging van IJzereilanden
 item.got:jaimeSword.name=Jaime Lannister zwaard
 item.got:joffreyCrossbow.name=Joffrey Baratheon kruisboog
+item.got:jogosBoots.name≠
+item.got:jogosChestplate.name≠
+item.got:jogosHelmet.name≠
+item.got:jogosLeggings.name≠
 item.got:justMaid.name=JustMaid
 item.got:kaftanChestplate.name=Kaftan
 item.got:kaftanLeggings.name=Kaftan legging
 item.got:katana.name=Keizer Katana
 item.got:kebab.name=Kebab
-item.got:whiteBisonHorn.name=Kine van White Bison Hoorn
 item.got:kingsguardBoots.name=Kingsguard laarzen
 item.got:kingsguardChestplate.name=Kingsguard borstplaat
 item.got:kingsguardHelmet.name=Kingsguard-helm
@@ -5411,11 +5545,7 @@ item.got:needle.name=Naald
 item.got:nightKingSword.name=Nachtkoning zwaard
 item.got:nightfall.name=Het vallen van de avond
 item.got:nomadBattleaxe.name=Nomad Battleaxe
-item.got:dothrakiBoots.name≠
 item.got:nomadBow.name=Nomad Bow
-item.got:dothrakiChestplate.name≠
-item.got:dothrakiHelmet.name≠
-item.got:dothrakiLeggings.name≠
 item.got:nomadSpear.name=Nomadi Speer
 item.got:nomadSword.name=Nomad Arakh
 item.got:northBoots.name=Noorden Boots
@@ -5609,6 +5739,7 @@ item.got:tormundSword.name=Tormund-zwaard
 item.got:trident.name=Hill Tribe Trident
 item.got:truth.name=Waarheid
 item.got:trystaneSword.name=Trystane Martell Sword
+item.got:tugarKhanSword.name≠
 item.got:turnip.name=Raap
 item.got:turnipCooked.name=Geroosterde Raap
 item.got:tyeneDagger.name=Tyene Sand Dagger
@@ -5678,6 +5809,7 @@ item.got:westkingChestplate.name=Borstplaat van West Kings
 item.got:westkingHelmet.name=Helm van West Kings
 item.got:westkingLeggings.name=Legging van West Kings
 item.got:wheel.name=Wiel
+item.got:whiteBisonHorn.name=Kine van White Bison Hoorn
 item.got:whiteWalkersBoots.name≠
 item.got:whiteWalkersChestplate.name≠
 item.got:whiteWalkersHoe.name≠
@@ -6059,6 +6191,7 @@ tile.got:kebabStand.cooked=Gekookt
 tile.got:kebabStand.meats=%d vlees
 tile.got:kebabStand.name=Kebab Standaard
 tile.got:kebabStandSand.name=Zandstenen Kebab Standaard
+tile.got:kelp.name≠
 tile.got:leaves1.0.name=Ibbinia bladeren
 tile.got:leaves1.1.name=Catalpa bladeren
 tile.got:leaves1.2.name=Zwart-eiken bladeren

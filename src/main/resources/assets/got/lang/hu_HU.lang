@@ -1,33 +1,4 @@
 ﻿
-got.wp.Spider.info≠
-got.wp.Spider≠
-got.wp.NightKing.info≠
-got.wp.NightKing≠
-entity.got.MoribaldChester.name≠
-got.wp.SkirlingPass.info≠
-got.wp.SkirlingPass≠
-got.shields.WESTERLANDSGUARD.name≠
-got.capes.TARGARYEN.desc≠
-item.got:banner.jogos.name≠
-got.structure.NorthHillmanVillage.name≠
-got.structure.WildlingVillage.name≠
-got.structure.ThennVillage.name≠
-got.structure.NorthHillmanChieftainHouse.name≠
-got.structure.NorthHillmanHouse.name≠
-got.structure.ThennMagnarHouse.name≠
-got.structure.ThennHouse.name≠
-entity.got.JogosBannerBearer.name≠
-got.structure.HillmanVillage.name≠
-tile.got:kelp.name≠
-got.achievement.KILL_PRIEST.desc≠
-got.achievement.KILL_PRIEST.title≠
-got.achievement.WEAR_FULL_JOGOS.desc≠
-got.achievement.WEAR_FULL_JOGOS.title≠
-item.got:tugarKhanSword.name≠
-item.got:jogosBoots.name≠
-item.got:jogosChestplate.name≠
-item.got:jogosHelmet.name≠
-item.got:jogosLeggings.name≠
 attribute.name.generic.movementSpeedAir≠
 color.black≠
 color.blue≠
@@ -99,7 +70,6 @@ entity.got.AsshaiMan.name≠
 entity.got.AsshaiShadowbinder.name≠
 entity.got.AsshaiSpherebinder.name≠
 entity.got.AuraneWaters.name≠
-entity.got.Bison.name=Bölény
 entity.got.BaelorBlacktyde.name≠
 entity.got.BalonGreyjoy.name≠
 entity.got.Banner.name=Zászló
@@ -119,6 +89,7 @@ entity.got.BericDondarrion4.name≠
 entity.got.BericDondarrion5.name≠
 entity.got.BericDondarrion6.name≠
 entity.got.Bird.name=Madár
+entity.got.Bison.name=Bölény
 entity.got.BlackWalderFrey.name≠
 entity.got.Boar.name=Vaddisznó
 entity.got.BraavosArcher.name≠
@@ -251,6 +222,8 @@ entity.got.Elk.name=Jávorszarvas
 entity.got.EllaryaSand.name≠
 entity.got.ErikIronmaker.name≠
 entity.got.EssosBandit.name≠
+entity.got.EssosScrapTrader.name≠
+entity.got.EssosThief.name=Thief
 entity.got.EuronGreyjoy.name≠
 entity.got.Fish.name=Hal
 entity.got.Flamingo.name=Flamingó
@@ -389,6 +362,7 @@ entity.got.JasonMallister.name≠
 entity.got.JeorMormont.name≠
 entity.got.JoffreyBaratheon.name≠
 entity.got.JogosArcher.name≠
+entity.got.JogosBannerBearer.name≠
 entity.got.JogosChief.name≠
 entity.got.JogosMan.name≠
 entity.got.JogosShaman.name≠
@@ -400,9 +374,7 @@ entity.got.JonosBracken.name≠
 entity.got.JorahMormont.name≠
 entity.got.JungleScorpion.name=Dzsungeli Skorpió
 entity.got.KevanLannister.name≠
-entity.got.WhiteBison.name=Arawbölény
 entity.got.Kingsguard.name≠
-entity.got.TugarKhan.name≠
 entity.got.KraznysMoNakloz.name≠
 entity.got.LancelLannister.name≠
 entity.got.LancelLannisterR.name≠
@@ -499,6 +471,7 @@ entity.got.Midges.name=Szúnyogok
 entity.got.Missandei.name≠
 entity.got.MonfordVelaryon.name≠
 entity.got.Moqorro.name≠
+entity.got.MoribaldChester.name≠
 entity.got.MossovyBannerBearer.name≠
 entity.got.MossovyBartender.name≠
 entity.got.MossovyBlacksmith.name≠
@@ -726,8 +699,6 @@ entity.got.SalladhorSaan.name≠
 entity.got.SamwellTarly.name≠
 entity.got.SandorClegane.name≠
 entity.got.SansaStark.name≠
-entity.got.WesterosScrapTrader.name≠
-entity.got.EssosScrapTrader.name≠
 entity.got.Seagull.name=Sirály
 entity.got.SebastonFarman.name≠
 entity.got.SelwynTarth.name≠
@@ -802,8 +773,6 @@ entity.got.ThennBlacksmith.name≠
 entity.got.ThennMagnar.name≠
 entity.got.TheonGreyjoy.name≠
 entity.got.TheonGreyjoyV.name≠
-entity.got.WesterosThief.name=Thief
-entity.got.EssosThief.name=Thief
 entity.got.Thoros.name≠
 entity.got.ThreeEyedRaven.name≠
 entity.got.ThrowingAxe.name=Dobófejsze
@@ -817,6 +786,7 @@ entity.got.Tormund.name≠
 entity.got.TraderRespawn.name=Kereskedő Újraéledés
 entity.got.TrollSnowball.name=Troll Hógolyó
 entity.got.TrystaneMartell.name≠
+entity.got.TugarKhan.name≠
 entity.got.TychoNestoris.name≠
 entity.got.TyrionLannister.name≠
 entity.got.TyroshBaker.name≠
@@ -900,6 +870,9 @@ entity.got.WesterlandsMason.name≠
 entity.got.WesterlandsSoldier.name≠
 entity.got.WesterlandsSoldierArcher.name≠
 entity.got.WesterosBandit.name≠
+entity.got.WesterosScrapTrader.name≠
+entity.got.WesterosThief.name=Thief
+entity.got.WhiteBison.name=Arawbölény
 entity.got.WhiteOryx.name=Fehér Antilop
 entity.got.WhiteWalker.name≠
 entity.got.Whore.name≠
@@ -1071,8 +1044,6 @@ got.achievement.KILL_KEVAN_LANNISTER.desc≠
 got.achievement.KILL_KEVAN_LANNISTER.title≠
 got.achievement.KILL_KHAL.desc≠
 got.achievement.KILL_KHAL.title≠
-got.achievement.KILL_TUGAR_KHAN.desc≠
-got.achievement.KILL_TUGAR_KHAN.title≠
 got.achievement.KILL_KRAZNYS_MO_NAKLOZ.desc≠
 got.achievement.KILL_KRAZNYS_MO_NAKLOZ.title≠
 got.achievement.KILL_LANCEL_LANNISTER.desc≠
@@ -1099,6 +1070,8 @@ got.achievement.KILL_OBERYN_MARTELL.desc≠
 got.achievement.KILL_OBERYN_MARTELL.title≠
 got.achievement.KILL_PETYR_BAELISH.desc≠
 got.achievement.KILL_PETYR_BAELISH.title≠
+got.achievement.KILL_PRIEST.desc≠
+got.achievement.KILL_PRIEST.title≠
 got.achievement.KILL_RAMSAY_BOLTON.desc≠
 got.achievement.KILL_RAMSAY_BOLTON.title≠
 got.achievement.KILL_ROBB_STARK.desc≠
@@ -1119,6 +1092,8 @@ got.achievement.KILL_THOROS.desc≠
 got.achievement.KILL_THOROS.title≠
 got.achievement.KILL_TORMUND.desc≠
 got.achievement.KILL_TORMUND.title≠
+got.achievement.KILL_TUGAR_KHAN.desc≠
+got.achievement.KILL_TUGAR_KHAN.title≠
 got.achievement.KILL_TYRION.desc≠
 got.achievement.KILL_TYRION.title≠
 got.achievement.KILL_TYWIN.desc≠
@@ -1393,6 +1368,8 @@ got.achievement.WEAR_FULL_CROWNLANDS.desc≠
 got.achievement.WEAR_FULL_CROWNLANDS.title≠
 got.achievement.WEAR_FULL_DORNE.desc≠
 got.achievement.WEAR_FULL_DORNE.title≠
+got.achievement.WEAR_FULL_DOTHRAKI.desc≠
+got.achievement.WEAR_FULL_DOTHRAKI.title≠
 got.achievement.WEAR_FULL_DRAGONSTONE.desc≠
 got.achievement.WEAR_FULL_DRAGONSTONE.title≠
 got.achievement.WEAR_FULL_FUR.desc≠
@@ -1413,6 +1390,8 @@ got.achievement.WEAR_FULL_HILLMEN.desc≠
 got.achievement.WEAR_FULL_HILLMEN.title≠
 got.achievement.WEAR_FULL_IRONBORN.desc≠
 got.achievement.WEAR_FULL_IRONBORN.title≠
+got.achievement.WEAR_FULL_JOGOS.desc≠
+got.achievement.WEAR_FULL_JOGOS.title≠
 got.achievement.WEAR_FULL_KINGSGUARD.desc≠
 got.achievement.WEAR_FULL_KINGSGUARD.title≠
 got.achievement.WEAR_FULL_LHAZAR.desc≠
@@ -1427,8 +1406,6 @@ got.achievement.WEAR_FULL_MOSSOVY.desc≠
 got.achievement.WEAR_FULL_MOSSOVY.title≠
 got.achievement.WEAR_FULL_MYR.desc≠
 got.achievement.WEAR_FULL_MYR.title≠
-got.achievement.WEAR_FULL_DOTHRAKI.desc≠
-got.achievement.WEAR_FULL_DOTHRAKI.title≠
 got.achievement.WEAR_FULL_NORTH.desc≠
 got.achievement.WEAR_FULL_NORTH.title≠
 got.achievement.WEAR_FULL_NORTHGUARD.desc≠
@@ -1686,6 +1663,7 @@ got.capes.REACH.name≠
 got.capes.RIVERLANDS.name≠
 got.capes.ROYALGUARD.name≠
 got.capes.STORMLANDS.name≠
+got.capes.TARGARYEN.desc≠
 got.capes.TARGARYEN.name≠
 got.capes.TYROSH.name≠
 got.capes.UNSULLIED.name≠
@@ -2175,6 +2153,7 @@ got.faction.HILL_TRIBES.rank.warlord≠
 got.faction.HILL_TRIBES.rank.warrior.f≠
 got.faction.HILL_TRIBES.rank.warrior≠
 got.faction.HILL_TRIBES.subtitle≠
+got.faction.HOSTILE.name≠
 got.faction.IBBEN.entity≠
 got.faction.IBBEN.name≠
 got.faction.IBBEN.rank.commander.f≠
@@ -3000,6 +2979,7 @@ got.miniquest.collect.progress=%d of %d leadott
 got.miniquest.collect=Gyűjts %d %s
 got.miniquest.kill.progress=%d a %d -ból megölt
 got.miniquest.kill=Ölj meg %d %s
+got.miniquest.pickpocket.progress≠
 got.miniquest.pickpocket≠
 got.miniquest.progressShort=%d / %d
 got.miniquest.retrieve.progress=%d a %d -ból leadott
@@ -3031,6 +3011,8 @@ got.shields.CROWNLANDS.name≠
 got.shields.DORNE.name≠
 got.shields.DRAGONSTONE.name≠
 got.shields.GHISCAR.name≠
+got.shields.GOLDENCOMPANY.desc≠
+got.shields.GOLDENCOMPANY.name≠
 got.shields.HILLMEN.name≠
 got.shields.IRONBORN.name≠
 got.shields.LORATH.name≠
@@ -3054,6 +3036,7 @@ got.shields.TYROSH.name≠
 got.shields.UNSULLIED.name≠
 got.shields.VOLANTIS.name≠
 got.shields.WESTERLANDS.name≠
+got.shields.WESTERLANDSGUARD.name≠
 got.shields.YITI.name≠
 got.shields.YITI_FRONTIER.name≠
 got.shields.YITI_SAMURAI.name≠
@@ -3096,6 +3079,7 @@ got.structure.BraavosStables.name≠
 got.structure.BraavosTavern.name≠
 got.structure.BraavosTower.name≠
 got.structure.BraavosTraining.name≠
+got.structure.BurntHouse.name≠
 got.structure.CrownlandsBarn.name≠
 got.structure.CrownlandsBath.name≠
 got.structure.CrownlandsCityBig.name≠
@@ -3177,6 +3161,7 @@ got.structure.GiftVillage.name≠
 got.structure.GiftVillageLight.name≠
 got.structure.GiftWatchtower.name≠
 got.structure.GoldenCamp.name≠
+got.structure.HillmanVillage.name≠
 got.structure.HillmenCampfire.name≠
 got.structure.HillmenHillFort.name≠
 got.structure.HillmenHouse.name≠
@@ -3282,6 +3267,9 @@ got.structure.NorthCottage.name≠
 got.structure.NorthFortVillage.name≠
 got.structure.NorthFortress.name≠
 got.structure.NorthHillmanCamp.name≠
+got.structure.NorthHillmanChieftainHouse.name≠
+got.structure.NorthHillmanHouse.name≠
+got.structure.NorthHillmanVillage.name≠
 got.structure.NorthHouse.name≠
 got.structure.NorthSmithy.name≠
 got.structure.NorthStables.name≠
@@ -3375,10 +3363,13 @@ got.structure.RiverlandsTavern.name≠
 got.structure.RiverlandsTurret.name≠
 got.structure.RiverlandsWatchfort.name≠
 got.structure.RiverlandsWatchtower.name≠
+got.structure.RottenHouse.name≠
 got.structure.RuinedBeaconTower.name=Romos Gondori Jelzőtűztorony
 got.structure.RuinedGiftHouse.name≠
 got.structure.RuinedGiftTower.name≠
+got.structure.RuinedHouse.name≠
 got.structure.RuinedNorthTower.name≠
+got.structure.SmallStoneRuin.name≠
 got.structure.SothoryosChieftainPyramid.name≠
 got.structure.SothoryosHouseLarge.name≠
 got.structure.SothoryosHouseSimple.name≠
@@ -3387,6 +3378,11 @@ got.structure.SothoryosPyramid.name≠
 got.structure.SothoryosSmithy.name≠
 got.structure.SothoryosVillage.name≠
 got.structure.SothoryosWatchtower.name≠
+got.structure.StoneRuinAsshai.name≠
+got.structure.StoneRuinSandstone.name≠
+got.structure.StoneRuinSothoryos.name≠
+got.structure.StoneRuinStandart.name≠
+got.structure.StoneRuinYiTi.name≠
 got.structure.StormlandsBarn.name≠
 got.structure.StormlandsBath.name≠
 got.structure.StormlandsCityBig.name≠
@@ -3414,6 +3410,9 @@ got.structure.SummerTower.name≠
 got.structure.SummerVillage.name≠
 got.structure.SummerVillageRuined.name≠
 got.structure.ThennCamp.name≠
+got.structure.ThennHouse.name≠
+got.structure.ThennMagnarHouse.name≠
+got.structure.ThennVillage.name≠
 got.structure.TyroshBarracks.name≠
 got.structure.TyroshBazaar.name≠
 got.structure.TyroshCityBig.name≠
@@ -3459,6 +3458,7 @@ got.structure.WildlingCamp.name≠
 got.structure.WildlingChieftainHouse.name≠
 got.structure.WildlingHouse.name≠
 got.structure.WildlingTent.name≠
+got.structure.WildlingVillage.name≠
 got.structure.YiTiBath.name≠
 got.structure.YiTiBrewery.name≠
 got.structure.YiTiCaptainTent.name≠
@@ -3501,11 +3501,11 @@ got.title.KILL_GREGOR_CLEGANE≠
 got.title.KILL_JAQEN_HGHAR≠
 got.title.KILL_JEOR_MORMONT≠
 got.title.KILL_JON_SNOW≠
-got.title.KILL_TUGAR_KHAN≠
 got.title.KILL_NIGHT_KING≠
 got.title.KILL_OBERYN_MARTELL≠
 got.title.KILL_SANDOR_CLEGANE≠
 got.title.KILL_THE_KING≠
+got.title.KILL_TUGAR_KHAN≠
 got.title.KILL_TYWIN≠
 got.title.targaryenF≠
 got.title.targaryenM≠
@@ -3517,10 +3517,130 @@ got.titles.unlock.starter=Kezdő Cím
 got.travellingTrader.arrive=%s A közelbe érkezett
 got.travellingTrader.arriveMP=%s %s közelébe érkezett
 got.travellingTrader.depart=%s elhagyta a területet
+got.tree.acacia.name≠
+got.tree.almond.name≠
+got.tree.apple.name≠
+got.tree.aspen.name≠
+got.tree.aspen_large.name≠
+got.tree.banana.name≠
+got.tree.baobab.name≠
+got.tree.beech.name≠
+got.tree.beech_large.name≠
+got.tree.birch.name≠
+got.tree.birch_large.name≠
+got.tree.catalpa.name≠
+got.tree.cedar.name≠
+got.tree.cedar_large.name≠
+got.tree.charred.name≠
+got.tree.cherry.name≠
+got.tree.chestnut.name≠
+got.tree.chestnut_large.name≠
+got.tree.cypress.name≠
+got.tree.cypress_large.name≠
+got.tree.date_palm.name≠
+got.tree.dragonblood.name≠
+got.tree.fir.name≠
+got.tree.fotinia.name≠
+got.tree.holly.name≠
+got.tree.holly_large.name≠
+got.tree.ibben_pine.name≠
+got.tree.jungle.name≠
+got.tree.jungle_large.name≠
+got.tree.jungle_shrub.name≠
+got.tree.kanuka.name≠
+got.tree.larch.name≠
+got.tree.lemon.name≠
+got.tree.lime.name≠
+got.tree.mahogany.name≠
+got.tree.mango.name≠
+got.tree.mangrove.name≠
+got.tree.maple.name≠
+got.tree.maple_large.name≠
+got.tree.oak.name≠
+got.tree.oak_dead.name≠
+got.tree.oak_desert.name≠
+got.tree.oak_large.name≠
+got.tree.oak_party.name≠
+got.tree.oak_tall.name≠
+got.tree.olive.name≠
+got.tree.olive_large.name≠
+got.tree.orange.name≠
+got.tree.palm.name≠
+got.tree.pear.name≠
+got.tree.pine.name≠
+got.tree.plum.name≠
+got.tree.pomegranate.name≠
+got.tree.redwood.name≠
+got.tree.redwood_2.name≠
+got.tree.redwood_3.name≠
+got.tree.redwood_4.name≠
+got.tree.redwood_5.name≠
+got.tree.spruce.name≠
+got.tree.spruce_mega.name≠
+got.tree.spruce_mega_thin.name≠
+got.tree.spruce_thin.name≠
+got.tree.ulthos_green_oak.name≠
+got.tree.ulthos_green_oak_large.name≠
+got.tree.ulthos_oak.name≠
+got.tree.ulthos_oak_large.name≠
+got.tree.ulthos_red_oak.name≠
+got.tree.ulthos_red_oak_large.name≠
+got.tree.weirwood.name≠
+got.tree.willow.name≠
 got.unit.Rider≠
 got.unitinfo.Banner=A Zászlóhordozók különféle harci előnyöket adnak az azonos frakcióból származó közeli egységeknek
 got.unitinfo.Corsair=A kalózok jobbak a halott ellenségektől való pénz zsákmányolásában
 got.usemem≠
+got.variant.boulders_red.name≠
+got.variant.clearing.name≠
+got.variant.deadForest_oak.name≠
+got.variant.deadForest_oak_spruce.name≠
+got.variant.deadForest_spruce.name≠
+got.variant.denseForest_birch.name≠
+got.variant.denseForest_darkOak.name≠
+got.variant.denseForest_oak.name≠
+got.variant.denseForest_oak_spruce.name≠
+got.variant.denseForest_spruce.name≠
+got.variant.dunes.name≠
+got.variant.flowers.name≠
+got.variant.forest.name≠
+got.variant.forest_aspen.name≠
+got.variant.forest_beech.name≠
+got.variant.forest_birch.name≠
+got.variant.forest_cherry.name≠
+got.variant.forest_larch.name≠
+got.variant.forest_lemon.name≠
+got.variant.forest_light.name≠
+got.variant.forest_lime.name≠
+got.variant.forest_maple.name≠
+got.variant.forest_pine.name≠
+got.variant.forest_weirwood.name≠
+got.variant.hills.name≠
+got.variant.hills_forest.name≠
+got.variant.hills_scrubland.name≠
+got.variant.hills_scrubland_sand.name≠
+got.variant.lake.name≠
+got.variant.mountain.name≠
+got.variant.orchard_almond.name≠
+got.variant.orchard_apple_pear.name≠
+got.variant.orchard_date.name≠
+got.variant.orchard_lemon.name≠
+got.variant.orchard_lime.name≠
+got.variant.orchard_olive.name≠
+got.variant.orchard_orange.name≠
+got.variant.orchard_plum.name≠
+got.variant.orchard_pomegranate.name≠
+got.variant.river.name≠
+got.variant.savannahBaobab.name≠
+got.variant.scrubland.name≠
+got.variant.scrubland_sand.name≠
+got.variant.shrubland_oak.name≠
+got.variant.standard.name≠
+got.variant.swampLowland.name≠
+got.variant.swampUpland.name≠
+got.variant.vineyard.name≠
+got.variant.wasteland.name≠
+got.variant.wasteland_sand.name≠
 got.weaponstat.kb=Hátralökés: +%d
 got.weaponstat.meleeDamage=Kézi Sebzés: +%d
 got.weaponstat.meleeSpeed=Kézi Gyorsaság: %d%%
@@ -3833,6 +3953,8 @@ got.wp.HoarfrostHill.info≠
 got.wp.HoarfrostHill≠
 got.wp.HoggHall.info≠
 got.wp.HoggHall≠
+got.wp.Hojdbaatar.info≠
+got.wp.Hojdbaatar=Hojdbaatar
 got.wp.HollardCastle.info≠
 got.wp.HollardCastle≠
 got.wp.HollowHill.info≠
@@ -3893,8 +4015,6 @@ got.wp.Kingshouse.info≠
 got.wp.Kingshouse≠
 got.wp.KissLock.info≠
 got.wp.KissLock≠
-got.wp.Hojdbaatar.info≠
-got.wp.Hojdbaatar=Hojdbaatar
 got.wp.Koj.info≠
 got.wp.Koj≠
 got.wp.Kosrak.info≠
@@ -3983,6 +4103,8 @@ got.wp.NewGhis.info≠
 got.wp.NewGhis≠
 got.wp.NewIbbish.info≠
 got.wp.NewIbbish≠
+got.wp.NightKing.info≠
+got.wp.NightKing≠
 got.wp.Nightfort.info≠
 got.wp.Nightfort≠
 got.wp.Nightsong.info≠
@@ -4149,6 +4271,8 @@ got.wp.Sisterton.info≠
 got.wp.Sisterton≠
 got.wp.Skane.info≠
 got.wp.Skane≠
+got.wp.SkirlingPass.info≠
+got.wp.SkirlingPass≠
 got.wp.SkyReach.info≠
 got.wp.SkyReach≠
 got.wp.Smithyton.info≠
@@ -4163,6 +4287,8 @@ got.wp.SparrCastle.info≠
 got.wp.SparrCastle≠
 got.wp.Spicetown.info≠
 got.wp.Spicetown≠
+got.wp.Spider.info≠
+got.wp.Spider≠
 got.wp.Spottswood.info≠
 got.wp.Spottswood≠
 got.wp.Standfast.info≠
@@ -4733,6 +4859,7 @@ item.got:banner.ironsmith.name≠
 item.got:banner.jaremymallister.name≠
 item.got:banner.jast.name≠
 item.got:banner.joffrey.name≠
+item.got:banner.jogos.name≠
 item.got:banner.jonconnington.name≠
 item.got:banner.jonking.name≠
 item.got:banner.jonsnow.name≠
@@ -5181,7 +5308,11 @@ item.got:dorneBoots.name≠
 item.got:dorneChestplate.name≠
 item.got:dorneHelmet.name≠
 item.got:dorneLeggings.name≠
+item.got:dothrakiBoots.name≠
+item.got:dothrakiChestplate.name≠
+item.got:dothrakiHelmet.name≠
 item.got:dothrakiHorseArmor.name≠
+item.got:dothrakiLeggings.name≠
 item.got:dragonstoneBoots.name≠
 item.got:dragonstoneChestplate.name≠
 item.got:dragonstoneHelmet.name≠
@@ -5289,12 +5420,15 @@ item.got:ironbornHelmet.name≠
 item.got:ironbornLeggings.name≠
 item.got:jaimeSword.name≠
 item.got:joffreyCrossbow.name≠
+item.got:jogosBoots.name≠
+item.got:jogosChestplate.name≠
+item.got:jogosHelmet.name≠
+item.got:jogosLeggings.name≠
 item.got:justMaid.name≠
 item.got:kaftanChestplate.name≠
 item.got:kaftanLeggings.name≠
 item.got:katana.name≠
 item.got:kebab.name=Kebab
-item.got:whiteBisonHorn.name=Arawbölény Szarv
 item.got:kingsguardBoots.name≠
 item.got:kingsguardChestplate.name≠
 item.got:kingsguardHelmet.name≠
@@ -5411,11 +5545,7 @@ item.got:needle.name≠
 item.got:nightKingSword.name≠
 item.got:nightfall.name≠
 item.got:nomadBattleaxe.name≠
-item.got:dothrakiBoots.name≠
 item.got:nomadBow.name≠
-item.got:dothrakiChestplate.name≠
-item.got:dothrakiHelmet.name≠
-item.got:dothrakiLeggings.name≠
 item.got:nomadSpear.name≠
 item.got:nomadSword.name≠
 item.got:northBoots.name≠
@@ -5609,6 +5739,7 @@ item.got:tormundSword.name≠
 item.got:trident.name≠
 item.got:truth.name≠
 item.got:trystaneSword.name≠
+item.got:tugarKhanSword.name≠
 item.got:turnip.name=Tarlórépa
 item.got:turnipCooked.name=Sült Répa
 item.got:tyeneDagger.name≠
@@ -5678,6 +5809,7 @@ item.got:westkingChestplate.name≠
 item.got:westkingHelmet.name≠
 item.got:westkingLeggings.name≠
 item.got:wheel.name≠
+item.got:whiteBisonHorn.name=Arawbölény Szarv
 item.got:whiteWalkersBoots.name≠
 item.got:whiteWalkersChestplate.name≠
 item.got:whiteWalkersHoe.name≠
@@ -6059,6 +6191,7 @@ tile.got:kebabStand.cooked≠
 tile.got:kebabStand.meats≠
 tile.got:kebabStand.name=Kebab Állvány
 tile.got:kebabStandSand.name=Homokkő Kebab Állvány
+tile.got:kelp.name≠
 tile.got:leaves1.0.name≠
 tile.got:leaves1.1.name≠
 tile.got:leaves1.2.name≠

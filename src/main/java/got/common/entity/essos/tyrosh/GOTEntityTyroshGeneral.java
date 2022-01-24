@@ -15,7 +15,6 @@ public class GOTEntityTyroshGeneral extends GOTEntityTyroshSoldier implements GO
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(false);
-		npcCape = GOTCapes.TYROSH;
 		spawnRidingHorse = false;
 	}
 

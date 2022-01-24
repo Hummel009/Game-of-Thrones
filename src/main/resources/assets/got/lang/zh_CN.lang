@@ -1,33 +1,4 @@
 ﻿
-got.wp.SkirlingPass.info≠
-got.wp.SkirlingPass≠
-got.wp.Spider.info≠
-got.wp.Spider≠
-got.wp.NightKing.info≠
-got.wp.NightKing≠
-entity.got.MoribaldChester.name≠
-got.shields.WESTERLANDSGUARD.name≠
-got.capes.TARGARYEN.desc≠
-item.got:banner.jogos.name≠
-got.structure.NorthHillmanVillage.name≠
-got.structure.WildlingVillage.name≠
-got.structure.ThennVillage.name≠
-got.structure.NorthHillmanChieftainHouse.name≠
-got.structure.NorthHillmanHouse.name≠
-got.structure.ThennMagnarHouse.name≠
-got.structure.ThennHouse.name≠
-entity.got.JogosBannerBearer.name≠
-got.structure.HillmanVillage.name≠
-tile.got:kelp.name≠
-got.achievement.KILL_PRIEST.desc≠
-got.achievement.KILL_PRIEST.title≠
-got.achievement.WEAR_FULL_JOGOS.desc≠
-got.achievement.WEAR_FULL_JOGOS.title≠
-item.got:tugarKhanSword.name≠
-item.got:jogosBoots.name≠
-item.got:jogosChestplate.name≠
-item.got:jogosHelmet.name≠
-item.got:jogosLeggings.name≠
 attribute.name.generic.movementSpeedAir=速度(Air)
 color.black=黑色
 color.blue=蓝色
@@ -99,7 +70,6 @@ entity.got.AsshaiMan.name=亚夏人
 entity.got.AsshaiShadowbinder.name=亚夏缚影士
 entity.got.AsshaiSpherebinder.name=亚夏边界守护者
 entity.got.AuraneWaters.name=奥雷恩·维水
-entity.got.Bison.name=野牛
 entity.got.BaelorBlacktyde.name=贝勒·布莱克泰斯
 entity.got.BalonGreyjoy.name=巴隆·葛雷乔伊
 entity.got.Banner.name=旗帜
@@ -119,6 +89,7 @@ entity.got.BericDondarrion4.name=贝里克·唐德利恩
 entity.got.BericDondarrion5.name=贝里克·唐德利恩
 entity.got.BericDondarrion6.name=贝里克·唐德利恩
 entity.got.Bird.name=鸟
+entity.got.Bison.name=野牛
 entity.got.BlackWalderFrey.name=黑瓦德·佛雷
 entity.got.Boar.name=野猪
 entity.got.BraavosArcher.name=布拉佛斯弓箭手
@@ -251,6 +222,8 @@ entity.got.Elk.name=麋鹿
 entity.got.EllaryaSand.name=艾拉莉亚·沙德
 entity.got.ErikIronmaker.name=艾里·艾枚克
 entity.got.EssosBandit.name=厄斯索斯土匪
+entity.got.EssosScrapTrader.name≠
+entity.got.EssosThief.name=小偷
 entity.got.EuronGreyjoy.name=攸伦·葛雷乔伊
 entity.got.Fish.name=鱼
 entity.got.Flamingo.name=火烈鸟
@@ -389,6 +362,7 @@ entity.got.JasonMallister.name=杰森·梅利斯特
 entity.got.JeorMormont.name=杰奥·莫尔蒙
 entity.got.JoffreyBaratheon.name=乔佛里·拜拉席恩
 entity.got.JogosArcher.name=鸠格斯奈射手
+entity.got.JogosBannerBearer.name≠
 entity.got.JogosChief.name=鸠格斯奈头颅
 entity.got.JogosMan.name=鸠格斯奈人
 entity.got.JogosShaman.name=鸠格斯奈萨满
@@ -400,9 +374,7 @@ entity.got.JonosBracken.name=杰诺斯·布雷肯
 entity.got.JorahMormont.name=乔拉·莫尔蒙
 entity.got.JungleScorpion.name=丛林毒蝎
 entity.got.KevanLannister.name=凯冯·兰尼斯特
-entity.got.WhiteBison.name=白野牛
 entity.got.Kingsguard.name=御林铁卫
-entity.got.TugarKhan.name≠
 entity.got.KraznysMoNakloz.name=克拉兹尼·莫·纳克罗兹
 entity.got.LancelLannister.name=蓝赛尔·兰尼斯特
 entity.got.LancelLannisterR.name=蓝赛尔·兰尼斯特
@@ -499,6 +471,7 @@ entity.got.Midges.name=血蝇
 entity.got.Missandei.name=弥桑黛
 entity.got.MonfordVelaryon.name=莫佛德·瓦列利安
 entity.got.Moqorro.name=马奇罗
+entity.got.MoribaldChester.name≠
 entity.got.MossovyBannerBearer.name≠
 entity.got.MossovyBartender.name≠
 entity.got.MossovyBlacksmith.name≠
@@ -726,8 +699,6 @@ entity.got.SalladhorSaan.name=萨拉多·桑恩
 entity.got.SamwellTarly.name=山姆威尔·塔利
 entity.got.SandorClegane.name=桑铎·克里冈
 entity.got.SansaStark.name=珊莎·史塔克
-entity.got.WesterosScrapTrader.name≠
-entity.got.EssosScrapTrader.name≠
 entity.got.Seagull.name=海鸥
 entity.got.SebastonFarman.name=塞斯巴顿·法曼
 entity.got.SelwynTarth.name=塞尔温·塔斯
@@ -802,8 +773,6 @@ entity.got.ThennBlacksmith.name=瑟恩铁匠
 entity.got.ThennMagnar.name=马格纳
 entity.got.TheonGreyjoy.name=席恩·葛雷乔伊
 entity.got.TheonGreyjoyV.name=席恩·葛雷乔伊
-entity.got.WesterosThief.name=小偷
-entity.got.EssosThief.name=小偷
 entity.got.Thoros.name=索罗斯
 entity.got.ThreeEyedRaven.name=三眼乌鸦
 entity.got.ThrowingAxe.name=投斧
@@ -817,6 +786,7 @@ entity.got.Tormund.name=托蒙德
 entity.got.TraderRespawn.name=商人重生处
 entity.got.TrollSnowball.name=巨人雪球
 entity.got.TrystaneMartell.name=崔斯丹·马泰尔
+entity.got.TugarKhan.name≠
 entity.got.TychoNestoris.name=泰楚·奈斯托斯
 entity.got.TyrionLannister.name=提利昂·兰尼斯特
 entity.got.TyroshBaker.name=泰洛西烘焙师
@@ -900,6 +870,9 @@ entity.got.WesterlandsMason.name=西境石匠
 entity.got.WesterlandsSoldier.name=西境武装士兵
 entity.got.WesterlandsSoldierArcher.name=西境武装弓箭手
 entity.got.WesterosBandit.name≠
+entity.got.WesterosScrapTrader.name≠
+entity.got.WesterosThief.name=小偷
+entity.got.WhiteBison.name=白野牛
 entity.got.WhiteOryx.name=白色大羚羊
 entity.got.WhiteWalker.name=异鬼
 entity.got.Whore.name=妓女
@@ -1073,8 +1046,6 @@ got.achievement.KILL_KEVAN_LANNISTER.desc=杀死凯冯·兰尼斯特
 got.achievement.KILL_KEVAN_LANNISTER.title=砍下国王之手
 got.achievement.KILL_KHAL.desc=杀死卡奥
 got.achievement.KILL_KHAL.title=吾血之血
-got.achievement.KILL_TUGAR_KHAN.desc=杀死奇特拉·竺瓦因
-got.achievement.KILL_TUGAR_KHAN.title=千古一帝
 got.achievement.KILL_KRAZNYS_MO_NAKLOZ.desc=Kill Kraznys Mo Nakloz
 got.achievement.KILL_KRAZNYS_MO_NAKLOZ.title=Exchange the dragon for the army
 got.achievement.KILL_LANCEL_LANNISTER.desc=杀死信徒蓝赛尔·兰尼斯特
@@ -1101,6 +1072,8 @@ got.achievement.KILL_OBERYN_MARTELL.desc=杀死奥伯伦·马泰尔
 got.achievement.KILL_OBERYN_MARTELL.title=魔山
 got.achievement.KILL_PETYR_BAELISH.desc=杀死培提尔·贝里席
 got.achievement.KILL_PETYR_BAELISH.title=混乱就是阶梯
+got.achievement.KILL_PRIEST.desc≠
+got.achievement.KILL_PRIEST.title≠
 got.achievement.KILL_RAMSAY_BOLTON.desc=杀死拉姆斯·波顿
 got.achievement.KILL_RAMSAY_BOLTON.title=先发制人
 got.achievement.KILL_ROBB_STARK.desc=杀死罗柏·史塔克
@@ -1121,6 +1094,8 @@ got.achievement.KILL_THOROS.desc=杀死索罗斯
 got.achievement.KILL_THOROS.title=无法拯救
 got.achievement.KILL_TORMUND.desc=杀死托蒙德
 got.achievement.KILL_TORMUND.title=阴影中的利刃
+got.achievement.KILL_TUGAR_KHAN.desc=杀死奇特拉·竺瓦因
+got.achievement.KILL_TUGAR_KHAN.title=千古一帝
 got.achievement.KILL_TYRION.desc=杀死提利昂·兰尼斯特
 got.achievement.KILL_TYRION.title=你想怎么死，提利昂，泰温之子？
 got.achievement.KILL_TYWIN.desc=杀死泰温·兰尼斯特
@@ -1409,6 +1384,8 @@ got.achievement.WEAR_FULL_CROWNLANDS.desc=装备整套金袍子
 got.achievement.WEAR_FULL_CROWNLANDS.title=君临守备
 got.achievement.WEAR_FULL_DORNE.desc=装备整套多恩铠甲
 got.achievement.WEAR_FULL_DORNE.title=红蛇守卫
+got.achievement.WEAR_FULL_DOTHRAKI.desc=装备整套多斯拉克铠甲
+got.achievement.WEAR_FULL_DOTHRAKI.title=比海洋更宽广
 got.achievement.WEAR_FULL_DRAGONSTONE.desc=装备整套龙石岛铠甲
 got.achievement.WEAR_FULL_DRAGONSTONE.title=真王守卫
 got.achievement.WEAR_FULL_FUR.desc=装备整套毛皮铠甲
@@ -1429,6 +1406,8 @@ got.achievement.WEAR_FULL_HILLMEN.desc=装备整套高山氏族部落铠甲
 got.achievement.WEAR_FULL_HILLMEN.title=明月山脉的癫狂
 got.achievement.WEAR_FULL_IRONBORN.desc=装备整套铁群岛铠甲
 got.achievement.WEAR_FULL_IRONBORN.title=海盗行头
+got.achievement.WEAR_FULL_JOGOS.desc≠
+got.achievement.WEAR_FULL_JOGOS.title≠
 got.achievement.WEAR_FULL_KINGSGUARD.desc=装备整套御林铁卫铠甲
 got.achievement.WEAR_FULL_KINGSGUARD.title=国王万岁！
 got.achievement.WEAR_FULL_LHAZAR.desc=装备整套拉札尔铠甲
@@ -1443,8 +1422,6 @@ got.achievement.WEAR_FULL_MOSSOVY.desc=装备整套摩苏伊猎魔人铠甲
 got.achievement.WEAR_FULL_MOSSOVY.title=玻璃膝盖
 got.achievement.WEAR_FULL_MYR.desc=装备整套密尔铠甲
 got.achievement.WEAR_FULL_MYR.title=密尔守卫
-got.achievement.WEAR_FULL_DOTHRAKI.desc=装备整套多斯拉克铠甲
-got.achievement.WEAR_FULL_DOTHRAKI.title=比海洋更宽广
 got.achievement.WEAR_FULL_NORTH.desc=装备整套北境铠甲
 got.achievement.WEAR_FULL_NORTH.title=北境刁民
 got.achievement.WEAR_FULL_NORTHGUARD.desc=装备整套北境守卫铠甲
@@ -1686,6 +1663,7 @@ got.capes.REACH.name=河湾地的披风
 got.capes.RIVERLANDS.name=河间地的披风
 got.capes.ROYALGUARD.name=金袍子的披风
 got.capes.STORMLANDS.name=风暴地的披风
+got.capes.TARGARYEN.desc≠
 got.capes.TARGARYEN.name=坦格利安的披风
 got.capes.TYROSH.name=泰洛西的披风
 got.capes.UNSULLIED.name=无垢者的披风
@@ -2175,6 +2153,7 @@ got.faction.HILL_TRIBES.rank.warlord=谷地之灾
 got.faction.HILL_TRIBES.rank.warrior.f=战士
 got.faction.HILL_TRIBES.rank.warrior=战士
 got.faction.HILL_TRIBES.subtitle=谷地的高山氏族部落
+got.faction.HOSTILE.name≠
 got.faction.IBBEN.entity=伊班人
 got.faction.IBBEN.name=伊班
 got.faction.IBBEN.rank.commander.f=伊班的舰长
@@ -3000,6 +2979,7 @@ got.miniquest.collect.progress=给予了 %d/ %d
 got.miniquest.collect=收集 %d个 %s
 got.miniquest.kill.progress=杀死了 %d/ %d
 got.miniquest.kill=杀死 %d个 %s
+got.miniquest.pickpocket.progress≠
 got.miniquest.pickpocket=盗窃NPC（Shift + RMB）。
 got.miniquest.progressShort=%d/ %d
 got.miniquest.retrieve.progress=给了 %d/ %d
@@ -3031,6 +3011,8 @@ got.shields.CROWNLANDS.name=王领的盾牌
 got.shields.DORNE.name=多恩之盾
 got.shields.DRAGONSTONE.name=龙石岛之盾
 got.shields.GHISCAR.name=吉斯卡之盾
+got.shields.GOLDENCOMPANY.desc≠
+got.shields.GOLDENCOMPANY.name≠
 got.shields.HILLMEN.name=高山氏族部落的盾牌
 got.shields.IRONBORN.name=铁群岛之盾
 got.shields.LORATH.name=罗拉斯之盾
@@ -3054,6 +3036,7 @@ got.shields.TYROSH.name=泰洛西之盾
 got.shields.UNSULLIED.name=无垢者的盾牌
 got.shields.VOLANTIS.name=瓦兰提斯之盾
 got.shields.WESTERLANDS.name=西狮之盾
+got.shields.WESTERLANDSGUARD.name≠
 got.shields.YITI.name=金国之盾
 got.shields.YITI_FRONTIER.name=夷地边界战士之盾
 got.shields.YITI_SAMURAI.name=夷地之盾
@@ -3096,6 +3079,7 @@ got.structure.BraavosStables.name=布拉佛斯马厩
 got.structure.BraavosTavern.name=布拉佛斯酒馆
 got.structure.BraavosTower.name=布拉佛斯岗楼
 got.structure.BraavosTraining.name=布拉佛斯训练场
+got.structure.BurntHouse.name≠
 got.structure.CrownlandsBarn.name=王领谷仓
 got.structure.CrownlandsBath.name=王领澡堂
 got.structure.CrownlandsCityBig.name=王领城市
@@ -3177,6 +3161,7 @@ got.structure.GiftVillage.name=守夜人村庄
 got.structure.GiftVillageLight.name=守夜人村灯
 got.structure.GiftWatchtower.name=守夜人哨塔
 got.structure.GoldenCamp.name=Camp of 黄金团
+got.structure.HillmanVillage.name≠
 got.structure.HillmenCampfire.name=高山氏族部落营地
 got.structure.HillmenHillFort.name=高山氏族部落堡垒
 got.structure.HillmenHouse.name=高山氏族部落屋
@@ -3282,6 +3267,9 @@ got.structure.NorthCottage.name=北境庐
 got.structure.NorthFortVillage.name=北境筑城
 got.structure.NorthFortress.name=北境堡垒
 got.structure.NorthHillmanCamp.name=北境山区民营地
+got.structure.NorthHillmanChieftainHouse.name≠
+got.structure.NorthHillmanHouse.name≠
+got.structure.NorthHillmanVillage.name≠
 got.structure.NorthHouse.name=北境宅
 got.structure.NorthSmithy.name=北境铁匠铺
 got.structure.NorthStables.name=北境马厩
@@ -3375,10 +3363,13 @@ got.structure.RiverlandsTavern.name=河间地酒馆
 got.structure.RiverlandsTurret.name=河间地塔楼
 got.structure.RiverlandsWatchfort.name=河间地瞭望堡
 got.structure.RiverlandsWatchtower.name=河间地岗楼
+got.structure.RottenHouse.name≠
 got.structure.RuinedBeaconTower.name=废烽火台
 got.structure.RuinedGiftHouse.name=废宅
 got.structure.RuinedGiftTower.name=废北境岗楼
+got.structure.RuinedHouse.name≠
 got.structure.RuinedNorthTower.name=废北境烽火台
+got.structure.SmallStoneRuin.name≠
 got.structure.SothoryosChieftainPyramid.name=索斯罗斯首领庙
 got.structure.SothoryosHouseLarge.name=索斯罗斯大宅
 got.structure.SothoryosHouseSimple.name=索斯罗斯宅
@@ -3387,6 +3378,11 @@ got.structure.SothoryosPyramid.name=索斯罗斯金字塔
 got.structure.SothoryosSmithy.name=索斯罗斯铁匠铺
 got.structure.SothoryosVillage.name=索斯罗斯村庄
 got.structure.SothoryosWatchtower.name=索斯罗斯岗楼
+got.structure.StoneRuinAsshai.name≠
+got.structure.StoneRuinSandstone.name≠
+got.structure.StoneRuinSothoryos.name≠
+got.structure.StoneRuinStandart.name≠
+got.structure.StoneRuinYiTi.name≠
 got.structure.StormlandsBarn.name=风暴地谷仓
 got.structure.StormlandsBath.name=风暴地澡堂
 got.structure.StormlandsCityBig.name=风暴地城市
@@ -3414,6 +3410,9 @@ got.structure.SummerTower.name=盛夏群岛哨塔
 got.structure.SummerVillage.name=盛夏群岛村庄
 got.structure.SummerVillageRuined.name=盛夏群岛废弃村落
 got.structure.ThennCamp.name=瑟恩营地
+got.structure.ThennHouse.name≠
+got.structure.ThennMagnarHouse.name≠
+got.structure.ThennVillage.name≠
 got.structure.TyroshBarracks.name=泰洛西营地
 got.structure.TyroshBazaar.name=泰洛西集市
 got.structure.TyroshCityBig.name=泰洛西城市
@@ -3459,6 +3458,7 @@ got.structure.WildlingCamp.name=自由民营地
 got.structure.WildlingChieftainHouse.name=自由民头领宅
 got.structure.WildlingHouse.name=自由民宅
 got.structure.WildlingTent.name=自由民帐篷
+got.structure.WildlingVillage.name≠
 got.structure.YiTiBath.name=夷地澡堂
 got.structure.YiTiBrewery.name=夷地槽坊
 got.structure.YiTiCaptainTent.name=夷地大帐
@@ -3501,11 +3501,11 @@ got.title.KILL_GREGOR_CLEGANE=传奇杀手III
 got.title.KILL_JAQEN_HGHAR=凡人皆有一死
 got.title.KILL_JEOR_MORMONT=内鬼
 got.title.KILL_JON_SNOW=为了守夜人
-got.title.KILL_TUGAR_KHAN=千古一帝
 got.title.KILL_NIGHT_KING=传奇杀手I
 got.title.KILL_OBERYN_MARTELL=魔山
 got.title.KILL_SANDOR_CLEGANE=猎狗人
 got.title.KILL_THE_KING=弑君者
+got.title.KILL_TUGAR_KHAN=千古一帝
 got.title.KILL_TYWIN=斯泰瑟姆
 got.title.targaryenF=风暴降生
 got.title.targaryenM=风暴降生
@@ -3517,10 +3517,130 @@ got.titles.unlock.starter=起始头衔
 got.travellingTrader.arrive=%s 已经抵达了附近
 got.travellingTrader.arriveMP=%s 已经赶到了 %s 附近
 got.travellingTrader.depart=%s 启程离开了
+got.tree.acacia.name≠
+got.tree.almond.name≠
+got.tree.apple.name≠
+got.tree.aspen.name≠
+got.tree.aspen_large.name≠
+got.tree.banana.name≠
+got.tree.baobab.name≠
+got.tree.beech.name≠
+got.tree.beech_large.name≠
+got.tree.birch.name≠
+got.tree.birch_large.name≠
+got.tree.catalpa.name≠
+got.tree.cedar.name≠
+got.tree.cedar_large.name≠
+got.tree.charred.name≠
+got.tree.cherry.name≠
+got.tree.chestnut.name≠
+got.tree.chestnut_large.name≠
+got.tree.cypress.name≠
+got.tree.cypress_large.name≠
+got.tree.date_palm.name≠
+got.tree.dragonblood.name≠
+got.tree.fir.name≠
+got.tree.fotinia.name≠
+got.tree.holly.name≠
+got.tree.holly_large.name≠
+got.tree.ibben_pine.name≠
+got.tree.jungle.name≠
+got.tree.jungle_large.name≠
+got.tree.jungle_shrub.name≠
+got.tree.kanuka.name≠
+got.tree.larch.name≠
+got.tree.lemon.name≠
+got.tree.lime.name≠
+got.tree.mahogany.name≠
+got.tree.mango.name≠
+got.tree.mangrove.name≠
+got.tree.maple.name≠
+got.tree.maple_large.name≠
+got.tree.oak.name≠
+got.tree.oak_dead.name≠
+got.tree.oak_desert.name≠
+got.tree.oak_large.name≠
+got.tree.oak_party.name≠
+got.tree.oak_tall.name≠
+got.tree.olive.name≠
+got.tree.olive_large.name≠
+got.tree.orange.name≠
+got.tree.palm.name≠
+got.tree.pear.name≠
+got.tree.pine.name≠
+got.tree.plum.name≠
+got.tree.pomegranate.name≠
+got.tree.redwood.name≠
+got.tree.redwood_2.name≠
+got.tree.redwood_3.name≠
+got.tree.redwood_4.name≠
+got.tree.redwood_5.name≠
+got.tree.spruce.name≠
+got.tree.spruce_mega.name≠
+got.tree.spruce_mega_thin.name≠
+got.tree.spruce_thin.name≠
+got.tree.ulthos_green_oak.name≠
+got.tree.ulthos_green_oak_large.name≠
+got.tree.ulthos_oak.name≠
+got.tree.ulthos_oak_large.name≠
+got.tree.ulthos_red_oak.name≠
+got.tree.ulthos_red_oak_large.name≠
+got.tree.weirwood.name≠
+got.tree.willow.name≠
 got.unit.Rider=骑手
 got.unitinfo.Banner=旗手提高附近同派系NPC的多种战斗力
 got.unitinfo.Corsair=海盗更擅长在杀敌时掠夺银币！
 got.usemem=Used RAM
+got.variant.boulders_red.name≠
+got.variant.clearing.name≠
+got.variant.deadForest_oak.name≠
+got.variant.deadForest_oak_spruce.name≠
+got.variant.deadForest_spruce.name≠
+got.variant.denseForest_birch.name≠
+got.variant.denseForest_darkOak.name≠
+got.variant.denseForest_oak.name≠
+got.variant.denseForest_oak_spruce.name≠
+got.variant.denseForest_spruce.name≠
+got.variant.dunes.name≠
+got.variant.flowers.name≠
+got.variant.forest.name≠
+got.variant.forest_aspen.name≠
+got.variant.forest_beech.name≠
+got.variant.forest_birch.name≠
+got.variant.forest_cherry.name≠
+got.variant.forest_larch.name≠
+got.variant.forest_lemon.name≠
+got.variant.forest_light.name≠
+got.variant.forest_lime.name≠
+got.variant.forest_maple.name≠
+got.variant.forest_pine.name≠
+got.variant.forest_weirwood.name≠
+got.variant.hills.name≠
+got.variant.hills_forest.name≠
+got.variant.hills_scrubland.name≠
+got.variant.hills_scrubland_sand.name≠
+got.variant.lake.name≠
+got.variant.mountain.name≠
+got.variant.orchard_almond.name≠
+got.variant.orchard_apple_pear.name≠
+got.variant.orchard_date.name≠
+got.variant.orchard_lemon.name≠
+got.variant.orchard_lime.name≠
+got.variant.orchard_olive.name≠
+got.variant.orchard_orange.name≠
+got.variant.orchard_plum.name≠
+got.variant.orchard_pomegranate.name≠
+got.variant.river.name≠
+got.variant.savannahBaobab.name≠
+got.variant.scrubland.name≠
+got.variant.scrubland_sand.name≠
+got.variant.shrubland_oak.name≠
+got.variant.standard.name≠
+got.variant.swampLowland.name≠
+got.variant.swampUpland.name≠
+got.variant.vineyard.name≠
+got.variant.wasteland.name≠
+got.variant.wasteland_sand.name≠
 got.weaponstat.kb=击退：+ %d
 got.weaponstat.meleeDamage=近身伤害：+ %d
 got.weaponstat.meleeSpeed=近身速度： %d %%
@@ -3833,6 +3953,8 @@ got.wp.HoarfrostHill.info=霜雪山是长城上一座被遗弃的守夜人城堡
 got.wp.HoarfrostHill=霜雪山
 got.wp.HoggHall.info=小羊厅是河间地的一处地点。暂不知道它属于哪个家族。在血龙狂舞期间，小羊厅被瓦格哈尔的龙焰烧成了焦黑的乱石。
 got.wp.HoggHall=小羊厅
+got.wp.Hojdbaatar.info≠
+got.wp.Hojdbaatar=Hojdbaatar
 got.wp.HollardCastle.info=
 got.wp.HollardCastle=霍拉德堡
 got.wp.HollowHill.info=古老的地方，深邃而隐秘。一个避风港，狼和狮子都找不到的无旗兄弟会的藏身之所。
@@ -3893,8 +4015,6 @@ got.wp.Kingshouse.info=国王厅是北境斯卡格斯岛，马格拿氏族的族
 got.wp.Kingshouse=国王厅
 got.wp.KissLock.info=
 got.wp.KissLock=吻别哨
-got.wp.Hojdbaatar.info≠
-got.wp.Hojdbaatar=Hojdbaatar
 got.wp.Koj.info=是盛夏群岛中的一座小岛。
 got.wp.Koj=鹿儿岛
 got.wp.Kosrak.info=科斯拉克是拉札的一座城市，坐落于斯卡札丹河的一条支流旁，赫西以东，拉札西东北面。一条商路自科斯拉克延伸而出，穿过红色荒原，一路向南直抵如今已成废墟的维斯·托罗若城。此外科斯拉克还有一条商路向东北方延伸，通往阿达卡基拉基。
@@ -3983,6 +4103,8 @@ got.wp.NewGhis.info=新吉斯是悲痛海湾中一座岛屿城邦。它是吉斯
 got.wp.NewGhis=新吉斯
 got.wp.NewIbbish.info=新伊斯是伊班人在厄斯索斯大陆的殖民地城市，位于伊佛维隆诸王国北部森林覆盖的半岛上。 新伊斯向北是鲸鱼湾，东南方有一座伊班城市废墟，这座城如今的多斯拉克语名字是“维斯·阿斯克”。
 got.wp.NewIbbish=新伊斯
+got.wp.NightKing.info≠
+got.wp.NightKing≠
 got.wp.Nightfort.info=长夜堡是长城上的一座守夜人城堡。只有长夜堡的楼梯是从长城本身的冰壁里凿出来的。长夜堡在五王之战两百年前被守夜人遗弃。这里最后的守夜人弟兄被派遣到了深湖居。长夜堡位于冰痕城东侧，深湖居西侧。
 got.wp.Nightfort=长夜堡
 got.wp.Nightsong.info=夜歌城是卡伦家族的家堡，位于风暴地西南的多恩边疆地，坐落于亲王隘口的北端。
@@ -4149,6 +4271,8 @@ got.wp.Sisterton.info=姐妹屯是桑德兰家族的封城，位于咬人湾的�
 got.wp.Sisterton=姐妹屯
 got.wp.Skane.info=斯凯恩岛是一座位于北境的小岛，它坐落于斯卡格斯到西北方。 该岛上的居民很久之前就被斯卡格斯人劫掠杀光或吃掉了。
 got.wp.Skane=斯凯恩岛
+got.wp.SkirlingPass.info≠
+got.wp.SkirlingPass≠
 got.wp.SkyReach.info=天及城是多恩领内佛勒家族的居城。它临近亲王隘口的入口。
 got.wp.SkyReach=天及城
 got.wp.Smithyton.info=铁匠屯是河湾地的谢莫家族的族堡。
@@ -4163,6 +4287,8 @@ got.wp.SparrCastle.info=
 got.wp.SparrCastle=斯帕城
 got.wp.Spicetown.info=香料镇是王领的潮头岛上的一个小镇。
 got.wp.Spicetown=香料镇
+got.wp.Spider.info≠
+got.wp.Spider≠
 got.wp.Spottswood.info=斑木林是多恩领内桑塔加家族的居城。希尔娃·桑塔加因为她的雀斑被叫做“斑点”希尔娃，但她的朋友们都找借口说，这是她是斑木林继承人的缘故。
 got.wp.Spottswood=斑木林
 got.wp.Standfast.info=坚定堡不仅是一座要塞，而且更是充满了荣耀过往的塔楼。这里曾是奥斯格雷家族最开始的族堡，附近三个村镇的统治中心。其位于河湾地，离海边仅三天骑程。现在坚定堡由于年久失修，庭院里都是散养的鸡群，因而被维伯家族的人戏称为“小鸡塔”。
@@ -4733,6 +4859,7 @@ item.got:banner.ironsmith.name≠
 item.got:banner.jaremymallister.name≠
 item.got:banner.jast.name=贾斯特的旗帜
 item.got:banner.joffrey.name=君临的拜拉席恩的旗帜
+item.got:banner.jogos.name≠
 item.got:banner.jonconnington.name≠
 item.got:banner.jonking.name≠
 item.got:banner.jonsnow.name≠
@@ -5181,7 +5308,11 @@ item.got:dorneBoots.name=多恩靴子
 item.got:dorneChestplate.name=多恩胸甲
 item.got:dorneHelmet.name=多恩头盔
 item.got:dorneLeggings.name=多恩护腿
+item.got:dothrakiBoots.name=多斯拉克靴子
+item.got:dothrakiChestplate.name=多斯拉克护胸
+item.got:dothrakiHelmet.name=多斯拉克头盔
 item.got:dothrakiHorseArmor.name=多斯拉克马铠
+item.got:dothrakiLeggings.name=多斯拉克护腿
 item.got:dragonstoneBoots.name=龙石岛靴子
 item.got:dragonstoneChestplate.name=龙石岛胸甲
 item.got:dragonstoneHelmet.name=龙石岛头盔
@@ -5289,12 +5420,15 @@ item.got:ironbornHelmet.name=铁群岛头盔
 item.got:ironbornLeggings.name=铁群岛护腿
 item.got:jaimeSword.name=詹姆·兰尼斯特的剑
 item.got:joffreyCrossbow.name=乔佛里·拜拉席恩的弩
+item.got:jogosBoots.name≠
+item.got:jogosChestplate.name≠
+item.got:jogosHelmet.name≠
+item.got:jogosLeggings.name≠
 item.got:justMaid.name=正义之淑女
 item.got:kaftanChestplate.name=夷地长袍
 item.got:kaftanLeggings.name=夷地长袍护腿
 item.got:katana.name=御刀
 item.got:kebab.name=烤肉
-item.got:whiteBisonHorn.name=白野牛角
 item.got:kingsguardBoots.name=御林铁卫靴子
 item.got:kingsguardChestplate.name=御林铁卫斗篷
 item.got:kingsguardHelmet.name=御林铁卫头盔
@@ -5411,11 +5545,7 @@ item.got:needle.name=缝衣针
 item.got:nightKingSword.name=夜王的剑
 item.got:nightfall.name=夜临
 item.got:nomadBattleaxe.name=多斯拉克战斧
-item.got:dothrakiBoots.name=多斯拉克靴子
 item.got:nomadBow.name=多斯拉克弓
-item.got:dothrakiChestplate.name=多斯拉克护胸
-item.got:dothrakiHelmet.name=多斯拉克头盔
-item.got:dothrakiLeggings.name=多斯拉克护腿
 item.got:nomadSpear.name=多斯拉克矛
 item.got:nomadSword.name=多斯拉克剑
 item.got:northBoots.name=北境靴子
@@ -5609,6 +5739,7 @@ item.got:tormundSword.name=托蒙德的剑
 item.got:trident.name=高山氏族部落三叉戟
 item.got:truth.name=真理
 item.got:trystaneSword.name=崔斯丹·马泰尔的剑
+item.got:tugarKhanSword.name≠
 item.got:turnip.name=芜菁
 item.got:turnipCooked.name=烤芜菁
 item.got:tyeneDagger.name=特蕾妮·沙德的匕首
@@ -5678,6 +5809,7 @@ item.got:westkingChestplate.name=西境之王胸甲
 item.got:westkingHelmet.name=西境之王头盔
 item.got:westkingLeggings.name=西境之王护腿
 item.got:wheel.name=车轮
+item.got:whiteBisonHorn.name=白野牛角
 item.got:whiteWalkersBoots.name=异鬼靴子
 item.got:whiteWalkersChestplate.name=异鬼护胸
 item.got:whiteWalkersHoe.name=异鬼锄
@@ -6059,6 +6191,7 @@ tile.got:kebabStand.cooked=烤
 tile.got:kebabStand.meats=%d块肉
 tile.got:kebabStand.name=烤肉架
 tile.got:kebabStandSand.name=沙石烤肉架
+tile.got:kelp.name≠
 tile.got:leaves1.0.name=伊班松叶
 tile.got:leaves1.1.name=金叶叶
 tile.got:leaves1.2.name=黑橡叶

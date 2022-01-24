@@ -1,33 +1,4 @@
 
-got.wp.Spider.info≠
-got.wp.Spider≠
-got.wp.NightKing.info≠
-got.wp.NightKing≠
-entity.got.MoribaldChester.name≠
-got.wp.SkirlingPass.info≠
-got.wp.SkirlingPass≠
-got.shields.WESTERLANDSGUARD.name≠
-got.capes.TARGARYEN.desc≠
-item.got:banner.jogos.name≠
-got.structure.NorthHillmanVillage.name≠
-got.structure.WildlingVillage.name≠
-got.structure.ThennVillage.name≠
-got.structure.NorthHillmanChieftainHouse.name≠
-got.structure.NorthHillmanHouse.name≠
-got.structure.ThennMagnarHouse.name≠
-got.structure.ThennHouse.name≠
-entity.got.JogosBannerBearer.name≠
-got.structure.HillmanVillage.name=Tepeli Köyü
-tile.got:kelp.name=Yosun
-got.achievement.KILL_PRIEST.desc=Rahibi öldür
-got.achievement.KILL_PRIEST.title=Ateist
-got.achievement.WEAR_FULL_JOGOS.desc=Jogos Nhai'nin tam setini giyin
-got.achievement.WEAR_FULL_JOGOS.title=Doğu Ordası
-item.got:tugarKhanSword.name=Tugar han kılıcı
-item.got:jogosBoots.name=Jogos Nhai Çizmeler
-item.got:jogosChestplate.name=Jogos Nhai Göğüs Zırhı
-item.got:jogosHelmet.name=Jogos Nhai Kask
-item.got:jogosLeggings.name=Jogos Nhai Tayt
 attribute.name.generic.movementSpeedAir=Hız (Hava)
 color.black=Siyah
 color.blue=Mavi
@@ -99,7 +70,6 @@ entity.got.AsshaiMan.name=Asshai'li Adam
 entity.got.AsshaiShadowbinder.name=Asshai'nin Gölge Bağlayıcısı
 entity.got.AsshaiSpherebinder.name=Asshai Küre Bağlayıcı
 entity.got.AuraneWaters.name=Auran Suları
-entity.got.Bison.name=Bizon
 entity.got.BaelorBlacktyde.name=Baelor Blacktyde
 entity.got.BalonGreyjoy.name=Balon Greyjoy
 entity.got.Banner.name=Afiş
@@ -119,6 +89,7 @@ entity.got.BericDondarrion4.name=Beric Dondarrion
 entity.got.BericDondarrion5.name=Beric Dondarrion
 entity.got.BericDondarrion6.name=Beric Dondarrion
 entity.got.Bird.name=Kuş
+entity.got.Bison.name=Bizon
 entity.got.BlackWalderFrey.name=Kara Walder Frey
 entity.got.Boar.name=Domuz
 entity.got.BraavosArcher.name=Braavos Okçusu
@@ -251,6 +222,8 @@ entity.got.Elk.name=Geyik
 entity.got.EllaryaSand.name=Ellarya Kumu
 entity.got.ErikIronmaker.name=Erik Demirci
 entity.got.EssosBandit.name=Haydut
+entity.got.EssosScrapTrader.name=Scarp Tüccarı
+entity.got.EssosThief.name=Hırsız
 entity.got.EuronGreyjoy.name=Euron Greyjoy
 entity.got.Fish.name=Balık
 entity.got.Flamingo.name=Flamingo
@@ -389,6 +362,7 @@ entity.got.JasonMallister.name=Jason Mallister
 entity.got.JeorMormont.name=Jeor Mormont
 entity.got.JoffreyBaratheon.name=Joffrey Baratheon
 entity.got.JogosArcher.name=Jogos Nhai Okçusu
+entity.got.JogosBannerBearer.name≠
 entity.got.JogosChief.name=Jogos Nhai'nin reisi
 entity.got.JogosMan.name=Jogos Nhai'nin Göçebesi
 entity.got.JogosShaman.name=Jogos Nhai Şamanı
@@ -400,9 +374,7 @@ entity.got.JonosBracken.name=Jonos Bracken
 entity.got.JorahMormont.name=Jorah Mormont
 entity.got.JungleScorpion.name=Orman Akrebi
 entity.got.KevanLannister.name=Kevan Lannister
-entity.got.WhiteBison.name=Beyaz bizon
 entity.got.Kingsguard.name=Kral Muhafızları
-entity.got.TugarKhan.name=Tugar han
 entity.got.KraznysMoNakloz.name=Kraznys Mo Nakloz
 entity.got.LancelLannister.name=Lancel Lannister
 entity.got.LancelLannisterR.name=Lancel Lannister
@@ -499,6 +471,7 @@ entity.got.Midges.name=Tatarcıklar
 entity.got.Missandei.name=Missandei
 entity.got.MonfordVelaryon.name=Monford Velaryon
 entity.got.Moqorro.name=Moqorro
+entity.got.MoribaldChester.name≠
 entity.got.MossovyBannerBearer.name=Mossovy Sancak Taşıyıcı
 entity.got.MossovyBartender.name=Mossovy barmen
 entity.got.MossovyBlacksmith.name=Yosunlu demirci
@@ -726,8 +699,6 @@ entity.got.SalladhorSaan.name=Salladhor saan
 entity.got.SamwellTarly.name=Samwell Tarly
 entity.got.SandorClegane.name=Sandor Clegane
 entity.got.SansaStark.name=Sansa Stark
-entity.got.WesterosScrapTrader.name=Scarp Tüccarı
-entity.got.EssosScrapTrader.name=Scarp Tüccarı
 entity.got.Seagull.name=Martı
 entity.got.SebastonFarman.name=Sebaston Farman
 entity.got.SelwynTarth.name=Selwyn Tarth
@@ -802,8 +773,6 @@ entity.got.ThennBlacksmith.name=Sonra Demirci
 entity.got.ThennMagnar.name=Sonra Magnar
 entity.got.TheonGreyjoy.name=Theon Greyjoy
 entity.got.TheonGreyjoyV.name=Theon Greyjoy
-entity.got.WesterosThief.name=Hırsız
-entity.got.EssosThief.name=Hırsız
 entity.got.Thoros.name=Thoros
 entity.got.ThreeEyedRaven.name=Üç Gözlü Kuzgun
 entity.got.ThrowingAxe.name=Balta fırlatma
@@ -817,6 +786,7 @@ entity.got.Tormund.name=Tormund
 entity.got.TraderRespawn.name=Tüccar Yeniden Doğma
 entity.got.TrollSnowball.name=Dev kartopu
 entity.got.TrystaneMartell.name=Trystane Martell
+entity.got.TugarKhan.name=Tugar han
 entity.got.TychoNestoris.name=Tycho Nestoris
 entity.got.TyrionLannister.name=Tyrion lannister
 entity.got.TyroshBaker.name=Tyrosh fırıncısı
@@ -900,6 +870,9 @@ entity.got.WesterlandsMason.name=Batı Toprakları Mason
 entity.got.WesterlandsSoldier.name=Batı Toprakları Savaşçısı
 entity.got.WesterlandsSoldierArcher.name=Batı Topraklarının Savaşçı Okçusu
 entity.got.WesterosBandit.name=Haydut
+entity.got.WesterosScrapTrader.name=Scarp Tüccarı
+entity.got.WesterosThief.name=Hırsız
+entity.got.WhiteBison.name=Beyaz bizon
 entity.got.WhiteOryx.name=Beyaz Oriks
 entity.got.WhiteWalker.name=Ak Yürüteç
 entity.got.Whore.name=Fahişe
@@ -1073,8 +1046,6 @@ got.achievement.KILL_KEVAN_LANNISTER.desc=Kevan Lannister'ı öldür
 got.achievement.KILL_KEVAN_LANNISTER.title=Eksi Kralın Eli
 got.achievement.KILL_KHAL.desc=Khal'ı öldür
 got.achievement.KILL_KHAL.title=Khal Katili
-got.achievement.KILL_TUGAR_KHAN.desc=Tugar Khan'ı öldür
-got.achievement.KILL_TUGAR_KHAN.title=Efsanevi imparator
 got.achievement.KILL_KRAZNYS_MO_NAKLOZ.desc=Kraznys Mo Nakloz'u öldür
 got.achievement.KILL_KRAZNYS_MO_NAKLOZ.title=Ejderhayı orduyla değiştir
 got.achievement.KILL_LANCEL_LANNISTER.desc=Dindar Lancel Lannister'ı öldür
@@ -1101,6 +1072,8 @@ got.achievement.KILL_OBERYN_MARTELL.desc=Oberyn Martell'i öldür
 got.achievement.KILL_OBERYN_MARTELL.title=Dağ
 got.achievement.KILL_PETYR_BAELISH.desc=Petyr Baelish'i öldür
 got.achievement.KILL_PETYR_BAELISH.title=Kaos bir merdivendir
+got.achievement.KILL_PRIEST.desc=Rahibi öldür
+got.achievement.KILL_PRIEST.title=Ateist
 got.achievement.KILL_RAMSAY_BOLTON.desc=Ramsay Bolton'u öldür
 got.achievement.KILL_RAMSAY_BOLTON.title=Öncelikle
 got.achievement.KILL_ROBB_STARK.desc=Robb Stark'ı öldür
@@ -1121,6 +1094,8 @@ got.achievement.KILL_THOROS.desc=Thoros'u öldür
 got.achievement.KILL_THOROS.title=Artık seni kurtarmayacak
 got.achievement.KILL_TORMUND.desc=Tormund'u öldür
 got.achievement.KILL_TORMUND.title=Gecedeki Kılıç
+got.achievement.KILL_TUGAR_KHAN.desc=Tugar Khan'ı öldür
+got.achievement.KILL_TUGAR_KHAN.title=Efsanevi imparator
 got.achievement.KILL_TYRION.desc=Tyrion Lannister'ı öldür
 got.achievement.KILL_TYRION.title=Tywin'in oğlu Tyrion, nasıl ölmek istersin?
 got.achievement.KILL_TYWIN.desc=Tywin Lannister'ı öldür
@@ -1409,6 +1384,8 @@ got.achievement.WEAR_FULL_CROWNLANDS.desc=Altın Pelerinlerin tamamını giyin
 got.achievement.WEAR_FULL_CROWNLANDS.title=King's Landing'in Muhafız Kaptanı
 got.achievement.WEAR_FULL_DORNE.desc=Dorne'un tam setini giyin
 got.achievement.WEAR_FULL_DORNE.title=Dorne'un Muhafızı
+got.achievement.WEAR_FULL_DOTHRAKI.desc=Tam bir dothraki seti giyin
+got.achievement.WEAR_FULL_DOTHRAKI.title=Çim Denizi
 got.achievement.WEAR_FULL_DRAGONSTONE.desc=Dragonstone'un tam setini giyin
 got.achievement.WEAR_FULL_DRAGONSTONE.title=Ejderha Kayası Muhafızı
 got.achievement.WEAR_FULL_FUR.desc=Tam bir kürk zırh seti giyin
@@ -1429,6 +1406,8 @@ got.achievement.WEAR_FULL_HILLMEN.desc=Tepe Kabilelerinin tam setini giyin
 got.achievement.WEAR_FULL_HILLMEN.title=Ay Dağlarının Çılgınlığı
 got.achievement.WEAR_FULL_IRONBORN.desc=Demir Adaların tam setini giyin
 got.achievement.WEAR_FULL_IRONBORN.title=Demir Adaların Muhafızı
+got.achievement.WEAR_FULL_JOGOS.desc=Jogos Nhai'nin tam setini giyin
+got.achievement.WEAR_FULL_JOGOS.title=Doğu Ordası
 got.achievement.WEAR_FULL_KINGSGUARD.desc=Kingsguard setinin tamamını giyin
 got.achievement.WEAR_FULL_KINGSGUARD.title=Kralım çok yaşa!
 got.achievement.WEAR_FULL_LHAZAR.desc=Lhazar'ın tam setini giyin
@@ -1443,8 +1422,6 @@ got.achievement.WEAR_FULL_MOSSOVY.desc=Mossovy'nin tam setini giyin
 got.achievement.WEAR_FULL_MOSSOVY.title=Mossovy'nin Muhafızı
 got.achievement.WEAR_FULL_MYR.desc=Myr'in tam setini giyin
 got.achievement.WEAR_FULL_MYR.title=Myr'in Muhafızı
-got.achievement.WEAR_FULL_DOTHRAKI.desc=Tam bir dothraki seti giyin
-got.achievement.WEAR_FULL_DOTHRAKI.title=Çim Denizi
 got.achievement.WEAR_FULL_NORTH.desc=Kuzey'in tam setini giyin
 got.achievement.WEAR_FULL_NORTH.title=Kuzey Muhafızı
 got.achievement.WEAR_FULL_NORTHGUARD.desc=Tam set Kuzey muhafızları giyin
@@ -1686,6 +1663,7 @@ got.capes.REACH.name=Ulaşma Burnu
 got.capes.RIVERLANDS.name=Nehir Toprakları Burnu
 got.capes.ROYALGUARD.name=Kraliyet Muhafız Burnu
 got.capes.STORMLANDS.name=Fırtına Toprakları Burnu
+got.capes.TARGARYEN.desc≠
 got.capes.TARGARYEN.name=Targaryen Burnu
 got.capes.TYROSH.name=Tiroş Burnu
 got.capes.UNSULLIED.name=Lekesiz Burnu
@@ -2175,6 +2153,7 @@ got.faction.HILL_TRIBES.rank.warlord=Savaş lordu
 got.faction.HILL_TRIBES.rank.warrior.f=Tepe Kabilelerinin Savaşçısı
 got.faction.HILL_TRIBES.rank.warrior=Savaşçı
 got.faction.HILL_TRIBES.subtitle=Vadi'nin Tepe Kabileleri
+got.faction.HOSTILE.name≠
 got.faction.IBBEN.entity=İbben Adamları
 got.faction.IBBEN.name=Ibben
 got.faction.IBBEN.rank.commander.f=İbben Amirali
@@ -3000,6 +2979,7 @@ got.miniquest.collect.progress=%d / %d verildi
 got.miniquest.collect=%d %s topla
 got.miniquest.kill.progress=%d'nin %d'si öldürüldü
 got.miniquest.kill=%d %s öldür
+got.miniquest.pickpocket.progress≠
 got.miniquest.pickpocket=Bir NPC soy (Shift + RMB)
 got.miniquest.progressShort=%d / %d
 got.miniquest.retrieve.progress=%d / %d verildi
@@ -3031,6 +3011,8 @@ got.shields.CROWNLANDS.name=Crownlands Kalkanı
 got.shields.DORNE.name=Dorne'un Kalkanı
 got.shields.DRAGONSTONE.name=Ejderha Taşı Kalkanı
 got.shields.GHISCAR.name=Ghiscar Kalkanı
+got.shields.GOLDENCOMPANY.desc≠
+got.shields.GOLDENCOMPANY.name≠
 got.shields.HILLMEN.name=Tepe Kabilelerinin Kalkanı
 got.shields.IRONBORN.name=Demir Adaların Kalkanı
 got.shields.LORATH.name=Lorath'ın Kalkanı
@@ -3054,6 +3036,7 @@ got.shields.TYROSH.name=Tyrosh Kalkanı
 got.shields.UNSULLIED.name=Lekesiz Kalkanı
 got.shields.VOLANTIS.name=Volantis'in Kalkanı
 got.shields.WESTERLANDS.name=Batı Toprakları Kalkanı
+got.shields.WESTERLANDSGUARD.name≠
 got.shields.YITI.name=Yi Ti'nin Kalkanı
 got.shields.YITI_FRONTIER.name=Yi Ti Sınır Kalkanı
 got.shields.YITI_SAMURAI.name=Yi Ti Samuray'ın Kalkanı
@@ -3096,6 +3079,7 @@ got.structure.BraavosStables.name=Braavos Ahırları
 got.structure.BraavosTavern.name=Braavos Tavernası
 got.structure.BraavosTower.name=Braavos Kulesi
 got.structure.BraavosTraining.name=Braavos'un Eğitimi
+got.structure.BurntHouse.name≠
 got.structure.CrownlandsBarn.name=Crownlands Ahırı
 got.structure.CrownlandsBath.name=Crownlands Hamamı
 got.structure.CrownlandsCityBig.name=Crownlands Kasabası
@@ -3177,6 +3161,7 @@ got.structure.GiftVillage.name=Gece Nöbetçileri Köyü
 got.structure.GiftVillageLight.name=Gece Nöbeti Köyü Işığı
 got.structure.GiftWatchtower.name=Gece Nöbeti Gözetleme Kulesi
 got.structure.GoldenCamp.name=Altın Şirket Kampı
+got.structure.HillmanVillage.name=Tepeli Köyü
 got.structure.HillmenCampfire.name=Tepe Kabileleri Kampı
 got.structure.HillmenHillFort.name=Tepe Kabileleri Kalesi
 got.structure.HillmenHouse.name=Tepe Kabileleri Evi
@@ -3282,6 +3267,9 @@ got.structure.NorthCottage.name=Kuzey Kulübesi
 got.structure.NorthFortVillage.name=Kuzey Kalesi
 got.structure.NorthFortress.name=Kuzey Kalesi
 got.structure.NorthHillmanCamp.name=Kuzey Hillmen Kampı
+got.structure.NorthHillmanChieftainHouse.name≠
+got.structure.NorthHillmanHouse.name≠
+got.structure.NorthHillmanVillage.name≠
 got.structure.NorthHouse.name=Kuzeyin Küçük Evi
 got.structure.NorthSmithy.name=Kuzeyin Demircisi
 got.structure.NorthStables.name=Kuzey Ahırları
@@ -3375,10 +3363,13 @@ got.structure.RiverlandsTavern.name=Tavern of Riverlands
 got.structure.RiverlandsTurret.name=Turret of Riverlands
 got.structure.RiverlandsWatchfort.name=Watchfort of Riverlands
 got.structure.RiverlandsWatchtower.name=Watchtower of Riverlands
+got.structure.RottenHouse.name≠
 got.structure.RuinedBeaconTower.name=Ruin of Beacon Tower of North
 got.structure.RuinedGiftHouse.name=Ruined Gift House
 got.structure.RuinedGiftTower.name=Ruined Gift Tower
+got.structure.RuinedHouse.name≠
 got.structure.RuinedNorthTower.name=Ruin of Beacon Tower of North
+got.structure.SmallStoneRuin.name≠
 got.structure.SothoryosChieftainPyramid.name=Chieftain's Pyramid of Sothoryos
 got.structure.SothoryosHouseLarge.name=Stone House of Sothoryos
 got.structure.SothoryosHouseSimple.name=Little House of Sothoryos
@@ -3387,6 +3378,11 @@ got.structure.SothoryosPyramid.name=Pyramid of Sothoryos
 got.structure.SothoryosSmithy.name=Sothoryos Smithy
 got.structure.SothoryosVillage.name=Village of Sothoryos
 got.structure.SothoryosWatchtower.name=Watchtower of Sothoryos
+got.structure.StoneRuinAsshai.name≠
+got.structure.StoneRuinSandstone.name≠
+got.structure.StoneRuinSothoryos.name≠
+got.structure.StoneRuinStandart.name≠
+got.structure.StoneRuinYiTi.name≠
 got.structure.StormlandsBarn.name=Barn of Stormlands
 got.structure.StormlandsBath.name=Bath of Stormlands
 got.structure.StormlandsCityBig.name=Town of Stormlands
@@ -3414,6 +3410,9 @@ got.structure.SummerTower.name=Yaz Adaları Kulesi
 got.structure.SummerVillage.name=Yaz Adaları Köyü
 got.structure.SummerVillageRuined.name=Terkedilmiş Yaz Adaları Köyü
 got.structure.ThennCamp.name=Sonra Kamp
+got.structure.ThennHouse.name≠
+got.structure.ThennMagnarHouse.name≠
+got.structure.ThennVillage.name≠
 got.structure.TyroshBarracks.name=Tyrosh Kışlası
 got.structure.TyroshBazaar.name=Tyrosh Çarşısı
 got.structure.TyroshCityBig.name=Tyrosh Kalesi
@@ -3459,6 +3458,7 @@ got.structure.WildlingCamp.name=Yabani Kamplar
 got.structure.WildlingChieftainHouse.name=Yabani Şef Evi
 got.structure.WildlingHouse.name=Yaban evi
 got.structure.WildlingTent.name=Yabani Çadır
+got.structure.WildlingVillage.name≠
 got.structure.YiTiBath.name=Yi Ti Hamamı
 got.structure.YiTiBrewery.name=Yi Ti Bira Fabrikası
 got.structure.YiTiCaptainTent.name=Yi Ti'nin Büyük Çadırı
@@ -3501,11 +3501,11 @@ got.title.KILL_GREGOR_CLEGANE=Efsanevi Katil III
 got.title.KILL_JAQEN_HGHAR=Valar Morgulis
 got.title.KILL_JEOR_MORMONT=Sahtekar
 got.title.KILL_JON_SNOW=Gece Nöbeti için
-got.title.KILL_TUGAR_KHAN=Efsanevi imparator
 got.title.KILL_NIGHT_KING=Efsanevi Katil I
 got.title.KILL_OBERYN_MARTELL=Dağ
 got.title.KILL_SANDOR_CLEGANE=Köpek avcısı
 got.title.KILL_THE_KING=Kral katili
+got.title.KILL_TUGAR_KHAN=Efsanevi imparator
 got.title.KILL_TYWIN=Statham
 got.title.targaryenF=Fırtına doğumlu
 got.title.targaryenM=Fırtına doğumlu
@@ -3517,10 +3517,130 @@ got.titles.unlock.starter=Başlangıç ​​başlığı
 got.travellingTrader.arrive=%s geldi
 got.travellingTrader.arriveMP=%s, %s'e ulaştı
 got.travellingTrader.depart=%s ayrıldı
+got.tree.acacia.name≠
+got.tree.almond.name≠
+got.tree.apple.name≠
+got.tree.aspen.name≠
+got.tree.aspen_large.name≠
+got.tree.banana.name≠
+got.tree.baobab.name≠
+got.tree.beech.name≠
+got.tree.beech_large.name≠
+got.tree.birch.name≠
+got.tree.birch_large.name≠
+got.tree.catalpa.name≠
+got.tree.cedar.name≠
+got.tree.cedar_large.name≠
+got.tree.charred.name≠
+got.tree.cherry.name≠
+got.tree.chestnut.name≠
+got.tree.chestnut_large.name≠
+got.tree.cypress.name≠
+got.tree.cypress_large.name≠
+got.tree.date_palm.name≠
+got.tree.dragonblood.name≠
+got.tree.fir.name≠
+got.tree.fotinia.name≠
+got.tree.holly.name≠
+got.tree.holly_large.name≠
+got.tree.ibben_pine.name≠
+got.tree.jungle.name≠
+got.tree.jungle_large.name≠
+got.tree.jungle_shrub.name≠
+got.tree.kanuka.name≠
+got.tree.larch.name≠
+got.tree.lemon.name≠
+got.tree.lime.name≠
+got.tree.mahogany.name≠
+got.tree.mango.name≠
+got.tree.mangrove.name≠
+got.tree.maple.name≠
+got.tree.maple_large.name≠
+got.tree.oak.name≠
+got.tree.oak_dead.name≠
+got.tree.oak_desert.name≠
+got.tree.oak_large.name≠
+got.tree.oak_party.name≠
+got.tree.oak_tall.name≠
+got.tree.olive.name≠
+got.tree.olive_large.name≠
+got.tree.orange.name≠
+got.tree.palm.name≠
+got.tree.pear.name≠
+got.tree.pine.name≠
+got.tree.plum.name≠
+got.tree.pomegranate.name≠
+got.tree.redwood.name≠
+got.tree.redwood_2.name≠
+got.tree.redwood_3.name≠
+got.tree.redwood_4.name≠
+got.tree.redwood_5.name≠
+got.tree.spruce.name≠
+got.tree.spruce_mega.name≠
+got.tree.spruce_mega_thin.name≠
+got.tree.spruce_thin.name≠
+got.tree.ulthos_green_oak.name≠
+got.tree.ulthos_green_oak_large.name≠
+got.tree.ulthos_oak.name≠
+got.tree.ulthos_oak_large.name≠
+got.tree.ulthos_red_oak.name≠
+got.tree.ulthos_red_oak_large.name≠
+got.tree.weirwood.name≠
+got.tree.willow.name≠
 got.unit.Rider=Binici
 got.unitinfo.Banner=Sancak Taşıyıcılar askerlerin sağlığını ve savaşını iyileştiriyor
 got.unitinfo.Corsair=Korsanlar askerlerden daha fazla para çalar
 got.usemem=Kullanılmış RAM
+got.variant.boulders_red.name≠
+got.variant.clearing.name≠
+got.variant.deadForest_oak.name≠
+got.variant.deadForest_oak_spruce.name≠
+got.variant.deadForest_spruce.name≠
+got.variant.denseForest_birch.name≠
+got.variant.denseForest_darkOak.name≠
+got.variant.denseForest_oak.name≠
+got.variant.denseForest_oak_spruce.name≠
+got.variant.denseForest_spruce.name≠
+got.variant.dunes.name≠
+got.variant.flowers.name≠
+got.variant.forest.name≠
+got.variant.forest_aspen.name≠
+got.variant.forest_beech.name≠
+got.variant.forest_birch.name≠
+got.variant.forest_cherry.name≠
+got.variant.forest_larch.name≠
+got.variant.forest_lemon.name≠
+got.variant.forest_light.name≠
+got.variant.forest_lime.name≠
+got.variant.forest_maple.name≠
+got.variant.forest_pine.name≠
+got.variant.forest_weirwood.name≠
+got.variant.hills.name≠
+got.variant.hills_forest.name≠
+got.variant.hills_scrubland.name≠
+got.variant.hills_scrubland_sand.name≠
+got.variant.lake.name≠
+got.variant.mountain.name≠
+got.variant.orchard_almond.name≠
+got.variant.orchard_apple_pear.name≠
+got.variant.orchard_date.name≠
+got.variant.orchard_lemon.name≠
+got.variant.orchard_lime.name≠
+got.variant.orchard_olive.name≠
+got.variant.orchard_orange.name≠
+got.variant.orchard_plum.name≠
+got.variant.orchard_pomegranate.name≠
+got.variant.river.name≠
+got.variant.savannahBaobab.name≠
+got.variant.scrubland.name≠
+got.variant.scrubland_sand.name≠
+got.variant.shrubland_oak.name≠
+got.variant.standard.name≠
+got.variant.swampLowland.name≠
+got.variant.swampUpland.name≠
+got.variant.vineyard.name≠
+got.variant.wasteland.name≠
+got.variant.wasteland_sand.name≠
 got.weaponstat.kb=Geri İtme: + %d
 got.weaponstat.meleeDamage=Yakın Dövüş Hasarı: + %d
 got.weaponstat.meleeSpeed=Yakın Dövüş Hızı: %d %%
@@ -3833,6 +3953,8 @@ got.wp.HoarfrostHill.info=Gece Nöbeti'nin terk edilmiş kalelerinden biri. Gece
 got.wp.HoarfrostHill=Kırağı Tepesi
 got.wp.HoggHall.info=Kale, Ejderhaların Dansı sırasında Vhagar tarafından yakıldı.
 got.wp.HoggHall=Domuz salonu
+got.wp.Hojdbaatar.info=Jogos Nhai'nin başkenti kampı. Adı "Kuzey Savaşçısı" anlamına gelir.
+got.wp.Hojdbaatar=Hojdbaatar
 got.wp.HollardCastle.info=Hollard kalesinin kalıntıları, Deli Aerys'i ele geçirmenin cezasıyla yok edildi.
 got.wp.HollardCastle=Hollard Kalesi
 got.wp.HollowHill.info=Afişsiz Kardeşlik'in lideri Berik Dondarrion'un saklandığı yer.
@@ -3893,8 +4015,6 @@ got.wp.Kingshouse.info=Skagos'tan Magnarların aile mülkü. Eski lehçeden "mag
 got.wp.Kingshouse=Krallık
 got.wp.KissLock.info=Kafatası ve Öpücük Şövalyeleri Kalesi.
 got.wp.KissLock=öpücük kilidi
-got.wp.Hojdbaatar.info=Jogos Nhai'nin başkenti kampı. Adı "Kuzey Savaşçısı" anlamına gelir.
-got.wp.Hojdbaatar=Hojdbaatar
 got.wp.Koj.info=Yaz Adaları'nın en büyük tersanesi.
 got.wp.Koj=Koj
 got.wp.Kosrak.info=Lkhazar şehirlerinden biri.
@@ -3983,6 +4103,8 @@ got.wp.NewGhis.info=Daenerys'e karşı koalisyona katılan bir köle kasabası. 
 got.wp.NewGhis=Yeni Ghis
 got.wp.NewIbbish.info=Ibbish'in düşüşünden sonra İbbenliler tarafından, Gece Nöbetçileri Duvarı'ndan sadece biraz daha küçük olan ahşap bir duvarın arkasındaki küçük bir yarımadada inşa edilen bir kasaba. Ibbish'e kıyasla zayıf gölge, ancak yine de anakaradaki tek Ibben kolonisi.
 got.wp.NewIbbish=Yeni Ibbish
+got.wp.NightKing.info≠
+got.wp.NightKing≠
 got.wp.Nightfort.info=Gece Nöbeti'nin devasa, ilk inşa edilmiş ve ilk terk edilmiş kalesi. Kale hakkında birçok korkunç efsane vardı. Burada, Duvar'da, Duvar'ın ötesinde bir geçit oyulmuştur - cadı ağacından Kara Kapı.
 got.wp.Nightfort=Gece Kalesi
 got.wp.Nightsong.info=Karon atalarının kalesi, Karonlar Joffrey Baratheon'a karşı Stannis'i desteklediği için Ayaklar lehine onlardan alındı.
@@ -4149,6 +4271,8 @@ got.wp.Sisterton.info=Üç Kızkardeş'in ana şehri ve Sunderlands'in merkezi o
 got.wp.Sisterton=Kızkardeş
 got.wp.Skane.info=Günümüzde sadece yerleşim kalıntıları adanın sakinlerini hatırlatıyor. Efsaneye göre, eski zamanlarda, taştan doğmuş Skagos, tüm yerel kadınlara tecavüz edip esir almış ve erkekler iki hafta süren bir ziyafet sırasında öldürülmüş ve yenmiştir.
 got.wp.Skane=Skane
+got.wp.SkirlingPass.info≠
+got.wp.SkirlingPass≠
 got.wp.SkyReach.info=Fowler Evi Kalesi. Nymeria sonunda onları boyunduruk altına alıp altın zincirler içindeki son kralı Sur'a sürgün edene kadar kendilerine kral dediler.
 got.wp.SkyReach=SkyReach
 got.wp.Smithyton.info=Renly Baratheon'un kılıçlarıyla tahta çıkacağı kişiler arasında bahsettiği Shermer Hanesi kasabası.
@@ -4163,6 +4287,8 @@ got.wp.SparrCastle.info=Sparres Evi'nin kalesi, Greyjoy'ların vassalları.
 got.wp.SparrCastle=Sparr Kalesi
 got.wp.Spicetown.info=Ejderhaların Dansı sırasında liman şehri yok edildi.
 got.wp.Spicetown=Baharat kasabası
+got.wp.Spider.info≠
+got.wp.Spider≠
 got.wp.Spottswood.info=Martell'lerin vassalları olan Santagarların evinin kalesi.
 got.wp.Spottswood=Spottswood
 got.wp.Standfast.info=Blackfire İsyanı'nın yenilgisinden sonra Osgrey'e terk edilmiş bir kule. "Yeminli Kılıç" hikayesinin sahnesi.
@@ -4733,6 +4859,7 @@ item.got:banner.ironsmith.name=Demirci Bayrağı
 item.got:banner.jaremymallister.name=Jaremy Mallister'ın Sancağı
 item.got:banner.jast.name=Jast bayrağı
 item.got:banner.joffrey.name=Joffrey'in Sancağı
+item.got:banner.jogos.name≠
 item.got:banner.jonconnington.name=Jon Connington'ın Sancağı
 item.got:banner.jonking.name=Jon Snow'un Sancağı (Kral)
 item.got:banner.jonsnow.name=Jon Snow'un Sancağı
@@ -5181,7 +5308,11 @@ item.got:dorneBoots.name=Dorne Çizmeleri
 item.got:dorneChestplate.name=Dorne'un Göğüs Zırhı
 item.got:dorneHelmet.name=Dorne'un Miğferi
 item.got:dorneLeggings.name=Dorne Tozlukları
+item.got:dothrakiBoots.name=Dothraki Çizmeleri
+item.got:dothrakiChestplate.name=Dothraki göğüs zırhı
+item.got:dothrakiHelmet.name=Dothraki Kask
 item.got:dothrakiHorseArmor.name=Göçebe At Zırhı
+item.got:dothrakiLeggings.name=Dothraki Tayt
 item.got:dragonstoneBoots.name=Ejderha Taşı Çizmeleri
 item.got:dragonstoneChestplate.name=Dragonstone'un Göğüs Zırhı
 item.got:dragonstoneHelmet.name=Dragonstone'un Miğferi
@@ -5289,12 +5420,15 @@ item.got:ironbornHelmet.name=Demir Adaların Miğferi
 item.got:ironbornLeggings.name=Demir Adaların Taytları
 item.got:jaimeSword.name=Jaime Lannister Kılıcı
 item.got:joffreyCrossbow.name=Joffrey Baratheon Arbalet
+item.got:jogosBoots.name=Jogos Nhai Çizmeler
+item.got:jogosChestplate.name=Jogos Nhai Göğüs Zırhı
+item.got:jogosHelmet.name=Jogos Nhai Kask
+item.got:jogosLeggings.name=Jogos Nhai Tayt
 item.got:justMaid.name=SadeceHizmetçi
 item.got:kaftanChestplate.name=Kaftan
 item.got:kaftanLeggings.name=Kaftan Tayt
 item.got:katana.name=İmparator Katanası
 item.got:kebab.name=Kebap
-item.got:whiteBisonHorn.name=Beyaz Bizon Boynuzu
 item.got:kingsguardBoots.name=Kral Muhafızı Çizmeleri
 item.got:kingsguardChestplate.name=Kral Muhafızı Sandığı
 item.got:kingsguardHelmet.name=Kral Muhafızı Miğferi
@@ -5411,11 +5545,7 @@ item.got:needle.name=İğne
 item.got:nightKingSword.name=Gece Kral Kılıcı
 item.got:nightfall.name=Akşam karanlığı
 item.got:nomadBattleaxe.name=Göçebe Savaş Baltası
-item.got:dothrakiBoots.name=Dothraki Çizmeleri
 item.got:nomadBow.name=Göçebe yay
-item.got:dothrakiChestplate.name=Dothraki göğüs zırhı
-item.got:dothrakiHelmet.name=Dothraki Kask
-item.got:dothrakiLeggings.name=Dothraki Tayt
 item.got:nomadSpear.name=Göçebe Mızrağı
 item.got:nomadSword.name=Göçebe Arakh
 item.got:northBoots.name=Kuzey Çizmeleri
@@ -5609,6 +5739,7 @@ item.got:tormundSword.name=Tormund Kılıcı
 item.got:trident.name=Tepe Kabilesi Trident
 item.got:truth.name=Gerçek
 item.got:trystaneSword.name=Trystane Martell Kılıcı
+item.got:tugarKhanSword.name=Tugar han kılıcı
 item.got:turnip.name=Turp
 item.got:turnipCooked.name=Kavrulmuş şalgam
 item.got:tyeneDagger.name=Tyene Kum Hançeri
@@ -5678,6 +5809,7 @@ item.got:westkingChestplate.name=Batı Krallarının Göğüs Zırhı
 item.got:westkingHelmet.name=Batı Krallarının Miğferi
 item.got:westkingLeggings.name=West Kings'in Tozlukları
 item.got:wheel.name=Teker
+item.got:whiteBisonHorn.name=Beyaz Bizon Boynuzu
 item.got:whiteWalkersBoots.name=Ak Gezenler Botları
 item.got:whiteWalkersChestplate.name=Ak Gezenler Göğüs Zırhı
 item.got:whiteWalkersHoe.name=Ak Gezenler Çapa
@@ -6059,6 +6191,7 @@ tile.got:kebabStand.cooked=Pişmiş
 tile.got:kebabStand.meats=%d et
 tile.got:kebabStand.name=Kebap Standı
 tile.got:kebabStandSand.name=Kumtaşı Kebap Standı
+tile.got:kelp.name=Yosun
 tile.got:leaves1.0.name=Ibbinia Yaprakları
 tile.got:leaves1.1.name=Çatalpa Yaprakları
 tile.got:leaves1.2.name=Kara Meşe Yaprakları

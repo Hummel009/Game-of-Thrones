@@ -15,7 +15,6 @@ public class GOTEntityLorathGeneral extends GOTEntityLorathSoldier implements GO
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(false);
-		npcCape = GOTCapes.LORATH;
 		spawnRidingHorse = false;
 	}
 

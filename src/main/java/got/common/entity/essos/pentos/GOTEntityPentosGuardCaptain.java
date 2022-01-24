@@ -15,7 +15,6 @@ public class GOTEntityPentosGuardCaptain extends GOTEntityPentosGuard implements
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(false);
-		npcCape = GOTCapes.PENTOS;
 	}
 
 	@Override

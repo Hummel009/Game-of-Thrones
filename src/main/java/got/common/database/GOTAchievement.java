@@ -290,6 +290,7 @@ public class GOTAchievement {
 	public static GOTAchievement KILL_ARDRIAN_CELTIGAR;
 	public static GOTAchievement KILL_KRAZNYS_MO_NAKLOZ;
 	public static GOTAchievement WEAR_FULL_JOGOS;
+	public static GOTAchievement HIRE_GOLDEN_COMPANY;
 	public Category category;
 	public int ID;
 	public ItemStack icon;
@@ -515,6 +516,7 @@ public class GOTAchievement {
 		GET_COPPER = new GOTAchievement(Category.GENERAL, id++, GOTRegistry.copperIngot, "GET_COPPER");
 		GET_POUCH = new GOTAchievement(Category.GENERAL, id++, GOTRegistry.pouch, "GET_POUCH");
 		HUNDREDS = new GOTAchievement(Category.GENERAL, id++, GOTRegistry.gregorCleganeSword, "HUNDREDS");
+		HIRE_GOLDEN_COMPANY = new GOTAchievement(Category.GENERAL, id++, GOTRegistry.goldHelmet, "HIRE_GOLDEN_COMPANY");
 		KILLER = new GOTAchievement(Category.KILL, id++, Items.iron_axe, "KILLER");
 		KILL_ALLISER_THORNE = new GOTAchievement(Category.LEGENDARY, id++, GOTRegistry.westerosSword, "KILL_ALLISER_THORNE").createTitle();
 		KILL_ASSHAI_ARCHMAG = new GOTAchievement(Category.LEGENDARY, id++, GOTRegistry.archmagStaff, "KILL_ASSHAI_ARCHMAG").createTitle();

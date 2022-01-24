@@ -105,7 +105,7 @@ public class GOTRenderShield {
 		ItemStack held = entity == null ? null : entity.getHeldItem();
 		ItemStack heldLeft = entity instanceof GOTEntityNPC ? ((GOTEntityNPC) entity).getHeldItemLeft() : null;
 		inUse = entity instanceof EntityPlayer ? ((EntityPlayer) entity).getItemInUse() : null;
-		boolean holdingSword = entity == null ? true : held != null && (held.getItem() instanceof ItemSword || held.getItem() instanceof ItemTool) && (inUse == null || inUse.getItemUseAction() != EnumAction.bow);
+		boolean holdingSword = entity == null || held != null && (held.getItem() instanceof ItemSword || held.getItem() instanceof ItemTool) && (inUse == null || inUse.getItemUseAction() != EnumAction.bow);
 		blocking = holdingSword && inUse != null && inUse.getItemUseAction() == EnumAction.block;
 		renderOnBack = !holdingSword || holdingSword && heldLeft != null;
 		if (heldLeft != null && entity instanceof GOTEntityNPC) {

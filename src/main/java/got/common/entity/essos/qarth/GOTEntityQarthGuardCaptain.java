@@ -15,7 +15,6 @@ public class GOTEntityQarthGuardCaptain extends GOTEntityQarthGuard implements G
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(false);
-		npcCape = GOTCapes.QARTH;
 	}
 
 	@Override

@@ -16,6 +16,7 @@ import got.common.command.GOTCommandAdminHideMap;
 import got.common.database.*;
 import got.common.database.GOTTitle.PlayerTitle;
 import got.common.entity.dragon.GOTEntityDragon;
+import got.common.entity.essos.gold.GOTEntityGoldenMan;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.*;
 import got.common.fellowship.*;
@@ -2063,6 +2064,19 @@ public class GOTPlayerData {
 		}
 		if (entityplayer.inventory.hasItem(GOTRegistry.pouch)) {
 			addAchievement(GOTAchievement.GET_POUCH);
+		}
+		if (!hasAchievement(GOTAchievement.HIRE_GOLDEN_COMPANY) && pdTick % 20 == 0) {
+			int hiredUnits = 0;
+			List<GOTEntityGoldenMan> nearbyNPCs = world.getEntitiesWithinAABB(GOTEntityGoldenMan.class, entityplayer.boundingBox.expand(64.0, 64.0, 64.0));
+			for (GOTEntityNPC npc : nearbyNPCs) {
+				if (!npc.hiredNPCInfo.isActive || npc.hiredNPCInfo.getHiringPlayer() != entityplayer) {
+					continue;
+				}
+				++hiredUnits;
+			}
+			if (hiredUnits >= 10) {
+				addAchievement(GOTAchievement.HIRE_GOLDEN_COMPANY);
+			}
 		}
 		if (!hasAchievement(GOTAchievement.HUNDREDS) && pdTick % 20 == 0) {
 			int hiredUnits = 0;

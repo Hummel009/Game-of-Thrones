@@ -15,7 +15,6 @@ public class GOTEntityQohorGuardCaptain extends GOTEntityQohorGuard implements G
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(false);
-		npcCape = GOTCapes.QOHOR;
 	}
 
 	@Override

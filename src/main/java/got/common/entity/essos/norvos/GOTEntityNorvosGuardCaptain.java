@@ -15,7 +15,6 @@ public class GOTEntityNorvosGuardCaptain extends GOTEntityNorvosGuard implements
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(false);
-		npcCape = GOTCapes.NORVOS;
 	}
 
 	@Override
