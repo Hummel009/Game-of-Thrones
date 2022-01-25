@@ -11,7 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityPetyrBaelish extends GOTEntityHumanBase implements GOTTradeable {
+public class GOTEntityPetyrBaelish extends GOTEntityHumanBase implements GOTBartender {
 	public GOTEntityPetyrBaelish(World world) {
 		super(world);
 		canBeMarried = false;
@@ -109,5 +109,19 @@ public class GOTEntityPetyrBaelish extends GOTEntityHumanBase implements GOTTrad
 	@Override
 	public void setupNPCGender() {
 		familyInfo.setMale(true);
+	}
+
+	@Override
+	public GOTUnitTradeEntries getUnits() {
+		return GOTUnitTradeEntries.PROSTITUTE_KEEPER;
+	}
+
+	@Override
+	public GOTInvasions getWarhorn() {
+		return null;
+	}
+
+	@Override
+	public void onUnitTrade(EntityPlayer var1) {
 	}
 }

@@ -5,8 +5,9 @@ import java.util.Random;
 import com.google.common.math.IntMath;
 
 import got.common.database.*;
-import got.common.entity.westeros.GOTEntityMercenary;
-import got.common.entity.westeros.arryn.*;
+import got.common.entity.other.GOTEntityThief;
+import got.common.entity.westeros.*;
+import got.common.entity.westeros.arryn.GOTEntityArrynBartender;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
@@ -744,10 +745,10 @@ public class GOTStructureArrynTavern extends GOTStructureArrynBase {
 		spawnNPCAndSetHome(bartender, world, -4, 1, 7, 2);
 		GOTEntityMercenary mercenary = new GOTEntityMercenary(world);
 		spawnNPCAndSetHome(mercenary, world, 2, 1, 7, 16);
-		int men = 6 + random.nextInt(7);
-		for (int l = 0; l < men; ++l) {
-			GOTEntityArrynMan westerosman = new GOTEntityArrynMan(world);
-			spawnNPCAndSetHome(westerosman, world, 2, 1, 7, 16);
+		GOTEntityThief thief = new GOTEntityThief(world);
+		spawnNPCAndSetHome(thief, world, 2, 1, 7, 16);
+		for (int l = 0; l < 5; ++l) {
+			spawnNPCAndSetHome(new GOTEntityProstitute(world), world, 2, 1, 7, 16);
 		}
 		return true;
 	}

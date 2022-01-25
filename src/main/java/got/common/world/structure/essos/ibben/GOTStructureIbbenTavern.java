@@ -4,10 +4,9 @@ import java.util.Random;
 
 import got.common.database.*;
 import got.common.entity.essos.ibben.*;
-import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
@@ -429,14 +428,12 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 		placeWeaponRack(world, 0, 5, 22, 6, getRandomWeapon(random));
 		GOTEntityIbbenMeadhost meadhost = new GOTEntityIbbenMeadhost(world);
 		spawnNPCAndSetHome(meadhost, world, 0, 2, 21, 8);
+		GOTEntityThief thief = new GOTEntityThief(world);
+		spawnNPCAndSetHome(thief, world, 0, 1, 0, 16);
 		int men = 5 + random.nextInt(5);
 		for (int l = 0; l < men; ++l) {
-			int i15;
-			i15 = random.nextBoolean() ? -2 : 2;
-			j14 = 2;
-			int k16 = MathHelper.getRandomIntegerInRange(random, 8, 20);
-			GOTEntityIbbenMan ibbenese = random.nextBoolean() ? new GOTEntityIbbenMan(world) : new GOTEntityIbbenWarrior(world);
-			spawnNPCAndSetHome(ibbenese, world, i15, j14, k16, 16);
+			GOTEntityIbbenMan ibbenese = new GOTEntityIbbenMan(world);
+			spawnNPCAndSetHome(ibbenese, world, 2, 2, 12, 16);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
 		respawner.setSpawnClass(GOTEntityIbbenMan.class);

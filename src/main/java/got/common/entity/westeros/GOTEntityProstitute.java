@@ -18,7 +18,9 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 		getNavigator().setBreakDoors(true);
 		addTargetTasks(false);
 		tasks.addTask(0, new EntityAISwimming(this));
+		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));
 		tasks.addTask(2, new EntityAIPanic(this, 1.4));
+		tasks.addTask(3, new GOTEntityAIFollowHiringPlayer(this));
 		tasks.addTask(4, new EntityAIOpenDoor(this, true));
 		tasks.addTask(5, new EntityAIWander(this, 1.0));
 		tasks.addTask(4, new GOTEntityAIEat(this, GOTFoods.WESTEROS, 8000));

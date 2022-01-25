@@ -8,7 +8,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityYiTiBartender extends GOTEntityYiTiMan implements GOTTradeable.Bartender {
+public class GOTEntityYiTiBartender extends GOTEntityYiTiMan implements GOTTradeable {
 	public GOTEntityYiTiBartender(World world) {
 		super(world);
 		canBeMarried = false;

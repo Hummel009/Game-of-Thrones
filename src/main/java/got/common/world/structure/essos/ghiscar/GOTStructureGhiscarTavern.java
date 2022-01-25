@@ -4,7 +4,7 @@ import java.util.Random;
 
 import got.common.database.*;
 import got.common.entity.essos.ghiscar.*;
-import got.common.entity.westeros.GOTEntityProstitute;
+import got.common.entity.other.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -136,8 +136,10 @@ public class GOTStructureGhiscarTavern extends GOTStructureGhiscarBase {
 		placeWallBanner(world, 2, 5, -15, bannerType, 0);
 		GOTEntityGhiscarBartender bartender = new GOTEntityGhiscarBartender(world);
 		spawnNPCAndSetHome(bartender, world, -2, 1, 8, 4);
+		GOTEntityThiefEssos thief = new GOTEntityThiefEssos(world);
+		spawnNPCAndSetHome(thief, world, 0, 1, 0, 16);
 		for (int l = 0; l < 5; ++l) {
-			spawnNPCAndSetHome(new GOTEntityProstitute(world), world, 0, 1, 0, 16);
+			spawnNPCAndSetHome(new GOTEntityGhiscarMan(world), world, 0, 1, 0, 16);
 		}
 		block11: for (int i13 = -1; i13 <= 1; ++i13) {
 			int j12 = 0;

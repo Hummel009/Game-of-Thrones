@@ -2,13 +2,13 @@ package got.common.entity.westeros.stormlands;
 
 import got.common.GOTLevelData;
 import got.common.database.*;
-import got.common.entity.other.GOTTradeable;
+import got.common.entity.other.GOTBartender;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityStormlandsBartender extends GOTEntityStormlandsMan implements GOTTradeable.Bartender {
+public class GOTEntityStormlandsBartender extends GOTEntityStormlandsMan implements GOTBartender {
 	public GOTEntityStormlandsBartender(World world) {
 		super(world);
 		canBeMarried = false;
@@ -55,5 +55,19 @@ public class GOTEntityStormlandsBartender extends GOTEntityStormlandsMan impleme
 		data = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTRegistry.mug));
 		return data;
+	}
+
+	@Override
+	public GOTUnitTradeEntries getUnits() {
+		return GOTUnitTradeEntries.PROSTITUTE_KEEPER;
+	}
+
+	@Override
+	public GOTInvasions getWarhorn() {
+		return null;
+	}
+
+	@Override
+	public void onUnitTrade(EntityPlayer var1) {
 	}
 }

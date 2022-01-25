@@ -22,6 +22,7 @@ import got.common.entity.essos.yiti.*;
 import got.common.entity.other.*;
 import got.common.entity.sothoryos.sothoryos.*;
 import got.common.entity.sothoryos.summer.*;
+import got.common.entity.westeros.GOTEntityProstitute;
 import got.common.entity.westeros.arryn.*;
 import got.common.entity.westeros.crownlands.*;
 import got.common.entity.westeros.dorne.*;
@@ -113,6 +114,8 @@ public class GOTUnitTradeEntries {
 	public static GOTUnitTradeEntries MYR_SLAVER = new GOTUnitTradeEntries(0.0f, new GOTUnitTradeEntry(GOTEntityMyrSlave.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
 	public static GOTUnitTradeEntries TYROSH_SLAVER = new GOTUnitTradeEntries(0.0f, new GOTUnitTradeEntry(GOTEntityTyroshSlave.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
 	public static GOTUnitTradeEntries VOLANTIS_SLAVER = new GOTUnitTradeEntries(0.0f, new GOTUnitTradeEntry(GOTEntityVolantisSlave.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
+
+	public static GOTUnitTradeEntries PROSTITUTE_KEEPER = new GOTUnitTradeEntries(0.0f, new GOTUnitTradeEntry(GOTEntityProstitute.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.PROSTITUTE));
 
 	public static int lhazar_MERCENARY_COST = 20;
 	public GOTUnitTradeEntry[] tradeEntries;

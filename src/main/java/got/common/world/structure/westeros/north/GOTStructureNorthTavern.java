@@ -5,7 +5,8 @@ import java.util.Random;
 import com.google.common.math.IntMath;
 
 import got.common.database.*;
-import got.common.entity.westeros.north.*;
+import got.common.entity.westeros.GOTEntityProstitute;
+import got.common.entity.westeros.north.GOTEntityNorthBartender;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
@@ -741,10 +742,8 @@ public class GOTStructureNorthTavern extends GOTStructureNorthBase {
 		setBlockAndMetadata(world, 7, 11, 7, GOTRegistry.chandelier, 1);
 		GOTEntityNorthBartender bartender = new GOTEntityNorthBartender(world);
 		spawnNPCAndSetHome(bartender, world, -4, 1, 7, 2);
-		int men = 6 + random.nextInt(7);
-		for (int l = 0; l < men; ++l) {
-			GOTEntityNorthMan westerosman = new GOTEntityNorthMan(world);
-			spawnNPCAndSetHome(westerosman, world, 2, 1, 7, 16);
+		for (int l = 0; l < 5; ++l) {
+			spawnNPCAndSetHome(new GOTEntityProstitute(world), world, 2, 1, 7, 16);
 		}
 		return true;
 	}

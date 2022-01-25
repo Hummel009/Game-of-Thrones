@@ -129,6 +129,12 @@ public class GOTCommonProxy implements IGuiHandler {
 				return new GOTGuiOven(entityplayer.inventory, (GOTTileEntityOven) oven);
 			}
 			break;
+		case 1:
+			entity = world.getEntityByID(i);
+			if (entity instanceof GOTEntityNPC) {
+				return new GOTGuiHiredInteractNoFunc((GOTEntityNPC) entity);
+			}
+			break;
 		case 2:
 			return new GOTGuiCraftingTable.Ibben(entityplayer.inventory, world, i, j, k);
 		case 3:

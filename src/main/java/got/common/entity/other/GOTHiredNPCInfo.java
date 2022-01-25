@@ -614,7 +614,7 @@ public class GOTHiredNPCInfo {
 	}
 
 	public enum Task {
-		WARRIOR(true), FARMER(false);
+		WARRIOR(true), FARMER(false), PROSTITUTE(false);
 
 		public boolean displayXpLevel;
 

@@ -5,8 +5,9 @@ import java.util.Random;
 import com.google.common.math.IntMath;
 
 import got.common.database.*;
-import got.common.entity.westeros.GOTEntityMercenary;
-import got.common.entity.westeros.westerlands.*;
+import got.common.entity.other.GOTEntityThief;
+import got.common.entity.westeros.*;
+import got.common.entity.westeros.westerlands.GOTEntityWesterlandsBartender;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
@@ -748,10 +749,10 @@ public class GOTStructureWesterlandsTavern extends GOTStructureWesterlandsBase {
 		spawnNPCAndSetHome(bartender, world, -4, 1, 7, 2);
 		GOTEntityMercenary mercenary = new GOTEntityMercenary(world);
 		spawnNPCAndSetHome(mercenary, world, 2, 1, 7, 16);
-		int men = 6 + random.nextInt(7);
-		for (int l = 0; l < men; ++l) {
-			GOTEntityWesterlandsMan westerosman = new GOTEntityWesterlandsMan(world);
-			spawnNPCAndSetHome(westerosman, world, 2, 1, 7, 16);
+		GOTEntityThief thief = new GOTEntityThief(world);
+		spawnNPCAndSetHome(thief, world, 2, 1, 7, 16);
+		for (int l = 0; l < 5; ++l) {
+			spawnNPCAndSetHome(new GOTEntityProstitute(world), world, 2, 1, 7, 16);
 		}
 		return true;
 	}

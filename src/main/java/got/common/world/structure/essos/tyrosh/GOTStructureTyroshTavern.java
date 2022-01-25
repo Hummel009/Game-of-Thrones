@@ -3,7 +3,9 @@ package got.common.world.structure.essos.tyrosh;
 import java.util.Random;
 
 import got.common.database.*;
-import got.common.entity.essos.tyrosh.*;
+import got.common.entity.essos.gold.GOTEntityGoldenCaptain;
+import got.common.entity.essos.tyrosh.GOTEntityTyroshBartender;
+import got.common.entity.other.GOTEntityThief;
 import got.common.entity.westeros.GOTEntityProstitute;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -136,6 +138,10 @@ public class GOTStructureTyroshTavern extends GOTStructureTyroshBase {
 		placeWallBanner(world, 2, 5, -15, bannerType, 0);
 		GOTEntityTyroshBartender bartender = new GOTEntityTyroshBartender(world);
 		spawnNPCAndSetHome(bartender, world, -2, 1, 8, 4);
+		GOTEntityGoldenCaptain mercenary = new GOTEntityGoldenCaptain(world);
+		spawnNPCAndSetHome(mercenary, world, 0, 1, 0, 16);
+		GOTEntityThief thief = new GOTEntityThief(world);
+		spawnNPCAndSetHome(thief, world, 0, 1, 0, 16);
 		for (int l = 0; l < 5; ++l) {
 			spawnNPCAndSetHome(new GOTEntityProstitute(world), world, 0, 1, 0, 16);
 		}

@@ -32,7 +32,7 @@ public class GOTEntityAIDrink extends GOTEntityAIConsumeBase {
 						return entity.isEntityAlive() && !GOT.getNPCFaction(entity).isBadRelation(GOTEntityAIDrink.this.theEntity.getFaction());
 					}
 				};
-				List nearbyBartenders = theEntity.worldObj.selectEntitiesWithinAABB(GOTTradeable.Bartender.class, theEntity.boundingBox.expand(range, range, range), selectNonEnemyBartenders);
+				List nearbyBartenders = theEntity.worldObj.selectEntitiesWithinAABB(GOTBartender.class, theEntity.boundingBox.expand(range, range, range), selectNonEnemyBartenders);
 				if (!nearbyBartenders.isEmpty()) {
 					int drunkTime = MathHelper.getRandomIntegerInRange(rand, 30, 1500);
 					theEntity.familyInfo.setDrunkTime(drunkTime *= 20);

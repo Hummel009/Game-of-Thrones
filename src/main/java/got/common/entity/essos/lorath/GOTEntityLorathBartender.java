@@ -2,13 +2,13 @@ package got.common.entity.essos.lorath;
 
 import got.common.GOTLevelData;
 import got.common.database.*;
-import got.common.entity.other.GOTTradeable;
+import got.common.entity.other.GOTBartender;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityLorathBartender extends GOTEntityLorathMan implements GOTTradeable.Bartender {
+public class GOTEntityLorathBartender extends GOTEntityLorathMan implements GOTBartender {
 	public GOTEntityLorathBartender(World world) {
 		super(world);
 		canBeMarried = false;
@@ -55,5 +55,19 @@ public class GOTEntityLorathBartender extends GOTEntityLorathMan implements GOTT
 		data = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTRegistry.gobletCopper));
 		return data;
+	}
+
+	@Override
+	public GOTUnitTradeEntries getUnits() {
+		return GOTUnitTradeEntries.PROSTITUTE_KEEPER;
+	}
+
+	@Override
+	public GOTInvasions getWarhorn() {
+		return null;
+	}
+
+	@Override
+	public void onUnitTrade(EntityPlayer var1) {
 	}
 }

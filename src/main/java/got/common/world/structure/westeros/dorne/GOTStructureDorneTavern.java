@@ -5,7 +5,9 @@ import java.util.Random;
 import com.google.common.math.IntMath;
 
 import got.common.database.*;
-import got.common.entity.westeros.dorne.*;
+import got.common.entity.other.GOTEntityThief;
+import got.common.entity.westeros.*;
+import got.common.entity.westeros.dorne.GOTEntityDorneBartender;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
@@ -741,10 +743,12 @@ public class GOTStructureDorneTavern extends GOTStructureDorneBase {
 		setBlockAndMetadata(world, 7, 11, 7, GOTRegistry.chandelier, 1);
 		GOTEntityDorneBartender bartender = new GOTEntityDorneBartender(world);
 		spawnNPCAndSetHome(bartender, world, -4, 1, 7, 2);
-		int men = 6 + random.nextInt(7);
-		for (int l = 0; l < men; ++l) {
-			GOTEntityDorneMan westerosman = new GOTEntityDorneMan(world);
-			spawnNPCAndSetHome(westerosman, world, 2, 1, 7, 16);
+		GOTEntityMercenary mercenary = new GOTEntityMercenary(world);
+		spawnNPCAndSetHome(mercenary, world, 2, 1, 7, 16);
+		GOTEntityThief thief = new GOTEntityThief(world);
+		spawnNPCAndSetHome(thief, world, 2, 1, 7, 16);
+		for (int l = 0; l < 5; ++l) {
+			spawnNPCAndSetHome(new GOTEntityProstitute(world), world, 2, 1, 7, 16);
 		}
 		return true;
 	}

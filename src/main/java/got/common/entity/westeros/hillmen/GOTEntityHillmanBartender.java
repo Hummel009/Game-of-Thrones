@@ -9,7 +9,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.*;
 import net.minecraft.world.World;
 
-public class GOTEntityHillmanBartender extends GOTEntityHillman implements GOTTradeable.Bartender {
+public class GOTEntityHillmanBartender extends GOTEntityHillman implements GOTTradeable {
 	public GOTEntityHillmanBartender(World world) {
 		super(world);
 		canBeMarried = false;

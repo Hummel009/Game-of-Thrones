@@ -27,6 +27,7 @@ import got.common.entity.essos.asshai.GOTEntityAsshaiMan;
 import got.common.entity.essos.legendary.warrior.GOTEntityAsshaiArchmag;
 import got.common.entity.other.*;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosMan;
+import got.common.entity.westeros.GOTEntityProstitute;
 import got.common.entity.westeros.reach.GOTEntityReachSoldier;
 import got.common.faction.*;
 import got.common.item.*;
@@ -560,7 +561,11 @@ public class GOTEventHandler implements IFuelHandler {
 		if (entity instanceof GOTEntityNPC) {
 			GOTEntityNPC npc = (GOTEntityNPC) entity;
 			if (npc.hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				entityplayer.openGui(GOT.instance, 21, world, entity.getEntityId(), 0, 0);
+				if (entity instanceof GOTEntityProstitute) {
+					entityplayer.openGui(GOT.instance, 1, world, entity.getEntityId(), 0, 0);
+				} else {
+					entityplayer.openGui(GOT.instance, 21, world, entity.getEntityId(), 0, 0);
+				}
 				event.setCanceled(true);
 				return;
 			}

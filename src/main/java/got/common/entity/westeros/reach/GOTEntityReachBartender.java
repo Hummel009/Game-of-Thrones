@@ -2,13 +2,13 @@ package got.common.entity.westeros.reach;
 
 import got.common.GOTLevelData;
 import got.common.database.*;
-import got.common.entity.other.GOTTradeable;
+import got.common.entity.other.GOTBartender;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityReachBartender extends GOTEntityReachMan implements GOTTradeable.Bartender {
+public class GOTEntityReachBartender extends GOTEntityReachMan implements GOTBartender {
 	public GOTEntityReachBartender(World world) {
 		super(world);
 		canBeMarried = false;
@@ -55,5 +55,19 @@ public class GOTEntityReachBartender extends GOTEntityReachMan implements GOTTra
 		data = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTRegistry.mug));
 		return data;
+	}
+
+	@Override
+	public GOTUnitTradeEntries getUnits() {
+		return GOTUnitTradeEntries.PROSTITUTE_KEEPER;
+	}
+
+	@Override
+	public GOTInvasions getWarhorn() {
+		return null;
+	}
+
+	@Override
+	public void onUnitTrade(EntityPlayer var1) {
 	}
 }

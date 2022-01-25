@@ -10,7 +10,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityIbbenMeadhost extends GOTEntityIbbenMan implements GOTTradeable.Bartender {
+public class GOTEntityIbbenMeadhost extends GOTEntityIbbenMan implements GOTTradeable {
 	public GOTEntityIbbenMeadhost(World world) {
 		super(world);
 		canBeMarried = false;
