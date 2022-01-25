@@ -859,7 +859,6 @@ public class GOTRegistry {
 	public static Item ibbenSword;
 	public static Item ice;
 	public static Item iceHeavySword;
-	public static Item iceHoe;
 	public static Item iceShard;
 	public static Item iceSpear;
 	public static Item iceSword;
@@ -2118,7 +2117,6 @@ public class GOTRegistry {
 		ibbenSword = new GOTItemSword(GOTMaterial.IBBEN);
 		ice = new GOTItemLegendaryGreatsword(GOTMaterial.VALYRIAN);
 		iceHeavySword = new GOTItemBattleaxe(GOTMaterial.ICE);
-		iceHoe = new GOTItemHoe(GOTMaterial.ICE).setCreativeTab(GOTCreativeTabs.tabStory);
 		iceShard = new Item().setCreativeTab(GOTCreativeTabs.tabMaterials);
 		iceSpear = new GOTItemSpear(GOTMaterial.ICE);
 		iceSword = new GOTItemSword(GOTMaterial.ICE);
@@ -3861,7 +3859,6 @@ public class GOTRegistry {
 		registerItem(alloySteelHalberd, "alloySteelHalberd");
 		registerItem(alloySteelPickaxe, "alloySteelPickaxe");
 		registerItem(alloySteelSword, "alloySteelSword");
-		registerItem(iceHoe, "whiteWalkersHoe");
 		registerItem(iceShard, "iceShard");
 		registerItem(whiteWalkersChestplate, "whiteWalkersChestplate");
 		registerItem(whiteWalkersLeggings, "whiteWalkersLeggings");
