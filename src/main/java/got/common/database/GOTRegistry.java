@@ -3643,11 +3643,11 @@ public class GOTRegistry {
 		registerItem(royceChestplate, "royceChestplate");
 		registerItem(royceLeggings, "royceLeggings");
 		registerItem(royceBoots, "royceBoots");
-		registerItem(blackskinChestplate, "blackskinChestplate");
 		registerItem(targaryenHelmet, "targaryenHelmet");
 		registerItem(targaryenChestplate, "targaryenChestplate");
 		registerItem(targaryenLeggings, "targaryenLeggings");
 		registerItem(targaryenBoots, "targaryenBoots");
+		registerItem(blackskinChestplate, "blackskinChestplate");
 		registerItem(redkingHelmet, "redkingHelmet");
 		registerItem(redkingChestplate, "redkingChestplate");
 		registerItem(redkingLeggings, "redkingLeggings");

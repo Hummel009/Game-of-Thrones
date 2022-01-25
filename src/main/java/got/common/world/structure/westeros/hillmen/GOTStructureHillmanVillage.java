@@ -57,7 +57,7 @@ public class GOTStructureHillmanVillage extends GOTVillageGen {
 			int centreSide = 19;
 			this.addStructure(new GOTStructureMossovyWell(false), 0, -2, 0, true);
 			this.addStructure(new GOTStructureHillmanHouse(false), 0, -centreSide, 2, true);
-			this.addStructure(new GOTStructureHillmanHouse(false), -pathEnd, 0, 1, true);
+			this.addStructure(new GOTStructureHillmanFort(false), -pathEnd, 0, 1, true);
 			this.addStructure(new GOTStructureHillmanTavern(false), pathEnd, 0, 3, true);
 			int rowHouses = 3;
 			for (int l = -rowHouses; l <= rowHouses; ++l) {

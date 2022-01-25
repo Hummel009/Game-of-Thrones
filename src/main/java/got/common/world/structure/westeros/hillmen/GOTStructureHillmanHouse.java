@@ -21,19 +21,17 @@ public class GOTStructureHillmanHouse extends GOTStructureHillmanBase {
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
-			for (int i1 = -6; i1 <= 6; ++i1) {
-				for (int k1 = -7; k1 <= 7; ++k1) {
-					j1 = getTopBlock(world, i1, k1) - 1;
-					if (!isSurface(world, i1, j1, k1)) {
-						return false;
+			for (int i13 = -4; i13 <= 4; ++i13) {
+				for (int k12 = -6; k12 <= 6; ++k12) {
+					int j13 = getTopBlock(world, i13, k12);
+					getBlock(world, i13, j13 - 1, k12);
+					if (j13 < minHeight) {
+						minHeight = j13;
 					}
-					if (j1 < minHeight) {
-						minHeight = j1;
+					if (j13 > maxHeight) {
+						maxHeight = j13;
 					}
-					if (j1 > maxHeight) {
-						maxHeight = j1;
-					}
-					if (maxHeight - minHeight <= 8) {
+					if (maxHeight - minHeight <= 4) {
 						continue;
 					}
 					return false;
