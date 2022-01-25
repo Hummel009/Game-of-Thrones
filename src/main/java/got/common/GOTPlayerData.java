@@ -1752,7 +1752,10 @@ public class GOTPlayerData {
 		}
 		this.setTimeSinceFT(ftSinceTick + 1);
 		if (targetFTWaypoint != null) {
-			if (ticksUntilFT > 0) {
+			if (entityplayer.isPlayerSleeping()) {
+				entityplayer.addChatMessage(new ChatComponentTranslation("got.fastTravel.inBed"));
+				setTargetFTWaypoint(null);
+			} else if (ticksUntilFT > 0) {
 				int seconds = ticksUntilFT / 20;
 				if (ticksUntilFT == ticksUntilFT_max) {
 					entityplayer.addChatMessage(new ChatComponentTranslation("got.fastTravel.travelTicksStart", seconds));

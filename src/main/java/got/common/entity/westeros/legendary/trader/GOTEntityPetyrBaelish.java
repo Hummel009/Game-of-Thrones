@@ -84,6 +84,16 @@ public class GOTEntityPetyrBaelish extends GOTEntityHumanBase implements GOTBart
 	}
 
 	@Override
+	public GOTUnitTradeEntries getUnits() {
+		return GOTUnitTradeEntries.PROSTITUTE_KEEPER;
+	}
+
+	@Override
+	public GOTInvasions getWarhorn() {
+		return null;
+	}
+
+	@Override
 	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
 		if (mode == GOTEntityNPC.AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
@@ -107,21 +117,11 @@ public class GOTEntityPetyrBaelish extends GOTEntityHumanBase implements GOTBart
 	}
 
 	@Override
+	public void onUnitTrade(EntityPlayer var1) {
+	}
+
+	@Override
 	public void setupNPCGender() {
 		familyInfo.setMale(true);
-	}
-
-	@Override
-	public GOTUnitTradeEntries getUnits() {
-		return GOTUnitTradeEntries.PROSTITUTE_KEEPER;
-	}
-
-	@Override
-	public GOTInvasions getWarhorn() {
-		return null;
-	}
-
-	@Override
-	public void onUnitTrade(EntityPlayer var1) {
 	}
 }

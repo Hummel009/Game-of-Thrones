@@ -1008,6 +1008,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 		prevPosX = posX;
 		prevPosY = posY;
+		setupZoomVariables(1.0f);
 		buttonOverlayFunction = new GuiButton(0, 0, 0, 160, 20, "");
 		buttonOverlayFunction.visible = false;
 		buttonOverlayFunction.enabled = false;

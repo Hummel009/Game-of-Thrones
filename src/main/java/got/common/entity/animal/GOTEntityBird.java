@@ -143,6 +143,10 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 	}
 
 	@Override
+	protected void dropEquipment(boolean flag, int i) {
+	}
+
+	@Override
 	public void dropFewItems(boolean flag, int i) {
 		int feathers = rand.nextInt(3) + rand.nextInt(i + 1);
 		for (int l = 0; l < feathers; ++l) {
@@ -319,6 +323,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 	public void onDeath(DamageSource damagesource) {
 		super.onDeath(damagesource);
 		if (!worldObj.isRemote) {
+			setStolenItem(null);
 			birdInv.dropAllItems();
 		}
 	}

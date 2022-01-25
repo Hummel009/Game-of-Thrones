@@ -1138,7 +1138,7 @@ public class GOTRegistry {
 	public static Item sothoryosLeggingsGold;
 	public static Item sothoryosPickaxe;
 	public static Item sothoryosPike;
-	public static Item sothoryosSarbacane;
+	public static Item sarbacane;
 	public static Item sothoryosShovel;
 	public static Item sothoryosSpear;
 	public static Item sothoryosSword;
@@ -2396,7 +2396,7 @@ public class GOTRegistry {
 		sothoryosLeggingsGold = new GOTItemArmor(GOTMaterial.SOTHORYOS_GOLD, 2);
 		sothoryosPickaxe = new GOTItemPickaxe(GOTMaterial.OBSIDIAN);
 		sothoryosPike = new GOTItemPike(GOTMaterial.OBSIDIAN);
-		sothoryosSarbacane = new GOTItemSarbacane(GOTMaterial.LOG);
+		sarbacane = new GOTItemSarbacane(GOTMaterial.LOG);
 		sothoryosShovel = new GOTItemShovel(GOTMaterial.OBSIDIAN);
 		sothoryosSpear = new GOTItemSpear(GOTMaterial.OBSIDIAN);
 		sothoryosSword = new GOTItemSword(GOTMaterial.OBSIDIAN);
@@ -3486,7 +3486,7 @@ public class GOTRegistry {
 		registerItem(sothoryosHelmetChieftain, "sothoryosHelmetChieftain");
 		registerItem(essosPolearm, "essosPolearm");
 		registerItem(essosHorseArmor, "essosHorseArmor");
-		registerItem(sothoryosSarbacane, "sothoryosSarbacane");
+		registerItem(sarbacane, "sarbacane");
 		registerItem(dart, "dart");
 		registerItem(dartPoisoned, "dartPoisoned");
 		registerItem(muttonRaw, "muttonRaw");

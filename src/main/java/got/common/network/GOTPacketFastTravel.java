@@ -75,6 +75,9 @@ public class GOTPacketFastTravel implements IMessage {
 						if (!canTravel) {
 							entityplayer.closeScreen();
 							entityplayer.addChatMessage(new ChatComponentTranslation("got.fastTravel.underAttack"));
+						} else if (entityplayer.isPlayerSleeping()) {
+							entityplayer.closeScreen();
+							entityplayer.addChatMessage(new ChatComponentTranslation("got.fastTravel.inBed"));
 						} else {
 							playerData.setTargetFTWaypoint(waypoint);
 						}

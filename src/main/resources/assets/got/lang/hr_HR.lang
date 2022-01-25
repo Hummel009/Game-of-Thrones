@@ -588,6 +588,7 @@ entity.got.Plate.name≠
 entity.got.PodrickPayne.name≠
 entity.got.Polarbear.name≠
 entity.got.Polliver.name≠
+entity.got.Prostitute.name≠
 entity.got.Pycelle.name≠
 entity.got.QarthArcher.name≠
 entity.got.QarthBaker.name≠
@@ -875,7 +876,6 @@ entity.got.WesterosThief.name≠
 entity.got.WhiteBison.name≠
 entity.got.WhiteOryx.name≠
 entity.got.WhiteWalker.name≠
-entity.got.Prostitute.name≠
 entity.got.Wicht.name≠
 entity.got.WichtGiant.name≠
 entity.got.Wildling.name≠
@@ -1074,6 +1074,8 @@ got.achievement.KILL_PETYR_BAELISH.desc≠
 got.achievement.KILL_PETYR_BAELISH.title≠
 got.achievement.KILL_PRIEST.desc≠
 got.achievement.KILL_PRIEST.title≠
+got.achievement.KILL_PROSTITUTE.desc≠
+got.achievement.KILL_PROSTITUTE.title≠
 got.achievement.KILL_RAMSAY_BOLTON.desc≠
 got.achievement.KILL_RAMSAY_BOLTON.title≠
 got.achievement.KILL_ROBB_STARK.desc≠
@@ -1114,8 +1116,6 @@ got.achievement.KILL_WEREWOLF.desc≠
 got.achievement.KILL_WEREWOLF.title≠
 got.achievement.KILL_WHITE_WALKER.desc≠
 got.achievement.KILL_WHITE_WALKER.title≠
-got.achievement.KILL_PROSTITUTE.desc≠
-got.achievement.KILL_PROSTITUTE.title≠
 got.achievement.KILL_WIGHT.desc≠
 got.achievement.KILL_WIGHT.title≠
 got.achievement.KILL_WIGHT_GIANT.desc≠
@@ -2568,6 +2568,7 @@ got.faction.rel.FRIEND≠
 got.faction.rel.MORTAL_ENEMY≠
 got.faction.rel.NEUTRAL≠
 got.fastTravel.available≠
+got.fastTravel.inBed≠
 got.fastTravel.motion≠
 got.fastTravel.skip≠
 got.fastTravel.travelTicksStart≠
@@ -5671,6 +5672,7 @@ item.got:saltpeter.name=Salitra
 item.got:sandorCleganeSword.name≠
 item.got:sandorHelmet.name≠
 item.got:sapphire.name≠
+item.got:sarbacane.name≠
 item.got:seedsGrapeRed.name≠
 item.got:seedsGrapeWhite.name≠
 item.got:shishKebab.name≠
@@ -5701,7 +5703,6 @@ item.got:sothoryosLeggings.name≠
 item.got:sothoryosLeggingsGold.name≠
 item.got:sothoryosPickaxe.name≠
 item.got:sothoryosPike.name≠
-item.got:sothoryosSarbacane.name≠
 item.got:sothoryosShovel.name≠
 item.got:sothoryosSpear.name≠
 item.got:sothoryosSword.name≠

@@ -588,6 +588,7 @@ entity.got.Plate.name=皿
 entity.got.PodrickPayne.name≠
 entity.got.Polarbear.name≠
 entity.got.Polliver.name≠
+entity.got.Prostitute.name≠
 entity.got.Pycelle.name≠
 entity.got.QarthArcher.name≠
 entity.got.QarthBaker.name≠
@@ -875,7 +876,6 @@ entity.got.WesterosThief.name≠
 entity.got.WhiteBison.name=アラウの牝牛
 entity.got.WhiteOryx.name=白いオリックス
 entity.got.WhiteWalker.name≠
-entity.got.Prostitute.name≠
 entity.got.Wicht.name≠
 entity.got.WichtGiant.name≠
 entity.got.Wildling.name≠
@@ -1072,6 +1072,8 @@ got.achievement.KILL_PETYR_BAELISH.desc≠
 got.achievement.KILL_PETYR_BAELISH.title≠
 got.achievement.KILL_PRIEST.desc≠
 got.achievement.KILL_PRIEST.title≠
+got.achievement.KILL_PROSTITUTE.desc≠
+got.achievement.KILL_PROSTITUTE.title≠
 got.achievement.KILL_RAMSAY_BOLTON.desc≠
 got.achievement.KILL_RAMSAY_BOLTON.title≠
 got.achievement.KILL_ROBB_STARK.desc≠
@@ -1112,8 +1114,6 @@ got.achievement.KILL_WEREWOLF.desc≠
 got.achievement.KILL_WEREWOLF.title≠
 got.achievement.KILL_WHITE_WALKER.desc≠
 got.achievement.KILL_WHITE_WALKER.title≠
-got.achievement.KILL_PROSTITUTE.desc≠
-got.achievement.KILL_PROSTITUTE.title≠
 got.achievement.KILL_WIGHT.desc≠
 got.achievement.KILL_WIGHT.title≠
 got.achievement.KILL_WIGHT_GIANT.desc≠
@@ -2568,6 +2568,7 @@ got.faction.rel.FRIEND=友好
 got.faction.rel.MORTAL_ENEMY=宿敵
 got.faction.rel.NEUTRAL=中立
 got.fastTravel.available=今はファストトラベル出来ません
+got.fastTravel.inBed≠
 got.fastTravel.motion=ファストトラベルを中止します。動かないで下さい！
 got.fastTravel.skip='%s' でスキップ
 got.fastTravel.travel=%s へファストトラベルする
@@ -5671,6 +5672,7 @@ item.got:saltpeter.name=硝石
 item.got:sandorCleganeSword.name≠
 item.got:sandorHelmet.name≠
 item.got:sapphire.name=サファイア
+item.got:sarbacane.name≠
 item.got:seedsGrapeRed.name=赤ブドウの種
 item.got:seedsGrapeWhite.name=緑ブドウの種
 item.got:shishKebab.name=シシケバブ
@@ -5701,7 +5703,6 @@ item.got:sothoryosLeggings.name≠
 item.got:sothoryosLeggingsGold.name≠
 item.got:sothoryosPickaxe.name≠
 item.got:sothoryosPike.name≠
-item.got:sothoryosSarbacane.name≠
 item.got:sothoryosShovel.name≠
 item.got:sothoryosSpear.name≠
 item.got:sothoryosSword.name≠

@@ -46,6 +46,16 @@ public class GOTEntityDragonstoneBartender extends GOTEntityDragonstoneMan imple
 	}
 
 	@Override
+	public GOTUnitTradeEntries getUnits() {
+		return GOTUnitTradeEntries.PROSTITUTE_KEEPER;
+	}
+
+	@Override
+	public GOTInvasions getWarhorn() {
+		return null;
+	}
+
+	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
 	}
@@ -55,16 +65,6 @@ public class GOTEntityDragonstoneBartender extends GOTEntityDragonstoneMan imple
 		data = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTRegistry.mug));
 		return data;
-	}
-
-	@Override
-	public GOTUnitTradeEntries getUnits() {
-		return GOTUnitTradeEntries.PROSTITUTE_KEEPER;
-	}
-
-	@Override
-	public GOTInvasions getWarhorn() {
-		return null;
 	}
 
 	@Override
