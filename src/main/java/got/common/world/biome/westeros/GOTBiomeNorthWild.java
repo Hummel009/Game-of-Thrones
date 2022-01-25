@@ -10,6 +10,7 @@ import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
+import got.common.world.structure.other.*;
 import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanVillage;
 import net.minecraft.world.biome.BiomeGenBase;
 
@@ -49,6 +50,12 @@ public class GOTBiomeNorthWild extends GOTBiome {
 		npcSpawnList.newFactionList(0).add(c2);
 
 		decorator.addVillage(new GOTStructureNorthHillmanVillage(this, 1.0f));
+		
+		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
+		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
+		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
+		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
+		decorator.addRandomStructure(new GOTStructureStoneRuin.STONE(1, 4), 400);
 	}
 
 	@Override

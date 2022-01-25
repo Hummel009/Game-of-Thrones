@@ -24,6 +24,7 @@ CHANGELOG
 + Added Tugar Khan achievement
 + Added dark variants of scrap trader and thief
 
+* Improved hillmen villages
 * Improved essos structures
 * Improved roads
 * Improved guards: sync between Essos and Westeros
