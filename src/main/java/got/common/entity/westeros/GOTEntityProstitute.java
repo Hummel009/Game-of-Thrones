@@ -9,8 +9,8 @@ import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class GOTEntityWhore extends GOTEntityHumanBase {
-	public GOTEntityWhore(World world) {
+public class GOTEntityProstitute extends GOTEntityHumanBase {
+	public GOTEntityProstitute(World world) {
 		super(world);
 		canBeMarried = true;
 		setSize(0.6f, 1.8f);
@@ -18,7 +18,7 @@ public class GOTEntityWhore extends GOTEntityHumanBase {
 		getNavigator().setBreakDoors(true);
 		addTargetTasks(false);
 		tasks.addTask(0, new EntityAISwimming(this));
-		tasks.addTask(2, createWhoreAttackAI());
+		tasks.addTask(2, new EntityAIPanic(this, 1.4));
 		tasks.addTask(4, new EntityAIOpenDoor(this, true));
 		tasks.addTask(5, new EntityAIWander(this, 1.0));
 		tasks.addTask(4, new GOTEntityAIEat(this, GOTFoods.WESTEROS, 8000));
@@ -41,10 +41,6 @@ public class GOTEntityWhore extends GOTEntityHumanBase {
 		return true;
 	}
 
-	public EntityAIBase createWhoreAttackAI() {
-		return new EntityAIPanic(this, 1.4);
-	}
-
 	@Override
 	public GOTFaction getFaction() {
 		return GOTFaction.UNALIGNED;
@@ -52,7 +48,7 @@ public class GOTEntityWhore extends GOTEntityHumanBase {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_WHORE;
+		return GOTAchievement.KILL_PROSTITUTRE;
 	}
 
 	@Override
@@ -63,9 +59,9 @@ public class GOTEntityWhore extends GOTEntityHumanBase {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "standart/special/whore_friendly";
+			return "standart/special/prostitute_friendly";
 		}
-		return "standart/special/whore_hostile";
+		return "standart/special/prostitute_hostile";
 	}
 
 	@Override

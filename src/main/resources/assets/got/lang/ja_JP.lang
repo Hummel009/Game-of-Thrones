@@ -875,7 +875,7 @@ entity.got.WesterosThief.name≠
 entity.got.WhiteBison.name=アラウの牝牛
 entity.got.WhiteOryx.name=白いオリックス
 entity.got.WhiteWalker.name≠
-entity.got.Whore.name≠
+entity.got.Prostitute.name≠
 entity.got.Wicht.name≠
 entity.got.WichtGiant.name≠
 entity.got.Wildling.name≠
@@ -1112,8 +1112,8 @@ got.achievement.KILL_WEREWOLF.desc≠
 got.achievement.KILL_WEREWOLF.title≠
 got.achievement.KILL_WHITE_WALKER.desc≠
 got.achievement.KILL_WHITE_WALKER.title≠
-got.achievement.KILL_WHORE.desc≠
-got.achievement.KILL_WHORE.title≠
+got.achievement.KILL_PROSTITUTE.desc≠
+got.achievement.KILL_PROSTITUTE.title≠
 got.achievement.KILL_WIGHT.desc≠
 got.achievement.KILL_WIGHT.title≠
 got.achievement.KILL_WIGHT_GIANT.desc≠

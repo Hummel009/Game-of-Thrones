@@ -11,7 +11,7 @@ import got.common.*;
 import got.common.database.*;
 import got.common.entity.ai.*;
 import got.common.entity.animal.GOTEntityHorse;
-import got.common.entity.westeros.GOTEntityWhore;
+import got.common.entity.westeros.GOTEntityProstitute;
 import got.common.faction.GOTFaction;
 import got.common.inventory.*;
 import got.common.item.GOTWeaponStats;
@@ -1239,7 +1239,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public boolean shouldRenderNPCChest() {
-		if (this instanceof GOTEntityWhore && hasCustomNameTag() && "Ayase".equalsIgnoreCase(getCustomNameTag())) {
+		if (this instanceof GOTEntityProstitute && hasCustomNameTag() && "Ayase".equalsIgnoreCase(getCustomNameTag())) {
 			return false;
 		}
 		return !familyInfo.isMale() && !isChild() && getEquipmentInSlot(3) == null;

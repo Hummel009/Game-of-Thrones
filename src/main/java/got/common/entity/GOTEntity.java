@@ -108,7 +108,7 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityThiefEssos.class, "EssosThief", id++, 13345354);
 		GOTEntityRegistry.register(GOTEntityScrapTraderEssos.class, "EssosScrapTrader", id++, 13345354);
 
-		GOTEntityRegistry.register(GOTEntityWhore.class, "Whore", id++, 16087966);
+		GOTEntityRegistry.register(GOTEntityProstitute.class, "Prostitute", id++, 16087966);
 		GOTEntityRegistry.register(GOTEntityMaester.class, "Maester", id++, 0xffffff);
 		GOTEntityRegistry.register(GOTEntitySepton.class, "Septon", id++, 0xffd700);
 		GOTEntityRegistry.register(GOTEntityRedPriest.class, "RedPriest", id++, 0x7c0a02);

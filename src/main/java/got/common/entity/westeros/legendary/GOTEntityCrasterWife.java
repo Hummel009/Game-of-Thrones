@@ -15,7 +15,7 @@ public class GOTEntityCrasterWife extends GOTEntityHumanBase {
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		tasks.addTask(0, new EntityAISwimming(this));
-		tasks.addTask(2, createWhoreAttackAI());
+		tasks.addTask(2, new EntityAIPanic(this, 1.7));
 		tasks.addTask(4, new EntityAIOpenDoor(this, true));
 		tasks.addTask(5, new EntityAIWander(this, 1.0));
 		tasks.addTask(7, new EntityAIWatchClosest2(this, EntityPlayer.class, 8.0f, 0.02f));
@@ -36,10 +36,6 @@ public class GOTEntityCrasterWife extends GOTEntityHumanBase {
 	@Override
 	public boolean canBeFreelyTargetedBy(EntityLiving attacker) {
 		return false;
-	}
-
-	public EntityAIBase createWhoreAttackAI() {
-		return new EntityAIPanic(this, 1.7);
 	}
 
 	@Override

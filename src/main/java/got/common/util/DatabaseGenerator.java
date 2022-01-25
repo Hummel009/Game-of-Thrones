@@ -71,7 +71,7 @@ import got.common.world.structure.other.*;
 import net.minecraft.entity.*;
 import net.minecraft.item.*;
 import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.util.StatCollector;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -91,7 +91,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		entities.put(GOTEntityBanditEssos.class, new GOTEntityBanditEssos(world));
 		entities.put(GOTEntityThiefEssos.class, new GOTEntityThiefEssos(world));
 		entities.put(GOTEntityScrapTraderEssos.class, new GOTEntityScrapTraderEssos(world));
-		entities.put(GOTEntityWhore.class, new GOTEntityWhore(world));
+		entities.put(GOTEntityProstitute.class, new GOTEntityProstitute(world));
 		entities.put(GOTEntityMaester.class, new GOTEntityMaester(world));
 		entities.put(GOTEntitySepton.class, new GOTEntitySepton(world));
 		entities.put(GOTEntityRedPriest.class, new GOTEntityRedPriest(world));
@@ -908,7 +908,15 @@ public class DatabaseGenerator extends GOTStructureBase {
 	}
 
 	public static void generateWikiaDatabases() throws NoSuchFieldException, IllegalAccessException {
-		String display = "null";
+		String display = "chest";
+		if ("chest".equals(display)) {
+			for (GOTChestContents content : GOTCommander.getObjectFieldsOfType(GOTChestContents.class, GOTChestContents.class)) {
+				GOTLog.logger.info(content + " = ");
+				for (WeightedRandomChestContent con : content.items) {
+					GOTLog.logger.info(con.theItemId.getDisplayName() + ", ");
+				}
+			}
+		}
 		if ("factionStructures".equals(display)) {
 			for (GOTFaction fac : GOTFaction.values()) {
 				GOTLog.logger.info("| " + fac.factionName() + " =");

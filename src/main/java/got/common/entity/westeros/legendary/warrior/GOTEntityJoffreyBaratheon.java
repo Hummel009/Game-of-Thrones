@@ -3,7 +3,7 @@ package got.common.entity.westeros.legendary.warrior;
 import got.common.database.*;
 import got.common.entity.ai.*;
 import got.common.entity.other.*;
-import got.common.entity.westeros.GOTEntityWhore;
+import got.common.entity.westeros.GOTEntityProstitute;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -38,7 +38,7 @@ public class GOTEntityJoffreyBaratheon extends GOTEntityHumanBase {
 
 	public void addTargetTasks() {
 		int target = addTargetTasks(true);
-		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityWhore.class, 500, true));
+		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityProstitute.class, 500, true));
 	}
 
 	@Override

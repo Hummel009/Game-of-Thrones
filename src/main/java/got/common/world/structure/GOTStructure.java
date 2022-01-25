@@ -70,8 +70,8 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureGiftSmithy.class, "GiftSmithy", GOTFaction.NIGHT_WATCH);
 		GOTStructureRegistry.register(id++, GOTStructureGiftVillageLight.class, "GiftVillageLight", GOTFaction.NIGHT_WATCH);
 
-		GOTStructureRegistry.register(id++, GOTStructureNorthHillmanHouse.class, "NorthHillmanHouse", GOTFaction.WILDLING);
-		GOTStructureRegistry.register(id++, GOTStructureNorthHillmanChieftainHouse.class, "NorthHillmanChieftainHouse", GOTFaction.WILDLING);
+		GOTStructureRegistry.register(id++, GOTStructureNorthHillmanHouse.class, "NorthHillmanHouse", GOTFaction.NORTH);
+		GOTStructureRegistry.register(id++, GOTStructureNorthHillmanChieftainHouse.class, "NorthHillmanChieftainHouse", GOTFaction.NORTH);
 
 		GOTStructureRegistry.register(id++, GOTStructureNorthWatchfort.class, "NorthWatchfort", GOTFaction.NORTH);
 		GOTStructureRegistry.register(id++, GOTStructureNorthSmithy.class, "NorthSmithy", GOTFaction.NORTH);

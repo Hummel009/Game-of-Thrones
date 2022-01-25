@@ -3,7 +3,7 @@ package got.common.world.fixed;
 import java.util.Random;
 
 import got.common.database.*;
-import got.common.entity.westeros.GOTEntityWhore;
+import got.common.entity.westeros.GOTEntityProstitute;
 import got.common.entity.westeros.legendary.quest.GOTEntityTyrionLannister;
 import got.common.entity.westeros.legendary.reborn.GOTEntityLancelLannister;
 import got.common.entity.westeros.legendary.trader.GOTEntityPetyrBaelish;
@@ -138,9 +138,8 @@ public class GOTStructurePetyrBaelishBrothel extends GOTStructureNorthBase {
 		placeWallBanner(world, -2, 5, -15, GOTItemBanner.BannerType.BAELISH, 0);
 		placeWallBanner(world, 2, 5, -15, GOTItemBanner.BannerType.BAELISH, 0);
 		spawnLegendaryNPC(new GOTEntityPetyrBaelish(world), world, -2, 1, 8);
-		int stuff = 4 + random.nextInt(10);
-		for (int l = 0; l < stuff; ++l) {
-			spawnNPCAndSetHome(new GOTEntityWhore(world), world, 0, 1, 0, 16);
+		for (int l = 0; l < 5; ++l) {
+			spawnNPCAndSetHome(new GOTEntityProstitute(world), world, 0, 1, 0, 16);
 		}
 		spawnLegendaryNPC(new GOTEntityTyrionLannister(world), world, 2, 1, -2);
 		spawnLegendaryNPC(new GOTEntityLancelLannister.Normal(world), world, -2, 1, 2);

@@ -318,7 +318,7 @@ public class GOTRender {
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityQohorUnsullied.class, new GOTRenderFactionNPCMonofolder("essos/unsullied"));
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityStoneman.class, new GOTRenderFactionNPCMonofolder("essos/stone"));
 		RenderingRegistry.registerEntityRenderingHandler(GOTEntityThennBerserker.class, new GOTRenderFactionNPCMonofolder("westeros/thenn/male", 1.1f));
-		RenderingRegistry.registerEntityRenderingHandler(GOTEntityWhore.class, new GOTRenderFactionNPCMonofolder("westeros/whore"));
+		RenderingRegistry.registerEntityRenderingHandler(GOTEntityProstitute.class, new GOTRenderFactionNPCMonofolder("westeros/prostitute"));
 	}
 
 	public static void renderMonotextureNPC() {
