@@ -42,7 +42,7 @@ public class GOTEntityGoldenCaptain extends GOTEntityGoldenWarrior implements GO
 
 	@Override
 	public GOTUnitTradeEntries getUnits() {
-		return GOTUnitTradeEntries.GOLD;
+		return GOTUnitTradeEntries.GOLDENCOMPANY;
 	}
 
 	@Override

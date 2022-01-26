@@ -30,11 +30,6 @@ public class GOTStructureMossovyVillage extends GOTVillageGen {
 		}
 
 		@Override
-		public void addStructure(GOTStructureBase structure, int x, int z, int r, boolean force) {
-			super.addStructure(structure, x, z, r, force);
-		}
-
-		@Override
 		public void addVillageStructures(Random random) {
 			this.addStructure(new GOTStructureMossovyWell(false), 0, -4, 0, true);
 			this.addStructure(new GOTStructureNPCRespawner(false) {

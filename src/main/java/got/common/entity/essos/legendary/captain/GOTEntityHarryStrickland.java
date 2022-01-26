@@ -72,7 +72,7 @@ public class GOTEntityHarryStrickland extends GOTEntityHumanBase implements GOTU
 
 	@Override
 	public GOTUnitTradeEntries getUnits() {
-		return GOTUnitTradeEntries.GOLD;
+		return GOTUnitTradeEntries.GOLDENCOMPANY;
 	}
 
 	@Override

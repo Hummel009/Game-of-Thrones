@@ -14,9 +14,4 @@ public class GOTEntityGoldenBannerBearer extends GOTEntityGoldenWarrior implemen
 	public GOTItemBanner.BannerType getBannerType() {
 		return GOTItemBanner.BannerType.GOLDENCOMPANY;
 	}
-
-	@Override
-	public int getTotalArmorValue() {
-		return 15;
-	}
 }

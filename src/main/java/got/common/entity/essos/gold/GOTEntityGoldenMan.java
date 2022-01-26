@@ -42,7 +42,7 @@ public class GOTEntityGoldenMan extends GOTEntityHumanBase implements IPickpocke
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0);
+		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 	}
 
@@ -75,7 +75,7 @@ public class GOTEntityGoldenMan extends GOTEntityHumanBase implements IPickpocke
 
 	@Override
 	public float getAlignmentBonus() {
-		return 2.0f;
+		return 0.0f;
 	}
 
 	@Override

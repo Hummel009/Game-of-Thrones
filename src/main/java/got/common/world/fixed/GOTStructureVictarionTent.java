@@ -1,4 +1,4 @@
-package got.common.world.structure.essos.ghiscar;
+package got.common.world.fixed;
 
 import java.util.Random;
 
@@ -6,8 +6,8 @@ import got.common.database.*;
 import got.common.world.structure.other.GOTStructureTentBase;
 import net.minecraft.init.Blocks;
 
-public class GOTStructureGhiscarTent extends GOTStructureTentBase {
-	public GOTStructureGhiscarTent(boolean flag) {
+public class GOTStructureVictarionTent extends GOTStructureTentBase {
+	public GOTStructureVictarionTent(boolean flag) {
 		super(flag);
 	}
 
@@ -18,7 +18,7 @@ public class GOTStructureGhiscarTent extends GOTStructureTentBase {
 		switch (randomWool) {
 		case 0:
 			tentBlock = Blocks.wool;
-			tentMeta = 15;
+			tentMeta = 13;
 			break;
 		case 1:
 			tentBlock = Blocks.wool;
@@ -31,10 +31,9 @@ public class GOTStructureGhiscarTent extends GOTStructureTentBase {
 		default:
 			break;
 		}
-		fenceBlock = GOTRegistry.fence;
-		fenceMeta = 3;
-		tableBlock = GOTRegistry.tableGhiscar;
-		hasTorches = true;
-		chestContents = GOTChestContents.ESSOS;
+		fenceBlock = Blocks.fence;
+		fenceMeta = 0;
+		tableBlock = GOTRegistry.tableIronborn;
+		chestContents = GOTChestContents.BEYOND_WALL;
 	}
 }

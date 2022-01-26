@@ -16,8 +16,7 @@ public abstract class GOTStructureTentBase extends GOTStructureBase {
 	public int fenceMeta;
 	public Block tableBlock;
 	public GOTChestContents chestContents;
-	public boolean hasOrcForge = false;
-	public boolean hasTorches = false;
+	public boolean isCaptain = false;
 
 	public GOTStructureTentBase(boolean flag) {
 		super(flag);
@@ -104,7 +103,7 @@ public abstract class GOTStructureTentBase extends GOTStructureBase {
 			setBlockAndMetadata(world, 0, j13, -3, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, 0, j13, 3, fenceBlock, fenceMeta);
 		}
-		if (hasTorches) {
+		if (isCaptain) {
 			placeBigTorch(world, -1, 1, -3);
 			placeBigTorch(world, 1, 1, -3);
 			placeBigTorch(world, -1, 1, 3);
@@ -116,7 +115,7 @@ public abstract class GOTStructureTentBase extends GOTStructureBase {
 			setBlockAndMetadata(world, 1, 2, 3, Blocks.torch, 1);
 		}
 		if (random.nextBoolean()) {
-			if (hasOrcForge) {
+			if (isCaptain) {
 				setBlockAndMetadata(world, -1, 1, 0, GOTRegistry.alloyForge, 4);
 				setGrassToDirt(world, -1, 0, 0);
 				setBlockAndMetadata(world, -1, 1, -1, fenceBlock, fenceMeta);
@@ -127,7 +126,7 @@ public abstract class GOTStructureTentBase extends GOTStructureBase {
 				setBlockAndMetadata(world, -1, 1, 1, tableBlock, 0);
 				setGrassToDirt(world, -1, 0, 1);
 			}
-		} else if (hasOrcForge) {
+		} else if (isCaptain) {
 			setBlockAndMetadata(world, 1, 1, 0, GOTRegistry.alloyForge, 5);
 			setGrassToDirt(world, 1, 0, 0);
 			setBlockAndMetadata(world, 1, 1, -1, fenceBlock, fenceMeta);
@@ -139,10 +138,6 @@ public abstract class GOTStructureTentBase extends GOTStructureBase {
 			setBlockAndMetadata(world, 1, 1, 1, tableBlock, 0);
 			setGrassToDirt(world, 1, 0, 1);
 		}
-		return true;
-	}
-
-	public boolean isOrcTent() {
 		return true;
 	}
 }

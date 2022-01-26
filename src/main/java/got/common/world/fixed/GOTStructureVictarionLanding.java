@@ -9,7 +9,6 @@ import got.common.entity.westeros.legendary.warrior.GOTEntityVictarionGreyjoy;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
-import got.common.world.structure.westeros.ironborn.GOTStructureIronbornTent;
 import net.minecraft.world.World;
 
 public class GOTStructureVictarionLanding extends GOTVillageGen {
@@ -33,7 +32,7 @@ public class GOTStructureVictarionLanding extends GOTVillageGen {
 
 		@Override
 		public GOTStructureBase createTent(boolean flag, Random random) {
-			return new GOTStructureIronbornTent(false);
+			return new GOTStructureVictarionTent(false);
 		}
 
 		@Override

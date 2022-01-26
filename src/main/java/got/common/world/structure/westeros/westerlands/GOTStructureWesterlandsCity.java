@@ -50,11 +50,6 @@ public class GOTStructureWesterlandsCity extends GOTVillageGen {
 		}
 
 		@Override
-		public void addStructure(GOTStructureBase structure, int x, int z, int r, boolean force) {
-			super.addStructure(structure, x, z, r, force);
-		}
-
-		@Override
 		public void addVillageStructures(Random random) {
 			switch (villageType) {
 			case TOWN:

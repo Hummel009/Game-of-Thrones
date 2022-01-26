@@ -8,7 +8,7 @@ import got.common.world.structure.essos.asshai.*;
 import got.common.world.structure.essos.braavos.*;
 import got.common.world.structure.essos.dothraki.*;
 import got.common.world.structure.essos.ghiscar.*;
-import got.common.world.structure.essos.gold.GOTStructureGoldenCamp;
+import got.common.world.structure.essos.gold.*;
 import got.common.world.structure.essos.ibben.*;
 import got.common.world.structure.essos.jogos.*;
 import got.common.world.structure.essos.lhazar.*;
@@ -296,8 +296,6 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureMyrTower.class, "MyrTower", GOTFaction.MYR);
 		GOTStructureRegistry.register(id++, GOTStructureMyrTraining.class, "MyrTraining", GOTFaction.MYR);
 
-		GOTStructureRegistry.register(id++, GOTStructureGoldenCamp.class, "GoldenCamp", 0xffd700);
-
 		GOTStructureRegistry.register(id++, GOTStructureTyroshBarracks.class, "TyroshBarracks", GOTFaction.TYROSH);
 		GOTStructureRegistry.register(id++, GOTStructureTyroshBazaar.class, "TyroshBazaar", GOTFaction.TYROSH);
 		GOTStructureRegistry.register(id++, GOTStructureTyroshFortress.class, "TyroshFortress", GOTFaction.TYROSH);
@@ -308,9 +306,10 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureTyroshTavern.class, "TyroshTavern", GOTFaction.TYROSH);
 		GOTStructureRegistry.register(id++, GOTStructureTyroshTower.class, "TyroshTower", GOTFaction.TYROSH);
 		GOTStructureRegistry.register(id++, GOTStructureTyroshTraining.class, "TyroshTraining", GOTFaction.TYROSH);
+		
+		GOTStructureRegistry.register(id++, GOTStructureGoldenWatchtower.class, "GoldenWatchtower", 0xffd700);
 
 		GOTStructureRegistry.register(id++, GOTStructureGhiscarPyramid.class, "GhiscarPyramid", GOTFaction.GHISCAR);
-		GOTStructureRegistry.register(id++, GOTStructureGhiscarCamp.class, "GhiscarCamp", GOTFaction.GHISCAR);
 		GOTStructureRegistry.register(id++, GOTStructureGhiscarBarracks.class, "GhiscarBarracks", GOTFaction.GHISCAR);
 		GOTStructureRegistry.register(id++, GOTStructureGhiscarBazaar.class, "GhiscarBazaar", GOTFaction.GHISCAR);
 		GOTStructureRegistry.register(id++, GOTStructureGhiscarFortress.class, "GhiscarFortress", GOTFaction.GHISCAR);
@@ -857,6 +856,13 @@ public class GOTStructure {
 			@Override
 			public void apply(GOTStructureTyroshCity.Instance instance) {
 				instance.villageType = GOTStructureTyroshCity.VillageType.FORT;
+			}
+		});
+
+		GOTStructureRegistry.register(id++, new GOTStructureGoldenCamp(GOTBiome.essos, 1.0f), "GoldenCamp", 0xffd700, new GOTStructureRegistry.IVillageProperties<GOTStructureGoldenCamp.Instance>() {
+
+			@Override
+			public void apply(GOTStructureGoldenCamp.Instance instance) {
 			}
 		});
 

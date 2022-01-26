@@ -35,7 +35,7 @@ public class GOTBiomeMercenary extends GOTBiomeEssos {
 		c5[0] = GOTBiomeSpawnList.entry(GOTSpawnList.VOLANTIS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c5);
 
-		decorator.addRandomStructure(new GOTStructureGoldenCamp(false), 250);
+		decorator.addVillage(new GOTStructureGoldenCamp(this, 1.0f));
 
 		invasionSpawns.addInvasion(GOTInvasions.MYR, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.VOLANTIS, GOTEventSpawner.EventChance.UNCOMMON);

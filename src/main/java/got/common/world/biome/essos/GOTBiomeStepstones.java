@@ -11,7 +11,6 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.*;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.essos.ghiscar.GOTStructureGhiscarCamp;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -64,7 +63,6 @@ public class GOTBiomeStepstones extends GOTBiome {
 		SpawnListContainer[] c1 = new SpawnListContainer[1];
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(1).add(c1);
-		decorator.addRandomStructure(new GOTStructureGhiscarCamp(false), 250);
 		setDarkUnreliable();
 	}
 

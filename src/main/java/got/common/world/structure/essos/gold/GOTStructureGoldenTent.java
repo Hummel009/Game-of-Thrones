@@ -3,7 +3,7 @@ package got.common.world.structure.essos.gold;
 import java.util.Random;
 
 import got.common.database.*;
-import got.common.world.structure.other.GOTStructureTentBase;
+import got.common.world.structure.other.*;
 import net.minecraft.init.Blocks;
 
 public class GOTStructureGoldenTent extends GOTStructureTentBase {
@@ -34,7 +34,11 @@ public class GOTStructureGoldenTent extends GOTStructureTentBase {
 		fenceBlock = GOTRegistry.fence;
 		fenceMeta = 3;
 		tableBlock = Blocks.crafting_table;
-		hasTorches = true;
 		chestContents = GOTChestContents.ESSOS;
+	}
+
+	public GOTStructureBase setIsCaptain() {
+		isCaptain = true;
+		return this;
 	}
 }
