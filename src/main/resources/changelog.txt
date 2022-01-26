@@ -8,6 +8,7 @@ CHANGELOG
 * Reworked all the speechbank system
 * Great Texture Update (armor sets, shields, capes and banners: prod. Hummel009)
 
++ Added rice and cucumbers
 + Added riders to natural spawn
 + Added Moribald Chester
 + Added 4 waypoints
