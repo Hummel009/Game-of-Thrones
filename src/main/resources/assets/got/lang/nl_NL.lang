@@ -970,6 +970,8 @@ got.achievement.GET_COPPER.desc=Schmelze Kupfer
 got.achievement.GET_COPPER.title=1,17?
 got.achievement.GET_POUCH.desc=Pak een zakje
 got.achievement.GET_POUCH.title=Meer, dat eerder
+got.achievement.HIRE_GOLDEN_COMPANY.desc≠
+got.achievement.HIRE_GOLDEN_COMPANY.title≠
 got.achievement.HUNDREDS.desc=Duizenden…
 got.achievement.HUNDREDS.title=Honderden zullen Sterven!
 got.achievement.KILLER.desc=Dood de mens
@@ -1136,6 +1138,8 @@ got.achievement.OBAMA.desc=Kies een banaan uit de boom
 got.achievement.OBAMA.title=Obama
 got.achievement.PLEDGE_SERVICE.desc=Beloof een factie
 got.achievement.PLEDGE_SERVICE.title=Toegezegd!
+got.achievement.REFORGE.desc≠
+got.achievement.REFORGE.title≠
 got.achievement.SHOOT_DOWN_MIDGES.desc=Laat je boogschutters muggen doden
 got.achievement.SHOOT_DOWN_MIDGES.title=LUCHTAFWEER!
 got.achievement.STEAL.desc=Steel een item voor een dief partner
@@ -1146,6 +1150,18 @@ got.achievement.TORMENT_THEON_GREYJOY.desc=Kwelling Theon Greyjoy
 got.achievement.TORMENT_THEON_GREYJOY.title=Het is maar een worst
 got.achievement.TRADE.desc=Handel met iemand
 got.achievement.TRADE.title=Start een bedrijf
+got.achievement.TRAVEL10.desc≠
+got.achievement.TRAVEL10.title≠
+got.achievement.TRAVEL20.desc≠
+got.achievement.TRAVEL20.title≠
+got.achievement.TRAVEL30.desc≠
+got.achievement.TRAVEL30.title≠
+got.achievement.TRAVEL40.desc≠
+got.achievement.TRAVEL40.title≠
+got.achievement.TRAVEL50.desc≠
+got.achievement.TRAVEL50.title≠
+got.achievement.UNSMELT.desc≠
+got.achievement.UNSMELT.title≠
 got.achievement.VISIT_ALWAYS_WINTER.desc=Bezoek het land van Always Winter
 got.achievement.VISIT_ALWAYS_WINTER.title=Onder het eeuwige ijs
 got.achievement.VISIT_ARBOR.desc=Bezoek The Arbor
@@ -1470,20 +1486,6 @@ got.achievement.category.LEGENDARY=Legendarisch
 got.achievement.category.TITLES=Titels
 got.achievement.category.VISIT=Biomen
 got.achievement.category.WEAR=Schild
-got.achievement.reforge.desc=Hersmeed een item bij een aambeeld
-got.achievement.reforge.title=Smit
-got.achievement.travel10.desc=Reis af naar 10 verschillende gebieden van Het Spel Der Tronen
-got.achievement.travel10.title=Buiten ’s Huis
-got.achievement.travel20.desc=Reis af naar 20 verschillende gebieden van Het Spel Der Tronen
-got.achievement.travel20.title=Gevaarlijke Zaken
-got.achievement.travel30.desc=Reis af naar 30 verschillende gebieden van Het Spel Der Tronen
-got.achievement.travel30.title=De Weg Gaat Eeuwig Door...
-got.achievement.travel40.desc=Reis af naar 40 verschillende gebieden van Het Spel Der Tronen
-got.achievement.travel40.title=…Buiten de Deur…
-got.achievement.travel50.desc=Reis af naar 50 verschillende gebieden van Het Spel Der Tronen
-got.achievement.travel50.title=…Waar Het Begon
-got.achievement.unsmelt.desc=Smelt een voorwerp om in de onsmelterij
-got.achievement.unsmelt.title=Het Terugdraaien
 got.alignment.bountyKilled= Doelwit gedood
 got.alignment.breakPledge=Belofte verbroken
 got.alignment.cutFangornTree=Boom Mishandeling
@@ -5294,6 +5296,7 @@ item.got:crownlandsBoots.name=Boots van Golden Cloacks
 item.got:crownlandsChestplate.name=Borstplaat van gouden klokken
 item.got:crownlandsHelmet.name=Helm van Golden Cloacks
 item.got:crownlandsLeggings.name=Legging van Golden Cloacks
+item.got:cucumber.name≠
 item.got:cutwave.name≠
 item.got:daarioArakh.name=Daario Arakh
 item.got:darkSister.name=Donkere zus
@@ -5650,6 +5653,7 @@ item.got:rhinoArmor.name=Rhino-pantser
 item.got:rhinoCooked.name=Gekookte Neushoorn
 item.got:rhinoHorn.name=Neushoorn Hoorn
 item.got:rhinoRaw.name=Rauwe Neushoorn
+item.got:rice.name≠
 item.got:riverlandsBoots.name=Laarzen van Rivierlanden
 item.got:riverlandsChestplate.name=Borstplaat van Rivierlanden
 item.got:riverlandsHelmet.name=Helm van Rivierlanden
@@ -6013,6 +6017,8 @@ tile.got:cobblebrick.0.name=Cobblebrick
 tile.got:commandTable.name=Opperbevelhebbers Tafel
 tile.got:coralReef.name=Koraal Rif
 tile.got:cornStalk.name=Maïsstaken
+tile.got:cucumberPlant.name≠
+tile.got:cucumberSeeds.name≠
 tile.got:daub.name=Pleisterkalk
 tile.got:deadMarshPlant.name=Dood Moerasplantje
 tile.got:dirtPath.0.name=Onverharde weg

@@ -970,6 +970,8 @@ got.achievement.GET_COPPER.desc=Obtener cobre
 got.achievement.GET_COPPER.title=1,17?
 got.achievement.GET_POUCH.desc=Obtener bolsa
 got.achievement.GET_POUCH.title=Más, que antes
+got.achievement.HIRE_GOLDEN_COMPANY.desc≠
+got.achievement.HIRE_GOLDEN_COMPANY.title≠
 got.achievement.HUNDREDS.desc=Hire 100 units
 got.achievement.HUNDREDS.title=With iron & blood!
 got.achievement.KILLER.desc=Mata al humano
@@ -1136,6 +1138,8 @@ got.achievement.OBAMA.desc=Escoge un plátano del árbol
 got.achievement.OBAMA.title=Obama
 got.achievement.PLEDGE_SERVICE.desc=Promesa una facción
 got.achievement.PLEDGE_SERVICE.title=¡Prometido!
+got.achievement.REFORGE.desc≠
+got.achievement.REFORGE.title≠
 got.achievement.SHOOT_DOWN_MIDGES.desc=Deja que tus arqueros maten mosquitos
 got.achievement.SHOOT_DOWN_MIDGES.title=¡DEFENSA AÉREA!
 got.achievement.STEAL.desc=Robar un objeto para un compañero ladrón
@@ -1146,6 +1150,18 @@ got.achievement.TORMENT_THEON_GREYJOY.desc=Tormento Theon Greyjoy
 got.achievement.TORMENT_THEON_GREYJOY.title=Es solo una salchicha
 got.achievement.TRADE.desc=Comercia con alguien
 got.achievement.TRADE.title=Iniciar un negocio
+got.achievement.TRAVEL10.desc≠
+got.achievement.TRAVEL10.title≠
+got.achievement.TRAVEL20.desc≠
+got.achievement.TRAVEL20.title≠
+got.achievement.TRAVEL30.desc≠
+got.achievement.TRAVEL30.title≠
+got.achievement.TRAVEL40.desc≠
+got.achievement.TRAVEL40.title≠
+got.achievement.TRAVEL50.desc≠
+got.achievement.TRAVEL50.title≠
+got.achievement.UNSMELT.desc≠
+got.achievement.UNSMELT.title≠
 got.achievement.VISIT_ALWAYS_WINTER.desc=Visita la tierra del siempre invierno
 got.achievement.VISIT_ALWAYS_WINTER.title=Entre el hielo eterno
 got.achievement.VISIT_ARBOR.desc=Visita el cenador
@@ -1470,20 +1486,6 @@ got.achievement.category.LEGENDARY=Legendario
 got.achievement.category.TITLES=Títulos
 got.achievement.category.VISIT=Biomas
 got.achievement.category.WEAR=Armadura
-got.achievement.reforge.desc=Reforjar un artículo en un yunque
-got.achievement.reforge.title=Herrero
-got.achievement.travel10.desc=Viajar a 10 diferentes regiones de la Juego de Tronos
-got.achievement.travel10.title=Fuera de tu Puerta
-got.achievement.travel20.desc=Viajar a 20 diferentes regiones de la Juego de Tronos
-got.achievement.travel20.title=Asuntos Peligrosos
-got.achievement.travel30.desc=Viajar a 30 diferentes regiones de la Juego de Tronos
-got.achievement.travel30.title=El Camino Sigue y Sigue...
-got.achievement.travel40.desc=Viajar a 40 diferentes regiones de la Juego de Tronos
-got.achievement.travel40.title=...Desde la Puerta
-got.achievement.travel50.desc=Viajar a 50 diferentes regiones de la Juego de Tronos
-got.achievement.travel50.title=...Donde Comenzó
-got.achievement.unsmelt.desc=Fundir un artículo en una Fundición
-got.achievement.unsmelt.title=Deshaciendo
 got.alignment.bountyKilled=¡Recompensa Reclamada!
 got.alignment.breakPledge=Juramento Roto
 got.alignment.cutFangornTree=Crueldad con un Árbol
@@ -5294,6 +5296,7 @@ item.got:crownlandsBoots.name=Botas de relojes dorados
 item.got:crownlandsChestplate.name=Peto de relojes dorados
 item.got:crownlandsHelmet.name=Casco de relojes dorados
 item.got:crownlandsLeggings.name=Leotardos de relojes dorados
+item.got:cucumber.name≠
 item.got:cutwave.name≠
 item.got:daarioArakh.name=Daario Arakh
 item.got:darkSister.name=Hermana oscura
@@ -5650,6 +5653,7 @@ item.got:rhinoArmor.name=Armadura de rinoceronte
 item.got:rhinoCooked.name=Rinoceronte Cocido
 item.got:rhinoHorn.name=Cuerno de Rinoceronte
 item.got:rhinoRaw.name=Rinoceronte Crudo
+item.got:rice.name≠
 item.got:riverlandsBoots.name=Botas de Tierras de los Ríos
 item.got:riverlandsChestplate.name=Peto de Tierras de los Ríos
 item.got:riverlandsHelmet.name=Casco de Tierras de los Ríos
@@ -6013,6 +6017,8 @@ tile.got:cobblebrick.0.name=Adoquines
 tile.got:commandTable.name=Mesa de Mando
 tile.got:coralReef.name=Arrecife de Coral
 tile.got:cornStalk.name=Tallos de Maíz
+tile.got:cucumberPlant.name≠
+tile.got:cucumberSeeds.name≠
 tile.got:daub.name=Adobe
 tile.got:deadMarshPlant.name=Planta de la Ciénaga de Los Muertos
 tile.got:dirtPath.0.name=Camino de Tierra

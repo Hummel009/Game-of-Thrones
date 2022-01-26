@@ -970,6 +970,8 @@ got.achievement.GET_COPPER.desc=Schmelze Kupfer
 got.achievement.GET_COPPER.title=1.17?
 got.achievement.GET_POUCH.desc=Fertige einen Beutel
 got.achievement.GET_POUCH.title=Mehr als es aussieht
+got.achievement.HIRE_GOLDEN_COMPANY.desc≠
+got.achievement.HIRE_GOLDEN_COMPANY.title≠
 got.achievement.HUNDREDS.desc=Miete 100 Einheiten
 got.achievement.HUNDREDS.title=Eisen und Blut!
 got.achievement.KILLER.desc=Töte einen Bewohner
@@ -5294,6 +5296,7 @@ item.got:crownlandsBoots.name=Königsmund-Wachen Stiefel
 item.got:crownlandsChestplate.name=Königsmund-Wachen Brustpanzer
 item.got:crownlandsHelmet.name=Königsmund-Wachen Helm
 item.got:crownlandsLeggings.name=Königsmund-Wachen Beinschutz
+item.got:cucumber.name≠
 item.got:cutwave.name≠
 item.got:daarioArakh.name=Arakh Daario Naharis
 item.got:darkSister.name=Dunkle Schwester
@@ -5650,6 +5653,7 @@ item.got:rhinoArmor.name=Rhinorüstung
 item.got:rhinoCooked.name=Gebratenes Nashornfleisch
 item.got:rhinoHorn.name=Horn des Nashorns
 item.got:rhinoRaw.name=Rohes Nashornfleisch
+item.got:rice.name≠
 item.got:riverlandsBoots.name=Flusslanden Stiefel
 item.got:riverlandsChestplate.name=Flusslanden Brustpanzer
 item.got:riverlandsHelmet.name=Flusslanden Helm
@@ -6013,6 +6017,8 @@ tile.got:cobblebrick.0.name=Klaubsteinziegel
 tile.got:commandTable.name=Tisch der Befehle
 tile.got:coralReef.name=Korallen
 tile.got:cornStalk.name=Maisstängel
+tile.got:cucumberPlant.name≠
+tile.got:cucumberSeeds.name≠
 tile.got:daub.name=Wandlehm
 tile.got:deadMarshPlant.name=Totensumpfkrallen
 tile.got:dirtPath.0.name=Erdpfad

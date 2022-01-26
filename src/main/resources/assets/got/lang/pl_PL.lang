@@ -970,6 +970,8 @@ got.achievement.GET_COPPER.desc=Zdobądź miedź
 got.achievement.GET_COPPER.title=1.17?
 got.achievement.GET_POUCH.desc=Zdobądź sakiewkę
 got.achievement.GET_POUCH.title=Więcej, że wcześniej
+got.achievement.HIRE_GOLDEN_COMPANY.desc≠
+got.achievement.HIRE_GOLDEN_COMPANY.title≠
 got.achievement.HUNDREDS.desc=Tysiące...
 got.achievement.HUNDREDS.title=Zginą setki!
 got.achievement.KILLER.desc=Zabij człowieka
@@ -5294,6 +5296,7 @@ item.got:crownlandsBoots.name=Buty Złotych Płaszczy
 item.got:crownlandsChestplate.name=Napierśnik złotych peleryn
 item.got:crownlandsHelmet.name=Hełm Złotych Płaszczy
 item.got:crownlandsLeggings.name=Nogawice w złote peleryny
+item.got:cucumber.name≠
 item.got:cutwave.name≠
 item.got:daarioArakh.name=Daario Arakh
 item.got:darkSister.name=Mroczna siostra
@@ -5650,6 +5653,7 @@ item.got:rhinoArmor.name=Pancerz nosorożca
 item.got:rhinoCooked.name=Pieczony nosorożec
 item.got:rhinoHorn.name=Róg nosorożca
 item.got:rhinoRaw.name=Surowy nosorożec
+item.got:rice.name≠
 item.got:riverlandsBoots.name=Buty Dorzecze
 item.got:riverlandsChestplate.name=Napierśnik z Dorzecze
 item.got:riverlandsHelmet.name=Hełm Dorzecze
@@ -6013,6 +6017,8 @@ tile.got:cobblebrick.0.name=Kostka brukowa
 tile.got:commandTable.name=Stół dowodzenia
 tile.got:coralReef.name=Rafa koralowa
 tile.got:cornStalk.name=Łodygi kukurydzy
+tile.got:cucumberPlant.name≠
+tile.got:cucumberSeeds.name≠
 tile.got:daub.name=Szachulec
 tile.got:deadMarshPlant.name=Roślina z Martwych Bagien
 tile.got:dirtPath.0.name=Ziemista ścieżka

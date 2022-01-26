@@ -970,6 +970,8 @@ got.achievement.GET_COPPER.desc≠
 got.achievement.GET_COPPER.title≠
 got.achievement.GET_POUCH.desc≠
 got.achievement.GET_POUCH.title≠
+got.achievement.HIRE_GOLDEN_COMPANY.desc≠
+got.achievement.HIRE_GOLDEN_COMPANY.title≠
 got.achievement.HUNDREDS.desc≠
 got.achievement.HUNDREDS.title≠
 got.achievement.KILLER.desc≠
@@ -5294,6 +5296,7 @@ item.got:crownlandsBoots.name≠
 item.got:crownlandsChestplate.name≠
 item.got:crownlandsHelmet.name≠
 item.got:crownlandsLeggings.name≠
+item.got:cucumber.name≠
 item.got:cutwave.name≠
 item.got:daarioArakh.name≠
 item.got:darkSister.name≠
@@ -5650,6 +5653,7 @@ item.got:rhinoArmor.name≠
 item.got:rhinoCooked.name=Pečeno Meso od Nosoroga
 item.got:rhinoHorn.name=Rog Nosoroga
 item.got:rhinoRaw.name=Sirovo Meso od Nosoroga
+item.got:rice.name≠
 item.got:riverlandsBoots.name≠
 item.got:riverlandsChestplate.name≠
 item.got:riverlandsHelmet.name≠
@@ -6013,6 +6017,8 @@ tile.got:cobblebrick.0.name≠
 tile.got:commandTable.name≠
 tile.got:coralReef.name≠
 tile.got:cornStalk.name≠
+tile.got:cucumberPlant.name≠
+tile.got:cucumberSeeds.name≠
 tile.got:daub.name≠
 tile.got:deadMarshPlant.name=Biljka Mrtve Močvare
 tile.got:dirtPath.0.name≠

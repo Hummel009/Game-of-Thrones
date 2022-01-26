@@ -970,6 +970,8 @@ got.achievement.GET_COPPER.desc=Виплавьте мідь
 got.achievement.GET_COPPER.title=1.17?
 got.achievement.GET_POUCH.desc=Скрафтіте мішечок
 got.achievement.GET_POUCH.title=Більше, ніж здається
+got.achievement.HIRE_GOLDEN_COMPANY.desc≠
+got.achievement.HIRE_GOLDEN_COMPANY.title≠
 got.achievement.HUNDREDS.desc=Найміть 100 юнітів
 got.achievement.HUNDREDS.title=Залізом і кров'ю!
 got.achievement.KILLER.desc=Убийте людини
@@ -5294,6 +5296,7 @@ item.got:crownlandsBoots.name=Черевики вартою Королівськ
 item.got:crownlandsChestplate.name=Нагрудник вартою Королівської гавані
 item.got:crownlandsHelmet.name=Шолом вартою Королівської гавані
 item.got:crownlandsLeggings.name=Поножі вартою Королівської гавані
+item.got:cucumber.name≠
 item.got:cutwave.name≠
 item.got:daarioArakh.name=Аракх Даар Нахаріса
 item.got:darkSister.name=Темна Сестра
@@ -5650,6 +5653,7 @@ item.got:rhinoArmor.name=Носорожий броня
 item.got:rhinoCooked.name=Смажене м'ясо носорога
 item.got:rhinoHorn.name=Ріг носорога
 item.got:rhinoRaw.name=Сире м'ясо носорога
+item.got:rice.name≠
 item.got:riverlandsBoots.name=Черевики Річкових Земель
 item.got:riverlandsChestplate.name=Нагрудник Річкових Земель
 item.got:riverlandsHelmet.name=Шолом Річкових Земель
@@ -6013,6 +6017,8 @@ tile.got:cobblebrick.0.name=Кам'яна кладка
 tile.got:commandTable.name=Стіл командування
 tile.got:coralReef.name=Кораловий риф
 tile.got:cornStalk.name=Кукурузовие стебла
+tile.got:cucumberPlant.name≠
+tile.got:cucumberSeeds.name≠
 tile.got:daub.name=Мазанка
 tile.got:deadMarshPlant.name=Болотний квітка
 tile.got:dirtPath.0.name=Стежка

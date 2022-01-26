@@ -970,6 +970,10 @@ got.achievement.GET_COPPER.desc≠
 got.achievement.GET_COPPER.title≠
 got.achievement.GET_POUCH.desc≠
 got.achievement.GET_POUCH.title≠
+got.achievement.HIRE_GOLDEN_COMPANY.desc≠
+got.achievement.HIRE_GOLDEN_COMPANY.title≠
+got.achievement.HUNDREDS.desc≠
+got.achievement.HUNDREDS.title≠
 got.achievement.KILLER.desc≠
 got.achievement.KILLER.title≠
 got.achievement.KILL_ALLISER_THORNE.desc≠
@@ -1134,6 +1138,8 @@ got.achievement.OBAMA.desc≠
 got.achievement.OBAMA.title≠
 got.achievement.PLEDGE_SERVICE.desc≠
 got.achievement.PLEDGE_SERVICE.title≠
+got.achievement.REFORGE.desc≠
+got.achievement.REFORGE.title≠
 got.achievement.SHOOT_DOWN_MIDGES.desc≠
 got.achievement.SHOOT_DOWN_MIDGES.title≠
 got.achievement.STEAL.desc=Tárgyat lopni egy tolvaj társnak
@@ -1144,6 +1150,18 @@ got.achievement.TORMENT_THEON_GREYJOY.desc≠
 got.achievement.TORMENT_THEON_GREYJOY.title≠
 got.achievement.TRADE.desc≠
 got.achievement.TRADE.title≠
+got.achievement.TRAVEL10.desc≠
+got.achievement.TRAVEL10.title≠
+got.achievement.TRAVEL20.desc≠
+got.achievement.TRAVEL20.title≠
+got.achievement.TRAVEL30.desc≠
+got.achievement.TRAVEL30.title≠
+got.achievement.TRAVEL40.desc≠
+got.achievement.TRAVEL40.title≠
+got.achievement.TRAVEL50.desc≠
+got.achievement.TRAVEL50.title≠
+got.achievement.UNSMELT.desc≠
+got.achievement.UNSMELT.title≠
 got.achievement.VISIT_ALWAYS_WINTER.desc≠
 got.achievement.VISIT_ALWAYS_WINTER.title≠
 got.achievement.VISIT_ARBOR.desc≠
@@ -1468,22 +1486,6 @@ got.achievement.category.LEGENDARY≠
 got.achievement.category.TITLES≠
 got.achievement.category.VISIT≠
 got.achievement.category.WEAR≠
-got.achievement.hundreds.desc=Ezrek...
-got.achievement.hundreds.title=Százak fognak meghalni!
-got.achievement.reforge.desc=Kovácsolj újra egy tárgyat egy üllőn
-got.achievement.reforge.title=Kovács
-got.achievement.travel10.desc=Utazz el Trónok Harca 10 különböző  területére
-got.achievement.travel10.title=Kilépni az ajtón
-got.achievement.travel20.desc=Utazz el Trónok Harca 20 különböző  területére
-got.achievement.travel20.title=Veszélyes dolog
-got.achievement.travel30.desc=Utazz el Trónok Harca 30 különböző  területére
-got.achievement.travel30.title=Csak rálépsz az útra...
-got.achievement.travel40.desc=Utazz el Trónok Harca 40 különböző  területére
-got.achievement.travel40.title=...Már el is sodródtál...
-got.achievement.travel50.desc=Utazz el Trónok Harca 50 különböző  területére
-got.achievement.travel50.title=...Ki tudja hová.
-got.achievement.unsmelt.desc=Olvassz meg egy itemet az antikohóban
-got.achievement.unsmelt.title=A visszacsináló
 got.alignment.bountyKilled=Vérdíjért megölve!
 got.alignment.breakPledge≠
 got.alignment.cutFangornTree=Favágás
@@ -5294,6 +5296,7 @@ item.got:crownlandsBoots.name≠
 item.got:crownlandsChestplate.name≠
 item.got:crownlandsHelmet.name≠
 item.got:crownlandsLeggings.name≠
+item.got:cucumber.name≠
 item.got:cutwave.name≠
 item.got:daarioArakh.name≠
 item.got:darkSister.name≠
@@ -5650,6 +5653,7 @@ item.got:rhinoArmor.name≠
 item.got:rhinoCooked.name=Sült Orrszarvúhús
 item.got:rhinoHorn.name=Orrszarvú Szarv
 item.got:rhinoRaw.name=Nyers Orrszarvúhús
+item.got:rice.name≠
 item.got:riverlandsBoots.name≠
 item.got:riverlandsChestplate.name≠
 item.got:riverlandsHelmet.name≠
@@ -6013,6 +6017,8 @@ tile.got:cobblebrick.0.name≠
 tile.got:commandTable.name=Terepasztal
 tile.got:coralReef.name=Korallzátony
 tile.got:cornStalk.name=Kukoricaszár
+tile.got:cucumberPlant.name≠
+tile.got:cucumberSeeds.name≠
 tile.got:daub.name=Paticsfal
 tile.got:deadMarshPlant.name=Holtlápi Növény
 tile.got:dirtPath.0.name≠

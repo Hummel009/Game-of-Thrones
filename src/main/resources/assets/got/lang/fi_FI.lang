@@ -970,6 +970,10 @@ got.achievement.GET_COPPER.desc≠
 got.achievement.GET_COPPER.title≠
 got.achievement.GET_POUCH.desc≠
 got.achievement.GET_POUCH.title≠
+got.achievement.HIRE_GOLDEN_COMPANY.desc≠
+got.achievement.HIRE_GOLDEN_COMPANY.title≠
+got.achievement.HUNDREDS.desc=Hire 100 units
+got.achievement.HUNDREDS.title=With iron & blood!
 got.achievement.KILLER.desc≠
 got.achievement.KILLER.title≠
 got.achievement.KILL_ALLISER_THORNE.desc≠
@@ -1146,6 +1150,18 @@ got.achievement.TORMENT_THEON_GREYJOY.desc≠
 got.achievement.TORMENT_THEON_GREYJOY.title≠
 got.achievement.TRADE.desc≠
 got.achievement.TRADE.title≠
+got.achievement.TRAVEL10.desc≠
+got.achievement.TRAVEL10.title≠
+got.achievement.TRAVEL20.desc≠
+got.achievement.TRAVEL20.title≠
+got.achievement.TRAVEL30.desc≠
+got.achievement.TRAVEL30.title≠
+got.achievement.TRAVEL40.desc≠
+got.achievement.TRAVEL40.title≠
+got.achievement.TRAVEL50.desc≠
+got.achievement.TRAVEL50.title≠
+got.achievement.UNSMELT.desc≠
+got.achievement.UNSMELT.title≠
 got.achievement.VISIT_ALWAYS_WINTER.desc≠
 got.achievement.VISIT_ALWAYS_WINTER.title≠
 got.achievement.VISIT_ARBOR.desc≠
@@ -1470,20 +1486,6 @@ got.achievement.category.LEGENDARY≠
 got.achievement.category.TITLES≠
 got.achievement.category.VISIT≠
 got.achievement.category.WEAR≠
-got.achievement.hundreds.desc=Tuhannet...
-got.achievement.hundreds.title=Sadat kuolevat!
-got.achievement.travel10.desc=Matkusta kymmenelle erilaiselle Valtaistuinpelin alueelle
-got.achievement.travel10.title=Ulos ovestasi
-got.achievement.travel20.desc=Matkusta 20 erilaiselle Valtaistuinpelin alueelle
-got.achievement.travel20.title=Vaarallinen juttu
-got.achievement.travel30.desc=Matkusta 30 erilaiselle Valtaistuinpelin alueelle
-got.achievement.travel30.title=Tie vain jatkuu jatkumistaan...
-got.achievement.travel40.desc=Matkusta 40 erilaiselle Valtaistuinpelin alueelle
-got.achievement.travel40.title=...Ovelta mistä...
-got.achievement.travel50.desc=Matkusta 50 erilaiselle Valtaistuinpelin alueelle
-got.achievement.travel50.title=...Sen alkavan näin
-got.achievement.unsmelt.desc=Sulata tavaraa sulatusuunissa
-got.achievement.unsmelt.title=Vararikon partaalla
 got.alignment.bountyKilled≠
 got.alignment.breakPledge≠
 got.alignment.cutFangornTree=Puunsurma!
@@ -5294,6 +5296,7 @@ item.got:crownlandsBoots.name≠
 item.got:crownlandsChestplate.name≠
 item.got:crownlandsHelmet.name≠
 item.got:crownlandsLeggings.name≠
+item.got:cucumber.name≠
 item.got:cutwave.name≠
 item.got:daarioArakh.name≠
 item.got:darkSister.name≠
@@ -5650,6 +5653,7 @@ item.got:rhinoArmor.name≠
 item.got:rhinoCooked.name=Paistettu sarvikuono
 item.got:rhinoHorn.name=Sarvikuonon sarvi
 item.got:rhinoRaw.name=Raaka sarvikuono
+item.got:rice.name≠
 item.got:riverlandsBoots.name≠
 item.got:riverlandsChestplate.name≠
 item.got:riverlandsHelmet.name≠
@@ -6013,6 +6017,8 @@ tile.got:cobblebrick.0.name≠
 tile.got:commandTable.name=Komentopöytä
 tile.got:coralReef.name≠
 tile.got:cornStalk.name=Maissin varsi
+tile.got:cucumberPlant.name≠
+tile.got:cucumberSeeds.name≠
 tile.got:daub.name≠
 tile.got:deadMarshPlant.name=Kalmansoiden varpu
 tile.got:dirtPath.0.name≠

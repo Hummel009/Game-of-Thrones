@@ -970,6 +970,8 @@ got.achievement.GET_COPPER.desc=Prendi il rame
 got.achievement.GET_COPPER.title=1.17?
 got.achievement.GET_POUCH.desc=Prendi il marsupio
 got.achievement.GET_POUCH.title=Di più, quello prima
+got.achievement.HIRE_GOLDEN_COMPANY.desc≠
+got.achievement.HIRE_GOLDEN_COMPANY.title≠
 got.achievement.HUNDREDS.desc=Hire 100 units
 got.achievement.HUNDREDS.title=With iron & blood!
 got.achievement.KILLER.desc=Uccidi l'umano
@@ -1136,6 +1138,8 @@ got.achievement.OBAMA.desc=Scegli una banana dall'albero
 got.achievement.OBAMA.title=Obama
 got.achievement.PLEDGE_SERVICE.desc=Prometti una fazione
 got.achievement.PLEDGE_SERVICE.title=Impegnato!
+got.achievement.REFORGE.desc≠
+got.achievement.REFORGE.title≠
 got.achievement.SHOOT_DOWN_MIDGES.desc=Lascia che i tuoi arcieri uccidano i moscerini
 got.achievement.SHOOT_DOWN_MIDGES.title=DIFESA AEREA!
 got.achievement.STEAL.desc=Steal un oggetto per un partner ladro
@@ -1146,6 +1150,18 @@ got.achievement.TORMENT_THEON_GREYJOY.desc=Tormento Theon Greyjoy
 got.achievement.TORMENT_THEON_GREYJOY.title=È solo una salsiccia
 got.achievement.TRADE.desc=Scambia con qualcuno
 got.achievement.TRADE.title=Iniziare un attività
+got.achievement.TRAVEL10.desc≠
+got.achievement.TRAVEL10.title≠
+got.achievement.TRAVEL20.desc≠
+got.achievement.TRAVEL20.title≠
+got.achievement.TRAVEL30.desc≠
+got.achievement.TRAVEL30.title≠
+got.achievement.TRAVEL40.desc≠
+got.achievement.TRAVEL40.title≠
+got.achievement.TRAVEL50.desc≠
+got.achievement.TRAVEL50.title≠
+got.achievement.UNSMELT.desc≠
+got.achievement.UNSMELT.title≠
 got.achievement.VISIT_ALWAYS_WINTER.desc=Visita la terra di Always Winter
 got.achievement.VISIT_ALWAYS_WINTER.title=Tra il ghiaccio eterno
 got.achievement.VISIT_ARBOR.desc=Visita The Arbor
@@ -1470,20 +1486,6 @@ got.achievement.category.LEGENDARY=Leggendario
 got.achievement.category.TITLES=Titoli
 got.achievement.category.VISIT=Biomi
 got.achievement.category.WEAR=Armatura
-got.achievement.reforge.desc=Riforgia un oggetto in un'incudine
-got.achievement.reforge.title=Fabbro
-got.achievement.travel10.desc=Viaggia per 10 diverse regioni della Trono di Spade
-got.achievement.travel10.title=Fuori dalla porta
-got.achievement.travel20.desc=Viaggia per 20 diverse regioni della Trono di Spade
-got.achievement.travel20.title=Una faccenda pericolosa
-got.achievement.travel30.desc=Viaggia per 30 diverse regioni della Trono di Spade
-got.achievement.travel30.title=La Via prosegue senza fine...
-got.achievement.travel40.desc=Viaggia per 40 diverse regioni della Trono di Spade
-got.achievement.travel40.title=...Lungi dall'uscio...
-got.achievement.travel50.desc=Viaggia per 50 diverse regioni della Trono di Spade
-got.achievement.travel50.title=...dal quale parte
-got.achievement.unsmelt.desc=Fondi un oggetto in un crogiolo
-got.achievement.unsmelt.title=Il Disfacimento
 got.alignment.bountyKilled=Ucciso per una taglia!
 got.alignment.breakPledge=Giuramento infranto
 got.alignment.cutFangornTree=Crudeltà sugli alberi
@@ -5294,6 +5296,7 @@ item.got:crownlandsBoots.name=Stivali di Mantelli Dorati
 item.got:crownlandsChestplate.name=Corazza di Mantelli Dorati
 item.got:crownlandsHelmet.name=Elmo di Mantelli d'Oro
 item.got:crownlandsLeggings.name=Gambiere di Mantelli Dorati
+item.got:cucumber.name≠
 item.got:cutwave.name≠
 item.got:daarioArakh.name=Daario Arakh
 item.got:darkSister.name=Sorella Oscura
@@ -5650,6 +5653,7 @@ item.got:rhinoArmor.name=Rhino Armor
 item.got:rhinoCooked.name=Rinoceronte cotto
 item.got:rhinoHorn.name=Corno di Rinoceronte
 item.got:rhinoRaw.name=Rinoceronte crudo
+item.got:rice.name≠
 item.got:riverlandsBoots.name=Stivali delle Terre dei Fiumi
 item.got:riverlandsChestplate.name=Pettorale delle Terre dei Fiumi
 item.got:riverlandsHelmet.name=Elmo delle Terre dei Fiumi
@@ -6013,6 +6017,8 @@ tile.got:cobblebrick.0.name=Muro a secco
 tile.got:commandTable.name=Tavolo di comando
 tile.got:coralReef.name=Barriera corallina
 tile.got:cornStalk.name=Stelo di mais
+tile.got:cucumberPlant.name≠
+tile.got:cucumberSeeds.name≠
 tile.got:daub.name=Canne e fango
 tile.got:deadMarshPlant.name=Pianta delle Paludi Morte
 tile.got:dirtPath.0.name=Sentiero di terra

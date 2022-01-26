@@ -970,6 +970,8 @@ got.achievement.GET_COPPER.desc=Obtenez du cuivre
 got.achievement.GET_COPPER.title=1.17?
 got.achievement.GET_POUCH.desc=Obtenir une pochette
 got.achievement.GET_POUCH.title=Plus, que plus tôt
+got.achievement.HIRE_GOLDEN_COMPANY.desc≠
+got.achievement.HIRE_GOLDEN_COMPANY.title≠
 got.achievement.HUNDREDS.desc=Hire 100 units
 got.achievement.HUNDREDS.title=With iron & blood!
 got.achievement.KILLER.desc=Tuez l'humain
@@ -1136,6 +1138,8 @@ got.achievement.OBAMA.desc=Choisissez une banane dans un arbre
 got.achievement.OBAMA.title=Obama
 got.achievement.PLEDGE_SERVICE.desc=Engagez une faction
 got.achievement.PLEDGE_SERVICE.title=Engagé!
+got.achievement.REFORGE.desc≠
+got.achievement.REFORGE.title≠
 got.achievement.SHOOT_DOWN_MIDGES.desc=Laissez vos archers tuer des moucherons
 got.achievement.SHOOT_DOWN_MIDGES.title=DÉFENSE AÉRIENNE!
 got.achievement.STEAL.desc=Voler un objet pour un partenaire voleur
@@ -1146,6 +1150,18 @@ got.achievement.TORMENT_THEON_GREYJOY.desc=Tourmenter Theon Greyjoy
 got.achievement.TORMENT_THEON_GREYJOY.title=C'est juste une saucisse
 got.achievement.TRADE.desc=Commerce avec quelqu'un
 got.achievement.TRADE.title=Commencer une affaire
+got.achievement.TRAVEL10.desc≠
+got.achievement.TRAVEL10.title≠
+got.achievement.TRAVEL20.desc≠
+got.achievement.TRAVEL20.title≠
+got.achievement.TRAVEL30.desc≠
+got.achievement.TRAVEL30.title≠
+got.achievement.TRAVEL40.desc≠
+got.achievement.TRAVEL40.title≠
+got.achievement.TRAVEL50.desc≠
+got.achievement.TRAVEL50.title≠
+got.achievement.UNSMELT.desc≠
+got.achievement.UNSMELT.title≠
 got.achievement.VISIT_ALWAYS_WINTER.desc=Visitez le pays de Always Winter
 got.achievement.VISIT_ALWAYS_WINTER.title=Parmi la glace éternelle
 got.achievement.VISIT_ARBOR.desc=Visitez The Arbor
@@ -1470,20 +1486,6 @@ got.achievement.category.LEGENDARY=Légendaire
 got.achievement.category.TITLES=Titres
 got.achievement.category.VISIT=Biomes
 got.achievement.category.WEAR=Armure
-got.achievement.reforge.desc=Reforgez un objet sur une enclume
-got.achievement.reforge.title=Forgeron
-got.achievement.travel10.desc=Voyagez dans 10 régions différentes de la Jeu des trônes
-got.achievement.travel10.title=Passer la porte
-got.achievement.travel20.desc=Voyagez dans 20 régions différentes de la Jeu des trônes
-got.achievement.travel20.title=Affaire dangereuse
-got.achievement.travel30.desc=Voyagez dans 30 régions différentes de la Jeu des trônes
-got.achievement.travel30.title=La route se poursuit sans fin...
-got.achievement.travel40.desc=Voyagez dans 40 régions différentes de la Jeu des trônes
-got.achievement.travel40.title=...Descendant de la porte...
-got.achievement.travel50.desc=Voyagez dans 50 régions différentes de la Jeu des trônes
-got.achievement.travel50.title=...Où elle commença
-got.achievement.unsmelt.desc=Faites fondre un objet dans la fonderie
-got.achievement.unsmelt.title=Défabriquation
 got.alignment.bountyKilled=Tué pour une prime !
 got.alignment.breakPledge=Allégeance brisée
 got.alignment.cutFangornTree=Cruauté envers les arbres
@@ -5294,6 +5296,7 @@ item.got:crownlandsBoots.name=Bottes de capes dorées
 item.got:crownlandsChestplate.name=Pansière des capes dorées
 item.got:crownlandsHelmet.name=Casque de cloaque d'or
 item.got:crownlandsLeggings.name=Jambières de capes dorées
+item.got:cucumber.name≠
 item.got:cutwave.name≠
 item.got:daarioArakh.name=Daario Arakh
 item.got:darkSister.name=Sœur sombre
@@ -5650,6 +5653,7 @@ item.got:rhinoArmor.name=Armure de rhinocéros
 item.got:rhinoCooked.name=Rhinocéros cuit
 item.got:rhinoHorn.name=Corne de rhinocéros
 item.got:rhinoRaw.name=Rhinocéros cru
+item.got:rice.name≠
 item.got:riverlandsBoots.name=Bottes de Le Conflans
 item.got:riverlandsChestplate.name=Pansière de Le Conflans
 item.got:riverlandsHelmet.name=Casque de Le Conflans
@@ -6013,6 +6017,8 @@ tile.got:cobblebrick.0.name=Pierre sèche
 tile.got:commandTable.name=Table de commandement
 tile.got:coralReef.name=Récif de corail
 tile.got:cornStalk.name=Tige de maïs
+tile.got:cucumberPlant.name≠
+tile.got:cucumberSeeds.name≠
 tile.got:daub.name=Torchis
 tile.got:deadMarshPlant.name=Plante des Marais des morts
 tile.got:dirtPath.0.name=Chemin de terre

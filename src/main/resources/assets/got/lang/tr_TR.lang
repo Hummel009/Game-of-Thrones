@@ -970,6 +970,8 @@ got.achievement.GET_COPPER.desc=Schmelze Kupfer
 got.achievement.GET_COPPER.title=1.17?
 got.achievement.GET_POUCH.desc=Kese al
 got.achievement.GET_POUCH.title=Dahası, daha önce
+got.achievement.HIRE_GOLDEN_COMPANY.desc≠
+got.achievement.HIRE_GOLDEN_COMPANY.title≠
 got.achievement.HUNDREDS.desc=100 birim kirala
 got.achievement.HUNDREDS.title=Demir ve kanla!
 got.achievement.KILLER.desc=Insanı öldür
@@ -5294,6 +5296,7 @@ item.got:crownlandsBoots.name=Altın Pelerinli Çizmeler
 item.got:crownlandsChestplate.name=Altın Pelerinli Göğüs Zırhı
 item.got:crownlandsHelmet.name=Altın Pelerinli Miğfer
 item.got:crownlandsLeggings.name=Altın Pelerinli Tozluklar
+item.got:cucumber.name≠
 item.got:cutwave.name=Kesme dalgası
 item.got:daarioArakh.name=Daario Arakh
 item.got:darkSister.name=Karanlık kız kardeş
@@ -5650,6 +5653,7 @@ item.got:rhinoArmor.name=Gergedan zırhı
 item.got:rhinoCooked.name=Pişmiş gergedan
 item.got:rhinoHorn.name=Gergedan boynuzu
 item.got:rhinoRaw.name=çiğ gergedan
+item.got:rice.name≠
 item.got:riverlandsBoots.name=Nehir Toprakları Çizmeleri
 item.got:riverlandsChestplate.name=Nehir Toprakları Sandığı
 item.got:riverlandsHelmet.name=Nehir Toprakları Miğferi
@@ -6013,6 +6017,8 @@ tile.got:cobblebrick.0.name=Arnavut kaldırımı
 tile.got:commandTable.name=Komut Tablosu
 tile.got:coralReef.name=Mercan Resifi
 tile.got:cornStalk.name=Mısır sapları
+tile.got:cucumberPlant.name≠
+tile.got:cucumberSeeds.name≠
 tile.got:daub.name=Wattle ve Daub
 tile.got:deadMarshPlant.name=Bataklık Bitkisi
 tile.got:dirtPath.0.name=Toprak yol

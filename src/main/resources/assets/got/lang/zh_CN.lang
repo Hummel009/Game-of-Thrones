@@ -970,6 +970,8 @@ got.achievement.GET_COPPER.desc=得到铜
 got.achievement.GET_COPPER.title=1.17？
 got.achievement.GET_POUCH.desc=得到袋子
 got.achievement.GET_POUCH.title=真能装！
+got.achievement.HIRE_GOLDEN_COMPANY.desc≠
+got.achievement.HIRE_GOLDEN_COMPANY.title≠
 got.achievement.HUNDREDS.desc=雇佣100名单位
 got.achievement.HUNDREDS.title=随血与钢行进！
 got.achievement.KILLER.desc=杀死人类
@@ -5294,6 +5296,7 @@ item.got:crownlandsBoots.name=王领守卫靴子
 item.got:crownlandsChestplate.name=王领守卫胸甲
 item.got:crownlandsHelmet.name=王领守卫头盔
 item.got:crownlandsLeggings.name=王领守卫护腿
+item.got:cucumber.name≠
 item.got:cutwave.name=断水者
 item.got:daarioArakh.name=达里奥的亚拉克弯刀
 item.got:darkSister.name=黑暗姐妹
@@ -5650,6 +5653,7 @@ item.got:rhinoArmor.name=犀牛铠
 item.got:rhinoCooked.name=熟犀牛肉
 item.got:rhinoHorn.name=犀牛角
 item.got:rhinoRaw.name=生犀牛肉
+item.got:rice.name≠
 item.got:riverlandsBoots.name=河间地靴子
 item.got:riverlandsChestplate.name=河间地胸甲
 item.got:riverlandsHelmet.name=河间地头盔
@@ -6013,6 +6017,8 @@ tile.got:cobblebrick.0.name=鹅卵石砖
 tile.got:commandTable.name=命令之台
 tile.got:coralReef.name=珊瑚礁
 tile.got:cornStalk.name=玉米杆
+tile.got:cucumberPlant.name≠
+tile.got:cucumberSeeds.name≠
 tile.got:daub.name=夹条墙
 tile.got:deadMarshPlant.name=乌尔特斯植物
 tile.got:dirtPath.0.name=泥土小径
