@@ -42,7 +42,7 @@ CHANGELOG
 * Optimized iron bank code
 
 * Fixed exactly 100 bugs in gameplay. Thanks to VVVIP2 for this challenge.
-* Fixed bug with th map screen sometimes opening onto empty sea at integer max value coordinates
+* Fixed bug with map screen sometimes opening onto empty sea at integer max value coordinates
 * Fixed bug with FT in bed
 * Fixed bug with sothoryos sarbacaners
 * Fixed bug with birds
