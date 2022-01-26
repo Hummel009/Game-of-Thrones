@@ -2,13 +2,13 @@ package got.common.entity.essos.ghiscar;
 
 import got.common.GOTLevelData;
 import got.common.database.*;
-import got.common.entity.other.GOTBartender;
+import got.common.entity.other.*;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityGhiscarBartender extends GOTEntityGhiscarMan implements GOTBartender {
+public class GOTEntityGhiscarBartender extends GOTEntityGhiscarMan implements GOTBartender, GOTTradeable {
 	public GOTEntityGhiscarBartender(World world) {
 		super(world);
 		canBeMarried = false;

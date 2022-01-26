@@ -2,13 +2,13 @@ package got.common.entity.essos.pentos;
 
 import got.common.GOTLevelData;
 import got.common.database.*;
-import got.common.entity.other.GOTBartender;
+import got.common.entity.other.*;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityPentosBartender extends GOTEntityPentosMan implements GOTBartender {
+public class GOTEntityPentosBartender extends GOTEntityPentosMan implements GOTBartender, GOTTradeable {
 	public GOTEntityPentosBartender(World world) {
 		super(world);
 		canBeMarried = false;

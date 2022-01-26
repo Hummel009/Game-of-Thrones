@@ -2,13 +2,13 @@ package got.common.entity.westeros.arryn;
 
 import got.common.GOTLevelData;
 import got.common.database.*;
-import got.common.entity.other.GOTBartender;
+import got.common.entity.other.*;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityArrynBartender extends GOTEntityArrynMan implements GOTBartender {
+public class GOTEntityArrynBartender extends GOTEntityArrynMan implements GOTBartender, GOTTradeable {
 	public GOTEntityArrynBartender(World world) {
 		super(world);
 		canBeMarried = false;

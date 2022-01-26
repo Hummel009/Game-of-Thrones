@@ -2,13 +2,13 @@ package got.common.entity.westeros.north;
 
 import got.common.GOTLevelData;
 import got.common.database.*;
-import got.common.entity.other.GOTBartender;
+import got.common.entity.other.*;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityNorthBartender extends GOTEntityNorthMan implements GOTBartender {
+public class GOTEntityNorthBartender extends GOTEntityNorthMan implements GOTBartender, GOTTradeable {
 	public GOTEntityNorthBartender(World world) {
 		super(world);
 		canBeMarried = false;

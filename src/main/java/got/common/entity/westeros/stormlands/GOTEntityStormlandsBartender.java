@@ -2,13 +2,13 @@ package got.common.entity.westeros.stormlands;
 
 import got.common.GOTLevelData;
 import got.common.database.*;
-import got.common.entity.other.GOTBartender;
+import got.common.entity.other.*;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityStormlandsBartender extends GOTEntityStormlandsMan implements GOTBartender {
+public class GOTEntityStormlandsBartender extends GOTEntityStormlandsMan implements GOTBartender, GOTTradeable {
 	public GOTEntityStormlandsBartender(World world) {
 		super(world);
 		canBeMarried = false;

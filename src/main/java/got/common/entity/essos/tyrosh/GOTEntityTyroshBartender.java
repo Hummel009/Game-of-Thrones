@@ -2,13 +2,13 @@ package got.common.entity.essos.tyrosh;
 
 import got.common.GOTLevelData;
 import got.common.database.*;
-import got.common.entity.other.GOTBartender;
+import got.common.entity.other.*;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityTyroshBartender extends GOTEntityTyroshMan implements GOTBartender {
+public class GOTEntityTyroshBartender extends GOTEntityTyroshMan implements GOTBartender, GOTTradeable {
 	public GOTEntityTyroshBartender(World world) {
 		super(world);
 		canBeMarried = false;

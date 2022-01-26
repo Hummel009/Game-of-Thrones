@@ -11,7 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityPetyrBaelish extends GOTEntityHumanBase implements GOTBartender {
+public class GOTEntityPetyrBaelish extends GOTEntityHumanBase implements GOTBartender, GOTTradeable {
 	public GOTEntityPetyrBaelish(World world) {
 		super(world);
 		canBeMarried = false;

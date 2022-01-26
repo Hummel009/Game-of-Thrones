@@ -2,13 +2,13 @@ package got.common.entity.essos.volantis;
 
 import got.common.GOTLevelData;
 import got.common.database.*;
-import got.common.entity.other.GOTBartender;
+import got.common.entity.other.*;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityVolantisBartender extends GOTEntityVolantisMan implements GOTBartender {
+public class GOTEntityVolantisBartender extends GOTEntityVolantisMan implements GOTBartender, GOTTradeable {
 	public GOTEntityVolantisBartender(World world) {
 		super(world);
 		canBeMarried = false;

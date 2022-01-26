@@ -2,13 +2,13 @@ package got.common.entity.essos.braavos;
 
 import got.common.GOTLevelData;
 import got.common.database.*;
-import got.common.entity.other.GOTBartender;
+import got.common.entity.other.*;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityBraavosBartender extends GOTEntityBraavosMan implements GOTBartender {
+public class GOTEntityBraavosBartender extends GOTEntityBraavosMan implements GOTBartender, GOTTradeable {
 	public GOTEntityBraavosBartender(World world) {
 		super(world);
 		canBeMarried = false;
