@@ -2,6 +2,7 @@ package got.common.database;
 
 import java.util.*;
 
+import complexCrops.*;
 import cpw.mods.fml.common.registry.GameRegistry;
 import got.common.block.*;
 import got.common.block.brick.*;
@@ -30,10 +31,13 @@ import net.minecraft.init.*;
 import net.minecraft.item.*;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraftforge.common.MinecraftForge;
 
 public class GOTRegistry {
 	public static Map<GOTEnumDyeColor, GOTBlockConcretePowder> concretePowder = new HashMap();
 	public static Map<GOTEnumDyeColor, GOTBlockConcrete> concrete = new HashMap();
+	public static Item rice;
+	public static Block ricePlant;
 	public static Block aleHornBlock;
 	public static Block aleHornGoldBlock;
 	public static Block alloyForge;
@@ -204,6 +208,8 @@ public class GOTRegistry {
 	public static Block fenceRotten;
 	public static Block flaxCrop;
 	public static Block flaxPlant;
+	public static Block cucumberCrop;
+	public static Block cucumberPlant;
 	public static Block flowerPot;
 	public static Block fruitLeaves;
 	public static Block fruitSapling;
@@ -799,6 +805,8 @@ public class GOTRegistry {
 	public static Item firePot;
 	public static Item flax;
 	public static Item flaxSeeds;
+	public static Item cucumber;
+	public static Item cucumberSeeds;
 	public static Item flintDagger;
 	public static Item flintSpear;
 	public static Item fur;
@@ -1296,7 +1304,8 @@ public class GOTRegistry {
 		planksRotten = new GOTBlockPlanksRotten();
 		thatch = new GOTBlockThatch();
 		whiteSandstone = new GOTBlockSandstone();
-
+		
+		ricePlant = new GOTBlockRice().setHardness(0.0f).setStepSound(Block.soundTypeGrass).setResistance(0.0f).setBlockName("rice").setBlockTextureName("complexcrops:rice/rice");
 		aleHornBlock = new GOTBlockAleHorn();
 		aleHornGoldBlock = new GOTBlockAleHorn();
 		alloyForge = new GOTBlockAlloyForge();
@@ -1468,6 +1477,8 @@ public class GOTRegistry {
 		fenceRotten = new GOTBlockFence(planksRotten);
 		flaxCrop = new GOTBlockFlaxCrop();
 		flaxPlant = new GOTBlockFlower().setFlowerBounds(0.2f, 0.0f, 0.2f, 0.8f, 0.8f, 0.8f);
+		cucumberCrop = new GOTBlockCucumberCrop();
+		cucumberPlant = new GOTBlockFlower().setFlowerBounds(0.2f, 0.0f, 0.2f, 0.8f, 0.8f, 0.8f);
 		flowerPot = new GOTBlockFlowerPot().setHardness(0.0f).setStepSound(Block.soundTypeStone);
 		fruitLeaves = new GOTBlockLeavesFruit();
 		fruitSapling = new GOTBlockSaplingFruit();
@@ -1883,6 +1894,7 @@ public class GOTRegistry {
 		yitiFlower = new GOTBlockYiTiFlower();
 		kelp = new GOTBlockKelp();
 
+		rice = new GOTItemRice(2, 0.2f, ricePlant, Blocks.water).setUnlocalizedName("rice").setTextureName("complexcrops:rice");
 		aegonHelmet = new GOTItemArmor(GOTMaterial.HELMET, 0, "aegon").setCreativeTab(GOTCreativeTabs.tabStory);
 		aleHorn = new GOTItemVessel();
 		aleHornGold = new GOTItemVessel();
@@ -2057,6 +2069,8 @@ public class GOTRegistry {
 		firePot = new GOTItemFirePot();
 		flax = new Item().setCreativeTab(GOTCreativeTabs.tabMaterials);
 		flaxSeeds = new GOTItemSeeds(flaxCrop, Blocks.farmland);
+		cucumber = new GOTItemFood(4, 0.3f, false);
+		cucumberSeeds = new GOTItemSeeds(cucumberCrop, Blocks.farmland);
 		flintDagger = new GOTItemDagger(GOTMaterial.FLINT);
 		flintSpear = new GOTItemSpear(GOTMaterial.FLINT);
 		fur = new Item().setCreativeTab(GOTCreativeTabs.tabMaterials);
@@ -2593,6 +2607,7 @@ public class GOTRegistry {
 		slabDouble11.setCreativeTab(null);
 		slabDouble12.setCreativeTab(null);
 		slabDouble6.setCreativeTab(null);
+		MinecraftForge.addGrassSeed(new ItemStack(rice), 2);
 	}
 
 	public static void preInit() {
@@ -2748,6 +2763,8 @@ public class GOTRegistry {
 		registerBlock(essosFlower, "essosFlower", GOTItemBlockMetadata.class);
 		registerBlock(flaxPlant, "flaxPlant");
 		registerBlock(flaxCrop, "flax");
+		registerBlock(cucumberPlant, "cucumberPlant");
+		registerBlock(cucumberCrop, "cucumber");
 		registerBlock(berryBush, "berryBush", GOTItemBlockMetadata.class);
 		registerBlock(planks2, "planks2", GOTItemBlockMetadata.class);
 		registerBlock(fence2, "fence2", GOTItemBlockMetadata.class);
@@ -3210,6 +3227,7 @@ public class GOTRegistry {
 		registerBlock(tableJogos, "tableJogos");
 		registerBlock(tableMossovy, "tableMossovy");
 		registerBlock(kelp, "kelp", GOTItemKelp.class);
+		registerBlock(ricePlant, "rice");
 	}
 
 	public static void registerItem(Item item, String codename) {
@@ -3399,6 +3417,8 @@ public class GOTRegistry {
 		registerItem(termite, "termite");
 		registerItem(flaxSeeds, "flaxSeeds");
 		registerItem(flax, "flax");
+		registerItem(cucumberSeeds, "cucumberSeeds");
+		registerItem(cucumber, "cucumber");
 		registerItem(blueberry, "blueberry");
 		registerItem(blackberry, "blackberry");
 		registerItem(raspberry, "raspberry");
@@ -3883,5 +3903,6 @@ public class GOTRegistry {
 		registerItem(jogosLeggings, "jogosLeggings");
 		registerItem(jogosBoots, "jogosBoots");
 		registerItem(tugarKhanSword, "tugarKhanSword");
+		registerItem(rice, "rice");
 	}
 }

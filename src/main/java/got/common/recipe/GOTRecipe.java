@@ -928,7 +928,6 @@ public class GOTRecipe {
 		GameRegistry.addRecipe(new ItemStack(GOTRegistry.whiteWalkersBoots), "X X", "X X", Character.valueOf('X'), GOTRegistry.iceShard);
 		GameRegistry.addRecipe(new ItemStack(GOTRegistry.whiteWalkersChestplate), "X X", "XXX", "XXX", Character.valueOf('X'), GOTRegistry.iceShard);
 		GameRegistry.addRecipe(new ItemStack(GOTRegistry.whiteWalkersLeggings), "XXX", "X X", "X X", Character.valueOf('X'), GOTRegistry.iceShard);
-
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.fence_gate, 1), "XYX", "XYX", Character.valueOf('X'), "stickWood", Character.valueOf('Y'), new ItemStack(Blocks.planks, 1, 0)));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.stone_slab, 6, 0), "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.smoothStoneV, 1, 0)));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.aleHorn), "X", "Y", Character.valueOf('X'), "horn", Character.valueOf('Y'), "ingotTin"));
@@ -1256,6 +1255,7 @@ public class GOTRecipe {
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTRegistry.dye, 2, 0), new ItemStack(GOTRegistry.doubleFlower, 1, 1));
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTRegistry.emerald, 9), new ItemStack(GOTRegistry.blockGem, 1, 9));
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTRegistry.flaxSeeds, 2), GOTRegistry.flaxPlant);
+		GameRegistry.addShapelessRecipe(new ItemStack(GOTRegistry.cucumberSeeds, 2), GOTRegistry.cucumberPlant);
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTRegistry.kebab, 9), new ItemStack(GOTRegistry.kebabBlock, 1, 0));
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTRegistry.leekSoup), Items.bowl, GOTRegistry.leek, GOTRegistry.leek, Items.potato);
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTRegistry.mapleSyrup), new ItemStack(GOTRegistry.wood3, 1, 0), Items.bowl);

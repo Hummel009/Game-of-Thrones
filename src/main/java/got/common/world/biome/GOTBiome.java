@@ -278,7 +278,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 			sb.insert(0, "0");
 		}
 		info.add("Game of Thrones biome: " + getBiomeDisplayName() + ", ID: " + biomeID + ", c: #" + colorString);
-		info.add("Variant: " + StatCollector.translateToLocal(variant.getUnlocalizedName()) + ", loaded: " + GOTBiomeVariantStorage.getSize(world));
+		info.add("Variant: " + variant.variantName + ", loaded: " + GOTBiomeVariantStorage.getSize(world));
 	}
 
 	public void addBiomeVariant(GOTBiomeVariant v) {
@@ -595,6 +595,9 @@ public abstract class GOTBiome extends BiomeGenBase {
 		}
 		if (random.nextInt(300) == 0) {
 			return new GrassBlockAndMeta(GOTRegistry.flaxPlant, 0);
+		}
+		if (random.nextInt(300) == 0) {
+			return new GrassBlockAndMeta(GOTRegistry.cucumberPlant, 0);
 		}
 		if (random.nextInt(200) == 0) {
 			return new GrassBlockAndMeta(GOTRegistry.tallGrass, 3);
