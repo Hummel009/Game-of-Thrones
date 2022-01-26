@@ -16,7 +16,7 @@
  *  net.minecraftforge.common.EnumPlantType
  *  net.minecraftforge.common.IPlantable
  */
-package complexCrops;
+package got.common.item.other;
 
 import got.common.database.GOTRegistry;
 import net.minecraft.block.Block;

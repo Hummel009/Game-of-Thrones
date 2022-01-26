@@ -19,7 +19,7 @@
  *  net.minecraftforge.common.IPlantable
  *  net.minecraftforge.common.util.ForgeDirection
  */
-package complexCrops;
+package got.common.block.other;
 
 import java.util.*;
 
