@@ -1,5 +1,11 @@
 CHANGELOG
 
+>>VERSION 17.7
++ Added Asshai Shield
+
+* Reduced quality of some too elite unrealistic shields
+* Fixed bug with shields GUI
+
 >>VERSION 17.6
 + Added full Ukrainian edition (lore, speech, names, quests: prod. DDPAT Knife Series)
 + Added full Turkish edition (lore, speech, names, quests: prod. Ness)

@@ -13,6 +13,7 @@ public class GOTEntityAsshaiWarrior extends GOTEntityAsshaiMan {
 		super(world);
 		canBeMarried = false;
 		npcCape = GOTCapes.ASSHAI;
+		npcShield = GOTShields.ASSHAI;
 		addTargetTasks(true);
 	}
 

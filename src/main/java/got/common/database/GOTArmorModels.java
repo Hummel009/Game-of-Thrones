@@ -121,7 +121,7 @@ public class GOTArmorModels {
 			map.put(GOTRegistry.arrynHelmet, new GOTModelArrynHelmet(1.0f));
 			map.put(GOTRegistry.asshaiHelmet, new GOTModelAsshaiHelmet(1.0f));
 			map.put(GOTRegistry.bittersteelHelmet, new GOTModelSandorHelmet(1.0f));
-			map.put(GOTRegistry.blackfyreHelmet, new GOTModelLegendaryHelmet(1.0f));
+			map.put(GOTRegistry.blackfyreHelmet, new GOTModelWingedHelmet(1.0f));
 			map.put(GOTRegistry.braavosHelmet, new GOTModelBraavosHelmet(1.0f));
 			map.put(GOTRegistry.ceramicPlate, new GOTModelPlateHead());
 			map.put(GOTRegistry.gemsbokHelmet, new GOTModelGemsbokHelmet(1.0f));
@@ -145,10 +145,11 @@ public class GOTArmorModels {
 			map.put(GOTRegistry.sothoryosHelmetChieftain, new GOTModelDeerHelmet(1.0f));
 			map.put(GOTRegistry.sothoryosHelmetGold, new GOTModelWesterlandsHelmet(1.0f));
 			map.put(GOTRegistry.summerChestplate, new GOTModelSummerChestplate(1.0f));
-			map.put(GOTRegistry.targaryenHelmet, new GOTModelLegendaryHelmet(1.0f));
+			map.put(GOTRegistry.hillmenHelmet, new GOTModelWingedHelmet(1.0f));
+			map.put(GOTRegistry.targaryenHelmet, new GOTModelWingedHelmet(1.0f));
 			map.put(GOTRegistry.unsulliedHelmet, new GOTModelUnsulliedHelmet(1.0f));
-			map.put(GOTRegistry.valyrianHelmet, new GOTModelLegendaryHelmet(1.0f));
-			map.put(GOTRegistry.victarionHelmet, new GOTModelLegendaryHelmet(1.0f));
+			map.put(GOTRegistry.valyrianHelmet, new GOTModelWingedHelmet(1.0f));
+			map.put(GOTRegistry.victarionHelmet, new GOTModelWingedHelmet(1.0f));
 			map.put(GOTRegistry.westerlandsHelmet, new GOTModelWesterlandsHelmet(1.0f));
 			map.put(GOTRegistry.westkingHelmet, new GOTModelWesterlandsHelmet(1.0f));
 			map.put(GOTRegistry.woodPlate, new GOTModelPlateHead());

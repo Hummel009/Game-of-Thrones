@@ -2119,7 +2119,7 @@ public class GOTRegistry {
 		heartsbane = new GOTItemLegendarySword(GOTMaterial.VALYRIAN);
 		hillmenBoots = new GOTItemArmor(GOTMaterial.HILLMEN, 3);
 		hillmenChestplate = new GOTItemArmor(GOTMaterial.HILLMEN, 1);
-		hillmenHelmet = new GOTItemArmor(GOTMaterial.HILLMEN, 0);
+		hillmenHelmet = new GOTItemArmor(GOTMaterial.HILLMEN, 0, "helmet");
 		hillmenLeggings = new GOTItemArmor(GOTMaterial.HILLMEN, 2);
 		honor = new GOTItemLegendarySword(GOTMaterial.VALYRIAN);
 		horn = new Item().setCreativeTab(GOTCreativeTabs.tabMaterials);
