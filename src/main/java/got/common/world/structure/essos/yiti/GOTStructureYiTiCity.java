@@ -11,7 +11,6 @@ import net.minecraft.world.World;
 
 public class GOTStructureYiTiCity extends GOTVillageGen {
 	public boolean isTown;
-	public boolean isLeng;
 
 	public GOTStructureYiTiCity(GOTBiome biome, float f) {
 		super(biome);
@@ -41,9 +40,6 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 		@Override
 		public void addVillageStructures(Random random) {
 			switch (villageType) {
-			case LENG:
-				setupLeng(random);
-				break;
 			case VILLAGE:
 				setupVillage(random);
 				break;
@@ -69,7 +65,7 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 			int outerOut;
 			int i1 = Math.abs(i);
 			int k1 = Math.abs(k);
-			if (villageType == VillageType.VILLAGE || villageType == VillageType.LENG) {
+			if (villageType == VillageType.VILLAGE) {
 				int dSq = i * i + k * k;
 				int imn = 15 + random.nextInt(4);
 				if ((dSq < imn * imn) || (i1 <= 64 && k1 <= 3 + random.nextInt(2))) {
@@ -341,54 +337,6 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 			this.addStructure(new GOTStructureYiTiLamp(false), lampX, lampZ, 2, false);
 		}
 
-		public void setupLeng(Random random) {
-			this.addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClass(GOTEntityLengMan.class);
-					spawner.setCheckRanges(40, -12, 12, 40);
-					spawner.setSpawnRanges(20, -6, 6, 64);
-					spawner.setBlockEnemySpawnRange(60);
-				}
-			}, 0, 0, 0);
-			int pathEnd = 68;
-			int pathSide = 7;
-			int centreSide = 19;
-			this.addStructure(new GOTStructureYiTiWell(false), 0, -2, 0, true);
-			int signX = 12;
-			this.addStructure(new GOTStructureYiTiVillageSign(false), -signX, 0, 1, true);
-			this.addStructure(new GOTStructureYiTiVillageSign(false), signX, 0, 3, true);
-			this.addStructure(new GOTStructureLengHouseStilts(false), 0, -centreSide, 2, true);
-			this.addStructure(new GOTStructureLengHouseStilts(false), -pathEnd, 0, 1, true);
-			this.addStructure(new GOTStructureLengHouseStilts(false), pathEnd, 0, 3, true);
-			int rowHouses = 3;
-			for (int l = -rowHouses; l <= rowHouses; ++l) {
-				int i1 = l * 18;
-				int k1 = pathSide;
-				if (Math.abs(i1) <= 15) {
-					k1 += 15 - pathSide;
-				}
-				if (Math.abs(l) >= 1) {
-					this.addStructure(new GOTStructureLengHouseStilts(false), i1, -k1, 2);
-				}
-				this.addStructure(new GOTStructureLengHouseStilts(false), i1, k1, 0);
-				int k2 = k1 + 20;
-				if (l != 0) {
-					if (random.nextInt(3) == 0) {
-						this.addStructure(new GOTStructureLengHouseStilts(false), i1, -k2, 2);
-					} else {
-						this.addStructure(new GOTStructureHayBales(false), i1, -k2, 2);
-					}
-				}
-				if (random.nextInt(3) == 0) {
-					this.addStructure(new GOTStructureLengHouseStilts(false), i1, k2, 0);
-					continue;
-				}
-				this.addStructure(new GOTStructureHayBales(false), i1, k2, 0);
-			}
-		}
-
 		public void setupVillage(Random random) {
 			this.addStructure(new GOTStructureNPCRespawner(false) {
 
@@ -454,9 +402,7 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 
 		@Override
 		public void setupVillageProperties(Random random) {
-			if (isLeng) {
-				villageType = VillageType.LENG;
-			} else if (isTown) {
+			if (isTown) {
 				villageType = VillageType.TOWN;
 			} else if (random.nextInt(4) == 0) {
 				villageType = VillageType.FORT;
@@ -468,7 +414,7 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 	}
 
 	public enum VillageType {
-		VILLAGE, TOWN, FORT, LENG;
+		VILLAGE, TOWN, FORT;
 	}
 
 }

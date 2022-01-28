@@ -688,7 +688,6 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityYiTiFarmer.class, "YiTiFarmer", id++, GOTFaction.YI_TI);
 		GOTEntityRegistry.register(GOTEntityYiTiGoldsmith.class, "YiTiGoldsmith", id++, GOTFaction.YI_TI);
 		GOTEntityRegistry.register(GOTEntityYiTiBartender.class, "YiTiBartender", id++, GOTFaction.YI_TI);
-		GOTEntityRegistry.register(GOTEntityLengMan.class, "LengMan", id++, GOTFaction.YI_TI);
 
 		GOTEntityRegistry.register(GOTEntityAsshaiMan.class, "AsshaiMan", id++, GOTFaction.ASSHAI);
 		GOTEntityRegistry.register(GOTEntityAsshaiWarrior.class, "AsshaiGuard", id++, GOTFaction.ASSHAI);

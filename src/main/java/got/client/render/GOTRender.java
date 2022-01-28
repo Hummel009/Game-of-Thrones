@@ -33,7 +33,7 @@ import got.common.entity.essos.qarth.*;
 import got.common.entity.essos.qohor.*;
 import got.common.entity.essos.tyrosh.*;
 import got.common.entity.essos.volantis.*;
-import got.common.entity.essos.yiti.*;
+import got.common.entity.essos.yiti.GOTEntityYiTiMan;
 import got.common.entity.other.*;
 import got.common.entity.sothoryos.sothoryos.*;
 import got.common.entity.sothoryos.summer.GOTEntitySummerMan;
@@ -114,7 +114,6 @@ public class GOTRender {
 		renders.put(GOTEntityWight.class, new GOTRenderFactionNPC("westeros/ice/wight"));
 		renders.put(GOTEntityWildling.class, new GOTRenderFactionNPC("westeros/wild"));
 		renders.put(GOTEntityYiTiMan.class, new GOTRenderFactionNPC("essos/yiti"));
-		renders.put(GOTEntityLengMan.class, new GOTRenderFactionNPC("essos/leng"));
 		renders.put(GOTEntityMossovyMan.class, new GOTRenderFactionNPC("essos/mossovy"));
 		renders.put(GOTEntitySepton.class, new GOTRenderFactionNPCLayered("westeros/westeros", "septon"));
 		renders.put(GOTEntityRedPriest.class, new GOTRenderFactionNPCLayered("essos/asshai", "priest"));
