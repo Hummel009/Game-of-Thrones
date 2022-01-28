@@ -2,12 +2,11 @@ CHANGELOG
 
 >>VERSION 17.7
 + Added Asshai Shield
-+ Added Leng Village
-+ Added Leng Man
 
-* Fixed bug with some fixed structures
+* Optimized rendering code
+
+* Fixed 5 minor bugs (thanks to Stalker Kir)
 * Fixed 7 minor bugs (thanks to VVVIP2)
-* Fixed bug with some texture errors
 * Fixed bug with shields GUI
 * Reduced quality of some too elite unrealistic shields
 
