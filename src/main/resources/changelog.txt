@@ -2,9 +2,13 @@ CHANGELOG
 
 >>VERSION 17.7
 + Added Asshai Shield
++ Added Leng Village
++ Added Leng Man
 
-* Reduced quality of some too elite unrealistic shields
+* Fixed 7 minor bugs (thanks to VVVIP2)
+* Fixed bug with some texture errors
 * Fixed bug with shields GUI
+* Reduced quality of some too elite unrealistic shields
 
 >>VERSION 17.6
 + Added full Ukrainian edition (lore, speech, names, quests: prod. DDPAT Knife Series)

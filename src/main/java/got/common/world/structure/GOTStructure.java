@@ -1005,6 +1005,13 @@ public class GOTStructure {
 				instance.villageType = GOTStructureYiTiCity.VillageType.FORT;
 			}
 		});
+		GOTStructureRegistry.register(id++, new GOTStructureYiTiCity(GOTBiome.yiTi, 1.0f), "LengVillage", GOTFaction.YI_TI, new GOTStructureRegistry.IVillageProperties<GOTStructureYiTiCity.Instance>() {
+
+			@Override
+			public void apply(GOTStructureYiTiCity.Instance instance) {
+				instance.villageType = GOTStructureYiTiCity.VillageType.LENG;
+			}
+		});
 
 		GOTStructureRegistry.register(id++, new GOTStructureAsshaiCity(GOTBiome.shadowTown, 1.0f), "AsshaiCity", GOTFaction.ASSHAI, new GOTStructureRegistry.IVillageProperties<GOTStructureAsshaiCity.Instance>() {
 

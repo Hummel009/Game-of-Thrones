@@ -27,12 +27,12 @@ public class GOTDrinkIcons {
 			BufferedImage liquidIcon;
 			BufferedImage vesselIcon = vesselIcons.get(vessel);
 			if (vesselIcon == null) {
-				ResourceLocation res = new ResourceLocation("got", "textures/items/drink_" + vessel + ".png");
+				ResourceLocation res = new ResourceLocation("got:textures/items/drink_" + vessel + ".png");
 				vesselIcon = ImageIO.read(resourceManager.getResource(res).getInputStream());
 				vesselIcons.put(vessel, vesselIcon);
 			}
 			if ((liquidIcon = liquidIcons.get(item)) == null) {
-				ResourceLocation res = new ResourceLocation("got", "textures/items/" + baseIconName + "_liquid.png");
+				ResourceLocation res = new ResourceLocation("got:textures/items/" + baseIconName + "_liquid.png");
 				liquidIcon = ImageIO.read(resourceManager.getResource(res).getInputStream());
 				liquidIcons.put(item, liquidIcon);
 			}

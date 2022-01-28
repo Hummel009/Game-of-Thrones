@@ -66,6 +66,11 @@ public abstract class GOTStructureYiTiBase extends GOTStructureBase {
 	public Block cropBlock;
 	public int cropMeta;
 	public Item seedItem;
+	public Block thatchBlock;
+	public int thatchMeta;
+	public Block thatchSlabBlock;
+	public int thatchSlabMeta;
+	public Block thatchStairBlock;
 	public GOTItemBanner.BannerType bannerType;
 	public GOTChestContents chestContents;
 
@@ -85,6 +90,11 @@ public abstract class GOTStructureYiTiBase extends GOTStructureBase {
 
 	@Override
 	public void setupRandomBlocks(Random random) {
+		thatchBlock = GOTRegistry.thatch;
+		thatchMeta = 1;
+		thatchSlabBlock = GOTRegistry.slabSingleThatch;
+		thatchSlabMeta = 1;
+		thatchStairBlock = GOTRegistry.stairsReed;
 		brickBlock = GOTRegistry.brick5;
 		brickMeta = 11;
 		brickSlabBlock = GOTRegistry.slabSingle12;

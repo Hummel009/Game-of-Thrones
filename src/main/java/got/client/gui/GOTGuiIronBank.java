@@ -52,7 +52,7 @@ public class GOTGuiIronBank extends GuiScreen {
 		int heightHalf = height / 2;
 		int xOrigin = widthHalf - 128;
 		int yOrigin = heightHalf - 94;
-		mc.renderEngine.bindTexture(new ResourceLocation("got", "gui/bank.png"));
+		mc.renderEngine.bindTexture(new ResourceLocation("got:textures/gui/bank.png"));
 		drawTexturedModalRect(xOrigin, yOrigin, 0, 0, 256, 188);
 		GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
 		String balance = StatCollector.translateToLocalFormatted("got.gui.money.balance", pd.balance);
@@ -67,10 +67,10 @@ public class GOTGuiIronBank extends GuiScreen {
 		int i = 0;
 		for (int coin : GOTItemCoin.values) {
 			RenderHelper.enableGUIStandardItemLighting();
-			mc.renderEngine.bindTexture(new ResourceLocation("got", "gui/bank.png"));
+			mc.renderEngine.bindTexture(new ResourceLocation("got:textures/gui/bank.png"));
 			drawTexturedModalRect(x, yOrigin + 50, 0, 188, 27, 27);
 			itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.renderEngine, new ItemStack(GOTRegistry.coin, 0, i), x + 5, yOrigin + 50 + 5);
-			mc.renderEngine.bindTexture(new ResourceLocation("got", "gui/bank.png"));
+			mc.renderEngine.bindTexture(new ResourceLocation("got:textures/gui/bank.png"));
 			RenderHelper.enableGUIStandardItemLighting();
 			drawTexturedModalRect(x, yOrigin + 120, 27, 188, 27, 27);
 			itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.renderEngine, new ItemStack(GOTRegistry.coin, 0, i), x + 5, yOrigin + 120 + 5);

@@ -465,13 +465,11 @@ public class GOTClientProxy extends GOTCommonProxy {
 	public void onLoad() {
 		super.onLoad();
 		customEffectRenderer = new GOTEffectRenderer(Minecraft.getMinecraft());
-		GOTTextures.load();
-		GOTRender.renderFactionNPC();
-		GOTRender.renderLegendaryNPC();
-		GOTRender.renderLegendaryNPCLayered();
-		GOTRender.renderMonofolderNPC();
-		GOTRender.renderMonotextureNPC();
-		GOTRender.renderOther();
+		GOTTextures.onInit();
+		GOTRender.onInit();
+		for (Class cl : GOTRender.renders.keySet()) {
+			RenderingRegistry.registerEntityRenderingHandler(cl, GOTRender.renders.get(cl));
+		}
 		beaconRenderID = RenderingRegistry.getNextAvailableRenderId();
 		barrelRenderID = RenderingRegistry.getNextAvailableRenderId();
 		bombRenderID = RenderingRegistry.getNextAvailableRenderId();

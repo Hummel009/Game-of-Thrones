@@ -395,7 +395,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		return sepia |= alpha << 24;
 	}
 
-	public static void load() {
+	public static void onInit() {
 		IResourceManager resMgr = mc.getResourceManager();
 		TextureManager texMgr = mc.getTextureManager();
 		GOTTextures textures = new GOTTextures();

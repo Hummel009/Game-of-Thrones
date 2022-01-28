@@ -10,7 +10,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderCargocart extends Render {
-	public static ResourceLocation TEXTURE = new ResourceLocation("got", "item/cargocart.png");
+	public static ResourceLocation TEXTURE = new ResourceLocation("got:textures/model/cargocart.png");
 	public ModelBase model = new GOTModelCargocart();
 
 	public GOTRenderCargocart() {
