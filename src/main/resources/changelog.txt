@@ -5,6 +5,7 @@ CHANGELOG
 + Added Leng Village
 + Added Leng Man
 
+* Fixed bug with some fixed structures
 * Fixed 7 minor bugs (thanks to VVVIP2)
 * Fixed bug with some texture errors
 * Fixed bug with shields GUI
