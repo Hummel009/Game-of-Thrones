@@ -150,6 +150,19 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 		return super.getBlockPathWeight(i, j, k);
 	}
 
+	@Override
+	public boolean getCanSpawnHere() {
+		if (super.getCanSpawnHere()) {
+			int i = MathHelper.floor_double(posX);
+			int j = MathHelper.floor_double(boundingBox.minY);
+			int k = MathHelper.floor_double(posZ);
+			if (j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == worldObj.getBiomeGenForCoords(i, k).topBlock) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public double getChildAttribute(EntityAgeable parent, EntityAgeable otherParent, IAttribute stat, double variance) {
 		double val2;
 		double val1 = parent.getEntityAttribute(stat).getBaseValue();

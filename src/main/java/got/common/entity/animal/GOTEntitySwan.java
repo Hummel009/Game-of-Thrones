@@ -8,7 +8,6 @@ import got.common.database.GOTRegistry;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityRegistry;
 import got.common.world.biome.GOTBiome.ImmuneToFrost;
-import net.minecraft.block.material.Material;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -109,7 +108,12 @@ public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature,
 	@Override
 	public boolean getCanSpawnHere() {
 		if (super.getCanSpawnHere()) {
-			return GOTAmbientSpawnChecks.canSpawn(this, 16, 8, 40, 2, Material.water);
+			int i = MathHelper.floor_double(posX);
+			int j = MathHelper.floor_double(boundingBox.minY);
+			int k = MathHelper.floor_double(posZ);
+			if (j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == worldObj.getBiomeGenForCoords(i, k).topBlock) {
+				return true;
+			}
 		}
 		return false;
 	}

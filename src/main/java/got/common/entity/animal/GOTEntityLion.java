@@ -1,10 +1,9 @@
 package got.common.entity.animal;
 
 import got.common.item.other.GOTItemLionRug;
-import got.common.world.biome.GOTBiome;
 import net.minecraft.world.World;
 
-public class GOTEntityLion extends GOTEntityLionBase implements GOTBiome.ImmuneToFrost {
+public class GOTEntityLion extends GOTEntityLionBase {
 	public GOTEntityLion(World world) {
 		super(world);
 	}

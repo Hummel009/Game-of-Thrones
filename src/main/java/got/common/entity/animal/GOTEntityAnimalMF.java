@@ -5,7 +5,7 @@ import got.common.entity.other.GOTEntityRegistry;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
 
 public abstract class GOTEntityAnimalMF extends EntityAnimal implements GOTBiome.ImmuneToFrost {
@@ -27,6 +27,19 @@ public abstract class GOTEntityAnimalMF extends EntityAnimal implements GOTBiome
 	}
 
 	public abstract Class getAnimalMFBaseClass();
+
+	@Override
+	public boolean getCanSpawnHere() {
+		if (super.getCanSpawnHere()) {
+			int i = MathHelper.floor_double(posX);
+			int j = MathHelper.floor_double(boundingBox.minY);
+			int k = MathHelper.floor_double(posZ);
+			if (j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == worldObj.getBiomeGenForCoords(i, k).topBlock) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 	@Override
 	public ItemStack getPickedResult(MovingObjectPosition target) {

@@ -15,11 +15,6 @@ public class GOTEntityZebra extends GOTEntityHorse {
 	}
 
 	@Override
-	public EntityAgeable createChild(EntityAgeable entityageable) {
-		return super.createChild(entityageable);
-	}
-
-	@Override
 	public void dropFewItems(boolean flag, int i) {
 		int j = rand.nextInt(2) + rand.nextInt(1 + i);
 		for (int k = 0; k < j; ++k) {

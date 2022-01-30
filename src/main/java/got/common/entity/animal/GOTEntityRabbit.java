@@ -7,7 +7,6 @@ import got.common.entity.ai.*;
 import got.common.entity.other.*;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
@@ -81,10 +80,11 @@ public class GOTEntityRabbit extends EntityCreature implements GOTAmbientCreatur
 	@Override
 	public boolean getCanSpawnHere() {
 		if (super.getCanSpawnHere()) {
-			boolean flag = GOTAmbientSpawnChecks.canSpawn(this, 8, 4, 32, 4, Material.plants, Material.vine);
-			if (flag) {
-				int i = MathHelper.floor_double(posX);
-				return !anyFarmhandsNearby(i, MathHelper.floor_double(posY), MathHelper.floor_double(posZ));
+			int i = MathHelper.floor_double(posX);
+			int j = MathHelper.floor_double(boundingBox.minY);
+			int k = MathHelper.floor_double(posZ);
+			if (j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == worldObj.getBiomeGenForCoords(i, k).topBlock) {
+				return true;
 			}
 		}
 		return false;
