@@ -1076,7 +1076,7 @@ public class GOTEventHandler implements IFuelHandler {
 				j = MathHelper.floor_double(entity.boundingBox.minY);
 				k2 = MathHelper.floor_double(entity.posZ);
 				BiomeGenBase biome = world.getBiomeGenForCoords(i, k2);
-				if ((biome.temperature == 0.0F) && (world.canBlockSeeTheSky(i, j, k2) || entity.isInWater()) && world.getSavedLightValue(EnumSkyBlock.Block, i, j, k2) < 10) {
+				if ((biome.temperature == 0.0F || biome instanceof GOTBiome && ((GOTBiome)biome).isAltitudeZone && j >= 140) && (world.canBlockSeeTheSky(i, j, k2) || entity.isInWater()) && world.getSavedLightValue(EnumSkyBlock.Block, i, j, k2) < 10) {
 					int frostProtection = 50;
 					for (int l1 = 1; l1 < 4; ++l1) {
 						ItemStack armor = entity.getEquipmentInSlot(l1);

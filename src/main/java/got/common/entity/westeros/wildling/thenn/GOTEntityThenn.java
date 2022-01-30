@@ -100,7 +100,7 @@ public class GOTEntityThenn extends GOTEntityHumanBase {
 			int j = MathHelper.floor_double(boundingBox.minY);
 			int k = MathHelper.floor_double(posZ);
 			BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
-			if (j > 62 && worldObj.getBlock(i, j - 1, k) == biome.topBlock) {
+			if (j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == biome.topBlock) {
 				return true;
 			}
 		}

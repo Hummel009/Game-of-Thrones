@@ -2,7 +2,7 @@ package got.common.entity.animal;
 
 import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityRegistry;
-import net.minecraft.entity.*;
+import net.minecraft.entity.EntityList;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
