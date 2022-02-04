@@ -39,6 +39,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.*;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.*;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
@@ -139,32 +140,36 @@ public class GOT {
 		proxy.testReflection(world);
 		GOTReflection.removeCommand(CommandTime.class);
 		GOTReflection.removeCommand(CommandMessage.class);
-		event.registerServerCommand(new GOTCommandTimeVanilla());
-		event.registerServerCommand(new GOTCommandMessageFixed());
-		event.registerServerCommand(new GOTCommandTime());
-		event.registerServerCommand(new GOTCommandAlignment());
-		event.registerServerCommand(new GOTCommandSummon());
-		event.registerServerCommand(new GOTCommandFastTravelClock());
-		event.registerServerCommand(new GOTCommandWaypointCooldown());
-		event.registerServerCommand(new GOTCommandDate());
-		event.registerServerCommand(new GOTCommandWaypoints());
-		event.registerServerCommand(new GOTCommandAlignmentSee());
-		event.registerServerCommand(new GOTCommandFellowship());
-		event.registerServerCommand(new GOTCommandFellowshipMessage());
-		event.registerServerCommand(new GOTCommandEnableAlignmentZones());
-		event.registerServerCommand(new GOTCommandEnchant());
-		event.registerServerCommand(new GOTCommandSpawnDamping());
-		event.registerServerCommand(new GOTCommandFactionRelations());
-		event.registerServerCommand(new GOTCommandPledgeCooldown());
-		event.registerServerCommand(new GOTCommandConquest());
-		event.registerServerCommand(new GOTCommandStrScan());
-		event.registerServerCommand(new GOTCommandDragon());
-		event.registerServerCommand(new GOTCommandInvasion());
-		event.registerServerCommand(new GOTCommandAchievement());
+		List<CommandBase> command = new ArrayList<>();
+		command.add(new GOTCommandTimeVanilla());
+		command.add(new GOTCommandMessageFixed());
+		command.add(new GOTCommandTime());
+		command.add(new GOTCommandAlignment());
+		command.add(new GOTCommandSummon());
+		command.add(new GOTCommandFastTravelClock());
+		command.add(new GOTCommandWaypointCooldown());
+		command.add(new GOTCommandDate());
+		command.add(new GOTCommandWaypoints());
+		command.add(new GOTCommandAlignmentSee());
+		command.add(new GOTCommandFellowship());
+		command.add(new GOTCommandFellowshipMessage());
+		command.add(new GOTCommandEnableAlignmentZones());
+		command.add(new GOTCommandEnchant());
+		command.add(new GOTCommandSpawnDamping());
+		command.add(new GOTCommandFactionRelations());
+		command.add(new GOTCommandPledgeCooldown());
+		command.add(new GOTCommandConquest());
+		command.add(new GOTCommandStrScan());
+		command.add(new GOTCommandDragon());
+		command.add(new GOTCommandInvasion());
+		command.add(new GOTCommandAchievement());
 		if (event.getServer().isDedicatedServer()) {
-			event.registerServerCommand(new GOTCommandBanStructures());
-			event.registerServerCommand(new GOTCommandAllowStructures());
-			event.registerServerCommand(new GOTCommandAdminHideMap());
+			command.add(new GOTCommandBanStructures());
+			command.add(new GOTCommandAllowStructures());
+			command.add(new GOTCommandAdminHideMap());
+		}
+		for (int i = 0; i < command.size(); i++) {
+			event.registerServerCommand(command.get(i));
 		}
 	}
 
