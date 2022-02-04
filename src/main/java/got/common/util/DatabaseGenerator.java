@@ -68,6 +68,7 @@ import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList.*;
 import got.common.world.spawning.GOTSpawnEntry;
 import got.common.world.structure.other.*;
+import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.item.*;
 import net.minecraft.item.Item.ToolMaterial;
@@ -908,7 +909,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 	}
 
 	public static void generateWikiaDatabases() throws NoSuchFieldException, IllegalAccessException {
-		String display = "chest";
+		String display = "blocks";
 		if ("chest".equals(display)) {
 			for (GOTChestContents content : GOTCommander.getObjectFieldsOfType(GOTChestContents.class, GOTChestContents.class)) {
 				GOTLog.logger.info(content + " = ");

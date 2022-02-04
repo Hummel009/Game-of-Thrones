@@ -10,7 +10,6 @@ import got.common.*;
 import got.common.block.leaves.*;
 import got.common.block.other.*;
 import got.common.block.planks.GOTBlockPlanksBase;
-import got.common.block.sapling.GOTBlockSaplingBase;
 import got.common.block.slab.GOTBlockSlabBase;
 import got.common.block.wbeam.GOTBlockWoodBeam;
 import got.common.block.wood.GOTBlockWoodBase;
@@ -22,13 +21,14 @@ import got.common.entity.other.*;
 import got.common.faction.GOTFaction;
 import got.common.fellowship.GOTFellowship;
 import got.common.item.other.*;
+import got.common.item.other.GOTItemBanner.BannerType;
 import got.common.network.GOTPacketHandler;
 import got.common.util.*;
 import got.common.world.GOTWorldType;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.*;
 import got.common.world.structure.GOTStructure;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.command.*;
 import net.minecraft.command.server.CommandMessage;
@@ -55,57 +55,43 @@ public class GOT {
 	@Mod.Instance(value = "got")
 	public static GOT instance;
 	public static final String NAME = "Game of Thrones";
-	public static final String VERSION = "Version 17.6";
+	public static final String VERSION = "Version 17.7";
 	public static String[] DEVS = { "ce6eec82-0678-4be3-933d-05acb902d558", "ce924ff6-8450-41ad-865e-89c5897837c4", "9aee5b32-8e19-4d4b-a2d6-1318af62733d", "1f63e38e-4059-4a4f-b7c4-0fac4a48e744", "72fd4cfd-064e-4cf1-874d-74000c152f48", "a05ba4aa-2cd0-43b1-957c-7971c9af53d4", "22be67c2-ba43-48db-b2ba-32857e78ddad", "694406b3-10e4-407d-99bb-17218696627a" };
 	public static GOTEventHandler eventHandler;
 	public static GOTPacketHandler packetHandler;
 	public static GOTTickHandlerServer tickHandler;
 	public static WorldType worldTypeGOT;
 	public static WorldType worldTypeGOTClassic;
-	public static Map<ItemStack, Integer> buy = new GOTItemStackMapImpl<>();
-	public static Map<ItemStack, Integer> sell = new GOTItemStackMapImpl<>();
+	public static Map<ItemStack, Integer> buy = new HashMap<>();
+	public static Map<ItemStack, Integer> sell = new HashMap<>();
 	public static String langsName = "\u0420\u0443\u0441\u0441\u043A\u0438\u0439 (ru), \u0423\u043A\u0440\u0430\u0457\u043D\u0441\u044C\u043A\u0430 (uk), English (en), Deutsch (de), T\u00FCrk\u00E7e (tr), \u4E2D\u6587 (zh)";
-	public static boolean isDevMode = false;
+	public static boolean isDevMode = true;
 
 	@Mod.EventHandler
 	public void load(FMLInitializationEvent event) {
 		proxy.onLoad();
-		for (Object obj : Block.blockRegistry) {
-			Block block = (Block) obj;
+		for (Block block : GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Block.class)) {
 			if (block instanceof GOTBlockWoodBase) {
 				Blocks.fire.setFireInfo(block, 5, 5);
 			}
-			if (block instanceof GOTBlockLeavesBase || block instanceof GOTBlockFallenLeaves || block instanceof GOTBlockBerryBush) {
-				Blocks.fire.setFireInfo(block, 30, 60);
-			}
-			if (block instanceof GOTBlockPlanksBase || block instanceof GOTBlockFence || block instanceof GOTBlockWoodBars || block instanceof GOTBlockWoodBeam) {
+			if (block instanceof GOTBlockPlanksBase || block instanceof GOTBlockFence || block instanceof GOTBlockWoodBars || block instanceof GOTBlockWoodBeam || (block instanceof GOTBlockSlabBase || block instanceof GOTBlockStairs) && block.getMaterial() == Material.wood) {
 				Blocks.fire.setFireInfo(block, 5, 20);
-			}
-			if ((block instanceof GOTBlockSlabBase || block instanceof GOTBlockStairs) && block.getMaterial() == Material.wood) {
-				Blocks.fire.setFireInfo(block, 5, 20);
-			}
-			if (block instanceof GOTBlockGrass || block instanceof GOTBlockAsshaiGrass || block instanceof GOTBlockAsshaiMoss) {
-				Blocks.fire.setFireInfo(block, 60, 100);
-			}
-			if (block instanceof GOTBlockFlower || block instanceof GOTBlockDoubleFlower) {
-				Blocks.fire.setFireInfo(block, 60, 100);
 			}
 			if (block instanceof GOTBlockVine) {
 				Blocks.fire.setFireInfo(block, 15, 100);
 			}
-			if (block instanceof BlockSapling || block instanceof GOTBlockSaplingBase) {
+			if (block instanceof GOTBlockLeavesBase || block instanceof GOTBlockFallenLeaves || block instanceof GOTBlockBerryBush) {
+				Blocks.fire.setFireInfo(block, 30, 60);
+			}
+			if (block instanceof GOTBlockDaub) {
+				Blocks.fire.setFireInfo(block, 40, 40);
+			}
+			if (block instanceof GOTBlockThatch || block instanceof GOTBlockThatchFloor || block instanceof GOTBlockReedBars || (block instanceof GOTBlockSlabBase || block instanceof GOTBlockStairs) && block.getMaterial() == Material.grass) {
+				Blocks.fire.setFireInfo(block, 60, 20);
+			}
+			if (block instanceof GOTBlockThatch || block instanceof GOTBlockThatchFloor || block instanceof GOTBlockReedBars || block instanceof GOTBlockGrass || block instanceof GOTBlockAsshaiGrass || block instanceof GOTBlockAsshaiMoss || block instanceof GOTBlockFlower || block instanceof GOTBlockDoubleFlower) {
 				Blocks.fire.setFireInfo(block, 60, 100);
 			}
-			if (block instanceof GOTBlockThatch || block instanceof GOTBlockThatchFloor || block instanceof GOTBlockReedBars) {
-				Blocks.fire.setFireInfo(block, 60, 20);
-			}
-			if ((block instanceof GOTBlockSlabBase || block instanceof GOTBlockStairs) && block.getMaterial() == Material.grass) {
-				Blocks.fire.setFireInfo(block, 60, 20);
-			}
-			if (!(block instanceof GOTBlockDaub)) {
-				continue;
-			}
-			Blocks.fire.setFireInfo(block, 40, 40);
 		}
 		Blocks.fire.setFireInfo(Blocks.acacia_stairs, 5, 20);
 		Blocks.fire.setFireInfo(Blocks.dark_oak_stairs, 5, 20);
@@ -121,18 +107,9 @@ public class GOT {
 		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 1, 2);
 		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 2, 3);
 		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 2, 4);
-		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 1, 5);
-		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 2, 6);
-		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 1, 7);
-		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 2, 8);
-		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 1, 9);
-		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 2, 11);
-		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 2, 12);
-		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 1, 15);
 		GOTRegistry.oreGlowstone.setHarvestLevel(pickaxe, 1);
 		GOTRegistry.quagmire.setHarvestLevel(shovel, 0);
 		GOTRegistry.quicksand.setHarvestLevel(shovel, 0);
-		GOTRegistry.blockMetal2.setHarvestLevel(pickaxe, 1, 0);
 		GOTRegistry.blockMetal2.setHarvestLevel(pickaxe, 1, 4);
 		GOTRegistry.asshaiDirt.setHarvestLevel(shovel, 0);
 		GOTRegistry.basaltGravel.setHarvestLevel(shovel, 0);
@@ -209,32 +186,11 @@ public class GOT {
 			int b = (int) (baseB * rgb[2]);
 			biome.waterColorMultiplier = new Color(r, g, b).getRGB();
 		}
-		int items = 0;
-		for (Item item : GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Item.class)) {
-			items++;
+		int[] nums = {GOTPacketHandler.id, BannerType.values().length, GOTEntity.id, GOTStructure.id, GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class).size(), GOTRoads.id, GOTWalls.id, GOTWaypoint.values().length, GOTFaction.values().length, GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Item.class).size(), GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Block.class).size()};
+		String[] strings = {" packets", " banners", " mobs", " structures", " biomes", " roads", " walls", " waypoints", " factions", " items", " blocks"};
+		for (int i = 0; i < nums.length; i++) {
+			GOTLog.logger.info(new StringBuilder().append("Hummel009: Registered ").append(nums[i]).append(strings[i]).toString());
 		}
-		int blocks = 0;
-		for (Block block : GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Block.class)) {
-			blocks++;
-		}
-		int biomes = 0;
-		for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
-			biomes++;
-		}
-		int waypoints = GOTWaypoint.values().length;
-		int factions = GOTFaction.values().length - 2;
-		int banners = GOTItemBanner.BannerType.values().length;
-		GOTLog.logger.info("Hummel009: Registered " + GOTPacketHandler.id + " packets");
-		GOTLog.logger.info("Hummel009: Registered " + banners + " banners");
-		GOTLog.logger.info("Hummel009: Registered " + GOTEntity.id + " mobs");
-		GOTLog.logger.info("Hummel009: Registered " + GOTStructure.id + " structures");
-		GOTLog.logger.info("Hummel009: Registered " + biomes + " biomes");
-		GOTLog.logger.info("Hummel009: Registered " + GOTRoads.id + " roads");
-		GOTLog.logger.info("Hummel009: Registered " + GOTWalls.id + " walls");
-		GOTLog.logger.info("Hummel009: Registered " + waypoints + " waypoints");
-		GOTLog.logger.info("Hummel009: Registered " + factions + " factions");
-		GOTLog.logger.info("Hummel009: Registered " + items + " items");
-		GOTLog.logger.info("Hummel009: Registered " + blocks + " blocks");
 		if (GOT.isDevMode) {
 			try {
 				DatabaseGenerator.generateWikiaDatabases();
@@ -264,7 +220,6 @@ public class GOT {
 		Blocks.dragon_egg.setCreativeTab(GOTCreativeTabs.tabStory);
 		MinecraftForge.EVENT_BUS.register(new GOTTrackingEventHandler());
 		proxy.onPreload();
-
 		int k = 1;
 		for (int i = 0; i < 8; ++i) {
 			buy.put(new ItemStack(GOTRegistry.coin, 1, i), k);

@@ -6,7 +6,6 @@ import java.util.*;
 import got.common.*;
 import got.common.faction.GOTFaction;
 import got.common.util.GOTEnumDyeColor;
-import got.common.world.biome.GOTBiome;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.event.HoverEvent;
@@ -813,10 +812,6 @@ public class GOTAchievement {
 		public GOTDimension dimension;
 		public List<GOTAchievement> list = new ArrayList<>();
 		public int nextRankAchID = 1000;
-
-		Category(GOTBiome biome) {
-			this(biome.color);
-		}
 
 		Category(GOTDimension dim, int color) {
 			codeName = name();
