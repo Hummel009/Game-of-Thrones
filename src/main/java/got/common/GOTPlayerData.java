@@ -106,6 +106,7 @@ public class GOTPlayerData {
 	public int ticksUntilFT;
 	public int uuidToMountTime;
 	public long lastOnlineTime = -1L;
+	public boolean femRankOverride = false;
 
 	public GOTPlayerData(UUID uuid) {
 		playerUUID = uuid;
@@ -1546,6 +1547,9 @@ public class GOTPlayerData {
 			EnumChatFormatting color = GOTTitle.PlayerTitle.colorForID(colorCode);
 			playerTitle = new GOTTitle.PlayerTitle(title, color);
 		}
+        if (playerData.hasKey("FemRankOverride")) {
+            this.femRankOverride = playerData.getBoolean("FemRankOverride");
+        }
 		if (playerData.hasKey("FTSince")) {
 			ftSinceTick = playerData.getInteger("FTSince");
 		}
@@ -1702,6 +1706,27 @@ public class GOTPlayerData {
 			entityplayer.addChatMessage(msg);
 		}
 	}
+
+    public boolean getFemRankOverride() {
+        return this.femRankOverride;
+    }
+
+    public void setFemRankOverride(boolean flag) {
+        this.femRankOverride = flag;
+        this.markDirty();
+        this.sendOptionsPacket(4, flag);
+    }
+
+    public boolean useFeminineRanks() {
+        if (this.femRankOverride) {
+            return true;
+        }
+        if (this.playerTitle != null) {
+            GOTTitle title = this.playerTitle.getTitle();
+            return title.isFeminineRank();
+        }
+        return false;
+    }
 
 	public void onUpdate(EntityPlayerMP entityplayer, WorldServer world) {
 		++pdTick;
@@ -2233,6 +2258,7 @@ public class GOTPlayerData {
 			playerData.setString("PlayerTitle", playerTitle.getTitle().getTitleName());
 			playerData.setInteger("PlayerTitleColor", playerTitle.getColor().getFormattingCode());
 		}
+        playerData.setBoolean("FemRankOverride", this.femRankOverride);
 		playerData.setInteger("FTSince", ftSinceTick);
 		if (uuidToMount != null) {
 			playerData.setString("MountUUID", uuidToMount.toString());

@@ -13,6 +13,7 @@ public class GOTGuiOptions extends GOTGuiMenuWBBase {
 	public GOTGuiButtonOptions buttonAlignment;
 	public GOTGuiButtonOptions buttonMapLocation;
 	public GOTGuiButtonOptions buttonConquest;
+	public GOTGuiButtonOptions buttonFeminineRank;
 
 	@Override
 	public void actionPerformed(GuiButton button) {
@@ -40,6 +41,7 @@ public class GOTGuiOptions extends GOTGuiMenuWBBase {
 		buttonAlignment.setState(!pd.getHideAlignment());
 		buttonMapLocation.setState(!pd.getHideMapLocation());
 		buttonConquest.setState(pd.getEnableConquestKills());
+        buttonFeminineRank.setState(pd.getFemRankOverride());
 		super.drawScreen(i, j, f);
 		for (Object element : buttonList) {
 			GuiButton button = (GuiButton) element;
@@ -66,7 +68,9 @@ public class GOTGuiOptions extends GOTGuiMenuWBBase {
 		buttonList.add(buttonMapLocation);
 		buttonConquest = new GOTGuiButtonOptions(5, buttonX, buttonY + 96, 200, 20, "got.gui.options.conquest");
 		buttonList.add(buttonConquest);
-		goBack = new GOTGuiButton(7, buttonX, buttonY + 120, 200, 20, StatCollector.translateToLocal("got.gui.menuButton"));
+        buttonFeminineRank = new GOTGuiButtonOptions(4, buttonX, buttonY + 120, 200, 20, "got.gui.options.femRank");
+        buttonList.add(buttonFeminineRank);
+		goBack = new GOTGuiButton(7, buttonX, buttonY + 144, 200, 20, StatCollector.translateToLocal("got.gui.menuButton"));
 		buttonList.add(goBack);
 	}
 }

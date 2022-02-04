@@ -39,7 +39,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.*;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.*;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
@@ -63,8 +62,8 @@ public class GOT {
 	public static GOTTickHandlerServer tickHandler;
 	public static WorldType worldTypeGOT;
 	public static WorldType worldTypeGOTClassic;
-	public static Map<ItemStack, Integer> buy = new HashMap<>();
-	public static Map<ItemStack, Integer> sell = new HashMap<>();
+	public static Map<ItemStack, Integer> buy = new GOTItemStackMapImpl<>();
+	public static Map<ItemStack, Integer> sell = new GOTItemStackMapImpl<>();
 	public static String langsName = "\u0420\u0443\u0441\u0441\u043A\u0438\u0439 (ru), \u0423\u043A\u0440\u0430\u0457\u043D\u0441\u044C\u043A\u0430 (uk), English (en), Deutsch (de), T\u00FCrk\u00E7e (tr), \u4E2D\u6587 (zh)";
 	public static boolean isDevMode = true;
 
