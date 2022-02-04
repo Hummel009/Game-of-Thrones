@@ -292,7 +292,6 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 					x = guiLeft + pageBorderLeft;
 					GOTFactionRank curRank = currentFaction.getRank(alignment);
 					String rankName = curRank.getFullNameWithGender(clientPD);
-					rankName = StatCollector.translateToLocalFormatted("got.gui.factions.alignment.state", rankName);
 					fontRendererObj.drawString(rankName, x, y += fontRendererObj.FONT_HEIGHT, 8019267);
 					y += fontRendererObj.FONT_HEIGHT * 2;
 					if (!isOtherPlayer) {

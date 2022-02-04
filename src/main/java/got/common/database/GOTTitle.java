@@ -25,14 +25,17 @@ public class GOTTitle {
 	public List<GOTFaction> alignmentFactions = new ArrayList<>();
 	public float alignmentRequired;
 	public boolean anyAlignment = false;
+	public GOTAchievement titleAchievement;
+	public boolean useAchievementName = false;
 	public GOTFactionRank titleRank;
 
-	public GOTAchievement titleAchievement;
+	public boolean isFeminineRank;
 
-	public GOTTitle(GOTFactionRank rank) {
-		this(rank.getCodeName());
+	public GOTTitle(GOTFactionRank rank, boolean fem) {
+		this(fem ? rank.getCodeNameFem() : rank.getCodeName());
 		titleType = TitleType.RANK;
 		titleRank = rank;
+		isFeminineRank = fem;
 	}
 
 	public GOTTitle(String s) {
@@ -46,6 +49,7 @@ public class GOTTitle {
 		titleType = TitleType.ACHIEVEMENT;
 		titleAchievement = ach;
 		if (s == null) {
+			useAchievementName = true;
 		}
 	}
 
@@ -71,8 +75,10 @@ public class GOTTitle {
 			return false;
 		}
 		case ALIGNMENT: {
+			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
+			boolean requirePledge = isAlignmentGreaterThanOrEqualToAllFactionPledges();
 			for (GOTFaction f : alignmentFactions) {
-				if (GOTLevelData.getData(entityplayer).getAlignment(f) < alignmentRequired) {
+				if ((pd.getAlignment(f) < alignmentRequired) || requirePledge && !pd.isPledgedTo(f)) {
 					continue;
 				}
 				return true;
@@ -84,7 +90,9 @@ public class GOTTitle {
 			GOTFaction fac = titleRank.fac;
 			float align = pd.getAlignment(fac);
 			if (align >= titleRank.alignment) {
-				return !titleRank.isAbovePledgeRank() || pd.isPledgedTo(fac);
+				boolean requirePledge;
+				requirePledge = titleRank.isAbovePledgeRank() || titleRank.isPledgeRank();
+				return !requirePledge || pd.isPledgedTo(fac);
 			}
 			return false;
 		}
@@ -104,6 +112,7 @@ public class GOTTitle {
 			return titleAchievement.getDescription(entityplayer);
 		}
 		case ALIGNMENT: {
+			boolean requirePledge;
 			String alignLevel = GOTAlignmentValues.formatAlignForDisplay(alignmentRequired);
 			if (anyAlignment) {
 				return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment.any", alignLevel);
@@ -121,11 +130,17 @@ public class GOTTitle {
 				GOTFaction f = alignmentFactions.get(0);
 				s = f.factionName();
 			}
+			requirePledge = isAlignmentGreaterThanOrEqualToAllFactionPledges();
+			if (requirePledge) {
+				return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment.pledge", s, alignLevel);
+			}
 			return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment", s, alignLevel);
 		}
 		case RANK: {
+			boolean requirePledge;
 			String alignS = GOTAlignmentValues.formatAlignForDisplay(titleRank.alignment);
-			if (titleRank.isAbovePledgeRank()) {
+			requirePledge = titleRank.isAbovePledgeRank() || titleRank.isPledgeRank();
+			if (requirePledge) {
 				return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment.pledge", titleRank.fac.factionName(), alignS);
 			}
 			return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment", titleRank.fac.factionName(), alignS);
@@ -136,6 +151,9 @@ public class GOTTitle {
 
 	public String getDisplayName(EntityPlayer entityplayer) {
 		if (titleType == TitleType.RANK) {
+			if (isFeminineRank) {
+				return titleRank.getDisplayFullNameFem();
+			}
 			return titleRank.getDisplayFullName();
 		}
 		return StatCollector.translateToLocal(getUntranslatedName(entityplayer));
@@ -146,10 +164,33 @@ public class GOTTitle {
 	}
 
 	public String getUntranslatedName(EntityPlayer entityplayer) {
+		if (useAchievementName && titleAchievement != null) {
+			return titleAchievement.getUntranslatedTitle(entityplayer);
+		}
 		if (titleType == TitleType.RANK) {
-			return titleRank.getCodeFullName();
+			if (isFeminineRank) {
+				return titleRank.getCodeNameFem();
+			}
+			return titleRank.getCodeName();
 		}
 		return "got.title." + name;
+	}
+
+	public boolean isAlignmentGreaterThanOrEqualToAllFactionPledges() {
+		if (titleType == TitleType.ALIGNMENT && !anyAlignment) {
+			for (GOTFaction fac : alignmentFactions) {
+				if ((alignmentRequired >= fac.getPledgeAlignment())) {
+					continue;
+				}
+				return false;
+			}
+			return true;
+		}
+		return false;
+	}
+
+	public boolean isFeminineRank() {
+		return titleType == TitleType.RANK && isFeminineRank;
 	}
 
 	public GOTTitle setAlignment(GOTFaction faction) {
@@ -268,7 +309,12 @@ public class GOTTitle {
 		}
 
 		public IChatComponent getFullTitleComponent(EntityPlayer entityplayer) {
-			IChatComponent component = new ChatComponentText("[").appendSibling(new ChatComponentTranslation(theTitle.getUntranslatedName(entityplayer))).appendText("]").appendText(" ");
+			IChatComponent component;
+			if (theTitle.titleType == TitleType.RANK) {
+				component = new ChatComponentText("[").appendSibling(new ChatComponentTranslation(theTitle.getUntranslatedName(entityplayer))).appendText(" ").appendSibling(new ChatComponentTranslation(theTitle.titleRank.getFacName())).appendText("]").appendText(" ");
+			} else {
+				component = new ChatComponentText("[").appendSibling(new ChatComponentTranslation(theTitle.getUntranslatedName(entityplayer))).appendText("]").appendText(" ");
+			}
 			component.getChatStyle().setColor(theColor);
 			return component;
 		}
@@ -312,5 +358,7 @@ public class GOTTitle {
 
 	public enum TitleType {
 		STARTER, PLAYER_EXCLUSIVE, ALIGNMENT, ACHIEVEMENT, RANK;
+
 	}
+
 }

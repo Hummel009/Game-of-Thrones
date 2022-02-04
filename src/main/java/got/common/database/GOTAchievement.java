@@ -324,8 +324,6 @@ public class GOTAchievement {
 	}
 
 	public void broadcastEarning(EntityPlayer entityplayer) {
-
-		getDimension().getDimensionName();
 		IChatComponent earnName = getChatComponentForEarn(entityplayer);
 		ChatComponentTranslation msg = new ChatComponentTranslation("got.chat.achievement", entityplayer.func_145748_c_(), earnName);
 		MinecraftServer.getServer().getConfigurationManager().sendChatMsg(msg);
@@ -376,7 +374,7 @@ public class GOTAchievement {
 	}
 
 	public IChatComponent getAchievementChatComponent(EntityPlayer entityplayer) {
-		ChatComponentTranslation component = new ChatComponentTranslation(getTitle(entityplayer)).createCopy();
+		ChatComponentTranslation component = new ChatComponentTranslation(getUntranslatedTitle(entityplayer)).createCopy();
 		component.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 		component.getChatStyle().setChatHoverEvent(new HoverEvent(GOTChatEvents.SHOW_GOT_ACHIEVEMENT, new ChatComponentText(category.name() + "$" + ID)));
 		return component;
@@ -406,10 +404,10 @@ public class GOTAchievement {
 	}
 
 	public String getTitle(EntityPlayer entityplayer) {
-		return StatCollector.translateToLocal(getUntranslatedTitle());
+		return StatCollector.translateToLocal(getUntranslatedTitle(entityplayer));
 	}
 
-	public String getUntranslatedTitle() {
+	public String getUntranslatedTitle(EntityPlayer entityplayer) {
 		return "got.achievement." + name + ".title";
 	}
 
@@ -423,17 +421,17 @@ public class GOTAchievement {
 		return this;
 	}
 
-	public GOTAchievement setRequiresAlly(List<GOTFaction> f) {
-		return this.setRequiresAlly(f.toArray(new GOTFaction[0]));
+	public GOTAchievement setRequiresAnyAlly(List<GOTFaction> f) {
+		return setRequiresAlly(f.toArray(new GOTFaction[0]));
+	}
+
+	public GOTAchievement setRequiresAnyEnemy(List<GOTFaction> f) {
+		return setRequiresEnemy(f.toArray(new GOTFaction[0]));
 	}
 
 	public GOTAchievement setRequiresEnemy(GOTFaction... f) {
 		enemyFactions.addAll(Arrays.asList(f));
 		return this;
-	}
-
-	public GOTAchievement setRequiresEnemy(List<GOTFaction> f) {
-		return this.setRequiresEnemy(f.toArray(new GOTFaction[0]));
 	}
 
 	public GOTAchievement setSpecial() {
