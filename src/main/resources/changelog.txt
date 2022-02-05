@@ -2,6 +2,10 @@ CHANGELOG
 
 >>VERSION 17.7
 + Added Asshai Shield
++ Added feminized ranks
+
+* Improved prostitute names & skins
+* Improved ranks
 
 * Optimized rendering code
 
