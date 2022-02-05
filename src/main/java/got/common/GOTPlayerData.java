@@ -980,6 +980,10 @@ public class GOTPlayerData {
 		return fellowships;
 	}
 
+	public boolean getFemRankOverride() {
+		return femRankOverride;
+	}
+
 	public boolean getFriendlyFire() {
 		return friendlyFire;
 	}
@@ -1547,9 +1551,9 @@ public class GOTPlayerData {
 			EnumChatFormatting color = GOTTitle.PlayerTitle.colorForID(colorCode);
 			playerTitle = new GOTTitle.PlayerTitle(title, color);
 		}
-        if (playerData.hasKey("FemRankOverride")) {
-            this.femRankOverride = playerData.getBoolean("FemRankOverride");
-        }
+		if (playerData.hasKey("FemRankOverride")) {
+			femRankOverride = playerData.getBoolean("FemRankOverride");
+		}
 		if (playerData.hasKey("FTSince")) {
 			ftSinceTick = playerData.getInteger("FTSince");
 		}
@@ -1706,27 +1710,6 @@ public class GOTPlayerData {
 			entityplayer.addChatMessage(msg);
 		}
 	}
-
-    public boolean getFemRankOverride() {
-        return this.femRankOverride;
-    }
-
-    public void setFemRankOverride(boolean flag) {
-        this.femRankOverride = flag;
-        this.markDirty();
-        this.sendOptionsPacket(4, flag);
-    }
-
-    public boolean useFeminineRanks() {
-        if (this.femRankOverride) {
-            return true;
-        }
-        if (this.playerTitle != null) {
-            GOTTitle title = this.playerTitle.getTitle();
-            return title.isFeminineRank();
-        }
-        return false;
-    }
 
 	public void onUpdate(EntityPlayerMP entityplayer, WorldServer world) {
 		++pdTick;
@@ -2258,7 +2241,7 @@ public class GOTPlayerData {
 			playerData.setString("PlayerTitle", playerTitle.getTitle().getTitleName());
 			playerData.setInteger("PlayerTitleColor", playerTitle.getColor().getFormattingCode());
 		}
-        playerData.setBoolean("FemRankOverride", this.femRankOverride);
+		playerData.setBoolean("FemRankOverride", femRankOverride);
 		playerData.setInteger("FTSince", ftSinceTick);
 		if (uuidToMount != null) {
 			playerData.setString("MountUUID", uuidToMount.toString());
@@ -2645,6 +2628,12 @@ public class GOTPlayerData {
 		}
 	}
 
+	public void setFemRankOverride(boolean flag) {
+		femRankOverride = flag;
+		markDirty();
+		sendOptionsPacket(4, flag);
+	}
+
 	public void setFriendlyFire(boolean flag) {
 		friendlyFire = flag;
 		markDirty();
@@ -3007,6 +2996,17 @@ public class GOTPlayerData {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public boolean useFeminineRanks() {
+		if (femRankOverride) {
+			return true;
+		}
+		if (playerTitle != null) {
+			GOTTitle title = playerTitle.getTitle();
+			return title.isFeminineRank();
+		}
+		return false;
 	}
 
 	public static GOTMaterial getBodyMaterial(EntityLivingBase entity) {

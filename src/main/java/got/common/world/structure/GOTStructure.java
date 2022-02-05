@@ -306,7 +306,7 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureTyroshTavern.class, "TyroshTavern", GOTFaction.TYROSH);
 		GOTStructureRegistry.register(id++, GOTStructureTyroshTower.class, "TyroshTower", GOTFaction.TYROSH);
 		GOTStructureRegistry.register(id++, GOTStructureTyroshTraining.class, "TyroshTraining", GOTFaction.TYROSH);
-		
+
 		GOTStructureRegistry.register(id++, GOTStructureGoldenWatchtower.class, "GoldenWatchtower", 0xffd700);
 
 		GOTStructureRegistry.register(id++, GOTStructureGhiscarPyramid.class, "GhiscarPyramid", GOTFaction.GHISCAR);

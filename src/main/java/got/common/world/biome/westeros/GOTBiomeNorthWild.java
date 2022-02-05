@@ -50,7 +50,7 @@ public class GOTBiomeNorthWild extends GOTBiome {
 		npcSpawnList.newFactionList(0).add(c2);
 
 		decorator.addVillage(new GOTStructureNorthHillmanVillage(this, 1.0f));
-		
+
 		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
 		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);

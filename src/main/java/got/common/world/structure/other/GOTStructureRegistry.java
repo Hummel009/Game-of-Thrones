@@ -52,26 +52,6 @@ public class GOTStructureRegistry {
 		classToNameMapping.put(strClass, name);
 	}
 
-	public static void register(int id, GOTVillageGen village, String name, int color, IVillageProperties properties) {
-		IStructureProvider strProvider = new IStructureProvider() {
-
-			@Override
-			public boolean generateStructure(World world, EntityPlayer entityplayer, int i, int j, int k) {
-				GOTVillageGen.AbstractInstance<?> instance = village.createAndSetupVillageInstance(world, i, k, world.rand, LocationInfo.SPAWNED_BY_PLAYER);
-				instance.setRotation((GOTStructureRegistry.getRotationFromPlayer(entityplayer) + 2) % 4);
-				properties.apply(instance);
-				village.generateCompleteVillageInstance(instance, world, i, k);
-				return true;
-			}
-
-			@Override
-			public boolean isVillage() {
-				return true;
-			}
-		};
-		GOTStructureRegistry.registerStructure(id, strProvider, name, color, color, false);
-	}
-
 	public static void register(int id, GOTVillageGen village, String name, GOTFaction faction, IVillageProperties properties) {
 		IStructureProvider strProvider = new IStructureProvider() {
 
@@ -90,6 +70,26 @@ public class GOTStructureRegistry {
 			}
 		};
 		GOTStructureRegistry.registerStructure(id, strProvider, name, faction.eggColor, faction.eggColor, false);
+	}
+
+	public static void register(int id, GOTVillageGen village, String name, int color, IVillageProperties properties) {
+		IStructureProvider strProvider = new IStructureProvider() {
+
+			@Override
+			public boolean generateStructure(World world, EntityPlayer entityplayer, int i, int j, int k) {
+				GOTVillageGen.AbstractInstance<?> instance = village.createAndSetupVillageInstance(world, i, k, world.rand, LocationInfo.SPAWNED_BY_PLAYER);
+				instance.setRotation((GOTStructureRegistry.getRotationFromPlayer(entityplayer) + 2) % 4);
+				properties.apply(instance);
+				village.generateCompleteVillageInstance(instance, world, i, k);
+				return true;
+			}
+
+			@Override
+			public boolean isVillage() {
+				return true;
+			}
+		};
+		GOTStructureRegistry.registerStructure(id, strProvider, name, color, color, false);
 	}
 
 	public static void registerStructure(int id, Class<? extends WorldGenerator> strClass, String name, int colorBG, int colorFG, boolean hide) {

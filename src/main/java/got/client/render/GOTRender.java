@@ -67,7 +67,7 @@ import net.minecraft.init.Items;
 
 public class GOTRender {
 	public static Map<Class, Render> renders = new HashMap<>();
-	
+
 	public static void onInit() {
 		renders.put(GOTEntityHillman.class, new GOTRenderFactionNPCLayered("westeros/wild"));
 		renders.put(GOTEntityIbbenMan.class, new GOTRenderFactionNPCLayered("essos/ibben"));

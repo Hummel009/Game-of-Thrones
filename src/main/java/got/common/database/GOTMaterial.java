@@ -134,13 +134,13 @@ public class GOTMaterial {
 		return this;
 	}
 
-	public GOTMaterial setIsStrong() {
-		setUses(500).setDamage(3.0f).setProtection(0.6f).setSpeed(6.0f).setHarvestLevel(10).setEnchantability(10);
+	public GOTMaterial setIsStandart() {
+		setUses(350).setDamage(2.5f).setProtection(0.5f).setSpeed(5.5f).setHarvestLevel(6).setEnchantability(8).setCraftingItem(Items.iron_ingot);
 		return this;
 	}
 
-	public GOTMaterial setIsStandart() {
-		setUses(350).setDamage(2.5f).setProtection(0.5f).setSpeed(5.5f).setHarvestLevel(6).setEnchantability(8).setCraftingItem(Items.iron_ingot);
+	public GOTMaterial setIsStrong() {
+		setUses(500).setDamage(3.0f).setProtection(0.6f).setSpeed(6.0f).setHarvestLevel(10).setEnchantability(10);
 		return this;
 	}
 

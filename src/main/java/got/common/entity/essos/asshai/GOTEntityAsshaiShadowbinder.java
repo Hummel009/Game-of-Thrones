@@ -1,6 +1,6 @@
 package got.common.entity.essos.asshai;
 
-import got.common.database.*;
+import got.common.database.GOTRegistry;
 import got.common.entity.ai.GOTEntityAIAsshaiShadowbinderUseStaff;
 import net.minecraft.entity.*;
 import net.minecraft.item.ItemStack;

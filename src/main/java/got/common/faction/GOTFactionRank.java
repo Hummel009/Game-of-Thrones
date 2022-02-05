@@ -17,97 +17,95 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 	public boolean addFacName = true;
 
 	public GOTFactionRank(GOTFaction f, float al, String s) {
-		this.fac = f;
-		this.alignment = al;
-		this.name = s;
+		fac = f;
+		alignment = al;
+		name = s;
 	}
 
 	public GOTFactionRank(GOTFaction f, float al, String s, Boolean add) {
-		this.fac = f;
-		this.alignment = al;
-		this.name = s;
+		fac = f;
+		alignment = al;
+		name = s;
 		addFacName = add;
 	}
 
 	@Override
 	public int compareTo(GOTFactionRank other) {
-		if (this.fac != other.fac) {
+		if (fac != other.fac) {
 			throw new IllegalArgumentException("Cannot compare two ranks from different factions!");
 		}
-		float al1 = this.alignment;
+		float al1 = alignment;
 		float al2 = other.alignment;
 		if (al1 == al2) {
 			throw new IllegalArgumentException("Two ranks cannot have the same alignment value!");
 		}
-		return -Float.valueOf(al1).compareTo(Float.valueOf(al2));
+		return -Float.valueOf(al1).compareTo(al2);
 	}
 
 	public String getCodeFullNameWithGender(GOTPlayerData pd) {
 		if (pd.useFeminineRanks()) {
-			return this.getCodeNameFem();
+			return getCodeNameFem();
 		}
-		return this.getCodeName();
+		return getCodeName();
 	}
 
 	public String getCodeName() {
-		return "got.rank." + this.name;
+		return "got.rank." + name;
 	}
 
 	public String getCodeNameFem() {
-		return this.getCodeName() + "_fm";
+		return getCodeName() + "_fm";
 	}
 
 	public String getDisplayFullName() {
 		if (addFacName) {
-			return StatCollector.translateToLocal(this.getCodeName()) + " " + getFacName();
-		} else {
-			return StatCollector.translateToLocal(this.getCodeName());
+			return StatCollector.translateToLocal(getCodeName()) + " " + getFacName();
 		}
-	}
-
-	public String getFacName() {
-		if (this.fac != null) {
-			return StatCollector.translateToLocal("got.rank." + this.fac.codeName());
-		}
-		return "";
+		return StatCollector.translateToLocal(getCodeName());
 	}
 
 	public String getDisplayFullNameFem() {
 		if (addFacName) {
-			return StatCollector.translateToLocal(this.getCodeNameFem()) + " " + getFacName();
-		} else {
-			return StatCollector.translateToLocal(this.getCodeNameFem());
+			return StatCollector.translateToLocal(getCodeNameFem()) + " " + getFacName();
 		}
+		return StatCollector.translateToLocal(getCodeNameFem());
 	}
 
 	public String getDisplayName() {
-		return StatCollector.translateToLocal(this.getCodeName());
+		return StatCollector.translateToLocal(getCodeName());
 	}
 
 	public String getDisplayNameFem() {
-		return StatCollector.translateToLocal((String) this.getCodeNameFem());
+		return StatCollector.translateToLocal(getCodeNameFem());
+	}
+
+	public String getFacName() {
+		if (fac != null) {
+			return StatCollector.translateToLocal("got.rank." + fac.codeName());
+		}
+		return "";
 	}
 
 	public String getFullNameWithGender(GOTPlayerData pd) {
 		if (pd.useFeminineRanks()) {
-			return this.getDisplayFullNameFem();
+			return getDisplayFullNameFem();
 		}
-		return this.getDisplayFullName();
+		return getDisplayFullName();
 	}
 
 	public GOTAchievementRank getRankAchievement() {
-		return this.rankAchievement;
+		return rankAchievement;
 	}
 
 	public String getShortNameWithGender(GOTPlayerData pd) {
 		if (pd.useFeminineRanks()) {
-			return this.getDisplayNameFem();
+			return getDisplayNameFem();
 		}
-		return this.getDisplayName();
+		return getDisplayName();
 	}
 
 	public boolean isAbovePledgeRank() {
-		return this.alignment > this.fac.getPledgeAlignment();
+		return alignment > fac.getPledgeAlignment();
 	}
 
 	public boolean isDummyRank() {
@@ -115,22 +113,22 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 	}
 
 	public boolean isPledgeRank() {
-		return this == this.fac.getPledgeRank();
+		return this == fac.getPledgeRank();
 	}
 
 	public GOTFactionRank makeAchievement() {
-		this.rankAchievement = new GOTAchievementRank(this);
+		rankAchievement = new GOTAchievementRank(this);
 		return this;
 	}
 
 	public GOTFactionRank makeTitle() {
-		this.rankTitleMasc = new GOTTitle(this, false);
-		this.rankTitleFem = new GOTTitle(this, true);
+		rankTitleMasc = new GOTTitle(this, false);
+		rankTitleFem = new GOTTitle(this, true);
 		return this;
 	}
 
 	public GOTFactionRank setPledgeRank() {
-		this.fac.setPledgeRank(this);
+		fac.setPledgeRank(this);
 		return this;
 	}
 
@@ -141,17 +139,17 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 
 		@Override
 		public String getCodeName() {
-			return this.name;
+			return name;
 		}
 
 		@Override
 		public String getDisplayFullName() {
-			return this.getDisplayName();
+			return getDisplayName();
 		}
 
 		@Override
 		public String getDisplayName() {
-			return StatCollector.translateToLocal((String) this.getCodeName());
+			return StatCollector.translateToLocal(getCodeName());
 		}
 
 		@Override

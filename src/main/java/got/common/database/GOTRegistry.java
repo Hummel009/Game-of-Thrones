@@ -1303,7 +1303,7 @@ public class GOTRegistry {
 		planksRotten = new GOTBlockPlanksRotten();
 		thatch = new GOTBlockThatch();
 		whiteSandstone = new GOTBlockSandstone();
-		
+
 		ricePlant = new GOTBlockRice().setHardness(0.0f).setStepSound(Block.soundTypeGrass).setResistance(0.0f).setBlockName("rice").setBlockTextureName("complexcrops:rice/rice");
 		aleHornBlock = new GOTBlockAleHorn();
 		aleHornGoldBlock = new GOTBlockAleHorn();

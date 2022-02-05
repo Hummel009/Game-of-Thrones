@@ -54,7 +54,7 @@ public class GOTStructureGoldenWatchtower extends GOTStructureBase {
 			fenceMeta = 0;
 			stairBlock = Blocks.oak_stairs;
 			trapdoorBlock = Blocks.trapdoor;
-		} else
+		} else {
 			switch (randomWood) {
 			case 1:
 				woodBlock = Blocks.log;
@@ -89,6 +89,7 @@ public class GOTStructureGoldenWatchtower extends GOTStructureBase {
 			default:
 				break;
 			}
+		}
 		generateSupportPillar(world, -3, 4, -3);
 		generateSupportPillar(world, -3, 4, 3);
 		generateSupportPillar(world, 3, 4, -3);
