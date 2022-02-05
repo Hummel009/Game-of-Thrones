@@ -10,6 +10,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 public class GOTEntityProstitute extends GOTEntityHumanBase {
+	public ProstituteType prostituteType;
+	
 	public GOTEntityProstitute(World world) {
 		super(world);
 		canBeMarried = true;
@@ -47,7 +49,7 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 	public void entityInit() {
 		super.entityInit();
 		dataWatcher.addObject(18, (byte) 0);
-		setProstituteType(ProstituteType.forID(rand.nextInt(ProstituteType.values().length)));
+		setProstituteType(prostituteType);
 	}
 
 	@Override
@@ -103,54 +105,72 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 
 	@Override
 	public void setupNPCName() {
-		switch(getProstituteType()) {
-		case LIGHT_1:
-		case LIGHT_2:
-		case LIGHT_3:
-		case LIGHT_4:
-		case LIGHT_5:
+		String name = null;
+		ProstituteType type = null;
+		switch (rand.nextInt(10)) {
+		case 0:
+			name = GOTNames.getWildName(rand, familyInfo.isMale());
+			prostituteType = ProstituteType.WILD;
+			break;
+		case 1:
+			name = GOTNames.getGhiscarName(rand, familyInfo.isMale());
+			prostituteType = ProstituteType.DARK;
+			break;
+		case 2:
+			name = GOTNames.getSothoryosName(rand, familyInfo.isMale());
+			prostituteType = ProstituteType.BLACK;
+			break;
+		case 3:
 			switch(rand.nextInt(2)) {
 			case 0:
-				familyInfo.setName(GOTNames.getWesterosName(rand, familyInfo.isMale()));
+				name = GOTNames.getDothrakiName(rand, familyInfo.isMale());
 				break;
 			case 1:
-				familyInfo.setName(GOTNames.getEssosName(rand, familyInfo.isMale()));
+				name = GOTNames.getLhazarName(rand, familyInfo.isMale());
 				break;
 			}
+			prostituteType = ProstituteType.NOMAD;
 			break;
-		case DARK:
-			switch(rand.nextInt(2)) {
+		case 4:
+			name = GOTNames.getYiTiName(rand, familyInfo.isMale());
+			prostituteType = ProstituteType.YITI;
+			break;
+		case 5:
+			name = GOTNames.getJogosName(rand, familyInfo.isMale());
+			prostituteType = ProstituteType.JOGOS;
+			break;
+		default:
+			switch(rand.nextInt(3)) {
 			case 0:
-				familyInfo.setName(GOTNames.getWesterosName(rand, familyInfo.isMale()));
+				name = GOTNames.getWesterosName(rand, familyInfo.isMale());
 				break;
 			case 1:
-				familyInfo.setName(GOTNames.getGhiscarName(rand, familyInfo.isMale()));
+				name = GOTNames.getEssosName(rand, familyInfo.isMale());
+				break;
+			case 2:
+				name = GOTNames.getQarthName(rand, familyInfo.isMale());
 				break;
 			}
-			break;
-		case BLACK:
-			familyInfo.setName(GOTNames.getSothoryosName(rand, familyInfo.isMale()));
-			break;
-		case NOMAD:
-			switch(rand.nextInt(2)) {
+			switch(rand.nextInt(5)) {
 			case 0:
-				familyInfo.setName(GOTNames.getDothrakiName(rand, familyInfo.isMale()));
+				prostituteType = ProstituteType.LIGHT_1;
 				break;
 			case 1:
-				familyInfo.setName(GOTNames.getLhazarName(rand, familyInfo.isMale()));
+				prostituteType = ProstituteType.LIGHT_2;
+				break;
+			case 2:
+				prostituteType = ProstituteType.LIGHT_3;
+				break;
+			case 3:
+				prostituteType = ProstituteType.LIGHT_4;
+				break;
+			case 4:
+				prostituteType = ProstituteType.LIGHT_5;
 				break;
 			}
-			break;
-		case YITI:
-			familyInfo.setName(GOTNames.getYiTiName(rand, familyInfo.isMale()));
-			break;
-		case JOGOS:
-			familyInfo.setName(GOTNames.getJogosName(rand, familyInfo.isMale()));
-			break;
-		case WILD:
-			familyInfo.setName(GOTNames.getWildName(rand, familyInfo.isMale()));
 			break;
 		}
+		familyInfo.setName(name);
 	}
 
 	public enum ProstituteType {
