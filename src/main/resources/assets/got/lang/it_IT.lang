@@ -1,4 +1,61 @@
 
+got.gui.options.femRank≠
+got.rank.ARRYN≠
+got.rank.ASSHAI≠
+got.rank.BRAAVOS≠
+got.rank.CERSEI≠
+got.rank.CROWNLANDS≠
+got.rank.DORNE≠
+got.rank.DOTHRAKI≠
+got.rank.DRAGONSTONE≠
+got.rank.GHISCAR≠
+got.rank.HILL_TRIBES≠
+got.rank.HOSTILE≠
+got.rank.IBBEN≠
+got.rank.IRONBORN≠
+got.rank.JOGOS≠
+got.rank.LHAZAR≠
+got.rank.LORATH≠
+got.rank.LYS≠
+got.rank.MOSSOVY≠
+got.rank.MYR≠
+got.rank.NIGHT_WATCH≠
+got.rank.NORTH≠
+got.rank.NORVOS≠
+got.rank.PENTOS≠
+got.rank.QARTH≠
+got.rank.QOHOR≠
+got.rank.REACH≠
+got.rank.RIVERLANDS≠
+got.rank.SOTHORYOS≠
+got.rank.STORMLANDS≠
+got.rank.SUMMER_ISLANDS≠
+got.rank.TYROSH≠
+got.rank.ULTHOS≠
+got.rank.UNALIGNED≠
+got.rank.VOLANTIS≠
+got.rank.WESTERLANDS≠
+got.rank.WHITE_WALKER≠
+got.rank.WILDLING≠
+got.rank.YI_TI≠
+got.rank.enemy≠
+got.rank.enemy_fm≠
+got.rank.neutral≠
+got.rank.neutral_fm≠
+got.rank.guest≠
+got.rank.friend≠
+got.rank.defender≠
+got.rank.hero≠
+got.rank.leader≠
+got.rank.guest_fm≠
+got.rank.friend_fm≠
+got.rank.defender_fm≠
+got.rank.hero_fm≠
+got.rank.leader_fm≠
+got.rank.king≠
+got.rank.king_fm≠
+got.capes.YITI_FRONTIER.name≠
+got.shields.ASSHAI.name≠
 attribute.name.generic.movementSpeedAir=Velocità (aria)
 color.black=Nero
 color.blue=Blu
@@ -2019,468 +2076,92 @@ got.enchant.weak2=Incrinato
 got.enchant.weak3=Malconcio
 got.faction.ARRYN.entity=Gente della valle
 got.faction.ARRYN.name=Valle di Arryn
-got.faction.ARRYN.rank.commander.f=Generale di Valle di Arryn
-got.faction.ARRYN.rank.commander=Generale
-got.faction.ARRYN.rank.friend.f=Amico di Valle di Arryn
-got.faction.ARRYN.rank.friend=Amico
-got.faction.ARRYN.rank.general.f=Lord di Valle di Arryn
-got.faction.ARRYN.rank.general=Signore
-got.faction.ARRYN.rank.guest.f=Ospite di Valle di Arryn
-got.faction.ARRYN.rank.guest=Ospite
-got.faction.ARRYN.rank.kingsguard.f=Capitano di Valle di Arryn
-got.faction.ARRYN.rank.kingsguard=Capitano
-got.faction.ARRYN.rank.leutenant.f=Guardia di Valle di Arryn
-got.faction.ARRYN.rank.leutenant=Guardia
-got.faction.ARRYN.rank.warrior.f=Guerriero di Valle di Arryn
-got.faction.ARRYN.rank.warrior=Guerriero
 got.faction.ARRYN.subtitle=Terra di Arryn
 got.faction.ASSHAI.entity=Persone libere
 got.faction.ASSHAI.name=Asshai
-got.faction.ASSHAI.rank.commander.f=Arcimago di Asshai
-got.faction.ASSHAI.rank.commander=Arcimago
-got.faction.ASSHAI.rank.friend.f=Amico di Asshai
-got.faction.ASSHAI.rank.friend=Amico
-got.faction.ASSHAI.rank.guard.f=Guardia di Asshai
-got.faction.ASSHAI.rank.guard=Guardia
-got.faction.ASSHAI.rank.guest.f=Ospite di Asshai
-got.faction.ASSHAI.rank.guest=Ospite
-got.faction.ASSHAI.rank.shadowbinder.f=Shadowbinder di Asshai
-got.faction.ASSHAI.rank.shadowbinder=Shadowbinder
 got.faction.ASSHAI.subtitle=Città Nera degli Shadowbinders
 got.faction.BRAAVOS.entity=Persone libere
 got.faction.BRAAVOS.name=Braavos
-got.faction.BRAAVOS.rank.commander.f=Generale di Braavos
-got.faction.BRAAVOS.rank.commander=Generale
-got.faction.BRAAVOS.rank.friend.f=Amico di Braavos
-got.faction.BRAAVOS.rank.friend=Amico
-got.faction.BRAAVOS.rank.general.f=Ammiraglio di Braavos
-got.faction.BRAAVOS.rank.general=Ammiraglio
-got.faction.BRAAVOS.rank.guest.f=Ospite di Braavos
-got.faction.BRAAVOS.rank.guest=Ospite
-got.faction.BRAAVOS.rank.kingsguard.f=Capitano di Braavos
-got.faction.BRAAVOS.rank.kingsguard=Capitano
-got.faction.BRAAVOS.rank.leutenant.f=Guardia di Braavos
-got.faction.BRAAVOS.rank.leutenant=Guardia
-got.faction.BRAAVOS.rank.warrior.f=Guerriero di Braavos
-got.faction.BRAAVOS.rank.warrior=Guerriero
 got.faction.BRAAVOS.subtitle=Città libera di Essos
 got.faction.CERSEI.name=Terre della Corona
 got.faction.CROWNLANDS.entity=Persone della capitale
 got.faction.CROWNLANDS.name=Terre della Corona
-got.faction.CROWNLANDS.rank.commander.f=Uomoo del re
-got.faction.CROWNLANDS.rank.commander=Uomoo del re
-got.faction.CROWNLANDS.rank.friend.f=Amico di Terre della Corona
-got.faction.CROWNLANDS.rank.friend=Amico
-got.faction.CROWNLANDS.rank.general.f=Re dei 7 regni
-got.faction.CROWNLANDS.rank.general=Re
-got.faction.CROWNLANDS.rank.guest.f=Ospite di Terre della Corona
-got.faction.CROWNLANDS.rank.guest=Ospite
-got.faction.CROWNLANDS.rank.kingsguard.f=Guardia di Terre della Corona
-got.faction.CROWNLANDS.rank.kingsguard=Guardia
-got.faction.CROWNLANDS.rank.leutenant.f=Capitano di Terre della Corona
-got.faction.CROWNLANDS.rank.leutenant=Capitano
-got.faction.CROWNLANDS.rank.warrior.f=Guerriero di Terre della Corona
-got.faction.CROWNLANDS.rank.warrior=Guerriero
 got.faction.CROWNLANDS.subtitle=Il posto di Robert
 got.faction.DORNE.entity=Dorneish
 got.faction.DORNE.name=Dorne
-got.faction.DORNE.rank.commander.f=Generale di Dorne
-got.faction.DORNE.rank.commander=Generale
-got.faction.DORNE.rank.friend.f=Amico di Dorne
-got.faction.DORNE.rank.friend=Amico
-got.faction.DORNE.rank.general.f=Principe di Dorne
-got.faction.DORNE.rank.general=Principe
-got.faction.DORNE.rank.guest.f=Ospite di Dorne
-got.faction.DORNE.rank.guest=Ospite
-got.faction.DORNE.rank.kingsguard.f=Capitano di Dorne
-got.faction.DORNE.rank.kingsguard=Capitano
-got.faction.DORNE.rank.leutenant.f=Guardia di Dorne
-got.faction.DORNE.rank.leutenant=Guardia
-got.faction.DORNE.rank.warrior.f=Guerriero di Dorne
-got.faction.DORNE.rank.warrior=Guerriero
 got.faction.DORNE.subtitle=Terra di Martell
 got.faction.DOTHRAKI.entity=Esercito del Mare d'Erba
 got.faction.DOTHRAKI.name=Dothraki
-got.faction.DOTHRAKI.rank.khal.f=Khal
-got.faction.DOTHRAKI.rank.khal=Khal
 got.faction.DOTHRAKI.subtitle=Esercito del Mare d'Erba
 got.faction.DRAGONSTONE.entity=Le persone di Stannis
 got.faction.DRAGONSTONE.name=Dragonstone
-got.faction.DRAGONSTONE.rank.commander.f=Generale di Roccia del Drago
-got.faction.DRAGONSTONE.rank.commander=Generale
-got.faction.DRAGONSTONE.rank.friend.f=Amico di Roccia del Drago
-got.faction.DRAGONSTONE.rank.friend=Amico
-got.faction.DRAGONSTONE.rank.general.f=Lord di Dragonstone
-got.faction.DRAGONSTONE.rank.general=Signore
-got.faction.DRAGONSTONE.rank.guest.f=Ospite di Roccia del Drago
-got.faction.DRAGONSTONE.rank.guest=Ospite
-got.faction.DRAGONSTONE.rank.kingsguard.f=Capitano di Roccia del Drago
-got.faction.DRAGONSTONE.rank.kingsguard=Capitano
-got.faction.DRAGONSTONE.rank.leutenant.f=Guardia di Roccia del Drago
-got.faction.DRAGONSTONE.rank.leutenant=Guardia
-got.faction.DRAGONSTONE.rank.warrior.f=Guerriero di Roccia del Drago
-got.faction.DRAGONSTONE.rank.warrior=Guerriero
 got.faction.DRAGONSTONE.subtitle=Terre del vero re
 got.faction.GHISCAR.entity=Persone libere
 got.faction.GHISCAR.name=Ghiscar
-got.faction.GHISCAR.rank.commander.f=Generale di Ghiscar
-got.faction.GHISCAR.rank.commander=Generale
-got.faction.GHISCAR.rank.friend.f=Amico di Ghiscar
-got.faction.GHISCAR.rank.friend=Amico
-got.faction.GHISCAR.rank.general.f=Sovrano di Ghiscar
-got.faction.GHISCAR.rank.general=Righello
-got.faction.GHISCAR.rank.guest.f=Ospite di Ghiscar
-got.faction.GHISCAR.rank.guest=Ospite
-got.faction.GHISCAR.rank.kingsguard.f=Berserker di Ghiscar
-got.faction.GHISCAR.rank.kingsguard=Berserker
-got.faction.GHISCAR.rank.leutenant.f=Schiavo di Ghiscar
-got.faction.GHISCAR.rank.leutenant=Schiavista
-got.faction.GHISCAR.rank.warrior.f=Guerriero di Ghiscar
-got.faction.GHISCAR.rank.warrior=Guerriero
 got.faction.GHISCAR.subtitle=Baia degli Schiavisti
 got.faction.HILL_TRIBES.entity=Tribù delle colline
 got.faction.HILL_TRIBES.name=Tribù delle colline
-got.faction.HILL_TRIBES.rank.avenger.f=Vendicatore delle tribù delle colline
-got.faction.HILL_TRIBES.rank.avenger=Vendicatore
-got.faction.HILL_TRIBES.rank.bearer.f=Berserker di Hill-Tribes
-got.faction.HILL_TRIBES.rank.bearer=Berserker
-got.faction.HILL_TRIBES.rank.chieftain.f=Capotribù delle tribù delle colline
-got.faction.HILL_TRIBES.rank.chieftain=Capo
-got.faction.HILL_TRIBES.rank.guest.f=Ospite di Hill-Tribes
-got.faction.HILL_TRIBES.rank.guest=Ospite
-got.faction.HILL_TRIBES.rank.kinsman.f=Amico delle tribù delle colline
-got.faction.HILL_TRIBES.rank.kinsman=Amico
-got.faction.HILL_TRIBES.rank.warlord.f=Signore della guerra delle tribù delle colline
-got.faction.HILL_TRIBES.rank.warlord=Signore della guerra
-got.faction.HILL_TRIBES.rank.warrior.f=Guerriero delle tribù delle colline
-got.faction.HILL_TRIBES.rank.warrior=Guerriero
 got.faction.HILL_TRIBES.subtitle=Tribù delle Colline della Valle
 got.faction.HOSTILE.name≠
 got.faction.IBBEN.entity=Uomini di Ibben
 got.faction.IBBEN.name=Ibben
-got.faction.IBBEN.rank.commander.f=Ammiraglio di Ibben
-got.faction.IBBEN.rank.commander=Ammiraglio
-got.faction.IBBEN.rank.friend.f=Amico di Ibben
-got.faction.IBBEN.rank.friend=Amico
-got.faction.IBBEN.rank.general.f=Re di Ibben
-got.faction.IBBEN.rank.general=Re
-got.faction.IBBEN.rank.guest.f=Ospite di Ibben
-got.faction.IBBEN.rank.guest=Ospite
-got.faction.IBBEN.rank.kingsguard.f=Capitano di Ibben
-got.faction.IBBEN.rank.kingsguard=Capitano
-got.faction.IBBEN.rank.leutenant.f=Guardia di Ibben
-got.faction.IBBEN.rank.leutenant=Guardia
-got.faction.IBBEN.rank.warrior.f=Guerriero di Ibben
-got.faction.IBBEN.rank.warrior=Guerriero
 got.faction.IBBEN.subtitle=Cacciatori di balene di Ibben
 got.faction.IRONBORN.entity=Ironborn
 got.faction.IRONBORN.name=Isole di ferro
-got.faction.IRONBORN.rank.commander.f=Ammiraglio delle Isole di Ferro
-got.faction.IRONBORN.rank.commander=Ammiraglio
-got.faction.IRONBORN.rank.friend.f=Amico delle Isole di Ferro
-got.faction.IRONBORN.rank.friend=Amico
-got.faction.IRONBORN.rank.general.f=Signore delle Isole di Ferro
-got.faction.IRONBORN.rank.general=Signore
-got.faction.IRONBORN.rank.guest.f=Ospite delle Isole di Ferro
-got.faction.IRONBORN.rank.guest=Ospite
-got.faction.IRONBORN.rank.kingsguard.f=Capitano delle Isole di Ferro
-got.faction.IRONBORN.rank.kingsguard=Capitano
-got.faction.IRONBORN.rank.leutenant.f=Guardia delle Isole di Ferro
-got.faction.IRONBORN.rank.leutenant=Guardia
-got.faction.IRONBORN.rank.warrior.f=Guerriero delle Isole di Ferro
-got.faction.IRONBORN.rank.warrior=Guerriero
 got.faction.IRONBORN.subtitle=Greyjoy's Land
 got.faction.JOGOS.entity=Jogos Nhai
 got.faction.JOGOS.name=Jogos Nhai
-got.faction.JOGOS.rank.chief.f=Jhattar di Jogos Nhai
-got.faction.JOGOS.rank.chief=Jhattar
 got.faction.JOGOS.subtitle=Nomadi dell'Estremo Oriente
 got.faction.LHAZAR.entity=Lhazar
 got.faction.LHAZAR.name=Lhazar
-got.faction.LHAZAR.rank.chief.f=Capotribù di Lhazar
-got.faction.LHAZAR.rank.chief=Capo
-got.faction.LHAZAR.rank.friend.f=Amico di Lhazar
-got.faction.LHAZAR.rank.friend=Amico
-got.faction.LHAZAR.rank.greatchief.f=Konung di Lhazar
-got.faction.LHAZAR.rank.greatchief=Konung
-got.faction.LHAZAR.rank.guest.f=Ospite di Lhazar
-got.faction.LHAZAR.rank.guest=Ospite
-got.faction.LHAZAR.rank.hunter.f=Berserker di Lhazar
-got.faction.LHAZAR.rank.hunter=Berserker
-got.faction.LHAZAR.rank.kinsman.f=Guerriero di Lhazar
-got.faction.LHAZAR.rank.kinsman=Guerriero
-got.faction.LHAZAR.rank.warrior.f=Cavaliere di Lhazar
-got.faction.LHAZAR.rank.warrior=Rider
 got.faction.LHAZAR.subtitle=Custodi di pecore
 got.faction.LORATH.entity=Persone libere
 got.faction.LORATH.name=Lorath
-got.faction.LORATH.rank.commander.f=Generale di Lorath
-got.faction.LORATH.rank.commander=Generale
-got.faction.LORATH.rank.friend.f=Amico di Lorath
-got.faction.LORATH.rank.friend=Amico
-got.faction.LORATH.rank.general.f=Magister di Lorath
-got.faction.LORATH.rank.general=Magister
-got.faction.LORATH.rank.guest.f=Ospite di Lorath
-got.faction.LORATH.rank.guest=Ospite
-got.faction.LORATH.rank.kingsguard.f=Capitano di Lorath
-got.faction.LORATH.rank.kingsguard=Capitano
-got.faction.LORATH.rank.leutenant.f=Guardia di Lorath
-got.faction.LORATH.rank.leutenant=Guardia
-got.faction.LORATH.rank.warrior.f=Guerriero di Lorath
-got.faction.LORATH.rank.warrior=Guerriero
 got.faction.LORATH.subtitle=Città libera di Essos
 got.faction.LYS.entity=Persone libere
 got.faction.LYS.name=Lys
-got.faction.LYS.rank.commander.f=Generale di Lys
-got.faction.LYS.rank.commander=Generale
-got.faction.LYS.rank.friend.f=Amico di Lys
-got.faction.LYS.rank.friend=Amico
-got.faction.LYS.rank.general.f=Magister di Lys
-got.faction.LYS.rank.general=Magister
-got.faction.LYS.rank.guest.f=Ospite di Lys
-got.faction.LYS.rank.guest=Ospite
-got.faction.LYS.rank.kingsguard.f=Capitano di Lys
-got.faction.LYS.rank.kingsguard=Capitano
-got.faction.LYS.rank.leutenant.f=Guardia di Lys
-got.faction.LYS.rank.leutenant=Guardia
-got.faction.LYS.rank.warrior.f=Guerriero di Lys
-got.faction.LYS.rank.warrior=Guerriero
 got.faction.LYS.subtitle=Città libera di Essos
 got.faction.MOSSOVY.entity=Mossovy
 got.faction.MOSSOVY.name=Mossovy
-got.faction.MOSSOVY.rank.friend.f=Amico di Mossovy
-got.faction.MOSSOVY.rank.friend=Amico
-got.faction.MOSSOVY.rank.guest.f=Ospite di Mossovy
-got.faction.MOSSOVY.rank.guest=Ospite
-got.faction.MOSSOVY.rank.hunter.f=Cacciatore di Mossovy
-got.faction.MOSSOVY.rank.hunter=Cacciatore
-got.faction.MOSSOVY.rank.warrior.f=Guerriero di Mossovy
-got.faction.MOSSOVY.rank.warrior=Guerriero
 got.faction.MOSSOVY.subtitle=Mossovy
 got.faction.MYR.entity=Persone libere
 got.faction.MYR.name=Myr
-got.faction.MYR.rank.commander.f=Generale di Myr
-got.faction.MYR.rank.commander=Generale
-got.faction.MYR.rank.friend.f=Amico di Myr
-got.faction.MYR.rank.friend=Amico
-got.faction.MYR.rank.general.f=Magister di Myr
-got.faction.MYR.rank.general=Magister
-got.faction.MYR.rank.guest.f=Ospite di Myr
-got.faction.MYR.rank.guest=Ospite
-got.faction.MYR.rank.kingsguard.f=Capitano di Myr
-got.faction.MYR.rank.kingsguard=Capitano
-got.faction.MYR.rank.leutenant.f=Guardia di Myr
-got.faction.MYR.rank.leutenant=Guardia
-got.faction.MYR.rank.warrior.f=Guerriero di Myr
-got.faction.MYR.rank.warrior=Guerriero
 got.faction.MYR.subtitle=Città libera di Essos
 got.faction.NIGHT_WATCH.entity=Guardiani della notte
 got.faction.NIGHT_WATCH.name=Guardiani della notte
-got.faction.NIGHT_WATCH.rank.captain.f=Lord Comandante dei Guardiani della Notte
-got.faction.NIGHT_WATCH.rank.captain=Lord Comandante
-got.faction.NIGHT_WATCH.rank.champion.f=Comandante dei Guardiani della Notte
-got.faction.NIGHT_WATCH.rank.champion=Comandante
-got.faction.NIGHT_WATCH.rank.friend.f=Ospite dei Guardiani della Notte
-got.faction.NIGHT_WATCH.rank.friend=Ospite
-got.faction.NIGHT_WATCH.rank.ohtar.f=Esploratore dei Guardiani della Notte
-got.faction.NIGHT_WATCH.rank.ohtar=Scout
-got.faction.NIGHT_WATCH.rank.ranger.f=Guardia dei Guardiani della Notte
-got.faction.NIGHT_WATCH.rank.ranger=Guardia
-got.faction.NIGHT_WATCH.rank.roquen.f=Capitano dei Guardiani della Notte
-got.faction.NIGHT_WATCH.rank.roquen=Capitano
-got.faction.NIGHT_WATCH.rank.warden.f=Amico dei Guardiani della Notte
-got.faction.NIGHT_WATCH.rank.warden=Amico
 got.faction.NIGHT_WATCH.subtitle=Guardie del Nord
 got.faction.NORTH.entity=Nord
 got.faction.NORTH.name=Nord
-got.faction.NORTH.rank.atarms.f=Guerriero del Nord
-got.faction.NORTH.rank.atarms=Guerriero
-got.faction.NORTH.rank.captain.f=Signore del Nord
-got.faction.NORTH.rank.captain=Signore
-got.faction.NORTH.rank.champion.f=Luogotenente del Nord
-got.faction.NORTH.rank.champion=Luogotenente
-got.faction.NORTH.rank.friend.f=Amico del Nord
-got.faction.NORTH.rank.friend=Amico
-got.faction.NORTH.rank.guest.f=Ospite del Nord
-got.faction.NORTH.rank.guest=Ospite
-got.faction.NORTH.rank.knight.f=Capitano del Nord
-got.faction.NORTH.rank.knight=Capitano
-got.faction.NORTH.rank.lord.f=Re del Nord
-got.faction.NORTH.rank.lord=Re
-got.faction.NORTH.rank.lord_fm.f=Regina del Nord
-got.faction.NORTH.rank.lord_fm=Regina
-got.faction.NORTH.rank.soldier.f=Cavaliere del Nord
-got.faction.NORTH.rank.soldier=Cavaliere
 got.faction.NORTH.subtitle=I resti dei primi uomini
 got.faction.NORVOS.entity=Persone libere
 got.faction.NORVOS.name=Norvos
-got.faction.NORVOS.rank.commander.f=Generale di Norvos
-got.faction.NORVOS.rank.commander=Generale
-got.faction.NORVOS.rank.friend.f=Amico di Norvos
-got.faction.NORVOS.rank.friend=Amico
-got.faction.NORVOS.rank.general.f=Magister di Norvos
-got.faction.NORVOS.rank.general=Magister
-got.faction.NORVOS.rank.guest.f=Ospite di Norvos
-got.faction.NORVOS.rank.guest=Ospite
-got.faction.NORVOS.rank.kingsguard.f=Capitano di Norvos
-got.faction.NORVOS.rank.kingsguard=Capitano
-got.faction.NORVOS.rank.leutenant.f=Guardia di Norvos
-got.faction.NORVOS.rank.leutenant=Guardia
-got.faction.NORVOS.rank.warrior.f=Guerriero di Norvos
-got.faction.NORVOS.rank.warrior=Guerriero
 got.faction.NORVOS.subtitle=Città libera di Essos
 got.faction.PENTOS.entity=Persone libere
 got.faction.PENTOS.name=Pentos
-got.faction.PENTOS.rank.commander.f=Generale di Pentos
-got.faction.PENTOS.rank.commander=Generale
-got.faction.PENTOS.rank.friend.f=Amico di Pentos
-got.faction.PENTOS.rank.friend=Amico
-got.faction.PENTOS.rank.general.f=Magister di Pentos
-got.faction.PENTOS.rank.general=Magister
-got.faction.PENTOS.rank.guest.f=Ospite di Pentos
-got.faction.PENTOS.rank.guest=Ospite
-got.faction.PENTOS.rank.kingsguard.f=Capitano di Pentos
-got.faction.PENTOS.rank.kingsguard=Capitano
-got.faction.PENTOS.rank.leutenant.f=Guardia di Pentos
-got.faction.PENTOS.rank.leutenant=Guardia
-got.faction.PENTOS.rank.warrior.f=Guerriero di Pentos
-got.faction.PENTOS.rank.warrior=Guerriero
 got.faction.PENTOS.subtitle=Città libera di Essos
 got.faction.QARTH.entity=Persone libere
 got.faction.QARTH.name=Qarth
-got.faction.QARTH.rank.commander.f=Generale di Qarth
-got.faction.QARTH.rank.commander=Generale
-got.faction.QARTH.rank.friend.f=Amico di Qarth
-got.faction.QARTH.rank.friend=Amico
-got.faction.QARTH.rank.general.f=Re di Qarth
-got.faction.QARTH.rank.general=Re
-got.faction.QARTH.rank.guest.f=Ospite di Qarth
-got.faction.QARTH.rank.guest=Ospite
-got.faction.QARTH.rank.kingsguard.f=Capitano di Qarth
-got.faction.QARTH.rank.kingsguard=Capitano
-got.faction.QARTH.rank.leutenant.f=Guardia di Qarth
-got.faction.QARTH.rank.leutenant=Guardia
-got.faction.QARTH.rank.warrior.f=Guerriero di Qarth
-got.faction.QARTH.rank.warrior=Guerriero
 got.faction.QARTH.subtitle=Città commerciale dell'Est
 got.faction.QOHOR.entity=Persone libere
 got.faction.QOHOR.name=Qohor
-got.faction.QOHOR.rank.commander.f=Generale di Qohor
-got.faction.QOHOR.rank.commander=Generale
-got.faction.QOHOR.rank.friend.f=Amico di Qohor
-got.faction.QOHOR.rank.friend=Amico
-got.faction.QOHOR.rank.general.f=Magister di Qohor
-got.faction.QOHOR.rank.general=Magister
-got.faction.QOHOR.rank.guest.f=Ospite di Qohor
-got.faction.QOHOR.rank.guest=Ospite
-got.faction.QOHOR.rank.kingsguard.f=Capitano di Qohor
-got.faction.QOHOR.rank.kingsguard=Capitano
-got.faction.QOHOR.rank.leutenant.f=Guardia di Qohor
-got.faction.QOHOR.rank.leutenant=Guardia
-got.faction.QOHOR.rank.warrior.f=Guerriero di Qohor
-got.faction.QOHOR.rank.warrior=Guerriero
 got.faction.QOHOR.subtitle=Città libera di Essos
 got.faction.REACH.entity=Persone di portata
 got.faction.REACH.name=Raggiungere
-got.faction.REACH.rank.commander.f=Generale di Altopiano
-got.faction.REACH.rank.commander=Generale
-got.faction.REACH.rank.friend.f=Friend di Altopiano
-got.faction.REACH.rank.friend=Amico
-got.faction.REACH.rank.general.f=Lord di Altopiano
-got.faction.REACH.rank.general=Signore
-got.faction.REACH.rank.guest.f=Ospite di Altopiano
-got.faction.REACH.rank.guest=Ospite
-got.faction.REACH.rank.kingsguard.f=Capitano di Altopiano
-got.faction.REACH.rank.kingsguard=Capitano
-got.faction.REACH.rank.leutenant.f=Guard di Altopiano
-got.faction.REACH.rank.leutenant=Guardia
-got.faction.REACH.rank.warrior.f=Guerriero di Altopiano
-got.faction.REACH.rank.warrior=Guerriero
 got.faction.REACH.subtitle=Terra di Tirell
 got.faction.RIVERLANDS.entity=Gente di Terre dei Fiumi
 got.faction.RIVERLANDS.name=Terre dei Fiumi
-got.faction.RIVERLANDS.rank.commander.f=Generale di Terre dei Fiumi
-got.faction.RIVERLANDS.rank.commander=Generale
-got.faction.RIVERLANDS.rank.friend.f=Amico di Terre dei Fiumi
-got.faction.RIVERLANDS.rank.friend=Amico
-got.faction.RIVERLANDS.rank.general.f=Lord di Terre dei Fiumi
-got.faction.RIVERLANDS.rank.general=Signore
-got.faction.RIVERLANDS.rank.guest.f=Ospite di Terre dei Fiumi
-got.faction.RIVERLANDS.rank.guest=Ospite
-got.faction.RIVERLANDS.rank.kingsguard.f=Capitano di Terre dei Fiumi
-got.faction.RIVERLANDS.rank.kingsguard=Capitano
-got.faction.RIVERLANDS.rank.leutenant.f=Guardia delle Terre dei Fiumi
-got.faction.RIVERLANDS.rank.leutenant=Guardia
-got.faction.RIVERLANDS.rank.warrior.f=Guerriero delle Terre dei Fiumi
-got.faction.RIVERLANDS.rank.warrior=Guerriero
 got.faction.RIVERLANDS.subtitle=Zona di guerra di Westeros
 got.faction.SOTHORYOS.entity=Sothoryos
 got.faction.SOTHORYOS.name=Sothoryos
-got.faction.SOTHORYOS.rank.champion.f=Berserker di Sothoryos
-got.faction.SOTHORYOS.rank.champion=Berserker
-got.faction.SOTHORYOS.rank.forestman.f=Guerriero di Sothoryos
-got.faction.SOTHORYOS.rank.forestman=Guerriero
-got.faction.SOTHORYOS.rank.friend.f=Amico di Sothoryos
-got.faction.SOTHORYOS.rank.friend=Amico
-got.faction.SOTHORYOS.rank.guest.f=Ospite di Sothoryos
-got.faction.SOTHORYOS.rank.guest=Ospite
-got.faction.SOTHORYOS.rank.splendour.f=Imperatore di Sothoryos
-got.faction.SOTHORYOS.rank.splendour=Imperatore
-got.faction.SOTHORYOS.rank.warlord.f=Sciamano di Sothoryos
-got.faction.SOTHORYOS.rank.warlord=Sciamano
-got.faction.SOTHORYOS.rank.warrior.f=Campione di Sothoryos
-got.faction.SOTHORYOS.rank.warrior=Campione
 got.faction.SOTHORYOS.subtitle=Bruti della giungla di Sothoryos
 got.faction.STORMLANDS.entity=Terre della Tempesta
 got.faction.STORMLANDS.name=Terre della Tempesta
-got.faction.STORMLANDS.rank.commander.f=Generale di Terre della Tempesta
-got.faction.STORMLANDS.rank.commander=Generale
-got.faction.STORMLANDS.rank.friend.f=Amico di Terre della Tempesta
-got.faction.STORMLANDS.rank.friend=Amico
-got.faction.STORMLANDS.rank.general.f=Signore di Terre della Tempesta
-got.faction.STORMLANDS.rank.general=Signore
-got.faction.STORMLANDS.rank.guest.f=Ospite di Terre della Tempesta
-got.faction.STORMLANDS.rank.guest=Ospite
-got.faction.STORMLANDS.rank.kingsguard.f=Capitano di Terre della Tempesta
-got.faction.STORMLANDS.rank.kingsguard=Capitano
-got.faction.STORMLANDS.rank.leutenant.f=Guardia di Terre della Tempesta
-got.faction.STORMLANDS.rank.leutenant=Guardia
-got.faction.STORMLANDS.rank.warrior.f=Guerriero di Terre della Tempesta
-got.faction.STORMLANDS.rank.warrior=Guerriero
 got.faction.STORMLANDS.subtitle=Terra di Baratheon
 got.faction.SUMMER_ISLANDS.entity=Uomini delle Isole d'Estate
 got.faction.SUMMER_ISLANDS.name=Isole estive
-got.faction.SUMMER_ISLANDS.rank.commander.f=Ammiraglio delle Isole d'Estate
-got.faction.SUMMER_ISLANDS.rank.commander=Ammiraglio
-got.faction.SUMMER_ISLANDS.rank.friend.f=Amico delle isole estive
-got.faction.SUMMER_ISLANDS.rank.friend=Amico
-got.faction.SUMMER_ISLANDS.rank.general.f=Re delle Isole d'Estate
-got.faction.SUMMER_ISLANDS.rank.general=Re
-got.faction.SUMMER_ISLANDS.rank.guest.f=Ospite delle Isole d'Estate
-got.faction.SUMMER_ISLANDS.rank.guest=Ospite
-got.faction.SUMMER_ISLANDS.rank.kingsguard.f=Capitano delle Isole d'Estate
-got.faction.SUMMER_ISLANDS.rank.kingsguard=Capitano
-got.faction.SUMMER_ISLANDS.rank.leutenant.f=Guardia delle Isole d'Estate
-got.faction.SUMMER_ISLANDS.rank.leutenant=Guardia
-got.faction.SUMMER_ISLANDS.rank.warrior.f=Guerriero delle Isole dell'Estate
-got.faction.SUMMER_ISLANDS.rank.warrior=Guerriero
 got.faction.SUMMER_ISLANDS.subtitle=Niggas delle Isole d'Estate
 got.faction.TYROSH.entity=Persone libere
 got.faction.TYROSH.name=Tyrosh
-got.faction.TYROSH.rank.commander.f=Generale di Tyrosh
-got.faction.TYROSH.rank.commander=Generale
-got.faction.TYROSH.rank.friend.f=Amico di Tyrosh
-got.faction.TYROSH.rank.friend=Amico
-got.faction.TYROSH.rank.general.f=Magister di Tyrosh
-got.faction.TYROSH.rank.general=Magister
-got.faction.TYROSH.rank.guest.f=Ospite di Tyrosh
-got.faction.TYROSH.rank.guest=Ospite
-got.faction.TYROSH.rank.kingsguard.f=Capitano di Tyrosh
-got.faction.TYROSH.rank.kingsguard=Capitano
-got.faction.TYROSH.rank.leutenant.f=Guardia di Tyrosh
-got.faction.TYROSH.rank.leutenant=Guardia
-got.faction.TYROSH.rank.warrior.f=Guerriero di Tyrosh
-got.faction.TYROSH.rank.warrior=Guerriero
 got.faction.TYROSH.subtitle=Città libera di Essos
 got.faction.ULTHOS.entity=Ragni giganti del 4 ° continente
 got.faction.ULTHOS.name=Ulthos
@@ -2488,82 +2169,20 @@ got.faction.ULTHOS.subtitle=Ragni giganti del 4 ° continente
 got.faction.UNALIGNED.name=Neutro
 got.faction.VOLANTIS.entity=Persone libere
 got.faction.VOLANTIS.name=Volantis
-got.faction.VOLANTIS.rank.commander.f=Generale di Volantis
-got.faction.VOLANTIS.rank.commander=Generale
-got.faction.VOLANTIS.rank.friend.f=Amico di Volantis
-got.faction.VOLANTIS.rank.friend=Amico
-got.faction.VOLANTIS.rank.general.f=Triarca di Volantis
-got.faction.VOLANTIS.rank.general=Triarch
-got.faction.VOLANTIS.rank.guest.f=Ospite di Volantis
-got.faction.VOLANTIS.rank.guest=Ospite
-got.faction.VOLANTIS.rank.kingsguard.f=Capitano di Volantis
-got.faction.VOLANTIS.rank.kingsguard=Capitano
-got.faction.VOLANTIS.rank.leutenant.f=Guardia di Volantis
-got.faction.VOLANTIS.rank.leutenant=Guardia
-got.faction.VOLANTIS.rank.warrior.f=Guerriero di Volantis
-got.faction.VOLANTIS.rank.warrior=Guerriero
 got.faction.VOLANTIS.subtitle=Città libera di Essos
 got.faction.WESTERLANDS.entity=Persone di Terre dell'Ovest
 got.faction.WESTERLANDS.name=Terre dell'Ovest
-got.faction.WESTERLANDS.rank.commander.f=Generale di Terre dell'Ovest
-got.faction.WESTERLANDS.rank.commander=Generale
-got.faction.WESTERLANDS.rank.friend.f=Amico di Terre dell'Ovest
-got.faction.WESTERLANDS.rank.friend=Amico
-got.faction.WESTERLANDS.rank.general.f=Lord di Terre dell'Ovest
-got.faction.WESTERLANDS.rank.general=Signore
-got.faction.WESTERLANDS.rank.guest.f=Ospite di Terre dell'Ovest
-got.faction.WESTERLANDS.rank.guest=Ospite
-got.faction.WESTERLANDS.rank.kingsguard.f=Capitano di Terre dell'Ovest
-got.faction.WESTERLANDS.rank.kingsguard=Capitano
-got.faction.WESTERLANDS.rank.leutenant.f=Guardia delle Terre dell'Ovest
-got.faction.WESTERLANDS.rank.leutenant=Guardia
-got.faction.WESTERLANDS.rank.warrior.f=Guerriero delle Terre dell'Ovest
-got.faction.WESTERLANDS.rank.warrior=Guerriero
 got.faction.WESTERLANDS.subtitle=Terre di Lannister
 got.faction.WHITE_WALKER.entity=L'esercito dei morti
 got.faction.WHITE_WALKER.name=White Walkers
-got.faction.WHITE_WALKER.rank.king.f=Re della notte
-got.faction.WHITE_WALKER.rank.king=Re della notte
 got.faction.WHITE_WALKER.subtitle=White Walkers
 got.faction.WILDLING.entity=Bruti
 got.faction.WILDLING.name=Bruti
-got.faction.WILDLING.rank.champion.f=Capotribù dei Bruti
-got.faction.WILDLING.rank.champion=Capo
-got.faction.WILDLING.rank.chieftain.f=Re dietro il Muretto
-got.faction.WILDLING.rank.chieftain=Re dietro il Muretto
-got.faction.WILDLING.rank.kinsman.f=Guerriero dei Bruti
-got.faction.WILDLING.rank.kinsman=Guerriero
-got.faction.WILDLING.rank.servant.f=Amico dei Bruti
-got.faction.WILDLING.rank.servant=Amico
-got.faction.WILDLING.rank.thrall.f=Ospite dei Bruti
-got.faction.WILDLING.rank.thrall=Ospite
-got.faction.WILDLING.rank.warlord.f=Amico dei giganti
-got.faction.WILDLING.rank.warlord=Amico dei giganti
-got.faction.WILDLING.rank.warrior.f=Wildlings Berserker
-got.faction.WILDLING.rank.warrior=Berserker
 got.faction.WILDLING.subtitle=Bruti dietro il Muretto
 got.faction.YI_TI.entity=Yi Tish
 got.faction.YI_TI.name=Yi Ti
-got.faction.YI_TI.rank.bondsman.f=Ospite di Yi Ti
-got.faction.YI_TI.rank.bondsman=Ospite
-got.faction.YI_TI.rank.champion.f=Piromante di Yi Ti
-got.faction.YI_TI.rank.champion=Piromante
-got.faction.YI_TI.rank.chieftain.f=Imperatore di Yi Ti
-got.faction.YI_TI.rank.chieftain=Imperatore
-got.faction.YI_TI.rank.clansman.f=Milizia di Yi Ti
-got.faction.YI_TI.rank.clansman=Milizia
-got.faction.YI_TI.rank.golden.f=Samurai di Yi Ti
-got.faction.YI_TI.rank.golden=Samurai
-got.faction.YI_TI.rank.levyman.f≠
-got.faction.YI_TI.rank.levyman≠
-got.faction.YI_TI.rank.warlord.f=Shogune di Yi Ti
-got.faction.YI_TI.rank.warlord=Shogune
-got.faction.YI_TI.rank.warrior.f=Guerriero di Yi Ti
-got.faction.YI_TI.rank.warrior=Guerriero
 got.faction.YI_TI.subtitle=Impero d'Oro d'Oriente
 got.faction.achieveRank=Ricompensa per il raggiungimento del %s punto di reputazione
-got.faction.rank.enemy=Nemico
-got.faction.rank.neutral=Straniero
 got.faction.rel.ALLY=Alleati
 got.faction.rel.ENEMY=Nemici
 got.faction.rel.FRIEND=Amici
