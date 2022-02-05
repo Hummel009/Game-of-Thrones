@@ -3,7 +3,6 @@ package got.common.entity.westeros.legendary.warrior;
 import got.common.database.*;
 import got.common.entity.ai.*;
 import got.common.entity.other.*;
-import got.common.entity.westeros.GOTEntityProstitute;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;

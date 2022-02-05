@@ -3,7 +3,7 @@ package got.common.world.fixed;
 import java.util.Random;
 
 import got.common.database.*;
-import got.common.entity.westeros.GOTEntityProstitute;
+import got.common.entity.other.GOTEntityProstitute;
 import got.common.entity.westeros.legendary.quest.GOTEntityTyrionLannister;
 import got.common.entity.westeros.legendary.reborn.GOTEntityLancelLannister;
 import got.common.entity.westeros.legendary.trader.GOTEntityPetyrBaelish;

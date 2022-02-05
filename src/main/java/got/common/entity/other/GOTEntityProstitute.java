@@ -1,8 +1,7 @@
-package got.common.entity.westeros;
+package got.common.entity.other;
 
 import got.common.database.*;
 import got.common.entity.ai.*;
-import got.common.entity.other.*;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -33,15 +32,56 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 	}
 
 	@Override
+	public void applyEntityAttributes() {
+		super.applyEntityAttributes();
+		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0);
+		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
+	}
+
+	@Override
+	public boolean canRenameNPC() {
+		return true;
+	}
+
+	@Override
 	public void entityInit() {
 		super.entityInit();
 		dataWatcher.addObject(18, (byte) 0);
 		setProstituteType(ProstituteType.forID(rand.nextInt(ProstituteType.values().length)));
 	}
 
+	@Override
+	public GOTFaction getFaction() {
+		return GOTFaction.UNALIGNED;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.KILL_PROSTITUTE;
+	}
+
+	@Override
+	public String getNPCName() {
+		return familyInfo.getName();
+	}
+
 	public ProstituteType getProstituteType() {
 		byte i = dataWatcher.getWatchableObjectByte(18);
 		return ProstituteType.forID(i);
+	}
+
+	@Override
+	public void writeEntityToNBT(NBTTagCompound nbt) {
+		super.writeEntityToNBT(nbt);
+		nbt.setByte("ProstituteType", (byte) getProstituteType().prostituteID);
+	}
+
+	@Override
+	public String getSpeechBank(EntityPlayer entityplayer) {
+		if (isFriendly(entityplayer)) {
+			return "standart/special/prostitute_friendly";
+		}
+		return "standart/special/prostitute_hostile";
 	}
 
 	@Override
@@ -56,8 +96,65 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 		dataWatcher.updateObject(18, (byte) t.prostituteID);
 	}
 
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(false);
+	}
+
+	@Override
+	public void setupNPCName() {
+		switch(getProstituteType()) {
+		case LIGHT_1:
+		case LIGHT_2:
+		case LIGHT_3:
+		case LIGHT_4:
+		case LIGHT_5:
+			switch(rand.nextInt(2)) {
+			case 0:
+				familyInfo.setName(GOTNames.getWesterosName(rand, familyInfo.isMale()));
+				break;
+			case 1:
+				familyInfo.setName(GOTNames.getEssosName(rand, familyInfo.isMale()));
+				break;
+			}
+			break;
+		case DARK:
+			switch(rand.nextInt(2)) {
+			case 0:
+				familyInfo.setName(GOTNames.getWesterosName(rand, familyInfo.isMale()));
+				break;
+			case 1:
+				familyInfo.setName(GOTNames.getGhiscarName(rand, familyInfo.isMale()));
+				break;
+			}
+			break;
+		case BLACK:
+			familyInfo.setName(GOTNames.getSothoryosName(rand, familyInfo.isMale()));
+			break;
+		case NOMAD:
+			switch(rand.nextInt(2)) {
+			case 0:
+				familyInfo.setName(GOTNames.getDothrakiName(rand, familyInfo.isMale()));
+				break;
+			case 1:
+				familyInfo.setName(GOTNames.getLhazarName(rand, familyInfo.isMale()));
+				break;
+			}
+			break;
+		case YITI:
+			familyInfo.setName(GOTNames.getYiTiName(rand, familyInfo.isMale()));
+			break;
+		case JOGOS:
+			familyInfo.setName(GOTNames.getJogosName(rand, familyInfo.isMale()));
+			break;
+		case WILD:
+			familyInfo.setName(GOTNames.getWildName(rand, familyInfo.isMale()));
+			break;
+		}
+	}
+
 	public enum ProstituteType {
-		LIGHT(0), DARK(1), BLACK(2), NOMAD(4), YI_TI(5), JOGOS(6), WILD(6);
+		LIGHT_1(0), LIGHT_2(1), LIGHT_3(2), LIGHT_4(3), LIGHT_5(4), DARK(5), BLACK(6), NOMAD(7), YITI(8), JOGOS(9), WILD(10);
 
 		public int prostituteID;
 
@@ -83,52 +180,7 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 					return t;
 				}
 			}
-			return LIGHT;
+			return LIGHT_1;
 		}
-	}
-
-	@Override
-	public void applyEntityAttributes() {
-		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0);
-		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
-	}
-
-	@Override
-	public boolean canRenameNPC() {
-		return true;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.UNALIGNED;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_PROSTITUTE;
-	}
-
-	@Override
-	public String getNPCName() {
-		return familyInfo.getName();
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "standart/special/prostitute_friendly";
-		}
-		return "standart/special/prostitute_hostile";
-	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(false);
-	}
-
-	@Override
-	public void setupNPCName() {
-		familyInfo.setName(GOTNames.getWesterosName(rand, familyInfo.isMale()));
 	}
 }

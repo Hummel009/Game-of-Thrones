@@ -27,7 +27,6 @@ import got.common.entity.essos.asshai.GOTEntityAsshaiMan;
 import got.common.entity.essos.legendary.warrior.GOTEntityAsshaiArchmag;
 import got.common.entity.other.*;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosMan;
-import got.common.entity.westeros.GOTEntityProstitute;
 import got.common.entity.westeros.reach.GOTEntityReachSoldier;
 import got.common.faction.*;
 import got.common.item.*;

@@ -11,7 +11,6 @@ import got.common.*;
 import got.common.database.*;
 import got.common.entity.ai.*;
 import got.common.entity.animal.GOTEntityHorse;
-import got.common.entity.westeros.GOTEntityProstitute;
 import got.common.faction.GOTFaction;
 import got.common.inventory.*;
 import got.common.item.GOTWeaponStats;

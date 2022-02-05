@@ -5,7 +5,7 @@ import java.util.Random;
 import com.google.common.math.IntMath;
 
 import got.common.database.*;
-import got.common.entity.westeros.GOTEntityProstitute;
+import got.common.entity.other.GOTEntityProstitute;
 import got.common.entity.westeros.north.GOTEntityNorthBartender;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
