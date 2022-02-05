@@ -7,6 +7,7 @@ import got.common.faction.GOTFaction;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 public class GOTEntityProstitute extends GOTEntityHumanBase {
@@ -29,6 +30,61 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 		tasks.addTask(7, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
+	}
+
+	@Override
+	public void entityInit() {
+		super.entityInit();
+		dataWatcher.addObject(18, (byte) 0);
+		setProstituteType(ProstituteType.forID(rand.nextInt(ProstituteType.values().length)));
+	}
+
+	public ProstituteType getProstituteType() {
+		byte i = dataWatcher.getWatchableObjectByte(18);
+		return ProstituteType.forID(i);
+	}
+
+	@Override
+	public void readEntityFromNBT(NBTTagCompound nbt) {
+		super.readEntityFromNBT(nbt);
+		if (nbt.hasKey("ProstituteType")) {
+			setProstituteType(ProstituteType.forID(nbt.getByte("ProstituteType")));
+		}
+	}
+
+	public void setProstituteType(ProstituteType t) {
+		dataWatcher.updateObject(18, (byte) t.prostituteID);
+	}
+
+	public enum ProstituteType {
+		LIGHT(0), DARK(1), BLACK(2), NOMAD(4), YI_TI(5), JOGOS(6), WILD(6);
+
+		public int prostituteID;
+
+		ProstituteType(int i) {
+			prostituteID = i;
+		}
+
+		public String textureName() {
+			return name().toLowerCase();
+		}
+
+		public static String[] bearTypeNames() {
+			String[] names = new String[ProstituteType.values().length];
+			for (int i = 0; i < names.length; ++i) {
+				names[i] = ProstituteType.values()[i].textureName();
+			}
+			return names;
+		}
+
+		public static ProstituteType forID(int ID) {
+			for (ProstituteType t : ProstituteType.values()) {
+				if (t.prostituteID == ID) {
+					return t;
+				}
+			}
+			return LIGHT;
+		}
 	}
 
 	@Override

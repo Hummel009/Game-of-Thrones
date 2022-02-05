@@ -242,8 +242,8 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 			}
 			++bgsd.numSpawned;
 		}
-		if (rand.nextInt(10000) == 0) {
-			setCustomNameTag("Wojtek");
+		if (rand.nextInt(1000) == 0) {
+			setCustomNameTag("Vladimir Putin");
 		}
 		return data;
 	}
