@@ -92,7 +92,7 @@ public class GOTAchievement {
 	public static GOTAchievement KILL_VICTARION_GREYJOY;
 	public static GOTAchievement KILL_WEREWOLF;
 	public static GOTAchievement KILL_WHITE_WALKER;
-	public static GOTAchievement KILL_PROSTITUTRE;
+	public static GOTAchievement KILL_PROSTITUTE;
 	public static GOTAchievement KILL_WIGHT;
 	public static GOTAchievement KILL_WIGHT_GIANT;
 	public static GOTAchievement KILL_WITCHER;
@@ -567,7 +567,7 @@ public class GOTAchievement {
 		KILL_VICTARION_GREYJOY = new GOTAchievement(Category.LEGENDARY, id++, GOTRegistry.victarionAxe, "KILL_VICTARION_GREYJOY");
 		KILL_WEREWOLF = new GOTAchievement(Category.KILL, id++, GOTRegistry.mossovySword, "KILL_WEREWOLF");
 		KILL_WHITE_WALKER = new GOTAchievement(Category.KILL, id++, GOTRegistry.valyrianSword, "KILL_WHITE_WALKER");
-		KILL_PROSTITUTRE = new GOTAchievement(Category.KILL, id++, GOTRegistry.ironCrossbow, "KILL_PROSTITUTRE");
+		KILL_PROSTITUTE = new GOTAchievement(Category.KILL, id++, GOTRegistry.ironCrossbow, "KILL_PROSTITUTE");
 		KILL_WIGHT = new GOTAchievement(Category.KILL, id++, GOTRegistry.bericSword, "KILL_WIGHT");
 		KILL_WIGHT_GIANT = new GOTAchievement(Category.KILL, id++, GOTRegistry.bericSword, "KILL_WIGHT_GIANT");
 		KILL_WITCHER = new GOTAchievement(Category.KILL, id++, GOTRegistry.mossovySword, "KILL_WITCHER");

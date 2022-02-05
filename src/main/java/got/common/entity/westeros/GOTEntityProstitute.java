@@ -50,7 +50,7 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_PROSTITUTRE;
+		return GOTAchievement.KILL_PROSTITUTE;
 	}
 
 	@Override
