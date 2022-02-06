@@ -76,10 +76,6 @@ public enum GOTFaction {
 		this(color, dim, region, true, true, Integer.MIN_VALUE, mapInfo);
 	}
 
-	GOTFaction(int color, GOTDimension dim, int alignment) {
-		this(color, dim, dim.dimensionRegions.get(0), true, true, alignment, null);
-	}
-
 	GOTFaction(int color, GOTDimension.DimensionRegion region, GOTMapRegion mapInfo) {
 		this(color, GOTDimension.GAME_OF_THRONES, region, mapInfo);
 	}
@@ -422,10 +418,9 @@ public enum GOTFaction {
 			return true;
 		}
 		for (String alias : legacyAliases) {
-			if (!alias.equals(name)) {
-				continue;
+			if (alias.equals(name)) {
+				return true;
 			}
-			return true;
 		}
 		return false;
 	}
@@ -457,10 +452,9 @@ public enum GOTFaction {
 		if (other.factionDimension == factionDimension) {
 			for (GOTControlZone zone : controlZones) {
 				for (GOTControlZone otherZone : other.controlZones) {
-					if (!zone.intersectsWith(otherZone, extraMapRadius)) {
-						continue;
+					if (zone.intersectsWith(otherZone, extraMapRadius)) {
+						return true;
 					}
-					return true;
 				}
 			}
 		}
@@ -477,20 +471,18 @@ public enum GOTFaction {
 
 	public static GOTFaction forID(int ID) {
 		for (GOTFaction f : GOTFaction.values()) {
-			if (f.ordinal() != ID) {
-				continue;
+			if (f.ordinal() == ID) {
+				return f;
 			}
-			return f;
 		}
 		return null;
 	}
 
 	public static GOTFaction forName(String name) {
 		for (GOTFaction f : GOTFaction.values()) {
-			if (!f.matchesNameOrAlias(name)) {
-				continue;
+			if (f.matchesNameOrAlias(name)) {
+				return f;
 			}
-			return f;
 		}
 		return null;
 	}
@@ -498,10 +490,9 @@ public enum GOTFaction {
 	public static List<GOTFaction> getAllRegional(GOTDimension.DimensionRegion region) {
 		ArrayList<GOTFaction> factions = new ArrayList<>();
 		for (GOTFaction f : GOTFaction.values()) {
-			if (f.factionRegion != region) {
-				continue;
+			if (f.factionRegion == region) {
+				factions.add(f);
 			}
-			factions.add(f);
 		}
 		return factions;
 	}
@@ -518,20 +509,18 @@ public enum GOTFaction {
 	public static List<GOTFaction> getPlayableAlignmentFactions() {
 		ArrayList<GOTFaction> factions = new ArrayList<>();
 		for (GOTFaction f : GOTFaction.values()) {
-			if (!f.isPlayableAlignmentFaction()) {
-				continue;
+			if (f.isPlayableAlignmentFaction()) {
+				factions.add(f);
 			}
-			factions.add(f);
 		}
 		return factions;
 	}
 
 	public static void onInit() {
 		for (GOTFaction f : GOTFaction.values()) {
-			if (!f.allowPlayer || f == WHITE_WALKER) {
-				continue;
+			if (f.allowPlayer && f != WHITE_WALKER) {
+				GOTFactionRelations.setRelations(f, WHITE_WALKER, GOTFactionRelations.Relation.MORTAL_ENEMY);
 			}
-			GOTFactionRelations.setRelations(f, WHITE_WALKER, GOTFactionRelations.Relation.MORTAL_ENEMY);
 		}
 		GOTFactionRelations.setRelations(ARRYN, CROWNLANDS, GOTFactionRelations.Relation.ENEMY);
 		GOTFactionRelations.setRelations(ARRYN, IBBEN, GOTFactionRelations.Relation.FRIEND);

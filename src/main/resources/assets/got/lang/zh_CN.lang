@@ -1,4 +1,5 @@
 ﻿
+item.got:cucumberSeeds.name≠
 got.command.wpCooldown.usage=/wpCooldown <max|min> <秒数>
 got.command.wpCooldown.setMax=设置路径点默认冷却时间最大值为%d秒(%s)
 got.command.wpCooldown.setMin=设置路径点默认冷却时间最小值为%d秒(%s)

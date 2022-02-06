@@ -1,4 +1,5 @@
 
+item.got:cucumberSeeds.name≠
 got.command.wpCooldown.usage=/wpCooldown <max|min> <seconds>
 got.command.wpCooldown.setMax=Impostato il tempo di ricarica massimo per i waypoint a %d secondi (%s)
 got.command.wpCooldown.setMin=Impostato il tempo di ricarica minimo per i waypoint a %d secondi (%s)

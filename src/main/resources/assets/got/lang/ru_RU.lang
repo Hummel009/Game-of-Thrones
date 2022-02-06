@@ -1,4 +1,5 @@
 ﻿
+item.got:cucumberSeeds.name=Семена огурца
 got.command.wpCooldown.setMax=Таймер быстрого перемещения установлен на максимум: %d секунд (%s)
 got.command.wpCooldown.setMin=Таймер быстрого перемещения установлен на минимум: %d секунд (%s)
 got.command.wpCooldown.updateMax=Автоматически обновлено максимальное значение таймера, чтобы соответствовать новому минимальному значению %d

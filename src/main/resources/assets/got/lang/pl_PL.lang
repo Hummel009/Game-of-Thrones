@@ -1,4 +1,5 @@
 
+item.got:cucumberSeeds.name≠
 got.command.wpCooldown.usage=/wpCooldown <max|min> <sekundy>
 got.command.wpCooldown.setMax=Ustawiono maksymalny czas odnowienia znaczników na %d sekund (%s)
 got.command.wpCooldown.setMin=Ustawiono minimalny czas odnowienia znaczników na %d sekund (%s)
