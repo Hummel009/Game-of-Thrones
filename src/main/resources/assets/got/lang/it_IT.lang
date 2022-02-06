@@ -1,4 +1,9 @@
 
+got.command.wpCooldown.usage=/wpCooldown <max|min> <seconds>
+got.command.wpCooldown.setMax=Impostato il tempo di ricarica massimo per i waypoint a %d secondi (%s)
+got.command.wpCooldown.setMin=Impostato il tempo di ricarica minimo per i waypoint a %d secondi (%s)
+got.command.wpCooldown.updateMax=Aggiornato automaticamente il tempo di ricarica massimo per corrispondere al nuovo minimo di %d
+got.command.wpCooldown.updateMin=Aggiornato automaticamente il tempo di ricarica minimo per corrispondere al nuovo massimo di %d
 got.gui.options.femRank≠
 got.rank.ARRYN≠
 got.rank.ASSHAI≠

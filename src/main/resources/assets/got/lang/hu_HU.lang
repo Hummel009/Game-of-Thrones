@@ -1,4 +1,9 @@
 ﻿
+got.command.wpCooldown.usage≠
+got.command.wpCooldown.setMax≠
+got.command.wpCooldown.setMin≠
+got.command.wpCooldown.updateMax≠
+got.command.wpCooldown.updateMin≠
 got.gui.options.femRank≠
 got.rank.ARRYN≠
 got.rank.ASSHAI≠

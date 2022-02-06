@@ -1,4 +1,9 @@
 
+got.command.wpCooldown.usage=/wpCooldown <max|min> <seconds>
+got.command.wpCooldown.setMax=ウェイポイントのクールダウンを最長 %d 秒に設定しました (%s)
+got.command.wpCooldown.setMin=ウェイポイントのクールダウンを最短 %d 秒に設定しました (%s)
+got.command.wpCooldown.updateMax=新しい最小値　％d　に一致するように最長クールダウンを自動的に更新
+got.command.wpCooldown.updateMin=新しい最大値　％d　に一致するように最短クールダウンを自動的に更新
 got.gui.options.femRank≠
 got.rank.ARRYN≠
 got.rank.ASSHAI≠

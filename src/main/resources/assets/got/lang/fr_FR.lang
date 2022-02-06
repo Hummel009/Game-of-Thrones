@@ -1,4 +1,9 @@
 ﻿
+got.command.wpCooldown.usage=/wpCooldown <max|min> <secondes>
+got.command.wpCooldown.setMax=Réglé le temps maximum d'un point de route à %d secondes (%s)
+got.command.wpCooldown.setMin=Réglé le temps minimum d'un point de route à %d secondes (%s)
+got.command.wpCooldown.updateMax=Mis à jour le temps maximum pour satisfaire le nouveau minimum de %d
+got.command.wpCooldown.updateMin=Mis à jour le temps minimum pour satisfaire le nouveau maximum de %d
 got.gui.options.femRank≠
 got.rank.ARRYN≠
 got.rank.ASSHAI≠

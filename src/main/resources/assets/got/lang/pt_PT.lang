@@ -1,4 +1,9 @@
 
+got.command.wpCooldown.usage≠
+got.command.wpCooldown.setMax≠
+got.command.wpCooldown.setMin≠
+got.command.wpCooldown.updateMax≠
+got.command.wpCooldown.updateMin≠
 attribute.name.generic.movementSpeedAir=Velocidade (Ar)
 color.black=Preto
 got.gui.options.femRank≠

@@ -1,4 +1,9 @@
 
+got.command.wpCooldown.usage=/wpCooldown <max|min> <seconds>
+got.command.wpCooldown.setMax=Set the maximum waypoint cooldown time to %d seconds (%s)
+got.command.wpCooldown.setMin=Set the minimum waypoint cooldown time to %d seconds (%s)
+got.command.wpCooldown.updateMax=Automatically updated maximum cooldown to match the new minimum of %d
+got.command.wpCooldown.updateMin=Automatically updated minimum cooldown to match the new maximum of %d
 got.gui.options.femRank=Feminized titles
 got.rank.ARRYN=of Arryn Vale
 got.rank.ASSHAI=of Asshai

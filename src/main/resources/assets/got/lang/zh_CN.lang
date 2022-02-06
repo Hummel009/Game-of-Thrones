@@ -1,4 +1,9 @@
 ﻿
+got.command.wpCooldown.usage=/wpCooldown <max|min> <秒数>
+got.command.wpCooldown.setMax=设置路径点默认冷却时间最大值为%d秒(%s)
+got.command.wpCooldown.setMin=设置路径点默认冷却时间最小值为%d秒(%s)
+got.command.wpCooldown.updateMax=自动更改最大冷却时间以适应最小值%d
+got.command.wpCooldown.updateMin=自动更改最小冷却时间以适应最大值%d
 got.gui.options.femRank≠
 got.rank.ARRYN≠
 got.rank.ASSHAI≠

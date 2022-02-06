@@ -106,7 +106,6 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 	@Override
 	public void setupNPCName() {
 		String name = null;
-		ProstituteType type = null;
 		switch (rand.nextInt(10)) {
 		case 0:
 			name = GOTNames.getWildName(rand, familyInfo.isMale());

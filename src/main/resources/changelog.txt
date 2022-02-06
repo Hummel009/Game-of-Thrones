@@ -1,9 +1,11 @@
 CHANGELOG
 
 >>VERSION 17.7
+* Greatly improved all the banners in the game (prod. Hummel009)
 + Added Asshai Shield
 + Added feminized ranks
 
+* Improved tool & weapon stats
 * Improved prostitute names & skins
 * Improved ranks
 
@@ -12,6 +14,7 @@ CHANGELOG
 * Fixed 5 minor bugs (thanks to Stalker Kir)
 * Fixed 7 minor bugs (thanks to VVVIP2)
 * Fixed bug with shields GUI
+* Fixed bug with smithing
 * Reduced quality of some too elite unrealistic shields
 
 >>VERSION 17.6

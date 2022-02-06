@@ -1,4 +1,9 @@
 
+got.command.wpCooldown.usage=/wpCooldown <max|min> <sekundy>
+got.command.wpCooldown.setMax=Ustawiono maksymalny czas odnowienia znaczników na %d sekund (%s)
+got.command.wpCooldown.setMin=Ustawiono minimalny czas odnowienia znaczników na %d sekund (%s)
+got.command.wpCooldown.updateMax=Automatycznie zaktualizowano maksymalny czas odnowienia aby pasował do nowego minimum %d
+got.command.wpCooldown.updateMin=Automatycznie zaktualizowano minimalny czas odnowienia aby pasował do nowego maksimum %d
 got.gui.options.femRank≠
 got.rank.ARRYN≠
 got.rank.ASSHAI≠

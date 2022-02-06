@@ -1,4 +1,9 @@
 
+got.command.wpCooldown.usage=/wpCooldown <max|min> <seconds>
+got.command.wpCooldown.setMax=Setze die maximale Wegpunkt Abklingzeit auf %d Sekunden (%s)
+got.command.wpCooldown.setMin=Setze die minimale Wegpunkt Abklingzeit auf %d Sekunden (%s)
+got.command.wpCooldown.updateMax=Hat automatisch die maximale Abklingzeit an das neue Minimum %d angepasst
+got.command.wpCooldown.updateMin=Hat automatisch die minimale Abklingzeit an das neue Maximum %d angepasst
 got.gui.options.femRank≠
 got.rank.ARRYN≠
 got.rank.ASSHAI≠
