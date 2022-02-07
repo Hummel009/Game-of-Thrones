@@ -8,10 +8,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketUpdateViewingFaction implements IMessage {
-	public GOTFaction viewingFaction;
-
-	public GOTPacketUpdateViewingFaction() {
-	}
+	private GOTFaction viewingFaction;
 
 	public GOTPacketUpdateViewingFaction(GOTFaction f) {
 		viewingFaction = f;

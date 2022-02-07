@@ -11,11 +11,8 @@ import got.common.faction.GOTFaction;
 import io.netty.buffer.ByteBuf;
 
 public class GOTPacketAlignmentSee implements IMessage {
-	public String username;
-	public Map<GOTFaction, Float> alignmentMap = new HashMap<>();
-
-	public GOTPacketAlignmentSee() {
-	}
+	private String username;
+	private Map<GOTFaction, Float> alignmentMap = new HashMap<>();
 
 	public GOTPacketAlignmentSee(String name, GOTPlayerData pd) {
 		username = name;

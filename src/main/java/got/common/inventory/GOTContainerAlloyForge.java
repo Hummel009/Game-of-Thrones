@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityFurnace;
 
 public class GOTContainerAlloyForge extends Container {
-	public GOTTileEntityAlloyForge theForge;
+	private GOTTileEntityAlloyForge theForge;
 	private int currentSmeltTime = 0;
 	private int forgeSmeltTime = 0;
 	private int currentItemFuelValue = 0;

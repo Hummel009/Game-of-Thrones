@@ -10,12 +10,9 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ChatComponentTranslation;
 
 public class GOTPacketFastTravel implements IMessage {
-	public boolean isCustom;
-	public int wpID;
-	public UUID sharingPlayer;
-
-	public GOTPacketFastTravel() {
-	}
+	private boolean isCustom;
+	private int wpID;
+	private UUID sharingPlayer;
 
 	public GOTPacketFastTravel(GOTAbstractWaypoint wp) {
 		isCustom = wp instanceof GOTCustomWaypoint;

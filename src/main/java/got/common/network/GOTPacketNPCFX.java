@@ -8,11 +8,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
 public class GOTPacketNPCFX implements IMessage {
-	public int entityID;
-	public FXType type;
-
-	public GOTPacketNPCFX() {
-	}
+	private int entityID;
+	private FXType type;
 
 	public GOTPacketNPCFX(int i, FXType t) {
 		entityID = i;

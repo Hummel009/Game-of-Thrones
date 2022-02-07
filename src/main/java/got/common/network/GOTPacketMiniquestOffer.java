@@ -16,11 +16,8 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.world.World;
 
 public class GOTPacketMiniquestOffer implements IMessage {
-	public int entityID;
-	public NBTTagCompound miniquestData;
-
-	public GOTPacketMiniquestOffer() {
-	}
+	private int entityID;
+	private NBTTagCompound miniquestData;
 
 	public GOTPacketMiniquestOffer(int id, NBTTagCompound nbt) {
 		entityID = id;
@@ -55,7 +52,7 @@ public class GOTPacketMiniquestOffer implements IMessage {
 			return;
 		}
 		GOTPacketMiniquestOfferClose packet = new GOTPacketMiniquestOfferClose(npc.getEntityId(), accept);
-		GOTPacketHandler.networkWrapper.sendToServer(packet);
+		GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketMiniquestOffer, IMessage> {

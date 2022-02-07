@@ -5,10 +5,7 @@ import got.common.GOTLevelData;
 import io.netty.buffer.ByteBuf;
 
 public class GOTPacketEnableAlignmentZones implements IMessage {
-	public boolean enable;
-
-	public GOTPacketEnableAlignmentZones() {
-	}
+	private boolean enable;
 
 	public GOTPacketEnableAlignmentZones(boolean flag) {
 		enable = flag;

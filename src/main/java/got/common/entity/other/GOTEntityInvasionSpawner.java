@@ -409,7 +409,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 
 	public void setWatchingInvasion(EntityPlayerMP entityplayer, boolean overrideAlreadyWatched) {
 		GOTPacketInvasionWatch pkt = new GOTPacketInvasionWatch(this, overrideAlreadyWatched);
-		GOTPacketHandler.networkWrapper.sendTo(pkt, entityplayer);
+		GOTPacketHandler.getNetworkWrapper().sendTo(pkt, entityplayer);
 	}
 
 	public void startInvasion() {

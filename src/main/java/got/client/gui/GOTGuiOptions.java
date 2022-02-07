@@ -20,7 +20,7 @@ public class GOTGuiOptions extends GOTGuiMenuWBBase {
 		if (button.enabled) {
 			if (button instanceof GOTGuiButtonOptions) {
 				GOTPacketSetOption packet = new GOTPacketSetOption(button.id);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 			} else if (button.enabled && button == getGoBack()) {
 				mc.displayGuiScreen(new GOTGuiMenu());
 			} else {

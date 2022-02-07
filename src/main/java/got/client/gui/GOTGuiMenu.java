@@ -112,7 +112,7 @@ public class GOTGuiMenu extends GOTGuiScreenBase {
 			if (!sentCheckPacket) {
 				GOTTickHandlerClient.setRenderMenuPrompt(false);
 				packet = new GOTPacketCheckMenuPrompt(GOTPacketMenuPrompt.Type.MENU);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 				sentCheckPacket = true;
 			}
 		}

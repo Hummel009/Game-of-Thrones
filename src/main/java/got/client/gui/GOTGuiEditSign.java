@@ -98,7 +98,7 @@ public class GOTGuiEditSign extends GuiScreen {
 	public void onGuiClosed() {
 		Keyboard.enableRepeatEvents(false);
 		GOTPacketEditSign packet = new GOTPacketEditSign(tileSign);
-		GOTPacketHandler.networkWrapper.sendToServer(packet);
+		GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 		tileSign.setEditable(true);
 	}
 

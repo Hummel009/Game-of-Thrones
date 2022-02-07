@@ -8,10 +8,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketSelectCape implements IMessage {
-	public GOTCapes cape;
-
-	public GOTPacketSelectCape() {
-	}
+	private GOTCapes cape;
 
 	public GOTPacketSelectCape(GOTCapes s) {
 		cape = s;

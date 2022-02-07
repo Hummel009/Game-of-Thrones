@@ -8,39 +8,76 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketMountControlServerEnforce implements IMessage {
-	public double posX;
-	public double posY;
-	public double posZ;
-	public float rotationYaw;
-	public float rotationPitch;
-
-	public GOTPacketMountControlServerEnforce() {
-	}
+	private double posX;
+	private double posY;
+	private double posZ;
+	private float rotationYaw;
+	private float rotationPitch;
 
 	public GOTPacketMountControlServerEnforce(Entity entity) {
-		posX = entity.posX;
-		posY = entity.posY;
-		posZ = entity.posZ;
-		rotationYaw = entity.rotationYaw;
-		rotationPitch = entity.rotationPitch;
+		setPosX(entity.posX);
+		setPosY(entity.posY);
+		setPosZ(entity.posZ);
+		setRotationYaw(entity.rotationYaw);
+		setRotationPitch(entity.rotationPitch);
 	}
 
 	@Override
 	public void fromBytes(ByteBuf data) {
-		posX = data.readDouble();
-		posY = data.readDouble();
-		posZ = data.readDouble();
-		rotationYaw = data.readFloat();
-		rotationPitch = data.readFloat();
+		setPosX(data.readDouble());
+		setPosY(data.readDouble());
+		setPosZ(data.readDouble());
+		setRotationYaw(data.readFloat());
+		setRotationPitch(data.readFloat());
+	}
+
+	public double getPosX() {
+		return posX;
+	}
+
+	public double getPosY() {
+		return posY;
+	}
+
+	public double getPosZ() {
+		return posZ;
+	}
+
+	public float getRotationPitch() {
+		return rotationPitch;
+	}
+
+	public float getRotationYaw() {
+		return rotationYaw;
+	}
+
+	public void setPosX(double posX) {
+		this.posX = posX;
+	}
+
+	public void setPosY(double posY) {
+		this.posY = posY;
+	}
+
+	public void setPosZ(double posZ) {
+		this.posZ = posZ;
+	}
+
+	public void setRotationPitch(float rotationPitch) {
+		this.rotationPitch = rotationPitch;
+	}
+
+	public void setRotationYaw(float rotationYaw) {
+		this.rotationYaw = rotationYaw;
 	}
 
 	@Override
 	public void toBytes(ByteBuf data) {
-		data.writeDouble(posX);
-		data.writeDouble(posY);
-		data.writeDouble(posZ);
-		data.writeFloat(rotationYaw);
-		data.writeFloat(rotationPitch);
+		data.writeDouble(getPosX());
+		data.writeDouble(getPosY());
+		data.writeDouble(getPosZ());
+		data.writeFloat(getRotationYaw());
+		data.writeFloat(getRotationPitch());
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketMountControlServerEnforce, IMessage> {

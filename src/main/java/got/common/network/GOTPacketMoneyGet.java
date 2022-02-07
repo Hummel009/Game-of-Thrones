@@ -13,10 +13,7 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.*;
 
 public class GOTPacketMoneyGet extends GOTPacketMoney implements IMessage {
-	public ItemStack item;
-
-	public GOTPacketMoneyGet() {
-	}
+	private ItemStack item;
 
 	public GOTPacketMoneyGet(ItemStack items) {
 		item = items;
@@ -65,7 +62,7 @@ public class GOTPacketMoneyGet extends GOTPacketMoney implements IMessage {
 					int balance = pd.getBalance();
 					balance += cost;
 					pd.setBalance(balance);
-					GOTPacketHandler.networkWrapper.sendTo(packet, player);
+					GOTPacketHandler.getNetworkWrapper().sendTo(packet, player);
 					player.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.gui.money.get", item.getDisplayName())));
 				} else {
 					player.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_RED + StatCollector.translateToLocalFormatted("got.gui.money.notGet", item.getDisplayName())));

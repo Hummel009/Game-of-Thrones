@@ -13,29 +13,34 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 
 public class GOTPacketTraderInfo implements IMessage {
-	public NBTTagCompound traderData;
-
-	public GOTPacketTraderInfo() {
-	}
+	private NBTTagCompound traderData;
 
 	public GOTPacketTraderInfo(NBTTagCompound nbt) {
-		traderData = nbt;
+		setTraderData(nbt);
 	}
 
 	@Override
 	public void fromBytes(ByteBuf data) {
 		try {
-			traderData = new PacketBuffer(data).readNBTTagCompoundFromBuffer();
+			setTraderData(new PacketBuffer(data).readNBTTagCompoundFromBuffer());
 		} catch (IOException e) {
 			FMLLog.severe("Error reading trader data");
 			e.printStackTrace();
 		}
 	}
 
+	public NBTTagCompound getTraderData() {
+		return traderData;
+	}
+
+	public void setTraderData(NBTTagCompound traderData) {
+		this.traderData = traderData;
+	}
+
 	@Override
 	public void toBytes(ByteBuf data) {
 		try {
-			new PacketBuffer(data).writeNBTTagCompoundToBuffer(traderData);
+			new PacketBuffer(data).writeNBTTagCompoundToBuffer(getTraderData());
 		} catch (IOException e) {
 			FMLLog.severe("Error writing trader data");
 			e.printStackTrace();
@@ -49,7 +54,7 @@ public class GOTPacketTraderInfo implements IMessage {
 			Container container = entityplayer.openContainer;
 			if (container instanceof GOTContainerTrade) {
 				GOTContainerTrade containerTrade = (GOTContainerTrade) container;
-				containerTrade.theTraderNPC.traderNPCInfo.receiveClientPacket(packet);
+				containerTrade.getTheTraderNPC().traderNPCInfo.receiveClientPacket(packet);
 			}
 			return null;
 		}

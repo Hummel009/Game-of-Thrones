@@ -149,24 +149,24 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				} else if (creatingWaypointNew && isValidWaypointName(nameWPTextField.getText())) {
 					String waypointName = nameWPTextField.getText();
 					GOTPacketCreateCWP packet = new GOTPacketCreateCWP(waypointName);
-					GOTPacketHandler.networkWrapper.sendToServer(packet);
+					GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 					closeOverlay();
 				} else if (deletingWaypoint) {
 					GOTPacketDeleteCWP packet = new GOTPacketDeleteCWP((GOTCustomWaypoint) selectedWaypoint);
-					GOTPacketHandler.networkWrapper.sendToServer(packet);
+					GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 					closeOverlay();
 					selectedWaypoint = null;
 				} else if (renamingWaypoint && isValidWaypointName(nameWPTextField.getText())) {
 					String newName = nameWPTextField.getText();
 					GOTPacketRenameCWP packet = new GOTPacketRenameCWP((GOTCustomWaypoint) selectedWaypoint, newName);
-					GOTPacketHandler.networkWrapper.sendToServer(packet);
+					GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 					closeOverlay();
 				} else if (sharingWaypoint) {
 					openOverlayShareNew();
 				} else if (sharingWaypointNew && isExistingUnsharedFellowshipName(nameWPTextField.getText(), (GOTCustomWaypoint) selectedWaypoint)) {
 					String fsName = nameWPTextField.getText();
 					GOTPacketShareCWP packet = new GOTPacketShareCWP((GOTCustomWaypoint) selectedWaypoint, fsName, true);
-					GOTPacketHandler.networkWrapper.sendToServer(packet);
+					GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 					openOverlayShare();
 				}
 			} else if (button == buttonConquestRegions) {
@@ -957,7 +957,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			if (conquestViewingFaction == null) {
 				conquestViewingFaction = GOTLevelData.getData(mc.thePlayer).getViewingFaction();
 			}
-			prevRegion = currentRegion = conquestViewingFaction.factionRegion;
+			prevRegion = currentRegion = conquestViewingFaction.getFactionRegion();
 			currentFactionList = GOTGuiMap.currentRegion.getFactionList();
 			prevFactionIndex = currentFactionIndex = currentFactionList.indexOf(conquestViewingFaction);
 			lastViewedRegions.put(currentRegion, conquestViewingFaction);
@@ -1001,7 +1001,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		fellowshipDrawGUI.setWorldAndResolution(mc, width, height);
 		if (mc.currentScreen == this) {
 			GOTPacketClientMQEvent packet = new GOTPacketClientMQEvent(GOTPacketClientMQEvent.ClientMQEvent.MAP);
-			GOTPacketHandler.networkWrapper.sendToServer(packet);
+			GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 		}
 	}
 
@@ -1073,13 +1073,13 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
 				if (i == GOTKeyHandler.getKeyBindingFastTravel().getKeyCode() && isMiddleEarth() && selectedWaypoint != null && selectedWaypoint.hasPlayerUnlocked(mc.thePlayer) && pd.getTimeSinceFT() >= pd.getWaypointFTTime(selectedWaypoint, mc.thePlayer)) {
 					GOTPacketFastTravel packet = new GOTPacketFastTravel(selectedWaypoint);
-					GOTPacketHandler.networkWrapper.sendToServer(packet);
+					GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 					mc.thePlayer.closeScreen();
 					return;
 				}
 				if (selectedWaypoint == null && i == GOTKeyHandler.getKeyBindingMapTeleport().getKeyCode() && isMouseWithinMap && canTeleport()) {
 					GOTPacketMapTp packet = new GOTPacketMapTp(mouseXCoord, mouseZCoord);
-					GOTPacketHandler.networkWrapper.sendToServer(packet);
+					GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 					mc.thePlayer.closeScreen();
 					return;
 				}
@@ -1109,7 +1109,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		if (hasOverlay && k == 0 && sharingWaypoint && mouseOverRemoveSharedFellowship != null) {
 			String fsName = mouseOverRemoveSharedFellowship.getName();
 			packet = new GOTPacketShareCWP((GOTCustomWaypoint) selectedWaypoint, fsName, false);
-			GOTPacketHandler.networkWrapper.sendToServer((IMessage) packet);
+			GOTPacketHandler.getNetworkWrapper().sendToServer((IMessage) packet);
 			return;
 		}
 		if (!hasOverlay && k == 0 && isMiddleEarth() && selectedWaypoint instanceof GOTCustomWaypoint) {
@@ -1130,13 +1130,13 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			} else {
 				if (mouseWidget == widgetHideSWP) {
 					packet = new GOTPacketCWPSharedHide(cwp, true);
-					GOTPacketHandler.networkWrapper.sendToServer((IMessage) packet);
+					GOTPacketHandler.getNetworkWrapper().sendToServer((IMessage) packet);
 					selectedWaypoint = null;
 					return;
 				}
 				if (mouseWidget == widgetUnhideSWP) {
 					packet = new GOTPacketCWPSharedHide(cwp, false);
-					GOTPacketHandler.networkWrapper.sendToServer((IMessage) packet);
+					GOTPacketHandler.getNetworkWrapper().sendToServer((IMessage) packet);
 					return;
 				}
 			}
@@ -1280,7 +1280,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		mouseControlZone = false;
 		mouseControlZoneReduced = false;
 		GOTFaction faction = controlZoneFaction;
-		if (faction.factionDimension == GOTDimension.GAME_OF_THRONES && !(controlZones = faction.getControlZones()).isEmpty()) {
+		if (faction.getFactionDimension() == GOTDimension.GAME_OF_THRONES && !(controlZones = faction.getControlZones()).isEmpty()) {
 			Tessellator tessellator = Tessellator.instance;
 			setupMapClipping();
 			GL11.glDisable(3553);
@@ -1945,7 +1945,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		if (!requestedFacGrids.contains(conqFac) && ticksUntilRequestFac <= 0) {
 			requestedFacGrids.add(conqFac);
 			GOTPacketConquestGridRequest packet = new GOTPacketConquestGridRequest(conqFac);
-			GOTPacketHandler.networkWrapper.sendToServer(packet);
+			GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 		}
 	}
 
@@ -1955,7 +1955,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			setPlayerOp(server.worldServers[0].getWorldInfo().areCommandsAllowed() && server.getServerOwner().equalsIgnoreCase(mc.thePlayer.getGameProfile().getName()));
 		} else {
 			GOTPacketIsOpRequest packet = new GOTPacketIsOpRequest();
-			GOTPacketHandler.networkWrapper.sendToServer(packet);
+			GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 		}
 	}
 

@@ -13,12 +13,9 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.world.World;
 
 public class GOTPacketEditNPCRespawner implements IMessage {
-	public int spawnerID;
-	public NBTTagCompound spawnerData;
-	public boolean destroy;
-
-	public GOTPacketEditNPCRespawner() {
-	}
+	private int spawnerID;
+	private NBTTagCompound spawnerData;
+	private boolean destroy;
 
 	public GOTPacketEditNPCRespawner(GOTEntityNPCRespawner spawner) {
 		spawnerID = spawner.getEntityId();
@@ -35,7 +32,15 @@ public class GOTPacketEditNPCRespawner implements IMessage {
 			FMLLog.severe("Error reading spawner data");
 			e.printStackTrace();
 		}
-		destroy = data.readBoolean();
+		setDestroy(data.readBoolean());
+	}
+
+	public boolean isDestroy() {
+		return destroy;
+	}
+
+	public void setDestroy(boolean destroy) {
+		this.destroy = destroy;
 	}
 
 	@Override
@@ -47,7 +52,7 @@ public class GOTPacketEditNPCRespawner implements IMessage {
 			FMLLog.severe("Error writing spawner data");
 			e.printStackTrace();
 		}
-		data.writeBoolean(destroy);
+		data.writeBoolean(isDestroy());
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketEditNPCRespawner, IMessage> {
@@ -61,7 +66,7 @@ public class GOTPacketEditNPCRespawner implements IMessage {
 				if (entityplayer.capabilities.isCreativeMode) {
 					spawner.readSpawnerDataFromNBT(packet.spawnerData);
 				}
-				if (packet.destroy) {
+				if (packet.isDestroy()) {
 					spawner.onBreak();
 				}
 			}

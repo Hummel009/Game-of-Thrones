@@ -133,7 +133,7 @@ public class GOTUnitTradeEntries {
 	}
 
 	public GOTUnitTradeEntry[] setTradeEntries(GOTUnitTradeEntry[] tradeEntries) {
-		this.tradeEntries = tradeEntries;
+		this.tradeEntries = tradeEntries.clone();
 		return tradeEntries;
 	}
 }

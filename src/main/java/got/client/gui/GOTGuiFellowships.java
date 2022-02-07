@@ -92,7 +92,7 @@ public class GOTGuiFellowships extends GOTGuiMenuWBBase {
 				if (checkValidFellowshipName(name) == null) {
 					name = StringUtils.trim(name);
 					GOTPacketFellowshipCreate packet = new GOTPacketFellowshipCreate(name);
-					GOTPacketHandler.networkWrapper.sendToServer(packet);
+					GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 				}
 				page = Page.LIST;
 			} else if (button == buttonInvitePlayer) {
@@ -102,39 +102,39 @@ public class GOTGuiFellowships extends GOTGuiMenuWBBase {
 				if (checkValidPlayerName(name) == null) {
 					name = StringUtils.trim(name);
 					GOTPacketFellowshipDoPlayer packet = new GOTPacketFellowshipDoPlayer(viewingFellowship, name, GOTPacketFellowshipDoPlayer.PlayerFunction.INVITE);
-					GOTPacketHandler.networkWrapper.sendToServer(packet);
+					GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 				}
 				page = Page.FELLOWSHIP;
 			} else if (button == buttonDisband) {
 				page = Page.DISBAND;
 			} else if (button == buttonDisbandThis) {
 				GOTPacketFellowshipDisband packet = new GOTPacketFellowshipDisband(viewingFellowship);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 				page = Page.LIST;
 			} else if (button == buttonLeave) {
 				page = Page.LEAVE;
 			} else if (button == buttonLeaveThis) {
 				GOTPacketFellowshipLeave packet = new GOTPacketFellowshipLeave(viewingFellowship);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 				page = Page.LIST;
 			} else if (button == buttonSetIcon) {
 				GOTPacketFellowshipSetIcon packet = new GOTPacketFellowshipSetIcon(viewingFellowship);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 			} else if (button == buttonRemove) {
 				GOTPacketFellowshipDoPlayer packet = new GOTPacketFellowshipDoPlayer(viewingFellowship, removingPlayer, GOTPacketFellowshipDoPlayer.PlayerFunction.REMOVE);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 				page = Page.FELLOWSHIP;
 			} else if (button == buttonOp) {
 				GOTPacketFellowshipDoPlayer packet = new GOTPacketFellowshipDoPlayer(viewingFellowship, oppingPlayer, GOTPacketFellowshipDoPlayer.PlayerFunction.OP);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 				page = Page.FELLOWSHIP;
 			} else if (button == buttonDeop) {
 				GOTPacketFellowshipDoPlayer packet = new GOTPacketFellowshipDoPlayer(viewingFellowship, deoppingPlayer, GOTPacketFellowshipDoPlayer.PlayerFunction.DEOP);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 				page = Page.FELLOWSHIP;
 			} else if (button == buttonTransfer) {
 				GOTPacketFellowshipDoPlayer packet = new GOTPacketFellowshipDoPlayer(viewingFellowship, transferringPlayer, GOTPacketFellowshipDoPlayer.PlayerFunction.TRANSFER);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 				page = Page.FELLOWSHIP;
 			} else if (button == buttonRename) {
 				page = Page.RENAME;
@@ -143,7 +143,7 @@ public class GOTGuiFellowships extends GOTGuiMenuWBBase {
 				if (checkValidFellowshipName(name) == null) {
 					name = StringUtils.trim(name);
 					GOTPacketFellowshipRename packet = new GOTPacketFellowshipRename(viewingFellowship, name);
-					GOTPacketHandler.networkWrapper.sendToServer(packet);
+					GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 				}
 				page = Page.FELLOWSHIP;
 			} else if (button == buttonBack) {
@@ -152,13 +152,13 @@ public class GOTGuiFellowships extends GOTGuiMenuWBBase {
 				page = Page.INVITATIONS;
 			} else if (button == buttonPVP) {
 				GOTPacketFellowshipToggle packet = new GOTPacketFellowshipToggle(viewingFellowship, GOTPacketFellowshipToggle.ToggleFunction.PVP);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 			} else if (button == buttonHiredFF) {
 				GOTPacketFellowshipToggle packet = new GOTPacketFellowshipToggle(viewingFellowship, GOTPacketFellowshipToggle.ToggleFunction.HIRED_FF);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 			} else if (button == buttonMapShow) {
 				GOTPacketFellowshipToggle packet = new GOTPacketFellowshipToggle(viewingFellowship, GOTPacketFellowshipToggle.ToggleFunction.MAP_SHOW);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 			} else {
 				super.actionPerformed(button);
 			}
@@ -446,29 +446,154 @@ public class GOTGuiFellowships extends GOTGuiMenuWBBase {
 		super.drawScreen(i, j, f);
 		String s = StatCollector.translateToLocal("got.gui.fellowships.title");
 		this.drawCenteredString(s, getGuiLeft() + getxSize() / 2, getGuiTop() - 30, 16777215);
-		if (page == Page.LIST) {
-			int x = getGuiLeft();
-			int y = scrollPaneLeading.getPaneY0();
+		switch (page) {
+		case CREATE:
+			s = StatCollector.translateToLocal("got.gui.fellowships.createName");
+			this.drawCenteredString(s, getGuiLeft() + getxSize() / 2, textFieldName.yPosition - 4 - fontRendererObj.FONT_HEIGHT, 16777215);
+			textFieldName.drawTextBox();
+			if (checkValidName != null) {
+				this.drawCenteredString(checkValidName, getGuiLeft() + getxSize() / 2, textFieldName.yPosition + textFieldName.height + fontRendererObj.FONT_HEIGHT, 16711680);
+			}
+			break;
+		case DEOP:
+			int x = getGuiLeft() + getxSize() / 2;
+			int y = getGuiTop() + 30;
+			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.deopCheck", viewingFellowship.getName(), deoppingPlayer);
+			List<String> lines = fontRendererObj.listFormattedStringToWidth(s, getxSize());
+			for (String line : lines) {
+				this.drawCenteredString(line, x, y, 16777215);
+				y += fontRendererObj.FONT_HEIGHT;
+			}
+
+			break;
+		case DISBAND:
+			int x1 = getGuiLeft() + getxSize() / 2;
+			int y1 = getGuiTop() + 30;
+			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.disbandCheck1", viewingFellowship.getName());
+			this.drawCenteredString(s, x1, y1, 16777215);
+			s = StatCollector.translateToLocal("got.gui.fellowships.disbandCheck2");
+			this.drawCenteredString(s, x1, y1 += fontRendererObj.FONT_HEIGHT, 16777215);
+			s = StatCollector.translateToLocal("got.gui.fellowships.disbandCheck3");
+			this.drawCenteredString(s, x1, y1 += fontRendererObj.FONT_HEIGHT * 2, 16777215);
+			y1 += fontRendererObj.FONT_HEIGHT;
+			break;
+		case FELLOWSHIP:
+			int x2 = getGuiLeft();
+			int y2 = getGuiTop() + 10;
+			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.nameAndPlayers", viewingFellowship.getName(), viewingFellowship.getMemberCount());
+			this.drawCenteredString(s, getGuiLeft() + getxSize() / 2, y2, 16777215);
+			y2 += fontRendererObj.FONT_HEIGHT;
+			y2 += 5;
+			if (viewingFellowship.getIcon() != null) {
+				drawFellowshipIcon(viewingFellowship, getGuiLeft() + getxSize() / 2 - 8, y2, 1.0f);
+			}
+			boolean preventPVP = viewingFellowship.getPreventPVP();
+			boolean preventHiredFF = viewingFellowship.getPreventHiredFriendlyFire();
+			boolean mapShow = viewingFellowship.getShowMapLocations();
+			int iconPVPX = getGuiLeft() + getxSize() - 36;
+			int iconHFFX = getGuiLeft() + getxSize() - 16;
+			int iconMapX = getGuiLeft() + getxSize() - 56;
+			int iconY = y2;
+			int iconSize = 16;
+			mc.getTextureManager().bindTexture(getIconsTextures());
+			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+			this.drawTexturedModalRect(iconPVPX, iconY, 64, preventPVP ? 80 : 48, iconSize, iconSize);
+			this.drawTexturedModalRect(iconHFFX, iconY, 80, preventHiredFF ? 80 : 48, iconSize, iconSize);
+			this.drawTexturedModalRect(iconMapX, iconY, 96, mapShow ? 48 : 80, iconSize, iconSize);
+			if (i >= iconPVPX && i < iconPVPX + iconSize && j >= iconY && j < iconY + iconSize) {
+				renderIconTooltip(i, j, StatCollector.translateToLocal(preventPVP ? "got.gui.fellowships.pvp.prevent" : "got.gui.fellowships.pvp.allow"));
+			}
+			if (i >= iconHFFX && i < iconHFFX + iconSize && j >= iconY && j < iconY + iconSize) {
+				renderIconTooltip(i, j, StatCollector.translateToLocal(preventHiredFF ? "got.gui.fellowships.hiredFF.prevent" : "got.gui.fellowships.hiredFF.allow"));
+			}
+			if (i >= iconMapX && i < iconMapX + iconSize && j >= iconY && j < iconY + iconSize) {
+				renderIconTooltip(i, j, StatCollector.translateToLocal(mapShow ? "got.gui.fellowships.mapShow.on" : "got.gui.fellowships.mapShow.off"));
+			}
+			y2 += iconSize;
+			y2 += 10;
+			int titleOffset = 0;
+			drawPlayerEntry(viewingFellowship.getOwnerName(), x2, y2, titleOffset, i, j);
+			y2 += fontRendererObj.FONT_HEIGHT + 10;
+			List<String> membersSorted = sortMemberNamesForDisplay(viewingFellowship);
+			int[] membersMinMax = scrollPaneMembers.getMinMaxIndices(membersSorted, displayedMembers);
+			for (int index = membersMinMax[0]; index <= membersMinMax[1]; ++index) {
+				String name = membersSorted.get(index);
+				drawPlayerEntry(name, x2, y2, titleOffset, i, j);
+				y2 += fontRendererObj.FONT_HEIGHT + 5;
+			}
+			for (Object bObj : buttonList) {
+				GuiButton button = (GuiButton) bObj;
+				if (button instanceof GOTGuiButtonFsOption && button.visible && button.func_146115_a()) {
+					s = button.displayString;
+					this.drawCenteredString(s, getGuiLeft() + getxSize() / 2, button.yPosition + button.height + 4, 16777215);
+				}
+			}
+			if (scrollPaneMembers.isHasScrollBar()) {
+				scrollPaneMembers.drawScrollBar();
+			}
+			break;
+		case INVITATIONS:
+			int x3 = getGuiLeft();
+			int y3 = getGuiTop() + 10;
+			s = StatCollector.translateToLocal("got.gui.fellowships.invites");
+			this.drawCenteredString(s, getGuiLeft() + getxSize() / 2, y3, 16777215);
+			y3 += fontRendererObj.FONT_HEIGHT + 10;
+			if (allFellowshipInvites.isEmpty()) {
+				s = StatCollector.translateToLocal("got.gui.fellowships.invitesNone");
+				this.drawCenteredString(s, getGuiLeft() + getxSize() / 2, y3 += fontRendererObj.FONT_HEIGHT, 16777215);
+			} else {
+				int[] invitesMinMax = scrollPaneInvites.getMinMaxIndices(allFellowshipInvites, displayedInvites);
+				for (int index = invitesMinMax[0]; index <= invitesMinMax[1]; ++index) {
+					GOTFellowshipClient fs = allFellowshipInvites.get(index);
+					this.drawFellowshipEntry(fs, x3, y3, i, j, true);
+					y3 += fontRendererObj.FONT_HEIGHT + 5;
+				}
+			}
+			if (scrollPaneInvites.isHasScrollBar()) {
+				scrollPaneInvites.drawScrollBar();
+			}
+
+			break;
+		case INVITE:
+			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.inviteName", viewingFellowship.getName());
+			this.drawCenteredString(s, getGuiLeft() + getxSize() / 2, textFieldPlayer.yPosition - 4 - fontRendererObj.FONT_HEIGHT, 16777215);
+			textFieldPlayer.drawTextBox();
+			if (checkValidPlayer != null) {
+				this.drawCenteredString(checkValidPlayer, getGuiLeft() + getxSize() / 2, textFieldPlayer.yPosition + textFieldPlayer.height + fontRendererObj.FONT_HEIGHT, 16711680);
+			}
+			break;
+		case LEAVE:
+			int x4 = getGuiLeft() + getxSize() / 2;
+			int y4 = getGuiTop() + 30;
+			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.leaveCheck1", viewingFellowship.getName());
+			this.drawCenteredString(s, x4, y4, 16777215);
+			s = StatCollector.translateToLocal("got.gui.fellowships.leaveCheck2");
+			this.drawCenteredString(s, x4, y4 += fontRendererObj.FONT_HEIGHT, 16777215);
+			y4 += fontRendererObj.FONT_HEIGHT * 2;
+			break;
+		case LIST:
+			int x5 = getGuiLeft();
+			int y5 = scrollPaneLeading.getPaneY0();
 			s = StatCollector.translateToLocal("got.gui.fellowships.leading");
-			this.drawCenteredString(s, getGuiLeft() + getxSize() / 2, y, 16777215);
-			y += fontRendererObj.FONT_HEIGHT + 10;
+			this.drawCenteredString(s, getGuiLeft() + getxSize() / 2, y5, 16777215);
+			y5 += fontRendererObj.FONT_HEIGHT + 10;
 			List<GOTFellowshipClient> sortedLeading = sortFellowshipsForDisplay(allFellowshipsLeading);
 			int[] leadingMinMax = scrollPaneLeading.getMinMaxIndices(sortedLeading, displayedFellowshipsLeading);
 			for (int index = leadingMinMax[0]; index <= leadingMinMax[1]; ++index) {
 				GOTFellowshipClient fs = sortedLeading.get(index);
-				this.drawFellowshipEntry(fs, x, y, i, j, false);
-				y += fontRendererObj.FONT_HEIGHT + 5;
+				this.drawFellowshipEntry(fs, x5, y5, i, j, false);
+				y5 += fontRendererObj.FONT_HEIGHT + 5;
 			}
-			y = scrollPaneOther.getPaneY0();
+			y5 = scrollPaneOther.getPaneY0();
 			s = StatCollector.translateToLocal("got.gui.fellowships.member");
-			this.drawCenteredString(s, getGuiLeft() + getxSize() / 2, y, 16777215);
-			y += fontRendererObj.FONT_HEIGHT + 10;
+			this.drawCenteredString(s, getGuiLeft() + getxSize() / 2, y5, 16777215);
+			y5 += fontRendererObj.FONT_HEIGHT + 10;
 			List<GOTFellowshipClient> sortedOther = sortFellowshipsForDisplay(allFellowshipsOther);
 			int[] otherMinMax = scrollPaneOther.getMinMaxIndices(sortedOther, displayedFellowshipsOther);
 			for (int index = otherMinMax[0]; index <= otherMinMax[1]; ++index) {
 				GOTFellowshipClient fs = sortedOther.get(index);
-				this.drawFellowshipEntry(fs, x, y, i, j, false);
-				y += fontRendererObj.FONT_HEIGHT + 5;
+				this.drawFellowshipEntry(fs, x5, y5, i, j, false);
+				y5 += fontRendererObj.FONT_HEIGHT + 5;
 			}
 			String invites = String.valueOf(playerData.getClientFellowshipInvites().size());
 			int invitesX = buttonInvites.xPosition - 2 - fontRendererObj.getStringWidth(invites);
@@ -487,165 +612,57 @@ public class GOTGuiFellowships extends GOTGuiMenuWBBase {
 			if (scrollPaneOther.isHasScrollBar()) {
 				scrollPaneOther.drawScrollBar();
 			}
-		} else if (page == Page.CREATE) {
-			s = StatCollector.translateToLocal("got.gui.fellowships.createName");
-			this.drawCenteredString(s, getGuiLeft() + getxSize() / 2, textFieldName.yPosition - 4 - fontRendererObj.FONT_HEIGHT, 16777215);
-			textFieldName.drawTextBox();
-			if (checkValidName != null) {
-				this.drawCenteredString(checkValidName, getGuiLeft() + getxSize() / 2, textFieldName.yPosition + textFieldName.height + fontRendererObj.FONT_HEIGHT, 16711680);
-			}
-		} else if (page == Page.FELLOWSHIP) {
-			int x = getGuiLeft();
-			int y = getGuiTop() + 10;
-			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.nameAndPlayers", viewingFellowship.getName(), viewingFellowship.getMemberCount());
-			this.drawCenteredString(s, getGuiLeft() + getxSize() / 2, y, 16777215);
-			y += fontRendererObj.FONT_HEIGHT;
-			y += 5;
-			if (viewingFellowship.getIcon() != null) {
-				drawFellowshipIcon(viewingFellowship, getGuiLeft() + getxSize() / 2 - 8, y, 1.0f);
-			}
-			boolean preventPVP = viewingFellowship.getPreventPVP();
-			boolean preventHiredFF = viewingFellowship.getPreventHiredFriendlyFire();
-			boolean mapShow = viewingFellowship.getShowMapLocations();
-			int iconPVPX = getGuiLeft() + getxSize() - 36;
-			int iconHFFX = getGuiLeft() + getxSize() - 16;
-			int iconMapX = getGuiLeft() + getxSize() - 56;
-			int iconY = y;
-			int iconSize = 16;
-			mc.getTextureManager().bindTexture(getIconsTextures());
-			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-			this.drawTexturedModalRect(iconPVPX, iconY, 64, preventPVP ? 80 : 48, iconSize, iconSize);
-			this.drawTexturedModalRect(iconHFFX, iconY, 80, preventHiredFF ? 80 : 48, iconSize, iconSize);
-			this.drawTexturedModalRect(iconMapX, iconY, 96, mapShow ? 48 : 80, iconSize, iconSize);
-			if (i >= iconPVPX && i < iconPVPX + iconSize && j >= iconY && j < iconY + iconSize) {
-				renderIconTooltip(i, j, StatCollector.translateToLocal(preventPVP ? "got.gui.fellowships.pvp.prevent" : "got.gui.fellowships.pvp.allow"));
-			}
-			if (i >= iconHFFX && i < iconHFFX + iconSize && j >= iconY && j < iconY + iconSize) {
-				renderIconTooltip(i, j, StatCollector.translateToLocal(preventHiredFF ? "got.gui.fellowships.hiredFF.prevent" : "got.gui.fellowships.hiredFF.allow"));
-			}
-			if (i >= iconMapX && i < iconMapX + iconSize && j >= iconY && j < iconY + iconSize) {
-				renderIconTooltip(i, j, StatCollector.translateToLocal(mapShow ? "got.gui.fellowships.mapShow.on" : "got.gui.fellowships.mapShow.off"));
-			}
-			y += iconSize;
-			y += 10;
-			int titleOffset = 0;
-			drawPlayerEntry(viewingFellowship.getOwnerName(), x, y, titleOffset, i, j);
-			y += fontRendererObj.FONT_HEIGHT + 10;
-			List<String> membersSorted = sortMemberNamesForDisplay(viewingFellowship);
-			int[] membersMinMax = scrollPaneMembers.getMinMaxIndices(membersSorted, displayedMembers);
-			for (int index = membersMinMax[0]; index <= membersMinMax[1]; ++index) {
-				String name = membersSorted.get(index);
-				drawPlayerEntry(name, x, y, titleOffset, i, j);
-				y += fontRendererObj.FONT_HEIGHT + 5;
-			}
-			for (Object bObj : buttonList) {
-				GuiButton button = (GuiButton) bObj;
-				if (button instanceof GOTGuiButtonFsOption && button.visible && button.func_146115_a()) {
-					s = button.displayString;
-					this.drawCenteredString(s, getGuiLeft() + getxSize() / 2, button.yPosition + button.height + 4, 16777215);
-				}
-			}
-			if (scrollPaneMembers.isHasScrollBar()) {
-				scrollPaneMembers.drawScrollBar();
-			}
-		} else if (page == Page.INVITE) {
-			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.inviteName", viewingFellowship.getName());
-			this.drawCenteredString(s, getGuiLeft() + getxSize() / 2, textFieldPlayer.yPosition - 4 - fontRendererObj.FONT_HEIGHT, 16777215);
-			textFieldPlayer.drawTextBox();
-			if (checkValidPlayer != null) {
-				this.drawCenteredString(checkValidPlayer, getGuiLeft() + getxSize() / 2, textFieldPlayer.yPosition + textFieldPlayer.height + fontRendererObj.FONT_HEIGHT, 16711680);
-			}
-		} else if (page == Page.DISBAND) {
-			int x = getGuiLeft() + getxSize() / 2;
-			int y = getGuiTop() + 30;
-			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.disbandCheck1", viewingFellowship.getName());
-			this.drawCenteredString(s, x, y, 16777215);
-			s = StatCollector.translateToLocal("got.gui.fellowships.disbandCheck2");
-			this.drawCenteredString(s, x, y += fontRendererObj.FONT_HEIGHT, 16777215);
-			s = StatCollector.translateToLocal("got.gui.fellowships.disbandCheck3");
-			this.drawCenteredString(s, x, y += fontRendererObj.FONT_HEIGHT * 2, 16777215);
-			y += fontRendererObj.FONT_HEIGHT;
-		} else if (page == Page.LEAVE) {
-			int x = getGuiLeft() + getxSize() / 2;
-			int y = getGuiTop() + 30;
-			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.leaveCheck1", viewingFellowship.getName());
-			this.drawCenteredString(s, x, y, 16777215);
-			s = StatCollector.translateToLocal("got.gui.fellowships.leaveCheck2");
-			this.drawCenteredString(s, x, y += fontRendererObj.FONT_HEIGHT, 16777215);
-			y += fontRendererObj.FONT_HEIGHT * 2;
-		} else if (page == Page.REMOVE) {
-			int x = getGuiLeft() + getxSize() / 2;
-			int y = getGuiTop() + 30;
-			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.removeCheck", viewingFellowship.getName(), removingPlayer);
-			List<String> lines = fontRendererObj.listFormattedStringToWidth(s, getxSize());
-			for (String line : lines) {
-				this.drawCenteredString(line, x, y, 16777215);
-				y += fontRendererObj.FONT_HEIGHT;
-			}
-		} else if (page == Page.OP) {
-			int x = getGuiLeft() + getxSize() / 2;
-			int y = getGuiTop() + 30;
+			break;
+		case OP:
+			int x6 = getGuiLeft() + getxSize() / 2;
+			int y6 = getGuiTop() + 30;
 			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.opCheck1", viewingFellowship.getName(), oppingPlayer);
-			List<String> lines = fontRendererObj.listFormattedStringToWidth(s, getxSize());
-			for (String line : lines) {
-				this.drawCenteredString(line, x, y, 16777215);
-				y += fontRendererObj.FONT_HEIGHT;
+			List<String> lines6 = fontRendererObj.listFormattedStringToWidth(s, getxSize());
+			for (String line : lines6) {
+				this.drawCenteredString(line, x6, y6, 16777215);
+				y6 += fontRendererObj.FONT_HEIGHT;
 			}
-			y += fontRendererObj.FONT_HEIGHT;
+			y6 += fontRendererObj.FONT_HEIGHT;
 			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.opCheck2", viewingFellowship.getName(), oppingPlayer);
-			lines = fontRendererObj.listFormattedStringToWidth(s, getxSize());
-			for (String line : lines) {
-				this.drawCenteredString(line, x, y, 16777215);
-				y += fontRendererObj.FONT_HEIGHT;
+			lines6 = fontRendererObj.listFormattedStringToWidth(s, getxSize());
+			for (String line : lines6) {
+				this.drawCenteredString(line, x6, y6, 16777215);
+				y6 += fontRendererObj.FONT_HEIGHT;
 			}
-		} else if (page == Page.DEOP) {
-			int x = getGuiLeft() + getxSize() / 2;
-			int y = getGuiTop() + 30;
-			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.deopCheck", viewingFellowship.getName(), deoppingPlayer);
-			List<String> lines = fontRendererObj.listFormattedStringToWidth(s, getxSize());
-			for (String line : lines) {
-				this.drawCenteredString(line, x, y, 16777215);
-				y += fontRendererObj.FONT_HEIGHT;
+
+			break;
+		case REMOVE:
+			int x7 = getGuiLeft() + getxSize() / 2;
+			int y7 = getGuiTop() + 30;
+			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.removeCheck", viewingFellowship.getName(), removingPlayer);
+			List<String> lines7 = fontRendererObj.listFormattedStringToWidth(s, getxSize());
+			for (String line : lines7) {
+				this.drawCenteredString(line, x7, y7, 16777215);
+				y7 += fontRendererObj.FONT_HEIGHT;
 			}
-		} else if (page == Page.TRANSFER) {
-			int x = getGuiLeft() + getxSize() / 2;
-			int y = getGuiTop() + 30;
-			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.transferCheck1", viewingFellowship.getName(), transferringPlayer);
-			List<String> lines = fontRendererObj.listFormattedStringToWidth(s, getxSize());
-			for (String line : lines) {
-				this.drawCenteredString(line, x, y, 16777215);
-				y += fontRendererObj.FONT_HEIGHT;
-			}
-			s = StatCollector.translateToLocal("got.gui.fellowships.transferCheck2");
-			this.drawCenteredString(s, x, y += fontRendererObj.FONT_HEIGHT, 16777215);
-			y += fontRendererObj.FONT_HEIGHT;
-		} else if (page == Page.RENAME) {
+			break;
+		case RENAME:
 			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.renameName", viewingFellowship.getName());
 			this.drawCenteredString(s, getGuiLeft() + getxSize() / 2, textFieldRename.yPosition - 4 - fontRendererObj.FONT_HEIGHT, 16777215);
 			textFieldRename.drawTextBox();
 			if (checkValidRename != null) {
 				this.drawCenteredString(checkValidRename, getGuiLeft() + getxSize() / 2, textFieldRename.yPosition + textFieldRename.height + fontRendererObj.FONT_HEIGHT, 16711680);
 			}
-		} else if (page == Page.INVITATIONS) {
-			int x = getGuiLeft();
-			int y = getGuiTop() + 10;
-			s = StatCollector.translateToLocal("got.gui.fellowships.invites");
-			this.drawCenteredString(s, getGuiLeft() + getxSize() / 2, y, 16777215);
-			y += fontRendererObj.FONT_HEIGHT + 10;
-			if (allFellowshipInvites.isEmpty()) {
-				s = StatCollector.translateToLocal("got.gui.fellowships.invitesNone");
-				this.drawCenteredString(s, getGuiLeft() + getxSize() / 2, y += fontRendererObj.FONT_HEIGHT, 16777215);
-			} else {
-				int[] invitesMinMax = scrollPaneInvites.getMinMaxIndices(allFellowshipInvites, displayedInvites);
-				for (int index = invitesMinMax[0]; index <= invitesMinMax[1]; ++index) {
-					GOTFellowshipClient fs = allFellowshipInvites.get(index);
-					this.drawFellowshipEntry(fs, x, y, i, j, true);
-					y += fontRendererObj.FONT_HEIGHT + 5;
-				}
+
+			break;
+		case TRANSFER:
+			int x8 = getGuiLeft() + getxSize() / 2;
+			int y8 = getGuiTop() + 30;
+			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.transferCheck1", viewingFellowship.getName(), transferringPlayer);
+			List<String> lines8 = fontRendererObj.listFormattedStringToWidth(s, getxSize());
+			for (String line : lines8) {
+				this.drawCenteredString(line, x8, y8, 16777215);
+				y8 += fontRendererObj.FONT_HEIGHT;
 			}
-			if (scrollPaneInvites.isHasScrollBar()) {
-				scrollPaneInvites.drawScrollBar();
-			}
+			s = StatCollector.translateToLocal("got.gui.fellowships.transferCheck2");
+			this.drawCenteredString(s, x8, y8 += fontRendererObj.FONT_HEIGHT, 16777215);
+			y8 += fontRendererObj.FONT_HEIGHT;
+			break;
 		}
 	}
 
@@ -660,7 +677,8 @@ public class GOTGuiFellowships extends GOTGuiMenuWBBase {
 		if (k != 0) {
 			int l;
 			k = Integer.signum(k);
-			if (page == Page.LIST) {
+			switch (page) {
+			case LIST:
 				if (scrollPaneLeading.isHasScrollBar() && scrollPaneLeading.isMouseOver()) {
 					l = allFellowshipsLeading.size() - displayedFellowshipsLeading;
 					scrollPaneLeading.mouseWheelScroll(k, l);
@@ -669,14 +687,21 @@ public class GOTGuiFellowships extends GOTGuiMenuWBBase {
 					l = allFellowshipsOther.size() - displayedFellowshipsOther;
 					scrollPaneOther.mouseWheelScroll(k, l);
 				}
-			}
-			if (page == Page.FELLOWSHIP && scrollPaneMembers.isHasScrollBar() && scrollPaneMembers.isMouseOver()) {
-				l = viewingFellowship.getMemberNames().size() - displayedMembers;
-				scrollPaneMembers.mouseWheelScroll(k, l);
-			}
-			if (page == Page.INVITATIONS && scrollPaneInvites.isHasScrollBar() && scrollPaneInvites.isMouseOver()) {
-				l = allFellowshipInvites.size() - displayedInvites;
-				scrollPaneInvites.mouseWheelScroll(k, l);
+				break;
+			case FELLOWSHIP:
+				if (scrollPaneMembers.isHasScrollBar() && scrollPaneMembers.isMouseOver()) {
+					l = viewingFellowship.getMemberNames().size() - displayedMembers;
+					scrollPaneMembers.mouseWheelScroll(k, l);
+				}
+				break;
+			case INVITATIONS:
+				if (scrollPaneInvites.isHasScrollBar() && scrollPaneInvites.isMouseOver()) {
+					l = allFellowshipInvites.size() - displayedInvites;
+					scrollPaneInvites.mouseWheelScroll(k, l);
+				}
+				break;
+			default:
+				break;
 			}
 		}
 	}
@@ -766,53 +791,62 @@ public class GOTGuiFellowships extends GOTGuiMenuWBBase {
 
 	@Override
 	public void mouseClicked(int i, int j, int k) {
-		GOTPacketFellowshipRespondInvite packet;
+		GOTPacketFellowshipRespondInvite packet = null;
 		super.mouseClicked(i, j, k);
-		if (page == Page.LIST && mouseOverFellowship != null) {
-			buttonSound();
-			page = Page.FELLOWSHIP;
-			viewingFellowship = mouseOverFellowship;
-		}
-		if (page == Page.CREATE) {
+		switch (page) {
+		case CREATE:
 			textFieldName.mouseClicked(i, j, k);
-		}
-		if (page == Page.INVITE) {
+			break;
+		case FELLOWSHIP:
+			if (mouseOverPlayer != null && mouseOverPlayerRemove) {
+				buttonSound();
+				page = Page.REMOVE;
+				removingPlayer = mouseOverPlayer;
+			}
+			if (mouseOverPlayer != null && mouseOverPlayerOp) {
+				buttonSound();
+				page = Page.OP;
+				oppingPlayer = mouseOverPlayer;
+			}
+			if (mouseOverPlayer != null && mouseOverPlayerDeop) {
+				buttonSound();
+				page = Page.DEOP;
+				deoppingPlayer = mouseOverPlayer;
+			}
+			if (mouseOverPlayer != null && mouseOverPlayerTransfer) {
+				buttonSound();
+				page = Page.TRANSFER;
+				transferringPlayer = mouseOverPlayer;
+			}
+			break;
+		case INVITATIONS:
+			if (mouseOverFellowship != null) {
+				buttonSound();
+				if (mouseOverInviteAccept) {
+					packet = new GOTPacketFellowshipRespondInvite(mouseOverFellowship, true);
+				}
+				if (mouseOverInviteReject) {
+					packet = new GOTPacketFellowshipRespondInvite(mouseOverFellowship, false);
+				}
+				GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
+				mouseOverFellowship = null;
+			}
+			break;
+		case INVITE:
 			textFieldPlayer.mouseClicked(i, j, k);
-		}
-		if (page == Page.RENAME) {
+			break;
+		case LIST:
+			if (mouseOverFellowship != null) {
+				buttonSound();
+				page = Page.FELLOWSHIP;
+				viewingFellowship = mouseOverFellowship;
+			}
+			break;
+		case RENAME:
 			textFieldRename.mouseClicked(i, j, k);
-		}
-		if (page == Page.FELLOWSHIP && mouseOverPlayer != null && mouseOverPlayerRemove) {
-			buttonSound();
-			page = Page.REMOVE;
-			removingPlayer = mouseOverPlayer;
-		}
-		if (page == Page.FELLOWSHIP && mouseOverPlayer != null && mouseOverPlayerOp) {
-			buttonSound();
-			page = Page.OP;
-			oppingPlayer = mouseOverPlayer;
-		}
-		if (page == Page.FELLOWSHIP && mouseOverPlayer != null && mouseOverPlayerDeop) {
-			buttonSound();
-			page = Page.DEOP;
-			deoppingPlayer = mouseOverPlayer;
-		}
-		if (page == Page.FELLOWSHIP && mouseOverPlayer != null && mouseOverPlayerTransfer) {
-			buttonSound();
-			page = Page.TRANSFER;
-			transferringPlayer = mouseOverPlayer;
-		}
-		if (page == Page.INVITATIONS && mouseOverFellowship != null && mouseOverInviteAccept) {
-			buttonSound();
-			packet = new GOTPacketFellowshipRespondInvite(mouseOverFellowship, true);
-			GOTPacketHandler.networkWrapper.sendToServer(packet);
-			mouseOverFellowship = null;
-		}
-		if (page == Page.INVITATIONS && mouseOverFellowship != null && mouseOverInviteReject) {
-			buttonSound();
-			packet = new GOTPacketFellowshipRespondInvite(mouseOverFellowship, false);
-			GOTPacketHandler.networkWrapper.sendToServer(packet);
-			mouseOverFellowship = null;
+			break;
+		default:
+			break;
 		}
 	}
 
@@ -842,7 +876,33 @@ public class GOTGuiFellowships extends GOTGuiMenuWBBase {
 	}
 
 	public void setupScrollBars(int i, int j) {
-		if (page == Page.LIST) {
+		switch (page) {
+		case FELLOWSHIP:
+			displayedMembers = viewingFellowship.getMemberNames().size();
+			scrollPaneMembers.setHasScrollBar(false);
+			if (displayedMembers > 11) {
+				displayedMembers = 11;
+				scrollPaneMembers.setHasScrollBar(true);
+			}
+			scrollPaneMembers.setPaneX0(getGuiLeft());
+			scrollPaneMembers.setScrollBarX0(getGuiLeft() + scrollBarX);
+			scrollPaneMembers.setPaneY0(getGuiTop() + 10 + fontRendererObj.FONT_HEIGHT + 5 + 16 + 10 + fontRendererObj.FONT_HEIGHT + 10);
+			scrollPaneMembers.setPaneY1(scrollPaneMembers.getPaneY0() + (fontRendererObj.FONT_HEIGHT + 5) * displayedMembers);
+			break;
+		case INVITATIONS:
+			displayedInvites = allFellowshipInvites.size();
+			scrollPaneInvites.setHasScrollBar(false);
+			if (displayedInvites > 15) {
+				displayedInvites = 15;
+				scrollPaneInvites.setHasScrollBar(true);
+			}
+			scrollPaneInvites.setPaneX0(getGuiLeft());
+			scrollPaneInvites.setScrollBarX0(getGuiLeft() + scrollBarX);
+			scrollPaneInvites.setPaneY0(getGuiTop() + 10 + fontRendererObj.FONT_HEIGHT + 10);
+			scrollPaneInvites.setPaneY1(scrollPaneInvites.getPaneY0() + (fontRendererObj.FONT_HEIGHT + 5) * displayedInvites);
+			scrollPaneInvites.mouseDragScroll(i, j);
+			break;
+		case LIST:
 			displayedFellowshipsLeading = allFellowshipsLeading.size();
 			displayedFellowshipsOther = allFellowshipsOther.size();
 			scrollPaneLeading.setHasScrollBar(false);
@@ -866,35 +926,12 @@ public class GOTGuiFellowships extends GOTGuiMenuWBBase {
 			scrollPaneOther.setPaneY0(scrollPaneLeading.getPaneY1() + 5);
 			scrollPaneOther.setPaneY1(scrollPaneOther.getPaneY0() + fontRendererObj.FONT_HEIGHT + 10 + (fontRendererObj.FONT_HEIGHT + 5) * displayedFellowshipsOther);
 			scrollPaneOther.mouseDragScroll(i, j);
-		}
-		if (page == Page.FELLOWSHIP) {
-			displayedMembers = viewingFellowship.getMemberNames().size();
+			break;
+		default:
 			scrollPaneMembers.setHasScrollBar(false);
-			if (displayedMembers > 11) {
-				displayedMembers = 11;
-				scrollPaneMembers.setHasScrollBar(true);
-			}
-			scrollPaneMembers.setPaneX0(getGuiLeft());
-			scrollPaneMembers.setScrollBarX0(getGuiLeft() + scrollBarX);
-			scrollPaneMembers.setPaneY0(getGuiTop() + 10 + fontRendererObj.FONT_HEIGHT + 5 + 16 + 10 + fontRendererObj.FONT_HEIGHT + 10);
-			scrollPaneMembers.setPaneY1(scrollPaneMembers.getPaneY0() + (fontRendererObj.FONT_HEIGHT + 5) * displayedMembers);
-		} else {
-			scrollPaneMembers.setHasScrollBar(false);
+			break;
 		}
 		scrollPaneMembers.mouseDragScroll(i, j);
-		if (page == Page.INVITATIONS) {
-			displayedInvites = allFellowshipInvites.size();
-			scrollPaneInvites.setHasScrollBar(false);
-			if (displayedInvites > 15) {
-				displayedInvites = 15;
-				scrollPaneInvites.setHasScrollBar(true);
-			}
-			scrollPaneInvites.setPaneX0(getGuiLeft());
-			scrollPaneInvites.setScrollBarX0(getGuiLeft() + scrollBarX);
-			scrollPaneInvites.setPaneY0(getGuiTop() + 10 + fontRendererObj.FONT_HEIGHT + 10);
-			scrollPaneInvites.setPaneY1(scrollPaneInvites.getPaneY0() + (fontRendererObj.FONT_HEIGHT + 5) * displayedInvites);
-			scrollPaneInvites.mouseDragScroll(i, j);
-		}
 	}
 
 	private List<GOTFellowshipClient> sortFellowshipsForDisplay(List<GOTFellowshipClient> list) {

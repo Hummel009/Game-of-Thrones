@@ -59,24 +59,24 @@ public abstract class GOTEnchantment {
 	public static GOTEnchantment fire = new GOTEnchantmentWeaponSpecial("fire").setEnchantWeight(0).setApplyToProjectile();
 	public static GOTEnchantment chill = new GOTEnchantmentWeaponSpecial("chill").setEnchantWeight(0).setApplyToProjectile();
 	public static GOTEnchantment headhunting = new GOTEnchantmentWeaponSpecial("headhunting").setCompatibleOtherSpecial().setIncompatibleBane().setEnchantWeight(0).setApplyToProjectile();
-	public String enchantName;
-	public List<GOTEnchantmentType> itemTypes;
-	public int enchantWeight = 0;
-	public float valueModifier = 1.0f;
-	public boolean skilful = false;
-	public boolean persistsReforge = false;
-	public boolean bypassAnvilLimit = false;
-	public boolean applyToProjectile = false;
+	private String enchantName;
+	private List<GOTEnchantmentType> itemTypes;
+	private int enchantWeight = 0;
+	private float valueModifier = 1.0f;
+	private boolean skilful = false;
+	private boolean persistsReforge = false;
+	private boolean bypassAnvilLimit = false;
+	private boolean applyToProjectile = false;
 
 	public GOTEnchantment(String s, GOTEnchantmentType type) {
 		this(s, new GOTEnchantmentType[] { type });
 	}
 
 	public GOTEnchantment(String s, GOTEnchantmentType[] types) {
-		enchantName = s;
-		itemTypes = Arrays.asList(types);
+		setEnchantName(s);
+		setItemTypes(Arrays.asList(types));
 		allEnchantments.add(this);
-		enchantsByName.put(enchantName, this);
+		enchantsByName.put(getEnchantName(), this);
 	}
 
 	public boolean applyToProjectile() {
@@ -88,7 +88,7 @@ public abstract class GOTEnchantment {
 	}
 
 	public boolean canApply(ItemStack itemstack, boolean considering) {
-		for (GOTEnchantmentType type : itemTypes) {
+		for (GOTEnchantmentType type : getItemTypes()) {
 			if (!type.canApply(itemstack, considering)) {
 				continue;
 			}
@@ -127,23 +127,31 @@ public abstract class GOTEnchantment {
 	public abstract String getDescription(ItemStack var1);
 
 	public String getDisplayName() {
-		return StatCollector.translateToLocal("got.enchant." + enchantName);
+		return StatCollector.translateToLocal("got.enchant." + getEnchantName());
 	}
 
 	public IChatComponent getEarnMessage(ItemStack itemstack) {
-		ChatComponentTranslation msg = new ChatComponentTranslation("got.enchant." + enchantName + ".earn", itemstack.getDisplayName());
+		ChatComponentTranslation msg = new ChatComponentTranslation("got.enchant." + getEnchantName() + ".earn", itemstack.getDisplayName());
 		msg.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 		return msg;
 	}
 
 	public IChatComponent getEarnMessageWithName(EntityPlayer entityplayer, ItemStack itemstack) {
-		ChatComponentTranslation msg = new ChatComponentTranslation("got.enchant." + enchantName + ".earnName", entityplayer.getCommandSenderName(), itemstack.getDisplayName());
+		ChatComponentTranslation msg = new ChatComponentTranslation("got.enchant." + getEnchantName() + ".earnName", entityplayer.getCommandSenderName(), itemstack.getDisplayName());
 		msg.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 		return msg;
 	}
 
+	public String getEnchantName() {
+		return enchantName;
+	}
+
 	public int getEnchantWeight() {
 		return enchantWeight;
+	}
+
+	public List<GOTEnchantmentType> getItemTypes() {
+		return itemTypes;
 	}
 
 	public String getNamedFormattedDescription(ItemStack itemstack) {
@@ -183,9 +191,17 @@ public abstract class GOTEnchantment {
 		return this;
 	}
 
+	public void setEnchantName(String enchantName) {
+		this.enchantName = enchantName;
+	}
+
 	public GOTEnchantment setEnchantWeight(int i) {
 		enchantWeight = i;
 		return this;
+	}
+
+	public void setItemTypes(List<GOTEnchantmentType> itemTypes) {
+		this.itemTypes = itemTypes;
 	}
 
 	public GOTEnchantment setPersistsReforge() {

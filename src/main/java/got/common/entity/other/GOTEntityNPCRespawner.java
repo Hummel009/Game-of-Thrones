@@ -109,7 +109,7 @@ public class GOTEntityNPCRespawner extends Entity {
 		if (entityplayer.capabilities.isCreativeMode) {
 			if (!worldObj.isRemote) {
 				GOTPacketNPCRespawner packet = new GOTPacketNPCRespawner(this);
-				GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
+				GOTPacketHandler.getNetworkWrapper().sendTo(packet, (EntityPlayerMP) entityplayer);
 			}
 			return true;
 		}

@@ -66,8 +66,32 @@ public enum GOTCapes {
 		return StatCollector.translateToLocal("got.capes." + name() + ".desc");
 	}
 
+	public int getCapeID() {
+		return capeID;
+	}
+
 	public String getCapeName() {
 		return StatCollector.translateToLocal("got.capes." + name() + ".name");
+	}
+
+	public ResourceLocation getCapeTexture() {
+		return capeTexture;
+	}
+
+	public CapeType getCapeType() {
+		return capeType;
+	}
+
+	public void setCapeID(int capeID) {
+		this.capeID = capeID;
+	}
+
+	public void setCapeTexture(ResourceLocation capeTexture) {
+		this.capeTexture = capeTexture;
+	}
+
+	public void setCapeType(CapeType capeType) {
+		this.capeType = capeType;
 	}
 
 	public static GOTCapes capeForName(String capeName) {
@@ -81,30 +105,6 @@ public enum GOTCapes {
 	}
 
 	public static void preInit() {
-	}
-
-	public ResourceLocation getCapeTexture() {
-		return capeTexture;
-	}
-
-	public void setCapeTexture(ResourceLocation capeTexture) {
-		this.capeTexture = capeTexture;
-	}
-
-	public int getCapeID() {
-		return capeID;
-	}
-
-	public void setCapeID(int capeID) {
-		this.capeID = capeID;
-	}
-
-	public CapeType getCapeType() {
-		return capeType;
-	}
-
-	public void setCapeType(CapeType capeType) {
-		this.capeType = capeType;
 	}
 
 	public enum CapeType {

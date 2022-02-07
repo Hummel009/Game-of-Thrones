@@ -47,7 +47,7 @@ public class GOTEnchantmentHelper {
 				continue;
 			}
 			weight = skilful ? GOTEnchantmentHelper.getSkilfulWeight(ench3) : (weight *= 100);
-			if (weight > 0 && itemstack.getItem() instanceof ItemTool && !ench3.itemTypes.contains(GOTEnchantmentType.TOOL) && !ench3.itemTypes.contains(GOTEnchantmentType.BREAKABLE)) {
+			if (weight > 0 && itemstack.getItem() instanceof ItemTool && !ench3.getItemTypes().contains(GOTEnchantmentType.TOOL) && !ench3.getItemTypes().contains(GOTEnchantmentType.BREAKABLE)) {
 				weight /= 3;
 				weight = Math.max(weight, 1);
 			}
@@ -420,7 +420,7 @@ public class GOTEnchantmentHelper {
 		if (tags != null) {
 			for (int i = 0; i < tags.tagCount(); ++i) {
 				String s = tags.getStringTagAt(i);
-				if (!s.equals(ench.enchantName)) {
+				if (!s.equals(ench.getEnchantName())) {
 					continue;
 				}
 				return true;
@@ -445,7 +445,7 @@ public class GOTEnchantmentHelper {
 		if (tags != null) {
 			for (int i = 0; i < tags.tagCount(); ++i) {
 				String s = tags.getStringTagAt(i);
-				if (!s.equals(ench.enchantName)) {
+				if (!s.equals(ench.getEnchantName())) {
 					continue;
 				}
 				return true;
@@ -526,7 +526,7 @@ public class GOTEnchantmentHelper {
 	public static void removeEnchant(ItemStack itemstack, GOTEnchantment ench) {
 		NBTTagList tags = GOTEnchantmentHelper.getItemEnchantTags(itemstack, true);
 		if (tags != null) {
-			String enchName = ench.enchantName;
+			String enchName = ench.getEnchantName();
 			for (int i = 0; i < tags.tagCount(); ++i) {
 				String s = tags.getStringTagAt(i);
 				if (!s.equals(enchName)) {
@@ -562,7 +562,7 @@ public class GOTEnchantmentHelper {
 	public static void setHasEnchant(ItemStack itemstack, GOTEnchantment ench) {
 		NBTTagList tags;
 		if (!GOTEnchantmentHelper.hasEnchant(itemstack, ench) && (tags = GOTEnchantmentHelper.getItemEnchantTags(itemstack, true)) != null) {
-			String enchName = ench.enchantName;
+			String enchName = ench.getEnchantName();
 			tags.appendTag(new NBTTagString(enchName));
 		}
 	}
@@ -570,7 +570,7 @@ public class GOTEnchantmentHelper {
 	public static void setProjectileEnchantment(Entity entity, GOTEnchantment ench) {
 		NBTTagList tags;
 		if (!GOTEnchantmentHelper.hasProjectileEnchantment(entity, ench) && (tags = GOTEnchantmentHelper.getEntityEnchantTags(entity, true)) != null) {
-			String enchName = ench.enchantName;
+			String enchName = ench.getEnchantName();
 			tags.appendTag(new NBTTagString(enchName));
 		}
 	}

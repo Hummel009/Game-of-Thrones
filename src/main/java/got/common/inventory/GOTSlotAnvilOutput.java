@@ -5,7 +5,7 @@ import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 
 public class GOTSlotAnvilOutput extends Slot {
-	public GOTContainerAnvil theAnvil;
+	private GOTContainerAnvil theAnvil;
 
 	public GOTSlotAnvilOutput(GOTContainerAnvil container, IInventory inv, int id, int i, int j) {
 		super(inv, id, i, j);

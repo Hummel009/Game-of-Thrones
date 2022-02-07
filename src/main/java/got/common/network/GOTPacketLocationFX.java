@@ -7,16 +7,13 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.world.World;
 
 public class GOTPacketLocationFX implements IMessage {
-	public Type type;
+	private Type type;
 
-	public double posX;
+	private double posX;
 
-	public double posY;
+	private double posY;
 
-	public double posZ;
-
-	public GOTPacketLocationFX() {
-	}
+	private double posZ;
 
 	public GOTPacketLocationFX(Type t, double x, double y, double z) {
 		type = t;

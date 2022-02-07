@@ -7,10 +7,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.Container;
 
 public class GOTPacketCoinExchange implements IMessage {
-	public int button;
-
-	public GOTPacketCoinExchange() {
-	}
+	private int button;
 
 	public GOTPacketCoinExchange(int i) {
 		button = i;

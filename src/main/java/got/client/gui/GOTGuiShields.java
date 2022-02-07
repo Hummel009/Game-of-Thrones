@@ -48,13 +48,13 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 			} else if (button == shieldSelect) {
 				updateCurrentShield(0, 0);
 				GOTPacketSelectShield packet = new GOTPacketSelectShield(currentShield);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 			} else if (button == shieldRight) {
 				updateCurrentShield(1, 0);
 			} else if (button == shieldRemove) {
 				updateCurrentShield(0, 0);
 				GOTPacketSelectShield packet = new GOTPacketSelectShield(null);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 			} else if (button == changeCategory) {
 				updateCurrentShield(0, 1);
 			} else {

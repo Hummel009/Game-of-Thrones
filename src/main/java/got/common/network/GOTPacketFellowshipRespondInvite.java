@@ -7,10 +7,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketFellowshipRespondInvite extends GOTPacketFellowshipDo {
-	public boolean acceptOrReject;
-
-	public GOTPacketFellowshipRespondInvite() {
-	}
+	private boolean acceptOrReject;
 
 	public GOTPacketFellowshipRespondInvite(GOTFellowshipClient fs, boolean accept) {
 		super(fs);

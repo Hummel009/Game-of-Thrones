@@ -56,10 +56,12 @@ public class GOTBiomeStepstones extends GOTBiome {
 		decorator.grassPerChunk = 10;
 		decorator.treesPerChunk = 1;
 		registerExoticFlowers();
-		SpawnListContainer[] c0 = new SpawnListContainer[2];
+		SpawnListContainer[] c0 = new SpawnListContainer[1];
 		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN);
-		c0[1] = GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(10).add(c0);
+		npcSpawnList.newFactionList(5).add(c0);
+		SpawnListContainer[] c01 = new SpawnListContainer[1];
+		c01[0] = GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN);
+		npcSpawnList.newFactionList(5).add(c01);
 		SpawnListContainer[] c1 = new SpawnListContainer[1];
 		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(1).add(c1);

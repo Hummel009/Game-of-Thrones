@@ -18,7 +18,7 @@ public class GOTGuiHiredInteract extends GOTGuiNPCInteract {
 				return;
 			}
 			GOTPacketHiredUnitInteract packet = new GOTPacketHiredUnitInteract(getTheEntity().getEntityId(), button.id);
-			GOTPacketHandler.networkWrapper.sendToServer(packet);
+			GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 		}
 	}
 

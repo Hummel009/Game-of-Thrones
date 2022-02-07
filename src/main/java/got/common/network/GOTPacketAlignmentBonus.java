@@ -11,20 +11,17 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.util.StatCollector;
 
 public class GOTPacketAlignmentBonus implements IMessage {
-	public GOTFaction mainFaction;
-	public float prevMainAlignment;
-	public GOTAlignmentBonusMap factionBonusMap = new GOTAlignmentBonusMap();
-	public float conquestBonus;
-	public double posX;
-	public double posY;
-	public double posZ;
-	public String name;
-	public boolean needsTranslation;
-	public boolean isKill;
-	public boolean isHiredKill;
-
-	public GOTPacketAlignmentBonus() {
-	}
+	private GOTFaction mainFaction;
+	private float prevMainAlignment;
+	private GOTAlignmentBonusMap factionBonusMap = new GOTAlignmentBonusMap();
+	private float conquestBonus;
+	private double posX;
+	private double posY;
+	private double posZ;
+	private String name;
+	private boolean needsTranslation;
+	private boolean isKill;
+	private boolean isHiredKill;
 
 	public GOTPacketAlignmentBonus(GOTFaction f, float pre, GOTAlignmentBonusMap fMap, float conqBonus, double x, double y, double z, GOTAlignmentValues.AlignmentBonus source) {
 		mainFaction = f;

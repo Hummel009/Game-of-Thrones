@@ -303,7 +303,7 @@ public class GOTLevelData {
 
 	public static void markGameOfThronesPortalLocation(int i, int j, int k) {
 		GOTPacketPortalPos packet = new GOTPacketPortalPos(i, j, k);
-		GOTPacketHandler.networkWrapper.sendToAll(packet);
+		GOTPacketHandler.getNetworkWrapper().sendToAll(packet);
 		GOTLevelData.markDirty();
 	}
 
@@ -422,7 +422,7 @@ public class GOTLevelData {
 		for (Object element : world.playerEntities) {
 			EntityPlayer worldPlayer = (EntityPlayer) element;
 			GOTPacketAlignment packet = new GOTPacketAlignment(entityplayer.getUniqueID());
-			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) worldPlayer);
+			GOTPacketHandler.getNetworkWrapper().sendTo(packet, (EntityPlayerMP) worldPlayer);
 		}
 	}
 
@@ -430,7 +430,7 @@ public class GOTLevelData {
 		for (Object element : world.playerEntities) {
 			EntityPlayer worldPlayer = (EntityPlayer) element;
 			GOTPacketAlignment packet = new GOTPacketAlignment(worldPlayer.getUniqueID());
-			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.getNetworkWrapper().sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -438,7 +438,7 @@ public class GOTLevelData {
 		for (Object element : world.playerEntities) {
 			EntityPlayer worldPlayer = (EntityPlayer) element;
 			GOTPacketCape packet = new GOTPacketCape(worldPlayer.getUniqueID());
-			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.getNetworkWrapper().sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -446,7 +446,7 @@ public class GOTLevelData {
 		for (Object element : world.playerEntities) {
 			EntityPlayer worldPlayer = (EntityPlayer) element;
 			GOTPacketShield packet = new GOTPacketShield(worldPlayer.getUniqueID());
-			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.getNetworkWrapper().sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -454,24 +454,24 @@ public class GOTLevelData {
 		for (Object element : world.playerEntities) {
 			EntityPlayer worldPlayer = (EntityPlayer) element;
 			GOTPacketCape packet = new GOTPacketCape(entityplayer.getUniqueID());
-			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) worldPlayer);
+			GOTPacketHandler.getNetworkWrapper().sendTo(packet, (EntityPlayerMP) worldPlayer);
 		}
 	}
 
 	public static void sendLoginPacket(EntityPlayerMP entityplayer) {
 		GOTPacketLogin packet = new GOTPacketLogin();
-		packet.ringPortalX = getGameOfThronesPortalX();
-		packet.ringPortalY = getGameOfThronesPortalY();
-		packet.ringPortalZ = getGameOfThronesPortalZ();
-		packet.ftCooldownMax = waypointCooldownMax;
-		packet.ftCooldownMin = waypointCooldownMin;
-		packet.difficulty = difficulty;
-		packet.difficultyLocked = difficultyLock;
-		packet.alignmentZones = enableAlignmentZones;
-		packet.feastMode = GOTConfig.isCanAlwaysEat();
-		packet.enchanting = GOTConfig.isEnchantingVanilla();
-		packet.enchantingGOT = GOTConfig.isEnchantingGOT();
-		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+		packet.setRingPortalX(getGameOfThronesPortalX());
+		packet.setRingPortalY(getGameOfThronesPortalY());
+		packet.setRingPortalZ(getGameOfThronesPortalZ());
+		packet.setFtCooldownMax(waypointCooldownMax);
+		packet.setFtCooldownMin(waypointCooldownMin);
+		packet.setDifficulty(difficulty);
+		packet.setDifficultyLocked(difficultyLock);
+		packet.setAlignmentZones(enableAlignmentZones);
+		packet.setFeastMode(GOTConfig.isCanAlwaysEat());
+		packet.setEnchanting(GOTConfig.isEnchantingVanilla());
+		packet.setEnchantingGOT(GOTConfig.isEnchantingGOT());
+		GOTPacketHandler.getNetworkWrapper().sendTo(packet, entityplayer);
 	}
 
 	public static void sendPlayerData(EntityPlayerMP entityplayer) {
@@ -528,14 +528,14 @@ public class GOTLevelData {
 			}
 			packetLocations.addPlayerLocation(worldPlayer.getGameProfile(), worldPlayer.posX, worldPlayer.posZ);
 		}
-		GOTPacketHandler.networkWrapper.sendTo(packetLocations, (EntityPlayerMP) entityplayer);
+		GOTPacketHandler.getNetworkWrapper().sendTo(packetLocations, (EntityPlayerMP) entityplayer);
 	}
 
 	public static void sendShieldToAllPlayersInWorld(EntityPlayer entityplayer, World world) {
 		for (Object element : world.playerEntities) {
 			EntityPlayer worldPlayer = (EntityPlayer) element;
 			GOTPacketShield packet = new GOTPacketShield(entityplayer.getUniqueID());
-			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) worldPlayer);
+			GOTPacketHandler.getNetworkWrapper().sendTo(packet, (EntityPlayerMP) worldPlayer);
 		}
 	}
 
@@ -577,7 +577,7 @@ public class GOTLevelData {
 			for (Object player : players) {
 				EntityPlayerMP entityplayer = (EntityPlayerMP) player;
 				GOTPacketEnableAlignmentZones packet = new GOTPacketEnableAlignmentZones(enableAlignmentZones);
-				GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+				GOTPacketHandler.getNetworkWrapper().sendTo(packet, entityplayer);
 			}
 		}
 	}
@@ -651,7 +651,7 @@ public class GOTLevelData {
 			for (Object player : players) {
 				EntityPlayerMP entityplayer = (EntityPlayerMP) player;
 				GOTPacketFTCooldown packet = new GOTPacketFTCooldown(waypointCooldownMax, waypointCooldownMin);
-				GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+				GOTPacketHandler.getNetworkWrapper().sendTo(packet, entityplayer);
 			}
 		}
 	}

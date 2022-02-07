@@ -5,10 +5,7 @@ import got.GOT;
 import io.netty.buffer.ByteBuf;
 
 public class GOTPacketIsOpResponse implements IMessage {
-	public boolean isOp;
-
-	public GOTPacketIsOpResponse() {
-	}
+	private boolean isOp;
 
 	public GOTPacketIsOpResponse(boolean flag) {
 		isOp = flag;

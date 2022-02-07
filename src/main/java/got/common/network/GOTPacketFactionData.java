@@ -13,11 +13,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 
 public class GOTPacketFactionData implements IMessage {
-	public GOTFaction faction;
-	public NBTTagCompound factionNBT;
-
-	public GOTPacketFactionData() {
-	}
+	private GOTFaction faction;
+	private NBTTagCompound factionNBT;
 
 	public GOTPacketFactionData(GOTFaction f, NBTTagCompound nbt) {
 		faction = f;

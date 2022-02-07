@@ -68,6 +68,10 @@ public enum GOTInvasions {
 		return horn;
 	}
 
+	public GOTFaction getInvasionFaction() {
+		return invasionFaction;
+	}
+
 	public ItemStack getInvasionIcon() {
 		Item sword = invasionIcon;
 		if (sword == null) {
@@ -76,11 +80,23 @@ public enum GOTInvasions {
 		return new ItemStack(sword);
 	}
 
+	public List<InvasionSpawnEntry> getInvasionMobs() {
+		return invasionMobs;
+	}
+
 	public String invasionName() {
 		if (subfaction == null) {
 			return getInvasionFaction().factionName();
 		}
 		return StatCollector.translateToLocal("got.invasion." + codeName());
+	}
+
+	public void setInvasionFaction(GOTFaction invasionFaction) {
+		this.invasionFaction = invasionFaction;
+	}
+
+	public void setInvasionMobs(List<InvasionSpawnEntry> invasionMobs) {
+		this.invasionMobs = invasionMobs;
 	}
 
 	public static GOTInvasions forID(int ID) {
@@ -234,22 +250,6 @@ public enum GOTInvasions {
 		GOTInvasions.NORTH.getInvasionMobs().add(new InvasionSpawnEntry(GOTEntityNorthSoldier.class, 10));
 		GOTInvasions.NORTH.getInvasionMobs().add(new InvasionSpawnEntry(GOTEntityNorthSoldierArcher.class, 5));
 		GOTInvasions.NORTH.getInvasionMobs().add(new InvasionSpawnEntry(GOTEntityNorthBannerBearer.class, 2));
-	}
-
-	public GOTFaction getInvasionFaction() {
-		return invasionFaction;
-	}
-
-	public void setInvasionFaction(GOTFaction invasionFaction) {
-		this.invasionFaction = invasionFaction;
-	}
-
-	public List<InvasionSpawnEntry> getInvasionMobs() {
-		return invasionMobs;
-	}
-
-	public void setInvasionMobs(List<InvasionSpawnEntry> invasionMobs) {
-		this.invasionMobs = invasionMobs;
 	}
 
 	public static class InvasionSpawnEntry extends WeightedRandom.Item {

@@ -5,10 +5,7 @@ import got.GOT;
 import io.netty.buffer.ByteBuf;
 
 public class GOTPacketMenuPrompt implements IMessage {
-	public Type type;
-
-	public GOTPacketMenuPrompt() {
-	}
+	private Type type;
 
 	public GOTPacketMenuPrompt(Type t) {
 		type = t;

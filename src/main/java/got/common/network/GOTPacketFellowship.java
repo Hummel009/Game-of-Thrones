@@ -23,22 +23,19 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.UsernameCache;
 
 public class GOTPacketFellowship implements IMessage {
-	public UUID fellowshipID;
-	public boolean isInvite;
-	public String fellowshipName;
-	public ItemStack fellowshipIcon;
-	public boolean isOwned;
-	public boolean isAdminned;
-	public String ownerName;
-	public List<String> memberNames = new ArrayList<>();
-	public Map<String, GOTTitle.PlayerTitle> titleMap = new HashMap<>();
-	public Set<String> adminNames = new HashSet<>();
-	public boolean preventPVP;
-	public boolean preventHiredFF;
-	public boolean showMapLocations;
-
-	public GOTPacketFellowship() {
-	}
+	private UUID fellowshipID;
+	private boolean isInvite;
+	private String fellowshipName;
+	private ItemStack fellowshipIcon;
+	private boolean isOwned;
+	private boolean isAdminned;
+	private String ownerName;
+	private List<String> memberNames = new ArrayList<>();
+	private Map<String, GOTTitle.PlayerTitle> titleMap = new HashMap<>();
+	private Set<String> adminNames = new HashSet<>();
+	private boolean preventPVP;
+	private boolean preventHiredFF;
+	private boolean showMapLocations;
 
 	public GOTPacketFellowship(GOTPlayerData playerData, GOTFellowship fs, boolean invite) {
 		fellowshipID = fs.getFellowshipID();
@@ -105,14 +102,14 @@ public class GOTPacketFellowship implements IMessage {
 		showMapLocations = data.readBoolean();
 	}
 
-	public void readTitleForUsername(ByteBuf data, String username) {
+	private void readTitleForUsername(ByteBuf data, String username) {
 		GOTTitle.PlayerTitle playerTitle = GOTTitle.PlayerTitle.readNullableTitle(data);
 		if (playerTitle != null) {
 			titleMap.put(username, playerTitle);
 		}
 	}
 
-	public String readUsername(ByteBuf data) {
+	private String readUsername(ByteBuf data) {
 		byte nameLength = data.readByte();
 		if (nameLength >= 0) {
 			ByteBuf nameBytes = data.readBytes(nameLength);
@@ -156,7 +153,7 @@ public class GOTPacketFellowship implements IMessage {
 		data.writeBoolean(showMapLocations);
 	}
 
-	public void writeUsername(ByteBuf data, String username) {
+	private void writeUsername(ByteBuf data, String username) {
 		byte[] usernameBytes = username.getBytes(Charsets.UTF_8);
 		data.writeByte(usernameBytes.length);
 		data.writeBytes(usernameBytes);

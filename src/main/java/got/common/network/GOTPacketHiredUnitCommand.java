@@ -9,13 +9,10 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.World;
 
 public class GOTPacketHiredUnitCommand implements IMessage {
-	public int entityID;
-	public int page;
-	public int action;
-	public int value;
-
-	public GOTPacketHiredUnitCommand() {
-	}
+	private int entityID;
+	private int page;
+	private int action;
+	private int value;
 
 	public GOTPacketHiredUnitCommand(int eid, int p, int a, int v) {
 		entityID = eid;

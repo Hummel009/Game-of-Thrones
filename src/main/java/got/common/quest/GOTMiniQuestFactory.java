@@ -28,11 +28,11 @@ public enum GOTMiniQuestFactory {
 		questClassWeights = new HashMap<>();
 	}
 	private String baseName;
-	public GOTMiniQuestFactory baseSpeechGroup;
+	private GOTMiniQuestFactory baseSpeechGroup;
 	private Map<Class<? extends GOTMiniQuest>, List<GOTMiniQuest.QuestFactoryBase>> questFactories = new HashMap<>();
-	public GOTAchievement questAchievement;
+	private GOTAchievement questAchievement;
 	private List<GOTLore.LoreCategory> loreCategories = new ArrayList<>();
-	public GOTFaction alignmentRewardOverride;
+	private GOTFaction alignmentRewardOverride;
 
 	private boolean noAlignRewardForEnemy = false;
 
@@ -104,7 +104,7 @@ public enum GOTMiniQuestFactory {
 		GOTMiniQuest.QuestFactoryBase factory = chosenFactoryList.get(rand.nextInt(chosenFactoryList.size()));
 		GOTMiniQuest quest = factory.createQuest(npc, rand);
 		if (quest != null) {
-			quest.questGroup = this;
+			quest.setQuestGroup(this);
 		}
 		return quest;
 	}

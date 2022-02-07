@@ -8,11 +8,8 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.World;
 
 public class GOTPacketHiredUnitDismiss implements IMessage {
-	public int entityID;
-	public int action;
-
-	public GOTPacketHiredUnitDismiss() {
-	}
+	private int entityID;
+	private int action;
 
 	public GOTPacketHiredUnitDismiss(int id, int a) {
 		entityID = id;

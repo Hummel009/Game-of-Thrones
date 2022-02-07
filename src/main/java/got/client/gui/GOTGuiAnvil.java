@@ -59,11 +59,11 @@ public class GOTGuiAnvil extends GuiContainer {
 				ItemStack inputItem2 = theAnvil.getInvInput().getStackInSlot(0);
 				if (inputItem2 != null && theAnvil.getReforgeCost() > 0 && theAnvil.hasMaterialOrCoinAmount(theAnvil.getReforgeCost())) {
 					GOTPacketAnvilReforge packet = new GOTPacketAnvilReforge();
-					GOTPacketHandler.networkWrapper.sendToServer(packet);
+					GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 				}
 			} else if (button == buttonEngraveOwner && theAnvil.getInvInput().getStackInSlot(0) != null && theAnvil.getEngraveOwnerCost() > 0 && theAnvil.hasMaterialOrCoinAmount(theAnvil.getEngraveOwnerCost())) {
 				GOTPacketAnvilEngraveOwner packet = new GOTPacketAnvilEngraveOwner();
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 			}
 		}
 	}
@@ -240,7 +240,7 @@ public class GOTGuiAnvil extends GuiContainer {
 		}
 		theAnvil.updateItemName(rename);
 		GOTPacketAnvilRename packet = new GOTPacketAnvilRename(rename);
-		GOTPacketHandler.networkWrapper.sendToServer(packet);
+		GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 	}
 
 	@Override

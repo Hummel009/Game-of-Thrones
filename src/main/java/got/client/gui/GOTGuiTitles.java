@@ -40,10 +40,10 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 		if (button.enabled) {
 			if (button == selectButton && (currentTitle == null || selectedTitle != currentTitle.getTitle() || selectedColor != currentTitle.getColor())) {
 				GOTPacketSelectTitle packet = new GOTPacketSelectTitle(new GOTTitle.PlayerTitle(selectedTitle, selectedColor));
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 			} else if (button == removeButton) {
 				GOTPacketSelectTitle packet = new GOTPacketSelectTitle(null);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 			} else if (button.enabled && button == getGoBack()) {
 				mc.displayGuiScreen(new GOTGuiMenu());
 			} else {

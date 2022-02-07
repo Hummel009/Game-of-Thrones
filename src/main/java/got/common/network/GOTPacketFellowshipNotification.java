@@ -8,10 +8,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.util.IChatComponent;
 
 public class GOTPacketFellowshipNotification implements IMessage {
-	public IChatComponent message;
-
-	public GOTPacketFellowshipNotification() {
-	}
+	private IChatComponent message;
 
 	public GOTPacketFellowshipNotification(IChatComponent c) {
 		message = c;

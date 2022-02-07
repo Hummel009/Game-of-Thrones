@@ -466,7 +466,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 		FMLCommonHandler.instance().bus().register(new GOTEntityDragon3DViewer());
 		FMLCommonHandler.instance().bus().register(new GOTEntityMammoth3DViewer());
 		FMLCommonHandler.instance().bus().register(new GOTEntityElephant3DViewer());
-		FMLCommonHandler.instance().bus().register(new GOTKeyHandler(GOTPacketHandler.networkWrapper));
+		FMLCommonHandler.instance().bus().register(new GOTKeyHandler(GOTPacketHandler.getNetworkWrapper()));
 	}
 
 	@Override
@@ -789,7 +789,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 		boolean showCWP = GOTGuiMap.isShowCWP();
 		boolean showHiddenSWP = GOTGuiMap.isShowHiddenSWP();
 		GOTPacketClientInfo packet = new GOTPacketClientInfo(viewingFaction, changedRegionMap, showWP, showCWP, showHiddenSWP);
-		GOTPacketHandler.networkWrapper.sendToServer(packet);
+		GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 	}
 
 	public static void setAlignmentTexture(ResourceLocation alignmentTexture) {

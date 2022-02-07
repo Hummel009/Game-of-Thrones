@@ -5,12 +5,9 @@ import got.common.GOTLevelData;
 import io.netty.buffer.ByteBuf;
 
 public class GOTPacketPortalPos implements IMessage {
-	public int portalX;
-	public int portalY;
-	public int portalZ;
-
-	public GOTPacketPortalPos() {
-	}
+	private int portalX;
+	private int portalY;
+	private int portalZ;
 
 	public GOTPacketPortalPos(int i, int j, int k) {
 		portalX = i;

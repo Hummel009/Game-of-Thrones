@@ -8,19 +8,19 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTContainerBookshelf extends Container {
-	public GOTTileEntityBookshelf shelfInv;
+	private GOTTileEntityBookshelf shelfInv;
 	private int numRows;
 
 	public GOTContainerBookshelf(IInventory player, GOTTileEntityBookshelf shelf) {
 		int j;
 		int i;
-		shelfInv = shelf;
-		numRows = shelfInv.getSizeInventory() / 9;
-		shelfInv.openInventory();
+		setShelfInv(shelf);
+		numRows = getShelfInv().getSizeInventory() / 9;
+		getShelfInv().openInventory();
 		int playerSlotY = (numRows - 4) * 18;
 		for (j = 0; j < numRows; ++j) {
 			for (i = 0; i < 9; ++i) {
-				addSlotToContainer(new Slot(shelfInv, i + j * 9, 8 + i * 18, 18 + j * 18) {
+				addSlotToContainer(new Slot(getShelfInv(), i + j * 9, 8 + i * 18, 18 + j * 18) {
 
 					@Override
 					public boolean isItemValid(ItemStack itemstack) {
@@ -41,27 +41,35 @@ public class GOTContainerBookshelf extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer entityplayer) {
-		return shelfInv.isUseableByPlayer(entityplayer);
+		return getShelfInv().isUseableByPlayer(entityplayer);
+	}
+
+	public GOTTileEntityBookshelf getShelfInv() {
+		return shelfInv;
 	}
 
 	@Override
 	public void onContainerClosed(EntityPlayer entityplayer) {
 		boolean anyContents = false;
-		for (int i = 0; i < shelfInv.getSizeInventory(); ++i) {
-			if (shelfInv.getStackInSlot(i) == null) {
+		for (int i = 0; i < getShelfInv().getSizeInventory(); ++i) {
+			if (getShelfInv().getStackInSlot(i) == null) {
 				continue;
 			}
 			anyContents = true;
 			break;
 		}
 		super.onContainerClosed(entityplayer);
-		shelfInv.closeInventory();
-		if (!anyContents && shelfInv.getNumPlayersUsing() <= 0) {
-			World world = shelfInv.getWorldObj();
+		getShelfInv().closeInventory();
+		if (!anyContents && getShelfInv().getNumPlayersUsing() <= 0) {
+			World world = getShelfInv().getWorldObj();
 			if (!world.isRemote) {
-				world.setBlock(shelfInv.xCoord, shelfInv.yCoord, shelfInv.zCoord, Blocks.bookshelf, 0, 3);
+				world.setBlock(getShelfInv().xCoord, getShelfInv().yCoord, getShelfInv().zCoord, Blocks.bookshelf, 0, 3);
 			}
 		}
+	}
+
+	public void setShelfInv(GOTTileEntityBookshelf shelfInv) {
+		this.shelfInv = shelfInv;
 	}
 
 	@Override

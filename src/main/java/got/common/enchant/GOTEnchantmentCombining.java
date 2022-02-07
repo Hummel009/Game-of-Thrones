@@ -57,8 +57,8 @@ public class GOTEnchantmentCombining {
 	}
 
 	public static class CombineRecipe {
-		public GOTEnchantment inputMod;
-		public GOTEnchantment outputMod;
+		private GOTEnchantment inputMod;
+		private GOTEnchantment outputMod;
 		private int cost;
 
 		public CombineRecipe(GOTEnchantment in, GOTEnchantment out, int c) {

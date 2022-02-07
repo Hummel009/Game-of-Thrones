@@ -44,11 +44,11 @@ public class GOTTrackingEventHandler {
 	public void onStartTracking(PlayerEvent.StartTracking event) {
 		GOTEntityCart target;
 		if (event.target instanceof GOTEntityCart && (target = (GOTEntityCart) event.target).getPulling() != null) {
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) new GOTPacketCargocartUpdate(target.getPulling().getEntityId(), target.getEntityId()), (EntityPlayerMP) event.entityPlayer);
+			GOTPacketHandler.getNetworkWrapper().sendTo((IMessage) new GOTPacketCargocartUpdate(target.getPulling().getEntityId(), target.getEntityId()), (EntityPlayerMP) event.entityPlayer);
 		}
 		if (event.target instanceof GOTEntityCargocart) {
 			target = (GOTEntityCargocart) event.target;
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) new GOTPacketCargocart(((GOTEntityCargocart) target).getLoad(), target.getEntityId()), (EntityPlayerMP) event.entityPlayer);
+			GOTPacketHandler.getNetworkWrapper().sendTo((IMessage) new GOTPacketCargocart(((GOTEntityCargocart) target).getLoad(), target.getEntityId()), (EntityPlayerMP) event.entityPlayer);
 		}
 	}
 }

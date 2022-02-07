@@ -8,11 +8,8 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketAchievement implements IMessage {
-	public GOTAchievement achievement;
-	public boolean display;
-
-	public GOTPacketAchievement() {
-	}
+	private GOTAchievement achievement;
+	private boolean display;
 
 	public GOTPacketAchievement(GOTAchievement ach, boolean disp) {
 		achievement = ach;

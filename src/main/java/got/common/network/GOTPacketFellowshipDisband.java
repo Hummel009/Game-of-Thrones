@@ -6,9 +6,6 @@ import got.common.fellowship.*;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketFellowshipDisband extends GOTPacketFellowshipDo {
-	public GOTPacketFellowshipDisband() {
-	}
-
 	public GOTPacketFellowshipDisband(GOTFellowshipClient fs) {
 		super(fs);
 	}

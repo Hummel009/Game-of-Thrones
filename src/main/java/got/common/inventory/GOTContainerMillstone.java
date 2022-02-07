@@ -8,7 +8,7 @@ import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 
 public class GOTContainerMillstone extends Container {
-	public GOTTileEntityMillstone theMillstone;
+	private GOTTileEntityMillstone theMillstone;
 	private int currentMillTime = 0;
 	private boolean isMilling;
 

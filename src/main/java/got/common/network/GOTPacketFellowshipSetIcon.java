@@ -8,9 +8,6 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 
 public class GOTPacketFellowshipSetIcon extends GOTPacketFellowshipDo {
-	public GOTPacketFellowshipSetIcon() {
-	}
-
 	public GOTPacketFellowshipSetIcon(GOTFellowshipClient fs) {
 		super(fs);
 	}

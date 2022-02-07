@@ -994,7 +994,7 @@ public class GOTEventHandler implements IFuelHandler {
 		if (!world.isRemote) {
 			if (GOTEnchantmentHelper.hasMeleeOrRangedEnchant(event.source, GOTEnchantment.fire)) {
 				GOTPacketWeaponFX packet = new GOTPacketWeaponFX(GOTPacketWeaponFX.Type.INFERNAL, entity);
-				GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(entity, 64.0));
+				GOTPacketHandler.getNetworkWrapper().sendToAllAround(packet, GOTPacketHandler.nearEntity(entity, 64.0));
 			}
 			if (GOTEnchantmentHelper.hasMeleeOrRangedEnchant(event.source, GOTEnchantment.chill)) {
 				GOTEnchantmentWeaponSpecial.doChillAttack(entity);
@@ -1354,7 +1354,7 @@ public class GOTEventHandler implements IFuelHandler {
 		}
 		if (!entity.worldObj.isRemote && entity instanceof GOTRandomSkinEntity) {
 			GOTPacketEntityUUID packet = new GOTPacketEntityUUID(entity.getEntityId(), entity.getUniqueID());
-			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.getNetworkWrapper().sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 		if (!entity.worldObj.isRemote && entity instanceof GOTEntityBanner) {
 			((GOTEntityBanner) entity).sendBannerToPlayer(entityplayer, false, false);

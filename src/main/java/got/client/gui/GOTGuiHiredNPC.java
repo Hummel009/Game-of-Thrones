@@ -93,7 +93,7 @@ public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 
 	public void sendActionPacket(int action, int value) {
 		GOTPacketHiredUnitCommand packet = new GOTPacketHiredUnitCommand(theNPC.getEntityId(), getPage(), action, value);
-		GOTPacketHandler.networkWrapper.sendToServer(packet);
+		GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 	}
 
 	public void setGuiLeft(int guiLeft) {

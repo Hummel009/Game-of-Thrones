@@ -193,9 +193,9 @@ public class GOTCommander {
 	}
 
 	public static void changeRegion(GOTFaction faction, DimensionRegion newRegion) {
-		faction.factionRegion.getFactionList().remove(faction);
+		faction.getFactionRegion().getFactionList().remove(faction);
 		newRegion.getFactionList().add(faction);
-		faction.factionRegion = newRegion;
+		faction.setFactionRegion(newRegion);
 	}
 
 	public static <E> E findAndInvokeConstructor(Object[] args, Class<E> clazz, Class<?>... parameterTypes) {
@@ -355,14 +355,14 @@ public class GOTCommander {
 		faction.setAllowPlayer(false);
 		faction.setHasFixedAlignment(true);
 		faction.setFixedAlignment(0);
-		if (faction.factionDimension != null) {
-			faction.factionDimension.getFactionList().remove(faction);
+		if (faction.getFactionDimension() != null) {
+			faction.getFactionDimension().getFactionList().remove(faction);
 		}
-		if (faction.factionRegion != null) {
-			faction.factionRegion.getFactionList().remove(faction);
+		if (faction.getFactionRegion() != null) {
+			faction.getFactionRegion().getFactionList().remove(faction);
 		}
-		faction.factionDimension = null;
-		faction.factionRegion = null;
+		faction.setFactionDimension(null);
+		faction.setFactionRegion(null);
 		GOTCommander.removeFactionSpheres(faction);
 	}
 

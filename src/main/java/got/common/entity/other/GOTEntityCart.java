@@ -118,7 +118,7 @@ public class GOTEntityCart extends Entity {
 			}
 			if (factor > 3.0 && !worldObj.isRemote) {
 				setPulling(null);
-				((WorldServer) worldObj).getEntityTracker().func_151247_a(this, GOTPacketHandler.networkWrapper.getPacketFrom(new GOTPacketCargocartUpdate(-1, getEntityId())));
+				((WorldServer) worldObj).getEntityTracker().func_151247_a(this, GOTPacketHandler.getNetworkWrapper().getPacketFrom(new GOTPacketCargocartUpdate(-1, getEntityId())));
 			}
 		}
 		super.onUpdate();

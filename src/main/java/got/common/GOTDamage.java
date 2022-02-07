@@ -11,12 +11,12 @@ public class GOTDamage {
 
 	public static void doBurnDamage(EntityPlayerMP entityplayer) {
 		GOTPacketEnvironmentOverlay packet = new GOTPacketEnvironmentOverlay(GOTPacketEnvironmentOverlay.Overlay.BURN);
-		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+		GOTPacketHandler.getNetworkWrapper().sendTo(packet, entityplayer);
 	}
 
 	public static void doFrostDamage(EntityPlayerMP entityplayer) {
 		GOTPacketEnvironmentOverlay packet = new GOTPacketEnvironmentOverlay(GOTPacketEnvironmentOverlay.Overlay.FROST);
-		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+		GOTPacketHandler.getNetworkWrapper().sendTo(packet, entityplayer);
 	}
 
 	public static DamageSource getFrost() {

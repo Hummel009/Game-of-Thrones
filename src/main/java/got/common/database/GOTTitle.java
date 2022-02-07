@@ -203,7 +203,7 @@ public class GOTTitle {
 
 	private GOTTitle setPlayerExclusive(UUID... players) {
 		titleType = TitleType.PLAYER_EXCLUSIVE;
-		uuids = players;
+		uuids = players.clone();
 		isHidden = true;
 		return this;
 	}
@@ -250,8 +250,8 @@ public class GOTTitle {
 	}
 
 	public static class PlayerTitle {
-		public GOTTitle theTitle;
-		public EnumChatFormatting theColor;
+		private GOTTitle theTitle;
+		private EnumChatFormatting theColor;
 
 		public PlayerTitle(GOTTitle title) {
 			this(title, null);
@@ -267,10 +267,6 @@ public class GOTTitle {
 
 		public EnumChatFormatting getColor() {
 			return theColor;
-		}
-
-		public String getFormattedTitle(EntityPlayer entityplayer) {
-			return getFullTitleComponent(entityplayer).getFormattedText();
 		}
 
 		public IChatComponent getFullTitleComponent(EntityPlayer entityplayer) {

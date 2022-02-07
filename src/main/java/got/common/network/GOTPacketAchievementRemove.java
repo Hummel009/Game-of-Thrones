@@ -8,10 +8,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketAchievementRemove implements IMessage {
-	public GOTAchievement achievement;
-
-	public GOTPacketAchievementRemove() {
-	}
+	private GOTAchievement achievement;
 
 	public GOTPacketAchievementRemove(GOTAchievement ach) {
 		achievement = ach;

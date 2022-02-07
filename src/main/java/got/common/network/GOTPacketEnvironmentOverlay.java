@@ -5,10 +5,7 @@ import got.GOT;
 import io.netty.buffer.ByteBuf;
 
 public class GOTPacketEnvironmentOverlay implements IMessage {
-	public Overlay overlay;
-
-	public GOTPacketEnvironmentOverlay() {
-	}
+	private Overlay overlay;
 
 	public GOTPacketEnvironmentOverlay(Overlay o) {
 		overlay = o;
@@ -28,10 +25,13 @@ public class GOTPacketEnvironmentOverlay implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketEnvironmentOverlay, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketEnvironmentOverlay packet, MessageContext context) {
-			if (packet.overlay == Overlay.FROST) {
-				GOT.getProxy().showFrostOverlay();
-			} else if (packet.overlay == Overlay.BURN) {
+			switch (packet.overlay) {
+			case BURN:
 				GOT.getProxy().showBurnOverlay();
+				break;
+			case FROST:
+				GOT.getProxy().showFrostOverlay();
+				break;
 			}
 			return null;
 		}
@@ -39,7 +39,6 @@ public class GOTPacketEnvironmentOverlay implements IMessage {
 
 	public enum Overlay {
 		FROST, BURN;
-
 	}
 
 }

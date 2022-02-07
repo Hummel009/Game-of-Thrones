@@ -11,10 +11,7 @@ import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 
 public class GOTPacketCreateCWP implements IMessage {
-	public String name;
-
-	public GOTPacketCreateCWP() {
-	}
+	private String name;
 
 	public GOTPacketCreateCWP(String s) {
 		name = s;
@@ -51,7 +48,7 @@ public class GOTPacketCreateCWP implements IMessage {
 				} else {
 					IChatComponent clientMessage = protectionMessage[0];
 					GOTPacketCWPProtectionMessage packetMessage = new GOTPacketCWPProtectionMessage(clientMessage);
-					GOTPacketHandler.networkWrapper.sendTo(packetMessage, entityplayer);
+					GOTPacketHandler.getNetworkWrapper().sendTo(packetMessage, entityplayer);
 				}
 			}
 			return null;

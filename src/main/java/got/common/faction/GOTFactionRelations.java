@@ -124,7 +124,7 @@ public class GOTFactionRelations {
 
 	public static void sendAllRelationsTo(EntityPlayerMP entityplayer) {
 		GOTPacketFactionRelations pkt = GOTPacketFactionRelations.fullMap(overrideMap);
-		GOTPacketHandler.networkWrapper.sendTo(pkt, entityplayer);
+		GOTPacketHandler.getNetworkWrapper().sendTo(pkt, entityplayer);
 	}
 
 	private static void sendPacketToAll(IMessage packet) {
@@ -132,7 +132,7 @@ public class GOTFactionRelations {
 		if (srv != null) {
 			for (Object obj : srv.getConfigurationManager().playerEntityList) {
 				EntityPlayerMP entityplayer = (EntityPlayerMP) obj;
-				GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+				GOTPacketHandler.getNetworkWrapper().sendTo(packet, entityplayer);
 			}
 		}
 	}

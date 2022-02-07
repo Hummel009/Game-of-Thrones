@@ -35,7 +35,7 @@ public class GOTGuiIronBank extends GuiScreen {
 				} else {
 					packet = new GOTPacketMoneyGet(new ItemStack(GOTRegistry.coin, 1, i - 8));
 				}
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 			}
 		}
 	}

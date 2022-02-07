@@ -33,7 +33,7 @@ public interface MiniQuestSelector {
 
 		@Override
 		public boolean include(GOTMiniQuest quest) {
-			return super.include(quest) && quest.entityFaction == factionGet.get();
+			return super.include(quest) && quest.getEntityFaction() == factionGet.get();
 		}
 	}
 
@@ -59,7 +59,7 @@ public interface MiniQuestSelector {
 
 		@Override
 		public boolean include(GOTMiniQuest quest) {
-			return super.include(quest) && quest.entityFaction == factionGet.get();
+			return super.include(quest) && quest.getEntityFaction() == factionGet.get();
 		}
 	}
 

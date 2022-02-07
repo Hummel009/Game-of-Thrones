@@ -25,7 +25,7 @@ public class GOTInventoryHiredReplacedItems extends GOTInventoryNPC {
 			if (!hasReplacedEquipment(i) || (itemstack = getEquippedReplacement(i)) == null) {
 				continue;
 			}
-			theNPC.npcDropItem(itemstack, 0.0f, false, true);
+			getTheNPC().npcDropItem(itemstack, 0.0f, false, true);
 			equipReplacement(i, getReplacedEquipment(i));
 			setReplacedEquipment(i, null, false);
 		}
@@ -35,33 +35,33 @@ public class GOTInventoryHiredReplacedItems extends GOTInventoryNPC {
 		switch (i) {
 		case 4:
 			boolean idleMelee = false;
-			if (ItemStack.areItemStacksEqual(theNPC.npcItemsInv.getMeleeWeapon(), theNPC.npcItemsInv.getIdleItem())) {
+			if (ItemStack.areItemStacksEqual(getTheNPC().npcItemsInv.getMeleeWeapon(), getTheNPC().npcItemsInv.getIdleItem())) {
 				idleMelee = true;
 			}
-			theNPC.npcItemsInv.setMeleeWeapon(itemstack);
+			getTheNPC().npcItemsInv.setMeleeWeapon(itemstack);
 			if (!replacedMeleeWeapons) {
-				theNPC.npcItemsInv.setReplacedIdleItem(theNPC.npcItemsInv.getIdleItem());
-				theNPC.npcItemsInv.setReplacedMeleeWeaponMounted(theNPC.npcItemsInv.getMeleeWeaponMounted());
-				theNPC.npcItemsInv.setReplacedIdleItemMounted(theNPC.npcItemsInv.getIdleItemMounted());
+				getTheNPC().npcItemsInv.setReplacedIdleItem(getTheNPC().npcItemsInv.getIdleItem());
+				getTheNPC().npcItemsInv.setReplacedMeleeWeaponMounted(getTheNPC().npcItemsInv.getMeleeWeaponMounted());
+				getTheNPC().npcItemsInv.setReplacedIdleItemMounted(getTheNPC().npcItemsInv.getIdleItemMounted());
 				replacedMeleeWeapons = true;
 			}
-			theNPC.npcItemsInv.setMeleeWeaponMounted(itemstack);
+			getTheNPC().npcItemsInv.setMeleeWeaponMounted(itemstack);
 			if (idleMelee) {
-				theNPC.npcItemsInv.setIdleItem(itemstack);
-				theNPC.npcItemsInv.setIdleItemMounted(itemstack);
+				getTheNPC().npcItemsInv.setIdleItem(itemstack);
+				getTheNPC().npcItemsInv.setIdleItemMounted(itemstack);
 			}
 			updateHeldItem();
 			break;
 		case 6:
-			theNPC.npcItemsInv.setRangedWeapon(itemstack);
+			getTheNPC().npcItemsInv.setRangedWeapon(itemstack);
 			updateHeldItem();
 			break;
 		case 5:
-			theNPC.npcItemsInv.setBomb(itemstack);
+			getTheNPC().npcItemsInv.setBomb(itemstack);
 			updateHeldItem();
 			break;
 		default:
-			theNPC.setCurrentItemOrArmor(getNPCArmorSlot(i), itemstack);
+			getTheNPC().setCurrentItemOrArmor(getNPCArmorSlot(i), itemstack);
 			break;
 		}
 	}
@@ -69,15 +69,15 @@ public class GOTInventoryHiredReplacedItems extends GOTInventoryNPC {
 	public ItemStack getEquippedReplacement(int i) {
 		switch (i) {
 		case 4:
-			return theNPC.npcItemsInv.getMeleeWeapon();
+			return getTheNPC().npcItemsInv.getMeleeWeapon();
 		case 6:
-			return theNPC.npcItemsInv.getRangedWeapon();
+			return getTheNPC().npcItemsInv.getRangedWeapon();
 		case 5:
-			return theNPC.npcItemsInv.getBomb();
+			return getTheNPC().npcItemsInv.getBomb();
 		default:
 			break;
 		}
-		return theNPC.getEquipmentInSlot(getNPCArmorSlot(i));
+		return getTheNPC().getEquipmentInSlot(getNPCArmorSlot(i));
 	}
 
 	public int getNPCArmorSlot(int i) {
@@ -123,12 +123,12 @@ public class GOTInventoryHiredReplacedItems extends GOTInventoryNPC {
 		hasReplacedEquipment[i] = flag;
 		if (!flag && i == 4) {
 			if (replacedMeleeWeapons) {
-				theNPC.npcItemsInv.setIdleItem(theNPC.npcItemsInv.getReplacedIdleItem());
-				theNPC.npcItemsInv.setMeleeWeaponMounted(theNPC.npcItemsInv.getReplacedMeleeWeaponMounted());
-				theNPC.npcItemsInv.setIdleItemMounted(theNPC.npcItemsInv.getReplacedIdleItemMounted());
-				theNPC.npcItemsInv.setReplacedMeleeWeaponMounted(null);
-				theNPC.npcItemsInv.setReplacedIdleItem(null);
-				theNPC.npcItemsInv.setReplacedIdleItemMounted(null);
+				getTheNPC().npcItemsInv.setIdleItem(getTheNPC().npcItemsInv.getReplacedIdleItem());
+				getTheNPC().npcItemsInv.setMeleeWeaponMounted(getTheNPC().npcItemsInv.getReplacedMeleeWeaponMounted());
+				getTheNPC().npcItemsInv.setIdleItemMounted(getTheNPC().npcItemsInv.getReplacedIdleItemMounted());
+				getTheNPC().npcItemsInv.setReplacedMeleeWeaponMounted(null);
+				getTheNPC().npcItemsInv.setReplacedIdleItem(null);
+				getTheNPC().npcItemsInv.setReplacedIdleItemMounted(null);
 				replacedMeleeWeapons = false;
 			}
 			updateHeldItem();
@@ -136,8 +136,8 @@ public class GOTInventoryHiredReplacedItems extends GOTInventoryNPC {
 	}
 
 	public void updateHeldItem() {
-		if (!theNPC.npcItemsInv.getIsEating()) {
-			theNPC.refreshCurrentAttackMode();
+		if (!getTheNPC().npcItemsInv.getIsEating()) {
+			getTheNPC().refreshCurrentAttackMode();
 		}
 	}
 

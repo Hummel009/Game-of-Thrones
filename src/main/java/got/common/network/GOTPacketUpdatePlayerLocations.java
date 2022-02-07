@@ -13,8 +13,8 @@ import net.minecraft.nbt.*;
 import net.minecraft.network.PacketBuffer;
 
 public class GOTPacketUpdatePlayerLocations implements IMessage {
-	public static Map<UUID, byte[]> cachedProfileBytes = new HashMap<>();
-	public List<PlayerLocationInfo> playerLocations = new ArrayList<>();
+	private static Map<UUID, byte[]> cachedProfileBytes = new HashMap<>();
+	private List<PlayerLocationInfo> playerLocations = new ArrayList<>();
 
 	public void addPlayerLocation(GameProfile profile, double x, double z) {
 		if (profile.isComplete()) {
@@ -98,11 +98,11 @@ public class GOTPacketUpdatePlayerLocations implements IMessage {
 	}
 
 	public static class PlayerLocationInfo {
-		public GameProfile playerProfile;
-		public double posX;
-		public double posZ;
+		private GameProfile playerProfile;
+		private double posX;
+		private double posZ;
 
-		public PlayerLocationInfo(GameProfile profile, double x, double z) {
+		private PlayerLocationInfo(GameProfile profile, double x, double z) {
 			playerProfile = profile;
 			posX = x;
 			posZ = z;

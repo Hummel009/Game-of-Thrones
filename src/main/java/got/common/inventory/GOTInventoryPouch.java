@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.*;
 
 public class GOTInventoryPouch extends InventoryBasic {
-	public GOTContainerPouch theContainer;
+	private GOTContainerPouch theContainer;
 	private EntityPlayer thePlayer;
 	private int playerSlot;
 	private boolean isTemporary;

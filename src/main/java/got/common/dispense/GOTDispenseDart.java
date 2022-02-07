@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTDispenseDart extends BehaviorProjectileDispense {
-	public GOTItemDart theDartItem;
+	private GOTItemDart theDartItem;
 
 	public GOTDispenseDart(GOTItemDart item) {
 		theDartItem = item;

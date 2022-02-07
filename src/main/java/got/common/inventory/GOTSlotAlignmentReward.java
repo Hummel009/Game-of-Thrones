@@ -10,9 +10,9 @@ import net.minecraft.item.ItemStack;
 
 public class GOTSlotAlignmentReward extends GOTSlotProtected {
 	private static int REWARD_COST = 2000;
-	public GOTContainerUnitTrade theContainer;
-	public GOTHireableBase theTrader;
-	public GOTEntityNPC theLivingTrader;
+	private GOTContainerUnitTrade theContainer;
+	private GOTHireableBase theTrader;
+	private GOTEntityNPC theLivingTrader;
 	private ItemStack alignmentReward;
 
 	public GOTSlotAlignmentReward(GOTContainerUnitTrade container, IInventory inv, int i, int j, int k, GOTHireableBase entity, ItemStack item) {

@@ -10,11 +10,8 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketDeleteMiniquest implements IMessage {
-	public UUID questUUID;
-	public boolean completed;
-
-	public GOTPacketDeleteMiniquest() {
-	}
+	private UUID questUUID;
+	private boolean completed;
 
 	public GOTPacketDeleteMiniquest(GOTMiniQuest quest) {
 		questUUID = quest.getQuestUUID();

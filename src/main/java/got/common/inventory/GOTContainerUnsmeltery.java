@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityFurnace;
 
 public class GOTContainerUnsmeltery extends Container {
-	public GOTTileEntityUnsmeltery theUnsmeltery;
+	private GOTTileEntityUnsmeltery theUnsmeltery;
 	private int currentSmeltTime = 0;
 	private int forgeSmeltTime = 0;
 	private int currentItemFuelValue = 0;

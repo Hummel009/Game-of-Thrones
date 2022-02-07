@@ -17,7 +17,7 @@ public class GOTGuiTradeUnitTradeInteract extends GOTGuiTradeInteract {
 		if (button.enabled) {
 			if (button == buttonHire) {
 				GOTPacketUnitTraderInteract packet = new GOTPacketUnitTraderInteract(getTheEntity().getEntityId(), 1);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 			} else {
 				super.actionPerformed(button);
 			}

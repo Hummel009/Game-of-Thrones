@@ -9,12 +9,9 @@ import got.common.faction.GOTFaction;
 import io.netty.buffer.ByteBuf;
 
 public class GOTPacketAlignment implements IMessage {
-	public UUID player;
-	public Map<GOTFaction, Float> alignmentMap = new HashMap<>();
-	public boolean hideAlignment;
-
-	public GOTPacketAlignment() {
-	}
+	private UUID player;
+	private Map<GOTFaction, Float> alignmentMap = new HashMap<>();
+	private boolean hideAlignment;
 
 	public GOTPacketAlignment(UUID uuid) {
 		player = uuid;

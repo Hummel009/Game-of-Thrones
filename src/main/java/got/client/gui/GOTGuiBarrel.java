@@ -31,7 +31,7 @@ public class GOTGuiBarrel extends GuiContainer {
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled && button.id == 0) {
 			GOTPacketBrewingButton packet = new GOTPacketBrewingButton();
-			GOTPacketHandler.networkWrapper.sendToServer(packet);
+			GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 		}
 	}
 

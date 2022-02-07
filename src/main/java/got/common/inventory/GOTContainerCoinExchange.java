@@ -12,12 +12,12 @@ import net.minecraft.item.ItemStack;
 public class GOTContainerCoinExchange extends Container {
 	private IInventory coinInputInv = new InventoryCoinExchangeSlot(1);
 	private IInventory exchangeInv = new InventoryCoinExchangeSlot(2);
-	public GOTEntityNPC theTraderNPC;
+	private GOTEntityNPC theTraderNPC;
 	private boolean exchanged = false;
 
 	public GOTContainerCoinExchange(EntityPlayer entityplayer, GOTEntityNPC npc) {
 		int i;
-		theTraderNPC = npc;
+		setTheTraderNPC(npc);
 		addSlotToContainer(new Slot(coinInputInv, 0, 80, 46) {
 
 			@Override
@@ -77,6 +77,10 @@ public class GOTContainerCoinExchange extends Container {
 		return exchangeInv;
 	}
 
+	public GOTEntityNPC getTheTraderNPC() {
+		return theTraderNPC;
+	}
+
 	public void handleExchangePacket(int slot) {
 		if (!isExchanged() && coinInputInv.getStackInSlot(0) != null && slot >= 0 && slot < getExchangeInv().getSizeInventory() && getExchangeInv().getStackInSlot(slot) != null) {
 			setExchanged(true);
@@ -95,7 +99,7 @@ public class GOTContainerCoinExchange extends Container {
 				getExchangeInv().setInventorySlotContents(i, null);
 			}
 			detectAndSendChanges();
-			theTraderNPC.playTradeSound();
+			getTheTraderNPC().playTradeSound();
 		}
 	}
 
@@ -185,6 +189,10 @@ public class GOTContainerCoinExchange extends Container {
 
 	public void setExchangeInv(IInventory exchangeInv) {
 		this.exchangeInv = exchangeInv;
+	}
+
+	public void setTheTraderNPC(GOTEntityNPC theTraderNPC) {
+		this.theTraderNPC = theTraderNPC;
 	}
 
 	@Override

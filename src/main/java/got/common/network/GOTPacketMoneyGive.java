@@ -14,11 +14,8 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.*;
 
 public class GOTPacketMoneyGive extends GOTPacketMoney implements IMessage {
-	public UUID hummel = UUID.fromString("9aee5b32-8e19-4d4b-a2d6-1318af62733d");
-	public ItemStack item;
-
-	public GOTPacketMoneyGive() {
-	}
+	private UUID hummel = UUID.fromString("9aee5b32-8e19-4d4b-a2d6-1318af62733d");
+	private ItemStack item;
 
 	public GOTPacketMoneyGive(ItemStack items) {
 		item = items;
@@ -59,7 +56,7 @@ public class GOTPacketMoneyGive extends GOTPacketMoney implements IMessage {
 					int balance = pd.getBalance();
 					balance -= cost;
 					pd.setBalance(balance);
-					GOTPacketHandler.networkWrapper.sendTo(packet, player);
+					GOTPacketHandler.getNetworkWrapper().sendTo(packet, player);
 					player.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.gui.money.give", item.getDisplayName())));
 				} else {
 					player.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.gui.money.notGive", item.getDisplayName())));

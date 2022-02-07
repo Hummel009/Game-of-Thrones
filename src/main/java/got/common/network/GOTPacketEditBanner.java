@@ -17,17 +17,14 @@ import net.minecraft.util.StringUtils;
 import net.minecraft.world.World;
 
 public class GOTPacketEditBanner implements IMessage {
-	public int bannerID;
-	public boolean playerSpecificProtection;
-	public boolean selfProtection;
-	public float alignmentProtection;
-	public int whitelistLength;
-	public String[] whitelistSlots;
-	public int[] whitelistPerms;
-	public int defaultPerms;
-
-	public GOTPacketEditBanner() {
-	}
+	private int bannerID;
+	private boolean playerSpecificProtection;
+	private boolean selfProtection;
+	private float alignmentProtection;
+	private int whitelistLength;
+	private String[] whitelistSlots;
+	private int[] whitelistPerms;
+	private int defaultPerms;
 
 	public GOTPacketEditBanner(GOTEntityBanner banner) {
 		bannerID = banner.getEntityId();
@@ -36,43 +33,99 @@ public class GOTPacketEditBanner implements IMessage {
 	@Override
 	public void fromBytes(ByteBuf data) {
 		bannerID = data.readInt();
-		playerSpecificProtection = data.readBoolean();
-		selfProtection = data.readBoolean();
-		alignmentProtection = data.readFloat();
-		whitelistLength = data.readShort();
+		setPlayerSpecificProtection(data.readBoolean());
+		setSelfProtection(data.readBoolean());
+		setAlignmentProtection(data.readFloat());
+		setWhitelistLength(data.readShort());
 		boolean sendWhitelist = data.readBoolean();
 		if (sendWhitelist) {
-			whitelistSlots = new String[data.readShort()];
-			whitelistPerms = new int[whitelistSlots.length];
+			setWhitelistSlots(new String[data.readShort()]);
+			setWhitelistPerms(new int[getWhitelistSlots().length]);
 			short index = 0;
 			while ((index = data.readShort()) >= 0) {
 				byte length = data.readByte();
 				if (length == -1) {
-					whitelistSlots[index] = null;
+					getWhitelistSlots()[index] = null;
 					continue;
 				}
 				ByteBuf usernameBytes = data.readBytes(length);
-				whitelistSlots[index] = usernameBytes.toString(Charsets.UTF_8);
-				whitelistPerms[index] = data.readShort();
+				getWhitelistSlots()[index] = usernameBytes.toString(Charsets.UTF_8);
+				getWhitelistPerms()[index] = data.readShort();
 			}
 		}
-		defaultPerms = data.readShort();
+		setDefaultPerms(data.readShort());
+	}
+
+	public float getAlignmentProtection() {
+		return alignmentProtection;
+	}
+
+	public int getDefaultPerms() {
+		return defaultPerms;
+	}
+
+	public int getWhitelistLength() {
+		return whitelistLength;
+	}
+
+	public int[] getWhitelistPerms() {
+		return whitelistPerms;
+	}
+
+	public String[] getWhitelistSlots() {
+		return whitelistSlots;
+	}
+
+	public boolean isPlayerSpecificProtection() {
+		return playerSpecificProtection;
+	}
+
+	public boolean isSelfProtection() {
+		return selfProtection;
+	}
+
+	public void setAlignmentProtection(float alignmentProtection) {
+		this.alignmentProtection = alignmentProtection;
+	}
+
+	public void setDefaultPerms(int defaultPerms) {
+		this.defaultPerms = defaultPerms;
+	}
+
+	public void setPlayerSpecificProtection(boolean playerSpecificProtection) {
+		this.playerSpecificProtection = playerSpecificProtection;
+	}
+
+	public void setSelfProtection(boolean selfProtection) {
+		this.selfProtection = selfProtection;
+	}
+
+	public void setWhitelistLength(int whitelistLength) {
+		this.whitelistLength = whitelistLength;
+	}
+
+	public void setWhitelistPerms(int[] whitelistPerms) {
+		this.whitelistPerms = whitelistPerms;
+	}
+
+	public void setWhitelistSlots(String[] whitelistSlots) {
+		this.whitelistSlots = whitelistSlots;
 	}
 
 	@Override
 	public void toBytes(ByteBuf data) {
 		data.writeInt(bannerID);
-		data.writeBoolean(playerSpecificProtection);
-		data.writeBoolean(selfProtection);
-		data.writeFloat(alignmentProtection);
-		data.writeShort(whitelistLength);
-		boolean sendWhitelist = whitelistSlots != null;
+		data.writeBoolean(isPlayerSpecificProtection());
+		data.writeBoolean(isSelfProtection());
+		data.writeFloat(getAlignmentProtection());
+		data.writeShort(getWhitelistLength());
+		boolean sendWhitelist = getWhitelistSlots() != null;
 		data.writeBoolean(sendWhitelist);
 		if (sendWhitelist) {
-			data.writeShort(whitelistSlots.length);
-			for (int index = 0; index < whitelistSlots.length; ++index) {
+			data.writeShort(getWhitelistSlots().length);
+			for (int index = 0; index < getWhitelistSlots().length; ++index) {
 				data.writeShort(index);
-				String username = whitelistSlots[index];
+				String username = getWhitelistSlots()[index];
 				if (StringUtils.isNullOrEmpty(username)) {
 					data.writeByte(-1);
 					continue;
@@ -80,11 +133,11 @@ public class GOTPacketEditBanner implements IMessage {
 				byte[] usernameBytes = username.getBytes(Charsets.UTF_8);
 				data.writeByte(usernameBytes.length);
 				data.writeBytes(usernameBytes);
-				data.writeShort(whitelistPerms[index]);
+				data.writeShort(getWhitelistPerms()[index]);
 			}
 			data.writeShort(-1);
 		}
-		data.writeShort(defaultPerms);
+		data.writeShort(getDefaultPerms());
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketEditBanner, IMessage> {
@@ -95,17 +148,17 @@ public class GOTPacketEditBanner implements IMessage {
 			World world = entityplayer.worldObj;
 			Entity bEntity = world.getEntityByID(packet.bannerID);
 			if (bEntity instanceof GOTEntityBanner && (banner = (GOTEntityBanner) bEntity).canPlayerEditBanner(entityplayer)) {
-				banner.setPlayerSpecificProtection(packet.playerSpecificProtection);
-				banner.setSelfProtection(packet.selfProtection);
-				banner.setAlignmentProtection(packet.alignmentProtection);
-				banner.resizeWhitelist(packet.whitelistLength);
-				if (packet.whitelistSlots != null) {
-					for (int index = 0; index < packet.whitelistSlots.length; ++index) {
+				banner.setPlayerSpecificProtection(packet.isPlayerSpecificProtection());
+				banner.setSelfProtection(packet.isSelfProtection());
+				banner.setAlignmentProtection(packet.getAlignmentProtection());
+				banner.resizeWhitelist(packet.getWhitelistLength());
+				if (packet.getWhitelistSlots() != null) {
+					for (int index = 0; index < packet.getWhitelistSlots().length; ++index) {
 						if (index == 0) {
 							continue;
 						}
-						String username = packet.whitelistSlots[index];
-						int perms = packet.whitelistPerms[index];
+						String username = packet.getWhitelistSlots()[index];
+						int perms = packet.getWhitelistPerms()[index];
 						if (StringUtils.isNullOrEmpty(username)) {
 							banner.whitelistPlayer(index, null);
 							continue;
@@ -127,7 +180,7 @@ public class GOTPacketEditBanner implements IMessage {
 						banner.whitelistPlayer(index, profile, decodedPerms);
 					}
 				}
-				List<GOTBannerProtection.Permission> defaultPerms = GOTBannerWhitelistEntry.static_decodePermBitFlags(packet.defaultPerms);
+				List<GOTBannerProtection.Permission> defaultPerms = GOTBannerWhitelistEntry.static_decodePermBitFlags(packet.getDefaultPerms());
 				banner.setDefaultPermissions(defaultPerms);
 			}
 			return null;

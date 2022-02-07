@@ -7,7 +7,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketFellowshipToggle extends GOTPacketFellowshipDo {
-	public ToggleFunction function;
+	private ToggleFunction function;
 
 	public GOTPacketFellowshipToggle() {
 	}
@@ -36,15 +36,20 @@ public class GOTPacketFellowshipToggle extends GOTPacketFellowshipDo {
 			GOTFellowship fellowship = packet.getFellowship();
 			if (fellowship != null) {
 				GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
-				if (packet.function == ToggleFunction.PVP) {
-					boolean current = fellowship.getPreventPVP();
+				boolean current;
+				switch (packet.function) {
+				case PVP:
+					current = fellowship.getPreventPVP();
 					playerData.setFellowshipPreventPVP(fellowship, !current);
-				} else if (packet.function == ToggleFunction.HIRED_FF) {
-					boolean current = fellowship.getPreventHiredFriendlyFire();
+					break;
+				case HIRED_FF:
+					current = fellowship.getPreventHiredFriendlyFire();
 					playerData.setFellowshipPreventHiredFF(fellowship, !current);
-				} else if (packet.function == ToggleFunction.MAP_SHOW) {
-					boolean current = fellowship.getShowMapLocations();
+					break;
+				case MAP_SHOW:
+					current = fellowship.getShowMapLocations();
 					playerData.setFellowshipShowMapLocations(fellowship, !current);
+					break;
 				}
 			}
 			return null;

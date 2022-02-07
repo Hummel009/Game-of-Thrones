@@ -129,11 +129,11 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 				}
 			} else if (button == buttonPledgeConfirm) {
 				GOTPacketPledgeSet packet = new GOTPacketPledgeSet(currentFaction);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 				isPledging = false;
 			} else if (button == buttonPledgeRevoke) {
 				GOTPacketPledgeSet packet = new GOTPacketPledgeSet(null);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 				isUnpledging = false;
 				mc.displayGuiScreen(null);
 			} else {
@@ -159,7 +159,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		if (!isPledging && !isUnpledging) {
 			buttonPagePrev.enabled = currentPage.prev() != null;
 			buttonPageNext.enabled = currentPage.next() != null;
-			buttonFactionMap.enabled = currentPage != Page.RANKS && currentFaction.isPlayableAlignmentFaction() && GOTDimension.getCurrentDimension(mc.theWorld) == currentFaction.factionDimension;
+			buttonFactionMap.enabled = currentPage != Page.RANKS && currentFaction.isPlayableAlignmentFaction() && GOTDimension.getCurrentDimension(mc.theWorld) == currentFaction.getFactionDimension();
 			buttonFactionMap.visible = buttonFactionMap.enabled;
 			if (!GOTFaction.controlZonesEnabled(mc.theWorld)) {
 				buttonFactionMap.enabled = false;
@@ -235,8 +235,8 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 			String s = currentFaction.factionSubtitle();
 			this.drawCenteredString(s, x, y += fontRendererObj.FONT_HEIGHT + 22, 16777215);
 			if (!useFullPageTexture()) {
-				if (currentFaction.factionMapInfo != null) {
-					GOTMapRegion mapInfo = currentFaction.factionMapInfo;
+				if (currentFaction.getFactionMapInfo() != null) {
+					GOTMapRegion mapInfo = currentFaction.getFactionMapInfo();
 					int mapX = mapInfo.getMapX();
 					int mapY = mapInfo.getMapY();
 					int mapR = mapInfo.getRadius();
@@ -520,13 +520,13 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		buttonPledgeRevoke.setBroken(true);
 		prevDimension = currentDimension = GOTDimension.getCurrentDimension(mc.theWorld);
 		currentFaction = GOTLevelData.getData(mc.thePlayer).getViewingFaction();
-		prevRegion = currentRegion = currentFaction.factionRegion;
+		prevRegion = currentRegion = currentFaction.getFactionRegion();
 		currentFactionList = GOTGuiFactions.currentRegion.getFactionList();
 		prevFactionIndex = currentFactionIndex = currentFactionList.indexOf(currentFaction);
 		setCurrentScrollFromFaction();
 		if (mc.currentScreen == this) {
 			GOTPacketClientMQEvent packet = new GOTPacketClientMQEvent(GOTPacketClientMQEvent.ClientMQEvent.FACTIONS);
-			GOTPacketHandler.networkWrapper.sendToServer(packet);
+			GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 		}
 	}
 

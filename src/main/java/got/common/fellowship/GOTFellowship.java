@@ -263,7 +263,7 @@ public class GOTFellowship {
 		message.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 		entityplayer.addChatMessage(message);
 		GOTPacketFellowshipNotification packet = new GOTPacketFellowshipNotification(message);
-		GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+		GOTPacketHandler.getNetworkWrapper().sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
 	}
 
 	public void setAdmin(UUID player, boolean flag) {

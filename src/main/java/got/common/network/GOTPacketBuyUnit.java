@@ -13,11 +13,8 @@ import net.minecraft.inventory.Container;
 import net.minecraft.util.StringUtils;
 
 public class GOTPacketBuyUnit implements IMessage {
-	public int tradeIndex;
-	public String squadron;
-
-	public GOTPacketBuyUnit() {
-	}
+	private int tradeIndex;
+	private String squadron;
 
 	public GOTPacketBuyUnit(int tr, String s) {
 		tradeIndex = tr;
@@ -52,7 +49,7 @@ public class GOTPacketBuyUnit implements IMessage {
 			Container container = entityplayer.openContainer;
 			if (container instanceof GOTContainerUnitTrade) {
 				GOTContainerUnitTrade tradeContainer = (GOTContainerUnitTrade) container;
-				GOTHireableBase unitTrader = tradeContainer.theUnitTrader;
+				GOTHireableBase unitTrader = tradeContainer.getTheUnitTrader();
 				int tradeIndex = packet.tradeIndex;
 				GOTUnitTradeEntry trade = null;
 				if (unitTrader instanceof GOTUnitTradeable) {

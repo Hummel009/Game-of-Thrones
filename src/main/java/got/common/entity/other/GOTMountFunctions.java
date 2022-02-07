@@ -88,11 +88,11 @@ public class GOTMountFunctions {
 		Entity mount = clientPlayer.ridingEntity;
 		if (GOTMountFunctions.isPlayerControlledMount(mount)) {
 			if (pktSet != null) {
-				mount.setPositionAndRotation(pktSet.posX, pktSet.posY, pktSet.posZ, pktSet.rotationYaw, pktSet.rotationPitch);
+				mount.setPositionAndRotation(pktSet.getPosX(), pktSet.getPosY(), pktSet.getPosZ(), pktSet.getRotationYaw(), pktSet.getRotationPitch());
 				mount.updateRiderPosition();
 			}
 			GOTPacketMountControl pkt = new GOTPacketMountControl(mount);
-			GOTPacketHandler.networkWrapper.sendToServer(pkt);
+			GOTPacketHandler.getNetworkWrapper().sendToServer(pkt);
 			return true;
 		}
 		return false;

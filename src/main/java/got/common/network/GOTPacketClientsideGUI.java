@@ -6,13 +6,10 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketClientsideGUI implements IMessage {
-	public int guiID;
-	public int guiX;
-	public int guiY;
-	public int guiZ;
-
-	public GOTPacketClientsideGUI() {
-	}
+	private int guiID;
+	private int guiX;
+	private int guiY;
+	private int guiZ;
 
 	public GOTPacketClientsideGUI(int id, int x, int y, int z) {
 		guiID = id;

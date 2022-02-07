@@ -89,7 +89,7 @@ public class GOTBiomeVariantStorage {
 		byte[] variants = GOTBiomeVariantStorage.getChunkBiomeVariants(world, chunk);
 		if (variants != null) {
 			GOTPacketBiomeVariantsWatch packet = new GOTPacketBiomeVariantsWatch(chunk.xPosition, chunk.zPosition, variants);
-			GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+			GOTPacketHandler.getNetworkWrapper().sendTo(packet, entityplayer);
 		} else {
 			String dimName = world.provider.getDimensionName();
 			int posX = chunk.xPosition << 4;
@@ -101,7 +101,7 @@ public class GOTBiomeVariantStorage {
 
 	public static void sendUnwatchToPlayer(World world, Chunk chunk, EntityPlayerMP entityplayer) {
 		GOTPacketBiomeVariantsUnwatch packet = new GOTPacketBiomeVariantsUnwatch(chunk.xPosition, chunk.zPosition);
-		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+		GOTPacketHandler.getNetworkWrapper().sendTo(packet, entityplayer);
 	}
 
 	public static void setChunkBiomeVariants(World world, Chunk chunk, byte[] variants) {

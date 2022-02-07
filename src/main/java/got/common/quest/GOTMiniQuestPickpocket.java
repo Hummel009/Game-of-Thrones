@@ -63,7 +63,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		}
 		if (canRewardVariousExtraItems()) {
 			GOTLore lore;
-			if (rand.nextInt(10) == 0 && questGroup != null && !questGroup.getLoreCategories().isEmpty() && (lore = GOTLore.getMultiRandomLore(questGroup.getLoreCategories(), rand, true)) != null) {
+			if (rand.nextInt(10) == 0 && getQuestGroup() != null && !getQuestGroup().getLoreCategories().isEmpty() && (lore = GOTLore.getMultiRandomLore(getQuestGroup().getLoreCategories(), rand, true)) != null) {
 				ItemStack loreBook = lore.createLoreBook(rand);
 				dropItems.add(loreBook.copy());
 				getItemsRewarded().add(loreBook.copy());
@@ -95,17 +95,17 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		if (isWillHire()) {
 			GOTUnitTradeEntry tradeEntry = new GOTUnitTradeEntry(npc.getClass(), 0, getHiringAlignment());
 			tradeEntry.setTask(GOTHiredNPCInfo.Task.WARRIOR);
-			npc.hiredNPCInfo.hireUnit(entityplayer, false, entityFaction, tradeEntry, null, npc.ridingEntity);
+			npc.hiredNPCInfo.hireUnit(entityplayer, false, getEntityFaction(), tradeEntry, null, npc.ridingEntity);
 			setWasHired(true);
 		}
 		if (isLegendary()) {
 			npc.hiredNPCInfo.isActive = true;
 		}
 		updateQuest();
-		playerData.completeMiniQuest(this);
+		getPlayerData().completeMiniQuest(this);
 		sendCompletedSpeech(entityplayer, npc);
-		if (questGroup != null && (achievement = questGroup.getAchievement()) != null) {
-			playerData.addAchievement(achievement);
+		if (getQuestGroup() != null && (achievement = getQuestGroup().getAchievement()) != null) {
+			getPlayerData().addAchievement(achievement);
 		}
 	}
 

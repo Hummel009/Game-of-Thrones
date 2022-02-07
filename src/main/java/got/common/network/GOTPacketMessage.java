@@ -7,10 +7,7 @@ import got.common.GOTGuiMessageTypes;
 import io.netty.buffer.ByteBuf;
 
 public class GOTPacketMessage implements IMessage {
-	public GOTGuiMessageTypes message;
-
-	public GOTPacketMessage() {
-	}
+	private GOTGuiMessageTypes message;
 
 	public GOTPacketMessage(GOTGuiMessageTypes m) {
 		message = m;

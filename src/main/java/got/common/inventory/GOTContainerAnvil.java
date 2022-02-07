@@ -31,8 +31,8 @@ public class GOTContainerAnvil extends Container {
 	private int xCoord;
 	private int yCoord;
 	private int zCoord;
-	public GOTEntityNPC theNPC;
-	public GOTTradeable theTrader;
+	private GOTEntityNPC theNPC;
+	private GOTTradeable theTrader;
 	private int materialCost;
 	private int reforgeCost;
 	private int engraveOwnerCost;
@@ -73,7 +73,7 @@ public class GOTContainerAnvil extends Container {
 
 	public GOTContainerAnvil(EntityPlayer entityplayer, GOTEntityNPC npc) {
 		this(entityplayer, true);
-		theNPC = npc;
+		setTheNPC(npc);
 		theTrader = (GOTTradeable) npc;
 	}
 
@@ -114,7 +114,7 @@ public class GOTContainerAnvil extends Container {
 	@Override
 	public boolean canInteractWith(EntityPlayer entityplayer) {
 		if (isTrader()) {
-			return theNPC != null && entityplayer.getDistanceToEntity(theNPC) <= 12.0 && theNPC.isEntityAlive() && theNPC.getAttackTarget() == null && theTrader.canTradeWith(entityplayer);
+			return getTheNPC() != null && entityplayer.getDistanceToEntity(getTheNPC()) <= 12.0 && getTheNPC().isEntityAlive() && getTheNPC().getAttackTarget() == null && theTrader.canTradeWith(entityplayer);
 		}
 		return theWorld.getBlock(xCoord, yCoord, zCoord) == Blocks.anvil && entityplayer.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) <= 64.0;
 	}
@@ -135,7 +135,7 @@ public class GOTContainerAnvil extends Container {
 		if (inputItem != null && getEngraveOwnerCost() > 0 && hasMaterialOrCoinAmount(getEngraveOwnerCost())) {
 			int cost = getEngraveOwnerCost();
 			GOTItemOwnership.setCurrentOwner(inputItem, thePlayer.getCommandSenderName());
-			if (isTrader() && theNPC instanceof GOTEntityScrapTrader && applyMischief(inputItem)) {
+			if (isTrader() && getTheNPC() instanceof GOTEntityScrapTrader && applyMischief(inputItem)) {
 				doneMischief = true;
 			}
 			getInvInput().setInventorySlotContents(0, inputItem);
@@ -181,9 +181,13 @@ public class GOTContainerAnvil extends Container {
 		return reforgeCost;
 	}
 
+	public GOTEntityNPC getTheNPC() {
+		return theNPC;
+	}
+
 	private float getTraderMaterialPrice(ItemStack inputItem) {
 		float materialPrice = 0.0f;
-		GOTTradeEntry[] sellTrades = theNPC.traderNPCInfo.getSellTrades();
+		GOTTradeEntry[] sellTrades = getTheNPC().traderNPCInfo.getSellTrades();
 		if (sellTrades != null) {
 			for (GOTTradeEntry trade : sellTrades) {
 				ItemStack tradeItem = trade.createTradeItem();
@@ -271,8 +275,8 @@ public class GOTContainerAnvil extends Container {
 				}
 				entityplayer.dropPlayerItemWithRandomChoice(itemstack, false);
 			}
-			if (doneMischief && isTrader() && theNPC instanceof GOTEntityScrapTrader) {
-				theNPC.sendSpeechBank(entityplayer, ((GOTEntityScrapTrader) theNPC).getSmithSpeechBank());
+			if (doneMischief && isTrader() && getTheNPC() instanceof GOTEntityScrapTrader) {
+				getTheNPC().sendSpeechBank(entityplayer, ((GOTEntityScrapTrader) getTheNPC()).getSmithSpeechBank());
 			}
 		}
 	}
@@ -291,9 +295,9 @@ public class GOTContainerAnvil extends Container {
 			int j;
 			int k;
 			if (isTrader()) {
-				i = MathHelper.floor_double(theNPC.posX);
-				j = MathHelper.floor_double(theNPC.posY);
-				k = MathHelper.floor_double(theNPC.posZ);
+				i = MathHelper.floor_double(getTheNPC().posX);
+				j = MathHelper.floor_double(getTheNPC().posY);
+				k = MathHelper.floor_double(getTheNPC().posZ);
 			} else {
 				i = xCoord;
 				j = yCoord;
@@ -313,7 +317,7 @@ public class GOTContainerAnvil extends Container {
 			}
 			GOTEnchantmentHelper.applyRandomEnchantments(inputItem, theWorld.rand, true, true);
 			GOTEnchantmentHelper.setAnvilCost(inputItem, 0);
-			if (isTrader() && theNPC instanceof GOTEntityScrapTrader && applyMischief(inputItem)) {
+			if (isTrader() && getTheNPC() instanceof GOTEntityScrapTrader && applyMischief(inputItem)) {
 				doneMischief = true;
 			}
 			getInvInput().setInventorySlotContents(0, inputItem);
@@ -355,6 +359,10 @@ public class GOTContainerAnvil extends Container {
 		this.isSmithScrollCombine = isSmithScrollCombine;
 	}
 
+	public void setTheNPC(GOTEntityNPC theNPC) {
+		this.theNPC = theNPC;
+	}
+
 	public void setTrader(boolean isTrader) {
 		this.isTrader = isTrader;
 	}
@@ -365,7 +373,7 @@ public class GOTContainerAnvil extends Container {
 		ItemStack resultItem = getInvOutput().getStackInSlot(0);
 		resultItem = ItemStack.copyItemStack(resultItem);
 		boolean changed = false;
-		if (resultItem != null && slotNo == getSlotFromInventory(getInvOutput(), 0).slotNumber && !theWorld.isRemote && isTrader() && theNPC instanceof GOTEntityScrapTrader && (changed = applyMischief(resultCopy = resultItem.copy()))) {
+		if (resultItem != null && slotNo == getSlotFromInventory(getInvOutput(), 0).slotNumber && !theWorld.isRemote && isTrader() && getTheNPC() instanceof GOTEntityScrapTrader && (changed = applyMischief(resultCopy = resultItem.copy()))) {
 			getInvOutput().setInventorySlotContents(0, resultCopy);
 		}
 		ItemStack slotClickResult = super.slotClick(slotNo, j, k, entityplayer);
@@ -383,7 +391,7 @@ public class GOTContainerAnvil extends Container {
 			if (!theWorld.isRemote) {
 				GOTItemCoin.takeCoins(cost, thePlayer);
 				detectAndSendChanges();
-				theNPC.playTradeSound();
+				getTheNPC().playTradeSound();
 			}
 		} else {
 			ItemStack materialItem = getInvInput().getStackInSlot(2);

@@ -6,10 +6,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketSetOption implements IMessage {
-	public int option;
-
-	public GOTPacketSetOption() {
-	}
+	private int option;
 
 	public GOTPacketSetOption(int i) {
 		option = i;

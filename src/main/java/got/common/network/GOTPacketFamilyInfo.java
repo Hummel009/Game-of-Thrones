@@ -10,48 +10,77 @@ import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
 public class GOTPacketFamilyInfo implements IMessage {
-	public int entityID;
-	public int age;
-	public boolean isMale;
-	public String name;
-	public boolean isDrunk;
-
-	public GOTPacketFamilyInfo() {
-	}
+	private int entityID;
+	private int age;
+	private boolean isMale;
+	private String name;
+	private boolean isDrunk;
 
 	public GOTPacketFamilyInfo(int id, int a, boolean m, String s, boolean drunk) {
 		entityID = id;
-		age = a;
-		isMale = m;
-		name = s;
-		isDrunk = drunk;
+		setAge(a);
+		setMale(m);
+		setName(s);
+		setDrunk(drunk);
 	}
 
 	@Override
 	public void fromBytes(ByteBuf data) {
 		entityID = data.readInt();
-		age = data.readInt();
-		isMale = data.readBoolean();
+		setAge(data.readInt());
+		setMale(data.readBoolean());
 		short nameLength = data.readShort();
 		if (nameLength > -1) {
-			name = data.readBytes(nameLength).toString(Charsets.UTF_8);
+			setName(data.readBytes(nameLength).toString(Charsets.UTF_8));
 		}
-		isDrunk = data.readBoolean();
+		setDrunk(data.readBoolean());
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public boolean isDrunk() {
+		return isDrunk;
+	}
+
+	public boolean isMale() {
+		return isMale;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public void setDrunk(boolean isDrunk) {
+		this.isDrunk = isDrunk;
+	}
+
+	public void setMale(boolean isMale) {
+		this.isMale = isMale;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Override
 	public void toBytes(ByteBuf data) {
 		data.writeInt(entityID);
-		data.writeInt(age);
-		data.writeBoolean(isMale);
-		if (name == null) {
+		data.writeInt(getAge());
+		data.writeBoolean(isMale());
+		if (getName() == null) {
 			data.writeShort(-1);
 		} else {
-			byte[] nameBytes = name.getBytes(Charsets.UTF_8);
+			byte[] nameBytes = getName().getBytes(Charsets.UTF_8);
 			data.writeShort(nameBytes.length);
 			data.writeBytes(nameBytes);
 		}
-		data.writeBoolean(isDrunk);
+		data.writeBoolean(isDrunk());
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketFamilyInfo, IMessage> {

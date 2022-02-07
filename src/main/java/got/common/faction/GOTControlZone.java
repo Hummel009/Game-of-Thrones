@@ -3,7 +3,6 @@ package got.common.faction;
 import got.common.world.map.GOTWaypoint;
 
 public class GOTControlZone {
-	private int mapY;
 	private int radius;
 	private int xCoord;
 	private int zCoord;
@@ -16,7 +15,7 @@ public class GOTControlZone {
 
 	public GOTControlZone(int x, int y, int r) {
 		int mapX = x;
-		mapY = y;
+		int mapY = y;
 		setRadius(r);
 		setxCoord(GOTWaypoint.mapToWorldX(mapX));
 		setzCoord(GOTWaypoint.mapToWorldZ(mapY));

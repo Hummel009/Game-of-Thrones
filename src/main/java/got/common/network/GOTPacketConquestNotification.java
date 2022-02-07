@@ -6,12 +6,9 @@ import got.common.faction.GOTFaction;
 import io.netty.buffer.ByteBuf;
 
 public class GOTPacketConquestNotification implements IMessage {
-	public GOTFaction conqFac;
-	public float conqVal;
-	public boolean isCleansing;
-
-	public GOTPacketConquestNotification() {
-	}
+	private GOTFaction conqFac;
+	private float conqVal;
+	private boolean isCleansing;
 
 	public GOTPacketConquestNotification(GOTFaction fac, float f, boolean clean) {
 		conqFac = fac;

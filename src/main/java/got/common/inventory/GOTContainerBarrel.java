@@ -8,14 +8,14 @@ import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 
 public class GOTContainerBarrel extends Container {
-	public GOTTileEntityBarrel theBarrel;
+	private GOTTileEntityBarrel theBarrel;
 	private int barrelMode = 0;
 	private int brewingTime = 0;
 
 	public GOTContainerBarrel(InventoryPlayer inv, GOTTileEntityBarrel barrel) {
 		int i;
 		int j;
-		theBarrel = barrel;
+		setTheBarrel(barrel);
 		for (i = 0; i < 3; ++i) {
 			for (j = 0; j < 3; ++j) {
 				GOTSlotBarrel slot = new GOTSlotBarrel(barrel, j + i * 3, 14 + j * 18, 34 + i * 18);
@@ -42,13 +42,13 @@ public class GOTContainerBarrel extends Container {
 	@Override
 	public void addCraftingToCrafters(ICrafting crafting) {
 		super.addCraftingToCrafters(crafting);
-		crafting.sendProgressBarUpdate(this, 0, theBarrel.getBarrelMode());
-		crafting.sendProgressBarUpdate(this, 1, theBarrel.getBrewingTime());
+		crafting.sendProgressBarUpdate(this, 0, getTheBarrel().getBarrelMode());
+		crafting.sendProgressBarUpdate(this, 1, getTheBarrel().getBrewingTime());
 	}
 
 	@Override
 	public boolean canInteractWith(EntityPlayer entityplayer) {
-		return theBarrel.isUseableByPlayer(entityplayer);
+		return getTheBarrel().isUseableByPlayer(entityplayer);
 	}
 
 	@Override
@@ -56,24 +56,32 @@ public class GOTContainerBarrel extends Container {
 		super.detectAndSendChanges();
 		for (Object crafter : crafters) {
 			ICrafting crafting = (ICrafting) crafter;
-			if (barrelMode != theBarrel.getBarrelMode()) {
-				crafting.sendProgressBarUpdate(this, 0, theBarrel.getBarrelMode());
+			if (barrelMode != getTheBarrel().getBarrelMode()) {
+				crafting.sendProgressBarUpdate(this, 0, getTheBarrel().getBarrelMode());
 			}
-			if (brewingTime == theBarrel.getBrewingTime()) {
+			if (brewingTime == getTheBarrel().getBrewingTime()) {
 				continue;
 			}
-			crafting.sendProgressBarUpdate(this, 1, theBarrel.getBrewingTime());
+			crafting.sendProgressBarUpdate(this, 1, getTheBarrel().getBrewingTime());
 		}
-		barrelMode = theBarrel.getBarrelMode();
-		brewingTime = theBarrel.getBrewingTime();
+		barrelMode = getTheBarrel().getBarrelMode();
+		brewingTime = getTheBarrel().getBrewingTime();
+	}
+
+	public GOTTileEntityBarrel getTheBarrel() {
+		return theBarrel;
 	}
 
 	@Override
 	public void onContainerClosed(EntityPlayer entityplayer) {
 		super.onContainerClosed(entityplayer);
-		if (!theBarrel.getWorldObj().isRemote && entityplayer instanceof EntityPlayerMP) {
-			theBarrel.getPlayers().remove(entityplayer);
+		if (!getTheBarrel().getWorldObj().isRemote && entityplayer instanceof EntityPlayerMP) {
+			getTheBarrel().getPlayers().remove(entityplayer);
 		}
+	}
+
+	public void setTheBarrel(GOTTileEntityBarrel theBarrel) {
+		this.theBarrel = theBarrel;
 	}
 
 	@Override
@@ -114,10 +122,10 @@ public class GOTContainerBarrel extends Container {
 	@SideOnly(value = Side.CLIENT)
 	public void updateProgressBar(int i, int j) {
 		if (i == 0) {
-			theBarrel.setBarrelMode(j);
+			getTheBarrel().setBarrelMode(j);
 		}
 		if (i == 1) {
-			theBarrel.setBrewingTime(j);
+			getTheBarrel().setBrewingTime(j);
 		}
 	}
 }

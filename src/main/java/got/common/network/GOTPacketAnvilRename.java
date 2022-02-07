@@ -11,10 +11,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.Container;
 
 public class GOTPacketAnvilRename implements IMessage {
-	public String rename;
-
-	public GOTPacketAnvilRename() {
-	}
+	private String rename;
 
 	public GOTPacketAnvilRename(String s) {
 		rename = s;

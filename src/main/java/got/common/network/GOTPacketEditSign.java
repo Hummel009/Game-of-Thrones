@@ -12,13 +12,10 @@ import net.minecraft.util.ChatAllowedCharacters;
 import net.minecraft.world.World;
 
 public class GOTPacketEditSign implements IMessage {
-	public int posX;
-	public int posY;
-	public int posZ;
-	public String[] signText;
-
-	public GOTPacketEditSign() {
-	}
+	private int posX;
+	private int posY;
+	private int posZ;
+	private String[] signText;
 
 	public GOTPacketEditSign(GOTTileEntitySign sign) {
 		posX = sign.xCoord;

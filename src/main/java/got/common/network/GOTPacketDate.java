@@ -11,11 +11,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 
 public class GOTPacketDate implements IMessage {
-	public NBTTagCompound dateData;
-	public boolean doUpdate;
-
-	public GOTPacketDate() {
-	}
+	private NBTTagCompound dateData;
+	private boolean doUpdate;
 
 	public GOTPacketDate(NBTTagCompound nbt, boolean flag) {
 		dateData = nbt;

@@ -8,11 +8,8 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.World;
 
 public class GOTPacketHiredUnitInteract implements IMessage {
-	public int entityID;
-	public int entityAction;
-
-	public GOTPacketHiredUnitInteract() {
-	}
+	private int entityID;
+	private int entityAction;
 
 	public GOTPacketHiredUnitInteract(int id, int a) {
 		entityID = id;

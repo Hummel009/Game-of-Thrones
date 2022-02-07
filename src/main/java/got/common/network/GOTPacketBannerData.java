@@ -16,21 +16,18 @@ import net.minecraft.util.StringUtils;
 import net.minecraft.world.World;
 
 public class GOTPacketBannerData implements IMessage {
-	public int entityID;
-	public boolean openGui;
-	public boolean playerSpecificProtection;
-	public boolean selfProtection;
-	public boolean structureProtection;
-	public int customRange;
-	public float alignmentProtection;
-	public int whitelistLength;
-	public String[] whitelistSlots;
-	public int[] whitelistPerms;
-	public int defaultPerms;
-	public boolean thisPlayerHasPermission;
-
-	public GOTPacketBannerData() {
-	}
+	private int entityID;
+	private boolean openGui;
+	private boolean playerSpecificProtection;
+	private boolean selfProtection;
+	private boolean structureProtection;
+	private int customRange;
+	private float alignmentProtection;
+	private int whitelistLength;
+	private String[] whitelistSlots;
+	private int[] whitelistPerms;
+	private int defaultPerms;
+	private boolean thisPlayerHasPermission;
 
 	public GOTPacketBannerData(int id, boolean flag) {
 		entityID = id;
@@ -41,43 +38,123 @@ public class GOTPacketBannerData implements IMessage {
 	public void fromBytes(ByteBuf data) {
 		entityID = data.readInt();
 		openGui = data.readBoolean();
-		playerSpecificProtection = data.readBoolean();
-		selfProtection = data.readBoolean();
-		structureProtection = data.readBoolean();
-		customRange = data.readShort();
-		alignmentProtection = data.readFloat();
-		whitelistLength = data.readShort();
-		whitelistSlots = new String[data.readShort()];
-		whitelistPerms = new int[whitelistSlots.length];
+		setPlayerSpecificProtection(data.readBoolean());
+		setSelfProtection(data.readBoolean());
+		setStructureProtection(data.readBoolean());
+		setCustomRange(data.readShort());
+		setAlignmentProtection(data.readFloat());
+		setWhitelistLength(data.readShort());
+		setWhitelistSlots(new String[data.readShort()]);
+		setWhitelistPerms(new int[getWhitelistSlots().length]);
 		short index = 0;
 		while ((index = data.readShort()) >= 0) {
 			byte length = data.readByte();
 			if (length == -1) {
-				whitelistSlots[index] = null;
+				getWhitelistSlots()[index] = null;
 				continue;
 			}
 			ByteBuf usernameBytes = data.readBytes(length);
-			whitelistSlots[index] = usernameBytes.toString(Charsets.UTF_8);
-			whitelistPerms[index] = data.readShort();
+			getWhitelistSlots()[index] = usernameBytes.toString(Charsets.UTF_8);
+			getWhitelistPerms()[index] = data.readShort();
 		}
-		defaultPerms = data.readShort();
-		thisPlayerHasPermission = data.readBoolean();
+		setDefaultPerms(data.readShort());
+		setThisPlayerHasPermission(data.readBoolean());
+	}
+
+	public float getAlignmentProtection() {
+		return alignmentProtection;
+	}
+
+	public int getCustomRange() {
+		return customRange;
+	}
+
+	public int getDefaultPerms() {
+		return defaultPerms;
+	}
+
+	public int getWhitelistLength() {
+		return whitelistLength;
+	}
+
+	public int[] getWhitelistPerms() {
+		return whitelistPerms;
+	}
+
+	public String[] getWhitelistSlots() {
+		return whitelistSlots;
+	}
+
+	public boolean isPlayerSpecificProtection() {
+		return playerSpecificProtection;
+	}
+
+	public boolean isSelfProtection() {
+		return selfProtection;
+	}
+
+	public boolean isStructureProtection() {
+		return structureProtection;
+	}
+
+	public boolean isThisPlayerHasPermission() {
+		return thisPlayerHasPermission;
+	}
+
+	public void setAlignmentProtection(float alignmentProtection) {
+		this.alignmentProtection = alignmentProtection;
+	}
+
+	public void setCustomRange(int customRange) {
+		this.customRange = customRange;
+	}
+
+	public void setDefaultPerms(int defaultPerms) {
+		this.defaultPerms = defaultPerms;
+	}
+
+	public void setPlayerSpecificProtection(boolean playerSpecificProtection) {
+		this.playerSpecificProtection = playerSpecificProtection;
+	}
+
+	public void setSelfProtection(boolean selfProtection) {
+		this.selfProtection = selfProtection;
+	}
+
+	public void setStructureProtection(boolean structureProtection) {
+		this.structureProtection = structureProtection;
+	}
+
+	public void setThisPlayerHasPermission(boolean thisPlayerHasPermission) {
+		this.thisPlayerHasPermission = thisPlayerHasPermission;
+	}
+
+	public void setWhitelistLength(int whitelistLength) {
+		this.whitelistLength = whitelistLength;
+	}
+
+	public void setWhitelistPerms(int[] whitelistPerms) {
+		this.whitelistPerms = whitelistPerms;
+	}
+
+	public void setWhitelistSlots(String[] whitelistSlots) {
+		this.whitelistSlots = whitelistSlots;
 	}
 
 	@Override
 	public void toBytes(ByteBuf data) {
 		data.writeInt(entityID);
 		data.writeBoolean(openGui);
-		data.writeBoolean(playerSpecificProtection);
-		data.writeBoolean(selfProtection);
-		data.writeBoolean(structureProtection);
-		data.writeShort(customRange);
-		data.writeFloat(alignmentProtection);
-		data.writeShort(whitelistLength);
-		data.writeShort(whitelistSlots.length);
-		for (int index = 0; index < whitelistSlots.length; ++index) {
+		data.writeBoolean(isPlayerSpecificProtection());
+		data.writeBoolean(isSelfProtection());
+		data.writeBoolean(isStructureProtection());
+		data.writeShort(getCustomRange());
+		data.writeFloat(getAlignmentProtection());
+		data.writeShort(getWhitelistLength());
+		data.writeShort(getWhitelistSlots().length);
+		for (int index = 0; index < getWhitelistSlots().length; ++index) {
 			data.writeShort(index);
-			String username = whitelistSlots[index];
+			String username = getWhitelistSlots()[index];
 			if (StringUtils.isNullOrEmpty(username)) {
 				data.writeByte(-1);
 				continue;
@@ -85,11 +162,11 @@ public class GOTPacketBannerData implements IMessage {
 			byte[] usernameBytes = username.getBytes(Charsets.UTF_8);
 			data.writeByte(usernameBytes.length);
 			data.writeBytes(usernameBytes);
-			data.writeShort(whitelistPerms[index]);
+			data.writeShort(getWhitelistPerms()[index]);
 		}
 		data.writeShort(-1);
-		data.writeShort(defaultPerms);
-		data.writeBoolean(thisPlayerHasPermission);
+		data.writeShort(getDefaultPerms());
+		data.writeBoolean(isThisPlayerHasPermission());
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketBannerData, IMessage> {
@@ -99,14 +176,14 @@ public class GOTPacketBannerData implements IMessage {
 			Entity entity = world.getEntityByID(packet.entityID);
 			if (entity instanceof GOTEntityBanner) {
 				GOTEntityBanner banner = (GOTEntityBanner) entity;
-				banner.setPlayerSpecificProtection(packet.playerSpecificProtection);
-				banner.setSelfProtection(packet.selfProtection);
-				banner.setStructureProtection(packet.structureProtection);
-				banner.setCustomRange(packet.customRange);
-				banner.setAlignmentProtection(packet.alignmentProtection);
-				banner.resizeWhitelist(packet.whitelistLength);
-				for (int index = 0; index < packet.whitelistSlots.length; ++index) {
-					String username = packet.whitelistSlots[index];
+				banner.setPlayerSpecificProtection(packet.isPlayerSpecificProtection());
+				banner.setSelfProtection(packet.isSelfProtection());
+				banner.setStructureProtection(packet.isStructureProtection());
+				banner.setCustomRange(packet.getCustomRange());
+				banner.setAlignmentProtection(packet.getAlignmentProtection());
+				banner.resizeWhitelist(packet.getWhitelistLength());
+				for (int index = 0; index < packet.getWhitelistSlots().length; ++index) {
+					String username = packet.getWhitelistSlots()[index];
 					if (StringUtils.isNullOrEmpty(username)) {
 						banner.whitelistPlayer(index, null);
 					} else if (GOTFellowshipProfile.hasFellowshipCode(username)) {
@@ -121,11 +198,11 @@ public class GOTPacketBannerData implements IMessage {
 					if (entry == null) {
 						continue;
 					}
-					entry.decodePermBitFlags(packet.whitelistPerms[index]);
+					entry.decodePermBitFlags(packet.getWhitelistPerms()[index]);
 				}
-				List<GOTBannerProtection.Permission> defaultPerms = GOTBannerWhitelistEntry.static_decodePermBitFlags(packet.defaultPerms);
+				List<GOTBannerProtection.Permission> defaultPerms = GOTBannerWhitelistEntry.static_decodePermBitFlags(packet.getDefaultPerms());
 				banner.setDefaultPermissions(defaultPerms);
-				banner.setClientside_playerHasPermissionInSurvival(packet.thisPlayerHasPermission);
+				banner.setClientside_playerHasPermissionInSurvival(packet.isThisPlayerHasPermission());
 				if (packet.openGui) {
 					GOT.getProxy().displayBannerGui(banner);
 				}

@@ -66,7 +66,7 @@ public class GOTGuiPouch extends GuiContainer {
 		String name = theGuiTextField.getText();
 		thePouch.renamePouch(name);
 		GOTPacketRenamePouch packet = new GOTPacketRenamePouch(name);
-		GOTPacketHandler.networkWrapper.sendToServer(packet);
+		GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 	}
 
 	@Override

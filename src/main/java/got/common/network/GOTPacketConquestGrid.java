@@ -10,12 +10,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.world.World;
 
 public class GOTPacketConquestGrid implements IMessage {
-	public GOTFaction conqFac;
-	public List<GOTConquestZone> allZones;
-	public long worldTime;
-
-	public GOTPacketConquestGrid() {
-	}
+	private GOTFaction conqFac;
+	private List<GOTConquestZone> allZones;
+	private long worldTime;
 
 	public GOTPacketConquestGrid(GOTFaction fac, Collection<GOTConquestZone> grid, World world) {
 		conqFac = fac;

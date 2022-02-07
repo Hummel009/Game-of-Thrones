@@ -12,11 +12,8 @@ import net.minecraft.util.StringUtils;
 import net.minecraft.world.World;
 
 public class GOTPacketNPCSquadron implements IMessage {
-	public int npcID;
-	public String squadron;
-
-	public GOTPacketNPCSquadron() {
-	}
+	private int npcID;
+	private String squadron;
 
 	public GOTPacketNPCSquadron(GOTEntityNPC npc, String s) {
 		npcID = npc.getEntityId();

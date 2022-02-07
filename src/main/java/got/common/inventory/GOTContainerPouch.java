@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 public class GOTContainerPouch extends Container {
 	private int thePouchSlot;
 	private ItemStack thePouchItem;
-	public GOTInventoryPouch pouchInventory;
+	private GOTInventoryPouch pouchInventory;
 	private int capacity;
 
 	public GOTContainerPouch(EntityPlayer entityplayer, int slot) {
@@ -17,12 +17,12 @@ public class GOTContainerPouch extends Container {
 		int j;
 		thePouchSlot = slot;
 		thePouchItem = entityplayer.inventory.getStackInSlot(thePouchSlot);
-		pouchInventory = new GOTInventoryPouch(entityplayer, this, slot);
-		setCapacity(pouchInventory.getSizeInventory());
+		setPouchInventory(new GOTInventoryPouch(entityplayer, this, slot));
+		setCapacity(getPouchInventory().getSizeInventory());
 		int rows = getCapacity() / 9;
 		for (i = 0; i < rows; ++i) {
 			for (j = 0; j < 9; ++j) {
-				addSlotToContainer(new GOTSlotPouch(pouchInventory, j + i * 9, 8 + j * 18, 30 + i * 18));
+				addSlotToContainer(new GOTSlotPouch(getPouchInventory(), j + i * 9, 8 + j * 18, 30 + i * 18));
 			}
 		}
 		for (i = 0; i < 3; ++i) {
@@ -37,7 +37,7 @@ public class GOTContainerPouch extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer entityplayer) {
-		return ItemStack.areItemStacksEqual(thePouchItem, pouchInventory.getPouchItem());
+		return ItemStack.areItemStacksEqual(thePouchItem, getPouchInventory().getPouchItem());
 	}
 
 	public int getCapacity() {
@@ -45,20 +45,28 @@ public class GOTContainerPouch extends Container {
 	}
 
 	public String getDisplayName() {
-		return pouchInventory.getInventoryName();
+		return getPouchInventory().getInventoryName();
+	}
+
+	public GOTInventoryPouch getPouchInventory() {
+		return pouchInventory;
 	}
 
 	public void renamePouch(String name) {
 		if (StringUtils.isBlank(name)) {
-			pouchInventory.getPouchItem().func_135074_t();
+			getPouchInventory().getPouchItem().func_135074_t();
 		} else {
-			pouchInventory.getPouchItem().setStackDisplayName(name);
+			getPouchInventory().getPouchItem().setStackDisplayName(name);
 		}
-		syncPouchItem(pouchInventory.getPouchItem());
+		syncPouchItem(getPouchInventory().getPouchItem());
 	}
 
 	public void setCapacity(int capacity) {
 		this.capacity = capacity;
+	}
+
+	public void setPouchInventory(GOTInventoryPouch pouchInventory) {
+		this.pouchInventory = pouchInventory;
 	}
 
 	@Override
@@ -77,7 +85,7 @@ public class GOTContainerPouch extends Container {
 	public ItemStack transferStackInSlot(EntityPlayer entityplayer, int i) {
 		ItemStack itemstack = null;
 		Slot slot = (Slot) inventorySlots.get(i);
-		Slot aPouchSlot = getSlotFromInventory(pouchInventory, 0);
+		Slot aPouchSlot = getSlotFromInventory(getPouchInventory(), 0);
 		if (slot != null && slot.getHasStack()) {
 			ItemStack itemstack1 = slot.getStack();
 			itemstack = itemstack1.copy();

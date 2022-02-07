@@ -8,10 +8,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.util.IChatComponent;
 
 public class GOTPacketCWPProtectionMessage implements IMessage {
-	public IChatComponent message;
-
-	public GOTPacketCWPProtectionMessage() {
-	}
+	private IChatComponent message;
 
 	public GOTPacketCWPProtectionMessage(IChatComponent c) {
 		message = c;

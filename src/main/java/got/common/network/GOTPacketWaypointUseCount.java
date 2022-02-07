@@ -10,13 +10,10 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketWaypointUseCount implements IMessage {
-	public boolean isCustom;
-	public int wpID;
-	public int useCount;
-	public UUID sharingPlayer;
-
-	public GOTPacketWaypointUseCount() {
-	}
+	private boolean isCustom;
+	private int wpID;
+	private int useCount;
+	private UUID sharingPlayer;
 
 	public GOTPacketWaypointUseCount(GOTAbstractWaypoint wp, int count) {
 		isCustom = wp instanceof GOTCustomWaypoint;

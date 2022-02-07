@@ -8,11 +8,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
 public class GOTPacketNPCIsEating implements IMessage {
-	public int entityID;
-	public boolean isEating;
-
-	public GOTPacketNPCIsEating() {
-	}
+	private int entityID;
+	private boolean isEating;
 
 	public GOTPacketNPCIsEating(int id, boolean flag) {
 		entityID = id;

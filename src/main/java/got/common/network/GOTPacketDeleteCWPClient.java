@@ -10,11 +10,8 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketDeleteCWPClient implements IMessage {
-	public int cwpID;
-	public UUID sharingPlayer;
-
-	public GOTPacketDeleteCWPClient() {
-	}
+	private int cwpID;
+	private UUID sharingPlayer;
 
 	public GOTPacketDeleteCWPClient(int id) {
 		cwpID = id;

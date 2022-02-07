@@ -7,9 +7,6 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketFellowshipLeave extends GOTPacketFellowshipDo {
-	public GOTPacketFellowshipLeave() {
-	}
-
 	public GOTPacketFellowshipLeave(GOTFellowshipClient fs) {
 		super(fs);
 	}

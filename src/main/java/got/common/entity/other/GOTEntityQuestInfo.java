@@ -271,8 +271,8 @@ public class GOTEntityQuestInfo {
 	}
 
 	public void receiveData(GOTPacketNPCIsOfferingQuest packet) {
-		clientIsOffering = packet.offering;
-		clientOfferColor = packet.offerColor;
+		clientIsOffering = packet.isOffering();
+		clientOfferColor = packet.getOfferColor();
 	}
 
 	public void receiveOfferResponse(EntityPlayer entityplayer, boolean accept) {
@@ -313,7 +313,7 @@ public class GOTEntityQuestInfo {
 		playerPacketCache.put(uuid, isOffering);
 		if (isOffering != prevOffering) {
 			GOTPacketNPCIsOfferingQuest packet = new GOTPacketNPCIsOfferingQuest(theNPC.getEntityId(), isOffering, color);
-			GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+			GOTPacketHandler.getNetworkWrapper().sendTo(packet, entityplayer);
 		}
 	}
 
@@ -335,7 +335,7 @@ public class GOTEntityQuestInfo {
 		NBTTagCompound nbt = new NBTTagCompound();
 		quest.writeToNBT(nbt);
 		GOTPacketMiniquestOffer packet = new GOTPacketMiniquestOffer(theNPC.getEntityId(), nbt);
-		GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+		GOTPacketHandler.getNetworkWrapper().sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
 		addOpenOfferPlayer(entityplayer);
 	}
 

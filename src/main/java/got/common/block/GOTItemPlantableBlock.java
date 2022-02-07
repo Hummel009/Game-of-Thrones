@@ -8,7 +8,7 @@ import net.minecraftforge.common.*;
 public class GOTItemPlantableBlock extends ItemBlock implements IPlantable {
 	private IPlantable plantableBlock;
 
-	private GOTItemPlantableBlock(Block block) {
+	public GOTItemPlantableBlock(Block block) {
 		super(block);
 		plantableBlock = (IPlantable) block;
 	}

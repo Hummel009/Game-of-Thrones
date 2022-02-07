@@ -8,12 +8,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.world.*;
 
 public class GOTPacketBiomeVariantsWatch implements IMessage {
-	public int chunkX;
-	public int chunkZ;
-	public byte[] variants;
-
-	public GOTPacketBiomeVariantsWatch() {
-	}
+	private int chunkX;
+	private int chunkZ;
+	private byte[] variants;
 
 	public GOTPacketBiomeVariantsWatch(int x, int z, byte[] v) {
 		chunkX = x;

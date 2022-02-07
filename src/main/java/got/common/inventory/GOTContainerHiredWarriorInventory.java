@@ -7,8 +7,8 @@ import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 
 public class GOTContainerHiredWarriorInventory extends Container {
-	public GOTEntityNPC theNPC;
-	public GOTInventoryHiredReplacedItems npcInv;
+	private GOTEntityNPC theNPC;
+	private GOTInventoryHiredReplacedItems npcInv;
 	private IInventory proxyInv;
 	private int npcFullInvSize;
 	private int npcActiveSlotCount;

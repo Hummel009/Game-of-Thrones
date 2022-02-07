@@ -10,11 +10,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
 public class GOTPacketEntityUUID implements IMessage {
-	public int entityID;
-	public UUID entityUUID;
-
-	public GOTPacketEntityUUID() {
-	}
+	private int entityID;
+	private UUID entityUUID;
 
 	public GOTPacketEntityUUID(int id, UUID uuid) {
 		entityID = id;

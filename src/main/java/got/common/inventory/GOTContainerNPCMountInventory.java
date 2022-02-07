@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 
 public class GOTContainerNPCMountInventory extends Container {
 	private IInventory theMountInv;
-	public GOTEntityNPCRideable theMount;
+	private GOTEntityNPCRideable theMount;
 
 	public GOTContainerNPCMountInventory(IInventory playerInv, IInventory mountInv, GOTEntityNPCRideable mount) {
 		int j;

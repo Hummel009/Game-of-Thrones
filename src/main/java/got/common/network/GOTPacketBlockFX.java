@@ -8,15 +8,15 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.world.World;
 
 public class GOTPacketBlockFX implements IMessage {
-	public Type type;
-	public int blockX;
-	public int blockY;
-	public int blockZ;
+	private Type type;
+	private int blockX;
+	private int blockY;
+	private int blockZ;
 
-	public GOTPacketBlockFX() {
+	private GOTPacketBlockFX() {
 	}
 
-	public GOTPacketBlockFX(Type t, int i, int j, int k) {
+	private GOTPacketBlockFX(Type t, int i, int j, int k) {
 		type = t;
 		blockX = i;
 		blockY = j;
@@ -57,7 +57,7 @@ public class GOTPacketBlockFX implements IMessage {
 		}
 	}
 
-	public enum Type {
+	private enum Type {
 		UTUMNO_EVAPORATE;
 
 	}

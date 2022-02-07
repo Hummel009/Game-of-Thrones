@@ -19,7 +19,7 @@ public class GOTGuiHiredDismiss extends GOTGuiNPCInteract {
 				return;
 			}
 			GOTPacketHiredUnitDismiss packet = new GOTPacketHiredUnitDismiss(getTheEntity().getEntityId(), button.id);
-			GOTPacketHandler.networkWrapper.sendToServer(packet);
+			GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 		}
 	}
 

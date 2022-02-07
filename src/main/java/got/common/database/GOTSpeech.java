@@ -168,7 +168,7 @@ public class GOTSpeech {
 
 	private static void sendSpeech(EntityPlayer entityplayer, GOTEntityNPC entity, String speech, boolean forceChatMsg) {
 		GOTPacketNPCSpeech packet = new GOTPacketNPCSpeech(entity.getEntityId(), speech, forceChatMsg);
-		GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+		GOTPacketHandler.getNetworkWrapper().sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
 	}
 
 	public static void sendSpeechAndChatMessage(EntityPlayer entityplayer, GOTEntityNPC entity, String speechBankName) {

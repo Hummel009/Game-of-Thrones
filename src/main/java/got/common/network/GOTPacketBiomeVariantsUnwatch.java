@@ -8,11 +8,8 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.world.*;
 
 public class GOTPacketBiomeVariantsUnwatch implements IMessage {
-	public int chunkX;
-	public int chunkZ;
-
-	public GOTPacketBiomeVariantsUnwatch() {
-	}
+	private int chunkX;
+	private int chunkZ;
 
 	public GOTPacketBiomeVariantsUnwatch(int x, int z) {
 		chunkX = x;

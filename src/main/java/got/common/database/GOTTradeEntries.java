@@ -193,6 +193,14 @@ public class GOTTradeEntries {
 		return trades;
 	}
 
+	public GOTTradeEntry[] getTradeEntries() {
+		return tradeEntries;
+	}
+
+	public void setTradeEntries(GOTTradeEntry[] tradeEntries) {
+		this.tradeEntries = tradeEntries;
+	}
+
 	public GOTTradeEntries setVessels(GOTFoods foods) {
 		return this.setVessels(foods.getDrinkVessels());
 	}
@@ -217,14 +225,6 @@ public class GOTTradeEntries {
 		}
 
 		return null;
-	}
-
-	public GOTTradeEntry[] getTradeEntries() {
-		return tradeEntries;
-	}
-
-	public void setTradeEntries(GOTTradeEntry[] tradeEntries) {
-		this.tradeEntries = tradeEntries;
 	}
 
 	public enum TradeType {

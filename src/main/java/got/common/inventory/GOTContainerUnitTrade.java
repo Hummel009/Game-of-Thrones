@@ -10,27 +10,27 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTContainerUnitTrade extends Container {
-	public GOTHireableBase theUnitTrader;
-	public GOTEntityNPC theLivingTrader;
-	public GOTFaction traderFaction;
+	private GOTHireableBase theUnitTrader;
+	private GOTEntityNPC theLivingTrader;
+	private GOTFaction traderFaction;
 	private IInventory alignmentRewardInv;
 	private int alignmentRewardSlots;
 
 	public GOTContainerUnitTrade(EntityPlayer entityplayer, GOTHireableBase trader, World world) {
 		int i;
-		theUnitTrader = trader;
-		theLivingTrader = (GOTEntityNPC) theUnitTrader;
-		traderFaction = theLivingTrader.getFaction();
+		setTheUnitTrader(trader);
+		setTheLivingTrader((GOTEntityNPC) getTheUnitTrader());
+		traderFaction = getTheLivingTrader().getFaction();
 		ItemStack reward = null;
-		if (theUnitTrader instanceof GOTUnitTradeable) {
-			GOTInvasions conquestType = ((GOTUnitTradeable) theUnitTrader).getWarhorn();
+		if (getTheUnitTrader() instanceof GOTUnitTradeable) {
+			GOTInvasions conquestType = ((GOTUnitTradeable) getTheUnitTrader()).getWarhorn();
 			reward = conquestType == null ? null : conquestType.createConquestHorn();
 		}
 		boolean hasReward = reward != null;
 		setAlignmentRewardSlots(hasReward ? 1 : 0);
 		alignmentRewardInv = new InventoryBasic("specialItem", false, getAlignmentRewardSlots());
 		if (hasReward) {
-			addSlotToContainer(new GOTSlotAlignmentReward(this, alignmentRewardInv, 0, 174, 78, theUnitTrader, reward.copy()));
+			addSlotToContainer(new GOTSlotAlignmentReward(this, alignmentRewardInv, 0, 174, 78, getTheUnitTrader(), reward.copy()));
 			if (!world.isRemote && GOTLevelData.getData(entityplayer).getAlignment(traderFaction) >= 1500.0f) {
 				alignmentRewardInv.setInventorySlotContents(0, reward.copy());
 			}
@@ -47,15 +47,31 @@ public class GOTContainerUnitTrade extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer entityplayer) {
-		return theLivingTrader != null && entityplayer.getDistanceToEntity(theLivingTrader) <= 12.0 && theLivingTrader.isEntityAlive() && theLivingTrader.getAttackTarget() == null && theUnitTrader.canTradeWith(entityplayer);
+		return getTheLivingTrader() != null && entityplayer.getDistanceToEntity(getTheLivingTrader()) <= 12.0 && getTheLivingTrader().isEntityAlive() && getTheLivingTrader().getAttackTarget() == null && getTheUnitTrader().canTradeWith(entityplayer);
 	}
 
 	public int getAlignmentRewardSlots() {
 		return alignmentRewardSlots;
 	}
 
+	public GOTEntityNPC getTheLivingTrader() {
+		return theLivingTrader;
+	}
+
+	public GOTHireableBase getTheUnitTrader() {
+		return theUnitTrader;
+	}
+
 	public void setAlignmentRewardSlots(int alignmentRewardSlots) {
 		this.alignmentRewardSlots = alignmentRewardSlots;
+	}
+
+	public void setTheLivingTrader(GOTEntityNPC theLivingTrader) {
+		this.theLivingTrader = theLivingTrader;
+	}
+
+	public void setTheUnitTrader(GOTHireableBase theUnitTrader) {
+		this.theUnitTrader = theUnitTrader;
 	}
 
 	@Override

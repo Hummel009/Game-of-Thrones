@@ -74,7 +74,7 @@ public class GOTContainerCracker extends Container {
 
 	public void sendSealingPacket(EntityPlayer entityplayer) {
 		GOTPacketSealCracker packet = new GOTPacketSealCracker();
-		GOTPacketHandler.networkWrapper.sendToServer(packet);
+		GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 	}
 
 	@Override

@@ -78,7 +78,7 @@ public class GOTItemModifierTemplate extends Item {
 	}
 
 	public static void setModifier(ItemStack itemstack, GOTEnchantment ench) {
-		String s = ench.enchantName;
+		String s = ench.getEnchantName();
 		itemstack.setTagInfo("ScrollModifier", new NBTTagString(s));
 	}
 }

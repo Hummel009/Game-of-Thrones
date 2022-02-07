@@ -35,16 +35,16 @@ public abstract class GOTMiniQuest {
 		setMaxQuestsPerFac(5);
 		setRenderHeadDistance(12.0);
 	}
-	public GOTMiniQuestFactory questGroup;
-	public GOTPlayerData playerData;
+	private GOTMiniQuestFactory questGroup;
+	private GOTPlayerData playerData;
 	private UUID questUUID;
 	private UUID entityUUID;
 	private String entityName;
 	private String entityNameFull;
-	public GOTFaction entityFaction;
+	private GOTFaction entityFaction;
 	private int questColor;
 	private int dateGiven;
-	public GOTBiome biomeGiven;
+	private GOTBiome biomeGiven;
 	private float rewardFactor = 1.0f;
 	private boolean willHire = false;
 	private float hiringAlignment;
@@ -63,9 +63,7 @@ public abstract class GOTMiniQuest {
 	private String speechBankComplete;
 	private String speechBankTooMany;
 	private String quoteStart;
-
 	private String quoteComplete;
-
 	private List<String> quotesStages = new ArrayList<>();
 
 	public GOTMiniQuest(GOTPlayerData pd) {
@@ -98,7 +96,7 @@ public abstract class GOTMiniQuest {
 			alignment = Math.max(alignment, 1.0f);
 			GOTAlignmentValues.AlignmentBonus bonus = GOTAlignmentValues.createMiniquestBonus(alignment);
 			GOTFaction rewardFaction = getAlignmentRewardFaction();
-			if (!questGroup.isNoAlignRewardForEnemy() || playerData.getAlignment(rewardFaction) >= 0.0f) {
+			if (!getQuestGroup().isNoAlignRewardForEnemy() || playerData.getAlignment(rewardFaction) >= 0.0f) {
 				GOTAlignmentBonusMap alignmentMap = playerData.addAlignment(entityplayer, bonus, rewardFaction, npc);
 				setAlignmentRewarded(alignmentMap.get(rewardFaction));
 			}
@@ -134,7 +132,7 @@ public abstract class GOTMiniQuest {
 		}
 		if (canRewardVariousExtraItems()) {
 			GOTLore lore;
-			if (rand.nextInt(10) == 0 && questGroup != null && !questGroup.getLoreCategories().isEmpty() && (lore = GOTLore.getMultiRandomLore(questGroup.getLoreCategories(), rand, true)) != null) {
+			if (rand.nextInt(10) == 0 && getQuestGroup() != null && !getQuestGroup().getLoreCategories().isEmpty() && (lore = GOTLore.getMultiRandomLore(getQuestGroup().getLoreCategories(), rand, true)) != null) {
 				ItemStack loreBook = lore.createLoreBook(rand);
 				dropItems.add(loreBook.copy());
 				getItemsRewarded().add(loreBook.copy());
@@ -166,7 +164,7 @@ public abstract class GOTMiniQuest {
 		if (isWillHire()) {
 			GOTUnitTradeEntry tradeEntry = new GOTUnitTradeEntry(npc.getClass(), 0, getHiringAlignment());
 			tradeEntry.setTask(GOTHiredNPCInfo.Task.WARRIOR);
-			npc.hiredNPCInfo.hireUnit(entityplayer, false, entityFaction, tradeEntry, null, npc.ridingEntity);
+			npc.hiredNPCInfo.hireUnit(entityplayer, false, getEntityFaction(), tradeEntry, null, npc.ridingEntity);
 			setWasHired(true);
 		}
 		if (isLegendary()) {
@@ -175,7 +173,7 @@ public abstract class GOTMiniQuest {
 		updateQuest();
 		playerData.completeMiniQuest(this);
 		sendCompletedSpeech(entityplayer, npc);
-		if (questGroup != null && (achievement = questGroup.getAchievement()) != null) {
+		if (getQuestGroup() != null && (achievement = getQuestGroup().getAchievement()) != null) {
 			playerData.addAchievement(achievement);
 		}
 	}
@@ -187,7 +185,11 @@ public abstract class GOTMiniQuest {
 	}
 
 	public GOTFaction getAlignmentRewardFaction() {
-		return questGroup.checkAlignmentRewardFaction(entityFaction);
+		return getQuestGroup().checkAlignmentRewardFaction(getEntityFaction());
+	}
+
+	public GOTBiome getBiomeGiven() {
+		return biomeGiven;
 	}
 
 	public abstract int getCoinBonus();
@@ -206,6 +208,10 @@ public abstract class GOTMiniQuest {
 		return dateGiven;
 	}
 
+	public GOTFaction getEntityFaction() {
+		return entityFaction;
+	}
+
 	public String getEntityName() {
 		return entityName;
 	}
@@ -219,8 +225,8 @@ public abstract class GOTMiniQuest {
 	}
 
 	public String getFactionSubtitle() {
-		if (entityFaction.isPlayableAlignmentFaction()) {
-			return entityFaction.factionName();
+		if (getEntityFaction().isPlayableAlignmentFaction()) {
+			return getEntityFaction().factionName();
 		}
 		return "";
 	}
@@ -259,6 +265,10 @@ public abstract class GOTMiniQuest {
 
 	public String getQuestFailureShorthand() {
 		return StatCollector.translateToLocal("got.gui.redBook.mq.dead");
+	}
+
+	public GOTMiniQuestFactory getQuestGroup() {
+		return questGroup;
 	}
 
 	public abstract ItemStack getQuestIcon();
@@ -329,7 +339,7 @@ public abstract class GOTMiniQuest {
 	}
 
 	public boolean isValidQuest() {
-		return getEntityUUID() != null && entityFaction != null;
+		return getEntityUUID() != null && getEntityFaction() != null;
 	}
 
 	public boolean isWasHired() {
@@ -365,7 +375,7 @@ public abstract class GOTMiniQuest {
 		String recovery;
 		setLegendary(nbt.getBoolean("Legendary"));
 		if (nbt.hasKey("QuestGroup") && (factory = GOTMiniQuestFactory.forName(nbt.getString("QuestGroup"))) != null) {
-			questGroup = factory;
+			setQuestGroup(factory);
 		}
 		if (nbt.hasKey("QuestUUID") && (u = UUID.fromString(nbt.getString("QuestUUID"))) != null) {
 			setQuestUUID(u);
@@ -373,15 +383,15 @@ public abstract class GOTMiniQuest {
 		setEntityUUID(nbt.hasKey("UUIDMost") && nbt.hasKey("UUIDLeast") ? new UUID(nbt.getLong("UUIDMost"), nbt.getLong("UUIDLeast")) : UUID.fromString(nbt.getString("EntityUUID")));
 		setEntityName(nbt.getString("Owner"));
 		setEntityNameFull(nbt.hasKey("OwnerFull") ? nbt.getString("OwnerFull") : getEntityName());
-		entityFaction = GOTFaction.forName(nbt.getString("Faction"));
-		questColor = nbt.hasKey("Color") ? nbt.getInteger("Color") : entityFaction.getFactionColor();
+		setEntityFaction(GOTFaction.forName(nbt.getString("Faction")));
+		questColor = nbt.hasKey("Color") ? nbt.getInteger("Color") : getEntityFaction().getFactionColor();
 		setDateGiven(nbt.getInteger("DateGiven"));
 		if (nbt.hasKey("BiomeID")) {
 			int biomeID = nbt.getByte("BiomeID") & 0xFF;
 			String biomeDimName = nbt.getString("BiomeDim");
 			GOTDimension biomeDim = GOTDimension.forName(biomeDimName);
 			if (biomeDim != null) {
-				biomeGiven = biomeDim.getBiomeList()[biomeID];
+				setBiomeGiven(biomeDim.getBiomeList()[biomeID]);
 			}
 		}
 		setRewardFactor(nbt.hasKey("RewardFactor") ? nbt.getFloat("RewardFactor") : 1.0f);
@@ -436,12 +446,12 @@ public abstract class GOTMiniQuest {
 				getQuotesStages().add(s);
 			}
 		}
-		if (questGroup == null && (recovery = getSpeechBankStart()) != null) {
+		if (getQuestGroup() == null && (recovery = getSpeechBankStart()) != null) {
 			GOTMiniQuestFactory factory2;
 			int i1 = recovery.indexOf("/", 0);
 			int i2 = recovery.indexOf("/", i1 + 1);
 			if (i1 >= 0 && i2 >= 0 && (factory2 = GOTMiniQuestFactory.forName(recovery = recovery.substring(i1 + 1, i2))) != null) {
-				questGroup = factory2;
+				setQuestGroup(factory2);
 			}
 		}
 	}
@@ -463,6 +473,10 @@ public abstract class GOTMiniQuest {
 		this.alignmentRewarded = alignmentRewarded;
 	}
 
+	public void setBiomeGiven(GOTBiome biomeGiven) {
+		this.biomeGiven = biomeGiven;
+	}
+
 	public void setCoinsRewarded(int coinsRewarded) {
 		this.coinsRewarded = coinsRewarded;
 	}
@@ -482,6 +496,10 @@ public abstract class GOTMiniQuest {
 	public void setEntityDead() {
 		entityDead = true;
 		updateQuest();
+	}
+
+	public void setEntityFaction(GOTFaction entityFaction) {
+		this.entityFaction = entityFaction;
 	}
 
 	public void setEntityName(String entityName) {
@@ -512,12 +530,16 @@ public abstract class GOTMiniQuest {
 		setEntityUUID(npc.getUniqueID());
 		setEntityName(npc.getNPCName());
 		setEntityNameFull(npc.getCommandSenderName());
-		entityFaction = npc.getFaction();
+		setEntityFaction(npc.getFaction());
 		questColor = npc.getMiniquestColor();
 	}
 
 	public void setPlayerData(GOTPlayerData pd) {
 		playerData = pd;
+	}
+
+	public void setQuestGroup(GOTMiniQuestFactory questGroup) {
+		this.questGroup = questGroup;
 	}
 
 	public void setQuestUUID(UUID questUUID) {
@@ -579,7 +601,7 @@ public abstract class GOTMiniQuest {
 		int k = MathHelper.floor_double(entityplayer.posZ);
 		BiomeGenBase biome = entityplayer.worldObj.getBiomeGenForCoords(i, k);
 		if (biome instanceof GOTBiome) {
-			biomeGiven = (GOTBiome) biome;
+			setBiomeGiven((GOTBiome) biome);
 		}
 		playerData.addMiniQuest(this);
 		npc.questInfo.addActiveQuestPlayer(entityplayer);
@@ -616,19 +638,19 @@ public abstract class GOTMiniQuest {
 		NBTTagList itemTags;
 		NBTTagCompound itemData;
 		nbt.setString("QuestType", questToNameMapping.get(this.getClass()));
-		if (questGroup != null) {
-			nbt.setString("QuestGroup", questGroup.getBaseName());
+		if (getQuestGroup() != null) {
+			nbt.setString("QuestGroup", getQuestGroup().getBaseName());
 		}
 		nbt.setString("QuestUUID", getQuestUUID().toString());
 		nbt.setString("EntityUUID", getEntityUUID().toString());
 		nbt.setString("Owner", getEntityName());
 		nbt.setString("OwnerFull", getEntityNameFull());
-		nbt.setString("Faction", entityFaction.codeName());
+		nbt.setString("Faction", getEntityFaction().codeName());
 		nbt.setInteger("Color", questColor);
 		nbt.setInteger("DateGiven", getDateGiven());
-		if (biomeGiven != null) {
-			nbt.setByte("BiomeID", (byte) biomeGiven.biomeID);
-			nbt.setString("BiomeDim", biomeGiven.biomeDimension.getDimensionName());
+		if (getBiomeGiven() != null) {
+			nbt.setByte("BiomeID", (byte) getBiomeGiven().biomeID);
+			nbt.setString("BiomeDim", getBiomeGiven().biomeDimension.getDimensionName());
 		}
 		nbt.setFloat("RewardFactor", getRewardFactor());
 		nbt.setBoolean("WillHire", isWillHire());
@@ -742,7 +764,7 @@ public abstract class GOTMiniQuest {
 
 		public Q createQuest(GOTEntityNPC npc, Random rand) {
 			GOTMiniQuest quest = GOTMiniQuest.newQuestInstance(this.getQuestClass(), null);
-			quest.questGroup = this.getFactoryGroup();
+			quest.setQuestGroup(this.getFactoryGroup());
 			String pathName = "miniquest/" + this.getFactoryGroup().getBaseName() + "/";
 			String pathNameBaseSpeech = "miniquest/" + this.getFactoryGroup().getBaseSpeechGroup().getBaseName() + "/";
 			String questPathName = pathName + this.questName + "_";
@@ -799,10 +821,10 @@ public abstract class GOTMiniQuest {
 			if (!q1.isActive() && q2.isActive()) {
 				return -1;
 			}
-			if (q1.entityFaction == q2.entityFaction) {
+			if (q1.getEntityFaction() == q2.getEntityFaction()) {
 				return q1.getEntityName().compareTo(q2.getEntityName());
 			}
-			return Integer.compare(q1.entityFaction.ordinal(), q2.entityFaction.ordinal());
+			return Integer.compare(q1.getEntityFaction().ordinal(), q2.getEntityFaction().ordinal());
 		}
 	}
 }

@@ -9,11 +9,8 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.World;
 
 public class GOTPacketTraderInteract implements IMessage {
-	public int traderID;
-	public int traderAction;
-
-	public GOTPacketTraderInteract() {
-	}
+	private int traderID;
+	private int traderAction;
 
 	public GOTPacketTraderInteract(int idt, int a) {
 		traderID = idt;

@@ -81,6 +81,10 @@ public enum GOTShields {
 		return false;
 	}
 
+	public UUID[] getExclusiveUUIDs() {
+		return exclusiveUUIDs;
+	}
+
 	public String getShieldDesc() {
 		if (getShieldType() == ShieldType.ALIGNMENT) {
 			return StatCollector.translateToLocal("got.attribute.desc");
@@ -88,8 +92,36 @@ public enum GOTShields {
 		return StatCollector.translateToLocal("got.shields." + name() + ".desc");
 	}
 
+	public int getShieldID() {
+		return shieldID;
+	}
+
 	public String getShieldName() {
 		return StatCollector.translateToLocal("got.shields." + name() + ".name");
+	}
+
+	public ResourceLocation getShieldTexture() {
+		return shieldTexture;
+	}
+
+	public ShieldType getShieldType() {
+		return shieldType;
+	}
+
+	public void setExclusiveUUIDs(UUID[] exclusiveUUIDs) {
+		this.exclusiveUUIDs = exclusiveUUIDs;
+	}
+
+	public void setShieldID(int shieldID) {
+		this.shieldID = shieldID;
+	}
+
+	public void setShieldTexture(ResourceLocation shieldTexture) {
+		this.shieldTexture = shieldTexture;
+	}
+
+	public void setShieldType(ShieldType shieldType) {
+		this.shieldType = shieldType;
 	}
 
 	public static void preInit() {
@@ -103,38 +135,6 @@ public enum GOTShields {
 			return shield;
 		}
 		return null;
-	}
-
-	public UUID[] getExclusiveUUIDs() {
-		return exclusiveUUIDs;
-	}
-
-	public void setExclusiveUUIDs(UUID[] exclusiveUUIDs) {
-		this.exclusiveUUIDs = exclusiveUUIDs;
-	}
-
-	public ResourceLocation getShieldTexture() {
-		return shieldTexture;
-	}
-
-	public void setShieldTexture(ResourceLocation shieldTexture) {
-		this.shieldTexture = shieldTexture;
-	}
-
-	public ShieldType getShieldType() {
-		return shieldType;
-	}
-
-	public void setShieldType(ShieldType shieldType) {
-		this.shieldType = shieldType;
-	}
-
-	public int getShieldID() {
-		return shieldID;
-	}
-
-	public void setShieldID(int shieldID) {
-		this.shieldID = shieldID;
 	}
 
 	public enum ShieldType {

@@ -61,7 +61,7 @@ public class GOTKeyHandler {
 		HashMap<GOTDimension.DimensionRegion, GOTFaction> lastViewedRegions = new HashMap<>();
 		GOTDimension currentDimension = GOTDimension.getCurrentDimension(GOTKeyHandler.mc.theWorld);
 		GOTFaction currentFaction = pd.getViewingFaction();
-		GOTDimension.DimensionRegion currentRegion = currentFaction.factionRegion;
+		GOTDimension.DimensionRegion currentRegion = currentFaction.getFactionRegion();
 		List<GOTDimension.DimensionRegion> regionList = currentDimension.getDimensionRegions();
 		List<GOTFaction> factionList = currentRegion.getFactionList();
 		if (GOTKeyHandler.mc.currentScreen == null && alignmentChangeTick <= 0) {
@@ -111,14 +111,14 @@ public class GOTKeyHandler {
 		if (skippedHelp && GOTTickHandlerClient.isRenderMenuPrompt()) {
 			GOTTickHandlerClient.setRenderMenuPrompt(false);
 			GOTPacketCheckMenuPrompt packet = new GOTPacketCheckMenuPrompt(GOTPacketMenuPrompt.Type.MENU);
-			GOTPacketHandler.networkWrapper.sendToServer(packet);
+			GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 		}
 		if (usedAlignmentKeys) {
 			GOTClientProxy.sendClientInfoPacket(currentFaction, lastViewedRegions);
 			alignmentChangeTick = 2;
 		}
 		if (keyBindingCargoCart != null && keyBindingCargoCart.isPressed()) {
-			GOTPacketHandler.networkWrapper.sendToServer(new GOTPacketCargocartControl());
+			GOTPacketHandler.getNetworkWrapper().sendToServer(new GOTPacketCargocartControl());
 		}
 	}
 

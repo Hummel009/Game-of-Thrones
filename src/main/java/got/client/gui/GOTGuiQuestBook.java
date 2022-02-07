@@ -81,7 +81,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 			}
 			if (button == buttonQuestDelete && deletingMiniquest != null) {
 				GOTPacketDeleteMiniquest packet = new GOTPacketDeleteMiniquest(deletingMiniquest);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 				deletingMiniquest = null;
 				selectedMiniquest = null;
 				diaryScroll = 0.0f;
@@ -149,8 +149,8 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 				String[] dayYear = GOTDate.AegonCalendar.getDate(quest.getDateGiven()).getDayAndYearNames(false);
 				pageText.add(dayYear[0]);
 				pageText.add(dayYear[1]);
-				if (quest.biomeGiven != null) {
-					pageText.add(quest.biomeGiven.getBiomeDisplayName());
+				if (quest.getBiomeGiven() != null) {
+					pageText.add(quest.getBiomeGiven().getBiomeDisplayName());
 				}
 				pageText.add("");
 				String startQuote = GOTSpeech.formatSpeech(quest.getQuoteStart(), mc.thePlayer, null, quest.getObjectiveInSpeech());
@@ -548,7 +548,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 		GOTMiniQuest newTracking;
 		newTracking = quest == tracking ? null : quest;
 		GOTPacketMiniquestTrack packet = new GOTPacketMiniquestTrack(newTracking);
-		GOTPacketHandler.networkWrapper.sendToServer(packet);
+		GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 		getPlayerData().setTrackingMiniQuest(newTracking);
 		trackTicks = 40;
 	}

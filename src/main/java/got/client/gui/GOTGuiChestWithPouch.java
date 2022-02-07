@@ -17,7 +17,7 @@ public class GOTGuiChestWithPouch extends GuiContainer {
 
 	public GOTGuiChestWithPouch(EntityPlayer entityplayer, int slot, IInventory chest) {
 		super(new GOTContainerChestWithPouch(entityplayer, slot, chest));
-		pouchInv = ((GOTContainerChestWithPouch) inventorySlots).pouchContainer.pouchInventory;
+		pouchInv = ((GOTContainerChestWithPouch) inventorySlots).getPouchContainer().getPouchInventory();
 		chestInv = chest;
 		allowUserInput = false;
 		chestRows = chest.getSizeInventory() / 9;

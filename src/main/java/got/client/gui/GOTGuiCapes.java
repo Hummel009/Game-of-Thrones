@@ -51,13 +51,13 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 			} else if (button == capeSelect) {
 				updateCurrentCape(0, 0);
 				GOTPacketSelectCape packet = new GOTPacketSelectCape(currentCape);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 			} else if (button == capeRight) {
 				updateCurrentCape(1, 0);
 			} else if (button == capeRemove) {
 				updateCurrentCape(0, 0);
 				GOTPacketSelectCape packet = new GOTPacketSelectCape(null);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 			} else if (button == changeCategory) {
 				updateCurrentCape(0, 1);
 			} else {

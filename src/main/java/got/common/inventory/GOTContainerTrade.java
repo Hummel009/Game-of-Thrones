@@ -11,23 +11,23 @@ public class GOTContainerTrade extends Container {
 	private IInventory tradeInvBuy = new InventoryBasic("trade", false, 9);
 	private IInventory tradeInvSell = new InventoryBasic("trade", false, 9);
 	private IInventory tradeInvSellOffer = new InventoryBasic("trade", false, 9);
-	public GOTTradeable theTrader;
-	public GOTEntityNPC theTraderNPC;
+	private GOTTradeable theTrader;
+	private GOTEntityNPC theTraderNPC;
 	private World theWorld;
 
 	public GOTContainerTrade(InventoryPlayer inv, GOTTradeable trader, World world) {
 		int i;
 		theTrader = trader;
-		theTraderNPC = (GOTEntityNPC) trader;
+		setTheTraderNPC((GOTEntityNPC) trader);
 		theWorld = world;
 		if (!world.isRemote) {
 			updateAllTradeSlots();
 		}
 		for (i = 0; i < 9; ++i) {
-			addSlotToContainer(new GOTSlotTrade(this, getTradeInvBuy(), i, 8 + i * 18, 40, theTraderNPC, GOTTradeEntries.TradeType.BUY));
+			addSlotToContainer(new GOTSlotTrade(this, getTradeInvBuy(), i, 8 + i * 18, 40, getTheTraderNPC(), GOTTradeEntries.TradeType.BUY));
 		}
 		for (i = 0; i < 9; ++i) {
-			addSlotToContainer(new GOTSlotTrade(this, getTradeInvSell(), i, 8 + i * 18, 92, theTraderNPC, GOTTradeEntries.TradeType.SELL));
+			addSlotToContainer(new GOTSlotTrade(this, getTradeInvSell(), i, 8 + i * 18, 92, getTheTraderNPC(), GOTTradeEntries.TradeType.SELL));
 		}
 		for (i = 0; i < 9; ++i) {
 			addSlotToContainer(new Slot(getTradeInvSellOffer(), i, 8 + i * 18, 141));
@@ -45,12 +45,16 @@ public class GOTContainerTrade extends Container {
 	@Override
 	public void addCraftingToCrafters(ICrafting crafting) {
 		super.addCraftingToCrafters(crafting);
-		theTraderNPC.traderNPCInfo.sendClientPacket((EntityPlayer) crafting);
+		getTheTraderNPC().traderNPCInfo.sendClientPacket((EntityPlayer) crafting);
 	}
 
 	@Override
 	public boolean canInteractWith(EntityPlayer entityplayer) {
-		return theTraderNPC != null && entityplayer.getDistanceToEntity(theTraderNPC) <= 12.0 && theTraderNPC.isEntityAlive() && theTraderNPC.getAttackTarget() == null && theTrader.canTradeWith(entityplayer);
+		return getTheTraderNPC() != null && entityplayer.getDistanceToEntity(getTheTraderNPC()) <= 12.0 && getTheTraderNPC().isEntityAlive() && getTheTraderNPC().getAttackTarget() == null && theTrader.canTradeWith(entityplayer);
+	}
+
+	public GOTEntityNPC getTheTraderNPC() {
+		return theTraderNPC;
 	}
 
 	public IInventory getTradeInvBuy() {
@@ -79,6 +83,10 @@ public class GOTContainerTrade extends Container {
 		}
 	}
 
+	public void setTheTraderNPC(GOTEntityNPC theTraderNPC) {
+		this.theTraderNPC = theTraderNPC;
+	}
+
 	public void setTradeInvBuy(IInventory tradeInvBuy) {
 		this.tradeInvBuy = tradeInvBuy;
 	}
@@ -99,7 +107,7 @@ public class GOTContainerTrade extends Container {
 			boolean sellable;
 			ItemStack itemstack1 = slot.getStack();
 			itemstack = itemstack1.copy();
-			GOTTradeSellResult sellResult = GOTTradeEntries.getItemSellResult(itemstack1, theTraderNPC);
+			GOTTradeSellResult sellResult = GOTTradeEntries.getItemSellResult(itemstack1, getTheTraderNPC());
 			sellable = sellResult != null && sellResult.tradesMade > 0;
 			if (i < 9) {
 				if (!mergeItemStack(itemstack1, 27, 63, true)) {
@@ -124,8 +132,8 @@ public class GOTContainerTrade extends Container {
 	public void updateAllTradeSlots() {
 		GOTTradeEntry trade;
 		int i;
-		GOTTradeEntry[] buyTrades = theTraderNPC.traderNPCInfo.getBuyTrades();
-		GOTTradeEntry[] sellTrades = theTraderNPC.traderNPCInfo.getSellTrades();
+		GOTTradeEntry[] buyTrades = getTheTraderNPC().traderNPCInfo.getBuyTrades();
+		GOTTradeEntry[] sellTrades = getTheTraderNPC().traderNPCInfo.getSellTrades();
 		if (buyTrades != null) {
 			for (i = 0; i < getTradeInvBuy().getSizeInventory(); ++i) {
 				trade = null;

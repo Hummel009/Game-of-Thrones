@@ -7,11 +7,8 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketOptions implements IMessage {
-	public int option;
-	public boolean enable;
-
-	public GOTPacketOptions() {
-	}
+	private int option;
+	private boolean enable;
 
 	public GOTPacketOptions(int i, boolean flag) {
 		option = i;

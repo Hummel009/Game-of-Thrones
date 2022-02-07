@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 
 public class GOTContainerChestWithPouch extends ContainerChest {
 	private IInventory chestInv;
-	public GOTContainerPouch pouchContainer;
+	private GOTContainerPouch pouchContainer;
 	private int thePouchSlot;
 	private int numChestRows;
 	private int numPouchRows;
@@ -19,8 +19,8 @@ public class GOTContainerChestWithPouch extends ContainerChest {
 		chestInv = chest;
 		numChestRows = chest.getSizeInventory() / 9;
 		thePouchSlot = pouchSlot;
-		pouchContainer = new GOTContainerPouch(entityplayer, thePouchSlot);
-		numPouchRows = pouchContainer.getCapacity() / 9;
+		setPouchContainer(new GOTContainerPouch(entityplayer, thePouchSlot));
+		numPouchRows = getPouchContainer().getCapacity() / 9;
 		for (int j = 0; j < numChestRows; ++j) {
 			for (int i2 = 0; i2 < 9; ++i2) {
 				addSlotToContainer(new Slot(chest, i2 + j * 9, 8 + i2 * 18, 18 + j * 18));
@@ -30,7 +30,7 @@ public class GOTContainerChestWithPouch extends ContainerChest {
 		for (int j = 0; j < numPouchRows; ++j) {
 			for (i = 0; i < 9; ++i) {
 				int pouchSlotID = i + j * 9;
-				Slot slot = pouchContainer.getSlotFromInventory(pouchContainer.pouchInventory, pouchSlotID);
+				Slot slot = getPouchContainer().getSlotFromInventory(getPouchContainer().getPouchInventory(), pouchSlotID);
 				slot.xDisplayPosition = 8 + i * 18;
 				slot.yDisplayPosition = pouchSlotsY + j * 18;
 				addSlotToContainer(slot);
@@ -49,12 +49,20 @@ public class GOTContainerChestWithPouch extends ContainerChest {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer entityplayer) {
-		return chestInv.isUseableByPlayer(entityplayer) && pouchContainer.canInteractWith(entityplayer);
+		return chestInv.isUseableByPlayer(entityplayer) && getPouchContainer().canInteractWith(entityplayer);
+	}
+
+	public GOTContainerPouch getPouchContainer() {
+		return pouchContainer;
 	}
 
 	@Override
 	public void onContainerClosed(EntityPlayer entityplayer) {
 		super.onContainerClosed(entityplayer);
+	}
+
+	public void setPouchContainer(GOTContainerPouch pouchContainer) {
+		this.pouchContainer = pouchContainer;
 	}
 
 	@Override
@@ -69,7 +77,7 @@ public class GOTContainerChestWithPouch extends ContainerChest {
 	public ItemStack transferStackInSlot(EntityPlayer entityplayer, int i) {
 		ItemStack itemstack = null;
 		Slot slot = (Slot) inventorySlots.get(i);
-		Slot aPouchSlot = getSlotFromInventory(pouchContainer.pouchInventory, 0);
+		Slot aPouchSlot = getSlotFromInventory(getPouchContainer().getPouchInventory(), 0);
 		if (slot != null && slot.getHasStack()) {
 			ItemStack itemstack1 = slot.getStack();
 			itemstack = itemstack1.copy();

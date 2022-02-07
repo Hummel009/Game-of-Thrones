@@ -10,11 +10,8 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketFellowshipRemove implements IMessage {
-	public UUID fellowshipID;
-	public boolean isInvite;
-
-	public GOTPacketFellowshipRemove() {
-	}
+	private UUID fellowshipID;
+	private boolean isInvite;
 
 	public GOTPacketFellowshipRemove(GOTFellowship fs, boolean invite) {
 		fellowshipID = fs.getFellowshipID();

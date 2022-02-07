@@ -12,21 +12,18 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketCreateCWPClient implements IMessage {
-	public int mapX;
-	public int mapY;
-	public int xCoord;
-	public int yCoord;
-	public int zCoord;
-	public int cwpID;
-	public String name;
-	public List<UUID> sharedFellowshipIDs;
-	public UUID sharingPlayer;
-	public String sharingPlayerName;
-	public boolean sharedUnlocked;
-	public boolean sharedHidden;
-
-	public GOTPacketCreateCWPClient() {
-	}
+	private int mapX;
+	private int mapY;
+	private int xCoord;
+	private int yCoord;
+	private int zCoord;
+	private int cwpID;
+	private String name;
+	private List<UUID> sharedFellowshipIDs;
+	private UUID sharingPlayer;
+	private String sharingPlayerName;
+	private boolean sharedUnlocked;
+	private boolean sharedHidden;
 
 	public GOTPacketCreateCWPClient(int xm, int ym, int xc, int yc, int zc, int id, String s, List<UUID> fsIDs) {
 		mapX = xm;

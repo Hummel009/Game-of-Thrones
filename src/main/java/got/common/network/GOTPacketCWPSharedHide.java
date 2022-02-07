@@ -9,12 +9,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketCWPSharedHide implements IMessage {
-	public int cwpID;
-	public UUID sharingPlayer;
-	public boolean hideCWP;
-
-	public GOTPacketCWPSharedHide() {
-	}
+	private int cwpID;
+	private UUID sharingPlayer;
+	private boolean hideCWP;
 
 	public GOTPacketCWPSharedHide(GOTCustomWaypoint cwp, boolean hide) {
 		cwpID = cwp.getID();

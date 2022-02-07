@@ -8,11 +8,8 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketWaypointRegion implements IMessage {
-	public GOTWaypoint.Region region;
-	public boolean unlocking;
-
-	public GOTPacketWaypointRegion() {
-	}
+	private GOTWaypoint.Region region;
+	private boolean unlocking;
 
 	public GOTPacketWaypointRegion(GOTWaypoint.Region r, boolean flag) {
 		region = r;

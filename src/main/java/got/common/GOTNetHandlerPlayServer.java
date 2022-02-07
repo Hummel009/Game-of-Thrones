@@ -43,11 +43,11 @@ public class GOTNetHandlerPlayServer extends NetHandlerPlayServer {
 	}
 
 	public void processMountControl(GOTPacketMountControl packet) {
-		double x = packet.posX;
-		double y = packet.posY;
-		double z = packet.posZ;
-		float yaw = packet.rotationYaw;
-		float pitch = packet.rotationPitch;
+		double x = packet.getPosX();
+		double y = packet.getPosY();
+		double z = packet.getPosZ();
+		float yaw = packet.getRotationYaw();
+		float pitch = packet.getRotationPitch();
 		if (!Doubles.isFinite(x) || !Doubles.isFinite(y) || !Doubles.isFinite(z) || !Floats.isFinite(yaw) || !Floats.isFinite(pitch)) {
 			playerEntity.playerNetServerHandler.kickPlayerFromServer("Invalid mount movement");
 			return;
@@ -67,7 +67,7 @@ public class GOTNetHandlerPlayServer extends NetHandlerPlayServer {
 			if (distSq - speedSq > 150.0 && (!server.isSinglePlayer() || !server.getServerOwner().equals(playerEntity.getCommandSenderName()))) {
 				FMLLog.warning(mount.getCommandSenderName() + " (mount of " + playerEntity.getCommandSenderName() + ") moved too quickly! " + (distSq - speedSq));
 				GOTPacketMountControlServerEnforce pktClient = new GOTPacketMountControlServerEnforce(mount);
-				GOTPacketHandler.networkWrapper.sendTo(pktClient, playerEntity);
+				GOTPacketHandler.getNetworkWrapper().sendTo(pktClient, playerEntity);
 				return;
 			}
 			double check = 0.0625;
@@ -96,7 +96,7 @@ public class GOTNetHandlerPlayServer extends NetHandlerPlayServer {
 				mount.setPositionAndRotation(d0, d1, d2, yaw, pitch);
 				playerEntity.setPositionAndRotation(d0, d1, d2, yaw, pitch);
 				GOTPacketMountControlServerEnforce pktClient = new GOTPacketMountControlServerEnforce(mount);
-				GOTPacketHandler.networkWrapper.sendTo(pktClient, playerEntity);
+				GOTPacketHandler.getNetworkWrapper().sendTo(pktClient, playerEntity);
 				return;
 			}
 			AxisAlignedBB flyCheckBox = mount.boundingBox.copy().expand(check, check, check).addCoord(0.0, -0.55, 0.0);

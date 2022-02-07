@@ -6,12 +6,12 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketSetPlayerRotation implements IMessage {
-	public float rotYaw;
+	private float rotYaw;
 
-	public GOTPacketSetPlayerRotation() {
+	private GOTPacketSetPlayerRotation() {
 	}
 
-	public GOTPacketSetPlayerRotation(float f) {
+	private GOTPacketSetPlayerRotation(float f) {
 		rotYaw = f;
 	}
 

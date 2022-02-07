@@ -7,10 +7,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketFTTimer implements IMessage {
-	public int timer;
-
-	public GOTPacketFTTimer() {
-	}
+	private int timer;
 
 	public GOTPacketFTTimer(int i) {
 		timer = i;

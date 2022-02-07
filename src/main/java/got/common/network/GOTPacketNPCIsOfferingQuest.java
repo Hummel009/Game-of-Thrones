@@ -8,31 +8,44 @@ import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
 public class GOTPacketNPCIsOfferingQuest implements IMessage {
-	public int entityID;
-	public boolean offering;
-	public int offerColor;
-
-	public GOTPacketNPCIsOfferingQuest() {
-	}
+	private int entityID;
+	private boolean offering;
+	private int offerColor;
 
 	public GOTPacketNPCIsOfferingQuest(int id, boolean flag, int color) {
 		entityID = id;
-		offering = flag;
-		offerColor = color;
+		setOffering(flag);
+		setOfferColor(color);
 	}
 
 	@Override
 	public void fromBytes(ByteBuf data) {
 		entityID = data.readInt();
-		offering = data.readBoolean();
-		offerColor = data.readInt();
+		setOffering(data.readBoolean());
+		setOfferColor(data.readInt());
+	}
+
+	public int getOfferColor() {
+		return offerColor;
+	}
+
+	public boolean isOffering() {
+		return offering;
+	}
+
+	public void setOfferColor(int offerColor) {
+		this.offerColor = offerColor;
+	}
+
+	public void setOffering(boolean offering) {
+		this.offering = offering;
 	}
 
 	@Override
 	public void toBytes(ByteBuf data) {
 		data.writeInt(entityID);
-		data.writeBoolean(offering);
-		data.writeInt(offerColor);
+		data.writeBoolean(isOffering());
+		data.writeInt(getOfferColor());
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketNPCIsOfferingQuest, IMessage> {

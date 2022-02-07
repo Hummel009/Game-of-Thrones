@@ -40,7 +40,7 @@ public class GOTDate {
 		NBTTagCompound nbt = new NBTTagCompound();
 		GOTDate.saveDates(nbt);
 		GOTPacketDate packet = new GOTPacketDate(nbt, update);
-		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+		GOTPacketHandler.getNetworkWrapper().sendTo(packet, entityplayer);
 	}
 
 	public static void setDate(int date) {

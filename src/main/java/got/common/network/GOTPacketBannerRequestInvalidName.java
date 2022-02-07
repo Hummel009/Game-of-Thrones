@@ -13,12 +13,9 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
 
 public class GOTPacketBannerRequestInvalidName implements IMessage {
-	public int bannerID;
-	public int slot;
-	public String username;
-
-	public GOTPacketBannerRequestInvalidName() {
-	}
+	private int bannerID;
+	private int slot;
+	private String username;
 
 	public GOTPacketBannerRequestInvalidName(GOTEntityBanner banner, int i, String s) {
 		bannerID = banner.getEntityId();
@@ -66,7 +63,7 @@ public class GOTPacketBannerRequestInvalidName implements IMessage {
 					}
 				}
 				GOTPacketBannerValidate packetResponse = new GOTPacketBannerValidate(banner.getEntityId(), packet.slot, packet.username, valid);
-				GOTPacketHandler.networkWrapper.sendTo(packetResponse, entityplayer);
+				GOTPacketHandler.getNetworkWrapper().sendTo(packetResponse, entityplayer);
 			}
 			return null;
 		}

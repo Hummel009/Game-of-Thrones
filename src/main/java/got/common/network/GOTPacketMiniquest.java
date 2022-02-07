@@ -13,11 +13,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 
 public class GOTPacketMiniquest implements IMessage {
-	public NBTTagCompound miniquestData;
-	public boolean completed;
-
-	public GOTPacketMiniquest() {
-	}
+	private NBTTagCompound miniquestData;
+	private boolean completed;
 
 	public GOTPacketMiniquest(NBTTagCompound nbt, boolean flag) {
 		miniquestData = nbt;

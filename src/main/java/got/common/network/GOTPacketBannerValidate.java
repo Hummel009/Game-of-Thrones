@@ -10,13 +10,10 @@ import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
 public class GOTPacketBannerValidate implements IMessage {
-	public int entityID;
-	public int slot;
-	public String prevText;
-	public boolean valid;
-
-	public GOTPacketBannerValidate() {
-	}
+	private int entityID;
+	private int slot;
+	private String prevText;
+	private boolean valid;
 
 	public GOTPacketBannerValidate(int id, int s, String pre, boolean val) {
 		entityID = id;

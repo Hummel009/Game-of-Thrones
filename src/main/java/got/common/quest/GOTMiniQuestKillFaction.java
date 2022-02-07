@@ -11,7 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class GOTMiniQuestKillFaction extends GOTMiniQuestKill {
-	public GOTFaction killFaction;
+	private GOTFaction killFaction;
 
 	public GOTMiniQuestKillFaction(GOTPlayerData pd) {
 		super(pd);

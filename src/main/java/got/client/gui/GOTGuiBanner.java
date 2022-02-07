@@ -97,7 +97,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		String username = textBox.getText();
 		if (!StringUtils.isBlank(username) && !invalidUsernames[index]) {
 			GOTPacketBannerRequestInvalidName packet = new GOTPacketBannerRequestInvalidName(getTheBanner(), index, username);
-			GOTPacketHandler.networkWrapper.sendToServer(packet);
+			GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 		}
 	}
 
@@ -470,10 +470,10 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 
 	public void sendBannerData(boolean sendWhitelist) {
 		GOTPacketEditBanner packet = new GOTPacketEditBanner(getTheBanner());
-		packet.playerSpecificProtection = getTheBanner().isPlayerSpecificProtection();
-		packet.selfProtection = getTheBanner().isSelfProtection();
-		packet.alignmentProtection = getTheBanner().getAlignmentProtection();
-		packet.whitelistLength = getTheBanner().getWhitelistLength();
+		packet.setPlayerSpecificProtection(getTheBanner().isPlayerSpecificProtection());
+		packet.setSelfProtection(getTheBanner().isSelfProtection());
+		packet.setAlignmentProtection(getTheBanner().getAlignmentProtection());
+		packet.setWhitelistLength(getTheBanner().getWhitelistLength());
 		if (sendWhitelist) {
 			String[] whitelistSlots = new String[allowedPlayers.length];
 			int[] whitelistPerms = new int[allowedPlayers.length];
@@ -498,11 +498,11 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 				whitelistSlots[index] = username;
 				whitelistPerms[index] = entry.encodePermBitFlags();
 			}
-			packet.whitelistSlots = whitelistSlots;
-			packet.whitelistPerms = whitelistPerms;
+			packet.setWhitelistSlots(whitelistSlots);
+			packet.setWhitelistPerms(whitelistPerms);
 		}
-		packet.defaultPerms = getTheBanner().getDefaultPermBitFlags();
-		GOTPacketHandler.networkWrapper.sendToServer(packet);
+		packet.setDefaultPerms(getTheBanner().getDefaultPermBitFlags());
+		GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 	}
 
 	public void setTheBanner(GOTEntityBanner theBanner) {

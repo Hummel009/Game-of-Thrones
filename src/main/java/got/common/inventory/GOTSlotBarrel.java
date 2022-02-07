@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
 public class GOTSlotBarrel extends Slot {
-	public GOTTileEntityBarrel theBarrel;
+	private GOTTileEntityBarrel theBarrel;
 	private boolean isWater;
 
 	public GOTSlotBarrel(GOTTileEntityBarrel inv, int i, int j, int k) {

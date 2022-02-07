@@ -1,19 +1,15 @@
 package got.common.faction;
 
 import got.common.*;
-import got.common.database.GOTTitle;
 import net.minecraft.util.StatCollector;
 
 public class GOTFactionRank implements Comparable<GOTFactionRank> {
 	private static GOTFactionRank RANK_NEUTRAL = new Dummy("got.rank.neutral");
 	private static GOTFactionRank RANK_ENEMY = new Dummy("got.rank.enemy");
-	private final GOTFaction fac;
-	private final float alignment;
-	public final String name;
-	public GOTAchievementRank rankAchievement;
-	public GOTTitle rankTitle;
-	public GOTTitle rankTitleMasc;
-	public GOTTitle rankTitleFem;
+	private GOTFaction fac;
+	private float alignment;
+	public String name;
+	private GOTAchievementRank rankAchievement;
 	private boolean addFacName = true;
 
 	public GOTFactionRank(GOTFaction f, float al, String s) {
@@ -134,8 +130,6 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 	}
 
 	public GOTFactionRank makeTitle() {
-		rankTitleMasc = new GOTTitle(this, false);
-		rankTitleFem = new GOTTitle(this, true);
 		return this;
 	}
 

@@ -9,7 +9,7 @@ import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.tileentity.TileEntityFurnace;
 
 public class GOTContainerOven extends Container {
-	public GOTTileEntityOven theOven;
+	private GOTTileEntityOven theOven;
 	private int currentCookTime = 0;
 	private int ovenCookTime = 0;
 	private int currentItemFuelValue = 0;

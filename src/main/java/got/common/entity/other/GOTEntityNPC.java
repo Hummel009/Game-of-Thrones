@@ -921,15 +921,15 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 				for (Object element : worldObj.playerEntities) {
 					EntityPlayer entityplayer = (EntityPlayer) element;
 					Container container = entityplayer.openContainer;
-					if (container instanceof GOTContainerTrade && ((GOTContainerTrade) container).theTraderNPC == this || container instanceof GOTContainerUnitTrade && ((GOTContainerUnitTrade) container).theLivingTrader == this) {
+					if (container instanceof GOTContainerTrade && ((GOTContainerTrade) container).getTheTraderNPC() == this || container instanceof GOTContainerUnitTrade && ((GOTContainerUnitTrade) container).getTheLivingTrader() == this) {
 						guiOpen = true;
 						break;
 					}
-					if (container instanceof GOTContainerCoinExchange && ((GOTContainerCoinExchange) container).theTraderNPC == this) {
+					if (container instanceof GOTContainerCoinExchange && ((GOTContainerCoinExchange) container).getTheTraderNPC() == this) {
 						guiOpen = true;
 						break;
 					}
-					if (!(container instanceof GOTContainerAnvil) || ((GOTContainerAnvil) container).theNPC != this) {
+					if (!(container instanceof GOTContainerAnvil) || ((GOTContainerAnvil) container).getTheNPC() != this) {
 						continue;
 					}
 					guiOpen = true;
@@ -1085,12 +1085,12 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	public void sendCombatStance(EntityPlayerMP entityplayer) {
 		GOTPacketNPCCombatStance packet = new GOTPacketNPCCombatStance(getEntityId(), combatStance);
-		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+		GOTPacketHandler.getNetworkWrapper().sendTo(packet, entityplayer);
 	}
 
 	public void sendIsEatingPacket(EntityPlayerMP entityplayer) {
 		GOTPacketNPCIsEating packet = new GOTPacketNPCIsEating(getEntityId(), npcItemsInv.getIsEating());
-		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+		GOTPacketHandler.getNetworkWrapper().sendTo(packet, entityplayer);
 	}
 
 	public void sendIsEatingToWatchers() {
@@ -1259,7 +1259,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		}
 		if (!worldObj.isRemote) {
 			GOTPacketNPCFX packet = new GOTPacketNPCFX(getEntityId(), GOTPacketNPCFX.FXType.EATING);
-			GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(this, 32.0));
+			GOTPacketHandler.getNetworkWrapper().sendToAllAround(packet, GOTPacketHandler.nearEntity(this, 32.0));
 		} else {
 			for (int i = 0; i < 5; ++i) {
 				Vec3 vec1 = Vec3.createVectorHelper((rand.nextFloat() - 0.5) * 0.1, Math.random() * 0.1 + 0.1, 0.0);
@@ -1277,7 +1277,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	public void spawnHearts() {
 		if (!worldObj.isRemote) {
 			GOTPacketNPCFX packet = new GOTPacketNPCFX(getEntityId(), GOTPacketNPCFX.FXType.HEARTS);
-			GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(this, 32.0));
+			GOTPacketHandler.getNetworkWrapper().sendToAllAround(packet, GOTPacketHandler.nearEntity(this, 32.0));
 		} else {
 			for (int i = 0; i < 8; ++i) {
 				double d = rand.nextGaussian() * 0.02;
@@ -1291,7 +1291,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	public void spawnSmokes() {
 		if (!worldObj.isRemote) {
 			GOTPacketNPCFX packet = new GOTPacketNPCFX(getEntityId(), GOTPacketNPCFX.FXType.SMOKE);
-			GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(this, 32.0));
+			GOTPacketHandler.getNetworkWrapper().sendToAllAround(packet, GOTPacketHandler.nearEntity(this, 32.0));
 		} else {
 			for (int i = 0; i < 8; ++i) {
 				double d = rand.nextGaussian() * 0.02;

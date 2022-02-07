@@ -31,9 +31,9 @@ public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
 	@Override
 	public String getDescription(ItemStack itemstack) {
 		if (GOTWeaponStats.isMeleeWeapon(itemstack)) {
-			return StatCollector.translateToLocalFormatted("got.enchant." + enchantName + ".desc.melee");
+			return StatCollector.translateToLocalFormatted("got.enchant." + getEnchantName() + ".desc.melee");
 		}
-		return StatCollector.translateToLocalFormatted("got.enchant." + enchantName + ".desc.ranged");
+		return StatCollector.translateToLocalFormatted("got.enchant." + getEnchantName() + ".desc.ranged");
 	}
 
 	@Override
@@ -62,7 +62,7 @@ public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
 		int duration = 5;
 		entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, duration * 20, 1));
 		GOTPacketWeaponFX packet = new GOTPacketWeaponFX(GOTPacketWeaponFX.Type.CHILLING, entity);
-		GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(entity, 64.0));
+		GOTPacketHandler.getNetworkWrapper().sendToAllAround(packet, GOTPacketHandler.nearEntity(entity, 64.0));
 	}
 
 	public static int getFireAmount() {

@@ -19,7 +19,7 @@ public class GOTGuiTradeInteract extends GOTGuiNPCInteract {
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
 			GOTPacketTraderInteract packet = new GOTPacketTraderInteract(getTheEntity().getEntityId(), button.id);
-			GOTPacketHandler.networkWrapper.sendToServer(packet);
+			GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 		}
 	}
 

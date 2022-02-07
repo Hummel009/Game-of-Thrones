@@ -29,7 +29,7 @@ public abstract class GOTGuiCraftingTable extends GuiContainer {
 		if (button.enabled) {
 			if (button instanceof GOTGuiButtonTableSwitcher) {
 				GOTPacketSetOption packet = new GOTPacketSetOption(button.id);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.getNetworkWrapper().sendToServer(packet);
 			} else {
 				super.actionPerformed(button);
 			}

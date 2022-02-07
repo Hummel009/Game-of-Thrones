@@ -8,11 +8,8 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
 
 public class GOTPacketMapTp implements IMessage {
-	public int xCoord;
-	public int zCoord;
-
-	public GOTPacketMapTp() {
-	}
+	private int xCoord;
+	private int zCoord;
 
 	public GOTPacketMapTp(int x, int z) {
 		xCoord = x;

@@ -13,11 +13,8 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 
 public class GOTPacketFellowshipDoPlayer extends GOTPacketFellowshipDo {
-	public String subjectUsername;
-	public PlayerFunction function;
-
-	public GOTPacketFellowshipDoPlayer() {
-	}
+	private String subjectUsername;
+	private PlayerFunction function;
 
 	public GOTPacketFellowshipDoPlayer(GOTFellowshipClient fs, String name, PlayerFunction f) {
 		super(fs);
@@ -34,7 +31,7 @@ public class GOTPacketFellowshipDoPlayer extends GOTPacketFellowshipDo {
 		function = PlayerFunction.values()[data.readByte()];
 	}
 
-	public UUID getSubjectPlayerUUID() {
+	private UUID getSubjectPlayerUUID() {
 		GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152655_a(subjectUsername);
 		if (profile != null && profile.getId() != null) {
 			return profile.getId();
@@ -59,16 +56,22 @@ public class GOTPacketFellowshipDoPlayer extends GOTPacketFellowshipDo {
 			UUID subjectPlayer = packet.getSubjectPlayerUUID();
 			if (fellowship != null && subjectPlayer != null) {
 				GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
-				if (packet.function == PlayerFunction.INVITE) {
+				switch (packet.function) {
+				case INVITE:
 					playerData.invitePlayerToFellowship(fellowship, subjectPlayer);
-				} else if (packet.function == PlayerFunction.REMOVE) {
+					break;
+				case REMOVE:
 					playerData.removePlayerFromFellowship(fellowship, subjectPlayer);
-				} else if (packet.function == PlayerFunction.TRANSFER) {
+					break;
+				case TRANSFER:
 					playerData.transferFellowship(fellowship, subjectPlayer);
-				} else if (packet.function == PlayerFunction.OP) {
+					break;
+				case OP:
 					playerData.setFellowshipAdmin(fellowship, subjectPlayer, true);
-				} else if (packet.function == PlayerFunction.DEOP) {
+					break;
+				case DEOP:
 					playerData.setFellowshipAdmin(fellowship, subjectPlayer, false);
+					break;
 				}
 			}
 			return null;

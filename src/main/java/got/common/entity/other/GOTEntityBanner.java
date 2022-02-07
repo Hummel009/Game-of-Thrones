@@ -441,12 +441,12 @@ public class GOTEntityBanner extends Entity {
 
 	public void sendBannerData(EntityPlayer entityplayer, boolean sendWhitelist, boolean openGui) {
 		GOTPacketBannerData packet = new GOTPacketBannerData(getEntityId(), openGui);
-		packet.playerSpecificProtection = playerSpecificProtection;
-		packet.selfProtection = selfProtection;
-		packet.structureProtection = structureProtection;
-		packet.customRange = customRange;
-		packet.alignmentProtection = getAlignmentProtection();
-		packet.whitelistLength = getWhitelistLength();
+		packet.setPlayerSpecificProtection(playerSpecificProtection);
+		packet.setSelfProtection(selfProtection);
+		packet.setStructureProtection(structureProtection);
+		packet.setCustomRange(customRange);
+		packet.setAlignmentProtection(getAlignmentProtection());
+		packet.setWhitelistLength(getWhitelistLength());
 		int maxSendIndex = sendWhitelist ? allowedPlayers.length : 1;
 		String[] whitelistSlots = new String[maxSendIndex];
 		int[] whitelistPerms = new int[maxSendIndex];
@@ -486,11 +486,11 @@ public class GOTEntityBanner extends Entity {
 			}
 			whitelistPerms[index] = entry.encodePermBitFlags();
 		}
-		packet.whitelistSlots = whitelistSlots;
-		packet.whitelistPerms = whitelistPerms;
-		packet.defaultPerms = getDefaultPermBitFlags();
-		packet.thisPlayerHasPermission = isPlayerPermittedInSurvival(entityplayer);
-		GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+		packet.setWhitelistSlots(whitelistSlots);
+		packet.setWhitelistPerms(whitelistPerms);
+		packet.setDefaultPerms(getDefaultPermBitFlags());
+		packet.setThisPlayerHasPermission(isPlayerPermittedInSurvival(entityplayer));
+		GOTPacketHandler.getNetworkWrapper().sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
 	}
 
 	public void sendBannerToPlayer(EntityPlayer entityplayer, boolean sendWhitelist, boolean openGui) {

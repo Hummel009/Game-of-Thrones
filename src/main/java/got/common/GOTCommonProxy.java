@@ -832,7 +832,7 @@ public class GOTCommonProxy implements IGuiHandler {
 
 	public static void sendClientsideGUI(EntityPlayerMP entityplayer, int guiID, int x, int y, int z) {
 		GOTPacketClientsideGUI packet = new GOTPacketClientsideGUI(guiID, x, y, z);
-		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+		GOTPacketHandler.getNetworkWrapper().sendTo(packet, entityplayer);
 	}
 
 	public static boolean testForSlotPackedGuiID(int fullID, int guiID) {

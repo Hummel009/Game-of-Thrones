@@ -17,7 +17,7 @@ import net.minecraftforge.common.UsernameCache;
 public class GOTFactionBounties {
 	private static Map<GOTFaction, GOTFactionBounties> factionBountyMap = new HashMap<>();
 	private static boolean needsLoad = true;
-	public GOTFaction theFaction;
+	private GOTFaction theFaction;
 	private Map<UUID, PlayerData> playerList = new HashMap<>();
 	private boolean needsSave = false;
 
@@ -206,7 +206,7 @@ public class GOTFactionBounties {
 	}
 
 	public static class PlayerData {
-		public GOTFactionBounties bountyList;
+		private GOTFactionBounties bountyList;
 		private UUID playerID;
 		private String username;
 		private List<KillRecord> killRecords = new ArrayList<>();

@@ -87,7 +87,7 @@ public class GOTTraderNPCInfo {
 				for (Object element : theEntity.worldObj.playerEntities) {
 					EntityPlayer entityplayer = (EntityPlayer) element;
 					Container container = entityplayer.openContainer;
-					if (!(container instanceof GOTContainerTrade) || ((GOTContainerTrade) container).theTraderNPC != theEntity) {
+					if (!(container instanceof GOTContainerTrade) || ((GOTContainerTrade) container).getTheTraderNPC() != theEntity) {
 						continue;
 					}
 					sendClientPacket(entityplayer);
@@ -158,7 +158,7 @@ public class GOTTraderNPCInfo {
 	}
 
 	public void receiveClientPacket(GOTPacketTraderInfo packet) {
-		NBTTagCompound nbt = packet.traderData;
+		NBTTagCompound nbt = packet.getTraderData();
 		readFromNBT(nbt);
 	}
 
@@ -171,7 +171,7 @@ public class GOTTraderNPCInfo {
 		for (Object element : theEntity.worldObj.playerEntities) {
 			EntityPlayer entityplayer = (EntityPlayer) element;
 			Container container = entityplayer.openContainer;
-			if (!(container instanceof GOTContainerTrade) || ((GOTContainerTrade) container).theTraderNPC != theEntity) {
+			if (!(container instanceof GOTContainerTrade) || ((GOTContainerTrade) container).getTheTraderNPC() != theEntity) {
 				continue;
 			}
 			((GOTContainerTrade) container).updateAllTradeSlots();
@@ -182,7 +182,7 @@ public class GOTTraderNPCInfo {
 		NBTTagCompound nbt = new NBTTagCompound();
 		writeToNBT(nbt);
 		GOTPacketTraderInfo packet = new GOTPacketTraderInfo(nbt);
-		GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+		GOTPacketHandler.getNetworkWrapper().sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
 	}
 
 	public void setAllTradesDelayed() {
