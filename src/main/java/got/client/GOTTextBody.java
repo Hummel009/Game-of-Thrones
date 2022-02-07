@@ -6,10 +6,10 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.util.MathHelper;
 
 public class GOTTextBody {
-	public static String LINEBREAK = "<BR>";
-	public List<TextColor> list = new ArrayList<>();
-	public int defaultColor;
-	public int textWidth;
+	private static String LINEBREAK = "<BR>";
+	private List<TextColor> list = new ArrayList<>();
+	private int defaultColor;
+	private int textWidth;
 
 	public GOTTextBody(int c) {
 		defaultColor = c;
@@ -36,7 +36,7 @@ public class GOTTextBody {
 		return list.get(i).text;
 	}
 
-	public int getTotalLines(FontRenderer fr) {
+	private int getTotalLines(FontRenderer fr) {
 		int lines = 0;
 		for (int i = 0; i < size(); ++i) {
 			String part = getText(i);
@@ -46,10 +46,6 @@ public class GOTTextBody {
 			}
 		}
 		return lines;
-	}
-
-	public void render(FontRenderer fr, int x, int y) {
-		renderAndReturnScroll(fr, x, y, Integer.MAX_VALUE, Float.MAX_VALUE);
 	}
 
 	public float renderAndReturnScroll(FontRenderer fr, int x, int yTop, int yBottom, float scroll) {
@@ -97,11 +93,6 @@ public class GOTTextBody {
 		list.get(i).text = s;
 	}
 
-	public void set(int i, String s, int c) {
-		list.get(i).text = s;
-		list.get(i).color = c;
-	}
-
 	public void setTextWidth(int w) {
 		textWidth = w;
 	}
@@ -110,11 +101,11 @@ public class GOTTextBody {
 		return list.size();
 	}
 
-	public static class TextColor {
-		public String text;
-		public int color;
+	private static class TextColor {
+		private String text;
+		private int color;
 
-		public TextColor(String s, int c) {
+		private TextColor(String s, int c) {
 			text = s;
 			color = c;
 		}

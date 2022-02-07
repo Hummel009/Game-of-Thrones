@@ -6,16 +6,16 @@ import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import got.common.util.GOTReflection;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.*;
-import net.minecraft.client.gui.inventory.*;
-import net.minecraft.client.renderer.*;
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
 public class GOTReflectionClient {
-	public static int[] colorCodes;
+	private static int[] colorCodes;
 
-	public static float getCameraRoll(EntityRenderer renderer) {
+	private static float getCameraRoll(EntityRenderer renderer) {
 		try {
 			return (Float) ObfuscationReflectionHelper.getPrivateValue(EntityRenderer.class, renderer, "camRoll", "field_78495_O");
 		} catch (Exception e) {
@@ -24,7 +24,7 @@ public class GOTReflectionClient {
 		}
 	}
 
-	public static int[] getColorCodes(FontRenderer fontRenderer) {
+	private static int[] getColorCodes(FontRenderer fontRenderer) {
 		if (colorCodes == null) {
 			try {
 				colorCodes = (int[]) ObfuscationReflectionHelper.getPrivateValue(FontRenderer.class, fontRenderer, "colorCode", "field_78285_g");
@@ -33,15 +33,6 @@ public class GOTReflectionClient {
 			}
 		}
 		return colorCodes;
-	}
-
-	public static int getCreativeTabIndex(GuiContainerCreative gui) {
-		try {
-			return (Integer) ObfuscationReflectionHelper.getPrivateValue(GuiContainerCreative.class, gui, "selectedTabIndex", "field_147058_w");
-		} catch (Exception e) {
-			GOTReflection.logFailure(e);
-			return 0;
-		}
 	}
 
 	public static int getFormattingColor(EnumChatFormatting ecf) {
@@ -114,16 +105,7 @@ public class GOTReflectionClient {
 		}
 	}
 
-	public static boolean hasGuiPotionEffects(InventoryEffectRenderer gui) {
-		try {
-			return (Boolean) ObfuscationReflectionHelper.getPrivateValue(InventoryEffectRenderer.class, gui, "field_147045_u");
-		} catch (Exception e) {
-			GOTReflection.logFailure(e);
-			return false;
-		}
-	}
-
-	public static void setCameraRoll(EntityRenderer renderer, float roll) {
+	private static void setCameraRoll(EntityRenderer renderer, float roll) {
 		try {
 			ObfuscationReflectionHelper.setPrivateValue(EntityRenderer.class, renderer, roll, "camRoll", "field_78495_O");
 		} catch (Exception e) {

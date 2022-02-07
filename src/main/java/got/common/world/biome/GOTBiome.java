@@ -668,7 +668,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public int getSkyColorByTemp(float f) {
-		if (GOTTickHandlerClient.scrapTraderMisbehaveTick > 0) {
+		if (GOTTickHandlerClient.getScrapTraderMisbehaveTick() > 0) {
 			return 0;
 		}
 		if (biomeColors.sky != null) {

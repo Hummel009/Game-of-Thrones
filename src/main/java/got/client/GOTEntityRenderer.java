@@ -11,8 +11,8 @@ import net.minecraft.entity.item.EntityItemFrame;
 import net.minecraft.util.*;
 
 public class GOTEntityRenderer extends EntityRenderer {
-	public Minecraft theMC;
-	public Entity thePointedEntity;
+	private Minecraft theMC;
+	private Entity thePointedEntity;
 
 	public GOTEntityRenderer(Minecraft mc, IResourceManager irm) {
 		super(mc, irm);
@@ -85,7 +85,7 @@ public class GOTEntityRenderer extends EntityRenderer {
 	public void updateRenderer() {
 		super.updateRenderer();
 		if (Minecraft.isGuiEnabled()) {
-			float wight = GOTClientProxy.tickHandler.getWightLookFactor();
+			float wight = GOTClientProxy.getTickHandler().getWightLookFactor();
 			float hand = GOTReflectionClient.getHandFOV(this);
 			GOTReflectionClient.setHandFOV(this, hand + wight * 0.3f);
 		}

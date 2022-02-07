@@ -33,24 +33,24 @@ import net.minecraftforge.client.event.*;
 import net.minecraftforge.common.MinecraftForge;
 
 public class GOTGuiHandler {
-	public static RenderItem itemRenderer = new RenderItem();
-	public static Set<Class<? extends Container>> coinCount_excludedContainers = new HashSet<>();
-	public static Set<Class<? extends GuiContainer>> coinCount_excludedGUIs = new HashSet<>();
-	public static Set<Class<? extends IInventory>> coinCount_excludedInvTypes = new HashSet<>();
+	private static RenderItem itemRenderer = new RenderItem();
+	private static Set<Class<? extends Container>> coinCount_excludedContainers = new HashSet<>();
+	private static Set<Class<? extends GuiContainer>> coinCount_excludedGUIs = new HashSet<>();
+	private static Set<Class<? extends IInventory>> coinCount_excludedInvTypes = new HashSet<>();
 	static {
 		coinCount_excludedGUIs.add(GuiContainerCreative.class);
 		coinCount_excludedInvTypes.add(GOTContainerCoinExchange.InventoryCoinExchangeSlot.class);
 		coinCount_excludedInvTypes.add(InventoryCraftResult.class);
 	}
 
-	public int descScrollIndex = -1;
+	private int descScrollIndex = -1;
 
 	public GOTGuiHandler() {
 		FMLCommonHandler.instance().bus().register(this);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
-	public GuiButton getDifficultyButton(GuiOptions gui, List buttons) {
+	private GuiButton getDifficultyButton(GuiOptions gui, List buttons) {
 		for (Object obj : buttons) {
 			GuiOptionButton button;
 			if (((obj instanceof GuiOptionButton) && ((button = (GuiOptionButton) obj).returnEnumOptions() == GameSettings.Options.DIFFICULTY))) {
@@ -61,7 +61,7 @@ public class GOTGuiHandler {
 	}
 
 	@SubscribeEvent
-	public void onGuiOpen(GuiOpenEvent event) {
+	private void onGuiOpen(GuiOpenEvent event) {
 		GuiScreen gui = event.gui;
 		if (GOTConfig.customMainMenu && gui != null && gui.getClass() == GuiMainMenu.class) {
 			event.gui = gui = new GOTGuiMainMenu();
@@ -76,7 +76,7 @@ public class GOTGuiHandler {
 	}
 
 	@SubscribeEvent
-	public void postActionPerformed(GuiScreenEvent.ActionPerformedEvent.Post event) {
+	private void postActionPerformed(GuiScreenEvent.ActionPerformedEvent.Post event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		GuiScreen gui = event.gui;
 		List buttons = event.buttonList;
@@ -93,7 +93,7 @@ public class GOTGuiHandler {
 	}
 
 	@SubscribeEvent
-	public void postInitGui(GuiScreenEvent.InitGuiEvent.Post event) {
+	private void postInitGui(GuiScreenEvent.InitGuiEvent.Post event) {
 		GuiButton buttonDifficulty;
 		GuiScreen gui = event.gui;
 		List buttons = event.buttonList;
@@ -106,7 +106,7 @@ public class GOTGuiHandler {
 	}
 
 	@SubscribeEvent
-	public void preDrawScreen(GuiScreenEvent.DrawScreenEvent.Pre event) {
+	private void preDrawScreen(GuiScreenEvent.DrawScreenEvent.Pre event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		GuiScreen gui = event.gui;
 		if (gui instanceof GuiModList) {
@@ -211,7 +211,7 @@ public class GOTGuiHandler {
 	}
 
 	@SubscribeEvent
-	public void preInitGui(GuiScreenEvent.InitGuiEvent.Pre event) {
+	private void preInitGui(GuiScreenEvent.InitGuiEvent.Pre event) {
 		GuiScreen gui = event.gui;
 		Minecraft mc = Minecraft.getMinecraft();
 		EntityClientPlayerMP entityplayer = mc.thePlayer;

@@ -173,7 +173,7 @@ public class GOTGuiNotificationDisplay extends Gui {
 
 		@Override
 		public void renderIcon(int x, int y) {
-			mc.getTextureManager().bindTexture(GOTClientProxy.alignmentTexture);
+			mc.getTextureManager().bindTexture(GOTClientProxy.getAlignmentTexture());
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			drawTexturedModalRect(x, y, isCleansing ? 16 : 0, 228, 16, 16);
 		}

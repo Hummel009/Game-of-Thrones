@@ -49,7 +49,7 @@ public class GOTRenderWeather extends IRenderHandler {
 	@Override
 	public void render(float partialTicks, WorldClient world, Minecraft mc) {
 		EntityRenderer er = mc.entityRenderer;
-		int rendererUpdateCount = GOTTickHandlerClient.clientTick;
+		int rendererUpdateCount = GOTTickHandlerClient.getClientTick();
 		float rainStrength = world.getRainStrength(partialTicks);
 		if (rainStrength > 0.0f) {
 			er.enableLightmap(partialTicks);

@@ -7,20 +7,21 @@ import got.common.faction.GOTFaction;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTAlignmentTicker {
-	public static Map<GOTFaction, GOTAlignmentTicker> allFactionTickers = new HashMap<>();
-	public static int moveTime = 20;
-	public static int flashTime = 30;
-	public static int numericalTime = 200;
-	public GOTFaction theFac;
-	public float oldAlign;
-	public float newAlign;
-	public int moveTick = 0;
-	public int prevMoveTick = 0;
-	public int flashTick;
-	public int numericalTick;
+	private static Map<GOTFaction, GOTAlignmentTicker> allFactionTickers = new HashMap<>();
+	private GOTFaction theFac;
+	private float oldAlign;
+	private float newAlign;
+	private int moveTick = 0;
+	private int prevMoveTick = 0;
+	private int flashTick;
+	private int numericalTick;
 
-	public GOTAlignmentTicker(GOTFaction f) {
+	private GOTAlignmentTicker(GOTFaction f) {
 		theFac = f;
+	}
+
+	public int getFlashTick() {
+		return flashTick;
 	}
 
 	public float getInterpolatedAlignment(float f) {
@@ -33,22 +34,34 @@ public class GOTAlignmentTicker {
 		return oldAlign + (newAlign - oldAlign) * tickF;
 	}
 
-	public void update(EntityPlayer entityplayer, boolean forceInstant) {
+	public int getNumericalTick() {
+		return numericalTick;
+	}
+
+	public void setFlashTick(int flashTick) {
+		this.flashTick = flashTick;
+	}
+
+	public void setNumericalTick(int numericalTick) {
+		this.numericalTick = numericalTick;
+	}
+
+	private void update(EntityPlayer entityplayer, boolean forceInstant) {
 		float curAlign = GOTLevelData.getData(entityplayer).getAlignment(theFac);
 		if (forceInstant) {
 			oldAlign = newAlign = curAlign;
 			moveTick = 0;
 			prevMoveTick = 0;
-			flashTick = 0;
-			numericalTick = 0;
+			setFlashTick(0);
+			setNumericalTick(0);
 		} else {
 			if (newAlign != curAlign) {
 				oldAlign = newAlign;
 				newAlign = curAlign;
 				moveTick = 20;
 				prevMoveTick = 20;
-				flashTick = 30;
-				numericalTick = 200;
+				setFlashTick(30);
+				setNumericalTick(200);
 			}
 			prevMoveTick = moveTick;
 			if (moveTick > 0) {
@@ -57,11 +70,11 @@ public class GOTAlignmentTicker {
 					oldAlign = newAlign;
 				}
 			}
-			if (flashTick > 0) {
-				--flashTick;
+			if (getFlashTick() > 0) {
+				setFlashTick(getFlashTick() - 1);
 			}
-			if (numericalTick > 0) {
-				--numericalTick;
+			if (getNumericalTick() > 0) {
+				setNumericalTick(getNumericalTick() - 1);
 			}
 		}
 	}

@@ -46,7 +46,7 @@ public abstract class GOTGuiMenuWBBase extends GOTGuiScreenBase {
 
 	@Override
 	public void keyTyped(char c, int i) {
-		if (i == GOTKeyHandler.keyBindingMenu.getKeyCode()) {
+		if (i == GOTKeyHandler.getKeyBindingMenu().getKeyCode()) {
 			mc.displayGuiScreen(new GOTGuiMenu());
 			return;
 		}

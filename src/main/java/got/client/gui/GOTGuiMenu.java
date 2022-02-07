@@ -110,7 +110,7 @@ public class GOTGuiMenu extends GOTGuiScreenBase {
 		if (mc.thePlayer != null) {
 			GOTPacketCheckMenuPrompt packet;
 			if (!sentCheckPacket) {
-				GOTTickHandlerClient.renderMenuPrompt = false;
+				GOTTickHandlerClient.setRenderMenuPrompt(false);
 				packet = new GOTPacketCheckMenuPrompt(GOTPacketMenuPrompt.Type.MENU);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 				sentCheckPacket = true;
