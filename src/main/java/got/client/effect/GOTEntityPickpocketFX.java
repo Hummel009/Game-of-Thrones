@@ -25,7 +25,7 @@ public class GOTEntityPickpocketFX extends EntityFX {
 		if (!onGround) {
 			motionBeforeGround = motionY;
 		} else {
-			motionY = motionBeforeGround * (-bounciness);
+			motionY = motionBeforeGround * -bounciness;
 		}
 	}
 

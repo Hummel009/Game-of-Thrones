@@ -118,7 +118,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 			if (i >= x && i < x + 10 && j >= y && j < y + 10) {
 				mouseOverPermission = p;
 			}
-			this.drawTexturedModalRect(x, y, 200 + ((getEnabled.apply(p)) ? 0 : 20) + (mouseOverPermission == p ? 10 : 0), 160 + p.ordinal() * 10, 10, 10);
+			this.drawTexturedModalRect(x, y, 200 + (getEnabled.apply(p) ? 0 : 20) + (mouseOverPermission == p ? 10 : 0), 160 + p.ordinal() * 10, 10, 10);
 			x += 14;
 			if (p != GOTBannerProtection.Permission.FULL) {
 				continue;
@@ -433,7 +433,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		if (defaultPermissionsOpen) {
 			dx = i - (guiLeft + xSize + permWindowBorder);
 			int dy = j - (guiTop + ySize - permWindowHeight);
-			if ((((dx < 0) || (dx >= permWindowWidth) || (dy < 0) || (dy >= permWindowHeight)) && !buttonDefaultPermissions.mousePressed(mc, i, j))) {
+			if ((dx < 0 || dx >= permWindowWidth || dy < 0 || dy >= permWindowHeight) && !buttonDefaultPermissions.mousePressed(mc, i, j)) {
 				defaultPermissionsOpen = false;
 				return;
 			}

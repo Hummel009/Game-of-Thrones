@@ -124,7 +124,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
-	private void getItemTooltip(ItemTooltipEvent event) {
+	public void getItemTooltip(ItemTooltipEvent event) {
 		int armorProtect;
 		int i;
 		String currentOwner;
@@ -246,7 +246,7 @@ public class GOTTickHandlerClient {
 			}
 		}
 		previousOwners = GOTItemOwnership.getPreviousOwners(itemstack);
-		if (!(previousOwners.isEmpty())) {
+		if (!previousOwners.isEmpty()) {
 			tooltip.add("");
 			ArrayList<String> ownerLines = new ArrayList<>();
 			if (previousOwners.size() == 1) {
@@ -276,13 +276,13 @@ public class GOTTickHandlerClient {
 		}
 
 		if (itemstack.getItem() instanceof GOTMaterialFinder) {
-			if (((GOTMaterialFinder) itemstack.getItem()) != GOTRegistry.baelishDagger && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.VALYRIAN || ((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.OBSIDIAN)) {
+			if ((GOTMaterialFinder) itemstack.getItem() != GOTRegistry.baelishDagger && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.VALYRIAN || ((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.OBSIDIAN)) {
 				tooltip.add(EnumChatFormatting.GOLD + StatCollector.translateToLocal("item.got.antiwalker"));
 			}
-			if (((GOTMaterialFinder) itemstack.getItem()) == GOTRegistry.bericSword) {
+			if ((GOTMaterialFinder) itemstack.getItem() == GOTRegistry.bericSword) {
 				tooltip.add(EnumChatFormatting.GOLD + StatCollector.translateToLocal("item.got.antiwight"));
 			}
-			if (((GOTMaterialFinder) itemstack.getItem()) == GOTRegistry.crowbar || ((GOTMaterialFinder) itemstack.getItem()) == GOTRegistry.baelishDagger) {
+			if ((GOTMaterialFinder) itemstack.getItem() == GOTRegistry.crowbar || (GOTMaterialFinder) itemstack.getItem() == GOTRegistry.baelishDagger) {
 				tooltip.add(EnumChatFormatting.GOLD + StatCollector.translateToLocal("item.got.antiking"));
 			}
 		}
@@ -307,7 +307,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
-	private void onClientTick(TickEvent.ClientTickEvent event) {
+	public void onClientTick(TickEvent.ClientTickEvent event) {
 		block74: {
 			Minecraft minecraft;
 			GuiScreen guiscreen;
@@ -529,7 +529,8 @@ public class GOTTickHandlerClient {
 					}
 					if (inPortal) {
 						i = (Integer) getPlayersInPortals().get(entityplayer);
-						getPlayersInPortals().put(entityplayer, ++i);
+						i++;
+						getPlayersInPortals().put(entityplayer, i);
 						if (i >= 100) {
 							minecraft.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("portal.trigger"), world.rand.nextFloat() * 0.4f + 0.8f));
 							getPlayersInPortals().remove(entityplayer);
@@ -574,7 +575,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
-	private void onFogColors(EntityViewRenderEvent.FogColors event) {
+	public void onFogColors(EntityViewRenderEvent.FogColors event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		WorldClient world = mc.theWorld;
 		WorldProvider provider = world.provider;
@@ -588,7 +589,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
-	private void onFOVUpdate(FOVUpdateEvent event) {
+	public void onFOVUpdate(FOVUpdateEvent event) {
 		EntityPlayerSP entityplayer = event.entity;
 		float fov = event.newfov;
 		ItemStack itemstack = entityplayer.getHeldItem();
@@ -626,7 +627,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
-	private void onPlayerTick(TickEvent.PlayerTickEvent event) {
+	public void onPlayerTick(TickEvent.PlayerTickEvent event) {
 		EntityClientPlayerMP clientPlayer;
 		EntityPlayer player = event.player;
 		if (event.phase == TickEvent.Phase.END && player instanceof EntityClientPlayerMP && (clientPlayer = (EntityClientPlayerMP) player).isRiding()) {
@@ -635,7 +636,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
-	private void onPostRenderGameOverlay(RenderGameOverlayEvent.Post event) {
+	public void onPostRenderGameOverlay(RenderGameOverlayEvent.Post event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		WorldClient world = mc.theWorld;
 		EntityClientPlayerMP entityplayer = mc.thePlayer;
@@ -707,7 +708,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
-	private void onPreRenderGameOverlay(RenderGameOverlayEvent.Pre event) {
+	public void onPreRenderGameOverlay(RenderGameOverlayEvent.Pre event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		WorldClient world = mc.theWorld;
 		EntityClientPlayerMP entityplayer = mc.thePlayer;
@@ -828,7 +829,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
-	private void onRenderDebugText(RenderGameOverlayEvent.Text event) {
+	public void onRenderDebugText(RenderGameOverlayEvent.Text event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		if (mc.gameSettings.showDebugInfo && mc.theWorld != null && mc.thePlayer != null && mc.theWorld.getWorldChunkManager() instanceof GOTWorldChunkManager) {
 			mc.theWorld.theProfiler.startSection("gotBiomeDisplay");
@@ -845,7 +846,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
-	private void onRenderFog(EntityViewRenderEvent.RenderFogEvent event) {
+	public void onRenderFog(EntityViewRenderEvent.RenderFogEvent event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		EntityLivingBase viewer = event.entity;
 		WorldClient world = mc.theWorld;
@@ -888,7 +889,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
-	private void onRenderTick(TickEvent.RenderTickEvent event) {
+	public void onRenderTick(TickEvent.RenderTickEvent event) {
 		Minecraft minecraft = Minecraft.getMinecraft();
 		EntityClientPlayerMP entityplayer = minecraft.thePlayer;
 		WorldClient world = minecraft.theWorld;
@@ -949,7 +950,7 @@ public class GOTTickHandlerClient {
 				float promptTick = getClientTick() + getRenderTick();
 				float promptAlpha = GOTFunctions.triangleWave(promptTick, 0.5f, 1.0f, 80.0f);
 				ArrayList<String> message = new ArrayList<>();
-				if ((entityplayer.dimension != GOTDimension.GAME_OF_THRONES.dimensionID) && isRenderMenuPrompt() && minecraft.currentScreen == null) {
+				if (entityplayer.dimension != GOTDimension.GAME_OF_THRONES.dimensionID && isRenderMenuPrompt() && minecraft.currentScreen == null) {
 					message.add(StatCollector.translateToLocal("got.gui.help1"));
 					message.add(StatCollector.translateToLocalFormatted("got.gui.help2", GameSettings.getKeyDisplayString(GOTKeyHandler.getKeyBindingReturn().getKeyCode())));
 				}
@@ -1033,7 +1034,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
-	private void onRenderWorldLast(RenderWorldLastEvent event) {
+	public void onRenderWorldLast(RenderWorldLastEvent event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		float f = event.partialTicks;
 		if (GOTDimension.getCurrentDimension(mc.theWorld) == GOTDimension.GAME_OF_THRONES) {
@@ -1051,7 +1052,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
-	private void onWorldLoad(WorldEvent.Load event) {
+	public void onWorldLoad(WorldEvent.Load event) {
 		if (event.world instanceof WorldClient) {
 			GOTClientProxy.getCustomEffectRenderer().clearEffectsAndSetWorld(event.world);
 		}

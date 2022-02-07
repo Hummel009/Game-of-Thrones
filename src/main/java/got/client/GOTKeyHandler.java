@@ -50,7 +50,7 @@ public class GOTKeyHandler {
 	}
 
 	@SubscribeEvent
-	private void KeyInputEvent(InputEvent.KeyInputEvent event) {
+	public void KeyInputEvent(InputEvent.KeyInputEvent event) {
 		GOTAttackTiming.doAttackTiming();
 		if (getKeyBindingMenu().getIsKeyPressed() && GOTKeyHandler.mc.currentScreen == null) {
 			GOTKeyHandler.mc.thePlayer.openGui(GOT.instance, 11, GOTKeyHandler.mc.theWorld, 0, 0, 0);
@@ -123,12 +123,12 @@ public class GOTKeyHandler {
 	}
 
 	@SubscribeEvent
-	private void MouseInputEvent(InputEvent.MouseInputEvent event) {
+	public void MouseInputEvent(InputEvent.MouseInputEvent event) {
 		GOTAttackTiming.doAttackTiming();
 	}
 
 	@SubscribeEvent
-	private void onTick(ClientTickEvent evt) {
+	public void onTick(ClientTickEvent evt) {
 		BitSet flags = dcm.getFlags();
 		flags.set(0, getKeyBindingDragonUp().getIsKeyPressed());
 		flags.set(1, getKeyBindingDragonDown().getIsKeyPressed());

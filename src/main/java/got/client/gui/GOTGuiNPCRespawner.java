@@ -169,7 +169,7 @@ public class GOTGuiNPCRespawner extends GOTGuiScreenBase {
 
 	@Override
 	public void keyTyped(char c, int i) {
-		if ((textSpawnClass1.getVisible() && textSpawnClass1.textboxKeyTyped(c, i)) || (textSpawnClass2.getVisible() && textSpawnClass2.textboxKeyTyped(c, i))) {
+		if (textSpawnClass1.getVisible() && textSpawnClass1.textboxKeyTyped(c, i) || textSpawnClass2.getVisible() && textSpawnClass2.textboxKeyTyped(c, i)) {
 			return;
 		}
 		super.keyTyped(c, i);

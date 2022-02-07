@@ -75,7 +75,7 @@ public class GOTGuiHandler {
 	}
 
 	@SubscribeEvent
-	private void onGuiOpen(GuiOpenEvent event) {
+	public void onGuiOpen(GuiOpenEvent event) {
 		GuiScreen gui = event.gui;
 		if (GOTConfig.customMainMenu && gui != null && gui.getClass() == GuiMainMenu.class) {
 			event.gui = gui = new GOTGuiMainMenu();
@@ -90,7 +90,7 @@ public class GOTGuiHandler {
 	}
 
 	@SubscribeEvent
-	private void postActionPerformed(GuiScreenEvent.ActionPerformedEvent.Post event) {
+	public void postActionPerformed(GuiScreenEvent.ActionPerformedEvent.Post event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		GuiScreen gui = event.gui;
 		List buttons = event.buttonList;
@@ -107,7 +107,7 @@ public class GOTGuiHandler {
 	}
 
 	@SubscribeEvent
-	private void postDrawScreen(GuiScreenEvent.DrawScreenEvent.Post event) {
+	public void postDrawScreen(GuiScreenEvent.DrawScreenEvent.Post event) {
 		HoverEvent hoverevent;
 		IChatComponent component;
 		Minecraft mc = Minecraft.getMinecraft();
@@ -139,7 +139,7 @@ public class GOTGuiHandler {
 	}
 
 	@SubscribeEvent
-	private void postInitGui(GuiScreenEvent.InitGuiEvent.Post event) {
+	public void postInitGui(GuiScreenEvent.InitGuiEvent.Post event) {
 		GuiButton buttonDifficulty;
 		GuiScreen gui = event.gui;
 		List buttons = event.buttonList;
@@ -152,7 +152,7 @@ public class GOTGuiHandler {
 	}
 
 	@SubscribeEvent
-	private void preDrawScreen(GuiScreenEvent.DrawScreenEvent.Pre event) {
+	public void preDrawScreen(GuiScreenEvent.DrawScreenEvent.Pre event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		GuiScreen gui = event.gui;
 		if (gui instanceof GuiModList) {
@@ -182,7 +182,7 @@ public class GOTGuiHandler {
 			Class<?> guiCls = guiContainer.getClass();
 			boolean excludeContainer = coinCount_excludedContainers.contains(containerCls) || coinCount_excludedContainers_clsNames.contains(containerCls.getName());
 			excludeGui = coinCount_excludedGUIs.contains(guiCls) || coinCount_excludedGUIs_clsNames.contains(guiCls.getName());
-			if (guiContainer instanceof GuiContainerCreative && (GOTReflectionClient.getCreativeTabIndex((GuiContainerCreative) guiContainer)) != CreativeTabs.tabInventory.getTabIndex()) {
+			if (guiContainer instanceof GuiContainerCreative && GOTReflectionClient.getCreativeTabIndex((GuiContainerCreative) guiContainer) != CreativeTabs.tabInventory.getTabIndex()) {
 				excludeGui = true;
 			}
 			if (!excludeContainer && !excludeGui) {
@@ -230,7 +230,7 @@ public class GOTGuiHandler {
 						guiTop = GOTReflectionClient.getGuiTop(guiContainer);
 						guiXSize = GOTReflectionClient.getGuiXSize(guiContainer);
 						guiLeft = gui.width / 2 - guiXSize / 2;
-						if ((guiContainer instanceof InventoryEffectRenderer && GOTReflectionClient.hasGuiPotionEffects((InventoryEffectRenderer) gui)) && !GOTModChecker.hasNEI()) {
+						if (guiContainer instanceof InventoryEffectRenderer && GOTReflectionClient.hasGuiPotionEffects((InventoryEffectRenderer) gui) && !GOTModChecker.hasNEI()) {
 							guiLeft += 60;
 						}
 					}
@@ -285,7 +285,7 @@ public class GOTGuiHandler {
 	}
 
 	@SubscribeEvent
-	private void preInitGui(GuiScreenEvent.InitGuiEvent.Pre event) {
+	public void preInitGui(GuiScreenEvent.InitGuiEvent.Pre event) {
 		GuiScreen gui = event.gui;
 		Minecraft mc = Minecraft.getMinecraft();
 		EntityClientPlayerMP entityplayer = mc.thePlayer;

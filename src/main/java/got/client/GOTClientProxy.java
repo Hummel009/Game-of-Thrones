@@ -399,7 +399,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 	@Override
 	public boolean isSneaking(Entity entity) {
 		if (entity.equals(Minecraft.getMinecraft().thePlayer)) {
-			return (GameSettings.isKeyDown(Minecraft.getMinecraft().gameSettings.keyBindSneak));
+			return GameSettings.isKeyDown(Minecraft.getMinecraft().gameSettings.keyBindSneak);
 		}
 		return entity.isSneaking();
 	}
@@ -413,9 +413,9 @@ public class GOTClientProxy extends GOTCommonProxy {
 	}
 
 	@SubscribeEvent
-	private void onClientTick(TickEvent.ClientTickEvent event) {
+	public void onClientTick(TickEvent.ClientTickEvent event) {
 		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
-		if ((player != null) && (!Minecraft.getMinecraft().isGamePaused() || !Minecraft.getMinecraft().isSingleplayer())) {
+		if (player != null && (!Minecraft.getMinecraft().isGamePaused() || !Minecraft.getMinecraft().isSingleplayer())) {
 			try {
 				Collection<GOTControllerGrabble> controllers = GOTGrappleHelper.controllers.values();
 				for (GOTControllerGrabble controller : controllers) {
@@ -425,7 +425,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 				System.out.println("ConcurrentModificationException caught");
 			}
 
-			boolean leftclick = (GameSettings.isKeyDown(Minecraft.getMinecraft().gameSettings.keyBindAttack) && Minecraft.getMinecraft().currentScreen == null);
+			boolean leftclick = GameSettings.isKeyDown(Minecraft.getMinecraft().gameSettings.keyBindAttack) && Minecraft.getMinecraft().currentScreen == null;
 			if (prevleftclick != leftclick) {
 				ItemStack stack = player.getHeldItem();
 				if (stack != null) {

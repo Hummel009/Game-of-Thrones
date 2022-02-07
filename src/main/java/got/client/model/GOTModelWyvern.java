@@ -554,7 +554,8 @@ public class GOTModelWyvern extends ModelBase {
 		float w = 0.9f;
 		float k = 0.6f;
 		int i = 0;
-		tail1.rotateAngleY = A * MathHelper.sin(w * t - k * i++);
+		tail1.rotateAngleY = A * MathHelper.sin(w * t - k * i);
+		i++;
 		tail2.rotateAngleY = A * MathHelper.sin(w * t - k * i++);
 		tail3.rotateAngleY = A * MathHelper.sin(w * t - k * i++);
 		tail4.rotateAngleY = A * MathHelper.sin(w * t - k * i++);

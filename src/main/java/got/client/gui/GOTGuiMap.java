@@ -52,6 +52,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	private static boolean showWP = true;
 	private static boolean showCWP = true;
 	private static boolean showHiddenSWP = false;
+	private static int maxDisplayedWPShares;
 	private static GOTDimension.DimensionRegion currentRegion;
 	private static GOTDimension.DimensionRegion prevRegion;
 	private static List<GOTFaction> currentFactionList;
@@ -363,7 +364,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					GOTConquestZone mouseOverZone = null;
 					GOTConquestGrid.ConquestEffective mouseOverEffect = null;
 					for (int pass = 0; pass <= 1; ++pass) {
-						if (pass == 1 && (highestViewedConqStr <= 0.0f)) {
+						if (pass == 1 && highestViewedConqStr <= 0.0f) {
 							continue;
 						}
 						ArrayList<GOTConquestZone> zoneList = pass == 0 ? allZones : zonesInView;
@@ -377,7 +378,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 							float maxX = maxF[0];
 							float minY = minF[1];
 							float maxY = maxF[1];
-							if ((maxX < mapXMin) || (minX > mapXMax) || (maxY < mapYMin) || (minY > mapYMax)) {
+							if (maxX < mapXMin || minX > mapXMax || maxY < mapYMin || minY > mapYMax) {
 								continue;
 							}
 							if (pass == 0) {
@@ -387,7 +388,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 								zonesInView.add(zone);
 								continue;
 							}
-							if (pass != 1 || (strength <= 0.0f)) {
+							if (pass != 1 || strength <= 0.0f) {
 								continue;
 							}
 							float strFrac = strength / highestViewedConqStr;
@@ -412,7 +413,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 									GOTGuiScreenBase.drawFloatRect(minX, minY, maxX, maxY, zoneColor2);
 								}
 							}
-							if ((i < minX) || (i >= maxX) || (j < minY) || (j >= maxY)) {
+							if (i < minX || i >= maxX || j < minY || j >= maxY) {
 								continue;
 							}
 							mouseOverStr = strength;
@@ -1053,7 +1054,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	@Override
 	public void keyTyped(char c, int i) {
 		if (hasOverlay) {
-			if ((creatingWaypointNew && nameWPTextField.textboxKeyTyped(c, i)) || (renamingWaypoint && nameWPTextField.textboxKeyTyped(c, i))) {
+			if (creatingWaypointNew && nameWPTextField.textboxKeyTyped(c, i) || renamingWaypoint && nameWPTextField.textboxKeyTyped(c, i)) {
 				return;
 			}
 			if (sharingWaypointNew && nameWPTextField.textboxKeyTyped(c, i)) {
@@ -1197,7 +1198,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				float[] pos;
 				boolean unlocked = waypoint.hasPlayerUnlocked(mc.thePlayer);
 				boolean hidden = waypoint.isHidden();
-				if (!isWaypointVisible(waypoint) || hidden && !unlocked || ((distToWP = Math.sqrt((dx = ((pos = this.transformCoords(waypoint.getXCoord(), waypoint.getZCoord()))[0]) - i) * dx + (dy = (pos[1]) - j) * dy)) > 5.0) || (distToWP > distanceSelectedWP)) {
+				if (!isWaypointVisible(waypoint) || hidden && !unlocked || (distToWP = Math.sqrt((dx = (pos = this.transformCoords(waypoint.getXCoord(), waypoint.getZCoord()))[0] - i) * dx + (dy = pos[1] - j) * dy)) > 5.0 || distToWP > distanceSelectedWP) {
 					continue;
 				}
 				selectedWaypoint = waypoint;
@@ -1316,7 +1317,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 						tessellator.addVertex(trans2[0], trans2[1], zLevel);
 					}
 					tessellator.draw();
-					if (mouseControlZone && mouseControlZoneReduced || ((dx = mouseX - (trans = this.transformCoords(zone.xCoord, zone.zCoord))[0]) * dx + (dy = mouseY - trans[1]) * dy > (rScaled = radius * zoomScale) * rScaled)) {
+					if (mouseControlZone && mouseControlZoneReduced || (dx = mouseX - (trans = this.transformCoords(zone.xCoord, zone.zCoord))[0]) * dx + (dy = mouseY - trans[1]) * dy > (rScaled = radius * zoomScale) * rScaled) {
 						continue;
 					}
 					if (pass >= 1) {
@@ -1373,7 +1374,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			float x = pos[0];
 			float y = pos[1];
 			float zoomlerp = (zoomExp - label.minZoom) / (label.maxZoom - label.minZoom);
-			if ((zoomlerp <= 0.0f) || (zoomlerp >= 1.0f)) {
+			if (zoomlerp <= 0.0f || zoomlerp >= 1.0f) {
 				continue;
 			}
 			float alpha = (0.5f - Math.abs(zoomlerp - 0.5f)) / 0.5f;
@@ -1551,7 +1552,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			double dx = questX - mouseX;
 			double dy = questY - mouseY;
 			double distToQuest = Math.sqrt(dx * dx + dy * dy);
-			if ((distToQuest > iconWidthHalf + 3) || (distToQuest > distanceMouseOverQuest)) {
+			if (distToQuest > iconWidthHalf + 3 || distToQuest > distanceMouseOverQuest) {
 				continue;
 			}
 			mouseOverQuest = quest;
@@ -1648,7 +1649,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			GameProfile profile = info.profile;
 			String playerName = profile.getName();
 			double distToPlayer = renderPlayerIcon(profile, playerName, playerX = Math.round((pos = this.transformCoords(info.posX, info.posZ))[0]), playerY = Math.round(pos[1]), mouseX, mouseY);
-			if ((distToPlayer > iconWidthHalf + 3) || (distToPlayer > distanceMouseOverPlayer)) {
+			if (distToPlayer > iconWidthHalf + 3 || distToPlayer > distanceMouseOverPlayer) {
 				continue;
 			}
 			mouseOverPlayerName = playerName;
@@ -1800,16 +1801,16 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 		if (wpZoomlerp > 0.0F) {
 			for (GOTAbstractWaypoint waypoint : waypoints) {
-				boolean unlocked = (mc.thePlayer != null && waypoint.hasPlayerUnlocked(mc.thePlayer));
+				boolean unlocked = mc.thePlayer != null && waypoint.hasPlayerUnlocked(mc.thePlayer);
 				boolean hidden = waypoint.isHidden();
 				boolean custom = waypoint instanceof GOTCustomWaypoint;
-				boolean shared = (waypoint instanceof GOTCustomWaypoint && ((GOTCustomWaypoint) waypoint).isShared());
+				boolean shared = waypoint instanceof GOTCustomWaypoint && ((GOTCustomWaypoint) waypoint).isShared();
 				if ((isWaypointVisible(waypoint) || overrideToggles) && (!hidden || unlocked)) {
 					float[] pos = transformCoords(waypoint.getXCoord(), waypoint.getZCoord());
 					float x = pos[0];
 					float y = pos[1];
 					int clip = 200;
-					if (x >= (mapXMin - clip) && x <= (mapXMax + clip) && y >= (mapYMin - clip) && y <= (mapYMax + clip)) {
+					if (x >= mapXMin - clip && x <= mapXMax + clip && y >= mapYMin - clip && y <= mapYMax + clip) {
 						if (pass == 0) {
 							float wpAlpha = wpZoomlerp;
 							GL11.glEnable(3042);
@@ -1824,7 +1825,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 							} else {
 								mc.getTextureManager().bindTexture(mapIconsTexture);
 								GL11.glColor4f(1.0F, 1.0F, 1.0F, wpAlpha);
-								drawTexturedModalRectFloat(x - 2.0F, y - 2.0F, 0 + (unlocked ? 4 : 0), 200 + (shared ? 8 : (custom ? 4 : 0)), 4.0F, 4.0F);
+								drawTexturedModalRectFloat(x - 2.0F, y - 2.0F, 0 + (unlocked ? 4 : 0), 200 + (shared ? 8 : custom ? 4 : 0), 4.0F, 4.0F);
 							}
 							GL11.glDisable(3042);
 							if (labels) {
@@ -1851,12 +1852,12 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 								}
 							}
 						}
-						if ((pass == 1) && (waypoint != selectedWaypoint)) {
-							if (x >= (mapXMin - 2) && x <= (mapXMax + 2) && y >= (mapYMin - 2) && y <= (mapYMax + 2)) {
-								double dx = (x - mouseX);
-								double dy = (y - mouseY);
+						if (pass == 1 && waypoint != selectedWaypoint) {
+							if (x >= mapXMin - 2 && x <= mapXMax + 2 && y >= mapYMin - 2 && y <= mapYMax + 2) {
+								double dx = x - mouseX;
+								double dy = y - mouseY;
 								double distToWP = Math.sqrt(dx * dx + dy * dy);
-								if ((distToWP <= 5.0D) && (distToWP <= distanceMouseOverWP)) {
+								if (distToWP <= 5.0D && distToWP <= distanceMouseOverWP) {
 									mouseOverWP = waypoint;
 									distanceMouseOverWP = distToWP;
 								}
@@ -1866,7 +1867,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				}
 			}
 		}
-		if ((pass == 1) && (mouseOverWP != null && !hasOverlay && !loadingConquestGrid)) {
+		if (pass == 1 && mouseOverWP != null && !hasOverlay && !loadingConquestGrid) {
 			renderWaypointTooltip(mouseOverWP, false, mouseX, mouseY);
 		}
 		endMapClipping();
@@ -2093,7 +2094,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	}
 
 	public void setupScrollBars(int i, int j) {
-		int maxDisplayedWPShares = fullscreen ? 8 : 5;
+		maxDisplayedWPShares = fullscreen ? 8 : 5;
 		if (selectedWaypoint != null && hasOverlay && sharingWaypoint) {
 			displayedWPShareList = ((GOTCustomWaypoint) selectedWaypoint).getSharedFellowshipIDs();
 			displayedWPShares = displayedWPShareList.size();

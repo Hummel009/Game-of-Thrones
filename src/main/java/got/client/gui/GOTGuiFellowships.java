@@ -540,7 +540,7 @@ public class GOTGuiFellowships extends GOTGuiMenuWBBase {
 			}
 			for (Object bObj : buttonList) {
 				GuiButton button = (GuiButton) bObj;
-				if (((button instanceof GOTGuiButtonFsOption) && button.visible && button.func_146115_a())) {
+				if (button instanceof GOTGuiButtonFsOption && button.visible && button.func_146115_a()) {
 					s = button.displayString;
 					this.drawCenteredString(s, getGuiLeft() + getxSize() / 2, button.yPosition + button.height + 4, 16777215);
 				}
@@ -749,7 +749,7 @@ public class GOTGuiFellowships extends GOTGuiMenuWBBase {
 
 	@Override
 	public void keyTyped(char c, int i) {
-		if ((page == Page.CREATE && textFieldName.textboxKeyTyped(c, i)) || (page == Page.INVITE && textFieldPlayer.textboxKeyTyped(c, i))) {
+		if (page == Page.CREATE && textFieldName.textboxKeyTyped(c, i) || page == Page.INVITE && textFieldPlayer.textboxKeyTyped(c, i)) {
 			return;
 		}
 		if (page == Page.RENAME && textFieldRename.textboxKeyTyped(c, i)) {

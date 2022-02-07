@@ -67,7 +67,7 @@ public class GOTItemRendererManager implements IResourceManagerReloadListener {
 	}
 
 	@SubscribeEvent
-	private void preTextureStitch(TextureStitchEvent.Pre event) {
+	public void preTextureStitch(TextureStitchEvent.Pre event) {
 		TextureMap map = event.map;
 		if (map.getTextureType() == 1) {
 			for (GOTRenderLargeItem largeRenderer : largeItemRenderers) {
