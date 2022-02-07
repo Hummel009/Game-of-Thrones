@@ -51,7 +51,7 @@ public class GOTEntityAINPCAvoidEvilPlayer extends EntityAIBase {
 				continue;
 			}
 			float alignment = GOTLevelData.getData(entityplayer).getAlignment(theNPC.getFaction());
-			if (((theNPC.familyInfo.getAge() >= 0) || (alignment >= 0.0f)) && (alignment > -100.0f)) {
+			if ((theNPC.familyInfo.getAge() >= 0 || alignment >= 0.0f) && alignment > -100.0f) {
 				continue;
 			}
 			validPlayers.add(entityplayer);
@@ -61,7 +61,7 @@ public class GOTEntityAINPCAvoidEvilPlayer extends EntityAIBase {
 		}
 		closestLivingEntity = validPlayers.get(0);
 		Vec3 fleePath = RandomPositionGenerator.findRandomTargetBlockAwayFrom(theNPC, 16, 7, Vec3.createVectorHelper(closestLivingEntity.posX, closestLivingEntity.posY, closestLivingEntity.posZ));
-		if ((fleePath == null) || (closestLivingEntity.getDistanceSq(fleePath.xCoord, fleePath.yCoord, fleePath.zCoord) < closestLivingEntity.getDistanceSqToEntity(theNPC))) {
+		if (fleePath == null || closestLivingEntity.getDistanceSq(fleePath.xCoord, fleePath.yCoord, fleePath.zCoord) < closestLivingEntity.getDistanceSqToEntity(theNPC)) {
 			return false;
 		}
 		entityPathEntity = entityPathNavigate.getPathToXYZ(fleePath.xCoord, fleePath.yCoord, fleePath.zCoord);

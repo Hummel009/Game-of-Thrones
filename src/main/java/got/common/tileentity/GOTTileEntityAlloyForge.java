@@ -48,7 +48,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, I
 
 	@Override
 	public boolean canExtractItem(int slot, ItemStack itemstack, int side) {
-		if ((side == 0) && (slot == fuelSlot)) {
+		if (side == 0 && slot == fuelSlot) {
 			return itemstack.getItem() == Items.bucket;
 		}
 		return true;
@@ -83,7 +83,8 @@ public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, I
 				return true;
 			}
 		}
-		if ((result = getSmeltingResult(inventory[i])) == null) {
+		result = getSmeltingResult(inventory[i]);
+		if (result == null) {
 			return false;
 		}
 		if (inventory[i + 4] == null) {

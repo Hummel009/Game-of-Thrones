@@ -168,7 +168,7 @@ public class GOTTileEntityBeacon extends TileEntity {
 									continue;
 								}
 								GOTTileEntityBeacon beacon = (GOTTileEntityBeacon) te;
-								if ((coordsThis.getDistanceSquared(beacon.xCoord, beacon.yCoord, beacon.zCoord) > 6400.0f)) {
+								if (coordsThis.getDistanceSquared(beacon.xCoord, beacon.yCoord, beacon.zCoord) > 6400.0f) {
 									continue;
 								}
 								nearbyTiles.add(beacon);

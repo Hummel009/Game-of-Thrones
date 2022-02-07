@@ -17,7 +17,8 @@ public class GOTBlockSlabV extends GOTBlockSlabBase {
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		if ((j &= 7) == 0) {
+		j &= 7;
+		if (j == 0) {
 			return Blocks.stonebrick.getIcon(i, 1);
 		}
 		switch (j) {

@@ -36,7 +36,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 		}
 		String soundEffect;
 		stone = getMaterial() == Material.rock;
-		soundEffect = stone ? (isOpen ? "got:block.gate.stone_open" : "got:block.gate.stone_close") : (isOpen ? "got:block.gate.open" : "got:block.gate.close");
+		soundEffect = stone ? isOpen ? "got:block.gate.stone_open" : "got:block.gate.stone_close" : isOpen ? "got:block.gate.open" : "got:block.gate.close";
 		world.playSoundEffect(i + 0.5, j + 0.5, k + 0.5, soundEffect, 1.0f, 0.8f + world.rand.nextFloat() * 0.4f);
 	}
 
@@ -186,7 +186,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 		ItemStack itemstack = entityplayer.getHeldItem();
 		if (itemstack != null) {
 			Item item = itemstack.getItem();
-			if ((Block.getBlockFromItem(item) instanceof GOTBlockGate) || GOTWeaponStats.isRangedWeapon(itemstack)) {
+			if (Block.getBlockFromItem(item) instanceof GOTBlockGate || GOTWeaponStats.isRangedWeapon(itemstack)) {
 				return false;
 			}
 		}
@@ -212,7 +212,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 				powered = true;
 				break;
 			}
-			if ((powered || block.canProvidePower()) && (powered ^ open)) {
+			if ((powered || block.canProvidePower()) && powered ^ open) {
 				activateGate(world, i, j, k);
 			}
 		}

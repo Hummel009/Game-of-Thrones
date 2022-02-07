@@ -48,7 +48,7 @@ public class GOTUnitTradeEntry {
 		} else {
 			entity.onSpawnWithEgg(null);
 		}
-		if ((mountArmor != null && world.rand.nextFloat() < mountArmorChance) && (entity instanceof GOTEntityHorse)) {
+		if (mountArmor != null && world.rand.nextFloat() < mountArmorChance && entity instanceof GOTEntityHorse) {
 			((GOTEntityHorse) entity).setMountArmor(new ItemStack(mountArmor));
 		}
 		return entity;
@@ -119,7 +119,7 @@ public class GOTUnitTradeEntry {
 			trader.onUnitTrade(entityplayer);
 			int cost = getCost(entityplayer, trader);
 			GOTItemCoin.takeCoins(cost, entityplayer);
-			((GOTEntityNPC) (trader)).playTradeSound();
+			((GOTEntityNPC) trader).playTradeSound();
 			World world = entityplayer.worldObj;
 			GOTEntityNPC hiredNPC = getOrCreateHiredNPC(world);
 			if (hiredNPC != null) {

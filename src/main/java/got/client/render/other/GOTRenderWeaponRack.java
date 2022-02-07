@@ -102,7 +102,8 @@ public class GOTRenderWeaponRack extends TileEntitySpecialRenderer {
 				float f = 1.6f;
 				float f1 = 0.016666668f * f;
 				double dSq = renderManager.livingPlayer.getDistanceSq(rack.xCoord + 0.5, rack.yCoord + 0.5, rack.zCoord);
-				if (dSq < (f2 = 64.0f) * f2) {
+				f2 = 64.0f;
+				if (dSq < f2 * f2) {
 					String name = weaponItem.getDisplayName();
 					GL11.glPushMatrix();
 					GL11.glTranslatef((float) d, (float) d1 + 0.5f, (float) d2);

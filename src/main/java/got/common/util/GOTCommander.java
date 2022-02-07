@@ -306,7 +306,7 @@ public class GOTCommander {
 					} else if (instance != null) {
 						fieldObj = field.get(instance);
 					}
-					if (((fieldObj != null) && type.isAssignableFrom(fieldObj.getClass()))) {
+					if (fieldObj != null && type.isAssignableFrom(fieldObj.getClass())) {
 						list.add(fieldObj);
 					}
 				}
@@ -517,7 +517,7 @@ public class GOTCommander {
 			if (biomeID == null) {
 				continue;
 			}
-			biomeImageData[i] = (byte) biomeID.intValue();
+			biomeImageData[i] = biomeID.byteValue();
 		}
 		ReflectionHelper.setPrivateValue(GOTGenLayerWorld.class, null, biomeImageData, "biomeImageData");
 	}

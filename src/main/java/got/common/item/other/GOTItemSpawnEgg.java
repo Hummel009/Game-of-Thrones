@@ -68,7 +68,8 @@ public class GOTItemSpawnEgg extends Item {
 		if (l == 1 && block != null && block.getRenderType() == 11) {
 			d = 0.5;
 		}
-		if ((entity = GOTItemSpawnEgg.spawnCreature(world, itemstack.getItemDamage(), i + 0.5, j + d, k + 0.5)) != null) {
+		entity = GOTItemSpawnEgg.spawnCreature(world, itemstack.getItemDamage(), i + 0.5, j + d, k + 0.5);
+		if (entity != null) {
 			if (entity instanceof EntityLiving && itemstack.hasDisplayName()) {
 				((EntityLiving) entity).setCustomNameTag(itemstack.getDisplayName());
 			}

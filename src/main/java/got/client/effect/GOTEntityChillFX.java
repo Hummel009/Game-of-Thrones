@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 public class GOTEntityChillFX extends EntitySmokeFX {
 	public GOTEntityChillFX(World world, double d, double d1, double d2, double d3, double d4, double d5) {
 		super(world, d, d1, d2, d3, d4, d5);
-		particleGreen = particleBlue = (MathHelper.randomFloatClamp(rand, 0.8f, 1.0f));
+		particleGreen = particleBlue = MathHelper.randomFloatClamp(rand, 0.8f, 1.0f);
 		particleRed = particleBlue;
 		setParticleTextureIndex(rand.nextInt(8));
 		particleMaxAge *= 6;

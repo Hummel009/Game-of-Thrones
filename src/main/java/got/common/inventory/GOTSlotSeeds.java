@@ -16,6 +16,6 @@ public class GOTSlotSeeds extends Slot {
 	@Override
 	public boolean isItemValid(ItemStack itemstack) {
 		Item item = itemstack.getItem();
-		return item instanceof IPlantable && ((IPlantable) (item)).getPlantType(worldObj, -1, -1, -1) == EnumPlantType.Crop;
+		return item instanceof IPlantable && ((IPlantable) item).getPlantType(worldObj, -1, -1, -1) == EnumPlantType.Crop;
 	}
 }

@@ -126,7 +126,8 @@ public class GOTRenderNorthernLights {
 		}
 		float tonight = brightnessTonight;
 		float utumno = nightKingChange / 200.0f;
-		if ((tonight += (1.0f - tonight) * utumno) <= 0.0f) {
+		tonight += (1.0f - tonight) * utumno;
+		if (tonight <= 0.0f) {
 			return;
 		}
 		nlBrightness *= tonight;

@@ -150,7 +150,8 @@ public class GOTStructurePentosTavern extends GOTStructurePentosBase {
 				int j2;
 				int k13 = -17 - step;
 				if (isOpaque(world, i13, j12 + 1, k13)) {
-					setAir(world, i13, ++j12 + 1, k13);
+					j12++;
+					setAir(world, i13, j12 + 1, k13);
 					setAir(world, i13, j12 + 2, k13);
 					setAir(world, i13, j12 + 3, k13);
 					setBlockAndMetadata(world, i13, j12, k13, stoneStairBlock, 3);

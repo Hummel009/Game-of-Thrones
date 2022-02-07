@@ -68,7 +68,7 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 			if (villageType == VillageType.VILLAGE) {
 				int dSq = i * i + k * k;
 				int imn = 15 + random.nextInt(4);
-				if ((dSq < imn * imn) || (i1 <= 64 && k1 <= 3 + random.nextInt(2))) {
+				if (dSq < imn * imn || i1 <= 64 && k1 <= 3 + random.nextInt(2)) {
 					return GOTBezierType.PATH_DIRTY;
 				}
 			}

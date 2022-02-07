@@ -711,7 +711,8 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 			if (i == Page.values().length - 1) {
 				return null;
 			}
-			return Page.values()[++i];
+			i++;
+			return Page.values()[i];
 		}
 
 		public Page prev() {
@@ -719,7 +720,8 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 			if (i == 0) {
 				return null;
 			}
-			return Page.values()[--i];
+			i--;
+			return Page.values()[i];
 		}
 	}
 

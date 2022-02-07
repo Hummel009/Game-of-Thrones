@@ -235,7 +235,8 @@ public class GOTItemCrossbow extends ItemBow {
 			bolt.boltDamageFactor += power * 0.5 + 0.5;
 		}
 		int punch = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, itemstack);
-		if ((punch += GOTEnchantmentHelper.calcRangedKnockback(itemstack)) > 0) {
+		punch += GOTEnchantmentHelper.calcRangedKnockback(itemstack);
+		if (punch > 0) {
 			bolt.knockbackStrength = punch;
 		}
 		if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, itemstack) + GOTEnchantmentHelper.calcFireAspect(itemstack) > 0) {

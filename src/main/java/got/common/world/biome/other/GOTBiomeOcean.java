@@ -82,6 +82,6 @@ public class GOTBiomeOcean extends GOTBiome {
 	}
 
 	public static boolean isFrozen(int i, int k) {
-		return ((k <= -23000) || (k >= 490000));
+		return k <= -23000 || k >= 490000;
 	}
 }

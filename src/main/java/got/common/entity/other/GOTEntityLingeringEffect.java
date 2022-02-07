@@ -112,7 +112,8 @@ public class GOTEntityLingeringEffect extends Entity implements IEntityAdditiona
 			}
 			return;
 		}
-		setTickCount(++ticks);
+		ticks++;
+		setTickCount(ticks);
 	}
 
 	@Override

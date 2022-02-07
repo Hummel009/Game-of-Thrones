@@ -230,7 +230,7 @@ public class GOTBiomeDecorator {
 			structureRand.setSeed(seed);
 			boolean roadNear = GOTRoads.isRoadNear(chunkX + 8, chunkZ + 8, 16) >= 0.0f;
 			boolean wallNear = GOTWalls.isWallNear(chunkX + 8, chunkZ + 8, 16) >= 0.0f;
-			if ((!roadNear && !wallNear && !anyFixedVillagesAt(worldObj, chunkX, chunkZ))) {
+			if (!roadNear && !wallNear && !anyFixedVillagesAt(worldObj, chunkX, chunkZ)) {
 				for (RandomStructure randomstructure : randomStructures) {
 					if (structureRand.nextInt(randomstructure.chunkChance) == 0) {
 						int i6 = chunkX + rand.nextInt(16) + 8;

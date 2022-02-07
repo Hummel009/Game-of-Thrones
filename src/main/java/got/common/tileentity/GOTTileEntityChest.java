@@ -168,7 +168,7 @@ public class GOTTileEntityChest extends TileEntity implements IInventory {
 			List players = worldObj.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(xCoord - range, yCoord - range, zCoord - range, xCoord + 1 + range, yCoord + 1 + range, zCoord + 1 + range));
 			for (Object obj : players) {
 				EntityPlayer entityplayer = (EntityPlayer) obj;
-				if (!(entityplayer.openContainer instanceof ContainerChest) || (((ContainerChest) entityplayer.openContainer).getLowerChestInventory()) != this) {
+				if (!(entityplayer.openContainer instanceof ContainerChest) || ((ContainerChest) entityplayer.openContainer).getLowerChestInventory() != this) {
 					continue;
 				}
 				++numPlayersUsing;

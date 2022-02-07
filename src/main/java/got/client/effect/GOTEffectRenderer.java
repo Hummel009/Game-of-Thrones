@@ -91,7 +91,8 @@ public class GOTEffectRenderer {
 				if (particle != null && !particle.isDead) {
 					continue;
 				}
-				layer.remove(i--);
+				layer.remove(i);
+				i--;
 			}
 		}
 	}

@@ -45,7 +45,8 @@ public class GOTStructureGoldenWatchtower extends GOTStructureBase {
 				}
 			}
 		}
-		if ((randomWood = random.nextInt(4)) == 0) {
+		randomWood = random.nextInt(4);
+		if (randomWood == 0) {
 			woodBlock = Blocks.log;
 			woodMeta = 0;
 			plankBlock = Blocks.planks;

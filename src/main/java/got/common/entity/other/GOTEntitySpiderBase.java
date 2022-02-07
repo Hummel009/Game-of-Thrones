@@ -263,7 +263,7 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
 
 	@Override
 	public boolean isPotionApplicable(PotionEffect effect) {
-		if ((getSpiderType() == VENOM_SLOWNESS && effect.getPotionID() == Potion.moveSlowdown.id) || (getSpiderType() == VENOM_POISON && effect.getPotionID() == Potion.poison.id)) {
+		if (getSpiderType() == VENOM_SLOWNESS && effect.getPotionID() == Potion.moveSlowdown.id || getSpiderType() == VENOM_POISON && effect.getPotionID() == Potion.poison.id) {
 			return false;
 		}
 		return super.isPotionApplicable(effect);

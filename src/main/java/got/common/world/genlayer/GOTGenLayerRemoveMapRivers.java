@@ -47,7 +47,8 @@ public class GOTGenLayerRemoveMapRivers extends GOTGenLayer {
 								if (srcMap.containsKey(Integer.valueOf(subBiomeID))) {
 									count2 = srcMap.get(Integer.valueOf(subBiomeID));
 								}
-								srcMap.put(subBiomeID, ++count2);
+								count2++;
+								srcMap.put(subBiomeID, count2);
 							}
 						}
 						HashMap<Integer, Integer> priorityMap = viableBiomes;

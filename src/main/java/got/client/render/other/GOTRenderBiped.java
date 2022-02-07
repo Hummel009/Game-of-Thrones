@@ -117,7 +117,8 @@ public abstract class GOTRenderBiped extends RenderBiped {
 			}
 			GL11.glPopMatrix();
 		}
-		if ((heldItem = entity.getHeldItem()) != null) {
+		heldItem = entity.getHeldItem();
+		if (heldItem != null) {
 			boolean is3D;
 			float f12;
 			GL11.glPushMatrix();
@@ -170,7 +171,8 @@ public abstract class GOTRenderBiped extends RenderBiped {
 			}
 			GL11.glPopMatrix();
 		}
-		if ((heldItemLeft = ((GOTEntityNPC) entity).getHeldItemLeft()) != null) {
+		heldItemLeft = ((GOTEntityNPC) entity).getHeldItemLeft();
+		if (heldItemLeft != null) {
 			boolean is3D;
 			float f14;
 			GL11.glPushMatrix();

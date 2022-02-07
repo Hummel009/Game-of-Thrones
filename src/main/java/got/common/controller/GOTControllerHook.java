@@ -21,7 +21,7 @@ public class GOTControllerHook extends GOTControllerGrabble {
 
 		Entity entity = this.entity;
 
-		if (attached && (entity instanceof EntityPlayer)) {
+		if (attached && entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) entity;
 
 			if (true) {

@@ -57,7 +57,7 @@ public class GOTTileEntityOven extends TileEntity implements IInventory, ISidedI
 
 	@Override
 	public boolean canExtractItem(int slot, ItemStack itemstack, int side) {
-		if ((side == 0) && (slot == fuelSlot)) {
+		if (side == 0 && slot == fuelSlot) {
 			return itemstack.getItem() == Items.bucket;
 		}
 		return true;

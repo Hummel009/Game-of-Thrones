@@ -39,7 +39,7 @@ public class GOTBlockChandelier extends Block {
 		if (block instanceof BlockSlab && !block.isOpaqueCube() && (meta & 8) == 0) {
 			return true;
 		}
-		if ((block instanceof BlockStairs && (meta & 4) == 0) || (block instanceof GOTBlockChain)) {
+		if (block instanceof BlockStairs && (meta & 4) == 0 || block instanceof GOTBlockChain) {
 			return true;
 		}
 		return world.getBlock(i, j + 1, k).isSideSolid(world, i, j + 1, k, ForgeDirection.DOWN);

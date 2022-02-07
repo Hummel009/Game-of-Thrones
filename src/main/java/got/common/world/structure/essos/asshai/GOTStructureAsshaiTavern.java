@@ -148,7 +148,8 @@ public class GOTStructureAsshaiTavern extends GOTStructureAsshaiBase {
 					setGrassToDirt(world, i1, j2 - 1, k142);
 					--j2;
 				}
-				if (++i1 >= 15) {
+				i1++;
+				if (i1 >= 15) {
 					continue block13;
 				}
 				--j14;

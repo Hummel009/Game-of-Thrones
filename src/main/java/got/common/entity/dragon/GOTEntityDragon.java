@@ -337,7 +337,7 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable implements GOTBiome
 		}
 
 		if (!isTamed() && !isChild()) {
-			if (isServer() && (GOTEntityDragon.consumeEquipped(player, FAVORITE_FOOD) != null)) {
+			if (isServer() && GOTEntityDragon.consumeEquipped(player, FAVORITE_FOOD) != null) {
 				tamedFor(player, rand.nextInt(3) == 0);
 			}
 
@@ -374,7 +374,7 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable implements GOTBiome
 					getParticleHelper().spawnBodyParticles("heart");
 				}
 				func_146082_f(player);
-			} else if ((isSaddled() && !GOTEntityDragon.hasEquippedUsable(player)) && isServer()) {
+			} else if (isSaddled() && !GOTEntityDragon.hasEquippedUsable(player) && isServer()) {
 				setRidingPlayer(player);
 			}
 		}
@@ -411,7 +411,7 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable implements GOTBiome
 
 	public boolean isInvulnerableTo(DamageSource src) {
 		Entity srcEnt = src.getEntity();
-		if ((srcEnt != null) && ((srcEnt == this) || (srcEnt == riddenByEntity))) {
+		if (srcEnt != null && (srcEnt == this || srcEnt == riddenByEntity)) {
 			return true;
 		}
 		if ("drown".equals(src.damageType) && isEgg()) {

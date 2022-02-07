@@ -38,13 +38,15 @@ public enum GOTFixedStructures {
 			if (GOTMountains.mountainAt(x, z)) {
 				mountainNear = true;
 			}
-			if (!(structureNear = GOTFixedStructures.structureNear(world, x, z, 256))) {
+			structureNear = GOTFixedStructures.structureNear(world, x, z, 256);
+			if (!structureNear) {
 				for (GOTWaypoint wp : GOTWaypoint.values()) {
 					double dz;
 					double range;
 					double dx = x - wp.getXCoord();
 					double distSq = dx * dx + (dz = z - wp.getZCoord()) * dz;
-					if (distSq >= (range = 256.0) * range) {
+					range = 256.0;
+					if (distSq >= range * range) {
 						continue;
 					}
 					structureNear = true;

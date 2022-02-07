@@ -336,7 +336,8 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 			return;
 		}
 		if (hasGrapes && world.getBlockLightValue(i, j + 1, k) >= 9 && (meta = world.getBlockMetadata(i, j, k)) < 7 && (growth = getGrowthFactor(world, i, j, k)) > 0.0f && random.nextInt((int) (80.0f / growth) + 1) == 0) {
-			world.setBlockMetadataWithNotify(i, j, k, ++meta, 2);
+			meta++;
+			world.setBlockMetadataWithNotify(i, j, k, meta, 2);
 		}
 	}
 

@@ -217,7 +217,7 @@ public class GOTEventHandler implements IFuelHandler {
 					perm = GOTBannerProtection.Permission.TABLES;
 				} else if (world.getTileEntity(i, j, k) instanceof IInventory) {
 					perm = block instanceof GOTBlockBarrel || block instanceof GOTBlockKebabStand ? GOTBannerProtection.Permission.FOOD : GOTBannerProtection.Permission.CONTAINERS;
-				} else if (((block instanceof GOTBlockArmorStand) || (block instanceof GOTBlockWeaponRack || block == Blocks.bookshelf)) || (block instanceof BlockJukebox)) {
+				} else if (block instanceof GOTBlockArmorStand || block instanceof GOTBlockWeaponRack || block == Blocks.bookshelf || block instanceof BlockJukebox) {
 					perm = GOTBannerProtection.Permission.CONTAINERS;
 				} else if (block instanceof BlockEnderChest) {
 					perm = GOTBannerProtection.Permission.PERSONAL_CONTAINERS;
@@ -341,7 +341,7 @@ public class GOTEventHandler implements IFuelHandler {
 				event.setCanceled(true);
 				return;
 			}
-			if (((block == Blocks.anvil) && (GOTConfig.isGOTEnchantingEnabled(world) || !GOTConfig.isEnchantingEnabled(world)) && !world.isRemote)) {
+			if (block == Blocks.anvil && (GOTConfig.isGOTEnchantingEnabled(world) || !GOTConfig.isEnchantingEnabled(world)) && !world.isRemote) {
 				entityplayer.openGui(GOT.instance, 53, world, i, j, k);
 				event.setCanceled(true);
 				return;
@@ -834,7 +834,7 @@ public class GOTEventHandler implements IFuelHandler {
 					}
 				}
 				GOTAlignmentValues.AlignmentBonus alignmentBonus = null;
-				if (!wasSelfDefenceAgainstAlliedUnit && (entity instanceof GOTEntityNPC)) {
+				if (!wasSelfDefenceAgainstAlliedUnit && entity instanceof GOTEntityNPC) {
 					GOTEntityNPC npc = (GOTEntityNPC) entity;
 					alignmentBonus = new GOTAlignmentValues.AlignmentBonus(npc.getAlignmentBonus(), npc.getEntityClassName());
 					alignmentBonus.needsTranslation = true;
@@ -860,7 +860,8 @@ public class GOTEventHandler implements IFuelHandler {
 						if (!entityplayer.capabilities.isCreativeMode && entityFaction.inDefinedControlZone(entityplayer, Math.max(entityFaction.getControlZoneReducedRange(), 50))) {
 							GOTFactionBounties.forFaction(entityFaction).forPlayer(entityplayer).recordNewKill();
 						}
-						if ((pledgeFac = playerData.getPledgeFaction()) != null && (pledgeFac == entityFaction || pledgeFac.isAlly(entityFaction))) {
+						pledgeFac = playerData.getPledgeFaction();
+						if (pledgeFac != null && (pledgeFac == entityFaction || pledgeFac.isAlly(entityFaction))) {
 							playerData.onPledgeKill(entityplayer);
 						}
 					}
@@ -912,7 +913,7 @@ public class GOTEventHandler implements IFuelHandler {
 			}
 		}
 
-		if (!world.isRemote && (source.getEntity() instanceof GOTEntityNPC)) {
+		if (!world.isRemote && source.getEntity() instanceof GOTEntityNPC) {
 			GOTEntityNPC npc = (GOTEntityNPC) source.getEntity();
 			if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() != null) {
 				npc.hiredNPCInfo.getHiringPlayer();
@@ -1088,7 +1089,7 @@ public class GOTEventHandler implements IFuelHandler {
 							frostProtection += 50;
 							continue;
 						}
-						if ((material == GOTRegistry.fur) || (material == GOTRegistry.iceShard) || (armorMaterial == GOTMaterial.NORTH.toArmorMaterial()) || (armorMaterial == GOTMaterial.REDKING.toArmorMaterial())) {
+						if (material == GOTRegistry.fur || material == GOTRegistry.iceShard || armorMaterial == GOTMaterial.NORTH.toArmorMaterial() || armorMaterial == GOTMaterial.REDKING.toArmorMaterial()) {
 							frostProtection += 100;
 							continue;
 						}
@@ -1219,7 +1220,7 @@ public class GOTEventHandler implements IFuelHandler {
 			WorldServer worldserver = (WorldServer) world;
 			ChunkCoordinates deathPoint = GOTLevelData.getData(entityplayermp).getDeathPoint();
 			int deathDimension = GOTLevelData.getData(entityplayermp).getDeathDimension();
-			if ((deathDimension == GOTDimension.GAME_OF_THRONES.dimensionID) && GOTConfig.GOTRespawning) {
+			if (deathDimension == GOTDimension.GAME_OF_THRONES.dimensionID && GOTConfig.GOTRespawning) {
 				boolean hasBed;
 				double respawnThreshold;
 				ChunkCoordinates bedLocation = entityplayermp.getBedLocation(entityplayermp.dimension);
@@ -1300,7 +1301,8 @@ public class GOTEventHandler implements IFuelHandler {
 			}
 			chatComponent = new ChatComponentTranslation(key, formatArgs);
 		}
-		if ((playerTitle = GOTLevelData.getData(entityplayer).getPlayerTitle()) != null) {
+		playerTitle = GOTLevelData.getData(entityplayer).getPlayerTitle();
+		if (playerTitle != null) {
 			ArrayList<Object> newFormatArgs = new ArrayList<>();
 			for (Object arg : chatComponent.getFormatArgs()) {
 				if (arg instanceof ChatComponentText) {

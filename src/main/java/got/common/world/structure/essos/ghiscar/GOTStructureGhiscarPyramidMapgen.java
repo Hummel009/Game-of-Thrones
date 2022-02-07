@@ -35,7 +35,8 @@ public class GOTStructureGhiscarPyramidMapgen extends MapGenStructure {
 		Random dRand = worldObj.setRandomSeed(i2, k2, 190169976);
 		i2 *= separation;
 		k2 *= separation;
-		if (i == (i2 += dRand.nextInt(separation - minDist + 1)) && k == (k2 += dRand.nextInt(separation - minDist + 1))) {
+		i2 += dRand.nextInt(separation - minDist + 1);
+		if (i == i2 && k == (k2 += dRand.nextInt(separation - minDist + 1))) {
 			int i1 = i * 16 + 8;
 			int k1 = k * 16 + 8;
 			if (worldObj.getWorldChunkManager().areBiomesViable(i1, k1, 0, spawnBiomes) && rand.nextInt(spawnChance) == 0) {

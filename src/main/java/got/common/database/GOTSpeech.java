@@ -195,7 +195,7 @@ public class GOTSpeech {
 	public static void sendSpeechAndChatMessage(EntityPlayer entityplayer, GOTEntityNPC entity, String speechBankName) {
 		String name = entity.getCommandSenderName();
 		String speech = GOTSpeech.getRandomSpeechForPlayer(entity, speechBankName, entityplayer, null, null);
-		String message = (EnumChatFormatting.YELLOW) + "<" + name + ">" + (EnumChatFormatting.WHITE) + " " + speech;
+		String message = EnumChatFormatting.YELLOW + "<" + name + ">" + EnumChatFormatting.WHITE + " " + speech;
 		ChatComponentText component = new ChatComponentText(message);
 		entityplayer.addChatMessage(component);
 		GOTSpeech.sendSpeech(entityplayer, entity, speech);

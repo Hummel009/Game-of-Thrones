@@ -153,7 +153,7 @@ public enum GOTFaction {
 				double dz = d2 - zone.zCoord;
 				double dSq = dx * dx + dz * dz;
 				double dToEdge = Math.sqrt(dSq) - zone.radiusCoord;
-				if ((dToEdge > coordRange) || (closestDist >= 0.0) && (dToEdge >= closestDist)) {
+				if (dToEdge > coordRange || closestDist >= 0.0 && dToEdge >= closestDist) {
 					continue;
 				}
 				closestDist = dToEdge;
@@ -290,7 +290,7 @@ public enum GOTFaction {
 
 	public GOTFactionRank getRank(float alignment) {
 		for (GOTFactionRank rank : ranksSortedDescending) {
-			if (rank.isDummyRank() || (alignment < rank.alignment)) {
+			if (rank.isDummyRank() || alignment < rank.alignment) {
 				continue;
 			}
 			return rank;
@@ -325,7 +325,8 @@ public enum GOTFaction {
 			index = ranksSortedDescending.indexOf(curRank);
 		}
 		if (index >= 0) {
-			if ((index -= n) < 0) {
+			index -= n;
+			if (index < 0) {
 				return ranksSortedDescending.get(0);
 			}
 			if (index > ranksSortedDescending.size() - 1) {

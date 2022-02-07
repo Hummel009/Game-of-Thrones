@@ -172,7 +172,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 							for (y = -range; y < range; ++y) {
 								x1 = i + x;
 								y1 = y + j;
-								if (((x1 >= 0) && (x1 < mapWidth) && (y1 >= 0) && (y1 < mapHeight))) {
+								if (x1 >= 0 && x1 < mapWidth && y1 >= 0 && y1 < mapHeight) {
 									rgb1 = temp.getRGB(x1, y1);
 									if (rgb1 == 6453158) {
 										++water;
@@ -193,7 +193,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 							for (y = -range; y < range; ++y) {
 								x1 = i + x;
 								y1 = y + j;
-								if (((x1 >= 0) && (x1 < mapWidth) && (y1 >= 0) && (y1 < mapHeight))) {
+								if (x1 >= 0 && x1 < mapWidth && y1 >= 0 && y1 < mapHeight) {
 									rgb1 = temp.getRGB(x1, y1);
 									if (rgb1 != 14736861) {
 										++edge;

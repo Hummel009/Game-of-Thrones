@@ -18,7 +18,7 @@ public class GOTBiomeSpawnList {
 	public float conquestGainRate = 1.0f;
 
 	public GOTBiomeSpawnList(GOTBiome biome) {
-		this((biome).getClass().getName());
+		this(biome.getClass().getName());
 	}
 
 	public GOTBiomeSpawnList(String s) {
@@ -101,7 +101,7 @@ public class GOTBiomeSpawnList {
 			int w = rand.nextInt(totalWeight);
 			for (FactionContainer cont : factionContainers) {
 				int facWeight;
-				if (cont.isEmpty() || !cachedFacWeights.containsKey(cont) || (w -= (facWeight = cachedFacWeights.get(cont))) >= 0) {
+				if (cont.isEmpty() || !cachedFacWeights.containsKey(cont) || (w -= facWeight = cachedFacWeights.get(cont)) >= 0) {
 					continue;
 				}
 				chosenFacContainer = cont;

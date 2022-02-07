@@ -39,7 +39,7 @@ public class GOTWorldGenCatalpa extends WorldGenAbstractTree {
 				}
 				for (int i1 = i - range; i1 <= i + range && flag; ++i1) {
 					for (int k1 = k - range; k1 <= k + range && flag; ++k1) {
-						if ((j1 >= 0 && j1 < 256) && isReplaceable(world, i1, j1, k1)) {
+						if (j1 >= 0 && j1 < 256 && isReplaceable(world, i1, j1, k1)) {
 							continue;
 						}
 						flag = false;
@@ -109,7 +109,8 @@ public class GOTWorldGenCatalpa extends WorldGenAbstractTree {
 							setBlockAndNotifyAdequately(world, rootX, rootY, rootZ, woodBlock, woodMeta | 0xC);
 							world.getBlock(rootX, rootY - 1, rootZ).onPlantGrow(world, rootX, rootY - 1, rootZ, rootX, rootY, rootZ);
 							--rootY;
-							if (++roots <= 4 + random.nextInt(3)) {
+							roots++;
+							if (roots <= 4 + random.nextInt(3)) {
 								continue;
 							}
 						}

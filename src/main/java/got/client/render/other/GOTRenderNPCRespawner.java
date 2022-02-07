@@ -33,7 +33,8 @@ public class GOTRenderNPCRespawner extends Render {
 		if (renderIcon == null) {
 			renderIcon = new ItemStack(GOTRegistry.npcRespawner);
 		}
-		if ((icon = renderIcon.getIconIndex()) == null) {
+		icon = renderIcon.getIconIndex();
+		if (icon == null) {
 			icon = ((TextureMap) Minecraft.getMinecraft().getTextureManager().getTexture(TextureMap.locationItemsTexture)).getAtlasSprite("missingno");
 		}
 		Tessellator tessellator = Tessellator.instance;

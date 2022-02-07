@@ -308,7 +308,8 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 			f *= totalWeight;
 			NPCAction chosen = null;
 			for (NPCAction action : NPCAction.values()) {
-				if ((f -= action.weight) > 0.0f) {
+				f -= action.weight;
+				if (f > 0.0f) {
 					continue;
 				}
 				chosen = action;

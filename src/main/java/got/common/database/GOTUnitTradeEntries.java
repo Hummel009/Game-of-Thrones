@@ -122,7 +122,7 @@ public class GOTUnitTradeEntries {
 	public GOTUnitTradeEntries(float baseAlignment, GOTUnitTradeEntry... trades) {
 		for (GOTUnitTradeEntry trade : tradeEntries = trades) {
 			trade.alignmentRequired += baseAlignment;
-			if ((trade.alignmentRequired >= 0.0f)) {
+			if (trade.alignmentRequired >= 0.0f) {
 				continue;
 			}
 			throw new IllegalArgumentException("Units cannot require negative alignment!");

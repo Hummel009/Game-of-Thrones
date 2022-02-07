@@ -75,7 +75,7 @@ public class GOTStructureLhazarAltar extends GOTStructureLhazarBase {
 					int holeDHere = (int) Math.round(Math.sqrt(Math.max(0, holeR * holeR - dSq)));
 					for (int j14 = 3; j14 >= -holeDHere; --j14) {
 						int j2 = holeY + j14;
-						if ((j14 > 0) || (j14 > -holeDHere)) {
+						if (j14 > 0 || j14 > -holeDHere) {
 							setAir(world, i2, j2, k2);
 							continue;
 						}

@@ -49,7 +49,7 @@ public class GOTEventSpawner {
 			GOTBiome gotbiome = (GOTBiome) biome;
 			Class<? extends GOTEntityBandit> banditClass = gotbiome.getBanditEntityClass();
 			double chance = gotbiome.getUnreliableChance().chancesPerSecondPerChunk[16];
-			if ((chance <= 0.0) || (world.rand.nextDouble() >= chance) || (world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), GOT.selectNonCreativePlayers())).isEmpty()) {
+			if (chance <= 0.0 || world.rand.nextDouble() >= chance || world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), GOT.selectNonCreativePlayers()).isEmpty()) {
 				continue;
 			}
 			int banditsSpawned = 0;
@@ -60,18 +60,19 @@ public class GOTEventSpawner {
 				int k1;
 				int i1 = i + MathHelper.getRandomIntegerInRange(rand, -32, 32);
 				int j1 = world.getHeightValue(i1, k1 = k + MathHelper.getRandomIntegerInRange(rand, -32, 32));
-				if (j1 <= 60 || (block = world.getBlock(i1, j1 - 1, k1)) != biome.topBlock && block != biome.fillerBlock || world.getBlock(i1, j1, k1).isNormalCube() || world.getBlock(i1, j1 + 1, k1).isNormalCube() || (bandit = (GOTEntityBandit) EntityList.createEntityByName((GOTEntityRegistry.getStringFromClass(banditClass)), world)) == null) {
+				if (j1 <= 60 || (block = world.getBlock(i1, j1 - 1, k1)) != biome.topBlock && block != biome.fillerBlock || world.getBlock(i1, j1, k1).isNormalCube() || world.getBlock(i1, j1 + 1, k1).isNormalCube() || (bandit = (GOTEntityBandit) EntityList.createEntityByName(GOTEntityRegistry.getStringFromClass(banditClass), world)) == null) {
 					continue;
 				}
 				bandit.setLocationAndAngles(i1 + 0.5, j1, k1 + 0.5, world.rand.nextFloat() * 360.0f, 0.0f);
-				Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(bandit, world, ((float) bandit.posX), ((float) bandit.posY), ((float) bandit.posZ));
+				Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(bandit, world, (float) bandit.posX, (float) bandit.posY, (float) bandit.posZ);
 				if (canSpawn != Event.Result.ALLOW && (canSpawn != Event.Result.DEFAULT || !bandit.getCanSpawnHere())) {
 					continue;
 				}
 				bandit.onSpawnWithEgg(null);
 				world.spawnEntityInWorld(bandit);
 				bandit.isNPCPersistent = false;
-				if (++banditsSpawned >= maxBandits) {
+				banditsSpawned++;
+				if (banditsSpawned >= maxBandits) {
 					continue block0;
 				}
 			}
@@ -100,7 +101,7 @@ public class GOTEventSpawner {
 				if (!world.isDaytime() && GOTWorldProvider.isLunarEclipse()) {
 					chance *= 5.0;
 				}
-				if ((rand.nextDouble() >= chance) || (world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), new IEntitySelector() {
+				if (rand.nextDouble() >= chance || world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), new IEntitySelector() {
 
 					@Override
 					public boolean isEntityApplicable(Entity entity) {
@@ -110,7 +111,7 @@ public class GOTEventSpawner {
 						}
 						return false;
 					}
-				})).isEmpty()) {
+				}).isEmpty()) {
 					continue;
 				}
 				for (int attempts = 0; attempts < 16; ++attempts) {
@@ -150,7 +151,7 @@ public class GOTEventSpawner {
 			GOTBiome gotbiome = (GOTBiome) biome;
 			Class<? extends GOTEntityScrapTrader> scrapTraderClass = gotbiome.getScrapTraderEntityClass();
 			double chance = gotbiome.getUnreliableChance().chancesPerSecondPerChunk[16];
-			if ((chance <= 0.0) || (world.rand.nextDouble() >= chance) || (world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), GOT.selectNonCreativePlayers())).isEmpty()) {
+			if (chance <= 0.0 || world.rand.nextDouble() >= chance || world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), GOT.selectNonCreativePlayers()).isEmpty()) {
 				continue;
 			}
 			int scrapTradersSpawned = 0;
@@ -161,18 +162,19 @@ public class GOTEventSpawner {
 				int k1;
 				int i1 = i + MathHelper.getRandomIntegerInRange(rand, -32, 32);
 				int j1 = world.getHeightValue(i1, k1 = k + MathHelper.getRandomIntegerInRange(rand, -32, 32));
-				if (j1 <= 60 || (block = world.getBlock(i1, j1 - 1, k1)) != biome.topBlock && block != biome.fillerBlock || world.getBlock(i1, j1, k1).isNormalCube() || world.getBlock(i1, j1 + 1, k1).isNormalCube() || (scrapTrader = (GOTEntityScrapTrader) EntityList.createEntityByName((GOTEntityRegistry.getStringFromClass(scrapTraderClass)), world)) == null) {
+				if (j1 <= 60 || (block = world.getBlock(i1, j1 - 1, k1)) != biome.topBlock && block != biome.fillerBlock || world.getBlock(i1, j1, k1).isNormalCube() || world.getBlock(i1, j1 + 1, k1).isNormalCube() || (scrapTrader = (GOTEntityScrapTrader) EntityList.createEntityByName(GOTEntityRegistry.getStringFromClass(scrapTraderClass), world)) == null) {
 					continue;
 				}
 				scrapTrader.setLocationAndAngles(i1 + 0.5, j1, k1 + 0.5, world.rand.nextFloat() * 360.0f, 0.0f);
-				Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(scrapTrader, world, ((float) scrapTrader.posX), ((float) scrapTrader.posY), ((float) scrapTrader.posZ));
+				Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(scrapTrader, world, (float) scrapTrader.posX, (float) scrapTrader.posY, (float) scrapTrader.posZ);
 				if (canSpawn != Event.Result.ALLOW && (canSpawn != Event.Result.DEFAULT || !scrapTrader.getCanSpawnHere())) {
 					continue;
 				}
 				scrapTrader.onSpawnWithEgg(null);
 				world.spawnEntityInWorld(scrapTrader);
 				scrapTrader.isNPCPersistent = false;
-				if (++scrapTradersSpawned >= maxScrapTraders) {
+				scrapTradersSpawned++;
+				if (scrapTradersSpawned >= maxScrapTraders) {
 					continue block0;
 				}
 			}
@@ -193,7 +195,7 @@ public class GOTEventSpawner {
 			GOTBiome gotbiome = (GOTBiome) biome;
 			Class<? extends GOTEntityThief> thiefClass = gotbiome.getThiefEntityClass();
 			double chance = gotbiome.getUnreliableChance().chancesPerSecondPerChunk[16];
-			if ((chance <= 0.0) || (world.rand.nextDouble() >= chance) || (world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), GOT.selectNonCreativePlayers())).isEmpty()) {
+			if (chance <= 0.0 || world.rand.nextDouble() >= chance || world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), GOT.selectNonCreativePlayers()).isEmpty()) {
 				continue;
 			}
 			int thiefsSpawned = 0;
@@ -204,18 +206,19 @@ public class GOTEventSpawner {
 				int k1;
 				int i1 = i + MathHelper.getRandomIntegerInRange(rand, -32, 32);
 				int j1 = world.getHeightValue(i1, k1 = k + MathHelper.getRandomIntegerInRange(rand, -32, 32));
-				if (j1 <= 60 || (block = world.getBlock(i1, j1 - 1, k1)) != biome.topBlock && block != biome.fillerBlock || world.getBlock(i1, j1, k1).isNormalCube() || world.getBlock(i1, j1 + 1, k1).isNormalCube() || (thief = (GOTEntityThief) EntityList.createEntityByName((GOTEntityRegistry.getStringFromClass(thiefClass)), world)) == null) {
+				if (j1 <= 60 || (block = world.getBlock(i1, j1 - 1, k1)) != biome.topBlock && block != biome.fillerBlock || world.getBlock(i1, j1, k1).isNormalCube() || world.getBlock(i1, j1 + 1, k1).isNormalCube() || (thief = (GOTEntityThief) EntityList.createEntityByName(GOTEntityRegistry.getStringFromClass(thiefClass), world)) == null) {
 					continue;
 				}
 				thief.setLocationAndAngles(i1 + 0.5, j1, k1 + 0.5, world.rand.nextFloat() * 360.0f, 0.0f);
-				Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(thief, world, ((float) thief.posX), ((float) thief.posY), ((float) thief.posZ));
+				Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(thief, world, (float) thief.posX, (float) thief.posY, (float) thief.posZ);
 				if (canSpawn != Event.Result.ALLOW && (canSpawn != Event.Result.DEFAULT || !thief.getCanSpawnHere())) {
 					continue;
 				}
 				thief.onSpawnWithEgg(null);
 				world.spawnEntityInWorld(thief);
 				thief.isNPCPersistent = false;
-				if (++thiefsSpawned >= maxThiefs) {
+				thiefsSpawned++;
+				if (thiefsSpawned >= maxThiefs) {
 					continue block0;
 				}
 			}

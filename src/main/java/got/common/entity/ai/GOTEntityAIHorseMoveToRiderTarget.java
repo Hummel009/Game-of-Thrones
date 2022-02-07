@@ -15,7 +15,7 @@ public class GOTEntityAIHorseMoveToRiderTarget extends EntityAIBase {
 
 	public GOTEntityAIHorseMoveToRiderTarget(GOTNPCMount horse) {
 		theHorse = horse;
-		livingHorse = (EntityCreature) (theHorse);
+		livingHorse = (EntityCreature) theHorse;
 		setMutexBits(3);
 	}
 

@@ -34,7 +34,7 @@ public enum GOTEnchantmentType {
 		if (this == MELEE && GOTWeaponStats.isMeleeWeapon(itemstack) && !(item instanceof GOTItemCommandSword)) {
 			return true;
 		}
-		if ((this == TOOL && !item.getToolClasses(itemstack).isEmpty()) || (this == SHEARS && item instanceof ItemShears)) {
+		if (this == TOOL && !item.getToolClasses(itemstack).isEmpty() || this == SHEARS && item instanceof ItemShears) {
 			return true;
 		}
 		if (this == RANGED && GOTWeaponStats.isRangedWeapon(itemstack)) {

@@ -75,7 +75,8 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 				noFile = true;
 			}
 			if (noFile) {
-				if (++skips >= maxSkips) {
+				skips++;
+				if (skips >= maxSkips) {
 					break;
 				}
 				++skinCount;
@@ -169,7 +170,8 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 									int opaqueTest;
 									int baseRGB = baseImage.getRGB(i, j);
 									int overlayRGB = overlayImage.getRGB(i, j);
-									if ((overlayRGB & (opaqueTest = -16777216)) == opaqueTest) {
+									opaqueTest = -16777216;
+									if ((overlayRGB & opaqueTest) == opaqueTest) {
 										newImage.setRGB(i, j, overlayRGB);
 										continue;
 									}

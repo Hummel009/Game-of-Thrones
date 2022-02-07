@@ -62,7 +62,7 @@ public class GOTConquestGrid {
 				GOTFaction pledgeFac;
 				EntityPlayerMP player = (EntityPlayerMP) obj;
 				GOTPlayerData pd = GOTLevelData.getData(player);
-				if ((player.getDistanceSqToEntity(originPlayer) > 40000.0) || GOTConquestGrid.getZoneByEntityCoords(player) != zone) {
+				if (player.getDistanceSqToEntity(originPlayer) > 40000.0 || GOTConquestGrid.getZoneByEntityCoords(player) != zone) {
 					continue;
 				}
 				boolean playerApplicable;
@@ -87,7 +87,7 @@ public class GOTConquestGrid {
 				for (int k1 = -3; k1 <= 3; ++k1) {
 					float enemyConq;
 					int distSq = i1 * i1 + k1 * k1;
-					if ((distSq > 12.25f)) {
+					if (distSq > 12.25f) {
 						continue;
 					}
 					int zoneX = centralZone.gridX + i1;
@@ -146,7 +146,8 @@ public class GOTConquestGrid {
 		if (!GOTGenLayerWorld.loadedBiomeImage()) {
 			new GOTGenLayerWorld();
 		}
-		if ((cachedFacs = cachedZoneFactions.get(gridCoords = GridCoordPair.forZone(zone))) == null) {
+		cachedFacs = cachedZoneFactions.get(gridCoords = GridCoordPair.forZone(zone));
+		if (cachedFacs == null) {
 			Object biome;
 			cachedFacs = new ArrayList<>();
 			ArrayList includedBiomes = new ArrayList();

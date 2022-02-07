@@ -61,7 +61,8 @@ public class GOTBezierGenerator {
 				}
 				int bridgeHeightInt = (int) Math.floor(bridgeHeight);
 				roadTop += bridgeHeightInt;
-				if ((roadTop = Math.min(roadTop, maxBridgeTop)) >= maxBridgeTop) {
+				roadTop = Math.min(roadTop, maxBridgeTop);
+				if (roadTop >= maxBridgeTop) {
 					bridgeSlab = true;
 				} else {
 					float bridgeHeightR = bridgeHeight - bridgeHeightInt;
@@ -109,7 +110,8 @@ public class GOTBezierGenerator {
 							blocks[indexLower2] = bridgeEdge.block;
 							metadata[indexLower2] = (byte) bridgeEdge.meta;
 						}
-						if (roadTop - 1 > (support = bridgeBase + 2)) {
+						support = bridgeBase + 2;
+						if (roadTop - 1 > support) {
 							int indexSupport = xzIndex * ySize + support;
 							blocks[indexSupport] = bridgeFence.block;
 							metadata[indexSupport] = (byte) bridgeFence.meta;

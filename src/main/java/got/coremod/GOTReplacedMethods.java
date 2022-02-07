@@ -111,7 +111,8 @@ public class GOTReplacedMethods {
 					}
 					++negated;
 				}
-				if ((damages -= negated) <= 0) {
+				damages -= negated;
+				if (damages <= 0) {
 					return false;
 				}
 			}
@@ -192,7 +193,7 @@ public class GOTReplacedMethods {
 	public static class EntityPackets {
 		public static Packet getMobSpawnPacket(Entity entity) {
 			EntityRegistry.EntityRegistration er = EntityRegistry.instance().lookupModSpawn(entity.getClass(), false);
-			if ((er == null) || er.usesVanillaSpawning()) {
+			if (er == null || er.usesVanillaSpawning()) {
 				return null;
 			}
 			FMLMessage.EntitySpawnMessage msg = new FMLMessage.EntitySpawnMessage(er, entity, er.getContainer());

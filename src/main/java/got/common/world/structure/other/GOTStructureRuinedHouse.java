@@ -130,7 +130,7 @@ public class GOTStructureRuinedHouse extends GOTStructureBase {
 	}
 
 	public void placeRandomWall(World world, Random random, int i, int j, int k, boolean northToSouth) {
-		if ((random.nextInt(12) == 0) || isAir(world, i, j - 1, k)) {
+		if (random.nextInt(12) == 0 || isAir(world, i, j - 1, k)) {
 			return;
 		}
 		int l = random.nextInt(4);
@@ -159,7 +159,7 @@ public class GOTStructureRuinedHouse extends GOTStructureBase {
 	}
 
 	public void placeRandomWallOrStone(World world, Random random, int i, int j, int k) {
-		if ((random.nextInt(12) == 0) || isAir(world, i, j - 1, k)) {
+		if (random.nextInt(12) == 0 || isAir(world, i, j - 1, k)) {
 			return;
 		}
 		int l = random.nextInt(4);

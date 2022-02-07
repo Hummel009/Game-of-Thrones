@@ -214,7 +214,8 @@ public abstract class GOTVillageGen {
 			if (block.isOpaqueCube() || acceptSlab && block instanceof BlockSlab && below.isOpaqueCube()) {
 				return j;
 			}
-			if (--j > 62) {
+			j--;
+			if (j > 62) {
 				continue;
 			}
 			break;
@@ -248,7 +249,8 @@ public abstract class GOTVillageGen {
 		GOTVillageGen.seedVillageRand(world, i2, k2);
 		i2 *= gridScale;
 		k2 *= gridScale;
-		if (chunkX == (i2 += MathHelper.getRandomIntegerInRange(villageRand, (-gridRandomDisplace), gridRandomDisplace)) && chunkZ == (k2 += MathHelper.getRandomIntegerInRange(villageRand, (-gridRandomDisplace), gridRandomDisplace))) {
+		i2 += MathHelper.getRandomIntegerInRange(villageRand, -gridRandomDisplace, gridRandomDisplace);
+		if (chunkX == i2 && chunkZ == (k2 += MathHelper.getRandomIntegerInRange(villageRand, -gridRandomDisplace, gridRandomDisplace))) {
 			int i1 = chunkX * 16 + 8;
 			int k1 = chunkZ * 16 + 8;
 			int villageRange = villageChunkRadius * 16;
@@ -350,7 +352,7 @@ public abstract class GOTVillageGen {
 		}
 
 		public int getStructureRotation(int r) {
-			return (r + (this.rotationMode + 2)) % 4;
+			return (r + this.rotationMode + 2) % 4;
 		}
 
 		public int[] getWorldCoords(int xRel, int zRel) {

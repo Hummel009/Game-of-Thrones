@@ -185,7 +185,8 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 			currentCapeID = Math.min(currentCapeID, currentCapeType.list.size() - 1);
 		}
 		if (type != 0) {
-			if ((currentCapeTypeID += type) > GOTCapes.CapeType.values().length - 1) {
+			currentCapeTypeID += type;
+			if (currentCapeTypeID > GOTCapes.CapeType.values().length - 1) {
 				currentCapeTypeID = 0;
 			}
 			if (currentCapeTypeID < 0) {

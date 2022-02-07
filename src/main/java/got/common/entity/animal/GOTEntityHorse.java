@@ -166,7 +166,8 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 	public double getChildAttribute(EntityAgeable parent, EntityAgeable otherParent, IAttribute stat, double variance) {
 		double val2;
 		double val1 = parent.getEntityAttribute(stat).getBaseValue();
-		if (val1 <= (val2 = otherParent.getEntityAttribute(stat).getBaseValue())) {
+		val2 = otherParent.getEntityAttribute(stat).getBaseValue();
+		if (val1 <= val2) {
 			return MathHelper.getRandomDoubleInRange(rand, val1 - variance, val2 + variance);
 		}
 		return MathHelper.getRandomDoubleInRange(rand, val2 - variance, val1 + variance);

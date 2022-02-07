@@ -13,7 +13,7 @@ public class GOTMercenaryTradeEntry extends GOTUnitTradeEntry {
 
 	@Override
 	public GOTEntityNPC getOrCreateHiredNPC(World world) {
-		return (GOTEntityNPC) (theMerc);
+		return (GOTEntityNPC) theMerc;
 	}
 
 	@Override

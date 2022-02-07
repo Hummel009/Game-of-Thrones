@@ -136,7 +136,7 @@ public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 			for (k1 = -7; k1 <= 7; ++k1) {
 				i22 = Math.abs(i1);
 				k2 = Math.abs(k1);
-				if ((i22 == 7 && (k2 == 7 || (k2 == 0 || k2 == 4))) || k2 == 7 && (i22 == 0 || i22 == 4)) {
+				if (i22 == 7 && (k2 == 7 || k2 == 0 || k2 == 4) || k2 == 7 && (i22 == 0 || i22 == 4)) {
 					setBlockAndMetadata(world, i1, 5, k1, roofSlabBlock, roofSlabMeta);
 				}
 				if (k2 == 7) {

@@ -61,7 +61,7 @@ public class GOTGuiAnvil extends GuiContainer {
 					GOTPacketAnvilReforge packet = new GOTPacketAnvilReforge();
 					GOTPacketHandler.networkWrapper.sendToServer(packet);
 				}
-			} else if (button == buttonEngraveOwner && (theAnvil.invInput.getStackInSlot(0)) != null && theAnvil.engraveOwnerCost > 0 && theAnvil.hasMaterialOrCoinAmount(theAnvil.engraveOwnerCost)) {
+			} else if (button == buttonEngraveOwner && theAnvil.invInput.getStackInSlot(0) != null && theAnvil.engraveOwnerCost > 0 && theAnvil.hasMaterialOrCoinAmount(theAnvil.engraveOwnerCost)) {
 				GOTPacketAnvilEngraveOwner packet = new GOTPacketAnvilEngraveOwner();
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 			}
@@ -183,7 +183,7 @@ public class GOTGuiAnvil extends GuiContainer {
 		List<EnumChatFormatting> itemNameFormatting = theAnvil.getActiveItemNameFormatting();
 		for (EnumChatFormatting formatting : itemNameFormatting) {
 			int formattingID = formatting.ordinal();
-			if ((formatting.isColor() && (formattingID < colorCodes.length))) {
+			if (formatting.isColor() && formattingID < colorCodes.length) {
 				int color = colorCodes[formattingID];
 				textFieldRename.setTextColor(color);
 			}
@@ -250,7 +250,8 @@ public class GOTGuiAnvil extends GuiContainer {
 		if (theAnvil.clientReforgeTime > 0) {
 			--theAnvil.clientReforgeTime;
 		}
-		if ((itemstack = theAnvil.invInput.getStackInSlot(0)) != prevItemStack) {
+		itemstack = theAnvil.invInput.getStackInSlot(0);
+		if (itemstack != prevItemStack) {
 			prevItemStack = itemstack;
 			String textFieldText = itemstack == null ? "" : GOTContainerAnvil.stripFormattingCodes(itemstack.getDisplayName());
 			boolean textFieldEnabled = itemstack != null;

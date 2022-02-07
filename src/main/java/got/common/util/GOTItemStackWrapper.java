@@ -27,11 +27,11 @@ public class GOTItemStackWrapper {
 		if (this == obj) {
 			return true;
 		}
-		if ((obj == null) || (this.getClass() != obj.getClass())) {
+		if (obj == null || this.getClass() != obj.getClass()) {
 			return false;
 		}
 		GOTItemStackWrapper other = (GOTItemStackWrapper) obj;
-		if ((item == null ? other.item != null : !item.equals(other.item)) || (damage != other.damage) || (isNBTSensitive != other.isNBTSensitive)) {
+		if ((item == null ? other.item != null : !item.equals(other.item)) || damage != other.damage || isNBTSensitive != other.isNBTSensitive) {
 			return false;
 		}
 		return !isNBTSensitive || !(compound == null ? other.compound != null : !compound.equals(other.compound));

@@ -105,7 +105,8 @@ public class GOTBlockWildFire extends BlockFire {
 								if (j1 > j + 1) {
 									totalChance += (j1 - (j + 1)) * 100;
 								}
-								if ((encourage = getChanceOfNeighborsEncouragingFire(world, i1, j1, k1)) <= 0) {
+								encourage = getChanceOfNeighborsEncouragingFire(world, i1, j1, k1);
+								if (encourage <= 0) {
 									continue;
 								}
 								int chance = (encourage + 40 + world.difficultySetting.getDifficultyId() * 7) / (meta + 30);

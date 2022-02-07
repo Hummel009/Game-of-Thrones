@@ -15,11 +15,11 @@ public class GOTBlockPos {
 
 	@Override
 	public boolean equals(Object obj) {
-		if ((obj == null) || (getClass() != obj.getClass())) {
+		if (obj == null || getClass() != obj.getClass()) {
 			return false;
 		}
 		GOTBlockPos other = (GOTBlockPos) obj;
-		if ((x != other.x) || (y != other.y) || (z != other.z)) {
+		if (x != other.x || y != other.y || z != other.z) {
 			return false;
 		}
 		return true;

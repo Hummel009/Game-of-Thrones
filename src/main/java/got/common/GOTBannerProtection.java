@@ -233,7 +233,7 @@ public class GOTBannerProtection {
 		if (!banners.isEmpty()) {
 			for (Object banner2 : banners) {
 				ProtectType result;
-				GOTEntityBanner banner = (GOTEntityBanner) (banner2);
+				GOTEntityBanner banner = (GOTEntityBanner) banner2;
 				AxisAlignedBB protectionCube = banner.createProtectionCube();
 				if (!banner.isProtectingTerritory() || !protectionCube.intersectsWith(searchCube) || !protectionCube.intersectsWith(originCube) || (result = protectFilter.protects(banner)) == ProtectType.NONE) {
 					continue;
@@ -279,7 +279,8 @@ public class GOTBannerProtection {
 		for (Map.Entry<UUID, Integer> e : lastWarningTimes.entrySet()) {
 			UUID player = e.getKey();
 			int time = e.getValue();
-			e.setValue(--time);
+			time--;
+			e.setValue(time);
 			if (time > 0) {
 				continue;
 			}

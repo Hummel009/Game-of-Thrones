@@ -56,6 +56,6 @@ public class OddmentCollectorNameMischief {
 		if (charAt == '\u00a7') {
 			return true;
 		}
-		return index >= 1 && (s.charAt(index - 1)) == '\u00a7';
+		return index >= 1 && s.charAt(index - 1) == '\u00a7';
 	}
 }

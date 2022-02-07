@@ -36,7 +36,8 @@ public class GOTBlockAsshaiFlower extends GOTBlockFlower {
 				return false;
 			}
 			float alignment = GOTLevelData.getData(entityplayer).getAlignment(GOTFaction.ASSHAI);
-			if (alignment >= (max = 100.0f)) {
+			max = 100.0f;
+			if (alignment >= max) {
 				return false;
 			}
 			if (alignment > 0.0f) {

@@ -59,7 +59,7 @@ public class GOTContainerChestWithPouch extends ContainerChest {
 
 	@Override
 	public ItemStack slotClick(int slotNo, int subActionNo, int actionNo, EntityPlayer entityplayer) {
-		if (GOTContainerPouch.isPouchSlot(this, slotNo, entityplayer, thePouchSlot) || (actionNo == 2 && subActionNo == thePouchSlot)) {
+		if (GOTContainerPouch.isPouchSlot(this, slotNo, entityplayer, thePouchSlot) || actionNo == 2 && subActionNo == thePouchSlot) {
 			return null;
 		}
 		return super.slotClick(slotNo, subActionNo, actionNo, entityplayer);
@@ -73,7 +73,7 @@ public class GOTContainerChestWithPouch extends ContainerChest {
 		if (slot != null && slot.getHasStack()) {
 			ItemStack itemstack1 = slot.getStack();
 			itemstack = itemstack1.copy();
-			if (i < numChestRows * 9 ? aPouchSlot.isItemValid(itemstack1) && !mergeItemStack(itemstack1, numChestRows * 9, (numChestRows + numPouchRows) * 9, true) : (i < (numChestRows + numPouchRows) * 9 ? !mergeItemStack(itemstack1, 0, numChestRows * 9, false) : !mergeItemStack(itemstack1, 0, numChestRows * 9, false))) {
+			if (i < numChestRows * 9 ? aPouchSlot.isItemValid(itemstack1) && !mergeItemStack(itemstack1, numChestRows * 9, (numChestRows + numPouchRows) * 9, true) : i < (numChestRows + numPouchRows) * 9 ? !mergeItemStack(itemstack1, 0, numChestRows * 9, false) : !mergeItemStack(itemstack1, 0, numChestRows * 9, false)) {
 				return null;
 			}
 			if (itemstack1.stackSize == 0) {

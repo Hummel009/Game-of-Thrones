@@ -64,7 +64,7 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 			} catch (ArrayIndexOutOfBoundsException e) {
 				rec.getResult().setPermutationToRender(0);
 			}
-			if (!NEIServerUtils.areStacksSameType((rec.getResult().item), result)) {
+			if (!NEIServerUtils.areStacksSameType(rec.getResult().item, result)) {
 				continue;
 			}
 			rec.fixedResult = true;

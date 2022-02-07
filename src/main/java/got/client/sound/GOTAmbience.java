@@ -90,7 +90,7 @@ public class GOTAmbience {
 					spookyBiomeNoise = rand.nextInt(3000) == 0;
 				} else if (biome instanceof GOTBiomeHauntedForest) {
 					spookyBiomeNoise = rand.nextInt(6000) == 0;
-				} else if ((biome instanceof GOTBiomeShadowLand) || (biome instanceof GOTBiomeYeen)) {
+				} else if (biome instanceof GOTBiomeShadowLand || biome instanceof GOTBiomeYeen) {
 					spookyBiomeNoise = rand.nextInt(1000) == 0;
 					spookyPitch = 0.75f;
 				}
@@ -124,14 +124,15 @@ public class GOTAmbience {
 						}
 					}
 					for (int l = 0; l < 2; ++l) {
-						int i1 = i + MathHelper.getRandomIntegerInRange(rand, (-xzRange), xzRange);
-						int k1 = k + MathHelper.getRandomIntegerInRange(rand, (-xzRange), xzRange);
+						int i1 = i + MathHelper.getRandomIntegerInRange(rand, -xzRange, xzRange);
+						int k1 = k + MathHelper.getRandomIntegerInRange(rand, -xzRange, xzRange);
 						int j1 = j + MathHelper.getRandomIntegerInRange(rand, -16, 16);
 						if (j1 < minWindHeight || !world.canBlockSeeTheSky(i1, j1, k1)) {
 							continue;
 						}
 						float windiness = (float) (j1 - minWindHeight) / (float) (fullWindHeight - minWindHeight);
-						if ((windiness = MathHelper.clamp_float(windiness, 0.0f, 1.0f)) < rand.nextFloat()) {
+						windiness = MathHelper.clamp_float(windiness, 0.0f, 1.0f);
+						if (windiness < rand.nextFloat()) {
 							continue;
 						}
 						float x1 = i1 + 0.5f;
@@ -162,8 +163,8 @@ public class GOTAmbience {
 						for (float fr : new float[] { 0.25f, 0.5f, 0.75f, 1.0f }) {
 							int range = (int) (xzRange * fr);
 							for (int l = 0; l < 8; ++l) {
-								int i1 = i + MathHelper.getRandomIntegerInRange(rand, (-range), range);
-								int k1 = k + MathHelper.getRandomIntegerInRange(rand, (-range), range);
+								int i1 = i + MathHelper.getRandomIntegerInRange(rand, -range, range);
+								int k1 = k + MathHelper.getRandomIntegerInRange(rand, -range, range);
 								int j1 = j + MathHelper.getRandomIntegerInRange(rand, -16, 8);
 								Block block = world.getBlock(i1, j1, k1);
 								if (block.getMaterial() != Material.water || j1 < world.getTopSolidOrLiquidBlock(i1, k1)) {

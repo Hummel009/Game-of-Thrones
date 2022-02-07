@@ -118,7 +118,8 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 		}
 		int banditSlot = 0;
 		while (theBandit.getBanditInventory().getStackInSlot(banditSlot) != null) {
-			if (++banditSlot < theBandit.getBanditInventory().getSizeInventory()) {
+			banditSlot++;
+			if (banditSlot < theBandit.getBanditInventory().getSizeInventory()) {
 				continue;
 			}
 			return false;

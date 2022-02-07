@@ -17,7 +17,7 @@ public class GOTTrackingEventHandler {
 	@SubscribeEvent
 	public void onPlayerInteract(PlayerInteractEvent evt) {
 
-		if ((FMLCommonHandler.instance().getEffectiveSide() != Side.SERVER) || (evt.action != PlayerInteractEvent.Action.RIGHT_CLICK_BLOCK)) {
+		if (FMLCommonHandler.instance().getEffectiveSide() != Side.SERVER || evt.action != PlayerInteractEvent.Action.RIGHT_CLICK_BLOCK) {
 			return;
 		}
 

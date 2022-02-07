@@ -126,7 +126,7 @@ public class GOTEntityFallingTreasure extends Entity implements IEntityAdditiona
 							worldObj.playSoundEffect(i + 0.5f, j + 0.5f, k + 0.5f, stepSound.func_150496_b(), (stepSound.getVolume() + 1.0f) / 2.0f, stepSound.getPitch() * 0.8f);
 						}
 					}
-				} else if (((ticksFalling > 100) && !worldObj.isRemote && ((j < 1) || (j > 256) || (ticksFalling > 600)))) {
+				} else if (ticksFalling > 100 && !worldObj.isRemote && (j < 1 || j > 256 || ticksFalling > 600)) {
 					entityDropItem(new ItemStack(theBlock, theBlock.quantityDropped(theBlockMeta, 0, rand), theBlock.damageDropped(theBlockMeta)), 0.0f);
 					setDead();
 				}

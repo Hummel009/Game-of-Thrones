@@ -152,7 +152,8 @@ public class GOTStructureYiTiGatehouse extends GOTStructureYiTiBaseTown {
 		for (i1 = -3; i1 <= 3; ++i1) {
 			for (k12 = -3; k12 <= 3; ++k12) {
 				i2 = Math.abs(i1);
-				if (i2 + (k2 = Math.abs(k12)) <= 1) {
+				k2 = Math.abs(k12);
+				if (i2 + k2 <= 1) {
 					setBlockAndMetadata(world, i1, 12, k12, brickSlabBlock, brickSlabMeta | 8);
 				} else {
 					setBlockAndMetadata(world, i1, 12, k12, brickBlock, brickMeta);

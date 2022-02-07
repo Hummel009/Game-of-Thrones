@@ -36,7 +36,7 @@ public class GOTPacketEditSign implements IMessage {
 		signText = new String[lines];
 		for (int i = 0; i < signText.length; ++i) {
 			short length = data.readShort();
-			signText[i] = length > -1 ? (data.readBytes(length).toString(Charsets.UTF_8)) : "";
+			signText[i] = length > -1 ? data.readBytes(length).toString(Charsets.UTF_8) : "";
 		}
 	}
 

@@ -251,7 +251,8 @@ public class GOTEntityBarrel extends Entity {
 				motionX += d5 * speedMultiplier * 0.05;
 				motionZ += d11 * speedMultiplier * 0.05;
 			}
-			if ((d4 = Math.sqrt(motionX * motionX + motionZ * motionZ)) > maxSpeedMultiplier) {
+			d4 = Math.sqrt(motionX * motionX + motionZ * motionZ);
+			if (d4 > maxSpeedMultiplier) {
 				d5 = maxSpeedMultiplier / d4;
 				motionX *= d5;
 				motionZ *= d5;
@@ -284,7 +285,8 @@ public class GOTEntityBarrel extends Entity {
 			if (d11 * d11 + d10 * d10 > 0.001) {
 				d5 = (float) (Math.atan2(d10, d11) * 180.0 / 3.141592653589793);
 			}
-			if ((d12 = MathHelper.wrapAngleTo180_double(d5 - rotationYaw)) > 20.0) {
+			d12 = MathHelper.wrapAngleTo180_double(d5 - rotationYaw);
+			if (d12 > 20.0) {
 				d12 = 20.0;
 			}
 			if (d12 < -20.0) {

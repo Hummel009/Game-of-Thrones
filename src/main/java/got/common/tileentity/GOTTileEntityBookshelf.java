@@ -138,7 +138,7 @@ public class GOTTileEntityBookshelf extends TileEntity implements IInventory {
 			List players = worldObj.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(xCoord - range, yCoord - range, zCoord - range, xCoord + 1 + range, yCoord + 1 + range, zCoord + 1 + range));
 			for (Object obj : players) {
 				EntityPlayer entityplayer = (EntityPlayer) obj;
-				if (!(entityplayer.openContainer instanceof GOTContainerBookshelf) || (((GOTContainerBookshelf) entityplayer.openContainer).shelfInv) != this) {
+				if (!(entityplayer.openContainer instanceof GOTContainerBookshelf) || ((GOTContainerBookshelf) entityplayer.openContainer).shelfInv != this) {
 					continue;
 				}
 				++numPlayersUsing;
@@ -168,10 +168,10 @@ public class GOTTileEntityBookshelf extends TileEntity implements IInventory {
 			if (item instanceof ItemBook || item instanceof ItemWritableBook || item instanceof ItemEditableBook) {
 				return true;
 			}
-			if (item instanceof GOTItemQuestBook || item == GOTRegistry.valyrianBook || (item instanceof ItemEnchantedBook) || (item instanceof ItemMapBase)) {
+			if (item instanceof GOTItemQuestBook || item == GOTRegistry.valyrianBook || item instanceof ItemEnchantedBook || item instanceof ItemMapBase) {
 				return true;
 			}
-			if ((item == Items.paper) || (item instanceof GOTItemModifierTemplate)) {
+			if (item == Items.paper || item instanceof GOTItemModifierTemplate) {
 				return true;
 			}
 		}

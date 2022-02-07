@@ -48,7 +48,7 @@ public class GOTStructureLhazarWarCamp extends GOTStructureLhazarBase {
 			for (int k1 = -15; k1 <= 15; ++k1) {
 				int i2 = Math.abs(i1);
 				int k2 = Math.abs(k1);
-				for (j1 = 0; (((j1 >= -1) || !isOpaque(world, i1, j1, k1)) && (getY(j1) >= 0)); --j1) {
+				for (j1 = 0; (j1 >= -1 || !isOpaque(world, i1, j1, k1)) && getY(j1) >= 0; --j1) {
 					if (j1 == 0) {
 						if (i2 <= 14 && k2 <= 14) {
 							if (random.nextBoolean()) {

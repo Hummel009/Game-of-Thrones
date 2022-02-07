@@ -51,7 +51,7 @@ public class GOTEntityAIDragonFollowOwner extends EntityAIBase {
 	public boolean shouldExecute() {
 		EntityLivingBase ownerCurrent = dragon.getOwner();
 
-		if ((ownerCurrent == null) || dragon.isSitting() || (dragon.getDistanceSqToEntity(ownerCurrent) < minDist * minDist)) {
+		if (ownerCurrent == null || dragon.isSitting() || dragon.getDistanceSqToEntity(ownerCurrent) < minDist * minDist) {
 			return false;
 		}
 
@@ -76,7 +76,7 @@ public class GOTEntityAIDragonFollowOwner extends EntityAIBase {
 			return;
 		}
 		updateTicks = 10;
-		if (nav.tryMoveToEntityLiving(owner, speed) || dragon.getLeashed() || (dragon.getDistanceSqToEntity(owner) < maxDist * maxDist)) {
+		if (nav.tryMoveToEntityLiving(owner, speed) || dragon.getLeashed() || dragon.getDistanceSqToEntity(owner) < maxDist * maxDist) {
 			return;
 		}
 		int minX = MathHelper.floor_double(owner.posX) - 2;

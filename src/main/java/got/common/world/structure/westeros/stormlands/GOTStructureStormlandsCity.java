@@ -77,7 +77,7 @@ public class GOTStructureStormlandsCity extends GOTVillageGen {
 				}
 				int omn = 53 - random.nextInt(4);
 				int omx = 60 + random.nextInt(4);
-				if ((dSq > omn * omn && dSq < omx * omx) || (dSq < 2809 && Math.abs(i1 - k1) <= 2 + random.nextInt(4))) {
+				if (dSq > omn * omn && dSq < omx * omx || dSq < 2809 && Math.abs(i1 - k1) <= 2 + random.nextInt(4)) {
 					return GOTBezierType.PATH_DIRTY;
 				}
 			}

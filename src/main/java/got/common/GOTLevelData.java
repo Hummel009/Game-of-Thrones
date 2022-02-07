@@ -573,7 +573,8 @@ public class GOTLevelData {
 
 	public static void setWaypointCooldown(int max, int min) {
 		max = Math.max(0, max);
-		if ((min = Math.max(0, min)) > max) {
+		min = Math.max(0, min);
+		if (min > max) {
 			min = max;
 		}
 		waypointCooldownMax = max;

@@ -58,8 +58,8 @@ public class GOTPacketAlignment implements IMessage {
 			if (!GOT.proxy.isSingleplayer()) {
 				GOTPlayerData pd = GOTLevelData.getData(packet.player);
 				for (Map.Entry entry : packet.alignmentMap.entrySet()) {
-					GOTFaction f = (GOTFaction) (entry.getKey());
-					float alignment = ((Float) entry.getValue());
+					GOTFaction f = (GOTFaction) entry.getKey();
+					float alignment = (Float) entry.getValue();
 					pd.setAlignment(f, alignment);
 				}
 				pd.setHideAlignment(packet.hideAlignment);

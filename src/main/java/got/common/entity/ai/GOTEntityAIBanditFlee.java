@@ -38,7 +38,7 @@ public class GOTEntityAIBanditFlee extends EntityAIBase {
 		for (Object player : players) {
 			double d;
 			EntityPlayer entityplayer = (EntityPlayer) player;
-			if (entityplayer.capabilities.isCreativeMode || ((d = theBanditAsNPC.getDistanceToEntity(entityplayer)) >= distance)) {
+			if (entityplayer.capabilities.isCreativeMode || (d = theBanditAsNPC.getDistanceToEntity(entityplayer)) >= distance) {
 				continue;
 			}
 			distance = d;
@@ -54,7 +54,7 @@ public class GOTEntityAIBanditFlee extends EntityAIBase {
 
 	@Override
 	public boolean shouldExecute() {
-		if ((theBanditAsNPC.getAttackTarget() != null) || theBandit.getBanditInventory().isEmpty()) {
+		if (theBanditAsNPC.getAttackTarget() != null || theBandit.getBanditInventory().isEmpty()) {
 			return false;
 		}
 		targetPlayer = findNearestPlayer();
@@ -64,7 +64,7 @@ public class GOTEntityAIBanditFlee extends EntityAIBase {
 	@Override
 	public void updateTask() {
 		if (theBanditAsNPC.getNavigator().noPath()) {
-			Vec3 away = RandomPositionGenerator.findRandomTargetBlockAwayFrom(theBanditAsNPC, ((int) range), 10, Vec3.createVectorHelper(targetPlayer.posX, targetPlayer.posY, targetPlayer.posZ));
+			Vec3 away = RandomPositionGenerator.findRandomTargetBlockAwayFrom(theBanditAsNPC, (int) range, 10, Vec3.createVectorHelper(targetPlayer.posX, targetPlayer.posY, targetPlayer.posZ));
 			if (away != null) {
 				theBanditAsNPC.getNavigator().tryMoveToXYZ(away.xCoord, away.yCoord, away.zCoord, speed);
 			}

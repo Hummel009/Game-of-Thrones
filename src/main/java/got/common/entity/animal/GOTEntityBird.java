@@ -404,7 +404,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 	}
 
 	public void setBirdType(int i) {
-		dataWatcher.updateObject(16, ((byte) i));
+		dataWatcher.updateObject(16, (byte) i);
 	}
 
 	public void setStolenItem(ItemStack itemstack) {
@@ -427,7 +427,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 			}
 		}
 		if (isBirdStill()) {
-			if (!canBirdSit() || (rand.nextInt(400) == 0 || worldObj.getClosestPlayerToEntity(this, 6.0) != null)) {
+			if (!canBirdSit() || rand.nextInt(400) == 0 || worldObj.getClosestPlayerToEntity(this, 6.0) != null) {
 				setBirdStill(false);
 			}
 		} else {
@@ -472,7 +472,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 			if (stealTargetItem != null || stealTargetPlayer != null) {
 				if (birdInv.isFull() || currentFlightTarget == null || !isValidFlightTarget(currentFlightTarget)) {
 					cancelFlight();
-				} else if ((stealTargetItem != null && !canStealItem(stealTargetItem)) || (stealTargetPlayer != null && !canStealPlayer(stealTargetPlayer))) {
+				} else if (stealTargetItem != null && !canStealItem(stealTargetItem) || stealTargetPlayer != null && !canStealPlayer(stealTargetPlayer)) {
 					cancelFlight();
 				} else {
 					if (stealTargetItem != null) {
@@ -533,7 +533,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 							playSound("random.eat", 1.0f, (worldObj.rand.nextFloat() - worldObj.rand.nextFloat()) * 0.2f + 1.0f);
 						}
 						cancelFlight();
-					} else if (!canStealCrops(i, j, k) || (flightTargetTime % 100 == 0 && GOTScarecrows.anyScarecrowsNearby(worldObj, i, j, k))) {
+					} else if (!canStealCrops(i, j, k) || flightTargetTime % 100 == 0 && GOTScarecrows.anyScarecrowsNearby(worldObj, i, j, k)) {
 						cancelFlight();
 					}
 				}
@@ -549,8 +549,8 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 					for (int l = 0; l < attempts; ++l) {
 						int k1;
 						int j1;
-						int i1 = i + MathHelper.getRandomIntegerInRange(rand, (-range), range);
-						if (!canStealCrops(i1, j1 = j + MathHelper.getRandomIntegerInRange(rand, (-yRange), yRange), k1 = k + MathHelper.getRandomIntegerInRange(rand, (-range), range)) || GOTScarecrows.anyScarecrowsNearby(worldObj, i1, j1, k1)) {
+						int i1 = i + MathHelper.getRandomIntegerInRange(rand, -range, range);
+						if (!canStealCrops(i1, j1 = j + MathHelper.getRandomIntegerInRange(rand, -yRange, yRange), k1 = k + MathHelper.getRandomIntegerInRange(rand, -range, range)) || GOTScarecrows.anyScarecrowsNearby(worldObj, i1, j1, k1)) {
 							continue;
 						}
 						stealingCrops = true;

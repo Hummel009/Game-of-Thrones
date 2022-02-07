@@ -92,7 +92,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 		float highestAlignment = min;
 		for (GOTFaction f : GOTFaction.getPlayableAlignmentFactions()) {
 			float alignment = pd.getAlignment(f);
-			if ((alignment <= min)) {
+			if (alignment <= min) {
 				continue;
 			}
 			if (alignment > highestAlignment) {
@@ -108,7 +108,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 		}
 		if (!highestFactions.isEmpty()) {
 			Random rand = entityplayer.getRNG();
-			return (highestFactions.get(rand.nextInt(highestFactions.size())));
+			return highestFactions.get(rand.nextInt(highestFactions.size()));
 		}
 		return null;
 	}
@@ -194,7 +194,8 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 			if (highestFaction != null) {
 				float alignmentLoss;
 				float curAlignment = slainPlayerData.getAlignment(highestFaction);
-				if (curAlignment + (alignmentLoss = getKilledAlignmentPenalty()) < 100.0f) {
+				alignmentLoss = getKilledAlignmentPenalty();
+				if (curAlignment + alignmentLoss < 100.0f) {
 					alignmentLoss = -(curAlignment - 100.0f);
 				}
 				GOTAlignmentValues.AlignmentBonus source = new GOTAlignmentValues.AlignmentBonus(alignmentLoss, "got.alignment.bountyKill");
@@ -230,7 +231,8 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 				GOTAlignmentValues.AlignmentBonus source = new GOTAlignmentValues.AlignmentBonus(killerBonus, "got.alignment.killedHunter");
 				killerData.addAlignment(killer, source, killerHighestFaction, entityplayer);
 			}
-			if ((curAlignment = (pd = getPlayerData()).getAlignment(entityFaction)) > 100.0f) {
+			curAlignment = (pd = getPlayerData()).getAlignment(entityFaction);
+			if (curAlignment > 100.0f) {
 				float alignmentLoss = getKilledAlignmentPenalty();
 				if (curAlignment + alignmentLoss < 100.0f) {
 					alignmentLoss = -(curAlignment - 100.0f);

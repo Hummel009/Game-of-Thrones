@@ -31,7 +31,7 @@ public class GOTCommandEnchant extends CommandBase {
 					}
 					return CommandBase.getListOfStringsMatchingLastWord(args, enchNames.toArray(new String[0]));
 				}
-			} else if ("remove".equals(args[1]) && (itemstack = (CommandBase.getPlayer(sender, args[0])).getHeldItem()) != null) {
+			} else if ("remove".equals(args[1]) && (itemstack = CommandBase.getPlayer(sender, args[0]).getHeldItem()) != null) {
 				ArrayList<String> enchNames = new ArrayList<>();
 				for (GOTEnchantment ench : GOTEnchantment.allEnchantments) {
 					if (!GOTEnchantmentHelper.hasEnchant(itemstack, ench)) {

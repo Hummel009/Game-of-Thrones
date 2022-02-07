@@ -53,7 +53,7 @@ public class GOTWorldGenGiantTrees extends WorldGenAbstractTree {
 		}
 		if (restrictions) {
 			boolean flag = true;
-			if ((j < 1) || (j + height + 5 > 256)) {
+			if (j < 1 || j + height + 5 > 256) {
 				return false;
 			}
 			for (int i1 = i - 1; i1 <= i + 1; ++i1) {
@@ -62,7 +62,7 @@ public class GOTWorldGenGiantTrees extends WorldGenAbstractTree {
 						int width = trunkRadiusMax;
 						for (int i2 = i1 - width; i2 <= i1 + width && flag; ++i2) {
 							for (int k2 = k1 - width; k2 <= k1 + width && flag; ++k2) {
-								if ((j1 >= 0 && j1 < 256) && isReplaceable(world, i2, j1, k2)) {
+								if (j1 >= 0 && j1 < 256 && isReplaceable(world, i2, j1, k2)) {
 									continue;
 								}
 								flag = false;

@@ -35,7 +35,7 @@ public class GOTEntityPlate extends EntityThrowable implements IEntityAdditional
 
 	public boolean breakGlass(int i, int j, int k) {
 		Block block = worldObj.getBlock(i, j, k);
-		if (block.getMaterial() == Material.glass && !(GOTBannerProtection.isProtected(worldObj, i, j, k, GOTBannerProtection.forThrown(this), true))) {
+		if (block.getMaterial() == Material.glass && !GOTBannerProtection.isProtected(worldObj, i, j, k, GOTBannerProtection.forThrown(this), true)) {
 			worldObj.playAuxSFX(2001, i, j, k, Block.getIdFromBlock(block) + (worldObj.getBlockMetadata(i, j, k) << 12));
 			worldObj.setBlockToAir(i, j, k);
 			return true;

@@ -46,7 +46,7 @@ public class GOTWorldGenTropical extends WorldGenAbstractTree {
 				}
 				for (int i12 = i - trunkWidth - range; i12 <= i + trunkWidth + extraTrunkWidth + range && flag; ++i12) {
 					for (int k12 = k - trunkWidth - range; k12 <= k + trunkWidth + extraTrunkWidth + range && flag; ++k12) {
-						if ((j1 >= 0 && j1 < 256) && isReplaceable(world, i12, j1, k12)) {
+						if (j1 >= 0 && j1 < 256 && isReplaceable(world, i12, j1, k12)) {
 							continue;
 						}
 						flag = false;
@@ -91,7 +91,8 @@ public class GOTWorldGenTropical extends WorldGenAbstractTree {
 					if (j1 >= leafTop - 1) {
 						leafRange = 0;
 					} else if (increasing) {
-						if (++leafRange >= 3) {
+						leafRange++;
+						if (leafRange >= 3) {
 							increasing = false;
 						}
 					} else if (--leafRange <= 1) {
@@ -176,7 +177,8 @@ public class GOTWorldGenTropical extends WorldGenAbstractTree {
 						while (world.getBlock(rootX, rootY, k14).isReplaceable(world, rootX, rootY, rootZ)) {
 							setBlockAndNotifyAdequately(world, rootX, rootY, rootZ, woodBlock, woodMeta | 0xC);
 							world.getBlock(rootX, rootY - 1, rootZ).onPlantGrow(world, rootX, rootY - 1, rootZ, rootX, rootY, rootZ);
-							if (--rootY >= j - 3 - random.nextInt(3)) {
+							rootY--;
+							if (rootY >= j - 3 - random.nextInt(3)) {
 								continue;
 							}
 						}

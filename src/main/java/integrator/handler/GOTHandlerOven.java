@@ -73,7 +73,7 @@ public class GOTHandlerOven extends TemplateRecipeHandler {
 	public void loadUsageRecipes(ItemStack ingredient) {
 		ingredient.stackSize = 1;
 		ItemStack tmp = FurnaceRecipes.smelting().getSmeltingResult(ingredient);
-		if ((tmp != null) && GOTTileEntityOven.isCookResultAcceptable(tmp)) {
+		if (tmp != null && GOTTileEntityOven.isCookResultAcceptable(tmp)) {
 			arecipes.add(new CachedOvenRecipe(ingredient, tmp));
 		}
 	}

@@ -207,7 +207,8 @@ public class GOTTickHandlerClient {
 				int pcSpeed = Math.round(drawSpeed * 100.0f);
 				tooltip.add(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.weaponstat.rangedSpeed", pcSpeed));
 			}
-			if ((damage = GOTWeaponStats.getRangedDamageFactor(itemstack, false)) > 0.0f) {
+			damage = GOTWeaponStats.getRangedDamageFactor(itemstack, false);
+			if (damage > 0.0f) {
 				int pcDamage = Math.round(damage * 100.0f);
 				tooltip.add(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.weaponstat.rangedDamage", pcDamage));
 				if (itemstack.getItem() instanceof ItemBow || itemstack.getItem() instanceof GOTItemCrossbow) {
@@ -223,7 +224,8 @@ public class GOTTickHandlerClient {
 		if (GOTWeaponStats.isPoisoned(itemstack)) {
 			tooltip.add(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.weaponstat.poison"));
 		}
-		if ((armorProtect = GOTWeaponStats.getArmorProtection(itemstack)) > 0) {
+		armorProtect = GOTWeaponStats.getArmorProtection(itemstack);
+		if (armorProtect > 0) {
 			tooltip.add("");
 			int pcProtection = Math.round(armorProtect / 25.0f * 100.0f);
 			tooltip.add(EnumChatFormatting.BLUE + StatCollector.translateToLocalFormatted("got.weaponstat.protection", armorProtect, pcProtection));
@@ -246,7 +248,8 @@ public class GOTTickHandlerClient {
 		if (GOTPoisonedDrinks.isDrinkPoisoned(itemstack) && GOTPoisonedDrinks.canPlayerSeePoisoned(itemstack, entityplayer)) {
 			tooltip.add(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocal("item.got.drink.poison"));
 		}
-		if ((currentOwner = GOTItemOwnership.getCurrentOwner(itemstack)) != null) {
+		currentOwner = GOTItemOwnership.getCurrentOwner(itemstack);
+		if (currentOwner != null) {
 			tooltip.add("");
 			String ownerFormatted = StatCollector.translateToLocalFormatted("item.got.generic.currentOwner", currentOwner);
 			List ownerLines = fontRenderer.listFormattedStringToWidth(ownerFormatted, 150);
@@ -259,7 +262,7 @@ public class GOTTickHandlerClient {
 			}
 		}
 		previousOwners = GOTItemOwnership.getPreviousOwners(itemstack);
-		if (!(previousOwners.isEmpty())) {
+		if (!previousOwners.isEmpty()) {
 			tooltip.add("");
 			ArrayList<String> ownerLines = new ArrayList<>();
 			if (previousOwners.size() == 1) {
@@ -289,13 +292,13 @@ public class GOTTickHandlerClient {
 		}
 
 		if (itemstack.getItem() instanceof GOTMaterialFinder) {
-			if (((GOTMaterialFinder) itemstack.getItem()) != GOTRegistry.baelishDagger && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.VALYRIAN || ((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.OBSIDIAN)) {
+			if ((GOTMaterialFinder) itemstack.getItem() != GOTRegistry.baelishDagger && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.VALYRIAN || ((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.OBSIDIAN)) {
 				tooltip.add(EnumChatFormatting.GOLD + StatCollector.translateToLocal("item.got.antiwalker"));
 			}
-			if (((GOTMaterialFinder) itemstack.getItem()) == GOTRegistry.bericSword) {
+			if ((GOTMaterialFinder) itemstack.getItem() == GOTRegistry.bericSword) {
 				tooltip.add(EnumChatFormatting.GOLD + StatCollector.translateToLocal("item.got.antiwight"));
 			}
-			if (((GOTMaterialFinder) itemstack.getItem()) == GOTRegistry.crowbar || ((GOTMaterialFinder) itemstack.getItem()) == GOTRegistry.baelishDagger) {
+			if ((GOTMaterialFinder) itemstack.getItem() == GOTRegistry.crowbar || (GOTMaterialFinder) itemstack.getItem() == GOTRegistry.baelishDagger) {
 				tooltip.add(EnumChatFormatting.GOLD + StatCollector.translateToLocal("item.got.antiking"));
 			}
 		}
@@ -538,7 +541,8 @@ public class GOTTickHandlerClient {
 					}
 					if (inPortal) {
 						i = (Integer) playersInPortals.get(entityplayer);
-						playersInPortals.put(entityplayer, ++i);
+						i++;
+						playersInPortals.put(entityplayer, i);
 						if (i >= 100) {
 							minecraft.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("portal.trigger"), world.rand.nextFloat() * 0.4f + 0.8f));
 							playersInPortals.remove(entityplayer);
@@ -559,7 +563,8 @@ public class GOTTickHandlerClient {
 					--musicTrackTick;
 				}
 			}
-			if ((guiscreen = minecraft.currentScreen) != null) {
+			guiscreen = minecraft.currentScreen;
+			if (guiscreen != null) {
 				if (guiscreen instanceof GuiMainMenu && !(lastGuiOpen instanceof GuiMainMenu)) {
 					GOTLevelData.needsLoad = true;
 					GOTTime.needsLoad = true;
@@ -693,7 +698,8 @@ public class GOTTickHandlerClient {
 				String text = StatCollector.translateToLocalFormatted("item.got.banner.toggleRepossess", GameSettings.getKeyDisplayString(mc.gameSettings.keyBindSneak.getKeyCode()));
 				int fadeAtTick = 10;
 				int opacity = (int) (bannerRepossessDisplayTick * 255.0f / fadeAtTick);
-				if ((opacity = Math.min(opacity, 255)) > 0) {
+				opacity = Math.min(opacity, 255);
+				if (opacity > 0) {
 					ScaledResolution scaledresolution = event.resolution;
 					int width = scaledresolution.getScaledWidth();
 					int height = scaledresolution.getScaledHeight();
@@ -958,7 +964,7 @@ public class GOTTickHandlerClient {
 				float promptTick = clientTick + renderTick;
 				float promptAlpha = GOTFunctions.triangleWave(promptTick, 0.5f, 1.0f, 80.0f);
 				ArrayList<String> message = new ArrayList<>();
-				if ((entityplayer.dimension != GOTDimension.GAME_OF_THRONES.dimensionID) && renderMenuPrompt && minecraft.currentScreen == null) {
+				if (entityplayer.dimension != GOTDimension.GAME_OF_THRONES.dimensionID && renderMenuPrompt && minecraft.currentScreen == null) {
 					message.add(StatCollector.translateToLocal("got.gui.help1"));
 					message.add(StatCollector.translateToLocalFormatted("got.gui.help2", GameSettings.getKeyDisplayString(GOTKeyHandler.keyBindingReturn.getKeyCode())));
 				}

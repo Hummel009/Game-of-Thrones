@@ -78,7 +78,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 			}
 			npc.setLocationAndAngles(i + 0.5, j, k + 0.5, rand.nextFloat() * 360.0f, 0.0f);
 			npc.liftSpawnRestrictions = true;
-			Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(npc, worldObj, ((float) npc.posX), ((float) npc.posY), ((float) npc.posZ));
+			Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(npc, worldObj, (float) npc.posX, (float) npc.posY, (float) npc.posZ);
 			if (canSpawn != Event.Result.ALLOW && (canSpawn != Event.Result.DEFAULT || !npc.getCanSpawnHere())) {
 				continue;
 			}
@@ -124,14 +124,15 @@ public class GOTEntityInvasionSpawner extends Entity {
 					continue;
 				}
 				double range = 100.0;
-				if (entityplayer.dimension != dimension || (entityplayer.getDistanceSqToEntity(this) >= range * range)) {
+				if (entityplayer.dimension != dimension || entityplayer.getDistanceSqToEntity(this) >= range * range) {
 					continue;
 				}
 				GOTPlayerData pd = GOTLevelData.getData(player);
 				if (pd.getAlignment(invasionFac) <= 0.0f) {
 					achievementPlayers.add(entityplayer);
 				}
-				if ((pledged = pd.getPledgeFaction()) == null || !pledged.isBadRelation(invasionFac)) {
+				pledged = pd.getPledgeFaction();
+				if (pledged == null || !pledged.isBadRelation(invasionFac)) {
 					continue;
 				}
 				conqRewardPlayers.add(entityplayer);
@@ -196,7 +197,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 	@Override
 	public boolean hitByEntity(Entity entity) {
 		if (entity instanceof EntityPlayer) {
-			return attackEntityFrom(DamageSource.causePlayerDamage(((EntityPlayer) entity)), 0.0f);
+			return attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) entity), 0.0f);
 		}
 		return false;
 	}
@@ -246,7 +247,8 @@ public class GOTEntityInvasionSpawner extends Entity {
 					for (Map.Entry<UUID, Integer> e : recentPlayerContributors.entrySet()) {
 						UUID player = e.getKey();
 						int time = e.getValue();
-						e.setValue(--time);
+						time--;
+						e.setValue(time);
 						if (time > 0) {
 							continue;
 						}
@@ -264,7 +266,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 			double nearbySearch;
 			GOTInvasions invasionType = getInvasionType();
 			EntityPlayer closePlayer = worldObj.getClosestPlayer(posX, posY, posZ, 80.0);
-			if (closePlayer != null && invasionRemaining > 0 && (worldObj.selectEntitiesWithinAABB(GOTEntityNPC.class, boundingBox.expand(nearbySearch = INVASION_FOLLOW_RANGE * 2.0, nearbySearch, nearbySearch), selectThisInvasionMobs())).size() < 16 && rand.nextInt(160) == 0) {
+			if (closePlayer != null && invasionRemaining > 0 && worldObj.selectEntitiesWithinAABB(GOTEntityNPC.class, boundingBox.expand(nearbySearch = INVASION_FOLLOW_RANGE * 2.0, nearbySearch, nearbySearch), selectThisInvasionMobs()).size() < 16 && rand.nextInt(160) == 0) {
 				int spawnAttempts = MathHelper.getRandomIntegerInRange(rand, 1, 6);
 				spawnAttempts = Math.min(spawnAttempts, invasionRemaining);
 				boolean spawnedAnyMobs = false;
@@ -374,7 +376,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 				double nearestDist = Double.MAX_VALUE;
 				for (GOTFaction faction : invasionFaction.getBonusesForKilling()) {
 					double dist;
-					if (faction.isolationist || ((dist = faction.distanceToNearestControlZoneInRange(worldObj, posX, posY, posZ, nearestRange)) < 0.0) || nearest != null && (dist >= nearestDist)) {
+					if (faction.isolationist || (dist = faction.distanceToNearestControlZoneInRange(worldObj, posX, posY, posZ, nearestRange)) < 0.0 || nearest != null && dist >= nearestDist) {
 						continue;
 					}
 					nearest = faction;
@@ -402,7 +404,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 	}
 
 	public void setInvasionType(GOTInvasions type) {
-		dataWatcher.updateObject(20, ((byte) type.ordinal()));
+		dataWatcher.updateObject(20, (byte) type.ordinal());
 	}
 
 	public void setWatchingInvasion(EntityPlayerMP entityplayer, boolean overrideAlreadyWatched) {
@@ -445,8 +447,8 @@ public class GOTEntityInvasionSpawner extends Entity {
 
 	public void updateWatchedInvasionValues() {
 		if (!worldObj.isRemote) {
-			dataWatcher.updateObject(21, ((short) invasionSize));
-			dataWatcher.updateObject(22, ((short) invasionRemaining));
+			dataWatcher.updateObject(21, (short) invasionSize);
+			dataWatcher.updateObject(22, (short) invasionRemaining);
 		} else {
 			invasionSize = dataWatcher.getWatchableObjectShort(21);
 			invasionRemaining = dataWatcher.getWatchableObjectShort(22);
@@ -495,7 +497,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 			}
 		});
 		if (!invasions.isEmpty()) {
-			return (GOTEntityInvasionSpawner) (invasions.get(0));
+			return (GOTEntityInvasionSpawner) invasions.get(0);
 		}
 		return null;
 	}

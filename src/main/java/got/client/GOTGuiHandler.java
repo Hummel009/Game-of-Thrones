@@ -53,7 +53,7 @@ public class GOTGuiHandler {
 	public GuiButton getDifficultyButton(GuiOptions gui, List buttons) {
 		for (Object obj : buttons) {
 			GuiOptionButton button;
-			if (((obj instanceof GuiOptionButton) && ((button = (GuiOptionButton) obj).returnEnumOptions() == GameSettings.Options.DIFFICULTY))) {
+			if (obj instanceof GuiOptionButton && (button = (GuiOptionButton) obj).returnEnumOptions() == GameSettings.Options.DIFFICULTY) {
 				return button;
 			}
 		}
@@ -139,7 +139,7 @@ public class GOTGuiHandler {
 				for (int i = 0; i < container.inventorySlots.size(); ++i) {
 					Slot slot = container.getSlot(i);
 					IInventory inv = slot.inventory;
-					if (((inv != null) && !coinCount_excludedInvTypes.contains(inv.getClass()))) {
+					if (inv != null && !coinCount_excludedInvTypes.contains(inv.getClass())) {
 						if (!differentInvs.contains(inv)) {
 							differentInvs.add(inv);
 						}

@@ -52,7 +52,8 @@ public class GOTStructureLhazarTavern extends GOTStructureLhazarBase {
 			for (int k13 = -10; k13 <= 10; ++k13) {
 				int k2;
 				int i2 = Math.abs(i13);
-				if (i2 * i2 + (k2 = Math.abs(k13)) * k2 >= 100) {
+				k2 = Math.abs(k13);
+				if (i2 * i2 + k2 * k2 >= 100) {
 					continue;
 				}
 				for (j12 = 1; j12 <= 6; ++j12) {

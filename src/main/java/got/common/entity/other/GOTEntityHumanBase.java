@@ -9,7 +9,7 @@ public abstract class GOTEntityHumanBase extends GOTEntityNPC {
 	public GOTEntityHumanBase(World world) {
 		super(world);
 		canBeMarried = false;
-		if (familyInfo.isMale() && (familyInfo.age >= 0) && !isLegendaryNPC && !isNotHuman) {
+		if (familyInfo.isMale() && familyInfo.age >= 0 && !isLegendaryNPC && !isNotHuman) {
 			tasks.addTask(6, new GOTEntityAISmoke(this, 8000));
 		}
 		tasks.addTask(2, new GOTEntityAINPCAvoidEvilPlayer(this, 8.0f, 1.5, 1.8));

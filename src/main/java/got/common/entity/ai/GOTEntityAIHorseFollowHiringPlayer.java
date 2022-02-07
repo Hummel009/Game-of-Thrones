@@ -18,7 +18,7 @@ public class GOTEntityAIHorseFollowHiringPlayer extends EntityAIBase {
 
 	public GOTEntityAIHorseFollowHiringPlayer(GOTNPCMount entity) {
 		theHorse = entity;
-		livingHorse = (EntityCreature) (theHorse);
+		livingHorse = (EntityCreature) theHorse;
 		minFollowDist = 8.0f;
 		maxNearDist = 6.0f;
 		setMutexBits(3);
@@ -54,7 +54,7 @@ public class GOTEntityAIHorseFollowHiringPlayer extends EntityAIBase {
 			return false;
 		}
 		EntityPlayer entityplayer = ridingNPC.hiredNPCInfo.getHiringPlayer();
-		if ((entityplayer == null) || !ridingNPC.hiredNPCInfo.shouldFollowPlayer() || (livingHorse.getDistanceSqToEntity(entityplayer) < minFollowDist * minFollowDist)) {
+		if (entityplayer == null || !ridingNPC.hiredNPCInfo.shouldFollowPlayer() || livingHorse.getDistanceSqToEntity(entityplayer) < minFollowDist * minFollowDist) {
 			return false;
 		}
 		theHiringPlayer = entityplayer;

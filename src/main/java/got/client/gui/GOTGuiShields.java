@@ -177,7 +177,8 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 			currentShieldID = Math.min(currentShieldID, currentShieldType.list.size() - 1);
 		}
 		if (type != 0) {
-			if ((currentShieldTypeID += type) > GOTShields.ShieldType.values().length - 1) {
+			currentShieldTypeID += type;
+			if (currentShieldTypeID > GOTShields.ShieldType.values().length - 1) {
 				currentShieldTypeID = 0;
 			}
 			if (currentShieldTypeID < 0) {

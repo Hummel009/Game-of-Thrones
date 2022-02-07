@@ -52,7 +52,8 @@ public class GOTRenderPlayer {
 			GOTPlayerData otherPD = GOTLevelData.getData(entityplayer);
 			float alignment = otherPD.getAlignment(clientPD.getViewingFaction());
 			double dist = entityplayer.getDistanceSqToEntity(renderManager.livingPlayer);
-			if (dist < (range = RendererLivingEntity.NAME_TAG_RANGE) * range) {
+			range = RendererLivingEntity.NAME_TAG_RANGE;
+			if (dist < range * range) {
 				FontRenderer fr = Minecraft.getMinecraft().fontRenderer;
 				GL11.glPushMatrix();
 				GL11.glTranslatef(fr0, fr1, fr2);

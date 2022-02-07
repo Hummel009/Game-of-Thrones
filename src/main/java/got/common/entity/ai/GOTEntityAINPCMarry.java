@@ -68,7 +68,8 @@ public class GOTEntityAINPCMarry extends EntityAIBase {
 			GOTLevelData.getData(ringPlayer).addAlignment(ringPlayer, GOTAlignmentValues.MARRIAGE_BONUS, theNPC.getFaction(), theNPC);
 
 		}
-		if ((ringPlayerSpouse = theSpouse.familyInfo.getRingGivingPlayer()) != null) {
+		ringPlayerSpouse = theSpouse.familyInfo.getRingGivingPlayer();
+		if (ringPlayerSpouse != null) {
 			GOTLevelData.getData(ringPlayerSpouse).addAlignment(ringPlayerSpouse, GOTAlignmentValues.MARRIAGE_BONUS, theSpouse.getFaction(), theSpouse);
 
 		}
@@ -91,7 +92,7 @@ public class GOTEntityAINPCMarry extends EntityAIBase {
 		double distanceSq = Double.MAX_VALUE;
 		for (GOTEntityNPC candidate : list) {
 			double d;
-			if (!theNPC.familyInfo.canMarryNPC(candidate) || !candidate.familyInfo.canMarryNPC(theNPC) || ((d = theNPC.getDistanceSqToEntity(candidate)) > distanceSq)) {
+			if (!theNPC.familyInfo.canMarryNPC(candidate) || !candidate.familyInfo.canMarryNPC(theNPC) || (d = theNPC.getDistanceSqToEntity(candidate)) > distanceSq) {
 				continue;
 			}
 			distanceSq = d;

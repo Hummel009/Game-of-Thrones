@@ -19,7 +19,7 @@ public class GOTSlotAlignmentReward extends GOTSlotProtected {
 		super(inv, i, j, k);
 		theContainer = container;
 		theTrader = entity;
-		theLivingTrader = (GOTEntityNPC) (theTrader);
+		theLivingTrader = (GOTEntityNPC) theTrader;
 		alignmentReward = item.copy();
 	}
 
