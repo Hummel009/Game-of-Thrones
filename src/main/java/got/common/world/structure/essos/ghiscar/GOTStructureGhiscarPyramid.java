@@ -404,7 +404,8 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 			stepX = newX;
 			newY--;
 			stepY = newY;
-			stepZ = ++newZ;
+			newZ++;
+			stepZ = newZ;
 		}
 		for (int j114 = roomFloor + 1; j114 <= topHeight - 32; ++j114) {
 			setBlockAndMetadata(world, maze3EndX, j114, maze3EndZ, GOTRegistry.brick1, 15);

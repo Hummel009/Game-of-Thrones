@@ -239,7 +239,8 @@ public class GOTChunkProvider implements IChunkProvider {
 						avgBaseHeight = avgFlatBiomeHeight + (avgBaseHeight - avgFlatBiomeHeight) * interpFactor;
 						avgHeightVariation *= interpFactor;
 					}
-					if ((mountain = GOTMountains.getTotalHeightBoost(xPos, zPos)) > 0.005f) {
+					mountain = GOTMountains.getTotalHeightBoost(xPos, zPos);
+					if (mountain > 0.005f) {
 						avgBaseHeight += mountain;
 						float mtnV = 0.2f;
 						float dv = avgHeightVariation - mtnV;
@@ -260,7 +261,8 @@ public class GOTChunkProvider implements IChunkProvider {
 				}
 				heightNoise = heightNoise * 3.0 - 2.0;
 				if (heightNoise < 0.0) {
-					if ((heightNoise /= 2.0) < -1.0) {
+					heightNoise /= 2.0;
+					if (heightNoise < -1.0) {
 						heightNoise = -1.0;
 					}
 					heightNoise /= 1.4;

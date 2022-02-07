@@ -196,7 +196,8 @@ public class GOTStructureIbbenStables extends GOTStructureIbbenBase {
 				}
 				dx = i13 - 0;
 				dz = k1 - 20;
-				if (dx * dx + dz * dz < (hayDist = 1 + random.nextInt(3)) * hayDist && random.nextInt(3) != 0) {
+				hayDist = 1 + random.nextInt(3);
+				if (dx * dx + dz * dz < hayDist * hayDist && random.nextInt(3) != 0) {
 					int hayHeight = 1 + random.nextInt(3);
 					for (int j13 = 1; j13 <= hayHeight; ++j13) {
 						setBlockAndMetadata(world, i13, j13, k1, Blocks.hay_block, 0);
