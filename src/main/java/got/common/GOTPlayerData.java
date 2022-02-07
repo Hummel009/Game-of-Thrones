@@ -138,7 +138,8 @@ public class GOTPlayerData {
 				if (inviterID == null) {
 					inviterID = fs.getOwner();
 				}
-				if ((inviter = getOtherPlayer(inviterID)) != null) {
+				inviter = getOtherPlayer(inviterID);
+				if (inviter != null) {
 					fs.sendNotification(inviter, "got.gui.fellowships.notifyAccept", entityplayer.getCommandSenderName());
 				}
 			}
@@ -564,7 +565,8 @@ public class GOTPlayerData {
 		if (isPledgeEnemyAlignmentLimited(fac)) {
 			float limit;
 			float alignment = getAlignment(fac);
-			if (alignment > (limit = getPledgeEnemyAlignmentLimit(fac))) {
+			limit = getPledgeEnemyAlignmentLimit(fac);
+			if (alignment > limit) {
 				bonus = 0.0f;
 			} else if (alignment + bonus > limit) {
 				bonus = limit - alignment;
@@ -578,7 +580,7 @@ public class GOTPlayerData {
 		for (GOTCustomWaypoint waypoint : customWaypointsShared) {
 			GOTCustomWaypoint wpOriginal;
 			UUID waypointSharingPlayer = waypoint.getSharingPlayerID();
-			if (checkSpecificPlayers != null && !checkSpecificPlayers.contains(waypointSharingPlayer) || (wpOriginal = GOTLevelData.getData(waypointSharingPlayer).getCustomWaypointByID(waypoint.getID())) == null || (wpOriginal.getPlayersInAllSharedFellowships()).contains(playerUUID)) {
+			if (checkSpecificPlayers != null && !checkSpecificPlayers.contains(waypointSharingPlayer) || (wpOriginal = GOTLevelData.getData(waypointSharingPlayer).getCustomWaypointByID(waypoint.getID())) == null || wpOriginal.getPlayersInAllSharedFellowships().contains(playerUUID)) {
 				continue;
 			}
 			removes.add(waypoint);
@@ -610,7 +612,7 @@ public class GOTPlayerData {
 	}
 
 	public void createFellowship(String name, boolean normalCreation) {
-		if ((normalCreation && (!canCreateFellowships(false)))) {
+		if (normalCreation && !canCreateFellowships(false)) {
 			return;
 		}
 		if (!anyMatchingFellowshipNames(name, false)) {
@@ -945,7 +947,7 @@ public class GOTPlayerData {
 	public List<GOTFaction> getFactionsPreventingPledgeTo(GOTFaction fac) {
 		ArrayList<GOTFaction> enemies = new ArrayList<>();
 		for (GOTFaction otherFac : GOTFaction.values()) {
-			if (!otherFac.isPlayableAlignmentFaction() || !doesFactionPreventPledge(fac, otherFac) || ((getAlignment(otherFac)) <= 0.0f)) {
+			if (!otherFac.isPlayableAlignmentFaction() || !doesFactionPreventPledge(fac, otherFac) || getAlignment(otherFac) <= 0.0f) {
 				continue;
 			}
 			enemies.add(otherFac);
@@ -1331,7 +1333,8 @@ public class GOTPlayerData {
 			if (fellowshipIDs.contains(fs.getFellowshipID())) {
 				removeFellowship(fs);
 			}
-			if ((entityplayer = getPlayer()) != null && !entityplayer.worldObj.isRemote && (owner = getOtherPlayer(fs.getOwner())) != null) {
+			entityplayer = getPlayer();
+			if (entityplayer != null && !entityplayer.worldObj.isRemote && (owner = getOtherPlayer(fs.getOwner())) != null) {
 				fs.sendNotification(owner, "got.gui.fellowships.notifyLeave", entityplayer.getCommandSenderName());
 			}
 		}
@@ -2102,7 +2105,8 @@ public class GOTPlayerData {
 				addAchievement(GOTAchievement.HUNDREDS);
 			}
 		}
-		if ((fullMaterial = getBodyMaterial(entityplayer)) != null && fullMaterial == GOTMaterial.HAND) {
+		fullMaterial = getBodyMaterial(entityplayer);
+		if (fullMaterial != null && fullMaterial == GOTMaterial.HAND) {
 			addAchievement(GOTAchievement.WEAR_FULL_HAND);
 		}
 		if ((fullMaterial = getHelmetMaterial(entityplayer)) != null && fullMaterial == GOTMaterial.HELMET) {
@@ -2350,7 +2354,8 @@ public class GOTPlayerData {
 		if (biome instanceof GOTBiome) {
 			Region biomeRegion;
 			GOTBiome GOTbiome = (GOTBiome) biome;
-			if ((biomeRegion = GOTbiome.getBiomeWaypoints()) != null) {
+			biomeRegion = GOTbiome.getBiomeWaypoints();
+			if (biomeRegion != null) {
 				unlockFTRegion(biomeRegion);
 			}
 		}
@@ -2716,7 +2721,8 @@ public class GOTPlayerData {
 			checkAlignmentAchievements(fac, getAlignment(fac));
 			addAchievement(GOTAchievement.PLEDGE_SERVICE);
 		}
-		if ((entityplayer = getPlayer()) != null && !entityplayer.worldObj.isRemote) {
+		entityplayer = getPlayer();
+		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			if (fac != null) {
 				World world = entityplayer.worldObj;
 				world.playSoundAtEntity(entityplayer, "got:event.pledge", 1.0f, 1.0f);
@@ -2963,7 +2969,8 @@ public class GOTPlayerData {
 			return;
 		}
 		MinecraftServer.getServer();
-		if ((ftClockIncrease = (int) (((int) ((getCurrentOnlineTime()) - lastOnlineTime)) * (0.1))) > 0) {
+		ftClockIncrease = (int) ((int) (getCurrentOnlineTime() - lastOnlineTime) * 0.1);
+		if (ftClockIncrease > 0) {
 			setTimeSinceFTWithUpdate(ftSinceTick + ftClockIncrease);
 		}
 	}
@@ -2979,7 +2986,8 @@ public class GOTPlayerData {
 				GOTLog.logger.error("No associated packet for fellowship update type " + updateType.getClass().getName());
 			}
 		}
-		if ((playersToCheckSharedWaypointsFrom = updateType.getPlayersToCheckSharedWaypointsFrom(fs)) != null && !playersToCheckSharedWaypointsFrom.isEmpty()) {
+		playersToCheckSharedWaypointsFrom = updateType.getPlayersToCheckSharedWaypointsFrom(fs);
+		if (playersToCheckSharedWaypointsFrom != null && !playersToCheckSharedWaypointsFrom.isEmpty()) {
 			addSharedCustomWaypointsFrom(fs.getFellowshipID(), playersToCheckSharedWaypointsFrom);
 			checkCustomWaypointsSharedBy(playersToCheckSharedWaypointsFrom);
 		}

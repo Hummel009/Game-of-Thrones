@@ -759,7 +759,7 @@ public class GOTCommonProxy implements IGuiHandler {
 
 	@SubscribeEvent
 	public void onLivingAttack(LivingAttackEvent event) {
-		if ((event.source == DamageSource.inWall) && GOTGrappleHelper.attached.contains(event.entity.getEntityId())) {
+		if (event.source == DamageSource.inWall && GOTGrappleHelper.attached.contains(event.entity.getEntityId())) {
 			event.setCanceled(true);
 		}
 	}
@@ -859,7 +859,7 @@ public class GOTCommonProxy implements IGuiHandler {
 	}
 
 	public static int packGuiIDWithSlot(int guiID, int slotNo) {
-		return guiID | (slotNo << 16);
+		return guiID | slotNo << 16;
 	}
 
 	public static void sendClientsideGUI(EntityPlayerMP entityplayer, int guiID, int x, int y, int z) {

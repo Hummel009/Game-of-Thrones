@@ -43,7 +43,8 @@ public class GOTSpawnDamping {
 		float stationaryPointValue;
 		float damp = GOTSpawnDamping.getSpawnDamping(type);
 		float dampFraction = (players - 1) * damp;
-		if ((dampFraction = MathHelper.clamp_float(dampFraction, 0.0f, 1.0f)) > (stationaryPointValue = 0.5f + damp / 2.0f)) {
+		dampFraction = MathHelper.clamp_float(dampFraction, 0.0f, 1.0f);
+		if (dampFraction > (stationaryPointValue = 0.5f + damp / 2.0f)) {
 			dampFraction = stationaryPointValue;
 		}
 		int capPerPlayer = Math.round(baseCap * (1.0f - dampFraction));

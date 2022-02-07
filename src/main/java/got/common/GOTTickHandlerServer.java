@@ -74,7 +74,8 @@ public class GOTTickHandlerServer {
 				if (netHandler instanceof GOTNetHandlerPlayServer) {
 					((GOTNetHandlerPlayServer) netHandler).update();
 				}
-				if ((heldItem = entityplayer.getHeldItem()) != null && (heldItem.getItem() instanceof ItemWritableBook || heldItem.getItem() instanceof ItemEditableBook)) {
+				heldItem = entityplayer.getHeldItem();
+				if (heldItem != null && (heldItem.getItem() instanceof ItemWritableBook || heldItem.getItem() instanceof ItemEditableBook)) {
 					entityplayer.func_143004_u();
 				}
 				if (entityplayer.dimension == 0 && GOTLevelData.madePortal == 0) {
@@ -108,7 +109,8 @@ public class GOTTickHandlerServer {
 					}
 					if (inPortal) {
 						i = (Integer) playersInPortals.get(entityplayer);
-						playersInPortals.put(entityplayer, ++i);
+						i++;
+						playersInPortals.put(entityplayer, i);
 						if (i >= 100) {
 							int dimension = 0;
 							if (entityplayer.dimension == 0) {
@@ -212,7 +214,7 @@ public class GOTTickHandlerServer {
 				}
 				GOTBiome.performSeasonChanges();
 				GOTConquestGrid.updateZones(world);
-				if (!world.playerEntities.isEmpty() && (world.getTotalWorldTime() % 20L == 0L)) {
+				if (!world.playerEntities.isEmpty() && world.getTotalWorldTime() % 20L == 0L) {
 					for (Object element : world.playerEntities) {
 						EntityPlayer entityplayer = (EntityPlayer) element;
 						GOTLevelData.sendPlayerLocationsToPlayer(entityplayer, world);
@@ -228,7 +230,8 @@ public class GOTTickHandlerServer {
 			inPortal = entityplayer.worldObj.getBlock(MathHelper.floor_double(entityplayer.posX), MathHelper.floor_double(entityplayer.boundingBox.minY), MathHelper.floor_double(entityplayer.posZ)) == portalBlock;
 			if (inPortal) {
 				int i = (Integer) players.get(entityplayer);
-				players.put(entityplayer, ++i);
+				i++;
+				players.put(entityplayer, i);
 				if (i >= entityplayer.getMaxInPortalTime()) {
 					int dimension = 0;
 					if (entityplayer.dimension == 0) {

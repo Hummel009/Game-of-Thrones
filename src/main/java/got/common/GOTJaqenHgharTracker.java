@@ -117,7 +117,8 @@ public class GOTJaqenHgharTracker {
 		HashSet<UUID> removes = new HashSet<>();
 		for (UUID id : activeGreyWanderers.keySet()) {
 			int cd = activeGreyWanderers.get(id);
-			activeGreyWanderers.put(id, --cd);
+			cd--;
+			activeGreyWanderers.put(id, cd);
 			if (cd > 0) {
 				continue;
 			}

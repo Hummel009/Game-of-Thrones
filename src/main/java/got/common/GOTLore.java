@@ -353,7 +353,8 @@ public class GOTLore {
 				}
 				pageText = pageText + currentLine;
 				currentLine = "";
-				if (++numLines >= 13) {
+				numLines++;
+				if (numLines >= 13) {
 					break;
 				}
 			}
