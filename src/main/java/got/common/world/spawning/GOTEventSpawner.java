@@ -10,7 +10,6 @@ import got.common.entity.other.*;
 import got.common.world.GOTWorldProvider;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.block.Block;
-import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.*;
@@ -101,16 +100,12 @@ public class GOTEventSpawner {
 				if (!world.isDaytime() && GOTWorldProvider.isLunarEclipse()) {
 					chance *= 5.0;
 				}
-				if (rand.nextDouble() >= chance || world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), new IEntitySelector() {
-
-					@Override
-					public boolean isEntityApplicable(Entity entity) {
-						EntityPlayer entityplayer;
-						if (entity instanceof EntityPlayer && (entityplayer = (EntityPlayer) entity).isEntityAlive() && !entityplayer.capabilities.isCreativeMode) {
-							return GOTLevelData.getData(entityplayer).getAlignment(invasionType.invasionFaction) < 0.0f;
-						}
-						return false;
+				if (rand.nextDouble() >= chance || world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), entity -> {
+					EntityPlayer entityplayer;
+					if (entity instanceof EntityPlayer && (entityplayer = (EntityPlayer) entity).isEntityAlive() && !entityplayer.capabilities.isCreativeMode) {
+						return GOTLevelData.getData(entityplayer).getAlignment(invasionType.invasionFaction) < 0.0f;
 					}
+					return false;
 				}).isEmpty()) {
 					continue;
 				}

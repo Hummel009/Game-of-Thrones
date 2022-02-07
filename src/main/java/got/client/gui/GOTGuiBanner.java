@@ -223,13 +223,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 			}
 			String boxTitle = StatCollector.translateToLocal(isFellowship ? "got.gui.bannerEdit.perms.fellowship" : "got.gui.bannerEdit.perms.player");
 			String boxSubtitle = StatCollector.translateToLocalFormatted("got.gui.bannerEdit.perms.name", username);
-			Function<GOTBannerProtection.Permission, Boolean> getEnabled = new Function<GOTBannerProtection.Permission, Boolean>() {
-
-				@Override
-				public Boolean apply(GOTBannerProtection.Permission p) {
-					return getTheBanner().getWhitelistEntry(permissionsOpenIndex).isPermissionEnabled(p);
-				}
-			};
+			Function<GOTBannerProtection.Permission, Boolean> getEnabled = p -> getTheBanner().getWhitelistEntry(permissionsOpenIndex).isPermissionEnabled(p);
 			drawPermissionsWindow(i, j, windowX, windowY, boxTitle, boxSubtitle, getEnabled, true);
 		}
 		if (defaultPermissionsOpen) {
@@ -237,13 +231,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 			windowY = guiTop + ySize - permWindowHeight;
 			String boxTitle = StatCollector.translateToLocal("got.gui.bannerEdit.perms.default");
 			String boxSubtitle = StatCollector.translateToLocalFormatted("got.gui.bannerEdit.perms.allPlayers");
-			Function<GOTBannerProtection.Permission, Boolean> getEnabled = new Function<GOTBannerProtection.Permission, Boolean>() {
-
-				@Override
-				public Boolean apply(GOTBannerProtection.Permission p) {
-					return getTheBanner().hasDefaultPermission(p);
-				}
-			};
+			Function<GOTBannerProtection.Permission, Boolean> getEnabled = p -> getTheBanner().hasDefaultPermission(p);
 			drawPermissionsWindow(i, j, windowX, windowY, boxTitle, boxSubtitle, getEnabled, false);
 		}
 		super.drawScreen(i, j, f);

@@ -374,15 +374,11 @@ public class GOTConnectedTextures {
 				}
 				allCombos.put(key, iconSet);
 			}
-			comparator = new Comparator<IconElement>() {
-
-				@Override
-				public int compare(IconElement e1, IconElement e2) {
-					if (e1.priority == e2.priority) {
-						return e1.compareTo(e2);
-					}
-					return Integer.compare(e1.priority, e2.priority);
+			comparator = (e1, e2) -> {
+				if (e1.priority == e2.priority) {
+					return e1.compareTo(e2);
 				}
+				return Integer.compare(e1.priority, e2.priority);
 			};
 		}
 		private String iconName;

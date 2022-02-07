@@ -250,13 +250,7 @@ public class GOTTitle {
 	}
 
 	public static Comparator<GOTTitle> createTitleSorter(EntityPlayer entityplayer) {
-		return new Comparator<GOTTitle>() {
-
-			@Override
-			public int compare(GOTTitle title1, GOTTitle title2) {
-				return title1.getDisplayName(entityplayer).compareTo(title2.getDisplayName(entityplayer));
-			}
-		};
+		return (title1, title2) -> title1.getDisplayName(entityplayer).compareTo(title2.getDisplayName(entityplayer));
 	}
 
 	public static GOTTitle forID(int ID) {

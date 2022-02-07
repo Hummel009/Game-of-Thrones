@@ -390,16 +390,12 @@ public class GOTEntityInvasionSpawner extends Entity {
 	}
 
 	public IEntitySelector selectThisInvasionMobs() {
-		return new IEntitySelector() {
-
-			@Override
-			public boolean isEntityApplicable(Entity entity) {
-				if (entity.isEntityAlive() && entity instanceof GOTEntityNPC) {
-					GOTEntityNPC npc = (GOTEntityNPC) entity;
-					return npc.isInvasionSpawned() && npc.getInvasionID().equals(GOTEntityInvasionSpawner.this.getInvasionID());
-				}
-				return false;
+		return entity -> {
+			if (entity.isEntityAlive() && entity instanceof GOTEntityNPC) {
+				GOTEntityNPC npc = (GOTEntityNPC) entity;
+				return npc.isInvasionSpawned() && npc.getInvasionID().equals(GOTEntityInvasionSpawner.this.getInvasionID());
 			}
+			return false;
 		};
 	}
 
@@ -489,13 +485,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 	public static GOTEntityInvasionSpawner locateInvasionNearby(Entity seeker, UUID id) {
 		World world = seeker.worldObj;
 		double search = 256.0;
-		List invasions = world.selectEntitiesWithinAABB(GOTEntityInvasionSpawner.class, seeker.boundingBox.expand(search, search, search), new IEntitySelector() {
-
-			@Override
-			public boolean isEntityApplicable(Entity e) {
-				return e.getUniqueID().equals(id);
-			}
-		});
+		List invasions = world.selectEntitiesWithinAABB(GOTEntityInvasionSpawner.class, seeker.boundingBox.expand(search, search, search), e -> e.getUniqueID().equals(id));
 		if (!invasions.isEmpty()) {
 			return (GOTEntityInvasionSpawner) invasions.get(0);
 		}

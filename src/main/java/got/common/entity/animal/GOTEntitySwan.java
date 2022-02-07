@@ -30,13 +30,7 @@ public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature,
 	public boolean assignedAttackOrFlee = false;
 	public EntityAIBase attackAI = new GOTEntityAIAttackOnCollide(this, 1.4, true);
 	public EntityAIBase fleeAI = new EntityAIPanic(this, 1.8);
-	public IEntitySelector swanAttackRange = new IEntitySelector() {
-
-		@Override
-		public boolean isEntityApplicable(Entity entity) {
-			return entity instanceof EntityLivingBase && entity.isEntityAlive() && GOTEntitySwan.this.getDistanceSqToEntity(entity) < 16.0;
-		}
-	};
+	public IEntitySelector swanAttackRange = entity -> entity instanceof EntityLivingBase && entity.isEntityAlive() && this.getDistanceSqToEntity(entity) < 16.0;
 
 	public GOTEntitySwan(World world) {
 		super(world);

@@ -899,53 +899,45 @@ public class GOTGuiFellowships extends GOTGuiMenuWBBase {
 
 	private List<GOTFellowshipClient> sortFellowshipsForDisplay(List<GOTFellowshipClient> list) {
 		ArrayList<GOTFellowshipClient> sorted = new ArrayList<>(list);
-		Collections.sort(sorted, new Comparator<GOTFellowshipClient>() {
-
-			@Override
-			public int compare(GOTFellowshipClient fs1, GOTFellowshipClient fs2) {
-				int count2;
-				int count1 = fs1.getMemberCount();
-				count2 = fs2.getMemberCount();
-				if (count1 == count2) {
-					return fs1.getName().toLowerCase().compareTo(fs2.getName().toLowerCase());
-				}
-				return -Integer.compare(count1, count2);
+		Collections.sort(sorted, (fs1, fs2) -> {
+			int count2;
+			int count1 = fs1.getMemberCount();
+			count2 = fs2.getMemberCount();
+			if (count1 == count2) {
+				return fs1.getName().toLowerCase().compareTo(fs2.getName().toLowerCase());
 			}
+			return -Integer.compare(count1, count2);
 		});
 		return sorted;
 	}
 
 	private List<String> sortMemberNamesForDisplay(GOTFellowshipClient fs) {
 		ArrayList<String> members = new ArrayList<>(fs.getMemberNames());
-		Collections.sort(members, new Comparator<String>() {
-
-			@Override
-			public int compare(String player1, String player2) {
-				boolean online2;
-				boolean admin1 = fs.isAdmin(player1);
-				boolean admin2 = fs.isAdmin(player2);
-				boolean online1 = GOTGuiFellowships.isPlayerOnline(player1);
-				online2 = GOTGuiFellowships.isPlayerOnline(player2);
-				if (online1 == online2) {
-					if (admin1 == admin2) {
-						return player1.toLowerCase().compareTo(player2.toLowerCase());
-					}
-					if (admin1 && !admin2) {
-						return -1;
-					}
-					if (!admin1 && admin2) {
-						return 1;
-					}
-				} else {
-					if (online1 && !online2) {
-						return -1;
-					}
-					if (!online1 && online2) {
-						return 1;
-					}
+		Collections.sort(members, (player1, player2) -> {
+			boolean online2;
+			boolean admin1 = fs.isAdmin(player1);
+			boolean admin2 = fs.isAdmin(player2);
+			boolean online1 = GOTGuiFellowships.isPlayerOnline(player1);
+			online2 = GOTGuiFellowships.isPlayerOnline(player2);
+			if (online1 == online2) {
+				if (admin1 == admin2) {
+					return player1.toLowerCase().compareTo(player2.toLowerCase());
 				}
-				return 0;
+				if (admin1 && !admin2) {
+					return -1;
+				}
+				if (!admin1 && admin2) {
+					return 1;
+				}
+			} else {
+				if (online1 && !online2) {
+					return -1;
+				}
+				if (!online1 && online2) {
+					return 1;
+				}
 			}
+			return 0;
 		});
 		return members;
 	}

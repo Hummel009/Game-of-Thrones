@@ -9,7 +9,6 @@ import got.common.entity.essos.qohor.GOTEntityQohorBlacksmith;
 import got.common.entity.other.*;
 import got.common.faction.GOTAlignmentValues;
 import got.common.item.other.*;
-import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -197,16 +196,12 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 					spawnAngryFX(npc);
 				}
 				if (!noticed || rand.nextFloat() < 0.5f) {
-					List nearbyFriends = npc.worldObj.selectEntitiesWithinAABB(GOTEntityNPC.class, npc.boundingBox.expand(16.0, 16.0, 16.0), new IEntitySelector() {
-
-						@Override
-						public boolean isEntityApplicable(Entity entity) {
-							GOTEntityNPC otherNPC = (GOTEntityNPC) entity;
-							if (otherNPC.isEntityAlive() && otherNPC.getFaction().isGoodRelation(npc.getFaction())) {
-								return otherNPC.hiredNPCInfo.getHiringPlayer() != entityplayer;
-							}
-							return false;
+					List nearbyFriends = npc.worldObj.selectEntitiesWithinAABB(GOTEntityNPC.class, npc.boundingBox.expand(16.0, 16.0, 16.0), entity -> {
+						GOTEntityNPC otherNPC = (GOTEntityNPC) entity;
+						if (otherNPC.isEntityAlive() && otherNPC.getFaction().isGoodRelation(npc.getFaction())) {
+							return otherNPC.hiredNPCInfo.getHiringPlayer() != entityplayer;
 						}
+						return false;
 					});
 					for (Object o : nearbyFriends) {
 						double maxRange;
