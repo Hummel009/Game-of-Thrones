@@ -57,7 +57,8 @@ public class GOTGuiNotificationDisplay extends Gui {
 							d1 = 2.0 - d1;
 						}
 						d1 *= 4.0;
-						if ((d1 = 1.0 - d1) < 0.0) {
+						d1 = 1.0 - d1;
+						if (d1 < 0.0) {
 							d1 = 0.0;
 						}
 						d1 *= d1;

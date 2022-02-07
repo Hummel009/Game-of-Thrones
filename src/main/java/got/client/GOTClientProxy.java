@@ -62,7 +62,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 	private static GOTTickHandlerClient tickHandler = new GOTTickHandlerClient();
 	private static GOTGuiHandler guiHandler = new GOTGuiHandler();
 	private static GOTMusic musicHandler;
-	private static GOTRenderCrosshair crosshairrenderer;
+	private static GOTRenderCrosshair crosshairrenderer = new GOTRenderCrosshair();
 	private int beaconRenderID;
 	private int barrelRenderID;
 	private int bombRenderID;
@@ -548,7 +548,10 @@ public class GOTClientProxy extends GOTCommonProxy {
 	public void onPostload() {
 		super.onPostload();
 		setMusicHandler(new GOTMusic());
-		crosshairrenderer = new GOTRenderCrosshair();
+		specialPlayerRenderer.postInit();
+		crosshairrenderer.postInit();
+		guiHandler.postInit();
+		swingHandler.postInit();
 	}
 
 	@Override

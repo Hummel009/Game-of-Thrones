@@ -52,7 +52,6 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	private static boolean showWP = true;
 	private static boolean showCWP = true;
 	private static boolean showHiddenSWP = false;
-	private static int maxDisplayedWPShares;
 	private static GOTDimension.DimensionRegion currentRegion;
 	private static GOTDimension.DimensionRegion prevRegion;
 	private static List<GOTFaction> currentFactionList;
@@ -2094,7 +2093,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	}
 
 	public void setupScrollBars(int i, int j) {
-		maxDisplayedWPShares = fullscreen ? 8 : 5;
+		int maxDisplayedWPShares = fullscreen ? 8 : 5;
 		if (selectedWaypoint != null && hasOverlay && sharingWaypoint) {
 			displayedWPShareList = ((GOTCustomWaypoint) selectedWaypoint).getSharedFellowshipIDs();
 			displayedWPShares = displayedWPShareList.size();

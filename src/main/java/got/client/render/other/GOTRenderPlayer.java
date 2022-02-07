@@ -28,6 +28,9 @@ public class GOTRenderPlayer {
 		FMLCommonHandler.instance().bus().register(this);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
+	
+	public void postInit() {
+	}
 
 	@SubscribeEvent
 	public void postRender(RenderPlayerEvent.Post event) {

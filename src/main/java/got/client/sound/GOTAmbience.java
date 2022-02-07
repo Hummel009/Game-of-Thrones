@@ -131,7 +131,8 @@ public class GOTAmbience {
 							continue;
 						}
 						float windiness = (float) (j1 - minWindHeight) / (float) (fullWindHeight - minWindHeight);
-						if ((windiness = MathHelper.clamp_float(windiness, 0.0f, 1.0f)) < rand.nextFloat()) {
+						windiness = MathHelper.clamp_float(windiness, 0.0f, 1.0f);
+						if (windiness < rand.nextFloat()) {
 							continue;
 						}
 						float x1 = i1 + 0.5f;

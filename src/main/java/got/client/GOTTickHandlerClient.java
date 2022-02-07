@@ -210,7 +210,8 @@ public class GOTTickHandlerClient {
 		if (GOTWeaponStats.isPoisoned(itemstack)) {
 			tooltip.add(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.weaponstat.poison"));
 		}
-		if ((armorProtect = GOTWeaponStats.getArmorProtection(itemstack)) > 0) {
+		armorProtect = GOTWeaponStats.getArmorProtection(itemstack);
+		if (armorProtect > 0) {
 			tooltip.add("");
 			int pcProtection = Math.round(armorProtect / 25.0f * 100.0f);
 			tooltip.add(EnumChatFormatting.BLUE + StatCollector.translateToLocalFormatted("got.weaponstat.protection", armorProtect, pcProtection));
@@ -551,7 +552,8 @@ public class GOTTickHandlerClient {
 					--musicTrackTick;
 				}
 			}
-			if ((guiscreen = minecraft.currentScreen) != null) {
+			guiscreen = minecraft.currentScreen;
+			if (guiscreen != null) {
 				if (guiscreen instanceof GuiMainMenu && !(lastGuiOpen instanceof GuiMainMenu)) {
 					GOTLevelData.needsLoad = true;
 					GOTTime.needsLoad = true;
@@ -685,7 +687,8 @@ public class GOTTickHandlerClient {
 				String text = StatCollector.translateToLocalFormatted("item.got.banner.toggleRepossess", GameSettings.getKeyDisplayString(mc.gameSettings.keyBindSneak.getKeyCode()));
 				int fadeAtTick = 10;
 				int opacity = (int) (bannerRepossessDisplayTick * 255.0f / fadeAtTick);
-				if ((opacity = Math.min(opacity, 255)) > 0) {
+				opacity = Math.min(opacity, 255);
+				if (opacity > 0) {
 					ScaledResolution scaledresolution = event.resolution;
 					int width = scaledresolution.getScaledWidth();
 					int height = scaledresolution.getScaledHeight();

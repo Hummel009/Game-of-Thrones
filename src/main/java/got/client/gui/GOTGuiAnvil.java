@@ -250,7 +250,8 @@ public class GOTGuiAnvil extends GuiContainer {
 		if (theAnvil.clientReforgeTime > 0) {
 			--theAnvil.clientReforgeTime;
 		}
-		if ((itemstack = theAnvil.invInput.getStackInSlot(0)) != prevItemStack) {
+		itemstack = theAnvil.invInput.getStackInSlot(0);
+		if (itemstack != prevItemStack) {
 			prevItemStack = itemstack;
 			String textFieldText = itemstack == null ? "" : GOTContainerAnvil.stripFormattingCodes(itemstack.getDisplayName());
 			boolean textFieldEnabled = itemstack != null;

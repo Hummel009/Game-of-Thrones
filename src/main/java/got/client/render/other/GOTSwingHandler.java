@@ -117,4 +117,7 @@ public class GOTSwingHandler {
 		}
 	}
 
+	public void postInit() {
+	}
+
 }

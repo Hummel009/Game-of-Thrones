@@ -25,4 +25,7 @@ public class GOTRenderCrosshair {
 		tessellator.addVertexWithUV(p_73729_1_ + 0, p_73729_2_ + 0, zLevel, (p_73729_3_ + 0) * f, (p_73729_4_ + 0) * f1);
 		tessellator.draw();
 	}
+
+	public void postInit() {
+	}
 }

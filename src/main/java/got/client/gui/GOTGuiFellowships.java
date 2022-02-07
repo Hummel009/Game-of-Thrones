@@ -905,7 +905,8 @@ public class GOTGuiFellowships extends GOTGuiMenuWBBase {
 			public int compare(GOTFellowshipClient fs1, GOTFellowshipClient fs2) {
 				int count2;
 				int count1 = fs1.getMemberCount();
-				if (count1 == (count2 = fs2.getMemberCount())) {
+				count2 = fs2.getMemberCount();
+				if (count1 == count2) {
 					return fs1.getName().toLowerCase().compareTo(fs2.getName().toLowerCase());
 				}
 				return -Integer.compare(count1, count2);
@@ -924,7 +925,8 @@ public class GOTGuiFellowships extends GOTGuiMenuWBBase {
 				boolean admin1 = fs.isAdmin(player1);
 				boolean admin2 = fs.isAdmin(player2);
 				boolean online1 = GOTGuiFellowships.isPlayerOnline(player1);
-				if (online1 == (online2 = GOTGuiFellowships.isPlayerOnline(player2))) {
+				online2 = GOTGuiFellowships.isPlayerOnline(player2);
+				if (online1 == online2) {
 					if (admin1 == admin2) {
 						return player1.toLowerCase().compareTo(player2.toLowerCase());
 					}

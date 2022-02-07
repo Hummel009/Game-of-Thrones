@@ -530,7 +530,8 @@ public class GOTModelWyvern extends ModelBase {
 		float f10;
 		float RLegXRot = MathHelper.cos(f * 0.6662f + 3.141593f) * 0.8f * f1;
 		float LLegXRot = MathHelper.cos(f * 0.6662f) * 0.8f * f1;
-		if ((f3 = realAngle(f3)) > (f10 = 60.0f)) {
+		f3 = realAngle(f3);
+		if (f3 > (f10 = 60.0f)) {
 			f3 = f10;
 		}
 		if (f3 < -f10) {
@@ -556,8 +557,10 @@ public class GOTModelWyvern extends ModelBase {
 		int i = 0;
 		tail1.rotateAngleY = A * MathHelper.sin(w * t - k * i);
 		i++;
-		tail2.rotateAngleY = A * MathHelper.sin(w * t - k * i++);
-		tail3.rotateAngleY = A * MathHelper.sin(w * t - k * i++);
+		tail2.rotateAngleY = A * MathHelper.sin(w * t - k * i);
+		i++;
+		tail3.rotateAngleY = A * MathHelper.sin(w * t - k * i);
+		i++;
 		tail4.rotateAngleY = A * MathHelper.sin(w * t - k * i++);
 		tail5.rotateAngleY = A * MathHelper.sin(w * t - k * i++);
 		leftlowarm.rotateAngleZ = 0.0f;

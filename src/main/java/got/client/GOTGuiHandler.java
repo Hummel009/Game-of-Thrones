@@ -138,6 +138,9 @@ public class GOTGuiHandler {
 		}
 	}
 
+	public void postInit() {
+	}
+
 	@SubscribeEvent
 	public void postInitGui(GuiScreenEvent.InitGuiEvent.Post event) {
 		GuiButton buttonDifficulty;

@@ -58,6 +58,9 @@ public class GOTMusic implements IResourceManagerReloadListener {
 		GOTMusic.loadMusicPacks(Minecraft.getMinecraft().mcDataDir, (SimpleReloadableResourceManager) resourcemanager);
 	}
 
+	public void postInit() {
+	}
+
 	public void update() {
 		GOTMusicTicker.update(musicRand);
 	}

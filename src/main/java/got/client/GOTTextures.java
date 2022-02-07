@@ -33,7 +33,6 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	private static ResourceLocation mapTexture;
 	private static ResourceLocation sepiaMapTexture;
 	private static ResourceLocation overlayTexture = new ResourceLocation("got:textures/map/mapOverlay.png");
-	private static ResourceLocation mapTerrain = new ResourceLocation("got:textures/map/terrain.png");
 	private static ResourceLocation osrsTexture = new ResourceLocation("got:textures/map/osrs.png");
 	private static ResourceLocation particleTextures = new ResourceLocation("textures/particle/particles.png");
 	private static ResourceLocation newWaterParticles = new ResourceLocation("got:textures/misc/waterParticles.png");
