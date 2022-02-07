@@ -1424,7 +1424,7 @@ public class GOTEventHandler implements IFuelHandler {
 		int j = event.y;
 		int k = event.z;
 		Block block = world.getBlock(i, j, k);
-		GOTBlockGrapevine.hoeing = true;
+		GOTBlockGrapevine.setHoeing(true);
 		if (world.getBlock(i, j + 1, k).isAir(world, i, j + 1, k) && (block == GOTRegistry.mudGrass || block == GOTRegistry.mud)) {
 			Block tilled = GOTRegistry.mudFarmland;
 			world.playSoundEffect(i + 0.5f, j + 0.5f, k + 0.5f, tilled.stepSound.getStepResourcePath(), (tilled.stepSound.getVolume() + 1.0f) / 2.0f, tilled.stepSound.getPitch() * 0.8f);
@@ -1434,7 +1434,7 @@ public class GOTEventHandler implements IFuelHandler {
 			event.setResult(Event.Result.ALLOW);
 			return;
 		}
-		GOTBlockGrapevine.hoeing = true;
+		GOTBlockGrapevine.setHoeing(true);
 	}
 
 	@SubscribeEvent

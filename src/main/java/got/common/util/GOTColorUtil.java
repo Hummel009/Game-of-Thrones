@@ -5,7 +5,7 @@ import java.awt.Color;
 import net.minecraft.util.MathHelper;
 
 public class GOTColorUtil {
-	public static float[] lerpColors(float[] rgb0, int color1, float f) {
+	private static float[] lerpColors(float[] rgb0, int color1, float f) {
 		float[] rgb1 = new Color(color1).getColorComponents(null);
 		float r0 = rgb0[0];
 		float g0 = rgb0[1];
@@ -27,13 +27,13 @@ public class GOTColorUtil {
 		return GOTColorUtil.lerpColors(rgb0, color1, f);
 	}
 
-	public static int lerpColors_I(float[] rgb0, int color1, float f) {
+	public static int lerpColorsI(float[] rgb0, int color1, float f) {
 		float[] rgb = GOTColorUtil.lerpColors(rgb0, color1, f);
 		return new Color(rgb[0], rgb[1], rgb[2]).getRGB();
 	}
 
-	public static int lerpColors_I(int color0, int color1, float f) {
+	public static int lerpColorsI(int color0, int color1, float f) {
 		float[] rgb0 = new Color(color0).getColorComponents(null);
-		return GOTColorUtil.lerpColors_I(rgb0, color1, f);
+		return GOTColorUtil.lerpColorsI(rgb0, color1, f);
 	}
 }

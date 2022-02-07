@@ -15,8 +15,8 @@ import net.minecraft.world.*;
 
 public class GOTBlockDoubleTorch extends Block {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] torchIcons;
-	public Item torchItem;
+	private IIcon[] torchIcons;
+	private Item torchItem;
 
 	public GOTBlockDoubleTorch() {
 		super(Material.circuits);
@@ -47,13 +47,13 @@ public class GOTBlockDoubleTorch extends Block {
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public Item getItem(World world, int i, int j, int k) {
-		return torchItem;
+		return getTorchItem();
 	}
 
 	@Override
 	public Item getItemDropped(int i, Random random, int j) {
 		if (i == 0) {
-			return torchItem;
+			return getTorchItem();
 		}
 		return null;
 	}
@@ -78,6 +78,10 @@ public class GOTBlockDoubleTorch extends Block {
 			setBlockBounds(0.4f, 0.0f, 0.4f, 0.6f, 0.5375f, 0.6f);
 		}
 		return super.getSelectedBoundingBoxFromPool(world, i, j, k);
+	}
+
+	public Item getTorchItem() {
+		return torchItem;
 	}
 
 	@Override
@@ -148,6 +152,10 @@ public class GOTBlockDoubleTorch extends Block {
 		} else if (meta == 1) {
 			setBlockBounds(0.4375f, 0.0f, 0.4375f, 0.5625f, 0.5f, 0.5625f);
 		}
+	}
+
+	public void setTorchItem(Item torchItem) {
+		this.torchItem = torchItem;
 	}
 
 	public static boolean canPlaceTorchOn(World world, int i, int j, int k) {

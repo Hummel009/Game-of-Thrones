@@ -55,13 +55,13 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	public void preTextureStitch(TextureStitchEvent.Pre event) {
 		TextureMap map = event.map;
 		if (map.getTextureType() == 0) {
-			GOTCommonIcons.iconEmptyBlock = GOTTextures.generateIconEmpty(map);
-			GOTCommonIcons.iconStoneSnow = map.registerIcon("stone_snow");
+			GOTCommonIcons.setIconEmptyBlock(GOTTextures.generateIconEmpty(map));
+			GOTCommonIcons.setIconStoneSnow(map.registerIcon("stone_snow"));
 		}
 		if (map.getTextureType() == 1) {
-			GOTCommonIcons.iconEmptyItem = GOTTextures.generateIconEmpty(map);
-			GOTCommonIcons.iconMeleeWeapon = map.registerIcon("got:slotMelee");
-			GOTCommonIcons.iconBomb = map.registerIcon("got:slotBomb");
+			GOTCommonIcons.setIconEmptyItem(GOTTextures.generateIconEmpty(map));
+			GOTCommonIcons.setIconMeleeWeapon(map.registerIcon("got:slotMelee"));
+			GOTCommonIcons.setIconBomb(map.registerIcon("got:slotBomb"));
 		}
 	}
 
@@ -155,7 +155,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 						}
 						if (water > 0) {
 							float ratio = (float) water / (float) total;
-							rgb = GOTColorUtil.lerpColors_I(5468426, 9279778, ratio * 2.0f);
+							rgb = GOTColorUtil.lerpColorsI(5468426, 9279778, ratio * 2.0f);
 						}
 					} else if (rgb == 14736861) {
 						range = 8;
@@ -176,7 +176,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 						}
 						if (edge > 0) {
 							float ratio = (float) edge / (float) total;
-							rgb = GOTColorUtil.lerpColors_I(14736861, 9005125, ratio * 1.5f);
+							rgb = GOTColorUtil.lerpColorsI(14736861, 9005125, ratio * 1.5f);
 						}
 					}
 					newMapImage.setRGB(i, j, rgb | 0xFF000000);
@@ -322,7 +322,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 				}
 				eyes = GOTTextures.mc.renderEngine.getDynamicTextureLocation(skin.toString() + "_eyes_" + eyeWidth + "_" + eyeHeight, new DynamicTexture(eyesImage));
 			} catch (IOException e) {
-				GOTLog.logger.error("Failed to generate eyes skin");
+				GOTLog.getLogger().error("Failed to generate eyes skin");
 				e.printStackTrace();
 				eyes = getMissingTexture();
 			}

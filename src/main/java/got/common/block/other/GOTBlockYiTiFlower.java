@@ -9,9 +9,9 @@ import net.minecraft.item.*;
 import net.minecraft.util.IIcon;
 
 public class GOTBlockYiTiFlower extends GOTBlockFlower {
-	public static String[] flowerNames = { "chrysBlue", "chrysOrange", "chrysPink", "chrysYellow", "chrysWhite" };
+	private static String[] flowerNames = { "chrysBlue", "chrysOrange", "chrysPink", "chrysYellow", "chrysWhite" };
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] flowerIcons;
+	private IIcon[] flowerIcons;
 
 	@Override
 	public int damageDropped(int i) {

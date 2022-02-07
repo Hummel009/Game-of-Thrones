@@ -17,8 +17,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class GOTBlockStalactite extends Block {
-	public Block modelBlock;
-	public int modelMeta;
+	private Block modelBlock;
+	private int modelMeta;
 
 	public GOTBlockStalactite(Block block, int meta) {
 		super(block.getMaterial());

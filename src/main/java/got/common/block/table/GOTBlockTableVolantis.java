@@ -10,7 +10,7 @@ import net.minecraft.util.IIcon;
 
 public class GOTBlockTableVolantis extends GOTBlockCraftingTable {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] tableIcons;
+	private IIcon[] tableIcons;
 
 	public GOTBlockTableVolantis() {
 		super(Material.rock, GOTFaction.VOLANTIS, 81);

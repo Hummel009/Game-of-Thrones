@@ -10,7 +10,7 @@ import net.minecraft.util.IIcon;
 
 public class GOTBlockTableTyrosh extends GOTBlockCraftingTable {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] tableIcons;
+	private IIcon[] tableIcons;
 
 	public GOTBlockTableTyrosh() {
 		super(Material.rock, GOTFaction.TYROSH, 80);

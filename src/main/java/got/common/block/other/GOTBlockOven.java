@@ -19,7 +19,7 @@ import net.minecraft.world.*;
 
 public class GOTBlockOven extends BlockContainer {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] ovenIcons;
+	private IIcon[] ovenIcons;
 
 	public GOTBlockOven() {
 		super(Material.rock);
@@ -151,7 +151,7 @@ public class GOTBlockOven extends BlockContainer {
 		ovenIcons[3] = iconregister.registerIcon(getTextureName() + "_active");
 	}
 
-	public void setDefaultDirection(World world, int i, int j, int k) {
+	private void setDefaultDirection(World world, int i, int j, int k) {
 		if (!world.isRemote) {
 			Block i1 = world.getBlock(i, j, k - 1);
 			Block j1 = world.getBlock(i, j, k + 1);
@@ -174,7 +174,7 @@ public class GOTBlockOven extends BlockContainer {
 		}
 	}
 
-	public static boolean isOvenActive(IBlockAccess world, int i, int j, int k) {
+	private static boolean isOvenActive(IBlockAccess world, int i, int j, int k) {
 		int meta = world.getBlockMetadata(i, j, k);
 		return meta > 7;
 	}

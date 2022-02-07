@@ -10,7 +10,7 @@ import net.minecraft.util.IIcon;
 
 public class GOTBlockTableDothraki extends GOTBlockCraftingTable {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] tableIcons;
+	private IIcon[] tableIcons;
 
 	public GOTBlockTableDothraki() {
 		super(Material.rock, GOTFaction.DOTHRAKI, 86);

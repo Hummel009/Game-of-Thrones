@@ -13,7 +13,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public class GOTBlockYamCrop extends BlockCrops {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] yamIcons;
+	private IIcon[] yamIcons;
 
 	@Override
 	public boolean canBlockStay(World world, int i, int j, int k) {

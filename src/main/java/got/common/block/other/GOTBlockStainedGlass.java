@@ -10,7 +10,7 @@ import net.minecraft.item.*;
 import net.minecraft.util.IIcon;
 
 public class GOTBlockStainedGlass extends GOTBlockGlass {
-	public IIcon[] glassIcons = new IIcon[16];
+	private IIcon[] glassIcons = new IIcon[16];
 
 	@Override
 	public int damageDropped(int i) {

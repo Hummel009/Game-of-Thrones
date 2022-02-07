@@ -10,7 +10,7 @@ import net.minecraft.util.IIcon;
 
 public class GOTBlockTablePentos extends GOTBlockCraftingTable {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] tableIcons;
+	private IIcon[] tableIcons;
 
 	public GOTBlockTablePentos() {
 		super(Material.rock, GOTFaction.PENTOS, 74);

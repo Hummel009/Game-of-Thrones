@@ -5,8 +5,8 @@ import java.util.Arrays;
 import got.client.model.GOTModelDragonAnimaton;
 
 public class GOTCircularBuffer {
-	public double buffer[];
-	public int index = 0;
+	private double buffer[];
+	private int index = 0;
 
 	public GOTCircularBuffer(int size) {
 		buffer = new double[size];
@@ -16,7 +16,7 @@ public class GOTCircularBuffer {
 		Arrays.fill(buffer, value);
 	}
 
-	public double get(float x, int offset) {
+	private double get(float x, int offset) {
 		int i = index - offset;
 		int len = buffer.length - 1;
 		return GOTModelDragonAnimaton.lerp(buffer[i - 1 & len], buffer[i & len], x);

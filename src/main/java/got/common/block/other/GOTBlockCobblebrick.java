@@ -20,7 +20,7 @@ public class GOTBlockCobblebrick extends GOTBlockBrickBase implements GOTConnect
 
 	@Override
 	public String getConnectedName(int meta) {
-		return textureName + "_" + brickNames[meta];
+		return textureName + "_" + getBrickNames()[meta];
 	}
 
 	@Override
@@ -39,8 +39,8 @@ public class GOTBlockCobblebrick extends GOTBlockBrickBase implements GOTConnect
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
-		brickIcons = new IIcon[brickNames.length];
-		for (int i = 0; i < brickNames.length; ++i) {
+		setBrickIcons(new IIcon[getBrickNames().length]);
+		for (int i = 0; i < getBrickNames().length; ++i) {
 			GOTConnectedTextures.registerConnectedIcons(iconregister, this, i, false);
 		}
 	}

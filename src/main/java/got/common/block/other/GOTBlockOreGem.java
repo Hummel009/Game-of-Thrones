@@ -14,8 +14,8 @@ import net.minecraft.world.World;
 
 public class GOTBlockOreGem extends Block {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] oreIcons;
-	public String[] oreNames = { "topaz", "amethyst", "sapphire", "ruby", "amber", "diamond", "opal", "emerald" };
+	private IIcon[] oreIcons;
+	private String[] oreNames = { "topaz", "amethyst", "sapphire", "ruby", "amber", "diamond", "opal", "emerald" };
 
 	public GOTBlockOreGem() {
 		super(Material.rock);

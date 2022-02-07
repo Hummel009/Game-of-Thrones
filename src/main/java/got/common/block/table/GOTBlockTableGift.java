@@ -10,7 +10,7 @@ import net.minecraft.util.IIcon;
 
 public class GOTBlockTableGift extends GOTBlockCraftingTable {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] tableIcons;
+	private IIcon[] tableIcons;
 
 	public GOTBlockTableGift() {
 		super(Material.wood, GOTFaction.NIGHT_WATCH, 28);

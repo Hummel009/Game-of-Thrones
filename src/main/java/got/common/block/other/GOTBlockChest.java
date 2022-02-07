@@ -17,9 +17,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class GOTBlockChest extends BlockContainer {
-	public Block baseBlock;
-	public int baseMeta;
-	public String chestTextureName;
+	private Block baseBlock;
+	private int baseMeta;
+	private String chestTextureName;
 
 	public GOTBlockChest(Material m, Block b, int i, String s) {
 		super(m);
@@ -131,7 +131,7 @@ public class GOTBlockChest extends BlockContainer {
 		return false;
 	}
 
-	public void setDefaultDirection(World world, int i, int j, int k) {
+	private void setDefaultDirection(World world, int i, int j, int k) {
 		if (!world.isRemote) {
 			Block i1 = world.getBlock(i, j, k - 1);
 			Block j1 = world.getBlock(i, j, k + 1);

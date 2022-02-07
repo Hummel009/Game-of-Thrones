@@ -14,16 +14,16 @@ import net.minecraft.world.IBlockAccess;
 
 public abstract class GOTBlockPillarBase extends Block {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] pillarFaceIcons;
+	private IIcon[] pillarFaceIcons;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] pillarSideIcons;
+	private IIcon[] pillarSideIcons;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] pillarSideTopIcons;
+	private IIcon[] pillarSideTopIcons;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] pillarSideMiddleIcons;
+	private IIcon[] pillarSideMiddleIcons;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] pillarSideBottomIcons;
-	public String[] pillarNames;
+	private IIcon[] pillarSideBottomIcons;
+	private String[] pillarNames;
 
 	public GOTBlockPillarBase() {
 		this(Material.rock);
@@ -86,7 +86,7 @@ public abstract class GOTBlockPillarBase extends Block {
 		}
 	}
 
-	public boolean isPillarAt(IBlockAccess world, int i, int j, int k) {
+	private boolean isPillarAt(IBlockAccess world, int i, int j, int k) {
 		Block block = world.getBlock(i, j, k);
 		return block instanceof GOTBlockPillarBase;
 	}

@@ -21,8 +21,8 @@ import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
 public class GOTBlockTreasurePile extends Block {
-	public static Block.SoundType soundTypeTreasure = new Block.SoundType("got:treasure", 1.0f, 1.0f) {
-		public Random rand = new Random();
+	private static Block.SoundType soundTypeTreasure = new Block.SoundType("got:treasure", 1.0f, 1.0f) {
+		private Random rand = new Random();
 
 		@Override
 		public String func_150496_b() {
@@ -44,9 +44,8 @@ public class GOTBlockTreasurePile extends Block {
 			return "got:block.treasure.step";
 		}
 	};
-	public static int MAX_META = 7;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon sideIcon;
+	private IIcon sideIcon;
 
 	public GOTBlockTreasurePile() {
 		super(Material.circuits);
@@ -213,7 +212,7 @@ public class GOTBlockTreasurePile extends Block {
 		setBlockBoundsMeta(0);
 	}
 
-	public void setBlockBoundsMeta(int meta) {
+	private void setBlockBoundsMeta(int meta) {
 		float f = (meta + 1) / 8.0f;
 		setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, f, 1.0f);
 	}
@@ -223,7 +222,7 @@ public class GOTBlockTreasurePile extends Block {
 		return 2;
 	}
 
-	public boolean tryFall(World world, int i, int j, int k) {
+	private boolean tryFall(World world, int i, int j, int k) {
 		int meta = world.getBlockMetadata(i, j, k);
 		if (GOTBlockTreasurePile.canFallUpon(world, i, j - 1, k, this, meta) && j >= 0) {
 			int range = 32;
@@ -255,7 +254,7 @@ public class GOTBlockTreasurePile extends Block {
 		}
 	}
 
-	public static boolean canFallUpon(World world, int i, int j, int k, Block thisBlock, int thisMeta) {
+	private static boolean canFallUpon(World world, int i, int j, int k, Block thisBlock, int thisMeta) {
 		Block block = world.getBlock(i, j, k);
 		int meta = world.getBlockMetadata(i, j, k);
 		if (block == thisBlock && meta < 7) {

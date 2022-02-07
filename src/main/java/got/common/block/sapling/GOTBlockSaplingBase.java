@@ -15,8 +15,8 @@ import net.minecraftforge.event.terraingen.TerrainGen;
 
 public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] saplingIcons;
-	public String[] saplingNames;
+	private IIcon[] saplingIcons;
+	private String[] saplingNames;
 
 	public GOTBlockSaplingBase() {
 		float f = 0.4f;
@@ -91,31 +91,6 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 				incrementGrowth(world, i, j, k, random);
 			}
 		}
-	}
-
-	public static int[] findCrossShape(World world, int i, int j, int k, Block block, int meta) {
-		for (int i1 = -2; i1 <= 2; ++i1) {
-			for (int k1 = -2; k1 <= 2; ++k1) {
-				if (Math.abs(i1) != 0 && Math.abs(k1) != 0) {
-					continue;
-				}
-				boolean canGenerate = true;
-				block2: for (int i2 = -1; i2 <= 1; ++i2) {
-					for (int k2 = -1; k2 <= 1; ++k2) {
-						if (Math.abs(i2) != 0 && Math.abs(k2) != 0 || GOTBlockSaplingBase.isSameSapling(world, i + i1 + i2, j, k + k1 + k2, block, meta)) {
-							continue;
-						}
-						canGenerate = false;
-						break block2;
-					}
-				}
-				if (!canGenerate) {
-					continue;
-				}
-				return new int[] { i1, k1 };
-			}
-		}
-		return null;
 	}
 
 	public static int[] findPartyTree(World world, int i, int j, int k, Block block, int meta) {

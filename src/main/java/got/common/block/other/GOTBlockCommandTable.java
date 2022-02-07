@@ -17,9 +17,9 @@ import net.minecraft.world.World;
 
 public class GOTBlockCommandTable extends BlockContainer {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon topIcon;
+	private IIcon topIcon;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon sideIcon;
+	private IIcon sideIcon;
 
 	public GOTBlockCommandTable() {
 		super(Material.iron);

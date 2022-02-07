@@ -193,7 +193,7 @@ public class GOT {
 		int[] nums = { GOTAchievement.id, GOTPacketHandler.id, BannerType.values().length, GOTEntity.id, GOTStructure.id, GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class).size(), GOTRoads.id, GOTWalls.id, GOTWaypoint.values().length, GOTFaction.values().length, GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Item.class).size(), GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Block.class).size() };
 		String[] strings = { " achievements", " packets", " banners", " mobs", " structures", " biomes", " roads", " walls", " waypoints", " factions", " items", " blocks" };
 		for (int i = 0; i < nums.length; i++) {
-			GOTLog.logger.info(new StringBuilder().append("Hummel009: Registered ").append(nums[i]).append(strings[i]).toString());
+			GOTLog.getLogger().info(new StringBuilder().append("Hummel009: Registered ").append(nums[i]).append(strings[i]).toString());
 		}
 		if (GOT.isDevMode()) {
 			try {

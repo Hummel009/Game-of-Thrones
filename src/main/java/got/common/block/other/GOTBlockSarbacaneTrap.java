@@ -17,9 +17,9 @@ import net.minecraft.world.*;
 
 public class GOTBlockSarbacaneTrap extends BlockContainer {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon trapIcon;
-	public Block modelBlock;
-	public int modelBlockMeta;
+	private IIcon trapIcon;
+	private Block modelBlock;
+	private int modelBlockMeta;
 
 	public GOTBlockSarbacaneTrap(Block block, int meta) {
 		super(Material.rock);
@@ -114,7 +114,7 @@ public class GOTBlockSarbacaneTrap extends BlockContainer {
 		trapIcon = iconregister.registerIcon(getTextureName() + "_face");
 	}
 
-	public void setDefaultDirection(World world, int i, int j, int k) {
+	private void setDefaultDirection(World world, int i, int j, int k) {
 		if (!world.isRemote) {
 			Block i1 = world.getBlock(i, j, k - 1);
 			Block j1 = world.getBlock(i, j, k + 1);

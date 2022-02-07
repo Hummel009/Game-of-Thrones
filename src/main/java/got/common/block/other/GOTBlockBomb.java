@@ -17,7 +17,7 @@ import net.minecraft.world.*;
 
 public class GOTBlockBomb extends Block {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] bombIcons;
+	private IIcon[] bombIcons;
 
 	public GOTBlockBomb() {
 		super(Material.iron);

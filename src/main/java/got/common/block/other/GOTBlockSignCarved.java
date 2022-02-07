@@ -22,7 +22,7 @@ public class GOTBlockSignCarved extends BlockSign {
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		return GOTCommonIcons.iconEmptyBlock;
+		return GOTCommonIcons.getIconEmptyBlock();
 	}
 
 	@SideOnly(value = Side.CLIENT)

@@ -29,7 +29,7 @@ public class GOTBlockAsshaiMoss extends Block implements IShearable {
 		return super.canPlaceBlockAt(world, i, j, k) && canBlockStay(world, i, j, k);
 	}
 
-	public void checkMossCanStay(World world, int i, int j, int k) {
+	private void checkMossCanStay(World world, int i, int j, int k) {
 		if (!canBlockStay(world, i, j, k)) {
 			this.dropBlockAsItem(world, i, j, k, world.getBlockMetadata(i, j, k), 0);
 			world.setBlockToAir(i, j, k);

@@ -47,13 +47,13 @@ public abstract class GOTBlockTorch extends BlockTorch {
 	}
 
 	public static class TorchParticle {
-		public String name;
-		public double posX;
-		public double posY;
-		public double posZ;
-		public double motionX;
-		public double motionY;
-		public double motionZ;
+		private String name;
+		private double posX;
+		private double posY;
+		private double posZ;
+		private double motionX;
+		private double motionY;
+		private double motionZ;
 
 		public TorchParticle(String s, double x, double y, double z, double mx, double my, double mz) {
 			name = s;
@@ -65,7 +65,7 @@ public abstract class GOTBlockTorch extends BlockTorch {
 			motionZ = mz;
 		}
 
-		public void spawn(double x, double y, double z) {
+		private void spawn(double x, double y, double z) {
 			GOT.getProxy().spawnParticle(name, x + posX, y + posY, z + posZ, motionX, motionY, motionZ);
 		}
 	}

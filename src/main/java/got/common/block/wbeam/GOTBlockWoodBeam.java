@@ -14,10 +14,10 @@ import net.minecraft.util.IIcon;
 
 public abstract class GOTBlockWoodBeam extends BlockRotatedPillar {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] sideIcons;
+	private IIcon[] sideIcons;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] topIcons;
-	public String[] woodNames;
+	private IIcon[] topIcons;
+	private String[] woodNames;
 
 	public GOTBlockWoodBeam() {
 		super(Material.wood);

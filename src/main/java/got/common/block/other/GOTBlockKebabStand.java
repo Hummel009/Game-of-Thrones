@@ -18,7 +18,7 @@ import net.minecraft.util.*;
 import net.minecraft.world.World;
 
 public class GOTBlockKebabStand extends BlockContainer {
-	public String standTextureName;
+	private String standTextureName;
 
 	public GOTBlockKebabStand(String s) {
 		super(Material.circuits);
@@ -70,7 +70,7 @@ public class GOTBlockKebabStand extends BlockContainer {
 		return getTextureName();
 	}
 
-	public ItemStack getKebabStandDrop(World world, int i, int j, int k, int metadata) {
+	private ItemStack getKebabStandDrop(World world, int i, int j, int k, int metadata) {
 		ItemStack itemstack = new ItemStack(Item.getItemFromBlock(this));
 		GOTTileEntityKebabStand kebabStand = (GOTTileEntityKebabStand) world.getTileEntity(i, j, k);
 		if (kebabStand != null) {

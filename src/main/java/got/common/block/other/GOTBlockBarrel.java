@@ -20,7 +20,7 @@ import net.minecraft.world.World;
 
 public class GOTBlockBarrel extends BlockContainer {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] barrelIcons;
+	private IIcon[] barrelIcons;
 
 	public GOTBlockBarrel() {
 		super(Material.wood);
@@ -54,7 +54,7 @@ public class GOTBlockBarrel extends BlockContainer {
 		return new GOTTileEntityBarrel();
 	}
 
-	public ItemStack getBarrelDrop(World world, int i, int j, int k, int metadata) {
+	private ItemStack getBarrelDrop(World world, int i, int j, int k, int metadata) {
 		ItemStack itemstack = new ItemStack(Item.getItemFromBlock(this));
 		GOTTileEntityBarrel barrel = (GOTTileEntityBarrel) world.getTileEntity(i, j, k);
 		if (barrel != null && barrel.barrelMode != 0) {

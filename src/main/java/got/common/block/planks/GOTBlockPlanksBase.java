@@ -13,8 +13,8 @@ import net.minecraft.util.IIcon;
 
 public abstract class GOTBlockPlanksBase extends Block {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] plankIcons;
-	public String[] plankTypes;
+	private IIcon[] plankIcons;
+	private String[] plankTypes;
 
 	public GOTBlockPlanksBase() {
 		super(Material.wood);

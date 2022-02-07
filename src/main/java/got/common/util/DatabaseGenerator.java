@@ -77,7 +77,7 @@ import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class DatabaseGenerator extends GOTStructureBase {
-	public static Map<Class<? extends Entity>, Entity> entities = new HashMap<>();
+	private static Map<Class<? extends Entity>, Entity> entities = new HashMap<>();
 
 	public DatabaseGenerator(boolean flag) {
 		super(flag);
@@ -853,55 +853,55 @@ public class DatabaseGenerator extends GOTStructureBase {
 		String display = "null";
 		for (Class mob : entities.keySet()) {
 			if ("typeTradeable".equals(display) && entities.get(mob) instanceof GOTTradeable && !((GOTEntityNPC) entities.get(mob)).isLegendaryNPC()) {
-				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob));
+				GOTLog.getLogger().info("| " + GOTEntityRegistry.getEntityName(mob));
 				continue;
 			}
 			if ("typeUnitTradeable".equals(display) && entities.get(mob) instanceof GOTUnitTradeable && !((GOTEntityNPC) entities.get(mob)).isLegendaryNPC()) {
-				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob));
+				GOTLog.getLogger().info("| " + GOTEntityRegistry.getEntityName(mob));
 				continue;
 			}
 			if ("typeSmith".equals(display) && entities.get(mob) instanceof GOTTradeable.Smith && !((GOTEntityNPC) entities.get(mob)).isLegendaryNPC()) {
-				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob));
+				GOTLog.getLogger().info("| " + GOTEntityRegistry.getEntityName(mob));
 				continue;
 			}
 			if ("typeMercenary".equals(display) && entities.get(mob) instanceof GOTMercenary && !((GOTEntityNPC) entities.get(mob)).isLegendaryNPC()) {
-				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob));
+				GOTLog.getLogger().info("| " + GOTEntityRegistry.getEntityName(mob));
 				continue;
 			}
 			if ("typeFarmhand".equals(display) && entities.get(mob) instanceof GOTFarmhand && !((GOTEntityNPC) entities.get(mob)).isLegendaryNPC()) {
-				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob));
+				GOTLog.getLogger().info("| " + GOTEntityRegistry.getEntityName(mob));
 				continue;
 			}
 			if ("typeFarmer".equals(display) && entities.get(mob) instanceof GOTTradeable && entities.get(mob) instanceof GOTUnitTradeable && !((GOTEntityNPC) entities.get(mob)).isLegendaryNPC()) {
-				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob));
+				GOTLog.getLogger().info("| " + GOTEntityRegistry.getEntityName(mob));
 				continue;
 			}
 			if ("typeAgressive".equals(display) && entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).isTargetSeeker && !(entities.get(mob) instanceof GOTTradeable) && !(entities.get(mob) instanceof GOTFarmhand) && !(entities.get(mob) instanceof GOTUnitTradeable) && !(entities.get(mob) instanceof GOTTradeable.Smith) && !(entities.get(mob) instanceof GOTMercenary)) {
-				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob));
+				GOTLog.getLogger().info("| " + GOTEntityRegistry.getEntityName(mob));
 				continue;
 			}
 			if ("unitsCommanders".equals(display) && entities.get(mob) instanceof GOTUnitTradeable && !((GOTEntityNPC) entities.get(mob)).isLegendaryNPC()) {
 				GOTUnitTradeEntries entries = ((GOTUnitTradeable) entities.get(mob)).getUnits();
 				for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 					if (entry.mountClass == null) {
-						GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = [[" + GOTEntityRegistry.getEntityName(mob) + "]]");
+						GOTLog.getLogger().info("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = [[" + GOTEntityRegistry.getEntityName(mob) + "]]");
 					}
 				}
 			}
 		}
 		if ("factionUnits".equals(display)) {
 			for (GOTFaction fac : GOTFaction.values()) {
-				GOTLog.logger.info("| " + fac.factionName() + " =");
+				GOTLog.getLogger().info("| " + fac.factionName() + " =");
 				for (Class mob : entities.keySet()) {
 					if (entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).isLegendaryNPC() && ((GOTEntityNPC) entities.get(mob)).getFaction() == fac) {
-						GOTLog.logger.info("* [[" + GOTEntityRegistry.getEntityName(mob) + "]];");
+						GOTLog.getLogger().info("* [[" + GOTEntityRegistry.getEntityName(mob) + "]];");
 					}
 				}
 			}
 		}
 		if ("waypointBiome".equals(display)) {
 			for (GOTWaypoint wp : GOTWaypoint.values()) {
-				GOTLog.logger.info("| " + wp.getDisplayName() + " = {{ÁÄ Áèîì-Ññûëêà|" + ((GOTBiome) world.getBiomeGenForCoords(wp.xCoord, wp.zCoord)).getBiomeDisplayName() + "}}");
+				GOTLog.getLogger().info("| " + wp.getDisplayName() + " = {{ÁÄ Áèîì-Ññûëêà|" + ((GOTBiome) world.getBiomeGenForCoords(wp.xCoord, wp.zCoord)).getBiomeDisplayName() + "}}");
 			}
 		}
 		return true;
@@ -911,32 +911,32 @@ public class DatabaseGenerator extends GOTStructureBase {
 		String display = "blocks";
 		if ("chest".equals(display)) {
 			for (GOTChestContents content : GOTCommander.getObjectFieldsOfType(GOTChestContents.class, GOTChestContents.class)) {
-				GOTLog.logger.info(content + " = ");
+				GOTLog.getLogger().info(content + " = ");
 				for (WeightedRandomChestContent con : content.items) {
-					GOTLog.logger.info(con.theItemId.getDisplayName() + ", ");
+					GOTLog.getLogger().info(con.theItemId.getDisplayName() + ", ");
 				}
 			}
 		}
 		if ("factionStructures".equals(display)) {
 			for (GOTFaction fac : GOTFaction.values()) {
-				GOTLog.logger.info("| " + fac.factionName() + " =");
+				GOTLog.getLogger().info("| " + fac.factionName() + " =");
 				for (Class<? extends WorldGenerator> mob : GOTStructureRegistry.classToFactionMapping.keySet()) {
 					if (GOTStructureRegistry.classToFactionMapping.get(mob) == fac) {
-						GOTLog.logger.info("* [[" + GOTStructureRegistry.getStructureName(mob) + "]];");
+						GOTLog.getLogger().info("* [[" + GOTStructureRegistry.getStructureName(mob) + "]];");
 					}
 				}
 			}
 		}
 		if ("capes".equals(display)) {
 			for (GOTCapes cape : GOTCapes.values()) {
-				GOTLog.logger.info("| " + cape.getCapeName() + " || " + cape.getCapeDesc() + " || [[File:Cape " + cape.name().toLowerCase() + ".png]]");
-				GOTLog.logger.info("|-");
+				GOTLog.getLogger().info("| " + cape.getCapeName() + " || " + cape.getCapeDesc() + " || [[File:Cape " + cape.name().toLowerCase() + ".png]]");
+				GOTLog.getLogger().info("|-");
 			}
 		}
 		if ("shields".equals(display)) {
 			for (GOTShields shield : GOTShields.values()) {
-				GOTLog.logger.info("| " + shield.getShieldName() + " || " + shield.getShieldDesc() + " || [[File:Shield " + shield.name().toLowerCase() + ".png]]");
-				GOTLog.logger.info("|-");
+				GOTLog.getLogger().info("| " + shield.getShieldName() + " || " + shield.getShieldDesc() + " || [[File:Shield " + shield.name().toLowerCase() + ".png]]");
+				GOTLog.getLogger().info("|-");
 			}
 		}
 		for (Item item : GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Item.class)) {
@@ -946,15 +946,15 @@ public class DatabaseGenerator extends GOTStructureBase {
 				Field pf1 = ItemFood.class.getDeclaredField("healAmount");
 				pf0.setAccessible(true);
 				pf1.setAccessible(true);
-				GOTLog.logger.info("| " + genInfo + "{{Bar|bread|" + new DecimalFormat("#.##").format((float) pf0.get(item) * (int) pf1.get(item) * 2) + "}} || {{Bar|food|" + (int) pf1.get(item) + "}} || " + item.getItemStackLimit());
-				GOTLog.logger.info("|-");
+				GOTLog.getLogger().info("| " + genInfo + "{{Bar|bread|" + new DecimalFormat("#.##").format((float) pf0.get(item) * (int) pf1.get(item) * 2) + "}} || {{Bar|food|" + (int) pf1.get(item) + "}} || " + item.getItemStackLimit());
+				GOTLog.getLogger().info("|-");
 				continue;
 			}
 			if ("armorTable".equals(display) && item instanceof ItemArmor) {
 				Field pf0 = ItemArmor.class.getDeclaredField("maxDamage");
 				pf0.setAccessible(true);
-				GOTLog.logger.info("| " + genInfo + (int) pf0.get(item) + " || " + ((ItemArmor) item).damageReduceAmount + " || " + StatCollector.translateToLocal(((ItemArmor) item).getArmorMaterial().customCraftingMaterial.getUnlocalizedName() + ".name"));
-				GOTLog.logger.info("|-");
+				GOTLog.getLogger().info("| " + genInfo + (int) pf0.get(item) + " || " + ((ItemArmor) item).damageReduceAmount + " || " + StatCollector.translateToLocal(((ItemArmor) item).getArmorMaterial().customCraftingMaterial.getUnlocalizedName() + ".name"));
+				GOTLog.getLogger().info("|-");
 				continue;
 			}
 			if ("weaponTable".equals(display) && item instanceof ItemSword) {
@@ -964,62 +964,62 @@ public class DatabaseGenerator extends GOTStructureBase {
 				pf0.setAccessible(true);
 				pf1.setAccessible(true);
 				pf2.setAccessible(true);
-				GOTLog.logger.info("| " + genInfo + (int) pf0.get(item) + " || " + (float) pf1.get(item) + " || " + StatCollector.translateToLocal(((ToolMaterial) pf2.get(item)).getRepairItemStack().getUnlocalizedName() + ".name"));
-				GOTLog.logger.info("|-");
+				GOTLog.getLogger().info("| " + genInfo + (int) pf0.get(item) + " || " + (float) pf1.get(item) + " || " + StatCollector.translateToLocal(((ToolMaterial) pf2.get(item)).getRepairItemStack().getUnlocalizedName() + ".name"));
+				GOTLog.getLogger().info("|-");
 			}
 		}
 
 		for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
 			if ("biomeType".equals(display)) {
-				GOTLog.logger.info("| " + biome.getName() + " = " + biome.type);
+				GOTLog.getLogger().info("| " + biome.getName() + " = " + biome.type);
 				continue;
 			}
 			if ("biomeName".equals(display)) {
-				GOTLog.logger.info("| " + biome.getName() + " = " + biome.biomeName);
+				GOTLog.getLogger().info("| " + biome.getName() + " = " + biome.biomeName);
 				continue;
 			}
 			if ("biomeVariation".equals(display)) {
-				GOTLog.logger.info("| " + biome.getName() + " = " + biome.heightVariation);
+				GOTLog.getLogger().info("| " + biome.getName() + " = " + biome.heightVariation);
 				continue;
 			}
 			if ("biomeHeight".equals(display)) {
-				GOTLog.logger.info("| " + biome.getName() + " = " + biome.heightBaseParameter);
+				GOTLog.getLogger().info("| " + biome.getName() + " = " + biome.heightBaseParameter);
 				continue;
 			}
 			if ("biomeBandits".equals(display)) {
-				GOTLog.logger.info("| " + biome.getName() + " = " + biome.banditChance);
+				GOTLog.getLogger().info("| " + biome.getName() + " = " + biome.banditChance);
 				continue;
 			}
 			if ("biomeVariants".equals(display)) {
-				GOTLog.logger.info("| " + biome.getName() + " = ");
+				GOTLog.getLogger().info("| " + biome.getName() + " = ");
 				for (VariantBucket variant : biome.biomeVariantsSmall.variantList) {
-					GOTLog.logger.info("* " + StatCollector.translateToLocal(variant.variant.getUnlocalizedName()));
+					GOTLog.getLogger().info("* " + StatCollector.translateToLocal(variant.variant.getUnlocalizedName()));
 				}
 				continue;
 			}
 			if ("biomeInvasions".equals(display)) {
-				GOTLog.logger.info("| " + biome.getName() + " = ");
+				GOTLog.getLogger().info("| " + biome.getName() + " = ");
 				for (GOTInvasions inv : biome.invasionSpawns.registeredInvasions) {
-					GOTLog.logger.info("* " + inv.invasionName());
+					GOTLog.getLogger().info("* " + inv.invasionName());
 				}
 				continue;
 			}
 			if ("biomeStructures".equals(display)) {
-				GOTLog.logger.info("| " + biome.getName() + " = ");
+				GOTLog.getLogger().info("| " + biome.getName() + " = ");
 				for (RandomStructure structure : biome.decorator.randomStructures) {
-					GOTLog.logger.info("* " + StatCollector.translateToLocal("got.structure." + GOTStructureRegistry.getStructureNameFromClass(structure.structureGen.getClass()) + ".name") + ";");
+					GOTLog.getLogger().info("* " + StatCollector.translateToLocal("got.structure." + GOTStructureRegistry.getStructureNameFromClass(structure.structureGen.getClass()) + ".name") + ";");
 				}
 				continue;
 			}
 			if ("biomeTrees".equals(display)) {
-				GOTLog.logger.info("| " + biome.getName() + " = ");
+				GOTLog.getLogger().info("| " + biome.getName() + " = ");
 				for (WeightedTreeType tree : biome.decorator.treeTypes) {
-					GOTLog.logger.info("* " + StatCollector.translateToLocal("got.tree." + tree.treeType.name().toLowerCase() + ".name") + ";");
+					GOTLog.getLogger().info("* " + StatCollector.translateToLocal("got.tree." + tree.treeType.name().toLowerCase() + ".name") + ";");
 				}
 				continue;
 			}
 			if ("biomeEntities".equals(display)) {
-				GOTLog.logger.info("| " + biome.getName() + " = ");
+				GOTLog.getLogger().info("| " + biome.getName() + " = ");
 				List entries = new ArrayList(biome.getSpawnableList(EnumCreatureType.ambient));
 				entries.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
 				entries.addAll(biome.getSpawnableList(EnumCreatureType.creature));
@@ -1027,26 +1027,26 @@ public class DatabaseGenerator extends GOTStructureBase {
 				entries.addAll(biome.spawnableGOTAmbientList);
 				for (Object entry : entries) {
 					if (GOTEntityRegistry.classToNameMapping.containsKey(((SpawnListEntry) entry).entityClass)) {
-						GOTLog.logger.info("* [[" + GOTEntityRegistry.getEntityName(((SpawnListEntry) entry).entityClass) + "]];");
+						GOTLog.getLogger().info("* [[" + GOTEntityRegistry.getEntityName(((SpawnListEntry) entry).entityClass) + "]];");
 					} else {
-						GOTLog.logger.info("* " + StatCollector.translateToLocal("entity." + EntityList.classToStringMapping.get(((SpawnListEntry) entry).entityClass) + ".name") + ";");
+						GOTLog.getLogger().info("* " + StatCollector.translateToLocal("entity." + EntityList.classToStringMapping.get(((SpawnListEntry) entry).entityClass) + ".name") + ";");
 					}
 				}
 				continue;
 			}
 			if ("biomeConquestNPC".equals(display)) {
-				GOTLog.logger.info("| " + biome.getName() + " = ");
+				GOTLog.getLogger().info("| " + biome.getName() + " = ");
 				int i = 1;
 				if (biome.npcSpawnList.factionContainers.size() > 1) {
-					GOTLog.logger.info("Placeholder about containers");
+					GOTLog.getLogger().info("Placeholder about containers");
 				}
 				for (FactionContainer cont : biome.npcSpawnList.factionContainers) {
 					if (biome.npcSpawnList.factionContainers.size() > 1) {
-						GOTLog.logger.info("Container ¹" + i + ":");
+						GOTLog.getLogger().info("Container ¹" + i + ":");
 					}
 					for (SpawnListContainer one : cont.spawnLists) {
 						for (GOTSpawnEntry entry : one.spawnList.spawnList) {
-							GOTLog.logger.info("* [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]]; ");
+							GOTLog.getLogger().info("* [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]]; ");
 						}
 					}
 					++i;
@@ -1057,35 +1057,35 @@ public class DatabaseGenerator extends GOTStructureBase {
 		for (GOTUnitTradeEntries entries : GOTCommander.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class)) {
 			for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 				if ("unitsPrice".equals(display)) {
-					GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = {{Bar|coins|" + entry.initialCost * 2 + "|size=22}}");
+					GOTLog.getLogger().info("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = {{Bar|coins|" + entry.initialCost * 2 + "|size=22}}");
 					continue;
 				}
 				if ("unitsPricePledge".equals(display)) {
-					GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = {{Bar|coins|" + entry.initialCost + "|size=22}}");
+					GOTLog.getLogger().info("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = {{Bar|coins|" + entry.initialCost + "|size=22}}");
 					continue;
 				}
 				if ("unitsRep".equals(display)) {
-					GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = +" + entry.alignmentRequired);
+					GOTLog.getLogger().info("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = +" + entry.alignmentRequired);
 					continue;
 				}
 				if ("unitsPledge".equals(display)) {
-					GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = " + (entry.pledgeType == PledgeType.NONE));
+					GOTLog.getLogger().info("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = " + (entry.pledgeType == PledgeType.NONE));
 					continue;
 				}
 				if ("unitsTable".equals(display)) {
 					if (entry.mountClass == null) {
-						GOTLog.logger.info("| [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]] || {{Bar|coins|" + entry.initialCost * 2 + "|size=22}} || +" + entry.alignmentRequired + " || " + (entry.pledgeType == PledgeType.NONE));
+						GOTLog.getLogger().info("| [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]] || {{Bar|coins|" + entry.initialCost * 2 + "|size=22}} || +" + entry.alignmentRequired + " || " + (entry.pledgeType == PledgeType.NONE));
 					} else {
-						GOTLog.logger.info("| [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]] (rider) || {{Bar|coins|" + entry.initialCost * 2 + "|size=22}} || +" + entry.alignmentRequired + " || " + (entry.pledgeType == PledgeType.NONE));
+						GOTLog.getLogger().info("| [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]] (rider) || {{Bar|coins|" + entry.initialCost * 2 + "|size=22}} || +" + entry.alignmentRequired + " || " + (entry.pledgeType == PledgeType.NONE));
 					}
-					GOTLog.logger.info("|-");
+					GOTLog.getLogger().info("|-");
 				}
 			}
 		}
 
 		if ("entitiesBiomes".equals(display)) {
 			for (Object entityClass1 : EntityList.classToStringMapping.keySet()) {
-				GOTLog.logger.info("| " + StatCollector.translateToLocal("entity." + EntityList.classToStringMapping.get(entityClass1) + ".name") + " = ");
+				GOTLog.getLogger().info("| " + StatCollector.translateToLocal("entity." + EntityList.classToStringMapping.get(entityClass1) + ".name") + " = ");
 				for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
 					List sus = new ArrayList(biome.getSpawnableList(EnumCreatureType.ambient));
 					sus.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
@@ -1094,13 +1094,13 @@ public class DatabaseGenerator extends GOTStructureBase {
 					sus.addAll(biome.spawnableGOTAmbientList);
 					for (Object var : sus) {
 						if (((SpawnListEntry) var).entityClass.equals(entityClass1)) {
-							GOTLog.logger.info("* " + biome.getName() + ";");
+							GOTLog.getLogger().info("* " + biome.getName() + ";");
 						}
 					}
 				}
 			}
 			for (Class entityClass2 : GOTEntityRegistry.classToIDMapping.keySet()) {
-				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(entityClass2) + " = ");
+				GOTLog.getLogger().info("| " + GOTEntityRegistry.getEntityName(entityClass2) + " = ");
 				for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
 					List sus = new ArrayList(biome.getSpawnableList(EnumCreatureType.ambient));
 					sus.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
@@ -1109,7 +1109,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 					sus.addAll(biome.spawnableGOTAmbientList);
 					for (Object var : sus) {
 						if (((SpawnListEntry) var).entityClass.equals(entityClass2)) {
-							GOTLog.logger.info("* " + biome.getName() + ";");
+							GOTLog.getLogger().info("* " + biome.getName() + ";");
 						}
 					}
 				}

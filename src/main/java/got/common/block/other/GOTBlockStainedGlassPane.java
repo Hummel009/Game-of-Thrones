@@ -11,7 +11,7 @@ import net.minecraft.item.*;
 import net.minecraft.util.IIcon;
 
 public class GOTBlockStainedGlassPane extends GOTBlockGlassPane {
-	public IIcon[] paneIcons = new IIcon[16];
+	private IIcon[] paneIcons = new IIcon[16];
 
 	@Override
 	public int damageDropped(int i) {

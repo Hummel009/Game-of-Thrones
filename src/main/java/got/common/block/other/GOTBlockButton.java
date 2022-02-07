@@ -6,7 +6,7 @@ import net.minecraft.block.BlockButton;
 import net.minecraft.client.renderer.texture.IIconRegister;
 
 public class GOTBlockButton extends BlockButton {
-	public String iconPath;
+	private String iconPath;
 
 	public GOTBlockButton(boolean flag, String s) {
 		super(flag);

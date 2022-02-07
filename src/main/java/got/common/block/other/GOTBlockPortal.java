@@ -19,7 +19,7 @@ import net.minecraftforge.common.DimensionManager;
 
 public abstract class GOTBlockPortal extends BlockContainer {
 	public GOTFaction[] portalFactions;
-	public Class teleporterClass;
+	private Class teleporterClass;
 
 	public GOTBlockPortal(GOTFaction[] factions, Class c) {
 		super(Material.portal);
@@ -43,7 +43,7 @@ public abstract class GOTBlockPortal extends BlockContainer {
 		return Item.getItemById(0);
 	}
 
-	public Teleporter getPortalTeleporter(WorldServer world) {
+	private Teleporter getPortalTeleporter(WorldServer world) {
 		for (Teleporter obj : world.customTeleporters) {
 			if (!teleporterClass.isInstance(obj)) {
 				continue;
@@ -149,7 +149,7 @@ public abstract class GOTBlockPortal extends BlockContainer {
 		return side != 0 ? false : super.shouldSideBeRendered(world, i, j, k, side);
 	}
 
-	public void transferEntity(Entity entity, World world) {
+	private void transferEntity(Entity entity, World world) {
 		if (!world.isRemote) {
 			int dimension = 0;
 			if (entity.dimension == 0) {

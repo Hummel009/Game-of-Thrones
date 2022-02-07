@@ -1428,7 +1428,7 @@ public class GOTRecipe {
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.stainedGlass, 8, i), "XXX", "XYX", "XXX", Character.valueOf('X'), GOTRegistry.glass, Character.valueOf('Y'), dyeOreNames[BlockColored.func_150031_c(i)]));
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.stainedGlassPane, 16, i), "XXX", "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.stainedGlass, 1, i)));
 		}
-		for (GOTBlockFallenLeaves fallenLeafBlock : GOTBlockFallenLeaves.allFallenLeaves) {
+		for (GOTBlockFallenLeaves fallenLeafBlock : GOTBlockFallenLeaves.getAllFallenLeaves()) {
 			for (Block leafBlock : fallenLeafBlock.getLeafBlocks()) {
 				if (!(leafBlock instanceof GOTBlockLeavesBase)) {
 					continue;

@@ -16,21 +16,21 @@ import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.oredict.*;
 
 public class GOTBlockReplacement {
-	public static boolean initForgeHooks = false;
+	private static boolean initForgeHooks = false;
 
-	public static void injectReplacementItem(ItemStack itemstack, Item newItem) {
+	private static void injectReplacementItem(ItemStack itemstack, Item newItem) {
 		NBTTagCompound nbt = new NBTTagCompound();
 		itemstack.writeToNBT(nbt);
 		itemstack.readFromNBT(nbt);
 	}
 
-	public static void replaceBlockStats(int id, Block newBlock, ItemBlock itemblock) {
+	private static void replaceBlockStats(int id, Block newBlock, ItemBlock itemblock) {
 		GOTBlockReplacement.replaceStat(id, StatList.mineBlockStatArray, new StatCrafting("stat.mineBlock." + id, new ChatComponentTranslation("stat.mineBlock", new ItemStack(newBlock).func_151000_E()), itemblock));
 		GOTBlockReplacement.replaceStat(id, StatList.objectUseStats, new StatCrafting("stat.useItem." + id, new ChatComponentTranslation("stat.useItem", new ItemStack(itemblock).func_151000_E()), itemblock));
 		GOTBlockReplacement.replaceStat(id, StatList.objectCraftStats, new StatCrafting("stat.craftItem." + id, new ChatComponentTranslation("stat.craftItem", new ItemStack(itemblock).func_151000_E()), itemblock));
 	}
 
-	public static void replaceItemStats(int id, Item newItem) {
+	private static void replaceItemStats(int id, Item newItem) {
 		GOTBlockReplacement.replaceStat(id, StatList.objectUseStats, new StatCrafting("stat.useItem." + id, new ChatComponentTranslation("stat.useItem", new ItemStack(newItem).func_151000_E()), newItem));
 		GOTBlockReplacement.replaceStat(id, StatList.objectCraftStats, new StatCrafting("stat.craftItem." + id, new ChatComponentTranslation("stat.craftItem", new ItemStack(newItem).func_151000_E()), newItem));
 		if (newItem.isDamageable()) {
@@ -38,7 +38,7 @@ public class GOTBlockReplacement {
 		}
 	}
 
-	public static void replaceRecipesEtc(Item newItem) {
+	private static void replaceRecipesEtc(Item newItem) {
 		String newItemName = newItem.getUnlocalizedName();
 		List craftingRecipes = CraftingManager.getInstance().getRecipeList();
 		for (Object obj : craftingRecipes) {
@@ -67,7 +67,7 @@ public class GOTBlockReplacement {
 		}
 	}
 
-	public static void replaceStat(int id, StatBase[] stats, StatBase newStat) {
+	private static void replaceStat(int id, StatBase[] stats, StatBase newStat) {
 		StatBase oldStat = stats[id];
 		if (oldStat != null && oldStat.statId.equals(newStat.statId)) {
 			for (int i = 0; i < stats.length; ++i) {
@@ -146,11 +146,11 @@ public class GOTBlockReplacement {
 		}
 	}
 
-	public static class Reflect {
-		public Reflect() {
+	private static class Reflect {
+		private Reflect() {
 		}
 
-		public static String getBlockName(Block block) {
+		private static String getBlockName(Block block) {
 			try {
 				return (String) ObfuscationReflectionHelper.getPrivateValue(Block.class, block, "unlocalizedName", "field_149770_b");
 			} catch (Exception e) {
@@ -159,7 +159,7 @@ public class GOTBlockReplacement {
 			}
 		}
 
-		public static String getItemName(Item item) {
+		private static String getItemName(Item item) {
 			try {
 				return (String) ObfuscationReflectionHelper.getPrivateValue(Item.class, item, "unlocalizedName", "field_77774_bZ");
 			} catch (Exception e) {
@@ -168,7 +168,7 @@ public class GOTBlockReplacement {
 			}
 		}
 
-		public static Map getOneShotStats() {
+		private static Map getOneShotStats() {
 			try {
 				return (Map) ObfuscationReflectionHelper.getPrivateValue(StatList.class, null, "oneShotStats", "field_75942_a");
 			} catch (Exception e) {
@@ -177,7 +177,7 @@ public class GOTBlockReplacement {
 			}
 		}
 
-		public static ObjectIntIdentityMap getUnderlyingIntMap(RegistryNamespaced registry) {
+		private static ObjectIntIdentityMap getUnderlyingIntMap(RegistryNamespaced registry) {
 			try {
 				return (ObjectIntIdentityMap) ObfuscationReflectionHelper.getPrivateValue(RegistryNamespaced.class, registry, "underlyingIntegerMap", "field_148759_a");
 			} catch (Exception e) {
@@ -186,7 +186,7 @@ public class GOTBlockReplacement {
 			}
 		}
 
-		public static Map getUnderlyingObjMap(RegistryNamespaced registry) {
+		private static Map getUnderlyingObjMap(RegistryNamespaced registry) {
 			try {
 				return (Map) ObfuscationReflectionHelper.getPrivateValue(RegistrySimple.class, registry, "registryObjects", "field_82596_a");
 			} catch (Exception e) {
@@ -195,7 +195,7 @@ public class GOTBlockReplacement {
 			}
 		}
 
-		public static void overwriteBlockList(Block oldBlock, Block newBlock) {
+		private static void overwriteBlockList(Block oldBlock, Block newBlock) {
 			try {
 				Field field = null;
 				for (Field f : Blocks.class.getDeclaredFields()) {
@@ -212,7 +212,7 @@ public class GOTBlockReplacement {
 			}
 		}
 
-		public static void overwriteItemList(Item oldItem, Item newItem) {
+		private static void overwriteItemList(Item oldItem, Item newItem) {
 			try {
 				Field field = null;
 				for (Field f : Items.class.getDeclaredFields()) {

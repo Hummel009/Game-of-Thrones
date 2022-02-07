@@ -10,6 +10,6 @@ public class GOTItemPlaceableFood extends ItemReed {
 		super(block);
 		setMaxStackSize(1);
 		setCreativeTab(GOTCreativeTabs.tabFood);
-		((GOTBlockPlaceableFood) block).foodItem = this;
+		((GOTBlockPlaceableFood) block).setFoodItem(this);
 	}
 }

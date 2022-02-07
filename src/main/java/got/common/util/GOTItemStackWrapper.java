@@ -4,11 +4,11 @@ import net.minecraft.item.*;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class GOTItemStackWrapper {
-	public boolean isNBTSensitive;
-	public ItemStack stack;
-	public Item item;
-	public int damage;
-	public NBTTagCompound compound;
+	private boolean isNBTSensitive;
+	private ItemStack stack;
+	private Item item;
+	private int damage;
+	private NBTTagCompound compound;
 
 	public GOTItemStackWrapper(ItemStack stack) {
 		this(stack, false);
@@ -35,18 +35,6 @@ public class GOTItemStackWrapper {
 			return false;
 		}
 		return !isNBTSensitive || !(compound == null ? other.compound != null : !compound.equals(other.compound));
-	}
-
-	public int getDamage() {
-		return damage;
-	}
-
-	public Item getItem() {
-		return item;
-	}
-
-	public NBTTagCompound getTagCompound() {
-		return compound;
 	}
 
 	@Override

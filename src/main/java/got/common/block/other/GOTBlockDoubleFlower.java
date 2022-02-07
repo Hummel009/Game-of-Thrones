@@ -16,11 +16,11 @@ import net.minecraft.util.*;
 import net.minecraft.world.*;
 
 public class GOTBlockDoubleFlower extends BlockDoublePlant {
-	public static String[] flowerNames = { "blackIris", "yellowIris", "pink", "red" };
+	private static String[] flowerNames = { "blackIris", "yellowIris", "pink", "red" };
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] doublePlantBottomIcons;
+	private IIcon[] doublePlantBottomIcons;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] doublePlantTopIcons;
+	private IIcon[] doublePlantTopIcons;
 
 	public GOTBlockDoubleFlower() {
 		setCreativeTab(GOTCreativeTabs.tabDeco);
@@ -180,11 +180,11 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 		setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f);
 	}
 
-	public static int getFlowerMeta(int i) {
+	private static int getFlowerMeta(int i) {
 		return i & 7;
 	}
 
-	public static boolean isTop(int i) {
+	private static boolean isTop(int i) {
 		return (i & 8) != 0;
 	}
 }

@@ -17,13 +17,12 @@ import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class GOTBlockFallenLeaves extends Block implements IShearable {
-	public static List<GOTBlockFallenLeaves> allFallenLeaves = new ArrayList<>();
-	public static Random leafRand = new Random();
-	public Block[] leafBlocks;
+	private static List<GOTBlockFallenLeaves> allFallenLeaves = new ArrayList<>();
+	private Block[] leafBlocks;
 
 	public GOTBlockFallenLeaves() {
 		super(Material.vine);
-		allFallenLeaves.add(this);
+		getAllFallenLeaves().add(this);
 		setCreativeTab(GOTCreativeTabs.tabDeco);
 		setHardness(0.2f);
 		setStepSound(Block.soundTypeGrass);
@@ -156,7 +155,7 @@ public class GOTBlockFallenLeaves extends Block implements IShearable {
 
 	public static Object[] fallenBlockMetaFromLeafBlockMeta(Block block, int meta) {
 		meta &= 3;
-		for (GOTBlockFallenLeaves fallenLeaves : allFallenLeaves) {
+		for (GOTBlockFallenLeaves fallenLeaves : getAllFallenLeaves()) {
 			for (int i = 0; i < fallenLeaves.leafBlocks.length; ++i) {
 				Block leafBlock = fallenLeaves.leafBlocks[i];
 				if (leafBlock != block) {
@@ -166,5 +165,13 @@ public class GOTBlockFallenLeaves extends Block implements IShearable {
 			}
 		}
 		return null;
+	}
+
+	public static List<GOTBlockFallenLeaves> getAllFallenLeaves() {
+		return allFallenLeaves;
+	}
+
+	public static void setAllFallenLeaves(List<GOTBlockFallenLeaves> allFallenLeaves) {
+		GOTBlockFallenLeaves.allFallenLeaves = allFallenLeaves;
 	}
 }

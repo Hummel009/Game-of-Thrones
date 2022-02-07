@@ -695,21 +695,21 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 
 	public void renderInvWildFireJar(Block block, RenderBlocks renderblocks, int meta) {
 		renderblocks.renderAllFaces = true;
-		GOTBlockWildFireJar.renderingStage = 1;
+		GOTBlockWildFireJar.setRenderingStage(1);
 		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.125, 0.0, 0.125, 0.875, 0.5, 0.875);
-		GOTBlockWildFireJar.renderingStage = 2;
+		GOTBlockWildFireJar.setRenderingStage(2);
 		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.3125, 0.5, 0.3125, 0.6875, 0.6875, 0.6875);
-		GOTBlockWildFireJar.renderingStage = 3;
+		GOTBlockWildFireJar.setRenderingStage(3);
 		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.25, 0.6875, 0.25, 0.75, 0.8125, 0.75);
-		GOTBlockWildFireJar.renderingStage = 4;
+		GOTBlockWildFireJar.setRenderingStage(4);
 		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.3125, 0.8125, 0.3125, 0.6875, 0.875, 0.6875);
-		GOTBlockWildFireJar.renderingStage = 5;
+		GOTBlockWildFireJar.setRenderingStage(5);
 		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.375, 0.875, 0.5, 0.625, 1.0, 0.5);
 		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.5, 0.875, 0.375, 0.5, 1.0, 0.625);
-		GOTBlockWildFireJar.renderingStage = 6;
+		GOTBlockWildFireJar.setRenderingStage(6);
 		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.0, 0.0, 0.5, 1.0, 1.0, 0.5);
 		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.5, 0.0, 0.0, 0.5, 1.0, 1.0);
-		GOTBlockWildFireJar.renderingStage = 0;
+		GOTBlockWildFireJar.setRenderingStage(0);
 		renderblocks.renderAllFaces = false;
 	}
 
@@ -979,29 +979,29 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		int ao = GOTRenderBlocks.getAO();
 		GOTRenderBlocks.setAO(0);
 		renderblocks.renderAllFaces = true;
-		GOTBlockWildFireJar.renderingStage = 1;
+		GOTBlockWildFireJar.setRenderingStage(1);
 		renderblocks.setRenderBounds(0.125, 0.0, 0.125, 0.875, 0.5, 0.875);
 		renderblocks.renderStandardBlock(block, i, j, k);
-		GOTBlockWildFireJar.renderingStage = 2;
+		GOTBlockWildFireJar.setRenderingStage(2);
 		renderblocks.setRenderBounds(0.3125, 0.5, 0.3125, 0.6875, 0.6875, 0.6875);
 		renderblocks.renderStandardBlock(block, i, j, k);
-		GOTBlockWildFireJar.renderingStage = 3;
+		GOTBlockWildFireJar.setRenderingStage(3);
 		renderblocks.setRenderBounds(0.25, 0.6875, 0.25, 0.75, 0.8125, 0.75);
 		renderblocks.renderStandardBlock(block, i, j, k);
-		GOTBlockWildFireJar.renderingStage = 4;
+		GOTBlockWildFireJar.setRenderingStage(4);
 		renderblocks.setRenderBounds(0.3125, 0.8125, 0.3125, 0.6875, 0.875, 0.6875);
 		renderblocks.renderStandardBlock(block, i, j, k);
-		GOTBlockWildFireJar.renderingStage = 5;
+		GOTBlockWildFireJar.setRenderingStage(5);
 		renderblocks.setRenderBounds(0.375, 0.875, 0.5, 0.625, 1.0, 0.5);
 		renderblocks.renderStandardBlock(block, i, j, k);
 		renderblocks.setRenderBounds(0.5, 0.875, 0.375, 0.5, 1.0, 0.625);
 		renderblocks.renderStandardBlock(block, i, j, k);
-		GOTBlockWildFireJar.renderingStage = 6;
+		GOTBlockWildFireJar.setRenderingStage(6);
 		renderblocks.setRenderBounds(0.0, 0.0, 0.5, 1.0, 1.0, 0.5);
 		renderblocks.renderStandardBlock(block, i, j, k);
 		renderblocks.setRenderBounds(0.5, 0.0, 0.0, 0.5, 1.0, 1.0);
 		renderblocks.renderStandardBlock(block, i, j, k);
-		GOTBlockWildFireJar.renderingStage = 0;
+		GOTBlockWildFireJar.setRenderingStage(0);
 		renderblocks.renderAllFaces = false;
 		GOTRenderBlocks.setAO(ao);
 	}
@@ -1169,7 +1169,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			f3 = f6;
 		}
 		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
-		renderblocks.setOverrideBlockTexture(GOTBlockClover.stemIcon);
+		renderblocks.setOverrideBlockTexture(GOTBlockClover.getStemIcon());
 		double posX = i;
 		double posY = j;
 		double posZ = k;
@@ -1183,7 +1183,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.clearOverrideBlockTexture();
 		for (int petal = 0; petal < petalCount; ++petal) {
 			float rotation = (float) petal / (float) petalCount * 3.1415927f * 2.0f;
-			IIcon icon = GOTBlockClover.petalIcon;
+			IIcon icon = GOTBlockClover.getPetalIcon();
 			double d = icon.getMinU();
 			double d1 = icon.getMinV();
 			double d2 = icon.getMaxU();
@@ -1246,7 +1246,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		}
 		renderblocks.drawCrossedSquares(block.getIcon(2, meta), posX, posY, posZ, 1.0f);
 		renderblocks.clearOverrideBlockTexture();
-		if (block == GOTRegistry.tallGrass && meta >= 0 && meta < GOTBlockTallGrass.grassOverlay.length && GOTBlockTallGrass.grassOverlay[meta]) {
+		if (block == GOTRegistry.tallGrass && meta >= 0 && meta < GOTBlockTallGrass.getGrassOverlay().length && GOTBlockTallGrass.getGrassOverlay()[meta]) {
 			tessellator.setColorOpaque_F(1.0f, 1.0f, 1.0f);
 			renderblocks.drawCrossedSquares(block.getIcon(-1, meta), posX, posY, posZ, 1.0f);
 			renderblocks.clearOverrideBlockTexture();
@@ -1271,14 +1271,14 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			f3 = f6;
 		}
 		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
-		renderblocks.setOverrideBlockTexture(GOTBlockClover.stemIcon);
+		renderblocks.setOverrideBlockTexture(GOTBlockClover.getStemIcon());
 		tessellator.startDrawingQuads();
 		renderblocks.drawCrossedSquares(block.getIcon(2, 0), -scale * 0.5, -scale * 0.5, -scale * 0.5, (float) scale);
 		tessellator.draw();
 		renderblocks.clearOverrideBlockTexture();
 		for (int petal = 0; petal < petalCount; ++petal) {
 			float rotation = (float) petal / (float) petalCount * 3.1415927f * 2.0f;
-			IIcon icon = GOTBlockClover.petalIcon;
+			IIcon icon = GOTBlockClover.getPetalIcon();
 			double d = icon.getMinU();
 			double d1 = icon.getMinV();
 			double d2 = icon.getMaxU();
@@ -1325,14 +1325,14 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			f3 = f6;
 		}
 		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
-		renderblocks.setOverrideBlockTexture(GOTBlockPlantain.stemIcon);
+		renderblocks.setOverrideBlockTexture(GOTBlockPlantain.getStemIcon());
 		tessellator.startDrawingQuads();
 		renderblocks.drawCrossedSquares(block.getIcon(2, 0), -scale * 0.5, -scale * 0.5, -scale * 0.5, (float) scale);
 		tessellator.draw();
 		renderblocks.clearOverrideBlockTexture();
 		for (int petal = 0; petal < petalCount; ++petal) {
 			float rotation = (float) petal / (float) petalCount * 3.1415927f * 2.0f;
-			IIcon icon = GOTBlockPlantain.petalIcon;
+			IIcon icon = GOTBlockPlantain.getPetalIcon();
 			double d = icon.getMinU();
 			double d1 = icon.getMinV();
 			double d2 = icon.getMaxU();
@@ -1379,7 +1379,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			f3 = f6;
 		}
 		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
-		renderblocks.setOverrideBlockTexture(GOTBlockPlantain.stemIcon);
+		renderblocks.setOverrideBlockTexture(GOTBlockPlantain.getStemIcon());
 		double posX = i;
 		double posY = j;
 		double posZ = k;
@@ -1393,7 +1393,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.clearOverrideBlockTexture();
 		for (int petal = 0; petal < petalCount; ++petal) {
 			float rotation = (float) petal / (float) petalCount * 3.1415927f * 2.0f;
-			IIcon icon = GOTBlockPlantain.petalIcon;
+			IIcon icon = GOTBlockPlantain.getPetalIcon();
 			double d = icon.getMinU();
 			double d1 = icon.getMinV();
 			double d2 = icon.getMaxU();

@@ -33,7 +33,7 @@ public class GOTBlockBeacon extends BlockContainer {
 		return world.getBlock(i, j - 1, k).isSideSolid(world, i, j - 1, k, ForgeDirection.UP);
 	}
 
-	public boolean canItemLightBeacon(ItemStack itemstack) {
+	private boolean canItemLightBeacon(ItemStack itemstack) {
 		if (itemstack == null) {
 			return false;
 		}
@@ -158,7 +158,7 @@ public class GOTBlockBeacon extends BlockContainer {
 		return false;
 	}
 
-	public static boolean isLit(IBlockAccess world, int i, int j, int k) {
+	private static boolean isLit(IBlockAccess world, int i, int j, int k) {
 		TileEntity tileentity = world.getTileEntity(i, j, k);
 		if (tileentity instanceof GOTTileEntityBeacon) {
 			GOTTileEntityBeacon beacon = (GOTTileEntityBeacon) tileentity;
@@ -167,7 +167,7 @@ public class GOTBlockBeacon extends BlockContainer {
 		return false;
 	}
 
-	public static void setLit(World world, int i, int j, int k, boolean lit) {
+	private static void setLit(World world, int i, int j, int k, boolean lit) {
 		TileEntity tileentity = world.getTileEntity(i, j, k);
 		if (tileentity instanceof GOTTileEntityBeacon) {
 			GOTTileEntityBeacon beacon = (GOTTileEntityBeacon) tileentity;

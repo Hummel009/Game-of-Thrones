@@ -16,39 +16,33 @@ import net.minecraft.util.*;
 import net.minecraft.world.*;
 
 public class GOTBlockWildFireJar extends BlockFalling {
-	public static int renderingStage = 0;
-	public static int renderBase = 1;
-	public static int renderNeck = 2;
-	public static int renderLid = 3;
-	public static int renderCap = 4;
-	public static int renderCrown = 5;
-	public static int renderHandle = 6;
-	public static boolean explodeOnAdded = true;
-	public static Material materialFireJar = new MaterialLogic(MapColor.stoneColor);
+	private static int renderingStage = 0;
+	private static boolean explodeOnAdded = true;
+	private static Material materialFireJar = new MaterialLogic(MapColor.stoneColor);
 	@SideOnly(value = Side.CLIENT)
-	public IIcon iconBaseSide;
+	private IIcon iconBaseSide;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon iconBaseTop;
+	private IIcon iconBaseTop;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon iconBaseBottom;
+	private IIcon iconBaseBottom;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon iconNeckSide;
+	private IIcon iconNeckSide;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon iconLidSide;
+	private IIcon iconLidSide;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon iconLidTop;
+	private IIcon iconLidTop;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon iconLidBottom;
+	private IIcon iconLidBottom;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon iconCapSide;
+	private IIcon iconCapSide;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon iconCapTop;
+	private IIcon iconCapTop;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon iconCapBottom;
+	private IIcon iconCapBottom;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon iconCrownSide;
+	private IIcon iconCrownSide;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon iconHandleSide;
+	private IIcon iconHandleSide;
 
 	public GOTBlockWildFireJar() {
 		super(materialFireJar);
@@ -85,7 +79,7 @@ public class GOTBlockWildFireJar extends BlockFalling {
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		switch (renderingStage) {
+		switch (getRenderingStage()) {
 		case 1:
 			return i == 0 ? iconBaseBottom : i == 1 ? iconBaseTop : iconBaseSide;
 		case 2:
@@ -127,7 +121,7 @@ public class GOTBlockWildFireJar extends BlockFalling {
 	@Override
 	public void onBlockAdded(World world, int i, int j, int k) {
 		if (world.isBlockIndirectlyGettingPowered(i, j, k)) {
-			if (explodeOnAdded) {
+			if (isExplodeOnAdded()) {
 				explode(world, i, j, k);
 			}
 		} else {
@@ -208,5 +202,21 @@ public class GOTBlockWildFireJar extends BlockFalling {
 			func_149829_a(falling);
 			world.spawnEntityInWorld(falling);
 		}
+	}
+
+	public static int getRenderingStage() {
+		return renderingStage;
+	}
+
+	public static boolean isExplodeOnAdded() {
+		return explodeOnAdded;
+	}
+
+	public static void setExplodeOnAdded(boolean explodeOnAdded) {
+		GOTBlockWildFireJar.explodeOnAdded = explodeOnAdded;
+	}
+
+	public static void setRenderingStage(int renderingStage) {
+		GOTBlockWildFireJar.renderingStage = renderingStage;
 	}
 }

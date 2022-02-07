@@ -14,7 +14,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public class GOTBlockHearth extends Block {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] blockIcons;
+	private IIcon[] blockIcons;
 
 	public GOTBlockHearth() {
 		super(Material.rock);

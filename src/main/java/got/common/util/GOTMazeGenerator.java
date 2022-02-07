@@ -5,22 +5,19 @@ import java.util.*;
 import net.minecraft.util.MathHelper;
 
 public class GOTMazeGenerator {
-	public static short FLAG_PATH = 1;
-	public static short FLAG_EXCLUDE = 2;
-	public static short FLAG_DEADEND = 4;
-	public int xSize;
-	public int zSize;
-	public short[][] mazeFlags;
-	public int startX = -1;
-	public int startZ = -1;
-	public int endX = -1;
-	public int endZ = -1;
-	public float windyness = 0.3f;
-	public float branchingness = 0.2f;
+	private int xSize;
+	private int zSize;
+	private short[][] mazeFlags;
+	private int startX = -1;
+	private int startZ = -1;
+	private int endX = -1;
+	private int endZ = -1;
+	private float windyness = 0.3f;
+	private float branchingness = 0.2f;
 
 	public GOTMazeGenerator(int x, int z) {
-		xSize = x;
-		zSize = z;
+		setxSize(x);
+		setzSize(z);
 		setupMaze();
 	}
 
@@ -46,7 +43,7 @@ public class GOTMazeGenerator {
 				for (int l = 1; l <= 2; ++l) {
 					int x = pos.xPos + dir.xDir * l;
 					int z = pos.zPos + dir.zDir * l;
-					if (x < 0 || x >= xSize || z < 0 || z >= zSize || isPath(x, z) || getFlag(x, z, (short) 2)) {
+					if (x < 0 || x >= getxSize() || z < 0 || z >= getzSize() || isPath(x, z) || getFlag(x, z, (short) 2)) {
 						continue block1;
 					}
 				}
@@ -78,8 +75,16 @@ public class GOTMazeGenerator {
 		return new int[] { endX, endZ };
 	}
 
-	public boolean getFlag(int x, int z, short flag) {
+	private boolean getFlag(int x, int z, short flag) {
 		return (mazeFlags[x][z] & flag) == flag;
+	}
+
+	public int getxSize() {
+		return xSize;
+	}
+
+	public int getzSize() {
+		return zSize;
 	}
 
 	public boolean isDeadEnd(int x, int z) {
@@ -91,21 +96,21 @@ public class GOTMazeGenerator {
 	}
 
 	public void selectOuterEndpoint(Random random) {
-		int startXHalf = startX / (xSize / 2);
-		int startZHalf = startZ / (zSize / 2);
+		int startXHalf = startX / (getxSize() / 2);
+		int startZHalf = startZ / (getzSize() / 2);
 		int wx = 0;
 		int wz = 0;
 		do {
 			ArrayList<MazePos> positions = new ArrayList<>();
-			for (int x = 0; x < xSize; ++x) {
-				for (int z = 0; z < zSize; ++z) {
+			for (int x = 0; x < getxSize(); ++x) {
+				for (int z = 0; z < getzSize(); ++z) {
 					boolean outer;
-					outer = x == 0 + wx || x == xSize - 1 - wx || z == 0 + wz || z == zSize - 1 - wz;
+					outer = x == 0 + wx || x == getxSize() - 1 - wx || z == 0 + wz || z == getzSize() - 1 - wz;
 					if (!outer || !isPath(x, z)) {
 						continue;
 					}
-					int xHalf = x / (xSize / 2);
-					int zHalf = z / (zSize / 2);
+					int xHalf = x / (getxSize() / 2);
+					int zHalf = z / (getzSize() / 2);
 					if (startXHalf == xHalf || startZHalf == zHalf) {
 						continue;
 					}
@@ -119,10 +124,10 @@ public class GOTMazeGenerator {
 			endX = pos.xPos;
 			endZ = pos.zPos;
 			return;
-		} while (++wx <= xSize / 2 + 1 && ++wz <= zSize / 2 + 1);
+		} while (++wx <= getxSize() / 2 + 1 && ++wz <= getzSize() / 2 + 1);
 	}
 
-	public void setFlag(int x, int z, short flag, boolean val) {
+	private void setFlag(int x, int z, short flag, boolean val) {
 		if (val) {
 			short[] arrs = mazeFlags[x];
 			int n = z;
@@ -139,19 +144,23 @@ public class GOTMazeGenerator {
 		startZ = z;
 	}
 
-	public void setupMaze() {
-		mazeFlags = new short[xSize][zSize];
+	private void setupMaze() {
+		mazeFlags = new short[getxSize()][getzSize()];
 	}
 
-	public void setWindyness(float f) {
-		windyness = f;
+	public void setxSize(int xSize) {
+		this.xSize = xSize;
 	}
 
-	public enum Dir {
+	public void setzSize(int zSize) {
+		this.zSize = zSize;
+	}
+
+	private enum Dir {
 		XNEG(-1, 0), XPOS(1, 0), ZNEG(0, -1), ZPOS(0, 1);
 
-		public int xDir;
-		public int zDir;
+		private int xDir;
+		private int zDir;
 
 		Dir(int x, int z) {
 			xDir = x;
@@ -159,11 +168,11 @@ public class GOTMazeGenerator {
 		}
 	}
 
-	public static class MazePos {
-		public int xPos;
-		public int zPos;
+	private static class MazePos {
+		private int xPos;
+		private int zPos;
 
-		public MazePos(int x, int z) {
+		private MazePos(int x, int z) {
 			xPos = x;
 			zPos = z;
 		}

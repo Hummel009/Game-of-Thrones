@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class GOTBlockPlate extends BlockContainer {
-	public static Block.SoundType soundTypePlate = new Block.SoundType("got:plate", 1.0f, 1.0f) {
+	private static Block.SoundType soundTypePlate = new Block.SoundType("got:plate", 1.0f, 1.0f) {
 		@Override
 		public String func_150496_b() {
 			return Block.soundTypeStone.func_150496_b();
@@ -38,8 +38,8 @@ public class GOTBlockPlate extends BlockContainer {
 		}
 	};
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] plateIcons;
-	public Item plateItem;
+	private IIcon[] plateIcons;
+	private Item plateItem;
 
 	public GOTBlockPlate() {
 		super(Material.circuits);
@@ -75,14 +75,10 @@ public class GOTBlockPlate extends BlockContainer {
 	public void dropOnePlateItem(GOTTileEntityPlate plate) {
 		ItemStack item = plate.getFoodItem().copy();
 		item.stackSize = 1;
-		this.dropPlateItem(plate, item);
+		dropPlateItem(plate, item);
 	}
 
-	public void dropPlateItem(GOTTileEntityPlate plate) {
-		this.dropPlateItem(plate, plate.getFoodItem());
-	}
-
-	public void dropPlateItem(GOTTileEntityPlate plate, ItemStack itemstack) {
+	private void dropPlateItem(GOTTileEntityPlate plate, ItemStack itemstack) {
 		this.dropBlockAsItem(plate.getWorldObj(), plate.xCoord, plate.yCoord, plate.zCoord, itemstack);
 	}
 
@@ -186,12 +182,20 @@ public class GOTBlockPlate extends BlockContainer {
 		plateItem = item;
 	}
 
-	public static ItemStack getFoodItem(World world, int i, int j, int k) {
+	private static ItemStack getFoodItem(World world, int i, int j, int k) {
 		TileEntity tileentity = world.getTileEntity(i, j, k);
 		if (tileentity instanceof GOTTileEntityPlate) {
 			return ((GOTTileEntityPlate) tileentity).getFoodItem();
 		}
 		return null;
+	}
+
+	public static Block.SoundType getSoundTypePlate() {
+		return soundTypePlate;
+	}
+
+	public static void setSoundTypePlate(Block.SoundType soundTypePlate) {
+		GOTBlockPlate.soundTypePlate = soundTypePlate;
 	}
 
 }

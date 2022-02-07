@@ -71,7 +71,7 @@ public class GOTEntityCargocart extends GOTEntityCart {
 	public void updateRiderPosition() {
 		if (riddenByEntity != null) {
 			GOTVec3d gOTVec3d = new GOTVec3d(-0.68, 0.0, 0.0).rotateYaw(-rotationYaw * 0.017453292f - 1.5707964f);
-			riddenByEntity.setPosition(posX + gOTVec3d.xCoord, posY + getMountedYOffset() + riddenByEntity.getYOffset(), posZ + gOTVec3d.zCoord);
+			riddenByEntity.setPosition(posX + gOTVec3d.getxCoord(), posY + getMountedYOffset() + riddenByEntity.getYOffset(), posZ + gOTVec3d.getzCoord());
 		}
 	}
 }

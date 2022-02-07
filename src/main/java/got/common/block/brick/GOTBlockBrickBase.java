@@ -13,8 +13,8 @@ import net.minecraft.util.IIcon;
 
 public abstract class GOTBlockBrickBase extends Block {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] brickIcons;
-	public String[] brickNames;
+	private IIcon[] brickIcons;
+	protected String[] brickNames;
 
 	public GOTBlockBrickBase() {
 		super(Material.rock);
@@ -29,19 +29,27 @@ public abstract class GOTBlockBrickBase extends Block {
 		return i;
 	}
 
+	public IIcon[] getBrickIcons() {
+		return brickIcons;
+	}
+
+	public String[] getBrickNames() {
+		return brickNames;
+	}
+
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		if (j >= brickNames.length) {
+		if (j >= getBrickNames().length) {
 			j = 0;
 		}
-		return brickIcons[j];
+		return getBrickIcons()[j];
 	}
 
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
-		for (int i = 0; i < brickNames.length; ++i) {
+		for (int i = 0; i < getBrickNames().length; ++i) {
 			list.add(new ItemStack(item, 1, i));
 		}
 	}
@@ -49,10 +57,14 @@ public abstract class GOTBlockBrickBase extends Block {
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
-		brickIcons = new IIcon[brickNames.length];
-		for (int i = 0; i < brickNames.length; ++i) {
-			brickIcons[i] = iconregister.registerIcon(getTextureName() + "_" + brickNames[i]);
+		setBrickIcons(new IIcon[getBrickNames().length]);
+		for (int i = 0; i < getBrickNames().length; ++i) {
+			getBrickIcons()[i] = iconregister.registerIcon(getTextureName() + "_" + getBrickNames()[i]);
 		}
+	}
+
+	public void setBrickIcons(IIcon[] brickIcons) {
+		this.brickIcons = brickIcons;
 	}
 
 	public void setBrickNames(String... names) {

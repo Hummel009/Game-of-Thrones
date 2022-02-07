@@ -16,7 +16,7 @@ public class GOTSlotBomb extends Slot {
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public IIcon getBackgroundIconIndex() {
-		return GOTCommonIcons.iconBomb;
+		return GOTCommonIcons.getIconBomb();
 	}
 
 	@Override

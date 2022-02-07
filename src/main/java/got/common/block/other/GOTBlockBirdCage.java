@@ -16,12 +16,12 @@ import net.minecraft.world.*;
 
 public class GOTBlockBirdCage extends GOTBlockAnimalJar {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] sideIcons;
+	private IIcon[] sideIcons;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] topIcons;
+	private IIcon[] topIcons;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] baseIcons;
-	public String[] cageTypes;
+	private IIcon[] baseIcons;
+	private String[] cageTypes;
 
 	public GOTBlockBirdCage() {
 		super(Material.glass);

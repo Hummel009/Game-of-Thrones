@@ -7,9 +7,9 @@ import net.minecraft.util.IIcon;
 
 public abstract class GOTBlockSmoothStoneBase extends GOTBlockBrickBase {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] topIcons;
+	private IIcon[] topIcons;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] sideIcons;
+	private IIcon[] sideIcons;
 
 	@SideOnly(value = Side.CLIENT)
 	@Override
@@ -29,8 +29,8 @@ public abstract class GOTBlockSmoothStoneBase extends GOTBlockBrickBase {
 		topIcons = new IIcon[brickNames.length];
 		sideIcons = new IIcon[brickNames.length];
 		for (int i = 0; i < brickNames.length; ++i) {
-			topIcons[i] = iconregister.registerIcon(getTextureName() + "_" + brickNames[i] + "_top");
-			sideIcons[i] = iconregister.registerIcon(getTextureName() + "_" + brickNames[i] + "_side");
+			topIcons[i] = iconregister.registerIcon(getTextureName() + "_" + getBrickNames()[i] + "_top");
+			sideIcons[i] = iconregister.registerIcon(getTextureName() + "_" + getBrickNames()[i] + "_side");
 		}
 	}
 }

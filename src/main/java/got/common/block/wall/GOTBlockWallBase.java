@@ -10,7 +10,7 @@ import net.minecraft.item.*;
 import net.minecraft.world.World;
 
 public abstract class GOTBlockWallBase extends BlockWall {
-	public int subtypes;
+	private int subtypes;
 
 	public GOTBlockWallBase(Block block, int i) {
 		super(block);

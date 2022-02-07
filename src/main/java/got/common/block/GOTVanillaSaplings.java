@@ -153,7 +153,7 @@ public class GOTVanillaSaplings {
 		}
 	}
 
-	public static boolean isSameSapling(World world, int i, int j, int k, int meta) {
+	private static boolean isSameSapling(World world, int i, int j, int k, int meta) {
 		return GOTBlockSaplingBase.isSameSapling(world, i, j, k, Blocks.sapling, meta);
 	}
 }

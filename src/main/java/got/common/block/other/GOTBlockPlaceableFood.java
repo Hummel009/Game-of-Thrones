@@ -13,20 +13,20 @@ import net.minecraft.world.*;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class GOTBlockPlaceableFood extends Block {
-	public static int MAX_EATS = 6;
+	private static int MAX_EATS = 6;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon iconBottom;
+	private IIcon iconBottom;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon iconTop;
+	private IIcon iconTop;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon iconSide;
+	private IIcon iconSide;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon iconEaten;
-	public Item foodItem;
-	public float foodHalfWidth;
-	public float foodHeight;
-	public int healAmount;
-	public float saturationAmount;
+	private IIcon iconEaten;
+	private Item foodItem;
+	private float foodHalfWidth;
+	private float foodHeight;
+	private int healAmount;
+	private float saturationAmount;
 
 	public GOTBlockPlaceableFood() {
 		this(0.4375f, 0.5f);
@@ -52,7 +52,7 @@ public class GOTBlockPlaceableFood extends Block {
 		return super.canPlaceBlockAt(world, i, j, k) && canBlockStay(world, i, j, k);
 	}
 
-	public void eatCake(World world, int i, int j, int k, EntityPlayer entityplayer) {
+	private void eatCake(World world, int i, int j, int k, EntityPlayer entityplayer) {
 		if (!world.isRemote && entityplayer.canEat(false)) {
 			entityplayer.getFoodStats().addStats(healAmount, saturationAmount);
 			entityplayer.playSound("random.burp", 0.5f, world.rand.nextFloat() * 0.1f + 0.9f);
@@ -77,13 +77,17 @@ public class GOTBlockPlaceableFood extends Block {
 	public ArrayList<ItemStack> getDrops(World world, int i, int j, int k, int meta, int fortune) {
 		ArrayList<ItemStack> drops = new ArrayList<>();
 		if (meta == 0) {
-			if (foodItem != null) {
-				drops.add(new ItemStack(foodItem));
+			if (getFoodItem() != null) {
+				drops.add(new ItemStack(getFoodItem()));
 			} else {
 				drops.add(new ItemStack(this, 1, 0));
 			}
 		}
 		return drops;
+	}
+
+	public Item getFoodItem() {
+		return foodItem;
 	}
 
 	@SideOnly(value = Side.CLIENT)
@@ -104,8 +108,8 @@ public class GOTBlockPlaceableFood extends Block {
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public Item getItem(World world, int i, int j, int k) {
-		if (foodItem != null) {
-			return foodItem;
+		if (getFoodItem() != null) {
+			return getFoodItem();
 		}
 		return Item.getItemFromBlock(this);
 	}
@@ -174,6 +178,10 @@ public class GOTBlockPlaceableFood extends Block {
 		float f = 0.5f - foodHalfWidth;
 		float f1 = 0.5f + foodHalfWidth;
 		setBlockBounds(f, 0.0f, f, f1, foodHeight, f1);
+	}
+
+	public void setFoodItem(Item foodItem) {
+		this.foodItem = foodItem;
 	}
 
 	public GOTBlockPlaceableFood setFoodStats(int i, float f) {

@@ -61,7 +61,7 @@ public abstract class GOTBlockAnimalJar extends BlockContainer {
 		return null;
 	}
 
-	public ItemStack getJarDrop(World world, int i, int j, int k, int metadata) {
+	private ItemStack getJarDrop(World world, int i, int j, int k, int metadata) {
 		ItemStack itemstack = new ItemStack(Item.getItemFromBlock(this), 1, damageDropped(metadata));
 		GOTTileEntityAnimalJar jar = (GOTTileEntityAnimalJar) world.getTileEntity(i, j, k);
 		if (jar != null) {

@@ -13,9 +13,9 @@ import net.minecraft.util.Facing;
 import net.minecraft.world.*;
 
 public abstract class GOTBlockSlabBase extends BlockSlab {
-	public Block singleSlab;
-	public Block doubleSlab;
-	public int subtypes;
+	private Block singleSlab;
+	private Block doubleSlab;
+	private int subtypes;
 
 	public GOTBlockSlabBase(boolean flag, Material material, int n) {
 		super(flag, material);

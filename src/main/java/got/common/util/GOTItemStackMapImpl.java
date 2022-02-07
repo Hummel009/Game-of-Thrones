@@ -5,8 +5,8 @@ import java.util.*;
 import net.minecraft.item.ItemStack;
 
 public class GOTItemStackMapImpl<V> implements GOTItemStackMap<V> {
-	public boolean isNBTSensitive;
-	public HashMap<GOTItemStackWrapper, V> innerMap = new HashMap();
+	private boolean isNBTSensitive;
+	private HashMap<GOTItemStackWrapper, V> innerMap = new HashMap();
 
 	public GOTItemStackMapImpl() {
 		this(false);

@@ -14,9 +14,9 @@ import net.minecraft.world.*;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class GOTBlockWaste extends Block {
-	public static Random wasteRand = new Random();
+	private static Random wasteRand = new Random();
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] randomIcons;
+	private IIcon[] randomIcons;
 
 	public GOTBlockWaste() {
 		super(Material.ground);

@@ -16,10 +16,10 @@ import net.minecraftforge.common.*;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
-	public static int MAX_GROW_HEIGHT = 3;
-	public static int META_GROW_END = 7;
+	private static int MAX_GROW_HEIGHT = 3;
+	private static int META_GROW_END = 7;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon cornIcon;
+	private IIcon cornIcon;
 
 	public GOTBlockCorn() {
 		super(Material.plants);
@@ -36,7 +36,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 		return canPlaceBlockAt(world, i, j, k);
 	}
 
-	public boolean canGrowCorn(World world, int i, int j, int k) {
+	private boolean canGrowCorn(World world, int i, int j, int k) {
 		return world.getBlock(i, j - 1, k) == this;
 	}
 
@@ -66,7 +66,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 		return below.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, this) || below.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, beachTest);
 	}
 
-	public boolean checkCanStay(World world, int i, int j, int k) {
+	private boolean checkCanStay(World world, int i, int j, int k) {
 		if (!canBlockStay(world, i, j, k)) {
 			int meta = world.getBlockMetadata(i, j, k);
 			this.dropBlockAsItem(world, i, j, k, meta, 0);
@@ -126,7 +126,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 		return drops;
 	}
 
-	public float getGrowthFactor(World world, int i, int j, int k) {
+	private float getGrowthFactor(World world, int i, int j, int k) {
 		float growth = 1.0f;
 		Block below = world.getBlock(i, j - 1, k);
 		if (below.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.wheat)) {
@@ -229,7 +229,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 				++cornHeight;
 			}
 			float growth = getGrowthFactor(world, i, j - cornHeight + 1, k);
-			if (world.isAirBlock(i, j + 1, k) && cornHeight < MAX_GROW_HEIGHT) {
+			if (world.isAirBlock(i, j + 1, k) && cornHeight < getMaxGrowHeight()) {
 				int meta = world.getBlockMetadata(i, j, k);
 				int corn = meta & 8;
 				int grow = meta & 7;
@@ -248,12 +248,16 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 		}
 	}
 
+	public static int getMaxGrowHeight() {
+		return MAX_GROW_HEIGHT;
+	}
+
 	public static boolean hasCorn(World world, int i, int j, int k) {
 		int meta = world.getBlockMetadata(i, j, k);
 		return GOTBlockCorn.metaHasCorn(meta);
 	}
 
-	public static boolean metaHasCorn(int l) {
+	private static boolean metaHasCorn(int l) {
 		return (l & 8) != 0;
 	}
 
@@ -261,6 +265,10 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 		int meta = world.getBlockMetadata(i, j, k);
 		meta = flag ? (meta |= 8) : (meta &= 7);
 		world.setBlockMetadataWithNotify(i, j, k, meta, 3);
+	}
+
+	public static void setMaxGrowHeight(int mAX_GROW_HEIGHT) {
+		MAX_GROW_HEIGHT = mAX_GROW_HEIGHT;
 	}
 
 }

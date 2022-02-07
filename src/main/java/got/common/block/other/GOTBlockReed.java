@@ -14,12 +14,12 @@ import net.minecraft.world.*;
 import net.minecraftforge.common.*;
 
 public class GOTBlockReed extends Block implements IPlantable {
-	public static int MAX_GROW_HEIGHT = 3;
-	public static int META_GROW_END = 15;
+	private static int MAX_GROW_HEIGHT = 3;
+	private static int META_GROW_END = 15;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon iconUpper;
+	private IIcon iconUpper;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon iconLower;
+	private IIcon iconLower;
 
 	public GOTBlockReed() {
 		super(Material.plants);
@@ -50,7 +50,7 @@ public class GOTBlockReed extends Block implements IPlantable {
 		return true;
 	}
 
-	public boolean checkCanStay(World world, int i, int j, int k) {
+	private boolean checkCanStay(World world, int i, int j, int k) {
 		if (!canBlockStay(world, i, j, k)) {
 			int meta = world.getBlockMetadata(i, j, k);
 			this.dropBlockAsItem(world, i, j, k, meta, 0);

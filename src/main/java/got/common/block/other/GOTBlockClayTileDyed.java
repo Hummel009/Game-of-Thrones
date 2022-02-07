@@ -11,7 +11,7 @@ import net.minecraft.util.IIcon;
 
 public class GOTBlockClayTileDyed extends GOTBlockClayTile {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] clayIcons;
+	private IIcon[] clayIcons;
 
 	@Override
 	public int damageDropped(int i) {

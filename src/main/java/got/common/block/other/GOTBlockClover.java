@@ -40,7 +40,7 @@ public class GOTBlockClover extends GOTBlockFlower {
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		return petalIcon;
+		return getPetalIcon();
 	}
 
 	@SideOnly(value = Side.CLIENT)
@@ -82,7 +82,23 @@ public class GOTBlockClover extends GOTBlockFlower {
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
-		stemIcon = iconregister.registerIcon(getTextureName() + "_stem");
-		petalIcon = iconregister.registerIcon(getTextureName() + "_petal");
+		setStemIcon(iconregister.registerIcon(getTextureName() + "_stem"));
+		setPetalIcon(iconregister.registerIcon(getTextureName() + "_petal"));
+	}
+
+	public static IIcon getPetalIcon() {
+		return petalIcon;
+	}
+
+	public static IIcon getStemIcon() {
+		return stemIcon;
+	}
+
+	public static void setPetalIcon(IIcon petalIcon) {
+		GOTBlockClover.petalIcon = petalIcon;
+	}
+
+	public static void setStemIcon(IIcon stemIcon) {
+		GOTBlockClover.stemIcon = stemIcon;
 	}
 }

@@ -14,12 +14,12 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.*;
 
 public class GOTBlockTallGrass extends GOTBlockGrass {
-	public static String[] grassNames = { "short", "flower", "wheat", "thistle", "nettle", "fernsprout" };
-	public static boolean[] grassOverlay = { false, true, true, true, false, false };
+	private static String[] grassNames = { "short", "flower", "wheat", "thistle", "nettle", "fernsprout" };
+	private static boolean[] grassOverlay = { false, true, true, true, false, false };
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] grassIcons;
+	private IIcon[] grassIcons;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] overlayIcons;
+	private IIcon[] overlayIcons;
 
 	@SideOnly(value = Side.CLIENT)
 	@Override
@@ -91,10 +91,18 @@ public class GOTBlockTallGrass extends GOTBlockGrass {
 		overlayIcons = new IIcon[grassNames.length];
 		for (int i = 0; i < grassNames.length; ++i) {
 			grassIcons[i] = iconregister.registerIcon(getTextureName() + "_" + grassNames[i]);
-			if (!grassOverlay[i]) {
+			if (!getGrassOverlay()[i]) {
 				continue;
 			}
 			overlayIcons[i] = iconregister.registerIcon(getTextureName() + "_" + grassNames[i] + "_overlay");
 		}
+	}
+
+	public static boolean[] getGrassOverlay() {
+		return grassOverlay;
+	}
+
+	public static void setGrassOverlay(boolean[] grassOverlay) {
+		GOTBlockTallGrass.grassOverlay = grassOverlay;
 	}
 }

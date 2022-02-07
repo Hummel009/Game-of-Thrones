@@ -19,13 +19,13 @@ import net.minecraft.world.*;
 
 public class GOTBlockMillstone extends BlockContainer {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon iconSide;
+	private IIcon iconSide;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon iconTop;
+	private IIcon iconTop;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon iconSideActive;
+	private IIcon iconSideActive;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon iconTopActive;
+	private IIcon iconTopActive;
 
 	public GOTBlockMillstone() {
 		super(Material.rock);
@@ -112,7 +112,7 @@ public class GOTBlockMillstone extends BlockContainer {
 		iconTopActive = iconregister.registerIcon(getTextureName() + "_top_active");
 	}
 
-	public static boolean isMillstoneActive(IBlockAccess world, int i, int j, int k) {
+	private static boolean isMillstoneActive(IBlockAccess world, int i, int j, int k) {
 		int meta = world.getBlockMetadata(i, j, k);
 		return (meta & 8) != 0;
 	}

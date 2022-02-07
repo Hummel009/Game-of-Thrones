@@ -14,7 +14,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 public class GOTBlockFence extends BlockFence {
-	public Block plankBlock;
+	private Block plankBlock;
 
 	public GOTBlockFence(Block planks) {
 		super("", Material.wood);

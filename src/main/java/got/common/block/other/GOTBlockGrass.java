@@ -13,7 +13,7 @@ import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class GOTBlockGrass extends BlockBush implements IShearable {
-	public boolean isSandy;
+	private boolean isSandy;
 
 	public GOTBlockGrass() {
 		super(Material.vine);

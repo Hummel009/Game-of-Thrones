@@ -490,7 +490,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 		if (plantBlock instanceof GOTBlockCorn) {
 			harvestingSolidBlock = false;
 			if (theWorld.getBlock(i, j, k) == plantBlock) {
-				for (int j1 = 0; j1 <= GOTBlockCorn.MAX_GROW_HEIGHT - 1; j1++) {
+				for (int j1 = 0; j1 <= GOTBlockCorn.getMaxGrowHeight() - 1; j1++) {
 					int j2 = j + j1;
 					if (theWorld.getBlock(i, j2, k) == plantBlock && GOTBlockCorn.hasCorn(theWorld, i, j2, k)) {
 						return true;
@@ -710,7 +710,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 				if (block instanceof GOTBlockCorn) {
 					int x = actionTarget.posX;
 					int z = actionTarget.posZ;
-					for (int j1 = 0; j1 <= GOTBlockCorn.MAX_GROW_HEIGHT - 1; j1++) {
+					for (int j1 = 0; j1 <= GOTBlockCorn.getMaxGrowHeight() - 1; j1++) {
 						int y = actionTarget.posY + j1;
 						if (theWorld.getBlock(x, y, z) == block && GOTBlockCorn.hasCorn(theWorld, x, y, z)) {
 							int meta = theWorld.getBlockMetadata(x, y, z);

@@ -15,7 +15,7 @@ public class GOTSlotMeleeWeapon extends Slot {
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public IIcon getBackgroundIconIndex() {
-		return GOTCommonIcons.iconMeleeWeapon;
+		return GOTCommonIcons.getIconMeleeWeapon();
 	}
 
 	@Override

@@ -16,7 +16,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public class GOTBlockMudGrass extends Block implements IGrowable {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon iconTop;
+	private IIcon iconTop;
 
 	public GOTBlockMudGrass() {
 		super(Material.grass);

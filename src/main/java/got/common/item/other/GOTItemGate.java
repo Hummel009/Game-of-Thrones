@@ -21,7 +21,7 @@ public class GOTItemGate extends ItemBlock {
 		float horizontalAngle = 40.0f;
 		boolean lookingUp = entityplayer.rotationPitch < -horizontalAngle;
 		boolean lookingDown = entityplayer.rotationPitch > horizontalAngle;
-		boolean fullBlock = gateBlock.fullBlockGate;
+		boolean fullBlock = gateBlock.isFullBlockGate();
 		if (side == 0 || side == 1) {
 			meta = Direction.directionToFacing[yaw];
 		} else if (lookingUp || lookingDown) {

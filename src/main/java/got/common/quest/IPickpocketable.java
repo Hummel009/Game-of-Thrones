@@ -28,7 +28,7 @@ public interface IPickpocketable {
 				try {
 					return UUID.fromString(id);
 				} catch (IllegalArgumentException e) {
-					GOTLog.logger.warn("Item %s has invalid pickpocketed wanter ID %s", itemstack.getDisplayName(), id);
+					GOTLog.getLogger().warn("Item %s has invalid pickpocketed wanter ID %s", itemstack.getDisplayName(), id);
 				}
 			}
 			return null;

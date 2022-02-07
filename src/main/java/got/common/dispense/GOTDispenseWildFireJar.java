@@ -18,9 +18,9 @@ public class GOTDispenseWildFireJar extends BehaviorDefaultDispenseItem {
 		EnumFacing enumfacing = BlockDispenser.func_149937_b(dispense.getBlockMetadata());
 		World world = dispense.getWorld();
 		if (world.getBlock(i = dispense.getXInt() + enumfacing.getFrontOffsetX(), j = dispense.getYInt() + enumfacing.getFrontOffsetY(), k = dispense.getZInt() + enumfacing.getFrontOffsetZ()).isReplaceable(world, i, j, k)) {
-			GOTBlockWildFireJar.explodeOnAdded = false;
+			GOTBlockWildFireJar.setExplodeOnAdded(false);
 			world.setBlock(i, j, k, Block.getBlockFromItem(itemstack.getItem()), itemstack.getItemDamage(), 3);
-			GOTBlockWildFireJar.explodeOnAdded = true;
+			GOTBlockWildFireJar.setExplodeOnAdded(true);
 			--itemstack.stackSize;
 			return itemstack;
 		}

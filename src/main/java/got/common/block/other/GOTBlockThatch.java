@@ -12,9 +12,9 @@ import net.minecraft.item.*;
 import net.minecraft.util.IIcon;
 
 public class GOTBlockThatch extends Block {
-	public static String[] thatchNames = { "thatch", "reed" };
+	private static String[] thatchNames = { "thatch", "reed" };
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] thatchIcons;
+	private IIcon[] thatchIcons;
 
 	public GOTBlockThatch() {
 		super(Material.grass);

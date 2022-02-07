@@ -7,7 +7,6 @@ import got.common.entity.other.GOTEntityFallingConcrete;
 import got.common.util.GOTEnumDyeColor;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
-import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
 public class GOTBlockConcretePowder extends BlockFalling {
@@ -22,7 +21,7 @@ public class GOTBlockConcretePowder extends BlockFalling {
 		setBlockTextureName("got:concrete_powder_" + this.color.getName());
 	}
 
-	public void func_149830_m(World p_149830_1_, int p_149830_2_, int p_149830_3_, int p_149830_4_) {
+	private void func_149830_m(World p_149830_1_, int p_149830_2_, int p_149830_3_, int p_149830_4_) {
 		if (BlockFalling.func_149831_e(p_149830_1_, p_149830_2_, p_149830_3_ - 1, p_149830_4_) && p_149830_3_ >= 0) {
 			int b0 = 32;
 			if (!fallInstantly && p_149830_1_.checkChunksExist(p_149830_2_ - b0, p_149830_3_ - b0, p_149830_4_ - b0, p_149830_2_ + b0, p_149830_3_ + b0, p_149830_4_ + b0)) {
@@ -72,13 +71,7 @@ public class GOTBlockConcretePowder extends BlockFalling {
 		}
 	}
 
-	public static boolean canFallThrough(World worldIn, int x, int y, int z) {
-		Block block = worldIn.getBlock(x, y, z);
-		Material material = block.getMaterial();
-		return block == Blocks.fire || material == Material.air || material == Material.water || material == Material.lava;
-	}
-
-	public static GOTBlockConcrete getConcreteFromColor(GOTEnumDyeColor dye) {
+	private static GOTBlockConcrete getConcreteFromColor(GOTEnumDyeColor dye) {
 		return GOTRegistry.concrete.get(dye);
 	}
 }

@@ -4,11 +4,11 @@ import got.client.model.GOTModelDragonAnimaton;
 
 public class GOTTickFloat {
 
-	public float min;
-	public float max;
-	public boolean clamp = false;
-	public float current;
-	public float previous;
+	private float min;
+	private float max;
+	private boolean clamp = false;
+	private float current;
+	private float previous;
 
 	public GOTTickFloat() {
 		current = previous = 0;
@@ -34,18 +34,6 @@ public class GOTTickFloat {
 		return GOTModelDragonAnimaton.lerp(previous, current, x);
 	}
 
-	public float getMax() {
-		return max;
-	}
-
-	public float getMin() {
-		return min;
-	}
-
-	public float getPrevious() {
-		return previous;
-	}
-
 	public void set(float value) {
 		sync();
 		current = clamp ? GOTModelDragonAnimaton.clamp(value, min, max) : value;
@@ -59,11 +47,11 @@ public class GOTTickFloat {
 		return this;
 	}
 
-	public void setMax(float max) {
+	private void setMax(float max) {
 		this.max = max;
 	}
 
-	public void setMin(float min) {
+	private void setMin(float min) {
 		this.min = min;
 	}
 

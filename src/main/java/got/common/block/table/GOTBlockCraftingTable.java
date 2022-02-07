@@ -11,17 +11,25 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class GOTBlockCraftingTable extends Block {
-	public static List<GOTBlockCraftingTable> allCraftingTables = new ArrayList<>();
-	public GOTFaction tableFaction;
-	public int tableGUIID;
+	private static List<GOTBlockCraftingTable> allCraftingTables = new ArrayList<>();
+	private GOTFaction tableFaction;
+	private int tableGUIID;
 
 	public GOTBlockCraftingTable(Material material, GOTFaction faction, int guiID) {
 		super(material);
 		setCreativeTab(GOTCreativeTabs.tabUtil);
 		setHardness(2.5f);
-		tableFaction = faction;
-		tableGUIID = guiID;
-		allCraftingTables.add(this);
+		setTableFaction(faction);
+		setTableGUIID(guiID);
+		getAllCraftingTables().add(this);
+	}
+
+	public GOTFaction getTableFaction() {
+		return tableFaction;
+	}
+
+	public int getTableGUIID() {
+		return tableGUIID;
 	}
 
 	@Override
@@ -30,7 +38,7 @@ public class GOTBlockCraftingTable extends Block {
 		hasRequiredAlignment = true;
 		if (hasRequiredAlignment) {
 			if (!world.isRemote) {
-				entityplayer.openGui(GOT.getInstance(), tableGUIID, world, i, j, k);
+				entityplayer.openGui(GOT.getInstance(), getTableGUIID(), world, i, j, k);
 			}
 		} else {
 			for (int l = 0; l < 8; ++l) {
@@ -40,9 +48,25 @@ public class GOTBlockCraftingTable extends Block {
 				world.spawnParticle("smoke", d, d1, d2, 0.0, 0.0, 0.0);
 			}
 			if (!world.isRemote) {
-				GOTAlignmentValues.notifyAlignmentNotHighEnough(entityplayer, 1.0f, tableFaction);
+				GOTAlignmentValues.notifyAlignmentNotHighEnough(entityplayer, 1.0f, getTableFaction());
 			}
 		}
 		return true;
+	}
+
+	public void setTableFaction(GOTFaction tableFaction) {
+		this.tableFaction = tableFaction;
+	}
+
+	public void setTableGUIID(int tableGUIID) {
+		this.tableGUIID = tableGUIID;
+	}
+
+	public static List<GOTBlockCraftingTable> getAllCraftingTables() {
+		return allCraftingTables;
+	}
+
+	public static void setAllCraftingTables(List<GOTBlockCraftingTable> allCraftingTables) {
+		GOTBlockCraftingTable.allCraftingTables = allCraftingTables;
 	}
 }

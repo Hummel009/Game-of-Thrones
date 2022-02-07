@@ -202,9 +202,9 @@ public class GOTReplacedMethods {
 			try {
 				new FMLRuntimeCodec().encodeInto(null, msg, data);
 			} catch (Exception e) {
-				GOTLog.logger.error("**********************************************");
-				GOTLog.logger.error("GOT: ERROR sending mob spawn packet to client!");
-				GOTLog.logger.error("**********************************************");
+				GOTLog.getLogger().error("**********************************************");
+				GOTLog.getLogger().error("GOT: ERROR sending mob spawn packet to client!");
+				GOTLog.getLogger().error("**********************************************");
 			}
 			return new FMLProxyPacket(data, "FML");
 		}
@@ -432,7 +432,7 @@ public class GOTReplacedMethods {
 					return Blocks.snow.getIcon(1, 0);
 				}
 				if (side != 0) {
-					return GOTCommonIcons.iconStoneSnow;
+					return GOTCommonIcons.getIconStoneSnow();
 				}
 			}
 			return defaultIcon;
@@ -441,7 +441,7 @@ public class GOTReplacedMethods {
 		public static IIcon getIconWorld(Block block, IBlockAccess world, int i, int j, int k, int side) {
 			Material aboveMat;
 			if (block == Blocks.stone && side != 0 && side != 1 && ((aboveMat = world.getBlock(i, j + 1, k).getMaterial()) == Material.snow || aboveMat == Material.craftedSnow)) {
-				return GOTCommonIcons.iconStoneSnow;
+				return GOTCommonIcons.getIconStoneSnow();
 			}
 			return block.getIcon(side, world.getBlockMetadata(i, j, k));
 		}

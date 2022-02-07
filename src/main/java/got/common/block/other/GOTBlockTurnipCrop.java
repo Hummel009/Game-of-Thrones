@@ -11,7 +11,7 @@ import net.minecraftforge.common.EnumPlantType;
 
 public class GOTBlockTurnipCrop extends BlockCrops {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] turnipIcons;
+	private IIcon[] turnipIcons;
 
 	@Override
 	public Item func_149865_P() {

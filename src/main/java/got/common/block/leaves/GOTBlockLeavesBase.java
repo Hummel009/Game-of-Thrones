@@ -3,10 +3,7 @@ package got.common.block.leaves;
 import java.util.*;
 
 import cpw.mods.fml.relauncher.*;
-import got.GOT;
-import got.common.GOTDate;
 import got.common.database.GOTCreativeTabs;
-import got.common.world.GOTWorldProvider;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -15,12 +12,11 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.*;
 
 public class GOTBlockLeavesBase extends BlockLeaves {
-	public static List allLeafBlocks = new ArrayList();
+	private static List allLeafBlocks = new ArrayList();
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[][] leafIcons;
-	public String[] leafNames;
-	public boolean[] seasonal;
-	public String vanillaTextureName;
+	private IIcon[][] leafIcons;
+	private String[] leafNames;
+	private String vanillaTextureName;
 
 	public GOTBlockLeavesBase() {
 		this(false, null);
@@ -133,12 +129,6 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 		if (b.length != leafNames.length) {
 			throw new IllegalArgumentException("Leaf seasons length must match number of types");
 		}
-		seasonal = b;
-	}
-
-	public boolean shouldOakUseBiomeColor() {
-		GOTDate.Season season = GOTDate.AegonCalendar.getSeason();
-		return season == GOTDate.Season.SPRING || season == GOTDate.Season.SUMMER || !(GOT.getProxy().getClientWorld().provider instanceof GOTWorldProvider);
 	}
 
 	public static int getBiomeLeafColor(IBlockAccess world, int i, int j, int k) {

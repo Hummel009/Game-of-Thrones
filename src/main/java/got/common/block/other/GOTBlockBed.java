@@ -11,21 +11,25 @@ import net.minecraft.util.*;
 import net.minecraft.world.*;
 
 public class GOTBlockBed extends BlockBed {
-	public Item bedItem;
-	public Block bedBottomBlock;
-	public int bedBottomMetadata;
+	private Item bedItem;
+	private Block bedBottomBlock;
+	private int bedBottomMetadata;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] bedIconsEnd;
+	private IIcon[] bedIconsEnd;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] bedIconsSide;
+	private IIcon[] bedIconsSide;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] bedIconsTop;
+	private IIcon[] bedIconsTop;
 
 	public GOTBlockBed(Block block, int k) {
 		bedBottomBlock = block;
 		bedBottomMetadata = k;
 		setHardness(0.2f);
 		setStepSound(Block.soundTypeWood);
+	}
+
+	public Item getBedItem() {
+		return bedItem;
 	}
 
 	@SideOnly(value = Side.CLIENT)
@@ -44,12 +48,12 @@ public class GOTBlockBed extends BlockBed {
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public Item getItem(World world, int i, int j, int k) {
-		return bedItem;
+		return getBedItem();
 	}
 
 	@Override
 	public Item getItemDropped(int i, Random random, int j) {
-		return BlockBed.isBlockHeadOfBed(i) ? null : bedItem;
+		return BlockBed.isBlockHeadOfBed(i) ? null : getBedItem();
 	}
 
 	@Override
@@ -63,5 +67,9 @@ public class GOTBlockBed extends BlockBed {
 		bedIconsTop = new IIcon[] { iconregister.registerIcon(getTextureName() + "_feet_top"), iconregister.registerIcon(getTextureName() + "_head_top") };
 		bedIconsEnd = new IIcon[] { iconregister.registerIcon(getTextureName() + "_feet_end"), iconregister.registerIcon(getTextureName() + "_head_end") };
 		bedIconsSide = new IIcon[] { iconregister.registerIcon(getTextureName() + "_feet_side"), iconregister.registerIcon(getTextureName() + "_head_side") };
+	}
+
+	public void setBedItem(Item bedItem) {
+		this.bedItem = bedItem;
 	}
 }

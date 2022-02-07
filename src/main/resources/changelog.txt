@@ -10,6 +10,7 @@ CHANGELOG
 * Improved prostitute names & skins
 * Improved ranks
 
+* Optimized money system code
 * Optimized rendering code
 
 * Fixed bug with music packs

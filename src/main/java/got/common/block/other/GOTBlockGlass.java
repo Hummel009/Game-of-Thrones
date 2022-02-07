@@ -9,7 +9,7 @@ import net.minecraft.util.Facing;
 import net.minecraft.world.*;
 
 public class GOTBlockGlass extends BlockGlass {
-	public boolean thirdParam = false;
+	private boolean thirdParam = false;
 
 	public GOTBlockGlass() {
 		super(Material.glass, false);

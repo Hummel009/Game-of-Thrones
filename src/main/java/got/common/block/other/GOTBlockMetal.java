@@ -24,7 +24,7 @@ public class GOTBlockMetal extends GOTBlockOreStorageBase implements GOTConnecte
 
 	@Override
 	public String getConnectedName(int meta) {
-		return textureName + "_" + oreStorageNames[meta];
+		return textureName + "_" + getOreStorageNames()[meta];
 	}
 
 	@SideOnly(value = Side.CLIENT)
@@ -66,13 +66,13 @@ public class GOTBlockMetal extends GOTBlockOreStorageBase implements GOTConnecte
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
-		oreStorageIcons = new IIcon[oreStorageNames.length];
-		for (int i = 0; i < oreStorageNames.length; ++i) {
+		setOreStorageIcons(new IIcon[getOreStorageNames().length]);
+		for (int i = 0; i < getOreStorageNames().length; ++i) {
 			if (i == 4) {
 				GOTConnectedTextures.registerConnectedIcons(iconregister, this, i, false);
 				continue;
 			}
-			oreStorageIcons[i] = iconregister.registerIcon(getTextureName() + "_" + oreStorageNames[i]);
+			getOreStorageIcons()[i] = iconregister.registerIcon(getTextureName() + "_" + getOreStorageNames()[i]);
 		}
 	}
 }

@@ -47,7 +47,7 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 		}
 	}
 
-	public ArrayList<ItemStack> getBerryDrops(World world, int i, int j, int k, int meta) {
+	private ArrayList<ItemStack> getBerryDrops(World world, int i, int j, int k, int meta) {
 		ArrayList<ItemStack> drops = new ArrayList<>();
 		if (GOTBlockBerryBush.hasBerries(meta)) {
 			int berryType = GOTBlockBerryBush.getBerryType(meta);
@@ -95,7 +95,7 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 		return drops;
 	}
 
-	public float getGrowthFactor(World world, int i, int j, int k) {
+	private float getGrowthFactor(World world, int i, int j, int k) {
 		float growth;
 		Block below = world.getBlock(i, j - 1, k);
 		if (below.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, this) && world.getBlockLightValue(i, j + 1, k) >= 9) {
@@ -177,13 +177,13 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (BushType type : BushType.values()) {
-			int meta = type.bushMeta;
+			int meta = type.getBushMeta();
 			list.add(new ItemStack(item, 1, GOTBlockBerryBush.setHasBerries(meta, true)));
 			list.add(new ItemStack(item, 1, GOTBlockBerryBush.setHasBerries(meta, false)));
 		}
 	}
 
-	public void growBerries(World world, int i, int j, int k) {
+	private void growBerries(World world, int i, int j, int k) {
 		int meta = world.getBlockMetadata(i, j, k);
 		world.setBlockMetadataWithNotify(i, j, k, GOTBlockBerryBush.setHasBerries(meta, true), 3);
 	}
@@ -229,7 +229,7 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 		}
 	}
 
-	public static int getBerryType(int meta) {
+	private static int getBerryType(int meta) {
 		return meta & 7;
 	}
 
@@ -247,23 +247,39 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 	public enum BushType {
 		BLUEBERRY(0, "blueberry", false), BLACKBERRY(1, "blackberry", false), RASPBERRY(2, "raspberry", false), CRANBERRY(3, "cranberry", false), ELDERBERRY(4, "elderberry", false), WILDBERRY(5, "wildberry", true);
 
-		public int bushMeta;
-		public String bushName;
-		public boolean poisonous;
+		private int bushMeta;
+		private String bushName;
+		private boolean poisonous;
 		@SideOnly(value = Side.CLIENT)
-		public IIcon iconBare;
+		private IIcon iconBare;
 		@SideOnly(value = Side.CLIENT)
-		public IIcon iconGrown;
+		private IIcon iconGrown;
 
 		BushType(int i, String s, boolean flag) {
-			bushMeta = i;
+			setBushMeta(i);
 			bushName = s;
-			poisonous = flag;
+			setPoisonous(flag);
 		}
 
-		public static BushType forMeta(int i) {
+		public int getBushMeta() {
+			return bushMeta;
+		}
+
+		public boolean isPoisonous() {
+			return poisonous;
+		}
+
+		public void setBushMeta(int bushMeta) {
+			this.bushMeta = bushMeta;
+		}
+
+		public void setPoisonous(boolean poisonous) {
+			this.poisonous = poisonous;
+		}
+
+		private static BushType forMeta(int i) {
 			for (BushType type : BushType.values()) {
-				if (type.bushMeta != i) {
+				if (type.getBushMeta() != i) {
 					continue;
 				}
 				return type;

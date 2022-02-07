@@ -11,7 +11,7 @@ import net.minecraftforge.common.EnumPlantType;
 
 public class GOTBlockLeekCrop extends BlockCrops {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] leekIcons;
+	private IIcon[] leekIcons;
 
 	@Override
 	public Item func_149865_P() {

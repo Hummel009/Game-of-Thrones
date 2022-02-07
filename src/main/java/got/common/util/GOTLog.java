@@ -8,7 +8,7 @@ import cpw.mods.fml.common.FMLLog;
 import net.minecraft.server.MinecraftServer;
 
 public class GOTLog {
-	public static Logger logger;
+	private static Logger logger;
 
 	public static void findLogger() {
 		try {
@@ -18,8 +18,8 @@ public class GOTLog {
 				if (!(obj instanceof Logger)) {
 					continue;
 				}
-				logger = (Logger) obj;
-				logger.info("Hummel009: Found logger");
+				setLogger((Logger) obj);
+				getLogger().info("Hummel009: Found logger");
 				break;
 			}
 		} catch (Exception e) {
@@ -28,7 +28,11 @@ public class GOTLog {
 		}
 	}
 
-	public static void info(String s) {
-		logger.info(s);
+	public static Logger getLogger() {
+		return logger;
+	}
+
+	public static void setLogger(Logger logger) {
+		GOTLog.logger = logger;
 	}
 }

@@ -6,8 +6,8 @@ import net.minecraft.block.*;
 import net.minecraft.util.IIcon;
 
 public class GOTBlockFenceGate extends BlockFenceGate {
-	public Block plankBlock;
-	public int plankMeta;
+	private Block plankBlock;
+	private int plankMeta;
 
 	public GOTBlockFenceGate(Block block, int meta) {
 		plankBlock = block;

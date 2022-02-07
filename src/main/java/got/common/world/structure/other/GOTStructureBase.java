@@ -369,7 +369,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	public void loadStrScan(String name) {
 		currentStrScan = GOTStructureScan.getScanByName(name);
 		if (currentStrScan == null) {
-			GOTLog.logger.error("GOT: Structure Scan for name " + name + " does not exist!!!");
+			GOTLog.getLogger().error("GOT: Structure Scan for name " + name + " does not exist!!!");
 		}
 		scanAliases.clear();
 	}

@@ -13,7 +13,7 @@ import net.minecraftforge.common.EnumPlantType;
 
 public class GOTBlockPipeweedCrop extends BlockCrops {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] pipeweedIcons;
+	private IIcon[] pipeweedIcons;
 
 	@Override
 	public Item func_149865_P() {

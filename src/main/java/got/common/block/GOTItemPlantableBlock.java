@@ -6,9 +6,9 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.*;
 
 public class GOTItemPlantableBlock extends ItemBlock implements IPlantable {
-	public IPlantable plantableBlock;
+	private IPlantable plantableBlock;
 
-	public GOTItemPlantableBlock(Block block) {
+	private GOTItemPlantableBlock(Block block) {
 		super(block);
 		plantableBlock = (IPlantable) block;
 	}

@@ -16,12 +16,12 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 public class GOTBlockSpawnerChest extends BlockChest {
-	public static boolean dropChestItems = true;
-	public Block chestModel;
+	private static boolean dropChestItems = true;
+	private Block chestModel;
 
 	public GOTBlockSpawnerChest(Block block) {
 		super(0);
-		chestModel = block;
+		setChestModel(block);
 		setStepSound(block.stepSound);
 		setCreativeTab(null);
 	}
@@ -43,34 +43,38 @@ public class GOTBlockSpawnerChest extends BlockChest {
 
 	@Override
 	public float getBlockHardness(World world, int i, int j, int k) {
-		return chestModel.getBlockHardness(world, i, j, k);
+		return getChestModel().getBlockHardness(world, i, j, k);
+	}
+
+	public Block getChestModel() {
+		return chestModel;
 	}
 
 	@Override
 	public float getExplosionResistance(Entity entity, World world, int i, int j, int k, double explosionX, double explosionY, double explosionZ) {
-		return chestModel.getExplosionResistance(entity, world, i, j, k, explosionX, explosionY, explosionZ);
+		return getChestModel().getExplosionResistance(entity, world, i, j, k, explosionX, explosionY, explosionZ);
 	}
 
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		return chestModel.getIcon(i, j);
+		return getChestModel().getIcon(i, j);
 	}
 
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public Item getItem(World world, int i, int j, int k) {
-		return Item.getItemFromBlock(chestModel);
+		return Item.getItemFromBlock(getChestModel());
 	}
 
 	@Override
 	public Item getItemDropped(int i, Random random, int j) {
-		return Item.getItemFromBlock(chestModel);
+		return Item.getItemFromBlock(getChestModel());
 	}
 
 	@Override
 	public int getRenderType() {
-		return chestModel.getRenderType();
+		return getChestModel().getRenderType();
 	}
 
 	@Override
@@ -86,7 +90,7 @@ public class GOTBlockSpawnerChest extends BlockChest {
 					chestInv[l] = ((IInventory) tileentity).getStackInSlot(l);
 				}
 			}
-			world.setBlock(i, j, k, chestModel, world.getBlockMetadata(i, j, k), 3);
+			world.setBlock(i, j, k, getChestModel(), world.getBlockMetadata(i, j, k), 3);
 			for (l = 0; l < 27; ++l) {
 				((IInventory) world.getTileEntity(i, j, k)).setInventorySlotContents(l, chestInv[l]);
 			}
@@ -95,7 +99,11 @@ public class GOTBlockSpawnerChest extends BlockChest {
 		return true;
 	}
 
-	public void spawnEntity(World world, int i, int j, int k) {
+	public void setChestModel(Block chestModel) {
+		this.chestModel = chestModel;
+	}
+
+	private void spawnEntity(World world, int i, int j, int k) {
 		TileEntity tileentity = world.getTileEntity(i, j, k);
 		if (!(tileentity instanceof GOTTileEntitySpawnerChest)) {
 			return;

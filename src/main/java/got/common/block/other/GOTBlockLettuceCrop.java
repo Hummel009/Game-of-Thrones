@@ -11,7 +11,7 @@ import net.minecraftforge.common.EnumPlantType;
 
 public class GOTBlockLettuceCrop extends BlockCrops {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] lettuceIcons;
+	private IIcon[] lettuceIcons;
 
 	@Override
 	public Item func_149865_P() {

@@ -25,7 +25,7 @@ public class GOTBlockAsshaiFlower extends GOTBlockFlower {
 		return super.canBlockStay(world, i, j, k) || GOTBiomeShadowLand.isBlackSurface(world, i, j - 1, k);
 	}
 
-	public boolean isEntityVulnerable(EntityLivingBase entity) {
+	private boolean isEntityVulnerable(EntityLivingBase entity) {
 		if (GOT.getNPCFaction(entity) == GOTFaction.ASSHAI) {
 			return false;
 		}

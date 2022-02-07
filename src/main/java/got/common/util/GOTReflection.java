@@ -92,10 +92,10 @@ public class GOTReflection {
 		try {
 			return ReflectionHelper.findMethod(classToAccess, instance, GOTReflection.remapMethodNames(classToAccess.getName(), methodNames), methodClasses);
 		} catch (ReflectionHelper.UnableToFindFieldException e) {
-			GOTLog.logger.log(Level.ERROR, "Unable to locate any method %s on type %s", Arrays.toString(methodNames), classToAccess.getName());
+			GOTLog.getLogger().log(Level.ERROR, "Unable to locate any method %s on type %s", Arrays.toString(methodNames), classToAccess.getName());
 			throw e;
 		} catch (ReflectionHelper.UnableToAccessFieldException e) {
-			GOTLog.logger.log(Level.ERROR, "Unable to access any method %s on type %s", Arrays.toString(methodNames), classToAccess.getName());
+			GOTLog.getLogger().log(Level.ERROR, "Unable to access any method %s on type %s", Arrays.toString(methodNames), classToAccess.getName());
 			throw e;
 		}
 	}
@@ -128,11 +128,11 @@ public class GOTReflection {
 	}
 
 	public static void logFailure(Exception e) {
-		GOTLog.logger.log(Level.ERROR, "GOTReflection failed");
+		GOTLog.getLogger().log(Level.ERROR, "GOTReflection failed");
 		throw new RuntimeException(e);
 	}
 
-	public static String[] remapMethodNames(String className, String... methodNames) {
+	private static String[] remapMethodNames(String className, String... methodNames) {
 		String internalClassName = FMLDeobfuscatingRemapper.INSTANCE.unmap(className.replace('.', '/'));
 		String[] mappedNames = new String[methodNames.length];
 		int i = 0;
@@ -175,18 +175,7 @@ public class GOTReflection {
 			GOTReflection.unlockFinalField(f);
 			f.set(instance, value);
 		} catch (Exception e) {
-			GOTLog.logger.log(Level.ERROR, "Unable to access static field");
-			throw e;
-		}
-	}
-
-	public static <T, E> void setFinalField(Class<? super T> classToAccess, T instance, E value, String... fieldNames) throws Exception {
-		try {
-			fieldNames = ObfuscationReflectionHelper.remapFieldNames(classToAccess.getName(), fieldNames);
-			Field f = ReflectionHelper.findField(classToAccess, fieldNames);
-			GOTReflection.setFinalField(classToAccess, instance, value, f);
-		} catch (Exception e) {
-			GOTLog.logger.log(Level.ERROR, "Unable to access static field");
+			GOTLog.getLogger().log(Level.ERROR, "Unable to access static field");
 			throw e;
 		}
 	}

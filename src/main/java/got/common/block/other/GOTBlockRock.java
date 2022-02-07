@@ -14,8 +14,8 @@ import net.minecraft.world.World;
 
 public class GOTBlockRock extends Block {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[] rockIcons;
-	public String[] rockNames = { "basalt", "andesite", "rhyolite", "diorite", "granite", "chalk", "carnotite" };
+	private IIcon[] rockIcons;
+	private String[] rockNames = { "basalt", "andesite", "rhyolite", "diorite", "granite", "chalk", "carnotite" };
 
 	public GOTBlockRock() {
 		super(Material.rock);

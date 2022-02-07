@@ -18,8 +18,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
 
 public class GOTBlockMug extends BlockContainer {
-	public static float MUG_SCALE = 0.75f;
-
 	public GOTBlockMug() {
 		this(3.0f, 8.0f);
 	}
@@ -177,7 +175,7 @@ public class GOTBlockMug extends BlockContainer {
 		return false;
 	}
 
-	public static ItemStack getMugItem(World world, int i, int j, int k) {
+	private static ItemStack getMugItem(World world, int i, int j, int k) {
 		TileEntity tileentity = world.getTileEntity(i, j, k);
 		if (tileentity instanceof GOTTileEntityMug) {
 			GOTTileEntityMug mug = (GOTTileEntityMug) tileentity;

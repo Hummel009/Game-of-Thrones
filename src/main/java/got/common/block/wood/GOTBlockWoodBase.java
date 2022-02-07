@@ -12,8 +12,8 @@ import net.minecraft.util.IIcon;
 
 public abstract class GOTBlockWoodBase extends BlockLog {
 	@SideOnly(value = Side.CLIENT)
-	public IIcon[][] woodIcons;
-	public String[] woodNames;
+	private IIcon[][] woodIcons;
+	private String[] woodNames;
 
 	public GOTBlockWoodBase() {
 		setHardness(2.0f);
