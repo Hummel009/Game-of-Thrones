@@ -119,19 +119,19 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 
 	@Override
 	public String getQuestObjective() {
-		KeyBinding keyMenu = GOTKeyHandler.getKeyBindingMenu();
+		KeyBinding keyMenu = GOTKeyHandler.keyBindingMenu;
 		switch (stage) {
 		case 2:
 			return StatCollector.translateToLocal("got.miniquest.welcome.book");
 		case 5:
 			return StatCollector.translateToLocalFormatted("got.miniquest.welcome.map", GameSettings.getKeyDisplayString(keyMenu.getKeyCode()));
 		case 8:
-			KeyBinding keyLeft = GOTKeyHandler.getKeyBindingAlignmentCycleLeft();
-			KeyBinding keyRight = GOTKeyHandler.getKeyBindingAlignmentCycleRight();
+			KeyBinding keyLeft = GOTKeyHandler.keyBindingAlignmentCycleLeft;
+			KeyBinding keyRight = GOTKeyHandler.keyBindingAlignmentCycleRight;
 			return StatCollector.translateToLocalFormatted("got.miniquest.welcome.align", GameSettings.getKeyDisplayString(keyLeft.getKeyCode()), GameSettings.getKeyDisplayString(keyRight.getKeyCode()));
 		case 9:
-			KeyBinding keyUp = GOTKeyHandler.getKeyBindingAlignmentGroupPrev();
-			KeyBinding keyDown = GOTKeyHandler.getKeyBindingAlignmentGroupNext();
+			KeyBinding keyUp = GOTKeyHandler.keyBindingAlignmentGroupPrev;
+			KeyBinding keyDown = GOTKeyHandler.keyBindingAlignmentGroupNext;
 			return StatCollector.translateToLocalFormatted("got.miniquest.welcome.alignRegions", GameSettings.getKeyDisplayString(keyUp.getKeyCode()), GameSettings.getKeyDisplayString(keyDown.getKeyCode()));
 		case 11:
 			return StatCollector.translateToLocalFormatted("got.miniquest.welcome.factions", GameSettings.getKeyDisplayString(keyMenu.getKeyCode()));

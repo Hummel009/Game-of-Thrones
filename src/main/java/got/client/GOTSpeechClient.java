@@ -5,8 +5,8 @@ import java.util.*;
 import got.common.entity.other.GOTEntityNPC;
 
 public class GOTSpeechClient {
-	private static Map<UUID, TimedSpeech> npcSpeeches = new HashMap<>();
-	private static int DISPLAY_TIME = 200;
+	public static Map<UUID, TimedSpeech> npcSpeeches = new HashMap<>();
+	public static int DISPLAY_TIME = 200;
 
 	public static void clearAll() {
 		npcSpeeches.clear();
@@ -47,10 +47,10 @@ public class GOTSpeechClient {
 	}
 
 	public static class TimedSpeech {
-		private String speech;
-		private int time;
+		public String speech;
+		public int time;
 
-		private TimedSpeech(String s, int i) {
+		public TimedSpeech(String s, int i) {
 			speech = s;
 			time = i;
 		}

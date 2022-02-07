@@ -13,21 +13,21 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 
 public class GOTAttackTiming {
-	private static Minecraft mc = Minecraft.getMinecraft();
-	private static ResourceLocation meterTexture = new ResourceLocation("got:textures/gui/attackMeter.png");
-	private static RenderItem itemRenderer = new RenderItem();
-	private static int attackTime;
-	private static int prevAttackTime;
-	private static int fullAttackTime;
-	private static ItemStack attackItem;
-	private static int lastCheckTick;
+	public static Minecraft mc = Minecraft.getMinecraft();
+	public static ResourceLocation meterTexture = new ResourceLocation("got:textures/gui/attackMeter.png");
+	public static RenderItem itemRenderer = new RenderItem();
+	public static int attackTime;
+	public static int prevAttackTime;
+	public static int fullAttackTime;
+	public static ItemStack attackItem;
+	public static int lastCheckTick;
 
 	static {
 		lastCheckTick = -1;
 	}
 
 	public static void doAttackTiming() {
-		int currentTick = GOTTickHandlerClient.getClientTick();
+		int currentTick = GOTTickHandlerClient.clientTick;
 		if (lastCheckTick == -1) {
 			lastCheckTick = currentTick;
 		} else if (lastCheckTick == currentTick) {
@@ -42,9 +42,9 @@ public class GOTAttackTiming {
 				KeyBinding.onTick(attackKey.getKeyCode());
 			}
 			if (pressed && GOTAttackTiming.mc.objectMouseOver != null && GOTAttackTiming.mc.objectMouseOver.typeOfHit == MovingObjectPosition.MovingObjectType.ENTITY && GOTAttackTiming.mc.objectMouseOver.entityHit instanceof EntityLivingBase) {
-				if (getAttackTime() <= 0) {
+				if (attackTime <= 0) {
 					ItemStack itemstack = GOTAttackTiming.mc.thePlayer.getHeldItem();
-					setAttackTime(setFullAttackTime(GOTWeaponStats.getAttackTimePlayer(itemstack)));
+					attackTime = fullAttackTime = GOTWeaponStats.getAttackTimePlayer(itemstack);
 					attackItem = itemstack;
 				}
 				lastCheckTick = currentTick;
@@ -52,22 +52,10 @@ public class GOTAttackTiming {
 		}
 	}
 
-	public static int getAttackTime() {
-		return attackTime;
-	}
-
-	public static int getFullAttackTime() {
-		return fullAttackTime;
-	}
-
-	public static int getPrevAttackTime() {
-		return prevAttackTime;
-	}
-
 	public static void renderAttackMeter(ScaledResolution resolution, float partialTicks) {
-		if (getFullAttackTime() > 0) {
-			float attackTimeF = getPrevAttackTime() + (getAttackTime() - getPrevAttackTime()) * partialTicks;
-			attackTimeF /= getFullAttackTime();
+		if (fullAttackTime > 0) {
+			float attackTimeF = prevAttackTime + (attackTime - prevAttackTime) * partialTicks;
+			attackTimeF /= fullAttackTime;
 			float meterAmount = 1.0f - attackTimeF;
 			int minX = resolution.getScaledWidth() / 2 + 120;
 			int maxX = resolution.getScaledWidth() - 20;
@@ -115,29 +103,16 @@ public class GOTAttackTiming {
 	}
 
 	public static void reset() {
-		setAttackTime(0);
-		setPrevAttackTime(0);
-		setFullAttackTime(0);
+		attackTime = 0;
+		prevAttackTime = 0;
+		fullAttackTime = 0;
 		attackItem = null;
 	}
 
-	public static void setAttackTime(int attackTime) {
-		GOTAttackTiming.attackTime = attackTime;
-	}
-
-	public static int setFullAttackTime(int fullAttackTime) {
-		GOTAttackTiming.fullAttackTime = fullAttackTime;
-		return fullAttackTime;
-	}
-
-	public static void setPrevAttackTime(int prevAttackTime) {
-		GOTAttackTiming.prevAttackTime = prevAttackTime;
-	}
-
 	public static void update() {
-		setPrevAttackTime(getAttackTime());
-		if (getAttackTime() > 0) {
-			setAttackTime(getAttackTime() - 1);
+		prevAttackTime = attackTime;
+		if (attackTime > 0) {
+			--attackTime;
 		} else {
 			GOTAttackTiming.reset();
 		}

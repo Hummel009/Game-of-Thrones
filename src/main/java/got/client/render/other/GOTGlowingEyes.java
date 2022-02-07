@@ -15,7 +15,7 @@ public class GOTGlowingEyes {
 		GL11.glBlendFunc(1, 1);
 		float lastX = OpenGlHelper.lastBrightnessX;
 		float lastY = OpenGlHelper.lastBrightnessY;
-		int light = GOTClientProxy.getTesselatorMaxBrightness();
+		int light = GOTClientProxy.TESSELLATOR_MAX_BRIGHTNESS;
 		int lx = light % 65536;
 		int ly = light / 65536;
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, lx / 1.0f, ly / 1.0f);

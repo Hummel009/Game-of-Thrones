@@ -135,7 +135,7 @@ public class GOTModelDeer extends ModelBase {
 	@Override
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
 		GOTEntityDeer elk = (GOTEntityDeer) entity;
-		float renderTick = GOTTickHandlerClient.getRenderTick();
+		float renderTick = GOTTickHandlerClient.renderTick;
 		float rearAmount = elk.getRearingAmount(renderTick);
 		float antiRearAmount = 1.0f - rearAmount;
 		head.rotationPointY = 4.0f;

@@ -117,7 +117,7 @@ public class GOTModelFlamingo extends ModelBase {
 			tail.rotateAngleX = -0.25f;
 			int cur = flamingo.getFishingTickCur();
 			int pre = flamingo.getFishingTickPre();
-			float fishing = pre + (cur - pre) * GOTTickHandlerClient.getRenderTick();
+			float fishing = pre + (cur - pre) * GOTTickHandlerClient.renderTick;
 			if (cur > 160 + 20) {
 				head.rotateAngleX = 3.1415927f * (200.0f - fishing) / 20.0f;
 			} else if (cur > 20) {

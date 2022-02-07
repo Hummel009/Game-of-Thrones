@@ -36,7 +36,7 @@ public class GOTRenderCompass extends Render {
 		ringotel.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, scale);
 		GL11.glDisable(2896);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		Tessellator.instance.setBrightness(GOTClientProxy.getTesselatorMaxBrightness());
+		Tessellator.instance.setBrightness(GOTClientProxy.TESSELLATOR_MAX_BRIGHTNESS);
 		GL11.glEnable(2896);
 		GL11.glDisable(32826);
 		GL11.glEnable(2884);

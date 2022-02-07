@@ -88,10 +88,10 @@ public class GOTSwingHandler {
 
 	public void tryUpdateSwing(EntityLivingBase entity) {
 		if (entity == Minecraft.getMinecraft().thePlayer) {
-			if (GOTAttackTiming.getFullAttackTime() > 0) {
-				float max = GOTAttackTiming.getFullAttackTime();
-				float swing = (max - GOTAttackTiming.getAttackTime()) / max;
-				float pre = (max - GOTAttackTiming.getPrevAttackTime()) / max;
+			if (GOTAttackTiming.fullAttackTime > 0) {
+				float max = GOTAttackTiming.fullAttackTime;
+				float swing = (max - GOTAttackTiming.attackTime) / max;
+				float pre = (max - GOTAttackTiming.prevAttackTime) / max;
 				swing /= swingFactor;
 				pre /= swingFactor;
 				if (swing <= 1.0f) {

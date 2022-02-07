@@ -26,7 +26,7 @@ public class GOTModelPlateHead extends GOTModelHuman {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		ItemStack heldItem;
-		float tick = GOTTickHandlerClient.getRenderTick();
+		float tick = GOTTickHandlerClient.renderTick;
 		setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 		float headRotateY = f3;
 		GOTPlateFallingInfo fallingInfo = entity == null ? null : GOTPlateFallingInfo.getOrCreateFor(entity, false);

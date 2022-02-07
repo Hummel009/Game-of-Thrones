@@ -20,7 +20,7 @@ public class GOTRenderBarrowWight extends GOTRenderBiped {
 		super.doRender(entity, d, d1, d2, f, f1);
 		GOTEntityBarrowWight wight = (GOTEntityBarrowWight) entity;
 		if (wight.addedToChunk && (viewer = Minecraft.getMinecraft().renderViewEntity) != null && wight.getTargetEntityID() == viewer.getEntityId()) {
-			GOTTickHandlerClient.setAnyWightsViewed(true);
+			GOTTickHandlerClient.anyWightsViewed = true;
 		}
 	}
 

@@ -58,69 +58,78 @@ import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.world.WorldEvent;
 
 public class GOTTickHandlerClient {
-	private static ResourceLocation portalOverlay = new ResourceLocation("got:textures/misc/frost_overlay.png");
-	private static ResourceLocation mistOverlay = new ResourceLocation("got:textures/misc/mist_overlay.png");
-	private static ResourceLocation frostOverlay = new ResourceLocation("got:textures/misc/frost_overlay.png");
-	private static ResourceLocation burnOverlay = new ResourceLocation("got:textures/misc/burn_overlay.png");
-	private static ResourceLocation wightOverlay = new ResourceLocation("got:textures/misc/wight.png");
-	private static HashMap playersInPortals = new HashMap();
-	private static int clientTick;
-	private static float renderTick;
-	private static GOTInvasionStatus watchedInvasion;
-	private static GOTGuiNotificationDisplay notificationDisplay;
-	private static GOTGuiMiniquestTracker miniquestTracker;
-	private static boolean anyWightsViewed;
-	private static int scrapTraderMisbehaveTick;
-	private static boolean renderMenuPrompt = false;
+	public static ResourceLocation portalOverlay = new ResourceLocation("got:textures/misc/frost_overlay.png");
+	public static ResourceLocation mistOverlay = new ResourceLocation("got:textures/misc/mist_overlay.png");
+	public static ResourceLocation frostOverlay = new ResourceLocation("got:textures/misc/frost_overlay.png");
+	public static ResourceLocation burnOverlay = new ResourceLocation("got:textures/misc/burn_overlay.png");
+	public static ResourceLocation wightOverlay = new ResourceLocation("got:textures/misc/wight.png");
+	public static HashMap playersInPortals = new HashMap();
+	public static int clientTick;
+	public static float renderTick;
+	public static GOTInvasionStatus watchedInvasion;
+	public static int mistTickMax = 80;
+	public static int alignmentYOffscreen = -20;
+	public static GOTGuiNotificationDisplay notificationDisplay;
+	public static GOTGuiMiniquestTracker miniquestTracker;
+	public static int frostTickMax = 80;
+	public static int burnTickMax = 40;
+	public static int newDateMax = 200;
+	public static int wightLookTickMax = 100;
+	public static boolean anyWightsViewed;
+	public static int wightNearTickMax = 100;
+	public static int scrapTraderMisbehaveTick;
+	public static int musicTrackTickMax = 200;
+	public static int musicTrackTickFadeTime = 60;
+	public static boolean renderMenuPrompt = false;
 	static {
-		setWatchedInvasion(new GOTInvasionStatus());
-		setScrapTraderMisbehaveTick(0);
+		watchedInvasion = new GOTInvasionStatus();
+		scrapTraderMisbehaveTick = 0;
 	}
-	private int bannerRepossessDisplayTick;
-	private GOTAmbience ambienceTicker;
-	private GuiScreen lastGuiOpen;
-	private int mistTick;
-	private int prevMistTick;
-	private float mistFactor;
-	private float sunGlare;
-	private float prevSunGlare;
-	private float rainFactor;
-	private float prevRainFactor;
-	private int alignmentXBase;
-	private int alignmentYBase;
-	private int alignmentXCurrent;
-	private int alignmentYCurrent;
-	private int alignmentXPrev;
-	private int alignmentYPrev;
-	private boolean firstAlignmentRender = true;
-	private int frostTick;
-	private int burnTick;
-	private int drunkennessDirection = 1;
-	private int newDate = 0;
-	private int prevWightLookTick = 0;
-	private int wightLookTick = 0;
-	private int prevWightNearTick = 0;
-	private int wightNearTick = 0;
-	private float[] storedLightTable;
-	private int storedScrapID;
-	private boolean addedClientPoisonEffect = false;
-	private GOTMusicTrack lastTrack = null;
-	private int musicTrackTick = 0;
-	private boolean cancelItemHighlight = false;
-	private ItemStack lastHighlightedItemstack;
-	private boolean wasHoldingBannerWithExistingProtection;
+	public int bannerRepossessDisplayTick;
+	public GOTAmbience ambienceTicker;
+	public GuiScreen lastGuiOpen;
+	public int mistTick;
+	public int prevMistTick;
+	public float mistFactor;
+	public float sunGlare;
+	public float prevSunGlare;
+	public float rainFactor;
+	public float prevRainFactor;
+	public int alignmentXBase;
+	public int alignmentYBase;
+	public int alignmentXCurrent;
+	public int alignmentYCurrent;
+	public int alignmentXPrev;
+	public int alignmentYPrev;
+	public boolean firstAlignmentRender = true;
+	public int frostTick;
+	public int burnTick;
+	public int drunkennessDirection = 1;
+	public int newDate = 0;
+	public int prevWightLookTick = 0;
+	public int wightLookTick = 0;
+	public int prevWightNearTick = 0;
+	public int wightNearTick = 0;
+	public float[] storedLightTable;
+	public int storedScrapID;
+	public boolean addedClientPoisonEffect = false;
+	public GOTMusicTrack lastTrack = null;
+	public int musicTrackTick = 0;
+	public boolean cancelItemHighlight = false;
+	public ItemStack lastHighlightedItemstack;
+	public boolean wasHoldingBannerWithExistingProtection;
 
-	private String highlightedItemstackName;
+	public String highlightedItemstackName;
 
 	public GOTTickHandlerClient() {
 		FMLCommonHandler.instance().bus().register(this);
 		MinecraftForge.EVENT_BUS.register(this);
 		ambienceTicker = new GOTAmbience();
-		setNotificationDisplay(new GOTGuiNotificationDisplay());
-		setMiniquestTracker(new GOTGuiMiniquestTracker());
+		notificationDisplay = new GOTGuiNotificationDisplay();
+		miniquestTracker = new GOTGuiMiniquestTracker();
 	}
 
-	private boolean fancyGraphics(int optifineSetting, Minecraft minecraft) {
+	public boolean fancyGraphics(int optifineSetting, Minecraft minecraft) {
 		if (optifineSetting == 0) {
 			return minecraft.gameSettings.fancyGraphics;
 		}
@@ -128,7 +137,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
-	private void getItemTooltip(ItemTooltipEvent event) {
+	public void getItemTooltip(ItemTooltipEvent event) {
 		int armorProtect;
 		int i;
 		String currentOwner;
@@ -293,16 +302,12 @@ public class GOTTickHandlerClient {
 	}
 
 	public float getWightLookFactor() {
-		float f = prevWightLookTick + (wightLookTick - prevWightLookTick) * getRenderTick();
+		float f = prevWightLookTick + (wightLookTick - prevWightLookTick) * renderTick;
 		f /= 100.0f;
 		return f;
 	}
 
-	public boolean isCancelItemHighlight() {
-		return cancelItemHighlight;
-	}
-
-	private boolean isGamePaused(Minecraft mc) {
+	public boolean isGamePaused(Minecraft mc) {
 		return mc.isSingleplayer() && mc.currentScreen != null && mc.currentScreen.doesGuiPauseGame() && !mc.getIntegratedServer().getPublic();
 	}
 
@@ -311,7 +316,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
-	private void onClientTick(TickEvent.ClientTickEvent event) {
+	public void onClientTick(TickEvent.ClientTickEvent event) {
 		block74: {
 			Minecraft minecraft;
 			GuiScreen guiscreen;
@@ -324,7 +329,7 @@ public class GOTTickHandlerClient {
 						entityplayer = minecraft.thePlayer;
 						world = minecraft.theWorld;
 						if (event.phase == TickEvent.Phase.START) {
-							setClientTick(getClientTick() + 1);
+							++clientTick;
 							if (GOTConfig.fixRenderDistance && !FMLClientHandler.instance().hasOptifine()) {
 								GameSettings gs = Minecraft.getMinecraft().gameSettings;
 								int renderDistance = gs.renderDistanceChunks;
@@ -368,9 +373,9 @@ public class GOTTickHandlerClient {
 						if (isGamePaused(minecraft)) {
 							break block76;
 						}
-						getMiniquestTracker().update(minecraft, entityplayer);
+						miniquestTracker.update(minecraft, entityplayer);
 						GOTAlignmentTicker.updateAll(entityplayer, false);
-						getWatchedInvasion().tick();
+						watchedInvasion.tick();
 						boolean isHoldingBannerWithExistingProtection = GOTItemBanner.isHoldingBannerWithExistingProtection(entityplayer);
 						bannerRepossessDisplayTick = isHoldingBannerWithExistingProtection && !wasHoldingBannerWithExistingProtection ? 60 : --bannerRepossessDisplayTick;
 						wasHoldingBannerWithExistingProtection = isHoldingBannerWithExistingProtection;
@@ -400,7 +405,7 @@ public class GOTTickHandlerClient {
 							--burnTick;
 						}
 						prevWightLookTick = wightLookTick;
-						if (isAnyWightsViewed()) {
+						if (anyWightsViewed) {
 							if (wightLookTick < 100) {
 								++wightLookTick;
 							}
@@ -419,25 +424,25 @@ public class GOTTickHandlerClient {
 						}
 						if (GOTConfig.enableSunFlare && world.provider instanceof GOTWorldProvider && !world.provider.hasNoSky) {
 							prevSunGlare = sunGlare;
-							MovingObjectPosition look = viewer.rayTrace(10000.0, getRenderTick());
+							MovingObjectPosition look = viewer.rayTrace(10000.0, renderTick);
 							boolean lookingAtSky = look == null || look.typeOfHit == MovingObjectPosition.MovingObjectType.MISS;
 							boolean biomeHasSun = true;
 							if (biome instanceof GOTBiome) {
 								biomeHasSun = ((GOTBiome) biome).hasSky();
 							}
-							float sunPitch = world.getCelestialAngle(getRenderTick()) * 360.0f - 90.0f;
+							float sunPitch = world.getCelestialAngle(renderTick) * 360.0f - 90.0f;
 							float sunYaw = 90.0f;
 							float yc = MathHelper.cos((float) Math.toRadians(-sunYaw - 180.0f));
 							float ys = MathHelper.sin((float) Math.toRadians(-sunYaw - 180.0f));
 							float pc = -MathHelper.cos((float) Math.toRadians(-sunPitch));
 							float ps = MathHelper.sin((float) Math.toRadians(-sunPitch));
 							Vec3 sunVec = Vec3.createVectorHelper(ys * pc, ps, yc * pc);
-							Vec3 lookVec = viewer.getLook(getRenderTick());
+							Vec3 lookVec = viewer.getLook(renderTick);
 							double cos = lookVec.dotProduct(sunVec) / (lookVec.lengthVector() * sunVec.lengthVector());
 							float cosThreshold = 0.95f;
 							float cQ = ((float) cos - cosThreshold) / (1.0f - cosThreshold);
 							cQ = Math.max(cQ, 0.0f);
-							float brightness = world.getSunBrightness(getRenderTick());
+							float brightness = world.getSunBrightness(renderTick);
 							float brightnessThreshold = 0.7f;
 							float bQ = (brightness - brightnessThreshold) / (1.0f - brightnessThreshold);
 							bQ = Math.max(bQ, 0.0f);
@@ -473,7 +478,7 @@ public class GOTTickHandlerClient {
 						if (minecraft.gameSettings.particleSetting < 2) {
 							spawnEnvironmentFX(entityplayer, world);
 						}
-						GOTClientProxy.getCustomEffectRenderer().updateEffects();
+						GOTClientProxy.customEffectRenderer.updateEffects();
 						if (minecraft.renderViewEntity.isPotionActive(Potion.confusion.id)) {
 							float drunkenness = minecraft.renderViewEntity.getActivePotionEffect(Potion.confusion).getDuration();
 							drunkenness /= 20.0f;
@@ -492,10 +497,10 @@ public class GOTTickHandlerClient {
 						if (GOTConfig.enableAmbience) {
 							ambienceTicker.updateAmbience(world, entityplayer);
 						}
-						if (getScrapTraderMisbehaveTick() <= 0) {
+						if (scrapTraderMisbehaveTick <= 0) {
 							break block77;
 						}
-						if (setScrapTraderMisbehaveTick(getScrapTraderMisbehaveTick() - 1) > 0) {
+						if (--scrapTraderMisbehaveTick > 0) {
 							break block76;
 						}
 						world.provider.lightBrightnessTable = Arrays.copyOf(storedLightTable, storedLightTable.length);
@@ -510,7 +515,7 @@ public class GOTTickHandlerClient {
 					if (target != null && target.typeOfHit == MovingObjectPosition.MovingObjectType.ENTITY && target.entityHit instanceof GOTEntityScrapTrader) {
 						GOTEntityScrapTrader scrap = (GOTEntityScrapTrader) target.entityHit;
 						if (minecraft.currentScreen == null && world.rand.nextInt(50000) == 0) {
-							setScrapTraderMisbehaveTick(400);
+							scrapTraderMisbehaveTick = 400;
 							scrap.ignoreFrustumCheck = true;
 							storedScrapID = scrap.getEntityId();
 							float[] lightTable = world.provider.lightBrightnessTable;
@@ -519,7 +524,7 @@ public class GOTTickHandlerClient {
 						}
 					}
 				}
-				if ((entityplayer.dimension == 0 || entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) && getPlayersInPortals().containsKey(entityplayer)) {
+				if ((entityplayer.dimension == 0 || entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) && playersInPortals.containsKey(entityplayer)) {
 					int i;
 					List portals = world.getEntitiesWithinAABB(GOTEntityPortal.class, entityplayer.boundingBox.expand(8.0, 8.0, 8.0));
 					boolean inPortal = false;
@@ -532,18 +537,18 @@ public class GOTTickHandlerClient {
 						break;
 					}
 					if (inPortal) {
-						i = (Integer) getPlayersInPortals().get(entityplayer);
-						getPlayersInPortals().put(entityplayer, ++i);
+						i = (Integer) playersInPortals.get(entityplayer);
+						playersInPortals.put(entityplayer, ++i);
 						if (i >= 100) {
 							minecraft.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("portal.trigger"), world.rand.nextFloat() * 0.4f + 0.8f));
-							getPlayersInPortals().remove(entityplayer);
+							playersInPortals.remove(entityplayer);
 						}
 					} else {
-						getPlayersInPortals().remove(entityplayer);
+						playersInPortals.remove(entityplayer);
 					}
 				}
 			}
-			GOTClientProxy.getMusicHandler().update();
+			GOTClientProxy.musicHandler.update();
 			if (GOTConfig.displayMusicTrack) {
 				GOTMusicTrack nowPlaying = GOTMusicTicker.getCurrentTrack();
 				if (nowPlaying != lastTrack) {
@@ -569,16 +574,16 @@ public class GOTTickHandlerClient {
 					GOTGuiMap.clearPlayerLocations();
 					GOTCloudRenderer.resetClouds();
 					firstAlignmentRender = true;
-					getWatchedInvasion().clear();
+					watchedInvasion.clear();
 				}
 				lastGuiOpen = guiscreen;
 			}
-			setAnyWightsViewed(false);
+			anyWightsViewed = false;
 		}
 	}
 
 	@SubscribeEvent
-	private void onFogColors(EntityViewRenderEvent.FogColors event) {
+	public void onFogColors(EntityViewRenderEvent.FogColors event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		WorldClient world = mc.theWorld;
 		WorldProvider provider = world.provider;
@@ -592,7 +597,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
-	private void onFOVUpdate(FOVUpdateEvent event) {
+	public void onFOVUpdate(FOVUpdateEvent event) {
 		EntityPlayerSP entityplayer = event.entity;
 		float fov = event.newfov;
 		ItemStack itemstack = entityplayer.getHeldItem();
@@ -630,7 +635,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
-	private void onPlayerTick(TickEvent.PlayerTickEvent event) {
+	public void onPlayerTick(TickEvent.PlayerTickEvent event) {
 		EntityClientPlayerMP clientPlayer;
 		EntityPlayer player = event.player;
 		if (event.phase == TickEvent.Phase.END && player instanceof EntityClientPlayerMP && (clientPlayer = (EntityClientPlayerMP) player).isRiding()) {
@@ -639,7 +644,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
-	private void onPostRenderGameOverlay(RenderGameOverlayEvent.Post event) {
+	public void onPostRenderGameOverlay(RenderGameOverlayEvent.Post event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		WorldClient world = mc.theWorld;
 		EntityClientPlayerMP entityplayer = mc.thePlayer;
@@ -654,27 +659,27 @@ public class GOTTickHandlerClient {
 				lastHighlightedItemstack = null;
 				highlightedItemstackName = null;
 			}
-			if (event.type == RenderGameOverlayEvent.ElementType.BOSSHEALTH && getWatchedInvasion().isActive()) {
+			if (event.type == RenderGameOverlayEvent.ElementType.BOSSHEALTH && watchedInvasion.isActive()) {
 				GL11.glEnable(3042);
 				FontRenderer fr = mc.fontRenderer;
 				ScaledResolution scaledresolution = event.resolution;
 				int width = scaledresolution.getScaledWidth();
 				int barWidth = 182;
-				int remainingWidth = (int) (getWatchedInvasion().getHealth() * (barWidth - 2));
+				int remainingWidth = (int) (watchedInvasion.getHealth() * (barWidth - 2));
 				int barHeight = 5;
 				int barX = width / 2 - barWidth / 2;
 				int barY = 12;
 				if (GOTTickHandlerClient.isBossActive()) {
 					barY += 20;
 				}
-				mc.getTextureManager().bindTexture(GOTClientProxy.getAlignmentTexture());
+				mc.getTextureManager().bindTexture(GOTClientProxy.alignmentTexture);
 				guiIngame.drawTexturedModalRect(barX, barY, 64, 64, barWidth, barHeight);
 				if (remainingWidth > 0) {
-					float[] rgb = getWatchedInvasion().getRGB();
+					float[] rgb = watchedInvasion.getRGB();
 					GL11.glColor4f(rgb[0], rgb[1], rgb[2], 1.0f);
 					guiIngame.drawTexturedModalRect(barX + 1, barY + 1, 65, 70, remainingWidth, barHeight - 2);
 				}
-				String s = getWatchedInvasion().getTitle();
+				String s = watchedInvasion.getTitle();
 				fr.drawStringWithShadow(s, width / 2 - fr.getStringWidth(s) / 2, barY - 10, 16777215);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				mc.getTextureManager().bindTexture(Gui.icons);
@@ -711,7 +716,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
-	private void onPreRenderGameOverlay(RenderGameOverlayEvent.Pre event) {
+	public void onPreRenderGameOverlay(RenderGameOverlayEvent.Pre event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		WorldClient world = mc.theWorld;
 		EntityClientPlayerMP entityplayer = mc.thePlayer;
@@ -739,7 +744,7 @@ public class GOTTickHandlerClient {
 					brightness *= 1.0f;
 					renderOverlay(null, brightness, mc, null);
 				}
-				if (getPlayersInPortals().containsKey(entityplayer) && (i = (Integer) getPlayersInPortals().get(entityplayer)) > 0) {
+				if (playersInPortals.containsKey(entityplayer) && (i = (Integer) playersInPortals.get(entityplayer)) > 0) {
 					renderOverlay(null, 0.1f + i / 100.0f * 0.6f, mc, portalOverlay);
 				}
 				if (GOTConfig.enableFrostfangsMist) {
@@ -832,7 +837,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
-	private void onRenderDebugText(RenderGameOverlayEvent.Text event) {
+	public void onRenderDebugText(RenderGameOverlayEvent.Text event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		if (mc.gameSettings.showDebugInfo && mc.theWorld != null && mc.thePlayer != null && mc.theWorld.getWorldChunkManager() instanceof GOTWorldChunkManager) {
 			mc.theWorld.theProfiler.startSection("gotBiomeDisplay");
@@ -849,7 +854,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
-	private void onRenderFog(EntityViewRenderEvent.RenderFogEvent event) {
+	public void onRenderFog(EntityViewRenderEvent.RenderFogEvent event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		EntityLivingBase viewer = event.entity;
 		WorldClient world = mc.theWorld;
@@ -866,7 +871,7 @@ public class GOTTickHandlerClient {
 			float[] fogStartEnd = ((GOTWorldProvider) provider).modifyFogIntensity(farPlane, fogMode);
 			float fogStart = fogStartEnd[0];
 			float fogEnd = fogStartEnd[1];
-			if ((gotbiome.getEnableRain() || gotbiome.getEnableSnow()) && (rain = prevRainFactor + (rainFactor - prevRainFactor) * getRenderTick()) > 0.0f) {
+			if ((gotbiome.getEnableRain() || gotbiome.getEnableSnow()) && (rain = prevRainFactor + (rainFactor - prevRainFactor) * renderTick) > 0.0f) {
 				float rainOpacityStart = 0.95f;
 				float rainOpacityEnd = 0.2f;
 				fogStart -= fogStart * (rain * rainOpacityStart);
@@ -878,7 +883,7 @@ public class GOTTickHandlerClient {
 				fogStart -= fogStart * (mistFactor * mistOpacityStart);
 				fogEnd -= fogEnd * (mistFactor * mistOpacityEnd);
 			}
-			float wightFactor = prevWightNearTick + (wightNearTick - prevWightNearTick) * getRenderTick();
+			float wightFactor = prevWightNearTick + (wightNearTick - prevWightNearTick) * renderTick;
 			wightFactor /= 100.0f;
 			if (wightFactor > 0.0f) {
 				float wightOpacityStart = 0.97f;
@@ -892,17 +897,17 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
-	private void onRenderTick(TickEvent.RenderTickEvent event) {
+	public void onRenderTick(TickEvent.RenderTickEvent event) {
 		Minecraft minecraft = Minecraft.getMinecraft();
 		EntityClientPlayerMP entityplayer = minecraft.thePlayer;
 		WorldClient world = minecraft.theWorld;
 		if (event.phase == TickEvent.Phase.START) {
 			GuiIngame guiIngame;
-			setRenderTick(event.renderTickTime);
+			renderTick = event.renderTickTime;
 			guiIngame = minecraft.ingameGUI;
-			if (isCancelItemHighlight() && GOTReflectionClient.getHighlightedItemTicks(guiIngame) > 0) {
+			if (cancelItemHighlight && GOTReflectionClient.getHighlightedItemTicks(guiIngame) > 0) {
 				GOTReflectionClient.setHighlightedItemTicks(guiIngame, 0);
-				setCancelItemHighlight(false);
+				cancelItemHighlight = false;
 			}
 		}
 		if (event.phase == TickEvent.Phase.END) {
@@ -915,7 +920,7 @@ public class GOTTickHandlerClient {
 					int yMove = (int) ((alignmentYBase - -20) / 10.0f);
 					boolean alignmentOnscreen = (minecraft.currentScreen == null || minecraft.currentScreen instanceof GOTGuiMessage) && !minecraft.gameSettings.keyBindPlayerList.getIsKeyPressed() && !minecraft.gameSettings.showDebugInfo;
 					alignmentYCurrent = alignmentOnscreen ? Math.min(alignmentYCurrent + yMove, alignmentYBase) : Math.max(alignmentYCurrent - yMove, -20);
-					renderAlignment(minecraft, getRenderTick());
+					renderAlignment(minecraft, renderTick);
 					if (GOTConfig.enableOnscreenCompass && minecraft.currentScreen == null && !minecraft.gameSettings.showDebugInfo) {
 						GL11.glPushMatrix();
 						resolution = new ScaledResolution(minecraft, minecraft.displayWidth, minecraft.displayHeight);
@@ -950,12 +955,12 @@ public class GOTTickHandlerClient {
 						}
 					}
 				}
-				float promptTick = getClientTick() + getRenderTick();
+				float promptTick = clientTick + renderTick;
 				float promptAlpha = GOTFunctions.triangleWave(promptTick, 0.5f, 1.0f, 80.0f);
 				ArrayList<String> message = new ArrayList<>();
-				if ((entityplayer.dimension != GOTDimension.GAME_OF_THRONES.dimensionID) && isRenderMenuPrompt() && minecraft.currentScreen == null) {
+				if ((entityplayer.dimension != GOTDimension.GAME_OF_THRONES.dimensionID) && renderMenuPrompt && minecraft.currentScreen == null) {
 					message.add(StatCollector.translateToLocal("got.gui.help1"));
-					message.add(StatCollector.translateToLocalFormatted("got.gui.help2", GameSettings.getKeyDisplayString(GOTKeyHandler.getKeyBindingReturn().getKeyCode())));
+					message.add(StatCollector.translateToLocalFormatted("got.gui.help2", GameSettings.getKeyDisplayString(GOTKeyHandler.keyBindingReturn.getKeyCode())));
 				}
 				if (!message.isEmpty()) {
 					ScaledResolution resolution2 = new ScaledResolution(minecraft, minecraft.displayWidth, minecraft.displayHeight);
@@ -1029,15 +1034,15 @@ public class GOTTickHandlerClient {
 					}
 				}
 			}
-			getNotificationDisplay().updateWindow();
+			notificationDisplay.updateWindow();
 			if (GOTConfig.enableQuestTracker && minecraft.currentScreen == null && !minecraft.gameSettings.showDebugInfo) {
-				getMiniquestTracker().drawTracker(minecraft, entityplayer);
+				miniquestTracker.drawTracker(minecraft, entityplayer);
 			}
 		}
 	}
 
 	@SubscribeEvent
-	private void onRenderWorldLast(RenderWorldLastEvent event) {
+	public void onRenderWorldLast(RenderWorldLastEvent event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		float f = event.partialTicks;
 		if (GOTDimension.getCurrentDimension(mc.theWorld) == GOTDimension.GAME_OF_THRONES) {
@@ -1045,7 +1050,7 @@ public class GOTTickHandlerClient {
 		}
 		mc.entityRenderer.enableLightmap(f);
 		RenderHelper.disableStandardItemLighting();
-		GOTClientProxy.getCustomEffectRenderer().renderParticles(mc.renderViewEntity, f);
+		GOTClientProxy.customEffectRenderer.renderParticles(mc.renderViewEntity, f);
 		mc.entityRenderer.disableLightmap(f);
 		if (Minecraft.isGuiEnabled() && mc.entityRenderer.debugViewDirection == 0) {
 			mc.mcProfiler.startSection("gotSpeech");
@@ -1055,13 +1060,13 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
-	private void onWorldLoad(WorldEvent.Load event) {
+	public void onWorldLoad(WorldEvent.Load event) {
 		if (event.world instanceof WorldClient) {
-			GOTClientProxy.getCustomEffectRenderer().clearEffectsAndSetWorld(event.world);
+			GOTClientProxy.customEffectRenderer.clearEffectsAndSetWorld(event.world);
 		}
 	}
 
-	private void renderAlignment(Minecraft mc, float f) {
+	public void renderAlignment(Minecraft mc, float f) {
 		EntityClientPlayerMP entityplayer = mc.thePlayer;
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		GOTFaction viewingFac = pd.getViewingFaction();
@@ -1074,7 +1079,7 @@ public class GOTTickHandlerClient {
 		if (boss) {
 			alignmentYBase += 20;
 		}
-		if (getWatchedInvasion().isActive()) {
+		if (watchedInvasion.isActive()) {
 			alignmentYBase += 20;
 		}
 		if (firstAlignmentRender) {
@@ -1091,7 +1096,7 @@ public class GOTTickHandlerClient {
 		GOTTickHandlerClient.renderAlignmentBar(alignment, viewingFac, alignmentXF, alignmentYF, text, text, text, false);
 	}
 
-	private void renderOverlay(float[] rgb, float alpha, Minecraft mc, ResourceLocation texture) {
+	public void renderOverlay(float[] rgb, float alpha, Minecraft mc, ResourceLocation texture) {
 		ScaledResolution resolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
 		int width = resolution.getScaledWidth();
 		int height = resolution.getScaledHeight();
@@ -1126,11 +1131,7 @@ public class GOTTickHandlerClient {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 	}
 
-	public void setCancelItemHighlight(boolean cancelItemHighlight) {
-		this.cancelItemHighlight = cancelItemHighlight;
-	}
-
-	private void spawnEnvironmentFX(EntityPlayer entityplayer, World world) {
+	public void spawnEnvironmentFX(EntityPlayer entityplayer, World world) {
 		world.theProfiler.startSection("gotEnvironmentFX");
 		int i = MathHelper.floor_double(entityplayer.posX);
 		int j = MathHelper.floor_double(entityplayer.boundingBox.minY);
@@ -1190,7 +1191,7 @@ public class GOTTickHandlerClient {
 		GOTTickHandlerClient.drawBorderedText(f, x, y, s, 16772620, alphaF);
 	}
 
-	private static void drawBorderedText(FontRenderer f, int x, int y, String s, int color, float alphaF) {
+	public static void drawBorderedText(FontRenderer f, int x, int y, String s, int color, float alphaF) {
 		int alpha = (int) (alphaF * 255.0f);
 		alpha = MathHelper.clamp_int(alpha, 4, 255);
 		alpha <<= 24;
@@ -1220,44 +1221,8 @@ public class GOTTickHandlerClient {
 		tessellator.draw();
 	}
 
-	public static int getClientTick() {
-		return clientTick;
-	}
-
-	public static GOTGuiMiniquestTracker getMiniquestTracker() {
-		return miniquestTracker;
-	}
-
-	public static GOTGuiNotificationDisplay getNotificationDisplay() {
-		return notificationDisplay;
-	}
-
-	public static HashMap getPlayersInPortals() {
-		return playersInPortals;
-	}
-
-	public static float getRenderTick() {
-		return renderTick;
-	}
-
-	public static int getScrapTraderMisbehaveTick() {
-		return scrapTraderMisbehaveTick;
-	}
-
-	public static GOTInvasionStatus getWatchedInvasion() {
-		return watchedInvasion;
-	}
-
-	public static boolean isAnyWightsViewed() {
-		return anyWightsViewed;
-	}
-
-	private static boolean isBossActive() {
+	public static boolean isBossActive() {
 		return BossStatus.bossName != null && BossStatus.statusBarTime > 0;
-	}
-
-	public static boolean isRenderMenuPrompt() {
-		return renderMenuPrompt;
 	}
 
 	public static void renderAlignmentBar(float alignment, GOTFaction faction, float x, float y, boolean renderFacName, boolean renderValue, boolean renderLimits, boolean renderLimitValues) {
@@ -1314,7 +1279,7 @@ public class GOTTickHandlerClient {
 		}
 		float ringProgress = (alignment - alignMin) / (alignMax - alignMin);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(GOTClientProxy.getAlignmentTexture());
+		mc.getTextureManager().bindTexture(GOTClientProxy.alignmentTexture);
 		int barWidth = 232;
 		int barHeight = 14;
 		int activeBarWidth = 220;
@@ -1327,7 +1292,7 @@ public class GOTTickHandlerClient {
 		int ringSize = 16;
 		float ringX = x - ringSize / 2 + ringProgressAdj * activeBarWidth / 2.0f;
 		float ringY = y + barHeight / 2 - ringSize / 2;
-		int flashTick = ticker.getFlashTick();
+		int flashTick = ticker.flashTick;
 		if (pledged) {
 			GOTTickHandlerClient.drawTexturedModalRect(ringX, ringY, 16 * Math.round(flashTick / 3), 212, ringSize, ringSize);
 		} else {
@@ -1385,7 +1350,7 @@ public class GOTTickHandlerClient {
 		if (renderValue) {
 			String alignS;
 			float alignAlpha;
-			int numericalTick = ticker.getNumericalTick();
+			int numericalTick = ticker.numericalTick;
 			if (numericalTick > 0) {
 				alignS = GOTAlignmentValues.formatAlignForDisplay(alignment);
 				alignAlpha = GOTFunctions.triangleWave(numericalTick, 0.7f, 1.0f, 30.0f);
@@ -1402,43 +1367,6 @@ public class GOTTickHandlerClient {
 			GOTTickHandlerClient.drawAlignmentText(fr, textX - fr.getStringWidth(alignS) / 2, textY + fr.FONT_HEIGHT + 3, alignS, alignAlpha);
 			GL11.glDisable(3042);
 		}
-	}
-
-	public static void setAnyWightsViewed(boolean anyWightsViewed) {
-		GOTTickHandlerClient.anyWightsViewed = anyWightsViewed;
-	}
-
-	public static void setClientTick(int clientTick) {
-		GOTTickHandlerClient.clientTick = clientTick;
-	}
-
-	public static void setMiniquestTracker(GOTGuiMiniquestTracker miniquestTracker) {
-		GOTTickHandlerClient.miniquestTracker = miniquestTracker;
-	}
-
-	public static void setNotificationDisplay(GOTGuiNotificationDisplay notificationDisplay) {
-		GOTTickHandlerClient.notificationDisplay = notificationDisplay;
-	}
-
-	public static void setPlayersInPortals(HashMap playersInPortals) {
-		GOTTickHandlerClient.playersInPortals = playersInPortals;
-	}
-
-	public static void setRenderMenuPrompt(boolean renderMenuPrompt) {
-		GOTTickHandlerClient.renderMenuPrompt = renderMenuPrompt;
-	}
-
-	public static void setRenderTick(float renderTick) {
-		GOTTickHandlerClient.renderTick = renderTick;
-	}
-
-	public static int setScrapTraderMisbehaveTick(int scrapTraderMisbehaveTick) {
-		GOTTickHandlerClient.scrapTraderMisbehaveTick = scrapTraderMisbehaveTick;
-		return scrapTraderMisbehaveTick;
-	}
-
-	public static void setWatchedInvasion(GOTInvasionStatus watchedInvasion) {
-		GOTTickHandlerClient.watchedInvasion = watchedInvasion;
 	}
 
 }

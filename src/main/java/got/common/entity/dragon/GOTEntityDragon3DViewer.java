@@ -46,8 +46,8 @@ public class GOTEntityDragon3DViewer {
 			}
 
 			if (noticeTicks == 1) {
-				String keyUpName = GameSettings.getKeyDisplayString(GOTKeyHandler.getKeyBindingDragonUp().getKeyCode());
-				String keyDownName = GameSettings.getKeyDisplayString(GOTKeyHandler.getKeyBindingDragonDown().getKeyCode());
+				String keyUpName = GameSettings.getKeyDisplayString(GOTKeyHandler.keyBindingDragonUp.getKeyCode());
+				String keyDownName = GameSettings.getKeyDisplayString(GOTKeyHandler.keyBindingDragonDown.getKeyCode());
 				mc.ingameGUI.func_110326_a(I18n.format("dragon.mountNotice", keyUpName, keyDownName), false);
 			}
 		}

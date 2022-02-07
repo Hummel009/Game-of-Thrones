@@ -17,8 +17,8 @@ import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.common.MinecraftForge;
 
 public class GOTItemRendererManager implements IResourceManagerReloadListener {
-	private static GOTItemRendererManager INSTANCE;
-	private static List<GOTRenderLargeItem> largeItemRenderers;
+	public static GOTItemRendererManager INSTANCE;
+	public static List<GOTRenderLargeItem> largeItemRenderers;
 
 	static {
 		largeItemRenderers = new ArrayList<>();
@@ -71,7 +71,7 @@ public class GOTItemRendererManager implements IResourceManagerReloadListener {
 	}
 
 	@SubscribeEvent
-	private void preTextureStitch(TextureStitchEvent.Pre event) {
+	public void preTextureStitch(TextureStitchEvent.Pre event) {
 		TextureMap map = event.map;
 		if (map.getTextureType() == 1) {
 			for (GOTRenderLargeItem largeRenderer : largeItemRenderers) {

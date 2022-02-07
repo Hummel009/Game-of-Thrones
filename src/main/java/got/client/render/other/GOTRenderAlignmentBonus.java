@@ -29,7 +29,10 @@ public class GOTRenderAlignmentBonus extends Render {
 		GOTAlignmentBonusMap factionBonusMap = alignmentBonus.getFactionBonusMap();
 		GOTFaction renderFaction = null;
 		boolean showConquest = false;
-		if ((alignmentBonus.getConquestBonus() > 0.0f && playerData.isPledgedTo(viewingFaction)) || (alignmentBonus.getConquestBonus() < 0.0f && (viewingFaction == mainFaction || playerData.isPledgedTo(viewingFaction)))) {
+		if (alignmentBonus.getConquestBonus() > 0.0f && playerData.isPledgedTo(viewingFaction)) {
+			renderFaction = viewingFaction;
+			showConquest = true;
+		} else if (alignmentBonus.getConquestBonus() < 0.0f && (viewingFaction == mainFaction || playerData.isPledgedTo(viewingFaction))) {
 			renderFaction = viewingFaction;
 			showConquest = true;
 		} else if (!factionBonusMap.isEmpty()) {
@@ -96,7 +99,7 @@ public class GOTRenderAlignmentBonus extends Render {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return GOTClientProxy.getAlignmentTexture();
+		return GOTClientProxy.alignmentTexture;
 	}
 
 	public void renderBonusText(GOTEntityAlignmentBonus alignmentBonus, GOTPlayerData playerData, GOTFaction viewingFaction, GOTFaction renderFaction, boolean showAlign, float align, boolean showConquest, float alpha) {

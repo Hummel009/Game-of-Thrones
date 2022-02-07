@@ -40,7 +40,7 @@ public class GOTRenderAnimalJar extends TileEntitySpecialRenderer implements IIt
 			if (type == IItemRenderer.ItemRenderType.ENTITY) {
 				GOTRenderBird.setRenderStolenItem(false);
 			}
-			RenderManager.instance.renderEntityWithPosYaw(jarEntity, 0.0, 0.0, 0.0, 0.0f, GOTTickHandlerClient.getRenderTick());
+			RenderManager.instance.renderEntityWithPosYaw(jarEntity, 0.0, 0.0, 0.0, 0.0f, GOTTickHandlerClient.renderTick);
 			GOTRenderBird.setRenderStolenItem(true);
 			GL11.glPopAttrib();
 			GL11.glPopMatrix();
