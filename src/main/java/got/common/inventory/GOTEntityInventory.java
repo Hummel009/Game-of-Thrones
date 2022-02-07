@@ -6,8 +6,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.*;
 
 public class GOTEntityInventory extends InventoryBasic {
-	public EntityLivingBase theEntity;
-	public String nbtName;
+	private EntityLivingBase theEntity;
+	private String nbtName;
 
 	public GOTEntityInventory(String s, EntityLivingBase npc, int i) {
 		super(s, true, i);

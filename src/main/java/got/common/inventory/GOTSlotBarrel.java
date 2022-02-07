@@ -10,7 +10,7 @@ import net.minecraft.util.IIcon;
 
 public class GOTSlotBarrel extends Slot {
 	public GOTTileEntityBarrel theBarrel;
-	public boolean isWater;
+	private boolean isWater;
 
 	public GOTSlotBarrel(GOTTileEntityBarrel inv, int i, int j, int k) {
 		super(inv, i, j, k);
@@ -31,7 +31,7 @@ public class GOTSlotBarrel extends Slot {
 
 	@Override
 	public boolean isItemValid(ItemStack itemstack) {
-		if (theBarrel.barrelMode == 0) {
+		if (theBarrel.getBarrelMode() == 0) {
 			if (isWater) {
 				return GOTRecipeBrewing.isWaterSource(itemstack);
 			}

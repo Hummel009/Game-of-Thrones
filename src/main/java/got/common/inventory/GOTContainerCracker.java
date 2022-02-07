@@ -7,9 +7,9 @@ import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 
 public class GOTContainerCracker extends Container {
-	public ItemStack theCrackerItem;
-	public IInventory crackerInventory;
-	public int capacity;
+	private ItemStack theCrackerItem;
+	private IInventory crackerInventory;
+	private int capacity;
 
 	public GOTContainerCracker(EntityPlayer entityplayer) {
 		int i;

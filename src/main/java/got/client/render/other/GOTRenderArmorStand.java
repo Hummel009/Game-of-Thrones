@@ -53,7 +53,7 @@ public class GOTRenderArmorStand extends TileEntitySpecialRenderer {
 		float scale = 0.0625f;
 		bindTexture(standTexture);
 		standModel.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, scale);
-		GOTArmorModels.INSTANCE.setupModelForRender(modelBipedMain, null, null);
+		GOTArmorModels.getInstance().setupModelForRender(modelBipedMain, null, null);
 		GL11.glTranslatef(0.0f, -0.1875f, 0.0f);
 		for (int slot = 0; slot < 4; ++slot) {
 			float f4;
@@ -66,13 +66,13 @@ public class GOTRenderArmorStand extends TileEntitySpecialRenderer {
 				bindTexture(RenderBiped.getArmorResource(null, itemstack, slot, null));
 			}
 			ModelBiped armorModel = slot == 2 ? modelBiped2 : modelBiped1;
-			GOTArmorModels.INSTANCE.setupArmorForSlot(armorModel, slot);
+			GOTArmorModels.getInstance().setupArmorForSlot(armorModel, slot);
 			armorModel = ForgeHooksClient.getArmorModel(null, itemstack, slot, armorModel);
-			ModelBiped specialModel = GOTArmorModels.INSTANCE.getSpecialArmorModel(itemstack, slot, null, modelBipedMain);
+			ModelBiped specialModel = GOTArmorModels.getInstance().getSpecialArmorModel(itemstack, slot, null, modelBipedMain);
 			if (specialModel != null) {
 				armorModel = specialModel;
 			}
-			GOTArmorModels.INSTANCE.setupModelForRender(armorModel, null, null);
+			GOTArmorModels.getInstance().setupModelForRender(armorModel, null, null);
 			float f1 = 1.0f;
 			boolean isColoredArmor = false;
 			if (isArmor) {
@@ -99,7 +99,7 @@ public class GOTRenderArmorStand extends TileEntitySpecialRenderer {
 			if (!itemstack.isItemEnchanted()) {
 				continue;
 			}
-			float f2 = armorStand.ticksExisted + f;
+			float f2 = armorStand.getTicksExisted() + f;
 			bindTexture(GOTClientProxy.getEnchantmentTexture());
 			GL11.glEnable(3042);
 			float f3 = 0.5f;

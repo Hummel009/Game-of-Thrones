@@ -40,7 +40,7 @@ public class GOTGuiBarrel extends GuiContainer {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		mc.getTextureManager().bindTexture(guiTexture);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
-		int brewMode = theBarrel.barrelMode;
+		int brewMode = theBarrel.getBarrelMode();
 		int fullAmount = theBarrel.getBarrelFullAmountScaled(96);
 		if (brewMode == 1) {
 			fullAmount = theBarrel.getBrewProgressScaled(96);
@@ -101,15 +101,15 @@ public class GOTGuiBarrel extends GuiContainer {
 
 	@Override
 	public void drawScreen(int i, int j, float f) {
-		if (theBarrel.barrelMode == 0) {
+		if (theBarrel.getBarrelMode() == 0) {
 			brewingButton.enabled = theBarrel.getStackInSlot(9) != null;
 			brewingButton.displayString = StatCollector.translateToLocal("got.container.barrel.startBrewing");
 		}
-		if (theBarrel.barrelMode == 1) {
+		if (theBarrel.getBarrelMode() == 1) {
 			brewingButton.enabled = theBarrel.getStackInSlot(9) != null && theBarrel.getStackInSlot(9).getItemDamage() > 0;
 			brewingButton.displayString = StatCollector.translateToLocal("got.container.barrel.stopBrewing");
 		}
-		if (theBarrel.barrelMode == 2) {
+		if (theBarrel.getBarrelMode() == 2) {
 			brewingButton.enabled = false;
 			brewingButton.displayString = StatCollector.translateToLocal("got.container.barrel.startBrewing");
 		}

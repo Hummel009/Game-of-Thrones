@@ -8,10 +8,10 @@ import net.minecraft.nbt.*;
 
 public class GOTInventoryPouch extends InventoryBasic {
 	public GOTContainerPouch theContainer;
-	public EntityPlayer thePlayer;
-	public int playerSlot;
-	public boolean isTemporary;
-	public ItemStack tempPouchItem;
+	private EntityPlayer thePlayer;
+	private int playerSlot;
+	private boolean isTemporary;
+	private ItemStack tempPouchItem;
 
 	public GOTInventoryPouch(EntityPlayer entityplayer, GOTContainerPouch container, int slot) {
 		super(entityplayer.inventory.getStackInSlot(slot).getDisplayName(), true, GOTItemPouch.getCapacity(entityplayer.inventory.getStackInSlot(slot)));
@@ -43,7 +43,7 @@ public class GOTInventoryPouch extends InventoryBasic {
 		return thePlayer.inventory.getStackInSlot(playerSlot);
 	}
 
-	public void loadPouchContents() {
+	private void loadPouchContents() {
 		if (getPouchItem().hasTagCompound() && getPouchItem().getTagCompound().hasKey("GOTPouchData")) {
 			NBTTagCompound nbt = getPouchItem().getTagCompound().getCompoundTag("GOTPouchData");
 			NBTTagList items = nbt.getTagList("Items", 10);
@@ -69,7 +69,7 @@ public class GOTInventoryPouch extends InventoryBasic {
 		}
 	}
 
-	public void savePouchContents() {
+	private void savePouchContents() {
 		if (!getPouchItem().hasTagCompound()) {
 			getPouchItem().setTagCompound(new NBTTagCompound());
 		}

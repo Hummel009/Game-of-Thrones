@@ -352,9 +352,9 @@ public class GOTCommander {
 	}
 
 	public static void removeFaction(GOTFaction faction) {
-		faction.allowPlayer = false;
-		faction.hasFixedAlignment = true;
-		faction.fixedAlignment = 0;
+		faction.setAllowPlayer(false);
+		faction.setHasFixedAlignment(true);
+		faction.setFixedAlignment(0);
 		if (faction.factionDimension != null) {
 			faction.factionDimension.getFactionList().remove(faction);
 		}

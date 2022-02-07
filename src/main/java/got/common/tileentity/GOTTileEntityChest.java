@@ -12,13 +12,13 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 
 public class GOTTileEntityChest extends TileEntity implements IInventory {
-	public ItemStack[] chestContents = new ItemStack[getSizeInventory()];
-	public float lidAngle;
-	public float prevLidAngle;
-	public String textureName;
-	public int numPlayersUsing;
-	public int ticksSinceSync;
-	public String customName;
+	private ItemStack[] chestContents = new ItemStack[getSizeInventory()];
+	private float lidAngle;
+	private float prevLidAngle;
+	private String textureName;
+	private int numPlayersUsing;
+	private int ticksSinceSync;
+	private String customName;
 
 	@Override
 	public void closeInventory() {
@@ -59,6 +59,14 @@ public class GOTTileEntityChest extends TileEntity implements IInventory {
 		return 64;
 	}
 
+	public float getLidAngle() {
+		return lidAngle;
+	}
+
+	public float getPrevLidAngle() {
+		return prevLidAngle;
+	}
+
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
@@ -83,6 +91,10 @@ public class GOTTileEntityChest extends TileEntity implements IInventory {
 			return itemstack;
 		}
 		return null;
+	}
+
+	public String getTextureName() {
+		return textureName;
 	}
 
 	@Override
@@ -157,10 +169,23 @@ public class GOTTileEntityChest extends TileEntity implements IInventory {
 		markDirty();
 	}
 
+	public float setLidAngle(float lidAngle) {
+		this.lidAngle = lidAngle;
+		return lidAngle;
+	}
+
+	public void setPrevLidAngle(float prevLidAngle) {
+		this.prevLidAngle = prevLidAngle;
+	}
+
+	public void setTextureName(String textureName) {
+		this.textureName = textureName;
+	}
+
 	@Override
 	public void updateEntity() {
 		super.updateEntity();
-		prevLidAngle = lidAngle;
+		setPrevLidAngle(getLidAngle());
 		++ticksSinceSync;
 		if (!worldObj.isRemote && numPlayersUsing != 0 && (ticksSinceSync + xCoord + yCoord + zCoord) % 200 == 0) {
 			numPlayersUsing = 0;
@@ -174,17 +199,17 @@ public class GOTTileEntityChest extends TileEntity implements IInventory {
 				++numPlayersUsing;
 			}
 		}
-		if (numPlayersUsing > 0 && lidAngle == 0.0f) {
+		if (numPlayersUsing > 0 && getLidAngle() == 0.0f) {
 			worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "random.chestopen", 0.5f, worldObj.rand.nextFloat() * 0.1f + 0.9f);
 		}
-		if (numPlayersUsing == 0 && lidAngle > 0.0f || numPlayersUsing > 0 && lidAngle < 1.0f) {
-			float pre = lidAngle;
+		if (numPlayersUsing == 0 && getLidAngle() > 0.0f || numPlayersUsing > 0 && getLidAngle() < 1.0f) {
+			float pre = getLidAngle();
 			float incr = 0.1f;
-			lidAngle = numPlayersUsing > 0 ? (lidAngle += incr) : (lidAngle -= incr);
-			lidAngle = Math.min(lidAngle, 1.0f);
-			lidAngle = Math.max(lidAngle, 0.0f);
+			setLidAngle(numPlayersUsing > 0 ? setLidAngle(getLidAngle() + incr) : setLidAngle(getLidAngle() - incr));
+			setLidAngle(Math.min(getLidAngle(), 1.0f));
+			setLidAngle(Math.max(getLidAngle(), 0.0f));
 			float thr = 0.5f;
-			if (lidAngle < thr && pre >= thr) {
+			if (getLidAngle() < thr && pre >= thr) {
 				worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "random.chestclosed", 0.5f, worldObj.rand.nextFloat() * 0.1f + 0.9f);
 			}
 		}

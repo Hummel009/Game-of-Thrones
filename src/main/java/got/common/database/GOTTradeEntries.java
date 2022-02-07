@@ -139,24 +139,23 @@ public class GOTTradeEntries {
 		YITI_MASON_BUY = new GOTTradeEntries(GOTTradeEntries.TradeType.BUY, new GOTTradeEntry(new ItemStack(GOTRegistry.tableYiTi), 100), new GOTTradeEntry(new ItemStack(Blocks.stone, 8), 2), new GOTTradeEntry(new ItemStack(Blocks.cobblestone, 8), 1), new GOTTradeEntry(new ItemStack(Blocks.stonebrick, 1, 8), 2), new GOTTradeEntry(new ItemStack(GOTRegistry.brick5, 8, 11), 3), new GOTTradeEntry(new ItemStack(GOTRegistry.brick5, 1, 12), 2), new GOTTradeEntry(new ItemStack(GOTRegistry.brick5, 1, 15), 2), new GOTTradeEntry(new ItemStack(GOTRegistry.brick6, 1, 0), GOLD_NUGGET_BUY * 4), new GOTTradeEntry(new ItemStack(GOTRegistry.pillar2, 4, 8), 3), new GOTTradeEntry(new ItemStack(GOTRegistry.rock, 8, 4), 8), new GOTTradeEntry(new ItemStack(GOTRegistry.brick6, 8, 1), 8), new GOTTradeEntry(new ItemStack(GOTRegistry.brick6, 1, 2), 8), new GOTTradeEntry(new ItemStack(GOTRegistry.pillar2, 4, 9), 8), new GOTTradeEntry(new ItemStack(Blocks.hardened_clay, 8), 4), new GOTTradeEntry(new ItemStack(Blocks.sandstone, 8), 4), new GOTTradeEntry(new ItemStack(GOTRegistry.redSandstone, 8), 12), new GOTTradeEntry(new ItemStack(GOTRegistry.whiteSandstone, 8), 6));
 	}
 
-	public GOTTradeEntries.TradeType tradeType;
-	public GOTTradeEntry[] tradeEntries;
-
-	public GOTItemMug.Vessel[] drinkVessels;
+	private GOTTradeEntries.TradeType tradeType;
+	private GOTTradeEntry[] tradeEntries;
+	private GOTItemMug.Vessel[] drinkVessels;
 
 	public GOTTradeEntries(GOTTradeEntries.TradeType t, GOTTradeEntry... trades) {
 		tradeType = t;
-		tradeEntries = trades;
+		setTradeEntries(trades);
 	}
 
 	public GOTTradeEntry[] getRandomTrades(Random random) {
 		int numTrades = 3 + random.nextInt(3) + random.nextInt(3) + random.nextInt(3);
-		if (numTrades > tradeEntries.length) {
-			numTrades = tradeEntries.length;
+		if (numTrades > getTradeEntries().length) {
+			numTrades = getTradeEntries().length;
 		}
 
-		GOTTradeEntry[] tempTrades = new GOTTradeEntry[tradeEntries.length];
-		System.arraycopy(tradeEntries, 0, tempTrades, 0, tradeEntries.length);
+		GOTTradeEntry[] tempTrades = new GOTTradeEntry[getTradeEntries().length];
+		System.arraycopy(getTradeEntries(), 0, tempTrades, 0, getTradeEntries().length);
 		List<GOTTradeEntry> tempTradesAsList = Arrays.asList(tempTrades);
 		Collections.shuffle(tempTradesAsList);
 		tempTrades = tempTradesAsList.toArray(tempTrades);
@@ -218,6 +217,14 @@ public class GOTTradeEntries {
 		}
 
 		return null;
+	}
+
+	public GOTTradeEntry[] getTradeEntries() {
+		return tradeEntries;
+	}
+
+	public void setTradeEntries(GOTTradeEntry[] tradeEntries) {
+		this.tradeEntries = tradeEntries;
 	}
 
 	public enum TradeType {

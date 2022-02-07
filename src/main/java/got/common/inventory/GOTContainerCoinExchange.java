@@ -10,10 +10,10 @@ import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 
 public class GOTContainerCoinExchange extends Container {
-	public IInventory coinInputInv = new InventoryCoinExchangeSlot(1);
-	public IInventory exchangeInv = new InventoryCoinExchangeSlot(2);
+	private IInventory coinInputInv = new InventoryCoinExchangeSlot(1);
+	private IInventory exchangeInv = new InventoryCoinExchangeSlot(2);
 	public GOTEntityNPC theTraderNPC;
-	public boolean exchanged = false;
+	private boolean exchanged = false;
 
 	public GOTContainerCoinExchange(EntityPlayer entityplayer, GOTEntityNPC npc) {
 		int i;
@@ -26,13 +26,13 @@ public class GOTContainerCoinExchange extends Container {
 			}
 		});
 		class SlotCoinResult extends Slot {
-			public SlotCoinResult(IInventory inv, int i, int j, int k) {
+			private SlotCoinResult(IInventory inv, int i, int j, int k) {
 				super(inv, i, j, k);
 			}
 
 			@Override
 			public boolean canTakeStack(EntityPlayer entityplayer) {
-				return exchanged;
+				return isExchanged();
 			}
 
 			@Override
@@ -40,8 +40,8 @@ public class GOTContainerCoinExchange extends Container {
 				return false;
 			}
 		}
-		addSlotToContainer(new SlotCoinResult(exchangeInv, 0, 26, 46));
-		addSlotToContainer(new SlotCoinResult(exchangeInv, 1, 134, 46));
+		addSlotToContainer(new SlotCoinResult(getExchangeInv(), 0, 26, 46));
+		addSlotToContainer(new SlotCoinResult(getExchangeInv(), 1, 134, 46));
 		for (i = 0; i < 3; ++i) {
 			for (int j = 0; j < 9; ++j) {
 				addSlotToContainer(new Slot(entityplayer.inventory, j + i * 9 + 9, 8 + j * 18, 106 + i * 18));
@@ -73,10 +73,14 @@ public class GOTContainerCoinExchange extends Container {
 		super.detectAndSendChanges();
 	}
 
+	public IInventory getExchangeInv() {
+		return exchangeInv;
+	}
+
 	public void handleExchangePacket(int slot) {
-		if (!exchanged && coinInputInv.getStackInSlot(0) != null && slot >= 0 && slot < exchangeInv.getSizeInventory() && exchangeInv.getStackInSlot(slot) != null) {
-			exchanged = true;
-			int coins = exchangeInv.getStackInSlot(slot).stackSize;
+		if (!isExchanged() && coinInputInv.getStackInSlot(0) != null && slot >= 0 && slot < getExchangeInv().getSizeInventory() && getExchangeInv().getStackInSlot(slot) != null) {
+			setExchanged(true);
+			int coins = getExchangeInv().getStackInSlot(slot).stackSize;
 			int coinsTaken = 0;
 			if (slot == 0) {
 				coinsTaken = coins / 4;
@@ -84,15 +88,19 @@ public class GOTContainerCoinExchange extends Container {
 				coinsTaken = coins * 4;
 			}
 			coinInputInv.decrStackSize(0, coinsTaken);
-			for (int i = 0; i < exchangeInv.getSizeInventory(); ++i) {
+			for (int i = 0; i < getExchangeInv().getSizeInventory(); ++i) {
 				if (i == slot) {
 					continue;
 				}
-				exchangeInv.setInventorySlotContents(i, null);
+				getExchangeInv().setInventorySlotContents(i, null);
 			}
 			detectAndSendChanges();
 			theTraderNPC.playTradeSound();
 		}
+	}
+
+	public boolean isExchanged() {
+		return exchanged;
 	}
 
 	@Override
@@ -108,9 +116,9 @@ public class GOTContainerCoinExchange extends Container {
 				}
 				entityplayer.dropPlayerItemWithRandomChoice(itemstack, false);
 			}
-			if (exchanged) {
-				for (i = 0; i < exchangeInv.getSizeInventory(); ++i) {
-					itemstack = exchangeInv.getStackInSlotOnClosing(i);
+			if (isExchanged()) {
+				for (i = 0; i < getExchangeInv().getSizeInventory(); ++i) {
+					itemstack = getExchangeInv().getStackInSlotOnClosing(i);
 					if (itemstack == null) {
 						continue;
 					}
@@ -123,40 +131,40 @@ public class GOTContainerCoinExchange extends Container {
 	@Override
 	public void onCraftMatrixChanged(IInventory inv) {
 		if (inv == coinInputInv) {
-			if (!exchanged) {
+			if (!isExchanged()) {
 				ItemStack coin = coinInputInv.getStackInSlot(0);
 				if (coin != null && coin.stackSize > 0 && GOTContainerCoinExchange.isValidCoin(coin)) {
 					int coins = coin.stackSize;
 					int coinType = coin.getItemDamage();
 					if (coinType > 0) {
 						int coinsFloor = coins;
-						while (coinsFloor * 4 > exchangeInv.getInventoryStackLimit()) {
+						while (coinsFloor * 4 > getExchangeInv().getInventoryStackLimit()) {
 							--coinsFloor;
 						}
-						exchangeInv.setInventorySlotContents(0, new ItemStack(GOTRegistry.coin, coinsFloor * 4, coinType - 1));
+						getExchangeInv().setInventorySlotContents(0, new ItemStack(GOTRegistry.coin, coinsFloor * 4, coinType - 1));
 					} else {
-						exchangeInv.setInventorySlotContents(0, null);
+						getExchangeInv().setInventorySlotContents(0, null);
 					}
 					if (coinType < GOTItemCoin.values.length - 1 && coins >= 4) {
-						exchangeInv.setInventorySlotContents(1, new ItemStack(GOTRegistry.coin, coins / 4, coinType + 1));
+						getExchangeInv().setInventorySlotContents(1, new ItemStack(GOTRegistry.coin, coins / 4, coinType + 1));
 					} else {
-						exchangeInv.setInventorySlotContents(1, null);
+						getExchangeInv().setInventorySlotContents(1, null);
 					}
 				} else {
-					exchangeInv.setInventorySlotContents(0, null);
-					exchangeInv.setInventorySlotContents(1, null);
+					getExchangeInv().setInventorySlotContents(0, null);
+					getExchangeInv().setInventorySlotContents(1, null);
 				}
 			}
-		} else if (inv == exchangeInv && exchanged) {
+		} else if (inv == getExchangeInv() && isExchanged()) {
 			boolean anyItems = false;
-			for (int i = 0; i < exchangeInv.getSizeInventory(); ++i) {
-				if (exchangeInv.getStackInSlot(i) == null) {
+			for (int i = 0; i < getExchangeInv().getSizeInventory(); ++i) {
+				if (getExchangeInv().getStackInSlot(i) == null) {
 					continue;
 				}
 				anyItems = true;
 			}
 			if (!anyItems) {
-				exchanged = false;
+				setExchanged(false);
 				onCraftMatrixChanged(coinInputInv);
 			}
 		}
@@ -167,8 +175,16 @@ public class GOTContainerCoinExchange extends Container {
 	public void retrySlotClick(int i, int j, boolean flag, EntityPlayer entityplayer) {
 	}
 
-	public void sendClientExchangedData(ICrafting crafting) {
-		crafting.sendProgressBarUpdate(this, 0, exchanged ? 1 : 0);
+	private void sendClientExchangedData(ICrafting crafting) {
+		crafting.sendProgressBarUpdate(this, 0, isExchanged() ? 1 : 0);
+	}
+
+	public void setExchanged(boolean exchanged) {
+		this.exchanged = exchanged;
+	}
+
+	public void setExchangeInv(IInventory exchangeInv) {
+		this.exchangeInv = exchangeInv;
 	}
 
 	@Override
@@ -212,11 +228,11 @@ public class GOTContainerCoinExchange extends Container {
 	@SideOnly(value = Side.CLIENT)
 	public void updateProgressBar(int i, int j) {
 		if (i == 0) {
-			exchanged = j == 1;
+			setExchanged(j == 1);
 		}
 	}
 
-	public static boolean isValidCoin(ItemStack item) {
+	private static boolean isValidCoin(ItemStack item) {
 		return item.getItem() == GOTRegistry.coin && !IPickpocketable.Helper.isPickpocketed(item);
 	}
 

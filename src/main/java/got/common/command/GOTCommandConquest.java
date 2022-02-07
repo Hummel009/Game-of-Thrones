@@ -43,7 +43,7 @@ public class GOTCommandConquest extends CommandBase {
 		return false;
 	}
 
-	public Object[] parseCoordsAndZone(ICommandSender sender, String[] args, int specifyIndex) {
+	private Object[] parseCoordsAndZone(ICommandSender sender, String[] args, int specifyIndex) {
 		int posX = sender.getPlayerCoordinates().posX;
 		int posZ = sender.getPlayerCoordinates().posZ;
 		if (args.length >= specifyIndex + 2) {

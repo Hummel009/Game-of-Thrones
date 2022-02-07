@@ -79,7 +79,7 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 			int iconTop = getGuiTop() + offset + 3;
 			GL11.glEnable(2896);
 			GL11.glEnable(2884);
-			getRenderItem().renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), achievement.icon, iconLeft, iconTop);
+			getRenderItem().renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), achievement.getIcon(), iconLeft, iconTop);
 			GL11.glDisable(2896);
 			if (!hasAchievement) {
 				GL11.glPushMatrix();
@@ -265,7 +265,7 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 		prevDimension = currentDimension;
 		currentCategoryTakenAchievements.clear();
 		currentCategoryUntakenAchievements.clear();
-		for (GOTAchievement achievement : GOTGuiAchievements.currentCategory.list) {
+		for (GOTAchievement achievement : GOTGuiAchievements.currentCategory.getList()) {
 			if (!achievement.canPlayerEarn(mc.thePlayer)) {
 				continue;
 			}

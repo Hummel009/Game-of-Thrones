@@ -4,21 +4,29 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentDurability extends GOTEnchantment {
-	public float durabilityFactor;
+	private float durabilityFactor;
 
 	public GOTEnchantmentDurability(String s, float f) {
 		super(s, GOTEnchantmentType.BREAKABLE);
-		durabilityFactor = f;
-		setValueModifier(durabilityFactor);
+		setDurabilityFactor(f);
+		setValueModifier(getDurabilityFactor());
 	}
 
 	@Override
 	public String getDescription(ItemStack itemstack) {
-		return StatCollector.translateToLocalFormatted("got.enchant.durable.desc", formatMultiplicative(durabilityFactor));
+		return StatCollector.translateToLocalFormatted("got.enchant.durable.desc", formatMultiplicative(getDurabilityFactor()));
+	}
+
+	public float getDurabilityFactor() {
+		return durabilityFactor;
 	}
 
 	@Override
 	public boolean isBeneficial() {
-		return durabilityFactor >= 1.0f;
+		return getDurabilityFactor() >= 1.0f;
+	}
+
+	public void setDurabilityFactor(float durabilityFactor) {
+		this.durabilityFactor = durabilityFactor;
 	}
 }

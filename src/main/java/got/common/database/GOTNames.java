@@ -13,7 +13,7 @@ import got.GOT;
 import got.common.GOTConfig;
 
 public class GOTNames {
-	public static Map<String, String[]> allNameBanks = new HashMap<>();
+	private static Map<String, String[]> allNameBanks = new HashMap<>();
 
 	public static String getAsshaiName(Random rand, boolean male) {
 		return GOTNames.getRandomName(male ? "asshai_male" : "asshai_female", rand);

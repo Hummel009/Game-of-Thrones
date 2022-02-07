@@ -15,13 +15,11 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.UsernameCache;
 
 public class GOTFactionBounties {
-	public static Map<GOTFaction, GOTFactionBounties> factionBountyMap = new HashMap<>();
-	public static boolean needsLoad = true;
-	public static int KILL_RECORD_TIME = 3456000;
-	public static int BOUNTY_KILLED_TIME = 864000;
+	private static Map<GOTFaction, GOTFactionBounties> factionBountyMap = new HashMap<>();
+	private static boolean needsLoad = true;
 	public GOTFaction theFaction;
-	public Map<UUID, PlayerData> playerList = new HashMap<>();
-	public boolean needsSave = false;
+	private Map<UUID, PlayerData> playerList = new HashMap<>();
+	private boolean needsSave = false;
 
 	public GOTFactionBounties(GOTFaction f) {
 		theFaction = f;
@@ -51,11 +49,11 @@ public class GOTFactionBounties {
 		return pd;
 	}
 
-	public void markDirty() {
+	private void markDirty() {
 		needsSave = true;
 	}
 
-	public void readFromNBT(NBTTagCompound nbt) {
+	private void readFromNBT(NBTTagCompound nbt) {
 		playerList.clear();
 		if (nbt.hasKey("PlayerList")) {
 			NBTTagList playerTags = nbt.getTagList("PlayerList", 10);
@@ -72,13 +70,13 @@ public class GOTFactionBounties {
 		}
 	}
 
-	public void update() {
+	private void update() {
 		for (PlayerData pd : playerList.values()) {
 			pd.update();
 		}
 	}
 
-	public void writeToNBT(NBTTagCompound nbt) {
+	private void writeToNBT(NBTTagCompound nbt) {
 		NBTTagList playerTags = new NBTTagList();
 		for (Map.Entry<UUID, PlayerData> e : playerList.entrySet()) {
 			UUID id = e.getKey();
@@ -116,7 +114,7 @@ public class GOTFactionBounties {
 		return bounties;
 	}
 
-	public static File getBountiesDir() {
+	private static File getBountiesDir() {
 		File dir = new File(GOTLevelData.getOrCreateGOTDir(), "factionbounties");
 		if (!dir.exists()) {
 			dir.mkdirs();
@@ -124,7 +122,7 @@ public class GOTFactionBounties {
 		return dir;
 	}
 
-	public static File getFactionFile(GOTFaction f, boolean findLegacy) {
+	private static File getFactionFile(GOTFaction f, boolean findLegacy) {
 		File defaultFile = new File(GOTFactionBounties.getBountiesDir(), f.codeName() + ".dat");
 		if (!findLegacy || defaultFile.exists()) {
 			return defaultFile;
@@ -139,10 +137,14 @@ public class GOTFactionBounties {
 		return defaultFile;
 	}
 
+	public static boolean isNeedsLoad() {
+		return needsLoad;
+	}
+
 	public static void loadAll() {
 		try {
 			factionBountyMap.clear();
-			needsLoad = false;
+			setNeedsLoad(false);
 			GOTFactionBounties.saveAll();
 		} catch (Exception e) {
 			FMLLog.severe("Error loading GOT faction bounty data");
@@ -150,7 +152,7 @@ public class GOTFactionBounties {
 		}
 	}
 
-	public static GOTFactionBounties loadFaction(GOTFaction fac) {
+	private static GOTFactionBounties loadFaction(GOTFaction fac) {
 		File file = GOTFactionBounties.getFactionFile(fac, true);
 		try {
 			NBTTagCompound nbt = GOTLevelData.loadNBTFromFile(file);
@@ -182,7 +184,7 @@ public class GOTFactionBounties {
 		}
 	}
 
-	public static void saveFaction(GOTFactionBounties fb) {
+	private static void saveFaction(GOTFactionBounties fb) {
 		try {
 			NBTTagCompound nbt = new NBTTagCompound();
 			fb.writeToNBT(nbt);
@@ -193,6 +195,10 @@ public class GOTFactionBounties {
 		}
 	}
 
+	public static void setNeedsLoad(boolean needsLoad) {
+		GOTFactionBounties.needsLoad = needsLoad;
+	}
+
 	public static void updateAll() {
 		for (GOTFactionBounties fb : factionBountyMap.values()) {
 			fb.update();
@@ -201,25 +207,25 @@ public class GOTFactionBounties {
 
 	public static class PlayerData {
 		public GOTFactionBounties bountyList;
-		public UUID playerID;
-		public String username;
-		public List<KillRecord> killRecords = new ArrayList<>();
-		public int recentBountyKilled;
+		private UUID playerID;
+		private String username;
+		private List<KillRecord> killRecords = new ArrayList<>();
+		private int recentBountyKilled;
 
-		public PlayerData(GOTFactionBounties b, UUID id) {
+		private PlayerData(GOTFactionBounties b, UUID id) {
 			bountyList = b;
-			playerID = id;
+			setPlayerID(id);
 		}
 
 		public String findUsername() {
 			if (username == null) {
-				GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152652_a(playerID);
+				GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152652_a(getPlayerID());
 				if (profile == null || StringUtils.isBlank(profile.getName())) {
-					String name = UsernameCache.getLastKnownUsername(playerID);
+					String name = UsernameCache.getLastKnownUsername(getPlayerID());
 					if (name != null) {
-						profile = new GameProfile(playerID, name);
+						profile = new GameProfile(getPlayerID(), name);
 					} else {
-						profile = new GameProfile(playerID, "");
+						profile = new GameProfile(getPlayerID(), "");
 						MinecraftServer.getServer().func_147130_as().fillProfileProperties(profile, true);
 					}
 				}
@@ -232,11 +238,15 @@ public class GOTFactionBounties {
 			return killRecords.size();
 		}
 
-		public void markDirty() {
+		public UUID getPlayerID() {
+			return playerID;
+		}
+
+		private void markDirty() {
 			bountyList.markDirty();
 		}
 
-		public void readFromNBT(NBTTagCompound nbt) {
+		private void readFromNBT(NBTTagCompound nbt) {
 			killRecords.clear();
 			if (nbt.hasKey("KillRecords")) {
 				NBTTagList recordTags = nbt.getTagList("KillRecords", 10);
@@ -264,11 +274,15 @@ public class GOTFactionBounties {
 			markDirty();
 		}
 
-		public boolean shouldSave() {
+		public void setPlayerID(UUID playerID) {
+			this.playerID = playerID;
+		}
+
+		private boolean shouldSave() {
 			return !killRecords.isEmpty() || recentBountyKilled > 0;
 		}
 
-		public void update() {
+		private void update() {
 			boolean minorChanges = false;
 			if (recentBountyKilled > 0) {
 				--recentBountyKilled;
@@ -291,7 +305,7 @@ public class GOTFactionBounties {
 			}
 		}
 
-		public void writeToNBT(NBTTagCompound nbt) {
+		private void writeToNBT(NBTTagCompound nbt) {
 			NBTTagList recordTags = new NBTTagList();
 			for (KillRecord kr : killRecords) {
 				NBTTagCompound killData = new NBTTagCompound();
@@ -302,14 +316,14 @@ public class GOTFactionBounties {
 			nbt.setInteger("RecentBountyKilled", recentBountyKilled);
 		}
 
-		public static class KillRecord {
-			public int timeElapsed = 3456000;
+		private static class KillRecord {
+			private int timeElapsed = 3456000;
 
-			public void readFromNBT(NBTTagCompound nbt) {
+			private void readFromNBT(NBTTagCompound nbt) {
 				timeElapsed = nbt.getInteger("Time");
 			}
 
-			public void writeToNBT(NBTTagCompound nbt) {
+			private void writeToNBT(NBTTagCompound nbt) {
 				nbt.setInteger("Time", timeElapsed);
 			}
 		}

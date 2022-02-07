@@ -34,7 +34,7 @@ public class GOTItemQuestBook extends Item {
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		entityplayer.openGui(GOT.getInstance(), 32, world, 0, 0, 0);
 		if (!world.isRemote) {
-			GOTLevelData.getData(entityplayer).distributeMQEvent(new GOTMiniQuestEvent.OpenRedBook());
+			GOTLevelData.getData(entityplayer).distributeMQEvent(new GOTMiniQuestEvent.OpenQuestBook());
 		}
 		return itemstack;
 	}

@@ -13,8 +13,8 @@ public class GOTContainerUnitTrade extends Container {
 	public GOTHireableBase theUnitTrader;
 	public GOTEntityNPC theLivingTrader;
 	public GOTFaction traderFaction;
-	public IInventory alignmentRewardInv;
-	public int alignmentRewardSlots;
+	private IInventory alignmentRewardInv;
+	private int alignmentRewardSlots;
 
 	public GOTContainerUnitTrade(EntityPlayer entityplayer, GOTHireableBase trader, World world) {
 		int i;
@@ -27,8 +27,8 @@ public class GOTContainerUnitTrade extends Container {
 			reward = conquestType == null ? null : conquestType.createConquestHorn();
 		}
 		boolean hasReward = reward != null;
-		alignmentRewardSlots = hasReward ? 1 : 0;
-		alignmentRewardInv = new InventoryBasic("specialItem", false, alignmentRewardSlots);
+		setAlignmentRewardSlots(hasReward ? 1 : 0);
+		alignmentRewardInv = new InventoryBasic("specialItem", false, getAlignmentRewardSlots());
 		if (hasReward) {
 			addSlotToContainer(new GOTSlotAlignmentReward(this, alignmentRewardInv, 0, 174, 78, theUnitTrader, reward.copy()));
 			if (!world.isRemote && GOTLevelData.getData(entityplayer).getAlignment(traderFaction) >= 1500.0f) {
@@ -50,6 +50,14 @@ public class GOTContainerUnitTrade extends Container {
 		return theLivingTrader != null && entityplayer.getDistanceToEntity(theLivingTrader) <= 12.0 && theLivingTrader.isEntityAlive() && theLivingTrader.getAttackTarget() == null && theUnitTrader.canTradeWith(entityplayer);
 	}
 
+	public int getAlignmentRewardSlots() {
+		return alignmentRewardSlots;
+	}
+
+	public void setAlignmentRewardSlots(int alignmentRewardSlots) {
+		this.alignmentRewardSlots = alignmentRewardSlots;
+	}
+
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer entityplayer, int i) {
 		ItemStack itemstack = null;
@@ -57,7 +65,7 @@ public class GOTContainerUnitTrade extends Container {
 		if (slot != null && slot.getHasStack()) {
 			ItemStack itemstack1 = slot.getStack();
 			itemstack = itemstack1.copy();
-			if (i >= 0 && i < alignmentRewardSlots ? !mergeItemStack(itemstack1, alignmentRewardSlots, 36 + alignmentRewardSlots, true) : i >= alignmentRewardSlots && i < 27 + alignmentRewardSlots ? !mergeItemStack(itemstack1, 27 + alignmentRewardSlots, 36 + alignmentRewardSlots, false) : i >= 27 + alignmentRewardSlots && i < 36 + alignmentRewardSlots ? !mergeItemStack(itemstack1, alignmentRewardSlots, 27 + alignmentRewardSlots, false) : !mergeItemStack(itemstack1, alignmentRewardSlots, 27 + alignmentRewardSlots, false)) {
+			if (i >= 0 && i < getAlignmentRewardSlots() ? !mergeItemStack(itemstack1, getAlignmentRewardSlots(), 36 + getAlignmentRewardSlots(), true) : i >= getAlignmentRewardSlots() && i < 27 + getAlignmentRewardSlots() ? !mergeItemStack(itemstack1, 27 + getAlignmentRewardSlots(), 36 + getAlignmentRewardSlots(), false) : i >= 27 + getAlignmentRewardSlots() && i < 36 + getAlignmentRewardSlots() ? !mergeItemStack(itemstack1, getAlignmentRewardSlots(), 27 + getAlignmentRewardSlots(), false) : !mergeItemStack(itemstack1, getAlignmentRewardSlots(), 27 + getAlignmentRewardSlots(), false)) {
 				return null;
 			}
 			if (itemstack1.stackSize == 0) {

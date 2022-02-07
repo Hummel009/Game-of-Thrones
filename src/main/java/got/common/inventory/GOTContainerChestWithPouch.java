@@ -5,11 +5,11 @@ import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 
 public class GOTContainerChestWithPouch extends ContainerChest {
-	public IInventory chestInv;
+	private IInventory chestInv;
 	public GOTContainerPouch pouchContainer;
-	public int thePouchSlot;
-	public int numChestRows;
-	public int numPouchRows;
+	private int thePouchSlot;
+	private int numChestRows;
+	private int numPouchRows;
 
 	public GOTContainerChestWithPouch(EntityPlayer entityplayer, int pouchSlot, IInventory chest) {
 		super(entityplayer.inventory, chest);
@@ -20,7 +20,7 @@ public class GOTContainerChestWithPouch extends ContainerChest {
 		numChestRows = chest.getSizeInventory() / 9;
 		thePouchSlot = pouchSlot;
 		pouchContainer = new GOTContainerPouch(entityplayer, thePouchSlot);
-		numPouchRows = pouchContainer.capacity / 9;
+		numPouchRows = pouchContainer.getCapacity() / 9;
 		for (int j = 0; j < numChestRows; ++j) {
 			for (int i2 = 0; i2 < 9; ++i2) {
 				addSlotToContainer(new Slot(chest, i2 + j * 9, 8 + i2 * 18, 18 + j * 18));

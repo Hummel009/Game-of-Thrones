@@ -12,7 +12,7 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
 
 public class GOTRecipeRobesDye implements IRecipe {
-	public ItemArmor.ArmorMaterial robeMaterial;
+	private ItemArmor.ArmorMaterial robeMaterial;
 
 	public GOTRecipeRobesDye() {
 		this(GOTMaterial.ROBES);

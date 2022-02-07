@@ -56,7 +56,7 @@ public class GOTPacketBuyUnit implements IMessage {
 				int tradeIndex = packet.tradeIndex;
 				GOTUnitTradeEntry trade = null;
 				if (unitTrader instanceof GOTUnitTradeable) {
-					GOTUnitTradeEntry[] tradeList = ((GOTUnitTradeable) unitTrader).getUnits().tradeEntries;
+					GOTUnitTradeEntry[] tradeList = ((GOTUnitTradeable) unitTrader).getUnits().getTradeEntries();
 					if (tradeIndex >= 0 && tradeIndex < tradeList.length) {
 						trade = tradeList[tradeIndex];
 					}

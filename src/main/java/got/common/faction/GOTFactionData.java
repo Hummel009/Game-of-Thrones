@@ -4,15 +4,15 @@ import got.common.GOTPlayerData;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class GOTFactionData {
-	public GOTPlayerData playerData;
-	public GOTFaction theFaction;
-	public int npcsKilled;
-	public int enemiesKilled;
-	public int tradeCount;
-	public int hireCount;
-	public int miniQuestsCompleted;
-	public float conquestEarned;
-	public boolean hasConquestHorn;
+	private GOTPlayerData playerData;
+	private GOTFaction theFaction;
+	private int npcsKilled;
+	private int enemiesKilled;
+	private int tradeCount;
+	private int hireCount;
+	private int miniQuestsCompleted;
+	private float conquestEarned;
+	private boolean hasConquestHorn;
 
 	public GOTFactionData(GOTPlayerData data, GOTFaction faction) {
 		playerData = data;
@@ -104,7 +104,7 @@ public class GOTFactionData {
 		updateFactionData();
 	}
 
-	public void updateFactionData() {
+	private void updateFactionData() {
 		playerData.updateFactionData(theFaction, this);
 	}
 }

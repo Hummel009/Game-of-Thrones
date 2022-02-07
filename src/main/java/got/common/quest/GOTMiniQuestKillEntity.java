@@ -10,7 +10,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
 
 public class GOTMiniQuestKillEntity extends GOTMiniQuestKill {
-	public Class entityType;
+	private Class entityType;
 
 	public GOTMiniQuestKillEntity(GOTPlayerData pd) {
 		super(pd);
@@ -29,8 +29,8 @@ public class GOTMiniQuestKillEntity extends GOTMiniQuestKill {
 
 	@Override
 	public void onKill(EntityPlayer entityplayer, EntityLivingBase entity) {
-		if (killCount < killTarget && entityType.isAssignableFrom(entity.getClass())) {
-			++killCount;
+		if (getKillCount() < getKillTarget() && entityType.isAssignableFrom(entity.getClass())) {
+			setKillCount(getKillCount() + 1);
 			updateQuest();
 		}
 	}
@@ -48,7 +48,7 @@ public class GOTMiniQuestKillEntity extends GOTMiniQuestKill {
 	}
 
 	public static class QFKillEntity extends GOTMiniQuestKill.QFKill<GOTMiniQuestKillEntity> {
-		public Class entityType;
+		private Class entityType;
 
 		public QFKillEntity(String name) {
 			super(name);

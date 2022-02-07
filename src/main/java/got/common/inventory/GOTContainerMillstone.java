@@ -9,8 +9,8 @@ import net.minecraft.item.ItemStack;
 
 public class GOTContainerMillstone extends Container {
 	public GOTTileEntityMillstone theMillstone;
-	public int currentMillTime = 0;
-	public boolean isMilling;
+	private int currentMillTime = 0;
+	private boolean isMilling;
 
 	public GOTContainerMillstone(InventoryPlayer inv, GOTTileEntityMillstone millstone) {
 		int i;
@@ -30,8 +30,8 @@ public class GOTContainerMillstone extends Container {
 	@Override
 	public void addCraftingToCrafters(ICrafting crafting) {
 		super.addCraftingToCrafters(crafting);
-		crafting.sendProgressBarUpdate(this, 0, theMillstone.currentMillTime);
-		crafting.sendProgressBarUpdate(this, 1, theMillstone.isMilling ? 1 : 0);
+		crafting.sendProgressBarUpdate(this, 0, theMillstone.getCurrentMillTime());
+		crafting.sendProgressBarUpdate(this, 1, theMillstone.isMilling() ? 1 : 0);
 	}
 
 	@Override
@@ -44,16 +44,16 @@ public class GOTContainerMillstone extends Container {
 		super.detectAndSendChanges();
 		for (Object element : crafters) {
 			ICrafting crafting = (ICrafting) element;
-			if (currentMillTime != theMillstone.currentMillTime) {
-				crafting.sendProgressBarUpdate(this, 0, theMillstone.currentMillTime);
+			if (currentMillTime != theMillstone.getCurrentMillTime()) {
+				crafting.sendProgressBarUpdate(this, 0, theMillstone.getCurrentMillTime());
 			}
-			if (isMilling == theMillstone.isMilling) {
+			if (isMilling == theMillstone.isMilling()) {
 				continue;
 			}
-			crafting.sendProgressBarUpdate(this, 1, theMillstone.isMilling ? 1 : 0);
+			crafting.sendProgressBarUpdate(this, 1, theMillstone.isMilling() ? 1 : 0);
 		}
-		currentMillTime = theMillstone.currentMillTime;
-		isMilling = theMillstone.isMilling;
+		currentMillTime = theMillstone.getCurrentMillTime();
+		isMilling = theMillstone.isMilling();
 	}
 
 	@Override
@@ -88,10 +88,10 @@ public class GOTContainerMillstone extends Container {
 	@Override
 	public void updateProgressBar(int i, int j) {
 		if (i == 0) {
-			theMillstone.currentMillTime = j;
+			theMillstone.setCurrentMillTime(j);
 		}
 		if (i == 1) {
-			theMillstone.isMilling = j == 1;
+			theMillstone.setMilling(j == 1);
 		}
 	}
 }

@@ -531,7 +531,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
 					GOTFaction pledgeFac = pd.getPledgeFaction();
 					GOTFactionRank needRank = query.needRank;
-					String needAlign = GOTAlignmentValues.formatAlignForDisplay(needRank.alignment);
+					String needAlign = GOTAlignmentValues.formatAlignForDisplay(needRank.getAlignment());
 					String format = "";
 					if (query.result == GOTConquestGrid.ConquestViewable.NEED_RANK) {
 						format = "got.gui.map.conquest.needRank";
@@ -1297,12 +1297,12 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					float[] trans;
 					float dy;
 					float rScaled;
-					float radius = zone.radius;
+					float radius = zone.getRadius();
 					if (pass == 2) {
 						radius -= 1.0f;
 					}
 					if (pass == 0) {
-						radius = zone.radius + controlZoneFaction.getControlZoneReducedRange();
+						radius = zone.getRadius() + controlZoneFaction.getControlZoneReducedRange();
 					}
 					float radiusWorld = GOTWaypoint.mapToWorldR(radius);
 					tessellator.startDrawing(9);
@@ -1310,13 +1310,13 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					int sides = 100;
 					for (int l = sides - 1; l >= 0; --l) {
 						float angle = (float) l / (float) sides * 2.0f * 3.1415927f;
-						double x = zone.xCoord;
-						double z = zone.zCoord;
+						double x = zone.getxCoord();
+						double z = zone.getzCoord();
 						float[] trans2 = this.transformCoords(x += MathHelper.cos(angle) * radiusWorld, z += MathHelper.sin(angle) * radiusWorld);
 						tessellator.addVertex(trans2[0], trans2[1], zLevel);
 					}
 					tessellator.draw();
-					if (mouseControlZone && mouseControlZoneReduced || (dx = mouseX - (trans = this.transformCoords(zone.xCoord, zone.zCoord))[0]) * dx + (dy = mouseY - trans[1]) * dy > (rScaled = radius * zoomScale) * rScaled) {
+					if (mouseControlZone && mouseControlZoneReduced || (dx = mouseX - (trans = this.transformCoords(zone.getxCoord(), zone.getzCoord()))[0]) * dx + (dy = mouseY - trans[1]) * dy > (rScaled = radius * zoomScale) * rScaled) {
 						continue;
 					}
 					if (pass >= 1) {
@@ -1560,7 +1560,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			distanceMouseOverQuest = distToQuest;
 		}
 		if (mouseOverQuest != null && !hasOverlay) {
-			String name = mouseOverQuest.entityName;
+			String name = mouseOverQuest.getEntityName();
 			int stringWidth = mc.fontRenderer.getStringWidth(name);
 			int stringHeight = mc.fontRenderer.FONT_HEIGHT;
 			int x = mouseOverQuestX;

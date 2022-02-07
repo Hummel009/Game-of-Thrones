@@ -44,9 +44,9 @@ public class GOTGuiCoinExchange extends GuiContainer {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		mc.getTextureManager().bindTexture(getGuiTexture());
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
-		if (theContainer.exchanged) {
-			for (int l = 0; l < theContainer.exchangeInv.getSizeInventory(); ++l) {
-				Slot slot = theContainer.getSlotFromInventory(theContainer.exchangeInv, l);
+		if (theContainer.isExchanged()) {
+			for (int l = 0; l < theContainer.getExchangeInv().getSizeInventory(); ++l) {
+				Slot slot = theContainer.getSlotFromInventory(theContainer.getExchangeInv(), l);
 				if (!slot.getHasStack()) {
 					continue;
 				}
@@ -63,8 +63,8 @@ public class GOTGuiCoinExchange extends GuiContainer {
 
 	@Override
 	public void drawScreen(int i, int j, float f) {
-		buttonLeft.enabled = !theContainer.exchanged && theContainer.exchangeInv.getStackInSlot(0) != null;
-		buttonRight.enabled = !theContainer.exchanged && theContainer.exchangeInv.getStackInSlot(1) != null;
+		buttonLeft.enabled = !theContainer.isExchanged() && theContainer.getExchangeInv().getStackInSlot(0) != null;
+		buttonRight.enabled = !theContainer.isExchanged() && theContainer.getExchangeInv().getStackInSlot(1) != null;
 		super.drawScreen(i, j, f);
 	}
 

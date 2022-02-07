@@ -1,11 +1,11 @@
 package got.common.inventory;
 
 public class GOTSlotStackSize implements Comparable {
-	public int slot;
-	public int stackSize;
+	private int slot;
+	private int stackSize;
 
 	public GOTSlotStackSize(int i, int j) {
-		slot = i;
+		setSlot(i);
 		stackSize = j;
 	}
 
@@ -20,14 +20,22 @@ public class GOTSlotStackSize implements Comparable {
 				return -1;
 			}
 			if (obj1.stackSize == stackSize) {
-				if (obj1.slot < slot) {
+				if (obj1.getSlot() < getSlot()) {
 					return 1;
 				}
-				if (obj1.slot > slot) {
+				if (obj1.getSlot() > getSlot()) {
 					return -1;
 				}
 			}
 		}
 		return 0;
+	}
+
+	public int getSlot() {
+		return slot;
+	}
+
+	public void setSlot(int slot) {
+		this.slot = slot;
 	}
 }

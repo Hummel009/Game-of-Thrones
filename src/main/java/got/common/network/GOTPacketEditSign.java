@@ -24,7 +24,7 @@ public class GOTPacketEditSign implements IMessage {
 		posX = sign.xCoord;
 		posY = sign.yCoord;
 		posZ = sign.zCoord;
-		signText = sign.signText;
+		signText = sign.getSignText();
 	}
 
 	@Override
@@ -92,7 +92,7 @@ public class GOTPacketEditSign implements IMessage {
 					}
 					newText[l] = "!?";
 				}
-				System.arraycopy(newText, 0, sign.signText, 0, sign.getNumLines());
+				System.arraycopy(newText, 0, sign.getSignText(), 0, sign.getNumLines());
 				sign.markDirty();
 				world.markBlockForUpdate(i, j, k);
 			}

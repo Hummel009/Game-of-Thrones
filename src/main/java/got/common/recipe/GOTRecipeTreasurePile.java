@@ -7,8 +7,8 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
 
 public class GOTRecipeTreasurePile implements IRecipe {
-	public Block treasureBlock;
-	public Item ingotItem;
+	private Block treasureBlock;
+	private Item ingotItem;
 
 	public GOTRecipeTreasurePile(Block block, Item item) {
 		treasureBlock = block;

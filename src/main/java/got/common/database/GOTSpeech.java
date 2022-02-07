@@ -16,13 +16,11 @@ import got.common.*;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.network.*;
 import net.minecraft.entity.player.*;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.*;
-import net.minecraft.world.World;
 
 public class GOTSpeech {
-	public static Map<String, SpeechBank> allSpeechBanks = new HashMap<>();
-	public static Random rand = new Random();
+	private static Map<String, SpeechBank> allSpeechBanks = new HashMap<>();
+	private static Random rand = new Random();
 
 	public static String formatSpeech(String speech, EntityPlayer entityplayer, String location, String objective) {
 		if (entityplayer != null) {
@@ -59,16 +57,12 @@ public class GOTSpeech {
 		return GOTSpeech.getSpeechBank(bankName).getSpeechAtLine(i);
 	}
 
-	public static SpeechBank getSpeechBank(String name) {
+	private static SpeechBank getSpeechBank(String name) {
 		SpeechBank bank = allSpeechBanks.get(name);
 		if (bank != null) {
 			return bank;
 		}
 		return new SpeechBank("dummy_" + name, true, Arrays.asList("Speech bank " + name + " could not be found!"));
-	}
-
-	public static String getSpeechLineForPlayer(GOTEntityNPC entity, String speechBankName, int i, EntityPlayer entityplayer) {
-		return GOTSpeech.getSpeechLineForPlayer(entity, speechBankName, i, entityplayer, null, null);
 	}
 
 	public static String getSpeechLineForPlayer(GOTEntityNPC entity, String speechBankName, int i, EntityPlayer entityplayer, String location, String objective) {
@@ -79,21 +73,6 @@ public class GOTSpeech {
 			s = GOTDrunkenSpeech.getDrunkenSpeech(s, f);
 		}
 		return s;
-	}
-
-	public static void messageAllPlayers(IChatComponent message) {
-		if (MinecraftServer.getServer() == null) {
-			return;
-		}
-		for (Object player : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
-			((EntityPlayer) player).addChatMessage(message);
-		}
-	}
-
-	public static void messageAllPlayersInWorld(World world, IChatComponent message) {
-		for (Object player : world.playerEntities) {
-			((EntityPlayer) player).addChatMessage(message);
-		}
 	}
 
 	public static void onInit() {
@@ -187,7 +166,7 @@ public class GOTSpeech {
 		sendSpeech(entityplayer, entity, speech, false);
 	}
 
-	public static void sendSpeech(EntityPlayer entityplayer, GOTEntityNPC entity, String speech, boolean forceChatMsg) {
+	private static void sendSpeech(EntityPlayer entityplayer, GOTEntityNPC entity, String speech, boolean forceChatMsg) {
 		GOTPacketNPCSpeech packet = new GOTPacketNPCSpeech(entity.getEntityId(), speech, forceChatMsg);
 		GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
 	}
@@ -201,15 +180,10 @@ public class GOTSpeech {
 		GOTSpeech.sendSpeech(entityplayer, entity, speech);
 	}
 
-	public static void sendSpeechBankWithChatMsg(EntityPlayer entityplayer, GOTEntityNPC entity, String speechBankName) {
-		String speech = GOTSpeech.getRandomSpeechForPlayer(entity, speechBankName, entityplayer, null, null);
-		GOTSpeech.sendSpeech(entityplayer, entity, speech, true);
-	}
-
 	public static class SpeechBank {
-		public String name;
-		public boolean isRandom;
-		public List<String> speeches;
+		private String name;
+		private boolean isRandom;
+		private List<String> speeches;
 
 		public SpeechBank(String s, boolean r, List<String> spc) {
 			name = s;
@@ -217,7 +191,7 @@ public class GOTSpeech {
 			speeches = spc;
 		}
 
-		public String getRandomSpeech(Random random) {
+		private String getRandomSpeech(Random random) {
 			if (!isRandom) {
 				return "ERROR: Tried to retrieve random speech from non-random speech bank " + name;
 			}
@@ -225,7 +199,7 @@ public class GOTSpeech {
 			return internalFormatSpeech(s);
 		}
 
-		public String getSpeechAtLine(int line) {
+		private String getSpeechAtLine(int line) {
 			if (isRandom) {
 				return "ERROR: Tried to retrieve indexed speech from random speech bank " + name;
 			}
@@ -237,7 +211,7 @@ public class GOTSpeech {
 			return "ERROR: Speech line " + line + " is out of range!";
 		}
 
-		public String internalFormatSpeech(String s) {
+		private String internalFormatSpeech(String s) {
 			return s;
 		}
 	}

@@ -42,7 +42,7 @@ public class GOTStructureRegistry {
 	}
 
 	public static void register(int id, Class<? extends WorldGenerator> strClass, String name, GOTFaction faction) {
-		GOTStructureRegistry.registerStructure(id, strClass, name, faction.eggColor, faction.eggColor, false);
+		GOTStructureRegistry.registerStructure(id, strClass, name, faction.getEggColor(), faction.getEggColor(), false);
 		classToNameMapping.put(strClass, name);
 		classToFactionMapping.put(strClass, faction);
 	}
@@ -69,7 +69,7 @@ public class GOTStructureRegistry {
 				return true;
 			}
 		};
-		GOTStructureRegistry.registerStructure(id, strProvider, name, faction.eggColor, faction.eggColor, false);
+		GOTStructureRegistry.registerStructure(id, strProvider, name, faction.getEggColor(), faction.getEggColor(), false);
 	}
 
 	public static void register(int id, GOTVillageGen village, String name, int color, IVillageProperties properties) {

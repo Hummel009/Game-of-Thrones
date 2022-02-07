@@ -8,9 +8,9 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraftforge.common.util.EnumHelper;
 
 public class GOTMaterial {
-	public static float[] protectionBase = { 0.14f, 0.4f, 0.32f, 0.14f };
-	public static float maxProtection = 25.0f;
-	public static List<GOTMaterial> allGOTMaterials = new ArrayList<>();
+	private static float[] protectionBase = { 0.14f, 0.4f, 0.32f, 0.14f };
+	private static float maxProtection = 25.0f;
+	private static List<GOTMaterial> allGOTMaterials = new ArrayList<>();
 	public static ToolMaterial LOG = EnumHelper.addToolMaterial("LOG", 0, 59, 2.0F, 0.0F, 15).setRepairItem(new ItemStack(Blocks.planks));
 	public static ToolMaterial ROCK = EnumHelper.addToolMaterial("ROCK", 1, 131, 4.0F, 1.0F, 5).setRepairItem(new ItemStack(Blocks.stone));
 	public static ToolMaterial STEEL = EnumHelper.addToolMaterial("STEEL", 2, 250, 6.0F, 2.0F, 14).setRepairItem(new ItemStack(Items.iron_ingot));
@@ -85,76 +85,66 @@ public class GOTMaterial {
 	public static GOTMaterial SILVER = new GOTMaterial("SILVER").setIsStrong();
 	public static GOTMaterial RENLY = new GOTMaterial("RENLY").setIsStrong();
 
-	public String materialName;
-	public boolean undamageable;
-	public int uses;
-	public float damage;
-	public int[] protection;
-	public int harvestLevel;
-	public float speed;
-	public int enchantability;
-	public boolean canHarvestManFlesh;
-	public Item.ToolMaterial toolMaterial;
-	public ItemArmor.ArmorMaterial armorMaterial;
+	private String materialName;
+	private boolean undamageable;
+	private int uses;
+	private float damage;
+	private int[] protection;
+	private int harvestLevel;
+	private float speed;
+	private int enchantability;
+	private Item.ToolMaterial toolMaterial;
+	private ItemArmor.ArmorMaterial armorMaterial;
 
-	public GOTMaterial(String name) {
+	private GOTMaterial(String name) {
 		materialName = "GOT_" + name;
 		allGOTMaterials.add(this);
-	}
-
-	public boolean canHarvestManFlesh() {
-		return canHarvestManFlesh;
 	}
 
 	public boolean isDamageable() {
 		return !undamageable;
 	}
 
-	public void setCraftingItem(Item item) {
+	private void setCraftingItem(Item item) {
 		setCraftingItems(item, item);
 	}
 
-	public void setCraftingItems(Item toolItem, Item armorItem) {
+	private void setCraftingItems(Item toolItem, Item armorItem) {
 		toToolMaterial().setRepairItem(new ItemStack(toolItem));
 		toArmorMaterial().customCraftingMaterial = armorItem;
 	}
 
-	public GOTMaterial setDamage(float f) {
+	private GOTMaterial setDamage(float f) {
 		damage = f;
 		return this;
 	}
 
-	public GOTMaterial setEnchantability(int i) {
+	private GOTMaterial setEnchantability(int i) {
 		enchantability = i;
 		return this;
 	}
 
-	public GOTMaterial setHarvestLevel(int i) {
+	private GOTMaterial setHarvestLevel(int i) {
 		harvestLevel = i;
 		return this;
 	}
 
-	public GOTMaterial setIsStandart() {
+	private GOTMaterial setIsStandart() {
 		setUses(350).setDamage(2.5f).setProtection(0.5f).setSpeed(5.5f).setHarvestLevel(6).setEnchantability(8).setCraftingItem(Items.iron_ingot);
 		return this;
 	}
 
-	public GOTMaterial setIsStrong() {
+	private GOTMaterial setIsStrong() {
 		setUses(500).setDamage(3.0f).setProtection(0.6f).setSpeed(6.0f).setHarvestLevel(10).setEnchantability(10);
 		return this;
 	}
 
-	public GOTMaterial setIsWeak() {
+	private GOTMaterial setIsWeak() {
 		setUses(200).setDamage(2.0f).setProtection(0.4f).setSpeed(5.0f).setHarvestLevel(2).setEnchantability(6);
 		return this;
 	}
 
-	public GOTMaterial setManFlesh() {
-		canHarvestManFlesh = true;
-		return this;
-	}
-
-	public GOTMaterial setProtection(float f) {
+	private GOTMaterial setProtection(float f) {
 		protection = new int[protectionBase.length];
 		for (int i = 0; i < protection.length; ++i) {
 			protection[i] = Math.round(protectionBase[i] * f * maxProtection);
@@ -162,17 +152,17 @@ public class GOTMaterial {
 		return this;
 	}
 
-	public GOTMaterial setSpeed(float f) {
+	private GOTMaterial setSpeed(float f) {
 		speed = f;
 		return this;
 	}
 
-	public GOTMaterial setUndamageable() {
+	private GOTMaterial setUndamageable() {
 		undamageable = true;
 		return this;
 	}
 
-	public GOTMaterial setUses(int i) {
+	private GOTMaterial setUses(int i) {
 		uses = i;
 		return this;
 	}
@@ -189,10 +179,6 @@ public class GOTMaterial {
 			toolMaterial = EnumHelper.addToolMaterial(materialName, harvestLevel, uses, speed, damage, enchantability);
 		}
 		return toolMaterial;
-	}
-
-	public static ItemArmor.ArmorMaterial getArmorMaterialByName(String name) {
-		return ItemArmor.ArmorMaterial.valueOf(name);
 	}
 
 	public static Item.ToolMaterial getToolMaterialByName(String name) {

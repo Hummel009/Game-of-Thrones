@@ -15,14 +15,14 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 
 public class GOTTileEntityBookshelf extends TileEntity implements IInventory {
-	public ItemStack[] chestContents = new ItemStack[getSizeInventory()];
-	public int numPlayersUsing;
-	public int ticksSinceSync;
+	private ItemStack[] chestContents = new ItemStack[getSizeInventory()];
+	private int numPlayersUsing;
+	private int ticksSinceSync;
 
 	@Override
 	public void closeInventory() {
 		if (getBlockType() instanceof GOTBlockBookshelfStorage) {
-			--numPlayersUsing;
+			setNumPlayersUsing(getNumPlayersUsing() - 1);
 		}
 	}
 
@@ -53,6 +53,10 @@ public class GOTTileEntityBookshelf extends TileEntity implements IInventory {
 	@Override
 	public int getInventoryStackLimit() {
 		return 64;
+	}
+
+	public int getNumPlayersUsing() {
+		return numPlayersUsing;
 	}
 
 	@Override
@@ -98,10 +102,10 @@ public class GOTTileEntityBookshelf extends TileEntity implements IInventory {
 
 	@Override
 	public void openInventory() {
-		if (numPlayersUsing < 0) {
-			numPlayersUsing = 0;
+		if (getNumPlayersUsing() < 0) {
+			setNumPlayersUsing(0);
 		}
-		++numPlayersUsing;
+		setNumPlayersUsing(getNumPlayersUsing() + 1);
 	}
 
 	@Override
@@ -128,12 +132,16 @@ public class GOTTileEntityBookshelf extends TileEntity implements IInventory {
 		markDirty();
 	}
 
+	public void setNumPlayersUsing(int numPlayersUsing) {
+		this.numPlayersUsing = numPlayersUsing;
+	}
+
 	@Override
 	public void updateEntity() {
 		super.updateEntity();
 		++ticksSinceSync;
-		if (!worldObj.isRemote && numPlayersUsing != 0 && (ticksSinceSync + xCoord + yCoord + zCoord) % 200 == 0) {
-			numPlayersUsing = 0;
+		if (!worldObj.isRemote && getNumPlayersUsing() != 0 && (ticksSinceSync + xCoord + yCoord + zCoord) % 200 == 0) {
+			setNumPlayersUsing(0);
 			float range = 16.0f;
 			List players = worldObj.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(xCoord - range, yCoord - range, zCoord - range, xCoord + 1 + range, yCoord + 1 + range, zCoord + 1 + range));
 			for (Object obj : players) {
@@ -141,7 +149,7 @@ public class GOTTileEntityBookshelf extends TileEntity implements IInventory {
 				if (!(entityplayer.openContainer instanceof GOTContainerBookshelf) || ((GOTContainerBookshelf) entityplayer.openContainer).shelfInv != this) {
 					continue;
 				}
-				++numPlayersUsing;
+				setNumPlayersUsing(getNumPlayersUsing() + 1);
 			}
 		}
 	}

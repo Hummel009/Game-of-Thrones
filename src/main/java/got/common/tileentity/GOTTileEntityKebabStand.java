@@ -13,18 +13,17 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.*;
 
 public class GOTTileEntityKebabStand extends TileEntity implements IInventory {
-	public static int MEAT_SLOTS = 8;
-	public ItemStack[] inventory = new ItemStack[8];
-	public boolean[] cooked = new boolean[8];
-	public int cookTime;
-	public int fuelTime;
-	public boolean cookedClient;
-	public boolean cookingClient;
-	public int meatAmountClient;
-	public float kebabSpin;
-	public float prevKebabSpin;
+	private ItemStack[] inventory = new ItemStack[8];
+	private boolean[] cooked = new boolean[8];
+	private int cookTime;
+	private int fuelTime;
+	private boolean cookedClient;
+	private boolean cookingClient;
+	private int meatAmountClient;
+	private float kebabSpin;
+	private float prevKebabSpin;
 
-	public void addFuel(int i) {
+	private void addFuel(int i) {
 		fuelTime += i;
 	}
 
@@ -47,7 +46,7 @@ public class GOTTileEntityKebabStand extends TileEntity implements IInventory {
 		return added;
 	}
 
-	public boolean canCook() {
+	private boolean canCook() {
 		return !isFullyCooked() && getMeatAmount() > 0;
 	}
 
@@ -55,7 +54,7 @@ public class GOTTileEntityKebabStand extends TileEntity implements IInventory {
 	public void closeInventory() {
 	}
 
-	public void cookFirstMeat() {
+	private void cookFirstMeat() {
 		cookTime = 0;
 		fuelTime -= 200;
 		for (int i = getSizeInventory() - 1; i >= 0; --i) {
@@ -315,17 +314,17 @@ public class GOTTileEntityKebabStand extends TileEntity implements IInventory {
 		return getMeatAmount() > 0;
 	}
 
-	public void startCooking(int i) {
+	private void startCooking(int i) {
 		cookTime = 0;
 		fuelTime = i;
 	}
 
-	public void stopCooking() {
+	private void stopCooking() {
 		cookTime = 0;
 		fuelTime = 0;
 	}
 
-	public int takeFuelFromBelow() {
+	private int takeFuelFromBelow() {
 		TileEntity belowTE = worldObj.getTileEntity(xCoord, yCoord - 1, zCoord);
 		if (belowTE instanceof IInventory) {
 			IInventory inv = (IInventory) belowTE;

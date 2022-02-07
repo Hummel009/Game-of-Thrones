@@ -115,9 +115,7 @@ public class GOTItemBrandingIron extends Item {
 		if (GOTItemBrandingIron.hasBrandName(itemstack) && !GOTItemBrandingIron.isHeated(itemstack)) {
 			boolean isHotBlock = false;
 			TileEntity te = world.getTileEntity(i, j, k);
-			if (te instanceof TileEntityFurnace && ((TileEntityFurnace) te).isBurning() || te instanceof GOTTileEntityAlloyForge && ((GOTTileEntityAlloyForge) te).isSmelting()) {
-				isHotBlock = true;
-			} else if (te instanceof GOTTileEntityOven && ((GOTTileEntityOven) te).isCooking()) {
+			if (te instanceof GOTTileEntityOven && ((GOTTileEntityOven) te).isCooking() || te instanceof TileEntityFurnace && ((TileEntityFurnace) te).isBurning() || te instanceof GOTTileEntityAlloyForge && ((GOTTileEntityAlloyForge) te).isSmelting()) {
 				isHotBlock = true;
 			}
 			if (!isHotBlock) {

@@ -29,8 +29,8 @@ public class GOTMiniQuestKillFaction extends GOTMiniQuestKill {
 
 	@Override
 	public void onKill(EntityPlayer entityplayer, EntityLivingBase entity) {
-		if (killCount < killTarget && GOT.getNPCFaction(entity) == killFaction) {
-			++killCount;
+		if (getKillCount() < getKillTarget() && GOT.getNPCFaction(entity) == killFaction) {
+			setKillCount(getKillCount() + 1);
 			updateQuest();
 		}
 	}
@@ -48,7 +48,7 @@ public class GOTMiniQuestKillFaction extends GOTMiniQuestKill {
 	}
 
 	public static class QFKillFaction extends GOTMiniQuestKill.QFKill<GOTMiniQuestKillFaction> {
-		public GOTFaction killFaction;
+		private GOTFaction killFaction;
 
 		public QFKillFaction(String name) {
 			super(name);

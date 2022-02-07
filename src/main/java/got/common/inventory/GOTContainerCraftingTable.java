@@ -13,13 +13,13 @@ import net.minecraft.item.crafting.*;
 import net.minecraft.world.World;
 
 public abstract class GOTContainerCraftingTable extends ContainerWorkbench {
-	public World theWorld;
-	public int tablePosX;
-	public int tablePosY;
-	public int tablePosZ;
-	public List<IRecipe> recipeList;
-	public GOTBlockCraftingTable tableBlock;
-	public EntityPlayer entityplayer;
+	private World theWorld;
+	private int tablePosX;
+	private int tablePosY;
+	private int tablePosZ;
+	private List<IRecipe> recipeList;
+	private GOTBlockCraftingTable tableBlock;
+	private EntityPlayer entityplayer;
 
 	public GOTContainerCraftingTable(InventoryPlayer inv, World world, int i, int j, int k, List<IRecipe> list, Block block) {
 		super(inv, world, i, j, k);
@@ -28,19 +28,27 @@ public abstract class GOTContainerCraftingTable extends ContainerWorkbench {
 		tablePosY = j;
 		tablePosZ = k;
 		entityplayer = inv.player;
-		tableBlock = (GOTBlockCraftingTable) block;
-		recipeList = new ArrayList<>(list);
-		recipeList.add(new GOTRecipePouch(tableBlock.getTableFaction()));
+		setTableBlock((GOTBlockCraftingTable) block);
+		setRecipeList(new ArrayList<>(list));
+		getRecipeList().add(new GOTRecipePouch(getTableBlock().getTableFaction()));
 	}
 
 	@Override
 	public boolean canInteractWith(EntityPlayer entityplayer) {
-		return theWorld.getBlock(tablePosX, tablePosY, tablePosZ) == tableBlock && entityplayer.getDistanceSq(tablePosX + 0.5, tablePosY + 0.5, tablePosZ + 0.5) <= 64.0;
+		return theWorld.getBlock(tablePosX, tablePosY, tablePosZ) == getTableBlock() && entityplayer.getDistanceSq(tablePosX + 0.5, tablePosY + 0.5, tablePosZ + 0.5) <= 64.0;
+	}
+
+	public List<IRecipe> getRecipeList() {
+		return recipeList;
+	}
+
+	public GOTBlockCraftingTable getTableBlock() {
+		return tableBlock;
 	}
 
 	@Override
 	public void onCraftMatrixChanged(IInventory inv) {
-		if (recipeList == null) {
+		if (getRecipeList() == null) {
 			return;
 		}
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
@@ -48,8 +56,16 @@ public abstract class GOTContainerCraftingTable extends ContainerWorkbench {
 		if (tableSwitched) {
 			craftResult.setInventorySlotContents(0, CraftingManager.getInstance().findMatchingRecipe(craftMatrix, theWorld));
 		} else {
-			craftResult.setInventorySlotContents(0, GOTRecipe.findMatchingRecipe(recipeList, craftMatrix, theWorld));
+			craftResult.setInventorySlotContents(0, GOTRecipe.findMatchingRecipe(getRecipeList(), craftMatrix, theWorld));
 		}
+	}
+
+	public void setRecipeList(List<IRecipe> recipeList) {
+		this.recipeList = recipeList;
+	}
+
+	public void setTableBlock(GOTBlockCraftingTable tableBlock) {
+		this.tableBlock = tableBlock;
 	}
 
 	public static class Arryn extends GOTContainerCraftingTable {

@@ -6,18 +6,18 @@ import got.common.database.GOTTitle;
 import net.minecraft.item.ItemStack;
 
 public class GOTFellowshipClient {
-	public UUID fellowshipID;
-	public String fellowshipName;
-	public ItemStack fellowshipIcon;
-	public boolean isOwned;
-	public boolean isAdminned;
-	public String ownerName;
-	public List<String> memberNames = new ArrayList<>();
-	public Map<String, GOTTitle.PlayerTitle> titleMap = new HashMap<>();
-	public Set<String> adminNames = new HashSet<>();
-	public boolean preventPVP;
-	public boolean preventHiredFF;
-	public boolean showMapLocations;
+	private UUID fellowshipID;
+	private String fellowshipName;
+	private ItemStack fellowshipIcon;
+	private boolean isOwned;
+	private boolean isAdminned;
+	private String ownerName;
+	private List<String> memberNames = new ArrayList<>();
+	private Map<String, GOTTitle.PlayerTitle> titleMap = new HashMap<>();
+	private Set<String> adminNames = new HashSet<>();
+	private boolean preventPVP;
+	private boolean preventHiredFF;
+	private boolean showMapLocations;
 
 	public GOTFellowshipClient(UUID id, String name, boolean owned, boolean admin, String owner, List<String> members) {
 		fellowshipID = id;

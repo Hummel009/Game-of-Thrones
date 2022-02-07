@@ -2,8 +2,6 @@ package got.common.quest;
 
 import java.util.*;
 
-import org.apache.commons.lang3.StringUtils;
-
 import got.common.*;
 import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityNPC;
@@ -17,13 +15,13 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.*;
 
 public class GOTMiniQuestBounty extends GOTMiniQuest {
-	public UUID targetID;
-	public String targetName;
-	public boolean killed;
-	public float alignmentBonus;
-	public int coinBonus;
-	public boolean bountyClaimedByOther;
-	public boolean killedByBounty;
+	private UUID targetID;
+	private String targetName;
+	private boolean killed;
+	private float alignmentBonus;
+	private int coinBonus;
+	private boolean bountyClaimedByOther;
+	private boolean killedByBounty;
 
 	public GOTMiniQuestBounty(GOTPlayerData pd) {
 		super(pd);
@@ -31,11 +29,11 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 
 	@Override
 	public boolean canPlayerAccept(EntityPlayer entityplayer) {
-		if (super.canPlayerAccept(entityplayer) && !targetID.equals(entityplayer.getUniqueID()) && GOTLevelData.getData(entityplayer).getAlignment(entityFaction) >= 100.0f) {
+		if (super.canPlayerAccept(entityplayer) && !getTargetID().equals(entityplayer.getUniqueID()) && GOTLevelData.getData(entityplayer).getAlignment(entityFaction) >= 100.0f) {
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 			List<GOTMiniQuest> active = pd.getActiveMiniQuests();
 			for (GOTMiniQuest quest : active) {
-				if (!(quest instanceof GOTMiniQuestBounty) || !((GOTMiniQuestBounty) quest).targetID.equals(targetID)) {
+				if (!(quest instanceof GOTMiniQuestBounty) || !((GOTMiniQuestBounty) quest).getTargetID().equals(getTargetID())) {
 					continue;
 				}
 				return false;
@@ -54,7 +52,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 		specialReward = bComplete > 0 && bComplete % 5 == 0;
 		if (specialReward) {
 			ItemStack trophy = new ItemStack(GOTRegistry.bountyTrophy);
-			rewardItemTable.add(trophy);
+			getRewardItemTable().add(trophy);
 		}
 		super.complete(entityplayer, npc);
 	}
@@ -71,16 +69,16 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 
 	@Override
 	public float getCompletionFactor() {
-		return killed ? 1.0f : 0.0f;
+		return isKilled() ? 1.0f : 0.0f;
 	}
 
-	public float getKilledAlignmentPenalty() {
+	private float getKilledAlignmentPenalty() {
 		return -getAlignmentBonus() * 2.0f;
 	}
 
 	@Override
 	public String getObjectiveInSpeech() {
-		return targetName;
+		return getTargetName();
 	}
 
 	public GOTFaction getPledgeOrHighestAlignmentFaction(EntityPlayer entityplayer, float min) {
@@ -115,16 +113,16 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 
 	@Override
 	public String getProgressedObjectiveInSpeech() {
-		return targetName;
+		return getTargetName();
 	}
 
 	@Override
 	public String getQuestFailure() {
 		if (killedByBounty) {
-			return StatCollector.translateToLocalFormatted("got.miniquest.bounty.killedBy", targetName);
+			return StatCollector.translateToLocalFormatted("got.miniquest.bounty.killedBy", getTargetName());
 		}
 		if (bountyClaimedByOther) {
-			return StatCollector.translateToLocalFormatted("got.miniquest.bounty.claimed", targetName);
+			return StatCollector.translateToLocalFormatted("got.miniquest.bounty.claimed", getTargetName());
 		}
 		return super.getQuestFailure();
 	}
@@ -147,12 +145,12 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 
 	@Override
 	public String getQuestObjective() {
-		return StatCollector.translateToLocalFormatted("got.miniquest.bounty", targetName);
+		return StatCollector.translateToLocalFormatted("got.miniquest.bounty", getTargetName());
 	}
 
 	@Override
 	public String getQuestProgress() {
-		if (killed) {
+		if (isKilled()) {
 			return StatCollector.translateToLocal("got.miniquest.bounty.progress.slain");
 		}
 		return StatCollector.translateToLocal("got.miniquest.bounty.progress.notSlain");
@@ -160,7 +158,15 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 
 	@Override
 	public String getQuestProgressShorthand() {
-		return StatCollector.translateToLocalFormatted("got.miniquest.progressShort", killed ? 1 : 0, 1);
+		return StatCollector.translateToLocalFormatted("got.miniquest.progressShort", isKilled() ? 1 : 0, 1);
+	}
+
+	public UUID getTargetID() {
+		return targetID;
+	}
+
+	public String getTargetName() {
+		return targetName;
 	}
 
 	@Override
@@ -168,14 +174,18 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 		return super.isFailed() || bountyClaimedByOther || killedByBounty;
 	}
 
+	public boolean isKilled() {
+		return killed;
+	}
+
 	@Override
 	public boolean isValidQuest() {
-		return super.isValidQuest() && targetID != null;
+		return super.isValidQuest() && getTargetID() != null;
 	}
 
 	@Override
 	public void onInteract(EntityPlayer entityplayer, GOTEntityNPC npc) {
-		if (killed) {
+		if (isKilled()) {
 			complete(entityplayer, npc);
 		} else {
 			sendProgressSpeechbank(entityplayer, npc);
@@ -184,10 +194,10 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 
 	@Override
 	public void onKill(EntityPlayer entityplayer, EntityLivingBase entity) {
-		if (!killed && !isFailed() && entity instanceof EntityPlayer && ((EntityPlayer) entity).getUniqueID().equals(targetID)) {
+		if (!isKilled() && !isFailed() && entity instanceof EntityPlayer && ((EntityPlayer) entity).getUniqueID().equals(getTargetID())) {
 			EntityPlayer slainPlayer = (EntityPlayer) entity;
 			GOTPlayerData slainPlayerData = GOTLevelData.getData(slainPlayer);
-			killed = true;
+			setKilled(true);
 			GOTFactionBounties.forFaction(entityFaction).forPlayer(slainPlayer).recordBountyKilled();
 			updateQuest();
 			GOTFaction highestFaction = getPledgeOrHighestAlignmentFaction(slainPlayer, 100.0f);
@@ -221,7 +231,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 
 	@Override
 	public void onKilledByPlayer(EntityPlayer entityplayer, EntityPlayer killer) {
-		if (!killed && !isFailed() && killer.getUniqueID().equals(targetID)) {
+		if (!isKilled() && !isFailed() && killer.getUniqueID().equals(getTargetID())) {
 			float curAlignment;
 			GOTPlayerData pd;
 			GOTPlayerData killerData = GOTLevelData.getData(killer);
@@ -263,7 +273,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 	@Override
 	public void onPlayerTick(EntityPlayer entityplayer) {
 		super.onPlayerTick(entityplayer);
-		if (isActive() && !killed && !bountyClaimedByOther && GOTFactionBounties.forFaction(entityFaction).forPlayer(targetID).recentlyBountyKilled()) {
+		if (isActive() && !isKilled() && !bountyClaimedByOther && GOTFactionBounties.forFaction(entityFaction).forPlayer(getTargetID()).recentlyBountyKilled()) {
 			bountyClaimedByOther = true;
 			updateQuest();
 		}
@@ -274,16 +284,28 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 		super.readFromNBT(nbt);
 		if (nbt.hasKey("TargetID")) {
 			String s = nbt.getString("TargetID");
-			targetID = UUID.fromString(s);
+			setTargetID(UUID.fromString(s));
 		}
 		if (nbt.hasKey("TargetName")) {
-			targetName = nbt.getString("TargetName");
+			setTargetName(nbt.getString("TargetName"));
 		}
-		killed = nbt.getBoolean("Killed");
+		setKilled(nbt.getBoolean("Killed"));
 		alignmentBonus = nbt.hasKey("Alignment") ? (float) nbt.getInteger("Alignment") : nbt.getFloat("AlignF");
 		coinBonus = nbt.getInteger("Coins");
 		bountyClaimedByOther = nbt.getBoolean("BountyClaimed");
 		killedByBounty = nbt.getBoolean("KilledBy");
+	}
+
+	public void setKilled(boolean killed) {
+		this.killed = killed;
+	}
+
+	public void setTargetID(UUID targetID) {
+		this.targetID = targetID;
+	}
+
+	public void setTargetName(String targetName) {
+		this.targetName = targetName;
 	}
 
 	@Override
@@ -294,19 +316,19 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 	@Override
 	public void start(EntityPlayer entityplayer, GOTEntityNPC npc) {
 		super.start(entityplayer, npc);
-		GOTLevelData.getData(targetID).placeBountyFor(npc.getFaction());
+		GOTLevelData.getData(getTargetID()).placeBountyFor(npc.getFaction());
 	}
 
 	@Override
 	public void writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
-		if (targetID != null) {
-			nbt.setString("TargetID", targetID.toString());
+		if (getTargetID() != null) {
+			nbt.setString("TargetID", getTargetID().toString());
 		}
-		if (targetName != null) {
-			nbt.setString("TargetName", targetName);
+		if (getTargetName() != null) {
+			nbt.setString("TargetName", getTargetName());
 		}
-		nbt.setBoolean("Killed", killed);
+		nbt.setBoolean("Killed", isKilled());
 		nbt.setFloat("AlignF", alignmentBonus);
 		nbt.setInteger("Coins", coinBonus);
 		nbt.setBoolean("BountyClaimed", bountyClaimedByOther);
@@ -316,55 +338,22 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 	public enum BountyHelp {
 		BIOME("biome"), WAYPOINT("wp");
 
-		public String speechName;
+		private String speechName;
 
 		BountyHelp(String s) {
-			speechName = s;
+			setSpeechName(s);
+		}
+
+		public String getSpeechName() {
+			return speechName;
+		}
+
+		public void setSpeechName(String speechName) {
+			this.speechName = speechName;
 		}
 
 		public static BountyHelp getRandomHelpType(Random random) {
 			return BountyHelp.values()[random.nextInt(BountyHelp.values().length)];
-		}
-	}
-
-	public static class QFBounty<Q extends GOTMiniQuestBounty> extends GOTMiniQuest.QuestFactoryBase<Q> {
-		public QFBounty(String name) {
-			super(name);
-		}
-
-		@Override
-		public Q createQuest(GOTEntityNPC npc, Random rand) {
-			if (!GOTConfig.isAllowBountyQuests()) {
-				return null;
-			}
-			GOTMiniQuestBounty quest = super.createQuest(npc, rand);
-			GOTFaction faction = npc.getFaction();
-			GOTFactionBounties bounties = GOTFactionBounties.forFaction(faction);
-			List<GOTFactionBounties.PlayerData> players = bounties.findBountyTargets(25);
-			if (players.isEmpty()) {
-				return null;
-			}
-			GOTFactionBounties.PlayerData targetData = players.get(rand.nextInt(players.size()));
-			int kills = targetData.getNumKills();
-			float f = kills;
-			int alignment = (int) f;
-			alignment = MathHelper.clamp_int(alignment, 1, 50);
-			int coins = (int) (f * 10.0f * MathHelper.randomFloatClamp(rand, 0.75f, 1.25f));
-			coins = MathHelper.clamp_int(coins, 1, 1000);
-			quest.targetID = targetData.playerID;
-			String username = targetData.findUsername();
-			if (StringUtils.isBlank(username)) {
-				username = quest.targetID.toString();
-			}
-			quest.targetName = username;
-			quest.alignmentBonus = alignment;
-			quest.coinBonus = coins;
-			return (Q) quest;
-		}
-
-		@Override
-		public Class getQuestClass() {
-			return GOTMiniQuestBounty.class;
 		}
 	}
 

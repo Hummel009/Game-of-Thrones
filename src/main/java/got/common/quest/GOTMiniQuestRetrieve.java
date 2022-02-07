@@ -1,9 +1,9 @@
 package got.common.quest;
 
-import java.util.*;
+import java.util.UUID;
 
 import got.common.GOTPlayerData;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityRegistry;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -11,8 +11,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
 
 public class GOTMiniQuestRetrieve extends GOTMiniQuestCollect {
-	public Class killEntityType;
-	public boolean hasDropped = false;
+	private Class killEntityType;
+	private boolean hasDropped = false;
 
 	public GOTMiniQuestRetrieve(GOTPlayerData pd) {
 		super(pd);
@@ -20,25 +20,25 @@ public class GOTMiniQuestRetrieve extends GOTMiniQuestCollect {
 
 	@Override
 	public String getProgressedObjectiveInSpeech() {
-		if (collectTarget == 1) {
-			return collectItem.getDisplayName();
+		if (getCollectTarget() == 1) {
+			return getCollectItem().getDisplayName();
 		}
-		return collectTarget + " " + collectItem.getDisplayName();
+		return getCollectTarget() + " " + getCollectItem().getDisplayName();
 	}
 
 	@Override
 	public String getQuestObjective() {
-		if (collectTarget == 1) {
-			return StatCollector.translateToLocalFormatted("got.miniquest.retrieve1", collectItem.getDisplayName());
+		if (getCollectTarget() == 1) {
+			return StatCollector.translateToLocalFormatted("got.miniquest.retrieve1", getCollectItem().getDisplayName());
 		}
-		return StatCollector.translateToLocalFormatted("got.miniquest.retrieveMany", collectTarget, collectItem.getDisplayName());
+		return StatCollector.translateToLocalFormatted("got.miniquest.retrieveMany", getCollectTarget(), getCollectItem().getDisplayName());
 	}
 
 	@Override
 	public boolean isQuestItem(ItemStack itemstack) {
 		if (super.isQuestItem(itemstack)) {
 			UUID retrieveQuestID = GOTMiniQuestRetrieve.getRetrieveQuestID(itemstack);
-			return retrieveQuestID.equals(questUUID);
+			return retrieveQuestID.equals(getQuestUUID());
 		}
 		return false;
 	}
@@ -51,7 +51,7 @@ public class GOTMiniQuestRetrieve extends GOTMiniQuestCollect {
 	@Override
 	public void onKill(EntityPlayer entityplayer, EntityLivingBase entity) {
 		if (!hasDropped && killEntityType.isAssignableFrom(entity.getClass())) {
-			ItemStack itemstack = collectItem.copy();
+			ItemStack itemstack = getCollectItem().copy();
 			GOTMiniQuestRetrieve.setRetrieveQuest(itemstack, this);
 			hasDropped = true;
 			updateQuest();
@@ -72,7 +72,7 @@ public class GOTMiniQuestRetrieve extends GOTMiniQuestCollect {
 		nbt.setBoolean("HasDropped", hasDropped);
 	}
 
-	public static UUID getRetrieveQuestID(ItemStack itemstack) {
+	private static UUID getRetrieveQuestID(ItemStack itemstack) {
 		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("GOTRetrieveID")) {
 			String id = itemstack.getTagCompound().getString("GOTRetrieveID");
 			return UUID.fromString(id);
@@ -80,36 +80,11 @@ public class GOTMiniQuestRetrieve extends GOTMiniQuestCollect {
 		return null;
 	}
 
-	public static void setRetrieveQuest(ItemStack itemstack, GOTMiniQuest quest) {
+	private static void setRetrieveQuest(ItemStack itemstack, GOTMiniQuest quest) {
 		if (itemstack.getTagCompound() == null) {
 			itemstack.setTagCompound(new NBTTagCompound());
 		}
-		itemstack.getTagCompound().setString("GOTRetrieveID", quest.questUUID.toString());
-	}
-
-	public static class QFRetrieve extends GOTMiniQuestCollect.QFCollect<GOTMiniQuestRetrieve> {
-		public Class entityType;
-
-		public QFRetrieve(String name) {
-			super(name);
-		}
-
-		@Override
-		public GOTMiniQuestRetrieve createQuest(GOTEntityNPC npc, Random rand) {
-			GOTMiniQuestRetrieve quest = super.createQuest(npc, rand);
-			quest.killEntityType = entityType;
-			return quest;
-		}
-
-		@Override
-		public Class getQuestClass() {
-			return GOTMiniQuestRetrieve.class;
-		}
-
-		public QFRetrieve setKillEntity(Class entityClass) {
-			entityType = entityClass;
-			return this;
-		}
+		itemstack.getTagCompound().setString("GOTRetrieveID", quest.getQuestUUID().toString());
 	}
 
 }

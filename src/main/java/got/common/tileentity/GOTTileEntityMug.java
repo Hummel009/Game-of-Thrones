@@ -11,8 +11,8 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
 public class GOTTileEntityMug extends TileEntity {
-	public ItemStack mugItem;
-	public GOTItemMug.Vessel mugVessel;
+	private ItemStack mugItem;
+	private GOTItemMug.Vessel mugVessel;
 
 	public boolean canPoisonMug() {
 		ItemStack itemstack = getMugItem();

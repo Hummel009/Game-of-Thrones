@@ -14,8 +14,8 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
 
 public class GOTRecipePouch implements IRecipe {
-	public int overrideColor;
-	public boolean hasOverrideColor;
+	private int overrideColor;
+	private boolean hasOverrideColor;
 
 	public GOTRecipePouch() {
 		this(-1, false);
@@ -30,7 +30,7 @@ public class GOTRecipePouch implements IRecipe {
 		hasOverrideColor = flag;
 	}
 
-	public int getCombinedMeta(List<ItemStack> pouches) {
+	private int getCombinedMeta(List<ItemStack> pouches) {
 		int size = 0;
 		for (ItemStack pouch : pouches) {
 			size += pouch.getItemDamage() + 1;

@@ -14,7 +14,7 @@ public class GOTInvasionStatus {
 	}
 
 	public float[] getRGB() {
-		return watchedInvasion.getInvasionType().invasionFaction.getFactionRGB_MinBrightness(0.45f);
+		return watchedInvasion.getInvasionType().getInvasionFaction().getFactionRGBMinBrightness(0.45f);
 	}
 
 	public String getTitle() {

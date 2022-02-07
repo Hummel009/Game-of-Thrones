@@ -9,9 +9,9 @@ import net.minecraft.tileentity.TileEntityFurnace;
 
 public class GOTContainerUnsmeltery extends Container {
 	public GOTTileEntityUnsmeltery theUnsmeltery;
-	public int currentSmeltTime = 0;
-	public int forgeSmeltTime = 0;
-	public int currentItemFuelValue = 0;
+	private int currentSmeltTime = 0;
+	private int forgeSmeltTime = 0;
+	private int currentItemFuelValue = 0;
 
 	public GOTContainerUnsmeltery(InventoryPlayer inv, GOTTileEntityUnsmeltery unsmeltery) {
 		int i;
@@ -32,9 +32,9 @@ public class GOTContainerUnsmeltery extends Container {
 	@Override
 	public void addCraftingToCrafters(ICrafting crafting) {
 		super.addCraftingToCrafters(crafting);
-		crafting.sendProgressBarUpdate(this, 0, theUnsmeltery.currentSmeltTime);
-		crafting.sendProgressBarUpdate(this, 1, theUnsmeltery.forgeSmeltTime);
-		crafting.sendProgressBarUpdate(this, 2, theUnsmeltery.currentItemFuelValue);
+		crafting.sendProgressBarUpdate(this, 0, theUnsmeltery.getCurrentSmeltTime());
+		crafting.sendProgressBarUpdate(this, 1, theUnsmeltery.getForgeSmeltTime());
+		crafting.sendProgressBarUpdate(this, 2, theUnsmeltery.getCurrentItemFuelValue());
 	}
 
 	@Override
@@ -47,20 +47,20 @@ public class GOTContainerUnsmeltery extends Container {
 		super.detectAndSendChanges();
 		for (Object element : crafters) {
 			ICrafting crafting = (ICrafting) element;
-			if (currentSmeltTime != theUnsmeltery.currentSmeltTime) {
-				crafting.sendProgressBarUpdate(this, 0, theUnsmeltery.currentSmeltTime);
+			if (currentSmeltTime != theUnsmeltery.getCurrentSmeltTime()) {
+				crafting.sendProgressBarUpdate(this, 0, theUnsmeltery.getCurrentSmeltTime());
 			}
-			if (forgeSmeltTime != theUnsmeltery.forgeSmeltTime) {
-				crafting.sendProgressBarUpdate(this, 1, theUnsmeltery.forgeSmeltTime);
+			if (forgeSmeltTime != theUnsmeltery.getForgeSmeltTime()) {
+				crafting.sendProgressBarUpdate(this, 1, theUnsmeltery.getForgeSmeltTime());
 			}
-			if (currentItemFuelValue == theUnsmeltery.currentItemFuelValue) {
+			if (currentItemFuelValue == theUnsmeltery.getCurrentItemFuelValue()) {
 				continue;
 			}
-			crafting.sendProgressBarUpdate(this, 2, theUnsmeltery.currentItemFuelValue);
+			crafting.sendProgressBarUpdate(this, 2, theUnsmeltery.getCurrentItemFuelValue());
 		}
-		currentSmeltTime = theUnsmeltery.currentSmeltTime;
-		forgeSmeltTime = theUnsmeltery.forgeSmeltTime;
-		currentItemFuelValue = theUnsmeltery.currentItemFuelValue;
+		currentSmeltTime = theUnsmeltery.getCurrentSmeltTime();
+		forgeSmeltTime = theUnsmeltery.getForgeSmeltTime();
+		currentItemFuelValue = theUnsmeltery.getCurrentItemFuelValue();
 	}
 
 	@Override
@@ -95,13 +95,13 @@ public class GOTContainerUnsmeltery extends Container {
 	@Override
 	public void updateProgressBar(int i, int j) {
 		if (i == 0) {
-			theUnsmeltery.currentSmeltTime = j;
+			theUnsmeltery.setCurrentSmeltTime(j);
 		}
 		if (i == 1) {
-			theUnsmeltery.forgeSmeltTime = j;
+			theUnsmeltery.setForgeSmeltTime(j);
 		}
 		if (i == 2) {
-			theUnsmeltery.currentItemFuelValue = j;
+			theUnsmeltery.setCurrentItemFuelValue(j);
 		}
 	}
 }

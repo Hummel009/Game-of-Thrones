@@ -15,24 +15,14 @@ import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.chunk.Chunk;
 
 public class GOTTileEntityBeacon extends TileEntity {
-	public int ticksExisted;
-	public boolean isLit;
-	public int litCounter;
-	public int unlitCounter;
-	public long stateChangeTime = -1L;
-	public String beaconName;
-	public UUID beaconFellowshipID;
-	public List<EntityPlayer> editingPlayers = new ArrayList<>();
-
-	public void addEditingPlayer(EntityPlayer entityplayer) {
-		if (!editingPlayers.contains(entityplayer)) {
-			editingPlayers.add(entityplayer);
-		}
-	}
-
-	public String getBeaconName() {
-		return beaconName;
-	}
+	private int ticksExisted;
+	private boolean isLit;
+	private int litCounter;
+	private int unlitCounter;
+	private long stateChangeTime = -1L;
+	private String beaconName;
+	private UUID beaconFellowshipID;
+	private List<EntityPlayer> editingPlayers = new ArrayList<>();
 
 	@Override
 	public Packet getDescriptionPacket() {
@@ -41,20 +31,12 @@ public class GOTTileEntityBeacon extends TileEntity {
 		return new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 0, data);
 	}
 
-	public UUID getFellowshipID() {
-		return beaconFellowshipID;
-	}
-
 	public boolean isFullyLit() {
 		return isLit() && litCounter == 100;
 	}
 
 	public boolean isLit() {
 		return isLit;
-	}
-
-	public boolean isPlayerEditing(EntityPlayer entityplayer) {
-		return editingPlayers.contains(entityplayer);
 	}
 
 	@Override
@@ -75,11 +57,7 @@ public class GOTTileEntityBeacon extends TileEntity {
 		beaconFellowshipID = nbt.hasKey("BeaconFellowship") ? UUID.fromString(nbt.getString("BeaconFellowship")) : null;
 	}
 
-	public void releaseEditingPlayer(EntityPlayer entityplayer) {
-		editingPlayers.remove(entityplayer);
-	}
-
-	public void sendFellowshipMessage(boolean lit) {
+	private void sendFellowshipMessage(boolean lit) {
 		GOTFellowship fs;
 		if (beaconFellowshipID != null && (fs = GOTFellowshipData.getFellowship(beaconFellowshipID)) != null && !fs.isDisbanded()) {
 			String beaconMessageName = beaconName;
@@ -96,19 +74,6 @@ public class GOTTileEntityBeacon extends TileEntity {
 				entityplayer.addChatMessage(message);
 			}
 		}
-	}
-
-	public void setBeaconName(String name) {
-		beaconName = name;
-		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-		markDirty();
-	}
-
-	public void setFellowship(GOTFellowship fs) {
-		beaconFellowshipID = fs != null ? fs.getFellowshipID() : null;
-		beaconFellowshipID = fs == null ? null : fs.getFellowshipID();
-		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-		markDirty();
 	}
 
 	public void setLit(boolean flag) {
@@ -204,7 +169,7 @@ public class GOTTileEntityBeacon extends TileEntity {
 		editingPlayers.removeAll(removePlayers);
 	}
 
-	public void updateLight() {
+	private void updateLight() {
 		worldObj.updateLightByType(EnumSkyBlock.Block, xCoord, yCoord, zCoord);
 		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 		markDirty();

@@ -20,11 +20,11 @@ public class GOTFoods {
 	public static GOTFoods SOTHORYOS = new GOTFoods(new ItemStack[] { new ItemStack(Items.bread), new ItemStack(GOTRegistry.bananaBread), new ItemStack(GOTRegistry.cornBread), new ItemStack(GOTRegistry.corn), new ItemStack(GOTRegistry.cornCooked), new ItemStack(Items.baked_potato), new ItemStack(GOTRegistry.banana), new ItemStack(GOTRegistry.mango), new ItemStack(Items.melon), new ItemStack(GOTRegistry.melonSoup), new ItemStack(Items.cooked_fished) });
 	public static GOTFoods SOTHORYOS_DRINK = new GOTFoods(new ItemStack[] { new ItemStack(GOTRegistry.mugChocolate), new ItemStack(GOTRegistry.mugMangoJuice), new ItemStack(GOTRegistry.mugBananaBeer), new ItemStack(GOTRegistry.mugMelonLiqueur), new ItemStack(GOTRegistry.mugCornLiquor) }).setDrinkVessels(GOTItemMug.Vessel.MUG, GOTItemMug.Vessel.GOBLET_GOLD, GOTItemMug.Vessel.GOBLET_WOOD);
 	public static GOTFoods RICH_DRINK = new GOTFoods(new ItemStack[] { new ItemStack(GOTRegistry.mugRedWine) }).setDrinkVessels(GOTItemMug.Vessel.GOBLET_GOLD, GOTItemMug.Vessel.BOTTLE);
-	public ItemStack[] foodList;
-	public GOTItemMug.Vessel[] drinkVessels;
-	public GOTItemMug.Vessel[] drinkVesselsPlaceable;
+	private ItemStack[] foodList;
+	private GOTItemMug.Vessel[] drinkVessels;
+	private GOTItemMug.Vessel[] drinkVesselsPlaceable;
 
-	public GOTFoods(ItemStack[] items) {
+	private GOTFoods(ItemStack[] items) {
 		foodList = items;
 	}
 
@@ -74,7 +74,7 @@ public class GOTFoods {
 		return food;
 	}
 
-	public GOTItemMug.Vessel getRandomPlaceableVessel(Random random) {
+	private GOTItemMug.Vessel getRandomPlaceableVessel(Random random) {
 		return drinkVesselsPlaceable[random.nextInt(drinkVesselsPlaceable.length)];
 	}
 
@@ -82,7 +82,7 @@ public class GOTFoods {
 		return drinkVessels[random.nextInt(drinkVessels.length)];
 	}
 
-	public void setDrinkVessel(ItemStack itemstack, Random random, boolean requirePlaceable) {
+	private void setDrinkVessel(ItemStack itemstack, Random random, boolean requirePlaceable) {
 		Item item = itemstack.getItem();
 		if (item instanceof GOTItemMug && ((GOTItemMug) item).isFullMug) {
 			GOTItemMug.Vessel v = requirePlaceable ? getRandomPlaceableVessel(random) : getRandomVessel(random);
@@ -90,7 +90,7 @@ public class GOTFoods {
 		}
 	}
 
-	public GOTFoods setDrinkVessels(GOTItemMug.Vessel... vessels) {
+	private GOTFoods setDrinkVessels(GOTItemMug.Vessel... vessels) {
 		drinkVessels = vessels;
 		ArrayList<GOTItemMug.Vessel> placeable = new ArrayList<>();
 		for (GOTItemMug.Vessel v : drinkVessels) {

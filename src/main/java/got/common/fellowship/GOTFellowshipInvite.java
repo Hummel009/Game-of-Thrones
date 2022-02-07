@@ -3,11 +3,27 @@ package got.common.fellowship;
 import java.util.UUID;
 
 public class GOTFellowshipInvite {
-	public UUID fellowshipID;
-	public UUID inviterID;
+	private UUID fellowshipID;
+	private UUID inviterID;
 
 	public GOTFellowshipInvite(UUID fs, UUID inviter) {
-		fellowshipID = fs;
-		inviterID = inviter;
+		setFellowshipID(fs);
+		setInviterID(inviter);
+	}
+
+	public UUID getFellowshipID() {
+		return fellowshipID;
+	}
+
+	public UUID getInviterID() {
+		return inviterID;
+	}
+
+	public void setFellowshipID(UUID fellowshipID) {
+		this.fellowshipID = fellowshipID;
+	}
+
+	public void setInviterID(UUID inviterID) {
+		this.inviterID = inviterID;
 	}
 }

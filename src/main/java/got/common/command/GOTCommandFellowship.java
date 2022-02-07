@@ -111,7 +111,7 @@ public class GOTCommandFellowship extends CommandBase {
 		return "got.command.fellowship.usage";
 	}
 
-	public UUID getPlayerIDByName(ICommandSender sender, String username) {
+	private UUID getPlayerIDByName(ICommandSender sender, String username) {
 		try {
 			EntityPlayerMP entityplayer = CommandBase.getPlayer(sender, username);
 			if (entityplayer != null) {

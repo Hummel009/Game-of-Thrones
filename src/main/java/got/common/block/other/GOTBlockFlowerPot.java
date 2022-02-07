@@ -90,10 +90,10 @@ public class GOTBlockFlowerPot extends BlockFlowerPot implements ITileEntityProv
 		TileEntity tileentity = world.getTileEntity(i, j, k);
 		if (tileentity instanceof GOTTileEntityFlowerPot) {
 			GOTTileEntityFlowerPot flowerPot = (GOTTileEntityFlowerPot) tileentity;
-			if (flowerPot.item == null) {
+			if (flowerPot.getItem() == null) {
 				return null;
 			}
-			return new ItemStack(flowerPot.item, 1, flowerPot.meta);
+			return new ItemStack(flowerPot.getItem(), 1, flowerPot.getMeta());
 		}
 		return null;
 	}
@@ -102,8 +102,8 @@ public class GOTBlockFlowerPot extends BlockFlowerPot implements ITileEntityProv
 		TileEntity tileentity = world.getTileEntity(i, j, k);
 		if (tileentity instanceof GOTTileEntityFlowerPot) {
 			GOTTileEntityFlowerPot flowerPot = (GOTTileEntityFlowerPot) tileentity;
-			flowerPot.item = itemstack.getItem();
-			flowerPot.meta = itemstack.getItemDamage();
+			flowerPot.setItem(itemstack.getItem());
+			flowerPot.setMeta(itemstack.getItemDamage());
 			world.markBlockForUpdate(i, j, k);
 		}
 	}

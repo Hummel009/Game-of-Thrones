@@ -7,9 +7,9 @@ import got.common.item.other.GOTItemModifierTemplate;
 import net.minecraft.item.ItemStack;
 
 public class GOTEnchantmentCombining {
-	public static List<CombineRecipe> allCombineRecipes = new ArrayList<>();
+	private static List<CombineRecipe> allCombineRecipes = new ArrayList<>();
 
-	public static void combine(GOTEnchantment in, GOTEnchantment out, int cost) {
+	private static void combine(GOTEnchantment in, GOTEnchantment out, int cost) {
 		if (!in.hasTemplateItem() || !out.hasTemplateItem()) {
 			throw new IllegalArgumentException("Cannot create a modifier combining recipe for modifiers which lack scroll items!");
 		}
@@ -59,18 +59,26 @@ public class GOTEnchantmentCombining {
 	public static class CombineRecipe {
 		public GOTEnchantment inputMod;
 		public GOTEnchantment outputMod;
-		public int cost;
+		private int cost;
 
 		public CombineRecipe(GOTEnchantment in, GOTEnchantment out, int c) {
 			inputMod = in;
 			outputMod = out;
-			cost = c;
+			setCost(c);
 		}
 
 		public ItemStack createOutputItem() {
 			ItemStack item = new ItemStack(GOTRegistry.smithScroll);
 			GOTItemModifierTemplate.setModifier(item, outputMod);
 			return item;
+		}
+
+		public int getCost() {
+			return cost;
+		}
+
+		public void setCost(int cost) {
+			this.cost = cost;
 		}
 	}
 

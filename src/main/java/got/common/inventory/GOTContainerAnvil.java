@@ -23,45 +23,44 @@ import net.minecraft.util.*;
 import net.minecraft.world.World;
 
 public class GOTContainerAnvil extends Container {
-	public static int maxReforgeTime = 40;
-	public IInventory invOutput;
-	public IInventory invInput;
-	public EntityPlayer thePlayer;
-	public World theWorld;
-	public boolean isTrader;
-	public int xCoord;
-	public int yCoord;
-	public int zCoord;
+	private IInventory invOutput;
+	private IInventory invInput;
+	private EntityPlayer thePlayer;
+	private World theWorld;
+	private boolean isTrader;
+	private int xCoord;
+	private int yCoord;
+	private int zCoord;
 	public GOTEntityNPC theNPC;
 	public GOTTradeable theTrader;
-	public int materialCost;
-	public int reforgeCost;
-	public int engraveOwnerCost;
-	public String repairedItemName;
-	public long lastReforgeTime = -1L;
-	public int clientReforgeTime;
-	public boolean doneMischief;
-	public boolean isSmithScrollCombine;
+	private int materialCost;
+	private int reforgeCost;
+	private int engraveOwnerCost;
+	private String repairedItemName;
+	private long lastReforgeTime = -1L;
+	private int clientReforgeTime;
+	private boolean doneMischief;
+	private boolean isSmithScrollCombine;
 
 	public GOTContainerAnvil(EntityPlayer entityplayer, boolean trader) {
 		thePlayer = entityplayer;
 		theWorld = entityplayer.worldObj;
-		isTrader = trader;
-		invOutput = new InventoryCraftResult();
-		invInput = new InventoryBasic("Repair", true, isTrader ? 2 : 3) {
+		setTrader(trader);
+		setInvOutput(new InventoryCraftResult());
+		setInvInput(new InventoryBasic("Repair", true, isTrader() ? 2 : 3) {
 
 			@Override
 			public void markDirty() {
 				super.markDirty();
 				GOTContainerAnvil.this.onCraftMatrixChanged(this);
 			}
-		};
-		addSlotToContainer(new Slot(invInput, 0, 27, 58));
-		addSlotToContainer(new Slot(invInput, 1, 76, 47));
-		if (!isTrader) {
-			addSlotToContainer(new Slot(invInput, 2, 76, 70));
+		});
+		addSlotToContainer(new Slot(getInvInput(), 0, 27, 58));
+		addSlotToContainer(new Slot(getInvInput(), 1, 76, 47));
+		if (!isTrader()) {
+			addSlotToContainer(new Slot(getInvInput(), 2, 76, 70));
 		}
-		addSlotToContainer(new GOTSlotAnvilOutput(this, invOutput, 0, 134, 58));
+		addSlotToContainer(new GOTSlotAnvilOutput(this, getInvOutput(), 0, 134, 58));
 		for (int j1 = 0; j1 < 3; ++j1) {
 			for (int i1 = 0; i1 < 9; ++i1) {
 				addSlotToContainer(new Slot(entityplayer.inventory, i1 + j1 * 9 + 9, 8 + i1 * 18, 116 + j1 * 18));
@@ -85,7 +84,7 @@ public class GOTContainerAnvil extends Container {
 		zCoord = k;
 	}
 
-	public boolean applyMischief(ItemStack itemstack) {
+	private boolean applyMischief(ItemStack itemstack) {
 		boolean changed = false;
 		Random rand = theWorld.rand;
 		if (rand.nextFloat() < 0.8f) {
@@ -114,7 +113,7 @@ public class GOTContainerAnvil extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer entityplayer) {
-		if (isTrader) {
+		if (isTrader()) {
 			return theNPC != null && entityplayer.getDistanceToEntity(theNPC) <= 12.0 && theNPC.isEntityAlive() && theNPC.getAttackTarget() == null && theTrader.canTradeWith(entityplayer);
 		}
 		return theWorld.getBlock(xCoord, yCoord, zCoord) == Blocks.anvil && entityplayer.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) <= 64.0;
@@ -125,21 +124,21 @@ public class GOTContainerAnvil extends Container {
 		super.detectAndSendChanges();
 		for (Object crafter : crafters) {
 			ICrafting crafting = (ICrafting) crafter;
-			crafting.sendProgressBarUpdate(this, 0, materialCost);
-			crafting.sendProgressBarUpdate(this, 1, reforgeCost);
-			crafting.sendProgressBarUpdate(this, 3, engraveOwnerCost);
+			crafting.sendProgressBarUpdate(this, 0, getMaterialCost());
+			crafting.sendProgressBarUpdate(this, 1, getReforgeCost());
+			crafting.sendProgressBarUpdate(this, 3, getEngraveOwnerCost());
 		}
 	}
 
 	public void engraveOwnership() {
-		ItemStack inputItem = invInput.getStackInSlot(0);
-		if (inputItem != null && engraveOwnerCost > 0 && hasMaterialOrCoinAmount(engraveOwnerCost)) {
-			int cost = engraveOwnerCost;
+		ItemStack inputItem = getInvInput().getStackInSlot(0);
+		if (inputItem != null && getEngraveOwnerCost() > 0 && hasMaterialOrCoinAmount(getEngraveOwnerCost())) {
+			int cost = getEngraveOwnerCost();
 			GOTItemOwnership.setCurrentOwner(inputItem, thePlayer.getCommandSenderName());
-			if (isTrader && theNPC instanceof GOTEntityScrapTrader && applyMischief(inputItem)) {
+			if (isTrader() && theNPC instanceof GOTEntityScrapTrader && applyMischief(inputItem)) {
 				doneMischief = true;
 			}
-			invInput.setInventorySlotContents(0, inputItem);
+			getInvInput().setInventorySlotContents(0, inputItem);
 			takeMaterialOrCoinAmount(cost);
 			playAnvilSound();
 			GOTLevelData.getData(thePlayer).addAchievement(GOTAchievement.ENGRAVE);
@@ -147,8 +146,8 @@ public class GOTContainerAnvil extends Container {
 	}
 
 	public List<EnumChatFormatting> getActiveItemNameFormatting() {
-		ItemStack inputItem = invInput.getStackInSlot(0);
-		ItemStack resultItem = invOutput.getStackInSlot(0);
+		ItemStack inputItem = getInvInput().getStackInSlot(0);
+		ItemStack resultItem = getInvOutput().getStackInSlot(0);
 		if (resultItem != null) {
 			return GOTContainerAnvil.getAppliedFormattingCodes(resultItem.getDisplayName());
 		}
@@ -158,7 +157,31 @@ public class GOTContainerAnvil extends Container {
 		return new ArrayList<>();
 	}
 
-	public float getTraderMaterialPrice(ItemStack inputItem) {
+	public int getClientReforgeTime() {
+		return clientReforgeTime;
+	}
+
+	public int getEngraveOwnerCost() {
+		return engraveOwnerCost;
+	}
+
+	public IInventory getInvInput() {
+		return invInput;
+	}
+
+	public IInventory getInvOutput() {
+		return invOutput;
+	}
+
+	public int getMaterialCost() {
+		return materialCost;
+	}
+
+	public int getReforgeCost() {
+		return reforgeCost;
+	}
+
+	private float getTraderMaterialPrice(ItemStack inputItem) {
 		float materialPrice = 0.0f;
 		GOTTradeEntry[] sellTrades = theNPC.traderNPCInfo.getSellTrades();
 		if (sellTrades != null) {
@@ -173,7 +196,7 @@ public class GOTContainerAnvil extends Container {
 		}
 		if (materialPrice <= 0.0f) {
 			GOTTradeEntries sellPool = theTrader.getSellPool();
-			for (GOTTradeEntry trade : sellPool.tradeEntries) {
+			for (GOTTradeEntry trade : sellPool.getTradeEntries()) {
 				ItemStack tradeItem = trade.createTradeItem();
 				if (!isRepairMaterial(inputItem, tradeItem)) {
 					continue;
@@ -189,18 +212,18 @@ public class GOTContainerAnvil extends Container {
 	}
 
 	public boolean hasMaterialOrCoinAmount(int cost) {
-		if (isTrader) {
+		if (isTrader()) {
 			return GOTItemCoin.getInventoryValue(thePlayer, false) >= cost;
 		}
-		ItemStack inputItem = invInput.getStackInSlot(0);
-		ItemStack materialItem = invInput.getStackInSlot(2);
+		ItemStack inputItem = getInvInput().getStackInSlot(0);
+		ItemStack materialItem = getInvInput().getStackInSlot(2);
 		if (materialItem != null) {
 			return isRepairMaterial(inputItem, materialItem) && materialItem.stackSize >= cost;
 		}
 		return false;
 	}
 
-	public boolean isRepairMaterial(ItemStack inputItem, ItemStack materialItem) {
+	private boolean isRepairMaterial(ItemStack inputItem, ItemStack materialItem) {
 		if (inputItem.getItem().getIsRepairable(inputItem, materialItem)) {
 			return true;
 		}
@@ -229,18 +252,26 @@ public class GOTContainerAnvil extends Container {
 		return false;
 	}
 
+	public boolean isSmithScrollCombine() {
+		return isSmithScrollCombine;
+	}
+
+	public boolean isTrader() {
+		return isTrader;
+	}
+
 	@Override
 	public void onContainerClosed(EntityPlayer entityplayer) {
 		super.onContainerClosed(entityplayer);
 		if (!theWorld.isRemote) {
-			for (int i = 0; i < invInput.getSizeInventory(); ++i) {
-				ItemStack itemstack = invInput.getStackInSlotOnClosing(i);
+			for (int i = 0; i < getInvInput().getSizeInventory(); ++i) {
+				ItemStack itemstack = getInvInput().getStackInSlotOnClosing(i);
 				if (itemstack == null) {
 					continue;
 				}
 				entityplayer.dropPlayerItemWithRandomChoice(itemstack, false);
 			}
-			if (doneMischief && isTrader && theNPC instanceof GOTEntityScrapTrader) {
+			if (doneMischief && isTrader() && theNPC instanceof GOTEntityScrapTrader) {
 				theNPC.sendSpeechBank(entityplayer, ((GOTEntityScrapTrader) theNPC).getSmithSpeechBank());
 			}
 		}
@@ -249,7 +280,7 @@ public class GOTContainerAnvil extends Container {
 	@Override
 	public void onCraftMatrixChanged(IInventory inv) {
 		super.onCraftMatrixChanged(inv);
-		if (inv == invInput) {
+		if (inv == getInvInput()) {
 			updateRepairOutput();
 		}
 	}
@@ -259,7 +290,7 @@ public class GOTContainerAnvil extends Container {
 			int i;
 			int j;
 			int k;
-			if (isTrader) {
+			if (isTrader()) {
 				i = MathHelper.floor_double(theNPC.posX);
 				j = MathHelper.floor_double(theNPC.posY);
 				k = MathHelper.floor_double(theNPC.posZ);
@@ -275,61 +306,93 @@ public class GOTContainerAnvil extends Container {
 	public void reforgeItem() {
 		ItemStack inputItem;
 		long curTime = System.currentTimeMillis();
-		if ((lastReforgeTime < 0L || curTime - lastReforgeTime >= 2000L) && (inputItem = invInput.getStackInSlot(0)) != null && reforgeCost > 0 && hasMaterialOrCoinAmount(reforgeCost)) {
-			int cost = reforgeCost;
+		if ((lastReforgeTime < 0L || curTime - lastReforgeTime >= 2000L) && (inputItem = getInvInput().getStackInSlot(0)) != null && getReforgeCost() > 0 && hasMaterialOrCoinAmount(getReforgeCost())) {
+			int cost = getReforgeCost();
 			if (inputItem.isItemStackDamageable()) {
 				inputItem.setItemDamage(0);
 			}
 			GOTEnchantmentHelper.applyRandomEnchantments(inputItem, theWorld.rand, true, true);
 			GOTEnchantmentHelper.setAnvilCost(inputItem, 0);
-			if (isTrader && theNPC instanceof GOTEntityScrapTrader && applyMischief(inputItem)) {
+			if (isTrader() && theNPC instanceof GOTEntityScrapTrader && applyMischief(inputItem)) {
 				doneMischief = true;
 			}
-			invInput.setInventorySlotContents(0, inputItem);
+			getInvInput().setInventorySlotContents(0, inputItem);
 			takeMaterialOrCoinAmount(cost);
 			playAnvilSound();
 			lastReforgeTime = curTime;
 			((EntityPlayerMP) thePlayer).sendProgressBarUpdate(this, 2, 0);
-			if (!isTrader) {
+			if (!isTrader()) {
 				GOTLevelData.getData(thePlayer).addAchievement(GOTAchievement.REFORGE);
 			}
 		}
 	}
 
+	public void setClientReforgeTime(int clientReforgeTime) {
+		this.clientReforgeTime = clientReforgeTime;
+	}
+
+	public void setEngraveOwnerCost(int engraveOwnerCost) {
+		this.engraveOwnerCost = engraveOwnerCost;
+	}
+
+	public void setInvInput(IInventory invInput) {
+		this.invInput = invInput;
+	}
+
+	public void setInvOutput(IInventory invOutput) {
+		this.invOutput = invOutput;
+	}
+
+	public void setMaterialCost(int materialCost) {
+		this.materialCost = materialCost;
+	}
+
+	public void setReforgeCost(int reforgeCost) {
+		this.reforgeCost = reforgeCost;
+	}
+
+	public void setSmithScrollCombine(boolean isSmithScrollCombine) {
+		this.isSmithScrollCombine = isSmithScrollCombine;
+	}
+
+	public void setTrader(boolean isTrader) {
+		this.isTrader = isTrader;
+	}
+
 	@Override
 	public ItemStack slotClick(int slotNo, int j, int k, EntityPlayer entityplayer) {
 		ItemStack resultCopy;
-		ItemStack resultItem = invOutput.getStackInSlot(0);
+		ItemStack resultItem = getInvOutput().getStackInSlot(0);
 		resultItem = ItemStack.copyItemStack(resultItem);
 		boolean changed = false;
-		if (resultItem != null && slotNo == getSlotFromInventory(invOutput, 0).slotNumber && !theWorld.isRemote && isTrader && theNPC instanceof GOTEntityScrapTrader && (changed = applyMischief(resultCopy = resultItem.copy()))) {
-			invOutput.setInventorySlotContents(0, resultCopy);
+		if (resultItem != null && slotNo == getSlotFromInventory(getInvOutput(), 0).slotNumber && !theWorld.isRemote && isTrader() && theNPC instanceof GOTEntityScrapTrader && (changed = applyMischief(resultCopy = resultItem.copy()))) {
+			getInvOutput().setInventorySlotContents(0, resultCopy);
 		}
 		ItemStack slotClickResult = super.slotClick(slotNo, j, k, entityplayer);
 		if (changed) {
 			doneMischief = true;
-			if (invOutput.getStackInSlot(0) != null) {
-				invOutput.setInventorySlotContents(0, resultItem.copy());
+			if (getInvOutput().getStackInSlot(0) != null) {
+				getInvOutput().setInventorySlotContents(0, resultItem.copy());
 			}
 		}
 		return slotClickResult;
 	}
 
 	public void takeMaterialOrCoinAmount(int cost) {
-		if (isTrader) {
+		if (isTrader()) {
 			if (!theWorld.isRemote) {
 				GOTItemCoin.takeCoins(cost, thePlayer);
 				detectAndSendChanges();
 				theNPC.playTradeSound();
 			}
 		} else {
-			ItemStack materialItem = invInput.getStackInSlot(2);
+			ItemStack materialItem = getInvInput().getStackInSlot(2);
 			if (materialItem != null) {
 				materialItem.stackSize -= cost;
 				if (materialItem.stackSize <= 0) {
-					invInput.setInventorySlotContents(2, null);
+					getInvInput().setInventorySlotContents(2, null);
 				} else {
-					invInput.setInventorySlotContents(2, materialItem);
+					getInvInput().setInventorySlotContents(2, materialItem);
 				}
 			}
 		}
@@ -342,7 +405,7 @@ public class GOTContainerAnvil extends Container {
 		if (slot != null && slot.getHasStack()) {
 			ItemStack itemstack1 = slot.getStack();
 			itemstack = itemstack1.copy();
-			int inputSize = invInput.getSizeInventory();
+			int inputSize = getInvInput().getSizeInventory();
 			if (i == inputSize) {
 				if (!mergeItemStack(itemstack1, inputSize + 1, inputSize + 37, true)) {
 					return null;
@@ -368,7 +431,7 @@ public class GOTContainerAnvil extends Container {
 		List<EnumChatFormatting> colors = GOTContainerAnvil.getAppliedFormattingCodes(name);
 		name = GOTContainerAnvil.stripFormattingCodes(name);
 		repairedItemName = name = ChatAllowedCharacters.filerAllowedCharacters(name);
-		ItemStack itemstack = invOutput.getStackInSlot(0);
+		ItemStack itemstack = getInvOutput().getStackInSlot(0);
 		if (itemstack != null) {
 			if (StringUtils.isBlank(repairedItemName)) {
 				itemstack.func_135074_t();
@@ -386,44 +449,44 @@ public class GOTContainerAnvil extends Container {
 	@SideOnly(value = Side.CLIENT)
 	public void updateProgressBar(int i, int j) {
 		if (i == 0) {
-			materialCost = j;
+			setMaterialCost(j);
 		}
 		if (i == 1) {
-			reforgeCost = j;
+			setReforgeCost(j);
 		}
 		if (i == 2) {
-			clientReforgeTime = 40;
+			setClientReforgeTime(40);
 		}
 		if (i == 3) {
-			engraveOwnerCost = j;
+			setEngraveOwnerCost(j);
 		}
 	}
 
-	public void updateRepairOutput() {
-		ItemStack inputItem = invInput.getStackInSlot(0);
-		materialCost = 0;
-		reforgeCost = 0;
-		engraveOwnerCost = 0;
-		isSmithScrollCombine = false;
+	private void updateRepairOutput() {
+		ItemStack inputItem = getInvInput().getStackInSlot(0);
+		setMaterialCost(0);
+		setReforgeCost(0);
+		setEngraveOwnerCost(0);
+		setSmithScrollCombine(false);
 		int baseAnvilCost = 0;
 		int repairCost = 0;
 		int combineCost = 0;
 		int renameCost = 0;
 		if (inputItem == null) {
-			invOutput.setInventorySlotContents(0, null);
-			materialCost = 0;
+			getInvOutput().setInventorySlotContents(0, null);
+			setMaterialCost(0);
 		} else {
 			int oneItemRepair;
 			GOTEnchantmentCombining.CombineRecipe scrollCombine;
 			boolean repairing;
 			ItemStack inputCopy = inputItem.copy();
-			ItemStack combinerItem = invInput.getStackInSlot(1);
-			ItemStack materialItem = isTrader ? null : invInput.getStackInSlot(2);
+			ItemStack combinerItem = getInvInput().getStackInSlot(1);
+			ItemStack materialItem = isTrader() ? null : getInvInput().getStackInSlot(2);
 			Map inputEnchants = EnchantmentHelper.getEnchantments(inputCopy);
 			boolean enchantingWithBook = false;
 			List<GOTEnchantment> inputModifiers = GOTEnchantmentHelper.getEnchantList(inputCopy);
 			baseAnvilCost = GOTEnchantmentHelper.getAnvilCost(inputItem) + (combinerItem == null ? 0 : GOTEnchantmentHelper.getAnvilCost(combinerItem));
-			materialCost = 0;
+			setMaterialCost(0);
 			String previousDisplayName = inputCopy.getDisplayName();
 			String defaultItemName = inputCopy.getItem().getItemStackDisplayName(inputCopy);
 			String formattedNameToApply = repairedItemName;
@@ -480,20 +543,20 @@ public class GOTContainerAnvil extends Container {
 			if (nameChange && GOTContainerAnvil.costsToRename(inputItem)) {
 				++renameCost;
 			}
-			if (isTrader && (scrollCombine = GOTEnchantmentCombining.getCombinationResult(inputItem, combinerItem)) != null) {
-				invOutput.setInventorySlotContents(0, scrollCombine.createOutputItem());
-				materialCost = scrollCombine.cost;
-				reforgeCost = 0;
-				engraveOwnerCost = 0;
-				isSmithScrollCombine = true;
+			if (isTrader() && (scrollCombine = GOTEnchantmentCombining.getCombinationResult(inputItem, combinerItem)) != null) {
+				getInvOutput().setInventorySlotContents(0, scrollCombine.createOutputItem());
+				setMaterialCost(scrollCombine.getCost());
+				setReforgeCost(0);
+				setEngraveOwnerCost(0);
+				setSmithScrollCombine(true);
 				return;
 			}
 			boolean combining = false;
 			if (combinerItem != null) {
 				enchantingWithBook = combinerItem.getItem() == Items.enchanted_book && Items.enchanted_book.func_92110_g(combinerItem).tagCount() > 0;
 				if (enchantingWithBook && !GOTConfig.isEnchantingVanilla()) {
-					invOutput.setInventorySlotContents(0, null);
-					materialCost = 0;
+					getInvOutput().setInventorySlotContents(0, null);
+					setMaterialCost(0);
 					return;
 				}
 				GOTEnchantment combinerItemEnchant = null;
@@ -518,8 +581,8 @@ public class GOTContainerAnvil extends Container {
 						}
 						combining = true;
 					} else if (!alteringNameColor) {
-						invOutput.setInventorySlotContents(0, null);
-						materialCost = 0;
+						getInvOutput().setInventorySlotContents(0, null);
+						setMaterialCost(0);
 						return;
 					}
 				}
@@ -657,7 +720,7 @@ public class GOTContainerAnvil extends Container {
 			if (inputCopy.isItemStackDamageable()) {
 				boolean canRepair = false;
 				int availableMaterials = 0;
-				if (isTrader) {
+				if (isTrader()) {
 					canRepair = getTraderMaterialPrice(inputItem) > 0.0f;
 					availableMaterials = Integer.MAX_VALUE;
 				} else {
@@ -686,12 +749,12 @@ public class GOTContainerAnvil extends Container {
 			}
 			repairing = repairCost > 0;
 			if (combining || repairing) {
-				materialCost = baseAnvilCost;
-				materialCost += combineCost + repairCost;
+				setMaterialCost(baseAnvilCost);
+				setMaterialCost(getMaterialCost() + combineCost + repairCost);
 			} else {
-				materialCost = 0;
+				setMaterialCost(0);
 			}
-			materialCost += renameCost;
+			setMaterialCost(getMaterialCost() + renameCost);
 			if (inputCopy != null) {
 				int nextAnvilCost = GOTEnchantmentHelper.getAnvilCost(inputItem);
 				if (combinerItem != null) {
@@ -710,9 +773,9 @@ public class GOTContainerAnvil extends Container {
 			}
 			if (GOTEnchantmentHelper.isReforgeable(inputItem)) {
 				ItemStack reforgeCopy;
-				reforgeCost = 2;
+				setReforgeCost(2);
 				if (inputItem.getItem() instanceof ItemArmor) {
-					reforgeCost = 3;
+					setReforgeCost(3);
 				}
 				if (inputItem.isItemStackDamageable() && (oneItemRepair = Math.min((reforgeCopy = inputItem.copy()).getItemDamageForDisplay(), reforgeCopy.getMaxDamage() / 4)) > 0) {
 					int usedMaterials = 0;
@@ -722,63 +785,63 @@ public class GOTContainerAnvil extends Container {
 						oneItemRepair = Math.min(reforgeCopy.getItemDamageForDisplay(), reforgeCopy.getMaxDamage() / 4);
 						++usedMaterials;
 					}
-					reforgeCost += usedMaterials;
+					setReforgeCost(getReforgeCost() + usedMaterials);
 				}
-				engraveOwnerCost = 2;
+				setEngraveOwnerCost(2);
 			} else {
-				reforgeCost = 0;
-				engraveOwnerCost = 0;
+				setReforgeCost(0);
+				setEngraveOwnerCost(0);
 			}
 			if (isRepairMaterial(inputItem, new ItemStack(Items.string))) {
 				int stringFactor = 3;
-				materialCost *= stringFactor;
-				reforgeCost *= stringFactor;
-				engraveOwnerCost *= stringFactor;
+				setMaterialCost(getMaterialCost() * stringFactor);
+				setReforgeCost(getReforgeCost() * stringFactor);
+				setEngraveOwnerCost(getEngraveOwnerCost() * stringFactor);
 			}
-			if (isTrader) {
-				boolean isCommonRenameOnly = nameChange && materialCost == 0;
+			if (isTrader()) {
+				boolean isCommonRenameOnly = nameChange && getMaterialCost() == 0;
 				float materialPrice = getTraderMaterialPrice(inputItem);
 				if (materialPrice > 0.0f) {
-					materialCost = Math.round(materialCost * materialPrice);
-					materialCost = Math.max(materialCost, 1);
-					reforgeCost = Math.round(reforgeCost * materialPrice);
-					reforgeCost = Math.max(reforgeCost, 1);
-					engraveOwnerCost = Math.round(engraveOwnerCost * materialPrice);
-					engraveOwnerCost = Math.max(engraveOwnerCost, 1);
+					setMaterialCost(Math.round(getMaterialCost() * materialPrice));
+					setMaterialCost(Math.max(getMaterialCost(), 1));
+					setReforgeCost(Math.round(getReforgeCost() * materialPrice));
+					setReforgeCost(Math.max(getReforgeCost(), 1));
+					setEngraveOwnerCost(Math.round(getEngraveOwnerCost() * materialPrice));
+					setEngraveOwnerCost(Math.max(getEngraveOwnerCost(), 1));
 					if (theTrader instanceof GOTEntityScrapTrader) {
-						materialCost = MathHelper.ceiling_float_int(materialCost * 0.5f);
-						materialCost = Math.max(materialCost, 1);
-						reforgeCost = MathHelper.ceiling_float_int(reforgeCost * 0.5f);
-						reforgeCost = Math.max(reforgeCost, 1);
-						engraveOwnerCost = MathHelper.ceiling_float_int(engraveOwnerCost * 0.5f);
-						engraveOwnerCost = Math.max(engraveOwnerCost, 1);
+						setMaterialCost(MathHelper.ceiling_float_int(getMaterialCost() * 0.5f));
+						setMaterialCost(Math.max(getMaterialCost(), 1));
+						setReforgeCost(MathHelper.ceiling_float_int(getReforgeCost() * 0.5f));
+						setReforgeCost(Math.max(getReforgeCost(), 1));
+						setEngraveOwnerCost(MathHelper.ceiling_float_int(getEngraveOwnerCost() * 0.5f));
+						setEngraveOwnerCost(Math.max(getEngraveOwnerCost(), 1));
 					}
 				} else if (!isCommonRenameOnly) {
-					invOutput.setInventorySlotContents(0, null);
-					materialCost = 0;
-					reforgeCost = 0;
-					engraveOwnerCost = 0;
+					getInvOutput().setInventorySlotContents(0, null);
+					setMaterialCost(0);
+					setReforgeCost(0);
+					setEngraveOwnerCost(0);
 					return;
 				}
 			}
 			if (combining || repairing || nameChange || alteringNameColor) {
-				invOutput.setInventorySlotContents(0, inputCopy);
+				getInvOutput().setInventorySlotContents(0, inputCopy);
 			} else {
-				invOutput.setInventorySlotContents(0, null);
-				materialCost = 0;
+				getInvOutput().setInventorySlotContents(0, null);
+				setMaterialCost(0);
 			}
 			detectAndSendChanges();
 		}
 	}
 
-	public static String applyFormattingCodes(String name, List<EnumChatFormatting> colors) {
+	private static String applyFormattingCodes(String name, List<EnumChatFormatting> colors) {
 		for (EnumChatFormatting color : colors) {
 			name = color + name;
 		}
 		return name;
 	}
 
-	public static boolean costsToRename(ItemStack itemstack) {
+	private static boolean costsToRename(ItemStack itemstack) {
 		Item item = itemstack.getItem();
 		if (item instanceof ItemSword || item instanceof ItemTool || item instanceof ItemArmor && ((ItemArmor) item).damageReduceAmount > 0) {
 			return true;
@@ -786,7 +849,7 @@ public class GOTContainerAnvil extends Container {
 		return item instanceof ItemBow || item instanceof GOTItemCrossbow || item instanceof GOTItemThrowingAxe || item instanceof GOTItemSarbacane;
 	}
 
-	public static List<EnumChatFormatting> getAppliedFormattingCodes(String name) {
+	private static List<EnumChatFormatting> getAppliedFormattingCodes(String name) {
 		ArrayList<EnumChatFormatting> colors = new ArrayList<>();
 		for (EnumChatFormatting color : EnumChatFormatting.values()) {
 			String formatCode = color.toString();

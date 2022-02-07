@@ -8,7 +8,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
 public class GOTDispenseWildFireJar extends BehaviorDefaultDispenseItem {
-	public BehaviorDefaultDispenseItem dispenseDefault = new BehaviorDefaultDispenseItem();
+	private BehaviorDefaultDispenseItem dispenseDefault = new BehaviorDefaultDispenseItem();
 
 	@Override
 	public ItemStack dispenseStack(IBlockSource dispense, ItemStack itemstack) {

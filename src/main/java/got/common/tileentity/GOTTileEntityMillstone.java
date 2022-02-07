@@ -13,10 +13,10 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.StatCollector;
 
 public class GOTTileEntityMillstone extends TileEntity implements IInventory, ISidedInventory {
-	public ItemStack[] inventory = new ItemStack[2];
-	public String specialMillstoneName;
-	public boolean isMilling;
-	public int currentMillTime = 0;
+	private ItemStack[] inventory = new ItemStack[2];
+	private String specialMillstoneName;
+	private boolean isMilling;
+	private int currentMillTime = 0;
 
 	@Override
 	public boolean canExtractItem(int slot, ItemStack itemstack, int side) {
@@ -30,7 +30,7 @@ public class GOTTileEntityMillstone extends TileEntity implements IInventory, IS
 		return isItemValidForSlot(slot, itemstack);
 	}
 
-	public boolean canMill() {
+	private boolean canMill() {
 		ItemStack itemstack = inventory[0];
 		if (itemstack == null) {
 			return false;
@@ -39,7 +39,7 @@ public class GOTTileEntityMillstone extends TileEntity implements IInventory, IS
 		if (result == null) {
 			return false;
 		}
-		ItemStack resultItem = result.resultItem;
+		ItemStack resultItem = result.getResultItem();
 		ItemStack inResultSlot = inventory[1];
 		if (inResultSlot == null) {
 			return true;
@@ -82,6 +82,10 @@ public class GOTTileEntityMillstone extends TileEntity implements IInventory, IS
 		return new int[] { 0 };
 	}
 
+	public int getCurrentMillTime() {
+		return currentMillTime;
+	}
+
 	@Override
 	public String getInventoryName() {
 		return hasCustomInventoryName() ? specialMillstoneName : StatCollector.translateToLocal("got.container.millstone");
@@ -94,7 +98,7 @@ public class GOTTileEntityMillstone extends TileEntity implements IInventory, IS
 
 	@SideOnly(value = Side.CLIENT)
 	public int getMillProgressScaled(int i) {
-		return currentMillTime * i / 200;
+		return getCurrentMillTime() * i / 200;
 	}
 
 	@Override
@@ -139,12 +143,12 @@ public class GOTTileEntityMillstone extends TileEntity implements IInventory, IS
 		return worldObj.getTileEntity(xCoord, yCoord, zCoord) == this && entityplayer.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) <= 64.0;
 	}
 
-	public void millItem() {
+	private void millItem() {
 		if (canMill()) {
 			ItemStack itemstack = inventory[0];
 			GOTRecipeMillstone.MillstoneResult result = GOTRecipeMillstone.getMillingResult(itemstack);
-			ItemStack resultItem = result.resultItem;
-			float chance = result.chance;
+			ItemStack resultItem = result.getResultItem();
+			float chance = result.getChance();
 			if (worldObj.rand.nextFloat() < chance) {
 				ItemStack inResultSlot = inventory[1];
 				if (inResultSlot == null) {
@@ -185,11 +189,15 @@ public class GOTTileEntityMillstone extends TileEntity implements IInventory, IS
 			}
 			inventory[slot] = ItemStack.loadItemStackFromNBT(itemData);
 		}
-		isMilling = nbt.getBoolean("Milling");
-		currentMillTime = nbt.getInteger("MillTime");
+		setMilling(nbt.getBoolean("Milling"));
+		setCurrentMillTime(nbt.getInteger("MillTime"));
 		if (nbt.hasKey("CustomName")) {
 			specialMillstoneName = nbt.getString("CustomName");
 		}
+	}
+
+	public void setCurrentMillTime(int currentMillTime) {
+		this.currentMillTime = currentMillTime;
 	}
 
 	@Override
@@ -200,11 +208,15 @@ public class GOTTileEntityMillstone extends TileEntity implements IInventory, IS
 		}
 	}
 
+	public void setMilling(boolean isMilling) {
+		this.isMilling = isMilling;
+	}
+
 	public void setSpecialMillstoneName(String s) {
 		specialMillstoneName = s;
 	}
 
-	public void toggleMillstoneActive() {
+	private void toggleMillstoneActive() {
 		GOTBlockMillstone.toggleMillstoneActive(worldObj, xCoord, yCoord, zCoord);
 	}
 
@@ -213,26 +225,26 @@ public class GOTTileEntityMillstone extends TileEntity implements IInventory, IS
 		boolean needUpdate = false;
 		if (!worldObj.isRemote) {
 			boolean powered = worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord);
-			if (powered && !isMilling) {
-				isMilling = true;
-				currentMillTime = 0;
+			if (powered && !isMilling()) {
+				setMilling(true);
+				setCurrentMillTime(0);
 				needUpdate = true;
 				toggleMillstoneActive();
-			} else if (!powered && isMilling) {
-				isMilling = false;
-				currentMillTime = 0;
+			} else if (!powered && isMilling()) {
+				setMilling(false);
+				setCurrentMillTime(0);
 				needUpdate = true;
 				toggleMillstoneActive();
 			}
-			if (isMilling && canMill()) {
-				++currentMillTime;
-				if (currentMillTime == 200) {
-					currentMillTime = 0;
+			if (isMilling() && canMill()) {
+				setCurrentMillTime(getCurrentMillTime() + 1);
+				if (getCurrentMillTime() == 200) {
+					setCurrentMillTime(0);
 					millItem();
 					needUpdate = true;
 				}
-			} else if (currentMillTime != 0) {
-				currentMillTime = 0;
+			} else if (getCurrentMillTime() != 0) {
+				setCurrentMillTime(0);
 				needUpdate = true;
 			}
 		}
@@ -255,8 +267,8 @@ public class GOTTileEntityMillstone extends TileEntity implements IInventory, IS
 			items.appendTag(itemData);
 		}
 		nbt.setTag("Items", items);
-		nbt.setBoolean("Milling", isMilling);
-		nbt.setInteger("MillTime", currentMillTime);
+		nbt.setBoolean("Milling", isMilling());
+		nbt.setInteger("MillTime", getCurrentMillTime());
 		if (hasCustomInventoryName()) {
 			nbt.setString("CustomName", specialMillstoneName);
 		}

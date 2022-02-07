@@ -11,8 +11,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.*;
 
 public abstract class GOTMiniQuestKill extends GOTMiniQuest {
-	public int killTarget;
-	public int killCount;
+	private int killTarget;
+	private int killCount;
 
 	public GOTMiniQuestKill(GOTPlayerData pd) {
 		super(pd);
@@ -20,29 +20,37 @@ public abstract class GOTMiniQuestKill extends GOTMiniQuest {
 
 	@Override
 	public float getAlignmentBonus() {
-		return killTarget * rewardFactor;
+		return getKillTarget() * getRewardFactor();
 	}
 
 	@Override
 	public int getCoinBonus() {
-		return Math.round(killTarget * 2.0f * rewardFactor);
+		return Math.round(getKillTarget() * 2.0f * getRewardFactor());
 	}
 
 	@Override
 	public float getCompletionFactor() {
-		return (float) killCount / (float) killTarget;
+		return (float) getKillCount() / (float) getKillTarget();
+	}
+
+	public int getKillCount() {
+		return killCount;
+	}
+
+	public int getKillTarget() {
+		return killTarget;
 	}
 
 	public abstract String getKillTargetName();
 
 	@Override
 	public String getObjectiveInSpeech() {
-		return killTarget + " " + getKillTargetName();
+		return getKillTarget() + " " + getKillTargetName();
 	}
 
 	@Override
 	public String getProgressedObjectiveInSpeech() {
-		return killTarget - killCount + " " + getKillTargetName();
+		return getKillTarget() - getKillCount() + " " + getKillTargetName();
 	}
 
 	@Override
@@ -52,27 +60,27 @@ public abstract class GOTMiniQuestKill extends GOTMiniQuest {
 
 	@Override
 	public String getQuestObjective() {
-		return StatCollector.translateToLocalFormatted("got.miniquest.kill", killTarget, getKillTargetName());
+		return StatCollector.translateToLocalFormatted("got.miniquest.kill", getKillTarget(), getKillTargetName());
 	}
 
 	@Override
 	public String getQuestProgress() {
-		return StatCollector.translateToLocalFormatted("got.miniquest.kill.progress", killCount, killTarget);
+		return StatCollector.translateToLocalFormatted("got.miniquest.kill.progress", getKillCount(), getKillTarget());
 	}
 
 	@Override
 	public String getQuestProgressShorthand() {
-		return StatCollector.translateToLocalFormatted("got.miniquest.progressShort", killCount, killTarget);
+		return StatCollector.translateToLocalFormatted("got.miniquest.progressShort", getKillCount(), getKillTarget());
 	}
 
 	@Override
 	public boolean isValidQuest() {
-		return super.isValidQuest() && killTarget > 0;
+		return super.isValidQuest() && getKillTarget() > 0;
 	}
 
 	@Override
 	public void onInteract(EntityPlayer entityplayer, GOTEntityNPC npc) {
-		if (killCount >= killTarget) {
+		if (getKillCount() >= getKillTarget()) {
 			complete(entityplayer, npc);
 		} else {
 			sendProgressSpeechbank(entityplayer, npc);
@@ -82,20 +90,28 @@ public abstract class GOTMiniQuestKill extends GOTMiniQuest {
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
-		killTarget = nbt.getInteger("Target");
-		killCount = nbt.getInteger("Count");
+		setKillTarget(nbt.getInteger("Target"));
+		setKillCount(nbt.getInteger("Count"));
+	}
+
+	public void setKillCount(int killCount) {
+		this.killCount = killCount;
+	}
+
+	public void setKillTarget(int killTarget) {
+		this.killTarget = killTarget;
 	}
 
 	@Override
 	public void writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
-		nbt.setInteger("Target", killTarget);
-		nbt.setInteger("Count", killCount);
+		nbt.setInteger("Target", getKillTarget());
+		nbt.setInteger("Count", getKillCount());
 	}
 
 	public static abstract class QFKill<Q extends GOTMiniQuestKill> extends GOTMiniQuest.QuestFactoryBase<Q> {
-		public int minTarget;
-		public int maxTarget;
+		private int minTarget;
+		private int maxTarget;
 
 		public QFKill(String name) {
 			super(name);
@@ -104,7 +120,7 @@ public abstract class GOTMiniQuestKill extends GOTMiniQuest {
 		@Override
 		public Q createQuest(GOTEntityNPC npc, Random rand) {
 			GOTMiniQuestKill quest = super.createQuest(npc, rand);
-			quest.killTarget = MathHelper.getRandomIntegerInRange(rand, this.minTarget, this.maxTarget);
+			quest.setKillTarget(MathHelper.getRandomIntegerInRange(rand, this.minTarget, this.maxTarget));
 			return (Q) quest;
 		}
 

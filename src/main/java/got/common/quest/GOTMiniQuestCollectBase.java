@@ -10,8 +10,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
 
 public abstract class GOTMiniQuestCollectBase extends GOTMiniQuest {
-	public int collectTarget;
-	public int amountGiven;
+	private int collectTarget;
+	private int amountGiven;
 
 	public GOTMiniQuestCollectBase(GOTPlayerData pd) {
 		super(pd);
@@ -19,8 +19,12 @@ public abstract class GOTMiniQuestCollectBase extends GOTMiniQuest {
 
 	@Override
 	public float getAlignmentBonus() {
-		float f = collectTarget;
-		return Math.max(f *= rewardFactor, 1.0f);
+		float f = getCollectTarget();
+		return Math.max(f *= getRewardFactor(), 1.0f);
+	}
+
+	public int getAmountGiven() {
+		return amountGiven;
 	}
 
 	@Override
@@ -28,31 +32,35 @@ public abstract class GOTMiniQuestCollectBase extends GOTMiniQuest {
 		return Math.round(getAlignmentBonus() * 2.0f);
 	}
 
+	public int getCollectTarget() {
+		return collectTarget;
+	}
+
 	@Override
 	public float getCompletionFactor() {
-		return (float) amountGiven / (float) collectTarget;
+		return (float) getAmountGiven() / (float) getCollectTarget();
 	}
 
 	@Override
 	public String getQuestProgress() {
-		return StatCollector.translateToLocalFormatted("got.miniquest.collect.progress", amountGiven, collectTarget);
+		return StatCollector.translateToLocalFormatted("got.miniquest.collect.progress", getAmountGiven(), getCollectTarget());
 	}
 
 	@Override
 	public String getQuestProgressShorthand() {
-		return StatCollector.translateToLocalFormatted("got.miniquest.progressShort", amountGiven, collectTarget);
+		return StatCollector.translateToLocalFormatted("got.miniquest.progressShort", getAmountGiven(), getCollectTarget());
 	}
 
 	public abstract boolean isQuestItem(ItemStack var1);
 
 	@Override
 	public boolean isValidQuest() {
-		return super.isValidQuest() && collectTarget > 0;
+		return super.isValidQuest() && getCollectTarget() > 0;
 	}
 
 	@Override
 	public void onInteract(EntityPlayer entityplayer, GOTEntityNPC npc) {
-		int prevAmountGiven = amountGiven;
+		int prevAmountGiven = getAmountGiven();
 		ArrayList<Integer> slotNumbers = new ArrayList<>();
 		slotNumbers.add(entityplayer.inventory.currentItem);
 		for (int slot = 0; slot < entityplayer.inventory.mainInventory.length; ++slot) {
@@ -66,26 +74,26 @@ public abstract class GOTMiniQuestCollectBase extends GOTMiniQuest {
 			int slot2 = (Integer) slot.next();
 			ItemStack itemstack = entityplayer.inventory.mainInventory[slot2];
 			if (itemstack != null && isQuestItem(itemstack)) {
-				int amountRemaining = collectTarget - amountGiven;
+				int amountRemaining = getCollectTarget() - getAmountGiven();
 				if (itemstack.stackSize >= amountRemaining) {
 					itemstack.stackSize -= amountRemaining;
 					if (itemstack.stackSize <= 0) {
 						itemstack = null;
 					}
 					entityplayer.inventory.setInventorySlotContents(slot2, itemstack);
-					amountGiven += amountRemaining;
+					setAmountGiven(getAmountGiven() + amountRemaining);
 				} else {
-					amountGiven += itemstack.stackSize;
+					setAmountGiven(getAmountGiven() + itemstack.stackSize);
 					entityplayer.inventory.setInventorySlotContents(slot2, null);
 				}
 			}
-			if (amountGiven < collectTarget) {
+			if (getAmountGiven() < getCollectTarget()) {
 				continue;
 			}
 			complete(entityplayer, npc);
 			break;
 		}
-		if (amountGiven > prevAmountGiven && !isCompleted()) {
+		if (getAmountGiven() > prevAmountGiven && !isCompleted()) {
 			updateQuest();
 		}
 		if (!isCompleted()) {
@@ -96,14 +104,22 @@ public abstract class GOTMiniQuestCollectBase extends GOTMiniQuest {
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
-		collectTarget = nbt.getInteger("Target");
-		amountGiven = nbt.getInteger("Given");
+		setCollectTarget(nbt.getInteger("Target"));
+		setAmountGiven(nbt.getInteger("Given"));
+	}
+
+	public void setAmountGiven(int amountGiven) {
+		this.amountGiven = amountGiven;
+	}
+
+	public void setCollectTarget(int collectTarget) {
+		this.collectTarget = collectTarget;
 	}
 
 	@Override
 	public void writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
-		nbt.setInteger("Target", collectTarget);
-		nbt.setInteger("Given", amountGiven);
+		nbt.setInteger("Target", getCollectTarget());
+		nbt.setInteger("Given", getAmountGiven());
 	}
 }

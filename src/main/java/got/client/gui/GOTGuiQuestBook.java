@@ -142,22 +142,22 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 				y += diaryBorder;
 				boolean completed = quest.isCompleted();
 				boolean failed = !completed && quest.isFailed();
-				String entityName = quest.entityName;
+				String entityName = quest.getEntityName();
 				String factionName = quest.getFactionSubtitle();
 				GOTTextBody pageText = new GOTTextBody(8019267);
 				pageText.setTextWidth(textW);
-				String[] dayYear = GOTDate.AegonCalendar.getDate(quest.dateGiven).getDayAndYearNames(false);
+				String[] dayYear = GOTDate.AegonCalendar.getDate(quest.getDateGiven()).getDayAndYearNames(false);
 				pageText.add(dayYear[0]);
 				pageText.add(dayYear[1]);
 				if (quest.biomeGiven != null) {
 					pageText.add(quest.biomeGiven.getBiomeDisplayName());
 				}
 				pageText.add("");
-				String startQuote = GOTSpeech.formatSpeech(quest.quoteStart, mc.thePlayer, null, quest.getObjectiveInSpeech());
+				String startQuote = GOTSpeech.formatSpeech(quest.getQuoteStart(), mc.thePlayer, null, quest.getObjectiveInSpeech());
 				startQuote = StatCollector.translateToLocalFormatted("got.gui.redBook.mq.diary.quote", startQuote);
 				pageText.add(startQuote);
 				pageText.add("");
-				List<String> quotesStages = quest.quotesStages;
+				List<String> quotesStages = quest.getQuotesStages();
 				if (!quotesStages.isEmpty()) {
 					for (String s : quotesStages) {
 						String stageQuote = GOTSpeech.formatSpeech(s, mc.thePlayer, null, quest.getObjectiveInSpeech());
@@ -171,7 +171,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 				pageText.add("");
 				String progress = StatCollector.translateToLocalFormatted("got.gui.redBook.mq.diary.progress", quest.getQuestProgress());
 				pageText.add(progress);
-				if (quest.willHire) {
+				if (quest.isWillHire()) {
 					pageText.add("");
 					String willHire = StatCollector.translateToLocalFormatted("got.gui.redBook.mq.diary.willHire", entityName);
 					pageText.add(willHire);
@@ -189,11 +189,11 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 					pageText.add("");
 					pageText.addLinebreak();
 					pageText.add("");
-					dayYear = GOTDate.AegonCalendar.getDate(quest.dateCompleted).getDayAndYearNames(false);
+					dayYear = GOTDate.AegonCalendar.getDate(quest.getDateCompleted()).getDayAndYearNames(false);
 					pageText.add(dayYear[0]);
 					pageText.add(dayYear[1]);
 					pageText.add("");
-					String completeQuote = GOTSpeech.formatSpeech(quest.quoteComplete, mc.thePlayer, null, quest.getObjectiveInSpeech());
+					String completeQuote = GOTSpeech.formatSpeech(quest.getQuoteComplete(), mc.thePlayer, null, quest.getObjectiveInSpeech());
 					completeQuote = StatCollector.translateToLocalFormatted("got.gui.redBook.mq.diary.quote", completeQuote);
 					pageText.add(completeQuote);
 					pageText.add("");
@@ -203,23 +203,23 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 						pageText.add("");
 						String rewardText = StatCollector.translateToLocalFormatted("got.gui.redBook.mq.diary.reward", entityName);
 						pageText.add(rewardText);
-						if (quest.alignmentRewarded != 0.0f) {
-							String alignS = GOTAlignmentValues.formatAlignForDisplay(quest.alignmentRewarded);
+						if (quest.getAlignmentRewarded() != 0.0f) {
+							String alignS = GOTAlignmentValues.formatAlignForDisplay(quest.getAlignmentRewarded());
 							String rewardAlign = StatCollector.translateToLocalFormatted("got.gui.redBook.mq.diary.reward.align", alignS, factionName);
 							pageText.add(rewardAlign);
 						}
-						if (quest.coinsRewarded != 0.0f) {
-							String rewardCoins = StatCollector.translateToLocalFormatted("got.gui.redBook.mq.diary.reward.coins", quest.coinsRewarded);
+						if (quest.getCoinsRewarded() != 0.0f) {
+							String rewardCoins = StatCollector.translateToLocalFormatted("got.gui.redBook.mq.diary.reward.coins", quest.getCoinsRewarded());
 							pageText.add(rewardCoins);
 						}
-						if (!quest.itemsRewarded.isEmpty()) {
-							for (ItemStack item : quest.itemsRewarded) {
+						if (!quest.getItemsRewarded().isEmpty()) {
+							for (ItemStack item : quest.getItemsRewarded()) {
 								String rewardItem = item.getItem() instanceof ItemEditableBook ? StatCollector.translateToLocalFormatted("got.gui.redBook.mq.diary.reward.book", item.getDisplayName()) : StatCollector.translateToLocalFormatted("got.gui.redBook.mq.diary.reward.item", item.getDisplayName(), item.stackSize);
 								pageText.add(rewardItem);
 							}
 						}
 					}
-					if (quest.wasHired) {
+					if (quest.isWasHired()) {
 						pageText.add("");
 						String rewardHired = StatCollector.translateToLocalFormatted("got.gui.redBook.mq.diary.reward.hired", entityName);
 						pageText.add(rewardHired);
@@ -448,7 +448,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 		this.drawTexturedModalRect(questX, questY, 0, qPanelHeight * 2, qPanelWidth, qPanelHeight);
 		GL11.glDisable(3008);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		String questName = quest.entityName;
+		String questName = quest.getEntityName();
 		String factionName = quest.getFactionSubtitle();
 		if (quest.isFailed()) {
 			questName = EnumChatFormatting.STRIKETHROUGH + questName;

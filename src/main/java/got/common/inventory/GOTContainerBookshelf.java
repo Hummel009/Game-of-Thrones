@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 
 public class GOTContainerBookshelf extends Container {
 	public GOTTileEntityBookshelf shelfInv;
-	public int numRows;
+	private int numRows;
 
 	public GOTContainerBookshelf(IInventory player, GOTTileEntityBookshelf shelf) {
 		int j;
@@ -56,7 +56,7 @@ public class GOTContainerBookshelf extends Container {
 		}
 		super.onContainerClosed(entityplayer);
 		shelfInv.closeInventory();
-		if (!anyContents && shelfInv.numPlayersUsing <= 0) {
+		if (!anyContents && shelfInv.getNumPlayersUsing() <= 0) {
 			World world = shelfInv.getWorldObj();
 			if (!world.isRemote) {
 				world.setBlock(shelfInv.xCoord, shelfInv.yCoord, shelfInv.zCoord, Blocks.bookshelf, 0, 3);

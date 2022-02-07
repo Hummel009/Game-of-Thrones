@@ -54,7 +54,7 @@ public class GOTItemBanner extends Item {
 		if (itemstack == entityplayer.getHeldItem()) {
 			return 0xffffff;
 		}
-		return GOTItemBanner.getBannerType(itemstack.getItemDamage()).faction.eggColor;
+		return GOTItemBanner.getBannerType(itemstack.getItemDamage()).faction.getEggColor();
 	}
 
 	@SideOnly(value = Side.CLIENT)
@@ -242,7 +242,7 @@ public class GOTItemBanner extends Item {
 			bannerID = i;
 			bannerName = s;
 			faction = f;
-			faction.factionBanners.add(this);
+			faction.getFactionBanners().add(this);
 		}
 
 		public static BannerType forID(int ID) {

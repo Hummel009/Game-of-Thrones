@@ -34,10 +34,10 @@ public class GOTPacketAlignmentBonus implements IMessage {
 		posX = x;
 		posY = y;
 		posZ = z;
-		name = source.name;
-		needsTranslation = source.needsTranslation;
-		isKill = source.isKill;
-		isHiredKill = source.killByHiredUnit;
+		name = source.getName();
+		needsTranslation = source.isNeedsTranslation();
+		isKill = source.isKill();
+		isHiredKill = source.isKillByHiredUnit();
 	}
 
 	@Override

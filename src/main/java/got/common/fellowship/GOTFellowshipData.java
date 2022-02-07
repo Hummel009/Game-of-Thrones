@@ -10,9 +10,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 
 public class GOTFellowshipData {
-	public static Map<UUID, GOTFellowship> fellowshipMap = new HashMap<>();
-	public static boolean needsLoad = true;
-	public static boolean doFullClearing = false;
+	private static Map<UUID, GOTFellowship> fellowshipMap = new HashMap<>();
+	private static boolean needsLoad = true;
+	private static boolean doFullClearing = false;
 
 	public static void addFellowship(GOTFellowship fs) {
 		if (!fellowshipMap.containsKey(fs.getFellowshipID())) {
@@ -30,7 +30,7 @@ public class GOTFellowshipData {
 		return false;
 	}
 
-	public static void destroyAllFellowshipData() {
+	private static void destroyAllFellowshipData() {
 		fellowshipMap.clear();
 	}
 
@@ -42,11 +42,11 @@ public class GOTFellowshipData {
 		return fs;
 	}
 
-	public static File getFellowshipDat(UUID fsID) {
+	private static File getFellowshipDat(UUID fsID) {
 		return new File(GOTFellowshipData.getFellowshipDir(), fsID.toString() + ".dat");
 	}
 
-	public static File getFellowshipDir() {
+	private static File getFellowshipDir() {
 		File fsDir = new File(GOTLevelData.getOrCreateGOTDir(), "fellowships");
 		if (!fsDir.exists()) {
 			fsDir.mkdirs();
@@ -54,10 +54,14 @@ public class GOTFellowshipData {
 		return fsDir;
 	}
 
+	public static boolean isNeedsLoad() {
+		return needsLoad;
+	}
+
 	public static void loadAll() {
 		try {
 			GOTFellowshipData.destroyAllFellowshipData();
-			needsLoad = false;
+			setNeedsLoad(false);
 			GOTFellowshipData.saveAll();
 		} catch (Exception e) {
 			FMLLog.severe("Error loading GOT fellowship data");
@@ -65,7 +69,7 @@ public class GOTFellowshipData {
 		}
 	}
 
-	public static GOTFellowship loadFellowship(UUID fsID) {
+	private static GOTFellowship loadFellowship(UUID fsID) {
 		File fsDat = GOTFellowshipData.getFellowshipDat(fsID);
 		try {
 			NBTTagCompound nbt = GOTLevelData.loadNBTFromFile(fsDat);
@@ -99,7 +103,7 @@ public class GOTFellowshipData {
 		}
 	}
 
-	public static void saveAndClearFellowship(GOTFellowship fs) {
+	private static void saveAndClearFellowship(GOTFellowship fs) {
 		if (fellowshipMap.containsValue(fs)) {
 			GOTFellowshipData.saveFellowship(fs);
 			fellowshipMap.remove(fs.getFellowshipID());
@@ -132,7 +136,7 @@ public class GOTFellowshipData {
 		}
 	}
 
-	public static void saveFellowship(GOTFellowship fs) {
+	private static void saveFellowship(GOTFellowship fs) {
 		try {
 			NBTTagCompound nbt = new NBTTagCompound();
 			fs.save(nbt);
@@ -141,5 +145,9 @@ public class GOTFellowshipData {
 			FMLLog.severe("Error saving GOT fellowship data for %s", fs.getFellowshipID());
 			e.printStackTrace();
 		}
+	}
+
+	public static void setNeedsLoad(boolean needsLoad) {
+		GOTFellowshipData.needsLoad = needsLoad;
 	}
 }

@@ -10,8 +10,8 @@ import got.common.entity.other.GOTEntityBanner;
 import net.minecraft.util.StatCollector;
 
 public class GOTFellowshipProfile extends GameProfile {
-	public static String fellowshipPrefix = "f/";
-	public String fellowshipName;
+	private static String fellowshipPrefix = "f/";
+	private String fellowshipName;
 
 	public GOTFellowshipProfile(GOTEntityBanner banner, UUID fsID, String fsName) {
 		super(fsID, fsName);

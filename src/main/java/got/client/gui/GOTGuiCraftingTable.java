@@ -62,7 +62,7 @@ public abstract class GOTGuiCraftingTable extends GuiContainer {
 	@Override
 	public void initGui() {
 		super.initGui();
-		tableSwitcher = new GOTGuiButtonTableSwitcher(9, guiLeft + 9, guiTop + 35, StatCollector.translateToLocal("got.gui.tableSwitcher"), container.tableBlock);
+		tableSwitcher = new GOTGuiButtonTableSwitcher(9, guiLeft + 9, guiTop + 35, StatCollector.translateToLocal("got.gui.tableSwitcher"), container.getTableBlock());
 		buttonList.add(tableSwitcher);
 	}
 

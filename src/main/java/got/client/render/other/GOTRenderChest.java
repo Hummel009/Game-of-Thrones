@@ -22,11 +22,11 @@ public class GOTRenderChest extends TileEntitySpecialRenderer {
 		Block c;
 		GL11.glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
 		GL11.glTranslatef(-0.5f, -0.5f, -0.5f);
-		itemEntity.textureName = "";
+		itemEntity.setTextureName("");
 		if (block instanceof GOTBlockChest) {
-			itemEntity.textureName = ((GOTBlockChest) block).getChestTextureName();
+			itemEntity.setTextureName(((GOTBlockChest) block).getChestTextureName());
 		} else if (block instanceof GOTBlockSpawnerChest && (c = ((GOTBlockSpawnerChest) block).getChestModel()) instanceof GOTBlockChest) {
-			itemEntity.textureName = ((GOTBlockChest) c).getChestTextureName();
+			itemEntity.setTextureName(((GOTBlockChest) c).getChestTextureName());
 		}
 		renderTileEntityAt(itemEntity, 0.0, 0.0, 0.0, 0.0f);
 		GL11.glEnable(32826);
@@ -71,11 +71,11 @@ public class GOTRenderChest extends TileEntitySpecialRenderer {
 		}
 		GL11.glRotatef(rot, 0.0f, 1.0f, 0.0f);
 		GL11.glTranslatef(-0.5f, -0.5f, -0.5f);
-		float lid = chest.prevLidAngle + (chest.lidAngle - chest.prevLidAngle) * f;
+		float lid = chest.getPrevLidAngle() + (chest.getLidAngle() - chest.getPrevLidAngle()) * f;
 		lid = 1.0f - lid;
 		lid = 1.0f - lid * lid * lid;
 		GOTRenderChest.chestModel.chestLid.rotateAngleX = -(lid * 3.1415927f / 2.0f);
-		bindTexture(GOTRenderChest.getChestTexture(chest.textureName));
+		bindTexture(GOTRenderChest.getChestTexture(chest.getTextureName()));
 		chestModel.renderAll();
 		GL11.glDisable(32826);
 		GL11.glPopMatrix();

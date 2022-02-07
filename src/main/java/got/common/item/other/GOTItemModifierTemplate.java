@@ -71,7 +71,7 @@ public class GOTItemModifierTemplate extends Item {
 			applicable.add(wre);
 		}
 		GOTEnchantmentHelper.WeightedRandomEnchant chosenWre = (GOTEnchantmentHelper.WeightedRandomEnchant) WeightedRandom.getRandomItem(random, applicable);
-		GOTEnchantment chosenEnch = chosenWre.theEnchant;
+		GOTEnchantment chosenEnch = chosenWre.getTheEnchant();
 		ItemStack itemstack = new ItemStack(GOTRegistry.smithScroll);
 		GOTItemModifierTemplate.setModifier(itemstack, chosenEnch);
 		return itemstack;

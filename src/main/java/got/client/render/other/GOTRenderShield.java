@@ -99,7 +99,7 @@ public class GOTRenderShield {
 
 	public static void renderShield(GOTShields shield, EntityLivingBase entity, ModelBiped model) {
 		Minecraft mc = Minecraft.getMinecraft();
-		ResourceLocation shieldTexture = shield.shieldTexture;
+		ResourceLocation shieldTexture = shield.getShieldTexture();
 		ItemStack held = null;
 		ItemStack heldLeft = null;
 		ItemStack inUse = null;

@@ -57,7 +57,7 @@ public class GOTBlockBarrel extends BlockContainer {
 	private ItemStack getBarrelDrop(World world, int i, int j, int k, int metadata) {
 		ItemStack itemstack = new ItemStack(Item.getItemFromBlock(this));
 		GOTTileEntityBarrel barrel = (GOTTileEntityBarrel) world.getTileEntity(i, j, k);
-		if (barrel != null && barrel.barrelMode != 0) {
+		if (barrel != null && barrel.getBarrelMode() != 0) {
 			GOTItemBarrel.setBarrelDataFromTE(itemstack, barrel);
 		}
 		return itemstack;
@@ -121,9 +121,9 @@ public class GOTBlockBarrel extends BlockContainer {
 			}
 			if (itemstack != null && item instanceof GOTItemMug && ((GOTItemMug) item).isBrewable) {
 				boolean match = false;
-				if (barrel.barrelMode == 0) {
+				if (barrel.getBarrelMode() == 0) {
 					match = true;
-				} else if (barrelDrink != null && barrelDrink.stackSize < GOTRecipeBrewing.BARREL_CAPACITY) {
+				} else if (barrelDrink != null && barrelDrink.stackSize < GOTRecipeBrewing.getBarrelCapacity()) {
 					match = barrelDrink.getItem() == itemstack.getItem() && GOTItemMug.getStrength(barrelDrink) == GOTItemMug.getStrength(itemstack);
 				}
 				if (match) {
@@ -136,7 +136,7 @@ public class GOTBlockBarrel extends BlockContainer {
 						++barrelDrink.stackSize;
 						barrel.setInventorySlotContents(9, barrelDrink);
 					}
-					barrel.barrelMode = 2;
+					barrel.setBarrelMode(2);
 					if (!entityplayer.capabilities.isCreativeMode) {
 						GOTItemMug.Vessel v = GOTItemMug.getVessel(itemstack);
 						ItemStack emptyMug = v.getEmptyVessel();

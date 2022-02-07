@@ -28,7 +28,7 @@ public class GOTItemConquestHorn extends Item {
 
 	public boolean canUseHorn(ItemStack itemstack, World world, EntityPlayer entityplayer, boolean sendMessage) {
 		GOTInvasions invasionType = GOTItemConquestHorn.getInvasionType(itemstack);
-		GOTFaction invasionFaction = invasionType.invasionFaction;
+		GOTFaction invasionFaction = invasionType.getInvasionFaction();
 		float alignmentRequired = 1000.0f;
 		if (GOTLevelData.getData(entityplayer).getAlignment(invasionFaction) >= alignmentRequired) {
 			boolean blocked = false;
@@ -47,7 +47,7 @@ public class GOTItemConquestHorn extends Item {
 			return true;
 		}
 		if (sendMessage && !world.isRemote) {
-			GOTAlignmentValues.notifyAlignmentNotHighEnough(entityplayer, alignmentRequired, invasionType.invasionFaction);
+			GOTAlignmentValues.notifyAlignmentNotHighEnough(entityplayer, alignmentRequired, invasionType.getInvasionFaction());
 		}
 		return false;
 	}
@@ -56,7 +56,7 @@ public class GOTItemConquestHorn extends Item {
 	@Override
 	public int getColorFromItemStack(ItemStack itemstack, int pass) {
 		if (pass == 0) {
-			GOTFaction faction = GOTItemConquestHorn.getInvasionType(itemstack).invasionFaction;
+			GOTFaction faction = GOTItemConquestHorn.getInvasionType(itemstack).getInvasionFaction();
 			return faction.getFactionColor();
 		}
 		return 16777215;

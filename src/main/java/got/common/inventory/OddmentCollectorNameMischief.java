@@ -3,8 +3,8 @@ package got.common.inventory;
 import java.util.Random;
 
 public class OddmentCollectorNameMischief {
-	public static String VOWELS = "aeiou";
-	public static String CONSONANTS = "bcdfghjklmnopqrstvwxyz";
+	private static String VOWELS = "aeiou";
+	private static String CONSONANTS = "bcdfghjklmnopqrstvwxyz";
 
 	public static String garbleName(String name, Random rand) {
 		int deletes = rand.nextInt(3);
@@ -51,7 +51,7 @@ public class OddmentCollectorNameMischief {
 		return name;
 	}
 
-	public static boolean isFormattingCharacter(String s, int index) {
+	private static boolean isFormattingCharacter(String s, int index) {
 		char charAt = s.charAt(index);
 		if (charAt == '\u00a7') {
 			return true;

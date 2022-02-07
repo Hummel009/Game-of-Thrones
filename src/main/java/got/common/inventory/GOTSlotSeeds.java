@@ -6,7 +6,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.*;
 
 public class GOTSlotSeeds extends Slot {
-	public World worldObj;
+	private World worldObj;
 
 	public GOTSlotSeeds(IInventory inv, int i, int j, int k, World world) {
 		super(inv, i, j, k);

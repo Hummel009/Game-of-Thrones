@@ -11,8 +11,7 @@ import net.minecraft.potion.*;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
-	public boolean compatibleBane = true;
-	public boolean compatibleOtherSpecial = false;
+	private boolean compatibleOtherSpecial = false;
 
 	public GOTEnchantmentWeaponSpecial(String s) {
 		super(s, new GOTEnchantmentType[] { GOTEnchantmentType.MELEE, GOTEnchantmentType.THROWING_AXE, GOTEnchantmentType.RANGED_LAUNCHER });
@@ -53,7 +52,6 @@ public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
 	}
 
 	public GOTEnchantmentWeaponSpecial setIncompatibleBane() {
-		compatibleBane = false;
 		return this;
 	}
 

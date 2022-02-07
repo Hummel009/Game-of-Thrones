@@ -57,14 +57,14 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 				String squadron = squadronNameField.getText();
 				GOTPacketBuyUnit packet = new GOTPacketBuyUnit(currentTradeEntryIndex, squadron);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
-			} else if (button == buttonRightUnit && currentTradeEntryIndex < trades.tradeEntries.length - 1) {
+			} else if (button == buttonRightUnit && currentTradeEntryIndex < trades.getTradeEntries().length - 1) {
 				++currentTradeEntryIndex;
 			}
 		}
 	}
 
 	private GOTUnitTradeEntry currentTrade() {
-		return trades.tradeEntries[currentTradeEntryIndex];
+		return trades.getTradeEntries()[currentTradeEntryIndex];
 	}
 
 	public void drawCenteredString(String s, int i, int j, int k) {
@@ -78,7 +78,7 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 		guiTexture = new ResourceLocation("got:textures/gui/npc/unit_trade.png");
 		mc.getTextureManager().bindTexture(guiTexture);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
-		if (((GOTContainerUnitTrade) inventorySlots).alignmentRewardSlots > 0) {
+		if (((GOTContainerUnitTrade) inventorySlots).getAlignmentRewardSlots() > 0) {
 			Slot slot = inventorySlots.getSlot(0);
 			drawTexturedModalRect(guiLeft + slot.xDisplayPosition - 3, guiTop + slot.yDisplayPosition - 3, xSize, 16, 22, 22);
 			if (!slot.getHasStack() && GOTLevelData.getData(mc.thePlayer).getAlignment(traderFaction) < 1500.0f) {
@@ -136,7 +136,7 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			}
 		}
-		if (((GOTContainerUnitTrade) inventorySlots).alignmentRewardSlots > 0) {
+		if (((GOTContainerUnitTrade) inventorySlots).getAlignmentRewardSlots() > 0) {
 			Slot slot = inventorySlots.getSlot(0);
 			boolean hasRewardCost = slot.getHasStack();
 			if (hasRewardCost) {
@@ -145,7 +145,7 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 				itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.getTextureManager(), new ItemStack(GOTRegistry.coin), 160, 100);
 				GL11.glDisable(2896);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-				cost = GOTSlotAlignmentReward.REWARD_COST;
+				cost = GOTSlotAlignmentReward.getRewardCost();
 				fontRendererObj.drawString(String.valueOf(cost), 179, 104, 4210752);
 			} else if (!slot.getHasStack() && GOTLevelData.getData(mc.thePlayer).getAlignment(traderFaction) < 1500.0f && func_146978_c(slot.xDisplayPosition, slot.yDisplayPosition, 16, 16, i, j)) {
 				drawCreativeTabHoveringText(StatCollector.translateToLocalFormatted("got.container.unitTrade.requiresAlignment", Float.valueOf(1500.0f)), i - guiLeft, j - guiTop);
@@ -243,7 +243,7 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 	public void drawScreen(int i, int j, float f) {
 		buttonLeftUnit.enabled = currentTradeEntryIndex > 0;
 		buttonHire.enabled = currentTrade().hasRequiredCostAndAlignment(mc.thePlayer, theUnitTrader);
-		buttonRightUnit.enabled = currentTradeEntryIndex < trades.tradeEntries.length - 1;
+		buttonRightUnit.enabled = currentTradeEntryIndex < trades.getTradeEntries().length - 1;
 		super.drawScreen(i, j, f);
 		screenXSize = i;
 		screenYSize = j;

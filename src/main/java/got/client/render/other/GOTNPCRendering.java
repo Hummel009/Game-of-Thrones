@@ -239,7 +239,7 @@ public class GOTNPCRendering {
 		WorldClient world = mc.theWorld;
 		world.theProfiler.startSection("renderMiniquestBook");
 		float distance = mc.renderViewEntity.getDistanceToEntity(npc);
-		boolean aboveHead = distance <= GOTMiniQuest.RENDER_HEAD_DISTANCE;
+		boolean aboveHead = distance <= GOTMiniQuest.getRenderHeadDistance();
 		TextureManager textureManager = mc.getTextureManager();
 		RenderManager renderManager = RenderManager.instance;
 		EntityClientPlayerMP entityplayer = mc.thePlayer;
@@ -273,7 +273,7 @@ public class GOTNPCRendering {
 				GL11.glEnable(2896);
 				GL11.glDisable(32826);
 			} else {
-				float scale = distance / (float) GOTMiniQuest.RENDER_HEAD_DISTANCE;
+				float scale = distance / (float) GOTMiniQuest.getRenderHeadDistance();
 				scale = (float) Math.pow(scale, 1.1);
 				float alpha = (float) Math.pow(scale, -0.4);
 				GL11.glPushMatrix();

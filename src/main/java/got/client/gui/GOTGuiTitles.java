@@ -238,7 +238,7 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 		displayedTitles.clear();
 		ArrayList<GOTTitle> availableTitles = new ArrayList<>();
 		ArrayList<GOTTitle> unavailableTitles = new ArrayList<>();
-		for (GOTTitle title : GOTTitle.allTitles) {
+		for (GOTTitle title : GOTTitle.getAllTitles()) {
 			if (title.canPlayerUse(mc.thePlayer)) {
 				availableTitles.add(title);
 				continue;

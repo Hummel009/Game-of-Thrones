@@ -18,21 +18,15 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.StatCollector;
 
 public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
-	public static int EMPTY = 0;
-	public static int BREWING = 1;
-	public static int FULL = 2;
-	public static int brewTime = 12000;
-	public static int brewAnimTime = 32;
-	public static int[] INGREDIENT_SLOTS = { 0, 1, 2, 3, 4, 5 };
-	public static int[] BUCKET_SLOTS = { 6, 7, 8 };
-	public static int BARREL_SLOT = 9;
-	public ItemStack[] inventory = new ItemStack[10];
-	public int barrelMode;
-	public int brewingTime;
-	public int brewingAnim;
-	public int brewingAnimPrev;
-	public String specialBarrelName;
-	public List players = new ArrayList();
+	private static int[] INGREDIENT_SLOTS = { 0, 1, 2, 3, 4, 5 };
+	private static int[] BUCKET_SLOTS = { 6, 7, 8 };
+	private ItemStack[] inventory = new ItemStack[10];
+	private int barrelMode;
+	private int brewingTime;
+	private int brewingAnim;
+	private int brewingAnimPrev;
+	private String specialBarrelName;
+	private List players = new ArrayList();
 
 	@Override
 	public boolean canExtractItem(int slot, ItemStack extractItem, int side) {
@@ -48,7 +42,7 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 	}
 
 	public boolean canPoisonBarrel() {
-		if (barrelMode != 0 && inventory[9] != null) {
+		if (getBarrelMode() != 0 && inventory[9] != null) {
 			ItemStack itemstack = inventory[9];
 			return GOTPoisonedDrinks.canPoison(itemstack) && !GOTPoisonedDrinks.isDrinkPoisoned(itemstack);
 		}
@@ -60,11 +54,11 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 	}
 
 	public void consumeMugRefill() {
-		if (barrelMode == 2 && inventory[9] != null) {
+		if (getBarrelMode() == 2 && inventory[9] != null) {
 			--inventory[9].stackSize;
 			if (inventory[9].stackSize <= 0) {
 				inventory[9] = null;
-				barrelMode = 0;
+				setBarrelMode(0);
 			}
 		}
 	}
@@ -107,7 +101,7 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 			int[] sortedSlots = new int[INGREDIENT_SLOTS.length];
 			for (int i = 0; i < sortedSlots.length; ++i) {
 				GOTSlotStackSize slotAndStack = slotsWithStackSize.get(i);
-				sortedSlots[i] = slotAndStack.slot;
+				sortedSlots[i] = slotAndStack.getSlot();
 			}
 			return sortedSlots;
 		}
@@ -115,11 +109,11 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 	}
 
 	public int getBarrelFullAmountScaled(int i) {
-		return inventory[9] == null ? 0 : inventory[9].stackSize * i / GOTRecipeBrewing.BARREL_CAPACITY;
+		return inventory[9] == null ? 0 : inventory[9].stackSize * i / GOTRecipeBrewing.getBarrelCapacity();
 	}
 
-	public int getBrewAnimationProgressScaled(int i) {
-		return brewingAnim * i / 32;
+	public int getBarrelMode() {
+		return barrelMode;
 	}
 
 	public float getBrewAnimationProgressScaledF(int i, float f) {
@@ -129,14 +123,18 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 	}
 
 	public ItemStack getBrewedDrink() {
-		if (barrelMode == 2 && inventory[9] != null) {
+		if (getBarrelMode() == 2 && inventory[9] != null) {
 			return inventory[9].copy();
 		}
 		return null;
 	}
 
+	public int getBrewingTime() {
+		return brewingTime;
+	}
+
 	public int getBrewProgressScaled(int i) {
-		return brewingTime * i / 12000;
+		return getBrewingTime() * i / 12000;
 	}
 
 	@Override
@@ -158,16 +156,20 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 
 	public String getInvSubtitle() {
 		ItemStack brewingItem = getStackInSlot(9);
-		if (barrelMode == 0) {
+		if (getBarrelMode() == 0) {
 			return StatCollector.translateToLocal("got.container.barrel.empty");
 		}
-		if (barrelMode == 1 && brewingItem != null) {
+		if (getBarrelMode() == 1 && brewingItem != null) {
 			return StatCollector.translateToLocalFormatted("got.container.barrel.brewing", brewingItem.getDisplayName(), GOTItemMug.getStrengthSubtitle(brewingItem));
 		}
-		if (barrelMode == 2 && brewingItem != null) {
+		if (getBarrelMode() == 2 && brewingItem != null) {
 			return StatCollector.translateToLocalFormatted("got.container.barrel.full", brewingItem.getDisplayName(), GOTItemMug.getStrengthSubtitle(brewingItem), brewingItem.stackSize);
 		}
 		return "";
+	}
+
+	public List getPlayers() {
+		return players;
 	}
 
 	@Override
@@ -191,9 +193,9 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 	}
 
 	public void handleBrewingButtonPress() {
-		if (barrelMode == 0 && inventory[9] != null) {
+		if (getBarrelMode() == 0 && inventory[9] != null) {
 			int i;
-			barrelMode = 1;
+			setBarrelMode(1);
 			for (i = 0; i < 9; ++i) {
 				if (inventory[i] == null) {
 					continue;
@@ -213,15 +215,15 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 				inventory[i] = containerItem;
 			}
 			if (!worldObj.isRemote) {
-				for (i = 0; i < players.size(); ++i) {
-					EntityPlayerMP entityplayer = (EntityPlayerMP) players.get(i);
+				for (i = 0; i < getPlayers().size(); ++i) {
+					EntityPlayerMP entityplayer = (EntityPlayerMP) getPlayers().get(i);
 					entityplayer.openContainer.detectAndSendChanges();
 					entityplayer.sendContainerToPlayer(entityplayer.openContainer);
 				}
 			}
-		} else if (barrelMode == 1 && inventory[9] != null && inventory[9].getItemDamage() > 0) {
-			barrelMode = 2;
-			brewingTime = 0;
+		} else if (getBarrelMode() == 1 && inventory[9] != null && inventory[9].getItemDamage() > 0) {
+			setBarrelMode(2);
+			setBrewingTime(0);
 			ItemStack itemstack = inventory[9].copy();
 			itemstack.setItemDamage(itemstack.getItemDamage() - 1);
 			inventory[9] = itemstack;
@@ -276,8 +278,8 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 			}
 			inventory[slot] = ItemStack.loadItemStackFromNBT(itemData);
 		}
-		barrelMode = nbt.getByte("BarrelMode");
-		brewingTime = nbt.getInteger("BrewingTime");
+		setBarrelMode(nbt.getByte("BarrelMode"));
+		setBrewingTime(nbt.getInteger("BrewingTime"));
 		if (nbt.hasKey("CustomName")) {
 			specialBarrelName = nbt.getString("CustomName");
 		}
@@ -289,8 +291,16 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 		readBarrelFromNBT(nbt);
 	}
 
+	public void setBarrelMode(int barrelMode) {
+		this.barrelMode = barrelMode;
+	}
+
 	public void setBarrelName(String s) {
 		specialBarrelName = s;
+	}
+
+	public void setBrewingTime(int brewingTime) {
+		this.brewingTime = brewingTime;
 	}
 
 	@Override
@@ -304,8 +314,12 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 		}
 	}
 
-	public void updateBrewingRecipe() {
-		if (barrelMode == 0) {
+	public void setPlayers(List players) {
+		this.players = players;
+	}
+
+	private void updateBrewingRecipe() {
+		if (getBarrelMode() == 0) {
 			inventory[9] = GOTRecipeBrewing.findMatchingRecipe(this);
 		}
 	}
@@ -314,30 +328,30 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 	public void updateEntity() {
 		boolean needUpdate = false;
 		if (!worldObj.isRemote) {
-			if (barrelMode == 1) {
+			if (getBarrelMode() == 1) {
 				if (inventory[9] != null) {
-					++brewingTime;
-					if (brewingTime >= 12000) {
-						brewingTime = 0;
+					setBrewingTime(getBrewingTime() + 1);
+					if (getBrewingTime() >= 12000) {
+						setBrewingTime(0);
 						if (inventory[9].getItemDamage() < 4) {
 							inventory[9].setItemDamage(inventory[9].getItemDamage() + 1);
 							needUpdate = true;
 						} else {
-							barrelMode = 2;
+							setBarrelMode(2);
 						}
 					}
 				} else {
-					barrelMode = 0;
+					setBarrelMode(0);
 				}
 			} else {
-				brewingTime = 0;
+				setBrewingTime(0);
 			}
-			if (barrelMode == 2 && inventory[9] == null) {
-				barrelMode = 0;
+			if (getBarrelMode() == 2 && inventory[9] == null) {
+				setBarrelMode(0);
 			}
 		} else {
 			brewingAnimPrev = brewingAnim++;
-			if (barrelMode == 1) {
+			if (getBarrelMode() == 1) {
 				if (brewingAnim >= 32) {
 					brewingAnimPrev = brewingAnim = 0;
 				}
@@ -362,8 +376,8 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 			items.appendTag(itemData);
 		}
 		nbt.setTag("Items", items);
-		nbt.setByte("BarrelMode", (byte) barrelMode);
-		nbt.setInteger("BrewingTime", brewingTime);
+		nbt.setByte("BarrelMode", (byte) getBarrelMode());
+		nbt.setInteger("BrewingTime", getBrewingTime());
 		if (hasCustomInventoryName()) {
 			nbt.setString("CustomName", specialBarrelName);
 		}

@@ -32,10 +32,10 @@ public class GOTPacketCape implements IMessage {
 				FMLLog.severe("Failed to update GOT cape on client side: There is no capetype with ID " + capeTypeID);
 			} else {
 				GOTCapes.CapeType capeType = GOTCapes.CapeType.values()[capeTypeID];
-				if (capeID < 0 || capeID >= capeType.list.size()) {
+				if (capeID < 0 || capeID >= capeType.getList().size()) {
 					FMLLog.severe("Failed to update GOT cape on client side: There is no cape with ID " + capeID + " for capetype " + capeTypeID);
 				} else {
-					cape = capeType.list.get(capeID);
+					cape = capeType.getList().get(capeID);
 				}
 			}
 		} else {
@@ -50,8 +50,8 @@ public class GOTPacketCape implements IMessage {
 		boolean hasCape = cape != null;
 		data.writeBoolean(hasCape);
 		if (hasCape) {
-			data.writeByte(cape.capeID);
-			data.writeByte(cape.capeType.ordinal());
+			data.writeByte(cape.getCapeID());
+			data.writeByte(cape.getCapeType().ordinal());
 		}
 	}
 

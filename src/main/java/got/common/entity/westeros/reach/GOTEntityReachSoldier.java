@@ -195,7 +195,7 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 					anyAlert = true;
 				}
 				if (anyAlert && alignment >= 0.0f) {
-					GOTLevelData.getData(entityplayer).addAlignment(entityplayer, GOTAlignmentValues.VINEYARD_STEAL_PENALTY, GOTFaction.REACH, i + 0.5, j + 0.5, k + 0.5);
+					GOTLevelData.getData(entityplayer).addAlignment(entityplayer, GOTAlignmentValues.getVineyardSteal(), GOTFaction.REACH, i + 0.5, j + 0.5, k + 0.5);
 				}
 			}
 		}

@@ -12,20 +12,20 @@ import net.minecraft.util.*;
 import net.minecraft.world.World;
 
 public class GOTCommandStrScan extends CommandBase {
-	public boolean scanning = false;
-	public int originX;
-	public int originY;
-	public int originZ;
-	public int minX;
-	public int minY;
-	public int minZ;
-	public int maxX;
-	public int maxY;
-	public int maxZ;
-	public List<String> aliasOrder = new ArrayList<>();
-	public Map<Block, String> blockAliases = new HashMap<>();
-	public Map<Pair<Block, Integer>, String> blockMetaAliases = new HashMap<>();
-	public Set<String> aliasesToInclude = new HashSet<>();
+	private boolean scanning = false;
+	private int originX;
+	private int originY;
+	private int originZ;
+	private int minX;
+	private int minY;
+	private int minZ;
+	private int maxX;
+	private int maxY;
+	private int maxZ;
+	private List<String> aliasOrder = new ArrayList<>();
+	private Map<Block, String> blockAliases = new HashMap<>();
+	private Map<Pair<Block, Integer>, String> blockMetaAliases = new HashMap<>();
+	private Set<String> aliasesToInclude = new HashSet<>();
 
 	@Override
 	public List addTabCompletionOptions(ICommandSender sender, String[] args) {

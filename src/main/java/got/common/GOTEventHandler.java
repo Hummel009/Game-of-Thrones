@@ -837,20 +837,20 @@ public class GOTEventHandler implements IFuelHandler {
 				if (!wasSelfDefenceAgainstAlliedUnit && entity instanceof GOTEntityNPC) {
 					GOTEntityNPC npc = (GOTEntityNPC) entity;
 					alignmentBonus = new GOTAlignmentValues.AlignmentBonus(npc.getAlignmentBonus(), npc.getEntityClassName());
-					alignmentBonus.needsTranslation = true;
-					alignmentBonus.isCivilianKill = npc.isCivilianNPC() && !npc.isLegendaryNPC();
-					alignmentBonus.isRoyalOrder = npc.isRoyalOrder;
-					alignmentBonus.faction = npc.getFaction();
+					alignmentBonus.setNeedsTranslation(true);
+					alignmentBonus.setCivilianKill(npc.isCivilianNPC() && !npc.isLegendaryNPC());
+					alignmentBonus.setRoyalOrder(npc.isRoyalOrder);
+					alignmentBonus.setFaction(npc.getFaction());
 				}
-				if (alignmentBonus != null && alignmentBonus.bonus != 0.0f && (!creditHiredUnit || creditHiredUnit && byNearbyUnit)) {
-					alignmentBonus.isKill = true;
+				if (alignmentBonus != null && alignmentBonus.getBonus() != 0.0f && (!creditHiredUnit || creditHiredUnit && byNearbyUnit)) {
+					alignmentBonus.setKill(true);
 					if (creditHiredUnit) {
-						alignmentBonus.killByHiredUnit = true;
+						alignmentBonus.setKillByHiredUnit(true);
 					}
 					playerData.addAlignment(entityplayer, alignmentBonus, entityFaction, forcedBonusFactions, entity);
 				}
 				if (!creditHiredUnit) {
-					if (entityFaction.allowPlayer) {
+					if (entityFaction.isAllowPlayer()) {
 						GOTFaction pledgeFac;
 						playerData.getFactionData(entityFaction).addNPCKill();
 						List<GOTFaction> killBonuses = entityFaction.getBonusesForKilling();

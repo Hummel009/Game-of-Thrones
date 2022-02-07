@@ -16,8 +16,8 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 	private ArrayList<CachedBarrelRecipe> barrelRecipes = new ArrayList();
 
 	public GOTHandlerBarrel() {
-		for (int i = 0; i < GOTRecipeBrewing.recipes.size(); ++i) {
-			ShapelessOreRecipe rec = GOTRecipeBrewing.recipes.get(i);
+		for (int i = 0; i < GOTRecipeBrewing.getRecipes().size(); ++i) {
+			ShapelessOreRecipe rec = GOTRecipeBrewing.getRecipes().get(i);
 			barrelRecipes.add(getBarrelRecipe(rec));
 		}
 	}

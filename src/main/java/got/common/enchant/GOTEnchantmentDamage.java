@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentDamage extends GOTEnchantment {
-	public float baseDamageBoost;
+	private float baseDamageBoost;
 
 	public GOTEnchantmentDamage(String s, float boost) {
 		super(s, new GOTEnchantmentType[] { GOTEnchantmentType.MELEE, GOTEnchantmentType.THROWING_AXE });

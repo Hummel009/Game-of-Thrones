@@ -7,8 +7,8 @@ import net.minecraft.item.*;
 import net.minecraft.util.IIcon;
 
 public class GOTSlotArmorStand extends Slot {
-	public int armorSlot;
-	public Entity armorTestEntity;
+	private int armorSlot;
+	private Entity armorTestEntity;
 
 	public GOTSlotArmorStand(IInventory inv, int i, int j, int k, int a, Entity entity) {
 		super(inv, i, j, k);

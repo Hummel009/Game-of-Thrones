@@ -23,14 +23,14 @@ import net.minecraft.tileentity.*;
 import net.minecraft.util.StatCollector;
 
 public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, ISidedInventory {
-	public ItemStack[] inventory = new ItemStack[getForgeInvSize()];
-	public String specialForgeName;
-	public int forgeSmeltTime = 0;
-	public int currentItemFuelValue = 0;
-	public int currentSmeltTime = 0;
-	public int[] inputSlots;
-	public int[] outputSlots;
-	public int fuelSlot;
+	private ItemStack[] inventory = new ItemStack[getForgeInvSize()];
+	private String specialForgeName;
+	private int forgeSmeltTime = 0;
+	private int currentItemFuelValue = 0;
+	private int currentSmeltTime = 0;
+	private int[] inputSlots;
+	private int[] outputSlots;
+	private int fuelSlot;
 
 	public GOTTileEntityAlloyForge() {
 		setupForgeSlots();
@@ -48,7 +48,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, I
 
 	@Override
 	public boolean canExtractItem(int slot, ItemStack itemstack, int side) {
-		if (side == 0 && slot == fuelSlot) {
+		if (side == 0 && slot == getFuelSlot()) {
 			return itemstack.getItem() == Items.bucket;
 		}
 		return true;
@@ -59,7 +59,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, I
 		return isItemValidForSlot(slot, itemstack);
 	}
 
-	public boolean canMachineInsertFuel(ItemStack itemstack) {
+	private boolean canMachineInsertFuel(ItemStack itemstack) {
 		return TileEntityFurnace.isItemFuel(itemstack);
 	}
 
@@ -67,33 +67,33 @@ public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, I
 		return itemstack != null && getSmeltingResult(itemstack) != null;
 	}
 
-	public boolean canSmelt(int i) {
+	private boolean canSmelt(int i) {
 		ItemStack alloyResult;
 		ItemStack result;
 		int resultSize;
-		if (inventory[i] == null) {
+		if (getInventory()[i] == null) {
 			return false;
 		}
-		if (inventory[i - 4] != null && (alloyResult = getAlloySmeltingResult(inventory[i], inventory[i - 4])) != null) {
-			if (inventory[i + 4] == null) {
+		if (getInventory()[i - 4] != null && (alloyResult = getAlloySmeltingResult(getInventory()[i], getInventory()[i - 4])) != null) {
+			if (getInventory()[i + 4] == null) {
 				return true;
 			}
-			resultSize = inventory[i + 4].stackSize + alloyResult.stackSize;
-			if (inventory[i + 4].isItemEqual(alloyResult) && resultSize <= getInventoryStackLimit() && resultSize <= alloyResult.getMaxStackSize()) {
+			resultSize = getInventory()[i + 4].stackSize + alloyResult.stackSize;
+			if (getInventory()[i + 4].isItemEqual(alloyResult) && resultSize <= getInventoryStackLimit() && resultSize <= alloyResult.getMaxStackSize()) {
 				return true;
 			}
 		}
-		result = getSmeltingResult(inventory[i]);
+		result = getSmeltingResult(getInventory()[i]);
 		if (result == null) {
 			return false;
 		}
-		if (inventory[i + 4] == null) {
+		if (getInventory()[i + 4] == null) {
 			return true;
 		}
-		if (!inventory[i + 4].isItemEqual(result)) {
+		if (!getInventory()[i + 4].isItemEqual(result)) {
 			return false;
 		}
-		resultSize = inventory[i + 4].stackSize + result.stackSize;
+		resultSize = getInventory()[i + 4].stackSize + result.stackSize;
 		return resultSize <= getInventoryStackLimit() && resultSize <= result.getMaxStackSize();
 	}
 
@@ -103,15 +103,15 @@ public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, I
 
 	@Override
 	public ItemStack decrStackSize(int i, int j) {
-		if (inventory[i] != null) {
-			if (inventory[i].stackSize <= j) {
-				ItemStack itemstack = inventory[i];
-				inventory[i] = null;
+		if (getInventory()[i] != null) {
+			if (getInventory()[i].stackSize <= j) {
+				ItemStack itemstack = getInventory()[i];
+				getInventory()[i] = null;
 				return itemstack;
 			}
-			ItemStack itemstack = inventory[i].splitStack(j);
-			if (inventory[i].stackSize == 0) {
-				inventory[i] = null;
+			ItemStack itemstack = getInventory()[i].splitStack(j);
+			if (getInventory()[i].stackSize == 0) {
+				getInventory()[i] = null;
 			}
 			return itemstack;
 		}
@@ -128,10 +128,10 @@ public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, I
 	public int[] getAccessibleSlotsFromSide(int side) {
 		if (side == 0) {
 			ArrayList<Integer> list = new ArrayList<>();
-			for (int i : outputSlots) {
+			for (int i : getOutputSlots()) {
 				list.add(i);
 			}
-			list.add(fuelSlot);
+			list.add(getFuelSlot());
 			int[] temp = new int[list.size()];
 			for (int i = 0; i < temp.length; ++i) {
 				temp[i] = list.get(i);
@@ -140,7 +140,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, I
 		}
 		if (side == 1) {
 			ArrayList<GOTSlotStackSize> slotsWithStackSize = new ArrayList<>();
-			int[] temp = inputSlots;
+			int[] temp = getInputSlots();
 			int i = temp.length;
 			for (int j = 0; j < i; ++j) {
 				int slot = temp[j];
@@ -148,17 +148,17 @@ public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, I
 				slotsWithStackSize.add(new GOTSlotStackSize(slot, size));
 			}
 			Collections.sort(slotsWithStackSize);
-			int[] sortedSlots = new int[inputSlots.length];
+			int[] sortedSlots = new int[getInputSlots().length];
 			for (i = 0; i < sortedSlots.length; ++i) {
 				GOTSlotStackSize slotAndStack = slotsWithStackSize.get(i);
-				sortedSlots[i] = slotAndStack.slot;
+				sortedSlots[i] = slotAndStack.getSlot();
 			}
 			return sortedSlots;
 		}
-		return new int[] { fuelSlot };
+		return new int[] { getFuelSlot() };
 	}
 
-	public ItemStack getAlloySmeltingResult(ItemStack itemstack, ItemStack alloyItem) {
+	private ItemStack getAlloySmeltingResult(ItemStack itemstack, ItemStack alloyItem) {
 		if (isCopper(itemstack) && isTin(alloyItem) || isTin(itemstack) && isCopper(alloyItem)) {
 			return new ItemStack(GOTRegistry.bronzeIngot, 2);
 		}
@@ -177,12 +177,36 @@ public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, I
 		return null;
 	}
 
+	public int getCurrentItemFuelValue() {
+		return currentItemFuelValue;
+	}
+
+	public int getCurrentSmeltTime() {
+		return currentSmeltTime;
+	}
+
 	public int getForgeInvSize() {
 		return 13;
 	}
 
 	public String getForgeName() {
 		return StatCollector.translateToLocal("got.container.alloyForge");
+	}
+
+	public int getForgeSmeltTime() {
+		return forgeSmeltTime;
+	}
+
+	public int getFuelSlot() {
+		return fuelSlot;
+	}
+
+	public int[] getInputSlots() {
+		return inputSlots;
+	}
+
+	public ItemStack[] getInventory() {
+		return inventory;
 	}
 
 	@Override
@@ -195,9 +219,13 @@ public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, I
 		return 64;
 	}
 
+	public int[] getOutputSlots() {
+		return outputSlots;
+	}
+
 	@Override
 	public int getSizeInventory() {
-		return inventory.length;
+		return getInventory().length;
 	}
 
 	public int getSmeltingDuration() {
@@ -227,27 +255,27 @@ public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, I
 
 	@SideOnly(value = Side.CLIENT)
 	public int getSmeltProgressScaled(int i) {
-		return currentSmeltTime * i / getSmeltingDuration();
+		return getCurrentSmeltTime() * i / getSmeltingDuration();
 	}
 
 	@SideOnly(value = Side.CLIENT)
 	public int getSmeltTimeRemainingScaled(int i) {
-		if (currentItemFuelValue == 0) {
-			currentItemFuelValue = getSmeltingDuration();
+		if (getCurrentItemFuelValue() == 0) {
+			setCurrentItemFuelValue(getSmeltingDuration());
 		}
-		return forgeSmeltTime * i / currentItemFuelValue;
+		return getForgeSmeltTime() * i / getCurrentItemFuelValue();
 	}
 
 	@Override
 	public ItemStack getStackInSlot(int i) {
-		return inventory[i];
+		return getInventory()[i];
 	}
 
 	@Override
 	public ItemStack getStackInSlotOnClosing(int i) {
-		if (inventory[i] != null) {
-			ItemStack itemstack = inventory[i];
-			inventory[i] = null;
+		if (getInventory()[i] != null) {
+			ItemStack itemstack = getInventory()[i];
+			getInventory()[i] = null;
 			return itemstack;
 		}
 		return null;
@@ -258,50 +286,46 @@ public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, I
 		return specialForgeName != null && specialForgeName.length() > 0;
 	}
 
-	public boolean isCoal(ItemStack itemstack) {
-		return itemstack.getItem() == Items.coal;
-	}
-
-	public boolean isCobalt(ItemStack itemstack) {
+	private boolean isCobalt(ItemStack itemstack) {
 		return itemstack.getItem() == GOTRegistry.cobaltIngot;
 	}
 
-	public boolean isCopper(ItemStack itemstack) {
+	private boolean isCopper(ItemStack itemstack) {
 		return GOT.isOreNameEqual(itemstack, "oreCopper") || GOT.isOreNameEqual(itemstack, "ingotCopper");
 	}
 
-	public boolean isGoldNugget(ItemStack itemstack) {
+	private boolean isGoldNugget(ItemStack itemstack) {
 		return GOT.isOreNameEqual(itemstack, "nuggetGold");
 	}
 
-	public boolean isIron(ItemStack itemstack) {
+	private boolean isIron(ItemStack itemstack) {
 		return GOT.isOreNameEqual(itemstack, "oreIron") || GOT.isOreNameEqual(itemstack, "ingotIron");
 	}
 
 	@Override
 	public boolean isItemValidForSlot(int slot, ItemStack itemstack) {
-		if (ArrayUtils.contains(inputSlots, slot)) {
+		if (ArrayUtils.contains(getInputSlots(), slot)) {
 			return canMachineInsertInput(itemstack);
 		}
-		if (slot == fuelSlot) {
+		if (slot == getFuelSlot()) {
 			return canMachineInsertFuel(itemstack);
 		}
 		return false;
 	}
 
-	public boolean isOathkeeper(ItemStack itemstack) {
+	private boolean isOathkeeper(ItemStack itemstack) {
 		return itemstack.getItem() == GOTRegistry.oathkeeper;
 	}
 
-	public boolean isSilver(ItemStack itemstack) {
+	private boolean isSilver(ItemStack itemstack) {
 		return GOT.isOreNameEqual(itemstack, "oreSilver") || GOT.isOreNameEqual(itemstack, "ingotSilver");
 	}
 
 	public boolean isSmelting() {
-		return forgeSmeltTime > 0;
+		return getForgeSmeltTime() > 0;
 	}
 
-	public boolean isTin(ItemStack itemstack) {
+	private boolean isTin(ItemStack itemstack) {
 		return GOT.isOreNameEqual(itemstack, "oreTin") || GOT.isOreNameEqual(itemstack, "ingotTin");
 	}
 
@@ -310,15 +334,15 @@ public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, I
 		return worldObj.getTileEntity(xCoord, yCoord, zCoord) == this && entityplayer.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) <= 64.0;
 	}
 
-	public boolean isValyrianNugget(ItemStack itemstack) {
+	private boolean isValyrianNugget(ItemStack itemstack) {
 		return itemstack.getItem() == GOTRegistry.valyrianNugget;
 	}
 
-	public boolean isWidowWail(ItemStack itemstack) {
+	private boolean isWidowWail(ItemStack itemstack) {
 		return itemstack.getItem() == GOTRegistry.widowWail;
 	}
 
-	public boolean isWood(ItemStack itemstack) {
+	private boolean isWood(ItemStack itemstack) {
 		return GOT.isOreNameEqual(itemstack, "logWood");
 	}
 
@@ -337,29 +361,58 @@ public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, I
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
 		NBTTagList items = nbt.getTagList("Items", 10);
-		inventory = new ItemStack[getSizeInventory()];
+		setInventory(new ItemStack[getSizeInventory()]);
 		for (int i = 0; i < items.tagCount(); ++i) {
 			NBTTagCompound itemData = items.getCompoundTagAt(i);
 			byte slot = itemData.getByte("Slot");
-			if (slot < 0 || slot >= inventory.length) {
+			if (slot < 0 || slot >= getInventory().length) {
 				continue;
 			}
-			inventory[slot] = ItemStack.loadItemStackFromNBT(itemData);
+			getInventory()[slot] = ItemStack.loadItemStackFromNBT(itemData);
 		}
-		forgeSmeltTime = nbt.getShort("BurnTime");
-		currentSmeltTime = nbt.getShort("SmeltTime");
-		currentItemFuelValue = TileEntityFurnace.getItemBurnTime(inventory[fuelSlot]);
+		setForgeSmeltTime(nbt.getShort("BurnTime"));
+		setCurrentSmeltTime(nbt.getShort("SmeltTime"));
+		setCurrentItemFuelValue(TileEntityFurnace.getItemBurnTime(getInventory()[getFuelSlot()]));
 		if (nbt.hasKey("CustomName")) {
 			specialForgeName = nbt.getString("CustomName");
 		}
 	}
 
+	public void setCurrentItemFuelValue(int currentItemFuelValue) {
+		this.currentItemFuelValue = currentItemFuelValue;
+	}
+
+	public void setCurrentSmeltTime(int currentSmeltTime) {
+		this.currentSmeltTime = currentSmeltTime;
+	}
+
+	public int setForgeSmeltTime(int forgeSmeltTime) {
+		this.forgeSmeltTime = forgeSmeltTime;
+		return forgeSmeltTime;
+	}
+
+	public void setFuelSlot(int fuelSlot) {
+		this.fuelSlot = fuelSlot;
+	}
+
+	public void setInputSlots(int[] inputSlots) {
+		this.inputSlots = inputSlots;
+	}
+
+	public void setInventory(ItemStack[] inventory) {
+		this.inventory = inventory;
+	}
+
 	@Override
 	public void setInventorySlotContents(int i, ItemStack itemstack) {
-		inventory[i] = itemstack;
+		getInventory()[i] = itemstack;
 		if (itemstack != null && itemstack.stackSize > getInventoryStackLimit()) {
 			itemstack.stackSize = getInventoryStackLimit();
 		}
+	}
+
+	public void setOutputSlots(int[] outputSlots) {
+		this.outputSlots = outputSlots;
 	}
 
 	public void setSpecialForgeName(String s) {
@@ -367,81 +420,81 @@ public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, I
 	}
 
 	public void setupForgeSlots() {
-		inputSlots = new int[] { 4, 5, 6, 7 };
-		outputSlots = new int[] { 8, 9, 10, 11 };
-		fuelSlot = 12;
+		setInputSlots(new int[] { 4, 5, 6, 7 });
+		setOutputSlots(new int[] { 8, 9, 10, 11 });
+		setFuelSlot(12);
 	}
 
-	public void smeltItemInSlot(int i) {
+	private void smeltItemInSlot(int i) {
 		if (canSmelt(i)) {
 			ItemStack alloyResult;
 			boolean smeltedAlloyItem = false;
-			if (inventory[i - 4] != null && (alloyResult = getAlloySmeltingResult(inventory[i], inventory[i - 4])) != null && (inventory[i + 4] == null || inventory[i + 4].isItemEqual(alloyResult))) {
-				if (inventory[i + 4] == null) {
-					inventory[i + 4] = alloyResult.copy();
-				} else if (inventory[i + 4].isItemEqual(alloyResult)) {
-					inventory[i + 4].stackSize += alloyResult.stackSize;
+			if (getInventory()[i - 4] != null && (alloyResult = getAlloySmeltingResult(getInventory()[i], getInventory()[i - 4])) != null && (getInventory()[i + 4] == null || getInventory()[i + 4].isItemEqual(alloyResult))) {
+				if (getInventory()[i + 4] == null) {
+					getInventory()[i + 4] = alloyResult.copy();
+				} else if (getInventory()[i + 4].isItemEqual(alloyResult)) {
+					getInventory()[i + 4].stackSize += alloyResult.stackSize;
 				}
-				--inventory[i].stackSize;
-				if (inventory[i].stackSize <= 0) {
-					inventory[i] = null;
+				--getInventory()[i].stackSize;
+				if (getInventory()[i].stackSize <= 0) {
+					getInventory()[i] = null;
 				}
-				--inventory[i - 4].stackSize;
-				if (inventory[i - 4].stackSize <= 0) {
-					inventory[i - 4] = null;
+				--getInventory()[i - 4].stackSize;
+				if (getInventory()[i - 4].stackSize <= 0) {
+					getInventory()[i - 4] = null;
 				}
 				smeltedAlloyItem = true;
 			}
 			if (!smeltedAlloyItem) {
-				ItemStack result = getSmeltingResult(inventory[i]);
-				if (inventory[i + 4] == null) {
-					inventory[i + 4] = result.copy();
-				} else if (inventory[i + 4].isItemEqual(result)) {
-					inventory[i + 4].stackSize += result.stackSize;
+				ItemStack result = getSmeltingResult(getInventory()[i]);
+				if (getInventory()[i + 4] == null) {
+					getInventory()[i + 4] = result.copy();
+				} else if (getInventory()[i + 4].isItemEqual(result)) {
+					getInventory()[i + 4].stackSize += result.stackSize;
 				}
-				--inventory[i].stackSize;
-				if (inventory[i].stackSize <= 0) {
-					inventory[i] = null;
+				--getInventory()[i].stackSize;
+				if (getInventory()[i].stackSize <= 0) {
+					getInventory()[i] = null;
 				}
 			}
 		}
 	}
 
-	public void toggleForgeActive() {
+	private void toggleForgeActive() {
 		GOTBlockForgeBase.toggleForgeActive(worldObj, xCoord, yCoord, zCoord);
 	}
 
 	@Override
 	public void updateEntity() {
-		boolean smelting = forgeSmeltTime > 0;
+		boolean smelting = getForgeSmeltTime() > 0;
 		boolean needUpdate = false;
-		if (forgeSmeltTime > 0) {
-			--forgeSmeltTime;
+		if (getForgeSmeltTime() > 0) {
+			setForgeSmeltTime(getForgeSmeltTime() - 1);
 		}
 		if (!worldObj.isRemote) {
-			if (forgeSmeltTime == 0 && canDoSmelting()) {
-				currentItemFuelValue = forgeSmeltTime = TileEntityFurnace.getItemBurnTime(inventory[fuelSlot]);
-				if (forgeSmeltTime > 0) {
+			if (getForgeSmeltTime() == 0 && canDoSmelting()) {
+				setCurrentItemFuelValue(setForgeSmeltTime(TileEntityFurnace.getItemBurnTime(getInventory()[getFuelSlot()])));
+				if (getForgeSmeltTime() > 0) {
 					needUpdate = true;
-					if (inventory[fuelSlot] != null) {
-						--inventory[fuelSlot].stackSize;
-						if (inventory[fuelSlot].stackSize == 0) {
-							inventory[fuelSlot] = inventory[fuelSlot].getItem().getContainerItem(inventory[fuelSlot]);
+					if (getInventory()[getFuelSlot()] != null) {
+						--getInventory()[getFuelSlot()].stackSize;
+						if (getInventory()[getFuelSlot()].stackSize == 0) {
+							getInventory()[getFuelSlot()] = getInventory()[getFuelSlot()].getItem().getContainerItem(getInventory()[getFuelSlot()]);
 						}
 					}
 				}
 			}
 			if (isSmelting() && canDoSmelting()) {
-				++currentSmeltTime;
-				if (currentSmeltTime == getSmeltingDuration()) {
-					currentSmeltTime = 0;
+				setCurrentSmeltTime(getCurrentSmeltTime() + 1);
+				if (getCurrentSmeltTime() == getSmeltingDuration()) {
+					setCurrentSmeltTime(0);
 					doSmelt();
 					needUpdate = true;
 				}
 			} else {
-				currentSmeltTime = 0;
+				setCurrentSmeltTime(0);
 			}
-			if (smelting != forgeSmeltTime > 0) {
+			if (smelting != getForgeSmeltTime() > 0) {
 				needUpdate = true;
 				toggleForgeActive();
 			}
@@ -455,18 +508,18 @@ public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, I
 	public void writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		NBTTagList items = new NBTTagList();
-		for (int i = 0; i < inventory.length; ++i) {
-			if (inventory[i] == null) {
+		for (int i = 0; i < getInventory().length; ++i) {
+			if (getInventory()[i] == null) {
 				continue;
 			}
 			NBTTagCompound itemData = new NBTTagCompound();
 			itemData.setByte("Slot", (byte) i);
-			inventory[i].writeToNBT(itemData);
+			getInventory()[i].writeToNBT(itemData);
 			items.appendTag(itemData);
 		}
 		nbt.setTag("Items", items);
-		nbt.setShort("BurnTime", (short) forgeSmeltTime);
-		nbt.setShort("SmeltTime", (short) currentSmeltTime);
+		nbt.setShort("BurnTime", (short) getForgeSmeltTime());
+		nbt.setShort("SmeltTime", (short) getCurrentSmeltTime());
 		if (hasCustomInventoryName()) {
 			nbt.setString("CustomName", specialForgeName);
 		}

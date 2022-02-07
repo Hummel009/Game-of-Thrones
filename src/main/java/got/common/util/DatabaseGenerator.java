@@ -882,7 +882,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			if ("unitsCommanders".equals(display) && entities.get(mob) instanceof GOTUnitTradeable && !((GOTEntityNPC) entities.get(mob)).isLegendaryNPC()) {
 				GOTUnitTradeEntries entries = ((GOTUnitTradeable) entities.get(mob)).getUnits();
-				for (GOTUnitTradeEntry entry : entries.tradeEntries) {
+				for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
 					if (entry.mountClass == null) {
 						GOTLog.getLogger().info("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = [[" + GOTEntityRegistry.getEntityName(mob) + "]]");
 					}
@@ -1045,7 +1045,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 						GOTLog.getLogger().info("Container ¹" + i + ":");
 					}
 					for (SpawnListContainer one : cont.spawnLists) {
-						for (GOTSpawnEntry entry : one.spawnList.spawnList) {
+						for (GOTSpawnEntry entry : one.spawnList.getSpawnList()) {
 							GOTLog.getLogger().info("* [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]]; ");
 						}
 					}
@@ -1055,7 +1055,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		}
 
 		for (GOTUnitTradeEntries entries : GOTCommander.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class)) {
-			for (GOTUnitTradeEntry entry : entries.tradeEntries) {
+			for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
 				if ("unitsPrice".equals(display)) {
 					GOTLog.getLogger().info("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = {{Bar|coins|" + entry.initialCost * 2 + "|size=22}}");
 					continue;

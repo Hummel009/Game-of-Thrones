@@ -198,11 +198,11 @@ public class GOTSpawnList {
 	public static GOTSpawnList YITI_CONQUEST = new GOTSpawnList(new GOTSpawnEntry(GOTEntityYiTiFrontier.class, 10, 1, 2), new GOTSpawnEntry(GOTEntityYiTiFrontierCrossbower.class, 5, 1, 1), new GOTSpawnEntry(GOTEntityYiTiFireThrower.class, 2, 1, 1), new GOTSpawnEntry(GOTEntityYiTiBombardier.class, 2, 1, 1), new GOTSpawnEntry(GOTEntityYiTiSamurai.class, 2, 1, 2));
 	public static GOTSpawnList YITI_MILITARY = new GOTSpawnList(new GOTSpawnEntry(GOTEntityYiTiSoldier.class, 10, 1, 2), new GOTSpawnEntry(GOTEntityYiTiSoldierCrossbower.class, 5, 1, 1), new GOTSpawnEntry(GOTEntityYiTiFireThrower.class, 2, 1, 1), new GOTSpawnEntry(GOTEntityYiTiBombardier.class, 2, 1, 1), new GOTSpawnEntry(GOTEntityYiTiSamurai.class, 2, 1, 2));
 
-	public List<GOTSpawnEntry> spawnList;
-	public GOTFaction discoveredFaction;
+	private List<GOTSpawnEntry> spawnList;
+	private GOTFaction discoveredFaction;
 
 	public GOTSpawnList(GOTSpawnEntry... entries) {
-		spawnList = Arrays.asList(entries);
+		setSpawnList(Arrays.asList(entries));
 	}
 
 	public GOTFaction getListCommonFaction(World world) {
@@ -210,7 +210,7 @@ public class GOTSpawnList {
 			return discoveredFaction;
 		}
 		GOTFaction commonFaction = null;
-		for (GOTSpawnEntry entry : spawnList) {
+		for (GOTSpawnEntry entry : getSpawnList()) {
 			Class entityClass = entry.entityClass;
 			if (GOTEntityNPC.class.isAssignableFrom(entityClass)) {
 				try {
@@ -239,10 +239,18 @@ public class GOTSpawnList {
 	}
 
 	public GOTSpawnEntry getRandomSpawnEntry(Random rand) {
-		return (GOTSpawnEntry) WeightedRandom.getRandomItem(rand, spawnList);
+		return (GOTSpawnEntry) WeightedRandom.getRandomItem(rand, getSpawnList());
 	}
 
 	public List<GOTSpawnEntry> getReadOnlyList() {
-		return new ArrayList<>(spawnList);
+		return new ArrayList<>(getSpawnList());
+	}
+
+	public List<GOTSpawnEntry> getSpawnList() {
+		return spawnList;
+	}
+
+	public void setSpawnList(List<GOTSpawnEntry> spawnList) {
+		this.spawnList = spawnList;
 	}
 }

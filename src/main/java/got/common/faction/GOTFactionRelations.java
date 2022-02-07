@@ -13,12 +13,12 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.StatCollector;
 
 public class GOTFactionRelations {
-	public static Map<FactionPair, Relation> defaultMap = new HashMap<>();
-	public static Map<FactionPair, Relation> overrideMap = new HashMap<>();
-	public static boolean needsLoad = true;
-	public static boolean needsSave = false;
+	private static Map<FactionPair, Relation> defaultMap = new HashMap<>();
+	private static Map<FactionPair, Relation> overrideMap = new HashMap<>();
+	private static boolean needsLoad = true;
+	private static boolean needsSave = false;
 
-	public static Relation getFromDefaultMap(FactionPair key) {
+	private static Relation getFromDefaultMap(FactionPair key) {
 		if (defaultMap.containsKey(key)) {
 			return defaultMap.get(key);
 		}
@@ -45,8 +45,12 @@ public class GOTFactionRelations {
 		return GOTFactionRelations.getFromDefaultMap(key);
 	}
 
-	public static File getRelationsFile() {
+	private static File getRelationsFile() {
 		return new File(GOTLevelData.getOrCreateGOTDir(), "faction_relations.dat");
+	}
+
+	public static boolean isNeedsLoad() {
+		return needsLoad;
 	}
 
 	public static void load() {
@@ -63,7 +67,7 @@ public class GOTFactionRelations {
 				}
 				overrideMap.put(pair, rel);
 			}
-			needsLoad = false;
+			setNeedsLoad(false);
 			GOTFactionRelations.save();
 		} catch (Exception e) {
 			FMLLog.severe("Error loading GOT faction relations");
@@ -71,7 +75,7 @@ public class GOTFactionRelations {
 		}
 	}
 
-	public static void markDirty() {
+	private static void markDirty() {
 		needsSave = true;
 	}
 
@@ -123,7 +127,7 @@ public class GOTFactionRelations {
 		GOTPacketHandler.networkWrapper.sendTo(pkt, entityplayer);
 	}
 
-	public static void sendPacketToAll(IMessage packet) {
+	private static void sendPacketToAll(IMessage packet) {
 		MinecraftServer srv = MinecraftServer.getServer();
 		if (srv != null) {
 			for (Object obj : srv.getConfigurationManager().playerEntityList) {
@@ -133,11 +137,15 @@ public class GOTFactionRelations {
 		}
 	}
 
+	public static void setNeedsLoad(boolean needsLoad) {
+		GOTFactionRelations.needsLoad = needsLoad;
+	}
+
 	public static void setRelations(GOTFaction f1, GOTFaction f2, Relation relation) {
 		GOTFactionRelations.setRelations(f1, f2, relation, true);
 	}
 
-	public static void setRelations(GOTFaction f1, GOTFaction f2, Relation relation, boolean isDefault) {
+	private static void setRelations(GOTFaction f1, GOTFaction f2, Relation relation, boolean isDefault) {
 		if (f1 == GOTFaction.UNALIGNED || f2 == GOTFaction.UNALIGNED) {
 			throw new IllegalArgumentException("Cannot alter UNALIGNED!");
 		}
@@ -168,8 +176,8 @@ public class GOTFactionRelations {
 	}
 
 	public static class FactionPair {
-		public GOTFaction fac1;
-		public GOTFaction fac2;
+		private GOTFaction fac1;
+		private GOTFaction fac2;
 
 		public FactionPair(GOTFaction f1, GOTFaction f2) {
 			fac1 = f1;
@@ -207,12 +215,12 @@ public class GOTFactionRelations {
 			return upper << 16 | lower;
 		}
 
-		public void writeToNBT(NBTTagCompound nbt) {
+		private void writeToNBT(NBTTagCompound nbt) {
 			nbt.setString("FacPair1", fac1.codeName());
 			nbt.setString("FacPair2", fac2.codeName());
 		}
 
-		public static FactionPair readFromNBT(NBTTagCompound nbt) {
+		private static FactionPair readFromNBT(NBTTagCompound nbt) {
 			GOTFaction f1 = GOTFaction.forName(nbt.getString("FacPair1"));
 			GOTFaction f2 = GOTFaction.forName(nbt.getString("FacPair2"));
 			if (f1 != null && f2 != null) {
@@ -225,7 +233,7 @@ public class GOTFactionRelations {
 	public enum Relation {
 		ALLY, FRIEND, NEUTRAL, ENEMY, MORTAL_ENEMY;
 
-		public String codeName() {
+		private String codeName() {
 			return name();
 		}
 

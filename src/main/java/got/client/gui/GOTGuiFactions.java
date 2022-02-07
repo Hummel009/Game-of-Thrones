@@ -237,9 +237,9 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 			if (!useFullPageTexture()) {
 				if (currentFaction.factionMapInfo != null) {
 					GOTMapRegion mapInfo = currentFaction.factionMapInfo;
-					int mapX = mapInfo.mapX;
-					int mapY = mapInfo.mapY;
-					int mapR = mapInfo.radius;
+					int mapX = mapInfo.getMapX();
+					int mapY = mapInfo.getMapY();
+					int mapR = mapInfo.getRadius();
 					int xMin = getGuiLeft() + pageMapX;
 					int xMax = xMin + pageMapSize;
 					int yMin = getGuiTop() + pageY + pageMapY;
@@ -260,7 +260,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 				int wcWidth = 8;
 				mc.getTextureManager().bindTexture(getFactionsTexture());
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-				if (currentFaction.isViolent) {
+				if (currentFaction.isViolent()) {
 					this.drawTexturedModalRect(wcX, wcY, 33, 142, wcWidth, wcWidth);
 				} else {
 					this.drawTexturedModalRect(wcX, wcY, 41, 142, wcWidth, wcWidth);
@@ -332,12 +332,12 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 						} else if (listObj instanceof GOTFactionRank) {
 							GOTFactionRank rank = (GOTFactionRank) listObj;
 							String rankName = rank.getShortNameWithGender(clientPD);
-							String rankAlign = GOTAlignmentValues.formatAlignForDisplay(rank.alignment);
-							if (rank == GOTFactionRank.RANK_ENEMY) {
+							String rankAlign = GOTAlignmentValues.formatAlignForDisplay(rank.getAlignment());
+							if (rank == GOTFactionRank.getRankEnemy()) {
 								rankAlign = "-";
 							}
 							boolean hiddenRankName = false;
-							if (!clientPD.isPledgedTo(currentFaction) && rank.alignment > currentFaction.getPledgeAlignment() && rank.alignment > currentFaction.getRankAbove(curRank).alignment) {
+							if (!clientPD.isPledgedTo(currentFaction) && rank.getAlignment() > currentFaction.getPledgeAlignment() && rank.getAlignment() > currentFaction.getRankAbove(curRank).getAlignment()) {
 								hiddenRankName = true;
 							}
 							if (hiddenRankName) {
@@ -457,7 +457,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		}
 		if (mouseOverWarCrimes) {
 			float z = zLevel;
-			String warCrimes = currentFaction.isViolent ? "got.gui.factions.warCrimesYes" : "got.gui.factions.warCrimesNo";
+			String warCrimes = currentFaction.isViolent() ? "got.gui.factions.warCrimesYes" : "got.gui.factions.warCrimesNo";
 			warCrimes = StatCollector.translateToLocal(warCrimes);
 			stringWidth = 200;
 			desc = fontRendererObj.listFormattedStringToWidth(warCrimes, stringWidth);
@@ -613,9 +613,9 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 				currentAlliesEnemies = new ArrayList();
 				currentAlliesEnemies.add(StatCollector.translateToLocal("got.gui.factions.rankHeader"));
 				if (GOTLevelData.getData(mc.thePlayer).getAlignment(currentFaction) <= 0.0f) {
-					currentAlliesEnemies.add(GOTFactionRank.RANK_ENEMY);
+					currentAlliesEnemies.add(GOTFactionRank.getRankEnemy());
 				}
-				GOTFactionRank rank = GOTFactionRank.RANK_NEUTRAL;
+				GOTFactionRank rank = GOTFactionRank.getRankNeutral();
 				do {
 					currentAlliesEnemies.add(rank);
 					GOTFactionRank nextRank = currentFaction.getRankAbove(rank);

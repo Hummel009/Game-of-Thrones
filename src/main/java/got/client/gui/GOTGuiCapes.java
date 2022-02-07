@@ -68,7 +68,7 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 
 	private boolean canGoLeft() {
 		for (int i = 0; i <= currentCapeID - 1; ++i) {
-			GOTCapes cape = currentCapeType.list.get(i);
+			GOTCapes cape = currentCapeType.getList().get(i);
 			if (!cape.canDisplay(mc.thePlayer)) {
 				continue;
 			}
@@ -78,8 +78,8 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 	}
 
 	private boolean canGoRight() {
-		for (int i = currentCapeID + 1; i <= currentCapeType.list.size() - 1; ++i) {
-			GOTCapes cape = currentCapeType.list.get(i);
+		for (int i = currentCapeID + 1; i <= currentCapeType.getList().size() - 1; ++i) {
+			GOTCapes cape = currentCapeType.getList().get(i);
 			if (!cape.canDisplay(mc.thePlayer)) {
 				continue;
 			}
@@ -109,7 +109,7 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 		mc.getTextureManager().bindTexture(mc.thePlayer.getLocationSkin());
 		playerModel.isChild = false;
 		playerModel.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
-		mc.getTextureManager().bindTexture(currentCape.capeTexture);
+		mc.getTextureManager().bindTexture(currentCape.getCapeTexture());
 		GL11.glTranslatef(0.0f, 0.0f, 0.125f);
 		GL11.glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
 		GL11.glRotatef(-10.0f, 1.0f, 0.0f, 0.0f);
@@ -170,8 +170,8 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 
 		GOTCapes equippedCape = getPlayerEquippedCape();
 		if (equippedCape != null) {
-			currentCapeTypeID = equippedCape.capeType.ordinal();
-			currentCapeID = equippedCape.capeID;
+			currentCapeTypeID = equippedCape.getCapeType().ordinal();
+			currentCapeID = equippedCape.getCapeID();
 		}
 		updateCurrentCape(0, 0);
 	}
@@ -180,7 +180,7 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 		if (cape != 0) {
 			currentCapeID += cape;
 			currentCapeID = Math.max(currentCapeID, 0);
-			currentCapeID = Math.min(currentCapeID, currentCapeType.list.size() - 1);
+			currentCapeID = Math.min(currentCapeID, currentCapeType.getList().size() - 1);
 		}
 		if (type != 0) {
 			currentCapeTypeID += type;
@@ -193,7 +193,7 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 			currentCapeID = 0;
 		}
 		currentCapeType = GOTCapes.CapeType.values()[currentCapeTypeID];
-		currentCape = currentCapeType.list.get(currentCapeID);
+		currentCape = currentCapeType.getList().get(currentCapeID);
 		while (!currentCape.canDisplay(mc.thePlayer)) {
 			if ((cape < 0 || type != 0) && canGoLeft()) {
 				updateCurrentCape(-1, 0);

@@ -11,7 +11,7 @@ import net.minecraft.tileentity.TileEntityDispenser;
 import net.minecraft.util.*;
 
 public class GOTTileEntitySarbacaneTrap extends TileEntityDispenser {
-	public int fireCooldown;
+	private int fireCooldown;
 
 	@Override
 	public String getInventoryName() {

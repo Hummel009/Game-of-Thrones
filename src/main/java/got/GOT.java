@@ -190,7 +190,7 @@ public class GOT {
 			int b = (int) (baseB * rgb[2]);
 			biome.waterColorMultiplier = new Color(r, g, b).getRGB();
 		}
-		int[] nums = { GOTAchievement.id, GOTPacketHandler.id, BannerType.values().length, GOTEntity.id, GOTStructure.id, GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class).size(), GOTRoads.id, GOTWalls.id, GOTWaypoint.values().length, GOTFaction.values().length, GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Item.class).size(), GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Block.class).size() };
+		int[] nums = { GOTAchievement.getId(), GOTPacketHandler.id, BannerType.values().length, GOTEntity.id, GOTStructure.id, GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class).size(), GOTRoads.id, GOTWalls.id, GOTWaypoint.values().length, GOTFaction.values().length, GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Item.class).size(), GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Block.class).size() };
 		String[] strings = { " achievements", " packets", " banners", " mobs", " structures", " biomes", " roads", " walls", " waypoints", " factions", " items", " blocks" };
 		for (int i = 0; i < nums.length; i++) {
 			GOTLog.getLogger().info(new StringBuilder().append("Hummel009: Registered ").append(nums[i]).append(strings[i]).toString());
@@ -267,7 +267,7 @@ public class GOT {
 				}
 			}
 		}
-		if (attackerFaction.allowEntityRegistry) {
+		if (attackerFaction.isAllowEntityRegistry()) {
 			if (attackerFaction.isGoodRelation(getNPCFaction(target)) && attacker.getAttackTarget() != target) {
 				return false;
 			}

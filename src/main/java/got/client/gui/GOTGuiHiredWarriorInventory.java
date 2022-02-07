@@ -28,8 +28,8 @@ public class GOTGuiHiredWarriorInventory extends GuiContainer {
 		mc.getTextureManager().bindTexture(guiTexture);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		if (theNPC instanceof GOTEntityYiTiBombardier) {
-			Slot slotBomb = containerInv.getSlotFromInventory(containerInv.proxyInv, 5);
-			Slot slotMelee = containerInv.getSlotFromInventory(containerInv.proxyInv, 4);
+			Slot slotBomb = containerInv.getSlotFromInventory(containerInv.getProxyInv(), 5);
+			Slot slotMelee = containerInv.getSlotFromInventory(containerInv.getProxyInv(), 4);
 			drawTexturedModalRect(guiLeft + slotBomb.xDisplayPosition - 1, guiTop + slotBomb.yDisplayPosition - 1, slotMelee.xDisplayPosition - 1, slotMelee.yDisplayPosition - 1, 18, 18);
 		}
 	}

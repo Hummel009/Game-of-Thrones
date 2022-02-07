@@ -12,8 +12,8 @@ import net.minecraft.nbt.*;
 import net.minecraft.util.*;
 
 public class GOTEnchantmentHelper {
-	public static Map<UUID, ItemStack[]> lastKnownPlayerInventories = new HashMap<>();
-	public static Random backupRand;
+	private static Map<UUID, ItemStack[]> lastKnownPlayerInventories = new HashMap<>();
+	private static Random backupRand;
 
 	public static void applyRandomEnchantments(ItemStack itemstack, Random random, boolean skilful, boolean keepBanes) {
 		if (!keepBanes) {
@@ -58,12 +58,12 @@ public class GOTEnchantmentHelper {
 			ArrayList<GOTEnchantment> chosenEnchants = new ArrayList<>();
 			for (int l = 0; l < enchants && !applicable.isEmpty(); ++l) {
 				WeightedRandomEnchant chosenWre = (WeightedRandomEnchant) WeightedRandom.getRandomItem(random, applicable);
-				GOTEnchantment chosenEnch = chosenWre.theEnchant;
+				GOTEnchantment chosenEnch = chosenWre.getTheEnchant();
 				chosenEnchants.add(chosenEnch);
 				applicable.remove(chosenWre);
 				ArrayList<WeightedRandomEnchant> nowIncompatibles = new ArrayList<>();
 				for (WeightedRandomEnchant wre : applicable) {
-					GOTEnchantment otherEnch = wre.theEnchant;
+					GOTEnchantment otherEnch = wre.getTheEnchant();
 					if (otherEnch.isCompatibleWith(chosenEnch)) {
 						continue;
 					}
@@ -105,7 +105,7 @@ public class GOTEnchantmentHelper {
 				if (!(ench instanceof GOTEnchantmentProtection)) {
 					continue;
 				}
-				protection += ((GOTEnchantmentProtection) ench).protectLevel;
+				protection += ((GOTEnchantmentProtection) ench).getProtectLevel();
 			}
 		}
 		return protection;
@@ -133,7 +133,7 @@ public class GOTEnchantmentHelper {
 				if (!(ench instanceof GOTEnchantmentKnockback)) {
 					continue;
 				}
-				kb += ((GOTEnchantmentKnockback) ench).knockback;
+				kb += ((GOTEnchantmentKnockback) ench).getKnockback();
 			}
 		}
 		return kb;
@@ -168,7 +168,7 @@ public class GOTEnchantmentHelper {
 				if (!(ench instanceof GOTEnchantmentLooting)) {
 					continue;
 				}
-				looting += ((GOTEnchantmentLooting) ench).lootLevel;
+				looting += ((GOTEnchantmentLooting) ench).getLootLevel();
 			}
 		}
 		return looting;
@@ -182,7 +182,7 @@ public class GOTEnchantmentHelper {
 				if (!(ench instanceof GOTEnchantmentMeleeReach)) {
 					continue;
 				}
-				reach *= ((GOTEnchantmentMeleeReach) ench).reachFactor;
+				reach *= ((GOTEnchantmentMeleeReach) ench).getReachFactor();
 			}
 		}
 		return reach;
@@ -196,7 +196,7 @@ public class GOTEnchantmentHelper {
 				if (!(ench instanceof GOTEnchantmentMeleeSpeed)) {
 					continue;
 				}
-				speed *= ((GOTEnchantmentMeleeSpeed) ench).speedFactor;
+				speed *= ((GOTEnchantmentMeleeSpeed) ench).getSpeedFactor();
 			}
 		}
 		return speed;
@@ -210,7 +210,7 @@ public class GOTEnchantmentHelper {
 				if (!(ench instanceof GOTEnchantmentRangedDamage)) {
 					continue;
 				}
-				damage *= ((GOTEnchantmentRangedDamage) ench).damageFactor;
+				damage *= ((GOTEnchantmentRangedDamage) ench).getDamageFactor();
 			}
 		}
 		return damage;
@@ -224,7 +224,7 @@ public class GOTEnchantmentHelper {
 				if (!(ench instanceof GOTEnchantmentRangedKnockback)) {
 					continue;
 				}
-				kb += ((GOTEnchantmentRangedKnockback) ench).knockback;
+				kb += ((GOTEnchantmentRangedKnockback) ench).getKnockback();
 			}
 		}
 		return kb;
@@ -257,7 +257,7 @@ public class GOTEnchantmentHelper {
 				if (!(ench instanceof GOTEnchantmentToolSpeed)) {
 					continue;
 				}
-				speed *= ((GOTEnchantmentToolSpeed) ench).speedFactor;
+				speed *= ((GOTEnchantmentToolSpeed) ench).getSpeedFactor();
 			}
 		}
 		return speed;
@@ -276,7 +276,7 @@ public class GOTEnchantmentHelper {
 		return value;
 	}
 
-	public static boolean canApplyAnyEnchant(ItemStack itemstack) {
+	private static boolean canApplyAnyEnchant(ItemStack itemstack) {
 		for (GOTEnchantment ench : GOTEnchantment.allEnchantments) {
 			if (!ench.canApply(itemstack, true)) {
 				continue;
@@ -336,7 +336,7 @@ public class GOTEnchantmentHelper {
 		return enchants;
 	}
 
-	public static NBTTagList getEntityEnchantTags(Entity entity, boolean create) {
+	private static NBTTagList getEntityEnchantTags(Entity entity, boolean create) {
 		NBTTagCompound data = entity.getEntityData();
 		NBTTagList tags = null;
 		if (data != null && data.hasKey("GOTEnchEntity")) {
@@ -357,39 +357,7 @@ public class GOTEnchantmentHelper {
 		return name;
 	}
 
-	public static NBTTagCompound getItemEnchantProgress(ItemStack itemstack, GOTEnchantment ench, boolean create) {
-		NBTTagCompound itemData = itemstack.getTagCompound();
-		if (itemData != null && itemData.hasKey("GOTEnchProgress")) {
-			NBTTagList tags = itemData.getTagList("GOTEnchProgress", 10);
-			for (int i = 0; i < tags.tagCount(); ++i) {
-				NBTTagCompound enchData = tags.getCompoundTagAt(i);
-				if (!enchData.getString("Name").equals(ench.enchantName)) {
-					continue;
-				}
-				return enchData;
-			}
-			if (create) {
-				NBTTagCompound enchData = new NBTTagCompound();
-				enchData.setString("Name", ench.enchantName);
-				tags.appendTag(enchData);
-				return enchData;
-			}
-		} else if (create) {
-			if (itemData == null) {
-				itemData = new NBTTagCompound();
-				itemstack.setTagCompound(itemData);
-			}
-			NBTTagList tags = new NBTTagList();
-			itemData.setTag("GOTEnchProgress", tags);
-			NBTTagCompound enchData = new NBTTagCompound();
-			enchData.setString("Name", ench.enchantName);
-			tags.appendTag(enchData);
-			return enchData;
-		}
-		return null;
-	}
-
-	public static NBTTagList getItemEnchantTags(ItemStack itemstack, boolean create) {
+	private static NBTTagList getItemEnchantTags(ItemStack itemstack, boolean create) {
 		NBTTagCompound itemData = itemstack.getTagCompound();
 		NBTTagList tags = null;
 		if (itemData != null && itemData.hasKey("GOTEnch")) {
@@ -415,7 +383,7 @@ public class GOTEnchantmentHelper {
 				List<GOTEnchantment> enchants = GOTEnchantmentHelper.getEnchantList(itemstack);
 				for (GOTEnchantment ench : enchants) {
 					int protection;
-					if (!(ench instanceof GOTEnchantmentProtectionFire) || (protection = ((GOTEnchantmentProtectionFire) ench).protectLevel) <= max) {
+					if (!(ench instanceof GOTEnchantmentProtectionFire) || (protection = ((GOTEnchantmentProtectionFire) ench).getProtectLevel()) <= max) {
 						continue;
 					}
 					max = protection;
@@ -439,7 +407,7 @@ public class GOTEnchantmentHelper {
 		return Math.max(weight, 1);
 	}
 
-	public static boolean hasAppliedRandomEnchants(ItemStack itemstack) {
+	private static boolean hasAppliedRandomEnchants(ItemStack itemstack) {
 		NBTTagCompound nbt = itemstack.getTagCompound();
 		if (nbt != null && nbt.hasKey("GOTRandomEnch")) {
 			return nbt.getBoolean("GOTRandomEnch");
@@ -472,7 +440,7 @@ public class GOTEnchantmentHelper {
 		return sourceEntity != null && GOTEnchantmentHelper.hasProjectileEnchantment(sourceEntity, ench);
 	}
 
-	public static boolean hasProjectileEnchantment(Entity entity, GOTEnchantment ench) {
+	private static boolean hasProjectileEnchantment(Entity entity, GOTEnchantment ench) {
 		NBTTagList tags = GOTEnchantmentHelper.getEntityEnchantTags(entity, false);
 		if (tags != null) {
 			for (int i = 0; i < tags.tagCount(); ++i) {
@@ -505,7 +473,7 @@ public class GOTEnchantmentHelper {
 			List<GOTEnchantment> enchants = GOTEnchantmentHelper.getEnchantList(itemstack);
 			for (GOTEnchantment ench : enchants) {
 				float durability;
-				if (!(ench instanceof GOTEnchantmentDurability) || (durability = ((GOTEnchantmentDurability) ench).durabilityFactor) <= 1.0f) {
+				if (!(ench instanceof GOTEnchantmentDurability) || (durability = ((GOTEnchantmentDurability) ench).getDurabilityFactor()) <= 1.0f) {
 					continue;
 				}
 				float inv = 1.0f / durability;
@@ -577,7 +545,7 @@ public class GOTEnchantmentHelper {
 		itemstack.getTagCompound().setInteger("GOTRepairCost", cost);
 	}
 
-	public static void setAppliedRandomEnchants(ItemStack itemstack) {
+	private static void setAppliedRandomEnchants(ItemStack itemstack) {
 		if (!itemstack.hasTagCompound()) {
 			itemstack.setTagCompound(new NBTTagCompound());
 		}
@@ -607,7 +575,7 @@ public class GOTEnchantmentHelper {
 		}
 	}
 
-	public static boolean tryApplyRandomEnchantsForEntity(ItemStack itemstack, Random rand) {
+	private static boolean tryApplyRandomEnchantsForEntity(ItemStack itemstack, Random rand) {
 		if (itemstack != null && !GOTEnchantmentHelper.hasAppliedRandomEnchants(itemstack) && GOTEnchantmentHelper.canApplyAnyEnchant(itemstack)) {
 			GOTEnchantmentHelper.applyRandomEnchantments(itemstack, rand, false, false);
 			return true;
@@ -616,11 +584,19 @@ public class GOTEnchantmentHelper {
 	}
 
 	public static class WeightedRandomEnchant extends WeightedRandom.Item {
-		public GOTEnchantment theEnchant;
+		private GOTEnchantment theEnchant;
 
 		public WeightedRandomEnchant(GOTEnchantment e, int weight) {
 			super(weight);
-			theEnchant = e;
+			setTheEnchant(e);
+		}
+
+		public GOTEnchantment getTheEnchant() {
+			return theEnchant;
+		}
+
+		public void setTheEnchant(GOTEnchantment theEnchant) {
+			this.theEnchant = theEnchant;
 		}
 	}
 

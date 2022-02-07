@@ -117,7 +117,7 @@ public class GOTPlayerData {
 		UUID fsID = fs.getFellowshipID();
 		GOTFellowshipInvite existingInvite = null;
 		for (GOTFellowshipInvite invite : fellowshipInvites) {
-			if (!invite.fellowshipID.equals(fsID)) {
+			if (!invite.getFellowshipID().equals(fsID)) {
 				continue;
 			}
 			existingInvite = invite;
@@ -133,7 +133,7 @@ public class GOTPlayerData {
 			sendFellowshipInviteRemovePacket(fs);
 			if (!fs.isDisbanded() && (entityplayer = getPlayer()) != null && !entityplayer.worldObj.isRemote) {
 				EntityPlayer inviter;
-				UUID inviterID = existingInvite.inviterID;
+				UUID inviterID = existingInvite.getInviterID();
 				if (inviterID == null) {
 					inviterID = fs.getOwner();
 				}
@@ -160,7 +160,7 @@ public class GOTPlayerData {
 				List<GOTAchievement> earnedAchievements = getEarnedAchievements(GOTDimension.GAME_OF_THRONES);
 				int biomes = 0;
 				for (GOTAchievement earnedAchievement : earnedAchievements) {
-					if (earnedAchievement.isBiomeAchievement) {
+					if (earnedAchievement.isBiomeAchievement()) {
 						++biomes;
 					}
 				}
@@ -192,17 +192,17 @@ public class GOTPlayerData {
 	}
 
 	private GOTAlignmentBonusMap addAlignment(EntityPlayer entityplayer, GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, List<GOTFaction> forcedBonusFactions, double posX, double posY, double posZ) {
-		float bonus = source.bonus;
+		float bonus = source.getBonus();
 		GOTAlignmentBonusMap factionBonusMap = new GOTAlignmentBonusMap();
 		float prevMainAlignment = getAlignment(faction);
 		float conquestBonus = 0.0f;
-		if (source.isKill) {
+		if (source.isKill()) {
 			List<GOTFaction> killBonuses = faction.getBonusesForKilling();
 			for (GOTFaction bonusFaction : killBonuses) {
-				if (!bonusFaction.isPlayableAlignmentFaction() || !bonusFaction.isViolent && source.isCivilianKill) {
+				if (!bonusFaction.isPlayableAlignmentFaction() || !bonusFaction.isViolent() && source.isCivilianKill()) {
 					continue;
 				}
-				if (!source.killByHiredUnit) {
+				if (!source.isKillByHiredUnit()) {
 					float mplier;
 					mplier = forcedBonusFactions != null && forcedBonusFactions.contains(bonusFaction) ? 1.0f : bonusFaction.getControlZoneAlignmentMultiplier(entityplayer);
 					if (mplier > 0.0f) {
@@ -221,7 +221,7 @@ public class GOTPlayerData {
 					continue;
 				}
 				float conq = bonus;
-				if (source.killByHiredUnit) {
+				if (source.isKillByHiredUnit()) {
 					conq *= 0.25f;
 				}
 				conquestBonus = GOTConquestGrid.onConquestKill(entityplayer, bonusFaction, faction, conq);
@@ -229,7 +229,7 @@ public class GOTPlayerData {
 			}
 			List<GOTFaction> killPenalties = faction.getPenaltiesForKilling();
 			for (GOTFaction penaltyFaction : killPenalties) {
-				if (!penaltyFaction.isPlayableAlignmentFaction() || source.killByHiredUnit) {
+				if (!penaltyFaction.isPlayableAlignmentFaction() || source.isKillByHiredUnit()) {
 					continue;
 				}
 				float mplier;
@@ -241,9 +241,9 @@ public class GOTPlayerData {
 				float factionPenalty = -Math.abs(bonus);
 				factionPenalty *= mplier;
 				factionPenalty = GOTAlignmentValues.AlignmentBonus.scalePenalty(factionPenalty, alignment);
-				if (source.isRoyalOrder) {
+				if (source.isRoyalOrder()) {
 					setAlignment(penaltyFaction, alignment += 0);
-					setAlignment(source.faction, alignment += factionPenalty);
+					setAlignment(source.getFaction(), alignment += factionPenalty);
 				} else {
 					setAlignment(penaltyFaction, alignment += factionPenalty);
 				}
@@ -310,7 +310,7 @@ public class GOTPlayerData {
 		UUID fsID = fs.getFellowshipID();
 		boolean contains = false;
 		for (GOTFellowshipInvite invite : fellowshipInvites) {
-			if (!invite.fellowshipID.equals(fsID)) {
+			if (!invite.getFellowshipID().equals(fsID)) {
 				continue;
 			}
 			contains = true;
@@ -804,8 +804,8 @@ public class GOTPlayerData {
 	}
 
 	public float getAlignment(GOTFaction faction) {
-		if (faction.hasFixedAlignment) {
-			return faction.fixedAlignment;
+		if (faction.isHasFixedAlignment()) {
+			return faction.getFixedAlignment();
 		}
 		Float alignment = alignments.get(faction);
 		return alignment != null ? alignment : 0.0f;
@@ -1018,7 +1018,7 @@ public class GOTPlayerData {
 	public GOTMiniQuest getMiniQuestForID(UUID id, boolean completed) {
 		ArrayList<GOTMiniQuest> threadSafe = completed ? new ArrayList<>(miniQuestsCompleted) : new ArrayList<>(miniQuests);
 		for (GOTMiniQuest quest : threadSafe) {
-			if (!quest.questUUID.equals(id)) {
+			if (!quest.getQuestUUID().equals(id)) {
 				continue;
 			}
 			return quest;
@@ -1211,7 +1211,7 @@ public class GOTPlayerData {
 
 	public boolean hasAchievement(GOTAchievement achievement) {
 		for (GOTAchievement a : achievements) {
-			if (a.category != achievement.category || a.ID != achievement.ID) {
+			if (a.getCategory() != achievement.getCategory() || a.getID() != achievement.getID()) {
 				continue;
 			}
 			return true;
@@ -1818,7 +1818,7 @@ public class GOTPlayerData {
 		UUID fsID = fs.getFellowshipID();
 		GOTFellowshipInvite existingInvite = null;
 		for (GOTFellowshipInvite invite : fellowshipInvites) {
-			if (!invite.fellowshipID.equals(fsID)) {
+			if (!invite.getFellowshipID().equals(fsID)) {
 				continue;
 			}
 			existingInvite = invite;
@@ -1996,7 +1996,7 @@ public class GOTPlayerData {
 			GOTFactionRank rank = wasPledge.getRank(prevAlign);
 			GOTFactionRank rankBelow = wasPledge.getRankBelow(rank);
 			GOTFactionRank rankBelow2 = wasPledge.getRankBelow(rankBelow);
-			float newAlign = rankBelow2.alignment;
+			float newAlign = rankBelow2.getAlignment();
 			float alignPenalty = (newAlign = Math.max(newAlign, pledgeLvl / 2.0f)) - prevAlign;
 			if (alignPenalty < 0.0f) {
 				GOTAlignmentValues.AlignmentBonus penalty = GOTAlignmentValues.createPledgePenalty(alignPenalty);
@@ -2044,8 +2044,8 @@ public class GOTPlayerData {
 				addAchievement(ach);
 			}
 		}
-		if (GOTAchievement.armorAchievements.containsKey(material)) {
-			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.armorAchievements.get(material));
+		if (GOTAchievement.getArmorAchievements().containsKey(material)) {
+			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.getArmorAchievements().get(material));
 		}
 		if (entityplayer.dimension == GOTDimension.GAME_OF_THRONES.getDimensionID()) {
 			addAchievement(GOTAchievement.ENTER_GOT);
@@ -2155,8 +2155,8 @@ public class GOTPlayerData {
 		NBTTagList achievementTags = new NBTTagList();
 		for (GOTAchievement achievement : achievements) {
 			NBTTagCompound nbt = new NBTTagCompound();
-			nbt.setString("Category", achievement.category.name());
-			nbt.setInteger("ID", achievement.ID);
+			nbt.setString("Category", achievement.getCategory().name());
+			nbt.setInteger("ID", achievement.getID());
 			achievementTags.appendTag(nbt);
 		}
 		playerData.setTag("Achievements", achievementTags);
@@ -2301,9 +2301,9 @@ public class GOTPlayerData {
 		NBTTagList fellowshipInviteTags = new NBTTagList();
 		for (GOTFellowshipInvite invite : fellowshipInvites) {
 			NBTTagCompound nbt = new NBTTagCompound();
-			nbt.setString("ID", invite.fellowshipID.toString());
-			if (invite.inviterID != null) {
-				nbt.setString("InviterID", invite.inviterID.toString());
+			nbt.setString("ID", invite.getFellowshipID().toString());
+			if (invite.getInviterID() != null) {
+				nbt.setString("InviterID", invite.getInviterID().toString());
 			}
 			fellowshipInviteTags.appendTag(nbt);
 		}
@@ -2475,7 +2475,7 @@ public class GOTPlayerData {
 			sendFellowshipPacket(fs);
 		}
 		for (GOTFellowshipInvite invite : fellowshipInvites) {
-			fs = GOTFellowshipData.getFellowship(invite.fellowshipID);
+			fs = GOTFellowshipData.getFellowship(invite.getFellowshipID());
 			if (fs == null) {
 				continue;
 			}
@@ -2804,7 +2804,7 @@ public class GOTPlayerData {
 	}
 
 	public void setTrackingMiniQuest(GOTMiniQuest quest) {
-		setTrackingMiniQuestID(quest == null ? null : quest.questUUID);
+		setTrackingMiniQuestID(quest == null ? null : quest.getQuestUUID());
 	}
 
 	public void setTrackingMiniQuestID(UUID npcID) {

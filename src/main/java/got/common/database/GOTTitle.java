@@ -10,26 +10,22 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.*;
 
 public class GOTTitle {
-	public static List<GOTTitle> allTitles = new ArrayList<>();
+	private static List<GOTTitle> allTitles = new ArrayList<>();
 	public static GOTTitle targaryenF;
 	public static GOTTitle targaryenM;
-	public static int nextTitleID;
-	static {
-		nextTitleID = 0;
-	}
-	public int titleID;
-	public String name;
-	public boolean isHidden = false;
-	public TitleType titleType = TitleType.STARTER;
-	public UUID[] uuids;
-	public List<GOTFaction> alignmentFactions = new ArrayList<>();
-	public float alignmentRequired;
-	public boolean anyAlignment = false;
-	public GOTAchievement titleAchievement;
-	public boolean useAchievementName = false;
-	public GOTFactionRank titleRank;
-
-	public boolean isFeminineRank;
+	private static int nextTitleID = 0;
+	private int titleID;
+	private String name;
+	private boolean isHidden = false;
+	private TitleType titleType = TitleType.STARTER;
+	private UUID[] uuids;
+	private List<GOTFaction> alignmentFactions = new ArrayList<>();
+	private float alignmentRequired;
+	private boolean anyAlignment = false;
+	private GOTAchievement titleAchievement;
+	private boolean useAchievementName = false;
+	private GOTFactionRank titleRank;
+	private boolean isFeminineRank;
 
 	public GOTTitle(GOTFactionRank rank, boolean fem) {
 		this(fem ? rank.getCodeNameFem() : rank.getCodeName());
@@ -38,10 +34,10 @@ public class GOTTitle {
 		isFeminineRank = fem;
 	}
 
-	public GOTTitle(String s) {
-		titleID = nextTitleID++;
+	private GOTTitle(String s) {
+		setTitleID(nextTitleID++);
 		name = s;
-		allTitles.add(this);
+		getAllTitles().add(this);
 	}
 
 	public GOTTitle(String s, GOTAchievement ach) {
@@ -87,9 +83,9 @@ public class GOTTitle {
 		}
 		case RANK: {
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-			GOTFaction fac = titleRank.fac;
+			GOTFaction fac = titleRank.getFac();
 			float align = pd.getAlignment(fac);
-			if (align >= titleRank.alignment) {
+			if (align >= titleRank.getAlignment()) {
 				boolean requirePledge;
 				requirePledge = titleRank.isAbovePledgeRank() || titleRank.isPledgeRank();
 				return !requirePledge || pd.isPledgedTo(fac);
@@ -138,12 +134,12 @@ public class GOTTitle {
 		}
 		case RANK: {
 			boolean requirePledge;
-			String alignS = GOTAlignmentValues.formatAlignForDisplay(titleRank.alignment);
+			String alignS = GOTAlignmentValues.formatAlignForDisplay(titleRank.getAlignment());
 			requirePledge = titleRank.isAbovePledgeRank() || titleRank.isPledgeRank();
 			if (requirePledge) {
-				return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment.pledge", titleRank.fac.factionName(), alignS);
+				return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment.pledge", titleRank.getFac().factionName(), alignS);
 			}
-			return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment", titleRank.fac.factionName(), alignS);
+			return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment", titleRank.getFac().factionName(), alignS);
 		}
 		}
 		return "If you can read this, something has gone hideously wrong";
@@ -157,6 +153,10 @@ public class GOTTitle {
 			return titleRank.getDisplayFullName();
 		}
 		return StatCollector.translateToLocal(getUntranslatedName(entityplayer));
+	}
+
+	public int getTitleID() {
+		return titleID;
 	}
 
 	public String getTitleName() {
@@ -193,32 +193,7 @@ public class GOTTitle {
 		return titleType == TitleType.RANK && isFeminineRank;
 	}
 
-	public GOTTitle setAlignment(GOTFaction faction) {
-		return this.setAlignment(faction, faction.getPledgeAlignment());
-	}
-
-	public GOTTitle setAlignment(GOTFaction faction, float alignment) {
-		return this.setMultiAlignment(alignment, faction);
-	}
-
-	public GOTTitle setAnyAlignment(float alignment) {
-		this.setMultiAlignment(alignment, GOTFaction.getPlayableAlignmentFactions());
-		anyAlignment = true;
-		return this;
-	}
-
-	public GOTTitle setMultiAlignment(float alignment, GOTFaction... factions) {
-		return this.setMultiAlignment(alignment, Arrays.asList(factions));
-	}
-
-	public GOTTitle setMultiAlignment(float alignment, List<GOTFaction> factions) {
-		titleType = TitleType.ALIGNMENT;
-		alignmentFactions.addAll(factions);
-		alignmentRequired = alignment;
-		return this;
-	}
-
-	public GOTTitle setPlayerExclusive(String... players) {
+	private GOTTitle setPlayerExclusive(String... players) {
 		UUID[] us = new UUID[players.length];
 		for (int i = 0; i < players.length; ++i) {
 			us[i] = UUID.fromString(players[i]);
@@ -226,27 +201,15 @@ public class GOTTitle {
 		return this.setPlayerExclusive(us);
 	}
 
-	public GOTTitle setPlayerExclusive(UUID... players) {
+	private GOTTitle setPlayerExclusive(UUID... players) {
 		titleType = TitleType.PLAYER_EXCLUSIVE;
 		uuids = players;
 		isHidden = true;
 		return this;
 	}
 
-	public GOTTitle setPlayerExclusive(UUID[]... playersArrays) {
-		ArrayList<UUID> allPlayers = new ArrayList<>();
-		for (UUID[] players : playersArrays) {
-			allPlayers.addAll(Arrays.asList(players));
-		}
-		return this.setPlayerExclusive(allPlayers.toArray(new UUID[0]));
-	}
-
-	public GOTTitle setShieldExclusive(GOTShields... shields) {
-		ArrayList<UUID> allPlayers = new ArrayList<>();
-		for (GOTShields shield : shields) {
-			allPlayers.addAll(Arrays.asList(shield.exclusiveUUIDs));
-		}
-		return this.setPlayerExclusive(allPlayers.toArray(new UUID[0]));
+	public void setTitleID(int titleID) {
+		this.titleID = titleID;
 	}
 
 	public static Comparator<GOTTitle> createTitleSorter(EntityPlayer entityplayer) {
@@ -254,8 +217,8 @@ public class GOTTitle {
 	}
 
 	public static GOTTitle forID(int ID) {
-		for (GOTTitle title : allTitles) {
-			if (title.titleID != ID) {
+		for (GOTTitle title : getAllTitles()) {
+			if (title.getTitleID() != ID) {
 				continue;
 			}
 			return title;
@@ -264,7 +227,7 @@ public class GOTTitle {
 	}
 
 	public static GOTTitle forName(String name) {
-		for (GOTTitle title : allTitles) {
+		for (GOTTitle title : getAllTitles()) {
 			if (!title.getTitleName().equals(name)) {
 				continue;
 			}
@@ -273,9 +236,17 @@ public class GOTTitle {
 		return null;
 	}
 
+	public static List<GOTTitle> getAllTitles() {
+		return allTitles;
+	}
+
 	public static void onInit() {
 		targaryenF = new GOTTitle("targaryenF").setPlayerExclusive(GOT.getDevs());
 		targaryenM = new GOTTitle("targaryenM").setPlayerExclusive(GOT.getDevs());
+	}
+
+	public static void setAllTitles(List<GOTTitle> allTitles) {
+		GOTTitle.allTitles = allTitles;
 	}
 
 	public static class PlayerTitle {
@@ -304,7 +275,7 @@ public class GOTTitle {
 
 		public IChatComponent getFullTitleComponent(EntityPlayer entityplayer) {
 			IChatComponent component;
-			if (theTitle.titleType == TitleType.RANK && theTitle.titleRank.addFacName) {
+			if (theTitle.titleType == TitleType.RANK && theTitle.titleRank.isAddFacName()) {
 				component = new ChatComponentText("[").appendSibling(new ChatComponentTranslation(theTitle.getUntranslatedName(entityplayer))).appendText(" ").appendSibling(new ChatComponentTranslation(theTitle.titleRank.getFacName())).appendText("]").appendText(" ");
 			} else {
 				component = new ChatComponentText("[").appendSibling(new ChatComponentTranslation(theTitle.getUntranslatedName(entityplayer))).appendText("]").appendText(" ");
@@ -342,7 +313,7 @@ public class GOTTitle {
 
 		public static void writeNullableTitle(ByteBuf data, PlayerTitle title) {
 			if (title != null) {
-				data.writeShort(title.getTitle().titleID);
+				data.writeShort(title.getTitle().getTitleID());
 				data.writeByte(title.getColor().getFormattingCode());
 			} else {
 				data.writeShort(-1);

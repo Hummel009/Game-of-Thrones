@@ -10,8 +10,8 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 
 public class GOTTileEntityPlate extends TileEntity {
-	public ItemStack foodItem;
-	public GOTPlateFallingInfo plateFallInfo;
+	private ItemStack foodItem;
+	private GOTPlateFallingInfo plateFallInfo;
 
 	@Override
 	public Packet getDescriptionPacket() {
@@ -22,6 +22,10 @@ public class GOTTileEntityPlate extends TileEntity {
 
 	public ItemStack getFoodItem() {
 		return foodItem;
+	}
+
+	public GOTPlateFallingInfo getPlateFallInfo() {
+		return plateFallInfo;
 	}
 
 	@SideOnly(value = Side.CLIENT)
@@ -64,6 +68,10 @@ public class GOTTileEntityPlate extends TileEntity {
 			worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 		}
 		markDirty();
+	}
+
+	public void setPlateFallInfo(GOTPlateFallingInfo plateFallInfo) {
+		this.plateFallInfo = plateFallInfo;
 	}
 
 	@Override

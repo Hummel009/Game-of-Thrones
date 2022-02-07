@@ -6,7 +6,7 @@ import got.common.GOTLevelData;
 import net.minecraft.command.*;
 
 public class GOTCommandWaypointCooldown extends CommandBase {
-	public static int MAX_COOLDOWN = 86400;
+	private static int MAX_COOLDOWN = 86400;
 
 	@Override
 	public List addTabCompletionOptions(ICommandSender sender, String[] args) {

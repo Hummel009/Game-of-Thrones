@@ -9,33 +9,33 @@ import net.minecraft.item.ItemStack;
 public class GOTContainerHiredWarriorInventory extends Container {
 	public GOTEntityNPC theNPC;
 	public GOTInventoryHiredReplacedItems npcInv;
-	public IInventory proxyInv;
-	public int npcFullInvSize;
-	public int npcActiveSlotCount;
+	private IInventory proxyInv;
+	private int npcFullInvSize;
+	private int npcActiveSlotCount;
 
 	public GOTContainerHiredWarriorInventory(InventoryPlayer inv, GOTEntityNPC entity) {
 		int i;
 		theNPC = entity;
 		npcInv = theNPC.hiredReplacedInv;
 		npcFullInvSize = npcInv.getSizeInventory();
-		proxyInv = new InventoryBasic("npcTemp", false, npcFullInvSize);
+		setProxyInv(new InventoryBasic("npcTemp", false, npcFullInvSize));
 		for (int i2 = 0; i2 < 4; ++i2) {
-			GOTSlotHiredReplaceItem slot = new GOTSlotHiredReplaceItem(new GOTSlotArmorStand(proxyInv, i2, 80, 21 + i2 * 18, i2, inv.player), theNPC);
+			GOTSlotHiredReplaceItem slot = new GOTSlotHiredReplaceItem(new GOTSlotArmorStand(getProxyInv(), i2, 80, 21 + i2 * 18, i2, inv.player), theNPC);
 			addSlotToContainer(slot);
 		}
 		int[] arrn = new int[1];
 		arrn[0] = 4;
 		for (int i3 : arrn) {
-			GOTSlotHiredReplaceItem slot = new GOTSlotHiredReplaceItem(new GOTSlotMeleeWeapon(proxyInv, i3, 50, 48), theNPC);
+			GOTSlotHiredReplaceItem slot = new GOTSlotHiredReplaceItem(new GOTSlotMeleeWeapon(getProxyInv(), i3, 50, 48), theNPC);
 			addSlotToContainer(slot);
 		}
 		if (theNPC instanceof GOTEntityYiTiBombardier) {
 			int i4 = 5;
-			GOTSlotHiredReplaceItem slot = new GOTSlotHiredReplaceItem(new GOTSlotBomb(proxyInv, i4, 110, 48), theNPC);
+			GOTSlotHiredReplaceItem slot = new GOTSlotHiredReplaceItem(new GOTSlotBomb(getProxyInv(), i4, 110, 48), theNPC);
 			addSlotToContainer(slot);
 		}
 		for (i = 0; i < npcFullInvSize; ++i) {
-			if (getSlotFromInventory(proxyInv, i) == null) {
+			if (getSlotFromInventory(getProxyInv(), i) == null) {
 				continue;
 			}
 			++npcActiveSlotCount;
@@ -55,12 +55,20 @@ public class GOTContainerHiredWarriorInventory extends Container {
 		return theNPC != null && theNPC.isEntityAlive() && theNPC.hiredNPCInfo.isActive && theNPC.hiredNPCInfo.getHiringPlayer() == entityplayer && theNPC.hiredNPCInfo.getTask() == GOTHiredNPCInfo.Task.WARRIOR && entityplayer.getDistanceSqToEntity(theNPC) <= 144.0;
 	}
 
+	public IInventory getProxyInv() {
+		return proxyInv;
+	}
+
 	@Override
 	public void onContainerClosed(EntityPlayer entityplayer) {
 		super.onContainerClosed(entityplayer);
 		if (!theNPC.worldObj.isRemote) {
 			theNPC.hiredNPCInfo.sendClientPacket(true);
 		}
+	}
+
+	public void setProxyInv(IInventory proxyInv) {
+		this.proxyInv = proxyInv;
 	}
 
 	@Override
@@ -70,13 +78,13 @@ public class GOTContainerHiredWarriorInventory extends Container {
 		if (slot != null && slot.getHasStack()) {
 			ItemStack itemstack1 = slot.getStack();
 			itemstack = itemstack1.copy();
-			if (slot.inventory == proxyInv) {
+			if (slot.inventory == getProxyInv()) {
 				if (!mergeItemStack(itemstack1, npcActiveSlotCount, inventorySlots.size(), true)) {
 					return null;
 				}
 			} else {
 				for (int j = 0; j < npcFullInvSize; ++j) {
-					Slot npcSlot = getSlotFromInventory(proxyInv, j);
+					Slot npcSlot = getSlotFromInventory(getProxyInv(), j);
 					if (npcSlot == null) {
 						continue;
 					}

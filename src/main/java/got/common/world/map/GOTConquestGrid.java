@@ -46,7 +46,7 @@ public class GOTConquestGrid {
 				return ConquestViewableQuery.canView();
 			}
 			GOTFactionRank higherRank = pledged.getRankNAbove(pledgeRank, 2);
-			if (align >= higherRank.alignment) {
+			if (align >= higherRank.getAlignment()) {
 				return ConquestViewableQuery.canView();
 			}
 			return new ConquestViewableQuery(ConquestViewable.NEED_RANK, higherRank);

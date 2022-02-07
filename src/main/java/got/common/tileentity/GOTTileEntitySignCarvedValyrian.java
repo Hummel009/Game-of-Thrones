@@ -6,7 +6,7 @@ public class GOTTileEntitySignCarvedValyrian extends GOTTileEntitySignCarved {
 	public GOTTileEntityGlowLogic glowLogic = new GOTTileEntityGlowLogic().setPlayerRange(8);
 
 	public float getGlowBrightness(float f) {
-		if (isFakeGuiSign) {
+		if (isFakeGuiSign()) {
 			return 1.0f;
 		}
 		return glowLogic.getGlowBrightness(worldObj, xCoord, yCoord, zCoord, f);

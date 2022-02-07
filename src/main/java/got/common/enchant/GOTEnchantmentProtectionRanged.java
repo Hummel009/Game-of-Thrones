@@ -11,7 +11,7 @@ public class GOTEnchantmentProtectionRanged extends GOTEnchantmentProtectionSpec
 
 	@Override
 	public int calcIntProtection() {
-		return protectLevel;
+		return getProtectLevel();
 	}
 
 	@Override

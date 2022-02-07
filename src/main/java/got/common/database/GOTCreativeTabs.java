@@ -17,7 +17,7 @@ public class GOTCreativeTabs extends CreativeTabs {
 	public static GOTCreativeTabs tabStory = new GOTCreativeTabs("story");
 	public static GOTCreativeTabs tabSpawn = new GOTCreativeTabs("spawning");
 	public static GOTCreativeTabs tabBanner = new GOTCreativeTabs("banner");
-	public ItemStack theIcon;
+	private ItemStack theIcon;
 
 	public GOTCreativeTabs(String label) {
 		super(label);

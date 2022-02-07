@@ -17,17 +17,17 @@ import net.minecraft.util.*;
 import net.minecraftforge.common.ForgeHooks;
 
 public class GOTFellowship {
-	public boolean needsSave = false;
-	public UUID fellowshipUUID;
-	public String fellowshipName;
-	public boolean disbanded = false;
-	public ItemStack fellowshipIcon;
-	public UUID ownerUUID;
-	public List<UUID> memberUUIDs = new ArrayList<>();
-	public Set<UUID> adminUUIDs = new HashSet<>();
-	public boolean preventPVP = true;
-	public boolean preventHiredFF = true;
-	public boolean showMapLocations = true;
+	private boolean needsSave = false;
+	private UUID fellowshipUUID;
+	private String fellowshipName;
+	private boolean disbanded = false;
+	private ItemStack fellowshipIcon;
+	private UUID ownerUUID;
+	private List<UUID> memberUUIDs = new ArrayList<>();
+	private Set<UUID> adminUUIDs = new HashSet<>();
+	private boolean preventPVP = true;
+	private boolean preventHiredFF = true;
+	private boolean showMapLocations = true;
 
 	public GOTFellowship() {
 		fellowshipUUID = UUID.randomUUID();
@@ -164,7 +164,7 @@ public class GOTFellowship {
 		validate();
 	}
 
-	public void markDirty() {
+	private void markDirty() {
 		needsSave = true;
 	}
 
@@ -333,7 +333,7 @@ public class GOTFellowship {
 		}
 	}
 
-	public void validate() {
+	private void validate() {
 		if (fellowshipUUID == null) {
 			fellowshipUUID = UUID.randomUUID();
 		}

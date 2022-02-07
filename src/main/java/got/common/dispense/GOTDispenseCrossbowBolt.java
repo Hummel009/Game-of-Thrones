@@ -7,7 +7,7 @@ import net.minecraft.item.*;
 import net.minecraft.world.World;
 
 public class GOTDispenseCrossbowBolt extends BehaviorProjectileDispense {
-	public Item theBoltItem;
+	private Item theBoltItem;
 
 	public GOTDispenseCrossbowBolt(Item item) {
 		theBoltItem = item;

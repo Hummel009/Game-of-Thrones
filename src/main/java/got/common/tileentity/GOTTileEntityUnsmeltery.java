@@ -28,23 +28,14 @@ import net.minecraftforge.common.util.FakePlayerFactory;
 import net.minecraftforge.oredict.*;
 
 public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
-	public static Random unsmeltingRand = new Random();
-
-	public static Map<Pair<Item, Integer>, Integer> unsmeltableCraftingCounts = new HashMap<>();
-
-	public float prevRocking;
-
-	public float rocking;
-
-	public float prevRockingPhase;
-
-	public float rockingPhase = unsmeltingRand.nextFloat() * 3.1415927F * 2.0F;
-
-	public boolean prevServerActive;
-
-	public boolean serverActive;
-
-	public boolean clientActive;
+	private static Random unsmeltingRand = new Random();
+	private static Map<Pair<Item, Integer>, Integer> unsmeltableCraftingCounts = new HashMap<>();
+	private float prevRocking;
+	private float rocking;
+	private float prevRockingPhase;
+	private float rockingPhase = unsmeltingRand.nextFloat() * 3.1415927F * 2.0F;
+	private boolean serverActive;
+	private boolean clientActive;
 
 	public boolean canBeUnsmelted(ItemStack itemstack) {
 		if (itemstack == null) {
@@ -62,7 +53,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 
 	@Override
 	public boolean canDoSmelting() {
-		ItemStack input = inventory[inputSlots[0]];
+		ItemStack input = getInventory()[getInputSlots()[0]];
 		if (input == null) {
 			return false;
 		}
@@ -70,7 +61,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 		if (result == null) {
 			return false;
 		}
-		ItemStack output = inventory[outputSlots[0]];
+		ItemStack output = getInventory()[getOutputSlots()[0]];
 		if (output == null) {
 			return true;
 		}
@@ -86,7 +77,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 		return itemstack != null && getLargestUnsmeltingResult(itemstack) != null;
 	}
 
-	public int countMatchingIngredients(ItemStack material, List ingredientList, List<IRecipe> recursiveCheckedRecipes) {
+	private int countMatchingIngredients(ItemStack material, List ingredientList, List<IRecipe> recursiveCheckedRecipes) {
 		int i = 0;
 		for (Object obj : ingredientList) {
 			if (obj instanceof ItemStack) {
@@ -125,11 +116,11 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 		return i;
 	}
 
-	public int determineResourcesUsed(ItemStack itemstack, ItemStack material) {
+	private int determineResourcesUsed(ItemStack itemstack, ItemStack material) {
 		return determineResourcesUsed(itemstack, material, (List<IRecipe>) null);
 	}
 
-	public int determineResourcesUsed(ItemStack itemstack, ItemStack material, List<IRecipe> recursiveCheckedRecipes) {
+	private int determineResourcesUsed(ItemStack itemstack, ItemStack material, List<IRecipe> recursiveCheckedRecipes) {
 		if (itemstack == null) {
 			return 0;
 		}
@@ -145,7 +136,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 			Object container = GOT.getProxy().getServerGuiElement(table.getTableGUIID(), player, worldObj, 0, 0, 0);
 			if (container instanceof GOTContainerCraftingTable) {
 				GOTContainerCraftingTable containerTable = (GOTContainerCraftingTable) container;
-				allRecipeLists.add(containerTable.recipeList);
+				allRecipeLists.add(containerTable.getRecipeList());
 			}
 		}
 		allRecipeLists.add(GOTRecipe.unsmelt);
@@ -211,18 +202,18 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 	@Override
 	public void doSmelt() {
 		if (canDoSmelting()) {
-			ItemStack input = inventory[inputSlots[0]];
+			ItemStack input = getInventory()[getInputSlots()[0]];
 			ItemStack result = getRandomUnsmeltingResult(input);
 			if (result != null) {
-				if (inventory[outputSlots[0]] == null) {
-					inventory[outputSlots[0]] = result.copy();
-				} else if (inventory[outputSlots[0]].isItemEqual(result)) {
-					inventory[outputSlots[0]].stackSize += result.stackSize;
+				if (getInventory()[getOutputSlots()[0]] == null) {
+					getInventory()[getOutputSlots()[0]] = result.copy();
+				} else if (getInventory()[getOutputSlots()[0]].isItemEqual(result)) {
+					getInventory()[getOutputSlots()[0]].stackSize += result.stackSize;
 				}
 			}
-			inventory[inputSlots[0]].stackSize--;
-			if (inventory[inputSlots[0]].stackSize <= 0) {
-				inventory[inputSlots[0]] = null;
+			getInventory()[getInputSlots()[0]].stackSize--;
+			if (getInventory()[getInputSlots()[0]].stackSize <= 0) {
+				getInventory()[getInputSlots()[0]] = null;
 			}
 		}
 	}
@@ -244,7 +235,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 		return StatCollector.translateToLocal("got.container.unsmeltery");
 	}
 
-	public ItemStack getLargestUnsmeltingResult(ItemStack itemstack) {
+	private ItemStack getLargestUnsmeltingResult(ItemStack itemstack) {
 		if (itemstack == null || !canBeUnsmelted(itemstack)) {
 			return null;
 		}
@@ -257,14 +248,14 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 		return new ItemStack(material.getItem(), items, meta);
 	}
 
-	public EntityPlayer getProxyPlayer() {
+	private EntityPlayer getProxyPlayer() {
 		if (!worldObj.isRemote) {
 			return FakePlayerFactory.get((WorldServer) worldObj, new GameProfile(null, "GOTUnsmeltery"));
 		}
 		return GOT.getProxy().getClientPlayer();
 	}
 
-	public ItemStack getRandomUnsmeltingResult(ItemStack itemstack) {
+	private ItemStack getRandomUnsmeltingResult(ItemStack itemstack) {
 		int items_int;
 		ItemStack result = getLargestUnsmeltingResult(itemstack);
 		if (result == null) {
@@ -301,16 +292,16 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 
 	@Override
 	public void setupForgeSlots() {
-		inputSlots = new int[] { 0 };
-		fuelSlot = 1;
-		outputSlots = new int[] { 2 };
+		setInputSlots(new int[] { 0 });
+		setFuelSlot(1);
+		setOutputSlots(new int[] { 2 });
 	}
 
 	@Override
 	public void updateEntity() {
 		super.updateEntity();
 		if (!worldObj.isRemote) {
-			prevServerActive = serverActive;
+			boolean prevServerActive = serverActive;
 			serverActive = isSmelting();
 			if (serverActive != prevServerActive) {
 				worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);

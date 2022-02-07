@@ -18,16 +18,16 @@ import net.minecraft.tileentity.*;
 import net.minecraft.util.StatCollector;
 
 public class GOTTileEntityOven extends TileEntity implements IInventory, ISidedInventory {
-	public ItemStack[] inventory = new ItemStack[19];
-	public int ovenCookTime = 0;
-	public int currentItemFuelValue = 0;
-	public int currentCookTime = 0;
-	public String specialOvenName;
-	public int[] inputSlots = { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
-	public int[] outputSlots = { 9, 10, 11, 12, 13, 14, 15, 16, 17 };
-	public int fuelSlot = 18;
+	private ItemStack[] inventory = new ItemStack[19];
+	private int ovenCookTime = 0;
+	private int currentItemFuelValue = 0;
+	private int currentCookTime = 0;
+	private String specialOvenName;
+	private int[] inputSlots = { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
+	private int[] outputSlots = { 9, 10, 11, 12, 13, 14, 15, 16, 17 };
+	private int fuelSlot = 18;
 
-	public boolean canCook(int i) {
+	private boolean canCook(int i) {
 		if (inventory[i] == null) {
 			return false;
 		}
@@ -45,7 +45,7 @@ public class GOTTileEntityOven extends TileEntity implements IInventory, ISidedI
 		return resultSize <= getInventoryStackLimit() && resultSize <= result.getMaxStackSize();
 	}
 
-	public boolean canCookAnyItem() {
+	private boolean canCookAnyItem() {
 		for (int i = 0; i < 9; ++i) {
 			if (!canCook(i)) {
 				continue;
@@ -72,7 +72,7 @@ public class GOTTileEntityOven extends TileEntity implements IInventory, ISidedI
 	public void closeInventory() {
 	}
 
-	public void cookItem(int i) {
+	private void cookItem(int i) {
 		if (canCook(i)) {
 			ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(inventory[i]);
 			if (inventory[i + 9] == null) {
@@ -128,7 +128,7 @@ public class GOTTileEntityOven extends TileEntity implements IInventory, ISidedI
 			int[] temp = new int[inputSlots.length];
 			for (int i = 0; i < temp.length; ++i) {
 				GOTSlotStackSize obj = list.get(i);
-				temp[i] = obj.slot;
+				temp[i] = obj.getSlot();
 			}
 			return temp;
 		}
@@ -137,15 +137,23 @@ public class GOTTileEntityOven extends TileEntity implements IInventory, ISidedI
 
 	@SideOnly(value = Side.CLIENT)
 	public int getCookProgressScaled(int i) {
-		return currentCookTime * i / 400;
+		return getCurrentCookTime() * i / 400;
 	}
 
 	@SideOnly(value = Side.CLIENT)
 	public int getCookTimeRemainingScaled(int i) {
-		if (currentItemFuelValue == 0) {
-			currentItemFuelValue = 400;
+		if (getCurrentItemFuelValue() == 0) {
+			setCurrentItemFuelValue(400);
 		}
-		return ovenCookTime * i / currentItemFuelValue;
+		return getOvenCookTime() * i / getCurrentItemFuelValue();
+	}
+
+	public int getCurrentCookTime() {
+		return currentCookTime;
+	}
+
+	public int getCurrentItemFuelValue() {
+		return currentItemFuelValue;
 	}
 
 	@Override
@@ -156,6 +164,10 @@ public class GOTTileEntityOven extends TileEntity implements IInventory, ISidedI
 	@Override
 	public int getInventoryStackLimit() {
 		return 64;
+	}
+
+	public int getOvenCookTime() {
+		return ovenCookTime;
 	}
 
 	@Override
@@ -184,7 +196,7 @@ public class GOTTileEntityOven extends TileEntity implements IInventory, ISidedI
 	}
 
 	public boolean isCooking() {
-		return ovenCookTime > 0;
+		return getOvenCookTime() > 0;
 	}
 
 	@Override
@@ -227,12 +239,20 @@ public class GOTTileEntityOven extends TileEntity implements IInventory, ISidedI
 			}
 			inventory[byte0] = ItemStack.loadItemStackFromNBT(itemData);
 		}
-		ovenCookTime = nbt.getShort("BurnTime");
-		currentCookTime = nbt.getShort("CookTime");
-		currentItemFuelValue = TileEntityFurnace.getItemBurnTime(inventory[18]);
+		setOvenCookTime(nbt.getShort("BurnTime"));
+		setCurrentCookTime(nbt.getShort("CookTime"));
+		setCurrentItemFuelValue(TileEntityFurnace.getItemBurnTime(inventory[18]));
 		if (nbt.hasKey("CustomName")) {
 			specialOvenName = nbt.getString("CustomName");
 		}
+	}
+
+	public void setCurrentCookTime(int currentCookTime) {
+		this.currentCookTime = currentCookTime;
+	}
+
+	public void setCurrentItemFuelValue(int currentItemFuelValue) {
+		this.currentItemFuelValue = currentItemFuelValue;
 	}
 
 	@Override
@@ -243,21 +263,26 @@ public class GOTTileEntityOven extends TileEntity implements IInventory, ISidedI
 		}
 	}
 
+	public int setOvenCookTime(int ovenCookTime) {
+		this.ovenCookTime = ovenCookTime;
+		return ovenCookTime;
+	}
+
 	public void setOvenName(String s) {
 		specialOvenName = s;
 	}
 
 	@Override
 	public void updateEntity() {
-		boolean cooking = ovenCookTime > 0;
+		boolean cooking = getOvenCookTime() > 0;
 		boolean needUpdate = false;
-		if (ovenCookTime > 0) {
-			--ovenCookTime;
+		if (getOvenCookTime() > 0) {
+			setOvenCookTime(getOvenCookTime() - 1);
 		}
 		if (!worldObj.isRemote) {
-			if (ovenCookTime == 0 && canCookAnyItem()) {
-				currentItemFuelValue = ovenCookTime = TileEntityFurnace.getItemBurnTime(inventory[18]);
-				if (ovenCookTime > 0) {
+			if (getOvenCookTime() == 0 && canCookAnyItem()) {
+				setCurrentItemFuelValue(setOvenCookTime(TileEntityFurnace.getItemBurnTime(inventory[18])));
+				if (getOvenCookTime() > 0) {
 					needUpdate = true;
 					if (inventory[18] != null) {
 						--inventory[18].stackSize;
@@ -268,18 +293,18 @@ public class GOTTileEntityOven extends TileEntity implements IInventory, ISidedI
 				}
 			}
 			if (isCooking() && canCookAnyItem()) {
-				++currentCookTime;
-				if (currentCookTime == 400) {
-					currentCookTime = 0;
+				setCurrentCookTime(getCurrentCookTime() + 1);
+				if (getCurrentCookTime() == 400) {
+					setCurrentCookTime(0);
 					for (int i = 0; i < 9; ++i) {
 						cookItem(i);
 					}
 					needUpdate = true;
 				}
 			} else {
-				currentCookTime = 0;
+				setCurrentCookTime(0);
 			}
-			if (cooking != ovenCookTime > 0) {
+			if (cooking != getOvenCookTime() > 0) {
 				needUpdate = true;
 				GOTBlockOven.setOvenActive(worldObj, xCoord, yCoord, zCoord);
 			}
@@ -303,8 +328,8 @@ public class GOTTileEntityOven extends TileEntity implements IInventory, ISidedI
 			items.appendTag(itemData);
 		}
 		nbt.setTag("Items", items);
-		nbt.setShort("BurnTime", (short) ovenCookTime);
-		nbt.setShort("CookTime", (short) currentCookTime);
+		nbt.setShort("BurnTime", (short) getOvenCookTime());
+		nbt.setShort("CookTime", (short) getCurrentCookTime());
 		if (hasCustomInventoryName()) {
 			nbt.setString("CustomName", specialOvenName);
 		}

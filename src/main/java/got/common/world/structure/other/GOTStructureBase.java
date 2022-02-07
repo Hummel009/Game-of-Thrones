@@ -453,11 +453,11 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		TileEntity tileentity = getTileEntity(world, i, j, k);
 		if (tileentity instanceof GOTTileEntityBarrel) {
 			GOTTileEntityBarrel barrel = (GOTTileEntityBarrel) tileentity;
-			barrel.barrelMode = 2;
+			barrel.setBarrelMode(2);
 			drink = drink.copy();
 			GOTItemMug.setStrengthMeta(drink, MathHelper.getRandomIntegerInRange(random, 1, 3));
 			GOTItemMug.setVessel(drink, GOTItemMug.Vessel.MUG, true);
-			drink.stackSize = MathHelper.getRandomIntegerInRange(random, GOTRecipeBrewing.BARREL_CAPACITY / 2, GOTRecipeBrewing.BARREL_CAPACITY);
+			drink.stackSize = MathHelper.getRandomIntegerInRange(random, GOTRecipeBrewing.getBarrelCapacity() / 2, GOTRecipeBrewing.getBarrelCapacity());
 			barrel.setInventorySlotContents(9, drink);
 		}
 	}

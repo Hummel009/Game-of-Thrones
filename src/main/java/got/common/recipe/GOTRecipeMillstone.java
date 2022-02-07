@@ -9,34 +9,30 @@ import net.minecraft.init.*;
 import net.minecraft.item.*;
 
 public class GOTRecipeMillstone {
-	public static Map<ItemStack, MillstoneResult> recipeList = new HashMap<>();
+	private static Map<ItemStack, MillstoneResult> recipeList = new HashMap<>();
 
-	public static void addCrackedBricks(ItemStack itemstack, ItemStack result) {
+	private static void addCrackedBricks(ItemStack itemstack, ItemStack result) {
 		GOTRecipeMillstone.addRecipe(itemstack, result, 1.0f);
 		GameRegistry.addSmelting(itemstack, result, 0.1f);
 	}
 
-	public static void addRecipe(Block block, ItemStack result) {
+	private static void addRecipe(Block block, ItemStack result) {
 		GOTRecipeMillstone.addRecipe(block, result, 1.0f);
 	}
 
-	public static void addRecipe(Block block, ItemStack result, float chance) {
+	private static void addRecipe(Block block, ItemStack result, float chance) {
 		GOTRecipeMillstone.addRecipe(Item.getItemFromBlock(block), result, chance);
 	}
 
-	public static void addRecipe(Item item, ItemStack result) {
-		GOTRecipeMillstone.addRecipe(new ItemStack(item, 1, 32767), result, 1.0f);
-	}
-
-	public static void addRecipe(Item item, ItemStack result, float chance) {
+	private static void addRecipe(Item item, ItemStack result, float chance) {
 		GOTRecipeMillstone.addRecipe(new ItemStack(item, 1, 32767), result, chance);
 	}
 
-	public static void addRecipe(ItemStack itemstack, ItemStack result) {
+	private static void addRecipe(ItemStack itemstack, ItemStack result) {
 		GOTRecipeMillstone.addRecipe(itemstack, result, 1.0f);
 	}
 
-	public static void addRecipe(ItemStack itemstack, ItemStack result, float chance) {
+	private static void addRecipe(ItemStack itemstack, ItemStack result, float chance) {
 		recipeList.put(itemstack, new MillstoneResult(result, chance));
 	}
 
@@ -52,7 +48,7 @@ public class GOTRecipeMillstone {
 		return null;
 	}
 
-	public static boolean matches(ItemStack itemstack, ItemStack target) {
+	private static boolean matches(ItemStack itemstack, ItemStack target) {
 		return target.getItem() == itemstack.getItem() && (target.getItemDamage() == 32767 || target.getItemDamage() == itemstack.getItemDamage());
 	}
 
@@ -80,12 +76,28 @@ public class GOTRecipeMillstone {
 	}
 
 	public static class MillstoneResult {
-		public ItemStack resultItem;
-		public float chance;
+		private ItemStack resultItem;
+		private float chance;
 
 		public MillstoneResult(ItemStack itemstack, float f) {
-			resultItem = itemstack;
-			chance = f;
+			setResultItem(itemstack);
+			setChance(f);
+		}
+
+		public float getChance() {
+			return chance;
+		}
+
+		public ItemStack getResultItem() {
+			return resultItem;
+		}
+
+		public void setChance(float chance) {
+			this.chance = chance;
+		}
+
+		public void setResultItem(ItemStack resultItem) {
+			this.resultItem = resultItem;
 		}
 	}
 

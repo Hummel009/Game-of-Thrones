@@ -8,14 +8,22 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
 public class GOTTileEntityFlowerPot extends TileEntity {
-	public Item item;
-	public int meta;
+	private Item item;
+	private int meta;
 
 	@Override
 	public Packet getDescriptionPacket() {
 		NBTTagCompound data = new NBTTagCompound();
 		writeToNBT(data);
 		return new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 0, data);
+	}
+
+	public Item getItem() {
+		return item;
+	}
+
+	public int getMeta() {
+		return meta;
 	}
 
 	@Override
@@ -27,18 +35,26 @@ public class GOTTileEntityFlowerPot extends TileEntity {
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
-		item = Item.getItemById(nbt.getInteger("PlantID"));
-		meta = nbt.getInteger("PlantMeta");
-		if (Block.getBlockFromItem(item) == null) {
-			item = null;
-			meta = 0;
+		setItem(Item.getItemById(nbt.getInteger("PlantID")));
+		setMeta(nbt.getInteger("PlantMeta"));
+		if (Block.getBlockFromItem(getItem()) == null) {
+			setItem(null);
+			setMeta(0);
 		}
+	}
+
+	public void setItem(Item item) {
+		this.item = item;
+	}
+
+	public void setMeta(int meta) {
+		this.meta = meta;
 	}
 
 	@Override
 	public void writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
-		nbt.setInteger("PlantID", Item.getIdFromItem(item));
-		nbt.setInteger("PlantMeta", meta);
+		nbt.setInteger("PlantID", Item.getIdFromItem(getItem()));
+		nbt.setInteger("PlantMeta", getMeta());
 	}
 }

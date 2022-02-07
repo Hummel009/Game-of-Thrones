@@ -53,12 +53,12 @@ public class GOTGuiEditSign extends GuiScreen {
 		GL11.glPopMatrix();
 		GL11.glEnable(2929);
 		if (updateCounter / 6 % 2 == 0) {
-			tileSign.lineBeingEdited = editLine;
+			tileSign.setLineBeingEdited(editLine);
 		}
 		GL11.glRotatef(rotation + 180.0f, 0.0f, 1.0f, 0.0f);
 		TileEntityRendererDispatcher.instance.renderTileEntityAt(tileSign, -0.5, -0.75, -0.5, 0.0f);
 		GL11.glDisable(2896);
-		tileSign.lineBeingEdited = -1;
+		tileSign.setLineBeingEdited(-1);
 		GL11.glPopMatrix();
 		super.drawScreen(i, j, f);
 	}
@@ -81,13 +81,13 @@ public class GOTGuiEditSign extends GuiScreen {
 			++editLine;
 		}
 		editLine &= tileSign.getNumLines() - 1;
-		if (i == 14 && tileSign.signText[editLine].length() > 0) {
-			String s = tileSign.signText[editLine];
-			tileSign.signText[editLine] = s.substring(0, s.length() - 1);
+		if (i == 14 && tileSign.getSignText()[editLine].length() > 0) {
+			String s = tileSign.getSignText()[editLine];
+			tileSign.getSignText()[editLine] = s.substring(0, s.length() - 1);
 		}
-		if (ChatAllowedCharacters.isAllowedCharacter(c) && tileSign.signText[editLine].length() < 15) {
+		if (ChatAllowedCharacters.isAllowedCharacter(c) && tileSign.getSignText()[editLine].length() < 15) {
 			int n = editLine;
-			tileSign.signText[n] = tileSign.signText[n] + c;
+			tileSign.getSignText()[n] = tileSign.getSignText()[n] + c;
 		}
 		if (i == 1) {
 			actionPerformed(buttonDone);

@@ -34,7 +34,7 @@ public class GOTPacketSelectTitle implements IMessage {
 			data.writeShort(-1);
 			data.writeByte(-1);
 		} else {
-			data.writeShort(playerTitle.getTitle().titleID);
+			data.writeShort(playerTitle.getTitle().getTitleID());
 			data.writeByte(playerTitle.getColor().getFormattingCode());
 		}
 	}

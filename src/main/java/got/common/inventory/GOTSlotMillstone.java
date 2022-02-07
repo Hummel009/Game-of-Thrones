@@ -5,8 +5,8 @@ import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 
 public class GOTSlotMillstone extends Slot {
-	public EntityPlayer thePlayer;
-	public int itemsTaken;
+	private EntityPlayer thePlayer;
+	private int itemsTaken;
 
 	public GOTSlotMillstone(EntityPlayer entityplayer, IInventory inv, int i, int j, int k) {
 		super(inv, i, j, k);

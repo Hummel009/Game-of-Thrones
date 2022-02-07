@@ -7,10 +7,10 @@ import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 
 public class GOTContainerPouch extends Container {
-	public int thePouchSlot;
-	public ItemStack thePouchItem;
+	private int thePouchSlot;
+	private ItemStack thePouchItem;
 	public GOTInventoryPouch pouchInventory;
-	public int capacity;
+	private int capacity;
 
 	public GOTContainerPouch(EntityPlayer entityplayer, int slot) {
 		int i;
@@ -18,8 +18,8 @@ public class GOTContainerPouch extends Container {
 		thePouchSlot = slot;
 		thePouchItem = entityplayer.inventory.getStackInSlot(thePouchSlot);
 		pouchInventory = new GOTInventoryPouch(entityplayer, this, slot);
-		capacity = pouchInventory.getSizeInventory();
-		int rows = capacity / 9;
+		setCapacity(pouchInventory.getSizeInventory());
+		int rows = getCapacity() / 9;
 		for (i = 0; i < rows; ++i) {
 			for (j = 0; j < 9; ++j) {
 				addSlotToContainer(new GOTSlotPouch(pouchInventory, j + i * 9, 8 + j * 18, 30 + i * 18));
@@ -40,6 +40,10 @@ public class GOTContainerPouch extends Container {
 		return ItemStack.areItemStacksEqual(thePouchItem, pouchInventory.getPouchItem());
 	}
 
+	public int getCapacity() {
+		return capacity;
+	}
+
 	public String getDisplayName() {
 		return pouchInventory.getInventoryName();
 	}
@@ -51,6 +55,10 @@ public class GOTContainerPouch extends Container {
 			pouchInventory.getPouchItem().setStackDisplayName(name);
 		}
 		syncPouchItem(pouchInventory.getPouchItem());
+	}
+
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
 	}
 
 	@Override
@@ -73,7 +81,7 @@ public class GOTContainerPouch extends Container {
 		if (slot != null && slot.getHasStack()) {
 			ItemStack itemstack1 = slot.getStack();
 			itemstack = itemstack1.copy();
-			if (i < capacity ? !mergeItemStack(itemstack1, capacity, capacity + 36, true) : aPouchSlot.isItemValid(itemstack1) && !mergeItemStack(itemstack1, 0, capacity, false)) {
+			if (i < getCapacity() ? !mergeItemStack(itemstack1, getCapacity(), getCapacity() + 36, true) : aPouchSlot.isItemValid(itemstack1) && !mergeItemStack(itemstack1, 0, getCapacity(), false)) {
 				return null;
 			}
 			if (itemstack1.stackSize == 0) {

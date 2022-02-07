@@ -8,20 +8,6 @@ import net.minecraft.nbt.NBTTagCompound;
 
 public interface IPickpocketable {
 	public static class Helper {
-		public static String getOwner(ItemStack itemstack) {
-			if (itemstack.hasTagCompound()) {
-				return itemstack.getTagCompound().getCompoundTag("GOTPickpocket").getString("Owner");
-			}
-			return null;
-		}
-
-		public static String getWanter(ItemStack itemstack) {
-			if (itemstack.hasTagCompound()) {
-				return itemstack.getTagCompound().getCompoundTag("GOTPickpocket").getString("Wanter");
-			}
-			return null;
-		}
-
 		public static UUID getWanterID(ItemStack itemstack) {
 			if (itemstack.hasTagCompound()) {
 				String id = itemstack.getTagCompound().getCompoundTag("GOTPickpocket").getString("WanterID");

@@ -92,7 +92,7 @@ public class GOTEntityQuestInfo {
 			if (quest.isValidQuest()) {
 				return quest;
 			}
-			FMLLog.severe("Created an invalid GOT miniquest " + quest.speechBankStart);
+			FMLLog.severe("Created an invalid GOT miniquest " + quest.getSpeechBankStart());
 		}
 		return null;
 	}
@@ -120,7 +120,7 @@ public class GOTEntityQuestInfo {
 		List<GOTMiniQuest> thisNPCQuests = playerData.getMiniQuestsForEntity(theNPC, true);
 		if (thisNPCQuests.isEmpty()) {
 			for (GOTMiniQuest quest : playerData.getActiveMiniQuests()) {
-				if (quest.entityUUID.equals(theNPC.getUniqueID()) || !quest.onInteractOther(entityplayer, theNPC)) {
+				if (quest.getEntityUUID().equals(theNPC.getUniqueID()) || !quest.onInteractOther(entityplayer, theNPC)) {
 					continue;
 				}
 				return true;
@@ -141,19 +141,19 @@ public class GOTEntityQuestInfo {
 			GOTMiniQuest offer = this.getOfferFor(entityplayer);
 			if (offer != null && offer.isValidQuest() && offer.canPlayerAccept(entityplayer)) {
 				List<GOTMiniQuest> questsForFaction = playerData.getMiniQuestsForFaction(theNPC.getFaction(), true);
-				if (questsForFaction.size() < GOTMiniQuest.MAX_MINIQUESTS_PER_FACTION) {
+				if (questsForFaction.size() < GOTMiniQuest.getMaxQuestsPerFac()) {
 					sendMiniquestOffer(entityplayer, offer);
 					return true;
 				}
-				theNPC.sendSpeechBank(entityplayer, offer.speechBankTooMany, offer);
+				theNPC.sendSpeechBank(entityplayer, offer.getSpeechBankTooMany(), offer);
 				return true;
 			}
 			GOTMiniQuestFactory bountyHelpSpeechDir = theNPC.getBountyHelpSpeechDir();
 			if (bountyHelpSpeechDir != null && bountyHelpPredicate.apply(entityplayer) && !(bountyQuests = playerData.selectMiniQuests(activeBountySelector)).isEmpty()) {
 				GOTWaypoint lastWP;
 				GOTMiniQuestBounty bQuest = (GOTMiniQuestBounty) bountyQuests.get(theNPC.getRNG().nextInt(bountyQuests.size()));
-				UUID targetID = bQuest.targetID;
-				String objective = bQuest.targetName;
+				UUID targetID = bQuest.getTargetID();
+				String objective = bQuest.getTargetName();
 				GOTPlayerData targetData = GOTLevelData.getData(targetID);
 				GOTMiniQuestBounty.BountyHelp helpType = GOTMiniQuestBounty.BountyHelp.getRandomHelpType(theNPC.getRNG());
 				String location = null;
@@ -166,7 +166,7 @@ public class GOTEntityQuestInfo {
 					location = lastWP.getDisplayName();
 				}
 				if (location != null) {
-					String speechBank = "miniquest/" + bountyHelpSpeechDir.getBaseName() + "/_bountyHelp_" + helpType.speechName;
+					String speechBank = "miniquest/" + bountyHelpSpeechDir.getBaseName() + "/_bountyHelp_" + helpType.getSpeechName();
 					theNPC.sendSpeechBank(entityplayer, speechBank, location, objective);
 					bountyHelpConsumer.apply(entityplayer);
 					return true;

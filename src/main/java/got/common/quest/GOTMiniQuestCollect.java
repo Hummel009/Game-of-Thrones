@@ -10,30 +10,34 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.*;
 
 public class GOTMiniQuestCollect extends GOTMiniQuestCollectBase {
-	public ItemStack collectItem;
+	private ItemStack collectItem;
 
 	public GOTMiniQuestCollect(GOTPlayerData pd) {
 		super(pd);
 	}
 
-	@Override
-	public String getObjectiveInSpeech() {
-		return collectTarget + " " + collectItem.getDisplayName();
-	}
-
-	@Override
-	public String getProgressedObjectiveInSpeech() {
-		return collectTarget - amountGiven + " " + collectItem.getDisplayName();
-	}
-
-	@Override
-	public ItemStack getQuestIcon() {
+	public ItemStack getCollectItem() {
 		return collectItem;
 	}
 
 	@Override
+	public String getObjectiveInSpeech() {
+		return getCollectTarget() + " " + getCollectItem().getDisplayName();
+	}
+
+	@Override
+	public String getProgressedObjectiveInSpeech() {
+		return getCollectTarget() - getAmountGiven() + " " + getCollectItem().getDisplayName();
+	}
+
+	@Override
+	public ItemStack getQuestIcon() {
+		return getCollectItem();
+	}
+
+	@Override
 	public String getQuestObjective() {
-		return StatCollector.translateToLocalFormatted("got.miniquest.collect", collectTarget, collectItem.getDisplayName());
+		return StatCollector.translateToLocalFormatted("got.miniquest.collect", getCollectTarget(), getCollectItem().getDisplayName());
 	}
 
 	@Override
@@ -41,17 +45,17 @@ public class GOTMiniQuestCollect extends GOTMiniQuestCollectBase {
 		if (IPickpocketable.Helper.isPickpocketed(itemstack)) {
 			return false;
 		}
-		if (GOTItemMug.isItemFullDrink(collectItem)) {
-			ItemStack collectDrink = GOTItemMug.getEquivalentDrink(collectItem);
+		if (GOTItemMug.isItemFullDrink(getCollectItem())) {
+			ItemStack collectDrink = GOTItemMug.getEquivalentDrink(getCollectItem());
 			ItemStack offerDrink = GOTItemMug.getEquivalentDrink(itemstack);
 			return collectDrink.getItem() == offerDrink.getItem();
 		}
-		return itemstack.getItem() == collectItem.getItem() && (collectItem.getItemDamage() == 32767 || itemstack.getItemDamage() == collectItem.getItemDamage());
+		return itemstack.getItem() == getCollectItem().getItem() && (getCollectItem().getItemDamage() == 32767 || itemstack.getItemDamage() == getCollectItem().getItemDamage());
 	}
 
 	@Override
 	public boolean isValidQuest() {
-		return super.isValidQuest() && collectItem != null;
+		return super.isValidQuest() && getCollectItem() != null;
 	}
 
 	@Override
@@ -59,24 +63,28 @@ public class GOTMiniQuestCollect extends GOTMiniQuestCollectBase {
 		super.readFromNBT(nbt);
 		if (nbt.hasKey("Item")) {
 			NBTTagCompound itemData = nbt.getCompoundTag("Item");
-			collectItem = ItemStack.loadItemStackFromNBT(itemData);
+			setCollectItem(ItemStack.loadItemStackFromNBT(itemData));
 		}
+	}
+
+	public void setCollectItem(ItemStack collectItem) {
+		this.collectItem = collectItem;
 	}
 
 	@Override
 	public void writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
-		if (collectItem != null) {
+		if (getCollectItem() != null) {
 			NBTTagCompound itemData = new NBTTagCompound();
-			collectItem.writeToNBT(itemData);
+			getCollectItem().writeToNBT(itemData);
 			nbt.setTag("Item", itemData);
 		}
 	}
 
 	public static class QFCollect<Q extends GOTMiniQuestCollect> extends GOTMiniQuest.QuestFactoryBase<Q> {
-		public ItemStack collectItem;
-		public int minTarget;
-		public int maxTarget;
+		private ItemStack collectItem;
+		private int minTarget;
+		private int maxTarget;
 
 		public QFCollect(String name) {
 			super(name);
@@ -85,8 +93,8 @@ public class GOTMiniQuestCollect extends GOTMiniQuestCollectBase {
 		@Override
 		public Q createQuest(GOTEntityNPC npc, Random rand) {
 			GOTMiniQuestCollect quest = super.createQuest(npc, rand);
-			quest.collectItem = this.collectItem.copy();
-			quest.collectTarget = MathHelper.getRandomIntegerInRange(rand, this.minTarget, this.maxTarget);
+			quest.setCollectItem(this.collectItem.copy());
+			quest.setCollectTarget(MathHelper.getRandomIntegerInRange(rand, this.minTarget, this.maxTarget));
 			return (Q) quest;
 		}
 

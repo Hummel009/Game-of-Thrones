@@ -560,9 +560,9 @@ public class GOTTickHandlerClient {
 				if (guiscreen instanceof GuiMainMenu && !(lastGuiOpen instanceof GuiMainMenu)) {
 					GOTLevelData.setNeedsLoad(true);
 					GOTTime.setNeedsLoad(true);
-					GOTFellowshipData.needsLoad = true;
-					GOTFactionBounties.needsLoad = true;
-					GOTFactionRelations.needsLoad = true;
+					GOTFellowshipData.setNeedsLoad(true);
+					GOTFactionBounties.setNeedsLoad(true);
+					GOTFactionRelations.setNeedsLoad(true);
 					GOTDate.resetWorldTimeInMenu();
 					GOTConquestGrid.needsLoad = true;
 					GOTSpeechClient.clearAll();
@@ -1275,14 +1275,14 @@ public class GOTTickHandlerClient {
 		GOTFactionRank rankMin = null;
 		GOTFactionRank rankMax = null;
 		if (!rank.isDummyRank()) {
-			alignMin = rank.alignment;
+			alignMin = rank.getAlignment();
 			rankMin = rank;
 			GOTFactionRank nextRank = faction.getRankAbove(rank);
 			if (nextRank != null && !nextRank.isDummyRank() && nextRank != rank) {
-				alignMax = nextRank.alignment;
+				alignMax = nextRank.getAlignment();
 				rankMax = nextRank;
 			} else {
-				alignMax = rank.alignment * 10.0f;
+				alignMax = rank.getAlignment() * 10.0f;
 				rankMax = rank;
 				while (alignment >= alignMax) {
 					alignMin = alignMax;
@@ -1291,16 +1291,16 @@ public class GOTTickHandlerClient {
 			}
 		} else {
 			GOTFactionRank firstRank = faction.getFirstRank();
-			float firstRankAlign = firstRank != null && !firstRank.isDummyRank() ? firstRank.alignment : 10.0f;
+			float firstRankAlign = firstRank != null && !firstRank.isDummyRank() ? firstRank.getAlignment() : 10.0f;
 			if (Math.abs(alignment) < firstRankAlign) {
 				alignMin = -firstRankAlign;
 				alignMax = firstRankAlign;
-				rankMin = GOTFactionRank.RANK_ENEMY;
-				rankMax = firstRank != null && !firstRank.isDummyRank() ? firstRank : GOTFactionRank.RANK_NEUTRAL;
+				rankMin = GOTFactionRank.getRankEnemy();
+				rankMax = firstRank != null && !firstRank.isDummyRank() ? firstRank : GOTFactionRank.getRankNeutral();
 			} else if (alignment < 0.0f) {
 				alignMax = -firstRankAlign;
 				alignMin = alignMax * 10.0f;
-				rankMin = rankMax = GOTFactionRank.RANK_ENEMY;
+				rankMin = rankMax = GOTFactionRank.getRankEnemy();
 				while (alignment <= alignMin) {
 					alignMax *= 10.0f;
 					alignMin = alignMax * 10.0f;
@@ -1308,7 +1308,7 @@ public class GOTTickHandlerClient {
 			} else {
 				alignMin = firstRankAlign;
 				alignMax = alignMin * 10.0f;
-				rankMin = rankMax = GOTFactionRank.RANK_NEUTRAL;
+				rankMin = rankMax = GOTFactionRank.getRankNeutral();
 				while (alignment >= alignMax) {
 					alignMin = alignMax;
 					alignMax = alignMin * 10.0f;

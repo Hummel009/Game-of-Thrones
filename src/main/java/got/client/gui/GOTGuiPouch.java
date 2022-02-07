@@ -18,7 +18,7 @@ public class GOTGuiPouch extends GuiContainer {
 	public GOTGuiPouch(EntityPlayer entityplayer, int slot) {
 		super(new GOTContainerPouch(entityplayer, slot));
 		thePouch = (GOTContainerPouch) inventorySlots;
-		pouchRows = thePouch.capacity / 9;
+		pouchRows = thePouch.getCapacity() / 9;
 		ySize = 180;
 	}
 

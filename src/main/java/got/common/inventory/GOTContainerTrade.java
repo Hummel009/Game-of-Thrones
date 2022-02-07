@@ -8,12 +8,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTContainerTrade extends Container {
-	public IInventory tradeInvBuy = new InventoryBasic("trade", false, 9);
-	public IInventory tradeInvSell = new InventoryBasic("trade", false, 9);
-	public IInventory tradeInvSellOffer = new InventoryBasic("trade", false, 9);
+	private IInventory tradeInvBuy = new InventoryBasic("trade", false, 9);
+	private IInventory tradeInvSell = new InventoryBasic("trade", false, 9);
+	private IInventory tradeInvSellOffer = new InventoryBasic("trade", false, 9);
 	public GOTTradeable theTrader;
 	public GOTEntityNPC theTraderNPC;
-	public World theWorld;
+	private World theWorld;
 
 	public GOTContainerTrade(InventoryPlayer inv, GOTTradeable trader, World world) {
 		int i;
@@ -24,13 +24,13 @@ public class GOTContainerTrade extends Container {
 			updateAllTradeSlots();
 		}
 		for (i = 0; i < 9; ++i) {
-			addSlotToContainer(new GOTSlotTrade(this, tradeInvBuy, i, 8 + i * 18, 40, theTraderNPC, GOTTradeEntries.TradeType.BUY));
+			addSlotToContainer(new GOTSlotTrade(this, getTradeInvBuy(), i, 8 + i * 18, 40, theTraderNPC, GOTTradeEntries.TradeType.BUY));
 		}
 		for (i = 0; i < 9; ++i) {
-			addSlotToContainer(new GOTSlotTrade(this, tradeInvSell, i, 8 + i * 18, 92, theTraderNPC, GOTTradeEntries.TradeType.SELL));
+			addSlotToContainer(new GOTSlotTrade(this, getTradeInvSell(), i, 8 + i * 18, 92, theTraderNPC, GOTTradeEntries.TradeType.SELL));
 		}
 		for (i = 0; i < 9; ++i) {
-			addSlotToContainer(new Slot(tradeInvSellOffer, i, 8 + i * 18, 141));
+			addSlotToContainer(new Slot(getTradeInvSellOffer(), i, 8 + i * 18, 141));
 		}
 		for (i = 0; i < 3; ++i) {
 			for (int j = 0; j < 9; ++j) {
@@ -53,18 +53,42 @@ public class GOTContainerTrade extends Container {
 		return theTraderNPC != null && entityplayer.getDistanceToEntity(theTraderNPC) <= 12.0 && theTraderNPC.isEntityAlive() && theTraderNPC.getAttackTarget() == null && theTrader.canTradeWith(entityplayer);
 	}
 
+	public IInventory getTradeInvBuy() {
+		return tradeInvBuy;
+	}
+
+	public IInventory getTradeInvSell() {
+		return tradeInvSell;
+	}
+
+	public IInventory getTradeInvSellOffer() {
+		return tradeInvSellOffer;
+	}
+
 	@Override
 	public void onContainerClosed(EntityPlayer entityplayer) {
 		super.onContainerClosed(entityplayer);
 		if (!theWorld.isRemote) {
-			for (int i = 0; i < tradeInvSellOffer.getSizeInventory(); ++i) {
-				ItemStack itemstack = tradeInvSellOffer.getStackInSlotOnClosing(i);
+			for (int i = 0; i < getTradeInvSellOffer().getSizeInventory(); ++i) {
+				ItemStack itemstack = getTradeInvSellOffer().getStackInSlotOnClosing(i);
 				if (itemstack == null) {
 					continue;
 				}
 				entityplayer.dropPlayerItemWithRandomChoice(itemstack, false);
 			}
 		}
+	}
+
+	public void setTradeInvBuy(IInventory tradeInvBuy) {
+		this.tradeInvBuy = tradeInvBuy;
+	}
+
+	public void setTradeInvSell(IInventory tradeInvSell) {
+		this.tradeInvSell = tradeInvSell;
+	}
+
+	public void setTradeInvSellOffer(IInventory tradeInvSellOffer) {
+		this.tradeInvSellOffer = tradeInvSellOffer;
 	}
 
 	@Override
@@ -103,29 +127,29 @@ public class GOTContainerTrade extends Container {
 		GOTTradeEntry[] buyTrades = theTraderNPC.traderNPCInfo.getBuyTrades();
 		GOTTradeEntry[] sellTrades = theTraderNPC.traderNPCInfo.getSellTrades();
 		if (buyTrades != null) {
-			for (i = 0; i < tradeInvBuy.getSizeInventory(); ++i) {
+			for (i = 0; i < getTradeInvBuy().getSizeInventory(); ++i) {
 				trade = null;
 				if (i < buyTrades.length) {
 					trade = buyTrades[i];
 				}
 				if (trade != null) {
-					tradeInvBuy.setInventorySlotContents(i, trade.createTradeItem());
+					getTradeInvBuy().setInventorySlotContents(i, trade.createTradeItem());
 					continue;
 				}
-				tradeInvBuy.setInventorySlotContents(i, null);
+				getTradeInvBuy().setInventorySlotContents(i, null);
 			}
 		}
 		if (sellTrades != null) {
-			for (i = 0; i < tradeInvSell.getSizeInventory(); ++i) {
+			for (i = 0; i < getTradeInvSell().getSizeInventory(); ++i) {
 				trade = null;
 				if (i < sellTrades.length) {
 					trade = sellTrades[i];
 				}
 				if (trade != null) {
-					tradeInvSell.setInventorySlotContents(i, trade.createTradeItem());
+					getTradeInvSell().setInventorySlotContents(i, trade.createTradeItem());
 					continue;
 				}
-				tradeInvSell.setInventorySlotContents(i, null);
+				getTradeInvSell().setInventorySlotContents(i, null);
 			}
 		}
 	}

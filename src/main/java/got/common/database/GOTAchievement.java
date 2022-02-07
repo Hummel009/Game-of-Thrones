@@ -15,8 +15,8 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.*;
 
 public class GOTAchievement {
-	public static int id = 1;
-	public static Map<ItemArmor.ArmorMaterial, GOTAchievement> armorAchievements = new HashMap<>();
+	private static int id = 1;
+	private static Map<ItemArmor.ArmorMaterial, GOTAchievement> armorAchievements = new HashMap<>();
 	public static GOTAchievement BANDIT;
 	public static GOTAchievement BANNER_PROTECT;
 	public static GOTAchievement BREW_DRINK_IN_BARREL;
@@ -290,17 +290,17 @@ public class GOTAchievement {
 	public static GOTAchievement KILL_KRAZNYS_MO_NAKLOZ;
 	public static GOTAchievement WEAR_FULL_JOGOS;
 	public static GOTAchievement HIRE_GOLDEN_COMPANY;
-	public Category category;
-	public int ID;
-	public ItemStack icon;
-	public String name;
-	public boolean isBiomeAchievement;
-	public boolean isSpecial;
-	public GOTTitle achievementTitle;
-	public List<GOTFaction> enemyFactions = new ArrayList<>();
-	public List<GOTFaction> allyFactions = new ArrayList<>();
+	private Category category;
+	private int ID;
+	private ItemStack icon;
+	private String name;
+	private boolean isBiomeAchievement;
+	private boolean isSpecial;
+	private GOTTitle achievementTitle;
+	private List<GOTFaction> enemyFactions = new ArrayList<>();
+	private List<GOTFaction> allyFactions = new ArrayList<>();
 
-	public GOTAchievement(Category c, int i, Block block, String s) {
+	private GOTAchievement(Category c, int i, Block block, String s) {
 		this(c, i, new ItemStack(block), s);
 	}
 
@@ -308,18 +308,18 @@ public class GOTAchievement {
 		this(c, i, new ItemStack(item), s);
 	}
 
-	public GOTAchievement(Category c, int i, ItemStack itemstack, String s) {
-		category = c;
-		ID = i;
-		icon = itemstack;
+	private GOTAchievement(Category c, int i, ItemStack itemstack, String s) {
+		setCategory(c);
+		setID(i);
+		setIcon(itemstack);
 		name = s;
-		for (GOTAchievement achievement : category.list) {
-			if (achievement.ID != ID) {
+		for (GOTAchievement achievement : getCategory().getList()) {
+			if (achievement.getID() != getID()) {
 				continue;
 			}
-			throw new IllegalArgumentException("Duplicate ID " + ID + " for GOT achievement category " + category.name());
+			throw new IllegalArgumentException("Duplicate ID " + getID() + " for GOT achievement category " + getCategory().name());
 		}
-		category.list.add(this);
+		getCategory().getList().add(this);
 		getDimension().getAllAchievements().add(this);
 	}
 
@@ -361,11 +361,11 @@ public class GOTAchievement {
 		return true;
 	}
 
-	public GOTAchievement createTitle() {
+	private GOTAchievement createTitle() {
 		return this.createTitle(null);
 	}
 
-	public GOTAchievement createTitle(String s) {
+	private GOTAchievement createTitle(String s) {
 		if (achievementTitle != null) {
 			throw new IllegalArgumentException("GOT achievement " + getCodeName() + " already has an associated title!");
 		}
@@ -376,15 +376,15 @@ public class GOTAchievement {
 	public IChatComponent getAchievementChatComponent(EntityPlayer entityplayer) {
 		ChatComponentTranslation component = new ChatComponentTranslation(getUntranslatedTitle(entityplayer)).createCopy();
 		component.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-		component.getChatStyle().setChatHoverEvent(new HoverEvent(GOTChatEvents.getShowAchievementGOT(), new ChatComponentText(category.name() + "$" + ID)));
+		component.getChatStyle().setChatHoverEvent(new HoverEvent(GOTChatEvents.getShowAchievementGOT(), new ChatComponentText(getCategory().name() + "$" + getID())));
 		return component;
 	}
 
-	public GOTTitle getAchievementTitle() {
-		return achievementTitle;
+	public Category getCategory() {
+		return category;
 	}
 
-	public IChatComponent getChatComponentForEarn(EntityPlayer entityplayer) {
+	private IChatComponent getChatComponentForEarn(EntityPlayer entityplayer) {
 		IChatComponent base = getAchievementChatComponent(entityplayer);
 		IChatComponent component = new ChatComponentText("[").appendSibling(base).appendText("]");
 		component.setChatStyle(base.getChatStyle());
@@ -400,7 +400,15 @@ public class GOTAchievement {
 	}
 
 	public GOTDimension getDimension() {
-		return category.dimension;
+		return getCategory().dimension;
+	}
+
+	public ItemStack getIcon() {
+		return icon;
+	}
+
+	public int getID() {
+		return ID;
 	}
 
 	public String getTitle(EntityPlayer entityplayer) {
@@ -411,26 +419,28 @@ public class GOTAchievement {
 		return "got.achievement." + name + ".title";
 	}
 
-	public GOTAchievement setBiomeAchievement() {
-		isBiomeAchievement = true;
-		return this;
+	public boolean isBiomeAchievement() {
+		return isBiomeAchievement;
+	}
+
+	public void setBiomeAchievement(boolean isBiomeAchievement) {
+		this.isBiomeAchievement = isBiomeAchievement;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public void setIcon(ItemStack icon) {
+		this.icon = icon;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
 	}
 
 	public GOTAchievement setRequiresAlly(GOTFaction... f) {
 		allyFactions.addAll(Arrays.asList(f));
-		return this;
-	}
-
-	public GOTAchievement setRequiresAnyAlly(List<GOTFaction> f) {
-		return setRequiresAlly(f.toArray(new GOTFaction[0]));
-	}
-
-	public GOTAchievement setRequiresAnyEnemy(List<GOTFaction> f) {
-		return setRequiresEnemy(f.toArray(new GOTFaction[0]));
-	}
-
-	public GOTAchievement setRequiresEnemy(GOTFaction... f) {
-		enemyFactions.addAll(Arrays.asList(f));
 		return this;
 	}
 
@@ -443,8 +453,8 @@ public class GOTAchievement {
 		if (category == null) {
 			return null;
 		}
-		for (GOTAchievement achievement : category.list) {
-			if (achievement.ID != ID) {
+		for (GOTAchievement achievement : category.getList()) {
+			if (achievement.getID() != ID) {
 				continue;
 			}
 			return achievement;
@@ -462,18 +472,18 @@ public class GOTAchievement {
 		return null;
 	}
 
-	public static GOTAchievement createArmorAchievement(GOTAchievement.Category category, int id, Item item, String name) {
+	private static GOTAchievement createArmorAchievement(GOTAchievement.Category category, int id, Item item, String name) {
 		if (!(item instanceof ItemArmor)) {
 			throw new IllegalArgumentException("Invalid armor achievement item, name: " + name + " for GOT achievement category " + category);
 		}
 		GOTAchievement achievement = new GOTAchievement(category, id, item, name);
-		armorAchievements.put(((ItemArmor) item).getArmorMaterial(), achievement);
+		getArmorAchievements().put(((ItemArmor) item).getArmorMaterial(), achievement);
 		return achievement;
 	}
 
 	public static GOTAchievement findByName(String name) {
 		for (Category category : Category.values()) {
-			for (GOTAchievement achievement : category.list) {
+			for (GOTAchievement achievement : category.getList()) {
 				if (!achievement.getCodeName().equalsIgnoreCase(name)) {
 					continue;
 				}
@@ -486,9 +496,17 @@ public class GOTAchievement {
 	public static List<GOTAchievement> getAllAchievements() {
 		ArrayList<GOTAchievement> list = new ArrayList<>();
 		for (Category category : Category.values()) {
-			list.addAll(category.list);
+			list.addAll(category.getList());
 		}
 		return list;
+	}
+
+	public static Map<ItemArmor.ArmorMaterial, GOTAchievement> getArmorAchievements() {
+		return armorAchievements;
+	}
+
+	public static int getId() {
+		return id;
 	}
 
 	public static void onInit() {
@@ -767,31 +785,39 @@ public class GOTAchievement {
 		WEAR_FULL_JOGOS = GOTAchievement.createArmorAchievement(Category.WEAR, id++, GOTRegistry.jogosChestplate, "WEAR_FULL_JOGOS");
 	}
 
+	public static void setArmorAchievements(Map<ItemArmor.ArmorMaterial, GOTAchievement> armorAchievements) {
+		GOTAchievement.armorAchievements = armorAchievements;
+	}
+
+	public static void setId(int id) {
+		GOTAchievement.id = id;
+	}
+
 	public static Comparator<GOTAchievement> sortForDisplay(EntityPlayer entityplayer) {
 		return (ach1, ach2) -> {
 			if (ach1.isSpecial) {
 				if (!ach2.isSpecial) {
 					return -1;
 				}
-				if (ach2.ID < ach1.ID) {
+				if (ach2.getID() < ach1.getID()) {
 					return 1;
 				}
-				if (ach2.ID == ach1.ID) {
+				if (ach2.getID() == ach1.getID()) {
 					return 0;
 				}
-				if (ach2.ID > ach1.ID) {
+				if (ach2.getID() > ach1.getID()) {
 					return -1;
 				}
 			} else if (ach2.isSpecial) {
 				return 1;
 			}
-			if (ach1.isBiomeAchievement) {
-				if (ach2.isBiomeAchievement) {
+			if (ach1.isBiomeAchievement()) {
+				if (ach2.isBiomeAchievement()) {
 					return ach1.getTitle(entityplayer).compareTo(ach2.getTitle(entityplayer));
 				}
 				return -1;
 			}
-			if (!ach2.isBiomeAchievement) {
+			if (!ach2.isBiomeAchievement()) {
 				return ach1.getTitle(entityplayer).compareTo(ach2.getTitle(entityplayer));
 			}
 			return 1;
@@ -801,11 +827,11 @@ public class GOTAchievement {
 	public enum Category {
 		TITLES(GOTFaction.NIGHT_WATCH), GENERAL(GOTFaction.SOTHORYOS), KILL(GOTFaction.WESTERLANDS), WEAR(GOTFaction.ARRYN), VISIT(GOTFaction.WHITE_WALKER), LEGENDARY(GOTFaction.YI_TI);
 
-		public String codeName;
-		public float[] categoryColors;
-		public GOTDimension dimension;
-		public List<GOTAchievement> list = new ArrayList<>();
-		public int nextRankAchID = 1000;
+		private String codeName;
+		private float[] categoryColors;
+		private GOTDimension dimension;
+		private List<GOTAchievement> list = new ArrayList<>();
+		private int nextRankAchID = 1000;
 
 		Category(GOTDimension dim, int color) {
 			codeName = name();
@@ -822,7 +848,7 @@ public class GOTAchievement {
 			this(GOTDimension.GAME_OF_THRONES, color);
 		}
 
-		public String codeName() {
+		private String codeName() {
 			return codeName;
 		}
 
@@ -834,9 +860,17 @@ public class GOTAchievement {
 			return StatCollector.translateToLocal("got.achievement.category." + codeName());
 		}
 
+		public List<GOTAchievement> getList() {
+			return list;
+		}
+
 		public int getNextRankAchID() {
 			++nextRankAchID;
 			return nextRankAchID;
+		}
+
+		public void setList(List<GOTAchievement> list) {
+			this.list = list;
 		}
 	}
 

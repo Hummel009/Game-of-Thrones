@@ -12,7 +12,7 @@ public class GOTRenderCape {
 
 	public static void renderCape(GOTCapes cape, EntityLivingBase entity, ModelBiped model) {
 		Minecraft mc = Minecraft.getMinecraft();
-		ResourceLocation capeTexture = cape.capeTexture;
+		ResourceLocation capeTexture = cape.getCapeTexture();
 		GL11.glPushMatrix();
 		GL11.glTranslatef(0.0f, 0.0f, 0.125f);
 		GL11.glRotatef(180.0f, 0.0f, 1.0f, 0.0f);

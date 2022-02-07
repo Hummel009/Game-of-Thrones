@@ -65,7 +65,7 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 
 	private boolean canGoLeft() {
 		for (int i = 0; i <= currentShieldID - 1; ++i) {
-			GOTShields shield = currentShieldType.list.get(i);
+			GOTShields shield = currentShieldType.getList().get(i);
 			if (!shield.canDisplay(mc.thePlayer)) {
 				continue;
 			}
@@ -75,8 +75,8 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 	}
 
 	private boolean canGoRight() {
-		for (int i = currentShieldID + 1; i <= currentShieldType.list.size() - 1; ++i) {
-			GOTShields shield = currentShieldType.list.get(i);
+		for (int i = currentShieldID + 1; i <= currentShieldType.getList().size() - 1; ++i) {
+			GOTShields shield = currentShieldType.getList().get(i);
 			if (!shield.canDisplay(mc.thePlayer)) {
 				continue;
 			}
@@ -162,8 +162,8 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 		buttonList.add(goToCape);
 		GOTShields equippedShield = getPlayerEquippedShield();
 		if (equippedShield != null) {
-			currentShieldTypeID = equippedShield.shieldType.ordinal();
-			currentShieldID = equippedShield.shieldID;
+			currentShieldTypeID = equippedShield.getShieldType().ordinal();
+			currentShieldID = equippedShield.getShieldID();
 		}
 		updateCurrentShield(0, 0);
 	}
@@ -172,7 +172,7 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 		if (shield != 0) {
 			currentShieldID += shield;
 			currentShieldID = Math.max(currentShieldID, 0);
-			currentShieldID = Math.min(currentShieldID, currentShieldType.list.size() - 1);
+			currentShieldID = Math.min(currentShieldID, currentShieldType.getList().size() - 1);
 		}
 		if (type != 0) {
 			currentShieldTypeID += type;
@@ -185,7 +185,7 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 			currentShieldID = 0;
 		}
 		currentShieldType = GOTShields.ShieldType.values()[currentShieldTypeID];
-		currentShield = currentShieldType.list.get(currentShieldID);
+		currentShield = currentShieldType.getList().get(currentShieldID);
 		while (!currentShield.canDisplay(mc.thePlayer)) {
 			if ((shield < 0 || type != 0) && canGoLeft()) {
 				updateCurrentShield(-1, 0);

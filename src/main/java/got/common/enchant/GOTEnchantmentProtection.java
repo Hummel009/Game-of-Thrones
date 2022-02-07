@@ -5,15 +5,15 @@ import net.minecraft.item.*;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentProtection extends GOTEnchantment {
-	public int protectLevel;
+	private int protectLevel;
 
 	public GOTEnchantmentProtection(String s, GOTEnchantmentType type, int level) {
 		super(s, type);
-		protectLevel = level;
-		if (protectLevel >= 0) {
-			setValueModifier((2.0f + protectLevel) / 2.0f);
+		setProtectLevel(level);
+		if (getProtectLevel() >= 0) {
+			setValueModifier((2.0f + getProtectLevel()) / 2.0f);
 		} else {
-			setValueModifier((4.0f + protectLevel) / 4.0f);
+			setValueModifier((4.0f + getProtectLevel()) / 4.0f);
 		}
 	}
 
@@ -31,7 +31,7 @@ public class GOTEnchantmentProtection extends GOTEnchantment {
 					return false;
 				}
 				int prot = armor.damageReduceAmount;
-				int total = prot + protectLevel;
+				int total = prot + getProtectLevel();
 				if (total > 0) {
 					if (considering) {
 						return true;
@@ -47,11 +47,19 @@ public class GOTEnchantmentProtection extends GOTEnchantment {
 
 	@Override
 	public String getDescription(ItemStack itemstack) {
-		return StatCollector.translateToLocalFormatted("got.enchant.protect.desc", formatAdditiveInt(protectLevel));
+		return StatCollector.translateToLocalFormatted("got.enchant.protect.desc", formatAdditiveInt(getProtectLevel()));
+	}
+
+	public int getProtectLevel() {
+		return protectLevel;
 	}
 
 	@Override
 	public boolean isBeneficial() {
-		return protectLevel >= 0;
+		return getProtectLevel() >= 0;
+	}
+
+	public void setProtectLevel(int protectLevel) {
+		this.protectLevel = protectLevel;
 	}
 }

@@ -19,10 +19,10 @@ import net.minecraftforge.client.event.*;
 import net.minecraftforge.common.MinecraftForge;
 
 public class GOTArmorModels {
-	public static GOTArmorModels INSTANCE;
-	public Map<ModelBiped, Map<Item, ModelBiped>> specialArmorModels = new HashMap<>();
+	private static GOTArmorModels INSTANCE;
+	private Map<ModelBiped, Map<Item, ModelBiped>> specialArmorModels = new HashMap<>();
 
-	public GOTArmorModels() {
+	private GOTArmorModels() {
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
@@ -35,7 +35,7 @@ public class GOTArmorModels {
 		target.rotateAngleZ = src.rotateAngleZ;
 	}
 
-	public void copyModelRotations(ModelBiped target, ModelBiped src) {
+	private void copyModelRotations(ModelBiped target, ModelBiped src) {
 		copyBoxRotations(target.bipedHead, src.bipedHead);
 		copyBoxRotations(target.bipedHeadwear, src.bipedHeadwear);
 		copyBoxRotations(target.bipedBody, src.bipedBody);
@@ -76,7 +76,7 @@ public class GOTArmorModels {
 	}
 
 	@SubscribeEvent
-	public void getPlayerArmorModel(RenderPlayerEvent.SetArmorModel event) {
+	private void getPlayerArmorModel(RenderPlayerEvent.SetArmorModel event) {
 		RenderPlayer renderer = event.renderer;
 		ModelBiped mainModel = renderer.modelBipedMain;
 		EntityPlayer entityplayer = event.entityPlayer;
@@ -114,7 +114,7 @@ public class GOTArmorModels {
 		return model;
 	}
 
-	public Map<Item, ModelBiped> getSpecialModels(ModelBiped key) {
+	private Map<Item, ModelBiped> getSpecialModels(ModelBiped key) {
 		Map<Item, ModelBiped> map = specialArmorModels.get(key);
 		if (map == null) {
 			map = new HashMap<>();
@@ -164,7 +164,7 @@ public class GOTArmorModels {
 	}
 
 	@SubscribeEvent
-	public void preRenderEntity(RenderLivingEvent.Pre event) {
+	private void preRenderEntity(RenderLivingEvent.Pre event) {
 		EntityLivingBase entity = event.entity;
 		RendererLivingEntity renderer = event.renderer;
 		if (entity instanceof EntityPlayer && renderer instanceof RenderPlayer) {
@@ -189,7 +189,7 @@ public class GOTArmorModels {
 		model.bipedLeftLeg.showModel = slot == 2 || slot == 3;
 	}
 
-	public void setupHeldItem(ModelBiped model, EntityLivingBase entity, ItemStack itemstack, boolean rightArm) {
+	private void setupHeldItem(ModelBiped model, EntityLivingBase entity, ItemStack itemstack, boolean rightArm) {
 		int value = 0;
 		boolean aimBow = false;
 		if (itemstack != null) {
@@ -261,7 +261,15 @@ public class GOTArmorModels {
 		}
 	}
 
+	public static GOTArmorModels getInstance() {
+		return INSTANCE;
+	}
+
 	public static void preInit() {
-		INSTANCE = new GOTArmorModels();
+		setInstance(new GOTArmorModels());
+	}
+
+	public static void setInstance(GOTArmorModels iNSTANCE) {
+		INSTANCE = iNSTANCE;
 	}
 }

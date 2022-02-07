@@ -54,7 +54,7 @@ public class GOTPacketMiniquest implements IMessage {
 				GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 				GOTMiniQuest miniquest = GOTMiniQuest.loadQuestFromNBT(packet.miniquestData, pd);
 				if (miniquest != null) {
-					GOTMiniQuest existingQuest = pd.getMiniQuestForID(miniquest.questUUID, packet.completed);
+					GOTMiniQuest existingQuest = pd.getMiniQuestForID(miniquest.getQuestUUID(), packet.completed);
 					if (existingQuest == null) {
 						if (packet.completed) {
 							pd.addMiniQuestCompleted(miniquest);

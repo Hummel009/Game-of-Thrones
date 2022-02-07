@@ -116,16 +116,24 @@ public class GOTUnitTradeEntries {
 
 	public static GOTUnitTradeEntries PROSTITUTE_KEEPER = new GOTUnitTradeEntries(0.0f, new GOTUnitTradeEntry(GOTEntityProstitute.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.PROSTITUTE));
 
-	public static int lhazar_MERCENARY_COST = 20;
-	public GOTUnitTradeEntry[] tradeEntries;
+	private GOTUnitTradeEntry[] tradeEntries;
 
 	public GOTUnitTradeEntries(float baseAlignment, GOTUnitTradeEntry... trades) {
-		for (GOTUnitTradeEntry trade : tradeEntries = trades) {
+		for (GOTUnitTradeEntry trade : setTradeEntries(trades)) {
 			trade.alignmentRequired += baseAlignment;
 			if (trade.alignmentRequired >= 0.0f) {
 				continue;
 			}
 			throw new IllegalArgumentException("Units cannot require negative alignment!");
 		}
+	}
+
+	public GOTUnitTradeEntry[] getTradeEntries() {
+		return tradeEntries;
+	}
+
+	public GOTUnitTradeEntry[] setTradeEntries(GOTUnitTradeEntry[] tradeEntries) {
+		this.tradeEntries = tradeEntries;
+		return tradeEntries;
 	}
 }

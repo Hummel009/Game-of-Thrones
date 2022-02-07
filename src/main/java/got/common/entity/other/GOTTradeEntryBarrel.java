@@ -16,8 +16,8 @@ public class GOTTradeEntryBarrel extends GOTTradeEntry {
 		ItemStack drinkItem = super.createTradeItem();
 		ItemStack barrelItem = new ItemStack(GOTRegistry.barrel);
 		GOTTileEntityBarrel barrel = new GOTTileEntityBarrel();
-		barrel.setInventorySlotContents(9, new ItemStack(drinkItem.getItem(), GOTRecipeBrewing.BARREL_CAPACITY, drinkItem.getItemDamage()));
-		barrel.barrelMode = 2;
+		barrel.setInventorySlotContents(9, new ItemStack(drinkItem.getItem(), GOTRecipeBrewing.getBarrelCapacity(), drinkItem.getItemDamage()));
+		barrel.setBarrelMode(2);
 		GOTItemBarrel.setBarrelDataFromTE(barrelItem, barrel);
 		return barrelItem;
 	}

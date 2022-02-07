@@ -5,26 +5,34 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentKnockback extends GOTEnchantment {
-	public int knockback;
+	private int knockback;
 
 	public GOTEnchantmentKnockback(String s, int i) {
 		super(s, new GOTEnchantmentType[] { GOTEnchantmentType.MELEE, GOTEnchantmentType.THROWING_AXE });
-		knockback = i;
-		setValueModifier((knockback + 2) / 2.0f);
+		setKnockback(i);
+		setValueModifier((getKnockback() + 2) / 2.0f);
 	}
 
 	@Override
 	public boolean canApply(ItemStack itemstack, boolean considering) {
-		return super.canApply(itemstack, considering) && GOTWeaponStats.getBaseExtraKnockback(itemstack) + knockback <= GOTWeaponStats.MAX_MODIFIABLE_KNOCKBACK;
+		return super.canApply(itemstack, considering) && GOTWeaponStats.getBaseExtraKnockback(itemstack) + getKnockback() <= GOTWeaponStats.MAX_MODIFIABLE_KNOCKBACK;
 	}
 
 	@Override
 	public String getDescription(ItemStack itemstack) {
-		return StatCollector.translateToLocalFormatted("got.enchant.knockback.desc", formatAdditiveInt(knockback));
+		return StatCollector.translateToLocalFormatted("got.enchant.knockback.desc", formatAdditiveInt(getKnockback()));
+	}
+
+	public int getKnockback() {
+		return knockback;
 	}
 
 	@Override
 	public boolean isBeneficial() {
-		return knockback >= 0;
+		return getKnockback() >= 0;
+	}
+
+	public void setKnockback(int knockback) {
+		this.knockback = knockback;
 	}
 }

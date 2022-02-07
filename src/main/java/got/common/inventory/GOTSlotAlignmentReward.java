@@ -9,11 +9,11 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 
 public class GOTSlotAlignmentReward extends GOTSlotProtected {
-	public static int REWARD_COST = 2000;
+	private static int REWARD_COST = 2000;
 	public GOTContainerUnitTrade theContainer;
 	public GOTHireableBase theTrader;
 	public GOTEntityNPC theLivingTrader;
-	public ItemStack alignmentReward;
+	private ItemStack alignmentReward;
 
 	public GOTSlotAlignmentReward(GOTContainerUnitTrade container, IInventory inv, int i, int j, int k, GOTHireableBase entity, ItemStack item) {
 		super(inv, i, j, k);
@@ -29,7 +29,7 @@ public class GOTSlotAlignmentReward extends GOTSlotProtected {
 			return false;
 		}
 		int coins = GOTItemCoin.getInventoryValue(entityplayer, false);
-		if (coins < REWARD_COST) {
+		if (coins < getRewardCost()) {
 			return false;
 		}
 		return super.canTakeStack(entityplayer);
@@ -39,7 +39,7 @@ public class GOTSlotAlignmentReward extends GOTSlotProtected {
 	public void onPickupFromSlot(EntityPlayer entityplayer, ItemStack itemstack) {
 		GOTFaction faction = theLivingTrader.getFaction();
 		if (!entityplayer.worldObj.isRemote) {
-			GOTItemCoin.takeCoins(REWARD_COST, entityplayer);
+			GOTItemCoin.takeCoins(getRewardCost(), entityplayer);
 			GOTLevelData.getData(entityplayer).getFactionData(faction).takeConquestHorn();
 			theLivingTrader.playTradeSound();
 		}
@@ -49,5 +49,13 @@ public class GOTSlotAlignmentReward extends GOTSlotProtected {
 			putStack(reward);
 			((EntityPlayerMP) entityplayer).sendContainerToPlayer(theContainer);
 		}
+	}
+
+	public static int getRewardCost() {
+		return REWARD_COST;
+	}
+
+	public static void setRewardCost(int rEWARD_COST) {
+		REWARD_COST = rEWARD_COST;
 	}
 }

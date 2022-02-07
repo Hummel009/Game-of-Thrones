@@ -10,15 +10,14 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
 public abstract class GOTTileEntitySign extends TileEntity {
-	public static int MAX_LINE_LENGTH = 15;
-	public String[] signText = new String[getNumLines()];
-	public int lineBeingEdited = -1;
-	public boolean editable = true;
-	public EntityPlayer editingPlayer;
-	public boolean isFakeGuiSign = false;
+	private String[] signText = new String[getNumLines()];
+	private int lineBeingEdited = -1;
+	private boolean editable = true;
+	private EntityPlayer editingPlayer;
+	private boolean isFakeGuiSign = false;
 
 	public GOTTileEntitySign() {
-		Arrays.fill(signText, "");
+		Arrays.fill(getSignText(), "");
 	}
 
 	@Override
@@ -32,10 +31,22 @@ public abstract class GOTTileEntitySign extends TileEntity {
 		return editingPlayer;
 	}
 
+	public int getLineBeingEdited() {
+		return lineBeingEdited;
+	}
+
 	public abstract int getNumLines();
+
+	public String[] getSignText() {
+		return signText;
+	}
 
 	public boolean isEditable() {
 		return editable;
+	}
+
+	public boolean isFakeGuiSign() {
+		return isFakeGuiSign;
 	}
 
 	@Override
@@ -57,13 +68,13 @@ public abstract class GOTTileEntitySign extends TileEntity {
 		readSignText(nbt);
 	}
 
-	public void readSignText(NBTTagCompound nbt) {
-		for (int i = 0; i < signText.length; ++i) {
-			signText[i] = nbt.getString("Text" + (i + 1));
-			if (signText[i].length() <= 15) {
+	private void readSignText(NBTTagCompound nbt) {
+		for (int i = 0; i < getSignText().length; ++i) {
+			getSignText()[i] = nbt.getString("Text" + (i + 1));
+			if (getSignText()[i].length() <= 15) {
 				continue;
 			}
-			signText[i] = signText[i].substring(0, 15);
+			getSignText()[i] = getSignText()[i].substring(0, 15);
 		}
 	}
 
@@ -74,13 +85,25 @@ public abstract class GOTTileEntitySign extends TileEntity {
 		}
 	}
 
-	public void setEditingPlayer(EntityPlayer entityplayer) {
+	private void setEditingPlayer(EntityPlayer entityplayer) {
 		editingPlayer = entityplayer;
 	}
 
-	public void writeSignText(NBTTagCompound nbt) {
-		for (int i = 0; i < signText.length; ++i) {
-			nbt.setString("Text" + (i + 1), signText[i]);
+	public void setFakeGuiSign(boolean isFakeGuiSign) {
+		this.isFakeGuiSign = isFakeGuiSign;
+	}
+
+	public void setLineBeingEdited(int lineBeingEdited) {
+		this.lineBeingEdited = lineBeingEdited;
+	}
+
+	public void setSignText(String[] signText) {
+		this.signText = signText;
+	}
+
+	private void writeSignText(NBTTagCompound nbt) {
+		for (int i = 0; i < getSignText().length; ++i) {
+			nbt.setString("Text" + (i + 1), getSignText()[i]);
 		}
 	}
 

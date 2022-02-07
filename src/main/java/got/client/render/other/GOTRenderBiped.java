@@ -49,11 +49,11 @@ public abstract class GOTRenderBiped extends RenderBiped {
 
 	@Override
 	public void func_82420_a(EntityLiving entity, ItemStack itemstack) {
-		GOTArmorModels.INSTANCE.setupModelForRender(modelBipedMain, modelBipedMain, entity);
-		GOTArmorModels.INSTANCE.setupModelForRender(field_82425_h, modelBipedMain, entity);
-		GOTArmorModels.INSTANCE.setupModelForRender(field_82423_g, modelBipedMain, entity);
+		GOTArmorModels.getInstance().setupModelForRender(modelBipedMain, modelBipedMain, entity);
+		GOTArmorModels.getInstance().setupModelForRender(field_82425_h, modelBipedMain, entity);
+		GOTArmorModels.getInstance().setupModelForRender(field_82423_g, modelBipedMain, entity);
 		if (getNpcRenderPassModel() != null) {
-			GOTArmorModels.INSTANCE.setupModelForRender(getNpcRenderPassModel(), modelBipedMain, entity);
+			GOTArmorModels.getInstance().setupModelForRender(getNpcRenderPassModel(), modelBipedMain, entity);
 		}
 	}
 
@@ -258,7 +258,7 @@ public abstract class GOTRenderBiped extends RenderBiped {
 	@Override
 	public int shouldRenderPass(EntityLiving entity, int pass, float f) {
 		ItemStack armor = entity.getEquipmentInSlot(3 - pass + 1);
-		int specialArmorResult = GOTArmorModels.INSTANCE.getEntityArmorModel(this, modelBipedMain, entity, armor, pass);
+		int specialArmorResult = GOTArmorModels.getInstance().getEntityArmorModel(this, modelBipedMain, entity, armor, pass);
 		if (specialArmorResult > 0) {
 			return specialArmorResult;
 		}

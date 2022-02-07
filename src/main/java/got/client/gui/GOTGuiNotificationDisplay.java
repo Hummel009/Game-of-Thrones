@@ -139,7 +139,7 @@ public class GOTGuiNotificationDisplay extends Gui {
 			GL11.glEnable(32826);
 			GL11.glEnable(2903);
 			GL11.glEnable(2896);
-			itemRenderer.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), achievement.icon, x, y);
+			itemRenderer.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), achievement.getIcon(), x, y);
 			GL11.glDisable(2896);
 			GL11.glDepthMask(true);
 			GL11.glEnable(2929);

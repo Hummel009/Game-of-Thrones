@@ -5,30 +5,38 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentMeleeSpeed extends GOTEnchantment {
-	public float speedFactor;
+	private float speedFactor;
 
 	public GOTEnchantmentMeleeSpeed(String s, float speed) {
 		super(s, GOTEnchantmentType.MELEE);
-		speedFactor = speed;
-		setValueModifier(speedFactor);
+		setSpeedFactor(speed);
+		setValueModifier(getSpeedFactor());
 	}
 
 	@Override
 	public boolean canApply(ItemStack itemstack, boolean considering) {
 		if (super.canApply(itemstack, considering)) {
 			float speed = GOTWeaponStats.getMeleeSpeed(itemstack);
-			return (speed *= speedFactor) <= GOTWeaponStats.MAX_MODIFIABLE_SPEED;
+			return (speed *= getSpeedFactor()) <= GOTWeaponStats.MAX_MODIFIABLE_SPEED;
 		}
 		return false;
 	}
 
 	@Override
 	public String getDescription(ItemStack itemstack) {
-		return StatCollector.translateToLocalFormatted("got.enchant.meleeSpeed.desc", formatMultiplicative(speedFactor));
+		return StatCollector.translateToLocalFormatted("got.enchant.meleeSpeed.desc", formatMultiplicative(getSpeedFactor()));
+	}
+
+	public float getSpeedFactor() {
+		return speedFactor;
 	}
 
 	@Override
 	public boolean isBeneficial() {
-		return speedFactor >= 1.0f;
+		return getSpeedFactor() >= 1.0f;
+	}
+
+	public void setSpeedFactor(float speedFactor) {
+		this.speedFactor = speedFactor;
 	}
 }

@@ -5,30 +5,38 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentMeleeReach extends GOTEnchantment {
-	public float reachFactor;
+	private float reachFactor;
 
 	public GOTEnchantmentMeleeReach(String s, float reach) {
 		super(s, GOTEnchantmentType.MELEE);
-		reachFactor = reach;
-		setValueModifier(reachFactor);
+		setReachFactor(reach);
+		setValueModifier(getReachFactor());
 	}
 
 	@Override
 	public boolean canApply(ItemStack itemstack, boolean considering) {
 		if (super.canApply(itemstack, considering)) {
 			float reach = GOTWeaponStats.getMeleeReachFactor(itemstack);
-			return (reach *= reachFactor) <= GOTWeaponStats.MAX_MODIFIABLE_REACH;
+			return (reach *= getReachFactor()) <= GOTWeaponStats.MAX_MODIFIABLE_REACH;
 		}
 		return false;
 	}
 
 	@Override
 	public String getDescription(ItemStack itemstack) {
-		return StatCollector.translateToLocalFormatted("got.enchant.meleeReach.desc", formatMultiplicative(reachFactor));
+		return StatCollector.translateToLocalFormatted("got.enchant.meleeReach.desc", formatMultiplicative(getReachFactor()));
+	}
+
+	public float getReachFactor() {
+		return reachFactor;
 	}
 
 	@Override
 	public boolean isBeneficial() {
-		return reachFactor >= 1.0f;
+		return getReachFactor() >= 1.0f;
+	}
+
+	public void setReachFactor(float reachFactor) {
+		this.reachFactor = reachFactor;
 	}
 }
