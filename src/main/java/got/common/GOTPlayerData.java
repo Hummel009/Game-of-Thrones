@@ -2117,7 +2117,8 @@ public class GOTPlayerData {
 		if (fullMaterial != null && fullMaterial == GOTMaterial.MOSSOVY) {
 			addAchievement(GOTAchievement.WEAR_FULL_MOSSOVY);
 		}
-		if ((fullMaterial = getFullArmorMaterialWithoutHelmet(entityplayer)) != null && fullMaterial == GOTMaterial.ICE) {
+		fullMaterial = getFullArmorMaterialWithoutHelmet(entityplayer);
+		if (fullMaterial != null && fullMaterial == GOTMaterial.ICE) {
 			addAchievement(GOTAchievement.WEAR_FULL_WHITEWALKERS);
 		}
 	}

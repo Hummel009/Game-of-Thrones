@@ -5,13 +5,15 @@ import java.util.*;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
+import com.google.common.collect.Lists;
+
 import cpw.mods.fml.client.GuiModList;
 import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import got.*;
 import got.client.gui.*;
 import got.common.*;
-import got.common.database.GOTRegistry;
+import got.common.database.*;
 import got.common.entity.other.GOTEntityNPCRideable;
 import got.common.inventory.GOTContainerCoinExchange;
 import got.common.item.other.GOTItemCoin;
@@ -25,9 +27,10 @@ import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.settings.GameSettings;
+import net.minecraft.event.HoverEvent;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.MathHelper;
+import net.minecraft.util.*;
 import net.minecraft.world.WorldProvider;
 import net.minecraftforge.client.event.*;
 import net.minecraftforge.common.MinecraftForge;
@@ -58,6 +61,38 @@ public class GOTGuiHandler {
 			}
 		}
 		return null;
+	}
+	
+	@SubscribeEvent
+	public void postDrawScreen(GuiScreenEvent.DrawScreenEvent.Post event) {
+		HoverEvent hoverevent;
+		IChatComponent component;
+		Minecraft mc = Minecraft.getMinecraft();
+		EntityClientPlayerMP entityplayer = mc.thePlayer;
+		GuiScreen gui = event.gui;
+		int mouseX = event.mouseX;
+		int mouseY = event.mouseY;
+		if (gui instanceof GuiChat && (component = mc.ingameGUI.getChatGUI().func_146236_a(Mouse.getX(), Mouse.getY())) != null && component.getChatStyle().getChatHoverEvent() != null && (hoverevent = component.getChatStyle().getChatHoverEvent()).getAction() == GOTChatEvents.SHOW_GOT_ACHIEVEMENT) {
+			GOTGuiAchievementHoverEvent proxyGui = new GOTGuiAchievementHoverEvent();
+			proxyGui.setWorldAndResolution(mc, gui.width, gui.height);
+			try {
+				String unformattedText = hoverevent.getValue().getUnformattedText();
+				int splitIndex = unformattedText.indexOf("$");
+				String categoryName = unformattedText.substring(0, splitIndex);
+				GOTAchievement.Category category = GOTAchievement.categoryForName(categoryName);
+				int achievementID = Integer.parseInt(unformattedText.substring(splitIndex + 1));
+				GOTAchievement achievement = GOTAchievement.achievementForCategoryAndID(category, achievementID);
+				ChatComponentTranslation name = new ChatComponentTranslation("got.gui.achievements.hover.name", achievement.getAchievementChatComponent(entityplayer));
+				ChatComponentTranslation subtitle = new ChatComponentTranslation("got.gui.achievements.hover.subtitle", achievement.getDimension().getDimensionName(), category.getDisplayName());
+				subtitle.getChatStyle().setItalic(true);
+				String desc = achievement.getDescription(entityplayer);
+				ArrayList list = Lists.newArrayList((Object[]) new String[] { name.getFormattedText(), subtitle.getFormattedText() });
+				list.addAll(mc.fontRenderer.listFormattedStringToWidth(desc, 150));
+				proxyGui.func_146283_a(list, mouseX, mouseY);
+			} catch (Exception e) {
+				proxyGui.drawCreativeTabHoveringText(EnumChatFormatting.RED + "Invalid GOTAchievement!", mouseX, mouseY);
+			}
+		}
 	}
 
 	@SubscribeEvent

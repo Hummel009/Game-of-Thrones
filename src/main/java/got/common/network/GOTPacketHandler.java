@@ -90,10 +90,6 @@ public class GOTPacketHandler {
 		networkWrapper.registerMessage(GOTPacketFellowshipRespondInvite.Handler.class, GOTPacketFellowshipRespondInvite.class, id++, Side.SERVER);
 		networkWrapper.registerMessage(GOTPacketFellowshipSetIcon.Handler.class, GOTPacketFellowshipSetIcon.class, id++, Side.SERVER);
 		networkWrapper.registerMessage(GOTPacketFellowshipToggle.Handler.class, GOTPacketFellowshipToggle.class, id++, Side.SERVER);
-		networkWrapper.registerMessage(GOTPacketGrappleAttach.Handler.class, GOTPacketGrappleAttach.class, id++, Side.CLIENT);
-		networkWrapper.registerMessage(GOTPacketGrappleAttachPos.Handler.class, GOTPacketGrappleAttachPos.class, id++, Side.CLIENT);
-		networkWrapper.registerMessage(GOTPacketGrappleClick.Handler.class, GOTPacketGrappleClick.class, id++, Side.CLIENT);
-		networkWrapper.registerMessage(GOTPacketGrappleEnd.Handler.class, GOTPacketGrappleEnd.class, id++, Side.SERVER);
 		networkWrapper.registerMessage(GOTPacketHiredGui.Handler.class, GOTPacketHiredGui.class, id++, Side.CLIENT);
 		networkWrapper.registerMessage(GOTPacketHiredInfo.Handler.class, GOTPacketHiredInfo.class, id++, Side.CLIENT);
 		networkWrapper.registerMessage(GOTPacketHiredUnitCommand.Handler.class, GOTPacketHiredUnitCommand.class, id++, Side.SERVER);

@@ -217,7 +217,8 @@ public class GOTTickHandlerClient {
 					tooltip.add(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.weaponstat.range", pcRange));
 				}
 			}
-			if ((kb = GOTWeaponStats.getRangedKnockback(itemstack)) > 0) {
+			kb = GOTWeaponStats.getRangedKnockback(itemstack);
+			if (kb > 0) {
 				tooltip.add(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.weaponstat.kb", kb));
 			}
 		}

@@ -949,8 +949,6 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityLingeringEffect.class, "LingeringEffect", id++, 64, 1, true);
 		GOTEntityRegistry.register(GOTEntityCargocart.class, "Cargocart", id++, 80, 20, false);
 		GOTEntityRegistry.register(GOTEntityPlowcart.class, "Plowcart", id++, 80, 20, false);
-		GOTEntityRegistry.register(GOTEntityGrapplingArrow.class, "GrapplingArrow", id++, 900, 1, true);
-		GOTEntityRegistry.register(GOTEntityMotorGrapplingArrow.class, "MotorGrapplingArrow", id++, 900, 1, true);
 
 		GOTEntityRegistry.register(GOTEntityHummel009.class, "Hummel009", id++);
 	}

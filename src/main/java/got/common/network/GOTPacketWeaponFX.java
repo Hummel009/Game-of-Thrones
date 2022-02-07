@@ -37,88 +37,59 @@ public class GOTPacketWeaponFX implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketWeaponFX, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketWeaponFX packet, MessageContext context) {
-			block4: {
-				Random rand;
-				Entity entity;
-				double z;
-				double y;
-				double x;
-				block8: {
-					World world;
-					block7: {
-						block6: {
-							block5: {
-								world = GOT.proxy.getClientWorld();
-								entity = world.getEntityByID(packet.entityID);
-								if (entity == null) {
-									break block4;
-								}
-								x = entity.posX;
-								y = entity.boundingBox.minY;
-								z = entity.posZ;
-								rand = world.rand;
-								if (packet.type != Type.MACE_SAURON) {
-									break block5;
-								}
-								for (int i = 0; i < 360; i += 2) {
-									float angle = (float) Math.toRadians(i);
-									double dist = 1.5;
-									double d = dist * MathHelper.sin(angle);
-									double d1 = dist * MathHelper.cos(angle);
-									world.spawnParticle("smoke", x + d, y + 0.1, z + d1, d * 0.2, 0.0, d1 * 0.2);
-								}
-								break block4;
-							}
-							if (packet.type != Type.STAFF_GANDALF_WHITE) {
-								break block6;
-							}
-							for (int i = 0; i < 360; i += 2) {
-								float angle = (float) Math.toRadians(i);
-								double dist = 1.5;
-								double d = dist * MathHelper.sin(angle);
-								double d1 = dist * MathHelper.cos(angle);
-								GOT.proxy.spawnParticle("blueFlame", x + d, y + 0.1, z + d1, d * 0.2, 0.0, d1 * 0.2);
-							}
-							break block4;
-						}
-						if (packet.type != Type.FIREBALL_GANDALF_WHITE) {
-							break block7;
-						}
-						GOT.proxy.spawnParticle("gandalfFireball", x, y, z, 0.0, 0.0, 0.0);
-						break block4;
+			World world = GOT.proxy.getClientWorld();
+			Entity entity = world.getEntityByID(packet.entityID);
+			if (entity != null) {
+				double x = entity.posX;
+				double y = entity.boundingBox.minY;
+				double z = entity.posZ;
+				Random rand = world.rand;
+				switch (packet.type) {
+				case ASSHAI:
+					for (int i = 0; i < 360; i += 2) {
+						float angle = (float) Math.toRadians(i);
+						double dist = 1.5D;
+						double d = dist * MathHelper.sin(angle);
+						double d1 = dist * MathHelper.cos(angle);
+						world.spawnParticle("smoke", x + d, y + 0.1D, z + d1, d * 0.2D, 0.0D, d1 * 0.2D);
 					}
-					if (packet.type != Type.INFERNAL) {
-						break block8;
-					}
-					for (int i = 0; i < 20; ++i) {
+					break;
+				case CHILLING:
+					for (int i = 0; i < 40; i++) {
 						double d = x;
-						double d1 = y + entity.height * 0.7f;
+						double d1 = y + entity.height * 0.7F;
 						double d2 = z;
-						float angleXZ = rand.nextFloat() * 3.1415927f * 2.0f;
-						float angleY = rand.nextFloat() * 3.1415927f * 2.0f;
-						float speed = MathHelper.randomFloatClamp(rand, 0.1f, 0.15f);
+						float angleXZ = rand.nextFloat() * 3.1415927F * 2.0F;
+						float angleY = rand.nextFloat() * 3.1415927F * 2.0F;
+						float speed = MathHelper.randomFloatClamp(rand, 0.1F, 0.2F);
 						double d3 = MathHelper.cos(angleXZ) * MathHelper.cos(angleY) * speed;
 						double d4 = MathHelper.sin(angleY) * speed;
 						double d5 = MathHelper.sin(angleXZ) * MathHelper.cos(angleY) * speed;
-						d4 += 0.15000000596046448;
-						world.spawnParticle("flame", d, d1, d2, d3 += entity.posX - entity.lastTickPosX, d4 += entity.posY - entity.lastTickPosY, d5 += entity.posZ - entity.lastTickPosZ);
+						d3 += entity.posX - entity.lastTickPosX;
+						d4 += entity.posY - entity.lastTickPosY;
+						d5 += entity.posZ - entity.lastTickPosZ;
+						GOT.proxy.spawnParticle("chill", d, d1, d2, d3, d4, d5);
 					}
-					break block4;
-				}
-				if (packet.type != Type.CHILLING) {
-					break block4;
-				}
-				for (int i = 0; i < 40; ++i) {
-					double d = x;
-					double d1 = y + entity.height * 0.7f;
-					double d2 = z;
-					float angleXZ = rand.nextFloat() * 3.1415927f * 2.0f;
-					float angleY = rand.nextFloat() * 3.1415927f * 2.0f;
-					float speed = MathHelper.randomFloatClamp(rand, 0.1f, 0.2f);
-					double d3 = MathHelper.cos(angleXZ) * MathHelper.cos(angleY) * speed;
-					double d4 = MathHelper.sin(angleY) * speed;
-					double d5 = MathHelper.sin(angleXZ) * MathHelper.cos(angleY) * speed;
-					GOT.proxy.spawnParticle("chill", d, d1, d2, d3 += entity.posX - entity.lastTickPosX, d4 += entity.posY - entity.lastTickPosY, d5 += entity.posZ - entity.lastTickPosZ);
+
+					break;
+				case INFERNAL:
+					for (int i = 0; i < 20; i++) {
+						double d = x;
+						double d1 = y + entity.height * 0.7F;
+						double d2 = z;
+						float angleXZ = rand.nextFloat() * 3.1415927F * 2.0F;
+						float angleY = rand.nextFloat() * 3.1415927F * 2.0F;
+						float speed = MathHelper.randomFloatClamp(rand, 0.1F, 0.15F);
+						double d3 = MathHelper.cos(angleXZ) * MathHelper.cos(angleY) * speed;
+						double d4 = MathHelper.sin(angleY) * speed;
+						double d5 = MathHelper.sin(angleXZ) * MathHelper.cos(angleY) * speed;
+						d4 += 0.15000000596046448D;
+						d3 += entity.posX - entity.lastTickPosX;
+						d4 += entity.posY - entity.lastTickPosY;
+						d5 += entity.posZ - entity.lastTickPosZ;
+						world.spawnParticle("flame", d, d1, d2, d3, d4, d5);
+					}
+					break;
 				}
 			}
 			return null;
@@ -126,8 +97,7 @@ public class GOTPacketWeaponFX implements IMessage {
 	}
 
 	public enum Type {
-		MACE_SAURON, STAFF_GANDALF_WHITE, FIREBALL_GANDALF_WHITE, INFERNAL, CHILLING;
-
+		ASSHAI, INFERNAL, CHILLING;
 	}
 
 }
