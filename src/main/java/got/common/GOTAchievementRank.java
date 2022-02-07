@@ -6,8 +6,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.StatCollector;
 
 public class GOTAchievementRank extends GOTAchievement {
-	public GOTFactionRank theRank;
-	public GOTFaction theFac;
+	private GOTFactionRank theRank;
+	private GOTFaction theFac;
 
 	public GOTAchievementRank(GOTFactionRank rank) {
 		super(GOTAchievement.Category.TITLES, GOTAchievement.Category.TITLES.getNextRankAchID(), GOTRegistry.gregorCleganeSword, "alignment_" + rank.fac.codeName() + "_" + rank.alignment);
@@ -52,7 +52,7 @@ public class GOTAchievementRank extends GOTAchievement {
 		return align >= rankAlign;
 	}
 
-	public boolean requiresPledge() {
+	private boolean requiresPledge() {
 		return false;
 	}
 }

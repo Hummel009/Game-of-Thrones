@@ -36,7 +36,7 @@ public class GOTSpawnerAnimals {
 
 	public static int performSpawning(WorldServer world, boolean hostiles, boolean peacefuls, boolean rareTick) {
 		int interval;
-		interval = rareTick ? 0 : GOTConfig.mobSpawnInterval;
+		interval = rareTick ? 0 : GOTConfig.getMobSpawnInterval();
 		if (interval > 0) {
 			int ticks = 0;
 			int dimID = world.provider.dimensionId;

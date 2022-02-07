@@ -87,7 +87,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
 			if (button == buttonRegions) {
-				List<GOTDimension.DimensionRegion> regionList = GOTGuiFactions.currentDimension.dimensionRegions;
+				List<GOTDimension.DimensionRegion> regionList = GOTGuiFactions.currentDimension.getDimensionRegions();
 				if (!regionList.isEmpty()) {
 					int i = regionList.indexOf(currentRegion);
 					++i;
@@ -218,7 +218,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		}
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		this.drawTexturedModalRect(getGuiLeft(), getGuiTop() + pageY, 0, 0, pageWidth, pageHeight);
-		if (currentRegion != null && GOTGuiFactions.currentDimension.dimensionRegions.size() > 1) {
+		if (currentRegion != null && GOTGuiFactions.currentDimension.getDimensionRegions().size() > 1) {
 			buttonRegions.displayString = currentRegion.getRegionName();
 			buttonRegions.enabled = true;
 			buttonRegions.visible = true;
@@ -251,7 +251,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 					mapDrawGui.setFakeMapProperties(mapX, mapY, zoom, zoomExp, zoom);
 					int[] statics = GOTGuiMap.setFakeStaticProperties(pageMapSize, pageMapSize, xMin, xMax, yMin, yMax);
 					mapDrawGui.setEnableZoomOutWPFading(false);
-					boolean sepia = GOTConfig.enableSepiaMap;
+					boolean sepia = GOTConfig.isEnableSepiaMap();
 					mapDrawGui.renderMapAndOverlay(sepia, 1.0f, true);
 					GOTGuiMap.setFakeStaticProperties(statics[0], statics[1], statics[2], statics[3], statics[4], statics[5]);
 				}
@@ -521,7 +521,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		prevDimension = currentDimension = GOTDimension.getCurrentDimension(mc.theWorld);
 		currentFaction = GOTLevelData.getData(mc.thePlayer).getViewingFaction();
 		prevRegion = currentRegion = currentFaction.factionRegion;
-		currentFactionList = GOTGuiFactions.currentRegion.factionList;
+		currentFactionList = GOTGuiFactions.currentRegion.getFactionList();
 		prevFactionIndex = currentFactionIndex = currentFactionList.indexOf(currentFaction);
 		setCurrentScrollFromFaction();
 		if (mc.currentScreen == this) {
@@ -660,12 +660,12 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		prevFactionIndex = currentFactionIndex;
 		currentDimension = GOTDimension.getCurrentDimension(mc.theWorld);
 		if (currentDimension != prevDimension) {
-			currentRegion = GOTGuiFactions.currentDimension.dimensionRegions.get(0);
+			currentRegion = GOTGuiFactions.currentDimension.getDimensionRegions().get(0);
 		}
 		if (currentRegion != prevRegion) {
 			pd.setRegionLastViewedFaction(prevRegion, currentFaction);
 			lastViewedRegions.put(prevRegion, currentFaction);
-			currentFactionList = GOTGuiFactions.currentRegion.factionList;
+			currentFactionList = GOTGuiFactions.currentRegion.getFactionList();
 			currentFaction = pd.getRegionLastViewedFaction(currentRegion);
 			prevFactionIndex = currentFactionIndex = currentFactionList.indexOf(currentFaction);
 		}

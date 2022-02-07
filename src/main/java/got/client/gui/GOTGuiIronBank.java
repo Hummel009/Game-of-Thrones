@@ -55,7 +55,7 @@ public class GOTGuiIronBank extends GuiScreen {
 		mc.renderEngine.bindTexture(new ResourceLocation("got:textures/gui/bank.png"));
 		drawTexturedModalRect(xOrigin, yOrigin, 0, 0, 256, 188);
 		GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
-		String balance = StatCollector.translateToLocalFormatted("got.gui.money.balance", pd.balance);
+		String balance = StatCollector.translateToLocalFormatted("got.gui.money.balance", pd.getBalance());
 		String instructions = StatCollector.translateToLocal("got.gui.money.press");
 		drawCenteredString(fontRendererObj, balance, xOrigin + 65 + 64, yOrigin - 15, 16777215);
 		drawCenteredString(fontRendererObj, instructions, xOrigin + 65 + 64, yOrigin + 200, 10066329);

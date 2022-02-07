@@ -90,7 +90,7 @@ public abstract class GOTMiniQuest {
 		int coins;
 		GOTAchievement achievement;
 		completed = true;
-		dateCompleted = GOTDate.AegonCalendar.currentDay;
+		dateCompleted = GOTDate.AegonCalendar.getCurrentDay();
 		Random rand = npc.getRNG();
 		ArrayList<ItemStack> dropItems = new ArrayList<>();
 		float alignment = getAlignmentBonus();
@@ -294,7 +294,7 @@ public abstract class GOTMiniQuest {
 			String biomeDimName = nbt.getString("BiomeDim");
 			GOTDimension biomeDim = GOTDimension.forName(biomeDimName);
 			if (biomeDim != null) {
-				biomeGiven = biomeDim.biomeList[biomeID];
+				biomeGiven = biomeDim.getBiomeList()[biomeID];
 			}
 		}
 		rewardFactor = nbt.hasKey("RewardFactor") ? nbt.getFloat("RewardFactor") : 1.0f;
@@ -395,7 +395,7 @@ public abstract class GOTMiniQuest {
 
 	public void start(EntityPlayer entityplayer, GOTEntityNPC npc) {
 		setNPCInfo(npc);
-		dateGiven = GOTDate.AegonCalendar.currentDay;
+		dateGiven = GOTDate.AegonCalendar.getCurrentDay();
 		int i = MathHelper.floor_double(entityplayer.posX);
 		int k = MathHelper.floor_double(entityplayer.posZ);
 		BiomeGenBase biome = entityplayer.worldObj.getBiomeGenForCoords(i, k);
@@ -449,7 +449,7 @@ public abstract class GOTMiniQuest {
 		nbt.setInteger("DateGiven", dateGiven);
 		if (biomeGiven != null) {
 			nbt.setByte("BiomeID", (byte) biomeGiven.biomeID);
-			nbt.setString("BiomeDim", biomeGiven.biomeDimension.dimensionName);
+			nbt.setString("BiomeDim", biomeGiven.biomeDimension.getDimensionName());
 		}
 		nbt.setFloat("RewardFactor", rewardFactor);
 		nbt.setBoolean("WillHire", willHire);

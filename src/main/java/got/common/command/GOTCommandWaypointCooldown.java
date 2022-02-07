@@ -58,7 +58,7 @@ public class GOTCommandWaypointCooldown extends CommandBase {
 					updatedMin = true;
 				}
 				GOTLevelData.setWaypointCooldown(max, min);
-				CommandBase.func_152373_a(sender, this, "got.command.wpCooldown.setMax", max, GOTLevelData.getHMSTime_Seconds(max));
+				CommandBase.func_152373_a(sender, this, "got.command.wpCooldown.setMax", max, GOTLevelData.getHMSTimeSeconds(max));
 				if (updatedMin) {
 					CommandBase.func_152373_a(sender, (ICommand) this, "got.command.wpCooldown.updateMin", min);
 				}
@@ -72,7 +72,7 @@ public class GOTCommandWaypointCooldown extends CommandBase {
 					updatedMax = true;
 				}
 				GOTLevelData.setWaypointCooldown(max, min);
-				CommandBase.func_152373_a(sender, this, "got.command.wpCooldown.setMin", min, GOTLevelData.getHMSTime_Seconds(min));
+				CommandBase.func_152373_a(sender, this, "got.command.wpCooldown.setMin", min, GOTLevelData.getHMSTimeSeconds(min));
 				if (updatedMax) {
 					CommandBase.func_152373_a(sender, (ICommand) this, "got.command.wpCooldown.updateMax", max);
 				}

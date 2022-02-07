@@ -41,7 +41,7 @@ public class GOTWorldProvider extends WorldProvider {
 
 	@Override
 	public float calculateCelestialAngle(long time, float partialTick) {
-		float daytime = ((int) (time % GOTTime.DAY_LENGTH) + partialTick) / GOTTime.DAY_LENGTH - 0.25f;
+		float daytime = ((int) (time % GOTTime.getDayLength()) + partialTick) / GOTTime.getDayLength() - 0.25f;
 		if (daytime < 0.0f) {
 			daytime += 1.0f;
 		}
@@ -184,7 +184,7 @@ public class GOTWorldProvider extends WorldProvider {
 				chunk.getBiomeArray()[chunkZ << 4 | chunkX] = (byte) (biomeID & 0xFF);
 			}
 			GOTDimension dim = getGOTDimension();
-			return dim.biomeList[biomeID] == null ? dim.biomeList[0] : dim.biomeList[biomeID];
+			return dim.getBiomeList()[biomeID] == null ? dim.getBiomeList()[0] : dim.getBiomeList()[biomeID];
 		}
 		return worldChunkMgr.getBiomeGenAt(i, k);
 	}
@@ -198,7 +198,7 @@ public class GOTWorldProvider extends WorldProvider {
 	@Override
 	@SideOnly(value = Side.CLIENT)
 	public IRenderHandler getCloudRenderer() {
-		if (!GOTModChecker.hasShaders() && GOTConfig.cloudRange > 0) {
+		if (!GOTModChecker.hasShaders() && GOTConfig.getCloudRange() > 0) {
 			if (gotCloudRenderer == null) {
 				gotCloudRenderer = new GOTCloudRenderer();
 			}
@@ -214,7 +214,7 @@ public class GOTWorldProvider extends WorldProvider {
 
 	@Override
 	public String getDimensionName() {
-		return getGOTDimension().dimensionName;
+		return getGOTDimension().getDimensionName();
 	}
 
 	@Override
@@ -264,13 +264,13 @@ public class GOTWorldProvider extends WorldProvider {
 
 	@Override
 	public String getSaveFolder() {
-		return getGOTDimension().dimensionName;
+		return getGOTDimension().getDimensionName();
 	}
 
 	@Override
 	@SideOnly(value = Side.CLIENT)
 	public IRenderHandler getSkyRenderer() {
-		if (!GOTModChecker.hasShaders() && GOTConfig.enableGOTSky) {
+		if (!GOTModChecker.hasShaders() && GOTConfig.isEnableGOTSky()) {
 			if (gotSkyRenderer == null) {
 				gotSkyRenderer = new GOTRenderSky(this);
 			}
@@ -281,7 +281,7 @@ public class GOTWorldProvider extends WorldProvider {
 
 	@Override
 	public ChunkCoordinates getSpawnPoint() {
-		return new ChunkCoordinates(GOTLevelData.gameOfThronesPortalX, GOTLevelData.gameOfThronesPortalY, GOTLevelData.gameOfThronesPortalZ);
+		return new ChunkCoordinates(GOTLevelData.getGameOfThronesPortalX(), GOTLevelData.getGameOfThronesPortalY(), GOTLevelData.getGameOfThronesPortalZ());
 	}
 
 	@Override
@@ -342,7 +342,7 @@ public class GOTWorldProvider extends WorldProvider {
 	@Override
 	public void registerWorldChunkManager() {
 		worldChunkMgr = new GOTWorldChunkManager(worldObj, getGOTDimension());
-		dimensionId = getGOTDimension().dimensionID;
+		dimensionId = getGOTDimension().getDimensionID();
 	}
 
 	@Override
@@ -367,12 +367,12 @@ public class GOTWorldProvider extends WorldProvider {
 	}
 
 	public static int getGOTMoonPhase() {
-		int day = GOTDate.AegonCalendar.currentDay;
+		int day = GOTDate.AegonCalendar.getCurrentDay();
 		return IntMath.mod(day, MOON_PHASES);
 	}
 
 	public static boolean isLunarEclipse() {
-		int day = GOTDate.AegonCalendar.currentDay;
+		int day = GOTDate.AegonCalendar.getCurrentDay();
 		return GOTWorldProvider.getGOTMoonPhase() == 0 && IntMath.mod(day / MOON_PHASES, 4) == 3;
 	}
 }

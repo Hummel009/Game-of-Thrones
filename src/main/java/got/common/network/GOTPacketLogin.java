@@ -66,9 +66,9 @@ public class GOTPacketLogin implements IMessage {
 			if (!GOT.getProxy().isSingleplayer()) {
 				GOTLevelData.destroyAllPlayerData();
 			}
-			GOTLevelData.gameOfThronesPortalX = packet.ringPortalX;
-			GOTLevelData.gameOfThronesPortalY = packet.ringPortalY;
-			GOTLevelData.gameOfThronesPortalZ = packet.ringPortalZ;
+			GOTLevelData.setGameOfThronesPortalX(packet.ringPortalX);
+			GOTLevelData.setGameOfThronesPortalY(packet.ringPortalY);
+			GOTLevelData.setGameOfThronesPortalZ(packet.ringPortalZ);
 			GOTLevelData.setWaypointCooldown(packet.ftCooldownMax, packet.ftCooldownMin);
 			EnumDifficulty diff = packet.difficulty;
 			if (diff != null) {
@@ -79,11 +79,11 @@ public class GOTPacketLogin implements IMessage {
 			}
 			GOTLevelData.setDifficultyLocked(packet.difficultyLocked);
 			GOTLevelData.setEnableAlignmentZones(packet.alignmentZones);
-			GOTLevelData.clientside_thisServer_feastMode = packet.feastMode;
-			GOTLevelData.clientside_thisServer_fellowshipCreation = packet.fellowshipCreation;
-			GOTLevelData.clientside_thisServer_enchanting = packet.enchanting;
-			GOTLevelData.clientside_thisServer_enchantingGOT = packet.enchantingGOT;
-			GOTLevelData.clientside_thisServer_strictFactionTitleRequirements = packet.strictFactionTitleRequirements;
+			GOTLevelData.setClientsideThisServerFeastMode(packet.feastMode);
+			GOTLevelData.setClientsideThisServerFellowshipCreation(packet.fellowshipCreation);
+			GOTLevelData.setClientsideThisServerEnchanting(packet.enchanting);
+			GOTLevelData.setClientsideThisServerEnchantingGOT(packet.enchantingGOT);
+			GOTLevelData.setClientsideThisServerStrictFactionTitleRequirements(packet.strictFactionTitleRequirements);
 			return null;
 		}
 	}

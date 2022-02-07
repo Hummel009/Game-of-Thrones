@@ -51,10 +51,10 @@ public class GOTPacketNPCSpeech implements IMessage {
 			Entity entity = world.getEntityByID(packet.entityID);
 			if (entity instanceof GOTEntityNPC) {
 				GOTEntityNPC npc = (GOTEntityNPC) entity;
-				if (GOTConfig.immersiveSpeech) {
+				if (GOTConfig.isImmersiveSpeech()) {
 					GOT.getProxy().clientReceiveSpeech(npc, packet.speech);
 				}
-				if (!GOTConfig.immersiveSpeech || GOTConfig.immersiveSpeechChatLog || packet.forceChatMsg) {
+				if (!GOTConfig.isImmersiveSpeech() || GOTConfig.isImmersiveSpeechChatLog() || packet.forceChatMsg) {
 					String name = npc.getCommandSenderName();
 					String message = EnumChatFormatting.YELLOW + "<" + name + "> " + EnumChatFormatting.WHITE + packet.speech;
 					entityplayer.addChatMessage(new ChatComponentText(message));

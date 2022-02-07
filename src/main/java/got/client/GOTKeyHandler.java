@@ -62,8 +62,8 @@ public class GOTKeyHandler {
 		GOTDimension currentDimension = GOTDimension.getCurrentDimension(GOTKeyHandler.mc.theWorld);
 		GOTFaction currentFaction = pd.getViewingFaction();
 		GOTDimension.DimensionRegion currentRegion = currentFaction.factionRegion;
-		List<GOTDimension.DimensionRegion> regionList = currentDimension.dimensionRegions;
-		List<GOTFaction> factionList = currentRegion.factionList;
+		List<GOTDimension.DimensionRegion> regionList = currentDimension.getDimensionRegions();
+		List<GOTFaction> factionList = currentRegion.getFactionList();
 		if (GOTKeyHandler.mc.currentScreen == null && alignmentChangeTick <= 0) {
 			int i;
 			if (getKeyBindingReturn().getIsKeyPressed()) {
@@ -91,7 +91,7 @@ public class GOTKeyHandler {
 					--i;
 					i = IntMath.mod(i, regionList.size());
 					currentRegion = regionList.get(i);
-					factionList = currentRegion.factionList;
+					factionList = currentRegion.getFactionList();
 					currentFaction = pd.getRegionLastViewedFaction(currentRegion);
 					usedAlignmentKeys = true;
 				}
@@ -102,7 +102,7 @@ public class GOTKeyHandler {
 					++i;
 					i = IntMath.mod(i, regionList.size());
 					currentRegion = regionList.get(i);
-					factionList = currentRegion.factionList;
+					factionList = currentRegion.getFactionList();
 					currentFaction = pd.getRegionLastViewedFaction(currentRegion);
 					usedAlignmentKeys = true;
 				}

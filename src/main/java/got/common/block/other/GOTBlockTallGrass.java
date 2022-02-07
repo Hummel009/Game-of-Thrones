@@ -79,7 +79,7 @@ public class GOTBlockTallGrass extends GOTBlockGrass {
 				bootsLegs = true;
 			}
 			if (!bootsLegs) {
-				entity.attackEntityFrom(GOTDamage.plantHurt, 0.25f);
+				entity.attackEntityFrom(GOTDamage.getPlantHurt(), 0.25f);
 			}
 		}
 	}

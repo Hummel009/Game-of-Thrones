@@ -47,7 +47,7 @@ public class GOTRenderPlayer {
 		float fr1 = f1 - (float) d1;
 		float fr2 = f2 - (float) d2;
 		yOffset = entityplayer.isPlayerSleeping() ? -1.5f : 0.0f;
-		if (shouldRenderAlignment(entityplayer) && (mc.theWorld.provider instanceof GOTWorldProvider || GOTConfig.alwaysShowAlignment)) {
+		if (shouldRenderAlignment(entityplayer) && (mc.theWorld.provider instanceof GOTWorldProvider || GOTConfig.isAlwaysShowAlignment())) {
 			float range;
 			GOTPlayerData clientPD = GOTLevelData.getData(mc.thePlayer);
 			GOTPlayerData otherPD = GOTLevelData.getData(entityplayer);
@@ -179,7 +179,7 @@ public class GOTRenderPlayer {
 	}
 
 	private boolean shouldRenderAlignment(EntityPlayer entityplayer) {
-		if (GOTConfig.displayAlignmentAboveHead && shouldRenderPlayerHUD(entityplayer)) {
+		if (GOTConfig.isDisplayAlignmentAboveHead() && shouldRenderPlayerHUD(entityplayer)) {
 			if (GOTLevelData.getData(entityplayer).getHideAlignment()) {
 				String playerName = entityplayer.getCommandSenderName();
 				List<GOTFellowshipClient> fellowships = GOTLevelData.getData(mc.thePlayer).getClientFellowships();
@@ -197,7 +197,7 @@ public class GOTRenderPlayer {
 	}
 
 	private boolean shouldRenderFellowPlayerHealth(EntityPlayer entityplayer) {
-		if (GOTConfig.fellowPlayerHealthBars && shouldRenderPlayerHUD(entityplayer)) {
+		if (GOTConfig.isFellowPlayerHealthBars() && shouldRenderPlayerHUD(entityplayer)) {
 			List<GOTFellowshipClient> fellowships = GOTLevelData.getData(mc.thePlayer).getClientFellowships();
 			for (GOTFellowshipClient fs : fellowships) {
 				if (!fs.isPlayerIn(entityplayer.getCommandSenderName())) {

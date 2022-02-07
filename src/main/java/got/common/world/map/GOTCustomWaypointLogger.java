@@ -20,7 +20,7 @@ public class GOTCustomWaypointLogger {
 	public static DateFormat TIME_FORMAT = new SimpleDateFormat("HH:mm:ss");
 
 	public static void log(String function, EntityPlayer entityplayer, GOTCustomWaypoint cwp) {
-		if (!GOTConfig.cwpLog) {
+		if (!GOTConfig.isCwpLog()) {
 			return;
 		}
 		try {

@@ -8,8 +8,6 @@ import com.mojang.authlib.GameProfile;
 
 import cpw.mods.fml.client.registry.*;
 import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.relauncher.Side;
 import got.client.effect.*;
 import got.client.gui.*;
@@ -17,13 +15,11 @@ import got.client.render.GOTRender;
 import got.client.render.other.*;
 import got.client.sound.GOTMusic;
 import got.common.*;
-import got.common.controller.GOTControllerGrabble;
 import got.common.database.*;
 import got.common.entity.animal.*;
 import got.common.entity.dragon.GOTEntityDragon3DViewer;
 import got.common.entity.other.*;
 import got.common.faction.*;
-import got.common.item.other.GOTItemClick;
 import got.common.network.*;
 import got.common.quest.GOTMiniQuest;
 import got.common.tileentity.*;
@@ -31,7 +27,7 @@ import got.common.util.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.*;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.*;
+import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.*;
@@ -40,13 +36,12 @@ import net.minecraft.client.settings.GameSettings;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.*;
+import net.minecraft.item.ItemStack;
 import net.minecraft.network.play.client.C08PacketPlayerBlockPlacement;
 import net.minecraft.potion.*;
 import net.minecraft.util.*;
 import net.minecraft.world.*;
 import net.minecraft.world.chunk.*;
-import net.minecraftforge.event.world.BlockEvent.BreakEvent;
 
 public class GOTClientProxy extends GOTCommonProxy {
 	private static ResourceLocation enchantmentTexture = new ResourceLocation("textures/misc/enchanted_item_glint.png");
@@ -95,24 +90,11 @@ public class GOTClientProxy extends GOTCommonProxy {
 	private int ropeRenderID;
 	private int chainRenderID;
 	private int trapdoorRenderID;
-	private boolean prevleftclick;
 	private Map<Integer, Long> enderlaunchtimer = new HashMap<>();
 
 	@Override
 	public void addMapPlayerLocation(GameProfile player, double posX, double posZ) {
 		GOTGuiMap.addPlayerLocationInfo(player, posX, posZ);
-	}
-
-	@Override
-	public void blockbreak(BreakEvent event) {
-		GOTBlockPos pos = new GOTBlockPos(event.x, event.y, event.z);
-		if (GOTGrappleHelper.controllerpos.containsKey(pos)) {
-			GOTControllerGrabble control = GOTGrappleHelper.controllerpos.get(pos);
-
-			control.unattach();
-
-			GOTGrappleHelper.controllerpos.remove(pos);
-		}
 	}
 
 	@Override
@@ -304,15 +286,6 @@ public class GOTClientProxy extends GOTCommonProxy {
 	}
 
 	@Override
-	public void getplayermovement(GOTControllerGrabble control, int playerid) {
-		Entity entity = control.entity;
-		if (entity instanceof EntityPlayerSP) {
-			EntityPlayerSP player = (EntityPlayerSP) entity;
-			control.receivePlayerMovementMessage(player.moveStrafing, player.moveForward, player.movementInput.jump);
-		}
-	}
-
-	@Override
 	public int getReedsRenderID() {
 		return reedsRenderID;
 	}
@@ -363,15 +336,6 @@ public class GOTClientProxy extends GOTCommonProxy {
 	}
 
 	@Override
-	public void handleDeath(Entity entity) {
-		int id = entity.getEntityId();
-		if (GOTGrappleHelper.controllers.containsKey(id)) {
-			GOTControllerGrabble controller = GOTGrappleHelper.controllers.get(id);
-			controller.unattach();
-		}
-	}
-
-	@Override
 	public void handleInvasionWatch(int invasionEntityID, boolean overrideAlreadyWatched) {
 		Entity e;
 		GOTInvasionStatus status = GOTTickHandlerClient.getWatchedInvasion();
@@ -410,45 +374,6 @@ public class GOTClientProxy extends GOTCommonProxy {
 			enderlaunchtimer.get(player.getEntityId());
 		}
 		player.worldObj.getTotalWorldTime();
-	}
-
-	@SubscribeEvent
-	public void onClientTick(TickEvent.ClientTickEvent event) {
-		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
-		if (player != null && (!Minecraft.getMinecraft().isGamePaused() || !Minecraft.getMinecraft().isSingleplayer())) {
-			try {
-				Collection<GOTControllerGrabble> controllers = GOTGrappleHelper.controllers.values();
-				for (GOTControllerGrabble controller : controllers) {
-					controller.doClientTick();
-				}
-			} catch (ConcurrentModificationException e) {
-				System.out.println("ConcurrentModificationException caught");
-			}
-
-			boolean leftclick = GameSettings.isKeyDown(Minecraft.getMinecraft().gameSettings.keyBindAttack) && Minecraft.getMinecraft().currentScreen == null;
-			if (prevleftclick != leftclick) {
-				ItemStack stack = player.getHeldItem();
-				if (stack != null) {
-					Item item = stack.getItem();
-					if (item instanceof GOTItemClick) {
-						if (leftclick) {
-							((GOTItemClick) item).onLeftClick(stack, player);
-						} else {
-							((GOTItemClick) item).onLeftClickRelease(stack, player);
-						}
-					}
-				}
-			}
-
-			prevleftclick = leftclick;
-
-			if (player.onGround && enderlaunchtimer.containsKey(player.getEntityId())) {
-				long timer = player.worldObj.getTotalWorldTime() - enderlaunchtimer.get(player.getEntityId());
-				if (timer > 10) {
-					resetlaunchertime(player.getEntityId());
-				}
-			}
-		}
 	}
 
 	@Override
@@ -633,8 +558,8 @@ public class GOTClientProxy extends GOTCommonProxy {
 		if (!GOTTickHandlerClient.getPlayersInPortals().containsKey(entityplayer)) {
 			GOTTickHandlerClient.getPlayersInPortals().put(entityplayer, 0);
 		}
-		if (Minecraft.getMinecraft().isSingleplayer() && !GOTTickHandlerServer.playersInPortals.containsKey(entityplayer)) {
-			GOTTickHandlerServer.playersInPortals.put(entityplayer, 0);
+		if (Minecraft.getMinecraft().isSingleplayer() && !GOTTickHandlerServer.getPlayersInPortals().containsKey(entityplayer)) {
+			GOTTickHandlerServer.getPlayersInPortals().put(entityplayer, 0);
 		}
 	}
 

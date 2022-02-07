@@ -9,7 +9,6 @@ import com.mojang.authlib.GameProfile;
 
 import cpw.mods.fml.common.FMLLog;
 import got.GOT;
-import got.common.database.*;
 import got.common.fellowship.*;
 import got.common.network.*;
 import net.minecraft.entity.player.*;
@@ -21,42 +20,40 @@ import net.minecraft.world.*;
 import net.minecraftforge.common.DimensionManager;
 
 public class GOTLevelData {
-	public static int madePortal;
-	public static int madeGameOfThronesPortal;
-	public static int overworldPortalX;
-	public static int overworldPortalY;
-	public static int overworldPortalZ;
-	public static int gameOfThronesPortalX;
-	public static int gameOfThronesPortalY;
-	public static int gameOfThronesPortalZ;
-	public static int waypointCooldownMax;
-	public static int waypointCooldownMin;
-	public static int structuresBanned;
-	public static boolean enableAlignmentZones;
-	public static float conquestRate;
-	public static boolean clientside_thisServer_feastMode;
-	public static boolean clientside_thisServer_fellowshipCreation;
-	public static boolean clientside_thisServer_enchanting;
-	public static boolean clientside_thisServer_enchantingGOT;
-	public static boolean clientside_thisServer_strictFactionTitleRequirements;
-	public static EnumDifficulty difficulty;
-	public static boolean difficultyLock;
-	public static Map<UUID, GOTPlayerData> playerDataMap;
-	public static boolean needsLoad;
-	public static boolean needsSave;
-	public static Random rand;
+	private static int madePortal;
+	private static int madeGameOfThronesPortal;
+	private static int overworldPortalX;
+	private static int overworldPortalY;
+	private static int overworldPortalZ;
+	private static int gameOfThronesPortalX;
+	private static int gameOfThronesPortalY;
+	private static int gameOfThronesPortalZ;
+	private static int waypointCooldownMax;
+	private static int waypointCooldownMin;
+	private static int structuresBanned;
+	private static boolean enableAlignmentZones;
+	private static float conquestRate;
+	private static boolean clientside_thisServer_feastMode;
+	private static boolean clientside_thisServer_fellowshipCreation;
+	private static boolean clientside_thisServer_enchanting;
+	private static boolean clientside_thisServer_enchantingGOT;
+	private static boolean clientside_thisServer_strictFactionTitleRequirements;
+	private static EnumDifficulty difficulty;
+	private static boolean difficultyLock;
+	private static Map<UUID, GOTPlayerData> playerDataMap;
+	private static boolean needsLoad;
+	private static boolean needsSave;
 
 	static {
 		conquestRate = 1.0f;
 		difficultyLock = false;
 		playerDataMap = new HashMap<>();
-		needsLoad = true;
+		setNeedsLoad(true);
 		needsSave = false;
-		rand = new Random();
 	}
 
 	public static boolean anyDataNeedsSave() {
-		if (needsSave || GOTSpawnDamping.needsSave) {
+		if (needsSave || GOTSpawnDamping.isNeedsSave()) {
 			return true;
 		}
 		for (GOTPlayerData pd : playerDataMap.values()) {
@@ -115,11 +112,23 @@ public class GOTLevelData {
 		return pd;
 	}
 
-	public static File getGOTDat() {
+	public static int getGameOfThronesPortalX() {
+		return gameOfThronesPortalX;
+	}
+
+	public static int getGameOfThronesPortalY() {
+		return gameOfThronesPortalY;
+	}
+
+	public static int getGameOfThronesPortalZ() {
+		return gameOfThronesPortalZ;
+	}
+
+	private static File getGOTDat() {
 		return new File(GOTLevelData.getOrCreateGOTDir(), "GOT.dat");
 	}
 
-	public static File getGOTPlayerDat(UUID player) {
+	private static File getGOTPlayerDat(UUID player) {
 		File playerDir = new File(GOTLevelData.getOrCreateGOTDir(), "players");
 		if (!playerDir.exists()) {
 			playerDir.mkdirs();
@@ -127,18 +136,11 @@ public class GOTLevelData {
 		return new File(playerDir, player.toString() + ".dat");
 	}
 
-	public static String getHMSTime(int i) {
-		int hours = i / 72000;
-		int minutes = i % 72000 / 1200;
-		int seconds = i % 72000 % 1200 / 20;
-		return hours + "h " + minutes + "m " + seconds + "s";
+	public static String getHMSTimeSeconds(int secs) {
+		return GOTLevelData.getHMSTimeTicks(secs * 20);
 	}
 
-	public static String getHMSTime_Seconds(int secs) {
-		return GOTLevelData.getHMSTime_Ticks(secs * 20);
-	}
-
-	public static String getHMSTime_Ticks(int ticks) {
+	public static String getHMSTimeTicks(int ticks) {
 		int hours = ticks / 72000;
 		int minutes = ticks % 72000 / 1200;
 		int seconds = ticks % 72000 % 1200 / 20;
@@ -154,6 +156,14 @@ public class GOTLevelData {
 		return StatCollector.translateToLocalFormatted("got.gui.time.format.s", sSeconds);
 	}
 
+	public static int getMadeGameOfThronesPortal() {
+		return madeGameOfThronesPortal;
+	}
+
+	public static int getMadePortal() {
+		return madePortal;
+	}
+
 	public static File getOrCreateGOTDir() {
 		File file = new File(DimensionManager.getCurrentSaveRootDirectory(), "GOT");
 		if (!file.exists()) {
@@ -162,8 +172,16 @@ public class GOTLevelData {
 		return file;
 	}
 
-	public static EnumDifficulty getSavedDifficulty() {
-		return difficulty;
+	public static int getOverworldPortalX() {
+		return overworldPortalX;
+	}
+
+	public static int getOverworldPortalY() {
+		return overworldPortalY;
+	}
+
+	public static int getOverworldPortalZ() {
+		return overworldPortalZ;
 	}
 
 	public static int getWaypointCooldownMax() {
@@ -174,8 +192,32 @@ public class GOTLevelData {
 		return waypointCooldownMin;
 	}
 
+	public static boolean isClientsideThisServerEnchanting() {
+		return clientside_thisServer_enchanting;
+	}
+
+	public static boolean isClientsideThisServerEnchantingGOT() {
+		return clientside_thisServer_enchantingGOT;
+	}
+
+	public static boolean isClientsideThisServerFeastMode() {
+		return clientside_thisServer_feastMode;
+	}
+
+	public static boolean isClientsideThisServerFellowshipCreation() {
+		return clientside_thisServer_fellowshipCreation;
+	}
+
+	public static boolean isClientsideThisServerStrictFactionTitleRequirements() {
+		return clientside_thisServer_strictFactionTitleRequirements;
+	}
+
 	public static boolean isDifficultyLocked() {
 		return difficultyLock;
+	}
+
+	public static boolean isNeedsLoad() {
+		return needsLoad;
 	}
 
 	public static boolean isPlayerBannedForStructures(EntityPlayer entityplayer) {
@@ -198,14 +240,14 @@ public class GOTLevelData {
 					}
 				}
 			}
-			madePortal = levelData.getInteger("MadePortal");
-			madeGameOfThronesPortal = levelData.getInteger("MadeGameOfThronesPortal");
-			overworldPortalX = levelData.getInteger("OverworldX");
-			overworldPortalY = levelData.getInteger("OverworldY");
-			overworldPortalZ = levelData.getInteger("OverworldZ");
-			gameOfThronesPortalX = levelData.getInteger("GameOfThronesX");
-			gameOfThronesPortalY = levelData.getInteger("GameOfThronesY");
-			gameOfThronesPortalZ = levelData.getInteger("GameOfThronesZ");
+			setMadePortal(levelData.getInteger("MadePortal"));
+			setMadeGameOfThronesPortal(levelData.getInteger("MadeGameOfThronesPortal"));
+			setOverworldPortalX(levelData.getInteger("OverworldX"));
+			setOverworldPortalY(levelData.getInteger("OverworldY"));
+			setOverworldPortalZ(levelData.getInteger("OverworldZ"));
+			setGameOfThronesPortalX(levelData.getInteger("GameOfThronesX"));
+			setGameOfThronesPortalY(levelData.getInteger("GameOfThronesY"));
+			setGameOfThronesPortalZ(levelData.getInteger("GameOfThronesZ"));
 			structuresBanned = levelData.getInteger("StructuresBanned");
 			waypointCooldownMax = levelData.hasKey("FastTravel") ? levelData.getInteger("FastTravel") / 20 : levelData.hasKey("WpCdMax") ? levelData.getInteger("WpCdMax") : 600;
 			waypointCooldownMin = levelData.hasKey("FastTravelMin") ? levelData.getInteger("FastTravelMin") / 20 : levelData.hasKey("WpCdMin") ? levelData.getInteger("WpCdMin") : 60;
@@ -223,7 +265,7 @@ public class GOTLevelData {
 			GOTLevelData.destroyAllPlayerData();
 			GOTDate.loadDates(levelData);
 			GOTSpawnDamping.loadAll();
-			needsLoad = false;
+			setNeedsLoad(false);
 			needsSave = true;
 			GOTLevelData.save();
 		} catch (Exception e) {
@@ -232,7 +274,7 @@ public class GOTLevelData {
 		}
 	}
 
-	public static GOTPlayerData loadData(UUID player) {
+	private static GOTPlayerData loadData(UUID player) {
 		try {
 			NBTTagCompound nbt = GOTLevelData.loadNBTFromFile(GOTLevelData.getGOTPlayerDat(player));
 			GOTPlayerData pd = new GOTPlayerData(player);
@@ -266,9 +308,9 @@ public class GOTLevelData {
 	}
 
 	public static void markOverworldPortalLocation(int i, int j, int k) {
-		overworldPortalX = i;
-		overworldPortalY = j;
-		overworldPortalZ = k;
+		setOverworldPortalX(i);
+		setOverworldPortalY(j);
+		setOverworldPortalZ(k);
 		GOTLevelData.markDirty();
 	}
 
@@ -280,14 +322,14 @@ public class GOTLevelData {
 					GOTLevelData.saveNBTToFile(GOT_dat, new NBTTagCompound());
 				}
 				NBTTagCompound levelData = new NBTTagCompound();
-				levelData.setInteger("MadePortal", madePortal);
-				levelData.setInteger("MadeGameOfThronesPortal", madeGameOfThronesPortal);
-				levelData.setInteger("OverworldX", overworldPortalX);
-				levelData.setInteger("OverworldY", overworldPortalY);
-				levelData.setInteger("OverworldZ", overworldPortalZ);
-				levelData.setInteger("GameOfThronesX", gameOfThronesPortalX);
-				levelData.setInteger("GameOfThronesY", gameOfThronesPortalY);
-				levelData.setInteger("GameOfThronesZ", gameOfThronesPortalZ);
+				levelData.setInteger("MadePortal", getMadePortal());
+				levelData.setInteger("MadeGameOfThronesPortal", getMadeGameOfThronesPortal());
+				levelData.setInteger("OverworldX", getOverworldPortalX());
+				levelData.setInteger("OverworldY", getOverworldPortalY());
+				levelData.setInteger("OverworldZ", getOverworldPortalZ());
+				levelData.setInteger("GameOfThronesX", getGameOfThronesPortalX());
+				levelData.setInteger("GameOfThronesY", getGameOfThronesPortalY());
+				levelData.setInteger("GameOfThronesZ", getGameOfThronesPortalZ());
 				levelData.setInteger("StructuresBanned", structuresBanned);
 				levelData.setInteger("WpCdMax", waypointCooldownMax);
 				levelData.setInteger("WpCdMin", waypointCooldownMin);
@@ -309,7 +351,7 @@ public class GOTLevelData {
 					GOTLevelData.saveData(player);
 				}
 			}
-			if (GOTSpawnDamping.needsSave) {
+			if (GOTSpawnDamping.isNeedsSave()) {
 				GOTSpawnDamping.saveAll();
 			}
 		} catch (Exception e) {
@@ -318,7 +360,7 @@ public class GOTLevelData {
 		}
 	}
 
-	public static boolean saveAndClearData(UUID player) {
+	private static boolean saveAndClearData(UUID player) {
 		GOTPlayerData pd = playerDataMap.get(player);
 		if (pd != null) {
 			boolean saved = false;
@@ -360,7 +402,7 @@ public class GOTLevelData {
 		playerDataMap.size();
 	}
 
-	public static void saveData(UUID player) {
+	private static void saveData(UUID player) {
 		try {
 			NBTTagCompound nbt = new NBTTagCompound();
 			GOTPlayerData pd = playerDataMap.get(player);
@@ -374,30 +416,6 @@ public class GOTLevelData {
 
 	public static void saveNBTToFile(File file, NBTTagCompound nbt) throws FileNotFoundException, IOException {
 		CompressedStreamTools.writeCompressed(nbt, new FileOutputStream(file));
-	}
-
-	public static void selectDefaultCapeForPlayer(EntityPlayer entityplayer) {
-		if (GOTLevelData.getData(entityplayer).getCape() == null) {
-			for (GOTCapes cape : GOTCapes.values()) {
-				if (!cape.canPlayerWear(entityplayer)) {
-					continue;
-				}
-				GOTLevelData.getData(entityplayer).setCape(cape);
-				return;
-			}
-		}
-	}
-
-	public static void selectDefaultShieldForPlayer(EntityPlayer entityplayer) {
-		if (GOTLevelData.getData(entityplayer).getShield() == null) {
-			for (GOTShields shield : GOTShields.values()) {
-				if (!shield.canPlayerWear(entityplayer)) {
-					continue;
-				}
-				GOTLevelData.getData(entityplayer).setShield(shield);
-				return;
-			}
-		}
 	}
 
 	public static void sendAlignmentToAllPlayersInWorld(EntityPlayer entityplayer, World world) {
@@ -442,17 +460,17 @@ public class GOTLevelData {
 
 	public static void sendLoginPacket(EntityPlayerMP entityplayer) {
 		GOTPacketLogin packet = new GOTPacketLogin();
-		packet.ringPortalX = gameOfThronesPortalX;
-		packet.ringPortalY = gameOfThronesPortalY;
-		packet.ringPortalZ = gameOfThronesPortalZ;
+		packet.ringPortalX = getGameOfThronesPortalX();
+		packet.ringPortalY = getGameOfThronesPortalY();
+		packet.ringPortalZ = getGameOfThronesPortalZ();
 		packet.ftCooldownMax = waypointCooldownMax;
 		packet.ftCooldownMin = waypointCooldownMin;
 		packet.difficulty = difficulty;
 		packet.difficultyLocked = difficultyLock;
 		packet.alignmentZones = enableAlignmentZones;
-		packet.feastMode = GOTConfig.canAlwaysEat;
-		packet.enchanting = GOTConfig.enchantingVanilla;
-		packet.enchantingGOT = GOTConfig.enchantingGOT;
+		packet.feastMode = GOTConfig.isCanAlwaysEat();
+		packet.enchanting = GOTConfig.isEnchantingVanilla();
+		packet.enchantingGOT = GOTConfig.isEnchantingGOT();
 		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 	}
 
@@ -486,9 +504,9 @@ public class GOTLevelData {
 				continue;
 			}
 			show = !GOTLevelData.getData(worldPlayer).getHideMapLocation();
-			if (GOTConfig.forceMapLocations == 1) {
+			if (GOTConfig.getForceMapLocations() == 1) {
 				show = false;
-			} else if (GOTConfig.forceMapLocations == 2) {
+			} else if (GOTConfig.getForceMapLocations() == 2) {
 				show = true;
 			} else if (!show) {
 				if (isOp && creative) {
@@ -521,6 +539,26 @@ public class GOTLevelData {
 		}
 	}
 
+	public static void setClientsideThisServerEnchanting(boolean clientside_thisServer_enchanting) {
+		GOTLevelData.clientside_thisServer_enchanting = clientside_thisServer_enchanting;
+	}
+
+	public static void setClientsideThisServerEnchantingGOT(boolean clientside_thisServer_enchantingGOT) {
+		GOTLevelData.clientside_thisServer_enchantingGOT = clientside_thisServer_enchantingGOT;
+	}
+
+	public static void setClientsideThisServerFeastMode(boolean clientside_thisServer_feastMode) {
+		GOTLevelData.clientside_thisServer_feastMode = clientside_thisServer_feastMode;
+	}
+
+	public static void setClientsideThisServerFellowshipCreation(boolean clientside_thisServer_fellowshipCreation) {
+		GOTLevelData.clientside_thisServer_fellowshipCreation = clientside_thisServer_fellowshipCreation;
+	}
+
+	public static void setClientsideThisServerStrictFactionTitleRequirements(boolean clientside_thisServer_strictFactionTitleRequirements) {
+		GOTLevelData.clientside_thisServer_strictFactionTitleRequirements = clientside_thisServer_strictFactionTitleRequirements;
+	}
+
 	public static void setConquestRate(float f) {
 		conquestRate = f;
 		GOTLevelData.markDirty();
@@ -544,6 +582,18 @@ public class GOTLevelData {
 		}
 	}
 
+	public static void setGameOfThronesPortalX(int gameOfThronesPortalX) {
+		GOTLevelData.gameOfThronesPortalX = gameOfThronesPortalX;
+	}
+
+	public static void setGameOfThronesPortalY(int gameOfThronesPortalY) {
+		GOTLevelData.gameOfThronesPortalY = gameOfThronesPortalY;
+	}
+
+	public static void setGameOfThronesPortalZ(int gameOfThronesPortalZ) {
+		GOTLevelData.gameOfThronesPortalZ = gameOfThronesPortalZ;
+	}
+
 	public static void setMadeGameOfThronesPortal(int i) {
 		madeGameOfThronesPortal = i;
 		GOTLevelData.markDirty();
@@ -552,6 +602,22 @@ public class GOTLevelData {
 	public static void setMadePortal(int i) {
 		madePortal = i;
 		GOTLevelData.markDirty();
+	}
+
+	public static void setNeedsLoad(boolean needsLoad) {
+		GOTLevelData.needsLoad = needsLoad;
+	}
+
+	public static void setOverworldPortalX(int overworldPortalX) {
+		GOTLevelData.overworldPortalX = overworldPortalX;
+	}
+
+	public static void setOverworldPortalY(int overworldPortalY) {
+		GOTLevelData.overworldPortalY = overworldPortalY;
+	}
+
+	public static void setOverworldPortalZ(int overworldPortalZ) {
+		GOTLevelData.overworldPortalZ = overworldPortalZ;
 	}
 
 	public static void setPlayerBannedForStructures(String username, boolean flag) {

@@ -3,7 +3,7 @@ package got.common;
 import java.util.Random;
 
 public class GOTDrunkenSpeech {
-	public static Random rand = new Random();
+	private static Random rand = new Random();
 
 	public static String getDrunkenSpeech(String speech, float chance) {
 		StringBuilder newSpeech = new StringBuilder();

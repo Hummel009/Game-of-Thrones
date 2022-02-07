@@ -75,7 +75,7 @@ public enum GOTFixedStructures {
 	}
 
 	public static boolean hasMapFeatures(World world) {
-		if (!GOTConfig.generateMapFeatures) {
+		if (!GOTConfig.isGenerateMapFeatures()) {
 			return false;
 		}
 		return world.getWorldInfo().getTerrainType() != GOT.getWorldTypeGOTClassic();

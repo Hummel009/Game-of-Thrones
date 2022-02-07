@@ -4,12 +4,10 @@ import java.util.*;
 
 import com.mojang.authlib.GameProfile;
 
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.network.IGuiHandler;
 import got.GOT;
 import got.client.gui.*;
 import got.common.block.other.GOTBlockFlowerPot;
-import got.common.controller.GOTControllerGrabble;
 import got.common.database.*;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.*;
@@ -19,7 +17,7 @@ import got.common.item.other.*;
 import got.common.network.*;
 import got.common.quest.GOTMiniQuest;
 import got.common.tileentity.*;
-import got.common.util.*;
+import got.common.util.GOTReflection;
 import got.common.world.map.*;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -32,9 +30,8 @@ import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.*;
+import net.minecraft.util.IChatComponent;
 import net.minecraft.world.*;
-import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.world.BlockEvent.BreakEvent;
 
 public class GOTCommonProxy implements IGuiHandler {
@@ -466,9 +463,6 @@ public class GOTCommonProxy implements IGuiHandler {
 		return 0;
 	}
 
-	public void getplayermovement(GOTControllerGrabble control, int playerid) {
-	}
-
 	public int getReedsRenderID() {
 		return 0;
 	}
@@ -731,10 +725,6 @@ public class GOTCommonProxy implements IGuiHandler {
 		return 0;
 	}
 
-	public void handleDeath(Entity entity) {
-		GOTGrappleHelper.attached.remove(Integer.valueOf(entity.getEntityId()));
-	}
-
 	public void handleInvasionWatch(int invasionEntityID, boolean overrideAlreadyWatched) {
 	}
 
@@ -755,25 +745,6 @@ public class GOTCommonProxy implements IGuiHandler {
 	}
 
 	public void launchplayer(EntityPlayer player) {
-	}
-
-	@SubscribeEvent
-	public void onLivingAttack(LivingAttackEvent event) {
-		if (event.source == DamageSource.inWall && GOTGrappleHelper.attached.contains(event.entity.getEntityId())) {
-			event.setCanceled(true);
-		}
-	}
-
-	@SubscribeEvent
-	public void onLivingDeath(LivingDeathEvent event) {
-		handleDeath(event.entity);
-	}
-
-	@SubscribeEvent
-	public void onLivingFallEvent(LivingFallEvent event) {
-		if (event.entity != null && GOTGrappleHelper.attached.contains(event.entity.getEntityId())) {
-			event.setCanceled(true);
-		}
 	}
 
 	public void onLoad() {
@@ -811,15 +782,12 @@ public class GOTCommonProxy implements IGuiHandler {
 	public void resetlaunchertime(int playerid) {
 	}
 
-	public void sendplayermovementmessage(GOTEntityGrapplingArrow grappleArrow, int playerid, int arrowid) {
-	}
-
 	public void setClientDifficulty(EnumDifficulty difficulty) {
 	}
 
 	public void setInPortal(EntityPlayer entityplayer) {
-		if (!GOTTickHandlerServer.playersInPortals.containsKey(entityplayer)) {
-			GOTTickHandlerServer.playersInPortals.put(entityplayer, 0);
+		if (!GOTTickHandlerServer.getPlayersInPortals().containsKey(entityplayer)) {
+			GOTTickHandlerServer.getPlayersInPortals().put(entityplayer, 0);
 		}
 	}
 

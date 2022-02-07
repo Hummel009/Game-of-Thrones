@@ -90,10 +90,6 @@ public class GOTPacketHandler {
 		networkWrapper.registerMessage(GOTPacketFellowshipRespondInvite.Handler.class, GOTPacketFellowshipRespondInvite.class, id++, Side.SERVER);
 		networkWrapper.registerMessage(GOTPacketFellowshipSetIcon.Handler.class, GOTPacketFellowshipSetIcon.class, id++, Side.SERVER);
 		networkWrapper.registerMessage(GOTPacketFellowshipToggle.Handler.class, GOTPacketFellowshipToggle.class, id++, Side.SERVER);
-		networkWrapper.registerMessage(GOTPacketGrappleAttach.Handler.class, GOTPacketGrappleAttach.class, id++, Side.CLIENT);
-		networkWrapper.registerMessage(GOTPacketGrappleAttachPos.Handler.class, GOTPacketGrappleAttachPos.class, id++, Side.CLIENT);
-		networkWrapper.registerMessage(GOTPacketGrappleClick.Handler.class, GOTPacketGrappleClick.class, id++, Side.CLIENT);
-		networkWrapper.registerMessage(GOTPacketGrappleEnd.Handler.class, GOTPacketGrappleEnd.class, id++, Side.SERVER);
 		networkWrapper.registerMessage(GOTPacketHiredGui.Handler.class, GOTPacketHiredGui.class, id++, Side.CLIENT);
 		networkWrapper.registerMessage(GOTPacketHiredInfo.Handler.class, GOTPacketHiredInfo.class, id++, Side.CLIENT);
 		networkWrapper.registerMessage(GOTPacketHiredUnitCommand.Handler.class, GOTPacketHiredUnitCommand.class, id++, Side.SERVER);
@@ -117,7 +113,6 @@ public class GOTPacketHandler {
 		networkWrapper.registerMessage(GOTPacketMiniquestRemove.Handler.class, GOTPacketMiniquestRemove.class, id++, Side.CLIENT);
 		networkWrapper.registerMessage(GOTPacketMiniquestTrack.Handler.class, GOTPacketMiniquestTrack.class, id++, Side.SERVER);
 		networkWrapper.registerMessage(GOTPacketMiniquestTrackClient.Handler.class, GOTPacketMiniquestTrackClient.class, id++, Side.CLIENT);
-		networkWrapper.registerMessage(GOTPacketMoneyChange.Handler.class, GOTPacketMoneyChange.class, id++, Side.CLIENT);
 		networkWrapper.registerMessage(GOTPacketMoneyGet.Handler.class, GOTPacketMoneyGet.class, id++, Side.SERVER);
 		networkWrapper.registerMessage(GOTPacketMoneyGive.Handler.class, GOTPacketMoneyGive.class, id++, Side.SERVER);
 		networkWrapper.registerMessage(GOTPacketMountControl.Handler.class, GOTPacketMountControl.class, id++, Side.SERVER);

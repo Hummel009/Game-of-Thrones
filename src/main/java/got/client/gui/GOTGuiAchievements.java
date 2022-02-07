@@ -199,11 +199,11 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 	}
 
 	private GOTAchievement.Category getCategoryAtRelativeIndex(int i) {
-		List<GOTAchievement.Category> categories = GOTGuiAchievements.currentDimension.achievementCategories;
+		List<GOTAchievement.Category> categories = GOTGuiAchievements.currentDimension.getAchievementCategories();
 		int index = categories.indexOf(currentCategory);
 		index += i;
-		index = IntMath.mod(index, GOTGuiAchievements.currentDimension.achievementCategories.size());
-		return GOTGuiAchievements.currentDimension.achievementCategories.get(index);
+		index = IntMath.mod(index, GOTGuiAchievements.currentDimension.getAchievementCategories().size());
+		return GOTGuiAchievements.currentDimension.getAchievementCategories().get(index);
 	}
 
 	@Override
@@ -260,7 +260,7 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 	public void updateAchievementLists() {
 		currentDimension = GOTDimension.getCurrentDimension(mc.theWorld);
 		if (currentDimension != prevDimension) {
-			currentCategory = GOTGuiAchievements.currentDimension.achievementCategories.get(0);
+			currentCategory = GOTGuiAchievements.currentDimension.getAchievementCategories().get(0);
 		}
 		prevDimension = currentDimension;
 		currentCategoryTakenAchievements.clear();
@@ -278,7 +278,7 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 		currentCategoryTakenCount = currentCategoryTakenAchievements.size();
 		currentCategoryUntakenCount = currentCategoryUntakenAchievements.size();
 		GOTLevelData.getData(mc.thePlayer).getEarnedAchievements(currentDimension).size();
-		for (GOTAchievement achievement : GOTGuiAchievements.currentDimension.allAchievements) {
+		for (GOTAchievement achievement : GOTGuiAchievements.currentDimension.getAllAchievements()) {
 			if (!achievement.canPlayerEarn(mc.thePlayer)) {
 				continue;
 			}

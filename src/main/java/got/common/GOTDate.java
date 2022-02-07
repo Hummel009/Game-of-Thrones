@@ -1,6 +1,5 @@
 package got.common;
 
-import java.awt.Color;
 import java.util.*;
 
 import com.google.common.math.IntMath;
@@ -15,15 +14,15 @@ import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 public class GOTDate {
-	public static int ticksInDay = GOTTime.DAY_LENGTH;
-	public static long prevWorldTime = -1L;
+	private static int ticksInDay = GOTTime.getDayLength();
+	private static long prevWorldTime = -1L;
 
 	public static void loadDates(NBTTagCompound levelData) {
 		if (levelData.hasKey("Dates")) {
 			NBTTagCompound nbt = levelData.getCompoundTag("Dates");
-			AegonCalendar.currentDay = nbt.getInteger("AegonDate");
+			AegonCalendar.setCurrentDay(nbt.getInteger("AegonDate"));
 		} else {
-			AegonCalendar.currentDay = 0;
+			AegonCalendar.setCurrentDay(0);
 		}
 	}
 
@@ -33,7 +32,7 @@ public class GOTDate {
 
 	public static void saveDates(NBTTagCompound levelData) {
 		NBTTagCompound nbt = new NBTTagCompound();
-		nbt.setInteger("AegonDate", AegonCalendar.currentDay);
+		nbt.setInteger("AegonDate", AegonCalendar.getCurrentDay());
 		levelData.setTag("Dates", nbt);
 	}
 
@@ -45,7 +44,7 @@ public class GOTDate {
 	}
 
 	public static void setDate(int date) {
-		AegonCalendar.currentDay = date;
+		AegonCalendar.setCurrentDay(date);
 		GOTLevelData.markDirty();
 		FMLLog.info("Updating GOT day: " + AegonCalendar.getDate().getDateName(false));
 		for (Object obj : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
@@ -63,18 +62,22 @@ public class GOTDate {
 			prevWorldTime = worldTime;
 		}
 		if (worldTime / ticksInDay != prevWorldTime / ticksInDay) {
-			GOTDate.setDate(AegonCalendar.currentDay + 1);
+			GOTDate.setDate(AegonCalendar.getCurrentDay() + 1);
 		}
 		prevWorldTime = worldTime;
 	}
 
 	public static class AegonCalendar {
-		public static Date startDate = new Date(298, Month.JULY, 10);
-		public static int currentDay;
-		public static Map<Integer, Date> cachedDates = new HashMap<>();
+		private static Date startDate = new Date(298, Month.JULY, 10);
+		private static int currentDay;
+		private static Map<Integer, Date> cachedDates = new HashMap<>();
+
+		public static int getCurrentDay() {
+			return currentDay;
+		}
 
 		public static Date getDate() {
-			return AegonCalendar.getDate(currentDay);
+			return AegonCalendar.getDate(getCurrentDay());
 		}
 
 		public static Date getDate(int day) {
@@ -99,27 +102,31 @@ public class GOTDate {
 			return AegonCalendar.getDate().month.season;
 		}
 
-		public static boolean isLeapYear(int year) {
+		private static boolean isLeapYear(int year) {
 			return year % 4 == 0 && year % 100 != 0;
 		}
 
-		public static class Date {
-			public int year;
-			public Month month;
-			public int monthDate;
-			public Day day;
+		public static void setCurrentDay(int currentDay) {
+			AegonCalendar.currentDay = currentDay;
+		}
 
-			public Date(int y, Month m, int d) {
+		public static class Date {
+			private int year;
+			private Month month;
+			private int monthDate;
+			private Day day;
+
+			private Date(int y, Month m, int d) {
 				year = y;
 				month = m;
 				monthDate = d;
 			}
 
-			public Date copy() {
+			private Date copy() {
 				return new Date(year, month, monthDate);
 			}
 
-			public Date decrement() {
+			private Date decrement() {
 				int newYear = year;
 				Month newMonth = month;
 				int newDate = monthDate;
@@ -146,7 +153,7 @@ public class GOTDate {
 				return dayYear[0] + ", " + dayYear[1];
 			}
 
-			public Day getDay() {
+			private Day getDay() {
 				if (!month.hasWeekdayName) {
 					return null;
 				}
@@ -191,7 +198,7 @@ public class GOTDate {
 				return new String[] { dateName, yearName };
 			}
 
-			public Date increment() {
+			private Date increment() {
 				int newYear = year;
 				Month newMonth = month;
 				int newDate = monthDate;
@@ -214,28 +221,28 @@ public class GOTDate {
 			}
 		}
 
-		public enum Day {
+		private enum Day {
 			SUNDAY("sunday"), MONDAY("monday"), TUESDAY("tuesday"), WEDNESDAY("wednesday"), THIRSDAY("thirsday"), FRIDAY("friday"), SATURDAY("saturday");
 
-			public String name;
+			private String name;
 
 			Day(String s) {
 				name = s;
 			}
 
-			public String getDayName() {
+			private String getDayName() {
 				return StatCollector.translateToLocal("got.date.day." + name);
 			}
 		}
 
-		public enum Month {
+		private enum Month {
 			JANUARY("january", 31, Season.WINTER), FEBRUARY("february", 28, Season.WINTER), MARCH("march", 31, Season.SPRING), APRIL("april", 30, Season.SPRING), MAY("may", 31, Season.SPRING), JUNE("june", 30, Season.SUMMER), JULY("july", 31, Season.SUMMER), AUGUST("august", 31, Season.SUMMER), SEPTEMBER("september", 30, Season.AUTUMN), OCTOBER("october", 31, Season.AUTUMN), NOVEMBER("november", 30, Season.AUTUMN), DECEMBER("december", 31, Season.WINTER);
 
-			public String name;
-			public int days;
-			public boolean hasWeekdayName;
-			public boolean isLeapYear;
-			public Season season;
+			private String name;
+			private int days;
+			private boolean hasWeekdayName;
+			private boolean isLeapYear;
+			private Season season;
 
 			Month(String s, int i, Season se) {
 				this(s, i, se, true, false);
@@ -249,11 +256,11 @@ public class GOTDate {
 				season = se;
 			}
 
-			public String getMonthName() {
+			private String getMonthName() {
 				return StatCollector.translateToLocal("got.date.month." + name);
 			}
 
-			public boolean isSingleDay() {
+			private boolean isSingleDay() {
 				return days == 1;
 			}
 		}
@@ -263,33 +270,10 @@ public class GOTDate {
 	public enum Season {
 		SPRING("spring", 0), SUMMER("summer", 1), AUTUMN("autumn", 2), WINTER("winter", 3);
 
-		public static Season[] allSeasons;
 		static {
-			allSeasons = new Season[] { SPRING, SUMMER, AUTUMN, WINTER };
 		}
-		public String name;
-		public int seasonID;
-
-		public float[] grassRGB;
 
 		Season(String s, int i) {
-			name = s;
-			seasonID = i;
-		}
-
-		public String codeName() {
-			return name;
-		}
-
-		public int transformColor(int color) {
-			float[] rgb = new Color(color).getRGBColorComponents(null);
-			float r = rgb[0];
-			float g = rgb[1];
-			float b = rgb[2];
-			r = Math.min(r * grassRGB[0], 1.0f);
-			g = Math.min(g * grassRGB[1], 1.0f);
-			b = Math.min(b * grassRGB[2], 1.0f);
-			return new Color(r, g, b).getRGB();
 		}
 	}
 

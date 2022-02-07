@@ -10,13 +10,13 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.WorldServer;
 
 public class GOTTime {
-	public static int DAY_LENGTH = 48000;
-	public static long totalTime;
-	public static long worldTime;
-	public static boolean needsLoad;
+	private static int DAY_LENGTH = 48000;
+	private static long totalTime;
+	private static long worldTime;
+	private static boolean needsLoad;
 
 	static {
-		needsLoad = true;
+		setNeedsLoad(true);
 	}
 
 	public static void addWorldTime(long time) {
@@ -24,12 +24,20 @@ public class GOTTime {
 	}
 
 	public static void advanceToMorning() {
-		long l = worldTime + DAY_LENGTH;
-		GOTTime.setWorldTime(l - l % DAY_LENGTH);
+		long l = worldTime + getDayLength();
+		GOTTime.setWorldTime(l - l % getDayLength());
 	}
 
-	public static File getTimeDat() {
+	public static int getDayLength() {
+		return DAY_LENGTH;
+	}
+
+	private static File getTimeDat() {
 		return new File(GOTLevelData.getOrCreateGOTDir(), "GOTTime.dat");
+	}
+
+	public static boolean isNeedsLoad() {
+		return needsLoad;
 	}
 
 	public static void load() {
@@ -37,7 +45,7 @@ public class GOTTime {
 			NBTTagCompound timeData = GOTLevelData.loadNBTFromFile(GOTTime.getTimeDat());
 			totalTime = timeData.getLong("GOTTotalTime");
 			worldTime = timeData.getLong("GOTWorldTime");
-			needsLoad = false;
+			setNeedsLoad(false);
 			GOTTime.save();
 		} catch (Exception e) {
 			FMLLog.severe("Error loading GOT time data");
@@ -59,6 +67,14 @@ public class GOTTime {
 			FMLLog.severe("Error saving GOT time data");
 			e.printStackTrace();
 		}
+	}
+
+	public static void setDayLength(int dAY_LENGTH) {
+		DAY_LENGTH = dAY_LENGTH;
+	}
+
+	public static void setNeedsLoad(boolean needsLoad) {
+		GOTTime.needsLoad = needsLoad;
 	}
 
 	public static void setWorldTime(long time) {

@@ -5,8 +5,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.WorldServer;
 
 public class GOTPlayerQuestData {
-	public GOTPlayerData playerData;
-	public boolean givenFirstPouches = false;
+	private GOTPlayerData playerData;
+	private boolean givenFirstPouches = false;
 
 	public GOTPlayerQuestData(GOTPlayerData pd) {
 		playerData = pd;
@@ -20,7 +20,7 @@ public class GOTPlayerQuestData {
 		givenFirstPouches = questData.getBoolean("Pouches");
 	}
 
-	public void markDirty() {
+	private void markDirty() {
 		playerData.markDirty();
 	}
 

@@ -63,7 +63,7 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 				biomeImageData = new byte[imageWidth * imageHeight];
 				for (int i = 0; i < colors.length; ++i) {
 					int color = colors[i];
-					Integer biomeID = GOTDimension.GAME_OF_THRONES.colorsToBiomeIDs.get(color);
+					Integer biomeID = GOTDimension.GAME_OF_THRONES.getColorsToBiomeIDs().get(color);
 					if (biomeID != null) {
 						GOTGenLayerWorld.biomeImageData[i] = biomeID.byteValue();
 						continue;
@@ -148,7 +148,7 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 
 	public static GOTBiome getBiomeOrOcean(int mapX, int mapZ) {
 		int biomeID = mapX >= 0 && mapX < imageWidth && mapZ >= 0 && mapZ < imageHeight ? GOTGenLayerWorld.getBiomeImageID(mapX, mapZ) : GOTBiome.ocean.biomeID;
-		return GOTDimension.GAME_OF_THRONES.biomeList[biomeID];
+		return GOTDimension.GAME_OF_THRONES.getBiomeList()[biomeID];
 	}
 
 	public static boolean loadedBiomeImage() {
@@ -173,7 +173,7 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 		for (int i = 0; i < imageWidth; ++i) {
 			for (int k = 0; k < imageHeight; ++k) {
 				int[] b = biomes.getInts(world, i - 810, k - 730, 1, 1);
-				GOTBiome biome = dim.biomeList[b[0]];
+				GOTBiome biome = dim.getBiomeList()[b[0]];
 				buf.setRGB(i, k, biome.color | 0xFF000000);
 				GOTIntCache.get(world).resetIntCache();
 			}

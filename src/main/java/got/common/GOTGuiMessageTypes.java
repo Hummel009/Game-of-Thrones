@@ -5,7 +5,7 @@ import net.minecraft.util.StatCollector;
 public enum GOTGuiMessageTypes {
 	FRIENDLY_FIRE("friendlyFire");
 
-	public String messageName;
+	private String messageName;
 
 	GOTGuiMessageTypes(String s) {
 		messageName = s;

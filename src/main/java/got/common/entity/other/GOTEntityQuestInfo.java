@@ -60,7 +60,7 @@ public class GOTEntityQuestInfo {
 	}
 
 	public boolean canGenerateQuests() {
-		if (!GOTConfig.allowMiniquests || theNPC.isChild() || theNPC.isDrunkard()) {
+		if (!GOTConfig.isAllowMiniquests() || theNPC.isChild() || theNPC.isDrunkard()) {
 			return false;
 		}
 		return !theNPC.isTrader() && !theNPC.isTraderEscort && !theNPC.hiredNPCInfo.isActive;

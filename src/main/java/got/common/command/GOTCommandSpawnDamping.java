@@ -19,7 +19,7 @@ public class GOTCommandSpawnDamping extends CommandBase {
 			for (EnumCreatureType type : EnumCreatureType.values()) {
 				types.add(type.name());
 			}
-			types.add(GOTSpawnDamping.TYPE_NPC);
+			types.add(GOTSpawnDamping.getTypeNPC());
 			return CommandBase.getListOfStringsMatchingLastWord(args, types.toArray(new String[0]));
 		}
 		return null;
@@ -56,7 +56,7 @@ public class GOTCommandSpawnDamping extends CommandBase {
 			}
 			if (args.length >= 2) {
 				String type = args[1];
-				if (!type.equals(GOTSpawnDamping.TYPE_NPC) && EnumCreatureType.valueOf(type) == null) {
+				if (!type.equals(GOTSpawnDamping.getTypeNPC()) && EnumCreatureType.valueOf(type) == null) {
 					throw new WrongUsageException("got.command.spawnDamping.noType", type);
 				}
 				if ("set".equals(option) && args.length >= 3) {

@@ -67,7 +67,7 @@ public class GOTMusicTicker {
 	}
 
 	public static void resetTiming(Random rand) {
-		timing = GOTMusic.isMenuMusic() ? MathHelper.getRandomIntegerInRange(rand, GOTConfig.musicIntervalMenuMin * 20, GOTConfig.musicIntervalMenuMax * 20) : MathHelper.getRandomIntegerInRange(rand, GOTConfig.musicIntervalMin * 20, GOTConfig.musicIntervalMax * 20);
+		timing = GOTMusic.isMenuMusic() ? MathHelper.getRandomIntegerInRange(rand, GOTConfig.getMusicIntervalMenuMin() * 20, GOTConfig.getMusicIntervalMenuMax() * 20) : MathHelper.getRandomIntegerInRange(rand, GOTConfig.getMusicIntervalMin() * 20, GOTConfig.getMusicIntervalMax() * 20);
 	}
 
 	public static void setCurrentTrack(GOTMusicTrack currentTrack) {

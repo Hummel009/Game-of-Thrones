@@ -50,7 +50,7 @@ public class GOTCommandPledgeCooldown extends CommandBase {
 				}
 			}
 			GOTLevelData.getData(entityplayer).setPledgeBreakCooldown(cd);
-			CommandBase.func_152373_a(sender, this, "got.command.pledgeCooldown.set", entityplayer.getCommandSenderName(), cd, GOTLevelData.getHMSTime_Ticks(cd));
+			CommandBase.func_152373_a(sender, this, "got.command.pledgeCooldown.set", entityplayer.getCommandSenderName(), cd, GOTLevelData.getHMSTimeTicks(cd));
 			return;
 		}
 		throw new WrongUsageException(getCommandUsage(sender));

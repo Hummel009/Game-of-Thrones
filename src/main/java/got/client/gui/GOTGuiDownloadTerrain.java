@@ -22,7 +22,7 @@ public class GOTGuiDownloadTerrain extends GuiDownloadTerrain {
 	@Override
 	public void drawScreen(int i, int j, float f) {
 		int dimension = mc.thePlayer.dimension;
-		if (dimension == GOTDimension.GAME_OF_THRONES.dimensionID) {
+		if (dimension == GOTDimension.GAME_OF_THRONES.getDimensionID()) {
 			drawBackground(0);
 			GL11.glEnable(3008);
 			GL11.glEnable(3042);

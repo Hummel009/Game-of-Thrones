@@ -12,44 +12,42 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
 
 public class GOTJaqenHgharTracker {
-	public static Map<UUID, Integer> activeGreyWanderers = new HashMap<>();
-	public static int greyWandererCooldown_MAX = 3600;
-	public static int spawnInterval = 2400;
-	public static int spawnCooldown;
+	private static Map<UUID, Integer> activeJaqenHghars = new HashMap<>();
+	private static int spawnCooldown;
 
-	public static void addNewWanderer(UUID id) {
-		activeGreyWanderers.put(id, 3600);
+	public static void addNewFaceless(UUID id) {
+		activeJaqenHghars.put(id, 3600);
 		GOTJaqenHgharTracker.markDirty();
 	}
 
-	public static boolean isWandererActive(UUID id) {
-		return activeGreyWanderers.containsKey(id) && activeGreyWanderers.get(id) > 0;
+	public static boolean isFacelessActive(UUID id) {
+		return activeJaqenHghars.containsKey(id) && activeJaqenHghars.get(id) > 0;
 	}
 
 	public static void load(NBTTagCompound levelData) {
-		activeGreyWanderers.clear();
-		NBTTagList greyWandererTags = levelData.getTagList("GreyWanderers", 10);
+		activeJaqenHghars.clear();
+		NBTTagList greyWandererTags = levelData.getTagList("JaqenHghars", 10);
 		for (int i = 0; i < greyWandererTags.tagCount(); ++i) {
 			NBTTagCompound nbt = greyWandererTags.getCompoundTagAt(i);
 			try {
 				UUID id = UUID.fromString(nbt.getString("ID"));
 				int cd = nbt.getInteger("CD");
-				activeGreyWanderers.put(id, cd);
+				activeJaqenHghars.put(id, cd);
 				continue;
 			} catch (Exception e) {
-				FMLLog.severe("Error loading GOT data: invalid Grey Wanderer");
+				FMLLog.severe("Error loading GOT data: invalid Jaqen Hghar");
 				e.printStackTrace();
 			}
 		}
-		spawnCooldown = levelData.hasKey("GWSpawnTick") ? levelData.getInteger("GWSpawnTick") : 2400;
+		spawnCooldown = levelData.hasKey("JHSpawnTick") ? levelData.getInteger("JHSpawnTick") : 2400;
 	}
 
-	public static void markDirty() {
+	private static void markDirty() {
 		GOTLevelData.markDirty();
 	}
 
 	public static void performSpawning(World world) {
-		if (!activeGreyWanderers.isEmpty()) {
+		if (!activeJaqenHghars.isEmpty()) {
 			return;
 		}
 		if (!world.playerEntities.isEmpty() && --spawnCooldown <= 0) {
@@ -83,7 +81,7 @@ public class GOTJaqenHgharTracker {
 					wanderer.liftBannerRestrictions = false;
 					world.spawnEntityInWorld(wanderer);
 					wanderer.onSpawnWithEgg(null);
-					GOTJaqenHgharTracker.addNewWanderer(wanderer.getUniqueID());
+					GOTJaqenHgharTracker.addNewFaceless(wanderer.getUniqueID());
 					wanderer.arriveAt(entityplayer);
 					break block0;
 				}
@@ -94,7 +92,7 @@ public class GOTJaqenHgharTracker {
 
 	public static void save(NBTTagCompound levelData) {
 		NBTTagList greyWandererTags = new NBTTagList();
-		for (Map.Entry<UUID, Integer> e : activeGreyWanderers.entrySet()) {
+		for (Map.Entry<UUID, Integer> e : activeJaqenHghars.entrySet()) {
 			UUID id = e.getKey();
 			int cd = e.getValue();
 			NBTTagCompound nbt = new NBTTagCompound();
@@ -102,23 +100,23 @@ public class GOTJaqenHgharTracker {
 			nbt.setInteger("CD", cd);
 			greyWandererTags.appendTag(nbt);
 		}
-		levelData.setTag("GreyWanderers", greyWandererTags);
-		levelData.setInteger("GWSpawnTick", spawnCooldown);
+		levelData.setTag("JaqenHghars", greyWandererTags);
+		levelData.setInteger("JHSpawnTick", spawnCooldown);
 	}
 
-	public static void setWandererActive(UUID id) {
-		if (activeGreyWanderers.containsKey(id)) {
-			activeGreyWanderers.put(id, 3600);
+	public static void setFacelessActive(UUID id) {
+		if (activeJaqenHghars.containsKey(id)) {
+			activeJaqenHghars.put(id, 3600);
 			GOTJaqenHgharTracker.markDirty();
 		}
 	}
 
 	public static void updateCooldowns() {
 		HashSet<UUID> removes = new HashSet<>();
-		for (UUID id : activeGreyWanderers.keySet()) {
-			int cd = activeGreyWanderers.get(id);
+		for (UUID id : activeJaqenHghars.keySet()) {
+			int cd = activeJaqenHghars.get(id);
 			cd--;
-			activeGreyWanderers.put(id, cd);
+			activeJaqenHghars.put(id, cd);
 			if (cd > 0) {
 				continue;
 			}
@@ -126,7 +124,7 @@ public class GOTJaqenHgharTracker {
 		}
 		if (!removes.isEmpty()) {
 			for (UUID id : removes) {
-				activeGreyWanderers.remove(id);
+				activeJaqenHghars.remove(id);
 			}
 			GOTJaqenHgharTracker.markDirty();
 		}

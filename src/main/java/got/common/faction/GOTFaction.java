@@ -55,11 +55,11 @@ public enum GOTFaction {
 		factionColor = new Color(color);
 		factionDimension = dim;
 		if (factionDimension != null) {
-			factionDimension.factionList.add(this);
+			factionDimension.getFactionList().add(this);
 		}
 		factionRegion = region;
 		if (factionRegion != null) {
-			factionRegion.factionList.add(this);
+			factionRegion.getFactionList().add(this);
 			if (factionRegion.getDimension() != factionDimension) {
 				throw new IllegalArgumentException("Faction dimension region must agree with faction dimension!");
 			}

@@ -108,12 +108,12 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		int[] colors = srcImage.getRGB(0, 0, mapWidth, mapHeight, null, 0, mapWidth);
 		for (int i = 0; i < colors.length; ++i) {
 			int color = colors[i];
-			if (GOTConfig.osrsMap) {
-				Integer biomeID = GOTDimension.GAME_OF_THRONES.colorsToBiomeIDs.get(color);
+			if (GOTConfig.isOsrsMap()) {
+				Integer biomeID = GOTDimension.GAME_OF_THRONES.getColorsToBiomeIDs().get(color);
 				if (biomeID == null) {
 					color = GOTTextures.getMapOceanColor(true);
 				} else {
-					GOTBiome biome = GOTDimension.GAME_OF_THRONES.biomeList[biomeID];
+					GOTBiome biome = GOTDimension.GAME_OF_THRONES.getBiomeList()[biomeID];
 					color = biome.heightBaseParameter < 0.0f ? 6453158 : biome.heightBaseParameter > 0.8f ? 14736861 : biome.heightBaseParameter > 0.4f ? 6575407 : biome instanceof GOTBiomeUlthos ? 3290677 : biome.decorator.treesPerChunk > 1 ? 2775058 : biome.temperature < 0.3f ? biome.temperature < 0.2f ? 14215139 : 9470587 : biome.rainfall < 0.2f ? 13548147 : 5468426;
 				}
 			} else {
@@ -123,7 +123,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		}
 		BufferedImage newMapImage = new BufferedImage(mapWidth, mapHeight, 2);
 		newMapImage.setRGB(0, 0, mapWidth, mapHeight, colors, 0, mapWidth);
-		if (GOTConfig.osrsMap) {
+		if (GOTConfig.isOsrsMap()) {
 			BufferedImage temp = newMapImage;
 			newMapImage = new BufferedImage(mapWidth, mapHeight, 2);
 			for (int i = 0; i < mapWidth; ++i) {
@@ -332,7 +332,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	}
 
 	public static int getMapOceanColor(boolean sepia) {
-		if (GOTConfig.osrsMap) {
+		if (GOTConfig.isOsrsMap()) {
 			return -10324058;
 		}
 		int ocean = GOTBiome.ocean.color;
@@ -343,7 +343,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	}
 
 	private static ResourceLocation getMapTexture(EntityPlayer entityplayer, boolean sepia) {
-		return GOTConfig.osrsMap || sepia ? sepiaMapTexture : mapTexture;
+		return GOTConfig.isOsrsMap() || sepia ? sepiaMapTexture : mapTexture;
 	}
 
 	public static ResourceLocation getMissingTexture() {

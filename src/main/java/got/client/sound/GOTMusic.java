@@ -269,7 +269,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 		regionTracks.clear();
 		if (!initSubregions) {
 			for (GOTDimension dim : GOTDimension.values()) {
-				for (GOTBiome biome : dim.biomeList) {
+				for (GOTBiome biome : dim.getBiomeList()) {
 					if (biome == null) {
 						continue;
 					}

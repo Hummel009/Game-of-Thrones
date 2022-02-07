@@ -491,7 +491,7 @@ public class GOTContainerAnvil extends Container {
 			boolean combining = false;
 			if (combinerItem != null) {
 				enchantingWithBook = combinerItem.getItem() == Items.enchanted_book && Items.enchanted_book.func_92110_g(combinerItem).tagCount() > 0;
-				if (enchantingWithBook && !GOTConfig.enchantingVanilla) {
+				if (enchantingWithBook && !GOTConfig.isEnchantingVanilla()) {
 					invOutput.setInventorySlotContents(0, null);
 					materialCost = 0;
 					return;
@@ -524,7 +524,7 @@ public class GOTContainerAnvil extends Container {
 					}
 				}
 				HashMap outputEnchants = new HashMap(inputEnchants);
-				if (GOTConfig.enchantingVanilla) {
+				if (GOTConfig.isEnchantingVanilla()) {
 					Map combinerEnchants = EnchantmentHelper.getEnchantments(combinerItem);
 					for (Object obj : combinerEnchants.keySet()) {
 						int combinerEnchLevel;

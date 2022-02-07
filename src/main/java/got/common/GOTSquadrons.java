@@ -6,7 +6,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StringUtils;
 
 public class GOTSquadrons {
-	public static int SQUADRON_LENGTH_MAX = 200;
+	private static int SQUADRON_LENGTH_MAX = 200;
 
 	public static boolean areSquadronsCompatible(GOTEntityNPC npc, ItemStack itemstack) {
 		String npcSquadron = npc.hiredNPCInfo.getSquadron();
@@ -18,8 +18,8 @@ public class GOTSquadrons {
 	}
 
 	public static String checkAcceptableLength(String squadron) {
-		if (squadron != null && squadron.length() > SQUADRON_LENGTH_MAX) {
-			squadron = squadron.substring(0, SQUADRON_LENGTH_MAX);
+		if (squadron != null && squadron.length() > getSquadronMaxLength()) {
+			squadron = squadron.substring(0, getSquadronMaxLength());
 		}
 		return squadron;
 	}
@@ -31,6 +31,10 @@ public class GOTSquadrons {
 		return null;
 	}
 
+	public static int getSquadronMaxLength() {
+		return SQUADRON_LENGTH_MAX;
+	}
+
 	public static void setSquadron(ItemStack itemstack, String squadron) {
 		if (itemstack.getItem() instanceof SquadronItem) {
 			if (itemstack.getTagCompound() == null) {
@@ -38,6 +42,10 @@ public class GOTSquadrons {
 			}
 			itemstack.getTagCompound().setString("GOTSquadron", squadron);
 		}
+	}
+
+	public static void setSquadronMaxLength(int sQUADRON_LENGTH_MAX) {
+		SQUADRON_LENGTH_MAX = sQUADRON_LENGTH_MAX;
 	}
 
 	public interface SquadronItem {

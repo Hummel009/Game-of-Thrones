@@ -57,7 +57,7 @@ public class GOTGuiSquadronItem extends GOTGuiScreenBase {
 		if (itemstack != null && itemstack.getItem() instanceof GOTSquadrons.SquadronItem) {
 			theItem = itemstack;
 			squadronNameField = new GuiTextField(fontRendererObj, guiLeft + xSize / 2 - 80, guiTop + 50, 160, 20);
-			squadronNameField.setMaxStringLength(GOTSquadrons.SQUADRON_LENGTH_MAX);
+			squadronNameField.setMaxStringLength(GOTSquadrons.getSquadronMaxLength());
 			String squadron = GOTSquadrons.getSquadron(theItem);
 			if (!StringUtils.isNullOrEmpty(squadron)) {
 				squadronNameField.setText(squadron);

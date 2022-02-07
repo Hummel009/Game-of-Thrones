@@ -226,7 +226,7 @@ public class GOTReplacedMethods {
 
 	public static class Food {
 		public static float getExhaustionFactor() {
-			if (GOTConfig.changedHunger) {
+			if (GOTConfig.isChangedHunger()) {
 				return 0.3f;
 			}
 			return 1.0f;
@@ -363,9 +363,9 @@ public class GOTReplacedMethods {
 			if (forced || entityplayer.getFoodStats().needFood()) {
 				return true;
 			}
-			boolean feastMode = GOTConfig.canAlwaysEat;
+			boolean feastMode = GOTConfig.isCanAlwaysEat();
 			if (entityplayer.worldObj.isRemote) {
-				feastMode = GOTLevelData.clientside_thisServer_feastMode;
+				feastMode = GOTLevelData.isClientsideThisServerFeastMode();
 			}
 			return feastMode && entityplayer.ridingEntity == null;
 		}

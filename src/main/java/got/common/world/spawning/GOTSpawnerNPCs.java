@@ -126,7 +126,7 @@ public class GOTSpawnerNPCs {
 	}
 
 	public static void performSpawning(World world) {
-		int interval = GOTConfig.mobSpawnInterval;
+		int interval = GOTConfig.getMobSpawnInterval();
 		if (interval > 0) {
 			int ticks = 0;
 			int dimID = world.provider.dimensionId;

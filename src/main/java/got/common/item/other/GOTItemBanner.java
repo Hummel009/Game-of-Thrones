@@ -99,7 +99,7 @@ public class GOTItemBanner extends Item {
 			int meta = world.getBlockMetadata(i, j - 1, k);
 			if (block.isSideSolid(world, i, j - 1, k, ForgeDirection.UP)) {
 				int protectRange;
-				if (GOTConfig.allowBannerProtection && !entityplayer.capabilities.isCreativeMode && (protectRange = GOTBannerProtection.getProtectionRange(block, meta)) > 0) {
+				if (GOTConfig.isAllowBannerProtection() && !entityplayer.capabilities.isCreativeMode && (protectRange = GOTBannerProtection.getProtectionRange(block, meta)) > 0) {
 					GOTFaction faction = bannerType.faction;
 					if (GOTLevelData.getData(entityplayer).getAlignment(faction) < 1.0f) {
 						if (!world.isRemote) {

@@ -388,7 +388,7 @@ public class GOTBiomeDecorator {
 		chunkX = i;
 		chunkZ = k;
 		this.decorate();
-		if (!GOTConfig.clearMap) {
+		if (!GOTConfig.isClearMap()) {
 			GOTFixer.addSpecialLocations(world, random, i, k);
 			for (GOTWaypoint wp : GOTFixer.structures.keySet()) {
 				if (GOTFixedStructures.fixedAt(i, k, wp)) {

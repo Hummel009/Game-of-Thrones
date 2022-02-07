@@ -261,8 +261,8 @@ public class GOTRenderNorthernLights {
 		float speed;
 		++nlTick;
 		World world = viewer.worldObj;
-		int effectiveDay = GOTDate.AegonCalendar.currentDay;
-		float daytime = world.getWorldTime() % GOTTime.DAY_LENGTH;
+		int effectiveDay = GOTDate.AegonCalendar.getCurrentDay();
+		float daytime = world.getWorldTime() % GOTTime.getDayLength();
 		if (daytime < 0.25f) {
 			--effectiveDay;
 		}

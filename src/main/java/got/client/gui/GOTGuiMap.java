@@ -170,7 +170,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					openOverlayShare();
 				}
 			} else if (button == buttonConquestRegions) {
-				List<GOTDimension.DimensionRegion> regionList = GOTDimension.GAME_OF_THRONES.dimensionRegions;
+				List<GOTDimension.DimensionRegion> regionList = GOTDimension.GAME_OF_THRONES.getDimensionRegions();
 				if (!regionList.isEmpty()) {
 					int i = regionList.indexOf(currentRegion);
 					++i;
@@ -264,7 +264,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		prevPosY = posY;
 		posX += posXMove * f;
 		posY += posYMove * f;
-		isSepia = isConquestGrid || GOTConfig.enableSepiaMap;
+		isSepia = isConquestGrid || GOTConfig.isEnableSepiaMap();
 		if (isConquestGrid) {
 			drawDefaultBackground();
 		}
@@ -579,8 +579,8 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				}
 				String conquestUnlock = pd.getPledgeFaction() == null ? "" : StatCollector.translateToLocalFormatted("got.gui.map.locked.conquerable", pd.getPledgeFaction().factionName());
 				String ftPrompt = StatCollector.translateToLocalFormatted("got.gui.map.fastTravel.prompt", GameSettings.getKeyDisplayString(GOTKeyHandler.getKeyBindingFastTravel().getKeyCode()));
-				String ftMoreTime = StatCollector.translateToLocalFormatted("got.gui.map.fastTravel.moreTime", GOTLevelData.getHMSTime_Ticks(timeRemaining));
-				String ftWaitTime = StatCollector.translateToLocalFormatted("got.gui.map.fastTravel.waitTime", GOTLevelData.getHMSTime_Ticks(wpTimeThreshold));
+				String ftMoreTime = StatCollector.translateToLocalFormatted("got.gui.map.fastTravel.moreTime", GOTLevelData.getHMSTimeTicks(timeRemaining));
+				String ftWaitTime = StatCollector.translateToLocalFormatted("got.gui.map.fastTravel.waitTime", GOTLevelData.getHMSTimeTicks(wpTimeThreshold));
 				if (fullscreen || isConquestGrid) {
 					if (!hasUnlocked) {
 						if (selectedWaypoint instanceof GOTWaypoint && ((GOTWaypoint) selectedWaypoint).isConquestUnlockable(mc.thePlayer)) {
@@ -930,9 +930,9 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 
 	private boolean hasMapLabels() {
 		if (isConquestGrid) {
-			return GOTConfig.mapLabelsConquest;
+			return GOTConfig.isMapLabelsConquest();
 		}
-		return GOTConfig.mapLabels;
+		return GOTConfig.isMapLabels();
 	}
 
 	@Override
@@ -958,7 +958,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				conquestViewingFaction = GOTLevelData.getData(mc.thePlayer).getViewingFaction();
 			}
 			prevRegion = currentRegion = conquestViewingFaction.factionRegion;
-			currentFactionList = GOTGuiMap.currentRegion.factionList;
+			currentFactionList = GOTGuiMap.currentRegion.getFactionList();
 			prevFactionIndex = currentFactionIndex = currentFactionList.indexOf(conquestViewingFaction);
 			lastViewedRegions.put(currentRegion, conquestViewingFaction);
 			facScrollX = mapXMin;
@@ -1028,7 +1028,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	}
 
 	private boolean isMiddleEarth() {
-		return mc.thePlayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID;
+		return mc.thePlayer.dimension == GOTDimension.GAME_OF_THRONES.getDimensionID();
 	}
 
 	public boolean isPlayerOp() {
@@ -2154,8 +2154,8 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		prevFactionIndex = currentFactionIndex;
 		if (currentRegion != prevRegion) {
 			lastViewedRegions.put(prevRegion, conquestViewingFaction);
-			currentFactionList = GOTGuiMap.currentRegion.factionList;
-			conquestViewingFaction = lastViewedRegions.containsKey(currentRegion) ? lastViewedRegions.get(currentRegion) : GOTGuiMap.currentRegion.factionList.get(0);
+			currentFactionList = GOTGuiMap.currentRegion.getFactionList();
+			conquestViewingFaction = lastViewedRegions.containsKey(currentRegion) ? lastViewedRegions.get(currentRegion) : GOTGuiMap.currentRegion.getFactionList().get(0);
 			prevFactionIndex = currentFactionIndex = currentFactionList.indexOf(conquestViewingFaction);
 			ticksUntilRequestFac = 40;
 		}
@@ -2207,7 +2207,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	}
 
 	private static boolean isOSRS() {
-		return GOTConfig.osrsMap;
+		return GOTConfig.isOsrsMap();
 	}
 
 	public static boolean isShowCWP() {

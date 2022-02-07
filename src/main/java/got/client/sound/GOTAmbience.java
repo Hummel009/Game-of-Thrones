@@ -59,7 +59,7 @@ public class GOTAmbience {
 			int xzRange;
 			world.theProfiler.startSection("gotAmbience");
 			mc = Minecraft.getMinecraft();
-			boolean enableAmbience = GOTConfig.enableAmbience;
+			boolean enableAmbience = GOTConfig.isEnableAmbience();
 			double x = entityplayer.posX;
 			double y = entityplayer.boundingBox.minY;
 			double z = entityplayer.posZ;

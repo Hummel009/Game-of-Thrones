@@ -76,8 +76,8 @@ import net.minecraftforge.event.terraingen.SaplingGrowTreeEvent;
 import net.minecraftforge.event.world.*;
 
 public class GOTEventHandler implements IFuelHandler {
-	public GOTItemBow proxyBowItemServer;
-	public GOTItemBow proxyBowItemClient;
+	private GOTItemBow proxyBowItemServer;
+	private GOTItemBow proxyBowItemClient;
 
 	public GOTEventHandler() {
 		FMLCommonHandler.instance().bus().register(this);
@@ -86,7 +86,7 @@ public class GOTEventHandler implements IFuelHandler {
 		GameRegistry.registerFuelHandler(this);
 	}
 
-	public void cancelAttackEvent(LivingAttackEvent event) {
+	private void cancelAttackEvent(LivingAttackEvent event) {
 		event.setCanceled(true);
 		DamageSource source = event.source;
 		if (source instanceof EntityDamageSourceIndirect) {
@@ -128,7 +128,7 @@ public class GOTEventHandler implements IFuelHandler {
 
 	@SubscribeEvent
 	public void onAnvilUpdate(AnvilUpdateEvent event) {
-		if (!GOTConfig.enchantingVanilla && (event.left != null && event.left.getItem() instanceof ItemEnchantedBook || event.right != null && event.right.getItem() instanceof ItemEnchantedBook)) {
+		if (!GOTConfig.isEnchantingVanilla() && (event.left != null && event.left.getItem() instanceof ItemEnchantedBook || event.right != null && event.right.getItem() instanceof ItemEnchantedBook)) {
 			event.setCanceled(true);
 		}
 	}
@@ -592,7 +592,7 @@ public class GOTEventHandler implements IFuelHandler {
 	public void onEntityJoinWorld(EntityJoinWorldEvent event) {
 		Entity entity = event.entity;
 		World world = entity.worldObj;
-		if (!world.isRemote && entity instanceof EntityXPOrb && !GOTConfig.enchantingVanilla && world.provider instanceof GOTWorldProvider) {
+		if (!world.isRemote && entity instanceof EntityXPOrb && !GOTConfig.isEnchantingVanilla() && world.provider instanceof GOTWorldProvider) {
 			event.setCanceled(true);
 			return;
 		}
@@ -703,7 +703,7 @@ public class GOTEventHandler implements IFuelHandler {
 			if (itemstack.getItem() == Item.getItemFromBlock(GOTRegistry.clover) && itemstack.getItemDamage() == 1) {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.FIND_FOUR_LEAF_CLOVER);
 			}
-			if (GOTConfig.enchantingAutoRemoveVanilla) {
+			if (GOTConfig.isEnchantingAutoRemoveVanilla()) {
 				GOTEventHandler.dechant(itemstack, entityplayer);
 			}
 		}
@@ -938,7 +938,7 @@ public class GOTEventHandler implements IFuelHandler {
 		EntityLivingBase entity = event.entityLiving;
 		Random rand = entity.getRNG();
 		int i = event.lootingLevel;
-		if (entity instanceof EntitySheep && GOTConfig.dropMutton) {
+		if (entity instanceof EntitySheep && GOTConfig.isDropMutton()) {
 			int meat = rand.nextInt(3) + rand.nextInt(1 + i);
 			for (int l = 0; l < meat; ++l) {
 				if (entity.isBurning()) {
@@ -970,7 +970,7 @@ public class GOTEventHandler implements IFuelHandler {
 		EntityLivingBase entity = event.entityLiving;
 		EntityLivingBase attacker = event.source.getEntity() instanceof EntityLivingBase ? (EntityLivingBase) event.source.getEntity() : null;
 		World world = entity.worldObj;
-		if (entity instanceof EntityPlayerMP && event.source == GOTDamage.frost) {
+		if (entity instanceof EntityPlayerMP && event.source == GOTDamage.getFrost()) {
 			GOTDamage.doFrostDamage((EntityPlayerMP) entity);
 		}
 		if (!world.isRemote) {
@@ -1012,7 +1012,7 @@ public class GOTEventHandler implements IFuelHandler {
 		if (!world.isRemote) {
 			GOTEnchantmentHelper.onEntityUpdate(entity);
 		}
-		if (GOTConfig.enchantingAutoRemoveVanilla && !world.isRemote && entity instanceof EntityPlayer && entity.ticksExisted % 60 == 0) {
+		if (GOTConfig.isEnchantingAutoRemoveVanilla() && !world.isRemote && entity instanceof EntityPlayer && entity.ticksExisted % 60 == 0) {
 			EntityPlayer entityplayer = (EntityPlayer) entity;
 			for (int l2 = 0; l2 < entityplayer.inventory.getSizeInventory(); ++l2) {
 				ItemStack itemstack = entityplayer.inventory.getStackInSlot(l2);
@@ -1108,10 +1108,10 @@ public class GOTEventHandler implements IFuelHandler {
 						frostProtection /= 5;
 					}
 					if (world.rand.nextInt(frostProtection = Math.max(frostProtection, 1)) == 0) {
-						entity.attackEntityFrom(GOTDamage.frost, 1.0f);
+						entity.attackEntityFrom(GOTDamage.getFrost(), 1.0f);
 					}
 					if (world.rand.nextInt(frostProtection) == 0) {
-						entity.attackEntityFrom(GOTDamage.frost, 1.0f);
+						entity.attackEntityFrom(GOTDamage.getFrost(), 1.0f);
 					}
 				}
 			}
@@ -1193,7 +1193,7 @@ public class GOTEventHandler implements IFuelHandler {
 		if (!world.isRemote) {
 			EntityPlayerMP entityplayermp = (EntityPlayerMP) entityplayer;
 			if (world.provider.terrainType instanceof GOTWorldType && entityplayermp.dimension == 0 && !GOTLevelData.getData(entityplayermp).getTeleportedME()) {
-				int dimension = GOTDimension.GAME_OF_THRONES.dimensionID;
+				int dimension = GOTDimension.GAME_OF_THRONES.getDimensionID();
 				GOTTeleporter teleporter = new GOTTeleporter(DimensionManager.getWorld(dimension), false);
 				MinecraftServer.getServer().getConfigurationManager().transferPlayerToDimension(entityplayermp, dimension, teleporter);
 				GOTLevelData.getData(entityplayermp).setTeleportedME(true);
@@ -1220,7 +1220,7 @@ public class GOTEventHandler implements IFuelHandler {
 			WorldServer worldserver = (WorldServer) world;
 			ChunkCoordinates deathPoint = GOTLevelData.getData(entityplayermp).getDeathPoint();
 			int deathDimension = GOTLevelData.getData(entityplayermp).getDeathDimension();
-			if (deathDimension == GOTDimension.GAME_OF_THRONES.dimensionID && GOTConfig.GOTRespawning) {
+			if (deathDimension == GOTDimension.GAME_OF_THRONES.getDimensionID() && GOTConfig.isGOTRespawning()) {
 				boolean hasBed;
 				double respawnThreshold;
 				ChunkCoordinates bedLocation = entityplayermp.getBedLocation(entityplayermp.dimension);
@@ -1229,12 +1229,12 @@ public class GOTEventHandler implements IFuelHandler {
 					hasBed = EntityPlayer.verifyRespawnCoordinates(worldserver, bedLocation, entityplayermp.isSpawnForced(entityplayermp.dimension)) != null;
 				}
 				ChunkCoordinates spawnLocation = hasBed ? bedLocation : worldserver.getSpawnPoint();
-				respawnThreshold = hasBed ? (double) GOTConfig.GOTBedRespawnThreshold : (double) GOTConfig.GOTWorldRespawnThreshold;
+				respawnThreshold = hasBed ? (double) GOTConfig.getGOTBedRespawnThreshold() : (double) GOTConfig.getGOTWorldRespawnThreshold();
 				if (deathPoint != null) {
 					boolean flag;
 					flag = deathPoint.getDistanceSquaredToChunkCoordinates(spawnLocation) > respawnThreshold * respawnThreshold;
 					if (flag) {
-						double randomDistance = MathHelper.getRandomIntegerInRange(worldserver.rand, GOTConfig.GOTMinRespawn, GOTConfig.GOTMaxRespawn);
+						double randomDistance = MathHelper.getRandomIntegerInRange(worldserver.rand, GOTConfig.getGOTMinRespawn(), GOTConfig.getGOTMaxRespawn());
 						float angle = worldserver.rand.nextFloat() * 3.1415927f * 2.0f;
 						int i = deathPoint.posX + (int) (randomDistance * MathHelper.sin(angle));
 						int k = deathPoint.posZ + (int) (randomDistance * MathHelper.cos(angle));
@@ -1269,7 +1269,7 @@ public class GOTEventHandler implements IFuelHandler {
 		String message = event.message;
 		String username = event.username;
 		ChatComponentTranslation chatComponent = event.component;
-		if (GOTConfig.drunkMessages && (nausea = entityplayer.getActivePotionEffect(Potion.confusion)) != null) {
+		if (GOTConfig.isDrunkMessages() && (nausea = entityplayer.getActivePotionEffect(Potion.confusion)) != null) {
 			int duration = nausea.getDuration();
 			float chance = duration / 4800.0f;
 			chance = Math.min(chance, 1.0f);
@@ -1453,7 +1453,7 @@ public class GOTEventHandler implements IFuelHandler {
 		}
 	}
 
-	public static boolean dechant(ItemStack itemstack, EntityPlayer entityplayer) {
+	private static boolean dechant(ItemStack itemstack, EntityPlayer entityplayer) {
 		if (!entityplayer.capabilities.isCreativeMode && itemstack != null && itemstack.isItemEnchanted() && !(itemstack.getItem() instanceof ItemFishingRod)) {
 			itemstack.getTagCompound().removeTag("ench");
 			return true;
@@ -1461,7 +1461,7 @@ public class GOTEventHandler implements IFuelHandler {
 		return false;
 	}
 
-	public static String getUsernameWithoutWebservice(UUID player) {
+	private static String getUsernameWithoutWebservice(UUID player) {
 		GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152652_a(player);
 		if (profile != null && !StringUtils.isBlank(profile.getName())) {
 			return profile.getName();
@@ -1473,7 +1473,7 @@ public class GOTEventHandler implements IFuelHandler {
 		return player.toString();
 	}
 
-	public static boolean shouldApplyWinterOverlay(World world, BiomeGenBase biome, EntityLivingBase entity) {
+	private static boolean shouldApplyWinterOverlay(World world, BiomeGenBase biome, EntityLivingBase entity) {
 		return biome instanceof GOTBiomeAlwaysWinter || GOTDate.AegonCalendar.getSeason() == GOTDate.Season.WINTER && (!(biome instanceof GOTBiome) || !((GOTBiome) biome).isNeverWinter) && world.isRaining() || entity.posY > 150.0;
 	}
 }

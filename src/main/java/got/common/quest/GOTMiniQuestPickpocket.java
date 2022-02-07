@@ -29,7 +29,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		int coins;
 		GOTAchievement achievement;
 		completed = true;
-		dateCompleted = GOTDate.AegonCalendar.currentDay;
+		dateCompleted = GOTDate.AegonCalendar.getCurrentDay();
 		Random rand = npc.getRNG();
 		ArrayList<ItemStack> dropItems = new ArrayList<>();
 		coins = getCoinBonus();

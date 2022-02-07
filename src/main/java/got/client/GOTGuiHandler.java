@@ -77,7 +77,7 @@ public class GOTGuiHandler {
 	@SubscribeEvent
 	public void onGuiOpen(GuiOpenEvent event) {
 		GuiScreen gui = event.gui;
-		if (GOTConfig.customMainMenu && gui != null && gui.getClass() == GuiMainMenu.class) {
+		if (GOTConfig.isCustomMainMenu() && gui != null && gui.getClass() == GuiMainMenu.class) {
 			event.gui = gui = new GOTGuiMainMenu();
 		}
 		if (gui != null && gui.getClass() == GuiDownloadTerrain.class) {
@@ -115,7 +115,7 @@ public class GOTGuiHandler {
 		GuiScreen gui = event.gui;
 		int mouseX = event.mouseX;
 		int mouseY = event.mouseY;
-		if (gui instanceof GuiChat && (component = mc.ingameGUI.getChatGUI().func_146236_a(Mouse.getX(), Mouse.getY())) != null && component.getChatStyle().getChatHoverEvent() != null && (hoverevent = component.getChatStyle().getChatHoverEvent()).getAction() == GOTChatEvents.SHOW_GOT_ACHIEVEMENT) {
+		if (gui instanceof GuiChat && (component = mc.ingameGUI.getChatGUI().func_146236_a(Mouse.getX(), Mouse.getY())) != null && component.getChatStyle().getChatHoverEvent() != null && (hoverevent = component.getChatStyle().getChatHoverEvent()).getAction() == GOTChatEvents.getShowAchievementGOT()) {
 			GOTGuiAchievementHoverEvent proxyGui = new GOTGuiAchievementHoverEvent();
 			proxyGui.setWorldAndResolution(mc, gui.width, gui.height);
 			try {
@@ -176,7 +176,7 @@ public class GOTGuiHandler {
 				meta.description = GOTInfo.concatenateDescription(descScrollIndex);
 			}
 		}
-		if (gui instanceof GuiContainer && GOTConfig.displayCoinCounts) {
+		if (gui instanceof GuiContainer && GOTConfig.isDisplayCoinCounts()) {
 			boolean excludeGui;
 			mc.theWorld.theProfiler.startSection("invCoinCount");
 			GuiContainer guiContainer = (GuiContainer) gui;

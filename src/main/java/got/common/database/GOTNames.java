@@ -101,8 +101,8 @@ public class GOTNames {
 				while (entries.hasMoreElements()) {
 					ZipEntry entry = entries.nextElement();
 					String s = entry.getName();
-					String path = "assets/got/names/" + GOTConfig.languageCode + "/";
-					if (!s.startsWith("assets/got/names/" + GOTConfig.languageCode + "/") || !s.endsWith(".txt")) {
+					String path = "assets/got/names/" + GOTConfig.getLanguageCode() + "/";
+					if (!s.startsWith("assets/got/names/" + GOTConfig.getLanguageCode() + "/") || !s.endsWith(".txt")) {
 						continue;
 					}
 					s = s.substring(path.length());
@@ -117,7 +117,7 @@ public class GOTNames {
 					}
 				}
 			} else {
-				File nameBankDir = new File(GOTRegistry.class.getResource("/assets/got/names/" + GOTConfig.languageCode).toURI());
+				File nameBankDir = new File(GOTRegistry.class.getResource("/assets/got/names/" + GOTConfig.getLanguageCode()).toURI());
 				for (File file : nameBankDir.listFiles()) {
 					String s = file.getName();
 					int i = s.indexOf(".txt");

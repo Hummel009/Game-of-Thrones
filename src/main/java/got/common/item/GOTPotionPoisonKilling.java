@@ -24,12 +24,12 @@ public class GOTPotionPoisonKilling extends Potion {
 	@Override
 	public boolean isReady(int tick, int level) {
 		int freq = 5 >> level;
-		return freq > 0 ? tick % freq == 0 : true;
+		return freq <= 0 || tick % freq == 0;
 	}
 
 	@Override
 	public void performEffect(EntityLivingBase entity, int level) {
-		entity.attackEntityFrom(GOTDamage.poisonDrink, 1.0f);
+		entity.attackEntityFrom(GOTDamage.getPoisonDrink(), 1.0f);
 	}
 
 	@SideOnly(value = Side.CLIENT)

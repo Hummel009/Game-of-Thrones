@@ -22,17 +22,17 @@ public class GOTTeleporter extends Teleporter {
 		int k;
 		int i;
 		int j;
-		if (world.provider.dimensionId == GOTDimension.GAME_OF_THRONES.dimensionID) {
+		if (world.provider.dimensionId == GOTDimension.GAME_OF_THRONES.getDimensionID()) {
 			i = GOTWaypoint.Winterfell.xCoord;
 			k = GOTWaypoint.Winterfell.zCoord;
 			j = GOT.getTrueTopBlock(world, i, k);
 		} else {
-			i = GOTLevelData.overworldPortalX;
-			k = GOTLevelData.overworldPortalZ;
-			j = GOTLevelData.overworldPortalY;
+			i = GOTLevelData.getOverworldPortalX();
+			k = GOTLevelData.getOverworldPortalZ();
+			j = GOTLevelData.getOverworldPortalY();
 		}
 		entity.setLocationAndAngles(i + 0.5, j + 1.0, k + 0.5, entity.rotationYaw, 0.0f);
-		if (world.provider.dimensionId == GOTDimension.GAME_OF_THRONES.dimensionID && GOTLevelData.madeGameOfThronesPortal == 0) {
+		if (world.provider.dimensionId == GOTDimension.GAME_OF_THRONES.getDimensionID() && GOTLevelData.getMadeGameOfThronesPortal() == 0) {
 			GOTLevelData.setMadeGameOfThronesPortal(1);
 			if (makeRingPortal) {
 				if (world.provider instanceof GOTWorldProvider) {

@@ -12,13 +12,13 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTSpawnDamping {
-	public static Map<String, Float> spawnDamping = new HashMap<>();
-	public static String TYPE_NPC = "got_npc";
-	public static boolean needsSave = true;
+	private static Map<String, Float> spawnDamping = new HashMap<>();
+	private static String TYPE_NPC = "got_npc";
+	private static boolean needsSave = true;
 
 	public static int getBaseSpawnCapForInfo(String type, World world) {
-		if (type.equals(TYPE_NPC)) {
-			return GOTDimension.getCurrentDimension(world).spawnCap;
+		if (type.equals(getTypeNPC())) {
+			return GOTDimension.getCurrentDimension(world).getSpawnCap();
 		}
 		EnumCreatureType creatureType = EnumCreatureType.valueOf(type);
 		if (creatureType != null) {
@@ -31,12 +31,12 @@ public class GOTSpawnDamping {
 		return GOTSpawnDamping.getSpawnCap(type.name(), type.getMaxNumberOfCreature(), world);
 	}
 
-	public static File getDataFile() {
+	private static File getDataFile() {
 		return new File(GOTLevelData.getOrCreateGOTDir(), "spawn_damping.dat");
 	}
 
 	public static int getNPCSpawnCap(World world) {
-		return GOTSpawnDamping.getSpawnCap(TYPE_NPC, GOTDimension.getCurrentDimension(world).spawnCap, world);
+		return GOTSpawnDamping.getSpawnCap(getTypeNPC(), GOTDimension.getCurrentDimension(world).getSpawnCap(), world);
 	}
 
 	public static int getSpawnCap(String type, int baseCap, int players) {
@@ -52,7 +52,7 @@ public class GOTSpawnDamping {
 		return Math.max(capPerPlayer, 1);
 	}
 
-	public static int getSpawnCap(String type, int baseCap, World world) {
+	private static int getSpawnCap(String type, int baseCap, World world) {
 		int players = world.playerEntities.size();
 		return GOTSpawnDamping.getSpawnCap(type, baseCap, players);
 	}
@@ -63,6 +63,14 @@ public class GOTSpawnDamping {
 			f = spawnDamping.get(type);
 		}
 		return f;
+	}
+
+	public static String getTypeNPC() {
+		return TYPE_NPC;
+	}
+
+	public static boolean isNeedsSave() {
+		return needsSave;
 	}
 
 	public static void loadAll() {
@@ -82,7 +90,7 @@ public class GOTSpawnDamping {
 					spawnDamping.put(type, damping);
 				}
 			}
-			needsSave = true;
+			setNeedsSave(true);
 			GOTSpawnDamping.saveAll();
 		} catch (Exception e) {
 			FMLLog.severe("Error loading GOT spawn damping");
@@ -90,8 +98,8 @@ public class GOTSpawnDamping {
 		}
 	}
 
-	public static void markDirty() {
-		needsSave = true;
+	private static void markDirty() {
+		setNeedsSave(true);
 	}
 
 	public static void resetAll() {
@@ -117,23 +125,23 @@ public class GOTSpawnDamping {
 			}
 			spawnData.setTag("Damping", typeTags);
 			GOTLevelData.saveNBTToFile(datFile, spawnData);
-			needsSave = false;
+			setNeedsSave(false);
 		} catch (Exception e) {
 			FMLLog.severe("Error saving GOT spawn damping");
 			e.printStackTrace();
 		}
 	}
 
-	public static void setNPCSpawnDamping(float damping) {
-		GOTSpawnDamping.setSpawnDamping(TYPE_NPC, damping);
-	}
-
-	public static void setSpawnDamping(EnumCreatureType type, float damping) {
-		GOTSpawnDamping.setSpawnDamping(type.name(), damping);
+	public static void setNeedsSave(boolean needsSave) {
+		GOTSpawnDamping.needsSave = needsSave;
 	}
 
 	public static void setSpawnDamping(String type, float damping) {
 		spawnDamping.put(type, damping);
 		GOTSpawnDamping.markDirty();
+	}
+
+	public static void setTypeNPC(String tYPE_NPC) {
+		TYPE_NPC = tYPE_NPC;
 	}
 }

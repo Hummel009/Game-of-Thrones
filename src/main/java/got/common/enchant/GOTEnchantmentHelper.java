@@ -520,7 +520,7 @@ public class GOTEnchantmentHelper {
 
 	public static void onEntityUpdate(EntityLivingBase entity) {
 		Random rand = entity.getRNG();
-		if (GOTConfig.enchantingGOT) {
+		if (GOTConfig.isEnchantingGOT()) {
 			if (entity instanceof EntityLiving && !entity.getEntityData().getBoolean("GOTEnchantInit")) {
 				for (int i = 0; i < entity.getLastActiveItems().length; ++i) {
 					ItemStack itemstack = entity.getEquipmentInSlot(i);

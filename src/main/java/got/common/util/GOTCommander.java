@@ -193,8 +193,8 @@ public class GOTCommander {
 	}
 
 	public static void changeRegion(GOTFaction faction, DimensionRegion newRegion) {
-		faction.factionRegion.factionList.remove(faction);
-		newRegion.factionList.add(faction);
+		faction.factionRegion.getFactionList().remove(faction);
+		newRegion.getFactionList().add(faction);
 		faction.factionRegion = newRegion;
 	}
 
@@ -348,7 +348,7 @@ public class GOTCommander {
 	}
 
 	public static void removeDimensionRegions() {
-		GOTDimension.GAME_OF_THRONES.dimensionRegions.clear();
+		GOTDimension.GAME_OF_THRONES.getDimensionRegions().clear();
 	}
 
 	public static void removeFaction(GOTFaction faction) {
@@ -356,10 +356,10 @@ public class GOTCommander {
 		faction.hasFixedAlignment = true;
 		faction.fixedAlignment = 0;
 		if (faction.factionDimension != null) {
-			faction.factionDimension.factionList.remove(faction);
+			faction.factionDimension.getFactionList().remove(faction);
 		}
 		if (faction.factionRegion != null) {
-			faction.factionRegion.factionList.remove(faction);
+			faction.factionRegion.getFactionList().remove(faction);
 		}
 		faction.factionDimension = null;
 		faction.factionRegion = null;
@@ -498,7 +498,7 @@ public class GOTCommander {
 
 	public static void setDimensionForRegion(DimensionRegion region, GOTDimension dimension) {
 		region.setDimension(dimension);
-		dimension.dimensionRegions.add(region);
+		dimension.getDimensionRegions().add(region);
 	}
 
 	public static void setMainMenuWaypointRoute(List<GOTWaypoint> waypointRoute) {
@@ -513,7 +513,7 @@ public class GOTCommander {
 		byte[] biomeImageData = new byte[GOTGenLayerWorld.imageWidth * GOTGenLayerWorld.imageHeight];
 		for (int i = 0; i < colors.length; ++i) {
 			int color = colors[i];
-			Integer biomeID = GOTDimension.GAME_OF_THRONES.colorsToBiomeIDs.get(color);
+			Integer biomeID = GOTDimension.GAME_OF_THRONES.getColorsToBiomeIDs().get(color);
 			if (biomeID == null) {
 				continue;
 			}

@@ -275,7 +275,7 @@ public abstract class GOTVillageGen {
 	}
 
 	public static boolean hasFixedSettlements(World world) {
-		if (GOTConfig.clearMap) {
+		if (GOTConfig.isClearMap()) {
 			return false;
 		}
 		return world.getWorldInfo().getTerrainType() != GOT.getWorldTypeGOTClassic();

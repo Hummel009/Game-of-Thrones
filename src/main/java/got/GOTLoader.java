@@ -50,7 +50,7 @@ public class GOTLoader {
 	}
 
 	public static void preInit() {
-		GOTConfig.setupAndLoad();
+		GOTConfig.preInit();
 		GOTRegistry.assignContent();
 		GOTRegistry.assignMetadata();
 		GOTRegistry.registerBlocks();

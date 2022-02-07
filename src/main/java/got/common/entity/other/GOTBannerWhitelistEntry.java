@@ -65,7 +65,7 @@ public class GOTBannerWhitelistEntry {
 	public static List<GOTBannerProtection.Permission> static_decodePermBitFlags(int i) {
 		ArrayList<GOTBannerProtection.Permission> decoded = new ArrayList<>();
 		for (GOTBannerProtection.Permission p : GOTBannerProtection.Permission.values()) {
-			if ((i & p.bitFlag) == 0) {
+			if ((i & p.getBitFlag()) == 0) {
 				continue;
 			}
 			decoded.add(p);
@@ -76,7 +76,7 @@ public class GOTBannerWhitelistEntry {
 	public static int static_encodePermBitFlags(Collection<GOTBannerProtection.Permission> permList) {
 		int i = 0;
 		for (GOTBannerProtection.Permission p : permList) {
-			i |= p.bitFlag;
+			i |= p.getBitFlag();
 		}
 		return i;
 	}

@@ -178,7 +178,7 @@ public class GOTTradeEntries {
 				tradeCost += v.extraPrice;
 			}
 
-			if (GOTConfig.enchantingGOT && tradeType == GOTTradeEntries.TradeType.BUY) {
+			if (GOTConfig.isEnchantingGOT() && tradeType == GOTTradeEntries.TradeType.BUY) {
 				boolean skilful = random.nextInt(3) == 0;
 				GOTEnchantmentHelper.applyRandomEnchantments(tradeItem, random, skilful, false);
 				tradeCost *= GOTEnchantmentHelper.calcTradeValueFactor(tradeItem);

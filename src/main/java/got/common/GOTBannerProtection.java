@@ -23,9 +23,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.FakePlayer;
 
 public class GOTBannerProtection {
-	public static int MAX_RANGE = 64;
-	public static Map<Pair, Integer> protectionBlocks = new HashMap<>();
-	public static Map<UUID, Integer> lastWarningTimes;
+	private static Map<Pair, Integer> protectionBlocks = new HashMap<>();
+	private static Map<UUID, Integer> lastWarningTimes;
 
 	static {
 		Pair<Block, Integer> BRONZE = Pair.of(GOTRegistry.blockMetal1, 2);
@@ -108,9 +107,9 @@ public class GOTBannerProtection {
 		return new FilterForPlayer(entityplayer, perm);
 	}
 
-	public static IFilter forPlayer_returnMessage(EntityPlayer entityplayer, Permission perm, IChatComponent[] protectionMessage) {
+	public static IFilter forPlayerReturnMessage(EntityPlayer entityplayer, Permission perm, IChatComponent[] protectionMessage) {
 		return new IFilter() {
-			public IFilter internalPlayerFilter;
+			private IFilter internalPlayerFilter;
 			{
 				internalPlayerFilter = GOTBannerProtection.forPlayer(entityplayer, perm);
 			}
@@ -207,7 +206,7 @@ public class GOTBannerProtection {
 		return i;
 	}
 
-	public static boolean hasWarningCooldown(EntityPlayer entityplayer) {
+	private static boolean hasWarningCooldown(EntityPlayer entityplayer) {
 		return lastWarningTimes.containsKey(entityplayer.getUniqueID());
 	}
 
@@ -223,7 +222,7 @@ public class GOTBannerProtection {
 	}
 
 	public static boolean isProtected(World world, int i, int j, int k, IFilter protectFilter, boolean sendMessage, double searchExtra) {
-		if (!GOTConfig.allowBannerProtection) {
+		if (!GOTConfig.isAllowBannerProtection()) {
 			return false;
 		}
 		String protectorName = null;
@@ -270,8 +269,8 @@ public class GOTBannerProtection {
 		return false;
 	}
 
-	public static void setWarningCooldown(EntityPlayer entityplayer) {
-		lastWarningTimes.put(entityplayer.getUniqueID(), GOTConfig.bannerWarningCooldown);
+	private static void setWarningCooldown(EntityPlayer entityplayer) {
+		lastWarningTimes.put(entityplayer.getUniqueID(), GOTConfig.getBannerWarningCooldown());
 	}
 
 	public static void updateWarningCooldowns() {
@@ -292,9 +291,9 @@ public class GOTBannerProtection {
 	}
 
 	public static class FilterForPlayer implements IFilter {
-		public EntityPlayer thePlayer;
-		public Permission thePerm;
-		public boolean ignoreCreativeMode = false;
+		private EntityPlayer thePlayer;
+		private Permission thePerm;
+		private boolean ignoreCreativeMode = false;
 
 		public FilterForPlayer(EntityPlayer p, Permission perm) {
 			thePlayer = p;
@@ -351,12 +350,28 @@ public class GOTBannerProtection {
 	public enum Permission {
 		FULL, DOORS, TABLES, CONTAINERS, PERSONAL_CONTAINERS, FOOD, BEDS, SWITCHES;
 
-		public int bitFlag = 1 << ordinal();
-		public String codeName = name();
+		private int bitFlag = 1 << ordinal();
+		private String codeName = name();
+
+		public int getBitFlag() {
+			return bitFlag;
+		}
+
+		public String getCodeName() {
+			return codeName;
+		}
+
+		public void setBitFlag(int bitFlag) {
+			this.bitFlag = bitFlag;
+		}
+
+		public void setCodeName(String codeName) {
+			this.codeName = codeName;
+		}
 
 		public static Permission forName(String s) {
 			for (Permission p : Permission.values()) {
-				if (!p.codeName.equals(s)) {
+				if (!p.getCodeName().equals(s)) {
 					continue;
 				}
 				return p;

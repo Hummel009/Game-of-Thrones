@@ -334,7 +334,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 
 		@Override
 		public Q createQuest(GOTEntityNPC npc, Random rand) {
-			if (!GOTConfig.allowBountyQuests) {
+			if (!GOTConfig.isAllowBountyQuests()) {
 				return null;
 			}
 			GOTMiniQuestBounty quest = super.createQuest(npc, rand);

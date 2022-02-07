@@ -27,7 +27,7 @@ public class GOTGenLayerClassicBiomes extends GOTGenLayer {
 				if (isOcean == 1) {
 					biomeID = GOTBiome.ocean.biomeID;
 				} else {
-					List<GOTBiome> biomeList = dimension.majorBiomes;
+					List<GOTBiome> biomeList = dimension.getMajorBiomes();
 					int randIndex = nextInt(biomeList.size());
 					GOTBiome biome = biomeList.get(randIndex);
 					biomeID = biome.biomeID;

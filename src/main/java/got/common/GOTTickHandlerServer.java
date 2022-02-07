@@ -6,7 +6,6 @@ import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import got.GOT;
-import got.common.block.other.GOTBlockPortal;
 import got.common.entity.other.GOTEntityPortal;
 import got.common.faction.*;
 import got.common.fellowship.GOTFellowshipData;
@@ -32,8 +31,7 @@ import net.minecraft.world.storage.WorldInfo;
 import net.minecraftforge.common.*;
 
 public class GOTTickHandlerServer {
-	public static HashMap playersInPortals = new HashMap();
-	public int fireworkDisplay;
+	private static HashMap playersInPortals = new HashMap();
 
 	public GOTTickHandlerServer() {
 		FMLCommonHandler.instance().bus().register(this);
@@ -78,11 +76,11 @@ public class GOTTickHandlerServer {
 				if (heldItem != null && (heldItem.getItem() instanceof ItemWritableBook || heldItem.getItem() instanceof ItemEditableBook)) {
 					entityplayer.func_143004_u();
 				}
-				if (entityplayer.dimension == 0 && GOTLevelData.madePortal == 0) {
+				if (entityplayer.dimension == 0 && GOTLevelData.getMadePortal() == 0) {
 					items = world.getEntitiesWithinAABB(EntityItem.class, entityplayer.boundingBox.expand(16.0, 16.0, 16.0));
 					for (Object obj : items) {
 						item = (EntityItem) obj;
-						if (GOTLevelData.madePortal != 0 || item.getEntityItem() == null || item.getEntityItem().getItem() != Items.iron_sword || !item.isBurning()) {
+						if (GOTLevelData.getMadePortal() != 0 || item.getEntityItem() == null || item.getEntityItem().getItem() != Items.iron_sword || !item.isBurning()) {
 							continue;
 						}
 						GOTLevelData.setMadePortal(1);
@@ -95,7 +93,7 @@ public class GOTTickHandlerServer {
 					}
 				}
 
-				if ((entityplayer.dimension == 0 || entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) && playersInPortals.containsKey(entityplayer)) {
+				if ((entityplayer.dimension == 0 || entityplayer.dimension == GOTDimension.GAME_OF_THRONES.getDimensionID()) && getPlayersInPortals().containsKey(entityplayer)) {
 					int i;
 					List portals = world.getEntitiesWithinAABB(GOTEntityPortal.class, entityplayer.boundingBox.expand(8.0, 8.0, 8.0));
 					boolean inPortal = false;
@@ -108,23 +106,23 @@ public class GOTTickHandlerServer {
 						break;
 					}
 					if (inPortal) {
-						i = (Integer) playersInPortals.get(entityplayer);
+						i = (Integer) getPlayersInPortals().get(entityplayer);
 						i++;
-						playersInPortals.put(entityplayer, i);
+						getPlayersInPortals().put(entityplayer, i);
 						if (i >= 100) {
 							int dimension = 0;
 							if (entityplayer.dimension == 0) {
-								dimension = GOTDimension.GAME_OF_THRONES.dimensionID;
-							} else if (entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) {
+								dimension = GOTDimension.GAME_OF_THRONES.getDimensionID();
+							} else if (entityplayer.dimension == GOTDimension.GAME_OF_THRONES.getDimensionID()) {
 								dimension = 0;
 							}
 							if (world instanceof WorldServer) {
 								MinecraftServer.getServer().getConfigurationManager().transferPlayerToDimension(entityplayer, dimension, new GOTTeleporter(DimensionManager.getWorld(dimension), true));
 							}
-							playersInPortals.remove(entityplayer);
+							getPlayersInPortals().remove(entityplayer);
 						}
 					} else {
-						playersInPortals.remove(entityplayer);
+						getPlayersInPortals().remove(entityplayer);
 					}
 				}
 
@@ -140,10 +138,10 @@ public class GOTTickHandlerServer {
 		}
 		if (event.phase == TickEvent.Phase.START && world == DimensionManager.getWorld(0)) {
 			World overworld = world;
-			if (GOTLevelData.needsLoad) {
+			if (GOTLevelData.isNeedsLoad()) {
 				GOTLevelData.load();
 			}
-			if (GOTTime.needsLoad) {
+			if (GOTTime.isNeedsLoad()) {
 				GOTTime.load();
 			}
 			if (GOTFellowshipData.needsLoad) {
@@ -166,7 +164,7 @@ public class GOTTickHandlerServer {
 				GOTWorldInfo newWorldInfo = new GOTWorldInfo(overworld.getWorldInfo());
 				((WorldInfo) newWorldInfo).setWorldName(prevWorldInfo.getWorldName());
 				GOTReflection.setWorldInfo(dimWorld, newWorldInfo);
-				FMLLog.info("Hummel009: Successfully replaced world info in %s", GOTDimension.getCurrentDimension(dimWorld).dimensionName);
+				FMLLog.info("Hummel009: Successfully replaced world info in %s", GOTDimension.getCurrentDimension(dimWorld).getDimensionName());
 			}
 			GOTBannerProtection.updateWarningCooldowns();
 			GOTInterModComms.update();
@@ -203,7 +201,7 @@ public class GOTTickHandlerServer {
 				GOTTime.update();
 				GOTJaqenHgharTracker.updateCooldowns();
 			}
-			if (world == DimensionManager.getWorld(GOTDimension.GAME_OF_THRONES.dimensionID)) {
+			if (world == DimensionManager.getWorld(GOTDimension.GAME_OF_THRONES.getDimensionID())) {
 				GOTDate.update(world);
 				if (GOT.canSpawnMobs(world)) {
 					GOTEventSpawner.performSpawning(world);
@@ -224,28 +222,11 @@ public class GOTTickHandlerServer {
 		}
 	}
 
-	public void updatePlayerInPortal(EntityPlayerMP entityplayer, HashMap players, GOTBlockPortal portalBlock) {
-		if ((entityplayer.dimension == 0 || entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) && players.containsKey(entityplayer)) {
-			boolean inPortal;
-			inPortal = entityplayer.worldObj.getBlock(MathHelper.floor_double(entityplayer.posX), MathHelper.floor_double(entityplayer.boundingBox.minY), MathHelper.floor_double(entityplayer.posZ)) == portalBlock;
-			if (inPortal) {
-				int i = (Integer) players.get(entityplayer);
-				i++;
-				players.put(entityplayer, i);
-				if (i >= entityplayer.getMaxInPortalTime()) {
-					int dimension = 0;
-					if (entityplayer.dimension == 0) {
-						dimension = GOTDimension.GAME_OF_THRONES.dimensionID;
-					} else if (entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) {
-						dimension = 0;
-					}
-					WorldServer newWorld = MinecraftServer.getServer().worldServerForDimension(dimension);
-					MinecraftServer.getServer().getConfigurationManager().transferPlayerToDimension(entityplayer, dimension, portalBlock.getPortalTeleporter(newWorld));
-					players.remove(entityplayer);
-				}
-			} else {
-				players.remove(entityplayer);
-			}
-		}
+	public static HashMap getPlayersInPortals() {
+		return playersInPortals;
+	}
+
+	public static void setPlayersInPortals(HashMap playersInPortals) {
+		GOTTickHandlerServer.playersInPortals = playersInPortals;
 	}
 }

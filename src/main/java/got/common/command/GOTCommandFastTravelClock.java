@@ -55,7 +55,7 @@ public class GOTCommandFastTravelClock extends CommandBase {
 			}
 			int ticks = seconds * 20;
 			GOTLevelData.getData(entityplayer).setTimeSinceFTWithUpdate(ticks);
-			CommandBase.func_152373_a(sender, this, "got.command.fastTravelClock.set", entityplayer.getCommandSenderName(), seconds, GOTLevelData.getHMSTime_Seconds(seconds));
+			CommandBase.func_152373_a(sender, this, "got.command.fastTravelClock.set", entityplayer.getCommandSenderName(), seconds, GOTLevelData.getHMSTimeSeconds(seconds));
 			return;
 		}
 		throw new WrongUsageException(getCommandUsage(sender));

@@ -106,7 +106,7 @@ public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
 			sliderGuardRange.setMinMaxValues(GOTHiredNPCInfo.GUARD_RANGE_MIN, GOTHiredNPCInfo.GUARD_RANGE_MAX);
 			sliderGuardRange.setSliderValue(theNPC.hiredNPCInfo.getGuardRange());
 			squadronNameField = new GuiTextField(fontRendererObj, midX - 80, getGuiTop() + 130, 160, 20);
-			squadronNameField.setMaxStringLength(GOTSquadrons.SQUADRON_LENGTH_MAX);
+			squadronNameField.setMaxStringLength(GOTSquadrons.getSquadronMaxLength());
 			String squadron = theNPC.hiredNPCInfo.getSquadron();
 			if (!StringUtils.isNullOrEmpty(squadron)) {
 				squadronNameField.setText(squadron);

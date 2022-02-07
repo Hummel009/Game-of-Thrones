@@ -11,6 +11,10 @@ import net.minecraft.item.ItemStack;
 public class NEIGOTIntegratorConfig implements IConfigureNEI {
 	private ArrayList<ItemStack> hiddenItems = new ArrayList();
 
+	public ArrayList<ItemStack> getHiddenItems() {
+		return hiddenItems;
+	}
+
 	@Override
 	public String getName() {
 		return GOT.NAME;
@@ -142,10 +146,6 @@ public class NEIGOTIntegratorConfig implements IConfigureNEI {
 		hideItem(GOTRegistry.woodSlabSingle3);
 		hideItem(GOTRegistry.woodSlabSingle4);
 		hideItem(GOTRegistry.woodSlabSingle5);
-	}
-
-	public ArrayList<ItemStack> getHiddenItems() {
-		return hiddenItems;
 	}
 
 	public void setHiddenItems(ArrayList<ItemStack> hiddenItems) {

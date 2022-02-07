@@ -172,7 +172,7 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements IPickpocket
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
 		if (!worldObj.isRemote && isDothrakSkirmishing()) {
-			if (!GOTConfig.enableDothrakiSkirmish) {
+			if (!GOTConfig.isEnableDothrakiSkirmish()) {
 				draka = 0;
 			} else if (!(getAttackTarget() instanceof GOTEntityDothraki)) {
 				--draka;

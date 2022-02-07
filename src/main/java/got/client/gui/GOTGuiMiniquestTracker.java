@@ -33,7 +33,7 @@ public class GOTGuiMiniquestTracker extends Gui {
 		int width = resolution.getScaledWidth();
 		resolution.getScaledHeight();
 		FontRenderer fr = mc.fontRenderer;
-		boolean flip = GOTConfig.trackingQuestRight;
+		boolean flip = GOTConfig.isTrackingQuestRight();
 		if (entityplayer != null && trackedQuest != null) {
 			float[] questRGB = trackedQuest.getQuestColorComponents();
 			ItemStack itemstack = trackedQuest.getQuestIcon();

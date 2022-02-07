@@ -77,7 +77,7 @@ public class GOTConquestGrid {
 	}
 
 	public static boolean conquestEnabled(World world) {
-		return GOTConfig.enableConquest && world.getWorldInfo().getTerrainType() != GOT.getWorldTypeGOTClassic();
+		return GOTConfig.isEnableConquest() && world.getWorldInfo().getTerrainType() != GOT.getWorldTypeGOTClassic();
 	}
 
 	public static float doRadialConquest(World world, GOTConquestZone centralZone, EntityPlayer killingPlayer, GOTFaction pledgeFaction, GOTFaction enemyFaction, float conqGain, float conqCleanse) {
@@ -291,7 +291,7 @@ public class GOTConquestGrid {
 
 	public static float onConquestKill(EntityPlayer entityplayer, GOTFaction pledgeFaction, GOTFaction enemyFaction, float alignBonus) {
 		World world = entityplayer.worldObj;
-		if (!world.isRemote && GOTConquestGrid.conquestEnabled(world) && GOTLevelData.getData(entityplayer).getEnableConquestKills() && entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) {
+		if (!world.isRemote && GOTConquestGrid.conquestEnabled(world) && GOTLevelData.getData(entityplayer).getEnableConquestKills() && entityplayer.dimension == GOTDimension.GAME_OF_THRONES.getDimensionID()) {
 			GOTConquestZone centralZone = GOTConquestGrid.getZoneByEntityCoords(entityplayer);
 			float conqAmount = alignBonus * GOTLevelData.getConquestRate();
 			float conqGain = conqAmount;

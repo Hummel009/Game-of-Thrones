@@ -28,7 +28,7 @@ public class GOTEventSpawner {
 			GOTEventSpawner.spawnBandits(world, shuffled);
 			GOTEventSpawner.spawnThiefs(world, shuffled);
 			GOTEventSpawner.spawnScrapTraders(world, shuffled);
-			if (GOTConfig.enableInvasions) {
+			if (GOTConfig.isEnableInvasions()) {
 				GOTEventSpawner.spawnInvasions(world, shuffled);
 			}
 		}

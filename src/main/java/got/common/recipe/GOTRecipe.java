@@ -1721,10 +1721,10 @@ public class GOTRecipe {
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.wooden_door), "XX", "XX", "XX", Character.valueOf('X'), new ItemStack(Blocks.planks, 1, 0)));
 		GOTRecipe.removeRecipesItem(recipeList, Item.getItemFromBlock(Blocks.trapdoor));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.trapdoor, 2), "XXX", "XXX", Character.valueOf('X'), new ItemStack(Blocks.planks, 1, 0)));
-		if (GOTConfig.removeGoldenAppleRecipes) {
+		if (GOTConfig.isRemoveGoldenAppleRecipes()) {
 			GOTRecipe.removeRecipesItem(recipeList, Items.golden_apple);
 		}
-		if (GOTConfig.removeDiamondArmorRecipes) {
+		if (GOTConfig.isRemoveDiamondArmorRecipes()) {
 			GOTRecipe.removeRecipesItem(recipeList, Items.diamond_helmet);
 			GOTRecipe.removeRecipesItem(recipeList, Items.diamond_chestplate);
 			GOTRecipe.removeRecipesItem(recipeList, Items.diamond_leggings);

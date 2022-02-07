@@ -260,7 +260,7 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 		buttonRightUnit = new GOTGuiUnitTradeButton(2, guiLeft + 118, guiTop + 144, 12, 19);
 		buttonList.add(buttonRightUnit);
 		squadronNameField = new GuiTextField(fontRendererObj, guiLeft + xSize / 2 - 80, guiTop + 120, 160, 20);
-		squadronNameField.setMaxStringLength(GOTSquadrons.SQUADRON_LENGTH_MAX);
+		squadronNameField.setMaxStringLength(GOTSquadrons.getSquadronMaxLength());
 	}
 
 	@Override

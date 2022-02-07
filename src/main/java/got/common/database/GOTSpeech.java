@@ -107,8 +107,8 @@ public class GOTSpeech {
 				while (entries.hasMoreElements()) {
 					ZipEntry entry = entries.nextElement();
 					String s = entry.getName();
-					String path = "assets/got/speech/" + GOTConfig.languageCode + "/";
-					if (!s.startsWith("assets/got/speech/" + GOTConfig.languageCode + "/") || !s.endsWith(".txt")) {
+					String path = "assets/got/speech/" + GOTConfig.getLanguageCode() + "/";
+					if (!s.startsWith("assets/got/speech/" + GOTConfig.getLanguageCode() + "/") || !s.endsWith(".txt")) {
 						continue;
 					}
 					s = s.substring(path.length());
@@ -123,7 +123,7 @@ public class GOTSpeech {
 					}
 				}
 			} else {
-				File speechBankDir = new File(GOTRegistry.class.getResource("/assets/got/speech/" + GOTConfig.languageCode).toURI());
+				File speechBankDir = new File(GOTRegistry.class.getResource("/assets/got/speech/" + GOTConfig.getLanguageCode()).toURI());
 				Collection<File> subfiles = FileUtils.listFiles(speechBankDir, null, true);
 				for (File subfile : subfiles) {
 					String s = subfile.getPath();

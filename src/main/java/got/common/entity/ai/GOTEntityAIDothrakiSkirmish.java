@@ -29,7 +29,7 @@ public class GOTEntityAIDothrakiSkirmish extends GOTEntityAINearestAttackableTar
 
 	@Override
 	public boolean shouldExecute() {
-		if (!GOTConfig.enableDothrakiSkirmish || !canDothrakiSkirmish(theDothraki)) {
+		if (!GOTConfig.isEnableDothrakiSkirmish() || !canDothrakiSkirmish(theDothraki)) {
 			return false;
 		}
 		if (!theDothraki.isDothrakSkirmishing()) {

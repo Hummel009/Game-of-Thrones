@@ -55,11 +55,14 @@ public class GOTPacketMoneyGive extends GOTPacketMoney implements IMessage {
 				int cost = GOT.getBuy().get(item);
 				if (hummel.equals(player.getUniqueID())) {
 					player.inventory.addItemStackToInventory(item);
-				} else if (pd.balance >= cost && player.inventory.addItemStackToInventory(item)) {
-					new GOTPacketMoneyChange(pd.balance -= cost);
-					pd.markDirty();
+				} else if (pd.getBalance() >= cost && player.inventory.addItemStackToInventory(item)) {
+					int balance = pd.getBalance();
+					balance -= cost;
+					pd.setBalance(balance);
 					GOTPacketHandler.networkWrapper.sendTo(packet, player);
 					player.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.gui.money.give", item.getDisplayName())));
+				} else {
+					player.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.gui.money.notGive", item.getDisplayName())));
 				}
 			}
 			return null;

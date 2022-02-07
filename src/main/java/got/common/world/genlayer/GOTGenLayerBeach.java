@@ -25,7 +25,7 @@ public class GOTGenLayerBeach extends GOTGenLayer {
 			for (int i1 = 0; i1 < xSize; ++i1) {
 				initChunkSeed(i + i1, k + k1);
 				int biomeID = biomes[i1 + 1 + (k1 + 1) * (xSize + 2)];
-				GOTBiome biome = dimension.biomeList[biomeID];
+				GOTBiome biome = dimension.getBiomeList()[biomeID];
 				int newBiomeID = biomeID;
 				if (biomeID != targetBiome.biomeID && !biome.isWateryBiome()) {
 					int biome1 = biomes[i1 + 1 + (k1 + 1 - 1) * (xSize + 2)];

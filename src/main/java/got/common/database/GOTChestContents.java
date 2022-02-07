@@ -121,7 +121,7 @@ public class GOTChestContents {
 				if (itemstack.stackSize > itemstack.getMaxStackSize()) {
 					itemstack.stackSize = itemstack.getMaxStackSize();
 				}
-				if (GOTConfig.enchantingGOT) {
+				if (GOTConfig.isEnchantingGOT()) {
 					boolean skilful = !isNPCDrop && random.nextInt(5) == 0;
 					GOTEnchantmentHelper.applyRandomEnchantments(itemstack, random, skilful, false);
 				}

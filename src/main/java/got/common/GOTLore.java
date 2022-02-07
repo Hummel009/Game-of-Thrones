@@ -20,26 +20,24 @@ import net.minecraft.nbt.*;
 import net.minecraft.util.MathHelper;
 
 public class GOTLore {
-	public static String newline = "\n";
-	public static String codeMetadata = "#";
-	public static String codeTitle = "title:";
-	public static String codeAuthor = "author:";
-	public static String codeCategory = "types:";
-	public static String codeCategorySeparator = ",";
-	public static String codeReward = "reward";
-	public String loreName;
-	public String loreTitle;
-	public String loreAuthor;
-	public String loreText;
-	public List<LoreCategory> loreCategories;
-	public boolean isRewardable;
+	private static String newline = "\n";
+	private static String codeMetadata = "#";
+	private static String codeTitle = "title:";
+	private static String codeAuthor = "author:";
+	private static String codeCategory = "types:";
+	private static String codeCategorySeparator = ",";
+	private static String codeReward = "reward";
+	private String loreName;
+	private String loreTitle;
+	private String loreAuthor;
+	private String loreText;
+	private boolean isRewardable;
 
-	public GOTLore(String name, String title, String auth, String text, List<LoreCategory> categories, boolean reward) {
+	private GOTLore(String name, String title, String auth, String text, List<LoreCategory> categories, boolean reward) {
 		loreName = name;
 		loreTitle = title;
 		loreAuthor = auth;
 		loreText = text;
-		loreCategories = categories;
 		isRewardable = reward;
 	}
 
@@ -61,7 +59,7 @@ public class GOTLore {
 		return itemstack;
 	}
 
-	public String formatRandom(String text, Random random) {
+	private String formatRandom(String text, Random random) {
 		int lastIndexStart = -1;
 		do {
 			String formatted;
@@ -158,7 +156,7 @@ public class GOTLore {
 					String path;
 					ZipEntry entry = entries.nextElement();
 					String s = entry.getName();
-					if (!s.startsWith(path = "assets/got/lore/" + GOTConfig.languageCode + "/") || !s.endsWith(".txt")) {
+					if (!s.startsWith(path = "assets/got/lore/" + GOTConfig.getLanguageCode() + "/") || !s.endsWith(".txt")) {
 						continue;
 					}
 					s = s.substring(path.length());
@@ -173,7 +171,7 @@ public class GOTLore {
 					}
 				}
 			} else {
-				File nameBankDir = new File(GOTRegistry.class.getResource("/assets/got/lore/" + GOTConfig.languageCode).toURI());
+				File nameBankDir = new File(GOTRegistry.class.getResource("/assets/got/lore/" + GOTConfig.getLanguageCode()).toURI());
 				for (File file : nameBankDir.listFiles()) {
 					String s = file.getName();
 					int i = s.indexOf(".txt");
@@ -294,7 +292,7 @@ public class GOTLore {
 		}
 	}
 
-	public static List<String> organisePages(String loreText) {
+	private static List<String> organisePages(String loreText) {
 		ArrayList<String> loreTextPages = new ArrayList<>();
 		String remainingText = loreText;
 		ArrayList<String> splitTxtWords = new ArrayList<>();
@@ -376,19 +374,18 @@ public class GOTLore {
 	public enum LoreCategory {
 		WESTEROS("westeros"), ESSOS("essos"), YITI("yiti"), ASSHAI("asshai"), SOTHORYOS("sothoryos");
 
-		public static String allCode = "all";
-		public String categoryName;
-		public List<GOTLore> loreList = new ArrayList<>();
+		private String categoryName;
+		private List<GOTLore> loreList = new ArrayList<>();
 
 		LoreCategory(String s) {
 			categoryName = s;
 		}
 
-		public void addLore(GOTLore lore) {
+		private void addLore(GOTLore lore) {
 			loreList.add(lore);
 		}
 
-		public static LoreCategory forName(String s) {
+		private static LoreCategory forName(String s) {
 			for (LoreCategory r : LoreCategory.values()) {
 				if (!s.equalsIgnoreCase(r.categoryName)) {
 					continue;

@@ -42,7 +42,7 @@ public class GOTPacketCreateCWP implements IMessage {
 			int numWaypoints = pd.getCustomWaypoints().size();
 			if (numWaypoints <= pd.getMaxCustomWaypoints()) {
 				IChatComponent[] protectionMessage = new IChatComponent[1];
-				boolean protection = GOTBannerProtection.isProtected(world, entityplayer, GOTBannerProtection.forPlayer_returnMessage(entityplayer, GOTBannerProtection.Permission.FULL, protectionMessage), true);
+				boolean protection = GOTBannerProtection.isProtected(world, entityplayer, GOTBannerProtection.forPlayerReturnMessage(entityplayer, GOTBannerProtection.Permission.FULL, protectionMessage), true);
 				if (!protection) {
 					String wpName = GOTCustomWaypoint.validateCustomName(packet.name);
 					if (wpName != null) {

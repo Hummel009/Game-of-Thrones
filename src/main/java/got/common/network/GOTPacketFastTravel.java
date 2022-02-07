@@ -51,7 +51,7 @@ public class GOTPacketFastTravel implements IMessage {
 		@Override
 		public IMessage onMessage(GOTPacketFastTravel packet, MessageContext context) {
 			EntityPlayerMP entityplayer = context.getServerHandler().playerEntity;
-			if (!GOTConfig.enableFastTravel) {
+			if (!GOTConfig.isEnableFastTravel()) {
 				entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.ftDisabled"));
 			} else {
 				GOTPlayerData playerData = GOTLevelData.getData(entityplayer);

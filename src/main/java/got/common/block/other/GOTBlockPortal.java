@@ -74,14 +74,14 @@ public abstract class GOTBlockPortal extends BlockContainer {
 
 	@Override
 	public void onBlockAdded(World world, int i, int j, int k) {
-		if (world.provider.dimensionId != 0 && world.provider.dimensionId != GOTDimension.GAME_OF_THRONES.dimensionID) {
+		if (world.provider.dimensionId != 0 && world.provider.dimensionId != GOTDimension.GAME_OF_THRONES.getDimensionID()) {
 			world.setBlockToAir(i, j, k);
 		}
 	}
 
 	@Override
 	public void onEntityCollidedWithBlock(World world, int i, int j, int k, Entity entity) {
-		if (!GOTConfig.enablePortals) {
+		if (!GOTConfig.isEnablePortals()) {
 			return;
 		}
 		if (entity instanceof EntityPlayer) {
@@ -153,8 +153,8 @@ public abstract class GOTBlockPortal extends BlockContainer {
 		if (!world.isRemote) {
 			int dimension = 0;
 			if (entity.dimension == 0) {
-				dimension = GOTDimension.GAME_OF_THRONES.dimensionID;
-			} else if (entity.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) {
+				dimension = GOTDimension.GAME_OF_THRONES.getDimensionID();
+			} else if (entity.dimension == GOTDimension.GAME_OF_THRONES.getDimensionID()) {
 				dimension = 0;
 			}
 			GOT.transferEntityToDimension(entity, dimension, getPortalTeleporter(DimensionManager.getWorld(dimension)));

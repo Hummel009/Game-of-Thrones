@@ -24,33 +24,19 @@ import net.minecraftforge.common.util.*;
 
 public class GOTEntityAIFarm extends EntityAIBase {
 	public static int DEPOSIT_THRESHOLD = 16;
-
 	public static int COLLECT_THRESHOLD = 16;
-
 	public static int MIN_CHEST_RANGE = 24;
-
 	public GOTEntityNPC theEntity;
-
 	public GOTFarmhand theEntityFarmer;
-
 	public World theWorld;
-
 	public double moveSpeed;
-
 	public float farmingEfficiency;
-
 	public Action action = null;
-
 	public ChunkCoordinates actionTarget;
-
 	public ChunkCoordinates pathTarget;
-
 	public int pathingTick;
-
 	public int rePathDelay;
-
 	public boolean harvestingSolidBlock;
-
 	public FakePlayer fakePlayer;
 
 	public GOTEntityAIFarm(GOTFarmhand npc, double d, float f) {
@@ -124,22 +110,18 @@ public class GOTEntityAIFarm extends EntityAIBase {
 			return false;
 		}
 		if (pathingTick < 200) {
-			if (action == Action.HOEING) {
+			switch (action) {
+			case HOEING:
 				return canDoHoeing() && isSuitableForHoeing(actionTarget);
-			}
-			if (action == Action.PLANTING) {
+			case PLANTING:
 				return canDoPlanting() && isSuitableForPlanting(actionTarget);
-			}
-			if (action == Action.HARVESTING) {
+			case HARVESTING:
 				return canDoHarvesting() && isSuitableForHarvesting(actionTarget);
-			}
-			if (action == Action.DEPOSITING) {
+			case DEPOSITING:
 				return canDoDepositing() && isSuitableForDepositing(actionTarget);
-			}
-			if (action == Action.BONEMEALING) {
+			case BONEMEALING:
 				return canDoBonemealing() && isSuitableForBonemealing(actionTarget);
-			}
-			if (action == Action.COLLECTING) {
+			case COLLECTING:
 				return canDoCollecting() && isSuitableForCollecting(actionTarget);
 			}
 		}
@@ -165,10 +147,14 @@ public class GOTEntityAIFarm extends EntityAIBase {
 					i = chest.xCoord;
 					j = chest.yCoord;
 					k = chest.zCoord;
-					if (targetAction == Action.DEPOSITING) {
+					switch (targetAction) {
+					case DEPOSITING:
+					case COLLECTING:
 						suitable = isSuitableForDepositing(i, j, k);
-					} else if (targetAction == Action.COLLECTING) {
-						suitable = isSuitableForCollecting(i, j, k);
+						break;
+					default:
+						suitable = false;
+						break;
 					}
 				} else {
 					suitable = false;
@@ -177,14 +163,22 @@ public class GOTEntityAIFarm extends EntityAIBase {
 				i = MathHelper.floor_double(theEntity.posX) + MathHelper.getRandomIntegerInRange(rand, -8, 8);
 				j = MathHelper.floor_double(theEntity.boundingBox.minY) + MathHelper.getRandomIntegerInRange(rand, -4, 4);
 				k = MathHelper.floor_double(theEntity.posZ) + MathHelper.getRandomIntegerInRange(rand, -8, 8);
-				if (targetAction == Action.HOEING) {
+				switch (targetAction) {
+				case HOEING:
 					suitable = isSuitableForHoeing(i, j, k);
-				} else if (targetAction == Action.PLANTING) {
+					break;
+				case PLANTING:
 					suitable = isSuitableForPlanting(i, j, k);
-				} else if (targetAction == Action.HARVESTING) {
+					break;
+				case HARVESTING:
 					suitable = isSuitableForHarvesting(i, j, k);
-				} else if (targetAction == Action.BONEMEALING) {
+					break;
+				case BONEMEALING:
 					suitable = isSuitableForBonemealing(i, j, k);
+					break;
+				default:
+					suitable = false;
+					break;
 				}
 			}
 			if (suitable && theEntity.isWithinHomeDistance(i, j, k)) {
@@ -342,11 +336,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 			if (te instanceof TileEntityChest) {
 				TileEntityChest chest = (TileEntityChest) te;
 				boolean flag = false;
-				if (isFarmhandMarked(chest) || chest.adjacentChestXNeg != null && isFarmhandMarked(chest.adjacentChestXNeg)) {
-					flag = true;
-				} else if (chest.adjacentChestXPos != null && isFarmhandMarked(chest.adjacentChestXPos) || chest.adjacentChestZNeg != null && isFarmhandMarked(chest.adjacentChestZNeg)) {
-					flag = true;
-				} else if (chest.adjacentChestZPos != null && isFarmhandMarked(chest.adjacentChestZPos)) {
+				if (isFarmhandMarked(chest) || chest.adjacentChestXNeg != null && isFarmhandMarked(chest.adjacentChestXNeg) || chest.adjacentChestZPos != null && isFarmhandMarked(chest.adjacentChestZPos) || chest.adjacentChestXPos != null && isFarmhandMarked(chest.adjacentChestXPos) || chest.adjacentChestZNeg != null && isFarmhandMarked(chest.adjacentChestZNeg)) {
 					flag = true;
 				}
 				if (flag) {
@@ -380,7 +370,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 			EntityItemFrame frame = (EntityItemFrame) obj;
 			if (frame.field_146063_b == i && frame.field_146064_c == j && frame.field_146062_d == k) {
 				ItemStack frameItem = frame.getDisplayedItem();
-				if (frameItem != null && frameItem.getItem() instanceof net.minecraft.item.ItemHoe) {
+				if (frameItem != null && frameItem.getItem() instanceof ItemHoe) {
 					return true;
 				}
 			}
@@ -871,7 +861,6 @@ public class GOTEntityAIFarm extends EntityAIBase {
 
 	public static class TargetPair {
 		public ChunkCoordinates actionTarget;
-
 		public ChunkCoordinates pathTarget;
 
 		public TargetPair(ChunkCoordinates action, ChunkCoordinates path) {

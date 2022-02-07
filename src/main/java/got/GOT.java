@@ -385,6 +385,10 @@ public class GOT {
 		}
 	}
 
+	public static Map<ItemStack, Integer> getBuy() {
+		return buy;
+	}
+
 	public static EntityPlayer getDamagingPlayerIncludingUnits(DamageSource damagesource) {
 		if (damagesource.getEntity() instanceof EntityPlayer) {
 			return (EntityPlayer) damagesource.getEntity();
@@ -396,6 +400,22 @@ public class GOT {
 			}
 		}
 		return null;
+	}
+
+	public static String[] getDevs() {
+		return devs.clone();
+	}
+
+	public static GOTEventHandler getEventHandler() {
+		return eventHandler;
+	}
+
+	public static GOT getInstance() {
+		return instance;
+	}
+
+	public static String getLangs() {
+		return langs;
 	}
 
 	public static ModContainer getModContainer() {
@@ -413,6 +433,22 @@ public class GOT {
 		return GOTFaction.UNALIGNED;
 	}
 
+	public static GOTPacketHandler getPacketHandler() {
+		return packetHandler;
+	}
+
+	public static GOTCommonProxy getProxy() {
+		return proxy;
+	}
+
+	public static Map<ItemStack, Integer> getSell() {
+		return sell;
+	}
+
+	public static GOTTickHandlerServer getTickHandler() {
+		return tickHandler;
+	}
+
 	public static int getTrueTopBlock(World world, int i, int k) {
 		Chunk chunk = world.getChunkProvider().provideChunk(i >> 4, k >> 4);
 		for (int j = chunk.getTopFilledSegment() + 15; j > 0; --j) {
@@ -425,9 +461,21 @@ public class GOT {
 		return -1;
 	}
 
+	public static WorldType getWorldTypeGOT() {
+		return worldTypeGOT;
+	}
+
+	public static WorldType getWorldTypeGOTClassic() {
+		return worldTypeGOTClassic;
+	}
+
 	public static boolean isAprilFools() {
 		Calendar calendar = Calendar.getInstance();
 		return calendar.get(2) == 3 && calendar.get(5) == 1;
+	}
+
+	public static boolean isDevMode() {
+		return isDevMode;
 	}
 
 	public static boolean isGuyFawkes() {
@@ -477,6 +525,50 @@ public class GOT {
 		};
 	}
 
+	public static void setBuy(Map<ItemStack, Integer> buy) {
+		GOT.buy = buy;
+	}
+
+	public static void setDevs(String[] devs) {
+		GOT.devs = devs.clone();
+	}
+
+	public static void setEventHandler(GOTEventHandler eventHandler) {
+		GOT.eventHandler = eventHandler;
+	}
+
+	public static void setInstance(GOT instance) {
+		GOT.instance = instance;
+	}
+
+	public static void setLangs(String langs) {
+		GOT.langs = langs;
+	}
+
+	public static void setPacketHandler(GOTPacketHandler packetHandler) {
+		GOT.packetHandler = packetHandler;
+	}
+
+	public static void setProxy(GOTCommonProxy proxy) {
+		GOT.proxy = proxy;
+	}
+
+	public static void setSell(Map<ItemStack, Integer> sell) {
+		GOT.sell = sell;
+	}
+
+	public static void setTickHandler(GOTTickHandlerServer tickHandler) {
+		GOT.tickHandler = tickHandler;
+	}
+
+	public static void setWorldTypeGOT(WorldType worldTypeGOT) {
+		GOT.worldTypeGOT = worldTypeGOT;
+	}
+
+	public static void setWorldTypeGOTClassic(WorldType worldTypeGOTClassic) {
+		GOT.worldTypeGOTClassic = worldTypeGOTClassic;
+	}
+
 	public static void transferEntityToDimension(Entity entity, int newDimension, Teleporter teleporter) {
 		if (entity instanceof GOTEntityPortal) {
 			return;
@@ -502,97 +594,5 @@ public class GOT {
 				newEntity.timeUntilPortal = newEntity.getPortalCooldown();
 			}
 		}
-	}
-
-	public static WorldType getWorldTypeGOTClassic() {
-		return worldTypeGOTClassic;
-	}
-
-	public static void setWorldTypeGOTClassic(WorldType worldTypeGOTClassic) {
-		GOT.worldTypeGOTClassic = worldTypeGOTClassic;
-	}
-
-	public static WorldType getWorldTypeGOT() {
-		return worldTypeGOT;
-	}
-
-	public static void setWorldTypeGOT(WorldType worldTypeGOT) {
-		GOT.worldTypeGOT = worldTypeGOT;
-	}
-
-	public static GOTTickHandlerServer getTickHandler() {
-		return tickHandler;
-	}
-
-	public static void setTickHandler(GOTTickHandlerServer tickHandler) {
-		GOT.tickHandler = tickHandler;
-	}
-
-	public static GOTPacketHandler getPacketHandler() {
-		return packetHandler;
-	}
-
-	public static void setPacketHandler(GOTPacketHandler packetHandler) {
-		GOT.packetHandler = packetHandler;
-	}
-
-	public static GOTEventHandler getEventHandler() {
-		return eventHandler;
-	}
-
-	public static void setEventHandler(GOTEventHandler eventHandler) {
-		GOT.eventHandler = eventHandler;
-	}
-
-	public static String[] getDevs() {
-		return devs.clone();
-	}
-
-	public static void setDevs(String[] devs) {
-		GOT.devs = devs.clone();
-	}
-
-	public static String getLangs() {
-		return langs;
-	}
-
-	public static void setLangs(String langs) {
-		GOT.langs = langs;
-	}
-
-	public static GOTCommonProxy getProxy() {
-		return proxy;
-	}
-
-	public static void setProxy(GOTCommonProxy proxy) {
-		GOT.proxy = proxy;
-	}
-
-	public static GOT getInstance() {
-		return instance;
-	}
-
-	public static void setInstance(GOT instance) {
-		GOT.instance = instance;
-	}
-
-	public static Map<ItemStack, Integer> getBuy() {
-		return buy;
-	}
-
-	public static void setBuy(Map<ItemStack, Integer> buy) {
-		GOT.buy = buy;
-	}
-
-	public static Map<ItemStack, Integer> getSell() {
-		return sell;
-	}
-
-	public static void setSell(Map<ItemStack, Integer> sell) {
-		GOT.sell = sell;
-	}
-
-	public static boolean isDevMode() {
-		return isDevMode ;
 	}
 }

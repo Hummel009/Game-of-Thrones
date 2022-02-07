@@ -30,7 +30,7 @@ public class GOTCloudRenderer extends IRenderHandler {
 	public void render(float partialTicks, WorldClient world, Minecraft mc) {
 		if (world.provider.isSurfaceWorld()) {
 			world.theProfiler.startSection("gotClouds");
-			int cloudRange = GOTConfig.cloudRange;
+			int cloudRange = GOTConfig.getCloudRange();
 			GL11.glMatrixMode(5889);
 			GL11.glPushMatrix();
 			GL11.glLoadIdentity();
@@ -148,7 +148,7 @@ public class GOTCloudRenderer extends IRenderHandler {
 		}
 
 		private float getCurrentDayValue(WorldClient world) {
-			int day = GOTDate.AegonCalendar.currentDay;
+			int day = GOTDate.AegonCalendar.getCurrentDay();
 			long seed = day * baseSeed + day + 83025820626792L;
 			cloudRand.setSeed(seed);
 			return MathHelper.randomFloatClamp(cloudRand, minValue, maxValue);

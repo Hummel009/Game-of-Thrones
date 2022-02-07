@@ -884,7 +884,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 				}
 				setInitialHome = true;
 			}
-			preventKidnap = GOTConfig.preventTraderKidnap;
+			preventKidnap = GOTConfig.getPreventTraderKidnap();
 			if (preventKidnap > 0 && setInitialHome && initHomeRange > 0 && getDistanceSq(initHomeX + 0.5, initHomeY + 0.5, initHomeZ + 0.5) > preventKidnap * preventKidnap) {
 				if (ridingEntity != null) {
 					mountEntity(null);

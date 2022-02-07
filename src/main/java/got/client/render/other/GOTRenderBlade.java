@@ -63,7 +63,7 @@ public class GOTRenderBlade implements IItemRenderer {
 		}
 		if (glows) {
 			GL11.glEnable(2896);
-			if (GOTConfig.bladeGlow) {
+			if (GOTConfig.isBladeGlow()) {
 				for (int i = 0; i < 4; ++i) {
 					GOTClientProxy.renderEnchantmentEffect();
 				}

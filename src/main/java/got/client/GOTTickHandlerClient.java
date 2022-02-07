@@ -325,7 +325,7 @@ public class GOTTickHandlerClient {
 						world = minecraft.theWorld;
 						if (event.phase == TickEvent.Phase.START) {
 							setClientTick(getClientTick() + 1);
-							if (GOTConfig.fixRenderDistance && !FMLClientHandler.instance().hasOptifine()) {
+							if (GOTConfig.isFixRenderDistance() && !FMLClientHandler.instance().hasOptifine()) {
 								GameSettings gs = Minecraft.getMinecraft().gameSettings;
 								int renderDistance = gs.renderDistanceChunks;
 								if (renderDistance > 16) {
@@ -362,7 +362,7 @@ public class GOTTickHandlerClient {
 						if (entityplayer == null || world == null) {
 							break block75;
 						}
-						if (GOTConfig.checkUpdates && !GOT.isDevMode()) {
+						if (GOTConfig.isCheckUpdates() && !GOT.isDevMode()) {
 							GOTVersionChecker.checkForUpdates();
 						}
 						if (isGamePaused(minecraft)) {
@@ -417,7 +417,7 @@ public class GOTTickHandlerClient {
 						} else if (wightNearTick > 0) {
 							--wightNearTick;
 						}
-						if (GOTConfig.enableSunFlare && world.provider instanceof GOTWorldProvider && !world.provider.hasNoSky) {
+						if (GOTConfig.isEnableSunFlare() && world.provider instanceof GOTWorldProvider && !world.provider.hasNoSky) {
 							prevSunGlare = sunGlare;
 							MovingObjectPosition look = viewer.rayTrace(10000.0, getRenderTick());
 							boolean lookingAtSky = look == null || look.typeOfHit == MovingObjectPosition.MovingObjectType.MISS;
@@ -489,7 +489,7 @@ public class GOTTickHandlerClient {
 						if (newDate > 0) {
 							--newDate;
 						}
-						if (GOTConfig.enableAmbience) {
+						if (GOTConfig.isEnableAmbience()) {
 							ambienceTicker.updateAmbience(world, entityplayer);
 						}
 						if (getScrapTraderMisbehaveTick() <= 0) {
@@ -519,7 +519,7 @@ public class GOTTickHandlerClient {
 						}
 					}
 				}
-				if ((entityplayer.dimension == 0 || entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) && getPlayersInPortals().containsKey(entityplayer)) {
+				if ((entityplayer.dimension == 0 || entityplayer.dimension == GOTDimension.GAME_OF_THRONES.getDimensionID()) && getPlayersInPortals().containsKey(entityplayer)) {
 					int i;
 					List portals = world.getEntitiesWithinAABB(GOTEntityPortal.class, entityplayer.boundingBox.expand(8.0, 8.0, 8.0));
 					boolean inPortal = false;
@@ -545,7 +545,7 @@ public class GOTTickHandlerClient {
 				}
 			}
 			GOTClientProxy.getMusicHandler().update();
-			if (GOTConfig.displayMusicTrack) {
+			if (GOTConfig.isDisplayMusicTrack()) {
 				GOTMusicTrack nowPlaying = GOTMusicTicker.getCurrentTrack();
 				if (nowPlaying != lastTrack) {
 					lastTrack = nowPlaying;
@@ -558,8 +558,8 @@ public class GOTTickHandlerClient {
 			guiscreen = minecraft.currentScreen;
 			if (guiscreen != null) {
 				if (guiscreen instanceof GuiMainMenu && !(lastGuiOpen instanceof GuiMainMenu)) {
-					GOTLevelData.needsLoad = true;
-					GOTTime.needsLoad = true;
+					GOTLevelData.setNeedsLoad(true);
+					GOTTime.setNeedsLoad(true);
 					GOTFellowshipData.needsLoad = true;
 					GOTFactionBounties.needsLoad = true;
 					GOTFactionRelations.needsLoad = true;
@@ -745,7 +745,7 @@ public class GOTTickHandlerClient {
 				if (getPlayersInPortals().containsKey(entityplayer) && (i = (Integer) getPlayersInPortals().get(entityplayer)) > 0) {
 					renderOverlay(null, 0.1f + i / 100.0f * 0.6f, mc, portalOverlay);
 				}
-				if (GOTConfig.enableFrostfangsMist) {
+				if (GOTConfig.isEnableFrostfangsMist()) {
 					float mistTickF = prevMistTick + (mistTick - prevMistTick) * partialTicks;
 					float mistFactorY = (float) entityplayer.posY / 256.0f;
 					mistTickF /= 80.0f;
@@ -768,7 +768,7 @@ public class GOTTickHandlerClient {
 			}
 			if (event.type == RenderGameOverlayEvent.ElementType.HOTBAR) {
 				GOTEntitySpiderBase spider;
-				if (GOTConfig.meleeAttackMeter) {
+				if (GOTConfig.isMeleeAttackMeter()) {
 					GOTAttackTiming.renderAttackMeter(event.resolution, partialTicks);
 				}
 				if (entityplayer.ridingEntity instanceof GOTEntitySpiderBase && (spider = (GOTEntitySpiderBase) entityplayer.ridingEntity).shouldRenderClimbingMeter()) {
@@ -796,7 +796,7 @@ public class GOTTickHandlerClient {
 				entityplayer.addPotionEffect(new PotionEffect(Potion.poison.id, 20));
 				addedClientPoisonEffect = true;
 			}
-			enchantingDisabled = !GOTLevelData.clientside_thisServer_enchanting && world.provider instanceof GOTWorldProvider;
+			enchantingDisabled = !GOTLevelData.isClientsideThisServerEnchanting() && world.provider instanceof GOTWorldProvider;
 			if (event.type == RenderGameOverlayEvent.ElementType.EXPERIENCE && enchantingDisabled) {
 				event.setCanceled(true);
 				return;
@@ -911,7 +911,7 @@ public class GOTTickHandlerClient {
 		if (event.phase == TickEvent.Phase.END) {
 			if (entityplayer != null && world != null) {
 				ScaledResolution resolution;
-				if (world.provider instanceof GOTWorldProvider || GOTConfig.alwaysShowAlignment) {
+				if (world.provider instanceof GOTWorldProvider || GOTConfig.isAlwaysShowAlignment()) {
 					alignmentXPrev = alignmentXCurrent;
 					alignmentYPrev = alignmentYCurrent;
 					alignmentXCurrent = alignmentXBase;
@@ -919,7 +919,7 @@ public class GOTTickHandlerClient {
 					boolean alignmentOnscreen = (minecraft.currentScreen == null || minecraft.currentScreen instanceof GOTGuiMessage) && !minecraft.gameSettings.keyBindPlayerList.getIsKeyPressed() && !minecraft.gameSettings.showDebugInfo;
 					alignmentYCurrent = alignmentOnscreen ? Math.min(alignmentYCurrent + yMove, alignmentYBase) : Math.max(alignmentYCurrent - yMove, -20);
 					renderAlignment(minecraft, getRenderTick());
-					if (GOTConfig.enableOnscreenCompass && minecraft.currentScreen == null && !minecraft.gameSettings.showDebugInfo) {
+					if (GOTConfig.isEnableOnscreenCompass() && minecraft.currentScreen == null && !minecraft.gameSettings.showDebugInfo) {
 						GL11.glPushMatrix();
 						resolution = new ScaledResolution(minecraft, minecraft.displayWidth, minecraft.displayHeight);
 						int i = resolution.getScaledWidth();
@@ -931,7 +931,7 @@ public class GOTTickHandlerClient {
 						rotation = 180.0f - rotation;
 						GOTModelCompass.getCompassModel().render(1.0f, rotation);
 						GL11.glPopMatrix();
-						if (GOTConfig.compassExtraInfo) {
+						if (GOTConfig.isCompassExtraInfo()) {
 							BiomeGenBase biome;
 							GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 							float scale = 0.5f;
@@ -956,7 +956,7 @@ public class GOTTickHandlerClient {
 				float promptTick = getClientTick() + getRenderTick();
 				float promptAlpha = GOTFunctions.triangleWave(promptTick, 0.5f, 1.0f, 80.0f);
 				ArrayList<String> message = new ArrayList<>();
-				if (entityplayer.dimension != GOTDimension.GAME_OF_THRONES.dimensionID && isRenderMenuPrompt() && minecraft.currentScreen == null) {
+				if (entityplayer.dimension != GOTDimension.GAME_OF_THRONES.getDimensionID() && isRenderMenuPrompt() && minecraft.currentScreen == null) {
 					message.add(StatCollector.translateToLocal("got.gui.help1"));
 					message.add(StatCollector.translateToLocalFormatted("got.gui.help2", GameSettings.getKeyDisplayString(GOTKeyHandler.getKeyBindingReturn().getKeyCode())));
 				}
@@ -975,7 +975,7 @@ public class GOTTickHandlerClient {
 					}
 					GL11.glDisable(3042);
 				}
-				if (entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID && minecraft.currentScreen == null && newDate > 0) {
+				if (entityplayer.dimension == GOTDimension.GAME_OF_THRONES.getDimensionID() && minecraft.currentScreen == null && newDate > 0) {
 					int halfMaxDate = 100;
 					float alpha;
 					alpha = newDate > halfMaxDate ? (float) (200 - newDate) / (float) halfMaxDate : (float) newDate / (float) halfMaxDate;
@@ -996,7 +996,7 @@ public class GOTTickHandlerClient {
 					GL11.glDisable(3042);
 					GL11.glScalef(invScale, invScale, invScale);
 				}
-				if (GOTConfig.displayMusicTrack && minecraft.currentScreen == null && lastTrack != null && musicTrackTick > 0) {
+				if (GOTConfig.isDisplayMusicTrack() && minecraft.currentScreen == null && lastTrack != null && musicTrackTick > 0) {
 					ArrayList<String> lines = new ArrayList<>();
 					lines.add(StatCollector.translateToLocal("got.music.nowPlaying"));
 					String title = lastTrack.getTitle();
@@ -1033,7 +1033,7 @@ public class GOTTickHandlerClient {
 				}
 			}
 			getNotificationDisplay().updateWindow();
-			if (GOTConfig.enableQuestTracker && minecraft.currentScreen == null && !minecraft.gameSettings.showDebugInfo) {
+			if (GOTConfig.isEnableQuestTracker() && minecraft.currentScreen == null && !minecraft.gameSettings.showDebugInfo) {
 				getMiniquestTracker().drawTracker(minecraft, entityplayer);
 			}
 		}
@@ -1072,8 +1072,8 @@ public class GOTTickHandlerClient {
 		int width = resolution.getScaledWidth();
 		resolution.getScaledHeight();
 		boolean boss = BossStatus.bossName != null && BossStatus.statusBarTime > 0;
-		alignmentXBase = width / 2 + GOTConfig.alignmentXOffset;
-		alignmentYBase = 4 + GOTConfig.alignmentYOffset;
+		alignmentXBase = width / 2 + GOTConfig.getAlignmentXOffset();
+		alignmentYBase = 4 + GOTConfig.getAlignmentYOffset();
 		if (boss) {
 			alignmentYBase += 20;
 		}
