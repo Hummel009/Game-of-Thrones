@@ -477,7 +477,6 @@ public class GOT {
 		};
 	}
 
-
 	public static void transferEntityToDimension(Entity entity, int newDimension, Teleporter teleporter) {
 		if (entity instanceof GOTEntityPortal) {
 			return;

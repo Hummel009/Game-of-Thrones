@@ -2,7 +2,7 @@ package got.common.entity.other;
 
 import java.util.*;
 
-import com.google.common.base.*;
+import com.google.common.base.Predicate;
 
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;

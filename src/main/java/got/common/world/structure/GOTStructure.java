@@ -406,13 +406,17 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureSothoryosChieftainPyramid.class, "SothoryosChieftainPyramid", GOTFaction.SOTHORYOS);
 		GOTStructureRegistry.register(id++, GOTStructureSothoryosSmithy.class, "SothoryosSmithy", GOTFaction.SOTHORYOS);
 
-		GOTStructureRegistry.register(id++, new GOTStructureWildlingVillage(GOTBiome.hauntedForest, 1.0f), "WildlingVillage", GOTFaction.WILDLING, (IVillageProperties<GOTStructureWildlingVillage.Instance>) instance -> {});
+		GOTStructureRegistry.register(id++, new GOTStructureWildlingVillage(GOTBiome.hauntedForest, 1.0f), "WildlingVillage", GOTFaction.WILDLING, (IVillageProperties<GOTStructureWildlingVillage.Instance>) instance -> {
+		});
 
-		GOTStructureRegistry.register(id++, new GOTStructureThennVillage(GOTBiome.thenn, 1.0f), "ThennVillage", GOTFaction.WILDLING, (IVillageProperties<GOTStructureThennVillage.Instance>) instance -> {});
+		GOTStructureRegistry.register(id++, new GOTStructureThennVillage(GOTBiome.thenn, 1.0f), "ThennVillage", GOTFaction.WILDLING, (IVillageProperties<GOTStructureThennVillage.Instance>) instance -> {
+		});
 
-		GOTStructureRegistry.register(id++, new GOTStructureGiftVillage(GOTBiome.giftNew, 1.0f), "GiftVillage", GOTFaction.NIGHT_WATCH, (IVillageProperties<GOTStructureGiftVillage.Instance>) instance -> {});
+		GOTStructureRegistry.register(id++, new GOTStructureGiftVillage(GOTBiome.giftNew, 1.0f), "GiftVillage", GOTFaction.NIGHT_WATCH, (IVillageProperties<GOTStructureGiftVillage.Instance>) instance -> {
+		});
 
-		GOTStructureRegistry.register(id++, new GOTStructureNorthHillmanVillage(GOTBiome.skagos, 1.0f), "NorthHillmanVillage", GOTFaction.NORTH, (IVillageProperties<GOTStructureNorthHillmanVillage.Instance>) instance -> {});
+		GOTStructureRegistry.register(id++, new GOTStructureNorthHillmanVillage(GOTBiome.skagos, 1.0f), "NorthHillmanVillage", GOTFaction.NORTH, (IVillageProperties<GOTStructureNorthHillmanVillage.Instance>) instance -> {
+		});
 
 		GOTStructureRegistry.register(id++, new GOTStructureNorthCity(GOTBiome.north, 1.0f), "NorthVillage", GOTFaction.NORTH, (IVillageProperties<GOTStructureNorthCity.Instance>) instance -> instance.villageType = GOTStructureNorthCity.VillageType.VILLAGE);
 		GOTStructureRegistry.register(id++, new GOTStructureNorthCity(GOTBiome.north, 1.0f), "NorthTown", GOTFaction.NORTH, (IVillageProperties<GOTStructureNorthCity.Instance>) instance -> instance.villageType = GOTStructureNorthCity.VillageType.TOWN);
@@ -430,7 +434,8 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, new GOTStructureRiverlandsCity(GOTBiome.riverlands, 1.0f), "RiverlandsCityBig", GOTFaction.RIVERLANDS, (IVillageProperties<GOTStructureRiverlandsCity.Instance>) instance -> instance.villageType = GOTStructureRiverlandsCity.VillageType.TOWN);
 		GOTStructureRegistry.register(id++, new GOTStructureRiverlandsCity(GOTBiome.riverlands, 1.0f), "RiverlandsCityMedium", GOTFaction.RIVERLANDS, (IVillageProperties<GOTStructureRiverlandsCity.Instance>) instance -> instance.villageType = GOTStructureRiverlandsCity.VillageType.FORT);
 
-		GOTStructureRegistry.register(id++, new GOTStructureHillmanVillage(GOTBiome.sothoryosJungle, 1.0f), "HillmanVillage", GOTFaction.HILL_TRIBES, (IVillageProperties<GOTStructureHillmanVillage.Instance>) instance -> {});
+		GOTStructureRegistry.register(id++, new GOTStructureHillmanVillage(GOTBiome.sothoryosJungle, 1.0f), "HillmanVillage", GOTFaction.HILL_TRIBES, (IVillageProperties<GOTStructureHillmanVillage.Instance>) instance -> {
+		});
 
 		GOTStructureRegistry.register(id++, new GOTStructureArrynCity(GOTBiome.arryn, 1.0f), "ArrynCityLittle", GOTFaction.ARRYN, (IVillageProperties<GOTStructureArrynCity.Instance>) instance -> instance.villageType = GOTStructureArrynCity.VillageType.VILLAGE);
 		GOTStructureRegistry.register(id++, new GOTStructureArrynCity(GOTBiome.arryn, 1.0f), "ArrynCityBig", GOTFaction.ARRYN, (IVillageProperties<GOTStructureArrynCity.Instance>) instance -> instance.villageType = GOTStructureArrynCity.VillageType.TOWN);
@@ -492,7 +497,8 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, new GOTStructureTyroshCity(GOTBiome.tyrosh, 1.0f), "TyroshCityMedium", GOTFaction.TYROSH, (IVillageProperties<GOTStructureTyroshCity.Instance>) instance -> instance.villageType = GOTStructureTyroshCity.VillageType.TOWN);
 		GOTStructureRegistry.register(id++, new GOTStructureTyroshCity(GOTBiome.tyrosh, 1.0f), "TyroshCityBig", GOTFaction.TYROSH, (IVillageProperties<GOTStructureTyroshCity.Instance>) instance -> instance.villageType = GOTStructureTyroshCity.VillageType.FORT);
 
-		GOTStructureRegistry.register(id++, new GOTStructureGoldenCamp(GOTBiome.essos, 1.0f), "GoldenCamp", 0xffd700, (IVillageProperties<GOTStructureGoldenCamp.Instance>) instance -> {});
+		GOTStructureRegistry.register(id++, new GOTStructureGoldenCamp(GOTBiome.essos, 1.0f), "GoldenCamp", 0xffd700, (IVillageProperties<GOTStructureGoldenCamp.Instance>) instance -> {
+		});
 
 		GOTStructureRegistry.register(id++, new GOTStructureGhiscarCity(GOTBiome.ghiscar, 1.0f), "GhiscarCityLittle", GOTFaction.GHISCAR, (IVillageProperties<GOTStructureGhiscarCity.Instance>) instance -> instance.villageType = GOTStructureGhiscarCity.VillageType.VILLAGE);
 		GOTStructureRegistry.register(id++, new GOTStructureGhiscarCity(GOTBiome.ghiscar, 1.0f), "GhiscarCityMedium", GOTFaction.GHISCAR, (IVillageProperties<GOTStructureGhiscarCity.Instance>) instance -> instance.villageType = GOTStructureGhiscarCity.VillageType.TOWN);
@@ -514,7 +520,8 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, new GOTStructureJogosVillage(GOTBiome.jogosNhai, 1.0f), "JogosVillageLittle", GOTFaction.JOGOS, (IVillageProperties<GOTStructureJogosVillage.Instance>) instance -> instance.villageType = GOTStructureJogosVillage.VillageType.SMALL);
 		GOTStructureRegistry.register(id++, new GOTStructureJogosVillage(GOTBiome.jogosNhai, 1.0f), "JogosVillageBig", GOTFaction.JOGOS, (IVillageProperties<GOTStructureJogosVillage.Instance>) instance -> instance.villageType = GOTStructureJogosVillage.VillageType.BIG);
 
-		GOTStructureRegistry.register(id++, new GOTStructureMossovyVillage(GOTBiome.mossovy, 1.0f), "MossovyVillage", GOTFaction.MOSSOVY, (IVillageProperties<GOTStructureMossovyVillage.Instance>) instance -> {});
+		GOTStructureRegistry.register(id++, new GOTStructureMossovyVillage(GOTBiome.mossovy, 1.0f), "MossovyVillage", GOTFaction.MOSSOVY, (IVillageProperties<GOTStructureMossovyVillage.Instance>) instance -> {
+		});
 
 		GOTStructureRegistry.register(id++, new GOTStructureYiTiCity(GOTBiome.yiTi, 1.0f), "YiTiVillage", GOTFaction.YI_TI, (IVillageProperties<GOTStructureYiTiCity.Instance>) instance -> instance.villageType = GOTStructureYiTiCity.VillageType.VILLAGE);
 		GOTStructureRegistry.register(id++, new GOTStructureYiTiCity(GOTBiome.yiTi, 1.0f), "YiTiTown", GOTFaction.YI_TI, (IVillageProperties<GOTStructureYiTiCity.Instance>) instance -> instance.villageType = GOTStructureYiTiCity.VillageType.TOWN);
@@ -526,7 +533,8 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, new GOTStructureSummerVillage(GOTBiome.summerIslands, 1.0f), "SummerFortVillage", GOTFaction.SUMMER_ISLANDS, (IVillageProperties<GOTStructureSummerVillage.Instance>) instance -> instance.villageType = GOTStructureSummerVillage.VillageType.FORTRESS);
 		GOTStructureRegistry.register(id++, new GOTStructureSummerVillage(GOTBiome.summerIslands, 1.0f).setRuined(), "SummerVillageRuined", GOTFaction.SUMMER_ISLANDS, (IVillageProperties<GOTStructureSummerVillage.Instance>) instance -> instance.villageType = GOTStructureSummerVillage.VillageType.VILLAGE);
 
-		GOTStructureRegistry.register(id++, new GOTStructureSothoryosVillage(GOTBiome.sothoryosJungle, 1.0f), "SothoryosVillage", GOTFaction.SOTHORYOS, (IVillageProperties<Instance>) instance -> {});
+		GOTStructureRegistry.register(id++, new GOTStructureSothoryosVillage(GOTBiome.sothoryosJungle, 1.0f), "SothoryosVillage", GOTFaction.SOTHORYOS, (IVillageProperties<Instance>) instance -> {
+		});
 
 		if (GOT.isDevMode) {
 			GOTStructureRegistry.register(id++, DatabaseGenerator.class, "DatabaseGenerator", 9605778);
