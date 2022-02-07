@@ -6,7 +6,6 @@ import java.util.*;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
 
-import com.google.common.base.Supplier;
 import com.google.common.collect.ImmutableList;
 
 import cpw.mods.fml.common.FMLLog;
@@ -1048,13 +1047,7 @@ public class GOTPlayerData {
 	}
 
 	public List<GOTMiniQuest> getMiniQuestsForFaction(GOTFaction f, boolean activeOnly) {
-		MiniQuestSelector.Faction sel = new MiniQuestSelector.Faction(new Supplier<GOTFaction>() {
-
-			@Override
-			public GOTFaction get() {
-				return f;
-			}
-		});
+		MiniQuestSelector.Faction sel = new MiniQuestSelector.Faction(() -> f);
 		if (activeOnly) {
 			sel.setActiveOnly();
 		}

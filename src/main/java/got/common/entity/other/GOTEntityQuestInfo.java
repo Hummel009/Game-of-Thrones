@@ -7,7 +7,6 @@ import com.google.common.base.*;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.*;
-import got.common.faction.GOTFaction;
 import got.common.network.*;
 import got.common.quest.*;
 import got.common.world.biome.GOTBiome;
@@ -39,27 +38,9 @@ public class GOTEntityQuestInfo {
 		theNPC = npc;
 		offerChance = 20000;
 		minAlignment = 0.0f;
-		bountyHelpPredicate = new Predicate<EntityPlayer>() {
-
-			@Override
-			public boolean apply(EntityPlayer player) {
-				return theNPC.getRNG().nextInt(3) == 0;
-			}
-		};
-		bountyHelpConsumer = new Predicate<EntityPlayer>() {
-
-			@Override
-			public boolean apply(EntityPlayer player) {
-				return true;
-			}
-		};
-		activeBountySelector = new MiniQuestSelector.BountyActiveFaction(new Supplier<GOTFaction>() {
-
-			@Override
-			public GOTFaction get() {
-				return theNPC.getFaction();
-			}
-		});
+		bountyHelpPredicate = player -> theNPC.getRNG().nextInt(3) == 0;
+		bountyHelpConsumer = player -> true;
+		activeBountySelector = new MiniQuestSelector.BountyActiveFaction(() -> theNPC.getFaction());
 	}
 
 	public void addActiveQuestPlayer(EntityPlayer entityplayer) {

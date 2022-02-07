@@ -768,37 +768,33 @@ public class GOTAchievement {
 	}
 
 	public static Comparator<GOTAchievement> sortForDisplay(EntityPlayer entityplayer) {
-		return new Comparator<GOTAchievement>() {
-
-			@Override
-			public int compare(GOTAchievement ach1, GOTAchievement ach2) {
-				if (ach1.isSpecial) {
-					if (!ach2.isSpecial) {
-						return -1;
-					}
-					if (ach2.ID < ach1.ID) {
-						return 1;
-					}
-					if (ach2.ID == ach1.ID) {
-						return 0;
-					}
-					if (ach2.ID > ach1.ID) {
-						return -1;
-					}
-				} else if (ach2.isSpecial) {
-					return 1;
-				}
-				if (ach1.isBiomeAchievement) {
-					if (ach2.isBiomeAchievement) {
-						return ach1.getTitle(entityplayer).compareTo(ach2.getTitle(entityplayer));
-					}
+		return (ach1, ach2) -> {
+			if (ach1.isSpecial) {
+				if (!ach2.isSpecial) {
 					return -1;
 				}
-				if (!ach2.isBiomeAchievement) {
-					return ach1.getTitle(entityplayer).compareTo(ach2.getTitle(entityplayer));
+				if (ach2.ID < ach1.ID) {
+					return 1;
 				}
+				if (ach2.ID == ach1.ID) {
+					return 0;
+				}
+				if (ach2.ID > ach1.ID) {
+					return -1;
+				}
+			} else if (ach2.isSpecial) {
 				return 1;
 			}
+			if (ach1.isBiomeAchievement) {
+				if (ach2.isBiomeAchievement) {
+					return ach1.getTitle(entityplayer).compareTo(ach2.getTitle(entityplayer));
+				}
+				return -1;
+			}
+			if (!ach2.isBiomeAchievement) {
+				return ach1.getTitle(entityplayer).compareTo(ach2.getTitle(entityplayer));
+			}
+			return 1;
 		};
 	}
 
