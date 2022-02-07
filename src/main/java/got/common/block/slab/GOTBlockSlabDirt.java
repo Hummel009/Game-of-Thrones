@@ -19,10 +19,9 @@ public class GOTBlockSlabDirt extends GOTBlockSlabBase {
 	@Override
 	public IIcon getIcon(int i, int j) {
 		j &= 7;
-		if (j == 0) {
-			return Blocks.dirt.getIcon(i, 0);
-		}
 		switch (j) {
+		case 0:
+			return Blocks.dirt.getIcon(i, 0);
 		case 1:
 			return GOTRegistry.dirtPath.getIcon(i, 0);
 		case 2:

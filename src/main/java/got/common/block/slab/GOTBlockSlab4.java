@@ -19,10 +19,9 @@ public class GOTBlockSlab4 extends GOTBlockSlabBase {
 	@Override
 	public IIcon getIcon(int i, int j) {
 		j &= 7;
-		if (j == 0) {
-			return GOTRegistry.brick1.getIcon(i, 15);
-		}
 		switch (j) {
+		case 0:
+			return GOTRegistry.brick1.getIcon(i, 15);
 		case 1:
 			return GOTRegistry.brick2.getIcon(i, 3);
 		case 2:
