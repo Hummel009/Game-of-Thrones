@@ -1028,7 +1028,5 @@ public class GOTGuiFellowships extends GOTGuiMenuWBBase {
 
 	public enum Page {
 		LIST, CREATE, FELLOWSHIP, INVITE, DISBAND, LEAVE, REMOVE, OP, DEOP, TRANSFER, RENAME, INVITATIONS;
-
 	}
-
 }
