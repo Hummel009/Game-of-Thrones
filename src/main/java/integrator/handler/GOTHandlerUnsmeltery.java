@@ -113,7 +113,7 @@ public class GOTHandlerUnsmeltery extends FurnaceRecipeHandler {
 	public static ItemStack getRandomUnsmelteryResult(ItemStack stack) {
 		ItemStack ret = null;
 		try {
-			ret = ReflectionManager.callMethod(GOTTileEntityUnsmeltery.class, ItemStack.class, (unsmelteryTileEntity), "getRandomUnsmeltingResult");
+			ret = ReflectionManager.callMethod(GOTTileEntityUnsmeltery.class, ItemStack.class, unsmelteryTileEntity, "getRandomUnsmeltingResult");
 		} catch (Exception exception) {
 			// empty catch block
 		}
