@@ -10,7 +10,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.*;
 
 public class GOTRenderBannerWall extends Render {
-	public static GOTModelBannerWall model = new GOTModelBannerWall();
+	private static GOTModelBannerWall model = new GOTModelBannerWall();
 
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {

@@ -3,13 +3,11 @@ package got.client.sound;
 import java.util.*;
 
 public class GOTRegionTrackPool {
-	public GOTBiomeMusic region;
-	public String subregion;
-	public List<GOTMusicTrack> trackList = new ArrayList<>();
+	private GOTBiomeMusic region;
+	private List<GOTMusicTrack> trackList = new ArrayList<>();
 
 	public GOTRegionTrackPool(GOTBiomeMusic r, String s) {
 		region = r;
-		subregion = s;
 	}
 
 	public void addTrack(GOTMusicTrack track) {

@@ -10,12 +10,12 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTGuiNPCMountInventory extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("textures/gui/container/horse.png");
-	public IInventory thePlayerInv;
-	public IInventory theMountInv;
-	public GOTEntityNPCRideable theMount;
-	public float mouseX;
-	public float mouseY;
+	private static ResourceLocation guiTexture = new ResourceLocation("textures/gui/container/horse.png");
+	private IInventory thePlayerInv;
+	private IInventory theMountInv;
+	private GOTEntityNPCRideable theMount;
+	private float mouseX;
+	private float mouseY;
 
 	public GOTGuiNPCMountInventory(IInventory playerInv, IInventory mountInv, GOTEntityNPCRideable mount) {
 		super(new GOTContainerNPCMountInventory(playerInv, mountInv, mount));

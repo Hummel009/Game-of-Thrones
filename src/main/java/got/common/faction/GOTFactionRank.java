@@ -39,7 +39,7 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 		if (al1 == al2) {
 			throw new IllegalArgumentException("Two ranks cannot have the same alignment value!");
 		}
-		return -Float.valueOf(al1).compareTo(al2);
+		return -Float.compare(al1, al2);
 	}
 
 	public String getCodeFullNameWithGender(GOTPlayerData pd) {

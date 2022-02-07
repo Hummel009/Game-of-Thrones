@@ -10,8 +10,6 @@ import net.minecraft.entity.*;
 import net.minecraft.util.*;
 
 public class GOTRenderBarrowWight extends GOTRenderBiped {
-	public static GOTRandomSkins wightSkins;
-
 	public GOTRenderBarrowWight() {
 		super(new GOTModelWight(), 0.0f);
 	}

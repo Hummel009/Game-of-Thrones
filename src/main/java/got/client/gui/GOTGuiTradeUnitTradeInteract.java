@@ -6,7 +6,7 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.StatCollector;
 
 public class GOTGuiTradeUnitTradeInteract extends GOTGuiTradeInteract {
-	public GuiButton buttonHire;
+	private GuiButton buttonHire;
 
 	public GOTGuiTradeUnitTradeInteract(GOTEntityNPC entity) {
 		super(entity);
@@ -16,7 +16,7 @@ public class GOTGuiTradeUnitTradeInteract extends GOTGuiTradeInteract {
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
 			if (button == buttonHire) {
-				GOTPacketUnitTraderInteract packet = new GOTPacketUnitTraderInteract(theEntity.getEntityId(), 1);
+				GOTPacketUnitTraderInteract packet = new GOTPacketUnitTraderInteract(getTheEntity().getEntityId(), 1);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 			} else {
 				super.actionPerformed(button);

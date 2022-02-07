@@ -7,25 +7,19 @@ import net.minecraft.client.renderer.*;
 
 public class GOTModelDragonPart extends ModelRenderer {
 
-	public static boolean renderAxes;
-
 	public float renderScaleX = 1;
 	public float renderScaleY = 1;
 	public float renderScaleZ = 1;
 
 	public float preRotateAngleX;
-	public float preRotateAngleY;
-	public float preRotateAngleZ;
+	private float preRotateAngleY;
+	private float preRotateAngleZ;
 
-	public ModelBase base;
-	public boolean compiled;
-	public int displayList;
+	private ModelBase base;
+	private boolean compiled;
+	private int displayList;
 
-	public GOTModelDragonPart(ModelBase base) {
-		this(base, null);
-	}
-
-	public GOTModelDragonPart(ModelBase modelbase, int i, int j) {
+	private GOTModelDragonPart(ModelBase modelbase, int i, int j) {
 		super(modelbase, i, j);
 		base = modelbase;
 	}
@@ -54,6 +48,30 @@ public class GOTModelDragonPart extends ModelRenderer {
 		compiled = true;
 	}
 
+	public float getPreRotateAngleX() {
+		return preRotateAngleX;
+	}
+
+	public float getPreRotateAngleY() {
+		return preRotateAngleY;
+	}
+
+	public float getPreRotateAngleZ() {
+		return preRotateAngleZ;
+	}
+
+	public float getRenderScaleX() {
+		return renderScaleX;
+	}
+
+	public float getRenderScaleY() {
+		return renderScaleY;
+	}
+
+	public float getRenderScaleZ() {
+		return renderScaleZ;
+	}
+
 	@Override
 	public void postRender(float scale) {
 
@@ -63,14 +81,14 @@ public class GOTModelDragonPart extends ModelRenderer {
 
 		glTranslatef(rotationPointX * scale, rotationPointY * scale, rotationPointZ * scale);
 
-		if (preRotateAngleZ != 0) {
-			glRotatef(GOTModelDragonAnimaton.toDegrees(preRotateAngleZ), 0, 0, 1);
+		if (getPreRotateAngleZ() != 0) {
+			glRotatef(GOTModelDragonAnimaton.toDegrees(getPreRotateAngleZ()), 0, 0, 1);
 		}
-		if (preRotateAngleY != 0) {
-			glRotatef(GOTModelDragonAnimaton.toDegrees(preRotateAngleY), 0, 1, 0);
+		if (getPreRotateAngleY() != 0) {
+			glRotatef(GOTModelDragonAnimaton.toDegrees(getPreRotateAngleY()), 0, 1, 0);
 		}
-		if (preRotateAngleX != 0) {
-			glRotatef(GOTModelDragonAnimaton.toDegrees(preRotateAngleX), 1, 0, 0);
+		if (getPreRotateAngleX() != 0) {
+			glRotatef(GOTModelDragonAnimaton.toDegrees(getPreRotateAngleX()), 1, 0, 0);
 		}
 
 		if (rotateAngleZ != 0) {
@@ -83,8 +101,8 @@ public class GOTModelDragonPart extends ModelRenderer {
 			glRotatef(GOTModelDragonAnimaton.toDegrees(rotateAngleX), 1, 0, 0);
 		}
 
-		if (renderScaleX != 0 || renderScaleY != 0 || renderScaleZ != 0) {
-			glScalef(renderScaleX, renderScaleY, renderScaleZ);
+		if (getRenderScaleX() != 0 || getRenderScaleY() != 0 || getRenderScaleZ() != 0) {
+			glScalef(getRenderScaleX(), getRenderScaleY(), getRenderScaleZ());
 		}
 	}
 
@@ -105,13 +123,7 @@ public class GOTModelDragonPart extends ModelRenderer {
 		}
 
 		glPushMatrix();
-
 		postRender(scale);
-
-		if (renderAxes) {
-//            GLUtils.renderAxes(scale * 8);
-		}
-
 		glCallList(displayList);
 
 		if (childModels != null) {
@@ -131,15 +143,40 @@ public class GOTModelDragonPart extends ModelRenderer {
 		return this;
 	}
 
+	public void setPreRotateAngleX(float preRotateAngleX) {
+		this.preRotateAngleX = preRotateAngleX;
+	}
+
+	public void setPreRotateAngleY(float preRotateAngleY) {
+		this.preRotateAngleY = preRotateAngleY;
+	}
+
+	public void setPreRotateAngleZ(float preRotateAngleZ) {
+		this.preRotateAngleZ = preRotateAngleZ;
+	}
+
 	public GOTModelDragonPart setRenderScale(float scale) {
 		return setRenderScale(scale, scale, scale);
 	}
 
-	public GOTModelDragonPart setRenderScale(float scaleX, float scaleY, float scaleZ) {
-		renderScaleX = scaleX;
-		renderScaleY = scaleY;
-		renderScaleZ = scaleZ;
+	private GOTModelDragonPart setRenderScale(float scaleX, float scaleY, float scaleZ) {
+		setRenderScaleX(scaleX);
+		setRenderScaleY(scaleY);
+		setRenderScaleZ(scaleZ);
 
 		return this;
+	}
+
+	public void setRenderScaleX(float renderScaleX) {
+		this.renderScaleX = renderScaleX;
+	}
+
+	public float setRenderScaleY(float renderScaleY) {
+		this.renderScaleY = renderScaleY;
+		return renderScaleY;
+	}
+
+	public void setRenderScaleZ(float renderScaleZ) {
+		this.renderScaleZ = renderScaleZ;
 	}
 }

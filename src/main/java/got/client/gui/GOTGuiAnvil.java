@@ -17,8 +17,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 
 public class GOTGuiAnvil extends GuiContainer {
-	public static ResourceLocation anvilTexture = new ResourceLocation("got:textures/gui/anvil.png");
-	public static int[] colorCodes = new int[16];
+	private static ResourceLocation anvilTexture = new ResourceLocation("got:textures/gui/anvil.png");
+	private static int[] colorCodes = new int[16];
 	static {
 		for (int i = 0; i < 16; ++i) {
 			int baseBrightness = (i >> 3 & 1) * 85;
@@ -31,12 +31,12 @@ public class GOTGuiAnvil extends GuiContainer {
 			GOTGuiAnvil.colorCodes[i] = (r & 0xFF) << 16 | (g & 0xFF) << 8 | b & 0xFF;
 		}
 	}
-	public GOTContainerAnvil theAnvil;
-	public ItemStack prevItemStack;
-	public GuiButton buttonReforge;
-	public GuiButton buttonEngraveOwner;
+	private GOTContainerAnvil theAnvil;
+	private ItemStack prevItemStack;
+	private GuiButton buttonReforge;
+	private GuiButton buttonEngraveOwner;
 
-	public GuiTextField textFieldRename;
+	private GuiTextField textFieldRename;
 
 	public GOTGuiAnvil(EntityPlayer entityplayer, GOTEntityNPC npc) {
 		super(new GOTContainerAnvil(entityplayer, npc));
@@ -71,7 +71,7 @@ public class GOTGuiAnvil extends GuiContainer {
 	@Override
 	public void drawGuiContainerBackgroundLayer(float f, int i, int j) {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(anvilTexture);
+		mc.getTextureManager().bindTexture(getAnvilTexture());
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		if (theAnvil.isTrader) {
 			drawTexturedModalRect(guiLeft + 75, guiTop + 69, 176, 21, 18, 18);
@@ -260,5 +260,13 @@ public class GOTGuiAnvil extends GuiContainer {
 				renameItem(textFieldText);
 			}
 		}
+	}
+
+	public static ResourceLocation getAnvilTexture() {
+		return anvilTexture;
+	}
+
+	public static void setAnvilTexture(ResourceLocation anvilTexture) {
+		GOTGuiAnvil.anvilTexture = anvilTexture;
 	}
 }

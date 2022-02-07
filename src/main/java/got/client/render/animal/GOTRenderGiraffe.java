@@ -9,8 +9,8 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderGiraffe extends RenderLiving {
-	public static ResourceLocation texture = new ResourceLocation("got:textures/entity/animal/giraffe/giraffe.png");
-	public static ResourceLocation saddleTexture = new ResourceLocation("got:textures/entity/animal/giraffe/saddle.png");
+	private static ResourceLocation texture = new ResourceLocation("got:textures/entity/animal/giraffe/giraffe.png");
+	private static ResourceLocation saddleTexture = new ResourceLocation("got:textures/entity/animal/giraffe/saddle.png");
 
 	public GOTRenderGiraffe() {
 		super(new GOTModelGiraffe(0.0f), 0.5f);
@@ -19,7 +19,7 @@ public class GOTRenderGiraffe extends RenderLiving {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return texture;
+		return getTexture();
 	}
 
 	@Override
@@ -40,5 +40,13 @@ public class GOTRenderGiraffe extends RenderLiving {
 			return 1;
 		}
 		return super.shouldRenderPass(entity, pass, f);
+	}
+
+	public static ResourceLocation getTexture() {
+		return texture;
+	}
+
+	public static void setTexture(ResourceLocation texture) {
+		GOTRenderGiraffe.texture = texture;
 	}
 }

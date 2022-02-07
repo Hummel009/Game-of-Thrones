@@ -14,27 +14,24 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 
 public class GOTGuiMiniquestTracker extends Gui {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/quest/tracker.png");
-	public static RenderItem renderItem = new RenderItem();
-	public static int completeTimeMax = 200;
-	public int width;
-	public int height;
-	public int barX = 16;
-	public int barY = 10;
-	public int barWidth = 90;
-	public int barHeight = 15;
-	public int barEdge = 2;
-	public int iconWidth = 20;
-	public int iconHeight = 20;
-	public int gap = 4;
-	public GOTMiniQuest trackedQuest;
-	public boolean holdingComplete;
-	public int completeTime;
+	private static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/quest/tracker.png");
+	private static RenderItem renderItem = new RenderItem();
+	private int barX = 16;
+	private int barY = 10;
+	private int barWidth = 90;
+	private int barHeight = 15;
+	private int barEdge = 2;
+	private int iconWidth = 20;
+	private int iconHeight = 20;
+	private int gap = 4;
+	private GOTMiniQuest trackedQuest;
+	private boolean holdingComplete;
+	private int completeTime;
 
 	public void drawTracker(Minecraft mc, EntityPlayer entityplayer) {
 		ScaledResolution resolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
-		width = resolution.getScaledWidth();
-		height = resolution.getScaledHeight();
+		int width = resolution.getScaledWidth();
+		resolution.getScaledHeight();
 		FontRenderer fr = mc.fontRenderer;
 		boolean flip = GOTConfig.trackingQuestRight;
 		if (entityplayer != null && trackedQuest != null) {

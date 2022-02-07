@@ -21,11 +21,8 @@ import net.minecraft.util.*;
 import net.minecraftforge.client.*;
 
 public abstract class GOTRenderBiped extends RenderBiped {
-	public static float PLAYER_SCALE = 0.9375f;
-	public GOTModelBiped capeModel = new GOTModelBiped();
-	public ModelBiped npcRenderPassModel;
-	public Minecraft mc;
-
+	private GOTModelBiped capeModel = new GOTModelBiped();
+	private ModelBiped npcRenderPassModel;
 	public GOTRenderBiped(ModelBiped model, float f) {
 		super(model, f);
 	}
@@ -54,8 +51,8 @@ public abstract class GOTRenderBiped extends RenderBiped {
 		GOTArmorModels.INSTANCE.setupModelForRender(modelBipedMain, modelBipedMain, entity);
 		GOTArmorModels.INSTANCE.setupModelForRender(field_82425_h, modelBipedMain, entity);
 		GOTArmorModels.INSTANCE.setupModelForRender(field_82423_g, modelBipedMain, entity);
-		if (npcRenderPassModel != null) {
-			GOTArmorModels.INSTANCE.setupModelForRender(npcRenderPassModel, modelBipedMain, entity);
+		if (getNpcRenderPassModel() != null) {
+			GOTArmorModels.INSTANCE.setupModelForRender(getNpcRenderPassModel(), modelBipedMain, entity);
 		}
 	}
 
@@ -220,7 +217,7 @@ public abstract class GOTRenderBiped extends RenderBiped {
 	public void renderNPCCape(GOTEntityNPC entity) {
 		GOTCapes cape = entity.npcCape;
 		if (cape != null) {
-			GOTRenderCape.renderCape(cape, entity, capeModel);
+			GOTRenderCape.renderCape(cape, entity, getCapeModel());
 		}
 	}
 
@@ -235,7 +232,7 @@ public abstract class GOTRenderBiped extends RenderBiped {
 	public void setRenderPassModel(ModelBase model) {
 		super.setRenderPassModel(model);
 		if (model instanceof ModelBiped) {
-			npcRenderPassModel = (ModelBiped) model;
+			setNpcRenderPassModel((ModelBiped) model);
 		}
 	}
 
@@ -247,5 +244,21 @@ public abstract class GOTRenderBiped extends RenderBiped {
 			return specialArmorResult;
 		}
 		return super.shouldRenderPass(entity, pass, f);
+	}
+
+	public GOTModelBiped getCapeModel() {
+		return capeModel;
+	}
+
+	public void setCapeModel(GOTModelBiped capeModel) {
+		this.capeModel = capeModel;
+	}
+
+	public ModelBiped getNpcRenderPassModel() {
+		return npcRenderPassModel;
+	}
+
+	public void setNpcRenderPassModel(ModelBiped npcRenderPassModel) {
+		this.npcRenderPassModel = npcRenderPassModel;
 	}
 }

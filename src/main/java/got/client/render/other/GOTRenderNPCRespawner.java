@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 
 public class GOTRenderNPCRespawner extends Render {
-	public ItemStack renderIcon;
+	private ItemStack renderIcon;
 
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
@@ -52,7 +52,7 @@ public class GOTRenderNPCRespawner extends Render {
 		return TextureMap.locationItemsTexture;
 	}
 
-	public float interpolateRotation(float prevRotation, float newRotation, float tick) {
+	private float interpolateRotation(float prevRotation, float newRotation, float tick) {
 		float interval;
 		for (interval = newRotation - prevRotation; interval < -180.0f; interval += 360.0f) {
 		}

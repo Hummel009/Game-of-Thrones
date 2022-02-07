@@ -19,33 +19,31 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTRenderNorthernLights {
-	public static int nlTick;
-	public static int currentNightNum;
-	public static float brightnessTonight;
-	public static float maxNorthTonight;
-	public static float minNorthTonight;
-	public static int rainingTick;
-	public static int rainingTickPrev;
-	public static int rainingChangeTime = 80;
-	public static boolean atNightKing;
-	public static int nightKingChange;
-	public static int nightKingChangeTime = 200;
-	public static Random rand;
-	public static Random dateRand;
-	public static float[] colorTopCurrent;
-	public static float[] colorMidCurrent;
-	public static float[] colorBottomCurrent;
-	public static float[] colorTopNext;
-	public static float[] colorMidNext;
-	public static float[] colorBottomNext;
-	public static int colorChangeTime;
-	public static int colorChangeTick;
-	public static int timeUntilColorChange;
-	public static int nightKingCheckTime;
-	public static AuroraCycle wave0;
-	public static List<AuroraCycle> waveOscillations;
-	public static List<AuroraCycle> glowOscillations;
-	public static AuroraCycle glow0;
+	private static int nlTick;
+	private static int currentNightNum;
+	private static float brightnessTonight;
+	private static float maxNorthTonight;
+	private static float minNorthTonight;
+	private static int rainingTick;
+	private static int rainingTickPrev;
+	private static boolean atNightKing;
+	private static int nightKingChange;
+	private static Random rand;
+	private static Random dateRand;
+	private static float[] colorTopCurrent;
+	private static float[] colorMidCurrent;
+	private static float[] colorBottomCurrent;
+	private static float[] colorTopNext;
+	private static float[] colorMidNext;
+	private static float[] colorBottomNext;
+	private static int colorChangeTime;
+	private static int colorChangeTick;
+	private static int timeUntilColorChange;
+	private static int nightKingCheckTime;
+	private static AuroraCycle wave0;
+	private static List<AuroraCycle> waveOscillations;
+	private static List<AuroraCycle> glowOscillations;
+	private static AuroraCycle glow0;
 
 	static {
 		atNightKing = false;
@@ -58,7 +56,7 @@ public class GOTRenderNorthernLights {
 		glow0 = new AuroraCycle(20.0f, 0.02f, 0.6f);
 	}
 
-	public static Color[] generateColorSet() {
+	private static Color[] generateColorSet() {
 		float h1 = MathHelper.randomFloatClamp(rand, 0.22f, 0.48f);
 		float h2 = MathHelper.randomFloatClamp(rand, 0.22f, 0.48f);
 		float h3 = MathHelper.randomFloatClamp(rand, 0.22f, 0.48f);
@@ -80,14 +78,14 @@ public class GOTRenderNorthernLights {
 		return new Color[] { topColor, midColor, bottomColor };
 	}
 
-	public static float getNorthernness(EntityLivingBase entity) {
+	private static float getNorthernness(EntityLivingBase entity) {
 		float minNorth = minNorthTonight;
 		float maxNorth = maxNorthTonight;
 		float northernness = ((float) entity.posZ - minNorth) / (maxNorth - minNorth);
 		return MathHelper.clamp_float(northernness, 0.0f, 1.0f);
 	}
 
-	public static float glowEquation(Minecraft mc, float t, float tick, float renderTick) {
+	private static float glowEquation(Minecraft mc, float t, float tick, float renderTick) {
 		float f = 0.0f;
 		f += glow0.calc(t, tick);
 		if (mc.gameSettings.fancyGraphics) {
@@ -98,7 +96,7 @@ public class GOTRenderNorthernLights {
 		return f;
 	}
 
-	public static boolean isRainLayerAt(EntityLivingBase entity) {
+	private static boolean isRainLayerAt(EntityLivingBase entity) {
 		World world = entity.worldObj;
 		int i = MathHelper.floor_double(entity.posX);
 		int j = MathHelper.floor_double(entity.boundingBox.minY);
@@ -403,7 +401,7 @@ public class GOTRenderNorthernLights {
 		}
 	}
 
-	public static float waveEquation(Minecraft mc, float t, float tick, float renderTick) {
+	private static float waveEquation(Minecraft mc, float t, float tick, float renderTick) {
 		float f = 0.0f;
 		f += wave0.calc(t, tick);
 		for (AuroraCycle c : waveOscillations) {
@@ -412,21 +410,21 @@ public class GOTRenderNorthernLights {
 		return f;
 	}
 
-	public static class AuroraCycle {
-		public float freq;
-		public float tickMultiplier;
-		public float amp;
-		public int age;
-		public int maxAge = -1;
-		public float ampModifier = 1.0f;
+	private static class AuroraCycle {
+		private float freq;
+		private float tickMultiplier;
+		private float amp;
+		private int age;
+		private int maxAge = -1;
+		private float ampModifier = 1.0f;
 
-		public AuroraCycle(float f, float t, float a) {
+		private AuroraCycle(float f, float t, float a) {
 			freq = f;
 			tickMultiplier = t;
 			amp = a;
 		}
 
-		public float calc(float t, float tick) {
+		private float calc(float t, float tick) {
 			return MathHelper.cos(t * freq + tick * tickMultiplier) * amp * ampModifier;
 		}
 

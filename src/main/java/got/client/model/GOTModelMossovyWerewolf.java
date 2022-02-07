@@ -51,7 +51,7 @@ public class GOTModelMossovyWerewolf extends ModelBase {
 	ModelRenderer LFinger3;
 	ModelRenderer LFinger4;
 	ModelRenderer LFinger5;
-	public boolean hunched;
+	private boolean hunched;
 
 	public GOTModelMossovyWerewolf() {
 		textureWidth = 64;

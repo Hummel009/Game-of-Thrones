@@ -33,7 +33,7 @@ public class GOTRenderCrossbow implements IItemRenderer {
 				using = ((GOTEntityNPC) holder).clientCombatStance;
 			}
 		}
-		if (GOTRenderBow.renderingWeaponRack) {
+		if (GOTRenderBow.isRenderingWeaponRack()) {
 			rotationMode = RotationMode.FIRST_PERSON_HOLDING;
 		} else if (holder == Minecraft.getMinecraft().renderViewEntity && Minecraft.getMinecraft().gameSettings.thirdPersonView == 0) {
 			rotationMode = using || loaded ? RotationMode.FIRST_PERSON_LOADED : RotationMode.FIRST_PERSON_HOLDING;

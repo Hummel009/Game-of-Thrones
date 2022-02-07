@@ -18,8 +18,8 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingEvent;
 
 public class GOTSwingHandler {
-	public static Map<EntityLivingBase, SwingTime> entitySwings = new HashMap<>();
-	public static float swingFactor = 0.8f;
+	private static Map<EntityLivingBase, SwingTime> entitySwings = new HashMap<>();
+	private static float swingFactor = 0.8f;
 
 	public GOTSwingHandler() {
 		FMLCommonHandler.instance().bus().register(this);
@@ -108,12 +108,12 @@ public class GOTSwingHandler {
 		}
 	}
 
-	public static class SwingTime {
-		public int swingPrev;
-		public int swing;
-		public int swingMax;
+	private static class SwingTime {
+		private int swingPrev;
+		private int swing;
+		private int swingMax;
 
-		public SwingTime() {
+		private SwingTime() {
 		}
 	}
 

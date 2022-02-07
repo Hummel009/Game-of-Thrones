@@ -27,9 +27,9 @@ import net.minecraftforge.client.event.sound.PlaySoundEvent17;
 import net.minecraftforge.common.MinecraftForge;
 
 public class GOTAmbience {
-	public int ticksSinceWight;
-	public List<ISound> playingWindSounds = new ArrayList<>();
-	public List<ISound> playingSeaSounds = new ArrayList<>();
+	private int ticksSinceWight;
+	private List<ISound> playingWindSounds = new ArrayList<>();
+	private List<ISound> playingSeaSounds = new ArrayList<>();
 
 	public GOTAmbience() {
 		FMLCommonHandler.instance().bus().register(this);
@@ -222,13 +222,13 @@ public class GOTAmbience {
 		world.theProfiler.endSection();
 	}
 
-	public static class AmbientSoundNoAttentuation extends PositionedSoundRecord {
-		public AmbientSoundNoAttentuation(ResourceLocation sound, float vol, float pitch, float x, float y, float z) {
+	private static class AmbientSoundNoAttentuation extends PositionedSoundRecord {
+		private AmbientSoundNoAttentuation(ResourceLocation sound, float vol, float pitch, float x, float y, float z) {
 			super(sound, vol, pitch, x, y, z);
 			field_147666_i = ISound.AttenuationType.NONE;
 		}
 
-		public AmbientSoundNoAttentuation calcAmbientVolume(EntityPlayer entityplayer, int maxRange) {
+		private AmbientSoundNoAttentuation calcAmbientVolume(EntityPlayer entityplayer, int maxRange) {
 			float distFr = (float) entityplayer.getDistance(xPosF, yPosF, zPosF);
 			distFr /= maxRange;
 			distFr = Math.min(distFr, 1.0f);

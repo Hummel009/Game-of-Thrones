@@ -6,7 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderWhiteBison extends GOTRenderBison {
-	public static GOTRandomSkins wbisonSkins;
+	private static GOTRandomSkins wbisonSkins;
 
 	public GOTRenderWhiteBison() {
 		wbisonSkins = GOTRandomSkins.loadSkinsList("got:textures/entity/animal/wbison");

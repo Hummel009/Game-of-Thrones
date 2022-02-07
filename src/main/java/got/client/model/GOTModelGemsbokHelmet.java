@@ -3,12 +3,8 @@ package got.client.model;
 import net.minecraft.client.model.ModelRenderer;
 
 public class GOTModelGemsbokHelmet extends GOTModelBiped {
-	public ModelRenderer hornRight;
-	public ModelRenderer hornLeft;
-
-	public GOTModelGemsbokHelmet() {
-		this(0.0f);
-	}
+	private ModelRenderer hornRight;
+	private ModelRenderer hornLeft;
 
 	public GOTModelGemsbokHelmet(float f) {
 		super(f);

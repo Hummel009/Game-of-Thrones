@@ -7,17 +7,17 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 public class GOTModelIbbenese extends GOTModelBiped {
-	public ModelRenderer bipedChest = new ModelRenderer(this, 24, 0);
+	private ModelRenderer bipedChest = new ModelRenderer(this, 24, 0);
 
-	public GOTModelIbbenese() {
+	private GOTModelIbbenese() {
 		this(0.0f);
 	}
 
-	public GOTModelIbbenese(float f) {
+	private GOTModelIbbenese(float f) {
 		this(f, 64, f == 0.0f ? 64 : 32);
 	}
 
-	public GOTModelIbbenese(float f, int width, int height) {
+	private GOTModelIbbenese(float f, int width, int height) {
 		super(f, 0.0f, width, height);
 		bipedChest.addBox(-3.0f, 2.0f, -4.0f, 6, 3, 2, f);
 		bipedChest.setRotationPoint(0.0f, 0.0f, 0.0f);

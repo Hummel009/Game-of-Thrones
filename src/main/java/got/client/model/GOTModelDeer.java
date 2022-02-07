@@ -9,21 +9,21 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelDeer extends ModelBase {
-	public ModelRenderer body;
-	public ModelRenderer leg1;
-	public ModelRenderer leg2;
-	public ModelRenderer leg3;
-	public ModelRenderer leg4;
-	public ModelRenderer head;
-	public ModelRenderer nose;
-	public ModelRenderer antlersRight_1;
-	public ModelRenderer antlersRight_2;
-	public ModelRenderer antlersRight_3;
-	public ModelRenderer antlersRight_4;
-	public ModelRenderer antlersLeft_1;
-	public ModelRenderer antlersLeft_2;
-	public ModelRenderer antlersLeft_3;
-	public ModelRenderer antlersLeft_4;
+	private ModelRenderer body;
+	private ModelRenderer leg1;
+	private ModelRenderer leg2;
+	private ModelRenderer leg3;
+	private ModelRenderer leg4;
+	private ModelRenderer head;
+	private ModelRenderer nose;
+	private ModelRenderer antlersRight_1;
+	private ModelRenderer antlersRight_2;
+	private ModelRenderer antlersRight_3;
+	private ModelRenderer antlersRight_4;
+	private ModelRenderer antlersLeft_1;
+	private ModelRenderer antlersLeft_2;
+	private ModelRenderer antlersLeft_3;
+	private ModelRenderer antlersLeft_4;
 
 	public GOTModelDeer() {
 		this(0.0f);

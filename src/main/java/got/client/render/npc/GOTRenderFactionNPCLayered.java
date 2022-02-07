@@ -10,10 +10,10 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderFactionNPCLayered extends GOTRenderBiped {
-	public String path;
-	public String outfit;
-	public float size;
-	public ModelBiped model = new GOTModelHuman(0.6f, false);
+	private String path;
+	private String outfit;
+	private float size;
+	private ModelBiped model = new GOTModelHuman(0.6f, false);
 
 	public GOTRenderFactionNPCLayered(String texture) {
 		super(new GOTModelHuman(), 0.5f);
@@ -51,7 +51,7 @@ public class GOTRenderFactionNPCLayered extends GOTRenderBiped {
 		return GOTRandomSkins.loadSkinsList("got:textures/entity/" + path + "/female").getRandomSkin(mob);
 	}
 
-	public ResourceLocation getSecondLayerTexture() {
+	private ResourceLocation getSecondLayerTexture() {
 		return new ResourceLocation("got:textures/entity/" + path + "/" + outfit + ".png");
 	}
 

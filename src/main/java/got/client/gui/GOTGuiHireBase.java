@@ -23,20 +23,20 @@ import net.minecraft.util.*;
 import net.minecraft.world.World;
 
 public abstract class GOTGuiHireBase extends GuiContainer {
-	public static ResourceLocation guiTexture;
-	public GOTHireableBase theUnitTrader;
-	public GOTFaction traderFaction;
-	public GOTUnitTradeEntries trades;
-	public int currentTradeEntryIndex;
-	public GOTEntityNPC currentDisplayedMob;
-	public EntityLiving currentDisplayedMount;
-	public float screenXSize;
-	public float screenYSize;
-	public GOTGuiUnitTradeButton buttonHire;
-	public GOTGuiUnitTradeButton buttonLeftUnit;
-	public GOTGuiUnitTradeButton buttonRightUnit;
+	private static ResourceLocation guiTexture;
+	private GOTHireableBase theUnitTrader;
+	private GOTFaction traderFaction;
+	private GOTUnitTradeEntries trades;
+	private int currentTradeEntryIndex;
+	private GOTEntityNPC currentDisplayedMob;
+	private EntityLiving currentDisplayedMount;
+	private float screenXSize;
+	private float screenYSize;
+	private GOTGuiUnitTradeButton buttonHire;
+	private GOTGuiUnitTradeButton buttonLeftUnit;
+	private GOTGuiUnitTradeButton buttonRightUnit;
 
-	public GuiTextField squadronNameField;
+	private GuiTextField squadronNameField;
 
 	public GOTGuiHireBase(EntityPlayer entityplayer, GOTHireableBase trader, World world) {
 		super(new GOTContainerUnitTrade(entityplayer, trader, world));
@@ -63,7 +63,7 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 		}
 	}
 
-	public GOTUnitTradeEntry currentTrade() {
+	private GOTUnitTradeEntry currentTrade() {
 		return trades.tradeEntries[currentTradeEntryIndex];
 	}
 

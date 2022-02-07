@@ -3,19 +3,19 @@ package got.client.gui;
 import net.minecraft.util.StatCollector;
 
 public class GOTGuiMapWidget {
-	public int xPos;
-	public int yPos;
-	public int width;
-	public String name;
-	public int texUBase;
-	public int texVBase;
-	public int texVIndex;
-	public boolean visible = true;
+	private int xPos;
+	private int yPos;
+	private int width;
+	private String name;
+	private int texUBase;
+	private int texVBase;
+	private int texVIndex;
+	private boolean visible = true;
 
 	public GOTGuiMapWidget(int x, int y, int w, String s, int u, int v) {
 		xPos = x;
 		yPos = y;
-		width = w;
+		setWidth(w);
 		name = s;
 		texUBase = u;
 		texVBase = v;
@@ -34,18 +34,34 @@ public class GOTGuiMapWidget {
 	}
 
 	public int getTexV() {
-		return texVBase + texVIndex * width;
+		return texVBase + texVIndex * getWidth();
 	}
 
 	public String getTranslatedName() {
 		return StatCollector.translateToLocal("got.gui.map.widget." + name);
 	}
 
+	public int getWidth() {
+		return width;
+	}
+
 	public boolean isMouseOver(int mouseX, int mouseY, int mapWidth, int mapHeight) {
-		return visible && mouseX >= getMapXPos(mapWidth) && mouseX < getMapXPos(mapWidth) + width && mouseY >= getMapYPos(mapHeight) && mouseY < getMapYPos(mapHeight) + width;
+		return isVisible() && mouseX >= getMapXPos(mapWidth) && mouseX < getMapXPos(mapWidth) + getWidth() && mouseY >= getMapYPos(mapHeight) && mouseY < getMapYPos(mapHeight) + getWidth();
+	}
+
+	public boolean isVisible() {
+		return visible;
 	}
 
 	public void setTexVIndex(int i) {
 		texVIndex = i;
+	}
+
+	public void setVisible(boolean visible) {
+		this.visible = visible;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
 	}
 }

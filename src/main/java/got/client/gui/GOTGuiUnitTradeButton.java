@@ -7,7 +7,7 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTGuiUnitTradeButton extends GuiButton {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/npc/unit_trade_buttons.png");
+	private static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/npc/unit_trade_buttons.png");
 
 	public GOTGuiUnitTradeButton(int i, int j, int k, int width, int height) {
 		super(i, j, k, width, height, "");

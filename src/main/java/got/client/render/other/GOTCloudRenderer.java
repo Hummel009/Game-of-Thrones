@@ -16,16 +16,15 @@ import net.minecraft.util.*;
 import net.minecraftforge.client.IRenderHandler;
 
 public class GOTCloudRenderer extends IRenderHandler {
-	public static ResourceLocation cloudTexture = new ResourceLocation("got:textures/sky/clouds.png");
-	public static int cloudRange;
-	public static Random cloudRand;
-	public static CloudProperty cloudOpacity;
-	public static CloudProperty cloudSpeed;
-	public static CloudProperty cloudAngle;
-	public static double cloudPosXPre;
-	public static double cloudPosX;
-	public static double cloudPosZPre;
-	public static double cloudPosZ;
+	private static ResourceLocation cloudTexture = new ResourceLocation("got:textures/sky/clouds.png");
+	private static Random cloudRand;
+	private static CloudProperty cloudOpacity;
+	private static CloudProperty cloudSpeed;
+	private static CloudProperty cloudAngle;
+	private static double cloudPosXPre;
+	private static double cloudPosX;
+	private static double cloudPosZPre;
+	private static double cloudPosZ;
 
 	static {
 		cloudRand = new Random();
@@ -38,7 +37,7 @@ public class GOTCloudRenderer extends IRenderHandler {
 	public void render(float partialTicks, WorldClient world, Minecraft mc) {
 		if (world.provider.isSurfaceWorld()) {
 			world.theProfiler.startSection("gotClouds");
-			cloudRange = GOTConfig.cloudRange;
+			int cloudRange = GOTConfig.cloudRange;
 			GL11.glMatrixMode(5889);
 			GL11.glPushMatrix();
 			GL11.glLoadIdentity();
@@ -139,16 +138,16 @@ public class GOTCloudRenderer extends IRenderHandler {
 		cloudPosZ += MathHelper.sin(angle) * speed;
 	}
 
-	public static class CloudProperty {
-		public long baseSeed;
-		public float currentDayValue;
-		public float value;
-		public float prevValue;
-		public float minValue;
-		public float maxValue;
-		public float interval;
+	private static class CloudProperty {
+		private long baseSeed;
+		private float currentDayValue;
+		private float value;
+		private float prevValue;
+		private float minValue;
+		private float maxValue;
+		private float interval;
 
-		public CloudProperty(long l, float min, float max, float i) {
+		private CloudProperty(long l, float min, float max, float i) {
 			baseSeed = l;
 			value = -1.0f;
 			minValue = min;
@@ -156,14 +155,14 @@ public class GOTCloudRenderer extends IRenderHandler {
 			interval = i;
 		}
 
-		public float getCurrentDayValue(WorldClient world) {
+		private float getCurrentDayValue(WorldClient world) {
 			int day = GOTDate.AegonCalendar.currentDay;
 			long seed = day * baseSeed + day + 83025820626792L;
 			cloudRand.setSeed(seed);
 			return MathHelper.randomFloatClamp(cloudRand, minValue, maxValue);
 		}
 
-		public float getValue(float f) {
+		private float getValue(float f) {
 			return prevValue + (value - prevValue) * f;
 		}
 

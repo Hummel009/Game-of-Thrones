@@ -9,9 +9,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 
 public class GOTGuiButtonPledge extends GuiButton {
-	public GOTGuiFactions parentGUI;
-	public boolean isBroken;
-	public List<String> displayLines;
+	private GOTGuiFactions parentGUI;
+	private boolean isBroken;
+	private List<String> displayLines;
 
 	public GOTGuiButtonPledge(GOTGuiFactions gui, int i, int x, int y, String s) {
 		super(i, x, y, 32, 32, s);
@@ -39,13 +39,21 @@ public class GOTGuiButtonPledge extends GuiButton {
 
 	@Override
 	public int getHoverState(boolean flag) {
-		if (isBroken) {
+		if (isBroken()) {
 			return flag ? 4 : 3;
 		}
 		if (!enabled) {
 			return 0;
 		}
 		return flag ? 2 : 1;
+	}
+
+	public boolean isBroken() {
+		return isBroken;
+	}
+
+	public void setBroken(boolean isBroken) {
+		this.isBroken = isBroken;
 	}
 
 	public void setDisplayLines(String... s) {

@@ -7,10 +7,10 @@ import net.minecraft.client.audio.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTMusicTrack extends PositionedSound {
-	public String filename;
-	public String title;
-	public Map<GOTBiomeMusic, GOTTrackRegionInfo> regions = new HashMap<>();
-	public List<String> authors = new ArrayList<>();
+	private String filename;
+	private String title;
+	private Map<GOTBiomeMusic, GOTTrackRegionInfo> regions = new HashMap<>();
+	private List<String> authors = new ArrayList<>();
 
 	public GOTMusicTrack(String s) {
 		super(GOTMusicTrack.getMusicResource(s));
@@ -46,10 +46,6 @@ public class GOTMusicTrack extends PositionedSound {
 		return authors;
 	}
 
-	public String getFilename() {
-		return filename;
-	}
-
 	public GOTTrackRegionInfo getRegionInfo(GOTBiomeMusic reg) {
 		if (regions.containsKey(reg)) {
 			return regions.get(reg);
@@ -62,38 +58,6 @@ public class GOTMusicTrack extends PositionedSound {
 			return title;
 		}
 		return filename;
-	}
-
-	public String[] getTrackInfo() {
-		ArrayList<String> list = new ArrayList<>();
-		list.add("Title: " + getTitle());
-		list.add("Filename: " + getFilename());
-		list.add("Regions:");
-		for (GOTBiomeMusic reg : getAllRegions()) {
-			List<GOTMusicCategory> categories;
-			GOTTrackRegionInfo info = getRegionInfo(reg);
-			list.add(">" + reg.regionName);
-			list.add(">Weight: " + info.getWeight());
-			List<String> subs = info.getSubregions();
-			if (!subs.isEmpty()) {
-				list.add(">Subregions:");
-				for (String s2 : subs) {
-					list.add(">>" + s2);
-				}
-			}
-			if ((categories = info.getCategories()).isEmpty()) {
-				continue;
-			}
-			list.add(">Categories:");
-			for (GOTMusicCategory cat : categories) {
-				list.add(">>" + cat.categoryName);
-			}
-		}
-		list.add("Authors:");
-		for (String auth : getAuthors()) {
-			list.add(">" + auth);
-		}
-		return list.toArray(new String[0]);
 	}
 
 	public void loadSoundResource() {
@@ -131,15 +95,15 @@ public class GOTMusicTrack extends PositionedSound {
 		title = s;
 	}
 
-	public static ResourceLocation getMusicResource(String s) {
+	private static ResourceLocation getMusicResource(String s) {
 		return new ResourceLocation("gotmusic", s);
 	}
 
-	public static class TrackSoundAccessor implements ISoundEventAccessor {
-		public SoundPoolEntry soundEntry;
-		public int weight;
+	private static class TrackSoundAccessor implements ISoundEventAccessor {
+		private SoundPoolEntry soundEntry;
+		private int weight;
 
-		public TrackSoundAccessor(SoundPoolEntry e, int i) {
+		private TrackSoundAccessor(SoundPoolEntry e, int i) {
 			soundEntry = e;
 			weight = i;
 		}

@@ -15,24 +15,24 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 
 public class GOTRenderMug extends TileEntitySpecialRenderer {
-	public static ResourceLocation mugTexture = new ResourceLocation("got:textures/model/mug.png");
-	public static ResourceLocation mugClayTexture = new ResourceLocation("got:textures/model/mugClay.png");
-	public static ResourceLocation gobletGoldTexture = new ResourceLocation("got:textures/model/gobletGold.png");
-	public static ResourceLocation gobletSilverTexture = new ResourceLocation("got:textures/model/gobletSilver.png");
-	public static ResourceLocation gobletCopperTexture = new ResourceLocation("got:textures/model/gobletCopper.png");
-	public static ResourceLocation gobletWoodTexture = new ResourceLocation("got:textures/model/gobletWood.png");
-	public static ResourceLocation skullTexture = new ResourceLocation("got:textures/model/skullCup.png");
-	public static ResourceLocation glassTexture = new ResourceLocation("got:textures/model/wineGlass.png");
-	public static ResourceLocation bottleTexture = new ResourceLocation("got:textures/model/glassBottle.png");
-	public static ResourceLocation hornTexture = new ResourceLocation("got:textures/model/aleHorn.png");
-	public static ResourceLocation hornGoldTexture = new ResourceLocation("got:textures/model/aleHornGold.png");
-	public static ModelBase mugotel = new GOTModelMug();
-	public static ModelBase gobletModel = new GOTModelGoblet();
-	public static ModelBase skullModel = new GOTModelSkullCup();
-	public static ModelBase glassModel = new GOTModelWineGlass();
-	public static ModelBase bottleModel = new GOTModelGlassBottle();
-	public static GOTModelAleHorn hornModel = new GOTModelAleHorn();
-	public static RenderBlocks renderBlocks = new RenderBlocks();
+	private static ResourceLocation mugTexture = new ResourceLocation("got:textures/model/mug.png");
+	private static ResourceLocation mugClayTexture = new ResourceLocation("got:textures/model/mugClay.png");
+	private static ResourceLocation gobletGoldTexture = new ResourceLocation("got:textures/model/gobletGold.png");
+	private static ResourceLocation gobletSilverTexture = new ResourceLocation("got:textures/model/gobletSilver.png");
+	private static ResourceLocation gobletCopperTexture = new ResourceLocation("got:textures/model/gobletCopper.png");
+	private static ResourceLocation gobletWoodTexture = new ResourceLocation("got:textures/model/gobletWood.png");
+	private static ResourceLocation skullTexture = new ResourceLocation("got:textures/model/skullCup.png");
+	private static ResourceLocation glassTexture = new ResourceLocation("got:textures/model/wineGlass.png");
+	private static ResourceLocation bottleTexture = new ResourceLocation("got:textures/model/glassBottle.png");
+	private static ResourceLocation hornTexture = new ResourceLocation("got:textures/model/aleHorn.png");
+	private static ResourceLocation hornGoldTexture = new ResourceLocation("got:textures/model/aleHornGold.png");
+	private static ModelBase mugotel = new GOTModelMug();
+	private static ModelBase gobletModel = new GOTModelGoblet();
+	private static ModelBase skullModel = new GOTModelSkullCup();
+	private static ModelBase glassModel = new GOTModelWineGlass();
+	private static ModelBase bottleModel = new GOTModelGlassBottle();
+	private static GOTModelAleHorn hornModel = new GOTModelAleHorn();
+	private static RenderBlocks renderBlocks = new RenderBlocks();
 
 	public void renderLiquid(IIcon icon, int uvMin, int uvMax, double yMin, double yMax, float scale) {
 		double edge = 0.001;

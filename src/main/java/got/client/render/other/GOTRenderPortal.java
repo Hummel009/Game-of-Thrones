@@ -33,7 +33,7 @@ public class GOTRenderPortal extends Render {
 		return TextureMap.locationItemsTexture;
 	}
 
-	public float interpolateRotation(float prevRotation, float newRotation, float tick) {
+	private float interpolateRotation(float prevRotation, float newRotation, float tick) {
 		float interval;
 		for (interval = newRotation - prevRotation; interval < -180.0f; interval += 360.0f) {
 		}

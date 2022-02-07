@@ -7,18 +7,18 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.MathHelper;
 
 public class GOTGuiSlider extends GuiButton {
-	public String baseDisplayString;
-	public String overrideStateString;
-	public boolean isTime = false;
-	public boolean isFloat = false;
-	public boolean valueOnly = false;
-	public int numberDigits = 0;
-	public int minValue;
-	public int maxValue;
-	public float minValueF;
-	public float maxValueF;
-	public float sliderValue = 1.0f;
-	public boolean dragging = false;
+	private String baseDisplayString;
+	private String overrideStateString;
+	private boolean isTime = false;
+	private boolean isFloat = false;
+	private boolean valueOnly = false;
+	private int numberDigits = 0;
+	private int minValue;
+	private int maxValue;
+	private float minValueF;
+	private float maxValueF;
+	private float sliderValue = 1.0f;
+	private boolean dragging = false;
 
 	public GOTGuiSlider(int id, int x, int y, int width, int height, String s) {
 		super(id, x, y, width, height, s);
@@ -58,14 +58,18 @@ public class GOTGuiSlider extends GuiButton {
 		return minValue + Math.round(sliderValue * (maxValue - minValue));
 	}
 
-	public float getSliderValue_F() {
+	private float getSliderValue_F() {
 		return minValueF + sliderValue * (maxValueF - minValueF);
+	}
+
+	public boolean isDragging() {
+		return dragging;
 	}
 
 	@Override
 	public void mouseDragged(Minecraft mc, int i, int j) {
 		if (visible && enabled) {
-			if (dragging) {
+			if (isDragging()) {
 				sliderValue = (float) (i - (xPosition + 4)) / (float) (width - 8);
 				if (sliderValue < 0.0f) {
 					sliderValue = 0.0f;
@@ -90,7 +94,7 @@ public class GOTGuiSlider extends GuiButton {
 			if (sliderValue > 1.0f) {
 				sliderValue = 1.0f;
 			}
-			dragging = true;
+			setDragging(true);
 			return true;
 		}
 		return false;
@@ -98,7 +102,11 @@ public class GOTGuiSlider extends GuiButton {
 
 	@Override
 	public void mouseReleased(int i, int j) {
-		dragging = false;
+		setDragging(false);
+	}
+
+	public void setDragging(boolean dragging) {
+		this.dragging = dragging;
 	}
 
 	public void setFloat() {

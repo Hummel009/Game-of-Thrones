@@ -4,10 +4,10 @@ import net.minecraft.client.model.*;
 import net.minecraft.entity.Entity;
 
 public class GOTModelUnsmeltery extends ModelBase {
-	public ModelRenderer base;
-	public ModelRenderer body;
-	public ModelRenderer standRight;
-	public ModelRenderer standLeft;
+	private ModelRenderer base;
+	private ModelRenderer body;
+	private ModelRenderer standRight;
+	private ModelRenderer standLeft;
 
 	public GOTModelUnsmeltery() {
 		textureWidth = 64;

@@ -12,8 +12,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
 public class GOTEffectRenderer {
-	public Minecraft mc;
-	public List<EntityFX>[] particleLayers = new List[0];
+	private Minecraft mc;
+	private List<EntityFX>[] particleLayers = new List[0];
 
 	public GOTEffectRenderer(Minecraft minecraft) {
 		mc = minecraft;

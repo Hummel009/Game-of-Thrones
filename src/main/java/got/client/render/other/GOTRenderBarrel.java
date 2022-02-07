@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 
 public class GOTRenderBarrel extends Render {
-	public ItemStack barrelItem = new ItemStack(GOTRegistry.barrel);
+	private ItemStack barrelItem = new ItemStack(GOTRegistry.barrel);
 
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {

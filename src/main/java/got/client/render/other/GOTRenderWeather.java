@@ -38,13 +38,13 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.client.IRenderHandler;
 
 public class GOTRenderWeather extends IRenderHandler {
-	public static ResourceLocation rainTexture = new ResourceLocation("got:textures/weather/rain.png");
-	public static ResourceLocation snowTexture = new ResourceLocation("got:textures/weather/snow.png");
-	public static ResourceLocation ashTexture = new ResourceLocation("got:textures/weather/ash.png");
-	public static ResourceLocation sandstormTexture = new ResourceLocation("got:textures/weather/sandstorm.png");
-	public Random rand = new Random();
-	public float[] rainXCoords;
-	public float[] rainYCoords;
+	private static ResourceLocation rainTexture = new ResourceLocation("got:textures/weather/rain.png");
+	private static ResourceLocation snowTexture = new ResourceLocation("got:textures/weather/snow.png");
+	private static ResourceLocation ashTexture = new ResourceLocation("got:textures/weather/ash.png");
+	private static ResourceLocation sandstormTexture = new ResourceLocation("got:textures/weather/sandstorm.png");
+	private Random rand = new Random();
+	private float[] rainXCoords;
+	private float[] rainYCoords;
 
 	@Override
 	public void render(float partialTicks, WorldClient world, Minecraft mc) {

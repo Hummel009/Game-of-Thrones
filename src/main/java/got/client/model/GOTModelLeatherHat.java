@@ -11,14 +11,14 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 public class GOTModelLeatherHat extends GOTModelBiped {
-	public static ItemStack feather = new ItemStack(Items.feather);
-	public ItemStack hatItem;
+	private static ItemStack feather = new ItemStack(Items.feather);
+	private ItemStack hatItem;
 
 	public GOTModelLeatherHat() {
 		this(0.0f);
 	}
 
-	public GOTModelLeatherHat(float f) {
+	private GOTModelLeatherHat(float f) {
 		super(f);
 		bipedHead = new ModelRenderer(this, 0, 0);
 		bipedHead.setRotationPoint(0.0f, 0.0f, 0.0f);

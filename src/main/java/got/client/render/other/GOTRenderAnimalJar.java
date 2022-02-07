@@ -38,10 +38,10 @@ public class GOTRenderAnimalJar extends TileEntitySpecialRenderer implements IIt
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			GL11.glPushAttrib(1048575);
 			if (type == IItemRenderer.ItemRenderType.ENTITY) {
-				GOTRenderBird.renderStolenItem = false;
+				GOTRenderBird.setRenderStolenItem(false);
 			}
 			RenderManager.instance.renderEntityWithPosYaw(jarEntity, 0.0, 0.0, 0.0, 0.0f, GOTTickHandlerClient.renderTick);
-			GOTRenderBird.renderStolenItem = true;
+			GOTRenderBird.setRenderStolenItem(true);
 			GL11.glPopAttrib();
 			GL11.glPopMatrix();
 		}

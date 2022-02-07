@@ -15,9 +15,9 @@ import net.minecraft.util.IIcon;
 import net.minecraftforge.client.IItemRenderer;
 
 public class GOTRenderBow implements IItemRenderer {
-	public static boolean renderingWeaponRack = false;
-	public GOTRenderLargeItem largeItemRenderer;
-	public Map<GOTItemBow.BowState, GOTRenderLargeItem.ExtraLargeIconToken> tokensPullStates;
+	private static boolean renderingWeaponRack = false;
+	private GOTRenderLargeItem largeItemRenderer;
+	private Map<GOTItemBow.BowState, GOTRenderLargeItem.ExtraLargeIconToken> tokensPullStates;
 
 	public GOTRenderBow(GOTRenderLargeItem large) {
 		largeItemRenderer = large;
@@ -46,7 +46,7 @@ public class GOTRenderBow implements IItemRenderer {
 	public void renderItem(IItemRenderer.ItemRenderType type, ItemStack itemstack, Object... data) {
 		GL11.glPushMatrix();
 		EntityLivingBase entity = (EntityLivingBase) data[1];
-		if (!renderingWeaponRack && (Minecraft.getMinecraft().gameSettings.thirdPersonView != 0 || entity != Minecraft.getMinecraft().thePlayer)) {
+		if (!isRenderingWeaponRack() && (Minecraft.getMinecraft().gameSettings.thirdPersonView != 0 || entity != Minecraft.getMinecraft().thePlayer)) {
 			GL11.glTranslatef(0.9375f, 0.0625f, 0.0f);
 			GL11.glRotatef(-335.0f, 0.0f, 0.0f, 1.0f);
 			GL11.glRotatef(-50.0f, 0.0f, 1.0f, 0.0f);
@@ -110,5 +110,13 @@ public class GOTRenderBow implements IItemRenderer {
 	@Override
 	public boolean shouldUseRenderHelper(IItemRenderer.ItemRenderType type, ItemStack itemstack, IItemRenderer.ItemRendererHelper helper) {
 		return false;
+	}
+
+	public static boolean isRenderingWeaponRack() {
+		return renderingWeaponRack;
+	}
+
+	public static void setRenderingWeaponRack(boolean renderingWeaponRack) {
+		GOTRenderBow.renderingWeaponRack = renderingWeaponRack;
 	}
 }

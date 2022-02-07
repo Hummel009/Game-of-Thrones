@@ -12,10 +12,10 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.util.*;
 
 public class GOTGuiCoinExchange extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/coin_exchange.png");
-	public GOTContainerCoinExchange theContainer;
-	public GuiButton buttonLeft;
-	public GuiButton buttonRight;
+	private static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/coin_exchange.png");
+	private GOTContainerCoinExchange theContainer;
+	private GuiButton buttonLeft;
+	private GuiButton buttonRight;
 
 	public GOTGuiCoinExchange(EntityPlayer entityplayer, GOTEntityNPC npc) {
 		super(new GOTContainerCoinExchange(entityplayer, npc));
@@ -42,7 +42,7 @@ public class GOTGuiCoinExchange extends GuiContainer {
 	@Override
 	public void drawGuiContainerBackgroundLayer(float f, int i, int j) {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(guiTexture);
+		mc.getTextureManager().bindTexture(getGuiTexture());
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		if (theContainer.exchanged) {
 			for (int l = 0; l < theContainer.exchangeInv.getSizeInventory(); ++l) {
@@ -78,5 +78,13 @@ public class GOTGuiCoinExchange extends GuiContainer {
 		buttonList.add(buttonLeft);
 		buttonRight = new GOTGuiButtonCoinExchange(1, i + j - k, guiTop + 45);
 		buttonList.add(buttonRight);
+	}
+
+	public static ResourceLocation getGuiTexture() {
+		return guiTexture;
+	}
+
+	public static void setGuiTexture(ResourceLocation guiTexture) {
+		GOTGuiCoinExchange.guiTexture = guiTexture;
 	}
 }

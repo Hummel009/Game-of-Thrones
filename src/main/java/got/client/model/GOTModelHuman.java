@@ -7,7 +7,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 public class GOTModelHuman extends GOTModelBiped {
-	public ModelRenderer bipedChest = new ModelRenderer(this, 24, 0);
+	protected ModelRenderer bipedChest = new ModelRenderer(this, 24, 0);
 
 	public GOTModelHuman() {
 		this(0.0f, false);

@@ -7,8 +7,8 @@ import net.minecraft.entity.*;
 import net.minecraft.util.*;
 
 public class GOTRenderFlamingo extends RenderLiving {
-	public static ResourceLocation texture = new ResourceLocation("got:textures/entity/animal/flamingo/flamingo.png");
-	public static ResourceLocation textureChick = new ResourceLocation("got:textures/entity/animal/flamingo/chick.png");
+	private static ResourceLocation texture = new ResourceLocation("got:textures/entity/animal/flamingo/flamingo.png");
+	private static ResourceLocation textureChick = new ResourceLocation("got:textures/entity/animal/flamingo/chick.png");
 
 	public GOTRenderFlamingo() {
 		super(new GOTModelFlamingo(), 0.5f);

@@ -10,7 +10,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderThrownRock extends Render {
-	public RenderBlocks blockRenderer = new RenderBlocks();
+	private RenderBlocks blockRenderer = new RenderBlocks();
 
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {

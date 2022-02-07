@@ -3,11 +3,7 @@ package got.client.model;
 import net.minecraft.client.model.ModelRenderer;
 
 public class GOTModelRoyceHelmet extends GOTModelBiped {
-	public ModelRenderer[] spikes = new ModelRenderer[8];
-
-	public GOTModelRoyceHelmet() {
-		this(0.0f);
-	}
+	private ModelRenderer[] spikes = new ModelRenderer[8];
 
 	public GOTModelRoyceHelmet(float f) {
 		super(f);

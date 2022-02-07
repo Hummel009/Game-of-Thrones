@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
 
 public class GOTRenderBannerItem implements IItemRenderer {
-	public static GOTModelBanner model = new GOTModelBanner();
+	private static GOTModelBanner model = new GOTModelBanner();
 
 	@Override
 	public boolean handleRenderType(ItemStack itemstack, IItemRenderer.ItemRenderType type) {

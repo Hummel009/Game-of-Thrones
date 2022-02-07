@@ -14,14 +14,13 @@ import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.util.*;
 
 public class GOTGuiNotificationDisplay extends Gui {
-	public static int guiXSize = 190;
-	public static int guiYSize = 32;
-	public static RenderItem itemRenderer = new RenderItem();
-	public Minecraft mc;
-	public int windowWidth;
-	public int windowHeight;
-	public List<Notification> notifications = new ArrayList<>();
-	public Set<Notification> notificationsToRemove = new HashSet<>();
+	private static int guiXSize = 190;
+	private static int guiYSize = 32;
+	private static RenderItem itemRenderer = new RenderItem();
+	private Minecraft mc;
+	private int windowWidth;
+	private List<Notification> notifications = new ArrayList<>();
+	private Set<Notification> notificationsToRemove = new HashSet<>();
 
 	public GOTGuiNotificationDisplay() {
 		mc = Minecraft.getMinecraft();
@@ -67,7 +66,7 @@ public class GOTGuiNotificationDisplay extends Gui {
 						int j = 0 - (int) (d1 * 36.0);
 						GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 						GL11.glEnable(3553);
-						mc.getTextureManager().bindTexture(GOTGuiAchievements.iconsTexture);
+						mc.getTextureManager().bindTexture(GOTGuiAchievements.getIconsTexture());
 						GL11.glDisable(2896);
 						drawTexturedModalRect(i, j += index * (guiYSize + 8), 0, 200, guiXSize, guiYSize);
 						notif.renderText(i + 30, j + 7);
@@ -90,7 +89,7 @@ public class GOTGuiNotificationDisplay extends Gui {
 		GL11.glMatrixMode(5888);
 		GL11.glLoadIdentity();
 		windowWidth = mc.displayWidth;
-		windowHeight = mc.displayHeight;
+		int windowHeight = mc.displayHeight;
 		ScaledResolution scaledresolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
 		windowWidth = scaledresolution.getScaledWidth();
 		windowHeight = scaledresolution.getScaledHeight();
@@ -104,14 +103,14 @@ public class GOTGuiNotificationDisplay extends Gui {
 	}
 
 	public abstract static class Notification {
-		public Long notificationTime = Minecraft.getSystemTime();
+		private Long notificationTime = Minecraft.getSystemTime();
 
-		public Notification() {
+		private Notification() {
 		}
 
 		public abstract int getDurationMs();
 
-		public Long getNotificationTime() {
+		private Long getNotificationTime() {
 			return notificationTime;
 		}
 
@@ -121,9 +120,9 @@ public class GOTGuiNotificationDisplay extends Gui {
 	}
 
 	public class NotificationAchievement extends Notification {
-		public GOTAchievement achievement;
+		private GOTAchievement achievement;
 
-		public NotificationAchievement(GOTAchievement ach) {
+		private NotificationAchievement(GOTAchievement ach) {
 			achievement = ach;
 		}
 
@@ -144,7 +143,7 @@ public class GOTGuiNotificationDisplay extends Gui {
 			GL11.glDepthMask(true);
 			GL11.glEnable(2929);
 			GL11.glEnable(3008);
-			mc.getTextureManager().bindTexture(GOTGuiAchievements.iconsTexture);
+			mc.getTextureManager().bindTexture(GOTGuiAchievements.getIconsTexture());
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			drawTexturedModalRect(x + 162, y + 1, 190, 17, 16, 16);
 		}
@@ -157,11 +156,11 @@ public class GOTGuiNotificationDisplay extends Gui {
 	}
 
 	public class NotificationConquest extends Notification {
-		public GOTFaction conqFac;
-		public float conqValue;
-		public boolean isCleansing;
+		private GOTFaction conqFac;
+		private float conqValue;
+		private boolean isCleansing;
 
-		public NotificationConquest(GOTFaction fac, float conq, boolean clean) {
+		private NotificationConquest(GOTFaction fac, float conq, boolean clean) {
 			conqFac = fac;
 			conqValue = conq;
 			isCleansing = clean;
@@ -189,9 +188,9 @@ public class GOTGuiNotificationDisplay extends Gui {
 	}
 
 	public class NotificationFellowship extends Notification {
-		public IChatComponent message;
+		private IChatComponent message;
 
-		public NotificationFellowship(IChatComponent msg) {
+		private NotificationFellowship(IChatComponent msg) {
 			message = msg;
 		}
 
@@ -202,7 +201,7 @@ public class GOTGuiNotificationDisplay extends Gui {
 
 		@Override
 		public void renderIcon(int x, int y) {
-			mc.getTextureManager().bindTexture(GOTGuiFellowships.iconsTextures);
+			mc.getTextureManager().bindTexture(GOTGuiFellowships.getIconsTextures());
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			drawTexturedModalRect(x, y, 80, 0, 16, 16);
 		}

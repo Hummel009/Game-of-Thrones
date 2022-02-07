@@ -4,7 +4,7 @@ import net.minecraft.client.model.*;
 import net.minecraft.entity.Entity;
 
 public class GOTModelGlassBottle extends ModelBase {
-	public ModelRenderer bottle = new ModelRenderer(this, 0, 0);
+	private ModelRenderer bottle = new ModelRenderer(this, 0, 0);
 
 	public GOTModelGlassBottle() {
 		bottle.setRotationPoint(0.0f, -1.0f, 0.0f);

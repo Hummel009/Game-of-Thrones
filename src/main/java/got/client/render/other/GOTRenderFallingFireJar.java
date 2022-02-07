@@ -12,7 +12,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTRenderFallingFireJar extends RenderFallingBlock {
-	public static RenderBlocks renderBlocks = new RenderBlocks();
+	private static RenderBlocks renderBlocks = new RenderBlocks();
 
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {

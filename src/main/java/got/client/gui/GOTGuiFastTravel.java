@@ -16,44 +16,36 @@ import net.minecraft.client.settings.GameSettings;
 import net.minecraft.util.*;
 
 public class GOTGuiFastTravel extends GOTGuiScreenBase {
-	public static ResourceLocation ftSound = new ResourceLocation("got:event.fastTravel");
-	public static float zoomInAmount = 0.5f;
-	public static float zoomInIncr = 0.008333334f;
-	public static float mapSpeedMax = 2.0f;
-	public static float mapSpeedIncr = 0.01f;
-	public static float mapAccel = 0.2f;
-	public static float wpReachedDistance = 1.0f;
-	public GOTGuiMap mapGui;
-	public GOTGuiRendererMap mapRenderer;
-	public int tickCounter;
-	public GOTAbstractWaypoint theWaypoint;
-	public int startX;
-	public int startZ;
-	public String message;
-	public boolean chunkLoaded = false;
-	public boolean playedSound = false;
-	public float zoomBase;
-	public float mapScaleFactor;
-	public float currentZoom;
-	public float prevZoom;
-	public boolean finishedZoomIn = false;
-	public float mapSpeed;
-	public float mapVelX;
-	public float mapVelY;
-	public boolean reachedWP = false;
+	private static ResourceLocation ftSound = new ResourceLocation("got:event.fastTravel");
+	private GOTGuiMap mapGui;
+	private GOTGuiRendererMap mapRenderer;
+	private int tickCounter;
+	private GOTAbstractWaypoint theWaypoint;
+	private String message;
+	private boolean chunkLoaded = false;
+	private boolean playedSound = false;
+	private float zoomBase;
+	private float mapScaleFactor;
+	private float currentZoom;
+	private float prevZoom;
+	private boolean finishedZoomIn = false;
+	private float mapSpeed;
+	private float mapVelX;
+	private float mapVelY;
+	private boolean reachedWP = false;
 
 	public GOTGuiFastTravel(GOTAbstractWaypoint waypoint, int x, int z) {
 		theWaypoint = waypoint;
-		startX = x;
-		startZ = z;
+		int startX = x;
+		int startZ = z;
 		message = GOTSpeech.getRandomSpeech("standart/special/fast_travel");
 		mapGui = new GOTGuiMap();
 		mapRenderer = new GOTGuiRendererMap();
 		mapRenderer.setSepia(true);
-		mapRenderer.mapX = GOTWaypoint.worldToMapX(startX);
-		mapRenderer.mapY = GOTWaypoint.worldToMapZ(startZ);
-		float dx = theWaypoint.getX() - mapRenderer.mapX;
-		float dy = theWaypoint.getY() - mapRenderer.mapY;
+		mapRenderer.setMapX(GOTWaypoint.worldToMapX(startX));
+		mapRenderer.setMapY(GOTWaypoint.worldToMapZ(startZ));
+		float dx = theWaypoint.getX() - mapRenderer.getMapX();
+		float dy = theWaypoint.getY() - mapRenderer.getMapY();
 		float distSq = dx * dx + dy * dy;
 		float dist = (float) Math.sqrt(distSq);
 		mapScaleFactor = dist / 100.0f;
@@ -66,8 +58,8 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 		GL11.glEnable(3008);
 		GL11.glEnable(3042);
 		OpenGlHelper.glBlendFunc(770, 771, 1, 0);
-		mapRenderer.zoomExp = prevZoom + (currentZoom - prevZoom) * f;
-		mapRenderer.zoomStable = (float) Math.pow(2.0, zoomBase);
+		mapRenderer.setZoomExp(prevZoom + (currentZoom - prevZoom) * f);
+		mapRenderer.setZoomStable((float) Math.pow(2.0, zoomBase));
 		mapRenderer.renderMap(this, mapGui, f);
 		mapRenderer.renderVignettes(this, zLevel, 4);
 		GL11.glEnable(3042);
@@ -130,8 +122,8 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 		prevZoom = currentZoom;
 		if (!reachedWP) {
 			float dy;
-			float dx = theWaypoint.getX() - mapRenderer.mapX;
-			float distSq = dx * dx + (dy = theWaypoint.getY() - mapRenderer.mapY) * dy;
+			float dx = theWaypoint.getX() - mapRenderer.getMapX();
+			float distSq = dx * dx + (dy = theWaypoint.getY() - mapRenderer.getMapY()) * dy;
 			float dist = (float) Math.sqrt(distSq);
 			if (dist <= 1.0f * mapScaleFactor) {
 				reachedWP = true;
@@ -147,8 +139,8 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 				mapVelX += (vXNew - mapVelX) * a;
 				mapVelY += (vYNew - mapVelY) * a;
 			}
-			mapRenderer.mapX += mapVelX * mapScaleFactor;
-			mapRenderer.mapY += mapVelY * mapScaleFactor;
+			mapRenderer.setMapX(mapRenderer.getMapX() + mapVelX * mapScaleFactor);
+			mapRenderer.setMapY(mapRenderer.getMapY() + mapVelY * mapScaleFactor);
 			currentZoom -= 0.008333334f;
 			currentZoom = Math.max(currentZoom, zoomBase);
 		} else {

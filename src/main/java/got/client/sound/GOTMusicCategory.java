@@ -5,15 +5,23 @@ import net.minecraft.world.World;
 public enum GOTMusicCategory {
 	DAY("day"), NIGHT("night"), CAVE("cave");
 
-	public String categoryName;
+	private String categoryName;
 
 	GOTMusicCategory(String s) {
-		categoryName = s;
+		setCategoryName(s);
+	}
+
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
 	}
 
 	public static GOTMusicCategory forName(String s) {
 		for (GOTMusicCategory cat : GOTMusicCategory.values()) {
-			if (!s.equalsIgnoreCase(cat.categoryName)) {
+			if (!s.equalsIgnoreCase(cat.getCategoryName())) {
 				continue;
 			}
 			return cat;

@@ -11,7 +11,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderBomb extends Render {
-	public RenderBlocks blockRenderer = new RenderBlocks();
+	private RenderBlocks blockRenderer = new RenderBlocks();
 
 	public GOTRenderBomb() {
 		shadowSize = 0.5f;

@@ -12,11 +12,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderCompass extends Render {
-	public static ResourceLocation ringTexture = new ResourceLocation("got:textures/misc/portal.png");
-	public static ModelBase ringotel = new GOTModelPortal(0);
-	public static ModelBase writingotelOuter = new GOTModelPortal(1);
-	public static ModelBase writingotelInner = new GOTModelPortal(1);
-
+	private static ResourceLocation compassTexture = new ResourceLocation("got:textures/misc/portal.png");
+	private static ModelBase ringotel = new GOTModelPortal(0);
+	
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
 		GOTEntityPortal portal = (GOTEntityPortal) entity;
@@ -47,6 +45,14 @@ public class GOTRenderCompass extends Render {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return ringTexture;
+		return getCompassTexture();
+	}
+
+	public static ResourceLocation getCompassTexture() {
+		return compassTexture;
+	}
+
+	public static void setRingTexture(ResourceLocation compassTexture) {
+		GOTRenderCompass.compassTexture = compassTexture;
 	}
 }

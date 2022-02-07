@@ -9,8 +9,8 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.*;
 
 public class GOTGuiMillstone extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/millstone.png");
-	public GOTTileEntityMillstone theMillstone;
+	private static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/millstone.png");
+	private GOTTileEntityMillstone theMillstone;
 
 	public GOTGuiMillstone(InventoryPlayer inv, GOTTileEntityMillstone millstone) {
 		super(new GOTContainerMillstone(inv, millstone));

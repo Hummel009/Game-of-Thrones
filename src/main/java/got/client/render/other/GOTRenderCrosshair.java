@@ -6,14 +6,12 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraftforge.common.MinecraftForge;
 
 public class GOTRenderCrosshair {
-	public Minecraft mc;
-
 	float zLevel = -90.0F;
 
 	public GOTRenderCrosshair() {
 		FMLCommonHandler.instance().bus().register(this);
 		MinecraftForge.EVENT_BUS.register(this);
-		mc = Minecraft.getMinecraft();
+		Minecraft.getMinecraft();
 	}
 
 	public void drawTexturedModalRect(int p_73729_1_, int p_73729_2_, int p_73729_3_, int p_73729_4_, int p_73729_5_, int p_73729_6_) {

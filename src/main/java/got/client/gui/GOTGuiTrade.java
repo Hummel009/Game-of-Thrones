@@ -15,12 +15,12 @@ import net.minecraft.util.*;
 import net.minecraft.world.World;
 
 public class GOTGuiTrade extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/npc/trade.png");
-	public static int lockedTradeColor = -1610612736;
-	public GOTEntityNPC theEntity;
-	public GOTContainerTrade containerTrade;
+	private static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/npc/trade.png");
+	private static int lockedTradeColor = -1610612736;
+	private GOTEntityNPC theEntity;
+	private GOTContainerTrade containerTrade;
 
-	public GuiButton buttonSell;
+	private GuiButton buttonSell;
 
 	public GOTGuiTrade(InventoryPlayer inv, GOTTradeable trader, World world) {
 		super(new GOTContainerTrade(inv, trader, world));
@@ -44,7 +44,7 @@ public class GOTGuiTrade extends GuiContainer {
 	@Override
 	public void drawGuiContainerBackgroundLayer(float f, int i, int j) {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(guiTexture);
+		mc.getTextureManager().bindTexture(getGuiTexture());
 		Gui.func_146110_a(guiLeft, guiTop, 0.0f, 0.0f, xSize, ySize, 512.0f, 512.0f);
 	}
 
@@ -140,5 +140,13 @@ public class GOTGuiTrade extends GuiContainer {
 		if (halfSize) {
 			GL11.glPopMatrix();
 		}
+	}
+
+	public static ResourceLocation getGuiTexture() {
+		return guiTexture;
+	}
+
+	public static void setGuiTexture(ResourceLocation guiTexture) {
+		GOTGuiTrade.guiTexture = guiTexture;
 	}
 }

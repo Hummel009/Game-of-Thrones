@@ -14,12 +14,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 
 public class GOTGuiBarrel extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/barrel/barrel.png");
-	public static ResourceLocation brewingTexture = new ResourceLocation("got:textures/gui/barrel/brewing.png");
-	public GOTTileEntityBarrel theBarrel;
-	public GuiButton brewingButton;
-	public float prevBrewAnim = -1.0f;
-	public float brewAnim = -1.0f;
+	private static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/barrel/barrel.png");
+	private static ResourceLocation brewingTexture = new ResourceLocation("got:textures/gui/barrel/brewing.png");
+	private GOTTileEntityBarrel theBarrel;
+	private GuiButton brewingButton;
+	private float brewAnim = -1.0f;
 
 	public GOTGuiBarrel(InventoryPlayer inv, GOTTileEntityBarrel barrel) {
 		super(new GOTContainerBarrel(inv, barrel));
@@ -46,7 +45,7 @@ public class GOTGuiBarrel extends GuiContainer {
 		if (brewMode == 1) {
 			fullAmount = theBarrel.getBrewProgressScaled(96);
 		}
-		prevBrewAnim = brewAnim;
+		float prevBrewAnim = brewAnim;
 		brewAnim = theBarrel.getBrewAnimationProgressScaledF(97, f);
 		float brewAnimF = prevBrewAnim + (brewAnim - prevBrewAnim) * f;
 		float brewAnimPc = theBarrel.getBrewAnimationProgressScaledF(1, f);

@@ -5,8 +5,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 public class GOTEntitySwordCommandMarker extends Entity {
-	public int particleAge;
-	public int particleMaxAge;
+	private int particleAge;
+	private int particleMaxAge;
 
 	public GOTEntitySwordCommandMarker(World world, double d, double d1, double d2) {
 		super(world);

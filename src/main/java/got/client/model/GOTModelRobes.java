@@ -8,19 +8,19 @@ import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 
 public class GOTModelRobes extends GOTModelHuman {
-	public ItemStack robeItem;
-
-	public GOTModelRobes() {
-		this(0.0f);
-	}
+	private ItemStack robeItem;
 
 	public GOTModelRobes(float f) {
 		super(f, true);
 	}
 
+	public ItemStack getRobeItem() {
+		return robeItem;
+	}
+
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-		int robeColor = GOTItemRobes.getRobesColor(robeItem);
+		int robeColor = GOTItemRobes.getRobesColor(getRobeItem());
 		float r = (robeColor >> 16 & 0xFF) / 255.0f;
 		float g = (robeColor >> 8 & 0xFF) / 255.0f;
 		float b = (robeColor & 0xFF) / 255.0f;

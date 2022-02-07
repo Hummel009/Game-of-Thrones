@@ -16,13 +16,13 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.ForgeHooksClient;
 
 public class GOTRenderArmorStand extends TileEntitySpecialRenderer {
-	public static ResourceLocation standTexture = new ResourceLocation("got:textures/model/armorStand.png");
-	public static ModelBase standModel = new GOTModelArmorStand();
-	public static ModelBiped modelBipedMain = new ModelBiped(0.0f);
-	public static ModelBiped modelBiped1 = new ModelBiped(1.0f);
-	public static ModelBiped modelBiped2 = new ModelBiped(0.5f);
-	public static float BIPED_ARM_ROTATION = -7.07353f;
-	public static float BIPED_TICKS_EXISTED = 46.88954f;
+	private static ResourceLocation standTexture = new ResourceLocation("got:textures/model/armorStand.png");
+	private static ModelBase standModel = new GOTModelArmorStand();
+	private static ModelBiped modelBipedMain = new ModelBiped(0.0f);
+	private static ModelBiped modelBiped1 = new ModelBiped(1.0f);
+	private static ModelBiped modelBiped2 = new ModelBiped(0.5f);
+	private static float BIPED_ARM_ROTATION = -7.07353f;
+	private static float BIPED_TICKS_EXISTED = 46.88954f;
 
 	@Override
 	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {

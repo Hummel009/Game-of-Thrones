@@ -9,10 +9,10 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.util.*;
 
 public class GOTGuiBookshelf extends GuiContainer {
-	public static ResourceLocation chestTexture = new ResourceLocation("textures/gui/container/generic_54.png");
-	public IInventory playerInv;
-	public IInventory shelfInv;
-	public int inventoryRows;
+	private static ResourceLocation chestTexture = new ResourceLocation("textures/gui/container/generic_54.png");
+	private IInventory playerInv;
+	private IInventory shelfInv;
+	private int inventoryRows;
 
 	public GOTGuiBookshelf(IInventory player, GOTTileEntityBookshelf shelf) {
 		super(new GOTContainerBookshelf(player, shelf));

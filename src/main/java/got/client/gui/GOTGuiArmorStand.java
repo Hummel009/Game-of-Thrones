@@ -9,8 +9,8 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.*;
 
 public class GOTGuiArmorStand extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/armor_stand.png");
-	public GOTTileEntityArmorStand theArmorStand;
+	private static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/armor_stand.png");
+	private GOTTileEntityArmorStand theArmorStand;
 
 	public GOTGuiArmorStand(InventoryPlayer inv, GOTTileEntityArmorStand armorStand) {
 		super(new GOTContainerArmorStand(inv, armorStand));

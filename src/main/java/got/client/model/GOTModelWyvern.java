@@ -100,7 +100,7 @@ public class GOTModelWyvern extends ModelBase {
 	ModelRenderer rightwingflap1;
 	ModelRenderer rightwingflap2;
 	ModelRenderer rightwingflap3;
-	public float radianF = 57.29578f;
+	private float radianF = 57.29578f;
 
 	public GOTModelWyvern() {
 		textureWidth = 128;
@@ -596,7 +596,7 @@ public class GOTModelWyvern extends ModelBase {
 		rightearskin.rotateAngleY = 0.0f;
 	}
 
-	public static float realAngle(float origAngle) {
+	private static float realAngle(float origAngle) {
 		return origAngle % 360.0f;
 	}
 }

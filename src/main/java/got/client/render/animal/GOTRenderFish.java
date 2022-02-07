@@ -12,7 +12,7 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderFish extends RenderLiving {
-	public static Map<String, GOTRandomSkins> fishTypeSkins = new HashMap<>();
+	private static Map<String, GOTRandomSkins> fishTypeSkins = new HashMap<>();
 
 	public GOTRenderFish() {
 		super(new GOTModelFish(), 0.0f);
@@ -26,7 +26,7 @@ public class GOTRenderFish extends RenderLiving {
 		return skins.getRandomSkin(fish);
 	}
 
-	public GOTRandomSkins getFishSkins(String s) {
+	private GOTRandomSkins getFishSkins(String s) {
 		GOTRandomSkins skins = fishTypeSkins.get(s);
 		if (skins == null) {
 			skins = GOTRandomSkins.loadSkinsList("got:textures/entity/animal/fish/" + s);

@@ -9,14 +9,38 @@ import net.minecraft.client.renderer.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTGuiRendererMap {
-	public static ResourceLocation vignetteTexture = new ResourceLocation("textures/misc/vignette.png");
-	public float prevMapX;
-	public float mapX;
-	public float prevMapY;
-	public float mapY;
-	public float zoomExp;
-	public float zoomStable;
-	public boolean sepia = false;
+	private static ResourceLocation vignetteTexture = new ResourceLocation("textures/misc/vignette.png");
+	private float prevMapX;
+	private float mapX;
+	private float prevMapY;
+	private float mapY;
+	private float zoomExp;
+	private float zoomStable;
+	private boolean sepia = false;
+
+	public float getMapX() {
+		return mapX;
+	}
+
+	public float getMapY() {
+		return mapY;
+	}
+
+	public float getPrevMapX() {
+		return prevMapX;
+	}
+
+	public float getPrevMapY() {
+		return prevMapY;
+	}
+
+	public float getZoomExp() {
+		return zoomExp;
+	}
+
+	public float getZoomStable() {
+		return zoomStable;
+	}
 
 	public void renderMap(GuiScreen gui, GOTGuiMap mapGui, float f) {
 		this.renderMap(gui, mapGui, f, 0, 0, gui.width, gui.height);
@@ -26,12 +50,12 @@ public class GOTGuiRendererMap {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		int oceanColor = GOTTextures.getMapOceanColor(sepia);
 		Gui.drawRect(x0, y0, x1, y1, oceanColor);
-		float zoom = (float) Math.pow(2.0, zoomExp);
-		float mapPosX = prevMapX + (mapX - prevMapX) * f;
-		float mapPosY = prevMapY + (mapY - prevMapY) * f;
-		mapGui.setFakeMapProperties(mapPosX, mapPosY, zoom, zoomExp, zoomStable);
+		float zoom = (float) Math.pow(2.0, getZoomExp());
+		float mapPosX = getPrevMapX() + (getMapX() - getPrevMapX()) * f;
+		float mapPosY = getPrevMapY() + (getMapY() - getPrevMapY()) * f;
+		mapGui.setFakeMapProperties(mapPosX, mapPosY, zoom, getZoomExp(), getZoomStable());
 		int[] statics = GOTGuiMap.setFakeStaticProperties(x1 - x0, y1 - y0, x0, x1, y0, y1);
-		mapGui.enableZoomOutWPFading = false;
+		mapGui.setEnableZoomOutWPFading(false);
 		mapGui.renderMapAndOverlay(sepia, 1.0f, true);
 		mapGui.renderRoads(false);
 		mapGui.renderWaypoints(GOTWaypoint.listAllWaypoints(), 0, 0, 0, false, true);
@@ -76,12 +100,38 @@ public class GOTGuiRendererMap {
 		}
 	}
 
+	public float setMapX(float mapX) {
+		this.mapX = mapX;
+		return mapX;
+	}
+
+	public float setMapY(float mapY) {
+		this.mapY = mapY;
+		return mapY;
+	}
+
+	public void setPrevMapX(float prevMapX) {
+		this.prevMapX = prevMapX;
+	}
+
+	public void setPrevMapY(float prevMapY) {
+		this.prevMapY = prevMapY;
+	}
+
 	public void setSepia(boolean flag) {
 		sepia = flag;
 	}
 
+	public void setZoomExp(float zoomExp) {
+		this.zoomExp = zoomExp;
+	}
+
+	public void setZoomStable(float zoomStable) {
+		this.zoomStable = zoomStable;
+	}
+
 	public void updateTick() {
-		prevMapX = mapX;
-		prevMapY = mapY;
+		setPrevMapX(getMapX());
+		setPrevMapY(getMapY());
 	}
 }

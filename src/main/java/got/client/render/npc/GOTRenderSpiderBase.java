@@ -12,7 +12,7 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public abstract class GOTRenderSpiderBase extends RenderLiving {
-	public GOTModelSpider eyesModel = new GOTModelSpider(0.55f);
+	private GOTModelSpider eyesModel = new GOTModelSpider(0.55f);
 
 	public GOTRenderSpiderBase() {
 		super(new GOTModelSpider(0.5f), 1.0f);

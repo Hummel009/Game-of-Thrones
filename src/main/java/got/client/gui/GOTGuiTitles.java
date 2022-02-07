@@ -15,25 +15,25 @@ import net.minecraft.client.gui.*;
 import net.minecraft.util.*;
 
 public class GOTGuiTitles extends GOTGuiMenuWBBase {
-	public GOTTitle.PlayerTitle currentTitle;
-	public List<GOTTitle> displayedTitles = new ArrayList<>();
-	public Map<GOTTitle, Pair<Boolean, Pair<Integer, Integer>>> displayedTitleInfo = new HashMap<>();
-	public GOTTitle selectedTitle;
-	public EnumChatFormatting selectedColor = EnumChatFormatting.WHITE;
-	public int colorBoxWidth = 8;
-	public int colorBoxGap = 4;
-	public Map<EnumChatFormatting, Pair<Integer, Integer>> displayedColorBoxes = new HashMap<>();
-	public GuiButton selectButton;
-	public GuiButton removeButton;
-	public float currentScroll = 0.0f;
-	public boolean isScrolling = false;
-	public boolean wasMouseDown;
-	public int scrollBarWidth = 11;
-	public int scrollBarHeight = 144;
-	public int scrollBarX = 197 - (scrollBarWidth - 1) / 2;
-	public int scrollBarY = 30;
-	public int scrollWidgetWidth = 11;
-	public int scrollWidgetHeight = 8;
+	private GOTTitle.PlayerTitle currentTitle;
+	private List<GOTTitle> displayedTitles = new ArrayList<>();
+	private Map<GOTTitle, Pair<Boolean, Pair<Integer, Integer>>> displayedTitleInfo = new HashMap<>();
+	private GOTTitle selectedTitle;
+	private EnumChatFormatting selectedColor = EnumChatFormatting.WHITE;
+	private int colorBoxWidth = 8;
+	private int colorBoxGap = 4;
+	private Map<EnumChatFormatting, Pair<Integer, Integer>> displayedColorBoxes = new HashMap<>();
+	private GuiButton selectButton;
+	private GuiButton removeButton;
+	private float currentScroll = 0.0f;
+	private boolean isScrolling = false;
+	private boolean wasMouseDown;
+	private int scrollBarWidth = 11;
+	private int scrollBarHeight = 144;
+	private int scrollBarX = 197 - (scrollBarWidth - 1) / 2;
+	private int scrollBarY = 30;
+	private int scrollWidgetWidth = 11;
+	private int scrollWidgetHeight = 8;
 
 	@Override
 	public void actionPerformed(GuiButton button) {
@@ -44,7 +44,7 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 			} else if (button == removeButton) {
 				GOTPacketSelectTitle packet = new GOTPacketSelectTitle(null);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
-			} else if (button.enabled && button == goBack) {
+			} else if (button.enabled && button == getGoBack()) {
 				mc.displayGuiScreen(new GOTGuiMenu());
 			} else {
 				super.actionPerformed(button);
@@ -60,10 +60,10 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 		String titleName = currentTitle == null ? StatCollector.translateToLocal("got.gui.titles.currentTitle.none") : currentTitle.getTitle().getDisplayName(mc.thePlayer);
 		EnumChatFormatting currentColor = currentTitle == null ? EnumChatFormatting.WHITE : currentTitle.getColor();
 		titleName = currentColor + titleName + EnumChatFormatting.RESET;
-		this.drawCenteredString(StatCollector.translateToLocalFormatted("got.gui.titles.currentTitle", titleName), guiLeft + xSize / 2, guiTop, 16777215);
+		this.drawCenteredString(StatCollector.translateToLocalFormatted("got.gui.titles.currentTitle", titleName), getGuiLeft() + getxSize() / 2, getGuiTop(), 16777215);
 		displayedTitleInfo.clear();
-		int titleX = guiLeft + xSize / 2;
-		int titleY = guiTop + 30;
+		int titleX = getGuiLeft() + getxSize() / 2;
+		int titleY = getGuiTop() + 30;
 		int yIncrement = 12;
 		drawVerticalLine(titleX - 70, titleY - 1, titleY + yIncrement * 12, -1711276033);
 		drawVerticalLine(titleX + 70 - 1, titleY - 1, titleY + yIncrement * 12, -1711276033);
@@ -102,7 +102,7 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 		displayedColorBoxes.clear();
 		if (selectedTitle != null) {
 			String title = selectedColor + selectedTitle.getDisplayName(mc.thePlayer);
-			this.drawCenteredString(title, guiLeft + xSize / 2, guiTop + 185, 16777215);
+			this.drawCenteredString(title, getGuiLeft() + getxSize() / 2, getGuiTop() + 185, 16777215);
 			ArrayList<EnumChatFormatting> colorCodes = new ArrayList<>();
 			for (EnumChatFormatting ecf : EnumChatFormatting.values()) {
 				if (!ecf.isColor()) {
@@ -110,8 +110,8 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 				}
 				colorCodes.add(ecf);
 			}
-			int colorX = guiLeft + xSize / 2 - (colorBoxWidth * colorCodes.size() + colorBoxGap * (colorCodes.size() - 1)) / 2;
-			int colorY = guiTop + 200;
+			int colorX = getGuiLeft() + getxSize() / 2 - (colorBoxWidth * colorCodes.size() + colorBoxGap * (colorCodes.size() - 1)) / 2;
+			int colorY = getGuiTop() + 200;
 			for (EnumChatFormatting code : colorCodes) {
 				int color = GOTReflectionClient.getFormattingColor(code);
 				float[] rgb = new Color(color).getColorComponents(null);
@@ -128,8 +128,8 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 		if (displayedTitles.size() > 12) {
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			int scroll = (int) (currentScroll * (scrollBarHeight - scrollWidgetHeight));
-			int x1 = guiLeft + scrollBarX;
-			int y1 = guiTop + scrollBarY + scroll;
+			int x1 = getGuiLeft() + scrollBarX;
+			int y1 = getGuiTop() + scrollBarY + scroll;
 			int x2 = x1 + scrollWidgetWidth;
 			int y2 = y1 + scrollWidgetHeight;
 			Gui.drawRect(x1, y1, x2, y2, -1426063361);
@@ -172,16 +172,16 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 
 	@Override
 	public void initGui() {
-		xSize = 256;
+		setxSize(256);
 		super.initGui();
-		guiLeft = (width - xSize) / 2 + 100;
-		guiTop = (height - ySize) / 2 + 20;
-		selectButton = new GOTGuiButton(0, guiLeft + xSize / 2 - 290, guiTop + 90, 80, 20, StatCollector.translateToLocal("got.gui.titles.select"));
+		setGuiLeft((width - getxSize()) / 2 + 100);
+		setGuiTop((height - getySize()) / 2 + 20);
+		selectButton = new GOTGuiButton(0, getGuiLeft() + getxSize() / 2 - 290, getGuiTop() + 90, 80, 20, StatCollector.translateToLocal("got.gui.titles.select"));
 		buttonList.add(selectButton);
-		removeButton = new GOTGuiButton(1, guiLeft + xSize / 2 - 200, guiTop + 90, 80, 20, StatCollector.translateToLocal("got.gui.titles.remove"));
+		removeButton = new GOTGuiButton(1, getGuiLeft() + getxSize() / 2 - 200, getGuiTop() + 90, 80, 20, StatCollector.translateToLocal("got.gui.titles.remove"));
 		buttonList.add(removeButton);
-		goBack = new GOTGuiButton(2, guiLeft + xSize / 2 - 290, guiTop + 120, 170, 20, StatCollector.translateToLocal("got.gui.menuButton"));
-		buttonList.add(goBack);
+		setGoBack(new GOTGuiButton(2, getGuiLeft() + getxSize() / 2 - 290, getGuiTop() + 120, 170, 20, StatCollector.translateToLocal("got.gui.menuButton")));
+		buttonList.add(getGoBack());
 		updateScreen();
 	}
 
@@ -214,8 +214,8 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 
 	public void setupScrollBar(int i, int j) {
 		boolean isMouseDown = Mouse.isButtonDown(0);
-		int i1 = guiLeft + scrollBarX;
-		int j1 = guiTop + scrollBarY;
+		int i1 = getGuiLeft() + scrollBarX;
+		int j1 = getGuiTop() + scrollBarY;
 		int i2 = i1 + scrollBarWidth;
 		int j2 = j1 + scrollBarHeight;
 		if (!wasMouseDown && isMouseDown && i >= i1 && j >= j1 && i < i2 && j < j2) {

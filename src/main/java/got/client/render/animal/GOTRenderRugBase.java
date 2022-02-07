@@ -8,9 +8,9 @@ import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 
 public abstract class GOTRenderRugBase extends Render {
-	public ModelBase rugotel;
+	private ModelBase rugotel;
 
-	public GOTRenderRugBase(ModelBase m) {
+	protected GOTRenderRugBase(ModelBase m) {
 		rugotel = m;
 	}
 

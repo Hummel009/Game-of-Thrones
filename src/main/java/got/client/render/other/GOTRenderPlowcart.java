@@ -10,8 +10,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderPlowcart extends Render {
-	public static ResourceLocation TEXTURE = new ResourceLocation("got:textures/model/plowcart.png");
-	public ModelBase model = new GOTModelPlowcart();
+	private static ResourceLocation TEXTURE = new ResourceLocation("got:textures/model/plowcart.png");
+	private ModelBase model = new GOTModelPlowcart();
 
 	public GOTRenderPlowcart() {
 		renderManager = RenderManager.instance;

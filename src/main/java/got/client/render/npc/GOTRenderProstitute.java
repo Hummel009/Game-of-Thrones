@@ -19,7 +19,7 @@ public class GOTRenderProstitute extends GOTRenderBiped {
 		return GOTRenderProstitute.getProstituteSkin(prostitute.getProstituteType());
 	}
 
-	public static ResourceLocation getProstituteSkin(GOTEntityProstitute.ProstituteType type) {
+	private static ResourceLocation getProstituteSkin(GOTEntityProstitute.ProstituteType type) {
 		String s = type.textureName();
 		Map prostituteSkins = new HashMap();
 		ResourceLocation skin = (ResourceLocation) prostituteSkins.get(s);

@@ -12,11 +12,11 @@ import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.util.*;
 
 public class GOTGuiEditSign extends GuiScreen {
-	public static RenderItem itemRenderer = new RenderItem();
-	public GOTTileEntitySign tileSign;
-	public int updateCounter;
-	public int editLine;
-	public GuiButton buttonDone;
+	private static RenderItem itemRenderer = new RenderItem();
+	private GOTTileEntitySign tileSign;
+	private int updateCounter;
+	private int editLine;
+	private GuiButton buttonDone;
 
 	public GOTGuiEditSign(GOTTileEntitySign sign) {
 		tileSign = sign;

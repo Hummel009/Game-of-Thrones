@@ -4,27 +4,27 @@ import java.util.*;
 
 public class GOTModelDragonPartProxy {
 
-	public float renderScaleX = 1;
-	public float renderScaleY = 1;
-	public float renderScaleZ = 1;
+	private float renderScaleX = 1;
+	private float renderScaleY = 1;
+	private float renderScaleZ = 1;
 
-	public float rotationPointX;
-	public float rotationPointY;
-	public float rotationPointZ;
+	private float rotationPointX;
+	private float rotationPointY;
+	private float rotationPointZ;
 
-	public float preRotateAngleX;
-	public float preRotateAngleY;
-	public float preRotateAngleZ;
+	private float preRotateAngleX;
+	private float preRotateAngleY;
+	private float preRotateAngleZ;
 
-	public float rotateAngleX;
-	public float rotateAngleY;
-	public float rotateAngleZ;
+	private float rotateAngleX;
+	private float rotateAngleY;
+	private float rotateAngleZ;
 
-	public boolean hidden;
-	public boolean showModel;
+	private boolean hidden;
+	private boolean showModel;
 
-	public GOTModelDragonPart part;
-	public List<GOTModelDragonPartProxy> childs;
+	private GOTModelDragonPart part;
+	private List<GOTModelDragonPartProxy> childs;
 
 	public GOTModelDragonPartProxy(GOTModelDragonPart part) {
 		this.part = part;
@@ -42,17 +42,17 @@ public class GOTModelDragonPartProxy {
 	}
 
 	public void apply() {
-		part.renderScaleX = renderScaleX;
-		part.renderScaleY = renderScaleY;
-		part.renderScaleZ = renderScaleZ;
+		part.setRenderScaleX(renderScaleX);
+		part.setRenderScaleY(renderScaleY);
+		part.setRenderScaleZ(renderScaleZ);
 
 		part.rotationPointX = rotationPointX;
 		part.rotationPointY = rotationPointY;
 		part.rotationPointZ = rotationPointZ;
 
-		part.preRotateAngleX = preRotateAngleX;
-		part.preRotateAngleY = preRotateAngleY;
-		part.preRotateAngleZ = preRotateAngleZ;
+		part.setPreRotateAngleX(preRotateAngleX);
+		part.setPreRotateAngleY(preRotateAngleY);
+		part.setPreRotateAngleZ(preRotateAngleZ);
 
 		part.rotateAngleX = rotateAngleX;
 		part.rotateAngleY = rotateAngleY;
@@ -74,17 +74,17 @@ public class GOTModelDragonPartProxy {
 	}
 
 	public void update() {
-		renderScaleX = part.renderScaleX;
-		renderScaleY = part.renderScaleY;
-		renderScaleZ = part.renderScaleZ;
+		renderScaleX = part.getRenderScaleX();
+		renderScaleY = part.getRenderScaleY();
+		renderScaleZ = part.getRenderScaleZ();
 
 		rotationPointX = part.rotationPointX;
 		rotationPointY = part.rotationPointY;
 		rotationPointZ = part.rotationPointZ;
 
-		preRotateAngleX = part.preRotateAngleX;
-		preRotateAngleY = part.preRotateAngleY;
-		preRotateAngleZ = part.preRotateAngleZ;
+		preRotateAngleX = part.getPreRotateAngleX();
+		preRotateAngleY = part.getPreRotateAngleY();
+		preRotateAngleZ = part.getPreRotateAngleZ();
 
 		rotateAngleX = part.rotateAngleX;
 		rotateAngleY = part.rotateAngleY;

@@ -6,10 +6,10 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.StatCollector;
 
 public class GOTGuiTradeInteract extends GOTGuiNPCInteract {
-	public GuiButton buttonTalk;
-	public GuiButton buttonTrade;
-	public GuiButton buttonExchange;
-	public GuiButton buttonSmith;
+	private GuiButton buttonTalk;
+	private GuiButton buttonTrade;
+	private GuiButton buttonExchange;
+	private GuiButton buttonSmith;
 
 	public GOTGuiTradeInteract(GOTEntityNPC entity) {
 		super(entity);
@@ -18,7 +18,7 @@ public class GOTGuiTradeInteract extends GOTGuiNPCInteract {
 	@Override
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
-			GOTPacketTraderInteract packet = new GOTPacketTraderInteract(theEntity.getEntityId(), button.id);
+			GOTPacketTraderInteract packet = new GOTPacketTraderInteract(getTheEntity().getEntityId(), button.id);
 			GOTPacketHandler.networkWrapper.sendToServer(packet);
 		}
 	}
@@ -31,7 +31,7 @@ public class GOTGuiTradeInteract extends GOTGuiNPCInteract {
 		buttonList.add(buttonTalk);
 		buttonList.add(buttonTrade);
 		buttonList.add(buttonExchange);
-		if (theEntity instanceof GOTTradeable.Smith) {
+		if (getTheEntity() instanceof GOTTradeable.Smith) {
 			buttonTalk.xPosition -= 35;
 			buttonTrade.xPosition -= 35;
 			buttonSmith = new GuiButton(3, width / 2 + 40, height / 5 * 3, 60, 20, StatCollector.translateToLocal("got.gui.npc.smith"));

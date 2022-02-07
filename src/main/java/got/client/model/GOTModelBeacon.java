@@ -4,8 +4,8 @@ import net.minecraft.client.model.*;
 import net.minecraft.entity.Entity;
 
 public class GOTModelBeacon extends ModelBase {
-	public ModelRenderer base;
-	public ModelRenderer[][] logs = new ModelRenderer[3][4];
+	private ModelRenderer base;
+	private ModelRenderer[][] logs = new ModelRenderer[3][4];
 
 	public GOTModelBeacon() {
 		base = new ModelRenderer(this, 0, 0);

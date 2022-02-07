@@ -8,13 +8,13 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 public class GOTModelTurban extends GOTModelRobes {
-	public ModelRenderer ornament;
+	private ModelRenderer ornament;
 
 	public GOTModelTurban() {
 		this(0.0f);
 	}
 
-	public GOTModelTurban(float f) {
+	private GOTModelTurban(float f) {
 		super(f);
 		bipedHead = new ModelRenderer(this, 0, 0);
 		bipedHead.setRotationPoint(0.0f, 0.0f, 0.0f);
@@ -35,7 +35,7 @@ public class GOTModelTurban extends GOTModelRobes {
 		super.render(entity, f, f1, f2, f3, f4, f5);
 		GL11.glColor3f(1.0f, 1.0f, 1.0f);
 		GOTArmorModels.INSTANCE.copyBoxRotations(ornament, bipedHead);
-		ornament.showModel = bipedHead.showModel && GOTItemTurban.hasOrnament(robeItem);
+		ornament.showModel = bipedHead.showModel && GOTItemTurban.hasOrnament(getRobeItem());
 		ornament.render(f5);
 	}
 }

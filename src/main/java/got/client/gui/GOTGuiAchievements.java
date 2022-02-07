@@ -14,30 +14,28 @@ import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.util.*;
 
 public class GOTGuiAchievements extends GOTGuiMenuBase {
-	public static ResourceLocation pageTexture = new ResourceLocation("got:textures/gui/achievements/page.png");
-	public static ResourceLocation iconsTexture = new ResourceLocation("got:textures/gui/achievements/icons.png");
-	public static GOTDimension currentDimension;
-	public static GOTDimension prevDimension;
-	public static GOTAchievement.Category currentCategory;
-	public ArrayList currentCategoryTakenAchievements = new ArrayList();
-	public ArrayList currentCategoryUntakenAchievements = new ArrayList();
-	public int currentCategoryTakenCount;
-	public int currentCategoryUntakenCount;
-	public GOTGuiButtonAchievements buttonCategoryPrev;
-	public GOTGuiButtonAchievements buttonCategoryNext;
-	public int totalTakenCount;
-	public int totalAvailableCount;
-	public float currentScroll = 0.0f;
-	public boolean isScrolling = false;
-	public boolean wasMouseDown;
-	public int catScrollAreaX0;
-	public int catScrollAreaX1;
-	public int catScrollAreaY0;
-	public int catScrollAreaY1;
-	public boolean wasInCategoryScrollBar;
-	public int prevMouseX;
-	public int mouseX;
-	public int mouseY;
+	private static ResourceLocation pageTexture = new ResourceLocation("got:textures/gui/achievements/page.png");
+	private static ResourceLocation iconsTexture = new ResourceLocation("got:textures/gui/achievements/icons.png");
+	private static GOTDimension currentDimension;
+	private static GOTDimension prevDimension;
+	private static GOTAchievement.Category currentCategory;
+	private ArrayList currentCategoryTakenAchievements = new ArrayList();
+	private ArrayList currentCategoryUntakenAchievements = new ArrayList();
+	private int currentCategoryTakenCount;
+	private int currentCategoryUntakenCount;
+	private GOTGuiButtonAchievements buttonCategoryPrev;
+	private GOTGuiButtonAchievements buttonCategoryNext;
+	private float currentScroll = 0.0f;
+	private boolean isScrolling = false;
+	private boolean wasMouseDown;
+	private int catScrollAreaX0;
+	private int catScrollAreaX1;
+	private int catScrollAreaY0;
+	private int catScrollAreaY1;
+	private boolean wasInCategoryScrollBar;
+	private int prevMouseX;
+	private int mouseX;
+	private int mouseY;
 
 	@Override
 	public void actionPerformed(GuiButton button) {
@@ -75,13 +73,13 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 			}
 			int offset = 47 + 50 * (i - min);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-			mc.getTextureManager().bindTexture(iconsTexture);
-			this.drawTexturedModalRect(guiLeft + 9, guiTop + offset, 0, hasAchievement ? 0 : 50, 190, 50);
-			int iconLeft = guiLeft + 12;
-			int iconTop = guiTop + offset + 3;
+			mc.getTextureManager().bindTexture(getIconsTexture());
+			this.drawTexturedModalRect(getGuiLeft() + 9, getGuiTop() + offset, 0, hasAchievement ? 0 : 50, 190, 50);
+			int iconLeft = getGuiLeft() + 12;
+			int iconTop = getGuiTop() + offset + 3;
 			GL11.glEnable(2896);
 			GL11.glEnable(2884);
-			renderItem.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), achievement.icon, iconLeft, iconTop);
+			getRenderItem().renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), achievement.icon, iconLeft, iconTop);
 			GL11.glDisable(2896);
 			if (!hasAchievement) {
 				GL11.glPushMatrix();
@@ -91,14 +89,14 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 			}
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			int textColour = hasAchievement ? 8019267 : 5652783;
-			mc.fontRenderer.drawString(achievement.getTitle(mc.thePlayer), guiLeft + 33, guiTop + offset + 5, textColour);
-			mc.fontRenderer.drawSplitString(achievement.getDescription(mc.thePlayer), guiLeft + 12, guiTop + offset + 24, 184, textColour);
+			mc.fontRenderer.drawString(achievement.getTitle(mc.thePlayer), getGuiLeft() + 33, getGuiTop() + offset + 5, textColour);
+			mc.fontRenderer.drawSplitString(achievement.getDescription(mc.thePlayer), getGuiLeft() + 12, getGuiTop() + offset + 24, 184, textColour);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			if (!hasAchievement) {
 				continue;
 			}
-			mc.getTextureManager().bindTexture(iconsTexture);
-			this.drawTexturedModalRect(guiLeft + 179, guiTop + offset + 2, 190, 17, 16, 16);
+			mc.getTextureManager().bindTexture(getIconsTexture());
+			this.drawTexturedModalRect(getGuiLeft() + 179, getGuiTop() + offset + 2, 190, 17, 16, 16);
 		}
 		GL11.glDisable(2929);
 		GL11.glEnable(3042);
@@ -125,9 +123,9 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 			}
 		}
 		boolean isMouseDown = Mouse.isButtonDown(0);
-		int scrollBarX0 = guiLeft + 201;
+		int scrollBarX0 = getGuiLeft() + 201;
 		int scrollBarX1 = scrollBarX0 + 12;
-		int scrollBarY0 = guiTop + 48;
+		int scrollBarY0 = getGuiTop() + 48;
 		int scrollBarY1 = scrollBarY0 + 200;
 		if (!wasMouseDown && isMouseDown && i >= scrollBarX0 && i < scrollBarX1 && j >= scrollBarY0 && j < scrollBarY1) {
 			isScrolling = hasScrollBar();
@@ -144,17 +142,17 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 		drawDefaultBackground();
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		mc.getTextureManager().bindTexture(pageTexture);
-		this.drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
+		this.drawTexturedModalRect(getGuiLeft(), getGuiTop(), 0, 0, getxSize(), getySize());
 		String categoryName = currentCategory.getDisplayName();
 		categoryName = StatCollector.translateToLocalFormatted("got.gui.achievements.category", categoryName, currentCategoryTakenCount, currentCategoryTakenCount + currentCategoryUntakenCount);
-		this.drawCenteredString(categoryName, guiLeft + xSize / 2, guiTop + 28, 8019267);
-		buttonCategoryPrev.buttonCategory = getCategoryAtRelativeIndex(-1);
-		buttonCategoryNext.buttonCategory = getCategoryAtRelativeIndex(1);
+		this.drawCenteredString(categoryName, getGuiLeft() + getxSize() / 2, getGuiTop() + 28, 8019267);
+		buttonCategoryPrev.setButtonCategory(getCategoryAtRelativeIndex(-1));
+		buttonCategoryNext.setButtonCategory(getCategoryAtRelativeIndex(1));
 		super.drawScreen(i, j, f);
-		int catScrollCentre = guiLeft + xSize / 2;
+		int catScrollCentre = getGuiLeft() + getxSize() / 2;
 		int catScrollX = catScrollCentre - 76;
-		int catScrollY = guiTop + 13;
-		mc.getTextureManager().bindTexture(iconsTexture);
+		int catScrollY = getGuiTop() + 13;
+		mc.getTextureManager().bindTexture(getIconsTexture());
 		this.drawTexturedModalRect(catScrollX, catScrollY, 0, 100, 152, 10);
 		catScrollAreaX0 = catScrollX;
 		catScrollAreaX1 = catScrollX + 152;
@@ -183,14 +181,14 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 			int catY1 = catScrollAreaY1;
 			GOTAchievement.Category thisCategory = getCategoryAtRelativeIndex(l);
 			float[] catColors = thisCategory.getCategoryRGB();
-			mc.getTextureManager().bindTexture(iconsTexture);
+			mc.getTextureManager().bindTexture(getIconsTexture());
 			GL11.glColor4f(catColors[0], catColors[1], catColors[2], 1.0f);
 			this.drawTexturedModalRect(catX0, catY0, catX0 - catScrollAreaX0 + 0, 100, catX1 - catX0, catY1 - catY0);
 		}
-		mc.getTextureManager().bindTexture(iconsTexture);
+		mc.getTextureManager().bindTexture(getIconsTexture());
 		this.drawTexturedModalRect(catScrollX, catScrollY, 0, 110, 152, 10);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(iconsTexture);
+		mc.getTextureManager().bindTexture(getIconsTexture());
 		if (hasScrollBar()) {
 			int offset = (int) (currentScroll * 181.0f);
 			this.drawTexturedModalRect(scrollBarX0, scrollBarY0 + offset, 190, 0, 10, 17);
@@ -200,7 +198,7 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 		drawAchievements(i, j);
 	}
 
-	public GOTAchievement.Category getCategoryAtRelativeIndex(int i) {
+	private GOTAchievement.Category getCategoryAtRelativeIndex(int i) {
 		List<GOTAchievement.Category> categories = GOTGuiAchievements.currentDimension.achievementCategories;
 		int index = categories.indexOf(currentCategory);
 		index += i;
@@ -230,22 +228,22 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 		}
 	}
 
-	public boolean hasScrollBar() {
+	private boolean hasScrollBar() {
 		return currentCategoryTakenCount + currentCategoryUntakenCount > 4;
 	}
 
 	@Override
 	public void initGui() {
-		xSize = 220;
+		setxSize(220);
 		super.initGui();
-		buttonCategoryPrev = new GOTGuiButtonAchievements(0, true, guiLeft + 14, guiTop + 13);
+		buttonCategoryPrev = new GOTGuiButtonAchievements(0, true, getGuiLeft() + 14, getGuiTop() + 13);
 		buttonList.add(buttonCategoryPrev);
-		buttonCategoryNext = new GOTGuiButtonAchievements(1, false, guiLeft + 191, guiTop + 13);
+		buttonCategoryNext = new GOTGuiButtonAchievements(1, false, getGuiLeft() + 191, getGuiTop() + 13);
 		buttonList.add(buttonCategoryNext);
 		updateAchievementLists();
 	}
 
-	public boolean isMouseInCategoryScrollBar() {
+	private boolean isMouseInCategoryScrollBar() {
 		return Mouse.isButtonDown(0) && mouseX >= catScrollAreaX0 && mouseX < catScrollAreaX1 && mouseY >= catScrollAreaY0 && mouseY < catScrollAreaY1;
 	}
 
@@ -279,13 +277,11 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 		}
 		currentCategoryTakenCount = currentCategoryTakenAchievements.size();
 		currentCategoryUntakenCount = currentCategoryUntakenAchievements.size();
-		totalTakenCount = GOTLevelData.getData(mc.thePlayer).getEarnedAchievements(currentDimension).size();
-		totalAvailableCount = 0;
+		GOTLevelData.getData(mc.thePlayer).getEarnedAchievements(currentDimension).size();
 		for (GOTAchievement achievement : GOTGuiAchievements.currentDimension.allAchievements) {
 			if (!achievement.canPlayerEarn(mc.thePlayer)) {
 				continue;
 			}
-			++totalAvailableCount;
 		}
 		Comparator<GOTAchievement> sorter = GOTAchievement.sortForDisplay(mc.thePlayer);
 		Collections.sort(currentCategoryTakenAchievements, sorter);
@@ -298,5 +294,13 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 		updateAchievementLists();
 		prevMouseX = mouseX;
 		wasInCategoryScrollBar = isMouseInCategoryScrollBar();
+	}
+
+	public static ResourceLocation getIconsTexture() {
+		return iconsTexture;
+	}
+
+	public static void setIconsTexture(ResourceLocation iconsTexture) {
+		GOTGuiAchievements.iconsTexture = iconsTexture;
 	}
 }

@@ -9,14 +9,12 @@ import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTModelCompass extends ModelBase {
-	public static GOTModelCompass compassModel = new GOTModelCompass();
-	public static ResourceLocation compassTexture = new ResourceLocation("got:textures/misc/compass.png");
-	public ModelRenderer compass;
-	public ModelBase ringotel = new GOTModelPortal(0);
-	public ModelBase writingotelOuter = new GOTModelPortal(1);
-	public ModelBase writingotelInner = new GOTModelPortal(1);
-
-	public GOTModelCompass() {
+	private static GOTModelCompass compassModel = new GOTModelCompass();
+	private static ResourceLocation compassTexture = new ResourceLocation("got:textures/misc/compass.png");
+	private ModelRenderer compass;
+	private ModelBase ringotel = new GOTModelPortal(0);
+	
+	private GOTModelCompass() {
 		textureWidth = 32;
 		textureHeight = 32;
 		compass = new ModelRenderer(this, 0, 0);
@@ -36,10 +34,18 @@ public class GOTModelCompass extends ModelBase {
 		GL11.glRotatef(rotation, 0.0f, 1.0f, 0.0f);
 		texturemanager.bindTexture(compassTexture);
 		compass.render(scale * 2.0f);
-		texturemanager.bindTexture(GOTRenderCompass.ringTexture);
+		texturemanager.bindTexture(GOTRenderCompass.getCompassTexture());
 		ringotel.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, scale);
 		GL11.glDisable(32826);
 		GL11.glEnable(2884);
 		GL11.glPopMatrix();
+	}
+
+	public static GOTModelCompass getCompassModel() {
+		return compassModel;
+	}
+
+	public static void setCompassModel(GOTModelCompass compassModel) {
+		GOTModelCompass.compassModel = compassModel;
 	}
 }

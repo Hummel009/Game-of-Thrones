@@ -3,11 +3,7 @@ package got.client.model;
 import net.minecraft.client.model.ModelRenderer;
 
 public class GOTModelAsshaiHelmet extends GOTModelBiped {
-	public ModelRenderer crest;
-
-	public GOTModelAsshaiHelmet() {
-		this(0.0f);
-	}
+	private ModelRenderer crest;
 
 	public GOTModelAsshaiHelmet(float f) {
 		super(f);

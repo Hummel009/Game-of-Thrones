@@ -8,12 +8,12 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.StatCollector;
 
 public class GOTGuiOptions extends GOTGuiMenuWBBase {
-	public GOTGuiButtonOptions buttonFriendlyFire;
-	public GOTGuiButtonOptions buttonHiredDeathMessages;
-	public GOTGuiButtonOptions buttonAlignment;
-	public GOTGuiButtonOptions buttonMapLocation;
-	public GOTGuiButtonOptions buttonConquest;
-	public GOTGuiButtonOptions buttonFeminineRank;
+	private GOTGuiButtonOptions buttonFriendlyFire;
+	private GOTGuiButtonOptions buttonHiredDeathMessages;
+	private GOTGuiButtonOptions buttonAlignment;
+	private GOTGuiButtonOptions buttonMapLocation;
+	private GOTGuiButtonOptions buttonConquest;
+	private GOTGuiButtonOptions buttonFeminineRank;
 
 	@Override
 	public void actionPerformed(GuiButton button) {
@@ -21,7 +21,7 @@ public class GOTGuiOptions extends GOTGuiMenuWBBase {
 			if (button instanceof GOTGuiButtonOptions) {
 				GOTPacketSetOption packet = new GOTPacketSetOption(button.id);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
-			} else if (button.enabled && button == goBack) {
+			} else if (button.enabled && button == getGoBack()) {
 				mc.displayGuiScreen(new GOTGuiMenu());
 			} else {
 				super.actionPerformed(button);
@@ -34,7 +34,7 @@ public class GOTGuiOptions extends GOTGuiMenuWBBase {
 		drawDefaultBackground();
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		String s = StatCollector.translateToLocal("got.gui.options.worldSettings");
-		fontRendererObj.drawString(s, guiLeft + 100 - fontRendererObj.getStringWidth(s) / 2, guiTop + 10, 16777215);
+		fontRendererObj.drawString(s, getGuiLeft() + 100 - fontRendererObj.getStringWidth(s) / 2, getGuiTop() + 10, 16777215);
 		GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
 		buttonFriendlyFire.setState(pd.getFriendlyFire());
 		buttonHiredDeathMessages.setState(pd.getEnableHiredDeathMessages());
@@ -55,9 +55,9 @@ public class GOTGuiOptions extends GOTGuiMenuWBBase {
 	@Override
 	public void initGui() {
 		super.initGui();
-		guiTop = (height - ySize) / 2 + 10;
-		int buttonX = guiLeft + xSize / 2 - 100;
-		int buttonY = guiTop + 40;
+		setGuiTop((height - getySize()) / 2 + 10);
+		int buttonX = getGuiLeft() + getxSize() / 2 - 100;
+		int buttonY = getGuiTop() + 40;
 		buttonFriendlyFire = new GOTGuiButtonOptions(0, buttonX, buttonY, 200, 20, "got.gui.options.friendlyFire");
 		buttonList.add(buttonFriendlyFire);
 		buttonHiredDeathMessages = new GOTGuiButtonOptions(1, buttonX, buttonY + 24, 200, 20, "got.gui.options.hiredDeathMessages");
@@ -70,7 +70,7 @@ public class GOTGuiOptions extends GOTGuiMenuWBBase {
 		buttonList.add(buttonConquest);
 		buttonFeminineRank = new GOTGuiButtonOptions(4, buttonX, buttonY + 120, 200, 20, "got.gui.options.femRank");
 		buttonList.add(buttonFeminineRank);
-		goBack = new GOTGuiButton(7, buttonX, buttonY + 144, 200, 20, StatCollector.translateToLocal("got.gui.menuButton"));
-		buttonList.add(goBack);
+		setGoBack(new GOTGuiButton(7, buttonX, buttonY + 144, 200, 20, StatCollector.translateToLocal("got.gui.menuButton")));
+		buttonList.add(getGoBack());
 	}
 }

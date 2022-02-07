@@ -4,9 +4,9 @@ import net.minecraft.client.particle.EntityNoteFX;
 import net.minecraft.world.World;
 
 public class GOTEntityMusicFX extends EntityNoteFX {
-	public double noteMoveX;
-	public double noteMoveY;
-	public double noteMoveZ;
+	private double noteMoveX;
+	private double noteMoveY;
+	private double noteMoveZ;
 
 	public GOTEntityMusicFX(World world, double d, double d1, double d2, double d3, double d4, double d5, double pitch) {
 		super(world, d, d1, d2, pitch, 0.0, 0.0);

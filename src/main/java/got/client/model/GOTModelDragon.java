@@ -8,55 +8,55 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTModelDragon extends ModelBase {
-	public static int NECK_SIZE = 10;
-	public static int TAIL_SIZE = 10;
-	public static int VERTS_NECK = 7;
-	public static int VERTS_TAIL = 12;
-	public static int HEAD_OFS = -16;
-	public ResourceLocation bodyTexture;
-	public ResourceLocation glowTexture;
-	public ResourceLocation saddleTexture;
-	public ResourceLocation eggTexture;
-	public GOTModelDragonPart head;
-	public GOTModelDragonPart neck;
-	public GOTModelDragonPart neckScale;
-	public GOTModelDragonPart tail;
-	public GOTModelDragonPart tailHornLeft;
-	public GOTModelDragonPart tailHornRight;
-	public GOTModelDragonPart tailScaleLeft;
-	public GOTModelDragonPart tailScaleMiddle;
-	public GOTModelDragonPart tailScaleRight;
-	public GOTModelDragonPart jaw;
-	public GOTModelDragonPart body;
-	public GOTModelDragonPart back;
-	public GOTModelDragonPart forethigh;
-	public GOTModelDragonPart forecrus;
-	public GOTModelDragonPart forefoot;
-	public GOTModelDragonPart foretoe;
-	public GOTModelDragonPart hindthigh;
-	public GOTModelDragonPart hindcrus;
-	public GOTModelDragonPart hindfoot;
-	public GOTModelDragonPart hindtoe;
-	public GOTModelDragonPart wingArm;
-	public GOTModelDragonPart wingForearm;
-	public GOTModelDragonPart[] wingFinger = new GOTModelDragonPart[4];
-	public GOTModelDragonPartProxy[] neckProxy = new GOTModelDragonPartProxy[VERTS_NECK];
-	public GOTModelDragonPartProxy[] tailProxy = new GOTModelDragonPartProxy[VERTS_TAIL];
-	public GOTModelDragonPartProxy[] thighProxy = new GOTModelDragonPartProxy[4];
-	public int renderPass = -1;
-	public float offsetX;
-	public float offsetY;
-	public float offsetZ;
-	public float pitch;
-	public float size;
-	public GOTDragonBreed breed;
+	private static int NECK_SIZE = 10;
+	private static int TAIL_SIZE = 10;
+	private static int VERTS_NECK = 7;
+	private static int VERTS_TAIL = 12;
+	private static int HEAD_OFS = -16;
+	private ResourceLocation bodyTexture;
+	private ResourceLocation glowTexture;
+	private ResourceLocation saddleTexture;
+	private ResourceLocation eggTexture;
+	private GOTModelDragonPart head;
+	private GOTModelDragonPart neck;
+	private GOTModelDragonPart neckScale;
+	private GOTModelDragonPart tail;
+	private GOTModelDragonPart tailHornLeft;
+	private GOTModelDragonPart tailHornRight;
+	private GOTModelDragonPart tailScaleLeft;
+	private GOTModelDragonPart tailScaleMiddle;
+	private GOTModelDragonPart tailScaleRight;
+	private GOTModelDragonPart jaw;
+	private GOTModelDragonPart body;
+	private GOTModelDragonPart back;
+	private GOTModelDragonPart forethigh;
+	private GOTModelDragonPart forecrus;
+	private GOTModelDragonPart forefoot;
+	private GOTModelDragonPart foretoe;
+	private GOTModelDragonPart hindthigh;
+	private GOTModelDragonPart hindcrus;
+	private GOTModelDragonPart hindfoot;
+	private GOTModelDragonPart hindtoe;
+	private GOTModelDragonPart wingArm;
+	private GOTModelDragonPart wingForearm;
+	private GOTModelDragonPart[] wingFinger = new GOTModelDragonPart[4];
+	private GOTModelDragonPartProxy[] neckProxy = new GOTModelDragonPartProxy[VERTS_NECK];
+	private GOTModelDragonPartProxy[] tailProxy = new GOTModelDragonPartProxy[VERTS_TAIL];
+	private GOTModelDragonPartProxy[] thighProxy = new GOTModelDragonPartProxy[4];
+	private int renderPass = -1;
+	private float offsetX;
+	private float offsetY;
+	private float offsetZ;
+	private float pitch;
+	private float size;
+	private GOTDragonBreed breed;
 
 	public GOTModelDragon(GOTDragonBreed breed) {
 		textureWidth = 256;
 		textureHeight = 256;
-		bodyTexture = new ResourceLocation("got:textures/entity/animal/dragon/body.png");
-		glowTexture = new ResourceLocation("got:textures/entity/animal/dragon/glow.png");
-		saddleTexture = new ResourceLocation("got:textures/entity/animal/dragon/saddle.png");
+		setBodyTexture(new ResourceLocation("got:textures/entity/animal/dragon/body.png"));
+		setGlowTexture(new ResourceLocation("got:textures/entity/animal/dragon/glow.png"));
+		setSaddleTexture(new ResourceLocation("got:textures/entity/animal/dragon/saddle.png"));
 		eggTexture = new ResourceLocation("got:textures/entity/animal/dragon/egg.png");
 		this.breed = breed;
 		setTextureOffset("body.body", 0, 0);
@@ -100,20 +100,20 @@ public class GOTModelDragon extends ModelBase {
 		body.addBox("scale", -1, -6, 10, 2, 6, 12);
 		body.addBox("scale", -1, -6, 30, 2, 6, 12);
 
-		back = body.addChildBox("scale", -1, -6, -10, 2, 6, 12);
+		setBack(body.addChildBox("scale", -1, -6, -10, 2, 6, 12));
 	}
 
 	public void buildHead() {
-		head = new GOTModelDragonPart(this, "head");
-		head.addBox("upperjaw", -6, -1, -8 + HEAD_OFS, 12, 5, 16);
-		head.addBox("upperhead", -8, -8, 6 + HEAD_OFS, 16, 16, 16);
-		head.addBox("nostril", -5, -3, -6 + HEAD_OFS, 2, 2, 4);
-		head.mirror = true;
-		head.addBox("nostril", 3, -3, -6 + HEAD_OFS, 2, 2, 4);
+		setHead(new GOTModelDragonPart(this, "head"));
+		getHead().addBox("upperjaw", -6, -1, -8 + HEAD_OFS, 12, 5, 16);
+		getHead().addBox("upperhead", -8, -8, 6 + HEAD_OFS, 16, 16, 16);
+		getHead().addBox("nostril", -5, -3, -6 + HEAD_OFS, 2, 2, 4);
+		getHead().mirror = true;
+		getHead().addBox("nostril", 3, -3, -6 + HEAD_OFS, 2, 2, 4);
 		buildHorn(false);
 		buildHorn(true);
-		jaw = head.addChildBox("lowerjaw", -6, 0, -16, 12, 4, 16);
-		jaw.setRotationPoint(0, 4, 8 + HEAD_OFS);
+		setJaw(getHead().addChildBox("lowerjaw", -6, 0, -16, 12, 4, 16));
+		getJaw().setRotationPoint(0, 4, 8 + HEAD_OFS);
 	}
 
 	public void buildHorn(boolean mirror) {
@@ -135,8 +135,8 @@ public class GOTModelDragon extends ModelBase {
 			hornRotY *= -1;
 		}
 
-		head.mirror = mirror;
-		GOTModelDragonPart horn = head.addChildBox("horn", hornOfs, hornOfs, hornOfs, hornThick, hornThick, hornLength);
+		getHead().mirror = mirror;
+		GOTModelDragonPart horn = getHead().addChildBox("horn", hornOfs, hornOfs, hornOfs, hornThick, hornThick, hornLength);
 		horn.setRotationPoint(hornPosX, hornPosY, hornPosZ);
 		horn.setAngles(hornRotX, hornRotY, hornRotZ);
 	}
@@ -220,15 +220,15 @@ public class GOTModelDragon extends ModelBase {
 		foot.addChild(toe);
 
 		if (hind) {
-			hindthigh = thigh;
-			hindcrus = crus;
-			hindfoot = foot;
-			hindtoe = toe;
+			setHindthigh(thigh);
+			setHindcrus(crus);
+			setHindfoot(foot);
+			setHindtoe(toe);
 		} else {
-			forethigh = thigh;
-			forecrus = crus;
-			forefoot = foot;
-			foretoe = toe;
+			setForethigh(thigh);
+			setForecrus(crus);
+			setForefoot(foot);
+			setForetoe(toe);
 		}
 	}
 
@@ -238,30 +238,30 @@ public class GOTModelDragon extends ModelBase {
 
 		for (int i = 0; i < 4; i++) {
 			if (i % 2 == 0) {
-				thighProxy[i] = new GOTModelDragonPartProxy(forethigh);
+				getThighProxy()[i] = new GOTModelDragonPartProxy(getForethigh());
 			} else {
-				thighProxy[i] = new GOTModelDragonPartProxy(hindthigh);
+				getThighProxy()[i] = new GOTModelDragonPartProxy(getHindthigh());
 			}
 		}
 	}
 
 	public void buildNeck() {
-		neck = new GOTModelDragonPart(this, "neck");
-		neck.addBox("box", -5, -5, -5, NECK_SIZE, NECK_SIZE, NECK_SIZE);
-		neckScale = neck.addChildBox("scale", -1, -7, -3, 2, 4, 6);
+		setNeck(new GOTModelDragonPart(this, "neck"));
+		getNeck().addBox("box", -5, -5, -5, getNeckSize(), getNeckSize(), getNeckSize());
+		setNeckScale(getNeck().addChildBox("scale", -1, -7, -3, 2, 4, 6));
 
-		for (int i = 0; i < neckProxy.length; i++) {
-			neckProxy[i] = new GOTModelDragonPartProxy(neck);
+		for (int i = 0; i < getNeckProxy().length; i++) {
+			getNeckProxy()[i] = new GOTModelDragonPartProxy(getNeck());
 		}
 	}
 
 	public void buildTail() {
-		tail = new GOTModelDragonPart(this, "tail");
-		tail.addBox("box", -5, -5, -5, TAIL_SIZE, TAIL_SIZE, TAIL_SIZE);
+		setTail(new GOTModelDragonPart(this, "tail"));
+		getTail().addBox("box", -5, -5, -5, getTailSize(), getTailSize(), getTailSize());
 		float scaleRotZ = GOTModelDragonAnimaton.toRadians(45);
-		tailScaleLeft = tail.addChildBox("scale", -1, -8, -3, 2, 4, 6).setAngles(0, 0, scaleRotZ);
-		tailScaleMiddle = tail.addChildBox("scale", -1, -8, -3, 2, 4, 6).setAngles(0, 0, 0);
-		tailScaleRight = tail.addChildBox("scale", -1, -8, -3, 2, 4, 6).setAngles(0, 0, -scaleRotZ);
+		tailScaleLeft = getTail().addChildBox("scale", -1, -8, -3, 2, 4, 6).setAngles(0, 0, scaleRotZ);
+		tailScaleMiddle = getTail().addChildBox("scale", -1, -8, -3, 2, 4, 6).setAngles(0, 0, 0);
+		tailScaleRight = getTail().addChildBox("scale", -1, -8, -3, 2, 4, 6).setAngles(0, 0, -scaleRotZ);
 
 		boolean fire = "fire".equals(breed.getName());
 
@@ -272,8 +272,8 @@ public class GOTModelDragon extends ModelBase {
 		buildTailHorn(false);
 		buildTailHorn(true);
 
-		for (int i = 0; i < tailProxy.length; i++) {
-			tailProxy[i] = new GOTModelDragonPartProxy(tail);
+		for (int i = 0; i < getTailProxy().length; i++) {
+			getTailProxy()[i] = new GOTModelDragonPartProxy(getTail());
 		}
 	}
 
@@ -285,7 +285,7 @@ public class GOTModelDragon extends ModelBase {
 
 		float hornPosX = 0;
 		float hornPosY = hornOfs;
-		float hornPosZ = TAIL_SIZE / 2f;
+		float hornPosZ = getTailSize() / 2f;
 
 		float hornRotX = GOTModelDragonAnimaton.toRadians(-15);
 		float hornRotY = GOTModelDragonAnimaton.toRadians(-145);
@@ -296,39 +296,39 @@ public class GOTModelDragon extends ModelBase {
 			hornRotY *= -1;
 		}
 
-		tail.mirror = mirror;
-		GOTModelDragonPart horn = tail.addChildBox("horn", hornOfs, hornOfs, hornOfs, hornThick, hornThick, hornLength);
+		getTail().mirror = mirror;
+		GOTModelDragonPart horn = getTail().addChildBox("horn", hornOfs, hornOfs, hornOfs, hornThick, hornThick, hornLength);
 		horn.setRotationPoint(hornPosX, hornPosY, hornPosZ);
 		horn.setAngles(hornRotX, hornRotY, hornRotZ);
 		horn.isHidden = true;
 		horn.showModel = "water".equals(breed.getName());
 
 		if (mirror) {
-			tailHornLeft = horn;
+			setTailHornLeft(horn);
 		} else {
-			tailHornRight = horn;
+			setTailHornRight(horn);
 		}
 	}
 
 	public void buildWing() {
-		wingArm = new GOTModelDragonPart(this, "wingarm");
-		wingArm.setRotationPoint(-10, 5, 4);
-		wingArm.setRenderScale(1.1f);
-		wingArm.addBox("bone", -28, -3, -3, 28, 6, 6);
-		wingArm.addBox("skin", -28, 0, 2, 28, 0, 24);
+		setWingArm(new GOTModelDragonPart(this, "wingarm"));
+		getWingArm().setRotationPoint(-10, 5, 4);
+		getWingArm().setRenderScale(1.1f);
+		getWingArm().addBox("bone", -28, -3, -3, 28, 6, 6);
+		getWingArm().addBox("skin", -28, 0, 2, 28, 0, 24);
 
-		wingForearm = new GOTModelDragonPart(this, "wingforearm");
-		wingForearm.setRotationPoint(-28, 0, 0);
-		wingForearm.addBox("bone", -48, -2, -2, 48, 4, 4);
-		wingArm.addChild(wingForearm);
+		setWingForearm(new GOTModelDragonPart(this, "wingforearm"));
+		getWingForearm().setRotationPoint(-28, 0, 0);
+		getWingForearm().addBox("bone", -48, -2, -2, 48, 4, 4);
+		getWingArm().addChild(getWingForearm());
 
-		wingFinger[0] = buildWingFinger(false);
-		wingFinger[1] = buildWingFinger(false);
-		wingFinger[2] = buildWingFinger(false);
-		wingFinger[3] = buildWingFinger(true);
+		getWingFinger()[0] = buildWingFinger(false);
+		getWingFinger()[1] = buildWingFinger(false);
+		getWingFinger()[2] = buildWingFinger(false);
+		getWingFinger()[3] = buildWingFinger(true);
 	}
 
-	public GOTModelDragonPart buildWingFinger(boolean small) {
+	private GOTModelDragonPart buildWingFinger(boolean small) {
 		GOTModelDragonPart finger = new GOTModelDragonPart(this, "wingfinger");
 		finger.setRotationPoint(-47, 0, 0);
 		finger.addBox("bone", -70, -1, -1, 70, 2, 2);
@@ -337,13 +337,133 @@ public class GOTModelDragon extends ModelBase {
 		} else {
 			finger.addBox("skin", -70, 0, 1, 70, 0, 48);
 		}
-		wingForearm.addChild(finger);
+		getWingForearm().addChild(finger);
 
 		return finger;
 	}
 
+	public GOTModelDragonPart getBack() {
+		return back;
+	}
+
+	public ResourceLocation getBodyTexture() {
+		return bodyTexture;
+	}
+
 	public ResourceLocation getEggTexture() {
 		return eggTexture;
+	}
+
+	public GOTModelDragonPart getForecrus() {
+		return forecrus;
+	}
+
+	public GOTModelDragonPart getForefoot() {
+		return forefoot;
+	}
+
+	public GOTModelDragonPart getForethigh() {
+		return forethigh;
+	}
+
+	public GOTModelDragonPart getForetoe() {
+		return foretoe;
+	}
+
+	public ResourceLocation getGlowTexture() {
+		return glowTexture;
+	}
+
+	public GOTModelDragonPart getHead() {
+		return head;
+	}
+
+	public GOTModelDragonPart getHindcrus() {
+		return hindcrus;
+	}
+
+	public GOTModelDragonPart getHindfoot() {
+		return hindfoot;
+	}
+
+	public GOTModelDragonPart getHindthigh() {
+		return hindthigh;
+	}
+
+	public GOTModelDragonPart getHindtoe() {
+		return hindtoe;
+	}
+
+	public GOTModelDragonPart getJaw() {
+		return jaw;
+	}
+
+	public GOTModelDragonPart getNeck() {
+		return neck;
+	}
+
+	public GOTModelDragonPartProxy[] getNeckProxy() {
+		return neckProxy;
+	}
+
+	public GOTModelDragonPart getNeckScale() {
+		return neckScale;
+	}
+
+	public float getOffsetX() {
+		return offsetX;
+	}
+
+	public float getOffsetY() {
+		return offsetY;
+	}
+
+	public float getOffsetZ() {
+		return offsetZ;
+	}
+
+	public float getPitch() {
+		return pitch;
+	}
+
+	public int getRenderPass() {
+		return renderPass;
+	}
+
+	public ResourceLocation getSaddleTexture() {
+		return saddleTexture;
+	}
+
+	public GOTModelDragonPart getTail() {
+		return tail;
+	}
+
+	public GOTModelDragonPart getTailHornLeft() {
+		return tailHornLeft;
+	}
+
+	public GOTModelDragonPart getTailHornRight() {
+		return tailHornRight;
+	}
+
+	public GOTModelDragonPartProxy[] getTailProxy() {
+		return tailProxy;
+	}
+
+	public GOTModelDragonPartProxy[] getThighProxy() {
+		return thighProxy;
+	}
+
+	public GOTModelDragonPart getWingArm() {
+		return wingArm;
+	}
+
+	public GOTModelDragonPart[] getWingFinger() {
+		return wingFinger;
+	}
+
+	public GOTModelDragonPart getWingForearm() {
+		return wingForearm;
 	}
 
 	@Override
@@ -355,7 +475,6 @@ public class GOTModelDragon extends ModelBase {
 		GOTModelDragonAnimaton animator = dragon.getAnimator();
 		animator.setMovement(moveTime, moveSpeed * dragon.getScale());
 		animator.setLook(lookYaw, lookPitch);
-		animator.setTicksExisted(ticksExisted);
 		animator.animate(this);
 
 		size = dragon.getScale();
@@ -370,16 +489,16 @@ public class GOTModelDragon extends ModelBase {
 	public void renderHead(float scale) {
 		float headScale = 1.4f / (size + 0.4f);
 
-		head.setRenderScale(headScale);
-		head.render(scale);
+		getHead().setRenderScale(headScale);
+		getHead().render(scale);
 	}
 
 	public void renderLegs(float scale) {
 		glEnable(GL_CULL_FACE);
 		glCullFace(GL_BACK);
 
-		for (int i = 0; i < thighProxy.length; i++) {
-			thighProxy[i].render(scale);
+		for (int i = 0; i < getThighProxy().length; i++) {
+			getThighProxy()[i].render(scale);
 
 			if (i == 1) {
 
@@ -395,10 +514,10 @@ public class GOTModelDragon extends ModelBase {
 
 	public void renderModel(GOTEntityDragon dragon, float scale) {
 		glPushMatrix();
-		glTranslatef(offsetX, offsetY, offsetZ);
-		glRotatef(-pitch, 1, 0, 0);
+		glTranslatef(getOffsetX(), getOffsetY(), getOffsetZ());
+		glRotatef(-getPitch(), 1, 0, 0);
 
-		if (renderPass == 0) {
+		if (getRenderPass() == 0) {
 			renderBody(scale);
 		} else {
 			renderHead(scale);
@@ -413,13 +532,13 @@ public class GOTModelDragon extends ModelBase {
 	}
 
 	public void renderNeck(float scale) {
-		for (GOTModelDragonPartProxy proxy : neckProxy) {
+		for (GOTModelDragonPartProxy proxy : getNeckProxy()) {
 			proxy.render(scale);
 		}
 	}
 
 	public void renderTail(float scale) {
-		for (GOTModelDragonPartProxy proxy : tailProxy) {
+		for (GOTModelDragonPartProxy proxy : getTailProxy()) {
 			proxy.render(scale);
 		}
 	}
@@ -429,7 +548,7 @@ public class GOTModelDragon extends ModelBase {
 		glEnable(GL_CULL_FACE);
 		glCullFace(GL_FRONT);
 		for (int i = 0; i < 2; i++) {
-			wingArm.render(scale);
+			getWingArm().render(scale);
 
 			if (i == 0) {
 
@@ -443,6 +562,58 @@ public class GOTModelDragon extends ModelBase {
 		glPopMatrix();
 	}
 
+	public void setBack(GOTModelDragonPart back) {
+		this.back = back;
+	}
+
+	public void setBodyTexture(ResourceLocation bodyTexture) {
+		this.bodyTexture = bodyTexture;
+	}
+
+	public void setForecrus(GOTModelDragonPart forecrus) {
+		this.forecrus = forecrus;
+	}
+
+	public void setForefoot(GOTModelDragonPart forefoot) {
+		this.forefoot = forefoot;
+	}
+
+	public void setForethigh(GOTModelDragonPart forethigh) {
+		this.forethigh = forethigh;
+	}
+
+	public void setForetoe(GOTModelDragonPart foretoe) {
+		this.foretoe = foretoe;
+	}
+
+	public void setGlowTexture(ResourceLocation glowTexture) {
+		this.glowTexture = glowTexture;
+	}
+
+	public void setHead(GOTModelDragonPart head) {
+		this.head = head;
+	}
+
+	public void setHindcrus(GOTModelDragonPart hindcrus) {
+		this.hindcrus = hindcrus;
+	}
+
+	public void setHindfoot(GOTModelDragonPart hindfoot) {
+		this.hindfoot = hindfoot;
+	}
+
+	public void setHindthigh(GOTModelDragonPart hindthigh) {
+		this.hindthigh = hindthigh;
+	}
+
+	public void setHindtoe(GOTModelDragonPart hindtoe) {
+		this.hindtoe = hindtoe;
+	}
+
+	public void setJaw(GOTModelDragonPart jaw) {
+		this.jaw = jaw;
+	}
+
 	@Override
 	public void setLivingAnimations(EntityLivingBase entity, float moveTime, float moveSpeed, float partialTicks) {
 		setLivingAnimations((GOTEntityDragon) entity, moveTime, moveSpeed, partialTicks);
@@ -451,5 +622,89 @@ public class GOTModelDragon extends ModelBase {
 	public void setLivingAnimations(GOTEntityDragon dragon, float moveTime, float moveSpeed, float partialTicks) {
 		GOTModelDragonAnimaton animator = dragon.getAnimator();
 		animator.setPartialTicks(partialTicks);
+	}
+
+	public void setNeck(GOTModelDragonPart neck) {
+		this.neck = neck;
+	}
+
+	public void setNeckProxy(GOTModelDragonPartProxy[] neckProxy) {
+		this.neckProxy = neckProxy;
+	}
+
+	public void setNeckScale(GOTModelDragonPart neckScale) {
+		this.neckScale = neckScale;
+	}
+
+	public void setOffsetX(float offsetX) {
+		this.offsetX = offsetX;
+	}
+
+	public void setOffsetY(float offsetY) {
+		this.offsetY = offsetY;
+	}
+
+	public void setOffsetZ(float offsetZ) {
+		this.offsetZ = offsetZ;
+	}
+
+	public void setPitch(float pitch) {
+		this.pitch = pitch;
+	}
+
+	public void setRenderPass(int renderPass) {
+		this.renderPass = renderPass;
+	}
+
+	public void setSaddleTexture(ResourceLocation saddleTexture) {
+		this.saddleTexture = saddleTexture;
+	}
+
+	public void setTail(GOTModelDragonPart tail) {
+		this.tail = tail;
+	}
+
+	public void setTailHornLeft(GOTModelDragonPart tailHornLeft) {
+		this.tailHornLeft = tailHornLeft;
+	}
+
+	public void setTailHornRight(GOTModelDragonPart tailHornRight) {
+		this.tailHornRight = tailHornRight;
+	}
+
+	public void setTailProxy(GOTModelDragonPartProxy[] tailProxy) {
+		this.tailProxy = tailProxy;
+	}
+
+	public void setThighProxy(GOTModelDragonPartProxy[] thighProxy) {
+		this.thighProxy = thighProxy;
+	}
+
+	public void setWingArm(GOTModelDragonPart wingArm) {
+		this.wingArm = wingArm;
+	}
+
+	public void setWingFinger(GOTModelDragonPart[] wingFinger) {
+		this.wingFinger = wingFinger;
+	}
+
+	public void setWingForearm(GOTModelDragonPart wingForearm) {
+		this.wingForearm = wingForearm;
+	}
+
+	public static int getNeckSize() {
+		return NECK_SIZE;
+	}
+
+	public static int getTailSize() {
+		return TAIL_SIZE;
+	}
+
+	public static void setNeckSize(int nECK_SIZE) {
+		NECK_SIZE = nECK_SIZE;
+	}
+
+	public static void setTailSize(int tAIL_SIZE) {
+		TAIL_SIZE = tAIL_SIZE;
 	}
 }

@@ -7,8 +7,8 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTGuiButtonArrows extends GuiButton {
-	public static ResourceLocation texture = new ResourceLocation("got:textures/gui/widgets.png");
-	public boolean leftOrRight;
+	private static ResourceLocation texture = new ResourceLocation("got:textures/gui/widgets.png");
+	private boolean leftOrRight;
 
 	public GOTGuiButtonArrows(int i, boolean flag, int j, int k) {
 		super(i, j, k, 20, 20, "");

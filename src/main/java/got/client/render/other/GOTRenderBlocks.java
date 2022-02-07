@@ -19,8 +19,8 @@ import net.minecraft.util.*;
 import net.minecraft.world.IBlockAccess;
 
 public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
-	public static Random blockRand = new Random();
-	public boolean renderInvIn3D;
+	private static Random blockRand = new Random();
+	private boolean renderInvIn3D;
 
 	public GOTRenderBlocks(boolean flag) {
 		renderInvIn3D = flag;
@@ -236,7 +236,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.drawCrossedSquares(icon, i, j + 1, k, 1.0f);
 	}
 
-	public boolean renderDoor(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private boolean renderDoor(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		boolean topDoor;
 		Tessellator tessellator = Tessellator.instance;
 		int meta = world.getBlockMetadata(i, j, k);
@@ -1147,7 +1147,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		return renderInvIn3D;
 	}
 
-	public static int getAO() {
+	private static int getAO() {
 		return Minecraft.getMinecraft().gameSettings.ambientOcclusion;
 	}
 

@@ -11,15 +11,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 
 public class GOTGuiBrandingIron extends GOTGuiScreenBase {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/brandingIron.png");
-	public static RenderItem itemRenderer = new RenderItem();
-	public int xSize = 200;
-	public int ySize = 132;
-	public int guiLeft;
-	public int guiTop;
-	public GuiButton buttonDone;
-	public GuiTextField brandNameField;
-	public ItemStack theItem;
+	private static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/brandingIron.png");
+	private static RenderItem itemRenderer = new RenderItem();
+	private int xSize = 200;
+	private int ySize = 132;
+	private int guiLeft;
+	private int guiTop;
+	private GuiButton buttonDone;
+	private GuiTextField brandNameField;
+	private ItemStack theItem;
 
 	@Override
 	public void actionPerformed(GuiButton button) {

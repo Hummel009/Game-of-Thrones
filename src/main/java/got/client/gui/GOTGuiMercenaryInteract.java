@@ -12,7 +12,7 @@ public class GOTGuiMercenaryInteract extends GOTGuiUnitTradeInteract {
 	@Override
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
-			GOTPacketMercenaryInteract packet = new GOTPacketMercenaryInteract(theEntity.getEntityId(), button.id);
+			GOTPacketMercenaryInteract packet = new GOTPacketMercenaryInteract(getTheEntity().getEntityId(), button.id);
 			GOTPacketHandler.networkWrapper.sendToServer(packet);
 		}
 	}

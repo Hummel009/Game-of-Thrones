@@ -13,14 +13,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderBird extends RenderLiving {
-	public static Map<String, GOTRandomSkins> birdTypeSkins = new HashMap<>();
-	public static boolean renderStolenItem = true;
+	private static Map<String, GOTRandomSkins> birdTypeSkins = new HashMap<>();
+	private static boolean renderStolenItem = true;
 
 	public GOTRenderBird() {
 		super(new GOTModelBird(), 0.2f);
 	}
 
-	public GOTRandomSkins getBirdSkins(String s) {
+	private GOTRandomSkins getBirdSkins(String s) {
 		GOTRandomSkins skins = birdTypeSkins.get(s);
 		if (skins == null) {
 			skins = GOTRandomSkins.loadSkinsList("got:textures/entity/animal/bird/" + s);
@@ -60,12 +60,12 @@ public class GOTRenderBird extends RenderLiving {
 	@Override
 	public void renderEquippedItems(EntityLivingBase entity, float f) {
 		GOTEntityBird bird = (GOTEntityBird) entity;
-		if (renderStolenItem) {
+		if (isRenderStolenItem()) {
 			GL11.glColor3f(1.0f, 1.0f, 1.0f);
 			ItemStack stolenItem = bird.getStolenItem();
 			if (stolenItem != null) {
 				GL11.glPushMatrix();
-				((GOTModelBird) mainModel).head.postRender(0.0625f);
+				((GOTModelBird) mainModel).getHead().postRender(0.0625f);
 				GL11.glTranslatef(0.05f, 1.4f, -0.1f);
 				float scale = 0.25f;
 				GL11.glScalef(scale, scale, scale);
@@ -73,5 +73,13 @@ public class GOTRenderBird extends RenderLiving {
 				GL11.glPopMatrix();
 			}
 		}
+	}
+
+	public static boolean isRenderStolenItem() {
+		return renderStolenItem;
+	}
+
+	public static void setRenderStolenItem(boolean renderStolenItem) {
+		GOTRenderBird.renderStolenItem = renderStolenItem;
 	}
 }

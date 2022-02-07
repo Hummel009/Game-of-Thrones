@@ -9,7 +9,7 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderTheonGreyjoy extends GOTRenderBiped {
-	public GOTRenderTheonGreyjoy() {
+	private GOTRenderTheonGreyjoy() {
 		super(new GOTModelHuman(), 0.5f);
 	}
 

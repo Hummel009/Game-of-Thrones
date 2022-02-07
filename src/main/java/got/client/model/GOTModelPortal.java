@@ -4,7 +4,7 @@ import net.minecraft.client.model.*;
 import net.minecraft.entity.Entity;
 
 public class GOTModelPortal extends ModelBase {
-	public ModelRenderer[] ringParts = new ModelRenderer[60];
+	private ModelRenderer[] ringParts = new ModelRenderer[60];
 
 	public GOTModelPortal(int i) {
 		for (int j = 0; j < 60; ++j) {

@@ -9,9 +9,9 @@ import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTBufferedImageIcon extends TextureAtlasSprite {
-	public static Set<String> loadedResources = new HashSet<>();
-	public String iconName;
-	public BufferedImage imageRGB;
+	private static Set<String> loadedResources = new HashSet<>();
+	private String iconName;
+	private BufferedImage imageRGB;
 
 	public GOTBufferedImageIcon(String s, BufferedImage rgb) {
 		super(s);

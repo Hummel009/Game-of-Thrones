@@ -14,9 +14,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.*;
 
 public class GOTGuiMenu extends GOTGuiScreenBase {
-	public static ResourceLocation menuIconsTexture = new ResourceLocation("got:textures/gui/menu_icons.png");
-	public static Class<? extends GOTGuiMenuWBBase> lastMenuScreen = null;
-	public boolean sentCheckPacket = false;
+	private static ResourceLocation menuIconsTexture = new ResourceLocation("got:textures/gui/menu_icons.png");
+	private static Class<? extends GOTGuiMenuWBBase> lastMenuScreen = null;
+	private boolean sentCheckPacket = false;
 
 	@Override
 	public void actionPerformed(GuiButton button) {
@@ -95,7 +95,7 @@ public class GOTGuiMenu extends GOTGuiScreenBase {
 				continue;
 			}
 			GOTGuiButtonMenu button = (GOTGuiButtonMenu) obj;
-			if (!button.visible || !button.enabled || button.menuKeyCode < 0 || i != button.menuKeyCode) {
+			if (!button.visible || !button.enabled || button.getMenuKeyCode() < 0 || i != button.getMenuKeyCode()) {
 				continue;
 			}
 			actionPerformed(button);
@@ -118,6 +118,10 @@ public class GOTGuiMenu extends GOTGuiScreenBase {
 		}
 	}
 
+	public static ResourceLocation getMenuIconsTexture() {
+		return menuIconsTexture;
+	}
+
 	public static GuiScreen openMenu(EntityPlayer entityplayer) {
 		boolean[] map_factions = GOTMiniQuestWelcome.forceMenuMapFactions(entityplayer);
 		if (map_factions[0]) {
@@ -138,5 +142,9 @@ public class GOTGuiMenu extends GOTGuiScreenBase {
 
 	public static void resetLastMenuScreen() {
 		lastMenuScreen = null;
+	}
+
+	public static void setMenuIconsTexture(ResourceLocation menuIconsTexture) {
+		GOTGuiMenu.menuIconsTexture = menuIconsTexture;
 	}
 }

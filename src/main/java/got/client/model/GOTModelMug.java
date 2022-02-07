@@ -4,8 +4,8 @@ import net.minecraft.client.model.*;
 import net.minecraft.entity.Entity;
 
 public class GOTModelMug extends ModelBase {
-	public ModelRenderer[] mugParts = new ModelRenderer[5];
-	public ModelRenderer[] handleParts = new ModelRenderer[3];
+	private ModelRenderer[] mugParts = new ModelRenderer[5];
+	private ModelRenderer[] handleParts = new ModelRenderer[3];
 
 	public GOTModelMug() {
 		mugParts[0] = new ModelRenderer(this, 0, 0);

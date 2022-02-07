@@ -8,15 +8,13 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.multiplayer.WorldClient;
 
 public class GOTGuiButtonMenu extends GuiButton {
-	public GOTGuiMenu parentGUI;
-	public Class<? extends GOTGuiMenuWBBase> menuScreenClass;
-	public int menuKeyCode;
+	private Class<? extends GOTGuiMenuWBBase> menuScreenClass;
+	private int menuKeyCode;
 
 	public GOTGuiButtonMenu(GOTGuiMenu gui, int i, int x, int y, Class<? extends GOTGuiMenuWBBase> cls, String s, int key) {
 		super(i, x, y, 32, 32, s);
-		parentGUI = gui;
 		menuScreenClass = cls;
-		menuKeyCode = key;
+		setMenuKeyCode(key);
 	}
 
 	public boolean canDisplayMenu() {
@@ -30,12 +28,16 @@ public class GOTGuiButtonMenu extends GuiButton {
 	@Override
 	public void drawButton(Minecraft mc, int i, int j) {
 		if (visible) {
-			mc.getTextureManager().bindTexture(GOTGuiMenu.menuIconsTexture);
+			mc.getTextureManager().bindTexture(GOTGuiMenu.getMenuIconsTexture());
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			field_146123_n = i >= xPosition && j >= yPosition && i < xPosition + width && j < yPosition + height;
 			drawTexturedModalRect(xPosition, yPosition, 0 + (enabled ? 0 : width * 2) + (field_146123_n ? width : 0), id * height, width, height);
 			mouseDragged(mc, i, j);
 		}
+	}
+
+	public int getMenuKeyCode() {
+		return menuKeyCode;
 	}
 
 	public GOTGuiMenuWBBase openMenu() {
@@ -45,5 +47,9 @@ public class GOTGuiButtonMenu extends GuiButton {
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	public void setMenuKeyCode(int menuKeyCode) {
+		this.menuKeyCode = menuKeyCode;
 	}
 }

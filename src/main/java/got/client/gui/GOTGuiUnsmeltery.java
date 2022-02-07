@@ -9,8 +9,8 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.*;
 
 public class GOTGuiUnsmeltery extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/unsmelter.png");
-	public GOTTileEntityUnsmeltery theUnsmeltery;
+	private static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/unsmelter.png");
+	private GOTTileEntityUnsmeltery theUnsmeltery;
 
 	public GOTGuiUnsmeltery(InventoryPlayer inv, GOTTileEntityUnsmeltery unsmeltery) {
 		super(new GOTContainerUnsmeltery(inv, unsmeltery));

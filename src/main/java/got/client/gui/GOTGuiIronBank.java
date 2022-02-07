@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 
 public class GOTGuiIronBank extends GuiScreen {
-	public GuiButton[] button = new GuiButton[16];
+	private GuiButton[] button = new GuiButton[16];
 	int widthHalf;
 	int heightHalf;
 	int xOrigin;

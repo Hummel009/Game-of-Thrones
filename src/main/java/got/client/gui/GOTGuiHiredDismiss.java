@@ -15,10 +15,10 @@ public class GOTGuiHiredDismiss extends GOTGuiNPCInteract {
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
 			if (button.id == 1) {
-				mc.displayGuiScreen(new GOTGuiHiredInteract(theEntity));
+				mc.displayGuiScreen(new GOTGuiHiredInteract(getTheEntity()));
 				return;
 			}
-			GOTPacketHiredUnitDismiss packet = new GOTPacketHiredUnitDismiss(theEntity.getEntityId(), button.id);
+			GOTPacketHiredUnitDismiss packet = new GOTPacketHiredUnitDismiss(getTheEntity().getEntityId(), button.id);
 			GOTPacketHandler.networkWrapper.sendToServer(packet);
 		}
 	}
@@ -33,8 +33,8 @@ public class GOTGuiHiredDismiss extends GOTGuiNPCInteract {
 		s = StatCollector.translateToLocal("got.gui.dismiss.warning2");
 		fontRendererObj.drawString(s, (width - fontRendererObj.getStringWidth(s)) / 2, y += fontRendererObj.FONT_HEIGHT, 16777215);
 		y += fontRendererObj.FONT_HEIGHT;
-		Entity mount = theEntity.ridingEntity;
-		Entity rider = theEntity.riddenByEntity;
+		Entity mount = getTheEntity().ridingEntity;
+		Entity rider = getTheEntity().riddenByEntity;
 		boolean hasMount = mount instanceof GOTEntityNPC && ((GOTEntityNPC) mount).hiredNPCInfo.getHiringPlayer() == mc.thePlayer;
 		hasRider = rider instanceof GOTEntityNPC && ((GOTEntityNPC) rider).hiredNPCInfo.getHiringPlayer() == mc.thePlayer;
 		if (hasMount) {

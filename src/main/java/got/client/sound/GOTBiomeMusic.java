@@ -7,16 +7,19 @@ import org.apache.commons.lang3.tuple.Pair;
 public enum GOTBiomeMusic {
 	MENU("menu"), ESSOS("essos"), WESTEROS("westeros"), ULTHOS("ulthos"), SOTHORYOS("sothoryos"), OCEAN("ocean");
 
-	public static String allRegionCode = "all";
-	public String regionName;
-	public List<String> subregions = new ArrayList<>();
+	private String regionName;
+	private List<String> subregions = new ArrayList<>();
 
 	GOTBiomeMusic(String s) {
-		regionName = s;
+		setRegionName(s);
 	}
 
 	public List<String> getAllSubregions() {
 		return subregions;
+	}
+
+	public String getRegionName() {
+		return regionName;
 	}
 
 	public MusicRegion getSubregion(String s) {
@@ -38,9 +41,13 @@ public enum GOTBiomeMusic {
 		return subregions.contains(s);
 	}
 
+	public void setRegionName(String regionName) {
+		this.regionName = regionName;
+	}
+
 	public static GOTBiomeMusic forName(String s) {
 		for (GOTBiomeMusic r : GOTBiomeMusic.values()) {
-			if (!s.equalsIgnoreCase(r.regionName)) {
+			if (!s.equalsIgnoreCase(r.getRegionName())) {
 				continue;
 			}
 			return r;
@@ -49,22 +56,38 @@ public enum GOTBiomeMusic {
 	}
 
 	public static class MusicRegion extends Pair<GOTBiomeMusic, String> {
-		public GOTBiomeMusic region;
-		public String subregion;
+		private GOTBiomeMusic region;
+		private String subregion;
 
-		public MusicRegion(GOTBiomeMusic r, String s) {
-			region = r;
-			subregion = s;
+		private MusicRegion(GOTBiomeMusic r, String s) {
+			setRegion(r);
+			setSubregion(s);
 		}
 
 		@Override
 		public GOTBiomeMusic getLeft() {
+			return getRegion();
+		}
+
+		public GOTBiomeMusic getRegion() {
 			return region;
 		}
 
 		@Override
 		public String getRight() {
+			return getSubregion();
+		}
+
+		public String getSubregion() {
 			return subregion;
+		}
+
+		public void setRegion(GOTBiomeMusic region) {
+			this.region = region;
+		}
+
+		public void setSubregion(String subregion) {
+			this.subregion = subregion;
 		}
 
 		@Override

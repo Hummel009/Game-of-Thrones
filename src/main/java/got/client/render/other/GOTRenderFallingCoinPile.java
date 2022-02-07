@@ -13,7 +13,7 @@ import net.minecraft.util.*;
 import net.minecraft.world.World;
 
 public class GOTRenderFallingCoinPile extends Render {
-	public static RenderBlocks blockRenderer = new RenderBlocks();
+	private static RenderBlocks blockRenderer = new RenderBlocks();
 
 	public GOTRenderFallingCoinPile() {
 		shadowSize = 0.5f;

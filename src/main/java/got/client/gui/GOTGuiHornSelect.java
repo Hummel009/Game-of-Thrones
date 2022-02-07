@@ -10,12 +10,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 
 public class GOTGuiHornSelect extends GOTGuiScreenBase {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/horn_select.png");
-	public static RenderItem itemRenderer = new RenderItem();
-	public int xSize = 176;
-	public int ySize = 256;
-	public int guiLeft;
-	public int guiTop;
+	private static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/horn_select.png");
+	private static RenderItem itemRenderer = new RenderItem();
+	private int xSize = 176;
+	private int ySize = 256;
+	private int guiLeft;
+	private int guiTop;
 
 	@Override
 	public void actionPerformed(GuiButton button) {

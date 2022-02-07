@@ -11,7 +11,7 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderBear extends RenderLiving {
-	public static Map bearSkins = new HashMap();
+	private static Map bearSkins = new HashMap();
 
 	public GOTRenderBear() {
 		super(new GOTModelBear(), 0.5f);

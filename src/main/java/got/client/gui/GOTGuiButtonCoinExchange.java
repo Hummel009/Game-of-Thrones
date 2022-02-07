@@ -13,7 +13,7 @@ public class GOTGuiButtonCoinExchange extends GuiButton {
 	@Override
 	public void drawButton(Minecraft mc, int i, int j) {
 		if (visible) {
-			mc.getTextureManager().bindTexture(GOTGuiCoinExchange.guiTexture);
+			mc.getTextureManager().bindTexture(GOTGuiCoinExchange.getGuiTexture());
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			field_146123_n = i >= xPosition && j >= yPosition && i < xPosition + width && j < yPosition + height;
 			int k = getHoverState(field_146123_n);

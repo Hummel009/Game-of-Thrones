@@ -4,16 +4,16 @@ import net.minecraft.client.model.*;
 import net.minecraft.entity.Entity;
 
 public class GOTModelSmokeShip extends ModelBase {
-	public ModelRenderer hull = new ModelRenderer(this);
-	public ModelRenderer deck;
-	public ModelRenderer mast1;
-	public ModelRenderer sail1;
-	public ModelRenderer mast2;
-	public ModelRenderer sail2;
-	public ModelRenderer mast3;
-	public ModelRenderer sail3;
-	public ModelRenderer bow;
-	public ModelRenderer stern;
+	private ModelRenderer hull = new ModelRenderer(this);
+	private ModelRenderer deck;
+	private ModelRenderer mast1;
+	private ModelRenderer sail1;
+	private ModelRenderer mast2;
+	private ModelRenderer sail2;
+	private ModelRenderer mast3;
+	private ModelRenderer sail3;
+	private ModelRenderer bow;
+	private ModelRenderer stern;
 
 	public GOTModelSmokeShip() {
 		hull.addBox(-3.5f, 1.0f, -8.0f, 7, 5, 16);

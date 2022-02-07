@@ -12,12 +12,10 @@ import net.minecraft.util.IIcon;
 import net.minecraftforge.client.IItemRenderer;
 
 public class GOTRenderBlade implements IItemRenderer {
-	public double distance;
-	public GOTRenderLargeItem largeItemRenderer;
-	public GOTRenderLargeItem.ExtraLargeIconToken tokenGlowing;
+	private GOTRenderLargeItem largeItemRenderer;
+	private GOTRenderLargeItem.ExtraLargeIconToken tokenGlowing;
 
 	public GOTRenderBlade(double d, GOTRenderLargeItem large) {
-		distance = d;
 		largeItemRenderer = large;
 		if (largeItemRenderer != null) {
 			tokenGlowing = largeItemRenderer.extraIcon("glowing");

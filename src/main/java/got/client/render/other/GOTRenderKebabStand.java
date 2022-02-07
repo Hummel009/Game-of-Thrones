@@ -11,10 +11,10 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 
 public class GOTRenderKebabStand extends TileEntitySpecialRenderer {
-	public static GOTModelKebabStand standModel = new GOTModelKebabStand();
-	public static Map<String, ResourceLocation> standTextures = new HashMap<>();
-	public static ResourceLocation rawTexture = new ResourceLocation("got:textures/model/kebab/raw.png");
-	public static ResourceLocation cookedTexture = new ResourceLocation("got:textures/model/kebab/cooked.png");
+	private static GOTModelKebabStand standModel = new GOTModelKebabStand();
+	private static Map<String, ResourceLocation> standTextures = new HashMap<>();
+	private static ResourceLocation rawTexture = new ResourceLocation("got:textures/model/kebab/raw.png");
+	private static ResourceLocation cookedTexture = new ResourceLocation("got:textures/model/kebab/cooked.png");
 
 	@Override
 	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {
@@ -62,7 +62,7 @@ public class GOTRenderKebabStand extends TileEntitySpecialRenderer {
 		GL11.glPopMatrix();
 	}
 
-	public static ResourceLocation getStandTexture(GOTTileEntityKebabStand kebabStand) {
+	private static ResourceLocation getStandTexture(GOTTileEntityKebabStand kebabStand) {
 		ResourceLocation r;
 		String s = kebabStand.getStandTextureName();
 		if (!StringUtils.isNullOrEmpty(s)) {

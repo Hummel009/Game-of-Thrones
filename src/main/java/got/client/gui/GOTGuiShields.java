@@ -15,36 +15,36 @@ import net.minecraft.client.renderer.*;
 import net.minecraft.util.*;
 
 public class GOTGuiShields extends GOTGuiMenuWBBase {
-	public static ModelBiped playerModel = new ModelBiped();
-	public static int currentShieldTypeID;
-	public static int currentShieldID;
+	private static ModelBiped playerModel = new ModelBiped();
+	private static int currentShieldTypeID;
+	private static int currentShieldID;
 	static {
 		GOTGuiShields.playerModel.isChild = false;
 	}
-	public int modelX;
-	public int modelY;
-	public float modelRotation = -140.0f;
-	public float modelRotationPrev = -140.0f;
-	public int isMouseDown;
-	public int mouseX;
-	public int mouseY;
-	public int prevMouseX;
-	public GOTShields.ShieldType currentShieldType;
-	public GOTShields currentShield;
-	public GuiButton shieldLeft;
-	public GuiButton shieldRight;
-	public GuiButton shieldSelect;
-	public GuiButton shieldRemove;
-	public GuiButton goToCape;
+	private int modelX;
+	private int modelY;
+	private float modelRotation = -140.0f;
+	private float modelRotationPrev = -140.0f;
+	private int isMouseDown;
+	private int mouseX;
+	private int mouseY;
+	private int prevMouseX;
+	private GOTShields.ShieldType currentShieldType;
+	private GOTShields currentShield;
+	private GuiButton shieldLeft;
+	private GuiButton shieldRight;
+	private GuiButton shieldSelect;
+	private GuiButton shieldRemove;
+	private GuiButton goToCape;
 
-	public GuiButton changeCategory;
+	private GuiButton changeCategory;
 
 	@Override
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
 			if (button == shieldLeft) {
 				updateCurrentShield(-1, 0);
-			} else if (button.enabled && button == goBack) {
+			} else if (button.enabled && button == getGoBack()) {
 				mc.displayGuiScreen(new GOTGuiMenu());
 			} else if (button.enabled && button == goToCape) {
 				mc.displayGuiScreen(new GOTGuiCapes());
@@ -66,7 +66,7 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 		}
 	}
 
-	public boolean canGoLeft() {
+	private boolean canGoLeft() {
 		for (int i = 0; i <= currentShieldID - 1; ++i) {
 			GOTShields shield = currentShieldType.list.get(i);
 			if (!shield.canDisplay(mc.thePlayer)) {
@@ -77,7 +77,7 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 		return false;
 	}
 
-	public boolean canGoRight() {
+	private boolean canGoRight() {
 		for (int i = currentShieldID + 1; i <= currentShieldType.list.size() - 1; ++i) {
 			GOTShields shield = currentShieldType.list.get(i);
 			if (!shield.canDisplay(mc.thePlayer)) {
@@ -117,8 +117,8 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 		GL11.glDisable(3553);
 		OpenGlHelper.setActiveTexture(OpenGlHelper.defaultTexUnit);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		int x = guiLeft + xSize / 2;
-		int y = guiTop + 145;
+		int x = getGuiLeft() + getxSize() / 2;
+		int y = getGuiTop() + 145;
 		s = currentShield.getShieldName();
 		this.drawCenteredString(s, x, y, 16777215);
 		y += fontRendererObj.FONT_HEIGHT * 2;
@@ -137,30 +137,30 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 		super.drawScreen(i, j, f);
 	}
 
-	public GOTShields getPlayerEquippedShield() {
+	private GOTShields getPlayerEquippedShield() {
 		return GOTLevelData.getData(mc.thePlayer).getShield();
 	}
 
 	@Override
 	public void initGui() {
 		super.initGui();
-		guiLeft = (width - xSize) / 2 + 100;
-		guiTop = (height - ySize) / 2;
-		modelX = guiLeft + xSize / 2;
-		modelY = guiTop + 40;
-		shieldLeft = new GOTGuiButtonArrows(0, true, guiLeft + xSize / 2 - 64, guiTop + 207);
+		setGuiLeft((width - getxSize()) / 2 + 100);
+		setGuiTop((height - getySize()) / 2);
+		modelX = getGuiLeft() + getxSize() / 2;
+		modelY = getGuiTop() + 40;
+		shieldLeft = new GOTGuiButtonArrows(0, true, getGuiLeft() + getxSize() / 2 - 64, getGuiTop() + 207);
 		buttonList.add(shieldLeft);
-		shieldSelect = new GOTGuiButton(1, guiLeft + xSize / 2 - 40, guiTop + 195, 80, 20, StatCollector.translateToLocal("got.gui.shields.select"));
+		shieldSelect = new GOTGuiButton(1, getGuiLeft() + getxSize() / 2 - 40, getGuiTop() + 195, 80, 20, StatCollector.translateToLocal("got.gui.shields.select"));
 		buttonList.add(shieldSelect);
-		shieldRight = new GOTGuiButtonArrows(2, false, guiLeft + xSize / 2 + 44, guiTop + 207);
+		shieldRight = new GOTGuiButtonArrows(2, false, getGuiLeft() + getxSize() / 2 + 44, getGuiTop() + 207);
 		buttonList.add(shieldRight);
-		shieldRemove = new GOTGuiButton(3, guiLeft + xSize / 2 - 40, guiTop + 219, 80, 20, StatCollector.translateToLocal("got.gui.shields.remove"));
+		shieldRemove = new GOTGuiButton(3, getGuiLeft() + getxSize() / 2 - 40, getGuiTop() + 219, 80, 20, StatCollector.translateToLocal("got.gui.shields.remove"));
 		buttonList.add(shieldRemove);
-		changeCategory = new GOTGuiButton(4, guiLeft + xSize / 2 - 290, guiTop + 90, 160, 20, "");
+		changeCategory = new GOTGuiButton(4, getGuiLeft() + getxSize() / 2 - 290, getGuiTop() + 90, 160, 20, "");
 		buttonList.add(changeCategory);
-		goBack = new GOTGuiButton(5, guiLeft + xSize / 2 - 290, guiTop + 150, 160, 20, StatCollector.translateToLocal("got.gui.menuButton"));
-		buttonList.add(goBack);
-		goToCape = new GOTGuiButton(6, guiLeft + xSize / 2 - 290, guiTop + 120, 160, 20, StatCollector.translateToLocal("got.gui.capes"));
+		setGoBack(new GOTGuiButton(5, getGuiLeft() + getxSize() / 2 - 290, getGuiTop() + 150, 160, 20, StatCollector.translateToLocal("got.gui.menuButton")));
+		buttonList.add(getGoBack());
+		goToCape = new GOTGuiButton(6, getGuiLeft() + getxSize() / 2 - 290, getGuiTop() + 120, 160, 20, StatCollector.translateToLocal("got.gui.capes"));
 		buttonList.add(goToCape);
 		GOTShields equippedShield = getPlayerEquippedShield();
 		if (equippedShield != null) {

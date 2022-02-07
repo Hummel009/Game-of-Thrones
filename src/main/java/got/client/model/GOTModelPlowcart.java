@@ -5,17 +5,17 @@ import net.minecraft.client.model.*;
 import net.minecraft.entity.Entity;
 
 public class GOTModelPlowcart extends ModelBase {
-	public ModelRenderer axis;
-	public ModelRenderer[] triangle = new ModelRenderer[3];
-	public ModelRenderer shaft;
-	public ModelRenderer shaftConnector;
-	public ModelRenderer plowShaftUpper;
-	public ModelRenderer plowShaftLower;
-	public ModelRenderer plowBlade;
-	public ModelRenderer plowHandle;
-	public ModelRenderer plowHandleGrip;
-	public ModelRenderer leftWheel;
-	public ModelRenderer rightWheel;
+	private ModelRenderer axis;
+	private ModelRenderer[] triangle = new ModelRenderer[3];
+	private ModelRenderer shaft;
+	private ModelRenderer shaftConnector;
+	private ModelRenderer plowShaftUpper;
+	private ModelRenderer plowShaftLower;
+	private ModelRenderer plowBlade;
+	private ModelRenderer plowHandle;
+	private ModelRenderer plowHandleGrip;
+	private ModelRenderer leftWheel;
+	private ModelRenderer rightWheel;
 
 	public GOTModelPlowcart() {
 		ModelRenderer rim;

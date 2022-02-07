@@ -5,10 +5,10 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityWaveFX extends EntityExplodeFX {
-	public float initScale;
-	public float finalScale;
-	public double origMotionX;
-	public double origMotionZ;
+	private float initScale;
+	private float finalScale;
+	private double origMotionX;
+	private double origMotionZ;
 
 	public GOTEntityWaveFX(World world, double d, double d1, double d2, double d3, double d4, double d5) {
 		super(world, d, d1, d2, d3, d4, d5);

@@ -10,8 +10,8 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderMidges extends RenderLiving {
-	public static ResourceLocation midgeTexture = new ResourceLocation("got:textures/entity/animal/midge.png");
-	public float renderTick;
+	private static ResourceLocation midgeTexture = new ResourceLocation("got:textures/entity/animal/midge.png");
+	private float renderTick;
 
 	public GOTRenderMidges() {
 		super(new GOTModelMidge(), 0.0f);

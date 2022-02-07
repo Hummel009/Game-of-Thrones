@@ -10,8 +10,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 
 public class GOTRenderSkullStaff implements IItemRenderer {
-	public static ModelBase staffModel = new ModelBase() {
-		public ModelRenderer staff = new ModelRenderer(this, 0, 0);
+	private static ModelBase staffModel = new ModelBase() {
+		private ModelRenderer staff = new ModelRenderer(this, 0, 0);
 		{
 			staff.addBox(-0.5f, 8.0f, -6.0f, 1, 1, 28, 0.0f);
 			staff.addBox(-2.5f, 6.0f, -11.0f, 5, 5, 5, 0.0f);
@@ -24,7 +24,7 @@ public class GOTRenderSkullStaff implements IItemRenderer {
 			staff.render(f5);
 		}
 	};
-	public static ResourceLocation staffTexture = new ResourceLocation("got:textures/model/skullStaff.png");
+	private static ResourceLocation staffTexture = new ResourceLocation("got:textures/model/skullStaff.png");
 
 	@Override
 	public boolean handleRenderType(ItemStack itemstack, IItemRenderer.ItemRenderType type) {

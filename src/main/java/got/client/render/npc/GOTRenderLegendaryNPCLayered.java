@@ -12,10 +12,10 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderLegendaryNPCLayered extends GOTRenderBiped {
-	public String name;
-	public Boolean enableCape;
-	public float height;
-	public ModelBiped model = new GOTModelHuman(0.6f, false);
+	private String name;
+	private Boolean enableCape;
+	private float height;
+	private ModelBiped model = new GOTModelHuman(0.6f, false);
 
 	public GOTRenderLegendaryNPCLayered(String texture) {
 		super(new GOTModelHuman(), 0.5f);
@@ -52,7 +52,7 @@ public class GOTRenderLegendaryNPCLayered extends GOTRenderBiped {
 		return new ResourceLocation("got:textures/entity/legendary/" + name + "_1.png");
 	}
 
-	public ResourceLocation getSecondLayerTexture() {
+	private ResourceLocation getSecondLayerTexture() {
 		return new ResourceLocation("got:textures/entity/legendary/" + name + "_2.png");
 	}
 
@@ -71,7 +71,7 @@ public class GOTRenderLegendaryNPCLayered extends GOTRenderBiped {
 			GL11.glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
 			GL11.glRotatef(-10.0f, 1.0f, 0.0f, 0.0f);
 			bindTexture(new ResourceLocation("got:textures/entity/legendary/" + name + "_cape.png"));
-			capeModel.renderCloak(0.0625f);
+			getCapeModel().renderCloak(0.0625f);
 			GL11.glPopMatrix();
 		}
 	}

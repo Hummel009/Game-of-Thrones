@@ -9,8 +9,8 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderFactionNPC extends GOTRenderBiped {
-	public String path;
-	public float size;
+	private String path;
+	private float size;
 
 	public GOTRenderFactionNPC(String texture) {
 		super(new GOTModelHuman(), 0.5f);

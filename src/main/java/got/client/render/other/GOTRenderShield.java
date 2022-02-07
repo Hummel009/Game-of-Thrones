@@ -15,9 +15,9 @@ import net.minecraft.item.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderShield {
-	public static int SHIELD_WIDTH = 32;
-	public static int SHIELD_HEIGHT = 32;
-	public static float MODELSCALE = 0.0625f;
+	private static int SHIELD_WIDTH = 32;
+	private static int SHIELD_HEIGHT = 32;
+	private static float MODELSCALE = 0.0625f;
 
 	public static void doRenderShield(float f) {
 		int k;

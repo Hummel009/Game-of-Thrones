@@ -11,9 +11,9 @@ import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.util.StatCollector;
 
 public class GOTGuiDownloadTerrain extends GuiDownloadTerrain {
-	public GOTGuiMap mapGui = new GOTGuiMap();
-	public GOTGuiRendererMap mapRenderer = new GOTGuiRendererMap();
-	public int tickCounter;
+	private GOTGuiMap mapGui = new GOTGuiMap();
+	private GOTGuiRendererMap mapRenderer = new GOTGuiRendererMap();
+	private int tickCounter;
 
 	public GOTGuiDownloadTerrain(NetHandlerPlayClient handler) {
 		super(handler);
@@ -27,10 +27,10 @@ public class GOTGuiDownloadTerrain extends GuiDownloadTerrain {
 			GL11.glEnable(3008);
 			GL11.glEnable(3042);
 			OpenGlHelper.glBlendFunc(770, 771, 1, 0);
-			mapRenderer.prevMapX = mapRenderer.mapX = GOTWaypoint.worldToMapX(mc.thePlayer.posX);
-			mapRenderer.prevMapY = mapRenderer.mapY = GOTWaypoint.worldToMapZ(mc.thePlayer.posZ);
-			mapRenderer.zoomExp = -1.0f;
-			mapRenderer.zoomStable = (float) Math.pow(2.0, -1.00000001192092896);
+			mapRenderer.setPrevMapX(mapRenderer.setMapX(GOTWaypoint.worldToMapX(mc.thePlayer.posX)));
+			mapRenderer.setPrevMapY(mapRenderer.setMapY(GOTWaypoint.worldToMapZ(mc.thePlayer.posZ)));
+			mapRenderer.setZoomExp(-1.0f);
+			mapRenderer.setZoomStable((float) Math.pow(2.0, -1.00000001192092896));
 			int x0 = 0;
 			int x1 = width;
 			int y0 = 0;

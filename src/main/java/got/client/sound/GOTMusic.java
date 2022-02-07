@@ -26,17 +26,16 @@ import net.minecraftforge.client.event.sound.PlaySoundEvent17;
 import net.minecraftforge.common.MinecraftForge;
 
 public class GOTMusic implements IResourceManagerReloadListener {
-	public static File musicDir;
-	public static String jsonFilename = "music.json";
-	public static String musicResourcePath = "musicpacks";
-	public static GOTMusicResourceManager trackResourceManager;
-	public static List<GOTMusicTrack> allTracks;
-	public static Map<GOTBiomeMusic.MusicRegion, GOTRegionTrackPool> regionTracks;
-	public static boolean initSubregions;
-	public static Random musicRand;
+	private static File musicDir;
+	private static String jsonFilename = "music.json";
+	private static String musicResourcePath = "musicpacks";
+	private static List<GOTMusicTrack> allTracks;
+	private static Map<GOTBiomeMusic.MusicRegion, GOTRegionTrackPool> regionTracks;
+	private static boolean initSubregions;
+	private static Random musicRand;
 
 	static {
-		trackResourceManager = new GOTMusicResourceManager();
+		new GOTMusicResourceManager();
 		allTracks = new ArrayList<>();
 		regionTracks = new HashMap<>();
 		initSubregions = false;
@@ -97,7 +96,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 				writer.println("all");
 				for (Enum region : GOTBiomeMusic.values()) {
 					StringBuilder regionString = new StringBuilder();
-					regionString.append(((GOTBiomeMusic) region).regionName);
+					regionString.append(((GOTBiomeMusic) region).getRegionName());
 					List<String> subregions = ((GOTBiomeMusic) region).getAllSubregions();
 					if (!subregions.isEmpty()) {
 						String subs = "";
@@ -115,7 +114,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 			}
 			if ("#CATEGORIES#".equals(line)) {
 				for (Enum category : GOTMusicCategory.values()) {
-					String catString = ((GOTMusicCategory) category).categoryName;
+					String catString = ((GOTMusicCategory) category).getCategoryName();
 					writer.println(catString);
 				}
 				continue;
@@ -136,7 +135,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 			}
 			return regionPool;
 		}
-		GOTLog.logger.warn("Hummel009: No subregion " + sub + " for region " + region.regionName + "!");
+		GOTLog.logger.warn("Hummel009: No subregion " + sub + " for region " + region.getRegionName() + "!");
 		return null;
 	}
 
@@ -200,7 +199,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 								subregionNames.add(sub);
 								continue;
 							}
-							GOTLog.logger.warn("Hummel009: No subregion " + sub + " for region " + region.regionName + "!");
+							GOTLog.logger.warn("Hummel009: No subregion " + sub + " for region " + region.getRegionName() + "!");
 						}
 					}
 					ArrayList<GOTMusicCategory> regionCategories = new ArrayList<>();

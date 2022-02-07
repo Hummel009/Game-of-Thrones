@@ -15,8 +15,8 @@ import net.minecraft.util.*;
 import net.minecraftforge.client.IItemRenderer;
 
 public class GOTRenderWeaponRack extends TileEntitySpecialRenderer {
-	public static ResourceLocation rackTexture = new ResourceLocation("got:textures/model/weaponRack.png");
-	public static GOTModelWeaponRack rackModel = new GOTModelWeaponRack();
+	private static ResourceLocation rackTexture = new ResourceLocation("got:textures/model/weaponRack.png");
+	private static GOTModelWeaponRack rackModel = new GOTModelWeaponRack();
 
 	@Override
 	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {
@@ -52,7 +52,7 @@ public class GOTRenderWeaponRack extends TileEntitySpecialRenderer {
 		GL11.glScalef(-1.0f, -1.0f, 1.0f);
 		float scale = 0.0625f;
 		bindTexture(rackTexture);
-		GOTRenderWeaponRack.rackModel.onWall = wall;
+		GOTRenderWeaponRack.rackModel.setOnWall(wall);
 		rackModel.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, scale);
 		ItemStack weaponItem = weaponRack.getWeaponItem();
 		if (weaponItem != null) {
@@ -74,7 +74,7 @@ public class GOTRenderWeaponRack extends TileEntitySpecialRenderer {
 			if (weaponItem.getItem().requiresMultipleRenderPasses()) {
 				passes = weaponItem.getItem().getRenderPasses(weaponItem.getItemDamage());
 			}
-			GOTRenderBow.renderingWeaponRack = true;
+			GOTRenderBow.setRenderingWeaponRack(true);
 			for (int pass = 0; pass < passes; ++pass) {
 				int color = weaponItem.getItem().getColorFromItemStack(weaponItem, pass);
 				float r = (color >> 16 & 0xFF) / 255.0f;
@@ -83,7 +83,7 @@ public class GOTRenderWeaponRack extends TileEntitySpecialRenderer {
 				GL11.glColor4f(r, g, b, 1.0f);
 				renderManager.itemRenderer.renderItem(weaponRack.getEntityForRender(), weaponItem, 0, IItemRenderer.ItemRenderType.EQUIPPED);
 			}
-			GOTRenderBow.renderingWeaponRack = false;
+			GOTRenderBow.setRenderingWeaponRack(false);
 		}
 		GL11.glEnable(2884);
 		GL11.glDisable(32826);

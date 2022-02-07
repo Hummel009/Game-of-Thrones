@@ -7,7 +7,7 @@ import net.minecraft.client.gui.*;
 import net.minecraft.util.StatCollector;
 
 public class GOTGuiButtonOptions extends GuiButton {
-	public String baseDisplayString;
+	private String baseDisplayString;
 
 	public GOTGuiButtonOptions(int i, int j, int k, int l, int i1, String s) {
 		super(i, j, k, l, i1, s);
@@ -18,7 +18,7 @@ public class GOTGuiButtonOptions extends GuiButton {
 	public void drawButton(Minecraft mc, int i, int j) {
 		if (visible) {
 			FontRenderer fontrenderer = mc.fontRenderer;
-			mc.getTextureManager().bindTexture(GOTGuiQuestBook.guiTexture);
+			mc.getTextureManager().bindTexture(GOTGuiQuestBook.getGuiTexture());
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			field_146123_n = i >= xPosition && j >= yPosition && i < xPosition + width && j < yPosition + height;
 			int k = getHoverState(field_146123_n);
@@ -50,7 +50,7 @@ public class GOTGuiButtonOptions extends GuiButton {
 		}
 	}
 
-	public String getDescription() {
+	private String getDescription() {
 		return StatCollector.translateToLocal(baseDisplayString + ".desc.on") + "\n\n" + StatCollector.translateToLocal(baseDisplayString + ".desc.off");
 	}
 

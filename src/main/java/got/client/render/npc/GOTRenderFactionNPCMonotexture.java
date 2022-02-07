@@ -6,7 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderFactionNPCMonotexture extends GOTRenderBiped {
-	public String name;
+	private String name;
 
 	public GOTRenderFactionNPCMonotexture(String texture) {
 		super(new GOTModelHuman(), 0.5f);

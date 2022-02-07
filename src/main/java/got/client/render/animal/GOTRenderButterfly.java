@@ -13,7 +13,7 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderButterfly extends RenderLiving {
-	public static Map<GOTEntityButterfly.ButterflyType, GOTRandomSkins> textures = new HashMap<>();
+	private static Map<GOTEntityButterfly.ButterflyType, GOTRandomSkins> textures = new HashMap<>();
 
 	public GOTRenderButterfly() {
 		super(new GOTModelButterfly(), 0.2f);

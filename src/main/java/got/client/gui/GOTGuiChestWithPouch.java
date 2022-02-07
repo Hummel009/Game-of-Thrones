@@ -9,11 +9,11 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.util.*;
 
 public class GOTGuiChestWithPouch extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/pouch_with_chest.png");
-	public IInventory pouchInv;
-	public IInventory chestInv;
-	public int chestRows;
-	public int pouchRows;
+	private static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/pouch_with_chest.png");
+	private IInventory pouchInv;
+	private IInventory chestInv;
+	private int chestRows;
+	private int pouchRows;
 
 	public GOTGuiChestWithPouch(EntityPlayer entityplayer, int slot, IInventory chest) {
 		super(new GOTContainerChestWithPouch(entityplayer, slot, chest));
@@ -36,7 +36,7 @@ public class GOTGuiChestWithPouch extends GuiContainer {
 			drawTexturedModalRect(guiLeft, guiTop + 17 + chestRows * 18 + 13 + l * 18, 0, 138, xSize, 18);
 		}
 		drawTexturedModalRect(guiLeft, guiTop + 17 + chestRows * 18 + 67, 0, 156, xSize, 96);
-		mc.getTextureManager().bindTexture(GOTGuiPouch.texture);
+		mc.getTextureManager().bindTexture(GOTGuiPouch.getTexture());
 		for (l = 0; l < pouchRows; ++l) {
 			drawTexturedModalRect(guiLeft + 7, guiTop + 17 + chestRows * 18 + 13 + l * 18, 0, 180, 162, 18);
 		}

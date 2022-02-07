@@ -5,7 +5,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderArrowFire extends RenderArrow {
-	public static ResourceLocation arrowFireTexture = new ResourceLocation("got:textures/model/arrowFire.png");
+	private static ResourceLocation arrowFireTexture = new ResourceLocation("got:textures/model/arrowFire.png");
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {

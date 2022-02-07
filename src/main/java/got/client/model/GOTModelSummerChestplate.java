@@ -3,10 +3,6 @@ package got.client.model;
 import net.minecraft.client.model.ModelRenderer;
 
 public class GOTModelSummerChestplate extends GOTModelBiped {
-	public GOTModelSummerChestplate() {
-		this(0.0f);
-	}
-
 	public GOTModelSummerChestplate(float f) {
 		super(f);
 		bipedBody = new ModelRenderer(this, 16, 16);

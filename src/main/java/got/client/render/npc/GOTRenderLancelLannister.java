@@ -9,7 +9,7 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderLancelLannister extends GOTRenderBiped {
-	public GOTRenderLancelLannister() {
+	private GOTRenderLancelLannister() {
 		super(new GOTModelHuman(), 0.5f);
 	}
 

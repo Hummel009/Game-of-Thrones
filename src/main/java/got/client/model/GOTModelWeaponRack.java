@@ -4,11 +4,11 @@ import net.minecraft.client.model.*;
 import net.minecraft.entity.Entity;
 
 public class GOTModelWeaponRack extends ModelBase {
-	public ModelRenderer base = new ModelRenderer(this, 0, 0);
-	public ModelRenderer stand;
-	public ModelRenderer holder;
-	public ModelRenderer holderUpperParts;
-	public boolean onWall = false;
+	private ModelRenderer base = new ModelRenderer(this, 0, 0);
+	private ModelRenderer stand;
+	private ModelRenderer holder;
+	private ModelRenderer holderUpperParts;
+	private boolean onWall = false;
 
 	public GOTModelWeaponRack() {
 		base.setRotationPoint(0.0f, 24.0f, 0.0f);
@@ -42,9 +42,13 @@ public class GOTModelWeaponRack extends ModelBase {
 		holder.addChild(holderUpperParts);
 	}
 
+	public boolean isOnWall() {
+		return onWall;
+	}
+
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-		if (onWall) {
+		if (isOnWall()) {
 			base.rotateAngleX = (float) Math.toRadians(-90.0);
 			stand.isHidden = true;
 			holder.rotateAngleX = 0.0f;
@@ -58,5 +62,9 @@ public class GOTModelWeaponRack extends ModelBase {
 			holderUpperParts.showModel = true;
 		}
 		base.render(f5);
+	}
+
+	public void setOnWall(boolean onWall) {
+		this.onWall = onWall;
 	}
 }

@@ -8,7 +8,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderDikDik extends RenderLiving {
-	public static GOTRandomSkins skins;
+	private static GOTRandomSkins skins;
 
 	public GOTRenderDikDik() {
 		super(new GOTModelDikDik(), 0.8f);

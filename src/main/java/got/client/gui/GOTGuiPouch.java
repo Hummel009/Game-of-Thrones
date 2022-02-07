@@ -10,10 +10,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.*;
 
 public class GOTGuiPouch extends GuiContainer {
-	public static ResourceLocation texture = new ResourceLocation("got:textures/gui/pouch.png");
-	public GOTContainerPouch thePouch;
-	public int pouchRows;
-	public GuiTextField theGuiTextField;
+	private static ResourceLocation texture = new ResourceLocation("got:textures/gui/pouch.png");
+	private GOTContainerPouch thePouch;
+	private int pouchRows;
+	private GuiTextField theGuiTextField;
 
 	public GOTGuiPouch(EntityPlayer entityplayer, int slot) {
 		super(new GOTContainerPouch(entityplayer, slot));
@@ -25,7 +25,7 @@ public class GOTGuiPouch extends GuiContainer {
 	@Override
 	public void drawGuiContainerBackgroundLayer(float f, int i, int j) {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(texture);
+		mc.getTextureManager().bindTexture(getTexture());
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		for (int l = 0; l < pouchRows; ++l) {
 			drawTexturedModalRect(guiLeft + 7, guiTop + 29 + l * 18, 0, 180, 162, 18);
@@ -73,5 +73,13 @@ public class GOTGuiPouch extends GuiContainer {
 	public void updateScreen() {
 		super.updateScreen();
 		theGuiTextField.updateCursorCounter();
+	}
+
+	public static ResourceLocation getTexture() {
+		return texture;
+	}
+
+	public static void setTexture(ResourceLocation texture) {
+		GOTGuiPouch.texture = texture;
 	}
 }

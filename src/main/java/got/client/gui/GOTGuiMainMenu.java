@@ -16,28 +16,27 @@ import net.minecraft.util.*;
 import net.minecraftforge.client.ForgeHooksClient;
 
 public class GOTGuiMainMenu extends GuiMainMenu {
-	public static ResourceLocation titleTexture = new ResourceLocation("textures/gui/title/minecraft.png");
-	public static ResourceLocation vignetteTexture = new ResourceLocation("textures/misc/vignette.png");
-	public static ResourceLocation menuOverlay = new ResourceLocation("got:textures/gui/menu_overlay.png");
-	public static GOTGuiRendererMap mapRenderer;
-	public static int tickCounter;
-	public static Random rand;
-	public static boolean isFirstMenu;
-	public static List<GOTWaypoint> waypointRoute;
-	public static int currentWPIndex;
-	public static boolean randomWPStart;
-	public static float mapSpeed;
-	public static float mapVelX;
-	public static float mapVelY;
+	private static ResourceLocation titleTexture = new ResourceLocation("textures/gui/title/minecraft.png");
+	private static ResourceLocation menuOverlay = new ResourceLocation("got:textures/gui/menu_overlay.png");
+	private static GOTGuiRendererMap mapRenderer;
+	private static int tickCounter;
+	private static Random rand;
+	private static boolean isFirstMenu;
+	private static List<GOTWaypoint> waypointRoute;
+	private static int currentWPIndex;
+	private static boolean randomWPStart;
+	private static float mapSpeed;
+	private static float mapVelX;
+	private static float mapVelY;
 	static {
 		rand = new Random();
 		isFirstMenu = true;
 		waypointRoute = new ArrayList<>();
 		randomWPStart = false;
 	}
-	public GOTGuiMap mapGui;
-	public boolean fadeIn = isFirstMenu;
-	public long firstRenderTime;
+	private GOTGuiMap mapGui;
+	private boolean fadeIn = isFirstMenu;
+	private long firstRenderTime;
 
 	public GOTGuiMainMenu() {
 		isFirstMenu = false;
@@ -49,8 +48,8 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 			currentWPIndex = randomWPStart ? rand.nextInt(waypointRoute.size()) : 0;
 		}
 		GOTWaypoint wp = waypointRoute.get(currentWPIndex);
-		GOTGuiMainMenu.mapRenderer.prevMapX = GOTGuiMainMenu.mapRenderer.mapX = wp.getX();
-		GOTGuiMainMenu.mapRenderer.prevMapY = GOTGuiMainMenu.mapRenderer.mapY = wp.getY();
+		GOTGuiMainMenu.mapRenderer.setPrevMapX(GOTGuiMainMenu.mapRenderer.setMapX(wp.getX()));
+		GOTGuiMainMenu.mapRenderer.setPrevMapY(GOTGuiMainMenu.mapRenderer.setMapY(wp.getY()));
 	}
 
 	@Override
@@ -63,13 +62,13 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 		}
 		float fade = fadeIn ? (System.currentTimeMillis() - firstRenderTime) / 1000.0f : 1.0f;
 		float fadeAlpha = fadeIn ? MathHelper.clamp_float(fade - 1.0f, 0.0f, 1.0f) : 1.0f;
-		GOTGuiMainMenu.mapRenderer.zoomExp = -0.1f + MathHelper.cos((tickCounter + f) * 0.003f) * 0.8f;
+		GOTGuiMainMenu.mapRenderer.setZoomExp(-0.1f + MathHelper.cos((tickCounter + f) * 0.003f) * 0.8f);
 		if (fadeIn) {
 			float slowerFade = fade * 0.5f;
 			float fadeInZoom = MathHelper.clamp_float(1.0f - slowerFade, 0.0f, 1.0f) * -1.5f;
-			GOTGuiMainMenu.mapRenderer.zoomExp += fadeInZoom;
+			GOTGuiMainMenu.mapRenderer.setZoomExp(GOTGuiMainMenu.mapRenderer.getZoomExp() + fadeInZoom);
 		}
-		GOTGuiMainMenu.mapRenderer.zoomStable = (float) Math.pow(2.0, -0.10000000149011612);
+		GOTGuiMainMenu.mapRenderer.setZoomStable((float) Math.pow(2.0, -0.10000000149011612));
 		mapRenderer.renderMap(this, mapGui, f);
 		mapRenderer.renderVignettes(this, zLevel, 2);
 		GL11.glEnable(3042);
@@ -159,8 +158,8 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 		++tickCounter;
 		mapRenderer.updateTick();
 		GOTWaypoint wp = waypointRoute.get(currentWPIndex);
-		float dx = wp.getX() - GOTGuiMainMenu.mapRenderer.mapX;
-		float dy = wp.getY() - GOTGuiMainMenu.mapRenderer.mapY;
+		float dx = wp.getX() - GOTGuiMainMenu.mapRenderer.getMapX();
+		float dy = wp.getY() - GOTGuiMainMenu.mapRenderer.getMapY();
 		float distSq = dx * dx + dy * dy;
 		float dist = (float) Math.sqrt(distSq);
 		if (dist <= 12.0f) {
@@ -176,8 +175,8 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 			mapVelX += (vXNew - mapVelX) * a;
 			mapVelY += (vYNew - mapVelY) * a;
 		}
-		GOTGuiMainMenu.mapRenderer.mapX += mapVelX;
-		GOTGuiMainMenu.mapRenderer.mapY += mapVelY;
+		GOTGuiMainMenu.mapRenderer.setMapX(GOTGuiMainMenu.mapRenderer.getMapX() + mapVelX);
+		GOTGuiMainMenu.mapRenderer.setMapY(GOTGuiMainMenu.mapRenderer.getMapY() + mapVelY);
 	}
 
 	public static void setupWaypoints() {

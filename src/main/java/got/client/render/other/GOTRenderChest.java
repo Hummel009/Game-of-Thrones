@@ -14,9 +14,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderChest extends TileEntitySpecialRenderer {
-	public static Map<String, ResourceLocation> chestTextures = new HashMap<>();
-	public static ModelChest chestModel = new ModelChest();
-	public GOTTileEntityChest itemEntity = new GOTTileEntityChest();
+	private static Map<String, ResourceLocation> chestTextures = new HashMap<>();
+	private static ModelChest chestModel = new ModelChest();
+	private GOTTileEntityChest itemEntity = new GOTTileEntityChest();
 
 	public void renderInvChest(Block block, int meta) {
 		Block c;
@@ -82,7 +82,7 @@ public class GOTRenderChest extends TileEntitySpecialRenderer {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 	}
 
-	public static ResourceLocation getChestTexture(String s) {
+	private static ResourceLocation getChestTexture(String s) {
 		ResourceLocation r = chestTextures.get(s);
 		if (r == null) {
 			r = new ResourceLocation("got:textures/model/chest/" + s + ".png");

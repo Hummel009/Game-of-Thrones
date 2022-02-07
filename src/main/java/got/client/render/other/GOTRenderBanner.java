@@ -18,10 +18,10 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.*;
 
 public class GOTRenderBanner extends Render {
-	public static Map<GOTItemBanner.BannerType, ResourceLocation> bannerTextures = new HashMap<>();
-	public static ResourceLocation standTexture = new ResourceLocation("got:textures/banner/stand.png");
-	public static GOTModelBanner model = new GOTModelBanner();
-	public static Frustrum bannerFrustum = new Frustrum();
+	private static Map<GOTItemBanner.BannerType, ResourceLocation> bannerTextures = new HashMap<>();
+	private static ResourceLocation standTexture = new ResourceLocation("got:textures/banner/stand.png");
+	private static GOTModelBanner model = new GOTModelBanner();
+	private static Frustrum bannerFrustum = new Frustrum();
 
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
@@ -92,7 +92,7 @@ public class GOTRenderBanner extends Render {
 		}
 	}
 
-	public ResourceLocation getBannerTexture(Entity entity) {
+	private ResourceLocation getBannerTexture(Entity entity) {
 		GOTEntityBanner banner = (GOTEntityBanner) entity;
 		return GOTRenderBanner.getBannerTexture(banner.getBannerType());
 	}
@@ -102,7 +102,7 @@ public class GOTRenderBanner extends Render {
 		return this.getStandTexture(entity);
 	}
 
-	public ResourceLocation getStandTexture(Entity entity) {
+	private ResourceLocation getStandTexture(Entity entity) {
 		GOTEntityBanner banner = (GOTEntityBanner) entity;
 		return GOTRenderBanner.getStandTexture(banner.getBannerType());
 	}

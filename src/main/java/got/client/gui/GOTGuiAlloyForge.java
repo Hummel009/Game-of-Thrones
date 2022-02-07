@@ -9,8 +9,8 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.*;
 
 public class GOTGuiAlloyForge extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/forge.png");
-	public GOTTileEntityAlloyForge theForge;
+	private static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/forge.png");
+	private GOTTileEntityAlloyForge theForge;
 
 	public GOTGuiAlloyForge(InventoryPlayer inv, GOTTileEntityAlloyForge forge) {
 		super(new GOTContainerAlloyForge(inv, forge));

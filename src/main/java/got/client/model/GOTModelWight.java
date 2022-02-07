@@ -8,7 +8,7 @@ public class GOTModelWight extends GOTModelBiped {
 		this(0.0f);
 	}
 
-	public GOTModelWight(float f) {
+	private GOTModelWight(float f) {
 		super(f);
 		textureWidth = 64;
 		textureHeight = 64;

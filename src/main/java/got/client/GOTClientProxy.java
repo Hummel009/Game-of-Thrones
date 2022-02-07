@@ -467,8 +467,8 @@ public class GOTClientProxy extends GOTCommonProxy {
 		customEffectRenderer = new GOTEffectRenderer(Minecraft.getMinecraft());
 		GOTTextures.onInit();
 		GOTRender.onInit();
-		for (Class cl : GOTRender.renders.keySet()) {
-			RenderingRegistry.registerEntityRenderingHandler(cl, GOTRender.renders.get(cl));
+		for (Class cl : GOTRender.getRenders().keySet()) {
+			RenderingRegistry.registerEntityRenderingHandler(cl, GOTRender.getRenders().get(cl));
 		}
 		beaconRenderID = RenderingRegistry.getNextAvailableRenderId();
 		barrelRenderID = RenderingRegistry.getNextAvailableRenderId();
@@ -660,7 +660,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 		GuiScreen gui = mc.currentScreen;
 		if (gui instanceof GOTGuiMap) {
 			GOTGuiMap map = (GOTGuiMap) gui;
-			map.isPlayerOp = isOp;
+			map.setPlayerOp(isOp);
 		}
 	}
 
@@ -671,9 +671,9 @@ public class GOTClientProxy extends GOTCommonProxy {
 
 	@Override
 	public void setWaypointModes(boolean showWP, boolean showCWP, boolean showHiddenSWP) {
-		GOTGuiMap.showWP = showWP;
-		GOTGuiMap.showCWP = showCWP;
-		GOTGuiMap.showHiddenSWP = showHiddenSWP;
+		GOTGuiMap.setShowWP(showWP);
+		GOTGuiMap.setShowCWP(showCWP);
+		GOTGuiMap.setShowHiddenSWP(showHiddenSWP);
 	}
 
 	@Override
@@ -784,7 +784,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 		GuiScreen gui = mc.currentScreen;
 		if (gui instanceof GOTGuiBanner) {
 			GOTGuiBanner guiBanner = (GOTGuiBanner) gui;
-			if (guiBanner.theBanner.equals(banner)) {
+			if (guiBanner.getTheBanner().equals(banner)) {
 				guiBanner.validateUsername(slot, prevText, valid);
 			}
 		}
@@ -835,9 +835,9 @@ public class GOTClientProxy extends GOTCommonProxy {
 	}
 
 	public static void sendClientInfoPacket(GOTFaction viewingFaction, Map<GOTDimension.DimensionRegion, GOTFaction> changedRegionMap) {
-		boolean showWP = GOTGuiMap.showWP;
-		boolean showCWP = GOTGuiMap.showCWP;
-		boolean showHiddenSWP = GOTGuiMap.showHiddenSWP;
+		boolean showWP = GOTGuiMap.isShowWP();
+		boolean showCWP = GOTGuiMap.isShowCWP();
+		boolean showHiddenSWP = GOTGuiMap.isShowHiddenSWP();
 		GOTPacketClientInfo packet = new GOTPacketClientInfo(viewingFaction, changedRegionMap, showWP, showCWP, showHiddenSWP);
 		GOTPacketHandler.networkWrapper.sendToServer(packet);
 	}

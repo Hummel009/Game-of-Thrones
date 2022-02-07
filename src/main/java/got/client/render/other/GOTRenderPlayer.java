@@ -14,7 +14,6 @@ import got.common.fellowship.GOTFellowshipClient;
 import got.common.world.GOTWorldProvider;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.*;
@@ -22,10 +21,9 @@ import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.common.MinecraftForge;
 
 public class GOTRenderPlayer {
-	public Minecraft mc = Minecraft.getMinecraft();
-	public RenderManager renderManager = RenderManager.instance;
-	public ModelBiped playerModel = new ModelBiped(0.0f);
-
+	private Minecraft mc = Minecraft.getMinecraft();
+	private RenderManager renderManager = RenderManager.instance;
+	
 	public GOTRenderPlayer() {
 		FMLCommonHandler.instance().bus().register(this);
 		MinecraftForge.EVENT_BUS.register(this);
@@ -176,7 +174,7 @@ public class GOTRenderPlayer {
 		}
 	}
 
-	public boolean shouldRenderAlignment(EntityPlayer entityplayer) {
+	private boolean shouldRenderAlignment(EntityPlayer entityplayer) {
 		if (GOTConfig.displayAlignmentAboveHead && shouldRenderPlayerHUD(entityplayer)) {
 			if (GOTLevelData.getData(entityplayer).getHideAlignment()) {
 				String playerName = entityplayer.getCommandSenderName();
@@ -194,7 +192,7 @@ public class GOTRenderPlayer {
 		return false;
 	}
 
-	public boolean shouldRenderFellowPlayerHealth(EntityPlayer entityplayer) {
+	private boolean shouldRenderFellowPlayerHealth(EntityPlayer entityplayer) {
 		if (GOTConfig.fellowPlayerHealthBars && shouldRenderPlayerHUD(entityplayer)) {
 			List<GOTFellowshipClient> fellowships = GOTLevelData.getData(mc.thePlayer).getClientFellowships();
 			for (GOTFellowshipClient fs : fellowships) {
@@ -207,7 +205,7 @@ public class GOTRenderPlayer {
 		return false;
 	}
 
-	public boolean shouldRenderPlayerHUD(EntityPlayer entityplayer) {
+	private boolean shouldRenderPlayerHUD(EntityPlayer entityplayer) {
 		if (Minecraft.isGuiEnabled()) {
 			return entityplayer != renderManager.livingPlayer && !entityplayer.isSneaking() && !entityplayer.isInvisibleToPlayer(mc.thePlayer);
 		}

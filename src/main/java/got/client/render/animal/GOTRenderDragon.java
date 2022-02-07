@@ -13,12 +13,12 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.*;
 
 public class GOTRenderDragon extends RenderLiving {
-	public static boolean updateModel;
-	public Map<GOTDragonBreed, GOTModelDragon> stages = new HashMap<>();
-	public ResourceLocation dissolve = new ResourceLocation("got:textures/entity/animal/dragon/dissolve.png");
-	public ResourceLocation eggTexture = new ResourceLocation("got:textures/entity/animal/dragon/egg.obj");
-	public IModelCustom egg = AdvancedModelLoader.loadModel(eggTexture);
-	public GOTModelDragon model;
+	private static boolean updateModel;
+	private Map<GOTDragonBreed, GOTModelDragon> stages = new HashMap<>();
+	private ResourceLocation dissolve = new ResourceLocation("got:textures/entity/animal/dragon/dissolve.png");
+	private ResourceLocation eggTexture = new ResourceLocation("got:textures/entity/animal/dragon/egg.obj");
+	private IModelCustom egg = AdvancedModelLoader.loadModel(eggTexture);
+	private GOTModelDragon model;
 
 	public GOTRenderDragon() {
 		super(null, 2);
@@ -45,8 +45,8 @@ public class GOTRenderDragon extends RenderLiving {
 		return getEntityTexture((GOTEntityDragon) entity);
 	}
 
-	public ResourceLocation getEntityTexture(GOTEntityDragon dragon) {
-		return model.bodyTexture;
+	private ResourceLocation getEntityTexture(GOTEntityDragon dragon) {
+		return model.getBodyTexture();
 	}
 
 	public void initBreedModels() {
@@ -101,7 +101,7 @@ public class GOTRenderDragon extends RenderLiving {
 	}
 
 	public void renderModel(GOTEntityDragon dragon, float moveTime, float moveSpeed, float ticksExisted, float lookYaw, float lookPitch, float scale) {
-		model.renderPass = -1;
+		model.setRenderPass(-1);
 		if (dragon.getDeathTime() > 0) {
 			float alpha = dragon.getDeathTime() / (float) dragon.getMaxDeathTime();
 			glDepthFunc(GL_LEQUAL);
@@ -133,20 +133,20 @@ public class GOTRenderDragon extends RenderLiving {
 		return shouldRenderPass((GOTEntityDragon) entity, pass, scale);
 	}
 
-	public int shouldRenderPass(GOTEntityDragon dragon, int pass, float scale) {
+	private int shouldRenderPass(GOTEntityDragon dragon, int pass, float scale) {
 		if (pass == 0 && updateModel && dragon.ticksExisted % 20 == 0) {
 			initBreedModels();
 		}
-		model.renderPass = pass;
+		model.setRenderPass(pass);
 		switch (pass) {
 		case 0:
 			if (dragon.isSaddled()) {
-				bindTexture(model.saddleTexture);
+				bindTexture(model.getSaddleTexture());
 				return 1;
 			}
 			break;
 		case 1:
-			bindTexture(model.glowTexture);
+			bindTexture(model.getGlowTexture());
 			glEnable(GL_BLEND);
 			glBlendFunc(GL_ONE, GL_ONE);
 			glDisable(GL_LIGHTING);

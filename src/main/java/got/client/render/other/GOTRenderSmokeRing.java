@@ -13,7 +13,7 @@ import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderSmokeRing extends Render {
-	public ModelBase magicShipModel = new GOTModelSmokeShip();
+	private ModelBase magicShipModel = new GOTModelSmokeShip();
 
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {

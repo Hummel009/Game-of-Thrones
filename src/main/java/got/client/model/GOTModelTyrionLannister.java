@@ -7,7 +7,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 public class GOTModelTyrionLannister extends GOTModelBiped {
-	public ModelRenderer bipedChest;
+	private ModelRenderer bipedChest;
 
 	public GOTModelTyrionLannister() {
 		this(0.0f);
@@ -17,7 +17,7 @@ public class GOTModelTyrionLannister extends GOTModelBiped {
 		this(f, 64, f == 0.0f ? 64 : 32);
 	}
 
-	public GOTModelTyrionLannister(float f, int width, int height) {
+	private GOTModelTyrionLannister(float f, int width, int height) {
 		super(f, 0.0f, width, height);
 		boolean isArmor = height == 32;
 		bipedChest = new ModelRenderer(this, 24, 0);

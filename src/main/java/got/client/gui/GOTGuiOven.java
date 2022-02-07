@@ -9,8 +9,8 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.*;
 
 public class GOTGuiOven extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/oven.png");
-	public GOTTileEntityOven theOven;
+	private static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/oven.png");
+	private GOTTileEntityOven theOven;
 
 	public GOTGuiOven(InventoryPlayer inv, GOTTileEntityOven oven) {
 		super(new GOTContainerOven(inv, oven));

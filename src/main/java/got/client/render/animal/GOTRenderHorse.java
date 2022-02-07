@@ -14,7 +14,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderHorse extends RenderHorse {
-	public static Map<String, ResourceLocation> layeredMountTextures = new HashMap<>();
+	private static Map<String, ResourceLocation> layeredMountTextures = new HashMap<>();
 
 	public GOTRenderHorse() {
 		super(new ModelHorse(), 0.75f);

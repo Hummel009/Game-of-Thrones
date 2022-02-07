@@ -19,9 +19,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTModelPlateHead extends GOTModelHuman {
-	public RenderBlocks blockRenderer = new RenderBlocks();
-	public GOTTileEntityPlate plateTE = new GOTTileEntityPlate();
-	public Block plateBlock;
+	private RenderBlocks blockRenderer = new RenderBlocks();
+	private GOTTileEntityPlate plateTE = new GOTTileEntityPlate();
+	private Block plateBlock;
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {

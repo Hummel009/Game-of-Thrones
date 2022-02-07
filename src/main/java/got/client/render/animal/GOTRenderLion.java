@@ -9,8 +9,8 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderLion extends RenderLiving {
-	public static ResourceLocation textureLion = new ResourceLocation("got:textures/entity/animal/lion/lion.png");
-	public static ResourceLocation textureLioness = new ResourceLocation("got:textures/entity/animal/lion/lioness.png");
+	private static ResourceLocation textureLion = new ResourceLocation("got:textures/entity/animal/lion/lion.png");
+	private static ResourceLocation textureLioness = new ResourceLocation("got:textures/entity/animal/lion/lioness.png");
 
 	public GOTRenderLion() {
 		super(new GOTModelLion(), 0.5f);
@@ -19,7 +19,7 @@ public class GOTRenderLion extends RenderLiving {
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
 		GOTEntityLionBase lion = (GOTEntityLionBase) entity;
-		return lion instanceof GOTEntityLioness ? textureLioness : textureLion;
+		return lion instanceof GOTEntityLioness ? getTextureLioness() : getTextureLion();
 	}
 
 	@Override
@@ -31,5 +31,21 @@ public class GOTRenderLion extends RenderLiving {
 		} else {
 			GL11.glScalef(1.0f, 1.0f, 1.0f);
 		}
+	}
+
+	public static ResourceLocation getTextureLion() {
+		return textureLion;
+	}
+
+	public static void setTextureLion(ResourceLocation textureLion) {
+		GOTRenderLion.textureLion = textureLion;
+	}
+
+	public static ResourceLocation getTextureLioness() {
+		return textureLioness;
+	}
+
+	public static void setTextureLioness(ResourceLocation textureLioness) {
+		GOTRenderLion.textureLioness = textureLioness;
 	}
 }

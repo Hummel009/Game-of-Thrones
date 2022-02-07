@@ -5,21 +5,18 @@ import org.lwjgl.opengl.GL11;
 import got.common.GOTSquadrons;
 import got.common.network.*;
 import net.minecraft.client.gui.*;
-import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 
 public class GOTGuiSquadronItem extends GOTGuiScreenBase {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/squadronItem.png");
-	public static RenderItem itemRenderer = new RenderItem();
-	public int xSize = 200;
-	public int ySize = 120;
-	public int guiLeft;
-	public int guiTop;
-	public GuiButton buttonDone;
-	public GuiTextField squadronNameField;
-	public ItemStack theItem;
-	public boolean sendSquadronUpdate = false;
+	private static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/squadronItem.png");
+	private int xSize = 200;
+	private int ySize = 120;
+	private int guiLeft;
+	private int guiTop;
+	private GuiButton buttonDone;
+	private GuiTextField squadronNameField;
+	private ItemStack theItem;
 
 	@Override
 	public void actionPerformed(GuiButton button) {

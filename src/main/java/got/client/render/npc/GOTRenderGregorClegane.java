@@ -12,10 +12,10 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderGregorClegane extends GOTRenderBiped {
-	public static ResourceLocation armor = new ResourceLocation("got:textures/entity/legendary/gregor_clegane_3.png");
-	public ModelBiped model = new GOTModelHuman(0.6f, false);
+	private static ResourceLocation armor = new ResourceLocation("got:textures/entity/legendary/gregor_clegane_3.png");
+	private ModelBiped model = new GOTModelHuman(0.6f, false);
 
-	public GOTRenderGregorClegane() {
+	private GOTRenderGregorClegane() {
 		super(new GOTModelHuman(), 0.5f);
 	}
 

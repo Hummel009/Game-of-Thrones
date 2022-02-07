@@ -10,15 +10,15 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.*;
 
 public class GOTGuiMessage extends GOTGuiScreenBase {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/message.png");
-	public GOTGuiMessageTypes type;
-	public int xSize = 240;
-	public int ySize = 160;
-	public int border = 10;
-	public int guiLeft;
-	public int guiTop;
-	public GuiButton buttonDismiss;
-	public int buttonTimer = 60;
+	private static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/message.png");
+	private GOTGuiMessageTypes type;
+	private int xSize = 240;
+	private int ySize = 160;
+	private int border = 10;
+	private int guiLeft;
+	private int guiTop;
+	private GuiButton buttonDismiss;
+	private int buttonTimer = 60;
 
 	public GOTGuiMessage(GOTGuiMessageTypes t) {
 		type = t;

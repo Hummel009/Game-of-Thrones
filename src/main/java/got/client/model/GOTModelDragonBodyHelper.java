@@ -5,10 +5,10 @@ import net.minecraft.entity.EntityBodyHelper;
 
 public class GOTModelDragonBodyHelper extends EntityBodyHelper {
 
-	public GOTEntityDragon dragon;
-	public int turnTicks;
-	public int turnTicksLimit = 20;
-	public float prevRotationYawHead;
+	private GOTEntityDragon dragon;
+	private int turnTicks;
+	private int turnTicksLimit = 20;
+	private float prevRotationYawHead;
 
 	public GOTModelDragonBodyHelper(GOTEntityDragon dragon) {
 		super(dragon);

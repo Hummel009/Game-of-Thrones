@@ -550,7 +550,7 @@ public class GOTTickHandlerClient {
 			}
 			GOTClientProxy.musicHandler.update();
 			if (GOTConfig.displayMusicTrack) {
-				GOTMusicTrack nowPlaying = GOTMusicTicker.currentTrack;
+				GOTMusicTrack nowPlaying = GOTMusicTicker.getCurrentTrack();
 				if (nowPlaying != lastTrack) {
 					lastTrack = nowPlaying;
 					musicTrackTick = 200;
@@ -931,7 +931,7 @@ public class GOTTickHandlerClient {
 						GL11.glTranslatef(compassX, compassY, 0.0f);
 						float rotation = entityplayer.prevRotationYaw + (entityplayer.rotationYaw - entityplayer.prevRotationYaw) * event.renderTickTime;
 						rotation = 180.0f - rotation;
-						GOTModelCompass.compassModel.render(1.0f, rotation);
+						GOTModelCompass.getCompassModel().render(1.0f, rotation);
 						GL11.glPopMatrix();
 						if (GOTConfig.compassExtraInfo) {
 							BiomeGenBase biome;

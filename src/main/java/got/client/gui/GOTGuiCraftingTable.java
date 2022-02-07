@@ -13,12 +13,12 @@ import net.minecraft.util.*;
 import net.minecraft.world.World;
 
 public abstract class GOTGuiCraftingTable extends GuiContainer {
-	public static ResourceLocation craftingTexture = new ResourceLocation("textures/gui/container/crafting_table.png");
-	public String unlocalizedName;
-	public GOTContainerCraftingTable container;
-	public GuiButton tableSwitcher;
+	private static ResourceLocation craftingTexture = new ResourceLocation("textures/gui/container/crafting_table.png");
+	private String unlocalizedName;
+	private GOTContainerCraftingTable container;
+	private GuiButton tableSwitcher;
 
-	public GOTGuiCraftingTable(GOTContainerCraftingTable container, String s) {
+	private GOTGuiCraftingTable(GOTContainerCraftingTable container, String s) {
 		super(container);
 		this.container = container;
 		unlocalizedName = s;

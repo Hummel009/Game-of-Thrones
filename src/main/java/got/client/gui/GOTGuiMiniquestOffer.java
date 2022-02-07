@@ -16,33 +16,33 @@ import net.minecraft.client.renderer.entity.*;
 import net.minecraft.util.*;
 
 public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/quest/miniquest.png");
-	public static RenderItem renderItem = new RenderItem();
-	public GOTMiniQuest theMiniQuest;
-	public GOTEntityNPC theNPC;
-	public String description;
-	public Random rand;
-	public int openTick;
-	public int xSize = 256;
-	public int ySize = 200;
-	public int guiLeft;
-	public int guiTop;
-	public int descriptionX = 85;
-	public int descriptionY = 30;
-	public int descriptionWidth = 160;
-	public int npcX = 46;
-	public int npcY = 90;
-	public GuiButton buttonAccept;
-	public GuiButton buttonDecline;
-	public boolean sentClosePacket = false;
-	public NPCAction npcAction;
-	public int actionTick = 0;
-	public int actionTime;
-	public float actionSlow;
-	public float headYaw;
-	public float prevHeadYaw;
-	public float headPitch;
-	public float prevHeadPitch;
+	private static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/quest/miniquest.png");
+	private static RenderItem renderItem = new RenderItem();
+	private GOTMiniQuest theMiniQuest;
+	private GOTEntityNPC theNPC;
+	private String description;
+	private Random rand;
+	private int openTick;
+	private int xSize = 256;
+	private int ySize = 200;
+	private int guiLeft;
+	private int guiTop;
+	private int descriptionX = 85;
+	private int descriptionY = 30;
+	private int descriptionWidth = 160;
+	private int npcX = 46;
+	private int npcY = 90;
+	private GuiButton buttonAccept;
+	private GuiButton buttonDecline;
+	private boolean sentClosePacket = false;
+	private NPCAction npcAction;
+	private int actionTick = 0;
+	private int actionTime;
+	private float actionSlow;
+	private float headYaw;
+	private float prevHeadYaw;
+	private float headPitch;
+	private float prevHeadPitch;
 
 	public GOTGuiMiniquestOffer(GOTMiniQuest quest, GOTEntityNPC npc) {
 		theMiniQuest = quest;
@@ -121,7 +121,7 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 		}
 	}
 
-	public boolean recursiveCheckForModel(ModelRenderer base, ModelRenderer match) {
+	private boolean recursiveCheckForModel(ModelRenderer base, ModelRenderer match) {
 		if (base == match) {
 			return true;
 		}
@@ -183,7 +183,7 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 				if (shouldRenderPass <= 0) {
 					continue;
 				}
-				model = npcRenderer.npcRenderPassModel;
+				model = npcRenderer.getNpcRenderPassModel();
 				model.isChild = theNPC.isChild();
 				List modelParts = model.boxList;
 				boolean[] prevShowModels = new boolean[modelParts.size()];
@@ -286,18 +286,18 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 	public enum NPCAction {
 		TALKING(1.0f), SHAKING(0.1f), LOOKING(0.3f), LOOKING_UP(0.4f);
 
-		public static float totalWeight;
+		private static float totalWeight;
 		static {
 			totalWeight = -1.0f;
 		}
 
-		public float weight;
+		private float weight;
 
 		NPCAction(float f) {
 			weight = f;
 		}
 
-		public static NPCAction getRandomAction(Random rand) {
+		private static NPCAction getRandomAction(Random rand) {
 			if (totalWeight <= 0.0f) {
 				totalWeight = 0.0f;
 				for (NPCAction action : NPCAction.values()) {

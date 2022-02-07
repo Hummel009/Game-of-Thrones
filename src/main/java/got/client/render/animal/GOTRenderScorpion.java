@@ -9,8 +9,8 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderScorpion extends RenderLiving {
-	public static ResourceLocation jungleTexture = new ResourceLocation("got:textures/entity/animal/scorpion/jungle.png");
-	public static ResourceLocation desertTexture = new ResourceLocation("got:textures/entity/animal/scorpion/desert.png");
+	private static ResourceLocation jungleTexture = new ResourceLocation("got:textures/entity/animal/scorpion/jungle.png");
+	private static ResourceLocation desertTexture = new ResourceLocation("got:textures/entity/animal/scorpion/desert.png");
 
 	public GOTRenderScorpion() {
 		super(new GOTModelScorpion(), 1.0f);

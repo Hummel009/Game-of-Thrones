@@ -3,14 +3,10 @@ package got.client.model;
 import net.minecraft.client.model.ModelRenderer;
 
 public class GOTModelSandorHelmet extends GOTModelBiped {
-	public ModelRenderer panelRight;
-	public ModelRenderer panelLeft;
-	public ModelRenderer panelBack;
-	public ModelRenderer panelTop;
-
-	public GOTModelSandorHelmet() {
-		this(0.0f);
-	}
+	private ModelRenderer panelRight;
+	private ModelRenderer panelLeft;
+	private ModelRenderer panelBack;
+	private ModelRenderer panelTop;
 
 	public GOTModelSandorHelmet(float f) {
 		super(f);

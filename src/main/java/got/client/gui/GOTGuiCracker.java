@@ -9,9 +9,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.*;
 
 public class GOTGuiCracker extends GuiContainer {
-	public static ResourceLocation texture = new ResourceLocation("got:textures/gui/cracker.png");
-	public GOTContainerCracker theCracker;
-	public GuiButton buttonSeal;
+	private static ResourceLocation texture = new ResourceLocation("got:textures/gui/cracker.png");
+	private GOTContainerCracker theCracker;
+	private GuiButton buttonSeal;
 
 	public GOTGuiCracker(EntityPlayer entityplayer) {
 		super(new GOTContainerCracker(entityplayer));

@@ -10,8 +10,8 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderBoar extends RenderLiving {
-	public static ResourceLocation boarSkin = new ResourceLocation("got:textures/entity/animal/boar/boar.png");
-	public static ResourceLocation saddleTexture = new ResourceLocation("got:textures/entity/animal/boar/saddle.png");
+	private static ResourceLocation boarSkin = new ResourceLocation("got:textures/entity/animal/boar/boar.png");
+	private static ResourceLocation saddleTexture = new ResourceLocation("got:textures/entity/animal/boar/saddle.png");
 
 	public GOTRenderBoar() {
 		super(new GOTModelBoar(), 0.7f);
@@ -55,7 +55,7 @@ public class GOTRenderBoar extends RenderLiving {
 		return super.shouldRenderPass(entity, pass, f);
 	}
 
-	public static boolean isRobert(GOTEntityBoar boar) {
+	private static boolean isRobert(GOTEntityBoar boar) {
 		return boar.hasCustomNameTag() && "robert".equalsIgnoreCase(boar.getCustomNameTag());
 	}
 }

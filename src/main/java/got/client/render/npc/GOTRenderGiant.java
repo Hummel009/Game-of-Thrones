@@ -12,12 +12,12 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderGiant extends RenderLiving {
-	public ResourceLocation weaponsTexture = new ResourceLocation("got:textures/entity/westeros/giant/weapons.png");
-	public GOTModelGiant shirtModel = new GOTModelGiant(1.0f, 0);
-	public GOTModelGiant trousersModel = new GOTModelGiant(0.75f, 1);
-	public GOTEntityThrownRock heldRock;
+	private ResourceLocation weaponsTexture = new ResourceLocation("got:textures/entity/westeros/giant/weapons.png");
+	private GOTModelGiant shirtModel = new GOTModelGiant(1.0f, 0);
+	private GOTModelGiant trousersModel = new GOTModelGiant(0.75f, 1);
+	private GOTEntityThrownRock heldRock;
 
-	public String type;
+	private String type;
 
 	public GOTRenderGiant(String texture) {
 		super(new GOTModelGiant(), 0.5f);
@@ -64,7 +64,7 @@ public class GOTRenderGiant extends RenderLiving {
 				}
 				heldRock.setWorld(giant.worldObj);
 				heldRock.setPosition(giant.posX, giant.posY, giant.posZ);
-				((GOTModelGiant) mainModel).rightArm.postRender(0.0625f);
+				((GOTModelGiant) mainModel).getRightArm().postRender(0.0625f);
 				GL11.glTranslatef(0.375f, 1.5f, 0.0f);
 				GL11.glRotatef(45.0f, 0.0f, 1.0f, 0.0f);
 				scalegiant(giant, true);

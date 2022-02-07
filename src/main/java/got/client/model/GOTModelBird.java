@@ -6,24 +6,24 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelBird extends ModelBase {
-	public ModelRenderer body = new ModelRenderer(this, 0, 7);
-	public ModelRenderer head;
-	public ModelRenderer wingRight;
-	public ModelRenderer wingLeft;
-	public ModelRenderer legRight;
-	public ModelRenderer legLeft;
+	private ModelRenderer body = new ModelRenderer(this, 0, 7);
+	private ModelRenderer head;
+	private ModelRenderer wingRight;
+	private ModelRenderer wingLeft;
+	private ModelRenderer legRight;
+	private ModelRenderer legLeft;
 
 	public GOTModelBird() {
 		body.addBox(-1.5f, -2.0f, -2.0f, 3, 3, 5);
 		body.setTextureOffset(8, 0).addBox(-1.0f, -1.5f, 3.0f, 2, 1, 3);
 		body.setTextureOffset(8, 4).addBox(-1.0f, -0.5f, 3.0f, 2, 1, 2);
 		body.setRotationPoint(0.0f, 21.0f, 0.0f);
-		head = new ModelRenderer(this, 0, 0);
-		head.addBox(-1.0f, -1.5f, -1.5f, 2, 2, 2);
-		head.setTextureOffset(0, 4).addBox(-0.5f, -0.5f, -2.5f, 1, 1, 1);
-		head.setTextureOffset(15, 0).addBox(-0.5f, -0.5f, -3.5f, 1, 1, 2);
-		head.setRotationPoint(0.0f, -2.0f, -2.0f);
-		body.addChild(head);
+		setHead(new ModelRenderer(this, 0, 0));
+		getHead().addBox(-1.0f, -1.5f, -1.5f, 2, 2, 2);
+		getHead().setTextureOffset(0, 4).addBox(-0.5f, -0.5f, -2.5f, 1, 1, 1);
+		getHead().setTextureOffset(15, 0).addBox(-0.5f, -0.5f, -3.5f, 1, 1, 2);
+		getHead().setRotationPoint(0.0f, -2.0f, -2.0f);
+		body.addChild(getHead());
 		wingRight = new ModelRenderer(this, 16, 7);
 		wingRight.addBox(0.0f, 0.0f, -2.0f, 0, 5, 4);
 		wingRight.setRotationPoint(-1.5f, -1.5f, 0.5f);
@@ -44,10 +44,18 @@ public class GOTModelBird extends ModelBase {
 		body.addChild(legLeft);
 	}
 
+	public ModelRenderer getHead() {
+		return head;
+	}
+
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 		body.render(f5);
+	}
+
+	public void setHead(ModelRenderer head) {
+		this.head = head;
 	}
 
 	@Override
@@ -55,7 +63,7 @@ public class GOTModelBird extends ModelBase {
 		GOTEntityBird bird = (GOTEntityBird) entity;
 		if (bird.isBirdStill()) {
 			body.rotateAngleX = (float) Math.toRadians(-10.0);
-			head.rotateAngleX = (float) Math.toRadians(20.0);
+			getHead().rotateAngleX = (float) Math.toRadians(20.0);
 			wingRight.rotateAngleZ = bird.flapTime > 0 ? (float) Math.toRadians(90.0) + MathHelper.cos(f2 * 1.5f) * (float) Math.toRadians(30.0) : (float) Math.toRadians(30.0);
 			wingLeft.rotateAngleZ = -wingRight.rotateAngleZ;
 			legRight.rotateAngleX = legLeft.rotateAngleX = -body.rotateAngleX;
@@ -65,7 +73,7 @@ public class GOTModelBird extends ModelBase {
 			legLeft.rotationPointY = 1.0f;
 		} else {
 			body.rotateAngleX = 0.0f;
-			head.rotateAngleX = 0.0f;
+			getHead().rotateAngleX = 0.0f;
 			wingRight.rotateAngleZ = (float) Math.toRadians(90.0) + MathHelper.cos(f2 * 1.5f) * (float) Math.toRadians(30.0);
 			wingLeft.rotateAngleZ = -wingRight.rotateAngleZ;
 			legLeft.rotateAngleX = 0.0f;

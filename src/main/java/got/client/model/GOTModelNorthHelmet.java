@@ -3,10 +3,6 @@ package got.client.model;
 import net.minecraft.client.model.ModelRenderer;
 
 public class GOTModelNorthHelmet extends GOTModelBiped {
-	public GOTModelNorthHelmet() {
-		this(0.0f);
-	}
-
 	public GOTModelNorthHelmet(float f) {
 		super(f);
 		bipedHead = new ModelRenderer(this, 0, 0);

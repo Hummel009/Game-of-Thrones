@@ -7,7 +7,6 @@ import net.minecraft.entity.*;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelShadowcat extends ModelBase {
-	// fields
 	ModelRenderer head;
 	ModelRenderer snout;
 	ModelRenderer neck;

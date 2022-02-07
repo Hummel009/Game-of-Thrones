@@ -17,13 +17,13 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderCamel extends RenderLiving {
-	public static ResourceLocation camelSkin = new ResourceLocation("got:textures/entity/animal/camel/camel.png");
-	public static ResourceLocation saddleTexture = new ResourceLocation("got:textures/entity/animal/camel/saddle.png");
-	public static ResourceLocation carpetBase = new ResourceLocation("got:textures/entity/animal/camel/carpet_base.png");
-	public static ResourceLocation carpetOverlay = new ResourceLocation("got:textures/entity/animal/camel/carpet_overlay.png");
-	public static Map<String, ResourceLocation> coloredCarpetTextures = new HashMap<>();
-	public GOTModelCamel modelSaddle = new GOTModelCamel(0.5f);
-	public GOTModelCamel modelCarpet = new GOTModelCamel(0.55f);
+	private static ResourceLocation camelSkin = new ResourceLocation("got:textures/entity/animal/camel/camel.png");
+	private static ResourceLocation saddleTexture = new ResourceLocation("got:textures/entity/animal/camel/saddle.png");
+	private static ResourceLocation carpetBase = new ResourceLocation("got:textures/entity/animal/camel/carpet_base.png");
+	private static ResourceLocation carpetOverlay = new ResourceLocation("got:textures/entity/animal/camel/carpet_overlay.png");
+	private static Map<String, ResourceLocation> coloredCarpetTextures = new HashMap<>();
+	private GOTModelCamel modelSaddle = new GOTModelCamel(0.5f);
+	private GOTModelCamel modelCarpet = new GOTModelCamel(0.55f);
 
 	public GOTRenderCamel() {
 		super(new GOTModelCamel(), 0.5f);
@@ -65,7 +65,7 @@ public class GOTRenderCamel extends RenderLiving {
 		return super.shouldRenderPass(entity, pass, f);
 	}
 
-	public static ResourceLocation getColoredCarpetTexture(int carpetRGB) {
+	private static ResourceLocation getColoredCarpetTexture(int carpetRGB) {
 		String path = "got:camel_carpet_0x" + Integer.toHexString(carpetRGB);
 		ResourceLocation res = coloredCarpetTextures.get(path);
 		if (res == null) {

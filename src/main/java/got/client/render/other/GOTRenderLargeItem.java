@@ -18,19 +18,19 @@ import net.minecraft.util.*;
 import net.minecraftforge.client.IItemRenderer;
 
 public class GOTRenderLargeItem implements IItemRenderer {
-	public static Map<String, Float> sizeFolders = new HashMap<>();
+	private static Map<String, Float> sizeFolders = new HashMap<>();
 	static {
 		sizeFolders.put("large", 2.0f);
 		sizeFolders.put("large2", 3.0f);
 	}
-	public Item theItem;
-	public String folderName;
-	public float largeIconScale;
-	public IIcon largeIcon;
+	private Item theItem;
+	private String folderName;
+	private float largeIconScale;
+	private IIcon largeIcon;
 
-	public List<ExtraLargeIconToken> extraTokens = new ArrayList<>();
+	private List<ExtraLargeIconToken> extraTokens = new ArrayList<>();
 
-	public GOTRenderLargeItem(Item item, String dir, float f) {
+	private GOTRenderLargeItem(Item item, String dir, float f) {
 		theItem = item;
 		folderName = dir;
 		largeIconScale = f;
@@ -41,7 +41,7 @@ public class GOTRenderLargeItem implements IItemRenderer {
 		GL11.glScalef(largeIconScale, largeIconScale, 1.0f);
 	}
 
-	public ExtraLargeIconToken extraIcon(String name) {
+	ExtraLargeIconToken extraIcon(String name) {
 		ExtraLargeIconToken token = new ExtraLargeIconToken(name);
 		extraTokens.add(token);
 		return token;
@@ -59,7 +59,7 @@ public class GOTRenderLargeItem implements IItemRenderer {
 		}
 	}
 
-	public IIcon registerLargeIcon(IIconRegister register, String extra) {
+	private IIcon registerLargeIcon(IIconRegister register, String extra) {
 		String prefix = "got:";
 		String itemName = theItem.getUnlocalizedName();
 		itemName = itemName.substring(itemName.indexOf(prefix) + prefix.length());
@@ -132,7 +132,7 @@ public class GOTRenderLargeItem implements IItemRenderer {
 		return false;
 	}
 
-	public static ResourceLocation getLargeTexturePath(Item item, String folder) {
+	private static ResourceLocation getLargeTexturePath(Item item, String folder) {
 		String prefix = "got:";
 		String itemName = item.getUnlocalizedName();
 		itemName = itemName.substring(itemName.indexOf(prefix) + prefix.length());
@@ -157,11 +157,11 @@ public class GOTRenderLargeItem implements IItemRenderer {
 		return null;
 	}
 
-	public static class ExtraLargeIconToken {
-		public String name;
-		public IIcon icon;
+	static class ExtraLargeIconToken {
+		private String name;
+		private IIcon icon;
 
-		public ExtraLargeIconToken(String s) {
+		private ExtraLargeIconToken(String s) {
 			name = s;
 		}
 	}

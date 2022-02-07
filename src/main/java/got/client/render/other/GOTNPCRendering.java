@@ -24,7 +24,7 @@ import net.minecraft.util.*;
 import net.minecraft.world.World;
 
 public class GOTNPCRendering {
-	public static RenderItem itemRenderer = new RenderItem();
+	private static RenderItem itemRenderer = new RenderItem();
 
 	public static void renderAllNPCSpeeches(Minecraft mc, World world, float f) {
 		GL11.glPushMatrix();

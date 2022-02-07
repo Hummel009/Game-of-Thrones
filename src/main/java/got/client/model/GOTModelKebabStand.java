@@ -4,8 +4,8 @@ import net.minecraft.client.model.*;
 import net.minecraft.entity.Entity;
 
 public class GOTModelKebabStand extends ModelBase {
-	public ModelRenderer stand;
-	public ModelRenderer[] kebab;
+	private ModelRenderer stand;
+	private ModelRenderer[] kebab;
 
 	public GOTModelKebabStand() {
 		textureWidth = 64;

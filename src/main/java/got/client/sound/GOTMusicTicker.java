@@ -13,18 +13,15 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTMusicTicker {
-	public static GOTMusicTrack currentTrack;
-	public static boolean wasPlayingMenu;
-	public static int firstTiming = 100;
-	public static int timing;
-	public static int nullTrackResetTiming = 400;
-
+	private static GOTMusicTrack currentTrack;
+	private static boolean wasPlayingMenu;
+	private static int timing;
 	static {
 		wasPlayingMenu = true;
 		timing = 100;
 	}
 
-	public static GOTMusicCategory getCurrentCategory(Minecraft mc, Random rand) {
+	private static GOTMusicCategory getCurrentCategory(Minecraft mc, Random rand) {
 		WorldClient world = mc.theWorld;
 		EntityClientPlayerMP entityplayer = mc.thePlayer;
 		if (world != null && entityplayer != null) {
@@ -40,7 +37,7 @@ public class GOTMusicTicker {
 		return null;
 	}
 
-	public static GOTBiomeMusic.MusicRegion getCurrentRegion(Minecraft mc, Random rand) {
+	private static GOTBiomeMusic.MusicRegion getCurrentRegion(Minecraft mc, Random rand) {
 		int k;
 		int i;
 		BiomeGenBase biome;
@@ -56,12 +53,16 @@ public class GOTMusicTicker {
 		return null;
 	}
 
-	public static GOTMusicTrack getNewTrack(Minecraft mc, Random rand) {
+	public static GOTMusicTrack getCurrentTrack() {
+		return currentTrack;
+	}
+
+	private static GOTMusicTrack getNewTrack(Minecraft mc, Random rand) {
 		GOTBiomeMusic.MusicRegion regionSub = GOTMusicTicker.getCurrentRegion(mc, rand);
 		GOTMusicCategory category = GOTMusicTicker.getCurrentCategory(mc, rand);
 		if (regionSub != null) {
-			GOTBiomeMusic region = regionSub.region;
-			String sub = regionSub.subregion;
+			GOTBiomeMusic region = regionSub.getRegion();
+			String sub = regionSub.getSubregion();
 			GOTTrackSorter.Filter filter = category != null ? GOTTrackSorter.forRegionAndCategory(region, category) : GOTTrackSorter.forAny();
 			GOTRegionTrackPool trackPool = GOTMusic.getTracksForRegion(region, sub);
 			return trackPool.getRandomTrack(rand, filter);
@@ -73,24 +74,28 @@ public class GOTMusicTicker {
 		timing = GOTMusic.isMenuMusic() ? MathHelper.getRandomIntegerInRange(rand, GOTConfig.musicIntervalMenuMin * 20, GOTConfig.musicIntervalMenuMax * 20) : MathHelper.getRandomIntegerInRange(rand, GOTConfig.musicIntervalMin * 20, GOTConfig.musicIntervalMax * 20);
 	}
 
-	public static void update(Random rand) {
+	public static void setCurrentTrack(GOTMusicTrack currentTrack) {
+		GOTMusicTicker.currentTrack = currentTrack;
+	}
+
+	static void update(Random rand) {
 		Minecraft mc = Minecraft.getMinecraft();
 		boolean noMusic = mc.gameSettings.getSoundLevel(SoundCategory.MUSIC) <= 0.0f;
 		boolean menu = GOTMusic.isMenuMusic();
 		if (wasPlayingMenu != menu) {
-			if (currentTrack != null) {
-				mc.getSoundHandler().stopSound(currentTrack);
-				currentTrack = null;
+			if (getCurrentTrack() != null) {
+				mc.getSoundHandler().stopSound(getCurrentTrack());
+				setCurrentTrack(null);
 			}
 			wasPlayingMenu = menu;
 			timing = 100;
 		}
-		if (currentTrack != null) {
+		if (getCurrentTrack() != null) {
 			if (noMusic) {
-				mc.getSoundHandler().stopSound(currentTrack);
+				mc.getSoundHandler().stopSound(getCurrentTrack());
 			}
-			if (!mc.getSoundHandler().isSoundPlaying(currentTrack)) {
-				currentTrack = null;
+			if (!mc.getSoundHandler().isSoundPlaying(getCurrentTrack())) {
+				setCurrentTrack(null);
 				GOTMusicTicker.resetTiming(rand);
 			}
 		}
@@ -101,11 +106,11 @@ public class GOTMusicTicker {
 			} else {
 				update = GOTMusic.isGOTDimension() && !Minecraft.getMinecraft().isGamePaused();
 			}
-			if (update && currentTrack == null && --timing <= 0) {
-				currentTrack = GOTMusicTicker.getNewTrack(mc, rand);
-				if (currentTrack != null) {
+			if (update && getCurrentTrack() == null && --timing <= 0) {
+				setCurrentTrack(GOTMusicTicker.getNewTrack(mc, rand));
+				if (getCurrentTrack() != null) {
 					wasPlayingMenu = menu;
-					mc.getSoundHandler().playSound(currentTrack);
+					mc.getSoundHandler().playSound(getCurrentTrack());
 					timing = Integer.MAX_VALUE;
 				} else {
 					timing = 400;

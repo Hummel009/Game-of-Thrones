@@ -13,7 +13,7 @@ public class GOTGuiTradeButton extends GuiButton {
 	@Override
 	public void drawButton(Minecraft mc, int i, int j) {
 		GL11.glDisable(2896);
-		mc.getTextureManager().bindTexture(GOTGuiTrade.guiTexture);
+		mc.getTextureManager().bindTexture(GOTGuiTrade.getGuiTexture());
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		field_146123_n = i >= xPosition && j >= yPosition && i < xPosition + width && j < yPosition + height;
 		int hoverState = getHoverState(field_146123_n);

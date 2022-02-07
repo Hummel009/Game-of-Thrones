@@ -12,8 +12,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 
 public class GOTGuiButtonTableSwitcher extends GuiButton {
-	public Block table;
-	public RenderItem render = new RenderItem();
+	private Block table;
+	private RenderItem render = new RenderItem();
 
 	public GOTGuiButtonTableSwitcher(int i, int x, int y, String s, Block table) {
 		super(i, x, y, 16, 16, s);

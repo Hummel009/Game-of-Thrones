@@ -14,10 +14,10 @@ public class GOTGuiHiredInteract extends GOTGuiNPCInteract {
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
 			if (button.id == 2) {
-				mc.displayGuiScreen(new GOTGuiHiredDismiss(theEntity));
+				mc.displayGuiScreen(new GOTGuiHiredDismiss(getTheEntity()));
 				return;
 			}
-			GOTPacketHiredUnitInteract packet = new GOTPacketHiredUnitInteract(theEntity.getEntityId(), button.id);
+			GOTPacketHiredUnitInteract packet = new GOTPacketHiredUnitInteract(getTheEntity().getEntityId(), button.id);
 			GOTPacketHandler.networkWrapper.sendToServer(packet);
 		}
 	}
@@ -27,6 +27,6 @@ public class GOTGuiHiredInteract extends GOTGuiNPCInteract {
 		buttonList.add(new GuiButton(0, width / 2 - 65, height / 5 * 3, 60, 20, StatCollector.translateToLocal("got.gui.npc.talk")));
 		buttonList.add(new GuiButton(1, width / 2 + 5, height / 5 * 3, 60, 20, StatCollector.translateToLocal("got.gui.npc.command")));
 		buttonList.add(new GuiButton(2, width / 2 - 65, height / 5 * 3 + 25, 130, 20, StatCollector.translateToLocal("got.gui.npc.dismiss")));
-		((GuiButton) buttonList.get(0)).enabled = theEntity.getSpeechBank(mc.thePlayer) != null;
+		((GuiButton) buttonList.get(0)).enabled = getTheEntity().getSpeechBank(mc.thePlayer) != null;
 	}
 }

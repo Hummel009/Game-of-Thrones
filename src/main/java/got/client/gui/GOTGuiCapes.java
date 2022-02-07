@@ -14,29 +14,29 @@ import net.minecraft.client.renderer.*;
 import net.minecraft.util.*;
 
 public class GOTGuiCapes extends GOTGuiMenuWBBase {
-	public static ModelBiped playerModel = new ModelBiped();
-	public static int currentCapeTypeID;
-	public static int currentCapeID;
+	private static ModelBiped playerModel = new ModelBiped();
+	private static int currentCapeTypeID;
+	private static int currentCapeID;
 	static {
 		GOTGuiCapes.playerModel.isChild = false;
 	}
-	public int modelX;
-	public int modelY;
-	public float modelRotation;
-	public float modelRotationPrev;
-	public int isMouseDown;
-	public int mouseX;
-	public int mouseY;
-	public int prevMouseX;
-	public GOTCapes.CapeType currentCapeType;
-	public GOTCapes currentCape;
-	public GuiButton capeLeft;
-	public GuiButton capeRight;
-	public GuiButton capeSelect;
-	public GuiButton capeRemove;
-	public GuiButton goToShield;
+	private int modelX;
+	private int modelY;
+	private float modelRotation;
+	private float modelRotationPrev;
+	private int isMouseDown;
+	private int mouseX;
+	private int mouseY;
+	private int prevMouseX;
+	private GOTCapes.CapeType currentCapeType;
+	private GOTCapes currentCape;
+	private GuiButton capeLeft;
+	private GuiButton capeRight;
+	private GuiButton capeSelect;
+	private GuiButton capeRemove;
+	private GuiButton goToShield;
 
-	public GuiButton changeCategory;
+	private GuiButton changeCategory;
 
 	public GOTGuiCapes() {
 		modelRotationPrev = modelRotation = -140.0f;
@@ -47,7 +47,7 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 		if (button.enabled) {
 			if (button == capeLeft) {
 				updateCurrentCape(-1, 0);
-			} else if (button.enabled && button == goBack) {
+			} else if (button.enabled && button == getGoBack()) {
 				mc.displayGuiScreen(new GOTGuiMenu());
 			} else if (button.enabled && button == goToShield) {
 				mc.displayGuiScreen(new GOTGuiShields());
@@ -69,7 +69,7 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 		}
 	}
 
-	public boolean canGoLeft() {
+	private boolean canGoLeft() {
 		for (int i = 0; i <= currentCapeID - 1; ++i) {
 			GOTCapes cape = currentCapeType.list.get(i);
 			if (!cape.canDisplay(mc.thePlayer)) {
@@ -80,7 +80,7 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 		return false;
 	}
 
-	public boolean canGoRight() {
+	private boolean canGoRight() {
 		for (int i = currentCapeID + 1; i <= currentCapeType.list.size() - 1; ++i) {
 			GOTCapes cape = currentCapeType.list.get(i);
 			if (!cape.canDisplay(mc.thePlayer)) {
@@ -124,8 +124,8 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 		GL11.glDisable(3553);
 		OpenGlHelper.setActiveTexture(OpenGlHelper.defaultTexUnit);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		int x = guiLeft + xSize / 2;
-		int y = guiTop + 145;
+		int x = getGuiLeft() + getxSize() / 2;
+		int y = getGuiTop() + 145;
 		s = currentCape.getCapeName();
 		this.drawCenteredString(s, x, y, 16777215);
 		y += fontRendererObj.FONT_HEIGHT * 2;
@@ -144,30 +144,30 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 		super.drawScreen(i, j, f);
 	}
 
-	public GOTCapes getPlayerEquippedCape() {
+	private GOTCapes getPlayerEquippedCape() {
 		return GOTLevelData.getData(mc.thePlayer).getCape();
 	}
 
 	@Override
 	public void initGui() {
 		super.initGui();
-		guiLeft = (width - xSize) / 2 + 100;
-		guiTop = (height - ySize) / 2;
-		modelX = guiLeft + xSize / 2;
-		modelY = guiTop + 40;
-		capeLeft = new GOTGuiButtonArrows(0, true, guiLeft + xSize / 2 - 64, guiTop + 207);
+		setGuiLeft((width - getxSize()) / 2 + 100);
+		setGuiTop((height - getySize()) / 2);
+		modelX = getGuiLeft() + getxSize() / 2;
+		modelY = getGuiTop() + 40;
+		capeLeft = new GOTGuiButtonArrows(0, true, getGuiLeft() + getxSize() / 2 - 64, getGuiTop() + 207);
 		buttonList.add(capeLeft);
-		capeSelect = new GOTGuiButton(1, guiLeft + xSize / 2 - 40, guiTop + 195, 80, 20, StatCollector.translateToLocal("got.gui.capes.select"));
+		capeSelect = new GOTGuiButton(1, getGuiLeft() + getxSize() / 2 - 40, getGuiTop() + 195, 80, 20, StatCollector.translateToLocal("got.gui.capes.select"));
 		buttonList.add(capeSelect);
-		capeRight = new GOTGuiButtonArrows(2, false, guiLeft + xSize / 2 + 44, guiTop + 207);
+		capeRight = new GOTGuiButtonArrows(2, false, getGuiLeft() + getxSize() / 2 + 44, getGuiTop() + 207);
 		buttonList.add(capeRight);
-		capeRemove = new GOTGuiButton(3, guiLeft + xSize / 2 - 40, guiTop + 219, 80, 20, StatCollector.translateToLocal("got.gui.capes.remove"));
+		capeRemove = new GOTGuiButton(3, getGuiLeft() + getxSize() / 2 - 40, getGuiTop() + 219, 80, 20, StatCollector.translateToLocal("got.gui.capes.remove"));
 		buttonList.add(capeRemove);
-		changeCategory = new GOTGuiButton(4, guiLeft + xSize / 2 - 290, guiTop + 90, 160, 20, "");
+		changeCategory = new GOTGuiButton(4, getGuiLeft() + getxSize() / 2 - 290, getGuiTop() + 90, 160, 20, "");
 		buttonList.add(changeCategory);
-		goBack = new GOTGuiButton(5, guiLeft + xSize / 2 - 290, guiTop + 150, 160, 20, StatCollector.translateToLocal("got.gui.menuButton"));
-		buttonList.add(goBack);
-		goToShield = new GOTGuiButton(6, guiLeft + xSize / 2 - 290, guiTop + 120, 160, 20, StatCollector.translateToLocal("got.gui.shields"));
+		setGoBack(new GOTGuiButton(5, getGuiLeft() + getxSize() / 2 - 290, getGuiTop() + 150, 160, 20, StatCollector.translateToLocal("got.gui.menuButton")));
+		buttonList.add(getGoBack());
+		goToShield = new GOTGuiButton(6, getGuiLeft() + getxSize() / 2 - 290, getGuiTop() + 120, 160, 20, StatCollector.translateToLocal("got.gui.shields"));
 		buttonList.add(goToShield);
 
 		GOTCapes equippedCape = getPlayerEquippedCape();

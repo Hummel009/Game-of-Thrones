@@ -11,9 +11,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderUnsmeltery extends TileEntitySpecialRenderer {
-	public ModelBase unsmelteryModel = new GOTModelUnsmeltery();
-	public ResourceLocation idleTexture = new ResourceLocation("got:textures/model/unsmeltery/idle.png");
-	public ResourceLocation activeTexture = new ResourceLocation("got:textures/model/unsmeltery/active.png");
+	private ModelBase unsmelteryModel = new GOTModelUnsmeltery();
+	private ResourceLocation idleTexture = new ResourceLocation("got:textures/model/unsmeltery/idle.png");
+	private ResourceLocation activeTexture = new ResourceLocation("got:textures/model/unsmeltery/active.png");
 
 	public void renderInvUnsmeltery() {
 		GL11.glRotatef(90.0f, 0.0f, 1.0f, 0.0f);

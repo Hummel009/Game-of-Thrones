@@ -8,11 +8,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 
 public class GOTModelPartyHat extends GOTModelBiped {
-	public ItemStack hatItem;
-
-	public GOTModelPartyHat() {
-		this(0.0f);
-	}
+	private ItemStack hatItem;
 
 	public GOTModelPartyHat(float f) {
 		super(f);

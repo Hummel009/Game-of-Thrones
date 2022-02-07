@@ -9,19 +9,19 @@ import net.minecraft.client.gui.Gui;
 import net.minecraft.util.MathHelper;
 
 public class GOTGuiScrollPane {
-	public int scrollWidgetWidth;
-	public int scrollWidgetHeight;
-	public int barColor;
-	public int widgetColor;
-	public int scrollBarX0;
-	public int paneX0;
-	public int paneY0;
-	public int paneY1;
-	public boolean hasScrollBar;
-	public float currentScroll;
-	public boolean isScrolling;
-	public boolean mouseOver;
-	public boolean wasMouseDown;
+	private int scrollWidgetWidth;
+	private int scrollWidgetHeight;
+	private int barColor;
+	private int widgetColor;
+	private int scrollBarX0;
+	private int paneX0;
+	private int paneY0;
+	private int paneY1;
+	private boolean hasScrollBar;
+	private float currentScroll;
+	private boolean isScrolling;
+	private boolean mouseOver;
+	private boolean wasMouseDown;
 
 	public GOTGuiScrollPane(int ww, int wh) {
 		scrollWidgetWidth = ww;
@@ -32,12 +32,12 @@ public class GOTGuiScrollPane {
 
 	public void drawScrollBar() {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		int x0 = scrollBarX0 + scrollWidgetWidth / 2;
-		int y0 = paneY0;
-		int y1 = paneY1;
+		int x0 = getScrollBarX0() + scrollWidgetWidth / 2;
+		int y0 = getPaneY0();
+		int y1 = getPaneY1();
 		Gui.drawRect(x0, y0, x0 + 1, y1, barColor);
 		int scroll = (int) (currentScroll * (y1 - y0 - scrollWidgetHeight));
-		x0 = scrollBarX0;
+		x0 = getScrollBarX0();
 		int x1 = x0 + scrollWidgetWidth;
 		y1 = (y0 += scroll) + scrollWidgetHeight;
 		Gui.drawRect(x0, y0, x1, y1, widgetColor);
@@ -52,17 +52,41 @@ public class GOTGuiScrollPane {
 		return new int[] { min, max };
 	}
 
+	public int getPaneX0() {
+		return paneX0;
+	}
+
+	public int getPaneY0() {
+		return paneY0;
+	}
+
+	public int getPaneY1() {
+		return paneY1;
+	}
+
+	public int getScrollBarX0() {
+		return scrollBarX0;
+	}
+
+	public boolean isHasScrollBar() {
+		return hasScrollBar;
+	}
+
+	public boolean isMouseOver() {
+		return mouseOver;
+	}
+
 	public void mouseDragScroll(int i, int j) {
 		boolean isMouseDown = Mouse.isButtonDown(0);
-		if (!hasScrollBar) {
+		if (!isHasScrollBar()) {
 			resetScroll();
 		} else {
-			int x0 = paneX0;
-			int x1 = scrollBarX0 + scrollWidgetWidth;
-			int y0 = paneY0;
-			int y1 = paneY1;
-			mouseOver = i >= x0 && j >= y0 && i < x1 && j < y1;
-			x0 = scrollBarX0;
+			int x0 = getPaneX0();
+			int x1 = getScrollBarX0() + scrollWidgetWidth;
+			int y0 = getPaneY0();
+			int y1 = getPaneY1();
+			setMouseOver(i >= x0 && j >= y0 && i < x1 && j < y1);
+			x0 = getScrollBarX0();
 			boolean mouseOverScroll = i >= x0 && j >= y0 && i < x1 && j < y1;
 			if (!wasMouseDown && isMouseDown && mouseOverScroll) {
 				isScrolling = true;
@@ -99,5 +123,29 @@ public class GOTGuiScrollPane {
 		barColor = c1;
 		widgetColor = c2;
 		return this;
+	}
+
+	public void setHasScrollBar(boolean hasScrollBar) {
+		this.hasScrollBar = hasScrollBar;
+	}
+
+	public void setMouseOver(boolean mouseOver) {
+		this.mouseOver = mouseOver;
+	}
+
+	public void setPaneX0(int paneX0) {
+		this.paneX0 = paneX0;
+	}
+
+	public void setPaneY0(int paneY0) {
+		this.paneY0 = paneY0;
+	}
+
+	public void setPaneY1(int paneY1) {
+		this.paneY1 = paneY1;
+	}
+
+	public void setScrollBarX0(int scrollBarX0) {
+		this.scrollBarX0 = scrollBarX0;
 	}
 }

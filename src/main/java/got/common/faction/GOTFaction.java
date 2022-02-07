@@ -133,10 +133,9 @@ public enum GOTFaction {
 		GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 		for (GOTFactionRank rank : ranksSortedDescending) {
 			GOTAchievementRank rankAch = rank.getRankAchievement();
-			if (rankAch == null || !rankAch.isPlayerRequiredRank(entityplayer)) {
-				continue;
+			if (((rankAch != null) && rankAch.isPlayerRequiredRank(entityplayer))) {
+				playerData.addAchievement(rankAch);
 			}
-			playerData.addAchievement(rankAch);
 		}
 	}
 
@@ -153,10 +152,9 @@ public enum GOTFaction {
 				double dz = d2 - zone.zCoord;
 				double dSq = dx * dx + dz * dz;
 				double dToEdge = Math.sqrt(dSq) - zone.radiusCoord;
-				if ((dToEdge > coordRange) || (closestDist >= 0.0) && (dToEdge >= closestDist)) {
-					continue;
+				if (((dToEdge <= coordRange) && ((closestDist < 0.0) || (dToEdge < closestDist)))) {
+					closestDist = dToEdge;
 				}
-				closestDist = dToEdge;
 			}
 		}
 		return closestDist;
@@ -181,10 +179,9 @@ public enum GOTFaction {
 	public List<GOTFaction> getBonusesForKilling() {
 		ArrayList<GOTFaction> list = new ArrayList<>();
 		for (GOTFaction f : GOTFaction.values()) {
-			if (f == this || !isBadRelation(f)) {
-				continue;
+			if (((f != this) && isBadRelation(f))) {
+				list.add(f);
 			}
-			list.add(f);
 		}
 		return list;
 	}
@@ -192,10 +189,9 @@ public enum GOTFaction {
 	public List<GOTFaction> getConquestBoostRelations() {
 		ArrayList<GOTFaction> list = new ArrayList<>();
 		for (GOTFaction f : GOTFaction.values()) {
-			if (f == this || !f.isPlayableAlignmentFaction() || GOTFactionRelations.getRelations(this, f) != GOTFactionRelations.Relation.ALLY) {
-				continue;
+			if (((f != this) && f.isPlayableAlignmentFaction() && (GOTFactionRelations.getRelations(this, f) == GOTFactionRelations.Relation.ALLY))) {
+				list.add(f);
 			}
-			list.add(f);
 		}
 		return list;
 	}
@@ -253,10 +249,9 @@ public enum GOTFaction {
 	public List<GOTFaction> getOthersOfRelation(GOTFactionRelations.Relation rel) {
 		ArrayList<GOTFaction> list = new ArrayList<>();
 		for (GOTFaction f : GOTFaction.values()) {
-			if (f == this || !f.isPlayableAlignmentFaction() || GOTFactionRelations.getRelations(this, f) != rel) {
-				continue;
+			if (((f != this) && f.isPlayableAlignmentFaction() && (GOTFactionRelations.getRelations(this, f) == rel))) {
+				list.add(f);
 			}
-			list.add(f);
 		}
 		return list;
 	}
@@ -265,10 +260,9 @@ public enum GOTFaction {
 		ArrayList<GOTFaction> list = new ArrayList<>();
 		list.add(this);
 		for (GOTFaction f : GOTFaction.values()) {
-			if (f == this || !isGoodRelation(f)) {
-				continue;
+			if (((f != this) && isGoodRelation(f))) {
+				list.add(f);
 			}
-			list.add(f);
 		}
 		return list;
 	}
@@ -290,10 +284,9 @@ public enum GOTFaction {
 
 	public GOTFactionRank getRank(float alignment) {
 		for (GOTFactionRank rank : ranksSortedDescending) {
-			if (rank.isDummyRank() || (alignment < rank.alignment)) {
-				continue;
+			if ((!rank.isDummyRank() && (alignment >= rank.alignment))) {
+				return rank;
 			}
-			return rank;
 		}
 		if (alignment >= 0.0f) {
 			return GOTFactionRank.RANK_NEUTRAL;
@@ -368,10 +361,9 @@ public enum GOTFaction {
 				return true;
 			}
 			for (GOTControlZone zone : controlZones) {
-				if (!zone.inZone(d, d1, d2, extraMapRange)) {
-					continue;
+				if (zone.inZone(d, d1, d2, extraMapRange)) {
+					return true;
 				}
-				return true;
 			}
 		}
 		return false;
@@ -700,11 +692,11 @@ public enum GOTFaction {
 
 		for (GOTFaction fac : GOTFaction.values()) {
 			if (fac != WHITE_WALKER && fac != UNALIGNED && fac != HOSTILE) {
-				fac.addRank(10.0f, "guest").makeTitle().makeAchievement(); // Гость
-				fac.addRank(50.0f, "friend").makeTitle().makeAchievement(); // Друг
-				fac.addRank(100.0f, "defender").setPledgeRank().makeTitle().makeAchievement(); // Защитник
-				fac.addRank(500.0f, "hero").makeTitle().makeAchievement(); // Герой
-				fac.addRank(1000.0f, "leader").makeTitle().makeAchievement(); // Лидер
+				fac.addRank(10.0f, "guest").makeTitle().makeAchievement();
+				fac.addRank(50.0f, "friend").makeTitle().makeAchievement();
+				fac.addRank(100.0f, "defender").setPledgeRank().makeTitle().makeAchievement();
+				fac.addRank(500.0f, "hero").makeTitle().makeAchievement();
+				fac.addRank(1000.0f, "leader").makeTitle().makeAchievement();
 			}
 		}
 

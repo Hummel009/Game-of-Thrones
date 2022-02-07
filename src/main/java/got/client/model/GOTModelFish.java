@@ -5,11 +5,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelFish extends ModelBase {
-	public ModelRenderer body = new ModelRenderer(this, 0, 0);
-	public ModelRenderer finTop;
-	public ModelRenderer finRight;
-	public ModelRenderer finLeft;
-	public ModelRenderer finBack;
+	private ModelRenderer body = new ModelRenderer(this, 0, 0);
+	private ModelRenderer finTop;
+	private ModelRenderer finRight;
+	private ModelRenderer finLeft;
+	private ModelRenderer finBack;
 
 	public GOTModelFish() {
 		body.setRotationPoint(0.0f, 22.0f, -1.0f);

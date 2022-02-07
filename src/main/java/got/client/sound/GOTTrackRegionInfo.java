@@ -3,11 +3,10 @@ package got.client.sound;
 import java.util.*;
 
 public class GOTTrackRegionInfo {
-	public static double defaultWeight = 1.0;
-	public GOTBiomeMusic region;
-	public List<String> subregions = new ArrayList<>();
-	public double weight;
-	public List<GOTMusicCategory> categories = new ArrayList<>();
+	private GOTBiomeMusic region;
+	private List<String> subregions = new ArrayList<>();
+	private double weight;
+	private List<GOTMusicCategory> categories = new ArrayList<>();
 
 	public GOTTrackRegionInfo(GOTBiomeMusic r) {
 		region = r;

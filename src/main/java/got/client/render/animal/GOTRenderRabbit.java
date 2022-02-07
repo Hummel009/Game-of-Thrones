@@ -10,7 +10,7 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderRabbit extends RenderLiving {
-	public static GOTRandomSkins rabbitSkins;
+	private static GOTRandomSkins rabbitSkins;
 
 	public GOTRenderRabbit() {
 		super(new GOTModelRabbit(), 0.3f);
