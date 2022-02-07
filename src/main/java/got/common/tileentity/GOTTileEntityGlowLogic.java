@@ -22,7 +22,6 @@ public class GOTTileEntityGlowLogic {
 		float glow = (prevGlowTick + (glowTick - prevGlowTick) * tick) / maxGlowTick;
 		glow *= fullGlow;
 		float sun = world.getSunBrightness(tick);
-		float sunNorml = (sun - 0.2f) / 0.8f;
 		float night = 0.5f;
 		if (night < 0.0f) {
 			night = 0.0f;

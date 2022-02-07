@@ -126,7 +126,8 @@ public class GOTEntityJonSnow extends GOTEntityHumanBase {
 			int target = addTargetTasks(true);
 			target++;
 			targetTasks.addTask(target, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityRamsayBolton.class, 0, true));
-			targetTasks.addTask(++target, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityRooseBolton.class, 0, true));
+			target++;
+			targetTasks.addTask(target, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityRooseBolton.class, 0, true));
 		}
 
 		@Override

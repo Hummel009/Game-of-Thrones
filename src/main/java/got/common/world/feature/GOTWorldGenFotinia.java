@@ -68,7 +68,8 @@ public class GOTWorldGenFotinia extends WorldGenAbstractTree {
 				continue;
 			}
 			if (r == 1) {
-				generateLeafLayer(world, random, i, --leafHeight + 1, k, 1);
+				leafHeight--;
+				generateLeafLayer(world, random, i, leafHeight + 1, k, 1);
 				generateLeafLayer(world, random, i, leafHeight, k, 2);
 				generateLeafLayer(world, random, i, leafHeight - 1, k, 1);
 				leafHeight -= 3;

@@ -517,7 +517,7 @@ public class GOTCommander {
 			if (biomeID == null) {
 				continue;
 			}
-			biomeImageData[i] = (byte) biomeID.intValue();
+			biomeImageData[i] = biomeID.byteValue();
 		}
 		ReflectionHelper.setPrivateValue(GOTGenLayerWorld.class, null, biomeImageData, "biomeImageData");
 	}

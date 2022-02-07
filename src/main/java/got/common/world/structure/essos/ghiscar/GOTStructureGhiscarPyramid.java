@@ -402,7 +402,8 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 			}
 			newX++;
 			stepX = newX;
-			stepY = --newY;
+			newY--;
+			stepY = newY;
 			stepZ = ++newZ;
 		}
 		for (int j114 = roomFloor + 1; j114 <= topHeight - 32; ++j114) {

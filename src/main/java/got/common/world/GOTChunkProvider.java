@@ -258,7 +258,8 @@ public class GOTChunkProvider implements IChunkProvider {
 				if (heightNoise < 0.0) {
 					heightNoise = -heightNoise * 0.3;
 				}
-				if ((heightNoise = heightNoise * 3.0 - 2.0) < 0.0) {
+				heightNoise = heightNoise * 3.0 - 2.0;
+				if (heightNoise < 0.0) {
 					if ((heightNoise /= 2.0) < -1.0) {
 						heightNoise = -1.0;
 					}

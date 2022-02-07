@@ -168,7 +168,8 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 				motionX *= 0.6;
 				motionZ *= 0.6;
 			}
-			if ((fireAspectModifier = EnchantmentHelper.getFireAspectModifier(this)) > 0) {
+			fireAspectModifier = EnchantmentHelper.getFireAspectModifier(this);
+			if (fireAspectModifier > 0) {
 				entity.setFire(fireAspectModifier * 4);
 			}
 			if (entity instanceof EntityLivingBase) {

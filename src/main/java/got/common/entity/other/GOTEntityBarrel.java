@@ -285,7 +285,8 @@ public class GOTEntityBarrel extends Entity {
 			if (d11 * d11 + d10 * d10 > 0.001) {
 				d5 = (float) (Math.atan2(d10, d11) * 180.0 / 3.141592653589793);
 			}
-			if ((d12 = MathHelper.wrapAngleTo180_double(d5 - rotationYaw)) > 20.0) {
+			d12 = MathHelper.wrapAngleTo180_double(d5 - rotationYaw);
+			if (d12 > 20.0) {
 				d12 = 20.0;
 			}
 			if (d12 < -20.0) {

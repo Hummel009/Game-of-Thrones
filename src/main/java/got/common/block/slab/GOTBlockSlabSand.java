@@ -19,14 +19,15 @@ public class GOTBlockSlabSand extends GOTBlockSlabFalling {
 	@Override
 	public IIcon getIcon(int i, int j) {
 		j &= 7;
-		if (j == 0) {
+		switch (j) {
+		case 0:
 			return Blocks.sand.getIcon(i, 0);
-		}
-		if (j == 1) {
+		case 1:
 			return Blocks.sand.getIcon(i, 1);
-		}
-		if (j == 2) {
+		case 2:
 			return GOTRegistry.whiteSand.getIcon(i, 0);
+		default:
+			break;
 		}
 		return super.getIcon(i, j);
 	}

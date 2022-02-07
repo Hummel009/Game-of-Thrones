@@ -65,7 +65,7 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 					int color = colors[i];
 					Integer biomeID = GOTDimension.GAME_OF_THRONES.colorsToBiomeIDs.get(color);
 					if (biomeID != null) {
-						GOTGenLayerWorld.biomeImageData[i] = (byte) biomeID.intValue();
+						GOTGenLayerWorld.biomeImageData[i] = biomeID.byteValue();
 						continue;
 					}
 					FMLLog.log(Level.ERROR, "Found unknown biome on map " + Integer.toHexString(color));

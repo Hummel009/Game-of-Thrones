@@ -45,7 +45,8 @@ public enum GOTFixedStructures {
 					double range;
 					double dx = x - wp.getXCoord();
 					double distSq = dx * dx + (dz = z - wp.getZCoord()) * dz;
-					if (distSq >= (range = 256.0) * range) {
+					range = 256.0;
+					if (distSq >= range * range) {
 						continue;
 					}
 					structureNear = true;
