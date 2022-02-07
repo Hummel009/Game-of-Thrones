@@ -194,7 +194,8 @@ public class GOTTickHandlerClient {
 				int pcSpeed = Math.round(drawSpeed * 100.0f);
 				tooltip.add(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.weaponstat.rangedSpeed", pcSpeed));
 			}
-			if ((damage = GOTWeaponStats.getRangedDamageFactor(itemstack, false)) > 0.0f) {
+			damage = GOTWeaponStats.getRangedDamageFactor(itemstack, false);
+			if (damage > 0.0f) {
 				int pcDamage = Math.round(damage * 100.0f);
 				tooltip.add(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.weaponstat.rangedDamage", pcDamage));
 				if (itemstack.getItem() instanceof ItemBow || itemstack.getItem() instanceof GOTItemCrossbow) {
@@ -203,7 +204,8 @@ public class GOTTickHandlerClient {
 					tooltip.add(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.weaponstat.range", pcRange));
 				}
 			}
-			if ((kb = GOTWeaponStats.getRangedKnockback(itemstack)) > 0) {
+			kb = GOTWeaponStats.getRangedKnockback(itemstack);
+			if (kb > 0) {
 				tooltip.add(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.weaponstat.kb", kb));
 			}
 		}
@@ -234,7 +236,8 @@ public class GOTTickHandlerClient {
 		if (GOTPoisonedDrinks.isDrinkPoisoned(itemstack) && GOTPoisonedDrinks.canPlayerSeePoisoned(itemstack, entityplayer)) {
 			tooltip.add(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocal("item.got.drink.poison"));
 		}
-		if ((currentOwner = GOTItemOwnership.getCurrentOwner(itemstack)) != null) {
+		currentOwner = GOTItemOwnership.getCurrentOwner(itemstack);
+		if (currentOwner != null) {
 			tooltip.add("");
 			String ownerFormatted = StatCollector.translateToLocalFormatted("item.got.generic.currentOwner", currentOwner);
 			List ownerLines = fontRenderer.listFormattedStringToWidth(ownerFormatted, 150);
