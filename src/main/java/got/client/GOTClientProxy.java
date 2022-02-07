@@ -49,58 +49,54 @@ import net.minecraft.world.chunk.*;
 import net.minecraftforge.event.world.BlockEvent.BreakEvent;
 
 public class GOTClientProxy extends GOTCommonProxy {
-	public static ResourceLocation enchantmentTexture = new ResourceLocation("textures/misc/enchanted_item_glint.png");
-	public static ResourceLocation alignmentTexture = new ResourceLocation("got:textures/gui/alignment.png");
-	public static ResourceLocation particlesTexture = new ResourceLocation("got:textures/misc/particles.png");
-	public static ResourceLocation particles2Texture = new ResourceLocation("got:textures/misc/particles2.png");
-	public static ResourceLocation customEffectsTexture = new ResourceLocation("got:textures/gui/effects.png");
-	public static int TESSELLATOR_MAX_BRIGHTNESS = 15728880;
-	public static int FONTRENDERER_ALPHA_MIN = 4;
-	public static GOTEffectRenderer customEffectRenderer;
-	public static GOTRenderPlayer specialPlayerRenderer = new GOTRenderPlayer();
-	public static GOTSwingHandler swingHandler = new GOTSwingHandler();
-	public static GOTTickHandlerClient tickHandler = new GOTTickHandlerClient();
-	public static GOTKeyHandler keyHandler;
-	public static GOTGuiHandler guiHandler = new GOTGuiHandler();
-	public static GOTMusic musicHandler;
-	public static GOTRenderCrosshair crosshairrenderer;
-	public int beaconRenderID;
-	public int barrelRenderID;
-	public int bombRenderID;
-	public int doubleTorchRenderID;
-	public int plateRenderID;
-	public int stalactiteRenderID;
-	public int flowerPotRenderID;
-	public int cloverRenderID;
-	public int plantainRenderID;
-	public int fenceRenderID;
-	public int grassRenderID;
-	public int fallenLeavesRenderID;
-	public int commandTableRenderID;
-	public int butterflyJarRenderID;
-	public int unsmelteryRenderID;
-	public int chestRenderID;
-	public int reedsRenderID;
-	public int wasteRenderID;
-	public int beamRenderID;
-	public int vCauldronRenderID;
-	public int grapevineRenderID;
-	public int thatchFloorRenderID;
-	public int treasureRenderID;
-	public int flowerRenderID;
-	public int doublePlantRenderID;
-	public int birdCageRenderID;
-	public int wildFireJarRenderID;
-	public int coralRenderID;
-	public int doorRenderID;
-	public int ropeRenderID;
-	public int chainRenderID;
-	public int trapdoorRenderID;
-	public boolean leftclick;
-	public boolean prevleftclick;
-	public Map<Integer, Long> enderlaunchtimer = new HashMap<>();
-
-	public int reusetime = 50;
+	private static ResourceLocation enchantmentTexture = new ResourceLocation("textures/misc/enchanted_item_glint.png");
+	private static ResourceLocation alignmentTexture = new ResourceLocation("got:textures/gui/alignment.png");
+	private static ResourceLocation particlesTexture = new ResourceLocation("got:textures/misc/particles.png");
+	private static ResourceLocation particles2Texture = new ResourceLocation("got:textures/misc/particles2.png");
+	private static ResourceLocation customEffectsTexture = new ResourceLocation("got:textures/gui/effects.png");
+	private static int TESSELLATOR_MAX_BRIGHTNESS = 15728880;
+	private static int FONTRENDERER_ALPHA_MIN = 4;
+	private static GOTEffectRenderer customEffectRenderer;
+	private static GOTRenderPlayer specialPlayerRenderer = new GOTRenderPlayer();
+	private static GOTSwingHandler swingHandler = new GOTSwingHandler();
+	private static GOTTickHandlerClient tickHandler = new GOTTickHandlerClient();
+	private static GOTGuiHandler guiHandler = new GOTGuiHandler();
+	private static GOTMusic musicHandler;
+	private static GOTRenderCrosshair crosshairrenderer;
+	private int beaconRenderID;
+	private int barrelRenderID;
+	private int bombRenderID;
+	private int doubleTorchRenderID;
+	private int plateRenderID;
+	private int stalactiteRenderID;
+	private int flowerPotRenderID;
+	private int cloverRenderID;
+	private int plantainRenderID;
+	private int fenceRenderID;
+	private int grassRenderID;
+	private int fallenLeavesRenderID;
+	private int commandTableRenderID;
+	private int butterflyJarRenderID;
+	private int unsmelteryRenderID;
+	private int chestRenderID;
+	private int reedsRenderID;
+	private int wasteRenderID;
+	private int beamRenderID;
+	private int vCauldronRenderID;
+	private int grapevineRenderID;
+	private int thatchFloorRenderID;
+	private int treasureRenderID;
+	private int flowerRenderID;
+	private int doublePlantRenderID;
+	private int birdCageRenderID;
+	private int wildFireJarRenderID;
+	private int coralRenderID;
+	private int doorRenderID;
+	private int ropeRenderID;
+	private int chainRenderID;
+	private int trapdoorRenderID;
+	private boolean prevleftclick;
+	private Map<Integer, Long> enderlaunchtimer = new HashMap<>();
 
 	@Override
 	public void addMapPlayerLocation(GameProfile player, double posX, double posZ) {
@@ -121,7 +117,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 
 	@Override
 	public void cancelItemHighlight() {
-		GOTClientProxy.tickHandler.cancelItemHighlight = true;
+		GOTClientProxy.getTickHandler().setCancelItemHighlight(true);
 	}
 
 	@Override
@@ -158,7 +154,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 	@Override
 	public void displayMenuPrompt(GOTPacketMenuPrompt.Type type) {
 		if (type == GOTPacketMenuPrompt.Type.MENU) {
-			GOTTickHandlerClient.renderMenuPrompt = true;
+			GOTTickHandlerClient.setRenderMenuPrompt(true);
 		}
 	}
 
@@ -175,7 +171,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 
 	@Override
 	public void displayNewDate() {
-		tickHandler.updateDate();
+		getTickHandler().updateDate();
 	}
 
 	@Override
@@ -378,7 +374,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 	@Override
 	public void handleInvasionWatch(int invasionEntityID, boolean overrideAlreadyWatched) {
 		Entity e;
-		GOTInvasionStatus status = GOTTickHandlerClient.watchedInvasion;
+		GOTInvasionStatus status = GOTTickHandlerClient.getWatchedInvasion();
 		e = getClientWorld().getEntityByID(invasionEntityID);
 		if ((overrideAlreadyWatched || !status.isActive()) && e instanceof GOTEntityInvasionSpawner) {
 			status.setWatchedInvasion((GOTEntityInvasionSpawner) e);
@@ -417,7 +413,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 	}
 
 	@SubscribeEvent
-	public void onClientTick(TickEvent.ClientTickEvent event) {
+	private void onClientTick(TickEvent.ClientTickEvent event) {
 		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
 		if ((player != null) && (!Minecraft.getMinecraft().isGamePaused() || !Minecraft.getMinecraft().isSingleplayer())) {
 			try {
@@ -429,7 +425,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 				System.out.println("ConcurrentModificationException caught");
 			}
 
-			leftclick = (GameSettings.isKeyDown(Minecraft.getMinecraft().gameSettings.keyBindAttack) && Minecraft.getMinecraft().currentScreen == null);
+			boolean leftclick = (GameSettings.isKeyDown(Minecraft.getMinecraft().gameSettings.keyBindAttack) && Minecraft.getMinecraft().currentScreen == null);
 			if (prevleftclick != leftclick) {
 				ItemStack stack = player.getHeldItem();
 				if (stack != null) {
@@ -458,7 +454,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 	@Override
 	public void onLoad() {
 		super.onLoad();
-		customEffectRenderer = new GOTEffectRenderer(Minecraft.getMinecraft());
+		setCustomEffectRenderer(new GOTEffectRenderer(Minecraft.getMinecraft()));
 		GOTTextures.onInit();
 		GOTRender.onInit();
 		for (Class cl : GOTRender.getRenders().keySet()) {
@@ -551,7 +547,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 	@Override
 	public void onPostload() {
 		super.onPostload();
-		musicHandler = new GOTMusic();
+		setMusicHandler(new GOTMusic());
 		crosshairrenderer = new GOTRenderCrosshair();
 	}
 
@@ -584,17 +580,17 @@ public class GOTClientProxy extends GOTCommonProxy {
 
 	@Override
 	public void queueAchievement(GOTAchievement achievement) {
-		GOTTickHandlerClient.notificationDisplay.queueAchievement(achievement);
+		GOTTickHandlerClient.getNotificationDisplay().queueAchievement(achievement);
 	}
 
 	@Override
 	public void queueConquestNotification(GOTFaction fac, float conq, boolean isCleansing) {
-		GOTTickHandlerClient.notificationDisplay.queueConquest(fac, conq, isCleansing);
+		GOTTickHandlerClient.getNotificationDisplay().queueConquest(fac, conq, isCleansing);
 	}
 
 	@Override
 	public void queueFellowshipNotification(IChatComponent message) {
-		GOTTickHandlerClient.notificationDisplay.queueFellowshipNotification(message);
+		GOTTickHandlerClient.getNotificationDisplay().queueFellowshipNotification(message);
 	}
 
 	@Override
@@ -631,8 +627,8 @@ public class GOTClientProxy extends GOTCommonProxy {
 
 	@Override
 	public void setInPortal(EntityPlayer entityplayer) {
-		if (!GOTTickHandlerClient.playersInPortals.containsKey(entityplayer)) {
-			GOTTickHandlerClient.playersInPortals.put(entityplayer, 0);
+		if (!GOTTickHandlerClient.getPlayersInPortals().containsKey(entityplayer)) {
+			GOTTickHandlerClient.getPlayersInPortals().put(entityplayer, 0);
 		}
 		if (Minecraft.getMinecraft().isSingleplayer() && !GOTTickHandlerServer.playersInPortals.containsKey(entityplayer)) {
 			GOTTickHandlerServer.playersInPortals.put(entityplayer, 0);
@@ -660,7 +656,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 
 	@Override
 	public void setTrackedQuest(GOTMiniQuest quest) {
-		GOTTickHandlerClient.miniquestTracker.setTrackedQuest(quest);
+		GOTTickHandlerClient.getMiniquestTracker().setTrackedQuest(quest);
 	}
 
 	@Override
@@ -672,12 +668,12 @@ public class GOTClientProxy extends GOTCommonProxy {
 
 	@Override
 	public void showBurnOverlay() {
-		tickHandler.onBurnDamage();
+		getTickHandler().onBurnDamage();
 	}
 
 	@Override
 	public void showFrostOverlay() {
-		tickHandler.onFrostDamage();
+		getTickHandler().onFrostDamage();
 	}
 
 	@Override
@@ -703,7 +699,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 				return;
 			}
 			if ("blueFlame".equals(type)) {
-				customEffectRenderer.addEffect(new GOTEntityGreenFlameFX(world, d, d1, d2, d3, d4, d5));
+				getCustomEffectRenderer().addEffect(new GOTEntityGreenFlameFX(world, d, d1, d2, d3, d4, d5));
 			} else if ("chill".equals(type)) {
 				mc.effectRenderer.addEffect(new GOTEntityChillFX(world, d, d1, d2, d3, d4, d5));
 			} else if (type.startsWith("moonGlow")) {
@@ -732,15 +728,15 @@ public class GOTClientProxy extends GOTCommonProxy {
 				if (texIndices != null) {
 					if (type.indexOf("_") > -1) {
 						int age = Integer.parseInt(type.substring(type.indexOf("_") + 1));
-						customEffectRenderer.addEffect(new GOTEntityLeafFX(world, d, d1, d2, d3, d4, d5, texIndices, age));
+						getCustomEffectRenderer().addEffect(new GOTEntityLeafFX(world, d, d1, d2, d3, d4, d5, texIndices, age));
 					} else {
-						customEffectRenderer.addEffect(new GOTEntityLeafFX(world, d, d1, d2, d3, d4, d5, texIndices));
+						getCustomEffectRenderer().addEffect(new GOTEntityLeafFX(world, d, d1, d2, d3, d4, d5, texIndices));
 					}
 				}
 			} else if ("marshFlame".equals(type)) {
 				mc.effectRenderer.addEffect(new GOTEntityMarshFlameFX(world, d, d1, d2, d3, d4, d5));
 			} else if ("marshLight".equals(type)) {
-				customEffectRenderer.addEffect(new GOTEntityMarshLightFX(world, d, d1, d2, d3, d4, d5));
+				getCustomEffectRenderer().addEffect(new GOTEntityMarshLightFX(world, d, d1, d2, d3, d4, d5));
 			} else if ("asshaiWater".equals(type)) {
 				mc.effectRenderer.addEffect(new GOTEntityRiverWaterFX(world, d, d1, d2, d3, d4, d5, GOTBiome.shadowTown.getWaterColorMultiplier()));
 			} else if ("asshaiTorch".equals(type)) {
@@ -791,9 +787,41 @@ public class GOTClientProxy extends GOTCommonProxy {
 		return !(chunk instanceof EmptyChunk);
 	}
 
+	public static ResourceLocation getAlignmentTexture() {
+		return alignmentTexture;
+	}
+
 	public static int getAlphaInt(float alphaF) {
 		int alphaI = (int) (alphaF * 255.0f);
 		return MathHelper.clamp_int(alphaI, FONTRENDERER_ALPHA_MIN, 255);
+	}
+
+	public static GOTEffectRenderer getCustomEffectRenderer() {
+		return customEffectRenderer;
+	}
+
+	public static ResourceLocation getEnchantmentTexture() {
+		return enchantmentTexture;
+	}
+
+	public static GOTMusic getMusicHandler() {
+		return musicHandler;
+	}
+
+	public static ResourceLocation getParticles2Texture() {
+		return particles2Texture;
+	}
+
+	public static ResourceLocation getParticlesTexture() {
+		return particlesTexture;
+	}
+
+	public static int getTesselatorMaxBrightness() {
+		return TESSELLATOR_MAX_BRIGHTNESS;
+	}
+
+	public static GOTTickHandlerClient getTickHandler() {
+		return tickHandler;
 	}
 
 	public static void renderEnchantmentEffect() {
@@ -801,7 +829,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 		TextureManager texturemanager = Minecraft.getMinecraft().getTextureManager();
 		GL11.glDepthFunc(514);
 		GL11.glDisable(2896);
-		texturemanager.bindTexture(enchantmentTexture);
+		texturemanager.bindTexture(getEnchantmentTexture());
 		GL11.glEnable(3042);
 		GL11.glBlendFunc(768, 1);
 		float shade = 0.76f;
@@ -834,5 +862,37 @@ public class GOTClientProxy extends GOTCommonProxy {
 		boolean showHiddenSWP = GOTGuiMap.isShowHiddenSWP();
 		GOTPacketClientInfo packet = new GOTPacketClientInfo(viewingFaction, changedRegionMap, showWP, showCWP, showHiddenSWP);
 		GOTPacketHandler.networkWrapper.sendToServer(packet);
+	}
+
+	public static void setAlignmentTexture(ResourceLocation alignmentTexture) {
+		GOTClientProxy.alignmentTexture = alignmentTexture;
+	}
+
+	public static void setCustomEffectRenderer(GOTEffectRenderer customEffectRenderer) {
+		GOTClientProxy.customEffectRenderer = customEffectRenderer;
+	}
+
+	public static void setEnchantmentTexture(ResourceLocation enchantmentTexture) {
+		GOTClientProxy.enchantmentTexture = enchantmentTexture;
+	}
+
+	public static void setMusicHandler(GOTMusic musicHandler) {
+		GOTClientProxy.musicHandler = musicHandler;
+	}
+
+	public static void setParticles2Texture(ResourceLocation particles2Texture) {
+		GOTClientProxy.particles2Texture = particles2Texture;
+	}
+
+	public static void setParticlesTexture(ResourceLocation particlesTexture) {
+		GOTClientProxy.particlesTexture = particlesTexture;
+	}
+
+	public static void setTesselatorMaxBrightness(int tESSELLATOR_MAX_BRIGHTNESS) {
+		TESSELLATOR_MAX_BRIGHTNESS = tESSELLATOR_MAX_BRIGHTNESS;
+	}
+
+	public static void setTickHandler(GOTTickHandlerClient tickHandler) {
+		GOTClientProxy.tickHandler = tickHandler;
 	}
 }

@@ -21,7 +21,7 @@ public class GOTGuiButtonPledge extends GuiButton {
 	@Override
 	public void drawButton(Minecraft mc, int i, int j) {
 		if (visible) {
-			mc.getTextureManager().bindTexture(GOTClientProxy.alignmentTexture);
+			mc.getTextureManager().bindTexture(GOTClientProxy.getAlignmentTexture());
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			field_146123_n = i >= xPosition && j >= yPosition && i < xPosition + width && j < yPosition + height;
 			int state = getHoverState(field_146123_n);

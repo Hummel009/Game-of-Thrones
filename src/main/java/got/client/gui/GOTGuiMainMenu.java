@@ -24,7 +24,7 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 	private static boolean isFirstMenu = true;
 	private static List<GOTWaypoint> waypointRoute = new ArrayList<>();
 	private static int currentWPIndex;
-	private static boolean randomWPStart  = false;
+	private static boolean randomWPStart = false;
 	private static float mapSpeed;
 	private static float mapVelX;
 	private static float mapVelY;

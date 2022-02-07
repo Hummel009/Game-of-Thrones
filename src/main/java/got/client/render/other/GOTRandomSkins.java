@@ -34,7 +34,7 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 
 	public ResourceLocation getRandomSkin(GOTRandomSkinEntity rsEntity) {
 		if (skins == null || skins.isEmpty()) {
-			return GOTTextures.missingTexture;
+			return GOTTextures.getMissingTexture();
 		}
 		Entity entity = (Entity) rsEntity;
 		long l = entity.getUniqueID().getLeastSignificantBits();

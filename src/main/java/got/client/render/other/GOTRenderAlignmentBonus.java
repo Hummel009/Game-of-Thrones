@@ -99,7 +99,7 @@ public class GOTRenderAlignmentBonus extends Render {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return GOTClientProxy.alignmentTexture;
+		return GOTClientProxy.getAlignmentTexture();
 	}
 
 	public void renderBonusText(GOTEntityAlignmentBonus alignmentBonus, GOTPlayerData playerData, GOTFaction viewingFaction, GOTFaction renderFaction, boolean showAlign, float align, boolean showConquest, float alpha) {

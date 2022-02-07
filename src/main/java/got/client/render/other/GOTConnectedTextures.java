@@ -387,7 +387,6 @@ public class GOTConnectedTextures {
 		}
 		private String iconName;
 		private int bitFlag;
-
 		private int priority;
 
 		IconElement(String s, int i) {

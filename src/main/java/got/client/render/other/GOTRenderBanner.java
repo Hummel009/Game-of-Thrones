@@ -48,7 +48,7 @@ public class GOTRenderBanner extends Render {
 				GL11.glDisable(2929);
 				GL11.glDisable(3553);
 				GL11.glDisable(2896);
-				light = GOTClientProxy.TESSELLATOR_MAX_BRIGHTNESS;
+				light = GOTClientProxy.getTesselatorMaxBrightness();
 				lx = light % 65536;
 				ly = light / 65536;
 				OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, lx / 1.0f, ly / 1.0f);
@@ -73,7 +73,7 @@ public class GOTRenderBanner extends Render {
 			GL11.glDisable(3553);
 			GL11.glDisable(2884);
 			GL11.glDisable(3042);
-			light = GOTClientProxy.TESSELLATOR_MAX_BRIGHTNESS;
+			light = GOTClientProxy.getTesselatorMaxBrightness();
 			lx = light % 65536;
 			ly = light / 65536;
 			OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, lx / 1.0f, ly / 1.0f);

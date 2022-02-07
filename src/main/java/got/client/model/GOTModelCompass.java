@@ -13,7 +13,7 @@ public class GOTModelCompass extends ModelBase {
 	private static ResourceLocation compassTexture = new ResourceLocation("got:textures/misc/compass.png");
 	private ModelRenderer compass;
 	private ModelBase ringotel = new GOTModelPortal(0);
-	
+
 	private GOTModelCompass() {
 		textureWidth = 32;
 		textureHeight = 32;

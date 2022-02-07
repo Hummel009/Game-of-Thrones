@@ -73,7 +73,7 @@ public class GOTAmbience {
 					--ticksSinceWight;
 				} else {
 					boolean wights;
-					wights = GOTTickHandlerClient.anyWightsViewed && rand.nextInt(20) == 0 || biome instanceof GOTBiomeNorthBarrows && rand.nextInt(3000) == 0;
+					wights = GOTTickHandlerClient.isAnyWightsViewed() && rand.nextInt(20) == 0 || biome instanceof GOTBiomeNorthBarrows && rand.nextInt(3000) == 0;
 					if (wights) {
 						world.playSound(x, y, z, "got:wight.ambience", 1.0f, 0.8f + rand.nextFloat() * 0.4f, false);
 						ticksSinceWight = 300;

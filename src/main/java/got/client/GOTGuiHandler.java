@@ -38,16 +38,16 @@ import net.minecraftforge.client.event.*;
 import net.minecraftforge.common.MinecraftForge;
 
 public class GOTGuiHandler {
-	public static RenderItem itemRenderer = new RenderItem();
-	public static boolean coinCountLeftSide = false;
-	public static Set<Class<? extends Container>> coinCount_excludedContainers = new HashSet<>();
-	public static Set<Class<? extends GuiContainer>> coinCount_excludedGUIs = new HashSet<>();
-	public static Set<Class<? extends IInventory>> coinCount_excludedInvTypes = new HashSet<>();
-	public static Set<String> coinCount_excludedContainers_clsNames = new HashSet<>();
-	public static Set<String> coinCount_excludedGUIs_clsNames = new HashSet<>();
-	public static Set<String> coinCount_excludedInvTypes_clsNames = new HashSet<>();
-	public static Set<Class<? extends GuiContainer>> pouchRestock_leftPositionGUIs = new HashSet<>();
-	public static Set<Class<? extends GuiContainer>> pouchRestock_sidePositionGUIs = new HashSet<>();
+	private static RenderItem itemRenderer = new RenderItem();
+	private static boolean coinCountLeftSide = false;
+	private static Set<Class<? extends Container>> coinCount_excludedContainers = new HashSet<>();
+	private static Set<Class<? extends GuiContainer>> coinCount_excludedGUIs = new HashSet<>();
+	private static Set<Class<? extends IInventory>> coinCount_excludedInvTypes = new HashSet<>();
+	private static Set<String> coinCount_excludedContainers_clsNames = new HashSet<>();
+	private static Set<String> coinCount_excludedGUIs_clsNames = new HashSet<>();
+	private static Set<String> coinCount_excludedInvTypes_clsNames = new HashSet<>();
+	private static Set<Class<? extends GuiContainer>> pouchRestock_leftPositionGUIs = new HashSet<>();
+	private static Set<Class<? extends GuiContainer>> pouchRestock_sidePositionGUIs = new HashSet<>();
 	static {
 		coinCount_excludedInvTypes.add(GOTContainerCoinExchange.InventoryCoinExchangeSlot.class);
 		coinCount_excludedInvTypes.add(InventoryCraftResult.class);
@@ -56,7 +56,7 @@ public class GOTGuiHandler {
 		pouchRestock_leftPositionGUIs.add(GuiRepair.class);
 		pouchRestock_sidePositionGUIs.add(GOTGuiBarrel.class);
 	}
-	public int descScrollIndex = -1;
+	private int descScrollIndex = -1;
 
 	public GOTGuiHandler() {
 		FMLCommonHandler.instance().bus().register(this);
@@ -75,7 +75,7 @@ public class GOTGuiHandler {
 	}
 
 	@SubscribeEvent
-	public void onGuiOpen(GuiOpenEvent event) {
+	private void onGuiOpen(GuiOpenEvent event) {
 		GuiScreen gui = event.gui;
 		if (GOTConfig.customMainMenu && gui != null && gui.getClass() == GuiMainMenu.class) {
 			event.gui = gui = new GOTGuiMainMenu();
@@ -90,7 +90,7 @@ public class GOTGuiHandler {
 	}
 
 	@SubscribeEvent
-	public void postActionPerformed(GuiScreenEvent.ActionPerformedEvent.Post event) {
+	private void postActionPerformed(GuiScreenEvent.ActionPerformedEvent.Post event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		GuiScreen gui = event.gui;
 		List buttons = event.buttonList;
@@ -107,7 +107,7 @@ public class GOTGuiHandler {
 	}
 
 	@SubscribeEvent
-	public void postDrawScreen(GuiScreenEvent.DrawScreenEvent.Post event) {
+	private void postDrawScreen(GuiScreenEvent.DrawScreenEvent.Post event) {
 		HoverEvent hoverevent;
 		IChatComponent component;
 		Minecraft mc = Minecraft.getMinecraft();
@@ -139,7 +139,7 @@ public class GOTGuiHandler {
 	}
 
 	@SubscribeEvent
-	public void postInitGui(GuiScreenEvent.InitGuiEvent.Post event) {
+	private void postInitGui(GuiScreenEvent.InitGuiEvent.Post event) {
 		GuiButton buttonDifficulty;
 		GuiScreen gui = event.gui;
 		List buttons = event.buttonList;
@@ -152,11 +152,9 @@ public class GOTGuiHandler {
 	}
 
 	@SubscribeEvent
-	public void preDrawScreen(GuiScreenEvent.DrawScreenEvent.Pre event) {
+	private void preDrawScreen(GuiScreenEvent.DrawScreenEvent.Pre event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		GuiScreen gui = event.gui;
-		int mouseX = event.mouseX;
-		int mouseY = event.mouseY;
 		if (gui instanceof GuiModList) {
 			ModContainer mod = GOT.getModContainer();
 			ModMetadata meta = mod.getMetadata();
@@ -171,21 +169,20 @@ public class GOTGuiHandler {
 				}
 				int scroll = Integer.signum(dwheel);
 				descScrollIndex -= scroll;
-				descScrollIndex = MathHelper.clamp_int(descScrollIndex, 0, (int) (GOTInfo.description.length - 1));
+				descScrollIndex = MathHelper.clamp_int(descScrollIndex, 0, GOTInfo.description.length - 1);
 				meta.description = GOTInfo.concatenateDescription(descScrollIndex);
 			}
 		}
 		if (gui instanceof GuiContainer && GOTConfig.displayCoinCounts) {
 			boolean excludeGui;
-			int creativeTabIndex;
 			mc.theWorld.theProfiler.startSection("invCoinCount");
 			GuiContainer guiContainer = (GuiContainer) gui;
 			Container container = guiContainer.inventorySlots;
 			Class<?> containerCls = container.getClass();
 			Class<?> guiCls = guiContainer.getClass();
 			boolean excludeContainer = coinCount_excludedContainers.contains(containerCls) || coinCount_excludedContainers_clsNames.contains(containerCls.getName());
-			boolean bl = excludeGui = coinCount_excludedGUIs.contains(guiCls) || coinCount_excludedGUIs_clsNames.contains(guiCls.getName());
-			if (guiContainer instanceof GuiContainerCreative && (creativeTabIndex = GOTReflectionClient.getCreativeTabIndex((GuiContainerCreative) guiContainer)) != CreativeTabs.tabInventory.getTabIndex()) {
+			excludeGui = coinCount_excludedGUIs.contains(guiCls) || coinCount_excludedGUIs_clsNames.contains(guiCls.getName());
+			if (guiContainer instanceof GuiContainerCreative && (GOTReflectionClient.getCreativeTabIndex((GuiContainerCreative) guiContainer)) != CreativeTabs.tabInventory.getTabIndex()) {
 				excludeGui = true;
 			}
 			if (!excludeContainer && !excludeGui) {
@@ -202,7 +199,7 @@ public class GOTGuiHandler {
 						continue;
 					}
 					Class<?> invClass = inv.getClass();
-					boolean bl2 = excludeInv = coinCount_excludedInvTypes.contains(invClass) || coinCount_excludedInvTypes_clsNames.contains(invClass.getName());
+					excludeInv = coinCount_excludedInvTypes.contains(invClass) || coinCount_excludedInvTypes_clsNames.contains(invClass.getName());
 					if (excludeInv) {
 						continue;
 					}
@@ -233,11 +230,8 @@ public class GOTGuiHandler {
 						guiTop = GOTReflectionClient.getGuiTop(guiContainer);
 						guiXSize = GOTReflectionClient.getGuiXSize(guiContainer);
 						guiLeft = gui.width / 2 - guiXSize / 2;
-						if (guiContainer instanceof InventoryEffectRenderer && GOTReflectionClient.hasGuiPotionEffects((InventoryEffectRenderer) gui)) {
-							int potionExtraX = 60;
-							if (!GOTModChecker.hasNEI()) {
-								guiLeft += 60;
-							}
+						if ((guiContainer instanceof InventoryEffectRenderer && GOTReflectionClient.hasGuiPotionEffects((InventoryEffectRenderer) gui)) && !GOTModChecker.hasNEI()) {
+							guiLeft += 60;
 						}
 					}
 					int guiGap = 8;
@@ -291,7 +285,7 @@ public class GOTGuiHandler {
 	}
 
 	@SubscribeEvent
-	public void preInitGui(GuiScreenEvent.InitGuiEvent.Pre event) {
+	private void preInitGui(GuiScreenEvent.InitGuiEvent.Pre event) {
 		GuiScreen gui = event.gui;
 		Minecraft mc = Minecraft.getMinecraft();
 		EntityClientPlayerMP entityplayer = mc.thePlayer;

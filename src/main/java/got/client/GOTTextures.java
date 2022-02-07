@@ -28,34 +28,21 @@ import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.common.MinecraftForge;
 
 public class GOTTextures implements IResourceManagerReloadListener {
-	public static Minecraft mc = Minecraft.getMinecraft();
-	public static ResourceLocation missingTexture = mc.getTextureManager().getDynamicTextureLocation("got.missingSkin", TextureUtil.missingTexture);
-	public static ResourceLocation mapTexture;
-	public static ResourceLocation sepiaMapTexture;
-	public static ResourceLocation overlayTexture = new ResourceLocation("got:textures/map/mapOverlay.png");
-	public static ResourceLocation mapTerrain = new ResourceLocation("got:textures/map/terrain.png");
-	public static ResourceLocation osrsTexture = new ResourceLocation("got:textures/map/osrs.png");
-	public static int OSRS_WATER = 6453158;
-	public static int OSRS_GRASS = 5468426;
-	public static int OSRS_BEACH = 9279778;
-	public static int OSRS_HILL = 6575407;
-	public static int OSRS_MOUNTAIN = 14736861;
-	public static int OSRS_MOUNTAIN_EDGE = 9005125;
-	public static int OSRS_SNOW = 14215139;
-	public static int OSRS_TUNDRA = 9470587;
-	public static int OSRS_SAND = 13548147;
-	public static int OSRS_TREE = 2775058;
-	public static int OSRS_WILD = 3290677;
-	public static int OSRS_PATH = 6575407;
-	public static int OSRS_KINGDOM_COLOR = 16755200;
-	public static ResourceLocation particleTextures = new ResourceLocation("textures/particle/particles.png");
-	public static ResourceLocation newWaterParticles = new ResourceLocation("got:textures/misc/waterParticles.png");
-	public static int newWaterU = 0;
-	public static int newWaterV = 8;
-	public static int newWaterWidth = 64;
-	public static int newWaterHeight = 8;
-	public static Map<ResourceLocation, ResourceLocation> eyesTextures = new HashMap<>();
-	public static Map<ResourceLocation, Integer> averagedPageColors = new HashMap<>();
+	private static Minecraft mc = Minecraft.getMinecraft();
+	private static ResourceLocation missingTexture = mc.getTextureManager().getDynamicTextureLocation("got.missingSkin", TextureUtil.missingTexture);
+	private static ResourceLocation mapTexture;
+	private static ResourceLocation sepiaMapTexture;
+	private static ResourceLocation overlayTexture = new ResourceLocation("got:textures/map/mapOverlay.png");
+	private static ResourceLocation mapTerrain = new ResourceLocation("got:textures/map/terrain.png");
+	private static ResourceLocation osrsTexture = new ResourceLocation("got:textures/map/osrs.png");
+	private static ResourceLocation particleTextures = new ResourceLocation("textures/particle/particles.png");
+	private static ResourceLocation newWaterParticles = new ResourceLocation("got:textures/misc/waterParticles.png");
+	private static int newWaterU = 0;
+	private static int newWaterV = 8;
+	private static int newWaterWidth = 64;
+	private static int newWaterHeight = 8;
+	private static Map<ResourceLocation, ResourceLocation> eyesTextures = new HashMap<>();
+	private static Map<ResourceLocation, Integer> averagedPageColors = new HashMap<>();
 
 	@Override
 	public void onResourceManagerReload(IResourceManager resourceManager) {
@@ -66,7 +53,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	}
 
 	@SubscribeEvent
-	public void preTextureStitch(TextureStitchEvent.Pre event) {
+	private void preTextureStitch(TextureStitchEvent.Pre event) {
 		TextureMap map = event.map;
 		if (map.getTextureType() == 0) {
 			GOTCommonIcons.iconEmptyBlock = GOTTextures.generateIconEmpty(map);
@@ -116,7 +103,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		return averagedPageColors.get(texture);
 	}
 
-	public static ResourceLocation convertToSepia(BufferedImage srcImage, ResourceLocation resourceLocation) {
+	private static ResourceLocation convertToSepia(BufferedImage srcImage, ResourceLocation resourceLocation) {
 		int mapWidth = srcImage.getWidth();
 		int mapHeight = srcImage.getHeight();
 		int[] colors = srcImage.getRGB(0, 0, mapWidth, mapHeight, null, 0, mapWidth);
@@ -244,10 +231,6 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		}
 	}
 
-	public static void drawMap(EntityPlayer entityplayer, double x0, double x1, double y0, double y1, double z, double minU, double maxU, double minV, double maxV) {
-		GOTTextures.drawMap(entityplayer, GOTConfig.enableSepiaMap, x0, x1, y0, y1, z, minU, maxU, minV, maxV, 1.0f);
-	}
-
 	public static void drawMapCompassBottomLeft(double x, double y, double z, double scale) {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		mc.getTextureManager().bindTexture(GOTGuiMap.mapIconsTexture);
@@ -274,7 +257,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 
 	public static void drawMapOverlay(EntityPlayer entityplayer, double x0, double x1, double y0, double y1, double z, double minU, double maxU, double minV, double maxV) {
 		Tessellator tessellator = Tessellator.instance;
-		mc.getTextureManager().bindTexture(overlayTexture);
+		mc.getTextureManager().bindTexture(getOverlayTexture());
 		GL11.glEnable(3042);
 		OpenGlHelper.glBlendFunc(770, 771, 1, 0);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 0.2f);
@@ -302,7 +285,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		return Color.HSBtoRGB(hsbText[0], hsbText[1], bText);
 	}
 
-	public static IIcon generateIconEmpty(TextureMap textureMap) {
+	private static IIcon generateIconEmpty(TextureMap textureMap) {
 		String iconName = "textures/blocks/GOT_EMPTY_ICON";
 		int size = 16;
 		BufferedImage iconImage = new BufferedImage(size, size, 2);
@@ -342,7 +325,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 			} catch (IOException e) {
 				GOTLog.logger.error("Failed to generate eyes skin");
 				e.printStackTrace();
-				eyes = missingTexture;
+				eyes = getMissingTexture();
 			}
 			eyesTextures.put(skin, eyes);
 		}
@@ -360,11 +343,23 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		return ocean;
 	}
 
-	public static ResourceLocation getMapTexture(EntityPlayer entityplayer, boolean sepia) {
+	private static ResourceLocation getMapTexture(EntityPlayer entityplayer, boolean sepia) {
 		return GOTConfig.osrsMap || sepia ? sepiaMapTexture : mapTexture;
 	}
 
-	public static int getSepia(int rgb) {
+	public static ResourceLocation getMissingTexture() {
+		return missingTexture;
+	}
+
+	public static ResourceLocation getOsrsTexture() {
+		return osrsTexture;
+	}
+
+	public static ResourceLocation getOverlayTexture() {
+		return overlayTexture;
+	}
+
+	private static int getSepia(int rgb) {
 		Color color = new Color(rgb);
 		int alpha = rgb >> 24 & 0xFF;
 		float[] colors = color.getColorComponents(null);
@@ -381,7 +376,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		return sepia |= alpha << 24;
 	}
 
-	public static void loadMapTextures() {
+	private static void loadMapTextures() {
 		mapTexture = new ResourceLocation("got:textures/map/map.png");
 		try {
 			BufferedImage mapImage = ImageIO.read(mc.getResourceManager().getResource(mapTexture).getInputStream());
@@ -406,7 +401,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		textures.preTextureStitch(new TextureStitchEvent.Pre(texMapItems));
 	}
 
-	public static void replaceWaterParticles() {
+	private static void replaceWaterParticles() {
 		try {
 			BufferedImage particles = ImageIO.read(GOTTextures.mc.getResourcePackRepository().rprDefaultResourcePack.getInputStream(particleTextures));
 			BufferedImage waterParticles = ImageIO.read(mc.getResourceManager().getResource(newWaterParticles).getInputStream());
@@ -420,5 +415,17 @@ public class GOTTextures implements IResourceManagerReloadListener {
 			FMLLog.severe("Failed to replace rain particles");
 			e.printStackTrace();
 		}
+	}
+
+	public static void setMissingTexture(ResourceLocation missingTexture) {
+		GOTTextures.missingTexture = missingTexture;
+	}
+
+	public static void setOsrsTexture(ResourceLocation osrsTexture) {
+		GOTTextures.osrsTexture = osrsTexture;
+	}
+
+	public static void setOverlayTexture(ResourceLocation overlayTexture) {
+		GOTTextures.overlayTexture = overlayTexture;
 	}
 }
