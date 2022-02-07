@@ -68,7 +68,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	public boolean canDoBonemealing() {
 		if (theEntity.hiredNPCInfo.isActive) {
 			ItemStack invBmeal = getInventoryBonemeal();
-			return (invBmeal != null);
+			return invBmeal != null;
 		}
 		return false;
 	}
@@ -80,7 +80,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 				return true;
 			}
 			ItemStack bonemeal = getInventoryBonemeal();
-			if (bonemeal == null || (bonemeal != null && bonemeal.stackSize <= 16)) {
+			if (bonemeal == null || bonemeal != null && bonemeal.stackSize <= 16) {
 				return true;
 			}
 		}
@@ -101,7 +101,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 
 	public boolean canDoHarvesting() {
 		if (theEntity.hiredNPCInfo.isActive) {
-			return (getInventorySeeds() != null && hasSpaceForCrops() && getCropForSeed(getSeedsToPlant()) != null);
+			return getInventorySeeds() != null && hasSpaceForCrops() && getCropForSeed(getSeedsToPlant()) != null;
 		}
 		return false;
 	}
@@ -113,34 +113,34 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	public boolean canDoPlanting() {
 		if (theEntity.hiredNPCInfo.isActive) {
 			ItemStack invSeeds = getInventorySeeds();
-			return (invSeeds != null && invSeeds.stackSize > 1);
+			return invSeeds != null && invSeeds.stackSize > 1;
 		}
 		return true;
 	}
 
 	@Override
 	public boolean continueExecuting() {
-		if ((theEntity.hiredNPCInfo.isActive && !theEntity.hiredNPCInfo.isGuardMode()) || theEntity.getNavigator().noPath()) {
+		if (theEntity.hiredNPCInfo.isActive && !theEntity.hiredNPCInfo.isGuardMode() || theEntity.getNavigator().noPath()) {
 			return false;
 		}
 		if (pathingTick < 200) {
 			if (action == Action.HOEING) {
-				return (canDoHoeing() && isSuitableForHoeing(actionTarget));
+				return canDoHoeing() && isSuitableForHoeing(actionTarget);
 			}
 			if (action == Action.PLANTING) {
-				return (canDoPlanting() && isSuitableForPlanting(actionTarget));
+				return canDoPlanting() && isSuitableForPlanting(actionTarget);
 			}
 			if (action == Action.HARVESTING) {
-				return (canDoHarvesting() && isSuitableForHarvesting(actionTarget));
+				return canDoHarvesting() && isSuitableForHarvesting(actionTarget);
 			}
 			if (action == Action.DEPOSITING) {
-				return (canDoDepositing() && isSuitableForDepositing(actionTarget));
+				return canDoDepositing() && isSuitableForDepositing(actionTarget);
 			}
 			if (action == Action.BONEMEALING) {
-				return (canDoBonemealing() && isSuitableForBonemealing(actionTarget));
+				return canDoBonemealing() && isSuitableForBonemealing(actionTarget);
 			}
 			if (action == Action.COLLECTING) {
-				return (canDoCollecting() && isSuitableForCollecting(actionTarget));
+				return canDoCollecting() && isSuitableForCollecting(actionTarget);
 			}
 		}
 		return false;
@@ -149,7 +149,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	public TargetPair findTarget(Action targetAction) {
 		setAppropriateHomeRange(targetAction);
 		Random rand = theEntity.getRNG();
-		boolean isChestAction = (targetAction == Action.DEPOSITING || targetAction == Action.COLLECTING);
+		boolean isChestAction = targetAction == Action.DEPOSITING || targetAction == Action.COLLECTING;
 		List<TileEntityChest> chests = new ArrayList<>();
 		if (isChestAction) {
 			chests = gatherNearbyChests();
@@ -342,9 +342,9 @@ public class GOTEntityAIFarm extends EntityAIBase {
 			if (te instanceof TileEntityChest) {
 				TileEntityChest chest = (TileEntityChest) te;
 				boolean flag = false;
-				if (isFarmhandMarked(chest) || (chest.adjacentChestXNeg != null && isFarmhandMarked(chest.adjacentChestXNeg))) {
+				if (isFarmhandMarked(chest) || chest.adjacentChestXNeg != null && isFarmhandMarked(chest.adjacentChestXNeg)) {
 					flag = true;
-				} else if ((chest.adjacentChestXPos != null && isFarmhandMarked(chest.adjacentChestXPos)) || (chest.adjacentChestZNeg != null && isFarmhandMarked(chest.adjacentChestZNeg))) {
+				} else if (chest.adjacentChestXPos != null && isFarmhandMarked(chest.adjacentChestXPos) || chest.adjacentChestZNeg != null && isFarmhandMarked(chest.adjacentChestZNeg)) {
 					flag = true;
 				} else if (chest.adjacentChestZPos != null && isFarmhandMarked(chest.adjacentChestZPos)) {
 					flag = true;
@@ -363,7 +363,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 		}
 		for (int l = 1; l <= 2; l++) {
 			ItemStack itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(l);
-			if (itemstack == null || (itemstack.stackSize < itemstack.getMaxStackSize() && itemstack.isItemEqual(getCropForSeed(getSeedsToPlant())))) {
+			if (itemstack == null || itemstack.stackSize < itemstack.getMaxStackSize() && itemstack.isItemEqual(getCropForSeed(getSeedsToPlant()))) {
 				return true;
 			}
 		}
@@ -374,7 +374,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 		int i = chest.xCoord;
 		int j = chest.yCoord;
 		int k = chest.zCoord;
-		AxisAlignedBB chestBB = AxisAlignedBB.getBoundingBox(i, j, k, (i + 1), (j + 1), (k + 1));
+		AxisAlignedBB chestBB = AxisAlignedBB.getBoundingBox(i, j, k, i + 1, j + 1, k + 1);
 		List entities = theWorld.getEntitiesWithinAABB(EntityItemFrame.class, chestBB.expand(2.0D, 2.0D, 2.0D));
 		for (Object obj : entities) {
 			EntityItemFrame frame = (EntityItemFrame) obj;
@@ -395,19 +395,19 @@ public class GOTEntityAIFarm extends EntityAIBase {
 
 	public boolean isReplaceable(int i, int j, int k) {
 		Block block = theWorld.getBlock(i, j, k);
-		return (!block.getMaterial().isLiquid() && block.isReplaceable(theWorld, i, j, k));
+		return !block.getMaterial().isLiquid() && block.isReplaceable(theWorld, i, j, k);
 	}
 
 	public boolean isSolidOpenWalkTarget(int i, int j, int k) {
 		Block below = theWorld.getBlock(i, j - 1, k);
 		if (below.isOpaqueCube() || below.canSustainPlant((IBlockAccess) theWorld, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.wheat)) {
 			List bounds = new ArrayList();
-			AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(i, j, k, (i + 1), (j + 2), (k + 1));
+			AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(i, j, k, i + 1, j + 2, k + 1);
 			for (int j1 = j; j1 <= j + 1; j1++) {
 				theWorld.getBlock(i, j1, k).addCollisionBoxesToList(theWorld, i, j1, k, aabb, bounds, theEntity);
 			}
 			if (bounds.isEmpty()) {
-				return (theEntity.getNavigator().getPathToXYZ(i, j, k) != null);
+				return theEntity.getNavigator().getPathToXYZ(i, j, k) != null;
 			}
 		}
 		return false;
@@ -442,7 +442,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 			int[] invSlots = { 0, 3 };
 			for (int l : invSlots) {
 				ItemStack collectMatch = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(l);
-				if ((collectMatch == null) && (l == 3)) {
+				if (collectMatch == null && l == 3) {
 					collectMatch = new ItemStack(Items.dye, 0, 15);
 				}
 				if (collectMatch != null && collectMatch.stackSize <= 16) {
@@ -471,7 +471,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 				if (depositItem != null) {
 					for (int slot = 0; slot < chest.getSizeInventory(); slot++) {
 						ItemStack chestItem = chest.getStackInSlot(slot);
-						if (chestItem == null || (chestItem.isItemEqual(depositItem) && ItemStack.areItemStackTagsEqual(chestItem, depositItem) && chestItem.stackSize < chestItem.getMaxStackSize())) {
+						if (chestItem == null || chestItem.isItemEqual(depositItem) && ItemStack.areItemStackTagsEqual(chestItem, depositItem) && chestItem.stackSize < chestItem.getMaxStackSize()) {
 							return true;
 						}
 					}
@@ -491,11 +491,11 @@ public class GOTEntityAIFarm extends EntityAIBase {
 		Block plantBlock = seed.getPlant(theWorld, i, j, k);
 		if (plantBlock instanceof BlockCrops) {
 			harvestingSolidBlock = false;
-			return (theWorld.getBlock(i, j, k) == plantBlock && theWorld.getBlockMetadata(i, j, k) >= 7);
+			return theWorld.getBlock(i, j, k) == plantBlock && theWorld.getBlockMetadata(i, j, k) >= 7;
 		}
 		if (plantBlock instanceof BlockStem) {
 			harvestingSolidBlock = true;
-			return (theWorld.getBlock(i, j, k) == GOTReflection.getStemFruitBlock((BlockStem) plantBlock));
+			return theWorld.getBlock(i, j, k) == GOTReflection.getStemFruitBlock((BlockStem) plantBlock);
 		}
 		if (plantBlock instanceof GOTBlockCorn) {
 			harvestingSolidBlock = false;
@@ -509,7 +509,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 			}
 		} else if (plantBlock instanceof GOTBlockGrapevine) {
 			harvestingSolidBlock = false;
-			return (theWorld.getBlock(i, j, k) == seed.getPlant(theWorld, i, j, k) && theWorld.getBlockMetadata(i, j, k) >= 7);
+			return theWorld.getBlock(i, j, k) == seed.getPlant(theWorld, i, j, k) && theWorld.getBlockMetadata(i, j, k) >= 7;
 		}
 		return false;
 	}
@@ -551,9 +551,9 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	public boolean isSuitableForPlanting(int i, int j, int k) {
 		harvestingSolidBlock = false;
 		if (isFarmingGrapes()) {
-			return (theWorld.getBlock(i, j, k) == GOTRegistry.grapevine && GOTBlockGrapevine.canPlantGrapesAt(theWorld, i, j, k, getSeedsToPlant()));
+			return theWorld.getBlock(i, j, k) == GOTRegistry.grapevine && GOTBlockGrapevine.canPlantGrapesAt(theWorld, i, j, k, getSeedsToPlant());
 		}
-		return (theWorld.getBlock(i, j - 1, k).isFertile(theWorld, i, j - 1, k) && isReplaceable(i, j, k));
+		return theWorld.getBlock(i, j - 1, k).isFertile(theWorld, i, j - 1, k) && isReplaceable(i, j, k);
 	}
 
 	@Override
@@ -571,7 +571,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 		if (theEntity.hiredNPCInfo.isActive) {
 			int hRange = theEntity.hiredNPCInfo.getGuardRange();
 			ChunkCoordinates home = theEntity.getHomePosition();
-			if ((targetAction != null && (targetAction == Action.DEPOSITING || targetAction == Action.COLLECTING)) && (hRange < 24)) {
+			if (targetAction != null && (targetAction == Action.DEPOSITING || targetAction == Action.COLLECTING) && hRange < 24) {
 				hRange = 24;
 			}
 			theEntity.setHomeArea(home.posX, home.posY, home.posZ, hRange);
@@ -664,9 +664,9 @@ public class GOTEntityAIFarm extends EntityAIBase {
 			int i = MathHelper.floor_double(theEntity.posX);
 			int j = MathHelper.floor_double(theEntity.boundingBox.minY);
 			int k = MathHelper.floor_double(theEntity.posZ);
-			canDoAction = (i == pathTarget.posX && j == pathTarget.posY && k == pathTarget.posZ);
+			canDoAction = i == pathTarget.posX && j == pathTarget.posY && k == pathTarget.posZ;
 		} else {
-			canDoAction = (distSq < 9.0D);
+			canDoAction = distSq < 9.0D;
 		}
 		if (!canDoAction) {
 			theEntity.getLookHelper().setLookPosition(actionTarget.posX + 0.5D, actionTarget.posY + 0.5D, actionTarget.posZ + 0.5D, 10.0F, theEntity.getVerticalFaceSpeed());
@@ -688,7 +688,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 							int x = actionTarget.posX + i1;
 							int z = actionTarget.posZ + k1;
 							int y = actionTarget.posY;
-							boolean alreadyChecked = (i1 == 0 && k1 == 0);
+							boolean alreadyChecked = i1 == 0 && k1 == 0;
 							if (alreadyChecked || isSuitableForHoeing(x, y, z)) {
 								if (isReplaceable(x, y + 1, z)) {
 									theWorld.setBlockToAir(x, y + 1, z);
@@ -789,7 +789,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 						if (itemstack != null) {
 							for (int slot = 0; slot < chest.getSizeInventory(); slot++) {
 								ItemStack chestItem = chest.getStackInSlot(slot);
-								if (chestItem == null || (chestItem.isItemEqual(itemstack) && ItemStack.areItemStackTagsEqual(chestItem, itemstack) && chestItem.stackSize < chestItem.getMaxStackSize())) {
+								if (chestItem == null || chestItem.isItemEqual(itemstack) && ItemStack.areItemStackTagsEqual(chestItem, itemstack) && chestItem.stackSize < chestItem.getMaxStackSize()) {
 									if (chestItem == null) {
 										chestItem = itemstack.copy();
 										chestItem.stackSize = 0;
@@ -833,7 +833,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 					int[] invSlots = { 0, 3 };
 					for (int l : invSlots) {
 						ItemStack itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(l);
-						if ((itemstack == null) && (l == 3)) {
+						if (itemstack == null && l == 3) {
 							itemstack = new ItemStack(Items.dye, 0, 15);
 						}
 						if (itemstack != null) {

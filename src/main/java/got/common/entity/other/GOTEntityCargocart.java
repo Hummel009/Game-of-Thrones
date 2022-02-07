@@ -25,7 +25,7 @@ public class GOTEntityCargocart extends GOTEntityCart {
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
 		if (!isDead) {
-			if ((source.getEntity() instanceof EntityPlayer) && ((EntityPlayer) source.getEntity()).capabilities.isCreativeMode) {
+			if (source.getEntity() instanceof EntityPlayer && ((EntityPlayer) source.getEntity()).capabilities.isCreativeMode) {
 				setDead();
 			}
 			if (source.isFireDamage()) {

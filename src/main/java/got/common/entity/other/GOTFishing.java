@@ -78,7 +78,8 @@ public class GOTFishing {
 				ItemStack result = ((FishingItem) WeightedRandom.getRandomItem(rand, junk)).getRandomResult(rand);
 				return new FishResult(FishingHooks.FishableCategory.JUNK, result);
 			}
-			if ((chance -= junkChance) < treasureChance) {
+			chance -= junkChance;
+			if (chance < treasureChance) {
 				ItemStack result = ((FishingItem) WeightedRandom.getRandomItem(rand, treasure)).getRandomResult(rand);
 				return new FishResult(FishingHooks.FishableCategory.TREASURE, result);
 			}

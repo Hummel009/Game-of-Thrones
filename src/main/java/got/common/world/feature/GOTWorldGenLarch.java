@@ -63,7 +63,8 @@ public class GOTWorldGenLarch extends WorldGenAbstractTree {
 					if (leafRange >= maxLeafRange) {
 						leafRange = minLeafRange;
 						minLeafRange = 1;
-						if (++maxLeafRange <= leafWidth) {
+						maxLeafRange++;
+						if (maxLeafRange <= leafWidth) {
 							continue;
 						}
 						maxLeafRange = leafWidth;

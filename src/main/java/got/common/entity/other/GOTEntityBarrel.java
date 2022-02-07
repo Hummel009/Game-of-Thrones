@@ -251,7 +251,8 @@ public class GOTEntityBarrel extends Entity {
 				motionX += d5 * speedMultiplier * 0.05;
 				motionZ += d11 * speedMultiplier * 0.05;
 			}
-			if ((d4 = Math.sqrt(motionX * motionX + motionZ * motionZ)) > maxSpeedMultiplier) {
+			d4 = Math.sqrt(motionX * motionX + motionZ * motionZ);
+			if (d4 > maxSpeedMultiplier) {
 				d5 = maxSpeedMultiplier / d4;
 				motionX *= d5;
 				motionZ *= d5;

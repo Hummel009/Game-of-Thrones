@@ -34,7 +34,7 @@ public class GOTEntityAILionChase extends EntityAIBase {
 
 	@Override
 	public boolean shouldExecute() {
-		if (theLion.isChild() || theLion.isInLove() || (theLion.getRNG().nextInt(800) != 0)) {
+		if (theLion.isChild() || theLion.isInLove() || theLion.getRNG().nextInt(800) != 0) {
 			return false;
 		}
 		List entities = theLion.worldObj.getEntitiesWithinAABB(EntityAnimal.class, theLion.boundingBox.expand(12.0, 12.0, 12.0));

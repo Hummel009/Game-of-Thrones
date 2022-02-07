@@ -50,7 +50,7 @@ public class GOTContainerHiredFarmerInventory extends Container {
 				if (!mergeItemStack(itemstack1, 4, 40, true)) {
 					return null;
 				}
-			} else if ((((Slot) inventorySlots.get(0)).isItemValid(itemstack1) && !mergeItemStack(itemstack1, 0, 1, false)) || (((Slot) inventorySlots.get(3)).isItemValid(itemstack1) && !mergeItemStack(itemstack1, 3, 4, false))) {
+			} else if (((Slot) inventorySlots.get(0)).isItemValid(itemstack1) && !mergeItemStack(itemstack1, 0, 1, false) || ((Slot) inventorySlots.get(3)).isItemValid(itemstack1) && !mergeItemStack(itemstack1, 3, 4, false)) {
 				return null;
 			}
 			if (itemstack1.stackSize == 0) {

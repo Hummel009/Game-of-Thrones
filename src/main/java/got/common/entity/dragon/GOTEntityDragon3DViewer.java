@@ -29,7 +29,7 @@ public class GOTEntityDragon3DViewer {
 
 	@SubscribeEvent
 	public void onTick(ClientTickEvent evt) {
-		if ((evt.phase != TickEvent.Phase.START) || (mc.thePlayer == null)) {
+		if (evt.phase != TickEvent.Phase.START || mc.thePlayer == null) {
 			return;
 		}
 		ridingDragon = mc.thePlayer.ridingEntity instanceof GOTEntityDragon;

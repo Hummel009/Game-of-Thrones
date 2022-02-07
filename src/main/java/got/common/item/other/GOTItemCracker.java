@@ -43,7 +43,8 @@ public class GOTItemCracker extends Item {
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public IIcon getIconFromDamage(int i) {
-		if ((i = GOTItemCracker.getBaseCrackerMetadata(i)) >= crackerIcons.length) {
+		i = GOTItemCracker.getBaseCrackerMetadata(i);
+		if (i >= crackerIcons.length) {
 			i = 0;
 		}
 		return crackerIcons[i];

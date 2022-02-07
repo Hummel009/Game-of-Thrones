@@ -151,7 +151,7 @@ public class GOTNPCRendering {
 	}
 
 	public static void renderHiredIcon(EntityLivingBase entity, double d, double d1, double d2) {
-		if (!GOTConfig.hiredUnitIcons || (entity.riddenByEntity instanceof GOTEntityNPC) || (entity instanceof GOTEntityNPC && GOTSpeechClient.hasSpeech((GOTEntityNPC) entity))) {
+		if (!GOTConfig.hiredUnitIcons || entity.riddenByEntity instanceof GOTEntityNPC || entity instanceof GOTEntityNPC && GOTSpeechClient.hasSpeech((GOTEntityNPC) entity)) {
 			return;
 		}
 		Minecraft mc = Minecraft.getMinecraft();
@@ -228,7 +228,7 @@ public class GOTNPCRendering {
 	}
 
 	public static void renderNPCHealthBar(EntityLivingBase entity, double d, double d1, double d2) {
-		if (!GOTConfig.hiredUnitHealthBars || (entity.riddenByEntity instanceof GOTEntityNPC) || (entity instanceof GOTEntityNPC && GOTSpeechClient.hasSpeech((GOTEntityNPC) entity))) {
+		if (!GOTConfig.hiredUnitHealthBars || entity.riddenByEntity instanceof GOTEntityNPC || entity instanceof GOTEntityNPC && GOTSpeechClient.hasSpeech((GOTEntityNPC) entity)) {
 			return;
 		}
 		GOTNPCRendering.renderHealthBar(entity, d, d1, d2, new int[] { 5888860, 12006707 }, new int[] { 6079225, 12006707 });

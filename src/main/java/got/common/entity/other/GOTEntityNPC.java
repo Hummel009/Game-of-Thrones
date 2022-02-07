@@ -152,10 +152,11 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		damage += nearbyBannerFactor * 0.5f;
 		int knockbackModifier = 0;
 		if (entity instanceof EntityLivingBase) {
-			damage += EnchantmentHelper.getEnchantmentModifierLiving(this, ((EntityLivingBase) entity));
-			knockbackModifier += EnchantmentHelper.getKnockbackModifier(this, ((EntityLivingBase) entity));
+			damage += EnchantmentHelper.getEnchantmentModifierLiving(this, (EntityLivingBase) entity);
+			knockbackModifier += EnchantmentHelper.getKnockbackModifier(this, (EntityLivingBase) entity);
 		}
-		if (flag = entity.attackEntityFrom(DamageSource.causeMobDamage(this), damage)) {
+		flag = entity.attackEntityFrom(DamageSource.causeMobDamage(this), damage);
+		if (flag) {
 			int fireAspectModifier;
 			if (weapon != null && entity instanceof EntityLivingBase) {
 				int weaponItemDamage = weapon.getItemDamage();
@@ -171,7 +172,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 				entity.setFire(fireAspectModifier * 4);
 			}
 			if (entity instanceof EntityLivingBase) {
-				EnchantmentHelper.func_151384_a(((EntityLivingBase) entity), this);
+				EnchantmentHelper.func_151384_a((EntityLivingBase) entity, this);
 			}
 			EnchantmentHelper.func_151385_b(this, entity);
 		}
@@ -189,7 +190,8 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			float f1 = f * i;
 			f = f1 / 12.0f;
 		}
-		if ((flag = super.attackEntityFrom(damagesource, f)) && damagesource.getEntity() instanceof GOTEntityNPC) {
+		flag = super.attackEntityFrom(damagesource, f);
+		if (flag && damagesource.getEntity() instanceof GOTEntityNPC) {
 			GOTEntityNPC attacker = (GOTEntityNPC) damagesource.getEntity();
 			if (attacker.hiredNPCInfo.isActive && attacker.hiredNPCInfo.getHiringPlayer() != null) {
 				recentlyHit = 100;
@@ -460,7 +462,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	@Override
 	public boolean getCanSpawnHere() {
 		if ((!spawnsInDarkness || liftSpawnRestrictions || isConquestSpawning && conquestSpawnIgnoresDarkness() || isValidLightLevelForDarkSpawn()) && super.getCanSpawnHere()) {
-			if (!liftBannerRestrictions && (GOTBannerProtection.isProtected(worldObj, this, GOTBannerProtection.forNPC(this), false) || (!isConquestSpawning && GOTEntityNPCRespawner.isSpawnBlocked(this)))) {
+			if (!liftBannerRestrictions && (GOTBannerProtection.isProtected(worldObj, this, GOTBannerProtection.forNPC(this), false) || !isConquestSpawning && GOTEntityNPCRespawner.isSpawnBlocked(this))) {
 				return false;
 			}
 			return true;
@@ -541,12 +543,12 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	public ItemStack getHeldItemLeft() {
 		if (this instanceof GOTBannerBearer) {
-			GOTBannerBearer bannerBearer = (GOTBannerBearer) (this);
+			GOTBannerBearer bannerBearer = (GOTBannerBearer) this;
 			return new ItemStack(GOTRegistry.banner, 1, bannerBearer.getBannerType().bannerID);
 		}
 		if (isTrader() && !isLegendaryNPC && !(this instanceof GOTMercenary)) {
 			boolean showCoin = false;
-			if ((npcShield == null) || (!clientCombatStance && hiredNPCInfo.getHiringPlayerUUID() == null)) {
+			if (npcShield == null || !clientCombatStance && hiredNPCInfo.getHiringPlayerUUID() == null) {
 				showCoin = true;
 			}
 			if (showCoin) {
@@ -668,7 +670,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	@Override
 	public boolean interact(EntityPlayer entityplayer) {
 		if (!worldObj.isRemote && canNPCTalk()) {
-			if (questInfo.interact(entityplayer) || (getAttackTarget() == null && speakTo(entityplayer))) {
+			if (questInfo.interact(entityplayer) || getAttackTarget() == null && speakTo(entityplayer)) {
 				return true;
 			}
 		}
@@ -715,7 +717,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	@SideOnly(value = Side.CLIENT)
 	public boolean isInRangeToRenderDist(double dist) {
 		EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
-		if (entityplayer != null && !(GOTLevelData.getData(entityplayer)).getMiniQuestsForEntity(this, true).isEmpty()) {
+		if (entityplayer != null && !GOTLevelData.getData(entityplayer).getMiniQuestsForEntity(this, true).isEmpty()) {
 			return true;
 		}
 		return super.isInRangeToRenderDist(dist);
@@ -849,7 +851,8 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		hiredNPCInfo.onKillEntity(entity);
 		if (lootsExtraCoins() && !worldObj.isRemote && entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).canDropRares() && rand.nextInt(2) == 0) {
 			int coins = getRandomCoinDropAmount();
-			if ((coins = (int) (coins * MathHelper.randomFloatClamp(rand, 1.0f, 3.0f))) > 0) {
+			coins = (int) (coins * MathHelper.randomFloatClamp(rand, 1.0f, 3.0f));
+			if (coins > 0) {
 				entity.dropItem(GOTRegistry.coin, coins);
 			}
 		}
@@ -880,7 +883,8 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 				}
 				setInitialHome = true;
 			}
-			if ((preventKidnap = GOTConfig.preventTraderKidnap) > 0 && setInitialHome && initHomeRange > 0 && (getDistanceSq(initHomeX + 0.5, initHomeY + 0.5, initHomeZ + 0.5)) > preventKidnap * preventKidnap) {
+			preventKidnap = GOTConfig.preventTraderKidnap;
+			if (preventKidnap > 0 && setInitialHome && initHomeRange > 0 && getDistanceSq(initHomeX + 0.5, initHomeY + 0.5, initHomeZ + 0.5) > preventKidnap * preventKidnap) {
 				if (ridingEntity != null) {
 					mountEntity(null);
 				}
@@ -916,7 +920,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 				for (Object element : worldObj.playerEntities) {
 					EntityPlayer entityplayer = (EntityPlayer) element;
 					Container container = entityplayer.openContainer;
-					if ((container instanceof GOTContainerTrade && ((GOTContainerTrade) container).theTraderNPC == this) || (container instanceof GOTContainerUnitTrade && ((GOTContainerUnitTrade) container).theLivingTrader == this)) {
+					if (container instanceof GOTContainerTrade && ((GOTContainerTrade) container).theTraderNPC == this || container instanceof GOTContainerUnitTrade && ((GOTContainerUnitTrade) container).theLivingTrader == this) {
 						guiOpen = true;
 						break;
 					}
@@ -979,7 +983,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 				setHomeArea(homeX, homeY, homeZ, homeRange);
 			}
 		}
-		if (isChilly && (motionX * motionX + motionY * motionY + motionZ * motionZ) >= 0.01) {
+		if (isChilly && motionX * motionX + motionY * motionY + motionZ * motionZ >= 0.01) {
 			double d = posX + MathHelper.randomFloatClamp(rand, -0.3f, 0.3f) * width;
 			double d1 = boundingBox.minY + MathHelper.randomFloatClamp(rand, 0.2f, 0.7f) * height;
 			double d2 = posZ + MathHelper.randomFloatClamp(rand, -0.3f, 0.3f) * width;
@@ -996,7 +1000,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		if (!worldObj.isRemote && (spawnRidingHorse && (!(this instanceof GOTBannerBearer) || canBannerBearerSpawnRiding))) {
+		if (!worldObj.isRemote && spawnRidingHorse && (!(this instanceof GOTBannerBearer) || canBannerBearerSpawnRiding)) {
 			GOTNPCMount mount = createMountToRide();
 			EntityCreature livingMount = (EntityCreature) mount;
 			livingMount.setLocationAndAngles(posX, posY, posZ, rotationYaw, 0.0f);
@@ -1260,7 +1264,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 				Vec3 vec1 = Vec3.createVectorHelper((rand.nextFloat() - 0.5) * 0.1, Math.random() * 0.1 + 0.1, 0.0);
 				vec1.rotateAroundX(-rotationPitch * 3.1415927f / 180.0f);
 				vec1.rotateAroundY(-rotationYaw * 3.1415927f / 180.0f);
-				Vec3 vec2 = Vec3.createVectorHelper((rand.nextFloat() - 0.5) * 0.3, (-rand.nextFloat()) * 0.6 - 0.3, 0.6);
+				Vec3 vec2 = Vec3.createVectorHelper((rand.nextFloat() - 0.5) * 0.3, -rand.nextFloat() * 0.6 - 0.3, 0.6);
 				vec2.rotateAroundX(-rotationPitch * 3.1415927f / 180.0f);
 				vec2.rotateAroundY(-rotationYaw * 3.1415927f / 180.0f);
 				vec2 = vec2.addVector(posX, posY + getEyeHeight(), posZ);

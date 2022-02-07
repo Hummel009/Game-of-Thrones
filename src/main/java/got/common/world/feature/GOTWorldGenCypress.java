@@ -44,7 +44,7 @@ public class GOTWorldGenCypress extends WorldGenAbstractTree {
 				}
 				for (int i12 = i - range; i12 <= i + range + extraTrunkWidth && flag; ++i12) {
 					for (int k12 = k - range; k12 <= k + range + extraTrunkWidth && flag; ++k12) {
-						if ((j1 >= 0 && j1 < 256) && isReplaceable(world, i12, j1, k12)) {
+						if (j1 >= 0 && j1 < 256 && isReplaceable(world, i12, j1, k12)) {
 							continue;
 						}
 						flag = false;
@@ -96,7 +96,8 @@ public class GOTWorldGenCypress extends WorldGenAbstractTree {
 								if (i2 > 0) {
 									i2 -= extraTrunkWidth;
 								}
-								if ((k2 = k13) > 0) {
+								k2 = k13;
+								if (k2 > 0) {
 									k2 -= extraTrunkWidth;
 								}
 								if (Math.abs(i2) == 1 && Math.abs(k2) == 1) {

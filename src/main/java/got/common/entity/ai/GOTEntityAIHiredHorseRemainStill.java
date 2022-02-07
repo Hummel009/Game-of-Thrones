@@ -10,7 +10,7 @@ public class GOTEntityAIHiredHorseRemainStill extends EntityAIBase {
 
 	public GOTEntityAIHiredHorseRemainStill(GOTNPCMount entity) {
 		theHorse = entity;
-		livingHorse = (EntityCreature) (theHorse);
+		livingHorse = (EntityCreature) theHorse;
 		setMutexBits(5);
 	}
 

@@ -67,13 +67,13 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 		int k3 = k2 - k1 + 1;
 		BiomeGenBase[] biomes = getBiomesForGeneration(null, i1, k1, i3, k3);
 		for (GOTBiomeVariant v : getVariantsChunkGen(null, i1, k1, i3, k3, biomes)) {
-			if (v.hillFactor > 1.6f || requireFlat && v.hillFactor > 1.0f || (v.treeFactor > 1.0f)) {
+			if (v.hillFactor > 1.6f || requireFlat && v.hillFactor > 1.0f || v.treeFactor > 1.0f) {
 				return false;
 			}
 			if (v.disableVillages) {
 				return false;
 			}
-			if (!v.absoluteHeight || (v.absoluteHeightLevel >= 0.0f)) {
+			if (!v.absoluteHeight || v.absoluteHeightLevel >= 0.0f) {
 				continue;
 			}
 			return false;
@@ -246,7 +246,8 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 							}
 						}
 					}
-					if ((riverCode = variantsRiversInts[index]) == 2) {
+					riverCode = variantsRiversInts[index];
+					if (riverCode == 2) {
 						variant = GOTBiomeVariant.RIVER;
 					} else if (riverCode == 1 && biome.getEnableRiver() && !structureNear && !mountainNear) {
 						variant = GOTBiomeVariant.RIVER;

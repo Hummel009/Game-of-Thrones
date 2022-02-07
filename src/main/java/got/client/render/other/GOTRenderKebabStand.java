@@ -68,7 +68,8 @@ public class GOTRenderKebabStand extends TileEntitySpecialRenderer {
 		if (!StringUtils.isNullOrEmpty(s)) {
 			s = "_" + s;
 		}
-		if ((r = standTextures.get(s = "stand" + s)) == null) {
+		r = standTextures.get(s = "stand" + s);
+		if (r == null) {
 			r = new ResourceLocation("got:textures/model/kebab/" + s + ".png");
 			standTextures.put(s, r);
 		}

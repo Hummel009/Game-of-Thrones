@@ -80,7 +80,7 @@ public class GOTStructureThennMagnarHouse extends GOTStructureBase {
 				for (j14 = 1; j14 <= 10; ++j14) {
 					setAir(world, i1, j14, k14);
 				}
-				for (j14 = 0; (((j14 == 0) || !isOpaque(world, i1, j14, k14)) && (getY(j14) >= 0)); --j14) {
+				for (j14 = 0; (j14 == 0 || !isOpaque(world, i1, j14, k14)) && getY(j14) >= 0; --j14) {
 					if (getBlock(world, i1, j14 + 1, k14).isOpaqueCube()) {
 						setBlockAndMetadata(world, i1, j14, k14, Blocks.dirt, 0);
 					} else {

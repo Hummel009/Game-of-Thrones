@@ -1067,7 +1067,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			renderButterflyJar(world, i, j, k, block, renderblocks);
 			return true;
 		}
-		if ((id == GOT.proxy.getUnsmelteryRenderID()) || (id == GOT.proxy.getChestRenderID())) {
+		if (id == GOT.proxy.getUnsmelteryRenderID() || id == GOT.proxy.getChestRenderID()) {
 			return true;
 		}
 		if (id == GOT.proxy.getReedsRenderID()) {

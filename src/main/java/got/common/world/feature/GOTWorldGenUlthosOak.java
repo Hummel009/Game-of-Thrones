@@ -61,7 +61,7 @@ public class GOTWorldGenUlthosOak extends WorldGenAbstractTree {
 					}
 					for (i12 = i - range; i12 <= i + range && flag; ++i12) {
 						for (int k12 = k - range; k12 <= k + range && flag; ++k12) {
-							if ((j1 >= 0 && j1 < 256) && isReplaceable(world, i12, j1, k12)) {
+							if (j1 >= 0 && j1 < 256 && isReplaceable(world, i12, j1, k12)) {
 								continue;
 							}
 							flag = false;
@@ -166,7 +166,8 @@ public class GOTWorldGenUlthosOak extends WorldGenAbstractTree {
 						while (!world.getBlock(i12, j2, k15).isOpaqueCube()) {
 							setBlockAndNotifyAdequately(world, i12, j2, k15, woodBlock, woodMeta | 0xC);
 							world.getBlock(i12, j2 - 1, k15).onPlantGrow(world, i12, j2 - 1, k15, i12, j2, k15);
-							if (++rootBlocks > 5) {
+							rootBlocks++;
+							if (rootBlocks > 5) {
 								break;
 							}
 							--j2;

@@ -36,7 +36,7 @@ public class GOTWorldGenMangrove extends WorldGenAbstractTree {
 				}
 				for (int i1 = i - range; i1 <= i + range && flag; ++i1) {
 					for (int k1 = k - range; k1 <= k + range && flag; ++k1) {
-						if ((j1 >= 0 && j1 < 256) && isReplaceable(world, i1, j1, k1)) {
+						if (j1 >= 0 && j1 < 256 && isReplaceable(world, i1, j1, k1)) {
 							continue;
 						}
 						flag = false;
@@ -110,7 +110,8 @@ public class GOTWorldGenMangrove extends WorldGenAbstractTree {
 								rootX += xWay;
 								rootZ += zWay;
 							}
-							if (++roots <= 4 + random.nextInt(3)) {
+							roots++;
+							if (roots <= 4 + random.nextInt(3)) {
 								continue;
 							}
 						}

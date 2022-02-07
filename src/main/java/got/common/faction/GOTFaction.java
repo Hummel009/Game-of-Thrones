@@ -133,7 +133,7 @@ public enum GOTFaction {
 		GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 		for (GOTFactionRank rank : ranksSortedDescending) {
 			GOTAchievementRank rankAch = rank.getRankAchievement();
-			if (((rankAch != null) && rankAch.isPlayerRequiredRank(entityplayer))) {
+			if (rankAch != null && rankAch.isPlayerRequiredRank(entityplayer)) {
 				playerData.addAchievement(rankAch);
 			}
 		}
@@ -152,7 +152,7 @@ public enum GOTFaction {
 				double dz = d2 - zone.zCoord;
 				double dSq = dx * dx + dz * dz;
 				double dToEdge = Math.sqrt(dSq) - zone.radiusCoord;
-				if (((dToEdge <= coordRange) && ((closestDist < 0.0) || (dToEdge < closestDist)))) {
+				if (dToEdge <= coordRange && (closestDist < 0.0 || dToEdge < closestDist)) {
 					closestDist = dToEdge;
 				}
 			}
@@ -179,7 +179,7 @@ public enum GOTFaction {
 	public List<GOTFaction> getBonusesForKilling() {
 		ArrayList<GOTFaction> list = new ArrayList<>();
 		for (GOTFaction f : GOTFaction.values()) {
-			if (((f != this) && isBadRelation(f))) {
+			if (f != this && isBadRelation(f)) {
 				list.add(f);
 			}
 		}
@@ -189,7 +189,7 @@ public enum GOTFaction {
 	public List<GOTFaction> getConquestBoostRelations() {
 		ArrayList<GOTFaction> list = new ArrayList<>();
 		for (GOTFaction f : GOTFaction.values()) {
-			if (((f != this) && f.isPlayableAlignmentFaction() && (GOTFactionRelations.getRelations(this, f) == GOTFactionRelations.Relation.ALLY))) {
+			if (f != this && f.isPlayableAlignmentFaction() && GOTFactionRelations.getRelations(this, f) == GOTFactionRelations.Relation.ALLY) {
 				list.add(f);
 			}
 		}
@@ -249,7 +249,7 @@ public enum GOTFaction {
 	public List<GOTFaction> getOthersOfRelation(GOTFactionRelations.Relation rel) {
 		ArrayList<GOTFaction> list = new ArrayList<>();
 		for (GOTFaction f : GOTFaction.values()) {
-			if (((f != this) && f.isPlayableAlignmentFaction() && (GOTFactionRelations.getRelations(this, f) == rel))) {
+			if (f != this && f.isPlayableAlignmentFaction() && GOTFactionRelations.getRelations(this, f) == rel) {
 				list.add(f);
 			}
 		}
@@ -260,7 +260,7 @@ public enum GOTFaction {
 		ArrayList<GOTFaction> list = new ArrayList<>();
 		list.add(this);
 		for (GOTFaction f : GOTFaction.values()) {
-			if (((f != this) && isGoodRelation(f))) {
+			if (f != this && isGoodRelation(f)) {
 				list.add(f);
 			}
 		}
@@ -284,7 +284,7 @@ public enum GOTFaction {
 
 	public GOTFactionRank getRank(float alignment) {
 		for (GOTFactionRank rank : ranksSortedDescending) {
-			if ((!rank.isDummyRank() && (alignment >= rank.alignment))) {
+			if (!rank.isDummyRank() && alignment >= rank.alignment) {
 				return rank;
 			}
 		}
@@ -318,7 +318,8 @@ public enum GOTFaction {
 			index = ranksSortedDescending.indexOf(curRank);
 		}
 		if (index >= 0) {
-			if ((index -= n) < 0) {
+			index -= n;
+			if (index < 0) {
 				return ranksSortedDescending.get(0);
 			}
 			if (index > ranksSortedDescending.size() - 1) {

@@ -50,7 +50,7 @@ public class GOTTraderNPCInfo {
 	}
 
 	public void onTrade(EntityPlayer entityplayer, GOTTradeEntry trade, GOTTradeEntries.TradeType type, int value) {
-		((GOTTradeable) (theEntity)).onPlayerTrade(entityplayer, type, trade.createTradeItem());
+		((GOTTradeable) theEntity).onPlayerTrade(entityplayer, type, trade.createTradeItem());
 		GOTLevelData.getData(entityplayer).getFactionData(theEntity.getFaction()).addTrade();
 		trade.doTransaction(value);
 		timeSinceTrade = 0;
@@ -163,7 +163,7 @@ public class GOTTraderNPCInfo {
 	}
 
 	public void refreshTrades() {
-		GOTTradeable theTrader = (GOTTradeable) (theEntity);
+		GOTTradeable theTrader = (GOTTradeable) theEntity;
 		Random rand = theEntity.getRNG();
 		setBuyTrades(theTrader.getBuyPool().getRandomTrades(rand));
 		setSellTrades(theTrader.getSellPool().getRandomTrades(rand));

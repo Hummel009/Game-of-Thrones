@@ -41,7 +41,7 @@ public class GOTWorldProvider extends WorldProvider {
 
 	@Override
 	public float calculateCelestialAngle(long time, float partialTick) {
-		float daytime = (((int) (time % GOTTime.DAY_LENGTH)) + partialTick) / GOTTime.DAY_LENGTH - 0.25f;
+		float daytime = ((int) (time % GOTTime.DAY_LENGTH) + partialTick) / GOTTime.DAY_LENGTH - 0.25f;
 		if (daytime < 0.0f) {
 			daytime += 1.0f;
 		}
@@ -117,7 +117,7 @@ public class GOTWorldProvider extends WorldProvider {
 		if (!checkLight) {
 			return true;
 		}
-		return j >= 0 && j < worldObj.getHeight() && worldObj.getSavedLightValue(EnumSkyBlock.Block, i, j, k) < 10 && (worldObj.getBlock(i, j, k)).getMaterial() == Material.air && Blocks.snow_layer.canPlaceBlockAt(worldObj, i, j, k);
+		return j >= 0 && j < worldObj.getHeight() && worldObj.getSavedLightValue(EnumSkyBlock.Block, i, j, k) < 10 && worldObj.getBlock(i, j, k).getMaterial() == Material.air && Blocks.snow_layer.canPlaceBlockAt(worldObj, i, j, k);
 	}
 
 	@Override

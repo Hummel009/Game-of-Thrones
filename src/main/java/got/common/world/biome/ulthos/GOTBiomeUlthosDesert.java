@@ -88,7 +88,8 @@ public class GOTBiomeUlthosDesert extends GOTBiome {
 		int fillerBlockMeta_pre = fillerBlockMeta;
 		double d1 = biomeTerrainNoise.func_151601_a(i * 0.07, k * 0.07);
 		double d2 = biomeTerrainNoise.func_151601_a(i * 0.4, k * 0.4);
-		if (d1 + (d2 *= 0.6) > 0.7) {
+		d2 *= 0.6;
+		if (d1 + d2 > 0.7) {
 			topBlock = Blocks.grass;
 			topBlockMeta = 0;
 			fillerBlock = Blocks.dirt;

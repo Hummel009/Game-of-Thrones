@@ -148,7 +148,7 @@ public class GOTHiredNPCInfo {
 	public String getStatusString() {
 		String status = "";
 		if (hiredTask == Task.WARRIOR) {
-			status = inCombat ? StatCollector.translateToLocal("got.hiredNPC.status.combat") : (isHalted() ? StatCollector.translateToLocal("got.hiredNPC.status.halted") : (guardMode ? StatCollector.translateToLocal("got.hiredNPC.status.guard") : StatCollector.translateToLocal("got.hiredNPC.status.ready")));
+			status = inCombat ? StatCollector.translateToLocal("got.hiredNPC.status.combat") : isHalted() ? StatCollector.translateToLocal("got.hiredNPC.status.halted") : guardMode ? StatCollector.translateToLocal("got.hiredNPC.status.guard") : StatCollector.translateToLocal("got.hiredNPC.status.ready");
 		} else if (hiredTask == Task.FARMER) {
 			status = guardMode ? StatCollector.translateToLocal("got.hiredNPC.status.farming") : StatCollector.translateToLocal("got.hiredNPC.status.following");
 		}
@@ -532,7 +532,7 @@ public class GOTHiredNPCInfo {
 					float halfWidth = theEntity.width / 2.0f;
 					int j1 = MathHelper.getRandomIntegerInRange(world.rand, j - 4, j + 4);
 					double d1 = j1;
-					AxisAlignedBB npcBB = AxisAlignedBB.getBoundingBox(d - halfWidth, d1 + (yExtra = -theEntity.yOffset + theEntity.ySize), (d2 = k1 + 0.5) - halfWidth, d + halfWidth, d1 + yExtra + (theEntity.height), d2 + halfWidth);
+					AxisAlignedBB npcBB = AxisAlignedBB.getBoundingBox(d - halfWidth, d1 + (yExtra = -theEntity.yOffset + theEntity.ySize), (d2 = k1 + 0.5) - halfWidth, d + halfWidth, d1 + yExtra + theEntity.height, d2 + halfWidth);
 					if (!world.func_147461_a(npcBB).isEmpty() || !world.getBlock(i1, j1 - 1, k1).isSideSolid(world, i1, j1 - 1, k1, ForgeDirection.UP)) {
 						continue;
 					}

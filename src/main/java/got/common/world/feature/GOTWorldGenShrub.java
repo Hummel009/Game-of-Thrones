@@ -30,7 +30,8 @@ public class GOTWorldGenShrub extends WorldGenTrees {
 		}
 		Block below = world.getBlock(i, j, k);
 		if (below.canSustainPlant(world, i, j, k, ForgeDirection.UP, (IPlantable) Blocks.sapling)) {
-			setBlockAndNotifyAdequately(world, i, ++j, k, woodBlock, woodMeta);
+			j++;
+			setBlockAndNotifyAdequately(world, i, j, k, woodBlock, woodMeta);
 			for (int j1 = j; j1 <= j + 2; ++j1) {
 				int j2 = j1 - j;
 				int range = 2 - j2;

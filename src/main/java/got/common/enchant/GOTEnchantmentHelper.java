@@ -505,11 +505,11 @@ public class GOTEnchantmentHelper {
 			List<GOTEnchantment> enchants = GOTEnchantmentHelper.getEnchantList(itemstack);
 			for (GOTEnchantment ench : enchants) {
 				float durability;
-				if (!(ench instanceof GOTEnchantmentDurability) || ((durability = ((GOTEnchantmentDurability) ench).durabilityFactor) <= 1.0f)) {
+				if (!(ench instanceof GOTEnchantmentDurability) || (durability = ((GOTEnchantmentDurability) ench).durabilityFactor) <= 1.0f) {
 					continue;
 				}
 				float inv = 1.0f / durability;
-				if ((random.nextFloat() <= inv)) {
+				if (random.nextFloat() <= inv) {
 					continue;
 				}
 				return true;
@@ -521,7 +521,7 @@ public class GOTEnchantmentHelper {
 	public static void onEntityUpdate(EntityLivingBase entity) {
 		Random rand = entity.getRNG();
 		if (GOTConfig.enchantingGOT) {
-			if (entity instanceof EntityLiving && !(entity.getEntityData().getBoolean("GOTEnchantInit"))) {
+			if (entity instanceof EntityLiving && !entity.getEntityData().getBoolean("GOTEnchantInit")) {
 				for (int i = 0; i < entity.getLastActiveItems().length; ++i) {
 					ItemStack itemstack = entity.getEquipmentInSlot(i);
 					GOTEnchantmentHelper.tryApplyRandomEnchantsForEntity(itemstack, rand);
@@ -538,7 +538,7 @@ public class GOTEnchantmentHelper {
 				}
 				for (int i = 0; i < inv.getSizeInventory(); ++i) {
 					ItemStack itemstack = inv.getStackInSlot(i);
-					if (ItemStack.areItemStacksEqual(itemstack, (lastKnownInv[i]))) {
+					if (ItemStack.areItemStacksEqual(itemstack, lastKnownInv[i])) {
 						continue;
 					}
 					GOTEnchantmentHelper.tryApplyRandomEnchantsForEntity(itemstack, rand);

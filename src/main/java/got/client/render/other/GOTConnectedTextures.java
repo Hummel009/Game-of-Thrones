@@ -50,7 +50,7 @@ public class GOTConnectedTextures {
 			int key = entry.getKey();
 			Set<IconElement> set = entry.getValue();
 			List<IconElement> list = IconElement.sortIconSet(set);
-			if ((includeNoBase || list.contains(IconElement.BASE))) {
+			if (includeNoBase || list.contains(IconElement.BASE)) {
 				String iconName = modID + ":textures/blocks/" + baseIconName + "_" + key;
 				if (textureMap.getTextureExtry(iconName) != null) {
 					FMLLog.severe("Icon is already registered for %s", iconName);

@@ -47,7 +47,7 @@ public class GOTEntityAINPCFollowPlayer extends EntityAIBase {
 			distanceSq = d;
 			entityplayer = playerCandidate;
 		}
-		if ((entityplayer == null) || (distanceSq < 9.0)) {
+		if (entityplayer == null || distanceSq < 9.0) {
 			return false;
 		}
 		playerToFollow = entityplayer;

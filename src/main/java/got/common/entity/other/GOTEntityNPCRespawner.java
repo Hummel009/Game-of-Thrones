@@ -222,7 +222,8 @@ public class GOTEntityNPCRespawner extends Entity {
 				} else {
 					entity.detachHome();
 				}
-				if (++entities >= spawnCap) {
+				entities++;
+				if (entities >= spawnCap) {
 					break;
 				}
 			}

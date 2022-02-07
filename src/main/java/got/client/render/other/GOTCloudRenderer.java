@@ -133,7 +133,6 @@ public class GOTCloudRenderer extends IRenderHandler {
 
 	private static class CloudProperty {
 		private long baseSeed;
-		private float currentDayValue;
 		private float value;
 		private float prevValue;
 		private float minValue;
@@ -164,7 +163,7 @@ public class GOTCloudRenderer extends IRenderHandler {
 		}
 
 		public void update(WorldClient world) {
-			currentDayValue = getCurrentDayValue(world);
+			float currentDayValue = getCurrentDayValue(world);
 			if (value == -1.0f) {
 				prevValue = value = currentDayValue;
 			} else {

@@ -100,7 +100,7 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 				for (int k1 = -2; k1 <= 2; k1++) {
 					int i2 = Math.abs(i1);
 					int k2 = Math.abs(k1);
-					if ((i2 == 2 && k2 <= 1) || (k2 == 2 && i2 <= 1)) {
+					if (i2 == 2 && k2 <= 1 || k2 == 2 && i2 <= 1) {
 						layFoundationRandomStoneBrick(world, random, i1, 0, k1);
 						int height = 4 + random.nextInt(3);
 						for (int m = 1; m <= height; m++) {
@@ -158,7 +158,7 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 					int j1 = getTopBlock(world, m, k1);
 					for (int j2 = j1; j2 >= pitDepth; j2--) {
 						setAir(world, m, j2, k1);
-						if ((i2 == 1 && k2 == 1) && (random.nextInt(10) == 0)) {
+						if (i2 == 1 && k2 == 1 && random.nextInt(10) == 0) {
 							setBlockAndMetadata(world, m, j2, k1, Blocks.stone_slab, 0);
 						}
 					}
@@ -390,7 +390,7 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 							}
 							setGrassToDirt(world, i1, m - 1, k1);
 						}
-						if ((i1 >= 4 || k1 >= 4) && (random.nextInt(6) == 0)) {
+						if ((i1 >= 4 || k1 >= 4) && random.nextInt(6) == 0) {
 							setGrassToDirt(world, i1, m, k1);
 							placeRandomStoneBrick(world, random, i1, m + 1, k1);
 							if (random.nextInt(3) == 0) {
@@ -569,7 +569,7 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 							}
 						}
 					}
-					if ((i2 == 4 || k2 == 4) && (random.nextInt(3) != 0)) {
+					if ((i2 == 4 || k2 == 4) && random.nextInt(3) != 0) {
 						if (random.nextInt(3) == 0) {
 							if (random.nextBoolean()) {
 								setBlockAndMetadata(world, i1, 7, m, Blocks.stone_brick_stairs, random.nextInt(4));
@@ -656,7 +656,7 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 									setBlockAndMetadata(world, i1, j1, k1, Blocks.cobblestone, 0);
 								}
 							}
-							if ((i2 == width - 1 && random.nextInt(Math.max(2, gravelChance / 2)) == 0) || random.nextInt(gravelChance) == 0) {
+							if (i2 == width - 1 && random.nextInt(Math.max(2, gravelChance / 2)) == 0 || random.nextInt(gravelChance) == 0) {
 								int h = 1;
 								if (random.nextInt(4) == 0) {
 									h++;
@@ -721,7 +721,7 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 							setBlockAndMetadata(world, i1 - 1, 1 + h, k1, Blocks.stone_brick_stairs, 5);
 						}
 					}
-					if ((i2 == 3 && k2 <= 1) || (k2 == 3 && i2 <= 1)) {
+					if (i2 == 3 && k2 <= 1 || k2 == 3 && i2 <= 1) {
 						if (random.nextInt(4) != 0) {
 							setBlockAndMetadata(world, i1, 2, k1, Blocks.stone_slab, 0);
 							setGrassToDirt(world, i1, 1, k1);
@@ -896,7 +896,7 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 		}
 
 		public static RuinType getRandomType(Random random) {
-			return values()[random.nextInt((values()).length)];
+			return values()[random.nextInt(values().length)];
 		}
 	}
 }

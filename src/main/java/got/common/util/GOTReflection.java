@@ -137,7 +137,8 @@ public class GOTReflection {
 		String[] mappedNames = new String[methodNames.length];
 		int i = 0;
 		for (String mName : methodNames) {
-			mappedNames[i++] = FMLDeobfuscatingRemapper.INSTANCE.mapMethodName(internalClassName, mName, null);
+			mappedNames[i] = FMLDeobfuscatingRemapper.INSTANCE.mapMethodName(internalClassName, mName, null);
+			i++;
 		}
 		return mappedNames;
 	}

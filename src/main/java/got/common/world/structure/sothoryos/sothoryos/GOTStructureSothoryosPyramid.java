@@ -436,7 +436,7 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 			int newZ = stepZ;
 			int stepPlaceX = stepX + maze3EndX;
 			int stepPlaceZ = stepZ + maze3EndZ;
-			if ((stepX == -1 && (stepZ == -1 || stepZ == 1))) {
+			if (stepX == -1 && (stepZ == -1 || stepZ == 1)) {
 				placeRandomBrick(world, random, stepPlaceX, stepY, stepPlaceZ);
 			} else if (stepX == 1 && stepZ == 1) {
 				placeRandomBrick(world, random, stepPlaceX, stepY, stepPlaceZ);
@@ -464,7 +464,8 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 				--newZ;
 				--newY;
 			}
-			stepX = ++newX;
+			newX++;
+			stepX = newX;
 			stepY = --newY;
 			stepZ = ++newZ;
 		}

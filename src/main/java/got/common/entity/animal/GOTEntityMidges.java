@@ -168,7 +168,8 @@ public class GOTEntityMidges extends EntityLiving implements GOTAmbientCreature 
 				if (j < 1) {
 					j = 1;
 				}
-				if (j > (height = worldObj.getTopSolidOrLiquidBlock(i, k)) + 8) {
+				height = worldObj.getTopSolidOrLiquidBlock(i, k);
+				if (j > height + 8) {
 					j = height + 8;
 				}
 				currentFlightTarget = new ChunkCoordinates(i, j, k);

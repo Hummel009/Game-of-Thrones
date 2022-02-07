@@ -39,7 +39,7 @@ public class GOTWorldGenPartyTrees extends WorldGenAbstractTree {
 		int height = random.nextInt(12) + 12;
 		boolean flag = true;
 		if (restrictions) {
-			if ((j < 1) || (j + height + 1 > 256)) {
+			if (j < 1 || j + height + 1 > 256) {
 				return false;
 			}
 			for (j1 = j; j1 <= j + 1 + height; ++j1) {
@@ -49,7 +49,7 @@ public class GOTWorldGenPartyTrees extends WorldGenAbstractTree {
 				}
 				for (int i12 = i - range; i12 <= i + range && flag; ++i12) {
 					for (int k12 = k - range; k12 <= k + range && flag; ++k12) {
-						if ((j1 >= 0 && j1 < 256) && isReplaceable(world, i12, j1, k12)) {
+						if (j1 >= 0 && j1 < 256 && isReplaceable(world, i12, j1, k12)) {
 							continue;
 						}
 						flag = false;
@@ -181,7 +181,8 @@ public class GOTWorldGenPartyTrees extends WorldGenAbstractTree {
 				while (!world.getBlock(i15, j2, k15).isOpaqueCube() && ((block = world.getBlock(i15, j2, k15)).isReplaceable(world, i15, j2, k15) || block.isLeaves(world, i15, j2, k15))) {
 					setBlockAndNotifyAdequately(world, i15, j2, k15, woodBlock, woodMeta | 0xC);
 					world.getBlock(i15, j2 - 1, k15).onPlantGrow(world, i15, j2 - 1, k15, i15, j2, k15);
-					if (++rootBlocks > 5) {
+					rootBlocks++;
+					if (rootBlocks > 5) {
 						break;
 					}
 					--j2;

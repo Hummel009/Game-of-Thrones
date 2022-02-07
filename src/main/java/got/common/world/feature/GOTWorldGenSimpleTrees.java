@@ -46,7 +46,7 @@ public class GOTWorldGenSimpleTrees extends WorldGenAbstractTree {
 				}
 				for (int i12 = i - range; i12 <= i + range + extraTrunkWidth && flag; ++i12) {
 					for (int k12 = k - range; k12 <= k + range + extraTrunkWidth && flag; ++k12) {
-						if ((j1 >= 0 && j1 < 256) && isReplaceable(world, i12, j1, k12)) {
+						if (j1 >= 0 && j1 < 256 && isReplaceable(world, i12, j1, k12)) {
 							continue;
 						}
 						flag = false;

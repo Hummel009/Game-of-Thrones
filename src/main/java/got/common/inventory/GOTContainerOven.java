@@ -80,7 +80,7 @@ public class GOTContainerOven extends Container {
 					return null;
 				}
 				slot.onSlotChange(itemstack1, itemstack);
-			} else if (i >= 9 && i != 18 ? (GOTTileEntityOven.isCookResultAcceptable(FurnaceRecipes.smelting().getSmeltingResult(itemstack1)) ? !mergeItemStack(itemstack1, 0, 9, false) : (TileEntityFurnace.isItemFuel(itemstack1) ? !mergeItemStack(itemstack1, 18, 19, false) : (i >= 19 && i < 46 ? !mergeItemStack(itemstack1, 46, 55, false) : i >= 46 && i < 55 && !mergeItemStack(itemstack1, 19, 46, false)))) : !mergeItemStack(itemstack1, 19, 55, false)) {
+			} else if (i >= 9 && i != 18 ? GOTTileEntityOven.isCookResultAcceptable(FurnaceRecipes.smelting().getSmeltingResult(itemstack1)) ? !mergeItemStack(itemstack1, 0, 9, false) : TileEntityFurnace.isItemFuel(itemstack1) ? !mergeItemStack(itemstack1, 18, 19, false) : i >= 19 && i < 46 ? !mergeItemStack(itemstack1, 46, 55, false) : i >= 46 && i < 55 && !mergeItemStack(itemstack1, 19, 46, false) : !mergeItemStack(itemstack1, 19, 55, false)) {
 				return null;
 			}
 			if (itemstack1.stackSize == 0) {

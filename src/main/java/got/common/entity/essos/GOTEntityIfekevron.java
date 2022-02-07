@@ -3,7 +3,7 @@ package got.common.entity.essos;
 import got.common.entity.ai.*;
 import got.common.entity.essos.gold.GOTEntityGoldenMan;
 import got.common.entity.other.*;
-import got.common.entity.westeros.*;
+import got.common.entity.westeros.GOTEntityMaester;
 import got.common.entity.westeros.legendary.trader.GOTEntityGendryBaratheon;
 import got.common.entity.westeros.legendary.warrior.*;
 import got.common.faction.GOTFaction;

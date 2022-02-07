@@ -76,7 +76,7 @@ public class GOTStructureWildlingHouse extends GOTStructureBase {
 				for (j1 = 1; j1 <= 7; ++j1) {
 					setAir(world, i1, j1, k1);
 				}
-				for (j1 = 0; (((j1 == 0) || !isOpaque(world, i1, j1, k1)) && (getY(j1) >= 0)); --j1) {
+				for (j1 = 0; (j1 == 0 || !isOpaque(world, i1, j1, k1)) && getY(j1) >= 0; --j1) {
 					if (getBlock(world, i1, j1 + 1, k1).isOpaqueCube()) {
 						setBlockAndMetadata(world, i1, j1, k1, Blocks.dirt, 0);
 					} else {

@@ -76,6 +76,9 @@ public class GOTSwingHandler {
 		}
 	}
 
+	public void postInit() {
+	}
+
 	@SubscribeEvent
 	public void preRenderLiving(RenderLivingEvent.Pre event) {
 		tryUpdateSwing(event.entity);
@@ -115,9 +118,6 @@ public class GOTSwingHandler {
 
 		private SwingTime() {
 		}
-	}
-
-	public void postInit() {
 	}
 
 }

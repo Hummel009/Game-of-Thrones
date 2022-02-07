@@ -28,13 +28,13 @@ public class GOTWorldGenAsshaiMoss extends WorldGenerator {
 			int k2 = MathHelper.floor_double(d6 + d8 / 2.0);
 			for (int i3 = i1; i3 <= i2; ++i3) {
 				double d9 = (i3 + 0.5 - d5) / (d8 / 2.0);
-				if ((d9 * d9 >= 1.0)) {
+				if (d9 * d9 >= 1.0) {
 					continue;
 				}
 				for (int k3 = k1; k3 <= k2; ++k3) {
 					double d10;
 					int j1 = world.getHeightValue(i3, k3);
-					if (j1 != j || (d9 * d9 + (d10 = (k3 + 0.5 - d6) / (d8 / 2.0)) * d10 >= 1.0) || !GOTBiomeShadowMountains.isBasalt(world, i3, j1 - 1, k3) || world.getBlockMetadata(i3, j1 - 1, k3) != 0 || !world.isAirBlock(i3, j1, k3)) {
+					if (j1 != j || d9 * d9 + (d10 = (k3 + 0.5 - d6) / (d8 / 2.0)) * d10 >= 1.0 || !GOTBiomeShadowMountains.isBasalt(world, i3, j1 - 1, k3) || world.getBlockMetadata(i3, j1 - 1, k3) != 0 || !world.isAirBlock(i3, j1, k3)) {
 						continue;
 					}
 					world.setBlock(i3, j1, k3, GOTRegistry.asshaiMoss, 0, 2);

@@ -32,7 +32,8 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		dateCompleted = GOTDate.AegonCalendar.currentDay;
 		Random rand = npc.getRNG();
 		ArrayList<ItemStack> dropItems = new ArrayList<>();
-		if ((coins = getCoinBonus()) != 0) {
+		coins = getCoinBonus();
+		if (coins != 0) {
 			if (shouldRandomiseCoinReward()) {
 				coins = Math.round(coins * MathHelper.randomFloatClamp(rand, 0.75f, 1.25f));
 				if (rand.nextInt(12) == 0) {
@@ -144,7 +145,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		Vec3 targetEyes = Vec3.createVectorHelper(target.posX, target.boundingBox.minY + target.getEyeHeight(), target.posZ);
 		Vec3 disp = Vec3.createVectorHelper(targetEyes.xCoord - watcherEyes.xCoord, targetEyes.yCoord - watcherEyes.yCoord, targetEyes.zCoord - watcherEyes.zCoord);
 		double dot = disp.normalize().dotProduct(look.normalize());
-		if (dot >= (MathHelper.cos(((float) Math.toRadians(130.0)) / 2.0f))) {
+		if (dot >= MathHelper.cos((float) Math.toRadians(130.0) / 2.0f)) {
 			return watcher.getEntitySenses().canSee(target);
 		}
 		return false;
@@ -216,7 +217,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 						boolean civilian = otherNPC.isCivilianNPC();
 						maxRange = civilian ? 8.0 : 16.0;
 						double dist = otherNPC.getDistanceToEntity(npc);
-						if ((dist > maxRange) || otherNPC.getAttackTarget() != null || !isEntityWatching(otherNPC, entityplayer)) {
+						if (dist > maxRange || otherNPC.getAttackTarget() != null || !isEntityWatching(otherNPC, entityplayer)) {
 							continue;
 						}
 						float distFactor = 1.0f - (float) ((dist - 4.0) / (maxRange - 4.0));
@@ -224,7 +225,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 						if (civilian) {
 							chance *= 0.25f;
 						}
-						if ((rand.nextFloat() >= chance)) {
+						if (rand.nextFloat() >= chance) {
 							continue;
 						}
 						entityplayer.addChatMessage(new ChatComponentText(EnumChatFormatting.GOLD + StatCollector.translateToLocalFormatted("got.chat.pickpocket.otherNoticed", otherNPC.getEntityClassName())));

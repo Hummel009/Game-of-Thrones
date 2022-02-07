@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 
 public class GOTEntityProstitute extends GOTEntityHumanBase {
 	public ProstituteType prostituteType;
-	
+
 	public GOTEntityProstitute(World world) {
 		super(world);
 		canBeMarried = true;
@@ -73,12 +73,6 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void writeEntityToNBT(NBTTagCompound nbt) {
-		super.writeEntityToNBT(nbt);
-		nbt.setByte("ProstituteType", (byte) getProstituteType().prostituteID);
-	}
-
-	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			return "standart/special/prostitute_friendly";
@@ -120,7 +114,7 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 			prostituteType = ProstituteType.BLACK;
 			break;
 		case 3:
-			switch(rand.nextInt(2)) {
+			switch (rand.nextInt(2)) {
 			case 0:
 				name = GOTNames.getDothrakiName(rand, familyInfo.isMale());
 				break;
@@ -139,7 +133,7 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 			prostituteType = ProstituteType.JOGOS;
 			break;
 		default:
-			switch(rand.nextInt(3)) {
+			switch (rand.nextInt(3)) {
 			case 0:
 				name = GOTNames.getWesterosName(rand, familyInfo.isMale());
 				break;
@@ -150,7 +144,7 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 				name = GOTNames.getQarthName(rand, familyInfo.isMale());
 				break;
 			}
-			switch(rand.nextInt(5)) {
+			switch (rand.nextInt(5)) {
 			case 0:
 				prostituteType = ProstituteType.LIGHT_1;
 				break;
@@ -170,6 +164,12 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 			break;
 		}
 		familyInfo.setName(name);
+	}
+
+	@Override
+	public void writeEntityToNBT(NBTTagCompound nbt) {
+		super.writeEntityToNBT(nbt);
+		nbt.setByte("ProstituteType", (byte) getProstituteType().prostituteID);
 	}
 
 	public enum ProstituteType {

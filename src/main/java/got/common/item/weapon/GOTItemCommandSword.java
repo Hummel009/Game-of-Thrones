@@ -92,14 +92,14 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 			AxisAlignedBB axisalignedbb = entity.boundingBox.expand(width, width, width);
 			MovingObjectPosition movingobjectposition = axisalignedbb.calculateIntercept(eyePos, sight);
 			if (axisalignedbb.isVecInside(eyePos)) {
-				if ((entityDist < 0.0)) {
+				if (entityDist < 0.0) {
 					continue;
 				}
 				pointedEntity = entity;
 				entityDist = 0.0;
 				continue;
 			}
-			if (movingobjectposition == null || ((d = eyePos.distanceTo(movingobjectposition.hitVec)) >= entityDist) && entityDist != 0.0) {
+			if (movingobjectposition == null || (d = eyePos.distanceTo(movingobjectposition.hitVec)) >= entityDist && entityDist != 0.0) {
 				continue;
 			}
 			if (entity == entityplayer.ridingEntity && !entity.canRiderInteract()) {

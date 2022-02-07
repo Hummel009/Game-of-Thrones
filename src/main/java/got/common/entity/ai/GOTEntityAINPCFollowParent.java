@@ -34,7 +34,7 @@ public class GOTEntityAINPCFollowParent extends EntityAIBase {
 			return false;
 		}
 		GOTEntityNPC parent = theNPC.familyInfo.getParentToFollow();
-		if ((parent == null) || theNPC.getDistanceSqToEntity(parent) < 9.0 || theNPC.getDistanceSqToEntity(parent) >= 256.0) {
+		if (parent == null || theNPC.getDistanceSqToEntity(parent) < 9.0 || theNPC.getDistanceSqToEntity(parent) >= 256.0) {
 			return false;
 		}
 		parentNPC = parent;

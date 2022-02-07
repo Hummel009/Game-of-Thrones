@@ -45,7 +45,7 @@ public class GOTWorldGenDragonblood extends WorldGenAbstractTree {
 				}
 				for (int i12 = i - range; i12 <= i + range && flag; ++i12) {
 					for (int k12 = k - range; k12 <= k + range && flag; ++k12) {
-						if ((j1 >= 0 && j1 < 256) && isReplaceable(world, i12, j1, k12)) {
+						if (j1 >= 0 && j1 < 256 && isReplaceable(world, i12, j1, k12)) {
 							continue;
 						}
 						flag = false;
@@ -126,7 +126,8 @@ public class GOTWorldGenDragonblood extends WorldGenAbstractTree {
 						setBlockAndNotifyAdequately(world, rootX, rootY, rootZ, woodBlock, woodMeta | 0xC);
 						world.getBlock(rootX, rootY - 1, rootZ).onPlantGrow(world, rootX, rootY - 1, rootZ, rootX, rootY, rootZ);
 						--rootY;
-						if (++roots <= 4 + random.nextInt(3)) {
+						roots++;
+						if (roots <= 4 + random.nextInt(3)) {
 							continue;
 						}
 					}

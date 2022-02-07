@@ -170,7 +170,8 @@ public class GOTItemCoin extends Item {
 					} else {
 						inv.decrStackSize(slot, 1);
 					}
-					if ((coins -= value) >= value) {
+					coins -= value;
+					if (coins >= value) {
 						continue;
 					}
 					continue block0;
@@ -197,7 +198,8 @@ public class GOTItemCoin extends Item {
 						} else {
 							inv.decrStackSize(slot, 1);
 						}
-						if ((coins -= value) >= 0) {
+						coins -= value;
+						if (coins >= 0) {
 							continue;
 						}
 						break block4;

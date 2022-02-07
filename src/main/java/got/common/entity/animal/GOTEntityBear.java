@@ -232,7 +232,8 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		if ((data = super.onSpawnWithEgg(data)) == null) {
+		data = super.onSpawnWithEgg(data);
+		if (data == null) {
 			data = new BearGroupSpawnData();
 			((BearGroupSpawnData) data).numSpawned = 1;
 		} else if (data instanceof BearGroupSpawnData) {

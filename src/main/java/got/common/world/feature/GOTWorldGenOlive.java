@@ -45,7 +45,7 @@ public class GOTWorldGenOlive extends WorldGenAbstractTree {
 				}
 				for (i1 = i - range; i1 <= i + extraTrunk + range && flag; ++i1) {
 					for (int k12 = k - range; k12 <= k + extraTrunk + range && flag; ++k12) {
-						if ((j1 >= 0 && j1 < 256) && isReplaceable(world, i1, j1, k12)) {
+						if (j1 >= 0 && j1 < 256 && isReplaceable(world, i1, j1, k12)) {
 							continue;
 						}
 						flag = false;
@@ -127,7 +127,8 @@ public class GOTWorldGenOlive extends WorldGenAbstractTree {
 									setBlockAndNotifyAdequately(world, rootX, rootY, rootZ, woodBlock, woodMeta | 0xC);
 									world.getBlock(rootX, rootY - 1, rootZ).onPlantGrow(world, rootX, rootY - 1, rootZ, rootX, rootY, rootZ);
 									--rootY;
-									if (++roots <= 4 + random.nextInt(3)) {
+									roots++;
+									if (roots <= 4 + random.nextInt(3)) {
 										continue;
 									}
 								}

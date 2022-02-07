@@ -198,7 +198,8 @@ public class GOTItemBow extends ItemBow {
 			arrow.setDamage(arrow.getDamage() + power * 0.5 + 0.5);
 		}
 		int punch = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, itemstack);
-		if ((punch += GOTEnchantmentHelper.calcRangedKnockback(itemstack)) > 0) {
+		punch += GOTEnchantmentHelper.calcRangedKnockback(itemstack);
+		if (punch > 0) {
 			arrow.setKnockbackStrength(punch);
 		}
 		if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, itemstack) + GOTEnchantmentHelper.calcFireAspect(itemstack) > 0) {

@@ -30,7 +30,8 @@ public class GOTBiomeVariantWasteland extends GOTBiomeVariant {
 		d2 *= 0.3;
 		double d3 = podzolNoise.func_151601_a(i * 0.04, k * 0.04);
 		double d4 = podzolNoise.func_151601_a(i * 0.3, k * 0.3);
-		if (d3 + (d4 *= 0.3) > 0.5) {
+		d4 *= 0.3;
+		if (d3 + d4 > 0.5) {
 			int j = height;
 			int index = xzIndex * ySize + j;
 			blocks[index] = Blocks.dirt;

@@ -61,7 +61,8 @@ public class GOTItemOwnership {
 		if (!itemstack.hasTagCompound()) {
 			itemstack.setTagCompound(new NBTTagCompound());
 		}
-		if ((previousCurrentOwner = GOTItemOwnership.getCurrentOwner(itemstack)) != null) {
+		previousCurrentOwner = GOTItemOwnership.getCurrentOwner(itemstack);
+		if (previousCurrentOwner != null) {
 			GOTItemOwnership.addPreviousOwner(itemstack, previousCurrentOwner);
 		}
 		NBTTagCompound nbt = itemstack.getTagCompound();

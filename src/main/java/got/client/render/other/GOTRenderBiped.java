@@ -23,6 +23,7 @@ import net.minecraftforge.client.*;
 public abstract class GOTRenderBiped extends RenderBiped {
 	private GOTModelBiped capeModel = new GOTModelBiped();
 	private ModelBiped npcRenderPassModel;
+
 	public GOTRenderBiped(ModelBiped model, float f) {
 		super(model, f);
 	}
@@ -62,6 +63,10 @@ public abstract class GOTRenderBiped extends RenderBiped {
 		field_82425_h = new GOTModelBiped(0.5f);
 	}
 
+	public GOTModelBiped getCapeModel() {
+		return capeModel;
+	}
+
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
 		return super.getEntityTexture(entity);
@@ -69,6 +74,10 @@ public abstract class GOTRenderBiped extends RenderBiped {
 
 	public float getHeldItemYTranslation() {
 		return 0.1875f;
+	}
+
+	public ModelBiped getNpcRenderPassModel() {
+		return npcRenderPassModel;
 	}
 
 	@Override
@@ -114,7 +123,8 @@ public abstract class GOTRenderBiped extends RenderBiped {
 			}
 			GL11.glPopMatrix();
 		}
-		if ((heldItem = entity.getHeldItem()) != null) {
+		heldItem = entity.getHeldItem();
+		if (heldItem != null) {
 			boolean is3D;
 			float f12;
 			GL11.glPushMatrix();
@@ -228,6 +238,14 @@ public abstract class GOTRenderBiped extends RenderBiped {
 		}
 	}
 
+	public void setCapeModel(GOTModelBiped capeModel) {
+		this.capeModel = capeModel;
+	}
+
+	public void setNpcRenderPassModel(ModelBiped npcRenderPassModel) {
+		this.npcRenderPassModel = npcRenderPassModel;
+	}
+
 	@Override
 	public void setRenderPassModel(ModelBase model) {
 		super.setRenderPassModel(model);
@@ -244,21 +262,5 @@ public abstract class GOTRenderBiped extends RenderBiped {
 			return specialArmorResult;
 		}
 		return super.shouldRenderPass(entity, pass, f);
-	}
-
-	public GOTModelBiped getCapeModel() {
-		return capeModel;
-	}
-
-	public void setCapeModel(GOTModelBiped capeModel) {
-		this.capeModel = capeModel;
-	}
-
-	public ModelBiped getNpcRenderPassModel() {
-		return npcRenderPassModel;
-	}
-
-	public void setNpcRenderPassModel(ModelBiped npcRenderPassModel) {
-		this.npcRenderPassModel = npcRenderPassModel;
 	}
 }

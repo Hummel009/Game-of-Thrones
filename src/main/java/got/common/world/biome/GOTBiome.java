@@ -358,7 +358,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 			boolean podzol = false;
 			if (topBlock == Blocks.grass) {
 				float trees = decorator.treesPerChunk + getTreeIncreaseChance();
-				if ((trees = Math.max(trees, variant.treeFactor * 0.5f)) >= 1.0f) {
+				trees = Math.max(trees, variant.treeFactor * 0.5f);
+				if (trees >= 1.0f) {
 					float thresh = 0.8f;
 					thresh -= trees * 0.15f;
 					thresh = Math.max(thresh, 0.0f);
@@ -388,7 +389,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		if (variant.hasMarsh && GOTBiomeVariant.marshNoise.func_151601_a(i * 0.1, k * 0.1) > -0.1) {
 			for (int j = ySize - 1; j >= 0; --j) {
 				int index = xzIndex * ySize + j;
-				if (((blocks[index] == null) || (blocks[index].getMaterial() != Material.air))) {
+				if (blocks[index] == null || blocks[index].getMaterial() != Material.air) {
 					if (j != seaLevel - 1 || blocks[index] == Blocks.water) {
 						break;
 					}
@@ -454,7 +455,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 								fillerDepth = 10 + random.nextInt(4);
 							}
 						}
-						if (((fillerDepth == 0) && (fillerBlock != GOTRegistry.rock) && (filler == fillerBlock))) {
+						if (fillerDepth == 0 && fillerBlock != GOTRegistry.rock && filler == fillerBlock) {
 							fillerDepth = 6 + random.nextInt(3);
 							filler = Blocks.stone;
 							fillerMeta = 0;
@@ -1161,7 +1162,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		Color water = new Color(r, g, b);
 		int waterRGB = water.getRGB();
 		for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.biomeList) {
-			if (((biome != null) && !biome.biomeColors.hasCustomWater())) {
+			if (biome != null && !biome.biomeColors.hasCustomWater()) {
 				biome.biomeColors.updateWater(waterRGB);
 			}
 		}

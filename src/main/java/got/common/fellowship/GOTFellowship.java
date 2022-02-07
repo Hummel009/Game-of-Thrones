@@ -140,7 +140,7 @@ public class GOTFellowship {
 				continue;
 			}
 			memberUUIDs.add(member);
-			if (!nbt.hasKey("Admin") || !(nbt.getBoolean("Admin"))) {
+			if (!nbt.hasKey("Admin") || !nbt.getBoolean("Admin")) {
 				continue;
 			}
 			adminUUIDs.add(member);

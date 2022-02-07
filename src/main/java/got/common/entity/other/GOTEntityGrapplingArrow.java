@@ -95,7 +95,7 @@ public class GOTEntityGrapplingArrow extends EntityThrowable implements IEntityA
 
 	@Override
 	public void onImpact(MovingObjectPosition movingobjectposition) {
-		if (!worldObj.isRemote && (shootingEntityID != 0)) {
+		if (!worldObj.isRemote && shootingEntityID != 0) {
 			if (movingobjectposition.typeOfHit == MovingObjectPosition.MovingObjectType.ENTITY) {
 
 				Entity entityhit = movingobjectposition.entityHit;
@@ -143,10 +143,10 @@ public class GOTEntityGrapplingArrow extends EntityThrowable implements IEntityA
 			return;
 		}
 		attached = true;
-		if ((blockpos != null) && !GOTGrappleHelper.anyblocks) {
+		if (blockpos != null && !GOTGrappleHelper.anyblocks) {
 			Block block = worldObj.getBlock(blockpos.x, blockpos.y, blockpos.z);
 
-			if ((!GOTGrappleHelper.removeblocks && !GOTGrappleHelper.grapplingblocks.contains(block)) || (GOTGrappleHelper.removeblocks && GOTGrappleHelper.grapplingblocks.contains(block))) {
+			if (!GOTGrappleHelper.removeblocks && !GOTGrappleHelper.grapplingblocks.contains(block) || GOTGrappleHelper.removeblocks && GOTGrappleHelper.grapplingblocks.contains(block)) {
 				removeServer();
 				return;
 			}
@@ -237,7 +237,7 @@ public class GOTEntityGrapplingArrow extends EntityThrowable implements IEntityA
 		if (shootingEntity == null) {
 			return false;
 		}
-		if ((!worldObj.isRemote && !GOTGrappleHelper.attached.contains(shootingEntityID)) && (GOTGrappleHelper.grapplingLength != 0)) {
+		if (!worldObj.isRemote && !GOTGrappleHelper.attached.contains(shootingEntityID) && GOTGrappleHelper.grapplingLength != 0) {
 			double d = GOTVec.positionvec(this).sub(GOTVec.positionvec(shootingEntity)).length();
 			if (d > GOTGrappleHelper.grapplingLength) {
 				return true;

@@ -46,7 +46,8 @@ public class GOTStructureLhazarSmithy extends GOTStructureLhazarBase {
 			for (int k13 = -6; k13 <= 6; ++k13) {
 				int k2;
 				int i2 = Math.abs(i13);
-				if (i2 * i2 + (k2 = Math.abs(k13)) * k2 >= 25 && (i13 > -7 || k2 > 5)) {
+				k2 = Math.abs(k13);
+				if (i2 * i2 + k2 * k2 >= 25 && (i13 > -7 || k2 > 5)) {
 					continue;
 				}
 				for (j1 = 1; j1 <= 5; ++j1) {

@@ -47,7 +47,7 @@ public class GOTWorldGenAspen extends WorldGenAbstractTree {
 				}
 				for (i1 = i - range; i1 <= i + extraTrunk + range && flag; ++i1) {
 					for (int k12 = k - range; k12 <= k + extraTrunk + range && flag; ++k12) {
-						if ((j12 >= 0 && j12 < 256) && isReplaceable(world, i1, j12, k12)) {
+						if (j12 >= 0 && j12 < 256 && isReplaceable(world, i1, j12, k12)) {
 							continue;
 						}
 						flag = false;

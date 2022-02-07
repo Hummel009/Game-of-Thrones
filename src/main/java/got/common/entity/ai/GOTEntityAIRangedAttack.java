@@ -25,7 +25,7 @@ public class GOTEntityAIRangedAttack extends EntityAIBase {
 
 	public GOTEntityAIRangedAttack(IRangedAttackMob entity, double speed, int min, int max, float range) {
 		theOwnerRanged = entity;
-		theOwner = (EntityLiving) (entity);
+		theOwner = (EntityLiving) entity;
 		moveSpeed = speed;
 		attackTimeMin = min;
 		attackTimeMax = max;
@@ -102,7 +102,7 @@ public class GOTEntityAIRangedAttack extends EntityAIBase {
 			int j;
 			int i = MathHelper.floor_double(entity.posX) - max + random.nextInt(max * 2 + 1);
 			double d = target.getDistanceSq(i, j = MathHelper.floor_double(entity.boundingBox.minY) - 4 + random.nextInt(9), k = MathHelper.floor_double(entity.posZ) - max + random.nextInt(max * 2 + 1));
-			if ((d <= min * min) || (d >= max * max)) {
+			if (d <= min * min || d >= max * max) {
 				continue;
 			}
 			return Vec3.createVectorHelper(i, j, k);

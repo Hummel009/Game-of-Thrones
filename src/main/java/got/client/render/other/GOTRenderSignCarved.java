@@ -117,10 +117,10 @@ public class GOTRenderSignCarved extends TileEntitySpecialRenderer implements IR
 		GL11.glDisable(32826);
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float) d + 0.5f, (float) d1 + 0.75f * f1, (float) d2 + 0.5f);
-		GL11.glRotatef((-rotation), 0.0f, 1.0f, 0.0f);
+		GL11.glRotatef(-rotation, 0.0f, 1.0f, 0.0f);
 		GL11.glTranslatef(0.0f, -0.3125f, -0.4375f);
 		GL11.glTranslatef(0.0f, 0.5f * f1, -0.09f * f1);
-		GL11.glScalef(f3, (-f3), f3);
+		GL11.glScalef(f3, -f3, f3);
 		GL11.glNormal3f(0.0f, 0.0f, -1.0f * f3);
 		GL11.glDepthMask(false);
 		FontRenderer fontrenderer = func_147498_b();

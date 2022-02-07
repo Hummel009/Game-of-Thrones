@@ -17,7 +17,7 @@ public class GOTWorldGenStreams extends WorldGenerator {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
-		if (!isRock(world, i, j + 1, k) || !isRock(world, i, j - 1, k) || (!world.isAirBlock(i, j, k) && !isRock(world, i, j, k))) {
+		if (!isRock(world, i, j + 1, k) || !isRock(world, i, j - 1, k) || !world.isAirBlock(i, j, k) && !isRock(world, i, j, k)) {
 			return false;
 		}
 		int sides = 0;

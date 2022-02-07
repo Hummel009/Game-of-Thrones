@@ -56,7 +56,7 @@ public class GOTBlockOre extends Block {
 	@Override
 	public void harvestBlock(World world, EntityPlayer entityplayer, int i, int j, int k, int l) {
 		super.harvestBlock(world, entityplayer, i, j, k, l);
-		if (!world.isRemote && (this == GOTRegistry.oreValyrian)) {
+		if (!world.isRemote && this == GOTRegistry.oreValyrian) {
 			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.MINE_VALYRIAN);
 		}
 	}

@@ -74,7 +74,8 @@ public class GOTItemPouch extends Item {
 		if (entityplayer != null && ((container = entityplayer.openContainer) instanceof GOTContainerPouch || container instanceof GOTContainerChestWithPouch) && itemstack == entityplayer.getHeldItem()) {
 			open = true;
 		}
-		if ((meta = itemstack.getItemDamage()) >= pouchIcons.length) {
+		meta = itemstack.getItemDamage();
+		if (meta >= pouchIcons.length) {
 			meta = 0;
 		}
 		if (open) {
@@ -273,7 +274,8 @@ public class GOTItemPouch extends Item {
 				if (pouchInv.getInventoryStackLimit() < maxStackSize) {
 					maxStackSize = pouchInv.getInventoryStackLimit();
 				}
-				if ((difference = maxStackSize - itemInSlot.stackSize) > itemstack.stackSize) {
+				difference = maxStackSize - itemInSlot.stackSize;
+				if (difference > itemstack.stackSize) {
 					difference = itemstack.stackSize;
 				}
 				itemstack.stackSize -= difference;

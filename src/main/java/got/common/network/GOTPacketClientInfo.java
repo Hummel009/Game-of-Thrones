@@ -35,7 +35,8 @@ public class GOTPacketClientInfo implements IMessage {
 		if (factionID >= 0) {
 			viewingFaction = GOTFaction.forID(factionID);
 		}
-		if ((changedRegionsSize = data.readByte()) > 0) {
+		changedRegionsSize = data.readByte();
+		if (changedRegionsSize > 0) {
 			changedRegionMap = new HashMap<>();
 			for (int l = 0; l < changedRegionsSize; ++l) {
 				GOTDimension.DimensionRegion reg = GOTDimension.DimensionRegion.forID(data.readByte());
@@ -87,9 +88,10 @@ public class GOTPacketClientInfo implements IMessage {
 					pd.distributeMQEvent(new GOTMiniQuestEvent.CycleAlignmentRegion());
 				}
 			}
-			if ((changedRegionMap = packet.changedRegionMap) != null) {
+			changedRegionMap = packet.changedRegionMap;
+			if (changedRegionMap != null) {
 				for (GOTDimension.DimensionRegion reg : changedRegionMap.keySet()) {
-					GOTFaction fac = (changedRegionMap.get(reg));
+					GOTFaction fac = changedRegionMap.get(reg);
 					pd.setRegionLastViewedFaction(reg, fac);
 				}
 			}

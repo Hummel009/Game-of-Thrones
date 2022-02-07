@@ -102,7 +102,7 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 			if (villageType == VillageType.TOWN) {
 				Block block = world.getBlock(i, j, k);
 				int meta = world.getBlockMetadata(i, j, k);
-				if ((block == GOTRegistry.brick3 && (meta == 13 || meta == 14))) {
+				if (block == GOTRegistry.brick3 && (meta == 13 || meta == 14)) {
 					return true;
 				}
 			}
@@ -192,7 +192,8 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 			int turn = 0;
 			int numTurns = 24;
 			while (turn <= numTurns) {
-				if (++turn % 3 == 0) {
+				turn++;
+				if (turn % 3 == 0) {
 					continue;
 				}
 				float turnF = (float) turn / (float) numTurns;

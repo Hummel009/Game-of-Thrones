@@ -104,7 +104,7 @@ public class GOTStructureRegistry {
 					FMLLog.warning("Failed to build GOT structure " + strClass.getName());
 					e.printStackTrace();
 				}
-				if ((generator != null) && (generator instanceof GOTStructureBase)) {
+				if (generator instanceof GOTStructureBase) {
 					GOTStructureBase strGen = (GOTStructureBase) generator;
 					strGen.restrictions = false;
 					strGen.usingPlayer = entityplayer;

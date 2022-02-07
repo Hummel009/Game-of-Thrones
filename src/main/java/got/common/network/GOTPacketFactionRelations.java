@@ -89,7 +89,7 @@ public class GOTPacketFactionRelations implements IMessage {
 					GOTFactionRelations.resetAllRelations();
 					for (Map.Entry e : packet.fullMap.entrySet()) {
 						GOTFactionRelations.FactionPair key = (GOTFactionRelations.FactionPair) e.getKey();
-						GOTFactionRelations.Relation rel = (GOTFactionRelations.Relation) (e.getValue());
+						GOTFactionRelations.Relation rel = (GOTFactionRelations.Relation) e.getValue();
 						GOTFactionRelations.overrideRelations(key.getLeft(), key.getRight(), rel);
 					}
 				} else if (t == Type.RESET) {

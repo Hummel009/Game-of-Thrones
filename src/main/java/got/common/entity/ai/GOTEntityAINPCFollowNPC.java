@@ -36,14 +36,14 @@ public class GOTEntityAINPCFollowNPC extends EntityAIBase {
 		GOTEntityNPC entityNPC = null;
 		double distanceSq = Double.MAX_VALUE;
 		for (GOTEntityNPC npcCandidate : list) {
-			double d;
-			if ((d = entityFollowing.getDistanceSqToEntity(npcCandidate)) > distanceSq) {
+			double d = entityFollowing.getDistanceSqToEntity(npcCandidate);
+			if (d > distanceSq) {
 				continue;
 			}
 			distanceSq = d;
 			entityNPC = npcCandidate;
 		}
-		if ((entityNPC == null) || (entityFollowing.currentAttackMode != GOTEntityNPC.AttackMode.IDLE) || (distanceSq < 9.0)) {
+		if (entityNPC == null || entityFollowing.currentAttackMode != GOTEntityNPC.AttackMode.IDLE || distanceSq < 9.0) {
 			return false;
 		}
 		entityToFollow = entityNPC;

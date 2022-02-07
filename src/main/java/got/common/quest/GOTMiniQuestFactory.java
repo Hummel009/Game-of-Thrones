@@ -96,7 +96,8 @@ public enum GOTMiniQuestFactory {
 		while (iterator.hasNext()) {
 			Map.Entry<Class<? extends GOTMiniQuest>, List<GOTMiniQuest.QuestFactoryBase>> next = iterator.next();
 			chosenFactoryList = next.getValue();
-			if ((i -= GOTMiniQuestFactory.getQuestClassWeight(next.getKey())) >= 0) {
+			i -= GOTMiniQuestFactory.getQuestClassWeight(next.getKey());
+			if (i >= 0) {
 				continue;
 			}
 		}

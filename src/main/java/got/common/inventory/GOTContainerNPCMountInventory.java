@@ -59,7 +59,7 @@ public class GOTContainerNPCMountInventory extends Container {
 		if (slot != null && slot.getHasStack()) {
 			ItemStack itemstack1 = slot.getStack();
 			itemstack = itemstack1.copy();
-			if (slotIndex < theMountInv.getSizeInventory() ? !mergeItemStack(itemstack1, theMountInv.getSizeInventory(), inventorySlots.size(), true) : (getSlot(1).isItemValid(itemstack1) && !getSlot(1).getHasStack() ? !mergeItemStack(itemstack1, 1, 2, false) : (getSlot(0).isItemValid(itemstack1) ? !mergeItemStack(itemstack1, 0, 1, false) : theMountInv.getSizeInventory() <= 2 || !mergeItemStack(itemstack1, 2, theMountInv.getSizeInventory(), false)))) {
+			if (slotIndex < theMountInv.getSizeInventory() ? !mergeItemStack(itemstack1, theMountInv.getSizeInventory(), inventorySlots.size(), true) : getSlot(1).isItemValid(itemstack1) && !getSlot(1).getHasStack() ? !mergeItemStack(itemstack1, 1, 2, false) : getSlot(0).isItemValid(itemstack1) ? !mergeItemStack(itemstack1, 0, 1, false) : theMountInv.getSizeInventory() <= 2 || !mergeItemStack(itemstack1, 2, theMountInv.getSizeInventory(), false)) {
 				return null;
 			}
 			if (itemstack1.stackSize == 0) {

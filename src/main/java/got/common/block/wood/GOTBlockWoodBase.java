@@ -25,7 +25,8 @@ public abstract class GOTBlockWoodBase extends BlockLog {
 	@Override
 	public IIcon getIcon(int i, int j) {
 		int j1 = j & 0xC;
-		if ((j &= 3) >= woodNames.length) {
+		j &= 3;
+		if (j >= woodNames.length) {
 			j = 0;
 		}
 		if (j1 == 0 && (i == 0 || i == 1) || j1 == 4 && (i == 4 || i == 5) || j1 == 8 && (i == 2 || i == 3)) {

@@ -81,7 +81,7 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 		}
 		if (taskOwner instanceof GOTEntityNPC) {
 			GOTEntityNPC npc = (GOTEntityNPC) taskOwner;
-			if ((npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.isHalted()) || npc.isChild()) {
+			if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.isHalted() || npc.isChild()) {
 				return false;
 			}
 		}
@@ -116,7 +116,8 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 		public int compare(Entity e1, Entity e2) {
 			double d2;
 			double d1 = distanceMetricSq(e1);
-			if (d1 < (d2 = distanceMetricSq(e2))) {
+			d2 = distanceMetricSq(e2);
+			if (d1 < d2) {
 				return -1;
 			}
 			if (d1 > d2) {

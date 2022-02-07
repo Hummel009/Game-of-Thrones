@@ -328,7 +328,7 @@ public class GOTTileEntityKebabStand extends TileEntity implements IInventory {
 	public int takeFuelFromBelow() {
 		TileEntity belowTE = worldObj.getTileEntity(xCoord, yCoord - 1, zCoord);
 		if (belowTE instanceof IInventory) {
-			IInventory inv = (IInventory) (belowTE);
+			IInventory inv = (IInventory) belowTE;
 			for (int i = 0; i < inv.getSizeInventory(); ++i) {
 				ItemStack itemstack = inv.getStackInSlot(i);
 				if (itemstack == null || !TileEntityFurnace.isItemFuel(itemstack)) {

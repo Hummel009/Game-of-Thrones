@@ -56,7 +56,7 @@ public class GOTStructureIbbenVillage extends GOTVillageGen {
 				}
 				int omn = 50 - random.nextInt(4);
 				int omx = 56 + random.nextInt(4);
-				if ((dSq > omn * omn && dSq < omx * omx) || (dSq < 2500 && Math.abs(i1 - k1) <= 2 + random.nextInt(4))) {
+				if (dSq > omn * omn && dSq < omx * omx || dSq < 2500 && Math.abs(i1 - k1) <= 2 + random.nextInt(4)) {
 					return GOTBezierType.PATH_DIRTY;
 				}
 				if (palisade && k < -56 && k > -81 && i1 <= 2 + random.nextInt(4)) {

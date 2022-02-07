@@ -78,7 +78,7 @@ public class GOTTitle {
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 			boolean requirePledge = isAlignmentGreaterThanOrEqualToAllFactionPledges();
 			for (GOTFaction f : alignmentFactions) {
-				if ((pd.getAlignment(f) < alignmentRequired) || requirePledge && !pd.isPledgedTo(f)) {
+				if (pd.getAlignment(f) < alignmentRequired || requirePledge && !pd.isPledgedTo(f)) {
 					continue;
 				}
 				return true;
@@ -179,7 +179,7 @@ public class GOTTitle {
 	public boolean isAlignmentGreaterThanOrEqualToAllFactionPledges() {
 		if (titleType == TitleType.ALIGNMENT && !anyAlignment) {
 			for (GOTFaction fac : alignmentFactions) {
-				if ((alignmentRequired >= fac.getPledgeAlignment())) {
+				if (alignmentRequired >= fac.getPledgeAlignment()) {
 					continue;
 				}
 				return false;

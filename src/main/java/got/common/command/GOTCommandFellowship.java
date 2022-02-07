@@ -194,7 +194,8 @@ public class GOTCommandFellowship extends CommandBase {
 			if (args[startIndex].startsWith("\"")) {
 				int endIndex = startIndex;
 				while (!args[endIndex].endsWith("\"")) {
-					if (++endIndex < args.length) {
+					endIndex++;
+					if (endIndex < args.length) {
 						continue;
 					}
 					throw new WrongUsageException("got.command.fellowship.rename.error");
@@ -388,7 +389,7 @@ public class GOTCommandFellowship extends CommandBase {
 			int diff = endIndex - startIndex;
 			String[] argsNew = new String[args.length - diff];
 			for (int i = 0; i < argsNew.length; ++i) {
-				argsNew[i] = i < startIndex ? args[i] : (i == startIndex ? fsName : args[i + diff]);
+				argsNew[i] = i < startIndex ? args[i] : i == startIndex ? fsName : args[i + diff];
 			}
 			return argsNew;
 		}

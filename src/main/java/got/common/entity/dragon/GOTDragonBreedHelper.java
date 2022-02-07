@@ -66,7 +66,7 @@ public class GOTDragonBreedHelper extends GOTDragonHelper {
 
 		if (dragon.isEgg()) {
 
-			if ((dragon.isClient() && dragon.ticksExisted % 2 == 0) && !currentBreed.getName().equals(DEFAULT_BREED)) {
+			if (dragon.isClient() && dragon.ticksExisted % 2 == 0 && !currentBreed.getName().equals(DEFAULT_BREED)) {
 				double px = dragon.posX + (rand.nextDouble() - 0.5);
 				double py = dragon.posY + (rand.nextDouble() - 0.5);
 				double pz = dragon.posZ + (rand.nextDouble() - 0.5);

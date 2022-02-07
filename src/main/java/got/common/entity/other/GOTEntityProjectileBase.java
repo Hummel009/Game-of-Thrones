@@ -52,7 +52,7 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 		double d3 = MathHelper.sqrt_double(d * d + d2 * d2);
 		if (d3 >= 1.0E-7) {
 			float f = (float) (Math.atan2(d2, d) * 180.0 / 3.141592653589793) - 90.0f;
-			float f1 = (float) (-(Math.atan2(d1, d3) * 180.0 / 3.141592653589793));
+			float f1 = (float) -(Math.atan2(d1, d3) * 180.0 / 3.141592653589793);
 			double d4 = d / d3;
 			double d5 = d2 / d3;
 			setLocationAndAngles(entityliving.posX + d4, posY, entityliving.posZ + d5, f, f1);
@@ -201,7 +201,7 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 
 	public void onCollideWithTarget(Entity entity) {
 		ItemStack itemstack;
-		if ((!worldObj.isRemote && (((itemstack = getProjectileItem()) == null) || !itemstack.isItemStackDamageable()))) {
+		if (!worldObj.isRemote && ((itemstack = getProjectileItem()) == null || !itemstack.isItemStackDamageable())) {
 			setDead();
 		}
 	}
@@ -215,7 +215,8 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 			prevRotationYaw = rotationYaw = (float) (Math.atan2(motionX, motionZ) * 180.0 / 3.141592653589793);
 			prevRotationPitch = rotationPitch = (float) (Math.atan2(motionY, f) * 180.0 / 3.141592653589793);
 		}
-		if ((block = worldObj.getBlock(xTile, yTile, zTile)) != Blocks.air) {
+		block = worldObj.getBlock(xTile, yTile, zTile);
+		if (block != Blocks.air) {
 			block.setBlockBoundsBasedOnState(worldObj, xTile, yTile, zTile);
 			AxisAlignedBB axisalignedbb = block.getCollisionBoundingBoxFromPool(worldObj, xTile, yTile, zTile);
 			if (axisalignedbb != null && axisalignedbb.isVecInside(Vec3.createVectorHelper(posX, posY, posZ))) {
@@ -260,7 +261,7 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 				double d1;
 				MovingObjectPosition movingobjectposition1;
 				Entity entity1 = (Entity) list.get(l);
-				if (!entity1.canBeCollidedWith() || entity1 == shootingEntity && ticksInAir < 5 || (movingobjectposition1 = (entity1.boundingBox.expand(f5 = 0.3f, f5, f5)).calculateIntercept(vec3d, vec3d1)) == null || ((d1 = vec3d.distanceTo(movingobjectposition1.hitVec)) >= d) && d != 0.0) {
+				if (!entity1.canBeCollidedWith() || entity1 == shootingEntity && ticksInAir < 5 || (movingobjectposition1 = entity1.boundingBox.expand(f5 = 0.3f, f5, f5).calculateIntercept(vec3d, vec3d1)) == null || (d1 = vec3d.distanceTo(movingobjectposition1.hitVec)) >= d && d != 0.0) {
 					continue;
 				}
 				entity = entity1;

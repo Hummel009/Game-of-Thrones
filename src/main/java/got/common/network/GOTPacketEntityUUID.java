@@ -40,7 +40,7 @@ public class GOTPacketEntityUUID implements IMessage {
 			World world = GOT.proxy.getClientWorld();
 			Entity entity = world.getEntityByID(packet.entityID);
 			if (entity instanceof GOTRandomSkinEntity) {
-				GOTRandomSkinEntity npc = (GOTRandomSkinEntity) (entity);
+				GOTRandomSkinEntity npc = (GOTRandomSkinEntity) entity;
 				npc.setUniqueID(packet.entityUUID);
 			}
 			return null;

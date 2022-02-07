@@ -19,7 +19,8 @@ public class GOTEntityGhiscarCorsair extends GOTEntityGhiscarLevyman {
 		super.onKillEntity(entity);
 		if (entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).canDropRares() && rand.nextInt(2) == 0) {
 			int coins = getRandomCoinDropAmount();
-			if ((coins = (int) (coins * MathHelper.randomFloatClamp(rand, 1.0f, 3.0f))) > 0) {
+			coins = (int) (coins * MathHelper.randomFloatClamp(rand, 1.0f, 3.0f));
+			if (coins > 0) {
 				entity.dropItem(GOTRegistry.coin, coins);
 			}
 		}

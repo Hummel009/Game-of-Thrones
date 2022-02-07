@@ -49,7 +49,7 @@ public class GOTPacketConquestGrid implements IMessage {
 		data.writeByte(facID);
 		for (GOTConquestZone zone : allZones) {
 			float str = zone.getConquestStrength(conqFac, worldTime);
-			if ((str <= 0.0f)) {
+			if (str <= 0.0f) {
 				continue;
 			}
 			float strRaw = zone.getConquestStrengthRaw(conqFac);

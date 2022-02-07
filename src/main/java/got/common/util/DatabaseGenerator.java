@@ -872,11 +872,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob));
 				continue;
 			}
-			if (("typeFarmer".equals(display)) && (entities.get(mob) instanceof GOTTradeable) && (entities.get(mob) instanceof GOTUnitTradeable) && !((GOTEntityNPC) entities.get(mob)).isLegendaryNPC()) {
+			if ("typeFarmer".equals(display) && entities.get(mob) instanceof GOTTradeable && entities.get(mob) instanceof GOTUnitTradeable && !((GOTEntityNPC) entities.get(mob)).isLegendaryNPC()) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob));
 				continue;
 			}
-			if (("typeAgressive".equals(display)) && (entities.get(mob) instanceof GOTEntityNPC) && (((GOTEntityNPC) entities.get(mob)).isTargetSeeker) && !(entities.get(mob) instanceof GOTTradeable) && !(entities.get(mob) instanceof GOTFarmhand) && !(entities.get(mob) instanceof GOTUnitTradeable) && !(entities.get(mob) instanceof GOTTradeable.Smith) && !(entities.get(mob) instanceof GOTMercenary)) {
+			if ("typeAgressive".equals(display) && entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).isTargetSeeker && !(entities.get(mob) instanceof GOTTradeable) && !(entities.get(mob) instanceof GOTFarmhand) && !(entities.get(mob) instanceof GOTUnitTradeable) && !(entities.get(mob) instanceof GOTTradeable.Smith) && !(entities.get(mob) instanceof GOTMercenary)) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob));
 				continue;
 			}

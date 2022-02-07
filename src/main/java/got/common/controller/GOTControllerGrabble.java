@@ -68,7 +68,7 @@ public class GOTControllerGrabble {
 	public void calctaut(double dist) {
 		if (arrow != null) {
 			if (dist < r) {
-				double taut = 1 - ((r - dist) / 5);
+				double taut = 1 - (r - dist) / 5;
 				if (taut < 0) {
 					taut = 0;
 				}
@@ -136,7 +136,7 @@ public class GOTControllerGrabble {
 		if (spherevec != null && spherevec.y > 0) {
 			jumppower = 0;
 		}
-		if ((arrow != null) && r < 1 && (player.posY < arrow.posY)) {
+		if (arrow != null && r < 1 && player.posY < arrow.posY) {
 			jumppower = maxjump;
 		}
 
@@ -165,7 +165,7 @@ public class GOTControllerGrabble {
 				motion.z = 0;
 			}
 		}
-		if (entity.isCollidedVertically && (Math.abs(entity.motionY) < 0.1)) {
+		if (entity.isCollidedVertically && Math.abs(entity.motionY) < 0.1) {
 			motion.y = 0;
 		}
 	}
@@ -179,7 +179,7 @@ public class GOTControllerGrabble {
 		} else if (ongroundtimer > 0) {
 			ongroundtimer--;
 		}
-		if ((ongroundtimer > 0) && !GOT.proxy.isSneaking(entity)) {
+		if (ongroundtimer > 0 && !GOT.proxy.isSneaking(entity)) {
 			motion = GOTVec.motionvec(entity);
 		}
 	}
@@ -224,7 +224,7 @@ public class GOTControllerGrabble {
 	public void updatePlayerPos() {
 		Entity entity = this.entity;
 
-		if ((attached && (entity != null)) && true) {
+		if (attached && entity != null && true) {
 			normalGround();
 			normalCollisions();
 			GOTVec arrowpos = pos;
@@ -260,7 +260,7 @@ public class GOTControllerGrabble {
 						GOTVec newmotion = dampenmotion(motion, motiontorwards);
 						motion = new GOTVec(newmotion.x, motion.y, newmotion.z);
 
-						if ((playerforward != 0) && (dist < maxlen || playerforward > 0 || maxlen == 0)) {
+						if (playerforward != 0 && (dist < maxlen || playerforward > 0 || maxlen == 0)) {
 
 							additionalmotion = new GOTVec(0, playerforward, 0);
 
@@ -276,7 +276,7 @@ public class GOTControllerGrabble {
 				}
 			}
 
-			if ((ongroundtimer <= 0)) {
+			if (ongroundtimer <= 0) {
 				motion.add_ip(0, -0.05, 0);
 			}
 

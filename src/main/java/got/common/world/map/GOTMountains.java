@@ -27,7 +27,7 @@ public enum GOTMountains {
 		double distSq = dx * dx + dz * dz;
 		double rangeSq = range * range;
 		if (distSq < rangeSq) {
-			if (lavaRange > 0 && distSq < (lavaRange * lavaRange)) {
+			if (lavaRange > 0 && distSq < lavaRange * lavaRange) {
 				return getLavaCraterHeight();
 			}
 			double dist = Math.sqrt(distSq);
@@ -45,7 +45,7 @@ public enum GOTMountains {
 		for (GOTMountains m : GOTMountains.values()) {
 			double dx;
 			double dz;
-			if (m.lavaRange <= 0 || (((dx = x - m.xCoord) * dx + (dz = z - m.zCoord) * dz) >= ((m.lavaRange + 6) * (m.lavaRange + 6)))) {
+			if (m.lavaRange <= 0 || (dx = x - m.xCoord) * dx + (dz = z - m.zCoord) * dz >= (m.lavaRange + 6) * (m.lavaRange + 6)) {
 				continue;
 			}
 			return Math.round(m.getLavaCraterHeight() * 110.0f);
@@ -72,7 +72,7 @@ public enum GOTMountains {
 			double distSq = dx * dx + dz * dz;
 			double mtnRange = range + m.range;
 			double rangeSq = mtnRange * mtnRange;
-			if ((distSq > rangeSq)) {
+			if (distSq > rangeSq) {
 				continue;
 			}
 			return true;

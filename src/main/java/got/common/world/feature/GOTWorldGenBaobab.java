@@ -44,7 +44,8 @@ public class GOTWorldGenBaobab extends WorldGenAbstractTree {
 			for (i1 = i - trunkCircleWidth - 1; i1 <= i + trunkCircleWidth + 1 && flag; ++i1) {
 				for (k1 = k - trunkCircleWidth - 1; k1 <= k + trunkCircleWidth + 1 && flag; ++k1) {
 					i2 = Math.abs(i1 - i);
-					if (i2 * i2 + (k2 = Math.abs(k1 - k)) * k2 > trunkCircleWidth * trunkCircleWidth) {
+					k2 = Math.abs(k1 - k);
+					if (i2 * i2 + k2 * k2 > trunkCircleWidth * trunkCircleWidth) {
 						continue;
 					}
 					for (j1 = j; j1 <= j + 1 + height; ++j1) {
@@ -75,7 +76,8 @@ public class GOTWorldGenBaobab extends WorldGenAbstractTree {
 				for (int k12 = k - trunkCircleWidth - 1; k12 <= k + trunkCircleWidth + 1; ++k12) {
 					int k22;
 					int i22 = Math.abs(i12 - i);
-					if (i22 * i22 + (k22 = Math.abs(k12 - k)) * k22 > trunkCircleWidth * trunkCircleWidth) {
+					k22 = Math.abs(k12 - k);
+					if (i22 * i22 + k22 * k22 > trunkCircleWidth * trunkCircleWidth) {
 						continue;
 					}
 					if (j12 == 0) {
@@ -124,7 +126,8 @@ public class GOTWorldGenBaobab extends WorldGenAbstractTree {
 		for (i1 = i - trunkCircleWidth - 1; i1 <= i + trunkCircleWidth + 1; ++i1) {
 			for (k1 = k - trunkCircleWidth - 1; k1 <= k + trunkCircleWidth + 1; ++k1) {
 				i2 = Math.abs(i1 - i);
-				if (i2 * i2 + (k2 = Math.abs(k1 - k)) * k2 > trunkCircleWidth * trunkCircleWidth || random.nextInt(5) != 0) {
+				k2 = Math.abs(k1 - k);
+				if (i2 * i2 + k2 * k2 > trunkCircleWidth * trunkCircleWidth || random.nextInt(5) != 0) {
 					continue;
 				}
 				j1 = j + height;

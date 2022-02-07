@@ -37,12 +37,12 @@ public class GOTRenderLion extends RenderLiving {
 		return textureLion;
 	}
 
-	public static void setTextureLion(ResourceLocation textureLion) {
-		GOTRenderLion.textureLion = textureLion;
-	}
-
 	public static ResourceLocation getTextureLioness() {
 		return textureLioness;
+	}
+
+	public static void setTextureLion(ResourceLocation textureLion) {
+		GOTRenderLion.textureLion = textureLion;
 	}
 
 	public static void setTextureLioness(ResourceLocation textureLioness) {

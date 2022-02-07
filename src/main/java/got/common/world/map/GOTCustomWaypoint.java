@@ -53,7 +53,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	public boolean canUnlockShared(EntityPlayer entityplayer) {
 		if (yCoord >= 0) {
 			double distSq = entityplayer.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5);
-			return distSq <= (1000000.0);
+			return distSq <= 1000000.0;
 		}
 		return false;
 	}
@@ -237,7 +237,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 					break;
 				}
 			}
-			if ((!foundSafe && (!blockSafe || !aboveSafe))) {
+			if (!foundSafe && (!blockSafe || !aboveSafe)) {
 				for (j1 = aboveSafe ? j + 1 : j + 2; j1 <= world.getHeight() - 1; ++j1) {
 					if (!isSafeBlock(world, i, j1, k)) {
 						continue;
@@ -339,7 +339,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	public void setSharingPlayerID(UUID id) {
 		UUID prev = sharingPlayer;
 		sharingPlayer = id;
-		if (((MinecraftServer.getServer() != null) && ((prev == null) || !prev.equals(sharingPlayer)))) {
+		if (MinecraftServer.getServer() != null && (prev == null || !prev.equals(sharingPlayer))) {
 			sharingPlayerName = GOTPacketFellowship.getPlayerUsername(sharingPlayer);
 		}
 	}

@@ -75,7 +75,7 @@ public class GOTContainerAnvil extends Container {
 	public GOTContainerAnvil(EntityPlayer entityplayer, GOTEntityNPC npc) {
 		this(entityplayer, true);
 		theNPC = npc;
-		theTrader = (GOTTradeable) (npc);
+		theTrader = (GOTTradeable) npc;
 	}
 
 	public GOTContainerAnvil(EntityPlayer entityplayer, int i, int j, int k) {
@@ -136,7 +136,7 @@ public class GOTContainerAnvil extends Container {
 		if (inputItem != null && engraveOwnerCost > 0 && hasMaterialOrCoinAmount(engraveOwnerCost)) {
 			int cost = engraveOwnerCost;
 			GOTItemOwnership.setCurrentOwner(inputItem, thePlayer.getCommandSenderName());
-			if (isTrader && theNPC instanceof GOTEntityScrapTrader && (applyMischief(inputItem))) {
+			if (isTrader && theNPC instanceof GOTEntityScrapTrader && applyMischief(inputItem)) {
 				doneMischief = true;
 			}
 			invInput.setInventorySlotContents(0, inputItem);
@@ -205,10 +205,10 @@ public class GOTContainerAnvil extends Container {
 			return true;
 		}
 		Item item = inputItem.getItem();
-		if ((item == Items.bow && materialItem.getItem() == Items.string) || (item instanceof ItemFishingRod && materialItem.getItem() == Items.string)) {
+		if (item == Items.bow && materialItem.getItem() == Items.string || item instanceof ItemFishingRod && materialItem.getItem() == Items.string) {
 			return true;
 		}
-		if ((item instanceof ItemShears && materialItem.getItem() == Items.iron_ingot) || (item instanceof GOTItemChisel && materialItem.getItem() == Items.iron_ingot)) {
+		if (item instanceof ItemShears && materialItem.getItem() == Items.iron_ingot || item instanceof GOTItemChisel && materialItem.getItem() == Items.iron_ingot) {
 			return true;
 		}
 		if (item instanceof ItemEnchantedBook && materialItem.getItem() == Items.paper) {
@@ -223,7 +223,7 @@ public class GOTContainerAnvil extends Container {
 		if (material == Item.ToolMaterial.WOOD) {
 			return GOT.isOreNameEqual(materialItem, "plankWood");
 		}
-		if (item instanceof ItemArmor && (((ItemArmor) item).getArmorMaterial()) == GOTMaterial.BONE.toArmorMaterial()) {
+		if (item instanceof ItemArmor && ((ItemArmor) item).getArmorMaterial() == GOTMaterial.BONE.toArmorMaterial()) {
 			return GOT.isOreNameEqual(materialItem, "bone");
 		}
 		return false;
@@ -282,7 +282,7 @@ public class GOTContainerAnvil extends Container {
 			}
 			GOTEnchantmentHelper.applyRandomEnchantments(inputItem, theWorld.rand, true, true);
 			GOTEnchantmentHelper.setAnvilCost(inputItem, 0);
-			if (isTrader && theNPC instanceof GOTEntityScrapTrader && (applyMischief(inputItem))) {
+			if (isTrader && theNPC instanceof GOTEntityScrapTrader && applyMischief(inputItem)) {
 				doneMischief = true;
 			}
 			invInput.setInventorySlotContents(0, inputItem);
@@ -477,7 +477,7 @@ public class GOTContainerAnvil extends Container {
 					}
 				}
 			}
-			if (nameChange && (GOTContainerAnvil.costsToRename(inputItem))) {
+			if (nameChange && GOTContainerAnvil.costsToRename(inputItem)) {
 				++renameCost;
 			}
 			if (isTrader && (scrollCombine = GOTEnchantmentCombining.getCombinationResult(inputItem, combinerItem)) != null) {
@@ -509,7 +509,8 @@ public class GOTContainerAnvil extends Container {
 						int restoredUses = combinerUseLeft + inputCopy.getMaxDamage() * 12 / 100;
 						int newUsesLeft = inputUseLeft + restoredUses;
 						int newDamage = inputCopy.getMaxDamage() - newUsesLeft;
-						if ((newDamage = Math.max(newDamage, 0)) < inputCopy.getItemDamage()) {
+						newDamage = Math.max(newDamage, 0);
+						if (newDamage < inputCopy.getItemDamage()) {
 							inputCopy.setItemDamage(newDamage);
 							int restoredUses1 = inputCopy.getMaxDamage() - inputUseLeft;
 							int restoredUses2 = inputCopy.getMaxDamage() - combinerUseLeft;
@@ -533,7 +534,7 @@ public class GOTContainerAnvil extends Container {
 						if (outputEnchants.containsKey(combinerEnchID)) {
 							inputEnchLevel = (Integer) outputEnchants.get(combinerEnchID);
 						}
-						int combinedEnchLevel = inputEnchLevel == (combinerEnchLevel = ((Integer) combinerEnchants.get(combinerEnchID))) ? ++combinerEnchLevel : Math.max(combinerEnchLevel, inputEnchLevel);
+						int combinedEnchLevel = inputEnchLevel == (combinerEnchLevel = (Integer) combinerEnchants.get(combinerEnchID)) ? ++combinerEnchLevel : Math.max(combinerEnchLevel, inputEnchLevel);
 						combinerEnchLevel = combinedEnchLevel;
 						int levelsAdded = combinerEnchLevel - inputEnchLevel;
 						boolean canApply = combinerEnch.canApply(inputItem);
@@ -667,7 +668,8 @@ public class GOTContainerAnvil extends Container {
 				}
 				oneItemRepair = Math.min(inputCopy.getItemDamageForDisplay(), inputCopy.getMaxDamage() / 4);
 				if (canRepair && availableMaterials > 0 && oneItemRepair > 0) {
-					if ((availableMaterials -= baseAnvilCost) > 0) {
+					availableMaterials -= baseAnvilCost;
+					if (availableMaterials > 0) {
 						int usedMaterials;
 						for (usedMaterials = 0; oneItemRepair > 0 && usedMaterials < availableMaterials; ++usedMaterials) {
 							int newDamage = inputCopy.getItemDamageForDisplay() - oneItemRepair;
@@ -778,7 +780,7 @@ public class GOTContainerAnvil extends Container {
 
 	public static boolean costsToRename(ItemStack itemstack) {
 		Item item = itemstack.getItem();
-		if (item instanceof ItemSword || item instanceof ItemTool || (item instanceof ItemArmor && ((ItemArmor) item).damageReduceAmount > 0)) {
+		if (item instanceof ItemSword || item instanceof ItemTool || item instanceof ItemArmor && ((ItemArmor) item).damageReduceAmount > 0) {
 			return true;
 		}
 		return item instanceof ItemBow || item instanceof GOTItemCrossbow || item instanceof GOTItemThrowingAxe || item instanceof GOTItemSarbacane;

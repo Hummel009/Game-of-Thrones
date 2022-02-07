@@ -142,7 +142,7 @@ public class GOTConquestZone {
 	public void updateAllOtherFactions(GOTFaction fac, World world) {
 		for (int i = 0; i < conquestStrengths.length; ++i) {
 			GOTFaction otherFac = allPlayableFacs.get(i);
-			if (otherFac == fac || (conquestStrengths[i] <= 0.0f)) {
+			if (otherFac == fac || conquestStrengths[i] <= 0.0f) {
 				continue;
 			}
 			float otherStr = this.getConquestStrength(otherFac, world);

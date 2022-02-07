@@ -6,7 +6,7 @@ import com.google.common.math.IntMath;
 
 import got.common.database.*;
 import got.common.entity.other.*;
-import got.common.entity.westeros.*;
+import got.common.entity.westeros.GOTEntityMercenary;
 import got.common.entity.westeros.westerlands.GOTEntityWesterlandsBartender;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -150,7 +150,8 @@ public class GOTStructureWesterlandsTavern extends GOTStructureWesterlandsBase {
 					setGrassToDirt(world, i1, j2 - 1, k142);
 					--j2;
 				}
-				if (++i1 >= 15) {
+				i1++;
+				if (i1 >= 15) {
 					continue block13;
 				}
 				--j14;

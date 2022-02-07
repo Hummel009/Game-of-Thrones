@@ -39,7 +39,7 @@ public class GOTWorldGenFotinia extends WorldGenAbstractTree {
 				}
 				for (int i1 = i - range; i1 <= i + range && flag; ++i1) {
 					for (int k1 = k - range; k1 <= k + range && flag; ++k1) {
-						if ((j1 >= 0 && j1 < 256) && isReplaceable(world, i1, j1, k1)) {
+						if (j1 >= 0 && j1 < 256 && isReplaceable(world, i1, j1, k1)) {
 							continue;
 						}
 						flag = false;
@@ -77,7 +77,8 @@ public class GOTWorldGenFotinia extends WorldGenAbstractTree {
 			if (r != 2) {
 				continue;
 			}
-			generateLeafLayer(world, random, i, --leafHeight + 1, k, 2);
+			leafHeight--;
+			generateLeafLayer(world, random, i, leafHeight + 1, k, 2);
 			generateLeafLayer(world, random, i, leafHeight, k, 3);
 			generateLeafLayer(world, random, i, leafHeight - 1, k, 2);
 			leafHeight -= 3;

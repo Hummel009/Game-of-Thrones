@@ -50,7 +50,7 @@ public class GOTTileEntitySarbacaneTrap extends TileEntityDispenser {
 			} else {
 				ItemStack itemstack;
 				int slot = func_146017_i();
-				if (slot >= 0 && (itemstack = getStackInSlot(slot)).getItem() instanceof GOTItemDart && !(worldObj.selectEntitiesWithinAABB(EntityLivingBase.class, getTriggerRange(), GOT.selectLivingExceptCreativePlayers())).isEmpty()) {
+				if (slot >= 0 && (itemstack = getStackInSlot(slot)).getItem() instanceof GOTItemDart && !worldObj.selectEntitiesWithinAABB(EntityLivingBase.class, getTriggerRange(), GOT.selectLivingExceptCreativePlayers()).isEmpty()) {
 					IBehaviorDispenseItem dispense = (IBehaviorDispenseItem) BlockDispenser.dispenseBehaviorRegistry.getObject(itemstack.getItem());
 					ItemStack result = dispense.dispense(new BlockSourceImpl(worldObj, xCoord, yCoord, zCoord), itemstack);
 					setInventorySlotContents(slot, result.stackSize == 0 ? null : result);

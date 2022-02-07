@@ -734,7 +734,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		if (block instanceof BlockRotatedPillar) {
 			int i = meta & 3;
 			int j = meta & 0xC;
-			if ((j == 0) || rotationMode == 0 || rotationMode == 2) {
+			if (j == 0 || rotationMode == 0 || rotationMode == 2) {
 				return meta;
 			}
 			if (j == 4) {
@@ -775,7 +775,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 			}
 			return i;
 		}
-		if ((block instanceof GOTBlockArmorStand) || (block instanceof GOTBlockWeaponRack)) {
+		if (block instanceof GOTBlockArmorStand || block instanceof GOTBlockWeaponRack) {
 			int i = meta & 3;
 			int j = meta & 4;
 			for (int l = 0; l < rotationMode; ++l) {

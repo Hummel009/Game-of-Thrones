@@ -18,7 +18,7 @@ public class GOTContainerTrade extends Container {
 	public GOTContainerTrade(InventoryPlayer inv, GOTTradeable trader, World world) {
 		int i;
 		theTrader = trader;
-		theTraderNPC = (GOTEntityNPC) (trader);
+		theTraderNPC = (GOTEntityNPC) trader;
 		theWorld = world;
 		if (!world.isRemote) {
 			updateAllTradeSlots();
@@ -45,7 +45,7 @@ public class GOTContainerTrade extends Container {
 	@Override
 	public void addCraftingToCrafters(ICrafting crafting) {
 		super.addCraftingToCrafters(crafting);
-		theTraderNPC.traderNPCInfo.sendClientPacket((EntityPlayer) (crafting));
+		theTraderNPC.traderNPCInfo.sendClientPacket((EntityPlayer) crafting);
 	}
 
 	@Override
@@ -81,7 +81,7 @@ public class GOTContainerTrade extends Container {
 				if (!mergeItemStack(itemstack1, 27, 63, true)) {
 					return null;
 				}
-			} else if ((i >= 9 && i < 18) || (i >= 18 && i < 27 ? !mergeItemStack(itemstack1, 27, 63, true) : (sellable ? !mergeItemStack(itemstack1, 18, 27, false) : (i >= 27 && i < 54 ? !mergeItemStack(itemstack1, 54, 63, false) : i >= 54 && i < 63 && !mergeItemStack(itemstack1, 27, 54, false))))) {
+			} else if (i >= 9 && i < 18 || (i >= 18 && i < 27 ? !mergeItemStack(itemstack1, 27, 63, true) : sellable ? !mergeItemStack(itemstack1, 18, 27, false) : i >= 27 && i < 54 ? !mergeItemStack(itemstack1, 54, 63, false) : i >= 54 && i < 63 && !mergeItemStack(itemstack1, 27, 54, false))) {
 				return null;
 			}
 			if (itemstack1.stackSize == 0) {

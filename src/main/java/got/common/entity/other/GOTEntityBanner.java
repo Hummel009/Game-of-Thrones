@@ -65,7 +65,7 @@ public class GOTEntityBanner extends Entity {
 			if (isPlayerDamage) {
 				EntityPlayer entityplayer = (EntityPlayer) damagesource.getEntity();
 				if (GOTBannerProtection.isProtected(worldObj, this, GOTBannerProtection.forPlayer(entityplayer, GOTBannerProtection.Permission.FULL), true)) {
-					if (!isProtectionBanner || selfProtection || (structureProtection && damagesource.getEntity() != damagesource.getSourceOfDamage())) {
+					if (!isProtectionBanner || selfProtection || structureProtection && damagesource.getEntity() != damagesource.getSourceOfDamage()) {
 						return false;
 					}
 				}
@@ -422,7 +422,8 @@ public class GOTEntityBanner extends Entity {
 	}
 
 	public void resizeWhitelist(int length) {
-		if ((length = MathHelper.clamp_int(length, WHITELIST_MIN, WHITELIST_MAX)) == allowedPlayers.length) {
+		length = MathHelper.clamp_int(length, WHITELIST_MIN, WHITELIST_MAX);
+		if (length == allowedPlayers.length) {
 			return;
 		}
 		GOTBannerWhitelistEntry[] resized = new GOTBannerWhitelistEntry[length];
@@ -508,7 +509,7 @@ public class GOTEntityBanner extends Entity {
 	}
 
 	public void setBannerTypeID(int i) {
-		dataWatcher.updateObject(18, ((short) i));
+		dataWatcher.updateObject(18, (short) i);
 	}
 
 	public void setClientside_playerHasPermissionInSurvival(boolean flag) {

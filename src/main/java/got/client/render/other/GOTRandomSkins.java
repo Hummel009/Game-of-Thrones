@@ -66,7 +66,8 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 				noFile = true;
 			}
 			if (noFile) {
-				if (++skips >= maxSkips) {
+				skips++;
+				if (skips >= maxSkips) {
 					break;
 				}
 				++skinCount;

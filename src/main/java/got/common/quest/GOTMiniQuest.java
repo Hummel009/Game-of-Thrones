@@ -101,10 +101,11 @@ public abstract class GOTMiniQuest {
 			GOTFaction rewardFaction = getAlignmentRewardFaction();
 			if (!questGroup.isNoAlignRewardForEnemy() || playerData.getAlignment(rewardFaction) >= 0.0f) {
 				GOTAlignmentBonusMap alignmentMap = playerData.addAlignment(entityplayer, bonus, rewardFaction, npc);
-				alignmentRewarded = alignmentMap.get((rewardFaction));
+				alignmentRewarded = alignmentMap.get(rewardFaction);
 			}
 		}
-		if ((coins = getCoinBonus()) != 0) {
+		coins = getCoinBonus();
+		if (coins != 0) {
 			if (shouldRandomiseCoinReward()) {
 				coins = Math.round(coins * MathHelper.randomFloatClamp(rand, 0.75f, 1.25f));
 				if (rand.nextInt(12) == 0) {

@@ -32,7 +32,7 @@ public class GOTEntityAIBombardierAttack extends EntityAIBase {
 			return false;
 		}
 		EntityLivingBase entity = attacker.getAttackTarget();
-		return entity == null ? false : (!entityTarget.isEntityAlive() ? false : !attacker.getNavigator().noPath());
+		return entity == null ? false : !entityTarget.isEntityAlive() ? false : !attacker.getNavigator().noPath();
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class GOTEntityAIBombardierAttack extends EntityAIBase {
 	@Override
 	public boolean shouldExecute() {
 		EntityLivingBase entity = attacker.getAttackTarget();
-		if ((entity == null) || (attacker.npcItemsInv.getBomb() == null)) {
+		if (entity == null || attacker.npcItemsInv.getBomb() == null) {
 			return false;
 		}
 		entityTarget = entity;

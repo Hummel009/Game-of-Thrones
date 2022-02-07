@@ -79,7 +79,7 @@ public class GOTRenderLegendaryNPCLayered extends GOTRenderBiped {
 	@Override
 	public int shouldRenderPass(EntityLiving entity, int pass, float f) {
 		GOTEntityNPC legend = (GOTEntityNPC) entity;
-		if ((pass == 0 && legend.getEquipmentInSlot(4) == null) || (pass == 1 && legend.getEquipmentInSlot(3) == null)) {
+		if (pass == 0 && legend.getEquipmentInSlot(4) == null || pass == 1 && legend.getEquipmentInSlot(3) == null) {
 			setRenderPassModel(model);
 			bindTexture(getSecondLayerTexture());
 			return 1;

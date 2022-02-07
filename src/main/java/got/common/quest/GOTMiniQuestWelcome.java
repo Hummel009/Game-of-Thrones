@@ -342,7 +342,7 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		List<GOTMiniQuest> activeQuests = pd.getActiveMiniQuests();
 		for (GOTMiniQuest quest : activeQuests) {
-			if ((quest instanceof GOTMiniQuestWelcome)) {
+			if (quest instanceof GOTMiniQuestWelcome) {
 				GOTMiniQuestWelcome qw = (GOTMiniQuestWelcome) quest;
 				switch (qw.stage) {
 				case 5:

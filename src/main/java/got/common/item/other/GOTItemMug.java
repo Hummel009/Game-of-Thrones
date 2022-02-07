@@ -225,7 +225,7 @@ public class GOTItemMug extends Item {
 		if (!world.isRemote && curesEffects) {
 			entityplayer.curePotionEffects(new ItemStack(Items.milk_bucket));
 		}
-		if (!world.isRemote && (this == GOTRegistry.mugPlantainBrew)) {
+		if (!world.isRemote && this == GOTRegistry.mugPlantainBrew) {
 			for (Potion potion : Potion.potionTypes) {
 				if (potion == null || !GOTReflection.isBadEffect(potion)) {
 					continue;
@@ -410,7 +410,7 @@ public class GOTItemMug extends Item {
 			}
 			return itemMug.getEmptyVesselType();
 		}
-		if ((item == Items.glass_bottle) || (item == Items.potionitem && itemstack.getItemDamage() == 0)) {
+		if (item == Items.glass_bottle || item == Items.potionitem && itemstack.getItemDamage() == 0) {
 			return Vessel.BOTTLE;
 		}
 		return null;
@@ -468,7 +468,7 @@ public class GOTItemMug extends Item {
 		}
 		Block mugBlock = vessel.getBlock();
 		Block block = world.getBlock(i += Facing.offsetsXForSide[side], j += Facing.offsetsYForSide[side], k += Facing.offsetsZForSide[side]);
-		if ((block != null && !block.isReplaceable(world, i, j, k)) || (block.getMaterial() == Material.water)) {
+		if (block != null && !block.isReplaceable(world, i, j, k) || block.getMaterial() == Material.water) {
 			return false;
 		}
 		if (entityplayer.canPlayerEdit(i, j, k, side, itemstack)) {

@@ -25,7 +25,7 @@ public class GOTRecipeArmorDyes extends RecipesArmorDyes implements IRecipe {
 			}
 			if (itemstack.getItem() instanceof ItemArmor) {
 				itemarmor = (ItemArmor) itemstack.getItem();
-				if ((armor != null) || (itemarmor.getArmorMaterial() != ItemArmor.ArmorMaterial.CLOTH)) {
+				if (armor != null || itemarmor.getArmorMaterial() != ItemArmor.ArmorMaterial.CLOTH) {
 					return null;
 				}
 				armor = itemstack.copy();
@@ -95,7 +95,7 @@ public class GOTRecipeArmorDyes extends RecipesArmorDyes implements IRecipe {
 			}
 			if (itemstack.getItem() instanceof ItemArmor) {
 				ItemArmor itemarmor = (ItemArmor) itemstack.getItem();
-				if ((armor != null) || (itemarmor.getArmorMaterial() != ItemArmor.ArmorMaterial.CLOTH)) {
+				if (armor != null || itemarmor.getArmorMaterial() != ItemArmor.ArmorMaterial.CLOTH) {
 					return false;
 				}
 				armor = itemstack;

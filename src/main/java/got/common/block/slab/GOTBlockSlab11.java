@@ -18,7 +18,8 @@ public class GOTBlockSlab11 extends GOTBlockSlabBase {
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		if ((j &= 7) == 0) {
+		j &= 7;
+		if (j == 0) {
 			return GOTRegistry.brick5.getIcon(i, 8);
 		}
 		switch (j) {

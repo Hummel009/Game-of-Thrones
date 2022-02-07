@@ -91,7 +91,7 @@ public class GOTBiomeShadowMountains extends GOTBiome {
 		double d1 = noiseDirt.func_151601_a(i * 0.08, k * 0.08);
 		double d2 = noiseDirt.func_151601_a(i * 0.4, k * 0.4);
 		double d3 = noiseGravel.func_151601_a(i * 0.08, k * 0.08);
-		if (d3 + (noiseGravel.func_151601_a(i * 0.4, k * 0.4)) > 0.8) {
+		if (d3 + noiseGravel.func_151601_a(i * 0.4, k * 0.4) > 0.8) {
 			topBlock = GOTRegistry.basaltGravel;
 			topBlockMeta = 0;
 			fillerBlock = topBlock;

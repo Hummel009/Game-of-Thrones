@@ -32,7 +32,8 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		if ((j &= 7) >= saplingNames.length) {
+		j &= 7;
+		if (j >= saplingNames.length) {
 			j = 0;
 		}
 		return saplingIcons[j];

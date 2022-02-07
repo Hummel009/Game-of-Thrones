@@ -186,7 +186,7 @@ public class GOTTileEntityAnimalJar extends TileEntity {
 			} else if (hasTargetYaw) {
 				float delta = targetYaw - jarEntity.rotationYaw;
 				delta = MathHelper.wrapAngleTo180_float(delta);
-				jarEntity.rotationYaw += (delta *= 0.1f);
+				jarEntity.rotationYaw += delta *= 0.1f;
 				if (Math.abs(jarEntity.rotationYaw - targetYaw) <= 0.01f) {
 					hasTargetYaw = false;
 				}

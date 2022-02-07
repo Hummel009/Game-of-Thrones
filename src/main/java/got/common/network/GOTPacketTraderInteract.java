@@ -39,7 +39,7 @@ public class GOTPacketTraderInteract implements IMessage {
 			World world = entityplayer.worldObj;
 			Entity trader = world.getEntityByID(packet.traderID);
 			if (trader instanceof GOTTradeable) {
-				GOTTradeable tradeableTrader = (GOTTradeable) (trader);
+				GOTTradeable tradeableTrader = (GOTTradeable) trader;
 				GOTEntityNPC livingTrader = (GOTEntityNPC) trader;
 				int action = packet.traderAction;
 				boolean closeScreen = false;

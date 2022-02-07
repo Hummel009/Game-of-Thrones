@@ -122,7 +122,8 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 		if (height >= heightLimit) {
 			height = heightLimit - 1;
 		}
-		if ((i = (int) (1.382 + Math.pow(leafDensity * heightLimit / 13.0, 2.0))) < 1) {
+		i = (int) (1.382 + Math.pow(leafDensity * heightLimit / 13.0, 2.0));
+		if (i < 1) {
 			i = 1;
 		}
 		int[][] aint = new int[i * heightLimit][4];
@@ -131,7 +132,8 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 		int l = basePos[1] + height;
 		int i1 = j - basePos[1];
 		aint[0][0] = basePos[0];
-		aint[0][1] = j--;
+		aint[0][1] = j;
+		j--;
 		aint[0][2] = basePos[2];
 		aint[0][3] = l;
 		while (i1 >= 0) {

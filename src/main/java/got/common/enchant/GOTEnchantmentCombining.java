@@ -21,7 +21,7 @@ public class GOTEnchantmentCombining {
 
 	public static CombineRecipe getCombinationResult(ItemStack item1, ItemStack item2) {
 		GOTEnchantment mod1;
-		if (item1 != null && item2 != null && item1.getItem() instanceof GOTItemModifierTemplate && item2.getItem() instanceof GOTItemModifierTemplate && (mod1 = GOTItemModifierTemplate.getModifier(item1)) == (GOTItemModifierTemplate.getModifier(item2))) {
+		if (item1 != null && item2 != null && item1.getItem() instanceof GOTItemModifierTemplate && item2.getItem() instanceof GOTItemModifierTemplate && (mod1 = GOTItemModifierTemplate.getModifier(item1)) == GOTItemModifierTemplate.getModifier(item2)) {
 			for (CombineRecipe recipe : allCombineRecipes) {
 				if (recipe.inputMod != mod1) {
 					continue;

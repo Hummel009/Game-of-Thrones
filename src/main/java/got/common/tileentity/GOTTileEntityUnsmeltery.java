@@ -52,7 +52,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 		}
 		ItemStack material = getEquipmentMaterial(itemstack);
 		if (material != null) {
-			if ((TileEntityFurnace.getItemBurnTime(material) != 0) || (itemstack.getItem() instanceof net.minecraft.item.ItemBlock && Block.getBlockFromItem(itemstack.getItem()).getMaterial().getCanBurn())) {
+			if (TileEntityFurnace.getItemBurnTime(material) != 0 || itemstack.getItem() instanceof net.minecraft.item.ItemBlock && Block.getBlockFromItem(itemstack.getItem()).getMaterial().getCanBurn()) {
 				return false;
 			}
 			return determineResourcesUsed(itemstack, material) > 0;
@@ -275,7 +275,8 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 		if (itemstack.isItemStackDamageable()) {
 			items *= (float) (itemstack.getMaxDamage() - itemstack.getItemDamage()) / (float) itemstack.getMaxDamage();
 		}
-		if ((items_int = Math.round(items *= MathHelper.randomFloatClamp(unsmeltingRand, 0.7f, 1.0f))) <= 0) {
+		items_int = Math.round(items *= MathHelper.randomFloatClamp(unsmeltingRand, 0.7f, 1.0f));
+		if (items_int <= 0) {
 			return null;
 		}
 		return new ItemStack(result.getItem(), items_int, result.getItemDamage());
