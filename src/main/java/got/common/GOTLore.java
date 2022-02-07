@@ -329,7 +329,8 @@ public class GOTLore {
 					if (currentLine.length() > 0) {
 						pageText = pageText + currentLine;
 						currentLine = "";
-						if (++numLines >= 13) {
+						numLines++;
+						if (numLines >= 13) {
 							break;
 						}
 					}
@@ -338,7 +339,8 @@ public class GOTLore {
 						continue;
 					}
 					pageText = pageText + word;
-					if (++numLines < 13) {
+					numLines++;
+					if (numLines < 13) {
 						continue;
 					}
 					break;

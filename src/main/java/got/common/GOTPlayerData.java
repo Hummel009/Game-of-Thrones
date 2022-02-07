@@ -2109,13 +2109,16 @@ public class GOTPlayerData {
 		if (fullMaterial != null && fullMaterial == GOTMaterial.HAND) {
 			addAchievement(GOTAchievement.WEAR_FULL_HAND);
 		}
-		if ((fullMaterial = getHelmetMaterial(entityplayer)) != null && fullMaterial == GOTMaterial.HELMET) {
+		fullMaterial = getHelmetMaterial(entityplayer);
+		if (fullMaterial != null && fullMaterial == GOTMaterial.HELMET) {
 			addAchievement(GOTAchievement.WEAR_FULL_HELMET);
 		}
-		if ((fullMaterial = getFullArmorMaterialWithoutHelmet(entityplayer)) != null && fullMaterial == GOTMaterial.MOSSOVY) {
+		fullMaterial = getFullArmorMaterialWithoutHelmet(entityplayer);
+		if (fullMaterial != null && fullMaterial == GOTMaterial.MOSSOVY) {
 			addAchievement(GOTAchievement.WEAR_FULL_MOSSOVY);
 		}
-		if ((fullMaterial = getFullArmorMaterialWithoutHelmet(entityplayer)) != null && fullMaterial == GOTMaterial.ICE) {
+		fullMaterial = getFullArmorMaterialWithoutHelmet(entityplayer);
+		if (fullMaterial != null && fullMaterial == GOTMaterial.ICE) {
 			addAchievement(GOTAchievement.WEAR_FULL_WHITEWALKERS);
 		}
 	}
