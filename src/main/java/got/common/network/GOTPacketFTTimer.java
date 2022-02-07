@@ -29,7 +29,7 @@ public class GOTPacketFTTimer implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketFTTimer, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketFTTimer packet, MessageContext context) {
-			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+			EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 			GOTLevelData.getData(entityplayer).setTimeSinceFT(packet.timer);
 			return null;
 		}

@@ -77,7 +77,7 @@ public class GOTConquestGrid {
 	}
 
 	public static boolean conquestEnabled(World world) {
-		return GOTConfig.enableConquest && world.getWorldInfo().getTerrainType() != GOT.worldTypeGOTClassic;
+		return GOTConfig.enableConquest && world.getWorldInfo().getTerrainType() != GOT.getWorldTypeGOTClassic();
 	}
 
 	public static float doRadialConquest(World world, GOTConquestZone centralZone, EntityPlayer killingPlayer, GOTFaction pledgeFaction, GOTFaction enemyFaction, float conqGain, float conqCleanse) {

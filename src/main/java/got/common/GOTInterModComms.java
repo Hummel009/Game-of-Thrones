@@ -9,7 +9,7 @@ import net.minecraft.server.MinecraftServer;
 
 public class GOTInterModComms {
 	public static void update() {
-		ImmutableList<FMLInterModComms.IMCMessage> messages = FMLInterModComms.fetchRuntimeMessages(GOT.instance);
+		ImmutableList<FMLInterModComms.IMCMessage> messages = FMLInterModComms.fetchRuntimeMessages(GOT.getInstance());
 		if (!messages.isEmpty()) {
 			for (FMLInterModComms.IMCMessage message : messages) {
 				if (!"SIEGE_ACTIVE".equals(message.key)) {

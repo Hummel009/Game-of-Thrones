@@ -46,7 +46,7 @@ public class GOTPacketMountControlServerEnforce implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketMountControlServerEnforce, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketMountControlServerEnforce packet, MessageContext context) {
-			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+			EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 			GOTMountFunctions.sendControlToServer(entityplayer, packet);
 			return null;
 		}

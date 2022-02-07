@@ -119,7 +119,7 @@ public abstract class GOTEntityNPCRideable extends GOTEntityNPC implements GOTNP
 	public void openGUI(EntityPlayer entityplayer) {
 		IInventory inv = getMountInventory();
 		if (inv != null && !worldObj.isRemote && (riddenByEntity == null || riddenByEntity == entityplayer) && isNPCTamed()) {
-			entityplayer.openGui(GOT.instance, 29, worldObj, getEntityId(), inv.getSizeInventory(), 0);
+			entityplayer.openGui(GOT.getInstance(), 29, worldObj, getEntityId(), inv.getSizeInventory(), 0);
 		}
 	}
 

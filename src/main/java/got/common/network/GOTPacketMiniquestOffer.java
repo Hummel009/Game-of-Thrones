@@ -61,15 +61,15 @@ public class GOTPacketMiniquestOffer implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketMiniquestOffer, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketMiniquestOffer packet, MessageContext context) {
-			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+			EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-			World world = GOT.proxy.getClientWorld();
+			World world = GOT.getProxy().getClientWorld();
 			Entity entity = world.getEntityByID(packet.entityID);
 			if (entity instanceof GOTEntityNPC) {
 				GOTEntityNPC npc = (GOTEntityNPC) entity;
 				GOTMiniQuest quest = GOTMiniQuest.loadQuestFromNBT(packet.miniquestData, pd);
 				if (quest != null) {
-					GOT.proxy.displayMiniquestOffer(quest, npc);
+					GOT.getProxy().displayMiniquestOffer(quest, npc);
 				} else {
 					GOTPacketMiniquestOffer.sendClosePacket(entityplayer, npc, false);
 				}

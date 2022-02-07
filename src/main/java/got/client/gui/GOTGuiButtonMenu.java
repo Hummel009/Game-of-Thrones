@@ -20,7 +20,7 @@ public class GOTGuiButtonMenu extends GuiButton {
 	public boolean canDisplayMenu() {
 		if (menuScreenClass == GOTGuiMap.class) {
 			WorldClient world = Minecraft.getMinecraft().theWorld;
-			return world != null && world.getWorldInfo().getTerrainType() != GOT.worldTypeGOTClassic;
+			return world != null && world.getWorldInfo().getTerrainType() != GOT.getWorldTypeGOTClassic();
 		}
 		return true;
 	}

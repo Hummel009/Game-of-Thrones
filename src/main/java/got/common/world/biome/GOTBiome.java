@@ -482,7 +482,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	@SideOnly(value = Side.CLIENT)
 	public int getBaseFoliageColor(int i, int j, int k) {
-		GOTBiomeVariant variant = ((GOTWorldChunkManager) GOT.proxy.getClientWorld().getWorldChunkManager()).getBiomeVariantAt(i, k);
+		GOTBiomeVariant variant = ((GOTWorldChunkManager) GOT.getProxy().getClientWorld().getWorldChunkManager()).getBiomeVariantAt(i, k);
 		float temp = getFloatTemperature(i, j, k) + variant.tempBoost;
 		float rain = rainfall + variant.rainBoost;
 		temp = MathHelper.clamp_float(temp, 0.0f, 1.0f);
@@ -492,7 +492,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	@SideOnly(value = Side.CLIENT)
 	public int getBaseGrassColor(int i, int j, int k) {
-		GOTBiomeVariant variant = ((GOTWorldChunkManager) GOT.proxy.getClientWorld().getWorldChunkManager()).getBiomeVariantAt(i, k);
+		GOTBiomeVariant variant = ((GOTWorldChunkManager) GOT.getProxy().getClientWorld().getWorldChunkManager()).getBiomeVariantAt(i, k);
 		float temp = getFloatTemperature(i, j, k) + variant.tempBoost;
 		float rain = rainfall + variant.rainBoost;
 		temp = MathHelper.clamp_float(temp, 0.0f, 1.0f);

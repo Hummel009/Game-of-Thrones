@@ -28,7 +28,7 @@ public class GOTPacketMenuPrompt implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketMenuPrompt, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketMenuPrompt packet, MessageContext context) {
-			GOT.proxy.displayMenuPrompt(packet.type);
+			GOT.getProxy().displayMenuPrompt(packet.type);
 			return null;
 		}
 	}

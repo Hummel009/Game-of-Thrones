@@ -43,7 +43,7 @@ public class GOTPacketShareCWPClient implements IMessage {
 		public IMessage onMessage(GOTPacketShareCWPClient packet, MessageContext context) {
 			GOTCustomWaypoint cwp;
 			GOTPlayerData pd;
-			if (!GOT.proxy.isSingleplayer() && (cwp = (pd = GOTLevelData.getData(GOT.proxy.getClientPlayer())).getCustomWaypointByID(packet.cwpID)) != null) {
+			if (!GOT.getProxy().isSingleplayer() && (cwp = (pd = GOTLevelData.getData(GOT.getProxy().getClientPlayer())).getCustomWaypointByID(packet.cwpID)) != null) {
 				if (packet.adding) {
 					GOTFellowshipClient fsClient = pd.getClientFellowshipByID(packet.fellowshipID);
 					if (fsClient != null) {

@@ -206,7 +206,7 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 	@Override
 	public int getRenderType() {
 		if (hasGrapes) {
-			return GOT.proxy.getGrapevineRenderID();
+			return GOT.getProxy().getGrapevineRenderID();
 		}
 		return 0;
 	}

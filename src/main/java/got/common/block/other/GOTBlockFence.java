@@ -43,8 +43,8 @@ public class GOTBlockFence extends BlockFence {
 
 	@Override
 	public int getRenderType() {
-		if (GOT.proxy.isClient()) {
-			return GOT.proxy.getFenceRenderID();
+		if (GOT.getProxy().isClient()) {
+			return GOT.getProxy().getFenceRenderID();
 		}
 		return super.getRenderType();
 	}

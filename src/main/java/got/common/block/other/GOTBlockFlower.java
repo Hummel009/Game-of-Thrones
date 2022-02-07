@@ -19,7 +19,7 @@ public class GOTBlockFlower extends BlockBush {
 
 	@Override
 	public int getRenderType() {
-		return GOT.proxy.getFlowerRenderID();
+		return GOT.getProxy().getFlowerRenderID();
 	}
 
 	public Block setFlowerBounds(float minX, float minY, float minZ, float maxX, float maxY, float maxZ) {

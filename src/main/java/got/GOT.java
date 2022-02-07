@@ -51,25 +51,25 @@ import net.minecraftforge.oredict.OreDictionary;
 @Mod(modid = "got", name = GOT.NAME, version = GOT.VERSION, dependencies = "required-after:Forge@[10.13.4.1558,)")
 public class GOT {
 	@SidedProxy(clientSide = "got.client.GOTClientProxy", serverSide = "got.common.GOTCommonProxy")
-	public static GOTCommonProxy proxy;
+	private static GOTCommonProxy proxy;
 	@Mod.Instance(value = "got")
-	public static GOT instance;
+	private static GOT instance;
 	public static final String NAME = "Game of Thrones";
 	public static final String VERSION = "Version 17.7";
-	public static String[] DEVS = { "ce6eec82-0678-4be3-933d-05acb902d558", "ce924ff6-8450-41ad-865e-89c5897837c4", "9aee5b32-8e19-4d4b-a2d6-1318af62733d", "1f63e38e-4059-4a4f-b7c4-0fac4a48e744", "72fd4cfd-064e-4cf1-874d-74000c152f48", "a05ba4aa-2cd0-43b1-957c-7971c9af53d4", "22be67c2-ba43-48db-b2ba-32857e78ddad", "694406b3-10e4-407d-99bb-17218696627a" };
-	public static GOTEventHandler eventHandler;
-	public static GOTPacketHandler packetHandler;
-	public static GOTTickHandlerServer tickHandler;
-	public static WorldType worldTypeGOT;
-	public static WorldType worldTypeGOTClassic;
-	public static Map<ItemStack, Integer> buy = new GOTItemStackMapImpl<>();
-	public static Map<ItemStack, Integer> sell = new GOTItemStackMapImpl<>();
-	public static String langsName = "\u0420\u0443\u0441\u0441\u043A\u0438\u0439 (ru), \u0423\u043A\u0440\u0430\u0457\u043D\u0441\u044C\u043A\u0430 (uk), English (en), Deutsch (de), T\u00FCrk\u00E7e (tr), \u4E2D\u6587 (zh)";
-	public static boolean isDevMode = true;
+	private static String[] devs = { "ce6eec82-0678-4be3-933d-05acb902d558", "ce924ff6-8450-41ad-865e-89c5897837c4", "9aee5b32-8e19-4d4b-a2d6-1318af62733d", "1f63e38e-4059-4a4f-b7c4-0fac4a48e744", "72fd4cfd-064e-4cf1-874d-74000c152f48", "a05ba4aa-2cd0-43b1-957c-7971c9af53d4", "22be67c2-ba43-48db-b2ba-32857e78ddad", "694406b3-10e4-407d-99bb-17218696627a" };
+	private static GOTEventHandler eventHandler;
+	private static GOTPacketHandler packetHandler;
+	private static GOTTickHandlerServer tickHandler;
+	private static WorldType worldTypeGOT;
+	private static WorldType worldTypeGOTClassic;
+	private static Map<ItemStack, Integer> buy = new GOTItemStackMapImpl<>();
+	private static Map<ItemStack, Integer> sell = new GOTItemStackMapImpl<>();
+	private static String langs = "\u0420\u0443\u0441\u0441\u043A\u0438\u0439 (ru), \u0423\u043A\u0440\u0430\u0457\u043D\u0441\u044C\u043A\u0430 (uk), English (en), Deutsch (de), T\u00FCrk\u00E7e (tr), \u4E2D\u6587 (zh)";
+	private static boolean isDevMode = true;
 
 	@Mod.EventHandler
 	public void load(FMLInitializationEvent event) {
-		proxy.onLoad();
+		getProxy().onLoad();
 		for (Block block : GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Block.class)) {
 			if (block instanceof GOTBlockWoodBase) {
 				Blocks.fire.setFireInfo(block, 5, 5);
@@ -136,7 +136,7 @@ public class GOT {
 	@Mod.EventHandler
 	public void onServerStarting(FMLServerStartingEvent event) {
 		WorldServer world = DimensionManager.getWorld(0);
-		proxy.testReflection(world);
+		getProxy().testReflection(world);
 		GOTReflection.removeCommand(CommandTime.class);
 		GOTReflection.removeCommand(CommandMessage.class);
 		List<CommandBase> command = new ArrayList<>();
@@ -174,7 +174,7 @@ public class GOT {
 
 	@Mod.EventHandler
 	public void postload(FMLPostInitializationEvent event) {
-		proxy.onPostload();
+		getProxy().onPostload();
 		Color baseWater = new Color(4876527);
 		int baseR = baseWater.getRed();
 		int baseG = baseWater.getGreen();
@@ -195,7 +195,7 @@ public class GOT {
 		for (int i = 0; i < nums.length; i++) {
 			GOTLog.logger.info(new StringBuilder().append("Hummel009: Registered ").append(nums[i]).append(strings[i]).toString());
 		}
-		if (GOT.isDevMode) {
+		if (GOT.isDevMode()) {
 			try {
 				DatabaseGenerator.generateWikiaDatabases();
 			} catch (NoSuchFieldException | IllegalAccessException e) {
@@ -207,12 +207,12 @@ public class GOT {
 	@Mod.EventHandler
 	public void preload(FMLPreInitializationEvent event) {
 		GOTLog.findLogger();
-		NetworkRegistry.INSTANCE.registerGuiHandler(this, proxy);
-		tickHandler = new GOTTickHandlerServer();
-		eventHandler = new GOTEventHandler();
-		packetHandler = new GOTPacketHandler();
-		worldTypeGOT = new GOTWorldType("got");
-		worldTypeGOTClassic = new GOTWorldType("gotClassic");
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, getProxy());
+		setTickHandler(new GOTTickHandlerServer());
+		setEventHandler(new GOTEventHandler());
+		setPacketHandler(new GOTPacketHandler());
+		setWorldTypeGOT(new GOTWorldType("got"));
+		setWorldTypeGOTClassic(new GOTWorldType("gotClassic"));
 		GOTBlockReplacement.replaceVanillaBlock(Blocks.leaves, new GOTBlockLeavesVanilla1(), ItemLeaves.class);
 		GOTBlockReplacement.replaceVanillaBlock(Blocks.leaves2, new GOTBlockLeavesVanilla2(), ItemLeaves.class);
 		GOTBlockReplacement.replaceVanillaBlock(Blocks.fence, new GOTBlockFenceVanilla(), GOTItemFenceVanilla.class);
@@ -223,11 +223,11 @@ public class GOT {
 		GOTLoader.preInit();
 		Blocks.dragon_egg.setCreativeTab(GOTCreativeTabs.tabStory);
 		MinecraftForge.EVENT_BUS.register(new GOTTrackingEventHandler());
-		proxy.onPreload();
+		getProxy().onPreload();
 		int k = 1;
 		for (int i = 0; i < 8; ++i) {
-			buy.put(new ItemStack(GOTRegistry.coin, 1, i), k);
-			sell.put(new ItemStack(GOTRegistry.coin, 1, i), k);
+			getBuy().put(new ItemStack(GOTRegistry.coin, 1, i), k);
+			getSell().put(new ItemStack(GOTRegistry.coin, 1, i), k);
 			k *= 4;
 		}
 	}
@@ -399,7 +399,7 @@ public class GOT {
 	}
 
 	public static ModContainer getModContainer() {
-		return FMLCommonHandler.instance().findContainerFor(instance);
+		return FMLCommonHandler.instance().findContainerFor(getInstance());
 	}
 
 	public static GOTFaction getNPCFaction(Entity entity) {
@@ -502,5 +502,97 @@ public class GOT {
 				newEntity.timeUntilPortal = newEntity.getPortalCooldown();
 			}
 		}
+	}
+
+	public static WorldType getWorldTypeGOTClassic() {
+		return worldTypeGOTClassic;
+	}
+
+	public static void setWorldTypeGOTClassic(WorldType worldTypeGOTClassic) {
+		GOT.worldTypeGOTClassic = worldTypeGOTClassic;
+	}
+
+	public static WorldType getWorldTypeGOT() {
+		return worldTypeGOT;
+	}
+
+	public static void setWorldTypeGOT(WorldType worldTypeGOT) {
+		GOT.worldTypeGOT = worldTypeGOT;
+	}
+
+	public static GOTTickHandlerServer getTickHandler() {
+		return tickHandler;
+	}
+
+	public static void setTickHandler(GOTTickHandlerServer tickHandler) {
+		GOT.tickHandler = tickHandler;
+	}
+
+	public static GOTPacketHandler getPacketHandler() {
+		return packetHandler;
+	}
+
+	public static void setPacketHandler(GOTPacketHandler packetHandler) {
+		GOT.packetHandler = packetHandler;
+	}
+
+	public static GOTEventHandler getEventHandler() {
+		return eventHandler;
+	}
+
+	public static void setEventHandler(GOTEventHandler eventHandler) {
+		GOT.eventHandler = eventHandler;
+	}
+
+	public static String[] getDevs() {
+		return devs.clone();
+	}
+
+	public static void setDevs(String[] devs) {
+		GOT.devs = devs.clone();
+	}
+
+	public static String getLangs() {
+		return langs;
+	}
+
+	public static void setLangs(String langs) {
+		GOT.langs = langs;
+	}
+
+	public static GOTCommonProxy getProxy() {
+		return proxy;
+	}
+
+	public static void setProxy(GOTCommonProxy proxy) {
+		GOT.proxy = proxy;
+	}
+
+	public static GOT getInstance() {
+		return instance;
+	}
+
+	public static void setInstance(GOT instance) {
+		GOT.instance = instance;
+	}
+
+	public static Map<ItemStack, Integer> getBuy() {
+		return buy;
+	}
+
+	public static void setBuy(Map<ItemStack, Integer> buy) {
+		GOT.buy = buy;
+	}
+
+	public static Map<ItemStack, Integer> getSell() {
+		return sell;
+	}
+
+	public static void setSell(Map<ItemStack, Integer> sell) {
+		GOT.sell = sell;
+	}
+
+	public static boolean isDevMode() {
+		return isDevMode ;
 	}
 }

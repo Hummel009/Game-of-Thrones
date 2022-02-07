@@ -52,7 +52,7 @@ public class GOTBlockWaste extends Block {
 
 	@Override
 	public int getRenderType() {
-		return GOT.proxy.getWasteRenderID();
+		return GOT.getProxy().getWasteRenderID();
 	}
 
 	@Override

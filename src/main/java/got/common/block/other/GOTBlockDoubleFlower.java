@@ -131,7 +131,7 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 
 	@Override
 	public int getRenderType() {
-		return GOT.proxy.getDoublePlantRenderID();
+		return GOT.getProxy().getDoublePlantRenderID();
 	}
 
 	@SideOnly(value = Side.CLIENT)

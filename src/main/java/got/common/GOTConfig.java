@@ -124,7 +124,7 @@ public class GOTConfig {
 	}
 
 	public static void load() {
-		languageCode = config.getString("languageCode", CATEGORY_LANGUAGE, languageCode, "Choose:" + GOT.langsName + ".");
+		languageCode = config.getString("languageCode", CATEGORY_LANGUAGE, languageCode, "Choose:" + GOT.getLangs() + ".");
 		clearMap = config.get(CATEGORY_GAMEPLAY, "No fixed structures and characters", false, "Useful for servers. Disable fixed structures to build your own").getBoolean();
 		allowBannerProtection = config.get(CATEGORY_GAMEPLAY, "Allow Banner Protection", true).getBoolean();
 		allowSelfProtectingBanners = config.get(CATEGORY_GAMEPLAY, "Allow Self-Protecting Banners", true).getBoolean();

@@ -103,7 +103,7 @@ public class GOTBlockArmorStand extends Block {
 		}
 		if (this.hasTileEntity(world.getBlockMetadata(i, j, k))) {
 			if (!world.isRemote) {
-				entityplayer.openGui(GOT.instance, 17, world, i, j, k);
+				entityplayer.openGui(GOT.getInstance(), 17, world, i, j, k);
 			}
 			return true;
 		}

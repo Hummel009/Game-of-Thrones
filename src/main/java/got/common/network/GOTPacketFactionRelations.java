@@ -83,7 +83,7 @@ public class GOTPacketFactionRelations implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketFactionRelations, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketFactionRelations packet, MessageContext context) {
-			if (!GOT.proxy.isSingleplayer()) {
+			if (!GOT.getProxy().isSingleplayer()) {
 				Type t = packet.packetType;
 				if (t == Type.FULL_MAP) {
 					GOTFactionRelations.resetAllRelations();

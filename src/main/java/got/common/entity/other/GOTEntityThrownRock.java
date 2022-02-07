@@ -55,7 +55,7 @@ public class GOTEntityThrownRock extends EntityThrowable {
 	public void handleHealthUpdate(byte b) {
 		if (b == 15) {
 			for (int l = 0; l < 32; ++l) {
-				GOT.proxy.spawnParticle("largeStone", posX + rand.nextGaussian() * width, posY + rand.nextDouble() * height, posZ + rand.nextGaussian() * width, 0.0, 0.0, 0.0);
+				GOT.getProxy().spawnParticle("largeStone", posX + rand.nextGaussian() * width, posY + rand.nextDouble() * height, posZ + rand.nextGaussian() * width, 0.0, 0.0, 0.0);
 			}
 		} else {
 			super.handleHealthUpdate(b);

@@ -47,10 +47,10 @@ public class GOTPacketOpenSignEditor implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketOpenSignEditor, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketOpenSignEditor packet, MessageContext context) {
-			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
-			World world = GOT.proxy.getClientWorld();
+			EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
+			World world = GOT.getProxy().getClientWorld();
 			world.setBlock(packet.posX, packet.posY, packet.posZ, packet.blockType, packet.blockMeta, 3);
-			entityplayer.openGui(GOT.instance, 47, world, packet.posX, packet.posY, packet.posZ);
+			entityplayer.openGui(GOT.getInstance(), 47, world, packet.posX, packet.posY, packet.posZ);
 			return null;
 		}
 	}

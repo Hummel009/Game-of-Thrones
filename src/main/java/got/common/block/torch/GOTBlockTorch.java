@@ -66,7 +66,7 @@ public abstract class GOTBlockTorch extends BlockTorch {
 		}
 
 		public void spawn(double x, double y, double z) {
-			GOT.proxy.spawnParticle(name, x + posX, y + posY, z + posZ, motionX, motionY, motionZ);
+			GOT.getProxy().spawnParticle(name, x + posX, y + posY, z + posZ, motionX, motionY, motionZ);
 		}
 	}
 

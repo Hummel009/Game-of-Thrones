@@ -89,7 +89,7 @@ public class GOTItemCommandHorn extends Item implements GOTSquadrons.SquadronIte
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		if (itemstack.getItemDamage() == 0) {
-			entityplayer.openGui(GOT.instance, 9, world, 0, 0, 0);
+			entityplayer.openGui(GOT.getInstance(), 9, world, 0, 0, 0);
 		} else {
 			entityplayer.setItemInUse(itemstack, getMaxItemUseDuration(itemstack));
 		}

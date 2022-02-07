@@ -76,7 +76,7 @@ public class GOTBlockBookshelfStorage extends BlockContainer {
 			return false;
 		}
 		if (!world.isRemote) {
-			entityplayer.openGui(GOT.instance, 55, world, i, j, k);
+			entityplayer.openGui(GOT.getInstance(), 55, world, i, j, k);
 		}
 		return true;
 	}

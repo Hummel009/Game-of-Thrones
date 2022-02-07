@@ -89,9 +89,9 @@ public class GOTPacketUpdatePlayerLocations implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketUpdatePlayerLocations, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketUpdatePlayerLocations packet, MessageContext context) {
-			GOT.proxy.clearMapPlayerLocations();
+			GOT.getProxy().clearMapPlayerLocations();
 			for (PlayerLocationInfo info : packet.playerLocations) {
-				GOT.proxy.addMapPlayerLocation(info.playerProfile, info.posX, info.posZ);
+				GOT.getProxy().addMapPlayerLocation(info.playerProfile, info.posX, info.posZ);
 			}
 			return null;
 		}

@@ -36,7 +36,7 @@ public class GOTPacketFellowshipNotification implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketFellowshipNotification, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketFellowshipNotification packet, MessageContext context) {
-			GOT.proxy.queueFellowshipNotification(packet.message);
+			GOT.getProxy().queueFellowshipNotification(packet.message);
 			return null;
 		}
 	}

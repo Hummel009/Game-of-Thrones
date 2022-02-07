@@ -57,7 +57,7 @@ public class GOTPacketFamilyInfo implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketFamilyInfo, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketFamilyInfo packet, MessageContext context) {
-			World world = GOT.proxy.getClientWorld();
+			World world = GOT.getProxy().getClientWorld();
 			Entity entity = world.getEntityByID(packet.entityID);
 			if (entity instanceof GOTEntityNPC) {
 				((GOTEntityNPC) entity).familyInfo.receiveData(packet);

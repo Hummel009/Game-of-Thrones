@@ -105,7 +105,7 @@ public class GOTItemBrandingIron extends Item {
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		if (!GOTItemBrandingIron.hasBrandName(itemstack)) {
-			entityplayer.openGui(GOT.instance, 61, world, 0, 0, 0);
+			entityplayer.openGui(GOT.getInstance(), 61, world, 0, 0, 0);
 		}
 		return itemstack;
 	}

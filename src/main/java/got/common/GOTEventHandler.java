@@ -239,7 +239,7 @@ public class GOTEventHandler implements IFuelHandler {
 				return;
 			}
 			if (block == Blocks.flower_pot && meta == 0 && itemstack != null && GOTBlockFlowerPot.canAcceptPlant(itemstack)) {
-				GOT.proxy.placeFlowerInPot(world, i, j, k, side, itemstack);
+				GOT.getProxy().placeFlowerInPot(world, i, j, k, side, itemstack);
 				if (!entityplayer.capabilities.isCreativeMode) {
 					--itemstack.stackSize;
 				}
@@ -256,7 +256,7 @@ public class GOTEventHandler implements IFuelHandler {
 					break;
 				}
 				if (drinkVessel != null) {
-					GOT.proxy.fillMugFromCauldron(world, i, j, k, side, itemstack);
+					GOT.getProxy().fillMugFromCauldron(world, i, j, k, side, itemstack);
 					--itemstack.stackSize;
 					ItemStack mugFill = new ItemStack(GOTRegistry.mugWater);
 					GOTItemMug.setVessel(mugFill, drinkVessel, true);
@@ -342,7 +342,7 @@ public class GOTEventHandler implements IFuelHandler {
 				return;
 			}
 			if (block == Blocks.anvil && (GOTConfig.isGOTEnchantingEnabled(world) || !GOTConfig.isEnchantingEnabled(world)) && !world.isRemote) {
-				entityplayer.openGui(GOT.instance, 53, world, i, j, k);
+				entityplayer.openGui(GOT.getInstance(), 53, world, i, j, k);
 				event.setCanceled(true);
 				return;
 			}
@@ -428,7 +428,7 @@ public class GOTEventHandler implements IFuelHandler {
 					continue;
 				}
 				NEIGOTIntegratorConfig configNEI = (NEIGOTIntegratorConfig) iConfigNEI;
-				for (ItemStack element2 : configNEI.hiddenItems) {
+				for (ItemStack element2 : configNEI.getHiddenItems()) {
 					if (!ItemInfo.hiddenItems.contains(element2)) {
 						continue;
 					}
@@ -540,20 +540,20 @@ public class GOTEventHandler implements IFuelHandler {
 		}
 		if (entity instanceof GOTTradeable && ((GOTTradeable) entity).canTradeWith(entityplayer)) {
 			if (entity instanceof GOTUnitTradeable) {
-				entityplayer.openGui(GOT.instance, 24, world, entity.getEntityId(), 0, 0);
+				entityplayer.openGui(GOT.getInstance(), 24, world, entity.getEntityId(), 0, 0);
 			} else {
-				entityplayer.openGui(GOT.instance, 19, world, entity.getEntityId(), 0, 0);
+				entityplayer.openGui(GOT.getInstance(), 19, world, entity.getEntityId(), 0, 0);
 			}
 			event.setCanceled(true);
 			return;
 		}
 		if (entity instanceof GOTUnitTradeable && ((GOTUnitTradeable) entity).canTradeWith(entityplayer)) {
-			entityplayer.openGui(GOT.instance, 20, world, entity.getEntityId(), 0, 0);
+			entityplayer.openGui(GOT.getInstance(), 20, world, entity.getEntityId(), 0, 0);
 			event.setCanceled(true);
 			return;
 		}
 		if (entity instanceof GOTMercenary && ((GOTMercenary) entity).canTradeWith(entityplayer) && ((GOTEntityNPC) entity).hiredNPCInfo.getHiringPlayerUUID() == null) {
-			entityplayer.openGui(GOT.instance, 58, world, entity.getEntityId(), 0, 0);
+			entityplayer.openGui(GOT.getInstance(), 58, world, entity.getEntityId(), 0, 0);
 			event.setCanceled(true);
 			return;
 		}
@@ -561,9 +561,9 @@ public class GOTEventHandler implements IFuelHandler {
 			GOTEntityNPC npc = (GOTEntityNPC) entity;
 			if (npc.hiredNPCInfo.getHiringPlayer() == entityplayer) {
 				if (entity instanceof GOTEntityProstitute) {
-					entityplayer.openGui(GOT.instance, 1, world, entity.getEntityId(), 0, 0);
+					entityplayer.openGui(GOT.getInstance(), 1, world, entity.getEntityId(), 0, 0);
 				} else {
-					entityplayer.openGui(GOT.instance, 21, world, entity.getEntityId(), 0, 0);
+					entityplayer.openGui(GOT.getInstance(), 21, world, entity.getEntityId(), 0, 0);
 				}
 				event.setCanceled(true);
 				return;
@@ -1167,7 +1167,7 @@ public class GOTEventHandler implements IFuelHandler {
 		if (minecart instanceof EntityMinecartChest && itemstack != null && itemstack.getItem() instanceof GOTItemPouch) {
 			if (!world.isRemote) {
 				int pouchSlot = entityplayer.inventory.currentItem;
-				entityplayer.openGui(GOT.instance, GOTCommonProxy.packGuiIDWithSlot(64, pouchSlot), world, minecart.getEntityId(), 0, 0);
+				entityplayer.openGui(GOT.getInstance(), GOTCommonProxy.packGuiIDWithSlot(64, pouchSlot), world, minecart.getEntityId(), 0, 0);
 			}
 			event.setCanceled(true);
 		}

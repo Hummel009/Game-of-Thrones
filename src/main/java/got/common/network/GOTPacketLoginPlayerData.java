@@ -45,12 +45,12 @@ public class GOTPacketLoginPlayerData implements IMessage {
 		@Override
 		public IMessage onMessage(GOTPacketLoginPlayerData packet, MessageContext context) {
 			NBTTagCompound nbt = packet.playerData;
-			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+			EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-			if (!GOT.proxy.isSingleplayer()) {
+			if (!GOT.getProxy().isSingleplayer()) {
 				pd.load(nbt);
 			}
-			GOT.proxy.setWaypointModes(pd.showWaypoints(), pd.showCustomWaypoints(), pd.showHiddenSharedWaypoints());
+			GOT.getProxy().setWaypointModes(pd.showWaypoints(), pd.showCustomWaypoints(), pd.showHiddenSharedWaypoints());
 			return null;
 		}
 	}

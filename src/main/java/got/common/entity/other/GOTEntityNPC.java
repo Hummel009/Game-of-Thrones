@@ -717,7 +717,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	@Override
 	@SideOnly(value = Side.CLIENT)
 	public boolean isInRangeToRenderDist(double dist) {
-		EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+		EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 		if (entityplayer != null && !GOTLevelData.getData(entityplayer).getMiniQuestsForEntity(this, true).isEmpty()) {
 			return true;
 		}
@@ -988,7 +988,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			double d = posX + MathHelper.randomFloatClamp(rand, -0.3f, 0.3f) * width;
 			double d1 = boundingBox.minY + MathHelper.randomFloatClamp(rand, 0.2f, 0.7f) * height;
 			double d2 = posZ + MathHelper.randomFloatClamp(rand, -0.3f, 0.3f) * width;
-			GOT.proxy.spawnParticle("chill", d, d1, d2, -motionX * 0.5, 0.0, -motionZ * 0.5);
+			GOT.getProxy().spawnParticle("chill", d, d1, d2, -motionX * 0.5, 0.0, -motionZ * 0.5);
 		}
 	}
 

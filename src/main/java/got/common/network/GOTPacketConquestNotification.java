@@ -38,7 +38,7 @@ public class GOTPacketConquestNotification implements IMessage {
 		@Override
 		public IMessage onMessage(GOTPacketConquestNotification packet, MessageContext context) {
 			if (packet.conqFac != null) {
-				GOT.proxy.queueConquestNotification(packet.conqFac, packet.conqVal, packet.isCleansing);
+				GOT.getProxy().queueConquestNotification(packet.conqFac, packet.conqVal, packet.isCleansing);
 			}
 			return null;
 		}

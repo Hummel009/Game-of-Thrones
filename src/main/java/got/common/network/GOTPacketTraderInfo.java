@@ -45,7 +45,7 @@ public class GOTPacketTraderInfo implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketTraderInfo, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketTraderInfo packet, MessageContext context) {
-			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+			EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 			Container container = entityplayer.openContainer;
 			if (container instanceof GOTContainerTrade) {
 				GOTContainerTrade containerTrade = (GOTContainerTrade) container;

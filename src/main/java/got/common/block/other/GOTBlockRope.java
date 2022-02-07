@@ -56,7 +56,7 @@ public class GOTBlockRope extends GOTBlockLadder {
 
 	@Override
 	public int getRenderType() {
-		return GOT.proxy.getRopeRenderID();
+		return GOT.getProxy().getRopeRenderID();
 	}
 
 	@Override

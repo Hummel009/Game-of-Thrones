@@ -37,7 +37,7 @@ public class GOTPacketFellowshipRemove implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketFellowshipRemove, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketFellowshipRemove packet, MessageContext context) {
-			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+			EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 			if (packet.isInvite) {
 				GOTLevelData.getData(entityplayer).removeClientFellowshipInvite(packet.fellowshipID);
 			} else {

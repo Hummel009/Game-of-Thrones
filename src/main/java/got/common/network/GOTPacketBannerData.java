@@ -95,7 +95,7 @@ public class GOTPacketBannerData implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketBannerData, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketBannerData packet, MessageContext context) {
-			World world = GOT.proxy.getClientWorld();
+			World world = GOT.getProxy().getClientWorld();
 			Entity entity = world.getEntityByID(packet.entityID);
 			if (entity instanceof GOTEntityBanner) {
 				GOTEntityBanner banner = (GOTEntityBanner) entity;
@@ -127,7 +127,7 @@ public class GOTPacketBannerData implements IMessage {
 				banner.setDefaultPermissions(defaultPerms);
 				banner.setClientside_playerHasPermissionInSurvival(packet.thisPlayerHasPermission);
 				if (packet.openGui) {
-					GOT.proxy.displayBannerGui(banner);
+					GOT.getProxy().displayBannerGui(banner);
 				}
 			}
 			return null;

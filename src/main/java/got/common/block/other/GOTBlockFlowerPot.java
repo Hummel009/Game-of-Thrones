@@ -45,7 +45,7 @@ public class GOTBlockFlowerPot extends BlockFlowerPot implements ITileEntityProv
 
 	@Override
 	public int getRenderType() {
-		return GOT.proxy.getFlowerPotRenderID();
+		return GOT.getProxy().getFlowerPotRenderID();
 	}
 
 	@Override

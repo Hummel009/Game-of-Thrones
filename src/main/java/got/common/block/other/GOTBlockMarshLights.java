@@ -69,9 +69,9 @@ public class GOTBlockMarshLights extends Block {
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
 		if (random.nextInt(3) > 0) {
 			if (random.nextInt(3) == 0) {
-				GOT.proxy.spawnParticle("marshFlame", i + random.nextFloat(), j - 0.5, k + random.nextFloat(), 0.0, 0.05f + random.nextFloat() * 0.1f, 0.0);
+				GOT.getProxy().spawnParticle("marshFlame", i + random.nextFloat(), j - 0.5, k + random.nextFloat(), 0.0, 0.05f + random.nextFloat() * 0.1f, 0.0);
 			} else {
-				GOT.proxy.spawnParticle("marshLight", i + random.nextFloat(), j - 0.5, k + random.nextFloat(), 0.0, 0.05f + random.nextFloat() * 0.1f, 0.0);
+				GOT.getProxy().spawnParticle("marshLight", i + random.nextFloat(), j - 0.5, k + random.nextFloat(), 0.0, 0.05f + random.nextFloat() * 0.1f, 0.0);
 			}
 		}
 	}

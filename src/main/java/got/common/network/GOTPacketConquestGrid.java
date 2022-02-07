@@ -64,7 +64,7 @@ public class GOTPacketConquestGrid implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketConquestGrid, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketConquestGrid packet, MessageContext context) {
-			GOT.proxy.receiveConquestGrid(packet.conqFac, packet.allZones);
+			GOT.getProxy().receiveConquestGrid(packet.conqFac, packet.allZones);
 			return null;
 		}
 	}

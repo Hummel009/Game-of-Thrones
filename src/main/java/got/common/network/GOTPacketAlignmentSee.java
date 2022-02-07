@@ -55,7 +55,7 @@ public class GOTPacketAlignmentSee implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketAlignmentSee, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketAlignmentSee packet, MessageContext context) {
-			GOT.proxy.displayAlignmentSee(packet.username, packet.alignmentMap);
+			GOT.getProxy().displayAlignmentSee(packet.username, packet.alignmentMap);
 			return null;
 		}
 	}

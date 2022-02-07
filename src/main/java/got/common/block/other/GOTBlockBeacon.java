@@ -64,7 +64,7 @@ public class GOTBlockBeacon extends BlockContainer {
 
 	@Override
 	public int getRenderType() {
-		return GOT.proxy.getBeaconRenderID();
+		return GOT.getProxy().getBeaconRenderID();
 	}
 
 	@Override

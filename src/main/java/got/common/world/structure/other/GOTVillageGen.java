@@ -278,7 +278,7 @@ public abstract class GOTVillageGen {
 		if (GOTConfig.clearMap) {
 			return false;
 		}
-		return world.getWorldInfo().getTerrainType() != GOT.worldTypeGOTClassic;
+		return world.getWorldInfo().getTerrainType() != GOT.getWorldTypeGOTClassic();
 	}
 
 	public static void seedVillageRand(World world, int i, int k) {

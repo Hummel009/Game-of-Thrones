@@ -18,7 +18,7 @@ import net.minecraft.init.*;
 import net.minecraft.item.*;
 
 public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
-	public GOTTileEntityAlloyForge alloyForgeDummy;
+	private GOTTileEntityAlloyForge alloyForgeDummy;
 
 	public GOTHandlerAlloyForge() {
 		alloyForgeDummy = new GOTTileEntityAlloyForge();
@@ -37,7 +37,7 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 		this.drawProgressBar(75, 45, 176, 14, 24, 25, 48, 1);
 	}
 
-	public ArrayList<GOTHandlerAlloyForge.CachedForgeRecipe> getAlloySmeltingRecipes(ItemStack result) {
+	private ArrayList<GOTHandlerAlloyForge.CachedForgeRecipe> getAlloySmeltingRecipes(ItemStack result) {
 		ArrayList<GOTHandlerAlloyForge.CachedForgeRecipe> ret = new ArrayList<>();
 		if (NEIServerUtils.areStacksSameTypeCrafting(result, new ItemStack(GOTRegistry.bronzeIngot))) {
 			result.stackSize = 2;
@@ -73,7 +73,7 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 		return ret;
 	}
 
-	public ArrayList<GOTHandlerAlloyForge.CachedForgeRecipe> getAlloySmeltingRecipesUsage(ItemStack ingredient) {
+	private ArrayList<GOTHandlerAlloyForge.CachedForgeRecipe> getAlloySmeltingRecipesUsage(ItemStack ingredient) {
 		ArrayList<GOTHandlerAlloyForge.CachedForgeRecipe> ret = new ArrayList<>();
 		if (NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTRegistry.copperIngot)) || NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTRegistry.oreCopper))) {
 			GOTHandlerAlloyForge.CachedForgeRecipe rec1 = new GOTHandlerAlloyForge.CachedForgeRecipe(new ItemStack[] { ingredient }, new ItemStack[] { new ItemStack(GOTRegistry.oreTin), new ItemStack(GOTRegistry.tinIngot) }, new ItemStack(GOTRegistry.bronzeIngot, 2));
@@ -141,7 +141,7 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 		return alloyForgeDummy.getForgeName();
 	}
 
-	public void handlerCRStack(Item forgeItem, ItemStack result) {
+	private void handlerCRStack(Item forgeItem, ItemStack result) {
 		ItemStack stack = new ItemStack(forgeItem, 1);
 		if (NEIServerUtils.areStacksSameType(alloyForgeDummy.getSmeltingResult(stack), result)) {
 			ArrayList list = new ArrayList();
@@ -207,12 +207,12 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 	}
 
 	public class CachedForgeRecipe extends TemplateRecipeHandler.CachedRecipe {
-		public ArrayList<PositionedStack> ingredients;
-		public PositionedStack[] resultItem;
-		public int fuelX;
-		public int fuelY;
+		private ArrayList<PositionedStack> ingredients;
+		private PositionedStack[] resultItem;
+		private int fuelX;
+		private int fuelY;
 
-		public CachedForgeRecipe(ItemStack[] alloyItems, ItemStack[] forgeItems, ItemStack resultItem) {
+		private CachedForgeRecipe(ItemStack[] alloyItems, ItemStack[] forgeItems, ItemStack resultItem) {
 			this.resultItem = null;
 			fuelX = 75;
 			fuelY = 117;

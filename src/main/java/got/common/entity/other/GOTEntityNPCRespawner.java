@@ -58,7 +58,7 @@ public class GOTEntityNPCRespawner extends Entity {
 		if (!worldObj.isRemote) {
 			return false;
 		}
-		EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+		EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 		if (entityplayer == null) {
 			return false;
 		}
@@ -134,7 +134,7 @@ public class GOTEntityNPCRespawner extends Entity {
 		if (!worldObj.isRemote) {
 			return super.isInvisible();
 		}
-		EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+		EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 		return entityplayer == null || !entityplayer.capabilities.isCreativeMode;
 	}
 

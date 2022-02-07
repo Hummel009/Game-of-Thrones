@@ -79,7 +79,7 @@ public class GOTBlockBomb extends Block {
 
 	@Override
 	public int getRenderType() {
-		return GOT.proxy.getBombRenderID();
+		return GOT.getProxy().getBombRenderID();
 	}
 
 	@SideOnly(value = Side.CLIENT)

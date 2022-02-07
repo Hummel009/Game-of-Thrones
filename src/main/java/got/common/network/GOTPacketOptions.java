@@ -33,8 +33,8 @@ public class GOTPacketOptions implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketOptions, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketOptions packet, MessageContext context) {
-			if (!GOT.proxy.isSingleplayer()) {
-				EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+			if (!GOT.getProxy().isSingleplayer()) {
+				EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 				int option = packet.option;
 				boolean enable = packet.enable;
 				switch (option) {

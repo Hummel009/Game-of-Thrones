@@ -53,7 +53,7 @@ public class GOTKeyHandler {
 	public void KeyInputEvent(InputEvent.KeyInputEvent event) {
 		GOTAttackTiming.doAttackTiming();
 		if (getKeyBindingMenu().getIsKeyPressed() && GOTKeyHandler.mc.currentScreen == null) {
-			GOTKeyHandler.mc.thePlayer.openGui(GOT.instance, 11, GOTKeyHandler.mc.theWorld, 0, 0, 0);
+			GOTKeyHandler.mc.thePlayer.openGui(GOT.getInstance(), 11, GOTKeyHandler.mc.theWorld, 0, 0, 0);
 		}
 		GOTPlayerData pd = GOTLevelData.getData(GOTKeyHandler.mc.thePlayer);
 		boolean usedAlignmentKeys = false;

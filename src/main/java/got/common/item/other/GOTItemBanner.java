@@ -47,7 +47,7 @@ public class GOTItemBanner extends Item {
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public int getColorFromItemStack(ItemStack itemstack, int pass) {
-		EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+		EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 		if (pass == 0) {
 			return 0x816641;
 		}

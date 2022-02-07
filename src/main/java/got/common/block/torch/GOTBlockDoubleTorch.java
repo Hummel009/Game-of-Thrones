@@ -65,7 +65,7 @@ public class GOTBlockDoubleTorch extends Block {
 
 	@Override
 	public int getRenderType() {
-		return GOT.proxy.getDoubleTorchRenderID();
+		return GOT.getProxy().getDoubleTorchRenderID();
 	}
 
 	@SideOnly(value = Side.CLIENT)

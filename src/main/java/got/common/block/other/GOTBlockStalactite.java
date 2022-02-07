@@ -81,7 +81,7 @@ public class GOTBlockStalactite extends Block {
 
 	@Override
 	public int getRenderType() {
-		return GOT.proxy.getStalactiteRenderID();
+		return GOT.getProxy().getStalactiteRenderID();
 	}
 
 	@SideOnly(value = Side.CLIENT)

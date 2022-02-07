@@ -70,7 +70,7 @@ public class GOTItemPouch extends Item {
 		Container container;
 		int meta;
 		boolean open = false;
-		EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+		EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 		if (entityplayer != null && ((container = entityplayer.openContainer) instanceof GOTContainerPouch || container instanceof GOTContainerChestWithPouch) && itemstack == entityplayer.getHeldItem()) {
 			open = true;
 		}
@@ -105,7 +105,7 @@ public class GOTItemPouch extends Item {
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		if (!world.isRemote) {
-			entityplayer.openGui(GOT.instance, 15, world, entityplayer.inventory.currentItem, 0, 0);
+			entityplayer.openGui(GOT.getInstance(), 15, world, entityplayer.inventory.currentItem, 0, 0);
 		}
 		return itemstack;
 	}
@@ -114,7 +114,7 @@ public class GOTItemPouch extends Item {
 	public boolean onItemUseFirst(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int side, float hitX, float hitY, float hitZ) {
 		IInventory chest = GOTItemPouch.getChestInvAt(entityplayer, world, i, j, k);
 		if (chest != null) {
-			GOT.proxy.usePouchOnChest(entityplayer, world, i, j, k, side, itemstack, entityplayer.inventory.currentItem);
+			GOT.getProxy().usePouchOnChest(entityplayer, world, i, j, k, side, itemstack, entityplayer.inventory.currentItem);
 			return true;
 		}
 		return false;

@@ -34,7 +34,7 @@ public class GOTPacketWaypointRegion implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketWaypointRegion, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketWaypointRegion packet, MessageContext context) {
-			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+			EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 			GOTWaypoint.Region region = packet.region;
 			if (region != null) {

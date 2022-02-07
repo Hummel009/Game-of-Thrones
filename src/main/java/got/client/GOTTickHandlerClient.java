@@ -362,7 +362,7 @@ public class GOTTickHandlerClient {
 						if (entityplayer == null || world == null) {
 							break block75;
 						}
-						if (GOTConfig.checkUpdates) {
+						if (GOTConfig.checkUpdates && !GOT.isDevMode()) {
 							GOTVersionChecker.checkForUpdates();
 						}
 						if (isGamePaused(minecraft)) {
@@ -1148,19 +1148,19 @@ public class GOTTickHandlerClient {
 			if (block.getMaterial() == Material.water) {
 				BiomeGenBase biome = world.getBiomeGenForCoords(i1, k1);
 				if (biome instanceof GOTBiomeShadowLand && world.rand.nextInt(20) == 0) {
-					GOT.proxy.spawnParticle("ulthosWater", i1 + world.rand.nextFloat(), j1 + 0.75, k1 + world.rand.nextFloat(), 0.0, 0.05, 0.0);
+					GOT.getProxy().spawnParticle("ulthosWater", i1 + world.rand.nextFloat(), j1 + 0.75, k1 + world.rand.nextFloat(), 0.0, 0.05, 0.0);
 				}
 				if (biome instanceof GOTBiomeValyriaSea && world.rand.nextInt(20) == 0) {
-					GOT.proxy.spawnParticle("ulthosWater", i1 + world.rand.nextFloat(), j1 + 0.75, k1 + world.rand.nextFloat(), 0.0, 0.05, 0.0);
+					GOT.getProxy().spawnParticle("ulthosWater", i1 + world.rand.nextFloat(), j1 + 0.75, k1 + world.rand.nextFloat(), 0.0, 0.05, 0.0);
 				}
 				if (biome instanceof GOTBiomeValyria && world.rand.nextInt(20) == 0) {
-					GOT.proxy.spawnParticle("ulthosWater", i1 + world.rand.nextFloat(), j1 + 0.75, k1 + world.rand.nextFloat(), 0.0, 0.05, 0.0);
+					GOT.getProxy().spawnParticle("ulthosWater", i1 + world.rand.nextFloat(), j1 + 0.75, k1 + world.rand.nextFloat(), 0.0, 0.05, 0.0);
 				}
 				if (biome instanceof GOTBiomeValyriaVolcano && world.rand.nextInt(20) == 0) {
-					GOT.proxy.spawnParticle("ulthosWater", i1 + world.rand.nextFloat(), j1 + 0.75, k1 + world.rand.nextFloat(), 0.0, 0.05, 0.0);
+					GOT.getProxy().spawnParticle("ulthosWater", i1 + world.rand.nextFloat(), j1 + 0.75, k1 + world.rand.nextFloat(), 0.0, 0.05, 0.0);
 				}
 				if (biome instanceof GOTBiomeSothoryosHell && world.rand.nextInt(40) == 0) {
-					GOT.proxy.spawnParticle("asshaiWater", i1 + world.rand.nextFloat(), j1 + 0.75, k1 + world.rand.nextFloat(), 0.0, 0.05, 0.0);
+					GOT.getProxy().spawnParticle("asshaiWater", i1 + world.rand.nextFloat(), j1 + 0.75, k1 + world.rand.nextFloat(), 0.0, 0.05, 0.0);
 				}
 			}
 			if (block.getMaterial() != Material.water || meta == 0 || world.getBlock(i1, j1 - 1, k1).getMaterial() != Material.water) {

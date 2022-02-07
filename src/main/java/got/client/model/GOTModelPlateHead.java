@@ -38,7 +38,7 @@ public class GOTModelPlateHead extends GOTModelHuman {
 		GL11.glTranslatef(0.0f, 1.0f - bipedHead.rotationPointY / 16.0f, 0.0f);
 		GL11.glTranslatef(0.0f, fallOffset * 0.5f, 0.0f);
 		Minecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.locationBlocksTexture);
-		World world = entity == null ? GOT.proxy.getClientWorld() : entity.worldObj;
+		World world = entity == null ? GOT.getProxy().getClientWorld() : entity.worldObj;
 		GOTRenderBlocks.renderEntityPlate(world, 0, 0, 0, plateBlock, blockRenderer);
 		if (entity instanceof EntityLivingBase && (heldItem = ((EntityLivingBase) entity).getHeldItem()) != null && GOTTileEntityPlate.isValidFoodItem(heldItem)) {
 			ItemStack heldItemMinusOne = heldItem.copy();

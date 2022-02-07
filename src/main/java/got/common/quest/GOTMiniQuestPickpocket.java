@@ -259,7 +259,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 	}
 
 	public void spawnAngryFX(EntityLivingBase npc) {
-		GOT.proxy.spawnParticle("angry", npc.posX, npc.boundingBox.minY + npc.height * 2.0f, npc.posZ, npc.motionX, Math.max(0.0, npc.motionY), npc.motionZ);
+		GOT.getProxy().spawnParticle("angry", npc.posX, npc.boundingBox.minY + npc.height * 2.0f, npc.posZ, npc.motionX, Math.max(0.0, npc.motionY), npc.motionZ);
 	}
 
 	public void spawnPickingFX(String particle, double upSpeed, EntityLivingBase npc) {
@@ -275,7 +275,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 			double vx = MathHelper.cos(ang) * hSpeed;
 			double vz = MathHelper.sin(ang) * hSpeed;
 			double vy = MathHelper.getRandomDoubleInRange(rand, 0.1, 0.25) * upSpeed;
-			GOT.proxy.spawnParticle(particle, x += MathHelper.cos(ang) * w, y, z += MathHelper.sin(ang) * w, vx, vy, vz);
+			GOT.getProxy().spawnParticle(particle, x += MathHelper.cos(ang) * w, y, z += MathHelper.sin(ang) * w, vx, vy, vz);
 		}
 	}
 

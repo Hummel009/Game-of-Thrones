@@ -44,7 +44,7 @@ public class GOTBlockCommandTable extends BlockContainer {
 
 	@Override
 	public int getRenderType() {
-		return GOT.proxy.getCommandTableRenderID();
+		return GOT.getProxy().getCommandTableRenderID();
 	}
 
 	@Override
@@ -63,14 +63,14 @@ public class GOTBlockCommandTable extends BlockContainer {
 		}
 		ItemStack itemstack = entityplayer.getCurrentEquippedItem();
 		if (itemstack != null && itemstack.getItem() instanceof GOTSquadrons.SquadronItem) {
-			entityplayer.openGui(GOT.instance, 33, world, 0, 0, 0);
+			entityplayer.openGui(GOT.getInstance(), 33, world, 0, 0, 0);
 			if (!world.isRemote) {
 				world.playSoundEffect(i + 0.5, j + 0.5, k + 0.5, stepSound.getBreakSound(), (stepSound.getVolume() + 1.0f) / 2.0f, stepSound.getPitch() * 0.5f);
 			}
 			return true;
 		}
 		if (GOTConquestGrid.conquestEnabled(world)) {
-			entityplayer.openGui(GOT.instance, 60, world, 0, 0, 0);
+			entityplayer.openGui(GOT.getInstance(), 60, world, 0, 0, 0);
 			if (!world.isRemote) {
 				world.playSoundEffect(i + 0.5, j + 0.5, k + 0.5, stepSound.getBreakSound(), (stepSound.getVolume() + 1.0f) / 2.0f, stepSound.getPitch() * 0.5f);
 			}

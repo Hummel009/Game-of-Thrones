@@ -58,7 +58,7 @@ public class GOTPacketHiredUnitCommand implements IMessage {
 						GOTHiredNPCInfo.Task task = hiredNPC.hiredNPCInfo.getTask();
 						if (task == GOTHiredNPCInfo.Task.WARRIOR) {
 							if (page == 0) {
-								entityplayer.openGui(GOT.instance, 46, world, hiredNPC.getEntityId(), 0, 0);
+								entityplayer.openGui(GOT.getInstance(), 46, world, hiredNPC.getEntityId(), 0, 0);
 							} else if (page == 1) {
 								switch (action) {
 								case 0:
@@ -83,7 +83,7 @@ public class GOTPacketHiredUnitCommand implements IMessage {
 								hiredNPC.hiredNPCInfo.setGuardRange(value);
 								break;
 							case 2:
-								entityplayer.openGui(GOT.instance, 22, world, hiredNPC.getEntityId(), 0, 0);
+								entityplayer.openGui(GOT.getInstance(), 22, world, hiredNPC.getEntityId(), 0, 0);
 								break;
 							default:
 								break;

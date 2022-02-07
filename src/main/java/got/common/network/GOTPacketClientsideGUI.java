@@ -40,8 +40,8 @@ public class GOTPacketClientsideGUI implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketClientsideGUI, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketClientsideGUI packet, MessageContext context) {
-			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
-			entityplayer.openGui(GOT.instance, packet.guiID, entityplayer.worldObj, packet.guiX, packet.guiY, packet.guiZ);
+			EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
+			entityplayer.openGui(GOT.getInstance(), packet.guiID, entityplayer.worldObj, packet.guiX, packet.guiY, packet.guiZ);
 			return null;
 		}
 	}

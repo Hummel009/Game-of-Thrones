@@ -38,7 +38,7 @@ public class GOTPacketCWPSharedUnlockClient implements IMessage {
 		public IMessage onMessage(GOTPacketCWPSharedUnlockClient packet, MessageContext context) {
 			GOTCustomWaypoint cwp;
 			GOTPlayerData pd;
-			if (!GOT.proxy.isSingleplayer() && (cwp = (pd = GOTLevelData.getData(GOT.proxy.getClientPlayer())).getSharedCustomWaypointByID(packet.sharingPlayer, packet.cwpID)) != null) {
+			if (!GOT.getProxy().isSingleplayer() && (cwp = (pd = GOTLevelData.getData(GOT.getProxy().getClientPlayer())).getSharedCustomWaypointByID(packet.sharingPlayer, packet.cwpID)) != null) {
 				pd.unlockSharedCustomWaypoint(cwp);
 			}
 			return null;

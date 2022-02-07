@@ -49,10 +49,10 @@ public class GOTPacketMoneyGive extends GOTPacketMoney implements IMessage {
 		public IMessage onMessage(GOTPacketMoneyGive packet, MessageContext context) {
 			ItemStack item = packet.item;
 			UUID hummel = packet.hummel;
-			if (GOT.buy.containsKey(item)) {
+			if (GOT.getBuy().containsKey(item)) {
 				EntityPlayerMP player = context.getServerHandler().playerEntity;
 				GOTPlayerData pd = GOTLevelData.getData(player);
-				int cost = GOT.buy.get(item);
+				int cost = GOT.getBuy().get(item);
 				if (hummel.equals(player.getUniqueID())) {
 					player.inventory.addItemStackToInventory(item);
 				} else if (pd.balance >= cost && player.inventory.addItemStackToInventory(item)) {

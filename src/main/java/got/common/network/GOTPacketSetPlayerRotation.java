@@ -28,7 +28,7 @@ public class GOTPacketSetPlayerRotation implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketSetPlayerRotation, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketSetPlayerRotation packet, MessageContext context) {
-			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+			EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 			if (entityplayer != null) {
 				entityplayer.rotationYaw = packet.rotYaw;
 			}

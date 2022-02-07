@@ -71,7 +71,7 @@ public class GOTGuiLanguages extends GOTGuiMenuWBBase {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		String s1 = StatCollector.translateToLocal("got.gui.languages");
 		fontRendererObj.drawString(s1, getGuiLeft() + 100 - fontRendererObj.getStringWidth(s1) / 2, getGuiTop() + 10, 16777215);
-		String s2 = StatCollector.translateToLocal("got.gui.languages.guide1") + GOT.langsName + StatCollector.translateToLocal("got.gui.languages.guide2");
+		String s2 = StatCollector.translateToLocal("got.gui.languages.guide1") + GOT.getLangs() + StatCollector.translateToLocal("got.gui.languages.guide2");
 		int x = getGuiLeft() + getxSize() / 2;
 		int y = getGuiTop() + 40;
 		for (Object element : fontRendererObj.listFormattedStringToWidth(s2, 220)) {

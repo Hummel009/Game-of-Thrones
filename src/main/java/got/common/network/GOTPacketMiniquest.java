@@ -49,8 +49,8 @@ public class GOTPacketMiniquest implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketMiniquest, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketMiniquest packet, MessageContext context) {
-			if (!GOT.proxy.isSingleplayer()) {
-				EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+			if (!GOT.getProxy().isSingleplayer()) {
+				EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 				GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 				GOTMiniQuest miniquest = GOTMiniQuest.loadQuestFromNBT(packet.miniquestData, pd);
 				if (miniquest != null) {

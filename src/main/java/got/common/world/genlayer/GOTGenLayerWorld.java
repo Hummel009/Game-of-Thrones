@@ -101,7 +101,7 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 		GOTGenLayer biomeSubtypes = new GOTGenLayerBiomeSubtypesInit(3000L);
 		biomeSubtypes = GOTGenLayerZoom.magnify(3000L, biomeSubtypes, 2);
 		GOTGenLayer biomes = new GOTGenLayerWorld();
-		if (worldType == GOT.worldTypeGOTClassic) {
+		if (worldType == GOT.getWorldTypeGOTClassic()) {
 			GOTGenLayer oceans = new GOTGenLayerClassicOcean(2012L);
 			oceans = GOTGenLayerZoom.magnify(200L, oceans, 3);
 			oceans = new GOTGenLayerClassicRemoveOcean(400L, oceans);

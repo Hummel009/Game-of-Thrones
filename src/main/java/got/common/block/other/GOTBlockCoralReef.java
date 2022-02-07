@@ -54,7 +54,7 @@ public class GOTBlockCoralReef extends Block {
 
 	@Override
 	public int getRenderType() {
-		return GOT.proxy.getCoralRenderID();
+		return GOT.getProxy().getCoralRenderID();
 	}
 
 	@Override

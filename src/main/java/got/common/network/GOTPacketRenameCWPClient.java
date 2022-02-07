@@ -58,14 +58,14 @@ public class GOTPacketRenameCWPClient implements IMessage {
 		@Override
 		public IMessage onMessage(GOTPacketRenameCWPClient packet, MessageContext context) {
 			GOTCustomWaypoint cwp;
-			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+			EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 			if (packet.sharingPlayer != null) {
 				GOTCustomWaypoint cwp2;
-				if (!GOT.proxy.isSingleplayer() && (cwp2 = pd.getSharedCustomWaypointByID(packet.sharingPlayer, packet.cwpID)) != null) {
+				if (!GOT.getProxy().isSingleplayer() && (cwp2 = pd.getSharedCustomWaypointByID(packet.sharingPlayer, packet.cwpID)) != null) {
 					pd.renameSharedCustomWaypoint(cwp2, packet.name);
 				}
-			} else if (!GOT.proxy.isSingleplayer() && (cwp = pd.getCustomWaypointByID(packet.cwpID)) != null) {
+			} else if (!GOT.getProxy().isSingleplayer() && (cwp = pd.getCustomWaypointByID(packet.cwpID)) != null) {
 				pd.renameCustomWaypoint(cwp, packet.name);
 			}
 			return null;

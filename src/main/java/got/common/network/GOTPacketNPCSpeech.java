@@ -46,13 +46,13 @@ public class GOTPacketNPCSpeech implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketNPCSpeech, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketNPCSpeech packet, MessageContext context) {
-			World world = GOT.proxy.getClientWorld();
-			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+			World world = GOT.getProxy().getClientWorld();
+			EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 			Entity entity = world.getEntityByID(packet.entityID);
 			if (entity instanceof GOTEntityNPC) {
 				GOTEntityNPC npc = (GOTEntityNPC) entity;
 				if (GOTConfig.immersiveSpeech) {
-					GOT.proxy.clientReceiveSpeech(npc, packet.speech);
+					GOT.getProxy().clientReceiveSpeech(npc, packet.speech);
 				}
 				if (!GOTConfig.immersiveSpeech || GOTConfig.immersiveSpeechChatLog || packet.forceChatMsg) {
 					String name = npc.getCommandSenderName();

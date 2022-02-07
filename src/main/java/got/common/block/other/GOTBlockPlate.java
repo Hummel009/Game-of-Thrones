@@ -111,7 +111,7 @@ public class GOTBlockPlate extends BlockContainer {
 
 	@Override
 	public int getRenderType() {
-		return GOT.proxy.getPlateRenderID();
+		return GOT.getProxy().getPlateRenderID();
 	}
 
 	@Override

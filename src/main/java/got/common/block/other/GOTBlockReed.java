@@ -124,7 +124,7 @@ public class GOTBlockReed extends Block implements IPlantable {
 
 	@Override
 	public int getRenderType() {
-		return GOT.proxy.getReedsRenderID();
+		return GOT.getProxy().getReedsRenderID();
 	}
 
 	@Override

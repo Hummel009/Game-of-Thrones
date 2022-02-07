@@ -31,7 +31,7 @@ public class GOTPacketMoneyChange implements IMessage {
 		@Override
 		public IMessage onMessage(GOTPacketMoneyChange packet, MessageContext context) {
 			int canChange = packet.canChange;
-			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+			EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 			pd.balance = canChange;
 			return null;

@@ -106,7 +106,7 @@ public class GOTBlockWildFireJar extends BlockFalling {
 
 	@Override
 	public int getRenderType() {
-		return GOT.proxy.getWildFireJarRenderID();
+		return GOT.getProxy().getWildFireJarRenderID();
 	}
 
 	@Override

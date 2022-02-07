@@ -63,7 +63,7 @@ public class GOTPacketLogin implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketLogin, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketLogin packet, MessageContext context) {
-			if (!GOT.proxy.isSingleplayer()) {
+			if (!GOT.getProxy().isSingleplayer()) {
 				GOTLevelData.destroyAllPlayerData();
 			}
 			GOTLevelData.gameOfThronesPortalX = packet.ringPortalX;
@@ -73,7 +73,7 @@ public class GOTPacketLogin implements IMessage {
 			EnumDifficulty diff = packet.difficulty;
 			if (diff != null) {
 				GOTLevelData.setSavedDifficulty(diff);
-				GOT.proxy.setClientDifficulty(diff);
+				GOT.getProxy().setClientDifficulty(diff);
 			} else {
 				GOTLevelData.setSavedDifficulty(null);
 			}

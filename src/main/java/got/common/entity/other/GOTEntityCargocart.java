@@ -56,7 +56,7 @@ public class GOTEntityCargocart extends GOTEntityCart {
 	@Override
 	public boolean interactFirst(EntityPlayer player) {
 		if (player.isSneaking()) {
-			player.openGui(GOT.instance, 83, worldObj, getEntityId(), 0, 0);
+			player.openGui(GOT.getInstance(), 83, worldObj, getEntityId(), 0, 0);
 		} else if (!worldObj.isRemote) {
 			player.mountEntity(this);
 		}

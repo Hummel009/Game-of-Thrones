@@ -45,7 +45,7 @@ public class GOTPacketBrokenPledge implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketBrokenPledge, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketBrokenPledge packet, MessageContext context) {
-			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+			EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 			pd.setPledgeBreakCooldown(packet.cooldown);
 			pd.setPledgeBreakCooldownStart(packet.cooldownStart);

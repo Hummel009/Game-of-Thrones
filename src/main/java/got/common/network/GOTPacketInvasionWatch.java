@@ -32,7 +32,7 @@ public class GOTPacketInvasionWatch implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketInvasionWatch, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketInvasionWatch packet, MessageContext context) {
-			GOT.proxy.handleInvasionWatch(packet.invasionEntityID, packet.overrideAlreadyWatched);
+			GOT.getProxy().handleInvasionWatch(packet.invasionEntityID, packet.overrideAlreadyWatched);
 			return null;
 		}
 	}

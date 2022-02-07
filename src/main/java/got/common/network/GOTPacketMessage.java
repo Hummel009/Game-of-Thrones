@@ -36,7 +36,7 @@ public class GOTPacketMessage implements IMessage {
 		@Override
 		public IMessage onMessage(GOTPacketMessage packet, MessageContext context) {
 			if (packet.message != null) {
-				GOT.proxy.displayMessage(packet.message);
+				GOT.getProxy().displayMessage(packet.message);
 			}
 			return null;
 		}

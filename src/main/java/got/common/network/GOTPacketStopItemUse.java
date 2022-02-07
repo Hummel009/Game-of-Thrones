@@ -17,7 +17,7 @@ public class GOTPacketStopItemUse implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketStopItemUse, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketStopItemUse packet, MessageContext context) {
-			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+			EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 			entityplayer.clearItemInUse();
 			return null;
 		}

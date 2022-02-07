@@ -35,6 +35,6 @@ public class GOTPotionPoisonKilling extends Potion {
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public void renderInventoryEffect(int x, int y, PotionEffect effect, Minecraft mc) {
-		GOT.proxy.renderCustomPotionEffect(x, y, effect, mc);
+		GOT.getProxy().renderCustomPotionEffect(x, y, effect, mc);
 	}
 }

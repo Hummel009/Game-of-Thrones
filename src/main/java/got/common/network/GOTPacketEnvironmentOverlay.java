@@ -29,9 +29,9 @@ public class GOTPacketEnvironmentOverlay implements IMessage {
 		@Override
 		public IMessage onMessage(GOTPacketEnvironmentOverlay packet, MessageContext context) {
 			if (packet.overlay == Overlay.FROST) {
-				GOT.proxy.showFrostOverlay();
+				GOT.getProxy().showFrostOverlay();
 			} else if (packet.overlay == Overlay.BURN) {
-				GOT.proxy.showBurnOverlay();
+				GOT.getProxy().showBurnOverlay();
 			}
 			return null;
 		}

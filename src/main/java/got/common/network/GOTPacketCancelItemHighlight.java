@@ -16,7 +16,7 @@ public class GOTPacketCancelItemHighlight implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketCancelItemHighlight, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketCancelItemHighlight packet, MessageContext context) {
-			GOT.proxy.cancelItemHighlight();
+			GOT.getProxy().cancelItemHighlight();
 			return null;
 		}
 	}

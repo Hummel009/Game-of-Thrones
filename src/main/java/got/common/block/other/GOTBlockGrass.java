@@ -44,7 +44,7 @@ public class GOTBlockGrass extends BlockBush implements IShearable {
 
 	@Override
 	public int getRenderType() {
-		return GOT.proxy.getGrassRenderID();
+		return GOT.getProxy().getGrassRenderID();
 	}
 
 	@Override

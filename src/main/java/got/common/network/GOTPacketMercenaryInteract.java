@@ -15,7 +15,7 @@ public class GOTPacketMercenaryInteract extends GOTPacketUnitTraderInteract {
 
 	@Override
 	public void openTradeGUI(EntityPlayer entityplayer, GOTEntityNPC trader) {
-		entityplayer.openGui(GOT.instance, 59, entityplayer.worldObj, trader.getEntityId(), 0, 0);
+		entityplayer.openGui(GOT.getInstance(), 59, entityplayer.worldObj, trader.getEntityId(), 0, 0);
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketMercenaryInteract, IMessage> {

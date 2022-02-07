@@ -46,10 +46,10 @@ public class GOTPacketMoneyGet extends GOTPacketMoney implements IMessage {
 		@Override
 		public IMessage onMessage(GOTPacketMoneyGet packet, MessageContext context) {
 			ItemStack item = packet.item;
-			if (GOT.sell.containsKey(item)) {
+			if (GOT.getSell().containsKey(item)) {
 				EntityPlayerMP player = context.getServerHandler().playerEntity;
 				GOTPlayerData pd = GOTLevelData.getData(player);
-				int cost = GOT.sell.get(item);
+				int cost = GOT.getSell().get(item);
 				int index = -1;
 				for (int i = 0; i < player.inventory.mainInventory.length; ++i) {
 					if (player.inventory.mainInventory[i] == null || player.inventory.mainInventory[i].getItem() != item.getItem() || player.inventory.mainInventory[i].getItemDamage() != item.getItemDamage()) {

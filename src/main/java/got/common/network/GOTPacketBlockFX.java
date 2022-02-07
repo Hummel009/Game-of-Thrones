@@ -43,7 +43,7 @@ public class GOTPacketBlockFX implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketBlockFX, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketBlockFX packet, MessageContext context) {
-			World world = GOT.proxy.getClientWorld();
+			World world = GOT.getProxy().getClientWorld();
 			int i = packet.blockX;
 			int j = packet.blockY;
 			int k = packet.blockZ;

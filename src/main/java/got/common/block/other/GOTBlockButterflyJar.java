@@ -49,7 +49,7 @@ public class GOTBlockButterflyJar extends GOTBlockAnimalJar {
 
 	@Override
 	public int getRenderType() {
-		return GOT.proxy.getButterflyJarRenderID();
+		return GOT.getProxy().getButterflyJarRenderID();
 	}
 
 	@SideOnly(value = Side.CLIENT)

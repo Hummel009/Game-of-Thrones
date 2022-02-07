@@ -88,7 +88,7 @@ public class GOTBlockBarrel extends BlockContainer {
 
 	@Override
 	public int getRenderType() {
-		return GOT.proxy.getBarrelRenderID();
+		return GOT.getProxy().getBarrelRenderID();
 	}
 
 	@Override
@@ -165,7 +165,7 @@ public class GOTBlockBarrel extends BlockContainer {
 			return true;
 		}
 		if (!world.isRemote) {
-			entityplayer.openGui(GOT.instance, 16, world, i, j, k);
+			entityplayer.openGui(GOT.getInstance(), 16, world, i, j, k);
 		}
 		return true;
 	}

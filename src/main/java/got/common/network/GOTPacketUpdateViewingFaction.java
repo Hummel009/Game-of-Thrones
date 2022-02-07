@@ -32,7 +32,7 @@ public class GOTPacketUpdateViewingFaction implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketUpdateViewingFaction, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketUpdateViewingFaction packet, MessageContext context) {
-			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+			EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 			pd.setViewingFaction(packet.viewingFaction);
 			return null;

@@ -48,7 +48,7 @@ public class GOTPacketWeaponFX implements IMessage {
 					block7: {
 						block6: {
 							block5: {
-								world = GOT.proxy.getClientWorld();
+								world = GOT.getProxy().getClientWorld();
 								entity = world.getEntityByID(packet.entityID);
 								if (entity == null) {
 									break block4;
@@ -77,14 +77,14 @@ public class GOTPacketWeaponFX implements IMessage {
 								double dist = 1.5;
 								double d = dist * MathHelper.sin(angle);
 								double d1 = dist * MathHelper.cos(angle);
-								GOT.proxy.spawnParticle("blueFlame", x + d, y + 0.1, z + d1, d * 0.2, 0.0, d1 * 0.2);
+								GOT.getProxy().spawnParticle("blueFlame", x + d, y + 0.1, z + d1, d * 0.2, 0.0, d1 * 0.2);
 							}
 							break block4;
 						}
 						if (packet.type != Type.FIREBALL_GANDALF_WHITE) {
 							break block7;
 						}
-						GOT.proxy.spawnParticle("gandalfFireball", x, y, z, 0.0, 0.0, 0.0);
+						GOT.getProxy().spawnParticle("gandalfFireball", x, y, z, 0.0, 0.0, 0.0);
 						break block4;
 					}
 					if (packet.type != Type.INFERNAL) {
@@ -118,7 +118,7 @@ public class GOTPacketWeaponFX implements IMessage {
 					double d3 = MathHelper.cos(angleXZ) * MathHelper.cos(angleY) * speed;
 					double d4 = MathHelper.sin(angleY) * speed;
 					double d5 = MathHelper.sin(angleXZ) * MathHelper.cos(angleY) * speed;
-					GOT.proxy.spawnParticle("chill", d, d1, d2, d3 += entity.posX - entity.lastTickPosX, d4 += entity.posY - entity.lastTickPosY, d5 += entity.posZ - entity.lastTickPosZ);
+					GOT.getProxy().spawnParticle("chill", d, d1, d2, d3 += entity.posX - entity.lastTickPosX, d4 += entity.posY - entity.lastTickPosY, d5 += entity.posZ - entity.lastTickPosZ);
 				}
 			}
 			return null;

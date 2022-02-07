@@ -34,7 +34,7 @@ public class GOTPacketNPCCombatStance implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketNPCCombatStance, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketNPCCombatStance packet, MessageContext context) {
-			World world = GOT.proxy.getClientWorld();
+			World world = GOT.getProxy().getClientWorld();
 			Entity entity = world.getEntityByID(packet.entityID);
 			if (entity instanceof GOTEntityNPC) {
 				((GOTEntityNPC) entity).clientCombatStance = packet.combatStance;

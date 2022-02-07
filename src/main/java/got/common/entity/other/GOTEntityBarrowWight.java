@@ -147,7 +147,7 @@ public class GOTEntityBarrowWight extends GOTEntityNPC {
 				double d4 = MathHelper.getRandomDoubleInRange(rand, -0.2, -0.05);
 				double d5 = MathHelper.getRandomDoubleInRange(rand, -0.1, 0.1);
 				if (rand.nextBoolean()) {
-					GOT.proxy.spawnParticle("asshaiTorch", d, d1, d2, d3, d4, d5);
+					GOT.getProxy().spawnParticle("asshaiTorch", d, d1, d2, d3, d4, d5);
 					continue;
 				}
 				worldObj.spawnParticle("smoke", d, d1, d2, d3, d4, d5);

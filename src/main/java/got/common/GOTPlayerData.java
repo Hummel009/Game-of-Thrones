@@ -599,7 +599,7 @@ public class GOTPlayerData {
 			++completedMiniquestCount;
 			getFactionData(quest.entityFaction).completeMiniQuest();
 			markDirty();
-			GOT.proxy.setTrackedQuest(quest);
+			GOT.getProxy().setTrackedQuest(quest);
 			EntityPlayer entityplayer = getPlayer();
 			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 				GOTPacketMiniquestRemove packet = new GOTPacketMiniquestRemove(quest, false, true);
@@ -1070,7 +1070,7 @@ public class GOTPlayerData {
 	}
 
 	public EntityPlayer getPlayer() {
-		World[] searchWorlds = GOT.proxy.isClient() ? new World[] { GOT.proxy.getClientWorld() } : MinecraftServer.getServer().worldServers;
+		World[] searchWorlds = GOT.getProxy().isClient() ? new World[] { GOT.getProxy().getClientWorld() } : MinecraftServer.getServer().worldServers;
 		for (World world : searchWorlds) {
 			EntityPlayer entityplayer = world.func_152378_a(playerUUID);
 			if (entityplayer == null) {

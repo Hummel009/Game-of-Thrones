@@ -201,7 +201,7 @@ public class GOTAmbience {
 										double d3 = waveSpeed * -cos;
 										double d4 = 0.0;
 										double d5 = waveSpeed * -sin;
-										GOT.proxy.spawnParticle("wave", d0, d1, d2, d3, d4, d5);
+										GOT.getProxy().spawnParticle("wave", d0, d1, d2, d3, d4, d5);
 									}
 								}
 								break block42;

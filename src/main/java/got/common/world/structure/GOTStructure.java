@@ -536,7 +536,7 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, new GOTStructureSothoryosVillage(GOTBiome.sothoryosJungle, 1.0f), "SothoryosVillage", GOTFaction.SOTHORYOS, (IVillageProperties<Instance>) instance -> {
 		});
 
-		if (GOT.isDevMode) {
+		if (GOT.isDevMode()) {
 			GOTStructureRegistry.register(id++, DatabaseGenerator.class, "DatabaseGenerator", 9605778);
 		}
 

@@ -30,7 +30,7 @@ public class GOTBlockCraftingTable extends Block {
 		hasRequiredAlignment = true;
 		if (hasRequiredAlignment) {
 			if (!world.isRemote) {
-				entityplayer.openGui(GOT.instance, tableGUIID, world, i, j, k);
+				entityplayer.openGui(GOT.getInstance(), tableGUIID, world, i, j, k);
 			}
 		} else {
 			for (int l = 0; l < 8; ++l) {

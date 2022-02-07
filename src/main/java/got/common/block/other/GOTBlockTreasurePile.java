@@ -88,7 +88,7 @@ public class GOTBlockTreasurePile extends Block {
 
 	@Override
 	public int getRenderType() {
-		return GOT.proxy.getTreasureRenderID();
+		return GOT.getProxy().getTreasureRenderID();
 	}
 
 	@SideOnly(value = Side.CLIENT)

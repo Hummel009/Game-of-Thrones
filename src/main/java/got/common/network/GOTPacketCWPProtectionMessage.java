@@ -36,7 +36,7 @@ public class GOTPacketCWPProtectionMessage implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketCWPProtectionMessage, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketCWPProtectionMessage packet, MessageContext context) {
-			GOT.proxy.setMapCWPProtectionMessage(packet.message);
+			GOT.getProxy().setMapCWPProtectionMessage(packet.message);
 			return null;
 		}
 	}

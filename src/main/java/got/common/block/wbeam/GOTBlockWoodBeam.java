@@ -28,7 +28,7 @@ public abstract class GOTBlockWoodBeam extends BlockRotatedPillar {
 
 	@Override
 	public int getRenderType() {
-		return GOT.proxy.getBeamRenderID();
+		return GOT.getProxy().getBeamRenderID();
 	}
 
 	@SideOnly(value = Side.CLIENT)

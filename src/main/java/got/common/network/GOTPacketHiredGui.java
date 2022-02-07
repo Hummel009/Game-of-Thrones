@@ -65,15 +65,15 @@ public class GOTPacketHiredGui implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketHiredGui, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketHiredGui packet, MessageContext context) {
-			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
-			World world = GOT.proxy.getClientWorld();
+			EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
+			World world = GOT.getProxy().getClientWorld();
 			Entity entity = world.getEntityByID(packet.entityID);
 			if (entity instanceof GOTEntityNPC) {
 				GOTEntityNPC npc = (GOTEntityNPC) entity;
 				if (npc.hiredNPCInfo.getHiringPlayer() == entityplayer) {
 					npc.hiredNPCInfo.receiveClientPacket(packet);
 					if (packet.openGui) {
-						GOT.proxy.openHiredNPCGui(npc);
+						GOT.getProxy().openHiredNPCGui(npc);
 					}
 				}
 			}

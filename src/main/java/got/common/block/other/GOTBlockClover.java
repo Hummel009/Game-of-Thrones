@@ -51,7 +51,7 @@ public class GOTBlockClover extends GOTBlockFlower {
 
 	@Override
 	public int getRenderType() {
-		return GOT.proxy.getCloverRenderID();
+		return GOT.getProxy().getCloverRenderID();
 	}
 
 	@SideOnly(value = Side.CLIENT)

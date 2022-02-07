@@ -214,7 +214,7 @@ public class GOTLevelData {
 			if (levelData.hasKey("SavedDifficulty")) {
 				int id = levelData.getInteger("SavedDifficulty");
 				difficulty = EnumDifficulty.getDifficultyEnum(id);
-				GOT.proxy.setClientDifficulty(difficulty);
+				GOT.getProxy().setClientDifficulty(difficulty);
 			} else {
 				difficulty = null;
 			}
@@ -534,7 +534,7 @@ public class GOTLevelData {
 	public static void setEnableAlignmentZones(boolean flag) {
 		enableAlignmentZones = flag;
 		GOTLevelData.markDirty();
-		if (!GOT.proxy.isClient()) {
+		if (!GOT.getProxy().isClient()) {
 			List players = MinecraftServer.getServer().getConfigurationManager().playerEntityList;
 			for (Object player : players) {
 				EntityPlayerMP entityplayer = (EntityPlayerMP) player;
@@ -580,7 +580,7 @@ public class GOTLevelData {
 		waypointCooldownMax = max;
 		waypointCooldownMin = min;
 		GOTLevelData.markDirty();
-		if (!GOT.proxy.isClient()) {
+		if (!GOT.getProxy().isClient()) {
 			List players = MinecraftServer.getServer().getConfigurationManager().playerEntityList;
 			for (Object player : players) {
 				EntityPlayerMP entityplayer = (EntityPlayerMP) player;

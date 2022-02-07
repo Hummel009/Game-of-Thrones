@@ -27,7 +27,7 @@ public class GOTPacketIsOpResponse implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketIsOpResponse, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketIsOpResponse packet, MessageContext context) {
-			GOT.proxy.setMapIsOp(packet.isOp);
+			GOT.getProxy().setMapIsOp(packet.isOp);
 			return null;
 		}
 	}

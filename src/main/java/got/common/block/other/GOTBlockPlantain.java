@@ -47,7 +47,7 @@ public class GOTBlockPlantain extends GOTBlockFlower {
 
 	@Override
 	public int getRenderType() {
-		return GOT.proxy.getPlantainRenderID();
+		return GOT.getProxy().getPlantainRenderID();
 	}
 
 	@SideOnly(value = Side.CLIENT)

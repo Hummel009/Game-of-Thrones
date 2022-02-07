@@ -9,7 +9,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 
 public class NEIGOTIntegratorConfig implements IConfigureNEI {
-	public ArrayList<ItemStack> hiddenItems = new ArrayList();
+	private ArrayList<ItemStack> hiddenItems = new ArrayList();
 
 	@Override
 	public String getName() {
@@ -21,21 +21,21 @@ public class NEIGOTIntegratorConfig implements IConfigureNEI {
 		return GOT.VERSION;
 	}
 
-	public void hideItem(Block block) {
+	private void hideItem(Block block) {
 		this.hideItem(false, block);
 	}
 
-	public void hideItem(boolean all, Block block) {
+	private void hideItem(boolean all, Block block) {
 		this.hideItem(new ItemStack(block), all);
 	}
 
-	public void hideItem(ItemStack stack, boolean all) {
+	private void hideItem(ItemStack stack, boolean all) {
 		int i;
 		i = all ? 0 : 8;
 		while (i < 16) {
 			ItemStack s = new ItemStack(stack.getItem(), 1, i);
 			API.hideItem(s);
-			hiddenItems.add(s);
+			getHiddenItems().add(s);
 			++i;
 		}
 	}
@@ -142,5 +142,13 @@ public class NEIGOTIntegratorConfig implements IConfigureNEI {
 		hideItem(GOTRegistry.woodSlabSingle3);
 		hideItem(GOTRegistry.woodSlabSingle4);
 		hideItem(GOTRegistry.woodSlabSingle5);
+	}
+
+	public ArrayList<ItemStack> getHiddenItems() {
+		return hiddenItems;
+	}
+
+	public void setHiddenItems(ArrayList<ItemStack> hiddenItems) {
+		this.hiddenItems = hiddenItems;
 	}
 }

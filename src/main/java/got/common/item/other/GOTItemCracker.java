@@ -119,7 +119,7 @@ public class GOTItemCracker extends Item {
 		if (!GOTItemCracker.isEmpty(itemstack)) {
 			entityplayer.setItemInUse(itemstack, getMaxItemUseDuration(itemstack));
 		} else {
-			entityplayer.openGui(GOT.instance, 48, world, 0, 0, 0);
+			entityplayer.openGui(GOT.getInstance(), 48, world, 0, 0, 0);
 		}
 		return itemstack;
 	}

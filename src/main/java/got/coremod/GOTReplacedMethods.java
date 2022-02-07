@@ -44,10 +44,10 @@ public class GOTReplacedMethods {
 
 	public static class Cauldron {
 		public static int getRenderType() {
-			if (GOT.proxy == null) {
+			if (GOT.getProxy() == null) {
 				return 24;
 			}
-			return GOT.proxy.getVCauldronRenderID();
+			return GOT.getProxy().getVCauldronRenderID();
 		}
 	}
 
@@ -290,7 +290,7 @@ public class GOTReplacedMethods {
 
 	public static class NetHandlerClient {
 		public static void handleEntityMovement(NetHandlerPlayClient handler, S14PacketEntity packet) {
-			World world = GOT.proxy.getClientWorld();
+			World world = GOT.getProxy().getClientWorld();
 			Entity entity = packet.func_149065_a(world);
 			if (entity != null) {
 				entity.serverPosX += packet.func_149062_c();
@@ -308,7 +308,7 @@ public class GOTReplacedMethods {
 		}
 
 		public static void handleEntityTeleport(NetHandlerPlayClient handler, S18PacketEntityTeleport packet) {
-			World world = GOT.proxy.getClientWorld();
+			World world = GOT.getProxy().getClientWorld();
 			Entity entity = world.getEntityByID(packet.func_149451_c());
 			if (entity != null) {
 				entity.serverPosX = packet.func_149449_d();
@@ -453,8 +453,8 @@ public class GOTReplacedMethods {
 		}
 
 		public static int getRenderType(Block block) {
-			if (GOT.proxy != null) {
-				return GOT.proxy.getTrapdoorRenderID();
+			if (GOT.getProxy() != null) {
+				return GOT.getProxy().getTrapdoorRenderID();
 			}
 			return 0;
 		}

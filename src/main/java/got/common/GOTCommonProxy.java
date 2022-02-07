@@ -852,7 +852,7 @@ public class GOTCommonProxy implements IGuiHandler {
 	}
 
 	public void usePouchOnChest(EntityPlayer entityplayer, World world, int i, int j, int k, int side, ItemStack itemstack, int pouchSlot) {
-		entityplayer.openGui(GOT.instance, GOTCommonProxy.packGuiIDWithSlot(63, pouchSlot), world, i, j, k);
+		entityplayer.openGui(GOT.getInstance(), GOTCommonProxy.packGuiIDWithSlot(63, pouchSlot), world, i, j, k);
 	}
 
 	public void validateBannerUsername(GOTEntityBanner banner, int slot, String prevText, boolean valid) {

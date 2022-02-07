@@ -49,7 +49,7 @@ public class GOTPacketDate implements IMessage {
 		public IMessage onMessage(GOTPacketDate packet, MessageContext context) {
 			GOTDate.loadDates(packet.dateData);
 			if (packet.doUpdate) {
-				GOT.proxy.displayNewDate();
+				GOT.getProxy().displayNewDate();
 			}
 			return null;
 		}

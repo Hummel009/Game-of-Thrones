@@ -186,7 +186,7 @@ public class GOTPacketFellowship implements IMessage {
 			fellowship.setPreventPVP(packet.preventPVP);
 			fellowship.setPreventHiredFriendlyFire(packet.preventHiredFF);
 			fellowship.setShowMapLocations(packet.showMapLocations);
-			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+			EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 			if (packet.isInvite) {
 				GOTLevelData.getData(entityplayer).addOrUpdateClientFellowshipInvite(fellowship);
 			} else {

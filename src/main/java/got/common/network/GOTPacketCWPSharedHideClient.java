@@ -42,7 +42,7 @@ public class GOTPacketCWPSharedHideClient implements IMessage {
 		public IMessage onMessage(GOTPacketCWPSharedHideClient packet, MessageContext context) {
 			GOTCustomWaypoint cwp;
 			GOTPlayerData pd;
-			if (!GOT.proxy.isSingleplayer() && (cwp = (pd = GOTLevelData.getData(GOT.proxy.getClientPlayer())).getSharedCustomWaypointByID(packet.sharingPlayer, packet.cwpID)) != null) {
+			if (!GOT.getProxy().isSingleplayer() && (cwp = (pd = GOTLevelData.getData(GOT.getProxy().getClientPlayer())).getSharedCustomWaypointByID(packet.sharingPlayer, packet.cwpID)) != null) {
 				pd.hideOrUnhideSharedCustomWaypoint(cwp, packet.hideCWP);
 			}
 			return null;

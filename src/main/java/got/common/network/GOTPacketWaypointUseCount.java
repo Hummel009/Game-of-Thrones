@@ -56,7 +56,7 @@ public class GOTPacketWaypointUseCount implements IMessage {
 		public IMessage onMessage(GOTPacketWaypointUseCount packet, MessageContext context) {
 			boolean custom = packet.isCustom;
 			int wpID = packet.wpID;
-			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+			EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 			GOTAbstractWaypoint waypoint = null;
 			if (!custom) {

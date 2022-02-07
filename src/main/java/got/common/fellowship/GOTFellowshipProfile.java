@@ -27,7 +27,7 @@ public class GOTFellowshipProfile extends GameProfile {
 	}
 
 	public GOTFellowshipClient getFellowshipClient() {
-		return GOTLevelData.getData(GOT.proxy.getClientPlayer()).getClientFellowshipByName(fellowshipName);
+		return GOTLevelData.getData(GOT.getProxy().getClientPlayer()).getClientFellowshipByName(fellowshipName);
 	}
 
 	@Override

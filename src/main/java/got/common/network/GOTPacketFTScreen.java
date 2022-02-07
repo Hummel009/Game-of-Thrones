@@ -60,7 +60,7 @@ public class GOTPacketFTScreen implements IMessage {
 		public IMessage onMessage(GOTPacketFTScreen packet, MessageContext context) {
 			boolean custom = packet.isCustom;
 			int wpID = packet.wpID;
-			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+			EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 			GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 			GOTAbstractWaypoint waypoint = null;
 			if (!custom) {
@@ -72,7 +72,7 @@ public class GOTPacketFTScreen implements IMessage {
 				waypoint = sharingPlayerID != null ? playerData.getSharedCustomWaypointByID(sharingPlayerID, wpID) : playerData.getCustomWaypointByID(wpID);
 			}
 			if (waypoint != null) {
-				GOT.proxy.displayFTScreen(waypoint, packet.startX, packet.startZ);
+				GOT.getProxy().displayFTScreen(waypoint, packet.startX, packet.startZ);
 			}
 			return null;
 		}

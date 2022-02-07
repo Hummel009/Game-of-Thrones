@@ -41,6 +41,6 @@ public class GOTBlockDoor extends BlockDoor {
 
 	@Override
 	public int getRenderType() {
-		return GOT.proxy.getDoorRenderID();
+		return GOT.getProxy().getDoorRenderID();
 	}
 }

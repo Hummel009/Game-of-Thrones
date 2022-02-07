@@ -51,13 +51,13 @@ public class GOTPacketNPCRespawner implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketNPCRespawner, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketNPCRespawner packet, MessageContext context) {
-			World world = GOT.proxy.getClientWorld();
-			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+			World world = GOT.getProxy().getClientWorld();
+			EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 			Entity entity = world.getEntityByID(packet.spawnerID);
 			if (entity instanceof GOTEntityNPCRespawner) {
 				GOTEntityNPCRespawner spawner = (GOTEntityNPCRespawner) entity;
 				spawner.readSpawnerDataFromNBT(packet.spawnerData);
-				entityplayer.openGui(GOT.instance, 45, world, entity.getEntityId(), 0, 0);
+				entityplayer.openGui(GOT.getInstance(), 45, world, entity.getEntityId(), 0, 0);
 			}
 			return null;
 		}

@@ -132,7 +132,7 @@ public class GOTEntityPortal extends Entity {
 				if (!boundingBox.intersectsWith(entityplayer.boundingBox) || entityplayer.ridingEntity != null || entityplayer.riddenByEntity != null) {
 					continue;
 				}
-				GOT.proxy.setInPortal(entityplayer);
+				GOT.getProxy().setInPortal(entityplayer);
 			}
 			List entities = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(8.0, 8.0, 8.0));
 			for (i = 0; i < entities.size(); ++i) {

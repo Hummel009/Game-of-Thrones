@@ -111,14 +111,14 @@ public class GOTPacketCreateCWPClient implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketCreateCWPClient, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketCreateCWPClient packet, MessageContext context) {
-			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+			EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 			GOTCustomWaypoint cwp = new GOTCustomWaypoint(packet.name, packet.mapX, packet.mapY, packet.xCoord, packet.yCoord, packet.zCoord, packet.cwpID);
 			if (packet.sharedFellowshipIDs != null) {
 				cwp.setSharedFellowshipIDs(packet.sharedFellowshipIDs);
 			}
 			if (packet.sharingPlayer != null) {
-				if (!GOT.proxy.isSingleplayer()) {
+				if (!GOT.getProxy().isSingleplayer()) {
 					cwp.setSharingPlayerID(packet.sharingPlayer);
 					cwp.setSharingPlayerName(packet.sharingPlayerName);
 					if (packet.sharedUnlocked) {
@@ -127,7 +127,7 @@ public class GOTPacketCreateCWPClient implements IMessage {
 					cwp.setSharedHidden(packet.sharedHidden);
 					pd.addOrUpdateSharedCustomWaypoint(cwp);
 				}
-			} else if (!GOT.proxy.isSingleplayer()) {
+			} else if (!GOT.getProxy().isSingleplayer()) {
 				pd.addCustomWaypoint(cwp);
 			}
 			return null;

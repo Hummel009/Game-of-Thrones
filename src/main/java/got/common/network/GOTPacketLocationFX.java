@@ -45,7 +45,7 @@ public class GOTPacketLocationFX implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketLocationFX, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketLocationFX packet, MessageContext context) {
-			World world = GOT.proxy.getClientWorld();
+			World world = GOT.getProxy().getClientWorld();
 			double x = packet.posX;
 			double y = packet.posY;
 			double z = packet.posZ;

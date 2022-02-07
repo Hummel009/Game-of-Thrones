@@ -49,14 +49,14 @@ public class GOTPacketDeleteCWPClient implements IMessage {
 		@Override
 		public IMessage onMessage(GOTPacketDeleteCWPClient packet, MessageContext context) {
 			GOTCustomWaypoint cwp;
-			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+			EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 			if (packet.sharingPlayer != null) {
 				GOTCustomWaypoint cwp2;
-				if (!GOT.proxy.isSingleplayer() && (cwp2 = pd.getSharedCustomWaypointByID(packet.sharingPlayer, packet.cwpID)) != null) {
+				if (!GOT.getProxy().isSingleplayer() && (cwp2 = pd.getSharedCustomWaypointByID(packet.sharingPlayer, packet.cwpID)) != null) {
 					pd.removeSharedCustomWaypoint(cwp2);
 				}
-			} else if (!GOT.proxy.isSingleplayer() && (cwp = pd.getCustomWaypointByID(packet.cwpID)) != null) {
+			} else if (!GOT.getProxy().isSingleplayer() && (cwp = pd.getCustomWaypointByID(packet.cwpID)) != null) {
 				pd.removeCustomWaypoint(cwp);
 			}
 			return null;

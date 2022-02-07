@@ -96,7 +96,7 @@ public class GOTEntityRegistry {
 	}
 
 	public static void register(Class<? extends Entity> entityClass, String name, int id, int updateRange, int updateFreq, boolean sendVelocityUpdates) {
-		EntityRegistry.registerModEntity(entityClass, name, id, GOT.instance, updateRange, updateFreq, sendVelocityUpdates);
+		EntityRegistry.registerModEntity(entityClass, name, id, GOT.getInstance(), updateRange, updateFreq, sendVelocityUpdates);
 		String fullName = (String) EntityList.classToStringMapping.get(entityClass);
 		stringToIDMapping.put(fullName, id);
 		IDToStringMapping.put(id, fullName);

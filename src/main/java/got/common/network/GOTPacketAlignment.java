@@ -55,7 +55,7 @@ public class GOTPacketAlignment implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketAlignment, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketAlignment packet, MessageContext context) {
-			if (!GOT.proxy.isSingleplayer()) {
+			if (!GOT.getProxy().isSingleplayer()) {
 				GOTPlayerData pd = GOTLevelData.getData(packet.player);
 				for (Map.Entry entry : packet.alignmentMap.entrySet()) {
 					GOTFaction f = (GOTFaction) entry.getKey();

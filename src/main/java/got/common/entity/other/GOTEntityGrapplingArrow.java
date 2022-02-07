@@ -45,7 +45,7 @@ public class GOTEntityGrapplingArrow extends EntityThrowable implements IEntityA
 		setAttachPos(x, y, z);
 
 		if (shootingEntity instanceof EntityPlayer) {
-			GOT.proxy.resetlaunchertime(shootingEntityID);
+			GOT.getProxy().resetlaunchertime(shootingEntityID);
 		}
 	}
 

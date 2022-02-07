@@ -63,7 +63,7 @@ public class GOTBlockBirdCage extends GOTBlockAnimalJar {
 
 	@Override
 	public int getRenderType() {
-		return GOT.proxy.getBirdCageRenderID();
+		return GOT.getProxy().getBirdCageRenderID();
 	}
 
 	@SideOnly(value = Side.CLIENT)

@@ -81,7 +81,7 @@ public class GOTEntityGiant extends GOTEntityGiantBase {
 		if (b == 15) {
 			super.handleHealthUpdate(b);
 			for (int l = 0; l < 64; ++l) {
-				GOT.proxy.spawnParticle("largeStone", posX + rand.nextGaussian() * width * 0.5, posY + rand.nextDouble() * height, posZ + rand.nextGaussian() * width * 0.5, 0.0, 0.0, 0.0);
+				GOT.getProxy().spawnParticle("largeStone", posX + rand.nextGaussian() * width * 0.5, posY + rand.nextDouble() * height, posZ + rand.nextGaussian() * width * 0.5, 0.0, 0.0, 0.0);
 			}
 		} else {
 			super.handleHealthUpdate(b);

@@ -15,7 +15,7 @@ public class GOTBlockAlloyForge extends GOTBlockForgeBase {
 	@Override
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int side, float f, float f1, float f2) {
 		if (!world.isRemote) {
-			entityplayer.openGui(GOT.instance, 5, world, i, j, k);
+			entityplayer.openGui(GOT.getInstance(), 5, world, i, j, k);
 		}
 		return true;
 	}

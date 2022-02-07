@@ -77,7 +77,7 @@ public class GOTBlockOven extends BlockContainer {
 	@Override
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int side, float f, float f1, float f2) {
 		if (!world.isRemote) {
-			entityplayer.openGui(GOT.instance, 0, world, i, j, k);
+			entityplayer.openGui(GOT.getInstance(), 0, world, i, j, k);
 		}
 		return true;
 	}

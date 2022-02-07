@@ -129,7 +129,7 @@ public class GOTBlockChandelier extends Block {
 			double d3 = -0.05 + random.nextFloat() * 0.1;
 			double d4 = 0.1 + random.nextFloat() * 0.1;
 			double d5 = -0.05 + random.nextFloat() * 0.1;
-			GOT.proxy.spawnParticle("asshaiTorch", d, d1, d2, d3, d4, d5);
+			GOT.getProxy().spawnParticle("asshaiTorch", d, d1, d2, d3, d4, d5);
 		} else {
 			world.spawnParticle("smoke", d, d1, d2, 0.0, 0.0, 0.0);
 			world.spawnParticle("flame", d, d1, d2, 0.0, 0.0, 0.0);

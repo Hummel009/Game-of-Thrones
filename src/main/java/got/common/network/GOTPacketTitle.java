@@ -43,7 +43,7 @@ public class GOTPacketTitle implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketTitle, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketTitle packet, MessageContext context) {
-			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+			EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 			GOTTitle.PlayerTitle title = packet.playerTitle;
 			if (title == null) {

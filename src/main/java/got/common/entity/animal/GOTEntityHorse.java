@@ -417,7 +417,7 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 		if (!worldObj.isRemote && (riddenByEntity == null || riddenByEntity == entityplayer) && isTame()) {
 			AnimalChest animalchest = GOTReflection.getHorseInv(this);
 			animalchest.func_110133_a(getCommandSenderName());
-			entityplayer.openGui(GOT.instance, 29, worldObj, getEntityId(), animalchest.getSizeInventory(), 0);
+			entityplayer.openGui(GOT.getInstance(), 29, worldObj, getEntityId(), animalchest.getSizeInventory(), 0);
 		}
 	}
 

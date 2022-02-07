@@ -35,8 +35,8 @@ public class GOTPacketAchievementRemove implements IMessage {
 		@Override
 		public IMessage onMessage(GOTPacketAchievementRemove packet, MessageContext context) {
 			GOTAchievement achievement = packet.achievement;
-			if (achievement != null && !GOT.proxy.isSingleplayer()) {
-				EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+			if (achievement != null && !GOT.getProxy().isSingleplayer()) {
+				EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 				GOTLevelData.getData(entityplayer).removeAchievement(achievement);
 			}
 			return null;

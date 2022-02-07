@@ -92,7 +92,7 @@ public class GOTBlockFallenLeaves extends Block implements IShearable {
 
 	@Override
 	public int getRenderType() {
-		return GOT.proxy.getFallenLeavesRenderID();
+		return GOT.getProxy().getFallenLeavesRenderID();
 	}
 
 	@SideOnly(value = Side.CLIENT)

@@ -34,7 +34,7 @@ public class GOTBlockThatchFloor extends Block {
 
 	@Override
 	public int getRenderType() {
-		return GOT.proxy.getThatchFloorRenderID();
+		return GOT.getProxy().getThatchFloorRenderID();
 	}
 
 	@Override

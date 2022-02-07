@@ -68,9 +68,9 @@ public class GOTBlockAsshaiFlower extends GOTBlockFlower {
 			double d1 = j + MathHelper.randomFloatClamp(random, 0.5f, 0.75f);
 			double d2 = k + MathHelper.randomFloatClamp(random, 0.1f, 0.9f);
 			if (random.nextBoolean()) {
-				GOT.proxy.spawnParticle("asshaiWater", d, d1, d2, 0.0, 0.0, 0.0);
+				GOT.getProxy().spawnParticle("asshaiWater", d, d1, d2, 0.0, 0.0, 0.0);
 			} else {
-				GOT.proxy.spawnParticle("whiteSmoke", d, d1, d2, 0.0, 0.0, 0.0);
+				GOT.getProxy().spawnParticle("whiteSmoke", d, d1, d2, 0.0, 0.0, 0.0);
 			}
 		}
 	}

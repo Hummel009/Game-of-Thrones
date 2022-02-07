@@ -40,12 +40,12 @@ public class GOTPacketAchievement implements IMessage {
 		public IMessage onMessage(GOTPacketAchievement packet, MessageContext context) {
 			GOTAchievement achievement = packet.achievement;
 			if (achievement != null) {
-				if (!GOT.proxy.isSingleplayer()) {
-					EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+				if (!GOT.getProxy().isSingleplayer()) {
+					EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
 					GOTLevelData.getData(entityplayer).addAchievement(achievement);
 				}
 				if (packet.display) {
-					GOT.proxy.queueAchievement(achievement);
+					GOT.getProxy().queueAchievement(achievement);
 				}
 			}
 			return null;

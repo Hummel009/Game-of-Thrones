@@ -47,11 +47,11 @@ public class GOTPacketTraderInteract implements IMessage {
 					livingTrader.npcTalkTick = livingTrader.getNPCTalkInterval();
 					closeScreen = livingTrader.interactFirst(entityplayer);
 				} else if (action == 1 && tradeableTrader.canTradeWith(entityplayer)) {
-					entityplayer.openGui(GOT.instance, 3, world, livingTrader.getEntityId(), 0, 0);
+					entityplayer.openGui(GOT.getInstance(), 3, world, livingTrader.getEntityId(), 0, 0);
 				} else if (action == 2 && tradeableTrader.canTradeWith(entityplayer)) {
-					entityplayer.openGui(GOT.instance, 35, world, livingTrader.getEntityId(), 0, 0);
+					entityplayer.openGui(GOT.getInstance(), 35, world, livingTrader.getEntityId(), 0, 0);
 				} else if (action == 3 && tradeableTrader.canTradeWith(entityplayer) && tradeableTrader instanceof GOTTradeable.Smith) {
-					entityplayer.openGui(GOT.instance, 54, world, livingTrader.getEntityId(), 0, 0);
+					entityplayer.openGui(GOT.getInstance(), 54, world, livingTrader.getEntityId(), 0, 0);
 				}
 				if (closeScreen) {
 					entityplayer.closeScreen();

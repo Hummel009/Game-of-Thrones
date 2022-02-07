@@ -90,7 +90,7 @@ public class GOTControllerGrabble {
 			if (entity == null || entity.isDead) {
 				unattach();
 			} else {
-				GOT.proxy.getplayermovement(this, entityId);
+				GOT.getProxy().getplayermovement(this, entityId);
 				updatePlayerPos();
 			}
 		}
@@ -179,7 +179,7 @@ public class GOTControllerGrabble {
 		} else if (ongroundtimer > 0) {
 			ongroundtimer--;
 		}
-		if (ongroundtimer > 0 && !GOT.proxy.isSneaking(entity)) {
+		if (ongroundtimer > 0 && !GOT.getProxy().isSneaking(entity)) {
 			motion = GOTVec.motionvec(entity);
 		}
 	}
@@ -248,7 +248,7 @@ public class GOTControllerGrabble {
 					this.dojump(player, spherevec);
 					return;
 				}
-				if (GOT.proxy.isSneaking(entity)) {
+				if (GOT.getProxy().isSneaking(entity)) {
 					if (arrowpos.y > playerpos.y) {
 
 						GOTVec motiontorwards = spherevec.changelen(-0.1);

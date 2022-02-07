@@ -38,7 +38,7 @@ public class GOTPacketNPCIsOfferingQuest implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketNPCIsOfferingQuest, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketNPCIsOfferingQuest packet, MessageContext context) {
-			World world = GOT.proxy.getClientWorld();
+			World world = GOT.getProxy().getClientWorld();
 			Entity entity = world.getEntityByID(packet.entityID);
 			if (entity instanceof GOTEntityNPC) {
 				((GOTEntityNPC) entity).questInfo.receiveData(packet);

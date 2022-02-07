@@ -36,7 +36,7 @@ public class GOTPacketBiomeVariantsUnwatch implements IMessage {
 		public IMessage onMessage(GOTPacketBiomeVariantsUnwatch packet, MessageContext context) {
 			int chunkX;
 			int chunkZ;
-			World world = GOT.proxy.getClientWorld();
+			World world = GOT.getProxy().getClientWorld();
 			if (world.blockExists((chunkX = packet.chunkX) << 4, 0, (chunkZ = packet.chunkZ) << 4)) {
 				GOTBiomeVariantStorage.clearChunkBiomeVariants(world, new ChunkCoordIntPair(chunkX, chunkZ));
 			} else {

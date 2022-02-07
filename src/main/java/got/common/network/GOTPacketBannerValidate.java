@@ -48,11 +48,11 @@ public class GOTPacketBannerValidate implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketBannerValidate, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketBannerValidate packet, MessageContext context) {
-			World world = GOT.proxy.getClientWorld();
+			World world = GOT.getProxy().getClientWorld();
 			Entity entity = world.getEntityByID(packet.entityID);
 			if (entity instanceof GOTEntityBanner) {
 				GOTEntityBanner banner = (GOTEntityBanner) entity;
-				GOT.proxy.validateBannerUsername(banner, packet.slot, packet.prevText, packet.valid);
+				GOT.getProxy().validateBannerUsername(banner, packet.slot, packet.prevText, packet.valid);
 			}
 			return null;
 		}

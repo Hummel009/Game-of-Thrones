@@ -48,7 +48,7 @@ public class GOTBlockLeaves1 extends GOTBlockLeavesBase {
 			double d3 = -0.1 + random.nextFloat() * 0.2f;
 			double d4 = -0.03 - random.nextFloat() * 0.02f;
 			double d5 = -0.1 + random.nextFloat() * 0.2f;
-			GOT.proxy.spawnParticle(s, d, d1, d2, d3, d4, d5);
+			GOT.getProxy().spawnParticle(s, d, d1, d2, d3, d4, d5);
 		}
 	}
 }

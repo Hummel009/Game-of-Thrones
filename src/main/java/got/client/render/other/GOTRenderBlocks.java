@@ -570,63 +570,63 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 
 	@Override
 	public void renderInventoryBlock(Block block, int meta, int id, RenderBlocks renderblocks) {
-		if (id == GOT.proxy.getBeaconRenderID()) {
+		if (id == GOT.getProxy().getBeaconRenderID()) {
 			((GOTRenderBeacon) TileEntityRendererDispatcher.instance.getSpecialRendererByClass(GOTTileEntityBeacon.class)).renderInvBeacon();
 		}
-		if (id == GOT.proxy.getBarrelRenderID()) {
+		if (id == GOT.getProxy().getBarrelRenderID()) {
 			renderInvBarrel(block, renderblocks);
 		}
-		if (id == GOT.proxy.getBombRenderID()) {
+		if (id == GOT.getProxy().getBombRenderID()) {
 			renderInvBomb(block, meta, renderblocks);
 		}
-		if (id == GOT.proxy.getStalactiteRenderID()) {
+		if (id == GOT.getProxy().getStalactiteRenderID()) {
 			renderInvStalactite(block, meta, renderblocks);
 		}
-		if (id == GOT.proxy.getPlantainRenderID()) {
+		if (id == GOT.getProxy().getPlantainRenderID()) {
 			GOTRenderBlocks.renderInvPlantain(block, renderblocks, meta == 1 ? 4 : 3);
 		}
-		if (id == GOT.proxy.getCloverRenderID()) {
+		if (id == GOT.getProxy().getCloverRenderID()) {
 			GOTRenderBlocks.renderInvClover(block, renderblocks, meta == 1 ? 4 : 3);
 		}
-		if (id == GOT.proxy.getFenceRenderID()) {
+		if (id == GOT.getProxy().getFenceRenderID()) {
 			renderInvFence(block, meta, renderblocks);
 		}
-		if (id == GOT.proxy.getCommandTableRenderID()) {
+		if (id == GOT.getProxy().getCommandTableRenderID()) {
 			renderInvCommandTable(block, renderblocks);
 			((GOTRenderCommandTable) TileEntityRendererDispatcher.instance.getSpecialRendererByClass(GOTTileEntityCommandTable.class)).renderInvTable();
 		}
-		if (id == GOT.proxy.getButterflyJarRenderID()) {
+		if (id == GOT.getProxy().getButterflyJarRenderID()) {
 			renderInvButterflyJar(block, renderblocks);
 		}
-		if (id == GOT.proxy.getUnsmelteryRenderID()) {
+		if (id == GOT.getProxy().getUnsmelteryRenderID()) {
 			((GOTRenderUnsmeltery) TileEntityRendererDispatcher.instance.getSpecialRendererByClass(GOTTileEntityUnsmeltery.class)).renderInvUnsmeltery();
 		}
-		if (id == GOT.proxy.getChestRenderID()) {
+		if (id == GOT.getProxy().getChestRenderID()) {
 			((GOTRenderChest) TileEntityRendererDispatcher.instance.getSpecialRendererByClass(GOTTileEntityChest.class)).renderInvChest(block, meta);
 		}
-		if (id == GOT.proxy.getWasteRenderID()) {
+		if (id == GOT.getProxy().getWasteRenderID()) {
 			GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, meta);
 		}
-		if (id == GOT.proxy.getBeamRenderID()) {
+		if (id == GOT.getProxy().getBeamRenderID()) {
 			GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, meta);
 		}
-		if (id == GOT.proxy.getTreasureRenderID()) {
+		if (id == GOT.getProxy().getTreasureRenderID()) {
 			GOTBlockTreasurePile.setTreasureBlockBounds(block, meta);
 			renderblocks.setRenderBoundsFromBlock(block);
 			renderblocks.lockBlockBounds = true;
 			GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, meta);
 			renderblocks.unlockBlockBounds();
 		}
-		if (id == GOT.proxy.getBirdCageRenderID()) {
+		if (id == GOT.getProxy().getBirdCageRenderID()) {
 			renderInvBirdCage(block, renderblocks, meta);
 		}
-		if (id == GOT.proxy.getWildFireJarRenderID()) {
+		if (id == GOT.getProxy().getWildFireJarRenderID()) {
 			renderInvWildFireJar(block, renderblocks, meta);
 		}
-		if (id == GOT.proxy.getCoralRenderID()) {
+		if (id == GOT.getProxy().getCoralRenderID()) {
 			GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, meta);
 		}
-		if (id == GOT.proxy.getTrapdoorRenderID()) {
+		if (id == GOT.getProxy().getTrapdoorRenderID()) {
 			GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, meta);
 		}
 	}
@@ -1009,133 +1009,133 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int i, int j, int k, Block block, int id, RenderBlocks renderblocks) {
 		boolean fancyGraphics = Minecraft.getMinecraft().gameSettings.fancyGraphics;
-		if (id == GOT.proxy.getBeaconRenderID()) {
+		if (id == GOT.getProxy().getBeaconRenderID()) {
 			renderBeacon(world, i, j, k, renderblocks);
 			return true;
 		}
-		if (id == GOT.proxy.getBarrelRenderID()) {
+		if (id == GOT.getProxy().getBarrelRenderID()) {
 			renderBarrel(world, i, j, k, block, renderblocks);
 			return true;
 		}
-		if (id == GOT.proxy.getBombRenderID()) {
+		if (id == GOT.getProxy().getBombRenderID()) {
 			renderOrcBomb(world, i, j, k, block, renderblocks);
 			return true;
 		}
-		if (id == GOT.proxy.getDoubleTorchRenderID()) {
+		if (id == GOT.getProxy().getDoubleTorchRenderID()) {
 			renderDoubleTorch(world, i, j, k, block, renderblocks);
 			return true;
 		}
-		if (id == GOT.proxy.getPlateRenderID()) {
+		if (id == GOT.getProxy().getPlateRenderID()) {
 			renderPlate(world, i, j, k, block, renderblocks);
 			return true;
 		}
-		if (id == GOT.proxy.getStalactiteRenderID()) {
+		if (id == GOT.getProxy().getStalactiteRenderID()) {
 			renderStalactite(world, i, j, k, block, renderblocks);
 			return true;
 		}
-		if (id == GOT.proxy.getFlowerPotRenderID()) {
+		if (id == GOT.getProxy().getFlowerPotRenderID()) {
 			renderFlowerPot(world, i, j, k, block, renderblocks);
 			return true;
 		}
-		if (id == GOT.proxy.getPlantainRenderID()) {
+		if (id == GOT.getProxy().getPlantainRenderID()) {
 			GOTRenderBlocks.renderPlantain(world, i, j, k, block, renderblocks, world.getBlockMetadata(i, j, k) == 1 ? 4 : 3, true);
 			return true;
 		}
-		if (id == GOT.proxy.getCloverRenderID()) {
+		if (id == GOT.getProxy().getCloverRenderID()) {
 			GOTRenderBlocks.renderClover(world, i, j, k, block, renderblocks, world.getBlockMetadata(i, j, k) == 1 ? 4 : 3, true);
 			return true;
 		}
-		if (id == GOT.proxy.getFenceRenderID()) {
+		if (id == GOT.getProxy().getFenceRenderID()) {
 			return renderblocks.renderBlockFence((BlockFence) block, i, j, k);
 		}
-		if (id == GOT.proxy.getGrassRenderID()) {
+		if (id == GOT.getProxy().getGrassRenderID()) {
 			GOTRenderBlocks.renderGrass(world, i, j, k, block, renderblocks, true);
 			return true;
 		}
-		if (id == GOT.proxy.getFallenLeavesRenderID()) {
+		if (id == GOT.getProxy().getFallenLeavesRenderID()) {
 			if (fancyGraphics) {
 				renderFallenLeaves(world, i, j, k, block, renderblocks, new int[] { 6, 10 }, new int[] { 2, 6 }, new int[] { 2, 6 }, 0.7f);
 				return true;
 			}
 			return renderblocks.renderStandardBlock(block, i, j, k);
 		}
-		if (id == GOT.proxy.getCommandTableRenderID()) {
+		if (id == GOT.getProxy().getCommandTableRenderID()) {
 			renderCommandTable(world, i, j, k, block, renderblocks);
 			return true;
 		}
-		if (id == GOT.proxy.getButterflyJarRenderID()) {
+		if (id == GOT.getProxy().getButterflyJarRenderID()) {
 			renderButterflyJar(world, i, j, k, block, renderblocks);
 			return true;
 		}
-		if (id == GOT.proxy.getUnsmelteryRenderID() || id == GOT.proxy.getChestRenderID()) {
+		if (id == GOT.getProxy().getUnsmelteryRenderID() || id == GOT.getProxy().getChestRenderID()) {
 			return true;
 		}
-		if (id == GOT.proxy.getReedsRenderID()) {
+		if (id == GOT.getProxy().getReedsRenderID()) {
 			renderReeds(world, i, j, k, block, renderblocks);
 			return true;
 		}
-		if (id == GOT.proxy.getWasteRenderID()) {
+		if (id == GOT.getProxy().getWasteRenderID()) {
 			renderBlockRandomRotated(world, i, j, k, block, renderblocks, true);
 			return true;
 		}
-		if (id == GOT.proxy.getBeamRenderID()) {
+		if (id == GOT.getProxy().getBeamRenderID()) {
 			renderBeam(world, i, j, k, block, renderblocks);
 			return true;
 		}
-		if (id == GOT.proxy.getVCauldronRenderID()) {
+		if (id == GOT.getProxy().getVCauldronRenderID()) {
 			renderVanillaCauldron(world, i, j, k, block, renderblocks);
 			return true;
 		}
-		if (id == GOT.proxy.getGrapevineRenderID()) {
+		if (id == GOT.getProxy().getGrapevineRenderID()) {
 			renderGrapevine(world, i, j, k, block, renderblocks);
 			return true;
 		}
-		if (id == GOT.proxy.getThatchFloorRenderID()) {
+		if (id == GOT.getProxy().getThatchFloorRenderID()) {
 			if (fancyGraphics) {
 				renderFallenLeaves(world, i, j, k, block, renderblocks, new int[] { 10, 16 }, new int[] { 6, 12 }, new int[] { 1, 1 }, 1.0f);
 				return true;
 			}
 			return renderblocks.renderStandardBlock(block, i, j, k);
 		}
-		if (id == GOT.proxy.getTreasureRenderID()) {
+		if (id == GOT.getProxy().getTreasureRenderID()) {
 			renderBlockRandomRotated(world, i, j, k, block, renderblocks, false);
 			return true;
 		}
-		if (id == GOT.proxy.getFlowerRenderID()) {
+		if (id == GOT.getProxy().getFlowerRenderID()) {
 			renderFlowerBlock(world, i, j, k, block, renderblocks);
 			return true;
 		}
-		if (id == GOT.proxy.getDoublePlantRenderID()) {
+		if (id == GOT.getProxy().getDoublePlantRenderID()) {
 			renderDoublePlant(world, i, j, k, (BlockDoublePlant) block, renderblocks);
 			return true;
 		}
-		if (id == GOT.proxy.getBirdCageRenderID()) {
+		if (id == GOT.getProxy().getBirdCageRenderID()) {
 			renderBirdCage(world, i, j, k, block, renderblocks);
 			return true;
 		}
-		if (id == GOT.proxy.getWildFireJarRenderID()) {
+		if (id == GOT.getProxy().getWildFireJarRenderID()) {
 			renderWildFireJar(world, i, j, k, block, renderblocks);
 			return true;
 		}
-		if (id == GOT.proxy.getCoralRenderID()) {
+		if (id == GOT.getProxy().getCoralRenderID()) {
 			renderCoral(world, i, j, k, block, renderblocks);
 			return true;
 		}
-		if (id == GOT.proxy.getDoorRenderID()) {
+		if (id == GOT.getProxy().getDoorRenderID()) {
 			return renderDoor(world, i, j, k, block, renderblocks);
 		}
-		if (id == GOT.proxy.getRopeRenderID()) {
+		if (id == GOT.getProxy().getRopeRenderID()) {
 			renderRope(world, i, j, k, block, renderblocks);
 			return true;
 		}
-		if (id == GOT.proxy.getChainRenderID()) {
+		if (id == GOT.getProxy().getChainRenderID()) {
 			IIcon icon = renderblocks.getIconSafe(block.getIcon(world, i, j, k, 0));
 			renderblocks.setOverrideBlockTexture(icon);
 			boolean flag = renderblocks.renderCrossedSquares(block, i, j, k);
 			renderblocks.clearOverrideBlockTexture();
 			return flag;
 		}
-		if (id == GOT.proxy.getTrapdoorRenderID()) {
+		if (id == GOT.getProxy().getTrapdoorRenderID()) {
 			renderTrapdoor(world, i, j, k, block, renderblocks);
 			return true;
 		}

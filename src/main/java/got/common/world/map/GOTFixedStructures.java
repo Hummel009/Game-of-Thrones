@@ -78,7 +78,7 @@ public enum GOTFixedStructures {
 		if (!GOTConfig.generateMapFeatures) {
 			return false;
 		}
-		return world.getWorldInfo().getTerrainType() != GOT.worldTypeGOTClassic;
+		return world.getWorldInfo().getTerrainType() != GOT.getWorldTypeGOTClassic();
 	}
 
 	public static boolean structureNear(World world, int x, int z, int range) {

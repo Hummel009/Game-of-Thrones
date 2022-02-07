@@ -87,7 +87,7 @@ public class GOTBlockChain extends Block {
 
 	@Override
 	public int getRenderType() {
-		return GOT.proxy.getChainRenderID();
+		return GOT.getProxy().getChainRenderID();
 	}
 
 	@Override
