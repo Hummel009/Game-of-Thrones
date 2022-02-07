@@ -12,6 +12,7 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.biome.sothoryos.GOTBiomeSothoryosJungle;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
+import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.item.EntityItem;
@@ -432,26 +433,34 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		} else {
 			if (canStealItems() && !stealingCrops && stealTargetItem == null && stealTargetPlayer == null && !birdInv.isFull() && rand.nextInt(100) == 0) {
 				double range = 16.0;
-				List players = worldObj.selectEntitiesWithinAABB(EntityPlayer.class, boundingBox.expand(range, range, range), e -> {
-					EntityPlayer entityplayer;
-					if (e instanceof EntityPlayer && GOTEntityBird.this.canStealPlayer(entityplayer = (EntityPlayer) e)) {
-						ChunkCoordinates coords = GOTEntityBird.this.getPlayerFlightTarget(entityplayer);
-						return GOTEntityBird.this.isValidFlightTarget(coords);
+				List players = worldObj.selectEntitiesWithinAABB(EntityPlayer.class, boundingBox.expand(range, range, range), new IEntitySelector() {
+
+					@Override
+					public boolean isEntityApplicable(Entity e) {
+						EntityPlayer entityplayer;
+						if (e instanceof EntityPlayer && GOTEntityBird.this.canStealPlayer(entityplayer = (EntityPlayer) e)) {
+							ChunkCoordinates coords = GOTEntityBird.this.getPlayerFlightTarget(entityplayer);
+							return GOTEntityBird.this.isValidFlightTarget(coords);
+						}
+						return false;
 					}
-					return false;
 				});
 				if (!players.isEmpty()) {
 					stealTargetPlayer = (EntityPlayer) players.get(rand.nextInt(players.size()));
 					currentFlightTarget = getPlayerFlightTarget(stealTargetPlayer);
 					newFlight();
 				} else {
-					List entityItems = worldObj.selectEntitiesWithinAABB(EntityItem.class, boundingBox.expand(range, range, range), e -> {
-						EntityItem eItem;
-						if (e instanceof EntityItem && GOTEntityBird.this.canStealItem(eItem = (EntityItem) e)) {
-							ChunkCoordinates coords = GOTEntityBird.this.getItemFlightTarget(eItem);
-							return GOTEntityBird.this.isValidFlightTarget(coords);
+					List entityItems = worldObj.selectEntitiesWithinAABB(EntityItem.class, boundingBox.expand(range, range, range), new IEntitySelector() {
+
+						@Override
+						public boolean isEntityApplicable(Entity e) {
+							EntityItem eItem;
+							if (e instanceof EntityItem && GOTEntityBird.this.canStealItem(eItem = (EntityItem) e)) {
+								ChunkCoordinates coords = GOTEntityBird.this.getItemFlightTarget(eItem);
+								return GOTEntityBird.this.isValidFlightTarget(coords);
+							}
+							return false;
 						}
-						return false;
 					});
 					if (!entityItems.isEmpty()) {
 						stealTargetItem = (EntityItem) entityItems.get(rand.nextInt(entityItems.size()));

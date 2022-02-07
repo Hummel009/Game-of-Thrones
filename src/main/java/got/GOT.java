@@ -468,8 +468,15 @@ public class GOT {
 	}
 
 	public static IEntitySelector selectNonCreativePlayers() {
-		return entity -> entity instanceof EntityPlayer && entity.isEntityAlive() && !((EntityPlayer) entity).capabilities.isCreativeMode;
+		return new IEntitySelector() {
+
+			@Override
+			public boolean isEntityApplicable(Entity entity) {
+				return entity instanceof EntityPlayer && entity.isEntityAlive() && !((EntityPlayer) entity).capabilities.isCreativeMode;
+			}
+		};
 	}
+
 
 	public static void transferEntityToDimension(Entity entity, int newDimension, Teleporter teleporter) {
 		if (entity instanceof GOTEntityPortal) {

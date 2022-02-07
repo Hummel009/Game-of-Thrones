@@ -1149,12 +1149,16 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 					worldObj.playSoundAtEntity(this, getAttackSound(), getSoundVolume(), getSoundPitch());
 				}
 				if (target instanceof EntityPlayer && speak && (speechBank = getSpeechBank(entityplayer = (EntityPlayer) target)) != null) {
-					IEntitySelector selectorAttackingNPCs = entity -> {
-						if (entity instanceof GOTEntityNPC) {
-							GOTEntityNPC npc = (GOTEntityNPC) entity;
-							return npc.isAIEnabled() && npc.isEntityAlive() && npc.getAttackTarget() == entityplayer;
+					IEntitySelector selectorAttackingNPCs = new IEntitySelector() {
+
+						@Override
+						public boolean isEntityApplicable(Entity entity) {
+							if (entity instanceof GOTEntityNPC) {
+								GOTEntityNPC npc = (GOTEntityNPC) entity;
+								return npc.isAIEnabled() && npc.isEntityAlive() && npc.getAttackTarget() == entityplayer;
+							}
+							return false;
 						}
-						return false;
 					};
 					double range = 16.0;
 					List nearbyMobs = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(range, range, range), selectorAttackingNPCs);
@@ -1381,9 +1385,13 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			nearbyBannerFactor = 0;
 		} else {
 			double range = 16.0;
-			List bannerBearers = worldObj.selectEntitiesWithinAABB(GOTBannerBearer.class, boundingBox.expand(range, range, range), entity -> {
-				EntityLivingBase living = (EntityLivingBase) entity;
-				return living != GOTEntityNPC.this && living.isEntityAlive() && GOT.getNPCFaction(living) == GOTEntityNPC.this.getFaction();
+			List bannerBearers = worldObj.selectEntitiesWithinAABB(GOTBannerBearer.class, boundingBox.expand(range, range, range), new IEntitySelector() {
+
+				@Override
+				public boolean isEntityApplicable(Entity entity) {
+					EntityLivingBase living = (EntityLivingBase) entity;
+					return living != GOTEntityNPC.this && living.isEntityAlive() && GOT.getNPCFaction(living) == GOTEntityNPC.this.getFaction();
+				}
 			});
 			nearbyBannerFactor = Math.min(bannerBearers.size(), 5);
 		}
