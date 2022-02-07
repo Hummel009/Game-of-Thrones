@@ -371,7 +371,7 @@ public class GOTTickHandlerClient {
 						if (entityplayer == null || world == null) {
 							break block75;
 						}
-						if (GOTConfig.checkUpdates) {
+						if (GOTConfig.checkUpdates && !GOT.isDevMode) {
 							GOTVersionChecker.checkForUpdates();
 						}
 						if (isGamePaused(minecraft)) {

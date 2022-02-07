@@ -908,7 +908,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 	}
 
 	public static void generateWikiaDatabases() throws NoSuchFieldException, IllegalAccessException {
-		String display = "blocks";
+		String display = "null";
 		if ("chest".equals(display)) {
 			for (GOTChestContents content : GOTCommander.getObjectFieldsOfType(GOTChestContents.class, GOTChestContents.class)) {
 				GOTLog.logger.info(content + " = ");
