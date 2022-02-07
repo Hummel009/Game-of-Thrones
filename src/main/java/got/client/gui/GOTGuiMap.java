@@ -47,26 +47,17 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	private static int mapYMin;
 	private static int mapYMax;
 	private static int mapYMax_W;
-	private static List<GOTGuiMapWidget> mapWidgets;
-	private static int zoomPower;
-	private static int zoomTicksMax;
-	private static boolean showWP;
-	private static boolean showCWP;
-	private static boolean showHiddenSWP;
+	private static List<GOTGuiMapWidget> mapWidgets = new ArrayList<>();
+	private static int zoomPower = 0;
+	private static int zoomTicksMax = 6;
+	private static boolean showWP = true;
+	private static boolean showCWP = true;
+	private static boolean showHiddenSWP = false;
 	private static int maxDisplayedWPShares;
 	private static GOTDimension.DimensionRegion currentRegion;
 	private static GOTDimension.DimensionRegion prevRegion;
 	private static List<GOTFaction> currentFactionList;
-	private static Map<GOTDimension.DimensionRegion, GOTFaction> lastViewedRegions;
-	static {
-		mapWidgets = new ArrayList<>();
-		zoomPower = 0;
-		zoomTicksMax = 6;
-		setShowWP(true);
-		setShowCWP(true);
-		setShowHiddenSWP(false);
-		lastViewedRegions = new HashMap<>();
-	}
+	private static Map<GOTDimension.DimensionRegion, GOTFaction> lastViewedRegions = new HashMap<>();
 	private GOTGuiMapWidget widgetAddCWP;
 	private GOTGuiMapWidget widgetDelCWP;
 	private GOTGuiMapWidget widgetRenameCWP;

@@ -29,18 +29,10 @@ public class GOTMusic implements IResourceManagerReloadListener {
 	private static File musicDir;
 	private static String jsonFilename = "music.json";
 	private static String musicResourcePath = "musicpacks";
-	private static List<GOTMusicTrack> allTracks;
-	private static Map<GOTBiomeMusic.MusicRegion, GOTRegionTrackPool> regionTracks;
-	private static boolean initSubregions;
-	private static Random musicRand;
-
-	static {
-		new GOTMusicResourceManager();
-		allTracks = new ArrayList<>();
-		regionTracks = new HashMap<>();
-		initSubregions = false;
-		musicRand = new Random();
-	}
+	private static List<GOTMusicTrack> allTracks = new ArrayList<>();
+	private static Map<GOTBiomeMusic.MusicRegion, GOTRegionTrackPool> regionTracks = new HashMap<>();
+	private static boolean initSubregions = false;
+	private static Random musicRand = new Random();
 
 	public GOTMusic() {
 		((IReloadableResourceManager) Minecraft.getMinecraft().getResourceManager()).registerReloadListener(this);
@@ -163,7 +155,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 			for (JsonElement e : rootArray) {
 				JsonObject trackData = e.getAsJsonObject();
 				String filename = trackData.get("file").getAsString();
-				ZipEntry trackEntry = zip.getEntry("assets/musicpacks/" + filename);
+				ZipEntry trackEntry = zip.getEntry("assets/gotmusic/" + filename);
 				if (trackEntry == null) {
 					GOTLog.logger.warn("Hummel009: Track " + filename + " in pack " + zip.getName() + " does not exist!");
 					continue;

@@ -66,7 +66,7 @@ public class GOTTickHandlerClient {
 	public static HashMap playersInPortals = new HashMap();
 	public static int clientTick;
 	public static float renderTick;
-	public static GOTInvasionStatus watchedInvasion;
+	public static GOTInvasionStatus watchedInvasion = new GOTInvasionStatus();
 	public static int mistTickMax = 80;
 	public static int alignmentYOffscreen = -20;
 	public static GOTGuiNotificationDisplay notificationDisplay;
@@ -77,14 +77,10 @@ public class GOTTickHandlerClient {
 	public static int wightLookTickMax = 100;
 	public static boolean anyWightsViewed;
 	public static int wightNearTickMax = 100;
-	public static int scrapTraderMisbehaveTick;
+	public static int scrapTraderMisbehaveTick = 0;
 	public static int musicTrackTickMax = 200;
 	public static int musicTrackTickFadeTime = 60;
 	public static boolean renderMenuPrompt = false;
-	static {
-		watchedInvasion = new GOTInvasionStatus();
-		scrapTraderMisbehaveTick = 0;
-	}
 	public int bannerRepossessDisplayTick;
 	public GOTAmbience ambienceTicker;
 	public GuiScreen lastGuiOpen;

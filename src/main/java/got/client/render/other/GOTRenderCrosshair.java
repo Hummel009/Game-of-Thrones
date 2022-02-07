@@ -6,7 +6,7 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraftforge.common.MinecraftForge;
 
 public class GOTRenderCrosshair {
-	float zLevel = -90.0F;
+	public float zLevel = -90.0F;
 
 	public GOTRenderCrosshair() {
 		FMLCommonHandler.instance().bus().register(this);

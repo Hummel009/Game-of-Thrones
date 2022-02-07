@@ -292,9 +292,6 @@ public class GOTConnectedTextures {
 		private static Map<Integer, Set<IconElement>> allCombos;
 		private static Comparator<IconElement> comparator;
 		static {
-			EnumSet.of(SIDE_LEFT, SIDE_RIGHT, SIDE_TOP, SIDE_BOTTOM);
-			EnumSet.of(CORNER_TOPLEFT, CORNER_TOPRIGHT, CORNER_BOTTOMLEFT, CORNER_BOTTOMRIGHT);
-			EnumSet.of(INVCORNER_TOPLEFT, INVCORNER_TOPRIGHT, INVCORNER_BOTTOMLEFT, INVCORNER_BOTTOMRIGHT);
 			allCombos = new HashMap<>();
 			ArrayList<Set<IconElement>> permutations = new ArrayList<>();
 			boolean[] trueOrFalse = { false, true };

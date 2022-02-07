@@ -52,7 +52,7 @@ public class GOTRenderCompass extends Render {
 		return compassTexture;
 	}
 
-	public static void setRingTexture(ResourceLocation compassTexture) {
+	public static void setCompassTexture(ResourceLocation compassTexture) {
 		GOTRenderCompass.compassTexture = compassTexture;
 	}
 }

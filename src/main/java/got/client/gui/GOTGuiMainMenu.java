@@ -20,20 +20,14 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 	private static ResourceLocation menuOverlay = new ResourceLocation("got:textures/gui/menu_overlay.png");
 	private static GOTGuiRendererMap mapRenderer;
 	private static int tickCounter;
-	private static Random rand;
-	private static boolean isFirstMenu;
-	private static List<GOTWaypoint> waypointRoute;
+	private static Random rand = new Random();
+	private static boolean isFirstMenu = true;
+	private static List<GOTWaypoint> waypointRoute = new ArrayList<>();
 	private static int currentWPIndex;
-	private static boolean randomWPStart;
+	private static boolean randomWPStart  = false;
 	private static float mapSpeed;
 	private static float mapVelX;
 	private static float mapVelY;
-	static {
-		rand = new Random();
-		isFirstMenu = true;
-		waypointRoute = new ArrayList<>();
-		randomWPStart = false;
-	}
 	private GOTGuiMap mapGui;
 	private boolean fadeIn = isFirstMenu;
 	private long firstRenderTime;

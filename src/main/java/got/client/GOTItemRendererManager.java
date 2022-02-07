@@ -18,11 +18,7 @@ import net.minecraftforge.common.MinecraftForge;
 
 public class GOTItemRendererManager implements IResourceManagerReloadListener {
 	public static GOTItemRendererManager INSTANCE;
-	public static List<GOTRenderLargeItem> largeItemRenderers;
-
-	static {
-		largeItemRenderers = new ArrayList<>();
-	}
+	public static List<GOTRenderLargeItem> largeItemRenderers = new ArrayList<>();
 
 	@Override
 	public void onResourceManagerReload(IResourceManager resourceManager) {

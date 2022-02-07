@@ -57,18 +57,12 @@ public class GOTClientProxy extends GOTCommonProxy {
 	public static int TESSELLATOR_MAX_BRIGHTNESS = 15728880;
 	public static int FONTRENDERER_ALPHA_MIN = 4;
 	public static GOTEffectRenderer customEffectRenderer;
-	public static GOTRenderPlayer specialPlayerRenderer;
-	public static GOTSwingHandler swingHandler;
-	public static GOTTickHandlerClient tickHandler;
+	public static GOTRenderPlayer specialPlayerRenderer = new GOTRenderPlayer();
+	public static GOTSwingHandler swingHandler = new GOTSwingHandler();
+	public static GOTTickHandlerClient tickHandler = new GOTTickHandlerClient();
 	public static GOTKeyHandler keyHandler;
-	public static GOTGuiHandler guiHandler;
+	public static GOTGuiHandler guiHandler = new GOTGuiHandler();
 	public static GOTMusic musicHandler;
-	static {
-		specialPlayerRenderer = new GOTRenderPlayer();
-		swingHandler = new GOTSwingHandler();
-		tickHandler = new GOTTickHandlerClient();
-		guiHandler = new GOTGuiHandler();
-	}
 	public static GOTRenderCrosshair crosshairrenderer;
 	public int beaconRenderID;
 	public int barrelRenderID;

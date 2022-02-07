@@ -18,9 +18,6 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 	private static ModelBiped playerModel = new ModelBiped();
 	private static int currentShieldTypeID;
 	private static int currentShieldID;
-	static {
-		GOTGuiShields.playerModel.isChild = false;
-	}
 	private int modelX;
 	private int modelY;
 	private float modelRotation = -140.0f;
@@ -107,6 +104,7 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 		GL11.glRotatef(-30.0f, 1.0f, 0.0f, 0.0f);
 		GL11.glRotatef(modelRotationPrev + (modelRotation - modelRotationPrev) * f, 0.0f, 1.0f, 0.0f);
 		mc.getTextureManager().bindTexture(mc.thePlayer.getLocationSkin());
+		playerModel.isChild = false;
 		playerModel.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
 		GOTRenderShield.renderShield(currentShield, null, playerModel);
 		GL11.glDisable(32826);

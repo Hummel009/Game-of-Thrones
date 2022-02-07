@@ -24,10 +24,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 	private static GOTDimension.DimensionRegion currentRegion;
 	private static GOTDimension.DimensionRegion prevRegion;
 	private static List<GOTFaction> currentFactionList;
-	private static Page currentPage;
-	static {
-		currentPage = Page.FRONT;
-	}
+	private static Page currentPage = Page.FRONT;
 	private int currentFactionIndex = 0;
 	private int prevFactionIndex = 0;
 	private GOTFaction currentFaction;

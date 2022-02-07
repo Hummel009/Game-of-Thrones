@@ -8,17 +8,12 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderDeer extends RenderLiving {
-	private static GOTRandomSkins elkSkins;
-	private static ResourceLocation saddleTexture;
-
-	static {
-		saddleTexture = new ResourceLocation("got:textures/entity/animal/elk/saddle.png");
-	}
+	private static GOTRandomSkins elkSkins = GOTRandomSkins.loadSkinsList("got:textures/entity/animal/elk/elk");
+	private static ResourceLocation saddleTexture = new ResourceLocation("got:textures/entity/animal/elk/saddle.png");
 
 	public GOTRenderDeer() {
 		super(new GOTModelDeer(), 0.5f);
 		setRenderPassModel(new GOTModelDeer(0.5f));
-		elkSkins = GOTRandomSkins.loadSkinsList("got:textures/entity/animal/elk/elk");
 	}
 
 	@Override
