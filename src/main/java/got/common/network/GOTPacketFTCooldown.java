@@ -5,8 +5,8 @@ import got.common.GOTLevelData;
 import io.netty.buffer.ByteBuf;
 
 public class GOTPacketFTCooldown implements IMessage {
-	private int cooldownMax;
-	private int cooldownMin;
+	public int cooldownMax;
+	public int cooldownMin;
 
 	public GOTPacketFTCooldown(int max, int min) {
 		cooldownMax = max;

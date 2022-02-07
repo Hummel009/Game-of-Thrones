@@ -9,8 +9,8 @@ import got.common.database.GOTShields;
 import io.netty.buffer.ByteBuf;
 
 public class GOTPacketShield implements IMessage {
-	private UUID player;
-	private GOTShields shield;
+	public UUID player;
+	public GOTShields shield;
 
 	public GOTPacketShield(UUID uuid) {
 		player = uuid;

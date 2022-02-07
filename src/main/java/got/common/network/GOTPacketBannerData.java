@@ -16,18 +16,18 @@ import net.minecraft.util.StringUtils;
 import net.minecraft.world.World;
 
 public class GOTPacketBannerData implements IMessage {
-	private int entityID;
-	private boolean openGui;
-	private boolean playerSpecificProtection;
-	private boolean selfProtection;
-	private boolean structureProtection;
-	private int customRange;
-	private float alignmentProtection;
-	private int whitelistLength;
-	private String[] whitelistSlots;
-	private int[] whitelistPerms;
-	private int defaultPerms;
-	private boolean thisPlayerHasPermission;
+	public int entityID;
+	public boolean openGui;
+	public boolean playerSpecificProtection;
+	public boolean selfProtection;
+	public boolean structureProtection;
+	public int customRange;
+	public float alignmentProtection;
+	public int whitelistLength;
+	public String[] whitelistSlots;
+	public int[] whitelistPerms;
+	public int defaultPerms;
+	public boolean thisPlayerHasPermission;
 
 	public GOTPacketBannerData(int id, boolean flag) {
 		entityID = id;

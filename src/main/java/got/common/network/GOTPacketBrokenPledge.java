@@ -8,9 +8,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketBrokenPledge implements IMessage {
-	private int cooldown;
-	private int cooldownStart;
-	private GOTFaction brokenFac;
+	public int cooldown;
+	public int cooldownStart;
+	public GOTFaction brokenFac;
 
 	public GOTPacketBrokenPledge(int cd, int start, GOTFaction f) {
 		cooldown = cd;

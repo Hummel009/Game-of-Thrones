@@ -11,7 +11,7 @@ import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 
 public class GOTPacketCreateCWP implements IMessage {
-	private String name;
+	public String name;
 
 	public GOTPacketCreateCWP(String s) {
 		name = s;

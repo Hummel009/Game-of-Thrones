@@ -7,7 +7,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 
 public class GOTPacketHornSelect implements IMessage {
-	private int hornType;
+	public int hornType;
 
 	public GOTPacketHornSelect(int h) {
 		hornType = h;

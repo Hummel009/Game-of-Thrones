@@ -19,7 +19,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 
 public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
-	private UUID fellowshipID;
+	public UUID fellowshipID;
 
 	public GOTPacketFellowshipPartialUpdate() {
 	}
@@ -42,7 +42,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	public abstract void updateClient(GOTFellowshipClient var1);
 
 	public static class AddMember extends OnePlayerUpdate {
-		private GOTTitle.PlayerTitle playerTitle;
+		public GOTTitle.PlayerTitle playerTitle;
 
 		public AddMember(GOTFellowship fs, UUID member) {
 			super(fs, member);
@@ -72,7 +72,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class ChangeIcon extends GOTPacketFellowshipPartialUpdate {
-		private ItemStack fellowshipIcon;
+		public ItemStack fellowshipIcon;
 
 		public ChangeIcon(GOTFellowship fs) {
 			super(fs);
@@ -117,7 +117,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 
 	}
 
-	private static abstract class Handler<P extends GOTPacketFellowshipPartialUpdate> implements IMessageHandler<P, IMessage> {
+	public static abstract class Handler<P extends GOTPacketFellowshipPartialUpdate> implements IMessageHandler<P, IMessage> {
 		@Override
 		public IMessage onMessage(P packet, MessageContext context) {
 			EntityPlayer entityplayer = GOT.getProxy().getClientPlayer();
@@ -132,13 +132,13 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 		}
 	}
 
-	private static abstract class OnePlayerUpdate extends GOTPacketFellowshipPartialUpdate {
-		private String playerName;
+	public static abstract class OnePlayerUpdate extends GOTPacketFellowshipPartialUpdate {
+		public String playerName;
 
-		private OnePlayerUpdate() {
+		public OnePlayerUpdate() {
 		}
 
-		private OnePlayerUpdate(GOTFellowship fs, UUID player) {
+		public OnePlayerUpdate(GOTFellowship fs, UUID player) {
 			super(fs);
 			setPlayerName(GOTPacketFellowship.getPlayerUsername(player));
 		}
@@ -169,7 +169,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class RemoveAdmin extends OnePlayerUpdate {
-		private boolean isAdminned;
+		public boolean isAdminned;
 
 		public RemoveAdmin(GOTFellowship fs, UUID admin, boolean adminned) {
 			super(fs, admin);
@@ -214,7 +214,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class Rename extends GOTPacketFellowshipPartialUpdate {
-		private String fellowshipName;
+		public String fellowshipName;
 
 		public Rename(GOTFellowship fs) {
 			super(fs);
@@ -248,7 +248,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class SetAdmin extends OnePlayerUpdate {
-		private boolean isAdminned;
+		public boolean isAdminned;
 
 		public SetAdmin(GOTFellowship fs, UUID admin, boolean adminned) {
 			super(fs, admin);
@@ -278,7 +278,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class SetOwner extends OnePlayerUpdate {
-		private boolean isOwned;
+		public boolean isOwned;
 
 		public SetOwner(GOTFellowship fs, UUID owner, boolean owned) {
 			super(fs, owner);
@@ -308,7 +308,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class ToggleHiredFriendlyFire extends GOTPacketFellowshipPartialUpdate {
-		private boolean preventHiredFF;
+		public boolean preventHiredFF;
 
 		public ToggleHiredFriendlyFire(GOTFellowship fs) {
 			super(fs);
@@ -338,7 +338,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class TogglePvp extends GOTPacketFellowshipPartialUpdate {
-		private boolean preventPVP;
+		public boolean preventPVP;
 
 		public TogglePvp(GOTFellowship fs) {
 			super(fs);
@@ -368,7 +368,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class ToggleShowMap extends GOTPacketFellowshipPartialUpdate {
-		private boolean showMapLocations;
+		public boolean showMapLocations;
 
 		public ToggleShowMap(GOTFellowship fs) {
 			super(fs);
@@ -398,7 +398,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class UpdatePlayerTitle extends OnePlayerUpdate {
-		private GOTTitle.PlayerTitle playerTitle;
+		public GOTTitle.PlayerTitle playerTitle;
 
 		public UpdatePlayerTitle(GOTFellowship fs, UUID player, GOTTitle.PlayerTitle title) {
 			super(fs, player);

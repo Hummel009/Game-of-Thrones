@@ -8,7 +8,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.EnumChatFormatting;
 
 public class GOTPacketSelectTitle implements IMessage {
-	private GOTTitle.PlayerTitle playerTitle;
+	public GOTTitle.PlayerTitle playerTitle;
 
 	public GOTPacketSelectTitle(GOTTitle.PlayerTitle t) {
 		playerTitle = t;

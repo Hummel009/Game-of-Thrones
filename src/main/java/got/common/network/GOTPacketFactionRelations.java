@@ -8,10 +8,10 @@ import got.common.faction.*;
 import io.netty.buffer.ByteBuf;
 
 public class GOTPacketFactionRelations implements IMessage {
-	private Type packetType;
-	private Map<GOTFactionRelations.FactionPair, GOTFactionRelations.Relation> fullMap;
-	private GOTFactionRelations.FactionPair singleKey;
-	private GOTFactionRelations.Relation singleRelation;
+	public Type packetType;
+	public Map<GOTFactionRelations.FactionPair, GOTFactionRelations.Relation> fullMap;
+	public GOTFactionRelations.FactionPair singleKey;
+	public GOTFactionRelations.Relation singleRelation;
 
 	@Override
 	public void fromBytes(ByteBuf data) {
@@ -104,10 +104,10 @@ public class GOTPacketFactionRelations implements IMessage {
 		}
 	}
 
-	private enum Type {
+	public enum Type {
 		FULL_MAP, RESET, ONE_ENTRY;
 
-		private static Type forID(int id) {
+		public static Type forID(int id) {
 			for (Type t : Type.values()) {
 				if (t.ordinal() != id) {
 					continue;

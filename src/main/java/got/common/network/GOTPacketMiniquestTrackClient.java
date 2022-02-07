@@ -9,7 +9,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketMiniquestTrackClient implements IMessage {
-	private UUID questID;
+	public UUID questID;
 
 	public GOTPacketMiniquestTrackClient(UUID uuid) {
 		questID = uuid;

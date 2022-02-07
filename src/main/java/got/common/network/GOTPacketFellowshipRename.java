@@ -9,7 +9,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketFellowshipRename extends GOTPacketFellowshipDo {
-	private String newName;
+	public String newName;
 
 	public GOTPacketFellowshipRename(GOTFellowshipClient fs, String name) {
 		super(fs);

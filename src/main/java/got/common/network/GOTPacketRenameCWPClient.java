@@ -12,9 +12,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketRenameCWPClient implements IMessage {
-	private int cwpID;
-	private String name;
-	private UUID sharingPlayer;
+	public int cwpID;
+	public String name;
+	public UUID sharingPlayer;
 
 	public GOTPacketRenameCWPClient(int id, String s) {
 		cwpID = id;

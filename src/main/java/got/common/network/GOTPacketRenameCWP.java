@@ -9,8 +9,8 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketRenameCWP implements IMessage {
-	private int wpID;
-	private String name;
+	public int wpID;
+	public String name;
 
 	public GOTPacketRenameCWP(GOTCustomWaypoint wp, String s) {
 		wpID = wp.getID();

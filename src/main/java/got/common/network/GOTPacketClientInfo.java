@@ -11,11 +11,11 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketClientInfo implements IMessage {
-	private GOTFaction viewingFaction;
-	private Map<GOTDimension.DimensionRegion, GOTFaction> changedRegionMap;
-	private boolean showWP;
-	private boolean showCWP;
-	private boolean showHiddenSWP;
+	public GOTFaction viewingFaction;
+	public Map<GOTDimension.DimensionRegion, GOTFaction> changedRegionMap;
+	public boolean showWP;
+	public boolean showCWP;
+	public boolean showHiddenSWP;
 
 	public GOTPacketClientInfo(GOTFaction f, Map<GOTDimension.DimensionRegion, GOTFaction> crMap, boolean w, boolean cw, boolean h) {
 		viewingFaction = f;

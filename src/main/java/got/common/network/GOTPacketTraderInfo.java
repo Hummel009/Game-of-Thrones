@@ -13,7 +13,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 
 public class GOTPacketTraderInfo implements IMessage {
-	private NBTTagCompound traderData;
+	public NBTTagCompound traderData;
 
 	public GOTPacketTraderInfo(NBTTagCompound nbt) {
 		setTraderData(nbt);

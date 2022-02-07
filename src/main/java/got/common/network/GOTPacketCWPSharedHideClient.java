@@ -9,9 +9,9 @@ import got.common.world.map.GOTCustomWaypoint;
 import io.netty.buffer.ByteBuf;
 
 public class GOTPacketCWPSharedHideClient implements IMessage {
-	private int cwpID;
-	private UUID sharingPlayer;
-	private boolean hideCWP;
+	public int cwpID;
+	public UUID sharingPlayer;
+	public boolean hideCWP;
 
 	public GOTPacketCWPSharedHideClient(int id, UUID player, boolean hide) {
 		cwpID = id;

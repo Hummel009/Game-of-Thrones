@@ -8,7 +8,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketSelectShield implements IMessage {
-	private GOTShields shield;
+	public GOTShields shield;
 
 	public GOTPacketSelectShield(GOTShields s) {
 		shield = s;

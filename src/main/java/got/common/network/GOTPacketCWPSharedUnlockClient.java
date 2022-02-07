@@ -9,8 +9,8 @@ import got.common.world.map.GOTCustomWaypoint;
 import io.netty.buffer.ByteBuf;
 
 public class GOTPacketCWPSharedUnlockClient implements IMessage {
-	private int cwpID;
-	private UUID sharingPlayer;
+	public int cwpID;
+	public UUID sharingPlayer;
 
 	public GOTPacketCWPSharedUnlockClient(int id, UUID player) {
 		cwpID = id;

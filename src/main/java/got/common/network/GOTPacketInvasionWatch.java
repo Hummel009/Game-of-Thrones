@@ -6,8 +6,8 @@ import got.common.entity.other.GOTEntityInvasionSpawner;
 import io.netty.buffer.ByteBuf;
 
 public class GOTPacketInvasionWatch implements IMessage {
-	private int invasionEntityID;
-	private boolean overrideAlreadyWatched;
+	public int invasionEntityID;
+	public boolean overrideAlreadyWatched;
 
 	public GOTPacketInvasionWatch(GOTEntityInvasionSpawner invasion, boolean override) {
 		invasionEntityID = invasion.getEntityId();

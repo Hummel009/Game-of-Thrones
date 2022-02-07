@@ -7,8 +7,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.passive.EntityHorse;
 
 public class GOTPacketCargocartUpdate implements IMessage {
-	private int pullingId;
-	private int cartId;
+	public int pullingId;
+	public int cartId;
 
 	public GOTPacketCargocartUpdate(int horseIn, int cartIn) {
 		pullingId = horseIn;

@@ -11,9 +11,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketMiniquestRemove implements IMessage {
-	private UUID questUUID;
-	private boolean wasCompleted;
-	private boolean addToCompleted;
+	public UUID questUUID;
+	public boolean wasCompleted;
+	public boolean addToCompleted;
 
 	public GOTPacketMiniquestRemove(GOTMiniQuest quest, boolean wc, boolean atc) {
 		questUUID = quest.getQuestUUID();

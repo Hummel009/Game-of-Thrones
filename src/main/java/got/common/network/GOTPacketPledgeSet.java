@@ -7,7 +7,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketPledgeSet implements IMessage {
-	private GOTFaction pledgeFac;
+	public GOTFaction pledgeFac;
 
 	public GOTPacketPledgeSet(GOTFaction f) {
 		pledgeFac = f;

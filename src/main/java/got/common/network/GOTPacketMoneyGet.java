@@ -13,7 +13,7 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.*;
 
 public class GOTPacketMoneyGet extends GOTPacketMoney implements IMessage {
-	private ItemStack item;
+	public ItemStack item;
 
 	public GOTPacketMoneyGet(ItemStack items) {
 		item = items;

@@ -11,7 +11,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 
 public class GOTPacketBrandingIron implements IMessage {
-	private String brandName;
+	public String brandName;
 
 	public GOTPacketBrandingIron(String s) {
 		brandName = s;

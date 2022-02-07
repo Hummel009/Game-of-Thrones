@@ -8,8 +8,8 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.World;
 
 public class GOTPacketMiniquestOfferClose implements IMessage {
-	private int npcID;
-	private boolean accept;
+	public int npcID;
+	public boolean accept;
 
 	public GOTPacketMiniquestOfferClose(int id, boolean flag) {
 		npcID = id;

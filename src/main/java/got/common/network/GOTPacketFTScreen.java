@@ -10,11 +10,11 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketFTScreen implements IMessage {
-	private boolean isCustom;
-	private int wpID;
-	private UUID sharingPlayer;
-	private int startX;
-	private int startZ;
+	public boolean isCustom;
+	public int wpID;
+	public UUID sharingPlayer;
+	public int startX;
+	public int startZ;
 
 	public GOTPacketFTScreen(GOTAbstractWaypoint wp, int x, int z) {
 		isCustom = wp instanceof GOTCustomWaypoint;

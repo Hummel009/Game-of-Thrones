@@ -6,8 +6,8 @@ import cpw.mods.fml.relauncher.Side;
 import net.minecraft.entity.Entity;
 
 public class GOTPacketHandler {
-	private static SimpleNetworkWrapper networkWrapper = NetworkRegistry.INSTANCE.newSimpleChannel("got_");
-	private static int id = 0;
+	public static SimpleNetworkWrapper networkWrapper = NetworkRegistry.INSTANCE.newSimpleChannel("got_");
+	public static int id = 0;
 
 	public GOTPacketHandler() {
 		getNetworkWrapper().registerMessage(GOTPacketAchievement.Handler.class, GOTPacketAchievement.class, id++, Side.CLIENT);

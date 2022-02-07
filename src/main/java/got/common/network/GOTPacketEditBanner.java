@@ -17,14 +17,14 @@ import net.minecraft.util.StringUtils;
 import net.minecraft.world.World;
 
 public class GOTPacketEditBanner implements IMessage {
-	private int bannerID;
-	private boolean playerSpecificProtection;
-	private boolean selfProtection;
-	private float alignmentProtection;
-	private int whitelistLength;
-	private String[] whitelistSlots;
-	private int[] whitelistPerms;
-	private int defaultPerms;
+	public int bannerID;
+	public boolean playerSpecificProtection;
+	public boolean selfProtection;
+	public float alignmentProtection;
+	public int whitelistLength;
+	public String[] whitelistSlots;
+	public int[] whitelistPerms;
+	public int defaultPerms;
 
 	public GOTPacketEditBanner(GOTEntityBanner banner) {
 		bannerID = banner.getEntityId();

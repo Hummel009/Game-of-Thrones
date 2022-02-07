@@ -16,8 +16,8 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.world.World;
 
 public class GOTPacketMiniquestOffer implements IMessage {
-	private int entityID;
-	private NBTTagCompound miniquestData;
+	public int entityID;
+	public NBTTagCompound miniquestData;
 
 	public GOTPacketMiniquestOffer(int id, NBTTagCompound nbt) {
 		entityID = id;

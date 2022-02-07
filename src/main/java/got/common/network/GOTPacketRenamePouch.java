@@ -9,7 +9,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.Container;
 
 public class GOTPacketRenamePouch implements IMessage {
-	private String name;
+	public String name;
 
 	public GOTPacketRenamePouch(String s) {
 		name = s;

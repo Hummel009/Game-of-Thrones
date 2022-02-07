@@ -7,18 +7,18 @@ import net.minecraft.world.World;
 
 public class GOTPacketPlayerMovement implements IMessage {
 
-	private int entityId;
-	private double x;
-	private double y;
-	private double z;
-	private double mx;
-	private double my;
-	private double mz;
+	public int entityId;
+	public double x;
+	public double y;
+	public double z;
+	public double mx;
+	public double my;
+	public double mz;
 
-	private GOTPacketPlayerMovement() {
+	public GOTPacketPlayerMovement() {
 	}
 
-	private GOTPacketPlayerMovement(int entityId, double x, double y, double z, double mx, double my, double mz) {
+	public GOTPacketPlayerMovement(int entityId, double x, double y, double z, double mx, double my, double mz) {
 		this.entityId = entityId;
 		this.x = x;
 		this.y = y;
@@ -67,7 +67,7 @@ public class GOTPacketPlayerMovement implements IMessage {
 			GOTPacketPlayerMovement message;
 			MessageContext ctx;
 
-			private runner(GOTPacketPlayerMovement message, MessageContext ctx) {
+			public runner(GOTPacketPlayerMovement message, MessageContext ctx) {
 				this.message = message;
 				this.ctx = ctx;
 			}

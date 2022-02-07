@@ -8,9 +8,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
 public class GOTPacketNPCIsOfferingQuest implements IMessage {
-	private int entityID;
-	private boolean offering;
-	private int offerColor;
+	public int entityID;
+	public boolean offering;
+	public int offerColor;
 
 	public GOTPacketNPCIsOfferingQuest(int id, boolean flag, int color) {
 		entityID = id;

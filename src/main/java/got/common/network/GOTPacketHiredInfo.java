@@ -13,12 +13,12 @@ import net.minecraft.util.StringUtils;
 import net.minecraft.world.World;
 
 public class GOTPacketHiredInfo implements IMessage {
-	private int entityID;
-	private boolean isHired;
-	private UUID hiringPlayer;
-	private GOTHiredNPCInfo.Task task;
-	private String squadron;
-	private int xpLvl;
+	public int entityID;
+	public boolean isHired;
+	public UUID hiringPlayer;
+	public GOTHiredNPCInfo.Task task;
+	public String squadron;
+	public int xpLvl;
 
 	public GOTPacketHiredInfo(int i, UUID player, GOTHiredNPCInfo.Task t, String sq, int lvl) {
 		entityID = i;

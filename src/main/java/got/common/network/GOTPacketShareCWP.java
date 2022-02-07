@@ -10,9 +10,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketShareCWP implements IMessage {
-	private int wpID;
-	private String fsName;
-	private boolean adding;
+	public int wpID;
+	public String fsName;
+	public boolean adding;
 
 	public GOTPacketShareCWP(GOTCustomWaypoint wp, String s, boolean add) {
 		wpID = wp.getID();

@@ -11,9 +11,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketDragonControl implements IMessage {
-	private static Logger L = LogManager.getLogger();
-	private BitSet bits;
-	private int previous;
+	public static Logger L = LogManager.getLogger();
+	public BitSet bits;
+	public int previous;
 
 	public GOTPacketDragonControl() {
 		bits = new BitSet(Byte.SIZE);
@@ -24,7 +24,7 @@ public class GOTPacketDragonControl implements IMessage {
 		fromInteger(buf.readUnsignedByte());
 	}
 
-	private void fromInteger(int value) {
+	public void fromInteger(int value) {
 		int index = 0;
 		while (value != 0) {
 			if (value % 2 != 0) {
@@ -51,7 +51,7 @@ public class GOTPacketDragonControl implements IMessage {
 		buf.writeByte(toInteger());
 	}
 
-	private int toInteger() {
+	public int toInteger() {
 		int value = 0;
 		for (int i = 0; i < bits.length(); i++) {
 			value += bits.get(i) ? 1 << i : 0;

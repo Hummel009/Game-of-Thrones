@@ -7,7 +7,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketFellowshipToggle extends GOTPacketFellowshipDo {
-	private ToggleFunction function;
+	public ToggleFunction function;
 
 	public GOTPacketFellowshipToggle() {
 	}

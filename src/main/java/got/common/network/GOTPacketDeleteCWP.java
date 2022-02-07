@@ -7,7 +7,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketDeleteCWP implements IMessage {
-	private int wpID;
+	public int wpID;
 
 	public GOTPacketDeleteCWP(GOTCustomWaypoint wp) {
 		wpID = wp.getID();

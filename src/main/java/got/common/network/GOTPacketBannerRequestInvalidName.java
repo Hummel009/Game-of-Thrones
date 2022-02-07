@@ -13,9 +13,9 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
 
 public class GOTPacketBannerRequestInvalidName implements IMessage {
-	private int bannerID;
-	private int slot;
-	private String username;
+	public int bannerID;
+	public int slot;
+	public String username;
 
 	public GOTPacketBannerRequestInvalidName(GOTEntityBanner banner, int i, String s) {
 		bannerID = banner.getEntityId();

@@ -14,8 +14,8 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.world.World;
 
 public class GOTPacketNPCRespawner implements IMessage {
-	private int spawnerID;
-	private NBTTagCompound spawnerData;
+	public int spawnerID;
+	public NBTTagCompound spawnerData;
 
 	public GOTPacketNPCRespawner(GOTEntityNPCRespawner spawner) {
 		spawnerID = spawner.getEntityId();

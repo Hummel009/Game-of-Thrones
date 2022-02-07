@@ -10,9 +10,9 @@ import got.common.world.map.GOTCustomWaypoint;
 import io.netty.buffer.ByteBuf;
 
 public class GOTPacketShareCWPClient implements IMessage {
-	private int cwpID;
-	private UUID fellowshipID;
-	private boolean adding;
+	public int cwpID;
+	public UUID fellowshipID;
+	public boolean adding;
 
 	public GOTPacketShareCWPClient(int id, UUID fsID, boolean add) {
 		cwpID = id;

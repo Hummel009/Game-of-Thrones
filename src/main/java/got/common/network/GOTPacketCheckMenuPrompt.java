@@ -6,7 +6,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketCheckMenuPrompt implements IMessage {
-	private GOTPacketMenuPrompt.Type type;
+	public GOTPacketMenuPrompt.Type type;
 
 	public GOTPacketCheckMenuPrompt(GOTPacketMenuPrompt.Type t) {
 		type = t;

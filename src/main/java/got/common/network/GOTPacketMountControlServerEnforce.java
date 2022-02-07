@@ -8,11 +8,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketMountControlServerEnforce implements IMessage {
-	private double posX;
-	private double posY;
-	private double posZ;
-	private float rotationYaw;
-	private float rotationPitch;
+	public double posX;
+	public double posY;
+	public double posZ;
+	public float rotationYaw;
+	public float rotationPitch;
 
 	public GOTPacketMountControlServerEnforce(Entity entity) {
 		setPosX(entity.posX);

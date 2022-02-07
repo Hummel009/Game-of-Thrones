@@ -8,8 +8,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
 public class GOTPacketNPCCombatStance implements IMessage {
-	private int entityID;
-	private boolean combatStance;
+	public int entityID;
+	public boolean combatStance;
 
 	public GOTPacketNPCCombatStance(int id, boolean flag) {
 		entityID = id;

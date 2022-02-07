@@ -7,7 +7,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketClientMQEvent implements IMessage {
-	private ClientMQEvent type;
+	public ClientMQEvent type;
 
 	public GOTPacketClientMQEvent(ClientMQEvent t) {
 		type = t;

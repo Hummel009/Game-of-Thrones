@@ -10,11 +10,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
 public class GOTPacketFamilyInfo implements IMessage {
-	private int entityID;
-	private int age;
-	private boolean isMale;
-	private String name;
-	private boolean isDrunk;
+	public int entityID;
+	public int age;
+	public boolean isMale;
+	public String name;
+	public boolean isDrunk;
 
 	public GOTPacketFamilyInfo(int id, int a, boolean m, String s, boolean drunk) {
 		entityID = id;

@@ -7,20 +7,20 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.world.EnumDifficulty;
 
 public class GOTPacketLogin implements IMessage {
-	private int ringPortalX;
-	private int ringPortalY;
-	private int ringPortalZ;
-	private int ftCooldownMax;
-	private int ftCooldownMin;
-	private EnumDifficulty difficulty;
-	private boolean difficultyLocked;
-	private boolean alignmentZones;
-	private boolean feastMode;
-	private boolean fellowshipCreation;
-	private boolean enchanting;
-	private boolean enchantingGOT;
-	private boolean strictFactionTitleRequirements;
-	private boolean conquestDecay;
+	public int ringPortalX;
+	public int ringPortalY;
+	public int ringPortalZ;
+	public int ftCooldownMax;
+	public int ftCooldownMin;
+	public EnumDifficulty difficulty;
+	public boolean difficultyLocked;
+	public boolean alignmentZones;
+	public boolean feastMode;
+	public boolean fellowshipCreation;
+	public boolean enchanting;
+	public boolean enchantingGOT;
+	public boolean strictFactionTitleRequirements;
+	public boolean conquestDecay;
 
 	@Override
 	public void fromBytes(ByteBuf data) {

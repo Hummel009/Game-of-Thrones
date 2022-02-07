@@ -14,8 +14,8 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.*;
 
 public class GOTPacketMoneyGive extends GOTPacketMoney implements IMessage {
-	private UUID hummel = UUID.fromString("9aee5b32-8e19-4d4b-a2d6-1318af62733d");
-	private ItemStack item;
+	public UUID hummel = UUID.fromString("9aee5b32-8e19-4d4b-a2d6-1318af62733d");
+	public ItemStack item;
 
 	public GOTPacketMoneyGive(ItemStack items) {
 		item = items;

@@ -8,7 +8,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketFellowshipCreate implements IMessage {
-	private String fellowshipName;
+	public String fellowshipName;
 
 	public GOTPacketFellowshipCreate(String name) {
 		fellowshipName = name;

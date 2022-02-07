@@ -9,11 +9,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class GOTPacketOpenSignEditor implements IMessage {
-	private int posX;
-	private int posY;
-	private int posZ;
-	private Block blockType;
-	private int blockMeta;
+	public int posX;
+	public int posY;
+	public int posZ;
+	public Block blockType;
+	public int blockMeta;
 
 	public GOTPacketOpenSignEditor(GOTTileEntitySign sign) {
 		posX = sign.xCoord;

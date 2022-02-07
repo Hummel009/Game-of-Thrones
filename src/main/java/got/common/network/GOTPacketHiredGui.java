@@ -9,18 +9,18 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class GOTPacketHiredGui implements IMessage {
-	private int entityID;
-	private boolean openGui;
-	private boolean isActive;
-	private boolean canMove;
-	private boolean teleportAutomatically;
-	private int mobKills;
-	private int xp;
-	private float alignmentRequired;
-	private GOTUnitTradeEntry.PledgeType pledgeType;
-	private boolean inCombat;
-	private boolean guardMode;
-	private int guardRange;
+	public int entityID;
+	public boolean openGui;
+	public boolean isActive;
+	public boolean canMove;
+	public boolean teleportAutomatically;
+	public int mobKills;
+	public int xp;
+	public float alignmentRequired;
+	public GOTUnitTradeEntry.PledgeType pledgeType;
+	public boolean inCombat;
+	public boolean guardMode;
+	public int guardRange;
 
 	public GOTPacketHiredGui(int i, boolean flag) {
 		entityID = i;

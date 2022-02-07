@@ -6,8 +6,8 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
 
 public class GOTPacketCargocart implements IMessage {
-	private int load;
-	private int cartId;
+	public int load;
+	public int cartId;
 
 	public GOTPacketCargocart(int loadIn, int cartIn) {
 		load = loadIn;

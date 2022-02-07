@@ -9,8 +9,8 @@ import got.common.database.GOTCapes;
 import io.netty.buffer.ByteBuf;
 
 public class GOTPacketCape implements IMessage {
-	private UUID player;
-	private GOTCapes cape;
+	public UUID player;
+	public GOTCapes cape;
 
 	public GOTPacketCape(UUID uuid) {
 		player = uuid;

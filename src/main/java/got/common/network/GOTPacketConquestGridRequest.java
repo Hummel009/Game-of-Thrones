@@ -7,7 +7,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketConquestGridRequest implements IMessage {
-	private GOTFaction conqFac;
+	public GOTFaction conqFac;
 
 	public GOTPacketConquestGridRequest(GOTFaction fac) {
 		conqFac = fac;

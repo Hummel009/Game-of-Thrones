@@ -7,7 +7,7 @@ import got.common.fellowship.*;
 import io.netty.buffer.ByteBuf;
 
 public abstract class GOTPacketFellowshipDo implements IMessage {
-	private UUID fellowshipID;
+	public UUID fellowshipID;
 
 	public GOTPacketFellowshipDo() {
 	}

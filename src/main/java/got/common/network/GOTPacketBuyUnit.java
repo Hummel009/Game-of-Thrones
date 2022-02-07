@@ -13,8 +13,8 @@ import net.minecraft.inventory.Container;
 import net.minecraft.util.StringUtils;
 
 public class GOTPacketBuyUnit implements IMessage {
-	private int tradeIndex;
-	private String squadron;
+	public int tradeIndex;
+	public String squadron;
 
 	public GOTPacketBuyUnit(int tr, String s) {
 		tradeIndex = tr;

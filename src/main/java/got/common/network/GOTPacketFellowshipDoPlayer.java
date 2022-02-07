@@ -13,8 +13,8 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 
 public class GOTPacketFellowshipDoPlayer extends GOTPacketFellowshipDo {
-	private String subjectUsername;
-	private PlayerFunction function;
+	public String subjectUsername;
+	public PlayerFunction function;
 
 	public GOTPacketFellowshipDoPlayer(GOTFellowshipClient fs, String name, PlayerFunction f) {
 		super(fs);
@@ -31,7 +31,7 @@ public class GOTPacketFellowshipDoPlayer extends GOTPacketFellowshipDo {
 		function = PlayerFunction.values()[data.readByte()];
 	}
 
-	private UUID getSubjectPlayerUUID() {
+	public UUID getSubjectPlayerUUID() {
 		GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152655_a(subjectUsername);
 		if (profile != null && profile.getId() != null) {
 			return profile.getId();

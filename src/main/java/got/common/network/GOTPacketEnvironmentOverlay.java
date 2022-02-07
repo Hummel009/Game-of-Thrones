@@ -5,7 +5,7 @@ import got.GOT;
 import io.netty.buffer.ByteBuf;
 
 public class GOTPacketEnvironmentOverlay implements IMessage {
-	private Overlay overlay;
+	public Overlay overlay;
 
 	public GOTPacketEnvironmentOverlay(Overlay o) {
 		overlay = o;

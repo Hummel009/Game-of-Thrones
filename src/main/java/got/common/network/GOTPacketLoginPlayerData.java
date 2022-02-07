@@ -12,7 +12,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 
 public class GOTPacketLoginPlayerData implements IMessage {
-	private NBTTagCompound playerData;
+	public NBTTagCompound playerData;
 
 	public GOTPacketLoginPlayerData(NBTTagCompound nbt) {
 		playerData = nbt;

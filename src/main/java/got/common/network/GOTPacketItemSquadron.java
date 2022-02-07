@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StringUtils;
 
 public class GOTPacketItemSquadron implements IMessage {
-	private String squadron;
+	public String squadron;
 
 	public GOTPacketItemSquadron(String s) {
 		squadron = s;

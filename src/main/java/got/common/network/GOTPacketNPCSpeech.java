@@ -13,9 +13,9 @@ import net.minecraft.util.*;
 import net.minecraft.world.World;
 
 public class GOTPacketNPCSpeech implements IMessage {
-	private int entityID;
-	private String speech;
-	private boolean forceChatMsg;
+	public int entityID;
+	public String speech;
+	public boolean forceChatMsg;
 
 	public GOTPacketNPCSpeech(int id, String s, boolean forceChat) {
 		entityID = id;

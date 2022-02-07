@@ -10,9 +10,9 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTPacketWeaponFX implements IMessage {
-	private Type type;
+	public Type type;
 
-	private int entityID;
+	public int entityID;
 
 	public GOTPacketWeaponFX() {
 	}
