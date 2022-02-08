@@ -111,23 +111,19 @@ public class GOTEntityAIFarm extends EntityAIBase {
 			return false;
 		}
 		if (pathingTick < 200) {
-			if (action == Action.HOEING) {
-				return canDoHoeing() && this.isSuitableForHoeing(actionTarget);
-			}
-			if (action == Action.PLANTING) {
-				return canDoPlanting() && this.isSuitableForPlanting(actionTarget);
-			}
-			if (action == Action.HARVESTING) {
-				return canDoHarvesting() && this.isSuitableForHarvesting(actionTarget);
-			}
-			if (action == Action.DEPOSITING) {
-				return canDoDepositing() && this.isSuitableForDepositing(actionTarget);
-			}
-			if (action == Action.BONEMEALING) {
+			switch (action) {
+			case BONEMEALING:
 				return canDoBonemealing() && this.isSuitableForBonemealing(actionTarget);
-			}
-			if (action == Action.COLLECTING) {
+			case COLLECTING:
 				return canDoCollecting() && this.isSuitableForCollecting(actionTarget);
+			case DEPOSITING:
+				return canDoDepositing() && this.isSuitableForDepositing(actionTarget);
+			case HARVESTING:
+				return canDoHarvesting() && this.isSuitableForHarvesting(actionTarget);
+			case HOEING:
+				return canDoHoeing() && this.isSuitableForHoeing(actionTarget);
+			case PLANTING:
+				return canDoPlanting() && this.isSuitableForPlanting(actionTarget);
 			}
 		}
 		return false;
@@ -327,15 +323,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 		TileEntityChest suitableChest = null;
 		if (block.hasTileEntity(meta) && (te = theWorld.getTileEntity(i, j, k)) instanceof TileEntityChest) {
 			TileEntityChest chest = (TileEntityChest) te;
-			boolean flag = false;
-			if (isFarmhandMarked(chest) || chest.adjacentChestXNeg != null && isFarmhandMarked(chest.adjacentChestXNeg)) {
-				flag = true;
-			} else if (chest.adjacentChestXPos != null && isFarmhandMarked(chest.adjacentChestXPos) || chest.adjacentChestZNeg != null && isFarmhandMarked(chest.adjacentChestZNeg)) {
-				flag = true;
-			} else if (chest.adjacentChestZPos != null && isFarmhandMarked(chest.adjacentChestZPos)) {
-				flag = true;
-			}
-			if (flag) {
+			if (chest.adjacentChestXPos != null && isFarmhandMarked(chest.adjacentChestXPos) || chest.adjacentChestZNeg != null && isFarmhandMarked(chest.adjacentChestZNeg) || chest.adjacentChestZPos != null && isFarmhandMarked(chest.adjacentChestZPos) || isFarmhandMarked(chest) || chest.adjacentChestXNeg != null && isFarmhandMarked(chest.adjacentChestXNeg)) {
 				suitableChest = chest;
 			}
 		}
@@ -578,47 +566,21 @@ public class GOTEntityAIFarm extends EntityAIBase {
 			return false;
 		}
 		if (theEntity.getRNG().nextFloat() < farmingEfficiency * 0.1f) {
-			TargetPair hoeTarget;
-			TargetPair bonemealTarget;
 			TargetPair depositTarget;
-			TargetPair harvestTarget;
-			TargetPair plantTarget;
-			TargetPair collectTarget;
-			if (canDoDepositing() && (depositTarget = findTarget(Action.DEPOSITING)) != null) {
-				actionTarget = depositTarget.actionTarget;
-				pathTarget = depositTarget.pathTarget;
-				action = Action.DEPOSITING;
-				return true;
-			}
-			if (canDoHoeing() && (hoeTarget = findTarget(Action.HOEING)) != null) {
-				actionTarget = hoeTarget.actionTarget;
-				pathTarget = hoeTarget.pathTarget;
-				action = Action.HOEING;
-				return true;
-			}
-			if (canDoPlanting() && (plantTarget = findTarget(Action.PLANTING)) != null) {
-				actionTarget = plantTarget.actionTarget;
-				pathTarget = plantTarget.pathTarget;
-				action = Action.PLANTING;
-				return true;
-			}
-			if (canDoHarvesting() && (harvestTarget = findTarget(Action.HARVESTING)) != null) {
-				actionTarget = harvestTarget.actionTarget;
-				pathTarget = harvestTarget.pathTarget;
-				action = Action.HARVESTING;
-				return true;
-			}
-			if (canDoBonemealing() && (bonemealTarget = findTarget(Action.BONEMEALING)) != null) {
-				actionTarget = bonemealTarget.actionTarget;
-				pathTarget = bonemealTarget.pathTarget;
-				action = Action.BONEMEALING;
-				return true;
-			}
-			if (canDoCollecting() && (collectTarget = findTarget(Action.COLLECTING)) != null) {
-				actionTarget = collectTarget.actionTarget;
-				pathTarget = collectTarget.pathTarget;
-				action = Action.COLLECTING;
-				return true;
+			Map<Action, Boolean> map = new HashMap<>();
+			map.put(Action.DEPOSITING, canDoDepositing());
+			map.put(Action.HOEING, canDoHoeing());
+			map.put(Action.PLANTING, canDoPlanting());
+			map.put(Action.HARVESTING, canDoHarvesting());
+			map.put(Action.BONEMEALING, canDoBonemealing());
+			map.put(Action.COLLECTING, canDoCollecting());
+			for (Action act : Action.values()) {
+				if (Boolean.TRUE.equals(map.get(act)) && (depositTarget = findTarget(act)) != null) {
+					actionTarget = depositTarget.actionTarget;
+					pathTarget = depositTarget.pathTarget;
+					action = act;
+					return true;
+				}
 			}
 		}
 		return false;
@@ -630,9 +592,6 @@ public class GOTEntityAIFarm extends EntityAIBase {
 		setAppropriateHomeRange(action);
 	}
 
-	/*
-	 * WARNING - void declaration
-	 */
 	@Override
 	public void updateTask() {
 		boolean canCollect;
@@ -644,7 +603,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 			int k = MathHelper.floor_double(theEntity.posZ);
 			canDoAction = i == pathTarget.posX && j == pathTarget.posY && k == pathTarget.posZ;
 		} else {
-			boolean bl = canDoAction = distSq < 9.0;
+			canDoAction = distSq < 9.0;
 		}
 		if (!canDoAction) {
 			theEntity.getLookHelper().setLookPosition(actionTarget.posX + 0.5, actionTarget.posY + 0.5, actionTarget.posZ + 0.5, 10.0f, theEntity.getVerticalFaceSpeed());
@@ -654,203 +613,214 @@ public class GOTEntityAIFarm extends EntityAIBase {
 				theEntity.getNavigator().tryMoveToXYZ(pathTarget.posX + 0.5, pathTarget.posY, pathTarget.posZ + 0.5, moveSpeed);
 			}
 			++pathingTick;
-		} else if (action == Action.HOEING) {
-			boolean canHoe = this.isSuitableForHoeing(actionTarget);
-			if (canHoe) {
-				theEntity.swingItem();
-				ItemStack proxyHoe = new ItemStack(Items.iron_hoe);
-				int hoeRange = 1;
-				for (int i1 = -hoeRange; i1 <= hoeRange; ++i1) {
-					for (int k1 = -hoeRange; k1 <= hoeRange; ++k1) {
-						boolean alreadyChecked;
-						if (Math.abs(i1) + Math.abs(k1) > hoeRange) {
-							continue;
-						}
-						int x = actionTarget.posX + i1;
-						int z = actionTarget.posZ + k1;
-						int y = actionTarget.posY;
-						boolean bl = alreadyChecked = i1 == 0 && k1 == 0;
-						if (!alreadyChecked && !this.isSuitableForHoeing(x, y, z)) {
-							continue;
-						}
-						if (isReplaceable(x, y + 1, z)) {
-							theWorld.setBlockToAir(x, y + 1, z);
-						}
-						proxyHoe.tryPlaceItemIntoWorld(fakePlayer, theWorld, x, y, z, 1, 0.5f, 0.5f, 0.5f);
+		} else {
+			switch (action) {
+			case BONEMEALING:
+				boolean canBonemeal = this.isSuitableForBonemealing(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+				if (canBonemeal) {
+					theEntity.swingItem();
+					ItemStack bonemeal = getInventoryBonemeal();
+					if (ItemDye.applyBonemeal(getInventoryBonemeal(), theWorld, actionTarget.posX, actionTarget.posY, actionTarget.posZ, fakePlayer)) {
+						theWorld.playAuxSFX(2005, actionTarget.posX, actionTarget.posY, actionTarget.posZ, 0);
 					}
-				}
-			}
-		} else if (action == Action.PLANTING) {
-			boolean canPlant = this.isSuitableForPlanting(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
-			if (canPlant) {
-				theEntity.swingItem();
-				IPlantable seed = getSeedsToPlant();
-				Block plant = seed.getPlant(theWorld, actionTarget.posX, actionTarget.posY, actionTarget.posZ);
-				int meta = seed.getPlantMetadata(theWorld, actionTarget.posX, actionTarget.posY, actionTarget.posZ);
-				theWorld.setBlock(actionTarget.posX, actionTarget.posY, actionTarget.posZ, plant, meta, 3);
-				if (theEntity.hiredNPCInfo.isActive) {
-					theEntity.hiredNPCInfo.getHiredInventory().decrStackSize(0, 1);
-				}
-			}
-		} else if (action == Action.HARVESTING) {
-			boolean canHarvest = this.isSuitableForHarvesting(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
-			if (canHarvest) {
-				int meta;
-				theEntity.swingItem();
-				Block block = theWorld.getBlock(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
-				ArrayList<ItemStack> drops = new ArrayList<>();
-				if (block instanceof GOTBlockCorn) {
-					int x = actionTarget.posX;
-					int z = actionTarget.posZ;
-					for (int j1 = 0; j1 <= GOTBlockCorn.MAX_GROW_HEIGHT - 1; ++j1) {
-						int y = actionTarget.posY + j1;
-						if (theWorld.getBlock(x, y, z) != block || !GOTBlockCorn.hasCorn(theWorld, x, y, z)) {
-							continue;
-						}
-						int meta2 = theWorld.getBlockMetadata(x, y, z);
-						drops.addAll(((GOTBlockCorn) block).getCornDrops(theWorld, x, y, z, meta2));
-						GOTBlockCorn.setHasCorn(theWorld, x, y, z, false);
+					if (bonemeal.stackSize <= 0) {
+						bonemeal = null;
 					}
-				} else if (block instanceof GOTBlockGrapevine) {
-					meta = theWorld.getBlockMetadata(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
-					drops.addAll(block.getDrops(theWorld, actionTarget.posX, actionTarget.posY, actionTarget.posZ, meta, 0));
-					block.removedByPlayer(theWorld, fakePlayer, actionTarget.posX, actionTarget.posY, actionTarget.posZ, true);
-				} else {
-					meta = theWorld.getBlockMetadata(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
-					drops.addAll(block.getDrops(theWorld, actionTarget.posX, actionTarget.posY, actionTarget.posZ, meta, 0));
-					theWorld.setBlockToAir(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+					theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(3, bonemeal);
 				}
-				Block.SoundType cropSound = block.stepSound;
-				theWorld.playSoundEffect(actionTarget.posX + 0.5, actionTarget.posY + 0.5, actionTarget.posZ + 0.5, cropSound.getBreakSound(), (cropSound.getVolume() + 1.0f) / 2.0f, cropSound.getPitch() * 0.8f);
-				ItemStack seedItem = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(0);
-				ItemStack cropItem = getCropForSeed(getSeedsToPlant());
-				boolean addedOneCropSeed = false;
-				block3: for (Object obj : drops) {;
-				ItemStack itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(0);
-					ItemStack drop = (ItemStack) obj;
-					if (drop.isItemEqual(cropItem)) {
-						if (drop.isItemEqual(seedItem) && !addedOneCropSeed) {
-							addedOneCropSeed = true;
-							itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(0);
-							if (itemstack.stackSize + drop.stackSize <= itemstack.getMaxStackSize()) {
-								++itemstack.stackSize;
-								theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(0, itemstack);
-								continue;
+				break;
+			case COLLECTING:
+				canCollect = this.isSuitableForCollecting(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+				if (canCollect) {
+					theEntity.swingItem();
+					TileEntity te = theWorld.getTileEntity(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+					if (te instanceof TileEntityChest) {
+						TileEntityChest chest = (TileEntityChest) te;
+						int[] invSlots = { 0, 3 };
+						for (int l : invSlots) {
+							ItemStack itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(l);
+							if (itemstack == null && l == 3) {
+								itemstack = new ItemStack(Items.dye, 0, 15);
+							}
+							if (itemstack != null) {
+								for (int slot = 0; slot < chest.getSizeInventory(); slot++) {
+									ItemStack chestItem = chest.getStackInSlot(slot);
+									if (chestItem != null && chestItem.isItemEqual(itemstack) && ItemStack.areItemStackTagsEqual(chestItem, itemstack) && chestItem.stackSize > 0) {
+										while (itemstack.stackSize < itemstack.getMaxStackSize() && chestItem.stackSize > 0) {
+											chestItem.stackSize--;
+											itemstack.stackSize++;
+										}
+										if (itemstack.stackSize <= 0) {
+											itemstack = null;
+										}
+										if (chestItem.stackSize <= 0) {
+											chestItem = null;
+										}
+										theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(l, itemstack);
+										chest.setInventorySlotContents(slot, chestItem);
+										if (itemstack.stackSize >= itemstack.getMaxStackSize()) {
+											break;
+										}
+									}
+								}
 							}
 						}
-						for (int l = 1; l <= 2; ++l) {
-							ItemStack itemstack2 = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(l);
-							if (itemstack2 == null) {
-								theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(l, drop);
+						theWorld.playSoundEffect(actionTarget.posX + 0.5, actionTarget.posY + 0.5, actionTarget.posZ + 0.5, "random.chestopen", 0.5f, theWorld.rand.nextFloat() * 0.1f + 0.9f);
+					}
+				}
+				break;
+			case DEPOSITING:
+				boolean canDeposit = this.isSuitableForDepositing(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+				if (canDeposit) {
+					theEntity.swingItem();
+					TileEntity te = theWorld.getTileEntity(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+					if (te instanceof TileEntityChest) {
+						TileEntityChest chest = (TileEntityChest) te;
+						block5: for (int l = 1; l <= 2; ++l) {
+							ItemStack itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(l);
+							if (itemstack == null) {
+								continue;
+							}
+							for (int slot = 0; slot < chest.getSizeInventory(); ++slot) {
+								ItemStack chestItem = chest.getStackInSlot(slot);
+								if (chestItem != null && (!chestItem.isItemEqual(itemstack) || !ItemStack.areItemStackTagsEqual(chestItem, itemstack) || chestItem.stackSize >= chestItem.getMaxStackSize())) {
+									continue;
+								}
+								if (chestItem == null) {
+									chestItem = itemstack.copy();
+									chestItem.stackSize = 0;
+								}
+								while (itemstack.stackSize > 0 && chestItem.stackSize < chestItem.getMaxStackSize()) {
+									++chestItem.stackSize;
+									--itemstack.stackSize;
+								}
+								chest.setInventorySlotContents(slot, chestItem);
+								if (itemstack.stackSize > 0) {
+									continue;
+								}
+								theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(l, null);
+								continue block5;
+							}
+						}
+						theWorld.playSoundEffect(actionTarget.posX + 0.5, actionTarget.posY + 0.5, actionTarget.posZ + 0.5, "random.chestclosed", 0.5f, theWorld.rand.nextFloat() * 0.1f + 0.9f);
+					}
+				}
+				break;
+			case HARVESTING:
+				boolean canHarvest = this.isSuitableForHarvesting(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+				if (canHarvest) {
+					int meta;
+					theEntity.swingItem();
+					Block block = theWorld.getBlock(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+					ArrayList<ItemStack> drops = new ArrayList<>();
+					if (block instanceof GOTBlockCorn) {
+						int x = actionTarget.posX;
+						int z = actionTarget.posZ;
+						for (int j1 = 0; j1 <= GOTBlockCorn.MAX_GROW_HEIGHT - 1; ++j1) {
+							int y = actionTarget.posY + j1;
+							if (theWorld.getBlock(x, y, z) != block || !GOTBlockCorn.hasCorn(theWorld, x, y, z)) {
+								continue;
+							}
+							int meta2 = theWorld.getBlockMetadata(x, y, z);
+							drops.addAll(((GOTBlockCorn) block).getCornDrops(theWorld, x, y, z, meta2));
+							GOTBlockCorn.setHasCorn(theWorld, x, y, z, false);
+						}
+					} else if (block instanceof GOTBlockGrapevine) {
+						meta = theWorld.getBlockMetadata(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+						drops.addAll(block.getDrops(theWorld, actionTarget.posX, actionTarget.posY, actionTarget.posZ, meta, 0));
+						block.removedByPlayer(theWorld, fakePlayer, actionTarget.posX, actionTarget.posY, actionTarget.posZ, true);
+					} else {
+						meta = theWorld.getBlockMetadata(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+						drops.addAll(block.getDrops(theWorld, actionTarget.posX, actionTarget.posY, actionTarget.posZ, meta, 0));
+						theWorld.setBlockToAir(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+					}
+					Block.SoundType cropSound = block.stepSound;
+					theWorld.playSoundEffect(actionTarget.posX + 0.5, actionTarget.posY + 0.5, actionTarget.posZ + 0.5, cropSound.getBreakSound(), (cropSound.getVolume() + 1.0f) / 2.0f, cropSound.getPitch() * 0.8f);
+					ItemStack seedItem = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(0);
+					ItemStack cropItem = getCropForSeed(getSeedsToPlant());
+					boolean addedOneCropSeed = false;
+					block3: for (Object obj : drops) {
+						ItemStack itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(0);
+						ItemStack drop = (ItemStack) obj;
+						if (drop.isItemEqual(cropItem)) {
+							if (drop.isItemEqual(seedItem) && !addedOneCropSeed) {
+								addedOneCropSeed = true;
+								itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(0);
+								if (itemstack.stackSize + drop.stackSize <= itemstack.getMaxStackSize()) {
+									++itemstack.stackSize;
+									theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(0, itemstack);
+									continue;
+								}
+							}
+							for (int l = 1; l <= 2; ++l) {
+								ItemStack itemstack2 = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(l);
+								if (itemstack2 == null) {
+									theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(l, drop);
+									continue block3;
+								}
+								if (itemstack2.stackSize + drop.stackSize > itemstack2.getMaxStackSize() || !itemstack2.isItemEqual(cropItem)) {
+									continue;
+								}
+								++itemstack2.stackSize;
+								theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(l, itemstack2);
 								continue block3;
 							}
-							if (itemstack2.stackSize + drop.stackSize > itemstack2.getMaxStackSize() || !itemstack2.isItemEqual(cropItem)) {
-								continue;
-							}
-							++itemstack2.stackSize;
-							theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(l, itemstack2);
-							continue block3;
-						}
-						continue;
-					}
-					if (!drop.isItemEqual(seedItem) || itemstack.stackSize + drop.stackSize > (itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(0)).getMaxStackSize()) {
-						continue;
-					}
-					++itemstack.stackSize;
-					theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(0, itemstack);
-				}
-			}
-		} else if (action == Action.DEPOSITING) {
-			boolean canDeposit = this.isSuitableForDepositing(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
-			if (canDeposit) {
-				theEntity.swingItem();
-				TileEntity te = theWorld.getTileEntity(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
-				if (te instanceof TileEntityChest) {
-					TileEntityChest chest = (TileEntityChest) te;
-					block5: for (int l = 1; l <= 2; ++l) {
-						ItemStack itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(l);
-						if (itemstack == null) {
 							continue;
 						}
-						for (int slot = 0; slot < chest.getSizeInventory(); ++slot) {
-							ItemStack chestItem = chest.getStackInSlot(slot);
-							if (chestItem != null && (!chestItem.isItemEqual(itemstack) || !ItemStack.areItemStackTagsEqual(chestItem, itemstack) || chestItem.stackSize >= chestItem.getMaxStackSize())) {
-								continue;
-							}
-							if (chestItem == null) {
-								chestItem = itemstack.copy();
-								chestItem.stackSize = 0;
-							}
-							while (itemstack.stackSize > 0 && chestItem.stackSize < chestItem.getMaxStackSize()) {
-								++chestItem.stackSize;
-								--itemstack.stackSize;
-							}
-							chest.setInventorySlotContents(slot, chestItem);
-							if (itemstack.stackSize > 0) {
-								continue;
-							}
-							theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(l, null);
-							continue block5;
+						if (!drop.isItemEqual(seedItem) || itemstack.stackSize + drop.stackSize > (itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(0)).getMaxStackSize()) {
+							continue;
 						}
+						++itemstack.stackSize;
+						theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(0, itemstack);
 					}
-					theWorld.playSoundEffect(actionTarget.posX + 0.5, actionTarget.posY + 0.5, actionTarget.posZ + 0.5, "random.chestclosed", 0.5f, theWorld.rand.nextFloat() * 0.1f + 0.9f);
 				}
-			}
-		} else if (action == Action.BONEMEALING) {
-			boolean canBonemeal = this.isSuitableForBonemealing(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
-			if (canBonemeal) {
-				theEntity.swingItem();
-				ItemStack bonemeal = getInventoryBonemeal();
-				if (ItemDye.applyBonemeal(getInventoryBonemeal(), theWorld, actionTarget.posX, actionTarget.posY, actionTarget.posZ, fakePlayer)) {
-					theWorld.playAuxSFX(2005, actionTarget.posX, actionTarget.posY, actionTarget.posZ, 0);
-				}
-				if (bonemeal.stackSize <= 0) {
-					bonemeal = null;
-				}
-				theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(3, bonemeal);
-			}
-		} else if (action == Action.COLLECTING && (canCollect = this.isSuitableForCollecting(actionTarget.posX, actionTarget.posY, actionTarget.posZ))) {
-			theEntity.swingItem();
-			TileEntity te = theWorld.getTileEntity(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
-			if (te instanceof TileEntityChest) {
-				TileEntityChest chest = (TileEntityChest) te;
-				int[] invSlots = { 0, 3 };
-				for (int l : invSlots) {
-					ItemStack itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(l);
-					if (itemstack == null && l == 3) {
-						itemstack = new ItemStack(Items.dye, 0, 15);
-					}
-					if (itemstack != null) {
-						for (int slot = 0; slot < chest.getSizeInventory(); slot++) {
-							ItemStack chestItem = chest.getStackInSlot(slot);
-							if (chestItem != null && chestItem.isItemEqual(itemstack) && ItemStack.areItemStackTagsEqual(chestItem, itemstack) && chestItem.stackSize > 0) {
-								while (itemstack.stackSize < itemstack.getMaxStackSize() && chestItem.stackSize > 0) {
-									chestItem.stackSize--;
-									itemstack.stackSize++;
-								}
-								if (itemstack.stackSize <= 0) {
-									itemstack = null;
-								}
-								if (chestItem.stackSize <= 0) {
-									chestItem = null;
-								}
-								theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(l, itemstack);
-								chest.setInventorySlotContents(slot, chestItem);
-								if (itemstack.stackSize >= itemstack.getMaxStackSize()) {
-									break;
-								}
+				break;
+			case HOEING:
+				boolean canHoe = this.isSuitableForHoeing(actionTarget);
+				if (canHoe) {
+					theEntity.swingItem();
+					ItemStack proxyHoe = new ItemStack(Items.iron_hoe);
+					int hoeRange = 1;
+					for (int i1 = -hoeRange; i1 <= hoeRange; ++i1) {
+						for (int k1 = -hoeRange; k1 <= hoeRange; ++k1) {
+							boolean alreadyChecked;
+							if (Math.abs(i1) + Math.abs(k1) > hoeRange) {
+								continue;
 							}
+							int x = actionTarget.posX + i1;
+							int z = actionTarget.posZ + k1;
+							int y = actionTarget.posY;
+							alreadyChecked = i1 == 0 && k1 == 0;
+							if (!alreadyChecked && !this.isSuitableForHoeing(x, y, z)) {
+								continue;
+							}
+							if (isReplaceable(x, y + 1, z)) {
+								theWorld.setBlockToAir(x, y + 1, z);
+							}
+							proxyHoe.tryPlaceItemIntoWorld(fakePlayer, theWorld, x, y, z, 1, 0.5f, 0.5f, 0.5f);
 						}
 					}
 				}
-				theWorld.playSoundEffect(actionTarget.posX + 0.5, actionTarget.posY + 0.5, actionTarget.posZ + 0.5, "random.chestopen", 0.5f, theWorld.rand.nextFloat() * 0.1f + 0.9f);
+				break;
+			case PLANTING:
+				boolean canPlant = this.isSuitableForPlanting(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+				if (canPlant) {
+					theEntity.swingItem();
+					IPlantable seed = getSeedsToPlant();
+					Block plant = seed.getPlant(theWorld, actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+					int meta = seed.getPlantMetadata(theWorld, actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+					theWorld.setBlock(actionTarget.posX, actionTarget.posY, actionTarget.posZ, plant, meta, 3);
+					if (theEntity.hiredNPCInfo.isActive) {
+						theEntity.hiredNPCInfo.getHiredInventory().decrStackSize(0, 1);
+					}
+				}
+				break;
 			}
 		}
 	}
 
 	public enum Action {
 		HOEING, PLANTING, HARVESTING, DEPOSITING, BONEMEALING, COLLECTING;
-
 	}
 
 	public static class TargetPair {
@@ -862,5 +832,4 @@ public class GOTEntityAIFarm extends EntityAIBase {
 			pathTarget = path;
 		}
 	}
-
 }

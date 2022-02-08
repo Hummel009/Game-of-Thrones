@@ -3,6 +3,7 @@ package got.common.entity.ai;
 import got.GOT;
 import got.common.GOTLevelData;
 import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTHiredNPCInfo.Task;
 import got.common.faction.GOTFaction;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.*;
@@ -37,7 +38,7 @@ public class GOTNPCTargetSelector implements IEntitySelector {
 				EntityPlayer hiringPlayer = null;
 				if (owner instanceof GOTEntityNPC) {
 					GOTEntityNPC npc = (GOTEntityNPC) owner;
-					if (npc.hiredNPCInfo.isActive) {
+					if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.hiredTask != Task.FARMER) {
 						hiringPlayer = npc.hiredNPCInfo.getHiringPlayer();
 					}
 				}
