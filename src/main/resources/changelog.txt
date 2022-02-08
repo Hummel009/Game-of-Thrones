@@ -5,6 +5,7 @@ CHANGELOG
 + Added Asshai Shield
 + Added feminized ranks
 
+* Improved iron bank texture (prod. Hummel009)
 * Improved tool & weapon stats
 * Improved prostitute names & skins
 * Improved ranks

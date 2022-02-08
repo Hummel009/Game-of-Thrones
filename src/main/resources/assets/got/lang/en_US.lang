@@ -1,4 +1,6 @@
 
+got.gui.options.femRank.desc.on=ON: near the reputation bar and in the faction menu, feminine ranks will be displayed, for example, patroness, heroine, etc.
+got.gui.options.femRank.desc.off=FF: near the reputation bar and in the faction menu, masculine ranks will be displayed, for example, patron, hero, etc.
 got.gui.achievements.hover.name=%s
 got.gui.achievements.hover.subtitle≠
 got.gui.money.notGet≠
@@ -3274,16 +3276,16 @@ got.variant.swampUpland.name=Marshland
 got.variant.vineyard.name=Vineyards
 got.variant.wasteland.name=Wetland
 got.variant.wasteland_sand.name=Sandy Wasteland
-got.weaponstat.kb=Knockback: + %d
-got.weaponstat.meleeDamage=Melee Damage: + %d
-got.weaponstat.meleeSpeed=Melee Speed: %d %%
+got.weaponstat.kb=Knockback: +%d
+got.weaponstat.meleeDamage=Melee Damage: +%d
+got.weaponstat.meleeSpeed=Melee Speed: %d%%
 got.weaponstat.poison=Inflicts poison
-got.weaponstat.protection=Common Protection: + %d (%d %%)
-got.weaponstat.range=Range: %d %%
-got.weaponstat.rangedDamage=Ranged Damage: %d %%
-got.weaponstat.rangedRange=Range: %d %%
-got.weaponstat.rangedSpeed=Draw Speed: %d %%
-got.weaponstat.reach=Melee Reach: %d %%
+got.weaponstat.protection=Common Protection: +%d (%d%%)
+got.weaponstat.range=Range: %d%%
+got.weaponstat.rangedDamage=Ranged Damage: %d%%
+got.weaponstat.rangedRange=Range: %d%%
+got.weaponstat.rangedSpeed=Draw Speed: %d%%
+got.weaponstat.reach=Melee Reach: %d%%
 got.wp.AcornHall.info=The castle of the house of the Smallwoods, vassals of Tully.
 got.wp.AcornHall=Acorn Hall
 got.wp.Adakhakileki.info=Who built the city is now forgotten, but the Dothraki people call its ruins “the city of the skin eaters” or even “the city of cannibals”.
