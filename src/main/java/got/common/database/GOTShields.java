@@ -109,7 +109,7 @@ public enum GOTShields {
 		return null;
 	}
 
-	public static enum ShieldType {
+	public enum ShieldType {
 		ALIGNMENT, ACHIEVABLE, EXCLUSIVE;
 
 		public List<GOTShields> list = new ArrayList<>();

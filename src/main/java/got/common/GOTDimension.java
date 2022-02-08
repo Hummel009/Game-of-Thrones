@@ -79,7 +79,7 @@ public enum GOTDimension {
 		}
 	}
 
-	public static enum DimensionRegion {
+	public enum DimensionRegion {
 		WESTEROS("westeros"), WEST_ESSOS("westEssos"), EAST_ESSOS("eastEssos"), OTHER("other");
 
 		public String regionName;
