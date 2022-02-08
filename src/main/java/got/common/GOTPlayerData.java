@@ -38,74 +38,74 @@ import net.minecraft.world.*;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTPlayerData {
-	public static int ticksUntilFT_max = 200;
-	public ChunkCoordinates deathPoint;
-	public GOTAbstractWaypoint targetFTWaypoint;
-	public GOTBiome lastBiome;
-	public GOTCapes cape;
-	public GOTFaction brokenPledgeFaction = null;
-	public GOTFaction pledgeFaction;
-	public GOTFaction viewingFaction;
-	public GOTPlayerQuestData questData = new GOTPlayerQuestData(this);
-	public GOTShields shield;
-	public GOTWaypoint lastWaypoint;
-	public List<GOTAchievement> achievements = new ArrayList<>();
-	public List<GOTCustomWaypoint> customWaypoints = new ArrayList<>();
-	public List<GOTCustomWaypoint> customWaypointsShared = new ArrayList<>();
-	public List<GOTFaction> bountiesPlaced = new ArrayList<>();
-	public List<GOTFellowshipClient> fellowshipInvitesClient = new ArrayList<>();
-	public List<GOTFellowshipClient> fellowshipsClient = new ArrayList<>();
-	public List<GOTFellowshipInvite> fellowshipInvites = new ArrayList<>();
-	public List<GOTMiniQuest> miniQuests = new ArrayList<>();
-	public List<GOTMiniQuest> miniQuestsCompleted = new ArrayList<>();
-	public List<UUID> fellowshipIDs = new ArrayList<>();
-	public Map<CWPSharedKey, Integer> cwpSharedUseCounts = new HashMap<>();
-	public Map<GOTDimension.DimensionRegion, GOTFaction> prevRegionFactions = new EnumMap<>(GOTDimension.DimensionRegion.class);
-	public Map<GOTFaction, Float> alignments = new EnumMap<>(GOTFaction.class);
-	public Map<GOTFaction, GOTFactionData> factionDataMap = new EnumMap<>(GOTFaction.class);
-	public Map<GOTGuiMessageTypes, Boolean> sentMessageTypes = new EnumMap<>(GOTGuiMessageTypes.class);
-	public Map<GOTWaypoint, Integer> wpUseCounts = new EnumMap<>(GOTWaypoint.class);
-	public Map<Integer, Integer> cwpUseCounts = new HashMap<>();
-	public PlayerTitle playerTitle;
-	public Set<CWPSharedKey> cwpSharedHidden = new HashSet<>();
-	public Set<CWPSharedKey> cwpSharedUnlocked = new HashSet<>();
-	public Set<GOTFaction> takenAlignmentRewards = new HashSet<>();
-	public Set<GOTWaypoint.Region> unlockedFTRegions = new HashSet<>();
-	public UUID chatBoundFellowshipID;
-	public UUID playerUUID;
-	public UUID trackingMiniQuestID;
-	public UUID uuidToMount;
-	public boolean adminHideMap;
-	public boolean askedForJaqen;
-	public boolean checkedMenu;
-	public boolean conquestKills = true;
-	public boolean friendlyFire;
-	public boolean hideAlignment;
-	public boolean hideOnMap;
-	public boolean hiredDeathMessages = true;
-	public boolean needsSave;
-	public boolean showCustomWaypoints = true;
-	public boolean showHiddenSharedWaypoints = true;
-	public boolean showWaypoints = true;
-	public boolean structuresBanned;
-	public boolean tableSwitched;
-	public boolean teleportedKW;
-	public int alcoholTolerance;
-	public int balance = 0;
-	public int completedBountyQuests;
-	public int completedMiniquestCount;
-	public int deathDim;
-	public int ftSinceTick;
-	public int nextCwpID = 20000;
-	public int pdTick = 0;
-	public int pledgeBreakCooldown;
-	public int pledgeBreakCooldownStart;
-	public int pledgeKillCooldown = 0;
-	public int siegeActiveTime;
-	public int ticksUntilFT;
-	public int uuidToMountTime;
-	public long lastOnlineTime = -1L;
-	public boolean femRankOverride = false;
+	private static int ticksUntilFT_max = 200;
+	private ChunkCoordinates deathPoint;
+	private GOTAbstractWaypoint targetFTWaypoint;
+	private GOTBiome lastBiome;
+	private GOTCapes cape;
+	private GOTFaction brokenPledgeFaction = null;
+	private GOTFaction pledgeFaction;
+	private GOTFaction viewingFaction;
+	private GOTPlayerQuestData questData = new GOTPlayerQuestData(this);
+	private GOTShields shield;
+	private GOTWaypoint lastWaypoint;
+	private List<GOTAchievement> achievements = new ArrayList<>();
+	private List<GOTCustomWaypoint> customWaypoints = new ArrayList<>();
+	private List<GOTCustomWaypoint> customWaypointsShared = new ArrayList<>();
+	private List<GOTFaction> bountiesPlaced = new ArrayList<>();
+	private List<GOTFellowshipClient> fellowshipInvitesClient = new ArrayList<>();
+	private List<GOTFellowshipClient> fellowshipsClient = new ArrayList<>();
+	private List<GOTFellowshipInvite> fellowshipInvites = new ArrayList<>();
+	private List<GOTMiniQuest> miniQuests = new ArrayList<>();
+	private List<GOTMiniQuest> miniQuestsCompleted = new ArrayList<>();
+	private List<UUID> fellowshipIDs = new ArrayList<>();
+	private Map<CWPSharedKey, Integer> cwpSharedUseCounts = new HashMap<>();
+	private Map<GOTDimension.DimensionRegion, GOTFaction> prevRegionFactions = new EnumMap<>(GOTDimension.DimensionRegion.class);
+	private Map<GOTFaction, Float> alignments = new EnumMap<>(GOTFaction.class);
+	private Map<GOTFaction, GOTFactionData> factionDataMap = new EnumMap<>(GOTFaction.class);
+	private Map<GOTGuiMessageTypes, Boolean> sentMessageTypes = new EnumMap<>(GOTGuiMessageTypes.class);
+	private Map<GOTWaypoint, Integer> wpUseCounts = new EnumMap<>(GOTWaypoint.class);
+	private Map<Integer, Integer> cwpUseCounts = new HashMap<>();
+	private PlayerTitle playerTitle;
+	private Set<CWPSharedKey> cwpSharedHidden = new HashSet<>();
+	private Set<CWPSharedKey> cwpSharedUnlocked = new HashSet<>();
+	private Set<GOTFaction> takenAlignmentRewards = new HashSet<>();
+	private Set<GOTWaypoint.Region> unlockedFTRegions = new HashSet<>();
+	private UUID chatBoundFellowshipID;
+	private UUID playerUUID;
+	private UUID trackingMiniQuestID;
+	private UUID uuidToMount;
+	private boolean adminHideMap;
+	private boolean askedForJaqen;
+	private boolean checkedMenu;
+	private boolean conquestKills = true;
+	private boolean friendlyFire;
+	private boolean hideAlignment;
+	private boolean hideOnMap;
+	private boolean hiredDeathMessages = true;
+	private boolean needsSave;
+	private boolean showCustomWaypoints = true;
+	private boolean showHiddenSharedWaypoints = true;
+	private boolean showWaypoints = true;
+	private boolean structuresBanned;
+	private boolean tableSwitched;
+	private boolean teleportedKW;
+	private int alcoholTolerance;
+	private int balance = 0;
+	private int completedBountyQuests;
+	private int completedMiniquestCount;
+	private int deathDim;
+	private int ftSinceTick;
+	private int nextCwpID = 20000;
+	private int pdTick = 0;
+	private int pledgeBreakCooldown;
+	private int pledgeBreakCooldownStart;
+	private int pledgeKillCooldown = 0;
+	private int siegeActiveTime;
+	private int ticksUntilFT;
+	private int uuidToMountTime;
+	private long lastOnlineTime = -1L;
+	private boolean femRankOverride = false;
 
 	public GOTPlayerData(UUID uuid) {
 		playerUUID = uuid;
@@ -824,6 +824,10 @@ public class GOTPlayerData {
 
 	public boolean getAskedForJaqen() {
 		return askedForJaqen;
+	}
+
+	public int getBalance() {
+		return balance;
 	}
 
 	public GOTFaction getBrokenPledgeFaction() {
@@ -2539,6 +2543,11 @@ public class GOTPlayerData {
 
 	public void setAskedForJaqen(boolean flag) {
 		askedForJaqen = flag;
+		markDirty();
+	}
+
+	public void setBalance(int b) {
+		balance = b;
 		markDirty();
 	}
 

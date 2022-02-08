@@ -235,18 +235,25 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 				actionSlow = 1.0f;
 			} else if (rand.nextInt(200) == 0) {
 				npcAction = NPCAction.getRandomAction(rand);
-				if (npcAction == NPCAction.TALKING) {
-					actionTime = 40 + rand.nextInt(60);
-					actionSlow = 1.0f;
-				} else if (npcAction == NPCAction.LOOKING) {
-					actionTime = 60 + rand.nextInt(60);
-					actionSlow = 1.0f;
-				} else if (npcAction == NPCAction.SHAKING) {
-					actionTime = 100 + rand.nextInt(60);
-					actionSlow = 1.0f;
-				} else if (npcAction == NPCAction.LOOKING_UP) {
-					actionTime = 30 + rand.nextInt(50);
-					actionSlow = 1.0f;
+				if (npcAction != null) {
+					switch(npcAction) {
+					case LOOKING:
+						actionTime = 60 + rand.nextInt(60);
+						actionSlow = 1.0f;
+						break;
+					case LOOKING_UP:
+						actionTime = 30 + rand.nextInt(50);
+						actionSlow = 1.0f;
+						break;
+					case SHAKING:
+						actionTime = 100 + rand.nextInt(60);
+						actionSlow = 1.0f;
+						break;
+					case TALKING:
+						actionTime = 40 + rand.nextInt(60);
+						actionSlow = 1.0f;
+						break;
+					}
 				}
 			}
 		} else {
@@ -257,24 +264,31 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 				npcAction = null;
 				actionTick = 0;
 				actionTime = 0;
-			} else if (npcAction == NPCAction.TALKING) {
-				if (actionTick % 20 == 0) {
-					actionSlow = 0.7f + rand.nextFloat() * 1.5f;
+			} else {
+				switch(npcAction) {
+				case LOOKING:
+					float slow = actionSlow * 16.0f;
+					headYaw = MathHelper.sin(actionTick / slow) * (float) Math.toRadians(60.0);
+					headPitch = (MathHelper.sin(actionTick / slow * 2.0f) + 1.0f) / 2.0f * (float) Math.toRadians(-15.0);
+					break;
+				case LOOKING_UP:
+					headYaw = 0.0f;
+					headPitch = (float) Math.toRadians(-20.0);
+					break;
+				case SHAKING:
+					actionSlow += 0.01f;
+					headYaw = MathHelper.sin(actionTick / actionSlow) * (float) Math.toRadians(30.0);
+					headPitch += (float) Math.toRadians(0.4);
+					break;
+				case TALKING:
+					if (actionTick % 20 == 0) {
+						actionSlow = 0.7f + rand.nextFloat() * 1.5f;
+					}
+					float slow1 = actionSlow * 2.0f;
+					headYaw = MathHelper.sin(actionTick / slow1) * (float) Math.toRadians(10.0);
+					headPitch = (MathHelper.sin(actionTick / slow1 * 2.0f) + 1.0f) / 2.0f * (float) Math.toRadians(-20.0);
+					break;
 				}
-				float slow = actionSlow * 2.0f;
-				headYaw = MathHelper.sin(actionTick / slow) * (float) Math.toRadians(10.0);
-				headPitch = (MathHelper.sin(actionTick / slow * 2.0f) + 1.0f) / 2.0f * (float) Math.toRadians(-20.0);
-			} else if (npcAction == NPCAction.SHAKING) {
-				actionSlow += 0.01f;
-				headYaw = MathHelper.sin(actionTick / actionSlow) * (float) Math.toRadians(30.0);
-				headPitch += (float) Math.toRadians(0.4);
-			} else if (npcAction == NPCAction.LOOKING) {
-				float slow = actionSlow * 16.0f;
-				headYaw = MathHelper.sin(actionTick / slow) * (float) Math.toRadians(60.0);
-				headPitch = (MathHelper.sin(actionTick / slow * 2.0f) + 1.0f) / 2.0f * (float) Math.toRadians(-15.0);
-			} else if (npcAction == NPCAction.LOOKING_UP) {
-				headYaw = 0.0f;
-				headPitch = (float) Math.toRadians(-20.0);
 			}
 		} else {
 			headYaw = 0.0f;

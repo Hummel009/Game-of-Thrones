@@ -11,6 +11,7 @@ CHANGELOG
 
 * Optimized rendering code
 
+* Fixed crash in Stepstones
 * Fixed 5 minor bugs (thanks to Stalker Kir)
 * Fixed 7 minor bugs (thanks to VVVIP2)
 * Fixed bug with shields GUI

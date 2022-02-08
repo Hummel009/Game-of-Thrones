@@ -50,12 +50,8 @@ public class GOTRenderCrossbow implements IItemRenderer {
 			GL11.glScalef(2.6666667f, 2.6666667f, 2.6666667f);
 			GL11.glTranslatef(-0.25f, -0.1875f, 0.1875f);
 		}
-		if (rotationMode == RotationMode.FIRST_PERSON_LOADED) {
-			GL11.glRotatef(-100.0f, 1.0f, 0.0f, 0.0f);
-			GL11.glRotatef(-60.0f, 0.0f, 1.0f, 0.0f);
-			GL11.glRotatef(-25.0f, 0.0f, 0.0f, 1.0f);
-			GL11.glTranslatef(0.0f, 0.0f, -0.5f);
-		} else if (rotationMode == RotationMode.ENTITY_HOLDING) {
+		switch(rotationMode) {
+		case ENTITY_HOLDING:
 			GL11.glTranslatef(0.0f, 0.125f, 0.3125f);
 			GL11.glRotatef(-20.0f, 0.0f, 1.0f, 0.0f);
 			GL11.glScalef(0.625f, -0.625f, 0.625f);
@@ -66,10 +62,20 @@ public class GOTRenderCrossbow implements IItemRenderer {
 			GL11.glRotatef(50.0f, 0.0f, 1.0f, 0.0f);
 			GL11.glRotatef(335.0f, 0.0f, 0.0f, 1.0f);
 			GL11.glTranslatef(-0.9375f, -0.0625f, 0.0f);
-		} else if (rotationMode == RotationMode.ENTITY_LOADED) {
+			break;
+		case ENTITY_LOADED:
 			GL11.glRotatef(50.0f, 0.0f, 0.0f, 1.0f);
 			GL11.glTranslatef(0.0f, 0.0f, -0.15f);
 			GL11.glTranslatef(0.0f, -0.5f, 0.0f);
+			break;
+		case FIRST_PERSON_HOLDING:
+			break;
+		case FIRST_PERSON_LOADED:
+			GL11.glRotatef(-100.0f, 1.0f, 0.0f, 0.0f);
+			GL11.glRotatef(-60.0f, 0.0f, 1.0f, 0.0f);
+			GL11.glRotatef(-25.0f, 0.0f, 0.0f, 1.0f);
+			GL11.glTranslatef(0.0f, 0.0f, -0.5f);
+			break;
 		}
 		IIcon icon = ((EntityLivingBase) data[1]).getItemIcon(itemstack, 0);
 		if (icon == null) {
@@ -96,7 +102,5 @@ public class GOTRenderCrossbow implements IItemRenderer {
 
 	public enum RotationMode {
 		FIRST_PERSON_HOLDING, FIRST_PERSON_LOADED, ENTITY_HOLDING, ENTITY_LOADED;
-
 	}
-
 }

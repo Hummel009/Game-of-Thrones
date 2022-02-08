@@ -113,7 +113,6 @@ public class GOTPacketHandler {
 		networkWrapper.registerMessage(GOTPacketMiniquestRemove.Handler.class, GOTPacketMiniquestRemove.class, id++, Side.CLIENT);
 		networkWrapper.registerMessage(GOTPacketMiniquestTrack.Handler.class, GOTPacketMiniquestTrack.class, id++, Side.SERVER);
 		networkWrapper.registerMessage(GOTPacketMiniquestTrackClient.Handler.class, GOTPacketMiniquestTrackClient.class, id++, Side.CLIENT);
-		networkWrapper.registerMessage(GOTPacketMoneyChange.Handler.class, GOTPacketMoneyChange.class, id++, Side.CLIENT);
 		networkWrapper.registerMessage(GOTPacketMoneyGet.Handler.class, GOTPacketMoneyGet.class, id++, Side.SERVER);
 		networkWrapper.registerMessage(GOTPacketMoneyGive.Handler.class, GOTPacketMoneyGive.class, id++, Side.SERVER);
 		networkWrapper.registerMessage(GOTPacketMountControl.Handler.class, GOTPacketMountControl.class, id++, Side.SERVER);

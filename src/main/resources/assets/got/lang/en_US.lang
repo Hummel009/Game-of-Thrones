@@ -1,4 +1,8 @@
 
+got.gui.achievements.hover.name=%s
+got.gui.achievements.hover.subtitle≠
+got.gui.money.notGet≠
+got.gui.money.notGive≠
 item.got:cucumberSeeds.name=Cucumber seeds
 got.command.wpCooldown.usage=/wpCooldown <max|min> <seconds>
 got.command.wpCooldown.setMax=Set the maximum waypoint cooldown time to %d seconds (%s)

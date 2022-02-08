@@ -95,10 +95,10 @@ public class GOTMusic implements IResourceManagerReloadListener {
 		while ((line = reader.readLine()) != null) {
 			if ("#REGIONS#".equals(line)) {
 				writer.println("all");
-				for (Enum region : GOTBiomeMusic.values()) {
+				for (GOTBiomeMusic region : GOTBiomeMusic.values()) {
 					StringBuilder regionString = new StringBuilder();
-					regionString.append(((GOTBiomeMusic) region).regionName);
-					List<String> subregions = ((GOTBiomeMusic) region).getAllSubregions();
+					regionString.append(region.regionName);
+					List<String> subregions = region.getAllSubregions();
 					if (!subregions.isEmpty()) {
 						String subs = "";
 						for (String s : subregions) {
@@ -114,8 +114,8 @@ public class GOTMusic implements IResourceManagerReloadListener {
 				continue;
 			}
 			if ("#CATEGORIES#".equals(line)) {
-				for (Enum category : GOTMusicCategory.values()) {
-					String catString = ((GOTMusicCategory) category).categoryName;
+				for (GOTMusicCategory category : GOTMusicCategory.values()) {
+					String catString = category.categoryName;
 					writer.println(catString);
 				}
 				continue;
@@ -164,7 +164,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 			for (JsonElement e : rootArray) {
 				JsonObject trackData = e.getAsJsonObject();
 				String filename = trackData.get("file").getAsString();
-				ZipEntry trackEntry = zip.getEntry("assets/musicpacks/" + filename);
+				ZipEntry trackEntry = zip.getEntry("assets/gotmusic/" + filename);
 				if (trackEntry == null) {
 					GOTLog.logger.warn("Hummel009: Track " + filename + " in pack " + zip.getName() + " does not exist!");
 					continue;

@@ -62,10 +62,13 @@ public class GOTPacketMoneyGet extends GOTPacketMoney implements IMessage {
 					if (--player.inventory.mainInventory[index].stackSize <= 0) {
 						player.inventory.mainInventory[index] = null;
 					}
-					new GOTPacketMoneyChange(pd.balance += cost);
-					pd.markDirty();
+					int money = pd.getBalance();
+					money += cost;
+					pd.setBalance(money);
 					GOTPacketHandler.networkWrapper.sendTo(packet, player);
 					player.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.gui.money.get", item.getDisplayName())));
+				} else {
+					player.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_RED + StatCollector.translateToLocalFormatted("got.gui.money.notGet", item.getDisplayName())));
 				}
 			}
 			return null;

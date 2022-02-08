@@ -1,4 +1,8 @@
 
+got.gui.achievements.hover.name=%s
+got.gui.achievements.hover.subtitle≠
+got.gui.money.notGet≠
+got.gui.money.notGive≠
 item.got:cucumberSeeds.name≠
 got.command.wpCooldown.usage=/wpCooldown <max|min> <sekundy>
 got.command.wpCooldown.setMax=Ustawiono maksymalny czas odnowienia znaczników na %d sekund (%s)

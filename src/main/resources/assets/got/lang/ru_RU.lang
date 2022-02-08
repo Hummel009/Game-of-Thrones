@@ -1,4 +1,8 @@
 ﻿
+got.gui.achievements.hover.name=%s
+got.gui.achievements.hover.subtitle=Достижение в %s
+got.gui.money.notGet=У вас нет такой монеты в инвентаре
+got.gui.money.notGive=У вас нет такого количества денег на балансе
 item.got:cucumberSeeds.name=Семена огурца
 got.command.wpCooldown.setMax=Таймер быстрого перемещения установлен на максимум: %d секунд (%s)
 got.command.wpCooldown.setMin=Таймер быстрого перемещения установлен на минимум: %d секунд (%s)
