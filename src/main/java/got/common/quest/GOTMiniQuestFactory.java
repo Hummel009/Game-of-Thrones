@@ -214,7 +214,7 @@ public enum GOTMiniQuestFactory {
 		ARYA.addQuest(new GOTMiniQuestCollect.QFCollect("arya").setCollectItem(new ItemStack(Items.wooden_sword), 1, 1).setHiring());
 		SAMWELL.addQuest(new GOTMiniQuestCollect.QFCollect("samwell").setCollectItem(new ItemStack(GOTRegistry.sothoryosDagger), 1, 1).setRewardFactor(50.0f).setIsLegendary());
 		LYSA.addQuest(new GOTMiniQuestKillEntity.QFKillEntity("lysa").setKillEntity(GOTEntityTyrionLannister.class, 1, 1).setRewardFactor(100.0f).setIsLegendary());
-		CATELYN.addQuest(new GOTMiniQuestKillEntity.QFKillEntity("catelyn").setKillEntity(GOTEntityTheonGreyjoy.Normal.class, 1, 1).setRewardFactor(100.0f).setIsLegendary());
+		CATELYN.addQuest(new GOTMiniQuestKillEntity.QFKillEntity("catelyn").setKillEntity(GOTEntityTheonGreyjoy.TheonGreyjoyNormal.class, 1, 1).setRewardFactor(100.0f).setIsLegendary());
 		DAVEN.addQuest(new GOTMiniQuestKillEntity.QFKillEntity("daven").setKillEntity(GOTEntityRickardKarstark.class, 1, 1).setRewardFactor(100.0f).setIsLegendary());
 		ARIANNE.addQuest(new GOTMiniQuestKillEntity.QFKillEntity("arianne").setKillEntity(GOTEntityTommenBaratheon.class, 1, 1).setRewardFactor(100.0f).setIsLegendary());
 		MELLARIO.addQuest(new GOTMiniQuestKillEntity.QFKillEntity("mellario").setKillEntity(GOTEntityDoranMartell.class, 1, 1).setRewardFactor(100.0f).setIsLegendary());

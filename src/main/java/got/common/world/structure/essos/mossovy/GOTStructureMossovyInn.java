@@ -134,7 +134,7 @@ public class GOTStructureMossovyInn extends GOTStructureMossovyBase {
 		for (int l = 0; l < men; ++l) {
 			GOTEntityHumanBase mossovylander = new GOTEntityMossovyMan(world);
 			if (random.nextInt(10) == 0) {
-				mossovylander = new GOTEntityThief(world);
+				mossovylander = new GOTEntityWesterosThief(world);
 			}
 			spawnNPCAndSetHome(mossovylander, world, -2, 1, 0, 16);
 		}

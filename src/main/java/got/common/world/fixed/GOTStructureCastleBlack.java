@@ -40,7 +40,7 @@ public class GOTStructureCastleBlack extends GOTVillageGen {
 		@Override
 		public void spawnLegendaryMobs(World world) {
 			spawnLegendaryNPC(new GOTEntityJeorMormont(world), world, -3, 1, -3);
-			spawnLegendaryNPC(new GOTEntityJonSnow.Stage1(world), world, 3, 1, 0);
+			spawnLegendaryNPC(new GOTEntityJonSnow.JonSnowLife1(world), world, 3, 1, 0);
 			spawnLegendaryNPC(new GOTEntityAemonTargaryen(world), world, 3, 1, 3);
 			spawnLegendaryNPC(new GOTEntityAlliserThorne(world), world, -3, 1, 3);
 			spawnLegendaryNPC(new GOTEntityEdd(world), world, 3, 1, -3);

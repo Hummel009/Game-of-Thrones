@@ -100,8 +100,8 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 
 	protected abstract void placeRandomSlab(World var1, Random var2, int var3, int var4, int var5);
 
-	public static class ASSHAI extends GOTStructureStoneRuin {
-		public ASSHAI(int i, int j) {
+	public static class RuinAsshai extends GOTStructureStoneRuin {
+		public RuinAsshai(int i, int j) {
 			super(i, j);
 		}
 
@@ -134,8 +134,8 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 		}
 	}
 
-	public static class SANDSTONE extends GOTStructureStoneRuin {
-		public SANDSTONE(int i, int j) {
+	public static class RuinSandstone extends GOTStructureStoneRuin {
+		public RuinSandstone(int i, int j) {
 			super(i, j);
 		}
 
@@ -168,8 +168,8 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 		}
 	}
 
-	public static class SOTHORYOS extends GOTStructureStoneRuin {
-		public SOTHORYOS(int i, int j) {
+	public static class RuinSothoryos extends GOTStructureStoneRuin {
+		public RuinSothoryos(int i, int j) {
 			super(i, j);
 		}
 
@@ -214,8 +214,8 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 		}
 	}
 
-	public static class STONE extends GOTStructureStoneRuin {
-		public STONE(int i, int j) {
+	public static class RuinStone extends GOTStructureStoneRuin {
+		public RuinStone(int i, int j) {
 			super(i, j);
 		}
 
@@ -260,8 +260,8 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 		}
 	}
 
-	public static class YITI extends GOTStructureStoneRuin {
-		public YITI(int i, int j) {
+	public static class RuinYiTi extends GOTStructureStoneRuin {
+		public RuinYiTi(int i, int j) {
 			super(i, j);
 		}
 

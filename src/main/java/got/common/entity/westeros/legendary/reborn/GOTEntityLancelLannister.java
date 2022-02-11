@@ -59,8 +59,8 @@ public class GOTEntityLancelLannister extends GOTEntityHumanBase {
 		return data;
 	}
 
-	public static class Normal extends GOTEntityLancelLannister {
-		public Normal(World world) {
+	public static class LancelLannisterNormal extends GOTEntityLancelLannister {
+		public LancelLannisterNormal(World world) {
 			super(world);
 			canBeMarried = false;
 		}
@@ -82,7 +82,7 @@ public class GOTEntityLancelLannister extends GOTEntityHumanBase {
 		public void onDeath(DamageSource damagesource) {
 			super.onDeath(damagesource);
 			if (!worldObj.isRemote) {
-				GOTEntityLancelLannister.Religious religious = new GOTEntityLancelLannister.Religious(worldObj);
+				GOTEntityLancelLannister.LancelLannisterReligious religious = new GOTEntityLancelLannister.LancelLannisterReligious(worldObj);
 				religious.copyLocationAndAnglesFrom(this);
 				religious.onSpawnWithEgg(null);
 				worldObj.spawnEntityInWorld(religious);
@@ -91,8 +91,8 @@ public class GOTEntityLancelLannister extends GOTEntityHumanBase {
 		}
 	}
 
-	public static class Religious extends GOTEntityLancelLannister {
-		public Religious(World world) {
+	public static class LancelLannisterReligious extends GOTEntityLancelLannister {
+		public LancelLannisterReligious(World world) {
 			super(world);
 			canBeMarried = false;
 		}

@@ -22,7 +22,7 @@ import got.common.database.*;
 import got.common.database.GOTTitle.PlayerTitle;
 import got.common.enchant.*;
 import got.common.entity.animal.*;
-import got.common.entity.essos.GOTEntityStoneman;
+import got.common.entity.essos.GOTEntityStoneMan;
 import got.common.entity.essos.asshai.GOTEntityAsshaiMan;
 import got.common.entity.essos.legendary.warrior.GOTEntityAsshaiArchmag;
 import got.common.entity.other.*;
@@ -1027,7 +1027,7 @@ public class GOTEventHandler implements IFuelHandler {
 			if (entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode) {
 				flag = false;
 			}
-			if (entity instanceof GOTEntityUlthosSpider || entity instanceof GOTEntityStoneman || entity instanceof GOTEntityAsshaiMan || entity instanceof GOTEntityAsshaiArchmag || entity instanceof GOTEntitySothoryosMan) {
+			if (entity instanceof GOTEntityUlthosSpider || entity instanceof GOTEntityStoneMan || entity instanceof GOTEntityAsshaiMan || entity instanceof GOTEntityAsshaiArchmag || entity instanceof GOTEntitySothoryosMan) {
 				flag = false;
 			}
 			if (flag && world.getBiomeGenForCoords(i = MathHelper.floor_double(entity.posX), MathHelper.floor_double(entity.posZ)) instanceof GOTBiomeShadowLand) {

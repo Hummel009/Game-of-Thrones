@@ -1,73 +1,4 @@
 
-got.gui.options.femRank.desc.on≠
-got.gui.options.femRank.desc.off≠
-got.gui.achievements.hover.name=%s
-got.gui.achievements.hover.subtitle≠
-got.gui.money.notGet≠
-got.gui.money.notGive≠
-item.got:cucumberSeeds.name≠
-got.command.wpCooldown.usage≠
-got.command.wpCooldown.setMax≠
-got.command.wpCooldown.setMin≠
-got.command.wpCooldown.updateMax≠
-got.command.wpCooldown.updateMin≠
-got.gui.options.femRank≠
-got.rank.ARRYN≠
-got.rank.ASSHAI≠
-got.rank.BRAAVOS≠
-got.rank.CERSEI≠
-got.rank.CROWNLANDS≠
-got.rank.DORNE≠
-got.rank.DOTHRAKI≠
-got.rank.DRAGONSTONE≠
-got.rank.GHISCAR≠
-got.rank.HILL_TRIBES≠
-got.rank.HOSTILE≠
-got.rank.IBBEN≠
-got.rank.IRONBORN≠
-got.rank.JOGOS≠
-got.rank.LHAZAR≠
-got.rank.LORATH≠
-got.rank.LYS≠
-got.rank.MOSSOVY≠
-got.rank.MYR≠
-got.rank.NIGHT_WATCH≠
-got.rank.NORTH≠
-got.rank.NORVOS≠
-got.rank.PENTOS≠
-got.rank.QARTH≠
-got.rank.QOHOR≠
-got.rank.REACH≠
-got.rank.RIVERLANDS≠
-got.rank.SOTHORYOS≠
-got.rank.STORMLANDS≠
-got.rank.SUMMER_ISLANDS≠
-got.rank.TYROSH≠
-got.rank.ULTHOS≠
-got.rank.UNALIGNED≠
-got.rank.VOLANTIS≠
-got.rank.WESTERLANDS≠
-got.rank.WHITE_WALKER≠
-got.rank.WILDLING≠
-got.rank.YI_TI≠
-got.rank.enemy≠
-got.rank.enemy_fm≠
-got.rank.neutral≠
-got.rank.neutral_fm≠
-got.rank.guest≠
-got.rank.friend≠
-got.rank.defender≠
-got.rank.hero≠
-got.rank.leader≠
-got.rank.guest_fm≠
-got.rank.friend_fm≠
-got.rank.defender_fm≠
-got.rank.hero_fm≠
-got.rank.leader_fm≠
-got.rank.king≠
-got.rank.king_fm≠
-got.capes.YITI_FRONTIER.name≠
-got.shields.ASSHAI.name≠
 attribute.name.generic.movementSpeedAir=Snelheid (lucht)
 color.black=Zwart
 color.blue=Blauw
@@ -106,8 +37,8 @@ entity.got.AnyaWaynwood.name≠
 entity.got.ArdrianCeltigar.name=Ardrian Celtigar
 entity.got.AreoHotah.name≠
 entity.got.ArianneMartell.name≠
-entity.got.ArrowPoison.name=Vergiftigde Pijl
-entity.got.ArrynArcher.name=Boogschutter van de Vallei van Arryn
+entity.got.ArrowFire.name≠
+entity.got.ArrowPoisoned.name≠
 entity.got.ArrynBaker.name=Bakker van de Vallei van Arryn
 entity.got.ArrynBannerBearer.name=Vlaghouder van de Vallei van Arryn
 entity.got.ArrynBartender.name=Herbergier van de Vallei van Arryn
@@ -134,14 +65,15 @@ entity.got.AsshaiAlchemist.name=Alchemist van Asshai
 entity.got.AsshaiArchmag.name=Aartsmah van Asshai
 entity.got.AsshaiBannerBearer.name≠
 entity.got.AsshaiCaptain.name=Bewaker Kapitein van Asshai
-entity.got.AsshaiGuard.name=Bewaker van Asshai
 entity.got.AsshaiMan.name=Man van Asshai
 entity.got.AsshaiShadowbinder.name=Schaduwbinder van Asshai
 entity.got.AsshaiSpherebinder.name=Spherebinder van Asshai
+entity.got.AsshaiWarrior.name=Bewaker van Asshai
 entity.got.AuraneWaters.name=Aurane Waters
 entity.got.BaelorBlacktyde.name≠
 entity.got.BalonGreyjoy.name=Balon Greyjoy
 entity.got.Banner.name=Vlag
+entity.got.BannerWall.name≠
 entity.got.BarbreyDustin.name≠
 entity.got.Barrel.name=Ton
 entity.got.BarristanSelmy.name=Barristan Selmy
@@ -151,17 +83,17 @@ entity.got.BearRug.name=Beren Huid
 entity.got.BenedarBelmore.name≠
 entity.got.BenjenStark.name=Benjen Stark
 entity.got.BericDayne.name=Beric Dayne
-entity.got.BericDondarrion1.name=Beric Dondarrion
-entity.got.BericDondarrion2.name=Beric Dondarrion
-entity.got.BericDondarrion3.name=Beric Dondarrion
-entity.got.BericDondarrion4.name=Beric Dondarrion
-entity.got.BericDondarrion5.name=Beric Dondarrion
-entity.got.BericDondarrion6.name=Beric Dondarrion
+entity.got.BericDondarrionLife1.name=Beric Dondarrion
+entity.got.BericDondarrionLife2.name=Beric Dondarrion
+entity.got.BericDondarrionLife3.name=Beric Dondarrion
+entity.got.BericDondarrionLife4.name=Beric Dondarrion
+entity.got.BericDondarrionLife5.name=Beric Dondarrion
+entity.got.BericDondarrionLife6.name=Beric Dondarrion
 entity.got.Bird.name=Vogel
 entity.got.Bison.name=Bison
 entity.got.BlackWalderFrey.name≠
 entity.got.Boar.name=Wild Zwijn
-entity.got.BraavosArcher.name=Boogschutter van Braavos
+entity.got.Bomb.name≠
 entity.got.BraavosBaker.name=Bakker van Braavos
 entity.got.BraavosBannerBearer.name=Vlaghouder van Braavos
 entity.got.BraavosBartender.name=Herbergier van Braavos
@@ -173,7 +105,6 @@ entity.got.BraavosFishmonger.name=Visboer van Braavos
 entity.got.BraavosFlorist.name=Bloemist van Braavos
 entity.got.BraavosGeneral.name=Generaal van Braavos
 entity.got.BraavosGoldsmith.name=Goudsmid van Braavos
-entity.got.BraavosLegionary.name=Legionair van Braavos
 entity.got.BraavosLevyman.name≠
 entity.got.BraavosLevymanArcher.name≠
 entity.got.BraavosLumberman.name=Houthakker van Braavos
@@ -182,7 +113,6 @@ entity.got.BraavosMason.name=Metselaar van Braavos
 entity.got.BraavosMiner.name=Mijnwerker van Braavos
 entity.got.BraavosSoldier.name≠
 entity.got.BraavosSoldierArcher.name≠
-entity.got.BraavosWarrior.name=Krijger van Braavos
 entity.got.BranStark.name≠
 entity.got.BrienneTarth.name=Brienne Tarth
 entity.got.Bronn.name=Bronn
@@ -190,6 +120,7 @@ entity.got.BryndenTully.name=Brynden Tully
 entity.got.BuGai.name=Bu Gai
 entity.got.Butterfly.name=Vlinder
 entity.got.Camel.name=Kameel
+entity.got.Cargocart.name≠
 entity.got.CatelynStark.name≠
 entity.got.CerseiLannister.name=Cersei Lannister
 entity.got.ClementPiper.name≠
@@ -198,11 +129,9 @@ entity.got.Conker.name=Kastanje
 entity.got.CotterPyke.name=Cotter Pyke
 entity.got.Craster.name=Craster
 entity.got.CrasterWife.name=Craster's vrouw
-entity.got.Crebain.name=Crebain
 entity.got.Crocodile.name=Krokodil
 entity.got.CrossbowBolt.name=Kruisboog Bout
 entity.got.CrownlandsAlchemist.name=Alchemist van de Kroonlanden
-entity.got.CrownlandsArcher.name=Boogschutter van de Kroonlanden
 entity.got.CrownlandsBaker.name=Baker van de Kroonlanden
 entity.got.CrownlandsBannerBearer.name=Vlaghouder van de Kroonlanden
 entity.got.CrownlandsBartender.name=Herbergier van de Kroonlanden
@@ -234,7 +163,6 @@ entity.got.DesertScorpion.name=Woestijnschorpioen
 entity.got.DikDik.name=Dikdik
 entity.got.Direwolf.name=Reuzenwolf
 entity.got.DoranMartell.name=Doran Martell
-entity.got.DorneArcher.name=Boogschutter van Dorne
 entity.got.DorneBaker.name=Baker van Dorne
 entity.got.DorneBannerBearer.name=Vlaghouder van Dorne
 entity.got.DorneBartender.name=Herbergier van Dorne
@@ -255,12 +183,11 @@ entity.got.DorneMan.name=Man van Dorne
 entity.got.DorneMason.name=Metselaar van Dorne
 entity.got.DorneSoldier.name=Krijger van Dorne
 entity.got.DorneSoldierArcher.name=Krijger Boogschutter van Dorne
+entity.got.Dothraki.name=Dothraki
 entity.got.DothrakiArcher.name=Dothraki Boogschutter
 entity.got.DothrakiKhal.name=Dothraki Khal
 entity.got.DothrakiKhalin.name=Dosh Khalin
-entity.got.DothrakiMan.name=Dothraki
 entity.got.Dragon.name=Draak
-entity.got.DragonstoneArcher.name=Boogschutter van Drakensteen
 entity.got.DragonstoneBaker.name=Baker van Drakensteen
 entity.got.DragonstoneBannerBearer.name=Vlagdrager van Drakensteen
 entity.got.DragonstoneBartender.name=Herbergier van Drakensteen
@@ -287,14 +214,17 @@ entity.got.Edd.name≠
 entity.got.EdmureTully.name=Edmure Tully
 entity.got.EldonEstermont.name≠
 entity.got.Elephant.name=Olifant
-entity.got.Elk.name=Elk
 entity.got.EllaryaSand.name=Ellarya Sand
 entity.got.ErikIronmaker.name≠
 entity.got.EssosBandit.name=Bandit
 entity.got.EssosScrapTrader.name≠
 entity.got.EssosThief.name=Thief
 entity.got.EuronGreyjoy.name=Euron Greyjoy
+entity.got.FallingFireJar.name≠
+entity.got.FallingTreasure.name≠
+entity.got.FirePot.name≠
 entity.got.Fish.name= Vis
+entity.got.FishHook.name≠
 entity.got.Flamingo.name=Flamingo
 entity.got.ForleyPrester.name=Forley Prester
 entity.got.FranklynFowler.name≠
@@ -304,20 +234,16 @@ entity.got.GendryBaratheon.name=Gendry Baratheon
 entity.got.GeroldDayne.name=Gerold Dayne
 entity.got.GeroldGrafton.name≠
 entity.got.GhiscarAdmiral.name≠
-entity.got.GhiscarArcher.name=Boogschutter van Ghiscar
 entity.got.GhiscarBaker.name=Baker van Ghiscar
 entity.got.GhiscarBannerBearer.name=Vlaghouder van Ghiscar
 entity.got.GhiscarBartender.name=Herbergier van Ghiscar
 entity.got.GhiscarBlacksmith.name=Smid van Ghiscar
 entity.got.GhiscarBrewer.name=Brouwer van Ghiscar
 entity.got.GhiscarButcher.name=Slager van Ghiscar
-entity.got.GhiscarCaptain.name=Kapitein van Ghiscar
 entity.got.GhiscarCorsair.name=Corsair van Ghiscar
 entity.got.GhiscarCorsairArcher.name≠
-entity.got.GhiscarFarmer.name=Boer van Ghiscar
 entity.got.GhiscarFishmonger.name=Visboer van Ghiscar
 entity.got.GhiscarFlorist.name=Bloemist van Ghiscar
-entity.got.GhiscarGeneral.name=Admiraal van Ghiscar
 entity.got.GhiscarGladiator.name=Gladiator van Ghiscar
 entity.got.GhiscarGoldsmith.name=Goudsmid van Ghiscar
 entity.got.GhiscarGuard.name=Bewaker van Yunkai
@@ -332,26 +258,21 @@ entity.got.GhiscarSlave.name=Slaaf van Ghiscar
 entity.got.GhiscarSlaver.name=Slaaf van Ghiscar
 entity.got.GhiscarUnsullied.name= Onbedoezelde van Ghiscar
 entity.got.Giant.name=Reus
-entity.got.GiantSpider.name=Gigantische spin
+entity.got.GiftBannerBearer.name=Vlaghouder Van de Nachtwacht
 entity.got.GiftBlacksmith.name=Smid van Gift
 entity.got.GiftGuard.name=Krijger van de Nachtwacht
-entity.got.GiftGuardBannerBearer.name=Vlaghouder Van de Nachtwacht
-entity.got.GiftGuardCaptain.name=Kapitein van de Nachtwacht
 entity.got.GiftMan.name=Man van Gift
 entity.got.GilwoodHunter.name≠
 entity.got.Giraffe.name=Giraf
 entity.got.GiraffeRug.name=Giraffe Huid
-entity.got.GiskarCaptain.name=Giskar Kapitein
-entity.got.GiskarCorsair.name=Giskar Corsair
-entity.got.GiskarSlaver.name=Giskar Slaver
 entity.got.GoldenBannerBearer.name=Vlaghouder van Golden Company
 entity.got.GoldenCaptain.name=Kapitein van Golden Company
 entity.got.GoldenSpearman.name=Speerman van Golden Company
 entity.got.GoldenWarrior.name=Krijger van Golden Company
 entity.got.Gorcrow.name=Gorkraai
 entity.got.GoroldGoodbrother.name≠
-entity.got.GregorClegane.name=Gregor Clegane
-entity.got.GregorCleganeWight.name=Gregor Clegane
+entity.got.GregorCleganeAlive.name=Gregor Clegane
+entity.got.GregorCleganeDead.name=Gregor Clegane
 entity.got.GreyWorm.name≠
 entity.got.GulianSwann.name≠
 entity.got.GylbertFarwynd.name≠
@@ -363,14 +284,14 @@ entity.got.HarryStrickland.name≠
 entity.got.HarysSwyft.name=Harys Swyft
 entity.got.HelmanTallhart.name≠
 entity.got.HighSepton.name=Hoge Septon
-entity.got.Hillmen.name=Heuvel Stam Man
-entity.got.HillmenArcher.name=Heuvel Stam Boogschutter
-entity.got.HillmenAxeThrower.name=Heuvel Stam Bijlenwerper
-entity.got.HillmenBannerBearer.name=Heuvel Stam Vlaghouder
-entity.got.HillmenBartender.name=Heuvel Stam Herbergier
-entity.got.HillmenBerserker.name=Heuvel Stam Berserker
-entity.got.HillmenWarlord.name=Heuvel Stam Kapitein
-entity.got.HillmenWarrior.name=Heuvel Stam Krijger
+entity.got.Hillman.name=Heuvel Stam Man
+entity.got.HillmanArcher.name=Heuvel Stam Boogschutter
+entity.got.HillmanAxeThrower.name=Heuvel Stam Bijlenwerper
+entity.got.HillmanBannerBearer.name=Heuvel Stam Vlaghouder
+entity.got.HillmanBartender.name=Heuvel Stam Herbergier
+entity.got.HillmanBerserker.name=Heuvel Stam Berserker
+entity.got.HillmanWarlord.name=Heuvel Stam Kapitein
+entity.got.HillmanWarrior.name=Heuvel Stam Krijger
 entity.got.HizdahrZoLoraq.name≠
 entity.got.Hodor.name=Hodor
 entity.got.Horse.name=Paard
@@ -387,7 +308,6 @@ entity.got.IbbenBlacksmith.name=Smid van Ibben
 entity.got.IbbenBrewer.name=Brouwer van Ibben
 entity.got.IbbenBuilder.name=Bouwer van Ibben
 entity.got.IbbenButcher.name=Slager van Ibben
-entity.got.IbbenCaptain.name=Kapitein van Ibben
 entity.got.IbbenFarmer.name=Boer van Ibben
 entity.got.IbbenFarmhand.name=Boerenknecht van Ibben
 entity.got.IbbenFishmonger.name=Visboer van Ibben
@@ -396,12 +316,13 @@ entity.got.IbbenMan.name=Mens
 entity.got.IbbenMeadhost.name=Drank-organisateur van Ibben
 entity.got.IbbenOrcharder.name=Opdrachtgever van Ibben
 entity.got.IbbenStablemaster.name=Stablemaster van Ibben
+entity.got.IbbenWarlord.name=Kapitein van Ibben
 entity.got.IbbenWarrior.name=Krijger van Ibben
 entity.got.IceSpider.name=Ijs Spin
 entity.got.Ifekevron.name=Ifekevron
 entity.got.IllyrioMopatis.name=Illyrio Mopatis
 entity.got.IlynPayne.name=Ilyn Payne
-entity.got.IronbornArcher.name=Boogschutter van de IJzereilanden
+entity.got.InvasionSpawner.name≠
 entity.got.IronbornBaker.name=Baker van IJzereilanden
 entity.got.IronbornBannerBearer.name=Vlagdrager van de IJzereilanden
 entity.got.IronbornBartender.name=Herbergier van de  IJzereilanden
@@ -409,7 +330,6 @@ entity.got.IronbornBlacksmith.name=Smid van de IJzereilanden
 entity.got.IronbornBrewer.name=Brouwer van de IJzereilanden
 entity.got.IronbornButcher.name=Slager van de IJzereilanden
 entity.got.IronbornCaptain.name=Kapitein van de IJzereilanden
-entity.got.IronbornCorsair.name=Pirate van de IJzereilanden
 entity.got.IronbornFarmer.name=Boer van de IJzereilanden
 entity.got.IronbornFarmhand.name=Boerenknecht van de IJzereilanden
 entity.got.IronbornFishmonger.name=Vishandelaar van de IJzereilanden
@@ -430,23 +350,23 @@ entity.got.JaqenHghar.name=Jaqen H'Ghar
 entity.got.JasonMallister.name≠
 entity.got.JeorMormont.name=Jeor Mormont
 entity.got.JoffreyBaratheon.name=Joffrey Baratheon
+entity.got.Jogos.name=Nomade van Jogos Nhai
 entity.got.JogosArcher.name=Boogschutter van Jogos Nhai
 entity.got.JogosBannerBearer.name≠
 entity.got.JogosChief.name=Hoofdman van Jogos Nhai
-entity.got.JogosMan.name=Nomade van Jogos Nhai
 entity.got.JogosShaman.name=Sjamaan van Jogos Nhai
 entity.got.JohnUmber.name=John Umber
 entity.got.JonConnington.name≠
-entity.got.JonSnow.name=Jon Sneeuw
-entity.got.JonSnow2.name≠
+entity.got.JonSnowLife1.name=Jon Sneeuw
+entity.got.JonSnowLife2.name≠
 entity.got.JonosBracken.name=Jonos Bracken
 entity.got.JorahMormont.name=Jorah Mormont
 entity.got.JungleScorpion.name=Jungleschorpioen
 entity.got.KevanLannister.name=Kevan Lannister
 entity.got.Kingsguard.name=Kingsguard
 entity.got.KraznysMoNakloz.name=Kraznys Mo Nakloz
-entity.got.LancelLannister.name=Lancel Lannister
-entity.got.LancelLannisterR.name=Lancel Lannister
+entity.got.LancelLannisterNormal.name=Lancel Lannister
+entity.got.LancelLannisterReligious.name=Lancel Lannister
 entity.got.LeoLefford.name=Leo Lefford
 entity.got.LeytonHightower.name=Leyton Hightower
 entity.got.LhazarArcher.name=Lhazar Boogschutter
@@ -466,11 +386,12 @@ entity.got.LhazarMason.name=Lhazar Mason
 entity.got.LhazarMiner.name=Lhazar mijnwerker
 entity.got.LhazarWarlord.name=Lhazar Krijgsheer
 entity.got.LhazarWarrior.name=Lhazar krijger
+entity.got.LingeringEffect.name≠
+entity.got.LingeringPotion.name≠
 entity.got.Lion.name=Leeuw
 entity.got.LionRug.name=Leeuwen Huid
 entity.got.Lioness.name=Leeuwin
 entity.got.LorasTyrell.name=Loras Tyrell
-entity.got.LorathArcher.name=Boogschutter van Lorath
 entity.got.LorathBaker.name=Baker van Lorath
 entity.got.LorathBannerBearer.name=Vlaghouder van Lorath
 entity.got.LorathBartender.name=Herbergier van Lorath
@@ -482,7 +403,6 @@ entity.got.LorathFishmonger.name=Visboer van Lorath
 entity.got.LorathFlorist.name=Bloemist van Lorath
 entity.got.LorathGeneral.name=Generaal van Lorath
 entity.got.LorathGoldsmith.name=Goudsmid van Lorath
-entity.got.LorathLegionary.name=Legionair van Lorath
 entity.got.LorathLevyman.name≠
 entity.got.LorathLevymanArcher.name≠
 entity.got.LorathLumberman.name=Houthakker van Lorath
@@ -491,24 +411,20 @@ entity.got.LorathMason.name=Metselaar van Lorath
 entity.got.LorathMiner.name=Mijnwerker van Lorath
 entity.got.LorathSoldier.name≠
 entity.got.LorathSoldierArcher.name≠
-entity.got.LorathWarrior.name=Krijger van Lorath
 entity.got.LotharFrey.name≠
 entity.got.Luwin.name≠
 entity.got.LyleCrakehall.name=Lyle Crakehall
 entity.got.LynCorbray.name=Lyn Corbray
-entity.got.LysArcher.name=Boogschutter van Lys
 entity.got.LysBaker.name=Baker van Lys
 entity.got.LysBannerBearer.name=Vlaghouder van Lys
 entity.got.LysBartender.name=Herbergier van Lys
 entity.got.LysBlacksmith.name=Smid van Lys
 entity.got.LysBrewer.name=Brouwer van Lys
 entity.got.LysButcher.name=Slager van Lys
-entity.got.LysFarmer.name=Boer van Lys
 entity.got.LysFishmonger.name=Visboer van Lys
 entity.got.LysFlorist.name=Bloemist van Lys
 entity.got.LysGeneral.name=Generaal van Lys
 entity.got.LysGoldsmith.name=Goudsmid van Lys
-entity.got.LysLegionary.name=Legionair van Lys
 entity.got.LysLevyman.name≠
 entity.got.LysLevymanArcher.name≠
 entity.got.LysLumberman.name=Houthakker van Lys
@@ -519,7 +435,6 @@ entity.got.LysSlave.name=Slaaf van Lys
 entity.got.LysSlaver.name=Slaaf van Lys
 entity.got.LysSoldier.name≠
 entity.got.LysSoldierArcher.name≠
-entity.got.LysWarrior.name=Krijger van Lys
 entity.got.LysaArryn.name≠
 entity.got.MaceTyrell.name=Mace Tyrell
 entity.got.MaegeMormont.name≠
@@ -541,15 +456,12 @@ entity.got.Missandei.name≠
 entity.got.MonfordVelaryon.name=Monford Velaryon
 entity.got.Moqorro.name≠
 entity.got.MoribaldChester.name≠
-entity.got.MossovyBannerBearer.name≠
 entity.got.MossovyBartender.name≠
 entity.got.MossovyBlacksmith.name≠
 entity.got.MossovyFarmer.name≠
 entity.got.MossovyMan.name≠
 entity.got.MossovyWerewolf.name=Mossovy Weerwolf
 entity.got.MossovyWitcher.name=Mossovy Witcher
-entity.got.MossovyWitcherBannerBearer.name=Mossovy Vlaghouder
-entity.got.MossovyWitcherCaptain.name=Mossovy kapitein
 entity.got.Mullin.name=Mullin
 entity.got.MyrBaker.name=Baker van Myr
 entity.got.MyrBannerBearer.name=Vlagdrager van Myr
@@ -557,13 +469,10 @@ entity.got.MyrBartender.name=Herbergier van Myr
 entity.got.MyrBlacksmith.name=Smid van Myr
 entity.got.MyrBrewer.name=Brouwer van Myr
 entity.got.MyrButcher.name=Slager van Myr
-entity.got.MyrCrossbower.name=Crossbower van Myr
-entity.got.MyrFarmer.name=Boer van Myr
 entity.got.MyrFishmonger.name=Visboer van Myr
 entity.got.MyrFlorist.name=Bloemist van Myr
 entity.got.MyrGeneral.name=Generaal van Myr
 entity.got.MyrGoldsmith.name=Goudsmid van Myr
-entity.got.MyrLegionary.name=Legionair van Myr
 entity.got.MyrLevyman.name≠
 entity.got.MyrLevymanArcher.name≠
 entity.got.MyrLumberman.name=Houthakker van Myr
@@ -574,12 +483,10 @@ entity.got.MyrSlave.name=Slaaf van Myr
 entity.got.MyrSlaver.name=Slaaf van Myr
 entity.got.MyrSoldier.name≠
 entity.got.MyrSoldierArcher.name≠
-entity.got.MyrWarrior.name=Strijder van Myr
 entity.got.MyrcellaBaratheon.name≠
 entity.got.MysteryWeb.name=Mysterie-Web
 entity.got.NPCRespawner.name=NPC Herspawner
 entity.got.NightKing.name=Nacht koning
-entity.got.NorthArcher.name=Boogschutter van het Noorden
 entity.got.NorthBaker.name=Baker van Noorden
 entity.got.NorthBannerBearer.name=Vlagdrager van het Noorden
 entity.got.NorthBartender.name=Herbergier van het Noorden
@@ -607,7 +514,6 @@ entity.got.NorthLevymanArcher.name=Militie Boogschutter van het Noorden
 entity.got.NorthLumberman.name=Houthakker van het Noorden
 entity.got.NorthMan.name=Man van het Noorden
 entity.got.NorthMason.name=Metselaar van het Noorden
-entity.got.NorthRuinsWraith.name=Wraith van het Noorden
 entity.got.NorthSoldier.name=Krijger van het Noorden
 entity.got.NorthSoldierArcher.name=Krijger Boogschutter het Noorden
 entity.got.NorvosBaker.name=Baker van Norvos
@@ -654,12 +560,12 @@ entity.got.PentosMason.name=Metselaar van Pentos
 entity.got.PentosMiner.name=Mijnwerker van Pentos
 entity.got.PetyrBaelish.name=Petyr Baelish
 entity.got.Plate.name=Bord
+entity.got.Plowcart.name≠
 entity.got.PodrickPayne.name=Podrick Payne
-entity.got.Polarbear.name=Sneeuw Beer
 entity.got.Polliver.name≠
+entity.got.Portal.name≠
 entity.got.Prostitute.name=Prostitueren
 entity.got.Pycelle.name=Pycelle
-entity.got.QarthArcher.name=Boogschutter van Qarth
 entity.got.QarthBaker.name=Baker van Qarth
 entity.got.QarthBannerBearer.name=Vlaghouder van Qarth
 entity.got.QarthBartender.name=Herbergier van Qarth
@@ -669,7 +575,6 @@ entity.got.QarthButcher.name=Slager van Qarth
 entity.got.QarthFarmer.name=Boer van Qarth
 entity.got.QarthFishmonger.name=Visboer van Qarth
 entity.got.QarthFlorist.name=Bloemist van Qarth
-entity.got.QarthGeneral.name=Guard Kapitein van Qarth
 entity.got.QarthGoldsmith.name=Goudsmid van Qarth
 entity.got.QarthGuard.name=Bewaker van Qarth
 entity.got.QarthGuardCaptain.name≠
@@ -680,8 +585,6 @@ entity.got.QarthMan.name=Man van Qarth
 entity.got.QarthMason.name=Metselaar van Qarth
 entity.got.QarthMiner.name=Mijnwerker van Qarth
 entity.got.QarthWarlock.name=Qarth Warlock
-entity.got.QarthWarrior.name=Strijder van Qarth
-entity.got.QohorArcher.name=Boogschutter van Qohor
 entity.got.QohorBaker.name=Baker van Qohor
 entity.got.QohorBannerBearer.name=Vlaghouder van Qohor
 entity.got.QohorBartender.name=Herbergier van Qohor
@@ -710,7 +613,6 @@ entity.got.Rabbit.name=Konijn
 entity.got.RamsayBolton.name=Ramsay Bolton
 entity.got.RandyllTarly.name=Randyll Tarly
 entity.got.RazdalMoEraz.name≠
-entity.got.ReachArcher.name=Boogschutter van Bereik
 entity.got.ReachBaker.name=Baker van Bereik
 entity.got.ReachBannerBearer.name=Vlaghouder van Bereik
 entity.got.ReachBartender.name=Herbergier van Bereik
@@ -738,7 +640,6 @@ entity.got.RenlyBaratheon.name=Renly Baratheon
 entity.got.Rhino.name=Neushoorn
 entity.got.RickardKarstark.name=Rickard Karstark
 entity.got.RickonStark.name≠
-entity.got.RiverlandsArcher.name=Boogschutter van Rivierlanden
 entity.got.RiverlandsBaker.name=Baker van Rivierlanden
 entity.got.RiverlandsBannerBearer.name=Vlaghouder van Rivierlanden
 entity.got.RiverlandsBartender.name=Herbergier van Rivierlanden
@@ -776,24 +677,21 @@ entity.got.SelyseBaratheon.name≠
 entity.got.Septon.name≠
 entity.got.Shadowcat.name=Schaduw kat
 entity.got.Shae.name≠
-entity.got.Shark.name=Haai
-entity.got.Shego.name=Shego
 entity.got.ShireenBaratheon.name≠
 entity.got.SmokeRing.name=Rookkring
+entity.got.SnowBear.name=Sneeuw Beer
 entity.got.SothoryosBannerBearer.name=Sothoryos Vlaghouder
 entity.got.SothoryosBlowgunner.name=Sothoryos Boogschutter
 entity.got.SothoryosChieftain.name=Hoofdman van Sothoryos
 entity.got.SothoryosFarmer.name=Sothoryos Farmer
 entity.got.SothoryosFarmhand.name=Sothoryos Boerenknecht
 entity.got.SothoryosMan.name=Sothoryos Man
-entity.got.SothoryosPyramidWraith.name=Sothoryos Wraith
 entity.got.SothoryosShaman.name=Sothoryos Sjamaan
 entity.got.SothoryosSmith.name=Sothoryos Smith
 entity.got.SothoryosWarrior.name=Sothoryos Warrior
 entity.got.Spear.name=Speer
 entity.got.StannisBaratheon.name=Stannis Baratheon
 entity.got.StoneMan.name=Stenen man
-entity.got.StormlandsArcher.name=Boogschutter van Stormlanden
 entity.got.StormlandsBaker.name=Baker van Stormlanden
 entity.got.StormlandsBannerBearer.name=Vlaghouder van Stormlanden
 entity.got.StormlandsBartender.name=Herbergier van Stormlanden
@@ -841,20 +739,17 @@ entity.got.ThennBannerBearer.name=Thenn Banner Bearer
 entity.got.ThennBerserker.name=Thenn Berserker
 entity.got.ThennBlacksmith.name=Thenn smid
 entity.got.ThennMagnar.name=Thenn Magnar
-entity.got.TheonGreyjoy.name=Theon Greyjoy
-entity.got.TheonGreyjoyV.name=Theon Greyjoy
+entity.got.TheonGreyjoyNormal.name=Theon Greyjoy
+entity.got.TheonGreyjoyTormented.name=Theon Greyjoy
 entity.got.Thoros.name=Thoros
 entity.got.ThreeEyedRaven.name=Raaf met drie ogen
 entity.got.ThrowingAxe.name=Werpbijltje
-entity.got.ThrownFirePot.name=Vuurbom
 entity.got.ThrownRock.name=Geworpen Rots
 entity.got.ThrownTermite.name=Exploderende Termiet
-entity.got.Tigasa.name=TIGASA
 entity.got.TobhoMott.name=Tobho Mott
 entity.got.TommenBaratheon.name≠
 entity.got.Tormund.name=Tormund
 entity.got.TraderRespawn.name=Handelaar Respawner
-entity.got.TrollSnowball.name=Trol sneeuwbal
 entity.got.TrystaneMartell.name≠
 entity.got.TugarKhan.name=Tugar Khan
 entity.got.TychoNestoris.name≠
@@ -865,13 +760,10 @@ entity.got.TyroshBartender.name=Herbergier van Tyrosh
 entity.got.TyroshBlacksmith.name=Smid van Tyrosh
 entity.got.TyroshBrewer.name=Brouwer van Tyrosh
 entity.got.TyroshButcher.name=Slager van Tyrosh
-entity.got.TyroshCrossbower.name=Crossbower van Tyrosh
-entity.got.TyroshFarmer.name=Boer van Tyrosh
 entity.got.TyroshFishmonger.name=Vishandelaar van Tyrosh
 entity.got.TyroshFlorist.name=Bloemist van Tyrosh
 entity.got.TyroshGeneral.name=Generaal van Tyrosh
 entity.got.TyroshGoldsmith.name=Goudsmid van Tyrosh
-entity.got.TyroshLegionary.name=Legionair van Tyrosh
 entity.got.TyroshLevyman.name≠
 entity.got.TyroshLevymanArcher.name≠
 entity.got.TyroshLumberman.name=Houthakker van Tyrosh
@@ -882,26 +774,23 @@ entity.got.TyroshSlave.name=Slaaf van Tyrosh
 entity.got.TyroshSlaver.name=Slaaf van Tyrosh
 entity.got.TyroshSoldier.name≠
 entity.got.TyroshSoldierArcher.name≠
-entity.got.TyroshWarrior.name=Krijger van Tyrosh
 entity.got.TytosBlackwood.name=Tytos Blackwood
 entity.got.TytosBrax.name=Tytos Brax
 entity.got.TywinLannister.name=Tywin Lannister
+entity.got.UlthosSpider.name=Gigantische spin
 entity.got.VargoHoat.name≠
 entity.got.Varys.name=Varieert
 entity.got.VictarionGreyjoy.name=Victarion Greyjoy
-entity.got.VolantisArcher.name=Boogschutter van Volantis
 entity.got.VolantisBaker.name=Baker van Volantis
 entity.got.VolantisBannerBearer.name=Vlaghouder van Volantis
 entity.got.VolantisBartender.name=Herbergier van Volantis
 entity.got.VolantisBlacksmith.name=Smid van Volantis
 entity.got.VolantisBrewer.name=Brouwer van Volantis
 entity.got.VolantisButcher.name=Slager van Volantis
-entity.got.VolantisFarmer.name=Boer van Volantis
 entity.got.VolantisFishmonger.name=Visboer van Volantis
 entity.got.VolantisFlorist.name=Bloemist van Volantis
 entity.got.VolantisGeneral.name=Generaal van Volantis
 entity.got.VolantisGoldsmith.name=Goudsmid van Volantis
-entity.got.VolantisLegionary.name=Legionair van Volantis
 entity.got.VolantisLevyman.name≠
 entity.got.VolantisLevymanArcher.name≠
 entity.got.VolantisLumberman.name=Houthakker van Volantis
@@ -912,12 +801,8 @@ entity.got.VolantisSlave.name=Slaaf van Volantis
 entity.got.VolantisSlaver.name=Slaaf van Volantis
 entity.got.VolantisSoldier.name≠
 entity.got.VolantisSoldierArcher.name≠
-entity.got.VolantisWarrior.name=Strijder van Volantis
 entity.got.WalderFrey.name=Walder Frey
-entity.got.WallBanner.name=MuurVlag
 entity.got.Walrus.name=Walrus
-entity.got.WargRug.name=Wargtapijt
-entity.got.WesterlandsArcher.name=Boogschutter van Westlanden
 entity.got.WesterlandsBaker.name=Bakker van Westlanden
 entity.got.WesterlandsBannerBearer.name=Vlaghouder van Westlanden
 entity.got.WesterlandsBartender.name=Herbergier van Westlanden
@@ -945,8 +830,8 @@ entity.got.WesterosThief.name=Thief
 entity.got.WhiteBison.name=Witte-White Bison
 entity.got.WhiteOryx.name=Witte Oryx
 entity.got.WhiteWalker.name=White Walker
-entity.got.Wicht.name=Wight
-entity.got.WichtGiant.name=Wight-Giant
+entity.got.Wight.name=Wight
+entity.got.WightGiant.name=Wight-Giant
 entity.got.Wildling.name=Wildling
 entity.got.WildlingArcher.name=Wildling Boogschutter
 entity.got.WildlingAxeThrower.name=Wildling bijlwerper
@@ -960,7 +845,6 @@ entity.got.Wyvern.name=Wyvern
 entity.got.XaroXhoanDaxos.name=Xaro Xhoan Daxos
 entity.got.YaraGreyjoy.name=Yara Greyjoy
 entity.got.Ygritte.name=Ygritte
-entity.got.YiTiArcher.name=Boogschutter van Yi Ti
 entity.got.YiTiBaker.name=Baker van Yi Ti
 entity.got.YiTiBannerBearer.name=Vlagdrager van Yi Ti
 entity.got.YiTiBartender.name=Herbergier van Yi Ti
@@ -970,7 +854,7 @@ entity.got.YiTiBrewer.name=Brouwer van Yi Ti
 entity.got.YiTiButcher.name=Slager van Yi Ti
 entity.got.YiTiFarmer.name=Boer van Yi Ti
 entity.got.YiTiFarmhand.name=Boerenknecht van Yi Ti
-entity.got.YiTiFirePriest.name=Vuurpriester van Yi Ti
+entity.got.YiTiFireThrower.name=Vuurpriester van Yi Ti
 entity.got.YiTiFishmonger.name=Visboer van Yi Ti
 entity.got.YiTiFrontier.name≠
 entity.got.YiTiFrontierCrossbower.name≠
@@ -982,17 +866,13 @@ entity.got.YiTiLumberman.name=Houthakker van Yi Ti
 entity.got.YiTiMan.name=Man van Yi Ti
 entity.got.YiTiMason.name=Metselaar van Yi Ti
 entity.got.YiTiSamurai.name=Samurai van Yi Ti
-entity.got.YiTiShogun.name=Shogun van Yi Ti
+entity.got.YiTiShogune.name=Shogun van Yi Ti
 entity.got.YiTiSoldier.name=Soldaat van Yi Ti
 entity.got.YiTiSoldierCrossbower.name≠
 entity.got.YohnRoyce.name=Yohn Royce
 entity.got.Yoren.name≠
 entity.got.YoungGriff.name≠
 entity.got.Zebra.name=Zebra
-entity.got.generic.entityName≠
-entity.gotFishHook.name=Vishaak
-entity.gotMinecartTNT.name=Mijnkar met TNT
-entity.gotTNT.name=TNT
 generator.got.info=Je verschijnt in GOT World met kaart
 generator.got=Het Spel Der Tronen
 generator.gotClassic.info=Je verschijnt in de gewone wereld met GOT-biomen
@@ -1741,6 +1621,7 @@ got.capes.UNSULLIED.name=Kaap van Onbezoedeld
 got.capes.VOLANTIS.name=Kaap van Volantis
 got.capes.WESTERLANDS.name=Kaap van Westlanden
 got.capes.YITI.name=Kaap van Yi Ti
+got.capes.YITI_FRONTIER.name≠
 got.capes.YITI_SAMURAI.name=Kaap van Yi Ti Samurai
 got.capes.category.ACHIEVABLE=Haalbare capes
 got.capes.category.ALIGNMENT=Uitlijncapes
@@ -1906,6 +1787,11 @@ got.command.waypoints.unlock.fail=%s heeft de waypoint-regio %s al ontgrendeld
 got.command.waypoints.unlock=Ontgrendeld voor %s de waypoint-regio %s
 got.command.waypoints.unlockAll=Alle waypointregio's ontgrendeld voor %s
 got.command.waypoints.usage=/waypoints <unlock|lock> <region> [speler]
+got.command.wpCooldown.setMax≠
+got.command.wpCooldown.setMin≠
+got.command.wpCooldown.updateMax≠
+got.command.wpCooldown.updateMin≠
+got.command.wpCooldown.usage≠
 got.compas.EAST=Oosten
 got.compas.NORTH=Noorden
 got.compas.SOUTH=Zuiden
@@ -2095,7 +1981,6 @@ got.faction.ASSHAI.subtitle=Black City van Shadowbinders
 got.faction.BRAAVOS.entity=Vrije mensen
 got.faction.BRAAVOS.name=Braavos
 got.faction.BRAAVOS.subtitle=Vrije stad Essos
-got.faction.CERSEI.name=Kroonlanden
 got.faction.CROWNLANDS.entity=Mensen van de hoofdstad
 got.faction.CROWNLANDS.name=Kroonlanden
 got.faction.CROWNLANDS.subtitle=Roberts huis
@@ -2209,6 +2094,8 @@ got.fastTravel.travelTicks=Snelreizen in %d...
 got.fastTravel.travelTicksStart=Snelreizen in %d. Niet bewegen!
 got.fastTravel.underAttack=Je kan niet snelreizen als je aangevallen wordt
 got.gui.achievements.category=%s (%d/%d)
+got.gui.achievements.hover.name=%s
+got.gui.achievements.hover.subtitle≠
 got.gui.achievements.title=%s Presaties (%d/%d)
 got.gui.achievements=Prestaties
 got.gui.atribute=Attributen
@@ -2433,6 +2320,8 @@ got.gui.miniquestOffer.decline=Wijs af
 got.gui.money.balance=Saldo: %s
 got.gui.money.get=U heeft %s succesvol overgedragen
 got.gui.money.give=U heeft met succes %s opgenomen
+got.gui.money.notGet≠
+got.gui.money.notGive≠
 got.gui.money.press=Druk op munt om geld op te nemen /over te boeken
 got.gui.money.transfer=Geld overmaken
 got.gui.money.withdraw=Geld opnemen
@@ -2471,6 +2360,9 @@ got.gui.openFolder=Open config folder
 got.gui.options.conquest.desc.off=UIT: het doden van NPC's heeft geen invloed op de verovering
 got.gui.options.conquest.desc.on=AAN: het doden van vijandige NPC's verhoogt de verovering van je beloofde factie, van reinigt de verovering van die vijand als die daar bestaat
 got.gui.options.conquest=Conquest Kills
+got.gui.options.femRank.desc.off≠
+got.gui.options.femRank.desc.on≠
+got.gui.options.femRank≠
 got.gui.options.friendlyFire.desc.off=UIT: Geallieerde NPCs kunnen niet aangevallen worden, behalve als zij jou eerst hebben aangevallen
 got.gui.options.friendlyFire.desc.on=AAN: Alle NPCs, behalve gehuurde eenheden, kunnen aangevallen worden
 got.gui.options.friendlyFire=Friendly Fire
@@ -2628,6 +2520,59 @@ got.miniquest.welcome.speak=Praat met de Jaken H'ghar
 got.music.nowPlaying=Nu speelt:
 got.potion.drinkPoison=Vergiftigde drank
 got.potion=Aanhoudende
+got.rank.ARRYN≠
+got.rank.ASSHAI≠
+got.rank.BRAAVOS≠
+got.rank.CROWNLANDS≠
+got.rank.DORNE≠
+got.rank.DOTHRAKI≠
+got.rank.DRAGONSTONE≠
+got.rank.GHISCAR≠
+got.rank.HILL_TRIBES≠
+got.rank.HOSTILE≠
+got.rank.IBBEN≠
+got.rank.IRONBORN≠
+got.rank.JOGOS≠
+got.rank.LHAZAR≠
+got.rank.LORATH≠
+got.rank.LYS≠
+got.rank.MOSSOVY≠
+got.rank.MYR≠
+got.rank.NIGHT_WATCH≠
+got.rank.NORTH≠
+got.rank.NORVOS≠
+got.rank.PENTOS≠
+got.rank.QARTH≠
+got.rank.QOHOR≠
+got.rank.REACH≠
+got.rank.RIVERLANDS≠
+got.rank.SOTHORYOS≠
+got.rank.STORMLANDS≠
+got.rank.SUMMER_ISLANDS≠
+got.rank.TYROSH≠
+got.rank.ULTHOS≠
+got.rank.UNALIGNED≠
+got.rank.VOLANTIS≠
+got.rank.WESTERLANDS≠
+got.rank.WHITE_WALKER≠
+got.rank.WILDLING≠
+got.rank.YI_TI≠
+got.rank.defender_fm≠
+got.rank.defender≠
+got.rank.enemy_fm≠
+got.rank.enemy≠
+got.rank.friend_fm≠
+got.rank.friend≠
+got.rank.guest_fm≠
+got.rank.guest≠
+got.rank.hero_fm≠
+got.rank.hero≠
+got.rank.king_fm≠
+got.rank.king≠
+got.rank.leader_fm≠
+got.rank.leader≠
+got.rank.neutral_fm≠
+got.rank.neutral≠
 got.shields.ACHIEVEMENT_BRONZE.desc=Verkrijgbaar door 25 prestaties te behalen
 got.shields.ACHIEVEMENT_BRONZE.name=Bronzen Avonturiers Schild
 got.shields.ACHIEVEMENT_GOLD.desc=Verkrijgbaar door 100 prestaties te behalen
@@ -2640,6 +2585,7 @@ got.shields.ALCOHOLIC.desc=Verkrijgbaar door een overvloedige hoeveelheid drank 
 got.shields.ALCOHOLIC.name=Alcoholisten Schild
 got.shields.ARRYN.name=Schild van Vallei van Arryn
 got.shields.ARRYNGUARD.name=Schild van Gulltown Guard
+got.shields.ASSHAI.name≠
 got.shields.BRAAVOS.name=Schild van Braavos
 got.shields.CROWNLANDS.name=Schild van Kroonlanden
 got.shields.DORNE.name=Schild van Dorne
@@ -2689,7 +2635,7 @@ got.structure.ArrynSmithy.name=Smithy van Vallei van Arryn
 got.structure.ArrynStables.name=Stallen van Vallei van Arryn
 got.structure.ArrynStoneHouse.name=Stenen huis van Vallei van Arryn
 got.structure.ArrynTavern.name=Herberg van Vallei van Arryn
-got.structure.ArrynTurret.name=Torentje van Vallei van Arryn
+got.structure.ArrynTower.name=Torentje van Vallei van Arryn
 got.structure.ArrynWatchfort.name=Watchfort van Vallei van Arryn
 got.structure.ArrynWatchtower.name=Wachttoren van Vallei van Arryn
 got.structure.AsshaiCity.name=Stad Asshai
@@ -2726,7 +2672,7 @@ got.structure.CrownlandsSmithy.name=Smithy van Kroonlanden
 got.structure.CrownlandsStables.name=Stallen van Kroonlanden
 got.structure.CrownlandsStoneHouse.name=Stenen huis van Kroonlanden
 got.structure.CrownlandsTavern.name=Herberg van Kroonlanden
-got.structure.CrownlandsTurret.name=Torentje van Kroonlanden
+got.structure.CrownlandsTower.name=Torentje van Kroonlanden
 got.structure.CrownlandsWatchfort.name=Watchfort van Kroonlanden
 got.structure.CrownlandsWatchtower.name=Uitkijktoren van Kroonlanden
 got.structure.DorneBarn.name=Schuur van Dorne
@@ -2741,7 +2687,7 @@ got.structure.DorneSmithy.name=Smithy van Dorne
 got.structure.DorneStables.name=Stallen van Dorne
 got.structure.DorneStoneHouse.name=Stenen huis van Dorne
 got.structure.DorneTavern.name=Herberg van Dorne
-got.structure.DorneTurret.name=Torentje van Dorne
+got.structure.DorneTower.name=Torentje van Dorne
 got.structure.DorneWatchfort.name=Watchfort van Dorne
 got.structure.DorneWatchtower.name=Wachttoren van Dorne
 got.structure.DothrakiKhalTent.name=Khal's tent van de Dothraki-zee
@@ -2762,7 +2708,7 @@ got.structure.DragonstoneSmithy.name=Smithy van Drakensteen
 got.structure.DragonstoneStables.name=Stallen van Drakensteen
 got.structure.DragonstoneStoneHouse.name=Stenen huis van Drakensteen
 got.structure.DragonstoneTavern.name=Herberg van Drakensteen
-got.structure.DragonstoneTurret.name=Torentje van Drakensteen
+got.structure.DragonstoneTower.name=Torentje van Drakensteen
 got.structure.DragonstoneWatchfort.name=Watchfort van Drakensteen
 got.structure.DragonstoneWatchtower.name=Uitkijktoren van Drakensteen
 got.structure.GhiscarBarracks.name=Kazerne van Ghiscar
@@ -2796,11 +2742,11 @@ got.structure.GiftVillageLight.name=Village Light van Night's Watch
 got.structure.GiftWatchtower.name=Wachttoren van Night's Watch
 got.structure.GoldenCamp.name=Kamp van Golden Company
 got.structure.GoldenWatchtower.name≠
+got.structure.HillmanCampfire.name=Camp van Hill Tribes
+got.structure.HillmanFort.name=Fort van Hill Tribes
+got.structure.HillmanHouse.name=House van Hill Tribes
+got.structure.HillmanTavern.name=Herberg van Hill Tribes
 got.structure.HillmanVillage.name≠
-got.structure.HillmenCampfire.name=Camp van Hill Tribes
-got.structure.HillmenHillFort.name=Fort van Hill Tribes
-got.structure.HillmenHouse.name=House van Hill Tribes
-got.structure.HillmenTavern.name=Herberg van Hill Tribes
 got.structure.HorthHillmanCamp.name=Kamp van Noorden Hillmen
 got.structure.IbbenBarn.name=Schuur van Ibben
 got.structure.IbbenFortVillage.name=Fort Fillage van Ibben
@@ -2823,7 +2769,7 @@ got.structure.IronbornSmithy.name=Smithy van IJzereilanden
 got.structure.IronbornStables.name=Stallen van IJzereilanden
 got.structure.IronbornStoneHouse.name=Stone House van IJzereilanden
 got.structure.IronbornTavern.name=Herberg van IJzereilanden
-got.structure.IronbornTurret.name=Torentje van IJzereilanden
+got.structure.IronbornTower.name=Torentje van IJzereilanden
 got.structure.IronbornWatchfort.name=Watchfort van IJzereilanden
 got.structure.IronbornWatchtower.name=Uitkijktoren van IJzereilanden
 got.structure.JogosChiefTent.name=Chieftain's Tent van Jogos Nhai
@@ -2897,7 +2843,6 @@ got.structure.MyrTower.name=Toren van Myr
 got.structure.MyrTraining.name=Opleiding van Myr
 got.structure.NorthBarn.name=Schuur van Noorden
 got.structure.NorthBath.name=Bad van Noorden
-got.structure.NorthBeaconTower.name=Wachttoren van Noorden
 got.structure.NorthCottage.name=Huisje van het Noorden
 got.structure.NorthFortVillage.name=Kasteel van Noorden
 got.structure.NorthFortress.name=Fort van Noorden
@@ -2910,8 +2855,9 @@ got.structure.NorthSmithy.name=Smithy van Noorden
 got.structure.NorthStables.name=Stallen van Noorden
 got.structure.NorthStoneHouse.name=Stenen huis van het Noorden
 got.structure.NorthTavern.name=Taverne van Noorden
+got.structure.NorthTower.name=Torentje van Noorden
+got.structure.NorthTower.name=Wachttoren van Noorden
 got.structure.NorthTown.name=Stad van Noorden
-got.structure.NorthTurret.name=Torentje van Noorden
 got.structure.NorthVillage.name=Dorp van Noorden
 got.structure.NorthWatchfort.name=Watchfort van Noorden
 got.structure.NorthWatchtower.name=Wachttoren van Noorden
@@ -2980,7 +2926,7 @@ got.structure.ReachSmithy.name=Smithy van Bereik
 got.structure.ReachStables.name=Stables van Bereik
 got.structure.ReachStoneHouse.name=Stone House van Bereik
 got.structure.ReachTavern.name=Tavern van Bereik
-got.structure.ReachTurret.name=Turret van Bereik
+got.structure.ReachTower.name=Tower van Bereik
 got.structure.ReachWatchfort.name=Watchfort van Bereik
 got.structure.ReachWatchtower.name=Wachttoren van Bereik
 got.structure.RiverlandsBarn.name=Schuur van Rivierlanden
@@ -2995,15 +2941,20 @@ got.structure.RiverlandsSmithy.name=Smithy van Rivierlanden
 got.structure.RiverlandsStables.name=Stallen van Rivierlanden
 got.structure.RiverlandsStoneHouse.name=Stenen huis van Rivierlanden
 got.structure.RiverlandsTavern.name=Taverne van Rivierlanden
-got.structure.RiverlandsTurret.name=Torentje van Rivierlanden
+got.structure.RiverlandsTower.name=Torentje van Rivierlanden
 got.structure.RiverlandsWatchfort.name=Watchfort van Rivierlanden
 got.structure.RiverlandsWatchtower.name=Uitkijktoren van Rivierlanden
 got.structure.RottenHouse.name≠
-got.structure.RuinedBeaconTower.name=Verwoesste Gondor Bakentoren
+got.structure.RuinAsshai.name≠
+got.structure.RuinSandstone.name≠
+got.structure.RuinSothoryos.name≠
+got.structure.RuinStone.name≠
+got.structure.RuinYiTi.name≠
 got.structure.RuinedGiftHouse.name=Geruïneerd cadeaushuis
 got.structure.RuinedGiftTower.name=Geruïneerde Gift Tower
 got.structure.RuinedHouse.name≠
 got.structure.RuinedNorthTower.name=Ruïne van Beacon Tower van Noorden
+got.structure.RuinedTower.name=Verwoesste Gondor Bakentoren
 got.structure.SmallStoneRuin.name≠
 got.structure.SothoryosChieftainPyramid.name=Chieftain's Piramide van Sothoryos
 got.structure.SothoryosHouseLarge.name=Stenen huis van Sothoryos
@@ -3013,11 +2964,6 @@ got.structure.SothoryosPyramid.name=Piramide van Sothoryos
 got.structure.SothoryosSmithy.name=Sothoryos Smithy
 got.structure.SothoryosVillage.name=Dorp van Sothoryos
 got.structure.SothoryosWatchtower.name=Uitkijktoren van Sothoryos
-got.structure.StoneRuinAsshai.name≠
-got.structure.StoneRuinSandstone.name≠
-got.structure.StoneRuinSothoryos.name≠
-got.structure.StoneRuinStandart.name≠
-got.structure.StoneRuinYiTi.name≠
 got.structure.StormlandsBarn.name=Schuur van Stormlanden
 got.structure.StormlandsBath.name=Bad van Stormlanden
 got.structure.StormlandsCityBig.name=Stad Stormlanden
@@ -3030,7 +2976,7 @@ got.structure.StormlandsSmithy.name=Smithy van Stormlanden
 got.structure.StormlandsStables.name=Stallen van Stormlanden
 got.structure.StormlandsStoneHouse.name=Stenen huis van Stormlanden
 got.structure.StormlandsTavern.name=Herberg van Stormlanden
-got.structure.StormlandsTurret.name=Torentje van Stormlanden
+got.structure.StormlandsTower.name=Torentje van Stormlanden
 got.structure.StormlandsWatchfort.name=Watchfort van Stormlanden
 got.structure.StormlandsWatchtower.name=Wachttoren van Stormlanden
 got.structure.SummerFort.name=Fort van de Zomereilanden
@@ -3086,7 +3032,7 @@ got.structure.WesterlandsSmithy.name=Smithy van Westlanden
 got.structure.WesterlandsStables.name=Stallen van Westlanden
 got.structure.WesterlandsStoneHouse.name=Stenen huis van Westlanden
 got.structure.WesterlandsTavern.name=Herberg van Westlanden
-got.structure.WesterlandsTurret.name=Torentje van Westlanden
+got.structure.WesterlandsTower.name=Torentje van Westlanden
 got.structure.WesterlandsWatchfort.name=Wachtfort van Westlanden
 got.structure.WesterlandsWatchtower.name=Uitkijktoren van Westlanden
 got.structure.WildlingCamp.name=Kamp van Wildlings
@@ -4928,6 +4874,7 @@ item.got:crownlandsChestplate.name=Borstplaat van gouden klokken
 item.got:crownlandsHelmet.name=Helm van Golden Cloacks
 item.got:crownlandsLeggings.name=Legging van Golden Cloacks
 item.got:cucumber.name≠
+item.got:cucumberSeeds.name≠
 item.got:cutwave.name≠
 item.got:daarioArakh.name=Daario Arakh
 item.got:darkSister.name=Donkere zus

@@ -388,7 +388,7 @@ public class GOTFixer {
 
 		@Override
 		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityBericDondarrion.LifeStage1(world), world, 3, 1, 0);
+			spawnLegendaryNPC(new GOTEntityBericDondarrion.BericDondarrionLife1(world), world, 3, 1, 0);
 			spawnLegendaryNPC(new GOTEntityThoros(world), world, 0, 1, 3);
 		}
 	}
@@ -591,7 +591,7 @@ public class GOTFixer {
 
 		@Override
 		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityGregorClegane.Alive(world), world, 2, 1, 0);
+			spawnLegendaryNPC(new GOTEntityGregorClegane.GregorCleganeAlive(world), world, 2, 1, 0);
 			spawnLegendaryNPC(new GOTEntityPolliver(world), world, -2, 1, 0);
 		}
 	}
@@ -879,7 +879,7 @@ public class GOTFixer {
 		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityBalonGreyjoy(world), world, 2, 1, 2);
 			spawnLegendaryNPC(new GOTEntityYaraGreyjoy(world), world, -2, 1, -2);
-			spawnLegendaryNPC(new GOTEntityTheonGreyjoy.Normal(world), world, -2, 1, 2);
+			spawnLegendaryNPC(new GOTEntityTheonGreyjoy.TheonGreyjoyNormal(world), world, -2, 1, 2);
 		}
 	}
 

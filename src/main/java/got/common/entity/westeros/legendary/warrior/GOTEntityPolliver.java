@@ -26,8 +26,8 @@ public class GOTEntityPolliver extends GOTEntityHumanBase {
 		tasks.addTask(5, new EntityAIWander(this, 1.0));
 		tasks.addTask(6, new GOTEntityAIEat(this, GOTFoods.WESTEROS, 8000));
 		tasks.addTask(6, new GOTEntityAIDrink(this, GOTFoods.WESTEROS_DRINK, 8000));
-		tasks.addTask(7, new GOTEntityAINPCFollowNPC(this, GOTEntityGregorClegane.Alive.class));
-		tasks.addTask(7, new GOTEntityAINPCFollowNPC(this, GOTEntityGregorClegane.Dead.class));
+		tasks.addTask(7, new GOTEntityAINPCFollowNPC(this, GOTEntityGregorClegane.GregorCleganeAlive.class));
+		tasks.addTask(7, new GOTEntityAINPCFollowNPC(this, GOTEntityGregorClegane.GregorCleganeDead.class));
 		tasks.addTask(8, new EntityAIWatchClosest2(this, EntityPlayer.class, 8.0f, 0.02f));
 		tasks.addTask(8, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		tasks.addTask(9, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));

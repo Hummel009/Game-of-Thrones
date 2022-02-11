@@ -41,15 +41,19 @@ public class GOTStructureRegistry {
 		GOTStructure.onInit();
 	}
 
-	public static void register(int id, Class<? extends WorldGenerator> strClass, String name, GOTFaction faction) {
-		GOTStructureRegistry.registerStructure(id, strClass, name, faction.eggColor, faction.eggColor, false);
-		classToNameMapping.put(strClass, name);
+	public static void register(int id, Class<? extends WorldGenerator> strClass, GOTFaction faction) {
+		String name = strClass.getSimpleName();
+		String cut = name.replace("GOTStructure", "");
+		GOTStructureRegistry.registerStructure(id, strClass, cut, faction.eggColor, faction.eggColor, false);
+		classToNameMapping.put(strClass, cut);
 		classToFactionMapping.put(strClass, faction);
 	}
 
-	public static void register(int id, Class<? extends WorldGenerator> strClass, String name, int color) {
-		GOTStructureRegistry.registerStructure(id, strClass, name, color, color, false);
-		classToNameMapping.put(strClass, name);
+	public static void register(int id, Class<? extends WorldGenerator> strClass, int color) {
+		String name = strClass.getSimpleName();
+		String cut = name.replace("GOTStructure", "");
+		GOTStructureRegistry.registerStructure(id, strClass, cut, color, color, false);
+		classToNameMapping.put(strClass, cut);
 	}
 
 	public static void register(int id, GOTVillageGen village, String name, GOTFaction faction, IVillageProperties properties) {

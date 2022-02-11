@@ -516,8 +516,8 @@ public class GOTTickHandlerClient {
 						break block76;
 					}
 					MovingObjectPosition target = minecraft.objectMouseOver;
-					if (target != null && target.typeOfHit == MovingObjectPosition.MovingObjectType.ENTITY && target.entityHit instanceof GOTEntityScrapTrader) {
-						GOTEntityScrapTrader scrap = (GOTEntityScrapTrader) target.entityHit;
+					if (target != null && target.typeOfHit == MovingObjectPosition.MovingObjectType.ENTITY && target.entityHit instanceof GOTEntityWesterosScrapTrader) {
+						GOTEntityWesterosScrapTrader scrap = (GOTEntityWesterosScrapTrader) target.entityHit;
 						if (minecraft.currentScreen == null && world.rand.nextInt(50000) == 0) {
 							scrapTraderMisbehaveTick = 400;
 							scrap.ignoreFrustumCheck = true;

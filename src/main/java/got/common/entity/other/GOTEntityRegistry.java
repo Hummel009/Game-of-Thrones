@@ -80,32 +80,34 @@ public class GOTEntityRegistry {
 		GOTEntity.preInit();
 	}
 
-	public static void register(Class<? extends Entity> entityClass, String name, int id) {
-		register(entityClass, name, id, 80, 3, true);
+	public static void register(Class<? extends Entity> entityClass, int id) {
+		register(entityClass, id, 80, 3, true);
 	}
 
-	public static void register(Class<? extends Entity> entityClass, String name, int id, GOTFaction faction) {
-		register(entityClass, name, id, 80, 3, true);
+	public static void register(Class<? extends Entity> entityClass, int id, GOTFaction faction) {
+		register(entityClass, id, 80, 3, true);
 		spawnEggs.put(id, new SpawnEggInfo(id, faction.eggColor, faction.eggColor));
 		classToFactionMapping.put(entityClass, faction);
 	}
 
-	public static void register(Class<? extends Entity> entityClass, String name, int id, int color) {
-		register(entityClass, name, id, 80, 3, true);
+	public static void register(Class<? extends Entity> entityClass, int id, int color) {
+		register(entityClass, id, 80, 3, true);
 		spawnEggs.put(id, new SpawnEggInfo(id, color, color));
 	}
 
-	public static void register(Class<? extends Entity> entityClass, String name, int id, int updateRange, int updateFreq, boolean sendVelocityUpdates) {
-		EntityRegistry.registerModEntity(entityClass, name, id, GOT.instance, updateRange, updateFreq, sendVelocityUpdates);
+	public static void register(Class<? extends Entity> entityClass, int id, int updateRange, int updateFreq, boolean sendVelocityUpdates) {
+		String name = entityClass.getSimpleName();
+		String cut = name.replace("GOTEntity", "");
+		EntityRegistry.registerModEntity(entityClass, cut, id, GOT.instance, updateRange, updateFreq, sendVelocityUpdates);
 		String fullName = (String) EntityList.classToStringMapping.get(entityClass);
 		stringToIDMapping.put(fullName, id);
 		IDToStringMapping.put(id, fullName);
 		classToIDMapping.put(entityClass, id);
-		classToNameMapping.put(entityClass, name);
+		classToNameMapping.put(entityClass, cut);
 	}
 
-	public static void registerLegendaryNPC(Class<? extends Entity> entityClass, String name, int id, GOTFaction faction) {
-		register(entityClass, name, id, 80, 3, true);
+	public static void registerLegendaryNPC(Class<? extends Entity> entityClass, int id, GOTFaction faction) {
+		register(entityClass, id, 80, 3, true);
 		spawnEggs.put(id, new SpawnEggInfo(id, 9605778, faction.eggColor));
 	}
 

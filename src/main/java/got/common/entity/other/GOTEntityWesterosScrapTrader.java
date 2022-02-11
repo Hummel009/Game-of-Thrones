@@ -16,8 +16,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class GOTEntityScrapTrader extends GOTEntityHumanBase implements GOTTradeable.Smith, GOTBiome.ImmuneToHeat {
-	public GOTEntityScrapTrader(World world) {
+public class GOTEntityWesterosScrapTrader extends GOTEntityHumanBase implements GOTTradeable.Smith, GOTBiome.ImmuneToHeat {
+	public GOTEntityWesterosScrapTrader(World world) {
 		super(world);
 		canBeMarried = false;
 		setSize(0.6f, 1.8f);

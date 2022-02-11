@@ -428,7 +428,7 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 		placeWeaponRack(world, 0, 5, 22, 6, getRandomWeapon(random));
 		GOTEntityIbbenMeadhost meadhost = new GOTEntityIbbenMeadhost(world);
 		spawnNPCAndSetHome(meadhost, world, 0, 2, 21, 8);
-		GOTEntityThief thief = new GOTEntityThief(world);
+		GOTEntityWesterosThief thief = new GOTEntityWesterosThief(world);
 		spawnNPCAndSetHome(thief, world, 0, 1, 0, 16);
 		int men = 5 + random.nextInt(5);
 		for (int l = 0; l < men; ++l) {

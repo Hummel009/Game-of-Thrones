@@ -63,8 +63,8 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 		return false;
 	}
 
-	public static class Alive extends GOTEntityGregorClegane {
-		public Alive(World world) {
+	public static class GregorCleganeAlive extends GOTEntityGregorClegane {
+		public GregorCleganeAlive(World world) {
 			super(world);
 			canBeMarried = false;
 		}
@@ -112,7 +112,7 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 		public void onDeath(DamageSource damagesource) {
 			super.onDeath(damagesource);
 			if (!worldObj.isRemote) {
-				GOTEntityGregorClegane.Dead dead = new GOTEntityGregorClegane.Dead(worldObj);
+				GOTEntityGregorClegane.GregorCleganeDead dead = new GOTEntityGregorClegane.GregorCleganeDead(worldObj);
 				dead.copyLocationAndAnglesFrom(this);
 				dead.onSpawnWithEgg(null);
 				worldObj.spawnEntityInWorld(dead);
@@ -121,8 +121,8 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 		}
 	}
 
-	public static class Dead extends GOTEntityGregorClegane {
-		public Dead(World world) {
+	public static class GregorCleganeDead extends GOTEntityGregorClegane {
+		public GregorCleganeDead(World world) {
 			super(world);
 			canBeMarried = false;
 		}

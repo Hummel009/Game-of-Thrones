@@ -3,7 +3,7 @@ package got.common.world.structure.sothoryos.summer;
 import java.util.Random;
 
 import got.common.database.*;
-import got.common.entity.other.GOTEntityThiefEssos;
+import got.common.entity.other.GOTEntityEssosThief;
 import got.common.entity.sothoryos.summer.*;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.block.Block;
@@ -154,7 +154,7 @@ public class GOTStructureSummerTavern extends GOTStructureSummerBase {
 				GOTEntitySummerMan npc = new GOTEntitySummerMan(world);
 				spawnNPCAndSetHome(npc, world, 0, 1, 0, 16);
 			}
-			GOTEntityThiefEssos thief = new GOTEntityThiefEssos(world);
+			GOTEntityEssosThief thief = new GOTEntityEssosThief(world);
 			spawnNPCAndSetHome(thief, world, 0, 1, 0, 16);
 		}
 		for (i1 = -5; i1 <= -1; ++i1) {

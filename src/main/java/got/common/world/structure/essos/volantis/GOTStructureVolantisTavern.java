@@ -139,7 +139,7 @@ public class GOTStructureVolantisTavern extends GOTStructureVolantisBase {
 		spawnNPCAndSetHome(bartender, world, -2, 1, 8, 4);
 		GOTEntityGoldenCaptain mercenary = new GOTEntityGoldenCaptain(world);
 		spawnNPCAndSetHome(mercenary, world, 0, 1, 0, 16);
-		GOTEntityThief thief = new GOTEntityThief(world);
+		GOTEntityWesterosThief thief = new GOTEntityWesterosThief(world);
 		spawnNPCAndSetHome(thief, world, 0, 1, 0, 16);
 		for (int l = 0; l < 5; ++l) {
 			spawnNPCAndSetHome(new GOTEntityProstitute(world), world, 0, 1, 0, 16);

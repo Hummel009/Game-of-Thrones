@@ -25,7 +25,7 @@ public class GOTBiomeGhiscarColony extends GOTBiomeSothoryosJungle {
 		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
-		decorator.addRandomStructure(new GOTStructureStoneRuin.SOTHORYOS(1, 4), 400);
+		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinSothoryos(1, 4), 400);
 	}
 
 	@Override

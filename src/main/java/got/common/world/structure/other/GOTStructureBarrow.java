@@ -8,7 +8,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
 public class GOTStructureBarrow extends GOTStructureBase {
-	public GOTStructureBase ruins = new GOTStructureStoneRuin.STONE(3, 3);
+	public GOTStructureBase ruins = new GOTStructureStoneRuin.RuinStone(3, 3);
 
 	public GOTStructureBarrow(boolean flag) {
 		super(flag);

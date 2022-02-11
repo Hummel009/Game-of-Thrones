@@ -746,7 +746,7 @@ public class GOTStructureDorneTavern extends GOTStructureDorneBase {
 		spawnNPCAndSetHome(bartender, world, -4, 1, 7, 2);
 		GOTEntityMercenary mercenary = new GOTEntityMercenary(world);
 		spawnNPCAndSetHome(mercenary, world, 2, 1, 7, 16);
-		GOTEntityThief thief = new GOTEntityThief(world);
+		GOTEntityWesterosThief thief = new GOTEntityWesterosThief(world);
 		spawnNPCAndSetHome(thief, world, 2, 1, 7, 16);
 		for (int l = 0; l < 5; ++l) {
 			spawnNPCAndSetHome(new GOTEntityProstitute(world), world, 2, 1, 7, 16);

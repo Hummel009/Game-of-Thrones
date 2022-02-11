@@ -14,8 +14,8 @@ import net.minecraft.tileentity.*;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class GOTStructureReachWine extends GOTStructureReachBase {
-	public GOTStructureReachWine(boolean flag) {
+public class GOTStructureReachBrewery extends GOTStructureReachBase {
+	public GOTStructureReachBrewery(boolean flag) {
 		super(flag);
 	}
 

@@ -16,12 +16,12 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 
-public class GOTEntityBandit extends GOTEntityHumanBase implements IBandit, GOTBiome.ImmuneToHeat {
+public class GOTEntityWesterosBandit extends GOTEntityHumanBase implements IBandit, GOTBiome.ImmuneToHeat {
 	public static int MAX_THEFTS = 3;
 	public static ItemStack[] weapons = { new ItemStack(GOTRegistry.bronzeDagger), new ItemStack(GOTRegistry.ironDagger) };
 	public GOTInventoryNPC banditInventory = new GOTInventoryNPC("BanditInventory", this, MAX_THEFTS);
 
-	public GOTEntityBandit(World world) {
+	public GOTEntityWesterosBandit(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);

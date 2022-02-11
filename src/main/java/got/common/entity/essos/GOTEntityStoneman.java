@@ -12,9 +12,9 @@ import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class GOTEntityStoneman extends GOTEntityNPC {
+public class GOTEntityStoneMan extends GOTEntityNPC {
 
-	public GOTEntityStoneman(World world) {
+	public GOTEntityStoneMan(World world) {
 		super(world);
 		canBeMarried = false;
 		setSize(0.6f, 1.8f);
@@ -32,8 +32,8 @@ public class GOTEntityStoneman extends GOTEntityNPC {
 	public void addTargetTasks() {
 		int target = addTargetTasks(true);
 		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityGoldenMan.class, 0, true));
-		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityBandit.class, 0, true));
-		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityScrapTrader.class, 0, true));
+		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityWesterosBandit.class, 0, true));
+		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityWesterosScrapTrader.class, 0, true));
 		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityGendryBaratheon.class, 0, true));
 		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityBronn.class, 0, true));
 		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityGeroldDayne.class, 0, true));
@@ -69,7 +69,7 @@ public class GOTEntityStoneman extends GOTEntityNPC {
 	@Override
 	public void onKillEntity(EntityLivingBase p_70074_1_) {
 		super.onKillEntity(p_70074_1_);
-		GOTEntityStoneman wicht = new GOTEntityStoneman(worldObj);
+		GOTEntityStoneMan wicht = new GOTEntityStoneMan(worldObj);
 		wicht.copyLocationAndAnglesFrom(p_70074_1_);
 		worldObj.removeEntity(p_70074_1_);
 		wicht.onSpawnWithEgg((IEntityLivingData) null);

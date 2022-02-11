@@ -56,7 +56,7 @@ public class GOTBiomeSothoryosJungle extends GOTBiome {
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 		setDarkUnreliable();
 		decorator.addVillage(new GOTStructureSothoryosVillage(this, 1.0f));
-		decorator.addRandomStructure(new GOTStructureStoneRuin.SOTHORYOS(1, 4), 400);
+		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinSothoryos(1, 4), 400);
 	}
 
 	@Override

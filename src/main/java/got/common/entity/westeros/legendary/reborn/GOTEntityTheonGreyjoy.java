@@ -42,8 +42,8 @@ public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
 		familyInfo.setMale(true);
 	}
 
-	public static class Normal extends GOTEntityTheonGreyjoy {
-		public Normal(World world) {
+	public static class TheonGreyjoyNormal extends GOTEntityTheonGreyjoy {
+		public TheonGreyjoyNormal(World world) {
 			super(world);
 			canBeMarried = false;
 			tasks.addTask(2, new GOTEntityAIAttackOnCollide(this, 1.4, false));
@@ -91,7 +91,7 @@ public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
 		public void onDeath(DamageSource damagesource) {
 			super.onDeath(damagesource);
 			if (!worldObj.isRemote) {
-				GOTEntityTheonGreyjoy.Tormented tormented = new GOTEntityTheonGreyjoy.Tormented(worldObj);
+				GOTEntityTheonGreyjoy.TheonGreyjoyTormented tormented = new GOTEntityTheonGreyjoy.TheonGreyjoyTormented(worldObj);
 				tormented.copyLocationAndAnglesFrom(this);
 				tormented.onSpawnWithEgg(null);
 				worldObj.spawnEntityInWorld(tormented);
@@ -108,8 +108,8 @@ public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
 		}
 	}
 
-	public static class Tormented extends GOTEntityTheonGreyjoy {
-		public Tormented(World world) {
+	public static class TheonGreyjoyTormented extends GOTEntityTheonGreyjoy {
+		public TheonGreyjoyTormented(World world) {
 			super(world);
 			canBeMarried = false;
 			addTargetTasks(false);

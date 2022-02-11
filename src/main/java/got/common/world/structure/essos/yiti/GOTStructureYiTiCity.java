@@ -416,5 +416,4 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 	public enum VillageType {
 		VILLAGE, TOWN, FORT;
 	}
-
 }

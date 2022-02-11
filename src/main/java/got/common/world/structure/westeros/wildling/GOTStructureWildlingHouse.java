@@ -3,7 +3,7 @@ package got.common.world.structure.westeros.wildling;
 import java.util.Random;
 
 import got.common.database.*;
-import got.common.entity.other.GOTEntityThief;
+import got.common.entity.other.GOTEntityWesterosThief;
 import got.common.entity.westeros.wildling.*;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.structure.other.GOTStructureBase;
@@ -186,7 +186,7 @@ public class GOTStructureWildlingHouse extends GOTStructureBase {
 		setBlockAndMetadata(world, -1, 3, 4, Blocks.skull, 2);
 		setBlockAndMetadata(world, 1, 3, 4, Blocks.skull, 2);
 		if (isThief) {
-			spawnNPCAndSetHome(new GOTEntityThief(world), world, 0, 1, 0, 8);
+			spawnNPCAndSetHome(new GOTEntityWesterosThief(world), world, 0, 1, 0, 8);
 		} else if (random.nextInt(4) == 1) {
 			spawnNPCAndSetHome(new GOTEntityWildlingArcher(world), world, 0, 1, 0, 8);
 			spawnNPCAndSetHome(new GOTEntityWildlingAxeThrower(world), world, 0, 1, 0, 8);

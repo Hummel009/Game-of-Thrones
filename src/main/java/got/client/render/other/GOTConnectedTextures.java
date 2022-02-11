@@ -380,7 +380,7 @@ public class GOTConnectedTextures {
 				}
 				allCombos.put(key, iconSet);
 			}
-			comparator = (e1, e2) -> {
+			comparator = (IconElement e1, IconElement e2) -> {
 				if (e1.priority == e2.priority) {
 					return e1.compareTo(e2);
 				}
@@ -389,7 +389,6 @@ public class GOTConnectedTextures {
 		}
 		public String iconName;
 		public int bitFlag;
-
 		public int priority;
 
 		IconElement(String s, int i) {

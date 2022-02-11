@@ -65,7 +65,7 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 			if (entity instanceof EntityPlayer) {
 				return isPlayerSuitableTarget((EntityPlayer) entity);
 			}
-			if (entity instanceof GOTEntityBandit) {
+			if (entity instanceof GOTEntityWesterosBandit) {
 				return taskOwner instanceof GOTEntityNPC && ((GOTEntityNPC) taskOwner).hiredNPCInfo.isActive;
 			}
 			return true;

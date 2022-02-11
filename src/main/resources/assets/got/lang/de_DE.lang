@@ -1,73 +1,4 @@
 
-got.gui.options.femRank.desc.on≠
-got.gui.options.femRank.desc.off≠
-got.gui.achievements.hover.name=%s
-got.gui.achievements.hover.subtitle≠
-got.gui.money.notGet≠
-got.gui.money.notGive≠
-item.got:cucumberSeeds.name≠
-got.command.wpCooldown.usage=/wpCooldown <max|min> <seconds>
-got.command.wpCooldown.setMax=Setze die maximale Wegpunkt Abklingzeit auf %d Sekunden (%s)
-got.command.wpCooldown.setMin=Setze die minimale Wegpunkt Abklingzeit auf %d Sekunden (%s)
-got.command.wpCooldown.updateMax=Hat automatisch die maximale Abklingzeit an das neue Minimum %d angepasst
-got.command.wpCooldown.updateMin=Hat automatisch die minimale Abklingzeit an das neue Maximum %d angepasst
-got.gui.options.femRank≠
-got.rank.ARRYN≠
-got.rank.ASSHAI≠
-got.rank.BRAAVOS≠
-got.rank.CERSEI≠
-got.rank.CROWNLANDS≠
-got.rank.DORNE≠
-got.rank.DOTHRAKI≠
-got.rank.DRAGONSTONE≠
-got.rank.GHISCAR≠
-got.rank.HILL_TRIBES≠
-got.rank.HOSTILE≠
-got.rank.IBBEN≠
-got.rank.IRONBORN≠
-got.rank.JOGOS≠
-got.rank.LHAZAR≠
-got.rank.LORATH≠
-got.rank.LYS≠
-got.rank.MOSSOVY≠
-got.rank.MYR≠
-got.rank.NIGHT_WATCH≠
-got.rank.NORTH≠
-got.rank.NORVOS≠
-got.rank.PENTOS≠
-got.rank.QARTH≠
-got.rank.QOHOR≠
-got.rank.REACH≠
-got.rank.RIVERLANDS≠
-got.rank.SOTHORYOS≠
-got.rank.STORMLANDS≠
-got.rank.SUMMER_ISLANDS≠
-got.rank.TYROSH≠
-got.rank.ULTHOS≠
-got.rank.UNALIGNED≠
-got.rank.VOLANTIS≠
-got.rank.WESTERLANDS≠
-got.rank.WHITE_WALKER≠
-got.rank.WILDLING≠
-got.rank.YI_TI≠
-got.rank.enemy≠
-got.rank.enemy_fm≠
-got.rank.neutral≠
-got.rank.neutral_fm≠
-got.rank.guest≠
-got.rank.friend≠
-got.rank.defender≠
-got.rank.hero≠
-got.rank.leader≠
-got.rank.guest_fm≠
-got.rank.friend_fm≠
-got.rank.defender_fm≠
-got.rank.hero_fm≠
-got.rank.leader_fm≠
-got.rank.king≠
-got.rank.king_fm≠
-got.capes.YITI_FRONTIER.name≠
-got.shields.ASSHAI.name≠
 attribute.name.generic.movementSpeedAir=Geschwindigkeit (Luft)
 color.black=Schwarz
 color.blue=Blau
@@ -134,10 +65,10 @@ entity.got.AsshaiAlchemist.name=Asshai Alchemist
 entity.got.AsshaiArchmag.name=Asshai Erzmagier
 entity.got.AsshaiBannerBearer.name≠
 entity.got.AsshaiCaptain.name=Asshai Hauptmann
-entity.got.AsshaiGuard.name=Asshai Wache
 entity.got.AsshaiMan.name=Asshai Bewohner
 entity.got.AsshaiShadowbinder.name=Asshai Schattenbinder
 entity.got.AsshaiSpherebinder.name=Asshai Spherebinder
+entity.got.AsshaiWarrior.name=Asshai Wache
 entity.got.AuraneWaters.name=Auran Wasser
 entity.got.BaelorBlacktyde.name≠
 entity.got.BalonGreyjoy.name=Balon Graufreud
@@ -151,12 +82,12 @@ entity.got.BearRug.name=Bärenteppich
 entity.got.BenedarBelmore.name≠
 entity.got.BenjenStark.name=Benjen Stark
 entity.got.BericDayne.name=Beric Dayn
-entity.got.BericDondarrion1.name=Beric Dondarrion
-entity.got.BericDondarrion2.name=Beric Dondarrion
-entity.got.BericDondarrion3.name=Beric Dondarrion
-entity.got.BericDondarrion4.name=Beric Dondarrion
-entity.got.BericDondarrion5.name=Beric Dondarrion
-entity.got.BericDondarrion6.name=Beric Dondarrion
+entity.got.BericDondarrionLife1.name=Beric Dondarrion
+entity.got.BericDondarrionLife2.name=Beric Dondarrion
+entity.got.BericDondarrionLife3.name=Beric Dondarrion
+entity.got.BericDondarrionLife4.name=Beric Dondarrion
+entity.got.BericDondarrionLife5.name=Beric Dondarrion
+entity.got.BericDondarrionLife6.name=Beric Dondarrion
 entity.got.Bird.name=Vogel
 entity.got.Bison.name=Auerochse
 entity.got.BlackWalderFrey.name≠
@@ -255,10 +186,10 @@ entity.got.DorneMan.name=Dorne Bewohner
 entity.got.DorneMason.name=Dorne Steinmetz
 entity.got.DorneSoldier.name=Dorne Krieger
 entity.got.DorneSoldierArcher.name=Dorne Krieger-Bogenschütze
+entity.got.Dothraki.name=Dothraki Bewohner
 entity.got.DothrakiArcher.name=Dothraki Bogenschütze
 entity.got.DothrakiKhal.name=Dothraki Khal
 entity.got.DothrakiKhalin.name=Dosh Khalin
-entity.got.DothrakiMan.name=Dothraki Bewohner
 entity.got.Dragon.name=Drache
 entity.got.DragonstoneArcher.name=Drachenstein Bogenschütze
 entity.got.DragonstoneBaker.name=Drachenstein Bäcker
@@ -332,10 +263,9 @@ entity.got.GhiscarSlave.name=Ghiscari Sklave
 entity.got.GhiscarSlaver.name=Ghiscari Sklavenhändler
 entity.got.GhiscarUnsullied.name=Ghiscari Unbefleckter
 entity.got.Giant.name=Riese
-entity.got.GiantSpider.name=Riesenspinne
+entity.got.GiftBannerBearer.name=Fahnenträger der Nachtwache
 entity.got.GiftBlacksmith.name=Schmied der Nachtwache
 entity.got.GiftGuard.name=Wächter der Nachtwache
-entity.got.GiftGuardBannerBearer.name=Fahnenträger der Nachtwache
 entity.got.GiftGuardCaptain.name=Hauptmann der Nachtwache
 entity.got.GiftMan.name=Bewohner der Nachtwache
 entity.got.GilwoodHunter.name≠
@@ -350,8 +280,8 @@ entity.got.GoldenSpearman.name=Speerkämpfer der Goldenen Kompanie
 entity.got.GoldenWarrior.name=Krieger der Goldenen Kompanie
 entity.got.Gorcrow.name=Gorcrow
 entity.got.GoroldGoodbrother.name≠
-entity.got.GregorClegane.name=Gregor Clegane 
-entity.got.GregorCleganeWight.name=Gregor Clegane
+entity.got.GregorCleganeAlive.name=Gregor Clegane 
+entity.got.GregorCleganeDead.name=Gregor Clegane
 entity.got.GreyWorm.name≠
 entity.got.GulianSwann.name≠
 entity.got.GylbertFarwynd.name≠
@@ -363,14 +293,14 @@ entity.got.HarryStrickland.name≠
 entity.got.HarysSwyft.name=Harys Swyft
 entity.got.HelmanTallhart.name≠
 entity.got.HighSepton.name=Hoher Septon
-entity.got.Hillmen.name=Mondberge Stammesmitglied
-entity.got.HillmenArcher.name=Mondberge Bogenschütze
-entity.got.HillmenAxeThrower.name=Mondberge Axtwerfer
-entity.got.HillmenBannerBearer.name=Mondberge Bannerträger
-entity.got.HillmenBartender.name=Mondberge Kneipenwirt 
-entity.got.HillmenBerserker.name=Mondberge Berserker
-entity.got.HillmenWarlord.name=Mondberge Kriegsherr
-entity.got.HillmenWarrior.name=Mondberge Krieger
+entity.got.Hillman.name=Mondberge Stammesmitglied
+entity.got.HillmanArcher.name=Mondberge Bogenschütze
+entity.got.HillmanAxeThrower.name=Mondberge Axtwerfer
+entity.got.HillmanBannerBearer.name=Mondberge Bannerträger
+entity.got.HillmanBartender.name=Mondberge Kneipenwirt 
+entity.got.HillmanBerserker.name=Mondberge Berserker
+entity.got.HillmanWarlord.name=Mondberge Kriegsherr
+entity.got.HillmanWarrior.name=Mondberge Krieger
 entity.got.HizdahrZoLoraq.name≠
 entity.got.Hodor.name=Hodor
 entity.got.Horse.name=Pferd
@@ -387,7 +317,6 @@ entity.got.IbbenBlacksmith.name=Ibben Schmied
 entity.got.IbbenBrewer.name=Ibben Brauer
 entity.got.IbbenBuilder.name=Ibben Baumeister
 entity.got.IbbenButcher.name=Ibben Metzger
-entity.got.IbbenCaptain.name=Ibben Hauptmann
 entity.got.IbbenFarmer.name=Ibben Bauer
 entity.got.IbbenFarmhand.name=Ibben Knecht
 entity.got.IbbenFishmonger.name=Ibben Fischhändler
@@ -396,6 +325,7 @@ entity.got.IbbenMan.name=Ibben Bewohner
 entity.got.IbbenMeadhost.name=Ibben Kneipenwirt
 entity.got.IbbenOrcharder.name=Ibben Blumenhändler
 entity.got.IbbenStablemaster.name=Ibben Stallmeister
+entity.got.IbbenWarlord.name=Ibben Hauptmann
 entity.got.IbbenWarrior.name=Ibben Krieger
 entity.got.IceSpider.name=Eisspinne
 entity.got.Ifekevron.name=Ifekevron
@@ -430,23 +360,23 @@ entity.got.JaqenHghar.name=Jaqen H'gar
 entity.got.JasonMallister.name≠
 entity.got.JeorMormont.name=Jeor Mormont
 entity.got.JoffreyBaratheon.name=Joffrey Baratheon
+entity.got.Jogos.name=Jogos Nhai Nomade
 entity.got.JogosArcher.name=Jogos Nhai Bogenschütze
 entity.got.JogosBannerBearer.name≠
 entity.got.JogosChief.name=Jogos Nhai Stammesführer
-entity.got.JogosMan.name=Jogos Nhai Nomade
 entity.got.JogosShaman.name=Jogos Nhai Schamane
 entity.got.JohnUmber.name=John Umber
 entity.got.JonConnington.name≠
-entity.got.JonSnow.name=Jon Schnee
-entity.got.JonSnow2.name≠
+entity.got.JonSnowLife1.name=Jon Schnee
+entity.got.JonSnowLife2.name≠
 entity.got.JonosBracken.name=Jonos Bracken
 entity.got.JorahMormont.name=Jorah Mormont
 entity.got.JungleScorpion.name=Dschungelskorpion
 entity.got.KevanLannister.name=Kevan Lennister
 entity.got.Kingsguard.name=Königsgarde
 entity.got.KraznysMoNakloz.name=Kraznys Mo Nakloz
-entity.got.LancelLannister.name=Lancel Lennister
-entity.got.LancelLannisterR.name=Lancel Lennister
+entity.got.LancelLannisterNormal.name=Lancel Lennister
+entity.got.LancelLannisterReligious.name=Lancel Lennister
 entity.got.LeoLefford.name=Leo Leffert
 entity.got.LeytonHightower.name=Leyton Hohenturm
 entity.got.LhazarArcher.name=Lhazar Bogenschütze
@@ -655,7 +585,6 @@ entity.got.PentosMiner.name=Pentos Bergmann
 entity.got.PetyrBaelish.name=Petyr Baelish
 entity.got.Plate.name=Teller
 entity.got.PodrickPayne.name=Podrick Payn
-entity.got.Polarbear.name=Schneebär
 entity.got.Polliver.name≠
 entity.got.Prostitute.name=Freudenmädchen
 entity.got.Pycelle.name=Pycelle
@@ -780,6 +709,7 @@ entity.got.Shark.name=Hai
 entity.got.Shego.name=Shego
 entity.got.ShireenBaratheon.name≠
 entity.got.SmokeRing.name=Ring aus Pfeifenrauch
+entity.got.SnowBear.name=Schneebär
 entity.got.SothoryosBannerBearer.name=Sothoryos Bannerträger
 entity.got.SothoryosBlowgunner.name=Sothoryos Blasrohrschütze
 entity.got.SothoryosChieftain.name=Sothoryos Stammesführer
@@ -841,8 +771,8 @@ entity.got.ThennBannerBearer.name=Thenn Bannerträger
 entity.got.ThennBerserker.name=Thenn Berserker
 entity.got.ThennBlacksmith.name=Thenn Schmied
 entity.got.ThennMagnar.name=Magnar von Thenn
-entity.got.TheonGreyjoy.name=Theon Graufreud
-entity.got.TheonGreyjoyV.name=Theon Graufreud
+entity.got.TheonGreyjoyNormal.name=Theon Graufreud
+entity.got.TheonGreyjoyTormented.name=Theon Graufreud
 entity.got.Thoros.name=Thoros
 entity.got.ThreeEyedRaven.name=Dreiäugiger Rabe
 entity.got.ThrowingAxe.name=Wurfaxt
@@ -886,6 +816,7 @@ entity.got.TyroshWarrior.name=Tyrosh Krieger
 entity.got.TytosBlackwood.name=Tytos Schwarzhain
 entity.got.TytosBrax.name=Tytos Brax
 entity.got.TywinLannister.name=Tywin Lennister
+entity.got.UlthosSpider.name=Riesenspinne
 entity.got.VargoHoat.name≠
 entity.got.Varys.name=Varys
 entity.got.VictarionGreyjoy.name=Victarion Graufreud
@@ -945,8 +876,8 @@ entity.got.WesterosThief.name=Thief
 entity.got.WhiteBison.name=Weißer Bison
 entity.got.WhiteOryx.name=Weißer Oryx
 entity.got.WhiteWalker.name=Weißer Wanderer
-entity.got.Wicht.name=Wiedergänger
-entity.got.WichtGiant.name=Wiedergänger-Riese
+entity.got.Wight.name=Wiedergänger
+entity.got.WightGiant.name=Wiedergänger-Riese
 entity.got.Wildling.name=Wildling
 entity.got.WildlingArcher.name=Freies Volk Bogenschütze
 entity.got.WildlingAxeThrower.name=Freies Volk Axtwerfer
@@ -970,7 +901,7 @@ entity.got.YiTiBrewer.name=Yi Ti Brauer
 entity.got.YiTiButcher.name=Yi Ti Metzger
 entity.got.YiTiFarmer.name=Yi Ti Bauer
 entity.got.YiTiFarmhand.name=Yi Ti Knecht
-entity.got.YiTiFirePriest.name=Yi Ti Feuerpriester
+entity.got.YiTiFireThrower.name=Yi Ti Feuerpriester
 entity.got.YiTiFishmonger.name=Yi Ti Fischhändler
 entity.got.YiTiFrontier.name≠
 entity.got.YiTiFrontierCrossbower.name≠
@@ -982,7 +913,7 @@ entity.got.YiTiLumberman.name=Yi Ti Holzfäller
 entity.got.YiTiMan.name=Yi Ti Bewohner
 entity.got.YiTiMason.name=Yi Ti Steinmetz
 entity.got.YiTiSamurai.name=Yi Ti Samurai
-entity.got.YiTiShogun.name=Yi Ti Oberbefehlshaber
+entity.got.YiTiShogune.name=Yi Ti Oberbefehlshaber
 entity.got.YiTiSoldier.name=Yi Ti Soldat
 entity.got.YiTiSoldierCrossbower.name≠
 entity.got.YohnRoyce.name=Yohn Rois
@@ -1741,6 +1672,7 @@ got.capes.UNSULLIED.name=Umhang eines Unbefleckten
 got.capes.VOLANTIS.name=Umhang einer Wache von Volantis
 got.capes.WESTERLANDS.name=Umhang eines Kriegers der Westlande
 got.capes.YITI.name=Yi Ti Umhang
+got.capes.YITI_FRONTIER.name≠
 got.capes.YITI_SAMURAI.name=Yi Ti Samurai Umhang
 got.capes.category.ACHIEVABLE=Freischaltbare Umhänge
 got.capes.category.ALIGNMENT=Unhänge für Reputationspunkte
@@ -1906,6 +1838,11 @@ got.command.waypoints.unlock.fail=%s ist bereits in der Region %s geöffnet
 got.command.waypoints.unlock=Öffnete %s der Wegpunkt Region %s
 got.command.waypoints.unlockAll=Öffnete alle Wegpunkte für %s
 got.command.waypoints.usage=/waypoints <unlock|lock> <Region> [Spieler]
+got.command.wpCooldown.setMax=Setze die maximale Wegpunkt Abklingzeit auf %d Sekunden (%s)
+got.command.wpCooldown.setMin=Setze die minimale Wegpunkt Abklingzeit auf %d Sekunden (%s)
+got.command.wpCooldown.updateMax=Hat automatisch die maximale Abklingzeit an das neue Minimum %d angepasst
+got.command.wpCooldown.updateMin=Hat automatisch die minimale Abklingzeit an das neue Maximum %d angepasst
+got.command.wpCooldown.usage=/wpCooldown <max|min> <seconds>
 got.compas.EAST=OSTEN
 got.compas.NORTH=NORDEN
 got.compas.SOUTH=SÜDEN
@@ -2095,7 +2032,6 @@ got.faction.ASSHAI.subtitle=Schwarzes Land der Nekromanten und Zauberer
 got.faction.BRAAVOS.entity=Menschen in Braavos
 got.faction.BRAAVOS.name=Braavos
 got.faction.BRAAVOS.subtitle=Freie Stadt Essos
-got.faction.CERSEI.name=Cersei
 got.faction.CROWNLANDS.entity=Bewohner der Hauptstadt
 got.faction.CROWNLANDS.name=Kronlande
 got.faction.CROWNLANDS.subtitle=Roberts Platz
@@ -2209,6 +2145,8 @@ got.fastTravel.travelTicks=Schnellreise startet in %d Sekunden...
 got.fastTravel.travelTicksStart=Schnellreise startet in %d. Bloß nicht bewegen... Du könntest Schaden nehmen!
 got.fastTravel.underAttack=Du kannst so einem Angriff nicht entkommen!
 got.gui.achievements.category=%s (%d/%d)
+got.gui.achievements.hover.name=%s
+got.gui.achievements.hover.subtitle≠
 got.gui.achievements.title=Spiel um Throne-Errungenschaften
 got.gui.achievements=Errungenschaften
 got.gui.atribute=Schilde und Umhänge
@@ -2433,6 +2371,8 @@ got.gui.miniquestOffer.decline=Ablehnen
 got.gui.money.balance=Kontostand: %s
 got.gui.money.get=Dein Guthaben wurde erfolgreich auf %s aufgefüllt.
 got.gui.money.give=Du hast erfolgreich von deinem %s-Konto abgebucht.
+got.gui.money.notGet≠
+got.gui.money.notGive≠
 got.gui.money.press=Klicke auf eine Münze, um eine Operation auszuführen!
 got.gui.money.transfer=Geld überweisen
 got.gui.money.withdraw=Geld abheben
@@ -2471,6 +2411,9 @@ got.gui.openFolder=Konfigurationsordner öffnen
 got.gui.options.conquest.desc.off=AUS: Das Töten von Feinden beinflusst Eroberungen nicht
 got.gui.options.conquest.desc.on=AN: Das Töten von Feinden vergößert deine Eroberungen oder löscht feindliche Eroberungen auf dem Gebiet aus
 got.gui.options.conquest=Eroberungserweiterungen
+got.gui.options.femRank.desc.off≠
+got.gui.options.femRank.desc.on≠
+got.gui.options.femRank≠
 got.gui.options.friendlyFire.desc.off=AUS: Verbündete NPCs können nicht angegriffen, verletzt, oder gereizt werden, außer sie greifen dich zuerst an
 got.gui.options.friendlyFire.desc.on=AN: Alle NPCs, auch verbündete angeheuerte Einheiten können angegriffen werden
 got.gui.options.friendlyFire=Friendly Fire
@@ -2628,6 +2571,59 @@ got.miniquest.welcome.speak=Rede mit dem Grauen Wanderer
 got.music.nowPlaying=Nun erklingt:
 got.potion.drinkPoison=Vergiftetes Getränk
 got.potion=Verweilen
+got.rank.ARRYN≠
+got.rank.ASSHAI≠
+got.rank.BRAAVOS≠
+got.rank.CROWNLANDS≠
+got.rank.DORNE≠
+got.rank.DOTHRAKI≠
+got.rank.DRAGONSTONE≠
+got.rank.GHISCAR≠
+got.rank.HILL_TRIBES≠
+got.rank.HOSTILE≠
+got.rank.IBBEN≠
+got.rank.IRONBORN≠
+got.rank.JOGOS≠
+got.rank.LHAZAR≠
+got.rank.LORATH≠
+got.rank.LYS≠
+got.rank.MOSSOVY≠
+got.rank.MYR≠
+got.rank.NIGHT_WATCH≠
+got.rank.NORTH≠
+got.rank.NORVOS≠
+got.rank.PENTOS≠
+got.rank.QARTH≠
+got.rank.QOHOR≠
+got.rank.REACH≠
+got.rank.RIVERLANDS≠
+got.rank.SOTHORYOS≠
+got.rank.STORMLANDS≠
+got.rank.SUMMER_ISLANDS≠
+got.rank.TYROSH≠
+got.rank.ULTHOS≠
+got.rank.UNALIGNED≠
+got.rank.VOLANTIS≠
+got.rank.WESTERLANDS≠
+got.rank.WHITE_WALKER≠
+got.rank.WILDLING≠
+got.rank.YI_TI≠
+got.rank.defender_fm≠
+got.rank.defender≠
+got.rank.enemy_fm≠
+got.rank.enemy≠
+got.rank.friend_fm≠
+got.rank.friend≠
+got.rank.guest_fm≠
+got.rank.guest≠
+got.rank.hero_fm≠
+got.rank.hero≠
+got.rank.king_fm≠
+got.rank.king≠
+got.rank.leader_fm≠
+got.rank.leader≠
+got.rank.neutral_fm≠
+got.rank.neutral≠
 got.shields.ACHIEVEMENT_BRONZE.desc=Belohnung für das Erreichen von 10 Erfolgen
 got.shields.ACHIEVEMENT_BRONZE.name=Bronzeschild
 got.shields.ACHIEVEMENT_GOLD.desc=Belohnung für das Erreichen von 30 Erfolgen
@@ -2640,6 +2636,7 @@ got.shields.ALCOHOLIC.desc=Belohnung für chronischen Alkoholismus
 got.shields.ALCOHOLIC.name=Schild des Alkoholikers
 got.shields.ARRYN.name=Tal von Arryn Schild
 got.shields.ARRYNGUARD.name=Wächterschild der Möwenstadt
+got.shields.ASSHAI.name≠
 got.shields.BRAAVOS.name=Schild von Braavos
 got.shields.CROWNLANDS.name=Kronlanden Schild
 got.shields.DORNE.name=Dorns Schild
@@ -2689,7 +2686,7 @@ got.structure.ArrynSmithy.name=Tal von Arryn Schmiede
 got.structure.ArrynStables.name=Arryn Vale Ställe
 got.structure.ArrynStoneHouse.name=Tal von Arryn Villa
 got.structure.ArrynTavern.name=Tal von Arryn Taverne
-got.structure.ArrynTurret.name=Tal von Arryn Turm
+got.structure.ArrynTower.name=Tal von Arryn Turm
 got.structure.ArrynWatchfort.name=Tal von Arryn Fort
 got.structure.ArrynWatchtower.name=Tal von Arryn Turm
 got.structure.AsshaiCity.name=Asshai Stadt
@@ -2726,7 +2723,7 @@ got.structure.CrownlandsSmithy.name=Kronlanden Schmiede
 got.structure.CrownlandsStables.name=Kronlanden Ställe
 got.structure.CrownlandsStoneHouse.name=Kronlanden Villa
 got.structure.CrownlandsTavern.name=Kronlanden Taverne
-got.structure.CrownlandsTurret.name=Kronlanden Turm
+got.structure.CrownlandsTower.name=Kronlanden Turm
 got.structure.CrownlandsWatchfort.name=Kronlanden Fort
 got.structure.CrownlandsWatchtower.name=Kronlanden Wachturm
 got.structure.DorneBarn.name=Dorne Scheune
@@ -2741,7 +2738,7 @@ got.structure.DorneSmithy.name=Dorne Schmiede
 got.structure.DorneStables.name=Dorne Ställe
 got.structure.DorneStoneHouse.name=Dorne Villa
 got.structure.DorneTavern.name=Dorne Taverne
-got.structure.DorneTurret.name=Dorne Turm
+got.structure.DorneTower.name=Dorne Turm
 got.structure.DorneWatchfort.name=Dorne Fort
 got.structure.DorneWatchtower.name=Dorne Turm
 got.structure.DothrakiKhalTent.name=Dothraki Khal Zelt
@@ -2762,7 +2759,7 @@ got.structure.DragonstoneSmithy.name=Drachenstein Schmiede
 got.structure.DragonstoneStables.name=Drachenstein Ställe
 got.structure.DragonstoneStoneHouse.name=Drachenstein Villa
 got.structure.DragonstoneTavern.name=Drachenstein Taverne
-got.structure.DragonstoneTurret.name=Drachenstein Turm
+got.structure.DragonstoneTower.name=Drachenstein Turm
 got.structure.DragonstoneWatchfort.name=Drachenstein Fort
 got.structure.DragonstoneWatchtower.name=Drachenstein Turm
 got.structure.GhiscarBarracks.name=Ghiscar Barracken
@@ -2796,11 +2793,11 @@ got.structure.GiftVillageLight.name=Nachtwache Dorf Lantern
 got.structure.GiftWatchtower.name=Wachtturm der Nachtwache
 got.structure.GoldenCamp.name=Zeltlager der goldenen Gemeinschaft
 got.structure.GoldenWatchtower.name≠
+got.structure.HillmanCampfire.name=Hügelmenschen Zeltlager
+got.structure.HillmanFort.name=Hügelmenschen Fort
+got.structure.HillmanHouse.name=Hügelmenschen Haus#
+got.structure.HillmanTavern.name=Hügelmenschen Taverne#
 got.structure.HillmanVillage.name≠
-got.structure.HillmenCampfire.name=Hügelmenschen Zeltlager
-got.structure.HillmenHillFort.name=Hügelmenschen Fort
-got.structure.HillmenHouse.name=Hügelmenschen Haus#
-got.structure.HillmenTavern.name=Hügelmenschen Taverne#
 got.structure.HorthHillmanCamp.name=Nördliche Hügelmenschen Zeltlager
 got.structure.IbbenBarn.name=Ibben Stall
 got.structure.IbbenFortVillage.name=Ibben Siedlung
@@ -2823,7 +2820,7 @@ got.structure.IronbornSmithy.name=Eiseninseln Schmiede
 got.structure.IronbornStables.name=Eiseninseln Ställe
 got.structure.IronbornStoneHouse.name=Eiseninseln Herrenhaus
 got.structure.IronbornTavern.name=Eiseninseln Taverne
-got.structure.IronbornTurret.name=Eiseninseln Turm
+got.structure.IronbornTower.name=Eiseninseln Turm
 got.structure.IronbornWatchfort.name=Eiseninseln Fort
 got.structure.IronbornWatchtower.name=Eiseninseln Turm
 got.structure.JogosChiefTent.name=Jogos Nhai Häuptlingszelt
@@ -2897,7 +2894,6 @@ got.structure.MyrTower.name=Myr Turm
 got.structure.MyrTraining.name=Myr Trainingslager
 got.structure.NorthBarn.name=Norden Scheune
 got.structure.NorthBath.name=Norden Schwimmbad
-got.structure.NorthBeaconTower.name=Norden Turm
 got.structure.NorthCottage.name=Norden Hütte
 got.structure.NorthFortVillage.name=Norden Schloss
 got.structure.NorthFortress.name=Norden Festung
@@ -2910,8 +2906,9 @@ got.structure.NorthSmithy.name=Norden Schmiede
 got.structure.NorthStables.name=Norden Ställe
 got.structure.NorthStoneHouse.name=Norden Villa
 got.structure.NorthTavern.name=Norden Taverne
+got.structure.NorthTower.name=Norden Turm
+got.structure.NorthTower.name=Norden Turm
 got.structure.NorthTown.name=Norden Stadt
-got.structure.NorthTurret.name=Norden Turm
 got.structure.NorthVillage.name=Norden Dorf
 got.structure.NorthWatchfort.name=Norden Fort
 got.structure.NorthWatchtower.name=Norden Turm
@@ -2980,7 +2977,7 @@ got.structure.ReachSmithy.name=Weite Schmiede
 got.structure.ReachStables.name=Weite Ställe
 got.structure.ReachStoneHouse.name=Weite Villa
 got.structure.ReachTavern.name=Weite Taverne
-got.structure.ReachTurret.name=Weite Turm
+got.structure.ReachTower.name=Weite Turm
 got.structure.ReachWatchfort.name=Weite Fort
 got.structure.ReachWatchtower.name=Weite Wachturm
 got.structure.RiverlandsBarn.name=Flusslanden Scheune
@@ -2995,15 +2992,20 @@ got.structure.RiverlandsSmithy.name=Flusslanden Schmiede
 got.structure.RiverlandsStables.name=Flusslanden Ställe
 got.structure.RiverlandsStoneHouse.name=Flusslanden Villa
 got.structure.RiverlandsTavern.name=Flusslanden Taverne
-got.structure.RiverlandsTurret.name=Flusslanden Turm
+got.structure.RiverlandsTower.name=Flusslanden Turm
 got.structure.RiverlandsWatchfort.name=Flusslanden Fort
 got.structure.RiverlandsWatchtower.name=Flusslanden Turm
 got.structure.RottenHouse.name≠
-got.structure.RuinedBeaconTower.name=Ruinen des Leuchtturms von Norden
+got.structure.RuinAsshai.name≠
+got.structure.RuinSandstone.name≠
+got.structure.RuinSothoryos.name≠
+got.structure.RuinStone.name≠
+got.structure.RuinYiTi.name≠
 got.structure.RuinedGiftHouse.name=Ruinen von Daras Haus
 got.structure.RuinedGiftTower.name=Ruinen des Dara-Turms
 got.structure.RuinedHouse.name≠
 got.structure.RuinedNorthTower.name=Ruinen des Wachtturms von Norden
+got.structure.RuinedTower.name=Ruinen des Leuchtturms von Norden
 got.structure.SmallStoneRuin.name≠
 got.structure.SothoryosChieftainPyramid.name=Sothoryos Pyramide des Häuptlings 
 got.structure.SothoryosHouseLarge.name=Sothoryos Villa
@@ -3013,11 +3015,6 @@ got.structure.SothoryosPyramid.name=Pyramide von Sothoryos
 got.structure.SothoryosSmithy.name=Sothoryos Schmiede
 got.structure.SothoryosVillage.name=Sothoryos Dorf
 got.structure.SothoryosWatchtower.name=Sothoryos WatchTurm
-got.structure.StoneRuinAsshai.name≠
-got.structure.StoneRuinSandstone.name≠
-got.structure.StoneRuinSothoryos.name≠
-got.structure.StoneRuinStandart.name≠
-got.structure.StoneRuinYiTi.name≠
 got.structure.StormlandsBarn.name=Sturmlanden Scheune
 got.structure.StormlandsBath.name=Sturmlanden Schwimmbad
 got.structure.StormlandsCityBig.name=Sturmlanden Stadt
@@ -3030,7 +3027,7 @@ got.structure.StormlandsSmithy.name=Sturmlanden Schmiede
 got.structure.StormlandsStables.name=Sturmlanden Ställe
 got.structure.StormlandsStoneHouse.name=Sturmlanden Villa
 got.structure.StormlandsTavern.name=Sturmlanden Taverne
-got.structure.StormlandsTurret.name=Sturmlanden Turm
+got.structure.StormlandsTower.name=Sturmlanden Turm
 got.structure.StormlandsWatchfort.name=Sturmlanden Fort
 got.structure.StormlandsWatchtower.name=Sturmlanden Wachturm
 got.structure.SummerFort.name=Sommerinseln Fort
@@ -3086,7 +3083,7 @@ got.structure.WesterlandsSmithy.name=Westlande Schmiede
 got.structure.WesterlandsStables.name=Westlande Ställe
 got.structure.WesterlandsStoneHouse.name=Westlande Villa
 got.structure.WesterlandsTavern.name=Westlande Taverne
-got.structure.WesterlandsTurret.name=Turm der Westlande
+got.structure.WesterlandsTower.name=Turm der Westlande
 got.structure.WesterlandsWatchfort.name=Westlande Fort
 got.structure.WesterlandsWatchtower.name=Westlande Turm
 got.structure.WildlingCamp.name=Wildling Zeltlager
@@ -3436,7 +3433,7 @@ got.wp.DrummCastle.info=Schloss des Hauses Drumm, Vasallen der Graufreuds.
 got.wp.DrummCastle=Drumm Schloss
 got.wp.Dunstonbury.info=Manderly Ahnenburg, das ihnen nach der Unterdrückung des Aufstands genommen wurde - während der Gardner-Ära. Die Burg ging an Haus Peak über, dessen Kopf Manderly aus der Weite vertrieb. Anschließend schlossen sich die Spitzen dem Aufstand der Schwarzen Flamme an und bezahlten mit ihren Besitztümern, darunter auch Manderly Ahnenburg. Es ist nicht bekannt, ob das Schloss wert ist oder gefallen ist und wer seine neuen Besitzer sind.
 got.wp.Dunstonbury=Manderly Ahnenburg
-got.wp.Duskendale.info=Eine wichtige Hafenstadt, die von der Heimat der Rikkers, Vasallen des Eisernen Throns, regiert wird.
+got.wp.Duskendale.info=Eine Wightige Hafenstadt, die von der Heimat der Rikkers, Vasallen des Eisernen Throns, regiert wird.
 got.wp.Duskendale=Tal des Zwilichts
 got.wp.DyreDen.info=Schloss eines der Zweige des Hauses Brune, Vasallen der Baratheons.
 got.wp.DyreDen=Heftige Höhle
@@ -3642,7 +3639,7 @@ got.wp.Kayakayanaya.info=Eine der letzten Städte, die um eine Zitadelle herum e
 got.wp.Kayakayanaya=Kayakayanaya
 got.wp.Kayce.info=Einst das Hauptqarthier der Eisengeborenen, später von den Königen der Klippe mit Hilfe des abenteuerlustigen Kenning und Harlow erobert. Seitdem gehört die Stadt zu den Westlanden, und die Kennings sind Vasallen des Lennister. Wohlhabende Kaufleute besuchen sie hier oft.
 got.wp.Kayce=Kayce
-got.wp.KingsLanding.info=Hauptstadt der sieben Königreiche. Erbaut im Auftrag von Aegon dem Eroberer an dem Ort, an dem er zuerst gelandet ist und an dem er Aegonfort gebaut hat. Am Ende der Regierungszeit befahl Aegon I., die alteholzfestung abzureißen, und begann mit dem Bau des Roten Schlosses - der Residenz der Könige des neuen Staates. Royal Hafen ist eine wichtige Hafenstadt.
+got.wp.KingsLanding.info=Hauptstadt der sieben Königreiche. Erbaut im Auftrag von Aegon dem Eroberer an dem Ort, an dem er zuerst gelandet ist und an dem er Aegonfort gebaut hat. Am Ende der Regierungszeit befahl Aegon I., die alteholzfestung abzureißen, und begann mit dem Bau des Roten Schlosses - der Residenz der Könige des neuen Staates. Royal Hafen ist eine Wightige Hafenstadt.
 got.wp.KingsLanding=Königsmund
 got.wp.Kingsgrave.info=Manwoody Ahnenschloss. Der letzte König des Hauses Manwoody, der sich selbst zum König der Roten Berge erklärte, ging zusammen mit fünf anderen Königen, die von Nymeria gefangen genommen und abgesetzt wurden, in Goldketten an die Mauer. Das Schloss erhielt seinen.name=N, weil es das Grab eines der Könige der Weite wurde.
 got.wp.Kingsgrave=Königliches Grab
@@ -3658,7 +3655,7 @@ got.wp.KrazaajHas.info=Die einstige Ghiskar-Stadt Gardak. Vielleicht gaben die D
 got.wp.KrazaajHas=Krazaaj Has
 got.wp.Kyth.info=Stadt Sarnor. Von den Dothraki zerstört.
 got.wp.Kyth=Kif
-got.wp.Lannisport.info=Die drittgrößte Stadt in Westeros nach der Hauptstadt und der Altstadt; die wichtigste Hafen- und Industriestadt der Westlande. Sie ist berühmt für seine Handwerker, insbesondere für Schmiede und Goldschmiede. Die Stadt wird von der Junior-Niederlassung von Lennister regiert.
+got.wp.Lannisport.info=Die drittgrößte Stadt in Westeros nach der Hauptstadt und der Altstadt; die Wightigste Hafen- und Industriestadt der Westlande. Sie ist berühmt für seine Handwerker, insbesondere für Schmiede und Goldschmiede. Die Stadt wird von der Junior-Niederlassung von Lennister regiert.
 got.wp.Lannisport=Lannisport
 got.wp.LastHearth.info=Schloss des Hauses Bernstein, Vasallen der Starks.
 got.wp.LastHearth=Letzter Herd
@@ -3784,7 +3781,7 @@ got.wp.Pebbleton.info=Die Burg des Hauses Merlin in Great Vic, wo Wethead beginn
 got.wp.Pebbleton=Kiselton
 got.wp.Pennytree.info=Ein kleines Dorf zwischen zwei Hügeln.name=Ns Titki. Das Dorf erhielt seinen.name=N, weil hier eine Eiche mit daran genagelten Pfennigen wächst (ein Pfennig). Diese Gebiete werden von den Brackens und Schwarzwäldern beansprucht, aber wegen dieser Unruhen wurden die Länder zugunsten der Krone zurückgerufen. Von hier kam der Grenzritter Ser Arlan, der Dukan großzog.
 got.wp.Pennytree=Tiki
-got.wp.Pentos.info=Eine der freien Städte, der wichtigste Hafen an der Westküste von Essos. Diese Stadt ist die Heimat des Meisters Illyrio Mopatis, der die letzten Targaryer beschützte.
+got.wp.Pentos.info=Eine der freien Städte, der Wightigste Hafen an der Westküste von Essos. Diese Stadt ist die Heimat des Meisters Illyrio Mopatis, der die letzten Targaryer beschützte.
 got.wp.Pentos=Pentos
 got.wp.PinkmaidenCastle.info=Schloss des Hauses Piper, Tullys Vasallen.
 got.wp.PinkmaidenCastle=Pink-Maidenschloss
@@ -3804,7 +3801,7 @@ got.wp.Pyke.info=Insel und das gleichnamige Familienschloss von Haus Graufreud. 
 got.wp.Pyke=Pyke
 got.wp.Qarkash.info=Eine Stadt, die wahrscheinlich von den Quaatianern gegründet wurde. Heutzutage wird es von Kwart aus gesteuert.
 got.wp.Qarkash=Quarkash
-got.wp.Qarth.info=Eine der wichtigsten Handelsstädte an der Küste des Sommermeeres. Sie befindet sich an der engsten Stelle der Meerenge, die die zwei größten bekannten Meere verbindet, und ist der kürzeste Weg nach Asshai. Verwaltet von den sogenannten Reinrassig. Die letzte der quaatianischen Städte.
+got.wp.Qarth.info=Eine der Wightigsten Handelsstädte an der Küste des Sommermeeres. Sie befindet sich an der engsten Stelle der Meerenge, die die zwei größten bekannten Meere verbindet, und ist der kürzeste Weg nach Asshai. Verwaltet von den sogenannten Reinrassig. Die letzte der quaatianischen Städte.
 got.wp.Qarth=Qarth
 got.wp.Qohor.info=Eine der freien Städte und die östlichste von ihnen. Die Stadt unterhält eine Flotte, die die Flusslande bis zu den Ruinen der Stadt Ar Noi kontrolliert, und die Unbefleckten dienen als Wachen: Sie haben die Stadt einst vor den Dothraki-Horden geschützt, und seitdem haben die meisten Khalasaren die Mauern von Qohor umgangen. Die örtlichen Schmieden sind bekannt für ihre Fähigkeiten im Umgang mit valyrischem Stahl.
 got.wp.Qohor=Qohor
@@ -4036,7 +4033,7 @@ got.wp.VaesGorqoyi.info=Die gut befestigte Stadt Sarnor, Mardosh der Unzugängli
 got.wp.VaesGorqoyi=Vaes Gorkoyi
 got.wp.VaesGraddakh.info=Die Stadt des Sarnor-Königreichs, die im blutigen Zeitalter vom Khalasar zerstört wurde. Khalu Zeggo bekam fast nichts - die Bewohner von Saris flohen kurz vor seinem Erscheinen und nahmen ihre Habseligkeiten mit -, deshalb nannten die Dothraki die Beute "die Stadt des Mülls" - Vaez Graddakh.
 got.wp.VaesGraddakh=Vaes Graddakh
-got.wp.VaesJini.info=Yinishar liegt an der Kreuzung von drei Straßen und war wahrscheinlich eine wichtige Handelsstadt, bis sie von den Dothraki zerstört wurde, die die Beute "Stadt der Ziegen" nannten.
+got.wp.VaesJini.info=Yinishar liegt an der Kreuzung von drei Straßen und war wahrscheinlich eine Wightige Handelsstadt, bis sie von den Dothraki zerstört wurde, die die Beute "Stadt der Ziegen" nannten.
 got.wp.VaesJini=Vaes Jini
 got.wp.VaesKhadokh.info=Valyrian Kolonie, zusammen mit dem Königreich Sarnor von den Dothraki-Horden in der Blutzeit zerstört. Die Eroberer nennen die Ruinen Vaez Hadoh - die Stadt der Toten.
 got.wp.VaesKhadokh=Vaes Khadokh
@@ -4098,7 +4095,7 @@ got.wp.WestWatch.info=Die westlichste Burg der Nachtwache, die eine der Passagen
 got.wp.WestWatch=Westliche Brückenwache
 got.wp.Whispers.info=Eine alte verlassene Burg, in der Brienne von Tart fast gestorben wäre.
 got.wp.Whispers=Flüstern
-got.wp.WhiteHarbour.info=Eine der fünf größten Städte in Westeros und der wichtigste Hafen im Norden. Die Stadt ist um die alte Festung Wolfs Versteck herum gebaut. Viele Male wechselte sie den Besitzer, bis die Starks diese Ländereien den aus der Manderly Weite verbannten Personen übergaben. Die Neuankömmlinge bauten sich außerhalb der Stadtmauern ein weißes neues Schloss.
+got.wp.WhiteHarbour.info=Eine der fünf größten Städte in Westeros und der Wightigste Hafen im Norden. Die Stadt ist um die alte Festung Wolfs Versteck herum gebaut. Viele Male wechselte sie den Besitzer, bis die Starks diese Ländereien den aus der Manderly Weite verbannten Personen übergaben. Die Neuankömmlinge bauten sich außerhalb der Stadtmauern ein weißes neues Schloss.
 got.wp.WhiteHarbour=Weißer Hafen
 got.wp.WhiteWalls.info=Stammdomäne der Butterwells. Die wohlhabende große Burg überdauerte nur 40 Jahre und wurde nach dem Scheitern des zweiten Schwarzfeueraufstands abgerissen.
 got.wp.WhiteWalls=Weißstein
@@ -4928,6 +4925,7 @@ item.got:crownlandsChestplate.name=Königsmund-Wachen Brustpanzer
 item.got:crownlandsHelmet.name=Königsmund-Wachen Helm
 item.got:crownlandsLeggings.name=Königsmund-Wachen Beinschutz
 item.got:cucumber.name≠
+item.got:cucumberSeeds.name≠
 item.got:cutwave.name≠
 item.got:daarioArakh.name=Arakh Daario Naharis
 item.got:darkSister.name=Dunkle Schwester

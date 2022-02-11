@@ -211,9 +211,9 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public GOTBiomeSpawnList npcSpawnList = new GOTBiomeSpawnList(this);
 	public List spawnableGOTAmbientList = new ArrayList();
 	public GOTEventSpawner.EventChance banditChance;
-	public Class<? extends GOTEntityBandit> banditEntityClass;
-	public Class<? extends GOTEntityScrapTrader> scrapTraderEntityClass;
-	public Class<? extends GOTEntityThief> thiefEntityClass;
+	public Class<? extends GOTEntityWesterosBandit> banditEntityClass;
+	public Class<? extends GOTEntityWesterosScrapTrader> scrapTraderEntityClass;
+	public Class<? extends GOTEntityWesterosThief> thiefEntityClass;
 	public GOTBiomeInvasionSpawns invasionSpawns;
 	public BiomeColors biomeColors = new BiomeColors(this);
 	public BiomeTerrain biomeTerrain = new BiomeTerrain(this);
@@ -473,9 +473,9 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public void generateMountainTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, int xzIndex, int ySize, int height, int rockDepth, GOTBiomeVariant variant) {
 	}
 
-	public Class<? extends GOTEntityBandit> getBanditEntityClass() {
+	public Class<? extends GOTEntityWesterosBandit> getBanditEntityClass() {
 		if (banditEntityClass == null) {
-			return GOTEntityBandit.class;
+			return GOTEntityWesterosBandit.class;
 		}
 		return banditEntityClass;
 	}
@@ -659,9 +659,9 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return GOTBezierType.PATH_DIRTY;
 	}
 
-	public Class<? extends GOTEntityScrapTrader> getScrapTraderEntityClass() {
+	public Class<? extends GOTEntityWesterosScrapTrader> getScrapTraderEntityClass() {
 		if (scrapTraderEntityClass == null) {
-			return GOTEntityScrapTrader.class;
+			return GOTEntityWesterosScrapTrader.class;
 		}
 		return scrapTraderEntityClass;
 	}
@@ -690,9 +690,9 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return super.getSpawnableList(creatureType);
 	}
 
-	public Class<? extends GOTEntityThief> getThiefEntityClass() {
+	public Class<? extends GOTEntityWesterosThief> getThiefEntityClass() {
 		if (thiefEntityClass == null) {
-			return GOTEntityThief.class;
+			return GOTEntityWesterosThief.class;
 		}
 		return thiefEntityClass;
 	}
@@ -819,9 +819,9 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	public void setDarkUnreliable() {
-		banditEntityClass = GOTEntityBanditEssos.class;
-		scrapTraderEntityClass = GOTEntityScrapTraderEssos.class;
-		thiefEntityClass = GOTEntityThiefEssos.class;
+		banditEntityClass = GOTEntityEssosBandit.class;
+		scrapTraderEntityClass = GOTEntityEssosScrapTrader.class;
+		thiefEntityClass = GOTEntityEssosThief.class;
 	}
 
 	public GOTBiome setDisableSnow() {

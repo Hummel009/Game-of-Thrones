@@ -56,7 +56,7 @@ public class GOTBiomeSkagos extends GOTBiome {
 		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
-		decorator.addRandomStructure(new GOTStructureStoneRuin.STONE(1, 4), 400);
+		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
 	}
 
 	@Override

@@ -1,73 +1,4 @@
 
-got.gui.options.femRank.desc.on≠
-got.gui.options.femRank.desc.off≠
-got.gui.achievements.hover.name=%s
-got.gui.achievements.hover.subtitle≠
-got.gui.money.notGet≠
-got.gui.money.notGive≠
-item.got:cucumberSeeds.name≠
-got.command.wpCooldown.usage=/wpCooldown <max|min> <seconds>
-got.command.wpCooldown.setMax=Impostato il tempo di ricarica massimo per i waypoint a %d secondi (%s)
-got.command.wpCooldown.setMin=Impostato il tempo di ricarica minimo per i waypoint a %d secondi (%s)
-got.command.wpCooldown.updateMax=Aggiornato automaticamente il tempo di ricarica massimo per corrispondere al nuovo minimo di %d
-got.command.wpCooldown.updateMin=Aggiornato automaticamente il tempo di ricarica minimo per corrispondere al nuovo massimo di %d
-got.gui.options.femRank≠
-got.rank.ARRYN≠
-got.rank.ASSHAI≠
-got.rank.BRAAVOS≠
-got.rank.CERSEI≠
-got.rank.CROWNLANDS≠
-got.rank.DORNE≠
-got.rank.DOTHRAKI≠
-got.rank.DRAGONSTONE≠
-got.rank.GHISCAR≠
-got.rank.HILL_TRIBES≠
-got.rank.HOSTILE≠
-got.rank.IBBEN≠
-got.rank.IRONBORN≠
-got.rank.JOGOS≠
-got.rank.LHAZAR≠
-got.rank.LORATH≠
-got.rank.LYS≠
-got.rank.MOSSOVY≠
-got.rank.MYR≠
-got.rank.NIGHT_WATCH≠
-got.rank.NORTH≠
-got.rank.NORVOS≠
-got.rank.PENTOS≠
-got.rank.QARTH≠
-got.rank.QOHOR≠
-got.rank.REACH≠
-got.rank.RIVERLANDS≠
-got.rank.SOTHORYOS≠
-got.rank.STORMLANDS≠
-got.rank.SUMMER_ISLANDS≠
-got.rank.TYROSH≠
-got.rank.ULTHOS≠
-got.rank.UNALIGNED≠
-got.rank.VOLANTIS≠
-got.rank.WESTERLANDS≠
-got.rank.WHITE_WALKER≠
-got.rank.WILDLING≠
-got.rank.YI_TI≠
-got.rank.enemy≠
-got.rank.enemy_fm≠
-got.rank.neutral≠
-got.rank.neutral_fm≠
-got.rank.guest≠
-got.rank.friend≠
-got.rank.defender≠
-got.rank.hero≠
-got.rank.leader≠
-got.rank.guest_fm≠
-got.rank.friend_fm≠
-got.rank.defender_fm≠
-got.rank.hero_fm≠
-got.rank.leader_fm≠
-got.rank.king≠
-got.rank.king_fm≠
-got.capes.YITI_FRONTIER.name≠
-got.shields.ASSHAI.name≠
 attribute.name.generic.movementSpeedAir=Velocità (aria)
 color.black=Nero
 color.blue=Blu
@@ -106,8 +37,8 @@ entity.got.AnyaWaynwood.name≠
 entity.got.ArdrianCeltigar.name=Ardrian Celtigar
 entity.got.AreoHotah.name≠
 entity.got.ArianneMartell.name≠
-entity.got.ArrowPoison.name=Freccia avvelenata
-entity.got.ArrynArcher.name=Arciere di Valle di Arryn
+entity.got.ArrowFire.name≠
+entity.got.ArrowPoisoned.name≠
 entity.got.ArrynBaker.name=Panettiere di Valle di Arryn
 entity.got.ArrynBannerBearer.name=Alfiere dello Stendardo di Valle di Arryn
 entity.got.ArrynBartender.name=Barista di Valle di Arryn
@@ -134,14 +65,15 @@ entity.got.AsshaiAlchemist.name=Alchimista di Asshai
 entity.got.AsshaiArchmag.name=Arcma di Asshai
 entity.got.AsshaiBannerBearer.name≠
 entity.got.AsshaiCaptain.name=Capitano delle guardie di Asshai
-entity.got.AsshaiGuard.name=Guardia di Asshai
 entity.got.AsshaiMan.name=Uomo di Asshai
 entity.got.AsshaiShadowbinder.name=Shadowbinder di Asshai
 entity.got.AsshaiSpherebinder.name=Spherebinder di Asshai
+entity.got.AsshaiWarrior.name=Guardia di Asshai
 entity.got.AuraneWaters.name=Aurane Waters
 entity.got.BaelorBlacktyde.name≠
 entity.got.BalonGreyjoy.name=Balon Greyjoy
 entity.got.Banner.name=Stendardo
+entity.got.BannerWall.name≠
 entity.got.BarbreyDustin.name≠
 entity.got.Barrel.name=Barile
 entity.got.BarristanSelmy.name=Barristan Selmy
@@ -151,17 +83,17 @@ entity.got.BearRug.name=Tappeto di orso
 entity.got.BenedarBelmore.name≠
 entity.got.BenjenStark.name=Benjen Stark
 entity.got.BericDayne.name=Beric Dayne
-entity.got.BericDondarrion1.name=Beric Dondarrion
-entity.got.BericDondarrion2.name=Beric Dondarrion
-entity.got.BericDondarrion3.name=Beric Dondarrion
-entity.got.BericDondarrion4.name=Beric Dondarrion
-entity.got.BericDondarrion5.name=Beric Dondarrion
-entity.got.BericDondarrion6.name=Beric Dondarrion
+entity.got.BericDondarrionLife1.name=Beric Dondarrion
+entity.got.BericDondarrionLife2.name=Beric Dondarrion
+entity.got.BericDondarrionLife3.name=Beric Dondarrion
+entity.got.BericDondarrionLife4.name=Beric Dondarrion
+entity.got.BericDondarrionLife5.name=Beric Dondarrion
+entity.got.BericDondarrionLife6.name=Beric Dondarrion
 entity.got.Bird.name=Uccello
 entity.got.Bison.name=Uro
 entity.got.BlackWalderFrey.name≠
 entity.got.Boar.name=Cinghiale
-entity.got.BraavosArcher.name=Arciere di Braavos
+entity.got.Bomb.name≠
 entity.got.BraavosBaker.name=Panettiere di Braavos
 entity.got.BraavosBannerBearer.name=Stendardo di Braavos
 entity.got.BraavosBartender.name=Barista di Braavos
@@ -173,7 +105,6 @@ entity.got.BraavosFishmonger.name=Pescivendolo di Braavos
 entity.got.BraavosFlorist.name=Fiorista di Braavos
 entity.got.BraavosGeneral.name=Generale di Braavos
 entity.got.BraavosGoldsmith.name=Orafo di Braavos
-entity.got.BraavosLegionary.name=Legionario di Braavos
 entity.got.BraavosLevyman.name≠
 entity.got.BraavosLevymanArcher.name≠
 entity.got.BraavosLumberman.name=Boscaiolo di Braavos
@@ -182,7 +113,6 @@ entity.got.BraavosMason.name=Massone di Braavos
 entity.got.BraavosMiner.name=Minatore di Braavos
 entity.got.BraavosSoldier.name≠
 entity.got.BraavosSoldierArcher.name≠
-entity.got.BraavosWarrior.name=Guerriero di Braavos
 entity.got.BranStark.name≠
 entity.got.BrienneTarth.name=Brienne Tarth
 entity.got.Bronn.name=Bronn
@@ -190,6 +120,7 @@ entity.got.BryndenTully.name=Brynden Tully
 entity.got.BuGai.name=Bu Gai
 entity.got.Butterfly.name=Farfalla
 entity.got.Camel.name=Cammello
+entity.got.Cargocart.name≠
 entity.got.CatelynStark.name≠
 entity.got.CerseiLannister.name=Cersei Lannister
 entity.got.ClementPiper.name≠
@@ -198,11 +129,9 @@ entity.got.Conker.name=Riccio di castagna
 entity.got.CotterPyke.name=Cotter Pyke
 entity.got.Craster.name=Craster
 entity.got.CrasterWife.name=Moglie di Craster
-entity.got.Crebain.name=Craban
 entity.got.Crocodile.name=Coccodrillo
 entity.got.CrossbowBolt.name=Dardo di balestra
 entity.got.CrownlandsAlchemist.name=Alchimista di Terre della Corona
-entity.got.CrownlandsArcher.name=Arciere di Terre della Corona
 entity.got.CrownlandsBaker.name=Panettiere di Terre della Corona
 entity.got.CrownlandsBannerBearer.name=Portabandiera di Terre della Corona
 entity.got.CrownlandsBartender.name=Barista di Terre della Corona
@@ -234,7 +163,6 @@ entity.got.DesertScorpion.name=Scorpione del deserto
 entity.got.DikDik.name=Dik-dik
 entity.got.Direwolf.name=Meta lupo
 entity.got.DoranMartell.name=Doran Martell
-entity.got.DorneArcher.name=Arciere di Dorne
 entity.got.DorneBaker.name=Panettiere di Dorne
 entity.got.DorneBannerBearer.name=Stendardo di Dorne
 entity.got.DorneBartender.name=Barista di Dorne
@@ -255,12 +183,11 @@ entity.got.DorneMan.name=L'uomo di Dorne
 entity.got.DorneMason.name=Massone di Dorne
 entity.got.DorneSoldier.name=Guerriero di Dorne
 entity.got.DorneSoldierArcher.name=Arciere guerriero di Dorne
+entity.got.Dothraki.name=Dothraki
 entity.got.DothrakiArcher.name=Dothraki Archer
 entity.got.DothrakiKhal.name=Dothraki Khal
 entity.got.DothrakiKhalin.name=Dosh Khalin
-entity.got.DothrakiMan.name=Dothraki
 entity.got.Dragon.name=Drago
-entity.got.DragonstoneArcher.name=Arciere di Roccia del Drago
 entity.got.DragonstoneBaker.name=Panettiere di Dragonstone
 entity.got.DragonstoneBannerBearer.name=Portabandiera di Roccia del Drago
 entity.got.DragonstoneBartender.name=Barista di Roccia del Drago
@@ -287,14 +214,17 @@ entity.got.Edd.name≠
 entity.got.EdmureTully.name=Edmure Tully
 entity.got.EldonEstermont.name≠
 entity.got.Elephant.name=Elefante
-entity.got.Elk.name=Alce
 entity.got.EllaryaSand.name=Ellarya Sand
 entity.got.ErikIronmaker.name≠
 entity.got.EssosBandit.name=Bandit
 entity.got.EssosScrapTrader.name≠
 entity.got.EssosThief.name=Thief
 entity.got.EuronGreyjoy.name=Euron Greyjoy
+entity.got.FallingFireJar.name≠
+entity.got.FallingTreasure.name≠
+entity.got.FirePot.name≠
 entity.got.Fish.name=Pesce
+entity.got.FishHook.name≠
 entity.got.Flamingo.name=Fenicottero
 entity.got.ForleyPrester.name=Forley Prester
 entity.got.FranklynFowler.name≠
@@ -304,20 +234,16 @@ entity.got.GendryBaratheon.name=Gendry Baratheon
 entity.got.GeroldDayne.name=Gerold Dayne
 entity.got.GeroldGrafton.name≠
 entity.got.GhiscarAdmiral.name≠
-entity.got.GhiscarArcher.name=Arciere di Ghiscar
 entity.got.GhiscarBaker.name=Fornaio di Ghiscar
 entity.got.GhiscarBannerBearer.name=Stendardo di Ghiscar
 entity.got.GhiscarBartender.name=Barista di Ghiscar
 entity.got.GhiscarBlacksmith.name=Fabbro di Ghiscar
 entity.got.GhiscarBrewer.name=Birraio di Ghiscar
 entity.got.GhiscarButcher.name=Macellaio di Ghiscar
-entity.got.GhiscarCaptain.name=Capitano di Ghiscar
 entity.got.GhiscarCorsair.name=Corsaro di Ghiscar
 entity.got.GhiscarCorsairArcher.name≠
-entity.got.GhiscarFarmer.name=Contadino di Ghiscar
 entity.got.GhiscarFishmonger.name=Pescivendolo di Ghiscar
 entity.got.GhiscarFlorist.name=Fiorista di Ghiscar
-entity.got.GhiscarGeneral.name=Ammiraglio di Ghiscar
 entity.got.GhiscarGladiator.name=Gladiatore di Ghiscar
 entity.got.GhiscarGoldsmith.name=Orafo di Ghiscar
 entity.got.GhiscarGuard.name=Guardia di Yunkai
@@ -332,26 +258,21 @@ entity.got.GhiscarSlave.name=Schiavo di Ghiscar
 entity.got.GhiscarSlaver.name=Schiavo di Ghiscar
 entity.got.GhiscarUnsullied.name=Immancabile di Ghiscar
 entity.got.Giant.name=Gigante
-entity.got.GiantSpider.name=Ragno gigante
+entity.got.GiftBannerBearer.name=Stendardo dei Guardiani della Notte
 entity.got.GiftBlacksmith.name=Fabbro di Gift
 entity.got.GiftGuard.name=Guerriero dei Guardiani della Notte
-entity.got.GiftGuardBannerBearer.name=Stendardo dei Guardiani della Notte
-entity.got.GiftGuardCaptain.name=Capitano dei Guardiani della Notte
 entity.got.GiftMan.name=Uomo di dono
 entity.got.GilwoodHunter.name≠
 entity.got.Giraffe.name=Giraffa
 entity.got.GiraffeRug.name=Tappeto di giraffa
-entity.got.GiskarCaptain.name=Capitano Giskar
-entity.got.GiskarCorsair.name=Giskar Corsair
-entity.got.GiskarSlaver.name=Giskar Slaver
 entity.got.GoldenBannerBearer.name=Portabandiera della Compagnia d'Oro
 entity.got.GoldenCaptain.name=Capitano della Golden Company
 entity.got.GoldenSpearman.name=Lanciere della Golden Company
 entity.got.GoldenWarrior.name=Guerriero della Compagnia Dorata
 entity.got.Gorcrow.name=Corvo Imperiale
 entity.got.GoroldGoodbrother.name≠
-entity.got.GregorClegane.name=Gregor Clegane
-entity.got.GregorCleganeWight.name=Gregor Clegane
+entity.got.GregorCleganeAlive.name=Gregor Clegane
+entity.got.GregorCleganeDead.name=Gregor Clegane
 entity.got.GreyWorm.name≠
 entity.got.GulianSwann.name≠
 entity.got.GylbertFarwynd.name≠
@@ -363,14 +284,14 @@ entity.got.HarryStrickland.name≠
 entity.got.HarysSwyft.name=Harys Swyft
 entity.got.HelmanTallhart.name≠
 entity.got.HighSepton.name=Alto Septon
-entity.got.Hillmen.name=Hill Tribes Man
-entity.got.HillmenArcher.name=Arciere delle tribù delle colline
-entity.got.HillmenAxeThrower.name=Lanciatore di asce delle tribù delle colline
-entity.got.HillmenBannerBearer.name=Portatore dello stendardo delle tribù delle colline
-entity.got.HillmenBartender.name=Barista di Hill Tribes
-entity.got.HillmenBerserker.name=Hill Tribes Berserker
-entity.got.HillmenWarlord.name=Capotribù delle tribù delle colline
-entity.got.HillmenWarrior.name=Guerriero delle tribù delle colline
+entity.got.Hillman.name=Hill Tribes Man
+entity.got.HillmanArcher.name=Arciere delle tribù delle colline
+entity.got.HillmanAxeThrower.name=Lanciatore di asce delle tribù delle colline
+entity.got.HillmanBannerBearer.name=Portatore dello stendardo delle tribù delle colline
+entity.got.HillmanBartender.name=Barista di Hill Tribes
+entity.got.HillmanBerserker.name=Hill Tribes Berserker
+entity.got.HillmanWarlord.name=Capotribù delle tribù delle colline
+entity.got.HillmanWarrior.name=Guerriero delle tribù delle colline
 entity.got.HizdahrZoLoraq.name≠
 entity.got.Hodor.name=Hodor
 entity.got.Horse.name=Cavallo
@@ -387,7 +308,6 @@ entity.got.IbbenBlacksmith.name=Fabbro di Ibben
 entity.got.IbbenBrewer.name=Birraio di Ibben
 entity.got.IbbenBuilder.name=Costruttore di Ibben
 entity.got.IbbenButcher.name=Macellaio di Ibben
-entity.got.IbbenCaptain.name=Capitano di Ibben
 entity.got.IbbenFarmer.name=Contadino di Ibben
 entity.got.IbbenFarmhand.name=Bracciante agricolo di Ibben
 entity.got.IbbenFishmonger.name=Pescivendolo di Ibben
@@ -396,12 +316,13 @@ entity.got.IbbenMan.name=Uomo
 entity.got.IbbenMeadhost.name=Meadhost di Ibben
 entity.got.IbbenOrcharder.name=Orcharder di Ibben
 entity.got.IbbenStablemaster.name=Capo di scuderia di Ibben
+entity.got.IbbenWarlord.name=Capitano di Ibben
 entity.got.IbbenWarrior.name=Guerriero di Ibben
 entity.got.IceSpider.name=Ice Spider
 entity.got.Ifekevron.name=Ifekevron
 entity.got.IllyrioMopatis.name=Illyrio Mopatis
 entity.got.IlynPayne.name=Ilyn Payne
-entity.got.IronbornArcher.name=Arciere delle Isole di Ferro
+entity.got.InvasionSpawner.name≠
 entity.got.IronbornBaker.name=Panettiere di Iron Islands
 entity.got.IronbornBannerBearer.name=Portabandiera delle Isole di Ferro
 entity.got.IronbornBartender.name=Barista delle Isole di Ferro
@@ -409,7 +330,6 @@ entity.got.IronbornBlacksmith.name=Fabbro delle Isole di Ferro
 entity.got.IronbornBrewer.name=Birraio delle Isole di Ferro
 entity.got.IronbornButcher.name=Macellaio delle Isole di Ferro
 entity.got.IronbornCaptain.name=Capitano delle Isole di Ferro
-entity.got.IronbornCorsair.name=Pirata delle Isole di Ferro
 entity.got.IronbornFarmer.name=Contadino delle Isole di Ferro
 entity.got.IronbornFarmhand.name=Bracciante agricolo delle Isole di Ferro
 entity.got.IronbornFishmonger.name=Pescivendolo delle Isole di Ferro
@@ -430,23 +350,23 @@ entity.got.JaqenHghar.name=Jaqen H'Ghar
 entity.got.JasonMallister.name≠
 entity.got.JeorMormont.name=Jeor Mormont
 entity.got.JoffreyBaratheon.name=Joffrey Baratheon
+entity.got.Jogos.name=Nomade di Jogos Nhai
 entity.got.JogosArcher.name=Arciere di Jogos Nhai
 entity.got.JogosBannerBearer.name≠
 entity.got.JogosChief.name=Capotribù di Jogos Nhai
-entity.got.JogosMan.name=Nomade di Jogos Nhai
 entity.got.JogosShaman.name=Sciamano di Jogos Nhai
 entity.got.JohnUmber.name=John Umber
 entity.got.JonConnington.name≠
-entity.got.JonSnow.name=Jon Snow
-entity.got.JonSnow2.name≠
+entity.got.JonSnowLife1.name=Jon Snow
+entity.got.JonSnowLife2.name≠
 entity.got.JonosBracken.name=Jonos Bracken
 entity.got.JorahMormont.name=Jorah Mormont
 entity.got.JungleScorpion.name=Scorpione della giungla
 entity.got.KevanLannister.name=Kevan Lannister
 entity.got.Kingsguard.name=Guardia reale
 entity.got.KraznysMoNakloz.name=Kraznys Mo Nakloz
-entity.got.LancelLannister.name=Lancel Lannister
-entity.got.LancelLannisterR.name=Lancel Lannister
+entity.got.LancelLannisterNormal.name=Lancel Lannister
+entity.got.LancelLannisterReligious.name=Lancel Lannister
 entity.got.LeoLefford.name=Leo Lefford
 entity.got.LeytonHightower.name=Leyton Hightower
 entity.got.LhazarArcher.name=Arciere di Lhazar
@@ -466,11 +386,12 @@ entity.got.LhazarMason.name=Massone di Lhazar
 entity.got.LhazarMiner.name=Minatore di Lhazar
 entity.got.LhazarWarlord.name=Signore della Guerra di Lhazar
 entity.got.LhazarWarrior.name=Guerriero di Lhazar
+entity.got.LingeringEffect.name≠
+entity.got.LingeringPotion.name≠
 entity.got.Lion.name=Leone
 entity.got.LionRug.name=Tappeto di leone
 entity.got.Lioness.name=Leonessa
 entity.got.LorasTyrell.name=Loras Tyrell
-entity.got.LorathArcher.name=Arciere di Lorath
 entity.got.LorathBaker.name=Panettiere di Lorath
 entity.got.LorathBannerBearer.name=Stendardo di Lorath
 entity.got.LorathBartender.name=Barista di Lorath
@@ -482,7 +403,6 @@ entity.got.LorathFishmonger.name=Pescivendolo di Lorath
 entity.got.LorathFlorist.name=Fiorista di Lorath
 entity.got.LorathGeneral.name=Generale di Lorath
 entity.got.LorathGoldsmith.name=Orafo di Lorath
-entity.got.LorathLegionary.name=Legionario di Lorath
 entity.got.LorathLevyman.name≠
 entity.got.LorathLevymanArcher.name≠
 entity.got.LorathLumberman.name=Boscaiolo di Lorath
@@ -491,24 +411,20 @@ entity.got.LorathMason.name=Massone di Lorath
 entity.got.LorathMiner.name=Minatore di Lorath
 entity.got.LorathSoldier.name≠
 entity.got.LorathSoldierArcher.name≠
-entity.got.LorathWarrior.name=Guerriero di Lorath
 entity.got.LotharFrey.name≠
 entity.got.Luwin.name≠
 entity.got.LyleCrakehall.name=Lyle Crakehall
 entity.got.LynCorbray.name=Lyn Corbray
-entity.got.LysArcher.name=Arciere di Lys
 entity.got.LysBaker.name=Panettiere di Lys
 entity.got.LysBannerBearer.name=Stendardo di Lys
 entity.got.LysBartender.name=Barista di Lys
 entity.got.LysBlacksmith.name=Fabbro di Lys
 entity.got.LysBrewer.name=Birraio di Lys
 entity.got.LysButcher.name=Macellaio di Lys
-entity.got.LysFarmer.name=Contadino di Lys
 entity.got.LysFishmonger.name=Pescivendolo di Lys
 entity.got.LysFlorist.name=Fiorista di Lys
 entity.got.LysGeneral.name=Generale di Lys
 entity.got.LysGoldsmith.name=Orafo di Lys
-entity.got.LysLegionary.name=Legionario di Lys
 entity.got.LysLevyman.name≠
 entity.got.LysLevymanArcher.name≠
 entity.got.LysLumberman.name=Boscaiolo di Lys
@@ -519,7 +435,6 @@ entity.got.LysSlave.name=Schiavo di Lys
 entity.got.LysSlaver.name=Schiavo di Lys
 entity.got.LysSoldier.name≠
 entity.got.LysSoldierArcher.name≠
-entity.got.LysWarrior.name=Guerriero di Lys
 entity.got.LysaArryn.name≠
 entity.got.MaceTyrell.name=Mace Tyrell
 entity.got.MaegeMormont.name≠
@@ -541,15 +456,12 @@ entity.got.Missandei.name≠
 entity.got.MonfordVelaryon.name=Monford Velaryon
 entity.got.Moqorro.name≠
 entity.got.MoribaldChester.name≠
-entity.got.MossovyBannerBearer.name≠
 entity.got.MossovyBartender.name≠
 entity.got.MossovyBlacksmith.name≠
 entity.got.MossovyFarmer.name≠
 entity.got.MossovyMan.name≠
 entity.got.MossovyWerewolf.name=Lupo mannaro Mossovy
 entity.got.MossovyWitcher.name=Strigo Mossovy
-entity.got.MossovyWitcherBannerBearer.name=Alfiere Mossovy
-entity.got.MossovyWitcherCaptain.name=Capitano Mossovy
 entity.got.Mullin.name=Mullin
 entity.got.MyrBaker.name=Panettiere di Myr
 entity.got.MyrBannerBearer.name=Stendardo di Myr
@@ -557,13 +469,10 @@ entity.got.MyrBartender.name=Barista di Myr
 entity.got.MyrBlacksmith.name=Fabbro di Myr
 entity.got.MyrBrewer.name=Birraio di Myr
 entity.got.MyrButcher.name=Macellaio di Myr
-entity.got.MyrCrossbower.name=Crossbower di Myr
-entity.got.MyrFarmer.name=Contadino di Myr
 entity.got.MyrFishmonger.name=Pescivendolo di Myr
 entity.got.MyrFlorist.name=Fiorista di Myr
 entity.got.MyrGeneral.name=Generale di Myr
 entity.got.MyrGoldsmith.name=Orafo di Myr
-entity.got.MyrLegionary.name=Legionario di Myr
 entity.got.MyrLevyman.name≠
 entity.got.MyrLevymanArcher.name≠
 entity.got.MyrLumberman.name=Boscaiolo di Myr
@@ -574,12 +483,10 @@ entity.got.MyrSlave.name=Schiavo di Myr
 entity.got.MyrSlaver.name=Schiavo di Myr
 entity.got.MyrSoldier.name≠
 entity.got.MyrSoldierArcher.name≠
-entity.got.MyrWarrior.name=Guerriero di Myr
 entity.got.MyrcellaBaratheon.name≠
 entity.got.MysteryWeb.name=Ragnatela misteriosa
 entity.got.NPCRespawner.name=Respawner di NPC
 entity.got.NightKing.name=Re della notte
-entity.got.NorthArcher.name=Arciere del Nord
 entity.got.NorthBaker.name=Panettiere di North
 entity.got.NorthBannerBearer.name=Portabandiera del Nord
 entity.got.NorthBartender.name=Barista del Nord
@@ -607,7 +514,6 @@ entity.got.NorthLevymanArcher.name=Milizia Archer di North
 entity.got.NorthLumberman.name=Boscaiolo del Nord
 entity.got.NorthMan.name=Uomo del Nord
 entity.got.NorthMason.name=Massone del Nord
-entity.got.NorthRuinsWraith.name=Spettro del Nord
 entity.got.NorthSoldier.name=Guerriero del Nord
 entity.got.NorthSoldierArcher.name=Arciere guerriero del Nord
 entity.got.NorvosBaker.name=Panettiere di Norvos
@@ -654,12 +560,12 @@ entity.got.PentosMason.name=Massone di Pentos
 entity.got.PentosMiner.name=Minatore di Pentos
 entity.got.PetyrBaelish.name=Petyr Baelish
 entity.got.Plate.name=Piatto
+entity.got.Plowcart.name≠
 entity.got.PodrickPayne.name=Podrick Payne
-entity.got.Polarbear.name=Orso delle nevi
 entity.got.Polliver.name≠
+entity.got.Portal.name≠
 entity.got.Prostitute.name=Prostituta
 entity.got.Pycelle.name=Pycelle
-entity.got.QarthArcher.name=Arciere di Qarth
 entity.got.QarthBaker.name=Panettiere di Qarth
 entity.got.QarthBannerBearer.name=Portabandiera di Qarth
 entity.got.QarthBartender.name=Barista di Qarth
@@ -669,7 +575,6 @@ entity.got.QarthButcher.name=Macellaio di Qarth
 entity.got.QarthFarmer.name=Contadino di Qarth
 entity.got.QarthFishmonger.name=Pescivendolo di Qarth
 entity.got.QarthFlorist.name=Fiorista di Qarth
-entity.got.QarthGeneral.name=Capitano delle guardie di Qarth
 entity.got.QarthGoldsmith.name=Orafo di Qarth
 entity.got.QarthGuard.name=Guardia di Qarth
 entity.got.QarthGuardCaptain.name≠
@@ -680,8 +585,6 @@ entity.got.QarthMan.name=Uomo di Qarth
 entity.got.QarthMason.name=Massone di Qarth
 entity.got.QarthMiner.name=Minatore di Qarth
 entity.got.QarthWarlock.name=Qarth Warlock
-entity.got.QarthWarrior.name=Guerriero di Qarth
-entity.got.QohorArcher.name=Arciere di Qohor
 entity.got.QohorBaker.name=Panettiere di Qohor
 entity.got.QohorBannerBearer.name=Stendardo di Qohor
 entity.got.QohorBartender.name=Barista di Qohor
@@ -710,7 +613,6 @@ entity.got.Rabbit.name=Coniglio
 entity.got.RamsayBolton.name=Ramsay Bolton
 entity.got.RandyllTarly.name=Randyll Tarly
 entity.got.RazdalMoEraz.name≠
-entity.got.ReachArcher.name=Archer di Altopiano
 entity.got.ReachBaker.name=Panettiere di Altopiano
 entity.got.ReachBannerBearer.name=Banner Bearer di Altopiano
 entity.got.ReachBartender.name=Barista di Altopiano
@@ -738,7 +640,6 @@ entity.got.RenlyBaratheon.name=Renly Baratheon
 entity.got.Rhino.name=Rinoceronte
 entity.got.RickardKarstark.name=Rickard Karstark
 entity.got.RickonStark.name≠
-entity.got.RiverlandsArcher.name=Archer di Terre dei Fiumi
 entity.got.RiverlandsBaker.name=Panettiere di Terre dei Fiumi
 entity.got.RiverlandsBannerBearer.name=Stendardo delle Terre dei Fiumi
 entity.got.RiverlandsBartender.name=Barista di Terre dei Fiumi
@@ -776,24 +677,21 @@ entity.got.SelyseBaratheon.name≠
 entity.got.Septon.name≠
 entity.got.Shadowcat.name=Shadow Cat
 entity.got.Shae.name≠
-entity.got.Shark.name=Squalo
-entity.got.Shego.name=Lei va
 entity.got.ShireenBaratheon.name≠
 entity.got.SmokeRing.name=Anello di fumo
+entity.got.SnowBear.name=Orso delle nevi
 entity.got.SothoryosBannerBearer.name=Portatore dello stendardo di Sothoryos
 entity.got.SothoryosBlowgunner.name=Sothoryos Archer
 entity.got.SothoryosChieftain.name=Capotribù di Sothoryos
 entity.got.SothoryosFarmer.name=Coltivatore di Sothoryos
 entity.got.SothoryosFarmhand.name=Bracciante agricolo di Sothoryos
 entity.got.SothoryosMan.name=Sothoryos Man
-entity.got.SothoryosPyramidWraith.name=Sothoryos Wraith
 entity.got.SothoryosShaman.name=Sciamano di Sothoryos
 entity.got.SothoryosSmith.name=Sothoryos Fabbro
 entity.got.SothoryosWarrior.name=Guerriero Sothoryos
 entity.got.Spear.name=Lancia
 entity.got.StannisBaratheon.name=Stannis Baratheon
 entity.got.StoneMan.name=Stone Man
-entity.got.StormlandsArcher.name=Arciere di Terre della Tempesta
 entity.got.StormlandsBaker.name=Panettiere di Terre della Tempesta
 entity.got.StormlandsBannerBearer.name=Stendardo delle Terre della Tempesta
 entity.got.StormlandsBartender.name=Barista di Terre della Tempesta
@@ -841,20 +739,17 @@ entity.got.ThennBannerBearer.name=Thenn Banner Bearer
 entity.got.ThennBerserker.name=Thenn Berserker
 entity.got.ThennBlacksmith.name=Thenn Blacksmith
 entity.got.ThennMagnar.name=Thenn Magnar
-entity.got.TheonGreyjoy.name=Theon Greyjoy
-entity.got.TheonGreyjoyV.name=Theon Greyjoy
+entity.got.TheonGreyjoyNormal.name=Theon Greyjoy
+entity.got.TheonGreyjoyTormented.name=Theon Greyjoy
 entity.got.Thoros.name=Thoros
 entity.got.ThreeEyedRaven.name=Corvo con tre occhi
 entity.got.ThrowingAxe.name=Ascia da lancio
-entity.got.ThrownFirePot.name=Vaso incendiario
 entity.got.ThrownRock.name=Roccia lanciata
 entity.got.ThrownTermite.name=Termite esplosiva
-entity.got.Tigasa.name=TIGASA
 entity.got.TobhoMott.name=Tobho Mott
 entity.got.TommenBaratheon.name≠
 entity.got.Tormund.name=Tormund
 entity.got.TraderRespawn.name=Respawner di commercianti
-entity.got.TrollSnowball.name=Palla di neve dei troll
 entity.got.TrystaneMartell.name≠
 entity.got.TugarKhan.name=Tugar Khan
 entity.got.TychoNestoris.name≠
@@ -865,13 +760,10 @@ entity.got.TyroshBartender.name=Barista di Tyrosh
 entity.got.TyroshBlacksmith.name=Fabbro di Tyrosh
 entity.got.TyroshBrewer.name=Birraio di Tyrosh
 entity.got.TyroshButcher.name=Macellaio di Tyrosh
-entity.got.TyroshCrossbower.name=Crossbower di Tyrosh
-entity.got.TyroshFarmer.name=Contadino di Tyrosh
 entity.got.TyroshFishmonger.name=Pescivendolo di Tyrosh
 entity.got.TyroshFlorist.name=Fiorista di Tyrosh
 entity.got.TyroshGeneral.name=Generale di Tyrosh
 entity.got.TyroshGoldsmith.name=Orafo di Tyrosh
-entity.got.TyroshLegionary.name=Legionario di Tyrosh
 entity.got.TyroshLevyman.name≠
 entity.got.TyroshLevymanArcher.name≠
 entity.got.TyroshLumberman.name=Boscaiolo di Tyrosh
@@ -882,26 +774,23 @@ entity.got.TyroshSlave.name=Schiavo di Tyrosh
 entity.got.TyroshSlaver.name=Schiavo di Tyrosh
 entity.got.TyroshSoldier.name≠
 entity.got.TyroshSoldierArcher.name≠
-entity.got.TyroshWarrior.name=Guerriero di Tyrosh
 entity.got.TytosBlackwood.name=Tytos Blackwood
 entity.got.TytosBrax.name=Tytos Brax
 entity.got.TywinLannister.name=Tywin Lannister
+entity.got.UlthosSpider.name=Ragno gigante
 entity.got.VargoHoat.name≠
 entity.got.Varys.name=Varys
 entity.got.VictarionGreyjoy.name=Victarion Greyjoy
-entity.got.VolantisArcher.name=Arciere di Volantis
 entity.got.VolantisBaker.name=Panettiere di Volantis
 entity.got.VolantisBannerBearer.name=Stendardo di Volantis
 entity.got.VolantisBartender.name=Barista di Volantis
 entity.got.VolantisBlacksmith.name=Fabbro di Volantis
 entity.got.VolantisBrewer.name=Birraio di Volantis
 entity.got.VolantisButcher.name=Macellaio di Volantis
-entity.got.VolantisFarmer.name=Contadino di Volantis
 entity.got.VolantisFishmonger.name=Pescivendolo di Volantis
 entity.got.VolantisFlorist.name=Fiorista di Volantis
 entity.got.VolantisGeneral.name=Generale di Volantis
 entity.got.VolantisGoldsmith.name=Orafo di Volantis
-entity.got.VolantisLegionary.name=Legionario di Volantis
 entity.got.VolantisLevyman.name≠
 entity.got.VolantisLevymanArcher.name≠
 entity.got.VolantisLumberman.name=Boscaiolo di Volantis
@@ -912,12 +801,8 @@ entity.got.VolantisSlave.name=Schiavo di Volantis
 entity.got.VolantisSlaver.name=Schiavo di Volantis
 entity.got.VolantisSoldier.name≠
 entity.got.VolantisSoldierArcher.name≠
-entity.got.VolantisWarrior.name=Guerriero di Volantis
 entity.got.WalderFrey.name=Walder Frey
-entity.got.WallBanner.name=Stendardo a muro
 entity.got.Walrus.name=Tricheco
-entity.got.WargRug.name=Tappeto di mannaro
-entity.got.WesterlandsArcher.name=Archer di Terre dell'Ovest
 entity.got.WesterlandsBaker.name=Panettiere di Terre dell'Ovest
 entity.got.WesterlandsBannerBearer.name=Portabandiera delle Terre dell'Ovest
 entity.got.WesterlandsBartender.name=Barista di Terre dell'Ovest
@@ -945,8 +830,8 @@ entity.got.WesterosThief.name=Thief
 entity.got.WhiteBison.name=Bufalo di White Bison
 entity.got.WhiteOryx.name=Orice
 entity.got.WhiteWalker.name=White Walker
-entity.got.Wicht.name=Wight
-entity.got.WichtGiant.name=Wight-Giant
+entity.got.Wight.name=Wight
+entity.got.WightGiant.name=Wight-Giant
 entity.got.Wildling.name=Bruti
 entity.got.WildlingArcher.name=Arciere Bruto
 entity.got.WildlingAxeThrower.name=Lanciatore di asce dei Bruti
@@ -960,7 +845,6 @@ entity.got.Wyvern.name=Wyvern
 entity.got.XaroXhoanDaxos.name=Xaro Xhoan Daxos
 entity.got.YaraGreyjoy.name=Yara Greyjoy
 entity.got.Ygritte.name=Ygritte
-entity.got.YiTiArcher.name=Arciere di Yi Ti
 entity.got.YiTiBaker.name=Panettiere di Yi Ti
 entity.got.YiTiBannerBearer.name=Portabandiera di Yi Ti
 entity.got.YiTiBartender.name=Barista di Yi Ti
@@ -970,7 +854,7 @@ entity.got.YiTiBrewer.name=Birraio di Yi Ti
 entity.got.YiTiButcher.name=Macellaio di Yi Ti
 entity.got.YiTiFarmer.name=Contadino di Yi Ti
 entity.got.YiTiFarmhand.name=Bracciante agricolo di Yi Ti
-entity.got.YiTiFirePriest.name=Sacerdote del Fuoco di Yi Ti
+entity.got.YiTiFireThrower.name=Sacerdote del Fuoco di Yi Ti
 entity.got.YiTiFishmonger.name=Pescivendolo di Yi Ti
 entity.got.YiTiFrontier.name≠
 entity.got.YiTiFrontierCrossbower.name≠
@@ -982,17 +866,13 @@ entity.got.YiTiLumberman.name=Boscaiolo di Yi Ti
 entity.got.YiTiMan.name=L'uomo di Yi Ti
 entity.got.YiTiMason.name=Massone di Yi Ti
 entity.got.YiTiSamurai.name=Samurai di Yi Ti
-entity.got.YiTiShogun.name=Shogun di Yi Ti
+entity.got.YiTiShogune.name=Shogun di Yi Ti
 entity.got.YiTiSoldier.name=Soldato di Yi Ti
 entity.got.YiTiSoldierCrossbower.name≠
 entity.got.YohnRoyce.name=Yohn Royce
 entity.got.Yoren.name≠
 entity.got.YoungGriff.name≠
 entity.got.Zebra.name=Zebra
-entity.got.generic.entityName=%s, %s
-entity.gotFishHook.name=Amo
-entity.gotMinecartTNT.name=Carrello da miniera con TNT
-entity.gotTNT.name=TNT
 generator.got.info=Apparirai in GOT World con la mappa
 generator.got=Trono di Spade
 generator.gotClassic.info=Apparirai nel solito mondo con i biomi GOT
@@ -1741,6 +1621,7 @@ got.capes.UNSULLIED.name=Capo degli Immacolati
 got.capes.VOLANTIS.name=Capo di Volantis
 got.capes.WESTERLANDS.name=Capo di Terre dell'Ovest
 got.capes.YITI.name=Puoi di Yi Ti
+got.capes.YITI_FRONTIER.name≠
 got.capes.YITI_SAMURAI.name=Puoi di Yi Ti Samurai
 got.capes.category.ACHIEVABLE=Uomotelli realizzabili
 got.capes.category.ALIGNMENT=Uomotelli di reputazione
@@ -1906,6 +1787,11 @@ got.command.waypoints.unlock.fail=%s ha già sbloccato la regione del waypoint %
 got.command.waypoints.unlock=Sbloccato per %s la regione del waypoint %s
 got.command.waypoints.unlockAll=Sbloccate tutte le regioni di waypoint per %s
 got.command.waypoints.usage=/waypoints <sblocca|blocca> <regione> [giocatore]
+got.command.wpCooldown.setMax=Impostato il tempo di ricarica massimo per i waypoint a %d secondi (%s)
+got.command.wpCooldown.setMin=Impostato il tempo di ricarica minimo per i waypoint a %d secondi (%s)
+got.command.wpCooldown.updateMax=Aggiornato automaticamente il tempo di ricarica massimo per corrispondere al nuovo minimo di %d
+got.command.wpCooldown.updateMin=Aggiornato automaticamente il tempo di ricarica minimo per corrispondere al nuovo massimo di %d
+got.command.wpCooldown.usage=/wpCooldown <max|min> <seconds>
 got.compas.EAST=Est
 got.compas.NORTH=Nord
 got.compas.SOUTH=Sud
@@ -2095,7 +1981,6 @@ got.faction.ASSHAI.subtitle=Città Nera degli Shadowbinders
 got.faction.BRAAVOS.entity=Persone libere
 got.faction.BRAAVOS.name=Braavos
 got.faction.BRAAVOS.subtitle=Città libera di Essos
-got.faction.CERSEI.name=Terre della Corona
 got.faction.CROWNLANDS.entity=Persone della capitale
 got.faction.CROWNLANDS.name=Terre della Corona
 got.faction.CROWNLANDS.subtitle=Il posto di Robert
@@ -2209,6 +2094,8 @@ got.fastTravel.travelTicks=Viaggio rapido tra %d...
 got.fastTravel.travelTicksStart=Viaggio rapido tra %d. Non muoverti!
 got.fastTravel.underAttack=Non puoi viaggiare velocemente mentre sei sotto attacco
 got.gui.achievements.category=%s (%d/%d)
+got.gui.achievements.hover.name=%s
+got.gui.achievements.hover.subtitle≠
 got.gui.achievements.title=%s Obiettivi (%d/%d)
 got.gui.achievements=Obiettivi
 got.gui.atribute=Attributi
@@ -2433,6 +2320,8 @@ got.gui.miniquestOffer.decline=Rifiuta
 got.gui.money.balance=Saldo: %s
 got.gui.money.get=Hai trasferito con successo %s
 got.gui.money.give=Hai ritirato con successo %s
+got.gui.money.notGet≠
+got.gui.money.notGive≠
 got.gui.money.press=Premi la moneta per prelevare /trasferire denaro
 got.gui.money.transfer=Trasferire denaro
 got.gui.money.withdraw=Prelevare denaro
@@ -2471,6 +2360,9 @@ got.gui.openFolder=Open config folder
 got.gui.options.conquest.desc.off=OFF: Uccidere NPC non influenza la conquista
 got.gui.options.conquest.desc.on=ON: Uccidere NPC nemici porta avanti la conquista della fazione a cui sei fedele o cancella la conquista del nemico se presente
 got.gui.options.conquest=Uccisioni di Conquista
+got.gui.options.femRank.desc.off≠
+got.gui.options.femRank.desc.on≠
+got.gui.options.femRank≠
 got.gui.options.friendlyFire.desc.off=OFF: Gli NPC alleati non possono essere attaccati o feriti, a meno che non ti attacchino prima loro
 got.gui.options.friendlyFire.desc.on=ON: Tutti gli NPC, incluse le unità arruolate degli altri giocatori, possono essere attaccati
 got.gui.options.friendlyFire=Fuoco amico
@@ -2628,6 +2520,59 @@ got.miniquest.welcome.speak=Parla con il Grigio Pellegrino
 got.music.nowPlaying=In riproduzione:
 got.potion.drinkPoison=Bevanda avvelenata
 got.potion=Persistente
+got.rank.ARRYN≠
+got.rank.ASSHAI≠
+got.rank.BRAAVOS≠
+got.rank.CROWNLANDS≠
+got.rank.DORNE≠
+got.rank.DOTHRAKI≠
+got.rank.DRAGONSTONE≠
+got.rank.GHISCAR≠
+got.rank.HILL_TRIBES≠
+got.rank.HOSTILE≠
+got.rank.IBBEN≠
+got.rank.IRONBORN≠
+got.rank.JOGOS≠
+got.rank.LHAZAR≠
+got.rank.LORATH≠
+got.rank.LYS≠
+got.rank.MOSSOVY≠
+got.rank.MYR≠
+got.rank.NIGHT_WATCH≠
+got.rank.NORTH≠
+got.rank.NORVOS≠
+got.rank.PENTOS≠
+got.rank.QARTH≠
+got.rank.QOHOR≠
+got.rank.REACH≠
+got.rank.RIVERLANDS≠
+got.rank.SOTHORYOS≠
+got.rank.STORMLANDS≠
+got.rank.SUMMER_ISLANDS≠
+got.rank.TYROSH≠
+got.rank.ULTHOS≠
+got.rank.UNALIGNED≠
+got.rank.VOLANTIS≠
+got.rank.WESTERLANDS≠
+got.rank.WHITE_WALKER≠
+got.rank.WILDLING≠
+got.rank.YI_TI≠
+got.rank.defender_fm≠
+got.rank.defender≠
+got.rank.enemy_fm≠
+got.rank.enemy≠
+got.rank.friend_fm≠
+got.rank.friend≠
+got.rank.guest_fm≠
+got.rank.guest≠
+got.rank.hero_fm≠
+got.rank.hero≠
+got.rank.king_fm≠
+got.rank.king≠
+got.rank.leader_fm≠
+got.rank.leader≠
+got.rank.neutral_fm≠
+got.rank.neutral≠
 got.shields.ACHIEVEMENT_BRONZE.desc=Conferito per aver completato 25 obiettivi della Trono di Spade
 got.shields.ACHIEVEMENT_BRONZE.name=Scudo di bronzo dell'avventuriero
 got.shields.ACHIEVEMENT_GOLD.desc=Conferito per aver completato 100 obiettivi della Trono di Spade
@@ -2640,6 +2585,7 @@ got.shields.ALCOHOLIC.desc=Conferito per aver gustato copiose quantità di bevan
 got.shields.ALCOHOLIC.name=Scudo dell'alcolista
 got.shields.ARRYN.name=Scudo di Valle di Arryn
 got.shields.ARRYNGUARD.name=Scudo della Guardia di Città dei Gabbiani
+got.shields.ASSHAI.name≠
 got.shields.BRAAVOS.name=Scudo di Braavos
 got.shields.CROWNLANDS.name=Scudo di Terre della Corona
 got.shields.DORNE.name=Scudo di Dorne
@@ -2689,7 +2635,7 @@ got.structure.ArrynSmithy.name=Fucina di Valle di Arryn
 got.structure.ArrynStables.name=Scuderie di Valle di Arryn
 got.structure.ArrynStoneHouse.name=Casa di pietra di Valle di Arryn
 got.structure.ArrynTavern.name=Taverna di Valle di Arryn
-got.structure.ArrynTurret.name=Torretta di Valle di Arryn
+got.structure.ArrynTower.name=Torretta di Valle di Arryn
 got.structure.ArrynWatchfort.name=Fortezza di Guardia di Valle di Arryn
 got.structure.ArrynWatchtower.name=Torre di guardia di Valle di Arryn
 got.structure.AsshaiCity.name=Città di Asshai
@@ -2726,7 +2672,7 @@ got.structure.CrownlandsSmithy.name=Fucina di Terre della Corona
 got.structure.CrownlandsStables.name=Scuderie di Terre della Corona
 got.structure.CrownlandsStoneHouse.name=Casa di pietra di Terre della Corona
 got.structure.CrownlandsTavern.name=Taverna di Terre della Corona
-got.structure.CrownlandsTurret.name=Torretta di Terre della Corona
+got.structure.CrownlandsTower.name=Torretta di Terre della Corona
 got.structure.CrownlandsWatchfort.name=Watchfort di Terre della Corona
 got.structure.CrownlandsWatchtower.name=Torre di guardia di Terre della Corona
 got.structure.DorneBarn.name=Granaio di Dorne
@@ -2741,7 +2687,7 @@ got.structure.DorneSmithy.name=Fucina di Dorne
 got.structure.DorneStables.name=Scuderie di Dorne
 got.structure.DorneStoneHouse.name=Casa di pietra di Dorne
 got.structure.DorneTavern.name=Taverna di Dorne
-got.structure.DorneTurret.name=Torretta di Dorne
+got.structure.DorneTower.name=Torretta di Dorne
 got.structure.DorneWatchfort.name=Watchfort di Dorne
 got.structure.DorneWatchtower.name=Torre di guardia di Dorne
 got.structure.DothrakiKhalTent.name=Tenda di Khal del Mare Dothraki
@@ -2762,7 +2708,7 @@ got.structure.DragonstoneSmithy.name=Fucina di Roccia del Drago
 got.structure.DragonstoneStables.name=Scuderie di Roccia del Drago
 got.structure.DragonstoneStoneHouse.name=Casa di pietra di Roccia del Drago
 got.structure.DragonstoneTavern.name=Taverna di Roccia del Drago
-got.structure.DragonstoneTurret.name=Torretta di Roccia del Drago
+got.structure.DragonstoneTower.name=Torretta di Roccia del Drago
 got.structure.DragonstoneWatchfort.name=Fortezza di Guardia di Roccia del Drago
 got.structure.DragonstoneWatchtower.name=Torre di Guardia di Roccia del Drago
 got.structure.GhiscarBarracks.name=Caserma di Ghiscar
@@ -2796,11 +2742,11 @@ got.structure.GiftVillageLight.name=Village Light di Night's Watch
 got.structure.GiftWatchtower.name=Torre di Guardia dei Guardiani della Notte
 got.structure.GoldenCamp.name=Campo di Golden Company
 got.structure.GoldenWatchtower.name≠
+got.structure.HillmanCampfire.name=Camp di Hill Tribes
+got.structure.HillmanFort.name=Forte delle tribù della collina
+got.structure.HillmanHouse.name=House di Hill Tribes
+got.structure.HillmanTavern.name=Taverna delle tribù delle colline
 got.structure.HillmanVillage.name≠
-got.structure.HillmenCampfire.name=Camp di Hill Tribes
-got.structure.HillmenHillFort.name=Forte delle tribù della collina
-got.structure.HillmenHouse.name=House di Hill Tribes
-got.structure.HillmenTavern.name=Taverna delle tribù delle colline
 got.structure.HorthHillmanCamp.name=Campo di North Hillmen
 got.structure.IbbenBarn.name=Fienile di Ibben
 got.structure.IbbenFortVillage.name=Fort Fillage di Ibben
@@ -2823,7 +2769,7 @@ got.structure.IronbornSmithy.name=Fucina delle Isole di Ferro
 got.structure.IronbornStables.name=Scuderie delle Isole di Ferro
 got.structure.IronbornStoneHouse.name=Stone House di Iron Islands
 got.structure.IronbornTavern.name=Taverna delle Isole di Ferro
-got.structure.IronbornTurret.name=Torretta delle Isole di Ferro
+got.structure.IronbornTower.name=Torretta delle Isole di Ferro
 got.structure.IronbornWatchfort.name=Watchfort delle Isole di Ferro
 got.structure.IronbornWatchtower.name=Torre di guardia delle isole di ferro
 got.structure.JogosChiefTent.name=Tenda del capotribù di Jogos Nhai
@@ -2897,7 +2843,6 @@ got.structure.MyrTower.name=Torre di Myr
 got.structure.MyrTraining.name=Formazione di Myr
 got.structure.NorthBarn.name=Fienile del Nord
 got.structure.NorthBath.name=Bagno del Nord
-got.structure.NorthBeaconTower.name=Torre di guardia del nord
 got.structure.NorthCottage.name=Cottage del Nord
 got.structure.NorthFortVillage.name=Castello del Nord
 got.structure.NorthFortress.name=Fortezza del Nord
@@ -2910,8 +2855,9 @@ got.structure.NorthSmithy.name=Fucina del Nord
 got.structure.NorthStables.name=Scuderie del Nord
 got.structure.NorthStoneHouse.name=Casa di pietra del Nord
 got.structure.NorthTavern.name=Taverna del Nord
+got.structure.NorthTower.name=Torre di guardia del nord
+got.structure.NorthTower.name=Torretta del Nord
 got.structure.NorthTown.name=Città del Nord
-got.structure.NorthTurret.name=Torretta del Nord
 got.structure.NorthVillage.name=Villaggio del Nord
 got.structure.NorthWatchfort.name=Watchfort del Nord
 got.structure.NorthWatchtower.name=Torre di guardia del nord
@@ -2980,7 +2926,7 @@ got.structure.ReachSmithy.name=Smithy di Altopiano
 got.structure.ReachStables.name=Scuderie di Altopiano
 got.structure.ReachStoneHouse.name=Stone House di Altopiano
 got.structure.ReachTavern.name=Taverna di Altopiano
-got.structure.ReachTurret.name=Torretta di Altopiano
+got.structure.ReachTower.name=Torretta di Altopiano
 got.structure.ReachWatchfort.name=Watchfort di Altopiano
 got.structure.ReachWatchtower.name=Watchtower di Altopiano
 got.structure.RiverlandsBarn.name=Fienile di Terre dei Fiumi
@@ -2995,15 +2941,20 @@ got.structure.RiverlandsSmithy.name=Fucina di Terre dei Fiumi
 got.structure.RiverlandsStables.name=Scuderie di Terre dei Fiumi
 got.structure.RiverlandsStoneHouse.name=Casa di pietra di Terre dei Fiumi
 got.structure.RiverlandsTavern.name=Taverna di Terre dei Fiumi
-got.structure.RiverlandsTurret.name=Torretta delle Terre dei Fiumi
+got.structure.RiverlandsTower.name=Torretta delle Terre dei Fiumi
 got.structure.RiverlandsWatchfort.name=Watchfort di Terre dei Fiumi
 got.structure.RiverlandsWatchtower.name=Torre di guardia di Terre dei Fiumi
 got.structure.RottenHouse.name≠
-got.structure.RuinedBeaconTower.name=Torre faro di Gondor in rovina
+got.structure.RuinAsshai.name≠
+got.structure.RuinSandstone.name≠
+got.structure.RuinSothoryos.name≠
+got.structure.RuinStone.name≠
+got.structure.RuinYiTi.name≠
 got.structure.RuinedGiftHouse.name=Casa regalo in rovina
 got.structure.RuinedGiftTower.name=Torre dei regali in rovina
 got.structure.RuinedHouse.name≠
 got.structure.RuinedNorthTower.name=Rovina della torre faro del nord
+got.structure.RuinedTower.name=Torre faro di Gondor in rovina
 got.structure.SmallStoneRuin.name≠
 got.structure.SothoryosChieftainPyramid.name=Piramide del capo tribù di Sothoryos
 got.structure.SothoryosHouseLarge.name=Casa di pietra di Sothoryos
@@ -3013,11 +2964,6 @@ got.structure.SothoryosPyramid.name=Piramide di Sothoryos
 got.structure.SothoryosSmithy.name=Sothoryos Smithy
 got.structure.SothoryosVillage.name=Villaggio di Sothoryos
 got.structure.SothoryosWatchtower.name=Torre di guardia di Sothoryos
-got.structure.StoneRuinAsshai.name≠
-got.structure.StoneRuinSandstone.name≠
-got.structure.StoneRuinSothoryos.name≠
-got.structure.StoneRuinStandart.name≠
-got.structure.StoneRuinYiTi.name≠
 got.structure.StormlandsBarn.name=Fienile di Terre della Tempesta
 got.structure.StormlandsBath.name=Bath di Terre della Tempesta
 got.structure.StormlandsCityBig.name=Città di Terre della Tempesta
@@ -3030,7 +2976,7 @@ got.structure.StormlandsSmithy.name=Fucina di Terre della Tempesta
 got.structure.StormlandsStables.name=Scuderie di Terre della Tempesta
 got.structure.StormlandsStoneHouse.name=Casa di pietra di Terre della Tempesta
 got.structure.StormlandsTavern.name=Taverna di Terre della Tempesta
-got.structure.StormlandsTurret.name=Torretta di Terre della Tempesta
+got.structure.StormlandsTower.name=Torretta di Terre della Tempesta
 got.structure.StormlandsWatchfort.name=Watchfort di Terre della Tempesta
 got.structure.StormlandsWatchtower.name=Torre di Guardia di Terre della Tempesta
 got.structure.SummerFort.name=Forte delle Isole d'Estate
@@ -3086,7 +3032,7 @@ got.structure.WesterlandsSmithy.name=Fucina di Terre dell'Ovest
 got.structure.WesterlandsStables.name=Scuderie di Terre dell'Ovest
 got.structure.WesterlandsStoneHouse.name=Casa di pietra di Terre dell'Ovest
 got.structure.WesterlandsTavern.name=Taverna di Terre dell'Ovest
-got.structure.WesterlandsTurret.name=Torretta di Terre dell'Ovest
+got.structure.WesterlandsTower.name=Torretta di Terre dell'Ovest
 got.structure.WesterlandsWatchfort.name=Watchfort di Terre dell'Ovest
 got.structure.WesterlandsWatchtower.name=Torre di guardia di Terre dell'Ovest
 got.structure.WildlingCamp.name=Campo dei Bruti
@@ -4928,6 +4874,7 @@ item.got:crownlandsChestplate.name=Corazza di Mantelli Dorati
 item.got:crownlandsHelmet.name=Elmo di Mantelli d'Oro
 item.got:crownlandsLeggings.name=Gambiere di Mantelli Dorati
 item.got:cucumber.name≠
+item.got:cucumberSeeds.name≠
 item.got:cutwave.name≠
 item.got:daarioArakh.name=Daario Arakh
 item.got:darkSister.name=Sorella Oscura

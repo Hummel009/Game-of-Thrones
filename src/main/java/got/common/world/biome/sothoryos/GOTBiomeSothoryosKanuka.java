@@ -57,7 +57,7 @@ public class GOTBiomeSothoryosKanuka extends GOTBiome {
 		npcSpawnList.newFactionList(10).add(c);
 		decorator.addVillage(new GOTStructureSothoryosVillage(this, 1.0f));
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
-		decorator.addRandomStructure(new GOTStructureStoneRuin.SOTHORYOS(1, 4), 400);
+		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinSothoryos(1, 4), 400);
 	}
 
 	@Override

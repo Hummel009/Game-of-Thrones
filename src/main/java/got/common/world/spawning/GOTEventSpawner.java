@@ -47,7 +47,7 @@ public class GOTEventSpawner {
 				continue;
 			}
 			GOTBiome gotbiome = (GOTBiome) biome;
-			Class<? extends GOTEntityBandit> banditClass = gotbiome.getBanditEntityClass();
+			Class<? extends GOTEntityWesterosBandit> banditClass = gotbiome.getBanditEntityClass();
 			double chance = gotbiome.getUnreliableChance().chancesPerSecondPerChunk[16];
 			if (chance <= 0.0 || world.rand.nextDouble() >= chance || world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), GOT.selectNonCreativePlayers()).isEmpty()) {
 				continue;
@@ -56,11 +56,11 @@ public class GOTEventSpawner {
 			int maxBandits = MathHelper.getRandomIntegerInRange(world.rand, 1, 4);
 			for (int attempts = 0; attempts < 32; ++attempts) {
 				Block block;
-				GOTEntityBandit bandit;
+				GOTEntityWesterosBandit bandit;
 				int k1;
 				int i1 = i + MathHelper.getRandomIntegerInRange(rand, -32, 32);
 				int j1 = world.getHeightValue(i1, k1 = k + MathHelper.getRandomIntegerInRange(rand, -32, 32));
-				if (j1 <= 60 || (block = world.getBlock(i1, j1 - 1, k1)) != biome.topBlock && block != biome.fillerBlock || world.getBlock(i1, j1, k1).isNormalCube() || world.getBlock(i1, j1 + 1, k1).isNormalCube() || (bandit = (GOTEntityBandit) EntityList.createEntityByName(GOTEntityRegistry.getStringFromClass(banditClass), world)) == null) {
+				if (j1 <= 60 || (block = world.getBlock(i1, j1 - 1, k1)) != biome.topBlock && block != biome.fillerBlock || world.getBlock(i1, j1, k1).isNormalCube() || world.getBlock(i1, j1 + 1, k1).isNormalCube() || (bandit = (GOTEntityWesterosBandit) EntityList.createEntityByName(GOTEntityRegistry.getStringFromClass(banditClass), world)) == null) {
 					continue;
 				}
 				bandit.setLocationAndAngles(i1 + 0.5, j1, k1 + 0.5, world.rand.nextFloat() * 360.0f, 0.0f);
@@ -149,7 +149,7 @@ public class GOTEventSpawner {
 				continue;
 			}
 			GOTBiome gotbiome = (GOTBiome) biome;
-			Class<? extends GOTEntityScrapTrader> scrapTraderClass = gotbiome.getScrapTraderEntityClass();
+			Class<? extends GOTEntityWesterosScrapTrader> scrapTraderClass = gotbiome.getScrapTraderEntityClass();
 			double chance = gotbiome.getUnreliableChance().chancesPerSecondPerChunk[16];
 			if (chance <= 0.0 || world.rand.nextDouble() >= chance || world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), GOT.selectNonCreativePlayers()).isEmpty()) {
 				continue;
@@ -158,11 +158,11 @@ public class GOTEventSpawner {
 			int maxScrapTraders = MathHelper.getRandomIntegerInRange(world.rand, 1, 4);
 			for (int attempts = 0; attempts < 32; ++attempts) {
 				Block block;
-				GOTEntityScrapTrader scrapTrader;
+				GOTEntityWesterosScrapTrader scrapTrader;
 				int k1;
 				int i1 = i + MathHelper.getRandomIntegerInRange(rand, -32, 32);
 				int j1 = world.getHeightValue(i1, k1 = k + MathHelper.getRandomIntegerInRange(rand, -32, 32));
-				if (j1 <= 60 || (block = world.getBlock(i1, j1 - 1, k1)) != biome.topBlock && block != biome.fillerBlock || world.getBlock(i1, j1, k1).isNormalCube() || world.getBlock(i1, j1 + 1, k1).isNormalCube() || (scrapTrader = (GOTEntityScrapTrader) EntityList.createEntityByName(GOTEntityRegistry.getStringFromClass(scrapTraderClass), world)) == null) {
+				if (j1 <= 60 || (block = world.getBlock(i1, j1 - 1, k1)) != biome.topBlock && block != biome.fillerBlock || world.getBlock(i1, j1, k1).isNormalCube() || world.getBlock(i1, j1 + 1, k1).isNormalCube() || (scrapTrader = (GOTEntityWesterosScrapTrader) EntityList.createEntityByName(GOTEntityRegistry.getStringFromClass(scrapTraderClass), world)) == null) {
 					continue;
 				}
 				scrapTrader.setLocationAndAngles(i1 + 0.5, j1, k1 + 0.5, world.rand.nextFloat() * 360.0f, 0.0f);
@@ -193,7 +193,7 @@ public class GOTEventSpawner {
 				continue;
 			}
 			GOTBiome gotbiome = (GOTBiome) biome;
-			Class<? extends GOTEntityThief> thiefClass = gotbiome.getThiefEntityClass();
+			Class<? extends GOTEntityWesterosThief> thiefClass = gotbiome.getThiefEntityClass();
 			double chance = gotbiome.getUnreliableChance().chancesPerSecondPerChunk[16];
 			if (chance <= 0.0 || world.rand.nextDouble() >= chance || world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), GOT.selectNonCreativePlayers()).isEmpty()) {
 				continue;
@@ -202,11 +202,11 @@ public class GOTEventSpawner {
 			int maxThiefs = MathHelper.getRandomIntegerInRange(world.rand, 1, 4);
 			for (int attempts = 0; attempts < 32; ++attempts) {
 				Block block;
-				GOTEntityThief thief;
+				GOTEntityWesterosThief thief;
 				int k1;
 				int i1 = i + MathHelper.getRandomIntegerInRange(rand, -32, 32);
 				int j1 = world.getHeightValue(i1, k1 = k + MathHelper.getRandomIntegerInRange(rand, -32, 32));
-				if (j1 <= 60 || (block = world.getBlock(i1, j1 - 1, k1)) != biome.topBlock && block != biome.fillerBlock || world.getBlock(i1, j1, k1).isNormalCube() || world.getBlock(i1, j1 + 1, k1).isNormalCube() || (thief = (GOTEntityThief) EntityList.createEntityByName(GOTEntityRegistry.getStringFromClass(thiefClass), world)) == null) {
+				if (j1 <= 60 || (block = world.getBlock(i1, j1 - 1, k1)) != biome.topBlock && block != biome.fillerBlock || world.getBlock(i1, j1, k1).isNormalCube() || world.getBlock(i1, j1 + 1, k1).isNormalCube() || (thief = (GOTEntityWesterosThief) EntityList.createEntityByName(GOTEntityRegistry.getStringFromClass(thiefClass), world)) == null) {
 					continue;
 				}
 				thief.setLocationAndAngles(i1 + 0.5, j1, k1 + 0.5, world.rand.nextFloat() * 360.0f, 0.0f);

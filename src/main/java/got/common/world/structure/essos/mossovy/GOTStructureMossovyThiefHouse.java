@@ -16,7 +16,7 @@ package got.common.world.structure.essos.mossovy;
 import java.util.Random;
 
 import got.common.database.*;
-import got.common.entity.other.GOTEntityThief;
+import got.common.entity.other.GOTEntityWesterosThief;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -227,7 +227,7 @@ public class GOTStructureMossovyThiefHouse extends GOTStructureMossovyBase {
 				plantTallGrass(world, random, i13, j12, k13);
 			}
 		}
-		GOTEntityThief ruffian = new GOTEntityThief(world);
+		GOTEntityWesterosThief ruffian = new GOTEntityWesterosThief(world);
 		spawnNPCAndSetHome(ruffian, world, 0, 1, 0, 16);
 		return true;
 	}

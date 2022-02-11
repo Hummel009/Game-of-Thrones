@@ -4,7 +4,7 @@ import java.util.Random;
 
 import got.common.database.*;
 import got.common.entity.essos.yiti.*;
-import got.common.entity.other.GOTEntityThief;
+import got.common.entity.other.GOTEntityWesterosThief;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
@@ -596,7 +596,7 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 		setBlockAndMetadata(world, 1, 6, -8, Blocks.torch, 3);
 		GOTEntityYiTiBartender bartender = new GOTEntityYiTiBartender(world);
 		spawnNPCAndSetHome(bartender, world, -2, 1, 0, 2);
-		GOTEntityThief thief = new GOTEntityThief(world);
+		GOTEntityWesterosThief thief = new GOTEntityWesterosThief(world);
 		spawnNPCAndSetHome(thief, world, 2, 1, 0, 16);
 		int men = 6 + random.nextInt(5);
 		for (int l = 0; l < men; ++l) {

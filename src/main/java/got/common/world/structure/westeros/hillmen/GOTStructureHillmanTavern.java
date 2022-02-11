@@ -3,7 +3,7 @@ package got.common.world.structure.westeros.hillmen;
 import java.util.Random;
 
 import got.common.database.*;
-import got.common.entity.other.GOTEntityThief;
+import got.common.entity.other.GOTEntityWesterosThief;
 import got.common.entity.westeros.hillmen.*;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.block.Block;
@@ -127,7 +127,7 @@ public class GOTStructureHillmanTavern extends GOTStructureHillmanBase {
 			GOTEntityHillman man = new GOTEntityHillman(world);
 			spawnNPCAndSetHome(man, world, 0, 1, 0, 16);
 		}
-		GOTEntityThief thief = new GOTEntityThief(world);
+		GOTEntityWesterosThief thief = new GOTEntityWesterosThief(world);
 		spawnNPCAndSetHome(thief, world, 0, 1, 0, 16);
 		return true;
 	}

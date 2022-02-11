@@ -6,11 +6,11 @@ import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityBanditEssos extends GOTEntityBandit {
+public class GOTEntityEssosScrapTrader extends GOTEntityWesterosScrapTrader {
 	public static ItemStack[] weapons = { new ItemStack(GOTRegistry.bronzeDagger), new ItemStack(GOTRegistry.ironDagger), new ItemStack(GOTRegistry.essosDagger), new ItemStack(GOTRegistry.essosDaggerPoisoned) };
 	public static int[] robeColors = { 3354412, 5984843, 5968655, 3619908, 9007463, 3228720 };
 
-	public GOTEntityBanditEssos(World world) {
+	public GOTEntityEssosScrapTrader(World world) {
 		super(world);
 		canBeMarried = false;
 	}
@@ -20,7 +20,7 @@ public class GOTEntityBanditEssos extends GOTEntityBandit {
 		data = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(weapons.length);
 		npcItemsInv.setMeleeWeapon(weapons[i].copy());
-		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
+		npcItemsInv.setIdleItem(null);
 		setCurrentItemOrArmor(4, null);
 		if (rand.nextInt(4) == 0) {
 			ItemStack turban = new ItemStack(GOTRegistry.robesHelmet);

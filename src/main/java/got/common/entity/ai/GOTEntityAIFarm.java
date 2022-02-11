@@ -148,10 +148,15 @@ public class GOTEntityAIFarm extends EntityAIBase {
 					i = chest.xCoord;
 					j = chest.yCoord;
 					k = chest.zCoord;
-					if (targetAction == Action.DEPOSITING) {
-						suitable = this.isSuitableForDepositing(i, j, k);
-					} else if (targetAction == Action.COLLECTING) {
+					switch (targetAction) {
+					case COLLECTING:
 						suitable = this.isSuitableForCollecting(i, j, k);
+						break;
+					case DEPOSITING:
+						suitable = this.isSuitableForDepositing(i, j, k);
+						break;
+					default:
+						break;
 					}
 				} else {
 					suitable = false;
@@ -160,14 +165,21 @@ public class GOTEntityAIFarm extends EntityAIBase {
 				i = MathHelper.floor_double(theEntity.posX) + MathHelper.getRandomIntegerInRange(rand, -8, 8);
 				j = MathHelper.floor_double(theEntity.boundingBox.minY) + MathHelper.getRandomIntegerInRange(rand, -4, 4);
 				k = MathHelper.floor_double(theEntity.posZ) + MathHelper.getRandomIntegerInRange(rand, -8, 8);
-				if (targetAction == Action.HOEING) {
-					suitable = this.isSuitableForHoeing(i, j, k);
-				} else if (targetAction == Action.PLANTING) {
-					suitable = this.isSuitableForPlanting(i, j, k);
-				} else if (targetAction == Action.HARVESTING) {
-					suitable = this.isSuitableForHarvesting(i, j, k);
-				} else if (targetAction == Action.BONEMEALING) {
+				switch (targetAction) {
+				case BONEMEALING:
 					suitable = this.isSuitableForBonemealing(i, j, k);
+					break;
+				case HARVESTING:
+					suitable = this.isSuitableForHarvesting(i, j, k);
+					break;
+				case HOEING:
+					suitable = this.isSuitableForHoeing(i, j, k);
+					break;
+				case PLANTING:
+					suitable = this.isSuitableForPlanting(i, j, k);
+					break;
+				default:
+					break;
 				}
 			}
 			if (!suitable || !theEntity.isWithinHomeDistance(i, j, k)) {

@@ -69,8 +69,8 @@ public class GOTEntityJonSnow extends GOTEntityHumanBase {
 		familyInfo.setMale(true);
 	}
 
-	public static class Stage1 extends GOTEntityJonSnow {
-		public Stage1(World world) {
+	public static class JonSnowLife1 extends GOTEntityJonSnow {
+		public JonSnowLife1(World world) {
 			super(world);
 			addTargetTasks(true);
 		}
@@ -107,7 +107,7 @@ public class GOTEntityJonSnow extends GOTEntityHumanBase {
 		public void onDeath(DamageSource damagesource) {
 			super.onDeath(damagesource);
 			if (!worldObj.isRemote) {
-				GOTEntityJonSnow.Stage2 stage2 = new GOTEntityJonSnow.Stage2(worldObj);
+				GOTEntityJonSnow.JonSnowLife2 stage2 = new GOTEntityJonSnow.JonSnowLife2(worldObj);
 				stage2.copyLocationAndAnglesFrom(this);
 				stage2.onSpawnWithEgg(null);
 				worldObj.spawnEntityInWorld(stage2);
@@ -116,8 +116,8 @@ public class GOTEntityJonSnow extends GOTEntityHumanBase {
 		}
 	}
 
-	public static class Stage2 extends GOTEntityJonSnow {
-		public Stage2(World world) {
+	public static class JonSnowLife2 extends GOTEntityJonSnow {
+		public JonSnowLife2(World world) {
 			super(world);
 			addTargetTasks();
 		}

@@ -79,8 +79,8 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 		familyInfo.setMale(true);
 	}
 
-	public static class LifeStage1 extends GOTEntityBericDondarrion {
-		public LifeStage1(World world) {
+	public static class BericDondarrionLife1 extends GOTEntityBericDondarrion {
+		public BericDondarrionLife1(World world) {
 			super(world);
 			canBeMarried = false;
 		}
@@ -89,7 +89,7 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 		public void onDeath(DamageSource damagesource) {
 			super.onDeath(damagesource);
 			if (!worldObj.isRemote) {
-				LifeStage2 stage = new LifeStage2(worldObj);
+				BericDondarrionLife2 stage = new BericDondarrionLife2(worldObj);
 				stage.copyLocationAndAnglesFrom(this);
 				stage.onSpawnWithEgg(null);
 				worldObj.spawnEntityInWorld(stage);
@@ -98,8 +98,8 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 		}
 	}
 
-	public static class LifeStage2 extends GOTEntityBericDondarrion {
-		public LifeStage2(World world) {
+	public static class BericDondarrionLife2 extends GOTEntityBericDondarrion {
+		public BericDondarrionLife2(World world) {
 			super(world);
 			canBeMarried = false;
 		}
@@ -108,7 +108,7 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 		public void onDeath(DamageSource damagesource) {
 			super.onDeath(damagesource);
 			if (!worldObj.isRemote) {
-				LifeStage3 stage = new LifeStage3(worldObj);
+				BericDondarrionLife3 stage = new BericDondarrionLife3(worldObj);
 				stage.copyLocationAndAnglesFrom(this);
 				stage.onSpawnWithEgg(null);
 				worldObj.spawnEntityInWorld(stage);
@@ -117,8 +117,8 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 		}
 	}
 
-	public static class LifeStage3 extends GOTEntityBericDondarrion {
-		public LifeStage3(World world) {
+	public static class BericDondarrionLife3 extends GOTEntityBericDondarrion {
+		public BericDondarrionLife3(World world) {
 			super(world);
 			canBeMarried = false;
 		}
@@ -127,7 +127,7 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 		public void onDeath(DamageSource damagesource) {
 			super.onDeath(damagesource);
 			if (!worldObj.isRemote) {
-				LifeStage4 stage = new LifeStage4(worldObj);
+				BericDondarrionLife4 stage = new BericDondarrionLife4(worldObj);
 				stage.copyLocationAndAnglesFrom(this);
 				stage.onSpawnWithEgg(null);
 				worldObj.spawnEntityInWorld(stage);
@@ -136,8 +136,8 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 		}
 	}
 
-	public static class LifeStage4 extends GOTEntityBericDondarrion {
-		public LifeStage4(World world) {
+	public static class BericDondarrionLife4 extends GOTEntityBericDondarrion {
+		public BericDondarrionLife4(World world) {
 			super(world);
 			canBeMarried = false;
 		}
@@ -146,7 +146,7 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 		public void onDeath(DamageSource damagesource) {
 			super.onDeath(damagesource);
 			if (!worldObj.isRemote) {
-				LifeStage5 stage = new LifeStage5(worldObj);
+				BericDondarrionLife5 stage = new BericDondarrionLife5(worldObj);
 				stage.copyLocationAndAnglesFrom(this);
 				stage.onSpawnWithEgg(null);
 				worldObj.spawnEntityInWorld(stage);
@@ -155,8 +155,8 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 		}
 	}
 
-	public static class LifeStage5 extends GOTEntityBericDondarrion {
-		public LifeStage5(World world) {
+	public static class BericDondarrionLife5 extends GOTEntityBericDondarrion {
+		public BericDondarrionLife5(World world) {
 			super(world);
 			canBeMarried = false;
 		}
@@ -165,7 +165,7 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 		public void onDeath(DamageSource damagesource) {
 			super.onDeath(damagesource);
 			if (!worldObj.isRemote) {
-				LifeStage6 stage = new LifeStage6(worldObj);
+				BericDondarrionLife6 stage = new BericDondarrionLife6(worldObj);
 				stage.copyLocationAndAnglesFrom(this);
 				stage.onSpawnWithEgg(null);
 				worldObj.spawnEntityInWorld(stage);
@@ -174,8 +174,8 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 		}
 	}
 
-	public static class LifeStage6 extends GOTEntityBericDondarrion {
-		public LifeStage6(World world) {
+	public static class BericDondarrionLife6 extends GOTEntityBericDondarrion {
+		public BericDondarrionLife6(World world) {
 			super(world);
 			canBeMarried = false;
 		}

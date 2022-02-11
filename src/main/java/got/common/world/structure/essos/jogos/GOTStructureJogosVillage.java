@@ -100,7 +100,7 @@ public class GOTStructureJogosVillage extends GOTVillageGen {
 				}, 0, 0, 0);
 				this.addStructure(new GOTStructureJogosWell(false), 0, 0, 0, true);
 				this.addStructure(new GOTStructureJogosChiefTent(false), 0, 14, 0, true);
-				this.addStructure(new GOTStructureJogosMarketTent(false), 0, -14, 2, true);
+				this.addStructure(new GOTStructureJogosShamanTent(false), 0, -14, 2, true);
 				this.addStructure(new GOTStructureJogosTentLarge(false), -14, 0, 1, true);
 				this.addStructure(new GOTStructureJogosTentLarge(false), 14, 0, 3, true);
 			}

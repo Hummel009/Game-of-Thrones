@@ -142,7 +142,7 @@ public class GOTStructurePetyrBaelishBrothel extends GOTStructureNorthBase {
 			spawnNPCAndSetHome(new GOTEntityProstitute(world), world, 0, 1, 0, 16);
 		}
 		spawnLegendaryNPC(new GOTEntityTyrionLannister(world), world, 2, 1, -2);
-		spawnLegendaryNPC(new GOTEntityLancelLannister.Normal(world), world, -2, 1, 2);
+		spawnLegendaryNPC(new GOTEntityLancelLannister.LancelLannisterNormal(world), world, -2, 1, 2);
 		spawnLegendaryNPC(new GOTEntityBronn(world), world, 2, 1, 2);
 		spawnLegendaryNPC(new GOTEntityPodrickPayne(world), world, -2, 1, -2);
 		block11: for (int i13 = -1; i13 <= 1; ++i13) {

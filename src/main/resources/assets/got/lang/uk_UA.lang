@@ -1,73 +1,4 @@
 
-got.gui.options.femRank.desc.on≠
-got.gui.options.femRank.desc.off≠
-got.gui.achievements.hover.name=%s
-got.gui.achievements.hover.subtitle≠
-got.gui.money.notGet≠
-got.gui.money.notGive≠
-item.got:cucumberSeeds.name≠
-got.command.wpCooldown.usage≠
-got.command.wpCooldown.setMax≠
-got.command.wpCooldown.setMin≠
-got.command.wpCooldown.updateMax≠
-got.command.wpCooldown.updateMin≠
-got.gui.options.femRank≠
-got.rank.ARRYN≠
-got.rank.ASSHAI≠
-got.rank.BRAAVOS≠
-got.rank.CERSEI≠
-got.rank.CROWNLANDS≠
-got.rank.DORNE≠
-got.rank.DOTHRAKI≠
-got.rank.DRAGONSTONE≠
-got.rank.GHISCAR≠
-got.rank.HILL_TRIBES≠
-got.rank.HOSTILE≠
-got.rank.IBBEN≠
-got.rank.IRONBORN≠
-got.rank.JOGOS≠
-got.rank.LHAZAR≠
-got.rank.LORATH≠
-got.rank.LYS≠
-got.rank.MOSSOVY≠
-got.rank.MYR≠
-got.rank.NIGHT_WATCH≠
-got.rank.NORTH≠
-got.rank.NORVOS≠
-got.rank.PENTOS≠
-got.rank.QARTH≠
-got.rank.QOHOR≠
-got.rank.REACH≠
-got.rank.RIVERLANDS≠
-got.rank.SOTHORYOS≠
-got.rank.STORMLANDS≠
-got.rank.SUMMER_ISLANDS≠
-got.rank.TYROSH≠
-got.rank.ULTHOS≠
-got.rank.UNALIGNED≠
-got.rank.VOLANTIS≠
-got.rank.WESTERLANDS≠
-got.rank.WHITE_WALKER≠
-got.rank.WILDLING≠
-got.rank.YI_TI≠
-got.rank.enemy≠
-got.rank.enemy_fm≠
-got.rank.neutral≠
-got.rank.neutral_fm≠
-got.rank.guest≠
-got.rank.friend≠
-got.rank.defender≠
-got.rank.hero≠
-got.rank.leader≠
-got.rank.guest_fm≠
-got.rank.friend_fm≠
-got.rank.defender_fm≠
-got.rank.hero_fm≠
-got.rank.leader_fm≠
-got.rank.king≠
-got.rank.king_fm≠
-got.capes.YITI_FRONTIER.name≠
-got.shields.ASSHAI.name≠
 attribute.name.generic.movementSpeedAir=Швидкість (Повітря)
 color.black=Чорний
 color.blue=Блакитний
@@ -106,8 +37,8 @@ entity.got.AnyaWaynwood.name≠
 entity.got.ArdrianCeltigar.name=Ардріан Селтігар
 entity.got.AreoHotah.name≠
 entity.got.ArianneMartell.name≠
-entity.got.ArrowPoison.name=Отруєна стріла
-entity.got.ArrynArcher.name=Лучник Долини Арен
+entity.got.ArrowFire.name≠
+entity.got.ArrowPoisoned.name≠
 entity.got.ArrynBaker.name=Булочник Долини Арен
 entity.got.ArrynBannerBearer.name=Прапороносець Долини Арен
 entity.got.ArrynBartender.name=Бармен Долини Арен
@@ -134,14 +65,15 @@ entity.got.AsshaiAlchemist.name=Алхімік Асшая
 entity.got.AsshaiArchmag.name=Архимаг Асшая
 entity.got.AsshaiBannerBearer.name≠
 entity.got.AsshaiCaptain.name=Капітан варти Асшая
-entity.got.AsshaiGuard.name=Страж Асшая
 entity.got.AsshaiMan.name=Житель Асшая
 entity.got.AsshaiShadowbinder.name=Заклинатель тіней Асшая
 entity.got.AsshaiSpherebinder.name=Заклинатель сфери Асшая
+entity.got.AsshaiWarrior.name=Страж Асшая
 entity.got.AuraneWaters.name=Аура Уотерс
 entity.got.BaelorBlacktyde.name≠
 entity.got.BalonGreyjoy.name=Бейлон Грейджой
 entity.got.Banner.name=Прапор
+entity.got.BannerWall.name≠
 entity.got.BarbreyDustin.name≠
 entity.got.Barrel.name=Бочка
 entity.got.BarristanSelmy.name=Баррістан Селмі
@@ -151,17 +83,17 @@ entity.got.BearRug.name=Ведмежа шкура
 entity.got.BenedarBelmore.name≠
 entity.got.BenjenStark.name=Бенджі Старк
 entity.got.BericDayne.name=Берик Дейн
-entity.got.BericDondarrion1.name=Берик Дондарріон
-entity.got.BericDondarrion2.name=Берик Дондарріон
-entity.got.BericDondarrion3.name=Берик Дондарріон
-entity.got.BericDondarrion4.name=Берик Дондарріон
-entity.got.BericDondarrion5.name=Берик Дондарріон
-entity.got.BericDondarrion6.name=Берик Дондарріон
+entity.got.BericDondarrionLife1.name=Берик Дондарріон
+entity.got.BericDondarrionLife2.name=Берик Дондарріон
+entity.got.BericDondarrionLife3.name=Берик Дондарріон
+entity.got.BericDondarrionLife4.name=Берик Дондарріон
+entity.got.BericDondarrionLife5.name=Берик Дондарріон
+entity.got.BericDondarrionLife6.name=Берик Дондарріон
 entity.got.Bird.name=Птах
 entity.got.Bison.name=Зубр
 entity.got.BlackWalderFrey.name≠
 entity.got.Boar.name=Кабан
-entity.got.BraavosArcher.name=Лучник Браавоса
+entity.got.Bomb.name≠
 entity.got.BraavosBaker.name=Пекар Браавоса
 entity.got.BraavosBannerBearer.name=Прапороносець Браавоса
 entity.got.BraavosBartender.name=Шинкар Браавоса
@@ -173,7 +105,6 @@ entity.got.BraavosFishmonger.name=Рибак Браавоса
 entity.got.BraavosFlorist.name=Квітникар Браавоса
 entity.got.BraavosGeneral.name=Генерал Браавоса
 entity.got.BraavosGoldsmith.name=Ювелір Браавоса
-entity.got.BraavosLegionary.name=Легіонер Браавоса
 entity.got.BraavosLevyman.name≠
 entity.got.BraavosLevymanArcher.name≠
 entity.got.BraavosLumberman.name=Дроворуб Браавоса
@@ -182,7 +113,6 @@ entity.got.BraavosMason.name=Камнетёс Браавоса
 entity.got.BraavosMiner.name=Шахтар Браавоса
 entity.got.BraavosSoldier.name≠
 entity.got.BraavosSoldierArcher.name≠
-entity.got.BraavosWarrior.name=Воїн Браавоса
 entity.got.BranStark.name≠
 entity.got.BrienneTarth.name=Брієнна Тарт
 entity.got.Bronn.name=Броня
@@ -190,6 +120,7 @@ entity.got.BryndenTully.name=Бринда Таллі
 entity.got.BuGai.name=Бу Гай
 entity.got.Butterfly.name=Метелик
 entity.got.Camel.name=Верблюд
+entity.got.Cargocart.name≠
 entity.got.CatelynStark.name≠
 entity.got.CerseiLannister.name=Серсея Ланністер
 entity.got.ClementPiper.name≠
@@ -198,11 +129,9 @@ entity.got.Conker.name=Каштан
 entity.got.CotterPyke.name=Коттер Пайк
 entity.got.Craster.name=Крастер
 entity.got.CrasterWife.name=Дружина Крастера
-entity.got.Crebain.name=Кребан
 entity.got.Crocodile.name=Крокодил
 entity.got.CrossbowBolt.name=Арбалетний болт
 entity.got.CrownlandsAlchemist.name=Алхімік Королівських Земель
-entity.got.CrownlandsArcher.name=Лучник Королівських Земель
 entity.got.CrownlandsBaker.name=Булочник Королівських Земель
 entity.got.CrownlandsBannerBearer.name=Прапороносець Королівських Земель
 entity.got.CrownlandsBartender.name=Бармен Королівських Земель
@@ -234,7 +163,6 @@ entity.got.DesertScorpion.name=Пустельний скорпіон
 entity.got.DikDik.name=Дік-Дік
 entity.got.Direwolf.name=Лютоволк
 entity.got.DoranMartell.name=Доран Мартелл
-entity.got.DorneArcher.name=Лучник Дорна
 entity.got.DorneBaker.name=Булочник Дорна
 entity.got.DorneBannerBearer.name=Прапороносець Дорна
 entity.got.DorneBartender.name=Бармен Дорна
@@ -255,12 +183,11 @@ entity.got.DorneMan.name=Підданий Дорна
 entity.got.DorneMason.name=Камнетёс Дорна
 entity.got.DorneSoldier.name=Воїн Дорна
 entity.got.DorneSoldierArcher.name=Воїн-лучник Дорна
+entity.got.Dothraki.name=Дотракіец
 entity.got.DothrakiArcher.name=Дотракійскій лучник
 entity.got.DothrakiKhal.name=Дотракійскій Кхала
 entity.got.DothrakiKhalin.name=Дош Кхалін
-entity.got.DothrakiMan.name=Дотракіец
 entity.got.Dragon.name=Дракон
-entity.got.DragonstoneArcher.name=Лучник Драконячого Каменя
 entity.got.DragonstoneBaker.name=Булочник Драконячого Каменя
 entity.got.DragonstoneBannerBearer.name=Прапороносець Драконячого Каменя
 entity.got.DragonstoneBartender.name=Бармен Драконячого Каменя
@@ -287,14 +214,17 @@ entity.got.Edd.name≠
 entity.got.EdmureTully.name=Едмур Таллі
 entity.got.EldonEstermont.name≠
 entity.got.Elephant.name=Слон
-entity.got.Elk.name=Лось
 entity.got.EllaryaSand.name=Еллара Сенд
 entity.got.ErikIronmaker.name≠
 entity.got.EssosBandit.name=Бандит
 entity.got.EssosScrapTrader.name≠
 entity.got.EssosThief.name=Thief
 entity.got.EuronGreyjoy.name=Еурон Грейджой
+entity.got.FallingFireJar.name≠
+entity.got.FallingTreasure.name≠
+entity.got.FirePot.name≠
 entity.got.Fish.name=Риба
+entity.got.FishHook.name≠
 entity.got.Flamingo.name=Фламінго
 entity.got.ForleyPrester.name=Форлі Престер
 entity.got.FranklynFowler.name≠
@@ -304,20 +234,16 @@ entity.got.GendryBaratheon.name=Джендрі Баратеон
 entity.got.GeroldDayne.name=Герольд Дейн
 entity.got.GeroldGrafton.name≠
 entity.got.GhiscarAdmiral.name≠
-entity.got.GhiscarArcher.name=Лучник Гіскара
 entity.got.GhiscarBaker.name=Пекар Гіскара
 entity.got.GhiscarBannerBearer.name=Прапороносець Гіскара
 entity.got.GhiscarBartender.name=Шинкар Гіскара
 entity.got.GhiscarBlacksmith.name=Коваль Гіскара
 entity.got.GhiscarBrewer.name=Пивовар Гіскара
 entity.got.GhiscarButcher.name=М'ясник Гіскара
-entity.got.GhiscarCaptain.name=Капітан Гіскара
 entity.got.GhiscarCorsair.name=Корсар Гіскара
 entity.got.GhiscarCorsairArcher.name≠
-entity.got.GhiscarFarmer.name=Фермер Гіскара
 entity.got.GhiscarFishmonger.name=Рибак Гіскара
 entity.got.GhiscarFlorist.name=Квітникар Гіскара
-entity.got.GhiscarGeneral.name=Адмірал Гіскара
 entity.got.GhiscarGladiator.name=Гладіатор Гіскара
 entity.got.GhiscarGoldsmith.name=Ювелір Гіскара
 entity.got.GhiscarGuard.name=Страж Юнкая
@@ -332,26 +258,21 @@ entity.got.GhiscarSlave.name=Раб Гіскара
 entity.got.GhiscarSlaver.name=Работорговець Гіскара
 entity.got.GhiscarUnsullied.name=Бездоганний Гіскара
 entity.got.Giant.name=Гігант
-entity.got.GiantSpider.name=Гігантський павук
+entity.got.GiftBannerBearer.name=Прапороносець Нічного Дозору
 entity.got.GiftBlacksmith.name=Коваль Дара
 entity.got.GiftGuard.name=Страж Нічного Дозору
-entity.got.GiftGuardBannerBearer.name=Прапороносець Нічного Дозору
-entity.got.GiftGuardCaptain.name=Командувач Нічного Дозору
 entity.got.GiftMan.name=Житель Дара
 entity.got.GilwoodHunter.name≠
 entity.got.Giraffe.name=Жираф
 entity.got.GiraffeRug.name=Жираф шкура
-entity.got.GiskarCaptain.name=Гіскарскій капітан
-entity.got.GiskarCorsair.name=Гіскарскій пірат
-entity.got.GiskarSlaver.name=Гіскарскій работоргівець
 entity.got.GoldenBannerBearer.name=Прапороносець загону Золотих Мечів
 entity.got.GoldenCaptain.name=Капітан загону Золотих Мечів
 entity.got.GoldenSpearman.name=Копейщик загону Золотих Мечів
 entity.got.GoldenWarrior.name=Воїн загону Золотих Мечів
 entity.got.Gorcrow.name=Горкроу
 entity.got.GoroldGoodbrother.name≠
-entity.got.GregorClegane.name=Григір Кліган
-entity.got.GregorCleganeWight.name=Григір Кліган
+entity.got.GregorCleganeAlive.name=Григір Кліган
+entity.got.GregorCleganeDead.name=Григір Кліган
 entity.got.GreyWorm.name≠
 entity.got.GulianSwann.name≠
 entity.got.GylbertFarwynd.name≠
@@ -363,14 +284,14 @@ entity.got.HarryStrickland.name≠
 entity.got.HarysSwyft.name=Харіс Свіфт
 entity.got.HelmanTallhart.name≠
 entity.got.HighSepton.name=Верховний Септон
-entity.got.Hillmen.name=Горець
-entity.got.HillmenArcher.name=Горець-лучник
-entity.got.HillmenAxeThrower.name=Горець-топорометатель
-entity.got.HillmenBannerBearer.name=Горець-прапороносець
-entity.got.HillmenBartender.name=Горець-бармен
-entity.got.HillmenBerserker.name=Горець-Берсерк
-entity.got.HillmenWarlord.name=Вождь гірських кланів
-entity.got.HillmenWarrior.name=Горець-воїн
+entity.got.Hillman.name=Горець
+entity.got.HillmanArcher.name=Горець-лучник
+entity.got.HillmanAxeThrower.name=Горець-топорометатель
+entity.got.HillmanBannerBearer.name=Горець-прапороносець
+entity.got.HillmanBartender.name=Горець-бармен
+entity.got.HillmanBerserker.name=Горець-Берсерк
+entity.got.HillmanWarlord.name=Вождь гірських кланів
+entity.got.HillmanWarrior.name=Горець-воїн
 entity.got.HizdahrZoLoraq.name≠
 entity.got.Hodor.name=Ходорів
 entity.got.Horse.name=Кінь
@@ -387,7 +308,6 @@ entity.got.IbbenBlacksmith.name=Коваль Іббена
 entity.got.IbbenBrewer.name=Пивовар Іббена
 entity.got.IbbenBuilder.name=Будівельник Іббена
 entity.got.IbbenButcher.name=М'ясник Іббена
-entity.got.IbbenCaptain.name=Капітан Іббена
 entity.got.IbbenFarmer.name=Фермер Іббена
 entity.got.IbbenFarmhand.name=Робочий Іббена
 entity.got.IbbenFishmonger.name=Рибак Іббена
@@ -396,12 +316,13 @@ entity.got.IbbenMan.name=Іббеніец
 entity.got.IbbenMeadhost.name=Шинкар Іббена
 entity.got.IbbenOrcharder.name=Садівник Іббена
 entity.got.IbbenStablemaster.name=Коняр Іббена
+entity.got.IbbenWarlord.name=Капітан Іббена
 entity.got.IbbenWarrior.name=Воїн Іббена
 entity.got.IceSpider.name=Крижаний павук
 entity.got.Ifekevron.name=Іфекевронец
 entity.got.IllyrioMopatis.name=Іллірії Мопатіс
 entity.got.IlynPayne.name=Ілін Пейн
-entity.got.IronbornArcher.name=Лучник Залізних островів
+entity.got.InvasionSpawner.name≠
 entity.got.IronbornBaker.name=Булочник Залізних островів
 entity.got.IronbornBannerBearer.name=Прапороносець Залізних островів
 entity.got.IronbornBartender.name=Бармен Залізних островів
@@ -409,7 +330,6 @@ entity.got.IronbornBlacksmith.name=Коваль Залізних острові�
 entity.got.IronbornBrewer.name=Пивовар Залізних островів
 entity.got.IronbornButcher.name=М'ясник Залізних островів
 entity.got.IronbornCaptain.name=Командир Залізних островів
-entity.got.IronbornCorsair.name=Пірат Залізних островів
 entity.got.IronbornFarmer.name=Фермер Залізних островів
 entity.got.IronbornFarmhand.name=Робочий Залізних островів
 entity.got.IronbornFishmonger.name=Рибак Залізних островів
@@ -430,23 +350,23 @@ entity.got.JaqenHghar.name=Якен Х'гар
 entity.got.JasonMallister.name≠
 entity.got.JeorMormont.name=Джіора Мормонт
 entity.got.JoffreyBaratheon.name=Джоффрі Баратеон
+entity.got.Jogos.name=Кочівник Джогос Нхая
 entity.got.JogosArcher.name=Лучник Джогос Нхая
 entity.got.JogosBannerBearer.name≠
 entity.got.JogosChief.name=Вождь Джогос Нхая
-entity.got.JogosMan.name=Кочівник Джогос Нхая
 entity.got.JogosShaman.name=Шаман Джогос Нхая
 entity.got.JohnUmber.name=Джон Амбер
 entity.got.JonConnington.name≠
-entity.got.JonSnow.name=Джон Сноу
-entity.got.JonSnow2.name≠
+entity.got.JonSnowLife1.name=Джон Сноу
+entity.got.JonSnowLife2.name≠
 entity.got.JonosBracken.name=Джонос Бракен
 entity.got.JorahMormont.name=Джорах Мормонт
 entity.got.JungleScorpion.name=Лісовий скорпіон
 entity.got.KevanLannister.name=Ківа Ланністеров
 entity.got.Kingsguard.name=Королівський гвардієць
 entity.got.KraznysMoNakloz.name=Кразніс Мо Наклоз
-entity.got.LancelLannister.name=Лансель Ланністер
-entity.got.LancelLannisterR.name=Лансель Ланністер
+entity.got.LancelLannisterNormal.name=Лансель Ланністер
+entity.got.LancelLannisterReligious.name=Лансель Ланністер
 entity.got.LeoLefford.name=Лео Леффорд
 entity.got.LeytonHightower.name=Лейтон Хайтауер
 entity.got.LhazarArcher.name=Лучник Лхазара
@@ -466,11 +386,12 @@ entity.got.LhazarMason.name=Камнетёс Лхазара
 entity.got.LhazarMiner.name=Шахтар Лхазара
 entity.got.LhazarWarlord.name=Воєначальник Лхазара
 entity.got.LhazarWarrior.name=Воїн Лхазара
+entity.got.LingeringEffect.name≠
+entity.got.LingeringPotion.name≠
 entity.got.Lion.name=Лев
 entity.got.LionRug.name=Левова шкура
 entity.got.Lioness.name=Левиця
 entity.got.LorasTyrell.name=Лорас Тіреллі
-entity.got.LorathArcher.name=Лучник Лората
 entity.got.LorathBaker.name=Пекар Лората
 entity.got.LorathBannerBearer.name=Прапороносець Лората
 entity.got.LorathBartender.name=Шинкар Лората
@@ -482,7 +403,6 @@ entity.got.LorathFishmonger.name=Рибак Лората
 entity.got.LorathFlorist.name=Квітникар Лората
 entity.got.LorathGeneral.name=Генерал Лората
 entity.got.LorathGoldsmith.name=Ювелір Лората
-entity.got.LorathLegionary.name=Легіонер Лората
 entity.got.LorathLevyman.name≠
 entity.got.LorathLevymanArcher.name≠
 entity.got.LorathLumberman.name=Дроворуб Лората
@@ -491,24 +411,20 @@ entity.got.LorathMason.name=Камнетёс Лората
 entity.got.LorathMiner.name=Шахтар Лората
 entity.got.LorathSoldier.name≠
 entity.got.LorathSoldierArcher.name≠
-entity.got.LorathWarrior.name=Воїн Лората
 entity.got.LotharFrey.name≠
 entity.got.Luwin.name≠
 entity.got.LyleCrakehall.name=Лайл Крейкхолл
 entity.got.LynCorbray.name=Лін Корбрей
-entity.got.LysArcher.name=Лучник Лиса
 entity.got.LysBaker.name=Пекар Лиса
 entity.got.LysBannerBearer.name=Прапороносець Лиса
 entity.got.LysBartender.name=Шинкар Лиса
 entity.got.LysBlacksmith.name=Коваль Лиса
 entity.got.LysBrewer.name=Пивовар Лиса
 entity.got.LysButcher.name=М'ясник Лиса
-entity.got.LysFarmer.name=Фермер Лиса
 entity.got.LysFishmonger.name=Рибак Лиса
 entity.got.LysFlorist.name=Квітникар Лиса
 entity.got.LysGeneral.name=Генерал Лиса
 entity.got.LysGoldsmith.name=Ювелір Лиса
-entity.got.LysLegionary.name=Легіонер Лиса
 entity.got.LysLevyman.name≠
 entity.got.LysLevymanArcher.name≠
 entity.got.LysLumberman.name=Дроворуб Лиса
@@ -519,7 +435,6 @@ entity.got.LysSlave.name=Раб Лиса
 entity.got.LysSlaver.name=Работорговець Лиса
 entity.got.LysSoldier.name≠
 entity.got.LysSoldierArcher.name≠
-entity.got.LysWarrior.name=Воїн Лиса
 entity.got.LysaArryn.name≠
 entity.got.MaceTyrell.name=Мейс Тіреллі
 entity.got.MaegeMormont.name≠
@@ -541,15 +456,12 @@ entity.got.Missandei.name≠
 entity.got.MonfordVelaryon.name=Монфорд Веларіон
 entity.got.Moqorro.name≠
 entity.got.MoribaldChester.name≠
-entity.got.MossovyBannerBearer.name≠
 entity.got.MossovyBartender.name≠
 entity.got.MossovyBlacksmith.name≠
 entity.got.MossovyFarmer.name≠
 entity.got.MossovyMan.name≠
 entity.got.MossovyWerewolf.name=Мосовійскій перевертень
 entity.got.MossovyWitcher.name=Мосовійскій мисливець на чудовиськ
-entity.got.MossovyWitcherBannerBearer.name=Мосовійскій прапороносець
-entity.got.MossovyWitcherCaptain.name=Мосовійскій командир
 entity.got.Mullin.name=Маллин
 entity.got.MyrBaker.name=Пекар Миру
 entity.got.MyrBannerBearer.name=Прапороносець Миру
@@ -557,13 +469,10 @@ entity.got.MyrBartender.name=Шинкар Миру
 entity.got.MyrBlacksmith.name=Коваль Миру
 entity.got.MyrBrewer.name=Пивовар Миру
 entity.got.MyrButcher.name=М'ясник Миру
-entity.got.MyrCrossbower.name=Арбалетник Миру
-entity.got.MyrFarmer.name=Фермер Миру
 entity.got.MyrFishmonger.name=Рибак Миру
 entity.got.MyrFlorist.name=Квітникар Миру
 entity.got.MyrGeneral.name=Генерал Миру
 entity.got.MyrGoldsmith.name=Ювелір Миру
-entity.got.MyrLegionary.name=Легіонер Миру
 entity.got.MyrLevyman.name≠
 entity.got.MyrLevymanArcher.name≠
 entity.got.MyrLumberman.name=Дроворуб Миру
@@ -574,12 +483,10 @@ entity.got.MyrSlave.name=Раб Миру
 entity.got.MyrSlaver.name=Работорговець Миру
 entity.got.MyrSoldier.name≠
 entity.got.MyrSoldierArcher.name≠
-entity.got.MyrWarrior.name=Воїн Світу
 entity.got.MyrcellaBaratheon.name≠
 entity.got.MysteryWeb.name=Таємниця кокона
 entity.got.NPCRespawner.name=Респавнер NPC
 entity.got.NightKing.name=Король Ночі
-entity.got.NorthArcher.name=Лучник Півночі
 entity.got.NorthBaker.name=Булочник Півночі
 entity.got.NorthBannerBearer.name=Прапороносець Півночі
 entity.got.NorthBartender.name=Бармен Півночі
@@ -607,7 +514,6 @@ entity.got.NorthLevymanArcher.name=Ополченець-лучник Півно�
 entity.got.NorthLumberman.name=Лісоруб Півночі
 entity.got.NorthMan.name=Підданий Півночі
 entity.got.NorthMason.name=Камнетёс Півночі
-entity.got.NorthRuinsWraith.name=Привид Півночі
 entity.got.NorthSoldier.name=Воїн Півночі
 entity.got.NorthSoldierArcher.name=Воїн-лучник Півночі
 entity.got.NorvosBaker.name=Пекар Норвоса
@@ -654,12 +560,12 @@ entity.got.PentosMason.name=Камнетёс Пентоса
 entity.got.PentosMiner.name=Шахтар Пентоса
 entity.got.PetyrBaelish.name=Петир Бейлиш
 entity.got.Plate.name=Тарілка
+entity.got.Plowcart.name≠
 entity.got.PodrickPayne.name=Подрік Пейн
-entity.got.Polarbear.name=Сніговий ведмідь
 entity.got.Polliver.name≠
+entity.got.Portal.name≠
 entity.got.Prostitute.name=Повія
 entity.got.Pycelle.name=Піцель
-entity.got.QarthArcher.name=Лучник Кварта
 entity.got.QarthBaker.name=Пекар Кварта
 entity.got.QarthBannerBearer.name=Прапороносець Кварта
 entity.got.QarthBartender.name=Шинкар Кварта
@@ -669,7 +575,6 @@ entity.got.QarthButcher.name=М'ясник Кварта
 entity.got.QarthFarmer.name=Фермер Кварта
 entity.got.QarthFishmonger.name=Рибак Кварта
 entity.got.QarthFlorist.name=Квітникар Кварта
-entity.got.QarthGeneral.name=Капітан варти Кварта
 entity.got.QarthGoldsmith.name=Ювелір Кварта
 entity.got.QarthGuard.name=Гвардієць Кварта
 entity.got.QarthGuardCaptain.name≠
@@ -680,8 +585,6 @@ entity.got.QarthMan.name=Підданий Кварта
 entity.got.QarthMason.name=Камнетёс Кварта
 entity.got.QarthMiner.name=Шахтар Кварта
 entity.got.QarthWarlock.name=Чаклун Кварта
-entity.got.QarthWarrior.name=Воїн Кварта
-entity.got.QohorArcher.name=Лучник Квохора
 entity.got.QohorBaker.name=Пекар Квохора
 entity.got.QohorBannerBearer.name=Прапороносець Квохора
 entity.got.QohorBartender.name=Шинкар Квохора
@@ -710,7 +613,6 @@ entity.got.Rabbit.name=Кролик
 entity.got.RamsayBolton.name=Рамсі Болтон
 entity.got.RandyllTarly.name=Ренділле Тарле
 entity.got.RazdalMoEraz.name≠
-entity.got.ReachArcher.name=Лучник Простіру
 entity.got.ReachBaker.name=Булочник Простіру
 entity.got.ReachBannerBearer.name=Прапороносець Простіру
 entity.got.ReachBartender.name=Бармен Простіру
@@ -738,7 +640,6 @@ entity.got.RenlyBaratheon.name=Ренлі Баратеон
 entity.got.Rhino.name=Носоріг
 entity.got.RickardKarstark.name=Рікард Карстарк
 entity.got.RickonStark.name≠
-entity.got.RiverlandsArcher.name=Лучник Річкових Земель
 entity.got.RiverlandsBaker.name=Булочник Річкових Земель
 entity.got.RiverlandsBannerBearer.name=Прапороносець Річкових Земель
 entity.got.RiverlandsBartender.name=Бармен Річкових Земель
@@ -776,24 +677,21 @@ entity.got.SelyseBaratheon.name≠
 entity.got.Septon.name≠
 entity.got.Shadowcat.name=Сутінковий кіт
 entity.got.Shae.name≠
-entity.got.Shark.name=Акула
-entity.got.Shego.name=Shego
 entity.got.ShireenBaratheon.name≠
 entity.got.SmokeRing.name=Кільце диму
+entity.got.SnowBear.name=Сніговий ведмідь
 entity.got.SothoryosBannerBearer.name=Соторійскій прапороносець
 entity.got.SothoryosBlowgunner.name=Соторійскій стрілок
 entity.got.SothoryosChieftain.name=Соторійскій вождь
 entity.got.SothoryosFarmer.name=Соторійскій фермер
 entity.got.SothoryosFarmhand.name=Соторійскій робочий
 entity.got.SothoryosMan.name=Соторіец
-entity.got.SothoryosPyramidWraith.name=Соторійскій привид
 entity.got.SothoryosShaman.name=Соторійскій шаман
 entity.got.SothoryosSmith.name=Соторійскій коваль
 entity.got.SothoryosWarrior.name=Соторійскій воїн
 entity.got.Spear.name=Спис
 entity.got.StannisBaratheon.name=Станніс Баратеон
 entity.got.StoneMan.name=Кам'яний людина
-entity.got.StormlandsArcher.name=Лучник Штормових Земель
 entity.got.StormlandsBaker.name=Булочник Штормових Земель
 entity.got.StormlandsBannerBearer.name=Прапороносець Штормових Земель
 entity.got.StormlandsBartender.name=Бармен Штормових Земель
@@ -841,20 +739,17 @@ entity.got.ThennBannerBearer.name=Тенн-прапороносець
 entity.got.ThennBerserker.name=Тенн-Берсерк
 entity.got.ThennBlacksmith.name=Тенн-коваль
 entity.got.ThennMagnar.name=Магнар Теннов
-entity.got.TheonGreyjoy.name=Теона Грейджой
-entity.got.TheonGreyjoyV.name=Теона Грейджой
+entity.got.TheonGreyjoyNormal.name=Теона Грейджой
+entity.got.TheonGreyjoyTormented.name=Теона Грейджой
 entity.got.Thoros.name=Торос з Світу
 entity.got.ThreeEyedRaven.name=Трёхглазий Ворон
 entity.got.ThrowingAxe.name=Метальний сокиру
-entity.got.ThrownFirePot.name=Горщик з горючою сумішшю
 entity.got.ThrownRock.name=Кинутий камінь
 entity.got.ThrownTermite.name=Вибуховою терміт
-entity.got.Tigasa.name=TIGASA
 entity.got.TobhoMott.name=Тобхо Мотт
 entity.got.TommenBaratheon.name≠
 entity.got.Tormund.name=Тормунд
 entity.got.TraderRespawn.name=Респаун торговця
-entity.got.TrollSnowball.name=Сніжний ком гіганта
 entity.got.TrystaneMartell.name≠
 entity.got.TugarKhan.name=Кітрі Джуваін
 entity.got.TychoNestoris.name≠
@@ -865,13 +760,10 @@ entity.got.TyroshBartender.name=Шинкар Тірош
 entity.got.TyroshBlacksmith.name=Коваль Тірош
 entity.got.TyroshBrewer.name=Пивовар Тірош
 entity.got.TyroshButcher.name=М'ясник Тірош
-entity.got.TyroshCrossbower.name=Арбалетник Тірош
-entity.got.TyroshFarmer.name=Фермер Тірош
 entity.got.TyroshFishmonger.name=Рибак Тірош
 entity.got.TyroshFlorist.name=Квітникар Тірош
 entity.got.TyroshGeneral.name=Генерал Тірош
 entity.got.TyroshGoldsmith.name=Ювелір Тірош
-entity.got.TyroshLegionary.name=Легіонер Тірош
 entity.got.TyroshLevyman.name≠
 entity.got.TyroshLevymanArcher.name≠
 entity.got.TyroshLumberman.name=Дроворуб Тірош
@@ -882,26 +774,23 @@ entity.got.TyroshSlave.name=Раб Тірош
 entity.got.TyroshSlaver.name=Работорговець Тірош
 entity.got.TyroshSoldier.name≠
 entity.got.TyroshSoldierArcher.name≠
-entity.got.TyroshWarrior.name=Воїн Тірош
 entity.got.TytosBlackwood.name=Тітос Блеквуд
 entity.got.TytosBrax.name=Тітос Бракс
 entity.got.TywinLannister.name=Тайвін Ланністер
+entity.got.UlthosSpider.name=Гігантський павук
 entity.got.VargoHoat.name≠
 entity.got.Varys.name=Варіс
 entity.got.VictarionGreyjoy.name=Віктаріон Грейджой
-entity.got.VolantisArcher.name=Лучник Волантіса
 entity.got.VolantisBaker.name=Пекар Волантіса
 entity.got.VolantisBannerBearer.name=Прапороносець Волантіса
 entity.got.VolantisBartender.name=Шинкар Волантіса
 entity.got.VolantisBlacksmith.name=Коваль Волантіса
 entity.got.VolantisBrewer.name=Пивовар Волантіса
 entity.got.VolantisButcher.name=М'ясник Волантіса
-entity.got.VolantisFarmer.name=Фермер Волантіса
 entity.got.VolantisFishmonger.name=Рибак Волантіса
 entity.got.VolantisFlorist.name=Квітникар Волантіса
 entity.got.VolantisGeneral.name=Генерал Волантіса
 entity.got.VolantisGoldsmith.name=Ювелір Волантіса
-entity.got.VolantisLegionary.name=Легіонер Волантіса
 entity.got.VolantisLevyman.name≠
 entity.got.VolantisLevymanArcher.name≠
 entity.got.VolantisLumberman.name=Дроворуб Волантіса
@@ -912,12 +801,8 @@ entity.got.VolantisSlave.name=Раб Волантіса
 entity.got.VolantisSlaver.name=Работорговець Волантіса
 entity.got.VolantisSoldier.name≠
 entity.got.VolantisSoldierArcher.name≠
-entity.got.VolantisWarrior.name=Воїн Волантіса
 entity.got.WalderFrey.name=Уолдер Фрей
-entity.got.WallBanner.name=Настінне прапор
 entity.got.Walrus.name=Морж
-entity.got.WargRug.name=Шкура лютоволка
-entity.got.WesterlandsArcher.name=Лучник Західних Земель
 entity.got.WesterlandsBaker.name=Булочник Західних Земель
 entity.got.WesterlandsBannerBearer.name=Прапороносець Західних Земель
 entity.got.WesterlandsBartender.name=Бармен Західних Земель
@@ -945,8 +830,8 @@ entity.got.WesterosThief.name=Thief
 entity.got.WhiteBison.name=Білий зубр
 entity.got.WhiteOryx.name=Білий Орікс
 entity.got.WhiteWalker.name=Білий ходок
-entity.got.Wicht.name=Віхті
-entity.got.WichtGiant.name=Віхті-гігант
+entity.got.Wight.name=Віхті
+entity.got.WightGiant.name=Віхті-гігант
 entity.got.Wildling.name=Здичавілий
 entity.got.WildlingArcher.name=Здичавілий-лучник
 entity.got.WildlingAxeThrower.name=Здичавілий-топорометатель
@@ -960,7 +845,6 @@ entity.got.Wyvern.name=Віверна
 entity.got.XaroXhoanDaxos.name=Ксар ксоан Даксос
 entity.got.YaraGreyjoy.name=Яра Грейджой
 entity.got.Ygritte.name=Ігрітт
-entity.got.YiTiArcher.name=Лучник Ї Ті
 entity.got.YiTiBaker.name=Пекар Ї Ті
 entity.got.YiTiBannerBearer.name=Прапороносець Ї Ті
 entity.got.YiTiBartender.name=Шинкар Ї Ті
@@ -970,7 +854,7 @@ entity.got.YiTiBrewer.name=Винороб Ї Ті
 entity.got.YiTiButcher.name=М'ясник Ї Ті
 entity.got.YiTiFarmer.name=Фермер Ї Ті
 entity.got.YiTiFarmhand.name=Робочий Ї Ті
-entity.got.YiTiFirePriest.name=Жрець вогню Ї Ті
+entity.got.YiTiFireThrower.name=Жрець вогню Ї Ті
 entity.got.YiTiFishmonger.name=Рибак Ї Ті
 entity.got.YiTiFrontier.name≠
 entity.got.YiTiFrontierCrossbower.name≠
@@ -982,17 +866,13 @@ entity.got.YiTiLumberman.name=Дроворуб Ї Ті
 entity.got.YiTiMan.name=Підданий Ї Ті
 entity.got.YiTiMason.name=Камнетёс Ї Ті
 entity.got.YiTiSamurai.name=Самурай Ї Ті
-entity.got.YiTiShogun.name=Сьогун Ї Ті
+entity.got.YiTiShogune.name=Сьогун Ї Ті
 entity.got.YiTiSoldier.name=Солдат Ї Ті
 entity.got.YiTiSoldierCrossbower.name≠
 entity.got.YohnRoyce.name=Джон Ройс
 entity.got.Yoren.name≠
 entity.got.YoungGriff.name≠
 entity.got.Zebra.name=Зебра
-entity.got.generic.entityName=%s, %s
-entity.gotFishHook.name=Рибальський гачок
-entity.gotMinecartTNT.name=Вагонетка з динамітом
-entity.gotTNT.name=TNT
 generator.got.info=Ви з'явитеся відразу в світі Ігри Престолів
 generator.got=Гра престолів
 generator.gotClassic.info=Ви з'явитеся в світі Ігри Престолів з рандомних Біоми.
@@ -1741,6 +1621,7 @@ got.capes.UNSULLIED.name=Плащ Бездоганних
 got.capes.VOLANTIS.name=Плащ Волантіса
 got.capes.WESTERLANDS.name=Плащ Західних Земель
 got.capes.YITI.name=Плащ Ї Ті
+got.capes.YITI_FRONTIER.name≠
 got.capes.YITI_SAMURAI.name=Плащ самураїв Ї Ті
 got.capes.category.ACHIEVABLE=Разблокіруемий плащі
 got.capes.category.ALIGNMENT=Репутаційні плащі
@@ -1906,6 +1787,11 @@ got.command.waypoints.unlock.fail=%s вже розблокував шляхов�
 got.command.waypoints.unlock=Разблокірованs для гравця %s шляхові точки регіону " %s"
 got.command.waypoints.unlockAll=Розблоковані всі шляхові точки для гравця %s
 got.command.waypoints.usage=/Waypoints <unlock|lock> <регіон> [гравець]
+got.command.wpCooldown.setMax≠
+got.command.wpCooldown.setMin≠
+got.command.wpCooldown.updateMax≠
+got.command.wpCooldown.updateMin≠
+got.command.wpCooldown.usage≠
 got.compas.EAST=Схід
 got.compas.NORTH=Північ
 got.compas.SOUTH=Південь
@@ -2095,7 +1981,6 @@ got.faction.ASSHAI.subtitle=Чорний край некромантій і за
 got.faction.BRAAVOS.entity=Люди Браавоса
 got.faction.BRAAVOS.name=Браавос
 got.faction.BRAAVOS.subtitle=Вільне місто Ессоса
-got.faction.CERSEI.name=Королівські землі
 got.faction.CROWNLANDS.entity=Люди столиці
 got.faction.CROWNLANDS.name=Королівські землі
 got.faction.CROWNLANDS.subtitle=Яблуко розбрату 5 королів
@@ -2209,6 +2094,8 @@ got.fastTravel.travelTicks=Швидке подорож в %d...
 got.fastTravel.travelTicksStart=Швидке подорож через %d секунд. стійте на місці!
 got.fastTravel.underAttack=Ви не можете швидко подорожувати під час битви
 got.gui.achievements.category=%s (%d / %d)
+got.gui.achievements.hover.name=%s
+got.gui.achievements.hover.subtitle≠
 got.gui.achievements.title=Досягнення Ігри Престолів
 got.gui.achievements=Досягнення
 got.gui.atribute=Атрибути
@@ -2433,6 +2320,8 @@ got.gui.miniquestOffer.decline=Відмовитися
 got.gui.money.balance=Баланс: %s
 got.gui.money.get=Ви успішно поповнили баланс на %s
 got.gui.money.give=Ви успішно зняли з рахунку %s
+got.gui.money.notGet≠
+got.gui.money.notGive≠
 got.gui.money.press=Натисніть на монету, щоб провести операцію
 got.gui.money.transfer=Поповнити рахунок
 got.gui.money.withdraw=Зняти гроші
@@ -2471,6 +2360,9 @@ got.gui.openFolder=Відкрити папку конфігурації
 got.gui.options.conquest.desc.off=ВИКЛ: Вбивство NPC не впливає на завоювання.
 got.gui.options.conquest.desc.on=ВКЛ: Вбивство ворожих NPC збільшує завоювання вашої фракції або зводить нанівець вороже.
 got.gui.options.conquest=Вбивства в завоюваннях
+got.gui.options.femRank.desc.off≠
+got.gui.options.femRank.desc.on≠
+got.gui.options.femRank≠
 got.gui.options.friendlyFire.desc.off=ВИКЛ: дружні NPC не можуть бути атаковані, поранені, або отруєні, якщо вони не напали першими
 got.gui.options.friendlyFire.desc.on=ВКЛ: всім NPC, крім найнятих військ, може бути завдано шкоди
 got.gui.options.friendlyFire=Вогонь по друзях
@@ -2628,6 +2520,59 @@ got.miniquest.welcome.speak=Поговорити з Якеном Хгаром
 got.music.nowPlaying=Зараз грають:
 got.potion.drinkPoison=Отруєний напій
 got.potion=Призахідне
+got.rank.ARRYN≠
+got.rank.ASSHAI≠
+got.rank.BRAAVOS≠
+got.rank.CROWNLANDS≠
+got.rank.DORNE≠
+got.rank.DOTHRAKI≠
+got.rank.DRAGONSTONE≠
+got.rank.GHISCAR≠
+got.rank.HILL_TRIBES≠
+got.rank.HOSTILE≠
+got.rank.IBBEN≠
+got.rank.IRONBORN≠
+got.rank.JOGOS≠
+got.rank.LHAZAR≠
+got.rank.LORATH≠
+got.rank.LYS≠
+got.rank.MOSSOVY≠
+got.rank.MYR≠
+got.rank.NIGHT_WATCH≠
+got.rank.NORTH≠
+got.rank.NORVOS≠
+got.rank.PENTOS≠
+got.rank.QARTH≠
+got.rank.QOHOR≠
+got.rank.REACH≠
+got.rank.RIVERLANDS≠
+got.rank.SOTHORYOS≠
+got.rank.STORMLANDS≠
+got.rank.SUMMER_ISLANDS≠
+got.rank.TYROSH≠
+got.rank.ULTHOS≠
+got.rank.UNALIGNED≠
+got.rank.VOLANTIS≠
+got.rank.WESTERLANDS≠
+got.rank.WHITE_WALKER≠
+got.rank.WILDLING≠
+got.rank.YI_TI≠
+got.rank.defender_fm≠
+got.rank.defender≠
+got.rank.enemy_fm≠
+got.rank.enemy≠
+got.rank.friend_fm≠
+got.rank.friend≠
+got.rank.guest_fm≠
+got.rank.guest≠
+got.rank.hero_fm≠
+got.rank.hero≠
+got.rank.king_fm≠
+got.rank.king≠
+got.rank.leader_fm≠
+got.rank.leader≠
+got.rank.neutral_fm≠
+got.rank.neutral≠
 got.shields.ACHIEVEMENT_BRONZE.desc=Нагорода за виконання 10 досягнень
 got.shields.ACHIEVEMENT_BRONZE.name=Бронзовий щит
 got.shields.ACHIEVEMENT_GOLD.desc=Нагорода за виконання 30 досягнень
@@ -2640,6 +2585,7 @@ got.shields.ALCOHOLIC.desc=Нагорода за хронічний алкого
 got.shields.ALCOHOLIC.name=Щит алкоголіка
 got.shields.ARRYN.name=Щит Долини Арен
 got.shields.ARRYNGUARD.name=Щит вартою Чаячьего Міста
+got.shields.ASSHAI.name≠
 got.shields.BRAAVOS.name=Щит Браавоса
 got.shields.CROWNLANDS.name=Щит Королівських Земель
 got.shields.DORNE.name=Щит Дорна
@@ -2689,7 +2635,7 @@ got.structure.ArrynSmithy.name=Кузня Долини Арен
 got.structure.ArrynStables.name=Стайні Долини Арен
 got.structure.ArrynStoneHouse.name=Особняк Долини Арен
 got.structure.ArrynTavern.name=Таверна Долини Арен
-got.structure.ArrynTurret.name=Вишка Долини Арен
+got.structure.ArrynTower.name=Вишка Долини Арен
 got.structure.ArrynWatchfort.name=Форт Долини Арен
 got.structure.ArrynWatchtower.name=Вежа Долини Арен
 got.structure.AsshaiCity.name=Місто Асшая
@@ -2726,7 +2672,7 @@ got.structure.CrownlandsSmithy.name=Кузня Королівських Земе
 got.structure.CrownlandsStables.name=Стайні Королівських Земель
 got.structure.CrownlandsStoneHouse.name=Особняк Королівських Земель
 got.structure.CrownlandsTavern.name=Таверна Королівських Земель
-got.structure.CrownlandsTurret.name=Вишка Королівських Земель
+got.structure.CrownlandsTower.name=Вишка Королівських Земель
 got.structure.CrownlandsWatchfort.name=Форт Королівських Земель
 got.structure.CrownlandsWatchtower.name=Вежа Королівських Земель
 got.structure.DorneBarn.name=Амбар Дорна
@@ -2741,7 +2687,7 @@ got.structure.DorneSmithy.name=Кузня Дорна
 got.structure.DorneStables.name=Стайні Дорна
 got.structure.DorneStoneHouse.name=Особняк Дорна
 got.structure.DorneTavern.name=Таверна Дорна
-got.structure.DorneTurret.name=Вишка Дорна
+got.structure.DorneTower.name=Вишка Дорна
 got.structure.DorneWatchfort.name=Форт Дорна
 got.structure.DorneWatchtower.name=Вежа Дорна
 got.structure.DothrakiKhalTent.name=Намет дотракійского Кхала
@@ -2762,7 +2708,7 @@ got.structure.DragonstoneSmithy.name=Кузня Драконячого Каме�
 got.structure.DragonstoneStables.name=Стайні Драконячого Каменя
 got.structure.DragonstoneStoneHouse.name=Особняк Драконячого Каменя
 got.structure.DragonstoneTavern.name=Таверна Драконячого Каменя
-got.structure.DragonstoneTurret.name=Вишка Драконячого Каменя
+got.structure.DragonstoneTower.name=Вишка Драконячого Каменя
 got.structure.DragonstoneWatchfort.name=Форт Драконячого Каменя
 got.structure.DragonstoneWatchtower.name=Вежа Драконячого Каменя
 got.structure.GhiscarBarracks.name=Казарма Гіскара
@@ -2796,11 +2742,11 @@ got.structure.GiftVillageLight.name=Сільський ліхтар Нічног
 got.structure.GiftWatchtower.name=Сторожова вежа Нічного Дозору
 got.structure.GoldenCamp.name=Табір Золотих Мечів
 got.structure.GoldenWatchtower.name≠
+got.structure.HillmanCampfire.name=Табір гірських кланів
+got.structure.HillmanFort.name=Форт гірських кланів
+got.structure.HillmanHouse.name=Будинок гірських кланів
+got.structure.HillmanTavern.name=Таверна гірських кланів
 got.structure.HillmanVillage.name≠
-got.structure.HillmenCampfire.name=Табір гірських кланів
-got.structure.HillmenHillFort.name=Форт гірських кланів
-got.structure.HillmenHouse.name=Будинок гірських кланів
-got.structure.HillmenTavern.name=Таверна гірських кланів
 got.structure.HorthHillmanCamp.name=Табір горян Півночі
 got.structure.IbbenBarn.name=Хлів Іббена
 got.structure.IbbenFortVillage.name=Городище Іббена
@@ -2823,7 +2769,7 @@ got.structure.IronbornSmithy.name=Кузня Залізних островів
 got.structure.IronbornStables.name=Стайні Залізних островів
 got.structure.IronbornStoneHouse.name=Особняк Залізних островів
 got.structure.IronbornTavern.name=Таверна Залізних островів
-got.structure.IronbornTurret.name=Вишка Залізних островів
+got.structure.IronbornTower.name=Вишка Залізних островів
 got.structure.IronbornWatchfort.name=Форт Залізних островів
 got.structure.IronbornWatchtower.name=Вежа Залізних островів
 got.structure.JogosChiefTent.name=Шатер вождя Джогос Нхая
@@ -2897,7 +2843,6 @@ got.structure.MyrTower.name=Вежа Миру
 got.structure.MyrTraining.name=Тренувальний табір Миру
 got.structure.NorthBarn.name=Амбар Півночі
 got.structure.NorthBath.name=Баня Півночі
-got.structure.NorthBeaconTower.name=Вежа Півночі
 got.structure.NorthCottage.name=Котедж Півночі
 got.structure.NorthFortVillage.name=Замок Півночі
 got.structure.NorthFortress.name=Фортеця Півночі
@@ -2910,8 +2855,9 @@ got.structure.NorthSmithy.name=Кузня Півночі
 got.structure.NorthStables.name=Стайні Півночі
 got.structure.NorthStoneHouse.name=Особняк Півночі
 got.structure.NorthTavern.name=Таверна Півночі
+got.structure.NorthTower.name=Вежа Півночі
+got.structure.NorthTower.name=Вишка Півночі
 got.structure.NorthTown.name=Місто Півночі
-got.structure.NorthTurret.name=Вишка Півночі
 got.structure.NorthVillage.name=Село Півночі
 got.structure.NorthWatchfort.name=Форт Півночі
 got.structure.NorthWatchtower.name=Вежа Півночі
@@ -2980,7 +2926,7 @@ got.structure.ReachSmithy.name=Кузня Простіру
 got.structure.ReachStables.name=Стайні Простіру
 got.structure.ReachStoneHouse.name=Особняк Простіру
 got.structure.ReachTavern.name=Таверна Простіру
-got.structure.ReachTurret.name=Вишка Простіру
+got.structure.ReachTower.name=Вишка Простіру
 got.structure.ReachWatchfort.name=Форт Простіру
 got.structure.ReachWatchtower.name=Вежа Простіру
 got.structure.RiverlandsBarn.name=Амбар Річкових Земель
@@ -2995,15 +2941,20 @@ got.structure.RiverlandsSmithy.name=Кузня Річкових Земель
 got.structure.RiverlandsStables.name=Стайні Річкових Земель
 got.structure.RiverlandsStoneHouse.name=Особняк Річкових Земель
 got.structure.RiverlandsTavern.name=Таверна Річкових Земель
-got.structure.RiverlandsTurret.name=Вишка Річкових Земель
+got.structure.RiverlandsTower.name=Вишка Річкових Земель
 got.structure.RiverlandsWatchfort.name=Форт Річкових Земель
 got.structure.RiverlandsWatchtower.name=Вежа Річкових Земель
 got.structure.RottenHouse.name≠
-got.structure.RuinedBeaconTower.name=Руїни сигнальної вежі Півночі
+got.structure.RuinAsshai.name≠
+got.structure.RuinSandstone.name≠
+got.structure.RuinSothoryos.name≠
+got.structure.RuinStone.name≠
+got.structure.RuinYiTi.name≠
 got.structure.RuinedGiftHouse.name=Руїни будинку Дара
 got.structure.RuinedGiftTower.name=Руїни вежі Дара
 got.structure.RuinedHouse.name≠
 got.structure.RuinedNorthTower.name=Руїни сторожової вежі Півночі
+got.structure.RuinedTower.name=Руїни сигнальної вежі Півночі
 got.structure.SmallStoneRuin.name≠
 got.structure.SothoryosChieftainPyramid.name=Храм вождя Соторіоса
 got.structure.SothoryosHouseLarge.name=Особняк Соторіоса
@@ -3013,11 +2964,6 @@ got.structure.SothoryosPyramid.name=Піраміда Соторіоса
 got.structure.SothoryosSmithy.name=Кузня Соторіоса
 got.structure.SothoryosVillage.name=Село Соторіоса
 got.structure.SothoryosWatchtower.name=Сторожка Соторіоса
-got.structure.StoneRuinAsshai.name≠
-got.structure.StoneRuinSandstone.name≠
-got.structure.StoneRuinSothoryos.name≠
-got.structure.StoneRuinStandart.name≠
-got.structure.StoneRuinYiTi.name≠
 got.structure.StormlandsBarn.name=Амбар Штормових Земель
 got.structure.StormlandsBath.name=Баня Штормових Земель
 got.structure.StormlandsCityBig.name=Місто Штормових Земель
@@ -3030,7 +2976,7 @@ got.structure.StormlandsSmithy.name=Кузня Штормових Земель
 got.structure.StormlandsStables.name=Стайні Штормових Земель
 got.structure.StormlandsStoneHouse.name=Особняк Штормових Земель
 got.structure.StormlandsTavern.name=Таверна Штормових Земель
-got.structure.StormlandsTurret.name=Вишка Штормових Земель
+got.structure.StormlandsTower.name=Вишка Штормових Земель
 got.structure.StormlandsWatchfort.name=Форт Штормових Земель
 got.structure.StormlandsWatchtower.name=Вежа Штормових Земель
 got.structure.SummerFort.name=Форт Літніх островів
@@ -3086,7 +3032,7 @@ got.structure.WesterlandsSmithy.name=Кузня Західних Земель
 got.structure.WesterlandsStables.name=Стайні Західних Земель
 got.structure.WesterlandsStoneHouse.name=Особняк Західних Земель
 got.structure.WesterlandsTavern.name=Таверна Західних Земель
-got.structure.WesterlandsTurret.name=Вишка Західних Земель
+got.structure.WesterlandsTower.name=Вишка Західних Земель
 got.structure.WesterlandsWatchfort.name=Форт Західних Земель
 got.structure.WesterlandsWatchtower.name=Вежа Західних Земель
 got.structure.WildlingCamp.name=Табір здичавілих
@@ -4928,6 +4874,7 @@ item.got:crownlandsChestplate.name=Нагрудник вартою Королі�
 item.got:crownlandsHelmet.name=Шолом вартою Королівської гавані
 item.got:crownlandsLeggings.name=Поножі вартою Королівської гавані
 item.got:cucumber.name≠
+item.got:cucumberSeeds.name≠
 item.got:cutwave.name≠
 item.got:daarioArakh.name=Аракх Даар Нахаріса
 item.got:darkSister.name=Темна Сестра
