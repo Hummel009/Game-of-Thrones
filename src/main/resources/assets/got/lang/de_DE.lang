@@ -50,7 +50,7 @@ entity.got.ArrynFarmer.name=Grünes Tal Bauer
 entity.got.ArrynFarmhand.name=Grünes Tal Knecht
 entity.got.ArrynFishmonger.name=Grünes Tal Fischhändler
 entity.got.ArrynFlorist.name=Grünes Tal Blumenhändler
-entity.got.ArrynGoldsmith.name≠
+entity.got.ArrynGoldsmith.name=Grünes Tal Goldschmied
 entity.got.ArrynGreengrocer.name=Grünes Tal Gemüsehändler
 entity.got.ArrynGuard.name=Wache von Möwenstadt
 entity.got.ArrynLevyman.name=Grünes Tal Miliz
@@ -63,7 +63,7 @@ entity.got.ArrynSoldierArcher.name=Grünes Tal Krieger-Bogenschütze
 entity.got.AryaStark.name=Arya Stark
 entity.got.AsshaiAlchemist.name=Asshai Alchemist
 entity.got.AsshaiArchmag.name=Asshai Erzmagier
-entity.got.AsshaiBannerBearer.name≠
+entity.got.AsshaiBannerBearer.name=Asshai Bannerträger
 entity.got.AsshaiCaptain.name=Asshai Hauptmann
 entity.got.AsshaiMan.name=Asshai Bewohner
 entity.got.AsshaiShadowbinder.name=Asshai Schattenbinder
@@ -105,14 +105,14 @@ entity.got.BraavosFishmonger.name=Braavos Fischhändler
 entity.got.BraavosFlorist.name=Braavos Blumenhändler
 entity.got.BraavosGeneral.name=Braavos Hauptmann
 entity.got.BraavosGoldsmith.name=Braavos Goldschmied
-entity.got.BraavosLevyman.name≠
-entity.got.BraavosLevymanArcher.name≠
+entity.got.BraavosLevyman.name=Braavos Miliz
+entity.got.BraavosLevymanArcher.name=Braavos Bogenschütze
 entity.got.BraavosLumberman.name=Braavos Holzfäller
 entity.got.BraavosMan.name=Braavos Bewohner
 entity.got.BraavosMason.name=Braavos Steinmetz
 entity.got.BraavosMiner.name=Braavos Bergmann
-entity.got.BraavosSoldier.name≠
-entity.got.BraavosSoldierArcher.name≠
+entity.got.BraavosSoldier.name=Braavos Krieger
+entity.got.BraavosSoldierArcher.name=Braavos Krieger-Bogenschütze
 entity.got.BranStark.name≠
 entity.got.BrienneTarth.name=Brienne von Tarth
 entity.got.Bronn.name=Bronn
@@ -120,7 +120,7 @@ entity.got.BryndenTully.name=Brynden Tully
 entity.got.BuGai.name=Bu Gai
 entity.got.Butterfly.name=Schmetterling
 entity.got.Camel.name=Kamel
-entity.got.Cargocart.name=≠
+entity.got.Cargocart.name≠
 entity.got.CatelynStark.name≠
 entity.got.CerseiLannister.name=Cersei Lennister
 entity.got.ClementPiper.name≠
@@ -143,7 +143,7 @@ entity.got.CrownlandsFarmer.name=Kronlande Bauer
 entity.got.CrownlandsFarmhand.name=Kronlande Knecht
 entity.got.CrownlandsFishmonger.name=Kronlande Fischhändler
 entity.got.CrownlandsFlorist.name=Kronlande Blumenhändler
-entity.got.CrownlandsGoldsmith.name≠
+entity.got.CrownlandsGoldsmith.name=Kronlande Goldschmied
 entity.got.CrownlandsGreengrocer.name=Kronlande Gemüsehändler
 entity.got.CrownlandsGuard.name=Wache von Königsmund
 entity.got.CrownlandsLevyman.name=Kronlanden Miliz
@@ -174,7 +174,7 @@ entity.got.DorneFarmer.name=Dorne Bauer
 entity.got.DorneFarmhand.name=Dorne Knecht
 entity.got.DorneFishmonger.name=Dorne Fischhändler
 entity.got.DorneFlorist.name=Dorne Blumenhändler
-entity.got.DorneGoldsmith.name≠
+entity.got.DorneGoldsmith.name=Dorne Goldschmied
 entity.got.DorneGreengrocer.name=Dorne Gemüsehändler
 entity.got.DorneLevyman.name=Dorne Miliz
 entity.got.DorneLevymanArcher.name=Dorne Bogenschützenmiliz
@@ -199,7 +199,7 @@ entity.got.DragonstoneFarmer.name=Drachenstein Bauer
 entity.got.DragonstoneFarmhand.name=Drachenstein Knecht
 entity.got.DragonstoneFishmonger.name=Drachenstein Fischhändler
 entity.got.DragonstoneFlorist.name=Drachenstein Blumenhändler
-entity.got.DragonstoneGoldsmith.name≠
+entity.got.DragonstoneGoldsmith.name=Drachenstein Goldschmied
 entity.got.DragonstoneGreengrocer.name=Drachenstein Gemüsehändler
 entity.got.DragonstoneLevyman.name=Drachenstein Miliz
 entity.got.DragonstoneLevymanArcher.name=Drachenstein Bogenschützenmiliz
@@ -241,7 +241,7 @@ entity.got.GhiscarBlacksmith.name=Ghiscari Schmied
 entity.got.GhiscarBrewer.name=Ghiscari Brauer
 entity.got.GhiscarButcher.name=Ghiscari Metzger
 entity.got.GhiscarCorsair.name=Ghiscari Korsar
-entity.got.GhiscarCorsairArcher.name≠
+entity.got.GhiscarCorsairArcher.name=Ghiscari Korsar-Bogenschütze
 entity.got.GhiscarFishmonger.name=Ghiscari Fischhändler
 entity.got.GhiscarFlorist.name=Ghiscari Blumenhändler
 entity.got.GhiscarGladiator.name=Ghiscari Gladiator
@@ -249,7 +249,7 @@ entity.got.GhiscarGoldsmith.name=Ghiscari Goldschmied
 entity.got.GhiscarGuard.name=Ghiscari Wächter
 entity.got.GhiscarHarpy.name=Söhne der Harpyie
 entity.got.GhiscarLevyman.name=Ghiscari Miliz
-entity.got.GhiscarLevymanArcher.name≠
+entity.got.GhiscarLevymanArcher.name=Ghiscari Bogenschütze
 entity.got.GhiscarLumberman.name=Ghiscari Holzfäller
 entity.got.GhiscarMan.name=Ghiscari Bewohner
 entity.got.GhiscarMason.name=Ghiscari Steinmetz
@@ -334,7 +334,7 @@ entity.got.IronbornFarmer.name=Eiseninseln Bauer
 entity.got.IronbornFarmhand.name=Eiseninseln Knecht
 entity.got.IronbornFishmonger.name=Eiseninseln Fischhändler
 entity.got.IronbornFlorist.name=Eiseninseln Blumenhändler
-entity.got.IronbornGoldsmith.name≠
+entity.got.IronbornGoldsmith.name=Eiseninseln Goldschmied
 entity.got.IronbornGreengrocer.name=Eiseninseln Gemüsehändler
 entity.got.IronbornLevyman.name=Eiseninseln Miliz
 entity.got.IronbornLevymanArcher.name=Eiseninseln Bogenschützenmiliz
@@ -352,13 +352,13 @@ entity.got.JeorMormont.name=Jeor Mormont
 entity.got.JoffreyBaratheon.name=Joffrey Baratheon
 entity.got.Jogos.name=Jogos Nhai Nomade
 entity.got.JogosArcher.name=Jogos Nhai Bogenschütze
-entity.got.JogosBannerBearer.name≠
+entity.got.JogosBannerBearer.name=Jogos Nhai Bannerträger
 entity.got.JogosChief.name=Jogos Nhai Stammesführer
 entity.got.JogosShaman.name=Jogos Nhai Schamane
 entity.got.JohnUmber.name=John Umber
 entity.got.JonConnington.name≠
 entity.got.JonSnowLife1.name=Jon Schnee
-entity.got.JonSnowLife2.name≠
+entity.got.JonSnowLife2.name=Jon Schnee
 entity.got.JonosBracken.name=Jonos Bracken
 entity.got.JorahMormont.name=Jorah Mormont
 entity.got.JungleScorpion.name=Dschungelskorpion
@@ -403,14 +403,14 @@ entity.got.LorathFishmonger.name=Lorath Fischhändler
 entity.got.LorathFlorist.name=Lorata Blumenhändler
 entity.got.LorathGeneral.name=Lorath Kommandant
 entity.got.LorathGoldsmith.name=Lorath Goldschmied
-entity.got.LorathLevyman.name≠
-entity.got.LorathLevymanArcher.name≠
+entity.got.LorathLevyman.name=Lorath Miliz
+entity.got.LorathLevymanArcher.name=Lorath Bogenschütze
 entity.got.LorathLumberman.name=Lorath Holzfäller
 entity.got.LorathMan.name=Lorath Bewohner
 entity.got.LorathMason.name=Lorath Steinmetz
 entity.got.LorathMiner.name=Lorath Bergmann
-entity.got.LorathSoldier.name≠
-entity.got.LorathSoldierArcher.name≠
+entity.got.LorathSoldier.name=Lorath Krieger
+entity.got.LorathSoldierArcher.name=Lorath Krieger-Bogenschütze
 entity.got.LotharFrey.name≠
 entity.got.Luwin.name≠
 entity.got.LyleCrakehall.name=Layl Rallenhall
@@ -425,16 +425,16 @@ entity.got.LysFishmonger.name=Lys Fischhändler
 entity.got.LysFlorist.name=Lys Blumenhändler
 entity.got.LysGeneral.name=Lys Kommandant
 entity.got.LysGoldsmith.name=Lys Goldschmied
-entity.got.LysLevyman.name≠
-entity.got.LysLevymanArcher.name≠
+entity.got.LysLevyman.name=Lys Miliz
+entity.got.LysLevymanArcher.name=Lys Bogenschütze
 entity.got.LysLumberman.name=Lys Holzfäller
 entity.got.LysMan.name=Lys Bewohner
 entity.got.LysMason.name=Lys Steinmetz
 entity.got.LysMiner.name=Lys Bergmann
 entity.got.LysSlave.name=Lys Sklave
 entity.got.LysSlaver.name=Lys Sklavenhändler
-entity.got.LysSoldier.name≠
-entity.got.LysSoldierArcher.name≠
+entity.got.LysSoldier.name=Lys Krieger
+entity.got.LysSoldierArcher.name=Lys Krieger-Bogenschütze
 entity.got.LysaArryn.name≠
 entity.got.MaceTyrell.name=Maes Tyrell
 entity.got.MaegeMormont.name≠
@@ -456,10 +456,10 @@ entity.got.Missandei.name≠
 entity.got.MonfordVelaryon.name=Monford Velaryon
 entity.got.Moqorro.name≠
 entity.got.MoribaldChester.name≠
-entity.got.MossovyBartender.name≠
-entity.got.MossovyBlacksmith.name≠
-entity.got.MossovyFarmer.name≠
-entity.got.MossovyMan.name≠
+entity.got.MossovyBartender.name=Mossovy Kneipenwirt
+entity.got.MossovyBlacksmith.name=Mossovy Schmied
+entity.got.MossovyFarmer.name=Mossovy Bauer
+entity.got.MossovyMan.name=Mossovy Bewohner
 entity.got.MossovyWerewolf.name=Mossovy Werwolf
 entity.got.MossovyWitcher.name=Mossovy Monsterjäger
 entity.got.Mullin.name=Mullin
@@ -473,16 +473,16 @@ entity.got.MyrFishmonger.name=Myr Fischhändler
 entity.got.MyrFlorist.name=Myr Blumenhändler
 entity.got.MyrGeneral.name=Myr Kommandant
 entity.got.MyrGoldsmith.name=Myr Goldschmied
-entity.got.MyrLevyman.name≠
-entity.got.MyrLevymanArcher.name≠
+entity.got.MyrLevyman.name=Myr Miliz
+entity.got.MyrLevymanArcher.name=Myr Bogenschütze
 entity.got.MyrLumberman.name=Myr Holzfäller
 entity.got.MyrMan.name=Myr Bewohner
 entity.got.MyrMason.name=Myr Steinmetz
 entity.got.MyrMiner.name=Myr Bergmann
 entity.got.MyrSlave.name=Myr Sklave
 entity.got.MyrSlaver.name=Myr Sklavenhändler
-entity.got.MyrSoldier.name≠
-entity.got.MyrSoldierArcher.name≠
+entity.got.MyrSoldier.name=Myr Krieger
+entity.got.MyrSoldierArcher.name=Myr Krieger-Bogenschütze
 entity.got.MyrcellaBaratheon.name≠
 entity.got.MysteryWeb.name=Geheimnis des Kokons
 entity.got.NPCRespawner.name=NPC Respawner
@@ -498,7 +498,7 @@ entity.got.NorthFarmer.name=Norden Bauer
 entity.got.NorthFarmhand.name=Norden Knecht
 entity.got.NorthFishmonger.name=Norden Fischhändler
 entity.got.NorthFlorist.name=Norden Blumenhändler
-entity.got.NorthGoldsmith.name≠
+entity.got.NorthGoldsmith.name=Norden Goldschmied
 entity.got.NorthGreengrocer.name=Norden Gemüsehändler
 entity.got.NorthGuard.name=Wache von Weißwasserhafen
 entity.got.NorthHillman.name=Mitglied der Bergstämme des Nordens
@@ -577,9 +577,9 @@ entity.got.QarthFishmonger.name=Qarth Fischhändler
 entity.got.QarthFlorist.name=Qarth Blumenhändler
 entity.got.QarthGoldsmith.name=Qarth Goldschmied
 entity.got.QarthGuard.name=Qarth Wache
-entity.got.QarthGuardCaptain.name≠
-entity.got.QarthLevyman.name≠
-entity.got.QarthLevymanArcher.name≠
+entity.got.QarthGuardCaptain.name=Qarth Hauptmann der Wache
+entity.got.QarthLevyman.name=Qarth Miliz
+entity.got.QarthLevymanArcher.name-Qarth Bogenschütze
 entity.got.QarthLumberman.name=Qarth Holzfäller
 entity.got.QarthMan.name=Qarth Bewohner
 entity.got.QarthMason.name=Qarth Steinmetz
@@ -598,7 +598,7 @@ entity.got.QohorGoldsmith.name=Qohor Goldschmied
 entity.got.QohorGuard.name=Qohor Wache
 entity.got.QohorGuardCaptain.name=Qohor Hauptmann der Wache
 entity.got.QohorLevyman.name=Qohor Miliz
-entity.got.QohorLevymanArcher.name≠
+entity.got.QohorLevymanArcher.name=Qohor Bogenschütze
 entity.got.QohorLumberman.name=Qohor Holzfäller
 entity.got.QohorMan.name=Qohor Bewohner
 entity.got.QohorMason.name=Qohor Steinmetz
@@ -624,7 +624,7 @@ entity.got.ReachFarmer.name=Weite Bauer
 entity.got.ReachFarmhand.name=Weite Knecht
 entity.got.ReachFishmonger.name=Weite Fischhändler
 entity.got.ReachFlorist.name=Weite Blumenhändler
-entity.got.ReachGoldsmith.name≠
+entity.got.ReachGoldsmith.nameWeite Goldschmied
 entity.got.ReachGreengrocer.name=Weite Gemüsehändler
 entity.got.ReachGuard.name=Wache von Altsass
 entity.got.ReachLevyman.name=Weite Miliz
@@ -651,7 +651,7 @@ entity.got.RiverlandsFarmer.name=Flusslande Bauer
 entity.got.RiverlandsFarmhand.name=Flusslande Knecht
 entity.got.RiverlandsFishmonger.name=Flusslande Fischhändler
 entity.got.RiverlandsFlorist.name=Flusslande Blumenhändler
-entity.got.RiverlandsGoldsmith.name≠
+entity.got.RiverlandsGoldsmith.name=Flusslande Goldschmied
 entity.got.RiverlandsGreengrocer.name=Flusslande Gemüsehändler
 entity.got.RiverlandsLevyman.name=Flusslande Miliz
 entity.got.RiverlandsLevymanArcher.name=Flusslande Bogenschützenmiliz
@@ -703,10 +703,10 @@ entity.got.StormlandsFarmer.name=Sturmlande Bauer
 entity.got.StormlandsFarmhand.name=Sturmlande Knecht
 entity.got.StormlandsFishmonger.name=Sturmlande Fischhändler
 entity.got.StormlandsFlorist.name=Sturmlande Blumenhändler
-entity.got.StormlandsGoldsmith.name≠
+entity.got.StormlandsGoldsmith.name=Sturmlande Goldschmied
 entity.got.StormlandsGreengrocer.name=Sturmlande Gemüsehändler
 entity.got.StormlandsLevyman.name=Sturmlande Miliz
-entity.got.StormlandsLevymanArcher.name=Sturmlande Bogenschützemiliz
+entity.got.StormlandsLevymanArcher.name=Sturmlande Bogenschütze
 entity.got.StormlandsLumberman.name=Sturmlande Holzfäller
 entity.got.StormlandsMan.name=Sturmlande Bewohner
 entity.got.StormlandsMason.name=Sturmlande Steinmetz
@@ -764,16 +764,16 @@ entity.got.TyroshFishmonger.name=Tyrosh Fischhändler
 entity.got.TyroshFlorist.name=Tyrosh Blumenhändler
 entity.got.TyroshGeneral.name=Tyrosh Kommandant
 entity.got.TyroshGoldsmith.name=Tyrosh Goldschmied
-entity.got.TyroshLevyman.name≠
-entity.got.TyroshLevymanArcher.name≠
+entity.got.TyroshLevyman.name=Tyrosh Miliz
+entity.got.TyroshLevymanArcher.name=Tyrosh Bogenschütze
 entity.got.TyroshLumberman.name=Tyrosh Holzfäller
 entity.got.TyroshMan.name=Tyrosh Bewohner
 entity.got.TyroshMason.name=Tyrosh Steinmetz
 entity.got.TyroshMiner.name=Tyrosh Bergmann
 entity.got.TyroshSlave.name=Tyrosh Sklave
 entity.got.TyroshSlaver.name=Tyrosh Sklavenhändler
-entity.got.TyroshSoldier.name≠
-entity.got.TyroshSoldierArcher.name≠
+entity.got.TyroshSoldier.name=Tyrosh Krieger
+entity.got.TyroshSoldierArcher.name=Tyrosh Krieger-Bogenschütze
 entity.got.TytosBlackwood.name=Tytos Schwarzhain
 entity.got.TytosBrax.name=Tytos Brax
 entity.got.TywinLannister.name=Tywin Lennister
@@ -791,16 +791,16 @@ entity.got.VolantisFishmonger.name=Volantis Fischhändler
 entity.got.VolantisFlorist.name=Volantis Blumenhändler
 entity.got.VolantisGeneral.name=Volantis Kommandant
 entity.got.VolantisGoldsmith.name=Volantis Goldschmied
-entity.got.VolantisLevyman.name≠
-entity.got.VolantisLevymanArcher.name≠
+entity.got.VolantisLevyman.name=Volantis Miliz
+entity.got.VolantisLevymanArcher.name=Volantis Bogenschütze
 entity.got.VolantisLumberman.name=Volantis Holzfäller
 entity.got.VolantisMan.name=Volantis Bewohner
 entity.got.VolantisMason.name=Volantis Steinmetz
 entity.got.VolantisMiner.name=Volantis Bergmann
 entity.got.VolantisSlave.name=Volantis Sklave
 entity.got.VolantisSlaver.name=Volantis Sklavenhändler
-entity.got.VolantisSoldier.name≠
-entity.got.VolantisSoldierArcher.name≠
+entity.got.VolantisSoldier.name=Volantis Krieger
+entity.got.VolantisSoldierArcher.name=Volantis Krieger-Bogenschütze
 entity.got.WalderFrey.name=Walder Frey
 entity.got.Walrus.name=Walross
 entity.got.WesterlandsBaker.name=Westlande Bäcker
@@ -814,11 +814,11 @@ entity.got.WesterlandsFarmer.name=Westlande Bauer
 entity.got.WesterlandsFarmhand.name=Westlande Knecht
 entity.got.WesterlandsFishmonger.name=Westlande Fischhändler
 entity.got.WesterlandsFlorist.name=Westlande Blumenhändler
-entity.got.WesterlandsGoldsmith.name≠
+entity.got.WesterlandsGoldsmith.name=Westlande Goldschmied
 entity.got.WesterlandsGreengrocer.name=Westlande Gemüsehändler
 entity.got.WesterlandsGuard.name=Westlande Wächter
 entity.got.WesterlandsLevyman.name=Westlande Miliz
-entity.got.WesterlandsLevymanArcher.name=Westlande Bogenschützemiliz
+entity.got.WesterlandsLevymanArcher.name=Westlande Bogenschütze
 entity.got.WesterlandsLumberman.name=Westlande Holzfäller
 entity.got.WesterlandsMan.name=Westlande Bewohner
 entity.got.WesterlandsMason.name=Westlande Steinmetz
@@ -1568,7 +1568,7 @@ got.biome.tarth=Tarth
 got.biome.thenn=Thenn
 got.biome.tropicalForest=Tropische Wälder
 got.biome.tyrosh=Tyrosh
-got.biome.ulos≠
+got.biome.ulos=Ulos
 got.biome.ulthos=Ulthos
 got.biome.ulthosDesert=Ulthos Wüste
 got.biome.ulthosMountains=Ulthos Berge
@@ -1825,18 +1825,18 @@ got.container.crafting.asshai=Asshais Werkbank
 got.container.crafting.braavos=Braavos Werkbank
 got.container.crafting.crownlands=Kronlanden Werkbank
 got.container.crafting.dorne=Dorne Werkbank
-got.container.crafting.dothraki≠
+got.container.crafting.dothraki=Dothraki Werkbank
 got.container.crafting.dragonstone=Drachenstein Werkbank
 got.container.crafting.ghiscar=Giscar Werkbank
 got.container.crafting.gift=Nachtwachen Werkbank
 got.container.crafting.hillmen=Mondberge Werkbank
 got.container.crafting.ibben=Ibben Werkbank
 got.container.crafting.ironborn=Eiseninseln Werkbank
-got.container.crafting.jogos≠
+got.container.crafting.jogos=Jogos Nhai Werkbank
 got.container.crafting.lhazar=Lhazar Werkbank
 got.container.crafting.lorath=Lorath Werkbank
 got.container.crafting.lys=Lys Werkbank
-got.container.crafting.mossovy≠
+got.container.crafting.mossovy=Mossovy Werkbank
 got.container.crafting.myr=Myr Werkbank
 got.container.crafting.north=Norden Werkbank
 got.container.crafting.norvos=Norvos Werkbank
@@ -1863,7 +1863,7 @@ got.container.trade.locked=...
 got.container.trade.sell=Verkaufen
 got.container.trade.sellOffer=Angebot
 got.container.trade.sellPrice=X %d
-got.container.unitTrade.pledge≠
+got.container.unitTrade.pledge=Mehr...
 got.container.unitTrade.requiresAlignment=Benötigt eine Reputationspunkte von +%d
 got.container.unitTrade.squadronBox=Zugehörigkeit?
 got.container.unsmeltery=Schmelzkessel
@@ -1928,7 +1928,7 @@ got.enchant.meleeSlow1=(Schwerfällig)
 got.enchant.meleeSpeed.desc=%s Geschwindigkeit
 got.enchant.meleeSpeed1=(Rasch)
 got.enchant.meleeUnreach1=(Verkümmert)
-got.enchant.nameFormat≠
+got.enchant.nameFormat=%s %s
 got.enchant.protect.desc=%s erhöte Verteidigung
 got.enchant.protect1=(Zäh)
 got.enchant.protect2=(Robust)
@@ -1999,7 +1999,7 @@ got.faction.GHISCAR.subtitle=Bucht derSklavenhändler
 got.faction.HILL_TRIBES.entity=Hochländer
 got.faction.HILL_TRIBES.name=Bergstämme
 got.faction.HILL_TRIBES.subtitle=Bergstämme des Tals
-got.faction.HOSTILE.name≠
+got.faction.HOSTILE.name=Der Feind
 got.faction.IBBEN.entity=Leute von Ibben
 got.faction.IBBEN.name=Ibben
 got.faction.IBBEN.subtitle=Ibben Zwergwalfänger
@@ -2094,9 +2094,9 @@ got.fastTravel.travelTicks=Schnellreise startet in %d Sekunden...
 got.fastTravel.travelTicksStart=Schnellreise startet in %d. Bloß nicht bewegen... Du könntest Schaden nehmen!
 got.fastTravel.underAttack=Du kannst so einem Angriff nicht entkommen!
 got.gui.achievements.category=%s (%d/%d)
-got.gui.achievements.hover.name=%s
-got.gui.achievements.hover.subtitle≠
-got.gui.achievements.title=Spiel um Throne-Errungenschaften
+got.gui.achievements.hover.name=%s (%s)
+got.gui.achievements.hover.subtitle=%s Errungenschaft
+got.gui.achievements.title=%s-Errungenschaften (%d/%d)
 got.gui.achievements=Errungenschaften
 got.gui.atribute=Schilde und Umhänge
 got.gui.authors.others=Und andere.
@@ -2360,9 +2360,9 @@ got.gui.openFolder=Konfigurationsordner öffnen
 got.gui.options.conquest.desc.off=AUS: Das Töten von Feinden beinflusst Eroberungen nicht
 got.gui.options.conquest.desc.on=AN: Das Töten von Feinden vergößert deine Eroberungen oder löscht feindliche Eroberungen auf dem Gebiet aus
 got.gui.options.conquest=Eroberungserweiterungen
-got.gui.options.femRank.desc.off≠
-got.gui.options.femRank.desc.on≠
-got.gui.options.femRank≠
+got.gui.options.femRank=Weibliche Rängenamen
+got.gui.options.femRank.desc.on=AN: Ränge werden immer in ihrer weiblichen Form angezeigt
+got.gui.options.femRank.desc.off=AUS: Ränge werden in ihrer weiblichen Form angezeigt, wenn dein derzeitiger Rang weiblich ist
 got.gui.options.friendlyFire.desc.off=AUS: Verbündete NPCs können nicht angegriffen, verletzt, oder gereizt werden, außer sie greifen dich zuerst an
 got.gui.options.friendlyFire.desc.on=AN: Alle NPCs, auch verbündete angeheuerte Einheiten können angegriffen werden
 got.gui.options.friendlyFire=Friendly Fire
@@ -2459,7 +2459,7 @@ got.invasion.DORNE.horn=Invasion beschwören - Dorne
 got.invasion.DOTHRAKI.horn=Invasion beschwören - Dothraki
 got.invasion.DRAGONSTONE.horn=Invasion beschwören - Drachenstein
 got.invasion.GHISCAR.horn=Invasion beschwören - Ghiskar
-got.invasion.HILL_TRIBES.horn≠
+got.invasion.HILL_TRIBES.horn=Invasion beschwören - Montberge
 got.invasion.IBBEN.horn=Invasion beschwören - Ibben
 got.invasion.IRONBORN.horn=Invasion beschwören - Eiseninseln
 got.invasion.JOGOS.horn=Invasion beschwören - Jogos Nhai
@@ -2505,7 +2505,7 @@ got.miniquest.collect.progress=%d von %d gebracht
 got.miniquest.collect=Sammle %d %s
 got.miniquest.kill.progress=%d von %d getötet
 got.miniquest.kill=Töte %d %s
-got.miniquest.pickpocket.progress≠
+got.miniquest.pickpocket.progress=%d von %d gebracht
 got.miniquest.pickpocket=Diebstahl NPC (Shift + RMB)
 got.miniquest.progressShort=%d / %d
 got.miniquest.retrieve.progress=%d von %d geborgen
@@ -2520,59 +2520,59 @@ got.miniquest.welcome.speak=Rede mit dem Grauen Wanderer
 got.music.nowPlaying=Nun erklingt:
 got.potion.drinkPoison=Vergiftetes Getränk
 got.potion=Verweilen
-got.rank.ARRYN≠
-got.rank.ASSHAI≠
-got.rank.BRAAVOS≠
-got.rank.CROWNLANDS≠
-got.rank.DORNE≠
-got.rank.DOTHRAKI≠
-got.rank.DRAGONSTONE≠
-got.rank.GHISCAR≠
-got.rank.HILL_TRIBES≠
+got.rank.ARRYN=der Grünes Tal
+got.rank.ASSHAI=der Asshai
+got.rank.BRAAVOS=der Braavos
+got.rank.CROWNLANDS=der Kronlande
+got.rank.DORNE=der Dorne
+got.rank.DOTHRAKI=der Dothraki
+got.rank.DRAGONSTONE=der Drachenstein
+got.rank.GHISCAR=der Ghiscari
+got.rank.HILL_TRIBES=der Montberge
 got.rank.HOSTILE≠
-got.rank.IBBEN≠
-got.rank.IRONBORN≠
-got.rank.JOGOS≠
-got.rank.LHAZAR≠
-got.rank.LORATH≠
-got.rank.LYS≠
-got.rank.MOSSOVY≠
-got.rank.MYR≠
-got.rank.NIGHT_WATCH≠
-got.rank.NORTH≠
-got.rank.NORVOS≠
-got.rank.PENTOS≠
-got.rank.QARTH≠
-got.rank.QOHOR≠
-got.rank.REACH≠
-got.rank.RIVERLANDS≠
-got.rank.SOTHORYOS≠
-got.rank.STORMLANDS≠
-got.rank.SUMMER_ISLANDS≠
-got.rank.TYROSH≠
-got.rank.ULTHOS≠
+got.rank.IBBEN=der Ibben
+got.rank.IRONBORN=der Eiseninseln
+got.rank.JOGOS=der Jogos Nhai
+got.rank.LHAZAR=der Lhazar
+got.rank.LORATH=der Lorath
+got.rank.LYS=der Lys
+got.rank.MOSSOVY=der Mossovy
+got.rank.MYR=der Myr
+got.rank.NIGHT_WATCH=der Nachtwache
+got.rank.NORTH=der Norden
+got.rank.NORVOS=der Norvos
+got.rank.PENTOS=der Pentos
+got.rank.QARTH=der Qarth
+got.rank.QOHOR=der Qohor
+got.rank.REACH=der Reach
+got.rank.RIVERLANDS=der Flusslande
+got.rank.SOTHORYOS=der Sothoryos
+got.rank.STORMLANDS=der Sturmlande
+got.rank.SUMMER_ISLANDS=der Sommerinseln
+got.rank.TYROSH=der Tyrosh
+got.rank.ULTHOS=der Ulthos
 got.rank.UNALIGNED≠
-got.rank.VOLANTIS≠
-got.rank.WESTERLANDS≠
-got.rank.WHITE_WALKER≠
-got.rank.WILDLING≠
-got.rank.YI_TI≠
-got.rank.defender_fm≠
-got.rank.defender≠
-got.rank.enemy_fm≠
-got.rank.enemy≠
-got.rank.friend_fm≠
-got.rank.friend≠
-got.rank.guest_fm≠
-got.rank.guest≠
-got.rank.hero_fm≠
-got.rank.hero≠
-got.rank.king_fm≠
-got.rank.king≠
-got.rank.leader_fm≠
-got.rank.leader≠
-got.rank.neutral_fm≠
-got.rank.neutral≠
+got.rank.VOLANTIS=der Volantis
+got.rank.WESTERLANDS=der Westlande
+got.rank.WHITE_WALKER=der Weißer Wanderer
+got.rank.WILDLING=der Freies Volk
+got.rank.YI_TI=der Yi Ti
+got.rank.defender=Verteidiger
+got.rank.defender_fm=Verteidiger
+got.rank.enemy=Feind
+got.rank.enemy_fm=Feind
+got.rank.friend=Freund
+got.rank.friend_fm=Freundinnen
+got.rank.guest=Gast
+got.rank.guest_fm=Gast
+got.rank.hero=Held
+got.rank.hero_fm=Heldin
+got.rank.king=König der Nacht
+got.rank.king_fm=Königin der Nacht
+got.rank.leader=Protector
+got.rank.leader_fm=Patronin
+got.rank.neutral=Sidekick
+got.rank.neutral_fm=Hure
 got.shields.ACHIEVEMENT_BRONZE.desc=Belohnung für das Erreichen von 10 Erfolgen
 got.shields.ACHIEVEMENT_BRONZE.name=Bronzeschild
 got.shields.ACHIEVEMENT_GOLD.desc=Belohnung für das Erreichen von 30 Erfolgen
@@ -2584,27 +2584,27 @@ got.shields.ACHIEVEMENT_VALYRIAN.name=Valyrian Schild
 got.shields.ALCOHOLIC.desc=Belohnung für chronischen Alkoholismus
 got.shields.ALCOHOLIC.name=Schild des Alkoholikers
 got.shields.ARRYN.name=Tal von Arryn Schild
-got.shields.ARRYNGUARD.name=Wächterschild der Möwenstadt
-got.shields.ASSHAI.name≠
-got.shields.BRAAVOS.name=Schild von Braavos
+got.shields.ARRYNGUARD.name=Möwenstadt Schild
+got.shields.ASSHAI.name=Asshai Schild
+got.shields.BRAAVOS.name=Braavos Schild
 got.shields.CROWNLANDS.name=Kronlanden Schild
 got.shields.DORNE.name=Dorns Schild
 got.shields.DRAGONSTONE.name=Drachenstein Schild
-got.shields.GHISCAR.name=Ghiskar Schild
+got.shields.GHISCAR.name=Ghiskari Schild
 got.shields.GOLDENCOMPANY.desc≠
 got.shields.GOLDENCOMPANY.name≠
 got.shields.HILLMEN.name=Bergklan Schild
-got.shields.IRONBORN.name=Schild der Eiseninseln
+got.shields.IRONBORN.name=Eiseninseln Schild
 got.shields.LORATH.name=Lorath Schild
 got.shields.LYS.name=Lys Schild
-got.shields.MYR.name=Friedensschild
-got.shields.NORTH.name=Schild des Nordens
-got.shields.NORTHGUARD.name=Schild der Wachen des weißwasserhafens
+got.shields.MYR.name=Myr Schild
+got.shields.NORTH.name=Norden Schild
+got.shields.NORTHGUARD.name=Weißwasserhafens Schild
 got.shields.NORVOS.name=Norvos Schild
-got.shields.PENTOS.name=Schild von Pentos
+got.shields.PENTOS.name=Pentos Schild
 got.shields.QARTH.name=Qarth Schild
-got.shields.QOHOR.name=Schild von Qohor
-got.shields.REACH.name=Schild der Weite
+got.shields.QOHOR.name=Qohor Schild
+got.shields.REACH.name=Weite Schild
 got.shields.REACHGUARD.name=Altsass Wachen Schild
 got.shields.RIVERLANDS.name=Flusslanden Schild
 got.shields.SOTHORYOS.name=Sothoryos Schild
@@ -2613,7 +2613,7 @@ got.shields.SUMMER.name=Sommerinseln Schild
 got.shields.TARGARYEN.desc=Für Spiel um Throne-Entwickler.
 got.shields.TARGARYEN.name=Targaryen Schild
 got.shields.TYROSH.name=Tyrosh Schild
-got.shields.UNSULLIED.name=Schild der Unbefleckten
+got.shields.UNSULLIED.name=Unbefleckten Schild
 got.shields.VOLANTIS.name=Volantis Schild
 got.shields.WESTERLANDS.name=Westlanden Schild
 got.shields.WESTERLANDSGUARD.name≠
@@ -2659,7 +2659,7 @@ got.structure.BraavosStables.name=Braavos Ställe
 got.structure.BraavosTavern.name=Braavos Taverne
 got.structure.BraavosTower.name=Turm von Braavos
 got.structure.BraavosTraining.name=Braavos Trainingslager
-got.structure.BurntHouse.name≠
+got.structure.BurntHouse.name=Niedergebranntes Haus
 got.structure.CrownlandsBarn.name=Kronlanden Scheune
 got.structure.CrownlandsBath.name=Kronlanden Schwimmbad
 got.structure.CrownlandsCityBig.name=Kronlanden Stadt
@@ -2817,16 +2817,16 @@ got.structure.LysStables.name=Lys Ställe
 got.structure.LysTavern.name=Lys Taverne
 got.structure.LysTower.name=Lys Turm
 got.structure.LysTraining.name=Lys Trainingslager
-got.structure.MossovyBarn.name≠
+got.structure.MossovyBarn.name=Mossovy Scheune
 got.structure.MossovyCamp.name=Mossovy Zeltlager
-got.structure.MossovyCastle.name≠
-got.structure.MossovyHouse.name≠
-got.structure.MossovyInn.name≠
-got.structure.MossovyOffice.name≠
-got.structure.MossovySmithy.name≠
-got.structure.MossovyStable.name≠
+got.structure.MossovyCastle.name=Mossovy Festung
+got.structure.MossovyHouse.name=Mossovy Haus
+got.structure.MossovyInn.name=Mossovy Taverne
+got.structure.MossovyOffice.name=Mossovy Villa
+got.structure.MossovySmithy.name=Mossovy Schmied
+got.structure.MossovyStable.name=Mossovy Ställe
 got.structure.MossovyThiefHouse.name≠
-got.structure.MossovyVillage.name≠
+got.structure.MossovyVillage.name=Mossovy Dorf
 got.structure.MossovyVillageLight.name≠
 got.structure.MyrBarracks.name=Myr Kaserne
 got.structure.MyrBazaar.name=Myr Basar
@@ -2944,7 +2944,7 @@ got.structure.RiverlandsTavern.name=Flusslanden Taverne
 got.structure.RiverlandsTower.name=Flusslanden Turm
 got.structure.RiverlandsWatchfort.name=Flusslanden Fort
 got.structure.RiverlandsWatchtower.name=Flusslanden Turm
-got.structure.RottenHouse.name≠
+got.structure.RottenHouse.name=Vermodertes Haus
 got.structure.RuinAsshai.name≠
 got.structure.RuinSandstone.name≠
 got.structure.RuinSothoryos.name≠
@@ -2952,7 +2952,7 @@ got.structure.RuinStone.name≠
 got.structure.RuinYiTi.name≠
 got.structure.RuinedGiftHouse.name=Ruinen von Daras Haus
 got.structure.RuinedGiftTower.name=Ruinen des Dara-Turms
-got.structure.RuinedHouse.name≠
+got.structure.RuinedHouse.name=Zerfallenes Haus
 got.structure.RuinedNorthTower.name=Ruinen des Wachtturms von Norden
 got.structure.RuinedTower.name=Ruinen des Leuchtturms von Norden
 got.structure.SmallStoneRuin.name≠
