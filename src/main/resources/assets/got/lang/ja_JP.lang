@@ -5441,6 +5441,8 @@ tile.got.fenceVanilla.2.name=シラカバのフェンス
 tile.got.fenceVanilla.3.name=ジャングルのフェンス
 tile.got.fenceVanilla.4.name=アカシアのフェンス
 tile.got.fenceVanilla.5.name=ダークオークのフェンス
+tile.got.kebabStand.cooked≠
+tile.got.kebabStand.meats≠
 tile.got.wildFire.warning≠
 tile.got:alloyForge.name=溶融炉
 tile.got:aridGrass.name=乾燥した草
@@ -5587,7 +5589,6 @@ tile.got:commandTable.name=指揮官の机
 tile.got:coralReef.name=サンゴ礁
 tile.got:cornStalk.name=トウモロコシの茎
 tile.got:cucumberPlant.name≠
-tile.got:cucumberSeeds.name≠
 tile.got:daub.name=しっくいの壁
 tile.got:deadMarshPlant.name=死者の沼地の植物
 tile.got:dirtPath.0.name=土の道路
@@ -5686,7 +5687,6 @@ tile.got:fence3.3.name=ヤシのフェンス
 tile.got:fence3.4.name=リュウケツジュのフェンス
 tile.got:fence3.5.name=カヌカのフェンス
 tile.got:fence3.6.name≠
-tile.got:fenceGate.name≠
 tile.got:fenceGateAcacia.name=アカシアのフェンスゲート
 tile.got:fenceGateAlmond.name=アーモンドのフェンスゲート
 tile.got:fenceGateApple.name=リンゴの木のフェンスゲート
@@ -5764,8 +5764,6 @@ tile.got:goldBars.name=金の格子
 tile.got:grapevine.name=ブドウのつるの支柱
 tile.got:hearth.name=炉床ブロック
 tile.got:kebabBlock.name=ケバブブロック
-tile.got:kebabStand.cooked≠
-tile.got:kebabStand.meats≠
 tile.got:kebabStand.name=ケバブ台
 tile.got:kebabStandSand.name=砂岩のケバブ台
 tile.got:kelp.name≠
@@ -5809,12 +5807,10 @@ tile.got:marigold.name=マリーゴールド
 tile.got:marzipanBlock.name=マジパンブロック
 tile.got:millstone.name=石臼
 tile.got:mirkVines.name=闇の森のツタ
-tile.got:mobSpawner.name=モブスポナー
 tile.got:mud.0.name=ジャングルの泥
 tile.got:mud.1.name=不毛のジャングルの泥
 tile.got:mudFarmland.name=ジャングルの泥の農地
 tile.got:mudGrass.name=ジャングルの草
-tile.got:niphredil.name=ニフレディル
 tile.got:obsidianGravel.name=黒曜石の砂利
 tile.got:oreCobalt.name≠
 tile.got:oreCopper.name=銅鉱石
@@ -5908,7 +5904,6 @@ tile.got:redClay.name=赤色の粘土
 tile.got:redSandstone.name=赤い砂岩
 tile.got:reedBars.name=葦の格子
 tile.got:reeds.name=葦
-tile.got:remains.name=遺物
 tile.got:rock.0.name≠
 tile.got:rock.1.name≠
 tile.got:rock.2.name≠
@@ -6213,7 +6208,6 @@ tile.got:stalactiteIce.0.name=つらら
 tile.got:stalactiteIce.1.name=氷筍
 tile.got:stalactiteObsidian.0.name=黒曜石の鍾乳石
 tile.got:stalactiteObsidian.1.name=黒曜石の石筍
-tile.got:stoneSlab.stone.name≠
 tile.got:tableArryn.name≠
 tile.got:tableAsshai.name≠
 tile.got:tableBraavos.name≠

@@ -71,6 +71,7 @@ import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList.*;
 import got.common.world.spawning.GOTSpawnEntry;
 import got.common.world.structure.other.*;
+import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.item.*;
 import net.minecraft.item.Item.ToolMaterial;
@@ -1047,7 +1048,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 	}
 
 	public static void generateWikiaDatabases() throws NoSuchFieldException, IllegalAccessException {
-		String display = "langItems";
+		String display = "langBlocks";
 		if ("chest".equals(display)) {
 			for (GOTChestContents content : GOTCommander.getObjectFieldsOfType(GOTChestContents.class, GOTChestContents.class)) {
 				GOTLog.logger.info(content + " = ");
@@ -1082,7 +1083,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			String genInfo = StatCollector.translateToLocal(item.getUnlocalizedName() + ".name") + " || [[File:" + item.getUnlocalizedName().substring(9) + ".png|32px|link=]] ||";
 			if ("langItems".equals(display)) {
 				if (StatCollector.translateToLocal(item.getUnlocalizedName() + ".name").contains("item.got:banner")) {
-					for (BannerType type: GOTItemBanner.BannerType.values()) {
+					for (BannerType type : GOTItemBanner.BannerType.values()) {
 						GOTLog.logger.info(item.getUnlocalizedName() + "." + type.bannerName + ".name=" + StatCollector.translateToLocal(item.getUnlocalizedName() + "." + type.bannerName + ".name"));
 					}
 				} else if (StatCollector.translateToLocal(item.getUnlocalizedName() + ".name").contains("item.got:coin")) {
@@ -1134,7 +1135,18 @@ public class DatabaseGenerator extends GOTStructureBase {
 				GOTLog.logger.info("|-");
 			}
 		}
-
+		for (Block block : GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Block.class)) {
+			if ("langBlocks".equals(display)) {
+				if (!StatCollector.translateToLocal(block.getUnlocalizedName() + ".name").contains("tile.got:")) {
+					GOTLog.logger.info(block.getUnlocalizedName() + ".name=" + StatCollector.translateToLocal(block.getUnlocalizedName() + ".name"));
+				}
+				for (int i = 0; i < 16; i++) {
+					if (!StatCollector.translateToLocal(block.getUnlocalizedName() + "." + i + ".name").contains("tile.got:")) {
+						GOTLog.logger.info(block.getUnlocalizedName() + "." + i + ".name=" + StatCollector.translateToLocal(block.getUnlocalizedName() + "." + i + ".name"));
+					}
+				}
+			}
+		}
 		for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
 			if ("biomeType".equals(display)) {
 				GOTLog.logger.info("| " + biome.getName() + " = " + biome.type);

@@ -13,7 +13,7 @@ import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 public class GOTEntityRegistry {
-	public static HashMap<Integer, SpawnEggInfo> spawnEggs = new LinkedHashMap<>();
+	public static Map<Integer, SpawnEggInfo> spawnEggs = new LinkedHashMap<>();
 	public static Map<String, Integer> stringToIDMapping = new HashMap<>();
 	public static Map<Class<? extends Entity>, String> classToNameMapping = new HashMap<>();
 	public static Map<Integer, String> IDToStringMapping = new HashMap<>();

@@ -5441,6 +5441,8 @@ tile.got.fenceVanilla.2.name=Koivuaita
 tile.got.fenceVanilla.3.name=Viidakkopuuaita
 tile.got.fenceVanilla.4.name=Akaasiapuuaita
 tile.got.fenceVanilla.5.name=Tumma tammiaita
+tile.got.kebabStand.cooked≠
+tile.got.kebabStand.meats≠
 tile.got.wildFire.warning≠
 tile.got:alloyForge.name=Metalliseosuuni
 tile.got:aridGrass.name=Kuiva ruoho
@@ -5587,7 +5589,6 @@ tile.got:commandTable.name=Komentopöytä
 tile.got:coralReef.name≠
 tile.got:cornStalk.name=Maissin varsi
 tile.got:cucumberPlant.name≠
-tile.got:cucumberSeeds.name≠
 tile.got:daub.name≠
 tile.got:deadMarshPlant.name=Kalmansoiden varpu
 tile.got:dirtPath.0.name≠
@@ -5686,7 +5687,6 @@ tile.got:fence3.3.name≠
 tile.got:fence3.4.name≠
 tile.got:fence3.5.name≠
 tile.got:fence3.6.name≠
-tile.got:fenceGate.name≠
 tile.got:fenceGateAcacia.name≠
 tile.got:fenceGateAlmond.name≠
 tile.got:fenceGateApple.name≠
@@ -5764,8 +5764,6 @@ tile.got:goldBars.name=Kultakalterit
 tile.got:grapevine.name=Viiniköynnöstolppa
 tile.got:hearth.name=Tulisijakuutio 
 tile.got:kebabBlock.name≠
-tile.got:kebabStand.cooked≠
-tile.got:kebabStand.meats≠
 tile.got:kebabStand.name=Kebab-teline
 tile.got:kebabStandSand.name=Hiekkakivinen kebab-teline
 tile.got:kelp.name≠
@@ -5809,12 +5807,10 @@ tile.got:marigold.name=Samettikukka
 tile.got:marzipanBlock.name=Marsipaanikuutio
 tile.got:millstone.name≠
 tile.got:mirkVines.name=Synkmetsän köynnökset
-tile.got:mobSpawner.name=Olioiden luoja
 tile.got:mud.0.name≠
 tile.got:mud.1.name≠
 tile.got:mudFarmland.name=Viljelty viidakkomuta
 tile.got:mudGrass.name=Viidakkoruoho
-tile.got:niphredil.name=Niphredil
 tile.got:obsidianGravel.name=Obsidiaanihiekka
 tile.got:oreCobalt.name≠
 tile.got:oreCopper.name=Kuparimalmi
@@ -5908,7 +5904,6 @@ tile.got:redClay.name≠
 tile.got:redSandstone.name=Punainen hiekkakivi
 tile.got:reedBars.name=Kaislaristikko
 tile.got:reeds.name=Kaisloja
-tile.got:remains.name=Muinaisjäänteet
 tile.got:rock.0.name≠
 tile.got:rock.1.name≠
 tile.got:rock.2.name≠
@@ -6213,7 +6208,6 @@ tile.got:stalactiteIce.0.name≠
 tile.got:stalactiteIce.1.name≠
 tile.got:stalactiteObsidian.0.name≠
 tile.got:stalactiteObsidian.1.name≠
-tile.got:stoneSlab.stone.name≠
 tile.got:tableArryn.name≠
 tile.got:tableAsshai.name≠
 tile.got:tableBraavos.name≠

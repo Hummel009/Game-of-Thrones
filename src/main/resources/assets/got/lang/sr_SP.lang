@@ -5441,6 +5441,8 @@ tile.got.fenceVanilla.2.name≠
 tile.got.fenceVanilla.3.name≠
 tile.got.fenceVanilla.4.name≠
 tile.got.fenceVanilla.5.name≠
+tile.got.kebabStand.cooked≠
+tile.got.kebabStand.meats≠
 tile.got.wildFire.warning≠
 tile.got:alloyForge.name≠
 tile.got:aridGrass.name=Аридна Трава
@@ -5587,7 +5589,6 @@ tile.got:commandTable.name≠
 tile.got:coralReef.name≠
 tile.got:cornStalk.name≠
 tile.got:cucumberPlant.name≠
-tile.got:cucumberSeeds.name≠
 tile.got:daub.name≠
 tile.got:deadMarshPlant.name=Биљка Мртве Мочваре
 tile.got:dirtPath.0.name≠
@@ -5686,7 +5687,6 @@ tile.got:fence3.3.name≠
 tile.got:fence3.4.name≠
 tile.got:fence3.5.name≠
 tile.got:fence3.6.name≠
-tile.got:fenceGate.name≠
 tile.got:fenceGateAcacia.name≠
 tile.got:fenceGateAlmond.name≠
 tile.got:fenceGateApple.name≠
@@ -5764,8 +5764,6 @@ tile.got:goldBars.name≠
 tile.got:grapevine.name≠
 tile.got:hearth.name=Блок Огњишта
 tile.got:kebabBlock.name≠
-tile.got:kebabStand.cooked≠
-tile.got:kebabStand.meats≠
 tile.got:kebabStand.name≠
 tile.got:kebabStandSand.name≠
 tile.got:kelp.name≠
@@ -5809,12 +5807,10 @@ tile.got:marigold.name≠
 tile.got:marzipanBlock.name≠
 tile.got:millstone.name≠
 tile.got:mirkVines.name≠
-tile.got:mobSpawner.name=Стваратељ Мобова
 tile.got:mud.0.name≠
 tile.got:mud.1.name≠
 tile.got:mudFarmland.name≠
 tile.got:mudGrass.name≠
-tile.got:niphredil.name=Нифредил
 tile.got:obsidianGravel.name≠
 tile.got:oreCobalt.name≠
 tile.got:oreCopper.name=Бакарна Руда
@@ -5908,7 +5904,6 @@ tile.got:redClay.name≠
 tile.got:redSandstone.name≠
 tile.got:reedBars.name≠
 tile.got:reeds.name≠
-tile.got:remains.name=Остаци
 tile.got:rock.0.name=Мордорска Стијена
 tile.got:rock.1.name=Гондорска Стијена
 tile.got:rock.2.name=Роханска Стијена
@@ -6213,7 +6208,6 @@ tile.got:stalactiteIce.0.name≠
 tile.got:stalactiteIce.1.name≠
 tile.got:stalactiteObsidian.0.name≠
 tile.got:stalactiteObsidian.1.name≠
-tile.got:stoneSlab.stone.name≠
 tile.got:tableArryn.name≠
 tile.got:tableAsshai.name≠
 tile.got:tableBraavos.name≠

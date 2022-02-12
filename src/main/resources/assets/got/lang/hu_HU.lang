@@ -5441,6 +5441,8 @@ tile.got.fenceVanilla.2.name=Nyírfa Kerítés
 tile.got.fenceVanilla.3.name=Dzsungelfa Kerítés
 tile.got.fenceVanilla.4.name=Akácia Kerítés
 tile.got.fenceVanilla.5.name=Sötéttölgy Kerítés
+tile.got.kebabStand.cooked≠
+tile.got.kebabStand.meats≠
 tile.got.wildFire.warning≠
 tile.got:alloyForge.name=Kohó
 tile.got:aridGrass.name=Száraz Fű
@@ -5587,7 +5589,6 @@ tile.got:commandTable.name=Terepasztal
 tile.got:coralReef.name=Korallzátony
 tile.got:cornStalk.name=Kukoricaszár
 tile.got:cucumberPlant.name≠
-tile.got:cucumberSeeds.name≠
 tile.got:daub.name=Paticsfal
 tile.got:deadMarshPlant.name=Holtlápi Növény
 tile.got:dirtPath.0.name≠
@@ -5686,7 +5687,6 @@ tile.got:fence3.3.name=Pálmafa Kerítés
 tile.got:fence3.4.name=Sárkányfa Kerítés
 tile.got:fence3.5.name≠
 tile.got:fence3.6.name≠
-tile.got:fenceGate.name≠
 tile.got:fenceGateAcacia.name=Akácia Kerítéskapu
 tile.got:fenceGateAlmond.name=Mandulafa Kerítéskapu
 tile.got:fenceGateApple.name=Almafa Kerítéskapu
@@ -5764,8 +5764,6 @@ tile.got:goldBars.name=Arany Rács
 tile.got:grapevine.name=Szőlőtőke
 tile.got:hearth.name=Tűzhely Blokk
 tile.got:kebabBlock.name=Kebabtömb
-tile.got:kebabStand.cooked≠
-tile.got:kebabStand.meats≠
 tile.got:kebabStand.name=Kebab Állvány
 tile.got:kebabStandSand.name=Homokkő Kebab Állvány
 tile.got:kelp.name≠
@@ -5809,12 +5807,10 @@ tile.got:marigold.name=Körömvirág
 tile.got:marzipanBlock.name=Marcipán Tömb
 tile.got:millstone.name=Malomkő
 tile.got:mirkVines.name=Bakacsinderdei Indák
-tile.got:mobSpawner.name=Mob Spawner
 tile.got:mud.0.name≠
 tile.got:mud.1.name≠
 tile.got:mudFarmland.name=Dzsungeli Sár Termőföld
 tile.got:mudGrass.name=Dzsungelfű
-tile.got:niphredil.name=Niphredil
 tile.got:obsidianGravel.name=Obszidián Sóder
 tile.got:oreCobalt.name≠
 tile.got:oreCopper.name=Rézérc
@@ -5908,7 +5904,6 @@ tile.got:redClay.name=Vörös Agyag
 tile.got:redSandstone.name=Vörös Homokkő
 tile.got:reedBars.name=Nád Rács
 tile.got:reeds.name=Nád
-tile.got:remains.name=Maradványok
 tile.got:rock.0.name≠
 tile.got:rock.1.name≠
 tile.got:rock.2.name≠
@@ -6213,7 +6208,6 @@ tile.got:stalactiteIce.0.name=Ice Sztalaktit
 tile.got:stalactiteIce.1.name=Ice Sztalagmit
 tile.got:stalactiteObsidian.0.name=Obsidian Sztalaktit
 tile.got:stalactiteObsidian.1.name=Obsidian Sztalagmit
-tile.got:stoneSlab.stone.name≠
 tile.got:tableArryn.name≠
 tile.got:tableAsshai.name≠
 tile.got:tableBraavos.name≠
