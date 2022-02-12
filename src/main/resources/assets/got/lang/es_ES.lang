@@ -2843,7 +2843,6 @@ got.structure.MyrTower.name=Torre de Myr
 got.structure.MyrTraining.name=Entrenamiento de Myr
 got.structure.NorthBarn.name=Granero del El Norte
 got.structure.NorthBath.name=Baño del El Norte
-got.structure.NorthBeaconTower.name=Atalaya del El Norte
 got.structure.NorthCottage.name=Casa de campo del El Norte
 got.structure.NorthFortVillage.name=Castillo del El Norte
 got.structure.NorthFortress.name=Fortaleza del El Norte
@@ -2856,8 +2855,8 @@ got.structure.NorthSmithy.name=Herrería del El Norte
 got.structure.NorthStables.name=Establos del El Norte
 got.structure.NorthStoneHouse.name=Casa de piedra del El Norte
 got.structure.NorthTavern.name=Taberna del El Norte
+got.structure.NorthTower.name≠
 got.structure.NorthTown.name=Pueblo del El Norte
-got.structure.NorthTurret.name=Torreta del El Norte
 got.structure.NorthVillage.name=Pueblo del El Norte
 got.structure.NorthWatchfort.name=Watchfort del El Norte
 got.structure.NorthWatchtower.name=Atalaya del El Norte
