@@ -25,7 +25,7 @@ public class GOTItemPipe extends Item {
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		int color = GOTItemPipe.getSmokeColor(itemstack);
-		list.add(StatCollector.translateToLocal(this.getUnlocalizedName() + ".subtitle." + color));
+		list.add(StatCollector.translateToLocal("item.got.pipe.subtitle." + color));
 	}
 
 	@Override

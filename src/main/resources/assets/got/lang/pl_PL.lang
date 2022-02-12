@@ -4095,6 +4095,9 @@ item.got.antiwight≠
 item.got.banner.protect=Posiada dane na temat ochrony
 item.got.brandingIron.named=%s: %s
 item.got.brandingIron.unnamed=Nienazwane %s
+item.got.commandHorn.halt.name=Róg dowodzenia - Wstrzymaj jednostki
+item.got.commandHorn.ready.name=Róg dowodzenia - Przygotuj jednostki
+item.got.commandHorn.summon.name=Róg dowodzenia - Przywołaj jednostki
 item.got.cracker.empty=Niezamknięta %s
 item.got.cracker.sealedBy=Zamknięta przez %s
 item.got.cracker.sealedByDale=Dalijskich producentów zabawek
@@ -4118,6 +4121,23 @@ item.got.generic.stolen=Skradziony
 item.got.hat.dyed=Barwione
 item.got.hat.feathered=Pierzasty
 item.got.mqbook.activeQuests=%d aktywnych zadań
+item.got.pipe.subtitle.0=Biały dym
+item.got.pipe.subtitle.10=Purpurowy dym
+item.got.pipe.subtitle.11=Niebieski dym
+item.got.pipe.subtitle.12=Brązowy dym
+item.got.pipe.subtitle.13=Zielony dym
+item.got.pipe.subtitle.14=Czerwony dym
+item.got.pipe.subtitle.15=Czarny dym
+item.got.pipe.subtitle.16=Magiczny dym
+item.got.pipe.subtitle.1=Pomarańczowy dym
+item.got.pipe.subtitle.2=Magenta Smoke
+item.got.pipe.subtitle.3=Jasnoniebieski dym
+item.got.pipe.subtitle.4=Żółty dym
+item.got.pipe.subtitle.5=Dym Wapienny
+item.got.pipe.subtitle.6=Różowy dym
+item.got.pipe.subtitle.7=Szary dym
+item.got.pipe.subtitle.8=Jasnoszary dym
+item.got.pipe.subtitle.9=Cyan Smoke
 item.got.pouch.dyed=Barwione
 item.got.pouch.slots=%d z %d miejsc w użyciu
 item.got.robes.dyed=Barwiony
@@ -4181,7 +4201,6 @@ item.got:banner.aerionBook.name≠
 item.got:banner.algood.name≠
 item.got:banner.allyrion.name=Sztandar Allyrion
 item.got:banner.alqalis.name=Sztandar Alqualis
-item.got:banner.amber.name≠
 item.got:banner.ambrose.name=Sztandar Ambroży
 item.got:banner.amorylorch.name≠
 item.got:banner.andal.name=Sztandar Andal
@@ -4548,7 +4567,6 @@ item.got:banner.nymeria.name=Sztandar Nymerii
 item.got:banner.oakenfist.name≠
 item.got:banner.oakheart.name=Sztandar Oakheart
 item.got:banner.oberyn.name≠
-item.got:banner.oldflowers.name≠
 item.got:banner.orkwood.name=Sztandar Orkwood
 item.got:banner.orme.name≠
 item.got:banner.osgrey.name=Sztandar Osgreya
@@ -4708,7 +4726,6 @@ item.got:banner.tyrellBK.name=Sztandar Tyrella z Brightwater Keep
 item.got:banner.tyrelll.name=Sztandar Lorasa Tyrella
 item.got:banner.tyrion.name=Sztandar Tyriona
 item.got:banner.tyrosh.name=Sztandar Tyrosha
-item.got:banner.uffering.name≠
 item.got:banner.uller.name=Sztandar Ullera
 item.got:banner.umber.name=Sztandar Umberu
 item.got:banner.umberBook.name=Sztandar Umber (książka)
@@ -4830,7 +4847,6 @@ item.got:bronzeThrowingAxe.name=Brązowy topór do rzucania
 item.got:camelCooked.name=Pieczony wielbłąd
 item.got:camelRaw.name=Surowy wielbłąd
 item.got:cargocart.name=Cargocart
-item.got:catalpaNut.name≠
 item.got:celtigarAxe.name=Celtigar Axe
 item.got:ceramicMug.name=Ceramiczny kubeł
 item.got:ceramicPlate.name=Kamionkowy talerz
@@ -4852,10 +4868,7 @@ item.got:coin.4.name≠
 item.got:coin.4096.name≠
 item.got:coin.64.name≠
 item.got:coin.nominal.name≠
-item.got:commandHorn.halt.name=Róg dowodzenia - Wstrzymaj jednostki
 item.got:commandHorn.name=Róg dowodzenia
-item.got:commandHorn.ready.name=Róg dowodzenia - Przygotuj jednostki
-item.got:commandHorn.summon.name=Róg dowodzenia - Przywołaj jednostki
 item.got:commandSword.name=Miecz dowodzenis
 item.got:conquestHorn.name=Róg wojenny
 item.got:copperIngot.name=Miedziana Sztaba
@@ -4886,7 +4899,6 @@ item.got:dawn.name=Świt
 item.got:deerCooked.name=Pieczona dziczyzna
 item.got:deerRaw.name=Surowa dziczyzna
 item.got:diamond.name=Diament
-item.got:doorWood.name=Drzwi dębowe
 item.got:dorneBoots.name=Buty Dorne
 item.got:dorneChestplate.name=Napierśnik Dorne
 item.got:dorneHelmet.name=Hełm Dorne
@@ -4926,7 +4938,6 @@ item.got:flax.name=Len
 item.got:flaxSeeds.name=Nasiona lenu
 item.got:flintDagger.name=Flint Dagger
 item.got:flintSpear.name=Krzemienna Włócznia
-item.got:forresterSword.name=Wielki miecz Forresters
 item.got:fur.name=Futro
 item.got:furBed.name=Łóżko futrzane
 item.got:furBoots.name=Futrzane buty
@@ -4949,7 +4960,6 @@ item.got:ghiscarChestplate.name=Napierśnik Ghiscara
 item.got:ghiscarHelmet.name=Hełm Ghiscara
 item.got:ghiscarLeggings.name=Nogawice Ghiscar
 item.got:giftBoots.name=Buty Nocnej Straży
-item.got:giftBow.name=Łuk Nocnej Straży
 item.got:giftChestplate.name=Tunika Night's Watch
 item.got:giftHelmet.name=Kaptur Nocnej Straży
 item.got:giftLeggings.name=Nogawice Night's Watch
@@ -4966,7 +4976,6 @@ item.got:goldLeggings.name=Nogawice Golden Company
 item.got:goldRing.name=Złoty pierścień
 item.got:grapeRed.name=Czerwone winogrona
 item.got:grapeWhite.name=Zielone winogrona
-item.got:grapplingHook.name=Grappling Hook
 item.got:gregorCleganeSword.name=Miecz Gregora Clegane'a
 item.got:handGold.name=Broszka z ręki króla (1)
 item.got:handSilver.name=Broszka z ręki króla (2)
@@ -4979,6 +4988,9 @@ item.got:hillmenHelmet.name=Hełm Plemienia Wzgórza
 item.got:hillmenLeggings.name=Nogawice Hill Tribe
 item.got:honor.name≠
 item.got:horn.name=Róg
+item.got:horseArmorDiamond.name≠
+item.got:horseArmorGold.name≠
+item.got:horseArmorIron.name≠
 item.got:ibbenBoots.name≠
 item.got:ibbenChestplate.name≠
 item.got:ibbenHarpoon.name≠
@@ -5041,6 +5053,7 @@ item.got:lhazarSpear.name=Włócznia Lhazar
 item.got:lhazarSword.name=Miecz Lhazar
 item.got:lightbringer.name=Światłonośca
 item.got:lime.name=Limonka
+item.got:lingeringPotion.name≠
 item.got:lionBed.name=Łóżko z lwiej sierści
 item.got:lionCooked.name=Pieczony lew
 item.got:lionFur.name=Lwia sierść
@@ -5055,7 +5068,6 @@ item.got:lysBoots.name=Buty Lys
 item.got:lysChestplate.name=Napierśnik Lys
 item.got:lysHelmet.name=Hełm Lys
 item.got:lysLeggings.name=Nogawice Lys
-item.got:manFlesh.name=Ludzkie mięso
 item.got:mango.name=Mango
 item.got:mapleSyrup.name=Syrop klonowy
 item.got:marzipan.name=Marcepan
@@ -5066,7 +5078,6 @@ item.got:mossovyChestplate.name=Napierśnik omszały
 item.got:mossovyDagger.name≠
 item.got:mossovyLeggings.name=Nogawice Mossovy
 item.got:mossovySword.name=Srebrny miecz
-item.got:motorGrapplingHook.name=Motor Grappling Hook
 item.got:mug.name=Kufel
 item.got:mugAle.name=Piwo
 item.got:mugAppleJuice.name=Sok jabłkowy
@@ -5165,23 +5176,6 @@ item.got:pentosChestplate.name=Napierśnik Pentosa
 item.got:pentosHelmet.name=Hełm Pentosa
 item.got:pentosLeggings.name=Nogawice Pentos
 item.got:pipe.name=Rura
-item.got:pipe.subtitle.0=Biały dym
-item.got:pipe.subtitle.10=Purpurowy dym
-item.got:pipe.subtitle.11=Niebieski dym
-item.got:pipe.subtitle.12=Brązowy dym
-item.got:pipe.subtitle.13=Zielony dym
-item.got:pipe.subtitle.14=Czerwony dym
-item.got:pipe.subtitle.15=Czarny dym
-item.got:pipe.subtitle.16=Magiczny dym
-item.got:pipe.subtitle.1=Pomarańczowy dym
-item.got:pipe.subtitle.2=Magenta Smoke
-item.got:pipe.subtitle.3=Jasnoniebieski dym
-item.got:pipe.subtitle.4=Żółty dym
-item.got:pipe.subtitle.5=Dym Wapienny
-item.got:pipe.subtitle.6=Różowy dym
-item.got:pipe.subtitle.7=Szary dym
-item.got:pipe.subtitle.8=Jasnoszary dym
-item.got:pipe.subtitle.9=Cyan Smoke
 item.got:pipeweed.name=Fajkowe ziele
 item.got:pipeweedLeaf.name=Liść fajkowego ziela
 item.got:pipeweedSeeds.name=Nasiona fajkowego ziela
@@ -5262,7 +5256,6 @@ item.got:shishKebab.name=Szaszłyk
 item.got:silverIngot.name=Srebrna sztabka
 item.got:silverNugget.name=Samorodek srebra
 item.got:silverRing.name=Srebrny pierścień
-item.got:silversword.name=Srebrny miecz
 item.got:skullCup.name=Kubek z czaszki
 item.got:skullStaff.name=Kostur czaszki
 item.got:sling.name=Proca
@@ -5296,7 +5289,6 @@ item.got:stormlandsChestplate.name=Napierśnik z Krainy burzy
 item.got:stormlandsHelmet.name=Hełm Krainy burzy
 item.got:stormlandsLeggings.name=Nogawice Krainy burzy
 item.got:strawBed.name=Słomiane łóżko
-item.got:stricklandSword.name=Miecz Garry Strickland
 item.got:structureSpawner.name=Wybuduj:
 item.got:sulfur.name=Siarka
 item.got:sulfurMatch.name=Zapałka
@@ -5396,7 +5388,6 @@ item.got:wheel.name=Koło
 item.got:whiteBisonHorn.name=Róg bawołu Arawa
 item.got:whiteWalkersBoots.name≠
 item.got:whiteWalkersChestplate.name≠
-item.got:whiteWalkersHoe.name≠
 item.got:whiteWalkersLeggings.name≠
 item.got:widowWail.name=Wdowa płacz
 item.got:wildberry.name=Dzikie jagody

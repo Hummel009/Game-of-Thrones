@@ -61,6 +61,8 @@ import got.common.entity.westeros.westerlands.*;
 import got.common.entity.westeros.wildling.*;
 import got.common.entity.westeros.wildling.thenn.*;
 import got.common.faction.GOTFaction;
+import got.common.item.other.GOTItemBanner;
+import got.common.item.other.GOTItemBanner.BannerType;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.GOTBiomeDecorator.RandomStructure;
 import got.common.world.biome.variant.GOTBiomeVariantList.VariantBucket;
@@ -979,9 +981,9 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 		entities.put(GOTEntityHummel009.class, new GOTEntityHummel009(world));
 
-		String display = "lang";
+		String display = "null";
 		for (Class mob : entities.keySet()) {
-			if ("lang".equals(display)) {
+			if ("langMobs".equals(display)) {
 				if (GOTEntityRegistry.getEntityName(mob).contains("entity.got.")) {
 					GOTLog.logger.info("entity.got." + GOTEntityRegistry.getEntityNameFromClass(mob) + ".name" + "\u2260");
 				} else {
@@ -1045,7 +1047,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 	}
 
 	public static void generateWikiaDatabases() throws NoSuchFieldException, IllegalAccessException {
-		String display = "null";
+		String display = "langItems";
 		if ("chest".equals(display)) {
 			for (GOTChestContents content : GOTCommander.getObjectFieldsOfType(GOTChestContents.class, GOTChestContents.class)) {
 				GOTLog.logger.info(content + " = ");
@@ -1078,6 +1080,33 @@ public class DatabaseGenerator extends GOTStructureBase {
 		}
 		for (Item item : GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Item.class)) {
 			String genInfo = StatCollector.translateToLocal(item.getUnlocalizedName() + ".name") + " || [[File:" + item.getUnlocalizedName().substring(9) + ".png|32px|link=]] ||";
+			if ("langItems".equals(display)) {
+				if (StatCollector.translateToLocal(item.getUnlocalizedName() + ".name").contains("item.got:banner")) {
+					for (BannerType type: GOTItemBanner.BannerType.values()) {
+						GOTLog.logger.info(item.getUnlocalizedName() + "." + type.bannerName + ".name=" + StatCollector.translateToLocal(item.getUnlocalizedName() + "." + type.bannerName + ".name"));
+					}
+				} else if (StatCollector.translateToLocal(item.getUnlocalizedName() + ".name").contains("item.got:coin")) {
+					int nom = 1;
+					for (int i = 1; i < 9; i++) {
+						GOTLog.logger.info(item.getUnlocalizedName() + "." + nom + ".name" + "=" + StatCollector.translateToLocal(item.getUnlocalizedName() + "." + nom + ".name"));
+						nom *= 4;
+					}
+					GOTLog.logger.info("item.got:coin.nominal.name=" + StatCollector.translateToLocal("item.got:coin.nominal.name"));
+				} else if (StatCollector.translateToLocal(item.getUnlocalizedName() + ".name").contains("item.got:dye")) {
+					for (int i = 0; i < 6; i++) {
+						GOTLog.logger.info(item.getUnlocalizedName() + "." + i + ".name" + "=" + StatCollector.translateToLocal(item.getUnlocalizedName() + "." + i + ".name"));
+					}
+				} else if (StatCollector.translateToLocal(item.getUnlocalizedName() + ".name").contains("item.got:pouch")) {
+					for (int i = 0; i < 3; i++) {
+						GOTLog.logger.info(item.getUnlocalizedName() + "." + i + ".name" + "=" + StatCollector.translateToLocal(item.getUnlocalizedName() + "." + i + ".name"));
+					}
+				} else if (StatCollector.translateToLocal(item.getUnlocalizedName() + ".name").contains("item.got:")) {
+					GOTLog.logger.info(item.getUnlocalizedName() + ".name" + "\u2260");
+				} else {
+					GOTLog.logger.info(item.getUnlocalizedName() + ".name" + "=" + StatCollector.translateToLocal(item.getUnlocalizedName() + ".name"));
+				}
+				continue;
+			}
 			if ("foodTable".equals(display) && item instanceof ItemFood) {
 				Field pf0 = ItemFood.class.getDeclaredField("saturationModifier");
 				Field pf1 = ItemFood.class.getDeclaredField("healAmount");

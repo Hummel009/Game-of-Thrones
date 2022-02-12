@@ -4095,6 +4095,9 @@ item.got.antiwight≠
 item.got.banner.protect=Porte des données de protection
 item.got.brandingIron.named=%s: %s
 item.got.brandingIron.unnamed=%s sans nom
+item.got.commandHorn.halt.name=Cor de Commande - Arrêter les recrues
+item.got.commandHorn.ready.name=Cor de Commande - Préparer les recrues
+item.got.commandHorn.summon.name=Cor de Commande - Appeler les recrues
 item.got.cracker.empty=Descellé %s
 item.got.cracker.sealedBy=Scellé par %s
 item.got.cracker.sealedByDale=Les fabriquants de jouets daliens
@@ -4118,6 +4121,23 @@ item.got.generic.stolen=Volé
 item.got.hat.dyed=Teint
 item.got.hat.feathered=Avec plume
 item.got.mqbook.activeQuests=%d quêtes actives
+item.got.pipe.subtitle.0=Fumée blanche
+item.got.pipe.subtitle.10=Fumée violette
+item.got.pipe.subtitle.11=Fumée bleue
+item.got.pipe.subtitle.12=Fumée brune
+item.got.pipe.subtitle.13=Fumée verte
+item.got.pipe.subtitle.14=Fumée rouge
+item.got.pipe.subtitle.15=Fumée noire
+item.got.pipe.subtitle.16=Fumée magique
+item.got.pipe.subtitle.1=Fumée orange
+item.got.pipe.subtitle.2=Fumée magenta
+item.got.pipe.subtitle.3=Fumée bleu clair
+item.got.pipe.subtitle.4=Fumée jaune
+item.got.pipe.subtitle.5=Fumée de citron vert
+item.got.pipe.subtitle.6=Fumée rose
+item.got.pipe.subtitle.7=Fumée grise
+item.got.pipe.subtitle.8=Fumée gris clair
+item.got.pipe.subtitle.9=Fumée cyan
 item.got.pouch.dyed=Teinte
 item.got.pouch.slots=%d sur %d emplacements utilisés
 item.got.robes.dyed=Teint
@@ -4181,7 +4201,6 @@ item.got:banner.aerionBook.name≠
 item.got:banner.algood.name≠
 item.got:banner.allyrion.name=Bannière d'Allyrion
 item.got:banner.alqalis.name=Bannière d'Alqualis
-item.got:banner.amber.name≠
 item.got:banner.ambrose.name=Bannière d'Ambrose
 item.got:banner.amorylorch.name≠
 item.got:banner.andal.name=Bannière d'Andal
@@ -4548,7 +4567,6 @@ item.got:banner.nymeria.name=Bannière de Nymeria
 item.got:banner.oakenfist.name≠
 item.got:banner.oakheart.name=Bannière de Oakheart
 item.got:banner.oberyn.name≠
-item.got:banner.oldflowers.name≠
 item.got:banner.orkwood.name=Bannière d'Orkwood
 item.got:banner.orme.name≠
 item.got:banner.osgrey.name=Bannière d'Osgrey
@@ -4708,7 +4726,6 @@ item.got:banner.tyrellBK.name=Bannière de Tyrell du donjon de Brightwater
 item.got:banner.tyrelll.name=Bannière de Loras Tyrell
 item.got:banner.tyrion.name=Bannière de Tyrion
 item.got:banner.tyrosh.name=Bannière de Tyrosh
-item.got:banner.uffering.name≠
 item.got:banner.uller.name=Bannière d'Uller
 item.got:banner.umber.name=Bannière de l'ombre
 item.got:banner.umberBook.name=Bannière d'Umber (Livre)
@@ -4830,7 +4847,6 @@ item.got:bronzeThrowingAxe.name=Hache de lancer en bronze
 item.got:camelCooked.name=Chameau cuit
 item.got:camelRaw.name=Chameau cru
 item.got:cargocart.name=Cargocart
-item.got:catalpaNut.name=Écrou Catalpa
 item.got:celtigarAxe.name=Hache celtigare
 item.got:ceramicMug.name=Chope en céramique
 item.got:ceramicPlate.name=Assiette en pierre
@@ -4852,10 +4868,7 @@ item.got:coin.4.name≠
 item.got:coin.4096.name≠
 item.got:coin.64.name≠
 item.got:coin.nominal.name≠
-item.got:commandHorn.halt.name=Cor de Commande - Arrêter les recrues
 item.got:commandHorn.name=Cor de commande
-item.got:commandHorn.ready.name=Cor de Commande - Préparer les recrues
-item.got:commandHorn.summon.name=Cor de Commande - Appeler les recrues
 item.got:commandSword.name=Épée de commandement
 item.got:conquestHorn.name=Cor de conquête
 item.got:copperIngot.name=Lingot de cuivre
@@ -4886,7 +4899,6 @@ item.got:dawn.name=Aube
 item.got:deerCooked.name=Gibier cuit
 item.got:deerRaw.name=Gibier cru
 item.got:diamond.name=Diamant
-item.got:doorWood.name=Porte en chêne
 item.got:dorneBoots.name=Bottes de Dorne
 item.got:dorneChestplate.name=Pansière de Dorne
 item.got:dorneHelmet.name=Casque de Dorne
@@ -4926,7 +4938,6 @@ item.got:flax.name=Lin
 item.got:flaxSeeds.name=Graines de lin
 item.got:flintDagger.name=Dague en silex
 item.got:flintSpear.name=Lance de silex
-item.got:forresterSword.name=Grande épée Forresters
 item.got:fur.name=La fourrure
 item.got:furBed.name=Lit de fourrure
 item.got:furBoots.name=Bottes fourrées
@@ -4949,7 +4960,6 @@ item.got:ghiscarChestplate.name=Pansière de ghiscar
 item.got:ghiscarHelmet.name=Casque de ghiscar
 item.got:ghiscarLeggings.name=Jambières de ghiscar
 item.got:giftBoots.name=Bottes de surveillance de la nuit
-item.got:giftBow.name=Noeud de veille nocturne
 item.got:giftChestplate.name=Tunique de garde de nuit
 item.got:giftHelmet.name=Cagoule de surveillance de nuit
 item.got:giftLeggings.name=Jambières de garde de nuit
@@ -4966,7 +4976,6 @@ item.got:goldLeggings.name=Jambières Golden Company
 item.got:goldRing.name=Anneau d'or
 item.got:grapeRed.name=Raisin noir
 item.got:grapeWhite.name=Raisin blanc
-item.got:grapplingHook.name=Grappling Hook
 item.got:gregorCleganeSword.name=Épée de Gregor Clegane
 item.got:handGold.name=Broche de la main du roi (1)
 item.got:handSilver.name=Broche de la main du roi (2)
@@ -4979,6 +4988,9 @@ item.got:hillmenHelmet.name=Casque Hill Tribe
 item.got:hillmenLeggings.name=Jambières de tribu des collines
 item.got:honor.name≠
 item.got:horn.name=Corne
+item.got:horseArmorDiamond.name≠
+item.got:horseArmorGold.name≠
+item.got:horseArmorIron.name≠
 item.got:ibbenBoots.name≠
 item.got:ibbenChestplate.name≠
 item.got:ibbenHarpoon.name≠
@@ -5041,6 +5053,7 @@ item.got:lhazarSpear.name=Lance de Lhazar
 item.got:lhazarSword.name=Épée de Lhazar
 item.got:lightbringer.name=Porteur de lumière
 item.got:lime.name=Citron vert
+item.got:lingeringPotion.name≠
 item.got:lionBed.name=Lit en fourrure de lion
 item.got:lionCooked.name=Lion cuit
 item.got:lionFur.name=Fourrure de lion
@@ -5055,7 +5068,6 @@ item.got:lysBoots.name=Bottes de Lys
 item.got:lysChestplate.name=Pansière de Lys
 item.got:lysHelmet.name=Casque de Lys
 item.got:lysLeggings.name=Jambières de Lys
-item.got:manFlesh.name=Chair humaine
 item.got:mango.name=Mangue
 item.got:mapleSyrup.name=Sirop d'érable
 item.got:marzipan.name=Pâte d'amandes
@@ -5066,7 +5078,6 @@ item.got:mossovyChestplate.name=Pansière de mousse
 item.got:mossovyDagger.name≠
 item.got:mossovyLeggings.name=Jambières de mousse
 item.got:mossovySword.name=Épée d'argent
-item.got:motorGrapplingHook.name=Motor Grappling Hook
 item.got:mug.name=Chope
 item.got:mugAle.name=Bière
 item.got:mugAppleJuice.name=Jus de pomme
@@ -5165,23 +5176,6 @@ item.got:pentosChestplate.name=Pansière de Pentos
 item.got:pentosHelmet.name=Casque de Pentos
 item.got:pentosLeggings.name=Jambières de Pentos
 item.got:pipe.name=Tuyau
-item.got:pipe.subtitle.0=Fumée blanche
-item.got:pipe.subtitle.10=Fumée violette
-item.got:pipe.subtitle.11=Fumée bleue
-item.got:pipe.subtitle.12=Fumée brune
-item.got:pipe.subtitle.13=Fumée verte
-item.got:pipe.subtitle.14=Fumée rouge
-item.got:pipe.subtitle.15=Fumée noire
-item.got:pipe.subtitle.16=Fumée magique
-item.got:pipe.subtitle.1=Fumée orange
-item.got:pipe.subtitle.2=Fumée magenta
-item.got:pipe.subtitle.3=Fumée bleu clair
-item.got:pipe.subtitle.4=Fumée jaune
-item.got:pipe.subtitle.5=Fumée de citron vert
-item.got:pipe.subtitle.6=Fumée rose
-item.got:pipe.subtitle.7=Fumée grise
-item.got:pipe.subtitle.8=Fumée gris clair
-item.got:pipe.subtitle.9=Fumée cyan
 item.got:pipeweed.name=Herbe à pipe
 item.got:pipeweedLeaf.name=Feuille d'herbe à pipe
 item.got:pipeweedSeeds.name=Graines d'herbe à pipe
@@ -5262,7 +5256,6 @@ item.got:shishKebab.name=Shish kebab
 item.got:silverIngot.name=Lingot d'argent
 item.got:silverNugget.name=Pépite d'argent
 item.got:silverRing.name=Anneau d'argent
-item.got:silversword.name=Épée d'argent
 item.got:skullCup.name=Coupe crâne
 item.got:skullStaff.name=Bâton de crâne
 item.got:sling.name=Lance-pierres
@@ -5296,7 +5289,6 @@ item.got:stormlandsChestplate.name=Pansière de Terres de l'Orage
 item.got:stormlandsHelmet.name=Casque de Terres de l'Orage
 item.got:stormlandsLeggings.name=Jambières de Terres de l'Orage
 item.got:strawBed.name=Lit de paille
-item.got:stricklandSword.name=Épée de Garry Strickland
 item.got:structureSpawner.name=Construire
 item.got:sulfur.name=Soufre
 item.got:sulfurMatch.name=Allumette de soufre
@@ -5396,7 +5388,6 @@ item.got:wheel.name=La roue
 item.got:whiteBisonHorn.name=Corne d'White Bison
 item.got:whiteWalkersBoots.name≠
 item.got:whiteWalkersChestplate.name≠
-item.got:whiteWalkersHoe.name≠
 item.got:whiteWalkersLeggings.name≠
 item.got:widowWail.name=Gémissement de la veuve
 item.got:wildberry.name=Baies sauvages

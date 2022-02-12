@@ -4095,6 +4095,9 @@ item.got.antiwight≠
 item.got.banner.protect=Захищає ваше майно
 item.got.brandingIron.named=%s: %s
 item.got.brandingIron.unnamed=Безіменне %s
+item.got.commandHorn.halt.name=Ріг командування - зупинити військо
+item.got.commandHorn.ready.name=Ріг командування - покликати військо
+item.got.commandHorn.summon.name=Ріг командування - закликати військо
 item.got.cracker.empty=Розкрита %s
 item.got.cracker.sealedBy=Створив (а) %s
 item.got.cracker.sealedByDale=Торговець Залізних островів
@@ -4118,6 +4121,23 @@ item.got.generic.stolen≠
 item.got.hat.dyed=Фарбована
 item.got.hat.feathered=З пером
 item.got.mqbook.activeQuests=%d активних квестів
+item.got.pipe.subtitle.0=Білий дим
+item.got.pipe.subtitle.10=Фіолетовий дим
+item.got.pipe.subtitle.11=Синій дим
+item.got.pipe.subtitle.12=Коричневий дим
+item.got.pipe.subtitle.13=Зелений дим
+item.got.pipe.subtitle.14=Червоний дим
+item.got.pipe.subtitle.15=Чорний дим
+item.got.pipe.subtitle.16=Чарівний дим
+item.got.pipe.subtitle.1=Помаранчевим димом
+item.got.pipe.subtitle.2=Пурпурний дим
+item.got.pipe.subtitle.3=Блакитний дим
+item.got.pipe.subtitle.4=Жовтий дим
+item.got.pipe.subtitle.5=Лаймовий дим
+item.got.pipe.subtitle.6=Рожевий дим
+item.got.pipe.subtitle.7=Сірий дим
+item.got.pipe.subtitle.8=Світло-сірий дим
+item.got.pipe.subtitle.9=Бірюзовий дим
 item.got.pouch.dyed=Забарвлене
 item.got.pouch.slots=%d з %d використовується
 item.got.robes.dyed=Забарвлене
@@ -4181,7 +4201,6 @@ item.got:banner.aerionBook.name≠
 item.got:banner.algood.name≠
 item.got:banner.allyrion.name=Прапор Алліріонов
 item.got:banner.alqalis.name=Прапор Альквалісов
-item.got:banner.amber.name≠
 item.got:banner.ambrose.name=Прапор амброзії
 item.got:banner.amorylorch.name≠
 item.got:banner.andal.name=Прапор Андаль
@@ -4548,7 +4567,6 @@ item.got:banner.nymeria.name=Прапор Німера Мартелл
 item.got:banner.oakenfist.name≠
 item.got:banner.oakheart.name=Прапор Окхартов
 item.got:banner.oberyn.name≠
-item.got:banner.oldflowers.name≠
 item.got:banner.orkwood.name=Прапор Орквудов
 item.got:banner.orme.name≠
 item.got:banner.osgrey.name=Прапор Осгреев
@@ -4708,7 +4726,6 @@ item.got:banner.tyrellBK.name=Прапор Тіреллов з Ясноводн�
 item.got:banner.tyrelll.name=Прапор Лорас Тіреллі
 item.got:banner.tyrion.name=Прапор Тіріона Ланністера
 item.got:banner.tyrosh.name=Прапор Тірош 
-item.got:banner.uffering.name≠
 item.got:banner.uller.name=Прапор Уллеров
 item.got:banner.umber.name=Прапор Амбер
 item.got:banner.umberBook.name=Прапор Амбер (Книга)
@@ -4830,7 +4847,6 @@ item.got:bronzeThrowingAxe.name=Метальний сокиру з бронзи
 item.got:camelCooked.name=Смажена верблюжатіна
 item.got:camelRaw.name=Сира верблюжатіна
 item.got:cargocart.name=Віз
-item.got:catalpaNut.name=Горіх катальпи
 item.got:celtigarAxe.name=Сокира Селтігаров
 item.got:ceramicMug.name=Керамічна гуртка
 item.got:ceramicPlate.name=Глиняна тарілка
@@ -4852,10 +4868,7 @@ item.got:coin.4.name≠
 item.got:coin.4096.name≠
 item.got:coin.64.name≠
 item.got:coin.nominal.name≠
-item.got:commandHorn.halt.name=Ріг командування - зупинити військо
 item.got:commandHorn.name=Ріг командування
-item.got:commandHorn.ready.name=Ріг командування - покликати військо
-item.got:commandHorn.summon.name=Ріг командування - закликати військо
 item.got:commandSword.name=Меч командування
 item.got:conquestHorn.name=Ріг завоювання
 item.got:copperIngot.name=Злиток міді
@@ -4886,7 +4899,6 @@ item.got:dawn.name=Світанок
 item.got:deerCooked.name=Смажена оленина
 item.got:deerRaw.name=Сира оленина
 item.got:diamond.name=Алмаз
-item.got:doorWood.name=Двері з дуба
 item.got:dorneBoots.name=Черевики Дорна
 item.got:dorneChestplate.name=Нагрудник Дорна
 item.got:dorneHelmet.name=Шолом Дорна
@@ -4926,7 +4938,6 @@ item.got:flax.name=Льон
 item.got:flaxSeeds.name=Насіння льону
 item.got:flintDagger.name=Кремнієвий кинджал
 item.got:flintSpear.name=Кремнієве спис
-item.got:forresterSword.name=Великий Меч Форрестер
 item.got:fur.name=Хутро
 item.got:furBed.name=Ліжко з хутра лютоволков
 item.got:furBoots.name=Чоботи з хутра
@@ -4949,7 +4960,6 @@ item.got:ghiscarChestplate.name=Нагрудник Гіскара
 item.got:ghiscarHelmet.name=Шолом Гіскара
 item.got:ghiscarLeggings.name=Поножі Гіскара
 item.got:giftBoots.name=Черевики Нічного Дозору
-item.got:giftBow.name=Лук Нічного Дозору
 item.got:giftChestplate.name=Куртка Нічного Дозору
 item.got:giftHelmet.name=Капюшон Нічного Дозору
 item.got:giftLeggings.name=Штани Нічного Дозору
@@ -4966,7 +4976,6 @@ item.got:goldLeggings.name=Поножі Золотих Мечів
 item.got:goldRing.name=Кільце із золота
 item.got:grapeRed.name=Червоний виноград
 item.got:grapeWhite.name=Зелений виноград
-item.got:grapplingHook.name=Grappling Hook
 item.got:gregorCleganeSword.name=Меч Григора Клігана
 item.got:handGold.name=Знак Правиці (1)
 item.got:handSilver.name=Знак Правиці (2)
@@ -4979,6 +4988,9 @@ item.got:hillmenHelmet.name=Шолом гірських кланів
 item.got:hillmenLeggings.name=Поножі гірських кланів
 item.got:honor.name≠
 item.got:horn.name=Ріг
+item.got:horseArmorDiamond.name≠
+item.got:horseArmorGold.name≠
+item.got:horseArmorIron.name≠
 item.got:ibbenBoots.name≠
 item.got:ibbenChestplate.name≠
 item.got:ibbenHarpoon.name≠
@@ -5041,6 +5053,7 @@ item.got:lhazarSpear.name=Лхазарське спис
 item.got:lhazarSword.name=Лхазарскій меч
 item.got:lightbringer.name=Светозарний
 item.got:lime.name=Лайм
+item.got:lingeringPotion.name≠
 item.got:lionBed.name=Ліжко з лев'ячого хутра
 item.got:lionCooked.name=Смажене м'ясо лева
 item.got:lionFur.name=Левиний хутро
@@ -5055,7 +5068,6 @@ item.got:lysBoots.name=Черевики Лиса
 item.got:lysChestplate.name=Нагрудник Лиса
 item.got:lysHelmet.name=Шолом Лиса
 item.got:lysLeggings.name=Поножі Лиса
-item.got:manFlesh.name=Чолов'яга
 item.got:mango.name=Манго
 item.got:mapleSyrup.name=Кленовий сироп
 item.got:marzipan.name=Марцепан
@@ -5066,7 +5078,6 @@ item.got:mossovyChestplate.name=Мосовійскій нагрудник
 item.got:mossovyDagger.name≠
 item.got:mossovyLeggings.name=Мосовійські поножи 
 item.got:mossovySword.name=Срібний меч
-item.got:motorGrapplingHook.name=Motor Grappling Hook
 item.got:mug.name=Кухоль
 item.got:mugAle.name=Ель
 item.got:mugAppleJuice.name=Яблучний сік
@@ -5165,23 +5176,6 @@ item.got:pentosChestplate.name=Нагрудник Пентоса
 item.got:pentosHelmet.name=Шолом Пентоса
 item.got:pentosLeggings.name=Поножі Пентоса
 item.got:pipe.name=Трубка
-item.got:pipe.subtitle.0=Білий дим
-item.got:pipe.subtitle.10=Фіолетовий дим
-item.got:pipe.subtitle.11=Синій дим
-item.got:pipe.subtitle.12=Коричневий дим
-item.got:pipe.subtitle.13=Зелений дим
-item.got:pipe.subtitle.14=Червоний дим
-item.got:pipe.subtitle.15=Чорний дим
-item.got:pipe.subtitle.16=Чарівний дим
-item.got:pipe.subtitle.1=Помаранчевим димом
-item.got:pipe.subtitle.2=Пурпурний дим
-item.got:pipe.subtitle.3=Блакитний дим
-item.got:pipe.subtitle.4=Жовтий дим
-item.got:pipe.subtitle.5=Лаймовий дим
-item.got:pipe.subtitle.6=Рожевий дим
-item.got:pipe.subtitle.7=Сірий дим
-item.got:pipe.subtitle.8=Світло-сірий дим
-item.got:pipe.subtitle.9=Бірюзовий дим
 item.got:pipeweed.name=Тютюн
 item.got:pipeweedLeaf.name=Лист тютюну
 item.got:pipeweedSeeds.name=Насіння тютюну
@@ -5262,7 +5256,6 @@ item.got:shishKebab.name=Шашлик
 item.got:silverIngot.name=Злиток срібла
 item.got:silverNugget.name=Самородок срібла
 item.got:silverRing.name=Кільце зі срібла
-item.got:silversword.name=Срібний меч
 item.got:skullCup.name=Чаша з черепа
 item.got:skullStaff.name=Посох з черепом
 item.got:sling.name=Рогатка
@@ -5296,7 +5289,6 @@ item.got:stormlandsChestplate.name=Нагрудник Штормових Зем�
 item.got:stormlandsHelmet.name=Шолом Штормових Земель
 item.got:stormlandsLeggings.name=Поножі Штормових Земель
 item.got:strawBed.name=Солом'яний ліжко
-item.got:stricklandSword.name=Ятаган Гаррі Стрікленда
 item.got:structureSpawner.name=Побудувати -
 item.got:sulfur.name=Сірка
 item.got:sulfurMatch.name=Сірник
@@ -5396,7 +5388,6 @@ item.got:wheel.name=Колесо
 item.got:whiteBisonHorn.name=Ріг бика
 item.got:whiteWalkersBoots.name≠
 item.got:whiteWalkersChestplate.name≠
-item.got:whiteWalkersHoe.name≠
 item.got:whiteWalkersLeggings.name≠
 item.got:widowWail.name=Вдови Плач
 item.got:wildberry.name=Лісова ягода

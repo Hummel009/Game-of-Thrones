@@ -40,15 +40,16 @@ public class GOTItemCommandHorn extends Item implements GOTSquadrons.SquadronIte
 
 	@Override
 	public String getUnlocalizedName(ItemStack itemstack) {
-		String s = "";
-		if (itemstack.getItemDamage() == 1) {
-			s = ".halt";
-		} else if (itemstack.getItemDamage() == 2) {
-			s = ".ready";
-		} else if (itemstack.getItemDamage() == 3) {
-			s = ".summon";
+		switch(itemstack.getItemDamage()) {
+		case 1:
+			return "item.got.commandHorn.halt.name";
+		case 2:
+			return "item.got.commandHorn.ready.name";
+		case 3:
+			return "item.got.commandHorn.summon.name";
+		default: 
+			return super.getUnlocalizedName(itemstack);
 		}
-		return super.getUnlocalizedName(itemstack) + s;
 	}
 
 	@Override

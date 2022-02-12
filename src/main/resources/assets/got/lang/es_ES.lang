@@ -4095,6 +4095,9 @@ item.got.antiwight≠
 item.got.banner.protect=Porta datos de protección
 item.got.brandingIron.named=%s: "%s"
 item.got.brandingIron.unnamed=%s sin Nombrar
+item.got.commandHorn.halt.name=Cuerno de Mando (Detener Unidades)
+item.got.commandHorn.ready.name=Cuerno de Mando (Activar Unidades)
+item.got.commandHorn.summon.name=Cuerno de Mando (Invocar Unidades)
 item.got.cracker.empty=%s sin Sellar
 item.got.cracker.sealedBy=Sellado por %s
 item.got.cracker.sealedByDale=Fabricante de Juguetes de Valle
@@ -4118,6 +4121,23 @@ item.got.generic.stolen=Robado
 item.got.hat.dyed=Teñido
 item.got.hat.feathered=Con pluma
 item.got.mqbook.activeQuests=%d misiones activas
+item.got.pipe.subtitle.0=Humo blanco
+item.got.pipe.subtitle.10=Humo morado
+item.got.pipe.subtitle.11=Humo azul
+item.got.pipe.subtitle.12=Humo marrón
+item.got.pipe.subtitle.13=Humo verde
+item.got.pipe.subtitle.14=Humo rojo
+item.got.pipe.subtitle.15=Humo negro
+item.got.pipe.subtitle.16=Humo mágico
+item.got.pipe.subtitle.1=Humo naranja
+item.got.pipe.subtitle.2=Humo magenta
+item.got.pipe.subtitle.3=Humo azul claro
+item.got.pipe.subtitle.4=Humo amarillo
+item.got.pipe.subtitle.5=Humo de lima
+item.got.pipe.subtitle.6=Humo rosa
+item.got.pipe.subtitle.7=Humo gris
+item.got.pipe.subtitle.8=Humo gris claro
+item.got.pipe.subtitle.9=Humo cian
 item.got.pouch.dyed=Teñida
 item.got.pouch.slots=%d de %d espacios en uso
 item.got.robes.dyed=Teñido
@@ -4181,7 +4201,6 @@ item.got:banner.aerionBook.name≠
 item.got:banner.algood.name≠
 item.got:banner.allyrion.name=Estandarte de Allyrion
 item.got:banner.alqalis.name=Estandarte de Alqualis
-item.got:banner.amber.name≠
 item.got:banner.ambrose.name=Estandarte de Ambrosio
 item.got:banner.amorylorch.name≠
 item.got:banner.andal.name=Estandarte de Andal
@@ -4548,7 +4567,6 @@ item.got:banner.nymeria.name=Estandarte de Nymeria
 item.got:banner.oakenfist.name≠
 item.got:banner.oakheart.name=Estandarte de Oakheart
 item.got:banner.oberyn.name≠
-item.got:banner.oldflowers.name≠
 item.got:banner.orkwood.name=Estandarte de Orkwood
 item.got:banner.orme.name≠
 item.got:banner.osgrey.name=Estandarte de Osgrey
@@ -4708,7 +4726,6 @@ item.got:banner.tyrellBK.name=Estandarte de Tyrell de Brightwater Keep
 item.got:banner.tyrelll.name=Estandarte de Loras Tyrell
 item.got:banner.tyrion.name=Estandarte de Tyrion
 item.got:banner.tyrosh.name=Estandarte de Tyrosh
-item.got:banner.uffering.name≠
 item.got:banner.uller.name=Estandarte de Uller
 item.got:banner.umber.name=Estandarte de Umber
 item.got:banner.umberBook.name=Estandarte de Umber (Libro)
@@ -4830,7 +4847,6 @@ item.got:bronzeThrowingAxe.name=Hacha arrojadiza de bronce
 item.got:camelCooked.name=Camello Cocido
 item.got:camelRaw.name=Camello Crudo
 item.got:cargocart.name=Carretilla
-item.got:catalpaNut.name=Tuerca Catalpa
 item.got:celtigarAxe.name=Hacha celtigar
 item.got:ceramicMug.name=Jarro de Arcilla
 item.got:ceramicPlate.name=Plato de Cerámica
@@ -4852,10 +4868,7 @@ item.got:coin.4.name≠
 item.got:coin.4096.name≠
 item.got:coin.64.name≠
 item.got:coin.nominal.name≠
-item.got:commandHorn.halt.name=Cuerno de Mando (Detener Unidades)
 item.got:commandHorn.name=Cuerno de Mando
-item.got:commandHorn.ready.name=Cuerno de Mando (Activar Unidades)
-item.got:commandHorn.summon.name=Cuerno de Mando (Invocar Unidades)
 item.got:commandSword.name=Espada de Mando
 item.got:conquestHorn.name=Cuerno de Conquista
 item.got:copperIngot.name=Lingote de cobre
@@ -4886,7 +4899,6 @@ item.got:dawn.name=Amanecer
 item.got:deerCooked.name=Venado Cocido
 item.got:deerRaw.name=Venado Crudo
 item.got:diamond.name=Diamante
-item.got:doorWood.name=Puerta de roble
 item.got:dorneBoots.name=Botas de Dorne
 item.got:dorneChestplate.name=Peto de Dorne
 item.got:dorneHelmet.name=Casco de Dorne
@@ -4926,7 +4938,6 @@ item.got:flax.name=Lino
 item.got:flaxSeeds.name=Semillas de Lino
 item.got:flintDagger.name=Daga de pedernal
 item.got:flintSpear.name=Lanza de pedernal
-item.got:forresterSword.name=Espada grande de Forresters
 item.got:fur.name=Piel
 item.got:furBed.name=Cama de piel
 item.got:furBoots.name=Botas de piel
@@ -4949,7 +4960,6 @@ item.got:ghiscarChestplate.name=Peto de Ghiscar
 item.got:ghiscarHelmet.name=Casco de Ghiscar
 item.got:ghiscarLeggings.name=Calzas de Ghiscar
 item.got:giftBoots.name=Botas de guardia de la noche
-item.got:giftBow.name=Arco de la Guardia de la Noche
 item.got:giftChestplate.name=Guerrera de guardia de la noche
 item.got:giftHelmet.name=Caperuza de guardia de la noche
 item.got:giftLeggings.name=Leotardos de la Guardia de la Noche
@@ -4966,7 +4976,6 @@ item.got:goldLeggings.name=Calzas Golden Company
 item.got:goldRing.name=Anillo de Oro
 item.got:grapeRed.name=Uvas Rojas
 item.got:grapeWhite.name=Uvas Verdes
-item.got:grapplingHook.name=Grappling Hook
 item.got:gregorCleganeSword.name=Espada Gregor Clegane
 item.got:handGold.name=Broche de la Mano del Rey (1)
 item.got:handSilver.name=Broche de la Mano del Rey (2)
@@ -4979,6 +4988,9 @@ item.got:hillmenHelmet.name=Casco de la tribu de las colinas
 item.got:hillmenLeggings.name=Calzas de la tribu de las colinas
 item.got:honor.name≠
 item.got:horn.name=Cuerno
+item.got:horseArmorDiamond.name≠
+item.got:horseArmorGold.name≠
+item.got:horseArmorIron.name≠
 item.got:ibbenBoots.name≠
 item.got:ibbenChestplate.name≠
 item.got:ibbenHarpoon.name≠
@@ -5041,6 +5053,7 @@ item.got:lhazarSpear.name=Lanza de Lhazar
 item.got:lhazarSword.name=Espada de Lhazar
 item.got:lightbringer.name=Portador de la luz
 item.got:lime.name=Lima
+item.got:lingeringPotion.name≠
 item.got:lionBed.name=Cama de Piel de León
 item.got:lionCooked.name=León Cocido
 item.got:lionFur.name=Piel de León
@@ -5055,7 +5068,6 @@ item.got:lysBoots.name=Botas de Lys
 item.got:lysChestplate.name=Peto de Lys
 item.got:lysHelmet.name=Casco de Lys
 item.got:lysLeggings.name=Calzas de Lys
-item.got:manFlesh.name=Carne Humana
 item.got:mango.name=Mango
 item.got:mapleSyrup.name=Jarabe de Arce
 item.got:marzipan.name=Mazapán
@@ -5066,7 +5078,6 @@ item.got:mossovyChestplate.name=Peto de Mossovy
 item.got:mossovyDagger.name≠
 item.got:mossovyLeggings.name=Calzas Mossovy
 item.got:mossovySword.name=Espada de plata
-item.got:motorGrapplingHook.name=Motor Grappling Hook
 item.got:mug.name=Jarro
 item.got:mugAle.name=Cerveza
 item.got:mugAppleJuice.name=Jugo de Manzana
@@ -5165,23 +5176,6 @@ item.got:pentosChestplate.name=Peto de Pentos
 item.got:pentosHelmet.name=Casco de Pentos
 item.got:pentosLeggings.name=Calzas de Pentos
 item.got:pipe.name=Tubo
-item.got:pipe.subtitle.0=Humo blanco
-item.got:pipe.subtitle.10=Humo morado
-item.got:pipe.subtitle.11=Humo azul
-item.got:pipe.subtitle.12=Humo marrón
-item.got:pipe.subtitle.13=Humo verde
-item.got:pipe.subtitle.14=Humo rojo
-item.got:pipe.subtitle.15=Humo negro
-item.got:pipe.subtitle.16=Humo mágico
-item.got:pipe.subtitle.1=Humo naranja
-item.got:pipe.subtitle.2=Humo magenta
-item.got:pipe.subtitle.3=Humo azul claro
-item.got:pipe.subtitle.4=Humo amarillo
-item.got:pipe.subtitle.5=Humo de lima
-item.got:pipe.subtitle.6=Humo rosa
-item.got:pipe.subtitle.7=Humo gris
-item.got:pipe.subtitle.8=Humo gris claro
-item.got:pipe.subtitle.9=Humo cian
 item.got:pipeweed.name=Hierba para Pipa
 item.got:pipeweedLeaf.name=Hoja de Hierba para Pipa
 item.got:pipeweedSeeds.name=Semillas de Hierba para Pipa
@@ -5262,7 +5256,6 @@ item.got:shishKebab.name=Kebab Shish
 item.got:silverIngot.name=Lingote de plata
 item.got:silverNugget.name=Pepita de Plata
 item.got:silverRing.name=Anillo de Plata
-item.got:silversword.name=Espada de plata
 item.got:skullCup.name=Copa de Cráneo
 item.got:skullStaff.name=Bastón de calavera
 item.got:sling.name=Honda
@@ -5296,7 +5289,6 @@ item.got:stormlandsChestplate.name=Peto de Tierras de la Tormenta
 item.got:stormlandsHelmet.name=Casco de Tierras de la Tormenta
 item.got:stormlandsLeggings.name=Leotardos de Tierras de la Tormenta
 item.got:strawBed.name=Cama de Paja
-item.got:stricklandSword.name=Espada Garry Strickland
 item.got:structureSpawner.name=Generar
 item.got:sulfur.name=Sulfuro
 item.got:sulfurMatch.name=Mecha de Sulfuro
@@ -5396,7 +5388,6 @@ item.got:wheel.name=Rueda
 item.got:whiteBisonHorn.name=Cuerno de Buey de White Bison
 item.got:whiteWalkersBoots.name≠
 item.got:whiteWalkersChestplate.name≠
-item.got:whiteWalkersHoe.name≠
 item.got:whiteWalkersLeggings.name≠
 item.got:widowWail.name=Lamento de la viuda
 item.got:wildberry.name=Bayas Silvestre

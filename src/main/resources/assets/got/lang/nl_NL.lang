@@ -4095,6 +4095,9 @@ item.got.antiwight≠
 item.got.banner.protect=Brengt beschermingsdata over
 item.got.brandingIron.named=%s: %s
 item.got.brandingIron.unnamed=Naamloos %s
+item.got.commandHorn.halt.name=Commandohoorn - Eenheden, Halt!
+item.got.commandHorn.ready.name=Horn van Command - Eenheden, Paraat!
+item.got.commandHorn.summon.name=Horn van Command - Eenheden, Ontbieden!
 item.got.cracker.empty=Ongezegeld %s
 item.got.cracker.sealedBy=Gezegeld door %s
 item.got.cracker.sealedByDale=Dalische Speelgoedmakers
@@ -4118,6 +4121,23 @@ item.got.generic.stolen=Gestolen
 item.got.hat.dyed=Geverfd
 item.got.hat.feathered=Geveerd
 item.got.mqbook.activeQuests=%d actieve missies
+item.got.pipe.subtitle.0=Witte rook
+item.got.pipe.subtitle.10=Paarse rook
+item.got.pipe.subtitle.11=Blauwe rook
+item.got.pipe.subtitle.12=Bruine rook
+item.got.pipe.subtitle.13=Groene rook
+item.got.pipe.subtitle.14=Rode rook
+item.got.pipe.subtitle.15=Zwarte rook
+item.got.pipe.subtitle.16=Magische rook
+item.got.pipe.subtitle.1=Oranje rook
+item.got.pipe.subtitle.2=Magenta rook
+item.got.pipe.subtitle.3=Lichtblauwe rook
+item.got.pipe.subtitle.4=Gele rook
+item.got.pipe.subtitle.5=Limoen rook
+item.got.pipe.subtitle.6=Roze rook
+item.got.pipe.subtitle.7=Grijze rook
+item.got.pipe.subtitle.8=Lichtgrijze rook
+item.got.pipe.subtitle.9=Cyaan rook
 item.got.pouch.dyed=Geverfd
 item.got.pouch.slots=%d van %d Sleuven in Gebruik
 item.got.robes.dyed=Geverfd
@@ -4181,7 +4201,6 @@ item.got:banner.aerionBook.name≠
 item.got:banner.algood.name≠
 item.got:banner.allyrion.name=Vlag van Allyrion
 item.got:banner.alqalis.name=Vlag van Alqualis
-item.got:banner.amber.name≠
 item.got:banner.ambrose.name=Vlag van Ambrose
 item.got:banner.amorylorch.name≠
 item.got:banner.andal.name=Vlag van Andal
@@ -4548,7 +4567,6 @@ item.got:banner.nymeria.name=Vlag van Nymeria
 item.got:banner.oakenfist.name≠
 item.got:banner.oakheart.name=Vlag van Oakheart
 item.got:banner.oberyn.name≠
-item.got:banner.oldflowers.name≠
 item.got:banner.orkwood.name=Vlag van Orkwood
 item.got:banner.orme.name≠
 item.got:banner.osgrey.name=Vlag van Osgrey
@@ -4708,7 +4726,6 @@ item.got:banner.tyrellBK.name=Vlag van Tyrell van Brightwater Keep
 item.got:banner.tyrelll.name=Vlag van Loras Tyrell
 item.got:banner.tyrion.name=Vlag van Tyrion
 item.got:banner.tyrosh.name=Vlag van Tyrosh
-item.got:banner.uffering.name≠
 item.got:banner.uller.name=Vlag van Uller
 item.got:banner.umber.name=Vlag van Umber
 item.got:banner.umberBook.name=Vlag van Umber (Boek)
@@ -4830,7 +4847,6 @@ item.got:bronzeThrowingAxe.name=Bronzen werpbijl
 item.got:camelCooked.name=Gekookte Kameel
 item.got:camelRaw.name=Rauwe Kameel
 item.got:cargocart.name=Cargocart
-item.got:catalpaNut.name=Catalpa-moer
 item.got:celtigarAxe.name=Celtigar bijl
 item.got:ceramicMug.name=Keramische Mok
 item.got:ceramicPlate.name=Steengoed bord
@@ -4852,10 +4868,7 @@ item.got:coin.4.name≠
 item.got:coin.4096.name≠
 item.got:coin.64.name≠
 item.got:coin.nominal.name≠
-item.got:commandHorn.halt.name=Commandohoorn - Eenheden, Halt!
 item.got:commandHorn.name=Commandohoorn
-item.got:commandHorn.ready.name=Horn van Command - Eenheden, Paraat!
-item.got:commandHorn.summon.name=Horn van Command - Eenheden, Ontbieden!
 item.got:commandSword.name=Commandozwaard
 item.got:conquestHorn.name=Veroveringshoorn
 item.got:copperIngot.name=Koperen staaf
@@ -4886,7 +4899,6 @@ item.got:dawn.name=Dageraad
 item.got:deerCooked.name=Gekookte Wildbraad
 item.got:deerRaw.name=Rauwe Wildbraad
 item.got:diamond.name=Diamant
-item.got:doorWood.name=Eiken deur
 item.got:dorneBoots.name=Boots van Dorne
 item.got:dorneChestplate.name=Borstplaat van Dorne
 item.got:dorneHelmet.name=Helm van Dorne
@@ -4926,7 +4938,6 @@ item.got:flax.name=Vlas
 item.got:flaxSeeds.name=Vlaszaadjes
 item.got:flintDagger.name=Flint Dagger
 item.got:flintSpear.name=Flint Spear
-item.got:forresterSword.name=Forresters Big Sword
 item.got:fur.name=Vacht
 item.got:furBed.name=Bont bed
 item.got:furBoots.name=Bontlaarzen
@@ -4949,7 +4960,6 @@ item.got:ghiscarChestplate.name=Borstplaat van Ghiscar
 item.got:ghiscarHelmet.name=Helm van Ghiscar
 item.got:ghiscarLeggings.name=Legging van Ghiscar
 item.got:giftBoots.name=Night's Watch Boots
-item.got:giftBow.name=Night's Watch Bow
 item.got:giftChestplate.name=Nachtwacht tuniek
 item.got:giftHelmet.name=Nachtwacht Hood
 item.got:giftLeggings.name=Nachtwacht legging
@@ -4966,7 +4976,6 @@ item.got:goldLeggings.name=Gouden legging van het bedrijf
 item.got:goldRing.name=Gouden Ring
 item.got:grapeRed.name=Rode Druiven
 item.got:grapeWhite.name=Groene Druiven
-item.got:grapplingHook.name=Grappling Hook
 item.got:gregorCleganeSword.name=Gregor Clegane Sword
 item.got:handGold.name=Broche van de hand van de koning (1)
 item.got:handSilver.name=Broche van de hand van de koning (2)
@@ -4979,6 +4988,9 @@ item.got:hillmenHelmet.name=Hill Tribe-helm
 item.got:hillmenLeggings.name=Hill Tribe legging
 item.got:honor.name≠
 item.got:horn.name=Hoorn
+item.got:horseArmorDiamond.name≠
+item.got:horseArmorGold.name≠
+item.got:horseArmorIron.name≠
 item.got:ibbenBoots.name≠
 item.got:ibbenChestplate.name≠
 item.got:ibbenHarpoon.name≠
@@ -5041,6 +5053,7 @@ item.got:lhazarSpear.name=Lhazar Speer
 item.got:lhazarSword.name=Lhazar-zwaard
 item.got:lightbringer.name=Brenger van licht
 item.got:lime.name=Limoen
+item.got:lingeringPotion.name≠
 item.got:lionBed.name=Leeuwenvacht Bed
 item.got:lionCooked.name=Gekookte Leeuw
 item.got:lionFur.name=Leeuwenvacht
@@ -5055,7 +5068,6 @@ item.got:lysBoots.name=Boots van Lys
 item.got:lysChestplate.name=Borstplaat van Lys
 item.got:lysHelmet.name=Helm van Lys
 item.got:lysLeggings.name=Legging van Lys
-item.got:manFlesh.name=Mensenvlees
 item.got:mango.name=Mango
 item.got:mapleSyrup.name=Esdoorn Siroop
 item.got:marzipan.name=Marsepein
@@ -5066,7 +5078,6 @@ item.got:mossovyChestplate.name=Mossovy Borstplaat
 item.got:mossovyDagger.name≠
 item.got:mossovyLeggings.name=Mossovy legging
 item.got:mossovySword.name=Zilveren zwaard
-item.got:motorGrapplingHook.name=Motor Grappling Hook
 item.got:mug.name=Mok
 item.got:mugAle.name=Blond Bier
 item.got:mugAppleJuice.name=Appelsap
@@ -5165,23 +5176,6 @@ item.got:pentosChestplate.name=Borstplaat van Pentos
 item.got:pentosHelmet.name=Helm van Pentos
 item.got:pentosLeggings.name=Legging van Pentos
 item.got:pipe.name=Pijp
-item.got:pipe.subtitle.0=Witte rook
-item.got:pipe.subtitle.10=Paarse rook
-item.got:pipe.subtitle.11=Blauwe rook
-item.got:pipe.subtitle.12=Bruine rook
-item.got:pipe.subtitle.13=Groene rook
-item.got:pipe.subtitle.14=Rode rook
-item.got:pipe.subtitle.15=Zwarte rook
-item.got:pipe.subtitle.16=Magische rook
-item.got:pipe.subtitle.1=Oranje rook
-item.got:pipe.subtitle.2=Magenta rook
-item.got:pipe.subtitle.3=Lichtblauwe rook
-item.got:pipe.subtitle.4=Gele rook
-item.got:pipe.subtitle.5=Limoen rook
-item.got:pipe.subtitle.6=Roze rook
-item.got:pipe.subtitle.7=Grijze rook
-item.got:pipe.subtitle.8=Lichtgrijze rook
-item.got:pipe.subtitle.9=Cyaan rook
 item.got:pipeweed.name=Pijpkruid
 item.got:pipeweedLeaf.name=Pijpkruidblad
 item.got:pipeweedSeeds.name=Pijpkruid Zaadjes
@@ -5262,7 +5256,6 @@ item.got:shishKebab.name=Shish-kebab
 item.got:silverIngot.name=Zilveren baar
 item.got:silverNugget.name=Zilverklompje
 item.got:silverRing.name=Zilveren Ring
-item.got:silversword.name=Zilveren zwaard
 item.got:skullCup.name=Schedelkop
 item.got:skullStaff.name=Schedel personeel
 item.got:sling.name=Slinger
@@ -5296,7 +5289,6 @@ item.got:stormlandsChestplate.name=Borstplaat van Stormlanden
 item.got:stormlandsHelmet.name=Helm van Stormlanden
 item.got:stormlandsLeggings.name=Legging van Stormlanden
 item.got:strawBed.name=Strooien Bed
-item.got:stricklandSword.name=Garry Strickland-zwaard
 item.got:structureSpawner.name=Bouwen
 item.got:sulfur.name=Zwavel
 item.got:sulfurMatch.name=Zwavel Aansteker
@@ -5396,7 +5388,6 @@ item.got:wheel.name=Wiel
 item.got:whiteBisonHorn.name=Kine van White Bison Hoorn
 item.got:whiteWalkersBoots.name≠
 item.got:whiteWalkersChestplate.name≠
-item.got:whiteWalkersHoe.name≠
 item.got:whiteWalkersLeggings.name≠
 item.got:widowWail.name=Weduwe jammert
 item.got:wildberry.name=Wilde Bessen

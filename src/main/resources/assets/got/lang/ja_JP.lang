@@ -4095,6 +4095,9 @@ item.got.antiwight≠
 item.got.banner.protect=防衛情報を保持
 item.got.brandingIron.named=%s: %s
 item.got.brandingIron.unnamed=無銘 %s
+item.got.commandHorn.halt.name=指揮の角笛 - 部隊の待機
+item.got.commandHorn.ready.name=指揮の角笛 - 部隊の戦闘態勢
+item.got.commandHorn.summon.name=指揮の角笛- 部隊の招集 
 item.got.cracker.empty=開封された %s
 item.got.cracker.sealedBy=未開封の %s
 item.got.cracker.sealedByDale=谷間の国のおもちゃ職人
@@ -4118,6 +4121,23 @@ item.got.generic.stolen≠
 item.got.hat.dyed=染まった
 item.got.hat.feathered=羽根が付いた
 item.got.mqbook.activeQuests≠
+item.got.pipe.subtitle.0≠
+item.got.pipe.subtitle.10≠
+item.got.pipe.subtitle.11≠
+item.got.pipe.subtitle.12≠
+item.got.pipe.subtitle.13≠
+item.got.pipe.subtitle.14≠
+item.got.pipe.subtitle.15≠
+item.got.pipe.subtitle.16≠
+item.got.pipe.subtitle.1≠
+item.got.pipe.subtitle.2≠
+item.got.pipe.subtitle.3≠
+item.got.pipe.subtitle.4≠
+item.got.pipe.subtitle.5≠
+item.got.pipe.subtitle.6≠
+item.got.pipe.subtitle.7≠
+item.got.pipe.subtitle.8≠
+item.got.pipe.subtitle.9≠
 item.got.pouch.dyed=染まった
 item.got.pouch.slots=%d / %d の物が入っている
 item.got.robes.dyed≠
@@ -4181,7 +4201,6 @@ item.got:banner.aerionBook.name≠
 item.got:banner.algood.name≠
 item.got:banner.allyrion.name≠
 item.got:banner.alqalis.name≠
-item.got:banner.amber.name≠
 item.got:banner.ambrose.name≠
 item.got:banner.amorylorch.name≠
 item.got:banner.andal.name≠
@@ -4548,7 +4567,6 @@ item.got:banner.nymeria.name≠
 item.got:banner.oakenfist.name≠
 item.got:banner.oakheart.name≠
 item.got:banner.oberyn.name≠
-item.got:banner.oldflowers.name≠
 item.got:banner.orkwood.name≠
 item.got:banner.orme.name≠
 item.got:banner.osgrey.name≠
@@ -4708,7 +4726,6 @@ item.got:banner.tyrellBK.name≠
 item.got:banner.tyrelll.name≠
 item.got:banner.tyrion.name≠
 item.got:banner.tyrosh.name≠
-item.got:banner.uffering.name≠
 item.got:banner.uller.name≠
 item.got:banner.umber.name≠
 item.got:banner.umberBook.name≠
@@ -4830,7 +4847,6 @@ item.got:bronzeThrowingAxe.name≠
 item.got:camelCooked.name=調理されたラクダ肉
 item.got:camelRaw.name=生のラクダ肉
 item.got:cargocart.name≠
-item.got:catalpaNut.name≠
 item.got:celtigarAxe.name≠
 item.got:ceramicMug.name=陶器のマグ
 item.got:ceramicPlate.name=炻器の皿
@@ -4852,10 +4868,7 @@ item.got:coin.4.name≠
 item.got:coin.4096.name≠
 item.got:coin.64.name≠
 item.got:coin.nominal.name≠
-item.got:commandHorn.halt.name=指揮の角笛 - 部隊の待機
 item.got:commandHorn.name=指揮の角笛
-item.got:commandHorn.ready.name=指揮の角笛 - 部隊の戦闘態勢
-item.got:commandHorn.summon.name=指揮の角笛- 部隊の招集 
 item.got:commandSword.name=指揮の剣
 item.got:conquestHorn.name=戦の角笛
 item.got:copperIngot.name≠
@@ -4886,7 +4899,6 @@ item.got:dawn.name≠
 item.got:deerCooked.name=調理された鹿肉
 item.got:deerRaw.name=生の鹿肉
 item.got:diamond.name=ダイアモンド
-item.got:doorWood.name≠
 item.got:dorneBoots.name≠
 item.got:dorneChestplate.name≠
 item.got:dorneHelmet.name≠
@@ -4926,7 +4938,6 @@ item.got:flax.name=亜麻
 item.got:flaxSeeds.name=亜麻の種
 item.got:flintDagger.name≠
 item.got:flintSpear.name≠
-item.got:forresterSword.name≠
 item.got:fur.name≠
 item.got:furBed.name≠
 item.got:furBoots.name≠
@@ -4949,7 +4960,6 @@ item.got:ghiscarChestplate.name≠
 item.got:ghiscarHelmet.name≠
 item.got:ghiscarLeggings.name≠
 item.got:giftBoots.name≠
-item.got:giftBow.name≠
 item.got:giftChestplate.name≠
 item.got:giftHelmet.name≠
 item.got:giftLeggings.name≠
@@ -4966,7 +4976,6 @@ item.got:goldLeggings.name≠
 item.got:goldRing.name=金の指輪
 item.got:grapeRed.name=赤ブドウ
 item.got:grapeWhite.name=緑ブドウ
-item.got:grapplingHook.name≠
 item.got:gregorCleganeSword.name≠
 item.got:handGold.name≠
 item.got:handSilver.name≠
@@ -4979,6 +4988,9 @@ item.got:hillmenHelmet.name≠
 item.got:hillmenLeggings.name≠
 item.got:honor.name≠
 item.got:horn.name=角
+item.got:horseArmorDiamond.name≠
+item.got:horseArmorGold.name≠
+item.got:horseArmorIron.name≠
 item.got:ibbenBoots.name≠
 item.got:ibbenChestplate.name≠
 item.got:ibbenHarpoon.name≠
@@ -5041,6 +5053,7 @@ item.got:lhazarSpear.name≠
 item.got:lhazarSword.name≠
 item.got:lightbringer.name≠
 item.got:lime.name=ライム
+item.got:lingeringPotion.name≠
 item.got:lionBed.name=ライオンの毛皮のベッド
 item.got:lionCooked.name=調理されたライオン肉
 item.got:lionFur.name=ライオンの毛皮
@@ -5055,7 +5068,6 @@ item.got:lysBoots.name≠
 item.got:lysChestplate.name≠
 item.got:lysHelmet.name≠
 item.got:lysLeggings.name≠
-item.got:manFlesh.name=人肉
 item.got:mango.name=マンゴー
 item.got:mapleSyrup.name=メープルシロップ
 item.got:marzipan.name=マジパン
@@ -5066,7 +5078,6 @@ item.got:mossovyChestplate.name≠
 item.got:mossovyDagger.name≠
 item.got:mossovyLeggings.name≠
 item.got:mossovySword.name≠
-item.got:motorGrapplingHook.name≠
 item.got:mug.name=マグ
 item.got:mugAle.name=エール
 item.got:mugAppleJuice.name=リンゴジュース
@@ -5165,23 +5176,6 @@ item.got:pentosChestplate.name≠
 item.got:pentosHelmet.name≠
 item.got:pentosLeggings.name≠
 item.got:pipe.name≠
-item.got:pipe.subtitle.0≠
-item.got:pipe.subtitle.10≠
-item.got:pipe.subtitle.11≠
-item.got:pipe.subtitle.12≠
-item.got:pipe.subtitle.13≠
-item.got:pipe.subtitle.14≠
-item.got:pipe.subtitle.15≠
-item.got:pipe.subtitle.16≠
-item.got:pipe.subtitle.1≠
-item.got:pipe.subtitle.2≠
-item.got:pipe.subtitle.3≠
-item.got:pipe.subtitle.4≠
-item.got:pipe.subtitle.5≠
-item.got:pipe.subtitle.6≠
-item.got:pipe.subtitle.7≠
-item.got:pipe.subtitle.8≠
-item.got:pipe.subtitle.9≠
 item.got:pipeweed.name=パイプ草
 item.got:pipeweedLeaf.name=パイプ草の葉
 item.got:pipeweedSeeds.name=パイプ草の種
@@ -5262,7 +5256,6 @@ item.got:shishKebab.name=シシケバブ
 item.got:silverIngot.name≠
 item.got:silverNugget.name=銀塊
 item.got:silverRing.name=銀の指輪
-item.got:silversword.name≠
 item.got:skullCup.name=骨の盃
 item.got:skullStaff.name≠
 item.got:sling.name=スリング
@@ -5296,7 +5289,6 @@ item.got:stormlandsChestplate.name≠
 item.got:stormlandsHelmet.name≠
 item.got:stormlandsLeggings.name≠
 item.got:strawBed.name=Straw ベッド
-item.got:stricklandSword.name≠
 item.got:structureSpawner.name=建築
 item.got:sulfur.name=硫黄
 item.got:sulfurMatch.name=硫黄のマッチ
@@ -5396,7 +5388,6 @@ item.got:wheel.name≠
 item.got:whiteBisonHorn.name=アラウの牝牛の角
 item.got:whiteWalkersBoots.name≠
 item.got:whiteWalkersChestplate.name≠
-item.got:whiteWalkersHoe.name≠
 item.got:whiteWalkersLeggings.name≠
 item.got:widowWail.name≠
 item.got:wildberry.name=野生のベリー

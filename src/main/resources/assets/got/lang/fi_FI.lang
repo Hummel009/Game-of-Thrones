@@ -4095,6 +4095,9 @@ item.got.antiwight≠
 item.got.banner.protect=Sisältää suojaustietoa
 item.got.brandingIron.named≠
 item.got.brandingIron.unnamed≠
+item.got.commandHorn.halt.name=Komennuksen torvi - Pysäytä joukot
+item.got.commandHorn.ready.name=Komennuksen torvi - Joukot valmiuteen
+item.got.commandHorn.summon.name=Komennuksen torvi - Kutsu joukot
 item.got.cracker.empty=Sinetöimätön %s
 item.got.cracker.sealedBy=Sinetöijä: %s
 item.got.cracker.sealedByDale=Laaksolaiset lelusepät
@@ -4118,6 +4121,23 @@ item.got.generic.stolen≠
 item.got.hat.dyed=Värjätty
 item.got.hat.feathered=Sulkakoristeinen
 item.got.mqbook.activeQuests≠
+item.got.pipe.subtitle.0≠
+item.got.pipe.subtitle.10≠
+item.got.pipe.subtitle.11≠
+item.got.pipe.subtitle.12≠
+item.got.pipe.subtitle.13≠
+item.got.pipe.subtitle.14≠
+item.got.pipe.subtitle.15≠
+item.got.pipe.subtitle.16≠
+item.got.pipe.subtitle.1≠
+item.got.pipe.subtitle.2≠
+item.got.pipe.subtitle.3≠
+item.got.pipe.subtitle.4≠
+item.got.pipe.subtitle.5≠
+item.got.pipe.subtitle.6≠
+item.got.pipe.subtitle.7≠
+item.got.pipe.subtitle.8≠
+item.got.pipe.subtitle.9≠
 item.got.pouch.dyed=Värjätty
 item.got.pouch.slots=Tilaa käytetty: %d, Tilaa yhteensä: %d 
 item.got.robes.dyed≠
@@ -4181,7 +4201,6 @@ item.got:banner.aerionBook.name≠
 item.got:banner.algood.name≠
 item.got:banner.allyrion.name≠
 item.got:banner.alqalis.name≠
-item.got:banner.amber.name≠
 item.got:banner.ambrose.name≠
 item.got:banner.amorylorch.name≠
 item.got:banner.andal.name≠
@@ -4548,7 +4567,6 @@ item.got:banner.nymeria.name≠
 item.got:banner.oakenfist.name≠
 item.got:banner.oakheart.name≠
 item.got:banner.oberyn.name≠
-item.got:banner.oldflowers.name≠
 item.got:banner.orkwood.name≠
 item.got:banner.orme.name≠
 item.got:banner.osgrey.name≠
@@ -4708,7 +4726,6 @@ item.got:banner.tyrellBK.name≠
 item.got:banner.tyrelll.name≠
 item.got:banner.tyrion.name≠
 item.got:banner.tyrosh.name≠
-item.got:banner.uffering.name≠
 item.got:banner.uller.name≠
 item.got:banner.umber.name≠
 item.got:banner.umberBook.name≠
@@ -4830,7 +4847,6 @@ item.got:bronzeThrowingAxe.name≠
 item.got:camelCooked.name=Paistettu kameli
 item.got:camelRaw.name=Raaka kameli
 item.got:cargocart.name≠
-item.got:catalpaNut.name≠
 item.got:celtigarAxe.name≠
 item.got:ceramicMug.name=Keraaminen muki
 item.got:ceramicPlate.name≠
@@ -4852,10 +4868,7 @@ item.got:coin.4.name≠
 item.got:coin.4096.name≠
 item.got:coin.64.name≠
 item.got:coin.nominal.name≠
-item.got:commandHorn.halt.name=Komennuksen torvi - Pysäytä joukot
 item.got:commandHorn.name=Komennuksen torvi
-item.got:commandHorn.ready.name=Komennuksen torvi - Joukot valmiuteen
-item.got:commandHorn.summon.name=Komennuksen torvi - Kutsu joukot
 item.got:commandSword.name=Komennuksen miekka
 item.got:conquestHorn.name=Valloituksen torvi
 item.got:copperIngot.name≠
@@ -4886,7 +4899,6 @@ item.got:dawn.name≠
 item.got:deerCooked.name=Paistettu peura
 item.got:deerRaw.name=Raaka peura
 item.got:diamond.name≠
-item.got:doorWood.name≠
 item.got:dorneBoots.name≠
 item.got:dorneChestplate.name≠
 item.got:dorneHelmet.name≠
@@ -4926,7 +4938,6 @@ item.got:flax.name=Pellava
 item.got:flaxSeeds.name=Pellavansiemenet
 item.got:flintDagger.name≠
 item.got:flintSpear.name≠
-item.got:forresterSword.name≠
 item.got:fur.name≠
 item.got:furBed.name≠
 item.got:furBoots.name≠
@@ -4949,7 +4960,6 @@ item.got:ghiscarChestplate.name≠
 item.got:ghiscarHelmet.name≠
 item.got:ghiscarLeggings.name≠
 item.got:giftBoots.name≠
-item.got:giftBow.name≠
 item.got:giftChestplate.name≠
 item.got:giftHelmet.name≠
 item.got:giftLeggings.name≠
@@ -4966,7 +4976,6 @@ item.got:goldLeggings.name≠
 item.got:goldRing.name=Kultasormus
 item.got:grapeRed.name=Punaisia greippejä
 item.got:grapeWhite.name=Vihreitä greippejä
-item.got:grapplingHook.name≠
 item.got:gregorCleganeSword.name≠
 item.got:handGold.name≠
 item.got:handSilver.name≠
@@ -4979,6 +4988,9 @@ item.got:hillmenHelmet.name≠
 item.got:hillmenLeggings.name≠
 item.got:honor.name≠
 item.got:horn.name=Sarvi
+item.got:horseArmorDiamond.name≠
+item.got:horseArmorGold.name≠
+item.got:horseArmorIron.name≠
 item.got:ibbenBoots.name≠
 item.got:ibbenChestplate.name≠
 item.got:ibbenHarpoon.name≠
@@ -5041,6 +5053,7 @@ item.got:lhazarSpear.name≠
 item.got:lhazarSword.name≠
 item.got:lightbringer.name≠
 item.got:lime.name=Limetti
+item.got:lingeringPotion.name≠
 item.got:lionBed.name=Leijonannahkainen sänky
 item.got:lionCooked.name=Paistettu leijona
 item.got:lionFur.name=Leijonan turkkia
@@ -5055,7 +5068,6 @@ item.got:lysBoots.name≠
 item.got:lysChestplate.name≠
 item.got:lysHelmet.name≠
 item.got:lysLeggings.name≠
-item.got:manFlesh.name≠
 item.got:mango.name=Mango
 item.got:mapleSyrup.name=Vaahterasiirappi
 item.got:marzipan.name=Marsipaani
@@ -5066,7 +5078,6 @@ item.got:mossovyChestplate.name≠
 item.got:mossovyDagger.name≠
 item.got:mossovyLeggings.name≠
 item.got:mossovySword.name≠
-item.got:motorGrapplingHook.name≠
 item.got:mug.name=Tuoppi
 item.got:mugAle.name=Olut
 item.got:mugAppleJuice.name=Omenamehu
@@ -5165,23 +5176,6 @@ item.got:pentosChestplate.name≠
 item.got:pentosHelmet.name≠
 item.got:pentosLeggings.name≠
 item.got:pipe.name≠
-item.got:pipe.subtitle.0≠
-item.got:pipe.subtitle.10≠
-item.got:pipe.subtitle.11≠
-item.got:pipe.subtitle.12≠
-item.got:pipe.subtitle.13≠
-item.got:pipe.subtitle.14≠
-item.got:pipe.subtitle.15≠
-item.got:pipe.subtitle.16≠
-item.got:pipe.subtitle.1≠
-item.got:pipe.subtitle.2≠
-item.got:pipe.subtitle.3≠
-item.got:pipe.subtitle.4≠
-item.got:pipe.subtitle.5≠
-item.got:pipe.subtitle.6≠
-item.got:pipe.subtitle.7≠
-item.got:pipe.subtitle.8≠
-item.got:pipe.subtitle.9≠
 item.got:pipeweed.name=Piippukessu
 item.got:pipeweedLeaf.name=Piippukessun lehti
 item.got:pipeweedSeeds.name=Piippukessun siemenet
@@ -5262,7 +5256,6 @@ item.got:shishKebab.name=Kebabvarras
 item.got:silverIngot.name≠
 item.got:silverNugget.name=Hopeahippu
 item.got:silverRing.name=Hopeasormus
-item.got:silversword.name≠
 item.got:skullCup.name=Kallokuppi
 item.got:skullStaff.name≠
 item.got:sling.name=Ritsa
@@ -5296,7 +5289,6 @@ item.got:stormlandsChestplate.name≠
 item.got:stormlandsHelmet.name≠
 item.got:stormlandsLeggings.name≠
 item.got:strawBed.name=Olkisänky
-item.got:stricklandSword.name≠
 item.got:structureSpawner.name=Rakenna
 item.got:sulfur.name=Rikki
 item.got:sulfurMatch.name=Tulitikut
@@ -5396,7 +5388,6 @@ item.got:wheel.name≠
 item.got:whiteBisonHorn.name=Arawin villikarjan sarvi
 item.got:whiteWalkersBoots.name≠
 item.got:whiteWalkersChestplate.name≠
-item.got:whiteWalkersHoe.name≠
 item.got:whiteWalkersLeggings.name≠
 item.got:widowWail.name≠
 item.got:wildberry.name=Villimarjoja
