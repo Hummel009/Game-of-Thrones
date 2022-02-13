@@ -21,7 +21,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 
 public class GOTGuiFellowships extends GOTGuiMenuBase {
-	public static ResourceLocation iconsTextures = new ResourceLocation("got:gui/fellowships.png");
+	public static ResourceLocation iconsTextures = new ResourceLocation("got:textures/gui/fellowships.png");
 	public static int entrySplit = 5;
 	public static int entryBorder = 10;
 	public static int selectBorder = 2;
@@ -768,6 +768,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 			refreshFellowshipList();
 		}
 		int midX = guiLeft + xSize / 2;
+		guiTop -= 20;
 		buttonList.add(buttonCreate = new GuiButton(0, midX - 100, guiTop + 230, 200, 20, StatCollector.translateToLocal("got.gui.fellowships.create")));
 		buttonList.add(buttonCreateThis = new GuiButton(1, midX - 100, guiTop + 170, 200, 20, StatCollector.translateToLocal("got.gui.fellowships.createThis")));
 		buttonList.add(buttonInvitePlayer = new GOTGuiButtonFsOption(2, midX, guiTop + 232, 0, 48, StatCollector.translateToLocal("got.gui.fellowships.invite")));
@@ -781,13 +782,14 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 		buttonList.add(buttonTransfer = new GuiButton(10, midX - 100, guiTop + 170, 200, 20, StatCollector.translateToLocal("got.gui.fellowships.transfer")));
 		buttonList.add(buttonRename = new GOTGuiButtonFsOption(11, midX, guiTop + 232, 32, 48, StatCollector.translateToLocal("got.gui.fellowships.rename")));
 		buttonList.add(buttonRenameThis = new GuiButton(12, midX - 100, guiTop + 170, 200, 20, StatCollector.translateToLocal("got.gui.fellowships.renameThis")));
-		buttonList.add(buttonBack = new GuiButton(13, guiLeft - 10, guiTop, 20, 20, "<"));
-		buttonList.add(buttonInvites = new GOTGuiButtonFsInvites(14, guiLeft + xSize - 16, guiTop, ""));
 		buttonList.add(buttonPVP = new GOTGuiButtonFsOption(15, midX, guiTop + 232, 64, 48, StatCollector.translateToLocal("got.gui.fellowships.togglePVP")));
 		buttonList.add(buttonHiredFF = new GOTGuiButtonFsOption(16, midX, guiTop + 232, 80, 48, StatCollector.translateToLocal("got.gui.fellowships.toggleHiredFF")));
 		buttonList.add(buttonMapShow = new GOTGuiButtonFsOption(17, midX, guiTop + 232, 96, 48, StatCollector.translateToLocal("got.gui.fellowships.toggleMapShow")));
 		buttonList.add(buttonOp = new GuiButton(18, midX - 100, guiTop + 170, 200, 20, StatCollector.translateToLocal("got.gui.fellowships.op")));
 		buttonList.add(buttonDeop = new GuiButton(19, midX - 100, guiTop + 170, 200, 20, StatCollector.translateToLocal("got.gui.fellowships.deop")));
+		guiTop += 30;
+		buttonList.add(buttonBack = new GuiButton(13, guiLeft - 10, guiTop, 20, 20, "<"));
+		buttonList.add(buttonInvites = new GOTGuiButtonFsInvites(14, guiLeft + xSize - 16, guiTop, ""));
 		orderedFsOptionButtons.clear();
 		orderedFsOptionButtons.add(buttonInvitePlayer);
 		orderedFsOptionButtons.add(buttonDisband);
@@ -974,49 +976,43 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 
 	public List<GOTFellowshipClient> sortFellowshipsForDisplay(List<GOTFellowshipClient> list) {
 		List<GOTFellowshipClient> sorted = new ArrayList<>(list);
-		Collections.sort(sorted, new Comparator<GOTFellowshipClient>() {
-			@Override
-			public int compare(GOTFellowshipClient fs1, GOTFellowshipClient fs2) {
-				int count1 = fs1.getPlayerCount();
-				int count2 = fs2.getPlayerCount();
-				if (count1 == count2) {
-					return fs1.getName().toLowerCase().compareTo(fs2.getName().toLowerCase());
-				}
-				return -Integer.compare(count1, count2);
+		Collections.sort(sorted, (fs1, fs2) -> {
+			int count1 = fs1.getPlayerCount();
+			int count2 = fs2.getPlayerCount();
+			if (count1 == count2) {
+				return fs1.getName().toLowerCase().compareTo(fs2.getName().toLowerCase());
 			}
+			return -Integer.compare(count1, count2);
 		});
 		return sorted;
 	}
 
 	public List<GameProfile> sortMembersForDisplay(GOTFellowshipClient fs) {
 		List<GameProfile> members = new ArrayList<>(fs.getMemberProfiles());
-		Collections.sort(members, new Comparator<GameProfile>() {
-			@Override
-			public int compare(GameProfile player1, GameProfile player2) {
-				boolean admin1 = fs.isAdmin(player1.getId());
-				boolean admin2 = fs.isAdmin(player2.getId());
-				boolean online1 = GOTGuiFellowships.isPlayerOnline(player1);
-				boolean online2 = GOTGuiFellowships.isPlayerOnline(player2);
-				if (online1 == online2) {
-					if (admin1 == admin2) {
-						return player1.getName().toLowerCase().compareTo(player2.getName().toLowerCase());
-					}
-					if (admin1 && !admin2) {
-						return -1;
-					}
-					if (!admin1 && admin2) {
-						return 1;
-					}
-				} else {
-					if (online1 && !online2) {
-						return -1;
-					}
-					if (!online1 && online2) {
-						return 1;
-					}
+		Collections.sort(members, (player1, player2) -> {
+			boolean admin1 = fs.isAdmin(player1.getId());
+			boolean admin2 = fs.isAdmin(player2.getId());
+			boolean online1 = GOTGuiFellowships.isPlayerOnline(player1);
+			boolean online2 = GOTGuiFellowships.isPlayerOnline(player2);
+			if (online1 == online2) {
+				if (admin1 == admin2) {
+					return player1.getName().toLowerCase().compareTo(player2.getName().toLowerCase());
 				}
-				return 0;
+				if (admin1 && !admin2) {
+					return -1;
+				}
+				if (!admin1 && admin2) {
+					return 1;
+				}
+			} else {
+				if (online1 && !online2) {
+					return -1;
+				}
+				if (!online1 && online2) {
+					return 1;
+				}
 			}
+			return 0;
 		});
 		return members;
 	}
