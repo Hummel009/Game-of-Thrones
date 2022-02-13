@@ -4,15 +4,24 @@ CHANGELOG
 * Greatly improved all the banners in the game (prod. Hummel009)
 + Added Asshai Shield
 + Added feminized ranks
++ Added a config option for maximum fellowship size
++ Added a config option to tune how often the mod clears the playerdata cache for offline players' data
 
+* Improved fellowships GUI to be compatible with big UI scale
+* Improved fellowship invitation mechanics
 * Improved all translations
 * Improved iron bank texture (prod. Hummel009)
 * Improved tool & weapon stats
 * Improved prostitute names & skins
 * Improved ranks
 
+* Optimized the performance penalty from loading large fellowships upon player login
+* Optimized NPCs checking for players with their miniquests
 * Optimized rendering code
 
+* Fixed bug with unremovable fellowship users after changing their nickname
+* Fixed bug with joining disbanded fellowships
+* Fixed bug with not protected food near banner
 * Fixed bug with farmers
 * Fixed crash in Stepstones
 * Fixed 5 minor bugs (thanks to Stalker Kir)
