@@ -56,6 +56,9 @@ public class GOTCommonProxy implements IGuiHandler {
 	public void displayBannerGui(GOTEntityBanner banner) {
 	}
 
+	public void displayFellowshipAcceptInvitationResult(UUID fellowshipID, String name, GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult result) {
+	}
+
 	public void displayFTScreen(GOTAbstractWaypoint waypoint, int startX, int startZ) {
 	}
 

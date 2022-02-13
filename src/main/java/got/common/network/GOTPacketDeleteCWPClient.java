@@ -57,7 +57,7 @@ public class GOTPacketDeleteCWPClient implements IMessage {
 					pd.removeSharedCustomWaypoint(cwp2);
 				}
 			} else if (!GOT.proxy.isSingleplayer() && (cwp = pd.getCustomWaypointByID(packet.cwpID)) != null) {
-				pd.removeCustomWaypoint(cwp);
+				pd.removeCustomWaypointClient(cwp);
 			}
 			return null;
 		}

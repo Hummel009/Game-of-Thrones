@@ -236,7 +236,7 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 			} else if (rand.nextInt(200) == 0) {
 				npcAction = NPCAction.getRandomAction(rand);
 				if (npcAction != null) {
-					switch(npcAction) {
+					switch (npcAction) {
 					case LOOKING:
 						actionTime = 60 + rand.nextInt(60);
 						actionSlow = 1.0f;
@@ -265,7 +265,7 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 				actionTick = 0;
 				actionTime = 0;
 			} else {
-				switch(npcAction) {
+				switch (npcAction) {
 				case LOOKING:
 					float slow = actionSlow * 16.0f;
 					headYaw = MathHelper.sin(actionTick / slow) * (float) Math.toRadians(60.0);

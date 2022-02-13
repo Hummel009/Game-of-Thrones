@@ -19,11 +19,7 @@ public class GOTFellowshipProfile extends GameProfile {
 	}
 
 	public GOTFellowship getFellowship() {
-		GOTFellowship fs = GOTFellowshipData.getFellowship(getId());
-		if (fs != null && !fs.isDisbanded()) {
-			return fs;
-		}
-		return null;
+		return GOTFellowshipData.getActiveFellowship(getId());
 	}
 
 	public GOTFellowshipClient getFellowshipClient() {

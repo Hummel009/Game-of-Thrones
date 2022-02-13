@@ -21,7 +21,11 @@ public abstract class GOTPacketFellowshipDo implements IMessage {
 		fellowshipID = new UUID(data.readLong(), data.readLong());
 	}
 
-	public GOTFellowship getFellowship() {
+	protected GOTFellowship getActiveFellowship() {
+		return GOTFellowshipData.getActiveFellowship(fellowshipID);
+	}
+
+	protected GOTFellowship getActiveOrDisbandedFellowship() {
 		return GOTFellowshipData.getFellowship(fellowshipID);
 	}
 

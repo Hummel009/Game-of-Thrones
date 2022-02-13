@@ -1,6 +1,6 @@
 package got.client.render.other;
 
-import java.util.List;
+import java.util.*;
 
 import org.lwjgl.opengl.GL11;
 
@@ -180,10 +180,10 @@ public class GOTRenderPlayer {
 	public boolean shouldRenderAlignment(EntityPlayer entityplayer) {
 		if (GOTConfig.displayAlignmentAboveHead && shouldRenderPlayerHUD(entityplayer)) {
 			if (GOTLevelData.getData(entityplayer).getHideAlignment()) {
-				String playerName = entityplayer.getCommandSenderName();
+				UUID playerUuid = entityplayer.getUniqueID();
 				List<GOTFellowshipClient> fellowships = GOTLevelData.getData(mc.thePlayer).getClientFellowships();
 				for (GOTFellowshipClient fs : fellowships) {
-					if (!fs.isPlayerIn(playerName)) {
+					if (!fs.containsPlayer(playerUuid)) {
 						continue;
 					}
 					return true;
@@ -199,7 +199,7 @@ public class GOTRenderPlayer {
 		if (GOTConfig.fellowPlayerHealthBars && shouldRenderPlayerHUD(entityplayer)) {
 			List<GOTFellowshipClient> fellowships = GOTLevelData.getData(mc.thePlayer).getClientFellowships();
 			for (GOTFellowshipClient fs : fellowships) {
-				if (!fs.isPlayerIn(entityplayer.getCommandSenderName())) {
+				if (!fs.containsPlayer(entityplayer.getUniqueID())) {
 					continue;
 				}
 				return true;

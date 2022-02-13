@@ -17,10 +17,10 @@ public class GOTPacketFellowshipDisband extends GOTPacketFellowshipDo {
 		@Override
 		public IMessage onMessage(GOTPacketFellowshipDisband packet, MessageContext context) {
 			EntityPlayerMP entityplayer = context.getServerHandler().playerEntity;
-			GOTFellowship fellowship = packet.getFellowship();
+			GOTFellowship fellowship = packet.getActiveFellowship();
 			if (fellowship != null) {
 				GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
-				playerData.disbandFellowship(fellowship);
+				playerData.disbandFellowship(fellowship, entityplayer.getCommandSenderName());
 			}
 			return null;
 		}
