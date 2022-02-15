@@ -105,9 +105,9 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 	public Item seedItem;
 	public Block tableBlock;
 	public BannerType banner;
-	public boolean isRed = false;
 	public boolean isArryn = false;
 	public boolean isCrownlands = false;
+	public boolean isCrownlandsRed = false;
 	public boolean isDragonstone = false;
 	public boolean isIronborn = false;
 	public boolean isNorth = false;
@@ -120,10 +120,32 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		super(flag);
 	}
 
+	public BannerType getBanner() {
+		Map<Boolean, BannerType> theBanner = new HashMap<>();
+		theBanner.put(isArryn, GOTItemBanner.BannerType.ARRYN);
+		theBanner.put(isCrownlands, GOTItemBanner.BannerType.ROBERT);
+		theBanner.put(isCrownlandsRed, GOTItemBanner.BannerType.JOFFREY);
+		theBanner.put(isDragonstone, GOTItemBanner.BannerType.STANNIS);
+		theBanner.put(isIronborn, GOTItemBanner.BannerType.GREYJOY);
+		theBanner.put(isNorth, GOTItemBanner.BannerType.ROBB);
+		theBanner.put(isReach, GOTItemBanner.BannerType.TYRELL);
+		theBanner.put(isRiverlands, GOTItemBanner.BannerType.TULLY);
+		theBanner.put(isStormlands, GOTItemBanner.BannerType.RENLY);
+		theBanner.put(isWesterlands, GOTItemBanner.BannerType.LANNISTER);
+
+		for (Entry<Boolean, BannerType> npc : theBanner.entrySet()) {
+			if (Boolean.TRUE.equals(npc.getKey())) {
+				return npc.getValue();
+			}
+		}
+		return null;
+	}
+
 	public GOTEntityNPC getBartender(World world) {
 		Map<Boolean, GOTEntityNPC> theBartender = new HashMap<>();
 		theBartender.put(isArryn, new GOTEntityArrynBartender(world));
 		theBartender.put(isCrownlands, new GOTEntityCrownlandsBartender(world));
+		theBartender.put(isCrownlandsRed, new GOTEntityCrownlandsBartender(world));
 		theBartender.put(isDragonstone, new GOTEntityDragonstoneBartender(world));
 		theBartender.put(isIronborn, new GOTEntityIronbornBartender(world));
 		theBartender.put(isNorth, new GOTEntityNorthBartender(world));
@@ -140,30 +162,11 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		return null;
 	}
 
-	public GOTStructureWesterosTower getTower(boolean notifyChanges) {
-		Map<Boolean, GOTStructureWesterosTower> theTower = new HashMap<>();
-		theTower.put(isArryn, new GOTStructureArrynTower(notifyChanges));
-		theTower.put(isCrownlands, new GOTStructureCrownlandsTower(notifyChanges));
-		theTower.put(isDragonstone, new GOTStructureDragonstoneTower(notifyChanges));
-		theTower.put(isIronborn, new GOTStructureIronbornTower(notifyChanges));
-		theTower.put(isNorth, new GOTStructureNorthTower(notifyChanges));
-		theTower.put(isReach, new GOTStructureReachTower(notifyChanges));
-		theTower.put(isRiverlands, new GOTStructureRiverlandsTower(notifyChanges));
-		theTower.put(isStormlands, new GOTStructureStormlandsTower(notifyChanges));
-		theTower.put(isWesterlands, new GOTStructureWesterlandsTower(notifyChanges));
-
-		for (Entry<Boolean, GOTStructureWesterosTower> tow : theTower.entrySet()) {
-			if (Boolean.TRUE.equals(tow.getKey())) {
-				return tow.getValue();
-			}
-		}
-		return null;
-	}
-
 	public GOTEntityNPC getBlacksmith(World world) {
 		Map<Boolean, GOTEntityNPC> theBlacksmith = new HashMap<>();
 		theBlacksmith.put(isArryn, new GOTEntityArrynBlacksmith(world));
 		theBlacksmith.put(isCrownlands, new GOTEntityCrownlandsBlacksmith(world));
+		theBlacksmith.put(isCrownlandsRed, new GOTEntityCrownlandsBlacksmith(world));
 		theBlacksmith.put(isDragonstone, new GOTEntityDragonstoneBlacksmith(world));
 		theBlacksmith.put(isIronborn, new GOTEntityIronbornBlacksmith(world));
 		theBlacksmith.put(isNorth, new GOTEntityNorthBlacksmith(world));
@@ -204,6 +207,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		Map<Boolean, GOTEntityNPC> theFarmer = new HashMap<>();
 		theFarmer.put(isArryn, new GOTEntityArrynFarmer(world));
 		theFarmer.put(isCrownlands, new GOTEntityCrownlandsFarmer(world));
+		theFarmer.put(isCrownlandsRed, new GOTEntityCrownlandsFarmer(world));
 		theFarmer.put(isDragonstone, new GOTEntityDragonstoneFarmer(world));
 		theFarmer.put(isIronborn, new GOTEntityIronbornFarmer(world));
 		theFarmer.put(isNorth, new GOTEntityNorthFarmer(world));
@@ -224,6 +228,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		Map<Boolean, GOTEntityNPC> theFarmhand = new HashMap<>();
 		theFarmhand.put(isArryn, new GOTEntityArrynFarmhand(world));
 		theFarmhand.put(isCrownlands, new GOTEntityCrownlandsFarmhand(world));
+		theFarmhand.put(isCrownlandsRed, new GOTEntityCrownlandsFarmhand(world));
 		theFarmhand.put(isDragonstone, new GOTEntityDragonstoneFarmhand(world));
 		theFarmhand.put(isIronborn, new GOTEntityIronbornFarmhand(world));
 		theFarmhand.put(isNorth, new GOTEntityNorthFarmhand(world));
@@ -249,6 +254,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		Map<Boolean, GOTEntityNPC> theMan = new HashMap<>();
 		theMan.put(isArryn, new GOTEntityArrynMan(world));
 		theMan.put(isCrownlands, new GOTEntityCrownlandsMan(world));
+		theMan.put(isCrownlandsRed, new GOTEntityCrownlandsMan(world));
 		theMan.put(isDragonstone, new GOTEntityDragonstoneMan(world));
 		theMan.put(isIronborn, new GOTEntityIronbornMan(world));
 		theMan.put(isNorth, new GOTEntityNorthMan(world));
@@ -269,6 +275,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		Map<Boolean, GOTEntityNPC> theSoldier = new HashMap<>();
 		theSoldier.put(isArryn, new GOTEntityArrynSoldier(world));
 		theSoldier.put(isCrownlands, new GOTEntityCrownlandsLevyman(world));
+		theSoldier.put(isCrownlandsRed, new GOTEntityKingsguard(world));
 		theSoldier.put(isDragonstone, new GOTEntityDragonstoneSoldier(world));
 		theSoldier.put(isIronborn, new GOTEntityIronbornSoldier(world));
 		theSoldier.put(isNorth, new GOTEntityNorthSoldier(world));
@@ -289,6 +296,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		Map<Boolean, GOTEntityNPC> theSoldierArcher = new HashMap<>();
 		theSoldierArcher.put(isArryn, new GOTEntityArrynSoldierArcher(world));
 		theSoldierArcher.put(isCrownlands, new GOTEntityCrownlandsLevymanArcher(world));
+		theSoldierArcher.put(isCrownlandsRed, new GOTEntityKingsguard(world));
 		theSoldierArcher.put(isDragonstone, new GOTEntityDragonstoneSoldierArcher(world));
 		theSoldierArcher.put(isIronborn, new GOTEntityIronbornSoldierArcher(world));
 		theSoldierArcher.put(isNorth, new GOTEntityNorthSoldierArcher(world));
@@ -305,6 +313,48 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		return null;
 	}
 
+	public Block getTable() {
+		Map<Boolean, Block> theTable = new HashMap<>();
+		theTable.put(isArryn, GOTRegistry.tableArryn);
+		theTable.put(isCrownlands, GOTRegistry.tableCrownlands);
+		theTable.put(isCrownlandsRed, GOTRegistry.tableCrownlands);
+		theTable.put(isDragonstone, GOTRegistry.tableDragonstone);
+		theTable.put(isIronborn, GOTRegistry.tableIronborn);
+		theTable.put(isNorth, GOTRegistry.tableNorth);
+		theTable.put(isReach, GOTRegistry.tableReach);
+		theTable.put(isRiverlands, GOTRegistry.tableRiverlands);
+		theTable.put(isStormlands, GOTRegistry.tableStormlands);
+		theTable.put(isWesterlands, GOTRegistry.tableWesterlands);
+
+		for (Entry<Boolean, Block> npc : theTable.entrySet()) {
+			if (Boolean.TRUE.equals(npc.getKey())) {
+				return npc.getValue();
+			}
+		}
+		return null;
+	}
+
+	public GOTStructureWesterosTower getTower(boolean notifyChanges) {
+		Map<Boolean, GOTStructureWesterosTower> theTower = new HashMap<>();
+		theTower.put(isArryn, new GOTStructureArrynTower(notifyChanges));
+		theTower.put(isCrownlands, new GOTStructureCrownlandsTower(notifyChanges));
+		theTower.put(isCrownlandsRed, new GOTStructureCrownlandsTower(notifyChanges));
+		theTower.put(isDragonstone, new GOTStructureDragonstoneTower(notifyChanges));
+		theTower.put(isIronborn, new GOTStructureIronbornTower(notifyChanges));
+		theTower.put(isNorth, new GOTStructureNorthTower(notifyChanges));
+		theTower.put(isReach, new GOTStructureReachTower(notifyChanges));
+		theTower.put(isRiverlands, new GOTStructureRiverlandsTower(notifyChanges));
+		theTower.put(isStormlands, new GOTStructureStormlandsTower(notifyChanges));
+		theTower.put(isWesterlands, new GOTStructureWesterlandsTower(notifyChanges));
+
+		for (Entry<Boolean, GOTStructureWesterosTower> tow : theTower.entrySet()) {
+			if (Boolean.TRUE.equals(tow.getKey())) {
+				return tow.getValue();
+			}
+		}
+		return null;
+	}
+
 	public boolean hasMaester() {
 		return isArryn || isCrownlands || isReach || isRiverlands || isStormlands || isWesterlands || isNorth;
 	}
@@ -313,55 +363,48 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		return isArryn || isCrownlands || isRiverlands || isStormlands || isWesterlands;
 	}
 
+	public GOTStructureBase setGranite() {
+		isCrownlands = false;
+		isCrownlandsRed = true;
+		return this;
+	}
+
 	@Override
 	public void setupRandomBlocks(Random random) {
-		if (isArryn) {
-			tableBlock = GOTRegistry.tableArryn;
-			banner = GOTItemBanner.BannerType.ARRYN;
-		}
-		if (isArryn) {
-			tableBlock = GOTRegistry.tableArryn;
-			banner = GOTItemBanner.BannerType.ARRYN;
-		} else if (isCrownlands) {
-			tableBlock = GOTRegistry.tableCrownlands;
-			banner = GOTItemBanner.BannerType.ROBERT;
-		} else if (isDragonstone) {
-			tableBlock = GOTRegistry.tableDragonstone;
-			banner = GOTItemBanner.BannerType.STANNIS;
-		} else if (isIronborn) {
-			tableBlock = GOTRegistry.tableIronborn;
-			banner = GOTItemBanner.BannerType.GREYJOY;
-		} else if (isNorth) {
-			tableBlock = GOTRegistry.tableNorth;
-			banner = GOTItemBanner.BannerType.ROBB;
-		} else if (isReach) {
-			tableBlock = GOTRegistry.tableReach;
-			banner = GOTItemBanner.BannerType.TYRELL;
-		} else if (isRiverlands) {
-			tableBlock = GOTRegistry.tableRiverlands;
-			banner = GOTItemBanner.BannerType.TULLY;
-		} else if (isStormlands) {
-			tableBlock = GOTRegistry.tableStormlands;
-			banner = GOTItemBanner.BannerType.RENLY;
-		} else if (isWesterlands) {
-			tableBlock = GOTRegistry.tableWesterlands;
-			banner = GOTItemBanner.BannerType.LANNISTER;
+		banner = getBanner();
+		tableBlock = getTable();
+		if (isCrownlandsRed) {
+			brickBlock = GOTRegistry.brick2;
+			brickMeta = 2;
+			brickSlabBlock = GOTRegistry.slabSingle3;
+			brickSlabMeta = 6;
+			brickStairBlock = GOTRegistry.stairsGraniteBrick;
+			brickWallBlock = GOTRegistry.wallStone2;
+			pillarMeta = 4;
+			rockMeta = 4;
+			rockSlabBlock = GOTRegistry.slabSingle3;
+			rockSlabDoubleBlock = GOTRegistry.smoothStone;
+			rockSlabDoubleMeta = 4;
+			rockSlabMeta = 6;
+			rockWallBlock = GOTRegistry.wallStone2;
+		} else {
+			brickBlock = GOTRegistry.brick1;
+			brickMeta = 1;
+			brickSlabBlock = GOTRegistry.slabSingle1;
+			brickSlabMeta = 3;
+			brickStairBlock = GOTRegistry.stairsAndesiteBrick;
+			brickWallBlock = GOTRegistry.wallStone1;
+			pillarMeta = 6;
+			rockMeta = 1;
+			rockSlabBlock = GOTRegistry.slabSingle1;
+			rockSlabDoubleBlock = GOTRegistry.slabDouble1;
+			rockSlabDoubleMeta = 2;
+			rockSlabMeta = 2;
+			rockWallBlock = GOTRegistry.wallStone1;
 		}
 		rockBlock = GOTRegistry.rock;
-		rockMeta = 1;
-		rockSlabBlock = GOTRegistry.slabSingle1;
-		rockSlabMeta = 2;
-		rockSlabDoubleBlock = GOTRegistry.slabDouble1;
-		rockSlabDoubleMeta = 2;
 		rockStairBlock = GOTRegistry.stairsAndesite;
-		rockWallBlock = GOTRegistry.wallStone1;
 		rockWallMeta = 2;
-		brickBlock = GOTRegistry.brick1;
-		brickMeta = 1;
-		brickSlabBlock = GOTRegistry.slabSingle1;
-		brickSlabMeta = 3;
-		brickStairBlock = GOTRegistry.stairsAndesiteBrick;
-		brickWallBlock = GOTRegistry.wallStone1;
 		brickWallMeta = 3;
 		brickMossyBlock = GOTRegistry.brick1;
 		brickMossyMeta = 2;
@@ -378,7 +421,6 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		brickCrackedWallBlock = GOTRegistry.wallStone1;
 		brickCrackedWallMeta = 5;
 		pillarBlock = GOTRegistry.pillar1;
-		pillarMeta = 6;
 		brick2Block = GOTRegistry.brick2;
 		brick2Meta = 11;
 		brick2SlabBlock = GOTRegistry.slabSingle5;

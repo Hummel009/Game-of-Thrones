@@ -7,4 +7,11 @@ public abstract class GOTStructureWesterlandsVillageFarm extends GOTStructureWes
 		super(flag);
 		isWesterlands = true;
 	}
+
+	public static class Crops extends GOTStructureWesterosVillageFarm.Crops {
+		public Crops(boolean flag) {
+			super(flag);
+			isWesterlands = true;	
+		}
+	}
 }

@@ -9,6 +9,11 @@ import got.common.entity.essos.GOTEntityRedPriest;
 import got.common.entity.other.*;
 import got.common.entity.westeros.*;
 import got.common.entity.westeros.ironborn.GOTEntityIronbornPriest;
+import got.common.entity.westeros.legendary.captain.*;
+import got.common.entity.westeros.legendary.deco.*;
+import got.common.entity.westeros.legendary.quest.*;
+import got.common.entity.westeros.legendary.trader.*;
+import got.common.entity.westeros.legendary.warrior.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
@@ -492,18 +497,32 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 			GOTEntityRedPriest priest = new GOTEntityRedPriest(world);
 			priest.spawnRidingHorse = false;
 			spawnNPCAndSetHome(priest, world, 0, 1, 0, 12);
-		}
-		if (isIronborn) {
+		} else if (isIronborn) {
 			GOTEntityIronbornPriest priest = new GOTEntityIronbornPriest(world);
 			priest.spawnRidingHorse = false;
 			spawnNPCAndSetHome(priest, world, 0, 1, 0, 12);
+		} else if (isCrownlandsRed) {
+			spawnLegendaryNPC(new GOTEntitySandorClegane(world), world, -2, 1, -2);
+			spawnLegendaryNPC(new GOTEntityJoffreyBaratheon(world), world, 2, 1, -2);
+			spawnLegendaryNPC(new GOTEntityCerseiLannister(world), world, 2, 1, 2);
+			spawnLegendaryNPC(new GOTEntityJaimeLannister(world), world, -2, 1, 2);
+			spawnLegendaryNPC(new GOTEntityPycelle(world), world, 2, 1, 0);
+			spawnLegendaryNPC(new GOTEntityJanosSlynt(world), world, -2, 1, 0);
+			spawnLegendaryNPC(new GOTEntityVarys(world), world, 0, 1, 2);
+			spawnLegendaryNPC(new GOTEntityIlynPayne(world), world, 0, 1, -2);
+			spawnLegendaryNPC(new GOTEntityHighSepton(world), world, -1, 1, 2);
+			spawnLegendaryNPC(new GOTEntityTommenBaratheon(world), world, -2, 1, 1);
+			spawnLegendaryNPC(new GOTEntityMyrcellaBaratheon(world), world, -1, 1, -2);
+			spawnLegendaryNPC(new GOTEntityMerynTrant(world), world, -1, 1, 1);
+			spawnLegendaryNPC(new GOTEntityBarristanSelmy(world), world, -1, 1, 0);
+		} else {
+			GOTEntityNPC captain = getCaptain(world); 
+			captain.spawnRidingHorse = false;
+			spawnNPCAndSetHome(captain, world, 0, 1, 0, 12);
+			GOTEntityNPC soldier = getSoldier(world);
+			soldier.spawnRidingHorse = false;
+			spawnNPCAndSetHome(soldier, world, 0, 1, 0, 16);
 		}
-		GOTEntityNPC captain = getCaptain(world); 
-		captain.spawnRidingHorse = false;
-		spawnNPCAndSetHome(captain, world, 0, 1, 0, 12);
-		GOTEntityNPC soldier = getSoldier(world);
-		soldier.spawnRidingHorse = false;
-		spawnNPCAndSetHome(soldier, world, 0, 1, 0, 16);
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
 		respawner.setSpawnClasses(getSoldier(world).getClass(), getSoldierArcher(world).getClass());
 		respawner.setCheckRanges(20, -8, 12, 12);

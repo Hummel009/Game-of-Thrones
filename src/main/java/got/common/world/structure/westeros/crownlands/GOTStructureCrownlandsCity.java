@@ -20,6 +20,7 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 	public boolean isTown;
 	public boolean isCastle;
 	public boolean isCapital;
+	public boolean isRedCastle;
 
 	public GOTStructureCrownlandsCity(GOTBiome biome, float f) {
 		super(biome);
@@ -41,6 +42,11 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 
 	public GOTStructureCrownlandsCity setIsCastle() {
 		isCastle = true;
+		return this;
+	}
+
+	public GOTStructureCrownlandsCity setIsRedCastle() {
+		isRedCastle = true;
 		return this;
 	}
 
@@ -68,7 +74,48 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 			case VILLAGE:
 				setupVillage(random);
 				break;
+			case RED_CASTLE:
+				setupRedCastle(random);
+				break;
 			}
+		}
+
+		public void setupRedCastle(Random random) {
+			this.addStructure(new GOTStructureWesterosFortress(false).setGranite(), 0, 12, 2, true);
+			this.addStructure(new GOTStructureWesterosFortGate(false).setGranite(), 0, -37, 0, true);
+			this.addStructure(new GOTStructureWesterosFortWall.Right(false).setGranite(), -11, -37, 0, true);
+			this.addStructure(new GOTStructureWesterosFortWall.Left(false).setGranite(), 11, -37, 0, true);
+			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), -23, -33, 2, true);
+			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), 23, -33, 2, true);
+			this.addStructure(new GOTStructureWesterosFortGate(false).setGranite(), -37, 0, 3, true);
+			this.addStructure(new GOTStructureWesterosFortWall.Left(false).setGranite(), -37, -11, 3, true);
+			this.addStructure(new GOTStructureWesterosFortWall.Right(false).setGranite(), -37, 11, 3, true);
+			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), -33, -23, 1, true);
+			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), -33, 23, 1, true);
+			this.addStructure(new GOTStructureWesterosFortGate(false).setGranite(), 0, 37, 2, true);
+			this.addStructure(new GOTStructureWesterosFortWall.Left(false).setGranite(), -11, 37, 2, true);
+			this.addStructure(new GOTStructureWesterosFortWall.Right(false).setGranite(), 11, 37, 2, true);
+			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), -23, 33, 0, true);
+			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), 23, 33, 0, true);
+			this.addStructure(new GOTStructureWesterosFortGate(false).setGranite(), 37, 0, 1, true);
+			this.addStructure(new GOTStructureWesterosFortWall.Right(false).setGranite(), 37, -11, 1, true);
+			this.addStructure(new GOTStructureWesterosFortWall.Left(false).setGranite(), 37, 11, 1, true);
+			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), 33, -23, 3, true);
+			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), 33, 23, 3, true);
+			this.addStructure(new GOTStructureWesterosFortWallCorner(false).setGranite(), -30, -30, 3);
+			this.addStructure(new GOTStructureWesterosFortWallCorner(false).setGranite(), -30, 30, 2);
+			this.addStructure(new GOTStructureWesterosFortWallCorner(false).setGranite(), 30, 30, 1);
+			this.addStructure(new GOTStructureWesterosFortWallCorner(false).setGranite(), 30, -30, 2);
+			this.addStructure(new GOTStructureWesterosStables(false).setGranite(), -24, 2, 0);
+			this.addStructure(new GOTStructureWesterosStables(false).setGranite(), -24, -2, 2);
+			this.addStructure(new GOTStructureWesterosSmithy(false).setGranite(), 24, 1, 0);
+			this.addStructure(new GOTStructureWesterosSmithy(false).setGranite(), 24, -1, 2);
+			this.addStructure(new GOTStructureWesterosStoneHouse(false).setGranite(), -3, -25, 1);
+			this.addStructure(new GOTStructureWesterosStoneHouse(false).setGranite(), 3, -25, 3);
+			this.addStructure(new GOTStructureWesterosVillageFarm.Crops(false).setGranite(), -18, -21, 1);
+			this.addStructure(new GOTStructureWesterosVillageFarm.Crops(false).setGranite(), 18, -21, 3);
+			this.addStructure(new GOTStructureWesterosWell(false).setGranite(), -12, 27, 1);
+			this.addStructure(new GOTStructureWesterosWell(false).setGranite(), 12, 27, 3);
 		}
 
 		@Override
@@ -99,6 +146,11 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 				}
 				if (k >= 26 && k <= 28 && i1 <= 12) {
 					return GOTBezierType.PATH_DIRTY;
+				}
+			}
+			if (villageType == VillageType.RED_CASTLE) {
+				if (i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36 || k1 <= 1 && i1 >= 12 && i1 <= 36 || k >= 26 && k <= 28 && i1 <= 12) {
+					return GOTBezierType.PAVING;
 				}
 			}
 			return null;
@@ -553,6 +605,8 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 				villageType = VillageType.TOWN;
 			} else if (isCastle || random.nextInt(4) == 0) {
 				villageType = VillageType.FORT;
+			} else if (isRedCastle) {
+				villageType = VillageType.RED_CASTLE;
 			} else {
 				villageType = VillageType.VILLAGE;
 			}
@@ -561,7 +615,7 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 	}
 
 	public enum VillageType {
-		VILLAGE, TOWN, FORT;
+		VILLAGE, TOWN, FORT, RED_CASTLE;
 	}
 
 }

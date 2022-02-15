@@ -1,14 +1,13 @@
 package got.common.world.structure.westeros.common;
 
-import java.util.*;
+import java.util.Random;
 
 import got.common.world.feature.GOTTreeType;
-import got.common.world.structure.westeros.arryn.GOTStructureArrynBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
-public class GOTStructureWesterosTownTrees extends GOTStructureArrynBase {
+public class GOTStructureWesterosTownTrees extends GOTStructureWesterosBase {
 	public GOTStructureWesterosTownTrees(boolean flag) {
 		super(flag);
 	}
@@ -56,15 +55,9 @@ public class GOTStructureWesterosTownTrees extends GOTStructureArrynBase {
 			WorldGenAbstractTree treeGen;
 			j1 = 1;
 			int k12 = 0;
-			for (int l = 0; l < 16 && ((treeGen = GOTStructureWesterosTownTrees.getRandomTree(random).create(notifyChanges, random)) == null || !treeGen.generate(world, random, getX(i12, k12), getY(j1), getZ(i12, k12))); ++l) {
+			for (int l = 0; l < 16 && ((treeGen = GOTTreeType.CYPRESS.create(notifyChanges, random)) == null || !treeGen.generate(world, random, getX(i12, k12), getY(j1), getZ(i12, k12))); ++l) {
 			}
 		}
 		return true;
-	}
-
-	public static GOTTreeType getRandomTree(Random random) {
-		ArrayList<GOTTreeType> treeList = new ArrayList<>();
-		treeList.add(GOTTreeType.CYPRESS);
-		return treeList.get(random.nextInt(treeList.size()));
 	}
 }

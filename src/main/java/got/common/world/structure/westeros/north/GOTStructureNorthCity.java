@@ -282,8 +282,8 @@ public class GOTStructureNorthCity extends GOTVillageGen {
 			this.addStructure(new GOTStructureNorthSmithy(false), 0, -26, 2, true);
 			this.addStructure(new GOTStructureWesterosObelisk(false), 0, 27, 0, true);
 			this.addStructure(new GOTStructureNorthTavern(false), -houseX, -5, 1, true);
-			this.addStructure(new GOTStructureNorthTownTrees(false), -47, -13, 2, true);
-			this.addStructure(new GOTStructureNorthTownTrees(false), -47, 1, 0, true);
+			this.addStructure(new GOTStructureWesterosTownTrees(false), -47, -13, 2, true);
+			this.addStructure(new GOTStructureWesterosTownTrees(false), -47, 1, 0, true);
 			for (int i1 : new int[] { -43, -51 }) {
 				this.addStructure(new GOTStructureWesterosTownBench(false), i1, -9, 2, true);
 				this.addStructure(new GOTStructureWesterosTownBench(false), i1, -3, 0, true);
@@ -313,10 +313,10 @@ public class GOTStructureNorthCity extends GOTVillageGen {
 			int treeX = 47;
 			int treeZ = 35;
 			for (int i1 : new int[] { -treeX, treeX }) {
-				this.addStructure(new GOTStructureNorthTownTrees(false), i1, -treeZ, 0, true);
-				this.addStructure(new GOTStructureNorthTownTrees(false), i1, treeZ, 2, true);
-				this.addStructure(new GOTStructureNorthTownTrees(false), -treeZ, i1, 3, true);
-				this.addStructure(new GOTStructureNorthTownTrees(false), treeZ, i1, 1, true);
+				this.addStructure(new GOTStructureWesterosTownTrees(false), i1, -treeZ, 0, true);
+				this.addStructure(new GOTStructureWesterosTownTrees(false), i1, treeZ, 2, true);
+				this.addStructure(new GOTStructureWesterosTownTrees(false), -treeZ, i1, 3, true);
+				this.addStructure(new GOTStructureWesterosTownTrees(false), treeZ, i1, 1, true);
 			}
 			houseX = 64;
 			int lampX = 59;
@@ -375,16 +375,16 @@ public class GOTStructureNorthCity extends GOTVillageGen {
 			this.addStructure(new GOTStructureWesterosWell(false), wellZ, wellX, 0, true);
 			treeX = 75;
 			treeZ = 61;
-			this.addStructure(new GOTStructureNorthTownTrees(false), -treeX, -treeZ, 1, true);
-			this.addStructure(new GOTStructureNorthTownTrees(false), -treeX, treeZ, 1, true);
-			this.addStructure(new GOTStructureNorthTownTrees(false), treeX, -treeZ, 3, true);
-			this.addStructure(new GOTStructureNorthTownTrees(false), treeX, treeZ, 3, true);
-			this.addStructure(new GOTStructureNorthTownTrees(false), -treeZ, -treeX, 2, true);
-			this.addStructure(new GOTStructureNorthTownTrees(false), treeZ, -treeX, 2, true);
-			this.addStructure(new GOTStructureNorthTownTrees(false), -treeZ, treeX, 0, true);
-			this.addStructure(new GOTStructureNorthTownTrees(false), treeZ, treeX, 0, true);
-			this.addStructure(new GOTStructureNorthTownTrees(false), -14, 71, 1, true);
-			this.addStructure(new GOTStructureNorthTownTrees(false), 14, 71, 3, true);
+			this.addStructure(new GOTStructureWesterosTownTrees(false), -treeX, -treeZ, 1, true);
+			this.addStructure(new GOTStructureWesterosTownTrees(false), -treeX, treeZ, 1, true);
+			this.addStructure(new GOTStructureWesterosTownTrees(false), treeX, -treeZ, 3, true);
+			this.addStructure(new GOTStructureWesterosTownTrees(false), treeX, treeZ, 3, true);
+			this.addStructure(new GOTStructureWesterosTownTrees(false), -treeZ, -treeX, 2, true);
+			this.addStructure(new GOTStructureWesterosTownTrees(false), treeZ, -treeX, 2, true);
+			this.addStructure(new GOTStructureWesterosTownTrees(false), -treeZ, treeX, 0, true);
+			this.addStructure(new GOTStructureWesterosTownTrees(false), treeZ, treeX, 0, true);
+			this.addStructure(new GOTStructureWesterosTownTrees(false), -14, 71, 1, true);
+			this.addStructure(new GOTStructureWesterosTownTrees(false), 14, 71, 3, true);
 			if (!isSmallTown) {
 				int wallX;
 				int l;

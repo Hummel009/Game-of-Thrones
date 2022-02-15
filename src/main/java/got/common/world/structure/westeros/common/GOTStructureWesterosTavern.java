@@ -760,6 +760,7 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 			spawnNPCAndSetHome(getBartender(world), world, -4, 1, 7, 2);
 			spawnNPCAndSetHome(new GOTEntityMercenary(world), world, 2, 1, 7, 16);
 			spawnNPCAndSetHome(new GOTEntityWesterosThief(world), world, 2, 1, 7, 16);
+			spawnNPCAndSetHome(new GOTEntityWesterosScrapTrader(world), world, 2, 1, 7, 16);
 		}
 		for (int l = 0; l < 5; ++l) {
 			spawnNPCAndSetHome(new GOTEntityProstitute(world), world, 2, 1, 7, 16);

@@ -15,6 +15,51 @@ public abstract class GOTStructureWesterosVillageFarm extends GOTStructureWester
 		super(flag);
 	}
 
+	public static class Crops extends GOTStructureWesterosVillageFarm {
+		public Crops(boolean flag) {
+			super(flag);
+		}
+
+		@Override
+		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
+			if (!super.generate(world, random, i, j, k, rotation)) {
+				return false;
+			}
+			for (int i1 = -4; i1 <= 4; ++i1) {
+				for (int k1 = -4; k1 <= 4; ++k1) {
+					int i2 = Math.abs(i1);
+					int k2 = Math.abs(k1);
+					if (i2 <= 2 && k2 <= 2) {
+						if (i2 == 0 && k2 == 0) {
+							setBlockAndMetadata(world, i1, 0, k1, Blocks.water, 0);
+							setBlockAndMetadata(world, i1, 1, k1, rockBlock, rockMeta);
+							setBlockAndMetadata(world, i1, 2, k1, Blocks.hay_block, 0);
+							setBlockAndMetadata(world, i1, 3, k1, fenceBlock, fenceMeta);
+							setBlockAndMetadata(world, i1, 4, k1, Blocks.hay_block, 0);
+							setBlockAndMetadata(world, i1, 5, k1, Blocks.pumpkin, 2);
+							continue;
+						}
+						setBlockAndMetadata(world, i1, 0, k1, Blocks.farmland, 7);
+						setBlockAndMetadata(world, i1, 1, k1, cropBlock, cropMeta);
+						continue;
+					}
+					setBlockAndMetadata(world, i1, 0, k1, GOTRegistry.dirtPath, 0);
+				}
+			}
+			setBlockAndMetadata(world, 0, 1, -5, fenceGateBlock, 0);
+			setBlockAndMetadata(world, 0, 1, 5, fenceGateBlock, 2);
+			setBlockAndMetadata(world, -5, 1, 0, fenceGateBlock, 1);
+			setBlockAndMetadata(world, 5, 1, 0, fenceGateBlock, 3);
+			int farmhands = 1 + random.nextInt(2);
+			for (int l = 0; l < farmhands; ++l) {
+				GOTEntityNPC farmhand = getFarmhand(world);
+				spawnNPCAndSetHome(farmhand, world, 0, 1, -1, 8);
+				farmhand.seedsItem = seedItem;
+			}
+			return true;
+		}
+	}
+
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int j1;
@@ -131,51 +176,6 @@ public abstract class GOTStructureWesterosVillageFarm extends GOTStructureWester
 				int k1 = 3 * (random.nextBoolean() ? 1 : -1);
 				spawnNPCAndSetHome(animal, world, i12, 1, k1, 0);
 				animal.detachHome();
-			}
-			return true;
-		}
-	}
-
-	public static class Crops extends GOTStructureWesterosVillageFarm {
-		public Crops(boolean flag) {
-			super(flag);
-		}
-
-		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			if (!super.generate(world, random, i, j, k, rotation)) {
-				return false;
-			}
-			for (int i1 = -4; i1 <= 4; ++i1) {
-				for (int k1 = -4; k1 <= 4; ++k1) {
-					int i2 = Math.abs(i1);
-					int k2 = Math.abs(k1);
-					if (i2 <= 2 && k2 <= 2) {
-						if (i2 == 0 && k2 == 0) {
-							setBlockAndMetadata(world, i1, 0, k1, Blocks.water, 0);
-							setBlockAndMetadata(world, i1, 1, k1, rockBlock, rockMeta);
-							setBlockAndMetadata(world, i1, 2, k1, Blocks.hay_block, 0);
-							setBlockAndMetadata(world, i1, 3, k1, fenceBlock, fenceMeta);
-							setBlockAndMetadata(world, i1, 4, k1, Blocks.hay_block, 0);
-							setBlockAndMetadata(world, i1, 5, k1, Blocks.pumpkin, 2);
-							continue;
-						}
-						setBlockAndMetadata(world, i1, 0, k1, Blocks.farmland, 7);
-						setBlockAndMetadata(world, i1, 1, k1, cropBlock, cropMeta);
-						continue;
-					}
-					setBlockAndMetadata(world, i1, 0, k1, GOTRegistry.dirtPath, 0);
-				}
-			}
-			setBlockAndMetadata(world, 0, 1, -5, fenceGateBlock, 0);
-			setBlockAndMetadata(world, 0, 1, 5, fenceGateBlock, 2);
-			setBlockAndMetadata(world, -5, 1, 0, fenceGateBlock, 1);
-			setBlockAndMetadata(world, 5, 1, 0, fenceGateBlock, 3);
-			int farmhands = 1 + random.nextInt(2);
-			for (int l = 0; l < farmhands; ++l) {
-				GOTEntityNPC farmhand = getFarmhand(world);
-				spawnNPCAndSetHome(farmhand, world, 0, 1, -1, 8);
-				farmhand.seedsItem = seedItem;
 			}
 			return true;
 		}
