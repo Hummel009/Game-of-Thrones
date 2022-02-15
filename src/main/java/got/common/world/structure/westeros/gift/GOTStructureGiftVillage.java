@@ -2,21 +2,29 @@ package got.common.world.structure.westeros.gift;
 
 import java.util.Random;
 
+import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.westeros.gift.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
+import got.common.world.structure.westeros.gift.GOTStructureGiftCastle.*;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTStructureGiftVillage extends GOTVillageGen {
+	public boolean isCastleBlack;
+	public boolean isShadowTower;
+	public boolean isEastWatch;
+	public boolean isVillage;
+	public boolean isWallGate;
+
 	public GOTStructureGiftVillage(GOTBiome biome, float f) {
 		super(biome);
-		gridScale = 12;
+		gridScale = 10;
 		gridRandomDisplace = 1;
 		spawnChance = f;
-		villageChunkRadius = 6;
+		villageChunkRadius = 3;
 	}
 
 	@Override
@@ -24,9 +32,76 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
+	public GOTStructureGiftVillage setIsCastleBlack() {
+		isCastleBlack = true;
+		return this;
+	}
+
+	public GOTStructureGiftVillage setIsEastWatch() {
+		isEastWatch = true;
+		return this;
+	}
+
+	public GOTStructureGiftVillage setIsShadowTower() {
+		isShadowTower = true;
+		return this;
+	}
+
+	public GOTStructureGiftVillage setIsVillage() {
+		isCastleBlack = false;
+		isShadowTower = false;
+		isEastWatch = false;
+		isWallGate = false;
+		return this;
+	}
+
+	public GOTStructureGiftVillage setIsWallGate() {
+		isWallGate = true;
+		return this;
+	}
+
+	public static class Gate extends GOTStructureGiftBase {
+		public Gate(boolean flag) {
+			super(flag);
+		}
+
+		@Override
+		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
+			this.setOriginAndRotation(world, i, j, k, rotation, 0, 0);
+			originY += 2;
+			// Vozduh
+			for (int x = -3; x <= 3; ++x) {
+				for (int y = -3; y <= 3; ++y) {
+					for (int z = 0; z <= 6; ++z) {
+						setAir(world, x, z, y);
+					}
+				}
+			}
+			// Vorota
+			for (int x = -3; x <= 3; ++x) {
+				for (int z = 0; z <= 6; ++z) {
+					setBlockAndMetadata(world, x, z, 3, GOTRegistry.gateIronBars, 2);
+					setBlockAndMetadata(world, x, z, -3, GOTRegistry.gateWooden, 2);
+				}
+			}
+			// Balki stojachije
+			for (int z = 0; z <= 6; ++z) {
+				setBlockAndMetadata(world, -4, z, 3, GOTRegistry.woodBeamV1, 1);
+				setBlockAndMetadata(world, 4, z, 3, GOTRegistry.woodBeamV1, 1);
+				setBlockAndMetadata(world, -4, z, -3, GOTRegistry.woodBeamV1, 1);
+				setBlockAndMetadata(world, 4, z, -3, GOTRegistry.woodBeamV1, 1);
+			}
+			// Balki lezhachije
+			for (int x = -3; x <= 3; ++x) {
+				setBlockAndMetadata(world, x, 7, 3, GOTRegistry.woodBeamV1, 1 | 4);
+				setBlockAndMetadata(world, x, 7, -3, GOTRegistry.woodBeamV1, 1 | 4);
+			}
+			return true;
+		}
+	}
+
 	public class Instance extends GOTVillageGen.AbstractInstance {
-		public int innerSize;
-		public boolean palisade;
+		public VillageType villageType;
 
 		public Instance(GOTStructureGiftVillage village, World world, int i, int k, Random random, LocationInfo loc) {
 			super(village, world, i, k, random, loc);
@@ -34,6 +109,65 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 
 		@Override
 		public void addVillageStructures(Random random) {
+			switch (villageType) {
+			case CASTLE_BLACK:
+				this.addStructure(new CastleBlack(false), 0, 0, 0, true);
+				break;
+			case SHADOW_TOWER:
+				this.addStructure(new ShadowTower(false), 0, 0, 0, true);
+				break;
+			case EAST_WATCH:
+				this.addStructure(new EastWatch(false), 0, 0, 0, true);
+				break;
+			case VILLAGE:
+				setupVillage(random);
+				break;
+			case WALL_GATE:
+				this.addStructure(new Gate(false), 0, 0, 0, true);
+				break;
+			}
+		}
+
+		@Override
+		public GOTBezierType getPath(Random random, int i, int k) {
+			int i1 = Math.abs(i);
+			int k1 = Math.abs(k);
+			if (villageType == VillageType.VILLAGE) {
+				int dSq = i * i + k * k;
+				if (i1 <= 2 && k1 <= 2) {
+					return null;
+				}
+				int imn = 19 + random.nextInt(3);
+				if (dSq < imn * imn || k < 0 && k > -(19 + 12 + 16) && i1 <= 2 + random.nextInt(3)) {
+					return GOTBezierType.PATH_DIRTY;
+				}
+			}
+			return null;
+		}
+
+		public GOTStructureBase getRandomHouse(Random random) {
+			if (random.nextInt(3) == 0) {
+				int i = random.nextInt(3);
+				switch (i) {
+				case 0:
+					return new GOTStructureGiftSmithy(false);
+				case 1:
+					return new GOTStructureGiftStables(false);
+				case 2:
+					return new GOTStructureGiftLodge(false);
+				default:
+					break;
+				}
+			}
+			return new GOTStructureGiftHouse(false);
+		}
+
+		@Override
+		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
+			return false;
+		}
+
+		public void setupVillage(Random random) {
 			this.addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
@@ -80,11 +214,11 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 				} else if (turn8 >= 7.0f || turn8 < 1.0f) {
 					r = 3;
 				}
-				if (palisade && sin < 0.0f && Math.abs(cos) <= 0.5f) {
+				if (sin < 0.0f && Math.abs(cos) <= 0.5f) {
 					continue;
 				}
 				if (random.nextInt(3) != 0) {
-					l = innerSize + 3;
+					l = 19 + 3;
 					if (random.nextInt(3) == 0) {
 						l += 12;
 					}
@@ -96,7 +230,7 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 				if (random.nextInt(4) != 0) {
 					continue;
 				}
-				l = innerSize + 5;
+				l = 19 + 5;
 				if (random.nextInt(3) == 0) {
 					l += 12;
 				}
@@ -104,8 +238,8 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 				k = Math.round(l * sin);
 				this.addStructure(new GOTStructureHayBales(false), i, k, r);
 			}
-			if (palisade) {
-				int rPalisade = innerSize + 12 + 16;
+			if (true) {
+				int rPalisade = 19 + 12 + 16;
 				int rSq = rPalisade * rPalisade;
 				int rMax = rPalisade + 1;
 				int rSqMax = rMax * rMax;
@@ -119,55 +253,25 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 					}
 				}
 			}
-
-		}
-
-		@Override
-		public GOTBezierType getPath(Random random, int i, int k) {
-			int i1 = Math.abs(i);
-			int k1 = Math.abs(k);
-			if (true) {
-				int dSq = i * i + k * k;
-				if (i1 <= 2 && k1 <= 2) {
-					return null;
-				}
-				int imn = innerSize + random.nextInt(3);
-				if (dSq < imn * imn) {
-					return GOTBezierType.PATH_DIRTY;
-				}
-				if (palisade && k < 0 && k > -(innerSize + 12 + 16) && i1 <= 2 + random.nextInt(3)) {
-					return GOTBezierType.PATH_DIRTY;
-				}
-			}
-			return null;
-		}
-
-		public GOTStructureBase getRandomHouse(Random random) {
-			if (random.nextInt(3) == 0) {
-				int i = random.nextInt(3);
-				switch (i) {
-				case 0:
-					return new GOTStructureGiftSmithy(false);
-				case 1:
-					return new GOTStructureGiftStables(false);
-				case 2:
-					return new GOTStructureGiftLodge(false);
-				default:
-					break;
-				}
-			}
-			return new GOTStructureGiftHouse(false);
-		}
-
-		@Override
-		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
-			return false;
 		}
 
 		@Override
 		public void setupVillageProperties(Random random) {
-			innerSize = MathHelper.getRandomIntegerInRange(random, 12, 20);
-			palisade = random.nextBoolean();
+			if (isCastleBlack) {
+				villageType = VillageType.CASTLE_BLACK;
+			} else if (isShadowTower) {
+				villageType = VillageType.SHADOW_TOWER;
+			} else if (isEastWatch) {
+				villageType = VillageType.EAST_WATCH;
+			} else if (isWallGate) {
+				villageType = VillageType.WALL_GATE;
+			} else {
+				villageType = VillageType.VILLAGE;
+			}
 		}
+	}
+
+	public enum VillageType {
+		CASTLE_BLACK, SHADOW_TOWER, EAST_WATCH, VILLAGE, WALL_GATE;
 	}
 }

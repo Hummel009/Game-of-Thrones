@@ -1,4 +1,4 @@
-package got.common.world.fixed;
+package got.common.world.structure.westeros.ironborn;
 
 import java.util.Random;
 
@@ -6,8 +6,8 @@ import got.common.database.*;
 import got.common.world.structure.other.GOTStructureTentBase;
 import net.minecraft.init.Blocks;
 
-public class GOTStructureVictarionTent extends GOTStructureTentBase {
-	public GOTStructureVictarionTent(boolean flag) {
+public class GOTStructureIronbornTent extends GOTStructureTentBase {
+	public GOTStructureIronbornTent(boolean flag) {
 		super(flag);
 	}
 

@@ -8,8 +8,7 @@ import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.westeros.crownlands.*;
 import got.common.entity.westeros.westerlands.GOTEntityWesterlandsSoldier;
 import got.common.world.biome.GOTBiome;
-import got.common.world.fixed.*;
-import got.common.world.map.GOTBezierType;
+import got.common.world.map.*;
 import got.common.world.structure.other.*;
 import got.common.world.structure.westeros.common.*;
 import net.minecraft.block.Block;
@@ -203,7 +202,6 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 		public void setupTown(Random random) {
 			int l;
 			int wallX;
-			boolean outerTavern = random.nextBoolean();
 			if (isCapital) {
 				this.addStructure(new GOTFixer.KingsLanding(), 0, 0, 0);
 				this.addStructure(new GOTStructureNPCRespawner(false) {
@@ -294,8 +292,8 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 				this.addStructure(new GOTStructureCrownlandsStoneHouse(false), houseZ, -houseX, 2, true);
 			}
 			if (isCapital) {
-				this.addStructure(new GOTStructureTobhoMottSmithy(false), 1, -37, 0, true);
-				this.addStructure(new GOTStructurePetyrBaelishBrothel(false), -houseX, -5, 1, true);
+				this.addStructure(new GOTStructureCrownlandsSmithy(false).setIsTobhoMott(), 0, -26, 2, true);
+				this.addStructure(new GOTStructureCrownlandsTavern(false).setIsPetyrBaelish(), -houseX, -5, 1, true);
 			} else {
 				this.addStructure(new GOTStructureCrownlandsSmithy(false), 0, -26, 2, true);
 				this.addStructure(new GOTStructureCrownlandsTavern(false), -houseX, -5, 1, true);
@@ -355,7 +353,7 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 				} else {
 					this.addStructure(new GOTStructureCrownlandsStoneHouse(false), houseZ, -houseX, 2, true);
 				}
-				if (Math.abs(k1) >= 2 && (!outerTavern || k1 <= 2)) {
+				if (Math.abs(k1) >= 2 && (false || k1 <= 2)) {
 					if (treepiece) {
 						this.addStructure(new GOTStructureCrownlandsVillageFarm.Tree(false), houseZ, houseX + 2, 0, true);
 					} else {
@@ -367,9 +365,7 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 				this.addStructure(new GOTStructureWesterosLampPost(false), houseZ, lampX, 0, true);
 				this.addStructure(new GOTStructureWesterosLampPost(false), houseZ, -lampX, 2, true);
 			}
-			if (outerTavern) {
-				this.addStructure(new GOTStructureCrownlandsTavern(false), 44, houseX, 0, true);
-			}
+			this.addStructure(new GOTStructureCrownlandsTavern(false), 44, houseX, 0, true);
 			int gardenX = 42;
 			int gardenZ = 48;
 			this.addStructure(new GOTStructureCrownlandsVillageFarm.Tree(false), -gardenX, -gardenZ, 1, true);

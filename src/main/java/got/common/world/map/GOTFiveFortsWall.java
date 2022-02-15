@@ -1,16 +1,15 @@
-package got.common.world.fixed;
+package got.common.world.map;
 
 import java.util.Random;
 
 import got.common.database.GOTRegistry;
-import got.common.world.map.*;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class GOTStructureFiveFortsWall extends GOTStructureBase {
+public class GOTFiveFortsWall extends GOTStructureBase {
 	public int centreX;
 	public int centreZ;
 	public int radius = 100;
@@ -20,7 +19,7 @@ public class GOTStructureFiveFortsWall extends GOTStructureBase {
 	public int gateBottom = 77;
 	public int gateTop = wallTop - 18;
 
-	public GOTStructureFiveFortsWall(boolean flag, GOTWaypoint waypoint) {
+	public GOTFiveFortsWall(boolean flag, GOTWaypoint waypoint) {
 		super(flag);
 		centreX = waypoint.getXCoord();
 		centreZ = waypoint.getZCoord();

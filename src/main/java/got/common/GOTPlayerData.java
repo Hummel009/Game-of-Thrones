@@ -345,7 +345,7 @@ public class GOTPlayerData {
 			markDirty();
 			sendFellowshipInvitePacket(fs);
 			EntityPlayer entityplayer = getPlayer();
-			if ((entityplayer != null) && !entityplayer.worldObj.isRemote) {
+			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 				fs.sendNotification(entityplayer, "got.gui.fellowships.notifyInvite", inviterUsername);
 			}
 		}

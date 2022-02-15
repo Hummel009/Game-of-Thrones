@@ -209,8 +209,6 @@ public abstract class GOTStructureArrynBase extends GOTStructureBase {
 			woodBeamMeta = 2;
 			doorBlock = GOTRegistry.doorBirch;
 			break;
-		default:
-			break;
 		}
 		if (random.nextBoolean()) {
 			wallBlock = GOTRegistry.daub;

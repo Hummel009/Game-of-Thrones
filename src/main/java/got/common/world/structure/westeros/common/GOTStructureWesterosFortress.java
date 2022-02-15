@@ -1,24 +1,19 @@
-package got.common.world.fixed;
+package got.common.world.structure.westeros.common;
 
 import java.util.Random;
 
 import com.google.common.math.IntMath;
 
 import got.common.database.*;
-import got.common.entity.other.GOTEntityNPCRespawner;
-import got.common.entity.westeros.crownlands.GOTEntityKingsguard;
-import got.common.entity.westeros.legendary.captain.*;
-import got.common.entity.westeros.legendary.deco.*;
-import got.common.entity.westeros.legendary.quest.*;
-import got.common.entity.westeros.legendary.trader.*;
-import got.common.entity.westeros.legendary.warrior.*;
-import got.common.item.other.GOTItemBanner;
-import got.common.world.structure.westeros.crownlands.red.GOTStructureRedBase;
+import got.common.entity.essos.GOTEntityRedPriest;
+import got.common.entity.other.*;
+import got.common.entity.westeros.*;
+import got.common.entity.westeros.ironborn.GOTEntityIronbornPriest;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-public class GOTStructureRedFort extends GOTStructureRedBase {
-	public GOTStructureRedFort(boolean flag) {
+public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
+	public GOTStructureWesterosFortress(boolean flag) {
 		super(flag);
 	}
 
@@ -192,7 +187,7 @@ public class GOTStructureRedFort extends GOTStructureRedBase {
 				setBlockAndMetadata(world, i11, 4, i13 + 1, brickStairBlock, 6);
 				for (int i14 = i13; i14 <= i13 + 1; i14++) {
 					setAir(world, i11, 3, i14);
-					setBlockAndMetadata(world, i12, 3, i14, GOTRegistry.brick3, 1);
+					setBlockAndMetadata(world, i12, 3, i14, GOTRegistry.brick1, 5);
 				}
 			}
 			setBlockAndMetadata(world, i11, 2, -1, brickStairBlock, 3);
@@ -203,7 +198,7 @@ public class GOTStructureRedFort extends GOTStructureRedBase {
 			setBlockAndMetadata(world, i11, 4, 1, brickStairBlock, 6);
 			for (int k2 = -1; k2 <= 1; k2++) {
 				setAir(world, i11, 3, k2);
-				setBlockAndMetadata(world, i12, 3, k2, GOTRegistry.brick3, 1);
+				setBlockAndMetadata(world, i12, 3, k2, GOTRegistry.brick1, 5);
 			}
 		}
 		for (int i11 : new int[] { -11, 11 }) {
@@ -215,7 +210,7 @@ public class GOTStructureRedFort extends GOTStructureRedBase {
 				setBlockAndMetadata(world, i12 + 1, 4, i11, brickStairBlock, 5);
 				for (int i13 = i12; i13 <= i12 + 1; i13++) {
 					setAir(world, i13, 3, i11);
-					setBlockAndMetadata(world, i13, 3, k2, GOTRegistry.brick3, 1);
+					setBlockAndMetadata(world, i13, 3, k2, GOTRegistry.brick1, 5);
 				}
 			}
 			if (i11 > 0) {
@@ -227,7 +222,7 @@ public class GOTStructureRedFort extends GOTStructureRedBase {
 				setBlockAndMetadata(world, 1, 4, i11, brickStairBlock, 5);
 				for (int i12 = -1; i12 <= 1; i12++) {
 					setAir(world, i12, 3, i11);
-					setBlockAndMetadata(world, i12, 3, k2, GOTRegistry.brick3, 1);
+					setBlockAndMetadata(world, i12, 3, k2, GOTRegistry.brick1, 5);
 				}
 			}
 		}
@@ -302,8 +297,8 @@ public class GOTStructureRedFort extends GOTStructureRedBase {
 				setGrassToDirt(world, i8, i12 - 1, i11);
 			}
 		}
-		placeWallBanner(world, -2, 4, -11, GOTItemBanner.BannerType.JOFFREY, 2);
-		placeWallBanner(world, 2, 4, -11, GOTItemBanner.BannerType.JOFFREY, 2);
+		placeWallBanner(world, -2, 4, -11, banner, 2);
+		placeWallBanner(world, 2, 4, -11, banner, 2);
 		for (i8 = -2; i8 <= 2; i8++) {
 			for (int i11 = -2; i11 <= 2; i11++) {
 				setBlockAndMetadata(world, i8, 0, i11, brick2Block, brick2Meta);
@@ -335,12 +330,12 @@ public class GOTStructureRedFort extends GOTStructureRedBase {
 		for (i6 = 6; i6 <= 9; i6++) {
 			setBlockAndMetadata(world, 0, i6, 0, pillarBlock, pillarMeta);
 		}
-		setBlockAndMetadata(world, 0, 10, 0, GOTRegistry.brick3, 1);
+		setBlockAndMetadata(world, 0, 10, 0, GOTRegistry.brick1, 5);
 		setBlockAndMetadata(world, 0, 11, 0, GOTRegistry.beacon, 0);
-		placeWallBanner(world, 0, 9, 0, GOTItemBanner.BannerType.JOFFREY, 0);
-		placeWallBanner(world, 0, 9, 0, GOTItemBanner.BannerType.JOFFREY, 1);
-		placeWallBanner(world, 0, 9, 0, GOTItemBanner.BannerType.JOFFREY, 2);
-		placeWallBanner(world, 0, 9, 0, GOTItemBanner.BannerType.JOFFREY, 3);
+		placeWallBanner(world, 0, 9, 0, banner, 0);
+		placeWallBanner(world, 0, 9, 0, banner, 1);
+		placeWallBanner(world, 0, 9, 0, banner, 2);
+		placeWallBanner(world, 0, 9, 0, banner, 3);
 		setBlockAndMetadata(world, 0, 4, 0, GOTRegistry.chandelier, 2);
 		setBlockAndMetadata(world, -3, 3, -8, brickWallBlock, brickWallMeta);
 		setBlockAndMetadata(world, -3, 4, -8, Blocks.torch, 5);
@@ -470,8 +465,8 @@ public class GOTStructureRedFort extends GOTStructureRedBase {
 				placeChest(world, random, i1, 1, 8, GOTRegistry.chestStone, 2, GOTChestContents.WESTEROS);
 			}
 		}
-		placeWallBanner(world, -2, 3, 9, GOTItemBanner.BannerType.JOFFREY, 2);
-		placeWallBanner(world, 2, 3, 9, GOTItemBanner.BannerType.JOFFREY, 2);
+		placeWallBanner(world, -2, 3, 9, banner, 2);
+		placeWallBanner(world, 2, 3, 9, banner, 2);
 		setBlockAndMetadata(world, -4, 1, 5, plankBlock, plankMeta);
 		setBlockAndMetadata(world, -3, 1, 5, plankBlock, plankMeta);
 		placeBarrel(world, random, -4, 2, 5, 3, GOTFoods.WESTEROS_DRINK);
@@ -483,23 +478,34 @@ public class GOTStructureRedFort extends GOTStructureRedBase {
 		setBlockAndMetadata(world, -3, 3, 6, GOTRegistry.chandelier, 2);
 		setBlockAndMetadata(world, 3, 3, 6, GOTRegistry.chandelier, 2);
 		setBlockAndMetadata(world, -5, 1, 2, GOTRegistry.commandTable, 0);
-
-		spawnLegendaryNPC(new GOTEntitySandorClegane(world), world, -2, 1, -2);
-		spawnLegendaryNPC(new GOTEntityJoffreyBaratheon(world), world, 2, 1, -2);
-		spawnLegendaryNPC(new GOTEntityCerseiLannister(world), world, 2, 1, 2);
-		spawnLegendaryNPC(new GOTEntityJaimeLannister(world), world, -2, 1, 2);
-		spawnLegendaryNPC(new GOTEntityPycelle(world), world, 2, 1, 0);
-		spawnLegendaryNPC(new GOTEntityJanosSlynt(world), world, -2, 1, 0);
-		spawnLegendaryNPC(new GOTEntityVarys(world), world, 0, 1, 2);
-		spawnLegendaryNPC(new GOTEntityIlynPayne(world), world, 0, 1, -2);
-		spawnLegendaryNPC(new GOTEntityHighSepton(world), world, -1, 1, 2);
-		spawnLegendaryNPC(new GOTEntityTommenBaratheon(world), world, -2, 1, 1);
-		spawnLegendaryNPC(new GOTEntityMyrcellaBaratheon(world), world, -1, 1, -2);
-		spawnLegendaryNPC(new GOTEntityMerynTrant(world), world, -1, 1, 1);
-		spawnLegendaryNPC(new GOTEntityBarristanSelmy(world), world, -1, 1, 0);
-
+		if (hasMaester()) {
+			GOTEntityMaester maester = new GOTEntityMaester(world);
+			maester.spawnRidingHorse = false;
+			spawnNPCAndSetHome(maester, world, 0, 1, 0, 12);
+		}
+		if (hasSepton()) {
+			GOTEntitySepton septon = new GOTEntitySepton(world);
+			septon.spawnRidingHorse = false;
+			spawnNPCAndSetHome(septon, world, 0, 1, 0, 12);
+		}
+		if (isDragonstone) {
+			GOTEntityRedPriest priest = new GOTEntityRedPriest(world);
+			priest.spawnRidingHorse = false;
+			spawnNPCAndSetHome(priest, world, 0, 1, 0, 12);
+		}
+		if (isIronborn) {
+			GOTEntityIronbornPriest priest = new GOTEntityIronbornPriest(world);
+			priest.spawnRidingHorse = false;
+			spawnNPCAndSetHome(priest, world, 0, 1, 0, 12);
+		}
+		GOTEntityNPC captain = getCaptain(world); 
+		captain.spawnRidingHorse = false;
+		spawnNPCAndSetHome(captain, world, 0, 1, 0, 12);
+		GOTEntityNPC soldier = getSoldier(world);
+		soldier.spawnRidingHorse = false;
+		spawnNPCAndSetHome(soldier, world, 0, 1, 0, 16);
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClass(GOTEntityKingsguard.class);
+		respawner.setSpawnClasses(getSoldier(world).getClass(), getSoldierArcher(world).getClass());
 		respawner.setCheckRanges(20, -8, 12, 12);
 		respawner.setSpawnRanges(10, 0, 8, 16);
 		placeNPCRespawner(respawner, world, 0, 0, 0);

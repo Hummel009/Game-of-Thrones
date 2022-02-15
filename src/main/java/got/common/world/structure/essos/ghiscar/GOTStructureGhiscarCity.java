@@ -17,6 +17,8 @@ import net.minecraft.world.World;
 public class GOTStructureGhiscarCity extends GOTVillageGen {
 	public boolean isTown;
 	public boolean isColony;
+	public boolean isPyramidShiftX;
+	public boolean isPyramidShiftZ;
 
 	public GOTStructureGhiscarCity(GOTBiome biome, float f) {
 		super(biome);
@@ -36,6 +38,16 @@ public class GOTStructureGhiscarCity extends GOTVillageGen {
 		return this;
 	}
 
+	public GOTStructureGhiscarCity setIsPyramidShiftX() {
+		isPyramidShiftX = true;
+		return this;
+	}
+
+	public GOTStructureGhiscarCity setIsPyramidShiftZ() {
+		isPyramidShiftZ = true;
+		return this;
+	}
+
 	public GOTStructureGhiscarCity setIsTown() {
 		isTown = true;
 		return this;
@@ -51,6 +63,12 @@ public class GOTStructureGhiscarCity extends GOTVillageGen {
 		@Override
 		public void addVillageStructures(Random random) {
 			switch (villageType) {
+			case PYRAMID_X:
+				this.addStructure(new GOTStructureGhiscarPyramid(false), 20, 0, 0, true);
+				break;
+			case PYRAMID_Z:
+				this.addStructure(new GOTStructureGhiscarPyramid(false), 0, 20, 0, true);
+				break;
 			case VILLAGE:
 				setupVillage(random);
 				break;
@@ -610,7 +628,11 @@ public class GOTStructureGhiscarCity extends GOTVillageGen {
 
 		@Override
 		public void setupVillageProperties(Random random) {
-			if (isTown) {
+			if (isPyramidShiftX) {
+				villageType = VillageType.PYRAMID_X;
+			} else if (isPyramidShiftZ) {
+				villageType = VillageType.PYRAMID_Z;
+			} else if (isTown) {
 				villageType = VillageType.TOWN;
 			} else if (isColony || random.nextInt(4) == 0) {
 				villageType = VillageType.FORT;
@@ -630,7 +652,7 @@ public class GOTStructureGhiscarCity extends GOTVillageGen {
 	}
 
 	public enum VillageType {
-		VILLAGE, TOWN, FORT;
+		VILLAGE, TOWN, FORT, PYRAMID_X, PYRAMID_Z;
 	}
 
 }

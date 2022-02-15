@@ -11,6 +11,7 @@ import net.minecraft.world.World;
 
 public class GOTStructureYiTiCity extends GOTVillageGen {
 	public boolean isTown;
+	public boolean isTower;
 
 	public GOTStructureYiTiCity(GOTBiome biome, float f) {
 		super(biome);
@@ -23,6 +24,11 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 	@Override
 	public GOTVillageGen.AbstractInstance createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 		return new Instance(this, world, i, k, random, loc);
+	}
+
+	public GOTStructureYiTiCity setIsTower() {
+		isTower = true;
+		return this;
 	}
 
 	public GOTStructureYiTiCity setIsTown() {
@@ -48,6 +54,9 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 				break;
 			case FORT:
 				setupFort(random);
+				break;
+			case TOWER:
+				this.addStructure(new GOTStructureYiTiLighthouse(), 0, 0, 0, true);
 				break;
 			}
 		}
@@ -406,6 +415,8 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 				villageType = VillageType.TOWN;
 			} else if (random.nextInt(4) == 0) {
 				villageType = VillageType.FORT;
+			} else if (isTower) {
+				villageType = VillageType.TOWER;
 			} else {
 				villageType = VillageType.VILLAGE;
 			}
@@ -414,6 +425,6 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 	}
 
 	public enum VillageType {
-		VILLAGE, TOWN, FORT;
+		VILLAGE, TOWN, FORT, TOWER;
 	}
 }

@@ -1,11 +1,10 @@
-package got.common.world.fixed;
+package got.common.world.structure.westeros.crownlands.red;
 
 import java.util.Random;
 
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
-import got.common.world.structure.westeros.crownlands.red.*;
 import net.minecraft.world.World;
 
 public class GOTStructureRedCastle extends GOTVillageGen {
@@ -22,16 +21,9 @@ public class GOTStructureRedCastle extends GOTVillageGen {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
-	public class Instance extends GOTVillageGen.AbstractInstance {
-		public VillageType villageType;
-
+	public static class Instance extends GOTVillageGen.AbstractInstance {
 		public Instance(GOTStructureRedCastle village, World world, int i, int k, Random random, LocationInfo loc) {
 			super(village, world, i, k, random, loc);
-		}
-
-		@Override
-		public void addStructure(GOTStructureBase structure, int x, int z, int r, boolean force) {
-			super.addStructure(structure, x, z, r, force);
 		}
 
 		@Override
@@ -77,16 +69,8 @@ public class GOTStructureRedCastle extends GOTVillageGen {
 		public GOTBezierType getPath(Random random, int i, int k) {
 			int i1 = Math.abs(i);
 			int k1 = Math.abs(k);
-			if (villageType == VillageType.FORT) {
-				if (i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36) {
-					return GOTBezierType.PAVING;
-				}
-				if (k1 <= 1 && i1 >= 12 && i1 <= 36) {
-					return GOTBezierType.PAVING;
-				}
-				if (k >= 26 && k <= 28 && i1 <= 12) {
-					return GOTBezierType.PAVING;
-				}
+			if (i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36 || k1 <= 1 && i1 >= 12 && i1 <= 36 || k >= 26 && k <= 28 && i1 <= 12) {
+				return GOTBezierType.PAVING;
 			}
 			return null;
 		}
@@ -98,11 +82,6 @@ public class GOTStructureRedCastle extends GOTVillageGen {
 
 		@Override
 		public void setupVillageProperties(Random random) {
-			villageType = VillageType.FORT;
 		}
-	}
-
-	public enum VillageType {
-		FORT;
 	}
 }

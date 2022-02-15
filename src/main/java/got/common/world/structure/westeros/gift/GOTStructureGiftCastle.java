@@ -8,6 +8,11 @@ import got.common.database.*;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.westeros.gift.*;
+import got.common.entity.westeros.legendary.captain.*;
+import got.common.entity.westeros.legendary.quest.GOTEntitySamwellTarly;
+import got.common.entity.westeros.legendary.reborn.GOTEntityJonSnow;
+import got.common.entity.westeros.legendary.trader.*;
+import got.common.entity.westeros.legendary.warrior.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
@@ -488,5 +493,60 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 	}
 
 	public void spawnLegendaryMobs(World world) {
+	}
+
+	public static class CastleBlack extends GOTStructureGiftCastle {
+		public CastleBlack(boolean flag) {
+			super(flag);
+		}
+
+		@Override
+		public int getOriginZ() {
+			return 100;
+		}
+
+		@Override
+		public void spawnLegendaryMobs(World world) {
+			spawnLegendaryNPC(new GOTEntityJeorMormont(world), world, -3, 1, -3);
+			spawnLegendaryNPC(new GOTEntityJonSnow.JonSnowLife1(world), world, 3, 1, 0);
+			spawnLegendaryNPC(new GOTEntityAemonTargaryen(world), world, 3, 1, 3);
+			spawnLegendaryNPC(new GOTEntityAlliserThorne(world), world, -3, 1, 3);
+			spawnLegendaryNPC(new GOTEntityEdd(world), world, 3, 1, -3);
+			spawnLegendaryNPC(new GOTEntitySamwellTarly(world), world, 0, 1, 3);
+		}
+	}
+
+	public static class EastWatch extends GOTStructureGiftCastle {
+		public EastWatch(boolean flag) {
+			super(flag);
+		}
+
+		@Override
+		public int getOriginZ() {
+			return -30;
+		}
+
+		@Override
+		public void spawnLegendaryMobs(World world) {
+			spawnLegendaryNPC(new GOTEntityCotterPyke(world), world, 0, 1, 0);
+			spawnLegendaryNPC(new GOTEntityHarmune(world), world, 0, 1, 1);
+		}
+	}
+
+	public static class ShadowTower extends GOTStructureGiftCastle {
+		public ShadowTower(boolean flag) {
+			super(flag);
+		}
+
+		@Override
+		public int getOriginZ() {
+			return -30;
+		}
+
+		@Override
+		public void spawnLegendaryMobs(World world) {
+			spawnLegendaryNPC(new GOTEntityDenysMallister(world), world, 0, 1, 0);
+			spawnLegendaryNPC(new GOTEntityMullin(world), world, 0, 1, 0);
+		}
 	}
 }

@@ -1,12 +1,35 @@
 package got.common.world.structure.westeros.common;
 
-import java.util.Random;
+import java.util.*;
+import java.util.Map.Entry;
 
 import got.common.database.GOTRegistry;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.westeros.arryn.*;
+import got.common.entity.westeros.crownlands.*;
+import got.common.entity.westeros.dragonstone.*;
+import got.common.entity.westeros.ironborn.*;
+import got.common.entity.westeros.north.*;
+import got.common.entity.westeros.reach.*;
+import got.common.entity.westeros.riverlands.*;
+import got.common.entity.westeros.stormlands.*;
+import got.common.entity.westeros.westerlands.*;
+import got.common.item.other.GOTItemBanner;
+import got.common.item.other.GOTItemBanner.BannerType;
 import got.common.world.structure.other.GOTStructureBase;
+import got.common.world.structure.westeros.arryn.GOTStructureArrynTower;
+import got.common.world.structure.westeros.crownlands.GOTStructureCrownlandsTower;
+import got.common.world.structure.westeros.dragonstone.GOTStructureDragonstoneTower;
+import got.common.world.structure.westeros.ironborn.GOTStructureIronbornTower;
+import got.common.world.structure.westeros.north.GOTStructureNorthTower;
+import got.common.world.structure.westeros.reach.GOTStructureReachTower;
+import got.common.world.structure.westeros.riverlands.GOTStructureRiverlandsTower;
+import got.common.world.structure.westeros.stormlands.GOTStructureStormlandsTower;
+import got.common.world.structure.westeros.westerlands.GOTStructureWesterlandsTower;
 import net.minecraft.block.Block;
 import net.minecraft.init.*;
 import net.minecraft.item.*;
+import net.minecraft.world.World;
 
 public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 	public Block rockBlock;
@@ -81,10 +104,140 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 	public int cropMeta;
 	public Item seedItem;
 	public Block tableBlock;
+	public BannerType banner;
 	public boolean isRed = false;
+	public boolean isArryn = false;
+	public boolean isCrownlands = false;
+	public boolean isDragonstone = false;
+	public boolean isIronborn = false;
+	public boolean isNorth = false;
+	public boolean isReach = false;
+	public boolean isRiverlands = false;
+	public boolean isStormlands = false;
+	public boolean isWesterlands = false;
 
 	public GOTStructureWesterosBase(boolean flag) {
 		super(flag);
+	}
+
+	public GOTEntityNPC getBartender(World world) {
+		Map<Boolean, GOTEntityNPC> theBartender = new HashMap<>();
+		theBartender.put(isArryn, new GOTEntityArrynBartender(world));
+		theBartender.put(isCrownlands, new GOTEntityCrownlandsBartender(world));
+		theBartender.put(isDragonstone, new GOTEntityDragonstoneBartender(world));
+		theBartender.put(isIronborn, new GOTEntityIronbornBartender(world));
+		theBartender.put(isNorth, new GOTEntityNorthBartender(world));
+		theBartender.put(isReach, new GOTEntityReachBartender(world));
+		theBartender.put(isRiverlands, new GOTEntityRiverlandsBartender(world));
+		theBartender.put(isStormlands, new GOTEntityStormlandsBartender(world));
+		theBartender.put(isWesterlands, new GOTEntityWesterlandsBartender(world));
+
+		for (Entry<Boolean, GOTEntityNPC> npc : theBartender.entrySet()) {
+			if (Boolean.TRUE.equals(npc.getKey())) {
+				return npc.getValue();
+			}
+		}
+		return null;
+	}
+
+	public GOTStructureWesterosTower getTower(boolean notifyChanges) {
+		Map<Boolean, GOTStructureWesterosTower> theTower = new HashMap<>();
+		theTower.put(isArryn, new GOTStructureArrynTower(notifyChanges));
+		theTower.put(isCrownlands, new GOTStructureCrownlandsTower(notifyChanges));
+		theTower.put(isDragonstone, new GOTStructureDragonstoneTower(notifyChanges));
+		theTower.put(isIronborn, new GOTStructureIronbornTower(notifyChanges));
+		theTower.put(isNorth, new GOTStructureNorthTower(notifyChanges));
+		theTower.put(isReach, new GOTStructureReachTower(notifyChanges));
+		theTower.put(isRiverlands, new GOTStructureRiverlandsTower(notifyChanges));
+		theTower.put(isStormlands, new GOTStructureStormlandsTower(notifyChanges));
+		theTower.put(isWesterlands, new GOTStructureWesterlandsTower(notifyChanges));
+
+		for (Entry<Boolean, GOTStructureWesterosTower> tow : theTower.entrySet()) {
+			if (Boolean.TRUE.equals(tow.getKey())) {
+				return tow.getValue();
+			}
+		}
+		return null;
+	}
+
+	public GOTEntityNPC getBlacksmith(World world) {
+		Map<Boolean, GOTEntityNPC> theBlacksmith = new HashMap<>();
+		theBlacksmith.put(isArryn, new GOTEntityArrynBlacksmith(world));
+		theBlacksmith.put(isCrownlands, new GOTEntityCrownlandsBlacksmith(world));
+		theBlacksmith.put(isDragonstone, new GOTEntityDragonstoneBlacksmith(world));
+		theBlacksmith.put(isIronborn, new GOTEntityIronbornBlacksmith(world));
+		theBlacksmith.put(isNorth, new GOTEntityNorthBlacksmith(world));
+		theBlacksmith.put(isReach, new GOTEntityReachBlacksmith(world));
+		theBlacksmith.put(isRiverlands, new GOTEntityRiverlandsBlacksmith(world));
+		theBlacksmith.put(isStormlands, new GOTEntityStormlandsBlacksmith(world));
+		theBlacksmith.put(isWesterlands, new GOTEntityWesterlandsBlacksmith(world));
+
+		for (Entry<Boolean, GOTEntityNPC> npc : theBlacksmith.entrySet()) {
+			if (Boolean.TRUE.equals(npc.getKey())) {
+				return npc.getValue();
+			}
+		}
+		return null;
+	}
+
+	public GOTEntityNPC getCaptain(World world) {
+		Map<Boolean, GOTEntityNPC> theCaptain = new HashMap<>();
+		theCaptain.put(isArryn, new GOTEntityArrynCaptain(world));
+		theCaptain.put(isCrownlands, new GOTEntityCrownlandsCaptain(world));
+		theCaptain.put(isDragonstone, new GOTEntityDragonstoneCaptain(world));
+		theCaptain.put(isIronborn, new GOTEntityIronbornCaptain(world));
+		theCaptain.put(isNorth, new GOTEntityNorthCaptain(world));
+		theCaptain.put(isReach, new GOTEntityReachCaptain(world));
+		theCaptain.put(isRiverlands, new GOTEntityRiverlandsCaptain(world));
+		theCaptain.put(isStormlands, new GOTEntityStormlandsCaptain(world));
+		theCaptain.put(isWesterlands, new GOTEntityWesterlandsCaptain(world));
+
+		for (Entry<Boolean, GOTEntityNPC> npc : theCaptain.entrySet()) {
+			if (Boolean.TRUE.equals(npc.getKey())) {
+				return npc.getValue();
+			}
+		}
+		return null;
+	}
+
+	public GOTEntityNPC getFarmer(World world) {
+		Map<Boolean, GOTEntityNPC> theFarmer = new HashMap<>();
+		theFarmer.put(isArryn, new GOTEntityArrynFarmer(world));
+		theFarmer.put(isCrownlands, new GOTEntityCrownlandsFarmer(world));
+		theFarmer.put(isDragonstone, new GOTEntityDragonstoneFarmer(world));
+		theFarmer.put(isIronborn, new GOTEntityIronbornFarmer(world));
+		theFarmer.put(isNorth, new GOTEntityNorthFarmer(world));
+		theFarmer.put(isReach, new GOTEntityReachFarmer(world));
+		theFarmer.put(isRiverlands, new GOTEntityRiverlandsFarmer(world));
+		theFarmer.put(isStormlands, new GOTEntityStormlandsFarmer(world));
+		theFarmer.put(isWesterlands, new GOTEntityWesterlandsFarmer(world));
+
+		for (Entry<Boolean, GOTEntityNPC> npc : theFarmer.entrySet()) {
+			if (Boolean.TRUE.equals(npc.getKey())) {
+				return npc.getValue();
+			}
+		}
+		return null;
+	}
+
+	public GOTEntityNPC getFarmhand(World world) {
+		Map<Boolean, GOTEntityNPC> theFarmhand = new HashMap<>();
+		theFarmhand.put(isArryn, new GOTEntityArrynFarmhand(world));
+		theFarmhand.put(isCrownlands, new GOTEntityCrownlandsFarmhand(world));
+		theFarmhand.put(isDragonstone, new GOTEntityDragonstoneFarmhand(world));
+		theFarmhand.put(isIronborn, new GOTEntityIronbornFarmhand(world));
+		theFarmhand.put(isNorth, new GOTEntityNorthFarmhand(world));
+		theFarmhand.put(isReach, new GOTEntityReachFarmhand(world));
+		theFarmhand.put(isRiverlands, new GOTEntityRiverlandsFarmhand(world));
+		theFarmhand.put(isStormlands, new GOTEntityStormlandsFarmhand(world));
+		theFarmhand.put(isWesterlands, new GOTEntityWesterlandsFarmhand(world));
+
+		for (Entry<Boolean, GOTEntityNPC> npc : theFarmhand.entrySet()) {
+			if (Boolean.TRUE.equals(npc.getKey())) {
+				return npc.getValue();
+			}
+		}
+		return null;
 	}
 
 	public ItemStack getFramedItem(Random random) {
@@ -92,359 +245,278 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		return items[random.nextInt(items.length)].copy();
 	}
 
-	public GOTStructureWesterosBase setIsRed() {
-		isRed = true;
+	public GOTEntityNPC getMan(World world) {
+		Map<Boolean, GOTEntityNPC> theMan = new HashMap<>();
+		theMan.put(isArryn, new GOTEntityArrynMan(world));
+		theMan.put(isCrownlands, new GOTEntityCrownlandsMan(world));
+		theMan.put(isDragonstone, new GOTEntityDragonstoneMan(world));
+		theMan.put(isIronborn, new GOTEntityIronbornMan(world));
+		theMan.put(isNorth, new GOTEntityNorthMan(world));
+		theMan.put(isReach, new GOTEntityReachMan(world));
+		theMan.put(isRiverlands, new GOTEntityRiverlandsMan(world));
+		theMan.put(isStormlands, new GOTEntityStormlandsMan(world));
+		theMan.put(isWesterlands, new GOTEntityWesterlandsMan(world));
+
+		for (Entry<Boolean, GOTEntityNPC> npc : theMan.entrySet()) {
+			if (Boolean.TRUE.equals(npc.getKey())) {
+				return npc.getValue();
+			}
+		}
 		return null;
+	}
+
+	public GOTEntityNPC getSoldier(World world) {
+		Map<Boolean, GOTEntityNPC> theSoldier = new HashMap<>();
+		theSoldier.put(isArryn, new GOTEntityArrynSoldier(world));
+		theSoldier.put(isCrownlands, new GOTEntityCrownlandsLevyman(world));
+		theSoldier.put(isDragonstone, new GOTEntityDragonstoneSoldier(world));
+		theSoldier.put(isIronborn, new GOTEntityIronbornSoldier(world));
+		theSoldier.put(isNorth, new GOTEntityNorthSoldier(world));
+		theSoldier.put(isReach, new GOTEntityReachSoldier(world));
+		theSoldier.put(isRiverlands, new GOTEntityRiverlandsSoldier(world));
+		theSoldier.put(isStormlands, new GOTEntityStormlandsSoldier(world));
+		theSoldier.put(isWesterlands, new GOTEntityWesterlandsSoldier(world));
+
+		for (Entry<Boolean, GOTEntityNPC> npc : theSoldier.entrySet()) {
+			if (Boolean.TRUE.equals(npc.getKey())) {
+				return npc.getValue();
+			}
+		}
+		return null;
+	}
+
+	public GOTEntityNPC getSoldierArcher(World world) {
+		Map<Boolean, GOTEntityNPC> theSoldierArcher = new HashMap<>();
+		theSoldierArcher.put(isArryn, new GOTEntityArrynSoldierArcher(world));
+		theSoldierArcher.put(isCrownlands, new GOTEntityCrownlandsLevymanArcher(world));
+		theSoldierArcher.put(isDragonstone, new GOTEntityDragonstoneSoldierArcher(world));
+		theSoldierArcher.put(isIronborn, new GOTEntityIronbornSoldierArcher(world));
+		theSoldierArcher.put(isNorth, new GOTEntityNorthSoldierArcher(world));
+		theSoldierArcher.put(isReach, new GOTEntityReachSoldierArcher(world));
+		theSoldierArcher.put(isRiverlands, new GOTEntityRiverlandsSoldierArcher(world));
+		theSoldierArcher.put(isStormlands, new GOTEntityStormlandsSoldierArcher(world));
+		theSoldierArcher.put(isWesterlands, new GOTEntityWesterlandsSoldierArcher(world));
+
+		for (Entry<Boolean, GOTEntityNPC> npc : theSoldierArcher.entrySet()) {
+			if (Boolean.TRUE.equals(npc.getKey())) {
+				return npc.getValue();
+			}
+		}
+		return null;
+	}
+
+	public boolean hasMaester() {
+		return isArryn || isCrownlands || isReach || isRiverlands || isStormlands || isWesterlands || isNorth;
+	}
+
+	public boolean hasSepton() {
+		return isArryn || isCrownlands || isRiverlands || isStormlands || isWesterlands;
 	}
 
 	@Override
 	public void setupRandomBlocks(Random random) {
-		if (!isRed) {
-			tableBlock = Blocks.crafting_table;
-			rockBlock = GOTRegistry.rock;
-			rockMeta = 1;
-			rockSlabBlock = GOTRegistry.slabSingle1;
-			rockSlabMeta = 2;
-			rockSlabDoubleBlock = GOTRegistry.slabDouble1;
-			rockSlabDoubleMeta = 2;
-			rockStairBlock = GOTRegistry.stairsAndesite;
-			rockWallBlock = GOTRegistry.wallStone1;
-			rockWallMeta = 2;
-			brickBlock = GOTRegistry.brick1;
-			brickMeta = 1;
-			brickSlabBlock = GOTRegistry.slabSingle1;
-			brickSlabMeta = 3;
-			brickStairBlock = GOTRegistry.stairsAndesiteBrick;
-			brickWallBlock = GOTRegistry.wallStone1;
-			brickWallMeta = 3;
-			brickMossyBlock = GOTRegistry.brick1;
-			brickMossyMeta = 2;
-			brickMossySlabBlock = GOTRegistry.slabSingle1;
-			brickMossySlabMeta = 4;
-			brickMossyStairBlock = GOTRegistry.stairsAndesiteBrickMossy;
-			brickMossyWallBlock = GOTRegistry.wallStone1;
-			brickMossyWallMeta = 4;
-			brickCrackedBlock = GOTRegistry.brick1;
-			brickCrackedMeta = 3;
-			brickCrackedSlabBlock = GOTRegistry.slabSingle1;
-			brickCrackedSlabMeta = 5;
-			brickCrackedStairBlock = GOTRegistry.stairsAndesiteBrickCracked;
-			brickCrackedWallBlock = GOTRegistry.wallStone1;
-			brickCrackedWallMeta = 5;
-			pillarBlock = GOTRegistry.pillar1;
-			pillarMeta = 6;
-			brick2Block = GOTRegistry.brick2;
-			brick2Meta = 11;
-			brick2SlabBlock = GOTRegistry.slabSingle5;
-			brick2SlabMeta = 3;
-			brick2StairBlock = GOTRegistry.stairsBasaltWesterosBrick;
-			brick2WallBlock = GOTRegistry.wallStone2;
-			brick2WallMeta = 10;
-			pillar2Block = GOTRegistry.pillar1;
-			pillar2Meta = 9;
-			cobbleBlock = Blocks.cobblestone;
-			cobbleMeta = 0;
-			cobbleSlabBlock = Blocks.stone_slab;
-			cobbleSlabMeta = 3;
-			cobbleStairBlock = Blocks.stone_stairs;
-			int randomWood = random.nextInt(7);
-			switch (randomWood) {
-			case 0:
-			case 1:
-			case 2:
-				plankBlock = Blocks.planks;
-				plankMeta = 0;
-				plankSlabBlock = Blocks.wooden_slab;
-				plankSlabMeta = 0;
-				plankStairBlock = Blocks.oak_stairs;
-				fenceBlock = Blocks.fence;
-				fenceMeta = 0;
-				fenceGateBlock = Blocks.fence_gate;
-				woodBeamBlock = GOTRegistry.woodBeamV1;
-				woodBeamMeta = 0;
-				doorBlock = Blocks.wooden_door;
-				break;
-			case 3:
-				plankBlock = GOTRegistry.planks1;
-				plankMeta = 9;
-				plankSlabBlock = GOTRegistry.woodSlabSingle2;
-				plankSlabMeta = 1;
-				plankStairBlock = GOTRegistry.stairsBeech;
-				fenceBlock = GOTRegistry.fence;
-				fenceMeta = 9;
-				fenceGateBlock = GOTRegistry.fenceGateBeech;
-				woodBeamBlock = GOTRegistry.woodBeam2;
-				woodBeamMeta = 1;
-				doorBlock = GOTRegistry.doorBeech;
-				break;
-			case 4:
-				plankBlock = GOTRegistry.planks2;
-				plankMeta = 2;
-				plankSlabBlock = GOTRegistry.woodSlabSingle3;
-				plankSlabMeta = 2;
-				plankStairBlock = GOTRegistry.stairsCedar;
-				fenceBlock = GOTRegistry.fence2;
-				fenceMeta = 2;
-				fenceGateBlock = GOTRegistry.fenceGateCedar;
-				woodBeamBlock = GOTRegistry.woodBeam4;
-				woodBeamMeta = 2;
-				doorBlock = GOTRegistry.doorCedar;
-				break;
-			case 5:
-				plankBlock = GOTRegistry.planks1;
-				plankMeta = 8;
-				plankSlabBlock = GOTRegistry.woodSlabSingle2;
-				plankSlabMeta = 0;
-				plankStairBlock = GOTRegistry.stairsAramant;
-				fenceBlock = GOTRegistry.fence;
-				fenceMeta = 8;
-				fenceGateBlock = GOTRegistry.fenceGateAramant;
-				woodBeamBlock = GOTRegistry.woodBeam2;
-				woodBeamMeta = 0;
-				doorBlock = GOTRegistry.doorAramant;
-				break;
-			case 6:
-				plankBlock = Blocks.planks;
-				plankMeta = 2;
-				plankSlabBlock = Blocks.wooden_slab;
-				plankSlabMeta = 2;
-				plankStairBlock = Blocks.birch_stairs;
-				fenceBlock = Blocks.fence;
-				fenceMeta = 2;
-				fenceGateBlock = GOTRegistry.fenceGateBirch;
-				woodBeamBlock = GOTRegistry.woodBeamV1;
-				woodBeamMeta = 2;
-				doorBlock = GOTRegistry.doorBirch;
-				break;
-			default:
-				break;
-			}
-			if (random.nextBoolean()) {
-				wallBlock = GOTRegistry.daub;
-				wallMeta = 0;
-			} else {
-				wallBlock = plankBlock;
-				wallMeta = plankMeta;
-			}
-			roofBlock = GOTRegistry.thatch;
-			roofMeta = 0;
-			roofSlabBlock = GOTRegistry.slabSingleThatch;
-			roofSlabMeta = 0;
-			roofStairBlock = GOTRegistry.stairsThatch;
-			barsBlock = Blocks.iron_bars;
-			tableBlock = GOTRegistry.tableNorth;
-			bedBlock = GOTRegistry.strawBed;
-			gateBlock = GOTRegistry.gateWesteros;
-			plateBlock = GOTRegistry.ceramicPlateBlock;
-			if (random.nextBoolean()) {
-				cropBlock = Blocks.wheat;
-				cropMeta = 7;
-				seedItem = Items.wheat_seeds;
-			} else {
-				int randomCrop = random.nextInt(6);
-				switch (randomCrop) {
-				case 0:
-					cropBlock = Blocks.carrots;
-					cropMeta = 7;
-					seedItem = Items.carrot;
-					break;
-				case 1:
-					cropBlock = Blocks.potatoes;
-					cropMeta = 7;
-					seedItem = Items.potato;
-					break;
-				case 2:
-					cropBlock = GOTRegistry.lettuceCrop;
-					cropMeta = 7;
-					seedItem = GOTRegistry.lettuce;
-					break;
-				case 3:
-					cropBlock = GOTRegistry.cornStalk;
-					cropMeta = 0;
-					seedItem = Item.getItemFromBlock(GOTRegistry.cornStalk);
-					break;
-				case 4:
-					cropBlock = GOTRegistry.leekCrop;
-					cropMeta = 7;
-					seedItem = GOTRegistry.leek;
-					break;
-				case 5:
-					cropBlock = GOTRegistry.turnipCrop;
-					cropMeta = 7;
-					seedItem = GOTRegistry.turnip;
-					break;
-				default:
-					break;
-				}
-			}
-		} else {
-
+		if (isArryn) {
+			tableBlock = GOTRegistry.tableArryn;
+			banner = GOTItemBanner.BannerType.ARRYN;
+		}
+		if (isArryn) {
+			tableBlock = GOTRegistry.tableArryn;
+			banner = GOTItemBanner.BannerType.ARRYN;
+		} else if (isCrownlands) {
 			tableBlock = GOTRegistry.tableCrownlands;
-			rockBlock = GOTRegistry.rock;
-			rockMeta = 4;
-			rockSlabDoubleBlock = GOTRegistry.smoothStone;
-			rockSlabDoubleMeta = 4;
-			rockStairBlock = GOTRegistry.stairsAndesite;
-			rockWallBlock = GOTRegistry.wallStone2;
-			rockWallMeta = 2;
-			brickMossyBlock = GOTRegistry.brick1;
-			brickMossyMeta = 2;
-			brickMossySlabBlock = GOTRegistry.slabSingle1;
-			brickMossySlabMeta = 4;
-			brickMossyStairBlock = GOTRegistry.stairsAndesiteBrickMossy;
-			brickMossyWallBlock = GOTRegistry.wallStone1;
-			brickMossyWallMeta = 4;
-			brickCrackedBlock = GOTRegistry.brick1;
-			brickCrackedMeta = 3;
-			brickCrackedSlabBlock = GOTRegistry.slabSingle1;
-			brickCrackedSlabMeta = 5;
-			brickCrackedStairBlock = GOTRegistry.stairsAndesiteBrickCracked;
-			brickCrackedWallBlock = GOTRegistry.wallStone1;
-			brickCrackedWallMeta = 5;
-			brick2Block = GOTRegistry.brick2;
-			brick2Meta = 11;
-			brick2SlabBlock = GOTRegistry.slabSingle5;
-			brick2SlabMeta = 3;
-			brick2StairBlock = GOTRegistry.stairsBasaltWesterosBrick;
-			brick2WallBlock = GOTRegistry.wallStone2;
-			brick2WallMeta = 10;
-			pillar2Block = GOTRegistry.pillar1;
-			pillar2Meta = 9;
-			cobbleBlock = Blocks.cobblestone;
-			cobbleMeta = 0;
-			cobbleSlabBlock = Blocks.stone_slab;
-			cobbleSlabMeta = 3;
-			cobbleStairBlock = Blocks.stone_stairs;
-			int randomWood = random.nextInt(7);
-			switch (randomWood) {
+			banner = GOTItemBanner.BannerType.ROBERT;
+		} else if (isDragonstone) {
+			tableBlock = GOTRegistry.tableDragonstone;
+			banner = GOTItemBanner.BannerType.STANNIS;
+		} else if (isIronborn) {
+			tableBlock = GOTRegistry.tableIronborn;
+			banner = GOTItemBanner.BannerType.GREYJOY;
+		} else if (isNorth) {
+			tableBlock = GOTRegistry.tableNorth;
+			banner = GOTItemBanner.BannerType.ROBB;
+		} else if (isReach) {
+			tableBlock = GOTRegistry.tableReach;
+			banner = GOTItemBanner.BannerType.TYRELL;
+		} else if (isRiverlands) {
+			tableBlock = GOTRegistry.tableRiverlands;
+			banner = GOTItemBanner.BannerType.TULLY;
+		} else if (isStormlands) {
+			tableBlock = GOTRegistry.tableStormlands;
+			banner = GOTItemBanner.BannerType.RENLY;
+		} else if (isWesterlands) {
+			tableBlock = GOTRegistry.tableWesterlands;
+			banner = GOTItemBanner.BannerType.LANNISTER;
+		}
+		rockBlock = GOTRegistry.rock;
+		rockMeta = 1;
+		rockSlabBlock = GOTRegistry.slabSingle1;
+		rockSlabMeta = 2;
+		rockSlabDoubleBlock = GOTRegistry.slabDouble1;
+		rockSlabDoubleMeta = 2;
+		rockStairBlock = GOTRegistry.stairsAndesite;
+		rockWallBlock = GOTRegistry.wallStone1;
+		rockWallMeta = 2;
+		brickBlock = GOTRegistry.brick1;
+		brickMeta = 1;
+		brickSlabBlock = GOTRegistry.slabSingle1;
+		brickSlabMeta = 3;
+		brickStairBlock = GOTRegistry.stairsAndesiteBrick;
+		brickWallBlock = GOTRegistry.wallStone1;
+		brickWallMeta = 3;
+		brickMossyBlock = GOTRegistry.brick1;
+		brickMossyMeta = 2;
+		brickMossySlabBlock = GOTRegistry.slabSingle1;
+		brickMossySlabMeta = 4;
+		brickMossyStairBlock = GOTRegistry.stairsAndesiteBrickMossy;
+		brickMossyWallBlock = GOTRegistry.wallStone1;
+		brickMossyWallMeta = 4;
+		brickCrackedBlock = GOTRegistry.brick1;
+		brickCrackedMeta = 3;
+		brickCrackedSlabBlock = GOTRegistry.slabSingle1;
+		brickCrackedSlabMeta = 5;
+		brickCrackedStairBlock = GOTRegistry.stairsAndesiteBrickCracked;
+		brickCrackedWallBlock = GOTRegistry.wallStone1;
+		brickCrackedWallMeta = 5;
+		pillarBlock = GOTRegistry.pillar1;
+		pillarMeta = 6;
+		brick2Block = GOTRegistry.brick2;
+		brick2Meta = 11;
+		brick2SlabBlock = GOTRegistry.slabSingle5;
+		brick2SlabMeta = 3;
+		brick2StairBlock = GOTRegistry.stairsBasaltWesterosBrick;
+		brick2WallBlock = GOTRegistry.wallStone2;
+		brick2WallMeta = 10;
+		pillar2Block = GOTRegistry.pillar1;
+		pillar2Meta = 9;
+		cobbleBlock = Blocks.cobblestone;
+		cobbleMeta = 0;
+		cobbleSlabBlock = Blocks.stone_slab;
+		cobbleSlabMeta = 3;
+		cobbleStairBlock = Blocks.stone_stairs;
+		int randomWood = random.nextInt(7);
+		switch (randomWood) {
+		case 0:
+		case 1:
+		case 2:
+			plankBlock = Blocks.planks;
+			plankMeta = 0;
+			plankSlabBlock = Blocks.wooden_slab;
+			plankSlabMeta = 0;
+			plankStairBlock = Blocks.oak_stairs;
+			fenceBlock = Blocks.fence;
+			fenceMeta = 0;
+			fenceGateBlock = Blocks.fence_gate;
+			woodBeamBlock = GOTRegistry.woodBeamV1;
+			woodBeamMeta = 0;
+			doorBlock = Blocks.wooden_door;
+			break;
+		case 3:
+			plankBlock = GOTRegistry.planks1;
+			plankMeta = 9;
+			plankSlabBlock = GOTRegistry.woodSlabSingle2;
+			plankSlabMeta = 1;
+			plankStairBlock = GOTRegistry.stairsBeech;
+			fenceBlock = GOTRegistry.fence;
+			fenceMeta = 9;
+			fenceGateBlock = GOTRegistry.fenceGateBeech;
+			woodBeamBlock = GOTRegistry.woodBeam2;
+			woodBeamMeta = 1;
+			doorBlock = GOTRegistry.doorBeech;
+			break;
+		case 4:
+			plankBlock = GOTRegistry.planks2;
+			plankMeta = 2;
+			plankSlabBlock = GOTRegistry.woodSlabSingle3;
+			plankSlabMeta = 2;
+			plankStairBlock = GOTRegistry.stairsCedar;
+			fenceBlock = GOTRegistry.fence2;
+			fenceMeta = 2;
+			fenceGateBlock = GOTRegistry.fenceGateCedar;
+			woodBeamBlock = GOTRegistry.woodBeam4;
+			woodBeamMeta = 2;
+			doorBlock = GOTRegistry.doorCedar;
+			break;
+		case 5:
+			plankBlock = GOTRegistry.planks1;
+			plankMeta = 8;
+			plankSlabBlock = GOTRegistry.woodSlabSingle2;
+			plankSlabMeta = 0;
+			plankStairBlock = GOTRegistry.stairsAramant;
+			fenceBlock = GOTRegistry.fence;
+			fenceMeta = 8;
+			fenceGateBlock = GOTRegistry.fenceGateAramant;
+			woodBeamBlock = GOTRegistry.woodBeam2;
+			woodBeamMeta = 0;
+			doorBlock = GOTRegistry.doorAramant;
+			break;
+		case 6:
+			plankBlock = Blocks.planks;
+			plankMeta = 2;
+			plankSlabBlock = Blocks.wooden_slab;
+			plankSlabMeta = 2;
+			plankStairBlock = Blocks.birch_stairs;
+			fenceBlock = Blocks.fence;
+			fenceMeta = 2;
+			fenceGateBlock = GOTRegistry.fenceGateBirch;
+			woodBeamBlock = GOTRegistry.woodBeamV1;
+			woodBeamMeta = 2;
+			doorBlock = GOTRegistry.doorBirch;
+			break;
+		}
+		if (random.nextBoolean()) {
+			wallBlock = GOTRegistry.daub;
+			wallMeta = 0;
+		} else {
+			wallBlock = plankBlock;
+			wallMeta = plankMeta;
+		}
+		roofBlock = GOTRegistry.thatch;
+		roofMeta = 0;
+		roofSlabBlock = GOTRegistry.slabSingleThatch;
+		roofSlabMeta = 0;
+		roofStairBlock = GOTRegistry.stairsThatch;
+		barsBlock = Blocks.iron_bars;
+		bedBlock = GOTRegistry.strawBed;
+		gateBlock = GOTRegistry.gateWesteros;
+		plateBlock = GOTRegistry.ceramicPlateBlock;
+		if (random.nextBoolean()) {
+			cropBlock = Blocks.wheat;
+			cropMeta = 7;
+			seedItem = Items.wheat_seeds;
+		} else {
+			int randomCrop = random.nextInt(6);
+			switch (randomCrop) {
 			case 0:
+				cropBlock = Blocks.carrots;
+				cropMeta = 7;
+				seedItem = Items.carrot;
+				break;
 			case 1:
+				cropBlock = Blocks.potatoes;
+				cropMeta = 7;
+				seedItem = Items.potato;
+				break;
 			case 2:
-				plankBlock = Blocks.planks;
-				plankMeta = 0;
-				plankSlabBlock = Blocks.wooden_slab;
-				plankSlabMeta = 0;
-				plankStairBlock = Blocks.oak_stairs;
-				fenceBlock = Blocks.fence;
-				fenceMeta = 0;
-				fenceGateBlock = Blocks.fence_gate;
-				woodBeamBlock = GOTRegistry.woodBeamV1;
-				woodBeamMeta = 0;
-				doorBlock = Blocks.wooden_door;
+				cropBlock = GOTRegistry.lettuceCrop;
+				cropMeta = 7;
+				seedItem = GOTRegistry.lettuce;
 				break;
 			case 3:
-				plankBlock = GOTRegistry.planks1;
-				plankMeta = 9;
-				plankSlabBlock = GOTRegistry.woodSlabSingle2;
-				plankSlabMeta = 1;
-				plankStairBlock = GOTRegistry.stairsBeech;
-				fenceBlock = GOTRegistry.fence;
-				fenceMeta = 9;
-				fenceGateBlock = GOTRegistry.fenceGateBeech;
-				woodBeamBlock = GOTRegistry.woodBeam2;
-				woodBeamMeta = 1;
-				doorBlock = GOTRegistry.doorBeech;
+				cropBlock = GOTRegistry.cornStalk;
+				cropMeta = 0;
+				seedItem = Item.getItemFromBlock(GOTRegistry.cornStalk);
 				break;
 			case 4:
-				plankBlock = GOTRegistry.planks2;
-				plankMeta = 2;
-				plankSlabBlock = GOTRegistry.woodSlabSingle3;
-				plankSlabMeta = 2;
-				plankStairBlock = GOTRegistry.stairsCedar;
-				fenceBlock = GOTRegistry.fence2;
-				fenceMeta = 2;
-				fenceGateBlock = GOTRegistry.fenceGateCedar;
-				woodBeamBlock = GOTRegistry.woodBeam4;
-				woodBeamMeta = 2;
-				doorBlock = GOTRegistry.doorCedar;
+				cropBlock = GOTRegistry.leekCrop;
+				cropMeta = 7;
+				seedItem = GOTRegistry.leek;
 				break;
 			case 5:
-				plankBlock = GOTRegistry.planks1;
-				plankMeta = 8;
-				plankSlabBlock = GOTRegistry.woodSlabSingle2;
-				plankSlabMeta = 0;
-				plankStairBlock = GOTRegistry.stairsAramant;
-				fenceBlock = GOTRegistry.fence;
-				fenceMeta = 8;
-				fenceGateBlock = GOTRegistry.fenceGateAramant;
-				woodBeamBlock = GOTRegistry.woodBeam2;
-				woodBeamMeta = 0;
-				doorBlock = GOTRegistry.doorAramant;
-				break;
-			case 6:
-				plankBlock = Blocks.planks;
-				plankMeta = 2;
-				plankSlabBlock = Blocks.wooden_slab;
-				plankSlabMeta = 2;
-				plankStairBlock = Blocks.birch_stairs;
-				fenceBlock = Blocks.fence;
-				fenceMeta = 2;
-				fenceGateBlock = GOTRegistry.fenceGateBirch;
-				woodBeamBlock = GOTRegistry.woodBeamV1;
-				woodBeamMeta = 2;
-				doorBlock = GOTRegistry.doorBirch;
-				break;
-			default:
-				break;
-			}
-			if (random.nextBoolean()) {
-				wallBlock = GOTRegistry.daub;
-				wallMeta = 0;
-			} else {
-				wallBlock = plankBlock;
-				wallMeta = plankMeta;
-			}
-			roofBlock = GOTRegistry.thatch;
-			roofMeta = 0;
-			roofSlabBlock = GOTRegistry.slabSingleThatch;
-			roofSlabMeta = 0;
-			roofStairBlock = GOTRegistry.stairsThatch;
-			barsBlock = Blocks.iron_bars;
-			bedBlock = GOTRegistry.strawBed;
-			gateBlock = GOTRegistry.gateWesteros;
-			plateBlock = GOTRegistry.ceramicPlateBlock;
-			if (random.nextBoolean()) {
-				cropBlock = Blocks.wheat;
+				cropBlock = GOTRegistry.turnipCrop;
 				cropMeta = 7;
-				seedItem = Items.wheat_seeds;
-			} else {
-				int randomCrop = random.nextInt(6);
-				switch (randomCrop) {
-				case 0:
-					cropBlock = Blocks.carrots;
-					cropMeta = 7;
-					seedItem = Items.carrot;
-					break;
-				case 1:
-					cropBlock = Blocks.potatoes;
-					cropMeta = 7;
-					seedItem = Items.potato;
-					break;
-				case 2:
-					cropBlock = GOTRegistry.lettuceCrop;
-					cropMeta = 7;
-					seedItem = GOTRegistry.lettuce;
-					break;
-				case 3:
-					cropBlock = GOTRegistry.cornStalk;
-					cropMeta = 0;
-					seedItem = Item.getItemFromBlock(GOTRegistry.cornStalk);
-					break;
-				case 4:
-					cropBlock = GOTRegistry.leekCrop;
-					cropMeta = 7;
-					seedItem = GOTRegistry.leek;
-					break;
-				case 5:
-					cropBlock = GOTRegistry.turnipCrop;
-					cropMeta = 7;
-					seedItem = GOTRegistry.turnip;
-					break;
-				default:
-					break;
-				}
+				seedItem = GOTRegistry.turnip;
+				break;
 			}
-
 		}
 	}
 }

@@ -11,7 +11,6 @@ import got.common.recipe.*;
 import got.common.tileentity.GOTTileEntityRegistry;
 import got.common.util.GOTModChecker;
 import got.common.world.biome.GOTBiome;
-import got.common.world.fixed.GOTFixer;
 import got.common.world.map.*;
 import got.common.world.structure.GOTStructure;
 import got.common.world.structure.other.GOTStructureScan;

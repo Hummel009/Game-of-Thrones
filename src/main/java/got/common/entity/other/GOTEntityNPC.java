@@ -51,6 +51,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	public GOTInventoryHiredReplacedItems hiredReplacedInv;
 	public GOTInventoryNPCItems npcItemsInv;
 	public GOTShields npcShield;
+	public Item seedsItem;
 	public GOTTraderNPCInfo traderNPCInfo;
 	public ItemStack[] festiveItems = new ItemStack[5];
 	public List<GOTFaction> killBonusFactions = new ArrayList<>();
@@ -606,7 +607,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		if (npcName.equals(entityName)) {
 			return entityName;
 		}
-		return StatCollector.translateToLocalFormatted("entity.got.generic.entityName", npcName, entityName);
+		return StatCollector.translateToLocalFormatted(npcName) + ", " + StatCollector.translateToLocalFormatted(entityName);
 	}
 
 	public String getNPCName() {

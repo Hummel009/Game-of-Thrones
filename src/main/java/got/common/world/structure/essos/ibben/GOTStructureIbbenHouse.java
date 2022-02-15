@@ -10,9 +10,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
-	public boolean hasStoneBase;
-	public boolean setHasBase = false;
-
 	public GOTStructureIbbenHouse(boolean flag) {
 		super(flag);
 	}
@@ -31,10 +28,7 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 		int step;
 		int k13;
 		int k14;
-		if (!setHasBase) {
-			hasStoneBase = random.nextBoolean();
-		}
-		this.setOriginAndRotation(world, i, j, k, rotation, hasStoneBase ? 10 : 6);
+		this.setOriginAndRotation(world, i, j, k, rotation, 6);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -58,49 +52,14 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 				}
 			}
 		}
-		if (hasStoneBase) {
-			for (i12 = -6; i12 <= 5; ++i12) {
-				for (k12 = -9; k12 <= 8; ++k12) {
-					boolean stair;
-					int j15;
-					boolean corner = (i12 == -6 || i12 == 5) && Math.abs(k12) == 8;
-					boolean stairSide = (i12 == -2 || i12 == 1) && k12 == -9;
-					stair = i12 >= -1 && i12 <= 0 && k12 == -9;
-					if (corner || stairSide) {
-						for (j15 = 1; (j15 >= 1 || !isOpaque(world, i12, j15, k12)) && getY(j15) >= 0; --j15) {
-							setBlockAndMetadata(world, i12, j15, k12, rockSlabDoubleBlock, rockSlabDoubleMeta);
-							setGrassToDirt(world, i12, j15 - 1, k12);
-						}
-						if (!corner) {
-							continue;
-						}
-						setBlockAndMetadata(world, i12, 2, k12, rockSlabBlock, rockSlabMeta);
-						continue;
-					}
-					if (!stair && k12 < -8) {
-						continue;
-					}
-					for (j15 = 1; (j15 >= 1 || !isOpaque(world, i12, j15, k12)) && getY(j15) >= 0; --j15) {
-						setBlockAndMetadata(world, i12, j15, k12, brickBlock, brickMeta);
-						setGrassToDirt(world, i12, j15 - 1, k12);
-					}
-					if (!stair) {
-						continue;
-					}
-					setBlockAndMetadata(world, i12, 1, k12, brickStairBlock, 2);
+		for (i12 = -3; i12 <= 2; ++i12) {
+			for (k12 = -5; k12 <= 4; ++k12) {
+				if (k12 < -4 && (i12 < -1 || i12 > 0)) {
+					continue;
 				}
-			}
-			++originY;
-		} else {
-			for (i12 = -3; i12 <= 2; ++i12) {
-				for (k12 = -5; k12 <= 4; ++k12) {
-					if (k12 < -4 && (i12 < -1 || i12 > 0)) {
-						continue;
-					}
-					for (j1 = 0; (j1 >= 0 || !isOpaque(world, i12, j1, k12)) && getY(j1) >= 0; --j1) {
-						setBlockAndMetadata(world, i12, j1, k12, plank2Block, plank2Meta);
-						setGrassToDirt(world, i12, j1 - 1, k12);
-					}
+				for (j1 = 0; (j1 >= 0 || !isOpaque(world, i12, j1, k12)) && getY(j1) >= 0; --j1) {
+					setBlockAndMetadata(world, i12, j1, k12, plank2Block, plank2Meta);
+					setGrassToDirt(world, i12, j1 - 1, k12);
 				}
 			}
 		}
@@ -404,11 +363,5 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 		child.familyInfo.setChild();
 		spawnNPCAndSetHome(child, world, 0, 1, 0, 16);
 		return true;
-	}
-
-	public GOTStructureIbbenHouse setHasBase(boolean flag) {
-		hasStoneBase = flag;
-		setHasBase = true;
-		return this;
 	}
 }

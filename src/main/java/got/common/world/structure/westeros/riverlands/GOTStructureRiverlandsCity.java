@@ -18,6 +18,7 @@ import net.minecraft.world.World;
 public class GOTStructureRiverlandsCity extends GOTVillageGen {
 	public boolean isTown;
 	public boolean isCastle;
+	public boolean isCrossroads;
 
 	public GOTStructureRiverlandsCity(GOTBiome biome, float f) {
 		super(biome);
@@ -35,6 +36,11 @@ public class GOTStructureRiverlandsCity extends GOTVillageGen {
 
 	public GOTStructureRiverlandsCity setIsCastle() {
 		isCastle = true;
+		return this;
+	}
+
+	public GOTStructureRiverlandsCity setIsCrossroads() {
+		isCrossroads = true;
 		return this;
 	}
 
@@ -61,6 +67,9 @@ public class GOTStructureRiverlandsCity extends GOTVillageGen {
 				break;
 			case VILLAGE:
 				setupVillage(random);
+				break;
+			case CROSSROADS:
+				this.addStructure(new GOTStructureRiverlandsTavern(false).setIsCrossroads(), -10, 30, 0, true);
 				break;
 			}
 		}
@@ -532,6 +541,8 @@ public class GOTStructureRiverlandsCity extends GOTVillageGen {
 				villageType = VillageType.TOWN;
 			} else if (isCastle || random.nextInt(4) == 0) {
 				villageType = VillageType.FORT;
+			} else if (isCrossroads) {
+				villageType = VillageType.CROSSROADS;
 			} else {
 				villageType = VillageType.VILLAGE;
 			}
@@ -540,7 +551,7 @@ public class GOTStructureRiverlandsCity extends GOTVillageGen {
 	}
 
 	public enum VillageType {
-		VILLAGE, TOWN, FORT;
+		VILLAGE, TOWN, FORT, CROSSROADS;
 	}
 
 }
