@@ -89,7 +89,6 @@ public class GOTConfig {
 	public static int fellowshipMaxSize;
 	public static int playerDataClearingInterval;
 	public static int MIN_PLAYER_DATA_CLEARING_INTERVAL = 600;
-	public static boolean enableColouredRoofs;
 
 	static {
 		allCategories = new ArrayList<>();
@@ -135,7 +134,6 @@ public class GOTConfig {
 	}
 
 	public static void load() {
-		enableColouredRoofs = config.get(CATEGORY_GAMEPLAY, "Enable coloured roofs in Westeros", false, "Replace default black roofs with dyed clay tiles").getBoolean();
 		languageCode = config.getString("languageCode", CATEGORY_LANGUAGE, languageCode, "Choose:" + GOT.langsName + ".");
 		clearMap = config.get(CATEGORY_GAMEPLAY, "No fixed structures and characters", false, "Useful for servers. Disable fixed structures to build your own").getBoolean();
 		allowBannerProtection = config.get(CATEGORY_GAMEPLAY, "Allow Banner Protection", true).getBoolean();

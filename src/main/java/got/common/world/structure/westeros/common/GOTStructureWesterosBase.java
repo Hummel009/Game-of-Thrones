@@ -3,7 +3,6 @@ package got.common.world.structure.westeros.common;
 import java.util.*;
 import java.util.Map.Entry;
 
-import got.common.GOTConfig;
 import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.arryn.*;
@@ -389,62 +388,6 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 			brick2StairBlock = GOTRegistry.stairsClayTileDyedOrange;
 			brick2WallBlock = GOTRegistry.wallClayTileDyed;
 			brick2WallMeta = 1;
-		} else if (isStormlands) {
-			brick2Block = GOTRegistry.clayTileDyed;
-			brick2Meta = 13;
-			brick2SlabBlock = GOTRegistry.slabClayTileDyedSingle2;
-			brick2SlabMeta = 5;
-			brick2StairBlock = GOTRegistry.stairsClayTileDyedGreen;
-			brick2WallBlock = GOTRegistry.wallClayTileDyed;
-			brick2WallMeta = 13;
-		} else if (isWesterlands) {
-			brick2Block = GOTRegistry.clayTileDyed;
-			brick2Meta = 14;
-			brick2SlabBlock = GOTRegistry.slabClayTileDyedSingle2;
-			brick2SlabMeta = 6;
-			brick2StairBlock = GOTRegistry.stairsClayTileDyedRed;
-			brick2WallBlock = GOTRegistry.wallClayTileDyed;
-			brick2WallMeta = 14;
-		} else if (isRiverlands) {
-			brick2Block = GOTRegistry.clayTileDyed;
-			brick2Meta = 3;
-			brick2SlabBlock = GOTRegistry.slabClayTileDyedSingle1;
-			brick2SlabMeta = 3;
-			brick2StairBlock = GOTRegistry.stairsClayTileDyedLightBlue;
-			brick2WallBlock = GOTRegistry.wallClayTileDyed;
-			brick2WallMeta = 3;
-		} else if (isArryn) {
-			brick2Block = GOTRegistry.clayTileDyed;
-			brick2Meta = 11;
-			brick2SlabBlock = GOTRegistry.slabClayTileDyedSingle2;
-			brick2SlabMeta = 3;
-			brick2StairBlock = GOTRegistry.stairsClayTileDyedBlue;
-			brick2WallBlock = GOTRegistry.wallClayTileDyed;
-			brick2WallMeta = 11;
-		} else if (isCrownlands) {
-			brick2Block = GOTRegistry.clayTileDyed;
-			brick2Meta = 12;
-			brick2SlabBlock = GOTRegistry.slabClayTileDyedSingle2;
-			brick2SlabMeta = 4;
-			brick2StairBlock = GOTRegistry.stairsClayTileDyedBrown;
-			brick2WallBlock = GOTRegistry.wallClayTileDyed;
-			brick2WallMeta = 12;
-		} else if (isDragonstone) {
-			brick2Block = GOTRegistry.clayTileDyed;
-			brick2Meta = 7;
-			brick2SlabBlock = GOTRegistry.slabClayTileDyedSingle1;
-			brick2SlabMeta = 7;
-			brick2StairBlock = GOTRegistry.stairsClayTileDyedGray;
-			brick2WallBlock = GOTRegistry.wallClayTileDyed;
-			brick2WallMeta = 7;
-		} else if (isIronborn) {
-			brick2Block = GOTRegistry.clayTileDyed;
-			brick2Meta = 15;
-			brick2SlabBlock = GOTRegistry.slabClayTileDyedSingle2;
-			brick2SlabMeta = 7;
-			brick2StairBlock = GOTRegistry.stairsClayTileDyedBlack;
-			brick2WallBlock = GOTRegistry.wallClayTileDyed;
-			brick2WallMeta = 15;
 		}
 	}
 
@@ -679,8 +622,6 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 				break;
 			}
 		}
-		if (GOTConfig.enableColouredRoofs) {
-			overrideRoofs();
-		}
+		overrideRoofs();
 	}
 }
