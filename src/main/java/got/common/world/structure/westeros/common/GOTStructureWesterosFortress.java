@@ -192,7 +192,7 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i11, 4, i13 + 1, brickStairBlock, 6);
 				for (int i14 = i13; i14 <= i13 + 1; i14++) {
 					setAir(world, i11, 3, i14);
-					setBlockAndMetadata(world, i12, 3, i14, GOTRegistry.brick1, 5);
+					setBlockAndMetadata(world, i12, 3, i14, brickCarved, brickCarvedMeta);
 				}
 			}
 			setBlockAndMetadata(world, i11, 2, -1, brickStairBlock, 3);
@@ -203,7 +203,7 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, i11, 4, 1, brickStairBlock, 6);
 			for (int k2 = -1; k2 <= 1; k2++) {
 				setAir(world, i11, 3, k2);
-				setBlockAndMetadata(world, i12, 3, k2, GOTRegistry.brick1, 5);
+				setBlockAndMetadata(world, i12, 3, k2, brickCarved, brickCarvedMeta);
 			}
 		}
 		for (int i11 : new int[] { -11, 11 }) {
@@ -215,7 +215,7 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i12 + 1, 4, i11, brickStairBlock, 5);
 				for (int i13 = i12; i13 <= i12 + 1; i13++) {
 					setAir(world, i13, 3, i11);
-					setBlockAndMetadata(world, i13, 3, k2, GOTRegistry.brick1, 5);
+					setBlockAndMetadata(world, i13, 3, k2, brickCarved, brickCarvedMeta);
 				}
 			}
 			if (i11 > 0) {
@@ -227,7 +227,7 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, 1, 4, i11, brickStairBlock, 5);
 				for (int i12 = -1; i12 <= 1; i12++) {
 					setAir(world, i12, 3, i11);
-					setBlockAndMetadata(world, i12, 3, k2, GOTRegistry.brick1, 5);
+					setBlockAndMetadata(world, i12, 3, k2, brickCarved, brickCarvedMeta);
 				}
 			}
 		}
@@ -335,7 +335,7 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 		for (i6 = 6; i6 <= 9; i6++) {
 			setBlockAndMetadata(world, 0, i6, 0, pillarBlock, pillarMeta);
 		}
-		setBlockAndMetadata(world, 0, 10, 0, GOTRegistry.brick1, 5);
+		setBlockAndMetadata(world, 0, 10, 0, brickCarved, brickCarvedMeta);
 		setBlockAndMetadata(world, 0, 11, 0, GOTRegistry.beacon, 0);
 		placeWallBanner(world, 0, 9, 0, banner, 0);
 		placeWallBanner(world, 0, 9, 0, banner, 1);

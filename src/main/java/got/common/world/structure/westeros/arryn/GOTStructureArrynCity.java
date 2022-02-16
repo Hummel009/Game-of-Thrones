@@ -9,6 +9,7 @@ import got.common.entity.westeros.arryn.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
+import got.common.world.structure.westeros.arryn.GOTStructureArryn.*;
 import got.common.world.structure.westeros.common.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
