@@ -8,7 +8,7 @@ import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.westeros.city.GOTStructureCrownlandsCity;
+import got.common.world.structure.westeros.crownlands.GOTStructureCrownlandsCity;
 
 public class GOTBiomeCrownlands extends GOTBiomeWesteros {
 	public GOTBiomeCrownlands(int i, boolean major) {
