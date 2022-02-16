@@ -13,7 +13,6 @@ import got.common.world.structure.other.*;
 import got.common.world.structure.westeros.basis.*;
 import got.common.world.structure.westeros.market.GOTStructureCrownlandsMarketStall;
 import got.common.world.structure.westeros.storage.GOTStructureCrownlands.*;
-import got.common.world.structure.westeros.storage.GOTStructureCrownlandsRed.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
@@ -40,33 +39,21 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 
 	public GOTStructureCrownlandsCity setIsCapital() {
 		isCapital = true;
-		isTown = false;
-		isCastle = false;
-		isRedCastle = false;
 		return this;
 	}
 
 	public GOTStructureCrownlandsCity setIsCastle() {
 		isCastle = true;
-		isTown = false;
-		isCapital = false;
-		isRedCastle = false;
 		return this;
 	}
 
 	public GOTStructureCrownlandsCity setIsRedCastle() {
 		isRedCastle = true;
-		isTown = false;
-		isCastle = false;
-		isCapital = false;
 		return this;
 	}
 
 	public GOTStructureCrownlandsCity setIsTown() {
 		isTown = true;
-		isCapital = false;
-		isCastle = false;
-		isRedCastle = false;
 		return this;
 	}
 
@@ -229,41 +216,41 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 		}
 
 		public void setupRedCastle(Random random) {
-			this.addStructure(new GOTStructureCrownlandsRedFortress(false), 0, 12, 2, true);
-			this.addStructure(new GOTStructureCrownlandsRedFortGate(false), 0, -37, 0, true);
-			this.addStructure(new GOTStructureCrownlandsRedFortWallRight(false), -11, -37, 0, true);
-			this.addStructure(new GOTStructureCrownlandsRedFortWallLeft(false), 11, -37, 0, true);
-			this.addStructure(new GOTStructureCrownlandsRedWatchtower(false), -23, -33, 2, true);
-			this.addStructure(new GOTStructureCrownlandsRedWatchtower(false), 23, -33, 2, true);
-			this.addStructure(new GOTStructureCrownlandsRedFortGate(false), -37, 0, 3, true);
-			this.addStructure(new GOTStructureCrownlandsRedFortWallLeft(false), -37, -11, 3, true);
-			this.addStructure(new GOTStructureCrownlandsRedFortWallRight(false), -37, 11, 3, true);
-			this.addStructure(new GOTStructureCrownlandsRedWatchtower(false), -33, -23, 1, true);
-			this.addStructure(new GOTStructureCrownlandsRedWatchtower(false), -33, 23, 1, true);
-			this.addStructure(new GOTStructureCrownlandsRedFortGate(false), 0, 37, 2, true);
-			this.addStructure(new GOTStructureCrownlandsRedFortWallLeft(false), -11, 37, 2, true);
-			this.addStructure(new GOTStructureCrownlandsRedFortWallRight(false), 11, 37, 2, true);
-			this.addStructure(new GOTStructureCrownlandsRedWatchtower(false), -23, 33, 0, true);
-			this.addStructure(new GOTStructureCrownlandsRedWatchtower(false), 23, 33, 0, true);
-			this.addStructure(new GOTStructureCrownlandsRedFortGate(false), 37, 0, 1, true);
-			this.addStructure(new GOTStructureCrownlandsRedFortWallRight(false), 37, -11, 1, true);
-			this.addStructure(new GOTStructureCrownlandsRedFortWallLeft(false), 37, 11, 1, true);
-			this.addStructure(new GOTStructureCrownlandsRedWatchtower(false), 33, -23, 3, true);
-			this.addStructure(new GOTStructureCrownlandsRedWatchtower(false), 33, 23, 3, true);
-			this.addStructure(new GOTStructureCrownlandsRedFortWallCorner(false), -30, -30, 3);
-			this.addStructure(new GOTStructureCrownlandsRedFortWallCorner(false), -30, 30, 2);
-			this.addStructure(new GOTStructureCrownlandsRedFortWallCorner(false), 30, 30, 1);
-			this.addStructure(new GOTStructureCrownlandsRedFortWallCorner(false), 30, -30, 2);
-			this.addStructure(new GOTStructureCrownlandsRedStables(false), -24, 2, 0);
-			this.addStructure(new GOTStructureCrownlandsRedStables(false), -24, -2, 2);
-			this.addStructure(new GOTStructureCrownlandsRedSmithy(false), 24, 1, 0);
-			this.addStructure(new GOTStructureCrownlandsRedSmithy(false), 24, -1, 2);
-			this.addStructure(new GOTStructureCrownlandsRedStoneHouse(false), -3, -25, 1);
-			this.addStructure(new GOTStructureCrownlandsRedStoneHouse(false), 3, -25, 3);
-			this.addStructure(new GOTStructureCrownlandsRedVillageFarmTree(false), -18, -21, 1);
-			this.addStructure(new GOTStructureCrownlandsRedVillageFarmTree(false), 18, -21, 3);
-			this.addStructure(new GOTStructureCrownlandsRedWell(false), -12, 27, 1);
-			this.addStructure(new GOTStructureCrownlandsRedWell(false), 12, 27, 3);
+			this.addStructure(new GOTStructureWesterosFortress(false).setGranite(), 0, 12, 2, true);
+			this.addStructure(new GOTStructureWesterosFortGate(false).setGranite(), 0, -37, 0, true);
+			this.addStructure(new GOTStructureWesterosFortWall.Right(false).setGranite(), -11, -37, 0, true);
+			this.addStructure(new GOTStructureWesterosFortWall.Left(false).setGranite(), 11, -37, 0, true);
+			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), -23, -33, 2, true);
+			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), 23, -33, 2, true);
+			this.addStructure(new GOTStructureWesterosFortGate(false).setGranite(), -37, 0, 3, true);
+			this.addStructure(new GOTStructureWesterosFortWall.Left(false).setGranite(), -37, -11, 3, true);
+			this.addStructure(new GOTStructureWesterosFortWall.Right(false).setGranite(), -37, 11, 3, true);
+			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), -33, -23, 1, true);
+			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), -33, 23, 1, true);
+			this.addStructure(new GOTStructureWesterosFortGate(false).setGranite(), 0, 37, 2, true);
+			this.addStructure(new GOTStructureWesterosFortWall.Left(false).setGranite(), -11, 37, 2, true);
+			this.addStructure(new GOTStructureWesterosFortWall.Right(false).setGranite(), 11, 37, 2, true);
+			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), -23, 33, 0, true);
+			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), 23, 33, 0, true);
+			this.addStructure(new GOTStructureWesterosFortGate(false).setGranite(), 37, 0, 1, true);
+			this.addStructure(new GOTStructureWesterosFortWall.Right(false).setGranite(), 37, -11, 1, true);
+			this.addStructure(new GOTStructureWesterosFortWall.Left(false).setGranite(), 37, 11, 1, true);
+			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), 33, -23, 3, true);
+			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), 33, 23, 3, true);
+			this.addStructure(new GOTStructureWesterosFortWallCorner(false).setGranite(), -30, -30, 3);
+			this.addStructure(new GOTStructureWesterosFortWallCorner(false).setGranite(), -30, 30, 2);
+			this.addStructure(new GOTStructureWesterosFortWallCorner(false).setGranite(), 30, 30, 1);
+			this.addStructure(new GOTStructureWesterosFortWallCorner(false).setGranite(), 30, -30, 2);
+			this.addStructure(new GOTStructureWesterosStables(false).setGranite(), -24, 2, 0);
+			this.addStructure(new GOTStructureWesterosStables(false).setGranite(), -24, -2, 2);
+			this.addStructure(new GOTStructureWesterosSmithy(false).setGranite(), 24, 1, 0);
+			this.addStructure(new GOTStructureWesterosSmithy(false).setGranite(), 24, -1, 2);
+			this.addStructure(new GOTStructureWesterosStoneHouse(false).setGranite(), -3, -25, 1);
+			this.addStructure(new GOTStructureWesterosStoneHouse(false).setGranite(), 3, -25, 3);
+			this.addStructure(new GOTStructureWesterosVillageFarm.Crops(false).setGranite(), -18, -21, 1);
+			this.addStructure(new GOTStructureWesterosVillageFarm.Crops(false).setGranite(), 18, -21, 3);
+			this.addStructure(new GOTStructureWesterosWell(false).setGranite(), -12, 27, 1);
+			this.addStructure(new GOTStructureWesterosWell(false).setGranite(), 12, 27, 3);
 		}
 
 		public void setupTown(Random random) {
