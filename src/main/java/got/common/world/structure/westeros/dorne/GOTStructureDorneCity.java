@@ -10,8 +10,6 @@ import got.common.entity.westeros.dorne.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
-import got.common.world.structure.westeros.common.GOTStructureWesterosVillageSign;
-import got.common.world.structure.westeros.dorne.GOTStructureDorne.*;
 import net.minecraft.block.Block;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -73,12 +71,12 @@ public class GOTStructureDorneCity extends GOTVillageGen {
 				int dSq = i * i + k * k;
 				int imn = 20 + random.nextInt(4);
 				if (dSq < imn * imn) {
-					return GOTBezierType.PATH_SANDY;
+					return GOTBezierType.PATH_DIRTY;
 				}
 				int omn = 53 - random.nextInt(4);
 				int omx = 60 + random.nextInt(4);
 				if (dSq > omn * omn && dSq < omx * omx || dSq < 2809 && Math.abs(i1 - k1) <= 2 + random.nextInt(4)) {
-					return GOTBezierType.PATH_SANDY;
+					return GOTBezierType.PATH_DIRTY;
 				}
 			}
 			if (villageType == VillageType.TOWN && i1 <= 80 && k1 <= 80) {
@@ -86,13 +84,13 @@ public class GOTStructureDorneCity extends GOTVillageGen {
 			}
 			if (villageType == VillageType.FORT) {
 				if (i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36) {
-					return GOTBezierType.PATH_SANDY;
+					return GOTBezierType.PATH_DIRTY;
 				}
 				if (k1 <= 1 && i1 >= 12 && i1 <= 36) {
-					return GOTBezierType.PATH_SANDY;
+					return GOTBezierType.PATH_DIRTY;
 				}
 				if (k >= 26 && k <= 28 && i1 <= 12) {
-					return GOTBezierType.PATH_SANDY;
+					return GOTBezierType.PATH_DIRTY;
 				}
 			}
 			return null;
@@ -101,11 +99,11 @@ public class GOTStructureDorneCity extends GOTVillageGen {
 		public GOTStructureBase getRandomFarm(Random random) {
 			if (random.nextBoolean()) {
 				if (random.nextBoolean()) {
-					return new GOTStructureDorneVillageFarmAnimals(false);
+					return new GOTStructureDorneVillageFarm.Animals(false);
 				}
-				return new GOTStructureDorneVillageFarmCrops(false);
+				return new GOTStructureDorneVillageFarm.Crops(false);
 			}
-			return new GOTStructureDorneVillageFarmTree(false);
+			return new GOTStructureDorneVillageFarm.Tree(false);
 		}
 
 		public GOTStructureBase getRandomHouse(Random random) {
@@ -164,23 +162,23 @@ public class GOTStructureDorneCity extends GOTVillageGen {
 			}
 			this.addStructure(new GOTStructureDorneFortress(false), 0, 12, 2, true);
 			this.addStructure(new GOTStructureDorneFortGate(false), 0, -37, 0, true);
-			this.addStructure(new GOTStructureDorneFortWallRight(false), -11, -37, 0, true);
-			this.addStructure(new GOTStructureDorneFortWallLeft(false), 11, -37, 0, true);
+			this.addStructure(new GOTStructureDorneFortWall.Right(false), -11, -37, 0, true);
+			this.addStructure(new GOTStructureDorneFortWall.Left(false), 11, -37, 0, true);
 			this.addStructure(new GOTStructureDorneWatchtower(false), -23, -33, 2, true);
 			this.addStructure(new GOTStructureDorneWatchtower(false), 23, -33, 2, true);
 			this.addStructure(new GOTStructureDorneFortGate(false), -37, 0, 3, true);
-			this.addStructure(new GOTStructureDorneFortWallLeft(false), -37, -11, 3, true);
-			this.addStructure(new GOTStructureDorneFortWallRight(false), -37, 11, 3, true);
+			this.addStructure(new GOTStructureDorneFortWall.Left(false), -37, -11, 3, true);
+			this.addStructure(new GOTStructureDorneFortWall.Right(false), -37, 11, 3, true);
 			this.addStructure(new GOTStructureDorneWatchtower(false), -33, -23, 1, true);
 			this.addStructure(new GOTStructureDorneWatchtower(false), -33, 23, 1, true);
 			this.addStructure(new GOTStructureDorneFortGate(false), 0, 37, 2, true);
-			this.addStructure(new GOTStructureDorneFortWallLeft(false), -11, 37, 2, true);
-			this.addStructure(new GOTStructureDorneFortWallRight(false), 11, 37, 2, true);
+			this.addStructure(new GOTStructureDorneFortWall.Left(false), -11, 37, 2, true);
+			this.addStructure(new GOTStructureDorneFortWall.Right(false), 11, 37, 2, true);
 			this.addStructure(new GOTStructureDorneWatchtower(false), -23, 33, 0, true);
 			this.addStructure(new GOTStructureDorneWatchtower(false), 23, 33, 0, true);
 			this.addStructure(new GOTStructureDorneFortGate(false), 37, 0, 1, true);
-			this.addStructure(new GOTStructureDorneFortWallRight(false), 37, -11, 1, true);
-			this.addStructure(new GOTStructureDorneFortWallLeft(false), 37, 11, 1, true);
+			this.addStructure(new GOTStructureDorneFortWall.Right(false), 37, -11, 1, true);
+			this.addStructure(new GOTStructureDorneFortWall.Left(false), 37, 11, 1, true);
 			this.addStructure(new GOTStructureDorneWatchtower(false), 33, -23, 3, true);
 			this.addStructure(new GOTStructureDorneWatchtower(false), 33, 23, 3, true);
 			this.addStructure(new GOTStructureDorneFortWallCorner(false), -30, -30, 3);
@@ -193,8 +191,8 @@ public class GOTStructureDorneCity extends GOTVillageGen {
 			this.addStructure(new GOTStructureDorneSmithy(false), 24, -1, 2);
 			this.addStructure(new GOTStructureDorneStoneHouse(false), -3, -25, 1);
 			this.addStructure(new GOTStructureDorneStoneHouse(false), 3, -25, 3);
-			this.addStructure(new GOTStructureDorneVillageFarmCrops(false), -18, -21, 1);
-			this.addStructure(new GOTStructureDorneVillageFarmCrops(false), 18, -21, 3);
+			this.addStructure(new GOTStructureDorneVillageFarm.Crops(false), -18, -21, 1);
+			this.addStructure(new GOTStructureDorneVillageFarm.Crops(false), 18, -21, 3);
 			this.addStructure(new GOTStructureDorneWell(false), -12, 27, 1);
 			this.addStructure(new GOTStructureDorneWell(false), 12, 27, 3);
 		}
@@ -325,20 +323,20 @@ public class GOTStructureDorneCity extends GOTVillageGen {
 				int houseZ = k1 * 12;
 				treepiece = IntMath.mod(k1, 2) == 1;
 				if (treepiece) {
-					this.addStructure(new GOTStructureDorneVillageFarmTree(false), -houseX - 2, houseZ, 1, true);
-					this.addStructure(new GOTStructureDorneVillageFarmTree(false), houseX + 2, houseZ, 3, true);
+					this.addStructure(new GOTStructureDorneVillageFarm.Tree(false), -houseX - 2, houseZ, 1, true);
+					this.addStructure(new GOTStructureDorneVillageFarm.Tree(false), houseX + 2, houseZ, 3, true);
 				} else {
 					this.addStructure(new GOTStructureDorneStoneHouse(false), -houseX, houseZ, 1, true);
 					this.addStructure(new GOTStructureDorneStoneHouse(false), houseX, houseZ, 3, true);
 				}
 				if (treepiece) {
-					this.addStructure(new GOTStructureDorneVillageFarmTree(false), houseZ, -houseX - 2, 2, true);
+					this.addStructure(new GOTStructureDorneVillageFarm.Tree(false), houseZ, -houseX - 2, 2, true);
 				} else {
 					this.addStructure(new GOTStructureDorneStoneHouse(false), houseZ, -houseX, 2, true);
 				}
 				if (Math.abs(k1) >= 2 && (!outerTavern || k1 <= 2)) {
 					if (treepiece) {
-						this.addStructure(new GOTStructureDorneVillageFarmTree(false), houseZ, houseX + 2, 0, true);
+						this.addStructure(new GOTStructureDorneVillageFarm.Tree(false), houseZ, houseX + 2, 0, true);
 					} else {
 						this.addStructure(new GOTStructureDorneStoneHouse(false), houseZ, houseX, 0, true);
 					}
@@ -353,10 +351,10 @@ public class GOTStructureDorneCity extends GOTVillageGen {
 			}
 			int gardenX = 42;
 			int gardenZ = 48;
-			this.addStructure(new GOTStructureDorneVillageFarmTree(false), -gardenX, -gardenZ, 1, true);
-			this.addStructure(new GOTStructureDorneVillageFarmTree(false), -gardenX, gardenZ, 1, true);
-			this.addStructure(new GOTStructureDorneVillageFarmTree(false), gardenX, -gardenZ, 3, true);
-			this.addStructure(new GOTStructureDorneVillageFarmTree(false), gardenX, gardenZ, 3, true);
+			this.addStructure(new GOTStructureDorneVillageFarm.Tree(false), -gardenX, -gardenZ, 1, true);
+			this.addStructure(new GOTStructureDorneVillageFarm.Tree(false), -gardenX, gardenZ, 1, true);
+			this.addStructure(new GOTStructureDorneVillageFarm.Tree(false), gardenX, -gardenZ, 3, true);
+			this.addStructure(new GOTStructureDorneVillageFarm.Tree(false), gardenX, gardenZ, 3, true);
 			int obeliskX = 62;
 			int obeliskZ = 66;
 			this.addStructure(new GOTStructureDorneObelisk(false), -obeliskX, -obeliskZ, 1, true);
@@ -505,10 +503,10 @@ public class GOTStructureDorneCity extends GOTVillageGen {
 			}
 			int signPos = Math.round(50.0f * MathHelper.cos((float) Math.toRadians(45.0)));
 			int signDisp = Math.round(7.0f * MathHelper.cos((float) Math.toRadians(45.0)));
-			this.addStructure(new GOTStructureWesterosVillageSign(false), -signPos, -signPos + signDisp, 1);
-			this.addStructure(new GOTStructureWesterosVillageSign(false), signPos, -signPos + signDisp, 3);
-			this.addStructure(new GOTStructureWesterosVillageSign(false), -signPos, signPos - signDisp, 1);
-			this.addStructure(new GOTStructureWesterosVillageSign(false), signPos, signPos - signDisp, 3);
+			this.addStructure(new GOTStructureDorneVillageSign(false), -signPos, -signPos + signDisp, 1);
+			this.addStructure(new GOTStructureDorneVillageSign(false), signPos, -signPos + signDisp, 3);
+			this.addStructure(new GOTStructureDorneVillageSign(false), -signPos, signPos - signDisp, 1);
+			this.addStructure(new GOTStructureDorneVillageSign(false), signPos, signPos - signDisp, 3);
 			int farmX = 38;
 			int farmZ = 17;
 			int farmSize = 6;

@@ -10,8 +10,7 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.westeros.dorne.GOTStructureDorne.GOTStructureDorneWatchfort;
-import got.common.world.structure.westeros.dorne.GOTStructureDorneCity;
+import got.common.world.structure.westeros.dorne.*;
 import net.minecraft.entity.passive.*;
 import net.minecraft.world.biome.BiomeGenBase;
 

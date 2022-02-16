@@ -6,7 +6,6 @@ import com.google.common.math.IntMath;
 
 import got.common.entity.westeros.arryn.*;
 import got.common.world.structure.other.GOTStructureBase;
-import got.common.world.structure.westeros.common.GOTStructureWesterosMarketStall;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 

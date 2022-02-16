@@ -30,8 +30,7 @@ import got.common.world.structure.sothoryos.sothoryos.GOTStructureSothoryosVilla
 import got.common.world.structure.sothoryos.summer.*;
 import got.common.world.structure.westeros.arryn.*;
 import got.common.world.structure.westeros.crownlands.*;
-import got.common.world.structure.westeros.dorne.GOTStructureDorne.*;
-import got.common.world.structure.westeros.dorne.GOTStructureDorneCity;
+import got.common.world.structure.westeros.dorne.*;
 import got.common.world.structure.westeros.dragonstone.*;
 import got.common.world.structure.westeros.gift.*;
 import got.common.world.structure.westeros.hillmen.*;

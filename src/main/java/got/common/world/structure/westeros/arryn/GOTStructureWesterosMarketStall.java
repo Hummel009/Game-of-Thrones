@@ -1,8 +1,9 @@
-package got.common.world.structure.westeros.common;
+package got.common.world.structure.westeros.arryn;
 
 import java.util.Random;
 
 import got.common.entity.other.GOTEntityNPC;
+import got.common.world.structure.westeros.common.GOTStructureWesterosBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 

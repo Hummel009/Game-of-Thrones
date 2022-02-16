@@ -7,12 +7,12 @@ import com.google.common.math.IntMath;
 import got.common.database.*;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.westeros.legendary.GOTEntityCrasterWife;
-import got.common.world.structure.westeros.common.GOTStructureWesterosBase;
+import got.common.world.structure.westeros.north.GOTStructureNorthBase;
 import net.minecraft.entity.passive.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-public class GOTStructureWildlingBarn extends GOTStructureWesterosBase {
+public class GOTStructureWildlingBarn extends GOTStructureNorthBase {
 	public GOTStructureWildlingBarn(boolean flag) {
 		super(flag);
 	}

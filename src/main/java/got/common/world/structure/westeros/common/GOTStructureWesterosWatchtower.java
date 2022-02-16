@@ -94,15 +94,15 @@ public class GOTStructureWesterosWatchtower extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 0, 1, -3, doorBlock, 1);
 		setBlockAndMetadata(world, 0, 2, -3, doorBlock, 8);
 		for (int j3 = 1; j3 <= 2; ++j3) {
-			setBlockAndMetadata(world, -1, j3, -3, brickCarved, brickCarvedMeta);
-			setBlockAndMetadata(world, 1, j3, -3, brickCarved, brickCarvedMeta);
+			setBlockAndMetadata(world, -1, j3, -3, GOTRegistry.brick1, 5);
+			setBlockAndMetadata(world, 1, j3, -3, GOTRegistry.brick1, 5);
 		}
 		setBlockAndMetadata(world, -1, 3, -4, Blocks.torch, 4);
 		setBlockAndMetadata(world, 1, 3, -4, Blocks.torch, 4);
-		setBlockAndMetadata(world, 0, 6, -3, brickCarved, brickCarvedMeta);
-		setBlockAndMetadata(world, 0, 6, 3, brickCarved, brickCarvedMeta);
-		setBlockAndMetadata(world, -3, 6, 0, brickCarved, brickCarvedMeta);
-		setBlockAndMetadata(world, 3, 6, 0, brickCarved, brickCarvedMeta);
+		setBlockAndMetadata(world, 0, 6, -3, GOTRegistry.brick1, 5);
+		setBlockAndMetadata(world, 0, 6, 3, GOTRegistry.brick1, 5);
+		setBlockAndMetadata(world, -3, 6, 0, GOTRegistry.brick1, 5);
+		setBlockAndMetadata(world, 3, 6, 0, GOTRegistry.brick1, 5);
 		placeWallBanner(world, 0, 5, -3, banner, 2);
 		for (int j3 = 1; j3 <= 9; ++j3) {
 			setBlockAndMetadata(world, 0, j3, 2, Blocks.ladder, 2);
@@ -156,7 +156,7 @@ public class GOTStructureWesterosWatchtower extends GOTStructureWesterosBase {
 		}
 		setBlockAndMetadata(world, 0, 11, 0, pillarBlock, pillarMeta);
 		setBlockAndMetadata(world, 0, 12, 0, pillarBlock, pillarMeta);
-		setBlockAndMetadata(world, 0, 13, 0, brickCarved, brickCarvedMeta);
+		setBlockAndMetadata(world, 0, 13, 0, GOTRegistry.brick1, 5);
 		this.placeBanner(world, 0, 14, 0, banner, 2);
 		setBlockAndMetadata(world, 0, 11, -3, Blocks.torch, 3);
 		setBlockAndMetadata(world, 0, 11, 3, Blocks.torch, 4);
