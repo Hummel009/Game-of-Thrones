@@ -8,7 +8,8 @@ import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.westeros.dragonstone.*;
+import got.common.world.structure.westeros.dragonstone.GOTStructureDragonstone.GOTStructureDragonstoneWatchfort;
+import got.common.world.structure.westeros.dragonstone.GOTStructureDragonstoneCity;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
 public class GOTBiomeDragonstone extends GOTBiomeWesteros {
