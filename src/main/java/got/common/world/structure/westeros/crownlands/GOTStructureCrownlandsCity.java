@@ -245,8 +245,8 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 			this.addStructure(new GOTStructureWesterosSmithy(false).setGranite(), 24, -1, 2);
 			this.addStructure(new GOTStructureWesterosStoneHouse(false).setGranite(), -3, -25, 1);
 			this.addStructure(new GOTStructureWesterosStoneHouse(false).setGranite(), 3, -25, 3);
-			this.addStructure(new GOTStructureWesterosVillageFarm.Crops(false).setGranite(), -18, -21, 1);
-			this.addStructure(new GOTStructureWesterosVillageFarm.Crops(false).setGranite(), 18, -21, 3);
+			this.addStructure(new GOTStructureWesterosVillageFarm.Tree(false).setGranite(), -18, -21, 1);
+			this.addStructure(new GOTStructureWesterosVillageFarm.Tree(false).setGranite(), 18, -21, 3);
 			this.addStructure(new GOTStructureWesterosWell(false).setGranite(), -12, 27, 1);
 			this.addStructure(new GOTStructureWesterosWell(false).setGranite(), 12, 27, 3);
 		}
