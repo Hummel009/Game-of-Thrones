@@ -160,7 +160,8 @@ public class GOTRoads {
 		GOTRoads.registerRoad(id++, GOTWaypoint.StormsEnd, near(GOTWaypoint.StormsEnd, 0, -1));
 		GOTRoads.registerRoad(id++, GOTWaypoint.SunHouse, near(GOTWaypoint.SunHouse, 0, -1));
 		GOTRoads.registerRoad(id++, GOTWaypoint.SunHouse, new int[] { 450, 2033 }, new int[] { 471, 2025 }, GOTWaypoint.Starfall);
-		GOTRoads.registerRoad(id++, GOTWaypoint.TheEyrie, GOTWaypoint.GateOfTheMoon, GOTWaypoint.BloodyGate, GOTWaypoint.CrossroadsInn);
+		GOTRoads.registerRoad(id++, near(GOTWaypoint.TheEyrie, 0, 1), GOTWaypoint.GateOfTheMoon, GOTWaypoint.BloodyGate, GOTWaypoint.CrossroadsInn);
+		GOTRoads.registerRoad(id++, near(GOTWaypoint.TheEyrie, 0, 1), GOTWaypoint.TheEyrie);
 		GOTRoads.registerRoad(id++, GOTWaypoint.ThreeTowers, near(GOTWaypoint.ThreeTowers, 1, 0));
 		GOTRoads.registerRoad(id++, GOTWaypoint.ThreeTowers, new int[] { 353, 2005 }, GOTWaypoint.GarnetGrove);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Tiqui, near(GOTWaypoint.Tiqui, 0, -1));
