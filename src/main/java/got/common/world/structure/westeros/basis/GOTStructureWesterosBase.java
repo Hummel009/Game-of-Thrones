@@ -3,6 +3,7 @@ package got.common.world.structure.westeros.basis;
 import java.util.*;
 import java.util.Map.Entry;
 
+import got.common.GOTConfig;
 import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.arryn.*;
@@ -380,12 +381,6 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		return isArryn || isCrownlands || isRiverlands || isStormlands || isWesterlands;
 	}
 
-	public GOTStructureBase setGranite() {
-		isCrownlands = false;
-		isCrownlandsRed = true;
-		return this;
-	}
-
 	@Override
 	public void setupRandomBlocks(Random random) {
 		banner = getBanner();
@@ -488,6 +483,9 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 			brickCarved = GOTRegistry.brick3;
 			brickCarvedMeta = 8;
 		}
+		/*if (GOTConfig.enableColouredRoofs) {
+			overrideRoofs();
+		}*/
 		int randomWood = random.nextInt(7);
 		switch (randomWood) {
 		case 0:
@@ -610,6 +608,90 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 				seedItem = GOTRegistry.turnip;
 				break;
 			}
+		}
+	}
+
+	public void overrideRoofs() {
+		if (isDorne) {
+            this.brick2Block = GOTRegistry.clayTileDyed;
+            this.brick2Meta = 1;
+            this.brick2SlabBlock = GOTRegistry.slabClayTileDyedSingle1;
+            this.brick2SlabMeta = 1;
+            this.brick2StairBlock = GOTRegistry.stairsClayTileDyedOrange;
+            this.brick2WallBlock = GOTRegistry.wallClayTileDyed;
+            this.brick2WallMeta = 1;
+		} else if (isStormlands) {
+            this.brick2Block = GOTRegistry.clayTileDyed;
+            this.brick2Meta = 13;
+            this.brick2SlabBlock = GOTRegistry.slabClayTileDyedSingle2;
+            this.brick2SlabMeta = 5;
+            this.brick2StairBlock = GOTRegistry.stairsClayTileDyedGreen;
+            this.brick2WallBlock = GOTRegistry.wallClayTileDyed;
+            this.brick2WallMeta = 13;
+		} else if (isReach) {
+            this.brick2Block = GOTRegistry.clayTileDyed;
+            this.brick2Meta = 5;
+            this.brick2SlabBlock = GOTRegistry.slabClayTileDyedSingle1;
+            this.brick2SlabMeta = 5;
+            this.brick2StairBlock = GOTRegistry.stairsClayTileDyedLime;
+            this.brick2WallBlock = GOTRegistry.wallClayTileDyed;
+            this.brick2WallMeta = 5;
+		} else if (isWesterlands) {
+            this.brick2Block = GOTRegistry.clayTileDyed;
+            this.brick2Meta = 14;
+            this.brick2SlabBlock = GOTRegistry.slabClayTileDyedSingle2;
+            this.brick2SlabMeta = 6;
+            this.brick2StairBlock = GOTRegistry.stairsClayTileDyedRed;
+            this.brick2WallBlock = GOTRegistry.wallClayTileDyed;
+            this.brick2WallMeta = 14;
+		} else if (isRiverlands) {
+            this.brick2Block = GOTRegistry.clayTileDyed;
+            this.brick2Meta = 3;
+            this.brick2SlabBlock = GOTRegistry.slabClayTileDyedSingle1;
+            this.brick2SlabMeta = 3;
+            this.brick2StairBlock = GOTRegistry.stairsClayTileDyedLightBlue;
+            this.brick2WallBlock = GOTRegistry.wallClayTileDyed;
+            this.brick2WallMeta = 3;
+		} else if (isArryn) {
+            this.brick2Block = GOTRegistry.clayTileDyed;
+            this.brick2Meta = 11;
+            this.brick2SlabBlock = GOTRegistry.slabClayTileDyedSingle2;
+            this.brick2SlabMeta = 3;
+            this.brick2StairBlock = GOTRegistry.stairsClayTileDyedBlue;
+            this.brick2WallBlock = GOTRegistry.wallClayTileDyed;
+            this.brick2WallMeta = 11;
+		} else if (isCrownlands) {
+            this.brick2Block = GOTRegistry.clayTileDyed;
+            this.brick2Meta = 12;
+            this.brick2SlabBlock = GOTRegistry.slabClayTileDyedSingle2;
+            this.brick2SlabMeta = 4;
+            this.brick2StairBlock = GOTRegistry.stairsClayTileDyedBrown;
+            this.brick2WallBlock = GOTRegistry.wallClayTileDyed;
+            this.brick2WallMeta = 12;
+		} else if (isDragonstone) {
+            this.brick2Block = GOTRegistry.clayTileDyed;
+            this.brick2Meta = 7;
+            this.brick2SlabBlock = GOTRegistry.slabClayTileDyedSingle1;
+            this.brick2SlabMeta = 7;
+            this.brick2StairBlock = GOTRegistry.stairsClayTileDyedGray;
+            this.brick2WallBlock = GOTRegistry.wallClayTileDyed;
+            this.brick2WallMeta = 7;
+		} else if (isNorth) {
+            this.brick2Block = GOTRegistry.clayTileDyed;
+            this.brick2Meta = 0;
+            this.brick2SlabBlock = GOTRegistry.slabClayTileDyedSingle1;
+            this.brick2SlabMeta = 0;
+            this.brick2StairBlock = GOTRegistry.stairsClayTileDyedWhite;
+            this.brick2WallBlock = GOTRegistry.wallClayTileDyed;
+            this.brick2WallMeta = 0;
+		} else if (isIronborn) {
+            this.brick2Block = GOTRegistry.clayTileDyed;
+            this.brick2Meta = 15;
+            this.brick2SlabBlock = GOTRegistry.slabClayTileDyedSingle2;
+            this.brick2SlabMeta = 7;
+            this.brick2StairBlock = GOTRegistry.stairsClayTileDyedBlack;
+            this.brick2WallBlock = GOTRegistry.wallClayTileDyed;
+            this.brick2WallMeta = 15;
 		}
 	}
 }

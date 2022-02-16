@@ -89,6 +89,7 @@ public class GOTConfig {
 	public static int fellowshipMaxSize;
 	public static int playerDataClearingInterval;
 	public static int MIN_PLAYER_DATA_CLEARING_INTERVAL = 600;
+	public static boolean enableColouredRoofs;
 
 	static {
 		allCategories = new ArrayList<>();
@@ -140,6 +141,7 @@ public class GOTConfig {
 		allowSelfProtectingBanners = config.get(CATEGORY_GAMEPLAY, "Allow Self-Protecting Banners", true).getBoolean();
 		allowMiniquests = config.get(CATEGORY_GAMEPLAY, "NPCs give mini-quests", true).getBoolean();
 		allowBountyQuests = config.get(CATEGORY_GAMEPLAY, "NPCs give bounty mini-quests", true, "Allow NPCs to generate mini-quests to kill enemy players").getBoolean();
+		enableColouredRoofs = config.get(CATEGORY_GAMEPLAY, "Enable coloured roofs in Westeros", false, "Replace default black roofs with dyed clay tiles").getBoolean();
 		enableFastTravel = config.get(CATEGORY_GAMEPLAY, "Enable Fast Travel", true).getBoolean();
 		fellowshipMaxSize = config.get(CATEGORY_GAMEPLAY, "Fellowship maximum size", -1, "Maximum player count for Fellowships. Negative = no limit").getInt();
 		enableConquest = config.get(CATEGORY_GAMEPLAY, "Enable Conquest", true).getBoolean();
