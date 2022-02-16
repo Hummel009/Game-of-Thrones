@@ -11,7 +11,7 @@ import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.other.*;
-import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanVillage;
+import got.common.world.structure.westeros.other.GOTStructureNorthHillmanVillage;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTBiomeSkagos extends GOTBiome {

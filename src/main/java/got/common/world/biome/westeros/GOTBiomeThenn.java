@@ -12,7 +12,7 @@ import got.common.world.feature.*;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.westeros.wildling.thenn.GOTStructureThennVillage;
+import got.common.world.structure.westeros.other.GOTStructureThennVillage;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;

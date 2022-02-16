@@ -37,19 +37,8 @@ import got.common.world.structure.essos.volantis.GOTStructureVolantisCity;
 import got.common.world.structure.essos.yiti.GOTStructureYiTiCity;
 import got.common.world.structure.other.*;
 import got.common.world.structure.sothoryos.summer.GOTStructureSummerVillage;
-import got.common.world.structure.westeros.arryn.GOTStructureArrynCity;
-import got.common.world.structure.westeros.crownlands.GOTStructureCrownlandsCity;
-import got.common.world.structure.westeros.dorne.GOTStructureDorneCity;
-import got.common.world.structure.westeros.dragonstone.GOTStructureDragonstoneCity;
-import got.common.world.structure.westeros.gift.GOTStructureGiftVillage;
-import got.common.world.structure.westeros.ironborn.GOTStructureIronbornCity;
-import got.common.world.structure.westeros.north.GOTStructureNorthCity;
-import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanVillage;
-import got.common.world.structure.westeros.reach.GOTStructureReachCity;
-import got.common.world.structure.westeros.riverlands.GOTStructureRiverlandsCity;
-import got.common.world.structure.westeros.stormlands.GOTStructureStormlandsCity;
-import got.common.world.structure.westeros.westerlands.GOTStructureWesterlandsCity;
-import got.common.world.structure.westeros.wildling.GOTStructureWildlingVillage;
+import got.common.world.structure.westeros.city.*;
+import got.common.world.structure.westeros.other.*;
 import net.minecraft.world.World;
 
 public class GOTFixer {

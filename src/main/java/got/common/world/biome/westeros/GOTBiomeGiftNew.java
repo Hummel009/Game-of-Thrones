@@ -8,7 +8,7 @@ import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.westeros.gift.GOTStructureGiftVillage;
+import got.common.world.structure.westeros.other.GOTStructureGiftVillage;
 
 public class GOTBiomeGiftNew extends GOTBiomeWesteros {
 	public GOTBiomeGiftNew(int i, boolean major) {

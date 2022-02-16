@@ -8,8 +8,8 @@ import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.westeros.westerlands.GOTStructureWesterlands.GOTStructureWesterlandsWatchfort;
-import got.common.world.structure.westeros.westerlands.GOTStructureWesterlandsCity;
+import got.common.world.structure.westeros.city.GOTStructureWesterlandsCity;
+import got.common.world.structure.westeros.storage.GOTStructureWesterlands.GOTStructureWesterlandsWatchfort;
 
 public class GOTBiomeWesterlands extends GOTBiomeWesteros {
 
