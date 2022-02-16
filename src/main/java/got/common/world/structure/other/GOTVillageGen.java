@@ -7,6 +7,7 @@ import got.common.GOTConfig;
 import got.common.util.CentredSquareArray;
 import got.common.world.GOTWorldChunkManager;
 import got.common.world.biome.GOTBiome;
+import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.map.*;
 import net.minecraft.block.*;
 import net.minecraft.init.Blocks;
@@ -46,7 +47,7 @@ public abstract class GOTVillageGen {
 		if (!GOTVillageGen.hasFixedSettlements(world)) {
 			return false;
 		}
-		int checkRange = 15 - notCheckRange;
+		int checkRange = 10 - notCheckRange;
 		checkRange <<= 4;
 		for (LocationInfo loc : fixedLocations) {
 			int dx = Math.abs(loc.posX - i);
@@ -254,6 +255,10 @@ public abstract class GOTVillageGen {
 			int i1 = chunkX * 16 + 8;
 			int k1 = chunkZ * 16 + 8;
 			int villageRange = villageChunkRadius * 16;
+			GOTBiomeVariant variant = worldChunkMgr.getBiomeVariantAt(i1, k1);
+			if (variant == GOTBiomeVariant.STEPPE) {
+				spawnChance = 0.0f;
+			}
 			if (villageRand.nextFloat() < spawnChance) {
 				int diagRange = (int) Math.round((villageRange + 8) * SQRT2);
 				boolean anythingNear;
@@ -265,7 +270,7 @@ public abstract class GOTVillageGen {
 					GOTVillageGen.seedVillageRand(world, i1, k1);
 					LocationInfo loc = LocationInfo.RANDOM_GEN_HERE;
 					createAndSetupVillageInstance(world, i1, k1, villageRand, loc);
-					if (worldChunkMgr.areBiomesViable(i1, k1, villageRange, spawnBiomes) && worldChunkMgr.areVariantsSuitableVillage(i1, k1, villageRange, false)) {
+					if (worldChunkMgr.areBiomesViable(i1, k1, villageRange, spawnBiomes) && worldChunkMgr.areVariantsSuitableVillage(i1, k1, villageRange)) {
 						return cache.markResult(chunkX, chunkZ, loc);
 					}
 				}

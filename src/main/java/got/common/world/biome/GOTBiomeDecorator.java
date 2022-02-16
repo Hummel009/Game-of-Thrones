@@ -130,10 +130,9 @@ public class GOTBiomeDecorator {
 
 	public boolean anyFixedVillagesAt(World world, int i, int k) {
 		for (GOTVillageGen village : fixedVillages) {
-			if (!village.anyFixedVillagesAt(world, i, k)) {
-				continue;
+			if (village.anyFixedVillagesAt(world, i, k)) {
+				return true;
 			}
-			return true;
 		}
 		return false;
 	}

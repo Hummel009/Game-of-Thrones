@@ -19,7 +19,7 @@ public class GOTStructureTower extends GOTVillageGen {
 		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 3;
-		notCheckRange = 13;
+		notCheckRange = 8;
 	}
 
 	@Override

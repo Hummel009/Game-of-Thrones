@@ -306,7 +306,7 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 		}
 		return true;
 	}
-	
+
 	public GOTStructureWesterosBarn setIsArryn() {
 		isArryn = true;
 		return this;

@@ -21,10 +21,10 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 
 	public GOTStructureGiftVillage(GOTBiome biome, float f) {
 		super(biome);
-		gridScale = 10;
+		gridScale = 12;
 		gridRandomDisplace = 1;
 		spawnChance = f;
-		villageChunkRadius = 3;
+		villageChunkRadius = 6;
 	}
 
 	@Override

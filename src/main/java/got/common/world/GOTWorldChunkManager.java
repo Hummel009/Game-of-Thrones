@@ -58,7 +58,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 		return true;
 	}
 
-	public boolean areVariantsSuitableVillage(int i, int k, int range, boolean requireFlat) {
+	public boolean areVariantsSuitableVillage(int i, int k, int range) {
 		int i1 = i - range >> 2;
 		int k1 = k - range >> 2;
 		int i2 = i + range >> 2;
@@ -67,16 +67,9 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 		int k3 = k2 - k1 + 1;
 		BiomeGenBase[] biomes = getBiomesForGeneration(null, i1, k1, i3, k3);
 		for (GOTBiomeVariant v : getVariantsChunkGen(null, i1, k1, i3, k3, biomes)) {
-			if (v.hillFactor > 1.6f || requireFlat && v.hillFactor > 1.0f || v.treeFactor > 1.0f) {
+			if (v.hillFactor > 1.0f || v.treeFactor > 1.0f || v.disableVillages || v.absoluteHeight && v.absoluteHeightLevel < 0.0f) {
 				return false;
 			}
-			if (v.disableVillages) {
-				return false;
-			}
-			if (!v.absoluteHeight || v.absoluteHeightLevel >= 0.0f) {
-				continue;
-			}
-			return false;
 		}
 		return true;
 	}
@@ -212,7 +205,9 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 				boolean mountainNear = flags[0];
 				boolean structureNear = flags[1];
 				boolean fixedVillageNear = biome.decorator.anyFixedVillagesAt(worldObj, xPos, zPos);
-				if (!fixedVillageNear) {
+				if (fixedVillageNear) {
+					variant = GOTBiomeVariant.STEPPE;
+				} else {
 					if (!mountainNear) {
 						float variantChance = biome.variantChance;
 						if (variantChance > 0.0f) {

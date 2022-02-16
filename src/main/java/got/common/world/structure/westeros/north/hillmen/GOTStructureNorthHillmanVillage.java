@@ -13,11 +13,10 @@ import net.minecraft.world.World;
 public class GOTStructureNorthHillmanVillage extends GOTVillageGen {
 	public GOTStructureNorthHillmanVillage(GOTBiome biome, float f) {
 		super(biome);
-        gridScale = 14;
-        gridRandomDisplace = 1;
-        spawnChance = f;
-        villageChunkRadius = 6;
-		fixedVillageChunkRadius = 15;
+		gridScale = 12;
+		gridRandomDisplace = 1;
+		spawnChance = f;
+		villageChunkRadius = 6;
 	}
 
 	@Override

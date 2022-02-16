@@ -247,10 +247,6 @@ public class GOTChunkProvider implements IChunkProvider {
 						avgHeightVariation = mtnV + dv / (1.0f + mountain);
 					}
 				}
-				if (centreBiome instanceof GOTBiome) {
-					GOTBiome lb = (GOTBiome) centreBiome;
-					lb.decorator.checkForVillages(worldObj, xPos, zPos, chunkFlags);
-				}
 				avgBaseHeight = (avgBaseHeight * 4.0f - 1.0f) / 8.0f;
 				if (avgHeightVariation == 0.0f) {
 					avgHeightVariation = 0.001f;
