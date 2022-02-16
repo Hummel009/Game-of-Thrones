@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 	public String[] tavernName;
 	public String[] tavernNameSign;
-	public boolean isPetyrBaelish;
+	public boolean isKingsLanding;
 	public boolean isCrossroads;
 
 	public GOTStructureWesterosTavern(boolean flag) {
@@ -747,7 +747,7 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 		}
 		setBlockAndMetadata(world, -1, 11, 7, GOTRegistry.chandelier, 1);
 		setBlockAndMetadata(world, 7, 11, 7, GOTRegistry.chandelier, 1);
-		if (isPetyrBaelish) {
+		if (isKingsLanding) {
 			spawnNPCAndSetHome(new GOTEntityPetyrBaelish(world), world, -4, 1, 7, 2);
 			spawnNPCAndSetHome(new GOTEntityTyrionLannister(world), world, 2, 1, 7, 16);
 			spawnNPCAndSetHome(new GOTEntityLancelLannister.LancelLannisterNormal(world), world, 2, 1, 7, 16);

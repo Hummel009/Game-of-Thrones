@@ -19,8 +19,8 @@ import net.minecraft.world.World;
 public class GOTStructureCrownlandsCity extends GOTVillageGen {
 	public boolean isTown;
 	public boolean isCastle;
-	public boolean isCapital;
-	public boolean isRedCastle;
+	public boolean isKingsLanding;
+	public boolean isRedKeep;
 
 	public GOTStructureCrownlandsCity(GOTBiome biome, float f) {
 		super(biome);
@@ -35,8 +35,8 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
-	public GOTStructureCrownlandsCity setIsCapital() {
-		isCapital = true;
+	public GOTStructureCrownlandsCity setIsKingsLanding() {
+		isKingsLanding = true;
 		return this;
 	}
 
@@ -45,8 +45,8 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 		return this;
 	}
 
-	public GOTStructureCrownlandsCity setIsRedCastle() {
-		isRedCastle = true;
+	public GOTStructureCrownlandsCity setIsRedKeep() {
+		isRedKeep = true;
 		return this;
 	}
 
@@ -74,7 +74,7 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 			case VILLAGE:
 				setupVillage(random);
 				break;
-			case RED_CASTLE:
+			case RED_KEEP:
 				setupRedCastle(random);
 				break;
 			}
@@ -110,7 +110,7 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 					return GOTBezierType.PATH_DIRTY;
 				}
 			}
-			if (villageType == VillageType.RED_CASTLE) {
+			if (villageType == VillageType.RED_KEEP) {
 				if (i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36 || k1 <= 1 && i1 >= 12 && i1 <= 36 || k >= 26 && k <= 28 && i1 <= 12) {
 					return GOTBezierType.PAVING;
 				}
@@ -254,7 +254,7 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 		public void setupTown(Random random) {
 			int l;
 			int wallX;
-			if (isCapital) {
+			if (isKingsLanding) {
 				this.addStructure(new GOTFixer.KingsLanding(), 0, 0, 0);
 				this.addStructure(new GOTStructureNPCRespawner(false) {
 
@@ -343,9 +343,9 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 				this.addStructure(new GOTStructureCrownlandsStoneHouse(false), houseZ, houseX, 0, true);
 				this.addStructure(new GOTStructureCrownlandsStoneHouse(false), houseZ, -houseX, 2, true);
 			}
-			if (isCapital) {
-				this.addStructure(new GOTStructureCrownlandsSmithy(false).setIsTobhoMott(), 0, -26, 2, true);
-				this.addStructure(new GOTStructureCrownlandsTavern(false).setIsPetyrBaelish(), -houseX, -5, 1, true);
+			if (isKingsLanding) {
+				this.addStructure(new GOTStructureCrownlandsSmithy(false).setIsKingsLanding(), 0, -26, 2, true);
+				this.addStructure(new GOTStructureCrownlandsTavern(false).setIsKingsLanding(), -houseX, -5, 1, true);
 			} else {
 				this.addStructure(new GOTStructureCrownlandsSmithy(false), 0, -26, 2, true);
 				this.addStructure(new GOTStructureCrownlandsTavern(false), -houseX, -5, 1, true);
@@ -601,21 +601,19 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 
 		@Override
 		public void setupVillageProperties(Random random) {
-			if (isTown || isCapital) {
+			if (isTown || isKingsLanding) {
 				villageType = VillageType.TOWN;
 			} else if (isCastle || random.nextInt(4) == 0) {
 				villageType = VillageType.FORT;
-			} else if (isRedCastle) {
-				villageType = VillageType.RED_CASTLE;
+			} else if (isRedKeep) {
+				villageType = VillageType.RED_KEEP;
 			} else {
 				villageType = VillageType.VILLAGE;
 			}
 		}
-
 	}
 
 	public enum VillageType {
-		VILLAGE, TOWN, FORT, RED_CASTLE;
+		VILLAGE, TOWN, FORT, RED_KEEP;
 	}
-
 }

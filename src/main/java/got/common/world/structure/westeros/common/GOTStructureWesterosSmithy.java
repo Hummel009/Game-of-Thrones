@@ -8,7 +8,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
 public class GOTStructureWesterosSmithy extends GOTStructureWesterosBase {
-	public boolean isTobhoMott;
+	public boolean issKingsLanding;
 
 	public GOTStructureWesterosSmithy(boolean flag) {
 		super(flag);
@@ -160,7 +160,7 @@ public class GOTStructureWesterosSmithy extends GOTStructureWesterosBase {
 		setAir(world, -3, 5, 10);
 
 		setAir(world, -3, 5, 10);
-		if (isTobhoMott) {
+		if (issKingsLanding) {
 			spawnNPCAndSetHome(new GOTEntityTobhoMott(world), world, 0, 1, 6, 4);
 			spawnNPCAndSetHome(new GOTEntityGendryBaratheon(world), world, 0, 1, 6, 4);
 		} else {

@@ -9,8 +9,8 @@ public class GOTStructureCrownlandsTavern extends GOTStructureWesterosTavern {
 		isCrownlands = true;
 	}
 
-	public GOTStructureBase setIsPetyrBaelish() {
-		isPetyrBaelish = true;
+	public GOTStructureBase setIsKingsLanding() {
+		isKingsLanding = true;
 		return this;
 	}
 }

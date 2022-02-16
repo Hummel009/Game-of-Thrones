@@ -81,7 +81,7 @@ public class GOTFixer {
 		f[5].affix(GOTWaypoint.CrastersKeep);
 		f[6] = new GOTStructureRiverlandsCity(biome, 0.0f).setIsCrossroads();
 		f[6].affix(GOTWaypoint.CrossroadsInn);
-		f[7] = new GOTStructureCrownlandsCity(biome, 0.0f).setIsCapital();
+		f[7] = new GOTStructureCrownlandsCity(biome, 0.0f).setIsKingsLanding();
 		f[7].affix(GOTWaypoint.KingsLanding.info(1, 0, 1));
 		f[8] = new GOTStructureCrownlandsCity(biome, 0.0f).setIsCastle();
 		f[8].affix(GOTWaypoint.Antlers, GOTWaypoint.Brownhollow, GOTWaypoint.DyreDen, GOTWaypoint.Stokeworth, GOTWaypoint.Hayford.info(-1, 0, 0), GOTWaypoint.RooksRest.info(0, -1, 0), GOTWaypoint.Rosby.info(0, -1, 0));
@@ -159,7 +159,7 @@ public class GOTFixer {
 		f[44].affix(GOTWaypoint.Highgarden.info(0, -1, 0), GOTWaypoint.Appleton.info(0, -1, 0), GOTWaypoint.Ashford.info(0, 1, 0), GOTWaypoint.Bandallon, GOTWaypoint.Goldengrove, GOTWaypoint.GrassyVale, GOTWaypoint.Greenshield, GOTWaypoint.Grimston, GOTWaypoint.Hammerhal, GOTWaypoint.RedLake, GOTWaypoint.Ring, GOTWaypoint.Southshield, GOTWaypoint.Uplands, GOTWaypoint.Holyhall, GOTWaypoint.Honeyholt, GOTWaypoint.HornHill, GOTWaypoint.IvyHall, GOTWaypoint.Longtable, GOTWaypoint.NewBarrel, GOTWaypoint.Blackcrown, GOTWaypoint.BrightwaterKeep, GOTWaypoint.CiderHall, GOTWaypoint.Coldmoat, GOTWaypoint.DarkDell, GOTWaypoint.Dunstonbury, GOTWaypoint.Bitterbridge.info(0, 1, 0), GOTWaypoint.GarnetGrove.info(-1, 0, 0), GOTWaypoint.HewettTown.info(0, -1, 0), GOTWaypoint.OldOak.info(-1, 0, 0), GOTWaypoint.SunHouse.info(0, -1, 0), GOTWaypoint.Whitegrove.info(-1, 0, 0));
 		f[45] = new GOTStructureReachCity(biome, 0.0f).setIsTown();
 		f[45].affix(GOTWaypoint.Oldtown.info(-1, 0, 3), GOTWaypoint.Appleton.info(0, 1, 2), GOTWaypoint.Ashford.info(0, -1, 0), GOTWaypoint.HewettTown.info(0, 1, 0), GOTWaypoint.Smithyton.info(0, 1, 2), GOTWaypoint.StarfishHarbor, GOTWaypoint.Vinetown, GOTWaypoint.Ryamsport, GOTWaypoint.Tumbleton.info(0, -1, 0));
-		f[46] = new GOTStructureCrownlandsCity(biome, 0.0f).setIsRedCastle();
+		f[46] = new GOTStructureCrownlandsCity(biome, 0.0f).setIsRedKeep();
 		f[46].affix(GOTWaypoint.KingsLanding.info(2, 0, 1));
 		f[47] = new GOTStructureRiverlandsCity(biome, 0.0f).setIsCastle();
 		f[47].affix(GOTWaypoint.Darry.info(1, 0, 0), GOTWaypoint.Maidenpool.info(1, 0, 0), GOTWaypoint.PinkmaidenCastle, GOTWaypoint.RaventreeHall, GOTWaypoint.WayfarerRest, GOTWaypoint.AcornHall, GOTWaypoint.Atranta, GOTWaypoint.Riverrun.info(1, 0, 0), GOTWaypoint.Seagard.info(0, -1, 0), GOTWaypoint.StoneHedge.info(0, 1, 0));

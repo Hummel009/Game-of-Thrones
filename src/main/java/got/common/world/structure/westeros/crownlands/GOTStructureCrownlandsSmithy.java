@@ -9,8 +9,8 @@ public class GOTStructureCrownlandsSmithy extends GOTStructureWesterosSmithy {
 		isCrownlands = true;
 	}
 
-	public GOTStructureBase setIsTobhoMott() {
-		isTobhoMott = true;
+	public GOTStructureBase setIsKingsLanding() {
+		issKingsLanding = true;
 		return this;
 	}
 }
