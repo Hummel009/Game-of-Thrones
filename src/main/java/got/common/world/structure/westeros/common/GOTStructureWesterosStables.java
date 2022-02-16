@@ -181,7 +181,7 @@ public class GOTStructureWesterosStables extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, i1221 + 2, 2, 5, brickStairBlock, 1);
 			setBlockAndMetadata(world, i1221 + 2, 3, 5, brickStairBlock, 5);
 		}
-		setBlockAndMetadata(world, 0, 2, 5, GOTRegistry.brick1, 5);
+		setBlockAndMetadata(world, 0, 2, 5, brickCarved, brickCarvedMeta);
 		setBlockAndMetadata(world, -3, 1, 4, plankBlock, plankMeta);
 		placeFlowerPot(world, -3, 2, 4, getRandomFlower(world, random));
 		setBlockAndMetadata(world, -2, 1, 4, plankSlabBlock, plankSlabMeta | 8);

@@ -114,7 +114,7 @@ public class GOTStructureWesterosGatehouse extends GOTStructureWesterosBase {
 					setBlockAndMetadata(world, i16, 9, k14, brickBlock, brickMeta);
 				}
 				if (i23 == 0) {
-					setBlockAndMetadata(world, i16, 10, k14, GOTRegistry.brick1, 5);
+					setBlockAndMetadata(world, i16, 10, k14, brickCarved, brickCarvedMeta);
 					continue;
 				}
 				setBlockAndMetadata(world, i16, 10, k14, brickBlock, brickMeta);
@@ -263,7 +263,7 @@ public class GOTStructureWesterosGatehouse extends GOTStructureWesterosBase {
 		for (i1 = -9; i1 <= 9; ++i1) {
 			i22 = Math.abs(i1);
 			if (i22 == 5 || i22 == 8) {
-				setBlockAndMetadata(world, i1, 3, 1, GOTRegistry.brick1, 5);
+				setBlockAndMetadata(world, i1, 3, 1, brickCarved, brickCarvedMeta);
 				continue;
 			}
 			if (i22 < 4) {

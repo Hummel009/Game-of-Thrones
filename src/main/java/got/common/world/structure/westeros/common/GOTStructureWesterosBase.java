@@ -3,10 +3,12 @@ package got.common.world.structure.westeros.common;
 import java.util.*;
 import java.util.Map.Entry;
 
+import got.common.GOTConfig;
 import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.arryn.*;
 import got.common.entity.westeros.crownlands.*;
+import got.common.entity.westeros.dorne.*;
 import got.common.entity.westeros.dragonstone.*;
 import got.common.entity.westeros.ironborn.*;
 import got.common.entity.westeros.north.*;
@@ -19,6 +21,7 @@ import got.common.item.other.GOTItemBanner.BannerType;
 import got.common.world.structure.other.GOTStructureBase;
 import got.common.world.structure.westeros.arryn.GOTStructureArrynTower;
 import got.common.world.structure.westeros.crownlands.GOTStructureCrownlandsTower;
+import got.common.world.structure.westeros.dorne.GOTStructureDorneTower;
 import got.common.world.structure.westeros.dragonstone.GOTStructureDragonstoneTower;
 import got.common.world.structure.westeros.ironborn.GOTStructureIronbornTower;
 import got.common.world.structure.westeros.north.GOTStructureNorthTower;
@@ -104,8 +107,11 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 	public int cropMeta;
 	public Item seedItem;
 	public Block tableBlock;
+	public Block brickCarved;
+	public int brickCarvedMeta;
 	public BannerType banner;
 	public boolean isArryn = false;
+	public boolean isDorne = false;
 	public boolean isCrownlands = false;
 	public boolean isCrownlandsRed = false;
 	public boolean isDragonstone = false;
@@ -125,6 +131,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		theBanner.put(isArryn, GOTItemBanner.BannerType.ARRYN);
 		theBanner.put(isCrownlands, GOTItemBanner.BannerType.ROBERT);
 		theBanner.put(isCrownlandsRed, GOTItemBanner.BannerType.JOFFREY);
+		theBanner.put(isDorne, GOTItemBanner.BannerType.MARTELL);
 		theBanner.put(isDragonstone, GOTItemBanner.BannerType.STANNIS);
 		theBanner.put(isIronborn, GOTItemBanner.BannerType.GREYJOY);
 		theBanner.put(isNorth, GOTItemBanner.BannerType.ROBB);
@@ -146,6 +153,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		theBartender.put(isArryn, new GOTEntityArrynBartender(world));
 		theBartender.put(isCrownlands, new GOTEntityCrownlandsBartender(world));
 		theBartender.put(isCrownlandsRed, new GOTEntityCrownlandsBartender(world));
+		theBartender.put(isDorne, new GOTEntityDorneBartender(world));
 		theBartender.put(isDragonstone, new GOTEntityDragonstoneBartender(world));
 		theBartender.put(isIronborn, new GOTEntityIronbornBartender(world));
 		theBartender.put(isNorth, new GOTEntityNorthBartender(world));
@@ -167,6 +175,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		theBlacksmith.put(isArryn, new GOTEntityArrynBlacksmith(world));
 		theBlacksmith.put(isCrownlands, new GOTEntityCrownlandsBlacksmith(world));
 		theBlacksmith.put(isCrownlandsRed, new GOTEntityCrownlandsBlacksmith(world));
+		theBlacksmith.put(isDorne, new GOTEntityDorneBlacksmith(world));
 		theBlacksmith.put(isDragonstone, new GOTEntityDragonstoneBlacksmith(world));
 		theBlacksmith.put(isIronborn, new GOTEntityIronbornBlacksmith(world));
 		theBlacksmith.put(isNorth, new GOTEntityNorthBlacksmith(world));
@@ -187,6 +196,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		Map<Boolean, GOTEntityNPC> theCaptain = new HashMap<>();
 		theCaptain.put(isArryn, new GOTEntityArrynCaptain(world));
 		theCaptain.put(isCrownlands, new GOTEntityCrownlandsCaptain(world));
+		theCaptain.put(isDorne, new GOTEntityDorneCaptain(world));
 		theCaptain.put(isDragonstone, new GOTEntityDragonstoneCaptain(world));
 		theCaptain.put(isIronborn, new GOTEntityIronbornCaptain(world));
 		theCaptain.put(isNorth, new GOTEntityNorthCaptain(world));
@@ -208,6 +218,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		theFarmer.put(isArryn, new GOTEntityArrynFarmer(world));
 		theFarmer.put(isCrownlands, new GOTEntityCrownlandsFarmer(world));
 		theFarmer.put(isCrownlandsRed, new GOTEntityCrownlandsFarmer(world));
+		theFarmer.put(isDorne, new GOTEntityDorneFarmer(world));
 		theFarmer.put(isDragonstone, new GOTEntityDragonstoneFarmer(world));
 		theFarmer.put(isIronborn, new GOTEntityIronbornFarmer(world));
 		theFarmer.put(isNorth, new GOTEntityNorthFarmer(world));
@@ -229,6 +240,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		theFarmhand.put(isArryn, new GOTEntityArrynFarmhand(world));
 		theFarmhand.put(isCrownlands, new GOTEntityCrownlandsFarmhand(world));
 		theFarmhand.put(isCrownlandsRed, new GOTEntityCrownlandsFarmhand(world));
+		theFarmhand.put(isDorne, new GOTEntityDorneFarmhand(world));
 		theFarmhand.put(isDragonstone, new GOTEntityDragonstoneFarmhand(world));
 		theFarmhand.put(isIronborn, new GOTEntityIronbornFarmhand(world));
 		theFarmhand.put(isNorth, new GOTEntityNorthFarmhand(world));
@@ -255,6 +267,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		theMan.put(isArryn, new GOTEntityArrynMan(world));
 		theMan.put(isCrownlands, new GOTEntityCrownlandsMan(world));
 		theMan.put(isCrownlandsRed, new GOTEntityCrownlandsMan(world));
+		theMan.put(isDorne, new GOTEntityDorneMan(world));
 		theMan.put(isDragonstone, new GOTEntityDragonstoneMan(world));
 		theMan.put(isIronborn, new GOTEntityIronbornMan(world));
 		theMan.put(isNorth, new GOTEntityNorthMan(world));
@@ -276,6 +289,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		theSoldier.put(isArryn, new GOTEntityArrynSoldier(world));
 		theSoldier.put(isCrownlands, new GOTEntityCrownlandsLevyman(world));
 		theSoldier.put(isCrownlandsRed, new GOTEntityKingsguard(world));
+		theSoldier.put(isDorne, new GOTEntityDorneSoldier(world));
 		theSoldier.put(isDragonstone, new GOTEntityDragonstoneSoldier(world));
 		theSoldier.put(isIronborn, new GOTEntityIronbornSoldier(world));
 		theSoldier.put(isNorth, new GOTEntityNorthSoldier(world));
@@ -297,6 +311,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		theSoldierArcher.put(isArryn, new GOTEntityArrynSoldierArcher(world));
 		theSoldierArcher.put(isCrownlands, new GOTEntityCrownlandsLevymanArcher(world));
 		theSoldierArcher.put(isCrownlandsRed, new GOTEntityKingsguard(world));
+		theSoldierArcher.put(isDorne, new GOTEntityDorneSoldierArcher(world));
 		theSoldierArcher.put(isDragonstone, new GOTEntityDragonstoneSoldierArcher(world));
 		theSoldierArcher.put(isIronborn, new GOTEntityIronbornSoldierArcher(world));
 		theSoldierArcher.put(isNorth, new GOTEntityNorthSoldierArcher(world));
@@ -318,6 +333,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		theTable.put(isArryn, GOTRegistry.tableArryn);
 		theTable.put(isCrownlands, GOTRegistry.tableCrownlands);
 		theTable.put(isCrownlandsRed, GOTRegistry.tableCrownlands);
+		theTable.put(isDorne, GOTRegistry.tableDorne);
 		theTable.put(isDragonstone, GOTRegistry.tableDragonstone);
 		theTable.put(isIronborn, GOTRegistry.tableIronborn);
 		theTable.put(isNorth, GOTRegistry.tableNorth);
@@ -339,6 +355,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		theTower.put(isArryn, new GOTStructureArrynTower(notifyChanges));
 		theTower.put(isCrownlands, new GOTStructureCrownlandsTower(notifyChanges));
 		theTower.put(isCrownlandsRed, new GOTStructureCrownlandsTower(notifyChanges));
+		theTower.put(isDorne, new GOTStructureDorneTower(notifyChanges));
 		theTower.put(isDragonstone, new GOTStructureDragonstoneTower(notifyChanges));
 		theTower.put(isIronborn, new GOTStructureIronbornTower(notifyChanges));
 		theTower.put(isNorth, new GOTStructureNorthTower(notifyChanges));
@@ -363,6 +380,74 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		return isArryn || isCrownlands || isRiverlands || isStormlands || isWesterlands;
 	}
 
+	public void overrideRoofs() {
+		if (isDorne) {
+			brick2Block = GOTRegistry.clayTileDyed;
+			brick2Meta = 1;
+			brick2SlabBlock = GOTRegistry.slabClayTileDyedSingle1;
+			brick2SlabMeta = 1;
+			brick2StairBlock = GOTRegistry.stairsClayTileDyedOrange;
+			brick2WallBlock = GOTRegistry.wallClayTileDyed;
+			brick2WallMeta = 1;
+		} else if (isStormlands) {
+			brick2Block = GOTRegistry.clayTileDyed;
+			brick2Meta = 13;
+			brick2SlabBlock = GOTRegistry.slabClayTileDyedSingle2;
+			brick2SlabMeta = 5;
+			brick2StairBlock = GOTRegistry.stairsClayTileDyedGreen;
+			brick2WallBlock = GOTRegistry.wallClayTileDyed;
+			brick2WallMeta = 13;
+		} else if (isWesterlands) {
+			brick2Block = GOTRegistry.clayTileDyed;
+			brick2Meta = 14;
+			brick2SlabBlock = GOTRegistry.slabClayTileDyedSingle2;
+			brick2SlabMeta = 6;
+			brick2StairBlock = GOTRegistry.stairsClayTileDyedRed;
+			brick2WallBlock = GOTRegistry.wallClayTileDyed;
+			brick2WallMeta = 14;
+		} else if (isRiverlands) {
+			brick2Block = GOTRegistry.clayTileDyed;
+			brick2Meta = 3;
+			brick2SlabBlock = GOTRegistry.slabClayTileDyedSingle1;
+			brick2SlabMeta = 3;
+			brick2StairBlock = GOTRegistry.stairsClayTileDyedLightBlue;
+			brick2WallBlock = GOTRegistry.wallClayTileDyed;
+			brick2WallMeta = 3;
+		} else if (isArryn) {
+			brick2Block = GOTRegistry.clayTileDyed;
+			brick2Meta = 11;
+			brick2SlabBlock = GOTRegistry.slabClayTileDyedSingle2;
+			brick2SlabMeta = 3;
+			brick2StairBlock = GOTRegistry.stairsClayTileDyedBlue;
+			brick2WallBlock = GOTRegistry.wallClayTileDyed;
+			brick2WallMeta = 11;
+		} else if (isCrownlands) {
+			brick2Block = GOTRegistry.clayTileDyed;
+			brick2Meta = 12;
+			brick2SlabBlock = GOTRegistry.slabClayTileDyedSingle2;
+			brick2SlabMeta = 4;
+			brick2StairBlock = GOTRegistry.stairsClayTileDyedBrown;
+			brick2WallBlock = GOTRegistry.wallClayTileDyed;
+			brick2WallMeta = 12;
+		} else if (isDragonstone) {
+			brick2Block = GOTRegistry.clayTileDyed;
+			brick2Meta = 7;
+			brick2SlabBlock = GOTRegistry.slabClayTileDyedSingle1;
+			brick2SlabMeta = 7;
+			brick2StairBlock = GOTRegistry.stairsClayTileDyedGray;
+			brick2WallBlock = GOTRegistry.wallClayTileDyed;
+			brick2WallMeta = 7;
+		} else if (isIronborn) {
+			brick2Block = GOTRegistry.clayTileDyed;
+			brick2Meta = 15;
+			brick2SlabBlock = GOTRegistry.slabClayTileDyedSingle2;
+			brick2SlabMeta = 7;
+			brick2StairBlock = GOTRegistry.stairsClayTileDyedBlack;
+			brick2WallBlock = GOTRegistry.wallClayTileDyed;
+			brick2WallMeta = 15;
+		}
+	}
+
 	public GOTStructureBase setGranite() {
 		isCrownlands = false;
 		isCrownlandsRed = true;
@@ -373,35 +458,19 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 	public void setupRandomBlocks(Random random) {
 		banner = getBanner();
 		tableBlock = getTable();
-		if (isCrownlandsRed) {
-			brickBlock = GOTRegistry.brick2;
-			brickMeta = 2;
-			brickSlabBlock = GOTRegistry.slabSingle3;
-			brickSlabMeta = 6;
-			brickStairBlock = GOTRegistry.stairsGraniteBrick;
-			brickWallBlock = GOTRegistry.wallStone2;
-			pillarMeta = 4;
-			rockMeta = 4;
-			rockSlabBlock = GOTRegistry.slabSingle3;
-			rockSlabDoubleBlock = GOTRegistry.smoothStone;
-			rockSlabDoubleMeta = 4;
-			rockSlabMeta = 6;
-			rockWallBlock = GOTRegistry.wallStone2;
-		} else {
-			brickBlock = GOTRegistry.brick1;
-			brickMeta = 1;
-			brickSlabBlock = GOTRegistry.slabSingle1;
-			brickSlabMeta = 3;
-			brickStairBlock = GOTRegistry.stairsAndesiteBrick;
-			brickWallBlock = GOTRegistry.wallStone1;
-			pillarMeta = 6;
-			rockMeta = 1;
-			rockSlabBlock = GOTRegistry.slabSingle1;
-			rockSlabDoubleBlock = GOTRegistry.slabDouble1;
-			rockSlabDoubleMeta = 2;
-			rockSlabMeta = 2;
-			rockWallBlock = GOTRegistry.wallStone1;
-		}
+		brickBlock = GOTRegistry.brick1;
+		brickMeta = 1;
+		brickSlabBlock = GOTRegistry.slabSingle1;
+		brickSlabMeta = 3;
+		brickStairBlock = GOTRegistry.stairsAndesiteBrick;
+		brickWallBlock = GOTRegistry.wallStone1;
+		pillarMeta = 6;
+		rockMeta = 1;
+		rockSlabBlock = GOTRegistry.slabSingle1;
+		rockSlabDoubleBlock = GOTRegistry.slabDouble1;
+		rockSlabDoubleMeta = 2;
+		rockSlabMeta = 2;
+		rockWallBlock = GOTRegistry.wallStone1;
 		rockBlock = GOTRegistry.rock;
 		rockStairBlock = GOTRegistry.stairsAndesite;
 		rockWallMeta = 2;
@@ -435,24 +504,61 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		cobbleSlabBlock = Blocks.stone_slab;
 		cobbleSlabMeta = 3;
 		cobbleStairBlock = Blocks.stone_stairs;
+		brickCarved = GOTRegistry.brick1;
+		brickCarvedMeta = 5;
+		if (isCrownlandsRed) {
+			brickBlock = GOTRegistry.brick2;
+			brickMeta = 2;
+			brickSlabBlock = GOTRegistry.slabSingle3;
+			brickSlabMeta = 6;
+			brickStairBlock = GOTRegistry.stairsGraniteBrick;
+			brickWallBlock = GOTRegistry.wallStone2;
+			pillarMeta = 4;
+			rockMeta = 4;
+			rockSlabBlock = GOTRegistry.slabSingle3;
+			rockSlabDoubleBlock = GOTRegistry.smoothStone;
+			rockSlabDoubleMeta = 4;
+			rockSlabMeta = 6;
+			rockWallBlock = GOTRegistry.wallStone2;
+			brickCarved = GOTRegistry.brick3;
+			brickCarvedMeta = 1;
+		}
+		if (isDorne) {
+			brickCrackedMeta = 15;
+			brickCrackedSlabBlock = GOTRegistry.slabSingle4;
+			brickCrackedSlabMeta = 0;
+			brickCrackedStairBlock = GOTRegistry.stairsSandstoneBrick;
+			brickCrackedWallMeta = 15;
+			brickMeta = 15;
+			brickMossyMeta = 15;
+			brickMossySlabBlock = GOTRegistry.slabSingle4;
+			brickMossySlabMeta = 0;
+			brickMossyStairBlock = GOTRegistry.stairsSandstoneBrick;
+			brickMossyWallMeta = 15;
+			brickSlabBlock = GOTRegistry.slabSingle4;
+			brickSlabMeta = 0;
+			brickStairBlock = GOTRegistry.stairsSandstoneBrick;
+			brickWallMeta = 15;
+			cobbleBlock = Blocks.sandstone;
+			cobbleSlabBlock = GOTRegistry.slabSingle7;
+			cobbleSlabMeta = 2;
+			cobbleStairBlock = Blocks.sandstone_stairs;
+			pillarMeta = 5;
+			rockBlock = Blocks.sandstone;
+			rockMeta = 0;
+			rockSlabBlock = GOTRegistry.slabSingle4;
+			rockSlabDoubleBlock = GOTRegistry.brick1;
+			rockSlabDoubleMeta = 15;
+			rockSlabMeta = 0;
+			rockStairBlock = GOTRegistry.stairsSandstoneBrickRed;
+			rockWallBlock = GOTRegistry.wallStoneV;
+			rockWallMeta = 4;
+			brickCarved = GOTRegistry.brick3;
+			brickCarvedMeta = 8;
+		}
 		int randomWood = random.nextInt(7);
 		switch (randomWood) {
 		case 0:
-		case 1:
-		case 2:
-			plankBlock = Blocks.planks;
-			plankMeta = 0;
-			plankSlabBlock = Blocks.wooden_slab;
-			plankSlabMeta = 0;
-			plankStairBlock = Blocks.oak_stairs;
-			fenceBlock = Blocks.fence;
-			fenceMeta = 0;
-			fenceGateBlock = Blocks.fence_gate;
-			woodBeamBlock = GOTRegistry.woodBeamV1;
-			woodBeamMeta = 0;
-			doorBlock = Blocks.wooden_door;
-			break;
-		case 3:
 			plankBlock = GOTRegistry.planks1;
 			plankMeta = 9;
 			plankSlabBlock = GOTRegistry.woodSlabSingle2;
@@ -465,7 +571,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 			woodBeamMeta = 1;
 			doorBlock = GOTRegistry.doorBeech;
 			break;
-		case 4:
+		case 1:
 			plankBlock = GOTRegistry.planks2;
 			plankMeta = 2;
 			plankSlabBlock = GOTRegistry.woodSlabSingle3;
@@ -478,7 +584,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 			woodBeamMeta = 2;
 			doorBlock = GOTRegistry.doorCedar;
 			break;
-		case 5:
+		case 2:
 			plankBlock = GOTRegistry.planks1;
 			plankMeta = 8;
 			plankSlabBlock = GOTRegistry.woodSlabSingle2;
@@ -491,7 +597,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 			woodBeamMeta = 0;
 			doorBlock = GOTRegistry.doorAramant;
 			break;
-		case 6:
+		case 3:
 			plankBlock = Blocks.planks;
 			plankMeta = 2;
 			plankSlabBlock = Blocks.wooden_slab;
@@ -503,6 +609,19 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 			woodBeamBlock = GOTRegistry.woodBeamV1;
 			woodBeamMeta = 2;
 			doorBlock = GOTRegistry.doorBirch;
+			break;
+		default:
+			plankBlock = Blocks.planks;
+			plankMeta = 0;
+			plankSlabBlock = Blocks.wooden_slab;
+			plankSlabMeta = 0;
+			plankStairBlock = Blocks.oak_stairs;
+			fenceBlock = Blocks.fence;
+			fenceMeta = 0;
+			fenceGateBlock = Blocks.fence_gate;
+			woodBeamBlock = GOTRegistry.woodBeamV1;
+			woodBeamMeta = 0;
+			doorBlock = Blocks.wooden_door;
 			break;
 		}
 		if (random.nextBoolean()) {
@@ -559,6 +678,9 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 				seedItem = GOTRegistry.turnip;
 				break;
 			}
+		}
+		if (GOTConfig.enableColouredRoofs) {
+			overrideRoofs();
 		}
 	}
 }

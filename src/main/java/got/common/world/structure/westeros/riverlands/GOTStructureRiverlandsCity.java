@@ -22,10 +22,11 @@ public class GOTStructureRiverlandsCity extends GOTVillageGen {
 
 	public GOTStructureRiverlandsCity(GOTBiome biome, float f) {
 		super(biome);
-		gridScale = 12;
+		gridScale = 14;
 		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 6;
+		fixedVillageChunkRadius = 15;
 
 	}
 

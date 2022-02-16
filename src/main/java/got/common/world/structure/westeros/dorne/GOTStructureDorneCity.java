@@ -10,6 +10,7 @@ import got.common.entity.westeros.dorne.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
+import got.common.world.structure.westeros.common.GOTStructureWesterosVillageSign;
 import net.minecraft.block.Block;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -76,7 +77,7 @@ public class GOTStructureDorneCity extends GOTVillageGen {
 				int omn = 53 - random.nextInt(4);
 				int omx = 60 + random.nextInt(4);
 				if (dSq > omn * omn && dSq < omx * omx || dSq < 2809 && Math.abs(i1 - k1) <= 2 + random.nextInt(4)) {
-					return GOTBezierType.PATH_DIRTY;
+					return GOTBezierType.PATH_SANDY;
 				}
 			}
 			if (villageType == VillageType.TOWN && i1 <= 80 && k1 <= 80) {
@@ -84,13 +85,13 @@ public class GOTStructureDorneCity extends GOTVillageGen {
 			}
 			if (villageType == VillageType.FORT) {
 				if (i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36) {
-					return GOTBezierType.PATH_DIRTY;
+					return GOTBezierType.PATH_SANDY;
 				}
 				if (k1 <= 1 && i1 >= 12 && i1 <= 36) {
-					return GOTBezierType.PATH_DIRTY;
+					return GOTBezierType.PATH_SANDY;
 				}
 				if (k >= 26 && k <= 28 && i1 <= 12) {
-					return GOTBezierType.PATH_DIRTY;
+					return GOTBezierType.PATH_SANDY;
 				}
 			}
 			return null;
@@ -121,6 +122,34 @@ public class GOTStructureDorneCity extends GOTVillageGen {
 				}
 			}
 			return new GOTStructureDorneHouse(false);
+		}
+
+		public GOTStructureDorneTownWall getWallCentre(boolean flag) {
+			return new GOTStructureDorneTownWall(flag, -5, 5);
+		}
+
+		public GOTStructureDorneTownWall getWallLeft(boolean flag) {
+			return new GOTStructureDorneTownWall(flag, -9, 6);
+		}
+
+		public GOTStructureDorneTownWall getWallLeftEnd(boolean flag) {
+			return new GOTStructureDorneTownWall(flag, -6, 6, -5, 6);
+		}
+
+		public GOTStructureDorneTownWall getWallLeftEndShort(boolean flag) {
+			return new GOTStructureDorneTownWall(flag, -5, 6);
+		}
+
+		public GOTStructureDorneTownWall getWallRight(boolean flag) {
+			return new GOTStructureDorneTownWall(flag, -6, 9);
+		}
+
+		public GOTStructureDorneTownWall getWallRightEnd(boolean flag) {
+			return new GOTStructureDorneTownWall(flag, -6, 6, -6, 5);
+		}
+
+		public GOTStructureDorneTownWall getWallRightEndShort(boolean flag) {
+			return new GOTStructureDorneTownWall(flag, -6, 5);
 		}
 
 		@Override
@@ -400,29 +429,29 @@ public class GOTStructureDorneCity extends GOTVillageGen {
 			int wallEndX = 76;
 			for (l = 0; l <= 3; ++l) {
 				wallX = 12 + l * 16;
-				this.addStructure(GOTStructureDorneTownWall.Left(false), -wallX, wallZ, 2, true);
-				this.addStructure(GOTStructureDorneTownWall.Right(false), wallX, wallZ, 2, true);
+				this.addStructure(getWallLeft(false), -wallX, wallZ, 2, true);
+				this.addStructure(getWallRight(false), wallX, wallZ, 2, true);
 			}
-			this.addStructure(GOTStructureDorneTownWall.LeftEndShort(false), -wallEndX, wallZ, 2, true);
-			this.addStructure(GOTStructureDorneTownWall.RightEndShort(false), wallEndX, wallZ, 2, true);
-			this.addStructure(GOTStructureDorneTownWall.Centre(false), -wallZ, 0, 3, true);
-			this.addStructure(GOTStructureDorneTownWall.Centre(false), wallZ, 0, 1, true);
-			this.addStructure(GOTStructureDorneTownWall.Centre(false), 0, -wallZ, 0, true);
+			this.addStructure(getWallLeftEndShort(false), -wallEndX, wallZ, 2, true);
+			this.addStructure(getWallRightEndShort(false), wallEndX, wallZ, 2, true);
+			this.addStructure(getWallCentre(false), -wallZ, 0, 3, true);
+			this.addStructure(getWallCentre(false), wallZ, 0, 1, true);
+			this.addStructure(getWallCentre(false), 0, -wallZ, 0, true);
 			for (l = 0; l <= 3; ++l) {
 				wallX = 12 + l * 16;
-				this.addStructure(GOTStructureDorneTownWall.Left(false), -wallZ, -wallX, 3, true);
-				this.addStructure(GOTStructureDorneTownWall.Right(false), -wallZ, wallX, 3, true);
-				this.addStructure(GOTStructureDorneTownWall.Left(false), wallZ, wallX, 1, true);
-				this.addStructure(GOTStructureDorneTownWall.Right(false), wallZ, -wallX, 1, true);
-				this.addStructure(GOTStructureDorneTownWall.Left(false), wallX, -wallZ, 0, true);
-				this.addStructure(GOTStructureDorneTownWall.Right(false), -wallX, -wallZ, 0, true);
+				this.addStructure(getWallLeft(false), -wallZ, -wallX, 3, true);
+				this.addStructure(getWallRight(false), -wallZ, wallX, 3, true);
+				this.addStructure(getWallLeft(false), wallZ, wallX, 1, true);
+				this.addStructure(getWallRight(false), wallZ, -wallX, 1, true);
+				this.addStructure(getWallLeft(false), wallX, -wallZ, 0, true);
+				this.addStructure(getWallRight(false), -wallX, -wallZ, 0, true);
 			}
-			this.addStructure(GOTStructureDorneTownWall.LeftEnd(false), -wallZ, -wallEndX, 3, true);
-			this.addStructure(GOTStructureDorneTownWall.RightEnd(false), -wallZ, wallEndX, 3, true);
-			this.addStructure(GOTStructureDorneTownWall.LeftEnd(false), wallZ, wallEndX, 1, true);
-			this.addStructure(GOTStructureDorneTownWall.RightEnd(false), wallZ, -wallEndX, 1, true);
-			this.addStructure(GOTStructureDorneTownWall.LeftEndShort(false), wallEndX, -wallZ, 0, true);
-			this.addStructure(GOTStructureDorneTownWall.RightEndShort(false), -wallEndX, -wallZ, 0, true);
+			this.addStructure(getWallLeftEnd(false), -wallZ, -wallEndX, 3, true);
+			this.addStructure(getWallRightEnd(false), -wallZ, wallEndX, 3, true);
+			this.addStructure(getWallLeftEnd(false), wallZ, wallEndX, 1, true);
+			this.addStructure(getWallRightEnd(false), wallZ, -wallEndX, 1, true);
+			this.addStructure(getWallLeftEndShort(false), wallEndX, -wallZ, 0, true);
+			this.addStructure(getWallRightEndShort(false), -wallEndX, -wallZ, 0, true);
 		}
 
 		public void setupVillage(Random random) {
@@ -503,10 +532,10 @@ public class GOTStructureDorneCity extends GOTVillageGen {
 			}
 			int signPos = Math.round(50.0f * MathHelper.cos((float) Math.toRadians(45.0)));
 			int signDisp = Math.round(7.0f * MathHelper.cos((float) Math.toRadians(45.0)));
-			this.addStructure(new GOTStructureDorneVillageSign(false), -signPos, -signPos + signDisp, 1);
-			this.addStructure(new GOTStructureDorneVillageSign(false), signPos, -signPos + signDisp, 3);
-			this.addStructure(new GOTStructureDorneVillageSign(false), -signPos, signPos - signDisp, 1);
-			this.addStructure(new GOTStructureDorneVillageSign(false), signPos, signPos - signDisp, 3);
+			this.addStructure(new GOTStructureWesterosVillageSign(false), -signPos, -signPos + signDisp, 1);
+			this.addStructure(new GOTStructureWesterosVillageSign(false), signPos, -signPos + signDisp, 3);
+			this.addStructure(new GOTStructureWesterosVillageSign(false), -signPos, signPos - signDisp, 1);
+			this.addStructure(new GOTStructureWesterosVillageSign(false), signPos, signPos - signDisp, 3);
 			int farmX = 38;
 			int farmZ = 17;
 			int farmSize = 6;

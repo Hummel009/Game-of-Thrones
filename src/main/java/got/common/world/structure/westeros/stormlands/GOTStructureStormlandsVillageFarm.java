@@ -11,7 +11,7 @@ public abstract class GOTStructureStormlandsVillageFarm extends GOTStructureWest
 	public static class Crops extends GOTStructureWesterosVillageFarm.Crops {
 		public Crops(boolean flag) {
 			super(flag);
-			isStormlands = true;	
+			isStormlands = true;
 		}
 	}
 }

@@ -80,44 +80,6 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 			}
 		}
 
-		public void setupRedCastle(Random random) {
-			this.addStructure(new GOTStructureWesterosFortress(false).setGranite(), 0, 12, 2, true);
-			this.addStructure(new GOTStructureWesterosFortGate(false).setGranite(), 0, -37, 0, true);
-			this.addStructure(new GOTStructureWesterosFortWall.Right(false).setGranite(), -11, -37, 0, true);
-			this.addStructure(new GOTStructureWesterosFortWall.Left(false).setGranite(), 11, -37, 0, true);
-			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), -23, -33, 2, true);
-			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), 23, -33, 2, true);
-			this.addStructure(new GOTStructureWesterosFortGate(false).setGranite(), -37, 0, 3, true);
-			this.addStructure(new GOTStructureWesterosFortWall.Left(false).setGranite(), -37, -11, 3, true);
-			this.addStructure(new GOTStructureWesterosFortWall.Right(false).setGranite(), -37, 11, 3, true);
-			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), -33, -23, 1, true);
-			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), -33, 23, 1, true);
-			this.addStructure(new GOTStructureWesterosFortGate(false).setGranite(), 0, 37, 2, true);
-			this.addStructure(new GOTStructureWesterosFortWall.Left(false).setGranite(), -11, 37, 2, true);
-			this.addStructure(new GOTStructureWesterosFortWall.Right(false).setGranite(), 11, 37, 2, true);
-			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), -23, 33, 0, true);
-			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), 23, 33, 0, true);
-			this.addStructure(new GOTStructureWesterosFortGate(false).setGranite(), 37, 0, 1, true);
-			this.addStructure(new GOTStructureWesterosFortWall.Right(false).setGranite(), 37, -11, 1, true);
-			this.addStructure(new GOTStructureWesterosFortWall.Left(false).setGranite(), 37, 11, 1, true);
-			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), 33, -23, 3, true);
-			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), 33, 23, 3, true);
-			this.addStructure(new GOTStructureWesterosFortWallCorner(false).setGranite(), -30, -30, 3);
-			this.addStructure(new GOTStructureWesterosFortWallCorner(false).setGranite(), -30, 30, 2);
-			this.addStructure(new GOTStructureWesterosFortWallCorner(false).setGranite(), 30, 30, 1);
-			this.addStructure(new GOTStructureWesterosFortWallCorner(false).setGranite(), 30, -30, 2);
-			this.addStructure(new GOTStructureWesterosStables(false).setGranite(), -24, 2, 0);
-			this.addStructure(new GOTStructureWesterosStables(false).setGranite(), -24, -2, 2);
-			this.addStructure(new GOTStructureWesterosSmithy(false).setGranite(), 24, 1, 0);
-			this.addStructure(new GOTStructureWesterosSmithy(false).setGranite(), 24, -1, 2);
-			this.addStructure(new GOTStructureWesterosStoneHouse(false).setGranite(), -3, -25, 1);
-			this.addStructure(new GOTStructureWesterosStoneHouse(false).setGranite(), 3, -25, 3);
-			this.addStructure(new GOTStructureWesterosVillageFarm.Crops(false).setGranite(), -18, -21, 1);
-			this.addStructure(new GOTStructureWesterosVillageFarm.Crops(false).setGranite(), 18, -21, 3);
-			this.addStructure(new GOTStructureWesterosWell(false).setGranite(), -12, 27, 1);
-			this.addStructure(new GOTStructureWesterosWell(false).setGranite(), 12, 27, 3);
-		}
-
 		@Override
 		public GOTBezierType getPath(Random random, int i, int k) {
 			int i1 = Math.abs(i);
@@ -249,6 +211,44 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 			this.addStructure(new GOTStructureCrownlandsVillageFarm.Crops(false), 18, -21, 3);
 			this.addStructure(new GOTStructureWesterosWell(false), -12, 27, 1);
 			this.addStructure(new GOTStructureWesterosWell(false), 12, 27, 3);
+		}
+
+		public void setupRedCastle(Random random) {
+			this.addStructure(new GOTStructureWesterosFortress(false).setGranite(), 0, 12, 2, true);
+			this.addStructure(new GOTStructureWesterosFortGate(false).setGranite(), 0, -37, 0, true);
+			this.addStructure(new GOTStructureWesterosFortWall.Right(false).setGranite(), -11, -37, 0, true);
+			this.addStructure(new GOTStructureWesterosFortWall.Left(false).setGranite(), 11, -37, 0, true);
+			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), -23, -33, 2, true);
+			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), 23, -33, 2, true);
+			this.addStructure(new GOTStructureWesterosFortGate(false).setGranite(), -37, 0, 3, true);
+			this.addStructure(new GOTStructureWesterosFortWall.Left(false).setGranite(), -37, -11, 3, true);
+			this.addStructure(new GOTStructureWesterosFortWall.Right(false).setGranite(), -37, 11, 3, true);
+			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), -33, -23, 1, true);
+			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), -33, 23, 1, true);
+			this.addStructure(new GOTStructureWesterosFortGate(false).setGranite(), 0, 37, 2, true);
+			this.addStructure(new GOTStructureWesterosFortWall.Left(false).setGranite(), -11, 37, 2, true);
+			this.addStructure(new GOTStructureWesterosFortWall.Right(false).setGranite(), 11, 37, 2, true);
+			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), -23, 33, 0, true);
+			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), 23, 33, 0, true);
+			this.addStructure(new GOTStructureWesterosFortGate(false).setGranite(), 37, 0, 1, true);
+			this.addStructure(new GOTStructureWesterosFortWall.Right(false).setGranite(), 37, -11, 1, true);
+			this.addStructure(new GOTStructureWesterosFortWall.Left(false).setGranite(), 37, 11, 1, true);
+			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), 33, -23, 3, true);
+			this.addStructure(new GOTStructureWesterosWatchtower(false).setGranite(), 33, 23, 3, true);
+			this.addStructure(new GOTStructureWesterosFortWallCorner(false).setGranite(), -30, -30, 3);
+			this.addStructure(new GOTStructureWesterosFortWallCorner(false).setGranite(), -30, 30, 2);
+			this.addStructure(new GOTStructureWesterosFortWallCorner(false).setGranite(), 30, 30, 1);
+			this.addStructure(new GOTStructureWesterosFortWallCorner(false).setGranite(), 30, -30, 2);
+			this.addStructure(new GOTStructureWesterosStables(false).setGranite(), -24, 2, 0);
+			this.addStructure(new GOTStructureWesterosStables(false).setGranite(), -24, -2, 2);
+			this.addStructure(new GOTStructureWesterosSmithy(false).setGranite(), 24, 1, 0);
+			this.addStructure(new GOTStructureWesterosSmithy(false).setGranite(), 24, -1, 2);
+			this.addStructure(new GOTStructureWesterosStoneHouse(false).setGranite(), -3, -25, 1);
+			this.addStructure(new GOTStructureWesterosStoneHouse(false).setGranite(), 3, -25, 3);
+			this.addStructure(new GOTStructureWesterosVillageFarm.Crops(false).setGranite(), -18, -21, 1);
+			this.addStructure(new GOTStructureWesterosVillageFarm.Crops(false).setGranite(), 18, -21, 3);
+			this.addStructure(new GOTStructureWesterosWell(false).setGranite(), -12, 27, 1);
+			this.addStructure(new GOTStructureWesterosWell(false).setGranite(), 12, 27, 3);
 		}
 
 		public void setupTown(Random random) {

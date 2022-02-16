@@ -4,12 +4,12 @@ import java.util.*;
 
 import got.common.database.*;
 import got.common.entity.westeros.legendary.trader.GOTEntityCraster;
-import got.common.world.structure.westeros.north.GOTStructureNorthBase;
+import got.common.world.structure.westeros.common.GOTStructureWesterosBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-public class GOTStructureWildlingKeep extends GOTStructureNorthBase {
+public class GOTStructureWildlingKeep extends GOTStructureWesterosBase {
 	public GOTStructureWildlingKeep(boolean flag) {
 		super(flag);
 	}

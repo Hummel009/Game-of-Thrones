@@ -247,9 +247,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 						}
 					}
 					riverCode = variantsRiversInts[index];
-					if (riverCode == 2) {
-						variant = GOTBiomeVariant.RIVER;
-					} else if (riverCode == 1 && biome.getEnableRiver() && !structureNear && !mountainNear) {
+					if (riverCode == 2 || riverCode == 1 && biome.getEnableRiver() && !structureNear) {
 						variant = GOTBiomeVariant.RIVER;
 					}
 				}

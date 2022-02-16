@@ -8,6 +8,7 @@ public class GOTStructureRiverlandsTavern extends GOTStructureWesterosTavern {
 		super(flag);
 		isRiverlands = true;
 	}
+
 	public GOTStructureBase setIsCrossroads() {
 		isCrossroads = true;
 		return this;

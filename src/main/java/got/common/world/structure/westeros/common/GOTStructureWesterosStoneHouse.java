@@ -231,7 +231,7 @@ public class GOTStructureWesterosStoneHouse extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i14 + 2, 6, k13, brickStairBlock, 1);
 				setBlockAndMetadata(world, i14 + 2, 7, k13, brickStairBlock, 5);
 			}
-			setBlockAndMetadata(world, 0, 6, k13, GOTRegistry.brick1, 5);
+			setBlockAndMetadata(world, 0, 6, k13, brickCarved, brickCarvedMeta);
 		}
 		setBlockAndMetadata(world, -2, 5, 0, plankBlock, plankMeta);
 		setBlockAndMetadata(world, -2, 6, 0, GOTRegistry.plateBlock, 0);

@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 
 public class GOTStructureWesterosSmithy extends GOTStructureWesterosBase {
 	public boolean isTobhoMott;
-	
+
 	public GOTStructureWesterosSmithy(boolean flag) {
 		super(flag);
 	}
