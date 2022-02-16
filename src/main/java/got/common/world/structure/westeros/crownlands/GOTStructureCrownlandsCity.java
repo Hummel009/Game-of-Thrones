@@ -11,7 +11,6 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.map.*;
 import got.common.world.structure.other.*;
 import got.common.world.structure.westeros.common.*;
-import got.common.world.structure.westeros.crownlands.GOTStructureCrownlands.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;

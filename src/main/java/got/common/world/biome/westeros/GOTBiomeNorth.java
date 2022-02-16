@@ -9,8 +9,7 @@ import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.westeros.north.GOTStructureNorth.GOTStructureNorthWatchfort;
-import got.common.world.structure.westeros.north.GOTStructureNorthCity;
+import got.common.world.structure.westeros.north.*;
 
 public class GOTBiomeNorth extends GOTBiomeWesteros {
 	public GOTBiomeNorth(int i, boolean major) {

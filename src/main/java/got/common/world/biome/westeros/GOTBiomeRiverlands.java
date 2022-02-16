@@ -8,8 +8,7 @@ import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.westeros.riverlands.GOTStructureRiverlands.GOTStructureRiverlandsWatchfort;
-import got.common.world.structure.westeros.riverlands.GOTStructureRiverlandsCity;
+import got.common.world.structure.westeros.riverlands.*;
 
 public class GOTBiomeRiverlands extends GOTBiomeWesteros {
 	public GOTBiomeRiverlands(int i, boolean major) {

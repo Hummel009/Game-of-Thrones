@@ -9,8 +9,7 @@ import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.westeros.reach.GOTStructureReach.GOTStructureReachWatchfort;
-import got.common.world.structure.westeros.reach.GOTStructureReachCity;
+import got.common.world.structure.westeros.reach.*;
 
 public class GOTBiomeReach extends GOTBiomeWesteros {
 	public GOTBiomeReach(int i, boolean major) {

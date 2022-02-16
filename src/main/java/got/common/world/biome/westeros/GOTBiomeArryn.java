@@ -8,8 +8,7 @@ import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.westeros.arryn.GOTStructureArryn.GOTStructureArrynWatchfort;
-import got.common.world.structure.westeros.arryn.GOTStructureArrynCity;
+import got.common.world.structure.westeros.arryn.*;
 
 public class GOTBiomeArryn extends GOTBiomeWesteros {
 	public GOTBiomeArryn(int i, boolean major) {
