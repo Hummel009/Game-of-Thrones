@@ -84,13 +84,7 @@ public class GOTStructureArrynCity extends GOTVillageGen {
 				return GOTBezierType.PATH_DIRTY;
 			}
 			if (villageType == VillageType.FORT) {
-				if (i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36) {
-					return GOTBezierType.PATH_DIRTY;
-				}
-				if (k1 <= 1 && i1 >= 12 && i1 <= 36) {
-					return GOTBezierType.PATH_DIRTY;
-				}
-				if (k >= 26 && k <= 28 && i1 <= 12) {
+				if (i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36 || k1 <= 1 && i1 >= 12 && i1 <= 36 || k >= 26 && k <= 28 && i1 <= 12) {
 					return GOTBezierType.PATH_DIRTY;
 				}
 			}

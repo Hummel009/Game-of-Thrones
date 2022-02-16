@@ -84,7 +84,23 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 		public GOTBezierType getPath(Random random, int i, int k) {
 			int i1 = Math.abs(i);
 			int k1 = Math.abs(k);
-			if (villageType == VillageType.VILLAGE) {
+			switch (villageType) {
+			case FORT:
+				if (i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36 || k1 <= 1 && i1 >= 12 && i1 <= 36 || k >= 26 && k <= 28 && i1 <= 12) {
+					return GOTBezierType.PATH_DIRTY;
+				}
+				break;
+			case RED_KEEP:
+				if (i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36 || k1 <= 1 && i1 >= 12 && i1 <= 36 || k >= 26 && k <= 28 && i1 <= 12) {
+					return GOTBezierType.PAVING;
+				}
+				break;
+			case TOWN:
+				if (i1 <= 80 && k1 <= 80) {
+					return GOTBezierType.PATH_DIRTY;
+				}
+				break;
+			case VILLAGE:
 				int dSq = i * i + k * k;
 				int imn = 20 + random.nextInt(4);
 				if (dSq < imn * imn) {
@@ -95,25 +111,7 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 				if (dSq > omn * omn && dSq < omx * omx || dSq < 2809 && Math.abs(i1 - k1) <= 2 + random.nextInt(4)) {
 					return GOTBezierType.PATH_DIRTY;
 				}
-			}
-			if (villageType == VillageType.TOWN && i1 <= 80 && k1 <= 80) {
-				return GOTBezierType.PATH_DIRTY;
-			}
-			if (villageType == VillageType.FORT) {
-				if (i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36) {
-					return GOTBezierType.PATH_DIRTY;
-				}
-				if (k1 <= 1 && i1 >= 12 && i1 <= 36) {
-					return GOTBezierType.PATH_DIRTY;
-				}
-				if (k >= 26 && k <= 28 && i1 <= 12) {
-					return GOTBezierType.PATH_DIRTY;
-				}
-			}
-			if (villageType == VillageType.RED_KEEP) {
-				if (i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36 || k1 <= 1 && i1 >= 12 && i1 <= 36 || k >= 26 && k <= 28 && i1 <= 12) {
-					return GOTBezierType.PAVING;
-				}
+				break;
 			}
 			return null;
 		}
