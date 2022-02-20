@@ -161,7 +161,7 @@ public class GOTStructureLorathCity extends GOTVillageGen {
 			if (random.nextBoolean()) {
 				return new GOTStructureLorathFarm(false);
 			}
-			return new GOTStructureLorathPasture(false);
+			return new GOTStructureEssosPasture(false);
 		}
 
 		public GOTStructureBase getRandomHouse(Random random) {
@@ -172,6 +172,10 @@ public class GOTStructureLorathCity extends GOTVillageGen {
 				return new GOTStructureLorathStables(false);
 			}
 			return new GOTStructureLorathHouse(false);
+		}
+
+		public GOTStructureEssosVillageSign getSignpost(Random random) {
+			return new GOTStructureEssosVillageSign(false);
 		}
 
 		public GOTStructureBase getSmithy(Random random) {
@@ -219,7 +223,7 @@ public class GOTStructureLorathCity extends GOTVillageGen {
 		}
 
 		public GOTStructureBase getTraining(Random random) {
-			return new GOTStructureLorathTraining(false);
+			return new GOTStructureEssosTraining(false);
 		}
 
 		public GOTStructureBase getTree(Random random) {

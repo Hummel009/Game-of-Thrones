@@ -1,4 +1,4 @@
-package got.common.world.structure.essos.qarth;
+package got.common.world.structure.essos.common;
 
 import java.util.Random;
 
@@ -6,8 +6,8 @@ import got.common.entity.animal.GOTEntityCamel;
 import net.minecraft.entity.passive.*;
 import net.minecraft.world.World;
 
-public class GOTStructureQarthPasture extends GOTStructureQarthBase {
-	public GOTStructureQarthPasture(boolean flag) {
+public class GOTStructureEssosPasture extends GOTStructureEssosBase {
+	public GOTStructureEssosPasture(boolean flag) {
 		super(flag);
 	}
 
@@ -59,7 +59,7 @@ public class GOTStructureQarthPasture extends GOTStructureQarthBase {
 		generateStrScan(world, random, 0, 0, 0);
 		int animals = 2 + random.nextInt(4);
 		for (int l = 0; l < animals; ++l) {
-			EntityAnimal animal = GOTStructureQarthPasture.getRandomAnimal(world, random);
+			EntityAnimal animal = getRandomAnimal(world, random);
 			spawnNPCAndSetHome(animal, world, 0, 1, 0, 0);
 			animal.detachHome();
 		}

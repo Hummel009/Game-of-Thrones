@@ -1,12 +1,12 @@
-package got.common.world.structure.essos.ghiscar;
+package got.common.world.structure.essos.common;
 
 import java.util.Random;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-public class GOTStructureGhiscarTraining extends GOTStructureGhiscarBase {
-	public GOTStructureGhiscarTraining(boolean flag) {
+public class GOTStructureEssosTraining extends GOTStructureEssosBase {
+	public GOTStructureEssosTraining(boolean flag) {
 		super(flag);
 	}
 

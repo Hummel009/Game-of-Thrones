@@ -213,6 +213,6 @@ public abstract class GOTStructureNorvosBase extends GOTStructureBase {
 				cropBlock = GOTRegistry.lettuceCrop;
 			}
 		}
-		bannerType = GOTItemBanner.BannerType.NORVOS;
+		bannerType = GOTItemBanner.BannerType.BRAAVOS;
 	}
 }

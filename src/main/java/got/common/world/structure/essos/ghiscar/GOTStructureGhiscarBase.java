@@ -213,6 +213,6 @@ public abstract class GOTStructureGhiscarBase extends GOTStructureBase {
 				cropBlock = GOTRegistry.lettuceCrop;
 			}
 		}
-		bannerType = GOTItemBanner.BannerType.GHISCAR;
+		bannerType = GOTItemBanner.BannerType.BRAAVOS;
 	}
 }

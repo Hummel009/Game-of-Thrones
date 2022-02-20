@@ -213,6 +213,6 @@ public abstract class GOTStructureQarthBase extends GOTStructureBase {
 				cropBlock = GOTRegistry.lettuceCrop;
 			}
 		}
-		bannerType = GOTItemBanner.BannerType.QARTH;
+		bannerType = GOTItemBanner.BannerType.BRAAVOS;
 	}
 }

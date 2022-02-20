@@ -24,7 +24,6 @@ import got.common.world.feature.GOTTreeType;
 import got.common.world.genlayer.GOTGenLayerWorld;
 import got.common.world.map.*;
 import got.common.world.map.GOTWaypoint.Region;
-import got.common.world.structure.other.GOTStructureScan;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
@@ -130,12 +129,6 @@ public class GOTCommander {
 		return EnumHelper.addEnum(GOTMountains.class, name, classArr, args);
 	}
 
-	public static void addNameBank(Map<String, String[]> nameBanks) {
-		Map<String, String[]> allNameBanks = (Map<String, String[]>) ReflectionHelper.getPrivateValue(GOTNames.class, null, "allNameBanks");
-		allNameBanks.putAll(nameBanks);
-		ReflectionHelper.setPrivateValue(GOTNames.class, null, allNameBanks, "allNameBanks");
-	}
-
 	public static GOTShields addShield(String enumName, boolean hidden, String... players) {
 		return GOTCommander.addShield(enumName, ShieldType.EXCLUSIVE, hidden, players);
 	}
@@ -149,21 +142,7 @@ public class GOTCommander {
 	public static GOTFaction addSpecialFaction(String enumName) {
 		return GOTCommander.addFaction(enumName, 0, GOTDimension.GAME_OF_THRONES, null, true, true, -2147483648, null);
 	}
-
-	public static void addSpeechBank(String name, boolean rand, List<String> lines) {
-		Class<?> speechBankClass = GOTSpeech.class.getDeclaredClasses()[0];
-		Object speechBank = findAndInvokeConstructor(new Object[] { name, Boolean.valueOf(rand), lines }, speechBankClass, String.class, boolean.class, List.class);
-		Map<String, Object> allSpeechBanks = (Map<String, Object>) ReflectionHelper.getPrivateValue(GOTSpeech.class, null, "allSpeechBanks");
-		allSpeechBanks.put(name, speechBank);
-		ReflectionHelper.setPrivateValue(GOTSpeech.class, null, allSpeechBanks, "allSpeechBanks");
-	}
-
-	public static void addSTRScan(Map<String, GOTStructureScan> scans) {
-		Map<String, GOTStructureScan> allScans = (Map<String, GOTStructureScan>) ReflectionHelper.getPrivateValue(GOTStructureScan.class, null, "allLoadedScans");
-		allScans.putAll(scans);
-		ReflectionHelper.setPrivateValue(GOTStructureScan.class, null, allScans, "allLoadedScans");
-	}
-
+	
 	public static GOTTreeType addTreeType(String enumName, Object treeFactory) {
 		Class<?>[] classArr = null;
 		try {
@@ -259,14 +238,6 @@ public class GOTCommander {
 			throw new IllegalArgumentException("Can't find the mod container for the domain " + res.getResourceDomain());
 		}
 		return modContainer;
-	}
-
-	public static GOTBiome getGOTBiome(String name) {
-		return ReflectionHelper.getPrivateValue(GOTBiome.class, null, name);
-	}
-
-	public static GOTCreativeTabs getGOTCreativeTab(String name) {
-		return ReflectionHelper.getPrivateValue(GOTCreativeTabs.class, null, name);
 	}
 
 	public static BufferedImage getImage(InputStream in) {

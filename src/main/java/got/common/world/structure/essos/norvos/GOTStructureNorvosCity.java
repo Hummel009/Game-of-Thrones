@@ -161,7 +161,7 @@ public class GOTStructureNorvosCity extends GOTVillageGen {
 			if (random.nextBoolean()) {
 				return new GOTStructureNorvosFarm(false);
 			}
-			return new GOTStructureNorvosPasture(false);
+			return new GOTStructureEssosPasture(false);
 		}
 
 		public GOTStructureBase getRandomHouse(Random random) {
@@ -172,6 +172,10 @@ public class GOTStructureNorvosCity extends GOTVillageGen {
 				return new GOTStructureNorvosStables(false);
 			}
 			return new GOTStructureNorvosHouse(false);
+		}
+
+		public GOTStructureEssosVillageSign getSignpost(Random random) {
+			return new GOTStructureEssosVillageSign(false);
 		}
 
 		public GOTStructureBase getSmithy(Random random) {
@@ -219,7 +223,7 @@ public class GOTStructureNorvosCity extends GOTVillageGen {
 		}
 
 		public GOTStructureBase getTraining(Random random) {
-			return new GOTStructureNorvosTraining(false);
+			return new GOTStructureEssosTraining(false);
 		}
 
 		public GOTStructureBase getTree(Random random) {
@@ -247,7 +251,7 @@ public class GOTStructureNorvosCity extends GOTVillageGen {
 
 				@Override
 				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClass(GOTEntityNorvosLevyman.class);
+					spawner.setSpawnClass(GOTEntityNorvosGuard.class);
 					spawner.setCheckRanges(60, -12, 12, 4);
 					spawner.setSpawnRanges(24, -6, 6, 32);
 				}
@@ -606,7 +610,7 @@ public class GOTStructureNorvosCity extends GOTVillageGen {
 		}
 
 		public void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
-			spawner.setSpawnClasses(GOTEntityNorvosLevyman.class, GOTEntityNorvosLevymanArcher.class);
+			spawner.setSpawnClass(GOTEntityNorvosGuard.class);
 		}
 
 	}

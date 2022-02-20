@@ -213,6 +213,6 @@ public abstract class GOTStructureLorathBase extends GOTStructureBase {
 				cropBlock = GOTRegistry.lettuceCrop;
 			}
 		}
-		bannerType = GOTItemBanner.BannerType.LORATH;
+		bannerType = GOTItemBanner.BannerType.BRAAVOS;
 	}
 }

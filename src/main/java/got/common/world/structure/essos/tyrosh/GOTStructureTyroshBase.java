@@ -213,6 +213,6 @@ public abstract class GOTStructureTyroshBase extends GOTStructureBase {
 				cropBlock = GOTRegistry.lettuceCrop;
 			}
 		}
-		bannerType = GOTItemBanner.BannerType.TYROSH;
+		bannerType = GOTItemBanner.BannerType.BRAAVOS;
 	}
 }

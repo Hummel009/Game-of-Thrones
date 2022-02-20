@@ -390,6 +390,7 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityBraavosBrewer.class, id++, GOTFaction.BRAAVOS);
 		GOTEntityRegistry.register(GOTEntityBraavosButcher.class, id++, GOTFaction.BRAAVOS);
 		GOTEntityRegistry.register(GOTEntityBraavosFarmer.class, id++, GOTFaction.BRAAVOS);
+		GOTEntityRegistry.register(GOTEntityBraavosFarmhand.class, id++, GOTFaction.BRAAVOS);
 		GOTEntityRegistry.register(GOTEntityBraavosFishmonger.class, id++, GOTFaction.BRAAVOS);
 		GOTEntityRegistry.register(GOTEntityBraavosFlorist.class, id++, GOTFaction.BRAAVOS);
 		GOTEntityRegistry.register(GOTEntityBraavosGoldsmith.class, id++, GOTFaction.BRAAVOS);
@@ -430,6 +431,7 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityPentosBrewer.class, id++, GOTFaction.PENTOS);
 		GOTEntityRegistry.register(GOTEntityPentosButcher.class, id++, GOTFaction.PENTOS);
 		GOTEntityRegistry.register(GOTEntityPentosFarmer.class, id++, GOTFaction.PENTOS);
+		GOTEntityRegistry.register(GOTEntityPentosFarmhand.class, id++, GOTFaction.PENTOS);
 		GOTEntityRegistry.register(GOTEntityPentosFishmonger.class, id++, GOTFaction.PENTOS);
 		GOTEntityRegistry.register(GOTEntityPentosFlorist.class, id++, GOTFaction.PENTOS);
 		GOTEntityRegistry.register(GOTEntityPentosGoldsmith.class, id++, GOTFaction.PENTOS);
@@ -449,6 +451,7 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityNorvosBrewer.class, id++, GOTFaction.NORVOS);
 		GOTEntityRegistry.register(GOTEntityNorvosButcher.class, id++, GOTFaction.NORVOS);
 		GOTEntityRegistry.register(GOTEntityNorvosFarmer.class, id++, GOTFaction.NORVOS);
+		GOTEntityRegistry.register(GOTEntityNorvosFarmhand.class, id++, GOTFaction.NORVOS);
 		GOTEntityRegistry.register(GOTEntityNorvosFishmonger.class, id++, GOTFaction.NORVOS);
 		GOTEntityRegistry.register(GOTEntityNorvosFlorist.class, id++, GOTFaction.NORVOS);
 		GOTEntityRegistry.register(GOTEntityNorvosGoldsmith.class, id++, GOTFaction.NORVOS);
@@ -469,6 +472,7 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityLorathBrewer.class, id++, GOTFaction.LORATH);
 		GOTEntityRegistry.register(GOTEntityLorathButcher.class, id++, GOTFaction.LORATH);
 		GOTEntityRegistry.register(GOTEntityLorathFarmer.class, id++, GOTFaction.LORATH);
+		GOTEntityRegistry.register(GOTEntityLorathFarmhand.class, id++, GOTFaction.LORATH);
 		GOTEntityRegistry.register(GOTEntityLorathFishmonger.class, id++, GOTFaction.LORATH);
 		GOTEntityRegistry.register(GOTEntityLorathFlorist.class, id++, GOTFaction.LORATH);
 		GOTEntityRegistry.register(GOTEntityLorathGoldsmith.class, id++, GOTFaction.LORATH);
@@ -489,6 +493,7 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityQohorBrewer.class, id++, GOTFaction.QOHOR);
 		GOTEntityRegistry.register(GOTEntityQohorButcher.class, id++, GOTFaction.QOHOR);
 		GOTEntityRegistry.register(GOTEntityQohorFarmer.class, id++, GOTFaction.QOHOR);
+		GOTEntityRegistry.register(GOTEntityQohorFarmhand.class, id++, GOTFaction.QOHOR);
 		GOTEntityRegistry.register(GOTEntityQohorFishmonger.class, id++, GOTFaction.QOHOR);
 		GOTEntityRegistry.register(GOTEntityQohorFlorist.class, id++, GOTFaction.QOHOR);
 		GOTEntityRegistry.register(GOTEntityQohorGoldsmith.class, id++, GOTFaction.QOHOR);
@@ -602,6 +607,7 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityQarthBrewer.class, id++, GOTFaction.QARTH);
 		GOTEntityRegistry.register(GOTEntityQarthButcher.class, id++, GOTFaction.QARTH);
 		GOTEntityRegistry.register(GOTEntityQarthFarmer.class, id++, GOTFaction.QARTH);
+		GOTEntityRegistry.register(GOTEntityQarthFarmhand.class, id++, GOTFaction.QARTH);
 		GOTEntityRegistry.register(GOTEntityQarthFishmonger.class, id++, GOTFaction.QARTH);
 		GOTEntityRegistry.register(GOTEntityQarthFlorist.class, id++, GOTFaction.QARTH);
 		GOTEntityRegistry.register(GOTEntityQarthGoldsmith.class, id++, GOTFaction.QARTH);

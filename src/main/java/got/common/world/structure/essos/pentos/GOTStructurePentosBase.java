@@ -213,6 +213,6 @@ public abstract class GOTStructurePentosBase extends GOTStructureBase {
 				cropBlock = GOTRegistry.lettuceCrop;
 			}
 		}
-		bannerType = GOTItemBanner.BannerType.PENTOS;
+		bannerType = GOTItemBanner.BannerType.BRAAVOS;
 	}
 }

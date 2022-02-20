@@ -213,6 +213,6 @@ public abstract class GOTStructureVolantisBase extends GOTStructureBase {
 				cropBlock = GOTRegistry.lettuceCrop;
 			}
 		}
-		bannerType = GOTItemBanner.BannerType.VOLANTIS;
+		bannerType = GOTItemBanner.BannerType.BRAAVOS;
 	}
 }

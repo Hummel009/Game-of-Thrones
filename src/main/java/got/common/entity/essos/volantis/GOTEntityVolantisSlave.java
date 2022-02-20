@@ -11,8 +11,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 
 public class GOTEntityVolantisSlave extends GOTEntityVolantisMan implements GOTFarmhand {
-	public Item seedsItem;
-
 	public GOTEntityVolantisSlave(World world) {
 		super(world);
 		canBeMarried = false;

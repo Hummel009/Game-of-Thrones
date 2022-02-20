@@ -2,10 +2,9 @@ package got.common.world.structure.essos.common;
 
 import java.util.Random;
 
-import got.common.world.structure.essos.braavos.GOTStructureBraavosBase;
 import net.minecraft.world.World;
 
-public class GOTStructureEssosWell extends GOTStructureBraavosBase {
+public class GOTStructureEssosWell extends GOTStructureEssosBase {
 	public GOTStructureEssosWell(boolean flag) {
 		super(flag);
 	}

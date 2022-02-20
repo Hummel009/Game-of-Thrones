@@ -218,7 +218,6 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureBraavosStables.class, GOTFaction.BRAAVOS);
 		GOTStructureRegistry.register(id++, GOTStructureBraavosTavern.class, GOTFaction.BRAAVOS);
 		GOTStructureRegistry.register(id++, GOTStructureBraavosTower.class, GOTFaction.BRAAVOS);
-		GOTStructureRegistry.register(id++, GOTStructureBraavosTraining.class, GOTFaction.BRAAVOS);
 
 		GOTStructureRegistry.register(id++, GOTStructureVolantisBarracks.class, GOTFaction.VOLANTIS);
 		GOTStructureRegistry.register(id++, GOTStructureVolantisBazaar.class, GOTFaction.VOLANTIS);
@@ -229,7 +228,6 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureVolantisStables.class, GOTFaction.VOLANTIS);
 		GOTStructureRegistry.register(id++, GOTStructureVolantisTavern.class, GOTFaction.VOLANTIS);
 		GOTStructureRegistry.register(id++, GOTStructureVolantisTower.class, GOTFaction.VOLANTIS);
-		GOTStructureRegistry.register(id++, GOTStructureVolantisTraining.class, GOTFaction.VOLANTIS);
 
 		GOTStructureRegistry.register(id++, GOTStructurePentosBarracks.class, GOTFaction.PENTOS);
 		GOTStructureRegistry.register(id++, GOTStructurePentosBazaar.class, GOTFaction.PENTOS);
@@ -240,7 +238,6 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructurePentosStables.class, GOTFaction.PENTOS);
 		GOTStructureRegistry.register(id++, GOTStructurePentosTavern.class, GOTFaction.PENTOS);
 		GOTStructureRegistry.register(id++, GOTStructurePentosTower.class, GOTFaction.PENTOS);
-		GOTStructureRegistry.register(id++, GOTStructurePentosTraining.class, GOTFaction.PENTOS);
 
 		GOTStructureRegistry.register(id++, GOTStructureNorvosBarracks.class, GOTFaction.NORVOS);
 		GOTStructureRegistry.register(id++, GOTStructureNorvosBazaar.class, GOTFaction.NORVOS);
@@ -251,7 +248,6 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureNorvosStables.class, GOTFaction.NORVOS);
 		GOTStructureRegistry.register(id++, GOTStructureNorvosTavern.class, GOTFaction.NORVOS);
 		GOTStructureRegistry.register(id++, GOTStructureNorvosTower.class, GOTFaction.NORVOS);
-		GOTStructureRegistry.register(id++, GOTStructureNorvosTraining.class, GOTFaction.NORVOS);
 
 		GOTStructureRegistry.register(id++, GOTStructureLorathBarracks.class, GOTFaction.LORATH);
 		GOTStructureRegistry.register(id++, GOTStructureLorathBazaar.class, GOTFaction.LORATH);
@@ -262,7 +258,6 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureLorathStables.class, GOTFaction.LORATH);
 		GOTStructureRegistry.register(id++, GOTStructureLorathTavern.class, GOTFaction.LORATH);
 		GOTStructureRegistry.register(id++, GOTStructureLorathTower.class, GOTFaction.LORATH);
-		GOTStructureRegistry.register(id++, GOTStructureLorathTraining.class, GOTFaction.LORATH);
 
 		GOTStructureRegistry.register(id++, GOTStructureQohorBarracks.class, GOTFaction.QOHOR);
 		GOTStructureRegistry.register(id++, GOTStructureQohorBazaar.class, GOTFaction.QOHOR);
@@ -273,7 +268,6 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureQohorStables.class, GOTFaction.QOHOR);
 		GOTStructureRegistry.register(id++, GOTStructureQohorTavern.class, GOTFaction.QOHOR);
 		GOTStructureRegistry.register(id++, GOTStructureQohorTower.class, GOTFaction.QOHOR);
-		GOTStructureRegistry.register(id++, GOTStructureQohorTraining.class, GOTFaction.QOHOR);
 
 		GOTStructureRegistry.register(id++, GOTStructureLysBarracks.class, GOTFaction.LYS);
 		GOTStructureRegistry.register(id++, GOTStructureLysBazaar.class, GOTFaction.LYS);
@@ -284,7 +278,6 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureLysStables.class, GOTFaction.LYS);
 		GOTStructureRegistry.register(id++, GOTStructureLysTavern.class, GOTFaction.LYS);
 		GOTStructureRegistry.register(id++, GOTStructureLysTower.class, GOTFaction.LYS);
-		GOTStructureRegistry.register(id++, GOTStructureLysTraining.class, GOTFaction.LYS);
 
 		GOTStructureRegistry.register(id++, GOTStructureMyrBarracks.class, GOTFaction.MYR);
 		GOTStructureRegistry.register(id++, GOTStructureMyrBazaar.class, GOTFaction.MYR);
@@ -295,7 +288,6 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureMyrStables.class, GOTFaction.MYR);
 		GOTStructureRegistry.register(id++, GOTStructureMyrTavern.class, GOTFaction.MYR);
 		GOTStructureRegistry.register(id++, GOTStructureMyrTower.class, GOTFaction.MYR);
-		GOTStructureRegistry.register(id++, GOTStructureMyrTraining.class, GOTFaction.MYR);
 
 		GOTStructureRegistry.register(id++, GOTStructureTyroshBarracks.class, GOTFaction.TYROSH);
 		GOTStructureRegistry.register(id++, GOTStructureTyroshBazaar.class, GOTFaction.TYROSH);
@@ -306,7 +298,6 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureTyroshStables.class, GOTFaction.TYROSH);
 		GOTStructureRegistry.register(id++, GOTStructureTyroshTavern.class, GOTFaction.TYROSH);
 		GOTStructureRegistry.register(id++, GOTStructureTyroshTower.class, GOTFaction.TYROSH);
-		GOTStructureRegistry.register(id++, GOTStructureTyroshTraining.class, GOTFaction.TYROSH);
 
 		GOTStructureRegistry.register(id++, GOTStructureGoldenWatchtower.class, 0xffd700);
 
@@ -320,7 +311,6 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureGhiscarStables.class, GOTFaction.GHISCAR);
 		GOTStructureRegistry.register(id++, GOTStructureGhiscarTavern.class, GOTFaction.GHISCAR);
 		GOTStructureRegistry.register(id++, GOTStructureGhiscarTower.class, GOTFaction.GHISCAR);
-		GOTStructureRegistry.register(id++, GOTStructureGhiscarTraining.class, GOTFaction.GHISCAR);
 		GOTStructureRegistry.register(id++, GOTStructureGhiscarFightingPit.class, GOTFaction.GHISCAR);
 
 		GOTStructureRegistry.register(id++, GOTStructureQarthBarracks.class, GOTFaction.QARTH);
@@ -332,7 +322,6 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureQarthStables.class, GOTFaction.QARTH);
 		GOTStructureRegistry.register(id++, GOTStructureQarthTavern.class, GOTFaction.QARTH);
 		GOTStructureRegistry.register(id++, GOTStructureQarthTower.class, GOTFaction.QARTH);
-		GOTStructureRegistry.register(id++, GOTStructureQarthTraining.class, GOTFaction.QARTH);
 
 		GOTStructureRegistry.register(id++, GOTStructureLhazarWarCamp.class, GOTFaction.LHAZAR);
 		GOTStructureRegistry.register(id++, GOTStructureLhazarHouse.class, GOTFaction.LHAZAR);

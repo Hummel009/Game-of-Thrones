@@ -161,7 +161,7 @@ public class GOTStructureVolantisCity extends GOTVillageGen {
 			if (random.nextBoolean()) {
 				return new GOTStructureVolantisFarm(false);
 			}
-			return new GOTStructureVolantisPasture(false);
+			return new GOTStructureEssosPasture(false);
 		}
 
 		public GOTStructureBase getRandomHouse(Random random) {
@@ -172,6 +172,10 @@ public class GOTStructureVolantisCity extends GOTVillageGen {
 				return new GOTStructureVolantisStables(false);
 			}
 			return new GOTStructureVolantisHouse(false);
+		}
+
+		public GOTStructureEssosVillageSign getSignpost(Random random) {
+			return new GOTStructureEssosVillageSign(false);
 		}
 
 		public GOTStructureBase getSmithy(Random random) {
@@ -219,7 +223,7 @@ public class GOTStructureVolantisCity extends GOTVillageGen {
 		}
 
 		public GOTStructureBase getTraining(Random random) {
-			return new GOTStructureVolantisTraining(false);
+			return new GOTStructureEssosTraining(false);
 		}
 
 		public GOTStructureBase getTree(Random random) {

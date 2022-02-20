@@ -161,7 +161,7 @@ public class GOTStructureBraavosCity extends GOTVillageGen {
 			if (random.nextBoolean()) {
 				return new GOTStructureBraavosFarm(false);
 			}
-			return new GOTStructureBraavosPasture(false);
+			return new GOTStructureEssosPasture(false);
 		}
 
 		public GOTStructureBase getRandomHouse(Random random) {
@@ -223,7 +223,7 @@ public class GOTStructureBraavosCity extends GOTVillageGen {
 		}
 
 		public GOTStructureBase getTraining(Random random) {
-			return new GOTStructureBraavosTraining(false);
+			return new GOTStructureEssosTraining(false);
 		}
 
 		public GOTStructureBase getTree(Random random) {

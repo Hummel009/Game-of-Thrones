@@ -185,7 +185,7 @@ public class GOTStructureGhiscarCity extends GOTVillageGen {
 			if (random.nextBoolean()) {
 				return new GOTStructureGhiscarFarm(false);
 			}
-			return new GOTStructureGhiscarPasture(false);
+			return new GOTStructureEssosPasture(false);
 		}
 
 		public GOTStructureBase getRandomHouse(Random random) {
@@ -196,6 +196,10 @@ public class GOTStructureGhiscarCity extends GOTVillageGen {
 				return new GOTStructureGhiscarStables(false);
 			}
 			return new GOTStructureGhiscarHouse(false);
+		}
+
+		public GOTStructureEssosVillageSign getSignpost(Random random) {
+			return new GOTStructureEssosVillageSign(false);
 		}
 
 		public GOTStructureBase getSmithy(Random random) {
@@ -243,7 +247,7 @@ public class GOTStructureGhiscarCity extends GOTVillageGen {
 		}
 
 		public GOTStructureBase getTraining(Random random) {
-			return new GOTStructureGhiscarTraining(false);
+			return new GOTStructureEssosTraining(false);
 		}
 
 		public GOTStructureBase getTree(Random random) {
@@ -271,11 +275,7 @@ public class GOTStructureGhiscarCity extends GOTVillageGen {
 
 				@Override
 				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					if (isColony) {
-						spawner.setSpawnClass(GOTEntityGhiscarCorsair.class);
-					} else {
-						spawner.setSpawnClass(GOTEntityGhiscarLevyman.class);
-					}
+					spawner.setSpawnClass(GOTEntityGhiscarCorsair.class);
 					spawner.setCheckRanges(60, -12, 12, 4);
 					spawner.setSpawnRanges(24, -6, 6, 32);
 				}
@@ -283,11 +283,7 @@ public class GOTStructureGhiscarCity extends GOTVillageGen {
 		}
 
 		public void setCivilianSpawnClass(GOTEntityNPCRespawner spawner) {
-			if (isColony) {
-				spawner.setSpawnClass(GOTEntityGhiscarCorsair.class);
-			} else {
-				spawner.setSpawnClass(GOTEntityGhiscarMan.class);
-			}
+			spawner.setSpawnClass(GOTEntityGhiscarMan.class);
 		}
 
 		public void setupFort(Random random) {
@@ -642,11 +638,7 @@ public class GOTStructureGhiscarCity extends GOTVillageGen {
 		}
 
 		public void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
-			if (isColony) {
-				spawner.setSpawnClass(GOTEntityGhiscarCorsair.class);
-			} else {
-				spawner.setSpawnClasses(GOTEntityGhiscarLevyman.class, GOTEntityGhiscarLevymanArcher.class);
-			}
+			spawner.setSpawnClasses(GOTEntityGhiscarCorsair.class, GOTEntityGhiscarCorsairArcher.class);
 		}
 
 	}

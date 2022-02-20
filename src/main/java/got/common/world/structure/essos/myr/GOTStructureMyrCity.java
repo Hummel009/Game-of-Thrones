@@ -161,7 +161,7 @@ public class GOTStructureMyrCity extends GOTVillageGen {
 			if (random.nextBoolean()) {
 				return new GOTStructureMyrFarm(false);
 			}
-			return new GOTStructureMyrPasture(false);
+			return new GOTStructureEssosPasture(false);
 		}
 
 		public GOTStructureBase getRandomHouse(Random random) {
@@ -172,6 +172,10 @@ public class GOTStructureMyrCity extends GOTVillageGen {
 				return new GOTStructureMyrStables(false);
 			}
 			return new GOTStructureMyrHouse(false);
+		}
+
+		public GOTStructureEssosVillageSign getSignpost(Random random) {
+			return new GOTStructureEssosVillageSign(false);
 		}
 
 		public GOTStructureBase getSmithy(Random random) {
@@ -219,7 +223,7 @@ public class GOTStructureMyrCity extends GOTVillageGen {
 		}
 
 		public GOTStructureBase getTraining(Random random) {
-			return new GOTStructureMyrTraining(false);
+			return new GOTStructureEssosTraining(false);
 		}
 
 		public GOTStructureBase getTree(Random random) {
@@ -247,7 +251,7 @@ public class GOTStructureMyrCity extends GOTVillageGen {
 
 				@Override
 				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClass(GOTEntityMyrLevyman.class);
+					spawner.setSpawnClass(GOTEntityMyrSoldier.class);
 					spawner.setCheckRanges(60, -12, 12, 4);
 					spawner.setSpawnRanges(24, -6, 6, 32);
 				}
@@ -606,7 +610,7 @@ public class GOTStructureMyrCity extends GOTVillageGen {
 		}
 
 		public void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
-			spawner.setSpawnClasses(GOTEntityMyrLevyman.class, GOTEntityMyrLevymanArcher.class);
+			spawner.setSpawnClasses(GOTEntityMyrSoldier.class, GOTEntityMyrSoldierArcher.class);
 		}
 
 	}

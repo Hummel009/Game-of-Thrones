@@ -4,10 +4,9 @@ import java.util.Random;
 
 import com.google.common.math.IntMath;
 
-import got.common.world.structure.essos.braavos.GOTStructureBraavosBase;
 import net.minecraft.world.World;
 
-public abstract class GOTStructureEssosTownWall extends GOTStructureBraavosBase {
+public abstract class GOTStructureEssosTownWall extends GOTStructureEssosBase {
 	public boolean centrePillar;
 	public int leftExtent;
 	public int rightExtent;

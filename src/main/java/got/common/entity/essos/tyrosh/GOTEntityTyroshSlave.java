@@ -11,8 +11,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 
 public class GOTEntityTyroshSlave extends GOTEntityTyroshMan implements GOTFarmhand {
-	public Item seedsItem;
-
 	public GOTEntityTyroshSlave(World world) {
 		super(world);
 		canBeMarried = false;

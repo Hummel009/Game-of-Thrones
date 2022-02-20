@@ -161,7 +161,7 @@ public class GOTStructureQohorCity extends GOTVillageGen {
 			if (random.nextBoolean()) {
 				return new GOTStructureQohorFarm(false);
 			}
-			return new GOTStructureQohorPasture(false);
+			return new GOTStructureEssosPasture(false);
 		}
 
 		public GOTStructureBase getRandomHouse(Random random) {
@@ -172,6 +172,10 @@ public class GOTStructureQohorCity extends GOTVillageGen {
 				return new GOTStructureQohorStables(false);
 			}
 			return new GOTStructureQohorHouse(false);
+		}
+
+		public GOTStructureEssosVillageSign getSignpost(Random random) {
+			return new GOTStructureEssosVillageSign(false);
 		}
 
 		public GOTStructureBase getSmithy(Random random) {
@@ -219,7 +223,7 @@ public class GOTStructureQohorCity extends GOTVillageGen {
 		}
 
 		public GOTStructureBase getTraining(Random random) {
-			return new GOTStructureQohorTraining(false);
+			return new GOTStructureEssosTraining(false);
 		}
 
 		public GOTStructureBase getTree(Random random) {
@@ -247,7 +251,7 @@ public class GOTStructureQohorCity extends GOTVillageGen {
 
 				@Override
 				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClass(GOTEntityQohorLevyman.class);
+					spawner.setSpawnClass(GOTEntityQohorGuard.class);
 					spawner.setCheckRanges(60, -12, 12, 4);
 					spawner.setSpawnRanges(24, -6, 6, 32);
 				}
@@ -606,7 +610,7 @@ public class GOTStructureQohorCity extends GOTVillageGen {
 		}
 
 		public void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
-			spawner.setSpawnClasses(GOTEntityQohorUnsullied.class, GOTEntityQohorLevymanArcher.class);
+			spawner.setSpawnClass(GOTEntityQohorGuard.class);
 		}
 
 	}

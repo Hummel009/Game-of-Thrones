@@ -184,7 +184,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static Color waterColorSouth;
 	public static int waterLimitNorth;
 	public static int waterLimitSouth;
-	public static int id = 0;
 	static {
 		biomeTerrainNoise = new NoiseGeneratorPerlin(new Random(1955L), 1);
 		terrainRand = new Random();
@@ -1137,9 +1136,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 		yiTiWasteland = new GOTBiomeYiTiWasteland(163, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xBEB74F).setBiomeName("yiTi");
 		yunkai = new GOTBiomeYunkai(164, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xA3AA48).setBiomeName("yunkai");
 		ibbenMountains = new GOTBiomeIbbenMountains(165, true).setIsLongWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0x808081).setBiomeName("ibbenMountains");
-		for (int element : NON_USED) {
-			int j = element;
-			GOTDimension.GAME_OF_THRONES.biomeList[j] = GOTBiome.ocean;
+		for (int i : NON_USED) {
+			GOTDimension.GAME_OF_THRONES.biomeList[i] = GOTBiome.ocean;
 		}
 	}
 
