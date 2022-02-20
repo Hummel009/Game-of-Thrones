@@ -24,6 +24,7 @@ CHANGELOG
 * Optimized NPCs checking for players with their miniquests
 * Optimized rendering code
 
+* Fixed bug with essos children not spawning in houses
 * Fixed bug with villages in the villages
 * Fixed bug with unremovable fellowship users after changing their nickname
 * Fixed bug with joining disbanded fellowships
