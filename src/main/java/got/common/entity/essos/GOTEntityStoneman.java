@@ -13,7 +13,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class GOTEntityStoneMan extends GOTEntityNPC {
-
 	public GOTEntityStoneMan(World world) {
 		super(world);
 		canBeMarried = false;
