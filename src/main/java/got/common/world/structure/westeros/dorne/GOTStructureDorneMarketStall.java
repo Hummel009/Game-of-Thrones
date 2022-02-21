@@ -6,12 +6,13 @@ import com.google.common.math.IntMath;
 
 import got.common.entity.westeros.dorne.*;
 import got.common.world.structure.other.GOTStructureBase;
+import got.common.world.structure.westeros.arryn.GOTStructureArrynMarketStall.Goldsmith;
 import got.common.world.structure.westeros.common.GOTStructureWesterosMarketStall;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
 public abstract class GOTStructureDorneMarketStall extends GOTStructureWesterosMarketStall {
-	public static Class[] allStallTypes = { Greengrocer.class, Lumber.class, Mason.class, Brewer.class, Flowers.class, Butcher.class, Fish.class, Farmer.class, Blacksmith.class, Baker.class };
+	public static Class[] allStallTypes = { Goldsmith.class,   Greengrocer.class, Lumber.class, Mason.class, Brewer.class, Flowers.class, Butcher.class, Fish.class, Farmer.class, Blacksmith.class, Baker.class };
 
 	public GOTStructureDorneMarketStall(boolean flag) {
 		super(flag);

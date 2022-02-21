@@ -7,11 +7,12 @@ import com.google.common.math.IntMath;
 import got.common.entity.westeros.stormlands.*;
 import got.common.world.structure.other.GOTStructureBase;
 import got.common.world.structure.westeros.common.GOTStructureWesterosMarketStall;
+import got.common.world.structure.westeros.ironborn.GOTStructureIronbornMarketStall.Goldsmith;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
 public abstract class GOTStructureStormlandsMarketStall extends GOTStructureWesterosMarketStall {
-	public static Class[] allStallTypes = { Greengrocer.class, Lumber.class, Mason.class, Brewer.class, Flowers.class, Butcher.class, Fish.class, Farmer.class, Blacksmith.class, Baker.class };
+	public static Class[] allStallTypes = { Goldsmith.class, Greengrocer.class, Lumber.class, Mason.class, Brewer.class, Flowers.class, Butcher.class, Fish.class, Farmer.class, Blacksmith.class, Baker.class };
 
 	public GOTStructureStormlandsMarketStall(boolean flag) {
 		super(flag);

@@ -2,8 +2,6 @@ package got.common.quest;
 
 import java.util.*;
 
-import org.apache.commons.lang3.StringUtils;
-
 import got.common.*;
 import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityNPC;
@@ -324,47 +322,6 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 
 		public static BountyHelp getRandomHelpType(Random random) {
 			return BountyHelp.values()[random.nextInt(BountyHelp.values().length)];
-		}
-	}
-
-	public static class QFBounty<Q extends GOTMiniQuestBounty> extends GOTMiniQuest.QuestFactoryBase<Q> {
-		public QFBounty(String name) {
-			super(name);
-		}
-
-		@Override
-		public Q createQuest(GOTEntityNPC npc, Random rand) {
-			if (!GOTConfig.allowBountyQuests) {
-				return null;
-			}
-			GOTMiniQuestBounty quest = super.createQuest(npc, rand);
-			GOTFaction faction = npc.getFaction();
-			GOTFactionBounties bounties = GOTFactionBounties.forFaction(faction);
-			List<GOTFactionBounties.PlayerData> players = bounties.findBountyTargets(25);
-			if (players.isEmpty()) {
-				return null;
-			}
-			GOTFactionBounties.PlayerData targetData = players.get(rand.nextInt(players.size()));
-			int kills = targetData.getNumKills();
-			float f = kills;
-			int alignment = (int) f;
-			alignment = MathHelper.clamp_int(alignment, 1, 50);
-			int coins = (int) (f * 10.0f * MathHelper.randomFloatClamp(rand, 0.75f, 1.25f));
-			coins = MathHelper.clamp_int(coins, 1, 1000);
-			quest.targetID = targetData.playerID;
-			String username = targetData.findUsername();
-			if (StringUtils.isBlank(username)) {
-				username = quest.targetID.toString();
-			}
-			quest.targetName = username;
-			quest.alignmentBonus = alignment;
-			quest.coinBonus = coins;
-			return (Q) quest;
-		}
-
-		@Override
-		public Class getQuestClass() {
-			return GOTMiniQuestBounty.class;
 		}
 	}
 

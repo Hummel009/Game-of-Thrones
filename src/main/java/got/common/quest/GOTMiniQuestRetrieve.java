@@ -87,29 +87,4 @@ public class GOTMiniQuestRetrieve extends GOTMiniQuestCollect {
 		itemstack.getTagCompound().setString("GOTRetrieveID", quest.questUUID.toString());
 	}
 
-	public static class QFRetrieve extends GOTMiniQuestCollect.QFCollect<GOTMiniQuestRetrieve> {
-		public Class entityType;
-
-		public QFRetrieve(String name) {
-			super(name);
-		}
-
-		@Override
-		public GOTMiniQuestRetrieve createQuest(GOTEntityNPC npc, Random rand) {
-			GOTMiniQuestRetrieve quest = super.createQuest(npc, rand);
-			quest.killEntityType = entityType;
-			return quest;
-		}
-
-		@Override
-		public Class getQuestClass() {
-			return GOTMiniQuestRetrieve.class;
-		}
-
-		public QFRetrieve setKillEntity(Class entityClass) {
-			entityType = entityClass;
-			return this;
-		}
-	}
-
 }
