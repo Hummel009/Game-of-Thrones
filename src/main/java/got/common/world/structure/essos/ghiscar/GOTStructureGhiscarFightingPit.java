@@ -5,47 +5,15 @@ import java.util.Random;
 import got.common.database.*;
 import got.common.entity.essos.ghiscar.GOTEntityGhiscarGladiator;
 import got.common.entity.other.GOTEntityNPCRespawner;
-import got.common.item.other.GOTItemBanner;
-import got.common.world.structure.other.GOTStructureBase;
-import net.minecraft.block.Block;
+import got.common.world.structure.essos.common.GOTStructureEssosBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class GOTStructureGhiscarFightingPit extends GOTStructureBase {
-	public Block brickBlock;
-	public int brickMeta;
-	public Block brickSlabBlock;
-	public int brickSlabMeta;
-	public Block brickStairBlock;
-	public Block brickWallBlock;
-	public int brickWallMeta;
-	public Block pillarBlock;
-	public int pillarMeta;
-	public Block plankBlock;
-	public int plankMeta;
-	public Block plankSlabBlock;
-	public int plankSlabMeta;
-	public Block plankStairBlock;
-	public Block fenceBlock;
-	public int fenceMeta;
-	public Block beamBlock;
-	public int beamMeta;
-	public Block doorBlock;
-	public Block woolBlock;
-	public int woolMeta;
-	public Block carpetBlock;
-	public int carpetMeta;
-	public Block barsBlock;
-	public Block gateStandartBlock;
-	public Block gateMetalBlock;
-	public Block tableBlock;
-	public Block bedBlock;
-	public GOTItemBanner.BannerType banner;
-	public GOTChestContents chestContents;
-
+public class GOTStructureGhiscarFightingPit extends GOTStructureEssosBase {
 	public GOTStructureGhiscarFightingPit(boolean flag) {
 		super(flag);
+		isGhiscar = true;
 	}
 
 	public void associateGroundBlocks() {
@@ -160,22 +128,21 @@ public class GOTStructureGhiscarFightingPit extends GOTStructureBase {
 		associateBlockMetaAlias("PLANK_SLAB_INV", plankSlabBlock, plankSlabMeta | 8);
 		associateBlockAlias("PLANK_STAIR", plankStairBlock);
 		associateBlockMetaAlias("FENCE", fenceBlock, fenceMeta);
-		associateBlockMetaAlias("BEAM", beamBlock, beamMeta);
-		associateBlockMetaAlias("BEAM|4", beamBlock, beamMeta | 4);
-		associateBlockMetaAlias("BEAM|8", beamBlock, beamMeta | 8);
+		associateBlockMetaAlias("BEAM", woodBeamBlock, woodBeamMeta);
+		associateBlockMetaAlias("BEAM|4", woodBeamBlock, woodBeamMeta | 4);
+		associateBlockMetaAlias("BEAM|8", woodBeamBlock, woodBeamMeta | 8);
 		associateBlockAlias("DOOR", doorBlock);
-		associateBlockMetaAlias("WOOL", woolBlock, woolMeta);
-		associateBlockMetaAlias("CARPET", carpetBlock, carpetMeta);
+		associateBlockMetaAlias("WOOL", roofBlock, roofMeta);
 		associateGroundBlocks();
 		associateBlockMetaAlias("BARS", barsBlock, 0);
-		associateBlockAlias("GATE_ORC", gateStandartBlock);
+		associateBlockAlias("GATE_ORC", gateMetalBlock);
 		associateBlockAlias("GATE_METAL", gateMetalBlock);
 		associateBlockMetaAlias("TABLE", tableBlock, 0);
 		generateStrScan(world, random, 0, 0, 0);
-		placeWallBanner(world, -7, 5, 0, banner, 1);
-		placeWallBanner(world, 7, 5, 0, banner, 3);
-		placeWallBanner(world, 0, 5, -7, banner, 0);
-		placeWallBanner(world, 0, 5, 7, banner, 2);
+		placeWallBanner(world, -7, 5, 0, bannerType, 1);
+		placeWallBanner(world, 7, 5, 0, bannerType, 3);
+		placeWallBanner(world, 0, 5, -7, bannerType, 0);
+		placeWallBanner(world, 0, 5, 7, bannerType, 2);
 		placeBigTorch(world, 2, 4, -5);
 		placeBigTorch(world, -2, 4, -5);
 		placeBigTorch(world, 5, 4, -2);
@@ -234,44 +201,5 @@ public class GOTStructureGhiscarFightingPit extends GOTStructureBase {
 		gladiatorSpawner.setNoPlayerRange(1);
 		placeNPCRespawner(gladiatorSpawner, world, 0, 0, 0);
 		return true;
-	}
-
-	@Override
-	public void placeBigTorch(World world, int i, int j, int k) {
-		setBlockAndMetadata(world, i, j, k, GOTRegistry.fuse, 0);
-		setBlockAndMetadata(world, i, j + 1, k, GOTRegistry.fuse, 1);
-	}
-
-	@Override
-	public void setupRandomBlocks(Random random) {
-		brickBlock = GOTRegistry.brick1;
-		brickMeta = 15;
-		brickSlabBlock = GOTRegistry.slabSingle4;
-		brickSlabMeta = 0;
-		brickStairBlock = GOTRegistry.stairsSandstoneBrick;
-		brickWallBlock = GOTRegistry.wallStone1;
-		brickWallMeta = 15;
-		pillarBlock = GOTRegistry.pillar1;
-		pillarMeta = 5;
-		plankBlock = GOTRegistry.planks1;
-		plankMeta = 3;
-		plankSlabBlock = GOTRegistry.woodSlabSingle1;
-		plankSlabMeta = 3;
-		plankStairBlock = GOTRegistry.stairsCharred;
-		fenceBlock = GOTRegistry.fence;
-		fenceMeta = 3;
-		beamBlock = GOTRegistry.woodBeam1;
-		beamMeta = 3;
-		doorBlock = GOTRegistry.doorDarkOak;
-		gateMetalBlock = GOTRegistry.gateBronzeBars;
-		bedBlock = GOTRegistry.strawBed;
-		woolBlock = Blocks.wool;
-		woolMeta = 12;
-		carpetBlock = Blocks.carpet;
-		carpetMeta = 12;
-		barsBlock = GOTRegistry.bronzeBars;
-		gateStandartBlock = GOTRegistry.gateBronzeBars;
-		tableBlock = GOTRegistry.tableGhiscar;
-		banner = GOTItemBanner.BannerType.GHISCAR;
 	}
 }

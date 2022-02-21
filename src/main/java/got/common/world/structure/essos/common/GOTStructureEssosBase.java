@@ -89,6 +89,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 	public boolean isNorvos;
 	public boolean isMyr;
 	public boolean isLys;
+	public Block barsBlock;
 
 	public GOTStructureEssosBase(boolean flag) {
 		super(flag);
@@ -361,6 +362,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 			pillarBlock = GOTRegistry.pillar1;
 			pillarMeta = 5;
 		}
+		barsBlock = GOTRegistry.bronzeBars;
 		brick2Block = GOTRegistry.brick3;
 		brick2Meta = 13;
 		brick2SlabBlock = GOTRegistry.slabSingle7;
