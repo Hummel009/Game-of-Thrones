@@ -16,19 +16,6 @@ public class GOTStructureGhiscarFightingPit extends GOTStructureEssosBase {
 		isGhiscar = true;
 	}
 
-	public void associateGroundBlocks() {
-		addBlockMetaAliasOption("GROUND", 4, Blocks.dirt, 1);
-		addBlockMetaAliasOption("GROUND", 4, GOTRegistry.dirtPath, 0);
-		addBlockMetaAliasOption("GROUND", 4, Blocks.gravel, 0);
-		addBlockMetaAliasOption("GROUND", 4, Blocks.cobblestone, 0);
-		addBlockMetaAliasOption("GROUND_SLAB", 4, GOTRegistry.slabSingleDirt, 0);
-		addBlockMetaAliasOption("GROUND_SLAB", 4, GOTRegistry.slabSingleDirt, 1);
-		addBlockMetaAliasOption("GROUND_SLAB", 4, GOTRegistry.slabSingleGravel, 0);
-		addBlockMetaAliasOption("GROUND_SLAB", 4, Blocks.stone_slab, 3);
-		addBlockMetaAliasOption("GROUND_COVER", 1, GOTRegistry.thatchFloor, 0);
-		setBlockAliasChance("GROUND_COVER", 0.25f);
-	}
-
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int k1;
@@ -133,7 +120,21 @@ public class GOTStructureGhiscarFightingPit extends GOTStructureEssosBase {
 		associateBlockMetaAlias("BEAM|8", woodBeamBlock, woodBeamMeta | 8);
 		associateBlockAlias("DOOR", doorBlock);
 		associateBlockMetaAlias("WOOL", roofBlock, roofMeta);
-		associateGroundBlocks();
+		addBlockMetaAliasOption("GROUND", 1, Blocks.dirt, 1);
+		addBlockMetaAliasOption("GROUND", 2, GOTRegistry.pillar1, 5);
+		addBlockMetaAliasOption("GROUND", 3, GOTRegistry.dirtPath, 0);
+		addBlockMetaAliasOption("GROUND", 5, Blocks.sand, 0);
+		addBlockMetaAliasOption("GROUND", 5, Blocks.sandstone, 0);
+		addBlockMetaAliasOption("GROUND", 7, GOTRegistry.brick1, 15);
+		addBlockMetaAliasOption("GROUND", 8, GOTRegistry.brick3, 11);
+		addBlockMetaAliasOption("GROUND_SLAB", 1, GOTRegistry.slabSingleDirt, 0);
+		addBlockMetaAliasOption("GROUND_SLAB", 2, GOTRegistry.slabSingle4, 7);
+		addBlockMetaAliasOption("GROUND_SLAB", 3, GOTRegistry.slabSingleDirt, 1);
+		addBlockMetaAliasOption("GROUND_SLAB", 5, GOTRegistry.slabSingleSand, 0);
+		addBlockMetaAliasOption("GROUND_SLAB", 7, GOTRegistry.slabSingle4, 0);
+		addBlockMetaAliasOption("GROUND_SLAB", 8, GOTRegistry.slabSingle7, 1);
+		addBlockMetaAliasOption("GROUND_COVER", 1, GOTRegistry.thatchFloor, 0);
+		setBlockAliasChance("GROUND_COVER", 0.25f);
 		associateBlockMetaAlias("BARS", barsBlock, 0);
 		associateBlockAlias("GATE_ORC", gateMetalBlock);
 		associateBlockAlias("GATE_METAL", gateMetalBlock);

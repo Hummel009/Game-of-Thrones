@@ -8,6 +8,7 @@ CHANGELOG
 + Added a config option to tune how often the mod clears the playerdata cache for offline players' data
 + Added new fixed locations (The Eyrie)
 
+* Improved Ghiscar Pit
 * Improved village spawning
 * Improved Petyr Baelish's brothel and Tobho Mott's smithy
 * Improved Red Castle
