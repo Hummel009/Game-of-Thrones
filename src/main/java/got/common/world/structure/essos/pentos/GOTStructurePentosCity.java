@@ -22,7 +22,8 @@ public class GOTStructurePentosCity extends GOTVillageGen {
 		gridScale = 12;
 		gridRandomDisplace = 1;
 		spawnChance = f;
-		villageChunkRadius = 6;
+		villageChunkRadius = 5;
+		fixedVillageChunkRadius = 5;
 	}
 
 	@Override

@@ -7,7 +7,6 @@ import com.google.common.math.IntMath;
 import got.common.entity.westeros.north.*;
 import got.common.world.structure.other.GOTStructureBase;
 import got.common.world.structure.westeros.common.GOTStructureWesterosMarketStall;
-import got.common.world.structure.westeros.ironborn.GOTStructureIronbornMarketStall.Goldsmith;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 

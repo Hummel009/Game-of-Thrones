@@ -25,6 +25,7 @@ public class GOTStructureDragonstoneCity extends GOTVillageGen {
 		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 6;
+		fixedVillageChunkRadius = 5;
 	}
 
 	@Override
@@ -34,11 +35,13 @@ public class GOTStructureDragonstoneCity extends GOTVillageGen {
 
 	public GOTStructureDragonstoneCity setIsCastle() {
 		isCastle = true;
+		fixedVillageChunkRadius = 3;
 		return this;
 	}
 
 	public GOTStructureDragonstoneCity setIsTown() {
 		isTown = true;
+		fixedVillageChunkRadius = 6;
 		return this;
 	}
 

@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 public class GOTStructureIronbornCity extends GOTVillageGen {
 	public boolean isTown;
 	public boolean isCastle;
-	public boolean isVictarion;
+	public boolean isCamp;
 
 	public GOTStructureIronbornCity(GOTBiome biome, float f) {
 		super(biome);
@@ -26,7 +26,7 @@ public class GOTStructureIronbornCity extends GOTVillageGen {
 		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 6;
-
+		fixedVillageChunkRadius = 5;
 	}
 
 	@Override
@@ -36,16 +36,19 @@ public class GOTStructureIronbornCity extends GOTVillageGen {
 
 	public GOTStructureIronbornCity setIsCastle() {
 		isCastle = true;
+		fixedVillageChunkRadius = 3;
 		return this;
 	}
 
 	public GOTStructureIronbornCity setIsTown() {
 		isTown = true;
+		fixedVillageChunkRadius = 6;
 		return this;
 	}
 
-	public GOTStructureIronbornCity setIsVictarion() {
-		isVictarion = true;
+	public GOTStructureIronbornCity setIsCamp() {
+		isCamp = true;
+		fixedVillageChunkRadius = 1;
 		return this;
 	}
 
@@ -535,7 +538,7 @@ public class GOTStructureIronbornCity extends GOTVillageGen {
 				villageType = VillageType.TOWN;
 			} else if (isCastle || random.nextInt(4) == 0) {
 				villageType = VillageType.FORT;
-			} else if (isVictarion) {
+			} else if (isCamp) {
 				villageType = VillageType.VICTARION;
 			} else {
 				villageType = VillageType.VILLAGE;

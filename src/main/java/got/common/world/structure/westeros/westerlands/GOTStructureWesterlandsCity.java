@@ -25,6 +25,7 @@ public class GOTStructureWesterlandsCity extends GOTVillageGen {
 		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 6;
+		fixedVillageChunkRadius = 5;
 	}
 
 	@Override
@@ -34,11 +35,13 @@ public class GOTStructureWesterlandsCity extends GOTVillageGen {
 
 	public GOTStructureWesterlandsCity setIsCastle() {
 		isCastle = true;
+		fixedVillageChunkRadius = 3;
 		return this;
 	}
 
 	public GOTStructureWesterlandsCity setIsTown() {
 		isTown = true;
+		fixedVillageChunkRadius = 6;
 		return this;
 	}
 

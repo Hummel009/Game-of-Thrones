@@ -307,11 +307,6 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 		return true;
 	}
 
-	public GOTStructureWesterosBarn setIsArryn() {
-		isArryn = true;
-		return this;
-	}
-
 	public static EntityAnimal getRandomAnimal(World world, Random random) {
 		int animal = random.nextInt(4);
 		switch (animal) {

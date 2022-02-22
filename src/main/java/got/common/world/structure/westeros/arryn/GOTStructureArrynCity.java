@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.google.common.math.IntMath;
 
+import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.westeros.arryn.*;
 import got.common.world.biome.GOTBiome;
@@ -25,6 +26,7 @@ public class GOTStructureArrynCity extends GOTVillageGen {
 		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 6;
+		fixedVillageChunkRadius = 5;
 	}
 
 	@Override
@@ -34,11 +36,13 @@ public class GOTStructureArrynCity extends GOTVillageGen {
 
 	public GOTStructureArrynCity setIsCastle() {
 		isCastle = true;
+		fixedVillageChunkRadius = 3;
 		return this;
 	}
 
 	public GOTStructureArrynCity setIsTown() {
 		isTown = true;
+		fixedVillageChunkRadius = 6;
 		return this;
 	}
 
@@ -117,11 +121,17 @@ public class GOTStructureArrynCity extends GOTVillageGen {
 			}
 			return new GOTStructureArrynHouse(false);
 		}
-
+		
 		@Override
 		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
-			Block block = world.getBlock(i, j, k);
-			return villageType == VillageType.TOWN && block == Blocks.cobblestone;
+			if (villageType == VillageType.FORT) {
+				Block block = world.getBlock(i, j, k);
+				int meta = world.getBlockMetadata(i, j, k);
+				if (block == Blocks.stone || block == GOTRegistry.rock && meta == 1) {
+					return true;
+				}
+			}
+			return false;
 		}
 
 		public void setupCastle(Random random) {

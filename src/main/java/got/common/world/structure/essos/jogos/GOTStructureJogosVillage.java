@@ -19,6 +19,7 @@ public class GOTStructureJogosVillage extends GOTVillageGen {
 		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 5;
+		fixedVillageChunkRadius = 5;
 	}
 
 	@Override

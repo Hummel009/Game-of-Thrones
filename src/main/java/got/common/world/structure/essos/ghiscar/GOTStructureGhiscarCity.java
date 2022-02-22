@@ -25,7 +25,8 @@ public class GOTStructureGhiscarCity extends GOTVillageGen {
 		gridScale = 12;
 		gridRandomDisplace = 1;
 		spawnChance = f;
-		villageChunkRadius = 6;
+		villageChunkRadius = 5;
+		fixedVillageChunkRadius = 5;
 	}
 
 	@Override
@@ -35,21 +36,25 @@ public class GOTStructureGhiscarCity extends GOTVillageGen {
 
 	public GOTStructureGhiscarCity setIsColony() {
 		isColony = true;
+		fixedVillageChunkRadius = 4;
 		return this;
 	}
 
 	public GOTStructureGhiscarCity setIsPyramidShiftX() {
 		isPyramidShiftX = true;
+		fixedVillageChunkRadius = 4;
 		return this;
 	}
 
 	public GOTStructureGhiscarCity setIsPyramidShiftZ() {
 		isPyramidShiftZ = true;
+		fixedVillageChunkRadius = 4;
 		return this;
 	}
 
 	public GOTStructureGhiscarCity setIsTown() {
 		isTown = true;
+		fixedVillageChunkRadius = 5;
 		return this;
 	}
 

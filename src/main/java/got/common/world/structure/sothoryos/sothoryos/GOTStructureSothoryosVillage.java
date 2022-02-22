@@ -13,7 +13,8 @@ public class GOTStructureSothoryosVillage extends GOTVillageGen {
 		gridScale = 12;
 		gridRandomDisplace = 1;
 		spawnChance = f;
-		villageChunkRadius = 6;
+		villageChunkRadius = 3;
+		fixedVillageChunkRadius = 3;
 	}
 
 	@Override

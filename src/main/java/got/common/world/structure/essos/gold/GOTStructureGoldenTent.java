@@ -11,11 +11,6 @@ public class GOTStructureGoldenTent extends GOTStructureTentBase {
 		super(flag);
 	}
 
-	public GOTStructureBase setIsCaptain() {
-		isCaptain = true;
-		return this;
-	}
-
 	@Override
 	public void setupRandomBlocks(Random random) {
 		super.setupRandomBlocks(random);

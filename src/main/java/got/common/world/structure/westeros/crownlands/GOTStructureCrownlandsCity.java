@@ -28,6 +28,7 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 6;
+		fixedVillageChunkRadius = 5;
 	}
 
 	@Override
@@ -42,16 +43,19 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 
 	public GOTStructureCrownlandsCity setIsCastle() {
 		isCastle = true;
+		fixedVillageChunkRadius = 3;
 		return this;
 	}
 
 	public GOTStructureCrownlandsCity setIsRedKeep() {
 		isRedKeep = true;
+		fixedVillageChunkRadius = 3;
 		return this;
 	}
 
 	public GOTStructureCrownlandsCity setIsTown() {
 		isTown = true;
+		fixedVillageChunkRadius = 6;
 		return this;
 	}
 

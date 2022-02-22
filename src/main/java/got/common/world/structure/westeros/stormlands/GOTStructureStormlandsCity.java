@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.google.common.math.IntMath;
 
+import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.westeros.stormlands.*;
 import got.common.world.biome.GOTBiome;
@@ -25,7 +26,7 @@ public class GOTStructureStormlandsCity extends GOTVillageGen {
 		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 6;
-
+		fixedVillageChunkRadius = 5;
 	}
 
 	@Override
@@ -35,11 +36,13 @@ public class GOTStructureStormlandsCity extends GOTVillageGen {
 
 	public GOTStructureStormlandsCity setIsCastle() {
 		isCastle = true;
+		fixedVillageChunkRadius = 3;
 		return this;
 	}
 
 	public GOTStructureStormlandsCity setIsTown() {
 		isTown = true;
+		fixedVillageChunkRadius = 6;
 		return this;
 	}
 
@@ -121,8 +124,14 @@ public class GOTStructureStormlandsCity extends GOTVillageGen {
 
 		@Override
 		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
-			Block block = world.getBlock(i, j, k);
-			return villageType == VillageType.TOWN && block == Blocks.cobblestone;
+			if (villageType == VillageType.FORT) {
+				Block block = world.getBlock(i, j, k);
+				int meta = world.getBlockMetadata(i, j, k);
+				if (block == Blocks.stone || block == GOTRegistry.rock && meta == 4) {
+					return true;
+				}
+			}
+			return false;
 		}
 
 		public void setupCastle(Random random) {

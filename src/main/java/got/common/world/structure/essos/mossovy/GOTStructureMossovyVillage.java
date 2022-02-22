@@ -18,7 +18,8 @@ public class GOTStructureMossovyVillage extends GOTVillageGen {
 		gridScale = 12;
 		gridRandomDisplace = 1;
 		spawnChance = f;
-		villageChunkRadius = 6;
+		villageChunkRadius = 5;
+		fixedVillageChunkRadius = 5;
 	}
 
 	@Override
@@ -28,11 +29,13 @@ public class GOTStructureMossovyVillage extends GOTVillageGen {
 
 	public GOTStructureMossovyVillage setIsFort() {
 		isFort = true;
+		fixedVillageChunkRadius = 2;
 		return this;
 	}
 
 	public GOTStructureMossovyVillage setIsVillage() {
 		isFort = false;
+		fixedVillageChunkRadius = 5;
 		return this;
 	}
 

@@ -16,7 +16,6 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 	public boolean isCastleBlack;
 	public boolean isShadowTower;
 	public boolean isEastWatch;
-	public boolean isVillage;
 	public boolean isWallGate;
 
 	public GOTStructureGiftVillage(GOTBiome biome, float f) {
@@ -24,7 +23,8 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 		gridScale = 12;
 		gridRandomDisplace = 1;
 		spawnChance = f;
-		villageChunkRadius = 6;
+		villageChunkRadius = 3;
+		fixedVillageChunkRadius = 3;
 	}
 
 	@Override
@@ -34,29 +34,25 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 
 	public GOTStructureGiftVillage setIsCastleBlack() {
 		isCastleBlack = true;
+		fixedVillageChunkRadius = 2;
 		return this;
 	}
 
 	public GOTStructureGiftVillage setIsEastWatch() {
 		isEastWatch = true;
+		fixedVillageChunkRadius = 2;
 		return this;
 	}
 
 	public GOTStructureGiftVillage setIsShadowTower() {
 		isShadowTower = true;
-		return this;
-	}
-
-	public GOTStructureGiftVillage setIsVillage() {
-		isCastleBlack = false;
-		isShadowTower = false;
-		isEastWatch = false;
-		isWallGate = false;
+		fixedVillageChunkRadius = 2;
 		return this;
 	}
 
 	public GOTStructureGiftVillage setIsWallGate() {
 		isWallGate = true;
+		fixedVillageChunkRadius = 1;
 		return this;
 	}
 

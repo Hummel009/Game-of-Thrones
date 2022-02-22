@@ -20,7 +20,8 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 		gridScale = 12;
 		gridRandomDisplace = 1;
 		spawnChance = f;
-		villageChunkRadius = 6;
+		villageChunkRadius = 5;
+		fixedVillageChunkRadius = 5;
 	}
 
 	@Override
@@ -30,6 +31,7 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 
 	public GOTStructureLhazarVillage setIsTown() {
 		isTown = true;
+		fixedVillageChunkRadius = 7;
 		return this;
 	}
 

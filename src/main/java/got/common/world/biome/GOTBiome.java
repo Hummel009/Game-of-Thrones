@@ -176,7 +176,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome yiTi;
 	public static GOTBiome yiTiWasteland;
 	public static GOTBiome yunkai;
-	public static GOTBiome lhazarFlat;
 	public static NoiseGeneratorPerlin biomeTerrainNoise;
 	public static Random terrainRand;
 	public static float defaultVariantChance = 0.4f;

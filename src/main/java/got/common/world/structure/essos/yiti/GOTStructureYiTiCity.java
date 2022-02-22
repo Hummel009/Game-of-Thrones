@@ -19,6 +19,7 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 6;
+		fixedVillageChunkRadius = 6;
 	}
 
 	@Override
@@ -28,11 +29,13 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 
 	public GOTStructureYiTiCity setIsTower() {
 		isTower = true;
+		fixedVillageChunkRadius = 9;
 		return this;
 	}
 
 	public GOTStructureYiTiCity setIsTown() {
 		isTown = true;
+		fixedVillageChunkRadius = 7;
 		return this;
 	}
 

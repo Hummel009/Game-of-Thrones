@@ -10,7 +10,9 @@ import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 public class GOTBiomeYiTiWasteland extends GOTBiomeYiTi {
 	public GOTBiomeYiTiWasteland(int i, boolean major) {
 		super(i, major);
-		clearBiomeVariants();
+		npcSpawnList.clear();
+		decorator.clearVillages();
+		decorator.clearRandomStructures();
 
 		SpawnListContainer[] c = new SpawnListContainer[1];
 		c[0] = GOTBiomeSpawnList.entry(GOTSpawnList.YITI_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN);

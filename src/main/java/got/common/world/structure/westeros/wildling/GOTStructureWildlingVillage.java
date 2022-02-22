@@ -29,11 +29,13 @@ public class GOTStructureWildlingVillage extends GOTVillageGen {
 
 	public GOTStructureWildlingVillage setIsCraster() {
 		isCraster = true;
+		fixedVillageChunkRadius = 1;
 		return this;
 	}
 
 	public GOTStructureWildlingVillage setIsHardhome() {
 		isHardhome = true;
+		fixedVillageChunkRadius = 9;
 		return this;
 	}
 

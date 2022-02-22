@@ -1162,7 +1162,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		if (block == biome.topBlock || block == biome.fillerBlock) {
 			return true;
 		}
-		if (block == Blocks.snow_layer || block == Blocks.snow || block == GOTRegistry.rock || block == Blocks.stone || block == Blocks.grass || block == Blocks.dirt || block == Blocks.gravel || block == GOTRegistry.dirtPath) {
+		if (block == Blocks.snow || block == Blocks.snow_layer || block == Blocks.grass || block == Blocks.dirt || block == Blocks.gravel || block == GOTRegistry.dirtPath) {
 			return true;
 		}
 		if (block == GOTRegistry.mudGrass || block == GOTRegistry.mud || block == Blocks.sand || block == GOTRegistry.whiteSand) {
