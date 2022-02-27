@@ -37,7 +37,6 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 		int i2;
 		int j13;
 		this.setOriginAndRotation(world, i, j, k, rotation, 13);
-		originZ -= getOriginZ();
 		setupRandomBlocks(random);
 		if (restrictions) {
 			for (i15 = -12; i15 <= 12; ++i15) {
@@ -488,21 +487,12 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 		return true;
 	}
 
-	public int getOriginZ() {
-		return 0;
-	}
-
 	public void spawnLegendaryMobs(World world) {
 	}
 
 	public static class CastleBlack extends GOTStructureGiftCastle {
 		public CastleBlack(boolean flag) {
 			super(flag);
-		}
-
-		@Override
-		public int getOriginZ() {
-			return 100;
 		}
 
 		@Override
@@ -522,11 +512,6 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 		}
 
 		@Override
-		public int getOriginZ() {
-			return -30;
-		}
-
-		@Override
 		public void spawnLegendaryMobs(World world) {
 			spawnLegendaryNPC(new GOTEntityCotterPyke(world), world, 0, 1, 0);
 			spawnLegendaryNPC(new GOTEntityHarmune(world), world, 0, 1, 1);
@@ -536,11 +521,6 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 	public static class ShadowTower extends GOTStructureGiftCastle {
 		public ShadowTower(boolean flag) {
 			super(flag);
-		}
-
-		@Override
-		public int getOriginZ() {
-			return -30;
 		}
 
 		@Override

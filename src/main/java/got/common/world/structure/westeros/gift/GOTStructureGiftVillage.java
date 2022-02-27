@@ -65,6 +65,7 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0, 0);
 			originY += 2;
+			originZ -= 50;
 			// Vozduh
 			for (int x = -3; x <= 3; ++x) {
 				for (int y = -3; y <= 3; ++y) {
@@ -76,21 +77,21 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 			// Vorota
 			for (int x = -3; x <= 3; ++x) {
 				for (int z = 0; z <= 6; ++z) {
-					setBlockAndMetadata(world, x, z, 3, GOTRegistry.gateIronBars, 2);
-					setBlockAndMetadata(world, x, z, -3, GOTRegistry.gateWooden, 2);
+					setBlockAndMetadata(world, x, z, 4, GOTRegistry.gateIronBars, 2);
+					setBlockAndMetadata(world, x, z, -4, GOTRegistry.gateWooden, 2);
 				}
 			}
 			// Balki stojachije
 			for (int z = 0; z <= 6; ++z) {
-				setBlockAndMetadata(world, -4, z, 3, GOTRegistry.woodBeamV1, 1);
-				setBlockAndMetadata(world, 4, z, 3, GOTRegistry.woodBeamV1, 1);
-				setBlockAndMetadata(world, -4, z, -3, GOTRegistry.woodBeamV1, 1);
-				setBlockAndMetadata(world, 4, z, -3, GOTRegistry.woodBeamV1, 1);
+				setBlockAndMetadata(world, -4, z, 4, GOTRegistry.woodBeamV1, 1);
+				setBlockAndMetadata(world, 4, z, 4, GOTRegistry.woodBeamV1, 1);
+				setBlockAndMetadata(world, -4, z, -4, GOTRegistry.woodBeamV1, 1);
+				setBlockAndMetadata(world, 4, z, -4, GOTRegistry.woodBeamV1, 1);
 			}
 			// Balki lezhachije
 			for (int x = -3; x <= 3; ++x) {
-				setBlockAndMetadata(world, x, 7, 3, GOTRegistry.woodBeamV1, 1 | 4);
-				setBlockAndMetadata(world, x, 7, -3, GOTRegistry.woodBeamV1, 1 | 4);
+				setBlockAndMetadata(world, x, 7, 4, GOTRegistry.woodBeamV1, 1 | 4);
+				setBlockAndMetadata(world, x, 7, -4, GOTRegistry.woodBeamV1, 1 | 4);
 			}
 			return true;
 		}
@@ -107,19 +108,19 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 		public void addVillageStructures(Random random) {
 			switch (villageType) {
 			case CASTLE_BLACK:
-				this.addStructure(new CastleBlack(false), 0, 0, 0, true);
+				this.addStructure(new CastleBlack(false), 0, 50, 2, true);
 				break;
 			case SHADOW_TOWER:
-				this.addStructure(new ShadowTower(false), 0, 0, 0, true);
+				this.addStructure(new ShadowTower(false), 0, 50, 2, true);
 				break;
 			case EAST_WATCH:
-				this.addStructure(new EastWatch(false), 0, 0, 0, true);
+				this.addStructure(new EastWatch(false), 0, 50, 2, true);
 				break;
 			case VILLAGE:
 				setupVillage(random);
 				break;
 			case WALL_GATE:
-				this.addStructure(new Gate(false), 0, 0, 0, true);
+				this.addStructure(new Gate(false), 0, 50, 0, true);
 				break;
 			}
 		}

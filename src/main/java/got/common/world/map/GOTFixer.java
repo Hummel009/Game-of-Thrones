@@ -72,7 +72,7 @@ public class GOTFixer {
 		f[1] = new GOTStructureArrynCity(biome, 0.0f).setIsTown();
 		f[1].affix(GOTWaypoint.Gulltown, GOTWaypoint.Sisterton);
 		f[2] = new GOTStructureAsshaiCity(biome, 0.0f);
-		f[2].affix(GOTWaypoint.Asshai.info(0, 0, 2));
+		f[2].affix(GOTWaypoint.KDath, GOTWaypoint.Asshai.info(0, 0, 2));
 		f[3] = new GOTStructureBraavosCity(biome, 0.0f).setIsTown();
 		f[3].affix(GOTWaypoint.Braavos.info(0, -1, 2));
 		f[4] = new GOTStructureGiftVillage(biome, 0.0f).setIsCastleBlack();
@@ -104,7 +104,7 @@ public class GOTFixer {
 		f[17] = new GOTStructureYiTiCity(biome, 0.0f).setIsTower();
 		f[17].affix(GOTWaypoint.FiveForts1, GOTWaypoint.FiveForts2, GOTWaypoint.FiveForts3, GOTWaypoint.FiveForts4, GOTWaypoint.FiveForts5.info(0, 0, 3));
 		f[18] = new GOTStructureGhiscarCity(biome, 0.0f).setIsColony();
-		f[18].affix(GOTWaypoint.BarterBeach, GOTWaypoint.Gogossos, GOTWaypoint.Gorosh, GOTWaypoint.Zamettar.info(0, -1, 2));
+		f[18].affix(GOTWaypoint.IsleOfWhips, GOTWaypoint.BarterBeach, GOTWaypoint.Gogossos, GOTWaypoint.Gorosh, GOTWaypoint.Zamettar.info(0, -1, 2));
 		f[19] = new GOTStructureGhiscarCity(biome, 0.0f).setIsTown();
 		f[19].affix(GOTWaypoint.Astapor.info(-1, 0, 1), GOTWaypoint.Meereen.info(0, -1, 2), GOTWaypoint.NewGhis.info(0, 0, 0), GOTWaypoint.Yunkai.info(-1, 0, 1));
 		f[20] = new GOTStructureGhiscarCity(biome, 0.0f).setIsPyramidShiftX();
@@ -118,7 +118,7 @@ public class GOTFixer {
 		f[24] = new GOTStructureIbbenVillage(biome, 0.0f);
 		f[24].affix(GOTWaypoint.IbNor, GOTWaypoint.IbSar, GOTWaypoint.NewIbbish, GOTWaypoint.PortOfIbben);
 		f[25] = new GOTStructureIronbornCity(biome, 0.0f).setIsCastle();
-		f[25].affix(GOTWaypoint.Blackhaven.info(0, 0, 0), GOTWaypoint.Blacktyde, GOTWaypoint.CorpseLake, GOTWaypoint.CrowSpikeKeep, GOTWaypoint.Downdelving, GOTWaypoint.DrummCastle, GOTWaypoint.GreyGarden, GOTWaypoint.Hammerhorn, GOTWaypoint.HarlawHall, GOTWaypoint.HarridanHill, GOTWaypoint.IronHolt, GOTWaypoint.LonelyLight, GOTWaypoint.MyreCastle, GOTWaypoint.Orkwood, GOTWaypoint.Pyke, GOTWaypoint.Saltcliffe, GOTWaypoint.SealskinPoint, GOTWaypoint.Shatterstone, GOTWaypoint.SparrCastle, GOTWaypoint.Stonehouse, GOTWaypoint.StonetreeCastle, GOTWaypoint.Sunderly, GOTWaypoint.TawneyCastle, GOTWaypoint.TenTowers, GOTWaypoint.Volmark);
+		f[25].affix(GOTWaypoint.CatfishRock.info(0, 1, 0), GOTWaypoint.Blackhaven.info(0, 0, 0), GOTWaypoint.Blacktyde, GOTWaypoint.CorpseLake, GOTWaypoint.CrowSpikeKeep, GOTWaypoint.Downdelving, GOTWaypoint.DrummCastle, GOTWaypoint.GreyGarden, GOTWaypoint.Hammerhorn, GOTWaypoint.HarlawHall, GOTWaypoint.HarridanHill, GOTWaypoint.IronHolt, GOTWaypoint.LonelyLight, GOTWaypoint.MyreCastle, GOTWaypoint.Orkwood, GOTWaypoint.Pyke, GOTWaypoint.Saltcliffe, GOTWaypoint.SealskinPoint, GOTWaypoint.Shatterstone, GOTWaypoint.SparrCastle, GOTWaypoint.Stonehouse, GOTWaypoint.StonetreeCastle, GOTWaypoint.Sunderly, GOTWaypoint.TawneyCastle, GOTWaypoint.TenTowers, GOTWaypoint.Volmark);
 		f[26] = new GOTStructureIronbornCity(biome, 0.0f).setIsTown();
 		f[26].affix(GOTWaypoint.Lordsport, GOTWaypoint.RedHaven);
 		f[27] = new GOTStructureIronbornCity(biome, 0.0f);
@@ -138,7 +138,7 @@ public class GOTFixer {
 		f[34] = new GOTStructureMyrCity(biome, 0.0f).setIsTown();
 		f[34].affix(GOTWaypoint.Myr.info(-1, 0, 1));
 		f[35] = new GOTStructureNorthCity(biome, 0.0f).setIsCastle();
-		f[35].affix(GOTWaypoint.Goldgrass.info(0, 1, 0), GOTWaypoint.RisvellsCastle.info(0, 1, 0), GOTWaypoint.ServinsCastle.info(-1, 0, 0), GOTWaypoint.Winterfell.info(0, 0, 1), GOTWaypoint.BlackPool, GOTWaypoint.DeepwoodMotte, GOTWaypoint.Dreadfort, GOTWaypoint.FlintsFinger, GOTWaypoint.Highpoint, GOTWaypoint.TorhensSquare, GOTWaypoint.WidowsWatch, GOTWaypoint.Hornwood, GOTWaypoint.Ironrath, GOTWaypoint.Karhold, GOTWaypoint.LastHearth, GOTWaypoint.MoatKailin, GOTWaypoint.MormontsKeep, GOTWaypoint.OldCastle, GOTWaypoint.RamsGate, GOTWaypoint.RillwaterCrossing);
+		f[35].affix(GOTWaypoint.CatfishRock.info(0, 0, 0), GOTWaypoint.BreakstoneHill, GOTWaypoint.Goldgrass.info(0, 1, 0), GOTWaypoint.RisvellsCastle.info(0, 1, 0), GOTWaypoint.ServinsCastle.info(-1, 0, 0), GOTWaypoint.Winterfell.info(0, 0, 1), GOTWaypoint.BlackPool, GOTWaypoint.DeepwoodMotte, GOTWaypoint.Dreadfort, GOTWaypoint.FlintsFinger, GOTWaypoint.Highpoint, GOTWaypoint.TorhensSquare, GOTWaypoint.WidowsWatch, GOTWaypoint.Hornwood, GOTWaypoint.Ironrath, GOTWaypoint.Karhold, GOTWaypoint.LastHearth, GOTWaypoint.MoatKailin, GOTWaypoint.MormontsKeep, GOTWaypoint.OldCastle, GOTWaypoint.RamsGate, GOTWaypoint.RillwaterCrossing);
 		f[36] = new GOTStructureNorthCity(biome, 0.0f).setIsSmallTown();
 		f[36].affix(GOTWaypoint.Barrowtown.info(0, 1, 2));
 		f[37] = new GOTStructureNorthCity(biome, 0.0f).setIsTown();
@@ -168,9 +168,9 @@ public class GOTFixer {
 		f[49] = new GOTStructureRiverlandsCity(biome, 0.0f);
 		f[49].affix(GOTWaypoint.FairMarket, GOTWaypoint.Harroway, GOTWaypoint.Pennytree, GOTWaypoint.Sevenstreams);
 		f[50] = new GOTStructureRuins(biome, 0.0f);
-		f[50].affix(GOTWaypoint.MhysaFaer, GOTWaypoint.AquosDhaen, GOTWaypoint.Draconys, GOTWaypoint.Tyria, GOTWaypoint.Rhyos, GOTWaypoint.Oros, GOTWaypoint.VulturesRoost, GOTWaypoint.Spicetown, GOTWaypoint.Castamere, GOTWaypoint.Goldenhill, GOTWaypoint.GreyironCastle, GOTWaypoint.HoareCastle, GOTWaypoint.HoareKeep, GOTWaypoint.HoggHall, GOTWaypoint.HollardCastle, GOTWaypoint.OldStones, GOTWaypoint.Summerhall, GOTWaypoint.TarbeckHall, GOTWaypoint.TowerOfJoy, GOTWaypoint.Whispers, GOTWaypoint.WhiteWalls);
+		f[50].affix(GOTWaypoint.KrazaajHas, GOTWaypoint.Morne, GOTWaypoint.NySar, GOTWaypoint.OldGhis, GOTWaypoint.SarMell, GOTWaypoint.Sarhoy, GOTWaypoint.Shandystone, GOTWaypoint.Starpike, GOTWaypoint.Telyria, GOTWaypoint.TorturersDeep, GOTWaypoint.VaesOrvik, GOTWaypoint.VaesQosar, GOTWaypoint.VaesShirosi, GOTWaypoint.VaesTolorro, GOTWaypoint.ValyrianRoad, GOTWaypoint.Velos, GOTWaypoint.VojjorSamvi, GOTWaypoint.GreyGallows, GOTWaypoint.BloodStone, GOTWaypoint.Anogaria, GOTWaypoint.KrazaajHas, GOTWaypoint.Kayakayanaya, GOTWaypoint.Aegon, GOTWaypoint.Raenys, GOTWaypoint.Visenya, GOTWaypoint.Ghozai, GOTWaypoint.Chroyane, GOTWaypoint.GhoyanDrohe, GOTWaypoint.FourteenFlames, GOTWaypoint.Ibbish, GOTWaypoint.Samyriana, GOTWaypoint.Bhorash, GOTWaypoint.Bayasabhad, GOTWaypoint.ArNoy, GOTWaypoint.Adakhakileki, GOTWaypoint.CastleLychester, GOTWaypoint.MhysaFaer, GOTWaypoint.AquosDhaen, GOTWaypoint.Draconys, GOTWaypoint.Tyria, GOTWaypoint.Rhyos, GOTWaypoint.Oros, GOTWaypoint.VulturesRoost, GOTWaypoint.Spicetown, GOTWaypoint.Castamere, GOTWaypoint.Goldenhill, GOTWaypoint.GreyironCastle, GOTWaypoint.HoareCastle, GOTWaypoint.HoareKeep, GOTWaypoint.HoggHall, GOTWaypoint.HollardCastle, GOTWaypoint.OldStones, GOTWaypoint.Summerhall, GOTWaypoint.TarbeckHall, GOTWaypoint.TowerOfJoy, GOTWaypoint.Whispers, GOTWaypoint.WhiteWalls);
 		f[51] = new GOTStructureRuinsBig(biome, 0.0f);
-		f[51].affix(GOTWaypoint.Harrenhal, GOTWaypoint.Stygai, GOTWaypoint.Ulos, GOTWaypoint.Yeen);
+		f[51].affix(GOTWaypoint.Bonetown, GOTWaypoint.Harrenhal, GOTWaypoint.Stygai, GOTWaypoint.Ulos, GOTWaypoint.Ulthos, GOTWaypoint.Yeen);
 		f[52] = new GOTStructureGiftVillage(biome, 0.0f).setIsShadowTower();
 		f[52].affix(GOTWaypoint.ShadowTower);
 		f[53] = new GOTStructureStormlandsCity(biome, 0.0f).setIsCastle();
@@ -188,7 +188,7 @@ public class GOTFixer {
 		f[59] = new GOTStructureVolantisCity(biome, 0.0f).setIsTown();
 		f[59].affix(GOTWaypoint.Elyria, GOTWaypoint.Tolos, GOTWaypoint.LittleValyria.info(0, 1, 0), GOTWaypoint.Mantarys.info(0, -1, 2), GOTWaypoint.Selhorys.info(-1, 0, 1), GOTWaypoint.Valysar.info(-1, 0, 1), GOTWaypoint.Volantis.info(-1, 0, 1), GOTWaypoint.VolonTherys.info(0, 1, 0));
 		f[60] = new GOTStructureGiftVillage(biome, 0.0f).setIsWallGate();
-		f[60].affix(GOTWaypoint.CastleBlack.info(0, -1, 0));
+		f[60].affix(GOTWaypoint.CastleBlack.info(0, 0, 0));
 		f[61] = new GOTStructureWesterlandsCity(biome, 0.0f).setIsCastle();
 		f[61].affix(GOTWaypoint.CasterlyRock.info(-1, 0, 0), GOTWaypoint.Crakehall.info(-1, 0, 0), GOTWaypoint.GoldenTooth.info(0, 1, 0), GOTWaypoint.Kayce.info(1, 0, 0), GOTWaypoint.Sarsfield.info(0, -1, 0), GOTWaypoint.Silverhill, GOTWaypoint.Wyndhall, GOTWaypoint.Plumwood, GOTWaypoint.Riverspring, GOTWaypoint.Greenfield, GOTWaypoint.Hornvale, GOTWaypoint.DeepDen, GOTWaypoint.Faircastle, GOTWaypoint.Feastfires, GOTWaypoint.CleganesKeep, GOTWaypoint.Cornfield, GOTWaypoint.Crag, GOTWaypoint.Ashemark, GOTWaypoint.Banefort);
 		f[62] = new GOTStructureWesterlandsCity(biome, 0.0f).setIsTown();
