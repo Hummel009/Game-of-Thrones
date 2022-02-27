@@ -33,6 +33,7 @@ public class GOTStructureWildlingBarn extends GOTStructureWesterosBase {
 		int k2;
 		int i22;
 		this.setOriginAndRotation(world, i, j, k, rotation, 1);
+		originY -=1;
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
