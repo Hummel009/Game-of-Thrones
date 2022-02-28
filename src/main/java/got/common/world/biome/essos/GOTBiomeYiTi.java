@@ -88,7 +88,7 @@ public class GOTBiomeYiTi extends GOTBiome {
 
 	@Override
 	public Region getBiomeWaypoints() {
-		return Region.YITI;
+		return Region.YI_TI;
 	}
 
 	@Override

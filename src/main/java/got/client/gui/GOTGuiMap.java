@@ -507,6 +507,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		GOTTextures.drawMapCompassBottomLeft(mapXMin + 12, mapYMax - 12, zLevel, 1.0);
 		zLevel -= 50.0f;
 		this.renderRoads();
+		this.renderWalls();
 		renderPlayers(i, j);
 		if (!loadingConquestGrid) {
 			renderMiniQuests(mc.thePlayer, i, j);

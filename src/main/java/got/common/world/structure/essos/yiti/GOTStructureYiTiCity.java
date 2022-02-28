@@ -12,6 +12,7 @@ import net.minecraft.world.World;
 public class GOTStructureYiTiCity extends GOTVillageGen {
 	public boolean isTown;
 	public boolean isTower;
+	public boolean isChineseWall;
 
 	public GOTStructureYiTiCity(GOTBiome biome, float f) {
 		super(biome);
@@ -39,6 +40,12 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 		return this;
 	}
 
+	public GOTStructureYiTiCity setIsChineseWall() {
+		isChineseWall = true;
+		fixedVillageChunkRadius = 2;
+		return this;
+	}
+
 	public class Instance extends GOTVillageGen.AbstractInstance {
 		public VillageType villageType;
 
@@ -60,6 +67,10 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 				break;
 			case TOWER:
 				this.addStructure(new GOTStructureYiTiLighthouse(), 0, 0, 0, true);
+				break;
+			case CHINESE_WALL:
+				this.addStructure(new GOTStructureYiTiFortress(false), 0, 20, 0, true);
+				this.addStructure(new GOTStructureYiTiGate(false), 0, 7, 0, true);
 				break;
 			}
 		}
@@ -420,6 +431,8 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 				villageType = VillageType.FORT;
 			} else if (isTower) {
 				villageType = VillageType.TOWER;
+			} else if (isChineseWall) {
+				villageType = VillageType.CHINESE_WALL;
 			} else {
 				villageType = VillageType.VILLAGE;
 			}
@@ -428,6 +441,6 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 	}
 
 	public enum VillageType {
-		VILLAGE, TOWN, FORT, TOWER;
+		VILLAGE, TOWN, FORT, TOWER, CHINESE_WALL;
 	}
 }

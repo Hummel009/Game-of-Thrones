@@ -1,6 +1,7 @@
 package got.common.world.biome.essos;
 
 import got.common.world.biome.other.GOTBiomeOcean;
+import got.common.world.map.GOTBezierType;
 import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.block.Block;
 
@@ -21,5 +22,15 @@ public class GOTBiomeRedBeach extends GOTBiomeOcean {
 		fillerBlock = block;
 		fillerBlockMeta = meta;
 		return this;
+	}
+
+	@Override
+	public int getWallTop() {
+		return 90;
+	}
+
+	@Override
+	public GOTBezierType getWallBlock() {
+		return GOTBezierType.COBBLEBRICK;
 	}
 }

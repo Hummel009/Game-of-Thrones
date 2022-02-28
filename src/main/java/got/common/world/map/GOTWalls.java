@@ -73,8 +73,7 @@ public class GOTWalls {
 					GOTWaypoint.Torches, 
 					GOTWaypoint.Greenguard,  GOTWaypoint.EastWatch);
 		GOTWalls.registerWall(id++, new int[] { 2659, 1218 }, new int[] { 2676, 1220 }, new int[] { 2693, 1218 });
-		GOTWalls.registerWall(id++, new int[] { 3257, 1864 }, new int[] { 3425, 1856 }, new int[] { 3629, 1877 }, new int[] { 3763, 1911 });
-		GOTWalls.registerWall(id++, new int[] { 3028, 1843 }, new int[] { 3097, 1857 }, new int[] { 3179, 1863 }, new int[] { 3257, 1864 });
+		GOTWalls.registerWall(id++, GOTWaypoint.Anbei, GOTWaypoint.Jianmen, GOTWaypoint.Anguo, GOTWaypoint.Anjiang, GOTWaypoint.Dingguo, GOTWaypoint.Pinnu, GOTWaypoint.Pingjiang, GOTWaypoint.Wude, GOTWaypoint.Wusheng, GOTWaypoint.Zhenguo, GOTWaypoint.Lungmen, GOTWaypoint.Pingbei);
 	}
 
 	public static void registerWall(int num, Object... waypoints) {
