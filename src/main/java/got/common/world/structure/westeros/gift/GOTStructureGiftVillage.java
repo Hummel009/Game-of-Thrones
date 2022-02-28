@@ -2,7 +2,6 @@ package got.common.world.structure.westeros.gift;
 
 import java.util.Random;
 
-import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.westeros.gift.*;
 import got.common.world.biome.GOTBiome;
@@ -56,47 +55,6 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 		return this;
 	}
 
-	public static class Gate extends GOTStructureGiftBase {
-		public Gate(boolean flag) {
-			super(flag);
-		}
-
-		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0, 0);
-			originY += 1;
-			originZ -= 7;
-			// Vozduh
-			for (int x = -3; x <= 3; ++x) {
-				for (int y = -3; y <= 3; ++y) {
-					for (int z = 0; z <= 6; ++z) {
-						setAir(world, x, z, y);
-					}
-				}
-			}
-			// Vorota
-			for (int x = -3; x <= 3; ++x) {
-				for (int z = 0; z <= 6; ++z) {
-					setBlockAndMetadata(world, x, z, 4, GOTRegistry.gateIronBars, 2);
-					setBlockAndMetadata(world, x, z, -4, GOTRegistry.gateWooden, 2);
-				}
-			}
-			// Balki stojachije
-			for (int z = 0; z <= 6; ++z) {
-				setBlockAndMetadata(world, -4, z, 4, GOTRegistry.woodBeamV1, 1);
-				setBlockAndMetadata(world, 4, z, 4, GOTRegistry.woodBeamV1, 1);
-				setBlockAndMetadata(world, -4, z, -4, GOTRegistry.woodBeamV1, 1);
-				setBlockAndMetadata(world, 4, z, -4, GOTRegistry.woodBeamV1, 1);
-			}
-			// Balki lezhachije
-			for (int x = -3; x <= 3; ++x) {
-				setBlockAndMetadata(world, x, 7, 4, GOTRegistry.woodBeamV1, 1 | 4);
-				setBlockAndMetadata(world, x, 7, -4, GOTRegistry.woodBeamV1, 1 | 4);
-			}
-			return true;
-		}
-	}
-
 	public class Instance extends GOTVillageGen.AbstractInstance {
 		public VillageType villageType;
 
@@ -108,16 +66,18 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 		public void addVillageStructures(Random random) {
 			switch (villageType) {
 			case CASTLE_BLACK:
-				this.addStructure(new Gate(false), 0, 7, 0, true);
-				this.addStructure(new CastleBlack(false), -4, 20, 1, true);
+				this.addStructure(new GOTStructureGiftGate(false), 0, 7, 0, true);
+				this.addStructure(new CastleBlack(false), -4, 25, 1, true);
 				break;
 			case SHADOW_TOWER:
+				this.addStructure(new GOTStructureGiftGate(false), 0, 7, 0, true);
 				this.addStructure(new ShadowTower(false), 0, 20, 0, true);
 				break;
 			case EAST_WATCH:
 				this.addStructure(new EastWatch(false), 0, 50, 0, true);
 				break;
 			case ABANDONED:
+				this.addStructure(new GOTStructureGiftGate(false).setIsAbandoned(), 0, 7, 0, true);
 				this.addStructure(new Abandoned(false), 0, 20, 0, true);
 				break;
 			case VILLAGE:
@@ -263,7 +223,7 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 				villageType = VillageType.EAST_WATCH;
 			} else if (isAbandoned) {
 				villageType = VillageType.ABANDONED;
-			}  else {
+			} else {
 				villageType = VillageType.VILLAGE;
 			}
 		}

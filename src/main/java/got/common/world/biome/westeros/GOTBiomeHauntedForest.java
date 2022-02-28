@@ -49,7 +49,7 @@ public class GOTBiomeHauntedForest extends GOTBiome {
 		c6[0] = GOTBiomeSpawnList.entry(GOTSpawnList.GIFT_GUARDIAN, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN);
 		npcSpawnList.newFactionList(0).add(c6);
 
-		decorator.addVillage(new GOTStructureWildlingVillage(this, 1.0f));
+		decorator.addVillage(new GOTStructureWildlingVillage(this, 0.1f));
 
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
