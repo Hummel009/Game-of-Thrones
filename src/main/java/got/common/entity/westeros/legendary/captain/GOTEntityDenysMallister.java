@@ -18,6 +18,7 @@ public class GOTEntityDenysMallister extends GOTEntityHumanBase implements GOTUn
 		addTargetTasks(true);
 		setIsLegendaryNPC();
 		setSize(0.6f, 1.8f);
+		isImmuneToFrost = true;
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));
 		tasks.addTask(2, new GOTEntityAIAttackOnCollide(this, 1.4, false));

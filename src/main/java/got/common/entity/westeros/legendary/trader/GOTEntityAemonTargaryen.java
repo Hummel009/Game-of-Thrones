@@ -14,6 +14,7 @@ public class GOTEntityAemonTargaryen extends GOTEntityHumanBase implements GOTTr
 	public GOTEntityAemonTargaryen(World world) {
 		super(world);
 		canBeMarried = false;
+		isImmuneToFrost = true;
 		addTargetTasks(false);
 		setIsLegendaryNPC();
 		setSize(0.6f, 1.8f);

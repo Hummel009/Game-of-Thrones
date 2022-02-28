@@ -53,6 +53,7 @@ public abstract class GOTStructureGiftBase extends GOTStructureBase {
 	public int cropMeta;
 	public Item seedItem;
 	public GOTItemBanner.BannerType bannerType;
+	public boolean isAbandoned;
 
 	public GOTStructureGiftBase(boolean flag) {
 		super(flag);
@@ -146,5 +147,22 @@ public abstract class GOTStructureGiftBase extends GOTStructureBase {
 			}
 		}
 		bannerType = GOTItemBanner.BannerType.NIGHT;
+
+		if (isAbandoned) {
+			woodBeamBlock = GOTRegistry.rottenLog;
+			woodBeamMeta = 0;
+			plankBlock = GOTRegistry.planksRotten;
+			plankMeta = 0;
+			plankSlabBlock = GOTRegistry.rottenSlabSingle;
+			plankSlabMeta = 0;
+			fenceBlock = GOTRegistry.fenceRotten;
+			fenceMeta = 0;
+			roofBlock = Blocks.air;
+			roofMeta = 0;
+			roofSlabBlock = Blocks.air;
+			roofSlabMeta = 0;
+			plankStairBlock = GOTRegistry.stairsRotten;
+			bedBlock = GOTRegistry.furBed;
+		}
 	}
 }

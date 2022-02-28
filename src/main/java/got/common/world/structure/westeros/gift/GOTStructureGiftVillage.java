@@ -16,6 +16,7 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 	public boolean isCastleBlack;
 	public boolean isShadowTower;
 	public boolean isEastWatch;
+	public boolean isAbandoned;
 
 	public GOTStructureGiftVillage(GOTBiome biome, float f) {
 		super(biome);
@@ -29,6 +30,12 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 	@Override
 	public GOTVillageGen.AbstractInstance createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 		return new Instance(this, world, i, k, random, loc);
+	}
+
+	public GOTStructureGiftVillage setIsAbandoned() {
+		isAbandoned = true;
+		fixedVillageChunkRadius = 2;
+		return this;
 	}
 
 	public GOTStructureGiftVillage setIsCastleBlack() {
@@ -102,13 +109,16 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 			switch (villageType) {
 			case CASTLE_BLACK:
 				this.addStructure(new Gate(false), 0, 7, 0, true);
-				this.addStructure(new CastleBlack(false), 0, 50, 2, true);
+				this.addStructure(new CastleBlack(false), -4, 20, 1, true);
 				break;
 			case SHADOW_TOWER:
-				this.addStructure(new ShadowTower(false), 0, 50, 2, true);
+				this.addStructure(new ShadowTower(false), 0, 20, 0, true);
 				break;
 			case EAST_WATCH:
 				this.addStructure(new EastWatch(false), 0, 50, 0, true);
+				break;
+			case ABANDONED:
+				this.addStructure(new Abandoned(false), 0, 20, 0, true);
 				break;
 			case VILLAGE:
 				setupVillage(random);
@@ -251,13 +261,15 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 				villageType = VillageType.SHADOW_TOWER;
 			} else if (isEastWatch) {
 				villageType = VillageType.EAST_WATCH;
-			} else {
+			} else if (isAbandoned) {
+				villageType = VillageType.ABANDONED;
+			}  else {
 				villageType = VillageType.VILLAGE;
 			}
 		}
 	}
 
 	public enum VillageType {
-		CASTLE_BLACK, SHADOW_TOWER, EAST_WATCH, VILLAGE;
+		ABANDONED, CASTLE_BLACK, SHADOW_TOWER, EAST_WATCH, VILLAGE;
 	}
 }

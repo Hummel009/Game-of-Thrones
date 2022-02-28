@@ -30,6 +30,7 @@ public class GOTEntitySamwellTarly extends GOTEntityHumanBase {
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(9, new EntityAILookIdle(this));
 		questInfo.setMinAlignment(0.0f);
+		isImmuneToFrost = true;
 	}
 
 	@Override

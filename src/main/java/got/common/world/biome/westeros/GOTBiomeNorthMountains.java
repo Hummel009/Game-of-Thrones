@@ -77,6 +77,11 @@ public class GOTBiomeNorthMountains extends GOTBiomeNorth {
 	}
 
 	@Override
+	public int getWallTop() {
+		return 150;
+	}
+
+	@Override
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.WESTEROS.getSubregion("northMountains");
 	}

@@ -133,7 +133,7 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 					continue;
 				}
 				setBlockAndMetadata(world, i15, 5 + yBoost, k12, fenceBlock, fenceMeta);
-				if (i2 == 9 && IntMath.mod(k12, 3) == 0 || k2 == 9 && IntMath.mod(i15, 3) == 0) {
+				if ((i2 == 9 && IntMath.mod(k12, 3) == 0 || k2 == 9 && IntMath.mod(i15, 3) == 0) && !isAbandoned) {
 					setBlockAndMetadata(world, i15, 6 + yBoost, k12, Blocks.torch, 5);
 				}
 				if (k12 == -9) {
@@ -264,8 +264,10 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 			setBlockAndMetadata(world, -6, j1, -9, woodBeamBlock, woodBeamMeta);
 			setBlockAndMetadata(world, 6, j1, -9, woodBeamBlock, woodBeamMeta);
 		}
+		if (!isAbandoned) {
 		setBlockAndMetadata(world, -6, 8, -9, Blocks.torch, 5);
 		setBlockAndMetadata(world, 6, 8, -9, Blocks.torch, 5);
+		}
 		for (k1 = -12; k1 <= -10; ++k1) {
 			for (j13 = 1; j13 <= 4; ++j13) {
 				for (i12 = -1; i12 <= 1; ++i12) {
@@ -297,13 +299,15 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 		setBlockAndMetadata(world, 2, 8, -12, plankStairBlock, 0);
 		setBlockAndMetadata(world, -1, 7, -12, fenceBlock, fenceMeta);
 		setBlockAndMetadata(world, 1, 7, -12, fenceBlock, fenceMeta);
-		placeWallBanner(world, -2, 6, -12, bannerType, 2);
-		placeWallBanner(world, 0, 7, -12, bannerType, 2);
-		placeWallBanner(world, 2, 6, -12, bannerType, 2);
+		if (!isAbandoned) {
+			placeWallBanner(world, -2, 6, -12, bannerType, 2);
+			placeWallBanner(world, 0, 7, -12, bannerType, 2);
+			placeWallBanner(world, 2, 6, -12, bannerType, 2);
 		setBlockAndMetadata(world, -2, 3, -13, Blocks.torch, 4);
 		setBlockAndMetadata(world, 2, 3, -13, Blocks.torch, 4);
 		setBlockAndMetadata(world, -2, 3, -9, Blocks.torch, 3);
 		setBlockAndMetadata(world, 2, 3, -9, Blocks.torch, 3);
+		}
 		for (k1 = -13; k1 <= 9; ++k1) {
 			for (i1 = -1; i1 <= 1; ++i1) {
 				for (j12 = 0; (j12 >= 0 || !isOpaque(world, i1, j12, k1)) && getY(j12) >= 0; --j12) {
@@ -320,23 +324,30 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 				continue;
 			}
 			setBlockAndMetadata(world, -2, 1, k1, brickWallBlock, brickWallMeta);
+			if (!isAbandoned) {
 			setBlockAndMetadata(world, -2, 2, k1, Blocks.torch, 5);
+			}
 			setBlockAndMetadata(world, 2, 1, k1, brickWallBlock, brickWallMeta);
+			if (!isAbandoned) {
 			setBlockAndMetadata(world, 2, 2, k1, Blocks.torch, 5);
+			}
 		}
 		for (j1 = 1; j1 <= 3; ++j1) {
 			setBlockAndMetadata(world, -2, j1, 10, woodBeamBlock, woodBeamMeta);
 			setBlockAndMetadata(world, 2, j1, 10, woodBeamBlock, woodBeamMeta);
 		}
+		if (!isAbandoned) {
 		setBlockAndMetadata(world, -2, 3, 9, Blocks.torch, 4);
 		setBlockAndMetadata(world, 2, 3, 9, Blocks.torch, 4);
+		}
 		int[] j16 = { -7, 7 };
 		i1 = j16.length;
 		for (j12 = 0; j12 < i1; ++j12) {
 			i13 = j16[j12];
 			setBlockAndMetadata(world, i13, 1, 0, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, i13, 2, 0, fenceBlock, fenceMeta);
-			setBlockAndMetadata(world, i13, 3, 0, Blocks.torch, 5);
+			if (!isAbandoned) {
+				setBlockAndMetadata(world, i13, 3, 0, Blocks.torch, 5);
 			for (int l = 0; l < 2; ++l) {
 				GOTEntityHorse horse = new GOTEntityHorse(world);
 				spawnNPCAndSetHome(horse, world, i13 - Integer.signum(i13) * 3, 1, 0, 0);
@@ -344,6 +355,7 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 				horse.saddleMountForWorldGen();
 				horse.detachHome();
 				leashEntityTo(horse, world, i13, 2, 0);
+			}
 			}
 		}
 		for (int k15 = -9; k15 <= -5; ++k15) {
@@ -369,15 +381,21 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 		setBlockAndMetadata(world, -5, 1, -9, plankBlock, plankMeta);
 		setBlockAndMetadata(world, -5, 2, -9, fenceBlock, fenceMeta);
 		setBlockAndMetadata(world, -6, 1, -9, plankBlock, plankMeta);
-		setBlockAndMetadata(world, -6, 2, -9, Blocks.torch, 3);
+		if (!isAbandoned) {
+			setBlockAndMetadata(world, -6, 2, -9, Blocks.torch, 3);
+		}
 		setBlockAndMetadata(world, -9, 1, -6, plankBlock, plankMeta);
-		setBlockAndMetadata(world, -9, 2, -6, Blocks.torch, 2);
+		if (!isAbandoned) {
+			setBlockAndMetadata(world, -9, 2, -6, Blocks.torch, 2);
+		}
 		setBlockAndMetadata(world, -9, 1, -5, plankBlock, plankMeta);
 		setBlockAndMetadata(world, -9, 2, -5, fenceBlock, fenceMeta);
 		setBlockAndMetadata(world, -6, 1, -5, Blocks.anvil, 1);
 		setBlockAndMetadata(world, -5, 1, -6, Blocks.cauldron, 3);
-		GOTEntityGiftBlacksmith blacksmith = new GOTEntityGiftBlacksmith(world);
-		spawnNPCAndSetHome(blacksmith, world, -4, 1, -4, 8);
+		if (!isAbandoned) {
+			GOTEntityGiftBlacksmith blacksmith = new GOTEntityGiftBlacksmith(world);
+			spawnNPCAndSetHome(blacksmith, world, -4, 1, -4, 8);
+		}
 		for (k12 = 5; k12 <= 9; ++k12) {
 			for (i12 = -9; i12 <= -5; ++i12) {
 				setBlockAndMetadata(world, i12, 3, k12, plankSlabBlock, plankSlabMeta);
@@ -391,13 +409,20 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 		setBlockAndMetadata(world, -5, 1, 9, plankBlock, plankMeta);
 		setBlockAndMetadata(world, -5, 2, 9, fenceBlock, fenceMeta);
 		setBlockAndMetadata(world, -6, 1, 9, plankBlock, plankMeta);
-		setBlockAndMetadata(world, -6, 2, 9, Blocks.torch, 4);
-		this.placeChest(world, random, -7, 1, 9, 2, GOTChestContents.WESTEROS);
-		this.placeChest(world, random, -8, 1, 9, 2, GOTChestContents.WESTEROS);
+		if (!isAbandoned) {
+			setBlockAndMetadata(world, -6, 2, 9, Blocks.torch, 4);
+			this.placeChest(world, random, -7, 1, 9, 2, GOTChestContents.WESTEROS);
+			this.placeChest(world, random, -8, 1, 9, 2, GOTChestContents.WESTEROS);
+		} else {
+			this.placeChest(world, random, -7, 1, 9, 2, GOTChestContents.BARROW);
+			this.placeChest(world, random, -8, 1, 9, 2, GOTChestContents.BARROW);
+		}
 		setBlockAndMetadata(world, -9, 1, 8, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, -9, 1, 7, tableBlock, 0);
 		setBlockAndMetadata(world, -9, 1, 6, plankBlock, plankMeta);
-		setBlockAndMetadata(world, -9, 2, 6, Blocks.torch, 2);
+		if (!isAbandoned) {
+			setBlockAndMetadata(world, -9, 2, 6, Blocks.torch, 2);
+		}
 		setBlockAndMetadata(world, -9, 1, 5, plankBlock, plankMeta);
 		setBlockAndMetadata(world, -9, 2, 5, fenceBlock, fenceMeta);
 		for (k12 = 5; k12 <= 10; ++k12) {
@@ -428,7 +453,7 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 		setBlockAndMetadata(world, 5, 1, 5, woodBeamBlock, woodBeamMeta);
 		setBlockAndMetadata(world, 5, 2, 5, woodBeamBlock, woodBeamMeta);
 		for (i1 = 6; i1 <= 10; ++i1) {
-			if (IntMath.mod(i1, 2) == 0) {
+			if (IntMath.mod(i1, 2) == 0 && !isAbandoned) {
 				setBlockAndMetadata(world, i1, 2, 6, Blocks.torch, 3);
 				setBlockAndMetadata(world, i1, 2, 10, Blocks.torch, 4);
 			}
@@ -445,10 +470,17 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 			setBlockAndMetadata(world, 9, 1, k16, bedBlock, 1);
 			setBlockAndMetadata(world, 10, 1, k16, bedBlock, 9);
 		}
-		this.placeChest(world, random, 8, 1, 6, 3, GOTChestContents.WESTEROS);
-		this.placeChest(world, random, 8, 1, 10, 2, GOTChestContents.WESTEROS);
+		if (!isAbandoned) {
+			this.placeChest(world, random, 8, 1, 6, 3, GOTChestContents.WESTEROS);
+			this.placeChest(world, random, 8, 1, 10, 2, GOTChestContents.WESTEROS);
+		} else {
+			this.placeChest(world, random, 8, 1, 6, 3, GOTChestContents.BARROW);
+			this.placeChest(world, random, 8, 1, 10, 2, GOTChestContents.BARROW);
+		}
 		setBlockAndMetadata(world, 10, 1, 8, plankBlock, plankMeta);
-		this.placeBarrel(world, random, 10, 2, 8, 5, GOTFoods.WESTEROS_DRINK);
+		if (!isAbandoned) {
+			this.placeBarrel(world, random, 10, 2, 8, 5, GOTFoods.WESTEROS_DRINK);
+		}
 		for (int j18 = 1; j18 <= 4; ++j18) {
 			setBlockAndMetadata(world, 6, j18, -9, woodBeamBlock, woodBeamMeta);
 			setBlockAndMetadata(world, 7, j18, -9, plankBlock, plankMeta);
@@ -465,28 +497,32 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 			}
 			setAir(world, 9, 5, k1);
 		}
-		placeWallBanner(world, -10, 3, 0, bannerType, 1);
-		placeWallBanner(world, 10, 3, 0, bannerType, 3);
+		if (!isAbandoned) {
+			placeWallBanner(world, -10, 3, 0, bannerType, 1);
+			placeWallBanner(world, 10, 3, 0, bannerType, 3);
+		}
 		for (i1 = -1; i1 <= 1; ++i1) {
 			setBlockAndMetadata(world, i1, 0, 10, brickBlock, brickMeta);
 			for (j12 = 1; j12 <= 3; ++j12) {
 				setAir(world, i1, j12, 10);
 			}
 		}
-		setBlockAndMetadata(world, 0, 1, 9, GOTRegistry.commandTable, 0);
-		placeWallBanner(world, 0, 3, 11, bannerType, 2);
-		spawnLegendaryMobs(world);
-		for (int l = 0; l < 8; ++l) {
-			spawnNPCAndSetHome(new GOTEntityGiftGuard(world), world, 0, 1, 0, 20);
+		if (!isAbandoned) {
+			setBlockAndMetadata(world, 0, 1, 9, GOTRegistry.commandTable, 0);
+			placeWallBanner(world, 0, 3, 11, bannerType, 2);
+			spawnLegendaryMobs(world);
+			for (int l = 0; l < 8; ++l) {
+				spawnNPCAndSetHome(new GOTEntityGiftGuard(world), world, 0, 1, 0, 20);
+			}
+			GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
+			respawner.setSpawnClass(GOTEntityGiftGuard.class);
+			respawner.setCheckRanges(16, -8, 10, 12);
+			respawner.setSpawnRanges(11, 1, 6, 20);
+			placeNPCRespawner(respawner, world, 0, 0, 0);
 		}
-		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClass(GOTEntityGiftGuard.class);
-		respawner.setCheckRanges(16, -8, 10, 12);
-		respawner.setSpawnRanges(11, 1, 6, 20);
-		placeNPCRespawner(respawner, world, 0, 0, 0);
 		return true;
 	}
-
+	
 	public void spawnLegendaryMobs(World world) {
 	}
 
@@ -503,6 +539,13 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 			spawnLegendaryNPC(new GOTEntityAlliserThorne(world), world, -3, 1, 3);
 			spawnLegendaryNPC(new GOTEntityEdd(world), world, 3, 1, -3);
 			spawnLegendaryNPC(new GOTEntitySamwellTarly(world), world, 0, 1, 3);
+		}
+	}
+
+	public static class Abandoned extends GOTStructureGiftCastle {
+		public Abandoned(boolean flag) {
+			super(flag);
+			isAbandoned = true;
 		}
 	}
 
