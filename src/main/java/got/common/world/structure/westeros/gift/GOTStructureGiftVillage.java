@@ -16,7 +16,6 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 	public boolean isCastleBlack;
 	public boolean isShadowTower;
 	public boolean isEastWatch;
-	public boolean isWallGate;
 
 	public GOTStructureGiftVillage(GOTBiome biome, float f) {
 		super(biome);
@@ -50,12 +49,6 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 		return this;
 	}
 
-	public GOTStructureGiftVillage setIsWallGate() {
-		isWallGate = true;
-		fixedVillageChunkRadius = 1;
-		return this;
-	}
-
 	public static class Gate extends GOTStructureGiftBase {
 		public Gate(boolean flag) {
 			super(flag);
@@ -64,8 +57,8 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0, 0);
-			originY += 2;
-			originZ -= 50;
+			originY += 1;
+			originZ -= 7;
 			// Vozduh
 			for (int x = -3; x <= 3; ++x) {
 				for (int y = -3; y <= 3; ++y) {
@@ -108,19 +101,17 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 		public void addVillageStructures(Random random) {
 			switch (villageType) {
 			case CASTLE_BLACK:
+				this.addStructure(new Gate(false), 0, 7, 0, true);
 				this.addStructure(new CastleBlack(false), 0, 50, 2, true);
 				break;
 			case SHADOW_TOWER:
 				this.addStructure(new ShadowTower(false), 0, 50, 2, true);
 				break;
 			case EAST_WATCH:
-				this.addStructure(new EastWatch(false), 0, 50, 2, true);
+				this.addStructure(new EastWatch(false), 0, 50, 0, true);
 				break;
 			case VILLAGE:
 				setupVillage(random);
-				break;
-			case WALL_GATE:
-				this.addStructure(new Gate(false), 0, 50, 0, true);
 				break;
 			}
 		}
@@ -260,8 +251,6 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 				villageType = VillageType.SHADOW_TOWER;
 			} else if (isEastWatch) {
 				villageType = VillageType.EAST_WATCH;
-			} else if (isWallGate) {
-				villageType = VillageType.WALL_GATE;
 			} else {
 				villageType = VillageType.VILLAGE;
 			}
@@ -269,6 +258,6 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 	}
 
 	public enum VillageType {
-		CASTLE_BLACK, SHADOW_TOWER, EAST_WATCH, VILLAGE, WALL_GATE;
+		CASTLE_BLACK, SHADOW_TOWER, EAST_WATCH, VILLAGE;
 	}
 }
