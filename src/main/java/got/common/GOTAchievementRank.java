@@ -45,7 +45,8 @@ public class GOTAchievementRank extends GOTAchievement {
 
 	@Override
 	public IChatComponent getAchievementChatComponent(EntityPlayer entityplayer) {
-		ChatComponentTranslation component = (ChatComponentTranslation) new ChatComponentTranslation("got.rank." + theRank.name).appendText(" ").appendSibling(new ChatComponentTranslation(theRank.getFacName())).createCopy();
+		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
+		ChatComponentTranslation component = (ChatComponentTranslation) new ChatComponentTranslation(theRank.getCodeFullNameWithGender(pd)).appendText(" ").appendSibling(new ChatComponentTranslation(theRank.getFacName())).createCopy();
 		component.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 		component.getChatStyle().setChatHoverEvent(new HoverEvent(GOTChatEvents.SHOW_GOT_ACHIEVEMENT, new ChatComponentText(category.name() + "$" + ID)));
 		return component;
