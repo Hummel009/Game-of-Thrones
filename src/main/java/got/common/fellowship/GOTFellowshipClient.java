@@ -2,6 +2,8 @@ package got.common.fellowship;
 
 import java.util.*;
 
+import com.mojang.authlib.GameProfile;
+
 import got.common.database.GOTTitle;
 import net.minecraft.item.ItemStack;
 
@@ -11,34 +13,53 @@ public class GOTFellowshipClient {
 	public ItemStack fellowshipIcon;
 	public boolean isOwned;
 	public boolean isAdminned;
-	public String ownerName;
-	public List<String> memberNames = new ArrayList<>();
-	public Map<String, GOTTitle.PlayerTitle> titleMap = new HashMap<>();
-	public Set<String> adminNames = new HashSet<>();
+	private UUID ownerUUID;
+	private List<UUID> memberUUIDs = new ArrayList<>();
+	private Map<UUID, String> usernameMap = new HashMap<>();
+	private Map<UUID, GOTTitle.PlayerTitle> titleMap = new HashMap<>();
+	private Set<UUID> adminUUIDs = new HashSet<>();
 	public boolean preventPVP;
 	public boolean preventHiredFF;
 	public boolean showMapLocations;
 
-	public GOTFellowshipClient(UUID id, String name, boolean owned, boolean admin, String owner, List<String> members) {
+	public GOTFellowshipClient(UUID id, String name, boolean owned, boolean admin, GameProfile owner, List<GameProfile> members) {
 		fellowshipID = id;
 		fellowshipName = name;
 		isOwned = owned;
 		isAdminned = admin;
-		ownerName = owner;
-		memberNames = members;
-	}
-
-	public void addMember(String member, GOTTitle.PlayerTitle title) {
-		if (!memberNames.contains(member)) {
-			memberNames.add(member);
-			titleMap.put(member, title);
+		ownerUUID = owner.getId();
+		usernameMap.put(ownerUUID, owner.getName());
+		for (GameProfile member : members) {
+			memberUUIDs.add(member.getId());
+			usernameMap.put(member.getId(), member.getName());
 		}
 	}
 
-	public List<String> getAllPlayerNames() {
-		ArrayList<String> allPlayers = new ArrayList<>();
-		allPlayers.add(ownerName);
-		allPlayers.addAll(memberNames);
+	public void addMember(GameProfile member, GOTTitle.PlayerTitle title) {
+		UUID memberUuid = member.getId();
+		if (!memberUUIDs.contains(memberUuid)) {
+			memberUUIDs.add(memberUuid);
+			usernameMap.put(memberUuid, member.getName());
+			titleMap.put(memberUuid, title);
+		}
+	}
+
+	public boolean containsPlayer(UUID playerUuid) {
+		return ownerUUID.equals(playerUuid) || memberUUIDs.contains(playerUuid);
+	}
+
+	public boolean containsPlayerUsername(String username) {
+		return usernameMap.containsValue(username);
+	}
+
+	public List<GameProfile> getAllPlayerProfiles() {
+		return getProfilesFor(getAllPlayerUuids());
+	}
+
+	public List<UUID> getAllPlayerUuids() {
+		ArrayList<UUID> allPlayers = new ArrayList<>();
+		allPlayers.add(ownerUUID);
+		allPlayers.addAll(memberUUIDs);
 		return allPlayers;
 	}
 
@@ -50,20 +71,28 @@ public class GOTFellowshipClient {
 		return fellowshipIcon;
 	}
 
-	public int getMemberCount() {
-		return memberNames.size() + 1;
+	public List<GameProfile> getMemberProfiles() {
+		return getProfilesFor(memberUUIDs);
 	}
 
-	public List<String> getMemberNames() {
-		return memberNames;
+	public List<UUID> getMemberUuids() {
+		return memberUUIDs;
 	}
 
 	public String getName() {
 		return fellowshipName;
 	}
 
-	public String getOwnerName() {
-		return ownerName;
+	public GameProfile getOwnerProfile() {
+		return getProfileFor(ownerUUID);
+	}
+
+	public UUID getOwnerUuid() {
+		return ownerUUID;
+	}
+
+	public int getPlayerCount() {
+		return memberUUIDs.size() + 1;
 	}
 
 	public boolean getPreventHiredFriendlyFire() {
@@ -74,16 +103,32 @@ public class GOTFellowshipClient {
 		return preventPVP;
 	}
 
+	private GameProfile getProfileFor(UUID playerUuid) {
+		return new GameProfile(playerUuid, getUsernameFor(playerUuid));
+	}
+
+	private List<GameProfile> getProfilesFor(List<UUID> playerUuids) {
+		ArrayList<GameProfile> list = new ArrayList<>();
+		for (UUID playerUuid : playerUuids) {
+			list.add(getProfileFor(playerUuid));
+		}
+		return list;
+	}
+
 	public boolean getShowMapLocations() {
 		return showMapLocations;
 	}
 
-	public GOTTitle.PlayerTitle getTitleFor(String name) {
-		return titleMap.get(name);
+	public GOTTitle.PlayerTitle getTitleFor(UUID playerUuid) {
+		return titleMap.get(playerUuid);
 	}
 
-	public boolean isAdmin(String name) {
-		return adminNames.contains(name);
+	public String getUsernameFor(UUID playerUuid) {
+		return usernameMap.get(playerUuid);
+	}
+
+	public boolean isAdmin(UUID playerUuid) {
+		return adminUUIDs.contains(playerUuid);
 	}
 
 	public boolean isAdminned() {
@@ -94,36 +139,34 @@ public class GOTFellowshipClient {
 		return isOwned;
 	}
 
-	public boolean isPlayerIn(String name) {
-		return ownerName.equals(name) || memberNames.contains(name);
-	}
-
-	public void removeAdmin(String admin, boolean adminned) {
-		if (adminNames.contains(admin)) {
-			adminNames.remove(admin);
+	public void removeAdmin(UUID playerUuid, boolean adminned) {
+		if (adminUUIDs.contains(playerUuid)) {
+			adminUUIDs.remove(playerUuid);
 			isAdminned = adminned;
 		}
 	}
 
-	public void removeMember(String member) {
-		if (memberNames.contains(member)) {
-			memberNames.remove(member);
-			if (adminNames.contains(member)) {
-				adminNames.remove(member);
+	public void removeMember(GameProfile member) {
+		UUID memberUuid = member.getId();
+		if (memberUUIDs.contains(memberUuid)) {
+			memberUUIDs.remove(memberUuid);
+			usernameMap.remove(memberUuid);
+			if (adminUUIDs.contains(memberUuid)) {
+				adminUUIDs.remove(memberUuid);
 			}
-			titleMap.remove(member);
+			titleMap.remove(memberUuid);
 		}
 	}
 
-	public void setAdmin(String admin, boolean adminned) {
-		if (!adminNames.contains(admin)) {
-			adminNames.add(admin);
+	public void setAdmin(UUID playerUuid, boolean adminned) {
+		if (!adminUUIDs.contains(playerUuid)) {
+			adminUUIDs.add(playerUuid);
 			isAdminned = adminned;
 		}
 	}
 
-	public void setAdmins(Set<String> admins) {
-		adminNames = admins;
+	public void setAdmins(Set<UUID> admins) {
+		adminUUIDs = admins;
 	}
 
 	public void setIcon(ItemStack itemstack) {
@@ -134,18 +177,20 @@ public class GOTFellowshipClient {
 		fellowshipName = name;
 	}
 
-	public void setOwner(String newOwner, boolean owned) {
-		String prevOwner = ownerName;
-		if (!prevOwner.equals(newOwner)) {
-			if (!memberNames.contains(prevOwner)) {
-				memberNames.add(0, prevOwner);
+	public void setOwner(GameProfile newOwner, boolean owned) {
+		UUID prevOwnerUuid = ownerUUID;
+		UUID newOwnerUuid = newOwner.getId();
+		if (!prevOwnerUuid.equals(newOwnerUuid)) {
+			if (!memberUUIDs.contains(prevOwnerUuid)) {
+				memberUUIDs.add(0, prevOwnerUuid);
 			}
-			ownerName = newOwner;
-			if (memberNames.contains(newOwner)) {
-				memberNames.remove(newOwner);
+			ownerUUID = newOwnerUuid;
+			usernameMap.put(ownerUUID, newOwner.getName());
+			if (memberUUIDs.contains(newOwnerUuid)) {
+				memberUUIDs.remove(newOwnerUuid);
 			}
-			if (adminNames.contains(newOwner)) {
-				adminNames.remove(newOwner);
+			if (adminUUIDs.contains(newOwnerUuid)) {
+				adminUUIDs.remove(newOwnerUuid);
 			}
 			isOwned = owned;
 			if (isOwned) {
@@ -166,7 +211,7 @@ public class GOTFellowshipClient {
 		showMapLocations = flag;
 	}
 
-	public void setTitles(Map<String, GOTTitle.PlayerTitle> titles) {
+	public void setTitles(Map<UUID, GOTTitle.PlayerTitle> titles) {
 		titleMap = titles;
 	}
 
@@ -175,20 +220,21 @@ public class GOTFellowshipClient {
 		fellowshipIcon = other.fellowshipIcon;
 		isOwned = other.isOwned;
 		isAdminned = other.isAdminned;
-		ownerName = other.ownerName;
-		memberNames = other.memberNames;
+		ownerUUID = other.ownerUUID;
+		memberUUIDs = other.memberUUIDs;
+		usernameMap = other.usernameMap;
 		titleMap = other.titleMap;
-		adminNames = other.adminNames;
+		adminUUIDs = other.adminUUIDs;
 		preventPVP = other.preventPVP;
 		preventHiredFF = other.preventHiredFF;
 		showMapLocations = other.showMapLocations;
 	}
 
-	public void updatePlayerTitle(String player, GOTTitle.PlayerTitle title) {
+	public void updatePlayerTitle(UUID playerUuid, GOTTitle.PlayerTitle title) {
 		if (title == null) {
-			titleMap.remove(player);
+			titleMap.remove(playerUuid);
 		} else {
-			titleMap.put(player, title);
+			titleMap.put(playerUuid, title);
 		}
 	}
 }

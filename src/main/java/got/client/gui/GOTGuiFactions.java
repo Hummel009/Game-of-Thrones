@@ -278,7 +278,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 			y = guiTop + pageY + pageBorderTop;
 			if (!isPledging && !isUnpledging) {
 				int index;
-				switch(currentPage) {
+				switch (currentPage) {
 				case ALLIES:
 				case ENEMIES:
 					int avgBgColor = GOTTextures.computeAverageFactionPageColor(factionsTexture, 20, 20, 120, 80);

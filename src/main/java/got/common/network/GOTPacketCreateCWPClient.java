@@ -128,7 +128,7 @@ public class GOTPacketCreateCWPClient implements IMessage {
 					pd.addOrUpdateSharedCustomWaypoint(cwp);
 				}
 			} else if (!GOT.proxy.isSingleplayer()) {
-				pd.addCustomWaypoint(cwp);
+				pd.addCustomWaypointClient(cwp);
 			}
 			return null;
 		}

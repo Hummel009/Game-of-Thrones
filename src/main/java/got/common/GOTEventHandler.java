@@ -235,6 +235,8 @@ public class GOTEventHandler implements IFuelHandler {
 					world.markBlockForUpdate(i, j - 1, k);
 					world.markBlockForUpdate(i, j, k);
 					world.markBlockForUpdate(i, j + 1, k);
+				} else if (block instanceof GOTBlockPlate && GOTBlockPlate.getFoodItem(world, i, j, k) != null) {
+					world.markBlockForUpdate(i, j, k);
 				}
 				return;
 			}

@@ -244,7 +244,6 @@ public class GOTEntityBanner extends Entity {
 			}
 			GameProfile playerProfile = entityplayer.getGameProfile();
 			if (playerProfile != null && playerProfile.getId() != null) {
-				String playerName = playerProfile.getName();
 				UUID playerID = playerProfile.getId();
 				for (GOTBannerWhitelistEntry entry : allowedPlayers) {
 					if (entry == null) {
@@ -262,7 +261,7 @@ public class GOTEntityBanner extends Entity {
 							}
 						} else {
 							fs = fsPro.getFellowshipClient();
-							if (fs != null && ((GOTFellowshipClient) fs).isPlayerIn(playerName)) {
+							if (fs != null && ((GOTFellowshipClient) fs).containsPlayer(playerID)) {
 								playerMatch = true;
 							}
 						}
