@@ -3,7 +3,8 @@ package got.common;
 import got.common.database.*;
 import got.common.faction.*;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.StatCollector;
+import net.minecraft.event.HoverEvent;
+import net.minecraft.util.*;
 
 public class GOTAchievementRank extends GOTAchievement {
 	public GOTFactionRank theRank;
@@ -40,6 +41,14 @@ public class GOTAchievementRank extends GOTAchievement {
 	@Override
 	public String getUntranslatedTitle(EntityPlayer entityplayer) {
 		return theRank.getCodeFullNameWithGender(GOTLevelData.getData(entityplayer));
+	}
+
+	@Override
+	public IChatComponent getAchievementChatComponent(EntityPlayer entityplayer) {
+		ChatComponentTranslation component = (ChatComponentTranslation) new ChatComponentTranslation("got.rank." + theRank.name).appendText(" ").appendSibling(new ChatComponentTranslation(theRank.getFacName())).createCopy();
+		component.getChatStyle().setColor(EnumChatFormatting.YELLOW);
+		component.getChatStyle().setChatHoverEvent(new HoverEvent(GOTChatEvents.SHOW_GOT_ACHIEVEMENT, new ChatComponentText(category.name() + "$" + ID)));
+		return component;
 	}
 
 	public boolean isPlayerRequiredRank(EntityPlayer entityplayer) {

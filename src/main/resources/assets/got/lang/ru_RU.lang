@@ -1,4 +1,6 @@
 ﻿
+item.got:westerosLongsword.name=Полутораручный меч Вестероса
+item.got:westerosGreatsword.name=Двуручный меч Вестероса
 entity.got.BraavosFarmhand.name=Рабочий Браавоса
 entity.got.PentosFarmhand.name=Рабочий Пентоса
 entity.got.NorvosFarmhand.name=Рабочий Норвоса

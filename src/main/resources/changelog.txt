@@ -1,7 +1,7 @@
 CHANGELOG
 
 >>VERSION 17.7
-* Greatly improved the Wall
+* Greatly improved the Ice Wall and the Yi Ti Wall
 * Greatly improved all the banners in the game (prod. Hummel009)
 + Added ruined wall castles
 + Added fixed castles in mountain biomes
@@ -31,6 +31,7 @@ CHANGELOG
 * Optimized NPCs checking for players with their miniquests
 * Optimized rendering code
 
+* Fixed bug with chat achievements
 * Fixed bug with frost damaging gift legendary mobs
 * Fixed bug with goldsmithes in westeros
 * Fixed bug with essos children not spawning in houses

@@ -15,7 +15,7 @@ public class GOTItemLegendaryWhip extends GOTItemSword {
 	public GOTItemLegendaryWhip() {
 		super(GOTMaterial.LOG);
 		setMaxDamage(1500);
-		gotWeaponDamage = 9.0f;
+		gotWeaponDamage = 5.0f;
 		setCreativeTab(GOTCreativeTabs.tabStory);
 	}
 

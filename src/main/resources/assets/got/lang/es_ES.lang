@@ -1,4 +1,6 @@
 ﻿
+item.got:westerosLongsword.name≠
+item.got:westerosGreatsword.name≠
 entity.got.BraavosFarmhand.name≠
 entity.got.PentosFarmhand.name≠
 entity.got.NorvosFarmhand.name≠

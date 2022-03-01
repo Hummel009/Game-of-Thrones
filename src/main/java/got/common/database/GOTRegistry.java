@@ -35,6 +35,8 @@ import net.minecraftforge.common.MinecraftForge;
 public class GOTRegistry {
 	public static Map<GOTEnumDyeColor, GOTBlockConcretePowder> concretePowder = new HashMap();
 	public static Map<GOTEnumDyeColor, GOTBlockConcrete> concrete = new HashMap();
+	public static Item westerosLongsword;
+	public static Item westerosGreatsword;
 	public static Item rice;
 	public static Block ricePlant;
 	public static Block aleHornBlock;
@@ -2483,7 +2485,7 @@ public class GOTRegistry {
 		valyrianSpear = new GOTItemSpear(GOTMaterial.VALYRIAN);
 		valyrianSword = new GOTItemSword(GOTMaterial.VALYRIAN);
 		velaryonBrooch = new GOTItemArmor(GOTMaterial.HAND, 1, "velaryon").setCreativeTab(GOTCreativeTabs.tabStory);
-		victarionAxe = new GOTItemLegendaryBattleaxe(GOTMaterial.IRONBORN);
+		victarionAxe = new GOTItemLegendaryBattleaxe(GOTMaterial.STEEL);
 		victarionHelmet = new GOTItemArmor(GOTMaterial.HELMET, 0, "victarion").setCreativeTab(GOTCreativeTabs.tabStory);
 		vigilance = new GOTItemLegendarySword(GOTMaterial.VALYRIAN);
 		volantisBoots = new GOTItemArmor(GOTMaterial.VOLANTIS, 3);
@@ -2510,6 +2512,8 @@ public class GOTRegistry {
 		westerosPike = new GOTItemPike(GOTMaterial.NORTH);
 		westerosSpear = new GOTItemSpear(GOTMaterial.NORTH);
 		westerosSword = new GOTItemSword(GOTMaterial.NORTH);
+		westerosLongsword = new GOTItemLongsword(GOTMaterial.NORTH);
+		westerosGreatsword = new GOTItemGreatsword(GOTMaterial.NORTH);
 		westkingBoots = new GOTItemArmor(GOTMaterial.WESTKING, 3).setCreativeTab(GOTCreativeTabs.tabStory);
 		westkingChestplate = new GOTItemArmor(GOTMaterial.WESTKING, 1).setCreativeTab(GOTCreativeTabs.tabStory);
 		westkingHelmet = new GOTItemArmor(GOTMaterial.WESTKING, 0, "helmet").setCreativeTab(GOTCreativeTabs.tabStory);
@@ -3903,5 +3907,7 @@ public class GOTRegistry {
 		registerItem(jogosBoots, "jogosBoots");
 		registerItem(tugarKhanSword, "tugarKhanSword");
 		registerItem(rice, "rice");
+		registerItem(westerosLongsword, "westerosLongsword");
+		registerItem(westerosGreatsword, "westerosGreatsword");
 	}
 }

@@ -304,7 +304,7 @@ public class GOTTitle {
 
 		public IChatComponent getFullTitleComponent(EntityPlayer entityplayer) {
 			IChatComponent component;
-			if (theTitle.titleType == TitleType.RANK && theTitle.titleRank.addFacName) {
+			if (theTitle.titleType != null && theTitle.titleType == TitleType.RANK && theTitle.titleRank.addFacName) {
 				component = new ChatComponentText("[").appendSibling(new ChatComponentTranslation(theTitle.getUntranslatedName(entityplayer))).appendText(" ").appendSibling(new ChatComponentTranslation(theTitle.titleRank.getFacName())).appendText("]").appendText(" ");
 			} else {
 				component = new ChatComponentText("[").appendSibling(new ChatComponentTranslation(theTitle.getUntranslatedName(entityplayer))).appendText("]").appendText(" ");

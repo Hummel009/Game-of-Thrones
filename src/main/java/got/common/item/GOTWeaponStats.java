@@ -25,6 +25,10 @@ public class GOTWeaponStats {
 	public static int MAX_MODIFIABLE_KNOCKBACK;
 
 	static {
+		GOTWeaponStats.registerMeleeSpeed(GOTItemGreatsword.class, 0.667f);
+		GOTWeaponStats.registerMeleeSpeed(GOTItemLongsword.class, 0.8f);
+		GOTWeaponStats.registerMeleeReach(GOTItemGreatsword.class, 1.5f);
+		GOTWeaponStats.registerMeleeReach(GOTItemLongsword.class, 1.25f);
 		GOTWeaponStats.registerMeleeSpeed(GOTItemDagger.class, 1.5f);
 		GOTWeaponStats.registerMeleeSpeed(GOTItemSpear.class, 0.833f);
 		GOTWeaponStats.registerMeleeSpeed(GOTItemPolearm.class, 0.667f);

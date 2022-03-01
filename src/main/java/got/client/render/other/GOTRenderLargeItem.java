@@ -20,8 +20,8 @@ import net.minecraftforge.client.IItemRenderer;
 public class GOTRenderLargeItem implements IItemRenderer {
 	public static Map<String, Float> sizeFolders = new HashMap<>();
 	static {
-		sizeFolders.put("large", 2.0f);
-		sizeFolders.put("large2", 3.0f);
+		sizeFolders.put("large-2x", 2.0f);
+		sizeFolders.put("large-3x", 3.0f);
 	}
 	public Item theItem;
 	public String folderName;

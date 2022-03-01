@@ -1,13 +1,11 @@
 package got.common.item.weapon;
 
 import got.common.database.*;
-import got.common.item.GOTMaterialFinder;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.*;
 import net.minecraft.potion.*;
 
-public class GOTItemLegendarySword extends GOTItemSword implements GOTMaterialFinder {
-	public GOTMaterial gotMaterial;
+public class GOTItemLegendarySword extends GOTItemSword {
 	public SwordEffect effect;
 
 	public GOTItemLegendarySword(GOTMaterial material) {
@@ -34,11 +32,6 @@ public class GOTItemLegendarySword extends GOTItemSword implements GOTMaterialFi
 
 	public SwordEffect getDaggerEffect() {
 		return effect;
-	}
-
-	@Override
-	public GOTMaterial getMaterial() {
-		return gotMaterial;
 	}
 
 	@Override

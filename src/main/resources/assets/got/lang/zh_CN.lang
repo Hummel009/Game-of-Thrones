@@ -1,4 +1,6 @@
 ﻿
+item.got:westerosLongsword.name≠
+item.got:westerosGreatsword.name≠
 entity.got.BraavosFarmhand.name=布拉佛斯农工
 entity.got.PentosFarmhand.name=潘托斯农工
 entity.got.NorvosFarmhand.name=诺佛斯农工

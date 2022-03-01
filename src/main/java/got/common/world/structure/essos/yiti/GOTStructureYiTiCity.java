@@ -7,8 +7,6 @@ import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
-import got.common.world.structure.westeros.gift.GOTStructureGiftGate;
-import got.common.world.structure.westeros.gift.GOTStructureGiftCastle.CastleBlack;
 import net.minecraft.world.World;
 
 public class GOTStructureYiTiCity extends GOTVillageGen {
