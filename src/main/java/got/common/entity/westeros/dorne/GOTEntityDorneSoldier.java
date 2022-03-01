@@ -50,21 +50,22 @@ public class GOTEntityDorneSoldier extends GOTEntityDorneLevyman {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(6);
+		int i = rand.nextInt(10);
 		switch (i) {
 		case 0:
-		case 1:
-		case 2:
-		case 3:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosSword));
-			break;
-		case 4:
 			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosHammer));
 			break;
-		case 5:
+		case 1:
 			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosPike));
 			break;
+		case 2:
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosLongsword));
+			break;
+		case 3:
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosGreatsword));
+			break;
 		default:
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosSword));
 			break;
 		}
 		if (rand.nextInt(3) == 0) {
