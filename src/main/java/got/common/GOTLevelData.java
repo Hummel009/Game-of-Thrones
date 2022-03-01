@@ -227,7 +227,7 @@ public class GOTLevelData {
 			structuresBanned = levelData.getInteger("StructuresBanned");
 			waypointCooldownMax = levelData.hasKey("FastTravel") ? levelData.getInteger("FastTravel") / 20 : levelData.hasKey("WpCdMax") ? levelData.getInteger("WpCdMax") : 600;
 			waypointCooldownMin = levelData.hasKey("FastTravelMin") ? levelData.getInteger("FastTravelMin") / 20 : levelData.hasKey("WpCdMin") ? levelData.getInteger("WpCdMin") : 60;
-			enableAlignmentZones = levelData.hasKey("AlignmentZones") ? levelData.getBoolean("AlignmentZones") : true;
+			enableAlignmentZones = !levelData.hasKey("AlignmentZones") || levelData.getBoolean("AlignmentZones");
 			conquestRate = levelData.hasKey("ConqRate") ? levelData.getFloat("ConqRate") : 1.0f;
 			if (levelData.hasKey("SavedDifficulty")) {
 				int id = levelData.getInteger("SavedDifficulty");

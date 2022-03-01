@@ -31,6 +31,7 @@ CHANGELOG
 * Optimized NPCs checking for players with their miniquests
 * Optimized rendering code
 
+* Fixed bug with factions gui
 * Fixed bug with chat achievements
 * Fixed bug with frost damaging gift legendary mobs
 * Fixed bug with goldsmithes in westeros
