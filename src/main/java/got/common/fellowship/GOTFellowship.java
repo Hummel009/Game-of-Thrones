@@ -7,6 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTLevelData;
 import got.common.network.*;
+import got.common.util.GOTLog;
 import net.minecraft.entity.player.*;
 import net.minecraft.event.ClickEvent;
 import net.minecraft.item.ItemStack;
@@ -28,6 +29,8 @@ public class GOTFellowship {
 	public boolean preventPVP = true;
 	public boolean preventHiredFF = true;
 	public boolean showMapLocations = true;
+	public Set<UUID> waypointSharerUUIDs = new HashSet<>();
+	public boolean doneRetroactiveWaypointSharerCheck = true;
 
 	public GOTFellowship() {
 		fellowshipUUID = UUID.randomUUID();
@@ -63,11 +66,21 @@ public class GOTFellowship {
 		markDirty();
 	}
 
-	public void disband() {
-		disbanded = true;
-		ArrayList<UUID> copyMemberIDs = new ArrayList<>(memberUUIDs);
-		for (UUID player : copyMemberIDs) {
-			removeMember(player);
+	public void doRetroactiveWaypointSharerCheckIfNeeded() {
+		if (!doneRetroactiveWaypointSharerCheck) {
+			waypointSharerUUIDs.clear();
+			if (!disbanded) {
+				List<UUID> allPlayersSafe = getAllPlayerUUIDs();
+				for (UUID player : allPlayersSafe) {
+					if (!GOTLevelData.getData(player).hasAnyWaypointsSharedToFellowship(this)) {
+						continue;
+					}
+					waypointSharerUUIDs.add(player);
+				}
+				GOTLog.logger.info("Fellowship " + getName() + " did retroactive waypoint sharer check and found " + waypointSharerUUIDs.size() + " out of " + allPlayersSafe.size() + " players");
+			}
+			doneRetroactiveWaypointSharerCheck = true;
+			markDirty();
 		}
 	}
 
@@ -98,6 +111,10 @@ public class GOTFellowship {
 		return ownerUUID;
 	}
 
+	public int getPlayerCount() {
+		return memberUUIDs.size() + 1;
+	}
+
 	public boolean getPreventHiredFriendlyFire() {
 		return preventHiredFF;
 	}
@@ -108,6 +125,10 @@ public class GOTFellowship {
 
 	public boolean getShowMapLocations() {
 		return showMapLocations;
+	}
+
+	public Set<UUID> getWaypointSharerUUIDs() {
+		return waypointSharerUUIDs;
 	}
 
 	public boolean hasMember(UUID player) {
@@ -126,7 +147,12 @@ public class GOTFellowship {
 		return ownerUUID.equals(player);
 	}
 
+	public boolean isWaypointSharer(UUID player) {
+		return waypointSharerUUIDs.contains(player);
+	}
+
 	public void load(NBTTagCompound fsData) {
+		disbanded = fsData.getBoolean("Disbanded");
 		if (fsData.hasKey("Owner")) {
 			ownerUUID = UUID.fromString(fsData.getString("Owner"));
 		}
@@ -145,6 +171,15 @@ public class GOTFellowship {
 			}
 			adminUUIDs.add(member);
 		}
+		waypointSharerUUIDs.clear();
+		NBTTagList waypointSharerTags = fsData.getTagList("WaypointSharers", 8);
+		for (int i = 0; i < waypointSharerTags.tagCount(); ++i) {
+			UUID waypointSharer = UUID.fromString(waypointSharerTags.getStringTagAt(i));
+			if (waypointSharer == null || !containsPlayer(waypointSharer)) {
+				continue;
+			}
+			waypointSharerUUIDs.add(waypointSharer);
+		}
 		if (fsData.hasKey("Name")) {
 			fellowshipName = fsData.getString("Name");
 		}
@@ -162,10 +197,23 @@ public class GOTFellowship {
 			showMapLocations = fsData.getBoolean("ShowMap");
 		}
 		validate();
+		doneRetroactiveWaypointSharerCheck = fsData.getBoolean("DoneRetroactiveWaypointSharerCheck");
 	}
 
 	public void markDirty() {
 		needsSave = true;
+	}
+
+	public void markIsWaypointSharer(UUID player, boolean flag) {
+		if (containsPlayer(player)) {
+			if (flag && !waypointSharerUUIDs.contains(player)) {
+				waypointSharerUUIDs.add(player);
+				markDirty();
+			} else if (!flag && waypointSharerUUIDs.contains(player)) {
+				waypointSharerUUIDs.remove(player);
+				markDirty();
+			}
+		}
 	}
 
 	public boolean needsSave() {
@@ -178,6 +226,9 @@ public class GOTFellowship {
 			if (adminUUIDs.contains(player)) {
 				adminUUIDs.remove(player);
 			}
+			if (waypointSharerUUIDs.contains(player)) {
+				waypointSharerUUIDs.remove(player);
+			}
 			GOTLevelData.getData(player).removeFellowship(this);
 			updateForAllMembers(new FellowshipUpdateType.RemoveMember(player));
 			markDirty();
@@ -185,6 +236,7 @@ public class GOTFellowship {
 	}
 
 	public void save(NBTTagCompound fsData) {
+		fsData.setBoolean("Disbanded", disbanded);
 		if (ownerUUID != null) {
 			fsData.setString("Owner", ownerUUID.toString());
 		}
@@ -198,6 +250,11 @@ public class GOTFellowship {
 			memberTags.appendTag(nbt);
 		}
 		fsData.setTag("Members", memberTags);
+		NBTTagList waypointSharerTags = new NBTTagList();
+		for (UUID waypointSharer : waypointSharerUUIDs) {
+			waypointSharerTags.appendTag(new NBTTagString(waypointSharer.toString()));
+		}
+		fsData.setTag("WaypointSharers", waypointSharerTags);
 		if (fellowshipName != null) {
 			fsData.setString("Name", fellowshipName);
 		}
@@ -209,6 +266,7 @@ public class GOTFellowship {
 		fsData.setBoolean("PreventPVP", preventPVP);
 		fsData.setBoolean("PreventHiredFF", preventHiredFF);
 		fsData.setBoolean("ShowMap", showMapLocations);
+		fsData.setBoolean("DoneRetroactiveWaypointSharerCheck", doneRetroactiveWaypointSharerCheck);
 		needsSave = false;
 	}
 
@@ -277,6 +335,15 @@ public class GOTFellowship {
 				updateForAllMembers(new FellowshipUpdateType.RemoveAdmin(player));
 				markDirty();
 			}
+		}
+	}
+
+	public void setDisbandedAndRemoveAllMembers() {
+		disbanded = true;
+		markDirty();
+		ArrayList<UUID> copyMemberIDs = new ArrayList<>(memberUUIDs);
+		for (UUID player : copyMemberIDs) {
+			removeMember(player);
 		}
 	}
 

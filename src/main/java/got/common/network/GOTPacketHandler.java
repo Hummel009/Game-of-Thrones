@@ -11,6 +11,8 @@ public class GOTPacketHandler {
 	public static boolean dedicatedServer;
 
 	public GOTPacketHandler() {
+		networkWrapper.registerMessage(GOTPacketFellowshipInvitePlayer.Handler.class, GOTPacketFellowshipInvitePlayer.class, id++, Side.SERVER);
+		networkWrapper.registerMessage(GOTPacketFellowshipAcceptInviteResult.Handler.class, GOTPacketFellowshipAcceptInviteResult.class, id++, Side.CLIENT);
 		networkWrapper.registerMessage(GOTPacketAchievement.Handler.class, GOTPacketAchievement.class, id++, Side.CLIENT);
 		networkWrapper.registerMessage(GOTPacketAchievementRemove.Handler.class, GOTPacketAchievementRemove.class, id++, Side.CLIENT);
 		networkWrapper.registerMessage(GOTPacketAlignment.Handler.class, GOTPacketAlignment.class, id++, Side.CLIENT);
