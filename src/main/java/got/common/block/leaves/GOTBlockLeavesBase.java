@@ -26,6 +26,11 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 		this(false, null);
 	}
 
+	@Override
+	public int getRenderType() {
+		return GOT.proxy.getLeavesRenderID();
+	}
+
 	public GOTBlockLeavesBase(boolean vanilla, String vname) {
 		if (vanilla) {
 			setCreativeTab(CreativeTabs.tabDecorations);
@@ -163,5 +168,9 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 		for (Object allLeafBlock : allLeafBlocks) {
 			((GOTBlockLeavesBase) allLeafBlock).setGraphicsLevel(flag);
 		}
+	}
+
+	public IIcon getRandomPlantIcon(int i, int j, int k) {
+		return leafIcons[0][0];
 	}
 }

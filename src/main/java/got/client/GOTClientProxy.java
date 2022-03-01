@@ -77,6 +77,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 	public int fenceRenderID;
 	public int grassRenderID;
 	public int fallenLeavesRenderID;
+	public int leavesRenderID;
 	public int commandTableRenderID;
 	public int butterflyJarRenderID;
 	public int unsmelteryRenderID;
@@ -266,6 +267,11 @@ public class GOTClientProxy extends GOTCommonProxy {
 	}
 
 	@Override
+	public int getLeavesRenderID() {
+		return leavesRenderID;
+	}
+
+	@Override
 	public int getFallenLeavesRenderID() {
 		return fallenLeavesRenderID;
 	}
@@ -416,6 +422,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 		cloverRenderID = RenderingRegistry.getNextAvailableRenderId();
 		fenceRenderID = RenderingRegistry.getNextAvailableRenderId();
 		grassRenderID = RenderingRegistry.getNextAvailableRenderId();
+		leavesRenderID = RenderingRegistry.getNextAvailableRenderId();
 		fallenLeavesRenderID = RenderingRegistry.getNextAvailableRenderId();
 		commandTableRenderID = RenderingRegistry.getNextAvailableRenderId();
 		butterflyJarRenderID = RenderingRegistry.getNextAvailableRenderId();
@@ -449,6 +456,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 		RenderingRegistry.registerBlockHandler(fenceRenderID, new GOTRenderBlocks(true));
 		RenderingRegistry.registerBlockHandler(grassRenderID, new GOTRenderBlocks(false));
 		RenderingRegistry.registerBlockHandler(fallenLeavesRenderID, new GOTRenderBlocks(false));
+		RenderingRegistry.registerBlockHandler(leavesRenderID, new GOTRenderBlocks(true));
 		RenderingRegistry.registerBlockHandler(commandTableRenderID, new GOTRenderBlocks(true));
 		RenderingRegistry.registerBlockHandler(butterflyJarRenderID, new GOTRenderBlocks(true));
 		RenderingRegistry.registerBlockHandler(unsmelteryRenderID, new GOTRenderBlocks(true));

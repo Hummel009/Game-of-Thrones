@@ -6,9 +6,13 @@ import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import got.GOT;
+import got.common.GOTDate;
+import got.common.GOTDate.Season;
+import got.common.block.leaves.GOTBlockLeavesBase;
 import got.common.block.other.*;
 import got.common.database.GOTRegistry;
 import got.common.tileentity.*;
+import got.common.world.biome.GOTBiome;
 import net.minecraft.block.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.*;
@@ -17,6 +21,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	public static Random blockRand = new Random();
@@ -331,6 +336,14 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		block.setBlockBoundsBasedOnState(world, i, j, k);
 		renderblocks.setRenderBoundsFromBlock(block);
 		renderblocks.renderStandardBlock(block, i, j, k);
+	}
+
+	public void renderLeaves(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks, int[] minMaxLeaves, int[] minMaxXSize, int[] minMaxZSize, float shade) {
+		Tessellator tessellator = Tessellator.instance;
+		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j + 1, k));
+		tessellator.setColorOpaque_F(1.0f, 1.0f, 1.0f);
+		IIcon icon = ((GOTBlockLeavesBase) block).getRandomPlantIcon(i, j, k);
+		renderblocks.drawCrossedSquares(icon, i, j, k, 1.0f);
 	}
 
 	public void renderFallenLeaves(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks, int[] minMaxLeaves, int[] minMaxXSize, int[] minMaxZSize, float shade) {
@@ -713,7 +726,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.renderAllFaces = false;
 	}
 
-	public void renderOrcBomb(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	public void renderBomb(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		int ao = GOTRenderBlocks.getAO();
 		GOTRenderBlocks.setAO(0);
 		renderblocks.renderAllFaces = true;
@@ -1009,6 +1022,10 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int i, int j, int k, Block block, int id, RenderBlocks renderblocks) {
 		boolean fancyGraphics = Minecraft.getMinecraft().gameSettings.fancyGraphics;
+
+		BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
+		boolean changeLeaves = biome instanceof GOTBiome && ((GOTBiome)biome).temperature == 0.0F && (GOTDate.AegonCalendar.getSeason() == Season.WINTER || GOTDate.AegonCalendar.getSeason() == Season.AUTUMN);
+		
 		if (id == GOT.proxy.getBeaconRenderID()) {
 			renderBeacon(world, i, j, k, renderblocks);
 			return true;
@@ -1018,7 +1035,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			return true;
 		}
 		if (id == GOT.proxy.getBombRenderID()) {
-			renderOrcBomb(world, i, j, k, block, renderblocks);
+			renderBomb(world, i, j, k, block, renderblocks);
 			return true;
 		}
 		if (id == GOT.proxy.getDoubleTorchRenderID()) {
@@ -1051,6 +1068,13 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		if (id == GOT.proxy.getGrassRenderID()) {
 			GOTRenderBlocks.renderGrass(world, i, j, k, block, renderblocks, true);
 			return true;
+		}
+		if (id == GOT.proxy.getLeavesRenderID()) {
+			if (changeLeaves) {
+				renderLeaves(world, i, j, k, block, renderblocks, new int[] { 6, 10 }, new int[] { 2, 6 }, new int[] { 2, 6 }, 0.7f);
+				return true;
+			}
+			return renderblocks.renderStandardBlock(block, i, j, k);
 		}
 		if (id == GOT.proxy.getFallenLeavesRenderID()) {
 			if (fancyGraphics) {
