@@ -34,14 +34,6 @@ public class GOTFellowshipData {
 		fellowshipMap.clear();
 	}
 
-	public static GOTFellowship getActiveFellowship(UUID fsID) {
-		GOTFellowship fs = GOTFellowshipData.getFellowship(fsID);
-		if (fs != null && fs.isDisbanded()) {
-			return null;
-		}
-		return fs;
-	}
-
 	public static GOTFellowship getFellowship(UUID fsID) {
 		GOTFellowship fs = fellowshipMap.get(fsID);
 		if (fs == null && (fs = GOTFellowshipData.loadFellowship(fsID)) != null) {
@@ -82,6 +74,9 @@ public class GOTFellowshipData {
 			}
 			GOTFellowship fs = new GOTFellowship(fsID);
 			fs.load(nbt);
+			if (fs.isDisbanded()) {
+				return null;
+			}
 			return fs;
 		} catch (Exception e) {
 			FMLLog.severe("Error loading GOT fellowship data for %s", fsDat.getName());

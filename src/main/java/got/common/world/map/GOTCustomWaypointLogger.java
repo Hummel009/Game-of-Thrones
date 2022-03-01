@@ -31,8 +31,8 @@ public class GOTCustomWaypointLogger {
 			if (cwp.isShared()) {
 				List<UUID> fsIDs = cwp.getSharedFellowshipIDs();
 				for (UUID id : fsIDs) {
-					GOTFellowship fellowship = GOTFellowshipData.getActiveFellowship(id);
-					if (fellowship == null || !fellowship.containsPlayer(entityplayer.getUniqueID())) {
+					GOTFellowship fellowship = GOTFellowshipData.getFellowship(id);
+					if (fellowship == null || fellowship.isDisbanded() || !fellowship.containsPlayer(entityplayer.getUniqueID())) {
 						continue;
 					}
 					logLine.append(",");

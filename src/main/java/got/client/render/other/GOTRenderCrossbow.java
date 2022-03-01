@@ -50,7 +50,7 @@ public class GOTRenderCrossbow implements IItemRenderer {
 			GL11.glScalef(2.6666667f, 2.6666667f, 2.6666667f);
 			GL11.glTranslatef(-0.25f, -0.1875f, 0.1875f);
 		}
-		switch (rotationMode) {
+		switch(rotationMode) {
 		case ENTITY_HOLDING:
 			GL11.glTranslatef(0.0f, 0.125f, 0.3125f);
 			GL11.glRotatef(-20.0f, 0.0f, 1.0f, 0.0f);

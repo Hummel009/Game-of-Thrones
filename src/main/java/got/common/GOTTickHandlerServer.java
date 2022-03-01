@@ -191,15 +191,11 @@ public class GOTTickHandlerServer {
 				}
 				if (world.getTotalWorldTime() % 600L == 0L) {
 					GOTLevelData.save();
+					GOTLevelData.saveAndClearUnusedPlayerData();
 					GOTFellowshipData.saveAll();
 					GOTFellowshipData.saveAndClearUnusedFellowships();
 					GOTFactionBounties.saveAll();
 					GOTFactionRelations.save();
-				}
-				int playerDataClearingInterval = GOTConfig.playerDataClearingInterval;
-				playerDataClearingInterval = Math.max(playerDataClearingInterval, 600);
-				if (world.getTotalWorldTime() % playerDataClearingInterval == 0L) {
-					GOTLevelData.saveAndClearUnusedPlayerData();
 				}
 				if (GOTItemStructureSpawner.lastStructureSpawnTick > 0) {
 					--GOTItemStructureSpawner.lastStructureSpawnTick;

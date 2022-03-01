@@ -29,7 +29,7 @@ public class GOTPacketFellowshipSetIcon extends GOTPacketFellowshipDo {
 		@Override
 		public IMessage onMessage(GOTPacketFellowshipSetIcon packet, MessageContext context) {
 			EntityPlayerMP entityplayer = context.getServerHandler().playerEntity;
-			GOTFellowship fellowship = packet.getActiveFellowship();
+			GOTFellowship fellowship = packet.getFellowship();
 			if (fellowship != null) {
 				GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 				ItemStack itemstack = entityplayer.getHeldItem();

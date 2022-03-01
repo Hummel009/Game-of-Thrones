@@ -184,7 +184,7 @@ public class GOTCommandFellowship extends CommandBase {
 			throw new WrongUsageException("got.command.fellowship.edit.notFound", ownerName, fsName);
 		}
 		if ("disband".equals(option)) {
-			ownerData.disbandFellowship(fellowship, ownerName);
+			ownerData.disbandFellowship(fellowship);
 			CommandBase.func_152373_a(sender, this, "got.command.fellowship.disband", ownerName, fsName);
 			return;
 		}
@@ -306,7 +306,7 @@ public class GOTCommandFellowship extends CommandBase {
 			if (fellowship.containsPlayer(playerID)) {
 				throw new WrongUsageException("got.command.fellowship.edit.alreadyIn", ownerName, fsName, playerName);
 			}
-			ownerData.invitePlayerToFellowship(fellowship, playerID, ownerName);
+			ownerData.invitePlayerToFellowship(fellowship, playerID);
 			CommandBase.func_152373_a(sender, this, "got.command.fellowship.invite", ownerName, fsName, playerName);
 			return;
 		}
@@ -314,8 +314,8 @@ public class GOTCommandFellowship extends CommandBase {
 			if (fellowship.containsPlayer(playerID)) {
 				throw new WrongUsageException("got.command.fellowship.edit.alreadyIn", ownerName, fsName, playerName);
 			}
-			ownerData.invitePlayerToFellowship(fellowship, playerID, ownerName);
-			playerData.acceptFellowshipInvite(fellowship, false);
+			ownerData.invitePlayerToFellowship(fellowship, playerID);
+			playerData.acceptFellowshipInvite(fellowship);
 			CommandBase.func_152373_a(sender, this, "got.command.fellowship.add", ownerName, fsName, playerName);
 			return;
 		}
@@ -323,7 +323,7 @@ public class GOTCommandFellowship extends CommandBase {
 			if (!fellowship.hasMember(playerID)) {
 				throw new WrongUsageException("got.command.fellowship.edit.notMember", ownerName, fsName, playerName);
 			}
-			ownerData.removePlayerFromFellowship(fellowship, playerID, ownerName);
+			ownerData.removePlayerFromFellowship(fellowship, playerID);
 			CommandBase.func_152373_a(sender, this, "got.command.fellowship.remove", ownerName, fsName, playerName);
 			return;
 		}
@@ -331,7 +331,7 @@ public class GOTCommandFellowship extends CommandBase {
 			if (!fellowship.hasMember(playerID)) {
 				throw new WrongUsageException("got.command.fellowship.edit.notMember", ownerName, fsName, playerName);
 			}
-			ownerData.transferFellowship(fellowship, playerID, ownerName);
+			ownerData.transferFellowship(fellowship, playerID);
 			CommandBase.func_152373_a(sender, this, "got.command.fellowship.transfer", ownerName, fsName, playerName);
 			return;
 		}
@@ -342,7 +342,7 @@ public class GOTCommandFellowship extends CommandBase {
 			if (fellowship.isAdmin(playerID)) {
 				throw new WrongUsageException("got.command.fellowship.edit.alreadyOp", ownerName, fsName, playerName);
 			}
-			ownerData.setFellowshipAdmin(fellowship, playerID, true, ownerName);
+			ownerData.setFellowshipAdmin(fellowship, playerID, true);
 			CommandBase.func_152373_a(sender, this, "got.command.fellowship.op", ownerName, fsName, playerName);
 			return;
 		}
@@ -355,7 +355,7 @@ public class GOTCommandFellowship extends CommandBase {
 		if (!fellowship.isAdmin(playerID)) {
 			throw new WrongUsageException("got.command.fellowship.edit.notOp", ownerName, fsName, playerName);
 		}
-		ownerData.setFellowshipAdmin(fellowship, playerID, false, ownerName);
+		ownerData.setFellowshipAdmin(fellowship, playerID, false);
 		CommandBase.func_152373_a(sender, this, "got.command.fellowship.deop", ownerName, fsName, playerName);
 	}
 

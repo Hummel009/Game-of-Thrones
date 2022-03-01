@@ -5,7 +5,6 @@ import java.util.*;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.google.common.base.Optional;
 import com.mojang.authlib.GameProfile;
 
 import cpw.mods.fml.common.FMLLog;
@@ -35,8 +34,6 @@ public class GOTLevelData {
 	public static int structuresBanned;
 	public static boolean enableAlignmentZones;
 	public static float conquestRate;
-	public static int clientside_thisServer_fellowshipMaxSize;
-	private static Map<UUID, Optional<GOTTitle.PlayerTitle>> playerTitleOfflineCacheMap;
 	public static boolean clientside_thisServer_feastMode;
 	public static boolean clientside_thisServer_fellowshipCreation;
 	public static boolean clientside_thisServer_enchanting;
@@ -53,7 +50,6 @@ public class GOTLevelData {
 		conquestRate = 1.0f;
 		difficultyLock = false;
 		playerDataMap = new HashMap<>();
-		playerTitleOfflineCacheMap = new HashMap<>();
 		needsLoad = true;
 		needsSave = false;
 		rand = new Random();
@@ -111,7 +107,6 @@ public class GOTLevelData {
 		GOTPlayerData pd = playerDataMap.get(player);
 		if (pd == null) {
 			pd = GOTLevelData.loadData(player);
-			playerTitleOfflineCacheMap.remove(player);
 			if (pd == null) {
 				pd = new GOTPlayerData(player);
 			}
@@ -165,19 +160,6 @@ public class GOTLevelData {
 			file.mkdirs();
 		}
 		return file;
-	}
-
-	public static GOTTitle.PlayerTitle getPlayerTitleWithOfflineCache(UUID player) {
-		if (playerDataMap.containsKey(player)) {
-			return playerDataMap.get(player).getPlayerTitle();
-		}
-		if (playerTitleOfflineCacheMap.containsKey(player)) {
-			return (GOTTitle.PlayerTitle) ((Optional) playerTitleOfflineCacheMap.get(player)).orNull();
-		}
-		GOTPlayerData pd = loadData(player);
-		GOTTitle.PlayerTitle playerTitle = pd.getPlayerTitle();
-		playerTitleOfflineCacheMap.put(player, Optional.fromNullable(playerTitle));
-		return playerTitle;
 	}
 
 	public static EnumDifficulty getSavedDifficulty() {
@@ -344,7 +326,6 @@ public class GOTLevelData {
 				GOTLevelData.saveData(player);
 				saved = true;
 			}
-			playerTitleOfflineCacheMap.put(player, Optional.fromNullable(pd.getPlayerTitle()));
 			playerDataMap.remove(player);
 			return saved;
 		}
@@ -472,7 +453,6 @@ public class GOTLevelData {
 		packet.feastMode = GOTConfig.canAlwaysEat;
 		packet.enchanting = GOTConfig.enchantingVanilla;
 		packet.enchantingGOT = GOTConfig.enchantingGOT;
-		packet.fellowshipMaxSize = GOTConfig.fellowshipMaxSize;
 		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 	}
 
@@ -493,8 +473,8 @@ public class GOTLevelData {
 		GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 		ArrayList<GOTFellowship> fellowshipsMapShow = new ArrayList<>();
 		for (UUID fsID : playerData.getFellowshipIDs()) {
-			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
-			if (fs == null || !fs.getShowMapLocations()) {
+			GOTFellowship fs = GOTFellowshipData.getFellowship(fsID);
+			if (fs == null || fs.isDisbanded() || !fs.getShowMapLocations()) {
 				continue;
 			}
 			fellowshipsMapShow.add(fs);

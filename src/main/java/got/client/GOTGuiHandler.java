@@ -62,6 +62,38 @@ public class GOTGuiHandler {
 		}
 		return null;
 	}
+	
+	@SubscribeEvent
+	public void postDrawScreen(GuiScreenEvent.DrawScreenEvent.Post event) {
+		HoverEvent hoverevent;
+		IChatComponent component;
+		Minecraft mc = Minecraft.getMinecraft();
+		EntityClientPlayerMP entityplayer = mc.thePlayer;
+		GuiScreen gui = event.gui;
+		int mouseX = event.mouseX;
+		int mouseY = event.mouseY;
+		if (gui instanceof GuiChat && (component = mc.ingameGUI.getChatGUI().func_146236_a(Mouse.getX(), Mouse.getY())) != null && component.getChatStyle().getChatHoverEvent() != null && (hoverevent = component.getChatStyle().getChatHoverEvent()).getAction() == GOTChatEvents.SHOW_GOT_ACHIEVEMENT) {
+			GOTGuiAchievementHoverEvent proxyGui = new GOTGuiAchievementHoverEvent();
+			proxyGui.setWorldAndResolution(mc, gui.width, gui.height);
+			try {
+				String unformattedText = hoverevent.getValue().getUnformattedText();
+				int splitIndex = unformattedText.indexOf("$");
+				String categoryName = unformattedText.substring(0, splitIndex);
+				GOTAchievement.Category category = GOTAchievement.categoryForName(categoryName);
+				int achievementID = Integer.parseInt(unformattedText.substring(splitIndex + 1));
+				GOTAchievement achievement = GOTAchievement.achievementForCategoryAndID(category, achievementID);
+				ChatComponentTranslation name = new ChatComponentTranslation("got.gui.achievements.hover.name", achievement.getAchievementChatComponent(entityplayer));
+				ChatComponentTranslation subtitle = new ChatComponentTranslation("got.gui.achievements.hover.subtitle", achievement.getDimension().getDimensionName(), category.getDisplayName());
+				subtitle.getChatStyle().setItalic(true);
+				String desc = achievement.getDescription(entityplayer);
+				ArrayList list = Lists.newArrayList((Object[]) new String[] { name.getFormattedText(), subtitle.getFormattedText() });
+				list.addAll(mc.fontRenderer.listFormattedStringToWidth(desc, 150));
+				proxyGui.func_146283_a(list, mouseX, mouseY);
+			} catch (Exception e) {
+				proxyGui.drawCreativeTabHoveringText(EnumChatFormatting.RED + "Invalid GOTAchievement!", mouseX, mouseY);
+			}
+		}
+	}
 
 	@SubscribeEvent
 	public void onGuiOpen(GuiOpenEvent event) {
@@ -91,38 +123,6 @@ public class GOTGuiHandler {
 			GuiButton buttonDifficulty = getDifficultyButton((GuiOptions) gui, buttons);
 			if (buttonDifficulty != null) {
 				buttonDifficulty.enabled = false;
-			}
-		}
-	}
-
-	@SubscribeEvent
-	public void postDrawScreen(GuiScreenEvent.DrawScreenEvent.Post event) {
-		HoverEvent hoverevent;
-		IChatComponent component;
-		Minecraft mc = Minecraft.getMinecraft();
-		EntityClientPlayerMP entityplayer = mc.thePlayer;
-		GuiScreen gui = event.gui;
-		int mouseX = event.mouseX;
-		int mouseY = event.mouseY;
-		if (gui instanceof GuiChat && (component = mc.ingameGUI.getChatGUI().func_146236_a(Mouse.getX(), Mouse.getY())) != null && component.getChatStyle().getChatHoverEvent() != null && (hoverevent = component.getChatStyle().getChatHoverEvent()).getAction() == GOTChatEvents.SHOW_GOT_ACHIEVEMENT) {
-			GOTGuiAchievementHoverEvent proxyGui = new GOTGuiAchievementHoverEvent();
-			proxyGui.setWorldAndResolution(mc, gui.width, gui.height);
-			try {
-				String unformattedText = hoverevent.getValue().getUnformattedText();
-				int splitIndex = unformattedText.indexOf("$");
-				String categoryName = unformattedText.substring(0, splitIndex);
-				GOTAchievement.Category category = GOTAchievement.categoryForName(categoryName);
-				int achievementID = Integer.parseInt(unformattedText.substring(splitIndex + 1));
-				GOTAchievement achievement = GOTAchievement.achievementForCategoryAndID(category, achievementID);
-				ChatComponentTranslation name = new ChatComponentTranslation("got.gui.achievements.hover.name", achievement.getAchievementChatComponent(entityplayer));
-				ChatComponentTranslation subtitle = new ChatComponentTranslation("got.gui.achievements.hover.subtitle", achievement.getDimension().getDimensionName(), category.getDisplayName());
-				subtitle.getChatStyle().setItalic(true);
-				String desc = achievement.getDescription(entityplayer);
-				ArrayList list = Lists.newArrayList((Object[]) new String[] { name.getFormattedText(), subtitle.getFormattedText() });
-				list.addAll(mc.fontRenderer.listFormattedStringToWidth(desc, 150));
-				proxyGui.func_146283_a(list, mouseX, mouseY);
-			} catch (Exception e) {
-				proxyGui.drawCreativeTabHoveringText(EnumChatFormatting.RED + "Invalid GOTAchievement!", mouseX, mouseY);
 			}
 		}
 	}

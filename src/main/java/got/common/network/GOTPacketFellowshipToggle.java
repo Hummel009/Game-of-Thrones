@@ -33,7 +33,7 @@ public class GOTPacketFellowshipToggle extends GOTPacketFellowshipDo {
 		@Override
 		public IMessage onMessage(GOTPacketFellowshipToggle packet, MessageContext context) {
 			EntityPlayerMP entityplayer = context.getServerHandler().playerEntity;
-			GOTFellowship fellowship = packet.getActiveFellowship();
+			GOTFellowship fellowship = packet.getFellowship();
 			if (fellowship != null) {
 				GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 				if (packet.function == ToggleFunction.PVP) {

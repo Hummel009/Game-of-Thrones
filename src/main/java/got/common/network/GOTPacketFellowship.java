@@ -29,10 +29,10 @@ public class GOTPacketFellowship implements IMessage {
 	public ItemStack fellowshipIcon;
 	public boolean isOwned;
 	public boolean isAdminned;
-	public GameProfile owner;
-	public List<GameProfile> members = new ArrayList<>();
-	public Map<UUID, GOTTitle.PlayerTitle> titleMap = new HashMap<>();
-	public Set<UUID> adminUuids = new HashSet<>();
+	public String ownerName;
+	public List<String> memberNames = new ArrayList<>();
+	public Map<String, GOTTitle.PlayerTitle> titleMap = new HashMap<>();
+	public Set<String> adminNames = new HashSet<>();
 	public boolean preventPVP;
 	public boolean preventHiredFF;
 	public boolean showMapLocations;
@@ -50,20 +50,21 @@ public class GOTPacketFellowship implements IMessage {
 		isAdminned = fs.isAdmin(thisPlayer);
 		List<UUID> playerIDs = fs.getAllPlayerUUIDs();
 		for (UUID player : playerIDs) {
-			GameProfile profile = GOTPacketFellowship.getPlayerProfileWithUsername(player);
+			String username = GOTPacketFellowship.getPlayerUsername(player);
 			if (fs.isOwner(player)) {
-				owner = profile;
+				ownerName = username;
 			} else {
-				members.add(profile);
+				memberNames.add(username);
 			}
-			GOTTitle.PlayerTitle title = GOTLevelData.getPlayerTitleWithOfflineCache(player);
+			GOTPlayerData data = GOTLevelData.getData(player);
+			GOTTitle.PlayerTitle title = data.getPlayerTitle();
 			if (title != null) {
-				titleMap.put(player, title);
+				titleMap.put(username, title);
 			}
 			if (!fs.isAdmin(player)) {
 				continue;
 			}
-			adminUuids.add(player);
+			adminNames.add(username);
 		}
 		preventPVP = fs.getPreventPVP();
 		preventHiredFF = fs.getPreventHiredFriendlyFire();
@@ -87,33 +88,37 @@ public class GOTPacketFellowship implements IMessage {
 		fellowshipIcon = ItemStack.loadItemStackFromNBT(iconData);
 		isOwned = data.readBoolean();
 		isAdminned = data.readBoolean();
-		owner = GOTPacketFellowship.readPlayerUuidAndUsername(data);
-		readTitleForPlayer(data, owner.getId());
-		int numMembers = data.readInt();
-		for (int i = 0; i < numMembers; ++i) {
-			GameProfile member = GOTPacketFellowship.readPlayerUuidAndUsername(data);
-			if (member == null) {
-				continue;
-			}
-			members.add(member);
-			UUID memberUuid = member.getId();
-			readTitleForPlayer(data, memberUuid);
+		ownerName = readUsername(data);
+		readTitleForUsername(data, ownerName);
+		String memberName = null;
+		while ((memberName = readUsername(data)) != null) {
+			memberNames.add(memberName);
+			readTitleForUsername(data, memberName);
 			boolean admin = data.readBoolean();
 			if (!admin) {
 				continue;
 			}
-			adminUuids.add(memberUuid);
+			adminNames.add(memberName);
 		}
 		preventPVP = data.readBoolean();
 		preventHiredFF = data.readBoolean();
 		showMapLocations = data.readBoolean();
 	}
 
-	private void readTitleForPlayer(ByteBuf data, UUID playerUuid) {
+	public void readTitleForUsername(ByteBuf data, String username) {
 		GOTTitle.PlayerTitle playerTitle = GOTTitle.PlayerTitle.readNullableTitle(data);
 		if (playerTitle != null) {
-			titleMap.put(playerUuid, playerTitle);
+			titleMap.put(username, playerTitle);
 		}
+	}
+
+	public String readUsername(ByteBuf data) {
+		byte nameLength = data.readByte();
+		if (nameLength >= 0) {
+			ByteBuf nameBytes = data.readBytes(nameLength);
+			return nameBytes.toString(Charsets.UTF_8);
+		}
+		return null;
 	}
 
 	@Override
@@ -136,23 +141,28 @@ public class GOTPacketFellowship implements IMessage {
 		}
 		data.writeBoolean(isOwned);
 		data.writeBoolean(isAdminned);
-		GOTPacketFellowship.writePlayerUuidAndUsername(data, owner);
-		GOTTitle.PlayerTitle.writeNullableTitle(data, titleMap.get(owner.getId()));
-		data.writeInt(members.size());
-		for (GameProfile member : members) {
-			UUID memberUuid = member.getId();
-			GOTTitle.PlayerTitle title = titleMap.get(memberUuid);
-			boolean admin = adminUuids.contains(memberUuid);
-			GOTPacketFellowship.writePlayerUuidAndUsername(data, member);
+		writeUsername(data, ownerName);
+		GOTTitle.PlayerTitle.writeNullableTitle(data, titleMap.get(ownerName));
+		for (String memberName : memberNames) {
+			GOTTitle.PlayerTitle title = titleMap.get(memberName);
+			boolean admin = adminNames.contains(memberName);
+			writeUsername(data, memberName);
 			GOTTitle.PlayerTitle.writeNullableTitle(data, title);
 			data.writeBoolean(admin);
 		}
+		data.writeByte(-1);
 		data.writeBoolean(preventPVP);
 		data.writeBoolean(preventHiredFF);
 		data.writeBoolean(showMapLocations);
 	}
 
-	public static GameProfile getPlayerProfileWithUsername(UUID player) {
+	public void writeUsername(ByteBuf data, String username) {
+		byte[] usernameBytes = username.getBytes(Charsets.UTF_8);
+		data.writeByte(usernameBytes.length);
+		data.writeBytes(usernameBytes);
+	}
+
+	public static String getPlayerUsername(UUID player) {
 		GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152652_a(player);
 		if (profile == null || StringUtils.isBlank(profile.getName())) {
 			String name = UsernameCache.getLastKnownUsername(player);
@@ -163,36 +173,15 @@ public class GOTPacketFellowship implements IMessage {
 				MinecraftServer.getServer().func_147130_as().fillProfileProperties(profile, true);
 			}
 		}
-		return profile;
-	}
-
-	public static GameProfile readPlayerUuidAndUsername(ByteBuf data) {
-		UUID uuid = new UUID(data.readLong(), data.readLong());
-		byte nameLength = data.readByte();
-		if (nameLength >= 0) {
-			ByteBuf nameBytes = data.readBytes(nameLength);
-			String username = nameBytes.toString(Charsets.UTF_8);
-			return new GameProfile(uuid, username);
-		}
-		return null;
-	}
-
-	public static void writePlayerUuidAndUsername(ByteBuf data, GameProfile profile) {
-		UUID uuid = profile.getId();
-		String username = profile.getName();
-		data.writeLong(uuid.getMostSignificantBits());
-		data.writeLong(uuid.getLeastSignificantBits());
-		byte[] usernameBytes = username.getBytes(Charsets.UTF_8);
-		data.writeByte(usernameBytes.length);
-		data.writeBytes(usernameBytes);
+		return profile.getName();
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketFellowship, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketFellowship packet, MessageContext context) {
-			GOTFellowshipClient fellowship = new GOTFellowshipClient(packet.fellowshipID, packet.fellowshipName, packet.isOwned, packet.isAdminned, packet.owner, packet.members);
+			GOTFellowshipClient fellowship = new GOTFellowshipClient(packet.fellowshipID, packet.fellowshipName, packet.isOwned, packet.isAdminned, packet.ownerName, packet.memberNames);
 			fellowship.setTitles(packet.titleMap);
-			fellowship.setAdmins(packet.adminUuids);
+			fellowship.setAdmins(packet.adminNames);
 			fellowship.setIcon(packet.fellowshipIcon);
 			fellowship.setPreventPVP(packet.preventPVP);
 			fellowship.setPreventHiredFriendlyFire(packet.preventHiredFF);

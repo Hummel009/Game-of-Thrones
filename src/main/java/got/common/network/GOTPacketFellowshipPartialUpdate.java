@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.UUID;
 
 import com.google.common.base.Charsets;
-import com.mojang.authlib.GameProfile;
 
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.*;
@@ -67,7 +66,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 
 		@Override
 		public void updateClient(GOTFellowshipClient fellowship) {
-			fellowship.addMember(playerProfile, playerTitle);
+			fellowship.addMember(playerName, playerTitle);
 		}
 
 		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<AddMember> {
@@ -139,27 +138,31 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 		}
 	}
 
-	public abstract static class OnePlayerUpdate extends GOTPacketFellowshipPartialUpdate {
-		protected GameProfile playerProfile;
+	public static abstract class OnePlayerUpdate extends GOTPacketFellowshipPartialUpdate {
+		public String playerName;
 
 		public OnePlayerUpdate() {
 		}
 
 		public OnePlayerUpdate(GOTFellowship fs, UUID player) {
 			super(fs);
-			playerProfile = GOTPacketFellowship.getPlayerProfileWithUsername(player);
+			playerName = GOTPacketFellowship.getPlayerUsername(player);
 		}
 
 		@Override
 		public void fromBytes(ByteBuf data) {
 			super.fromBytes(data);
-			playerProfile = GOTPacketFellowship.readPlayerUuidAndUsername(data);
+			byte playerNameLength = data.readByte();
+			ByteBuf playerNameBytes = data.readBytes(playerNameLength);
+			playerName = playerNameBytes.toString(Charsets.UTF_8);
 		}
 
 		@Override
 		public void toBytes(ByteBuf data) {
 			super.toBytes(data);
-			GOTPacketFellowship.writePlayerUuidAndUsername(data, playerProfile);
+			byte[] playerNameBytes = playerName.getBytes(Charsets.UTF_8);
+			data.writeByte(playerNameBytes.length);
+			data.writeBytes(playerNameBytes);
 		}
 	}
 
@@ -188,7 +191,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 
 		@Override
 		public void updateClient(GOTFellowshipClient fellowship) {
-			fellowship.removeAdmin(playerProfile.getId(), isAdminned);
+			fellowship.removeAdmin(playerName, isAdminned);
 		}
 
 		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<RemoveAdmin> {
@@ -206,7 +209,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 
 		@Override
 		public void updateClient(GOTFellowshipClient fellowship) {
-			fellowship.removeMember(playerProfile);
+			fellowship.removeMember(playerName);
 		}
 
 		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<RemoveMember> {
@@ -276,7 +279,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 
 		@Override
 		public void updateClient(GOTFellowshipClient fellowship) {
-			fellowship.setAdmin(playerProfile.getId(), isAdminned);
+			fellowship.setAdmin(playerName, isAdminned);
 		}
 
 		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<SetAdmin> {
@@ -309,7 +312,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 
 		@Override
 		public void updateClient(GOTFellowshipClient fellowship) {
-			fellowship.setOwner(playerProfile, isOwned);
+			fellowship.setOwner(playerName, isOwned);
 		}
 
 		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<SetOwner> {
@@ -441,7 +444,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 
 		@Override
 		public void updateClient(GOTFellowshipClient fellowship) {
-			fellowship.updatePlayerTitle(playerProfile.getId(), playerTitle);
+			fellowship.updatePlayerTitle(playerName, playerTitle);
 		}
 
 		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<UpdatePlayerTitle> {

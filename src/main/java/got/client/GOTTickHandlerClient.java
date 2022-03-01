@@ -117,7 +117,7 @@ public class GOTTickHandlerClient {
 	public int musicTrackTick = 0;
 	public boolean cancelItemHighlight = false;
 	public ItemStack lastHighlightedItemstack;
-	public boolean wasShowingBannerRepossessMessage;
+	public boolean wasHoldingBannerWithExistingProtection;
 
 	public String highlightedItemstackName;
 
@@ -380,14 +380,9 @@ public class GOTTickHandlerClient {
 						miniquestTracker.update(minecraft, entityplayer);
 						GOTAlignmentTicker.updateAll(entityplayer, false);
 						watchedInvasion.tick();
-						if (GOTItemBanner.hasChoiceToKeepOriginalOwner(entityplayer)) {
-							boolean showBannerRespossessMessage = GOTItemBanner.isHoldingBannerWithExistingProtection(entityplayer);
-							bannerRepossessDisplayTick = showBannerRespossessMessage && !wasShowingBannerRepossessMessage ? 60 : --bannerRepossessDisplayTick;
-							wasShowingBannerRepossessMessage = showBannerRespossessMessage;
-						} else {
-							bannerRepossessDisplayTick = 0;
-							wasShowingBannerRepossessMessage = false;
-						}
+						boolean isHoldingBannerWithExistingProtection = GOTItemBanner.isHoldingBannerWithExistingProtection(entityplayer);
+						bannerRepossessDisplayTick = isHoldingBannerWithExistingProtection && !wasHoldingBannerWithExistingProtection ? 60 : --bannerRepossessDisplayTick;
+						wasHoldingBannerWithExistingProtection = isHoldingBannerWithExistingProtection;
 						EntityLivingBase viewer = minecraft.renderViewEntity;
 						int i = MathHelper.floor_double(viewer.posX);
 						int j = MathHelper.floor_double(viewer.boundingBox.minY);

@@ -66,7 +66,7 @@ public class GOTPacketRenameCWPClient implements IMessage {
 					pd.renameSharedCustomWaypoint(cwp2, packet.name);
 				}
 			} else if (!GOT.proxy.isSingleplayer() && (cwp = pd.getCustomWaypointByID(packet.cwpID)) != null) {
-				pd.renameCustomWaypointClient(cwp, packet.name);
+				pd.renameCustomWaypoint(cwp, packet.name);
 			}
 			return null;
 		}
