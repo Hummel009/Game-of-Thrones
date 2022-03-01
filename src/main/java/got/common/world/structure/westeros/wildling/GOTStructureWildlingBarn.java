@@ -5,7 +5,7 @@ import java.util.Random;
 import com.google.common.math.IntMath;
 
 import got.common.database.*;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.westeros.legendary.GOTEntityCrasterWife;
 import got.common.world.structure.westeros.common.GOTStructureWesterosBase;
 import net.minecraft.entity.passive.*;

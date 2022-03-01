@@ -34,6 +34,12 @@ public class GOTStructureIronbornCity extends GOTVillageGen {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
+	public GOTStructureIronbornCity setIsCamp() {
+		isCamp = true;
+		fixedVillageChunkRadius = 1;
+		return this;
+	}
+
 	public GOTStructureIronbornCity setIsCastle() {
 		isCastle = true;
 		fixedVillageChunkRadius = 3;
@@ -43,12 +49,6 @@ public class GOTStructureIronbornCity extends GOTVillageGen {
 	public GOTStructureIronbornCity setIsTown() {
 		isTown = true;
 		fixedVillageChunkRadius = 6;
-		return this;
-	}
-
-	public GOTStructureIronbornCity setIsCamp() {
-		isCamp = true;
-		fixedVillageChunkRadius = 1;
 		return this;
 	}
 

@@ -16,12 +16,9 @@ public class GOTBiomeRedBeach extends GOTBiomeOcean {
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
-	public GOTBiomeRedBeach setBeachBlock(Block block, int meta) {
-		topBlock = block;
-		topBlockMeta = meta;
-		fillerBlock = block;
-		fillerBlockMeta = meta;
-		return this;
+	@Override
+	public GOTBezierType getWallBlock() {
+		return GOTBezierType.COBBLEBRICK;
 	}
 
 	@Override
@@ -29,8 +26,11 @@ public class GOTBiomeRedBeach extends GOTBiomeOcean {
 		return 90;
 	}
 
-	@Override
-	public GOTBezierType getWallBlock() {
-		return GOTBezierType.COBBLEBRICK;
+	public GOTBiomeRedBeach setBeachBlock(Block block, int meta) {
+		topBlock = block;
+		topBlockMeta = meta;
+		fillerBlock = block;
+		fillerBlockMeta = meta;
+		return this;
 	}
 }

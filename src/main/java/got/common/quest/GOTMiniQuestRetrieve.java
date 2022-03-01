@@ -1,9 +1,9 @@
 package got.common.quest;
 
-import java.util.*;
+import java.util.UUID;
 
 import got.common.GOTPlayerData;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityRegistry;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

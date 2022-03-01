@@ -36,14 +36,14 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
-	public GOTStructureCrownlandsCity setIsKingsLanding() {
-		isKingsLanding = true;
-		return this;
-	}
-
 	public GOTStructureCrownlandsCity setIsCastle() {
 		isCastle = true;
 		fixedVillageChunkRadius = 3;
+		return this;
+	}
+
+	public GOTStructureCrownlandsCity setIsKingsLanding() {
+		isKingsLanding = true;
 		return this;
 	}
 

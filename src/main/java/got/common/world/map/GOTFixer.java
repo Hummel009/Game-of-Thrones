@@ -200,8 +200,8 @@ public class GOTFixer {
 		f[65] = new GOTStructureYiTiCity(biome, 0.0f).setIsChineseWall();
 		f[65].affix(GOTWaypoint.Jianmen, GOTWaypoint.Anguo, GOTWaypoint.Anjiang, GOTWaypoint.Dingguo, GOTWaypoint.Pinnu, GOTWaypoint.Pingjiang, GOTWaypoint.Wude, GOTWaypoint.Wusheng, GOTWaypoint.Zhenguo, GOTWaypoint.Lungmen);
 
-		for (int i = 0; i < f.length; i++) {
-			biome.decorator.addFixedVillage(f[i]);
+		for (GOTVillageGen element : f) {
+			biome.decorator.addFixedVillage(element);
 		}
 	}
 
@@ -544,15 +544,6 @@ public class GOTFixer {
 		@Override
 		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntityGarlanTyrell(world), world, 2, 1, -2);
-		}
-	}
-
-	public static class TheEyrie extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityRobinArryn(world), world, 0, 1, 2);
-			spawnLegendaryNPC(new GOTEntityLysaArryn(world), world, -2, 1, 0);
 		}
 	}
 
@@ -1027,6 +1018,15 @@ public class GOTFixer {
 		@Override
 		public void spawnLegendaryNPC(World world) {
 			spawnLegendaryNPC(new GOTEntitySymondTempleton(world), world, 0, 1, 2);
+		}
+	}
+
+	public static class TheEyrie extends Spawner {
+
+		@Override
+		public void spawnLegendaryNPC(World world) {
+			spawnLegendaryNPC(new GOTEntityRobinArryn(world), world, 0, 1, 2);
+			spawnLegendaryNPC(new GOTEntityLysaArryn(world), world, -2, 1, 0);
 		}
 	}
 

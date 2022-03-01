@@ -75,16 +75,16 @@ public class GOTStructureEssosFarm extends GOTStructureEssosBase {
 		generateStrScan(world, random, 0, 0, 0);
 		this.placeSkull(world, random, -4, 4, 0);
 		this.placeSkull(world, random, 4, 4, 0);
-        if (random.nextInt(4) == 0) {
-            GOTEntityNPC farmer = getFarmer(world);
-            this.spawnNPCAndSetHome(farmer, world, 0, 1, 1, 8);
-        }
-        GOTEntityNPC jabroni1 = getFarmhand(world);
-        jabroni1.seedsItem = this.seed1;
-        this.spawnNPCAndSetHome(jabroni1, world, -2, 1, 0, 8);
-        GOTEntityNPC jabroni2 = getFarmhand(world);
-        jabroni2.seedsItem = this.seed2;
-        this.spawnNPCAndSetHome(jabroni2, world, 2, 1, 0, 8);
+		if (random.nextInt(4) == 0) {
+			GOTEntityNPC farmer = getFarmer(world);
+			spawnNPCAndSetHome(farmer, world, 0, 1, 1, 8);
+		}
+		GOTEntityNPC jabroni1 = getFarmhand(world);
+		jabroni1.seedsItem = seed1;
+		spawnNPCAndSetHome(jabroni1, world, -2, 1, 0, 8);
+		GOTEntityNPC jabroni2 = getFarmhand(world);
+		jabroni2.seedsItem = seed2;
+		spawnNPCAndSetHome(jabroni2, world, 2, 1, 0, 8);
 		return true;
 	}
 

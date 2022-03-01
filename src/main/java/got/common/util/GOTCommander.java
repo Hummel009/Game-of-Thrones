@@ -142,7 +142,7 @@ public class GOTCommander {
 	public static GOTFaction addSpecialFaction(String enumName) {
 		return GOTCommander.addFaction(enumName, 0, GOTDimension.GAME_OF_THRONES, null, true, true, -2147483648, null);
 	}
-	
+
 	public static GOTTreeType addTreeType(String enumName, Object treeFactory) {
 		Class<?>[] classArr = null;
 		try {

@@ -11,7 +11,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
 public abstract class GOTStructureDorneMarketStall extends GOTStructureWesterosMarketStall {
-	public static Class[] allStallTypes = { Goldsmith.class,   Greengrocer.class, Lumber.class, Mason.class, Brewer.class, Flowers.class, Butcher.class, Fish.class, Farmer.class, Blacksmith.class, Baker.class };
+	public static Class[] allStallTypes = { Goldsmith.class, Greengrocer.class, Lumber.class, Mason.class, Brewer.class, Flowers.class, Butcher.class, Fish.class, Farmer.class, Blacksmith.class, Baker.class };
 
 	public GOTStructureDorneMarketStall(boolean flag) {
 		super(flag);

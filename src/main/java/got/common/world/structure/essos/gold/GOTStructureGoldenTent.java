@@ -3,7 +3,7 @@ package got.common.world.structure.essos.gold;
 import java.util.Random;
 
 import got.common.database.*;
-import got.common.world.structure.other.*;
+import got.common.world.structure.other.GOTStructureTentBase;
 import net.minecraft.init.Blocks;
 
 public class GOTStructureGoldenTent extends GOTStructureTentBase {

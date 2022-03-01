@@ -28,6 +28,12 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
+	public GOTStructureYiTiCity setIsChineseWall() {
+		isChineseWall = true;
+		fixedVillageChunkRadius = 2;
+		return this;
+	}
+
 	public GOTStructureYiTiCity setIsTower() {
 		isTower = true;
 		fixedVillageChunkRadius = 9;
@@ -37,12 +43,6 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 	public GOTStructureYiTiCity setIsTown() {
 		isTown = true;
 		fixedVillageChunkRadius = 7;
-		return this;
-	}
-
-	public GOTStructureYiTiCity setIsChineseWall() {
-		isChineseWall = true;
-		fixedVillageChunkRadius = 2;
 		return this;
 	}
 

@@ -55,23 +55,7 @@ public class GOTWalls {
 	public static void onInit() {
 		allWalls.clear();
 		wallPointDatabase = new WallPointDatabase();
-		GOTWalls.registerWall(id++, GOTWaypoint.WestWatch, GOTWaypoint.ShadowTower, 
-					GOTWaypoint.SentinelStand, 
-					GOTWaypoint.Greyguard, 
-					GOTWaypoint.Stonedoor, 
-					GOTWaypoint.HoarfrostHill, 
-					GOTWaypoint.Icemark, 
-					GOTWaypoint.Nightfort, 
-					GOTWaypoint.DeepLake, 
-					GOTWaypoint.Queensgate, 
-					GOTWaypoint.CastleBlack, 
-					GOTWaypoint.Oakenshield, 
-					GOTWaypoint.Woodswatch, 
-					GOTWaypoint.SableHall, 
-					GOTWaypoint.Rimegate, 
-					GOTWaypoint.LongBarrow, 
-					GOTWaypoint.Torches, 
-					GOTWaypoint.Greenguard,  GOTWaypoint.EastWatch);
+		GOTWalls.registerWall(id++, GOTWaypoint.WestWatch, GOTWaypoint.ShadowTower, GOTWaypoint.SentinelStand, GOTWaypoint.Greyguard, GOTWaypoint.Stonedoor, GOTWaypoint.HoarfrostHill, GOTWaypoint.Icemark, GOTWaypoint.Nightfort, GOTWaypoint.DeepLake, GOTWaypoint.Queensgate, GOTWaypoint.CastleBlack, GOTWaypoint.Oakenshield, GOTWaypoint.Woodswatch, GOTWaypoint.SableHall, GOTWaypoint.Rimegate, GOTWaypoint.LongBarrow, GOTWaypoint.Torches, GOTWaypoint.Greenguard, GOTWaypoint.EastWatch);
 		GOTWalls.registerWall(id++, new int[] { 2659, 1218 }, new int[] { 2676, 1220 }, new int[] { 2693, 1218 });
 		GOTWalls.registerWall(id++, GOTWaypoint.Anbei, GOTWaypoint.Jianmen, GOTWaypoint.Anguo, GOTWaypoint.Anjiang, GOTWaypoint.Dingguo, GOTWaypoint.Pinnu, GOTWaypoint.Pingjiang, GOTWaypoint.Wude, GOTWaypoint.Wusheng, GOTWaypoint.Zhenguo, GOTWaypoint.Lungmen, GOTWaypoint.Pingbei);
 	}

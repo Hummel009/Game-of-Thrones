@@ -95,21 +95,29 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		super(flag);
 	}
 
-	public GOTEntityNPC getMan(World world) {
-		Map<Boolean, GOTEntityNPC> theMan = new HashMap<>();
-		theMan.put(isBraavos, new GOTEntityBraavosMan(world));
-		theMan.put(isGhiscar, new GOTEntityGhiscarMan(world));
-		theMan.put(isLorath, new GOTEntityLorathMan(world));
-		theMan.put(isLys, new GOTEntityLysMan(world));
-		theMan.put(isMyr, new GOTEntityMyrMan(world));
-		theMan.put(isNorvos, new GOTEntityNorvosMan(world));
-		theMan.put(isPentos, new GOTEntityPentosMan(world));
-		theMan.put(isQarth, new GOTEntityQarthMan(world));
-		theMan.put(isQohor, new GOTEntityQohorMan(world));
-		theMan.put(isTyrosh, new GOTEntityTyroshMan(world));
-		theMan.put(isVolantis, new GOTEntityVolantisMan(world));
+	public boolean canUseRedBricks() {
+		return true;
+	}
 
-		for (Entry<Boolean, GOTEntityNPC> npc : theMan.entrySet()) {
+	public boolean forceCedarWood() {
+		return false;
+	}
+
+	public BannerType getBannerType() {
+		Map<Boolean, BannerType> theBannerType = new HashMap<>();
+		theBannerType.put(isBraavos, GOTItemBanner.BannerType.BRAAVOS);
+		theBannerType.put(isGhiscar, GOTItemBanner.BannerType.GHISCAR);
+		theBannerType.put(isLorath, GOTItemBanner.BannerType.LORATH);
+		theBannerType.put(isLys, GOTItemBanner.BannerType.LYS);
+		theBannerType.put(isMyr, GOTItemBanner.BannerType.MYR);
+		theBannerType.put(isNorvos, GOTItemBanner.BannerType.NORVOS);
+		theBannerType.put(isPentos, GOTItemBanner.BannerType.PENTOS);
+		theBannerType.put(isQarth, GOTItemBanner.BannerType.QARTH);
+		theBannerType.put(isQohor, GOTItemBanner.BannerType.QOHOR);
+		theBannerType.put(isTyrosh, GOTItemBanner.BannerType.TYROSH);
+		theBannerType.put(isVolantis, GOTItemBanner.BannerType.VOLANTIS);
+
+		for (Entry<Boolean, BannerType> npc : theBannerType.entrySet()) {
 			if (Boolean.TRUE.equals(npc.getKey())) {
 				return npc.getValue();
 			}
@@ -161,21 +169,43 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		return null;
 	}
 
-	public GOTEntityNPC getSoldierArcher(World world) {
-		Map<Boolean, GOTEntityNPC> theSoldierArcher = new HashMap<>();
-		theSoldierArcher.put(isBraavos, new GOTEntityBraavosSoldierArcher(world));
-		theSoldierArcher.put(isGhiscar, new GOTEntityGhiscarCorsairArcher(world));
-		theSoldierArcher.put(isLorath, new GOTEntityLorathSoldierArcher(world));
-		theSoldierArcher.put(isLys, new GOTEntityLysSoldierArcher(world));
-		theSoldierArcher.put(isMyr, new GOTEntityMyrSoldierArcher(world));
-		theSoldierArcher.put(isNorvos, new GOTEntityNorvosLevymanArcher(world));
-		theSoldierArcher.put(isPentos, new GOTEntityPentosLevymanArcher(world));
-		theSoldierArcher.put(isQarth, new GOTEntityQarthLevymanArcher(world));
-		theSoldierArcher.put(isQohor, new GOTEntityQohorLevymanArcher(world));
-		theSoldierArcher.put(isTyrosh, new GOTEntityTyroshSoldierArcher(world));
-		theSoldierArcher.put(isVolantis, new GOTEntityVolantisSoldierArcher(world));
+	public GOTEntityNPC getFarmer(World world) {
+		Map<Boolean, GOTEntityNPC> theFarmer = new HashMap<>();
+		theFarmer.put(isBraavos, new GOTEntityBraavosFarmer(world));
+		theFarmer.put(isGhiscar, new GOTEntityGhiscarSlaver(world));
+		theFarmer.put(isLorath, new GOTEntityLorathFarmer(world));
+		theFarmer.put(isLys, new GOTEntityLysSlaver(world));
+		theFarmer.put(isMyr, new GOTEntityMyrSlaver(world));
+		theFarmer.put(isNorvos, new GOTEntityNorvosFarmer(world));
+		theFarmer.put(isPentos, new GOTEntityPentosFarmer(world));
+		theFarmer.put(isQarth, new GOTEntityQarthFarmer(world));
+		theFarmer.put(isQohor, new GOTEntityQohorFarmer(world));
+		theFarmer.put(isTyrosh, new GOTEntityTyroshSlaver(world));
+		theFarmer.put(isVolantis, new GOTEntityVolantisSlaver(world));
 
-		for (Entry<Boolean, GOTEntityNPC> npc : theSoldierArcher.entrySet()) {
+		for (Entry<Boolean, GOTEntityNPC> npc : theFarmer.entrySet()) {
+			if (Boolean.TRUE.equals(npc.getKey())) {
+				return npc.getValue();
+			}
+		}
+		return null;
+	}
+
+	public GOTEntityNPC getFarmhand(World world) {
+		Map<Boolean, GOTEntityNPC> theFarmhand = new HashMap<>();
+		theFarmhand.put(isBraavos, new GOTEntityBraavosFarmhand(world));
+		theFarmhand.put(isGhiscar, new GOTEntityGhiscarSlave(world));
+		theFarmhand.put(isLorath, new GOTEntityLorathFarmhand(world));
+		theFarmhand.put(isLys, new GOTEntityLysSlave(world));
+		theFarmhand.put(isMyr, new GOTEntityMyrSlave(world));
+		theFarmhand.put(isNorvos, new GOTEntityNorvosFarmhand(world));
+		theFarmhand.put(isPentos, new GOTEntityPentosFarmhand(world));
+		theFarmhand.put(isQarth, new GOTEntityQarthFarmhand(world));
+		theFarmhand.put(isQohor, new GOTEntityQohorFarmhand(world));
+		theFarmhand.put(isTyrosh, new GOTEntityTyroshSlave(world));
+		theFarmhand.put(isVolantis, new GOTEntityVolantisSlave(world));
+
+		for (Entry<Boolean, GOTEntityNPC> npc : theFarmhand.entrySet()) {
 			if (Boolean.TRUE.equals(npc.getKey())) {
 				return npc.getValue();
 			}
@@ -205,6 +235,38 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		return null;
 	}
 
+	public GOTEntityNPC getMan(World world) {
+		Map<Boolean, GOTEntityNPC> theMan = new HashMap<>();
+		theMan.put(isBraavos, new GOTEntityBraavosMan(world));
+		theMan.put(isGhiscar, new GOTEntityGhiscarMan(world));
+		theMan.put(isLorath, new GOTEntityLorathMan(world));
+		theMan.put(isLys, new GOTEntityLysMan(world));
+		theMan.put(isMyr, new GOTEntityMyrMan(world));
+		theMan.put(isNorvos, new GOTEntityNorvosMan(world));
+		theMan.put(isPentos, new GOTEntityPentosMan(world));
+		theMan.put(isQarth, new GOTEntityQarthMan(world));
+		theMan.put(isQohor, new GOTEntityQohorMan(world));
+		theMan.put(isTyrosh, new GOTEntityTyroshMan(world));
+		theMan.put(isVolantis, new GOTEntityVolantisMan(world));
+
+		for (Entry<Boolean, GOTEntityNPC> npc : theMan.entrySet()) {
+			if (Boolean.TRUE.equals(npc.getKey())) {
+				return npc.getValue();
+			}
+		}
+		return null;
+	}
+
+	public ItemStack getRandomItem(Random random) {
+		ItemStack[] items = { new ItemStack(GOTRegistry.essosSword), new ItemStack(GOTRegistry.essosDagger), new ItemStack(GOTRegistry.essosSpear), new ItemStack(GOTRegistry.essosPike), new ItemStack(GOTRegistry.essosPolearm), new ItemStack(GOTRegistry.essosHammer), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTRegistry.gobletGold), new ItemStack(GOTRegistry.gobletSilver), new ItemStack(GOTRegistry.gobletCopper), new ItemStack(GOTRegistry.mug), new ItemStack(GOTRegistry.ceramicMug), new ItemStack(GOTRegistry.goldRing), new ItemStack(GOTRegistry.silverRing), new ItemStack(GOTRegistry.doubleFlower, 1, 2), new ItemStack(GOTRegistry.doubleFlower, 1, 3), new ItemStack(GOTRegistry.gemsbokHorn), new ItemStack(GOTRegistry.lionFur) };
+		return items[random.nextInt(items.length)].copy();
+	}
+
+	public ItemStack getRandomWeapon(Random random) {
+		ItemStack[] items = { new ItemStack(GOTRegistry.essosSword), new ItemStack(GOTRegistry.essosDagger), new ItemStack(GOTRegistry.essosSpear), new ItemStack(GOTRegistry.essosPike), new ItemStack(GOTRegistry.essosPolearm), new ItemStack(GOTRegistry.essosHammer) };
+		return items[random.nextInt(items.length)].copy();
+	}
+
 	public GOTEntityNPC getSoldier(World world) {
 		Map<Boolean, GOTEntityNPC> theSoldier = new HashMap<>();
 		theSoldier.put(isBraavos, new GOTEntityBraavosSoldier(world));
@@ -226,7 +288,29 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		}
 		return null;
 	}
-	
+
+	public GOTEntityNPC getSoldierArcher(World world) {
+		Map<Boolean, GOTEntityNPC> theSoldierArcher = new HashMap<>();
+		theSoldierArcher.put(isBraavos, new GOTEntityBraavosSoldierArcher(world));
+		theSoldierArcher.put(isGhiscar, new GOTEntityGhiscarCorsairArcher(world));
+		theSoldierArcher.put(isLorath, new GOTEntityLorathSoldierArcher(world));
+		theSoldierArcher.put(isLys, new GOTEntityLysSoldierArcher(world));
+		theSoldierArcher.put(isMyr, new GOTEntityMyrSoldierArcher(world));
+		theSoldierArcher.put(isNorvos, new GOTEntityNorvosLevymanArcher(world));
+		theSoldierArcher.put(isPentos, new GOTEntityPentosLevymanArcher(world));
+		theSoldierArcher.put(isQarth, new GOTEntityQarthLevymanArcher(world));
+		theSoldierArcher.put(isQohor, new GOTEntityQohorLevymanArcher(world));
+		theSoldierArcher.put(isTyrosh, new GOTEntityTyroshSoldierArcher(world));
+		theSoldierArcher.put(isVolantis, new GOTEntityVolantisSoldierArcher(world));
+
+		for (Entry<Boolean, GOTEntityNPC> npc : theSoldierArcher.entrySet()) {
+			if (Boolean.TRUE.equals(npc.getKey())) {
+				return npc.getValue();
+			}
+		}
+		return null;
+	}
+
 	public Block getTable() {
 		Map<Boolean, Block> theTable = new HashMap<>();
 		theTable.put(isBraavos, GOTRegistry.tableBraavos);
@@ -247,90 +331,6 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 			}
 		}
 		return null;
-	}
-	
-	public BannerType getBannerType() {
-		Map<Boolean, BannerType> theBannerType = new HashMap<>();
-		theBannerType.put(isBraavos, GOTItemBanner.BannerType.BRAAVOS);
-		theBannerType.put(isGhiscar, GOTItemBanner.BannerType.GHISCAR);
-		theBannerType.put(isLorath, GOTItemBanner.BannerType.LORATH);
-		theBannerType.put(isLys, GOTItemBanner.BannerType.LYS);
-		theBannerType.put(isMyr, GOTItemBanner.BannerType.MYR);
-		theBannerType.put(isNorvos, GOTItemBanner.BannerType.NORVOS);
-		theBannerType.put(isPentos, GOTItemBanner.BannerType.PENTOS);
-		theBannerType.put(isQarth, GOTItemBanner.BannerType.QARTH);
-		theBannerType.put(isQohor, GOTItemBanner.BannerType.QOHOR);
-		theBannerType.put(isTyrosh, GOTItemBanner.BannerType.TYROSH);
-		theBannerType.put(isVolantis, GOTItemBanner.BannerType.VOLANTIS);
-
-		for (Entry<Boolean, BannerType> npc : theBannerType.entrySet()) {
-			if (Boolean.TRUE.equals(npc.getKey())) {
-				return npc.getValue();
-			}
-		}
-		return null;
-	}
-
-	public GOTEntityNPC getFarmhand(World world) {
-		Map<Boolean, GOTEntityNPC> theFarmhand = new HashMap<>();
-	    theFarmhand.put(isBraavos, new GOTEntityBraavosFarmhand(world));
-		theFarmhand.put(isGhiscar, new GOTEntityGhiscarSlave(world));
-		theFarmhand.put(isLorath, new GOTEntityLorathFarmhand(world)); 
-		theFarmhand.put(isLys, new GOTEntityLysSlave(world));
-		theFarmhand.put(isMyr, new GOTEntityMyrSlave(world));
-		theFarmhand.put(isNorvos, new GOTEntityNorvosFarmhand(world));
-		theFarmhand.put(isPentos, new GOTEntityPentosFarmhand(world));
-		theFarmhand.put(isQarth, new GOTEntityQarthFarmhand(world));
-		theFarmhand.put(isQohor, new GOTEntityQohorFarmhand(world));
-		theFarmhand.put(isTyrosh, new GOTEntityTyroshSlave(world));
-		theFarmhand.put(isVolantis, new GOTEntityVolantisSlave(world));
-
-		for (Entry<Boolean, GOTEntityNPC> npc : theFarmhand.entrySet()) {
-			if (Boolean.TRUE.equals(npc.getKey())) {
-				return npc.getValue();
-			}
-		}
-		return null;
-	}
-
-	public GOTEntityNPC getFarmer(World world) {
-		Map<Boolean, GOTEntityNPC> theFarmer = new HashMap<>();
-		theFarmer.put(isBraavos, new GOTEntityBraavosFarmer(world));
-		theFarmer.put(isGhiscar, new GOTEntityGhiscarSlaver(world));
-		theFarmer.put(isLorath, new GOTEntityLorathFarmer(world));
-		theFarmer.put(isLys, new GOTEntityLysSlaver(world));
-		theFarmer.put(isMyr, new GOTEntityMyrSlaver(world));
-		theFarmer.put(isNorvos, new GOTEntityNorvosFarmer(world));
-		theFarmer.put(isPentos, new GOTEntityPentosFarmer(world));
-		theFarmer.put(isQarth, new GOTEntityQarthFarmer(world));
-		theFarmer.put(isQohor, new GOTEntityQohorFarmer(world));
-		theFarmer.put(isTyrosh, new GOTEntityTyroshSlaver(world));
-		theFarmer.put(isVolantis, new GOTEntityVolantisSlaver(world));
-
-		for (Entry<Boolean, GOTEntityNPC> npc : theFarmer.entrySet()) {
-			if (Boolean.TRUE.equals(npc.getKey())) {
-				return npc.getValue();
-			}
-		}
-		return null;
-	}
-
-	public boolean canUseRedBricks() {
-		return true;
-	}
-
-	public boolean forceCedarWood() {
-		return false;
-	}
-
-	public ItemStack getRandomItem(Random random) {
-		ItemStack[] items = { new ItemStack(GOTRegistry.essosSword), new ItemStack(GOTRegistry.essosDagger), new ItemStack(GOTRegistry.essosSpear), new ItemStack(GOTRegistry.essosPike), new ItemStack(GOTRegistry.essosPolearm), new ItemStack(GOTRegistry.essosHammer), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTRegistry.gobletGold), new ItemStack(GOTRegistry.gobletSilver), new ItemStack(GOTRegistry.gobletCopper), new ItemStack(GOTRegistry.mug), new ItemStack(GOTRegistry.ceramicMug), new ItemStack(GOTRegistry.goldRing), new ItemStack(GOTRegistry.silverRing), new ItemStack(GOTRegistry.doubleFlower, 1, 2), new ItemStack(GOTRegistry.doubleFlower, 1, 3), new ItemStack(GOTRegistry.gemsbokHorn), new ItemStack(GOTRegistry.lionFur) };
-		return items[random.nextInt(items.length)].copy();
-	}
-
-	public ItemStack getRandomWeapon(Random random) {
-		ItemStack[] items = { new ItemStack(GOTRegistry.essosSword), new ItemStack(GOTRegistry.essosDagger), new ItemStack(GOTRegistry.essosSpear), new ItemStack(GOTRegistry.essosPike), new ItemStack(GOTRegistry.essosPolearm), new ItemStack(GOTRegistry.essosHammer) };
-		return items[random.nextInt(items.length)].copy();
 	}
 
 	@Override

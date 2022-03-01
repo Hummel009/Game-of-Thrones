@@ -121,7 +121,7 @@ public class GOTStructureArrynCity extends GOTVillageGen {
 			}
 			return new GOTStructureArrynHouse(false);
 		}
-		
+
 		@Override
 		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
 			if (villageType == VillageType.FORT) {

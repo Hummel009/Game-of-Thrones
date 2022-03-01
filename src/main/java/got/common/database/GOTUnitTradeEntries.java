@@ -115,7 +115,7 @@ public class GOTUnitTradeEntries {
 	public static GOTUnitTradeEntries VOLANTIS_SLAVER = new GOTUnitTradeEntries(0.0f, new GOTUnitTradeEntry(GOTEntityVolantisSlave.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
 
 	public static GOTUnitTradeEntries PROSTITUTE_KEEPER = new GOTUnitTradeEntries(0.0f, new GOTUnitTradeEntry(GOTEntityProstitute.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.PROSTITUTE));
-	
+
 	public static GOTUnitTradeEntries LORATH_FARMER = new GOTUnitTradeEntries(0.0f, new GOTUnitTradeEntry(GOTEntityLorathFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
 	public static GOTUnitTradeEntries BRAAVOS_FARMER = new GOTUnitTradeEntries(0.0f, new GOTUnitTradeEntry(GOTEntityBraavosFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));
 	public static GOTUnitTradeEntries NORVOS_FARMER = new GOTUnitTradeEntries(0.0f, new GOTUnitTradeEntry(GOTEntityNorvosFarmhand.class, SLAVE, SLAVE_F).setTask(GOTHiredNPCInfo.Task.FARMER));

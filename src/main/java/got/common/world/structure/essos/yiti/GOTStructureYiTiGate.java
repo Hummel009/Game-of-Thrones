@@ -40,12 +40,12 @@ public class GOTStructureYiTiGate extends GOTStructureYiTiBase {
 		}
 		for (int x = -3; x <= 3; ++x) {
 			for (int y = -6; y <= 6; ++y) {
-					setBlockAndMetadata(world, x, 10, y, GOTRegistry.cobblebrick, 0);
+				setBlockAndMetadata(world, x, 10, y, GOTRegistry.cobblebrick, 0);
 			}
 		}
 		for (int x = -2; x <= 2; ++x) {
 			for (int y = -6; y <= 6; ++y) {
-					setBlockAndMetadata(world, x, 11, y, GOTRegistry.cobblebrick, 0);
+				setBlockAndMetadata(world, x, 11, y, GOTRegistry.cobblebrick, 0);
 			}
 		}
 		for (int x = -3; x <= 3; ++x) {
@@ -61,7 +61,7 @@ public class GOTStructureYiTiGate extends GOTStructureYiTiBase {
 				setBlockAndMetadata(world, x, z, -4, gateBlock, 2);
 			}
 		}
-		int wallTop = getTopBlock(world, 0, 0)-1;
+		int wallTop = getTopBlock(world, 0, 0) - 1;
 		for (int z = 0; z <= 6; ++z) {
 			for (int y = -6; y <= 6; ++y) {
 				if (y <= -4 || y >= 4) {
@@ -77,7 +77,7 @@ public class GOTStructureYiTiGate extends GOTStructureYiTiBase {
 			for (int y = -6; y <= 6; ++y) {
 				if (y <= -4 || y >= 4) {
 					setBlockAndMetadata(world, x, 7, y, woodBeamBlock, woodBeamMeta | 4);
-					if (y>=4) {
+					if (y >= 4) {
 						setBlockAndMetadata(world, x, wallTop, y, woodBeamBlock, woodBeamMeta | 4);
 					}
 				} else {
@@ -86,10 +86,10 @@ public class GOTStructureYiTiGate extends GOTStructureYiTiBase {
 				setBlockAndMetadata(world, x, -1, y, GOTRegistry.dirtPath, 2);
 			}
 		}
-			setBlockAndMetadata(world, 3, 3, 1, Blocks.torch, 1);
-			setBlockAndMetadata(world, 3, 3, -1, Blocks.torch, 1);
-			setBlockAndMetadata(world, -3, 3, 1, Blocks.torch, 2);
-			setBlockAndMetadata(world, -3, 3, -1, Blocks.torch, 2);
+		setBlockAndMetadata(world, 3, 3, 1, Blocks.torch, 1);
+		setBlockAndMetadata(world, 3, 3, -1, Blocks.torch, 1);
+		setBlockAndMetadata(world, -3, 3, 1, Blocks.torch, 2);
+		setBlockAndMetadata(world, -3, 3, -1, Blocks.torch, 2);
 		for (int z = 0; z <= wallTop; ++z) {
 			setBlockAndMetadata(world, -4, z, 7, GOTRegistry.rope, 3);
 			setBlockAndMetadata(world, 4, z, 7, GOTRegistry.rope, 3);
@@ -97,7 +97,7 @@ public class GOTStructureYiTiGate extends GOTStructureYiTiBase {
 			setBlockAndMetadata(world, 4, z, 6, woodBeamBlock, woodBeamMeta);
 		}
 		for (int x = -3; x <= 3; ++x) {
-			for (int z = 8; z <= wallTop-1; ++z) {
+			for (int z = 8; z <= wallTop - 1; ++z) {
 				setBlockAndMetadata(world, x, z, 6, fenceBlock, fenceMeta);
 			}
 			setBlockAndMetadata(world, x, wallTop, 6, woodBeamBlock, woodBeamMeta | 4);

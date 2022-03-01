@@ -265,8 +265,8 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 			setBlockAndMetadata(world, 6, j1, -9, woodBeamBlock, woodBeamMeta);
 		}
 		if (!isAbandoned) {
-		setBlockAndMetadata(world, -6, 8, -9, Blocks.torch, 5);
-		setBlockAndMetadata(world, 6, 8, -9, Blocks.torch, 5);
+			setBlockAndMetadata(world, -6, 8, -9, Blocks.torch, 5);
+			setBlockAndMetadata(world, 6, 8, -9, Blocks.torch, 5);
 		}
 		for (k1 = -12; k1 <= -10; ++k1) {
 			for (j13 = 1; j13 <= 4; ++j13) {
@@ -303,10 +303,10 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 			placeWallBanner(world, -2, 6, -12, bannerType, 2);
 			placeWallBanner(world, 0, 7, -12, bannerType, 2);
 			placeWallBanner(world, 2, 6, -12, bannerType, 2);
-		setBlockAndMetadata(world, -2, 3, -13, Blocks.torch, 4);
-		setBlockAndMetadata(world, 2, 3, -13, Blocks.torch, 4);
-		setBlockAndMetadata(world, -2, 3, -9, Blocks.torch, 3);
-		setBlockAndMetadata(world, 2, 3, -9, Blocks.torch, 3);
+			setBlockAndMetadata(world, -2, 3, -13, Blocks.torch, 4);
+			setBlockAndMetadata(world, 2, 3, -13, Blocks.torch, 4);
+			setBlockAndMetadata(world, -2, 3, -9, Blocks.torch, 3);
+			setBlockAndMetadata(world, 2, 3, -9, Blocks.torch, 3);
 		}
 		for (k1 = -13; k1 <= 9; ++k1) {
 			for (i1 = -1; i1 <= 1; ++i1) {
@@ -325,11 +325,11 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 			}
 			setBlockAndMetadata(world, -2, 1, k1, brickWallBlock, brickWallMeta);
 			if (!isAbandoned) {
-			setBlockAndMetadata(world, -2, 2, k1, Blocks.torch, 5);
+				setBlockAndMetadata(world, -2, 2, k1, Blocks.torch, 5);
 			}
 			setBlockAndMetadata(world, 2, 1, k1, brickWallBlock, brickWallMeta);
 			if (!isAbandoned) {
-			setBlockAndMetadata(world, 2, 2, k1, Blocks.torch, 5);
+				setBlockAndMetadata(world, 2, 2, k1, Blocks.torch, 5);
 			}
 		}
 		for (j1 = 1; j1 <= 3; ++j1) {
@@ -337,8 +337,8 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 			setBlockAndMetadata(world, 2, j1, 10, woodBeamBlock, woodBeamMeta);
 		}
 		if (!isAbandoned) {
-		setBlockAndMetadata(world, -2, 3, 9, Blocks.torch, 4);
-		setBlockAndMetadata(world, 2, 3, 9, Blocks.torch, 4);
+			setBlockAndMetadata(world, -2, 3, 9, Blocks.torch, 4);
+			setBlockAndMetadata(world, 2, 3, 9, Blocks.torch, 4);
 		}
 		int[] j16 = { -7, 7 };
 		i1 = j16.length;
@@ -348,14 +348,14 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 			setBlockAndMetadata(world, i13, 2, 0, fenceBlock, fenceMeta);
 			if (!isAbandoned) {
 				setBlockAndMetadata(world, i13, 3, 0, Blocks.torch, 5);
-			for (int l = 0; l < 2; ++l) {
-				GOTEntityHorse horse = new GOTEntityHorse(world);
-				spawnNPCAndSetHome(horse, world, i13 - Integer.signum(i13) * 3, 1, 0, 0);
-				horse.setHorseType(0);
-				horse.saddleMountForWorldGen();
-				horse.detachHome();
-				leashEntityTo(horse, world, i13, 2, 0);
-			}
+				for (int l = 0; l < 2; ++l) {
+					GOTEntityHorse horse = new GOTEntityHorse(world);
+					spawnNPCAndSetHome(horse, world, i13 - Integer.signum(i13) * 3, 1, 0, 0);
+					horse.setHorseType(0);
+					horse.saddleMountForWorldGen();
+					horse.detachHome();
+					leashEntityTo(horse, world, i13, 2, 0);
+				}
 			}
 		}
 		for (int k15 = -9; k15 <= -5; ++k15) {
@@ -522,8 +522,15 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 		}
 		return true;
 	}
-	
+
 	public void spawnLegendaryMobs(World world) {
+	}
+
+	public static class Abandoned extends GOTStructureGiftCastle {
+		public Abandoned(boolean flag) {
+			super(flag);
+			isAbandoned = true;
+		}
 	}
 
 	public static class CastleBlack extends GOTStructureGiftCastle {
@@ -539,13 +546,6 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 			spawnLegendaryNPC(new GOTEntityAlliserThorne(world), world, -3, 1, 3);
 			spawnLegendaryNPC(new GOTEntityEdd(world), world, 3, 1, -3);
 			spawnLegendaryNPC(new GOTEntitySamwellTarly(world), world, 0, 1, 3);
-		}
-	}
-
-	public static class Abandoned extends GOTStructureGiftCastle {
-		public Abandoned(boolean flag) {
-			super(flag);
-			isAbandoned = true;
 		}
 	}
 
