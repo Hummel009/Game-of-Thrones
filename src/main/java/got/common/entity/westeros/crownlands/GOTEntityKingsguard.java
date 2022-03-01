@@ -6,7 +6,7 @@ import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityKingsguard extends GOTEntityCrownlandsLevyman {
+public class GOTEntityKingsguard extends GOTEntityCrownlandsGuard {
 	public GOTEntityKingsguard(World world) {
 		super(world);
 		npcCape = GOTCapes.ROYALGUARD;
