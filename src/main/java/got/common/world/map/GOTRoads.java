@@ -75,6 +75,9 @@ public class GOTRoads {
 		GOTRoads.registerRoad(id++, GOTWaypoint.CasterlyRock, near(GOTWaypoint.CasterlyRock, -1, 0));
 		GOTRoads.registerRoad(id++, near(GOTWaypoint.CastleBlack, 0, 1), GOTWaypoint.Moletown);
 		GOTRoads.registerRoad(id++, near(GOTWaypoint.CastleBlack, 0, 1), GOTWaypoint.CastleBlack);
+		GOTRoads.registerRoad(id++, near(GOTWaypoint.Anjiang, 0, 1), GOTWaypoint.Anjiang);
+		GOTRoads.registerRoad(id++, near(GOTWaypoint.TraderTown, 1, 0), GOTWaypoint.TraderTown);
+		GOTRoads.registerRoad(id++, near(GOTWaypoint.Anjiang, 0, 1), near(GOTWaypoint.TraderTown, 1, 0));
 		GOTRoads.registerRoad(id++, GOTWaypoint.Chroyane, GOTWaypoint.ArNoy, GOTWaypoint.Qohor, GOTWaypoint.VaesKhadokh, GOTWaypoint.VaesGorqoyi, GOTWaypoint.VaesKhewo, GOTWaypoint.VojjorSamvi, GOTWaypoint.Sathar, GOTWaypoint.VaesLeqse, GOTWaypoint.VaesAthjikhari);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Chroyane, GOTWaypoint.NySar, GOTWaypoint.Norvos);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Chroyane, GOTWaypoint.Selhorys, GOTWaypoint.Valysar, GOTWaypoint.VolonTherys);

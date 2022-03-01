@@ -7,12 +7,15 @@ import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
+import got.common.world.structure.westeros.gift.GOTStructureGiftGate;
+import got.common.world.structure.westeros.gift.GOTStructureGiftCastle.CastleBlack;
 import net.minecraft.world.World;
 
 public class GOTStructureYiTiCity extends GOTVillageGen {
 	public boolean isTown;
 	public boolean isTower;
-	public boolean isChineseWall;
+	public boolean isWall;
+	public boolean isAnjiang;
 
 	public GOTStructureYiTiCity(GOTBiome biome, float f) {
 		super(biome);
@@ -28,8 +31,14 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
-	public GOTStructureYiTiCity setIsChineseWall() {
-		isChineseWall = true;
+	public GOTStructureYiTiCity setIsAnjiang() {
+		isAnjiang = true;
+		fixedVillageChunkRadius = 2;
+		return this;
+	}
+
+	public GOTStructureYiTiCity setIsWall() {
+		isWall = true;
 		fixedVillageChunkRadius = 2;
 		return this;
 	}
@@ -68,9 +77,13 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 			case TOWER:
 				this.addStructure(new GOTStructureYiTiLighthouse(), 0, 0, 0, true);
 				break;
-			case CHINESE_WALL:
+			case WALL:
 				this.addStructure(new GOTStructureYiTiFortress(false), 0, 20, 0, true);
 				this.addStructure(new GOTStructureYiTiGate(false), 0, 7, 0, true);
+				break;
+			case ANJIANG:
+				this.addStructure(new GOTStructureYiTiGate(false), 0, 7, 0, true);
+				this.addStructure(new GOTStructureYiTiFortress(false), -4, 25, 1, true);
 				break;
 			}
 		}
@@ -431,9 +444,11 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 				villageType = VillageType.FORT;
 			} else if (isTower) {
 				villageType = VillageType.TOWER;
-			} else if (isChineseWall) {
-				villageType = VillageType.CHINESE_WALL;
-			} else {
+			} else if (isWall) {
+				villageType = VillageType.WALL;
+			}  else if (isAnjiang) {
+				villageType = VillageType.ANJIANG;
+			}  else {
 				villageType = VillageType.VILLAGE;
 			}
 		}
@@ -441,6 +456,6 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 	}
 
 	public enum VillageType {
-		VILLAGE, TOWN, FORT, TOWER, CHINESE_WALL;
+		VILLAGE, TOWN, FORT, TOWER, WALL, ANJIANG;
 	}
 }
