@@ -7,43 +7,40 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketFellowshipRespondInvite extends GOTPacketFellowshipDo {
-	public boolean accept;
+	public boolean acceptOrReject;
 
 	public GOTPacketFellowshipRespondInvite() {
 	}
 
-	public GOTPacketFellowshipRespondInvite(GOTFellowshipClient fs, boolean accepts) {
+	public GOTPacketFellowshipRespondInvite(GOTFellowshipClient fs, boolean accept) {
 		super(fs);
-		accept = accepts;
+		acceptOrReject = accept;
 	}
 
 	@Override
 	public void fromBytes(ByteBuf data) {
 		super.fromBytes(data);
-		accept = data.readBoolean();
+		acceptOrReject = data.readBoolean();
 	}
 
 	@Override
 	public void toBytes(ByteBuf data) {
 		super.toBytes(data);
-		data.writeBoolean(accept);
+		data.writeBoolean(acceptOrReject);
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketFellowshipRespondInvite, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketFellowshipRespondInvite packet, MessageContext context) {
 			EntityPlayerMP entityplayer = context.getServerHandler().playerEntity;
-			GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
-			GOTFellowship fellowship = packet.getActiveOrDisbandedFellowship();
+			GOTFellowship fellowship = packet.getFellowship();
 			if (fellowship != null) {
-				if (packet.accept) {
-					playerData.acceptFellowshipInvite(fellowship, true);
+				GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
+				if (packet.acceptOrReject) {
+					playerData.acceptFellowshipInvite(fellowship);
 				} else {
 					playerData.rejectFellowshipInvite(fellowship);
 				}
-			} else {
-				GOTPacketFellowshipAcceptInviteResult resultPacket = new GOTPacketFellowshipAcceptInviteResult(GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.NONEXISTENT);
-				GOTPacketHandler.networkWrapper.sendTo(resultPacket, entityplayer);
 			}
 			return null;
 		}

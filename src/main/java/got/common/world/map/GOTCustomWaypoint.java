@@ -40,6 +40,10 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		ID = id;
 	}
 
+	public void addSharedFellowship(GOTFellowship fs) {
+		this.addSharedFellowship(fs.getFellowshipID());
+	}
+
 	public void addSharedFellowship(UUID fsID) {
 		if (!sharedFellowshipIDs.contains(fsID)) {
 			sharedFellowshipIDs.add(fsID);
@@ -167,15 +171,16 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	public List<UUID> getPlayersInAllSharedFellowships() {
 		ArrayList<UUID> allPlayers = new ArrayList<>();
 		for (UUID fsID : sharedFellowshipIDs) {
-			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
-			if (fs != null) {
-				List<UUID> fsPlayers = fs.getAllPlayerUUIDs();
-				for (UUID player : fsPlayers) {
-					if (player.equals(sharingPlayer) || allPlayers.contains(player)) {
-						continue;
-					}
-					allPlayers.add(player);
+			GOTFellowship fs = GOTFellowshipData.getFellowship(fsID);
+			if (fs == null || fs.isDisbanded()) {
+				continue;
+			}
+			List<UUID> fsPlayers = fs.getAllPlayerUUIDs();
+			for (UUID player : fsPlayers) {
+				if (player.equals(sharingPlayer) || allPlayers.contains(player)) {
+					continue;
 				}
+				allPlayers.add(player);
 			}
 		}
 		return allPlayers;
@@ -305,6 +310,10 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		return sharedUnlocked;
 	}
 
+	public void removeSharedFellowship(GOTFellowship fs) {
+		this.removeSharedFellowship(fs.getFellowshipID());
+	}
+
 	public void removeSharedFellowship(UUID fsID) {
 		if (sharedFellowshipIDs.contains(fsID)) {
 			sharedFellowshipIDs.remove(fsID);
@@ -331,7 +340,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		UUID prev = sharingPlayer;
 		sharingPlayer = id;
 		if (MinecraftServer.getServer() != null && (prev == null || !prev.equals(sharingPlayer))) {
-			sharingPlayerName = GOTPacketFellowship.getPlayerProfileWithUsername(sharingPlayer).getName();
+			sharingPlayerName = GOTPacketFellowship.getPlayerUsername(sharingPlayer);
 		}
 	}
 
@@ -343,8 +352,8 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		UUID ownerUUID = ownerData.getPlayerUUID();
 		HashSet<UUID> removeIDs = new HashSet<>();
 		for (UUID fsID : sharedFellowshipIDs) {
-			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
-			if (fs != null && fs.containsPlayer(ownerUUID)) {
+			GOTFellowship fs = GOTFellowshipData.getFellowship(fsID);
+			if (fs != null && !fs.isDisbanded() && fs.containsPlayer(ownerUUID)) {
 				continue;
 			}
 			removeIDs.add(fsID);

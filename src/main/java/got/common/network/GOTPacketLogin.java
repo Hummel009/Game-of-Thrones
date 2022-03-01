@@ -21,7 +21,6 @@ public class GOTPacketLogin implements IMessage {
 	public boolean enchantingGOT;
 	public boolean strictFactionTitleRequirements;
 	public boolean conquestDecay;
-	public int fellowshipMaxSize;
 
 	@Override
 	public void fromBytes(ByteBuf data) {
@@ -40,12 +39,10 @@ public class GOTPacketLogin implements IMessage {
 		enchantingGOT = data.readBoolean();
 		strictFactionTitleRequirements = data.readBoolean();
 		conquestDecay = data.readBoolean();
-		fellowshipMaxSize = data.readInt();
 	}
 
 	@Override
 	public void toBytes(ByteBuf data) {
-		data.writeInt(fellowshipMaxSize);
 		data.writeInt(ringPortalX);
 		data.writeInt(ringPortalY);
 		data.writeInt(ringPortalZ);
@@ -72,7 +69,6 @@ public class GOTPacketLogin implements IMessage {
 			GOTLevelData.gameOfThronesPortalX = packet.ringPortalX;
 			GOTLevelData.gameOfThronesPortalY = packet.ringPortalY;
 			GOTLevelData.gameOfThronesPortalZ = packet.ringPortalZ;
-			GOTLevelData.clientside_thisServer_fellowshipMaxSize = packet.fellowshipMaxSize;
 			GOTLevelData.setWaypointCooldown(packet.ftCooldownMax, packet.ftCooldownMin);
 			EnumDifficulty diff = packet.difficulty;
 			if (diff != null) {

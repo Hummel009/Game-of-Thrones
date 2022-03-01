@@ -2,7 +2,7 @@ package got.common.entity.other;
 
 import java.util.*;
 
-import com.google.common.base.Predicate;
+import com.google.common.base.*;
 
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
@@ -208,29 +208,23 @@ public class GOTEntityQuestInfo {
 					clearMiniQuestOffer();
 				}
 			}
-			if (theNPC.ticksExisted % 10 == 0) {
-				pruneActiveQuestPlayers();
+			if (!activeQuestPlayers.isEmpty()) {
+				HashSet<UUID> removes = new HashSet<>();
+				for (UUID player : activeQuestPlayers) {
+					List<GOTMiniQuest> playerQuests = GOTLevelData.getData(player).getMiniQuestsForEntity(theNPC, true);
+					if (playerQuests.isEmpty()) {
+						removes.add(player);
+						continue;
+					}
+					for (GOTMiniQuest quest : playerQuests) {
+						quest.updateLocation(theNPC);
+					}
+				}
+				activeQuestPlayers.removeAll(removes);
 			}
 			if (theNPC.ticksExisted % 10 == 0) {
 				sendDataToAllWatchers();
 			}
-		}
-	}
-
-	public void pruneActiveQuestPlayers() {
-		if (!activeQuestPlayers.isEmpty()) {
-			HashSet<UUID> removes = new HashSet<>();
-			for (UUID player : activeQuestPlayers) {
-				List<GOTMiniQuest> playerQuests = GOTLevelData.getData(player).getMiniQuestsForEntity(theNPC, true);
-				if (playerQuests.isEmpty()) {
-					removes.add(player);
-					continue;
-				}
-				for (GOTMiniQuest quest : playerQuests) {
-					quest.updateLocation(theNPC);
-				}
-			}
-			activeQuestPlayers.removeAll(removes);
 		}
 	}
 

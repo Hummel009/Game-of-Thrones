@@ -120,7 +120,7 @@ public class GOTItemBanner extends Item {
 						if (protectData != null) {
 							banner.readProtectionFromNBT(protectData);
 						}
-						if (banner.getPlacingPlayer() == null || !GOTItemBanner.shouldKeepOriginalOwnerOnPlacement(entityplayer, itemstack)) {
+						if (banner.getPlacingPlayer() == null || GOTItemBanner.shouldRepossessBannerOnPlacement(entityplayer, itemstack)) {
 							banner.setPlacingPlayer(entityplayer);
 						}
 						world.spawnEntityInWorld(banner);
@@ -188,7 +188,7 @@ public class GOTItemBanner extends Item {
 		return null;
 	}
 
-	public static boolean hasChoiceToKeepOriginalOwner(EntityPlayer entityplayer) {
+	public static boolean hasChoiceToRepossessBanner(EntityPlayer entityplayer, ItemStack bannerItem) {
 		return entityplayer.capabilities.isCreativeMode;
 	}
 
@@ -214,8 +214,8 @@ public class GOTItemBanner extends Item {
 		}
 	}
 
-	public static boolean shouldKeepOriginalOwnerOnPlacement(EntityPlayer entityplayer, ItemStack bannerItem) {
-		return GOTItemBanner.hasChoiceToKeepOriginalOwner(entityplayer) && entityplayer.isSneaking();
+	public static boolean shouldRepossessBannerOnPlacement(EntityPlayer entityplayer, ItemStack bannerItem) {
+		return !GOTItemBanner.hasChoiceToRepossessBanner(entityplayer, bannerItem) || !entityplayer.isSneaking();
 	}
 
 	public enum BannerType {

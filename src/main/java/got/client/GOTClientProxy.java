@@ -139,15 +139,6 @@ public class GOTClientProxy extends GOTCommonProxy {
 	}
 
 	@Override
-	public void displayFellowshipAcceptInvitationResult(UUID fellowshipID, String name, GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult result) {
-		Minecraft mc = Minecraft.getMinecraft();
-		GuiScreen gui = mc.currentScreen;
-		if (gui instanceof GOTGuiFellowships) {
-			((GOTGuiFellowships) gui).displayAcceptInvitationResult(fellowshipID, name, result);
-		}
-	}
-
-	@Override
 	public void displayFTScreen(GOTAbstractWaypoint waypoint, int startX, int startZ) {
 		Minecraft mc = Minecraft.getMinecraft();
 		mc.displayGuiScreen(new GOTGuiFastTravel(waypoint, startX, startZ));

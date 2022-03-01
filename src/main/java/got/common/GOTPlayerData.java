@@ -113,7 +113,7 @@ public class GOTPlayerData {
 		ftSinceTick = GOTLevelData.getWaypointCooldownMax() * 20;
 	}
 
-	public void acceptFellowshipInvite(GOTFellowship fs, boolean respectSizeLimit) {
+	public void acceptFellowshipInvite(GOTFellowship fs) {
 		UUID fsID = fs.getFellowshipID();
 		GOTFellowshipInvite existingInvite = null;
 		for (GOTFellowshipInvite invite : fellowshipInvites) {
@@ -124,39 +124,22 @@ public class GOTPlayerData {
 			break;
 		}
 		if (existingInvite != null) {
-			EntityPlayer entityplayer = getPlayer();
-			if (fs.isDisbanded()) {
-				rejectFellowshipInvite(fs);
-				if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-					GOTPacketFellowshipAcceptInviteResult resultPacket = new GOTPacketFellowshipAcceptInviteResult(fs, GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.DISBANDED);
-					GOTPacketHandler.networkWrapper.sendTo((IMessage) resultPacket, (EntityPlayerMP) entityplayer);
+			EntityPlayer entityplayer;
+			if (!fs.isDisbanded()) {
+				fs.addMember(playerUUID);
+			}
+			fellowshipInvites.remove(existingInvite);
+			markDirty();
+			sendFellowshipInviteRemovePacket(fs);
+			if (!fs.isDisbanded() && (entityplayer = getPlayer()) != null && !entityplayer.worldObj.isRemote) {
+				EntityPlayer inviter;
+				UUID inviterID = existingInvite.inviterID;
+				if (inviterID == null) {
+					inviterID = fs.getOwner();
 				}
-			} else {
-				int limit = GOTConfig.fellowshipMaxSize;
-				if (respectSizeLimit && limit >= 0 && fs.getPlayerCount() >= limit) {
-					rejectFellowshipInvite(fs);
-					if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-						GOTPacketFellowshipAcceptInviteResult resultPacket = new GOTPacketFellowshipAcceptInviteResult(fs, GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.TOO_LARGE);
-						GOTPacketHandler.networkWrapper.sendTo((IMessage) resultPacket, (EntityPlayerMP) entityplayer);
-					}
-				} else {
-					fs.addMember(playerUUID);
-					fellowshipInvites.remove(existingInvite);
-					markDirty();
-					sendFellowshipInviteRemovePacket(fs);
-					if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-						EntityPlayer inviter;
-						GOTPacketFellowshipAcceptInviteResult resultPacket = new GOTPacketFellowshipAcceptInviteResult(fs, GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.JOINED);
-						GOTPacketHandler.networkWrapper.sendTo((IMessage) resultPacket, (EntityPlayerMP) entityplayer);
-						UUID inviterID = existingInvite.inviterID;
-						if (inviterID == null) {
-							inviterID = fs.getOwner();
-						}
-						inviter = getOtherPlayer(inviterID);
-						if (inviter != null) {
-							fs.sendNotification(inviter, "got.gui.fellowships.notifyAccept", entityplayer.getCommandSenderName());
-						}
-					}
+				inviter = getOtherPlayer(inviterID);
+				if (inviter != null) {
+					fs.sendNotification(inviter, "got.gui.fellowships.notifyAccept", entityplayer.getCommandSenderName());
 				}
 			}
 		}
@@ -304,21 +287,13 @@ public class GOTPlayerData {
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			GOTPacketCreateCWPClient packet = waypoint.getClientPacket();
 			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTCustomWaypoint shareCopy = waypoint.createCopyOfShared(playerUUID);
+			List<UUID> sharedPlayers = shareCopy.getPlayersInAllSharedFellowships();
+			for (UUID player : sharedPlayers) {
+				GOTLevelData.getData(player).addOrUpdateSharedCustomWaypoint(shareCopy);
+			}
 			GOTCustomWaypointLogger.logCreate(entityplayer, waypoint);
 		}
-		GOTCustomWaypoint shareCopy = waypoint.createCopyOfShared(playerUUID);
-		List<UUID> sharedPlayers = shareCopy.getPlayersInAllSharedFellowships();
-		for (UUID sharedPlayerUUID : sharedPlayers) {
-			EntityPlayer sharedPlayer = getOtherPlayer(sharedPlayerUUID);
-			if (sharedPlayer == null || sharedPlayer.worldObj.isRemote) {
-				continue;
-			}
-			GOTLevelData.getData(sharedPlayerUUID).addOrUpdateSharedCustomWaypoint(shareCopy);
-		}
-	}
-
-	public void addCustomWaypointClient(GOTCustomWaypoint waypoint) {
-		customWaypoints.add(waypoint);
 	}
 
 	public void addFellowship(GOTFellowship fs) {
@@ -331,22 +306,24 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void addFellowshipInvite(GOTFellowship fs, UUID inviterUUID, String inviterUsername) {
+	public void addFellowshipInvite(GOTFellowship fs, UUID inviterUUID) {
 		UUID fsID = fs.getFellowshipID();
-		boolean hasInviteAlready = false;
+		boolean contains = false;
 		for (GOTFellowshipInvite invite : fellowshipInvites) {
-			if (invite.fellowshipID.equals(fsID)) {
-				hasInviteAlready = true;
-				break;
+			if (!invite.fellowshipID.equals(fsID)) {
+				continue;
 			}
+			contains = true;
+			break;
 		}
-		if (!hasInviteAlready) {
+		if (!contains) {
+			EntityPlayer inviter;
 			fellowshipInvites.add(new GOTFellowshipInvite(fsID, inviterUUID));
 			markDirty();
 			sendFellowshipInvitePacket(fs);
 			EntityPlayer entityplayer = getPlayer();
-			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-				fs.sendNotification(entityplayer, "got.gui.fellowships.notifyInvite", inviterUsername);
+			if (entityplayer != null && !entityplayer.worldObj.isRemote && (inviter = getOtherPlayer(inviterUUID)) != null) {
+				fs.sendNotification(entityplayer, "got.gui.fellowships.notifyInvite", inviter.getCommandSenderName());
 			}
 		}
 	}
@@ -427,7 +404,7 @@ public class GOTPlayerData {
 		}
 	}
 
-	private int addSharedCustomWaypointsFrom(UUID onlyOneFellowshipID, List<UUID> checkSpecificPlayers) {
+	public void addSharedCustomWaypointsFrom(UUID onlyOneFellowshipID, List<UUID> checkSpecificPlayers) {
 		List<UUID> checkFellowshipIDs;
 		if (onlyOneFellowshipID != null) {
 			checkFellowshipIDs = new ArrayList<>();
@@ -445,11 +422,11 @@ public class GOTPlayerData {
 			}
 		} else {
 			for (UUID fsID : checkFellowshipIDs) {
-				GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
+				GOTFellowship fs = GOTFellowshipData.getFellowship(fsID);
 				if (fs == null) {
 					continue;
 				}
-				Set<UUID> playerIDs = fs.getWaypointSharerUUIDs();
+				List<UUID> playerIDs = fs.getAllPlayerUUIDs();
 				for (UUID player : playerIDs) {
 					if (player.equals(playerUUID) || checkFellowPlayerIDs.contains(player)) {
 						continue;
@@ -476,7 +453,6 @@ public class GOTPlayerData {
 				addOrUpdateSharedCustomWaypoint(waypoint.createCopyOfShared(player));
 			}
 		}
-		return checkFellowPlayerIDs.size();
 	}
 
 	public void addSharedCustomWaypointsFromAllFellowships() {
@@ -536,7 +512,7 @@ public class GOTPlayerData {
 		} else {
 			for (UUID fsID : fellowshipIDs) {
 				GOTFellowship fs = GOTFellowshipData.getFellowship(fsID);
-				if (fs == null || !fs.isOwner(playerUUID) || ++leading < max) {
+				if (fs == null || fs.isDisbanded() || !fs.isOwner(playerUUID) || ++leading < max) {
 					continue;
 				}
 				return false;
@@ -617,12 +593,6 @@ public class GOTPlayerData {
 		checkCustomWaypointsSharedBy(null);
 	}
 
-	public void checkIfStillWaypointSharerForFellowship(GOTFellowship fs) {
-		if (!hasAnyWaypointsSharedToFellowship(fs)) {
-			fs.markIsWaypointSharer(playerUUID, false);
-		}
-	}
-
 	public void completeMiniQuest(GOTMiniQuest quest) {
 		if (miniQuests.remove(quest)) {
 			addMiniQuestCompleted(quest);
@@ -654,7 +624,6 @@ public class GOTPlayerData {
 		UUID fsID = fs.getFellowshipID();
 		waypoint.addSharedFellowship(fsID);
 		markDirty();
-		fs.markIsWaypointSharer(playerUUID, true);
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			GOTPacketShareCWPClient packet = waypoint.getClientAddFellowshipPacket(fsID);
@@ -677,7 +646,6 @@ public class GOTPlayerData {
 		UUID fsID = fs.getFellowshipID();
 		waypoint.removeSharedFellowship(fsID);
 		markDirty();
-		checkIfStillWaypointSharerForFellowship(fs);
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			GOTPacketShareCWPClient packet = waypoint.getClientRemoveFellowshipPacket(fsID);
@@ -698,18 +666,20 @@ public class GOTPlayerData {
 		waypoint.removeSharedFellowship(fsID);
 	}
 
-	public void disbandFellowship(GOTFellowship fs, String disbanderUsername) {
+	public void disbandFellowship(GOTFellowship fs) {
 		if (fs.isOwner(playerUUID)) {
 			ArrayList<UUID> memberUUIDs = new ArrayList<>(fs.getMemberUUIDs());
-			fs.setDisbandedAndRemoveAllMembers();
+			fs.disband();
 			removeFellowship(fs);
-			getPlayer();
-			for (UUID memberID : memberUUIDs) {
-				EntityPlayer member = getOtherPlayer(memberID);
-				if (member == null || member.worldObj.isRemote) {
-					continue;
+			EntityPlayer entityplayer = getPlayer();
+			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
+				for (UUID memberID : memberUUIDs) {
+					EntityPlayer member = getOtherPlayer(memberID);
+					if (member == null) {
+						continue;
+					}
+					fs.sendNotification(member, "got.gui.fellowships.notifyDisband", entityplayer.getCommandSenderName());
 				}
-				fs.sendNotification(member, "got.gui.fellowships.notifyDisband", disbanderUsername);
 			}
 		}
 	}
@@ -870,7 +840,7 @@ public class GOTPlayerData {
 
 	public GOTFellowship getChatBoundFellowship() {
 		GOTFellowship fs;
-		if (chatBoundFellowshipID != null && (fs = GOTFellowshipData.getActiveFellowship(chatBoundFellowshipID)) != null) {
+		if (chatBoundFellowshipID != null && (fs = GOTFellowshipData.getFellowship(chatBoundFellowshipID)) != null) {
 			return fs;
 		}
 		return null;
@@ -991,7 +961,7 @@ public class GOTPlayerData {
 	public GOTFellowship getFellowshipByName(String fsName) {
 		for (UUID fsID : fellowshipIDs) {
 			GOTFellowship fs = GOTFellowshipData.getFellowship(fsID);
-			if (fs == null || !fs.getName().equalsIgnoreCase(fsName)) {
+			if (fs == null || fs.isDisbanded() || !fs.getName().equalsIgnoreCase(fsName)) {
 				continue;
 			}
 			return fs;
@@ -1006,8 +976,8 @@ public class GOTPlayerData {
 	public List<GOTFellowship> getFellowships() {
 		ArrayList<GOTFellowship> fellowships = new ArrayList<>();
 		for (UUID fsID : fellowshipIDs) {
-			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
-			if (fs == null) {
+			GOTFellowship fs = GOTFellowshipData.getFellowship(fsID);
+			if (fs == null || fs.isDisbanded()) {
 				continue;
 			}
 			fellowships.add(fs);
@@ -1277,16 +1247,6 @@ public class GOTPlayerData {
 		return hasActiveOrCompleteMQType(GOTMiniQuestWelcome.class);
 	}
 
-	public boolean hasAnyWaypointsSharedToFellowship(GOTFellowship fs) {
-		for (GOTCustomWaypoint waypoint : customWaypoints) {
-			if (!waypoint.hasSharedFellowship(fs)) {
-				continue;
-			}
-			return true;
-		}
-		return false;
-	}
-
 	public boolean hasPledgeAlignment(GOTFaction fac) {
 		float alignment = getAlignment(fac);
 		return alignment >= fac.getPledgeAlignment();
@@ -1321,9 +1281,9 @@ public class GOTPlayerData {
 		setWPUseCount(wp, getWPUseCount(wp) + 1);
 	}
 
-	public void invitePlayerToFellowship(GOTFellowship fs, UUID invitedPlayerUUID, String inviterUsername) {
+	public void invitePlayerToFellowship(GOTFellowship fs, UUID player) {
 		if (fs.isOwner(playerUUID) || fs.isAdmin(playerUUID)) {
-			GOTLevelData.getData(invitedPlayerUUID).addFellowshipInvite(fs, playerUUID, inviterUsername);
+			GOTLevelData.getData(player).addFellowshipInvite(fs, playerUUID);
 		}
 	}
 
@@ -1381,7 +1341,7 @@ public class GOTPlayerData {
 		ArrayList<String> list = new ArrayList<>();
 		for (UUID fsID : fellowshipIDs) {
 			GOTFellowship fs = GOTFellowshipData.getFellowship(fsID);
-			if (fs == null || !fs.containsPlayer(playerUUID)) {
+			if (fs == null || fs.isDisbanded() || !fs.containsPlayer(playerUUID)) {
 				continue;
 			}
 			list.add(fs.getName());
@@ -1393,7 +1353,7 @@ public class GOTPlayerData {
 		ArrayList<String> list = new ArrayList<>();
 		for (UUID fsID : fellowshipIDs) {
 			GOTFellowship fs = GOTFellowshipData.getFellowship(fsID);
-			if (fs == null || !fs.isOwner(playerUUID)) {
+			if (fs == null || fs.isDisbanded() || !fs.isOwner(playerUUID)) {
 				continue;
 			}
 			list.add(fs.getName());
@@ -1938,29 +1898,23 @@ public class GOTPlayerData {
 	public void removeCustomWaypoint(GOTCustomWaypoint waypoint) {
 		if (customWaypoints.remove(waypoint)) {
 			markDirty();
-			for (UUID fsID : waypoint.getSharedFellowshipIDs()) {
-				GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
-				if (fs == null) {
-					continue;
-				}
-				checkIfStillWaypointSharerForFellowship(fs);
-			}
 			EntityPlayer entityplayer = getPlayer();
 			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 				GOTPacketDeleteCWPClient packet = waypoint.getClientDeletePacket();
 				GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+				GOTCustomWaypoint shareCopy = waypoint.createCopyOfShared(playerUUID);
+				List<UUID> sharedPlayers = shareCopy.getPlayersInAllSharedFellowships();
+				for (UUID player : sharedPlayers) {
+					GOTLevelData.getData(player).removeSharedCustomWaypoint(shareCopy);
+				}
 				GOTCustomWaypointLogger.logDelete(entityplayer, waypoint);
 			}
 		}
 	}
 
-	public void removeCustomWaypointClient(GOTCustomWaypoint waypoint) {
-		customWaypoints.remove(waypoint);
-	}
-
 	public void removeFellowship(GOTFellowship fs) {
 		UUID fsID;
-		if (!fs.containsPlayer(playerUUID) && fellowshipIDs.contains(fsID = fs.getFellowshipID())) {
+		if ((fs.isDisbanded() || !fs.containsPlayer(playerUUID)) && fellowshipIDs.contains(fsID = fs.getFellowshipID())) {
 			fellowshipIDs.remove(fsID);
 			markDirty();
 			sendFellowshipRemovePacket(fs);
@@ -1983,12 +1937,13 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void removePlayerFromFellowship(GOTFellowship fs, UUID player, String removerUsername) {
+	public void removePlayerFromFellowship(GOTFellowship fs, UUID player) {
 		if (fs.isOwner(playerUUID) || fs.isAdmin(playerUUID)) {
+			EntityPlayer removed;
 			fs.removeMember(player);
-			EntityPlayer removed = getOtherPlayer(player);
-			if (removed != null && !removed.worldObj.isRemote) {
-				fs.sendNotification(removed, "got.gui.fellowships.notifyRemove", removerUsername);
+			EntityPlayer entityplayer = getPlayer();
+			if (entityplayer != null && !entityplayer.worldObj.isRemote && (removed = getOtherPlayer(player)) != null) {
+				fs.sendNotification(removed, "got.gui.fellowships.notifyRemove", entityplayer.getCommandSenderName());
 			}
 		}
 	}
@@ -2019,21 +1974,13 @@ public class GOTPlayerData {
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			GOTPacketRenameCWPClient packet = waypoint.getClientRenamePacket();
 			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTCustomWaypoint shareCopy = waypoint.createCopyOfShared(playerUUID);
+			List<UUID> sharedPlayers = shareCopy.getPlayersInAllSharedFellowships();
+			for (UUID player : sharedPlayers) {
+				GOTLevelData.getData(player).renameSharedCustomWaypoint(shareCopy, newName);
+			}
 			GOTCustomWaypointLogger.logRename(entityplayer, waypoint);
 		}
-		GOTCustomWaypoint shareCopy = waypoint.createCopyOfShared(playerUUID);
-		List<UUID> sharedPlayers = shareCopy.getPlayersInAllSharedFellowships();
-		for (UUID sharedPlayerUUID : sharedPlayers) {
-			EntityPlayer sharedPlayer = getOtherPlayer(sharedPlayerUUID);
-			if (sharedPlayer == null || sharedPlayer.worldObj.isRemote) {
-				continue;
-			}
-			GOTLevelData.getData(sharedPlayerUUID).renameSharedCustomWaypoint(shareCopy, newName);
-		}
-	}
-
-	public void renameCustomWaypointClient(GOTCustomWaypoint waypoint, String newName) {
-		waypoint.rename(newName);
 	}
 
 	public void renameFellowship(GOTFellowship fs, String name) {
@@ -2519,6 +2466,7 @@ public class GOTPlayerData {
 	}
 
 	public void sendPlayerData(EntityPlayerMP entityplayer) throws IOException {
+		GOTFellowship fs;
 		NBTTagCompound nbt = new NBTTagCompound();
 		save(nbt);
 		nbt.removeTag("Achievements");
@@ -2543,26 +2491,18 @@ public class GOTPlayerData {
 			GOTPacketHandler.networkWrapper.sendTo(cwpPacket, entityplayer);
 		}
 		for (UUID fsID : fellowshipIDs) {
-			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
+			fs = GOTFellowshipData.getFellowship(fsID);
 			if (fs == null) {
 				continue;
 			}
 			sendFellowshipPacket(fs);
-			fs.doRetroactiveWaypointSharerCheckIfNeeded();
-			checkIfStillWaypointSharerForFellowship(fs);
 		}
-		HashSet<GOTFellowshipInvite> staleFellowshipInvites = new HashSet<>();
 		for (GOTFellowshipInvite invite : fellowshipInvites) {
-			GOTFellowship fs = GOTFellowshipData.getFellowship(invite.fellowshipID);
-			if (fs != null) {
-				sendFellowshipInvitePacket(fs);
+			fs = GOTFellowshipData.getFellowship(invite.fellowshipID);
+			if (fs == null) {
 				continue;
 			}
-			staleFellowshipInvites.add(invite);
-		}
-		if (!staleFellowshipInvites.isEmpty()) {
-			fellowshipInvites.removeAll(staleFellowshipInvites);
-			markDirty();
+			sendFellowshipInvitePacket(fs);
 		}
 		addSharedCustomWaypointsFromAllFellowships();
 	}
@@ -2659,15 +2599,16 @@ public class GOTPlayerData {
 		sendOptionsPacket(1, flag);
 	}
 
-	public void setFellowshipAdmin(GOTFellowship fs, UUID player, boolean flag, String granterUsername) {
+	public void setFellowshipAdmin(GOTFellowship fs, UUID player, boolean flag) {
 		if (fs.isOwner(playerUUID)) {
+			EntityPlayer otherPlayer;
 			fs.setAdmin(player, flag);
-			EntityPlayer subjectPlayer = getOtherPlayer(player);
-			if (subjectPlayer != null && !subjectPlayer.worldObj.isRemote) {
+			EntityPlayer entityplayer = getPlayer();
+			if (entityplayer != null && !entityplayer.worldObj.isRemote && (otherPlayer = getOtherPlayer(player)) != null) {
 				if (flag) {
-					fs.sendNotification(subjectPlayer, "got.gui.fellowships.notifyOp", granterUsername);
+					fs.sendNotification(otherPlayer, "got.gui.fellowships.notifyOp", entityplayer.getCommandSenderName());
 				} else {
-					fs.sendNotification(subjectPlayer, "got.gui.fellowships.notifyDeop", granterUsername);
+					fs.sendNotification(otherPlayer, "got.gui.fellowships.notifyDeop", entityplayer.getCommandSenderName());
 				}
 			}
 		}
@@ -2733,7 +2674,7 @@ public class GOTPlayerData {
 			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
 		}
 		for (UUID fsID : fellowshipIDs) {
-			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
+			GOTFellowship fs = GOTFellowshipData.getFellowship(fsID);
 			if (fs == null) {
 				continue;
 			}
@@ -2951,12 +2892,13 @@ public class GOTPlayerData {
 		return showWaypoints;
 	}
 
-	public void transferFellowship(GOTFellowship fs, UUID player, String prevOwnerUsername) {
+	public void transferFellowship(GOTFellowship fs, UUID player) {
 		if (fs.isOwner(playerUUID)) {
+			EntityPlayer newOwner;
 			fs.setOwner(player);
-			EntityPlayer newOwner = getOtherPlayer(player);
-			if (newOwner != null && !newOwner.worldObj.isRemote) {
-				fs.sendNotification(newOwner, "got.gui.fellowships.notifyTransfer", prevOwnerUsername);
+			EntityPlayer entityplayer = getPlayer();
+			if (entityplayer != null && !entityplayer.worldObj.isRemote && (newOwner = getOtherPlayer(player)) != null) {
+				fs.sendNotification(newOwner, "got.gui.fellowships.notifyTransfer", entityplayer.getCommandSenderName());
 			}
 		}
 	}

@@ -39,7 +39,7 @@ public class GOTPacketFellowshipRename extends GOTPacketFellowshipDo {
 		@Override
 		public IMessage onMessage(GOTPacketFellowshipRename packet, MessageContext context) {
 			EntityPlayerMP entityplayer = context.getServerHandler().playerEntity;
-			GOTFellowship fellowship = packet.getActiveFellowship();
+			GOTFellowship fellowship = packet.getFellowship();
 			if (fellowship != null) {
 				GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 				playerData.renameFellowship(fellowship, packet.newName);

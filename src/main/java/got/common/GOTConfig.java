@@ -86,9 +86,6 @@ public class GOTConfig {
 	public static boolean preventMessageExploit;
 	public static boolean cwpLog;
 	public static String languageCode = "ru";
-	public static int fellowshipMaxSize;
-	public static int playerDataClearingInterval;
-	public static int MIN_PLAYER_DATA_CLEARING_INTERVAL = 600;
 
 	static {
 		allCategories = new ArrayList<>();
@@ -110,13 +107,6 @@ public class GOTConfig {
 			list.addAll(new ConfigElement(config.getCategory(category)).getChildElements());
 		}
 		return list;
-	}
-
-	public static int getFellowshipMaxSize(World world) {
-		if (!world.isRemote) {
-			return fellowshipMaxSize;
-		}
-		return GOTLevelData.clientside_thisServer_fellowshipMaxSize;
 	}
 
 	public static boolean isEnchantingEnabled(World world) {
@@ -141,7 +131,6 @@ public class GOTConfig {
 		allowMiniquests = config.get(CATEGORY_GAMEPLAY, "NPCs give mini-quests", true).getBoolean();
 		allowBountyQuests = config.get(CATEGORY_GAMEPLAY, "NPCs give bounty mini-quests", true, "Allow NPCs to generate mini-quests to kill enemy players").getBoolean();
 		enableFastTravel = config.get(CATEGORY_GAMEPLAY, "Enable Fast Travel", true).getBoolean();
-		fellowshipMaxSize = config.get(CATEGORY_GAMEPLAY, "Fellowship maximum size", -1, "Maximum player count for Fellowships. Negative = no limit").getInt();
 		enableConquest = config.get(CATEGORY_GAMEPLAY, "Enable Conquest", true).getBoolean();
 		removeGoldenAppleRecipes = config.get(CATEGORY_GAMEPLAY, "Remove Golden Apple recipes", true).getBoolean();
 		enablePortals = config.get(CATEGORY_GAMEPLAY, "Enable Game of Thrones Portals", true, "Enable or disable the buildable Game of Thrones portals (excluding the Circle Portal). If disabled, portals can still be made, but will not function").getBoolean();
@@ -164,7 +153,6 @@ public class GOTConfig {
 		enableInvasions = config.get(CATEGORY_GAMEPLAY, "Enable Invasions", true).getBoolean();
 		removeDiamondArmorRecipes = config.get(CATEGORY_GAMEPLAY, "Remove diamond armour recipes", false).getBoolean();
 		preventTraderKidnap = config.get(CATEGORY_GAMEPLAY, "Prevent trader transport range", 0, "Prevent transport of structure-bound traders beyond this distance outside their initial home range (0 = disabled)").getInt();
-		playerDataClearingInterval = config.get(CATEGORY_MISC, "Playerdata clearing interval", 600, "Tick interval between clearing offline LOTR-playerdata from the cache. Offline players' data is typically loaded to serve features like fellowships and their shared custom waypoints. Higher values may reduce server lag, as data will have to be reloaded from disk less often, but will result in higher RAM usage to some extent").getInt();
 		alwaysShowAlignment = config.get(CATEGORY_GUI, "Always show alignment", false, "If set to false, the alignment bar will only be shown in Middle-earth. If set to true, it will be shown in all dimensions").getBoolean();
 		alignmentXOffset = config.get(CATEGORY_GUI, "Alignment x-offset", 0, "Configure the x-position of the alignment bar on-screen. Negative values move it left, positive values right").getInt();
 		alignmentYOffset = config.get(CATEGORY_GUI, "Alignment y-offset", 0, "Configure the y-position of the alignment bar on-screen. Negative values move it up, positive values down").getInt();
