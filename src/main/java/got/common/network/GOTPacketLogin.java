@@ -14,7 +14,6 @@ public class GOTPacketLogin implements IMessage {
 	public int ftCooldownMin;
 	public EnumDifficulty difficulty;
 	public boolean difficultyLocked;
-	public boolean alignmentZones;
 	public boolean feastMode;
 	public boolean fellowshipCreation;
 	public boolean enchanting;
@@ -33,7 +32,6 @@ public class GOTPacketLogin implements IMessage {
 		byte diff = data.readByte();
 		difficulty = diff >= 0 ? EnumDifficulty.getDifficultyEnum(diff) : null;
 		difficultyLocked = data.readBoolean();
-		alignmentZones = data.readBoolean();
 		feastMode = data.readBoolean();
 		fellowshipCreation = data.readBoolean();
 		enchanting = data.readBoolean();
@@ -54,7 +52,6 @@ public class GOTPacketLogin implements IMessage {
 		int diff = difficulty == null ? -1 : difficulty.getDifficultyId();
 		data.writeByte(diff);
 		data.writeBoolean(difficultyLocked);
-		data.writeBoolean(alignmentZones);
 		data.writeBoolean(feastMode);
 		data.writeBoolean(fellowshipCreation);
 		data.writeBoolean(enchanting);
@@ -82,7 +79,6 @@ public class GOTPacketLogin implements IMessage {
 				GOTLevelData.setSavedDifficulty(null);
 			}
 			GOTLevelData.setDifficultyLocked(packet.difficultyLocked);
-			GOTLevelData.setEnableAlignmentZones(packet.alignmentZones);
 			GOTLevelData.clientside_thisServer_feastMode = packet.feastMode;
 			GOTLevelData.clientside_thisServer_fellowshipCreation = packet.fellowshipCreation;
 			GOTLevelData.clientside_thisServer_enchanting = packet.enchanting;

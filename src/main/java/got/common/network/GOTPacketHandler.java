@@ -58,7 +58,6 @@ public class GOTPacketHandler {
 		networkWrapper.registerMessage(GOTPacketEditBanner.Handler.class, GOTPacketEditBanner.class, id++, Side.SERVER);
 		networkWrapper.registerMessage(GOTPacketEditNPCRespawner.Handler.class, GOTPacketEditNPCRespawner.class, id++, Side.SERVER);
 		networkWrapper.registerMessage(GOTPacketEditSign.Handler.class, GOTPacketEditSign.class, id++, Side.SERVER);
-		networkWrapper.registerMessage(GOTPacketEnableAlignmentZones.Handler.class, GOTPacketEnableAlignmentZones.class, id++, Side.CLIENT);
 		networkWrapper.registerMessage(GOTPacketEntityUUID.Handler.class, GOTPacketEntityUUID.class, id++, Side.CLIENT);
 		networkWrapper.registerMessage(GOTPacketEnvironmentOverlay.Handler.class, GOTPacketEnvironmentOverlay.class, id++, Side.CLIENT);
 		networkWrapper.registerMessage(GOTPacketFTBounceClient.Handler.class, GOTPacketFTBounceClient.class, id++, Side.CLIENT);

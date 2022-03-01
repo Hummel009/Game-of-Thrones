@@ -152,7 +152,6 @@ public class GOT {
 		command.add(new GOTCommandAlignmentSee());
 		command.add(new GOTCommandFellowship());
 		command.add(new GOTCommandFellowshipMessage());
-		command.add(new GOTCommandEnableAlignmentZones());
 		command.add(new GOTCommandEnchant());
 		command.add(new GOTCommandSpawnDamping());
 		command.add(new GOTCommandFactionRelations());

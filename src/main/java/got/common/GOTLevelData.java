@@ -33,7 +33,6 @@ public class GOTLevelData {
 	public static int waypointCooldownMax;
 	public static int waypointCooldownMin;
 	public static int structuresBanned;
-	public static boolean enableAlignmentZones;
 	public static float conquestRate;
 	public static int clientside_thisServer_fellowshipMaxSize;
 	private static Map<UUID, Optional<GOTTitle.PlayerTitle>> playerTitleOfflineCacheMap;
@@ -74,10 +73,6 @@ public class GOTLevelData {
 
 	public static void destroyAllPlayerData() {
 		playerDataMap.clear();
-	}
-
-	public static boolean enableAlignmentZones() {
-		return enableAlignmentZones;
 	}
 
 	public static Set<String> getBannedStructurePlayersUsernames() {
@@ -227,7 +222,6 @@ public class GOTLevelData {
 			structuresBanned = levelData.getInteger("StructuresBanned");
 			waypointCooldownMax = levelData.hasKey("FastTravel") ? levelData.getInteger("FastTravel") / 20 : levelData.hasKey("WpCdMax") ? levelData.getInteger("WpCdMax") : 600;
 			waypointCooldownMin = levelData.hasKey("FastTravelMin") ? levelData.getInteger("FastTravelMin") / 20 : levelData.hasKey("WpCdMin") ? levelData.getInteger("WpCdMin") : 60;
-			enableAlignmentZones = !levelData.hasKey("AlignmentZones") || levelData.getBoolean("AlignmentZones");
 			conquestRate = levelData.hasKey("ConqRate") ? levelData.getFloat("ConqRate") : 1.0f;
 			if (levelData.hasKey("SavedDifficulty")) {
 				int id = levelData.getInteger("SavedDifficulty");
@@ -309,7 +303,6 @@ public class GOTLevelData {
 				levelData.setInteger("StructuresBanned", structuresBanned);
 				levelData.setInteger("WpCdMax", waypointCooldownMax);
 				levelData.setInteger("WpCdMin", waypointCooldownMin);
-				levelData.setBoolean("AlignmentZones", enableAlignmentZones);
 				levelData.setFloat("ConqRate", conquestRate);
 				if (difficulty != null) {
 					levelData.setInteger("SavedDifficulty", difficulty.getDifficultyId());
@@ -468,7 +461,6 @@ public class GOTLevelData {
 		packet.ftCooldownMin = waypointCooldownMin;
 		packet.difficulty = difficulty;
 		packet.difficultyLocked = difficultyLock;
-		packet.alignmentZones = enableAlignmentZones;
 		packet.feastMode = GOTConfig.canAlwaysEat;
 		packet.enchanting = GOTConfig.enchantingVanilla;
 		packet.enchantingGOT = GOTConfig.enchantingGOT;
@@ -549,19 +541,6 @@ public class GOTLevelData {
 	public static void setDifficultyLocked(boolean flag) {
 		difficultyLock = flag;
 		GOTLevelData.markDirty();
-	}
-
-	public static void setEnableAlignmentZones(boolean flag) {
-		enableAlignmentZones = flag;
-		GOTLevelData.markDirty();
-		if (!GOT.proxy.isClient()) {
-			List players = MinecraftServer.getServer().getConfigurationManager().playerEntityList;
-			for (Object player : players) {
-				EntityPlayerMP entityplayer = (EntityPlayerMP) player;
-				GOTPacketEnableAlignmentZones packet = new GOTPacketEnableAlignmentZones(enableAlignmentZones);
-				GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
-			}
-		}
 	}
 
 	public static void setMadeGameOfThronesPortal(int i) {
