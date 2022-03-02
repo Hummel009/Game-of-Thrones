@@ -126,6 +126,7 @@ public class NEIGOTIntegratorConfig implements IConfigureNEI {
 		hideItem(GOTRegistry.slabSingle10);
 		hideItem(GOTRegistry.slabSingle11);
 		hideItem(GOTRegistry.slabSingle12);
+		hideItem(GOTRegistry.leavesSnowy);
 		hideItem(GOTRegistry.slabSingleV);
 		hideItem(GOTRegistry.slabSingleThatch);
 		hideItem(GOTRegistry.slabSingleDirt);
