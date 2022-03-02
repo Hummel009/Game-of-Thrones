@@ -13,6 +13,7 @@ CHANGELOG
 + Added not-legendary longsword and greatsword
 + Added config for snowy leaves
 
+* Improved sword textures
 * Improved seasonal-based plants in biomes
 * Improved Craster's Barn and wifes' spawning
 * Improved Craster skin
