@@ -49,7 +49,7 @@ public class GOTCreativeTabs extends CreativeTabs {
 		GOTCreativeTabs.tabMisc.theIcon = new ItemStack(GOTRegistry.coin, 1, 6);
 		GOTCreativeTabs.tabTools.theIcon = new ItemStack(GOTRegistry.wildlingAxe);
 		GOTCreativeTabs.tabCombat.theIcon = new ItemStack(GOTRegistry.ironbornHelmet);
-		GOTCreativeTabs.tabStory.theIcon = new ItemStack(GOTRegistry.ladyForlorn);
+		GOTCreativeTabs.tabStory.theIcon = new ItemStack(GOTRegistry.bane);
 		GOTCreativeTabs.tabSpawn.theIcon = new ItemStack(GOTRegistry.spawnEgg, 1, 248);
 		GOTCreativeTabs.tabBanner.theIcon = new ItemStack(GOTRegistry.bannerTab);
 	}

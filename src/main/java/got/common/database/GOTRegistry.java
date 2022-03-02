@@ -38,6 +38,7 @@ public class GOTRegistry {
 	public static Item westerosLongsword;
 	public static Item westerosGreatsword;
 	public static Item rice;
+	public static Block leavesSnowy;
 	public static Block ricePlant;
 	public static Block aleHornBlock;
 	public static Block aleHornGoldBlock;
@@ -694,7 +695,7 @@ public class GOTRegistry {
 	public static Item blackfyreChestplate;
 	public static Item blackfyreHelmet;
 	public static Item blackfyreLeggings;
-	public static Item blackfyreSword;
+	public static Item blackfyre;
 	public static Item blackrootStick;
 	public static Item blackskinChestplate;
 	public static Item blacksmithHammer;
@@ -1339,6 +1340,7 @@ public class GOTRegistry {
 		bluebell = new GOTBlockFlower();
 		bomb = new GOTBlockBomb();
 		boneBlock = new GOTBlockBone();
+		leavesSnowy = new GOTBlockBone().setCreativeTab(null);
 		bookshelfStorage = new GOTBlockBookshelfStorage();
 		brick1 = new GOTBlockBrick1();
 		brick2 = new GOTBlockBrick2();
@@ -1958,7 +1960,7 @@ public class GOTRegistry {
 		blackfyreChestplate = new GOTItemArmor(GOTMaterial.BLACKFYRE, 1).setCreativeTab(GOTCreativeTabs.tabStory);
 		blackfyreHelmet = new GOTItemArmor(GOTMaterial.BLACKFYRE, 0, "helmet").setCreativeTab(GOTCreativeTabs.tabStory);
 		blackfyreLeggings = new GOTItemArmor(GOTMaterial.BLACKFYRE, 2).setCreativeTab(GOTCreativeTabs.tabStory);
-		blackfyreSword = new GOTItemLegendarySword(GOTMaterial.VALYRIAN);
+		blackfyre = new GOTItemLegendarySword(GOTMaterial.VALYRIAN);
 		blackrootStick = new Item().setCreativeTab(GOTCreativeTabs.tabMaterials).setFull3D();
 		blackskinChestplate = new GOTItemArmor(GOTMaterial.BLACKSKIN, 1).setCreativeTab(GOTCreativeTabs.tabStory);
 		blacksmithHammer = new GOTItemHammer(GOTMaterial.NORTH);
@@ -3231,6 +3233,7 @@ public class GOTRegistry {
 		registerBlock(tableMossovy, "tableMossovy");
 		registerBlock(kelp, "kelp", GOTItemKelp.class);
 		registerBlock(ricePlant, "rice");
+		registerBlock(leavesSnowy, "leavesSnowy");
 	}
 
 	public static void registerItem(Item item, String codename) {
@@ -3705,7 +3708,7 @@ public class GOTRegistry {
 		registerItem(longclaw, "longclaw");
 		registerItem(oathkeeper, "oathkeeper");
 		registerItem(widowWail, "widowWail");
-		registerItem(blackfyreSword, "blackfyreSword");
+		registerItem(blackfyre, "blackfyre");
 		registerItem(darkSister, "darkSister");
 		registerItem(lightbringer, "lightbringer");
 		registerItem(heartsbane, "heartsbane");

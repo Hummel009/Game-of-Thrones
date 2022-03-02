@@ -15,7 +15,7 @@ public class GOTBiomeStormlands extends GOTBiomeWesteros {
 	public GOTBiomeStormlands(int i, boolean major) {
 		super(i, major);
 		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
-		decorator.generatePipeweed = true;
+		decorator.generateAgriculture = true;
 		decorator.cornPerChunk = 4;
 
 		SpawnListContainer[] c0 = new SpawnListContainer[2];

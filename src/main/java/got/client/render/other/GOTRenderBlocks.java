@@ -6,9 +6,7 @@ import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import got.GOT;
-import got.common.GOTDate;
-import got.common.GOTDate.Season;
-import got.common.block.leaves.GOTBlockLeavesBase;
+import got.common.GOTConfig;
 import got.common.block.other.*;
 import got.common.database.GOTRegistry;
 import got.common.tileentity.*;
@@ -338,14 +336,6 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.renderStandardBlock(block, i, j, k);
 	}
 
-	public void renderLeaves(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks, int[] minMaxLeaves, int[] minMaxXSize, int[] minMaxZSize, float shade) {
-		Tessellator tessellator = Tessellator.instance;
-		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j + 1, k));
-		tessellator.setColorOpaque_F(1.0f, 1.0f, 1.0f);
-		IIcon icon = ((GOTBlockLeavesBase) block).getRandomPlantIcon(i, j, k);
-		renderblocks.drawCrossedSquares(icon, i, j, k, 1.0f);
-	}
-
 	public void renderFallenLeaves(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks, int[] minMaxLeaves, int[] minMaxXSize, int[] minMaxZSize, float shade) {
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j, k));
@@ -603,6 +593,9 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		}
 		if (id == GOT.proxy.getFenceRenderID()) {
 			renderInvFence(block, meta, renderblocks);
+		}
+		if (id == GOT.proxy.getLeavesRenderID()) {
+			GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, meta);
 		}
 		if (id == GOT.proxy.getCommandTableRenderID()) {
 			renderInvCommandTable(block, renderblocks);
@@ -1024,7 +1017,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		boolean fancyGraphics = Minecraft.getMinecraft().gameSettings.fancyGraphics;
 
 		BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
-		boolean changeLeaves = biome instanceof GOTBiome && ((GOTBiome)biome).temperature == 0.0F && (GOTDate.AegonCalendar.getSeason() == Season.WINTER || GOTDate.AegonCalendar.getSeason() == Season.AUTUMN);
+		boolean snowy = biome instanceof GOTBiome && ((GOTBiome)biome).temperature == 0.0F || biome instanceof GOTBiome && ((GOTBiome) biome).isAltitudeZone && j >= 140;
 		
 		if (id == GOT.proxy.getBeaconRenderID()) {
 			renderBeacon(world, i, j, k, renderblocks);
@@ -1070,8 +1063,14 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			return true;
 		}
 		if (id == GOT.proxy.getLeavesRenderID()) {
-			if (changeLeaves) {
-				renderLeaves(world, i, j, k, block, renderblocks, new int[] { 6, 10 }, new int[] { 2, 6 }, new int[] { 2, 6 }, 0.7f);
+			if (snowy) {
+				if (GOTConfig.enableSnowyLeaves) {
+					renderblocks.setOverrideBlockTexture(GOTRegistry.leavesSnowy.getIcon(i, 0));
+					renderblocks.renderStandardBlock(block, i, j, k);
+					renderblocks.clearOverrideBlockTexture();
+				} else {
+					renderblocks.renderStandardBlock(block, i, j, k);
+				}
 				return true;
 			}
 			return renderblocks.renderStandardBlock(block, i, j, k);

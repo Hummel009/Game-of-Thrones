@@ -11,7 +11,9 @@ CHANGELOG
 + Added a config option to tune how often the mod clears the playerdata cache for offline players' data
 + Added new fixed locations, ruines in general. Now 99% of waypoints have fixed structure.
 + Added not-legendary longsword and greatsword
++ Added config for snowy leaves
 
+* Improved seasonal-based plants in biomes
 * Improved Craster's Barn and wifes' spawning
 * Improved Craster skin
 * Improved Samwell Tarly skin

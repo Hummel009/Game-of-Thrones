@@ -48,8 +48,6 @@ public class GOTBiomeDecorator {
 	public int doubleFlowersPerChunk;
 	public int grassPerChunk = 1;
 	public int doubleGrassPerChunk;
-	public boolean enableFern;
-	public boolean enableSpecialGrasses = true;
 	public int deadBushPerChunk;
 	public int waterlilyPerChunk;
 	public int canePerChunk;
@@ -57,7 +55,7 @@ public class GOTBiomeDecorator {
 	public float dryReedChance = 0.1f;
 	public int cornPerChunk;
 	public int cactiPerChunk;
-	public boolean generatePipeweed;
+	public boolean generateAgriculture;
 	public boolean whiteSand;
 	public List<GOTTreeType.WeightedTreeType> treeTypes = new ArrayList<>();
 	public Random structureRand = new Random();
@@ -364,11 +362,23 @@ public class GOTBiomeDecorator {
 			k5 = chunkZ + rand.nextInt(16) + 8;
 			new GOTWorldGenBerryBush().generate(worldObj, rand, i5, j3, k5);
 		}
-		if (generatePipeweed && rand.nextInt(6) == 0) {
+		if (generateAgriculture && rand.nextInt(6) == 0) {
 			i5 = chunkX + rand.nextInt(16) + 8;
 			j3 = rand.nextInt(128);
 			k5 = chunkZ + rand.nextInt(16) + 8;
 			new WorldGenFlowers(GOTRegistry.pipeweedPlant).generate(worldObj, rand, i5, j3, k5);
+		}
+		if (generateAgriculture && rand.nextInt(6) == 0) {
+			i5 = chunkX + rand.nextInt(16) + 8;
+			j3 = rand.nextInt(128);
+			k5 = chunkZ + rand.nextInt(16) + 8;
+			new WorldGenFlowers(GOTRegistry.flaxPlant).generate(worldObj, rand, i5, j3, k5);
+		}
+		if (generateAgriculture && rand.nextInt(6) == 0) {
+			i5 = chunkX + rand.nextInt(16) + 8;
+			j3 = rand.nextInt(128);
+			k5 = chunkZ + rand.nextInt(16) + 8;
+			new WorldGenFlowers(GOTRegistry.cucumberPlant).generate(worldObj, rand, i5, j3, k5);
 		}
 		if (biomeVariant.boulderGen != null && rand.nextInt(biomeVariant.boulderChance) == 0) {
 			int boulders = MathHelper.getRandomIntegerInRange(rand, 1, biomeVariant.boulderMax);
