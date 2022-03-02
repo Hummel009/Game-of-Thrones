@@ -7,11 +7,11 @@ public class GOTItemGreatsword extends GOTItemSword {
 	public GOTItemGreatsword(GOTMaterial material) {
 		this(material.toToolMaterial());
 		gotMaterial = material;
-		gotWeaponDamage += 2.0f;
+		gotWeaponDamage += 3;
 	}
 
 	public GOTItemGreatsword(Item.ToolMaterial material) {
 		super(material);
-		gotWeaponDamage += 2.0f;
+		gotWeaponDamage += 3;
 	}
 }
