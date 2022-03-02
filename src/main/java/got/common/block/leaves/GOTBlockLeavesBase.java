@@ -138,7 +138,7 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 
 	public boolean shouldOakUseBiomeColor() {
 		GOTDate.Season season = GOTDate.AegonCalendar.getSeason();
-		return season == GOTDate.Season.AUTUMN || season == GOTDate.Season.WINTER;
+		return season == GOTDate.Season.SPRING || season == GOTDate.Season.SUMMER || !(GOT.proxy.getClientWorld().provider instanceof GOTWorldProvider);
 	}
 
 	public static int getBiomeLeafColor(IBlockAccess world, int i, int j, int k) {
@@ -149,7 +149,7 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 		int range = 1;
 		for (int i1 = -range; i1 <= range; ++i1) {
 			for (int k1 = -range; k1 <= range; ++k1) {
-				int biomeColor = world.getBiomeGenForCoords(i + i1, k + k1).getBiomeGrassColor(i + i1, j, k + k1);
+				int biomeColor = world.getBiomeGenForCoords(i + i1, k + k1).getBiomeFoliageColor(i + i1, j, k + k1);
 				r += (biomeColor & 0xFF0000) >> 16;
 				g += (biomeColor & 0xFF00) >> 8;
 				b += biomeColor & 0xFF;
@@ -163,5 +163,10 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 		for (Object allLeafBlock : allLeafBlocks) {
 			((GOTBlockLeavesBase) allLeafBlock).setGraphicsLevel(flag);
 		}
+	}
+
+	@Override
+	public int getRenderType() {
+		return GOT.proxy.getLeavesRenderID();
 	}
 }

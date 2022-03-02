@@ -32,8 +32,6 @@ public class GOTBiomeNeck extends GOTBiome {
 		decorator.grassPerChunk = 8;
 		decorator.doubleGrassPerChunk = 8;
 		decorator.flowersPerChunk = 0;
-		decorator.enableFern = true;
-		decorator.enableSpecialGrasses = false;
 		decorator.canePerChunk = 10;
 		decorator.reedPerChunk = 2;
 		decorator.dryReedChance = 1.0f;

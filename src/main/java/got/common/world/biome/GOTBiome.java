@@ -591,12 +591,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		if (random.nextInt(30) == 0) {
 			return new GrassBlockAndMeta(GOTRegistry.plantain, 2);
 		}
-		if (random.nextInt(300) == 0) {
-			return new GrassBlockAndMeta(GOTRegistry.flaxPlant, 0);
-		}
-		if (random.nextInt(300) == 0) {
-			return new GrassBlockAndMeta(GOTRegistry.cucumberPlant, 0);
-		}
 		if (random.nextInt(200) == 0) {
 			return new GrassBlockAndMeta(GOTRegistry.tallGrass, 3);
 		}
@@ -829,12 +823,21 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public GOTBiome setIsAlwaysWinter() {
 		isAlwaysWinter = true;
 		type = "isAlwaysWinter";
+		this.decorator.flowersPerChunk = 0;
+		this.decorator.doubleFlowersPerChunk = 0;
+		this.decorator.canePerChunk = 0;
+		this.decorator.cornPerChunk = 0;
+		this.decorator.generateAgriculture = false;
 		return this;
 	}
 
 	public GOTBiome setIsLongWinter() {
 		isLongWinter = true;
 		type = "isLongWinter";
+		this.decorator.doubleFlowersPerChunk = 0;
+		this.decorator.canePerChunk = 0;
+		this.decorator.cornPerChunk = 0;
+		this.decorator.generateAgriculture = false;
 		return this;
 	}
 
@@ -842,18 +845,28 @@ public abstract class GOTBiome extends BiomeGenBase {
 		isLongWinter = true;
 		isAltitudeZone = true;
 		type = "isLongWinterAZ";
+		this.decorator.doubleFlowersPerChunk = 0;
+		this.decorator.canePerChunk = 0;
+		this.decorator.cornPerChunk = 0;
+		this.decorator.generateAgriculture = false;
 		return this;
 	}
 
 	public GOTBiome setIsNeverWinter() {
 		isNeverWinter = true;
 		type = "isNeverWinter";
+		this.decorator.canePerChunk = 4;
+		this.decorator.cornPerChunk = 4;
+		this.decorator.generateAgriculture = true;
 		return this;
 	}
 
 	public GOTBiome setIsNeverWinterAZ() {
 		isNeverWinterAZ = true;
 		isAltitudeZone = true;
+		this.decorator.canePerChunk = 4;
+		this.decorator.cornPerChunk = 4;
+		this.decorator.generateAgriculture = true;
 		type = "isNeverWinterAZ";
 		return this;
 	}
@@ -861,6 +874,10 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public GOTBiome setIsSeasonalWinter() {
 		isSeasonalWinter = true;
 		type = "isSeasonalWinter";
+		this.decorator.doubleFlowersPerChunk = 0;
+		this.decorator.canePerChunk = 0;
+		this.decorator.cornPerChunk = 0;
+		this.decorator.generateAgriculture = false;
 		return this;
 	}
 
@@ -868,6 +885,10 @@ public abstract class GOTBiome extends BiomeGenBase {
 		isSeasonalWinterAZ = true;
 		isAltitudeZone = true;
 		type = "isSeasonalWinterAZ";
+		this.decorator.doubleFlowersPerChunk = 0;
+		this.decorator.canePerChunk = 0;
+		this.decorator.cornPerChunk = 0;
+		this.decorator.generateAgriculture = false;
 		return this;
 	}
 

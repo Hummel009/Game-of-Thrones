@@ -26,7 +26,7 @@ public class GOTEntityThreeEyedRaven extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.blackfyreSword, 1);
+		dropItem(GOTRegistry.blackfyre, 1);
 		dropItem(GOTRegistry.brightroar, 1);
 	}
 

@@ -6,9 +6,11 @@ import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import got.GOT;
+import got.common.GOTConfig;
 import got.common.block.other.*;
 import got.common.database.GOTRegistry;
 import got.common.tileentity.*;
+import got.common.world.biome.GOTBiome;
 import net.minecraft.block.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.*;
@@ -17,6 +19,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	public static Random blockRand = new Random();
@@ -591,6 +594,9 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		if (id == GOT.proxy.getFenceRenderID()) {
 			renderInvFence(block, meta, renderblocks);
 		}
+		if (id == GOT.proxy.getLeavesRenderID()) {
+			GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, meta);
+		}
 		if (id == GOT.proxy.getCommandTableRenderID()) {
 			renderInvCommandTable(block, renderblocks);
 			((GOTRenderCommandTable) TileEntityRendererDispatcher.instance.getSpecialRendererByClass(GOTTileEntityCommandTable.class)).renderInvTable();
@@ -713,7 +719,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.renderAllFaces = false;
 	}
 
-	public void renderOrcBomb(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	public void renderBomb(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		int ao = GOTRenderBlocks.getAO();
 		GOTRenderBlocks.setAO(0);
 		renderblocks.renderAllFaces = true;
@@ -1009,6 +1015,10 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int i, int j, int k, Block block, int id, RenderBlocks renderblocks) {
 		boolean fancyGraphics = Minecraft.getMinecraft().gameSettings.fancyGraphics;
+
+		BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
+		boolean snowy = biome instanceof GOTBiome && ((GOTBiome)biome).temperature == 0.0F || biome instanceof GOTBiome && ((GOTBiome) biome).isAltitudeZone && j >= 140;
+		
 		if (id == GOT.proxy.getBeaconRenderID()) {
 			renderBeacon(world, i, j, k, renderblocks);
 			return true;
@@ -1018,7 +1028,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			return true;
 		}
 		if (id == GOT.proxy.getBombRenderID()) {
-			renderOrcBomb(world, i, j, k, block, renderblocks);
+			renderBomb(world, i, j, k, block, renderblocks);
 			return true;
 		}
 		if (id == GOT.proxy.getDoubleTorchRenderID()) {
@@ -1051,6 +1061,19 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		if (id == GOT.proxy.getGrassRenderID()) {
 			GOTRenderBlocks.renderGrass(world, i, j, k, block, renderblocks, true);
 			return true;
+		}
+		if (id == GOT.proxy.getLeavesRenderID()) {
+			if (snowy) {
+				if (GOTConfig.enableSnowyLeaves) {
+					renderblocks.setOverrideBlockTexture(GOTRegistry.leavesSnowy.getIcon(i, 0));
+					renderblocks.renderStandardBlock(block, i, j, k);
+					renderblocks.clearOverrideBlockTexture();
+				} else {
+					renderblocks.renderStandardBlock(block, i, j, k);
+				}
+				return true;
+			}
+			return renderblocks.renderStandardBlock(block, i, j, k);
 		}
 		if (id == GOT.proxy.getFallenLeavesRenderID()) {
 			if (fancyGraphics) {

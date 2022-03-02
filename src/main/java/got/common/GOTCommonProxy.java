@@ -845,4 +845,8 @@ public class GOTCommonProxy implements IGuiHandler {
 	public static int unpackSlot(int fullID) {
 		return fullID >> 16;
 	}
+
+	public int getLeavesRenderID() {
+		return 0;
+	}
 }
