@@ -83,12 +83,14 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 public class DatabaseGenerator extends GOTStructureBase {
 	public static Map<Class<? extends Entity>, Entity> entities = new HashMap<>();
 
+	public static String display = "null";
+
 	public DatabaseGenerator(boolean flag) {
 		super(flag);
 	}
 
 	@Override
-	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
+	public boolean generate(World world, Random random, int y, int j, int k, int rotation) {
 		entities.put(GOTEntityBison.class, new GOTEntityBison(world));
 		entities.put(GOTEntityBear.class, new GOTEntityBear(world));
 		entities.put(GOTEntityBird.class, new GOTEntityBird(world));
@@ -980,8 +982,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		entities.put(GOTEntityPlowcart.class, new GOTEntityPlowcart(world));
 
 		entities.put(GOTEntityHummel009.class, new GOTEntityHummel009(world));
-
-		String display = "null";
+		
 		for (Class mob : entities.keySet()) {
 			if ("langMobs".equals(display)) {
 				if (GOTEntityRegistry.getEntityName(mob).contains("entity.got.")) {
@@ -1027,6 +1028,22 @@ public class DatabaseGenerator extends GOTStructureBase {
 					}
 				}
 			}
+			if ("npcHealth".equals(display) && entities.get(mob) instanceof GOTEntityNPC) {
+				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = " + ((GOTEntityNPC)entities.get(mob)).getMaxHealth());
+				continue;
+			}
+			if ("npcFaction".equals(display) && entities.get(mob) instanceof GOTEntityNPC) {
+				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = " + ((GOTEntityNPC)entities.get(mob)).getFaction());
+				continue;
+			}
+			if ("npcValuability".equals(display) && entities.get(mob) instanceof GOTEntityNPC) {
+				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = " + ((GOTEntityNPC)entities.get(mob)).getAlignmentBonus());
+				continue;
+			}
+			if ("npcPhoto".equals(display) && entities.get(mob) instanceof GOTEntityNPC) {
+				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = " + mob.getSimpleName().replace("GOTEntity", ""));
+				continue;
+			}
 		}
 		if ("factionUnits".equals(display)) {
 			for (GOTFaction fac : GOTFaction.values()) {
@@ -1043,11 +1060,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				GOTLog.logger.info("| " + wp.getDisplayName() + " = {{ÁÄ Áèîì-Ññûëêà|" + ((GOTBiome) world.getBiomeGenForCoords(wp.xCoord, wp.zCoord)).getBiomeDisplayName() + "}}");
 			}
 		}
-		return true;
-	}
 
-	public static void generateWikiaDatabases() throws NoSuchFieldException, IllegalAccessException {
-		String display = "null";
 		if ("chest".equals(display)) {
 			for (GOTChestContents content : GOTCommander.getObjectFieldsOfType(GOTChestContents.class, GOTChestContents.class)) {
 				GOTLog.logger.info(content + " = ");
@@ -1108,29 +1121,71 @@ public class DatabaseGenerator extends GOTStructureBase {
 				continue;
 			}
 			if ("foodTable".equals(display) && item instanceof ItemFood) {
-				Field pf0 = ItemFood.class.getDeclaredField("saturationModifier");
-				Field pf1 = ItemFood.class.getDeclaredField("healAmount");
+				Field pf0 = null;
+				try {
+					pf0 = ItemFood.class.getDeclaredField("saturationModifier");
+				} catch (NoSuchFieldException | SecurityException e) {
+					e.printStackTrace();
+				}
+				Field pf1 = null;
+				try {
+					pf1 = ItemFood.class.getDeclaredField("healAmount");
+				} catch (NoSuchFieldException | SecurityException e) {
+					e.printStackTrace();
+				}
 				pf0.setAccessible(true);
 				pf1.setAccessible(true);
-				GOTLog.logger.info("| " + genInfo + "{{Bar|bread|" + new DecimalFormat("#.##").format((float) pf0.get(item) * (int) pf1.get(item) * 2) + "}} || {{Bar|food|" + (int) pf1.get(item) + "}} || " + item.getItemStackLimit());
+				try {
+					GOTLog.logger.info("| " + genInfo + "{{Bar|bread|" + new DecimalFormat("#.##").format((float) pf0.get(item) * (int) pf1.get(item) * 2) + "}} || {{Bar|food|" + (int) pf1.get(item) + "}} || " + item.getItemStackLimit());
+				} catch (IllegalArgumentException | IllegalAccessException e) {
+					e.printStackTrace();
+				}
 				GOTLog.logger.info("|-");
 				continue;
 			}
 			if ("armorTable".equals(display) && item instanceof ItemArmor) {
-				Field pf0 = ItemArmor.class.getDeclaredField("maxDamage");
+				Field pf0 = null;
+				try {
+					pf0 = ItemArmor.class.getDeclaredField("maxDamage");
+				} catch (NoSuchFieldException | SecurityException e) {
+					e.printStackTrace();
+				}
 				pf0.setAccessible(true);
-				GOTLog.logger.info("| " + genInfo + (int) pf0.get(item) + " || " + ((ItemArmor) item).damageReduceAmount + " || " + StatCollector.translateToLocal(((ItemArmor) item).getArmorMaterial().customCraftingMaterial.getUnlocalizedName() + ".name"));
+				try {
+					GOTLog.logger.info("| " + genInfo + (int) pf0.get(item) + " || " + ((ItemArmor) item).damageReduceAmount + " || " + StatCollector.translateToLocal(((ItemArmor) item).getArmorMaterial().customCraftingMaterial.getUnlocalizedName() + ".name"));
+				} catch (IllegalArgumentException | IllegalAccessException e) {
+					e.printStackTrace();
+				}
 				GOTLog.logger.info("|-");
 				continue;
 			}
 			if ("weaponTable".equals(display) && item instanceof ItemSword) {
-				Field pf0 = ItemSword.class.getDeclaredField("maxDamage");
-				Field pf1 = ItemSword.class.getDeclaredField("field_150934_a");
-				Field pf2 = ItemSword.class.getDeclaredField("field_150933_b");
+				Field pf0 = null;
+				try {
+					pf0 = ItemSword.class.getDeclaredField("maxDamage");
+				} catch (NoSuchFieldException | SecurityException e) {
+					e.printStackTrace();
+				}
+				Field pf1 = null;
+				try {
+					pf1 = ItemSword.class.getDeclaredField("field_150934_a");
+				} catch (NoSuchFieldException | SecurityException e) {
+					e.printStackTrace();
+				}
+				Field pf2 = null;
+				try {
+					pf2 = ItemSword.class.getDeclaredField("field_150933_b");
+				} catch (NoSuchFieldException | SecurityException e) {
+					e.printStackTrace();
+				}
 				pf0.setAccessible(true);
 				pf1.setAccessible(true);
 				pf2.setAccessible(true);
-				GOTLog.logger.info("| " + genInfo + (int) pf0.get(item) + " || " + (float) pf1.get(item) + " || " + StatCollector.translateToLocal(((ToolMaterial) pf2.get(item)).getRepairItemStack().getUnlocalizedName() + ".name"));
+				try {
+					GOTLog.logger.info("| " + genInfo + (int) pf0.get(item) + " || " + (float) pf1.get(item) + " || " + StatCollector.translateToLocal(((ToolMaterial) pf2.get(item)).getRepairItemStack().getUnlocalizedName() + ".name"));
+				} catch (IllegalArgumentException | IllegalAccessException e) {
+					e.printStackTrace();
+				}
 				GOTLog.logger.info("|-");
 			}
 		}
@@ -1292,5 +1347,6 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 			}
 		}
+		return true;
 	}
 }
