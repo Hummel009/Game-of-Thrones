@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 import java.text.DecimalFormat;
 import java.util.*;
 
+import got.common.block.other.*;
 import got.common.database.*;
 import got.common.entity.essos.GOTEntityIfekevron;
 import got.common.entity.essos.asshai.*;
@@ -55,7 +56,7 @@ import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList.*;
 import got.common.world.spawning.GOTSpawnEntry;
 import got.common.world.structure.other.*;
-import net.minecraft.block.Block;
+import net.minecraft.block.*;
 import net.minecraft.entity.*;
 import net.minecraft.item.*;
 import net.minecraft.item.Item.ToolMaterial;
@@ -1233,46 +1234,13 @@ public class DatabaseGenerator extends GOTStructureBase {
 					GOTLog.logger.info("| " + biome.getName() + " = ");
 				}
 				for (OreGenerant ore : biome.decorator.biomeSoils) {
-					Field pf1 = null;
-					try {
-						pf1 = WorldGenMinable.class.getDeclaredField("field_150519_a");
-					} catch (NoSuchFieldException | SecurityException e) {
-						e.printStackTrace();
-					}
-					pf1.setAccessible(true);
-					try {
-						GOTLog.logger.info((float) pf1.get(ore) + ore.oreChance + ore.minHeight + ore.maxHeight);
-					} catch (IllegalArgumentException | IllegalAccessException e) {
-						e.printStackTrace();
-					}
+					getOreInfo(ore);
 				}
 				for (OreGenerant ore : biome.decorator.biomeOres) {
-					Field pf1 = null;
-					try {
-						pf1 = WorldGenMinable.class.getDeclaredField("field_150519_a");
-					} catch (NoSuchFieldException | SecurityException e) {
-						e.printStackTrace();
-					}
-					pf1.setAccessible(true);
-					try {
-						GOTLog.logger.info((float) pf1.get(ore) + ore.oreChance + ore.minHeight + ore.maxHeight);
-					} catch (IllegalArgumentException | IllegalAccessException e) {
-						e.printStackTrace();
-					}
+					getOreInfo(ore);
 				}
 				for (OreGenerant ore : biome.decorator.biomeGems) {
-					Field pf1 = null;
-					try {
-						pf1 = WorldGenMinable.class.getDeclaredField("field_150519_a");
-					} catch (NoSuchFieldException | SecurityException e) {
-						e.printStackTrace();
-					}
-					pf1.setAccessible(true);
-					try {
-						GOTLog.logger.info((float) pf1.get(ore) + ore.oreChance + ore.minHeight + ore.maxHeight);
-					} catch (IllegalArgumentException | IllegalAccessException e) {
-						e.printStackTrace();
-					}
+					getOreInfo(ore);
 				}
 				continue;
 			}
@@ -1397,5 +1365,32 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 		}
 		return true;
+	}
+	
+	public void getOreInfo(OreGenerant ore) {
+		WorldGenMinable gen = ore.oreGen;
+		Field pf1 = null;
+		try {
+			pf1 = WorldGenMinable.class.getDeclaredField("field_150519_a");
+		} catch (NoSuchFieldException | SecurityException e) {
+			e.printStackTrace();
+		}
+		pf1.setAccessible(true);
+		Field pf2 = null;
+		try {
+			pf2 = WorldGenMinable.class.getDeclaredField("mineableBlockMeta");
+		} catch (NoSuchFieldException | SecurityException e) {
+			e.printStackTrace();
+		}
+		pf2.setAccessible(true);
+		try {
+			if ((Block) pf1.get(gen) instanceof GOTBlockOreGem || (Block) pf1.get(gen) instanceof BlockDirt || (Block) pf1.get(gen) instanceof GOTBlockRock) {
+				GOTLog.logger.info(StatCollector.translateToLocal(((Block) pf1.get(gen)).getUnlocalizedName() + "." + (int) pf2.get(gen) + ".name") + " (" + ore.oreChance + "%; Y: " + ore.minHeight + "-" + ore.maxHeight + ");");
+			} else {
+				GOTLog.logger.info(StatCollector.translateToLocal(((Block) pf1.get(gen)).getUnlocalizedName() + ".name") + " (" + ore.oreChance + "%; Y: " + ore.minHeight + "-" + ore.maxHeight + ");");
+			}
+		} catch (IllegalArgumentException | IllegalAccessException e) {
+			e.printStackTrace();
+		}
 	}
 }

@@ -102,11 +102,11 @@ public class GOTBiomeDecorator {
 		fixedVillages.add(village);
 	}
 
-	public void addGem(WorldGenerator gen, float f, int min, int max) {
+	public void addGem(WorldGenMinable gen, float f, int min, int max) {
 		biomeGems.add(new OreGenerant(gen, f, min, max));
 	}
 
-	public void addOre(WorldGenerator gen, float f, int min, int max) {
+	public void addOre(WorldGenMinable gen, float f, int min, int max) {
 		biomeOres.add(new OreGenerant(gen, f, min, max));
 	}
 
@@ -114,7 +114,7 @@ public class GOTBiomeDecorator {
 		randomStructures.add(new RandomStructure(structure, chunkChance));
 	}
 
-	public void addSoil(WorldGenerator gen, float f, int min, int max) {
+	public void addSoil(WorldGenMinable gen, float f, int min, int max) {
 		biomeSoils.add(new OreGenerant(gen, f, min, max));
 	}
 
@@ -468,12 +468,12 @@ public class GOTBiomeDecorator {
 	}
 
 	public static class OreGenerant {
-		public WorldGenerator oreGen;
+		public WorldGenMinable oreGen;
 		public float oreChance;
 		public int minHeight;
 		public int maxHeight;
 
-		public OreGenerant(WorldGenerator gen, float f, int min, int max) {
+		public OreGenerant(WorldGenMinable gen, float f, int min, int max) {
 			oreGen = gen;
 			oreChance = f;
 			minHeight = min;
