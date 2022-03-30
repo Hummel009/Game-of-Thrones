@@ -1385,9 +1385,9 @@ public class DatabaseGenerator extends GOTStructureBase {
 		pf2.setAccessible(true);
 		try {
 			if ((Block) pf1.get(gen) instanceof GOTBlockOreGem || (Block) pf1.get(gen) instanceof BlockDirt || (Block) pf1.get(gen) instanceof GOTBlockRock) {
-				GOTLog.logger.info(StatCollector.translateToLocal(((Block) pf1.get(gen)).getUnlocalizedName() + "." + (int) pf2.get(gen) + ".name") + " (" + ore.oreChance + "%; Y: " + ore.minHeight + "-" + ore.maxHeight + ");");
+				GOTLog.logger.info("* " + StatCollector.translateToLocal(((Block) pf1.get(gen)).getUnlocalizedName() + "." + (int) pf2.get(gen) + ".name") + " (" + ore.oreChance + "%; Y: " + ore.minHeight + "-" + ore.maxHeight + ");");
 			} else {
-				GOTLog.logger.info(StatCollector.translateToLocal(((Block) pf1.get(gen)).getUnlocalizedName() + ".name") + " (" + ore.oreChance + "%; Y: " + ore.minHeight + "-" + ore.maxHeight + ");");
+				GOTLog.logger.info("* " + StatCollector.translateToLocal(((Block) pf1.get(gen)).getUnlocalizedName() + ".name") + " (" + ore.oreChance + "%; Y: " + ore.minHeight + "-" + ore.maxHeight + ");");
 			}
 		} catch (IllegalArgumentException | IllegalAccessException e) {
 			e.printStackTrace();
