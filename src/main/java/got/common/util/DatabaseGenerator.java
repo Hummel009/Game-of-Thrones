@@ -48,7 +48,7 @@ import got.common.faction.GOTFaction;
 import got.common.item.other.GOTItemBanner;
 import got.common.item.other.GOTItemBanner.BannerType;
 import got.common.world.biome.GOTBiome;
-import got.common.world.biome.GOTBiomeDecorator.RandomStructure;
+import got.common.world.biome.GOTBiomeDecorator.*;
 import got.common.world.biome.variant.GOTBiomeVariantList.VariantBucket;
 import got.common.world.feature.GOTTreeType.WeightedTreeType;
 import got.common.world.map.GOTWaypoint;
@@ -62,7 +62,7 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
-import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraft.world.gen.feature.*;
 
 public class DatabaseGenerator extends GOTStructureBase {
 	public static Map<Class<? extends Entity>, Entity> entities = new HashMap<>();
@@ -1223,6 +1223,56 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 				for (RandomStructure structure : biome.decorator.randomStructures) {
 					GOTLog.logger.info("* " + StatCollector.translateToLocal("got.structure." + GOTStructureRegistry.getStructureNameFromClass(structure.structureGen.getClass()) + ".name") + ";");
+				}
+				continue;
+			}
+			if ("biomeMinerals".equals(display)) {
+				if (biome.decorator.biomeSoils.isEmpty() && biome.decorator.biomeOres.isEmpty() && biome.decorator.biomeGems.isEmpty()) {
+					GOTLog.logger.info("| " + biome.getName() + " = There is no minerals in this biome.");
+				} else {
+					GOTLog.logger.info("| " + biome.getName() + " = ");
+				}
+				for (OreGenerant ore : biome.decorator.biomeSoils) {
+					Field pf1 = null;
+					try {
+						pf1 = WorldGenMinable.class.getDeclaredField("field_150519_a");
+					} catch (NoSuchFieldException | SecurityException e) {
+						e.printStackTrace();
+					}
+					pf1.setAccessible(true);
+					try {
+						GOTLog.logger.info((float) pf1.get(ore) + ore.oreChance + ore.minHeight + ore.maxHeight);
+					} catch (IllegalArgumentException | IllegalAccessException e) {
+						e.printStackTrace();
+					}
+				}
+				for (OreGenerant ore : biome.decorator.biomeOres) {
+					Field pf1 = null;
+					try {
+						pf1 = WorldGenMinable.class.getDeclaredField("field_150519_a");
+					} catch (NoSuchFieldException | SecurityException e) {
+						e.printStackTrace();
+					}
+					pf1.setAccessible(true);
+					try {
+						GOTLog.logger.info((float) pf1.get(ore) + ore.oreChance + ore.minHeight + ore.maxHeight);
+					} catch (IllegalArgumentException | IllegalAccessException e) {
+						e.printStackTrace();
+					}
+				}
+				for (OreGenerant ore : biome.decorator.biomeGems) {
+					Field pf1 = null;
+					try {
+						pf1 = WorldGenMinable.class.getDeclaredField("field_150519_a");
+					} catch (NoSuchFieldException | SecurityException e) {
+						e.printStackTrace();
+					}
+					pf1.setAccessible(true);
+					try {
+						GOTLog.logger.info((float) pf1.get(ore) + ore.oreChance + ore.minHeight + ore.maxHeight);
+					} catch (IllegalArgumentException | IllegalAccessException e) {
+						e.printStackTrace();
+					}
 				}
 				continue;
 			}
