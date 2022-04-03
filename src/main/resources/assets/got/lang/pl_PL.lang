@@ -1,36 +1,4 @@
 
-item.got:westerosLongsword.name≠
-item.got:westerosGreatsword.name≠
-entity.got.BraavosFarmhand.name≠
-entity.got.PentosFarmhand.name≠
-entity.got.NorvosFarmhand.name≠
-entity.got.LorathFarmhand.name≠
-entity.got.QohorFarmhand.name≠
-entity.got.QarthFarmhand.name≠
-got.wp.Anbei.info≠
-got.wp.Anbei≠
-got.wp.Anguo.info≠
-got.wp.Anguo≠
-got.wp.Anjiang.info≠
-got.wp.Anjiang≠
-got.wp.Dingguo.info≠
-got.wp.Dingguo≠
-got.wp.Jianmen.info≠
-got.wp.Jianmen≠
-got.wp.Lungmen.info≠
-got.wp.Lungmen≠
-got.wp.Pingbei.info≠
-got.wp.Pingbei≠
-got.wp.Pingjiang.info≠
-got.wp.Pingjiang≠
-got.wp.Pinnu.info≠
-got.wp.Pinnu≠
-got.wp.Wude.info≠
-got.wp.Wude≠
-got.wp.Wusheng.info≠
-got.wp.Wusheng≠
-got.wp.Zhenguo.info≠
-got.wp.Zhenguo≠
 attribute.name.generic.movementSpeedAir=Prędkość (powietrze)
 color.black=Czarny
 color.blue=Niebieski
@@ -133,6 +101,7 @@ entity.got.BraavosBlacksmith.name=Kowal Braavosa
 entity.got.BraavosBrewer.name=Piwowar Braavosa
 entity.got.BraavosButcher.name=Rzeźnik Braavosa
 entity.got.BraavosFarmer.name=Rolnik Braavosa
+entity.got.BraavosFarmhand.name≠
 entity.got.BraavosFishmonger.name=Sprzedawca ryb Braavosa
 entity.got.BraavosFlorist.name=Kwiaciarnia Braavosa
 entity.got.BraavosGeneral.name=Generał Braavosa
@@ -431,6 +400,7 @@ entity.got.LorathBlacksmith.name=Kowal Loratha
 entity.got.LorathBrewer.name=Piwowar Loratha
 entity.got.LorathButcher.name=Rzeźnik Loratha
 entity.got.LorathFarmer.name=Rolnik Loratha
+entity.got.LorathFarmhand.name≠
 entity.got.LorathFishmonger.name=Sprzedawca ryb Loratha
 entity.got.LorathFlorist.name=Kwiaciarnia Loratha
 entity.got.LorathGeneral.name=Generał Loratha
@@ -555,6 +525,7 @@ entity.got.NorvosBlacksmith.name=Kowal Norvosa
 entity.got.NorvosBrewer.name=Piwowar Norvosa
 entity.got.NorvosButcher.name=Rzeźnik Norvosa
 entity.got.NorvosFarmer.name=Rolnik Norvosa
+entity.got.NorvosFarmhand.name≠
 entity.got.NorvosFishmonger.name=Sprzedawca ryb Norvosa
 entity.got.NorvosFlorist.name=Kwiaciarnia Norvosa
 entity.got.NorvosGoldsmith.name=Złotnik Norvosa
@@ -579,6 +550,7 @@ entity.got.PentosBlacksmith.name=Kowal Pentosa
 entity.got.PentosBrewer.name=Piwowar Pentosa
 entity.got.PentosButcher.name=Rzeźnik Pentosa
 entity.got.PentosFarmer.name=Rolnik Pentosa
+entity.got.PentosFarmhand.name≠
 entity.got.PentosFishmonger.name=Sprzedawca ryb Pentosa
 entity.got.PentosFlorist.name=Kwiaciarnia Pentosa
 entity.got.PentosGoldsmith.name=Złotnik Pentosa
@@ -605,6 +577,7 @@ entity.got.QarthBlacksmith.name=Kowal Qartha
 entity.got.QarthBrewer.name=Piwowar Qartha
 entity.got.QarthButcher.name=Rzeźnik Qartha
 entity.got.QarthFarmer.name=Rolnik Qartha
+entity.got.QarthFarmhand.name≠
 entity.got.QarthFishmonger.name=Sprzedawca ryb Qartha
 entity.got.QarthFlorist.name=Kwiaciarnia Qartha
 entity.got.QarthGoldsmith.name=Goldsmith Qartha
@@ -624,6 +597,7 @@ entity.got.QohorBlacksmith.name=Kowal Qohora
 entity.got.QohorBrewer.name=Piwowar Qohora
 entity.got.QohorButcher.name=Rzeźnik Qohora
 entity.got.QohorFarmer.name=Rolnik Qohora
+entity.got.QohorFarmhand.name≠
 entity.got.QohorFishmonger.name=Sprzedawca ryb Qohora
 entity.got.QohorFlorist.name=Kwiaciarnia Qohora
 entity.got.QohorGoldsmith.name=Złotnik Qohora
@@ -3271,6 +3245,12 @@ got.wp.Aegon.info=Wyspa odkryta przez Alice Westhill na południowy zachód od L
 got.wp.Aegon=Aegon
 got.wp.Amberly.info=Rodowy zamek Rogersów, wasali Baratheonów.
 got.wp.Amberly=Amberly
+got.wp.Anbei.info≠
+got.wp.Anbei≠
+got.wp.Anguo.info≠
+got.wp.Anguo≠
+got.wp.Anjiang.info≠
+got.wp.Anjiang≠
 got.wp.Anogaria.info=Jedna ze starych valyriańskich fortec strażniczych.
 got.wp.Anogaria=Anogaria
 got.wp.Antlers.info=Zamek domu Buckwell na ziemiach królewskich.
@@ -3395,6 +3375,8 @@ got.wp.Deepdown.info=Rodzinny zamek House Crowls jest zamkiem tylko z nazwy, ale
 got.wp.Deepdown=Głęboko
 got.wp.DeepwoodMotte.info=Zamek jest domem dla Gloverów, wasali Starków.
 got.wp.DeepwoodMotte=Deepwood Motte
+got.wp.Dingguo.info≠
+got.wp.Dingguo≠
 got.wp.Doquu.info=Mała osada na wyspie o tej samej nazwie. Jest to najbardziej wysunięta na południe miejscowość na Wyspach Letnich.
 got.wp.Doquu=Doquu
 got.wp.Downdelving.info=Zamek na Great Vic, należący do jednego z młodszych oddziałów Goodbrothers.
@@ -3607,6 +3589,8 @@ got.wp.IsleOfWhips.info=Wyspa niewolników i ogromny targ niewolników dla wszys
 got.wp.IsleOfWhips=Isle Whips
 got.wp.IvyHall.info=Zamek domu Kidwellów, wasali Tyrellów.
 got.wp.IvyHall=Ivy Hall
+got.wp.Jianmen.info≠
+got.wp.Jianmen≠
 got.wp.Jinqi.info=Ityjskie miasto zbudowane w celu obrony imperium przed najazdami. Stolica pod panowaniem bordowych cesarzy Yi Ti.
 got.wp.Jinqi=Jinqi
 got.wp.KDath.info=Miasto, które jest podobno starsze niż sam czas. Kwitną tu krwawe ofiary i wydaje się, że w takich ilościach, że miejscowi bogowie są uważani za obłąkanych, a nawet ślicznotki boją się miast.
@@ -3671,6 +3655,8 @@ got.wp.Lordsport.info=Największe miasto na Żelaznych Wyspach, własność rodu
 got.wp.Lordsport=Lordsport
 got.wp.LotusPoint.info=Spokojne nadmorskie miasteczko letnich ludzi.
 got.wp.LotusPoint=Lotus Point
+got.wp.Lungmen.info≠
+got.wp.Lungmen≠
 got.wp.Lys.info=Jedno z Wolnych Miast. Powszechnie znany z drogich burdeli i wyrafinowanych kapłanek miłości.
 got.wp.Lys=Lys
 got.wp.Maidenpool.info=Miasto zamkowe jest własnością Mouton House. Miasto swoją nazwę zawdzięcza starożytnemu stawowi z bajki o Florianie Głupcu i pięknym Jonquil.
@@ -3763,8 +3749,14 @@ got.wp.Pennytree.info=Mała wioska między dwoma wzgórzami zwana Titki. Wieś o
 got.wp.Pennytree=Pennytree
 got.wp.Pentos.info=Jedno z Wolnych Miast, najważniejszy port na zachodnim wybrzeżu Essos. W tym mieście mieszka mistrz Illyrio Mopatis, który schronił ostatnich Targaryenów.
 got.wp.Pentos=Pentos
+got.wp.Pingbei.info≠
+got.wp.Pingbei≠
+got.wp.Pingjiang.info≠
+got.wp.Pingjiang≠
 got.wp.PinkmaidenCastle.info=Zamek domu Piper, wasali Tully'ego.
 got.wp.PinkmaidenCastle=Zamek Pinkmaiden
+got.wp.Pinnu.info≠
+got.wp.Pinnu≠
 got.wp.PlankyTown.info=Największy port Dorn, zbudowany bezpośrednio na wodzie z połączonych ze sobą barek i łodzi handlowych. Istnieje również forteca, która chroni tę bramę do Dorna.
 got.wp.PlankyTown=Planky Town
 got.wp.Plumwood.info=Zamek rodu Plummów, wasala Lannisterów.
@@ -4093,6 +4085,10 @@ got.wp.WitchIsle.info=Zamek domu Upcliffów, wasali Arrynów na Wyspie Czarownic
 got.wp.WitchIsle=Wyspa Czarownic
 got.wp.Woodswatch.info=Pusty zamek Nocnej Straży.
 got.wp.Woodswatch=Woodswatch
+got.wp.Wude.info≠
+got.wp.Wude≠
+got.wp.Wusheng.info≠
+got.wp.Wusheng≠
 got.wp.Wyl.info=Zamek z domu Ville. Gdzieś tutaj legendarny Smoczy Rycerz siedział nago w klatce, czekając, aż jego kuzyn, Błogosławiony Baylor, podejdzie boso do Martellów i przekona ich do zawarcia pokoju. A jeszcze wcześniej inny Vil odciął Orisę Baratheonowi, założycielowi klanu, jego prawą rękę, za którą syn tego Vila z kolei stracił obie ręce i nogi oraz głowę do buta.
 got.wp.Wyl=Wyl
 got.wp.Wyndhall.info=Zamek rodu Estrenów, wasali Lannisterów.
@@ -4115,6 +4111,8 @@ got.wp.Zabhad.info=Miasto na wyspie Słoni. Mieszka tu najwyższy władca Szanu 
 got.wp.Zabhad=Zabhad
 got.wp.Zamettar.info=Jedna z kolonii Giscard, później zajęta przez Valyrię. Podobnie jak wszystkie kolonie na Sotorios, Zamettar rozpadł się i został opuszczony: Valyrianie opuścili miasto, Rhoynarowie uciekli po okropnościach Yin.
 got.wp.Zamettar=Zamettar
+got.wp.Zhenguo.info≠
+got.wp.Zhenguo≠
 got.wp.custom.andMore=I %d więcej
 got.wp.custom.info=Czy punkt orientacyjny bractwa „ %d”
 got.wp.custom=%s
@@ -4836,11 +4834,11 @@ item.got:berryPie.name=Placek jagodowy
 item.got:bittersteelHelmet.name≠
 item.got:blackArakh.name=Czarny arach
 item.got:blackberry.name=Jeżyny
+item.got:blackfyre.name=Blackfyre
 item.got:blackfyreBoots.name=Buty Blackfyre
 item.got:blackfyreChestplate.name=Napierśnik Blackfyre
 item.got:blackfyreHelmet.name=Hełm Blackfyre
 item.got:blackfyreLeggings.name=Nogawice Blackfyre
-item.got:blackfyre.name=Blackfyre
 item.got:blackrootStick.name=Patyk czarnokorzenia
 item.got:blackskinChestplate.name≠
 item.got:blacksmithHammer.name=Młot kowalski
@@ -5405,9 +5403,11 @@ item.got:westerlandsguardLeggings.name=Nogawice w czerwone peleryny
 item.got:westerosBow.name=Kokarda
 item.got:westerosDagger.name=Sztylet
 item.got:westerosDaggerPoisoned.name=Zatruty Północny Sztylet
+item.got:westerosGreatsword.name≠
 item.got:westerosHammer.name=Młot bojowy
 item.got:westerosHorseArmor.name=Pancerz konia Północnego
 item.got:westerosLance.name=Lanca
+item.got:westerosLongsword.name≠
 item.got:westerosPike.name=Szczupak
 item.got:westerosSpear.name=Włócznia
 item.got:westerosSword.name=Miecz

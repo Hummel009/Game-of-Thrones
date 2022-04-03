@@ -1,36 +1,4 @@
 
-item.got:westerosLongsword.name≠
-item.got:westerosGreatsword.name≠
-entity.got.BraavosFarmhand.name≠
-entity.got.PentosFarmhand.name≠
-entity.got.NorvosFarmhand.name≠
-entity.got.LorathFarmhand.name≠
-entity.got.QohorFarmhand.name≠
-entity.got.QarthFarmhand.name≠
-got.wp.Anbei.info≠
-got.wp.Anbei≠
-got.wp.Anguo.info≠
-got.wp.Anguo≠
-got.wp.Anjiang.info≠
-got.wp.Anjiang≠
-got.wp.Dingguo.info≠
-got.wp.Dingguo≠
-got.wp.Jianmen.info≠
-got.wp.Jianmen≠
-got.wp.Lungmen.info≠
-got.wp.Lungmen≠
-got.wp.Pingbei.info≠
-got.wp.Pingbei≠
-got.wp.Pingjiang.info≠
-got.wp.Pingjiang≠
-got.wp.Pinnu.info≠
-got.wp.Pinnu≠
-got.wp.Wude.info≠
-got.wp.Wude≠
-got.wp.Wusheng.info≠
-got.wp.Wusheng≠
-got.wp.Zhenguo.info≠
-got.wp.Zhenguo≠
 attribute.name.generic.movementSpeedAir=Snelheid (lucht)
 color.black=Zwart
 color.blue=Blauw
@@ -133,6 +101,7 @@ entity.got.BraavosBlacksmith.name=Smid van Braavos
 entity.got.BraavosBrewer.name=Brouwer van Braavos
 entity.got.BraavosButcher.name=Slager van Braavos
 entity.got.BraavosFarmer.name=Boer van Braavos
+entity.got.BraavosFarmhand.name≠
 entity.got.BraavosFishmonger.name=Visboer van Braavos
 entity.got.BraavosFlorist.name=Bloemist van Braavos
 entity.got.BraavosGeneral.name=Generaal van Braavos
@@ -431,6 +400,7 @@ entity.got.LorathBlacksmith.name=Smid van Lorath
 entity.got.LorathBrewer.name=Brouwer van Lorath
 entity.got.LorathButcher.name=Slager van Lorath
 entity.got.LorathFarmer.name=Boer van Lorath
+entity.got.LorathFarmhand.name≠
 entity.got.LorathFishmonger.name=Visboer van Lorath
 entity.got.LorathFlorist.name=Bloemist van Lorath
 entity.got.LorathGeneral.name=Generaal van Lorath
@@ -555,6 +525,7 @@ entity.got.NorvosBlacksmith.name=Smid van Norvos
 entity.got.NorvosBrewer.name=Brouwer van Noorwegen
 entity.got.NorvosButcher.name=Slager van Norvos
 entity.got.NorvosFarmer.name=Boer van Norvos
+entity.got.NorvosFarmhand.name≠
 entity.got.NorvosFishmonger.name=Visboer van Norvos
 entity.got.NorvosFlorist.name=Bloemist van Norvos
 entity.got.NorvosGoldsmith.name=Goudsmid van Norvos
@@ -579,6 +550,7 @@ entity.got.PentosBlacksmith.name=Smid van Pentos
 entity.got.PentosBrewer.name=Brouwer van Pentos
 entity.got.PentosButcher.name=Slager van Pentos
 entity.got.PentosFarmer.name=Boer van Pentos
+entity.got.PentosFarmhand.name≠
 entity.got.PentosFishmonger.name=Visboer van Pentos
 entity.got.PentosFlorist.name=Bloemist van Pentos
 entity.got.PentosGoldsmith.name=Goudsmid van Pentos
@@ -605,6 +577,7 @@ entity.got.QarthBlacksmith.name=Smid van Qarth
 entity.got.QarthBrewer.name=Brouwer van Qarth
 entity.got.QarthButcher.name=Slager van Qarth
 entity.got.QarthFarmer.name=Boer van Qarth
+entity.got.QarthFarmhand.name≠
 entity.got.QarthFishmonger.name=Visboer van Qarth
 entity.got.QarthFlorist.name=Bloemist van Qarth
 entity.got.QarthGoldsmith.name=Goudsmid van Qarth
@@ -624,6 +597,7 @@ entity.got.QohorBlacksmith.name=Smid van Qohor
 entity.got.QohorBrewer.name=Brouwer van Qohor
 entity.got.QohorButcher.name=Slager van Qohor
 entity.got.QohorFarmer.name=Boer van Qohor
+entity.got.QohorFarmhand.name≠
 entity.got.QohorFishmonger.name=Visboer van Qohor
 entity.got.QohorFlorist.name=Bloemist van Qohor
 entity.got.QohorGoldsmith.name=Goudsmid van Qohor
@@ -3271,6 +3245,12 @@ got.wp.Aegon.info=Een eiland ontdekt door Alice Westhill ten zuidwesten van de Z
 got.wp.Aegon=Aegon
 got.wp.Amberly.info=Voorouderlijk kasteel van de Rogers, vazallen van de Baratheons.
 got.wp.Amberly=Amberly
+got.wp.Anbei.info≠
+got.wp.Anbei≠
+got.wp.Anguo.info≠
+got.wp.Anguo≠
+got.wp.Anjiang.info≠
+got.wp.Anjiang≠
 got.wp.Anogaria.info=Een van de oude vestingen van de Valyrische wacht.
 got.wp.Anogaria=Anogaria
 got.wp.Antlers.info=Het kasteel van het Buckwell-huis van de King's Lands.
@@ -3395,6 +3375,8 @@ got.wp.Deepdown.info=Het familiekasteel van het House van Crowls is slechts een 
 got.wp.Deepdown=Diep vanbinnen
 got.wp.DeepwoodMotte.info=Het kasteel is de thuisbasis van de Glovers, vazallen van de Starks.
 got.wp.DeepwoodMotte=Deepwood Motte
+got.wp.Dingguo.info≠
+got.wp.Dingguo≠
 got.wp.Doquu.info=Een kleine nederzetting op het gelijknamige eiland. Het is de meest zuidelijke nederzetting van de Zomereilanden.
 got.wp.Doquu=Doquu
 got.wp.Downdelving.info=Castle on Great Vic, eigendom van een van de jongere takken van de Goodbrothers.
@@ -3607,6 +3589,8 @@ got.wp.IsleOfWhips.info=Een slaveneiland en een enorme slavenmarkt voor slaven v
 got.wp.IsleOfWhips=Isle van Whips
 got.wp.IvyHall.info=Het kasteel van het huis van de Kidwells, vazallen van de Tyrells.
 got.wp.IvyHall=Ivy Hall
+got.wp.Jianmen.info≠
+got.wp.Jianmen≠
 got.wp.Jinqi.info=Ithische stad gebouwd om het rijk te verdedigen tegen invallen. Kapitaal onder de Bourgondische keizers Yi Ti.
 got.wp.Jinqi=Jinqi
 got.wp.KDath.info=Een stad die zogenaamd ouder is dan de tijd zelf. Bloedige offers floreren hier, en het lijkt erop dat de plaatselijke goden als krankzinnig worden beschouwd, en zelfs de klauwieren zijn bang voor de steden.
@@ -3671,6 +3655,8 @@ got.wp.Lordsport.info=De grootste stad op de IJzereilanden, het bezit van het Ho
 got.wp.Lordsport=Lordsport
 got.wp.LotusPoint.info=Rustige kustplaats met zomermensen.
 got.wp.LotusPoint=Lotus Point
+got.wp.Lungmen.info≠
+got.wp.Lungmen≠
 got.wp.Lys.info=Een van de vrije steden. Alom bekend om dure bordelen en verfijnde priesteressen van liefde.
 got.wp.Lys=Lys
 got.wp.Maidenpool.info=De kasteelstad is eigendom van het Mouton House. De stad dankt zijn naam aan de eeuwenoude vijver uit het sprookje van Florian the Fool en de mooie Jonquil.
@@ -3763,8 +3749,14 @@ got.wp.Pennytree.info=Een klein dorpje tussen twee heuvels genaamd Titki. Het do
 got.wp.Pennytree=Pennytree
 got.wp.Pentos.info=Een van de Free Cities, de belangrijkste haven aan de westkust van Essos. Deze stad is de thuisbasis van de meester Illyrio Mopatis, die de laatste Targaryens beschermde.
 got.wp.Pentos=Pentos
+got.wp.Pingbei.info≠
+got.wp.Pingbei≠
+got.wp.Pingjiang.info≠
+got.wp.Pingjiang≠
 got.wp.PinkmaidenCastle.info=Het kasteel van het huis van Piper, de vazallen van Tully.
 got.wp.PinkmaidenCastle=Pinkmaiden Castle
+got.wp.Pinnu.info≠
+got.wp.Pinnu≠
 got.wp.PlankyTown.info=De grootste haven van Dorn, direct op het water gebouwd door aan elkaar vastgemaakte binnenvaartschepen en koopvaardijschepen. Er is ook een fort om deze poort naar Dorn te beschermen.
 got.wp.PlankyTown=Planky Town
 got.wp.Plumwood.info=Het kasteel van het huis van Plumm, vazal van de Lannister.
@@ -4093,6 +4085,10 @@ got.wp.WitchIsle.info=Het kasteel van het huis van de Upcliffs, vazallen van de 
 got.wp.WitchIsle=Hekseneiland
 got.wp.Woodswatch.info=Het lege kasteel van de Nachtwacht.
 got.wp.Woodswatch=Woodswatch
+got.wp.Wude.info≠
+got.wp.Wude≠
+got.wp.Wusheng.info≠
+got.wp.Wusheng≠
 got.wp.Wyl.info=Het kasteel van het huis van Ville. Ergens hier zat de legendarische Drakenridder naakt in een kooi, wachtend op zijn neef, Baylor de Gezegende, die op blote voeten naar de Martells zou lopen en hen ervan zou overtuigen vrede te sluiten. En zelfs eerder sneed een andere Vil Orisa Baratheon, de stichter van de clan, zijn rechterhand af, waarvoor de zoon van die Vil vervolgens op zijn beurt beide armen en benen verloor, en ook zijn hoofd.
 got.wp.Wyl=Wyl
 got.wp.Wyndhall.info=Het kasteel van het Huis van Estrens, vazallen van de Lannister.
@@ -4115,6 +4111,8 @@ got.wp.Zabhad.info=Stad op het eiland Olifanten. De opperste heerser van de Shan
 got.wp.Zabhad=Zabhad
 got.wp.Zamettar.info=Een van de kolonies van Giscard, later veroverd door Valyria. Zoals alle kolonies op Sotorios, raakte Zamettar in verval en verlaten: de Valyriërs verlieten de stad, de Rhoynar vluchtten na de verschrikkingen van Yin.
 got.wp.Zamettar=Zamettar
+got.wp.Zhenguo.info≠
+got.wp.Zhenguo≠
 got.wp.custom.andMore=En nog %d meer
 got.wp.custom.info=Is het waypoint van de broederschap "%d"
 got.wp.custom=%s
@@ -4836,11 +4834,11 @@ item.got:berryPie.name=Bessentaart
 item.got:bittersteelHelmet.name≠
 item.got:blackArakh.name=Zwarte Arakh
 item.got:blackberry.name=Bramen
+item.got:blackfyre.name=Blackfyre
 item.got:blackfyreBoots.name=Blackfyre laarzen
 item.got:blackfyreChestplate.name=Blackfyre Borstplaat
 item.got:blackfyreHelmet.name=Blackfyre-helm
 item.got:blackfyreLeggings.name=Blackfyre Legging
-item.got:blackfyre.name=Blackfyre
 item.got:blackrootStick.name=Zwartwortelstok
 item.got:blackskinChestplate.name≠
 item.got:blacksmithHammer.name=Smidse Hamer
@@ -5405,9 +5403,11 @@ item.got:westerlandsguardLeggings.name=Legging van rode klokken
 item.got:westerosBow.name=Boog
 item.got:westerosDagger.name=Dolk
 item.got:westerosDaggerPoisoned.name=Vergiftigde Noordenelijke dolk
+item.got:westerosGreatsword.name≠
 item.got:westerosHammer.name=Warhammer
 item.got:westerosHorseArmor.name=Noordenelijke paardenpantser
 item.got:westerosLance.name=Lans
+item.got:westerosLongsword.name≠
 item.got:westerosPike.name=Snoek
 item.got:westerosSpear.name=Speer
 item.got:westerosSword.name=Zwaard

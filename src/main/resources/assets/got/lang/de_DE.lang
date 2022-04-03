@@ -1,36 +1,4 @@
 
-item.got:westerosLongsword.name≠
-item.got:westerosGreatsword.name≠
-entity.got.BraavosFarmhand.name≠
-entity.got.PentosFarmhand.name≠
-entity.got.NorvosFarmhand.name≠
-entity.got.LorathFarmhand.name≠
-entity.got.QohorFarmhand.name≠
-entity.got.QarthFarmhand.name≠
-got.wp.Anbei.info≠
-got.wp.Anbei≠
-got.wp.Anguo.info≠
-got.wp.Anguo≠
-got.wp.Anjiang.info≠
-got.wp.Anjiang≠
-got.wp.Dingguo.info≠
-got.wp.Dingguo≠
-got.wp.Jianmen.info≠
-got.wp.Jianmen≠
-got.wp.Lungmen.info≠
-got.wp.Lungmen≠
-got.wp.Pingbei.info≠
-got.wp.Pingbei≠
-got.wp.Pingjiang.info≠
-got.wp.Pingjiang≠
-got.wp.Pinnu.info≠
-got.wp.Pinnu≠
-got.wp.Wude.info≠
-got.wp.Wude≠
-got.wp.Wusheng.info≠
-got.wp.Wusheng≠
-got.wp.Zhenguo.info≠
-got.wp.Zhenguo≠
 attribute.name.generic.movementSpeedAir=Geschwindigkeit (Luft)
 color.black=Schwarz
 color.blue=Blau
@@ -133,6 +101,7 @@ entity.got.BraavosBlacksmith.name=Braavos Schmied
 entity.got.BraavosBrewer.name=Braavos Brauer
 entity.got.BraavosButcher.name=Braavos Metzger
 entity.got.BraavosFarmer.name=Braavos Bauer
+entity.got.BraavosFarmhand.name≠
 entity.got.BraavosFishmonger.name=Braavos Fischhändler
 entity.got.BraavosFlorist.name=Braavos Blumenhändler
 entity.got.BraavosGeneral.name=Braavos Hauptmann
@@ -431,6 +400,7 @@ entity.got.LorathBlacksmith.name=Lorath Schmied
 entity.got.LorathBrewer.name=Lorath Brauer
 entity.got.LorathButcher.name=Lorath Metzger
 entity.got.LorathFarmer.name=Lorath Bauer
+entity.got.LorathFarmhand.name≠
 entity.got.LorathFishmonger.name=Lorath Fischhändler
 entity.got.LorathFlorist.name=Lorata Blumenhändler
 entity.got.LorathGeneral.name=Lorath Kommandant
@@ -555,6 +525,7 @@ entity.got.NorvosBlacksmith.name=Norvos Schmied
 entity.got.NorvosBrewer.name=Norvos Brauer
 entity.got.NorvosButcher.name=Norvos Metzger
 entity.got.NorvosFarmer.name=Norvos Bauer
+entity.got.NorvosFarmhand.name≠
 entity.got.NorvosFishmonger.name=Norvos Fischhändler
 entity.got.NorvosFlorist.name=Norvos Blumenhändler
 entity.got.NorvosGoldsmith.name=Norvos Goldschmied
@@ -579,6 +550,7 @@ entity.got.PentosBlacksmith.name=Pentos Schmied
 entity.got.PentosBrewer.name=Pentos Brauer
 entity.got.PentosButcher.name=Pentos Metzger
 entity.got.PentosFarmer.name=Pentos Bauer
+entity.got.PentosFarmhand.name≠
 entity.got.PentosFishmonger.name=Pentos Fischhändler
 entity.got.PentosFlorist.name=Pentos Blumenhändler
 entity.got.PentosGoldsmith.name=Pentos Goldschmied
@@ -605,6 +577,7 @@ entity.got.QarthBlacksmith.name=Qarth Schmied
 entity.got.QarthBrewer.name=Qarth Brauer
 entity.got.QarthButcher.name=Qarth Metzger
 entity.got.QarthFarmer.name=Qarth Bauer
+entity.got.QarthFarmhand.name≠
 entity.got.QarthFishmonger.name=Qarth Fischhändler
 entity.got.QarthFlorist.name=Qarth Blumenhändler
 entity.got.QarthGoldsmith.name=Qarth Goldschmied
@@ -624,6 +597,7 @@ entity.got.QohorBlacksmith.name=Qohor Schmied
 entity.got.QohorBrewer.name=Qohor Brauer
 entity.got.QohorButcher.name=Qohor Metzger
 entity.got.QohorFarmer.name=Qohor Bauer
+entity.got.QohorFarmhand.name≠
 entity.got.QohorFishmonger.name=Qohor Fischhändler
 entity.got.QohorFlorist.name=Qohor Blumenhändler
 entity.got.QohorGoldsmith.name=Qohor Goldschmied
@@ -2392,9 +2366,9 @@ got.gui.openFolder=Konfigurationsordner öffnen
 got.gui.options.conquest.desc.off=AUS: Das Töten von Feinden beinflusst Eroberungen nicht
 got.gui.options.conquest.desc.on=AN: Das Töten von Feinden vergößert deine Eroberungen oder löscht feindliche Eroberungen auf dem Gebiet aus
 got.gui.options.conquest=Eroberungserweiterungen
-got.gui.options.femRank=Weibliche Rängenamen
-got.gui.options.femRank.desc.on=AN: Ränge werden immer in ihrer weiblichen Form angezeigt
 got.gui.options.femRank.desc.off=AUS: Ränge werden in ihrer weiblichen Form angezeigt, wenn dein derzeitiger Rang weiblich ist
+got.gui.options.femRank.desc.on=AN: Ränge werden immer in ihrer weiblichen Form angezeigt
+got.gui.options.femRank=Weibliche Rängenamen
 got.gui.options.friendlyFire.desc.off=AUS: Verbündete NPCs können nicht angegriffen, verletzt, oder gereizt werden, außer sie greifen dich zuerst an
 got.gui.options.friendlyFire.desc.on=AN: Alle NPCs, auch verbündete angeheuerte Einheiten können angegriffen werden
 got.gui.options.friendlyFire=Friendly Fire
@@ -3271,6 +3245,12 @@ got.wp.Aegon.info=Eine Insel, die Alice Westhill südwestlich der Sommerinseln e
 got.wp.Aegon=Aegon
 got.wp.Amberly.info=Ahnenburg der Rogers, Vasallen der Baratheons.
 got.wp.Amberly=Amberly
+got.wp.Anbei.info≠
+got.wp.Anbei≠
+got.wp.Anguo.info≠
+got.wp.Anguo≠
+got.wp.Anjiang.info≠
+got.wp.Anjiang≠
 got.wp.Anogaria.info=Einer der alten valyrischen Schutzzauber.
 got.wp.Anogaria=Anogaria
 got.wp.Antlers.info=Das Schloss des Buckwell-Hauses der King's Lands.
@@ -3395,6 +3375,8 @@ got.wp.Deepdown.info=Das Familienschloss des Hauses der Krähen ist nur eine Bur
 got.wp.Deepdown=Untergrund
 got.wp.DeepwoodMotte.info=Schloss des Hauses der Glovers, Vasallen der Starks.
 got.wp.DeepwoodMotte=Dunkles Auenland
+got.wp.Dingguo.info≠
+got.wp.Dingguo≠
 got.wp.Doquu.info=Kleine Siedlung auf der gleichnamigen Insel. Es ist die südlichste Siedlung der Sommerinseln.
 got.wp.Doquu=Dokuu
 got.wp.Downdelving.info=Schloss auf Great Vic, im Besitz eines kleinen Zweigs der Goodbrothers.
@@ -3607,6 +3589,8 @@ got.wp.IsleOfWhips.info=Sklaveninsel und ein riesiger Sklavenmarkt für Sklaven 
 got.wp.IsleOfWhips=Strandinsel
 got.wp.IvyHall.info=Das Schloss des Hauses der Kidwells, Vasallen der Tyrells.
 got.wp.IvyHall=Ivy
+got.wp.Jianmen.info≠
+got.wp.Jianmen≠
 got.wp.Jinqi.info=Ithian Stadt gebaut, um das Reich vor Überfällen zu verteidigen. Kapital unter den burgunderfarbenen Kaisern Yi Ti.
 got.wp.Jinqi=Jinqi
 got.wp.KDath.info=Eine Stadt, die angeblich älter ist als die Zeit selbst. Hier gedeihen blutige Opfer, und es scheint, in solchen Mengen, dass die lokalen Götter als verrückt gelten und sogar die Shriks Angst vor den Städten haben.
@@ -3671,6 +3655,8 @@ got.wp.Lordsport.info=Größte Stadt auf den Eiseninseln, im Besitz vom Haus Bot
 got.wp.Lordsport=Lordsport
 got.wp.LotusPoint.info=Ruhige Küstenstadt der Sommermenschen.
 got.wp.LotusPoint=Lotus Point
+got.wp.Lungmen.info≠
+got.wp.Lungmen≠
 got.wp.Lys.info=Eine der freien Städte. Weithin bekannt für teure Bordelle und raffinierte Priesterinnen der Liebe.
 got.wp.Lys=Lys
 got.wp.Maidenpool.info=Die Burgstadt gehört dem Haus Mouton. Die Stadt verdankt ihren.name=N einem alten Teich aus der Geschichte von Florian dem Narren und dem schönen Jonquil.
@@ -3763,8 +3749,14 @@ got.wp.Pennytree.info=Ein kleines Dorf zwischen zwei Hügeln.name=Ns Titki. Das 
 got.wp.Pennytree=Tiki
 got.wp.Pentos.info=Eine der freien Städte, der Wightigste Hafen an der Westküste von Essos. Diese Stadt ist die Heimat des Meisters Illyrio Mopatis, der die letzten Targaryer beschützte.
 got.wp.Pentos=Pentos
+got.wp.Pingbei.info≠
+got.wp.Pingbei≠
+got.wp.Pingjiang.info≠
+got.wp.Pingjiang≠
 got.wp.PinkmaidenCastle.info=Schloss des Hauses Piper, Tullys Vasallen.
 got.wp.PinkmaidenCastle=Pink-Maidenschloss
+got.wp.Pinnu.info≠
+got.wp.Pinnu≠
 got.wp.PlankyTown.info=Der größte Hafen in Dorn, der direkt am Wasser von zusammengebundenen Lastkähnen und Handelsbooten gebaut wurde. Es gibt auch eine Festung, um dieses Tor zu Dorne zu schützen.
 got.wp.PlankyTown=Plankenstadt
 got.wp.Plumwood.info=Schloss des Hauses Pflaumenwald, Vasallen der Lennister.
@@ -4093,6 +4085,10 @@ got.wp.WitchIsle.info=Die Burg des Hauses Hochklipp von der Hexeninsel, Vasallen
 got.wp.WitchIsle=Hexenschloss
 got.wp.Woodswatch.info=Leeres Nachtwachenschloss.
 got.wp.Woodswatch=Waldwache am Teich
+got.wp.Wude.info≠
+got.wp.Wude≠
+got.wp.Wusheng.info≠
+got.wp.Wusheng≠
 got.wp.Wyl.info=Wyl Haus-Schloss. Irgendwo hier saß der legendäre Drachenritter nackt in einem Käfig und wartete darauf, dass sein Cousin Baylor der Selige barfuß zu den Martells ging und sie überzeugte, Frieden zu schließen. Und noch früher schnitt ein anderer Vil Orisa Baratheon, dem Gründer des Clans, seine rechte Hand ab, für die der Sohn dieses Vil später seinerseits beide Arme und Beine verlor und seinen Kopf, um dafür zu büsen.
 got.wp.Wyl=Wyl
 got.wp.Wyndhall.info=Schloss des Hauses Estren, Vasallen der Lennister.
@@ -4115,6 +4111,8 @@ got.wp.Zabhad.info=Stadt auf der Elefanteninsel. Der oberste Herrscher des Shan 
 got.wp.Zabhad=Zabhad
 got.wp.Zamettar.info=Eine von Giscards Kolonien, die später von Valyria übernommen wurde. Wie alle Kolonien auf Sothoryos verfiel Zamettar und wurde verlassen: Die Valyrer verließen die Stadt, die Rhoynar flohen nach den Schrecken von Yin.
 got.wp.Zamettar=Zamettar
+got.wp.Zhenguo.info≠
+got.wp.Zhenguo≠
 got.wp.custom.andMore=Und %d mehr
 got.wp.custom.info=Ist der Wegpunkt der Gemeinschaft " %d"
 got.wp.custom=%s
@@ -4836,11 +4834,11 @@ item.got:berryPie.name=Beerenkuchen
 item.got:bittersteelHelmet.name≠
 item.got:blackArakh.name=Schwarzer Arakh
 item.got:blackberry.name=Brombeeren
+item.got:blackfyre.name=Schwarzfeuer
 item.got:blackfyreBoots.name=Schwarzfeuer Stiefel
 item.got:blackfyreChestplate.name=Schwarzfeuer Brustpanzer
 item.got:blackfyreHelmet.name=Schwarzfeuer Helm
 item.got:blackfyreLeggings.name=Schwarzfeuer Beinschutz
-item.got:blackfyre.name=Schwarzfeuer
 item.got:blackrootStick.name=Schwarzwurzelstock
 item.got:blackskinChestplate.name≠
 item.got:blacksmithHammer.name=Schmiedehammer
@@ -5405,9 +5403,11 @@ item.got:westerlandsguardLeggings.name=Beinschutz der Rotmäntel#
 item.got:westerosBow.name=Bogen von Westeros
 item.got:westerosDagger.name=Dolch von Westeros
 item.got:westerosDaggerPoisoned.name=Westeros vergifteter Dolch
+item.got:westerosGreatsword.name≠
 item.got:westerosHammer.name=Westeros Kriegshammer
 item.got:westerosHorseArmor.name=Westeros Pferderüstung
 item.got:westerosLance.name=Westeros Kavallerie Speer
+item.got:westerosLongsword.name≠
 item.got:westerosPike.name=Westeros Pike
 item.got:westerosSpear.name=Westeros Speer
 item.got:westerosSword.name=Westeros Schwert
