@@ -1,6 +1,7 @@
 CHANGELOG
 
 >>VERSION 17.7.1
+* Imroved ukrainian translation (prod. DDPAT Knife Series)
 * Fixed bug with anvil texture
 * Fixed bug with agressive mobs AI
 
