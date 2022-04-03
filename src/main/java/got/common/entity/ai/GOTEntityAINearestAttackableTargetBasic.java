@@ -5,6 +5,7 @@ import java.util.*;
 import got.GOT;
 import got.common.GOTLevelData;
 import got.common.entity.other.*;
+import got.common.faction.GOTFaction;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.EntityAITarget;
@@ -64,6 +65,9 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 		if (super.isSuitableTarget(entity, flag)) {
 			if (entity instanceof EntityPlayer) {
 				return isPlayerSuitableTarget((EntityPlayer) entity);
+			}
+			if (GOT.getNPCFaction(taskOwner) == GOTFaction.WHITE_WALKER && entity instanceof GOTEntityNPC && GOT.getNPCFaction(entity) != GOTFaction.WHITE_WALKER) {
+				return true;
 			}
 			if (entity instanceof GOTEntityWesterosBandit) {
 				return taskOwner instanceof GOTEntityNPC && ((GOTEntityNPC) taskOwner).hiredNPCInfo.isActive;

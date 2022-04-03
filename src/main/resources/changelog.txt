@@ -1,5 +1,9 @@
 CHANGELOG
 
+>>VERSION 17.7.1
+* Fixed bug with anvil texture
+* Fixed bug with agressive mobs AI
+
 >>VERSION 17.7
 * Greatly improved the Ice Wall and the Yi Ti Wall
 * Greatly improved all the banners in the game (prod. Hummel009)
