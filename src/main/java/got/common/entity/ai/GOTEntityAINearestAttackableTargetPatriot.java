@@ -27,6 +27,9 @@ public class GOTEntityAINearestAttackableTargetPatriot extends GOTEntityAINeares
 		if (entity instanceof GOTEntityNPC) {
 			return true;
 		}
+		if (entity instanceof EntityPlayer) {
+			return isPlayerSuitableTarget((EntityPlayer) entity);
+		}
 		return false;
 	}
 }
