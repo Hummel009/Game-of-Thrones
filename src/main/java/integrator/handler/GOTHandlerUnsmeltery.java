@@ -1,21 +1,3 @@
-/*
- * Decompiled with CFR 0.148.
- *
- * Could not load the following classes:
- *  codechicken.core.ReflectionManager
- *  codechicken.nei.NEIServerUtils
- *  codechicken.nei.PositionedStack
- *  codechicken.nei.recipe.FurnaceRecipeHandler
- *  codechicken.nei.recipe.FurnaceRecipeHandler$SmeltingPair
- *  codechicken.nei.recipe.TemplateRecipeHandler
- *  cpw.mods.fml.common.registry.FMLControlledNamespacedRegistry
- *  cpw.mods.fml.common.registry.GameData
- *  net.minecraft.block.Block
- *  net.minecraft.client.gui.inventory.GuiContainer
- *  net.minecraft.item.Item
- *  net.minecraft.item.ItemStack
- *  net.minecraft.util.StatCollector
- */
 package integrator.handler;
 
 import java.util.Iterator;
@@ -32,7 +14,7 @@ import net.minecraft.item.*;
 import net.minecraft.util.StatCollector;
 
 public class GOTHandlerUnsmeltery extends FurnaceRecipeHandler {
-	private static GOTTileEntityUnsmeltery unsmelteryTileEntity = new GOTTileEntityUnsmeltery();
+	public static GOTTileEntityUnsmeltery unsmelteryTileEntity = new GOTTileEntityUnsmeltery();
 
 	@Override
 	public Class<? extends GuiContainer> getGuiClass() {
@@ -120,18 +102,18 @@ public class GOTHandlerUnsmeltery extends FurnaceRecipeHandler {
 		return ret;
 	}
 
-	private class UnsmeltingPair extends FurnaceRecipeHandler.SmeltingPair {
+	public class UnsmeltingPair extends FurnaceRecipeHandler.SmeltingPair {
 		private ItemStack ingredient;
 		private PositionedStack lastIngredient;
 		private int lastCycle;
 
-		public UnsmeltingPair(ItemStack ingred, ItemStack result) {
+		private UnsmeltingPair(ItemStack ingred, ItemStack result) {
 			super(ingred, result);
 			lastCycle = GOTHandlerUnsmeltery.this.cycleticks / 48;
 			ingredient = ingred;
 		}
 
-		public PositionedStack getCycledResult(int cycle, PositionedStack result) {
+		private PositionedStack getCycledResult(int cycle, PositionedStack result) {
 			if (cycle != lastCycle) {
 				lastCycle = cycle;
 				ItemStack stack = GOTHandlerUnsmeltery.getRandomUnsmelteryResult(ingredient);

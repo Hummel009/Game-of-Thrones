@@ -12,9 +12,9 @@ import net.minecraft.util.StatCollector;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class GOTHandlerTableShapeless extends ShapelessRecipeHandler {
-	public List recipeList;
+	private List recipeList;
 	public Class guiClass;
-	public String recipeName;
+	private String recipeName;
 
 	public GOTHandlerTableShapeless(List<IRecipe> recipes, Class<? extends GuiContainer> gui, String name) {
 		recipeList = recipes;
@@ -32,7 +32,7 @@ public class GOTHandlerTableShapeless extends ShapelessRecipeHandler {
 		return getRecipeName();
 	}
 
-	public List<IRecipe> getRecipeList() {
+	private List<IRecipe> getRecipeList() {
 		return recipeList;
 	}
 

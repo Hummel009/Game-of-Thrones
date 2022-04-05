@@ -13,7 +13,7 @@ import net.minecraft.item.*;
 import net.minecraft.util.StatCollector;
 
 public class GOTHandlerKebab extends TemplateRecipeHandler {
-	public GOTTileEntityKebabStand kebabStand;
+	private GOTTileEntityKebabStand kebabStand;
 
 	public GOTHandlerKebab() {
 		kebabStand = new GOTTileEntityKebabStand();
@@ -92,10 +92,10 @@ public class GOTHandlerKebab extends TemplateRecipeHandler {
 	}
 
 	public class CachedKebabRecipe extends TemplateRecipeHandler.CachedRecipe {
-		public PositionedStack result;
-		public PositionedStack ingredient;
+		private PositionedStack result;
+		private PositionedStack ingredient;
 
-		public CachedKebabRecipe(ItemStack ingredient) {
+		private CachedKebabRecipe(ItemStack ingredient) {
 			result = new PositionedStack(new ItemStack(GOTRegistry.kebab, 1), 119, 24);
 			this.ingredient = new PositionedStack(ingredient, 43, 24);
 		}

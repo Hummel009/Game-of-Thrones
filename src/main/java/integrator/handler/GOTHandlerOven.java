@@ -96,12 +96,12 @@ public class GOTHandlerOven extends TemplateRecipeHandler {
 	}
 
 	public class CachedOvenRecipe extends TemplateRecipeHandler.CachedRecipe {
-		public ArrayList<PositionedStack> ingredients;
-		public ArrayList<PositionedStack> results;
-		public int fuelX;
-		public int fuelY;
+		private ArrayList<PositionedStack> ingredients;
+		private ArrayList<PositionedStack> results;
+		private int fuelX;
+		private int fuelY;
 
-		public CachedOvenRecipe(ItemStack ingredient, ItemStack result) {
+		private CachedOvenRecipe(ItemStack ingredient, ItemStack result) {
 			ingredients = new ArrayList();
 			results = new ArrayList();
 			fuelX = 75;

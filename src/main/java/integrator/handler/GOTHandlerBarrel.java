@@ -13,7 +13,7 @@ import net.minecraft.util.StatCollector;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class GOTHandlerBarrel extends ShapelessRecipeHandler {
-	public ArrayList<CachedBarrelRecipe> barrelRecipes = new ArrayList();
+	private ArrayList<CachedBarrelRecipe> barrelRecipes = new ArrayList();
 
 	public GOTHandlerBarrel() {
 		for (int i = 0; i < GOTRecipeBrewing.recipes.size(); ++i) {
@@ -36,7 +36,7 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 		super.drawForeground(recipe);
 	}
 
-	public CachedBarrelRecipe getBarrelRecipe(ShapelessOreRecipe recipe) {
+	private CachedBarrelRecipe getBarrelRecipe(ShapelessOreRecipe recipe) {
 		return new CachedBarrelRecipe(forgeShapelessRecipe(recipe));
 	}
 
@@ -112,12 +112,12 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 	}
 
 	public class CachedBarrelRecipe extends TemplateRecipeHandler.CachedRecipe {
-		public ArrayList<PositionedStack> recipeIngreds;
-		public PositionedStack recipeResult;
-		public int lastCycleR;
-		public boolean fixedResult;
+		private ArrayList<PositionedStack> recipeIngreds;
+		private PositionedStack recipeResult;
+		private int lastCycleR;
+		private boolean fixedResult;
 
-		public CachedBarrelRecipe(ShapelessRecipeHandler.CachedShapelessRecipe recipe) {
+		private CachedBarrelRecipe(ShapelessRecipeHandler.CachedShapelessRecipe recipe) {
 			lastCycleR = GOTHandlerBarrel.this.cycleticks;
 			fixedResult = false;
 			recipeIngreds = new ArrayList();
@@ -133,7 +133,7 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 			recipeResult = new PositionedStack(new ItemStack[] { new ItemStack(recipe.getResult().item.getItem(), 1, 0), new ItemStack(recipe.getResult().item.getItem(), 1, 1), new ItemStack(recipe.getResult().item.getItem(), 1, 2), new ItemStack(recipe.getResult().item.getItem(), 1, 3), new ItemStack(recipe.getResult().item.getItem(), 1, 4) }, 119, 24, true);
 		}
 
-		public PositionedStack getCycledResult(int cycle, PositionedStack result) {
+		private PositionedStack getCycledResult(int cycle, PositionedStack result) {
 			if (cycle != lastCycleR) {
 				lastCycleR = cycle;
 				if (!fixedResult) {
@@ -154,7 +154,7 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 			return getCycledResult(GOTHandlerBarrel.this.cycleticks / 20, recipeResult);
 		}
 
-		public int getX(int i) {
+		private int getX(int i) {
 			switch (i) {
 			case 0:
 			case 3:
@@ -178,7 +178,7 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 			return 0;
 		}
 
-		public int getY(int i) {
+		private int getY(int i) {
 			switch (i) {
 			case 0:
 			case 1:

@@ -430,7 +430,7 @@ public class GOTEventHandler implements IFuelHandler {
 					continue;
 				}
 				NEIGOTIntegratorConfig configNEI = (NEIGOTIntegratorConfig) iConfigNEI;
-				for (ItemStack element2 : configNEI.hiddenItems) {
+				for (ItemStack element2 : configNEI.getHiddenItems()) {
 					if (!ItemInfo.hiddenItems.contains(element2)) {
 						continue;
 					}
