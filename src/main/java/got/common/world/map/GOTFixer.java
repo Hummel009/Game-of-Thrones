@@ -7,7 +7,7 @@ import got.common.entity.essos.legendary.captain.*;
 import got.common.entity.essos.legendary.quest.*;
 import got.common.entity.essos.legendary.trader.*;
 import got.common.entity.essos.legendary.warrior.*;
-import got.common.entity.other.GOTEntityHummel009;
+import got.common.entity.other.*;
 import got.common.entity.westeros.ironborn.GOTEntityIronbornSoldier;
 import got.common.entity.westeros.legendary.captain.*;
 import got.common.entity.westeros.legendary.deco.*;
@@ -510,7 +510,7 @@ public class GOTFixer {
 		}
 	}
 
-	public static class EuronGreyjoy extends GOTStructureBase {
+	public static class EuronGreyjoy extends Spawner {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -521,7 +521,7 @@ public class GOTFixer {
 				spawnLegendaryNPC(new GOTEntityIronbornSoldier(world), world, 0, 1, 0);
 			}
 			spawnLegendaryNPC(new GOTEntityEuronGreyjoy(world), world, 0, 1, 0);
-			return true;
+			return !pseudoGen;
 		}
 	}
 
@@ -839,7 +839,7 @@ public class GOTFixer {
 		}
 	}
 
-	public static class NightKing extends GOTStructureBase {
+	public static class NightKing extends Spawner {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -847,7 +847,7 @@ public class GOTFixer {
 			loadStrScan("night_king");
 			spawnLegendaryNPC(new GOTEntityNightKing(world), world, 0, 10, 0);
 			generateStrScan(world, random, 0, 0, 0);
-			return true;
+			return !pseudoGen;
 		}
 	}
 
@@ -979,15 +979,19 @@ public class GOTFixer {
 	}
 
 	public static class Spawner extends GOTStructureBase {
-
+		
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(world);
-			return true;
+			return !pseudoGen;
 		}
 
 		public void spawnLegendaryNPC(World world) {
+		}
+
+		public void spawnLegendaryNPC() {
+			this.spawnLegendaryNPC(null);
 		}
 	}
 

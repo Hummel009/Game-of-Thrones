@@ -339,9 +339,9 @@ public class GOTStructureWildlingChieftainHouse extends GOTStructureBase {
 		setBlockAndMetadata(world, 2, 1, 3, Blocks.furnace, 5);
 		this.placeChest(world, random, 2, 1, 2, 5, GOTChestContents.BEYOND_WALL);
 		if (isHardhome) {
-			spawnLegendaryNPC(new GOTEntityYgritte(world), world, 1, 1, 0);
-			spawnLegendaryNPC(new GOTEntityTormund(world), world, -1, 1, 0);
-			spawnLegendaryNPC(new GOTEntityManceRayder(world), world, -1, 1, -1);
+			spawnNPCAndSetHome(new GOTEntityYgritte(world), world, 1, 1, 0, 8);
+			spawnNPCAndSetHome(new GOTEntityTormund(world), world, -1, 1, 0, 8);
+			spawnNPCAndSetHome(new GOTEntityManceRayder(world), world, -1, 1, -1, 8);
 		} else {
 			spawnNPCAndSetHome(new GOTEntityWildlingChieftain(world), world, 0, 1, 0, 8);
 		}

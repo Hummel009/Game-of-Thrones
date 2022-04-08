@@ -50,6 +50,8 @@ import got.common.entity.westeros.legendary.GOTEntityCrasterWife;
 import got.common.entity.westeros.legendary.captain.*;
 import got.common.entity.westeros.legendary.deco.*;
 import got.common.entity.westeros.legendary.quest.*;
+import got.common.entity.westeros.legendary.reborn.GOTEntityJonSnow.JonSnowLife1;
+import got.common.entity.westeros.legendary.reborn.GOTEntityLancelLannister.LancelLannisterNormal;
 import got.common.entity.westeros.legendary.trader.*;
 import got.common.entity.westeros.legendary.warrior.*;
 import got.common.entity.westeros.north.*;
@@ -65,6 +67,7 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.biome.GOTBiomeDecorator.*;
 import got.common.world.biome.variant.GOTBiomeVariantList.VariantBucket;
 import got.common.world.feature.GOTTreeType.WeightedTreeType;
+import got.common.world.map.*;
 import got.common.world.spawning.GOTBiomeSpawnList.*;
 import got.common.world.spawning.GOTSpawnEntry;
 import got.common.world.structure.other.*;
@@ -80,6 +83,7 @@ import net.minecraft.world.gen.feature.*;
 
 public class DatabaseGenerator extends GOTStructureBase {
 	public static Map<Class<? extends Entity>, Entity> entities = new HashMap<>();
+	public static Map<Class<? extends Entity>, GOTWaypoint> charPoint = new HashMap<>();
 	public static String display = "null";
 
 	public DatabaseGenerator(boolean flag) {
@@ -88,6 +92,44 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 	@Override
 	public boolean generate(World world, Random random, int y, int j, int k, int rotation) {
+		charPoint.put(GOTEntityYgritte.class, GOTWaypoint.Hardhome);
+		charPoint.put(GOTEntityTormund.class, GOTWaypoint.Hardhome);
+		charPoint.put(GOTEntityManceRayder.class, GOTWaypoint.Hardhome);
+		charPoint.put(GOTEntityCraster.class, GOTWaypoint.CrastersKeep);
+		charPoint.put(GOTEntityVictarionGreyjoy.class, GOTWaypoint.VictarionLanding);
+		charPoint.put(LancelLannisterNormal.class, GOTWaypoint.KingsLanding);
+		charPoint.put(GOTEntityTobhoMott.class, GOTWaypoint.KingsLanding);
+		charPoint.put(GOTEntityGendryBaratheon.class, GOTWaypoint.KingsLanding);
+		charPoint.put(GOTEntityPetyrBaelish.class, GOTWaypoint.KingsLanding);
+		charPoint.put(GOTEntityBronn.class, GOTWaypoint.KingsLanding);
+		charPoint.put(GOTEntityPodrickPayne.class, GOTWaypoint.KingsLanding);
+		charPoint.put(GOTEntityPetyrBaelish.class, GOTWaypoint.KingsLanding);
+		charPoint.put(GOTEntityHotPie.class, GOTWaypoint.CrossroadsInn);
+		charPoint.put(GOTEntityVargoHoat.class, GOTWaypoint.CrossroadsInn);
+		charPoint.put(GOTEntitySandorClegane.class, GOTWaypoint.KingsLanding);
+		charPoint.put(GOTEntityJoffreyBaratheon.class, GOTWaypoint.KingsLanding);
+		charPoint.put(GOTEntityCerseiLannister.class, GOTWaypoint.KingsLanding);
+		charPoint.put(GOTEntityJaimeLannister.class, GOTWaypoint.KingsLanding);
+		charPoint.put(GOTEntityPycelle.class, GOTWaypoint.KingsLanding);
+		charPoint.put(GOTEntityJanosSlynt.class, GOTWaypoint.KingsLanding);
+		charPoint.put(GOTEntityVarys.class, GOTWaypoint.KingsLanding);
+		charPoint.put(GOTEntityIlynPayne.class, GOTWaypoint.KingsLanding);
+		charPoint.put(GOTEntityHighSepton.class, GOTWaypoint.KingsLanding);
+		charPoint.put(GOTEntityTommenBaratheon.class, GOTWaypoint.KingsLanding);
+		charPoint.put(GOTEntityMyrcellaBaratheon.class, GOTWaypoint.KingsLanding);
+		charPoint.put(GOTEntityMerynTrant.class, GOTWaypoint.KingsLanding);
+		charPoint.put(GOTEntityBarristanSelmy.class, GOTWaypoint.KingsLanding);
+		charPoint.put(GOTEntityJeorMormont.class, GOTWaypoint.CastleBlack);
+		charPoint.put(JonSnowLife1.class, GOTWaypoint.CastleBlack);
+		charPoint.put(GOTEntityAemonTargaryen.class, GOTWaypoint.CastleBlack);
+		charPoint.put(GOTEntityAlliserThorne.class, GOTWaypoint.CastleBlack);
+		charPoint.put(GOTEntityEdd.class, GOTWaypoint.CastleBlack);
+		charPoint.put(GOTEntitySamwellTarly.class, GOTWaypoint.CastleBlack);
+		charPoint.put(GOTEntityCotterPyke.class, GOTWaypoint.EastWatch);
+		charPoint.put(GOTEntityHarmune.class, GOTWaypoint.EastWatch);
+		charPoint.put(GOTEntityDenysMallister.class, GOTWaypoint.ShadowTower);
+		charPoint.put(GOTEntityMullin.class, GOTWaypoint.ShadowTower);
+		
 		entities.put(GOTEntityBison.class, new GOTEntityBison(world));
 		entities.put(GOTEntityBear.class, new GOTEntityBear(world));
 		entities.put(GOTEntityBird.class, new GOTEntityBird(world));
@@ -1284,7 +1326,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				continue;
 			}
 			if ("health".equals(display)) {
-				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = " + ((GOTEntityNPC) entities.get(mob)).getMaxHealth());
+				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = " + ((EntityLivingBase) entities.get(mob)).getMaxHealth());
 				continue;
 			}
 			if ("npcFaction".equals(display) && entities.get(mob) instanceof GOTEntityNPC) {
@@ -1309,6 +1351,19 @@ public class DatabaseGenerator extends GOTStructureBase {
 					if (entry.mountClass == null) {
 						GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = [[" + GOTEntityRegistry.getEntityName(mob) + "]]");
 					}
+				}
+			}
+		}
+		if ("legsPoint".equals(display)) {
+			for (Class<? extends Entity> entity: charPoint.keySet()) {
+				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(entity) + " = " + charPoint.get(entity).getDisplayName());
+			}
+			for (GOTWaypoint wp: GOTFixer.structures.keySet()) {
+				GOTStructureBase str = GOTFixer.structures.get(wp);
+				str.pseudoGen = true;
+				str.generate(world, random, y, j, k);
+				for (EntityCreature entity: GOTFixer.structures.get(wp).legendaryChar) {
+					GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(entity.getClass()) + " = " + wp.getDisplayName());
 				}
 			}
 		}

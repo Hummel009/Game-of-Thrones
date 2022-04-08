@@ -41,6 +41,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	public GOTStructureScan currentStrScan;
 	public Map<String, BlockAliasPool> scanAliases = new HashMap<>();
 	public Map<String, Float> scanAliasChances = new HashMap<>();
+	public List<EntityCreature> legendaryChar = new ArrayList<>();
+	public boolean pseudoGen = false;
 
 	public GOTStructureBase() {
 		super(false);
@@ -1125,6 +1127,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 			((GOTEntityNPC) entity).isNPCPersistent = true;
 		}
 		world.spawnEntityInWorld(entity);
+		legendaryChar.add(entity);
 	}
 
 	public void spawnNPCAndSetHome(EntityCreature entity, World world, int i, int j, int k, int homeDistance) {
