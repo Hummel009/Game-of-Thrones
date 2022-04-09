@@ -50,8 +50,11 @@ import got.common.entity.westeros.legendary.GOTEntityCrasterWife;
 import got.common.entity.westeros.legendary.captain.*;
 import got.common.entity.westeros.legendary.deco.*;
 import got.common.entity.westeros.legendary.quest.*;
+import got.common.entity.westeros.legendary.reborn.GOTEntityBericDondarrion.BericDondarrionLife1;
+import got.common.entity.westeros.legendary.reborn.GOTEntityGregorClegane.GregorCleganeAlive;
 import got.common.entity.westeros.legendary.reborn.GOTEntityJonSnow.JonSnowLife1;
 import got.common.entity.westeros.legendary.reborn.GOTEntityLancelLannister.LancelLannisterNormal;
+import got.common.entity.westeros.legendary.reborn.GOTEntityTheonGreyjoy.TheonGreyjoyNormal;
 import got.common.entity.westeros.legendary.trader.*;
 import got.common.entity.westeros.legendary.warrior.*;
 import got.common.entity.westeros.north.*;
@@ -99,6 +102,10 @@ public class DatabaseGenerator extends GOTStructureBase {
 		charPoint.put(GOTEntityVictarionGreyjoy.class, GOTWaypoint.VictarionLanding);
 		charPoint.put(LancelLannisterNormal.class, GOTWaypoint.KingsLanding);
 		charPoint.put(GOTEntityTobhoMott.class, GOTWaypoint.KingsLanding);
+		charPoint.put(GOTEntitySansaStark.class, GOTWaypoint.KingsLanding);
+		charPoint.put(GOTEntityTyrionLannister.class, GOTWaypoint.KingsLanding);
+		charPoint.put(GOTEntityYoren.class, GOTWaypoint.KingsLanding);
+		charPoint.put(GOTEntityShae.class, GOTWaypoint.KingsLanding);
 		charPoint.put(GOTEntityGendryBaratheon.class, GOTWaypoint.KingsLanding);
 		charPoint.put(GOTEntityPetyrBaelish.class, GOTWaypoint.KingsLanding);
 		charPoint.put(GOTEntityBronn.class, GOTWaypoint.KingsLanding);
@@ -936,6 +943,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 		entities.put(GOTEntityHarryStrickland.class, new GOTEntityHarryStrickland(world));
 		entities.put(GOTEntityThreeEyedRaven.class, new GOTEntityThreeEyedRaven(world));
 		entities.put(GOTEntityVargoHoat.class, new GOTEntityVargoHoat(world));
+		entities.put(BericDondarrionLife1.class, new BericDondarrionLife1(world));
+		entities.put(GregorCleganeAlive.class, new GregorCleganeAlive(world));
+		entities.put(JonSnowLife1.class, new JonSnowLife1(world));
+		entities.put(LancelLannisterNormal.class, new LancelLannisterNormal(world));
+		entities.put(TheonGreyjoyNormal.class, new TheonGreyjoyNormal(world));
 
 		/* Table-pages: capes, shields, achievements, weapons, armor, food */
 
@@ -951,19 +963,19 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 			}
 		}
-		if ("capes".equals(display)) {
+		if ("capesTable".equals(display)) {
 			for (GOTCapes cape : GOTCapes.values()) {
 				GOTLog.logger.info("| " + cape.getCapeName() + " || " + cape.getCapeDesc() + " || [[File:Cape " + cape.name().toLowerCase() + ".png]]");
 				GOTLog.logger.info("|-");
 			}
 		}
-		if ("shields".equals(display)) {
+		if ("shieldsTable".equals(display)) {
 			for (GOTShields shield : GOTShields.values()) {
 				GOTLog.logger.info("| " + shield.getShieldName() + " || " + shield.getShieldDesc() + " || [[File:Shield " + shield.name().toLowerCase() + ".png]]");
 				GOTLog.logger.info("|-");
 			}
 		}
-		if ("achievements".equals(display)) {
+		if ("achievementsTable".equals(display)) {
 			for (GOTAchievement ach : GOTCommander.getObjectFieldsOfType(GOTAchievement.class, GOTAchievement.class)) {
 				GOTLog.logger.info("| " + StatCollector.translateToLocal("got.achievement." + ach.name + ".title") + "||" + StatCollector.translateToLocal("got.achievement." + ach.name + ".desc"));
 				GOTLog.logger.info("|-");
@@ -1123,7 +1135,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 				continue;
 			}
-			if ("biomeConquestNPC".equals(display)) {
+			if ("biomeNPC".equals(display)) {
 				if (biome.npcSpawnList.factionContainers.isEmpty()) {
 					GOTLog.logger.info("| " + biome.getName() + " = There is no NPC in this biome.");
 				} else {
@@ -1156,7 +1168,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			if ("factionRegions".equals(display) && fac.factionRegion != null) {
 				GOTLog.logger.info("| " + fac.factionName() + " = " + fac.factionRegion.getRegionName());
 			}
-			if ("isViolent".equals(display)) {
+			if ("factionViolence".equals(display)) {
 				if (fac.isViolent) {
 					GOTLog.logger.info("| " + fac.factionName() + " = Violent");
 				} else {
@@ -1206,7 +1218,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		}
 
 		/* Everything for entity */
-		if ("entitiesBiomes".equals(display)) {
+		if ("entityBiomes".equals(display)) {
 			for (Object entityClass1 : EntityList.classToStringMapping.keySet()) {
 				int i = 1;
 				for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
@@ -1257,95 +1269,95 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 		}
 		for (Class mob : entities.keySet()) {
-			if ("Linker".equals(display)) {
+			if ("entityInterwiki".equals(display)) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = ");
 				continue;
 			}
-			if ("Trader".equals(display) && entities.get(mob) instanceof GOTTradeable) {
+			if ("entityTrader".equals(display) && entities.get(mob) instanceof GOTTradeable) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
 			}
-			if ("Commander".equals(display) && entities.get(mob) instanceof GOTUnitTradeable) {
+			if ("entityCommander".equals(display) && entities.get(mob) instanceof GOTUnitTradeable) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
 			}
-			if ("Smith".equals(display) && entities.get(mob) instanceof GOTTradeable.Smith) {
+			if ("entitySmith".equals(display) && entities.get(mob) instanceof GOTTradeable.Smith) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
 			}
-			if ("Mercenary".equals(display) && entities.get(mob) instanceof GOTMercenary) {
+			if ("entityMercenary".equals(display) && entities.get(mob) instanceof GOTMercenary) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
 			}
-			if ("Farmhand".equals(display) && entities.get(mob) instanceof GOTFarmhand) {
+			if ("entityFarmhand".equals(display) && entities.get(mob) instanceof GOTFarmhand) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
 			}
-			if ("BannerBearer".equals(display) && entities.get(mob) instanceof GOTBannerBearer) {
+			if ("entityBannerBearer".equals(display) && entities.get(mob) instanceof GOTBannerBearer) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
 			}
-			if ("NPCMount".equals(display) && entities.get(mob) instanceof GOTNPCMount) {
+			if ("entityMount".equals(display) && entities.get(mob) instanceof GOTNPCMount) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
 			}
-			if ("NPCRideable".equals(display) && entities.get(mob) instanceof GOTEntityNPCRideable) {
+			if ("entityRideable".equals(display) && entities.get(mob) instanceof GOTEntityNPCRideable) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
 			}
-			if ("Agressive".equals(display) && entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).isTargetSeeker || "Agressive".equals(display) && entities.get(mob) instanceof EntityMob || "Agressive".equals(display) && entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).getFaction() == GOTFaction.HOSTILE) {
+			if ("entityAgressive".equals(display) && entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).isTargetSeeker || "Agressive".equals(display) && entities.get(mob) instanceof EntityMob || "Agressive".equals(display) && entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).getFaction() == GOTFaction.HOSTILE) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
 			}
-			if ("Legendary".equals(display) && entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).isLegendaryNPC) {
+			if ("entityLegendary".equals(display) && entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).isLegendaryNPC) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
 			}
-			if ("canBeMarried".equals(display) && entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).canBeMarried) {
+			if ("entityWedding".equals(display) && entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).canBeMarried) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
 			}
-			if ("ImmuneToFrost".equals(display) && entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).isImmuneToFrost || "ImmuneToFrost".equals(display) && entities.get(mob) instanceof GOTBiome.ImmuneToFrost) {
+			if ("entityImmuneToFrost".equals(display) && entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).isImmuneToFrost || "ImmuneToFrost".equals(display) && entities.get(mob) instanceof GOTBiome.ImmuneToFrost) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
 			}
-			if ("ImmuneToFire".equals(display) && entities.get(mob).isImmuneToFire()) {
+			if ("entityImmuneToFire".equals(display) && entities.get(mob).isImmuneToFire()) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
 			}
-			if ("ImmuneToHeat".equals(display) && entities.get(mob) instanceof GOTBiome.ImmuneToHeat) {
+			if ("entityImmuneToHeat".equals(display) && entities.get(mob) instanceof GOTBiome.ImmuneToHeat) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
 			}
-			if ("spawnsInDarkness".equals(display) && entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).spawnsInDarkness) {
+			if ("entitySpawnDarkness".equals(display) && entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).spawnsInDarkness) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
 			}
-			if ("npc".equals(display) && entities.get(mob) instanceof GOTEntityNPC) {
+			if ("entityNPC".equals(display) && entities.get(mob) instanceof GOTEntityNPC) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
 			}
-			if ("health".equals(display)) {
+			if ("entityHealth".equals(display)) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = " + ((EntityLivingBase) entities.get(mob)).getMaxHealth());
 				continue;
 			}
-			if ("npcFaction".equals(display) && entities.get(mob) instanceof GOTEntityNPC) {
+			if ("entityFaction".equals(display) && entities.get(mob) instanceof GOTEntityNPC) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = " + ((GOTEntityNPC) entities.get(mob)).getFaction().factionName());
 				continue;
 			}
-			if ("npcValuability".equals(display) && entities.get(mob) instanceof GOTEntityNPC) {
+			if ("entityValuability".equals(display) && entities.get(mob) instanceof GOTEntityNPC) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = " + ((GOTEntityNPC) entities.get(mob)).getAlignmentBonus());
 				continue;
 			}
-			if ("npcName".equals(display) && entities.get(mob) instanceof GOTEntityNPC) {
+			if ("entityName".equals(display) && entities.get(mob) instanceof GOTEntityNPC) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = " + ((GOTEntityNPC) entities.get(mob)).getNPCName());
 				continue;
 			}
-			if ("npcPhoto".equals(display) && entities.get(mob) instanceof GOTEntityNPC) {
+			if ("entityPhoto".equals(display) && entities.get(mob) instanceof GOTEntityNPC) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = " + mob.getSimpleName().replace("GOTEntity", "") + ".png");
 				continue;
 			}
-			if ("unitsCommanders".equals(display) && entities.get(mob) instanceof GOTUnitTradeable && !((GOTEntityNPC) entities.get(mob)).isLegendaryNPC()) {
+			if ("entityCommander".equals(display) && entities.get(mob) instanceof GOTUnitTradeable && !((GOTEntityNPC) entities.get(mob)).isLegendaryNPC()) {
 				GOTUnitTradeEntries entries = ((GOTUnitTradeable) entities.get(mob)).getUnits();
 				for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 					if (entry.mountClass == null) {
@@ -1354,7 +1366,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 			}
 		}
-		if ("legsPoint".equals(display)) {
+		if ("entityPoint".equals(display)) {
 			for (Class<? extends Entity> entity: charPoint.keySet()) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(entity) + " = " + charPoint.get(entity).getDisplayName());
 			}
@@ -1369,15 +1381,15 @@ public class DatabaseGenerator extends GOTStructureBase {
 		}
 		for (GOTUnitTradeEntries entries : GOTCommander.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class)) {
 			for (GOTUnitTradeEntry entry : entries.tradeEntries) {
-				if ("unitsPrice".equals(display)) {
+				if ("entityPrice".equals(display)) {
 					GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = {{\u0414\u0435\u043D\u044C\u0433\u0438|" + entry.initialCost * 2 + "}}");
 					continue;
 				}
-				if ("unitsPricePledge".equals(display)) {
+				if ("entityPricePledge".equals(display)) {
 					GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = {{\u0414\u0435\u043D\u044C\u0433\u0438|" + entry.initialCost + "}}");
 					continue;
 				}
-				if ("unitsRep".equals(display)) {
+				if ("entityReputation".equals(display)) {
 					GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = +" + entry.alignmentRequired);
 				}
 			}

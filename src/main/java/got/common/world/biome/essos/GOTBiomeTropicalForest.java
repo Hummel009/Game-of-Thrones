@@ -30,7 +30,7 @@ public class GOTBiomeTropicalForest extends GOTBiome {
 		registerForestFlowers();
 
 		SpawnListContainer[] c11 = new SpawnListContainer[1];
-		c11[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
+		c11[0] = GOTBiomeSpawnList.entry(GOTSpawnList.JUNGLE_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
 		npcSpawnList.newFactionList(1).add(c11);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
