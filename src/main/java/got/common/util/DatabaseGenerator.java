@@ -1252,6 +1252,14 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 				continue;
 			}
+			if ("entityOwner".equals(display) && entities.get(mob) instanceof GOTUnitTradeable && !((GOTEntityNPC) entities.get(mob)).isLegendaryNPC()) {
+				GOTUnitTradeEntries entries = ((GOTUnitTradeable) entities.get(mob)).getUnits();
+				for (GOTUnitTradeEntry entry : entries.tradeEntries) {
+					if (entry.mountClass == null) {
+						GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = [[" + GOTEntityRegistry.getEntityName(mob) + "]]");
+					}
+				}
+			}
 			if ("entityRideable".equals(display) && entities.get(mob) instanceof GOTEntityNPCRideable) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
@@ -1331,14 +1339,6 @@ public class DatabaseGenerator extends GOTStructureBase {
 			if ("entityFaction".equals(display) && entities.get(mob) instanceof GOTEntityNPC) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = " + ((GOTEntityNPC) entities.get(mob)).getFaction().factionName());
 				continue;
-			}
-			if ("entityCommander".equals(display) && entities.get(mob) instanceof GOTUnitTradeable && !((GOTEntityNPC) entities.get(mob)).isLegendaryNPC()) {
-				GOTUnitTradeEntries entries = ((GOTUnitTradeable) entities.get(mob)).getUnits();
-				for (GOTUnitTradeEntry entry : entries.tradeEntries) {
-					if (entry.mountClass == null) {
-						GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = [[" + GOTEntityRegistry.getEntityName(mob) + "]]");
-					}
-				}
 			}
 		}
 		if ("entityPoint".equals(display)) {
