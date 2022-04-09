@@ -1316,10 +1316,6 @@ public class DatabaseGenerator extends GOTStructureBase {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
 			}
-			if ("entityValuability".equals(display) && entities.get(mob) instanceof GOTEntityNPC) {
-				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = " + ((GOTEntityNPC) entities.get(mob)).getAlignmentBonus());
-				continue;
-			}
 			if ("entityWedding".equals(display) && entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).canBeMarried) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
@@ -1340,6 +1336,10 @@ public class DatabaseGenerator extends GOTStructureBase {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = " + ((GOTEntityNPC) entities.get(mob)).getFaction().factionName());
 				continue;
 			}
+			if ("entityValuability".equals(display) && entities.get(mob) instanceof GOTEntityNPC) {
+				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = " + ((GOTEntityNPC) entities.get(mob)).getAlignmentBonus());
+				continue;
+			}
 		}
 		if ("entityPoint".equals(display)) {
 			for (Class<? extends Entity> entity: charPoint.keySet()) {
@@ -1350,8 +1350,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				str.pseudoGen = true;
 				str.generate(world, random, y, j, k);
 				for (EntityCreature entity: GOTFixer.structures.get(wp).legendaryChar) {
-					GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(entity.getClass()) + " = " + wp.getDisplayName());
-					GOTFixer.structures.get(wp).legendaryChar.clear();;
+					GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(entity.getClass()) + " = " + wp.getDisplayName());;
 				}
 			}
 		}
