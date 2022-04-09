@@ -1238,7 +1238,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 								GOTLog.logger.info("| " + StatCollector.translateToLocal("entity." + EntityList.classToStringMapping.get(entityClass1) + ".name") + " = ");
 							}
 							i++;
-							GOTLog.logger.info("* {{БД Биом-Ссылка|" + biome.getName() + "}};");
+							GOTLog.logger.info("* {{\u0411\u0414 \u0411\u0438\u043E\u043C-\u0421\u0441\u044B\u043B\u043A\u0430|" + biome.getName() + "}};");
 						}
 					}
 				}
@@ -1376,6 +1376,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				str.generate(world, random, y, j, k);
 				for (EntityCreature entity: GOTFixer.structures.get(wp).legendaryChar) {
 					GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(entity.getClass()) + " = " + wp.getDisplayName());
+					GOTFixer.structures.get(wp).legendaryChar.clear();;
 				}
 			}
 		}
