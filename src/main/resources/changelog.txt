@@ -1,7 +1,12 @@
 CHANGELOG
 
+>>VERSION 17.7.2
+* Improved 2nd Tyrosh male skin
+* Fixed bug with desert scorpions instead of jungle scorpions spawning in tropical forests
+* Fixed potential bugs, caused by "legendary" mercenaries
+
 >>VERSION 17.7.1
-* Imroved ukrainian translation (prod. DDPAT Knife Series)
+* Improved ukrainian translation (prod. DDPAT Knife Series)
 * Fixed bug with anvil texture
 * Fixed bug with agressive mobs AI
 
