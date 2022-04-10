@@ -1328,7 +1328,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
 			}
-			if ("entityPhoto".equals(display) && entities.get(mob) instanceof GOTEntityNPC) {
+			if ("entityPhoto".equals(display)) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = " + mob.getSimpleName().replace("GOTEntity", "") + ".png");
 				continue;
 			}
