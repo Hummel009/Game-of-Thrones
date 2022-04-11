@@ -1260,6 +1260,15 @@ public class DatabaseGenerator extends GOTStructureBase {
 					}
 				}
 			}
+			if ("entityOwnerUnits".equals(display) && entities.get(mob) instanceof GOTUnitTradeable) {
+				GOTUnitTradeEntries entries = ((GOTUnitTradeable) entities.get(mob)).getUnits();
+				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = ");
+				for (GOTUnitTradeEntry entry : entries.tradeEntries) {
+					if (entry.mountClass == null) {
+						GOTLog.logger.info("* [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]]: {{ƒеньги|" + entry.initialCost * 2 + "}} без прис€ги, {{ƒеньги|" + entry.initialCost + "}} с прис€гой; " + entry.alignmentRequired + "+ репутации;");
+					}
+				}
+			}
 			if ("entityRideable".equals(display) && entities.get(mob) instanceof GOTEntityNPCRideable) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
@@ -1323,6 +1332,20 @@ public class DatabaseGenerator extends GOTStructureBase {
 			if ("entityTrader".equals(display) && entities.get(mob) instanceof GOTTradeable) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
+			}
+			if ("entityTraderBuys".equals(display) && entities.get(mob) instanceof GOTTradeable) {
+				GOTTradeEntries entries = ((GOTTradeable) entities.get(mob)).getSellPool();
+				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = ");
+				for (GOTTradeEntry entry : entries.tradeEntries) {
+					GOTLog.logger.info("* " + entry.tradeItem.getDisplayName() + ": {{ƒеньги|" + entry.getCost() + "}};");
+				}
+			}
+			if ("entityTraderSells".equals(display) && entities.get(mob) instanceof GOTTradeable) {
+				GOTTradeEntries entries = ((GOTTradeable) entities.get(mob)).getBuyPool();
+				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = ");
+				for (GOTTradeEntry entry : entries.tradeEntries) {
+					GOTLog.logger.info("* " + entry.tradeItem.getDisplayName() + ": {{ƒеньги|" + entry.getCost() + "}};");
+				}
 			}
 			if ("entityImmuneToHeat".equals(display) && entities.get(mob) instanceof GOTBiome.ImmuneToHeat) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
