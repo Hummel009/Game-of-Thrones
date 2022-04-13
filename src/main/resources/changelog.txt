@@ -2,6 +2,7 @@ CHANGELOG
 
 >>VERSION 17.7.2
 * Improved 2nd Tyrosh male skin
+* Fixed bug with Mossovy Forts & Villages
 * Fixed bug with desert scorpions instead of jungle scorpions spawning in tropical forests
 * Fixed potential bugs, caused by "legendary" mercenaries
 

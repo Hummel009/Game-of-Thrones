@@ -133,7 +133,7 @@ public class GOTFixer {
 		f[31].affix(GOTWaypoint.Lys);
 		f[32] = new GOTStructureMossovyVillage(biome, 0.0f).setIsFort();
 		f[32].affix(GOTWaypoint.EastPass, GOTWaypoint.NorthPass, GOTWaypoint.SouthPass, GOTWaypoint.WestPass);
-		f[33] = new GOTStructureMossovyVillage(biome, 0.0f).setIsVillage();
+		f[33] = new GOTStructureMossovyVillage(biome, 0.0f);
 		f[33].affix(GOTWaypoint.Kadar, GOTWaypoint.Nefer);
 		f[34] = new GOTStructureMyrCity(biome, 0.0f).setIsTown();
 		f[34].affix(GOTWaypoint.Myr.info(-1, 0, 1));

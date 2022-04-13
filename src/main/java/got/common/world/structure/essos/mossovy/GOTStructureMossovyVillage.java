@@ -33,12 +33,6 @@ public class GOTStructureMossovyVillage extends GOTVillageGen {
 		return this;
 	}
 
-	public GOTStructureMossovyVillage setIsVillage() {
-		isFort = false;
-		fixedVillageChunkRadius = 5;
-		return this;
-	}
-
 	public class Instance extends GOTVillageGen.AbstractInstance {
 		public VillageType villageType;
 
@@ -50,94 +44,102 @@ public class GOTStructureMossovyVillage extends GOTVillageGen {
 		public void addVillageStructures(Random random) {
 			switch (villageType) {
 			case VILLAGE:
-				this.addStructure(new GOTStructureMossovyCastle(false), 0, 0, 0, true);
+				setupVillage(random);
 				break;
 			case FORT:
-				this.addStructure(new GOTStructureMossovyWell(false), 0, -4, 0, true);
-				this.addStructure(new GOTStructureNPCRespawner(false) {
-
-					@Override
-					public void setupRespawner(GOTEntityNPCRespawner spawner) {
-						spawner.setSpawnClass(GOTEntityMossovyMan.class);
-						spawner.setCheckRanges(40, -12, 12, 40);
-						spawner.setSpawnRanges(20, -6, 6, 64);
-						spawner.setBlockEnemySpawnRange(60);
-					}
-				}, 0, 0, 0);
-				this.addStructure(new GOTStructureNPCRespawner(false) {
-
-					@Override
-					public void setupRespawner(GOTEntityNPCRespawner spawner) {
-						spawner.setSpawnClass(GOTEntityMossovyWitcher.class);
-						spawner.setCheckRanges(40, -12, 12, 16);
-						spawner.setSpawnRanges(20, -6, 6, 64);
-						spawner.setBlockEnemySpawnRange(60);
-					}
-				}, 0, 0, 0);
-				this.addStructure(new GOTStructureMossovyOffice(false), -21, 0, 1);
-				this.addStructure(new GOTStructureMossovyBarn(false), 0, -21, 2);
-				this.addStructure(new GOTStructureMossovySmithy(false), 21, 0, 3);
-				this.addStructure(new GOTStructureMossovyInn(false), 0, 21, 0);
-				int houses = 20;
-				float frac = 1.0f / houses;
-				float turn = 0.0f;
-				while (turn < 1.0f) {
-					int k;
-					int l;
-					int i;
-					float turnR = (float) Math.toRadians((turn += frac) * 360.0f);
-					float sin = MathHelper.sin(turnR);
-					float cos = MathHelper.cos(turnR);
-					int r = 0;
-					float turn8 = turn * 8.0f;
-					if (turn8 >= 1.0f && turn8 < 3.0f) {
-						r = 0;
-					} else if (turn8 >= 3.0f && turn8 < 5.0f) {
-						r = 1;
-					} else if (turn8 >= 5.0f && turn8 < 7.0f) {
-						r = 2;
-					} else if (turn8 >= 7.0f || turn8 < 1.0f) {
-						r = 3;
-					}
-					if (random.nextBoolean()) {
-						l = 61;
-						i = Math.round(l * cos);
-						k = Math.round(l * sin);
-						this.addStructure(new GOTStructureMossovyHouse(false), i, k, r);
-						continue;
-					}
-					if (random.nextInt(3) == 0) {
-						continue;
-					}
-					l = 65;
-					i = Math.round(l * cos);
-					k = Math.round(l * sin);
-					this.addStructure(new GOTStructureHayBales(false), i, k, r);
-				}
-				int signPos = Math.round(50.0f * MathHelper.cos((float) Math.toRadians(45.0)));
-				int signDisp = Math.round(7.0f * MathHelper.cos((float) Math.toRadians(45.0)));
-				this.addStructure(new GOTStructureMossovyLampPost(false), -signPos, -signPos + signDisp, 1);
-				this.addStructure(new GOTStructureMossovyLampPost(false), signPos, -signPos + signDisp, 3);
-				this.addStructure(new GOTStructureMossovyLampPost(false), -signPos, signPos - signDisp, 1);
-				this.addStructure(new GOTStructureMossovyLampPost(false), signPos, signPos - signDisp, 3);
-				int farmX = 38;
-				int farmZ = 17;
-				int farmSize = 6;
-				this.addStructure(new GOTStructureMossovyThiefHouse(false), -farmX + farmSize, -farmZ, 1);
-				this.addStructure(new GOTStructureMossovyThiefHouse(false), -farmZ + farmSize, -farmX, 1);
-				this.addStructure(new GOTStructureMossovyThiefHouse(false), farmX - farmSize, -farmZ, 3);
-				this.addStructure(new GOTStructureMossovyThiefHouse(false), farmZ - farmSize, -farmX, 3);
-				this.addStructure(new GOTStructureMossovyThiefHouse(false), -farmX + farmSize, farmZ, 1);
-				this.addStructure(new GOTStructureMossovyThiefHouse(false), farmX - farmSize, farmZ, 3);
+				setupFort(random);
 				break;
 			}
+		}
+
+		public void setupVillage(Random random) {
+			this.addStructure(new GOTStructureMossovyWell(false), 0, -4, 0, true);
+			this.addStructure(new GOTStructureNPCRespawner(false) {
+
+				@Override
+				public void setupRespawner(GOTEntityNPCRespawner spawner) {
+					spawner.setSpawnClass(GOTEntityMossovyMan.class);
+					spawner.setCheckRanges(40, -12, 12, 40);
+					spawner.setSpawnRanges(20, -6, 6, 64);
+					spawner.setBlockEnemySpawnRange(60);
+				}
+			}, 0, 0, 0);
+			this.addStructure(new GOTStructureNPCRespawner(false) {
+
+				@Override
+				public void setupRespawner(GOTEntityNPCRespawner spawner) {
+					spawner.setSpawnClass(GOTEntityMossovyWitcher.class);
+					spawner.setCheckRanges(40, -12, 12, 16);
+					spawner.setSpawnRanges(20, -6, 6, 64);
+					spawner.setBlockEnemySpawnRange(60);
+				}
+			}, 0, 0, 0);
+			this.addStructure(new GOTStructureMossovyOffice(false), -21, 0, 1);
+			this.addStructure(new GOTStructureMossovyBarn(false), 0, -21, 2);
+			this.addStructure(new GOTStructureMossovySmithy(false), 21, 0, 3);
+			this.addStructure(new GOTStructureMossovyInn(false), 0, 21, 0);
+			int houses = 20;
+			float frac = 1.0f / houses;
+			float turn = 0.0f;
+			while (turn < 1.0f) {
+				int k;
+				int l;
+				int i;
+				float turnR = (float) Math.toRadians((turn += frac) * 360.0f);
+				float sin = MathHelper.sin(turnR);
+				float cos = MathHelper.cos(turnR);
+				int r = 0;
+				float turn8 = turn * 8.0f;
+				if (turn8 >= 1.0f && turn8 < 3.0f) {
+					r = 0;
+				} else if (turn8 >= 3.0f && turn8 < 5.0f) {
+					r = 1;
+				} else if (turn8 >= 5.0f && turn8 < 7.0f) {
+					r = 2;
+				} else if (turn8 >= 7.0f || turn8 < 1.0f) {
+					r = 3;
+				}
+				if (random.nextBoolean()) {
+					l = 61;
+					i = Math.round(l * cos);
+					k = Math.round(l * sin);
+					this.addStructure(new GOTStructureMossovyHouse(false), i, k, r);
+					continue;
+				}
+				if (random.nextInt(3) == 0) {
+					continue;
+				}
+				l = 65;
+				i = Math.round(l * cos);
+				k = Math.round(l * sin);
+				this.addStructure(new GOTStructureHayBales(false), i, k, r);
+			}
+			int signPos = Math.round(50.0f * MathHelper.cos((float) Math.toRadians(45.0)));
+			int signDisp = Math.round(7.0f * MathHelper.cos((float) Math.toRadians(45.0)));
+			this.addStructure(new GOTStructureMossovyLampPost(false), -signPos, -signPos + signDisp, 1);
+			this.addStructure(new GOTStructureMossovyLampPost(false), signPos, -signPos + signDisp, 3);
+			this.addStructure(new GOTStructureMossovyLampPost(false), -signPos, signPos - signDisp, 1);
+			this.addStructure(new GOTStructureMossovyLampPost(false), signPos, signPos - signDisp, 3);
+			int farmX = 38;
+			int farmZ = 17;
+			int farmSize = 6;
+			this.addStructure(new GOTStructureMossovyThiefHouse(false), -farmX + farmSize, -farmZ, 1);
+			this.addStructure(new GOTStructureMossovyThiefHouse(false), -farmZ + farmSize, -farmX, 1);
+			this.addStructure(new GOTStructureMossovyThiefHouse(false), farmX - farmSize, -farmZ, 3);
+			this.addStructure(new GOTStructureMossovyThiefHouse(false), farmZ - farmSize, -farmX, 3);
+			this.addStructure(new GOTStructureMossovyThiefHouse(false), -farmX + farmSize, farmZ, 1);
+			this.addStructure(new GOTStructureMossovyThiefHouse(false), farmX - farmSize, farmZ, 3);
+		}
+
+		public void setupFort(Random random) {
+			this.addStructure(new GOTStructureMossovyCastle(false), 0, 0, 0, true);
 		}
 
 		@Override
 		public GOTBezierType getPath(Random random, int i, int k) {
 			int i1 = Math.abs(i);
 			int k1 = Math.abs(k);
-			if (true) {
+			if (villageType == VillageType.VILLAGE) {
 				int dSq = i * i + k * k;
 				int imn = 20 + random.nextInt(4);
 				if (dSq < imn * imn) {
