@@ -2,7 +2,6 @@ package got.common.entity.essos.lhazar;
 
 import got.common.database.*;
 import got.common.entity.ai.*;
-import got.common.entity.animal.GOTEntityZebra;
 import got.common.entity.other.*;
 import got.common.faction.GOTFaction;
 import got.common.quest.*;

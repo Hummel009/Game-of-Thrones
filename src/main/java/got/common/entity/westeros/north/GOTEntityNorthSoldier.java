@@ -2,8 +2,7 @@ package got.common.entity.westeros.north;
 
 import got.common.database.*;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
-import got.common.entity.animal.GOTEntityHorse;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.quest.*;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;

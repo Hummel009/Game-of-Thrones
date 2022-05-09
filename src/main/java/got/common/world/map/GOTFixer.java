@@ -143,9 +143,9 @@ public class GOTFixer {
 		f[36].affix(GOTWaypoint.Barrowtown.info(0, 1, 2));
 		f[37] = new GOTStructureNorthCity(biome, 0.0f).setIsTown();
 		f[37].affix(GOTWaypoint.WhiteHarbour.info(0, 0, 1));
-		f[38] = new GOTStructureNorthCity(biome, 0.0f);
+		f[38] = new GOTStructureNorthHillmanVillage(biome, 0.0f);
 		f[38].affix(GOTWaypoint.Skane, GOTWaypoint.Deepdown, GOTWaypoint.DriftwoodHall, GOTWaypoint.Kingshouse);
-		f[39] = new GOTStructureNorthHillmanVillage(biome, 0.0f);
+		f[39] = new GOTStructureNorthCity(biome, 0.0f);
 		f[39].affix(GOTWaypoint.GreywaterWatch);
 		f[40] = new GOTStructureNorvosCity(biome, 0.0f).setIsTown();
 		f[40].affix(GOTWaypoint.Norvos.info(0, -1, 2));
