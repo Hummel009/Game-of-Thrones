@@ -56,9 +56,9 @@ public class GOTEntityNorthHillman extends GOTEntityHumanBase implements IPickpo
 
 	@Override
 	public GOTNPCMount createMountToRide() {
-		GOTEntityWoolyRhino horse = (GOTEntityWoolyRhino) super.createMountToRide();
-		horse.setMountArmor(new ItemStack(GOTRegistry.rhinoArmor));
-		return horse;
+		GOTEntityWoolyRhino rhino = new GOTEntityWoolyRhino(this.worldObj);
+		rhino.setMountArmor(new ItemStack(GOTRegistry.rhinoArmor));
+		return rhino;
 	}
 
 	@Override

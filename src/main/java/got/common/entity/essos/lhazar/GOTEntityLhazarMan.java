@@ -55,11 +55,6 @@ public class GOTEntityLhazarMan extends GOTEntityHumanBase implements IPickpocke
 		return GOTMiniQuestFactory.NOMAD.createQuest(this);
 	}
 
-	@Override
-	public GOTNPCMount createMountToRide() {
-		return new GOTEntityZebra(worldObj);
-	}
-
 	public void dropEssosItems(boolean flag, int i) {
 		if (rand.nextInt(5) == 0) {
 			dropChestContents(GOTChestContents.NOMAD, 1, 2 + i);

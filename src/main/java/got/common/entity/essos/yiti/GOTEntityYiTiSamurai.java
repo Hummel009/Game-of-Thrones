@@ -25,13 +25,6 @@ public class GOTEntityYiTiSamurai extends GOTEntityYiTiSoldier {
 	}
 
 	@Override
-	public GOTNPCMount createMountToRide() {
-		GOTEntityHorse horse = (GOTEntityHorse) super.createMountToRide();
-		horse.setMountArmor(new ItemStack(GOTRegistry.yitiHorseArmor));
-		return horse;
-	}
-
-	@Override
 	public GOTAchievement getKillAchievement() {
 		return GOTAchievement.KILL_SAMURAI;
 	}

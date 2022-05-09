@@ -54,11 +54,6 @@ public class GOTEntityAsshaiMan extends GOTEntityHumanBase implements IPickpocke
 	}
 
 	@Override
-	public GOTNPCMount createMountToRide() {
-		return super.createMountToRide();
-	}
-
-	@Override
 	public void dropFewItems(boolean flag, int i) {
 		super.dropFewItems(flag, i);
 		int bones = rand.nextInt(2) + rand.nextInt(i + 1);

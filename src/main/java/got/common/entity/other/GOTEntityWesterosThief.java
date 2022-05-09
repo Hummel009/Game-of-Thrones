@@ -52,11 +52,6 @@ public class GOTEntityWesterosThief extends GOTEntityHumanBase implements GOTBio
 		return GOTMiniQuestFactory.CRIMINAL.createQuest(this);
 	}
 
-	@Override
-	public GOTNPCMount createMountToRide() {
-		return super.createMountToRide();
-	}
-
 	public EntityAIBase createThiefAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
 	}

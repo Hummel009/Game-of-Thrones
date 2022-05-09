@@ -55,7 +55,7 @@ public class GOTEntityYiTiMan extends GOTEntityHumanBase implements IPickpocketa
 	@Override
 	public GOTNPCMount createMountToRide() {
 		GOTEntityHorse horse = (GOTEntityHorse) super.createMountToRide();
-		horse.setMountArmor(new ItemStack(GOTRegistry.dothrakiHorseArmor));
+		horse.setMountArmor(new ItemStack(GOTRegistry.yitiHorseArmor));
 		return horse;
 	}
 

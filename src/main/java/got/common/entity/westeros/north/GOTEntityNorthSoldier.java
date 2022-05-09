@@ -30,13 +30,6 @@ public class GOTEntityNorthSoldier extends GOTEntityNorthLevyman {
 	}
 
 	@Override
-	public GOTNPCMount createMountToRide() {
-		GOTEntityHorse horse = (GOTEntityHorse) super.createMountToRide();
-		horse.setMountArmor(new ItemStack(GOTRegistry.westerosHorseArmor));
-		return horse;
-	}
-
-	@Override
 	public EntityAIBase createNorthAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
 	}

@@ -49,11 +49,6 @@ public class GOTEntitySummerMan extends GOTEntityHumanBase implements IPickpocke
 		return GOTMiniQuestFactory.SUMMER.createQuest(this);
 	}
 
-	@Override
-	public GOTNPCMount createMountToRide() {
-		return super.createMountToRide();
-	}
-
 	public EntityAIBase createSummerAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, true);
 	}
