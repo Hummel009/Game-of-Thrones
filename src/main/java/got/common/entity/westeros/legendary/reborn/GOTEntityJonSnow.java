@@ -115,6 +115,10 @@ public class GOTEntityJonSnow extends GOTEntityHumanBase {
 				setDead();
 			}
 		}
+
+		@Override
+		public void dropFewItems(boolean flag, int i) {
+		}
 	}
 
 	public static class JonSnowLife2 extends GOTEntityJonSnow {

@@ -96,6 +96,10 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 				setDead();
 			}
 		}
+
+		@Override
+		public void dropFewItems(boolean flag, int i) {
+		}
 	}
 
 	public static class BericDondarrionLife2 extends GOTEntityBericDondarrion {
@@ -114,6 +118,10 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 				worldObj.spawnEntityInWorld(stage);
 				setDead();
 			}
+		}
+
+		@Override
+		public void dropFewItems(boolean flag, int i) {
 		}
 	}
 
@@ -134,6 +142,10 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 				setDead();
 			}
 		}
+
+		@Override
+		public void dropFewItems(boolean flag, int i) {
+		}
 	}
 
 	public static class BericDondarrionLife4 extends GOTEntityBericDondarrion {
@@ -153,6 +165,10 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 				setDead();
 			}
 		}
+
+		@Override
+		public void dropFewItems(boolean flag, int i) {
+		}
 	}
 
 	public static class BericDondarrionLife5 extends GOTEntityBericDondarrion {
@@ -171,6 +187,10 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 				worldObj.spawnEntityInWorld(stage);
 				setDead();
 			}
+		}
+
+		@Override
+		public void dropFewItems(boolean flag, int i) {
 		}
 	}
 

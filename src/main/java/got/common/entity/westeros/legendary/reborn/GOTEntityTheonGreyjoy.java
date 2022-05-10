@@ -66,6 +66,10 @@ public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
 		}
 
 		@Override
+		public void dropFewItems(boolean flag, int i) {
+		}
+
+		@Override
 		public GOTAchievement getKillAchievement() {
 			return GOTAchievement.TORMENT_THEON_GREYJOY;
 		}
@@ -119,6 +123,10 @@ public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
 		@Override
 		public GOTFaction getFaction() {
 			return GOTFaction.NORTH;
+		}
+
+		@Override
+		public void dropFewItems(boolean flag, int i) {
 		}
 
 		@Override
