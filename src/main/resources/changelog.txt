@@ -1,6 +1,7 @@
 CHANGELOG
 
 >>VERSION 17.7.2
++ Greatly improved Polish translation (prod. Axel)
 * Improved 2nd Tyrosh male skin
 * Fixed bug with chance of double beric drop
 * Fixed bug with hillmen villages
