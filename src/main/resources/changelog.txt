@@ -2,6 +2,7 @@ CHANGELOG
 
 >>VERSION 17.7.2
 * Improved 2nd Tyrosh male skin
+* Fixed bug with chance of double beric drop
 * Fixed bug with hillmen villages
 * Fixed bug with crash caused by rhino riders
 * Fixed bug with Mossovy Forts & Villages
