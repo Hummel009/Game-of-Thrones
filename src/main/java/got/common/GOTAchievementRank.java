@@ -29,6 +29,15 @@ public class GOTAchievementRank extends GOTAchievement {
 	}
 
 	@Override
+	public IChatComponent getAchievementChatComponent(EntityPlayer entityplayer) {
+		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
+		ChatComponentTranslation component = (ChatComponentTranslation) new ChatComponentTranslation(theRank.getCodeFullNameWithGender(pd)).appendText(" ").appendSibling(new ChatComponentTranslation(theRank.getFacName())).createCopy();
+		component.getChatStyle().setColor(EnumChatFormatting.YELLOW);
+		component.getChatStyle().setChatHoverEvent(new HoverEvent(GOTChatEvents.SHOW_GOT_ACHIEVEMENT, new ChatComponentText(category.name() + "$" + ID)));
+		return component;
+	}
+
+	@Override
 	public String getDescription(EntityPlayer entityplayer) {
 		return StatCollector.translateToLocalFormatted("got.faction.achieveRank", GOTAlignmentValues.formatAlignForDisplay(theRank.alignment));
 	}
@@ -41,15 +50,6 @@ public class GOTAchievementRank extends GOTAchievement {
 	@Override
 	public String getUntranslatedTitle(EntityPlayer entityplayer) {
 		return theRank.getCodeFullNameWithGender(GOTLevelData.getData(entityplayer));
-	}
-
-	@Override
-	public IChatComponent getAchievementChatComponent(EntityPlayer entityplayer) {
-		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-		ChatComponentTranslation component = (ChatComponentTranslation) new ChatComponentTranslation(theRank.getCodeFullNameWithGender(pd)).appendText(" ").appendSibling(new ChatComponentTranslation(theRank.getFacName())).createCopy();
-		component.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-		component.getChatStyle().setChatHoverEvent(new HoverEvent(GOTChatEvents.SHOW_GOT_ACHIEVEMENT, new ChatComponentText(category.name() + "$" + ID)));
-		return component;
 	}
 
 	public boolean isPlayerRequiredRank(EntityPlayer entityplayer) {

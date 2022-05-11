@@ -8,16 +8,20 @@ import net.minecraft.command.*;
 public class GOTCommandFactionRelations extends CommandBase {
 	@Override
 	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
-		if (args.length == 1) {
+		switch (args.length) {
+		case 1:
 			return CommandBase.getListOfStringsMatchingLastWord(args, "set", "reset");
-		}
-		if (args.length == 2 || args.length == 3) {
+		case 2:
+		case 3: {
 			List<String> list = GOTFaction.getPlayableAlignmentFactionNames();
 			return CommandBase.getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
 		}
-		if (args.length == 4) {
+		case 4: {
 			List<String> list = GOTFactionRelations.Relation.listRelationNames();
 			return CommandBase.getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
+		}
+		default:
+			break;
 		}
 		return null;
 	}

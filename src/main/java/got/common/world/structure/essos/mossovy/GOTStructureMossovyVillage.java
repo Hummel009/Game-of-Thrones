@@ -52,6 +52,34 @@ public class GOTStructureMossovyVillage extends GOTVillageGen {
 			}
 		}
 
+		@Override
+		public GOTBezierType getPath(Random random, int i, int k) {
+			int i1 = Math.abs(i);
+			int k1 = Math.abs(k);
+			if (villageType == VillageType.VILLAGE) {
+				int dSq = i * i + k * k;
+				int imn = 20 + random.nextInt(4);
+				if (dSq < imn * imn) {
+					return GOTBezierType.PATH_DIRTY;
+				}
+				int omn = 53 - random.nextInt(4);
+				int omx = 60 + random.nextInt(4);
+				if (dSq > omn * omn && dSq < omx * omx || dSq < 2809 && Math.abs(i1 - k1) <= 2 + random.nextInt(4)) {
+					return GOTBezierType.PATH_DIRTY;
+				}
+			}
+			return null;
+		}
+
+		@Override
+		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
+			return false;
+		}
+
+		public void setupFort(Random random) {
+			this.addStructure(new GOTStructureMossovyCastle(false), 0, 0, 0, true);
+		}
+
 		public void setupVillage(Random random) {
 			this.addStructure(new GOTStructureMossovyWell(false), 0, -4, 0, true);
 			this.addStructure(new GOTStructureNPCRespawner(false) {
@@ -129,34 +157,6 @@ public class GOTStructureMossovyVillage extends GOTVillageGen {
 			this.addStructure(new GOTStructureMossovyThiefHouse(false), farmZ - farmSize, -farmX, 3);
 			this.addStructure(new GOTStructureMossovyThiefHouse(false), -farmX + farmSize, farmZ, 1);
 			this.addStructure(new GOTStructureMossovyThiefHouse(false), farmX - farmSize, farmZ, 3);
-		}
-
-		public void setupFort(Random random) {
-			this.addStructure(new GOTStructureMossovyCastle(false), 0, 0, 0, true);
-		}
-
-		@Override
-		public GOTBezierType getPath(Random random, int i, int k) {
-			int i1 = Math.abs(i);
-			int k1 = Math.abs(k);
-			if (villageType == VillageType.VILLAGE) {
-				int dSq = i * i + k * k;
-				int imn = 20 + random.nextInt(4);
-				if (dSq < imn * imn) {
-					return GOTBezierType.PATH_DIRTY;
-				}
-				int omn = 53 - random.nextInt(4);
-				int omx = 60 + random.nextInt(4);
-				if (dSq > omn * omn && dSq < omx * omx || dSq < 2809 && Math.abs(i1 - k1) <= 2 + random.nextInt(4)) {
-					return GOTBezierType.PATH_DIRTY;
-				}
-			}
-			return null;
-		}
-
-		@Override
-		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
-			return false;
 		}
 
 		@Override

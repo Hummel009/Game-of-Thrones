@@ -2,11 +2,13 @@ package got.common.world.structure.essos.yiti;
 
 import java.util.Random;
 
+import got.common.database.GOTRegistry;
 import got.common.entity.essos.yiti.*;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
+import net.minecraft.block.Block;
 import net.minecraft.world.World;
 
 public class GOTStructureYiTiCity extends GOTVillageGen {
@@ -35,12 +37,6 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 		return this;
 	}
 
-	public GOTStructureYiTiCity setIsWall() {
-		isWall = true;
-		fixedVillageChunkRadius = 2;
-		return this;
-	}
-
 	public GOTStructureYiTiCity setIsTower() {
 		isTower = true;
 		fixedVillageChunkRadius = 9;
@@ -50,6 +46,12 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 	public GOTStructureYiTiCity setIsTown() {
 		isTown = true;
 		fixedVillageChunkRadius = 7;
+		return this;
+	}
+
+	public GOTStructureYiTiCity setIsWall() {
+		isWall = true;
+		fixedVillageChunkRadius = 2;
 		return this;
 	}
 
@@ -148,6 +150,13 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 
 		@Override
 		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
+			if (villageType == VillageType.TOWN || villageType == VillageType.FORT) {
+				Block block = world.getBlock(i, j, k);
+				int meta = world.getBlockMetadata(i, j, k);
+				if (block == GOTRegistry.slabSingleDirt && meta == 5 || block == GOTRegistry.dirtPath && meta == 2) {
+					return true;
+				}
+			}
 			return false;
 		}
 
@@ -444,9 +453,9 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 				villageType = VillageType.TOWER;
 			} else if (isWall) {
 				villageType = VillageType.WALL;
-			}  else if (isAnjiang) {
+			} else if (isAnjiang) {
 				villageType = VillageType.ANJIANG;
-			}  else {
+			} else {
 				villageType = VillageType.VILLAGE;
 			}
 		}

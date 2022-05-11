@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.google.common.math.IntMath;
 
+import got.common.database.GOTRegistry;
 import got.common.entity.essos.GOTEntityRedPriest;
 import got.common.entity.essos.asshai.*;
 import got.common.entity.other.GOTEntityNPCRespawner;
@@ -11,7 +12,6 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
 public class GOTStructureAsshaiCity extends GOTVillageGen {
@@ -196,8 +196,14 @@ public class GOTStructureAsshaiCity extends GOTVillageGen {
 
 		@Override
 		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
-			Block block = world.getBlock(i, j, k);
-			return villageType == VillageType.TOWN && block == Blocks.cobblestone;
+			if (villageType == VillageType.TOWN) {
+				Block block = world.getBlock(i, j, k);
+				int meta = world.getBlockMetadata(i, j, k);
+				if (block == GOTRegistry.asshaiDirt && meta == 0 || block == GOTRegistry.slabSingleDirt && meta == 3) {
+					return true;
+				}
+			}
+			return false;
 		}
 
 		@Override

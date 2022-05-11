@@ -267,11 +267,6 @@ public class GOTClientProxy extends GOTCommonProxy {
 	}
 
 	@Override
-	public int getLeavesRenderID() {
-		return leavesRenderID;
-	}
-
-	@Override
 	public int getFallenLeavesRenderID() {
 		return fallenLeavesRenderID;
 	}
@@ -299,6 +294,11 @@ public class GOTClientProxy extends GOTCommonProxy {
 	@Override
 	public int getGrassRenderID() {
 		return grassRenderID;
+	}
+
+	@Override
+	public int getLeavesRenderID() {
+		return leavesRenderID;
 	}
 
 	@Override

@@ -379,18 +379,6 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		return isArryn || isCrownlands || isRiverlands || isStormlands || isWesterlands;
 	}
 
-	public void overrideRoofs() {
-		if (isDorne) {
-			brick2Block = GOTRegistry.clayTileDyed;
-			brick2Meta = 1;
-			brick2SlabBlock = GOTRegistry.slabClayTileDyedSingle1;
-			brick2SlabMeta = 1;
-			brick2StairBlock = GOTRegistry.stairsClayTileDyedOrange;
-			brick2WallBlock = GOTRegistry.wallClayTileDyed;
-			brick2WallMeta = 1;
-		}
-	}
-
 	public GOTStructureBase setGranite() {
 		isCrownlands = false;
 		isCrownlandsRed = true;
@@ -622,6 +610,5 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 				break;
 			}
 		}
-		overrideRoofs();
 	}
 }

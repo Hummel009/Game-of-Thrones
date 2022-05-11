@@ -56,6 +56,10 @@ public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
 		}
 
 		@Override
+		public void dropFewItems(boolean flag, int i) {
+		}
+
+		@Override
 		public float getAlignmentBonus() {
 			return 300.0f;
 		}
@@ -63,10 +67,6 @@ public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
 		@Override
 		public GOTFaction getFaction() {
 			return GOTFaction.IRONBORN;
-		}
-
-		@Override
-		public void dropFewItems(boolean flag, int i) {
 		}
 
 		@Override
@@ -121,12 +121,12 @@ public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
 		}
 
 		@Override
-		public GOTFaction getFaction() {
-			return GOTFaction.NORTH;
+		public void dropFewItems(boolean flag, int i) {
 		}
 
 		@Override
-		public void dropFewItems(boolean flag, int i) {
+		public GOTFaction getFaction() {
+			return GOTFaction.NORTH;
 		}
 
 		@Override

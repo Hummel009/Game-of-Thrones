@@ -9,6 +9,7 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
@@ -104,7 +105,7 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 			if (villageType == VillageType.TOWN) {
 				Block block = world.getBlock(i, j, k);
 				int meta = world.getBlockMetadata(i, j, k);
-				if (block == GOTRegistry.brick3 && (meta == 13 || meta == 14)) {
+				if (block == GOTRegistry.slabSingleDirt && (meta == 1 || meta == 0) || block == GOTRegistry.slabSingleGravel && meta == 0 || block == GOTRegistry.dirtPath && meta == 0 || block == GOTRegistry.dirtPath && meta == 0 || block == Blocks.dirt && meta == 1 || block == Blocks.gravel && meta == 0) {
 					return true;
 				}
 			}

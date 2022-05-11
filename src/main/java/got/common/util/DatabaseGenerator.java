@@ -136,7 +136,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		charPoint.put(GOTEntityHarmune.class, GOTWaypoint.EastWatch);
 		charPoint.put(GOTEntityDenysMallister.class, GOTWaypoint.ShadowTower);
 		charPoint.put(GOTEntityMullin.class, GOTWaypoint.ShadowTower);
-		
+
 		entities.put(GOTEntityBison.class, new GOTEntityBison(world));
 		entities.put(GOTEntityBear.class, new GOTEntityBear(world));
 		entities.put(GOTEntityBird.class, new GOTEntityBird(world));
@@ -1289,11 +1289,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = ");
 				continue;
 			}
-			if ("entityCommander".equals(display) && entities.get(mob) instanceof GOTUnitTradeable) {
-				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
-				continue;
-			}
-			if ("entitySmith".equals(display) && entities.get(mob) instanceof GOTTradeable.Smith) {
+			if ("entityCommander".equals(display) && entities.get(mob) instanceof GOTUnitTradeable || "entitySmith".equals(display) && entities.get(mob) instanceof GOTTradeable.Smith) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
 			}
@@ -1317,11 +1313,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
 			}
-			if ("entityImmuneToFire".equals(display) && entities.get(mob).isImmuneToFire()) {
-				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
-				continue;
-			}
-			if ("entityFarmhand".equals(display) && entities.get(mob) instanceof GOTFarmhand) {
+			if (("entityImmuneToFire".equals(display) && entities.get(mob).isImmuneToFire()) || ("entityFarmhand".equals(display) && entities.get(mob) instanceof GOTFarmhand)) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
 			}
@@ -1365,15 +1357,15 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 		}
 		if ("entityPoint".equals(display)) {
-			for (Class<? extends Entity> entity: charPoint.keySet()) {
+			for (Class<? extends Entity> entity : charPoint.keySet()) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(entity) + " = " + charPoint.get(entity).getDisplayName());
 			}
-			for (GOTWaypoint wp: GOTFixer.structures.keySet()) {
+			for (GOTWaypoint wp : GOTFixer.structures.keySet()) {
 				GOTStructureBase str = GOTFixer.structures.get(wp);
 				str.pseudoGen = true;
 				str.generate(world, random, y, j, k);
-				for (EntityCreature entity: GOTFixer.structures.get(wp).legendaryChar) {
-					GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(entity.getClass()) + " = " + wp.getDisplayName());;
+				for (EntityCreature entity : GOTFixer.structures.get(wp).legendaryChar) {
+					GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(entity.getClass()) + " = " + wp.getDisplayName());
 				}
 			}
 		}

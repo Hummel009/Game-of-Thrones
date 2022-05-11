@@ -4,7 +4,7 @@ import got.common.database.*;
 
 public class GOTItemLegendaryCrossbow extends GOTItemCrossbow {
 	public GOTItemLegendaryCrossbow() {
-		super(GOTMaterial.STEEL);
+		super(GOTMaterial.ALLOY_STEEL);
 		setMaxDamage(1500);
 		setCreativeTab(GOTCreativeTabs.tabStory);
 	}

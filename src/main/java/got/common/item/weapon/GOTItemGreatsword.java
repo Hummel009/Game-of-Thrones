@@ -1,7 +1,7 @@
 package got.common.item.weapon;
 
 import got.common.database.GOTMaterial;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
 
 public class GOTItemGreatsword extends GOTItemSword {
 	public GOTItemGreatsword(GOTMaterial material) {

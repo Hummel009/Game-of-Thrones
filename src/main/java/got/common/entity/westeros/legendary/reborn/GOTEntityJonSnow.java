@@ -82,6 +82,10 @@ public class GOTEntityJonSnow extends GOTEntityHumanBase {
 		}
 
 		@Override
+		public void dropFewItems(boolean flag, int i) {
+		}
+
+		@Override
 		public float getAlignmentBonus() {
 			return 300.0f;
 		}
@@ -114,10 +118,6 @@ public class GOTEntityJonSnow extends GOTEntityHumanBase {
 				worldObj.spawnEntityInWorld(stage2);
 				setDead();
 			}
-		}
-
-		@Override
-		public void dropFewItems(boolean flag, int i) {
 		}
 	}
 

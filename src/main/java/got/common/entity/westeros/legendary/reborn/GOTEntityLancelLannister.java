@@ -66,6 +66,10 @@ public class GOTEntityLancelLannister extends GOTEntityHumanBase {
 		}
 
 		@Override
+		public void dropFewItems(boolean flag, int i) {
+		}
+
+		@Override
 		public float getAlignmentBonus() {
 			return 100.0f;
 		}
@@ -89,10 +93,6 @@ public class GOTEntityLancelLannister extends GOTEntityHumanBase {
 				setDead();
 			}
 		}
-
-		@Override
-		public void dropFewItems(boolean flag, int i) {
-		}
 	}
 
 	public static class LancelLannisterReligious extends GOTEntityLancelLannister {
@@ -102,12 +102,12 @@ public class GOTEntityLancelLannister extends GOTEntityHumanBase {
 		}
 
 		@Override
-		public GOTAchievement getKillAchievement() {
-			return GOTAchievement.KILL_LANCEL_LANNISTER;
+		public void dropFewItems(boolean flag, int i) {
 		}
 
 		@Override
-		public void dropFewItems(boolean flag, int i) {
+		public GOTAchievement getKillAchievement() {
+			return GOTAchievement.KILL_LANCEL_LANNISTER;
 		}
 
 		@Override

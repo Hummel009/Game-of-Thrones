@@ -192,6 +192,68 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.uvRotateBottom = 0;
 	}
 
+	public void renderBomb(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+		int ao = GOTRenderBlocks.getAO();
+		GOTRenderBlocks.setAO(0);
+		renderblocks.renderAllFaces = true;
+		renderblocks.setRenderBounds(0.125, 0.1875, 0.125, 0.875, 0.9375, 0.875);
+		renderblocks.renderStandardBlock(block, i, j, k);
+		renderblocks.setRenderBounds(0.375, 0.9375, 0.375, 0.625, 1.0, 0.625);
+		renderblocks.renderStandardBlock(block, i, j, k);
+		renderblocks.setRenderBounds(0.25, 0.9375, 0.375, 0.3125, 1.0, 0.4375);
+		renderblocks.renderStandardBlock(block, i, j, k);
+		renderblocks.setRenderBounds(0.25, 0.9375, 0.5625, 0.3125, 1.0, 0.625);
+		renderblocks.renderStandardBlock(block, i, j, k);
+		renderblocks.setRenderBounds(0.6875, 0.9375, 0.375, 0.75, 1.0, 0.4375);
+		renderblocks.renderStandardBlock(block, i, j, k);
+		renderblocks.setRenderBounds(0.6875, 0.9375, 0.5625, 0.75, 1.0, 0.625);
+		renderblocks.renderStandardBlock(block, i, j, k);
+		renderblocks.setRenderBounds(0.375, 0.9375, 0.25, 0.4375, 1.0, 0.3125);
+		renderblocks.renderStandardBlock(block, i, j, k);
+		renderblocks.setRenderBounds(0.5625, 0.9375, 0.25, 0.625, 1.0, 0.3125);
+		renderblocks.renderStandardBlock(block, i, j, k);
+		renderblocks.setRenderBounds(0.375, 0.9375, 0.6875, 0.4375, 1.0, 0.75);
+		renderblocks.renderStandardBlock(block, i, j, k);
+		renderblocks.setRenderBounds(0.5625, 0.9375, 0.6875, 0.625, 1.0, 0.75);
+		renderblocks.renderStandardBlock(block, i, j, k);
+		renderblocks.setRenderBounds(0.125, 0.0, 0.25, 0.1875, 0.1875, 0.75);
+		renderblocks.renderStandardBlock(block, i, j, k);
+		renderblocks.setRenderBounds(0.8125, 0.0, 0.25, 0.875, 0.1875, 0.75);
+		renderblocks.renderStandardBlock(block, i, j, k);
+		renderblocks.setRenderBounds(0.25, 0.0, 0.125, 0.75, 0.1875, 0.1875);
+		renderblocks.renderStandardBlock(block, i, j, k);
+		renderblocks.setRenderBounds(0.25, 0.0, 0.8125, 0.75, 0.1875, 0.875);
+		renderblocks.renderStandardBlock(block, i, j, k);
+		renderblocks.setOverrideBlockTexture(block.getIcon(-1, world.getBlockMetadata(i, j, k)));
+		renderblocks.setRenderBounds(0.0, 0.625, 0.3125, 0.0625, 0.6875, 0.6875);
+		renderblocks.renderStandardBlock(block, i, j, k);
+		renderblocks.setRenderBounds(0.0625, 0.625, 0.3125, 0.125, 0.6875, 0.375);
+		renderblocks.renderStandardBlock(block, i, j, k);
+		renderblocks.setRenderBounds(0.0625, 0.625, 0.625, 0.125, 0.6875, 0.6875);
+		renderblocks.renderStandardBlock(block, i, j, k);
+		renderblocks.setRenderBounds(0.9375, 0.625, 0.3125, 1.0, 0.6875, 0.6875);
+		renderblocks.renderStandardBlock(block, i, j, k);
+		renderblocks.setRenderBounds(0.875, 0.625, 0.3125, 0.9375, 0.6875, 0.375);
+		renderblocks.renderStandardBlock(block, i, j, k);
+		renderblocks.setRenderBounds(0.875, 0.625, 0.625, 0.9375, 0.6875, 0.6875);
+		renderblocks.renderStandardBlock(block, i, j, k);
+		renderblocks.setRenderBounds(0.3125, 0.625, 0.0, 0.6875, 0.6875, 0.0625);
+		renderblocks.renderStandardBlock(block, i, j, k);
+		renderblocks.setRenderBounds(0.3125, 0.625, 0.0625, 0.375, 0.6875, 0.125);
+		renderblocks.renderStandardBlock(block, i, j, k);
+		renderblocks.setRenderBounds(0.625, 0.625, 0.0625, 0.6875, 0.6875, 0.125);
+		renderblocks.renderStandardBlock(block, i, j, k);
+		renderblocks.setRenderBounds(0.3125, 0.625, 0.9375, 0.6875, 0.6875, 1.0);
+		renderblocks.renderStandardBlock(block, i, j, k);
+		renderblocks.setRenderBounds(0.3125, 0.625, 0.875, 0.375, 0.6875, 0.9375);
+		renderblocks.renderStandardBlock(block, i, j, k);
+		renderblocks.setRenderBounds(0.625, 0.625, 0.875, 0.6875, 0.6875, 0.9375);
+		renderblocks.renderStandardBlock(block, i, j, k);
+		renderblocks.clearOverrideBlockTexture();
+		renderblocks.renderAllFaces = false;
+		GOTRenderBlocks.setAO(ao);
+	}
+
 	public void renderButterflyJar(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		int ao = GOTRenderBlocks.getAO();
 		GOTRenderBlocks.setAO(0);
@@ -719,68 +781,6 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.renderAllFaces = false;
 	}
 
-	public void renderBomb(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
-		int ao = GOTRenderBlocks.getAO();
-		GOTRenderBlocks.setAO(0);
-		renderblocks.renderAllFaces = true;
-		renderblocks.setRenderBounds(0.125, 0.1875, 0.125, 0.875, 0.9375, 0.875);
-		renderblocks.renderStandardBlock(block, i, j, k);
-		renderblocks.setRenderBounds(0.375, 0.9375, 0.375, 0.625, 1.0, 0.625);
-		renderblocks.renderStandardBlock(block, i, j, k);
-		renderblocks.setRenderBounds(0.25, 0.9375, 0.375, 0.3125, 1.0, 0.4375);
-		renderblocks.renderStandardBlock(block, i, j, k);
-		renderblocks.setRenderBounds(0.25, 0.9375, 0.5625, 0.3125, 1.0, 0.625);
-		renderblocks.renderStandardBlock(block, i, j, k);
-		renderblocks.setRenderBounds(0.6875, 0.9375, 0.375, 0.75, 1.0, 0.4375);
-		renderblocks.renderStandardBlock(block, i, j, k);
-		renderblocks.setRenderBounds(0.6875, 0.9375, 0.5625, 0.75, 1.0, 0.625);
-		renderblocks.renderStandardBlock(block, i, j, k);
-		renderblocks.setRenderBounds(0.375, 0.9375, 0.25, 0.4375, 1.0, 0.3125);
-		renderblocks.renderStandardBlock(block, i, j, k);
-		renderblocks.setRenderBounds(0.5625, 0.9375, 0.25, 0.625, 1.0, 0.3125);
-		renderblocks.renderStandardBlock(block, i, j, k);
-		renderblocks.setRenderBounds(0.375, 0.9375, 0.6875, 0.4375, 1.0, 0.75);
-		renderblocks.renderStandardBlock(block, i, j, k);
-		renderblocks.setRenderBounds(0.5625, 0.9375, 0.6875, 0.625, 1.0, 0.75);
-		renderblocks.renderStandardBlock(block, i, j, k);
-		renderblocks.setRenderBounds(0.125, 0.0, 0.25, 0.1875, 0.1875, 0.75);
-		renderblocks.renderStandardBlock(block, i, j, k);
-		renderblocks.setRenderBounds(0.8125, 0.0, 0.25, 0.875, 0.1875, 0.75);
-		renderblocks.renderStandardBlock(block, i, j, k);
-		renderblocks.setRenderBounds(0.25, 0.0, 0.125, 0.75, 0.1875, 0.1875);
-		renderblocks.renderStandardBlock(block, i, j, k);
-		renderblocks.setRenderBounds(0.25, 0.0, 0.8125, 0.75, 0.1875, 0.875);
-		renderblocks.renderStandardBlock(block, i, j, k);
-		renderblocks.setOverrideBlockTexture(block.getIcon(-1, world.getBlockMetadata(i, j, k)));
-		renderblocks.setRenderBounds(0.0, 0.625, 0.3125, 0.0625, 0.6875, 0.6875);
-		renderblocks.renderStandardBlock(block, i, j, k);
-		renderblocks.setRenderBounds(0.0625, 0.625, 0.3125, 0.125, 0.6875, 0.375);
-		renderblocks.renderStandardBlock(block, i, j, k);
-		renderblocks.setRenderBounds(0.0625, 0.625, 0.625, 0.125, 0.6875, 0.6875);
-		renderblocks.renderStandardBlock(block, i, j, k);
-		renderblocks.setRenderBounds(0.9375, 0.625, 0.3125, 1.0, 0.6875, 0.6875);
-		renderblocks.renderStandardBlock(block, i, j, k);
-		renderblocks.setRenderBounds(0.875, 0.625, 0.3125, 0.9375, 0.6875, 0.375);
-		renderblocks.renderStandardBlock(block, i, j, k);
-		renderblocks.setRenderBounds(0.875, 0.625, 0.625, 0.9375, 0.6875, 0.6875);
-		renderblocks.renderStandardBlock(block, i, j, k);
-		renderblocks.setRenderBounds(0.3125, 0.625, 0.0, 0.6875, 0.6875, 0.0625);
-		renderblocks.renderStandardBlock(block, i, j, k);
-		renderblocks.setRenderBounds(0.3125, 0.625, 0.0625, 0.375, 0.6875, 0.125);
-		renderblocks.renderStandardBlock(block, i, j, k);
-		renderblocks.setRenderBounds(0.625, 0.625, 0.0625, 0.6875, 0.6875, 0.125);
-		renderblocks.renderStandardBlock(block, i, j, k);
-		renderblocks.setRenderBounds(0.3125, 0.625, 0.9375, 0.6875, 0.6875, 1.0);
-		renderblocks.renderStandardBlock(block, i, j, k);
-		renderblocks.setRenderBounds(0.3125, 0.625, 0.875, 0.375, 0.6875, 0.9375);
-		renderblocks.renderStandardBlock(block, i, j, k);
-		renderblocks.setRenderBounds(0.625, 0.625, 0.875, 0.6875, 0.6875, 0.9375);
-		renderblocks.renderStandardBlock(block, i, j, k);
-		renderblocks.clearOverrideBlockTexture();
-		renderblocks.renderAllFaces = false;
-		GOTRenderBlocks.setAO(ao);
-	}
-
 	public void renderPlate(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		int ao = GOTRenderBlocks.getAO();
 		GOTRenderBlocks.setAO(0);
@@ -1017,8 +1017,8 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		boolean fancyGraphics = Minecraft.getMinecraft().gameSettings.fancyGraphics;
 
 		BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
-		boolean snowy = biome instanceof GOTBiome && ((GOTBiome)biome).temperature == 0.0F || biome instanceof GOTBiome && ((GOTBiome) biome).isAltitudeZone && j >= 140;
-		
+		boolean snowy = biome instanceof GOTBiome && ((GOTBiome) biome).temperature == 0.0F || biome instanceof GOTBiome && ((GOTBiome) biome).isAltitudeZone && j >= 140;
+
 		if (id == GOT.proxy.getBeaconRenderID()) {
 			renderBeacon(world, i, j, k, renderblocks);
 			return true;

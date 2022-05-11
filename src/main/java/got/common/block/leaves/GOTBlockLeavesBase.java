@@ -92,6 +92,11 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 		return 16777215;
 	}
 
+	@Override
+	public int getRenderType() {
+		return GOT.proxy.getLeavesRenderID();
+	}
+
 	public int getSaplingChance(int meta) {
 		return 20;
 	}
@@ -163,10 +168,5 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 		for (Object allLeafBlock : allLeafBlocks) {
 			((GOTBlockLeavesBase) allLeafBlock).setGraphicsLevel(flag);
 		}
-	}
-
-	@Override
-	public int getRenderType() {
-		return GOT.proxy.getLeavesRenderID();
 	}
 }

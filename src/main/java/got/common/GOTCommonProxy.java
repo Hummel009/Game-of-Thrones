@@ -458,6 +458,10 @@ public class GOTCommonProxy implements IGuiHandler {
 		return 0;
 	}
 
+	public int getLeavesRenderID() {
+		return 0;
+	}
+
 	public int getPlantainRenderID() {
 		return 0;
 	}
@@ -844,9 +848,5 @@ public class GOTCommonProxy implements IGuiHandler {
 
 	public static int unpackSlot(int fullID) {
 		return fullID >> 16;
-	}
-
-	public int getLeavesRenderID() {
-		return 0;
 	}
 }

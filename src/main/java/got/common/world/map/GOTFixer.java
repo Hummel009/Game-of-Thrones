@@ -7,7 +7,7 @@ import got.common.entity.essos.legendary.captain.*;
 import got.common.entity.essos.legendary.quest.*;
 import got.common.entity.essos.legendary.trader.*;
 import got.common.entity.essos.legendary.warrior.*;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityHummel009;
 import got.common.entity.westeros.ironborn.GOTEntityIronbornSoldier;
 import got.common.entity.westeros.legendary.captain.*;
 import got.common.entity.westeros.legendary.deco.*;
@@ -281,7 +281,7 @@ public class GOTFixer {
 		structures.put(GOTWaypoint.ServinsCastle.shift(-1, 0), new GOTFixer.CleyCerwyn());
 		structures.put(GOTWaypoint.SkyReach.shift(0, 1), new GOTFixer.FranklynFowler());
 		structures.put(GOTWaypoint.Spider, new GOTFixer.Hummel009());
-		structures.put(GOTWaypoint.Starfall, new GOTFixer.BericDayne());
+		structures.put(GOTWaypoint.Starfall.shift(0, -1), new GOTFixer.BericDayne());
 		structures.put(GOTWaypoint.StarfishHarbor, new GOTFixer.PaxterRedwyne());
 		structures.put(GOTWaypoint.StoneHedge.shift(0, 1), new GOTFixer.JonosBracken());
 		structures.put(GOTWaypoint.Stonehelm, new GOTFixer.GulianSwann());
@@ -979,7 +979,7 @@ public class GOTFixer {
 	}
 
 	public static class Spawner extends GOTStructureBase {
-		
+
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
@@ -987,11 +987,11 @@ public class GOTFixer {
 			return !pseudoGen;
 		}
 
-		public void spawnLegendaryNPC(World world) {
-		}
-
 		public void spawnLegendaryNPC() {
 			this.spawnLegendaryNPC(null);
+		}
+
+		public void spawnLegendaryNPC(World world) {
 		}
 	}
 

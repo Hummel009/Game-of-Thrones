@@ -70,10 +70,6 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 		}
 
 		@Override
-		public void dropFewItems(boolean flag, int i) {
-		}
-
-		@Override
 		public void applyEntityAttributes() {
 			super.applyEntityAttributes();
 			getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0);
@@ -97,6 +93,10 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 				return super.attackEntityFrom(damagesource, f);
 			}
 			return super.attackEntityFrom(damagesource, 1.0f);
+		}
+
+		@Override
+		public void dropFewItems(boolean flag, int i) {
 		}
 
 		@Override

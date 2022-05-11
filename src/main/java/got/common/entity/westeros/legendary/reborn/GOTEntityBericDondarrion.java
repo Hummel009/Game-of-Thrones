@@ -86,6 +86,10 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 		}
 
 		@Override
+		public void dropFewItems(boolean flag, int i) {
+		}
+
+		@Override
 		public void onDeath(DamageSource damagesource) {
 			super.onDeath(damagesource);
 			if (!worldObj.isRemote) {
@@ -96,16 +100,16 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 				setDead();
 			}
 		}
-
-		@Override
-		public void dropFewItems(boolean flag, int i) {
-		}
 	}
 
 	public static class BericDondarrionLife2 extends GOTEntityBericDondarrion {
 		public BericDondarrionLife2(World world) {
 			super(world);
 			canBeMarried = false;
+		}
+
+		@Override
+		public void dropFewItems(boolean flag, int i) {
 		}
 
 		@Override
@@ -119,16 +123,16 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 				setDead();
 			}
 		}
-
-		@Override
-		public void dropFewItems(boolean flag, int i) {
-		}
 	}
 
 	public static class BericDondarrionLife3 extends GOTEntityBericDondarrion {
 		public BericDondarrionLife3(World world) {
 			super(world);
 			canBeMarried = false;
+		}
+
+		@Override
+		public void dropFewItems(boolean flag, int i) {
 		}
 
 		@Override
@@ -142,16 +146,16 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 				setDead();
 			}
 		}
-
-		@Override
-		public void dropFewItems(boolean flag, int i) {
-		}
 	}
 
 	public static class BericDondarrionLife4 extends GOTEntityBericDondarrion {
 		public BericDondarrionLife4(World world) {
 			super(world);
 			canBeMarried = false;
+		}
+
+		@Override
+		public void dropFewItems(boolean flag, int i) {
 		}
 
 		@Override
@@ -165,16 +169,16 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 				setDead();
 			}
 		}
-
-		@Override
-		public void dropFewItems(boolean flag, int i) {
-		}
 	}
 
 	public static class BericDondarrionLife5 extends GOTEntityBericDondarrion {
 		public BericDondarrionLife5(World world) {
 			super(world);
 			canBeMarried = false;
+		}
+
+		@Override
+		public void dropFewItems(boolean flag, int i) {
 		}
 
 		@Override
@@ -187,10 +191,6 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 				worldObj.spawnEntityInWorld(stage);
 				setDead();
 			}
-		}
-
-		@Override
-		public void dropFewItems(boolean flag, int i) {
 		}
 	}
 
