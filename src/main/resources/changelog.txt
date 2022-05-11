@@ -1,7 +1,7 @@
 CHANGELOG
 
 >>VERSION 17.7.2
-+ Greatly improved Polish translation (prod. Axel)
++ Greatly improved Polish translation (prod. Axel Snow)
 * Improved 2nd Tyrosh male skin
 * Rebalanced Joffrey's Crossbow
 * Fixed bug with Essos & Dorne fort walls upon the road
