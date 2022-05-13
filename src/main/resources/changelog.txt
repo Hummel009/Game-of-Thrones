@@ -1,7 +1,8 @@
 CHANGELOG
 
 >>VERSION 17.7.3
-* Fixed bug with road near Bronze Gate
++ Added full Polish edition (lore, speech, names, quests: prod. Axel)
+* Fixed bug with road near Bronze Gate & Sarsfield
 
 >>VERSION 17.7.2
 + Greatly improved Polish translation (prod. Axel Snow)

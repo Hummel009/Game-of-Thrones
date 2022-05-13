@@ -102,10 +102,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		charPoint.put(GOTEntityVictarionGreyjoy.class, GOTWaypoint.VictarionLanding);
 		charPoint.put(LancelLannisterNormal.class, GOTWaypoint.KingsLanding);
 		charPoint.put(GOTEntityTobhoMott.class, GOTWaypoint.KingsLanding);
-		charPoint.put(GOTEntitySansaStark.class, GOTWaypoint.KingsLanding);
 		charPoint.put(GOTEntityTyrionLannister.class, GOTWaypoint.KingsLanding);
-		charPoint.put(GOTEntityYoren.class, GOTWaypoint.KingsLanding);
-		charPoint.put(GOTEntityShae.class, GOTWaypoint.KingsLanding);
 		charPoint.put(GOTEntityGendryBaratheon.class, GOTWaypoint.KingsLanding);
 		charPoint.put(GOTEntityPetyrBaelish.class, GOTWaypoint.KingsLanding);
 		charPoint.put(GOTEntityBronn.class, GOTWaypoint.KingsLanding);
