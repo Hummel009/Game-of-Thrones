@@ -257,7 +257,6 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 			int l;
 			int wallX;
 			if (isKingsLanding) {
-				this.addStructure(new GOTFixer.KingsLanding(), 0, 0, 0);
 				this.addStructure(new GOTStructureNPCRespawner(false) {
 
 					@Override

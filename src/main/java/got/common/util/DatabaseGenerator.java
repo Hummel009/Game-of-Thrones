@@ -1362,7 +1362,6 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			for (GOTWaypoint wp : GOTFixer.structures.keySet()) {
 				GOTStructureBase str = GOTFixer.structures.get(wp);
-				str.pseudoGen = true;
 				str.generate(world, random, y, j, k);
 				for (EntityCreature entity : GOTFixer.structures.get(wp).legendaryChar) {
 					GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(entity.getClass()) + " = " + wp.getDisplayName());

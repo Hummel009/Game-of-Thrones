@@ -42,7 +42,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	public Map<String, BlockAliasPool> scanAliases = new HashMap<>();
 	public Map<String, Float> scanAliasChances = new HashMap<>();
 	public List<EntityCreature> legendaryChar = new ArrayList<>();
-	public boolean pseudoGen = false;
 
 	public GOTStructureBase() {
 		super(false);

@@ -208,774 +208,733 @@ public class GOTFixer {
 	}
 
 	public static void onInit() {
-		structures.put(GOTWaypoint.Ashemark, new GOTFixer.AddamMarbrand());
-		structures.put(GOTWaypoint.Asshai, new GOTFixer.Asshai());
-		structures.put(GOTWaypoint.Astapor.shift(-1, 0), new GOTFixer.Astapor());
-		structures.put(GOTWaypoint.Banefort, new GOTFixer.QuentenBanefort());
-		structures.put(GOTWaypoint.Barrowtown.shift(0, 1), new GOTFixer.BarbreyDustin());
-		structures.put(GOTWaypoint.Blacktyde, new GOTFixer.BaelorBlacktyde());
-		structures.put(GOTWaypoint.Braavos.shift(0, -1), new GOTFixer.TychoNestoris());
-		structures.put(GOTWaypoint.BrightwaterKeep, new GOTFixer.GarlanTyrell());
-		structures.put(GOTWaypoint.CasterlyRock.shift(-1, 0), new GOTFixer.CasterlyRock());
-		structures.put(GOTWaypoint.ClawIsle, new GOTFixer.ArdrianCeltigar());
-		structures.put(GOTWaypoint.CleganesKeep, new GOTFixer.GregorClegane());
-		structures.put(GOTWaypoint.Cornfield, new GOTFixer.HarysSwyft());
-		structures.put(GOTWaypoint.Crakehall.shift(-1, 0), new GOTFixer.LyleCrakehall());
-		structures.put(GOTWaypoint.Dragonstone, new GOTFixer.Dragonstone());
-		structures.put(GOTWaypoint.Dreadfort, new GOTFixer.Dreadfort());
-		structures.put(GOTWaypoint.Driftmark, new GOTFixer.Driftmark());
-		structures.put(GOTWaypoint.DrummCastle, new GOTFixer.DunstanDrumm());
-		structures.put(GOTWaypoint.Euron, new GOTFixer.EuronGreyjoy());
-		structures.put(GOTWaypoint.EvenfallHall, new GOTFixer.SelwynTarth());
-		structures.put(GOTWaypoint.Faircastle, new GOTFixer.SebastonFarman());
-		structures.put(GOTWaypoint.Feastfires, new GOTFixer.ForleyPrester());
-		structures.put(GOTWaypoint.TheEyrie, new GOTFixer.TheEyrie());
-		structures.put(GOTWaypoint.GoldenTooth.shift(0, 1), new GOTFixer.LeoLefford());
-		structures.put(GOTWaypoint.Goldengrove, new GOTFixer.MathisRowan());
-		structures.put(GOTWaypoint.Greenshield, new GOTFixer.MoribaldChester());
-		structures.put(GOTWaypoint.Greenstone, new GOTFixer.EldonEstermont());
-		structures.put(GOTWaypoint.GreyGarden, new GOTFixer.HarrasHarlaw());
-		structures.put(GOTWaypoint.GreywaterWatch, new GOTFixer.HowlandReed());
-		structures.put(GOTWaypoint.Gulltown, new GOTFixer.GeroldGrafton());
-		structures.put(GOTWaypoint.Hammerhorn, new GOTFixer.GoroldGoodbrother());
-		structures.put(GOTWaypoint.HeartsHome, new GOTFixer.LynCorbray());
-		structures.put(GOTWaypoint.Hellholt, new GOTFixer.HarmenUller());
-		structures.put(GOTWaypoint.HighHermitage, new GOTFixer.GeroldDayne());
-		structures.put(GOTWaypoint.Highgarden.shift(0, -1), new GOTFixer.Highgarden());
-		structures.put(GOTWaypoint.HightowerLitehouse, new GOTFixer.LeytonHightower());
-		structures.put(GOTWaypoint.Hojdbaatar, new GOTFixer.TugarKhan());
-		structures.put(GOTWaypoint.HollowHill, new GOTFixer.BericDondarrion());
-		structures.put(GOTWaypoint.HornHill, new GOTFixer.RandyllTarly());
-		structures.put(GOTWaypoint.Hornvale, new GOTFixer.TytosBrax());
-		structures.put(GOTWaypoint.IronOak, new GOTFixer.HarroldHardyng());
-		structures.put(GOTWaypoint.Karhold, new GOTFixer.RickardKarstark());
-		structures.put(GOTWaypoint.Lannisport.shift(-1, 0), new GOTFixer.Lannisport());
-		structures.put(GOTWaypoint.LastHearth, new GOTFixer.JohnUmber());
-		structures.put(GOTWaypoint.LonelyLight, new GOTFixer.GylbertFarwynd());
-		structures.put(GOTWaypoint.LongbowHall, new GOTFixer.GilwoodHunter());
-		structures.put(GOTWaypoint.Longtable, new GOTFixer.OrtonMerryweather());
-		structures.put(GOTWaypoint.Lordsport, new GOTFixer.Dagmer());
-		structures.put(GOTWaypoint.Lys, new GOTFixer.SalladhorSaan());
-		structures.put(GOTWaypoint.Maidenpool.shift(1, 0), new GOTFixer.WilliamMooton());
-		structures.put(GOTWaypoint.Meereen.shift(0, -1), new GOTFixer.HizdahrZoLoraq());
-		structures.put(GOTWaypoint.MormontsKeep, new GOTFixer.MaegeMormont());
-		structures.put(GOTWaypoint.Myr.shift(-1, 0), new GOTFixer.HarryStrickland());
-		structures.put(GOTWaypoint.NaggaHill, new GOTFixer.AeronGreyjoy());
-		structures.put(GOTWaypoint.NightKing, new GOTFixer.NightKing());
-		structures.put(GOTWaypoint.Ninestars, new GOTFixer.SymondTempleton());
-		structures.put(GOTWaypoint.Norvos.shift(0, -1), new GOTFixer.Mellario());
-		structures.put(GOTWaypoint.Oldtown.shift(-1, 0), new GOTFixer.Ebrose());
-		structures.put(GOTWaypoint.Pentos.shift(-1, 0), new GOTFixer.IllyrioMopatis());
-		structures.put(GOTWaypoint.PinkmaidenCastle, new GOTFixer.ClementPiper());
-		structures.put(GOTWaypoint.Pyke, new GOTFixer.Pyke());
-		structures.put(GOTWaypoint.Qarth.shift(0, 1), new GOTFixer.XaroXhoanDaxos());
-		structures.put(GOTWaypoint.RaventreeHall, new GOTFixer.TytosBlackwood());
-		structures.put(GOTWaypoint.RedHaven, new GOTFixer.ErikIronmaker());
-		structures.put(GOTWaypoint.Redfort, new GOTFixer.HortonRedfort());
-		structures.put(GOTWaypoint.Ring, new GOTFixer.QuennRoxton());
-		structures.put(GOTWaypoint.RisvellsCastle.shift(0, 1), new GOTFixer.RodrikRyswell());
-		structures.put(GOTWaypoint.Riverrun.shift(1, 0), new GOTFixer.Riverrun());
-		structures.put(GOTWaypoint.Runestone, new GOTFixer.YohnRoyce());
-		structures.put(GOTWaypoint.Sandstone, new GOTFixer.QuentynQorgyle());
-		structures.put(GOTWaypoint.Seagard.shift(0, -1), new GOTFixer.JasonMallister());
-		structures.put(GOTWaypoint.ServinsCastle.shift(-1, 0), new GOTFixer.CleyCerwyn());
-		structures.put(GOTWaypoint.SkyReach.shift(0, 1), new GOTFixer.FranklynFowler());
-		structures.put(GOTWaypoint.Spider, new GOTFixer.Hummel009());
-		structures.put(GOTWaypoint.Starfall.shift(0, -1), new GOTFixer.BericDayne());
-		structures.put(GOTWaypoint.StarfishHarbor, new GOTFixer.PaxterRedwyne());
-		structures.put(GOTWaypoint.StoneHedge.shift(0, 1), new GOTFixer.JonosBracken());
-		structures.put(GOTWaypoint.Stonehelm, new GOTFixer.GulianSwann());
-		structures.put(GOTWaypoint.StormsEnd, new GOTFixer.StormsEnd());
-		structures.put(GOTWaypoint.Strongsong, new GOTFixer.BenedarBelmore());
-		structures.put(GOTWaypoint.Sunspear, new GOTFixer.Sunspear());
-		structures.put(GOTWaypoint.TenTowers, new GOTFixer.RodrikHarlaw());
-		structures.put(GOTWaypoint.ThreeEyedRavenCave, new GOTFixer.ThreeEyedRaven());
-		structures.put(GOTWaypoint.TorhensSquare, new GOTFixer.HelmanTallhart());
-		structures.put(GOTWaypoint.TwinsLeft, new GOTFixer.TwinsLeft());
-		structures.put(GOTWaypoint.TwinsRight, new GOTFixer.TwinsRight());
-		structures.put(GOTWaypoint.Tyrosh, new GOTFixer.JonConnington());
-		structures.put(GOTWaypoint.VaesEfe, new GOTFixer.DaenerysTargaryen());
-		structures.put(GOTWaypoint.Volantis.shift(-1, 0), new GOTFixer.Moqorro());
-		structures.put(GOTWaypoint.Volmark, new GOTFixer.MaronVolmark());
-		structures.put(GOTWaypoint.WhiteHarbour, new GOTFixer.WymanManderly());
-		structures.put(GOTWaypoint.WhiteWood, new GOTFixer.BenjenStark());
-		structures.put(GOTWaypoint.Winterfell, new GOTFixer.Winterfell());
-		structures.put(GOTWaypoint.Yin.shift(0, 1), new GOTFixer.BuGai());
-		structures.put(GOTWaypoint.Yronwood.shift(1, 0), new GOTFixer.QuentynMartell());
-		structures.put(GOTWaypoint.Yunkai.shift(-1, 0), new GOTFixer.Yunkai());
-	}
-
-	public static class AddamMarbrand extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityAddamMarbrand(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class AeronGreyjoy extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityAeronGreyjoy(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class ArdrianCeltigar extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityArdrianCeltigar(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class Asshai extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityAsshaiArchmag(world), world, 0, 1, 0);
-		}
-	}
-
-	public static class Astapor extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityKraznysMoNakloz(world), world, -1, 1, 0);
-			spawnLegendaryNPC(new GOTEntityMissandei(world), world, -1, 1, -1);
-			spawnLegendaryNPC(new GOTEntityGreyWorm(world), world, -1, 1, 1);
-		}
-	}
-
-	public static class BaelorBlacktyde extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityBaelorBlacktyde(world), world, -2, 1, -2);
-		}
-	}
-
-	public static class BarbreyDustin extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityBarbreyDustin(world), world, 0, 1, 3);
-		}
-	}
-
-	public static class BenedarBelmore extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityBenedarBelmore(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class BenjenStark extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityBenjenStark(world), world, 0, 1, 5);
-		}
-	}
-
-	public static class BericDayne extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityBericDayne(world), world, -2, 1, 2);
-		}
-	}
-
-	public static class BericDondarrion extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityBericDondarrion.BericDondarrionLife1(world), world, 3, 1, 0);
-			spawnLegendaryNPC(new GOTEntityThoros(world), world, 0, 1, 3);
-		}
-	}
-
-	public static class BuGai extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityBuGai(world), world, 12, 1, 0);
-		}
-	}
-
-	public static class CasterlyRock extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityTywinLannister(world), world, 2, 1, 0);
-			spawnLegendaryNPC(new GOTEntityQyburn(world), world, -2, 1, 0);
-		}
-	}
-
-	public static class ClementPiper extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityClementPiper(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class CleyCerwyn extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityCleyCerwyn(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class DaenerysTargaryen extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityDaenerysTargaryen(world), world, 0, 5, 3);
-			spawnLegendaryNPC(new GOTEntityJorahMormont(world), world, 0, 5, 3);
-		}
-	}
-
-	public static class Dagmer extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityDagmer(world), world, 0, 1, 3);
-		}
-	}
-
-	public static class Dragonstone extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityStannisBaratheon(world), world, -2, 1, -2);
-			spawnLegendaryNPC(new GOTEntityDavosSeaworth(world), world, 2, 1, 2);
-			spawnLegendaryNPC(new GOTEntityMelisandra(world), world, -2, 1, 2);
-			spawnLegendaryNPC(new GOTEntityShireenBaratheon(world), world, 2, 1, -2);
-			spawnLegendaryNPC(new GOTEntitySelyseBaratheon(world), world, 0, 1, 2);
-			spawnLegendaryNPC(new GOTEntityMatthosSeaworth(world), world, 0, 1, -2);
-		}
-	}
-
-	public static class Dreadfort extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityRamsayBolton(world), world, 2, 1, 2);
-			spawnLegendaryNPC(new GOTEntityRooseBolton(world), world, -2, 1, -2);
-		}
-	}
-
-	public static class Driftmark extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityMonfordVelaryon(world), world, -2, 1, -2);
-			spawnLegendaryNPC(new GOTEntityAuraneWaters(world), world, 2, 1, 2);
-		}
-	}
-
-	public static class DunstanDrumm extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityDunstanDrumm(world), world, -2, 1, -2);
-			spawnLegendaryNPC(new GOTEntityAndrikTheUnsmilling(world), world, -2, 1, -2);
-		}
-	}
-
-	public static class Ebrose extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityEbrose(world), world, 0, 1, 5);
-		}
-	}
-
-	public static class EldonEstermont extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityEldonEstermont(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class ErikIronmaker extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityErikIronmaker(world), world, -2, 1, -2);
-		}
-	}
-
-	public static class EuronGreyjoy extends Spawner {
-
-		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
-			loadStrScan("euron_ship");
-			generateStrScan(world, random, 16, 27, -58);
-			for (int l = 0; l < 10; ++l) {
-				spawnLegendaryNPC(new GOTEntityIronbornSoldier(world), world, 0, 1, 0);
+		structures.put(GOTWaypoint.Ashemark, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityAddamMarbrand(world), world, 0, 1, 2);
 			}
-			spawnLegendaryNPC(new GOTEntityEuronGreyjoy(world), world, 0, 1, 0);
-			return !pseudoGen;
-		}
-	}
-
-	public static class ForleyPrester extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityForleyPrester(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class FranklynFowler extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityFranklynFowler(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class GarlanTyrell extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityGarlanTyrell(world), world, 2, 1, -2);
-		}
-	}
-
-	public static class GeroldDayne extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityGeroldDayne(world), world, 2, 1, -2);
-		}
-	}
-
-	public static class GeroldGrafton extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityGeroldGrafton(world), world, 3, 1, 0);
-		}
-	}
-
-	public static class GilwoodHunter extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityGilwoodHunter(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class GoroldGoodbrother extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityGoroldGoodbrother(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class GregorClegane extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityGregorClegane.GregorCleganeAlive(world), world, 2, 1, 0);
-			spawnLegendaryNPC(new GOTEntityPolliver(world), world, -2, 1, 0);
-		}
-	}
-
-	public static class GulianSwann extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityGulianSwann(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class GylbertFarwynd extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityGylbertFarwynd(world), world, -2, 1, -2);
-		}
-	}
-
-	public static class HarmenUller extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityHarmenUller(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class HarrasHarlaw extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityHarrasHarlaw(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class HarroldHardyng extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityHarroldHardyng(world), world, 0, 1, 2);
-			spawnLegendaryNPC(new GOTEntityAnyaWaynwood(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class HarryStrickland extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityHarryStrickland(world), world, -1, 1, -1);
-		}
-	}
-
-	public static class HarysSwyft extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityHarysSwyft(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class HelmanTallhart extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityHelmanTallhart(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class Highgarden extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityMaceTyrell(world), world, 2, 1, 2);
-			spawnLegendaryNPC(new GOTEntityOlennaTyrell(world), world, -2, 1, -2);
-			spawnLegendaryNPC(new GOTEntityMargaeryTyrell(world), world, 2, 1, -2);
-			spawnLegendaryNPC(new GOTEntityWillasTyrell(world), world, -2, 1, 2);
-		}
-	}
-
-	public static class HizdahrZoLoraq extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityHizdahrZoLoraq(world), world, 0, 1, 1);
-		}
-	}
-
-	public static class HortonRedfort extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityHortonRedfort(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class HowlandReed extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityHowlandReed(world), world, 0, 1, 5);
-		}
-	}
-
-	public static class Hummel009 extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityHummel009(world), world, 0, 1, 0);
-		}
-	}
-
-	public static class IllyrioMopatis extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityIllyrioMopatis(world), world, 3, 1, 0);
-		}
-	}
-
-	public static class JasonMallister extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityJasonMallister(world), world, 0, 1, 3);
-		}
-	}
-
-	public static class JohnUmber extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityJohnUmber(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class JonConnington extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityJonConnington(world), world, 0, 1, -1);
-			spawnLegendaryNPC(new GOTEntityYoungGriff(world), world, 0, 1, -1);
-		}
-	}
-
-	public static class JonosBracken extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityJonosBracken(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class KingsLanding extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntitySansaStark(world), world, 0, 1, 5);
-			spawnLegendaryNPC(new GOTEntityShae(world), world, 0, 1, 6);
-			spawnLegendaryNPC(new GOTEntityYoren(world), world, 0, 1, 4);
-		}
-	}
-
-	public static class Lannisport extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityKevanLannister(world), world, 0, 1, 5);
-			spawnLegendaryNPC(new GOTEntityDavenLannister(world), world, 0, 1, -5);
-			spawnLegendaryNPC(new GOTEntityAmoryLorch(world), world, 5, 1, 0);
-		}
-	}
-
-	public static class LeoLefford extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityLeoLefford(world), world, 2, 1, 2);
-		}
-	}
-
-	public static class LeytonHightower extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityLeytonHightower(world), world, 0, 26, -5);
-		}
-	}
-
-	public static class LyleCrakehall extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityLyleCrakehall(world), world, 2, 1, 2);
-		}
-	}
-
-	public static class LynCorbray extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityLynCorbray(world), world, 2, 1, 2);
-		}
-	}
-
-	public static class MaegeMormont extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityMaegeMormont(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class MaronVolmark extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityMaronVolmark(world), world, -2, 1, -2);
-		}
-	}
-
-	public static class MathisRowan extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityMathisRowan(world), world, 2, 1, 2);
-		}
-	}
-
-	public static class Mellario extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityMellario(world), world, 0, 1, 1);
-		}
-	}
-
-	public static class Moqorro extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityMoqorro(world), world, -1, 1, 0);
-		}
-	}
-
-	public static class MoribaldChester extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityMoribaldChester(world), world, 2, 1, 0);
-		}
-	}
-
-	public static class NightKing extends Spawner {
-
-		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
-			loadStrScan("night_king");
-			spawnLegendaryNPC(new GOTEntityNightKing(world), world, 0, 10, 0);
-			generateStrScan(world, random, 0, 0, 0);
-			return !pseudoGen;
-		}
-	}
-
-	public static class OrtonMerryweather extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityOrtonMerryweather(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class PaxterRedwyne extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityPaxterRedwyne(world), world, 0, 1, 5);
-		}
-	}
-
-	public static class Pyke extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityBalonGreyjoy(world), world, 2, 1, 2);
-			spawnLegendaryNPC(new GOTEntityYaraGreyjoy(world), world, -2, 1, -2);
-			spawnLegendaryNPC(new GOTEntityTheonGreyjoy.TheonGreyjoyNormal(world), world, -2, 1, 2);
-		}
-	}
-
-	public static class QuennRoxton extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityQuennRoxton(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class QuentenBanefort extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityQuentenBanefort(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class QuentynMartell extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityQuentynMartell(world), world, 0, 1, 2);
-			spawnLegendaryNPC(new GOTEntityAndersYronwood(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class QuentynQorgyle extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityQuentynQorgyle(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class RandyllTarly extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityRandyllTarly(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class RickardKarstark extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityRickardKarstark(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class Riverrun extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityBryndenTully(world), world, 2, 1, 2);
-			spawnLegendaryNPC(new GOTEntityEdmureTully(world), world, -2, 1, -2);
-			spawnLegendaryNPC(new GOTEntityHosterTully(world), world, 2, 1, -2);
-			spawnLegendaryNPC(new GOTEntityRodrikCassel(world), world, -2, 1, 2);
-			spawnLegendaryNPC(new GOTEntityCatelynStark(world), world, 2, 1, 0);
-		}
-	}
-
-	public static class RodrikHarlaw extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityRodrikHarlaw(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class RodrikRyswell extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityRodrikRyswell(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class SalladhorSaan extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntitySalladhorSaan(world), world, 0, 1, -1);
-		}
-	}
-
-	public static class SebastonFarman extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntitySebastonFarman(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class SelwynTarth extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntitySelwynTarth(world), world, 0, 1, 2);
-		}
+		});
+
+		structures.put(GOTWaypoint.Asshai, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityAsshaiArchmag(world), world, 0, 1, 0);
+			}
+		});
+
+		structures.put(GOTWaypoint.Astapor.shift(-1, 0), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityKraznysMoNakloz(world), world, -1, 1, 0);
+				spawnLegendaryNPC(new GOTEntityMissandei(world), world, -1, 1, -1);
+				spawnLegendaryNPC(new GOTEntityGreyWorm(world), world, -1, 1, 1);
+			}
+		});
+
+		structures.put(GOTWaypoint.Banefort, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityQuentenBanefort(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Barrowtown.shift(0, 1), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityBarbreyDustin(world), world, 0, 1, 3);
+			}
+		});
+
+		structures.put(GOTWaypoint.Blacktyde, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityBaelorBlacktyde(world), world, -2, 1, -2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Braavos.shift(0, -1), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityTychoNestoris(world), world, 0, 1, 1);
+			}
+		});
+
+		structures.put(GOTWaypoint.BrightwaterKeep, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityGarlanTyrell(world), world, 2, 1, -2);
+			}
+		});
+
+		structures.put(GOTWaypoint.CasterlyRock.shift(-1, 0), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityTywinLannister(world), world, 2, 1, 0);
+				spawnLegendaryNPC(new GOTEntityQyburn(world), world, -2, 1, 0);
+			}
+		});
+
+		structures.put(GOTWaypoint.ClawIsle, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityArdrianCeltigar(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.CleganesKeep, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityGregorClegane.GregorCleganeAlive(world), world, 2, 1, 0);
+				spawnLegendaryNPC(new GOTEntityPolliver(world), world, -2, 1, 0);
+			}
+		});
+
+		structures.put(GOTWaypoint.Cornfield, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityHarysSwyft(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Crakehall.shift(-1, 0), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityLyleCrakehall(world), world, 2, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Dragonstone, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityStannisBaratheon(world), world, -2, 1, -2);
+				spawnLegendaryNPC(new GOTEntityDavosSeaworth(world), world, 2, 1, 2);
+				spawnLegendaryNPC(new GOTEntityMelisandra(world), world, -2, 1, 2);
+				spawnLegendaryNPC(new GOTEntityShireenBaratheon(world), world, 2, 1, -2);
+				spawnLegendaryNPC(new GOTEntitySelyseBaratheon(world), world, 0, 1, 2);
+				spawnLegendaryNPC(new GOTEntityMatthosSeaworth(world), world, 0, 1, -2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Dreadfort, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityRamsayBolton(world), world, 2, 1, 2);
+				spawnLegendaryNPC(new GOTEntityRooseBolton(world), world, -2, 1, -2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Driftmark, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityMonfordVelaryon(world), world, -2, 1, -2);
+				spawnLegendaryNPC(new GOTEntityAuraneWaters(world), world, 2, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.DrummCastle, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityDunstanDrumm(world), world, -2, 1, -2);
+				spawnLegendaryNPC(new GOTEntityAndrikTheUnsmilling(world), world, -2, 1, -2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Euron, new Spawner() {
+			@Override
+			public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
+				this.setOriginAndRotation(world, i, j, k, rotation, 0);
+				loadStrScan("euron_ship");
+				generateStrScan(world, random, 16, 27, -58);
+				for (int l = 0; l < 10; ++l) {
+					spawnLegendaryNPC(new GOTEntityIronbornSoldier(world), world, 0, 1, 0);
+				}
+				spawnLegendaryNPC(new GOTEntityEuronGreyjoy(world), world, 0, 1, 0);
+				return true;
+			}
+		});
+		structures.put(GOTWaypoint.EvenfallHall, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntitySelwynTarth(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Faircastle, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntitySebastonFarman(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Feastfires, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityForleyPrester(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Goldengrove, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityMathisRowan(world), world, 2, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.GoldenTooth.shift(0, 1), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityLeoLefford(world), world, 2, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Greenshield, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityMoribaldChester(world), world, 2, 1, 0);
+			}
+		});
+
+		structures.put(GOTWaypoint.Greenstone, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityEldonEstermont(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.GreyGarden, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityHarrasHarlaw(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.GreywaterWatch, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityHowlandReed(world), world, 0, 1, 5);
+			}
+		});
+
+		structures.put(GOTWaypoint.Gulltown, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityGeroldGrafton(world), world, 3, 1, 0);
+			}
+		});
+
+		structures.put(GOTWaypoint.Hammerhorn, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityGoroldGoodbrother(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.HeartsHome, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityLynCorbray(world), world, 2, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Hellholt, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityHarmenUller(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Highgarden.shift(0, -1), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityMaceTyrell(world), world, 2, 1, 2);
+				spawnLegendaryNPC(new GOTEntityOlennaTyrell(world), world, -2, 1, -2);
+				spawnLegendaryNPC(new GOTEntityMargaeryTyrell(world), world, 2, 1, -2);
+				spawnLegendaryNPC(new GOTEntityWillasTyrell(world), world, -2, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.HighHermitage, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityGeroldDayne(world), world, 2, 1, -2);
+			}
+		});
+
+		structures.put(GOTWaypoint.HightowerLitehouse, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityLeytonHightower(world), world, 0, 26, -5);
+			}
+		});
+
+		structures.put(GOTWaypoint.Hojdbaatar, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityTugarKhan(world), world, 0, 5, 3);
+			}
+		});
+
+		structures.put(GOTWaypoint.HollowHill, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityBericDondarrion.BericDondarrionLife1(world), world, 3, 1, 0);
+				spawnLegendaryNPC(new GOTEntityThoros(world), world, 0, 1, 3);
+			}
+		});
+
+		structures.put(GOTWaypoint.HornHill, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityRandyllTarly(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Hornvale, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityTytosBrax(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.IronOak, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityHarroldHardyng(world), world, 0, 1, 2);
+				spawnLegendaryNPC(new GOTEntityAnyaWaynwood(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Karhold, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityRickardKarstark(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.KingsLanding.shift(1, 0), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntitySansaStark(world), world, 0, 1, 5);
+				spawnLegendaryNPC(new GOTEntityShae(world), world, 0, 1, 6);
+				spawnLegendaryNPC(new GOTEntityYoren(world), world, 0, 1, 4);
+			}
+		});
+
+		structures.put(GOTWaypoint.Lannisport.shift(-1, 0), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityKevanLannister(world), world, 0, 1, 5);
+				spawnLegendaryNPC(new GOTEntityDavenLannister(world), world, 0, 1, -5);
+				spawnLegendaryNPC(new GOTEntityAmoryLorch(world), world, 5, 1, 0);
+			}
+		});
+
+		structures.put(GOTWaypoint.LastHearth, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityJohnUmber(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.LonelyLight, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityGylbertFarwynd(world), world, -2, 1, -2);
+			}
+		});
+
+		structures.put(GOTWaypoint.LongbowHall, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityGilwoodHunter(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Longtable, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityOrtonMerryweather(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Lordsport, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityDagmer(world), world, 0, 1, 3);
+			}
+		});
+
+		structures.put(GOTWaypoint.Lys, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntitySalladhorSaan(world), world, 0, 1, -1);
+			}
+		});
+
+		structures.put(GOTWaypoint.Maidenpool.shift(1, 0), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityWilliamMooton(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Meereen.shift(0, -1), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityHizdahrZoLoraq(world), world, 0, 1, 1);
+			}
+		});
+
+		structures.put(GOTWaypoint.MormontsKeep, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityMaegeMormont(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Myr.shift(-1, 0), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityHarryStrickland(world), world, -1, 1, -1);
+			}
+		});
+
+		structures.put(GOTWaypoint.NaggaHill, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityAeronGreyjoy(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.NightKing, new Spawner() {
+			@Override
+			public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
+				this.setOriginAndRotation(world, i, j, k, rotation, 0);
+				loadStrScan("night_king");
+				spawnLegendaryNPC(new GOTEntityNightKing(world), world, 0, 10, 0);
+				generateStrScan(world, random, 0, 0, 0);
+				return true;
+			}
+		});
+		structures.put(GOTWaypoint.Ninestars, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntitySymondTempleton(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Norvos.shift(0, -1), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityMellario(world), world, 0, 1, 1);
+			}
+		});
+
+		structures.put(GOTWaypoint.Oldtown.shift(-1, 0), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityEbrose(world), world, 0, 1, 5);
+			}
+		});
+
+		structures.put(GOTWaypoint.Pentos.shift(-1, 0), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityIllyrioMopatis(world), world, 3, 1, 0);
+			}
+		});
+
+		structures.put(GOTWaypoint.PinkmaidenCastle, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityClementPiper(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Pyke, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityBalonGreyjoy(world), world, 2, 1, 2);
+				spawnLegendaryNPC(new GOTEntityYaraGreyjoy(world), world, -2, 1, -2);
+				spawnLegendaryNPC(new GOTEntityTheonGreyjoy.TheonGreyjoyNormal(world), world, -2, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Qarth.shift(0, 1), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityXaroXhoanDaxos(world), world, 3, 1, 0);
+			}
+		});
+
+		structures.put(GOTWaypoint.RaventreeHall, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityTytosBlackwood(world), world, 2, 1, 0);
+			}
+		});
+
+		structures.put(GOTWaypoint.Redfort, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityHortonRedfort(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.RedHaven, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityErikIronmaker(world), world, -2, 1, -2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Ring, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityQuennRoxton(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.RisvellsCastle.shift(0, 1), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityRodrikRyswell(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Riverrun.shift(1, 0), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityBryndenTully(world), world, 2, 1, 2);
+				spawnLegendaryNPC(new GOTEntityEdmureTully(world), world, -2, 1, -2);
+				spawnLegendaryNPC(new GOTEntityHosterTully(world), world, 2, 1, -2);
+				spawnLegendaryNPC(new GOTEntityRodrikCassel(world), world, -2, 1, 2);
+				spawnLegendaryNPC(new GOTEntityCatelynStark(world), world, 2, 1, 0);
+			}
+		});
+
+		structures.put(GOTWaypoint.Runestone, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityYohnRoyce(world), world, 2, 1, 0);
+			}
+		});
+
+		structures.put(GOTWaypoint.Sandstone, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityQuentynQorgyle(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Seagard.shift(0, -1), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityJasonMallister(world), world, 0, 1, 3);
+			}
+		});
+
+		structures.put(GOTWaypoint.ServinsCastle.shift(-1, 0), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityCleyCerwyn(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.SkyReach.shift(0, 1), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityFranklynFowler(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Spider, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityHummel009(world), world, 0, 1, 0);
+			}
+		});
+
+		structures.put(GOTWaypoint.Starfall.shift(0, -1), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityBericDayne(world), world, -2, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.StarfishHarbor, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityPaxterRedwyne(world), world, 0, 1, 5);
+			}
+		});
+
+		structures.put(GOTWaypoint.StoneHedge.shift(0, 1), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityJonosBracken(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Stonehelm, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityGulianSwann(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.StormsEnd, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityRenlyBaratheon(world), world, 2, 1, 2);
+				spawnLegendaryNPC(new GOTEntityLorasTyrell(world), world, -2, 1, -2);
+				spawnLegendaryNPC(new GOTEntityBrienneTarth(world), world, -2, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Strongsong, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityBenedarBelmore(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Sunspear, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityOberynMartell(world), world, 3, 1, 0);
+				spawnLegendaryNPC(new GOTEntityDoranMartell(world), world, 0, 1, 3);
+				spawnLegendaryNPC(new GOTEntityEllaryaSand(world), world, 3, 1, 3);
+				spawnLegendaryNPC(new GOTEntityAreoHotah(world), world, 0, 1, -3);
+				spawnLegendaryNPC(new GOTEntityTrystaneMartell(world), world, -3, 1, 0);
+				spawnLegendaryNPC(new GOTEntityArianneMartell(world), world, -3, 1, 3);
+				spawnLegendaryNPC(new GOTEntityManfreyMartell(world), world, -3, 1, -3);
+			}
+		});
+
+		structures.put(GOTWaypoint.TenTowers, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityRodrikHarlaw(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.TheEyrie, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityRobinArryn(world), world, 0, 1, 2);
+				spawnLegendaryNPC(new GOTEntityLysaArryn(world), world, -2, 1, 0);
+			}
+		});
+
+		structures.put(GOTWaypoint.ThreeEyedRavenCave, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityThreeEyedRaven(world), world, 0, 1, 0);
+			}
+		});
+
+		structures.put(GOTWaypoint.TorhensSquare, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityHelmanTallhart(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.TwinsLeft, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityBlackWalderFrey(world), world, 0, 1, -15);
+				spawnLegendaryNPC(new GOTEntityLotharFrey(world), world, 0, 1, -15);
+			}
+		});
+
+		structures.put(GOTWaypoint.TwinsRight, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityWalderFrey(world), world, 0, 1, 15);
+			}
+		});
+
+		structures.put(GOTWaypoint.Tyrosh, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityJonConnington(world), world, 0, 1, -1);
+				spawnLegendaryNPC(new GOTEntityYoungGriff(world), world, 0, 1, -1);
+			}
+		});
+
+		structures.put(GOTWaypoint.VaesEfe, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityDaenerysTargaryen(world), world, 0, 5, 3);
+				spawnLegendaryNPC(new GOTEntityJorahMormont(world), world, 0, 5, 3);
+			}
+		});
+
+		structures.put(GOTWaypoint.Volantis.shift(-1, 0), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityMoqorro(world), world, -1, 1, 0);
+			}
+		});
+
+		structures.put(GOTWaypoint.Volmark, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityMaronVolmark(world), world, -2, 1, -2);
+			}
+		});
+
+		structures.put(GOTWaypoint.WhiteHarbour, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityWymanManderly(world), world, 0, 1, 5);
+			}
+		});
+
+		structures.put(GOTWaypoint.WhiteWood, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityBenjenStark(world), world, 0, 1, 5);
+			}
+		});
+
+		structures.put(GOTWaypoint.Winterfell, new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityRobbStark(world), world, 2, 1, 2);
+				spawnLegendaryNPC(new GOTEntityHodor(world), world, -2, 1, -2);
+				spawnLegendaryNPC(new GOTEntityAryaStark(world), world, 2, 1, -2);
+				spawnLegendaryNPC(new GOTEntityBranStark(world), world, -2, 1, 2);
+				spawnLegendaryNPC(new GOTEntityRickonStark(world), world, 0, 1, 2);
+				spawnLegendaryNPC(new GOTEntityLuwin(world), world, 0, 1, -2);
+				spawnLegendaryNPC(new GOTEntityOsha(world), world, 2, 1, 0);
+			}
+		});
+
+		structures.put(GOTWaypoint.Yin.shift(0, 1), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityBuGai(world), world, 12, 1, 0);
+			}
+		});
+
+		structures.put(GOTWaypoint.Yronwood.shift(1, 0), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityQuentynMartell(world), world, 0, 1, 2);
+				spawnLegendaryNPC(new GOTEntityAndersYronwood(world), world, 0, 1, 2);
+			}
+		});
+
+		structures.put(GOTWaypoint.Yunkai.shift(-1, 0), new Spawner() {
+			@Override
+			public void spawnLegendaryNPC(World world) {
+				spawnLegendaryNPC(new GOTEntityDaarioNaharis(world), world, -1, 1, 0);
+				spawnLegendaryNPC(new GOTEntityRazdalMoEraz(world), world, -1, 1, 1);
+			}
+		});
 	}
 
 	public static class Spawner extends GOTStructureBase {
@@ -984,167 +943,10 @@ public class GOTFixer {
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(world);
-			return !pseudoGen;
-		}
-
-		public void spawnLegendaryNPC() {
-			this.spawnLegendaryNPC(null);
+			return true;
 		}
 
 		public void spawnLegendaryNPC(World world) {
-		}
-	}
-
-	public static class StormsEnd extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityRenlyBaratheon(world), world, 2, 1, 2);
-			spawnLegendaryNPC(new GOTEntityLorasTyrell(world), world, -2, 1, -2);
-			spawnLegendaryNPC(new GOTEntityBrienneTarth(world), world, -2, 1, 2);
-		}
-	}
-
-	public static class Sunspear extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityOberynMartell(world), world, 3, 1, 0);
-			spawnLegendaryNPC(new GOTEntityDoranMartell(world), world, 0, 1, 3);
-			spawnLegendaryNPC(new GOTEntityEllaryaSand(world), world, 3, 1, 3);
-			spawnLegendaryNPC(new GOTEntityAreoHotah(world), world, 0, 1, -3);
-			spawnLegendaryNPC(new GOTEntityTrystaneMartell(world), world, -3, 1, 0);
-			spawnLegendaryNPC(new GOTEntityArianneMartell(world), world, -3, 1, 3);
-			spawnLegendaryNPC(new GOTEntityManfreyMartell(world), world, -3, 1, -3);
-		}
-	}
-
-	public static class SymondTempleton extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntitySymondTempleton(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class TheEyrie extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityRobinArryn(world), world, 0, 1, 2);
-			spawnLegendaryNPC(new GOTEntityLysaArryn(world), world, -2, 1, 0);
-		}
-	}
-
-	public static class ThreeEyedRaven extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityThreeEyedRaven(world), world, 0, 1, 0);
-		}
-	}
-
-	public static class TugarKhan extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityTugarKhan(world), world, 0, 5, 3);
-		}
-	}
-
-	public static class TwinsLeft extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityBlackWalderFrey(world), world, 0, 1, -15);
-			spawnLegendaryNPC(new GOTEntityLotharFrey(world), world, 0, 1, -15);
-		}
-	}
-
-	public static class TwinsRight extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityWalderFrey(world), world, 0, 1, 15);
-		}
-	}
-
-	public static class TychoNestoris extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityTychoNestoris(world), world, 0, 1, 1);
-		}
-	}
-
-	public static class TytosBlackwood extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityTytosBlackwood(world), world, 2, 1, 0);
-		}
-	}
-
-	public static class TytosBrax extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityTytosBrax(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class WilliamMooton extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityWilliamMooton(world), world, 0, 1, 2);
-		}
-	}
-
-	public static class Winterfell extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityRobbStark(world), world, 2, 1, 2);
-			spawnLegendaryNPC(new GOTEntityHodor(world), world, -2, 1, -2);
-			spawnLegendaryNPC(new GOTEntityAryaStark(world), world, 2, 1, -2);
-			spawnLegendaryNPC(new GOTEntityBranStark(world), world, -2, 1, 2);
-			spawnLegendaryNPC(new GOTEntityRickonStark(world), world, 0, 1, 2);
-			spawnLegendaryNPC(new GOTEntityLuwin(world), world, 0, 1, -2);
-			spawnLegendaryNPC(new GOTEntityOsha(world), world, 2, 1, 0);
-		}
-	}
-
-	public static class WymanManderly extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityWymanManderly(world), world, 0, 1, 5);
-		}
-	}
-
-	public static class XaroXhoanDaxos extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityXaroXhoanDaxos(world), world, 3, 1, 0);
-		}
-	}
-
-	public static class YohnRoyce extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityYohnRoyce(world), world, 2, 1, 0);
-		}
-	}
-
-	public static class Yunkai extends Spawner {
-
-		@Override
-		public void spawnLegendaryNPC(World world) {
-			spawnLegendaryNPC(new GOTEntityDaarioNaharis(world), world, -1, 1, 0);
-			spawnLegendaryNPC(new GOTEntityRazdalMoEraz(world), world, -1, 1, 1);
 		}
 	}
 }
