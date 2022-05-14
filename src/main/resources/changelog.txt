@@ -2,6 +2,7 @@ CHANGELOG
 
 >>VERSION 17.7.3
 + Added full Polish edition (lore, speech, names, quests: prod. Axel)
+* Updated font pack, now with support of extended Latin & Cyrillic alphabets.
 * Fixed bug with road near Bronze Gate & Sarsfield
 
 >>VERSION 17.7.2
