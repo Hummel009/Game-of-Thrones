@@ -4,6 +4,7 @@ CHANGELOG
 + Added full Polish edition (lore, speech, names, quests: prod. Axel)
 * Updated font pack, now with support of extended Latin & Cyrillic alphabets.
 * Fixed bug with road near Bronze Gate & Sarsfield
+* Fixed bug with towers quantity near "Three Towers" waypoint
 
 >>VERSION 17.7.2
 + Greatly improved Polish translation (prod. Axel Snow)

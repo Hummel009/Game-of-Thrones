@@ -142,7 +142,7 @@ public class GOTRoads {
 		GOTRoads.registerRoad(id++, GOTWaypoint.OldOak, near(GOTWaypoint.OldOak, -1, 0));
 		GOTRoads.registerRoad(id++, GOTWaypoint.OldOak, new int[] { 438, 1773 }, GOTWaypoint.Highgarden);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Oldtown, near(GOTWaypoint.Oldtown, -1, 0));
-		GOTRoads.registerRoad(id++, GOTWaypoint.Oldtown, new int[] { 393, 1966 }, new int[] { 377, 1988 }, GOTWaypoint.ThreeTowers);
+		GOTRoads.registerRoad(id++, GOTWaypoint.Oldtown, new int[] { 393, 1966 }, new int[] { 377, 1988 }, near(GOTWaypoint.ThreeTowers1, 1, 0));
 		GOTRoads.registerRoad(id++, GOTWaypoint.Pentos, GOTWaypoint.GhoyanDrohe, GOTWaypoint.NySar, GOTWaypoint.ArNoy);
 		GOTRoads.registerRoad(id++, GOTWaypoint.PortYhos, GOTWaypoint.VaesOrvik);
 		GOTRoads.registerRoad(id++, GOTWaypoint.RamsGate, near(GOTWaypoint.RamsGate, -1, 0));
@@ -167,8 +167,10 @@ public class GOTRoads {
 		GOTRoads.registerRoad(id++, near(GOTWaypoint.TheEyrie, 0, 1), GOTWaypoint.GateOfTheMoon, GOTWaypoint.BloodyGate, GOTWaypoint.CrossroadsInn);
 		GOTRoads.registerRoad(id++, near(GOTWaypoint.TheEyrie, 0, 1), GOTWaypoint.TheEyrie);
 		GOTRoads.registerRoad(id++, near(GOTWaypoint.BloodyGate, 0, -1), GOTWaypoint.BloodyGate);
-		GOTRoads.registerRoad(id++, GOTWaypoint.ThreeTowers, near(GOTWaypoint.ThreeTowers, 1, 0));
-		GOTRoads.registerRoad(id++, GOTWaypoint.ThreeTowers, new int[] { 353, 2005 }, GOTWaypoint.GarnetGrove);
+		GOTRoads.registerRoad(id++, GOTWaypoint.ThreeTowers1, near(GOTWaypoint.ThreeTowers1, 1, 0));
+		GOTRoads.registerRoad(id++, GOTWaypoint.ThreeTowers2, near(GOTWaypoint.ThreeTowers1, 1, 0));
+		GOTRoads.registerRoad(id++, GOTWaypoint.ThreeTowers3, near(GOTWaypoint.ThreeTowers1, 1, 0));
+		GOTRoads.registerRoad(id++, near(GOTWaypoint.ThreeTowers1, 1, 0), new int[] { 353, 2005 }, GOTWaypoint.GarnetGrove);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Tiqui, near(GOTWaypoint.Tiqui, 0, -1));
 		GOTRoads.registerRoad(id++, GOTWaypoint.Tiqui, new int[] { 3240, 2114 }, new int[] { 3193, 2134 }, GOTWaypoint.Eijiang);
 		GOTRoads.registerRoad(id++, GOTWaypoint.Tiqui, new int[] { 3374, 2123 }, new int[] { 3425, 2147 }, GOTWaypoint.Manjin);

@@ -180,7 +180,7 @@ public class GOTFixer {
 		f[55] = new GOTStructureSummerVillage(biome, 0.0f);
 		f[55].affix(GOTWaypoint.Doquu, GOTWaypoint.Ebonhead, GOTWaypoint.GoldenHead, GOTWaypoint.Koj, GOTWaypoint.LastLament, GOTWaypoint.LizardHead, GOTWaypoint.LotusPoint, GOTWaypoint.Naath, GOTWaypoint.Omboru, GOTWaypoint.PearlPalace, GOTWaypoint.RedFlowerVale, GOTWaypoint.SweetLotusVale, GOTWaypoint.TallTreesTown, GOTWaypoint.Walano, GOTWaypoint.Xon);
 		f[56] = new GOTStructureTower(biome, 0.0f);
-		f[56].affix(GOTWaypoint.ThreeTowers.info(-1, -1, 1), GOTWaypoint.ThreeTowers.info(-1, 0, 1), GOTWaypoint.ThreeTowers.info(-1, 1, 1), GOTWaypoint.TowerOfGlimmering, GOTWaypoint.BaelishKeep, GOTWaypoint.HightowerLitehouse, GOTWaypoint.RamseyTower, GOTWaypoint.Standfast, GOTWaypoint.TwinsLeft.info(0, 0, 2), GOTWaypoint.TwinsRight);
+		f[56].affix(GOTWaypoint.ThreeTowers1.info(0, 0, 1), GOTWaypoint.ThreeTowers2.info(0, 0, 1), GOTWaypoint.ThreeTowers3.info(0, 0, 1), GOTWaypoint.TowerOfGlimmering, GOTWaypoint.BaelishKeep, GOTWaypoint.HightowerLitehouse, GOTWaypoint.RamseyTower, GOTWaypoint.Standfast, GOTWaypoint.TwinsLeft.info(0, 0, 2), GOTWaypoint.TwinsRight);
 		f[57] = new GOTStructureTyroshCity(biome, 0.0f).setIsTown();
 		f[57].affix(GOTWaypoint.Tyrosh);
 		f[58] = new GOTStructureIronbornCity(biome, 0.0f).setIsCamp();
