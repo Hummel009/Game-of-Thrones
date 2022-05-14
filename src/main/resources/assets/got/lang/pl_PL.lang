@@ -2526,59 +2526,59 @@ got.miniquest.welcome.speak=Porozmawiaj z Szarym Wędrowcem
 got.music.nowPlaying=Teraz odtwarzane:
 got.potion.drinkPoison=Zatruty napój
 got.potion=Przewlekły
-got.rank.ARRYN≠
-got.rank.ASSHAI≠
-got.rank.BRAAVOS≠
-got.rank.CROWNLANDS≠
-got.rank.DORNE≠
-got.rank.DOTHRAKI≠
-got.rank.DRAGONSTONE≠
-got.rank.GHISCAR≠
-got.rank.HILL_TRIBES≠
-got.rank.HOSTILE≠
-got.rank.IBBEN≠
-got.rank.IRONBORN≠
-got.rank.JOGOS≠
-got.rank.LHAZAR≠
-got.rank.LORATH≠
-got.rank.LYS≠
-got.rank.MOSSOVY≠
-got.rank.MYR≠
-got.rank.NIGHT_WATCH≠
-got.rank.NORTH≠
-got.rank.NORVOS≠
-got.rank.PENTOS≠
-got.rank.QARTH≠
-got.rank.QOHOR≠
-got.rank.REACH≠
-got.rank.RIVERLANDS≠
-got.rank.SOTHORYOS≠
-got.rank.STORMLANDS≠
-got.rank.SUMMER_ISLANDS≠
-got.rank.TYROSH≠
-got.rank.ULTHOS≠
-got.rank.UNALIGNED≠
-got.rank.VOLANTIS≠
-got.rank.WESTERLANDS≠
-got.rank.WHITE_WALKER≠
-got.rank.WILDLING≠
-got.rank.YI_TI≠
-got.rank.defender_fm≠
-got.rank.defender≠
-got.rank.enemy_fm≠
-got.rank.enemy≠
-got.rank.friend_fm≠
-got.rank.friend≠
-got.rank.guest_fm≠
-got.rank.guest≠
-got.rank.hero_fm≠
-got.rank.hero≠
-got.rank.king_fm≠
-got.rank.king≠
-got.rank.leader_fm≠
-got.rank.leader≠
-got.rank.neutral_fm≠
-got.rank.neutral≠
+got.rank.ARRYN=Arrynów
+got.rank.ASSHAI=Asshai
+got.rank.BRAAVOS=Braavos
+got.rank.CROWNLANDS=Królewskich Ziem
+got.rank.DORNE=Dorne
+got.rank.DOTHRAKI=Dothraków
+got.rank.DRAGONSTONE=Dragonstone
+got.rank.GHISCAR=GHISCAR
+got.rank.HILL_TRIBES=Górskich Plemion
+got.rank.HOSTILE=Wrogów
+got.rank.IBBEN=Ibben
+got.rank.IRONBORN=Żelaznych Wysp
+got.rank.JOGOS=Jogos
+got.rank.LHAZAR=Lhazarów
+got.rank.LORATH=Lorath
+got.rank.LYS=Lys
+got.rank.MOSSOVY=Mossovy
+got.rank.MYR=Myr
+got.rank.NIGHT_WATCH=Nocnej Straży
+got.rank.NORTH=Północy
+got.rank.NORVOS=Norvos
+got.rank.PENTOS=Pentos
+got.rank.QARTH=Qarth
+got.rank.QOHOR=Qohor
+got.rank.REACH=Reach
+got.rank.RIVERLANDS=Dorzecza
+got.rank.SOTHORYOS=Sothoryos
+got.rank.STORMLANDS=Stormlans
+got.rank.SUMMER_ISLANDS=Słonecznych Wysp
+got.rank.TYROSH=Tyrosh
+got.rank.ULTHOS=Ulthos
+got.rank.UNALIGNED=Unaligned
+got.rank.VOLANTIS=Volantis
+got.rank.WESTERLANDS=Ludzi Zachodu
+got.rank.WHITE_WALKER=Białych Wędrowców
+got.rank.WILDLING=Dzikich
+got.rank.YI_TI=Yi Ti
+got.rank.defender_fm=Lord
+got.rank.defender=Lord
+got.rank.enemy_fm=Wróg
+got.rank.enemy=Wróg
+got.rank.friend_fm=Przyjaciel
+got.rank.friend=Przyjaciel
+got.rank.guest_fm=Znajomy
+got.rank.guest=Znajomy
+got.rank.hero_fm=Kapitan
+got.rank.hero=Kapitan
+got.rank.king_fm=Król
+got.rank.king=Król
+got.rank.leader_fm=Przywódca
+got.rank.leader=Przywódca
+got.rank.neutral_fm=Neutralny
+got.rank.neutral=Neutralny
 got.shields.ACHIEVEMENT_BRONZE.desc=Nagroda za zdobycie 25 osiągnięć w Gry o tron
 got.shields.ACHIEVEMENT_BRONZE.name=Brązowa tarcza poszukiwacza przygód
 got.shields.ACHIEVEMENT_GOLD.desc=Nagroda za zdobycie 100 osiągnięć w Gry o tron
