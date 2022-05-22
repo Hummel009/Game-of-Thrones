@@ -30,8 +30,6 @@ public class GOTLevelData {
 	public static int gameOfThronesPortalX;
 	public static int gameOfThronesPortalY;
 	public static int gameOfThronesPortalZ;
-	public static int waypointCooldownMax;
-	public static int waypointCooldownMin;
 	public static int structuresBanned;
 	public static float conquestRate;
 	public static int clientside_thisServer_fellowshipMaxSize;
@@ -179,14 +177,6 @@ public class GOTLevelData {
 		return difficulty;
 	}
 
-	public static int getWaypointCooldownMax() {
-		return waypointCooldownMax;
-	}
-
-	public static int getWaypointCooldownMin() {
-		return waypointCooldownMin;
-	}
-
 	public static boolean isDifficultyLocked() {
 		return difficultyLock;
 	}
@@ -220,8 +210,6 @@ public class GOTLevelData {
 			gameOfThronesPortalY = levelData.getInteger("GameOfThronesY");
 			gameOfThronesPortalZ = levelData.getInteger("GameOfThronesZ");
 			structuresBanned = levelData.getInteger("StructuresBanned");
-			waypointCooldownMax = levelData.hasKey("FastTravel") ? levelData.getInteger("FastTravel") / 20 : levelData.hasKey("WpCdMax") ? levelData.getInteger("WpCdMax") : 600;
-			waypointCooldownMin = levelData.hasKey("FastTravelMin") ? levelData.getInteger("FastTravelMin") / 20 : levelData.hasKey("WpCdMin") ? levelData.getInteger("WpCdMin") : 60;
 			conquestRate = levelData.hasKey("ConqRate") ? levelData.getFloat("ConqRate") : 1.0f;
 			if (levelData.hasKey("SavedDifficulty")) {
 				int id = levelData.getInteger("SavedDifficulty");
@@ -301,8 +289,6 @@ public class GOTLevelData {
 				levelData.setInteger("GameOfThronesY", gameOfThronesPortalY);
 				levelData.setInteger("GameOfThronesZ", gameOfThronesPortalZ);
 				levelData.setInteger("StructuresBanned", structuresBanned);
-				levelData.setInteger("WpCdMax", waypointCooldownMax);
-				levelData.setInteger("WpCdMin", waypointCooldownMin);
 				levelData.setFloat("ConqRate", conquestRate);
 				if (difficulty != null) {
 					levelData.setInteger("SavedDifficulty", difficulty.getDifficultyId());
@@ -457,8 +443,6 @@ public class GOTLevelData {
 		packet.ringPortalX = gameOfThronesPortalX;
 		packet.ringPortalY = gameOfThronesPortalY;
 		packet.ringPortalZ = gameOfThronesPortalZ;
-		packet.ftCooldownMax = waypointCooldownMax;
-		packet.ftCooldownMin = waypointCooldownMin;
 		packet.difficulty = difficulty;
 		packet.difficultyLocked = difficultyLock;
 		packet.feastMode = GOTConfig.canAlwaysEat;
@@ -568,25 +552,6 @@ public class GOTLevelData {
 	public static void setStructuresBanned(boolean banned) {
 		structuresBanned = banned ? 1 : 0;
 		GOTLevelData.markDirty();
-	}
-
-	public static void setWaypointCooldown(int max, int min) {
-		max = Math.max(0, max);
-		min = Math.max(0, min);
-		if (min > max) {
-			min = max;
-		}
-		waypointCooldownMax = max;
-		waypointCooldownMin = min;
-		GOTLevelData.markDirty();
-		if (!GOT.proxy.isClient()) {
-			List players = MinecraftServer.getServer().getConfigurationManager().playerEntityList;
-			for (Object player : players) {
-				EntityPlayerMP entityplayer = (EntityPlayerMP) player;
-				GOTPacketFTCooldown packet = new GOTPacketFTCooldown(waypointCooldownMax, waypointCooldownMin);
-				GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
-			}
-		}
 	}
 
 	public static boolean structuresBanned() {

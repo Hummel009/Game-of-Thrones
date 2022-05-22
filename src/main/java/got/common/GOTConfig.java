@@ -90,6 +90,8 @@ public class GOTConfig {
 	public static int fellowshipMaxSize;
 	public static int playerDataClearingInterval;
 	public static int MIN_PLAYER_DATA_CLEARING_INTERVAL = 600;
+	public static int getWaypointCooldownMin;
+	public static int getWaypointCooldownMax;
 
 	static {
 		allCategories = new ArrayList<>();
@@ -135,6 +137,8 @@ public class GOTConfig {
 	}
 
 	public static void load() {
+		getWaypointCooldownMin = config.get(CATEGORY_GAMEPLAY, "Waypoint travel time (min, in seconds)", 0).getInt();
+		getWaypointCooldownMax = config.get(CATEGORY_GAMEPLAY, "Waypoint travel time (avg, in seconds)", 600).getInt();
 		languageCode = config.getString("languageCode", CATEGORY_LANGUAGE, languageCode, "Choose:" + GOT.langsName + ".");
 		enableSnowyLeaves = config.get(CATEGORY_GAMEPLAY, "Enable Snowy Leaves", false).getBoolean();
 		clearMap = config.get(CATEGORY_GAMEPLAY, "No fixed structures and characters", false, "Useful for servers. Disable fixed structures to build your own").getBoolean();

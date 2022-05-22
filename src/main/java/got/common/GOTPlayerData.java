@@ -110,7 +110,7 @@ public class GOTPlayerData {
 	public GOTPlayerData(UUID uuid) {
 		playerUUID = uuid;
 		viewingFaction = GOTFaction.NORTH;
-		ftSinceTick = GOTLevelData.getWaypointCooldownMax() * 20;
+		ftSinceTick = GOTConfig.getWaypointCooldownMax * 20;
 	}
 
 	public void acceptFellowshipInvite(GOTFellowship fs, boolean respectSizeLimit) {
@@ -1202,8 +1202,8 @@ public class GOTPlayerData {
 	}
 
 	public int getWaypointFTTime(GOTAbstractWaypoint wp, EntityPlayer entityplayer) {
-		int baseMin = GOTLevelData.getWaypointCooldownMin();
-		int baseMax = GOTLevelData.getWaypointCooldownMax();
+		int baseMin = GOTConfig.getWaypointCooldownMin; 
+		int baseMax = GOTConfig.getWaypointCooldownMax;
 		int useCount = getWPUseCount(wp);
 		double dist = entityplayer.getDistance(wp.getXCoord() + 0.5, wp.getYCoordSaved(), wp.getZCoord() + 0.5);
 		double time = baseMin;
