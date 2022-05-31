@@ -4,12 +4,10 @@
 .project
 .settings
 bin
-build
-build.bat
-build.gradle
+build/classes
+build/resources
+build/sources
+build/taskLogs
+build/tmp
 eclipse
-gradle
-gradlew
-gradlew.bat
-libs
 lotr
