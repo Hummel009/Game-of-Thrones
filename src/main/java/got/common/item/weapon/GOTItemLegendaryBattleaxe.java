@@ -5,17 +5,14 @@ import net.minecraft.item.Item;
 
 public class GOTItemLegendaryBattleaxe extends GOTItemBattleaxe {
 	public GOTItemLegendaryBattleaxe(GOTMaterial material) {
-		super(material.toToolMaterial());
-		setMaxDamage(1500);
-		gotWeaponDamage = 9.0f;
-		setCreativeTab(GOTCreativeTabs.tabStory);
+		this(material.toToolMaterial());
 		gotMaterial = material;
 	}
 
 	public GOTItemLegendaryBattleaxe(Item.ToolMaterial material) {
 		super(material);
 		setMaxDamage(1500);
-		gotWeaponDamage = 9.0f;
+		gotWeaponDamage = 12.0f;
 		setCreativeTab(GOTCreativeTabs.tabStory);
 	}
 }

@@ -1,55 +1,27 @@
 package got.common.item.weapon;
 
 import got.common.database.*;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.*;
-import net.minecraft.potion.*;
+import net.minecraft.item.Item;
 
-public class GOTItemLegendaryDagger extends GOTItemSword {
-	public DaggerEffect effect;
-
+public class GOTItemLegendaryDagger extends GOTItemDagger {
 	public GOTItemLegendaryDagger(GOTMaterial material) {
-		this(material, DaggerEffect.NONE);
+		this(material.toToolMaterial(), HitEffect.NONE);
 		gotMaterial = material;
 	}
 
-	public GOTItemLegendaryDagger(GOTMaterial material, DaggerEffect e) {
+	public GOTItemLegendaryDagger(GOTMaterial material, HitEffect e) {
 		this(material.toToolMaterial(), e);
 		gotMaterial = material;
 	}
 
 	public GOTItemLegendaryDagger(Item.ToolMaterial material) {
-		this(material, DaggerEffect.NONE);
+		this(material, HitEffect.NONE);
 	}
 
-	public GOTItemLegendaryDagger(Item.ToolMaterial material, DaggerEffect e) {
-		super(material);
+	public GOTItemLegendaryDagger(Item.ToolMaterial material, HitEffect e) {
+		super(material, e);
 		setMaxDamage(1500);
-		gotWeaponDamage = 5.0f;
-		effect = e;
+		gotWeaponDamage = 6.0f;
 		setCreativeTab(GOTCreativeTabs.tabStory);
-	}
-
-	public DaggerEffect getDaggerEffect() {
-		return effect;
-	}
-
-	@Override
-	public boolean hitEntity(ItemStack itemstack, EntityLivingBase hitEntity, EntityLivingBase user) {
-		itemstack.damageItem(1, user);
-		if (effect == DaggerEffect.NONE) {
-			return true;
-		}
-		if (effect == DaggerEffect.POISON) {
-			hitEntity.addPotionEffect(new PotionEffect(Potion.poison.id, 600));
-		}
-		if (effect == DaggerEffect.FIRE) {
-			hitEntity.setFire(30);
-		}
-		return true;
-	}
-
-	public enum DaggerEffect {
-		NONE, FIRE, POISON;
 	}
 }

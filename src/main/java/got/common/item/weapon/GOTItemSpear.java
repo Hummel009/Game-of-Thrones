@@ -4,7 +4,6 @@ import got.common.database.GOTMaterial;
 import got.common.dispense.GOTDispenseSpear;
 import got.common.enchant.*;
 import got.common.entity.other.GOTEntitySpear;
-import got.common.item.GOTMaterialFinder;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.enchantment.*;
 import net.minecraft.entity.*;
@@ -12,9 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.*;
 import net.minecraft.world.World;
 
-public class GOTItemSpear extends GOTItemSword implements GOTMaterialFinder {
-	public GOTMaterial gotMaterial;
-
+public class GOTItemSpear extends GOTItemSword {
 	public GOTItemSpear(GOTMaterial material) {
 		this(material.toToolMaterial());
 		gotMaterial = material;
@@ -29,11 +26,6 @@ public class GOTItemSpear extends GOTItemSword implements GOTMaterialFinder {
 	@Override
 	public EnumAction getItemUseAction(ItemStack itemstack) {
 		return EnumAction.bow;
-	}
-
-	@Override
-	public GOTMaterial getMaterial() {
-		return gotMaterial;
 	}
 
 	public int getMaxDrawTime() {

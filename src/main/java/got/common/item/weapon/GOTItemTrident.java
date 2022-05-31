@@ -12,8 +12,6 @@ import net.minecraft.util.*;
 import net.minecraft.world.World;
 
 public class GOTItemTrident extends GOTItemPolearm implements GOTMaterialFinder {
-	public GOTMaterial gotMaterial;
-
 	public GOTItemTrident(GOTMaterial material) {
 		this(material.toToolMaterial());
 		gotMaterial = material;
@@ -45,11 +43,6 @@ public class GOTItemTrident extends GOTItemPolearm implements GOTMaterialFinder 
 	@Override
 	public EnumAction getItemUseAction(ItemStack itemstack) {
 		return EnumAction.bow;
-	}
-
-	@Override
-	public GOTMaterial getMaterial() {
-		return gotMaterial;
 	}
 
 	@Override

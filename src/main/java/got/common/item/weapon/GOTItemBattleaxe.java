@@ -1,15 +1,13 @@
 package got.common.item.weapon;
 
 import got.common.database.GOTMaterial;
-import got.common.item.GOTMaterialFinder;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.*;
 import net.minecraft.world.World;
 
-public class GOTItemBattleaxe extends GOTItemSword implements GOTMaterialFinder {
-	public GOTMaterial gotMaterial;
+public class GOTItemBattleaxe extends GOTItemSword {
 	public float efficiencyOnProperMaterial;
 
 	public GOTItemBattleaxe(GOTMaterial material) {
@@ -36,11 +34,6 @@ public class GOTItemBattleaxe extends GOTItemSword implements GOTMaterialFinder 
 	@Override
 	public EnumAction getItemUseAction(ItemStack itemstack) {
 		return EnumAction.none;
-	}
-
-	@Override
-	public GOTMaterial getMaterial() {
-		return gotMaterial;
 	}
 
 	@Override
