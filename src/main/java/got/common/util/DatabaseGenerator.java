@@ -1310,7 +1310,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
 			}
-			if (("entityImmuneToFire".equals(display) && entities.get(mob).isImmuneToFire()) || ("entityFarmhand".equals(display) && entities.get(mob) instanceof GOTFarmhand)) {
+			if ("entityImmuneToFire".equals(display) && entities.get(mob).isImmuneToFire() || "entityFarmhand".equals(display) && entities.get(mob) instanceof GOTFarmhand) {
 				GOTLog.logger.info("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				continue;
 			}

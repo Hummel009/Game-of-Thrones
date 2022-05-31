@@ -2444,7 +2444,7 @@ public class GOTRegistry {
 		tidewings = new GOTItemLegendarySword(GOTMaterial.VALYRIAN);
 		tinIngot = new Item().setCreativeTab(GOTCreativeTabs.tabMaterials);
 		topaz = new GOTItemGemWithAnvilNameColor(EnumChatFormatting.GOLD);
-		tormundSword = new GOTItemLegendarySword(GOTMaterial.STEEL); 
+		tormundSword = new GOTItemLegendarySword(GOTMaterial.STEEL);
 		trident = new GOTItemTrident(GOTMaterial.STEEL);
 		truth = new GOTItemLegendarySword(GOTMaterial.VALYRIAN);
 		trystaneSword = new GOTItemLegendarySword(GOTMaterial.DORNE);

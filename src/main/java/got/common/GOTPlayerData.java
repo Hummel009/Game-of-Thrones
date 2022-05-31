@@ -1202,7 +1202,7 @@ public class GOTPlayerData {
 	}
 
 	public int getWaypointFTTime(GOTAbstractWaypoint wp, EntityPlayer entityplayer) {
-		int baseMin = GOTConfig.getWaypointCooldownMin; 
+		int baseMin = GOTConfig.getWaypointCooldownMin;
 		int baseMax = GOTConfig.getWaypointCooldownMax;
 		int useCount = getWPUseCount(wp);
 		double dist = entityplayer.getDistance(wp.getXCoord() + 0.5, wp.getYCoordSaved(), wp.getZCoord() + 0.5);

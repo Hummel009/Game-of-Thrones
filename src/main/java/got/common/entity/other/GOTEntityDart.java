@@ -1,7 +1,7 @@
 package got.common.entity.other;
 
 import got.common.item.other.GOTItemDart;
-import got.common.item.weapon.GOTItemDagger;
+import got.common.item.weapon.GOTItemSword;
 import net.minecraft.entity.*;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NBTTagCompound;
@@ -49,7 +49,7 @@ public class GOTEntityDart extends GOTEntityProjectileBase {
 		Item item;
 		ItemStack itemstack;
 		if (!worldObj.isRemote && entity instanceof EntityLivingBase && (itemstack = getProjectileItem()) != null && (item = itemstack.getItem()) instanceof GOTItemDart && ((GOTItemDart) item).isPoisoned) {
-			GOTItemDagger.applyStandardPoison((EntityLivingBase) entity);
+			GOTItemSword.applyStandardPoison((EntityLivingBase) entity);
 		}
 		super.onCollideWithTarget(entity);
 	}

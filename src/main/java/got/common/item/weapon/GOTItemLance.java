@@ -10,7 +10,7 @@ import net.minecraft.item.Item;
 public class GOTItemLance extends GOTItemPolearmLong implements GOTMaterialFinder {
 	public static UUID lanceSpeedBoost_id = UUID.fromString("4da96302-7457-42ed-9709-f1be0c465ec3");
 	public static AttributeModifier lanceSpeedBoost = new AttributeModifier(lanceSpeedBoost_id, "Lance speed boost", -0.2, 2).setSaved(false);
-	
+
 	public GOTItemLance(GOTMaterial material) {
 		this(material.toToolMaterial());
 		gotMaterial = material;

@@ -24,6 +24,16 @@ public class GOTItemSword extends ItemSword implements GOTMaterialFinder {
 	public GOTMaterial gotMaterial;
 	public HitEffect effect;
 
+	public GOTItemSword(GOTMaterial material) {
+		this(material.toToolMaterial(), HitEffect.NONE);
+		gotMaterial = material;
+	}
+
+	public GOTItemSword(GOTMaterial material, HitEffect e) {
+		this(material.toToolMaterial(), e);
+		gotMaterial = material;
+	}
+
 	public GOTItemSword(Item.ToolMaterial material) {
 		super(material);
 		setCreativeTab(GOTCreativeTabs.tabCombat);
@@ -35,16 +45,6 @@ public class GOTItemSword extends ItemSword implements GOTMaterialFinder {
 		effect = e;
 	}
 
-	public GOTItemSword(GOTMaterial material) {
-		this(material.toToolMaterial(), HitEffect.NONE);
-		gotMaterial = material;
-	}
-
-	public GOTItemSword(GOTMaterial material, HitEffect e) {
-		this(material.toToolMaterial(), e);
-		gotMaterial = material;
-	}
-
 	public GOTItemSword addWeaponDamage(float f) {
 		gotWeaponDamage += f;
 		return this;
@@ -52,6 +52,10 @@ public class GOTItemSword extends ItemSword implements GOTMaterialFinder {
 
 	public float getGOTWeaponDamage() {
 		return gotWeaponDamage;
+	}
+
+	public HitEffect getHitEffect() {
+		return effect;
 	}
 
 	@Override
@@ -65,6 +69,21 @@ public class GOTItemSword extends ItemSword implements GOTMaterialFinder {
 	@Override
 	public GOTMaterial getMaterial() {
 		return gotMaterial;
+	}
+
+	@Override
+	public boolean hitEntity(ItemStack itemstack, EntityLivingBase hitEntity, EntityLivingBase user) {
+		itemstack.damageItem(1, user);
+		if (effect == HitEffect.NONE) {
+			return true;
+		}
+		if (effect == HitEffect.POISON) {
+			applyStandardPoison(hitEntity);
+		}
+		if (effect == HitEffect.FIRE) {
+			hitEntity.setFire(30);
+		}
+		return true;
 	}
 
 	public boolean isGlowing() {
@@ -100,25 +119,6 @@ public class GOTItemSword extends ItemSword implements GOTMaterialFinder {
 
 	public static UUID accessWeaponDamageModifier() {
 		return field_111210_e;
-	}
-
-	public HitEffect getHitEffect() {
-		return effect;
-	}
-
-	@Override
-	public boolean hitEntity(ItemStack itemstack, EntityLivingBase hitEntity, EntityLivingBase user) {
-		itemstack.damageItem(1, user);
-		if (effect == HitEffect.NONE) {
-			return true;
-		}
-		if (effect == HitEffect.POISON) {
-			applyStandardPoison(hitEntity);
-		}
-		if (effect == HitEffect.FIRE) {
-			hitEntity.setFire(30);
-		}
-		return true;
 	}
 
 	public static void applyStandardPoison(EntityLivingBase entity) {

@@ -8,7 +8,7 @@ import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.westeros.crownlands.*;
 import got.common.entity.westeros.westerlands.GOTEntityWesterlandsSoldier;
 import got.common.world.biome.GOTBiome;
-import got.common.world.map.*;
+import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
 import got.common.world.structure.westeros.common.*;
 import net.minecraft.block.Block;

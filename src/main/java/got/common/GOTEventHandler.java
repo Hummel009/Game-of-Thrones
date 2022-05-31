@@ -988,7 +988,7 @@ public class GOTEventHandler implements IFuelHandler {
 			}
 		}
 		if (event.source.getSourceOfDamage() instanceof GOTEntityArrowPoisoned && !world.isRemote) {
-			GOTItemDagger.applyStandardPoison(entity);
+			GOTItemSword.applyStandardPoison(entity);
 		}
 		if (event.source.getSourceOfDamage() instanceof GOTEntityArrowFire && !world.isRemote) {
 			entity.setFire(30);

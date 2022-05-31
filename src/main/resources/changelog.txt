@@ -3,6 +3,8 @@ CHANGELOG
 >>VERSION 17.7.3
 + Added full Polish edition (lore, speech, names, quests: prod. Axel)
 * Updated font pack, now with support of extended Latin & Cyrillic alphabets.
+* Recoded cold weapon, some bugs and strange stats can be fixed.
+
 * Fixed bug with road near Bronze Gate & Sarsfield
 * Fixed bug with towers quantity near "Three Towers" waypoint
 * Fixed bug with waypoint cooldown
