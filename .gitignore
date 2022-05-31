@@ -1,0 +1,15 @@
+
+.classpath
+.gradle
+.project
+.settings
+bin
+build
+build.bat
+build.gradle
+eclipse
+gradle
+gradlew
+gradlew.bat
+libs
+lotr
