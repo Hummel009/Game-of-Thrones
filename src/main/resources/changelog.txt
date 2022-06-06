@@ -7,7 +7,6 @@ CHANGELOG
 
 * Fixed bug with road near Bronze Gate & Sarsfield
 * Fixed bug with towers quantity near "Three Towers" waypoint
-* Fixed bug with waypoint cooldown
 
 >>VERSION 17.7.2
 + Greatly improved Polish translation (prod. Axel Snow)

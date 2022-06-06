@@ -146,6 +146,7 @@ public class GOT {
 		command.add(new GOTCommandAlignment());
 		command.add(new GOTCommandSummon());
 		command.add(new GOTCommandFastTravelClock());
+		command.add(new GOTCommandWaypointCooldown());
 		command.add(new GOTCommandDate());
 		command.add(new GOTCommandWaypoints());
 		command.add(new GOTCommandAlignmentSee());

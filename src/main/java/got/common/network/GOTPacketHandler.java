@@ -62,6 +62,7 @@ public class GOTPacketHandler {
 		networkWrapper.registerMessage(GOTPacketEnvironmentOverlay.Handler.class, GOTPacketEnvironmentOverlay.class, id++, Side.CLIENT);
 		networkWrapper.registerMessage(GOTPacketFTBounceClient.Handler.class, GOTPacketFTBounceClient.class, id++, Side.CLIENT);
 		networkWrapper.registerMessage(GOTPacketFTBounceServer.Handler.class, GOTPacketFTBounceServer.class, id++, Side.SERVER);
+		networkWrapper.registerMessage(GOTPacketFTCooldown.Handler.class, GOTPacketFTCooldown.class, id++, Side.CLIENT);
 		networkWrapper.registerMessage(GOTPacketFTScreen.Handler.class, GOTPacketFTScreen.class, id++, Side.CLIENT);
 		networkWrapper.registerMessage(GOTPacketFTTimer.Handler.class, GOTPacketFTTimer.class, id++, Side.CLIENT);
 		networkWrapper.registerMessage(GOTPacketFactionData.Handler.class, GOTPacketFactionData.class, id++, Side.CLIENT);

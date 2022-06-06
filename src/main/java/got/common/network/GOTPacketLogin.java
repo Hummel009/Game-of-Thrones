@@ -70,6 +70,7 @@ public class GOTPacketLogin implements IMessage {
 			GOTLevelData.gameOfThronesPortalY = packet.ringPortalY;
 			GOTLevelData.gameOfThronesPortalZ = packet.ringPortalZ;
 			GOTLevelData.clientside_thisServer_fellowshipMaxSize = packet.fellowshipMaxSize;
+			GOTLevelData.setWaypointCooldown(packet.ftCooldownMax, packet.ftCooldownMin);
 			EnumDifficulty diff = packet.difficulty;
 			if (diff != null) {
 				GOTLevelData.setSavedDifficulty(diff);
