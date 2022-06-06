@@ -90,6 +90,7 @@ public class GOTConfig {
 	public static int fellowshipMaxSize;
 	public static int playerDataClearingInterval;
 	public static int MIN_PLAYER_DATA_CLEARING_INTERVAL = 600;
+	public static boolean enableFellowshipCreation;
 
 	static {
 		allCategories = new ArrayList<>();
@@ -137,7 +138,8 @@ public class GOTConfig {
 	public static void load() {
 		languageCode = config.getString("languageCode", CATEGORY_LANGUAGE, languageCode, "Choose:" + GOT.langsName + ".");
 		enableSnowyLeaves = config.get(CATEGORY_GAMEPLAY, "Enable Snowy Leaves", false).getBoolean();
-		clearMap = config.get(CATEGORY_GAMEPLAY, "No fixed structures and characters", false, "Useful for servers. Disable fixed structures to build your own").getBoolean();
+		enableFellowshipCreation = config.get(CATEGORY_GAMEPLAY, "Enable Fellowship creation", true, "If disabled, admins can still create Fellowships using the command").getBoolean();
+        clearMap = config.get(CATEGORY_GAMEPLAY, "No fixed structures and characters", false, "Useful for servers. Disable fixed structures to build your own").getBoolean();
 		allowBannerProtection = config.get(CATEGORY_GAMEPLAY, "Allow Banner Protection", true).getBoolean();
 		allowSelfProtectingBanners = config.get(CATEGORY_GAMEPLAY, "Allow Self-Protecting Banners", true).getBoolean();
 		allowMiniquests = config.get(CATEGORY_GAMEPLAY, "NPCs give mini-quests", true).getBoolean();
@@ -241,6 +243,13 @@ public class GOTConfig {
 		config.getCategory(CATEGORY_GUI).get("Map Labels - Conquest").set(mapLabelsConquest);
 		config.save();
 	}
+
+    public static boolean isFellowshipCreationEnabled(World world) {
+        if (!world.isRemote) {
+            return enableFellowshipCreation;
+        }
+        return GOTLevelData.clientside_thisServer_fellowshipCreation;
+    }
 
 	public static void toggleSepia() {
 		enableSepiaMap = !enableSepiaMap;

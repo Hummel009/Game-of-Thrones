@@ -99,12 +99,12 @@ public class GOTPlayerData {
 	private boolean structuresBanned = false;
 	private GOTPlayerQuestData questData = new GOTPlayerQuestData(this);
 	private int siegeActiveTime;
+	private boolean teleportedKW;
 	private GOTCapes cape;
 	private int balance;
 	private boolean checkedMenu;
 	private boolean askedForJaqen;
 	private boolean tableSwitched;
-	private boolean teleportedKW;
 
 	public GOTPlayerData(UUID uuid) {
 		playerUUID = uuid;
@@ -176,9 +176,10 @@ public class GOTPlayerData {
 				List<GOTAchievement> earnedAchievements = getEarnedAchievements(GOTDimension.GAME_OF_THRONES);
 				int biomes = 0;
 				for (GOTAchievement earnedAchievement : earnedAchievements) {
-					if (earnedAchievement.isBiomeAchievement) {
-						++biomes;
+					if (!earnedAchievement.isBiomeAchievement) {
+						continue;
 					}
+					++biomes;
 				}
 				if (biomes >= 10) {
 					addAchievement(GOTAchievement.TRAVEL10);
@@ -640,7 +641,7 @@ public class GOTPlayerData {
 	}
 
 	public void createFellowship(String name, boolean normalCreation) {
-		if (normalCreation && (false || !canCreateFellowships(false))) {
+		if (normalCreation && (!GOTConfig.enableFellowshipCreation || !canCreateFellowships(false))) {
 			return;
 		}
 		if (!anyMatchingFellowshipNames(name, false)) {
@@ -1165,7 +1166,7 @@ public class GOTPlayerData {
 		return targetFTWaypoint;
 	}
 
-	public boolean getTeleportedME() {
+	public boolean getTeleportedKW() {
 		return teleportedKW;
 	}
 
@@ -1318,25 +1319,6 @@ public class GOTPlayerData {
 		return unlockedFTRegions.contains(region);
 	}
 
-	public GOTMaterial isPlayerWearingFull(EntityPlayer entityplayer) {
-		GOTMaterial fullMaterial = null;
-		for (ItemStack itemstack : entityplayer.inventory.armorInventory) {
-			if (itemstack != null && itemstack.getItem() instanceof GOTItemArmor) {
-				GOTItemArmor armor = (GOTItemArmor) itemstack.getItem();
-				GOTMaterial thisMaterial = armor.getGOTArmorMaterial();
-				if (fullMaterial == null) {
-					fullMaterial = thisMaterial;
-					continue;
-				}
-				if (fullMaterial == thisMaterial) {
-					continue;
-				}
-			}
-			return null;
-		}
-		return fullMaterial;
-	}
-
 	public boolean isPledgedTo(GOTFaction fac) {
 		return pledgeFaction == fac;
 	}
@@ -1411,9 +1393,6 @@ public class GOTPlayerData {
 			}
 			alignments.put(faction2, alignment);
 		}
-		if (playerData.hasKey("TableSwitched")) {
-			tableSwitched = playerData.getBoolean("TableSwitched");
-		}
 		factionDataMap.clear();
 		NBTTagList factionDataTags = playerData.getTagList("FactionData", 10);
 		for (int i = 0; i < factionDataTags.tagCount(); ++i) {
@@ -1426,9 +1405,6 @@ public class GOTPlayerData {
 			data.load(nbt);
 			factionDataMap.put(faction3, data);
 		}
-		balance = playerData.getInteger("Balance");
-		checkedMenu = playerData.getBoolean("CheckedMenu");
-		askedForJaqen = playerData.getBoolean("AskedForJaqen");
 		if (playerData.hasKey("CurrentFaction") && (cur = GOTFaction.forName(playerData.getString("CurrentFaction"))) != null) {
 			viewingFaction = cur;
 		}
@@ -1494,10 +1470,6 @@ public class GOTPlayerData {
 		shield = null;
 		if (playerData.hasKey("Shield") && (savedShield = GOTShields.shieldForName(playerData.getString("Shield"))) != null) {
 			shield = savedShield;
-		}
-		cape = null;
-		if (playerData.hasKey("Cape") && (savedCape = GOTCapes.capeForName(playerData.getString("Cape"))) != null) {
-			cape = savedCape;
 		}
 		if (playerData.hasKey("FriendlyFire")) {
 			friendlyFire = playerData.getBoolean("FriendlyFire");
@@ -1701,11 +1673,20 @@ public class GOTPlayerData {
 			chatBoundFellowshipID = fsID;
 		}
 		structuresBanned = playerData.getBoolean("StructuresBanned");
-		teleportedKW = playerData.getBoolean("TeleportedME");
 		if (playerData.hasKey("QuestData")) {
 			NBTTagCompound questNBT = playerData.getCompoundTag("QuestData");
 			questData.load(questNBT);
 		}
+
+		askedForJaqen = playerData.getBoolean("AskedForJaqen");
+		balance = playerData.getInteger("Balance");
+		cape = null;
+		if (playerData.hasKey("Cape") && (savedCape = GOTCapes.capeForName(playerData.getString("Cape"))) != null) {
+			cape = savedCape;
+		}
+		checkedMenu = playerData.getBoolean("CheckedMenu");
+		tableSwitched = playerData.getBoolean("TableSwitched");
+		teleportedKW = playerData.getBoolean("TeleportedKW");
 	}
 
 	public void lockFTRegion(GOTWaypoint.Region region) {
@@ -1748,7 +1729,6 @@ public class GOTPlayerData {
 		}
 		questData.onUpdate(entityplayer, world);
 		if (!isSiegeActive()) {
-			searchForBiomeWaypoints(entityplayer, world);
 			runAchievementChecks(entityplayer, world);
 		}
 		if (!checkedMenu) {
@@ -2108,16 +2088,17 @@ public class GOTPlayerData {
 		MathHelper.floor_double(entityplayer.boundingBox.minY);
 		int k = MathHelper.floor_double(entityplayer.posZ);
 		BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
-		ItemArmor.ArmorMaterial material = getFullArmorMaterial(entityplayer);
 		if (biome instanceof GOTBiome) {
+			Region biomeRegion;
 			GOTBiome gotbiome = (GOTBiome) biome;
 			GOTAchievement ach = gotbiome.getBiomeAchievement();
 			if (ach != null) {
 				addAchievement(ach);
 			}
-		}
-		if (GOTAchievement.armorAchievements.containsKey(material)) {
-			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.armorAchievements.get(material));
+			biomeRegion = gotbiome.getBiomeWaypoints();
+			if (biomeRegion != null) {
+				unlockFTRegion(biomeRegion);
+			}
 		}
 		if (entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) {
 			addAchievement(GOTAchievement.ENTER_GOT);
@@ -2150,6 +2131,10 @@ public class GOTPlayerData {
 			if (hiredUnits >= 100) {
 				addAchievement(GOTAchievement.HUNDREDS);
 			}
+		}
+		ItemArmor.ArmorMaterial material = getFullArmorMaterial(entityplayer);
+		if (GOTAchievement.armorAchievements.containsKey(material)) {
+			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.armorAchievements.get(material));
 		}
 		fullMaterial = getBodyMaterial(entityplayer);
 		if (fullMaterial != null && fullMaterial == GOTMaterial.HAND) {
@@ -2234,9 +2219,6 @@ public class GOTPlayerData {
 		playerData.setTag("Achievements", achievementTags);
 		if (shield != null) {
 			playerData.setString("Shield", shield.name());
-		}
-		if (cape != null) {
-			playerData.setString("Cape", cape.name());
 		}
 		playerData.setBoolean("FriendlyFire", friendlyFire);
 		playerData.setBoolean("HiredDeathMessages", hiredDeathMessages);
@@ -2384,30 +2366,19 @@ public class GOTPlayerData {
 			playerData.setString("ChatBoundFellowship", chatBoundFellowshipID.toString());
 		}
 		playerData.setBoolean("StructuresBanned", structuresBanned);
-		playerData.setBoolean("TeleportedME", teleportedKW);
-		playerData.setBoolean("AskedForJaqen", askedForJaqen);
-		playerData.setBoolean("TableSwitched", tableSwitched);
-		playerData.setInteger("Balance", balance);
 		NBTTagCompound questNBT = new NBTTagCompound();
 		questData.save(questNBT);
 		playerData.setTag("QuestData", questNBT);
-		playerData.setBoolean("CheckedMenu", checkedMenu);
-		needsSave = false;
-	}
 
-	public void searchForBiomeWaypoints(EntityPlayer entityplayer, World world) {
-		int i = MathHelper.floor_double(entityplayer.posX);
-		MathHelper.floor_double(entityplayer.boundingBox.minY);
-		int k = MathHelper.floor_double(entityplayer.posZ);
-		BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
-		if (biome instanceof GOTBiome) {
-			Region biomeRegion;
-			GOTBiome GOTbiome = (GOTBiome) biome;
-			biomeRegion = GOTbiome.getBiomeWaypoints();
-			if (biomeRegion != null) {
-				unlockFTRegion(biomeRegion);
-			}
+		playerData.setBoolean("AskedForJaqen", askedForJaqen);
+		playerData.setInteger("Balance", balance);
+		if (cape != null) {
+			playerData.setString("Cape", cape.name());
 		}
+		playerData.setBoolean("CheckedMenu", checkedMenu);
+		playerData.setBoolean("TableSwitched", tableSwitched);
+		playerData.setBoolean("TeleportedKW", teleportedKW);
+		needsSave = false;
 	}
 
 	public List<GOTMiniQuest> selectMiniQuests(MiniQuestSelector selector) {
@@ -2844,7 +2815,7 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void setTeleportedME(boolean flag) {
+	public void setTeleportedKW(boolean flag) {
 		teleportedKW = flag;
 		markDirty();
 	}
@@ -3158,5 +3129,4 @@ public class GOTPlayerData {
 			return new CWPSharedKey(player, id);
 		}
 	}
-
 }
