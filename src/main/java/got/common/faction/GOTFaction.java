@@ -467,7 +467,7 @@ public enum GOTFaction {
 	}
 
 	public static boolean controlZonesEnabled(World world) {
-		return world.getWorldInfo().getTerrainType() != GOT.worldTypeGOTClassic;
+		return GOTLevelData.enableAlignmentZones() && world.getWorldInfo().getTerrainType() != GOT.worldTypeGOTClassic;
 	}
 
 	public static GOTFaction forID(int ID) {

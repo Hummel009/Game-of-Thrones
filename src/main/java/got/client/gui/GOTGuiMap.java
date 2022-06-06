@@ -202,8 +202,13 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 	}
 
+	private boolean canCreateWaypointAtPosition() {
+		int minY = GOTConfig.getCustomWaypointMinY(mc.theWorld);
+		return minY < 0 || mc.thePlayer.boundingBox.minY >= minY;
+	}
+
 	public boolean canTeleport() {
-		if (!isMiddleEarth() || loadingConquestGrid) {
+		if (!isGameOfThrones() || loadingConquestGrid) {
 			return false;
 		}
 		int chunkX = MathHelper.floor_double(mc.thePlayer.posX) >> 4;
@@ -577,7 +582,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 		zLevel = 100.0f;
 		if (!hasOverlay) {
-			if (isMiddleEarth() && selectedWaypoint != null) {
+			if (isGameOfThrones() && selectedWaypoint != null) {
 				zLevel += 500.0f;
 				GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
 				boolean hasUnlocked = selectedWaypoint.hasPlayerUnlocked(mc.thePlayer);
@@ -1037,12 +1042,12 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		return isExistingFellowshipName(name) && !isExistingUnsharedFellowshipName(name, waypoint);
 	}
 
-	public boolean isKeyDownAndNotMouse(KeyBinding keybinding) {
-		return keybinding.getKeyCode() >= 0 && GameSettings.isKeyDown(keybinding);
+	public boolean isGameOfThrones() {
+		return mc.thePlayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID;
 	}
 
-	public boolean isMiddleEarth() {
-		return mc.thePlayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID;
+	public boolean isKeyDownAndNotMouse(KeyBinding keybinding) {
+		return keybinding.getKeyCode() >= 0 && GameSettings.isKeyDown(keybinding);
 	}
 
 	public boolean isValidWaypointName(String name) {
@@ -1081,7 +1086,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		} else {
 			if (!loadingConquestGrid) {
 				GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
-				if (i == GOTKeyHandler.keyBindingFastTravel.getKeyCode() && isMiddleEarth() && selectedWaypoint != null && selectedWaypoint.hasPlayerUnlocked(mc.thePlayer) && pd.getTimeSinceFT() >= pd.getWaypointFTTime(selectedWaypoint, mc.thePlayer)) {
+				if (i == GOTKeyHandler.keyBindingFastTravel.getKeyCode() && isGameOfThrones() && selectedWaypoint != null && selectedWaypoint.hasPlayerUnlocked(mc.thePlayer) && pd.getTimeSinceFT() >= pd.getWaypointFTTime(selectedWaypoint, mc.thePlayer)) {
 					GOTPacketFastTravel packet = new GOTPacketFastTravel(selectedWaypoint);
 					GOTPacketHandler.networkWrapper.sendToServer(packet);
 					mc.thePlayer.closeScreen();
@@ -1122,7 +1127,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			GOTPacketHandler.networkWrapper.sendToServer((IMessage) packet);
 			return;
 		}
-		if (!hasOverlay && k == 0 && isMiddleEarth() && selectedWaypoint instanceof GOTCustomWaypoint) {
+		if (!hasOverlay && k == 0 && isGameOfThrones() && selectedWaypoint instanceof GOTCustomWaypoint) {
 			GOTCustomWaypoint cwp = (GOTCustomWaypoint) selectedWaypoint;
 			if (!cwp.isShared()) {
 				if (mouseWidget == widgetDelCWP) {
@@ -1151,7 +1156,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				}
 			}
 		}
-		if (!hasOverlay && k == 0 && isMiddleEarth() && mouseWidget == widgetAddCWP) {
+		if (!hasOverlay && k == 0 && isGameOfThrones() && mouseWidget == widgetAddCWP && canCreateWaypointAtPosition()) {
 			openOverlayCreate();
 			return;
 		}
@@ -1478,9 +1483,10 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	}
 
 	public void renderMapWidgets(int mouseX, int mouseY) {
-		widgetAddCWP.visible = !hasOverlay && isMiddleEarth();
-		widgetDelCWP.visible = !hasOverlay && isMiddleEarth() && selectedWaypoint instanceof GOTCustomWaypoint && !((GOTCustomWaypoint) selectedWaypoint).isShared();
-		widgetRenameCWP.visible = !hasOverlay && isMiddleEarth() && selectedWaypoint instanceof GOTCustomWaypoint && !((GOTCustomWaypoint) selectedWaypoint).isShared();
+		widgetAddCWP.visible = !hasOverlay && isGameOfThrones();
+		widgetAddCWP.setTexVIndex(canCreateWaypointAtPosition() ? 0 : 1);
+		widgetDelCWP.visible = !hasOverlay && isGameOfThrones() && selectedWaypoint instanceof GOTCustomWaypoint && !((GOTCustomWaypoint) selectedWaypoint).isShared();
+		widgetRenameCWP.visible = !hasOverlay && isGameOfThrones() && selectedWaypoint instanceof GOTCustomWaypoint && !((GOTCustomWaypoint) selectedWaypoint).isShared();
 		widgetToggleWPs.visible = !hasOverlay;
 		widgetToggleWPs.setTexVIndex(showWP ? 0 : 1);
 		widgetToggleCWPs.visible = !hasOverlay;
@@ -1494,9 +1500,9 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		widgetFullScreen.visible = !hasOverlay;
 		widgetSepia.visible = !hasOverlay;
 		widgetLabels.visible = !hasOverlay;
-		widgetShareCWP.visible = !hasOverlay && isMiddleEarth() && selectedWaypoint instanceof GOTCustomWaypoint && !((GOTCustomWaypoint) selectedWaypoint).isShared();
-		widgetHideSWP.visible = !hasOverlay && isMiddleEarth() && selectedWaypoint instanceof GOTCustomWaypoint && ((GOTCustomWaypoint) selectedWaypoint).isShared() && !((GOTCustomWaypoint) selectedWaypoint).isSharedHidden();
-		widgetUnhideSWP.visible = !hasOverlay && isMiddleEarth() && selectedWaypoint instanceof GOTCustomWaypoint && ((GOTCustomWaypoint) selectedWaypoint).isShared() && ((GOTCustomWaypoint) selectedWaypoint).isSharedHidden();
+		widgetShareCWP.visible = !hasOverlay && isGameOfThrones() && selectedWaypoint instanceof GOTCustomWaypoint && !((GOTCustomWaypoint) selectedWaypoint).isShared();
+		widgetHideSWP.visible = !hasOverlay && isGameOfThrones() && selectedWaypoint instanceof GOTCustomWaypoint && ((GOTCustomWaypoint) selectedWaypoint).isShared() && !((GOTCustomWaypoint) selectedWaypoint).isSharedHidden();
+		widgetUnhideSWP.visible = !hasOverlay && isGameOfThrones() && selectedWaypoint instanceof GOTCustomWaypoint && ((GOTCustomWaypoint) selectedWaypoint).isShared() && ((GOTCustomWaypoint) selectedWaypoint).isSharedHidden();
 		GOTGuiMapWidget mouseOverWidget = null;
 		for (GOTGuiMapWidget widget : mapWidgets) {
 			if (!widget.visible) {
@@ -1646,7 +1652,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		double distanceMouseOverPlayer = Double.MAX_VALUE;
 		int iconWidthHalf = 4;
 		HashMap<UUID, PlayerLocationInfo> playersToRender = new HashMap<>(playerLocations);
-		if (isMiddleEarth()) {
+		if (isGameOfThrones()) {
 			playersToRender.put(mc.thePlayer.getUniqueID(), new PlayerLocationInfo(mc.thePlayer.getGameProfile(), mc.thePlayer.posX, mc.thePlayer.posZ));
 		}
 		for (Map.Entry entry : playersToRender.entrySet()) {

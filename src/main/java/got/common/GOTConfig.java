@@ -18,6 +18,8 @@ public class GOTConfig {
 	public static String CATEGORY_GUI;
 	public static String CATEGORY_ENVIRONMENT;
 	public static String CATEGORY_MISC;
+	public static boolean strictFactionTitleRequirements;
+	public static int customWaypointMinY;
 	public static boolean allowBannerProtection;
 	public static boolean allowSelfProtectingBanners;
 	public static boolean allowMiniquests;
@@ -101,6 +103,13 @@ public class GOTConfig {
 		CATEGORY_MISC = GOTConfig.getCategory("5_misc");
 	}
 
+	public static boolean areStrictFactionTitleRequirementsEnabled(World world) {
+		if (!world.isRemote) {
+			return strictFactionTitleRequirements;
+		}
+		return GOTLevelData.clientside_thisServer_strictFactionTitleRequirements;
+	}
+
 	public static String getCategory(String category) {
 		allCategories.add(category);
 		return category;
@@ -112,6 +121,13 @@ public class GOTConfig {
 			list.addAll(new ConfigElement(config.getCategory(category)).getChildElements());
 		}
 		return list;
+	}
+
+	public static int getCustomWaypointMinY(World world) {
+		if (!world.isRemote) {
+			return customWaypointMinY;
+		}
+		return GOTLevelData.clientside_thisServer_customWaypointMinY;
 	}
 
 	public static int getFellowshipMaxSize(World world) {
@@ -128,6 +144,13 @@ public class GOTConfig {
 		return GOTLevelData.clientside_thisServer_enchanting;
 	}
 
+	public static boolean isFellowshipCreationEnabled(World world) {
+		if (!world.isRemote) {
+			return enableFellowshipCreation;
+		}
+		return GOTLevelData.clientside_thisServer_fellowshipCreation;
+	}
+
 	public static boolean isGOTEnchantingEnabled(World world) {
 		if (!world.isRemote) {
 			return enchantingGOT;
@@ -139,7 +162,7 @@ public class GOTConfig {
 		languageCode = config.getString("languageCode", CATEGORY_LANGUAGE, languageCode, "Choose:" + GOT.langsName + ".");
 		enableSnowyLeaves = config.get(CATEGORY_GAMEPLAY, "Enable Snowy Leaves", false).getBoolean();
 		enableFellowshipCreation = config.get(CATEGORY_GAMEPLAY, "Enable Fellowship creation", true, "If disabled, admins can still create Fellowships using the command").getBoolean();
-        clearMap = config.get(CATEGORY_GAMEPLAY, "No fixed structures and characters", false, "Useful for servers. Disable fixed structures to build your own").getBoolean();
+		clearMap = config.get(CATEGORY_GAMEPLAY, "No fixed structures and characters", false, "Useful for servers. Disable fixed structures to build your own").getBoolean();
 		allowBannerProtection = config.get(CATEGORY_GAMEPLAY, "Allow Banner Protection", true).getBoolean();
 		allowSelfProtectingBanners = config.get(CATEGORY_GAMEPLAY, "Allow Self-Protecting Banners", true).getBoolean();
 		allowMiniquests = config.get(CATEGORY_GAMEPLAY, "NPCs give mini-quests", true).getBoolean();
@@ -171,7 +194,9 @@ public class GOTConfig {
 		playerDataClearingInterval = config.get(CATEGORY_MISC, "Playerdata clearing interval", 600, "Tick interval between clearing offline LOTR-playerdata from the cache. Offline players' data is typically loaded to serve features like fellowships and their shared custom waypoints. Higher values may reduce server lag, as data will have to be reloaded from disk less often, but will result in higher RAM usage to some extent").getInt();
 		alwaysShowAlignment = config.get(CATEGORY_GUI, "Always show alignment", false, "If set to false, the alignment bar will only be shown in Middle-earth. If set to true, it will be shown in all dimensions").getBoolean();
 		alignmentXOffset = config.get(CATEGORY_GUI, "Alignment x-offset", 0, "Configure the x-position of the alignment bar on-screen. Negative values move it left, positive values right").getInt();
+		customWaypointMinY = config.get(CATEGORY_GAMEPLAY, "Custom waypoint minimum y-level", -1, "Minimum y-coordinate at which a player can create a custom waypoint. Negative value = no limit").getInt();
 		alignmentYOffset = config.get(CATEGORY_GUI, "Alignment y-offset", 0, "Configure the y-position of the alignment bar on-screen. Negative values move it up, positive values down").getInt();
+		strictFactionTitleRequirements = config.get(CATEGORY_GAMEPLAY, "Strict faction title requirements", false, "Require a pledge to bear faction titles of alignment level equal to the faction's pledge level - not just those titles higher than pledge level").getBoolean();
 		displayAlignmentAboveHead = config.get(CATEGORY_GUI, "Display alignment above head", true, "Enable or disable the rendering of other players' alignment values above their heads").getBoolean();
 		enableSepiaMap = config.get(CATEGORY_GUI, "Sepia Map", false, "Display the Game of Thrones map in sepia colours").getBoolean();
 		osrsMap = config.get(CATEGORY_GUI, "OSRS Map", false, "It's throwback time. (Requires game restart)").getBoolean();
@@ -243,13 +268,6 @@ public class GOTConfig {
 		config.getCategory(CATEGORY_GUI).get("Map Labels - Conquest").set(mapLabelsConquest);
 		config.save();
 	}
-
-    public static boolean isFellowshipCreationEnabled(World world) {
-        if (!world.isRemote) {
-            return enableFellowshipCreation;
-        }
-        return GOTLevelData.clientside_thisServer_fellowshipCreation;
-    }
 
 	public static void toggleSepia() {
 		enableSepiaMap = !enableSepiaMap;

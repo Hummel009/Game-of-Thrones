@@ -6,7 +6,6 @@ import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import got.GOT;
-import got.common.block.other.GOTBlockPortal;
 import got.common.entity.other.GOTEntityPortal;
 import got.common.faction.*;
 import got.common.fellowship.GOTFellowshipData;
@@ -29,15 +28,13 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.*;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.storage.WorldInfo;
-import net.minecraftforge.common.*;
+import net.minecraftforge.common.DimensionManager;
 
 public class GOTTickHandlerServer {
 	public static HashMap playersInPortals = new HashMap();
-	public int fireworkDisplay;
 
 	public GOTTickHandlerServer() {
 		FMLCommonHandler.instance().bus().register(this);
-		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	@SubscribeEvent
@@ -94,7 +91,6 @@ public class GOTTickHandlerServer {
 						world.spawnEntityInWorld(portal);
 					}
 				}
-
 				if ((entityplayer.dimension == 0 || entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) && playersInPortals.containsKey(entityplayer)) {
 					int i;
 					List portals = world.getEntitiesWithinAABB(GOTEntityPortal.class, entityplayer.boundingBox.expand(8.0, 8.0, 8.0));
@@ -127,7 +123,6 @@ public class GOTTickHandlerServer {
 						playersInPortals.remove(entityplayer);
 					}
 				}
-
 			}
 		}
 	}
@@ -164,7 +159,7 @@ public class GOTTickHandlerServer {
 					continue;
 				}
 				GOTWorldInfo newWorldInfo = new GOTWorldInfo(overworld.getWorldInfo());
-				((WorldInfo) newWorldInfo).setWorldName(prevWorldInfo.getWorldName());
+				newWorldInfo.setWorldName(prevWorldInfo.getWorldName());
 				GOTReflection.setWorldInfo(dimWorld, newWorldInfo);
 				FMLLog.info("Hummel009: Successfully replaced world info in %s", GOTDimension.getCurrentDimension(dimWorld).dimensionName);
 			}
@@ -210,46 +205,21 @@ public class GOTTickHandlerServer {
 			if (world == DimensionManager.getWorld(GOTDimension.GAME_OF_THRONES.dimensionID)) {
 				GOTDate.update(world);
 				if (GOT.canSpawnMobs(world)) {
-					GOTEventSpawner.performSpawning(world);
 					GOTSpawnerNPCs.performSpawning(world);
+					GOTEventSpawner.performSpawning(world);
 				}
-				if (world.provider instanceof GOTWorldProvider && world.getTotalWorldTime() % 100L == 0L) {
-					GOTBiomeVariantStorage.performCleanup((WorldServer) world);
-				}
-				GOTBiome.performSeasonChanges();
 				GOTConquestGrid.updateZones(world);
-				if (!world.playerEntities.isEmpty() && world.getTotalWorldTime() % 20L == 0L) {
+				if (!world.playerEntities.isEmpty() && (world.getTotalWorldTime() % 20L == 0L)) {
 					for (Object element : world.playerEntities) {
 						EntityPlayer entityplayer = (EntityPlayer) element;
 						GOTLevelData.sendPlayerLocationsToPlayer(entityplayer, world);
 					}
 				}
 			}
-		}
-	}
-
-	public void updatePlayerInPortal(EntityPlayerMP entityplayer, HashMap players, GOTBlockPortal portalBlock) {
-		if ((entityplayer.dimension == 0 || entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) && players.containsKey(entityplayer)) {
-			boolean inPortal;
-			inPortal = entityplayer.worldObj.getBlock(MathHelper.floor_double(entityplayer.posX), MathHelper.floor_double(entityplayer.boundingBox.minY), MathHelper.floor_double(entityplayer.posZ)) == portalBlock;
-			if (inPortal) {
-				int i = (Integer) players.get(entityplayer);
-				i++;
-				players.put(entityplayer, i);
-				if (i >= entityplayer.getMaxInPortalTime()) {
-					int dimension = 0;
-					if (entityplayer.dimension == 0) {
-						dimension = GOTDimension.GAME_OF_THRONES.dimensionID;
-					} else if (entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) {
-						dimension = 0;
-					}
-					WorldServer newWorld = MinecraftServer.getServer().worldServerForDimension(dimension);
-					MinecraftServer.getServer().getConfigurationManager().transferPlayerToDimension(entityplayer, dimension, portalBlock.getPortalTeleporter(newWorld));
-					players.remove(entityplayer);
-				}
-			} else {
-				players.remove(entityplayer);
+			if (world.provider instanceof GOTWorldProvider && world.getTotalWorldTime() % 100L == 0L) {
+				GOTBiomeVariantStorage.performCleanup((WorldServer) world);
 			}
+			GOTBiome.performSeasonChanges();
 		}
 	}
 }

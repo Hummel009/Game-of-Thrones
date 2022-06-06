@@ -426,10 +426,11 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 			acceptInviteResult = null;
 			acceptInviteResultFellowshipName = null;
 		}
-		boolean canPlayerCreateNew = playerData.canCreateFellowships(true);
+		boolean creationEnabled = GOTConfig.isFellowshipCreationEnabled(this.mc.theWorld);
+        boolean canPlayerCreateNew = playerData.canCreateFellowships(true);
 		buttonCreate.visible = page == Page.LIST;
-		buttonCreate.enabled = buttonCreate.visible && canPlayerCreateNew;
-		buttonCreateThis.visible = page == Page.CREATE;
+		this.buttonCreate.enabled = this.buttonCreate.visible && creationEnabled && canPlayerCreateNew;
+        buttonCreateThis.visible = page == Page.CREATE;
 		String checkValidName = checkValidFellowshipName(textFieldName.getText());
 		buttonCreateThis.enabled = buttonCreateThis.visible && checkValidName == null;
 		buttonInvitePlayer.visible = buttonInvitePlayer.enabled = page == Page.FELLOWSHIP && (viewingOwned || viewingAdminned);
@@ -505,10 +506,15 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 			if (buttonInvites.func_146115_a()) {
 				renderIconTooltip(i, j, StatCollector.translateToLocal("got.gui.fellowships.invitesTooltip"));
 			}
-			if (buttonCreate.func_146115_a() && !canPlayerCreateNew) {
-				s = StatCollector.translateToLocal("got.gui.fellowships.createLimit");
-				drawCenteredString(s, guiLeft + xSize / 2, buttonCreate.yPosition + buttonCreate.height + 4, 16777215);
-			}
+            if (this.buttonCreate.func_146115_a()) {
+                if (!creationEnabled) {
+                    s = StatCollector.translateToLocal((String)"got.gui.fellowships.creationDisabled");
+                    this.drawCenteredString(s, this.guiLeft + this.xSize / 2, this.buttonCreate.yPosition + this.buttonCreate.height + 4, 16777215);
+                } else if (!canPlayerCreateNew) {
+                    s = StatCollector.translateToLocal((String)"got.gui.fellowships.createLimit");
+                    this.drawCenteredString(s, this.guiLeft + this.xSize / 2, this.buttonCreate.yPosition + this.buttonCreate.height + 4, 16777215);
+                }
+            }
 			if (scrollPaneLeading.hasScrollBar) {
 				scrollPaneLeading.drawScrollBar();
 			}

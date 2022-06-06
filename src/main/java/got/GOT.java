@@ -65,7 +65,7 @@ public class GOT {
 	public static Map<ItemStack, Integer> buy = new GOTItemStackMapImpl<>();
 	public static Map<ItemStack, Integer> sell = new GOTItemStackMapImpl<>();
 	public static String langsName = "\u0420\u0443\u0441\u0441\u043A\u0438\u0439 (ru), \u0423\u043A\u0440\u0430\u0457\u043D\u0441\u044C\u043A\u0430 (uk), English (en), Deutsch (de), Polska (pl), T\u00FCrk\u00E7e (tr), \u4E2D\u6587 (zh)";
-	public static boolean isDevMode = true;
+	public static boolean isDevMode = false;
 
 	@Mod.EventHandler
 	public void load(FMLInitializationEvent event) {
@@ -152,6 +152,7 @@ public class GOT {
 		command.add(new GOTCommandAlignmentSee());
 		command.add(new GOTCommandFellowship());
 		command.add(new GOTCommandFellowshipMessage());
+		command.add(new GOTCommandEnableAlignmentZones());
 		command.add(new GOTCommandEnchant());
 		command.add(new GOTCommandSpawnDamping());
 		command.add(new GOTCommandFactionRelations());

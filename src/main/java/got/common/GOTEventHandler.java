@@ -1194,11 +1194,11 @@ public class GOTEventHandler implements IFuelHandler {
 		World world = entityplayer.worldObj;
 		if (!world.isRemote) {
 			EntityPlayerMP entityplayermp = (EntityPlayerMP) entityplayer;
-			if (world.provider.terrainType instanceof GOTWorldType && entityplayermp.dimension == 0 && !GOTLevelData.getData(entityplayermp).getTeleportedME()) {
+			if (world.provider.terrainType instanceof GOTWorldType && entityplayermp.dimension == 0 && !GOTLevelData.getData(entityplayermp).getTeleportedKW()) {
 				int dimension = GOTDimension.GAME_OF_THRONES.dimensionID;
 				GOTTeleporter teleporter = new GOTTeleporter(DimensionManager.getWorld(dimension), false);
 				MinecraftServer.getServer().getConfigurationManager().transferPlayerToDimension(entityplayermp, dimension, teleporter);
-				GOTLevelData.getData(entityplayermp).setTeleportedME(true);
+				GOTLevelData.getData(entityplayermp).setTeleportedKW(true);
 			}
 			GOTLevelData.sendLoginPacket(entityplayermp);
 			GOTLevelData.sendPlayerData(entityplayermp);

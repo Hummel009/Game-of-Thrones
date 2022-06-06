@@ -76,8 +76,8 @@ public class GOTTitle {
 		}
 		case ALIGNMENT: {
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-			boolean requirePledge = isAlignmentGreaterThanOrEqualToAllFactionPledges();
-			for (GOTFaction f : alignmentFactions) {
+			boolean requirePledge = this.isAlignmentGreaterThanOrEqualToAllFactionPledges() && GOTConfig.areStrictFactionTitleRequirementsEnabled(entityplayer.worldObj);
+            for (GOTFaction f : alignmentFactions) {
 				if (pd.getAlignment(f) < alignmentRequired || requirePledge && !pd.isPledgedTo(f)) {
 					continue;
 				}
@@ -91,8 +91,8 @@ public class GOTTitle {
 			float align = pd.getAlignment(fac);
 			if (align >= titleRank.alignment) {
 				boolean requirePledge;
-				requirePledge = titleRank.isAbovePledgeRank() || titleRank.isPledgeRank();
-				return !requirePledge || pd.isPledgedTo(fac);
+				boolean bl = requirePledge = this.titleRank.isAbovePledgeRank() || this.titleRank.isPledgeRank() && GOTConfig.areStrictFactionTitleRequirementsEnabled(entityplayer.worldObj);
+                return !requirePledge || pd.isPledgedTo(fac);
 			}
 			return false;
 		}
@@ -130,8 +130,8 @@ public class GOTTitle {
 				GOTFaction f = alignmentFactions.get(0);
 				s = f.factionName();
 			}
-			requirePledge = isAlignmentGreaterThanOrEqualToAllFactionPledges();
-			if (requirePledge) {
+			boolean bl = requirePledge = this.isAlignmentGreaterThanOrEqualToAllFactionPledges() && GOTConfig.areStrictFactionTitleRequirementsEnabled(entityplayer.worldObj);
+            if (requirePledge) {
 				return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment.pledge", s, alignLevel);
 			}
 			return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment", s, alignLevel);
@@ -139,8 +139,8 @@ public class GOTTitle {
 		case RANK: {
 			boolean requirePledge;
 			String alignS = GOTAlignmentValues.formatAlignForDisplay(titleRank.alignment);
-			requirePledge = titleRank.isAbovePledgeRank() || titleRank.isPledgeRank();
-			if (requirePledge) {
+			boolean bl = requirePledge = this.titleRank.isAbovePledgeRank() || this.titleRank.isPledgeRank() && GOTConfig.areStrictFactionTitleRequirementsEnabled(entityplayer.worldObj);
+            if (requirePledge) {
 				return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment.pledge", titleRank.fac.factionName(), alignS);
 			}
 			return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment", titleRank.fac.factionName(), alignS);

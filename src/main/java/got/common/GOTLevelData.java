@@ -9,10 +9,12 @@ import com.google.common.base.Optional;
 import com.mojang.authlib.GameProfile;
 
 import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
 import got.common.database.*;
 import got.common.fellowship.*;
 import got.common.network.*;
+import got.common.network.GOTPacketEnableAlignmentZones;
 import net.minecraft.entity.player.*;
 import net.minecraft.nbt.*;
 import net.minecraft.server.MinecraftServer;
@@ -30,20 +32,22 @@ public class GOTLevelData {
 	public static int gameOfThronesPortalX;
 	public static int gameOfThronesPortalY;
 	public static int gameOfThronesPortalZ;
+	public static int structuresBanned;
 	public static int waypointCooldownMax;
 	public static int waypointCooldownMin;
-	public static int structuresBanned;
+	public static boolean enableAlignmentZones;
 	public static float conquestRate;
-	public static int clientside_thisServer_fellowshipMaxSize;
-	private static Map<UUID, Optional<GOTTitle.PlayerTitle>> playerTitleOfflineCacheMap;
 	public static boolean clientside_thisServer_feastMode;
 	public static boolean clientside_thisServer_fellowshipCreation;
+	public static int clientside_thisServer_fellowshipMaxSize;
 	public static boolean clientside_thisServer_enchanting;
 	public static boolean clientside_thisServer_enchantingGOT;
 	public static boolean clientside_thisServer_strictFactionTitleRequirements;
+	public static int clientside_thisServer_customWaypointMinY;
 	public static EnumDifficulty difficulty;
 	public static boolean difficultyLock;
 	public static Map<UUID, GOTPlayerData> playerDataMap;
+	public static Map<UUID, Optional<GOTTitle.PlayerTitle>> playerTitleOfflineCacheMap;
 	public static boolean needsLoad;
 	public static boolean needsSave;
 	public static Random rand;
@@ -73,6 +77,10 @@ public class GOTLevelData {
 
 	public static void destroyAllPlayerData() {
 		playerDataMap.clear();
+	}
+
+	public static boolean enableAlignmentZones() {
+		return enableAlignmentZones;
 	}
 
 	public static Set<String> getBannedStructurePlayersUsernames() {
@@ -127,13 +135,6 @@ public class GOTLevelData {
 		return new File(playerDir, player.toString() + ".dat");
 	}
 
-	public static String getHMSTime(int i) {
-		int hours = i / 72000;
-		int minutes = i % 72000 / 1200;
-		int seconds = i % 72000 % 1200 / 20;
-		return hours + "h " + minutes + "m " + seconds + "s";
-	}
-
 	public static String getHMSTime_Seconds(int secs) {
 		return GOTLevelData.getHMSTime_Ticks(secs * 20);
 	}
@@ -167,9 +168,9 @@ public class GOTLevelData {
 			return playerDataMap.get(player).getPlayerTitle();
 		}
 		if (playerTitleOfflineCacheMap.containsKey(player)) {
-			return (GOTTitle.PlayerTitle) ((Optional) playerTitleOfflineCacheMap.get(player)).orNull();
+			return playerTitleOfflineCacheMap.get(player).orNull();
 		}
-		GOTPlayerData pd = loadData(player);
+		GOTPlayerData pd = GOTLevelData.loadData(player);
 		GOTTitle.PlayerTitle playerTitle = pd.getPlayerTitle();
 		playerTitleOfflineCacheMap.put(player, Optional.fromNullable(playerTitle));
 		return playerTitle;
@@ -220,9 +221,18 @@ public class GOTLevelData {
 			gameOfThronesPortalY = levelData.getInteger("GameOfThronesY");
 			gameOfThronesPortalZ = levelData.getInteger("GameOfThronesZ");
 			structuresBanned = levelData.getInteger("StructuresBanned");
-			waypointCooldownMax = levelData.getInteger("WpCdMax");
-			waypointCooldownMin = levelData.getInteger("WpCdMin");
-            conquestRate = levelData.hasKey("ConqRate") ? levelData.getFloat("ConqRate") : 1.0f;
+			if (levelData.hasKey("WpCdMax")) {
+				waypointCooldownMax = levelData.getInteger("WpCdMax");
+			} else {
+				waypointCooldownMax = 600;
+			}
+			if (levelData.hasKey("WpCdMin")) {
+				waypointCooldownMin = levelData.getInteger("WpCdMin");
+			} else {
+				waypointCooldownMin = 60;
+			}
+			enableAlignmentZones = levelData.hasKey("AlignmentZones") ? levelData.getBoolean("AlignmentZones") : true;
+			conquestRate = levelData.hasKey("ConqRate") ? levelData.getFloat("ConqRate") : 1.0f;
 			if (levelData.hasKey("SavedDifficulty")) {
 				int id = levelData.getInteger("SavedDifficulty");
 				difficulty = EnumDifficulty.getDifficultyEnum(id);
@@ -301,8 +311,9 @@ public class GOTLevelData {
 				levelData.setInteger("GameOfThronesY", gameOfThronesPortalY);
 				levelData.setInteger("GameOfThronesZ", gameOfThronesPortalZ);
 				levelData.setInteger("StructuresBanned", structuresBanned);
-                levelData.setInteger("WpCdMax", waypointCooldownMax);
-                levelData.setInteger("WpCdMin", waypointCooldownMin);
+				levelData.setInteger("WpCdMax", waypointCooldownMax);
+				levelData.setInteger("WpCdMin", waypointCooldownMin);
+				levelData.setBoolean("AlignmentZones", enableAlignmentZones);
 				levelData.setFloat("ConqRate", conquestRate);
 				if (difficulty != null) {
 					levelData.setInteger("SavedDifficulty", difficulty.getDifficultyId());
@@ -416,7 +427,7 @@ public class GOTLevelData {
 		for (Object element : world.playerEntities) {
 			EntityPlayer worldPlayer = (EntityPlayer) element;
 			GOTPacketAlignment packet = new GOTPacketAlignment(entityplayer.getUniqueID());
-			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) worldPlayer);
+			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) worldPlayer);
 		}
 	}
 
@@ -424,7 +435,7 @@ public class GOTLevelData {
 		for (Object element : world.playerEntities) {
 			EntityPlayer worldPlayer = (EntityPlayer) element;
 			GOTPacketAlignment packet = new GOTPacketAlignment(worldPlayer.getUniqueID());
-			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -433,6 +444,7 @@ public class GOTLevelData {
 			EntityPlayer worldPlayer = (EntityPlayer) element;
 			GOTPacketCape packet = new GOTPacketCape(worldPlayer.getUniqueID());
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -440,7 +452,7 @@ public class GOTLevelData {
 		for (Object element : world.playerEntities) {
 			EntityPlayer worldPlayer = (EntityPlayer) element;
 			GOTPacketShield packet = new GOTPacketShield(worldPlayer.getUniqueID());
-			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -449,22 +461,27 @@ public class GOTLevelData {
 			EntityPlayer worldPlayer = (EntityPlayer) element;
 			GOTPacketCape packet = new GOTPacketCape(entityplayer.getUniqueID());
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) worldPlayer);
+			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
 	public static void sendLoginPacket(EntityPlayerMP entityplayer) {
 		GOTPacketLogin packet = new GOTPacketLogin();
-		packet.ringPortalX = gameOfThronesPortalX;
-		packet.ringPortalY = gameOfThronesPortalY;
-		packet.ringPortalZ = gameOfThronesPortalZ;
+		packet.swordPortalX = gameOfThronesPortalX;
+		packet.swordPortalY = gameOfThronesPortalY;
+		packet.swordPortalZ = gameOfThronesPortalZ;
 		packet.ftCooldownMax = waypointCooldownMax;
 		packet.ftCooldownMin = waypointCooldownMin;
 		packet.difficulty = difficulty;
 		packet.difficultyLocked = difficultyLock;
+		packet.alignmentZones = enableAlignmentZones;
 		packet.feastMode = GOTConfig.canAlwaysEat;
+		packet.fellowshipCreation = GOTConfig.enableFellowshipCreation;
+		packet.fellowshipMaxSize = GOTConfig.fellowshipMaxSize;
 		packet.enchanting = GOTConfig.enchantingVanilla;
 		packet.enchantingGOT = GOTConfig.enchantingGOT;
-		packet.fellowshipMaxSize = GOTConfig.fellowshipMaxSize;
+		packet.strictFactionTitleRequirements = GOTConfig.strictFactionTitleRequirements;
+		packet.customWaypointMinY = GOTConfig.customWaypointMinY;
 		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 	}
 
@@ -478,11 +495,11 @@ public class GOTLevelData {
 		}
 	}
 
-	public static void sendPlayerLocationsToPlayer(EntityPlayer entityplayer, World world) {
+	public static void sendPlayerLocationsToPlayer(EntityPlayer sendPlayer, World world) {
 		GOTPacketUpdatePlayerLocations packetLocations = new GOTPacketUpdatePlayerLocations();
-		boolean isOp = MinecraftServer.getServer().getConfigurationManager().func_152596_g(entityplayer.getGameProfile());
-		boolean creative = entityplayer.capabilities.isCreativeMode;
-		GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
+		boolean isOp = MinecraftServer.getServer().getConfigurationManager().func_152596_g(sendPlayer.getGameProfile());
+		boolean creative = sendPlayer.capabilities.isCreativeMode;
+		GOTPlayerData playerData = GOTLevelData.getData(sendPlayer);
 		ArrayList<GOTFellowship> fellowshipsMapShow = new ArrayList<>();
 		for (UUID fsID : playerData.getFellowshipIDs()) {
 			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
@@ -493,23 +510,21 @@ public class GOTLevelData {
 		}
 		for (Object element : world.playerEntities) {
 			boolean show;
-			EntityPlayer worldPlayer = (EntityPlayer) element;
-			if (worldPlayer == entityplayer) {
+			EntityPlayer otherPlayer = (EntityPlayer) element;
+			if (otherPlayer == sendPlayer) {
 				continue;
 			}
-			show = !GOTLevelData.getData(worldPlayer).getHideMapLocation();
-			if (GOTConfig.forceMapLocations == 1) {
+			show = !GOTLevelData.getData(otherPlayer).getHideMapLocation();
+			if (!isOp && GOTLevelData.getData(otherPlayer).getAdminHideMap() || GOTConfig.forceMapLocations == 1) {
 				show = false;
 			} else if (GOTConfig.forceMapLocations == 2) {
 				show = true;
 			} else if (!show) {
 				if (isOp && creative) {
 					show = true;
-				} else if (!isOp && GOTLevelData.getData(worldPlayer).getAdminHideMap()) {
-					show = false;
 				} else if (!playerData.isSiegeActive()) {
 					for (GOTFellowship fs : fellowshipsMapShow) {
-						if (!fs.containsPlayer(worldPlayer.getUniqueID())) {
+						if (!fs.containsPlayer(otherPlayer.getUniqueID())) {
 							continue;
 						}
 						show = true;
@@ -520,16 +535,16 @@ public class GOTLevelData {
 			if (!show) {
 				continue;
 			}
-			packetLocations.addPlayerLocation(worldPlayer.getGameProfile(), worldPlayer.posX, worldPlayer.posZ);
+			packetLocations.addPlayerLocation(otherPlayer.getGameProfile(), otherPlayer.posX, otherPlayer.posZ);
 		}
-		GOTPacketHandler.networkWrapper.sendTo(packetLocations, (EntityPlayerMP) entityplayer);
+		GOTPacketHandler.networkWrapper.sendTo((IMessage) packetLocations, (EntityPlayerMP) sendPlayer);
 	}
 
 	public static void sendShieldToAllPlayersInWorld(EntityPlayer entityplayer, World world) {
 		for (Object element : world.playerEntities) {
 			EntityPlayer worldPlayer = (EntityPlayer) element;
 			GOTPacketShield packet = new GOTPacketShield(entityplayer.getUniqueID());
-			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) worldPlayer);
+			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) worldPlayer);
 		}
 	}
 
@@ -541,6 +556,19 @@ public class GOTLevelData {
 	public static void setDifficultyLocked(boolean flag) {
 		difficultyLock = flag;
 		GOTLevelData.markDirty();
+	}
+
+	public static void setEnableAlignmentZones(boolean flag) {
+		enableAlignmentZones = flag;
+		GOTLevelData.markDirty();
+		if (!GOT.proxy.isClient()) {
+			List players = MinecraftServer.getServer().getConfigurationManager().playerEntityList;
+			for (Object player : players) {
+				EntityPlayerMP entityplayer = (EntityPlayerMP) player;
+				GOTPacketEnableAlignmentZones packet = new GOTPacketEnableAlignmentZones(enableAlignmentZones);
+				GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, entityplayer);
+			}
+		}
 	}
 
 	public static void setMadeGameOfThronesPortal(int i) {
@@ -570,23 +598,24 @@ public class GOTLevelData {
 		GOTLevelData.markDirty();
 	}
 
-	 public static void setWaypointCooldown(int max, int min) {
-	        max = Math.max(0, max);
-	        if ((min = Math.max(0, min)) > max) {
-	            min = max;
-	        }
-	        waypointCooldownMax = max;
-	        waypointCooldownMin = min;
-	        GOTLevelData.markDirty();
-	        if (!GOT.proxy.isClient()) {
-	            List players = MinecraftServer.getServer().getConfigurationManager().playerEntityList;
-	            for (int i = 0; i < players.size(); ++i) {
-	                EntityPlayerMP entityplayer = (EntityPlayerMP)players.get(i);
-	                GOTPacketFTCooldown packet = new GOTPacketFTCooldown(waypointCooldownMax, waypointCooldownMin);
-	                GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
-	            }
-	        }
-	    }
+	public static void setWaypointCooldown(int max, int min) {
+		max = Math.max(0, max);
+		min = Math.max(0, min);
+		if (min > max) {
+			min = max;
+		}
+		waypointCooldownMax = max;
+		waypointCooldownMin = min;
+		GOTLevelData.markDirty();
+		if (!GOT.proxy.isClient()) {
+			List players = MinecraftServer.getServer().getConfigurationManager().playerEntityList;
+			for (Object player : players) {
+				EntityPlayerMP entityplayer = (EntityPlayerMP) player;
+				GOTPacketFTCooldown packet = new GOTPacketFTCooldown(waypointCooldownMax, waypointCooldownMin);
+				GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+			}
+		}
+	}
 
 	public static boolean structuresBanned() {
 		return structuresBanned == 1;
