@@ -1166,7 +1166,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				GOTLog.logger.info("| " + fac.factionName() + " = " + fac.factionRegion.getRegionName());
 			}
 			if ("factionViolence".equals(display)) {
-				if (fac.isViolent) {
+				if (fac.approvesWarCrimes) {
 					GOTLog.logger.info("| " + fac.factionName() + " = Violent");
 				} else {
 					GOTLog.logger.info("| " + fac.factionName() + " = Not Violent");

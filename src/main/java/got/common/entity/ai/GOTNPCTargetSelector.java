@@ -27,7 +27,7 @@ public class GOTNPCTargetSelector implements IEntitySelector {
 			if (target instanceof GOTEntityNPC && !((GOTEntityNPC) target).canBeFreelyTargetedBy(owner)) {
 				return false;
 			}
-			if (!ownerFaction.isViolent && target instanceof GOTEntityNPC && ((GOTEntityNPC) target).isCivilianNPC()) {
+			if (!ownerFaction.approvesWarCrimes && target instanceof GOTEntityNPC && ((GOTEntityNPC) target).isCivilianNPC()) {
 				return false;
 			}
 			GOTFaction targetFaction = GOT.getNPCFaction(target);

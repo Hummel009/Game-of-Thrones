@@ -265,7 +265,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 				int wcWidth = 8;
 				mc.getTextureManager().bindTexture(factionsTexture);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-				if (currentFaction.isViolent) {
+				if (currentFaction.approvesWarCrimes) {
 					this.drawTexturedModalRect(wcX, wcY, 33, 142, wcWidth, wcWidth);
 				} else {
 					this.drawTexturedModalRect(wcX, wcY, 41, 142, wcWidth, wcWidth);
@@ -467,7 +467,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		}
 		if (mouseOverWarCrimes) {
 			float z = zLevel;
-			String warCrimes = currentFaction.isViolent ? "got.gui.factions.warCrimesYes" : "got.gui.factions.warCrimesNo";
+			String warCrimes = currentFaction.approvesWarCrimes ? "got.gui.factions.warCrimesYes" : "got.gui.factions.warCrimesNo";
 			warCrimes = StatCollector.translateToLocal(warCrimes);
 			stringWidth = 200;
 			desc = fontRendererObj.listFormattedStringToWidth(warCrimes, stringWidth);
