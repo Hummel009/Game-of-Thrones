@@ -308,13 +308,12 @@ public class GOTCommander {
 	}
 
 	public static void removeCapesExcept(GOTCapes... capes) {
-		block0: for (GOTCapes cape : GOTCapes.values()) {
+		for (GOTCapes cape : GOTCapes.values()) {
 			for (GOTCapes excludedCape : capes) {
-				if (excludedCape == cape) {
-					continue block0;
+				if (excludedCape != cape) {
+					GOTCommander.removeCape(cape);
 				}
 			}
-			GOTCommander.removeCape(cape);
 		}
 	}
 
@@ -348,13 +347,12 @@ public class GOTCommander {
 	}
 
 	public static void removeFactionsExcept(GOTFaction... factions) {
-		block0: for (GOTFaction faction : GOTFaction.values()) {
+		for (GOTFaction faction : GOTFaction.values()) {
 			for (GOTFaction excludedFaction : factions) {
-				if (excludedFaction == faction) {
-					continue block0;
+				if (excludedFaction != faction) {
+					GOTCommander.removeFaction(faction);
 				}
 			}
-			GOTCommander.removeFaction(faction);
 		}
 	}
 
@@ -380,13 +378,12 @@ public class GOTCommander {
 	}
 
 	public static void removeMapLabelsExcept(GOTLabels... labels) {
-		block0: for (GOTLabels label : GOTLabels.values()) {
+		for (GOTLabels label : GOTLabels.values()) {
 			for (GOTLabels excludedLabel : labels) {
-				if (excludedLabel == label) {
-					continue block0;
+				if (excludedLabel != label) {
+					GOTCommander.removeMapLabel(label);
 				}
 			}
-			GOTCommander.removeMapLabel(label);
 		}
 	}
 
@@ -415,13 +412,12 @@ public class GOTCommander {
 	}
 
 	public static void removeShieldsExcept(GOTShields... shields) {
-		block0: for (GOTShields shield : GOTShields.values()) {
+		for (GOTShields shield : GOTShields.values()) {
 			for (GOTShields excludedShield : shields) {
-				if (excludedShield == shield) {
-					continue block0;
+				if (excludedShield != shield) {
+					GOTCommander.removeShield(shield);
 				}
 			}
-			GOTCommander.removeShield(shield);
 		}
 	}
 
@@ -442,13 +438,12 @@ public class GOTCommander {
 	}
 
 	public static void removeWaypointsExcept(GOTWaypoint... wps) {
-		block0: for (GOTWaypoint wp : GOTWaypoint.values()) {
+		for (GOTWaypoint wp : GOTWaypoint.values()) {
 			for (GOTWaypoint excludedWp : wps) {
-				if (excludedWp == wp) {
-					continue block0;
+				if (excludedWp != wp) {
+					GOTCommander.removeWaypoint(wp);
 				}
 			}
-			GOTCommander.removeWaypoint(wp);
 		}
 	}
 
@@ -485,10 +480,9 @@ public class GOTCommander {
 		for (int i = 0; i < colors.length; ++i) {
 			int color = colors[i];
 			Integer biomeID = GOTDimension.GAME_OF_THRONES.colorsToBiomeIDs.get(color);
-			if (biomeID == null) {
-				continue;
+			if (biomeID != null) {
+				biomeImageData[i] = biomeID.byteValue();
 			}
-			biomeImageData[i] = biomeID.byteValue();
 		}
 		ReflectionHelper.setPrivateValue(GOTGenLayerWorld.class, null, biomeImageData, "biomeImageData");
 	}
