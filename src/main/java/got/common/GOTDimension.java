@@ -48,10 +48,9 @@ public enum GOTDimension {
 
 	public static GOTDimension forName(String s) {
 		for (GOTDimension dim : GOTDimension.values()) {
-			if (!dim.dimensionName.equals(s)) {
-				continue;
+			if (dim.dimensionName.equals(s)) {
+				return dim;
 			}
-			return dim;
 		}
 		return null;
 	}
@@ -108,20 +107,18 @@ public enum GOTDimension {
 
 		public static DimensionRegion forID(int ID) {
 			for (DimensionRegion r : DimensionRegion.values()) {
-				if (r.ordinal() != ID) {
-					continue;
+				if (r.ordinal() == ID) {
+					return r;
 				}
-				return r;
 			}
 			return null;
 		}
 
 		public static DimensionRegion forName(String regionName) {
 			for (DimensionRegion r : DimensionRegion.values()) {
-				if (!r.codeName().equals(regionName)) {
-					continue;
+				if (r.codeName().equals(regionName)) {
+					return r;
 				}
-				return r;
 			}
 			return null;
 		}

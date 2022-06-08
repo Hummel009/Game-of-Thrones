@@ -79,16 +79,15 @@ public class GOTTickHandlerServer {
 					items = world.getEntitiesWithinAABB(EntityItem.class, entityplayer.boundingBox.expand(16.0, 16.0, 16.0));
 					for (Object obj : items) {
 						item = (EntityItem) obj;
-						if (GOTLevelData.madePortal != 0 || item.getEntityItem() == null || item.getEntityItem().getItem() != Items.iron_sword || !item.isBurning()) {
-							continue;
+						if (GOTLevelData.madePortal == 0 && item.getEntityItem() != null && item.getEntityItem().getItem() == Items.iron_sword && item.isBurning()) {
+							GOTLevelData.setMadePortal(1);
+							GOTLevelData.markOverworldPortalLocation(MathHelper.floor_double(item.posX), MathHelper.floor_double(item.posY), MathHelper.floor_double(item.posZ));
+							item.setDead();
+							world.createExplosion(entityplayer, item.posX, item.posY + 3.0, item.posZ, 3.0f, true);
+							GOTEntityPortal portal = new GOTEntityPortal(world);
+							portal.setLocationAndAngles(item.posX, item.posY + 3.0, item.posZ, 0.0f, 0.0f);
+							world.spawnEntityInWorld(portal);
 						}
-						GOTLevelData.setMadePortal(1);
-						GOTLevelData.markOverworldPortalLocation(MathHelper.floor_double(item.posX), MathHelper.floor_double(item.posY), MathHelper.floor_double(item.posZ));
-						item.setDead();
-						world.createExplosion(entityplayer, item.posX, item.posY + 3.0, item.posZ, 3.0f, true);
-						GOTEntityPortal portal = new GOTEntityPortal(world);
-						portal.setLocationAndAngles(item.posX, item.posY + 3.0, item.posZ, 0.0f, 0.0f);
-						world.spawnEntityInWorld(portal);
 					}
 				}
 				if ((entityplayer.dimension == 0 || entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) && playersInPortals.containsKey(entityplayer)) {
@@ -97,11 +96,10 @@ public class GOTTickHandlerServer {
 					boolean inPortal = false;
 					for (i = 0; i < portals.size(); ++i) {
 						GOTEntityPortal portal = (GOTEntityPortal) portals.get(i);
-						if (!portal.boundingBox.intersectsWith(entityplayer.boundingBox)) {
-							continue;
+						if (portal.boundingBox.intersectsWith(entityplayer.boundingBox)) {
+							inPortal = true;
+							break;
 						}
-						inPortal = true;
-						break;
 					}
 					if (inPortal) {
 						i = (Integer) playersInPortals.get(entityplayer);
@@ -155,13 +153,12 @@ public class GOTTickHandlerServer {
 			}
 			for (WorldServer dimWorld : MinecraftServer.getServer().worldServers) {
 				WorldInfo prevWorldInfo;
-				if (!(dimWorld.provider instanceof GOTWorldProvider) || (prevWorldInfo = dimWorld.getWorldInfo()).getClass() == GOTWorldInfo.class) {
-					continue;
+				if (dimWorld.provider instanceof GOTWorldProvider && (prevWorldInfo = dimWorld.getWorldInfo()).getClass() != GOTWorldInfo.class) {
+					GOTWorldInfo newWorldInfo = new GOTWorldInfo(overworld.getWorldInfo());
+					newWorldInfo.setWorldName(prevWorldInfo.getWorldName());
+					GOTReflection.setWorldInfo(dimWorld, newWorldInfo);
+					FMLLog.info("Hummel009: Successfully replaced world info in %s", GOTDimension.getCurrentDimension(dimWorld).dimensionName);
 				}
-				GOTWorldInfo newWorldInfo = new GOTWorldInfo(overworld.getWorldInfo());
-				newWorldInfo.setWorldName(prevWorldInfo.getWorldName());
-				GOTReflection.setWorldInfo(dimWorld, newWorldInfo);
-				FMLLog.info("Hummel009: Successfully replaced world info in %s", GOTDimension.getCurrentDimension(dimWorld).dimensionName);
 			}
 			GOTBannerProtection.updateWarningCooldowns();
 			GOTInterModComms.update();
@@ -209,7 +206,7 @@ public class GOTTickHandlerServer {
 					GOTEventSpawner.performSpawning(world);
 				}
 				GOTConquestGrid.updateZones(world);
-				if (!world.playerEntities.isEmpty() && (world.getTotalWorldTime() % 20L == 0L)) {
+				if (!world.playerEntities.isEmpty() && world.getTotalWorldTime() % 20L == 0L) {
 					for (Object element : world.playerEntities) {
 						EntityPlayer entityplayer = (EntityPlayer) element;
 						GOTLevelData.sendPlayerLocationsToPlayer(entityplayer, world);

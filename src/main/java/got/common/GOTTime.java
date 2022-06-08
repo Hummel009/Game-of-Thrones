@@ -73,12 +73,11 @@ public class GOTTime {
 		}
 		++totalTime;
 		for (WorldServer world : server.worldServers) {
-			if (!(world.provider instanceof GOTWorldProvider)) {
-				continue;
+			if (world.provider instanceof GOTWorldProvider) {
+				GOTWorldInfo worldinfo = (GOTWorldInfo) world.getWorldInfo();
+				worldinfo.got_setTotalTime(totalTime);
+				worldinfo.got_setWorldTime(worldTime);
 			}
-			GOTWorldInfo worldinfo = (GOTWorldInfo) world.getWorldInfo();
-			worldinfo.got_setTotalTime(totalTime);
-			worldinfo.got_setWorldTime(worldTime);
 		}
 	}
 }

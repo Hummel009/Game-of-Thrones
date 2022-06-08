@@ -155,10 +155,9 @@ public class GOTDate {
 					int monthID = month.ordinal();
 					for (int i = 0; i < monthID; ++i) {
 						Month m = Month.values()[i];
-						if (!m.hasWeekdayName) {
-							continue;
+						if (m.hasWeekdayName) {
+							yearDay += m.days;
 						}
-						yearDay += m.days;
 					}
 					yearDay += monthDate;
 					int dayID = IntMath.mod(yearDay - 1, Day.values().length);

@@ -76,10 +76,9 @@ public class GOTSpawnDamping {
 					NBTTagCompound nbt = typeTags.getCompoundTagAt(i);
 					String type = nbt.getString("Type");
 					float damping = nbt.getFloat("Damp");
-					if (StringUtils.isBlank(type)) {
-						continue;
+					if (!StringUtils.isBlank(type)) {
+						spawnDamping.put(type, damping);
 					}
-					spawnDamping.put(type, damping);
 				}
 			}
 			needsSave = true;

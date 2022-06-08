@@ -12,16 +12,14 @@ public class GOTInterModComms {
 		ImmutableList<FMLInterModComms.IMCMessage> messages = FMLInterModComms.fetchRuntimeMessages(GOT.instance);
 		if (!messages.isEmpty()) {
 			for (FMLInterModComms.IMCMessage message : messages) {
-				if (!"SIEGE_ACTIVE".equals(message.key)) {
-					continue;
+				if ("SIEGE_ACTIVE".equals(message.key)) {
+					String playerName = message.getStringValue();
+					EntityPlayerMP entityplayer = MinecraftServer.getServer().getConfigurationManager().func_152612_a(playerName);
+					if (entityplayer != null) {
+						int duration = 20;
+						GOTLevelData.getData(entityplayer).setSiegeActive(duration);
+					}
 				}
-				String playerName = message.getStringValue();
-				EntityPlayerMP entityplayer = MinecraftServer.getServer().getConfigurationManager().func_152612_a(playerName);
-				if (entityplayer == null) {
-					continue;
-				}
-				int duration = 20;
-				GOTLevelData.getData(entityplayer).setSiegeActive(duration);
 			}
 		}
 	}

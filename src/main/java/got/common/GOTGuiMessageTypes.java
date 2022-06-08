@@ -21,10 +21,9 @@ public enum GOTGuiMessageTypes {
 
 	public static GOTGuiMessageTypes forSaveName(String name) {
 		for (GOTGuiMessageTypes message : GOTGuiMessageTypes.values()) {
-			if (!message.getSaveName().equals(name)) {
-				continue;
+			if (message.getSaveName().equals(name)) {
+				return message;
 			}
-			return message;
 		}
 		return null;
 	}

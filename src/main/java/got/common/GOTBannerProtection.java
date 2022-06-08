@@ -235,30 +235,29 @@ public class GOTBannerProtection {
 				ProtectType result;
 				GOTEntityBanner banner = (GOTEntityBanner) banner2;
 				AxisAlignedBB protectionCube = banner.createProtectionCube();
-				if (!banner.isProtectingTerritory() || !protectionCube.intersectsWith(searchCube) || !protectionCube.intersectsWith(originCube) || (result = protectFilter.protects(banner)) == ProtectType.NONE) {
-					continue;
-				}
-				if (result == ProtectType.FACTION) {
-					protectorName = banner.getBannerType().faction.factionName();
-					break;
-				}
-				if (result == ProtectType.PLAYER_SPECIFIC) {
-					GameProfile placingPlayer = banner.getPlacingPlayer();
-					if (placingPlayer != null) {
-						if (StringUtils.isBlank(placingPlayer.getName())) {
-							MinecraftServer.getServer().func_147130_as().fillProfileProperties(placingPlayer, true);
-						}
-						protectorName = placingPlayer.getName();
+				if (banner.isProtectingTerritory() && protectionCube.intersectsWith(searchCube) && protectionCube.intersectsWith(originCube) && (result = protectFilter.protects(banner)) != ProtectType.NONE) {
+
+					if (result == ProtectType.FACTION) {
+						protectorName = banner.getBannerType().faction.factionName();
 						break;
 					}
-					protectorName = "?";
-					break;
+					if (result == ProtectType.PLAYER_SPECIFIC) {
+						GameProfile placingPlayer = banner.getPlacingPlayer();
+						if (placingPlayer != null) {
+							if (StringUtils.isBlank(placingPlayer.getName())) {
+								MinecraftServer.getServer().func_147130_as().fillProfileProperties(placingPlayer, true);
+							}
+							protectorName = placingPlayer.getName();
+							break;
+						}
+						protectorName = "?";
+						break;
+					}
+					if (result == ProtectType.STRUCTURE) {
+						protectorName = StatCollector.translateToLocal("got.chat.protectedStructure");
+						break;
+					}
 				}
-				if (result != ProtectType.STRUCTURE) {
-					continue;
-				}
-				protectorName = StatCollector.translateToLocal("got.chat.protectedStructure");
-				break;
 			}
 		}
 		if (protectorName != null) {
@@ -281,10 +280,9 @@ public class GOTBannerProtection {
 			int time = e.getValue();
 			time--;
 			e.setValue(time);
-			if (time > 0) {
-				continue;
+			if (time <= 0) {
+				removes.add(player);
 			}
-			removes.add(player);
 		}
 		for (UUID player : removes) {
 			lastWarningTimes.remove(player);
@@ -356,10 +354,9 @@ public class GOTBannerProtection {
 
 		public static Permission forName(String s) {
 			for (Permission p : Permission.values()) {
-				if (!p.codeName.equals(s)) {
-					continue;
+				if (p.codeName.equals(s)) {
+					return p;
 				}
-				return p;
 			}
 			return null;
 		}

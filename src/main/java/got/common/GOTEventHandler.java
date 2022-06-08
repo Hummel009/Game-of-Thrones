@@ -176,10 +176,9 @@ public class GOTEventHandler implements IFuelHandler {
 				for (int j1 = 1; j1 <= 3; ++j1) {
 					int j2 = j + j1;
 					Block above = world.getBlock(i, j2, k);
-					if (!GOTBlockGrapevine.isFullGrownGrapes(above, world.getBlockMetadata(i, j2, k))) {
-						continue;
+					if (GOTBlockGrapevine.isFullGrownGrapes(above, world.getBlockMetadata(i, j2, k))) {
+						grapesAbove = true;
 					}
-					grapesAbove = true;
 				}
 				if (grapesAbove) {
 					GOTEntityReachSoldier.defendGrapevines(entityplayer, world, i, j + 1, k);
@@ -251,11 +250,10 @@ public class GOTEventHandler implements IFuelHandler {
 			if (itemstack != null && block == Blocks.cauldron && meta > 0) {
 				GOTItemMug.Vessel drinkVessel = null;
 				for (GOTItemMug.Vessel v : GOTItemMug.Vessel.values()) {
-					if (v.getEmptyVesselItem() != itemstack.getItem()) {
-						continue;
+					if (v.getEmptyVesselItem() == itemstack.getItem()) {
+						drinkVessel = v;
+						break;
 					}
-					drinkVessel = v;
-					break;
 				}
 				if (drinkVessel != null) {
 					GOT.proxy.fillMugFromCauldron(world, i, j, k, side, itemstack);
@@ -426,17 +424,15 @@ public class GOTEventHandler implements IFuelHandler {
 		if (GOTModChecker.hasNEI()) {
 			for (IConfigureNEI element : NEIModContainer.plugins) {
 				IConfigureNEI iConfigNEI = element;
-				if (!iConfigNEI.getClass().equals(NEIGOTIntegratorConfig.class)) {
-					continue;
-				}
-				NEIGOTIntegratorConfig configNEI = (NEIGOTIntegratorConfig) iConfigNEI;
-				for (ItemStack element2 : configNEI.getHiddenItems()) {
-					if (!ItemInfo.hiddenItems.contains(element2)) {
-						continue;
+				if (iConfigNEI.getClass().equals(NEIGOTIntegratorConfig.class)) {
+					NEIGOTIntegratorConfig configNEI = (NEIGOTIntegratorConfig) iConfigNEI;
+					for (ItemStack element2 : configNEI.getHiddenItems()) {
+						if (ItemInfo.hiddenItems.contains(element2)) {
+							ItemInfo.hiddenItems.remove(element2);
+						}
 					}
-					ItemInfo.hiddenItems.remove(element2);
+					configNEI.loadConfig();
 				}
-				configNEI.loadConfig();
 			}
 		}
 	}
@@ -647,10 +643,9 @@ public class GOTEventHandler implements IFuelHandler {
 					int i = blockPos.chunkPosX;
 					int j = blockPos.chunkPosY;
 					int k = blockPos.chunkPosZ;
-					if (!GOTBannerProtection.isProtected(world, i, j, k, protectFilter, false)) {
-						continue;
+					if (GOTBannerProtection.isProtected(world, i, j, k, protectFilter, false)) {
+						removes.add(blockPos);
 					}
-					removes.add(blockPos);
 				}
 				blockList.removeAll(removes);
 			}
@@ -690,12 +685,11 @@ public class GOTEventHandler implements IFuelHandler {
 			if (itemstack.stackSize > 0) {
 				for (int i = 0; i < entityplayer.inventory.getSizeInventory(); ++i) {
 					ItemStack itemInSlot = entityplayer.inventory.getStackInSlot(i);
-					if (itemInSlot == null || itemInSlot.getItem() != GOTRegistry.pouch) {
-						continue;
-					}
-					GOTItemPouch.tryAddItemToPouch(itemInSlot, itemstack, true);
-					if (itemstack.stackSize <= 0) {
-						break;
+					if (itemInSlot != null && itemInSlot.getItem() == GOTRegistry.pouch) {
+						GOTItemPouch.tryAddItemToPouch(itemInSlot, itemstack, true);
+						if (itemstack.stackSize <= 0) {
+							break;
+						}
 					}
 				}
 				if (itemstack.stackSize <= 0) {
@@ -766,11 +760,10 @@ public class GOTEventHandler implements IFuelHandler {
 				boolean isLegendaryArmor = true;
 				for (int i = 0; i < 4; ++i) {
 					ItemStack armour = entity.getEquipmentInSlot(i + 1);
-					if (armour != null && armour.getItem() instanceof ItemArmor && ((ItemArmor) armour.getItem()).getArmorMaterial() == GOTMaterial.ROYCE.toArmorMaterial()) {
-						continue;
+					if (armour == null || !(armour.getItem() instanceof ItemArmor) || ((ItemArmor) armour.getItem()).getArmorMaterial() != GOTMaterial.ROYCE.toArmorMaterial()) {
+						isLegendaryArmor = false;
+						break;
 					}
-					isLegendaryArmor = false;
-					break;
 				}
 				ItemStack armour = entity.getEquipmentInSlot(3);
 				if (armour != null && armour.getItem() instanceof ItemArmor && ((ItemArmor) armour.getItem()).getArmorMaterial() == GOTMaterial.BLACKSKIN.toArmorMaterial()) {
@@ -887,15 +880,13 @@ public class GOTEventHandler implements IFuelHandler {
 							String speech;
 							GOTEntityNPC gotnpc;
 							EntityLiving npc = (EntityLiving) nearbyAlliedNPC;
-							if (npc instanceof GOTEntityNPC && ((GOTEntityNPC) npc).hiredNPCInfo.isActive && newAlignment > 0.0f || npc.getAttackTarget() != null) {
-								continue;
+							if ((!(npc instanceof GOTEntityNPC) || !((GOTEntityNPC) npc).hiredNPCInfo.isActive || newAlignment <= 0.0f) && npc.getAttackTarget() == null) {
+								npc.setAttackTarget(entityplayer);
+								if (npc instanceof GOTEntityNPC && sentSpeeches < maxSpeeches && (speech = (gotnpc = (GOTEntityNPC) npc).getSpeechBank(entityplayer)) != null && gotnpc.getDistanceSqToEntity(entityplayer) < range) {
+									gotnpc.sendSpeechBank(entityplayer, speech);
+									++sentSpeeches;
+								}
 							}
-							npc.setAttackTarget(entityplayer);
-							if (!(npc instanceof GOTEntityNPC) || sentSpeeches >= maxSpeeches || (speech = (gotnpc = (GOTEntityNPC) npc).getSpeechBank(entityplayer)) == null || gotnpc.getDistanceSqToEntity(entityplayer) >= range) {
-								continue;
-							}
-							gotnpc.sendSpeechBank(entityplayer, speech);
-							++sentSpeeches;
 						}
 					}
 					if (!playerData.isSiegeActive()) {
@@ -945,9 +936,9 @@ public class GOTEventHandler implements IFuelHandler {
 			for (int l = 0; l < meat; ++l) {
 				if (entity.isBurning()) {
 					entity.dropItem(GOTRegistry.muttonCooked, 1);
-					continue;
+				} else {
+					entity.dropItem(GOTRegistry.muttonRaw, 1);
 				}
-				entity.dropItem(GOTRegistry.muttonRaw, 1);
 			}
 		}
 	}
@@ -1018,10 +1009,9 @@ public class GOTEventHandler implements IFuelHandler {
 			EntityPlayer entityplayer = (EntityPlayer) entity;
 			for (int l2 = 0; l2 < entityplayer.inventory.getSizeInventory(); ++l2) {
 				ItemStack itemstack = entityplayer.inventory.getStackInSlot(l2);
-				if (itemstack == null) {
-					continue;
+				if (itemstack != null) {
+					GOTEventHandler.dechant(itemstack, entityplayer);
 				}
-				GOTEventHandler.dechant(itemstack, entityplayer);
 			}
 		}
 		if (!world.isRemote && entity.isEntityAlive() && entity.isInWater() && entity.ridingEntity == null && entity.ticksExisted % 10 == 0) {
@@ -1082,23 +1072,17 @@ public class GOTEventHandler implements IFuelHandler {
 					int frostProtection = 50;
 					for (int l1 = 1; l1 < 4; ++l1) {
 						ItemStack armor = entity.getEquipmentInSlot(l1);
-						if (armor == null || !(armor.getItem() instanceof ItemArmor)) {
-							continue;
+						if (armor != null && armor.getItem() instanceof ItemArmor) {
+							ItemArmor.ArmorMaterial armorMaterial = ((ItemArmor) armor.getItem()).getArmorMaterial();
+							Item material = armorMaterial.func_151685_b();
+							if (material == Items.leather) {
+								frostProtection += 50;
+							} else if (material == GOTRegistry.fur || material == GOTRegistry.iceShard || armorMaterial == GOTMaterial.NORTH.toArmorMaterial() || armorMaterial == GOTMaterial.REDKING.toArmorMaterial()) {
+								frostProtection += 100;
+							} else if (armorMaterial == GOTMaterial.GIFT.toArmorMaterial()) {
+								frostProtection += 50;
+							}
 						}
-						ItemArmor.ArmorMaterial armorMaterial = ((ItemArmor) armor.getItem()).getArmorMaterial();
-						Item material = armorMaterial.func_151685_b();
-						if (material == Items.leather) {
-							frostProtection += 50;
-							continue;
-						}
-						if (material == GOTRegistry.fur || material == GOTRegistry.iceShard || armorMaterial == GOTMaterial.NORTH.toArmorMaterial() || armorMaterial == GOTMaterial.REDKING.toArmorMaterial()) {
-							frostProtection += 100;
-							continue;
-						}
-						if (armorMaterial != GOTMaterial.GIFT.toArmorMaterial()) {
-							continue;
-						}
-						frostProtection += 50;
 					}
 					if (world.isRaining()) {
 						frostProtection /= 3;
@@ -1136,17 +1120,15 @@ public class GOTEventHandler implements IFuelHandler {
 					int burnProtection = 0;
 					for (int l1 = 0; l1 < 4; ++l1) {
 						ItemStack armour = entity.getEquipmentInSlot(l1 + 1);
-						if (armour == null || !(armour.getItem() instanceof ItemArmor)) {
-							continue;
+						if (armour != null && armour.getItem() instanceof ItemArmor) {
+							ItemArmor.ArmorMaterial material = ((ItemArmor) armour.getItem()).getArmorMaterial();
+							if (material.customCraftingMaterial == Items.leather) {
+								burnProtection += 50;
+							}
+							if (material == GOTMaterial.ROBES.toArmorMaterial() && material == GOTMaterial.DORNE.toArmorMaterial()) {
+								burnProtection += 400;
+							}
 						}
-						ItemArmor.ArmorMaterial material = ((ItemArmor) armour.getItem()).getArmorMaterial();
-						if (material.customCraftingMaterial == Items.leather) {
-							burnProtection += 50;
-						}
-						if (material != GOTMaterial.ROBES.toArmorMaterial() || material != GOTMaterial.DORNE.toArmorMaterial()) {
-							continue;
-						}
-						burnProtection += 400;
 					}
 					burnChance += burnProtection;
 					if (world.rand.nextInt(burnChance = Math.max(burnChance, 1)) == 0 && entity.attackEntityFrom(DamageSource.onFire, 1.0f) && entity instanceof EntityPlayerMP) {
@@ -1288,18 +1270,14 @@ public class GOTEventHandler implements IFuelHandler {
 				} else if (arg instanceof String) {
 					chatText = (String) arg;
 				}
-				if (chatText == null || !chatText.equals(message)) {
-					continue;
+				if (chatText != null && chatText.equals(message)) {
+					String newText = GOTDrunkenSpeech.getDrunkenSpeech(chatText, chance);
+					if (arg instanceof String) {
+						formatArgs[a] = newText;
+					} else if (arg instanceof ChatComponentText) {
+						formatArgs[a] = new ChatComponentText(newText);
+					}
 				}
-				String newText = GOTDrunkenSpeech.getDrunkenSpeech(chatText, chance);
-				if (arg instanceof String) {
-					formatArgs[a] = newText;
-					continue;
-				}
-				if (!(arg instanceof ChatComponentText)) {
-					continue;
-				}
-				formatArgs[a] = new ChatComponentText(newText);
 			}
 			chatComponent = new ChatComponentTranslation(key, formatArgs);
 		}
@@ -1317,9 +1295,9 @@ public class GOTEventHandler implements IFuelHandler {
 						continue;
 					}
 					newFormatArgs.add(componentText);
-					continue;
+				} else {
+					newFormatArgs.add(arg);
 				}
-				newFormatArgs.add(arg);
 			}
 			ChatComponentTranslation newChatComponent = new ChatComponentTranslation(chatComponent.getKey(), newFormatArgs.toArray());
 			newChatComponent.setChatStyle(chatComponent.getChatStyle().createShallowCopy());
@@ -1399,20 +1377,19 @@ public class GOTEventHandler implements IFuelHandler {
 							continue block0;
 						}
 					}
-					if (world.getBlock(i1, j1, k1).getMaterial() != Material.air) {
-						continue;
-					}
-					if (rand.nextInt(8) > 0) {
-						GOTBiome.GrassBlockAndMeta obj = biome.getRandomGrass(rand);
-						Block block = obj.block;
-						int meta3 = obj.meta;
-						if (!block.canBlockStay(world, i1, j1, k1)) {
-							continue;
+					if (world.getBlock(i1, j1, k1).getMaterial() == Material.air) {
+						if (rand.nextInt(8) > 0) {
+							GOTBiome.GrassBlockAndMeta obj = biome.getRandomGrass(rand);
+							Block block = obj.block;
+							int meta3 = obj.meta;
+							if (!block.canBlockStay(world, i1, j1, k1)) {
+								continue;
+							}
+							world.setBlock(i1, j1, k1, block, meta3, 3);
+						} else {
+							biome.plantFlower(world, rand, i1, j1, k1);
 						}
-						world.setBlock(i1, j1, k1, block, meta3, 3);
-						continue;
 					}
-					biome.plantFlower(world, rand, i1, j1, k1);
 				}
 				event.setResult(Event.Result.ALLOW);
 			}

@@ -134,10 +134,9 @@ public class GOTLore {
 		ArrayList<GOTLore> allLore = new ArrayList<>();
 		for (LoreCategory c : categories) {
 			for (GOTLore lore : c.loreList) {
-				if (allLore.contains(lore) || rewardsOnly && !lore.isRewardable) {
-					continue;
+				if (!allLore.contains(lore) && (!rewardsOnly || lore.isRewardable)) {
+					allLore.add(lore);
 				}
-				allLore.add(lore);
 			}
 		}
 		if (!allLore.isEmpty()) {
@@ -158,18 +157,17 @@ public class GOTLore {
 					String path;
 					ZipEntry entry = entries.nextElement();
 					String s = entry.getName();
-					if (!s.startsWith(path = "assets/got/lore/" + GOTConfig.languageCode + "/") || !s.endsWith(".txt")) {
-						continue;
-					}
-					s = s.substring(path.length());
-					int i = s.indexOf(".txt");
-					try {
-						s = s.substring(0, i);
-						BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(zip.getInputStream(entry)), Charsets.UTF_8.name()));
-						loreReaders.put(s, reader);
-					} catch (Exception e) {
-						GOTLog.logger.error("Failed to load GOT lore " + s + "from zip file");
-						e.printStackTrace();
+					if (s.startsWith(path = "assets/got/lore/" + GOTConfig.languageCode + "/") && s.endsWith(".txt")) {
+						s = s.substring(path.length());
+						int i = s.indexOf(".txt");
+						try {
+							s = s.substring(0, i);
+							BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(zip.getInputStream(entry)), Charsets.UTF_8.name()));
+							loreReaders.put(s, reader);
+						} catch (Exception e) {
+							GOTLog.logger.error("Failed to load GOT lore " + s + "from zip file");
+							e.printStackTrace();
+						}
 					}
 				}
 			} else {
@@ -179,15 +177,15 @@ public class GOTLore {
 					int i = s.indexOf(".txt");
 					if (i < 0) {
 						GOTLog.logger.error("Failed to load GOT lore " + s + " from MCP folder; name bank files must be in .txt format");
-						continue;
-					}
-					try {
-						s = s.substring(0, i);
-						BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(new FileInputStream(file)), Charsets.UTF_8.name()));
-						loreReaders.put(s, reader);
-					} catch (Exception e) {
-						GOTLog.logger.error("Failed to load GOT lore " + s + " from MCP folder");
-						e.printStackTrace();
+					} else {
+						try {
+							s = s.substring(0, i);
+							BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(new FileInputStream(file)), Charsets.UTF_8.name()));
+							loreReaders.put(s, reader);
+						} catch (Exception e) {
+							GOTLog.logger.error("Failed to load GOT lore " + s + " from MCP folder");
+							e.printStackTrace();
+						}
 					}
 				}
 			}
@@ -234,10 +232,9 @@ public class GOTLore {
 								}
 								if ("all".equals(categoryName)) {
 									for (LoreCategory category : LoreCategory.values()) {
-										if (categories.contains(category)) {
-											continue;
+										if (!categories.contains(category)) {
+											categories.add(category);
 										}
-										categories.add(category);
 									}
 									continue;
 								}
@@ -278,10 +275,9 @@ public class GOTLore {
 			int num = category.loreList.size();
 			int numReward = 0;
 			for (GOTLore lore : category.loreList) {
-				if (!lore.isRewardable) {
-					continue;
+				if (lore.isRewardable) {
+					++numReward;
 				}
-				++numReward;
 			}
 			GOTLog.logger.info("Hummel009: Category " + category.categoryName + " has loaded " + num + " lore texts, of which " + numReward + " rewardable");
 		}
@@ -350,14 +346,13 @@ public class GOTLore {
 				if (i < splitTxtWords.size() - 1) {
 					currentLine = currentLine + " ";
 				}
-				if (currentLine.length() < 17) {
-					continue;
-				}
-				pageText = pageText + currentLine;
-				currentLine = "";
-				numLines++;
-				if (numLines >= 13) {
-					break;
+				if (currentLine.length() >= 17) {
+					pageText = pageText + currentLine;
+					currentLine = "";
+					numLines++;
+					if (numLines >= 13) {
+						break;
+					}
 				}
 			}
 			if (currentLine.length() > 0) {
@@ -390,10 +385,9 @@ public class GOTLore {
 
 		public static LoreCategory forName(String s) {
 			for (LoreCategory r : LoreCategory.values()) {
-				if (!s.equalsIgnoreCase(r.categoryName)) {
-					continue;
+				if (s.equalsIgnoreCase(r.categoryName)) {
+					return r;
 				}
-				return r;
 			}
 			return null;
 		}

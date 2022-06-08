@@ -59,33 +59,30 @@ public class GOTJaqenHgharTracker {
 			Random rand = world.rand;
 			block0: for (Object obj : players) {
 				EntityPlayer entityplayer = (EntityPlayer) obj;
-				if (GOTLevelData.getData(entityplayer).hasAnyJHQuest()) {
-					continue;
-				}
-				for (int attempts = 0; attempts < 32; ++attempts) {
-					int k;
-					float angle = rand.nextFloat() * 3.1415927f * 2.0f;
-					int r = MathHelper.getRandomIntegerInRange(rand, 4, 16);
-					int i = MathHelper.floor_double(entityplayer.posX + r * MathHelper.cos(angle));
-					int j = world.getHeightValue(i, k = MathHelper.floor_double(entityplayer.posZ + r * MathHelper.sin(angle)));
-					if (j <= 62 || !world.getBlock(i, j - 1, k).isOpaqueCube() || world.getBlock(i, j, k).isNormalCube() || world.getBlock(i, j + 1, k).isNormalCube()) {
-						continue;
+				if (!GOTLevelData.getData(entityplayer).hasAnyJHQuest()) {
+					for (int attempts = 0; attempts < 32; ++attempts) {
+						int k;
+						float angle = rand.nextFloat() * 3.1415927f * 2.0f;
+						int r = MathHelper.getRandomIntegerInRange(rand, 4, 16);
+						int i = MathHelper.floor_double(entityplayer.posX + r * MathHelper.cos(angle));
+						int j = world.getHeightValue(i, k = MathHelper.floor_double(entityplayer.posZ + r * MathHelper.sin(angle)));
+						if (j > 62 && world.getBlock(i, j - 1, k).isOpaqueCube() && !world.getBlock(i, j, k).isNormalCube() && !world.getBlock(i, j + 1, k).isNormalCube()) {
+							GOTEntityJaqenHghar wanderer = new GOTEntityJaqenHghar(world);
+							wanderer.setLocationAndAngles(i + 0.5, j, k + 0.5, world.rand.nextFloat() * 360.0f, 0.0f);
+							wanderer.liftSpawnRestrictions = true;
+							wanderer.liftBannerRestrictions = true;
+							Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(wanderer, world, (float) wanderer.posX, (float) wanderer.posY, (float) wanderer.posZ);
+							if (canSpawn == Event.Result.ALLOW || canSpawn == Event.Result.DEFAULT && wanderer.getCanSpawnHere()) {
+								wanderer.liftSpawnRestrictions = false;
+								wanderer.liftBannerRestrictions = false;
+								world.spawnEntityInWorld(wanderer);
+								wanderer.onSpawnWithEgg(null);
+								GOTJaqenHgharTracker.addNewWanderer(wanderer.getUniqueID());
+								wanderer.arriveAt(entityplayer);
+								break block0;
+							}
+						}
 					}
-					GOTEntityJaqenHghar wanderer = new GOTEntityJaqenHghar(world);
-					wanderer.setLocationAndAngles(i + 0.5, j, k + 0.5, world.rand.nextFloat() * 360.0f, 0.0f);
-					wanderer.liftSpawnRestrictions = true;
-					wanderer.liftBannerRestrictions = true;
-					Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(wanderer, world, (float) wanderer.posX, (float) wanderer.posY, (float) wanderer.posZ);
-					if (canSpawn != Event.Result.ALLOW && (canSpawn != Event.Result.DEFAULT || !wanderer.getCanSpawnHere())) {
-						continue;
-					}
-					wanderer.liftSpawnRestrictions = false;
-					wanderer.liftBannerRestrictions = false;
-					world.spawnEntityInWorld(wanderer);
-					wanderer.onSpawnWithEgg(null);
-					GOTJaqenHgharTracker.addNewWanderer(wanderer.getUniqueID());
-					wanderer.arriveAt(entityplayer);
-					break block0;
 				}
 			}
 		}
@@ -119,10 +116,9 @@ public class GOTJaqenHgharTracker {
 			int cd = activeGreyWanderers.get(id);
 			cd--;
 			activeGreyWanderers.put(id, cd);
-			if (cd > 0) {
-				continue;
+			if (cd <= 0) {
+				removes.add(id);
 			}
-			removes.add(id);
 		}
 		if (!removes.isEmpty()) {
 			for (UUID id : removes) {

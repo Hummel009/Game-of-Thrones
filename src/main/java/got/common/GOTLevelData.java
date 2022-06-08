@@ -14,7 +14,6 @@ import got.GOT;
 import got.common.database.*;
 import got.common.fellowship.*;
 import got.common.network.*;
-import got.common.network.GOTPacketEnableAlignmentZones;
 import net.minecraft.entity.player.*;
 import net.minecraft.nbt.*;
 import net.minecraft.server.MinecraftServer;
@@ -67,10 +66,9 @@ public class GOTLevelData {
 			return true;
 		}
 		for (GOTPlayerData pd : playerDataMap.values()) {
-			if (!pd.needsSave()) {
-				continue;
+			if (pd.needsSave()) {
+				return true;
 			}
-			return true;
 		}
 		return false;
 	}
@@ -87,17 +85,15 @@ public class GOTLevelData {
 		HashSet<String> players = new HashSet<>();
 		for (UUID uuid : playerDataMap.keySet()) {
 			String username;
-			if (!GOTLevelData.getData(uuid).getStructuresBanned()) {
-				continue;
+			if (GOTLevelData.getData(uuid).getStructuresBanned()) {
+				GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152652_a(uuid);
+				if (StringUtils.isBlank(profile.getName())) {
+					MinecraftServer.getServer().func_147130_as().fillProfileProperties(profile, true);
+				}
+				if (!StringUtils.isBlank(username = profile.getName())) {
+					players.add(username);
+				}
 			}
-			GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152652_a(uuid);
-			if (StringUtils.isBlank(profile.getName())) {
-				MinecraftServer.getServer().func_147130_as().fillProfileProperties(profile, true);
-			}
-			if (StringUtils.isBlank(username = profile.getName())) {
-				continue;
-			}
-			players.add(username);
 		}
 		return players;
 	}
@@ -361,16 +357,14 @@ public class GOTLevelData {
 		for (UUID player : playerDataMap.keySet()) {
 			boolean foundPlayer = false;
 			for (WorldServer world : MinecraftServer.getServer().worldServers) {
-				if (world.func_152378_a(player) == null) {
-					continue;
+				if (world.func_152378_a(player) != null) {
+					foundPlayer = true;
+					break;
 				}
-				foundPlayer = true;
-				break;
 			}
-			if (foundPlayer) {
-				continue;
+			if (!foundPlayer) {
+				clearing.add(player);
 			}
-			clearing.add(player);
 		}
 		clearing.size();
 		playerDataMap.size();
@@ -402,11 +396,10 @@ public class GOTLevelData {
 	public static void selectDefaultCapeForPlayer(EntityPlayer entityplayer) {
 		if (GOTLevelData.getData(entityplayer).getCape() == null) {
 			for (GOTCapes cape : GOTCapes.values()) {
-				if (!cape.canPlayerWear(entityplayer)) {
-					continue;
+				if (cape.canPlayerWear(entityplayer)) {
+					GOTLevelData.getData(entityplayer).setCape(cape);
+					return;
 				}
-				GOTLevelData.getData(entityplayer).setCape(cape);
-				return;
 			}
 		}
 	}
@@ -414,11 +407,10 @@ public class GOTLevelData {
 	public static void selectDefaultShieldForPlayer(EntityPlayer entityplayer) {
 		if (GOTLevelData.getData(entityplayer).getShield() == null) {
 			for (GOTShields shield : GOTShields.values()) {
-				if (!shield.canPlayerWear(entityplayer)) {
-					continue;
+				if (shield.canPlayerWear(entityplayer)) {
+					GOTLevelData.getData(entityplayer).setShield(shield);
+					return;
 				}
-				GOTLevelData.getData(entityplayer).setShield(shield);
-				return;
 			}
 		}
 	}
@@ -503,39 +495,35 @@ public class GOTLevelData {
 		ArrayList<GOTFellowship> fellowshipsMapShow = new ArrayList<>();
 		for (UUID fsID : playerData.getFellowshipIDs()) {
 			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
-			if (fs == null || !fs.getShowMapLocations()) {
-				continue;
+			if (fs != null && fs.getShowMapLocations()) {
+				fellowshipsMapShow.add(fs);
 			}
-			fellowshipsMapShow.add(fs);
 		}
 		for (Object element : world.playerEntities) {
 			boolean show;
 			EntityPlayer otherPlayer = (EntityPlayer) element;
-			if (otherPlayer == sendPlayer) {
-				continue;
-			}
-			show = !GOTLevelData.getData(otherPlayer).getHideMapLocation();
-			if (!isOp && GOTLevelData.getData(otherPlayer).getAdminHideMap() || GOTConfig.forceMapLocations == 1) {
-				show = false;
-			} else if (GOTConfig.forceMapLocations == 2) {
-				show = true;
-			} else if (!show) {
-				if (isOp && creative) {
+			if (otherPlayer != sendPlayer) {
+				show = !GOTLevelData.getData(otherPlayer).getHideMapLocation();
+				if (!isOp && GOTLevelData.getData(otherPlayer).getAdminHideMap() || GOTConfig.forceMapLocations == 1) {
+					show = false;
+				} else if (GOTConfig.forceMapLocations == 2) {
 					show = true;
-				} else if (!playerData.isSiegeActive()) {
-					for (GOTFellowship fs : fellowshipsMapShow) {
-						if (!fs.containsPlayer(otherPlayer.getUniqueID())) {
-							continue;
-						}
+				} else if (!show) {
+					if (isOp && creative) {
 						show = true;
-						break;
+					} else if (!playerData.isSiegeActive()) {
+						for (GOTFellowship fs : fellowshipsMapShow) {
+							if (fs.containsPlayer(otherPlayer.getUniqueID())) {
+								show = true;
+								break;
+							}
+						}
 					}
 				}
+				if (show) {
+					packetLocations.addPlayerLocation(otherPlayer.getGameProfile(), otherPlayer.posX, otherPlayer.posZ);
+				}
 			}
-			if (!show) {
-				continue;
-			}
-			packetLocations.addPlayerLocation(otherPlayer.getGameProfile(), otherPlayer.posX, otherPlayer.posZ);
 		}
 		GOTPacketHandler.networkWrapper.sendTo((IMessage) packetLocations, (EntityPlayerMP) sendPlayer);
 	}
@@ -566,7 +554,7 @@ public class GOTLevelData {
 			for (Object player : players) {
 				EntityPlayerMP entityplayer = (EntityPlayerMP) player;
 				GOTPacketEnableAlignmentZones packet = new GOTPacketEnableAlignmentZones(enableAlignmentZones);
-				GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, entityplayer);
+				GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 			}
 		}
 	}
