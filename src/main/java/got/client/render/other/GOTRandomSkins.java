@@ -80,14 +80,13 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 					break;
 				}
 				++skinCount;
-				continue;
+			} else {
+				skins.add(skin);
+				++skinCount;
+				if (skips > 0) {
+					foundAfterSkip = true;
+				}
 			}
-			skins.add(skin);
-			++skinCount;
-			if (skips <= 0) {
-				continue;
-			}
-			foundAfterSkip = true;
 		} while (true);
 		if (skins.isEmpty()) {
 			FMLLog.warning("GOT: No random skins for %s", skinPath);
@@ -173,9 +172,9 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 									opaqueTest = -16777216;
 									if ((overlayRGB & opaqueTest) == opaqueTest) {
 										newImage.setRGB(i, j, overlayRGB);
-										continue;
+									} else {
+										newImage.setRGB(i, j, baseRGB);
 									}
-									newImage.setRGB(i, j, baseRGB);
 								}
 							}
 							tempLayered.add(newImage);

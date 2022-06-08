@@ -128,10 +128,9 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 		if (base.childModels != null) {
 			for (Object obj : base.childModels) {
 				ModelRenderer part = (ModelRenderer) obj;
-				if (!recursiveCheckForModel(part, match)) {
-					continue;
+				if (recursiveCheckForModel(part, match)) {
+					return true;
 				}
-				return true;
 			}
 		}
 		return false;
@@ -180,33 +179,31 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 				int l;
 				ModelRenderer part;
 				int shouldRenderPass = npcRenderer.shouldRenderPass(theNPC, pass, 1.0f);
-				if (shouldRenderPass <= 0) {
-					continue;
-				}
-				model = npcRenderer.npcRenderPassModel;
-				model.isChild = theNPC.isChild();
-				List modelParts = model.boxList;
-				boolean[] prevShowModels = new boolean[modelParts.size()];
-				for (l = 0; l < modelParts.size(); ++l) {
-					part = (ModelRenderer) modelParts.get(l);
-					prevShowModels[l] = part.showModel;
-					boolean isHeadPart = false;
-					if (recursiveCheckForModel(model.bipedHead, part) || recursiveCheckForModel(model.bipedHeadwear, part)) {
-						isHeadPart = true;
+				if (shouldRenderPass > 0) {
+					model = npcRenderer.npcRenderPassModel;
+					model.isChild = theNPC.isChild();
+					List modelParts = model.boxList;
+					boolean[] prevShowModels = new boolean[modelParts.size()];
+					for (l = 0; l < modelParts.size(); ++l) {
+						part = (ModelRenderer) modelParts.get(l);
+						prevShowModels[l] = part.showModel;
+						boolean isHeadPart = false;
+						if (recursiveCheckForModel(model.bipedHead, part) || recursiveCheckForModel(model.bipedHeadwear, part)) {
+							isHeadPart = true;
+						}
+						if (!isHeadPart) {
+							part.showModel = false;
+						}
 					}
-					if (isHeadPart) {
-						continue;
-					}
-					part.showModel = false;
-				}
-				model.render(theNPC, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
-				if ((shouldRenderPass & 0xF0) == 16) {
-					npcRenderer.func_82408_c(theNPC, pass, 1.0f);
 					model.render(theNPC, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
-				}
-				for (l = 0; l < modelParts.size(); ++l) {
-					part = (ModelRenderer) modelParts.get(l);
-					part.showModel = prevShowModels[l];
+					if ((shouldRenderPass & 0xF0) == 16) {
+						npcRenderer.func_82408_c(theNPC, pass, 1.0f);
+						model.render(theNPC, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
+					}
+					for (l = 0; l < modelParts.size(); ++l) {
+						part = (ModelRenderer) modelParts.get(l);
+						part.showModel = prevShowModels[l];
+					}
 				}
 			}
 		}
@@ -323,11 +320,10 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 			NPCAction chosen = null;
 			for (NPCAction action : NPCAction.values()) {
 				f -= action.weight;
-				if (f > 0.0f) {
-					continue;
+				if (f <= 0.0f) {
+					chosen = action;
+					break;
 				}
-				chosen = action;
-				break;
 			}
 			return chosen;
 		}

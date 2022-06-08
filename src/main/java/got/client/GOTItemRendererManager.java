@@ -1,6 +1,5 @@
 package got.client;
 
-import java.lang.reflect.Field;
 import java.util.*;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -8,6 +7,7 @@ import got.client.render.other.*;
 import got.common.database.GOTRegistry;
 import got.common.item.other.GOTItemAnimalJar;
 import got.common.item.weapon.*;
+import got.common.util.GOTCommander;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.resources.*;
@@ -28,12 +28,8 @@ public class GOTItemRendererManager implements IResourceManagerReloadListener {
 	public void onResourceManagerReload(IResourceManager resourceManager) {
 		largeItemRenderers.clear();
 		try {
-			for (Field field : GOTRegistry.class.getFields()) {
+			for (Item item : GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Item.class)) {
 				boolean isLarge;
-				if (!(field.get(null) instanceof Item)) {
-					continue;
-				}
-				Item item = (Item) field.get(null);
 				MinecraftForgeClient.registerItemRenderer(item, null);
 				GOTRenderLargeItem largeItemRenderer = GOTRenderLargeItem.getRendererIfLarge(item);
 				isLarge = largeItemRenderer != null;
@@ -47,10 +43,9 @@ public class GOTItemRendererManager implements IResourceManagerReloadListener {
 				} else if (isLarge) {
 					MinecraftForgeClient.registerItemRenderer(item, largeItemRenderer);
 				}
-				if (largeItemRenderer == null) {
-					continue;
+				if (largeItemRenderer != null) {
+					largeItemRenderers.add(largeItemRenderer);
 				}
-				largeItemRenderers.add(largeItemRenderer);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

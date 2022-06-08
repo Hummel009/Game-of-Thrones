@@ -147,10 +147,9 @@ public class GOTRenderLargeItem implements IItemRenderer {
 			try {
 				ResourceLocation resLoc = GOTRenderLargeItem.getLargeTexturePath(item, folder);
 				IResource res = Minecraft.getMinecraft().getResourceManager().getResource(resLoc);
-				if (res == null) {
-					continue;
+				if (res != null) {
+					return new GOTRenderLargeItem(item, folder, iconScale);
 				}
-				return new GOTRenderLargeItem(item, folder, iconScale);
 			} catch (IOException resLoc) {
 			}
 		}

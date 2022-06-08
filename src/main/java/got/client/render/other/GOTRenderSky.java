@@ -178,11 +178,10 @@ public class GOTRenderSky extends IRenderHandler {
 				if (pass == 0) {
 					GL11.glColor4f(1.0f, 1.0f, 1.0f, rainBrightness);
 				} else if (pass == 1) {
-					if (sunrise == null) {
-						continue;
+					if (sunrise != null) {
+						float sunriseBlend = sunrise[3];
+						GL11.glColor4f(1.0f, 0.9f, 0.2f, (sunriseBlend *= 0.5f) * rainBrightness);
 					}
-					float sunriseBlend = sunrise[3];
-					GL11.glColor4f(1.0f, 0.9f, 0.2f, (sunriseBlend *= 0.5f) * rainBrightness);
 				}
 				tessellator.startDrawingQuads();
 				tessellator.addVertexWithUV(-rSun, 100.0, -rSun, 0.0, 0.0);

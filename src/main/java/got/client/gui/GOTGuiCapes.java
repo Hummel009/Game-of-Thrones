@@ -72,10 +72,9 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 	public boolean canGoLeft() {
 		for (int i = 0; i <= currentCapeID - 1; ++i) {
 			GOTCapes cape = currentCapeType.list.get(i);
-			if (!cape.canDisplay(mc.thePlayer)) {
-				continue;
+			if (cape.canDisplay(mc.thePlayer)) {
+				return true;
 			}
-			return true;
 		}
 		return false;
 	}
@@ -83,10 +82,9 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 	public boolean canGoRight() {
 		for (int i = currentCapeID + 1; i <= currentCapeType.list.size() - 1; ++i) {
 			GOTCapes cape = currentCapeType.list.get(i);
-			if (!cape.canDisplay(mc.thePlayer)) {
-				continue;
+			if (cape.canDisplay(mc.thePlayer)) {
+				return true;
 			}
-			return true;
 		}
 		return false;
 	}
@@ -199,13 +197,11 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 		while (!currentCape.canDisplay(mc.thePlayer)) {
 			if ((cape < 0 || type != 0) && canGoLeft()) {
 				updateCurrentCape(-1, 0);
-				continue;
-			}
-			if ((cape > 0 || type != 0) && canGoRight()) {
+			} else if ((cape > 0 || type != 0) && canGoRight()) {
 				updateCurrentCape(1, 0);
-				continue;
+			} else {
+				updateCurrentCape(0, 1);
 			}
-			updateCurrentCape(0, 1);
 		}
 	}
 

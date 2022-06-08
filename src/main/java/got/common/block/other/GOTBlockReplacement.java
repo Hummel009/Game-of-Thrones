@@ -200,11 +200,10 @@ public class GOTBlockReplacement {
 				Field field = null;
 				for (Field f : Blocks.class.getDeclaredFields()) {
 					GOTReflection.unlockFinalField(f);
-					if (f.get(null) != oldBlock) {
-						continue;
+					if (f.get(null) == oldBlock) {
+						field = f;
+						break;
 					}
-					field = f;
-					break;
 				}
 				GOTReflection.setFinalField(Blocks.class, null, newBlock, field);
 			} catch (Exception e) {
@@ -217,11 +216,10 @@ public class GOTBlockReplacement {
 				Field field = null;
 				for (Field f : Items.class.getDeclaredFields()) {
 					GOTReflection.unlockFinalField(f);
-					if (f.get(null) != oldItem) {
-						continue;
+					if (f.get(null) == oldItem) {
+						field = f;
+						break;
 					}
-					field = f;
-					break;
 				}
 				GOTReflection.setFinalField(Items.class, null, newItem, field);
 			} catch (Exception e) {

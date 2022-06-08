@@ -45,28 +45,24 @@ public class GOTRenderAlignmentBonus extends Render {
 			} else {
 				float alignment;
 				for (GOTFaction faction : factionBonusMap.keySet()) {
-					if (!faction.isPlayableAlignmentFaction() || factionBonusMap.get(faction).floatValue() <= 0.0f) {
-						continue;
+					if (!(!faction.isPlayableAlignmentFaction() || factionBonusMap.get(faction).floatValue() <= 0.0f)) {
+						alignment = playerData.getAlignment(faction);
+						if (!(renderFaction != null && alignment <= playerData.getAlignment(renderFaction))) {
+							renderFaction = faction;
+						}
 					}
-					alignment = playerData.getAlignment(faction);
-					if (renderFaction != null && alignment <= playerData.getAlignment(renderFaction)) {
-						continue;
-					}
-					renderFaction = faction;
 				}
 				if (renderFaction == null) {
 					if (mainFaction.isPlayableAlignmentFaction() && factionBonusMap.get(mainFaction).floatValue() < 0.0f) {
 						renderFaction = mainFaction;
 					} else {
 						for (GOTFaction faction : factionBonusMap.keySet()) {
-							if (!faction.isPlayableAlignmentFaction() || factionBonusMap.get(faction).floatValue() >= 0.0f) {
-								continue;
+							if (!(!faction.isPlayableAlignmentFaction() || factionBonusMap.get(faction).floatValue() >= 0.0f)) {
+								alignment = playerData.getAlignment(faction);
+								if (!(renderFaction != null && alignment <= playerData.getAlignment(renderFaction))) {
+									renderFaction = faction;
+								}
 							}
-							alignment = playerData.getAlignment(faction);
-							if (renderFaction != null && alignment <= playerData.getAlignment(renderFaction)) {
-								continue;
-							}
-							renderFaction = faction;
 						}
 					}
 				}

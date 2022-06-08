@@ -426,11 +426,11 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 			acceptInviteResult = null;
 			acceptInviteResultFellowshipName = null;
 		}
-		boolean creationEnabled = GOTConfig.isFellowshipCreationEnabled(this.mc.theWorld);
-        boolean canPlayerCreateNew = playerData.canCreateFellowships(true);
+		boolean creationEnabled = GOTConfig.isFellowshipCreationEnabled(mc.theWorld);
+		boolean canPlayerCreateNew = playerData.canCreateFellowships(true);
 		buttonCreate.visible = page == Page.LIST;
-		this.buttonCreate.enabled = this.buttonCreate.visible && creationEnabled && canPlayerCreateNew;
-        buttonCreateThis.visible = page == Page.CREATE;
+		buttonCreate.enabled = buttonCreate.visible && creationEnabled && canPlayerCreateNew;
+		buttonCreateThis.visible = page == Page.CREATE;
 		String checkValidName = checkValidFellowshipName(textFieldName.getText());
 		buttonCreateThis.enabled = buttonCreateThis.visible && checkValidName == null;
 		buttonInvitePlayer.visible = buttonInvitePlayer.enabled = page == Page.FELLOWSHIP && (viewingOwned || viewingAdminned);
@@ -506,15 +506,15 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 			if (buttonInvites.func_146115_a()) {
 				renderIconTooltip(i, j, StatCollector.translateToLocal("got.gui.fellowships.invitesTooltip"));
 			}
-            if (this.buttonCreate.func_146115_a()) {
-                if (!creationEnabled) {
-                    s = StatCollector.translateToLocal((String)"got.gui.fellowships.creationDisabled");
-                    this.drawCenteredString(s, this.guiLeft + this.xSize / 2, this.buttonCreate.yPosition + this.buttonCreate.height + 4, 16777215);
-                } else if (!canPlayerCreateNew) {
-                    s = StatCollector.translateToLocal((String)"got.gui.fellowships.createLimit");
-                    this.drawCenteredString(s, this.guiLeft + this.xSize / 2, this.buttonCreate.yPosition + this.buttonCreate.height + 4, 16777215);
-                }
-            }
+			if (buttonCreate.func_146115_a()) {
+				if (!creationEnabled) {
+					s = StatCollector.translateToLocal("got.gui.fellowships.creationDisabled");
+					this.drawCenteredString(s, guiLeft + xSize / 2, buttonCreate.yPosition + buttonCreate.height + 4, 16777215);
+				} else if (!canPlayerCreateNew) {
+					s = StatCollector.translateToLocal("got.gui.fellowships.createLimit");
+					this.drawCenteredString(s, guiLeft + xSize / 2, buttonCreate.yPosition + buttonCreate.height + 4, 16777215);
+				}
+			}
 			if (scrollPaneLeading.hasScrollBar) {
 				scrollPaneLeading.drawScrollBar();
 			}
@@ -901,9 +901,9 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 		for (GOTFellowshipClient fs : fellowships) {
 			if (fs.isOwned()) {
 				allFellowshipsLeading.add(fs);
-				continue;
+			} else {
+				allFellowshipsOther.add(fs);
 			}
-			allFellowshipsOther.add(fs);
 		}
 		allFellowshipInvites.clear();
 		allFellowshipInvites.addAll(GOTLevelData.getData(mc.thePlayer).getClientFellowshipInvites());
@@ -934,10 +934,10 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 				if (displayedFellowshipsOther >= displayedFellowshipsLeading) {
 					displayedFellowshipsOther--;
 					scrollPaneOther.hasScrollBar = true;
-					continue;
+				} else {
+					displayedFellowshipsLeading--;
+					scrollPaneLeading.hasScrollBar = true;
 				}
-				displayedFellowshipsLeading--;
-				scrollPaneLeading.hasScrollBar = true;
 			}
 			scrollPaneLeading.paneX0 = guiLeft;
 			scrollPaneLeading.scrollBarX0 = guiLeft + scrollBarX;

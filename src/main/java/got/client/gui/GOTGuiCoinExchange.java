@@ -47,10 +47,9 @@ public class GOTGuiCoinExchange extends GuiContainer {
 		if (theContainer.exchanged) {
 			for (int l = 0; l < theContainer.exchangeInv.getSizeInventory(); ++l) {
 				Slot slot = theContainer.getSlotFromInventory(theContainer.exchangeInv, l);
-				if (!slot.getHasStack()) {
-					continue;
+				if (slot.getHasStack()) {
+					drawTexturedModalRect(guiLeft + slot.xDisplayPosition - 5, guiTop + slot.yDisplayPosition - 5, 176, 51, 26, 26);
 				}
-				drawTexturedModalRect(guiLeft + slot.xDisplayPosition - 5, guiTop + slot.yDisplayPosition - 5, 176, 51, 26, 26);
 			}
 		}
 	}

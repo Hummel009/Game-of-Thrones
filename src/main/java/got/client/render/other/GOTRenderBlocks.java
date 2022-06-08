@@ -751,12 +751,9 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		for (int l = 0; l < 16; ++l) {
 			if (metadata == 0) {
 				GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.5f - l / 16.0f * 0.25f, l / 16.0f, 0.5f - l / 16.0f * 0.25f, 0.5f + l / 16.0f * 0.25f, (l + 1) / 16.0f, 0.5f + l / 16.0f * 0.25f);
-				continue;
+			} else if (metadata == 1) {
+				GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.25f + l / 16.0f * 0.25f, l / 16.0f, 0.25f + l / 16.0f * 0.25f, 0.75f - l / 16.0f * 0.25f, (l + 1) / 16.0f, 0.75f - l / 16.0f * 0.25f);
 			}
-			if (metadata != 1) {
-				continue;
-			}
-			GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.25f + l / 16.0f * 0.25f, l / 16.0f, 0.25f + l / 16.0f * 0.25f, 0.75f - l / 16.0f * 0.25f, (l + 1) / 16.0f, 0.75f - l / 16.0f * 0.25f);
 		}
 		renderblocks.renderAllFaces = false;
 	}
@@ -901,13 +898,10 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			if (metadata == 0) {
 				renderblocks.setRenderBounds(0.5f - l / 16.0f * 0.25f, l / 16.0f, 0.5f - l / 16.0f * 0.25f, 0.5f + l / 16.0f * 0.25f, (l + 1) / 16.0f, 0.5f + l / 16.0f * 0.25f);
 				renderblocks.renderStandardBlock(block, i, j, k);
-				continue;
+			} else if (metadata == 1) {
+				renderblocks.setRenderBounds(0.25f + l / 16.0f * 0.25f, l / 16.0f, 0.25f + l / 16.0f * 0.25f, 0.75f - l / 16.0f * 0.25f, (l + 1) / 16.0f, 0.75f - l / 16.0f * 0.25f);
+				renderblocks.renderStandardBlock(block, i, j, k);
 			}
-			if (metadata != 1) {
-				continue;
-			}
-			renderblocks.setRenderBounds(0.25f + l / 16.0f * 0.25f, l / 16.0f, 0.25f + l / 16.0f * 0.25f, 0.75f - l / 16.0f * 0.25f, (l + 1) / 16.0f, 0.75f - l / 16.0f * 0.25f);
-			renderblocks.renderStandardBlock(block, i, j, k);
 		}
 		renderblocks.renderAllFaces = false;
 		GOTRenderBlocks.setAO(ao);

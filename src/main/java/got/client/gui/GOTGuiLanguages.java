@@ -87,10 +87,9 @@ public class GOTGuiLanguages extends GOTGuiMenuWBBase {
 		super.drawScreen(i, j, f);
 		for (Object element : buttonList) {
 			GuiButton button = (GuiButton) element;
-			if (!(button instanceof GOTGuiButtonOptions)) {
-				continue;
+			if (button instanceof GOTGuiButtonOptions) {
+				((GOTGuiButtonOptions) button).drawTooltip(mc, i, j);
 			}
-			((GOTGuiButtonOptions) button).drawTooltip(mc, i, j);
 		}
 	}
 

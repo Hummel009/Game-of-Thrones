@@ -183,10 +183,9 @@ public class GOTRenderPlayer {
 				UUID playerUuid = entityplayer.getUniqueID();
 				List<GOTFellowshipClient> fellowships = GOTLevelData.getData(mc.thePlayer).getClientFellowships();
 				for (GOTFellowshipClient fs : fellowships) {
-					if (!fs.containsPlayer(playerUuid)) {
-						continue;
+					if (fs.containsPlayer(playerUuid)) {
+						return true;
 					}
-					return true;
 				}
 				return false;
 			}
@@ -199,10 +198,9 @@ public class GOTRenderPlayer {
 		if (GOTConfig.fellowPlayerHealthBars && shouldRenderPlayerHUD(entityplayer)) {
 			List<GOTFellowshipClient> fellowships = GOTLevelData.getData(mc.thePlayer).getClientFellowships();
 			for (GOTFellowshipClient fs : fellowships) {
-				if (!fs.containsPlayer(entityplayer.getUniqueID())) {
-					continue;
+				if (fs.containsPlayer(entityplayer.getUniqueID())) {
+					return true;
 				}
-				return true;
 			}
 		}
 		return false;

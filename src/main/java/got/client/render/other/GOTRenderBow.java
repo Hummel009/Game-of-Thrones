@@ -24,11 +24,10 @@ public class GOTRenderBow implements IItemRenderer {
 		if (largeItemRenderer != null) {
 			tokensPullStates = new HashMap<>();
 			for (GOTItemBow.BowState state : GOTItemBow.BowState.values()) {
-				if (state == GOTItemBow.BowState.HELD) {
-					continue;
+				if (state != GOTItemBow.BowState.HELD) {
+					GOTRenderLargeItem.ExtraLargeIconToken token = largeItemRenderer.extraIcon(state.iconName);
+					tokensPullStates.put(state, token);
 				}
-				GOTRenderLargeItem.ExtraLargeIconToken token = largeItemRenderer.extraIcon(state.iconName);
-				tokensPullStates.put(state, token);
 			}
 		}
 	}

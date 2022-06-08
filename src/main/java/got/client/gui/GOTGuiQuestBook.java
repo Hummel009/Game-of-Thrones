@@ -397,18 +397,16 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 						diaryScroll = 0.0f;
 						return;
 					}
-					if (viewCompleted) {
-						continue;
+					if (!viewCompleted) {
+						i1 = questX + qTrackX;
+						j1 = questY + qTrackY;
+						i2 = i1 + qWidgetSize;
+						j2 = j1 + qWidgetSize;
+						if (i >= i1 && j >= j1 && i < i2 && j < j2) {
+							trackOrUntrack(quest);
+							return;
+						}
 					}
-					i1 = questX + qTrackX;
-					j1 = questY + qTrackY;
-					i2 = i1 + qWidgetSize;
-					j2 = j1 + qWidgetSize;
-					if (i < i1 || j < j1 || i >= i2 || j >= j2) {
-						continue;
-					}
-					trackOrUntrack(quest);
-					return;
 				}
 			}
 			if (page == Page.MINIQUESTS && deletingMiniquest == null) {
@@ -420,12 +418,11 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 					j1 = questY;
 					i2 = i1 + qPanelWidth;
 					j2 = j1 + qPanelHeight;
-					if (i < i1 || j < j1 || i >= i2 || j >= j2) {
-						continue;
+					if (i >= i1 && j >= j1 && i < i2 && j < j2) {
+						selectedMiniquest = quest;
+						diaryScroll = 0.0f;
+						return;
 					}
-					selectedMiniquest = quest;
-					diaryScroll = 0.0f;
-					return;
 				}
 				if (!mouseInDiary && !isScrolling) {
 					selectedMiniquest = null;

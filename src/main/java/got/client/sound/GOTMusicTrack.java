@@ -81,12 +81,11 @@ public class GOTMusicTrack extends PositionedSound {
 					list.add(">>" + s2);
 				}
 			}
-			if ((categories = info.getCategories()).isEmpty()) {
-				continue;
-			}
-			list.add(">Categories:");
-			for (GOTMusicCategory cat : categories) {
-				list.add(">>" + cat.categoryName);
+			if (!(categories = info.getCategories()).isEmpty()) {
+				list.add(">Categories:");
+				for (GOTMusicCategory cat : categories) {
+					list.add(">>" + cat.categoryName);
+				}
 			}
 		}
 		list.add("Authors:");
