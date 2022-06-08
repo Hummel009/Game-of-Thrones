@@ -13,19 +13,15 @@ import net.minecraft.item.*;
 import net.minecraft.util.StatCollector;
 
 public class GOTHandlerKebab extends TemplateRecipeHandler {
-	private GOTTileEntityKebabStand kebabStand;
-
-	public GOTHandlerKebab() {
-		kebabStand = new GOTTileEntityKebabStand();
-	}
+	private GOTTileEntityKebabStand kebabStand = new GOTTileEntityKebabStand();
 
 	@Override
 	public void drawForeground(int recipe) {
 		super.drawForeground(recipe);
-		GuiDraw.drawRect(24, 5, 54, 18, 0xe4cea7);
-		GuiDraw.drawRect(24, 41, 54, 18, 0xe4cea7);
-		GuiDraw.drawRect(24, 23, 18, 18, 0xe4cea7);
-		GuiDraw.drawRect(60, 23, 18, 18, 0xe4cea7);
+		GuiDraw.drawRect(24, 5, 54, 18, 14995111);
+		GuiDraw.drawRect(24, 41, 54, 18, 14995111);
+		GuiDraw.drawRect(24, 23, 18, 18, 14995111);
+		GuiDraw.drawRect(60, 23, 18, 18, 14995111);
 	}
 
 	@Override
@@ -48,9 +44,9 @@ public class GOTHandlerKebab extends TemplateRecipeHandler {
 		result.stackSize = 1;
 		if (NEIServerUtils.areStacksSameTypeCrafting(result, new ItemStack(GOTRegistry.kebab, 1))) {
 			FMLControlledNamespacedRegistry items = GameData.getItemRegistry();
-			Iterator it = items.iterator();
+			Iterator<Item> it = items.iterator();
 			while (it.hasNext()) {
-				ItemStack stack = new ItemStack((Item) it.next(), 1);
+				ItemStack stack = new ItemStack(it.next(), 1);
 				if (kebabStand.isMeat(stack)) {
 					arecipes.add(new CachedKebabRecipe(stack));
 				}
@@ -61,7 +57,7 @@ public class GOTHandlerKebab extends TemplateRecipeHandler {
 	@Override
 	public void loadCraftingRecipes(String outputId, Object... results) {
 		if ("item".equals(outputId)) {
-			this.loadCraftingRecipes((ItemStack) results[0]);
+			loadCraftingRecipes((ItemStack) results[0]);
 		}
 	}
 
@@ -76,7 +72,7 @@ public class GOTHandlerKebab extends TemplateRecipeHandler {
 	@Override
 	public void loadUsageRecipes(String inputId, Object... ingredients) {
 		if ("item".equals(inputId)) {
-			this.loadUsageRecipes((ItemStack) ingredients[0]);
+			loadUsageRecipes((ItemStack) ingredients[0]);
 		}
 	}
 
@@ -109,5 +105,4 @@ public class GOTHandlerKebab extends TemplateRecipeHandler {
 			return result;
 		}
 	}
-
 }

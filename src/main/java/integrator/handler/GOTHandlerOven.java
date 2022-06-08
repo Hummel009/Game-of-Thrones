@@ -21,15 +21,15 @@ public class GOTHandlerOven extends TemplateRecipeHandler {
 
 	@Override
 	public void drawBackground(int recipe) {
-		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		GuiDraw.changeTexture(getGuiTexture());
 		GuiDraw.drawTexturedModalRect(0, 0, 5, 11, 166, 120);
 	}
 
 	@Override
 	public void drawExtras(int recipe) {
-		this.drawProgressBar(75, 83, 176, 0, 14, 14, 48, 7);
-		this.drawProgressBar(75, 29, 176, 14, 24, 25, 48, 1);
+		drawProgressBar(75, 83, 176, 0, 14, 14, 48, 7);
+		drawProgressBar(75, 29, 176, 14, 24, 25, 48, 1);
 	}
 
 	@Override
@@ -65,7 +65,7 @@ public class GOTHandlerOven extends TemplateRecipeHandler {
 	@Override
 	public void loadCraftingRecipes(String outputId, Object... results) {
 		if ("item".equals(outputId)) {
-			this.loadCraftingRecipes((ItemStack) results[0]);
+			loadCraftingRecipes((ItemStack) results[0]);
 		}
 	}
 
@@ -81,7 +81,7 @@ public class GOTHandlerOven extends TemplateRecipeHandler {
 	@Override
 	public void loadUsageRecipes(String inputId, Object... ingredients) {
 		if ("item".equals(inputId)) {
-			this.loadUsageRecipes((ItemStack) ingredients[0]);
+			loadUsageRecipes((ItemStack) ingredients[0]);
 		}
 	}
 
@@ -102,11 +102,11 @@ public class GOTHandlerOven extends TemplateRecipeHandler {
 		private int fuelY;
 
 		private CachedOvenRecipe(ItemStack ingredient, ItemStack result) {
-			ingredients = new ArrayList();
-			results = new ArrayList();
+			ingredients = new ArrayList<>();
+			results = new ArrayList<>();
 			fuelX = 75;
 			fuelY = 100;
-			for (int i = 0; i < 9; ++i) {
+			for (int i = 0; i < 9; i++) {
 				ingredients.add(new PositionedStack(ingredient, 18 * i + 3, 10));
 				results.add(new PositionedStack(result, 18 * i + 3, 56));
 			}

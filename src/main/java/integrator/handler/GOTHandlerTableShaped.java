@@ -94,7 +94,7 @@ public class GOTHandlerTableShaped extends ShapedRecipeHandler {
 			} else if (irecipe instanceof ShapedOreRecipe) {
 				recipe = forgeShapedRecipe((ShapedOreRecipe) irecipe);
 			}
-			if (((recipe != null) && recipe.contains(recipe.ingredients, ingredient))) {
+			if (recipe != null && recipe.contains(recipe.ingredients, ingredient)) {
 				recipe.setIngredientPermutation(recipe.ingredients, ingredient);
 				arecipes.add(recipe);
 			}

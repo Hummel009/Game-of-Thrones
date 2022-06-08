@@ -70,7 +70,7 @@ public class GOTHandlerTableShapeless extends ShapelessRecipeHandler {
 				} else if (irecipe instanceof ShapelessOreRecipe) {
 					recipe = forgeShapelessRecipe((ShapelessOreRecipe) irecipe);
 				}
-				if ((recipe != null)) {
+				if (recipe != null) {
 					arecipes.add(recipe);
 				}
 			}
@@ -94,7 +94,7 @@ public class GOTHandlerTableShapeless extends ShapelessRecipeHandler {
 			} else if (irecipe instanceof ShapelessOreRecipe) {
 				recipe = forgeShapelessRecipe((ShapelessOreRecipe) irecipe);
 			}
-			if (((recipe != null) && recipe.contains(recipe.ingredients, ingredient))) {
+			if (recipe != null && recipe.contains(recipe.ingredients, ingredient)) {
 				recipe.setIngredientPermutation(recipe.ingredients, ingredient);
 				arecipes.add(recipe);
 			}

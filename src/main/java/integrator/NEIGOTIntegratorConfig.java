@@ -9,7 +9,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 
 public class NEIGOTIntegratorConfig implements IConfigureNEI {
-	private ArrayList<ItemStack> hiddenItems = new ArrayList();
+	private ArrayList<ItemStack> hiddenItems = new ArrayList<>();
 
 	public ArrayList<ItemStack> getHiddenItems() {
 		return hiddenItems;
@@ -26,21 +26,20 @@ public class NEIGOTIntegratorConfig implements IConfigureNEI {
 	}
 
 	private void hideItem(Block block) {
-		this.hideItem(false, block);
+		hideItem(false, block);
 	}
 
 	private void hideItem(boolean all, Block block) {
-		this.hideItem(new ItemStack(block), all);
+		hideItem(new ItemStack(block), all);
 	}
 
 	private void hideItem(ItemStack stack, boolean all) {
-		int i;
-		i = all ? 0 : 8;
+		int i = all ? 0 : 8;
 		while (i < 16) {
 			ItemStack s = new ItemStack(stack.getItem(), 1, i);
 			API.hideItem(s);
 			getHiddenItems().add(s);
-			++i;
+			i++;
 		}
 	}
 

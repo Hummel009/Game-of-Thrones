@@ -13,10 +13,10 @@ import net.minecraft.util.StatCollector;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class GOTHandlerBarrel extends ShapelessRecipeHandler {
-	private ArrayList<CachedBarrelRecipe> barrelRecipes = new ArrayList();
+	private ArrayList<CachedBarrelRecipe> barrelRecipes = new ArrayList<>();
 
 	public GOTHandlerBarrel() {
-		for (int i = 0; i < GOTRecipeBrewing.recipes.size(); ++i) {
+		for (int i = 0; i < GOTRecipeBrewing.recipes.size(); i++) {
 			ShapelessOreRecipe rec = GOTRecipeBrewing.recipes.get(i);
 			barrelRecipes.add(getBarrelRecipe(rec));
 		}
@@ -74,16 +74,18 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 	@Override
 	public void loadCraftingRecipes(String outputId, Object... results) {
 		if ("item".equals(outputId)) {
-			this.loadCraftingRecipes((ItemStack) results[0]);
+			loadCraftingRecipes((ItemStack) results[0]);
 		}
 	}
 
 	@Override
 	public void loadUsageRecipes(ItemStack ingredient) {
-		for (int i = 0; i < barrelRecipes.size(); ++i) {
-			List<PositionedStack> ingreds;
+		for (int i = 0; i < barrelRecipes.size(); i++) {
+
 			CachedBarrelRecipe recipe = barrelRecipes.get(i);
+			List<PositionedStack> ingreds;
 			if (recipe.contains(ingreds = recipe.getIngredients(), ingredient)) {
+
 				recipe.setIngredientPermutation(ingreds, ingredient);
 				recipe.fixedResult = false;
 				recipe.getResult().setPermutationToRender(0);
@@ -95,7 +97,7 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 	@Override
 	public void loadUsageRecipes(String inputId, Object... ingredients) {
 		if ("item".equals(inputId)) {
-			this.loadUsageRecipes((ItemStack) ingredients[0]);
+			loadUsageRecipes((ItemStack) ingredients[0]);
 		}
 	}
 
@@ -156,23 +158,23 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 			switch (i) {
 			case 0:
 			case 3:
-			case 6: {
+			case 6:
 				return 25;
-			}
+
 			case 1:
 			case 4:
-			case 7: {
+			case 7:
 				return 43;
-			}
+
 			case 2:
 			case 5:
-			case 8: {
+			case 8:
 				return 61;
-			}
-			case 9: {
+
+			case 9:
 				return 25;
 			}
-			}
+
 			return 0;
 		}
 
@@ -180,23 +182,23 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 			switch (i) {
 			case 0:
 			case 1:
-			case 2: {
+			case 2:
 				return 6;
-			}
+
 			case 3:
 			case 4:
-			case 5: {
+			case 5:
 				return 24;
-			}
+
 			case 6:
 			case 7:
-			case 8: {
+			case 8:
+				return 42;
+
+			case 9:
 				return 42;
 			}
-			case 9: {
-				return 42;
-			}
-			}
+
 			return 0;
 		}
 	}
