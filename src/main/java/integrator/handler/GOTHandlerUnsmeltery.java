@@ -38,24 +38,22 @@ public class GOTHandlerUnsmeltery extends FurnaceRecipeHandler {
 		while (it.hasNext()) {
 			ItemStack stack = new ItemStack((Item) it.next(), 1);
 			ItemStack equipmentMaterial = GOTTileEntityUnsmeltery.getEquipmentMaterial(stack);
-			if (equipmentMaterial == null || !NEIServerUtils.areStacksSameTypeCrafting(equipmentMaterial, result)) {
-				continue;
+			if (((equipmentMaterial != null) && NEIServerUtils.areStacksSameTypeCrafting(equipmentMaterial, result))) {
+				ItemStack randomResult = GOTHandlerUnsmeltery.getRandomUnsmelteryResult(stack);
+				UnsmeltingPair pair = new UnsmeltingPair(stack, randomResult != null ? randomResult : equipmentMaterial);
+				arecipes.add(pair);
 			}
-			ItemStack randomResult = GOTHandlerUnsmeltery.getRandomUnsmelteryResult(stack);
-			UnsmeltingPair pair = new UnsmeltingPair(stack, randomResult != null ? randomResult : equipmentMaterial);
-			arecipes.add(pair);
 		}
 		FMLControlledNamespacedRegistry blocks = GameData.getBlockRegistry();
 		Iterator it2 = blocks.iterator();
 		while (it2.hasNext()) {
 			ItemStack stack = new ItemStack((Block) it2.next(), 1);
 			ItemStack equipmentMaterial = GOTTileEntityUnsmeltery.getEquipmentMaterial(stack);
-			if (equipmentMaterial == null || !NEIServerUtils.areStacksSameTypeCrafting(equipmentMaterial, result)) {
-				continue;
+			if (((equipmentMaterial != null) && NEIServerUtils.areStacksSameTypeCrafting(equipmentMaterial, result))) {
+				ItemStack randomResult = GOTHandlerUnsmeltery.getRandomUnsmelteryResult(stack);
+				UnsmeltingPair pair = new UnsmeltingPair(stack, randomResult != null ? randomResult : equipmentMaterial);
+				arecipes.add(pair);
 			}
-			ItemStack randomResult = GOTHandlerUnsmeltery.getRandomUnsmelteryResult(stack);
-			UnsmeltingPair pair = new UnsmeltingPair(stack, randomResult != null ? randomResult : equipmentMaterial);
-			arecipes.add(pair);
 		}
 	}
 

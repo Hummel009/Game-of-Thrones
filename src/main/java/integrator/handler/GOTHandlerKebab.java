@@ -51,10 +51,9 @@ public class GOTHandlerKebab extends TemplateRecipeHandler {
 			Iterator it = items.iterator();
 			while (it.hasNext()) {
 				ItemStack stack = new ItemStack((Item) it.next(), 1);
-				if (!kebabStand.isMeat(stack)) {
-					continue;
+				if (kebabStand.isMeat(stack)) {
+					arecipes.add(new CachedKebabRecipe(stack));
 				}
-				arecipes.add(new CachedKebabRecipe(stack));
 			}
 		}
 	}
