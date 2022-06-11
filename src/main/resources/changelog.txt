@@ -1,5 +1,8 @@
 CHANGELOG
 
+>>VERSION 17.7.4
+* Changed some waypoint regions due to players' complaints. Now you don't need to spend hours in boat to get to Essos, Sothoryos and Ulthos.
+
 >>VERSION 17.7.3
 + Added full Polish edition (lore, speech, names, quests: prod. Axel)
 + Added strict title rules, as in the LOTR

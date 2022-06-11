@@ -118,7 +118,7 @@ public class GOTBiomeEssos extends GOTBiome {
 
 	@Override
 	public Region getBiomeWaypoints() {
-		return Region.FREE;
+		return Region.DOTHRAKI;
 	}
 
 	@Override

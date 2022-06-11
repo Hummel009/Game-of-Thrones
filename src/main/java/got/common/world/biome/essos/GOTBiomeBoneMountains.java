@@ -10,6 +10,7 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTBezierType;
+import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
@@ -68,6 +69,11 @@ public class GOTBiomeBoneMountains extends GOTBiome {
 				}
 			}
 		}
+	}
+
+	@Override
+	public Region getBiomeWaypoints() {
+		return Region.JOGOS;
 	}
 
 	@Override
