@@ -75,7 +75,7 @@ public class GOTEntityReachMan extends GOTEntityHumanBase implements IPickpocket
 
 	public void dropWesterosItems(boolean flag, int i) {
 		if (rand.nextInt(6) == 0) {
-			dropChestContents(GOTChestContents.WESTEROS, 1, 2 + i);
+			dropChestContents(GOTChestContents.REACH_HOUSE, 1, 2 + i);
 		}
 	}
 

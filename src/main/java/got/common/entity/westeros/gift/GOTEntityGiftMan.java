@@ -73,7 +73,7 @@ public class GOTEntityGiftMan extends GOTEntityHumanBase implements IPickpocketa
 
 	public void dropMossovyItems(boolean flag, int i) {
 		if (rand.nextInt(6) == 0) {
-			dropChestContents(GOTChestContents.WESTEROS, 1, 2 + i);
+			dropChestContents(GOTChestContents.GIFT_HOUSE, 1, 2 + i);
 		}
 	}
 

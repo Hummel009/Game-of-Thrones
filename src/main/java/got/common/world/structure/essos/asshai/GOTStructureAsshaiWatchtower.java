@@ -125,8 +125,8 @@ public class GOTStructureAsshaiWatchtower extends GOTStructureAsshaiBase {
 		setBlockAndMetadata(world, 0, 10, 2, Blocks.trapdoor, 9);
 		for (k12 = -2; k12 <= 2; ++k12) {
 			if (IntMath.mod(k12, 2) == 0) {
-				this.placeChest(world, random, -2, 1, k12, 4, GOTChestContents.WESTEROS);
-				this.placeChest(world, random, 2, 1, k12, 5, GOTChestContents.WESTEROS);
+				this.placeChest(world, random, -2, 1, k12, 4, GOTChestContents.ASSHAI);
+				this.placeChest(world, random, 2, 1, k12, 5, GOTChestContents.ASSHAI);
 				continue;
 			}
 			setBlockAndMetadata(world, -1, 1, k12, bedBlock, 3);
@@ -137,7 +137,7 @@ public class GOTStructureAsshaiWatchtower extends GOTStructureAsshaiBase {
 		setBlockAndMetadata(world, -2, 3, 0, Blocks.torch, 2);
 		setBlockAndMetadata(world, 2, 3, 0, Blocks.torch, 1);
 		setBlockAndMetadata(world, 0, 5, 0, GOTRegistry.chandelier, 12);
-		this.placeChest(world, random, -2, 7, -2, GOTRegistry.chestStone, 4, GOTChestContents.WESTEROS);
+		this.placeChest(world, random, -2, 7, -2, GOTRegistry.chestStone, 4, GOTChestContents.ASSHAI);
 		setBlockAndMetadata(world, -2, 7, 0, GOTRegistry.armorStand, 3);
 		setBlockAndMetadata(world, -2, 8, 0, GOTRegistry.armorStand, 7);
 		setBlockAndMetadata(world, -2, 7, 2, Blocks.anvil, 0);

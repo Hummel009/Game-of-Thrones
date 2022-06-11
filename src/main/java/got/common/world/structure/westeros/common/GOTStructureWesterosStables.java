@@ -215,12 +215,12 @@ public class GOTStructureWesterosStables extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 2, 5, 1, Blocks.hay_block, 0);
 		setBlockAndMetadata(world, 2, 5, 2, Blocks.hay_block, 0);
 		if (random.nextInt(3) == 0) {
-			this.placeChest(world, random, 3, 5, 1, 5, GOTChestContents.WESTEROS);
+			this.placeChest(world, random, 3, 5, 1, 5, GOTChestContents.TREASURE);
 		}
 		setBlockAndMetadata(world, 3, 6, 2, Blocks.torch, 1);
 		setBlockAndMetadata(world, -2, 5, 3, bedBlock, 3);
 		setBlockAndMetadata(world, -3, 5, 3, bedBlock, 11);
-		this.placeChest(world, random, -3, 5, 1, 3, GOTChestContents.WESTEROS);
+		this.placeChest(world, random, -3, 5, 1, 3, getChestContentsHouse());
 		this.placeBarrel(world, random, -2, 5, 1, 3, GOTFoods.WESTEROS_DRINK);
 		GOTEntityNPC westerosman = getMan(world);
 		spawnNPCAndSetHome(westerosman, world, 0, 1, 2, 8);

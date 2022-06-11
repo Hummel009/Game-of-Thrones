@@ -61,7 +61,7 @@ public class GOTEntityHillman extends GOTEntityHumanBase implements IPickpocketa
 
 	public void dropHillmanItems(boolean flag, int i) {
 		if (rand.nextInt(5) == 0) {
-			dropChestContents(GOTChestContents.WESTEROS, 1, 2 + i);
+			dropChestContents(GOTChestContents.HILLMEN, 1, 2 + i);
 		}
 	}
 

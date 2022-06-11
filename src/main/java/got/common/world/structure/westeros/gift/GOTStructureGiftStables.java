@@ -214,7 +214,7 @@ public class GOTStructureGiftStables extends GOTStructureGiftBase {
 		setBlockAndMetadata(world, -5, 3, 4, Blocks.torch, 1);
 		setBlockAndMetadata(world, 5, 3, 4, Blocks.torch, 2);
 		setBlockAndMetadata(world, -3, 1, 3, Blocks.crafting_table, 0);
-		this.placeChest(world, random, -2, 1, 3, 2, GOTChestContents.WESTEROS);
+		this.placeChest(world, random, -2, 1, 3, 2, GOTChestContents.GIFT_HOUSE);
 		setBlockAndMetadata(world, -1, 1, 3, plankBlock, plankMeta);
 		placePlateWithCertainty(world, random, -1, 2, 3, plateBlock, GOTFoods.WESTEROS);
 		setBlockAndMetadata(world, 0, 1, 3, plankBlock, plankMeta);
@@ -263,7 +263,7 @@ public class GOTStructureGiftStables extends GOTStructureGiftBase {
 		}
 		setBlockAndMetadata(world, -2, 5, 3, bedBlock, 3);
 		setBlockAndMetadata(world, -3, 5, 3, bedBlock, 11);
-		this.placeChest(world, random, -3, 5, 5, 4, GOTChestContents.WESTEROS);
+		this.placeChest(world, random, -3, 5, 5, 4, GOTChestContents.GIFT_HOUSE);
 		setBlockAndMetadata(world, -3, 6, 4, Blocks.torch, 2);
 		setBlockAndMetadata(world, 3, 6, 4, Blocks.torch, 1);
 		int men = 1;

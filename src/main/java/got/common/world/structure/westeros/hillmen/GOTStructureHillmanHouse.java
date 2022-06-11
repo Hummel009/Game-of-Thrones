@@ -73,8 +73,8 @@ public class GOTStructureHillmanHouse extends GOTStructureHillmanBase {
 		generateStrScan(world, random, 0, 1, 0);
 		setBlockAndMetadata(world, 0, 1, 3, bedBlock, 0);
 		setBlockAndMetadata(world, 0, 1, 4, bedBlock, 8);
-		this.placeChest(world, random, -2, 1, 4, GOTRegistry.chestBasket, 2, GOTChestContents.WESTEROS);
-		this.placeChest(world, random, 2, 1, 4, GOTRegistry.chestBasket, 2, GOTChestContents.WESTEROS);
+		this.placeChest(world, random, -2, 1, 4, GOTRegistry.chestBasket, 2, GOTChestContents.HILLMEN);
+		this.placeChest(world, random, 2, 1, 4, GOTRegistry.chestBasket, 2, GOTChestContents.HILLMEN);
 		this.placeBarrel(world, random, -3, 2, -3, 4, GOTFoods.WILD_DRINK);
 		placePlate(world, random, -3, 2, -2, GOTRegistry.woodPlateBlock, GOTFoods.WILD);
 		placePlate(world, random, -3, 2, -1, GOTRegistry.woodPlateBlock, GOTFoods.WILD);

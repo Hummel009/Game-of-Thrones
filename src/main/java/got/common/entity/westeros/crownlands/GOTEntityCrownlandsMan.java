@@ -75,7 +75,7 @@ public class GOTEntityCrownlandsMan extends GOTEntityHumanBase implements IPickp
 
 	public void dropWesterosItems(boolean flag, int i) {
 		if (rand.nextInt(6) == 0) {
-			dropChestContents(GOTChestContents.WESTEROS, 1, 2 + i);
+			dropChestContents(GOTChestContents.CROWNLANDS_HOUSE, 1, 2 + i);
 		}
 	}
 

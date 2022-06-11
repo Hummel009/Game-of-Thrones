@@ -254,13 +254,13 @@ public class GOTReplacedMethods {
 						int j1;
 						int k1;
 						int i1 = i + random.nextInt(3) - 1;
-						if ((world.blockExists(i1, j1 = j + random.nextInt(5) - 3, k1 = k + random.nextInt(3) - 1) && world.checkChunksExist(i1 - checkRange, j1 - checkRange, k1 - checkRange, i1 + checkRange, j1 + checkRange, k1 + checkRange) && (world.getBlockLightValue(i1, j1 + 1, k1) >= 4) && (world.getBlockLightOpacity(i1, j1 + 1, k1) <= 2))) {
+						if (world.blockExists(i1, j1 = j + random.nextInt(5) - 3, k1 = k + random.nextInt(3) - 1) && world.checkChunksExist(i1 - checkRange, j1 - checkRange, k1 - checkRange, i1 + checkRange, j1 + checkRange, k1 + checkRange) && world.getBlockLightValue(i1, j1 + 1, k1) >= 4 && world.getBlockLightOpacity(i1, j1 + 1, k1) <= 2) {
 							Block block = world.getBlock(i1, j1, k1);
 							int meta = world.getBlockMetadata(i1, j1, k1);
 							if (block == Blocks.dirt && meta == 0) {
 								world.setBlock(i1, j1, k1, Blocks.grass, 0, 3);
 							}
-							if (((block == GOTRegistry.mud) && (meta == 0))) {
+							if (block == GOTRegistry.mud && meta == 0) {
 								world.setBlock(i1, j1, k1, GOTRegistry.mudGrass, 0, 3);
 							}
 						}
@@ -410,7 +410,7 @@ public class GOTReplacedMethods {
 					int k1 = k;
 					for (int l = 0; l < 3; ++l) {
 						i = i1 + random.nextInt(3) - 1;
-						if ((world.blockExists(i, j, k = k1 + random.nextInt(3) - 1) && world.isAirBlock(i, j + 1, k) && StaticLiquid.isFlammable(world, i, j, k))) {
+						if (world.blockExists(i, j, k = k1 + random.nextInt(3) - 1) && world.isAirBlock(i, j + 1, k) && StaticLiquid.isFlammable(world, i, j, k)) {
 							world.setBlock(i, j + 1, k, Blocks.fire);
 						}
 					}

@@ -213,7 +213,7 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 3, 6, 8, bedBlock, 10);
 		setBlockAndMetadata(world, 2, 6, 12, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, 3, 6, 12, tableBlock, 0);
-		this.placeChest(world, random, 3, 6, 11, 5, GOTChestContents.WESTEROS);
+		this.placeChest(world, random, 3, 6, 11, 5, getChestContentsHouse());
 		for (i1 = -3; i1 <= -2; ++i1) {
 			for (k13 = 7; k13 <= 8; ++k13) {
 				setBlockAndMetadata(world, i1, 6, k13, plankBlock, plankMeta);
@@ -246,9 +246,9 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 0, 6, 11, Blocks.hay_block, 0);
 		if (random.nextInt(3) == 0) {
 			if (random.nextBoolean()) {
-				this.placeChest(world, random, -2, 6, 3, 4, GOTChestContents.WESTEROS);
+				this.placeChest(world, random, -2, 6, 3, 4, GOTChestContents.TREASURE);
 			} else {
-				this.placeChest(world, random, -1, 6, 11, 4, GOTChestContents.WESTEROS);
+				this.placeChest(world, random, -1, 6, 11, 4, GOTChestContents.TREASURE);
 			}
 		}
 		for (i1 = -4; i1 <= 4; ++i1) {

@@ -48,7 +48,7 @@ public class GOTStructureTower extends GOTVillageGen {
 		public Block glowBrickBlock = GOTRegistry.pillar1;
 		public int glowBrickMeta = 6;
 		public Block plateBlock;
-		public GOTChestContents chestContents = GOTChestContents.WESTEROS;
+		public GOTChestContents chestContents = GOTChestContents.WESTEROS_SMITHY;
 		public boolean ruined = false;
 
 		public GOTStructureTowerBase(boolean flag) {

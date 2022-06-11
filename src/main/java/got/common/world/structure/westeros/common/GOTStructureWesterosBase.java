@@ -3,7 +3,7 @@ package got.common.world.structure.westeros.common;
 import java.util.*;
 import java.util.Map.Entry;
 
-import got.common.database.GOTRegistry;
+import got.common.database.*;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.arryn.*;
 import got.common.entity.westeros.crownlands.*;
@@ -126,20 +126,20 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 	}
 
 	public BannerType getBanner() {
-		Map<Boolean, BannerType> theBanner = new HashMap<>();
-		theBanner.put(isArryn, GOTItemBanner.BannerType.ARRYN);
-		theBanner.put(isCrownlands, GOTItemBanner.BannerType.ROBERT);
-		theBanner.put(isCrownlandsRed, GOTItemBanner.BannerType.JOFFREY);
-		theBanner.put(isDorne, GOTItemBanner.BannerType.MARTELL);
-		theBanner.put(isDragonstone, GOTItemBanner.BannerType.STANNIS);
-		theBanner.put(isIronborn, GOTItemBanner.BannerType.GREYJOY);
-		theBanner.put(isNorth, GOTItemBanner.BannerType.ROBB);
-		theBanner.put(isReach, GOTItemBanner.BannerType.TYRELL);
-		theBanner.put(isRiverlands, GOTItemBanner.BannerType.TULLY);
-		theBanner.put(isStormlands, GOTItemBanner.BannerType.RENLY);
-		theBanner.put(isWesterlands, GOTItemBanner.BannerType.LANNISTER);
+		Map<Boolean, BannerType> map = new HashMap<>();
+		map.put(isArryn, GOTItemBanner.BannerType.ARRYN);
+		map.put(isCrownlands, GOTItemBanner.BannerType.ROBERT);
+		map.put(isCrownlandsRed, GOTItemBanner.BannerType.JOFFREY);
+		map.put(isDorne, GOTItemBanner.BannerType.MARTELL);
+		map.put(isDragonstone, GOTItemBanner.BannerType.STANNIS);
+		map.put(isIronborn, GOTItemBanner.BannerType.GREYJOY);
+		map.put(isNorth, GOTItemBanner.BannerType.ROBB);
+		map.put(isReach, GOTItemBanner.BannerType.TYRELL);
+		map.put(isRiverlands, GOTItemBanner.BannerType.TULLY);
+		map.put(isStormlands, GOTItemBanner.BannerType.RENLY);
+		map.put(isWesterlands, GOTItemBanner.BannerType.LANNISTER);
 
-		for (Entry<Boolean, BannerType> npc : theBanner.entrySet()) {
+		for (Entry<Boolean, BannerType> npc : map.entrySet()) {
 			if (Boolean.TRUE.equals(npc.getKey())) {
 				return npc.getValue();
 			}
@@ -148,20 +148,20 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 	}
 
 	public GOTEntityNPC getBartender(World world) {
-		Map<Boolean, GOTEntityNPC> theBartender = new HashMap<>();
-		theBartender.put(isArryn, new GOTEntityArrynBartender(world));
-		theBartender.put(isCrownlands, new GOTEntityCrownlandsBartender(world));
-		theBartender.put(isCrownlandsRed, new GOTEntityCrownlandsBartender(world));
-		theBartender.put(isDorne, new GOTEntityDorneBartender(world));
-		theBartender.put(isDragonstone, new GOTEntityDragonstoneBartender(world));
-		theBartender.put(isIronborn, new GOTEntityIronbornBartender(world));
-		theBartender.put(isNorth, new GOTEntityNorthBartender(world));
-		theBartender.put(isReach, new GOTEntityReachBartender(world));
-		theBartender.put(isRiverlands, new GOTEntityRiverlandsBartender(world));
-		theBartender.put(isStormlands, new GOTEntityStormlandsBartender(world));
-		theBartender.put(isWesterlands, new GOTEntityWesterlandsBartender(world));
+		Map<Boolean, GOTEntityNPC> map = new HashMap<>();
+		map.put(isArryn, new GOTEntityArrynBartender(world));
+		map.put(isCrownlands, new GOTEntityCrownlandsBartender(world));
+		map.put(isCrownlandsRed, new GOTEntityCrownlandsBartender(world));
+		map.put(isDorne, new GOTEntityDorneBartender(world));
+		map.put(isDragonstone, new GOTEntityDragonstoneBartender(world));
+		map.put(isIronborn, new GOTEntityIronbornBartender(world));
+		map.put(isNorth, new GOTEntityNorthBartender(world));
+		map.put(isReach, new GOTEntityReachBartender(world));
+		map.put(isRiverlands, new GOTEntityRiverlandsBartender(world));
+		map.put(isStormlands, new GOTEntityStormlandsBartender(world));
+		map.put(isWesterlands, new GOTEntityWesterlandsBartender(world));
 
-		for (Entry<Boolean, GOTEntityNPC> npc : theBartender.entrySet()) {
+		for (Entry<Boolean, GOTEntityNPC> npc : map.entrySet()) {
 			if (Boolean.TRUE.equals(npc.getKey())) {
 				return npc.getValue();
 			}
@@ -170,20 +170,20 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 	}
 
 	public GOTEntityNPC getBlacksmith(World world) {
-		Map<Boolean, GOTEntityNPC> theBlacksmith = new HashMap<>();
-		theBlacksmith.put(isArryn, new GOTEntityArrynBlacksmith(world));
-		theBlacksmith.put(isCrownlands, new GOTEntityCrownlandsBlacksmith(world));
-		theBlacksmith.put(isCrownlandsRed, new GOTEntityCrownlandsBlacksmith(world));
-		theBlacksmith.put(isDorne, new GOTEntityDorneBlacksmith(world));
-		theBlacksmith.put(isDragonstone, new GOTEntityDragonstoneBlacksmith(world));
-		theBlacksmith.put(isIronborn, new GOTEntityIronbornBlacksmith(world));
-		theBlacksmith.put(isNorth, new GOTEntityNorthBlacksmith(world));
-		theBlacksmith.put(isReach, new GOTEntityReachBlacksmith(world));
-		theBlacksmith.put(isRiverlands, new GOTEntityRiverlandsBlacksmith(world));
-		theBlacksmith.put(isStormlands, new GOTEntityStormlandsBlacksmith(world));
-		theBlacksmith.put(isWesterlands, new GOTEntityWesterlandsBlacksmith(world));
+		Map<Boolean, GOTEntityNPC> map = new HashMap<>();
+		map.put(isArryn, new GOTEntityArrynBlacksmith(world));
+		map.put(isCrownlands, new GOTEntityCrownlandsBlacksmith(world));
+		map.put(isCrownlandsRed, new GOTEntityCrownlandsBlacksmith(world));
+		map.put(isDorne, new GOTEntityDorneBlacksmith(world));
+		map.put(isDragonstone, new GOTEntityDragonstoneBlacksmith(world));
+		map.put(isIronborn, new GOTEntityIronbornBlacksmith(world));
+		map.put(isNorth, new GOTEntityNorthBlacksmith(world));
+		map.put(isReach, new GOTEntityReachBlacksmith(world));
+		map.put(isRiverlands, new GOTEntityRiverlandsBlacksmith(world));
+		map.put(isStormlands, new GOTEntityStormlandsBlacksmith(world));
+		map.put(isWesterlands, new GOTEntityWesterlandsBlacksmith(world));
 
-		for (Entry<Boolean, GOTEntityNPC> npc : theBlacksmith.entrySet()) {
+		for (Entry<Boolean, GOTEntityNPC> npc : map.entrySet()) {
 			if (Boolean.TRUE.equals(npc.getKey())) {
 				return npc.getValue();
 			}
@@ -192,19 +192,63 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 	}
 
 	public GOTEntityNPC getCaptain(World world) {
-		Map<Boolean, GOTEntityNPC> theCaptain = new HashMap<>();
-		theCaptain.put(isArryn, new GOTEntityArrynCaptain(world));
-		theCaptain.put(isCrownlands, new GOTEntityCrownlandsCaptain(world));
-		theCaptain.put(isDorne, new GOTEntityDorneCaptain(world));
-		theCaptain.put(isDragonstone, new GOTEntityDragonstoneCaptain(world));
-		theCaptain.put(isIronborn, new GOTEntityIronbornCaptain(world));
-		theCaptain.put(isNorth, new GOTEntityNorthCaptain(world));
-		theCaptain.put(isReach, new GOTEntityReachCaptain(world));
-		theCaptain.put(isRiverlands, new GOTEntityRiverlandsCaptain(world));
-		theCaptain.put(isStormlands, new GOTEntityStormlandsCaptain(world));
-		theCaptain.put(isWesterlands, new GOTEntityWesterlandsCaptain(world));
+		Map<Boolean, GOTEntityNPC> map = new HashMap<>();
+		map.put(isArryn, new GOTEntityArrynCaptain(world));
+		map.put(isCrownlands, new GOTEntityCrownlandsCaptain(world));
+		map.put(isDorne, new GOTEntityDorneCaptain(world));
+		map.put(isDragonstone, new GOTEntityDragonstoneCaptain(world));
+		map.put(isIronborn, new GOTEntityIronbornCaptain(world));
+		map.put(isNorth, new GOTEntityNorthCaptain(world));
+		map.put(isReach, new GOTEntityReachCaptain(world));
+		map.put(isRiverlands, new GOTEntityRiverlandsCaptain(world));
+		map.put(isStormlands, new GOTEntityStormlandsCaptain(world));
+		map.put(isWesterlands, new GOTEntityWesterlandsCaptain(world));
 
-		for (Entry<Boolean, GOTEntityNPC> npc : theCaptain.entrySet()) {
+		for (Entry<Boolean, GOTEntityNPC> npc : map.entrySet()) {
+			if (Boolean.TRUE.equals(npc.getKey())) {
+				return npc.getValue();
+			}
+		}
+		return null;
+	}
+
+	public GOTChestContents getChestContentsFortress() {
+		Map<Boolean, GOTChestContents> map = new HashMap<>();
+		map.put(isArryn, GOTChestContents.ARRYN_FORTRESS);
+		map.put(isCrownlands, GOTChestContents.CROWNLANDS_FORTRESS);
+		map.put(isCrownlandsRed, GOTChestContents.CROWNLANDS_FORTRESS);
+		map.put(isDorne, GOTChestContents.DORNE_FORTRESS);
+		map.put(isDragonstone, GOTChestContents.DRAGONSTONE_FORTRESS);
+		map.put(isIronborn, GOTChestContents.IRONBORN_FORTRESS);
+		map.put(isNorth, GOTChestContents.NORTH_FORTRESS);
+		map.put(isReach, GOTChestContents.REACH_FORTRESS);
+		map.put(isRiverlands, GOTChestContents.RIVERLANDS_FORTRESS);
+		map.put(isStormlands, GOTChestContents.STORMLANDS_FORTRESS);
+		map.put(isWesterlands, GOTChestContents.WESTERLANDS_FORTRESS);
+
+		for (Entry<Boolean, GOTChestContents> npc : map.entrySet()) {
+			if (Boolean.TRUE.equals(npc.getKey())) {
+				return npc.getValue();
+			}
+		}
+		return null;
+	}
+
+	public GOTChestContents getChestContentsHouse() {
+		Map<Boolean, GOTChestContents> map = new HashMap<>();
+		map.put(isArryn, GOTChestContents.ARRYN_HOUSE);
+		map.put(isCrownlands, GOTChestContents.CROWNLANDS_HOUSE);
+		map.put(isCrownlandsRed, GOTChestContents.CROWNLANDS_HOUSE);
+		map.put(isDorne, GOTChestContents.DORNE_HOUSE);
+		map.put(isDragonstone, GOTChestContents.DRAGONSTONE_HOUSE);
+		map.put(isIronborn, GOTChestContents.IRONBORN_HOUSE);
+		map.put(isNorth, GOTChestContents.NORTH_HOUSE);
+		map.put(isReach, GOTChestContents.REACH_HOUSE);
+		map.put(isRiverlands, GOTChestContents.RIVERLANDS_HOUSE);
+		map.put(isStormlands, GOTChestContents.STORMLANDS_HOUSE);
+		map.put(isWesterlands, GOTChestContents.WESTERLANDS_HOUSE);
+
+		for (Entry<Boolean, GOTChestContents> npc : map.entrySet()) {
 			if (Boolean.TRUE.equals(npc.getKey())) {
 				return npc.getValue();
 			}
@@ -213,20 +257,20 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 	}
 
 	public GOTEntityNPC getFarmer(World world) {
-		Map<Boolean, GOTEntityNPC> theFarmer = new HashMap<>();
-		theFarmer.put(isArryn, new GOTEntityArrynFarmer(world));
-		theFarmer.put(isCrownlands, new GOTEntityCrownlandsFarmer(world));
-		theFarmer.put(isCrownlandsRed, new GOTEntityCrownlandsFarmer(world));
-		theFarmer.put(isDorne, new GOTEntityDorneFarmer(world));
-		theFarmer.put(isDragonstone, new GOTEntityDragonstoneFarmer(world));
-		theFarmer.put(isIronborn, new GOTEntityIronbornFarmer(world));
-		theFarmer.put(isNorth, new GOTEntityNorthFarmer(world));
-		theFarmer.put(isReach, new GOTEntityReachFarmer(world));
-		theFarmer.put(isRiverlands, new GOTEntityRiverlandsFarmer(world));
-		theFarmer.put(isStormlands, new GOTEntityStormlandsFarmer(world));
-		theFarmer.put(isWesterlands, new GOTEntityWesterlandsFarmer(world));
+		Map<Boolean, GOTEntityNPC> map = new HashMap<>();
+		map.put(isArryn, new GOTEntityArrynFarmer(world));
+		map.put(isCrownlands, new GOTEntityCrownlandsFarmer(world));
+		map.put(isCrownlandsRed, new GOTEntityCrownlandsFarmer(world));
+		map.put(isDorne, new GOTEntityDorneFarmer(world));
+		map.put(isDragonstone, new GOTEntityDragonstoneFarmer(world));
+		map.put(isIronborn, new GOTEntityIronbornFarmer(world));
+		map.put(isNorth, new GOTEntityNorthFarmer(world));
+		map.put(isReach, new GOTEntityReachFarmer(world));
+		map.put(isRiverlands, new GOTEntityRiverlandsFarmer(world));
+		map.put(isStormlands, new GOTEntityStormlandsFarmer(world));
+		map.put(isWesterlands, new GOTEntityWesterlandsFarmer(world));
 
-		for (Entry<Boolean, GOTEntityNPC> npc : theFarmer.entrySet()) {
+		for (Entry<Boolean, GOTEntityNPC> npc : map.entrySet()) {
 			if (Boolean.TRUE.equals(npc.getKey())) {
 				return npc.getValue();
 			}
@@ -235,20 +279,20 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 	}
 
 	public GOTEntityNPC getFarmhand(World world) {
-		Map<Boolean, GOTEntityNPC> theFarmhand = new HashMap<>();
-		theFarmhand.put(isArryn, new GOTEntityArrynFarmhand(world));
-		theFarmhand.put(isCrownlands, new GOTEntityCrownlandsFarmhand(world));
-		theFarmhand.put(isCrownlandsRed, new GOTEntityCrownlandsFarmhand(world));
-		theFarmhand.put(isDorne, new GOTEntityDorneFarmhand(world));
-		theFarmhand.put(isDragonstone, new GOTEntityDragonstoneFarmhand(world));
-		theFarmhand.put(isIronborn, new GOTEntityIronbornFarmhand(world));
-		theFarmhand.put(isNorth, new GOTEntityNorthFarmhand(world));
-		theFarmhand.put(isReach, new GOTEntityReachFarmhand(world));
-		theFarmhand.put(isRiverlands, new GOTEntityRiverlandsFarmhand(world));
-		theFarmhand.put(isStormlands, new GOTEntityStormlandsFarmhand(world));
-		theFarmhand.put(isWesterlands, new GOTEntityWesterlandsFarmhand(world));
+		Map<Boolean, GOTEntityNPC> map = new HashMap<>();
+		map.put(isArryn, new GOTEntityArrynFarmhand(world));
+		map.put(isCrownlands, new GOTEntityCrownlandsFarmhand(world));
+		map.put(isCrownlandsRed, new GOTEntityCrownlandsFarmhand(world));
+		map.put(isDorne, new GOTEntityDorneFarmhand(world));
+		map.put(isDragonstone, new GOTEntityDragonstoneFarmhand(world));
+		map.put(isIronborn, new GOTEntityIronbornFarmhand(world));
+		map.put(isNorth, new GOTEntityNorthFarmhand(world));
+		map.put(isReach, new GOTEntityReachFarmhand(world));
+		map.put(isRiverlands, new GOTEntityRiverlandsFarmhand(world));
+		map.put(isStormlands, new GOTEntityStormlandsFarmhand(world));
+		map.put(isWesterlands, new GOTEntityWesterlandsFarmhand(world));
 
-		for (Entry<Boolean, GOTEntityNPC> npc : theFarmhand.entrySet()) {
+		for (Entry<Boolean, GOTEntityNPC> npc : map.entrySet()) {
 			if (Boolean.TRUE.equals(npc.getKey())) {
 				return npc.getValue();
 			}
@@ -262,20 +306,20 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 	}
 
 	public GOTEntityNPC getMan(World world) {
-		Map<Boolean, GOTEntityNPC> theMan = new HashMap<>();
-		theMan.put(isArryn, new GOTEntityArrynMan(world));
-		theMan.put(isCrownlands, new GOTEntityCrownlandsMan(world));
-		theMan.put(isCrownlandsRed, new GOTEntityCrownlandsMan(world));
-		theMan.put(isDorne, new GOTEntityDorneMan(world));
-		theMan.put(isDragonstone, new GOTEntityDragonstoneMan(world));
-		theMan.put(isIronborn, new GOTEntityIronbornMan(world));
-		theMan.put(isNorth, new GOTEntityNorthMan(world));
-		theMan.put(isReach, new GOTEntityReachMan(world));
-		theMan.put(isRiverlands, new GOTEntityRiverlandsMan(world));
-		theMan.put(isStormlands, new GOTEntityStormlandsMan(world));
-		theMan.put(isWesterlands, new GOTEntityWesterlandsMan(world));
+		Map<Boolean, GOTEntityNPC> map = new HashMap<>();
+		map.put(isArryn, new GOTEntityArrynMan(world));
+		map.put(isCrownlands, new GOTEntityCrownlandsMan(world));
+		map.put(isCrownlandsRed, new GOTEntityCrownlandsMan(world));
+		map.put(isDorne, new GOTEntityDorneMan(world));
+		map.put(isDragonstone, new GOTEntityDragonstoneMan(world));
+		map.put(isIronborn, new GOTEntityIronbornMan(world));
+		map.put(isNorth, new GOTEntityNorthMan(world));
+		map.put(isReach, new GOTEntityReachMan(world));
+		map.put(isRiverlands, new GOTEntityRiverlandsMan(world));
+		map.put(isStormlands, new GOTEntityStormlandsMan(world));
+		map.put(isWesterlands, new GOTEntityWesterlandsMan(world));
 
-		for (Entry<Boolean, GOTEntityNPC> npc : theMan.entrySet()) {
+		for (Entry<Boolean, GOTEntityNPC> npc : map.entrySet()) {
 			if (Boolean.TRUE.equals(npc.getKey())) {
 				return npc.getValue();
 			}
@@ -284,20 +328,20 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 	}
 
 	public GOTEntityNPC getSoldier(World world) {
-		Map<Boolean, GOTEntityNPC> theSoldier = new HashMap<>();
-		theSoldier.put(isArryn, new GOTEntityArrynSoldier(world));
-		theSoldier.put(isCrownlands, new GOTEntityCrownlandsLevyman(world));
-		theSoldier.put(isCrownlandsRed, new GOTEntityKingsguard(world));
-		theSoldier.put(isDorne, new GOTEntityDorneSoldier(world));
-		theSoldier.put(isDragonstone, new GOTEntityDragonstoneSoldier(world));
-		theSoldier.put(isIronborn, new GOTEntityIronbornSoldier(world));
-		theSoldier.put(isNorth, new GOTEntityNorthSoldier(world));
-		theSoldier.put(isReach, new GOTEntityReachSoldier(world));
-		theSoldier.put(isRiverlands, new GOTEntityRiverlandsSoldier(world));
-		theSoldier.put(isStormlands, new GOTEntityStormlandsSoldier(world));
-		theSoldier.put(isWesterlands, new GOTEntityWesterlandsSoldier(world));
+		Map<Boolean, GOTEntityNPC> map = new HashMap<>();
+		map.put(isArryn, new GOTEntityArrynSoldier(world));
+		map.put(isCrownlands, new GOTEntityCrownlandsLevyman(world));
+		map.put(isCrownlandsRed, new GOTEntityKingsguard(world));
+		map.put(isDorne, new GOTEntityDorneSoldier(world));
+		map.put(isDragonstone, new GOTEntityDragonstoneSoldier(world));
+		map.put(isIronborn, new GOTEntityIronbornSoldier(world));
+		map.put(isNorth, new GOTEntityNorthSoldier(world));
+		map.put(isReach, new GOTEntityReachSoldier(world));
+		map.put(isRiverlands, new GOTEntityRiverlandsSoldier(world));
+		map.put(isStormlands, new GOTEntityStormlandsSoldier(world));
+		map.put(isWesterlands, new GOTEntityWesterlandsSoldier(world));
 
-		for (Entry<Boolean, GOTEntityNPC> npc : theSoldier.entrySet()) {
+		for (Entry<Boolean, GOTEntityNPC> npc : map.entrySet()) {
 			if (Boolean.TRUE.equals(npc.getKey())) {
 				return npc.getValue();
 			}
@@ -306,20 +350,20 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 	}
 
 	public GOTEntityNPC getSoldierArcher(World world) {
-		Map<Boolean, GOTEntityNPC> theSoldierArcher = new HashMap<>();
-		theSoldierArcher.put(isArryn, new GOTEntityArrynSoldierArcher(world));
-		theSoldierArcher.put(isCrownlands, new GOTEntityCrownlandsLevymanArcher(world));
-		theSoldierArcher.put(isCrownlandsRed, new GOTEntityKingsguard(world));
-		theSoldierArcher.put(isDorne, new GOTEntityDorneSoldierArcher(world));
-		theSoldierArcher.put(isDragonstone, new GOTEntityDragonstoneSoldierArcher(world));
-		theSoldierArcher.put(isIronborn, new GOTEntityIronbornSoldierArcher(world));
-		theSoldierArcher.put(isNorth, new GOTEntityNorthSoldierArcher(world));
-		theSoldierArcher.put(isReach, new GOTEntityReachSoldierArcher(world));
-		theSoldierArcher.put(isRiverlands, new GOTEntityRiverlandsSoldierArcher(world));
-		theSoldierArcher.put(isStormlands, new GOTEntityStormlandsSoldierArcher(world));
-		theSoldierArcher.put(isWesterlands, new GOTEntityWesterlandsSoldierArcher(world));
+		Map<Boolean, GOTEntityNPC> map = new HashMap<>();
+		map.put(isArryn, new GOTEntityArrynSoldierArcher(world));
+		map.put(isCrownlands, new GOTEntityCrownlandsLevymanArcher(world));
+		map.put(isCrownlandsRed, new GOTEntityKingsguard(world));
+		map.put(isDorne, new GOTEntityDorneSoldierArcher(world));
+		map.put(isDragonstone, new GOTEntityDragonstoneSoldierArcher(world));
+		map.put(isIronborn, new GOTEntityIronbornSoldierArcher(world));
+		map.put(isNorth, new GOTEntityNorthSoldierArcher(world));
+		map.put(isReach, new GOTEntityReachSoldierArcher(world));
+		map.put(isRiverlands, new GOTEntityRiverlandsSoldierArcher(world));
+		map.put(isStormlands, new GOTEntityStormlandsSoldierArcher(world));
+		map.put(isWesterlands, new GOTEntityWesterlandsSoldierArcher(world));
 
-		for (Entry<Boolean, GOTEntityNPC> npc : theSoldierArcher.entrySet()) {
+		for (Entry<Boolean, GOTEntityNPC> npc : map.entrySet()) {
 			if (Boolean.TRUE.equals(npc.getKey())) {
 				return npc.getValue();
 			}
@@ -328,20 +372,20 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 	}
 
 	public Block getTable() {
-		Map<Boolean, Block> theTable = new HashMap<>();
-		theTable.put(isArryn, GOTRegistry.tableArryn);
-		theTable.put(isCrownlands, GOTRegistry.tableCrownlands);
-		theTable.put(isCrownlandsRed, GOTRegistry.tableCrownlands);
-		theTable.put(isDorne, GOTRegistry.tableDorne);
-		theTable.put(isDragonstone, GOTRegistry.tableDragonstone);
-		theTable.put(isIronborn, GOTRegistry.tableIronborn);
-		theTable.put(isNorth, GOTRegistry.tableNorth);
-		theTable.put(isReach, GOTRegistry.tableReach);
-		theTable.put(isRiverlands, GOTRegistry.tableRiverlands);
-		theTable.put(isStormlands, GOTRegistry.tableStormlands);
-		theTable.put(isWesterlands, GOTRegistry.tableWesterlands);
+		Map<Boolean, Block> map = new HashMap<>();
+		map.put(isArryn, GOTRegistry.tableArryn);
+		map.put(isCrownlands, GOTRegistry.tableCrownlands);
+		map.put(isCrownlandsRed, GOTRegistry.tableCrownlands);
+		map.put(isDorne, GOTRegistry.tableDorne);
+		map.put(isDragonstone, GOTRegistry.tableDragonstone);
+		map.put(isIronborn, GOTRegistry.tableIronborn);
+		map.put(isNorth, GOTRegistry.tableNorth);
+		map.put(isReach, GOTRegistry.tableReach);
+		map.put(isRiverlands, GOTRegistry.tableRiverlands);
+		map.put(isStormlands, GOTRegistry.tableStormlands);
+		map.put(isWesterlands, GOTRegistry.tableWesterlands);
 
-		for (Entry<Boolean, Block> npc : theTable.entrySet()) {
+		for (Entry<Boolean, Block> npc : map.entrySet()) {
 			if (Boolean.TRUE.equals(npc.getKey())) {
 				return npc.getValue();
 			}
@@ -350,20 +394,20 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 	}
 
 	public GOTStructureWesterosTower getTower(boolean notifyChanges) {
-		Map<Boolean, GOTStructureWesterosTower> theTower = new HashMap<>();
-		theTower.put(isArryn, new GOTStructureArrynTower(notifyChanges));
-		theTower.put(isCrownlands, new GOTStructureCrownlandsTower(notifyChanges));
-		theTower.put(isCrownlandsRed, new GOTStructureCrownlandsTower(notifyChanges));
-		theTower.put(isDorne, new GOTStructureDorneTower(notifyChanges));
-		theTower.put(isDragonstone, new GOTStructureDragonstoneTower(notifyChanges));
-		theTower.put(isIronborn, new GOTStructureIronbornTower(notifyChanges));
-		theTower.put(isNorth, new GOTStructureNorthTower(notifyChanges));
-		theTower.put(isReach, new GOTStructureReachTower(notifyChanges));
-		theTower.put(isRiverlands, new GOTStructureRiverlandsTower(notifyChanges));
-		theTower.put(isStormlands, new GOTStructureStormlandsTower(notifyChanges));
-		theTower.put(isWesterlands, new GOTStructureWesterlandsTower(notifyChanges));
+		Map<Boolean, GOTStructureWesterosTower> map = new HashMap<>();
+		map.put(isArryn, new GOTStructureArrynTower(notifyChanges));
+		map.put(isCrownlands, new GOTStructureCrownlandsTower(notifyChanges));
+		map.put(isCrownlandsRed, new GOTStructureCrownlandsTower(notifyChanges));
+		map.put(isDorne, new GOTStructureDorneTower(notifyChanges));
+		map.put(isDragonstone, new GOTStructureDragonstoneTower(notifyChanges));
+		map.put(isIronborn, new GOTStructureIronbornTower(notifyChanges));
+		map.put(isNorth, new GOTStructureNorthTower(notifyChanges));
+		map.put(isReach, new GOTStructureReachTower(notifyChanges));
+		map.put(isRiverlands, new GOTStructureRiverlandsTower(notifyChanges));
+		map.put(isStormlands, new GOTStructureStormlandsTower(notifyChanges));
+		map.put(isWesterlands, new GOTStructureWesterlandsTower(notifyChanges));
 
-		for (Entry<Boolean, GOTStructureWesterosTower> tow : theTower.entrySet()) {
+		for (Entry<Boolean, GOTStructureWesterosTower> tow : map.entrySet()) {
 			if (Boolean.TRUE.equals(tow.getKey())) {
 				return tow.getValue();
 			}

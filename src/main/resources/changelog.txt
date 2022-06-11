@@ -2,6 +2,7 @@ CHANGELOG
 
 >>VERSION 17.7.4
 * Changed some waypoint regions due to players' complaints. Now you don't need to spend hours in boat to get to Essos, Sothoryos and Ulthos.
+* Improved chest contents and mob drops in Westeros
 
 >>VERSION 17.7.3
 + Added full Polish edition (lore, speech, names, quests: prod. Axel)

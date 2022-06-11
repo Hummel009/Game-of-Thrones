@@ -99,7 +99,7 @@ public class GOTItemCracker extends Item {
 						++amount;
 					}
 					crackerItems = new InventoryBasic("cracker", true, amount);
-					GOTChestContents.fillInventory(crackerItems, world.rand, GOTChestContents.WESTEROS, amount);
+					GOTChestContents.fillInventory(crackerItems, world.rand, GOTChestContents.TREASURE, amount);
 				}
 				for (int l = 0; l < crackerItems.getSizeInventory(); ++l) {
 					ItemStack loot = crackerItems.getStackInSlot(l);

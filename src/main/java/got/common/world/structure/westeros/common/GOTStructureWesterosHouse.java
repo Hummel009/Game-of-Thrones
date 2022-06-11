@@ -157,8 +157,8 @@ public class GOTStructureWesterosHouse extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 3, 1, 1, bedBlock, 9);
 		setBlockAndMetadata(world, -3, 1, 3, plankBlock, plankMeta);
 		setBlockAndMetadata(world, 3, 1, 3, plankBlock, plankMeta);
-		this.placeChest(world, random, -2, 1, 3, 2, GOTChestContents.WESTEROS);
-		this.placeChest(world, random, 2, 1, 3, 2, GOTChestContents.WESTEROS);
+		this.placeChest(world, random, -2, 1, 3, 2, getChestContentsHouse());
+		this.placeChest(world, random, 2, 1, 3, 2, getChestContentsHouse());
 		setBlockAndMetadata(world, 0, 1, 3, barsBlock, 0);
 		setBlockAndMetadata(world, 0, 2, 3, Blocks.furnace, 2);
 		setBlockAndMetadata(world, 0, 0, 4, GOTRegistry.hearth, 0);

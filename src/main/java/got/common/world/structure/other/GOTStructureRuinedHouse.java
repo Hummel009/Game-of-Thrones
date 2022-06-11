@@ -102,9 +102,9 @@ public class GOTStructureRuinedHouse extends GOTStructureBase {
 			setBlockAndMetadata(world, -width + 1, 1, -width + 2, Blocks.furnace, 0);
 		}
 		if (random.nextBoolean()) {
-			this.placeChest(world, random, width - 1, 1, width - 2, 5, GOTChestContents.WESTEROS);
+			this.placeChest(world, random, width - 1, 1, width - 2, 5, GOTChestContents.TREASURE);
 		} else {
-			this.placeChest(world, random, -width + 1, 1, width - 2, 5, GOTChestContents.WESTEROS);
+			this.placeChest(world, random, -width + 1, 1, width - 2, 5, GOTChestContents.TREASURE);
 		}
 		return true;
 	}

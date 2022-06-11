@@ -33,6 +33,7 @@ public class GOTLoader {
 		GOTAchievement.onInit();
 		GOTChatEvents.onInit();
 		GOTFaction.onInit();
+		GOTChestContents.onInit();
 		GOTStructure.onInit();
 		GOTRoads.onInit();
 		GOTWalls.onInit();

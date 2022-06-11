@@ -65,7 +65,7 @@ public class GOTEntityMysteryWeb extends EntityThrowable {
 			}
 			if (!spawnedSpider) {
 				InventoryBasic tempInventory = new InventoryBasic("mysteryWeb", true, 1);
-				GOTChestContents.fillInventory(tempInventory, rand, GOTChestContents.BARROW, 1);
+				GOTChestContents.fillInventory(tempInventory, rand, GOTChestContents.TREASURE, 1);
 				ItemStack item = tempInventory.getStackInSlot(0);
 				if (rand.nextInt(500) == 0) {
 					item = new ItemStack(Items.melon, 64);

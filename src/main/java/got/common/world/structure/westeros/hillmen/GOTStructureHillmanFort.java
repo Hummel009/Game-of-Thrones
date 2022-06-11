@@ -103,10 +103,10 @@ public class GOTStructureHillmanFort extends GOTStructureHillmanBase {
 		setBlockAndMetadata(world, 7, 1, 8, bedBlock, 8);
 		setBlockAndMetadata(world, 5, 1, 7, bedBlock, 0);
 		setBlockAndMetadata(world, 5, 1, 8, bedBlock, 8);
-		this.placeChest(world, random, 5, 1, 5, GOTRegistry.chestBasket, 3, GOTChestContents.WESTEROS);
-		this.placeChest(world, random, -4, 1, 8, GOTRegistry.chestBasket, 2, GOTChestContents.WESTEROS);
-		this.placeChest(world, random, 6, 1, -8, Blocks.chest, 3, GOTChestContents.WESTEROS);
-		this.placeChest(world, random, 5, 1, -8, Blocks.chest, 3, GOTChestContents.WESTEROS);
+		this.placeChest(world, random, 5, 1, 5, GOTRegistry.chestBasket, 3, GOTChestContents.HILLMEN);
+		this.placeChest(world, random, -4, 1, 8, GOTRegistry.chestBasket, 2, GOTChestContents.HILLMEN);
+		this.placeChest(world, random, 6, 1, -8, Blocks.chest, 3, GOTChestContents.HILLMEN);
+		this.placeChest(world, random, 5, 1, -8, Blocks.chest, 3, GOTChestContents.HILLMEN);
 		for (i1 = -6; i1 <= -5; ++i1) {
 			int j12 = 1;
 			int k1 = 8;

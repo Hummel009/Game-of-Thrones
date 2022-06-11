@@ -416,10 +416,10 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 			}
 		}
 		placePyramidBanner(world, 0, roomFloor + 6, 0);
-		this.placeSpawnerChest(world, random, -1, roomFloor + 5, 0, GOTRegistry.spawnerChestStone, 5, GOTEntityBarrowWight.class, GOTChestContents.BARROW);
-		this.placeSpawnerChest(world, random, 1, roomFloor + 5, 0, GOTRegistry.spawnerChestStone, 4, GOTEntityBarrowWight.class, GOTChestContents.BARROW);
-		this.placeSpawnerChest(world, random, 0, roomFloor + 5, -1, GOTRegistry.spawnerChestStone, 2, GOTEntityBarrowWight.class, GOTChestContents.BARROW);
-		this.placeSpawnerChest(world, random, 0, roomFloor + 5, 1, GOTRegistry.spawnerChestStone, 3, GOTEntityBarrowWight.class, GOTChestContents.BARROW);
+		this.placeSpawnerChest(world, random, -1, roomFloor + 5, 0, GOTRegistry.spawnerChestStone, 5, GOTEntityBarrowWight.class, GOTChestContents.TREASURE);
+		this.placeSpawnerChest(world, random, 1, roomFloor + 5, 0, GOTRegistry.spawnerChestStone, 4, GOTEntityBarrowWight.class, GOTChestContents.TREASURE);
+		this.placeSpawnerChest(world, random, 0, roomFloor + 5, -1, GOTRegistry.spawnerChestStone, 2, GOTEntityBarrowWight.class, GOTChestContents.TREASURE);
+		this.placeSpawnerChest(world, random, 0, roomFloor + 5, 1, GOTRegistry.spawnerChestStone, 3, GOTEntityBarrowWight.class, GOTChestContents.TREASURE);
 		stepX = 1;
 		stepY = topHeight - 36;
 		stepZ = 0;

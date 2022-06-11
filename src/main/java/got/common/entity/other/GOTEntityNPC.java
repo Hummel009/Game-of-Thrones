@@ -310,7 +310,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			}
 			int rareChance = 50 - i * 5;
 			if (rand.nextInt(rareChance = Math.max(rareChance, 1)) == 0) {
-				dropChestContents(GOTChestContents.BARROW, 1, 1);
+				dropChestContents(GOTChestContents.TREASURE, 1, 1);
 			}
 		}
 		if (flag && canDropRares()) {

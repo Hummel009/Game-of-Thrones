@@ -87,7 +87,7 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 				}
 			}
 			if (random.nextInt(4) == 0) {
-				placeChest(world, random, 0, 1, 1, GOTRegistry.chestStone, 2, GOTChestContents.BARROW);
+				placeChest(world, random, 0, 1, 1, GOTRegistry.chestStone, 2, GOTChestContents.TREASURE);
 			}
 		} else if (ruinType == RuinType.BAR_TOWER) {
 			int randomBar = random.nextInt(2);
@@ -120,7 +120,7 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 				int k1 = 1;
 				int n = getTopBlock(world, m, k1);
 				if (random.nextInt(10) == 0) {
-					placeChest(world, random, m, n, k1, GOTRegistry.chestStone, 2, GOTChestContents.BARROW);
+					placeChest(world, random, m, n, k1, GOTRegistry.chestStone, 2, GOTChestContents.TREASURE);
 				}
 			}
 		} else if (ruinType == RuinType.PIT_MINE) {
@@ -204,7 +204,7 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 						placeSkull(world, random, m, pitBottom + 1, k1);
 					} else if (random.nextInt(120) == 0) {
 						int chestMeta = Direction.directionToFacing[random.nextInt(4)];
-						placeChest(world, random, m, pitBottom + 1, k1, chestMeta, GOTChestContents.BARROW);
+						placeChest(world, random, m, pitBottom + 1, k1, chestMeta, GOTChestContents.TREASURE);
 					}
 				}
 			}
@@ -280,7 +280,7 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 					}
 				}
 				setBlockAndMetadata(world, 0, 1, 0, Blocks.stonebrick, 3);
-				placeChest(world, random, 0, 0, 0, GOTRegistry.chestStone, 2, GOTChestContents.BARROW);
+				placeChest(world, random, 0, 0, 0, GOTRegistry.chestStone, 2, GOTChestContents.TREASURE);
 			}
 		} else if (ruinType == RuinType.QUARRY) {
 			int r = 9;
@@ -470,7 +470,7 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 						}
 						if (random.nextInt(8) == 0) {
 							int chestMeta = Direction.directionToFacing[random.nextInt(4)];
-							placeChest(world, random, i1, wellBottom + 1, k1, GOTRegistry.chestStone, chestMeta, GOTChestContents.BARROW);
+							placeChest(world, random, i1, wellBottom + 1, k1, GOTRegistry.chestStone, chestMeta, GOTChestContents.TREASURE);
 						}
 						if (random.nextInt(3) == 0) {
 							setBlockAndMetadata(world, i1, 0, k1, GOTRegistry.fenceRotten, 0);
@@ -596,11 +596,11 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 			}
 			if (random.nextInt(3) == 0) {
 				setBlockAndMetadata(world, 0, 1, 2, plankBlock, plankMeta);
-				placeChest(world, random, 0, 2, 2, 2, GOTChestContents.BARROW);
+				placeChest(world, random, 0, 2, 2, 2, GOTChestContents.TREASURE);
 			}
 			if (random.nextInt(3) == 0) {
 				placeRandomStoneBrick(world, random, 0, 6, 3);
-				placeChest(world, random, 0, 7, 3, 2, GOTChestContents.BARROW);
+				placeChest(world, random, 0, 7, 3, 2, GOTChestContents.TREASURE);
 			}
 		} else if (ruinType == RuinType.WALLS) {
 			int length = 3 + random.nextInt(7);
@@ -730,7 +730,7 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 				}
 			}
 			setBlockAndMetadata(world, 0, 2, 0, Blocks.stonebrick, 3);
-			placeChest(world, random, 0, 1, 0, GOTRegistry.chestStone, 2, GOTChestContents.BARROW);
+			placeChest(world, random, 0, 1, 0, GOTRegistry.chestStone, 2, GOTChestContents.TREASURE);
 		} else if (ruinType == RuinType.BRICK_HOUSE) {
 			int width = MathHelper.getRandomIntegerInRange(random, 3, 5);
 			int height = MathHelper.getRandomIntegerInRange(random, 1, 4);

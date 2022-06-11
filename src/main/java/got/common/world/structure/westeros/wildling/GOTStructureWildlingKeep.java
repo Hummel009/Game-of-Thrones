@@ -267,7 +267,7 @@ public class GOTStructureWildlingKeep extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, -3, 1, -3, plankStairBlock, 2);
 		setBlockAndMetadata(world, -3, 1, -2, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, -3, 1, -1, GOTRegistry.tableWildling, 0);
-		this.placeChest(world, random, -3, 1, 0, 4, GOTChestContents.WESTEROS);
+		this.placeChest(world, random, -3, 1, 0, 4, GOTChestContents.BEYOND_WALL);
 		setBlockAndMetadata(world, 2, 1, -4, plankStairBlock, 7);
 		setBlockAndMetadata(world, 2, 1, -3, plankSlabBlock, plankSlabMeta | 8);
 		setBlockAndMetadata(world, 2, 1, -2, plankStairBlock, 6);
@@ -336,7 +336,7 @@ public class GOTStructureWildlingKeep extends GOTStructureWesterosBase {
 				while (!isOpaque(world, i15, j110 - 1, k14) && getY(j110) >= 0) {
 					--j110;
 				}
-				this.placeChest(world, random, i15, j110, k14, 3, GOTChestContents.WESTEROS);
+				this.placeChest(world, random, i15, j110, k14, 3, GOTChestContents.BEYOND_WALL);
 			}
 		}
 		for (int i17 = -1; i17 <= 0; ++i17) {

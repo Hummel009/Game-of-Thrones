@@ -58,7 +58,7 @@ public class GOTRenderArmorStand extends TileEntitySpecialRenderer {
 		for (int slot = 0; slot < 4; ++slot) {
 			float f4;
 			ItemStack itemstack = armorStand.getStackInSlot(slot);
-			if (!(itemstack == null || !(itemstack.getItem() instanceof ItemArmor) && !(itemstack.getItem() instanceof GOTItemPlate))) {
+			if (((itemstack != null) && ((itemstack.getItem() instanceof ItemArmor) || (itemstack.getItem() instanceof GOTItemPlate)))) {
 				boolean isArmor = itemstack.getItem() instanceof ItemArmor;
 				if (isArmor) {
 					bindTexture(RenderBiped.getArmorResource(null, itemstack, slot, null));

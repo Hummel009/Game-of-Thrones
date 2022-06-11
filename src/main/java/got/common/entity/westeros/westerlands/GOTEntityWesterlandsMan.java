@@ -75,7 +75,7 @@ public class GOTEntityWesterlandsMan extends GOTEntityHumanBase implements IPick
 
 	public void dropWesterosItems(boolean flag, int i) {
 		if (rand.nextInt(6) == 0) {
-			dropChestContents(GOTChestContents.WESTEROS, 1, 2 + i);
+			dropChestContents(GOTChestContents.WESTERLANDS_HOUSE, 1, 2 + i);
 		}
 	}
 

@@ -95,7 +95,7 @@ public class GOTStructureBarrow extends GOTStructureBase {
 				placeRandomBrick(world, random, i12, innerB, k14);
 			}
 		}
-		this.placeSpawnerChest(world, random, 0, innerB + 1, 0, GOTRegistry.spawnerChestStone, 0, GOTEntityBarrowWight.class, GOTChestContents.BARROW);
+		this.placeSpawnerChest(world, random, 0, innerB + 1, 0, GOTRegistry.spawnerChestStone, 0, GOTEntityBarrowWight.class, GOTChestContents.TREASURE);
 		setBlockAndMetadata(world, 1, innerB + 1, 0, Blocks.stone_stairs, 0);
 		setBlockAndMetadata(world, -1, innerB + 1, 0, Blocks.stone_stairs, 1);
 		setBlockAndMetadata(world, 0, innerB + 1, -1, Blocks.stone_stairs, 2);

@@ -167,7 +167,7 @@ public class GOTStructureWesterosStoneHouse extends GOTStructureWesterosBase {
 			}
 		}
 		if (random.nextInt(4) == 0) {
-			this.placeChest(world, random, 0, 0, 1, GOTRegistry.chestStone, 2, GOTChestContents.WESTEROS);
+			this.placeChest(world, random, 0, 0, 1, GOTRegistry.chestStone, 2, GOTChestContents.TREASURE);
 		}
 		setBlockAndMetadata(world, 3, 2, 4, Blocks.torch, 1);
 		setBlockAndMetadata(world, 0, 3, 1, GOTRegistry.chandelier, 2);
@@ -201,7 +201,7 @@ public class GOTStructureWesterosStoneHouse extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 3, 1, 1, plankBlock, plankMeta);
 		setBlockAndMetadata(world, 3, 1, 0, plankBlock, plankMeta);
 		setBlockAndMetadata(world, 3, 2, 0, plankStairBlock, 6);
-		this.placeChest(world, random, 3, 1, -1, 5, GOTChestContents.WESTEROS);
+		this.placeChest(world, random, 3, 1, -1, 5, getChestContentsHouse());
 		setBlockAndMetadata(world, 3, 1, -2, tableBlock, 0);
 		setBlockAndMetadata(world, 3, 1, -3, plankBlock, plankMeta);
 		setBlockAndMetadata(world, 3, 2, -3, fenceBlock, fenceMeta);
@@ -251,10 +251,10 @@ public class GOTStructureWesterosStoneHouse extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, -3, j1, k122, pillarBlock, pillarMeta);
 			}
 		}
-		this.placeChest(world, random, -3, 5, -3, 4, GOTChestContents.WESTEROS);
+		this.placeChest(world, random, -3, 5, -3, 4, getChestContentsHouse());
 		setBlockAndMetadata(world, -3, 5, -2, plankBlock, plankMeta);
 		setBlockAndMetadata(world, -3, 5, 3, plankBlock, plankMeta);
-		this.placeChest(world, random, -3, 5, 4, 4, GOTChestContents.WESTEROS);
+		this.placeChest(world, random, -3, 5, 4, 4, getChestContentsHouse());
 		setBlockAndMetadata(world, 0, 9, -2, brick2Block, brick2Meta);
 		setBlockAndMetadata(world, 0, 8, -2, GOTRegistry.chandelier, 2);
 		setBlockAndMetadata(world, 0, 9, 3, brick2Block, brick2Meta);

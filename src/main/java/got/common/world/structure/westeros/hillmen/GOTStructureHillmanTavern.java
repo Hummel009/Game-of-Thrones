@@ -84,7 +84,7 @@ public class GOTStructureHillmanTavern extends GOTStructureHillmanBase {
 		placeFlowerPot(world, 8, 2, 5, getRandomFlower(world, random));
 		placeFlowerPot(world, -8, 2, -4, getRandomFlower(world, random));
 		placeFlowerPot(world, -8, 2, 4, getRandomFlower(world, random));
-		this.placeChest(world, random, 7, 1, -5, GOTRegistry.chestBasket, 5, GOTChestContents.WESTEROS);
+		this.placeChest(world, random, 7, 1, -5, GOTRegistry.chestBasket, 5, GOTChestContents.HILLMEN);
 		this.placeBarrel(world, random, 7, 2, 6, 2, GOTFoods.WILD_DRINK);
 		this.placeBarrel(world, random, 4, 2, 6, 2, GOTFoods.WILD_DRINK);
 		placeFoodOrDrink(world, random, -6, 2, -6);

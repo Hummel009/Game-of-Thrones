@@ -110,8 +110,8 @@ public class GOTStructureWesterosWatchtower extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 0, 10, 2, Blocks.trapdoor, 9);
 		for (int k5 = -2; k5 <= 2; ++k5) {
 			if (IntMath.mod(k5, 2) == 0) {
-				this.placeChest(world, random, -2, 1, k5, 4, GOTChestContents.WESTEROS);
-				this.placeChest(world, random, 2, 1, k5, 5, GOTChestContents.WESTEROS);
+				this.placeChest(world, random, -2, 1, k5, 4, GOTChestContents.WESTEROS_DRINKS);
+				this.placeChest(world, random, 2, 1, k5, 5, GOTChestContents.WESTEROS_DRINKS);
 			} else {
 				setBlockAndMetadata(world, -1, 1, k5, bedBlock, 3);
 				setBlockAndMetadata(world, -2, 1, k5, bedBlock, 11);
@@ -122,7 +122,7 @@ public class GOTStructureWesterosWatchtower extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, -2, 3, 0, Blocks.torch, 2);
 		setBlockAndMetadata(world, 2, 3, 0, Blocks.torch, 1);
 		setBlockAndMetadata(world, 0, 5, 0, GOTRegistry.chandelier, 1);
-		this.placeChest(world, random, -2, 7, -2, GOTRegistry.chestStone, 4, GOTChestContents.WESTEROS);
+		this.placeChest(world, random, -2, 7, -2, GOTRegistry.chestStone, 4, getChestContentsFortress());
 		setBlockAndMetadata(world, -2, 7, 0, GOTRegistry.armorStand, 3);
 		setBlockAndMetadata(world, -2, 8, 0, GOTRegistry.armorStand, 7);
 		setBlockAndMetadata(world, -2, 7, 2, Blocks.anvil, 0);

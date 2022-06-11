@@ -45,9 +45,9 @@ public class GOTRenderAlignmentBonus extends Render {
 			} else {
 				float alignment;
 				for (GOTFaction faction : factionBonusMap.keySet()) {
-					if (!(!faction.isPlayableAlignmentFaction() || factionBonusMap.get(faction).floatValue() <= 0.0f)) {
+					if ((faction.isPlayableAlignmentFaction() && (factionBonusMap.get(faction).floatValue() > 0.0f))) {
 						alignment = playerData.getAlignment(faction);
-						if (!(renderFaction != null && alignment <= playerData.getAlignment(renderFaction))) {
+						if (((renderFaction == null) || (alignment > playerData.getAlignment(renderFaction)))) {
 							renderFaction = faction;
 						}
 					}
@@ -57,9 +57,9 @@ public class GOTRenderAlignmentBonus extends Render {
 						renderFaction = mainFaction;
 					} else {
 						for (GOTFaction faction : factionBonusMap.keySet()) {
-							if (!(!faction.isPlayableAlignmentFaction() || factionBonusMap.get(faction).floatValue() >= 0.0f)) {
+							if ((faction.isPlayableAlignmentFaction() && (factionBonusMap.get(faction).floatValue() < 0.0f))) {
 								alignment = playerData.getAlignment(faction);
-								if (!(renderFaction != null && alignment <= playerData.getAlignment(renderFaction))) {
+								if (((renderFaction == null) || (alignment > playerData.getAlignment(renderFaction)))) {
 									renderFaction = faction;
 								}
 							}

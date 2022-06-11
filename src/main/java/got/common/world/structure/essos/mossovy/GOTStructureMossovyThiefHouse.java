@@ -206,8 +206,8 @@ public class GOTStructureMossovyThiefHouse extends GOTStructureMossovyBase {
 		this.placeBarrel(world, random, 5, -2, -4, 5, GOTFoods.WESTEROS_DRINK);
 		this.placeBarrel(world, random, 4, -2, -3, 2, GOTFoods.WESTEROS_DRINK);
 		this.placeChest(world, random, 3, -2, -3, 2, GOTChestContents.MOSSOVY);
-		this.placeChest(world, random, -2, -2, 0, 4, GOTChestContents.BARROW);
-		this.placeChest(world, random, 3, -2, 1, 2, GOTChestContents.BARROW);
+		this.placeChest(world, random, -2, -2, 0, 4, GOTChestContents.TREASURE);
+		this.placeChest(world, random, 3, -2, 1, 2, GOTChestContents.TREASURE);
 		placePlateWithCertainty(world, random, 3, 2, -3, GOTRegistry.plateBlock, GOTFoods.WESTEROS);
 		this.placeMug(world, random, 3, 2, -2, 3, GOTFoods.WESTEROS_DRINK);
 		this.placeChest(world, random, -1, 1, 1, 4, GOTChestContents.MOSSOVY);

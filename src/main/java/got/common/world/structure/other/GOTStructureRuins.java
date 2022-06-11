@@ -237,7 +237,7 @@ public class GOTStructureRuins extends GOTVillageGen {
 			}
 			setBlockAndNotifyAdequately(world, i, j + maxHeight, k, GOTRegistry.slabSingle1, 3);
 			setBlockAndNotifyAdequately(world, i, j + maxHeight + 1, k, GOTRegistry.chestStone, rotation + 2);
-			GOTChestContents.fillChest(world, random, i, j + maxHeight + 1, k, GOTChestContents.BARROW);
+			GOTChestContents.fillChest(world, random, i, j + maxHeight + 1, k, GOTChestContents.TREASURE);
 			switch (rotation) {
 			case 0: {
 				int j1;

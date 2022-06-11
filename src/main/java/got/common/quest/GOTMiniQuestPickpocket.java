@@ -175,7 +175,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 				success = rand.nextInt(3) == 0;
 				boolean anyoneNoticed = noticed = success ? rand.nextInt(3) == 0 : rand.nextInt(4) == 0;
 				if (success) {
-					ItemStack picked = GOTChestContents.BARROW.getOneItem(rand, true);
+					ItemStack picked = GOTChestContents.TREASURE.getOneItem(rand, true);
 					IPickpocketable.Helper.setPickpocketData(picked, npc.getNPCName(), entityNameFull, entityUUID);
 					entityplayer.inventory.setInventorySlotContents(entityplayer.inventory.currentItem, picked);
 					entityplayer.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.chat.pickpocket.success", picked.stackSize, picked.getDisplayName(), npc.getNPCName())));

@@ -72,11 +72,6 @@ public class GOTBiomeBoneMountains extends GOTBiome {
 	}
 
 	@Override
-	public Region getBiomeWaypoints() {
-		return Region.JOGOS;
-	}
-
-	@Override
 	public void generateMountainTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, int xzIndex, int ySize, int height, int rockDepth, GOTBiomeVariant variant) {
 		int stoneHeight = 110 - rockDepth;
 		int sandHeight = stoneHeight - 6;
@@ -101,6 +96,11 @@ public class GOTBiomeBoneMountains extends GOTBiome {
 	@Override
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.ESSOS.getSubregion("boneMountains");
+	}
+
+	@Override
+	public Region getBiomeWaypoints() {
+		return Region.JOGOS;
 	}
 
 	@Override

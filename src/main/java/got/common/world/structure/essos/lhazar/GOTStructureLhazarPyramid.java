@@ -69,7 +69,7 @@ public class GOTStructureLhazarPyramid extends GOTStructureLhazarBase {
 				if (i2 <= 2 && k2 <= 2 || !isOpaque(world, i1, j13 - 1, k1) || !isAir(world, i1, j13, k1) || random.nextInt(12) != 0) {
 					continue;
 				}
-				this.placeChest(world, random, i1, j13, k1, GOTRegistry.chestBasket, MathHelper.getRandomIntegerInRange(random, 2, 5), GOTChestContents.BARROW);
+				this.placeChest(world, random, i1, j13, k1, GOTRegistry.chestBasket, MathHelper.getRandomIntegerInRange(random, 2, 5), GOTChestContents.TREASURE);
 			}
 		}
 		int maxStep = 4;
