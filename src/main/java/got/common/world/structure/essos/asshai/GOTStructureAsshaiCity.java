@@ -189,7 +189,7 @@ public class GOTStructureAsshaiCity extends GOTVillageGen {
 			int i1 = Math.abs(i);
 			int k1 = Math.abs(k);
 			if (villageType == VillageType.TOWN && i1 <= 80 && k1 <= 80) {
-				return GOTBezierType.ASSHAI;
+				return GOTBezierType.ASSHAI_TOWN;
 			}
 			return null;
 		}

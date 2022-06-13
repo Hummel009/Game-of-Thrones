@@ -150,7 +150,7 @@ public abstract class GOTBezierType {
 		}
 	};
 
-	public static GOTBezierType ASSHAI = new GOTBezierType() {
+	public static GOTBezierType ASSHAI_TOWN = new GOTBezierType() {
 
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
@@ -159,6 +159,17 @@ public abstract class GOTBezierType {
 			}
 			if (rand.nextBoolean()) {
 				return new BezierBlock(GOTRegistry.basaltGravel, 0);
+			}
+			return new BezierBlock(GOTRegistry.asshaiDirt, 0);
+		}
+	};
+
+	public static GOTBezierType ASSHAI = new GOTBezierType() {
+
+		@Override
+		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
+			if (slab) {
+				return new BezierBlock(GOTRegistry.slabSingleDirt, 3);
 			}
 			return new BezierBlock(GOTRegistry.asshaiDirt, 0);
 		}
