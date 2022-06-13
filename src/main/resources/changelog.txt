@@ -6,6 +6,7 @@ CHANGELOG
 * Returned "kill mob" type of quests
 * Returned "kill player" type of quests
 * Improved andesite texture
+* Fixed bug with slaves speechbank
 
 >>VERSION 17.7.3
 + Added full Polish edition (lore, speech, names, quests: prod. Axel)

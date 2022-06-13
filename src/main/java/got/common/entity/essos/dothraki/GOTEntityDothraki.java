@@ -64,7 +64,7 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements IPickpocket
 
 	@Override
 	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.NOMAD.createQuest(this);
+		return GOTMQFactory.DOTHRAKI.createQuest(this);
 	}
 
 	@Override
@@ -100,7 +100,7 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements IPickpocket
 
 	@Override
 	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.NOMAD;
+		return GOTMQFactory.DOTHRAKI;
 	}
 
 	@Override

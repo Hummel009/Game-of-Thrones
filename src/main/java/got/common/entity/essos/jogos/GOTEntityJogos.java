@@ -54,7 +54,7 @@ public class GOTEntityJogos extends GOTEntityHumanBase implements IPickpocketabl
 
 	@Override
 	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.NOMAD.createQuest(this);
+		return GOTMQFactory.JOGOS.createQuest(this);
 	}
 
 	@Override
@@ -95,7 +95,7 @@ public class GOTEntityJogos extends GOTEntityHumanBase implements IPickpocketabl
 
 	@Override
 	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.NOMAD;
+		return GOTMQFactory.JOGOS;
 	}
 
 	@Override
