@@ -765,7 +765,6 @@ public class GOTStructureAsshaiTavern extends GOTStructureAsshaiBase {
 	@Override
 	public void setupRandomBlocks(Random random) {
 		super.setupRandomBlocks(random);
-		bedBlock = Blocks.bed;
 		tavernName = GOTNames.getTavernName(random);
 		tavernNameSign = new String[] { "", tavernName[0], tavernName[1], "" };
 	}

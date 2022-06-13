@@ -102,28 +102,28 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 		placeBigTorch(world, 20, 4, 17);
 		placeBigTorch(world, 22, 10, -14);
 		placeBigTorch(world, 22, 15, -14);
-		placeWeaponRack(world, 9, 2, 2, 6, getRandomUrukWeapon(random));
-		placeWeaponRack(world, 10, 2, 3, 5, getRandomUrukWeapon(random));
-		placeWeaponRack(world, 8, 2, 3, 7, getRandomUrukWeapon(random));
-		placeWeaponRack(world, 9, 2, 4, 4, getRandomUrukWeapon(random));
-		placeWeaponRack(world, 15, 2, 7, 6, getRandomUrukWeapon(random));
-		placeWeaponRack(world, 16, 2, 8, 5, getRandomUrukWeapon(random));
-		placeWeaponRack(world, 14, 2, 8, 7, getRandomUrukWeapon(random));
-		placeWeaponRack(world, 15, 2, 9, 4, getRandomUrukWeapon(random));
-		placeWeaponRack(world, 6, 5, 10, 4, getRandomUrukWeapon(random));
-		placeWeaponRack(world, 1, 5, 10, 4, getRandomUrukWeapon(random));
-		placeWeaponRack(world, 10, 5, 12, 4, getRandomUrukWeapon(random));
-		placeWeaponRack(world, -3, 5, 12, 4, getRandomUrukWeapon(random));
-		placeWeaponRack(world, 6, 6, 10, 4, getRandomUrukWeapon(random));
-		placeWeaponRack(world, 1, 6, 10, 4, getRandomUrukWeapon(random));
-		placeWeaponRack(world, 10, 6, 12, 4, getRandomUrukWeapon(random));
-		placeWeaponRack(world, -3, 6, 12, 4, getRandomUrukWeapon(random));
-		placeUrukArmor(world, random, 8, 4, 10, 2);
-		placeUrukArmor(world, random, -1, 4, 10, 2);
-		placeUrukArmor(world, random, 7, 4, 12, 3);
-		placeUrukArmor(world, random, 0, 4, 12, 1);
-		placeUrukArmor(world, random, 6, 4, 13, 2);
-		placeUrukArmor(world, random, 1, 4, 13, 2);
+		placeWeaponRack(world, 9, 2, 2, 6, getRandomAsshaiWeapon(random));
+		placeWeaponRack(world, 10, 2, 3, 5, getRandomAsshaiWeapon(random));
+		placeWeaponRack(world, 8, 2, 3, 7, getRandomAsshaiWeapon(random));
+		placeWeaponRack(world, 9, 2, 4, 4, getRandomAsshaiWeapon(random));
+		placeWeaponRack(world, 15, 2, 7, 6, getRandomAsshaiWeapon(random));
+		placeWeaponRack(world, 16, 2, 8, 5, getRandomAsshaiWeapon(random));
+		placeWeaponRack(world, 14, 2, 8, 7, getRandomAsshaiWeapon(random));
+		placeWeaponRack(world, 15, 2, 9, 4, getRandomAsshaiWeapon(random));
+		placeWeaponRack(world, 6, 5, 10, 4, getRandomAsshaiWeapon(random));
+		placeWeaponRack(world, 1, 5, 10, 4, getRandomAsshaiWeapon(random));
+		placeWeaponRack(world, 10, 5, 12, 4, getRandomAsshaiWeapon(random));
+		placeWeaponRack(world, -3, 5, 12, 4, getRandomAsshaiWeapon(random));
+		placeWeaponRack(world, 6, 6, 10, 4, getRandomAsshaiWeapon(random));
+		placeWeaponRack(world, 1, 6, 10, 4, getRandomAsshaiWeapon(random));
+		placeWeaponRack(world, 10, 6, 12, 4, getRandomAsshaiWeapon(random));
+		placeWeaponRack(world, -3, 6, 12, 4, getRandomAsshaiWeapon(random));
+		placeAsshaiArmor(world, random, 8, 4, 10, 2);
+		placeAsshaiArmor(world, random, -1, 4, 10, 2);
+		placeAsshaiArmor(world, random, 7, 4, 12, 3);
+		placeAsshaiArmor(world, random, 0, 4, 12, 1);
+		placeAsshaiArmor(world, random, 6, 4, 13, 2);
+		placeAsshaiArmor(world, random, 1, 4, 13, 2);
 		this.placeChest(world, random, 15, 1, 7, 2, GOTChestContents.ASSHAI);
 		this.placeChest(world, random, 9, 4, 11, 3, GOTChestContents.ASSHAI);
 		this.placeChest(world, random, -2, 4, 11, 3, GOTChestContents.ASSHAI);
@@ -171,12 +171,12 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 		return true;
 	}
 
-	public ItemStack getRandomUrukWeapon(Random random) {
+	public ItemStack getRandomAsshaiWeapon(Random random) {
 		ItemStack[] items = { new ItemStack(GOTRegistry.asshaiSword), new ItemStack(GOTRegistry.asshaiDagger), new ItemStack(GOTRegistry.asshaiDaggerPoisoned), new ItemStack(GOTRegistry.asshaiSpear), new ItemStack(GOTRegistry.asshaiBattleaxe), new ItemStack(GOTRegistry.asshaiHammer) };
 		return items[random.nextInt(items.length)].copy();
 	}
 
-	public void placeUrukArmor(World world, Random random, int i, int j, int k, int meta) {
+	public void placeAsshaiArmor(World world, Random random, int i, int j, int k, int meta) {
 		ItemStack[] arritemStack;
 		if (random.nextInt(4) != 0) {
 			ItemStack[] arritemStack2 = new ItemStack[4];

@@ -119,12 +119,12 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 			i2 = Math.abs(i1);
 			for (int step = 0; step <= 2; ++step) {
 				j14 = 8 + step;
-				setBlockAndMetadata(world, i1, j14, -5 + step, brickStairBlock, 2);
-				setBlockAndMetadata(world, i1, j14, -4 + step, brickBlock, brickMeta);
-				setBlockAndMetadata(world, i1, j14, -3 + step, brickStairBlock, 7);
-				setBlockAndMetadata(world, i1, j14, 6 - step, brickStairBlock, 3);
-				setBlockAndMetadata(world, i1, j14, 5 - step, brickBlock, brickMeta);
-				setBlockAndMetadata(world, i1, j14, 4 - step, brickStairBlock, 6);
+				setBlockAndMetadata(world, i1, j14, -5 + step, brick2StairBlock, 2);
+				setBlockAndMetadata(world, i1, j14, -4 + step, brick2Block, brick2Meta);
+				setBlockAndMetadata(world, i1, j14, -3 + step, brick2StairBlock, 7);
+				setBlockAndMetadata(world, i1, j14, 6 - step, brick2StairBlock, 3); 
+				setBlockAndMetadata(world, i1, j14, 5 - step, brick2Block, brick2Meta);
+				setBlockAndMetadata(world, i1, j14, 4 - step, brick2StairBlock, 6);
 				if (i2 != 4) {
 					continue;
 				}
@@ -135,7 +135,7 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 			}
 			for (int k15 = -2; k15 <= 3; ++k15) {
 				j14 = 10;
-				setBlockAndMetadata(world, i1, j14, k15, brickBlock, brickMeta);
+				setBlockAndMetadata(world, i1, j14, k15, brick2Block, brick2Meta);
 				if (i2 != 4) {
 					continue;
 				}
@@ -153,10 +153,10 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 			}
 		}
 		for (i1 = -4; i1 <= 4; ++i1) {
-			setBlockAndMetadata(world, i1, 4, -7, brickSlabBlock, brickSlabMeta);
-			setBlockAndMetadata(world, i1, 4, -6, brickBlock, brickMeta);
-			setBlockAndMetadata(world, i1, 4, -5, brickBlock, brickMeta);
-			setBlockAndMetadata(world, i1, 5, -5, brickSlabBlock, brickSlabMeta);
+			setBlockAndMetadata(world, i1, 4, -7, brick2SlabBlock, brick2SlabMeta); 
+			setBlockAndMetadata(world, i1, 4, -6, brick2Block, brick2Meta);
+			setBlockAndMetadata(world, i1, 4, -5, brick2Block, brick2Meta);
+			setBlockAndMetadata(world, i1, 5, -5, brick2SlabBlock, brick2SlabMeta);
 		}
 		setBlockAndMetadata(world, 0, 3, -6, GOTRegistry.chandelier, 12);
 		setBlockAndMetadata(world, 0, 1, -4, doorBlock, 1);
@@ -255,9 +255,9 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 		setBlockAndMetadata(world, -3, 5, -2, plankBlock, plankMeta);
 		setBlockAndMetadata(world, -3, 5, 3, plankBlock, plankMeta);
 		this.placeChest(world, random, -3, 5, 4, 4, GOTChestContents.ASSHAI);
-		setBlockAndMetadata(world, 0, 9, -2, brickBlock, brickMeta);
+		setBlockAndMetadata(world, 0, 9, -2, brick2Block, brick2Meta);
 		setBlockAndMetadata(world, 0, 8, -2, GOTRegistry.chandelier, 12);
-		setBlockAndMetadata(world, 0, 9, 3, brickBlock, brickMeta);
+		setBlockAndMetadata(world, 0, 9, 3, brick2Block, brick2Meta);
 		setBlockAndMetadata(world, 0, 8, 3, GOTRegistry.chandelier, 12);
 		setBlockAndMetadata(world, -3, 7, -2, GOTRegistry.asshaiTorch, 2);
 		setBlockAndMetadata(world, -3, 7, 3, GOTRegistry.asshaiTorch, 2);
@@ -294,7 +294,6 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 		if (random.nextBoolean()) {
 			doorBlock = GOTRegistry.doorAramant;
 		}
-		bedBlock = Blocks.bed;
 		plateBlock = random.nextBoolean() ? GOTRegistry.plateBlock : GOTRegistry.ceramicPlateBlock;
 	}
 }

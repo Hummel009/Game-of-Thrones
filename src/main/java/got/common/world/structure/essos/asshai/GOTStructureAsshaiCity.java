@@ -76,10 +76,10 @@ public class GOTStructureAsshaiCity extends GOTVillageGen {
 				}
 			}
 			this.addStructure(new GOTStructureAsshaiFort(false), 5, -20, 0, true);
-			this.addStructure(new GOTStructureAsshaiTower(false), -27, 24, 0, true);
-			this.addStructure(new GOTStructureAsshaiTower(false), 27, 24, 0, true);
-			this.addStructure(new GOTStructureAsshaiTower(false), -27, -34, 0, true);
-			this.addStructure(new GOTStructureAsshaiTower(false), 27, -34, 0, true);
+			this.addStructure(new GOTStructureAsshaiTower(false), -27, 29, 0, true);
+			this.addStructure(new GOTStructureAsshaiTower(false), 27, 29, 0, true);
+			this.addStructure(new GOTStructureAsshaiTower(false), -27, -29, 0, true);
+			this.addStructure(new GOTStructureAsshaiTower(false), 27, -29, 0, true);
 			int houseX = 24;
 			for (k1 = -1; k1 <= 1; ++k1) {
 				houseZ = k1 * 12;

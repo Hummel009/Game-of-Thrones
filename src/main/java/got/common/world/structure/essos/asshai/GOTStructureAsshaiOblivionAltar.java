@@ -13,10 +13,6 @@ public class GOTStructureAsshaiOblivionAltar extends GOTStructureAsshaiBase {
 		super(flag);
 	}
 
-	public GOTEntityNPC createBather(World world) {
-		return new GOTEntityAsshaiMan(world);
-	}
-
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int j1;
@@ -111,34 +107,32 @@ public class GOTStructureAsshaiOblivionAltar extends GOTStructureAsshaiBase {
 			}
 		}
 		for (int step = 0; step <= 3; ++step) {
-			int k22;
-			int i22;
 			int j13 = 5 + step;
 			int i12 = 11 - step;
 			int k12 = 9 - step;
-			for (i22 = -i12; i22 <= i12; ++i22) {
-				setBlockAndMetadata(world, i22, j13, -k12, brickStairBlock, 2);
-				setBlockAndMetadata(world, i22, j13, k12, brickStairBlock, 3);
+			for (int i22 = -i12; i22 <= i12; ++i22) {
+				setBlockAndMetadata(world, i22, j13, -k12, brick2StairBlock, 2);
+				setBlockAndMetadata(world, i22, j13, k12, brick2StairBlock, 3);
 			}
-			for (k22 = -k12 + 1; k22 <= k12 - 1; ++k22) {
-				setBlockAndMetadata(world, -i12, j13, k22, brickStairBlock, 1);
-				setBlockAndMetadata(world, i12, j13, k22, brickStairBlock, 0);
+			for (int k22 = -k12 + 1; k22 <= k12 - 1; ++k22) {
+				setBlockAndMetadata(world, -i12, j13, k22, brick2StairBlock, 1);
+				setBlockAndMetadata(world, i12, j13, k22, brick2StairBlock, 0);
 			}
 			if (step < 2) {
 				continue;
 			}
-			for (i22 = -i12 + 1; i22 <= i12 - 1; ++i22) {
-				setBlockAndMetadata(world, i22, j13 - 1, -k12, brickStairBlock, 7);
-				setBlockAndMetadata(world, i22, j13 - 1, k12, brickStairBlock, 6);
+			for (int i22 = -i12 + 1; i22 <= i12 - 1; ++i22) {
+				setBlockAndMetadata(world, i22, j13 - 1, -k12, brick2StairBlock, 7);
+				setBlockAndMetadata(world, i22, j13 - 1, k12, brick2StairBlock, 6);
 			}
-			for (k22 = -k12; k22 <= k12; ++k22) {
-				setBlockAndMetadata(world, -i12, j13 - 1, k22, brickStairBlock, 4);
-				setBlockAndMetadata(world, i12, j13 - 1, k22, brickStairBlock, 5);
+			for (int k22 = -k12; k22 <= k12; ++k22) {
+				setBlockAndMetadata(world, -i12, j13 - 1, k22, brick2StairBlock, 4);
+				setBlockAndMetadata(world, i12, j13 - 1, k22, brick2StairBlock, 5);
 			}
 		}
 		for (i1 = -7; i1 <= 7; ++i1) {
 			for (k1 = -5; k1 <= 5; ++k1) {
-				setBlockAndMetadata(world, i1, 8, k1, brickBlock, brickMeta);
+				setBlockAndMetadata(world, i1, 8, k1, brick2Block, brick2Meta);
 			}
 		}
 		for (i1 = -9; i1 <= 9; ++i1) {
@@ -155,7 +149,7 @@ public class GOTStructureAsshaiOblivionAltar extends GOTStructureAsshaiBase {
 		}
 		int bathers = 2 + random.nextInt(4);
 		for (int l = 0; l < bathers; ++l) {
-			GOTEntityNPC man = createBather(world);
+			GOTEntityNPC man = new GOTEntityAsshaiMan(world);
 			spawnNPCAndSetHome(man, world, 0, 0, 0, 16);
 		}
 		return true;

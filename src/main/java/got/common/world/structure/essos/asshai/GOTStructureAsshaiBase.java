@@ -55,6 +55,11 @@ public abstract class GOTStructureAsshaiBase extends GOTStructureBase {
 	public Block cobbleBlock;
 	public int cobbleMeta;
 	public Block plateBlock;
+	public int brick2Meta;
+	public Block brick2Block; 
+	public Block brick2StairBlock; 
+	public Block brick2SlabBlock; 
+	public int brick2SlabMeta; 
 
 	public GOTStructureAsshaiBase(boolean flag) {
 		super(flag);
@@ -80,7 +85,7 @@ public abstract class GOTStructureAsshaiBase extends GOTStructureBase {
 		wallMeta = 0;
 		plateBlock = GOTRegistry.ceramicPlateBlock;
 		fenceGateBlock = GOTRegistry.fenceGateDarkOak;
-		doorBlock = GOTRegistry.doorDarkOak;
+		doorBlock = GOTRegistry.doorCharred;
 		rockBlock = GOTRegistry.rock;
 		rockMeta = 0;
 		cropBlock = GOTRegistry.asshaiFlower;
@@ -92,8 +97,8 @@ public abstract class GOTStructureAsshaiBase extends GOTStructureBase {
 		brickStairBlock = GOTRegistry.stairsBasaltBrick;
 		brickWallBlock = GOTRegistry.wallStone1;
 		brickWallMeta = 1;
-		brickCarvedBlock = GOTRegistry.brick1;
-		brickCarvedMeta = 0;
+		brickCarvedBlock = GOTRegistry.brick2;
+		brickCarvedMeta = 10;
 		pillarBlock = GOTRegistry.pillar1;
 		pillarMeta = 7;
 		smoothBlock = GOTRegistry.smoothStone;
@@ -102,6 +107,11 @@ public abstract class GOTStructureAsshaiBase extends GOTStructureBase {
 		smoothSlabMeta = 0;
 		tileBlock = GOTRegistry.clayTileDyed;
 		tileMeta = 15;
+		brick2Meta = 3;
+		brick2Block = GOTRegistry.planks1;
+		brick2SlabMeta = 3;
+		brick2SlabBlock = GOTRegistry.woodSlabSingle1;
+		brick2StairBlock = GOTRegistry.stairsCharred;
 		tileSlabBlock = GOTRegistry.slabClayTileDyedSingle2;
 		tileSlabMeta = 7;
 		tileStairBlock = GOTRegistry.stairsClayTileDyedBlack;

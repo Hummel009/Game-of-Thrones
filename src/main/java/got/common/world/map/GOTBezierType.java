@@ -157,6 +157,9 @@ public abstract class GOTBezierType {
 			if (slab) {
 				return new BezierBlock(GOTRegistry.slabSingleDirt, 3);
 			}
+			if (rand.nextBoolean()) {
+				return new BezierBlock(GOTRegistry.basaltGravel, 0);
+			}
 			return new BezierBlock(GOTRegistry.asshaiDirt, 0);
 		}
 	};

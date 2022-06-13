@@ -5,8 +5,11 @@ CHANGELOG
 * Improved chest contents in all the world
 * Returned "kill mob" type of quests
 * Returned "kill player" type of quests
-* Improved andesite texture
+* Improved andesite, rhyolite & basalt sets textures
+* Improved asshai roofs
+
 * Fixed bug with slaves speechbank
+* Fixed bug with towers in asshai
 
 >>VERSION 17.7.3
 + Added full Polish edition (lore, speech, names, quests: prod. Axel)
