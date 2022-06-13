@@ -44,8 +44,8 @@ public class GOTEntityMossovyMan extends GOTEntityHumanBase implements IPickpock
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.MOSSOVY.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.MOSSOVY.createQuest(this);
 	}
 
 	public EntityAIBase createMossovyAttackAI() {
@@ -81,8 +81,8 @@ public class GOTEntityMossovyMan extends GOTEntityHumanBase implements IPickpock
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.MOSSOVY;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.MOSSOVY;
 	}
 
 	@Override

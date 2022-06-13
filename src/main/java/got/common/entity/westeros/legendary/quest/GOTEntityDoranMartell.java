@@ -39,8 +39,8 @@ public class GOTEntityDoranMartell extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.DORAN.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.DORAN.createQuest(this);
 	}
 
 	@Override
@@ -49,8 +49,8 @@ public class GOTEntityDoranMartell extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.DORAN;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.DORAN;
 	}
 
 	@Override

@@ -40,8 +40,8 @@ public class GOTEntityRamsayBolton extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.RAMSAY.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.RAMSAY.createQuest(this);
 	}
 
 	@Override
@@ -50,8 +50,8 @@ public class GOTEntityRamsayBolton extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.RAMSAY;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.RAMSAY;
 	}
 
 	@Override

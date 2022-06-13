@@ -6,7 +6,7 @@ import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.*;
 import got.GOT;
 import got.common.*;
-import got.common.quest.GOTMiniQuest;
+import got.common.quest.GOTMQ;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -52,9 +52,9 @@ public class GOTPacketMiniquest implements IMessage {
 			if (!GOT.proxy.isSingleplayer()) {
 				EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
 				GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-				GOTMiniQuest miniquest = GOTMiniQuest.loadQuestFromNBT(packet.miniquestData, pd);
+				GOTMQ miniquest = GOTMQ.loadQuestFromNBT(packet.miniquestData, pd);
 				if (miniquest != null) {
-					GOTMiniQuest existingQuest = pd.getMiniQuestForID(miniquest.questUUID, packet.completed);
+					GOTMQ existingQuest = pd.getMiniQuestForID(miniquest.questUUID, packet.completed);
 					if (existingQuest == null) {
 						if (packet.completed) {
 							pd.addMiniQuestCompleted(miniquest);

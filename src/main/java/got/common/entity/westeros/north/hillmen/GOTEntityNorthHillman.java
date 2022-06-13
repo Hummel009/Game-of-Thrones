@@ -50,8 +50,8 @@ public class GOTEntityNorthHillman extends GOTEntityHumanBase implements IPickpo
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.WESTEROS.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.NORTH.createQuest(this);
 	}
 
 	@Override
@@ -93,8 +93,8 @@ public class GOTEntityNorthHillman extends GOTEntityHumanBase implements IPickpo
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.WESTEROS;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.NORTH;
 	}
 
 	@Override

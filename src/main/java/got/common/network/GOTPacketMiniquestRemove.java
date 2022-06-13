@@ -6,7 +6,7 @@ import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.*;
 import got.GOT;
 import got.common.*;
-import got.common.quest.GOTMiniQuest;
+import got.common.quest.GOTMQ;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
@@ -18,7 +18,7 @@ public class GOTPacketMiniquestRemove implements IMessage {
 	public GOTPacketMiniquestRemove() {
 	}
 
-	public GOTPacketMiniquestRemove(GOTMiniQuest quest, boolean wc, boolean atc) {
+	public GOTPacketMiniquestRemove(GOTMQ quest, boolean wc, boolean atc) {
 		questUUID = quest.questUUID;
 		wasCompleted = wc;
 		addToCompleted = atc;
@@ -45,7 +45,7 @@ public class GOTPacketMiniquestRemove implements IMessage {
 			if (!GOT.proxy.isSingleplayer()) {
 				EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
 				GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-				GOTMiniQuest removeQuest = pd.getMiniQuestForID(packet.questUUID, packet.wasCompleted);
+				GOTMQ removeQuest = pd.getMiniQuestForID(packet.questUUID, packet.wasCompleted);
 				if (removeQuest != null) {
 					if (packet.addToCompleted) {
 						pd.completeMiniQuest(removeQuest);

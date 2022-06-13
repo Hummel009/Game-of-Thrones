@@ -6,7 +6,7 @@ import cpw.mods.fml.relauncher.*;
 import got.GOT;
 import got.common.*;
 import got.common.database.GOTCreativeTabs;
-import got.common.quest.GOTMiniQuestEvent;
+import got.common.quest.GOTMQEvent;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.*;
@@ -34,7 +34,7 @@ public class GOTItemQuestBook extends Item {
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		entityplayer.openGui(GOT.instance, 32, world, 0, 0, 0);
 		if (!world.isRemote) {
-			GOTLevelData.getData(entityplayer).distributeMQEvent(new GOTMiniQuestEvent.OpenRedBook());
+			GOTLevelData.getData(entityplayer).distributeMQEvent(new GOTMQEvent.OpenRedBook());
 		}
 		return itemstack;
 	}

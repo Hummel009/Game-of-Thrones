@@ -27,7 +27,7 @@ public class GOTEntitySummerMan extends GOTEntityHumanBase implements IPickpocke
 		tasks.addTask(2, createSummerAttackAI());
 		tasks.addTask(3, new GOTEntityAIFollowHiringPlayer(this));
 		tasks.addTask(4, new EntityAIOpenDoor(this, true));
-		tasks.addTask(5, new EntityAIWander(this, 1.0));
+		tasks.addTask(5, new EntityAIWander(this, 1.0)); 
 		tasks.addTask(6, new GOTEntityAIEat(this, GOTFoods.SOTHORYOS, 8000));
 		tasks.addTask(6, new GOTEntityAIDrink(this, GOTFoods.SOTHORYOS_DRINK, 6000));
 		tasks.addTask(7, new EntityAIWatchClosest2(this, EntityPlayer.class, 10.0f, 0.02f));
@@ -45,8 +45,8 @@ public class GOTEntitySummerMan extends GOTEntityHumanBase implements IPickpocke
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.SUMMER.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.SUMMER.createQuest(this);
 	}
 
 	public EntityAIBase createSummerAttackAI() {
@@ -55,7 +55,7 @@ public class GOTEntitySummerMan extends GOTEntityHumanBase implements IPickpocke
 
 	public void dropEssosItems(boolean flag, int i) {
 		if (rand.nextInt(5) == 0) {
-			dropChestContents(GOTChestContents.ESSOS, 1, 2 + i);
+			dropChestContents(GOTChestContents.SUMMER, 1, 2 + i);
 		}
 	}
 
@@ -85,8 +85,8 @@ public class GOTEntitySummerMan extends GOTEntityHumanBase implements IPickpocke
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.SUMMER;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.SUMMER;
 	}
 
 	@Override

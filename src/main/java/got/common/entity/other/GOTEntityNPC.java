@@ -262,7 +262,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return true;
 	}
 
-	public GOTMiniQuest createMiniQuest() {
+	public GOTMQ createMiniQuest() {
 		return null;
 	}
 
@@ -457,7 +457,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return 0.0f;
 	}
 
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+	public GOTMQFactory getBountyHelpSpeechDir() {
 		return null;
 	}
 
@@ -1112,7 +1112,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		this.sendSpeechBank(entityplayer, speechBank, null);
 	}
 
-	public void sendSpeechBank(EntityPlayer entityplayer, String speechBank, GOTMiniQuest miniquest) {
+	public void sendSpeechBank(EntityPlayer entityplayer, String speechBank, GOTMQ miniquest) {
 		String location = null;
 		String objective = null;
 		if (miniquest != null) {

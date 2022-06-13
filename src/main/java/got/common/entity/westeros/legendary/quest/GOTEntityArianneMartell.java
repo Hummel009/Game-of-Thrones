@@ -40,8 +40,8 @@ public class GOTEntityArianneMartell extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.ARIANNE.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.ARIANNE.createQuest(this);
 	}
 
 	@Override
@@ -50,8 +50,8 @@ public class GOTEntityArianneMartell extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.ARIANNE;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.ARIANNE;
 	}
 
 	@Override

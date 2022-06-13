@@ -17,7 +17,7 @@ public class GOTStructureGoldenTent extends GOTStructureTentBase {
 		int randomWool = random.nextInt(3);
 		switch (randomWool) {
 		case 0:
-			tentBlock = Blocks.wool;
+			tentBlock = Blocks.wool; 
 			tentMeta = 15;
 			break;
 		case 1:
@@ -34,6 +34,6 @@ public class GOTStructureGoldenTent extends GOTStructureTentBase {
 		fenceBlock = GOTRegistry.fence;
 		fenceMeta = 3;
 		tableBlock = Blocks.crafting_table;
-		chestContents = GOTChestContents.ESSOS;
+		chestContents = GOTChestContents.GOLDEN;
 	}
 }

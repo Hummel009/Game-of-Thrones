@@ -53,8 +53,8 @@ public class GOTEntityJogos extends GOTEntityHumanBase implements IPickpocketabl
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.NOMAD.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.NOMAD.createQuest(this);
 	}
 
 	@Override
@@ -74,7 +74,7 @@ public class GOTEntityJogos extends GOTEntityHumanBase implements IPickpocketabl
 
 	public void dropRohanItems(boolean flag, int i) {
 		if (rand.nextInt(6) == 0) {
-			dropChestContents(GOTChestContents.ESSOS, 1, 2 + i);
+			dropChestContents(GOTChestContents.JOGOS, 1, 2 + i);
 		}
 	}
 
@@ -94,8 +94,8 @@ public class GOTEntityJogos extends GOTEntityHumanBase implements IPickpocketabl
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.NOMAD;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.NOMAD;
 	}
 
 	@Override

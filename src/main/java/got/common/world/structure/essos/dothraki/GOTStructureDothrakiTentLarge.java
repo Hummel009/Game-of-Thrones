@@ -68,7 +68,7 @@ public class GOTStructureDothrakiTentLarge extends GOTStructureDothrakiBase {
 		setBlockAndMetadata(world, -4, 1, 4, bedBlock, 0);
 		setBlockAndMetadata(world, -4, 1, 5, bedBlock, 8);
 		placeWeaponRack(world, 0, 3, 6, 6, getRandomNomadWeapon(random));
-		this.placeChest(world, random, -4, 1, -5, GOTRegistry.chestBasket, 3, GOTChestContents.NOMAD);
+		this.placeChest(world, random, -4, 1, -5, GOTRegistry.chestBasket, 3, GOTChestContents.DOTHRAKI);
 		GOTEntityDothraki male = new GOTEntityDothraki(world);
 		male.familyInfo.setMale(true);
 		male.spawnRidingHorse = false;

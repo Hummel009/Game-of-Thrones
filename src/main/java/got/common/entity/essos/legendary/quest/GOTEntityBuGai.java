@@ -40,8 +40,8 @@ public class GOTEntityBuGai extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.BUGAI.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.BUGAI.createQuest(this);
 	}
 
 	@Override
@@ -56,8 +56,8 @@ public class GOTEntityBuGai extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.BUGAI;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.BUGAI;
 	}
 
 	@Override

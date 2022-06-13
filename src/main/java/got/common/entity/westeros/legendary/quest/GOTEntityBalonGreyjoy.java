@@ -46,8 +46,8 @@ public class GOTEntityBalonGreyjoy extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.BALON.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.BALON.createQuest(this);
 	}
 
 	@Override
@@ -56,8 +56,8 @@ public class GOTEntityBalonGreyjoy extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.BALON;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.BALON;
 	}
 
 	@Override

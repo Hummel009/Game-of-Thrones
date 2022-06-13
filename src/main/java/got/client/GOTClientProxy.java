@@ -21,7 +21,7 @@ import got.common.entity.dragon.GOTEntityDragon3DViewer;
 import got.common.entity.other.*;
 import got.common.faction.*;
 import got.common.network.*;
-import got.common.quest.GOTMiniQuest;
+import got.common.quest.GOTMQ;
 import got.common.tileentity.*;
 import got.common.util.*;
 import got.common.world.biome.GOTBiome;
@@ -167,7 +167,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 	}
 
 	@Override
-	public void displayMiniquestOffer(GOTMiniQuest quest, GOTEntityNPC npc) {
+	public void displayMiniquestOffer(GOTMQ quest, GOTEntityNPC npc) {
 		Minecraft mc = Minecraft.getMinecraft();
 		mc.displayGuiScreen(new GOTGuiMiniquestOffer(quest, npc));
 	}
@@ -608,7 +608,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 	}
 
 	@Override
-	public void setTrackedQuest(GOTMiniQuest quest) {
+	public void setTrackedQuest(GOTMQ quest) {
 		GOTTickHandlerClient.miniquestTracker.setTrackedQuest(quest);
 	}
 

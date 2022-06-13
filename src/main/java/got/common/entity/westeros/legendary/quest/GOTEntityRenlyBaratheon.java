@@ -40,8 +40,8 @@ public class GOTEntityRenlyBaratheon extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.RENLY.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.RENLY.createQuest(this);
 	}
 
 	@Override
@@ -55,8 +55,8 @@ public class GOTEntityRenlyBaratheon extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.RENLY;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.RENLY;
 	}
 
 	@Override

@@ -63,8 +63,8 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements IPickpocket
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.NOMAD.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.NOMAD.createQuest(this);
 	}
 
 	@Override
@@ -79,7 +79,7 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements IPickpocket
 
 	public void dropRohanItems(boolean flag, int i) {
 		if (rand.nextInt(6) == 0) {
-			dropChestContents(GOTChestContents.ESSOS, 1, 2 + i);
+			dropChestContents(GOTChestContents.DOTHRAKI, 1, 2 + i);
 		}
 	}
 
@@ -99,8 +99,8 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements IPickpocket
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.NOMAD;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.NOMAD;
 	}
 
 	@Override

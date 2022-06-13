@@ -160,8 +160,8 @@ public class GOTStructureGhiscarFightingPit extends GOTStructureEssosBase {
 		placeBigTorch(world, -4, 8, 4);
 		placeBigTorch(world, -8, 10, -4);
 		placeBigTorch(world, -12, 10, -4);
-		this.placeChest(world, random, -7, 1, 0, 4, GOTChestContents.ESSOS);
-		this.placeChest(world, random, 1, 7, 12, 2, GOTChestContents.ESSOS);
+		this.placeChest(world, random, -7, 1, 0, 4, GOTChestContents.GHISCAR);
+		this.placeChest(world, random, 1, 7, 12, 2, GOTChestContents.GHISCAR);
 		setBlockAndMetadata(world, -2, 7, 9, bedBlock, 3);
 		setBlockAndMetadata(world, -3, 7, 9, bedBlock, 11);
 		setBlockAndMetadata(world, -2, 7, 11, bedBlock, 3);

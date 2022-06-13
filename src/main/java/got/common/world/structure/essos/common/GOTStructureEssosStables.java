@@ -2,7 +2,7 @@ package got.common.world.structure.essos.common;
 
 import java.util.Random;
 
-import got.common.database.*;
+import got.common.database.GOTRegistry;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
@@ -89,7 +89,7 @@ public class GOTStructureEssosStables extends GOTStructureEssosBase {
 		associateBlockMetaAlias("ROOF_SLAB_INV", roofSlabBlock, roofSlabMeta | 8);
 		associateBlockAlias("ROOF_STAIR", roofStairBlock);
 		generateStrScan(world, random, 0, 1, 0);
-		this.placeChest(world, random, -3, 1, 6, GOTRegistry.chestBasket, 2, GOTChestContents.ESSOS);
+		this.placeChest(world, random, -3, 1, 6, GOTRegistry.chestBasket, 2, getChestContents());
 		int numnpc = 1 + random.nextInt(2);
 		for (int l = 0; l < numnpc; ++l) {
 			GOTEntityNPC npc = getMan(world);

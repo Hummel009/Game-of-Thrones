@@ -41,8 +41,8 @@ public class GOTEntityTyrionLannister extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.TYRION.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.TYRION.createQuest(this);
 	}
 
 	@Override
@@ -57,8 +57,8 @@ public class GOTEntityTyrionLannister extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.TYRION;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.TYRION;
 	}
 
 	@Override

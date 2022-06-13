@@ -7,7 +7,7 @@ import org.lwjgl.opengl.GL11;
 import got.client.GOTTickHandlerClient;
 import got.common.GOTDimension;
 import got.common.network.*;
-import got.common.quest.GOTMiniQuestWelcome;
+import got.common.quest.GOTMQWelcome;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.*;
 import net.minecraft.entity.player.EntityPlayer;
@@ -115,7 +115,7 @@ public class GOTGuiMenu extends GOTGuiScreenBase {
 	}
 
 	public static GuiScreen openMenu(EntityPlayer entityplayer) {
-		boolean[] map_factions = GOTMiniQuestWelcome.forceMenuMapFactions(entityplayer);
+		boolean[] map_factions = GOTMQWelcome.forceMenuMapFactions(entityplayer);
 		if (map_factions[0]) {
 			return new GOTGuiMap();
 		}

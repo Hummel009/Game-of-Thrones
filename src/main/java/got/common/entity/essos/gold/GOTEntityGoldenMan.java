@@ -59,7 +59,7 @@ public class GOTEntityGoldenMan extends GOTEntityHumanBase implements IPickpocke
 
 	public void dropEssosItems(boolean flag, int i) {
 		if (rand.nextInt(5) == 0) {
-			dropChestContents(GOTChestContents.ESSOS, 1, 2 + i);
+			dropChestContents(GOTChestContents.GOLDEN, 1, 2 + i); 
 		}
 	}
 

@@ -46,8 +46,8 @@ public class GOTEntityVolantisMan extends GOTEntityHumanBase implements IPickpoc
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.ESSOS.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.VOLANTIS.createQuest(this);
 	}
 
 	@Override
@@ -63,7 +63,7 @@ public class GOTEntityVolantisMan extends GOTEntityHumanBase implements IPickpoc
 
 	public void dropEssosItems(boolean flag, int i) {
 		if (rand.nextInt(5) == 0) {
-			dropChestContents(GOTChestContents.ESSOS, 1, 2 + i);
+			dropChestContents(GOTChestContents.VOLANTIS, 1, 2 + i);
 		}
 	}
 
@@ -93,8 +93,8 @@ public class GOTEntityVolantisMan extends GOTEntityHumanBase implements IPickpoc
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.ESSOS;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.VOLANTIS;
 	}
 
 	@Override

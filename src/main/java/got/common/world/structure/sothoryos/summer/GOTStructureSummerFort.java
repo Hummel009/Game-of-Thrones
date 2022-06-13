@@ -21,7 +21,7 @@ public class GOTStructureSummerFort extends GOTStructureSummerBase {
 		int i1;
 		this.setOriginAndRotation(world, i, j, k, rotation, 12);
 		setupRandomBlocks(random);
-		if (restrictions) {
+		if (restrictions) { 
 			int minHeight = 0;
 			int maxHeight = 0;
 			for (int i12 = -15; i12 <= 15; ++i12) {
@@ -86,9 +86,9 @@ public class GOTStructureSummerFort extends GOTStructureSummerBase {
 		setBlockAndMetadata(world, -10, 1, 8, bedBlock, 8);
 		setBlockAndMetadata(world, -7, 1, 10, bedBlock, 3);
 		setBlockAndMetadata(world, -8, 1, 10, bedBlock, 11);
-		this.placeChest(world, random, 0, 0, 7, GOTRegistry.chestBasket, 3, GOTChestContents.ESSOS);
-		this.placeChest(world, random, -9, 1, 9, GOTRegistry.chestBasket, 2, GOTChestContents.ESSOS);
-		this.placeChest(world, random, 9, 1, 9, GOTRegistry.chestBasket, 2, GOTChestContents.ESSOS);
+		this.placeChest(world, random, 0, 0, 7, GOTRegistry.chestBasket, 3, GOTChestContents.SUMMER);
+		this.placeChest(world, random, -9, 1, 9, GOTRegistry.chestBasket, 2, GOTChestContents.SUMMER); 
+		this.placeChest(world, random, 9, 1, 9, GOTRegistry.chestBasket, 2, GOTChestContents.SUMMER);
 		for (i1 = -2; i1 <= 0; ++i1) {
 			int j13 = 1;
 			int k1 = 9;

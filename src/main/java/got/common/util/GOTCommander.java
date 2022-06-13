@@ -109,14 +109,14 @@ public class GOTCommander {
 		return GOTCommander.addMapLabel(enumName, stringLabel, x, y, scale, angle, zoomMin, zoomMan);
 	}
 
-	public static void addMiniQuest(GOTMiniQuestFactory factory, GOTMiniQuest.QuestFactoryBase<? extends GOTMiniQuest> questFactory) {
-		GOTCommander.findAndInvokeMethod(questFactory, GOTMiniQuestFactory.class, factory, "addQuest", GOTMiniQuest.QuestFactoryBase.class);
+	public static void addMiniQuest(GOTMQFactory factory, GOTMQ.QuestFactoryBase<? extends GOTMQ> questFactory) {
+		GOTCommander.findAndInvokeMethod(questFactory, GOTMQFactory.class, factory, "addQuest", GOTMQ.QuestFactoryBase.class);
 	}
 
-	public static GOTMiniQuestFactory addMiniQuestFactory(String enumName, String name) {
+	public static GOTMQFactory addMiniQuestFactory(String enumName, String name) {
 		Class<?>[] classArr = new Class[] { String.class };
 		Object[] args = { name };
-		return EnumHelper.addEnum(GOTMiniQuestFactory.class, enumName, classArr, args);
+		return EnumHelper.addEnum(GOTMQFactory.class, enumName, classArr, args);
 	}
 
 	public static GOTMountains addMountain(String name, float x, float z, float h, int r) {
@@ -387,13 +387,13 @@ public class GOTCommander {
 		}
 	}
 
-	public static void removeMiniQuestFactory(GOTMiniQuestFactory factory) {
-		ReflectionHelper.setPrivateValue(GOTMiniQuestFactory.class, factory, null, "baseSpeechGroup");
-		ReflectionHelper.setPrivateValue(GOTMiniQuestFactory.class, factory, null, "questAchievement");
-		ReflectionHelper.setPrivateValue(GOTMiniQuestFactory.class, factory, new ArrayList(), "loreCategories");
-		ReflectionHelper.setPrivateValue(GOTMiniQuestFactory.class, factory, null, "alignmentRewardOverride");
-		ReflectionHelper.setPrivateValue(GOTMiniQuestFactory.class, factory, false, "noAlignRewardForEnemy");
-		ReflectionHelper.setPrivateValue(GOTMiniQuestFactory.class, factory, new HashMap<>(), "questFactories");
+	public static void removeMiniQuestFactory(GOTMQFactory factory) {
+		ReflectionHelper.setPrivateValue(GOTMQFactory.class, factory, null, "baseSpeechGroup");
+		ReflectionHelper.setPrivateValue(GOTMQFactory.class, factory, null, "questAchievement");
+		ReflectionHelper.setPrivateValue(GOTMQFactory.class, factory, new ArrayList(), "loreCategories");
+		ReflectionHelper.setPrivateValue(GOTMQFactory.class, factory, null, "alignmentRewardOverride");
+		ReflectionHelper.setPrivateValue(GOTMQFactory.class, factory, false, "noAlignRewardForEnemy");
+		ReflectionHelper.setPrivateValue(GOTMQFactory.class, factory, new HashMap<>(), "questFactories");
 	}
 
 	public static void removeRoads() {

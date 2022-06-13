@@ -41,8 +41,8 @@ public class GOTEntityOlennaTyrell extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.OLENNA.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.OLENNA.createQuest(this);
 	}
 
 	@Override
@@ -51,8 +51,8 @@ public class GOTEntityOlennaTyrell extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.OLENNA;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.OLENNA;
 	}
 
 	@Override

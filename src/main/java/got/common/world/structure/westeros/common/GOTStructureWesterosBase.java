@@ -212,41 +212,19 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		return null;
 	}
 
-	public GOTChestContents getChestContentsFortress() {
+	public GOTChestContents getChestContents() {
 		Map<Boolean, GOTChestContents> map = new HashMap<>();
-		map.put(isArryn, GOTChestContents.ARRYN_FORTRESS);
-		map.put(isCrownlands, GOTChestContents.CROWNLANDS_FORTRESS);
-		map.put(isCrownlandsRed, GOTChestContents.CROWNLANDS_FORTRESS);
-		map.put(isDorne, GOTChestContents.DORNE_FORTRESS);
-		map.put(isDragonstone, GOTChestContents.DRAGONSTONE_FORTRESS);
-		map.put(isIronborn, GOTChestContents.IRONBORN_FORTRESS);
-		map.put(isNorth, GOTChestContents.NORTH_FORTRESS);
-		map.put(isReach, GOTChestContents.REACH_FORTRESS);
-		map.put(isRiverlands, GOTChestContents.RIVERLANDS_FORTRESS);
-		map.put(isStormlands, GOTChestContents.STORMLANDS_FORTRESS);
-		map.put(isWesterlands, GOTChestContents.WESTERLANDS_FORTRESS);
-
-		for (Entry<Boolean, GOTChestContents> npc : map.entrySet()) {
-			if (Boolean.TRUE.equals(npc.getKey())) {
-				return npc.getValue();
-			}
-		}
-		return null;
-	}
-
-	public GOTChestContents getChestContentsHouse() {
-		Map<Boolean, GOTChestContents> map = new HashMap<>();
-		map.put(isArryn, GOTChestContents.ARRYN_HOUSE);
-		map.put(isCrownlands, GOTChestContents.CROWNLANDS_HOUSE);
-		map.put(isCrownlandsRed, GOTChestContents.CROWNLANDS_HOUSE);
-		map.put(isDorne, GOTChestContents.DORNE_HOUSE);
-		map.put(isDragonstone, GOTChestContents.DRAGONSTONE_HOUSE);
-		map.put(isIronborn, GOTChestContents.IRONBORN_HOUSE);
-		map.put(isNorth, GOTChestContents.NORTH_HOUSE);
-		map.put(isReach, GOTChestContents.REACH_HOUSE);
-		map.put(isRiverlands, GOTChestContents.RIVERLANDS_HOUSE);
-		map.put(isStormlands, GOTChestContents.STORMLANDS_HOUSE);
-		map.put(isWesterlands, GOTChestContents.WESTERLANDS_HOUSE);
+		map.put(isArryn, GOTChestContents.ARRYN);
+		map.put(isCrownlands, GOTChestContents.CROWNLANDS);
+		map.put(isCrownlandsRed, GOTChestContents.CROWNLANDS);
+		map.put(isDorne, GOTChestContents.DORNE);
+		map.put(isDragonstone, GOTChestContents.DRAGONSTONE);
+		map.put(isIronborn, GOTChestContents.IRONBORN);
+		map.put(isNorth, GOTChestContents.NORTH);
+		map.put(isReach, GOTChestContents.REACH);
+		map.put(isRiverlands, GOTChestContents.RIVERLANDS);
+		map.put(isStormlands, GOTChestContents.STORMLANDS);
+		map.put(isWesterlands, GOTChestContents.WESTERLANDS);
 
 		for (Entry<Boolean, GOTChestContents> npc : map.entrySet()) {
 			if (Boolean.TRUE.equals(npc.getKey())) {

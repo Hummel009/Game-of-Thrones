@@ -41,8 +41,8 @@ public class GOTEntityDaenerysTargaryen extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.DAENERYS.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.DAENERYS.createQuest(this);
 	}
 
 	@Override
@@ -58,8 +58,8 @@ public class GOTEntityDaenerysTargaryen extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.DAENERYS;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.DAENERYS;
 	}
 
 	@Override

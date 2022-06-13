@@ -127,7 +127,7 @@ public class GOTStructureEssosFortress extends GOTStructureEssosBase {
 		placeWeaponRack(world, -14, 2, 0, 4, getRandomWeapon(random));
 		this.placeBarrel(world, random, 3, 2, 4, 5, GOTFoods.ESSOS_DRINK);
 		this.placeMug(world, random, 3, 2, 5, 1, GOTFoods.ESSOS_DRINK);
-		this.placeChest(world, random, -1, 1, 8, GOTRegistry.chestBasket, 4, GOTChestContents.ESSOS);
+		this.placeChest(world, random, -1, 1, 8, GOTRegistry.chestBasket, 4, getChestContents());
 		setBlockAndMetadata(world, -5, 1, 1, GOTRegistry.commandTable, 0);
 		int warriors = 5 + random.nextInt(5);
 		for (int l = 0; l < warriors; ++l) {

@@ -50,8 +50,8 @@ public class GOTEntityThenn extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.WILDLING.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.WILDLING.createQuest(this);
 	}
 
 	@Override
@@ -86,8 +86,8 @@ public class GOTEntityThenn extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.WILDLING;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.WILDLING;
 	}
 
 	@Override

@@ -39,8 +39,8 @@ public class GOTEntityMargaeryTyrell extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.MARGAERY.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.MARGAERY.createQuest(this);
 	}
 
 	@Override
@@ -49,8 +49,8 @@ public class GOTEntityMargaeryTyrell extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.MARGAERY;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.MARGAERY;
 	}
 
 	@Override

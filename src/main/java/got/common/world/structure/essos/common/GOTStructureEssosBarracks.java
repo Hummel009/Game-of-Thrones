@@ -2,7 +2,7 @@ package got.common.world.structure.essos.common;
 
 import java.util.Random;
 
-import got.common.database.*;
+import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.world.World;
 
@@ -62,12 +62,12 @@ public class GOTStructureEssosBarracks extends GOTStructureEssosBase {
 		generateStrScan(world, random, 0, 0, 0);
 		for (k1 = -4; k1 <= 4; k1 += 2) {
 			if (random.nextBoolean()) {
-				this.placeChest(world, random, -4, 1, k1, GOTRegistry.chestBasket, 4, GOTChestContents.ESSOS, 1 + random.nextInt(2));
+				this.placeChest(world, random, -4, 1, k1, GOTRegistry.chestBasket, 4, getChestContents(), 1 + random.nextInt(2));
 			} else {
 				setBlockAndMetadata(world, -4, 1, k1, GOTRegistry.chestBasket, 4);
 			}
 			if (random.nextBoolean()) {
-				this.placeChest(world, random, 3, 1, k1, GOTRegistry.chestBasket, 5, GOTChestContents.ESSOS, 1 + random.nextInt(2));
+				this.placeChest(world, random, 3, 1, k1, GOTRegistry.chestBasket, 5, getChestContents(), 1 + random.nextInt(2));
 				continue;
 			}
 			setBlockAndMetadata(world, 3, 1, k1, GOTRegistry.chestBasket, 5);

@@ -40,8 +40,8 @@ public class GOTEntityEllaryaSand extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.ELLARYA.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.ELLARYA.createQuest(this);
 	}
 
 	@Override
@@ -56,8 +56,8 @@ public class GOTEntityEllaryaSand extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.ELLARYA;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.ELLARYA;
 	}
 
 	@Override

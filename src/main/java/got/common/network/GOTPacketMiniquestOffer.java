@@ -7,7 +7,7 @@ import cpw.mods.fml.common.network.simpleimpl.*;
 import got.GOT;
 import got.common.*;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.quest.GOTMiniQuest;
+import got.common.quest.GOTMQ;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -67,7 +67,7 @@ public class GOTPacketMiniquestOffer implements IMessage {
 			Entity entity = world.getEntityByID(packet.entityID);
 			if (entity instanceof GOTEntityNPC) {
 				GOTEntityNPC npc = (GOTEntityNPC) entity;
-				GOTMiniQuest quest = GOTMiniQuest.loadQuestFromNBT(packet.miniquestData, pd);
+				GOTMQ quest = GOTMQ.loadQuestFromNBT(packet.miniquestData, pd);
 				if (quest != null) {
 					GOT.proxy.displayMiniquestOffer(quest, npc);
 				} else {

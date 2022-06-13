@@ -17,7 +17,7 @@ public class GOTStructureSummerTent extends GOTStructureSummerBase {
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int j12;
 		int k1;
-		int i1;
+		int i1; 
 		int j1;
 		this.setOriginAndRotation(world, i, j, k, rotation, 4);
 		setupRandomBlocks(random);
@@ -101,8 +101,8 @@ public class GOTStructureSummerTent extends GOTStructureSummerBase {
 		setBlockAndMetadata(world, -2, 1, 1, bedBlock, 8);
 		this.placeBarrel(world, random, -1, 1, 2, 2, GOTFoods.SOTHORYOS_DRINK);
 		setBlockAndMetadata(world, 0, 1, 2, GOTRegistry.tableSummer, 0);
-		this.placeChest(world, random, 1, 1, 2, GOTRegistry.chestBasket, 2, GOTChestContents.ESSOS);
-		this.placeChest(world, random, 2, 1, 1, GOTRegistry.chestBasket, 5, GOTChestContents.ESSOS);
+		this.placeChest(world, random, 1, 1, 2, GOTRegistry.chestBasket, 2, GOTChestContents.SUMMER);
+		this.placeChest(world, random, 2, 1, 1, GOTRegistry.chestBasket, 5, GOTChestContents.SUMMER);
 		setBlockAndMetadata(world, 2, 1, 0, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, 0, 3, -2, Blocks.torch, 3);
 		setBlockAndMetadata(world, 0, 3, 2, Blocks.torch, 4);

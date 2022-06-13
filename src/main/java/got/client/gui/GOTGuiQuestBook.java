@@ -13,7 +13,7 @@ import got.common.*;
 import got.common.database.GOTSpeech;
 import got.common.faction.GOTAlignmentValues;
 import got.common.network.*;
-import got.common.quest.GOTMiniQuest;
+import got.common.quest.GOTMQ;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.entity.RenderItem;
@@ -51,7 +51,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 	public boolean mouseInScrollBar = false;
 	public boolean isScrolling = false;
 	public float currentScroll = 0.0f;
-	public Map<GOTMiniQuest, Pair<Integer, Integer>> displayedMiniQuests = new HashMap<>();
+	public Map<GOTMQ, Pair<Integer, Integer>> displayedMiniQuests = new HashMap<>();
 	public int maxDisplayedMiniQuests = 4;
 	public int qPanelWidth = 170;
 	public int qPanelHeight = 45;
@@ -69,8 +69,8 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 	public boolean mouseInDiary = false;
 	public boolean isDiaryScrolling = false;
 	public float diaryScroll;
-	public GOTMiniQuest selectedMiniquest;
-	public GOTMiniQuest deletingMiniquest;
+	public GOTMQ selectedMiniquest;
+	public GOTMQ deletingMiniquest;
 	public int trackTicks;
 	public GuiButton buttonViewActive;
 	public GuiButton buttonViewCompleted;
@@ -135,7 +135,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 				this.drawCenteredString(StatCollector.translateToLocalFormatted("got.gui.redBook.mq.numActive", getPlayerData().getActiveMiniQuests().size()), x, guiTop + 120, 8019267);
 				this.drawCenteredString(StatCollector.translateToLocalFormatted("got.gui.redBook.mq.numComplete", getPlayerData().getCompletedMiniQuestsTotal()), x, guiTop + 140, 8019267);
 			} else {
-				GOTMiniQuest quest = selectedMiniquest;
+				GOTMQ quest = selectedMiniquest;
 				mc.getTextureManager().bindTexture(guiTexture);
 				float[] questRGB = quest.getQuestColorComponents();
 				GL11.glColor4f(questRGB[0], questRGB[1], questRGB[2], 1.0f);
@@ -236,11 +236,11 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 			}
 			if (deletingMiniquest == null) {
 				List miniquests = getMiniQuests();
-				if (!(miniquests = new ArrayList<GOTMiniQuest>(miniquests)).isEmpty()) {
+				if (!(miniquests = new ArrayList<GOTMQ>(miniquests)).isEmpty()) {
 					if (viewCompleted) {
 						miniquests = Lists.reverse(miniquests);
 					} else {
-						Collections.sort(miniquests, new GOTMiniQuest.SorterAlphabetical());
+						Collections.sort(miniquests, new GOTMQ.SorterAlphabetical());
 					}
 					int size = miniquests.size();
 					int min = 0 + Math.round(currentScroll * (size - maxDisplayedMiniQuests));
@@ -248,7 +248,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 					min = Math.max(min, 0);
 					max = Math.min(max, size - 1);
 					for (int index = min; index <= max; ++index) {
-						GOTMiniQuest quest = (GOTMiniQuest) miniquests.get(index);
+						GOTMQ quest = (GOTMQ) miniquests.get(index);
 						int displayIndex = index - min;
 						int questX = guiLeft + xSize / 2 + pageBorder;
 						int questY = guiTop + pageTop + displayIndex * (4 + qPanelHeight);
@@ -300,7 +300,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 		super.drawScreen(i, j, f);
 	}
 
-	public List<GOTMiniQuest> getMiniQuests() {
+	public List<GOTMQ> getMiniQuests() {
 		if (viewCompleted) {
 			return getPlayerData().getMiniQuestsCompleted();
 		}
@@ -378,13 +378,13 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 		if (mouse == 0) {
 			int i1;
 			int i2;
-			GOTMiniQuest quest;
+			GOTMQ quest;
 			int j2;
 			int j1;
 			int questY;
 			int questX;
 			if (page == Page.MINIQUESTS && deletingMiniquest == null) {
-				for (Map.Entry<GOTMiniQuest, Pair<Integer, Integer>> entry : displayedMiniQuests.entrySet()) {
+				for (Map.Entry<GOTMQ, Pair<Integer, Integer>> entry : displayedMiniQuests.entrySet()) {
 					quest = entry.getKey();
 					questX = entry.getValue().getLeft();
 					questY = entry.getValue().getRight();
@@ -410,7 +410,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 				}
 			}
 			if (page == Page.MINIQUESTS && deletingMiniquest == null) {
-				for (Map.Entry<GOTMiniQuest, Pair<Integer, Integer>> entry : displayedMiniQuests.entrySet()) {
+				for (Map.Entry<GOTMQ, Pair<Integer, Integer>> entry : displayedMiniQuests.entrySet()) {
 					quest = entry.getKey();
 					questX = entry.getValue().getLeft();
 					questY = entry.getValue().getRight();
@@ -433,7 +433,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 		super.mouseClicked(i, j, mouse);
 	}
 
-	public void renderMiniQuestPanel(GOTMiniQuest quest, int questX, int questY, int mouseX, int mouseY) {
+	public void renderMiniQuestPanel(GOTMQ quest, int questX, int questY, int mouseX, int mouseY) {
 		GL11.glPushMatrix();
 		boolean mouseInPanel = mouseX >= questX && mouseX < questX + qPanelWidth && mouseY >= questY && mouseY < questY + qPanelHeight;
 		boolean mouseInDelete = mouseX >= questX + qDelX && mouseX < questX + qDelX + qWidgetSize && mouseY >= questY + qDelY && mouseY < questY + qDelY + qWidgetSize;
@@ -548,9 +548,9 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 		lastMouseY = j;
 	}
 
-	public void trackOrUntrack(GOTMiniQuest quest) {
-		GOTMiniQuest tracking = getPlayerData().getTrackingMiniQuest();
-		GOTMiniQuest newTracking;
+	public void trackOrUntrack(GOTMQ quest) {
+		GOTMQ tracking = getPlayerData().getTrackingMiniQuest();
+		GOTMQ newTracking;
 		newTracking = quest == tracking ? null : quest;
 		GOTPacketMiniquestTrack packet = new GOTPacketMiniquestTrack(newTracking);
 		GOTPacketHandler.networkWrapper.sendToServer(packet);

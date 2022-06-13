@@ -31,7 +31,7 @@ public class GOTConnectedTextures {
 		for (Map.Entry<IconElement, BufferedImage> entry : iconElementMap.entrySet()) {
 			IconElement elemt = entry.getKey();
 			BufferedImage img = entry.getValue();
-			if (((elemt != IconElement.BASE) && ((img.getWidth() != iconWidth) || (img.getHeight() != iconHeight)))) {
+			if (elemt != IconElement.BASE && (img.getWidth() != iconWidth || img.getHeight() != iconHeight)) {
 				FMLLog.severe("GOT: All connected texture icons for " + baseIconName + " must have the same dimensions!");
 				BufferedImage errored = new BufferedImage(iconWidth, iconHeight, 2);
 				for (int i = 0; i < errored.getWidth(); ++i) {

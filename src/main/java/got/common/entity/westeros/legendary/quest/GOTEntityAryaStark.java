@@ -41,8 +41,8 @@ public class GOTEntityAryaStark extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.ARYA.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.ARYA.createQuest(this);
 	}
 
 	@Override
@@ -56,8 +56,8 @@ public class GOTEntityAryaStark extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.ARYA;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.ARYA;
 	}
 
 	@Override

@@ -50,8 +50,8 @@ public class GOTEntityLysMan extends GOTEntityHumanBase implements IPickpocketab
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.ESSOS.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.LYS.createQuest(this);
 	}
 
 	@Override
@@ -63,7 +63,7 @@ public class GOTEntityLysMan extends GOTEntityHumanBase implements IPickpocketab
 
 	public void dropEssosItems(boolean flag, int i) {
 		if (rand.nextInt(5) == 0) {
-			dropChestContents(GOTChestContents.ESSOS, 1, 2 + i);
+			dropChestContents(GOTChestContents.LYS, 1, 2 + i);
 		}
 	}
 
@@ -93,8 +93,8 @@ public class GOTEntityLysMan extends GOTEntityHumanBase implements IPickpocketab
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.ESSOS;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.LYS;
 	}
 
 	@Override

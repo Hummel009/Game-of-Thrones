@@ -46,8 +46,8 @@ public class GOTEntityPentosMan extends GOTEntityHumanBase implements IPickpocke
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.ESSOS.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.PENTOS.createQuest(this);
 	}
 
 	@Override
@@ -63,7 +63,7 @@ public class GOTEntityPentosMan extends GOTEntityHumanBase implements IPickpocke
 
 	public void dropEssosItems(boolean flag, int i) {
 		if (rand.nextInt(5) == 0) {
-			dropChestContents(GOTChestContents.ESSOS, 1, 2 + i);
+			dropChestContents(GOTChestContents.PENTOS, 1, 2 + i);
 		}
 	}
 
@@ -93,8 +93,8 @@ public class GOTEntityPentosMan extends GOTEntityHumanBase implements IPickpocke
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.ESSOS;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.PENTOS;
 	}
 
 	@Override

@@ -41,8 +41,8 @@ public class GOTEntityMelisandra extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.MELISANDRA.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.MELISANDRA.createQuest(this);
 	}
 
 	@Override
@@ -51,8 +51,8 @@ public class GOTEntityMelisandra extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.MELISANDRA;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.MELISANDRA;
 	}
 
 	@Override

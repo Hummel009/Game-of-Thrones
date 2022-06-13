@@ -52,8 +52,8 @@ public class GOTEntityDorneMan extends GOTEntityHumanBase implements IPickpocket
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.WESTEROS.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.DORNE.createQuest(this);
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class GOTEntityDorneMan extends GOTEntityHumanBase implements IPickpocket
 
 	public void dropWesterosItems(boolean flag, int i) {
 		if (rand.nextInt(6) == 0) {
-			dropChestContents(GOTChestContents.DORNE_HOUSE, 1, 2 + i);
+			dropChestContents(GOTChestContents.DORNE, 1, 2 + i);
 		}
 	}
 
@@ -95,8 +95,8 @@ public class GOTEntityDorneMan extends GOTEntityHumanBase implements IPickpocket
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.WESTEROS;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.DORNE;
 	}
 
 	@Override

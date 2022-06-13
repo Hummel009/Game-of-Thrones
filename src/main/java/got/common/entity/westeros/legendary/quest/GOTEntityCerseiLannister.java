@@ -42,8 +42,8 @@ public class GOTEntityCerseiLannister extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.CERSEI.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.CERSEI.createQuest(this);
 	}
 
 	@Override
@@ -58,8 +58,8 @@ public class GOTEntityCerseiLannister extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.CERSEI;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.CERSEI;
 	}
 
 	@Override

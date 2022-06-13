@@ -196,7 +196,7 @@ public class GOTStructureGiftHouse extends GOTStructureGiftBase {
 			setBlockAndMetadata(world, -1, 1, 1, Blocks.crafting_table, 0);
 			setBlockAndMetadata(world, -1, 1, 2, plankBlock, plankMeta);
 			this.placeMug(world, random, -1, 2, 2, random.nextInt(3), GOTFoods.WESTEROS_DRINK);
-			this.placeChest(world, random, 0, 1, 2, 2, GOTChestContents.GIFT_HOUSE);
+			this.placeChest(world, random, 0, 1, 2, 2, GOTChestContents.GIFT);
 			setBlockAndMetadata(world, 1, 1, 2, plankBlock, plankMeta);
 			this.placeBarrel(world, random, 1, 2, 2, 2, GOTFoods.WESTEROS_DRINK);
 			for (int k151 : new int[] { -2, 2 }) {

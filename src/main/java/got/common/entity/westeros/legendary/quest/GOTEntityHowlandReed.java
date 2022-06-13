@@ -40,8 +40,8 @@ public class GOTEntityHowlandReed extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.HOWLAND.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.HOWLAND.createQuest(this);
 	}
 
 	@Override
@@ -50,8 +50,8 @@ public class GOTEntityHowlandReed extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.HOWLAND;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.HOWLAND;
 	}
 
 	@Override

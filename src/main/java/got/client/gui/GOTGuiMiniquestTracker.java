@@ -4,7 +4,7 @@ import org.lwjgl.opengl.GL11;
 
 import got.client.GOTTickHandlerClient;
 import got.common.*;
-import got.common.quest.GOTMiniQuest;
+import got.common.quest.GOTMQ;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.*;
 import net.minecraft.client.renderer.RenderHelper;
@@ -27,7 +27,7 @@ public class GOTGuiMiniquestTracker extends Gui {
 	public int iconWidth = 20;
 	public int iconHeight = 20;
 	public int gap = 4;
-	public GOTMiniQuest trackedQuest;
+	public GOTMQ trackedQuest;
 	public boolean holdingComplete;
 	public int completeTime;
 
@@ -88,7 +88,7 @@ public class GOTGuiMiniquestTracker extends Gui {
 		}
 	}
 
-	public void setTrackedQuest(GOTMiniQuest quest) {
+	public void setTrackedQuest(GOTMQ quest) {
 		trackedQuest = quest;
 	}
 
@@ -100,7 +100,7 @@ public class GOTGuiMiniquestTracker extends Gui {
 				completeTime = 200;
 				holdingComplete = true;
 			}
-			GOTMiniQuest currentTrackedQuest = GOTLevelData.getData(entityplayer).getTrackingMiniQuest();
+			GOTMQ currentTrackedQuest = GOTLevelData.getData(entityplayer).getTrackingMiniQuest();
 			if (completeTime > 0 && currentTrackedQuest == null) {
 				--completeTime;
 			} else {

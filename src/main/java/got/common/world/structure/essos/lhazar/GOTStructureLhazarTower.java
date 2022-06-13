@@ -55,7 +55,7 @@ public class GOTStructureLhazarTower extends GOTStructureLhazarBase {
 		associateBlockMetaAlias("FLAG", flagBlock, flagMeta);
 		associateBlockMetaAlias("BONE", boneBlock, boneMeta);
 		generateStrScan(world, random, 0, 0, 0);
-		this.placeChest(world, random, -2, 1, 0, GOTRegistry.chestBasket, 4, GOTChestContents.NOMAD);
+		this.placeChest(world, random, -2, 1, 0, GOTRegistry.chestBasket, 4, GOTChestContents.LHAZAR);
 		this.placeSkull(world, random, 2, 2, 1);
 		this.placeBarrel(world, random, -2, 2, -1, 4, GOTFoods.NOMAD_DRINK);
 		this.placeMug(world, random, 2, 2, -1, 2, GOTFoods.NOMAD_DRINK);

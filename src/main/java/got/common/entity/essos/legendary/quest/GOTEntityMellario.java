@@ -40,8 +40,8 @@ public class GOTEntityMellario extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.MELLARIO.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.MELLARIO.createQuest(this);
 	}
 
 	@Override
@@ -50,8 +50,8 @@ public class GOTEntityMellario extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.MELLARIO;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.MELLARIO;
 	}
 
 	@Override

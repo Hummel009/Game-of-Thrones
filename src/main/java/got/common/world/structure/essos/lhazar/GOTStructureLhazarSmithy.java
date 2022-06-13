@@ -79,7 +79,7 @@ public class GOTStructureLhazarSmithy extends GOTStructureLhazarBase {
 		generateStrScan(world, random, 0, 0, 0);
 		setBlockAndMetadata(world, 0, 1, 3, bedBlock, 0);
 		setBlockAndMetadata(world, 0, 1, 4, bedBlock, 8);
-		this.placeChest(world, random, -4, 1, -2, GOTRegistry.chestBasket, 3, GOTChestContents.NOMAD);
+		this.placeChest(world, random, -4, 1, -2, GOTRegistry.chestBasket, 3, GOTChestContents.LHAZAR);
 		placeFlowerPot(world, 2, 2, -4, getRandomFlower(world, random));
 		placeFlowerPot(world, -2, 2, 4, getRandomFlower(world, random));
 		placeFlowerPot(world, -4, 1, 1, new ItemStack(Blocks.cactus));

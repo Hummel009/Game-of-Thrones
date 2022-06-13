@@ -50,8 +50,8 @@ public class GOTEntityGiftMan extends GOTEntityHumanBase implements IPickpocketa
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.WESTEROS.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.GIFT.createQuest(this);
 	}
 
 	@Override
@@ -73,7 +73,7 @@ public class GOTEntityGiftMan extends GOTEntityHumanBase implements IPickpocketa
 
 	public void dropMossovyItems(boolean flag, int i) {
 		if (rand.nextInt(6) == 0) {
-			dropChestContents(GOTChestContents.GIFT_HOUSE, 1, 2 + i);
+			dropChestContents(GOTChestContents.GIFT, 1, 2 + i);
 		}
 	}
 
@@ -83,8 +83,8 @@ public class GOTEntityGiftMan extends GOTEntityHumanBase implements IPickpocketa
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.WESTEROS;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.GIFT;
 	}
 
 	@Override

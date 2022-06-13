@@ -4,7 +4,6 @@ import got.common.GOTLevelData;
 import got.common.database.*;
 import got.common.entity.ai.*;
 import got.common.entity.other.*;
-import got.common.quest.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -33,11 +32,6 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 	@Override
 	public boolean canTradeWith(EntityPlayer entityplayer) {
 		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityplayer);
-	}
-
-	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.ESSOS.createQuest(this);
 	}
 
 	@Override

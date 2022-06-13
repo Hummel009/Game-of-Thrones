@@ -1,2 +1,0 @@
-Wie geht es dir? Was ist los? Hast du Dinge?
-#, na ja,  hast du $?

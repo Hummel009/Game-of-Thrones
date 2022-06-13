@@ -41,8 +41,8 @@ public class GOTEntityCatelynStark extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.CATELYN.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.CATELYN.createQuest(this);
 	}
 
 	@Override
@@ -51,8 +51,8 @@ public class GOTEntityCatelynStark extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.CATELYN;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.CATELYN;
 	}
 
 	@Override

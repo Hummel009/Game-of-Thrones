@@ -40,8 +40,8 @@ public class GOTEntityDavenLannister extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.DAVEN.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.DAVEN.createQuest(this);
 	}
 
 	@Override
@@ -50,8 +50,8 @@ public class GOTEntityDavenLannister extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.DAVEN;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.DAVEN;
 	}
 
 	@Override

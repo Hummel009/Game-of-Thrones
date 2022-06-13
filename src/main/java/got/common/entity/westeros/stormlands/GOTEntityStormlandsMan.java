@@ -48,8 +48,8 @@ public class GOTEntityStormlandsMan extends GOTEntityHumanBase implements IPickp
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.WESTEROS.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.STORMLANDS.createQuest(this);
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class GOTEntityStormlandsMan extends GOTEntityHumanBase implements IPickp
 
 	public void dropWesterosItems(boolean flag, int i) {
 		if (rand.nextInt(6) == 0) {
-			dropChestContents(GOTChestContents.STORMLANDS_HOUSE, 1, 2 + i);
+			dropChestContents(GOTChestContents.STORMLANDS, 1, 2 + i);
 		}
 	}
 
@@ -95,8 +95,8 @@ public class GOTEntityStormlandsMan extends GOTEntityHumanBase implements IPickp
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.WESTEROS;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.STORMLANDS;
 	}
 
 	@Override

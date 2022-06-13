@@ -17,7 +17,7 @@ public class GOTStructureSummerTower extends GOTStructureSummerBase {
 		this.setOriginAndRotation(world, i, j, k, rotation, 0);
 		setupRandomBlocks(random);
 		if (restrictions) {
-			int minHeight = 0;
+			int minHeight = 0; 
 			int maxHeight = 0;
 			for (int i1 = -3; i1 <= 3; ++i1) {
 				for (int k1 = -3; k1 <= 3; ++k1) {
@@ -60,7 +60,7 @@ public class GOTStructureSummerTower extends GOTStructureSummerBase {
 		this.placeSkull(world, random, -3, 10, 3);
 		this.placeSkull(world, random, -3, 12, -3);
 		this.placeSkull(world, random, 3, 13, 2);
-		this.placeChest(world, random, -2, 11, 2, GOTRegistry.chestBasket, 2, GOTChestContents.ESSOS);
+		this.placeChest(world, random, -2, 11, 2, GOTRegistry.chestBasket, 2, GOTChestContents.SUMMER);
 		int warriors = 1 + random.nextInt(2);
 		for (int l = 0; l < warriors; ++l) {
 			GOTEntitySummerWarrior warrior = random.nextInt(3) == 0 ? new GOTEntitySummerArcher(world) : new GOTEntitySummerWarrior(world);

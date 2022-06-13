@@ -48,8 +48,8 @@ public class GOTEntityWesterlandsMan extends GOTEntityHumanBase implements IPick
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.WESTEROS.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.WESTERLANDS.createQuest(this);
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class GOTEntityWesterlandsMan extends GOTEntityHumanBase implements IPick
 
 	public void dropWesterosItems(boolean flag, int i) {
 		if (rand.nextInt(6) == 0) {
-			dropChestContents(GOTChestContents.WESTERLANDS_HOUSE, 1, 2 + i);
+			dropChestContents(GOTChestContents.WESTERLANDS, 1, 2 + i);
 		}
 	}
 
@@ -95,8 +95,8 @@ public class GOTEntityWesterlandsMan extends GOTEntityHumanBase implements IPick
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.WESTEROS;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.WESTERLANDS;
 	}
 
 	@Override

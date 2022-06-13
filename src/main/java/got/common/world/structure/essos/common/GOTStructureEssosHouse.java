@@ -123,7 +123,7 @@ public class GOTStructureEssosHouse extends GOTStructureEssosBase {
 		setBlockAndMetadata(world, 1, 5, -2, bedBlock, 2);
 		setBlockAndMetadata(world, 1, 5, -3, bedBlock, 10);
 		placeFlowerPot(world, 0, 6, -3, getRandomFlower(world, random));
-		this.placeChest(world, random, -1, 5, 3, GOTRegistry.chestBasket, 2, GOTChestContents.ESSOS);
+		this.placeChest(world, random, -1, 5, 3, GOTRegistry.chestBasket, 2, getChestContents());
 		GOTEntityNPC male = getMan(world);
 		male.familyInfo.setMale(true);
 		male.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));

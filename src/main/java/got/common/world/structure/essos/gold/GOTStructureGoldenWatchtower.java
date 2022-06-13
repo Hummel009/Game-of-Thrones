@@ -23,7 +23,7 @@ public class GOTStructureGoldenWatchtower extends GOTStructureBase {
 
 	public GOTStructureGoldenWatchtower(boolean flag) {
 		super(flag);
-	}
+	} 
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
@@ -164,7 +164,7 @@ public class GOTStructureGoldenWatchtower extends GOTStructureBase {
 		setBlockAndMetadata(world, 0, 17, 2, Blocks.torch, 5);
 		setBlockAndMetadata(world, -2, 17, 0, Blocks.torch, 5);
 		setBlockAndMetadata(world, 2, 17, 0, Blocks.torch, 5);
-		this.placeChest(world, random, 0, 16, 1, 0, GOTChestContents.ESSOS);
+		this.placeChest(world, random, 0, 16, 1, 0, GOTChestContents.GOLDEN);
 		setBlockAndMetadata(world, 0, 11, 1, GOTRegistry.alloyForge, 0);
 		for (j1 = 17; j1 <= 18; ++j1) {
 			setBlockAndMetadata(world, -2, j1, -2, fenceBlock, fenceMeta);

@@ -2,7 +2,7 @@ package got.common.world.structure.westeros.common;
 
 import java.util.Random;
 
-import got.common.database.*;
+import got.common.database.GOTRegistry;
 import got.common.entity.westeros.legendary.trader.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -118,8 +118,8 @@ public class GOTStructureWesterosSmithy extends GOTStructureWesterosBase {
 		for (k1 = 2; k1 <= 6; k1 += 2) {
 			setBlockAndMetadata(world, 3, 1, k1, Blocks.anvil, 0);
 		}
-		this.placeChest(world, random, 3, 1, 8, Blocks.chest, 5, GOTChestContents.WESTEROS_SMITHY);
-		this.placeChest(world, random, 3, 1, 9, Blocks.chest, 5, GOTChestContents.WESTEROS_SMITHY);
+		this.placeChest(world, random, 3, 1, 8, Blocks.chest, 5, getChestContents());
+		this.placeChest(world, random, 3, 1, 9, Blocks.chest, 5, getChestContents());
 		setBlockAndMetadata(world, -1, 2, 2, Blocks.torch, 3);
 		setBlockAndMetadata(world, 1, 2, 2, Blocks.torch, 3);
 		setBlockAndMetadata(world, -3, 2, 6, Blocks.torch, 2);

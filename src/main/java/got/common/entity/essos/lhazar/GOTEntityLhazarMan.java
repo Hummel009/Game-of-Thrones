@@ -50,13 +50,13 @@ public class GOTEntityLhazarMan extends GOTEntityHumanBase implements IPickpocke
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.NOMAD.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.NOMAD.createQuest(this);
 	}
 
 	public void dropEssosItems(boolean flag, int i) {
 		if (rand.nextInt(5) == 0) {
-			dropChestContents(GOTChestContents.NOMAD, 1, 2 + i);
+			dropChestContents(GOTChestContents.LHAZAR, 1, 2 + i); 
 		}
 	}
 
@@ -86,8 +86,8 @@ public class GOTEntityLhazarMan extends GOTEntityHumanBase implements IPickpocke
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.NOMAD;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.NOMAD;
 	}
 
 	@Override

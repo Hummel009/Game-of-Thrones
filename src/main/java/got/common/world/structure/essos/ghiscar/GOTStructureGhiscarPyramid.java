@@ -352,10 +352,10 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 			}
 		}
 		placePyramidBanner(world, 0, roomFloor + 6, 0);
-		this.placeSpawnerChest(world, random, -1, roomFloor + 5, 0, GOTRegistry.spawnerChestStone, 5, GOTEntityGhiscarHarpy.class, GOTChestContents.ESSOS);
-		this.placeSpawnerChest(world, random, 1, roomFloor + 5, 0, GOTRegistry.spawnerChestStone, 4, GOTEntityGhiscarHarpy.class, GOTChestContents.ESSOS);
-		this.placeSpawnerChest(world, random, 0, roomFloor + 5, -1, GOTRegistry.spawnerChestStone, 2, GOTEntityGhiscarHarpy.class, GOTChestContents.ESSOS);
-		this.placeSpawnerChest(world, random, 0, roomFloor + 5, 1, GOTRegistry.spawnerChestStone, 3, GOTEntityGhiscarHarpy.class, GOTChestContents.ESSOS);
+		this.placeSpawnerChest(world, random, -1, roomFloor + 5, 0, GOTRegistry.spawnerChestStone, 5, GOTEntityGhiscarHarpy.class, GOTChestContents.GHISCAR);
+		this.placeSpawnerChest(world, random, 1, roomFloor + 5, 0, GOTRegistry.spawnerChestStone, 4, GOTEntityGhiscarHarpy.class, GOTChestContents.GHISCAR);
+		this.placeSpawnerChest(world, random, 0, roomFloor + 5, -1, GOTRegistry.spawnerChestStone, 2, GOTEntityGhiscarHarpy.class, GOTChestContents.GHISCAR);
+		this.placeSpawnerChest(world, random, 0, roomFloor + 5, 1, GOTRegistry.spawnerChestStone, 3, GOTEntityGhiscarHarpy.class, GOTChestContents.GHISCAR);
 		stepX = 1;
 		stepY = topHeight - 36;
 		stepZ = 0;

@@ -40,8 +40,8 @@ public class GOTEntityLysaArryn extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.LYSA.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.LYSA.createQuest(this);
 	}
 
 	@Override
@@ -50,8 +50,8 @@ public class GOTEntityLysaArryn extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.LYSA;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.LYSA;
 	}
 
 	@Override

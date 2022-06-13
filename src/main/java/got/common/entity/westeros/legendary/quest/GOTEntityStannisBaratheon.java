@@ -40,8 +40,8 @@ public class GOTEntityStannisBaratheon extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.STANNIS.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.STANNIS.createQuest(this);
 	}
 
 	@Override
@@ -56,8 +56,8 @@ public class GOTEntityStannisBaratheon extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.STANNIS;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.STANNIS;
 	}
 
 	@Override

@@ -294,12 +294,12 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 		this.placeBarrel(world, random, -4, 3, -4, 4, GOTFoods.WESTEROS_DRINK);
 		placeRandomSlab(world, random, -4, 2, -3, true);
 		this.placeBarrel(world, random, -4, 3, -3, 4, GOTFoods.WESTEROS_DRINK);
-		this.placeChest(world, random, -4, 2, -2, GOTRegistry.chestStone, 4, GOTChestContents.WESTEROS_DRINKS);
+		this.placeChest(world, random, -4, 2, -2, GOTRegistry.chestStone, 4, getChestContents());
 		placeRandomSlab(world, random, 4, 2, -4, true);
 		this.placeBarrel(world, random, 4, 3, -4, 5, GOTFoods.WESTEROS_DRINK);
 		placeRandomSlab(world, random, 4, 2, -3, true);
 		this.placeBarrel(world, random, 4, 3, -3, 5, GOTFoods.WESTEROS_DRINK);
-		this.placeChest(world, random, 4, 2, -2, GOTRegistry.chestStone, 5, GOTChestContents.WESTEROS_DRINKS);
+		this.placeChest(world, random, 4, 2, -2, GOTRegistry.chestStone, 5, getChestContents());
 		setBlockAndMetadata(world, -4, 2, 4, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, 4, 2, 4, tableBlock, 0);
 		for (i1 = -1; i1 <= 1; ++i1) {
@@ -314,7 +314,7 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 			}
 			placeRandomStairs(world, random, i1, 6, 3, 2);
 		}
-		this.placeChest(world, random, 0, 2, 2, GOTRegistry.chestStone, 3, getChestContentsFortress());
+		this.placeChest(world, random, 0, 2, 2, GOTRegistry.chestStone, 3, getChestContents());
 		setAir(world, 0, 3, 2);
 		setBlockAndMetadata(world, 0, 7, -4, GOTRegistry.commandTable, 0);
 		int[] i111 = { -3, 3 };

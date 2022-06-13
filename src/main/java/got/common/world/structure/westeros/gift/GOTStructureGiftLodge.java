@@ -157,9 +157,9 @@ public class GOTStructureGiftLodge extends GOTStructureGiftBase {
 		placePlate(world, random, -3, 2, -3, plateBlock, GOTFoods.WESTEROS);
 		setBlockAndMetadata(world, -4, 1, -2, plankBlock, plankMeta);
 		this.placeMug(world, random, -4, 2, -2, 3, GOTFoods.WESTEROS_DRINK);
-		this.placeChest(world, random, -4, 1, -1, 4, GOTChestContents.GIFT_HOUSE);
+		this.placeChest(world, random, -4, 1, -1, 4, GOTChestContents.GIFT);
 		setBlockAndMetadata(world, -4, 1, 0, Blocks.crafting_table, 0);
-		this.placeChest(world, random, -4, 1, 1, 4, GOTChestContents.GIFT_HOUSE);
+		this.placeChest(world, random, -4, 1, 1, 4, GOTChestContents.GIFT);
 		setBlockAndMetadata(world, -4, 1, 2, plankBlock, plankMeta);
 		this.placeBarrel(world, random, -4, 2, 2, 4, GOTFoods.WESTEROS_DRINK);
 		setBlockAndMetadata(world, -3, 1, 3, plankBlock, plankMeta);
@@ -233,7 +233,7 @@ public class GOTStructureGiftLodge extends GOTStructureGiftBase {
 		setBlockAndMetadata(world, 0, -2, 3, tableBlock, 0);
 		for (int i1 : new int[] { -1, 1 }) {
 			int amount = 2 + random.nextInt(5);
-			this.placeChest(world, random, i1, -2, 3, 2, GOTChestContents.GIFT_HOUSE, amount);
+			this.placeChest(world, random, i1, -2, 3, 2, GOTChestContents.GIFT, amount);
 		}
 		GOTEntityGiftMan male = new GOTEntityGiftMan(world);
 		male.familyInfo.setMale(true);

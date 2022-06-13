@@ -48,8 +48,8 @@ public class GOTEntityNorthMan extends GOTEntityHumanBase implements IPickpocket
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.WESTEROS.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.NORTH.createQuest(this);
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class GOTEntityNorthMan extends GOTEntityHumanBase implements IPickpocket
 
 	public void dropWesterosItems(boolean flag, int i) {
 		if (rand.nextInt(6) == 0) {
-			dropChestContents(GOTChestContents.NORTH_HOUSE, 1, 2 + i);
+			dropChestContents(GOTChestContents.NORTH, 1, 2 + i);
 		}
 	}
 
@@ -95,8 +95,8 @@ public class GOTEntityNorthMan extends GOTEntityHumanBase implements IPickpocket
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.WESTEROS;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.NORTH;
 	}
 
 	@Override

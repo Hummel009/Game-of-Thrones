@@ -52,8 +52,8 @@ public class GOTEntityDragonstoneMan extends GOTEntityHumanBase implements IPick
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.WESTEROS.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.DRAGONSTONE.createQuest(this);
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class GOTEntityDragonstoneMan extends GOTEntityHumanBase implements IPick
 
 	public void dropWesterosItems(boolean flag, int i) {
 		if (rand.nextInt(6) == 0) {
-			dropChestContents(GOTChestContents.DRAGONSTONE_HOUSE, 1, 2 + i);
+			dropChestContents(GOTChestContents.DRAGONSTONE, 1, 2 + i);
 		}
 	}
 
@@ -95,8 +95,8 @@ public class GOTEntityDragonstoneMan extends GOTEntityHumanBase implements IPick
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.WESTEROS;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.DRAGONSTONE;
 	}
 
 	@Override

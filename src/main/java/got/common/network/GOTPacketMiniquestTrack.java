@@ -4,7 +4,7 @@ import java.util.UUID;
 
 import cpw.mods.fml.common.network.simpleimpl.*;
 import got.common.*;
-import got.common.quest.GOTMiniQuest;
+import got.common.quest.GOTMQ;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
@@ -14,7 +14,7 @@ public class GOTPacketMiniquestTrack implements IMessage {
 	public GOTPacketMiniquestTrack() {
 	}
 
-	public GOTPacketMiniquestTrack(GOTMiniQuest quest) {
+	public GOTPacketMiniquestTrack(GOTMQ quest) {
 		questID = quest == null ? null : quest.questUUID;
 	}
 

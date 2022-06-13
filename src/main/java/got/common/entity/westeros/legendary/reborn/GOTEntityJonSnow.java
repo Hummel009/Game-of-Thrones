@@ -77,8 +77,8 @@ public class GOTEntityJonSnow extends GOTEntityHumanBase {
 		}
 
 		@Override
-		public GOTMiniQuest createMiniQuest() {
-			return GOTMiniQuestFactory.JONSNOW.createQuest(this);
+		public GOTMQ createMiniQuest() {
+			return GOTMQFactory.JONSNOW.createQuest(this);
 		}
 
 		@Override
@@ -91,8 +91,8 @@ public class GOTEntityJonSnow extends GOTEntityHumanBase {
 		}
 
 		@Override
-		public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-			return GOTMiniQuestFactory.JONSNOW;
+		public GOTMQFactory getBountyHelpSpeechDir() {
+			return GOTMQFactory.JONSNOW;
 		}
 
 		@Override

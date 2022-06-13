@@ -19,7 +19,7 @@ public class GOTStructureSummerSmithy extends GOTStructureSummerBase {
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
-			int maxHeight = 0;
+			int maxHeight = 0; 
 			for (int i1 = -12; i1 <= 8; ++i1) {
 				for (int k1 = -6; k1 <= 6; ++k1) {
 					j1 = getTopBlock(world, i1, k1) - 1;
@@ -77,8 +77,8 @@ public class GOTStructureSummerSmithy extends GOTStructureSummerBase {
 		} else {
 			placeArmorStand(world, 0, 1, 3, 0, new ItemStack[] { null, new ItemStack(GOTRegistry.summerChestplate), null, null });
 		}
-		this.placeChest(world, random, 5, 1, -2, GOTRegistry.chestBasket, 5, GOTChestContents.ESSOS);
-		this.placeChest(world, random, -7, 1, 3, GOTRegistry.chestBasket, 2, GOTChestContents.ESSOS);
+		this.placeChest(world, random, 5, 1, -2, GOTRegistry.chestBasket, 5, GOTChestContents.SUMMER);
+		this.placeChest(world, random, -7, 1, 3, GOTRegistry.chestBasket, 2, GOTChestContents.SUMMER);
 		this.placeBarrel(world, random, -3, 2, -1, 5, GOTFoods.SOTHORYOS_DRINK);
 		this.placeMug(world, random, -3, 2, 0, 2, GOTFoods.SOTHORYOS_DRINK);
 		this.placeMug(world, random, -9, 2, -2, 3, GOTFoods.SOTHORYOS_DRINK);

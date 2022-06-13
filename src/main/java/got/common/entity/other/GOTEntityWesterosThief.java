@@ -48,8 +48,8 @@ public class GOTEntityWesterosThief extends GOTEntityHumanBase implements GOTBio
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.CRIMINAL.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.CRIMINAL.createQuest(this);
 	}
 
 	public EntityAIBase createThiefAttackAI() {
@@ -88,8 +88,8 @@ public class GOTEntityWesterosThief extends GOTEntityHumanBase implements GOTBio
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.WESTEROS;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.CRIMINAL;
 	}
 
 	@Override

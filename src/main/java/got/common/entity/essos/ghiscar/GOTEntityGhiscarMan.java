@@ -50,8 +50,8 @@ public class GOTEntityGhiscarMan extends GOTEntityHumanBase implements IPickpock
 	}
 
 	@Override
-	public GOTMiniQuest createMiniQuest() {
-		return GOTMiniQuestFactory.ESSOS.createQuest(this);
+	public GOTMQ createMiniQuest() {
+		return GOTMQFactory.GHISCAR.createQuest(this);
 	}
 
 	@Override
@@ -63,7 +63,7 @@ public class GOTEntityGhiscarMan extends GOTEntityHumanBase implements IPickpock
 
 	public void dropEssosItems(boolean flag, int i) {
 		if (rand.nextInt(5) == 0) {
-			dropChestContents(GOTChestContents.ESSOS, 1, 2 + i);
+			dropChestContents(GOTChestContents.GHISCAR, 1, 2 + i);
 		}
 	}
 
@@ -93,8 +93,8 @@ public class GOTEntityGhiscarMan extends GOTEntityHumanBase implements IPickpock
 	}
 
 	@Override
-	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
-		return GOTMiniQuestFactory.ESSOS;
+	public GOTMQFactory getBountyHelpSpeechDir() {
+		return GOTMQFactory.GHISCAR;
 	}
 
 	@Override

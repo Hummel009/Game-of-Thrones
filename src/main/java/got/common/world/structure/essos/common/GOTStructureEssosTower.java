@@ -50,7 +50,7 @@ public class GOTStructureEssosTower extends GOTStructureEssosBase {
 		associateBlockMetaAlias("BEAM", woodBeamBlock, woodBeamMeta);
 		associateBlockAlias("GATE_METAL", gateMetalBlock);
 		generateStrScan(world, random, 0, 0, 0);
-		this.placeChest(world, random, -1, 1, -1, GOTRegistry.chestBasket, 4, GOTChestContents.ESSOS);
+		this.placeChest(world, random, -1, 1, -1, GOTRegistry.chestBasket, 4, getChestContents());
 		this.placeMug(world, random, -1, 2, 1, 0, GOTFoods.ESSOS_DRINK);
 		this.placeBarrel(world, random, 1, 2, 1, 2, GOTFoods.ESSOS_DRINK);
 		placeWeaponRack(world, -1, 8, 0, 5, getRandomWeapon(random));

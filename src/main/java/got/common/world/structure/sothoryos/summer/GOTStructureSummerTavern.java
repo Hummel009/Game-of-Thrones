@@ -22,7 +22,7 @@ public class GOTStructureSummerTavern extends GOTStructureSummerBase {
 		int j2;
 		int step;
 		int j12;
-		int j1;
+		int j1; 
 		int i1;
 		this.setOriginAndRotation(world, i, j, k, rotation, 7, -3);
 		setupRandomBlocks(random);
@@ -128,8 +128,8 @@ public class GOTStructureSummerTavern extends GOTStructureSummerBase {
 			setBlockAndMetadata(world, 11, 1, -4, bedBlock, 10);
 			setBlockAndMetadata(world, 11, 1, 3, bedBlock, 0);
 			setBlockAndMetadata(world, 11, 1, 4, bedBlock, 8);
-			this.placeChest(world, random, 12, 1, -3, GOTRegistry.chestBasket, 3, GOTChestContents.ESSOS);
-			this.placeChest(world, random, 12, 1, 3, GOTRegistry.chestBasket, 2, GOTChestContents.ESSOS);
+			this.placeChest(world, random, 12, 1, -3, GOTRegistry.chestBasket, 3, GOTChestContents.SUMMER);
+			this.placeChest(world, random, 12, 1, 3, GOTRegistry.chestBasket, 2, GOTChestContents.SUMMER);
 			placeFlowerPot(world, 12, 2, -1, getRandomFlower(world, random));
 			placeFoodOrDrink(world, random, 11, 2, -1);
 			placeFlowerPot(world, 11, 2, 1, getRandomFlower(world, random));

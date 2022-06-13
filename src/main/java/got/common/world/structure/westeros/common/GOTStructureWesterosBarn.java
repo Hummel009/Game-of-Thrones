@@ -213,7 +213,7 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 3, 6, 8, bedBlock, 10);
 		setBlockAndMetadata(world, 2, 6, 12, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, 3, 6, 12, tableBlock, 0);
-		this.placeChest(world, random, 3, 6, 11, 5, getChestContentsHouse());
+		this.placeChest(world, random, 3, 6, 11, 5, getChestContents());
 		for (i1 = -3; i1 <= -2; ++i1) {
 			for (k13 = 7; k13 <= 8; ++k13) {
 				setBlockAndMetadata(world, i1, 6, k13, plankBlock, plankMeta);
