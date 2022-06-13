@@ -54,10 +54,10 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 					for (int j132 = 1; j132 <= 8; ++j132) {
 						setAir(world, i1, j132, k14);
 					}
-					setBlockAndMetadata(world, i1, 0, k14, GOTRegistry.rock, 0);
+					setBlockAndMetadata(world, i1, 0, k14, rockBlock, rockMeta);
 					j13 = -1;
 					while (!isOpaque(world, i1, j13, k14) && getY(j13) >= 0) {
-						setBlockAndMetadata(world, i1, j13, k14, GOTRegistry.rock, 0);
+						setBlockAndMetadata(world, i1, j13, k14, rockBlock, rockMeta);
 						setGrassToDirt(world, i1, j13 - 1, k14);
 						--j13;
 					}
