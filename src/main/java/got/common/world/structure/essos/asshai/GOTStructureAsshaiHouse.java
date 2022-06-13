@@ -291,9 +291,6 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 	@Override
 	public void setupRandomBlocks(Random random) {
 		super.setupRandomBlocks(random);
-		if (random.nextBoolean()) {
-			doorBlock = GOTRegistry.doorAramant;
-		}
 		plateBlock = random.nextBoolean() ? GOTRegistry.plateBlock : GOTRegistry.ceramicPlateBlock;
 	}
 }
