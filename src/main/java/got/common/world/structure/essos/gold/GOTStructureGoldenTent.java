@@ -17,7 +17,7 @@ public class GOTStructureGoldenTent extends GOTStructureTentBase {
 		int randomWool = random.nextInt(3);
 		switch (randomWool) {
 		case 0:
-			tentBlock = Blocks.wool; 
+			tentBlock = Blocks.wool;
 			tentMeta = 15;
 			break;
 		case 1:

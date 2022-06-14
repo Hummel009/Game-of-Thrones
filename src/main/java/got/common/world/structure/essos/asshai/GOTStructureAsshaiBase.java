@@ -5,7 +5,6 @@ import java.util.Random;
 import got.common.database.GOTRegistry;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -56,17 +55,17 @@ public abstract class GOTStructureAsshaiBase extends GOTStructureBase {
 	public int cobbleMeta;
 	public Block plateBlock;
 	public int brick2Meta;
-	public Block brick2Block; 
-	public Block brick2StairBlock; 
-	public Block brick2SlabBlock; 
-	public int brick2SlabMeta; 
+	public Block brick2Block;
+	public Block brick2StairBlock;
+	public Block brick2SlabBlock;
+	public int brick2SlabMeta;
 
 	public GOTStructureAsshaiBase(boolean flag) {
 		super(flag);
 	}
 
 	public ItemStack getFramedItem(Random random) {
-		ItemStack[] items = { new ItemStack(GOTRegistry.asshaiDagger), new ItemStack(GOTRegistry.asshaiSpear), new ItemStack(GOTRegistry.asshaiBow), new ItemStack(Items.arrow), new ItemStack(Items.iron_sword), new ItemStack(Items.iron_axe), new ItemStack(GOTRegistry.ironDagger), new ItemStack(GOTRegistry.ironPike), new ItemStack(GOTRegistry.ironCrossbow), new ItemStack(GOTRegistry.goldRing), new ItemStack(GOTRegistry.silverRing) };
+		ItemStack[] items = { new ItemStack(GOTRegistry.asshaiBattleaxe), new ItemStack(GOTRegistry.asshaiBow), new ItemStack(GOTRegistry.asshaiDagger), new ItemStack(GOTRegistry.asshaiHammer), new ItemStack(GOTRegistry.asshaiSpear), new ItemStack(GOTRegistry.asshaiSword) };
 		return items[random.nextInt(items.length)].copy();
 	}
 
@@ -105,16 +104,16 @@ public abstract class GOTStructureAsshaiBase extends GOTStructureBase {
 		smoothMeta = 0;
 		smoothSlabBlock = GOTRegistry.slabSingle1;
 		smoothSlabMeta = 0;
-		tileBlock = GOTRegistry.clayTileDyed;
-		tileMeta = 15;
+		tileBlock = GOTRegistry.planks1;
+		tileMeta = 3;
 		brick2Meta = 3;
 		brick2Block = GOTRegistry.planks1;
 		brick2SlabMeta = 3;
 		brick2SlabBlock = GOTRegistry.woodSlabSingle1;
 		brick2StairBlock = GOTRegistry.stairsCharred;
-		tileSlabBlock = GOTRegistry.slabClayTileDyedSingle2;
-		tileSlabMeta = 7;
-		tileStairBlock = GOTRegistry.stairsClayTileDyedBlack;
+		tileSlabBlock = GOTRegistry.woodSlabSingle1;
+		tileSlabMeta = 3;
+		tileStairBlock = GOTRegistry.stairsCharred;
 		plankBlock = GOTRegistry.planks1;
 		plankMeta = 3;
 		plankSlabBlock = GOTRegistry.woodSlabSingle1;

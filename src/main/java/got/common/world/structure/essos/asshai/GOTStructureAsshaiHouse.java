@@ -122,7 +122,7 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 				setBlockAndMetadata(world, i1, j14, -5 + step, brick2StairBlock, 2);
 				setBlockAndMetadata(world, i1, j14, -4 + step, brick2Block, brick2Meta);
 				setBlockAndMetadata(world, i1, j14, -3 + step, brick2StairBlock, 7);
-				setBlockAndMetadata(world, i1, j14, 6 - step, brick2StairBlock, 3); 
+				setBlockAndMetadata(world, i1, j14, 6 - step, brick2StairBlock, 3);
 				setBlockAndMetadata(world, i1, j14, 5 - step, brick2Block, brick2Meta);
 				setBlockAndMetadata(world, i1, j14, 4 - step, brick2StairBlock, 6);
 				if (i2 != 4) {
@@ -153,7 +153,7 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 			}
 		}
 		for (i1 = -4; i1 <= 4; ++i1) {
-			setBlockAndMetadata(world, i1, 4, -7, brick2SlabBlock, brick2SlabMeta); 
+			setBlockAndMetadata(world, i1, 4, -7, brick2SlabBlock, brick2SlabMeta);
 			setBlockAndMetadata(world, i1, 4, -6, brick2Block, brick2Meta);
 			setBlockAndMetadata(world, i1, 4, -5, brick2Block, brick2Meta);
 			setBlockAndMetadata(world, i1, 5, -5, brick2SlabBlock, brick2SlabMeta);
@@ -203,7 +203,7 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 		setBlockAndMetadata(world, 3, 1, 1, plankBlock, plankMeta);
 		setBlockAndMetadata(world, 3, 1, 0, plankBlock, plankMeta);
 		setBlockAndMetadata(world, 3, 2, 0, plankStairBlock, 6);
-		this.placeChest(world, random, 3, 1, -1, 5, GOTChestContents.ASSHAI);
+		this.placeChest(world, random, 3, 1, -1, GOTRegistry.chestStone, 5, GOTChestContents.ASSHAI);
 		setBlockAndMetadata(world, 3, 1, -2, GOTRegistry.tableAsshai, 0);
 		setBlockAndMetadata(world, 3, 1, -3, plankBlock, plankMeta);
 		setBlockAndMetadata(world, 3, 2, -3, fenceBlock, fenceMeta);
@@ -251,10 +251,10 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 				setBlockAndMetadata(world, -3, j1, k122, pillarBlock, pillarMeta);
 			}
 		}
-		this.placeChest(world, random, -3, 5, -3, 4, GOTChestContents.ASSHAI);
+		this.placeChest(world, random, -3, 5, -3, GOTRegistry.chestStone, 4, GOTChestContents.ASSHAI);
 		setBlockAndMetadata(world, -3, 5, -2, plankBlock, plankMeta);
 		setBlockAndMetadata(world, -3, 5, 3, plankBlock, plankMeta);
-		this.placeChest(world, random, -3, 5, 4, 4, GOTChestContents.ASSHAI);
+		this.placeChest(world, random, -3, 5, 4, GOTRegistry.chestStone, 4, GOTChestContents.ASSHAI);
 		setBlockAndMetadata(world, 0, 9, -2, brick2Block, brick2Meta);
 		setBlockAndMetadata(world, 0, 8, -2, GOTRegistry.chandelier, 12);
 		setBlockAndMetadata(world, 0, 9, 3, brick2Block, brick2Meta);

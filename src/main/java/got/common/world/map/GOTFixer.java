@@ -197,9 +197,9 @@ public class GOTFixer {
 		f[63].affix(GOTWaypoint.Oxcross);
 		f[64] = new GOTStructureGiftVillage(biome, 0.0f).setIsAbandoned();
 		f[64].affix(GOTWaypoint.Greenguard, GOTWaypoint.Torches, GOTWaypoint.LongBarrow, GOTWaypoint.Rimegate, GOTWaypoint.SableHall, GOTWaypoint.Woodswatch, GOTWaypoint.Nightfort, GOTWaypoint.DeepLake, GOTWaypoint.Oakenshield, GOTWaypoint.Icemark, GOTWaypoint.HoarfrostHill, GOTWaypoint.Stonedoor, GOTWaypoint.Greyguard, GOTWaypoint.Queensgate, GOTWaypoint.SentinelStand);
-		f[65] = new GOTStructureYiTiCity(biome, 0.0f).setIsWall();
+		f[65] = new GOTStructureYiTiCity(biome, 0.0f).setIsWall(false);
 		f[65].affix(GOTWaypoint.Jianmen, GOTWaypoint.Anguo, GOTWaypoint.Dingguo, GOTWaypoint.Pinnu, GOTWaypoint.Pingjiang, GOTWaypoint.Wude, GOTWaypoint.Wusheng, GOTWaypoint.Zhenguo, GOTWaypoint.Lungmen);
-		f[66] = new GOTStructureYiTiCity(biome, 0.0f).setIsAnjiang();
+		f[66] = new GOTStructureYiTiCity(biome, 0.0f).setIsWall(true);
 		f[66].affix(GOTWaypoint.Anjiang);
 
 		for (GOTVillageGen element : f) {

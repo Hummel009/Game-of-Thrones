@@ -27,7 +27,7 @@ public class GOTEntitySummerMan extends GOTEntityHumanBase implements IPickpocke
 		tasks.addTask(2, createSummerAttackAI());
 		tasks.addTask(3, new GOTEntityAIFollowHiringPlayer(this));
 		tasks.addTask(4, new EntityAIOpenDoor(this, true));
-		tasks.addTask(5, new EntityAIWander(this, 1.0)); 
+		tasks.addTask(5, new EntityAIWander(this, 1.0));
 		tasks.addTask(6, new GOTEntityAIEat(this, GOTFoods.SOTHORYOS, 8000));
 		tasks.addTask(6, new GOTEntityAIDrink(this, GOTFoods.SOTHORYOS_DRINK, 6000));
 		tasks.addTask(7, new EntityAIWatchClosest2(this, EntityPlayer.class, 10.0f, 0.02f));

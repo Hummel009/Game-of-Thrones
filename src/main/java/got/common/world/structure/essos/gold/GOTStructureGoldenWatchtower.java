@@ -23,7 +23,7 @@ public class GOTStructureGoldenWatchtower extends GOTStructureBase {
 
 	public GOTStructureGoldenWatchtower(boolean flag) {
 		super(flag);
-	} 
+	}
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {

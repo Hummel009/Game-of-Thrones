@@ -22,7 +22,7 @@ public class GOTStructureSummerTavern extends GOTStructureSummerBase {
 		int j2;
 		int step;
 		int j12;
-		int j1; 
+		int j1;
 		int i1;
 		this.setOriginAndRotation(world, i, j, k, rotation, 7, -3);
 		setupRandomBlocks(random);

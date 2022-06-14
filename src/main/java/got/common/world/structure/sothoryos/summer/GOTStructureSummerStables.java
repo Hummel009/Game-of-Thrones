@@ -22,7 +22,7 @@ public class GOTStructureSummerStables extends GOTStructureSummerBase {
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
-			int maxHeight = 0; 
+			int maxHeight = 0;
 			for (int i1 = -7; i1 <= 7; ++i1) {
 				for (int k1 = -10; k1 <= 10; ++k1) {
 					j1 = getTopBlock(world, i1, k1) - 1;

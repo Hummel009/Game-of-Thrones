@@ -17,7 +17,7 @@ public class GOTStructureSummerTent extends GOTStructureSummerBase {
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int j12;
 		int k1;
-		int i1; 
+		int i1;
 		int j1;
 		this.setOriginAndRotation(world, i, j, k, rotation, 4);
 		setupRandomBlocks(random);

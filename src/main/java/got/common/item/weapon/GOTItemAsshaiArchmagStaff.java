@@ -51,12 +51,11 @@ public class GOTItemAsshaiArchmagStaff extends GOTItemSword {
 			if (!entities.isEmpty()) {
 				for (Object element : entities) {
 					EntityLivingBase entity = (EntityLivingBase) element;
-					if (entity == user || entity instanceof EntityHorse && ((EntityHorse) entity).isTame() || entity instanceof EntityTameable && ((EntityTameable) entity).isTamed() || entity instanceof GOTEntityNPCRideable && ((GOTEntityNPCRideable) entity).isNPCTamed()) {
-						continue;
-					}
-					entity.attackEntityFrom(new EntityDamageSourceIndirect("got.staff", entity, user).setMagicDamage().setDamageBypassesArmor().setDamageAllowedInCreativeMode(), 5);
-					if (GOT.canPlayerAttackEntity((EntityPlayer) user, entity, false)) {
-						world.addWeatherEffect(new EntityLightningBolt(world, entity.posX, entity.posY, entity.posZ));
+					if (entity != user && (!(entity instanceof EntityHorse) || !((EntityHorse) entity).isTame()) && (!(entity instanceof EntityTameable) || !((EntityTameable) entity).isTamed()) && (!(entity instanceof GOTEntityNPCRideable) || !((GOTEntityNPCRideable) entity).isNPCTamed())) {
+						entity.attackEntityFrom(new EntityDamageSourceIndirect("got.staff", entity, user).setMagicDamage().setDamageBypassesArmor().setDamageAllowedInCreativeMode(), 5);
+						if (GOT.canPlayerAttackEntity((EntityPlayer) user, entity, false)) {
+							world.addWeatherEffect(new EntityLightningBolt(world, entity.posX, entity.posY, entity.posZ));
+						}
 					}
 				}
 			}
@@ -71,12 +70,11 @@ public class GOTItemAsshaiArchmagStaff extends GOTItemSword {
 			if (!entities.isEmpty()) {
 				for (Object element : entities) {
 					EntityLivingBase entity = (EntityLivingBase) element;
-					if (entity == user || entity instanceof EntityHorse && ((EntityHorse) entity).isTame() || entity instanceof GOTEntityFlyingTameable && ((GOTEntityFlyingTameable) entity).isTamed() || entity instanceof EntityTameable && ((EntityTameable) entity).isTamed() || entity instanceof GOTEntityNPCRideable && ((GOTEntityNPCRideable) entity).isNPCTamed()) {
-						continue;
-					}
-					entity.attackEntityFrom(new EntityDamageSourceIndirect("got.staff", entity, user).setMagicDamage().setDamageBypassesArmor().setDamageAllowedInCreativeMode(), 5);
-					if (GOT.canNPCAttackEntity((EntityCreature) user, entity, false)) {
-						world.addWeatherEffect(new EntityLightningBolt(world, entity.posX, entity.posY, entity.posZ));
+					if (entity != user && (!(entity instanceof EntityHorse) || !((EntityHorse) entity).isTame()) && (!(entity instanceof GOTEntityFlyingTameable) || !((GOTEntityFlyingTameable) entity).isTamed()) && (!(entity instanceof EntityTameable) || !((EntityTameable) entity).isTamed()) && (!(entity instanceof GOTEntityNPCRideable) || !((GOTEntityNPCRideable) entity).isNPCTamed())) {
+						entity.attackEntityFrom(new EntityDamageSourceIndirect("got.staff", entity, user).setMagicDamage().setDamageBypassesArmor().setDamageAllowedInCreativeMode(), 5);
+						if (GOT.canNPCAttackEntity((EntityCreature) user, entity, false)) {
+							world.addWeatherEffect(new EntityLightningBolt(world, entity.posX, entity.posY, entity.posZ));
+						}
 					}
 				}
 			}

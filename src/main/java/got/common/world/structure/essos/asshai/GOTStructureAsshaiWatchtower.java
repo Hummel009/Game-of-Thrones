@@ -122,11 +122,11 @@ public class GOTStructureAsshaiWatchtower extends GOTStructureAsshaiBase {
 		for (j1 = 1; j1 <= 9; ++j1) {
 			setBlockAndMetadata(world, 0, j1, 2, Blocks.ladder, 2);
 		}
-		setBlockAndMetadata(world, 0, 10, 2, Blocks.trapdoor, 9);
+		setBlockAndMetadata(world, 0, 10, 2, GOTRegistry.trapdoorCharred, 9);
 		for (k12 = -2; k12 <= 2; ++k12) {
 			if (IntMath.mod(k12, 2) == 0) {
-				this.placeChest(world, random, -2, 1, k12, 4, GOTChestContents.ASSHAI);
-				this.placeChest(world, random, 2, 1, k12, 5, GOTChestContents.ASSHAI);
+				this.placeChest(world, random, -2, 1, k12, GOTRegistry.chestStone, 4, GOTChestContents.ASSHAI);
+				this.placeChest(world, random, 2, 1, k12, GOTRegistry.chestStone, 5, GOTChestContents.ASSHAI);
 				continue;
 			}
 			setBlockAndMetadata(world, -1, 1, k12, bedBlock, 3);

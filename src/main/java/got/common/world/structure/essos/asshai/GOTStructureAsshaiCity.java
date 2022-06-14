@@ -75,7 +75,7 @@ public class GOTStructureAsshaiCity extends GOTVillageGen {
 					}, i1, k12, 0);
 				}
 			}
-			this.addStructure(new GOTStructureAsshaiFort(false), 5, -20, 0, true);
+			this.addStructure(new GOTStructureAsshaiFort(false), -5, 21, 2, true);
 			this.addStructure(new GOTStructureAsshaiTower(false), -27, 29, 0, true);
 			this.addStructure(new GOTStructureAsshaiTower(false), 27, 29, 0, true);
 			this.addStructure(new GOTStructureAsshaiTower(false), -27, -29, 0, true);
@@ -93,9 +93,9 @@ public class GOTStructureAsshaiCity extends GOTVillageGen {
 				this.addStructure(new GOTStructureAsshaiHouse(false), houseZ, houseX, 0, true);
 				this.addStructure(new GOTStructureAsshaiHouse(false), houseZ, -houseX, 2, true);
 			}
-			this.addStructure(new GOTStructureAsshaiLaboratory(false), 0, -26, 2, true);
+			this.addStructure(new GOTStructureAsshaiHouse(false), 0, -24, 2, true);
 			this.addStructure(new GOTStructureAsshaiTavern(false), -houseX, -5, 1, true);
-			this.addStructure(new GOTStructureAsshaiOblivionAltar(false), houseX + 2, -6, 3, true);
+			this.addStructure(new GOTStructureAsshaiTavern(false), houseX, -9, 3, true);
 			houseX = 54;
 			for (k1 = -2; k1 <= 2; ++k1) {
 				houseZ = k1 * 12;
@@ -199,7 +199,7 @@ public class GOTStructureAsshaiCity extends GOTVillageGen {
 			if (villageType == VillageType.TOWN) {
 				Block block = world.getBlock(i, j, k);
 				int meta = world.getBlockMetadata(i, j, k);
-				if (block == GOTRegistry.asshaiDirt && meta == 0 || block == GOTRegistry.slabSingleDirt && meta == 3) {
+				if (block == GOTRegistry.asshaiDirt || block == GOTRegistry.slabSingleDirt && meta == 3 || block == GOTRegistry.basaltGravel) {
 					return true;
 				}
 			}

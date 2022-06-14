@@ -47,31 +47,30 @@ public class GOTMQKillFaction extends GOTMQKill {
 		nbt.setString("KillFaction", killFaction.codeName());
 	}
 
-    public static class QFKillFaction
-    extends GOTMQKill.QFKill<GOTMQKillFaction> {
-        private GOTFaction killFaction;
+	public static class QFKillFaction extends GOTMQKill.QFKill<GOTMQKillFaction> {
+		private GOTFaction killFaction;
 
-        public QFKillFaction(String name) {
-            super(name);
-        }
+		public QFKillFaction(String name) {
+			super(name);
+		}
 
-        public QFKillFaction setKillFaction(GOTFaction faction, int min, int max) {
-            this.killFaction = faction;
-            this.setKillTarget(min, max);
-            return this;
-        }
+		@Override
+		public GOTMQKillFaction createQuest(GOTEntityNPC npc, Random rand) {
+			GOTMQKillFaction quest = super.createQuest(npc, rand);
+			quest.killFaction = killFaction;
+			return quest;
+		}
 
-        @Override
-        public Class getQuestClass() {
-            return GOTMQKillFaction.class;
-        }
+		@Override
+		public Class getQuestClass() {
+			return GOTMQKillFaction.class;
+		}
 
-        @Override
-        public GOTMQKillFaction createQuest(GOTEntityNPC npc, Random rand) {
-        	GOTMQKillFaction quest = (GOTMQKillFaction)super.createQuest(npc, rand);
-            quest.killFaction = this.killFaction;
-            return quest;
-        }
-    }
+		public QFKillFaction setKillFaction(GOTFaction faction, int min, int max) {
+			killFaction = faction;
+			setKillTarget(min, max);
+			return this;
+		}
+	}
 
 }

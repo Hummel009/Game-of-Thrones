@@ -373,10 +373,8 @@ public class GOTStructure {
 
 		GOTStructureRegistry.register(id++, GOTStructureAsshaiTower.class, GOTFaction.ASSHAI);
 		GOTStructureRegistry.register(id++, GOTStructureAsshaiFort.class, GOTFaction.ASSHAI);
-		GOTStructureRegistry.register(id++, GOTStructureAsshaiLaboratory.class, GOTFaction.ASSHAI);
 		GOTStructureRegistry.register(id++, GOTStructureAsshaiHouse.class, GOTFaction.ASSHAI);
 		GOTStructureRegistry.register(id++, GOTStructureAsshaiTavern.class, GOTFaction.ASSHAI);
-		GOTStructureRegistry.register(id++, GOTStructureAsshaiOblivionAltar.class, GOTFaction.ASSHAI);
 
 		GOTStructureRegistry.register(id++, GOTStructureSummerHouse.class, GOTFaction.SUMMER_ISLANDS);
 		GOTStructureRegistry.register(id++, GOTStructureSummerSmithy.class, GOTFaction.SUMMER_ISLANDS);

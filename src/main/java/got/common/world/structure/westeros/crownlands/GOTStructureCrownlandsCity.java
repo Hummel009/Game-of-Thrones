@@ -604,10 +604,12 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 		public void setupVillageProperties(Random random) {
 			if (isTown || isKingsLanding) {
 				villageType = VillageType.TOWN;
-			} else if (isCastle || random.nextInt(4) == 0) {
+			} else if (isCastle) {
 				villageType = VillageType.FORT;
 			} else if (isRedKeep) {
 				villageType = VillageType.RED_KEEP;
+			} else if (random.nextInt(4) == 0) {
+				villageType = VillageType.FORT;
 			} else {
 				villageType = VillageType.VILLAGE;
 			}

@@ -124,13 +124,13 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 		placeAsshaiArmor(world, random, 0, 4, 12, 1);
 		placeAsshaiArmor(world, random, 6, 4, 13, 2);
 		placeAsshaiArmor(world, random, 1, 4, 13, 2);
-		this.placeChest(world, random, 15, 1, 7, 2, GOTChestContents.ASSHAI);
-		this.placeChest(world, random, 9, 4, 11, 3, GOTChestContents.ASSHAI);
-		this.placeChest(world, random, -2, 4, 11, 3, GOTChestContents.ASSHAI);
-		this.placeChest(world, random, 12, 4, 13, 5, GOTChestContents.ASSHAI);
-		this.placeChest(world, random, -5, 4, 13, 4, GOTChestContents.ASSHAI);
-		this.placeChest(world, random, 12, 4, 17, 5, GOTChestContents.ASSHAI);
-		this.placeChest(world, random, -5, 4, 17, 4, GOTChestContents.ASSHAI);
+		this.placeChest(world, random, 15, 1, 7, GOTRegistry.chestStone, 2, GOTChestContents.ASSHAI);
+		this.placeChest(world, random, 9, 4, 11, GOTRegistry.chestStone, 3, GOTChestContents.ASSHAI);
+		this.placeChest(world, random, -2, 4, 11, GOTRegistry.chestStone, 3, GOTChestContents.ASSHAI);
+		this.placeChest(world, random, 12, 4, 13, GOTRegistry.chestStone, 5, GOTChestContents.ASSHAI);
+		this.placeChest(world, random, -5, 4, 13, GOTRegistry.chestStone, 4, GOTChestContents.ASSHAI);
+		this.placeChest(world, random, 12, 4, 17, GOTRegistry.chestStone, 5, GOTChestContents.ASSHAI);
+		this.placeChest(world, random, -5, 4, 17, GOTRegistry.chestStone, 4, GOTChestContents.ASSHAI);
 		for (int j1 = 4; j1 <= 5; ++j1) {
 			for (int i1 : new int[] { -3, -1, 1 }) {
 				setBlockAndMetadata(world, i1, j1, 17, bedBlock, 0);

@@ -416,7 +416,7 @@ public class GOTStructureAsshaiTavern extends GOTStructureAsshaiBase {
 		placePlateWithCertainty(world, random, -6, 2, 6, plateBlock, GOTFoods.WESTEROS);
 		setBlockAndMetadata(world, -6, 1, 7, Blocks.furnace, 4);
 		setBlockAndMetadata(world, -6, 1, 8, Blocks.cauldron, 3);
-		this.placeChest(world, random, -3, 0, 8, 5, GOTChestContents.ASSHAI);
+		this.placeChest(world, random, -3, 0, 8, GOTRegistry.chestStone, 5, GOTChestContents.ASSHAI);
 		for (k12 = 6; k12 <= 8; ++k12) {
 			setBlockAndMetadata(world, -6, 3, k12, plankStairBlock, 4);
 			this.placeBarrel(world, random, -6, 4, k12, 4, GOTFoods.WESTEROS_DRINK);

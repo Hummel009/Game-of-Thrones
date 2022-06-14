@@ -140,8 +140,7 @@ public class GOTStructureDothrakiVillage extends GOTVillageGen {
 			if (isBig) {
 				villageType = VillageType.BIG;
 				numOuterHouses = 13;
-			}
-			if (random.nextInt(3) == 0) {
+			} else if (random.nextInt(3) == 0) {
 				villageType = VillageType.BIG;
 				numOuterHouses = MathHelper.getRandomIntegerInRange(random, 8, 14);
 			} else {

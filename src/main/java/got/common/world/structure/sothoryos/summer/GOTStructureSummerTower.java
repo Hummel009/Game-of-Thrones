@@ -17,7 +17,7 @@ public class GOTStructureSummerTower extends GOTStructureSummerBase {
 		this.setOriginAndRotation(world, i, j, k, rotation, 0);
 		setupRandomBlocks(random);
 		if (restrictions) {
-			int minHeight = 0; 
+			int minHeight = 0;
 			int maxHeight = 0;
 			for (int i1 = -3; i1 <= 3; ++i1) {
 				for (int k1 = -3; k1 <= 3; ++k1) {

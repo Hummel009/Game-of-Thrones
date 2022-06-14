@@ -1,13 +1,15 @@
 CHANGELOG
 
 >>VERSION 17.7.4
++ Returned "kill mob" type of quests
++ Returned "kill player" type of quests
+
 * Changed some waypoint regions due to players' complaints. Essos wp can be unlocked in Kings Landing; Sothoryos - Ghiscar; Ulthos - Asshai; Ibben - Essos; Summer Islands - Sothoryos.
 * Improved chest contents in all the world
-* Returned "kill mob" type of quests
-* Returned "kill player" type of quests
 * Improved andesite, rhyolite & basalt sets textures
-* Improved asshai roofs
+* Improved Asshai City, improved a few Asshai structures
 
+* Fixed bug with 25% of spawning a wrong structure at waypoint
 * Fixed bug with slaves speechbank
 * Fixed bug with towers in asshai
 
@@ -16,18 +18,21 @@ CHANGELOG
 + Added strict title rules, as in the LOTR
 + Added min Y limit for waypoint creation, as in the LOTR
 + Added fellowship creation settings, as in the LOTR
-* Updated font pack, now with support of extended Latin & Cyrillic alphabets.
-* Recoded cold weapon, some bugs and strange stats can be fixed.
-* Returned alignment zones feature
++ Returned alignment zones feature
+
+* Improved font pack, now with support of extended Latin & Cyrillic alphabets.
++ Improved cold weapon, some bugs and strange stats can be fixed.
 
 * Fixed bug with saving level data
 * Fixed bug with road near Bronze Gate & Sarsfield
 * Fixed bug with towers quantity near "Three Towers" waypoint
 
 >>VERSION 17.7.2
-+ Greatly improved Polish translation (prod. Axel Snow)
++ Recreated Polish translation (prod. Axel Snow)
+
 * Improved 2nd Tyrosh male skin
-* Rebalanced Joffrey's Crossbow
+* Improved stats of Joffrey's Crossbow
+
 * Fixed bug with Essos & Dorne fort walls upon the road
 * Fixed bug with Wyl & Hayford road
 * Fixed bug with Beric Dayne spawning
@@ -73,6 +78,7 @@ CHANGELOG
 * Improved tool & weapon stats
 * Improved prostitute names & skins
 * Improved ranks
+* Improved view of some too elite unrealistic shields
 
 * Optimized and recoded all the westeros structures
 * Optimized the performance penalty from loading large fellowships upon player login
@@ -94,7 +100,6 @@ CHANGELOG
 * Fixed 7 minor bugs (thanks to VVVIP2)
 * Fixed bug with shields GUI
 * Fixed bug with smithing
-* Reduced quality of some too elite unrealistic shields
 
 >>VERSION 17.6
 + Added full Ukrainian edition (lore, speech, names, quests: prod. DDPAT Knife Series)

@@ -636,7 +636,7 @@ public class GOTStructureGhiscarCity extends GOTVillageGen {
 				villageType = VillageType.PYRAMID_Z;
 			} else if (isTown) {
 				villageType = VillageType.TOWN;
-			} else if (isColony || random.nextInt(4) == 0) {
+			} else if (isColony || (random.nextInt(4) == 0)) {
 				villageType = VillageType.FORT;
 			} else {
 				villageType = VillageType.VILLAGE;

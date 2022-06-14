@@ -15,7 +15,7 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 	public boolean isTown;
 	public boolean isTower;
 	public boolean isWall;
-	public boolean isAnjiang;
+	public boolean side;
 
 	public GOTStructureYiTiCity(GOTBiome biome, float f) {
 		super(biome);
@@ -31,12 +31,6 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
-	public GOTStructureYiTiCity setIsAnjiang() {
-		isAnjiang = true;
-		fixedVillageChunkRadius = 2;
-		return this;
-	}
-
 	public GOTStructureYiTiCity setIsTower() {
 		isTower = true;
 		fixedVillageChunkRadius = 9;
@@ -49,9 +43,10 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 		return this;
 	}
 
-	public GOTStructureYiTiCity setIsWall() {
+	public GOTStructureYiTiCity setIsWall(boolean b) {
 		isWall = true;
 		fixedVillageChunkRadius = 2;
+		side = b;
 		return this;
 	}
 
@@ -74,16 +69,11 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 			case FORT:
 				setupFort(random);
 				break;
+			case WALL:
+				setupGate(random);
+				break;
 			case TOWER:
 				this.addStructure(new GOTStructureYiTiLighthouse(), 0, 0, 0, true);
-				break;
-			case WALL:
-				this.addStructure(new GOTStructureYiTiFortress(false), 0, 20, 0, true);
-				this.addStructure(new GOTStructureYiTiGate(false), 0, 7, 0, true);
-				break;
-			case ANJIANG:
-				this.addStructure(new GOTStructureYiTiGate(false), 0, 7, 0, true);
-				this.addStructure(new GOTStructureYiTiFortress(false), -4, 25, 1, true);
 				break;
 			}
 		}
@@ -242,6 +232,15 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 			int lampZ = 64;
 			this.addStructure(new GOTStructureYiTiLamp(false), -lampX, lampZ, 2, false);
 			this.addStructure(new GOTStructureYiTiLamp(false), lampX, lampZ, 2, false);
+		}
+
+		public void setupGate(Random random) {
+			if (side) {
+				this.addStructure(new GOTStructureYiTiFortress(false), -4, 25, 1, true);
+			} else {
+				this.addStructure(new GOTStructureYiTiFortress(false), 0, 20, 0, true);
+			}
+			this.addStructure(new GOTStructureYiTiGate(false), 0, 7, 0, true);
 		}
 
 		public void setupTown(Random random) {
@@ -447,14 +446,12 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 		public void setupVillageProperties(Random random) {
 			if (isTown) {
 				villageType = VillageType.TOWN;
-			} else if (random.nextInt(4) == 0) {
-				villageType = VillageType.FORT;
 			} else if (isTower) {
 				villageType = VillageType.TOWER;
 			} else if (isWall) {
 				villageType = VillageType.WALL;
-			} else if (isAnjiang) {
-				villageType = VillageType.ANJIANG;
+			} else if (random.nextInt(4) == 0) {
+				villageType = VillageType.FORT;
 			} else {
 				villageType = VillageType.VILLAGE;
 			}
@@ -463,6 +460,6 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 	}
 
 	public enum VillageType {
-		VILLAGE, TOWN, FORT, TOWER, WALL, ANJIANG;
+		VILLAGE, TOWN, FORT, TOWER, WALL;
 	}
 }

@@ -38,7 +38,7 @@ public class GOTBlockRock extends Block {
 	@SideOnly(value = Side.CLIENT)
 	public IIcon getIcon(IBlockAccess world, int i, int j, int k, int side) {
 		int meta = world.getBlockMetadata(i, j, k);
-		if (meta == 0 && side != 1 && side != 0 && (world.getBlock(i, j + 1, k)) == GOTRegistry.asshaiMoss) {
+		if (meta == 0 && side != 1 && side != 0 && world.getBlock(i, j + 1, k) == GOTRegistry.asshaiMoss) {
 			return iconMordorMoss;
 		}
 		return super.getIcon(world, i, j, k, side);

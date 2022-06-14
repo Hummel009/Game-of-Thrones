@@ -68,7 +68,8 @@ public class GOTChestContents {
 		WeightedRandomChestContent[] SUMMER_W = new WeightedRandomChestContent[43];
 		WeightedRandomChestContent[] LHAZAR_W = new WeightedRandomChestContent[47];
 
-		WESTEROS_W[i++] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.arrynHelmet), 1, 1, 10);
+		WESTEROS_W[i] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.arrynHelmet), 1, 1, 10);
+		i++;
 		WESTEROS_W[i++] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.ironCrossbow), 1, 1, 10);
 		WESTEROS_W[i++] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.arrynChestplate), 1, 1, 10);
 		WESTEROS_W[i++] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.arrynLeggings), 1, 1, 10);
@@ -601,7 +602,7 @@ public class GOTChestContents {
 		IBBEN_W[i++] = new WeightedRandomChestContent(new ItemStack(Items.coal, 1, 1), 1, 3, 100);
 		IBBEN_W[i++] = new WeightedRandomChestContent(new ItemStack(Items.flint), 1, 3, 50);
 		IBBEN_W[i++] = new WeightedRandomChestContent(new ItemStack(Items.flint_and_steel), 1, 1, 25);
-		IBBEN_W[i++] = new WeightedRandomChestContent(new ItemStack((Item)Items.fishing_rod), 1, 1, 25);
+		IBBEN_W[i++] = new WeightedRandomChestContent(new ItemStack(Items.fishing_rod), 1, 1, 25);
 		IBBEN_W[i++] = new WeightedRandomChestContent(new ItemStack(Items.string), 1, 4, 100);
 		IBBEN_W[i++] = new WeightedRandomChestContent(new ItemStack(Items.feather), 1, 4, 50);
 		IBBEN_W[i++] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.horn), 1, 2, 25);
@@ -658,7 +659,7 @@ public class GOTChestContents {
 		IBBEN_W[i++] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.mugCider), 1, 1, 10);
 		IBBEN_W[i++] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.mugPerry), 1, 1, 10);
 		IBBEN_W[i++] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.mugMead), 1, 1, 10);
-		IBBEN_W[i++] = new WeightedRandomChestContent(new ItemStack((Item)Items.bow), 1, 1, 25);
+		IBBEN_W[i++] = new WeightedRandomChestContent(new ItemStack(Items.bow), 1, 1, 25);
 		IBBEN_W[i++] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.ironCrossbow), 1, 1, 25);
 		IBBEN_W[i++] = new WeightedRandomChestContent(new ItemStack(Items.arrow), 2, 8, 100);
 
@@ -791,7 +792,7 @@ public class GOTChestContents {
 		SUMMER_W[i++] = new WeightedRandomChestContent(new ItemStack(Items.dye, 1, 4), 1, 8, 25);
 
 		i = 0;
-		
+
 		LHAZAR_W[i++] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.lhazarSword), 1, 1, 100);
 		LHAZAR_W[i++] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.lhazarDagger), 1, 1, 50);
 		LHAZAR_W[i++] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.lhazarDaggerPoisoned), 1, 1, 50);
@@ -839,7 +840,7 @@ public class GOTChestContents {
 		LHAZAR_W[i++] = new WeightedRandomChestContent(new ItemStack(Items.glass_bottle), 1, 2, 50);
 		LHAZAR_W[i++] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.mugAraq), 1, 1, 200);
 		LHAZAR_W[i++] = new WeightedRandomChestContent(new ItemStack(Items.dye, 1, 4), 1, 8, 25);
-		
+
 		WeightedRandomChestContent[] ARRYN_W = WESTEROS_W.clone();
 		WeightedRandomChestContent[] BRAAVOS_W = ESSOS_W.clone();
 		WeightedRandomChestContent[] CROWNLANDS_W = WESTEROS_W.clone();
