@@ -60,7 +60,7 @@ public class GOTEntityArrynFarmer extends GOTEntityArrynMan implements GOTTradea
 
 	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
-		if (type == GOTTradeEntries.TradeType.BUY && itemstack.getItem() == Item.getItemFromBlock(GOTRegistry.pipeweedPlant)) {
+		if (type == GOTTradeEntries.TradeType.WE_CAN_BUY && itemstack.getItem() == Item.getItemFromBlock(GOTRegistry.pipeweedPlant)) {
 			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
 		}
 	}

@@ -24,10 +24,10 @@ public class GOTContainerTrade extends Container {
 			updateAllTradeSlots();
 		}
 		for (i = 0; i < 9; ++i) {
-			addSlotToContainer(new GOTSlotTrade(this, tradeInvBuy, i, 8 + i * 18, 40, theTraderNPC, GOTTradeEntries.TradeType.BUY));
+			addSlotToContainer(new GOTSlotTrade(this, tradeInvBuy, i, 8 + i * 18, 40, theTraderNPC, GOTTradeEntries.TradeType.WE_CAN_BUY));
 		}
 		for (i = 0; i < 9; ++i) {
-			addSlotToContainer(new GOTSlotTrade(this, tradeInvSell, i, 8 + i * 18, 92, theTraderNPC, GOTTradeEntries.TradeType.SELL));
+			addSlotToContainer(new GOTSlotTrade(this, tradeInvSell, i, 8 + i * 18, 92, theTraderNPC, GOTTradeEntries.TradeType.WE_CAN_SELL));
 		}
 		for (i = 0; i < 9; ++i) {
 			addSlotToContainer(new Slot(tradeInvSellOffer, i, 8 + i * 18, 141));

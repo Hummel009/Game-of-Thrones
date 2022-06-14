@@ -81,7 +81,11 @@ public class GOTMiniQuestCollect extends GOTMiniQuestCollectBase {
 		public QFCollect(String name) {
 			super(name);
 		}
-
+		
+		public QFCollect() {
+			super("collect");
+		}
+		
 		@Override
 		public Q createQuest(GOTEntityNPC npc, Random rand) {
 			GOTMiniQuestCollect quest = super.createQuest(npc, rand);

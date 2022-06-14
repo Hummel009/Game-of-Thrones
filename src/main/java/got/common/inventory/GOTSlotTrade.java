@@ -21,7 +21,7 @@ public class GOTSlotTrade extends GOTSlotProtected {
 
 	@Override
 	public boolean canTakeStack(EntityPlayer entityplayer) {
-		if (tradeType == GOTTradeEntries.TradeType.BUY) {
+		if (tradeType == GOTTradeEntries.TradeType.WE_CAN_BUY) {
 			if (getTrade() != null && !getTrade().isAvailable()) {
 				return false;
 			}
@@ -30,7 +30,7 @@ public class GOTSlotTrade extends GOTSlotProtected {
 				return false;
 			}
 		}
-		if (tradeType == GOTTradeEntries.TradeType.SELL) {
+		if (tradeType == GOTTradeEntries.TradeType.WE_CAN_SELL) {
 			return false;
 		}
 		return super.canTakeStack(entityplayer);
@@ -43,9 +43,9 @@ public class GOTSlotTrade extends GOTSlotProtected {
 
 	public GOTTradeEntry getTrade() {
 		GOTTradeEntry[] trades = null;
-		if (tradeType == GOTTradeEntries.TradeType.BUY) {
+		if (tradeType == GOTTradeEntries.TradeType.WE_CAN_BUY) {
 			trades = theEntity.traderNPCInfo.getBuyTrades();
-		} else if (tradeType == GOTTradeEntries.TradeType.SELL) {
+		} else if (tradeType == GOTTradeEntries.TradeType.WE_CAN_SELL) {
 			trades = theEntity.traderNPCInfo.getSellTrades();
 		}
 		if (trades == null) {
@@ -60,16 +60,16 @@ public class GOTSlotTrade extends GOTSlotProtected {
 
 	@Override
 	public void onPickupFromSlot(EntityPlayer entityplayer, ItemStack itemstack) {
-		if (tradeType == GOTTradeEntries.TradeType.BUY && !entityplayer.worldObj.isRemote) {
+		if (tradeType == GOTTradeEntries.TradeType.WE_CAN_BUY && !entityplayer.worldObj.isRemote) {
 			GOTItemCoin.takeCoins(cost(), entityplayer);
 		}
 		super.onPickupFromSlot(entityplayer, itemstack);
-		if (tradeType == GOTTradeEntries.TradeType.BUY) {
+		if (tradeType == GOTTradeEntries.TradeType.WE_CAN_BUY) {
 			GOTTradeEntry trade = getTrade();
 			if (!entityplayer.worldObj.isRemote && trade != null) {
 				putStack(trade.createTradeItem());
 				((EntityPlayerMP) entityplayer).sendContainerToPlayer(theContainer);
-				theEntity.traderNPCInfo.onTrade(entityplayer, trade, GOTTradeEntries.TradeType.BUY, cost());
+				theEntity.traderNPCInfo.onTrade(entityplayer, trade, GOTTradeEntries.TradeType.WE_CAN_BUY, cost());
 				theEntity.playTradeSound();
 			}
 		}

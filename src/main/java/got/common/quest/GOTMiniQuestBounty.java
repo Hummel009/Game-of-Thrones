@@ -331,7 +331,11 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 		public QFBounty(String name) {
 			super(name);
 		}
-
+		
+		public QFBounty() {
+			super("bounty");
+		}
+		
 		@Override
 		public Q createQuest(GOTEntityNPC npc, Random rand) {
 			if (!GOTConfig.allowBountyQuests) {
