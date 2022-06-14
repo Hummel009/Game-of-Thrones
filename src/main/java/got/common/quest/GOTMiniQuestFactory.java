@@ -305,11 +305,6 @@ public enum GOTMiniQuestFactory {
 			kingdom.addQuest(new GOTMiniQuestKillFaction.QFKillFaction("kill").setKillFaction(getRandomEnemy(kingdoms.get(kingdom)), 50, 70));
 			kingdom.addQuest(new GOTMiniQuestKillFaction.QFKillFaction("kill").setKillFaction(getRandomEnemy(kingdoms.get(kingdom)), 70, 100));
 			kingdom.addQuest(new GOTMiniQuestBounty.QFBounty("bounty"));
-			if (kingdom != DORNE) {
-				kingdom.addQuest(new GOTMiniQuestKillEntity.QFKillEntity("kill").setKillEntity(GOTEntityWesterosBandit.class, 1, 3).setRewardFactor(8.0f));
-			} else {
-				kingdom.addQuest(new GOTMiniQuestKillEntity.QFKillEntity("kill").setKillEntity(GOTEntityEssosBandit.class, 1, 3).setRewardFactor(8.0f));
-			}
 		}
 
 		for (GOTMiniQuestFactory city : cities.keySet()) {
@@ -375,11 +370,6 @@ public enum GOTMiniQuestFactory {
 			city.addQuest(new GOTMiniQuestKillFaction.QFKillFaction("kill").setKillFaction(getRandomEnemy(cities.get(city)), 50, 70));
 			city.addQuest(new GOTMiniQuestKillFaction.QFKillFaction("kill").setKillFaction(getRandomEnemy(cities.get(city)), 70, 100));
 			city.addQuest(new GOTMiniQuestBounty.QFBounty("bounty"));
-			if (city != GHISCAR) {
-				city.addQuest(new GOTMiniQuestKillEntity.QFKillEntity("kill").setKillEntity(GOTEntityWesterosBandit.class, 1, 3).setRewardFactor(8.0f));
-			} else {
-				city.addQuest(new GOTMiniQuestKillEntity.QFKillEntity("kill").setKillEntity(GOTEntityEssosBandit.class, 1, 3).setRewardFactor(8.0f));
-			}
 		}
 
 		ASSHAI.addQuest(new GOTMiniQuestBounty.QFBounty("bounty"));
@@ -718,7 +708,6 @@ public enum GOTMiniQuestFactory {
 		YI_TI.addQuest(new GOTMiniQuestCollect.QFCollect("collect").setCollectItem(new ItemStack(GOTRegistry.whiteBisonHorn), 1, 1).setRewardFactor(30.0f));
 		YI_TI.addQuest(new GOTMiniQuestCollect.QFCollect("collect").setCollectItem(new ItemStack(GOTRegistry.wood6, 1, 2), 30, 60).setRewardFactor(0.25f));
 		YI_TI.addQuest(new GOTMiniQuestCollect.QFCollect("collect").setCollectItem(new ItemStack(GOTRegistry.wood8, 1, 1), 30, 60).setRewardFactor(0.25f));
-		YI_TI.addQuest(new GOTMiniQuestKillEntity.QFKillEntity("kill").setKillEntity(GOTEntityWesterosBandit.class, 1, 3).setRewardFactor(8.0f));
 		YI_TI.addQuest(new GOTMiniQuestKillFaction.QFKillFaction("kill").setKillFaction(getRandomEnemy(GOTFaction.YI_TI), 10, 30));
 		YI_TI.addQuest(new GOTMiniQuestKillFaction.QFKillFaction("kill").setKillFaction(getRandomEnemy(GOTFaction.YI_TI), 30, 50));
 		YI_TI.addQuest(new GOTMiniQuestKillFaction.QFKillFaction("kill").setKillFaction(getRandomEnemy(GOTFaction.YI_TI), 50, 70));
