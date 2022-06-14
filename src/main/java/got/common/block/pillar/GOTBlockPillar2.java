@@ -8,7 +8,7 @@ import net.minecraft.item.*;
 
 public class GOTBlockPillar2 extends GOTBlockPillarBase {
 	public GOTBlockPillar2() {
-		setPillarNames("carnotite", "chalk", "stone", "brick", "stone", "stone", "stone", "stone", "yiti", "yitiRed", "stone", "sothoryosGold", "sothoryosObsidian", "stone", "stone");
+		setPillarNames("labradorite", "chalk", "stone", "brick", "stone", "stone", "stone", "stone", "yiti", "yitiRed", "stone", "sothoryosGold", "sothoryosObsidian", "stone", "stone");
 	}
 
 	@SideOnly(value = Side.CLIENT)

@@ -83,7 +83,7 @@ public class GOTRegistry {
 	public static Block butterflyJar;
 	public static Block buttonAndesite;
 	public static Block buttonBasalt;
-	public static Block buttonCarnotite;
+	public static Block buttonLabradorite;
 	public static Block buttonChalk;
 	public static Block buttonDiorite;
 	public static Block buttonGranite;
@@ -294,7 +294,7 @@ public class GOTRegistry {
 	public static Block plateBlock;
 	public static Block pressurePlateAndesite;
 	public static Block pressurePlateBasalt;
-	public static Block pressurePlateCarnotite;
+	public static Block pressurePlateLabradorite;
 	public static Block pressurePlateChalk;
 	public static Block pressurePlateDiorite;
 	public static Block pressurePlateGranite;
@@ -399,10 +399,10 @@ public class GOTRegistry {
 	public static Block stairsBone;
 	public static Block stairsBrickCracked;
 	public static Block stairsBrickMossy;
-	public static Block stairsCarnotite;
-	public static Block stairsCarnotiteBrick;
-	public static Block stairsCarnotiteBrickCracked;
-	public static Block stairsCarnotiteBrickMossy;
+	public static Block stairsLabradorite;
+	public static Block stairsLabradoriteBrick;
+	public static Block stairsLabradoriteBrickCracked;
+	public static Block stairsLabradoriteBrickMossy;
 	public static Block stairsCatalpa;
 	public static Block stairsCedar;
 	public static Block stairsChalk;
@@ -1353,7 +1353,7 @@ public class GOTRegistry {
 		butterflyJar = new GOTBlockButterflyJar();
 		buttonAndesite = new GOTBlockButton(false, "got:rock_andesite").setHardness(0.5f).setStepSound(Block.soundTypeStone);
 		buttonBasalt = new GOTBlockButton(false, "got:rock_basalt").setHardness(0.5f).setStepSound(Block.soundTypeStone);
-		buttonCarnotite = new GOTBlockButton(false, "got:rock_carnotite").setHardness(0.5f).setStepSound(Block.soundTypeStone);
+		buttonLabradorite = new GOTBlockButton(false, "got:rock_labradorite").setHardness(0.5f).setStepSound(Block.soundTypeStone);
 		buttonChalk = new GOTBlockButton(false, "got:rock_chalk").setHardness(0.5f).setStepSound(Block.soundTypeStone);
 		buttonDiorite = new GOTBlockButton(false, "got:rock_diorite").setHardness(0.5f).setStepSound(Block.soundTypeStone);
 		buttonGranite = new GOTBlockButton(false, "got:rock_granite").setHardness(0.5f).setStepSound(Block.soundTypeStone);
@@ -1559,7 +1559,7 @@ public class GOTRegistry {
 		plateBlock = new GOTBlockPlate().setStepSound(GOTBlockPlate.soundTypePlate);
 		pressurePlateAndesite = new GOTBlockPressurePlate("got:rock_andesite", Material.rock, BlockPressurePlate.Sensitivity.mobs).setHardness(0.5f).setStepSound(Block.soundTypeStone);
 		pressurePlateBasalt = new GOTBlockPressurePlate("got:rock_basalt", Material.rock, BlockPressurePlate.Sensitivity.mobs).setHardness(0.5f).setStepSound(Block.soundTypeStone);
-		pressurePlateCarnotite = new GOTBlockPressurePlate("got:rock_carnotite", Material.rock, BlockPressurePlate.Sensitivity.mobs).setHardness(0.5f).setStepSound(Block.soundTypeStone);
+		pressurePlateLabradorite = new GOTBlockPressurePlate("got:rock_labradorite", Material.rock, BlockPressurePlate.Sensitivity.mobs).setHardness(0.5f).setStepSound(Block.soundTypeStone);
 		pressurePlateChalk = new GOTBlockPressurePlate("got:rock_chalk", Material.rock, BlockPressurePlate.Sensitivity.mobs).setHardness(0.5f).setStepSound(Block.soundTypeStone);
 		pressurePlateDiorite = new GOTBlockPressurePlate("got:rock_diorite", Material.rock, BlockPressurePlate.Sensitivity.mobs).setHardness(0.5f).setStepSound(Block.soundTypeStone);
 		pressurePlateGranite = new GOTBlockPressurePlate("got:rock_granite", Material.rock, BlockPressurePlate.Sensitivity.mobs).setHardness(0.5f).setStepSound(Block.soundTypeStone);
@@ -1664,10 +1664,10 @@ public class GOTRegistry {
 		stairsBone = new GOTBlockStairs(boneBlock, 0);
 		stairsBrickCracked = new GOTBlockStairs(redBrick, 1).setCreativeTab(CreativeTabs.tabBlock);
 		stairsBrickMossy = new GOTBlockStairs(redBrick, 0).setCreativeTab(CreativeTabs.tabBlock);
-		stairsCarnotite = new GOTBlockStairs(rock, 6);
-		stairsCarnotiteBrick = new GOTBlockStairs(brick6, 4);
-		stairsCarnotiteBrickCracked = new GOTBlockStairs(brick6, 6);
-		stairsCarnotiteBrickMossy = new GOTBlockStairs(brick6, 7);
+		stairsLabradorite = new GOTBlockStairs(rock, 6);
+		stairsLabradoriteBrick = new GOTBlockStairs(brick6, 4);
+		stairsLabradoriteBrickCracked = new GOTBlockStairs(brick6, 6);
+		stairsLabradoriteBrickMossy = new GOTBlockStairs(brick6, 7);
 		stairsCatalpa = new GOTBlockStairs(planks1, 1);
 		stairsCedar = new GOTBlockStairs(planks2, 2);
 		stairsChalk = new GOTBlockStairs(rock, 5);
@@ -3216,12 +3216,12 @@ public class GOTRegistry {
 		registerBlock(cobblebrick, "cobblebrick", GOTItemBlockMetadata.class);
 		registerBlock(bank, "bank");
 		registerBlock(barrier, "barrier");
-		registerBlock(buttonCarnotite, "buttonCarnotite");
-		registerBlock(stairsCarnotite, "stairsCarnotite");
-		registerBlock(stairsCarnotiteBrick, "stairsCarnotiteBrick");
-		registerBlock(stairsCarnotiteBrickCracked, "stairsCarnotiteBrickCracked");
-		registerBlock(stairsCarnotiteBrickMossy, "stairsCarnotiteBrickMossy");
-		registerBlock(pressurePlateCarnotite, "pressurePlateCarnotite");
+		registerBlock(buttonLabradorite, "buttonLabradorite");
+		registerBlock(stairsLabradorite, "stairsLabradorite");
+		registerBlock(stairsLabradoriteBrick, "stairsLabradoriteBrick");
+		registerBlock(stairsLabradoriteBrickCracked, "stairsLabradoriteBrickCracked");
+		registerBlock(stairsLabradoriteBrickMossy, "stairsLabradoriteBrickMossy");
+		registerBlock(pressurePlateLabradorite, "pressurePlateLabradorite");
 		for (GOTEnumDyeColor color : GOTEnumDyeColor.values()) {
 			concretePowder.put(color, new GOTBlockConcretePowder(color));
 			concrete.put(color, new GOTBlockConcrete(color));

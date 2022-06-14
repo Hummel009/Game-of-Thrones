@@ -5585,7 +5585,7 @@ tile.got:bronzeBars.name≠
 tile.got:butterflyJar.0.name≠
 tile.got:buttonAndesite.name≠
 tile.got:buttonBasalt.name≠
-tile.got:buttonCarnotite.name≠
+tile.got:buttonLabradorite.name≠
 tile.got:buttonChalk.name≠
 tile.got:buttonDiorite.name≠
 tile.got:buttonGranite.name≠
@@ -5926,7 +5926,7 @@ tile.got:planksRotten.0.name≠
 tile.got:plantain.name≠
 tile.got:pressurePlateAndesite.name≠
 tile.got:pressurePlateBasalt.name≠
-tile.got:pressurePlateCarnotite.name≠
+tile.got:pressurePlateLabradorite.name≠
 tile.got:pressurePlateChalk.name≠
 tile.got:pressurePlateDiorite.name≠
 tile.got:pressurePlateGranite.name≠
@@ -6150,10 +6150,10 @@ tile.got:stairsBeech.name=Степенице од Буковине
 tile.got:stairsBone.name≠
 tile.got:stairsBrickCracked.name≠
 tile.got:stairsBrickMossy.name≠
-tile.got:stairsCarnotite.name≠
-tile.got:stairsCarnotiteBrick.name≠
-tile.got:stairsCarnotiteBrickCracked.name≠
-tile.got:stairsCarnotiteBrickMossy.name≠
+tile.got:stairsLabradorite.name≠
+tile.got:stairsLabradoriteBrick.name≠
+tile.got:stairsLabradoriteBrickCracked.name≠
+tile.got:stairsLabradoriteBrickMossy.name≠
 tile.got:stairsCatalpa.name≠
 tile.got:stairsCedar.name=Степенице од Кедровог Дрвета
 tile.got:stairsChalk.name≠

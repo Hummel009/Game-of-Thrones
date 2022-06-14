@@ -1,6 +1,7 @@
 CHANGELOG
 
 >>VERSION 17.7.4
++ Added labradorite set of blocks
 + Returned "kill mob" type of quests
 + Returned "kill player" type of quests
 
@@ -12,6 +13,8 @@ CHANGELOG
 * Fixed bug with 25% of spawning a wrong structure at waypoint
 * Fixed bug with slaves speechbank
 * Fixed bug with towers in asshai
+
+- Removed Carnotite set of blocks, because it turned out that it was uran ore
 
 >>VERSION 17.7.3
 + Added full Polish edition (lore, speech, names, quests: prod. Axel)
@@ -351,7 +354,7 @@ CHANGELOG
 + Added Ibben Mountains
 + Added new weather (sandstorm and ashy wind)
 + Added children and marry (RMB with golden ring) mechanics for all peaceful humans in the world.
-+ Added full set of blocks made of carnotite
++ Added full set of blocks made of labradorite
 + Added Partial Ukrainian Translation of the Mod (powered by DDPAT Knife Series)
 
 * Improved rock generating (like in 1.8). 
@@ -493,7 +496,7 @@ CHANGELOG
 + Added a few Sothoryos biomes
 + Added Melisandra with her quest
 + Partial ¸-fication of speechbanks and mini-quests
-* Improved carnotite texture
+* Improved labradorite texture
 * Improved mountains biomes
 * Improved Aurora Borealis
 * Improved quest contents and speech

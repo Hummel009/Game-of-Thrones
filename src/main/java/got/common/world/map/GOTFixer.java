@@ -72,7 +72,7 @@ public class GOTFixer {
 		f[1] = new GOTStructureArrynCity(biome, 0.0f).setIsTown();
 		f[1].affix(GOTWaypoint.Gulltown, GOTWaypoint.Sisterton);
 		f[2] = new GOTStructureAsshaiCity(biome, 0.0f);
-		f[2].affix(GOTWaypoint.KDath, GOTWaypoint.Asshai.info(0, 0, 2));
+		f[2].affix(GOTWaypoint.Asshai.info(0, 0, 2));
 		f[3] = new GOTStructureBraavosCity(biome, 0.0f).setIsTown();
 		f[3].affix(GOTWaypoint.Braavos.info(0, -1, 2));
 		f[4] = new GOTStructureGiftVillage(biome, 0.0f).setIsCastleBlack();
@@ -132,7 +132,7 @@ public class GOTFixer {
 		f[31] = new GOTStructureLysCity(biome, 0.0f).setIsTown();
 		f[31].affix(GOTWaypoint.Lys);
 		f[32] = new GOTStructureMossovyVillage(biome, 0.0f).setIsFort();
-		f[32].affix(GOTWaypoint.EastPass, GOTWaypoint.NorthPass, GOTWaypoint.SouthPass, GOTWaypoint.WestPass);
+		f[32].affix(GOTWaypoint.KDath, GOTWaypoint.EastPass, GOTWaypoint.NorthPass, GOTWaypoint.SouthPass, GOTWaypoint.WestPass);
 		f[33] = new GOTStructureMossovyVillage(biome, 0.0f);
 		f[33].affix(GOTWaypoint.Kadar, GOTWaypoint.Nefer);
 		f[34] = new GOTStructureMyrCity(biome, 0.0f).setIsTown();

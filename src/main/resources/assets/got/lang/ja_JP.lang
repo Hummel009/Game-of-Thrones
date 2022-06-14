@@ -5585,7 +5585,7 @@ tile.got:bronzeBars.name=青銅の格子
 tile.got:butterflyJar.0.name=チョウの瓶
 tile.got:buttonAndesite.name≠
 tile.got:buttonBasalt.name≠
-tile.got:buttonCarnotite.name≠
+tile.got:buttonLabradorite.name≠
 tile.got:buttonChalk.name=ボタン
 tile.got:buttonDiorite.name≠
 tile.got:buttonGranite.name≠
@@ -5926,7 +5926,7 @@ tile.got:planksRotten.0.name=朽ちた板材
 tile.got:plantain.name≠
 tile.got:pressurePlateAndesite.name≠
 tile.got:pressurePlateBasalt.name≠
-tile.got:pressurePlateCarnotite.name≠
+tile.got:pressurePlateLabradorite.name≠
 tile.got:pressurePlateChalk.name=感圧板
 tile.got:pressurePlateDiorite.name≠
 tile.got:pressurePlateGranite.name≠
@@ -6150,10 +6150,10 @@ tile.got:stairsBeech.name=ブナの木の階段
 tile.got:stairsBone.name=骨の階段
 tile.got:stairsBrickCracked.name=ひびの入ったレンガの階段
 tile.got:stairsBrickMossy.name=苔むしたレンガの階段
-tile.got:stairsCarnotite.name≠
-tile.got:stairsCarnotiteBrick.name≠
-tile.got:stairsCarnotiteBrickCracked.name≠
-tile.got:stairsCarnotiteBrickMossy.name≠
+tile.got:stairsLabradorite.name≠
+tile.got:stairsLabradoriteBrick.name≠
+tile.got:stairsLabradoriteBrickCracked.name≠
+tile.got:stairsLabradoriteBrickMossy.name≠
 tile.got:stairsCatalpa.name≠
 tile.got:stairsCedar.name=スギの木の階段
 tile.got:stairsChalk.name=白亜の階段
