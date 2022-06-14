@@ -6,8 +6,8 @@ import com.google.common.base.Supplier;
 
 import got.common.faction.GOTFaction;
 
-public interface MQSelector {
-	boolean include(GOTMQ var1);
+public interface MiniQuestSelector {
+	boolean include(GOTMiniQuest var1);
 
 	public static class BountyActiveAnyFaction extends OptionalActive {
 		public BountyActiveAnyFaction() {
@@ -15,9 +15,9 @@ public interface MQSelector {
 		}
 
 		@Override
-		public boolean include(GOTMQ quest) {
-			if (super.include(quest) && quest instanceof GOTMQBounty) {
-				GOTMQBounty bQuest = (GOTMQBounty) quest;
+		public boolean include(GOTMiniQuest quest) {
+			if (super.include(quest) && quest instanceof GOTMiniQuestBounty) {
+				GOTMiniQuestBounty bQuest = (GOTMiniQuestBounty) quest;
 				return !bQuest.killed;
 			}
 			return false;
@@ -32,7 +32,7 @@ public interface MQSelector {
 		}
 
 		@Override
-		public boolean include(GOTMQ quest) {
+		public boolean include(GOTMiniQuest quest) {
 			return super.include(quest) && quest.entityFaction == factionGet.get();
 		}
 	}
@@ -45,7 +45,7 @@ public interface MQSelector {
 		}
 
 		@Override
-		public boolean include(GOTMQ quest) {
+		public boolean include(GOTMiniQuest quest) {
 			return super.include(quest) && quest.entityUUID.equals(entityID);
 		}
 	}
@@ -58,16 +58,16 @@ public interface MQSelector {
 		}
 
 		@Override
-		public boolean include(GOTMQ quest) {
+		public boolean include(GOTMiniQuest quest) {
 			return super.include(quest) && quest.entityFaction == factionGet.get();
 		}
 	}
 
-	public static class OptionalActive implements MQSelector {
+	public static class OptionalActive implements MiniQuestSelector {
 		public boolean activeOnly = false;
 
 		@Override
-		public boolean include(GOTMQ quest) {
+		public boolean include(GOTMiniQuest quest) {
 			if (activeOnly) {
 				return quest.isActive();
 			}

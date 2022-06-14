@@ -8,7 +8,7 @@ import got.client.render.other.GOTRenderBiped;
 import got.common.database.GOTSpeech;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.network.GOTPacketMiniquestOffer;
-import got.common.quest.GOTMQ;
+import got.common.quest.GOTMiniQuest;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.model.*;
 import net.minecraft.client.renderer.*;
@@ -18,7 +18,7 @@ import net.minecraft.util.*;
 public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/quest/miniquest.png");
 	public static RenderItem renderItem = new RenderItem();
-	public GOTMQ theMiniQuest;
+	public GOTMiniQuest theMiniQuest;
 	public GOTEntityNPC theNPC;
 	public String description;
 	public Random rand;
@@ -44,7 +44,7 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 	public float headPitch;
 	public float prevHeadPitch;
 
-	public GOTGuiMiniquestOffer(GOTMQ quest, GOTEntityNPC npc) {
+	public GOTGuiMiniquestOffer(GOTMiniQuest quest, GOTEntityNPC npc) {
 		theMiniQuest = quest;
 		theNPC = npc;
 		rand = theNPC.getRNG();

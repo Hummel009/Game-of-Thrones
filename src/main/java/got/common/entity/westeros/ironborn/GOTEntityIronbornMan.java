@@ -52,8 +52,8 @@ public class GOTEntityIronbornMan extends GOTEntityHumanBase implements IPickpoc
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.IRONBORN.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.IRONBORN.createQuest(this);
 	}
 
 	@Override
@@ -95,8 +95,8 @@ public class GOTEntityIronbornMan extends GOTEntityHumanBase implements IPickpoc
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.IRONBORN;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.IRONBORN;
 	}
 
 	@Override

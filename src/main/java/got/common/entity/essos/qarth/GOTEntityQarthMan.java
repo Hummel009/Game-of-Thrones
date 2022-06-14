@@ -46,8 +46,8 @@ public class GOTEntityQarthMan extends GOTEntityHumanBase implements IPickpocket
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.QARTH.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.QARTH.createQuest(this);
 	}
 
 	@Override
@@ -93,8 +93,8 @@ public class GOTEntityQarthMan extends GOTEntityHumanBase implements IPickpocket
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.QARTH;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.QARTH;
 	}
 
 	@Override

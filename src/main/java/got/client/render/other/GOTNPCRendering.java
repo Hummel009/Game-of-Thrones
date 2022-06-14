@@ -10,7 +10,7 @@ import got.common.*;
 import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.item.other.GOTItemQuestBook;
-import got.common.quest.GOTMQ;
+import got.common.quest.GOTMiniQuest;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.client.gui.FontRenderer;
@@ -237,7 +237,7 @@ public class GOTNPCRendering {
 		WorldClient world = mc.theWorld;
 		world.theProfiler.startSection("renderMiniquestBook");
 		float distance = mc.renderViewEntity.getDistanceToEntity(npc);
-		boolean aboveHead = distance <= GOTMQ.RENDER_HEAD_DISTANCE;
+		boolean aboveHead = distance <= GOTMiniQuest.RENDER_HEAD_DISTANCE;
 		TextureManager textureManager = mc.getTextureManager();
 		RenderManager renderManager = RenderManager.instance;
 		EntityClientPlayerMP entityplayer = mc.thePlayer;
@@ -271,7 +271,7 @@ public class GOTNPCRendering {
 				GL11.glEnable(2896);
 				GL11.glDisable(32826);
 			} else {
-				float scale = distance / (float) GOTMQ.RENDER_HEAD_DISTANCE;
+				float scale = distance / (float) GOTMiniQuest.RENDER_HEAD_DISTANCE;
 				scale = (float) Math.pow(scale, 1.1);
 				float alpha = (float) Math.pow(scale, -0.4);
 				GL11.glPushMatrix();

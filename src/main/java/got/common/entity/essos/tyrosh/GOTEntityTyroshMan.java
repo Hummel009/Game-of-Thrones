@@ -46,8 +46,8 @@ public class GOTEntityTyroshMan extends GOTEntityHumanBase implements IPickpocke
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.TYROSH.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.TYROSH.createQuest(this);
 	}
 
 	@Override
@@ -93,8 +93,8 @@ public class GOTEntityTyroshMan extends GOTEntityHumanBase implements IPickpocke
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.TYROSH;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.TYROSH;
 	}
 
 	@Override

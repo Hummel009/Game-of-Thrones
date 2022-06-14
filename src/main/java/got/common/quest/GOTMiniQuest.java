@@ -20,23 +20,23 @@ import net.minecraft.nbt.*;
 import net.minecraft.util.*;
 import net.minecraft.world.biome.BiomeGenBase;
 
-public abstract class GOTMQ {
-	public static Map<String, Class<? extends GOTMQ>> nameToQuestMapping = new HashMap<>();
-	public static Map<Class<? extends GOTMQ>, String> questToNameMapping = new HashMap<>();
+public abstract class GOTMiniQuest {
+	public static Map<String, Class<? extends GOTMiniQuest>> nameToQuestMapping = new HashMap<>();
+	public static Map<Class<? extends GOTMiniQuest>, String> questToNameMapping = new HashMap<>();
 	public static int MAX_MINIQUESTS_PER_FACTION;
 	public static double RENDER_HEAD_DISTANCE;
 	public static float defaultRewardFactor = 1.0f;
 	static {
-		GOTMQ.registerQuestType("Collect", GOTMQCollect.class);
-		GOTMQ.registerQuestType("KillFaction", GOTMQKillFaction.class);
-		GOTMQ.registerQuestType("KillEntity", GOTMQKillEntity.class);
-		GOTMQ.registerQuestType("Bounty", GOTMQBounty.class);
-		GOTMQ.registerQuestType("Welcome", GOTMQWelcome.class);
-		GOTMQ.registerQuestType("Pickpocket", GOTMQPickpocket.class);
+		GOTMiniQuest.registerQuestType("Collect", GOTMiniQuestCollect.class);
+		GOTMiniQuest.registerQuestType("KillFaction", GOTMiniQuestKillFaction.class);
+		GOTMiniQuest.registerQuestType("KillEntity", GOTMiniQuestKillEntity.class);
+		GOTMiniQuest.registerQuestType("Bounty", GOTMiniQuestBounty.class);
+		GOTMiniQuest.registerQuestType("Welcome", GOTMiniQuestWelcome.class);
+		GOTMiniQuest.registerQuestType("Pickpocket", GOTMiniQuestPickpocket.class);
 		MAX_MINIQUESTS_PER_FACTION = 5;
 		RENDER_HEAD_DISTANCE = 12.0;
 	}
-	public GOTMQFactory questGroup;
+	public GOTMiniQuestFactory questGroup;
 	public GOTPlayerData playerData;
 	public UUID questUUID;
 	public UUID entityUUID;
@@ -69,7 +69,7 @@ public abstract class GOTMQ {
 
 	public List<String> quotesStages = new ArrayList<>();
 
-	public GOTMQ(GOTPlayerData pd) {
+	public GOTMiniQuest(GOTPlayerData pd) {
 		playerData = pd;
 		questUUID = UUID.randomUUID();
 	}
@@ -234,7 +234,7 @@ public abstract class GOTMQ {
 
 	public abstract String getQuestProgressShorthand();
 
-	public void handleEvent(GOTMQEvent event) {
+	public void handleEvent(GOTMiniQuestEvent event) {
 	}
 
 	public boolean isActive() {
@@ -273,11 +273,11 @@ public abstract class GOTMQ {
 		NBTTagCompound itemData;
 		UUID u;
 		ItemStack item;
-		GOTMQFactory factory;
+		GOTMiniQuestFactory factory;
 		NBTTagList itemTags;
 		String recovery;
 		isLegendary = nbt.getBoolean("Legendary");
-		if (nbt.hasKey("QuestGroup") && (factory = GOTMQFactory.forName(nbt.getString("QuestGroup"))) != null) {
+		if (nbt.hasKey("QuestGroup") && (factory = GOTMiniQuestFactory.forName(nbt.getString("QuestGroup"))) != null) {
 			questGroup = factory;
 		}
 		if (nbt.hasKey("QuestUUID") && (u = UUID.fromString(nbt.getString("QuestUUID"))) != null) {
@@ -350,10 +350,10 @@ public abstract class GOTMQ {
 			}
 		}
 		if (questGroup == null && (recovery = speechBankStart) != null) {
-			GOTMQFactory factory2;
+			GOTMiniQuestFactory factory2;
 			int i1 = recovery.indexOf("/", 0);
 			int i2 = recovery.indexOf("/", i1 + 1);
-			if (i1 >= 0 && i2 >= 0 && (factory2 = GOTMQFactory.forName(recovery = recovery.substring(i1 + 1, i2))) != null) {
+			if (i1 >= 0 && i2 >= 0 && (factory2 = GOTMiniQuestFactory.forName(recovery = recovery.substring(i1 + 1, i2))) != null) {
 				questGroup = factory2;
 			}
 		}
@@ -501,14 +501,14 @@ public abstract class GOTMQ {
 		}
 	}
 
-	public static GOTMQ loadQuestFromNBT(NBTTagCompound nbt, GOTPlayerData playerData) {
+	public static GOTMiniQuest loadQuestFromNBT(NBTTagCompound nbt, GOTPlayerData playerData) {
 		String questTypeName = nbt.getString("QuestType");
-		Class<? extends GOTMQ> questType = nameToQuestMapping.get(questTypeName);
+		Class<? extends GOTMiniQuest> questType = nameToQuestMapping.get(questTypeName);
 		if (questType == null) {
 			FMLLog.severe("Could not instantiate miniquest of type " + questTypeName);
 			return null;
 		}
-		GOTMQ quest = GOTMQ.newQuestInstance(questType, playerData);
+		GOTMiniQuest quest = GOTMiniQuest.newQuestInstance(questType, playerData);
 		quest.readFromNBT(nbt);
 		if (quest.isValidQuest()) {
 			return quest;
@@ -517,9 +517,9 @@ public abstract class GOTMQ {
 		return null;
 	}
 
-	public static <Q extends GOTMQ> Q newQuestInstance(Class<Q> questType, GOTPlayerData playerData) {
+	public static <Q extends GOTMiniQuest> Q newQuestInstance(Class<Q> questType, GOTPlayerData playerData) {
 		try {
-			GOTMQ quest = questType.getConstructor(GOTPlayerData.class).newInstance(playerData);
+			GOTMiniQuest quest = questType.getConstructor(GOTPlayerData.class).newInstance(playerData);
 			return (Q) quest;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -527,13 +527,13 @@ public abstract class GOTMQ {
 		}
 	}
 
-	public static void registerQuestType(String name, Class<? extends GOTMQ> questType) {
+	public static void registerQuestType(String name, Class<? extends GOTMiniQuest> questType) {
 		nameToQuestMapping.put(name, questType);
 		questToNameMapping.put(questType, name);
 	}
 
-	public abstract static class QuestFactoryBase<Q extends GOTMQ> {
-		public GOTMQFactory questFactoryGroup;
+	public abstract static class QuestFactoryBase<Q extends GOTMiniQuest> {
+		public GOTMiniQuestFactory questFactoryGroup;
 		public String questName;
 		public float rewardFactor = 1.0f;
 		public boolean willHire = false;
@@ -546,7 +546,7 @@ public abstract class GOTMQ {
 		}
 
 		public Q createQuest(GOTEntityNPC npc, Random rand) {
-			GOTMQ quest = GOTMQ.newQuestInstance(this.getQuestClass(), null);
+			GOTMiniQuest quest = GOTMiniQuest.newQuestInstance(this.getQuestClass(), null);
 			quest.questGroup = this.getFactoryGroup();
 			String pathName = "miniquest/" + this.getFactoryGroup().getBaseName() + "/";
 			String pathNameBaseSpeech = "miniquest/" + this.getFactoryGroup().getBaseSpeechGroup().getBaseName() + "/";
@@ -568,13 +568,13 @@ public abstract class GOTMQ {
 			return (Q) quest;
 		}
 
-		public GOTMQFactory getFactoryGroup() {
+		public GOTMiniQuestFactory getFactoryGroup() {
 			return this.questFactoryGroup;
 		}
 
 		public abstract Class<Q> getQuestClass();
 
-		public void setFactoryGroup(GOTMQFactory factory) {
+		public void setFactoryGroup(GOTMiniQuestFactory factory) {
 			this.questFactoryGroup = factory;
 		}
 
@@ -606,9 +606,9 @@ public abstract class GOTMQ {
 		}
 	}
 
-	public static class SorterAlphabetical implements Comparator<GOTMQ> {
+	public static class SorterAlphabetical implements Comparator<GOTMiniQuest> {
 		@Override
-		public int compare(GOTMQ q1, GOTMQ q2) {
+		public int compare(GOTMiniQuest q1, GOTMiniQuest q2) {
 			if (!q2.isActive() && q1.isActive()) {
 				return 1;
 			}

@@ -20,11 +20,11 @@ import net.minecraft.world.WorldServer;
 public class GOTEntityQuestInfo {
 	public static int maxOfferTime = 24000;
 	public GOTEntityNPC theNPC;
-	public GOTMQ miniquestOffer;
+	public GOTMiniQuest miniquestOffer;
 	public int offerTime = 0;
 	public int offerChance;
 	public float minAlignment;
-	public Map<UUID, GOTMQ> playerSpecificOffers = new HashMap<>();
+	public Map<UUID, GOTMiniQuest> playerSpecificOffers = new HashMap<>();
 	public List<EntityPlayer> openOfferPlayers = new ArrayList<>();
 	public Map<UUID, Boolean> playerPacketCache = new HashMap<>();
 	public boolean clientIsOffering;
@@ -32,7 +32,7 @@ public class GOTEntityQuestInfo {
 	public List<UUID> activeQuestPlayers = new ArrayList<>();
 	public Predicate<EntityPlayer> bountyHelpPredicate;
 	public Predicate<EntityPlayer> bountyHelpConsumer;
-	public MQSelector.BountyActiveAnyFaction activeBountySelector;
+	public MiniQuestSelector.BountyActiveAnyFaction activeBountySelector;
 
 	public GOTEntityQuestInfo(GOTEntityNPC npc) {
 		theNPC = npc;
@@ -40,7 +40,7 @@ public class GOTEntityQuestInfo {
 		minAlignment = 0.0f;
 		bountyHelpPredicate = player -> theNPC.getRNG().nextInt(3) == 0;
 		bountyHelpConsumer = player -> true;
-		activeBountySelector = new MQSelector.BountyActiveFaction(() -> theNPC.getFaction());
+		activeBountySelector = new MiniQuestSelector.BountyActiveFaction(() -> theNPC.getFaction());
 	}
 
 	public void addActiveQuestPlayer(EntityPlayer entityplayer) {
@@ -82,10 +82,10 @@ public class GOTEntityQuestInfo {
 		playerSpecificOffers.remove(entityplayer.getUniqueID());
 	}
 
-	public GOTMQ generateRandomMiniQuest() {
+	public GOTMiniQuest generateRandomMiniQuest() {
 		int tries = 8;
 		for (int l = 0; l < tries; ++l) {
-			GOTMQ quest = theNPC.createMiniQuest();
+			GOTMiniQuest quest = theNPC.createMiniQuest();
 			if (quest == null) {
 				continue;
 			}
@@ -97,11 +97,11 @@ public class GOTEntityQuestInfo {
 		return null;
 	}
 
-	public GOTMQ getOfferFor(EntityPlayer entityplayer) {
+	public GOTMiniQuest getOfferFor(EntityPlayer entityplayer) {
 		return this.getOfferFor(entityplayer, null);
 	}
 
-	public GOTMQ getOfferFor(EntityPlayer entityplayer, boolean[] isSpecific) {
+	public GOTMiniQuest getOfferFor(EntityPlayer entityplayer, boolean[] isSpecific) {
 		UUID id = entityplayer.getUniqueID();
 		if (playerSpecificOffers.containsKey(id)) {
 			if (isSpecific != null) {
@@ -117,9 +117,9 @@ public class GOTEntityQuestInfo {
 
 	public boolean interact(EntityPlayer entityplayer) {
 		GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
-		List<GOTMQ> thisNPCQuests = playerData.getMiniQuestsForEntity(theNPC, true);
+		List<GOTMiniQuest> thisNPCQuests = playerData.getMiniQuestsForEntity(theNPC, true);
 		if (thisNPCQuests.isEmpty()) {
-			for (GOTMQ quest : playerData.getActiveMiniQuests()) {
+			for (GOTMiniQuest quest : playerData.getActiveMiniQuests()) {
 				if (quest.entityUUID.equals(theNPC.getUniqueID()) || !quest.onInteractOther(entityplayer, theNPC)) {
 					continue;
 				}
@@ -127,9 +127,9 @@ public class GOTEntityQuestInfo {
 			}
 		}
 		if (canOfferQuestsTo(entityplayer)) {
-			List<GOTMQ> bountyQuests;
+			List<GOTMiniQuest> bountyQuests;
 			if (!thisNPCQuests.isEmpty()) {
-				GOTMQ activeQuest = thisNPCQuests.get(0);
+				GOTMiniQuest activeQuest = thisNPCQuests.get(0);
 				activeQuest.onInteract(entityplayer, theNPC);
 				if (activeQuest.isCompleted()) {
 					removeActiveQuestPlayer(entityplayer);
@@ -138,31 +138,31 @@ public class GOTEntityQuestInfo {
 				}
 				return true;
 			}
-			GOTMQ offer = this.getOfferFor(entityplayer);
+			GOTMiniQuest offer = this.getOfferFor(entityplayer);
 			if (offer != null && offer.isValidQuest() && offer.canPlayerAccept(entityplayer)) {
-				List<GOTMQ> questsForFaction = playerData.getMiniQuestsForFaction(theNPC.getFaction(), true);
-				if (questsForFaction.size() < GOTMQ.MAX_MINIQUESTS_PER_FACTION) {
+				List<GOTMiniQuest> questsForFaction = playerData.getMiniQuestsForFaction(theNPC.getFaction(), true);
+				if (questsForFaction.size() < GOTMiniQuest.MAX_MINIQUESTS_PER_FACTION) {
 					sendMiniquestOffer(entityplayer, offer);
 					return true;
 				}
 				theNPC.sendSpeechBank(entityplayer, offer.speechBankTooMany, offer);
 				return true;
 			}
-			GOTMQFactory bountyHelpSpeechDir = theNPC.getBountyHelpSpeechDir();
+			GOTMiniQuestFactory bountyHelpSpeechDir = theNPC.getBountyHelpSpeechDir();
 			if (bountyHelpSpeechDir != null && bountyHelpPredicate.apply(entityplayer) && !(bountyQuests = playerData.selectMiniQuests(activeBountySelector)).isEmpty()) {
 				GOTWaypoint lastWP;
-				GOTMQBounty bQuest = (GOTMQBounty) bountyQuests.get(theNPC.getRNG().nextInt(bountyQuests.size()));
+				GOTMiniQuestBounty bQuest = (GOTMiniQuestBounty) bountyQuests.get(theNPC.getRNG().nextInt(bountyQuests.size()));
 				UUID targetID = bQuest.targetID;
 				String objective = bQuest.targetName;
 				GOTPlayerData targetData = GOTLevelData.getData(targetID);
-				GOTMQBounty.BountyHelp helpType = GOTMQBounty.BountyHelp.getRandomHelpType(theNPC.getRNG());
+				GOTMiniQuestBounty.BountyHelp helpType = GOTMiniQuestBounty.BountyHelp.getRandomHelpType(theNPC.getRNG());
 				String location = null;
-				if (helpType == GOTMQBounty.BountyHelp.BIOME) {
+				if (helpType == GOTMiniQuestBounty.BountyHelp.BIOME) {
 					GOTBiome lastBiome = targetData.getLastKnownBiome();
 					if (lastBiome != null) {
 						location = lastBiome.getBiomeDisplayName();
 					}
-				} else if (helpType == GOTMQBounty.BountyHelp.WAYPOINT && (lastWP = targetData.getLastKnownWaypoint()) != null) {
+				} else if (helpType == GOTMiniQuestBounty.BountyHelp.WAYPOINT && (lastWP = targetData.getLastKnownWaypoint()) != null) {
 					location = lastWP.getDisplayName();
 				}
 				if (location != null) {
@@ -179,8 +179,8 @@ public class GOTEntityQuestInfo {
 	public void onDeath() {
 		if (!theNPC.worldObj.isRemote && !activeQuestPlayers.isEmpty()) {
 			for (UUID player : activeQuestPlayers) {
-				List<GOTMQ> playerQuests = GOTLevelData.getData(player).getMiniQuestsForEntity(theNPC, true);
-				for (GOTMQ quest : playerQuests) {
+				List<GOTMiniQuest> playerQuests = GOTLevelData.getData(player).getMiniQuestsForEntity(theNPC, true);
+				for (GOTMiniQuest quest : playerQuests) {
 					if (!quest.isActive()) {
 						continue;
 					}
@@ -221,12 +221,12 @@ public class GOTEntityQuestInfo {
 		if (!activeQuestPlayers.isEmpty()) {
 			HashSet<UUID> removes = new HashSet<>();
 			for (UUID player : activeQuestPlayers) {
-				List<GOTMQ> playerQuests = GOTLevelData.getData(player).getMiniQuestsForEntity(theNPC, true);
+				List<GOTMiniQuest> playerQuests = GOTLevelData.getData(player).getMiniQuestsForEntity(theNPC, true);
 				if (playerQuests.isEmpty()) {
 					removes.add(player);
 					continue;
 				}
-				for (GOTMQ quest : playerQuests) {
+				for (GOTMiniQuest quest : playerQuests) {
 					quest.updateLocation(theNPC);
 				}
 			}
@@ -239,7 +239,7 @@ public class GOTEntityQuestInfo {
 		UUID player;
 		if (nbt.hasKey("MQOffer", 10)) {
 			NBTTagCompound questData = nbt.getCompoundTag("MQOffer");
-			miniquestOffer = GOTMQ.loadQuestFromNBT(questData, null);
+			miniquestOffer = GOTMiniQuest.loadQuestFromNBT(questData, null);
 		}
 		offerTime = nbt.getInteger("MQOfferTime");
 		playerSpecificOffers.clear();
@@ -249,7 +249,7 @@ public class GOTEntityQuestInfo {
 				NBTTagCompound offerData = specificTags.getCompoundTagAt(i);
 				try {
 					UUID playerID = UUID.fromString(offerData.getString("OfferPlayerID"));
-					GOTMQ offer = GOTMQ.loadQuestFromNBT(offerData, null);
+					GOTMiniQuest offer = GOTMiniQuest.loadQuestFromNBT(offerData, null);
 					if (offer == null || !offer.isValidQuest()) {
 						continue;
 					}
@@ -285,7 +285,7 @@ public class GOTEntityQuestInfo {
 		removeOpenOfferPlayer(entityplayer);
 		if (accept) {
 			boolean[] container = new boolean[1];
-			GOTMQ quest = this.getOfferFor(entityplayer, container);
+			GOTMiniQuest quest = this.getOfferFor(entityplayer, container);
 			boolean isSpecific = container[0];
 			if (quest != null && quest.isValidQuest() && canOfferQuestsTo(entityplayer)) {
 				quest.setPlayerData(GOTLevelData.getData(entityplayer));
@@ -308,7 +308,7 @@ public class GOTEntityQuestInfo {
 	}
 
 	public void sendData(EntityPlayerMP entityplayer) {
-		GOTMQ questOffer = this.getOfferFor(entityplayer);
+		GOTMiniQuest questOffer = this.getOfferFor(entityplayer);
 		boolean isOffering = questOffer != null && canOfferQuestsTo(entityplayer);
 		int color = questOffer != null ? questOffer.getQuestColor() : 0;
 		boolean prevOffering = false;
@@ -337,7 +337,7 @@ public class GOTEntityQuestInfo {
 		}
 	}
 
-	public void sendMiniquestOffer(EntityPlayer entityplayer, GOTMQ quest) {
+	public void sendMiniquestOffer(EntityPlayer entityplayer, GOTMiniQuest quest) {
 		NBTTagCompound nbt = new NBTTagCompound();
 		quest.writeToNBT(nbt);
 		GOTPacketMiniquestOffer packet = new GOTPacketMiniquestOffer(theNPC.getEntityId(), nbt);
@@ -345,7 +345,7 @@ public class GOTEntityQuestInfo {
 		addOpenOfferPlayer(entityplayer);
 	}
 
-	public void setActiveBountySelector(MQSelector.BountyActiveAnyFaction sel) {
+	public void setActiveBountySelector(MiniQuestSelector.BountyActiveAnyFaction sel) {
 		activeBountySelector = sel;
 	}
 
@@ -366,7 +366,7 @@ public class GOTEntityQuestInfo {
 		minAlignment = f;
 	}
 
-	public void setMiniQuestOffer(GOTMQ quest, int time) {
+	public void setMiniQuestOffer(GOTMiniQuest quest, int time) {
 		miniquestOffer = quest;
 		offerTime = time;
 	}
@@ -375,7 +375,7 @@ public class GOTEntityQuestInfo {
 		offerChance = i;
 	}
 
-	public void setPlayerSpecificOffer(EntityPlayer entityplayer, GOTMQ quest) {
+	public void setPlayerSpecificOffer(EntityPlayer entityplayer, GOTMiniQuest quest) {
 		playerSpecificOffers.put(entityplayer.getUniqueID(), quest);
 	}
 
@@ -387,9 +387,9 @@ public class GOTEntityQuestInfo {
 		}
 		nbt.setInteger("MQOfferTime", offerTime);
 		NBTTagList specificTags = new NBTTagList();
-		for (Map.Entry<UUID, GOTMQ> e : playerSpecificOffers.entrySet()) {
+		for (Map.Entry<UUID, GOTMiniQuest> e : playerSpecificOffers.entrySet()) {
 			UUID playerID = e.getKey();
-			GOTMQ offer = e.getValue();
+			GOTMiniQuest offer = e.getValue();
 			NBTTagCompound offerData = new NBTTagCompound();
 			offerData.setString("OfferPlayerID", playerID.toString());
 			offer.writeToNBT(offerData);

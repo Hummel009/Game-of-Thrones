@@ -41,8 +41,8 @@ public class GOTEntityVarys extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.VARYS.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.VARYS.createQuest(this);
 	}
 
 	@Override
@@ -51,8 +51,8 @@ public class GOTEntityVarys extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.VARYS;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.VARYS;
 	}
 
 	@Override

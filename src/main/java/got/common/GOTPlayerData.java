@@ -65,8 +65,8 @@ public class GOTPlayerData {
 	private ChunkCoordinates deathPoint;
 	private int deathDim;
 	private int alcoholTolerance;
-	private List<GOTMQ> miniQuests = new ArrayList<>();
-	private List<GOTMQ> miniQuestsCompleted = new ArrayList<>();
+	private List<GOTMiniQuest> miniQuests = new ArrayList<>();
+	private List<GOTMiniQuest> miniQuestsCompleted = new ArrayList<>();
 	private int completedMiniquestCount;
 	private int completedBountyQuests;
 	private UUID trackingMiniQuestID;
@@ -344,12 +344,12 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void addMiniQuest(GOTMQ quest) {
+	public void addMiniQuest(GOTMiniQuest quest) {
 		miniQuests.add(quest);
 		updateMiniQuest(quest);
 	}
 
-	public void addMiniQuestCompleted(GOTMQ quest) {
+	public void addMiniQuestCompleted(GOTMiniQuest quest) {
 		miniQuestsCompleted.add(quest);
 		markDirty();
 	}
@@ -602,7 +602,7 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void completeMiniQuest(GOTMQ quest) {
+	public void completeMiniQuest(GOTMiniQuest quest) {
 		if (miniQuests.remove(quest)) {
 			addMiniQuestCompleted(quest);
 			++completedMiniquestCount;
@@ -689,8 +689,8 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void distributeMQEvent(GOTMQEvent event) {
-		for (GOTMQ quest : miniQuests) {
+	public void distributeMQEvent(GOTMiniQuestEvent event) {
+		for (GOTMiniQuest quest : miniQuests) {
 			if (quest.isActive()) {
 				quest.handleEvent(event);
 			}
@@ -794,8 +794,8 @@ public class GOTPlayerData {
 		return achievements;
 	}
 
-	public List<GOTMQ> getActiveMiniQuests() {
-		return selectMiniQuests(new MQSelector.OptionalActive().setActiveOnly());
+	public List<GOTMiniQuest> getActiveMiniQuests() {
+		return selectMiniQuests(new MiniQuestSelector.OptionalActive().setActiveOnly());
 	}
 
 	public boolean getAdminHideMap() {
@@ -1001,9 +1001,9 @@ public class GOTPlayerData {
 		return 1 + achievements / 20;
 	}
 
-	public GOTMQ getMiniQuestForID(UUID id, boolean completed) {
-		ArrayList<GOTMQ> threadSafe = completed ? new ArrayList<>(miniQuestsCompleted) : new ArrayList<>(miniQuests);
-		for (GOTMQ quest : threadSafe) {
+	public GOTMiniQuest getMiniQuestForID(UUID id, boolean completed) {
+		ArrayList<GOTMiniQuest> threadSafe = completed ? new ArrayList<>(miniQuestsCompleted) : new ArrayList<>(miniQuests);
+		for (GOTMiniQuest quest : threadSafe) {
 			if (quest.questUUID.equals(id)) {
 				return quest;
 			}
@@ -1011,28 +1011,28 @@ public class GOTPlayerData {
 		return null;
 	}
 
-	public List<GOTMQ> getMiniQuests() {
+	public List<GOTMiniQuest> getMiniQuests() {
 		return miniQuests;
 	}
 
-	public List<GOTMQ> getMiniQuestsCompleted() {
+	public List<GOTMiniQuest> getMiniQuestsCompleted() {
 		return miniQuestsCompleted;
 	}
 
-	public List<GOTMQ> getMiniQuestsForEntity(GOTEntityNPC npc, boolean activeOnly) {
+	public List<GOTMiniQuest> getMiniQuestsForEntity(GOTEntityNPC npc, boolean activeOnly) {
 		return getMiniQuestsForEntityID(npc.getUniqueID(), activeOnly);
 	}
 
-	public List<GOTMQ> getMiniQuestsForEntityID(UUID npcID, boolean activeOnly) {
-		MQSelector.EntityId sel = new MQSelector.EntityId(npcID);
+	public List<GOTMiniQuest> getMiniQuestsForEntityID(UUID npcID, boolean activeOnly) {
+		MiniQuestSelector.EntityId sel = new MiniQuestSelector.EntityId(npcID);
 		if (activeOnly) {
 			sel.setActiveOnly();
 		}
 		return selectMiniQuests(sel);
 	}
 
-	public List<GOTMQ> getMiniQuestsForFaction(GOTFaction f, boolean activeOnly) {
-		MQSelector.Faction sel = new MQSelector.Faction(() -> f);
+	public List<GOTMiniQuest> getMiniQuestsForFaction(GOTFaction f, boolean activeOnly) {
+		MiniQuestSelector.Faction sel = new MiniQuestSelector.Faction(() -> f);
 		if (activeOnly) {
 			sel.setActiveOnly();
 		}
@@ -1138,7 +1138,7 @@ public class GOTPlayerData {
 		return ftSinceTick;
 	}
 
-	public GOTMQ getTrackingMiniQuest() {
+	public GOTMiniQuest getTrackingMiniQuest() {
 		if (trackingMiniQuestID == null) {
 			return null;
 		}
@@ -1200,17 +1200,17 @@ public class GOTPlayerData {
 		return false;
 	}
 
-	public boolean hasActiveOrCompleteMQType(Class<? extends GOTMQ> type) {
-		List<GOTMQ> quests = getMiniQuests();
-		List<GOTMQ> questsComplete = getMiniQuestsCompleted();
-		ArrayList<GOTMQ> allQuests = new ArrayList<>();
-		for (GOTMQ q : quests) {
+	public boolean hasActiveOrCompleteMQType(Class<? extends GOTMiniQuest> type) {
+		List<GOTMiniQuest> quests = getMiniQuests();
+		List<GOTMiniQuest> questsComplete = getMiniQuestsCompleted();
+		ArrayList<GOTMiniQuest> allQuests = new ArrayList<>();
+		for (GOTMiniQuest q : quests) {
 			if (q.isActive()) {
 				allQuests.add(q);
 			}
 		}
 		allQuests.addAll(questsComplete);
-		for (GOTMQ q : allQuests) {
+		for (GOTMiniQuest q : allQuests) {
 			if (type.isAssignableFrom(q.getClass())) {
 				return true;
 			}
@@ -1219,7 +1219,7 @@ public class GOTPlayerData {
 	}
 
 	public boolean hasAnyJHQuest() {
-		return hasActiveOrCompleteMQType(GOTMQWelcome.class);
+		return hasActiveOrCompleteMQType(GOTMiniQuestWelcome.class);
 	}
 
 	public boolean hasAnyWaypointsSharedToFellowship(GOTFellowship fs) {
@@ -1436,7 +1436,7 @@ public class GOTPlayerData {
 		NBTTagList miniquestTags = playerData.getTagList("MiniQuests", 10);
 		for (int i = 0; i < miniquestTags.tagCount(); ++i) {
 			NBTTagCompound nbt = miniquestTags.getCompoundTagAt(i);
-			GOTMQ quest = GOTMQ.loadQuestFromNBT(nbt, this);
+			GOTMiniQuest quest = GOTMiniQuest.loadQuestFromNBT(nbt, this);
 			if (quest != null) {
 				miniQuests.add(quest);
 			}
@@ -1445,7 +1445,7 @@ public class GOTPlayerData {
 		NBTTagList miniquestCompletedTags = playerData.getTagList("MiniQuestsCompleted", 10);
 		for (int i = 0; i < miniquestCompletedTags.tagCount(); ++i) {
 			NBTTagCompound nbt = miniquestCompletedTags.getCompoundTagAt(i);
-			GOTMQ quest = GOTMQ.loadQuestFromNBT(nbt, this);
+			GOTMiniQuest quest = GOTMiniQuest.loadQuestFromNBT(nbt, this);
 			if (quest != null) {
 				miniQuestsCompleted.add(quest);
 			}
@@ -1690,8 +1690,8 @@ public class GOTPlayerData {
 		if (trackingMiniQuestID != null && getTrackingMiniQuest() == null) {
 			setTrackingMiniQuest(null);
 		}
-		List<GOTMQ> activeMiniquests = getActiveMiniQuests();
-		for (GOTMQ quest : activeMiniquests) {
+		List<GOTMiniQuest> activeMiniquests = getActiveMiniQuests();
+		for (GOTMiniQuest quest : activeMiniquests) {
 			quest.onPlayerTick(entityplayer);
 		}
 		if (!bountiesPlaced.isEmpty()) {
@@ -1877,8 +1877,8 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void removeMiniQuest(GOTMQ quest, boolean completed) {
-		List<GOTMQ> removeList = completed ? miniQuestsCompleted : miniQuests;
+	public void removeMiniQuest(GOTMiniQuest quest, boolean completed) {
+		List<GOTMiniQuest> removeList = completed ? miniQuestsCompleted : miniQuests;
 		if (removeList.remove(quest)) {
 			markDirty();
 			EntityPlayer entityplayer = getPlayer();
@@ -2159,14 +2159,14 @@ public class GOTPlayerData {
 		}
 		playerData.setInteger("Alcohol", alcoholTolerance);
 		NBTTagList miniquestTags = new NBTTagList();
-		for (GOTMQ quest : miniQuests) {
+		for (GOTMiniQuest quest : miniQuests) {
 			NBTTagCompound nbt7 = new NBTTagCompound();
 			quest.writeToNBT(nbt7);
 			miniquestTags.appendTag(nbt7);
 		}
 		playerData.setTag("MiniQuests", miniquestTags);
 		NBTTagList miniquestCompletedTags = new NBTTagList();
-		for (GOTMQ quest : miniQuestsCompleted) {
+		for (GOTMiniQuest quest : miniQuestsCompleted) {
 			NBTTagCompound nbt8 = new NBTTagCompound();
 			quest.writeToNBT(nbt8);
 			miniquestCompletedTags.appendTag(nbt8);
@@ -2310,10 +2310,10 @@ public class GOTPlayerData {
 		needsSave = false;
 	}
 
-	public List<GOTMQ> selectMiniQuests(MQSelector selector) {
-		ArrayList<GOTMQ> ret = new ArrayList<>();
-		ArrayList<GOTMQ> threadSafe = new ArrayList<>(miniQuests);
-		for (GOTMQ quest : threadSafe) {
+	public List<GOTMiniQuest> selectMiniQuests(MiniQuestSelector selector) {
+		ArrayList<GOTMiniQuest> ret = new ArrayList<>();
+		ArrayList<GOTMiniQuest> threadSafe = new ArrayList<>(miniQuests);
+		for (GOTMiniQuest quest : threadSafe) {
 			if (selector.include(quest)) {
 				ret.add(quest);
 			}
@@ -2398,7 +2398,7 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void sendMiniQuestPacket(EntityPlayerMP entityplayer, GOTMQ quest, boolean completed) throws IOException {
+	public void sendMiniQuestPacket(EntityPlayerMP entityplayer, GOTMiniQuest quest, boolean completed) throws IOException {
 		NBTTagCompound nbt = new NBTTagCompound();
 		quest.writeToNBT(nbt);
 		GOTPacketMiniquest packet = new GOTPacketMiniquest(nbt, completed);
@@ -2427,10 +2427,10 @@ public class GOTPlayerData {
 		for (GOTAchievement achievement : achievements) {
 			sendAchievementPacket(entityplayer, achievement, false);
 		}
-		for (GOTMQ quest : miniQuests) {
+		for (GOTMiniQuest quest : miniQuests) {
 			sendMiniQuestPacket(entityplayer, quest, false);
 		}
-		for (GOTMQ quest : miniQuestsCompleted) {
+		for (GOTMiniQuest quest : miniQuestsCompleted) {
 			sendMiniQuestPacket(entityplayer, quest, true);
 		}
 		for (GOTCustomWaypoint waypoint : customWaypoints) {
@@ -2778,7 +2778,7 @@ public class GOTPlayerData {
 		this.setTimeSinceFT(i, true);
 	}
 
-	public void setTrackingMiniQuest(GOTMQ quest) {
+	public void setTrackingMiniQuest(GOTMiniQuest quest) {
 		setTrackingMiniQuestID(quest == null ? null : quest.questUUID);
 	}
 
@@ -2949,7 +2949,7 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void updateMiniQuest(GOTMQ quest) {
+	public void updateMiniQuest(GOTMiniQuest quest) {
 		markDirty();
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {

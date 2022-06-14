@@ -52,8 +52,8 @@ public class GOTEntityIbbenMan extends GOTEntityHumanBase implements IPickpocket
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.IBBEN.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.IBBEN.createQuest(this);
 	}
 
 	@Override
@@ -88,8 +88,8 @@ public class GOTEntityIbbenMan extends GOTEntityHumanBase implements IPickpocket
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.IBBEN;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.IBBEN;
 	}
 
 	@Override

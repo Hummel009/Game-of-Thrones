@@ -46,8 +46,8 @@ public class GOTEntityNorvosMan extends GOTEntityHumanBase implements IPickpocke
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.NORVOS.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.NORVOS.createQuest(this);
 	}
 
 	@Override
@@ -93,8 +93,8 @@ public class GOTEntityNorvosMan extends GOTEntityHumanBase implements IPickpocke
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.NORVOS;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.NORVOS;
 	}
 
 	@Override

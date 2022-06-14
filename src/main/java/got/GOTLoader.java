@@ -6,7 +6,7 @@ import got.common.enchant.GOTEnchantmentCombining;
 import got.common.entity.GOTEntity;
 import got.common.faction.GOTFaction;
 import got.common.item.GOTPoisonedDrinks;
-import got.common.quest.GOTMQFactory;
+import got.common.quest.GOTMiniQuestFactory;
 import got.common.recipe.*;
 import got.common.tileentity.GOTTileEntityRegistry;
 import got.common.util.GOTModChecker;
@@ -36,7 +36,7 @@ public class GOTLoader {
 		GOTStructure.onInit();
 		GOTRoads.onInit();
 		GOTWalls.onInit();
-		GOTMQFactory.onInit();
+		GOTMiniQuestFactory.onInit();
 		GOTLore.onInit();
 		GOTTitle.onInit();
 		GOTFixer.onInit();

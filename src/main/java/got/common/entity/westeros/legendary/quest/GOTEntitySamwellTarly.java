@@ -41,8 +41,8 @@ public class GOTEntitySamwellTarly extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.SAMWELL.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.SAMWELL.createQuest(this);
 	}
 
 	@Override
@@ -51,8 +51,8 @@ public class GOTEntitySamwellTarly extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.SAMWELL;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.SAMWELL;
 	}
 
 	@Override

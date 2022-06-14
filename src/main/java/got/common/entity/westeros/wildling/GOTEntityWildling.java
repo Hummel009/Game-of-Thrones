@@ -49,8 +49,8 @@ public class GOTEntityWildling extends GOTEntityHumanBase implements IPickpocket
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.WILDLING.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.WILDLING.createQuest(this);
 	}
 
 	@Override
@@ -85,8 +85,8 @@ public class GOTEntityWildling extends GOTEntityHumanBase implements IPickpocket
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.WILDLING;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.WILDLING;
 	}
 
 	@Override

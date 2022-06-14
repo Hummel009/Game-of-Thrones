@@ -10,11 +10,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
 
-public class GOTMQRetrieve extends GOTMQCollect {
+public class GOTMiniQuestRetrieve extends GOTMiniQuestCollect {
 	public Class killEntityType;
 	public boolean hasDropped = false;
 
-	public GOTMQRetrieve(GOTPlayerData pd) {
+	public GOTMiniQuestRetrieve(GOTPlayerData pd) {
 		super(pd);
 	}
 
@@ -37,7 +37,7 @@ public class GOTMQRetrieve extends GOTMQCollect {
 	@Override
 	public boolean isQuestItem(ItemStack itemstack) {
 		if (super.isQuestItem(itemstack)) {
-			UUID retrieveQuestID = GOTMQRetrieve.getRetrieveQuestID(itemstack);
+			UUID retrieveQuestID = GOTMiniQuestRetrieve.getRetrieveQuestID(itemstack);
 			return retrieveQuestID.equals(questUUID);
 		}
 		return false;
@@ -52,7 +52,7 @@ public class GOTMQRetrieve extends GOTMQCollect {
 	public void onKill(EntityPlayer entityplayer, EntityLivingBase entity) {
 		if (!hasDropped && killEntityType.isAssignableFrom(entity.getClass())) {
 			ItemStack itemstack = collectItem.copy();
-			GOTMQRetrieve.setRetrieveQuest(itemstack, this);
+			GOTMiniQuestRetrieve.setRetrieveQuest(itemstack, this);
 			hasDropped = true;
 			updateQuest();
 		}
@@ -80,7 +80,7 @@ public class GOTMQRetrieve extends GOTMQCollect {
 		return null;
 	}
 
-	public static void setRetrieveQuest(ItemStack itemstack, GOTMQ quest) {
+	public static void setRetrieveQuest(ItemStack itemstack, GOTMiniQuest quest) {
 		if (itemstack.getTagCompound() == null) {
 			itemstack.setTagCompound(new NBTTagCompound());
 		}

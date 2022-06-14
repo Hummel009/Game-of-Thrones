@@ -48,8 +48,8 @@ public class GOTEntityStormlandsMan extends GOTEntityHumanBase implements IPickp
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.STORMLANDS.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.STORMLANDS.createQuest(this);
 	}
 
 	@Override
@@ -95,8 +95,8 @@ public class GOTEntityStormlandsMan extends GOTEntityHumanBase implements IPickp
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.STORMLANDS;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.STORMLANDS;
 	}
 
 	@Override

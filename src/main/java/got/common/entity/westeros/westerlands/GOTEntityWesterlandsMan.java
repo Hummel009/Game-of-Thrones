@@ -48,8 +48,8 @@ public class GOTEntityWesterlandsMan extends GOTEntityHumanBase implements IPick
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.WESTERLANDS.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.WESTERLANDS.createQuest(this);
 	}
 
 	@Override
@@ -95,8 +95,8 @@ public class GOTEntityWesterlandsMan extends GOTEntityHumanBase implements IPick
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.WESTERLANDS;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.WESTERLANDS;
 	}
 
 	@Override

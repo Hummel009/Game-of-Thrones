@@ -46,8 +46,8 @@ public class GOTEntityQohorMan extends GOTEntityHumanBase implements IPickpocket
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.QOHOR.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.QOHOR.createQuest(this);
 	}
 
 	@Override
@@ -93,8 +93,8 @@ public class GOTEntityQohorMan extends GOTEntityHumanBase implements IPickpocket
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.QOHOR;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.QOHOR;
 	}
 
 	@Override

@@ -9,10 +9,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.*;
 
-public class GOTMQCollect extends GOTMQCollectBase {
+public class GOTMiniQuestCollect extends GOTMiniQuestCollectBase {
 	public ItemStack collectItem;
 
-	public GOTMQCollect(GOTPlayerData pd) {
+	public GOTMiniQuestCollect(GOTPlayerData pd) {
 		super(pd);
 	}
 
@@ -73,7 +73,7 @@ public class GOTMQCollect extends GOTMQCollectBase {
 		}
 	}
 
-	public static class QFCollect<Q extends GOTMQCollect> extends GOTMQ.QuestFactoryBase<Q> {
+	public static class QFCollect<Q extends GOTMiniQuestCollect> extends GOTMiniQuest.QuestFactoryBase<Q> {
 		public ItemStack collectItem;
 		public int minTarget;
 		public int maxTarget;
@@ -84,7 +84,7 @@ public class GOTMQCollect extends GOTMQCollectBase {
 
 		@Override
 		public Q createQuest(GOTEntityNPC npc, Random rand) {
-			GOTMQCollect quest = super.createQuest(npc, rand);
+			GOTMiniQuestCollect quest = super.createQuest(npc, rand);
 			quest.collectItem = this.collectItem.copy();
 			quest.collectTarget = MathHelper.getRandomIntegerInRange(rand, this.minTarget, this.maxTarget);
 			return (Q) quest;
@@ -92,7 +92,7 @@ public class GOTMQCollect extends GOTMQCollectBase {
 
 		@Override
 		public Class getQuestClass() {
-			return GOTMQCollect.class;
+			return GOTMiniQuestCollect.class;
 		}
 
 		public QFCollect setCollectItem(ItemStack itemstack, int min, int max) {

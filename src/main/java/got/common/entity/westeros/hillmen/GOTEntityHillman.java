@@ -45,8 +45,8 @@ public class GOTEntityHillman extends GOTEntityHumanBase implements IPickpocketa
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.HILLMEN.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.HILLMEN.createQuest(this);
 	}
 
 	@Override
@@ -81,8 +81,8 @@ public class GOTEntityHillman extends GOTEntityHumanBase implements IPickpocketa
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.HILLMEN;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.HILLMEN;
 	}
 
 	@Override

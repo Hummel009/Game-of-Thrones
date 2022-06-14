@@ -9,11 +9,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
 
-public abstract class GOTMQCollectBase extends GOTMQ {
+public abstract class GOTMiniQuestCollectBase extends GOTMiniQuest {
 	public int collectTarget;
 	public int amountGiven;
 
-	public GOTMQCollectBase(GOTPlayerData pd) {
+	public GOTMiniQuestCollectBase(GOTPlayerData pd) {
 		super(pd);
 	}
 

@@ -33,7 +33,7 @@ import got.common.item.*;
 import got.common.item.other.*;
 import got.common.item.weapon.*;
 import got.common.network.*;
-import got.common.quest.GOTMQ;
+import got.common.quest.GOTMiniQuest;
 import got.common.tileentity.GOTTileEntityPlate;
 import got.common.util.*;
 import got.common.world.*;
@@ -890,14 +890,14 @@ public class GOTEventHandler implements IFuelHandler {
 						}
 					}
 					if (!playerData.isSiegeActive()) {
-						List<GOTMQ> miniquests = playerData.getMiniQuests();
-						for (GOTMQ quest : miniquests) {
+						List<GOTMiniQuest> miniquests = playerData.getMiniQuests();
+						for (GOTMiniQuest quest : miniquests) {
 							quest.onKill(entityplayer, entity);
 						}
 						if (entity instanceof EntityPlayer) {
 							EntityPlayer slainPlayer = (EntityPlayer) entity;
-							List<GOTMQ> slainMiniquests = GOTLevelData.getData(slainPlayer).getMiniQuests();
-							for (GOTMQ quest : slainMiniquests) {
+							List<GOTMiniQuest> slainMiniquests = GOTLevelData.getData(slainPlayer).getMiniQuests();
+							for (GOTMiniQuest quest : slainMiniquests) {
 								quest.onKilledByPlayer(slainPlayer, entityplayer);
 							}
 						}

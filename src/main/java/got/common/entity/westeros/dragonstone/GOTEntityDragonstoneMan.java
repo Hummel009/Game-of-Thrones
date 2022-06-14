@@ -52,8 +52,8 @@ public class GOTEntityDragonstoneMan extends GOTEntityHumanBase implements IPick
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.DRAGONSTONE.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.DRAGONSTONE.createQuest(this);
 	}
 
 	@Override
@@ -95,8 +95,8 @@ public class GOTEntityDragonstoneMan extends GOTEntityHumanBase implements IPick
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.DRAGONSTONE;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.DRAGONSTONE;
 	}
 
 	@Override

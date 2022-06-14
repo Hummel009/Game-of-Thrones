@@ -46,8 +46,8 @@ public class GOTEntityMyrMan extends GOTEntityHumanBase implements IPickpocketab
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.MYR.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.MYR.createQuest(this);
 	}
 
 	@Override
@@ -93,8 +93,8 @@ public class GOTEntityMyrMan extends GOTEntityHumanBase implements IPickpocketab
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.MYR;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.MYR;
 	}
 
 	@Override

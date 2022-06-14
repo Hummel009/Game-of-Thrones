@@ -50,8 +50,8 @@ public class GOTEntityGhiscarMan extends GOTEntityHumanBase implements IPickpock
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.GHISCAR.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.GHISCAR.createQuest(this);
 	}
 
 	@Override
@@ -93,8 +93,8 @@ public class GOTEntityGhiscarMan extends GOTEntityHumanBase implements IPickpock
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.GHISCAR;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.GHISCAR;
 	}
 
 	@Override

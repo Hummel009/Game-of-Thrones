@@ -48,8 +48,8 @@ public class GOTEntityRiverlandsMan extends GOTEntityHumanBase implements IPickp
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.RIVERLANDS.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.RIVERLANDS.createQuest(this);
 	}
 
 	@Override
@@ -95,8 +95,8 @@ public class GOTEntityRiverlandsMan extends GOTEntityHumanBase implements IPickp
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.RIVERLANDS;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.RIVERLANDS;
 	}
 
 	@Override

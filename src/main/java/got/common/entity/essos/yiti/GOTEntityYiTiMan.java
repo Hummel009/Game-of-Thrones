@@ -48,8 +48,8 @@ public class GOTEntityYiTiMan extends GOTEntityHumanBase implements IPickpocketa
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.YI_TI.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.YI_TI.createQuest(this);
 	}
 
 	@Override
@@ -95,8 +95,8 @@ public class GOTEntityYiTiMan extends GOTEntityHumanBase implements IPickpocketa
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.YI_TI;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.YI_TI;
 	}
 
 	@Override

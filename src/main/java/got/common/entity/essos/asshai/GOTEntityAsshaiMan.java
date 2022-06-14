@@ -49,8 +49,8 @@ public class GOTEntityAsshaiMan extends GOTEntityHumanBase implements IPickpocke
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.ASSHAI.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.ASSHAI.createQuest(this);
 	}
 
 	@Override
@@ -78,8 +78,8 @@ public class GOTEntityAsshaiMan extends GOTEntityHumanBase implements IPickpocke
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.ASSHAI;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.ASSHAI;
 	}
 
 	@Override

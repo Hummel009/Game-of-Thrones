@@ -9,10 +9,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
 
-public class GOTMQKillEntity extends GOTMQKill {
+public class GOTMiniQuestKillEntity extends GOTMiniQuestKill {
 	public Class entityType;
 
-	public GOTMQKillEntity(GOTPlayerData pd) {
+	public GOTMiniQuestKillEntity(GOTPlayerData pd) {
 		super(pd);
 	}
 
@@ -47,7 +47,7 @@ public class GOTMQKillEntity extends GOTMQKill {
 		nbt.setString("KillClass", GOTEntityRegistry.getStringFromClass(entityType));
 	}
 
-	public static class QFKillEntity extends GOTMQKill.QFKill<GOTMQKillEntity> {
+	public static class QFKillEntity extends GOTMiniQuestKill.QFKill<GOTMiniQuestKillEntity> {
 		public Class entityType;
 
 		public QFKillEntity(String name) {
@@ -55,15 +55,15 @@ public class GOTMQKillEntity extends GOTMQKill {
 		}
 
 		@Override
-		public GOTMQKillEntity createQuest(GOTEntityNPC npc, Random rand) {
-			GOTMQKillEntity quest = super.createQuest(npc, rand);
+		public GOTMiniQuestKillEntity createQuest(GOTEntityNPC npc, Random rand) {
+			GOTMiniQuestKillEntity quest = super.createQuest(npc, rand);
 			quest.entityType = entityType;
 			return quest;
 		}
 
 		@Override
 		public Class getQuestClass() {
-			return GOTMQKillEntity.class;
+			return GOTMiniQuestKillEntity.class;
 		}
 
 		public QFKillEntity setKillEntity(Class entityClass, int min, int max) {

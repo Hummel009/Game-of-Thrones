@@ -50,8 +50,8 @@ public class GOTEntityLysMan extends GOTEntityHumanBase implements IPickpocketab
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.LYS.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.LYS.createQuest(this);
 	}
 
 	@Override
@@ -93,8 +93,8 @@ public class GOTEntityLysMan extends GOTEntityHumanBase implements IPickpocketab
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.LYS;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.LYS;
 	}
 
 	@Override

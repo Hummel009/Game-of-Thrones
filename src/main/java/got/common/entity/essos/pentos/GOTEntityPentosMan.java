@@ -46,8 +46,8 @@ public class GOTEntityPentosMan extends GOTEntityHumanBase implements IPickpocke
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.PENTOS.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.PENTOS.createQuest(this);
 	}
 
 	@Override
@@ -93,8 +93,8 @@ public class GOTEntityPentosMan extends GOTEntityHumanBase implements IPickpocke
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.PENTOS;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.PENTOS;
 	}
 
 	@Override

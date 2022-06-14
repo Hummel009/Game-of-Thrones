@@ -2,7 +2,7 @@ package got.common.network;
 
 import cpw.mods.fml.common.network.simpleimpl.*;
 import got.common.*;
-import got.common.quest.GOTMQEvent;
+import got.common.quest.GOTMiniQuestEvent;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
@@ -40,9 +40,9 @@ public class GOTPacketClientMQEvent implements IMessage {
 			EntityPlayerMP entityplayer = context.getServerHandler().playerEntity;
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 			if (packet.type == ClientMQEvent.MAP) {
-				pd.distributeMQEvent(new GOTMQEvent.ViewMap());
+				pd.distributeMQEvent(new GOTMiniQuestEvent.ViewMap());
 			} else if (packet.type == ClientMQEvent.FACTIONS) {
-				pd.distributeMQEvent(new GOTMQEvent.ViewFactions());
+				pd.distributeMQEvent(new GOTMiniQuestEvent.ViewFactions());
 			}
 			return null;
 		}

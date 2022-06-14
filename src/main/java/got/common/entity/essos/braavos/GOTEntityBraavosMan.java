@@ -50,8 +50,8 @@ public class GOTEntityBraavosMan extends GOTEntityHumanBase implements IPickpock
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.BRAAVOS.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.BRAAVOS.createQuest(this);
 	}
 
 	@Override
@@ -93,8 +93,8 @@ public class GOTEntityBraavosMan extends GOTEntityHumanBase implements IPickpock
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.BRAAVOS;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.BRAAVOS;
 	}
 
 	@Override

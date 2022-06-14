@@ -50,8 +50,8 @@ public class GOTEntityLorathMan extends GOTEntityHumanBase implements IPickpocke
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.LORATH.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.LORATH.createQuest(this);
 	}
 
 	@Override
@@ -93,8 +93,8 @@ public class GOTEntityLorathMan extends GOTEntityHumanBase implements IPickpocke
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.LORATH;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.LORATH;
 	}
 
 	@Override

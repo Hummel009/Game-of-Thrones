@@ -17,10 +17,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.*;
 import net.minecraft.util.*;
 
-public class GOTMQPickpocket extends GOTMQCollectBase {
+public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 	public Set<UUID> pickpocketedEntityIDs = new HashSet<>();
 
-	public GOTMQPickpocket(GOTPlayerData pd) {
+	public GOTMiniQuestPickpocket(GOTPlayerData pd) {
 		super(pd);
 	}
 
@@ -126,7 +126,7 @@ public class GOTMQPickpocket extends GOTMQCollectBase {
 
 	@Override
 	public ItemStack getQuestIcon() {
-		return GOTMQPickpocket.createPickpocketIcon();
+		return GOTMiniQuestPickpocket.createPickpocketIcon();
 	}
 
 	@Override
@@ -296,7 +296,7 @@ public class GOTMQPickpocket extends GOTMQCollectBase {
 		return hat;
 	}
 
-	public static class QFPickpocket<Q extends GOTMQPickpocket> extends GOTMQ.QuestFactoryBase<Q> {
+	public static class QFPickpocket<Q extends GOTMiniQuestPickpocket> extends GOTMiniQuest.QuestFactoryBase<Q> {
 		public int minTarget;
 		public int maxTarget;
 
@@ -306,14 +306,14 @@ public class GOTMQPickpocket extends GOTMQCollectBase {
 
 		@Override
 		public Q createQuest(GOTEntityNPC npc, Random rand) {
-			GOTMQPickpocket quest = super.createQuest(npc, rand);
+			GOTMiniQuestPickpocket quest = super.createQuest(npc, rand);
 			quest.collectTarget = MathHelper.getRandomIntegerInRange(rand, this.minTarget, this.maxTarget);
 			return (Q) quest;
 		}
 
 		@Override
 		public Class getQuestClass() {
-			return GOTMQPickpocket.class;
+			return GOTMiniQuestPickpocket.class;
 		}
 
 		public QFPickpocket setPickpocketNumber(int min, int max) {

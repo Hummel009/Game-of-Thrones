@@ -19,7 +19,7 @@ import got.common.database.GOTRegistry;
 import got.common.faction.*;
 import got.common.fellowship.GOTFellowshipClient;
 import got.common.network.*;
-import got.common.quest.GOTMQ;
+import got.common.quest.GOTMiniQuest;
 import got.common.world.biome.GOTBiome;
 import got.common.world.genlayer.GOTGenLayerWorld;
 import got.common.world.map.*;
@@ -1515,12 +1515,12 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		if (hasOverlay) {
 			return;
 		}
-		GOTMQ mouseOverQuest = null;
+		GOTMiniQuest mouseOverQuest = null;
 		int mouseOverQuestX = 0;
 		int mouseOverQuestY = 0;
 		double distanceMouseOverQuest = Double.MAX_VALUE;
-		List<GOTMQ> quests = GOTLevelData.getData(entityplayer).getActiveMiniQuests();
-		for (GOTMQ quest : quests) {
+		List<GOTMiniQuest> quests = GOTLevelData.getData(entityplayer).getActiveMiniQuests();
+		for (GOTMiniQuest quest : quests) {
 			ChunkCoordinates location = quest.getLastLocation();
 			if (location != null) {
 				float[] pos = this.transformCoords(location.posX, location.posZ);

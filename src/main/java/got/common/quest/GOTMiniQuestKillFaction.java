@@ -10,10 +10,10 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 
-public class GOTMQKillFaction extends GOTMQKill {
+public class GOTMiniQuestKillFaction extends GOTMiniQuestKill {
 	public GOTFaction killFaction;
 
-	public GOTMQKillFaction(GOTPlayerData pd) {
+	public GOTMiniQuestKillFaction(GOTPlayerData pd) {
 		super(pd);
 	}
 
@@ -47,7 +47,7 @@ public class GOTMQKillFaction extends GOTMQKill {
 		nbt.setString("KillFaction", killFaction.codeName());
 	}
 
-	public static class QFKillFaction extends GOTMQKill.QFKill<GOTMQKillFaction> {
+	public static class QFKillFaction extends GOTMiniQuestKill.QFKill<GOTMiniQuestKillFaction> {
 		private GOTFaction killFaction;
 
 		public QFKillFaction(String name) {
@@ -55,15 +55,15 @@ public class GOTMQKillFaction extends GOTMQKill {
 		}
 
 		@Override
-		public GOTMQKillFaction createQuest(GOTEntityNPC npc, Random rand) {
-			GOTMQKillFaction quest = super.createQuest(npc, rand);
+		public GOTMiniQuestKillFaction createQuest(GOTEntityNPC npc, Random rand) {
+			GOTMiniQuestKillFaction quest = super.createQuest(npc, rand);
 			quest.killFaction = killFaction;
 			return quest;
 		}
 
 		@Override
 		public Class getQuestClass() {
-			return GOTMQKillFaction.class;
+			return GOTMiniQuestKillFaction.class;
 		}
 
 		public QFKillFaction setKillFaction(GOTFaction faction, int min, int max) {

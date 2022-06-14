@@ -6,7 +6,7 @@ import cpw.mods.fml.common.network.simpleimpl.*;
 import got.common.*;
 import got.common.GOTDimension.DimensionRegion;
 import got.common.faction.GOTFaction;
-import got.common.quest.GOTMQEvent;
+import got.common.quest.GOTMiniQuestEvent;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
@@ -82,10 +82,10 @@ public class GOTPacketClientInfo implements IMessage {
 				GOTFaction newFac = packet.viewingFaction;
 				pd.setViewingFaction(newFac);
 				if (prevFac != newFac && prevFac.factionRegion == newFac.factionRegion) {
-					pd.distributeMQEvent(new GOTMQEvent.CycleAlignment());
+					pd.distributeMQEvent(new GOTMiniQuestEvent.CycleAlignment());
 				}
 				if (prevFac.factionRegion != newFac.factionRegion) {
-					pd.distributeMQEvent(new GOTMQEvent.CycleAlignmentRegion());
+					pd.distributeMQEvent(new GOTMiniQuestEvent.CycleAlignmentRegion());
 				}
 			}
 			changedRegionMap = packet.changedRegionMap;

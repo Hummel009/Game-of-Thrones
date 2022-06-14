@@ -46,8 +46,8 @@ public class GOTEntitySothoryosMan extends GOTEntityHumanBase implements IPickpo
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.SOTHORYOS.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.SOTHORYOS.createQuest(this);
 	}
 
 	public EntityAIBase createSothoryosAttackAI() {
@@ -86,8 +86,8 @@ public class GOTEntitySothoryosMan extends GOTEntityHumanBase implements IPickpo
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.SOTHORYOS;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.SOTHORYOS;
 	}
 
 	@Override

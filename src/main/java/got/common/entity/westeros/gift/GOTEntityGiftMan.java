@@ -50,8 +50,8 @@ public class GOTEntityGiftMan extends GOTEntityHumanBase implements IPickpocketa
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.GIFT.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.GIFT.createQuest(this);
 	}
 
 	@Override
@@ -83,8 +83,8 @@ public class GOTEntityGiftMan extends GOTEntityHumanBase implements IPickpocketa
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.GIFT;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.GIFT;
 	}
 
 	@Override

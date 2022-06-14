@@ -47,8 +47,8 @@ public class GOTEntitySandorClegane extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.SANDOR.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.SANDOR.createQuest(this);
 	}
 
 	@Override
@@ -63,8 +63,8 @@ public class GOTEntitySandorClegane extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.SANDOR;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.SANDOR;
 	}
 
 	@Override

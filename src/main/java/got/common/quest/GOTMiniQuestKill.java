@@ -10,11 +10,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.*;
 
-public abstract class GOTMQKill extends GOTMQ {
+public abstract class GOTMiniQuestKill extends GOTMiniQuest {
 	public int killTarget;
 	public int killCount;
 
-	public GOTMQKill(GOTPlayerData pd) {
+	public GOTMiniQuestKill(GOTPlayerData pd) {
 		super(pd);
 	}
 
@@ -93,7 +93,7 @@ public abstract class GOTMQKill extends GOTMQ {
 		nbt.setInteger("Count", killCount);
 	}
 
-	public static abstract class QFKill<Q extends GOTMQKill> extends GOTMQ.QuestFactoryBase<Q> {
+	public static abstract class QFKill<Q extends GOTMiniQuestKill> extends GOTMiniQuest.QuestFactoryBase<Q> {
 		public int minTarget;
 		public int maxTarget;
 
@@ -103,7 +103,7 @@ public abstract class GOTMQKill extends GOTMQ {
 
 		@Override
 		public Q createQuest(GOTEntityNPC npc, Random rand) {
-			GOTMQKill quest = super.createQuest(npc, rand);
+			GOTMiniQuestKill quest = super.createQuest(npc, rand);
 			quest.killTarget = MathHelper.getRandomIntegerInRange(rand, this.minTarget, this.maxTarget);
 			return (Q) quest;
 		}

@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
 
-public class GOTMQWelcome extends GOTMQ {
+public class GOTMiniQuestWelcome extends GOTMiniQuest {
 	public static String SPEECHBANK = "legendary/jaqen_quest";
 	public static int STAGE_GET_ITEMS = 1;
 	public static int STAGE_READ_BOOK = 2;
@@ -34,11 +34,11 @@ public class GOTMQWelcome extends GOTMQ {
 	public int stage = 0;
 	public boolean movedOn;
 
-	public GOTMQWelcome(GOTPlayerData pd) {
+	public GOTMiniQuestWelcome(GOTPlayerData pd) {
 		super(pd);
 	}
 
-	public GOTMQWelcome(GOTPlayerData pd, GOTEntityJaqenHghar gandalf) {
+	public GOTMiniQuestWelcome(GOTPlayerData pd, GOTEntityJaqenHghar gandalf) {
 		this(pd);
 		setNPCInfo(gandalf);
 		speechBankStart = "";
@@ -152,38 +152,38 @@ public class GOTMQWelcome extends GOTMQ {
 	}
 
 	@Override
-	public void handleEvent(GOTMQEvent event) {
+	public void handleEvent(GOTMiniQuestEvent event) {
 		switch (stage) {
 		case 2:
-			if (event instanceof GOTMQEvent.OpenRedBook) {
+			if (event instanceof GOTMiniQuestEvent.OpenRedBook) {
 				stage = 3;
 				updateQuest();
 				updateJaqenHghar();
 			}
 			break;
 		case 5:
-			if (event instanceof GOTMQEvent.ViewMap) {
+			if (event instanceof GOTMiniQuestEvent.ViewMap) {
 				stage = 6;
 				updateQuest();
 				updateJaqenHghar();
 			}
 			break;
 		case 8:
-			if (event instanceof GOTMQEvent.CycleAlignment) {
+			if (event instanceof GOTMiniQuestEvent.CycleAlignment) {
 				stage = 9;
 				updateQuest();
 				updateJaqenHghar();
 			}
 			break;
 		case 9:
-			if (event instanceof GOTMQEvent.CycleAlignmentRegion) {
+			if (event instanceof GOTMiniQuestEvent.CycleAlignmentRegion) {
 				stage = 10;
 				updateQuest();
 				updateJaqenHghar();
 			}
 			break;
 		case 11:
-			if (event instanceof GOTMQEvent.ViewFactions) {
+			if (event instanceof GOTMiniQuestEvent.ViewFactions) {
 				stage = 12;
 				updateQuest();
 				updateJaqenHghar();
@@ -340,10 +340,10 @@ public class GOTMQWelcome extends GOTMQ {
 	public static boolean[] forceMenuMapFactions(EntityPlayer entityplayer) {
 		boolean[] flags = { false, false };
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-		List<GOTMQ> activeQuests = pd.getActiveMiniQuests();
-		for (GOTMQ quest : activeQuests) {
-			if (quest instanceof GOTMQWelcome) {
-				GOTMQWelcome qw = (GOTMQWelcome) quest;
+		List<GOTMiniQuest> activeQuests = pd.getActiveMiniQuests();
+		for (GOTMiniQuest quest : activeQuests) {
+			if (quest instanceof GOTMiniQuestWelcome) {
+				GOTMiniQuestWelcome qw = (GOTMiniQuestWelcome) quest;
 				switch (qw.stage) {
 				case 5:
 					flags[0] = true;

@@ -38,9 +38,9 @@ public class GOTEntityJaqenHghar extends GOTEntityHumanBase {
 	}
 
 	public boolean addMQOfferFor(EntityPlayer entityplayer) {
-		GOTMQWelcome quest;
+		GOTMiniQuestWelcome quest;
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-		if (pd.getMiniQuestsForEntity(this, true).isEmpty() && ((GOTMQ) (quest = new GOTMQWelcome(null, this))).canPlayerAccept(entityplayer)) {
+		if (pd.getMiniQuestsForEntity(this, true).isEmpty() && ((GOTMiniQuest) (quest = new GOTMiniQuestWelcome(null, this))).canPlayerAccept(entityplayer)) {
 			questInfo.setPlayerSpecificOffer(entityplayer, quest);
 			return true;
 		}

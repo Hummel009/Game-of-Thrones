@@ -45,8 +45,8 @@ public class GOTEntitySummerMan extends GOTEntityHumanBase implements IPickpocke
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.SUMMER.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.SUMMER.createQuest(this);
 	}
 
 	public EntityAIBase createSummerAttackAI() {
@@ -85,8 +85,8 @@ public class GOTEntitySummerMan extends GOTEntityHumanBase implements IPickpocke
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.SUMMER;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.SUMMER;
 	}
 
 	@Override

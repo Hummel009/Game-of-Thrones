@@ -52,8 +52,8 @@ public class GOTEntityCrownlandsMan extends GOTEntityHumanBase implements IPickp
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.CROWNLANDS.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.CROWNLANDS.createQuest(this);
 	}
 
 	@Override
@@ -95,8 +95,8 @@ public class GOTEntityCrownlandsMan extends GOTEntityHumanBase implements IPickp
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.CROWNLANDS;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.CROWNLANDS;
 	}
 
 	@Override

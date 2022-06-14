@@ -15,7 +15,7 @@ import got.common.faction.*;
 import got.common.inventory.*;
 import got.common.item.other.*;
 import got.common.network.*;
-import got.common.quest.GOTMQ;
+import got.common.quest.GOTMiniQuest;
 import got.common.tileentity.*;
 import got.common.util.GOTReflection;
 import got.common.world.map.*;
@@ -68,7 +68,7 @@ public class GOTCommonProxy implements IGuiHandler {
 	public void displayMessage(GOTGuiMessageTypes message) {
 	}
 
-	public void displayMiniquestOffer(GOTMQ quest, GOTEntityNPC npc) {
+	public void displayMiniquestOffer(GOTMiniQuest quest, GOTEntityNPC npc) {
 	}
 
 	public void displayNewDate() {
@@ -804,7 +804,7 @@ public class GOTCommonProxy implements IGuiHandler {
 	public void setMapIsOp(boolean isOp) {
 	}
 
-	public void setTrackedQuest(GOTMQ quest) {
+	public void setTrackedQuest(GOTMiniQuest quest) {
 	}
 
 	public void setWaypointModes(boolean showWP, boolean showCWP, boolean showHiddenSWP) {

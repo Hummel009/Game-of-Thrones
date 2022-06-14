@@ -16,7 +16,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.*;
 
-public class GOTMQBounty extends GOTMQ {
+public class GOTMiniQuestBounty extends GOTMiniQuest {
 	public UUID targetID;
 	public String targetName;
 	public boolean killed;
@@ -25,7 +25,7 @@ public class GOTMQBounty extends GOTMQ {
 	public boolean bountyClaimedByOther;
 	public boolean killedByBounty;
 
-	public GOTMQBounty(GOTPlayerData pd) {
+	public GOTMiniQuestBounty(GOTPlayerData pd) {
 		super(pd);
 	}
 
@@ -33,9 +33,9 @@ public class GOTMQBounty extends GOTMQ {
 	public boolean canPlayerAccept(EntityPlayer entityplayer) {
 		if (super.canPlayerAccept(entityplayer) && !targetID.equals(entityplayer.getUniqueID()) && GOTLevelData.getData(entityplayer).getAlignment(entityFaction) >= 100.0f) {
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-			List<GOTMQ> active = pd.getActiveMiniQuests();
-			for (GOTMQ quest : active) {
-				if (!(quest instanceof GOTMQBounty) || !((GOTMQBounty) quest).targetID.equals(targetID)) {
+			List<GOTMiniQuest> active = pd.getActiveMiniQuests();
+			for (GOTMiniQuest quest : active) {
+				if (!(quest instanceof GOTMiniQuestBounty) || !((GOTMiniQuestBounty) quest).targetID.equals(targetID)) {
 					continue;
 				}
 				return false;
@@ -327,7 +327,7 @@ public class GOTMQBounty extends GOTMQ {
 		}
 	}
 
-	public static class QFBounty<Q extends GOTMQBounty> extends GOTMQ.QuestFactoryBase<Q> {
+	public static class QFBounty<Q extends GOTMiniQuestBounty> extends GOTMiniQuest.QuestFactoryBase<Q> {
 		public QFBounty(String name) {
 			super(name);
 		}
@@ -337,7 +337,7 @@ public class GOTMQBounty extends GOTMQ {
 			if (!GOTConfig.allowBountyQuests) {
 				return null;
 			}
-			GOTMQBounty quest = super.createQuest(npc, rand);
+			GOTMiniQuestBounty quest = super.createQuest(npc, rand);
 			GOTFaction faction = npc.getFaction();
 			GOTFactionBounties bounties = GOTFactionBounties.forFaction(faction);
 			List<GOTFactionBounties.PlayerData> players = bounties.findBountyTargets(25);
@@ -364,7 +364,7 @@ public class GOTMQBounty extends GOTMQ {
 
 		@Override
 		public Class getQuestClass() {
-			return GOTMQBounty.class;
+			return GOTMiniQuestBounty.class;
 		}
 	}
 

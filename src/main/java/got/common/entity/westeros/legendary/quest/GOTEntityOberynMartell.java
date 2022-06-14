@@ -46,8 +46,8 @@ public class GOTEntityOberynMartell extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMQ createMiniQuest() {
-		return GOTMQFactory.OBERYN.createQuest(this);
+	public GOTMiniQuest createMiniQuest() {
+		return GOTMiniQuestFactory.OBERYN.createQuest(this);
 	}
 
 	@Override
@@ -63,8 +63,8 @@ public class GOTEntityOberynMartell extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTMQFactory getBountyHelpSpeechDir() {
-		return GOTMQFactory.OBERYN;
+	public GOTMiniQuestFactory getBountyHelpSpeechDir() {
+		return GOTMiniQuestFactory.OBERYN;
 	}
 
 	@Override
