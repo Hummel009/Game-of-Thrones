@@ -1110,7 +1110,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		riverlandsHills = new GOTBiomeWesterosForest(111, true).setIsSeasonalWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x4C822A).setBiomeName("riverlandsHills");
 		shadowLand = new GOTBiomeShadowLand(112, true).setMinMaxHeight(0.1f, 0.15f).setTemperatureRainfall(1.0f, 0.2f).setColor(0x8E8854).setBiomeName("shadowLand");
 		shadowMountains = new GOTBiomeShadowMountains(113, true).setMinMaxHeight(2.0f, 2.0f).setTemperatureRainfall(1.0f, 0.2f).setColor(0x635E3B).setBiomeName("shadowMountains");
-		shadowTown = new GOTBiomeShadowTown(114, true).setMinMaxHeight(0.1f, 0.0f).setTemperatureRainfall(1.0f, 0.2f).setColor(0x8C8340).setBiomeName("shadowTown");
+		shadowTown = new GOTBiomeShadowTown(114, true).setMinMaxHeight(0.1f, 0.15f).setTemperatureRainfall(1.0f, 0.2f).setColor(0x8C8340).setBiomeName("shadowTown");
 		ulos = new GOTBiomeUlos(115, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x2B4819).setBiomeName("ulos");
 		skagos = new GOTBiomeSkagos(116, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x94AF67).setBiomeName("skagos");
 		sothoryosBushland = new GOTBiomeSothoryosBushland(118, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x998F3D).setBiomeName("sothoryosBushland");

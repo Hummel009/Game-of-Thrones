@@ -9,6 +9,7 @@ CHANGELOG
 * Improved chest contents in all the world
 * Improved andesite, rhyolite & basalt sets textures
 * Improved Asshai City, improved a few Asshai structures
+* Improved Asshai landspcape
 
 * Fixed bug with 25% of spawning a wrong structure at waypoint
 * Fixed bug with slaves speechbank
