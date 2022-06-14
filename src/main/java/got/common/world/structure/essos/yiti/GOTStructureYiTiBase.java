@@ -79,7 +79,7 @@ public abstract class GOTStructureYiTiBase extends GOTStructureBase {
 	}
 
 	public ItemStack getFramedItem(Random random) {
-		ItemStack[] items = { new ItemStack(GOTRegistry.yitiHelmet), new ItemStack(GOTRegistry.yitiChestplate), new ItemStack(GOTRegistry.yitiLeggings), new ItemStack(GOTRegistry.yitiBoots), new ItemStack(GOTRegistry.yitiHelmetSamurai), new ItemStack(GOTRegistry.yitiChestplateSamurai), new ItemStack(GOTRegistry.yitiLeggingsSamurai), new ItemStack(GOTRegistry.yitiBootsSamurai), new ItemStack(GOTRegistry.yitiDagger), new ItemStack(GOTRegistry.yitiSword), new ItemStack(GOTRegistry.yitiBattleaxe), new ItemStack(GOTRegistry.yitiSpear), new ItemStack(GOTRegistry.yitiBow), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTRegistry.gobletGold), new ItemStack(GOTRegistry.gobletSilver), new ItemStack(GOTRegistry.mug), new ItemStack(GOTRegistry.goldRing) };
+		ItemStack[] items = { new ItemStack(GOTRegistry.yitiHelmet), new ItemStack(GOTRegistry.yitiChestplate), new ItemStack(GOTRegistry.yitiLeggings), new ItemStack(GOTRegistry.yitiBoots), new ItemStack(GOTRegistry.yitiHelmetSamurai), new ItemStack(GOTRegistry.yitiChestplateSamurai), new ItemStack(GOTRegistry.yitiLeggingsSamurai), new ItemStack(GOTRegistry.yitiBootsSamurai), new ItemStack(GOTRegistry.yitiDagger), new ItemStack(GOTRegistry.yitiSword), new ItemStack(GOTRegistry.yitiBattleaxe), new ItemStack(GOTRegistry.yitiSpear), new ItemStack(GOTRegistry.yitiBow), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTRegistry.gobletSilver), new ItemStack(GOTRegistry.mug), new ItemStack(GOTRegistry.goldRing) };
 		return items[random.nextInt(items.length)].copy();
 	}
 

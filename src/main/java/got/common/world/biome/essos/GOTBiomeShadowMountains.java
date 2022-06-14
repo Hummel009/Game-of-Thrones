@@ -30,7 +30,7 @@ public class GOTBiomeShadowMountains extends GOTBiome {
 		spawnableCreatureList.clear();
 		addBiomeVariant(GOTBiomeVariant.MOUNTAIN);
 		decorator.biomeOreFactor = 2.0f;
-		decorator.biomeGemFactor = 1.5f;
+		decorator.biomeGemFactor = 2.0f;
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
 		decorator.clearTrees();

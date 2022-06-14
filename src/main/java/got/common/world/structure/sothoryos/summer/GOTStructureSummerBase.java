@@ -36,7 +36,7 @@ public abstract class GOTStructureSummerBase extends GOTStructureBase {
 	}
 
 	public ItemStack getFramedItem(Random random) {
-		ItemStack[] items = { new ItemStack(GOTRegistry.summerHelmet), new ItemStack(GOTRegistry.summerChestplate), new ItemStack(GOTRegistry.summerLeggings), new ItemStack(GOTRegistry.summerBoots), new ItemStack(GOTRegistry.summerDagger), new ItemStack(GOTRegistry.summerSword), new ItemStack(GOTRegistry.summerSpear), new ItemStack(GOTRegistry.summerPike), new ItemStack(GOTRegistry.essosBow), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTRegistry.gobletGold), new ItemStack(GOTRegistry.gobletSilver), new ItemStack(GOTRegistry.mug), new ItemStack(GOTRegistry.ceramicMug), new ItemStack(GOTRegistry.goldRing), new ItemStack(GOTRegistry.silverRing), new ItemStack(GOTRegistry.doubleFlower, 1, 2), new ItemStack(GOTRegistry.doubleFlower, 1, 3) };
+		ItemStack[] items = { new ItemStack(GOTRegistry.summerHelmet), new ItemStack(GOTRegistry.summerChestplate), new ItemStack(GOTRegistry.summerLeggings), new ItemStack(GOTRegistry.summerBoots), new ItemStack(GOTRegistry.summerDagger), new ItemStack(GOTRegistry.summerSword), new ItemStack(GOTRegistry.summerSpear), new ItemStack(GOTRegistry.summerPike), new ItemStack(GOTRegistry.essosBow), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTRegistry.gobletSilver), new ItemStack(GOTRegistry.mug), new ItemStack(GOTRegistry.ceramicMug), new ItemStack(GOTRegistry.goldRing), new ItemStack(GOTRegistry.silverRing), new ItemStack(GOTRegistry.doubleFlower, 1, 2), new ItemStack(GOTRegistry.doubleFlower, 1, 3) };
 		return items[random.nextInt(items.length)].copy();
 	}
 

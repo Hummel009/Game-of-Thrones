@@ -4,7 +4,7 @@ import java.util.Random;
 
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
-import got.common.database.GOTAchievement;
+import got.common.database.*;
 import got.common.entity.animal.GOTEntityShadowcat;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
@@ -15,6 +15,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.gen.feature.WorldGenMinable;
 
 public class GOTBiomeFrostfangs extends GOTBiome {
 	public GOTBiomeFrostfangs(int i, boolean major) {
@@ -23,7 +24,10 @@ public class GOTBiomeFrostfangs extends GOTBiome {
 		fillerBlock = Blocks.packed_ice;
 		addBiomeVariant(GOTBiomeVariant.MOUNTAIN);
 		decorator.clearTrees();
-		decorator.biomeGemFactor = 1.0f;
+		decorator.biomeOreFactor = 2.0f;
+		decorator.biomeGemFactor = 2.0f;
+		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
+		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
 		npcSpawnList.clear();
 		registerMountainsFlowers();
 		spawnableCreatureList.clear();

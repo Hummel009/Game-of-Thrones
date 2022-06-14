@@ -80,21 +80,23 @@ public class GOTBiomeDecorator {
 		addSoil(new WorldGenMinable(GOTRegistry.rock, 6, 12, Blocks.stone), 30.0f, 0, 64);
 		addOre(new WorldGenMinable(GOTRegistry.oreCopper, 8), 15.0f, 0, 128);
 		addOre(new WorldGenMinable(GOTRegistry.oreTin, 8), 15.0f, 0, 128);
-		addOre(new WorldGenMinable(GOTRegistry.oreSilver, 3), 4.0f, 0, 32);
-		addOre(new WorldGenMinable(Blocks.gold_ore, 3), 1.0f, 0, 32);
+		
+		addOre(new WorldGenMinable(GOTRegistry.oreSilver, 5), 8.0f, 0, 32);
+		addOre(new WorldGenMinable(Blocks.gold_ore, 4), 2.0f, 0, 32);
+		
 		addOre(new WorldGenMinable(Blocks.coal_ore, 16), 40.0f, 0, 128);
 		addOre(new WorldGenMinable(Blocks.iron_ore, 8), 20.0f, 0, 64);
 		addOre(new WorldGenMinable(GOTRegistry.oreSulfur, 8), 2.0f, 0, 64);
 		addOre(new WorldGenMinable(GOTRegistry.oreSaltpeter, 8), 2.0f, 0, 64);
 		addOre(new WorldGenMinable(GOTRegistry.oreSalt, 12), 2.0f, 0, 64);
-		addGem(new WorldGenMinable(GOTRegistry.oreGem, 1, 6, Blocks.stone), 2.0f, 0, 64);
 		addGem(new WorldGenMinable(GOTRegistry.oreGem, 0, 6, Blocks.stone), 2.0f, 0, 64);
-		addGem(new WorldGenMinable(GOTRegistry.oreGem, 4, 5, Blocks.stone), 1.5f, 0, 48);
-		addGem(new WorldGenMinable(GOTRegistry.oreGem, 6, 5, Blocks.stone), 1.5f, 0, 48);
+		addGem(new WorldGenMinable(GOTRegistry.oreGem, 1, 6, Blocks.stone), 2.0f, 0, 64);
 		addGem(new WorldGenMinable(GOTRegistry.oreGem, 2, 4, Blocks.stone), 1.0f, 0, 32);
 		addGem(new WorldGenMinable(GOTRegistry.oreGem, 3, 4, Blocks.stone), 1.0f, 0, 32);
-		addGem(new WorldGenMinable(GOTRegistry.oreGem, 7, 4, Blocks.stone), 0.75f, 0, 24);
+		addGem(new WorldGenMinable(GOTRegistry.oreGem, 4, 5, Blocks.stone), 1.5f, 0, 48);
 		addGem(new WorldGenMinable(GOTRegistry.oreGem, 5, 4, Blocks.stone), 0.5f, 0, 16);
+		addGem(new WorldGenMinable(GOTRegistry.oreGem, 6, 5, Blocks.stone), 1.5f, 0, 48);
+		addGem(new WorldGenMinable(GOTRegistry.oreGem, 7, 4, Blocks.stone), 0.75f, 0, 24);
 	}
 
 	public void addFixedVillage(GOTVillageGen village) {

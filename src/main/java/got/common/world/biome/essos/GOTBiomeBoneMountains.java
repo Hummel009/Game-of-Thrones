@@ -29,8 +29,9 @@ public class GOTBiomeBoneMountains extends GOTBiome {
 		this.addBiomeVariant(GOTBiomeVariant.FOREST_PINE, 0.2f);
 		this.addBiomeVariant(GOTBiomeVariant.FOREST_MAPLE, 0.2f);
 		decorator.biomeOreFactor = 2.0f;
-		decorator.biomeGemFactor = 1.5f;
+		decorator.biomeGemFactor = 2.0f;
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
+		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
 		decorator.treesPerChunk = 1;
 		decorator.flowersPerChunk = 1;
 		decorator.grassPerChunk = 8;

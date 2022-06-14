@@ -13,7 +13,7 @@ public class GOTBiomeWesterlandsHills extends GOTBiomeWesterlands {
 		super(i, major);
 		npcSpawnList.clear();
 		decorator.clearVillages();
-		decorator.addOre(new WorldGenMinable(Blocks.gold_ore, 3), 2.0f, 0, 128);
+		decorator.addOre(new WorldGenMinable(Blocks.gold_ore, 4), 4.0f, 0, 128);
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityLion.class, 2, 1, 1));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityLioness.class, 2, 1, 1));
 	}

@@ -36,7 +36,6 @@ public class GOTBiomeSothoryosJungle extends GOTBiome {
 		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
 		this.addBiomeVariant(GOTBiomeVariant.HILLS);
 		this.addBiomeVariant(GOTBiomeVariant.MOUNTAIN);
-		decorator.addOre(new WorldGenMinable(Blocks.gold_ore, 4), 3.0f, 0, 48);
 		decorator.addGem(new WorldGenMinable(GOTRegistry.oreGem, 4, 8, Blocks.stone), 3.0f, 0, 48);
 		decorator.treesPerChunk = 40;
 		decorator.flowersPerChunk = 4;
