@@ -6,6 +6,7 @@ import java.util.*;
 import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.event.*;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 import got.common.*;
 import got.common.block.leaves.*;
 import got.common.block.other.*;
@@ -131,6 +132,45 @@ public class GOT {
 		GOTRegistry.blockGem.setHarvestLevel(pickaxe, 0, 8);
 		GOTRegistry.redClay.setHarvestLevel(shovel, 0);
 		GOTLoader.onInit();
+	}
+
+	@Mod.EventHandler
+	public void onMissingMappings(FMLMissingMappingsEvent event) {
+		for (FMLMissingMappingsEvent.MissingMapping mapping : event.get()) {
+			Item item;
+			Block block;
+			String newName;
+			if (mapping.type == GameRegistry.Type.BLOCK) {
+				if (mapping.name.contains("Carnotite")) {
+					newName = mapping.name.replace("Carnotite", "Labradorite");
+					block = (Block) Block.blockRegistry.getObject(newName);
+					if (block != null) {
+						mapping.remap(block);
+					}
+				} else if (mapping.name.contains("carnotite")) {
+					newName = mapping.name.replace("carnotite", "labradorite");
+					block = (Block) Block.blockRegistry.getObject(newName);
+					if (block != null) {
+						mapping.remap(block);
+					}
+				}
+			}
+			if (mapping.type == GameRegistry.Type.ITEM) {
+				if (mapping.name.contains("Carnotite")) {
+					newName = mapping.name.replace("Carnotite", "Labradorite");
+					item = (Item) Item.itemRegistry.getObject(newName);
+					if (item != null) {
+						mapping.remap(item);
+					}
+				} else if (mapping.name.contains("carnotite")) {
+					newName = mapping.name.replace("carnotite", "labradorite");
+					item = (Item) Item.itemRegistry.getObject(newName);
+					if (item != null) {
+						mapping.remap(item);
+					}
+				}
+			}
+		}
 	}
 
 	@Mod.EventHandler

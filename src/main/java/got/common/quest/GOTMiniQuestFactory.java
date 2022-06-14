@@ -22,19 +22,14 @@ import net.minecraft.item.ItemStack;
 public enum GOTMiniQuestFactory {
 	CRIMINAL(true), IBBEN(true), SUMMER(true), SOTHORYOS(true), ASSHAI(true), WILDLING(true), MOSSOVY(true), HOWLAND, BALON, DAENERYS, VARYS, OBERYN, STANNIS, JONSNOW, RENLY, KITRA, BUGAI, TYRION, CERSEI, RAMSAY, SANDOR, MELISANDRA, DORAN, MARGAERY, ELLARYA, ARYA, OLENNA, SAMWELL, LYSA, CATELYN, DAVEN, ARIANNE, MELLARIO, NORTH(true), RIVERLANDS(true), DORNE(true), REACH(true), STORMLANDS(true), IRONBORN(true), WESTERLANDS(true), ARRYN(true), CROWNLANDS(true), DRAGONSTONE(true), GIFT(true), HILLMEN(true), BRAAVOS(true), LORATH(true), NORVOS(true), QOHOR(true), PENTOS(true), LYS(true), MYR(true), TYROSH(true), VOLANTIS(true), GHISCAR(true), QARTH(true), LHAZAR(true), YI_TI(true), DOTHRAKI(true), JOGOS(true);
 
-	public static Random rand;
-	public static Map<Class<? extends GOTMiniQuest>, Integer> questClassWeights;
-	static {
-		rand = new Random();
-		questClassWeights = new HashMap<>();
-	}
+	public static Random rand = new Random();
+	public static Map<Class<? extends GOTMiniQuest>, Integer> questClassWeights = new HashMap<>();
 	public String baseName;
 	public GOTMiniQuestFactory baseSpeechGroup;
 	public Map<Class<? extends GOTMiniQuest>, List<GOTMiniQuest.QuestFactoryBase>> questFactories = new HashMap<>();
 	public GOTAchievement questAchievement;
 	public List<GOTLore.LoreCategory> loreCategories = new ArrayList<>();
 	public GOTFaction alignmentRewardOverride;
-
 	public boolean noAlignRewardForEnemy = false;
 
 	GOTMiniQuestFactory() {
@@ -178,12 +173,13 @@ public enum GOTMiniQuestFactory {
 
 	public static GOTFaction getRandomEnemy(GOTFaction owner) {
 		ArrayList<GOTFaction> enemies = new ArrayList<>();
+		Random amogus = new Random();
 		for (GOTFaction fac : GOTFaction.values()) {
 			if (owner.isBadRelation(fac) && fac != GOTFaction.WHITE_WALKER && fac != GOTFaction.HOSTILE && fac != GOTFaction.UNALIGNED) {
 				enemies.add(fac);
 			}
 		}
-		return enemies.get(rand.nextInt(enemies.size()));
+		return enemies.get(amogus.nextInt(enemies.size()));
 	}
 
 	public static int getTotalQuestClassWeight(GOTMiniQuestFactory factory) {
@@ -201,9 +197,9 @@ public enum GOTMiniQuestFactory {
 
 	public static void onInit() {
 		GOTMiniQuestFactory.registerQuestClass(GOTMiniQuestCollect.class, 10);
-		GOTMiniQuestFactory.registerQuestClass(GOTMiniQuestPickpocket.class, 6);
-		GOTMiniQuestFactory.registerQuestClass(GOTMiniQuestKill.class, 8);
-		GOTMiniQuestFactory.registerQuestClass(GOTMiniQuestBounty.class, 4);
+		GOTMiniQuestFactory.registerQuestClass(GOTMiniQuestPickpocket.class, 5);
+		GOTMiniQuestFactory.registerQuestClass(GOTMiniQuestKill.class, 3);
+		GOTMiniQuestFactory.registerQuestClass(GOTMiniQuestBounty.class, 2);
 		BALON.addQuest(new GOTMiniQuestKillEntity.QFKillEntity("balon").setKillEntity(GOTEntityEuronGreyjoy.class, 1, 1).setRewardFactor(100.0f).setIsLegendary());
 		VARYS.addQuest(new GOTMiniQuestKillEntity.QFKillEntity("varys").setKillEntity(GOTEntityDaenerysTargaryen.class, 1, 1).setRewardFactor(100.0f).setIsLegendary());
 		OBERYN.addQuest(new GOTMiniQuestKillEntity.QFKillEntity("oberyn").setKillEntity(GOTEntityGeroldDayne.class, 1, 1).setRewardFactor(100.0f).setIsLegendary());
