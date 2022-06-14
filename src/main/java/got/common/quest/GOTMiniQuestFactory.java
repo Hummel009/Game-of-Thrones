@@ -179,7 +179,7 @@ public enum GOTMiniQuestFactory {
 	public static GOTFaction getRandomEnemy(GOTFaction owner) {
 		ArrayList<GOTFaction> enemies = new ArrayList<>();
 		for (GOTFaction fac : GOTFaction.values()) {
-			if (owner.isBadRelation(fac) && fac != GOTFaction.WHITE_WALKER) {
+			if (owner.isBadRelation(fac) && fac != GOTFaction.WHITE_WALKER && fac != GOTFaction.HOSTILE && fac != GOTFaction.UNALIGNED) {
 				enemies.add(fac);
 			}
 		}

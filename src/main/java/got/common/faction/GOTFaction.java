@@ -19,11 +19,8 @@ import net.minecraft.world.World;
 public enum GOTFaction {
 	WHITE_WALKER(0x8ddaf8, DimensionRegion.WESTEROS, new GOTMapRegion(550, 550, 500)), WILDLING(0x749987, DimensionRegion.WESTEROS, new GOTMapRegion(615, 520, 200)), NIGHT_WATCH(0x282728, DimensionRegion.WESTEROS, new GOTMapRegion(750, 670, 150)), NORTH(0xc6cfd0, DimensionRegion.WESTEROS, new GOTMapRegion(670, 930, 400)), IRONBORN(0x4b483a, DimensionRegion.WESTEROS, new GOTMapRegion(349, 1323, 129)), WESTERLANDS(0x7c0a02, DimensionRegion.WESTEROS, new GOTMapRegion(485, 1540, 200)), RIVERLANDS(0x146f69, DimensionRegion.WESTEROS, new GOTMapRegion(675, 1437, 215)), HILL_TRIBES(0x4D3C36, DimensionRegion.WESTEROS, new GOTMapRegion(842, 1329, 176)), ARRYN(3511475, DimensionRegion.WESTEROS, new GOTMapRegion(842, 1329, 176)), DRAGONSTONE(0x555555, DimensionRegion.WESTEROS, new GOTMapRegion(923, 1549, 40)), CROWNLANDS(0x593800, DimensionRegion.WESTEROS, new GOTMapRegion(876, 1566, 168)), STORMLANDS(0x4f666a, DimensionRegion.WESTEROS, new GOTMapRegion(820, 1865, 218)), REACH(0x288f28, DimensionRegion.WESTEROS, new GOTMapRegion(500, 1820, 293)), DORNE(0xbe8130, DimensionRegion.WESTEROS, new GOTMapRegion(717, 2011, 300)), BRAAVOS(0x7a4440, DimensionRegion.WEST_ESSOS, new GOTMapRegion(1221, 1351, 137)), VOLANTIS(0x672F81, DimensionRegion.WEST_ESSOS, new GOTMapRegion(1553, 1928, 210)), PENTOS(0xafb170, DimensionRegion.WEST_ESSOS, new GOTMapRegion(1234, 1566, 172)), NORVOS(0x8E5B5E, DimensionRegion.WEST_ESSOS, new GOTMapRegion(1437, 1468, 201)), LORATH(0x498874, DimensionRegion.WEST_ESSOS, new GOTMapRegion(1379, 1354, 119)), QOHOR(0xceac64, DimensionRegion.WEST_ESSOS, new GOTMapRegion(1590, 1594, 214)), LYS(0x43C182, DimensionRegion.WEST_ESSOS, new GOTMapRegion(1204, 2053, 65)), MYR(7250085, DimensionRegion.WEST_ESSOS, new GOTMapRegion(1325, 1797, 223)), TYROSH(0x6678A4, DimensionRegion.WEST_ESSOS, new GOTMapRegion(1110, 1876, 52)), GHISCAR(0xC1963A, DimensionRegion.WEST_ESSOS, new GOTMapRegion(2115, 2180, 347)), QARTH(8536951, DimensionRegion.WEST_ESSOS, new GOTMapRegion(2750, 2277, 221)), LHAZAR(0xB5AA46, DimensionRegion.WEST_ESSOS, new GOTMapRegion(2510, 1910, 175)), DOTHRAKI(0x814b23, DimensionRegion.WEST_ESSOS, new GOTMapRegion(2270, 1670, 600)), IBBEN(0x326322, DimensionRegion.EAST_ESSOS, new GOTMapRegion(2761, 1052, 252)), JOGOS(0x748234, DimensionRegion.EAST_ESSOS, new GOTMapRegion(3369, 1651, 460)), MOSSOVY(0x4d6851, DimensionRegion.EAST_ESSOS, new GOTMapRegion(4056, 1480, 400)), YI_TI(0xBF8F00, DimensionRegion.EAST_ESSOS, new GOTMapRegion(3350, 2200, 350)), ASSHAI(0x28222e, DimensionRegion.EAST_ESSOS, new GOTMapRegion(4098, 2331, 644)), SOTHORYOS(0x6f723b, DimensionRegion.OTHER, new GOTMapRegion(2375, 3540, 1084)), SUMMER_ISLANDS(0x933C3C, DimensionRegion.OTHER, new GOTMapRegion(1228, 2716, 310)), ULTHOS(0x2B3F19, DimensionRegion.OTHER, new GOTMapRegion(4800, 3011, 2000)), HOSTILE(true, -1), UNALIGNED(false, 0);
 
-	public static Random factionRand;
+	public static Random factionRand = new Random();
 	public static int CONTROL_ZONE_EXTRA_RANGE = 50;
-	static {
-		factionRand = new Random();
-	}
 	public GOTDimension factionDimension;
 	public GOTDimension.DimensionRegion factionRegion;
 	public Color factionColor;
@@ -41,7 +38,6 @@ public enum GOTFaction {
 	public boolean isolationist = false;
 	public int eggColor;
 	public boolean approvesWarCrimes = false;
-
 	public List<String> legacyAliases = new ArrayList<>();
 
 	GOTFaction(boolean registry, int alignment) {
