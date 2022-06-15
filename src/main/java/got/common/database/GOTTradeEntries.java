@@ -67,19 +67,33 @@ public class GOTTradeEntries {
 	public static GOTTradeEntries MOSSOVY_BLACKSMITH_BUY;
 
 	public static int VALYRIAN_INGOT_SELL = 512;
-	public static int VALYRIAN_NUGGET_SELL = 64;
 	public static int GOLD_INGOT_SELL = 128;
-	public static int GOLD_NUGGET_SELL = 16;
 	public static int SILVER_INGOT_SELL = 32;
-	public static int SILVER_NUGGET_SELL = 4;
 
 	public static int VALYRIAN_INGOT_BUY = 768;
-	public static int VALYRIAN_NUGGET_BUY = 96;
 	public static int GOLD_INGOT_BUY = 192;
-	public static int GOLD_NUGGET_BUY = 24;
 	public static int SILVER_INGOT_BUY = 48;
-	public static int SILVER_NUGGET_BUY = 6;
-
+	
+	public static int AMBER_SELL = 30;
+	public static int AMETHYST_SELL = 20;
+	public static int DIAMOND_SELL = 60;
+	public static int EMERALD_SELL = 40;
+	public static int OPAL_SELL = 30;
+	public static int PEARL_SELL = 30;
+	public static int RUBY_SELL = 30;
+	public static int SAPPHIRE_SELL = 30;
+	public static int TOPAZ_SELL = 20;
+	
+	public static int AMBER_BUY = 45;
+	public static int AMETHYST_BUY = 30;
+	public static int DIAMOND_BUY = 90;
+	public static int EMERALD_BUY = 60;
+	public static int OPAL_BUY = 45;
+	public static int PEARL_BUY = 45;
+	public static int RUBY_BUY = 45;
+	public static int SAPPHIRE_BUY = 45;
+	public static int TOPAZ_BUY = 30;
+	
 	static {
 		COMMON_BAKER_SELL = new GOTTradeEntries(GOTTradeEntries.TradeType.WE_CAN_SELL, 
 new GOTTradeEntry(new ItemStack(Items.wheat, 2), 1), 
@@ -137,15 +151,6 @@ new GOTTradeEntry(new ItemStack(GOTRegistry.pipeweed, 3), 10),
 new GOTTradeEntry(new ItemStack(GOTRegistry.copperIngot), 3), 
 new GOTTradeEntry(new ItemStack(GOTRegistry.tinIngot), 3), 
 new GOTTradeEntry(new ItemStack(GOTRegistry.bronzeIngot), 6), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.diamond), 25), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.emerald), 15), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.sapphire), 12), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.ruby), 12), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.opal), 10), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.amber), 10), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.amethyst), 8), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.topaz), 8), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.pearl), 25), 
 new GOTTradeEntry(new ItemStack(Items.coal, 2, 32767), 1), 
 new GOTTradeEntry(new ItemStack(Items.leather), 2), 
 new GOTTradeEntry(new ItemStack(Items.string, 3), 1), 
@@ -216,20 +221,17 @@ new GOTTradeEntry(new ItemStack(GOTRegistry.bronzeHoe), 6),
 new GOTTradeEntry(new ItemStack(Items.dye, 6, 15), 1));
 		COMMON_GOLDSMITH_SELL = new GOTTradeEntries(GOTTradeEntries.TradeType.WE_CAN_SELL, 
 new GOTTradeEntry(new ItemStack(GOTRegistry.valyrianIngot), VALYRIAN_INGOT_SELL), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.valyrianNugget), VALYRIAN_NUGGET_SELL), 
 new GOTTradeEntry(new ItemStack(Items.gold_ingot), GOLD_INGOT_SELL), 
-new GOTTradeEntry(new ItemStack(Items.gold_nugget), GOLD_NUGGET_SELL), 
 new GOTTradeEntry(new ItemStack(GOTRegistry.silverIngot), SILVER_INGOT_SELL), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.silverNugget), SILVER_NUGGET_SELL), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.diamond), 25), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.emerald), 15), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.sapphire), 12), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.ruby), 12), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.opal), 10), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.amber), 10), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.amethyst), 8), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.topaz), 8), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.pearl), 25));
+new GOTTradeEntry(new ItemStack(GOTRegistry.diamond), DIAMOND_SELL), 
+new GOTTradeEntry(new ItemStack(GOTRegistry.emerald), EMERALD_SELL), 
+new GOTTradeEntry(new ItemStack(GOTRegistry.sapphire), SAPPHIRE_SELL), 
+new GOTTradeEntry(new ItemStack(GOTRegistry.ruby), RUBY_SELL), 
+new GOTTradeEntry(new ItemStack(GOTRegistry.opal), OPAL_SELL), 
+new GOTTradeEntry(new ItemStack(GOTRegistry.amber), AMBER_SELL), 
+new GOTTradeEntry(new ItemStack(GOTRegistry.amethyst), AMETHYST_SELL), 
+new GOTTradeEntry(new ItemStack(GOTRegistry.topaz), TOPAZ_SELL), 
+new GOTTradeEntry(new ItemStack(GOTRegistry.pearl), PEARL_SELL));
 		COMMON_HUNTER_SELL = new GOTTradeEntries(GOTTradeEntries.TradeType.WE_CAN_SELL, 
 new GOTTradeEntry(new ItemStack(GOTRegistry.ironDagger), 3), 
 new GOTTradeEntry(new ItemStack(GOTRegistry.bronzeDagger), 3), 
@@ -281,8 +283,6 @@ new GOTTradeEntry(new ItemStack(Items.stone_pickaxe), 1),
 new GOTTradeEntry(new ItemStack(Blocks.torch, 16), 2));
 		COMMON_SHAMAN_SELL = new GOTTradeEntries(GOTTradeEntries.TradeType.WE_CAN_SELL, 
 new GOTTradeEntry(new ItemStack(GOTRegistry.obsidianShard), 3), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.emerald), 15), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.amber), 10), 
 new GOTTradeEntry(new ItemStack(Items.glass_bottle), 2), 
 new GOTTradeEntry(new ItemStack(GOTRegistry.mug), 1), 
 new GOTTradeEntry(new ItemStack(Items.bone), 1), 
@@ -418,23 +418,17 @@ new GOTTradeEntry(new ItemStack(Blocks.sponge), 15),
 new GOTTradeEntry(new ItemStack(GOTRegistry.pearl), 50), 
 new GOTTradeEntry(new ItemStack(Items.leather_boots), 5));
 		COMMON_GOLDSMITH_BUY = new GOTTradeEntries(GOTTradeEntries.TradeType.WE_CAN_BUY, 
-new GOTTradeEntry(new ItemStack(GOTRegistry.valyrianIngot), VALYRIAN_INGOT_BUY), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.valyrianNugget), VALYRIAN_NUGGET_BUY), 
-new GOTTradeEntry(new ItemStack(Items.gold_ingot), GOLD_INGOT_BUY), 
-new GOTTradeEntry(new ItemStack(Items.gold_nugget), GOLD_NUGGET_BUY), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.silverIngot), SILVER_INGOT_BUY), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.silverNugget), SILVER_NUGGET_BUY), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.valyrianRing), VALYRIAN_NUGGET_BUY * 9), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.goldRing), GOLD_NUGGET_BUY * 9), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.silverRing), SILVER_NUGGET_BUY * 9), 
+new GOTTradeEntry(new ItemStack(GOTRegistry.valyrianRing), VALYRIAN_INGOT_BUY), 
+new GOTTradeEntry(new ItemStack(GOTRegistry.goldRing), GOLD_INGOT_BUY), 
+new GOTTradeEntry(new ItemStack(GOTRegistry.silverRing), SILVER_INGOT_BUY), 
 new GOTTradeEntry(new ItemStack(GOTRegistry.gobletGold), GOLD_INGOT_BUY * 2), 
 new GOTTradeEntry(new ItemStack(GOTRegistry.gobletSilver), SILVER_INGOT_BUY * 2), 
 new GOTTradeEntry(new ItemStack(GOTRegistry.chandelier, 1, 3), GOLD_INGOT_BUY), 
 new GOTTradeEntry(new ItemStack(GOTRegistry.chandelier, 1, 2), SILVER_INGOT_BUY), 
 new GOTTradeEntry(new ItemStack(GOTRegistry.birdCage, 1, 3), GOLD_INGOT_BUY * 6), 
 new GOTTradeEntry(new ItemStack(GOTRegistry.birdCage, 1, 2), SILVER_INGOT_BUY * 6), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.goldBars), GOLD_INGOT_SELL), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.silverBars), SILVER_INGOT_SELL));
+new GOTTradeEntry(new ItemStack(GOTRegistry.goldBars), GOLD_INGOT_BUY), 
+new GOTTradeEntry(new ItemStack(GOTRegistry.silverBars), SILVER_INGOT_BUY));
 		COMMON_MAESTER_BUY = new GOTTradeEntries(GOTTradeEntries.TradeType.WE_CAN_BUY, 
 new GOTTradeEntry(new ItemStack(Items.writable_book, 1), 4), 
 new GOTTradeEntry(new ItemStack(Items.book, 1), 2), 
@@ -447,21 +441,17 @@ new GOTTradeEntry(new ItemStack(GOTRegistry.mugPlantainBrew), 12),
 new GOTTradeEntry(new ItemStack(GOTRegistry.mugPoppyMilk), 12));
 		COMMON_MINER_BUY = new GOTTradeEntries(GOTTradeEntries.TradeType.WE_CAN_BUY, 
 new GOTTradeEntry(new ItemStack(GOTRegistry.valyrianIngot), VALYRIAN_INGOT_BUY), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.valyrianNugget), VALYRIAN_NUGGET_BUY), 
 new GOTTradeEntry(new ItemStack(Items.gold_ingot), GOLD_INGOT_BUY), 
-new GOTTradeEntry(new ItemStack(Items.gold_nugget), GOLD_NUGGET_BUY), 
 new GOTTradeEntry(new ItemStack(GOTRegistry.silverIngot), SILVER_INGOT_BUY), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.silverNugget), SILVER_NUGGET_BUY), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.diamond), 30), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.emerald), 20), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.sapphire), 15), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.ruby), 15), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.opal), 15), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.amber), 15), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.amethyst), 10), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.topaz), 10), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.pearl), 30));
-
+new GOTTradeEntry(new ItemStack(GOTRegistry.diamond), DIAMOND_BUY), 
+new GOTTradeEntry(new ItemStack(GOTRegistry.emerald), EMERALD_BUY), 
+new GOTTradeEntry(new ItemStack(GOTRegistry.sapphire), SAPPHIRE_BUY), 
+new GOTTradeEntry(new ItemStack(GOTRegistry.ruby), RUBY_BUY), 
+new GOTTradeEntry(new ItemStack(GOTRegistry.opal), OPAL_BUY), 
+new GOTTradeEntry(new ItemStack(GOTRegistry.amber), AMBER_BUY), 
+new GOTTradeEntry(new ItemStack(GOTRegistry.amethyst), AMETHYST_BUY), 
+new GOTTradeEntry(new ItemStack(GOTRegistry.topaz), TOPAZ_BUY), 
+new GOTTradeEntry(new ItemStack(GOTRegistry.pearl), PEARL_BUY));
 		ASSHAI_ALCHEMIST_BUY = new GOTTradeEntries(GOTTradeEntries.TradeType.WE_CAN_BUY, 
 new GOTTradeEntry(new ItemStack(GOTRegistry.bottlePoison), 10), 
 new GOTTradeEntry(new ItemStack(GOTRegistry.lingeringPotion, 1, 1), 128), 
@@ -1230,7 +1220,6 @@ new GOTTradeEntry(new ItemStack(Blocks.stonebrick, 1, 8), 2),
 new GOTTradeEntry(new ItemStack(GOTRegistry.brick5, 8, 11), 3), 
 new GOTTradeEntry(new ItemStack(GOTRegistry.brick5, 1, 12), 2), 
 new GOTTradeEntry(new ItemStack(GOTRegistry.brick5, 1, 15), 2), 
-new GOTTradeEntry(new ItemStack(GOTRegistry.brick6, 1, 0), GOLD_NUGGET_BUY * 4), 
 new GOTTradeEntry(new ItemStack(GOTRegistry.pillar2, 4, 8), 3), 
 new GOTTradeEntry(new ItemStack(GOTRegistry.rock, 8, 4), 8), 
 new GOTTradeEntry(new ItemStack(GOTRegistry.brick6, 8, 1), 8), 

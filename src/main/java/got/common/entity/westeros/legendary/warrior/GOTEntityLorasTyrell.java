@@ -46,7 +46,7 @@ public class GOTEntityLorasTyrell extends GOTEntityHumanBase {
 
 	@Override
 	public GOTFaction getFaction() {
-		return GOTFaction.REACH;
+		return GOTFaction.STORMLANDS;
 	}
 
 	@Override

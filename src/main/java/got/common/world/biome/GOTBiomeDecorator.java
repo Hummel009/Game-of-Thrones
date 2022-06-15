@@ -80,10 +80,8 @@ public class GOTBiomeDecorator {
 		addSoil(new WorldGenMinable(GOTRegistry.rock, 6, 12, Blocks.stone), 30.0f, 0, 64);
 		addOre(new WorldGenMinable(GOTRegistry.oreCopper, 8), 15.0f, 0, 128);
 		addOre(new WorldGenMinable(GOTRegistry.oreTin, 8), 15.0f, 0, 128);
-		
 		addOre(new WorldGenMinable(GOTRegistry.oreSilver, 5), 8.0f, 0, 32);
 		addOre(new WorldGenMinable(Blocks.gold_ore, 4), 2.0f, 0, 32);
-		
 		addOre(new WorldGenMinable(Blocks.coal_ore, 16), 40.0f, 0, 128);
 		addOre(new WorldGenMinable(Blocks.iron_ore, 8), 20.0f, 0, 64);
 		addOre(new WorldGenMinable(GOTRegistry.oreSulfur, 8), 2.0f, 0, 64);

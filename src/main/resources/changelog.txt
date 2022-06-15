@@ -11,6 +11,7 @@ CHANGELOG
 * Improved Asshai City, improved a few Asshai structures
 * Improved Asshai landspcape
 
+* Fixed bug with Loras Tyrell
 * Fixed bug with 25% of spawning a wrong structure at waypoint
 * Fixed bug with slaves speechbank
 * Fixed bug with towers in asshai
