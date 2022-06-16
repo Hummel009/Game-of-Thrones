@@ -5,6 +5,7 @@ CHANGELOG
 + Returned "kill mob" type of quests
 + Returned "kill player" type of quests
 
+* Changed unpledge sound to amogus impostor sound
 * Changed some waypoint regions because of players' complaints. Essos wp can be unlocked in Kings Landing; Sothoryos - Ghiscar; Ulthos - Asshai; Ibben - Essos; Summer Islands - Sothoryos.
 
 * Improved prices for valuable items
