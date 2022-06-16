@@ -323,186 +323,184 @@ public class GOTTickHandlerClient {
 				EntityClientPlayerMP entityplayer;
 				WorldClient world;
 				block76: {
-					block77: {
-						minecraft = Minecraft.getMinecraft();
-						entityplayer = minecraft.thePlayer;
-						world = minecraft.theWorld;
-						if (event.phase == TickEvent.Phase.START) {
-							++clientTick;
-							if (GOTConfig.fixRenderDistance && !FMLClientHandler.instance().hasOptifine()) {
-								GameSettings gs = Minecraft.getMinecraft().gameSettings;
-								int renderDistance = gs.renderDistanceChunks;
-								if (renderDistance > 16) {
-									gs.renderDistanceChunks = renderDistance;
-									gs.saveOptions();
-									GOTLog.logger.info("Hummel009: Render distance was above 16 - set to 16 to prevent a vanilla crash");
-								}
-							}
-							if (!GOTModChecker.hasWeather2() && !GOTModChecker.hasLOTR() && minecraft.entityRenderer != null && !(minecraft.entityRenderer instanceof GOTEntityRenderer)) {
-								minecraft.entityRenderer = new GOTEntityRenderer(minecraft, minecraft.getResourceManager());
-								((IReloadableResourceManager) minecraft.getResourceManager()).registerReloadListener(minecraft.entityRenderer);
-								FMLLog.info("Hummel009: Successfully replaced entityrenderer");
+					minecraft = Minecraft.getMinecraft();
+					entityplayer = minecraft.thePlayer;
+					world = minecraft.theWorld;
+					if (event.phase == TickEvent.Phase.START) {
+						++clientTick;
+						if (GOTConfig.fixRenderDistance && !FMLClientHandler.instance().hasOptifine()) {
+							GameSettings gs = Minecraft.getMinecraft().gameSettings;
+							int renderDistance = gs.renderDistanceChunks;
+							if (renderDistance > 16) {
+								gs.renderDistanceChunks = renderDistance;
+								gs.saveOptions();
+								GOTLog.logger.info("Hummel009: Render distance was above 16 - set to 16 to prevent a vanilla crash");
 							}
 						}
-						if (event.phase != TickEvent.Phase.END) {
-							break block74;
+						if (!GOTModChecker.hasWeather2() && !GOTModChecker.hasLOTR() && minecraft.entityRenderer != null && !(minecraft.entityRenderer instanceof GOTEntityRenderer)) {
+							minecraft.entityRenderer = new GOTEntityRenderer(minecraft, minecraft.getResourceManager());
+							((IReloadableResourceManager) minecraft.getResourceManager()).registerReloadListener(minecraft.entityRenderer);
+							FMLLog.info("Hummel009: Successfully replaced entityrenderer");
 						}
-						if (minecraft.currentScreen == null) {
-							lastGuiOpen = null;
-						}
-						if (FMLClientHandler.instance().hasOptifine()) {
-							int optifineSetting = 0;
-							try {
-								Object field = GameSettings.class.getField("ofTrees").get(minecraft.gameSettings);
-								if (field instanceof Integer) {
-									optifineSetting = (Integer) field;
-								}
-							} catch (Exception field) {
+					}
+					if (event.phase != TickEvent.Phase.END) {
+						break block74;
+					}
+					if (minecraft.currentScreen == null) {
+						lastGuiOpen = null;
+					}
+					if (FMLClientHandler.instance().hasOptifine()) {
+						int optifineSetting = 0;
+						try {
+							Object field = GameSettings.class.getField("ofTrees").get(minecraft.gameSettings);
+							if (field instanceof Integer) {
+								optifineSetting = (Integer) field;
 							}
-							GOTBlockLeavesBase.setAllGraphicsLevels(fancyGraphics(optifineSetting, minecraft));
-						} else {
-							GOTBlockLeavesBase.setAllGraphicsLevels(minecraft.gameSettings.fancyGraphics);
+						} catch (Exception field) {
 						}
-						if (entityplayer == null || world == null) {
-							break block75;
-						}
-						if (GOTConfig.checkUpdates && !GOT.isDevMode) {
-							GOTVersionChecker.checkForUpdates();
-						}
-						if (isGamePaused(minecraft)) {
-							break block76;
-						}
-						miniquestTracker.update(minecraft, entityplayer);
-						GOTAlignmentTicker.updateAll(entityplayer, false);
-						watchedInvasion.tick();
-						if (GOTItemBanner.hasChoiceToKeepOriginalOwner(entityplayer)) {
-							boolean showBannerRespossessMessage = GOTItemBanner.isHoldingBannerWithExistingProtection(entityplayer);
-							bannerRepossessDisplayTick = showBannerRespossessMessage && !wasShowingBannerRepossessMessage ? 60 : --bannerRepossessDisplayTick;
-							wasShowingBannerRepossessMessage = showBannerRespossessMessage;
-						} else {
-							bannerRepossessDisplayTick = 0;
-							wasShowingBannerRepossessMessage = false;
-						}
-						EntityLivingBase viewer = minecraft.renderViewEntity;
-						int i = MathHelper.floor_double(viewer.posX);
-						int j = MathHelper.floor_double(viewer.boundingBox.minY);
-						int k = MathHelper.floor_double(viewer.posZ);
-						BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
-						GOTBiome.updateWaterColor(i);
-						GOTCloudRenderer.updateClouds(world);
-						GOTRenderNorthernLights.update(viewer);
-						GOTSpeechClient.update();
-						GOTKeyHandler.update();
-						GOTAttackTiming.update();
-						prevMistTick = mistTick;
-						if (viewer.posY >= 72.0 && biome instanceof GOTBiomeFrostfangs && world.canBlockSeeTheSky(i, j, k) && world.getSavedLightValue(EnumSkyBlock.Block, i, j, k) < 7) {
-							if (mistTick < 80) {
-								++mistTick;
-							}
-						} else if (mistTick > 0) {
-							--mistTick;
-						}
-						if (frostTick > 0) {
-							--frostTick;
-						}
-						if (burnTick > 0) {
-							--burnTick;
-						}
-						prevWightLookTick = wightLookTick;
-						if (anyWightsViewed) {
-							if (wightLookTick < 100) {
-								++wightLookTick;
-							}
-						} else if (wightLookTick > 0) {
-							--wightLookTick;
-						}
-						prevWightNearTick = wightNearTick;
-						double wightRange = 32.0;
-						List nearbyWights = world.getEntitiesWithinAABB(GOTEntityBarrowWight.class, viewer.boundingBox.expand(wightRange, wightRange, wightRange));
-						if (!nearbyWights.isEmpty()) {
-							if (wightNearTick < 100) {
-								++wightNearTick;
-							}
-						} else if (wightNearTick > 0) {
-							--wightNearTick;
-						}
-						if (GOTConfig.enableSunFlare && world.provider instanceof GOTWorldProvider && !world.provider.hasNoSky) {
-							prevSunGlare = sunGlare;
-							MovingObjectPosition look = viewer.rayTrace(10000.0, renderTick);
-							boolean lookingAtSky = look == null || look.typeOfHit == MovingObjectPosition.MovingObjectType.MISS;
-							boolean biomeHasSun = true;
-							if (biome instanceof GOTBiome) {
-								biomeHasSun = ((GOTBiome) biome).hasSky();
-							}
-							float sunPitch = world.getCelestialAngle(renderTick) * 360.0f - 90.0f;
-							float sunYaw = 90.0f;
-							float yc = MathHelper.cos((float) Math.toRadians(-sunYaw - 180.0f));
-							float ys = MathHelper.sin((float) Math.toRadians(-sunYaw - 180.0f));
-							float pc = -MathHelper.cos((float) Math.toRadians(-sunPitch));
-							float ps = MathHelper.sin((float) Math.toRadians(-sunPitch));
-							Vec3 sunVec = Vec3.createVectorHelper(ys * pc, ps, yc * pc);
-							Vec3 lookVec = viewer.getLook(renderTick);
-							double cos = lookVec.dotProduct(sunVec) / (lookVec.lengthVector() * sunVec.lengthVector());
-							float cosThreshold = 0.95f;
-							float cQ = ((float) cos - cosThreshold) / (1.0f - cosThreshold);
-							cQ = Math.max(cQ, 0.0f);
-							float brightness = world.getSunBrightness(renderTick);
-							float brightnessThreshold = 0.7f;
-							float bQ = (brightness - brightnessThreshold) / (1.0f - brightnessThreshold);
-							bQ = Math.max(bQ, 0.0f);
-							float maxGlare = cQ * bQ;
-							if (maxGlare > 0.0f && lookingAtSky && !world.isRaining() && biomeHasSun) {
-								if (sunGlare < maxGlare) {
-									sunGlare += 0.1f * maxGlare;
-									sunGlare = Math.min(sunGlare, maxGlare);
-								} else if (sunGlare > maxGlare) {
-									sunGlare -= 0.02f;
-									sunGlare = Math.max(sunGlare, maxGlare);
-								}
-							} else {
-								if (sunGlare > 0.0f) {
-									sunGlare -= 0.02f;
-								}
-								sunGlare = Math.max(sunGlare, 0.0f);
-							}
-						} else {
-							sunGlare = 0.0f;
-							prevSunGlare = 0.0f;
-						}
-						prevRainFactor = rainFactor;
-						if (world.isRaining()) {
-							if (rainFactor < 1.0f) {
-								rainFactor += 0.008333334f;
-								rainFactor = Math.min(rainFactor, 1.0f);
-							}
-						} else if (rainFactor > 0.0f) {
-							rainFactor -= 0.0016666667f;
-							rainFactor = Math.max(rainFactor, 0.0f);
-						}
-						if (minecraft.gameSettings.particleSetting < 2) {
-							spawnEnvironmentFX(entityplayer, world);
-						}
-						GOTClientProxy.customEffectRenderer.updateEffects();
-						if (minecraft.renderViewEntity.isPotionActive(Potion.confusion.id)) {
-							float drunkenness = minecraft.renderViewEntity.getActivePotionEffect(Potion.confusion).getDuration();
-							drunkenness /= 20.0f;
-							if (drunkenness > 100.0f) {
-								drunkenness = 100.0f;
-							}
-							minecraft.renderViewEntity.rotationYaw += drunkennessDirection * drunkenness / 20.0f;
-							minecraft.renderViewEntity.rotationPitch += MathHelper.cos(minecraft.renderViewEntity.ticksExisted / 10.0f) * drunkenness / 20.0f;
-							if (world.rand.nextInt(100) == 0) {
-								drunkennessDirection *= -1;
-							}
-						}
-						if (newDate > 0) {
-							--newDate;
-						}
-						if (GOTConfig.enableAmbience) {
-							ambienceTicker.updateAmbience(world, entityplayer);
-						}
+						GOTBlockLeavesBase.setAllGraphicsLevels(fancyGraphics(optifineSetting, minecraft));
+					} else {
+						GOTBlockLeavesBase.setAllGraphicsLevels(minecraft.gameSettings.fancyGraphics);
+					}
+					if (entityplayer == null || world == null) {
+						break block75;
+					}
+					if (GOTConfig.checkUpdates && !GOT.isDevMode) {
+						GOTVersionChecker.checkForUpdates();
+					}
+					if (isGamePaused(minecraft)) {
 						break block76;
 					}
+					miniquestTracker.update(minecraft, entityplayer);
+					GOTAlignmentTicker.updateAll(entityplayer, false);
+					watchedInvasion.tick();
+					if (GOTItemBanner.hasChoiceToKeepOriginalOwner(entityplayer)) {
+						boolean showBannerRespossessMessage = GOTItemBanner.isHoldingBannerWithExistingProtection(entityplayer);
+						bannerRepossessDisplayTick = showBannerRespossessMessage && !wasShowingBannerRepossessMessage ? 60 : --bannerRepossessDisplayTick;
+						wasShowingBannerRepossessMessage = showBannerRespossessMessage;
+					} else {
+						bannerRepossessDisplayTick = 0;
+						wasShowingBannerRepossessMessage = false;
+					}
+					EntityLivingBase viewer = minecraft.renderViewEntity;
+					int i = MathHelper.floor_double(viewer.posX);
+					int j = MathHelper.floor_double(viewer.boundingBox.minY);
+					int k = MathHelper.floor_double(viewer.posZ);
+					BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
+					GOTBiome.updateWaterColor(i);
+					GOTCloudRenderer.updateClouds(world);
+					GOTRenderNorthernLights.update(viewer);
+					GOTSpeechClient.update();
+					GOTKeyHandler.update();
+					GOTAttackTiming.update();
+					prevMistTick = mistTick;
+					if (viewer.posY >= 72.0 && biome instanceof GOTBiomeFrostfangs && world.canBlockSeeTheSky(i, j, k) && world.getSavedLightValue(EnumSkyBlock.Block, i, j, k) < 7) {
+						if (mistTick < 80) {
+							++mistTick;
+						}
+					} else if (mistTick > 0) {
+						--mistTick;
+					}
+					if (frostTick > 0) {
+						--frostTick;
+					}
+					if (burnTick > 0) {
+						--burnTick;
+					}
+					prevWightLookTick = wightLookTick;
+					if (anyWightsViewed) {
+						if (wightLookTick < 100) {
+							++wightLookTick;
+						}
+					} else if (wightLookTick > 0) {
+						--wightLookTick;
+					}
+					prevWightNearTick = wightNearTick;
+					double wightRange = 32.0;
+					List nearbyWights = world.getEntitiesWithinAABB(GOTEntityBarrowWight.class, viewer.boundingBox.expand(wightRange, wightRange, wightRange));
+					if (!nearbyWights.isEmpty()) {
+						if (wightNearTick < 100) {
+							++wightNearTick;
+						}
+					} else if (wightNearTick > 0) {
+						--wightNearTick;
+					}
+					if (GOTConfig.enableSunFlare && world.provider instanceof GOTWorldProvider && !world.provider.hasNoSky) {
+						prevSunGlare = sunGlare;
+						MovingObjectPosition look = viewer.rayTrace(10000.0, renderTick);
+						boolean lookingAtSky = look == null || look.typeOfHit == MovingObjectPosition.MovingObjectType.MISS;
+						boolean biomeHasSun = true;
+						if (biome instanceof GOTBiome) {
+							biomeHasSun = ((GOTBiome) biome).hasSky();
+						}
+						float sunPitch = world.getCelestialAngle(renderTick) * 360.0f - 90.0f;
+						float sunYaw = 90.0f;
+						float yc = MathHelper.cos((float) Math.toRadians(-sunYaw - 180.0f));
+						float ys = MathHelper.sin((float) Math.toRadians(-sunYaw - 180.0f));
+						float pc = -MathHelper.cos((float) Math.toRadians(-sunPitch));
+						float ps = MathHelper.sin((float) Math.toRadians(-sunPitch));
+						Vec3 sunVec = Vec3.createVectorHelper(ys * pc, ps, yc * pc);
+						Vec3 lookVec = viewer.getLook(renderTick);
+						double cos = lookVec.dotProduct(sunVec) / (lookVec.lengthVector() * sunVec.lengthVector());
+						float cosThreshold = 0.95f;
+						float cQ = ((float) cos - cosThreshold) / (1.0f - cosThreshold);
+						cQ = Math.max(cQ, 0.0f);
+						float brightness = world.getSunBrightness(renderTick);
+						float brightnessThreshold = 0.7f;
+						float bQ = (brightness - brightnessThreshold) / (1.0f - brightnessThreshold);
+						bQ = Math.max(bQ, 0.0f);
+						float maxGlare = cQ * bQ;
+						if (maxGlare > 0.0f && lookingAtSky && !world.isRaining() && biomeHasSun) {
+							if (sunGlare < maxGlare) {
+								sunGlare += 0.1f * maxGlare;
+								sunGlare = Math.min(sunGlare, maxGlare);
+							} else if (sunGlare > maxGlare) {
+								sunGlare -= 0.02f;
+								sunGlare = Math.max(sunGlare, maxGlare);
+							}
+						} else {
+							if (sunGlare > 0.0f) {
+								sunGlare -= 0.02f;
+							}
+							sunGlare = Math.max(sunGlare, 0.0f);
+						}
+					} else {
+						sunGlare = 0.0f;
+						prevSunGlare = 0.0f;
+					}
+					prevRainFactor = rainFactor;
+					if (world.isRaining()) {
+						if (rainFactor < 1.0f) {
+							rainFactor += 0.008333334f;
+							rainFactor = Math.min(rainFactor, 1.0f);
+						}
+					} else if (rainFactor > 0.0f) {
+						rainFactor -= 0.0016666667f;
+						rainFactor = Math.max(rainFactor, 0.0f);
+					}
+					if (minecraft.gameSettings.particleSetting < 2) {
+						spawnEnvironmentFX(entityplayer, world);
+					}
+					GOTClientProxy.customEffectRenderer.updateEffects();
+					if (minecraft.renderViewEntity.isPotionActive(Potion.confusion.id)) {
+						float drunkenness = minecraft.renderViewEntity.getActivePotionEffect(Potion.confusion).getDuration();
+						drunkenness /= 20.0f;
+						if (drunkenness > 100.0f) {
+							drunkenness = 100.0f;
+						}
+						minecraft.renderViewEntity.rotationYaw += drunkennessDirection * drunkenness / 20.0f;
+						minecraft.renderViewEntity.rotationPitch += MathHelper.cos(minecraft.renderViewEntity.ticksExisted / 10.0f) * drunkenness / 20.0f;
+						if (world.rand.nextInt(100) == 0) {
+							drunkennessDirection *= -1;
+						}
+					}
+					if (newDate > 0) {
+						--newDate;
+					}
+					if (GOTConfig.enableAmbience) {
+						ambienceTicker.updateAmbience(world, entityplayer);
+					}
+					break block76;
 				}
 				if ((entityplayer.dimension == 0 || entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) && playersInPortals.containsKey(entityplayer)) {
 					int i;
