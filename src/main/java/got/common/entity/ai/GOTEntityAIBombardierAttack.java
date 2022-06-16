@@ -78,7 +78,6 @@ public class GOTEntityAIBombardierAttack extends EntityAIBase {
 			bomb.droppedTargetingPlayer = entityTarget instanceof EntityPlayer;
 			worldObj.spawnEntityInWorld(bomb);
 			worldObj.playSoundAtEntity(attacker, "game.tnt.primed", 1.0f, 1.0f);
-			worldObj.playSoundAtEntity(attacker, "got:orc.fire", 1.0f, (worldObj.rand.nextFloat() - worldObj.rand.nextFloat()) * 0.2f + 1.0f);
 			attacker.npcItemsInv.setBomb(null);
 			int bombSlot = 5;
 			if (attacker.hiredReplacedInv.hasReplacedEquipment(bombSlot)) {
