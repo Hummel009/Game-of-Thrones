@@ -1,24 +1,3 @@
-/*
- * Decompiled with CFR 0.148.
- *
- * Could not load the following classes:
- *  net.minecraft.block.Block
- *  net.minecraft.block.material.Material
- *  net.minecraft.client.Minecraft
- *  net.minecraft.client.multiplayer.WorldClient
- *  net.minecraft.client.renderer.EntityRenderer
- *  net.minecraft.client.renderer.OpenGlHelper
- *  net.minecraft.client.renderer.Tessellator
- *  net.minecraft.client.renderer.texture.TextureManager
- *  net.minecraft.client.settings.GameSettings
- *  net.minecraft.entity.EntityLivingBase
- *  net.minecraft.util.MathHelper
- *  net.minecraft.util.ResourceLocation
- *  net.minecraft.world.biome.BiomeGenBase
- *  net.minecraft.world.biome.WorldChunkManager
- *  net.minecraftforge.client.IRenderHandler
- *  org.lwjgl.opengl.GL11
- */
 package got.client.render.other;
 
 import java.util.Random;

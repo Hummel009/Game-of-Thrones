@@ -1,21 +1,3 @@
-/*
- * Decompiled with CFR 0.148.
- *
- * Could not load the following classes:
- *  net.minecraft.block.Block
- *  net.minecraft.block.material.Material
- *  net.minecraft.creativetab.CreativeTabs
- *  net.minecraft.entity.player.EntityPlayer
- *  net.minecraft.item.Item
- *  net.minecraft.item.ItemFood
- *  net.minecraft.item.ItemStack
- *  net.minecraft.util.MovingObjectPosition
- *  net.minecraft.util.MovingObjectPosition$MovingObjectType
- *  net.minecraft.world.IBlockAccess
- *  net.minecraft.world.World
- *  net.minecraftforge.common.EnumPlantType
- *  net.minecraftforge.common.IPlantable
- */
 package got.common.item.other;
 
 import got.common.database.GOTRegistry;

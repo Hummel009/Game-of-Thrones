@@ -11,6 +11,7 @@ import got.common.database.*;
 import got.common.enchant.*;
 import got.common.entity.essos.qohor.GOTEntityQohorBlacksmith;
 import got.common.entity.other.*;
+import got.common.entity.westeros.GOTEntityWesterosScrapTrader;
 import got.common.item.AnvilNameColorProvider;
 import got.common.item.other.*;
 import got.common.item.weapon.*;

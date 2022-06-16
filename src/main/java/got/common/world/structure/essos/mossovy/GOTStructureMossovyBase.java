@@ -1,18 +1,3 @@
-/*
- * Decompiled with CFR 0.148.
- *
- * Could not load the following classes:
- *  net.minecraft.block.Block
- *  net.minecraft.block.BlockGrass
- *  net.minecraft.block.BlockSlab
- *  net.minecraft.init.Blocks
- *  net.minecraft.init.Items
- *  net.minecraft.item.Item
- *  net.minecraft.item.ItemBow
- *  net.minecraft.item.ItemFishingRod
- *  net.minecraft.item.ItemStack
- *  net.minecraft.world.World
- */
 package got.common.world.structure.essos.mossovy;
 
 import java.util.Random;

@@ -172,8 +172,6 @@ public class GOTSpawnList {
 
 	public static GOTSpawnList ULTHOS = new GOTSpawnList(new GOTSpawnEntry(GOTEntityUlthosSpider.class, 10, 1, 2));
 
-	public static GOTSpawnList UNRELIABLE = new GOTSpawnList(new GOTSpawnEntry(GOTEntityWesterosThief.class, 5, 1, 2), new GOTSpawnEntry(GOTEntityWesterosScrapTrader.class, 5, 1, 2));
-
 	public static GOTSpawnList VALYRIA = new GOTSpawnList(new GOTSpawnEntry(GOTEntityStoneMan.class, 10, 1, 2));
 
 	public static GOTSpawnList VOLANTIS_CIVILIAN = new GOTSpawnList(new GOTSpawnEntry(GOTEntityVolantisMan.class, 10, 1, 2));

@@ -148,10 +148,10 @@ public class GOTStructureWildlingVillage extends GOTVillageGen {
 				this.addStructure(new GOTStructureWildlingHouse(false), houseZ2, houseX, 3, true);
 			}
 			int gardenX = 58;
-			this.addStructure(new GOTStructureWildlingHouse(false).setIsThief(), -gardenX + 5, -gardenX, 0, true);
-			this.addStructure(new GOTStructureWildlingHouse(false).setIsThief(), gardenX - 5, -gardenX, 0, true);
-			this.addStructure(new GOTStructureWildlingHouse(false).setIsThief(), -gardenX + 5, gardenX, 2, true);
-			this.addStructure(new GOTStructureWildlingHouse(false).setIsThief(), gardenX - 5, gardenX, 2, true);
+			this.addStructure(new GOTStructureWildlingHouse(false).setIsTramp(), -gardenX + 5, -gardenX, 0, true);
+			this.addStructure(new GOTStructureWildlingHouse(false).setIsTramp(), gardenX - 5, -gardenX, 0, true);
+			this.addStructure(new GOTStructureWildlingHouse(false).setIsTramp(), -gardenX + 5, gardenX, 2, true);
+			this.addStructure(new GOTStructureWildlingHouse(false).setIsTramp(), gardenX - 5, gardenX, 2, true);
 		}
 
 		public void setupVillage(Random random) {
@@ -179,7 +179,7 @@ public class GOTStructureWildlingVillage extends GOTVillageGen {
 			int pathSide = 7;
 			int centreSide = 19;
 			this.addStructure(new GOTStructureMossovyWell(false), 0, -2, 0, true);
-			this.addStructure(new GOTStructureWildlingHouse(false).setIsThief(), 0, -centreSide, 2, true);
+			this.addStructure(new GOTStructureWildlingHouse(false).setIsTramp(), 0, -centreSide, 2, true);
 			this.addStructure(new GOTStructureWildlingHouse(false), -pathEnd, 0, 1, true);
 			this.addStructure(new GOTStructureWildlingChieftainHouse(false), pathEnd, 0, 3, true);
 			int rowHouses = 3;

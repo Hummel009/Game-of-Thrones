@@ -5,12 +5,14 @@ CHANGELOG
 + Returned "kill mob" type of quests
 + Returned "kill player" type of quests
 
+* Changed prices for valuable items
 * Changed some waypoint regions due to players' complaints. Essos wp can be unlocked in Kings Landing; Sothoryos - Ghiscar; Ulthos - Asshai; Ibben - Essos; Summer Islands - Sothoryos.
 * Improved chest contents in all the world
 * Improved andesite, rhyolite & basalt sets textures
 * Improved Asshai City, improved a few Asshai structures
 * Improved Asshai landspcape
 
+* Fixed bug with wrong chest contents
 * Fixed bug with Loras Tyrell
 * Fixed bug with 25% of spawning a wrong structure at waypoint
 * Fixed bug with slaves speechbank

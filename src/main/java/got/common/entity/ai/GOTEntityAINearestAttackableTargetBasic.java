@@ -5,6 +5,7 @@ import java.util.*;
 import got.GOT;
 import got.common.GOTLevelData;
 import got.common.entity.other.*;
+import got.common.entity.westeros.GOTEntityWesterosBandit;
 import got.common.faction.GOTFaction;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.*;

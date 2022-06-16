@@ -1,8 +1,9 @@
-package got.common.entity.other;
+package got.common.entity.westeros;
 
 import got.common.GOTLevelData;
 import got.common.database.*;
 import got.common.entity.ai.*;
+import got.common.entity.other.*;
 import got.common.faction.GOTFaction;
 import got.common.inventory.GOTInventoryNPC;
 import got.common.item.other.*;
@@ -188,9 +189,8 @@ public class GOTEntityWesterosBandit extends GOTEntityHumanBase implements IBand
 			familyInfo.setName(GOTNames.getQarthName(rand, true));
 			break;
 		default:
-			break;
+			familyInfo.setName(GOTNames.getWildName(rand, true));
 		}
-		familyInfo.setName(GOTNames.getWildName(rand, true));
 	}
 
 	@Override

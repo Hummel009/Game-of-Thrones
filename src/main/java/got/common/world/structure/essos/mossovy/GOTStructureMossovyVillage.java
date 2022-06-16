@@ -151,12 +151,12 @@ public class GOTStructureMossovyVillage extends GOTVillageGen {
 			int farmX = 38;
 			int farmZ = 17;
 			int farmSize = 6;
-			this.addStructure(new GOTStructureMossovyThiefHouse(false), -farmX + farmSize, -farmZ, 1);
-			this.addStructure(new GOTStructureMossovyThiefHouse(false), -farmZ + farmSize, -farmX, 1);
-			this.addStructure(new GOTStructureMossovyThiefHouse(false), farmX - farmSize, -farmZ, 3);
-			this.addStructure(new GOTStructureMossovyThiefHouse(false), farmZ - farmSize, -farmX, 3);
-			this.addStructure(new GOTStructureMossovyThiefHouse(false), -farmX + farmSize, farmZ, 1);
-			this.addStructure(new GOTStructureMossovyThiefHouse(false), farmX - farmSize, farmZ, 3);
+			this.addStructure(new GOTStructureMossovyTrampHouse(false), -farmX + farmSize, -farmZ, 1);
+			this.addStructure(new GOTStructureMossovyTrampHouse(false), -farmZ + farmSize, -farmX, 1);
+			this.addStructure(new GOTStructureMossovyTrampHouse(false), farmX - farmSize, -farmZ, 3);
+			this.addStructure(new GOTStructureMossovyTrampHouse(false), farmZ - farmSize, -farmX, 3);
+			this.addStructure(new GOTStructureMossovyTrampHouse(false), -farmX + farmSize, farmZ, 1);
+			this.addStructure(new GOTStructureMossovyTrampHouse(false), farmX - farmSize, farmZ, 3);
 		}
 
 		@Override

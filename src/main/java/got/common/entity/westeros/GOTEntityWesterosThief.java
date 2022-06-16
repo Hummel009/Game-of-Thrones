@@ -1,7 +1,8 @@
-package got.common.entity.other;
+package got.common.entity.westeros;
 
 import got.common.database.*;
 import got.common.entity.ai.*;
+import got.common.entity.other.*;
 import got.common.faction.GOTFaction;
 import got.common.item.other.*;
 import got.common.quest.*;
@@ -70,11 +71,6 @@ public class GOTEntityWesterosThief extends GOTEntityHumanBase implements GOTBio
 		if (rand.nextInt(5) == 0) {
 			entityDropItem(GOTItemMug.Vessel.SKULL.getEmptyVessel(), 0.0f);
 		}
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 1.0f;
 	}
 
 	@Override
@@ -161,8 +157,7 @@ public class GOTEntityWesterosThief extends GOTEntityHumanBase implements GOTBio
 			familyInfo.setName(GOTNames.getQarthName(rand, true));
 			break;
 		default:
-			break;
+			familyInfo.setName(GOTNames.getWildName(rand, true));
 		}
-		familyInfo.setName(GOTNames.getWildName(rand, true));
 	}
 }

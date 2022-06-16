@@ -3,7 +3,7 @@ package got.common.world.structure.westeros.wildling;
 import java.util.Random;
 
 import got.common.database.*;
-import got.common.entity.other.GOTEntityWesterosThief;
+import got.common.entity.westeros.*;
 import got.common.entity.westeros.wildling.*;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.structure.other.GOTStructureBase;
@@ -25,7 +25,7 @@ public class GOTStructureWildlingHouse extends GOTStructureBase {
 	public Block doorBlock;
 	public Block floorBlock;
 	public int floorMeta;
-	public boolean isThief;
+	public boolean isTramp;
 
 	public GOTStructureWildlingHouse(boolean flag) {
 		super(flag);
@@ -185,8 +185,12 @@ public class GOTStructureWildlingHouse extends GOTStructureBase {
 		placeWallBanner(world, 0, 4, 5, GOTItemBanner.BannerType.WILDLING, 2);
 		setBlockAndMetadata(world, -1, 3, 4, Blocks.skull, 2);
 		setBlockAndMetadata(world, 1, 3, 4, Blocks.skull, 2);
-		if (isThief) {
-			spawnNPCAndSetHome(new GOTEntityWesterosThief(world), world, 0, 1, 0, 8);
+		if (isTramp) {
+			if (random.nextBoolean()) {
+				spawnNPCAndSetHome(new GOTEntityWesterosThief(world), world, 0, 1, 0, 16);
+			} else {
+				spawnNPCAndSetHome(new GOTEntityWesterosScrapTrader(world), world, 0, 1, 0, 16);
+			}
 		} else if (random.nextInt(4) == 1) {
 			spawnNPCAndSetHome(new GOTEntityWildlingArcher(world), world, 0, 1, 0, 8);
 			spawnNPCAndSetHome(new GOTEntityWildlingAxeThrower(world), world, 0, 1, 0, 8);
@@ -207,8 +211,8 @@ public class GOTStructureWildlingHouse extends GOTStructureBase {
 		return true;
 	}
 
-	public GOTStructureBase setIsThief() {
-		isThief = true;
+	public GOTStructureBase setIsTramp() {
+		isTramp = true;
 		return this;
 	}
 }

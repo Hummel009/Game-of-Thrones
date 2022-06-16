@@ -2831,9 +2831,8 @@ got.structure.MossovyInn.name≠
 got.structure.MossovyOffice.name≠
 got.structure.MossovySmithy.name=Mossovy kowal
 got.structure.MossovyStable.nameMossova stajnia
-got.structure.MossovyThiefHouse.name=Mossovy dom złodzieji
+got.structure.MossovyTrampHouse.name=Mossovy dom złodzieji
 got.structure.MossovyVillage.name=Mossova wioska
-got.structure.MossovyVillageLight.name≠
 got.structure.MyrBarracks.name=Koszary Myr
 got.structure.MyrBazaar.name=Bazar Myr
 got.structure.MyrCityBig.name=Zamek Myr

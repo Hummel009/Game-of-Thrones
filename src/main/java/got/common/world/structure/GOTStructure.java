@@ -357,7 +357,7 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureMossovyHouse.class, GOTFaction.MOSSOVY);
 		GOTStructureRegistry.register(id++, GOTStructureMossovyInn.class, GOTFaction.MOSSOVY);
 		GOTStructureRegistry.register(id++, GOTStructureMossovyOffice.class, GOTFaction.MOSSOVY);
-		GOTStructureRegistry.register(id++, GOTStructureMossovyThiefHouse.class, GOTFaction.MOSSOVY);
+		GOTStructureRegistry.register(id++, GOTStructureMossovyTrampHouse.class, GOTFaction.MOSSOVY);
 		GOTStructureRegistry.register(id++, GOTStructureMossovySmithy.class, GOTFaction.MOSSOVY);
 		GOTStructureRegistry.register(id++, GOTStructureMossovyStable.class, GOTFaction.MOSSOVY);
 

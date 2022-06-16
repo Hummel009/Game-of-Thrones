@@ -5,8 +5,9 @@ import java.util.Random;
 import com.google.common.math.IntMath;
 
 import got.common.database.*;
+import got.common.entity.essos.*;
 import got.common.entity.other.*;
-import got.common.entity.westeros.GOTEntityMercenary;
+import got.common.entity.westeros.*;
 import got.common.entity.westeros.legendary.quest.GOTEntityTyrionLannister;
 import got.common.entity.westeros.legendary.reborn.GOTEntityLancelLannister;
 import got.common.entity.westeros.legendary.trader.*;

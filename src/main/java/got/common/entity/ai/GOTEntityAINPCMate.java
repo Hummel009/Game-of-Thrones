@@ -1,15 +1,3 @@
-/*
- * Decompiled with CFR 0.148.
- *
- * Could not load the following classes:
- *  net.minecraft.entity.Entity
- *  net.minecraft.entity.EntityList
- *  net.minecraft.entity.IEntityLivingData
- *  net.minecraft.entity.ai.EntityAIBase
- *  net.minecraft.entity.ai.EntityLookHelper
- *  net.minecraft.pathfinding.PathNavigate
- *  net.minecraft.world.World
- */
 package got.common.entity.ai;
 
 import got.common.entity.other.*;

@@ -5,6 +5,7 @@ import java.util.Random;
 import got.common.database.*;
 import got.common.entity.essos.ibben.*;
 import got.common.entity.other.*;
+import got.common.entity.westeros.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -428,8 +429,8 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 		placeWeaponRack(world, 0, 5, 22, 6, getRandomWeapon(random));
 		GOTEntityIbbenMeadhost meadhost = new GOTEntityIbbenMeadhost(world);
 		spawnNPCAndSetHome(meadhost, world, 0, 2, 21, 8);
-		GOTEntityWesterosThief thief = new GOTEntityWesterosThief(world);
-		spawnNPCAndSetHome(thief, world, 0, 1, 0, 16);
+		spawnNPCAndSetHome(new GOTEntityWesterosThief(world), world, 0, 1, 0, 16);
+		spawnNPCAndSetHome(new GOTEntityWesterosScrapTrader(world), world, 0, 1, 0, 16);
 		int men = 5 + random.nextInt(5);
 		for (int l = 0; l < men; ++l) {
 			GOTEntityIbbenMan ibbenese = new GOTEntityIbbenMan(world);

@@ -3,8 +3,10 @@ package got.common.world.structure.essos.common;
 import java.util.Random;
 
 import got.common.database.*;
+import got.common.entity.essos.*;
 import got.common.entity.essos.gold.GOTEntityGoldenCaptain;
 import got.common.entity.other.*;
+import got.common.entity.westeros.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -138,8 +140,10 @@ public class GOTStructureEssosTavern extends GOTStructureEssosBase {
 		spawnNPCAndSetHome(new GOTEntityGoldenCaptain(world), world, 0, 1, 0, 16);
 		if (isGhiscar) {
 			spawnNPCAndSetHome(new GOTEntityEssosThief(world), world, 0, 1, 0, 16);
+			spawnNPCAndSetHome(new GOTEntityEssosScrapTrader(world), world, 0, 1, 0, 16);
 		} else {
 			spawnNPCAndSetHome(new GOTEntityWesterosThief(world), world, 0, 1, 0, 16);
+			spawnNPCAndSetHome(new GOTEntityWesterosScrapTrader(world), world, 0, 1, 0, 16);
 		}
 		for (int l = 0; l < 5; ++l) {
 			spawnNPCAndSetHome(new GOTEntityProstitute(world), world, 0, 1, 0, 16);

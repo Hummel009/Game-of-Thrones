@@ -16,15 +16,15 @@ package got.common.world.structure.essos.mossovy;
 import java.util.Random;
 
 import got.common.database.*;
-import got.common.entity.other.GOTEntityWesterosThief;
+import got.common.entity.westeros.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-public class GOTStructureMossovyThiefHouse extends GOTStructureMossovyBase {
+public class GOTStructureMossovyTrampHouse extends GOTStructureMossovyBase {
 	public String fixedName;
 
-	public GOTStructureMossovyThiefHouse(boolean flag) {
+	public GOTStructureMossovyTrampHouse(boolean flag) {
 		super(flag);
 	}
 
@@ -227,12 +227,15 @@ public class GOTStructureMossovyThiefHouse extends GOTStructureMossovyBase {
 				plantTallGrass(world, random, i13, j12, k13);
 			}
 		}
-		GOTEntityWesterosThief ruffian = new GOTEntityWesterosThief(world);
-		spawnNPCAndSetHome(ruffian, world, 0, 1, 0, 16);
+		if (random.nextBoolean()) {
+			spawnNPCAndSetHome(new GOTEntityWesterosThief(world), world, 0, 1, 0, 16);
+		} else {
+			spawnNPCAndSetHome(new GOTEntityWesterosScrapTrader(world), world, 0, 1, 0, 16);
+		}
 		return true;
 	}
 
-	public GOTStructureMossovyThiefHouse setRuffianName(String name) {
+	public GOTStructureMossovyTrampHouse setRuffianName(String name) {
 		fixedName = name;
 		return this;
 	}

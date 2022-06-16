@@ -5,12 +5,12 @@ import java.util.*;
 
 import cpw.mods.fml.relauncher.*;
 import got.GOT;
-import got.client.GOTTickHandlerClient;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.*;
 import got.common.database.*;
 import got.common.entity.animal.*;
-import got.common.entity.other.*;
+import got.common.entity.essos.GOTEntityEssosBandit;
+import got.common.entity.westeros.GOTEntityWesterosBandit;
 import got.common.world.GOTWorldChunkManager;
 import got.common.world.biome.essos.*;
 import got.common.world.biome.other.*;
@@ -209,8 +209,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public List spawnableGOTAmbientList = new ArrayList();
 	public GOTEventSpawner.EventChance banditChance;
 	public Class<? extends GOTEntityWesterosBandit> banditEntityClass;
-	public Class<? extends GOTEntityWesterosScrapTrader> scrapTraderEntityClass;
-	public Class<? extends GOTEntityWesterosThief> thiefEntityClass;
 	public GOTBiomeInvasionSpawns invasionSpawns;
 	public BiomeColors biomeColors = new BiomeColors(this);
 	public BiomeTerrain biomeTerrain = new BiomeTerrain(this);
@@ -650,19 +648,9 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return GOTBezierType.PATH_DIRTY;
 	}
 
-	public Class<? extends GOTEntityWesterosScrapTrader> getScrapTraderEntityClass() {
-		if (scrapTraderEntityClass == null) {
-			return GOTEntityWesterosScrapTrader.class;
-		}
-		return scrapTraderEntityClass;
-	}
-
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public int getSkyColorByTemp(float f) {
-		if (GOTTickHandlerClient.scrapTraderMisbehaveTick > 0) {
-			return 0;
-		}
 		if (biomeColors.sky != null) {
 			return biomeColors.sky.getRGB();
 		}
@@ -679,13 +667,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 			return spawnableGOTAmbientList;
 		}
 		return super.getSpawnableList(creatureType);
-	}
-
-	public Class<? extends GOTEntityWesterosThief> getThiefEntityClass() {
-		if (thiefEntityClass == null) {
-			return GOTEntityWesterosThief.class;
-		}
-		return thiefEntityClass;
 	}
 
 	public WorldGenAbstractTree getTreeGen(World world, Random random, int i, int k) {
@@ -811,8 +792,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	public void setDarkUnreliable() {
 		banditEntityClass = GOTEntityEssosBandit.class;
-		scrapTraderEntityClass = GOTEntityEssosScrapTrader.class;
-		thiefEntityClass = GOTEntityEssosThief.class;
 	}
 
 	public GOTBiome setDisableSnow() {

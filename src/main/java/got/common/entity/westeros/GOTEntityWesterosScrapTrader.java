@@ -1,10 +1,11 @@
-package got.common.entity.other;
+package got.common.entity.westeros;
 
 import java.awt.Color;
 
 import got.common.GOTLevelData;
 import got.common.database.*;
 import got.common.entity.ai.*;
+import got.common.entity.other.*;
 import got.common.faction.GOTFaction;
 import got.common.item.other.GOTItemLeatherHat;
 import got.common.world.biome.GOTBiome;
@@ -56,11 +57,6 @@ public class GOTEntityWesterosScrapTrader extends GOTEntityHumanBase implements 
 		for (int l = 0; l < bones; ++l) {
 			dropItem(Items.bone, 1);
 		}
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 0.0f;
 	}
 
 	@Override
@@ -162,8 +158,7 @@ public class GOTEntityWesterosScrapTrader extends GOTEntityHumanBase implements 
 			familyInfo.setName(GOTNames.getQarthName(rand, true));
 			break;
 		default:
-			break;
+			familyInfo.setName(GOTNames.getWildName(rand, true));
 		}
-		familyInfo.setName(GOTNames.getWildName(rand, true));
 	}
 }

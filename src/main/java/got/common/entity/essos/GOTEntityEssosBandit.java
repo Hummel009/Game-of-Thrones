@@ -1,16 +1,17 @@
-package got.common.entity.other;
+package got.common.entity.essos;
 
 import got.common.database.*;
+import got.common.entity.westeros.GOTEntityWesterosBandit;
 import got.common.item.other.*;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityEssosThief extends GOTEntityWesterosThief {
+public class GOTEntityEssosBandit extends GOTEntityWesterosBandit {
 	public static ItemStack[] weapons = { new ItemStack(GOTRegistry.bronzeDagger), new ItemStack(GOTRegistry.ironDagger), new ItemStack(GOTRegistry.essosDagger), new ItemStack(GOTRegistry.essosDaggerPoisoned) };
 	public static int[] robeColors = { 3354412, 5984843, 5968655, 3619908, 9007463, 3228720 };
 
-	public GOTEntityEssosThief(World world) {
+	public GOTEntityEssosBandit(World world) {
 		super(world);
 		canBeMarried = false;
 	}
@@ -57,8 +58,7 @@ public class GOTEntityEssosThief extends GOTEntityWesterosThief {
 			familyInfo.setName(GOTNames.getSothoryosName(rand, true));
 			break;
 		default:
-			break;
+			familyInfo.setName(GOTNames.getWildName(rand, true));
 		}
-		familyInfo.setName(GOTNames.getWildName(rand, true));
 	}
 }

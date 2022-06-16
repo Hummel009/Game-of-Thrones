@@ -16,6 +16,7 @@ import java.util.Random;
 import got.common.database.*;
 import got.common.entity.essos.mossovy.*;
 import got.common.entity.other.*;
+import got.common.entity.westeros.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -133,11 +134,10 @@ public class GOTStructureMossovyInn extends GOTStructureMossovyBase {
 		int men = 8 + random.nextInt(6);
 		for (int l = 0; l < men; ++l) {
 			GOTEntityHumanBase mossovylander = new GOTEntityMossovyMan(world);
-			if (random.nextInt(10) == 0) {
-				mossovylander = new GOTEntityWesterosThief(world);
-			}
 			spawnNPCAndSetHome(mossovylander, world, -2, 1, 0, 16);
 		}
+		spawnNPCAndSetHome(new GOTEntityWesterosThief(world), world, -2, 1, 0, 16);
+		spawnNPCAndSetHome(new GOTEntityWesterosScrapTrader(world), world, -2, 1, 0, 16);
 		return true;
 	}
 

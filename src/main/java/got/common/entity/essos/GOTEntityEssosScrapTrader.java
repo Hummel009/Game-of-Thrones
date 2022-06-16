@@ -1,6 +1,7 @@
-package got.common.entity.other;
+package got.common.entity.essos;
 
 import got.common.database.*;
+import got.common.entity.westeros.GOTEntityWesterosScrapTrader;
 import got.common.item.other.*;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
@@ -57,8 +58,7 @@ public class GOTEntityEssosScrapTrader extends GOTEntityWesterosScrapTrader {
 			familyInfo.setName(GOTNames.getSothoryosName(rand, true));
 			break;
 		default:
-			break;
+			familyInfo.setName(GOTNames.getWildName(rand, true));
 		}
-		familyInfo.setName(GOTNames.getWildName(rand, true));
 	}
 }
