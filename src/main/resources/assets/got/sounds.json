@@ -1,14 +1,5 @@
 {
 	
-	"staff.amogus":
-    {
-        "category": "neutral",
-        "sounds":
-        [
-            "staff/amogus"
-        ]
-    },
-
 	"walker.death":
     {
         "category": "neutral",
