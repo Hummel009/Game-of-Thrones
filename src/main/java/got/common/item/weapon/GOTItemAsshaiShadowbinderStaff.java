@@ -44,7 +44,7 @@ public class GOTItemAsshaiShadowbinderStaff extends GOTItemSword {
 
 	public static ItemStack useStaff(ItemStack itemstack, World world, EntityLivingBase user) {
 		user.swingItem();
-		if (GOT.isAprilFools()) {
+		if (!GOT.isAprilFools()) {
 			world.playSoundAtEntity(user, "mob.ghast.fireball", 2.0f, (itemRand.nextFloat() - itemRand.nextFloat()) * 0.2f + 1.0f);
 			if (!world.isRemote) {
 				List entities = world.getEntitiesWithinAABB(EntityLivingBase.class, user.boundingBox.expand(12.0, 8.0, 12.0));
