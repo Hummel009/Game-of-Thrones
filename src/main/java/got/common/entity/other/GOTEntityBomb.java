@@ -27,7 +27,7 @@ public class GOTEntityBomb extends EntityTNTPrimed {
 		dataWatcher.addObject(16, (byte) 0);
 	}
 
-	public void explodeOrcBomb() {
+	public void explodeBomb() {
 		boolean doTerrainDamage = false;
 		if (droppedByPlayer) {
 			doTerrainDamage = true;
@@ -62,7 +62,7 @@ public class GOTEntityBomb extends EntityTNTPrimed {
 		--bombFuse;
 		if (bombFuse <= 0 && !worldObj.isRemote) {
 			setDead();
-			explodeOrcBomb();
+			explodeBomb();
 		} else {
 			worldObj.spawnParticle("smoke", posX, posY + 0.7, posZ, 0.0, 0.0, 0.0);
 		}
@@ -75,7 +75,7 @@ public class GOTEntityBomb extends EntityTNTPrimed {
 		droppedByHiredUnit = nbt.getBoolean("DroppedByHiredUnit");
 		droppedTargetingPlayer = nbt.getBoolean("DroppedTargetingPlayer");
 		setBombStrengthLevel(nbt.getInteger("BombStrengthLevel"));
-		bombFuse = nbt.getInteger("OrcBombFuse");
+		bombFuse = nbt.getInteger("BombFuse");
 	}
 
 	public void setBombStrengthLevel(int i) {
@@ -98,6 +98,6 @@ public class GOTEntityBomb extends EntityTNTPrimed {
 		nbt.setBoolean("DroppedByHiredUnit", droppedByHiredUnit);
 		nbt.setBoolean("DroppedTargetingPlayer", droppedTargetingPlayer);
 		nbt.setInteger("BombStrengthLevel", getBombStrengthLevel());
-		nbt.setInteger("OrcBombFuse", bombFuse);
+		nbt.setInteger("BombFuse", bombFuse);
 	}
 }
