@@ -1300,6 +1300,7 @@ public class GOTRegistry {
 	public static Item yitiSword;
 	public static Item zebraCooked;
 	public static Item zebraRaw;
+	public static Item ballLigtning;
 
 	public static void assignContent() {
 		planks1 = new GOTBlockPlanks1();
@@ -2566,6 +2567,7 @@ public class GOTRegistry {
 		yitiSword = new GOTItemSword(ToolMaterial.IRON);
 		zebraCooked = new GOTItemFood(6, 0.6f, true);
 		zebraRaw = new GOTItemFood(2, 0.1f, true);
+		ballLigtning = new Item();
 	}
 
 	public static void assignMetadata() {
@@ -3914,5 +3916,6 @@ public class GOTRegistry {
 		registerItem(rice, "rice");
 		registerItem(westerosLongsword, "westerosLongsword");
 		registerItem(westerosGreatsword, "westerosGreatsword");
+		registerItem(ballLigtning, "ballLigtning");
 	}
 }

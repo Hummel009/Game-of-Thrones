@@ -330,6 +330,7 @@ public class GOTRender {
 		renders.put(GOTEntityBird.class, new GOTRenderBird());
 		renders.put(GOTEntityBomb.class, new GOTRenderBomb());
 		renders.put(GOTEntityButterfly.class, new GOTRenderButterfly());
+		renders.put(GOTEntityBallLightning.class,new RenderSnowball(GOTRegistry.ballLigtning, 16384));
 		renders.put(GOTEntityCamel.class, new GOTRenderCamel());
 		renders.put(GOTEntityCargocart.class, new GOTRenderCargocart());
 		renders.put(GOTEntityConker.class, new RenderSnowball(GOTRegistry.chestnut));

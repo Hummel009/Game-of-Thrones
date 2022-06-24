@@ -923,6 +923,8 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityLancelLannister.LancelLannisterReligious.class, id++);
 		GOTEntityRegistry.register(GOTEntityTheonGreyjoy.TheonGreyjoyTormented.class, id++);
 
+		GOTEntityRegistry.register(GOTEntityBallLightning.class, id++, GOTFaction.UNALIGNED);
+		
 		GOTEntityRegistry.register(GOTEntityPortal.class, id++, 80, 3, true);
 		GOTEntityRegistry.register(GOTEntitySmokeRing.class, id++, 64, 10, true);
 		GOTEntityRegistry.register(GOTEntityBomb.class, id++, 160, 10, true);

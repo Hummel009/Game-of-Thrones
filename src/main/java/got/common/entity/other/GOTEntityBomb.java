@@ -27,7 +27,7 @@ public class GOTEntityBomb extends EntityTNTPrimed {
 		dataWatcher.addObject(16, (byte) 0);
 	}
 
-	public void explodeOrcBomb() {
+	public void explodeBomb() {
 		boolean doTerrainDamage = false;
 		if (droppedByPlayer) {
 			doTerrainDamage = true;
@@ -62,7 +62,7 @@ public class GOTEntityBomb extends EntityTNTPrimed {
 		--bombFuse;
 		if (bombFuse <= 0 && !worldObj.isRemote) {
 			setDead();
-			explodeOrcBomb();
+			explodeBomb();
 		} else {
 			worldObj.spawnParticle("smoke", posX, posY + 0.7, posZ, 0.0, 0.0, 0.0);
 		}
