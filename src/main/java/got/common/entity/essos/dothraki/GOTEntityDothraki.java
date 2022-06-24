@@ -212,7 +212,7 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements IPickpocket
 		draka = nbt.getInteger("Skirmish");
 	}
 
-	public void setOrcSkirmishing() {
+	public void setDothrakiSkirmishing() {
 		int prevSkirmishTick = draka;
 		draka = 160;
 		if (!worldObj.isRemote && prevSkirmishTick == 0) {

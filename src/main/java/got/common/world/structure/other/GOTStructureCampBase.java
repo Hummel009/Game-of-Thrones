@@ -22,7 +22,7 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 	public int farmBaseMeta;
 	public Block farmCropBlock;
 	public int farmCropMeta;
-	public boolean hasOrcTorches = false;
+	public boolean hasDoubleTorches = false;
 	public boolean hasSkulls = false;
 
 	public GOTStructureCampBase(boolean flag) {
@@ -107,7 +107,7 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 			int j1 = getTopBlock(world, i14, k1);
 			generateSubstructure(createTent(notifyChanges, random), world, random, i14, j1, k1, rot);
 		}
-		if (hasOrcTorches) {
+		if (hasDoubleTorches) {
 			for (int i141 : new int[] { -2, 2 }) {
 				for (int k1 : new int[] { -2, 2 }) {
 					int j1 = getTopBlock(world, i141, k1);
@@ -197,7 +197,7 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 				int scarecrowX = i14 + (random.nextBoolean() ? -2 : 2);
 				int scarecrowZ = k1 + (random.nextBoolean() ? -2 : 2);
 				setBlockAndMetadata(world, scarecrowX, highestFarmHeight + 1, scarecrowZ, fenceBlock, fenceMeta);
-				if (hasOrcTorches) {
+				if (hasDoubleTorches) {
 					setBlockAndMetadata(world, scarecrowX, highestFarmHeight + 2, scarecrowZ, Blocks.wool, 12);
 					this.placeSkull(world, random, scarecrowX, highestFarmHeight + 3, scarecrowZ);
 				} else {

@@ -16,8 +16,8 @@ public class GOTEntityAIDothrakiSkirmish extends GOTEntityAINearestAttackableTar
 
 	public boolean canDothrakiSkirmish(EntityLivingBase entity) {
 		if (entity instanceof GOTEntityDothraki) {
-			GOTEntityDothraki orc = (GOTEntityDothraki) entity;
-			return !orc.isTrader() && !orc.hiredNPCInfo.isActive && orc.ridingEntity == null && orc.canDothrakiSkirmish();
+			GOTEntityDothraki mob = (GOTEntityDothraki) entity;
+			return !mob.isTrader() && !mob.hiredNPCInfo.isActive && mob.ridingEntity == null && mob.canDothrakiSkirmish();
 		}
 		return false;
 	}
@@ -34,10 +34,10 @@ public class GOTEntityAIDothrakiSkirmish extends GOTEntityAINearestAttackableTar
 		}
 		if (!theDothraki.isDothrakSkirmishing()) {
 			int chance = 20000;
-			List nearbyOrcs = theDothraki.worldObj.getEntitiesWithinAABB(GOTEntityDothraki.class, theDothraki.boundingBox.expand(16.0, 8.0, 16.0));
-			for (Object nearbyOrc : nearbyOrcs) {
-				GOTEntityDothraki orc = (GOTEntityDothraki) nearbyOrc;
-				if (!orc.isDothrakSkirmishing()) {
+			List nearbyMobs = theDothraki.worldObj.getEntitiesWithinAABB(GOTEntityDothraki.class, theDothraki.boundingBox.expand(16.0, 8.0, 16.0));
+			for (Object nearbyMob : nearbyMobs) {
+				GOTEntityDothraki mob = (GOTEntityDothraki) nearbyMob;
+				if (!mob.isDothrakSkirmishing()) {
 					continue;
 				}
 				chance /= 10;
@@ -55,6 +55,6 @@ public class GOTEntityAIDothrakiSkirmish extends GOTEntityAINearestAttackableTar
 	@Override
 	public void startExecuting() {
 		super.startExecuting();
-		theDothraki.setOrcSkirmishing();
+		theDothraki.setDothrakiSkirmishing();
 	}
 }
