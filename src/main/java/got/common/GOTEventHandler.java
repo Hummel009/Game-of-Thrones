@@ -760,13 +760,13 @@ public class GOTEventHandler implements IFuelHandler {
 				boolean isLegendaryArmor = true;
 				for (int i = 0; i < 4; ++i) {
 					ItemStack armour = entity.getEquipmentInSlot(i + 1);
-					if (armour == null || !(armour.getItem() instanceof ItemArmor) || ((ItemArmor) armour.getItem()).getArmorMaterial() != GOTMaterial.ROYCE.toArmorMaterial()) {
+					if (armour == null || !(armour.getItem() instanceof ItemArmor) || ((ItemArmor) armour.getItem()).getArmorMaterial() != GOTMaterial.ROYCE) {
 						isLegendaryArmor = false;
 						break;
 					}
 				}
 				ItemStack armour = entity.getEquipmentInSlot(3);
-				if (armour != null && armour.getItem() instanceof ItemArmor && ((ItemArmor) armour.getItem()).getArmorMaterial() == GOTMaterial.BLACKSKIN.toArmorMaterial()) {
+				if (armour != null && armour.getItem() instanceof ItemArmor && ((ItemArmor) armour.getItem()).getArmorMaterial() == GOTMaterial.BLACKSKIN) {
 					isLegendaryArmor = true;
 				}
 				if (isLegendaryArmor) {
@@ -1077,9 +1077,9 @@ public class GOTEventHandler implements IFuelHandler {
 							Item material = armorMaterial.func_151685_b();
 							if (material == Items.leather) {
 								frostProtection += 50;
-							} else if (material == GOTRegistry.fur || material == GOTRegistry.iceShard || armorMaterial == GOTMaterial.NORTH.toArmorMaterial() || armorMaterial == GOTMaterial.REDKING.toArmorMaterial()) {
+							} else if (material == GOTRegistry.fur || material == GOTRegistry.iceShard || armorMaterial == GOTMaterial.NORTH || armorMaterial == GOTMaterial.REDKING) {
 								frostProtection += 100;
-							} else if (armorMaterial == GOTMaterial.GIFT.toArmorMaterial()) {
+							} else if (armorMaterial == GOTMaterial.GIFT) {
 								frostProtection += 50;
 							}
 						}
@@ -1125,7 +1125,7 @@ public class GOTEventHandler implements IFuelHandler {
 							if (material.customCraftingMaterial == Items.leather) {
 								burnProtection += 50;
 							}
-							if (material == GOTMaterial.ROBES.toArmorMaterial() && material == GOTMaterial.DORNE.toArmorMaterial()) {
+							if (material == GOTMaterial.ROBES && material == GOTMaterial.DORNE) {
 								burnProtection += 400;
 							}
 						}

@@ -3,7 +3,6 @@ package got.common.item.weapon;
 import java.util.List;
 
 import got.GOT;
-import got.common.database.GOTMaterial;
 import got.common.entity.dragon.GOTEntityFlyingTameable;
 import got.common.entity.other.GOTEntityNPCRideable;
 import net.minecraft.entity.*;
@@ -15,7 +14,7 @@ import net.minecraft.world.World;
 
 public class GOTItemAsshaiShadowbinderStaff extends GOTItemSword {
 	public GOTItemAsshaiShadowbinderStaff() {
-		super(GOTMaterial.ASSHAI);
+		super(ToolMaterial.WOOD);
 		setMaxDamage(1500);
 		gotWeaponDamage = 8.0f;
 	}

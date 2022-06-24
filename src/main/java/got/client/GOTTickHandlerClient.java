@@ -288,7 +288,7 @@ public class GOTTickHandlerClient {
 		}
 
 		if (itemstack.getItem() instanceof GOTMaterialFinder) {
-			if ((GOTMaterialFinder) itemstack.getItem() != GOTRegistry.baelishDagger && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.VALYRIAN || ((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.OBSIDIAN)) {
+			if ((GOTMaterialFinder) itemstack.getItem() != GOTRegistry.baelishDagger && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.VALYRIAN_TOOL || ((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.OBSIDIAN_TOOL)) {
 				tooltip.add(EnumChatFormatting.GOLD + StatCollector.translateToLocal("item.got.antiwalker"));
 			}
 			if ((GOTMaterialFinder) itemstack.getItem() == GOTRegistry.bericSword) {

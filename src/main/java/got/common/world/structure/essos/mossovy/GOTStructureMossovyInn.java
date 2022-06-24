@@ -15,7 +15,7 @@ import java.util.Random;
 
 import got.common.database.*;
 import got.common.entity.essos.mossovy.*;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.westeros.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;

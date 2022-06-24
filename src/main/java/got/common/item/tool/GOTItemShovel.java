@@ -1,24 +1,20 @@
 package got.common.item.tool;
 
-import got.common.database.*;
+import got.common.database.GOTCreativeTabs;
 import got.common.item.GOTMaterialFinder;
-import net.minecraft.item.*;
+import net.minecraft.item.ItemSpade;
 
 public class GOTItemShovel extends ItemSpade implements GOTMaterialFinder {
-	public GOTMaterial gotMaterial;
+	public ToolMaterial gotMaterial;
 
-	public GOTItemShovel(GOTMaterial material) {
-		this(material.toToolMaterial());
+	public GOTItemShovel(ToolMaterial material) {
+		super(material);
+		setCreativeTab(GOTCreativeTabs.tabTools);
 		gotMaterial = material;
 	}
 
-	public GOTItemShovel(Item.ToolMaterial material) {
-		super(material);
-		setCreativeTab(GOTCreativeTabs.tabTools);
-	}
-
 	@Override
-	public GOTMaterial getMaterial() {
+	public ToolMaterial getMaterial() {
 		return gotMaterial;
 	}
 }

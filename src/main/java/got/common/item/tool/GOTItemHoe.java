@@ -1,24 +1,20 @@
 package got.common.item.tool;
 
-import got.common.database.*;
+import got.common.database.GOTCreativeTabs;
 import got.common.item.GOTMaterialFinder;
-import net.minecraft.item.*;
+import net.minecraft.item.ItemHoe;
 
 public class GOTItemHoe extends ItemHoe implements GOTMaterialFinder {
-	public GOTMaterial gotMaterial;
+	public ToolMaterial gotMaterial;
 
-	public GOTItemHoe(GOTMaterial material) {
-		this(material.toToolMaterial());
+	public GOTItemHoe(ToolMaterial material) {
+		super(material);
+		setCreativeTab(GOTCreativeTabs.tabTools);
 		gotMaterial = material;
 	}
 
-	public GOTItemHoe(Item.ToolMaterial material) {
-		super(material);
-		setCreativeTab(GOTCreativeTabs.tabTools);
-	}
-
 	@Override
-	public GOTMaterial getMaterial() {
+	public ToolMaterial getMaterial() {
 		return gotMaterial;
 	}
 }

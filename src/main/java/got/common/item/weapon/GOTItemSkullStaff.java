@@ -1,12 +1,11 @@
 package got.common.item.weapon;
 
-import got.common.database.GOTMaterial;
 import net.minecraft.init.Items;
 import net.minecraft.item.*;
 
 public class GOTItemSkullStaff extends GOTItemSword {
 	public GOTItemSkullStaff() {
-		super(GOTMaterial.ASSHAI);
+		super(ToolMaterial.WOOD);
 	}
 
 	@Override

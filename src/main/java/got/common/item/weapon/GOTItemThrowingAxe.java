@@ -1,6 +1,6 @@
 package got.common.item.weapon;
 
-import got.common.database.*;
+import got.common.database.GOTCreativeTabs;
 import got.common.dispense.GOTDispenseThrowingAxe;
 import got.common.enchant.*;
 import got.common.entity.other.GOTEntityThrowingAxe;
@@ -14,13 +14,8 @@ import net.minecraft.item.*;
 import net.minecraft.world.World;
 
 public class GOTItemThrowingAxe extends Item implements GOTMaterialFinder {
-	public GOTMaterial gotMaterial;
+	public ToolMaterial gotMaterial;
 	public Item.ToolMaterial axeMaterial;
-
-	public GOTItemThrowingAxe(GOTMaterial material) {
-		this(material.toToolMaterial());
-		gotMaterial = material;
-	}
 
 	public GOTItemThrowingAxe(Item.ToolMaterial material) {
 		axeMaterial = material;
@@ -29,6 +24,7 @@ public class GOTItemThrowingAxe extends Item implements GOTMaterialFinder {
 		setFull3D();
 		setCreativeTab(GOTCreativeTabs.tabCombat);
 		BlockDispenser.dispenseBehaviorRegistry.putObject(this, new GOTDispenseThrowingAxe());
+		gotMaterial = material;
 	}
 
 	public Item.ToolMaterial getAxeMaterial() {
@@ -44,7 +40,7 @@ public class GOTItemThrowingAxe extends Item implements GOTMaterialFinder {
 	}
 
 	@Override
-	public GOTMaterial getMaterial() {
+	public ToolMaterial getMaterial() {
 		return gotMaterial;
 	}
 

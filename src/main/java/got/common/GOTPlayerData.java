@@ -30,6 +30,7 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.nbt.*;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.*;
@@ -2014,7 +2015,7 @@ public class GOTPlayerData {
 	}
 
 	public void runAchievementChecks(EntityPlayer entityplayer, World world) {
-		GOTMaterial fullMaterial;
+		ArmorMaterial fullMaterial;
 		int i = MathHelper.floor_double(entityplayer.posX);
 		MathHelper.floor_double(entityplayer.boundingBox.minY);
 		int k = MathHelper.floor_double(entityplayer.posZ);
@@ -2973,12 +2974,12 @@ public class GOTPlayerData {
 		return false;
 	}
 
-	public static GOTMaterial getBodyMaterial(EntityLivingBase entity) {
+	public static ArmorMaterial getBodyMaterial(EntityLivingBase entity) {
 		ItemStack item = entity.getEquipmentInSlot(3);
 		if (item == null || !(item.getItem() instanceof GOTItemArmor)) {
 			return null;
 		}
-		return ((GOTItemArmor) item.getItem()).getGOTArmorMaterial();
+		return ((GOTItemArmor) item.getItem()).getArmorMaterial();
 	}
 
 	public static ItemArmor.ArmorMaterial getFullArmorMaterial(EntityLivingBase entity) {
@@ -2997,14 +2998,14 @@ public class GOTPlayerData {
 		return material;
 	}
 
-	public static GOTMaterial getFullArmorMaterialWithoutHelmet(EntityLivingBase entity) {
-		GOTMaterial material = null;
+	public static ArmorMaterial getFullArmorMaterialWithoutHelmet(EntityLivingBase entity) {
+		ArmorMaterial material = null;
 		for (int i = 1; i <= 3; ++i) {
 			ItemStack item = entity.getEquipmentInSlot(i);
 			if (item == null || !(item.getItem() instanceof GOTItemArmor)) {
 				return null;
 			}
-			GOTMaterial itemMaterial = ((GOTItemArmor) item.getItem()).getGOTArmorMaterial();
+			ArmorMaterial itemMaterial = ((GOTItemArmor) item.getItem()).getArmorMaterial();
 			if (material != null && itemMaterial != material) {
 				return null;
 			}
@@ -3013,12 +3014,12 @@ public class GOTPlayerData {
 		return material;
 	}
 
-	public static GOTMaterial getHelmetMaterial(EntityLivingBase entity) {
+	public static ArmorMaterial getHelmetMaterial(EntityLivingBase entity) {
 		ItemStack item = entity.getEquipmentInSlot(4);
 		if (item == null || !(item.getItem() instanceof GOTItemArmor)) {
 			return null;
 		}
-		return ((GOTItemArmor) item.getItem()).getGOTArmorMaterial();
+		return ((GOTItemArmor) item.getItem()).getArmorMaterial();
 	}
 
 	public static boolean isTimerAutosaveTick() {

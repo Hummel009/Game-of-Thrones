@@ -1,24 +1,22 @@
 package got.common.item.other;
 
-import got.common.database.*;
+import got.common.database.GOTCreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.*;
 import net.minecraft.util.StringUtils;
 
 public class GOTItemArmor extends ItemArmor {
-	public GOTMaterial gotMaterial;
 	public String extraName;
 	public String path;
 	public int slot;
 
-	public GOTItemArmor(GOTMaterial material, int slotType) {
+	public GOTItemArmor(ArmorMaterial material, int slotType) {
 		this(material, slotType, "");
 		slot = slotType;
 	}
 
-	public GOTItemArmor(GOTMaterial material, int slotType, String s) {
-		super(material.toArmorMaterial(), 0, slotType);
-		gotMaterial = material;
+	public GOTItemArmor(ArmorMaterial material, int slotType, String s) {
+		super(material, 0, slotType);
 		setCreativeTab(GOTCreativeTabs.tabCombat);
 		extraName = s;
 		slot = slotType;
@@ -43,14 +41,5 @@ public class GOTItemArmor extends ItemArmor {
 			texture.append("_").append(type);
 		}
 		return texture.append(".png").toString();
-	}
-
-	public GOTMaterial getGOTArmorMaterial() {
-		return gotMaterial;
-	}
-
-	@Override
-	public boolean isDamageable() {
-		return gotMaterial.isDamageable();
 	}
 }

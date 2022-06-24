@@ -3,7 +3,7 @@ package got.common.item.weapon;
 import java.util.*;
 
 import got.common.GOTBannerProtection;
-import got.common.database.*;
+import got.common.database.GOTCreativeTabs;
 import net.minecraft.entity.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class GOTItemLegendaryWhip extends GOTItemSword {
 	public GOTItemLegendaryWhip() {
-		super(GOTMaterial.LOG);
+		super(ToolMaterial.WOOD);
 		setMaxDamage(1500);
 		gotWeaponDamage = 5.0f;
 		setCreativeTab(GOTCreativeTabs.tabStory);

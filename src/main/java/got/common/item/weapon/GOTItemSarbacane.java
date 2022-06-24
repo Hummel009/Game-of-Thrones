@@ -10,10 +10,6 @@ import net.minecraft.item.*;
 import net.minecraft.world.World;
 
 public class GOTItemSarbacane extends Item {
-	public GOTItemSarbacane(GOTMaterial material) {
-		this(material.toToolMaterial());
-	}
-
 	public GOTItemSarbacane(Item.ToolMaterial material) {
 		setMaxStackSize(1);
 		setMaxDamage(material.getMaxUses());

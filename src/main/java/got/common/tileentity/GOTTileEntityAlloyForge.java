@@ -172,7 +172,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, I
 			return new ItemStack(GOTRegistry.ice);
 		}
 		if (isCobalt(itemstack) && isIron(alloyItem) || isIron(itemstack) && isCobalt(alloyItem)) {
-			return new ItemStack(GOTRegistry.alloySteelIgnot);
+			return new ItemStack(GOTRegistry.alloySteelIngot);
 		}
 		return null;
 	}

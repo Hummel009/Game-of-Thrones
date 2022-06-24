@@ -60,7 +60,7 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 			ret.add(rec1);
 			ret.add(rec2);
 		}
-		if (NEIServerUtils.areStacksSameTypeCrafting(result, new ItemStack(GOTRegistry.alloySteelIgnot))) {
+		if (NEIServerUtils.areStacksSameTypeCrafting(result, new ItemStack(GOTRegistry.alloySteelIngot))) {
 			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[] { new ItemStack(GOTRegistry.cobaltIngot) }, new ItemStack[] { new ItemStack(Items.iron_ingot) }, result);
 			CachedForgeRecipe rec2 = new CachedForgeRecipe(new ItemStack[] { new ItemStack(Items.iron_ingot) }, new ItemStack[] { new ItemStack(GOTRegistry.cobaltIngot) }, result);
 			ret.add(rec1);

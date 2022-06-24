@@ -5,7 +5,7 @@ import java.util.UUID;
 import com.google.common.collect.Multimap;
 
 import cpw.mods.fml.relauncher.*;
-import got.common.database.*;
+import got.common.database.GOTCreativeTabs;
 import got.common.item.GOTMaterialFinder;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.*;
@@ -21,23 +21,14 @@ public class GOTItemSword extends ItemSword implements GOTMaterialFinder {
 	public IIcon glowingIcon;
 	public boolean isGlowing = false;
 	public float gotWeaponDamage;
-	public GOTMaterial gotMaterial;
+	public ToolMaterial gotMaterial;
 	public HitEffect effect;
-
-	public GOTItemSword(GOTMaterial material) {
-		this(material.toToolMaterial(), HitEffect.NONE);
-		gotMaterial = material;
-	}
-
-	public GOTItemSword(GOTMaterial material, HitEffect e) {
-		this(material.toToolMaterial(), e);
-		gotMaterial = material;
-	}
 
 	public GOTItemSword(Item.ToolMaterial material) {
 		super(material);
 		setCreativeTab(GOTCreativeTabs.tabCombat);
 		gotWeaponDamage = material.getDamageVsEntity() + 4.0f;
+		gotMaterial = material;
 	}
 
 	public GOTItemSword(Item.ToolMaterial material, HitEffect e) {
@@ -67,7 +58,7 @@ public class GOTItemSword extends ItemSword implements GOTMaterialFinder {
 	}
 
 	@Override
-	public GOTMaterial getMaterial() {
+	public ToolMaterial getMaterial() {
 		return gotMaterial;
 	}
 

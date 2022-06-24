@@ -4,7 +4,7 @@ import java.util.Random;
 
 import got.common.database.*;
 import got.common.entity.essos.ibben.*;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.westeros.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;

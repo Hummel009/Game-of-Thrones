@@ -150,7 +150,7 @@ public class GOTTileEntityOven extends TileEntity implements IInventory, ISidedI
 
 	@Override
 	public String getInventoryName() {
-		return hasCustomInventoryName() ? specialOvenName : StatCollector.translateToLocal("got.container.hobbitOven");
+		return hasCustomInventoryName() ? specialOvenName : StatCollector.translateToLocal("got.container.oven");
 	}
 
 	@Override

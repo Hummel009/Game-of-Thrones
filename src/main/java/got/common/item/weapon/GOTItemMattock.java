@@ -1,20 +1,12 @@
 package got.common.item.weapon;
 
-import got.common.database.GOTMaterial;
-import got.common.item.GOTMaterialFinder;
 import got.common.item.tool.GOTItemPickaxe;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.*;
 
-public class GOTItemMattock extends GOTItemPickaxe implements GOTMaterialFinder {
-	public GOTMaterial gotMaterial;
+public class GOTItemMattock extends GOTItemPickaxe {
 	public float efficiencyOnProperMaterial;
-
-	public GOTItemMattock(GOTMaterial material) {
-		this(material.toToolMaterial());
-		gotMaterial = material;
-	}
 
 	public GOTItemMattock(Item.ToolMaterial material) {
 		super(material);
@@ -29,10 +21,5 @@ public class GOTItemMattock extends GOTItemPickaxe implements GOTMaterialFinder 
 			return efficiencyOnProperMaterial;
 		}
 		return f;
-	}
-
-	@Override
-	public GOTMaterial getMaterial() {
-		return gotMaterial;
 	}
 }

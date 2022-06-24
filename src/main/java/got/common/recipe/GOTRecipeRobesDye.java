@@ -8,6 +8,7 @@ import net.minecraft.block.BlockColored;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.*;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
 
@@ -18,8 +19,8 @@ public class GOTRecipeRobesDye implements IRecipe {
 		this(GOTMaterial.ROBES);
 	}
 
-	public GOTRecipeRobesDye(GOTMaterial material) {
-		robeMaterial = material.toArmorMaterial();
+	public GOTRecipeRobesDye(ArmorMaterial material) {
+		robeMaterial = material;
 	}
 
 	@Override

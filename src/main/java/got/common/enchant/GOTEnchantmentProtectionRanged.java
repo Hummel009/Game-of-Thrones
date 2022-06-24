@@ -18,7 +18,7 @@ public class GOTEnchantmentProtectionRanged extends GOTEnchantmentProtectionSpec
 	public boolean canApply(ItemStack itemstack, boolean considering) {
 		if (super.canApply(itemstack, considering)) {
 			Item item = itemstack.getItem();
-			return !(item instanceof ItemArmor) || ((ItemArmor) item).getArmorMaterial() != GOTMaterial.ROYCE.toArmorMaterial();
+			return !(item instanceof ItemArmor) || ((ItemArmor) item).getArmorMaterial() != GOTMaterial.ROYCE;
 		}
 		return false;
 	}

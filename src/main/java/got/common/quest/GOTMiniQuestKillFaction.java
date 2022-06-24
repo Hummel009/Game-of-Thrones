@@ -50,14 +50,14 @@ public class GOTMiniQuestKillFaction extends GOTMiniQuestKill {
 	public static class QFKillFaction extends GOTMiniQuestKill.QFKill<GOTMiniQuestKillFaction> {
 		private GOTFaction killFaction;
 
+		public QFKillFaction() {
+			super("kill");
+		}
+
 		public QFKillFaction(String name) {
 			super(name);
 		}
 
-		public QFKillFaction() {
-			super("kill");
-		}
-		
 		@Override
 		public GOTMiniQuestKillFaction createQuest(GOTEntityNPC npc, Random rand) {
 			GOTMiniQuestKillFaction quest = super.createQuest(npc, rand);

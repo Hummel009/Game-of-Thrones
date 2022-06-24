@@ -224,7 +224,7 @@ public class GOTContainerAnvil extends Container {
 		if (material == Item.ToolMaterial.WOOD) {
 			return GOT.isOreNameEqual(materialItem, "plankWood");
 		}
-		if (item instanceof ItemArmor && ((ItemArmor) item).getArmorMaterial() == GOTMaterial.BONE.toArmorMaterial()) {
+		if (item instanceof ItemArmor && ((ItemArmor) item).getArmorMaterial() == GOTMaterial.BONE) {
 			return GOT.isOreNameEqual(materialItem, "bone");
 		}
 		return false;

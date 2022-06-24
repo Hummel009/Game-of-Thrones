@@ -1,8 +1,6 @@
 package got.common.item.weapon;
 
-import got.common.database.GOTMaterial;
 import got.common.entity.other.GOTFishing;
-import got.common.item.GOTMaterialFinder;
 import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.item.*;
@@ -11,11 +9,7 @@ import net.minecraft.item.*;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 
-public class GOTItemTrident extends GOTItemPolearm implements GOTMaterialFinder {
-	public GOTItemTrident(GOTMaterial material) {
-		this(material.toToolMaterial());
-		gotMaterial = material;
-	}
+public class GOTItemTrident extends GOTItemPolearm {
 
 	public GOTItemTrident(Item.ToolMaterial material) {
 		super(material);

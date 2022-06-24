@@ -21,10 +21,6 @@ public class GOTItemCrossbow extends ItemBow {
 	@SideOnly(value = Side.CLIENT)
 	public IIcon[] crossbowPullIcons;
 
-	public GOTItemCrossbow(GOTMaterial material) {
-		this(material.toToolMaterial());
-	}
-
 	public GOTItemCrossbow(Item.ToolMaterial material) {
 		setCreativeTab(GOTCreativeTabs.tabCombat);
 		crossbowMaterial = material;

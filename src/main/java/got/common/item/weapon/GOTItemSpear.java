@@ -1,6 +1,5 @@
 package got.common.item.weapon;
 
-import got.common.database.GOTMaterial;
 import got.common.dispense.GOTDispenseSpear;
 import got.common.enchant.*;
 import got.common.entity.other.GOTEntitySpear;
@@ -12,11 +11,6 @@ import net.minecraft.item.*;
 import net.minecraft.world.World;
 
 public class GOTItemSpear extends GOTItemSword {
-	public GOTItemSpear(GOTMaterial material) {
-		this(material.toToolMaterial());
-		gotMaterial = material;
-	}
-
 	public GOTItemSpear(Item.ToolMaterial material) {
 		super(material);
 		gotWeaponDamage -= 1.0f;

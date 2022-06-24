@@ -526,7 +526,7 @@ public class GOTStructureDragonstoneCity extends GOTVillageGen {
 		public void setupVillageProperties(Random random) {
 			if (isTown) {
 				villageType = VillageType.TOWN;
-			} else if (isCastle || (random.nextInt(4) == 0)) {
+			} else if (isCastle || random.nextInt(4) == 0) {
 				villageType = VillageType.FORT;
 			} else {
 				villageType = VillageType.VILLAGE;

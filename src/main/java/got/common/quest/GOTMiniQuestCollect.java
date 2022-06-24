@@ -78,14 +78,14 @@ public class GOTMiniQuestCollect extends GOTMiniQuestCollectBase {
 		public int minTarget;
 		public int maxTarget;
 
-		public QFCollect(String name) {
-			super(name);
-		}
-		
 		public QFCollect() {
 			super("collect");
 		}
-		
+
+		public QFCollect(String name) {
+			super(name);
+		}
+
 		@Override
 		public Q createQuest(GOTEntityNPC npc, Random rand) {
 			GOTMiniQuestCollect quest = super.createQuest(npc, rand);

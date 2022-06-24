@@ -1,6 +1,5 @@
 package got.common.item.weapon;
 
-import got.common.database.GOTMaterial;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
@@ -10,12 +9,7 @@ import net.minecraft.world.World;
 public class GOTItemBattleaxe extends GOTItemSword {
 	public float efficiencyOnProperMaterial;
 
-	public GOTItemBattleaxe(GOTMaterial material) {
-		this(material.toToolMaterial());
-		gotMaterial = material;
-	}
-
-	public GOTItemBattleaxe(Item.ToolMaterial material) {
+	public GOTItemBattleaxe(ToolMaterial material) {
 		super(material);
 		efficiencyOnProperMaterial = material.getEfficiencyOnProperMaterial();
 		setHarvestLevel("axe", material.getHarvestLevel());

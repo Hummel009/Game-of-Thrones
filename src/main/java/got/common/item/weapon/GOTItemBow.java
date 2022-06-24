@@ -28,14 +28,6 @@ public class GOTItemBow extends ItemBow {
 	@SideOnly(value = Side.CLIENT)
 	public IIcon[] bowPullIcons;
 
-	public GOTItemBow(GOTMaterial material) {
-		this(material.toToolMaterial(), 1.0);
-	}
-
-	public GOTItemBow(GOTMaterial material, double d) {
-		this(material.toToolMaterial(), d);
-	}
-
 	public GOTItemBow(Item.ToolMaterial material) {
 		this(material, 1.0);
 	}

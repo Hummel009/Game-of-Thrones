@@ -12,7 +12,7 @@ import net.minecraft.util.StatCollector;
 public class GOTItemRobes extends GOTItemArmor {
 	public static int ROBES_WHITE = 16777215;
 
-	public GOTItemRobes(GOTMaterial material, int slot) {
+	public GOTItemRobes(ArmorMaterial material, int slot) {
 		super(material, slot);
 		setCreativeTab(GOTCreativeTabs.tabMisc);
 	}

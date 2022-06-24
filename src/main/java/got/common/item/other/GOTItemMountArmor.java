@@ -1,7 +1,7 @@
 package got.common.item.other;
 
 import cpw.mods.fml.relauncher.*;
-import got.common.database.*;
+import got.common.database.GOTCreativeTabs;
 import got.common.entity.animal.*;
 import got.common.entity.other.GOTNPCMount;
 import got.common.util.GOTReflection;
@@ -15,17 +15,15 @@ public class GOTItemMountArmor extends Item {
 	public Mount mountType;
 	public int damageReduceAmount;
 	public Item templateItem;
+	public String textureName;
 
-	public GOTItemMountArmor(GOTMaterial material, Mount mount) {
-		this(material.toArmorMaterial(), mount);
-	}
-
-	public GOTItemMountArmor(ItemArmor.ArmorMaterial material, Mount mount) {
+	public GOTItemMountArmor(ItemArmor.ArmorMaterial material, Mount mount, String string) {
 		armorMaterial = material;
 		damageReduceAmount = material.getDamageReductionAmount(1) + material.getDamageReductionAmount(2);
 		mountType = mount;
 		setMaxStackSize(1);
 		setCreativeTab(GOTCreativeTabs.tabCombat);
+		textureName = string;
 	}
 
 	public ItemStack createTemplateItemStack(ItemStack source) {
@@ -53,12 +51,7 @@ public class GOTItemMountArmor extends Item {
 			}
 			path = GOTReflection.getHorseArmorTextures()[index];
 		} else {
-			String mountName = mountType.textureName;
-			String materialName = armorMaterial.name().toLowerCase();
-			if (materialName.startsWith("got_")) {
-				materialName = materialName.substring("got_".length());
-			}
-			path = "got:textures/armor/mount/" + mountName + "_" + materialName + ".png";
+			path = "got:textures/armor/mount/" + textureName + ".png";
 		}
 		return path;
 	}
