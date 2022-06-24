@@ -16,9 +16,9 @@ public class GOTBlockRock extends Block {
 	@SideOnly(value = Side.CLIENT)
 	public IIcon[] rockIcons;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon iconMordorSide;
+	public IIcon iconBasaltSide;
 	@SideOnly(value = Side.CLIENT)
-	public IIcon iconMordorMoss;
+	public IIcon iconBasaltMoss;
 	public String[] rockNames = { "basalt", "andesite", "rhyolite", "diorite", "granite", "chalk", "labradorite" };
 
 	public GOTBlockRock() {
@@ -39,7 +39,7 @@ public class GOTBlockRock extends Block {
 	public IIcon getIcon(IBlockAccess world, int i, int j, int k, int side) {
 		int meta = world.getBlockMetadata(i, j, k);
 		if (meta == 0 && side != 1 && side != 0 && world.getBlock(i, j + 1, k) == GOTRegistry.asshaiMoss) {
-			return iconMordorMoss;
+			return iconBasaltMoss;
 		}
 		return super.getIcon(world, i, j, k, side);
 	}
@@ -51,7 +51,7 @@ public class GOTBlockRock extends Block {
 			meta = 0;
 		}
 		if (meta == 0 && side != 1 && side != 0) {
-			return iconMordorSide;
+			return iconBasaltSide;
 		}
 		return rockIcons[meta];
 	}
@@ -88,8 +88,8 @@ public class GOTBlockRock extends Block {
 			String subName = getTextureName() + "_" + rockNames[i];
 			rockIcons[i] = iconregister.registerIcon(subName);
 			if (i == 0) {
-				iconMordorSide = iconregister.registerIcon(subName + "_side");
-				iconMordorMoss = iconregister.registerIcon(subName + "_moss");
+				iconBasaltSide = iconregister.registerIcon(subName + "_side");
+				iconBasaltMoss = iconregister.registerIcon(subName + "_moss");
 			}
 		}
 	}
