@@ -8,7 +8,7 @@ public abstract class GOTEnchantmentProtectionSpecial extends GOTEnchantment {
 	public GOTEnchantmentProtectionSpecial(String s, GOTEnchantmentType type, int level) {
 		super(s, type);
 		protectLevel = level;
-		setValueModifier((2.0f + protectLevel) / 2.0f);
+		setValueModifier((2.0F + protectLevel) / 2.0F);
 	}
 
 	public GOTEnchantmentProtectionSpecial(String s, int level) {
@@ -47,5 +47,5 @@ public abstract class GOTEnchantmentProtectionSpecial extends GOTEnchantment {
 		return false;
 	}
 
-	public abstract boolean protectsAgainst(DamageSource var1);
+	public abstract boolean protectsAgainst(DamageSource paramDamageSource);
 }

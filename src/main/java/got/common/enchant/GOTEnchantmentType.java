@@ -9,13 +9,16 @@ public enum GOTEnchantmentType {
 
 	public boolean canApply(ItemStack itemstack, boolean considering) {
 		Item item = itemstack.getItem();
+
 		if (this == BREAKABLE && item.isDamageable()) {
 			return true;
 		}
+
 		if (item instanceof ItemArmor && ((ItemArmor) item).damageReduceAmount > 0) {
 			if (this == ARMOR) {
 				return true;
 			}
+
 			ItemArmor itemarmor = (ItemArmor) item;
 			int armorType = itemarmor.armorType;
 			switch (armorType) {
@@ -31,21 +34,27 @@ public enum GOTEnchantmentType {
 				break;
 			}
 		}
+
 		if (this == MELEE && GOTWeaponStats.isMeleeWeapon(itemstack) && !(item instanceof GOTItemCommandSword)) {
 			return true;
 		}
+
 		if (this == TOOL && !item.getToolClasses(itemstack).isEmpty() || this == SHEARS && item instanceof ItemShears) {
 			return true;
 		}
+
 		if (this == RANGED && GOTWeaponStats.isRangedWeapon(itemstack)) {
 			return true;
 		}
+
 		if (this == RANGED_LAUNCHER && (item instanceof ItemBow || item instanceof GOTItemCrossbow || item instanceof GOTItemSarbacane)) {
 			return true;
 		}
-		if (this == THROWING_AXE && item instanceof GOTItemThrowingAxe) {
+
+		if (this == THROWING_AXE && item instanceof GOTItemThrowingAxe || this == FISHING && item instanceof ItemFishingRod) {
 			return true;
 		}
-		return this == FISHING && item instanceof ItemFishingRod;
+
+		return false;
 	}
 }

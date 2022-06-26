@@ -17,7 +17,8 @@ public class GOTEnchantmentMeleeReach extends GOTEnchantment {
 	public boolean canApply(ItemStack itemstack, boolean considering) {
 		if (super.canApply(itemstack, considering)) {
 			float reach = GOTWeaponStats.getMeleeReachFactor(itemstack);
-			return (reach *= reachFactor) <= GOTWeaponStats.MAX_MODIFIABLE_REACH;
+			reach *= reachFactor;
+			return reach <= GOTWeaponStats.MAX_MODIFIABLE_REACH;
 		}
 		return false;
 	}
@@ -29,6 +30,6 @@ public class GOTEnchantmentMeleeReach extends GOTEnchantment {
 
 	@Override
 	public boolean isBeneficial() {
-		return reachFactor >= 1.0f;
+		return reachFactor >= 1.0F;
 	}
 }

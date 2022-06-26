@@ -9,7 +9,7 @@ import net.minecraft.util.*;
 public class GOTEnchantmentProtectionValyrian extends GOTEnchantmentProtectionSpecial {
 	public GOTEnchantmentProtectionValyrian(String s) {
 		super(s, 1);
-		setValueModifier(2.0f);
+		setValueModifier(2.0F);
 	}
 
 	@Override
@@ -21,7 +21,9 @@ public class GOTEnchantmentProtectionValyrian extends GOTEnchantmentProtectionSp
 	public boolean canApply(ItemStack itemstack, boolean considering) {
 		if (super.canApply(itemstack, considering)) {
 			Item item = itemstack.getItem();
-			return item instanceof ItemArmor && ((ItemArmor) item).getArmorMaterial() == GOTMaterial.VALYRIAN;
+			if (item instanceof ItemArmor && ((ItemArmor) item).getArmorMaterial() == GOTMaterial.VALYRIAN) {
+				return true;
+			}
 		}
 		return false;
 	}
@@ -33,15 +35,18 @@ public class GOTEnchantmentProtectionValyrian extends GOTEnchantmentProtectionSp
 
 	@Override
 	public boolean protectsAgainst(DamageSource source) {
-		ItemStack weapon;
 		Entity attacker = source.getEntity();
 		Entity entity = source.getSourceOfDamage();
-		if (attacker instanceof EntityLivingBase && attacker == entity && (weapon = ((EntityLivingBase) attacker).getHeldItem()) != null) {
-			ItemStack weaponBase = weapon.copy();
-			GOTEnchantmentHelper.clearEnchants(weaponBase);
-			float range = GOTWeaponStats.getMeleeReachFactor(weaponBase);
-			if (range >= 1.3f) {
-				return true;
+		if (attacker instanceof EntityLivingBase && attacker == entity) {
+			ItemStack weapon = ((EntityLivingBase) attacker).getHeldItem();
+			if (weapon != null) {
+				ItemStack weaponBase = weapon.copy();
+				GOTEnchantmentHelper.clearEnchants(weaponBase);
+
+				float range = GOTWeaponStats.getMeleeReachFactor(weaponBase);
+				if (range >= 1.3F) {
+					return true;
+				}
 			}
 		}
 		return false;

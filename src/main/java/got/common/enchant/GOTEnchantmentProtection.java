@@ -11,9 +11,9 @@ public class GOTEnchantmentProtection extends GOTEnchantment {
 		super(s, type);
 		protectLevel = level;
 		if (protectLevel >= 0) {
-			setValueModifier((2.0f + protectLevel) / 2.0f);
+			setValueModifier((2.0F + protectLevel) / 2.0F);
 		} else {
-			setValueModifier((4.0f + protectLevel) / 4.0f);
+			setValueModifier((4.0F + protectLevel) / 4.0F);
 		}
 	}
 
@@ -30,16 +30,20 @@ public class GOTEnchantmentProtection extends GOTEnchantment {
 				if (armor.getArmorMaterial() == GOTMaterial.ROYCE) {
 					return false;
 				}
+
 				int prot = armor.damageReduceAmount;
 				int total = prot + protectLevel;
 				if (total > 0) {
 					if (considering) {
 						return true;
 					}
+
 					return total <= GOTMaterial.VALYRIAN.getDamageReductionAmount(armor.armorType);
 				}
+
 				return false;
 			}
+
 			return true;
 		}
 		return false;

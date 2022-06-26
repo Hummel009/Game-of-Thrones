@@ -17,7 +17,8 @@ public class GOTEnchantmentMeleeSpeed extends GOTEnchantment {
 	public boolean canApply(ItemStack itemstack, boolean considering) {
 		if (super.canApply(itemstack, considering)) {
 			float speed = GOTWeaponStats.getMeleeSpeed(itemstack);
-			return (speed *= speedFactor) <= GOTWeaponStats.MAX_MODIFIABLE_SPEED;
+			speed *= speedFactor;
+			return speed <= GOTWeaponStats.MAX_MODIFIABLE_SPEED;
 		}
 		return false;
 	}
@@ -29,6 +30,6 @@ public class GOTEnchantmentMeleeSpeed extends GOTEnchantment {
 
 	@Override
 	public boolean isBeneficial() {
-		return speedFactor >= 1.0f;
+		return speedFactor >= 1.0F;
 	}
 }
