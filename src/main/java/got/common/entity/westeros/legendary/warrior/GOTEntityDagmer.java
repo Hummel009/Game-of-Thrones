@@ -92,7 +92,7 @@ public class GOTEntityDagmer extends GOTEntityHumanBase implements GOTMercenary 
 
 	@Override
 	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 
 	@Override

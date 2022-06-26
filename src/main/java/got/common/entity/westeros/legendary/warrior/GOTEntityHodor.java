@@ -46,7 +46,7 @@ public class GOTEntityHodor extends GOTEntityHumanBase {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_HODOR;
+		return GOTAchievement.killHodor;
 	}
 
 	@Override

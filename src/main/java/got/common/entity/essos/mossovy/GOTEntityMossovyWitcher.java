@@ -67,7 +67,7 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_WITCHER;
+		return GOTAchievement.killWitcher;
 	}
 
 	@Override
@@ -126,7 +126,7 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 
 	@Override
 	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 
 	@Override

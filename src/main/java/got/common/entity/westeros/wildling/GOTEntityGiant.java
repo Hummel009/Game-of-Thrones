@@ -61,7 +61,7 @@ public class GOTEntityGiant extends GOTEntityGiantBase {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_GIANT;
+		return GOTAchievement.killGiant;
 	}
 
 	@Override

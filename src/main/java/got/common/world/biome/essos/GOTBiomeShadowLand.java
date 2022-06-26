@@ -32,7 +32,7 @@ public class GOTBiomeShadowLand extends GOTBiome {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_SHADOW_LAND;
+		return GOTAchievement.enterShadowLand;
 	}
 
 	@Override

@@ -97,7 +97,7 @@ public class GOTEntityMammoth extends GOTEntityHorse implements GOTBiome.ImmuneT
 	}
 
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_MAMMOTH;
+		return GOTAchievement.killMammoth;
 	}
 
 	@Override

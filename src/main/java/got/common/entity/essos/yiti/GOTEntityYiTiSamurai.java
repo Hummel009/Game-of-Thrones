@@ -24,7 +24,7 @@ public class GOTEntityYiTiSamurai extends GOTEntityYiTiSoldier {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_SAMURAI;
+		return GOTAchievement.killSamurai;
 	}
 
 	@Override

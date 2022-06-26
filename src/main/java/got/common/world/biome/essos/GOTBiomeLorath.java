@@ -36,7 +36,7 @@ public class GOTBiomeLorath extends GOTBiomeEssos {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_LORATH;
+		return GOTAchievement.enterLorath;
 	}
 
 	@Override

@@ -39,7 +39,7 @@ public class GOTEntityMossovyFarmer extends GOTEntityMossovyMan implements GOTTr
 
 	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 
 	@Override

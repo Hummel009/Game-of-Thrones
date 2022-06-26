@@ -56,7 +56,7 @@ public class GOTEntityYaraGreyjoy extends GOTEntityHumanBase implements GOTUnitT
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_YARA_GREYJOY;
+		return GOTAchievement.killYaraGreyjoy;
 	}
 
 	@Override
@@ -104,7 +104,7 @@ public class GOTEntityYaraGreyjoy extends GOTEntityHumanBase implements GOTUnitT
 
 	@Override
 	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 
 	@Override

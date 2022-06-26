@@ -58,7 +58,7 @@ public class GOTBiomeDothrakiSea extends GOTBiome {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_DOTHRAKI_SEA;
+		return GOTAchievement.enterDothrakiSea;
 	}
 
 	@Override

@@ -22,7 +22,7 @@ public class GOTEntityGhiscarUnsullied extends GOTEntityGhiscarLevyman {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_UNSULLIED;
+		return GOTAchievement.killUnsullied;
 	}
 
 	@Override

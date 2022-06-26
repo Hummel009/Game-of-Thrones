@@ -59,7 +59,7 @@ public class GOTEntityHighSepton extends GOTEntityHumanBase implements GOTTradea
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILLER;
+		return GOTAchievement.killer;
 	}
 
 	@Override
@@ -86,7 +86,7 @@ public class GOTEntityHighSepton extends GOTEntityHumanBase implements GOTTradea
 
 	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 
 	@Override

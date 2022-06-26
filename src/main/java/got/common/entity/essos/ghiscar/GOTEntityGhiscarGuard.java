@@ -20,7 +20,7 @@ public class GOTEntityGhiscarGuard extends GOTEntityGhiscarLevyman {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.BANDIT;
+		return GOTAchievement.killThePolice;
 	}
 
 	@Override

@@ -125,7 +125,7 @@ public class GOTItemBanner extends Item {
 						}
 						world.spawnEntityInWorld(banner);
 						if (banner.isProtectingTerritory()) {
-							GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.BANNER_PROTECT);
+							GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.bannerProtect);
 						}
 						world.playSoundAtEntity(banner, Blocks.planks.stepSound.func_150496_b(), (Blocks.planks.stepSound.getVolume() + 1.0f) / 2.0f, Blocks.planks.stepSound.getPitch() * 0.8f);
 						--itemstack.stackSize;

@@ -71,6 +71,6 @@ public class GOTEntityLorathGeneral extends GOTEntityLorathSoldier implements GO
 
 	@Override
 	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 }

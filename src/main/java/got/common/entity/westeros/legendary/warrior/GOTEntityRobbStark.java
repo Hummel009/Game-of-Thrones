@@ -55,7 +55,7 @@ public class GOTEntityRobbStark extends GOTEntityHumanBase {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_ROBB_STARK;
+		return GOTAchievement.killRobbStark;
 	}
 
 	@Override

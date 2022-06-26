@@ -827,6 +827,12 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		this.dropItemList(enpouchedDrops, false);
 		if (!worldObj.isRemote && damagesource.getEntity() instanceof EntityPlayer) {
 			entityplayer = (EntityPlayer) damagesource.getEntity();
+			if (hurtOnlyByPlates && damagesource.getSourceOfDamage() instanceof GOTEntityPlate) {
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.killUsingOnlyPlates);
+			}
+			if (damagesource.getSourceOfDamage() instanceof GOTEntityPebble && ((GOTEntityPebble) damagesource.getSourceOfDamage()).isSling() && (width * width * height) > 5.0f) {
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.killLargeMobWithSlingshot);
+			}
 			if (getKillAchievement() != null) {
 				GOTLevelData.getData(entityplayer).addAchievement(getKillAchievement());
 			}

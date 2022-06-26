@@ -25,7 +25,7 @@ public class GOTBlockBanana extends GOTBlockHangingFruit {
 	public boolean removedByPlayer(World world, EntityPlayer entityplayer, int i, int j, int k, boolean willHarvest) {
 		boolean flag = super.removedByPlayer(world, entityplayer, i, j, k, willHarvest);
 		if (flag && !world.isRemote) {
-			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.OBAMA);
+			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.obama);
 		}
 		return flag;
 	}

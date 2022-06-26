@@ -75,7 +75,7 @@ public class GOTBiomeNorthMountains extends GOTBiomeNorth {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_NORTH_MOUNTAINS;
+		return GOTAchievement.enterNorthMountains;
 	}
 
 	@Override

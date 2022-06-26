@@ -47,7 +47,7 @@ public class GOTBiomeUlos extends GOTBiome {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_ULOS;
+		return GOTAchievement.enterUlos;
 	}
 
 	@Override

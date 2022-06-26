@@ -67,7 +67,7 @@ public class GOTEntityXaroXhoanDaxos extends GOTEntityHumanBase implements GOTTr
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_XARO_XHOAN_DAXOS;
+		return GOTAchievement.killXaroXhoanDaxos;
 	}
 
 	@Override
@@ -94,7 +94,7 @@ public class GOTEntityXaroXhoanDaxos extends GOTEntityHumanBase implements GOTTr
 
 	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 
 	@Override

@@ -63,7 +63,7 @@ public class GOTEntityDavosSeaworth extends GOTEntityHumanBase implements GOTTra
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_DAVOS_SEAWORTH;
+		return GOTAchievement.killDavosSeaworth;
 	}
 
 	@Override
@@ -95,7 +95,7 @@ public class GOTEntityDavosSeaworth extends GOTEntityHumanBase implements GOTTra
 
 	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 
 	@Override

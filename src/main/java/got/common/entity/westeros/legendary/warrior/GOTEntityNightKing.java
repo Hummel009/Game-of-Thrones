@@ -84,7 +84,7 @@ public class GOTEntityNightKing extends GOTEntityHumanBase {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_NIGHT_KING;
+		return GOTAchievement.killNightKing;
 	}
 
 	@Override

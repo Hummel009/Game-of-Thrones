@@ -12,7 +12,7 @@ public class GOTBiomeValyriaSea extends GOTBiomeValyria {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_VALYRIA_SEA;
+		return GOTAchievement.enterValyriaSea;
 	}
 
 	@Override

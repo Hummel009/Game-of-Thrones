@@ -69,7 +69,7 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 		if (!worldObj.isRemote && damagesource.getEntity() instanceof EntityPlayer) {
 			EntityPlayer entityplayer = (EntityPlayer) damagesource.getEntity();
 			if (grapeAlert >= 3) {
-				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.STEAL_ARBOR_GRAPES);
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.stealArborGrapes);
 			}
 		}
 	}

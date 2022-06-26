@@ -50,7 +50,7 @@ public class GOTEntityThoros extends GOTEntityHumanBase {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_THOROS;
+		return GOTAchievement.killThoros;
 	}
 
 	@Override

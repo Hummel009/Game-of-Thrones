@@ -24,7 +24,7 @@ public class GOTEntityThennBerserker extends GOTEntityThenn {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_THENN_BERSERKER;
+		return GOTAchievement.killThennBerserker;
 	}
 
 	@Override

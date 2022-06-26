@@ -20,7 +20,7 @@ public class GOTEntityPentosGuard extends GOTEntityPentosLevyman {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.BANDIT;
+		return GOTAchievement.killThePolice;
 	}
 
 	@Override

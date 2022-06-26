@@ -61,7 +61,7 @@ public class GOTBiomeSkagos extends GOTBiome {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_SKAGOS;
+		return GOTAchievement.enterSkagos;
 	}
 
 	@Override

@@ -71,7 +71,7 @@ public class GOTEntityTheonGreyjoy extends GOTEntityHumanBase {
 
 		@Override
 		public GOTAchievement getKillAchievement() {
-			return GOTAchievement.TORMENT_THEON_GREYJOY;
+			return GOTAchievement.tormentTheonGreyjoy;
 		}
 
 		@Override

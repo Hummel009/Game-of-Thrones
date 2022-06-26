@@ -74,7 +74,7 @@ public class GOTEntitySandorClegane extends GOTEntityHumanBase {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_SANDOR_CLEGANE;
+		return GOTAchievement.killSandorClegane;
 	}
 
 	@Override

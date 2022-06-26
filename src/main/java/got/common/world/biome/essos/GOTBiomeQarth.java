@@ -34,7 +34,7 @@ public class GOTBiomeQarth extends GOTBiomeEssos {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_QARTH;
+		return GOTAchievement.enterQarth;
 	}
 
 	@Override

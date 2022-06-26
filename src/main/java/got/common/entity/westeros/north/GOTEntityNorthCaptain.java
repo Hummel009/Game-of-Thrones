@@ -77,6 +77,6 @@ public class GOTEntityNorthCaptain extends GOTEntityNorthSoldier implements GOTU
 
 	@Override
 	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 }

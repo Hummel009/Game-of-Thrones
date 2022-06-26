@@ -19,7 +19,7 @@ public class GOTBiomeIfekevronForest extends GOTBiomeTropicalForest {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_IFEKEVRON;
+		return GOTAchievement.enterIfekevron;
 	}
 
 	@Override

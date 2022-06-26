@@ -71,7 +71,7 @@ public class GOTEntityWightGiant extends GOTEntityGiant {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_WIGHT_GIANT;
+		return GOTAchievement.killWightGiant;
 	}
 
 	@Override

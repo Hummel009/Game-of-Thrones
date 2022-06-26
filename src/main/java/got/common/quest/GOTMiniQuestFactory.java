@@ -39,12 +39,12 @@ public enum GOTMiniQuestFactory {
 
 	GOTMiniQuestFactory() {
 		baseName = "legendary";
-		setAchievement(GOTAchievement.DO_LEGENDARY_QUEST);
+		setAchievement(GOTAchievement.doLegendaryQuest);
 	}
 
 	GOTMiniQuestFactory(Boolean isStandart) {
 		baseName = "standart";
-		setAchievement(GOTAchievement.DO_QUEST);
+		setAchievement(GOTAchievement.doQuest);
 	}
 
 	public void addQuest(GOTMiniQuest.QuestFactoryBase factory) {

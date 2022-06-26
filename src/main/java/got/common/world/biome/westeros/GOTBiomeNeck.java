@@ -46,7 +46,7 @@ public class GOTBiomeNeck extends GOTBiome {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_NECK;
+		return GOTAchievement.enterNeck;
 	}
 
 	@Override

@@ -40,7 +40,7 @@ public class GOTBiomeQohorForest extends GOTBiomeQohor {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_QOHOR_FOREST;
+		return GOTAchievement.enterQohorForest;
 	}
 
 	@Override

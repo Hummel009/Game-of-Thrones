@@ -66,7 +66,7 @@ public class GOTEntityGreyWorm extends GOTEntityHumanBase implements GOTMercenar
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_UNSULLIED;
+		return GOTAchievement.killUnsullied;
 	}
 
 	@Override
@@ -117,7 +117,7 @@ public class GOTEntityGreyWorm extends GOTEntityHumanBase implements GOTMercenar
 
 	@Override
 	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 
 	@Override

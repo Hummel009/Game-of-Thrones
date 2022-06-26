@@ -67,7 +67,7 @@ public class GOTEntityEllaryaSand extends GOTEntityHumanBase {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_ELLARYA_SAND;
+		return GOTAchievement.killEllaryaSand;
 	}
 
 	@Override

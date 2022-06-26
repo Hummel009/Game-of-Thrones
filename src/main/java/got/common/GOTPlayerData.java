@@ -11,6 +11,7 @@ import com.google.common.collect.ImmutableList;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
+import got.common.block.table.GOTBlockCraftingTable;
 import got.common.command.GOTCommandAdminHideMap;
 import got.common.database.*;
 import got.common.entity.dragon.GOTEntityDragon;
@@ -19,6 +20,7 @@ import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.*;
 import got.common.fellowship.*;
 import got.common.item.other.GOTItemArmor;
+import got.common.item.weapon.GOTItemCrossbowBolt;
 import got.common.network.*;
 import got.common.quest.*;
 import got.common.util.GOTLog;
@@ -26,6 +28,7 @@ import got.common.world.GOTWorldProvider;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.*;
 import got.common.world.map.GOTWaypoint.Region;
+import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.*;
@@ -181,19 +184,19 @@ public class GOTPlayerData {
 					}
 				}
 				if (biomes >= 10) {
-					addAchievement(GOTAchievement.TRAVEL10);
+					addAchievement(GOTAchievement.travel10);
 				}
 				if (biomes >= 20) {
-					addAchievement(GOTAchievement.TRAVEL20);
+					addAchievement(GOTAchievement.travel20);
 				}
 				if (biomes >= 30) {
-					addAchievement(GOTAchievement.TRAVEL30);
+					addAchievement(GOTAchievement.travel30);
 				}
 				if (biomes >= 40) {
-					addAchievement(GOTAchievement.TRAVEL40);
+					addAchievement(GOTAchievement.travel40);
 				}
 				if (biomes >= 50) {
-					addAchievement(GOTAchievement.TRAVEL50);
+					addAchievement(GOTAchievement.travel50);
 				}
 			}
 		}
@@ -2033,12 +2036,30 @@ public class GOTPlayerData {
 			}
 		}
 		if (entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) {
-			addAchievement(GOTAchievement.ENTER_GOT);
+			addAchievement(GOTAchievement.enterGOT);
 		}
 		if (entityplayer.inventory.hasItem(GOTRegistry.pouch)) {
-			addAchievement(GOTAchievement.GET_POUCH);
+			addAchievement(GOTAchievement.getPouch);
 		}
-		if (!hasAchievement(GOTAchievement.HIRE_GOLDEN_COMPANY) && pdTick % 20 == 0) {
+		HashSet<Block> tables = new HashSet<>();
+		int crossbowBolts = 0;
+		for (ItemStack item : entityplayer.inventory.mainInventory) {
+			Block block;
+			if (item != null && item.getItem() instanceof ItemBlock && (block = Block.getBlockFromItem(item.getItem())) instanceof GOTBlockCraftingTable) {
+				tables.add(block);
+			}
+			if (item == null || !(item.getItem() instanceof GOTItemCrossbowBolt)) {
+				continue;
+			}
+			crossbowBolts += item.stackSize;
+		}
+		if (tables.size() >= 10) {
+			addAchievement(GOTAchievement.collectCraftingTables);
+		}
+		if (crossbowBolts >= 128) {
+			addAchievement(GOTAchievement.collectCrossbowBolts);
+		}
+		if (!hasAchievement(GOTAchievement.hireGoldenCompany) && pdTick % 20 == 0) {
 			int hiredUnits = 0;
 			List<GOTEntityGoldenMan> nearbyNPCs = world.getEntitiesWithinAABB(GOTEntityGoldenMan.class, entityplayer.boundingBox.expand(64.0, 64.0, 64.0));
 			for (GOTEntityNPC npc : nearbyNPCs) {
@@ -2047,10 +2068,10 @@ public class GOTPlayerData {
 				}
 			}
 			if (hiredUnits >= 10) {
-				addAchievement(GOTAchievement.HIRE_GOLDEN_COMPANY);
+				addAchievement(GOTAchievement.hireGoldenCompany);
 			}
 		}
-		if (!hasAchievement(GOTAchievement.HUNDREDS) && pdTick % 20 == 0) {
+		if (!hasAchievement(GOTAchievement.hundreds) && pdTick % 20 == 0) {
 			int hiredUnits = 0;
 			List<GOTEntityNPC> nearbyNPCs = world.getEntitiesWithinAABB(GOTEntityNPC.class, entityplayer.boundingBox.expand(64.0, 64.0, 64.0));
 			for (GOTEntityNPC npc : nearbyNPCs) {
@@ -2059,7 +2080,7 @@ public class GOTPlayerData {
 				}
 			}
 			if (hiredUnits >= 100) {
-				addAchievement(GOTAchievement.HUNDREDS);
+				addAchievement(GOTAchievement.hundreds);
 			}
 		}
 		ItemArmor.ArmorMaterial material = getFullArmorMaterial(entityplayer);
@@ -2068,19 +2089,19 @@ public class GOTPlayerData {
 		}
 		fullMaterial = getBodyMaterial(entityplayer);
 		if (fullMaterial != null && fullMaterial == GOTMaterial.HAND) {
-			addAchievement(GOTAchievement.WEAR_FULL_HAND);
+			addAchievement(GOTAchievement.wearFullHand);
 		}
 		fullMaterial = getHelmetMaterial(entityplayer);
 		if (fullMaterial != null && fullMaterial == GOTMaterial.HELMET) {
-			addAchievement(GOTAchievement.WEAR_FULL_HELMET);
+			addAchievement(GOTAchievement.wearFullHelmet);
 		}
 		fullMaterial = getFullArmorMaterialWithoutHelmet(entityplayer);
 		if (fullMaterial != null && fullMaterial == GOTMaterial.MOSSOVY) {
-			addAchievement(GOTAchievement.WEAR_FULL_MOSSOVY);
+			addAchievement(GOTAchievement.wearFullMossovy);
 		}
 		fullMaterial = getFullArmorMaterialWithoutHelmet(entityplayer);
 		if (fullMaterial != null && fullMaterial == GOTMaterial.ICE) {
-			addAchievement(GOTAchievement.WEAR_FULL_WHITEWALKERS);
+			addAchievement(GOTAchievement.wearFullWhitewalkers);
 		}
 	}
 
@@ -2472,7 +2493,7 @@ public class GOTPlayerData {
 		alcoholTolerance = i;
 		markDirty();
 		if (alcoholTolerance >= 250 && (entityplayer = getPlayer()) != null && !entityplayer.worldObj.isRemote) {
-			addAchievement(GOTAchievement.GAIN_HIGH_ALCOHOL_TOLERANCE);
+			addAchievement(GOTAchievement.gainHighAlcoholTolerance);
 		}
 	}
 
@@ -2677,7 +2698,7 @@ public class GOTPlayerData {
 		markDirty();
 		if (fac != null) {
 			checkAlignmentAchievements(fac, getAlignment(fac));
-			addAchievement(GOTAchievement.PLEDGE_SERVICE);
+			addAchievement(GOTAchievement.pledgeService);
 		}
 		entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {

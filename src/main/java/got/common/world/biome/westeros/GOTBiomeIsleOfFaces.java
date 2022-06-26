@@ -38,7 +38,7 @@ public class GOTBiomeIsleOfFaces extends GOTBiomeWesteros {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_FACES;
+		return GOTAchievement.enterFaces;
 	}
 
 	@Override

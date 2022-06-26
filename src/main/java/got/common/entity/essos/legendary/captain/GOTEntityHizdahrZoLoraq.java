@@ -88,7 +88,7 @@ public class GOTEntityHizdahrZoLoraq extends GOTEntityHumanBase implements GOTTr
 	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
 		if (type == GOTTradeEntries.TradeType.WE_CAN_BUY && itemstack.getItem() == Item.getItemFromBlock(GOTRegistry.pipeweedPlant)) {
-			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 		}
 	}
 
@@ -101,7 +101,7 @@ public class GOTEntityHizdahrZoLoraq extends GOTEntityHumanBase implements GOTTr
 
 	@Override
 	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 
 	@Override

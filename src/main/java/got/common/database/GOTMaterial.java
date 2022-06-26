@@ -6,7 +6,7 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
 
-public class GOTMaterial {	
+public class GOTMaterial {
 	public static ArmorMaterial ANONYMOUS = EnumHelper.addArmorMaterial("GOT_ANONYMOUS", 5, new int[] { 1, 3, 2, 1 }, 15);
 	public static ArmorMaterial ARRYN = EnumHelper.addArmorMaterial("GOT_ARRYN", 15, new int[] { 2, 6, 5, 2 }, 9);
 	public static ArmorMaterial ARRYNGUARD = EnumHelper.addArmorMaterial("GOT_ARRYNGUARD", 24, new int[] { 2, 7, 6, 3 }, 9);
@@ -68,7 +68,7 @@ public class GOTMaterial {
 	public static ArmorMaterial YITI = EnumHelper.addArmorMaterial("GOT_YITI", 15, new int[] { 2, 6, 5, 2 }, 9);
 	public static ArmorMaterial YITI_FRONTIER = EnumHelper.addArmorMaterial("GOT_YITI_FRONTIER", 24, new int[] { 2, 7, 6, 3 }, 9);
 	public static ArmorMaterial YITI_SAMURAI = EnumHelper.addArmorMaterial("GOT_YITI_SAMURAI", 24, new int[] { 2, 7, 6, 3 }, 9);
-	
+
 	public static ToolMaterial BRONZE_TOOL = EnumHelper.addToolMaterial("GOT_BRONZE_TOOL", 2, 200, 5.0F, 1.5F, 10);
 	public static ToolMaterial COBALT_TOOL = EnumHelper.addToolMaterial("GOT_COBALT_TOOL", 3, 1561, 8.0F, 3.0F, 10);
 	public static ToolMaterial FLINT_TOOL = EnumHelper.addToolMaterial("GOT_FLINT_TOOL", 1, 131, 4.0F, 1.0F, 5);
@@ -77,7 +77,8 @@ public class GOTMaterial {
 	public static ToolMaterial OBSIDIAN_TOOL = EnumHelper.addToolMaterial("GOT_OBSIDIAN_TOOL", 2, 250, 6.0F, 2.0F, 14);
 	public static ToolMaterial SILVER_TOOL = EnumHelper.addToolMaterial("GOT_SILVER_TOOL", 2, 250, 6.0F, 2.0F, 14);
 	public static ToolMaterial VALYRIAN_TOOL = EnumHelper.addToolMaterial("GOT_VALYRIAN_TOOL", 4, 2400, 9.0F, 5.0F, 8);
-	
+	public static ToolMaterial ASSHAI_TOOL = EnumHelper.addToolMaterial("ASSHAI_TOOL", 2, 250, 6.0F, 2.0F, 14);
+
 	public static ItemArmor.ArmorMaterial getArmorMaterialByName(String name) {
 		return ItemArmor.ArmorMaterial.valueOf(name);
 	}
@@ -146,9 +147,9 @@ public class GOTMaterial {
 		WESTERLANDSGUARD.customCraftingMaterial = Items.iron_ingot;
 		WESTKING.customCraftingMaterial = Items.iron_ingot;
 		YITI.customCraftingMaterial = Items.iron_ingot;
-		YITI_FRONTIER.customCraftingMaterial = Items.iron_ingot; 
+		YITI_FRONTIER.customCraftingMaterial = Items.iron_ingot;
 		YITI_SAMURAI.customCraftingMaterial = Items.iron_ingot;
-		
+
 		BRONZE_TOOL.setRepairItem(new ItemStack(GOTRegistry.bronzeIngot));
 		COBALT_TOOL.setRepairItem(new ItemStack(GOTRegistry.alloySteelIngot));
 		FLINT_TOOL.setRepairItem(new ItemStack(Items.flint));
@@ -157,5 +158,6 @@ public class GOTMaterial {
 		OBSIDIAN_TOOL.setRepairItem(new ItemStack(GOTRegistry.obsidianShard));
 		SILVER_TOOL.setRepairItem(new ItemStack(GOTRegistry.silverIngot));
 		VALYRIAN_TOOL.setRepairItem(new ItemStack(GOTRegistry.valyrianIngot));
+		ASSHAI_TOOL.setRepairItem(new ItemStack(Items.iron_ingot));
 	}
 }

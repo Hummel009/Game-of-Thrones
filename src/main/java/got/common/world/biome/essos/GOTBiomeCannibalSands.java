@@ -110,7 +110,7 @@ public class GOTBiomeCannibalSands extends GOTBiome {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_CANNIBAL_SANDS;
+		return GOTAchievement.enterCannibalSands;
 	}
 
 	@Override

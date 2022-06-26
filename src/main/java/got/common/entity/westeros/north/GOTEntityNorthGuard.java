@@ -21,7 +21,7 @@ public class GOTEntityNorthGuard extends GOTEntityNorthLevyman {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.BANDIT;
+		return GOTAchievement.killThePolice;
 	}
 
 	@Override

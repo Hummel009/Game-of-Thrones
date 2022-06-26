@@ -73,7 +73,7 @@ public class GOTEntityJoffreyBaratheon extends GOTEntityHumanBase {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_THE_KING;
+		return GOTAchievement.killTheKing;
 	}
 
 	@Override

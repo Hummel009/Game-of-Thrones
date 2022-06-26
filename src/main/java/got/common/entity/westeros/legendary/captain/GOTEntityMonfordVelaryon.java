@@ -62,7 +62,7 @@ public class GOTEntityMonfordVelaryon extends GOTEntityHumanBase implements GOTU
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_VASSAL;
+		return GOTAchievement.killVassal;
 	}
 
 	@Override
@@ -111,7 +111,7 @@ public class GOTEntityMonfordVelaryon extends GOTEntityHumanBase implements GOTU
 
 	@Override
 	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 
 	@Override

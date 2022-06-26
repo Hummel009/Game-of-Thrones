@@ -63,7 +63,7 @@ public class GOTEntityHummel009 extends GOTEntityNPC {
 
 	@Override
 	public GOTAchievement getTalkAchievement() {
-		return GOTAchievement.FREEMAN;
+		return GOTAchievement.freeman;
 	}
 
 	@Override

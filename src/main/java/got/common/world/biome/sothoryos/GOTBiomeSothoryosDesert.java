@@ -91,7 +91,7 @@ public class GOTBiomeSothoryosDesert extends GOTBiome {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_SOTHORYOS_DESERT;
+		return GOTAchievement.enterSothoryosDesert;
 	}
 
 	@Override

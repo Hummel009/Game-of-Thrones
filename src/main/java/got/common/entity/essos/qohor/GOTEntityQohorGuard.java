@@ -20,7 +20,7 @@ public class GOTEntityQohorGuard extends GOTEntityQohorLevyman {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.BANDIT;
+		return GOTAchievement.killThePolice;
 	}
 
 	@Override

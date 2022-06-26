@@ -15,7 +15,7 @@ public class GOTBiomeTarth extends GOTBiomeStormlands {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_TARTH;
+		return GOTAchievement.enterTarth;
 	}
 
 	@Override

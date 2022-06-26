@@ -1,5 +1,7 @@
 package got.common.inventory;
 
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
@@ -32,6 +34,7 @@ public class GOTSlotAnvilOutput extends Slot {
 	public void onPickupFromSlot(EntityPlayer entityplayer, ItemStack itemstack) {
 		int materials = theAnvil.materialCost;
 		theAnvil.invInput.setInventorySlotContents(0, null);
+		boolean wasSmithCombine = theAnvil.isSmithScrollCombine;
 		ItemStack combinerItem = theAnvil.invInput.getStackInSlot(1);
 		if (combinerItem != null) {
 			--combinerItem.stackSize;
@@ -43,6 +46,9 @@ public class GOTSlotAnvilOutput extends Slot {
 		}
 		if (materials > 0) {
 			theAnvil.takeMaterialOrCoinAmount(materials);
+		}
+		if (!entityplayer.worldObj.isRemote && wasSmithCombine) {
+			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.combineSmithScrolls);
 		}
 		theAnvil.materialCost = 0;
 		theAnvil.isSmithScrollCombine = false;

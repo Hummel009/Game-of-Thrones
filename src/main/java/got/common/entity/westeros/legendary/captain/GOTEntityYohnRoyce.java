@@ -65,7 +65,7 @@ public class GOTEntityYohnRoyce extends GOTEntityHumanBase implements GOTUnitTra
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_VASSAL;
+		return GOTAchievement.killVassal;
 	}
 
 	@Override
@@ -117,7 +117,7 @@ public class GOTEntityYohnRoyce extends GOTEntityHumanBase implements GOTUnitTra
 
 	@Override
 	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 
 	@Override

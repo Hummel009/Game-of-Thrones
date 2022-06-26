@@ -78,6 +78,6 @@ public class GOTEntityMossovyWerewolf extends GOTEntityNPC {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_WEREWOLF;
+		return GOTAchievement.killWerewolf;
 	}
 }

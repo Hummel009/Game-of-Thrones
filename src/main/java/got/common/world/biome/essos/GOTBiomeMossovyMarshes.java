@@ -62,7 +62,7 @@ public class GOTBiomeMossovyMarshes extends GOTBiome {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_MOSSOVY_MARSHES;
+		return GOTAchievement.enterMossovyMarshes;
 	}
 
 	@Override

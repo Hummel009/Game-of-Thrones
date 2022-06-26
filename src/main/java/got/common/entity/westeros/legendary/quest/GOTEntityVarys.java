@@ -62,7 +62,7 @@ public class GOTEntityVarys extends GOTEntityHumanBase {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_VARYS;
+		return GOTAchievement.killVarys;
 	}
 
 	@Override

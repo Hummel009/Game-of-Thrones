@@ -67,7 +67,7 @@ public class GOTBiomeColdCoast extends GOTBiomeFarNorthSnowy {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_COLD_COAST;
+		return GOTAchievement.enterColdCoast;
 	}
 
 	@Override

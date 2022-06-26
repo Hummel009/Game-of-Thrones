@@ -139,7 +139,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 			}
 			for (EntityPlayer entityplayer : achievementPlayers) {
 				GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-				pd.addAchievement(GOTAchievement.DEFEAT_INVASION);
+				pd.addAchievement(GOTAchievement.defeatInvasion);
 			}
 			if (!conqRewardPlayers.isEmpty()) {
 				float boostPerPlayer = 50.0f / conqRewardPlayers.size();

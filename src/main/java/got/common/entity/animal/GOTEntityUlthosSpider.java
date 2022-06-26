@@ -23,7 +23,7 @@ public class GOTEntityUlthosSpider extends GOTEntitySpiderBase {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_ULTHOS;
+		return GOTAchievement.killUlthos;
 	}
 
 	@Override

@@ -163,7 +163,7 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 
 		@Override
 		public GOTAchievement getKillAchievement() {
-			return GOTAchievement.KILL_GREGOR_CLEGANE;
+			return GOTAchievement.killGregorClegane;
 		}
 	}
 }

@@ -63,7 +63,7 @@ public class GOTEntityCraster extends GOTEntityHumanBase implements GOTTradeable
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_CRASTER;
+		return GOTAchievement.killCraster;
 	}
 
 	@Override
@@ -90,7 +90,7 @@ public class GOTEntityCraster extends GOTEntityHumanBase implements GOTTradeable
 
 	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 
 	@Override

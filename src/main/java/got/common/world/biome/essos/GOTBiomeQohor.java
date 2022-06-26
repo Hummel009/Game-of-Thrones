@@ -29,7 +29,7 @@ public class GOTBiomeQohor extends GOTBiomeEssos {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_QOHOR;
+		return GOTAchievement.enterQohor;
 	}
 
 	@Override

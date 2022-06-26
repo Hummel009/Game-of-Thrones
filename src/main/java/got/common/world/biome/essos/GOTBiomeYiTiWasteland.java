@@ -25,7 +25,7 @@ public class GOTBiomeYiTiWasteland extends GOTBiomeYiTi {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_YI_TI_WASTELAND;
+		return GOTAchievement.enterYiTiWasteland;
 	}
 
 	@Override

@@ -32,7 +32,7 @@ public class GOTBiomeStoneCoast extends GOTBiomeNorth {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_STONE_COAST;
+		return GOTAchievement.enterStoneCoast;
 	}
 
 	@Override

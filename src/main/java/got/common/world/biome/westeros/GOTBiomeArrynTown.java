@@ -35,7 +35,7 @@ public class GOTBiomeArrynTown extends GOTBiomeArryn {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_ARRYN_TOWN;
+		return GOTAchievement.enterArrynTown;
 	}
 
 	@Override

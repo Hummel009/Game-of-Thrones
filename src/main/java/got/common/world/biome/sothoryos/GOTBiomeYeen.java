@@ -67,7 +67,7 @@ public class GOTBiomeYeen extends GOTBiomeSothoryosJungle {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_YEEN;
+		return GOTAchievement.enterYeen;
 	}
 
 	@Override

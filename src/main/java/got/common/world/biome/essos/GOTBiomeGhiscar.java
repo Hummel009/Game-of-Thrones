@@ -57,7 +57,7 @@ public class GOTBiomeGhiscar extends GOTBiomeEssos {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_GHISCAR;
+		return GOTAchievement.enterGhiscar;
 	}
 
 	@Override

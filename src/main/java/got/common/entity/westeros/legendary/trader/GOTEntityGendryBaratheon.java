@@ -63,7 +63,7 @@ public class GOTEntityGendryBaratheon extends GOTEntityHumanBase implements GOTT
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_GENDRY_BARATHEON;
+		return GOTAchievement.killGendryBaratheon;
 	}
 
 	@Override
@@ -95,7 +95,7 @@ public class GOTEntityGendryBaratheon extends GOTEntityHumanBase implements GOTT
 
 	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 
 	@Override

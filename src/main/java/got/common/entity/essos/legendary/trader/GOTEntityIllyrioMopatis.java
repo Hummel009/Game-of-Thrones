@@ -68,7 +68,7 @@ public class GOTEntityIllyrioMopatis extends GOTEntityHumanBase implements GOTTr
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_ILLYRIO_MOPATIS;
+		return GOTAchievement.killIllyrioMopatis;
 	}
 
 	@Override
@@ -95,7 +95,7 @@ public class GOTEntityIllyrioMopatis extends GOTEntityHumanBase implements GOTTr
 
 	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 
 	@Override

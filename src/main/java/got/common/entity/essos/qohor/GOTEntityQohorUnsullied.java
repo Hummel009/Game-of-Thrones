@@ -24,7 +24,7 @@ public class GOTEntityQohorUnsullied extends GOTEntityQohorLevyman {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_UNSULLIED;
+		return GOTAchievement.killUnsullied;
 	}
 
 	@Override

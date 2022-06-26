@@ -4,7 +4,8 @@ import java.util.Random;
 
 import cpw.mods.fml.relauncher.*;
 import got.GOT;
-import got.common.database.GOTCreativeTabs;
+import got.common.GOTLevelData;
+import got.common.database.*;
 import got.common.tileentity.GOTTileEntityBeacon;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
@@ -82,6 +83,7 @@ public class GOTBlockBeacon extends BlockContainer {
 			}
 			if (!world.isRemote) {
 				GOTBlockBeacon.setLit(world, i, j, k, true);
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.lightBeacon);
 			}
 			return true;
 		}

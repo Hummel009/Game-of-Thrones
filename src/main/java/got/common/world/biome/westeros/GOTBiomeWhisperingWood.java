@@ -42,7 +42,7 @@ public class GOTBiomeWhisperingWood extends GOTBiomeRiverlands {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_WHISPERING_WOOD;
+		return GOTAchievement.enterWhisperingWood;
 	}
 
 	@Override

@@ -63,7 +63,7 @@ public class GOTBiomeLhazar extends GOTBiome {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_LHAZAR;
+		return GOTAchievement.enterLhazar;
 	}
 
 	@Override

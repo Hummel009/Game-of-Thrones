@@ -1,9 +1,11 @@
 package got.common.entity.animal;
 
-import got.common.database.GOTRegistry;
+import got.common.GOTLevelData;
+import got.common.database.*;
 import got.common.util.GOTReflection;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.block.BlockColored;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.*;
 import net.minecraft.item.*;
 import net.minecraft.util.MathHelper;
@@ -90,6 +92,14 @@ public class GOTEntityCamel extends GOTEntityHorse implements GOTBiome.ImmuneToH
 	public void onGOTHorseSpawn() {
 		double jumpStrength = getEntityAttribute(GOTReflection.getHorseJumpStrength()).getAttributeValue();
 		getEntityAttribute(GOTReflection.getHorseJumpStrength()).setBaseValue(jumpStrength *= 0.5);
+	}
+
+	@Override
+	public void onLivingUpdate() {
+		super.onLivingUpdate();
+		if (!worldObj.isRemote && riddenByEntity instanceof EntityPlayer && isMountSaddled()) {
+			GOTLevelData.getData((EntityPlayer) riddenByEntity).addAchievement(GOTAchievement.rideCamel);
+		}
 	}
 
 	public void setNomadChestAndCarpet() {

@@ -212,7 +212,7 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 
 		@Override
 		public GOTAchievement getKillAchievement() {
-			return GOTAchievement.KILL_BERIC_DONDARRION;
+			return GOTAchievement.killBericDondarrion;
 		}
 	}
 }

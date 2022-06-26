@@ -52,7 +52,7 @@ public class GOTEntityAemonTargaryen extends GOTEntityHumanBase implements GOTTr
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_MAESTER;
+		return GOTAchievement.killMaester;
 	}
 
 	@Override
@@ -70,7 +70,7 @@ public class GOTEntityAemonTargaryen extends GOTEntityHumanBase implements GOTTr
 
 	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 
 	@Override

@@ -93,6 +93,7 @@ public class GOTConfig {
 	public static int playerDataClearingInterval;
 	public static int MIN_PLAYER_DATA_CLEARING_INTERVAL = 600;
 	public static boolean enableFellowshipCreation;
+	public static boolean enableTitles;
 
 	static {
 		allCategories = new ArrayList<>();
@@ -164,6 +165,7 @@ public class GOTConfig {
 		enableFellowshipCreation = config.get(CATEGORY_GAMEPLAY, "Enable Fellowship creation", true, "If disabled, admins can still create Fellowships using the command").getBoolean();
 		clearMap = config.get(CATEGORY_GAMEPLAY, "No fixed structures and characters", false, "Useful for servers. Disable fixed structures to build your own").getBoolean();
 		allowBannerProtection = config.get(CATEGORY_GAMEPLAY, "Allow Banner Protection", true).getBoolean();
+		enableTitles = config.get(CATEGORY_GAMEPLAY, "Enable Titles", true).getBoolean();
 		allowSelfProtectingBanners = config.get(CATEGORY_GAMEPLAY, "Allow Self-Protecting Banners", true).getBoolean();
 		allowMiniquests = config.get(CATEGORY_GAMEPLAY, "NPCs give mini-quests", true).getBoolean();
 		allowBountyQuests = config.get(CATEGORY_GAMEPLAY, "NPCs give bounty mini-quests", true, "Allow NPCs to generate mini-quests to kill enemy players").getBoolean();

@@ -44,7 +44,7 @@ public class GOTBiomeDragonstone extends GOTBiomeWesteros {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_DRAGONSTONE;
+		return GOTAchievement.enterDragonstone;
 	}
 
 	@Override

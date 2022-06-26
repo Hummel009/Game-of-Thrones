@@ -69,7 +69,7 @@ public class GOTEntityCerseiLannister extends GOTEntityHumanBase {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_CERSEI_LANNISTER;
+		return GOTAchievement.killCerseiLannister;
 	}
 
 	@Override

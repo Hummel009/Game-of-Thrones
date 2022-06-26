@@ -51,7 +51,7 @@ public class GOTBiomeWesterlands extends GOTBiomeWesteros {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_WESTERLANDS;
+		return GOTAchievement.enterWesterlands;
 	}
 
 	@Override

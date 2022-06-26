@@ -21,7 +21,7 @@ public class GOTEntityArrynGuard extends GOTEntityArrynSoldier {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.BANDIT;
+		return GOTAchievement.killThePolice;
 	}
 
 	@Override

@@ -42,7 +42,7 @@ public class GOTBiomeTropicalForest extends GOTBiome {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_TROPICAL_FOREST;
+		return GOTAchievement.enterTropicalForest;
 	}
 
 	@Override

@@ -69,7 +69,7 @@ public class GOTEntityDaenerysTargaryen extends GOTEntityHumanBase {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_DAENERYS_TARGARYEN;
+		return GOTAchievement.killDaenerysTargaryen;
 	}
 
 	@Override

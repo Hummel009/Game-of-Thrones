@@ -18,7 +18,7 @@ package got.common.entity.ai;
 import java.util.List;
 
 import got.common.GOTLevelData;
-import got.common.database.GOTRegistry;
+import got.common.database.*;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTAlignmentValues;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -71,7 +71,7 @@ public class GOTEntityAINPCMarry extends EntityAIBase {
 		ringPlayerSpouse = theSpouse.familyInfo.getRingGivingPlayer();
 		if (ringPlayerSpouse != null) {
 			GOTLevelData.getData(ringPlayerSpouse).addAlignment(ringPlayerSpouse, GOTAlignmentValues.MARRIAGE_BONUS, theSpouse.getFaction(), theSpouse);
-
+			GOTLevelData.getData(ringPlayer).addAchievement(GOTAchievement.marry);
 		}
 		theWorld.spawnEntityInWorld(new EntityXPOrb(theWorld, theNPC.posX, theNPC.posY, theNPC.posZ, theNPC.getRNG().nextInt(8) + 2));
 	}

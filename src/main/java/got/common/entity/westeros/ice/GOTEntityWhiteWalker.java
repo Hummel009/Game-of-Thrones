@@ -116,7 +116,7 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_WHITE_WALKER;
+		return GOTAchievement.killWhiteWalker;
 	}
 
 	@Override

@@ -46,7 +46,7 @@ public class GOTBiomeMercenary extends GOTBiomeEssos {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_MERCENARY;
+		return GOTAchievement.enterMercenary;
 	}
 
 	@Override

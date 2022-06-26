@@ -68,7 +68,7 @@ public class GOTEntityAsshaiArchmag extends GOTEntityHumanBase {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_ASSHAI_ARCHMAG;
+		return GOTAchievement.killAsshaiArchmag;
 	}
 
 	@Override

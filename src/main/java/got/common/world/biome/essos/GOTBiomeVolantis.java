@@ -57,7 +57,7 @@ public class GOTBiomeVolantis extends GOTBiomeEssos {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_VOLANTIS;
+		return GOTAchievement.enterVolantis;
 	}
 
 	@Override

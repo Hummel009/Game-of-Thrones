@@ -15,7 +15,7 @@ public class GOTSlotUnsmeltResult extends GOTSlotProtected {
 	public void onPickupFromSlot(EntityPlayer entityplayer, ItemStack itemstack) {
 		super.onPickupFromSlot(entityplayer, itemstack);
 		if (!entityplayer.worldObj.isRemote) {
-			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.UNSMELT);
+			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.unsmelt);
 		}
 	}
 }

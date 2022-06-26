@@ -60,7 +60,7 @@ public class GOTBiomeShadowTown extends GOTBiomeShadowLand {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_ASSHAI;
+		return GOTAchievement.enterAsshai;
 	}
 
 	@Override

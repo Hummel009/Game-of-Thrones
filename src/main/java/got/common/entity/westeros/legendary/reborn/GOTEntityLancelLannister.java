@@ -107,7 +107,7 @@ public class GOTEntityLancelLannister extends GOTEntityHumanBase {
 
 		@Override
 		public GOTAchievement getKillAchievement() {
-			return GOTAchievement.KILL_LANCEL_LANNISTER;
+			return GOTAchievement.killLancelLannister;
 		}
 
 		@Override

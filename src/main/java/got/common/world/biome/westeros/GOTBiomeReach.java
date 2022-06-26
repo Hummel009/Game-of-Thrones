@@ -52,7 +52,7 @@ public class GOTBiomeReach extends GOTBiomeWesteros {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_REACH;
+		return GOTAchievement.enterReach;
 	}
 
 	@Override

@@ -33,7 +33,7 @@ public class GOTBiomeGiftNew extends GOTBiomeWesteros {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_GIFT_NEW;
+		return GOTAchievement.enterGiftNew;
 	}
 
 	@Override

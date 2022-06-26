@@ -20,7 +20,7 @@ public class GOTBiomeIrontree extends GOTBiomeWolfswood {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_IRONTREE;
+		return GOTAchievement.enterIrontree;
 	}
 
 	@Override

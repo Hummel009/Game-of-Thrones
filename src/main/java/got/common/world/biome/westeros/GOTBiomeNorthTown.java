@@ -40,7 +40,7 @@ public class GOTBiomeNorthTown extends GOTBiomeNorth {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_NORTH_TOWN;
+		return GOTAchievement.enterNorthTown;
 	}
 
 	@Override

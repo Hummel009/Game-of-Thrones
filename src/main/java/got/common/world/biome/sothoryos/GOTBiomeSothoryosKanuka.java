@@ -109,7 +109,7 @@ public class GOTBiomeSothoryosKanuka extends GOTBiome {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_SOTHORYOS_KANUKA;
+		return GOTAchievement.enterSothoryosKanuka;
 	}
 
 	@Override

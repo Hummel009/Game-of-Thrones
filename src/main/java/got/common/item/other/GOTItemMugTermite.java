@@ -38,7 +38,7 @@ public class GOTItemMugTermite extends GOTItemMug {
 				entityplayer.removePotionEffect(potion.id);
 			}
 		}
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.DRINK_TERMITE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.drinkTermite);
 		return result;
 	}
 }

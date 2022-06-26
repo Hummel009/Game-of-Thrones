@@ -26,7 +26,7 @@ public class GOTEntityIronbornPriest extends GOTEntityIronbornMan implements GOT
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_PRIEST;
+		return GOTAchievement.killPriest;
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class GOTEntityIronbornPriest extends GOTEntityIronbornMan implements GOT
 
 	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 
 	@Override

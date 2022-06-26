@@ -61,7 +61,7 @@ public class GOTEntityDaarioNaharis extends GOTEntityHumanBase implements GOTMer
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILLER;
+		return GOTAchievement.killer;
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class GOTEntityDaarioNaharis extends GOTEntityHumanBase implements GOTMer
 
 	@Override
 	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 
 	}
 

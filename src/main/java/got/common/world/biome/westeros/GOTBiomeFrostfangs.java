@@ -72,7 +72,7 @@ public class GOTBiomeFrostfangs extends GOTBiome {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_FROSTFANGS;
+		return GOTAchievement.enterFrostfangs;
 	}
 
 	@Override

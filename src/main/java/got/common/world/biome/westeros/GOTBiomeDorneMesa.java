@@ -196,7 +196,7 @@ public class GOTBiomeDorneMesa extends GOTBiome {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_DORNE_MESA;
+		return GOTAchievement.enterDorneMesa;
 	}
 
 	@Override

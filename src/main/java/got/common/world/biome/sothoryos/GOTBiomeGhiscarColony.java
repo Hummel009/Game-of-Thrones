@@ -30,7 +30,7 @@ public class GOTBiomeGhiscarColony extends GOTBiomeSothoryosJungle {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_GHISCAR_COLONY;
+		return GOTAchievement.enterGhiscarColony;
 	}
 
 	@Override

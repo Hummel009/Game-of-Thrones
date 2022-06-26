@@ -46,7 +46,7 @@ public class GOTBiomeFireField extends GOTBiomeReach {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_FIRE_FIELD;
+		return GOTAchievement.enterFireField;
 	}
 
 	@Override

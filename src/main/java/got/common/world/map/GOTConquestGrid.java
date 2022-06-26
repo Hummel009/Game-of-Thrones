@@ -346,7 +346,7 @@ public class GOTConquestGrid {
 		GOTPacketHandler.networkWrapper.sendTo(pkt, entityplayer);
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		if (fac == pd.getPledgeFaction()) {
-			pd.addAchievement(GOTAchievement.FACTION_CONQUEST);
+			pd.addAchievement(GOTAchievement.factionConquest);
 		}
 	}
 

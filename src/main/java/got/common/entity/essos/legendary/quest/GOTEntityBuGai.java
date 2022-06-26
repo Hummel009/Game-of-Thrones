@@ -67,7 +67,7 @@ public class GOTEntityBuGai extends GOTEntityHumanBase {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_BU_GAI;
+		return GOTAchievement.killBuGai;
 	}
 
 	@Override

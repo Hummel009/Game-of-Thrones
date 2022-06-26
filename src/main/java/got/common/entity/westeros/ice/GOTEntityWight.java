@@ -106,7 +106,7 @@ public class GOTEntityWight extends GOTEntityHumanBase {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_WIGHT;
+		return GOTAchievement.killWight;
 	}
 
 	@Override

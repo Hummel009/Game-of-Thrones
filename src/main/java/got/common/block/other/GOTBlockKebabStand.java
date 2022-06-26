@@ -3,7 +3,8 @@ package got.common.block.other;
 import java.util.ArrayList;
 
 import cpw.mods.fml.relauncher.*;
-import got.common.database.GOTCreativeTabs;
+import got.common.GOTLevelData;
+import got.common.database.*;
 import got.common.item.other.GOTItemKebabStand;
 import got.common.tileentity.GOTTileEntityKebabStand;
 import net.minecraft.block.*;
@@ -114,6 +115,7 @@ public class GOTBlockKebabStand extends BlockContainer {
 				}
 			} else if (stand.getMeatAmount() > 0) {
 				if (!world.isRemote) {
+					boolean wasCooked = stand.isCooked();
 					ItemStack meat = stand.removeFirstMeat();
 					if (meat != null) {
 						if (!entityplayer.inventory.addItemStackToInventory(meat)) {
@@ -121,6 +123,9 @@ public class GOTBlockKebabStand extends BlockContainer {
 						}
 						entityplayer.inventoryContainer.detectAndSendChanges();
 						world.playSoundEffect(i + 0.5, j + 0.5, k + 0.5, "random.pop", 0.5f, 0.5f + world.rand.nextFloat() * 0.5f);
+						if (wasCooked) {
+							GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.cookKebab);
+						}
 					}
 				}
 				return true;

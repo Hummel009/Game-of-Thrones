@@ -36,7 +36,7 @@ public class GOTBiomeNorvos extends GOTBiomeEssos {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_NORVOS;
+		return GOTAchievement.enterNorvos;
 	}
 
 	@Override

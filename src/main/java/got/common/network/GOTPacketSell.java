@@ -70,7 +70,7 @@ public class GOTPacketSell implements IMessage {
 					}
 					GOTItemCoin.giveCoins(totalCoins, entityplayer);
 					if (totalCoins >= 1000) {
-						GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.EARN_MANY_COINS);
+						GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.earnManyCoins);
 					}
 					trader.playTradeSound();
 				}

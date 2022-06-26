@@ -5,7 +5,7 @@ import java.util.*;
 import org.apache.commons.lang3.StringUtils;
 
 import got.common.*;
-import got.common.database.GOTRegistry;
+import got.common.database.*;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.*;
 import net.minecraft.entity.EntityLivingBase;
@@ -57,6 +57,10 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 			rewardItemTable.add(trophy);
 		}
 		super.complete(entityplayer, npc);
+		pd.addAchievement(GOTAchievement.doMiniquestHunter);
+		if (specialReward) {
+			pd.addAchievement(GOTAchievement.doMiniquestHunter5);
+		}
 	}
 
 	@Override
@@ -248,6 +252,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 			}
 			killedByBounty = true;
 			updateQuest();
+			killerData.addAchievement(GOTAchievement.killHuntingPlayer);
 			ChatComponentTranslation announceMsg = new ChatComponentTranslation("got.chat.killedByBounty", entityplayer.getCommandSenderName(), killer.getCommandSenderName());
 			announceMsg.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 			for (Object obj : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {

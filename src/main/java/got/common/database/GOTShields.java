@@ -69,10 +69,10 @@ public enum GOTShields {
 			return GOTLevelData.getData(entityplayer).getEarnedAchievements(GOTDimension.GAME_OF_THRONES).size() >= 100;
 		}
 		if (this == ALCOHOLIC) {
-			return GOTLevelData.getData(entityplayer).hasAchievement(GOTAchievement.GAIN_HIGH_ALCOHOL_TOLERANCE);
+			return GOTLevelData.getData(entityplayer).hasAchievement(GOTAchievement.gainHighAlcoholTolerance);
 		}
 		if (this == GOLDENCOMPANY) {
-			return GOTLevelData.getData(entityplayer).hasAchievement(GOTAchievement.HIRE_GOLDEN_COMPANY);
+			return GOTLevelData.getData(entityplayer).hasAchievement(GOTAchievement.hireGoldenCompany);
 		}
 		if (shieldType == ShieldType.EXCLUSIVE) {
 			for (UUID uuid : exclusiveUUIDs) {

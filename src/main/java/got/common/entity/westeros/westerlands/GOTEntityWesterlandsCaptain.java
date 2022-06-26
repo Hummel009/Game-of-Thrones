@@ -74,6 +74,6 @@ public class GOTEntityWesterlandsCaptain extends GOTEntityWesterlandsSoldier imp
 
 	@Override
 	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 }

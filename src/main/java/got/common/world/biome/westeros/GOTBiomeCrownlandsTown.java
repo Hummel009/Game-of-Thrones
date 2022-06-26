@@ -51,7 +51,7 @@ public class GOTBiomeCrownlandsTown extends GOTBiomeCrownlands {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_KINGS_LANDING;
+		return GOTAchievement.enterKingsLanding;
 	}
 
 	@Override

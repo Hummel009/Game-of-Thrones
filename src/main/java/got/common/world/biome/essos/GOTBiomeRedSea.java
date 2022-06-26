@@ -19,7 +19,7 @@ public class GOTBiomeRedSea extends GOTBiome {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_RED_SEA;
+		return GOTAchievement.enterRedSea;
 	}
 
 	@Override

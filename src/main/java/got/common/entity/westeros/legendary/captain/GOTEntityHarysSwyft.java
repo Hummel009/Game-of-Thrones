@@ -56,7 +56,7 @@ public class GOTEntityHarysSwyft extends GOTEntityHumanBase implements GOTUnitTr
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_VASSAL;
+		return GOTAchievement.killVassal;
 	}
 
 	@Override
@@ -104,7 +104,7 @@ public class GOTEntityHarysSwyft extends GOTEntityHumanBase implements GOTUnitTr
 
 	@Override
 	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 
 	@Override

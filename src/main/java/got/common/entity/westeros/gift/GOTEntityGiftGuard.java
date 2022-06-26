@@ -40,7 +40,7 @@ public class GOTEntityGiftGuard extends GOTEntityGiftMan {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_NIGHT_WATCH_GUARD;
+		return GOTAchievement.killNightWatchGuard;
 	}
 
 	@Override

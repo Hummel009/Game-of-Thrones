@@ -70,7 +70,7 @@ public class GOTBiomeThenn extends GOTBiome {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_THENN;
+		return GOTAchievement.enterThenn;
 	}
 
 	@Override

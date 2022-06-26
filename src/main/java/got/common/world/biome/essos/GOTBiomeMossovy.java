@@ -56,7 +56,7 @@ public class GOTBiomeMossovy extends GOTBiome {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_MOSSOVY;
+		return GOTAchievement.enterMossovy;
 	}
 
 	@Override

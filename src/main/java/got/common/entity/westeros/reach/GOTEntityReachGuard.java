@@ -21,7 +21,7 @@ public class GOTEntityReachGuard extends GOTEntityReachSoldier {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.BANDIT;
+		return GOTAchievement.killThePolice;
 	}
 
 	@Override

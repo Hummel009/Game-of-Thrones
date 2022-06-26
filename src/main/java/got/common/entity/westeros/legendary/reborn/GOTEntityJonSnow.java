@@ -152,7 +152,7 @@ public class GOTEntityJonSnow extends GOTEntityHumanBase {
 
 		@Override
 		public GOTAchievement getKillAchievement() {
-			return GOTAchievement.KILL_JON_SNOW;
+			return GOTAchievement.killJonSnow;
 		}
 	}
 }

@@ -52,7 +52,7 @@ public class GOTBiomeValyria extends GOTBiome {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_VALYRIA;
+		return GOTAchievement.enterValyria;
 	}
 
 	@Override

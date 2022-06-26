@@ -63,7 +63,7 @@ public class GOTEntityBarristanSelmy extends GOTEntityHumanBase implements GOTUn
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_BARRISTAN_SELMY;
+		return GOTAchievement.killBarristanSelmy;
 	}
 
 	@Override
@@ -114,7 +114,7 @@ public class GOTEntityBarristanSelmy extends GOTEntityHumanBase implements GOTUn
 
 	@Override
 	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 
 	@Override

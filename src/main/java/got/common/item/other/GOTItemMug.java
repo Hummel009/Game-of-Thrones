@@ -209,6 +209,7 @@ public class GOTItemMug extends Item {
 			if (!world.isRemote && itemRand.nextFloat() < alcoholPower && (duration = (int) (60.0f * (1.0f + itemRand.nextFloat() * 0.5f) * alcoholPower)) >= 1) {
 				int durationTicks = duration * 20;
 				entityplayer.addPotionEffect(new PotionEffect(Potion.confusion.id, durationTicks));
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.getDrunk);
 				int toleranceAdd = Math.round(duration / 20.0f);
 				GOTLevelData.getData(entityplayer).setAlcoholTolerance(tolerance += toleranceAdd);
 			}
@@ -225,7 +226,11 @@ public class GOTItemMug extends Item {
 		if (!world.isRemote && curesEffects) {
 			entityplayer.curePotionEffects(new ItemStack(Items.milk_bucket));
 		}
+		if (vessel == Vessel.SKULL) {
+			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.drinkSkull);
+		}
 		if (!world.isRemote && this == GOTRegistry.mugPlantainBrew) {
+			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.drinkPlantainBrew);
 			for (Potion potion : Potion.potionTypes) {
 				if (potion == null || !GOTReflection.isBadEffect(potion)) {
 					continue;

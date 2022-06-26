@@ -1,6 +1,8 @@
 package got.common.item.other;
 
+import got.common.GOTLevelData;
 import got.common.block.other.GOTBlockAnimalJar;
+import got.common.database.GOTAchievement;
 import got.common.entity.animal.GOTEntityButterfly;
 import got.common.entity.other.GOTEntityRegistry;
 import got.common.tileentity.GOTTileEntityAnimalJar;
@@ -30,6 +32,9 @@ public class GOTItemAnimalJar extends GOTItemBlockMetadata {
 				GOTItemAnimalJar.setEntityData(itemstack, nbt);
 				entity.playSound("random.pop", 0.5f, 0.5f + world.rand.nextFloat() * 0.5f);
 				entity.setDead();
+				if (entity instanceof GOTEntityButterfly) {
+					GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.catchButterfly);
+				}
 			}
 			return true;
 		}

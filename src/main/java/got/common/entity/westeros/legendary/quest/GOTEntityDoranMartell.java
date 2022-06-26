@@ -60,7 +60,7 @@ public class GOTEntityDoranMartell extends GOTEntityHumanBase {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_DORAN_MARTELL;
+		return GOTAchievement.killDoranMartell;
 	}
 
 	@Override

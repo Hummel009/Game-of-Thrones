@@ -71,7 +71,8 @@ public class GOTChestContents {
 
 		WESTEROS_W[i] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.arrynHelmet), 1, 1, 10);
 		i++;
-		WESTEROS_W[i++] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.arrynChestplate), 1, 1, 10);
+		WESTEROS_W[i] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.arrynChestplate), 1, 1, 10);
+		i++;
 		WESTEROS_W[i++] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.arrynLeggings), 1, 1, 10);
 		WESTEROS_W[i++] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.arrynBoots), 1, 1, 10);
 		WESTEROS_W[i++] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.ironCrossbow), 1, 1, 10);

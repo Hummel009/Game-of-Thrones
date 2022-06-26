@@ -143,7 +143,7 @@ public class GOTContainerAnvil extends Container {
 			invInput.setInventorySlotContents(0, inputItem);
 			takeMaterialOrCoinAmount(cost);
 			playAnvilSound();
-			GOTLevelData.getData(thePlayer).addAchievement(GOTAchievement.ENGRAVE);
+			GOTLevelData.getData(thePlayer).addAchievement(GOTAchievement.engraveOwnership);
 		}
 	}
 
@@ -292,7 +292,7 @@ public class GOTContainerAnvil extends Container {
 			lastReforgeTime = curTime;
 			((EntityPlayerMP) thePlayer).sendProgressBarUpdate(this, 2, 0);
 			if (!isTrader) {
-				GOTLevelData.getData(thePlayer).addAchievement(GOTAchievement.REFORGE);
+				GOTLevelData.getData(thePlayer).addAchievement(GOTAchievement.reforge);
 			}
 		}
 	}

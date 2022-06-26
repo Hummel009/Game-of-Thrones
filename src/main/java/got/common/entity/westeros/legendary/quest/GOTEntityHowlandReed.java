@@ -61,7 +61,7 @@ public class GOTEntityHowlandReed extends GOTEntityHumanBase {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_HOWLAND_REED;
+		return GOTAchievement.killHowlandReed;
 	}
 
 	@Override

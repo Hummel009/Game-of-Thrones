@@ -111,7 +111,7 @@ public class GOTBiomeStepstones extends GOTBiome {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_STEPSTONES;
+		return GOTAchievement.enterStepstones;
 	}
 
 	@Override

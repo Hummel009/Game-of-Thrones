@@ -70,7 +70,7 @@ public class GOTEntityIceSpider extends GOTEntitySpiderBase {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_ICE_SPIDER;
+		return GOTAchievement.killIceSpider;
 	}
 
 	@Override

@@ -63,7 +63,7 @@ public class GOTEntityYgritte extends GOTEntityHumanBase {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_YGRITTE;
+		return GOTAchievement.killYgritte;
 	}
 
 	@Override

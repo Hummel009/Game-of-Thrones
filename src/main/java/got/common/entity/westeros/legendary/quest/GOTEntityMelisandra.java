@@ -62,7 +62,7 @@ public class GOTEntityMelisandra extends GOTEntityHumanBase {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_MELISANDRA;
+		return GOTAchievement.killMelisandra;
 	}
 
 	@Override

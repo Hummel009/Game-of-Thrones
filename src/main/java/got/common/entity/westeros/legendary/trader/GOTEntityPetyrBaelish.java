@@ -67,7 +67,7 @@ public class GOTEntityPetyrBaelish extends GOTEntityHumanBase implements GOTBart
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_PETYR_BAELISH;
+		return GOTAchievement.killPetyrBaelish;
 	}
 
 	@Override
@@ -104,7 +104,7 @@ public class GOTEntityPetyrBaelish extends GOTEntityHumanBase implements GOTBart
 
 	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 
 	@Override

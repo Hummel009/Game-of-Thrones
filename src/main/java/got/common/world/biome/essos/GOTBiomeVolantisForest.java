@@ -40,7 +40,7 @@ public class GOTBiomeVolantisForest extends GOTBiomeVolantis {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_VOLANTIS_FOREST;
+		return GOTAchievement.enterVolantisForest;
 	}
 
 	@Override

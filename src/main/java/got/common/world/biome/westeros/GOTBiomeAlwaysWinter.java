@@ -86,7 +86,7 @@ public class GOTBiomeAlwaysWinter extends GOTBiome {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_ALWAYS_WINTER;
+		return GOTAchievement.enterAlwaysWinter;
 	}
 
 	@Override

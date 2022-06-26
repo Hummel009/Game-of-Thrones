@@ -75,7 +75,7 @@ public class GOTBiomeIbbenMountains extends GOTBiomeIbben {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_ESSOS_MOUNTAINS;
+		return GOTAchievement.enterEssosMountains;
 	}
 
 	@Override

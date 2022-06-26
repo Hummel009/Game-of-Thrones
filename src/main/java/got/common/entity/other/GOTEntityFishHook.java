@@ -1,5 +1,8 @@
 package got.common.entity.other;
 
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
+import got.common.item.other.GOTItemRing;
 import got.common.util.GOTReflection;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -59,6 +62,9 @@ public class GOTEntityFishHook extends EntityFishHook {
 			worldObj.spawnEntityInWorld(entityitem);
 			worldObj.spawnEntityInWorld(new EntityXPOrb(field_146042_b.worldObj, field_146042_b.posX, field_146042_b.posY + 0.5, field_146042_b.posZ + 0.5, rand.nextInt(6) + 1));
 			field_146042_b.addStat(result.category.stat, 1);
+			if (item.getItem() instanceof GOTItemRing) {
+				GOTLevelData.getData(field_146042_b).addAchievement(GOTAchievement.fishRing);
+			}
 			damage = 1;
 		}
 		if (GOTReflection.isFishHookInGround(this)) {

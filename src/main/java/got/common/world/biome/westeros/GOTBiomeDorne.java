@@ -60,7 +60,7 @@ public class GOTBiomeDorne extends GOTBiomeEssos {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_DORNE;
+		return GOTAchievement.enterDorne;
 	}
 
 	@Override

@@ -108,7 +108,7 @@ public class GOTEntityMidges extends EntityLiving implements GOTAmbientCreature 
 			GOTEntityNPC npc = (GOTEntityNPC) attacker;
 			if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() != null) {
 				EntityPlayer entityplayer = npc.hiredNPCInfo.getHiringPlayer();
-				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.SHOOT_DOWN_MIDGES);
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.shootDownMidges);
 			}
 		}
 	}

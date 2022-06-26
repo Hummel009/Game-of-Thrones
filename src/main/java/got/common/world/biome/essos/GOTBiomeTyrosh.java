@@ -46,7 +46,7 @@ public class GOTBiomeTyrosh extends GOTBiomeEssos {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_TYROSH;
+		return GOTAchievement.enterTyrosh;
 	}
 
 	@Override

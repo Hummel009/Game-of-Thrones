@@ -60,7 +60,7 @@ public class GOTEntityJaimeLannister extends GOTEntityHumanBase {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_JAIME_LANNISTER;
+		return GOTAchievement.killJaimeLannister;
 	}
 
 	@Override

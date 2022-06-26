@@ -35,7 +35,7 @@ public class GOTBiomeLongSummer extends GOTBiome {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_LONG_SUMMER;
+		return GOTAchievement.enterLongSummer;
 	}
 
 	@Override

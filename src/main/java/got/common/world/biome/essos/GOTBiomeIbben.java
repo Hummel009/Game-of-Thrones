@@ -71,7 +71,7 @@ public class GOTBiomeIbben extends GOTBiome {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_IBBEN;
+		return GOTAchievement.enterIbben;
 	}
 
 	@Override

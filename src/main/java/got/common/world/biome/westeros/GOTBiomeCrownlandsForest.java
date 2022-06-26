@@ -38,7 +38,7 @@ public class GOTBiomeCrownlandsForest extends GOTBiomeCrownlands {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_CROWNLANDS_FOREST;
+		return GOTAchievement.enterCrownlandsForest;
 	}
 
 	@Override

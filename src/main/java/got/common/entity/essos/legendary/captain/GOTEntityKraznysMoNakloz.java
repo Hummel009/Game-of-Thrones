@@ -56,7 +56,7 @@ public class GOTEntityKraznysMoNakloz extends GOTEntityHumanBase implements GOTU
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_KRAZNYS_MO_NAKLOZ;
+		return GOTAchievement.killKraznysMoNakloz;
 	}
 
 	@Override
@@ -104,7 +104,7 @@ public class GOTEntityKraznysMoNakloz extends GOTEntityHumanBase implements GOTU
 
 	@Override
 	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 
 	@Override

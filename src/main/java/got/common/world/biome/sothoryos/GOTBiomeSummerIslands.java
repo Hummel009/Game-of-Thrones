@@ -33,7 +33,7 @@ public class GOTBiomeSummerIslands extends GOTBiomeSothoryosJungle {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_SUMMER_ISLANDS;
+		return GOTAchievement.enterSummerIslands;
 	}
 
 	@Override

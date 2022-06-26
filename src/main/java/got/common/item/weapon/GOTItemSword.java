@@ -72,7 +72,7 @@ public class GOTItemSword extends ItemSword implements GOTMaterialFinder {
 			applyStandardPoison(hitEntity);
 		}
 		if (effect == HitEffect.FIRE) {
-			hitEntity.setFire(30);
+			applyStandardFire(hitEntity);
 		}
 		return true;
 	}
@@ -110,6 +110,12 @@ public class GOTItemSword extends ItemSword implements GOTMaterialFinder {
 
 	public static UUID accessWeaponDamageModifier() {
 		return field_111210_e;
+	}
+
+	public static void applyStandardFire(EntityLivingBase entity) {
+		EnumDifficulty difficulty = entity.worldObj.difficultySetting;
+		int duration = 1 + difficulty.getDifficultyId() * 10;
+		entity.setFire(duration);
 	}
 
 	public static void applyStandardPoison(EntityLivingBase entity) {

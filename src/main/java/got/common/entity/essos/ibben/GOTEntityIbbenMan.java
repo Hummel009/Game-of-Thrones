@@ -115,7 +115,7 @@ public class GOTEntityIbbenMan extends GOTEntityHumanBase implements IPickpocket
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_IBBEN;
+		return GOTAchievement.killIbben;
 	}
 
 	@Override

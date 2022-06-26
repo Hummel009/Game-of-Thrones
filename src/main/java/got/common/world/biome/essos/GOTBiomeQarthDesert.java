@@ -93,7 +93,7 @@ public class GOTBiomeQarthDesert extends GOTBiome {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_QARTH_DESERT;
+		return GOTAchievement.enterQarthDesert;
 	}
 
 	@Override

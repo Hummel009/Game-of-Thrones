@@ -40,7 +40,7 @@ public class GOTEntityDothrakiKhal extends GOTEntityDothraki implements GOTUnitT
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILL_KHAL;
+		return GOTAchievement.killKhal;
 	}
 
 	@Override
@@ -77,6 +77,6 @@ public class GOTEntityDothrakiKhal extends GOTEntityDothraki implements GOTUnitT
 
 	@Override
 	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 }

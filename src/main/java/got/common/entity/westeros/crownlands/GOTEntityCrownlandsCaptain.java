@@ -73,6 +73,6 @@ public class GOTEntityCrownlandsCaptain extends GOTEntityCrownlandsGuard impleme
 
 	@Override
 	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
 }

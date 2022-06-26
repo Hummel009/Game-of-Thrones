@@ -139,7 +139,7 @@ public class GOTEntityWesterosBandit extends GOTEntityHumanBase implements IBand
 		super.onDeath(damagesource);
 		if (!worldObj.isRemote && damagesource.getEntity() instanceof EntityPlayer && !banditInventory.isEmpty()) {
 			EntityPlayer entityplayer = (EntityPlayer) damagesource.getEntity();
-			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.BANDIT);
+			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.killThievingBandit);
 		}
 		if (!worldObj.isRemote) {
 			banditInventory.dropAllItems();

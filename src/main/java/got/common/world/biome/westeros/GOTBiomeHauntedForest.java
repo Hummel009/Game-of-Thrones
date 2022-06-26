@@ -56,7 +56,7 @@ public class GOTBiomeHauntedForest extends GOTBiome {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.VISIT_HAUNTED_FOREST;
+		return GOTAchievement.enterHauntedForest;
 	}
 
 	@Override

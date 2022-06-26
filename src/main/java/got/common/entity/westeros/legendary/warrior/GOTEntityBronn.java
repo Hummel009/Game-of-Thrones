@@ -56,7 +56,7 @@ public class GOTEntityBronn extends GOTEntityHumanBase implements GOTMercenary {
 
 	@Override
 	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.KILLER;
+		return GOTAchievement.killer;
 	}
 
 	@Override
@@ -104,7 +104,7 @@ public class GOTEntityBronn extends GOTEntityHumanBase implements GOTMercenary {
 
 	@Override
 	public void onUnitTrade(EntityPlayer entityplayer) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.TRADE);
+		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 
 	}
 
