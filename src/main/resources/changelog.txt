@@ -2,13 +2,15 @@ CHANGELOG
 
 >>VERSION 17.7.4
 + Added labradorite set of blocks
-+ Returned "kill mob" type of quests
-+ Returned "kill player" type of quests
++ Added "kill mob" type of quests
++ Added "kill player" type of quests
++ Added lots of achievements
 
 * Changed armor stats
 * Changed unpledge sound to amogus impostor sound
 * Changed some waypoint regions because of players' complaints. Essos wp can be unlocked in Kings Landing; Sothoryos - Ghiscar; Ulthos - Asshai; Ibben - Essos; Summer Islands - Sothoryos.
 
+* Improved a few armor & weapon textures
 * Improved yellow banners' textures
 * Improved workbench textures, recipes
 * Improved prices for valuable items
