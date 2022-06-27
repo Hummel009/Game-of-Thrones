@@ -495,9 +495,6 @@ public class GOTAchievement {
 	}
 
 	public static GOTAchievement createArmorAchievement(GOTAchievement.Category category, int id, Item item, String name) {
-		if (!(item instanceof ItemArmor)) {
-			throw new IllegalArgumentException("Invalid armor achievement item, name: " + name + " for GOT achievement category " + category);
-		}
 		GOTAchievement achievement = new GOTAchievement(category, id, item, name);
 		armorAchievements.put(((ItemArmor) item).getArmorMaterial(), achievement);
 		return achievement;
@@ -506,10 +503,9 @@ public class GOTAchievement {
 	public static GOTAchievement findByName(String name) {
 		for (Category category : Category.values()) {
 			for (GOTAchievement achievement : category.list) {
-				if (!achievement.getCodeName().equalsIgnoreCase(name)) {
-					continue;
+				if (achievement.getCodeName().equalsIgnoreCase(name)) {
+					return achievement;
 				}
-				return achievement;
 			}
 		}
 		return null;
