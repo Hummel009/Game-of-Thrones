@@ -105,8 +105,8 @@ public class GOTStructureAsshaiGatehouse extends GOTStructureAsshaiBase {
 		for (int k14 : new int[] { -3, 3 }) {
 			setBlockAndMetadata(world, -2, 6, k14, brickStairBlock, 4);
 			setBlockAndMetadata(world, 2, 6, k14, brickStairBlock, 5);
-			setBlockAndMetadata(world, -2, 5, k14, Blocks.torch, 2);
-			setBlockAndMetadata(world, 2, 5, k14, Blocks.torch, 1);
+			setBlockAndMetadata(world, -2, 5, k14, GOTRegistry.asshaiTorch, 2);
+			setBlockAndMetadata(world, 2, 5, k14, GOTRegistry.asshaiTorch, 1);
 			for (int i16 = -2; i16 <= 2; ++i16) {
 				int i23 = Math.abs(i16);
 				setBlockAndMetadata(world, i16, 8, k14, brickBlock, brickMeta);
@@ -168,16 +168,16 @@ public class GOTStructureAsshaiGatehouse extends GOTStructureAsshaiBase {
 				setBlockAndMetadata(world, i1421, j12, 2, Blocks.ladder, 2);
 			}
 		}
-		setBlockAndMetadata(world, -2, 10, -2, Blocks.torch, 2);
-		setBlockAndMetadata(world, 2, 10, -2, Blocks.torch, 1);
-		setBlockAndMetadata(world, -2, 10, 2, Blocks.torch, 2);
-		setBlockAndMetadata(world, 2, 10, 2, Blocks.torch, 1);
+		setBlockAndMetadata(world, -2, 10, -2, GOTRegistry.asshaiTorch, 2);
+		setBlockAndMetadata(world, 2, 10, -2, GOTRegistry.asshaiTorch, 1);
+		setBlockAndMetadata(world, -2, 10, 2, GOTRegistry.asshaiTorch, 2);
+		setBlockAndMetadata(world, 2, 10, 2, GOTRegistry.asshaiTorch, 1);
 		placeWallBanner(world, 1, 10, -3, GOTItemBanner.BannerType.ASSHAI, 0);
 		placeWallBanner(world, -1, 10, -3, GOTItemBanner.BannerType.ASSHAI, 0);
-		setBlockAndMetadata(world, -3, 12, -3, Blocks.torch, 3);
-		setBlockAndMetadata(world, 3, 12, -3, Blocks.torch, 3);
-		setBlockAndMetadata(world, -3, 12, 3, Blocks.torch, 4);
-		setBlockAndMetadata(world, 3, 12, 3, Blocks.torch, 4);
+		setBlockAndMetadata(world, -3, 12, -3, GOTRegistry.asshaiTorch, 3);
+		setBlockAndMetadata(world, 3, 12, -3, GOTRegistry.asshaiTorch, 3);
+		setBlockAndMetadata(world, -3, 12, 3, GOTRegistry.asshaiTorch, 4);
+		setBlockAndMetadata(world, 3, 12, 3, GOTRegistry.asshaiTorch, 4);
 		placeWallBanner(world, -3, 7, -3, GOTItemBanner.BannerType.ASSHAI, 2);
 		placeWallBanner(world, 3, 7, -3, GOTItemBanner.BannerType.ASSHAI, 2);
 		placeWallBanner(world, 3, 7, 3, GOTItemBanner.BannerType.ASSHAI, 0);

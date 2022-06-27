@@ -112,8 +112,8 @@ public class GOTStructureAsshaiWatchtower extends GOTStructureAsshaiBase {
 			setBlockAndMetadata(world, -1, j1, -3, GOTRegistry.brick1, 0);
 			setBlockAndMetadata(world, 1, j1, -3, GOTRegistry.brick1, 0);
 		}
-		setBlockAndMetadata(world, -1, 3, -4, Blocks.torch, 4);
-		setBlockAndMetadata(world, 1, 3, -4, Blocks.torch, 4);
+		setBlockAndMetadata(world, -1, 3, -4, GOTRegistry.asshaiTorch, 4);
+		setBlockAndMetadata(world, 1, 3, -4, GOTRegistry.asshaiTorch, 4);
 		setBlockAndMetadata(world, 0, 6, -3, GOTRegistry.brick1, 0);
 		setBlockAndMetadata(world, 0, 6, 3, GOTRegistry.brick1, 0);
 		setBlockAndMetadata(world, -3, 6, 0, GOTRegistry.brick1, 0);
@@ -134,8 +134,8 @@ public class GOTStructureAsshaiWatchtower extends GOTStructureAsshaiBase {
 			setBlockAndMetadata(world, 1, 1, k12, bedBlock, 1);
 			setBlockAndMetadata(world, 2, 1, k12, bedBlock, 9);
 		}
-		setBlockAndMetadata(world, -2, 3, 0, Blocks.torch, 2);
-		setBlockAndMetadata(world, 2, 3, 0, Blocks.torch, 1);
+		setBlockAndMetadata(world, -2, 3, 0, GOTRegistry.asshaiTorch, 2);
+		setBlockAndMetadata(world, 2, 3, 0, GOTRegistry.asshaiTorch, 1);
 		setBlockAndMetadata(world, 0, 5, 0, GOTRegistry.chandelier, 12);
 		this.placeChest(world, random, -2, 7, -2, GOTRegistry.chestStone, 4, GOTChestContents.ASSHAI);
 		setBlockAndMetadata(world, -2, 7, 0, GOTRegistry.armorStand, 3);
@@ -176,10 +176,10 @@ public class GOTStructureAsshaiWatchtower extends GOTStructureAsshaiBase {
 		setBlockAndMetadata(world, 0, 12, 0, pillarBlock, pillarMeta);
 		setBlockAndMetadata(world, 0, 13, 0, GOTRegistry.brick1, 0);
 		this.placeBanner(world, 0, 14, 0, GOTItemBanner.BannerType.ASSHAI, 2);
-		setBlockAndMetadata(world, 0, 11, -3, Blocks.torch, 3);
-		setBlockAndMetadata(world, 0, 11, 3, Blocks.torch, 4);
-		setBlockAndMetadata(world, -3, 11, 0, Blocks.torch, 2);
-		setBlockAndMetadata(world, 3, 11, 0, Blocks.torch, 1);
+		setBlockAndMetadata(world, 0, 11, -3, GOTRegistry.asshaiTorch, 3);
+		setBlockAndMetadata(world, 0, 11, 3, GOTRegistry.asshaiTorch, 4);
+		setBlockAndMetadata(world, -3, 11, 0, GOTRegistry.asshaiTorch, 2);
+		setBlockAndMetadata(world, 3, 11, 0, GOTRegistry.asshaiTorch, 1);
 		GOTEntityAsshaiWarrior soldier = new GOTEntityAsshaiWarrior(world);
 		soldier.spawnRidingHorse = false;
 		spawnNPCAndSetHome(soldier, world, 0, 1, 0, 16);
