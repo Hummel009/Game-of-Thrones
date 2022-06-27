@@ -2025,7 +2025,7 @@ public class GOTRegistry {
 		cranberry = new GOTItemBerry();
 		crossbowBolt = new GOTItemCrossbowBolt();
 		crossbowBoltPoisoned = new GOTItemCrossbowBolt().setPoisoned();
-		crowbar = new GOTItemLegendaryCrowbar(ToolMaterial.IRON);
+		crowbar = new GOTItemLegendaryCrowbar(ToolMaterial.IRON).setCreativeTab(null);
 		crownlandsBoots = new GOTItemArmor(GOTMaterial.CROWNLANDS, 3);
 		crownlandsChestplate = new GOTItemArmor(GOTMaterial.CROWNLANDS, 1);
 		crownlandsHelmet = new GOTItemArmor(GOTMaterial.CROWNLANDS, 0);
