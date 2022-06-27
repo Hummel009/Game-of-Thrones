@@ -9,6 +9,8 @@ CHANGELOG
 * Changed unpledge sound to amogus impostor sound
 * Changed some waypoint regions because of players' complaints. Essos wp can be unlocked in Kings Landing; Sothoryos - Ghiscar; Ulthos - Asshai; Ibben - Essos; Summer Islands - Sothoryos.
 
+* Improved yellow banners' textures
+* Improved workbench textures, recipes
 * Improved prices for valuable items
 * Improved chest contents in all the world
 * Improved andesite, rhyolite & basalt sets textures
@@ -18,6 +20,7 @@ CHANGELOG
 
 * Optimized client tick handler
 
+* Fixed 33 bugs with bottom table textures
 * Fixed bug with furnace GUI
 * Fixed bug with wrong chest contents
 * Fixed bug with Loras Tyrell
@@ -368,7 +371,7 @@ CHANGELOG
 + Added full set of blocks made of labradorite
 + Added Partial Ukrainian Translation of the Mod (powered by DDPAT Knife Series)
 
-* Improved rock generating (like in 1.8). 
+* Improved rock generating (like in 1.8).
 * Improved rock textures.
 * Improved wights: they save their armor, weapon and gender after death.
 * Improved spawn. Now player spawns in the Winterfell
@@ -493,7 +496,7 @@ CHANGELOG
 - Removed Night Watch's bow
 
 >>VERSION 17.0
-* Realistic spawning system: mobs no longer spawn in open space. NPC spawn only near waypoints with fixed structures and in random villages. 
+* Realistic spawning system: mobs no longer spawn in open space. NPC spawn only near waypoints with fixed structures and in random villages.
 + Added 200+ Achievements
 + Added Achievements Command
 + Added Isle of faces biome
