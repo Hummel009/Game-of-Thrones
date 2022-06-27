@@ -2,18 +2,24 @@ package got.common.block.table;
 
 import java.util.*;
 
+import cpw.mods.fml.relauncher.*;
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
 import got.common.faction.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 public class GOTBlockCraftingTable extends Block {
 	public static List<GOTBlockCraftingTable> allCraftingTables = new ArrayList<>();
 	public GOTFaction tableFaction;
 	public int tableGUIID;
+	@SideOnly(value = Side.CLIENT)
+	public IIcon[] tableIcons;
 
 	public GOTBlockCraftingTable(Material material, GOTFaction faction, int guiID) {
 		super(material);
@@ -22,6 +28,18 @@ public class GOTBlockCraftingTable extends Block {
 		tableFaction = faction;
 		tableGUIID = guiID;
 		allCraftingTables.add(this);
+	}
+
+	@SideOnly(value = Side.CLIENT)
+	@Override
+	public IIcon getIcon(int i, int j) {
+		if (i == 1) {
+			return tableIcons[1];
+		}
+		if (i == 0) {
+			return Blocks.planks.getIcon(0, 0);
+		}
+		return tableIcons[0];
 	}
 
 	@Override
@@ -44,5 +62,13 @@ public class GOTBlockCraftingTable extends Block {
 			}
 		}
 		return true;
+	}
+
+	@SideOnly(value = Side.CLIENT)
+	@Override
+	public void registerBlockIcons(IIconRegister iconregister) {
+		tableIcons = new IIcon[2];
+		tableIcons[0] = iconregister.registerIcon(getTextureName() + "_side");
+		tableIcons[1] = iconregister.registerIcon(getTextureName() + "_top");
 	}
 }
