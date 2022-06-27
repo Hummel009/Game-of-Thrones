@@ -104,8 +104,8 @@ public class GOTStructureAsshaiTavern extends GOTStructureAsshaiBase {
 				if (IntMath.mod(i1, 4) != 0 || i1 == 0) {
 					continue;
 				}
-				setBlockAndMetadata(world, i1, 2, k1421, GOTRegistry.glassPane, 0);
-				setBlockAndMetadata(world, i1, 3, k1421, GOTRegistry.glassPane, 0);
+				setBlockAndMetadata(world, i1, 2, k1421, GOTRegistry.asshaiBars, 0);
+				setBlockAndMetadata(world, i1, 3, k1421, GOTRegistry.asshaiBars, 0);
 			}
 		}
 		for (int i1421 : new int[] { -7, 11 }) {
@@ -113,8 +113,8 @@ public class GOTStructureAsshaiTavern extends GOTStructureAsshaiBase {
 				if (IntMath.mod(k132, 4) != 3 || i1421 == -7 && k132 == 7) {
 					continue;
 				}
-				setBlockAndMetadata(world, i1421, 2, k132, GOTRegistry.glassPane, 0);
-				setBlockAndMetadata(world, i1421, 3, k132, GOTRegistry.glassPane, 0);
+				setBlockAndMetadata(world, i1421, 2, k132, GOTRegistry.asshaiBars, 0);
+				setBlockAndMetadata(world, i1421, 3, k132, GOTRegistry.asshaiBars, 0);
 			}
 		}
 		setBlockAndMetadata(world, 0, 0, 0, plankBlock, plankMeta);
@@ -232,7 +232,7 @@ public class GOTStructureAsshaiTavern extends GOTStructureAsshaiBase {
 				if (IntMath.mod(i1, 4) != 0) {
 					continue;
 				}
-				setBlockAndMetadata(world, i1, 7, k1421, GOTRegistry.glassPane, 0);
+				setBlockAndMetadata(world, i1, 7, k1421, GOTRegistry.asshaiBars, 0);
 			}
 		}
 		int[] i16 = { -8, 12 };
@@ -243,7 +243,7 @@ public class GOTStructureAsshaiTavern extends GOTStructureAsshaiBase {
 				if (IntMath.mod(k132, 4) != 3) {
 					continue;
 				}
-				setBlockAndMetadata(world, i142, 7, k132, GOTRegistry.glassPane, 0);
+				setBlockAndMetadata(world, i142, 7, k132, GOTRegistry.asshaiBars, 0);
 			}
 		}
 		for (int step2 = 0; step2 <= 2; ++step2) {
