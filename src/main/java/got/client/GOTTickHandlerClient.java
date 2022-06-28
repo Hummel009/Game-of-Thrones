@@ -294,8 +294,11 @@ public class GOTTickHandlerClient {
 			if ((GOTMaterialFinder) itemstack.getItem() == GOTRegistry.bericSword) {
 				tooltip.add(EnumChatFormatting.GOLD + StatCollector.translateToLocal("item.got.antiwight"));
 			}
-			if ((GOTMaterialFinder) itemstack.getItem() == GOTRegistry.crowbar || (GOTMaterialFinder) itemstack.getItem() == GOTRegistry.baelishDagger) {
+			if ((GOTMaterialFinder) itemstack.getItem() == GOTRegistry.baelishDagger) {
 				tooltip.add(EnumChatFormatting.GOLD + StatCollector.translateToLocal("item.got.antiking"));
+			}
+			if (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.SILVER_TOOL) {
+				tooltip.add(EnumChatFormatting.GOLD + StatCollector.translateToLocal("item.got.antimonster"));
 			}
 		}
 	}
