@@ -16,6 +16,8 @@ import got.client.render.other.*;
 import got.client.sound.GOTMusic;
 import got.common.*;
 import got.common.database.*;
+import got.common.entity.animal.*;
+import got.common.entity.dragon.GOTEntityDragon3DViewer;
 import got.common.entity.other.*;
 import got.common.faction.*;
 import got.common.network.*;
@@ -31,7 +33,6 @@ import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.texture.TextureManager;
-import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -456,12 +457,16 @@ public class GOTClientProxy extends GOTCommonProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(GOTTileEntityCommandTable.class, new GOTRenderCommandTable());
 		ClientRegistry.bindTileEntitySpecialRenderer(GOTTileEntityAnimalJar.class, new GOTRenderAnimalJar());
 		ClientRegistry.bindTileEntitySpecialRenderer(GOTTileEntityUnsmeltery.class, new GOTRenderUnsmeltery());
-		ClientRegistry.bindTileEntitySpecialRenderer(GOTTileEntitySarbacaneTrap.class, (TileEntitySpecialRenderer) new GOTRenderDartTrap());
+		ClientRegistry.bindTileEntitySpecialRenderer(GOTTileEntitySarbacaneTrap.class, new GOTRenderDartTrap());
 		ClientRegistry.bindTileEntitySpecialRenderer(GOTTileEntityChest.class, new GOTRenderChest());
 		ClientRegistry.bindTileEntitySpecialRenderer(GOTTileEntityWeaponRack.class, new GOTRenderWeaponRack());
 		ClientRegistry.bindTileEntitySpecialRenderer(GOTTileEntityKebabStand.class, new GOTRenderKebabStand());
 		ClientRegistry.bindTileEntitySpecialRenderer(GOTTileEntitySignCarved.class, new GOTRenderSignCarved());
-		ClientRegistry.bindTileEntitySpecialRenderer(GOTTileEntitySignCarvedValyrian.class, (TileEntitySpecialRenderer) new GOTRenderSignCarvedValyrian());
+		ClientRegistry.bindTileEntitySpecialRenderer(GOTTileEntitySignCarvedValyrian.class, new GOTRenderSignCarvedValyrian());
+		FMLCommonHandler.instance().bus().register(new GOTEntityDragon3DViewer());
+		FMLCommonHandler.instance().bus().register(new GOTEntityMammoth3DViewer());
+		FMLCommonHandler.instance().bus().register(new GOTEntityElephant3DViewer());
+		FMLCommonHandler.instance().bus().register(new GOTKeyHandler(GOTPacketHandler.networkWrapper));
 	}
 
 	@Override
@@ -660,10 +665,6 @@ public class GOTClientProxy extends GOTCommonProxy {
 		        mc.effectRenderer.addEffect((EntityFX)new GOTEntityAsshaiTorchFX((World)worldClient, d, d1, d2, d3, d4, d5));
 		    } else if ("asshaiWater".equals(type)) {
 				mc.effectRenderer.addEffect(new GOTEntityRiverWaterFX((World) worldClient, d, d1, d2, d3, d4, d5, GOTBiome.shadowLand.getWaterColorMultiplier()));
-			} else if ("music".equals(type)) {
-				double pitch = ((World) worldClient).rand.nextDouble();
-				GOTEntityMusicFX lOTREntityMusicFX = new GOTEntityMusicFX(worldClient, d, d1, d2, d3, d4, d5, pitch);
-				mc.effectRenderer.addEffect(lOTREntityMusicFX);
 			} else if ("pickpocket".equals(type)) {
 				customEffectRenderer.addEffect(new GOTEntityPickpocketFX(worldClient, d, d1, d2, d3, d4, d5));
 			} else if ("pickpocketFail".equals(type)) {
