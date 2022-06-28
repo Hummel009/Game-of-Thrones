@@ -32,13 +32,9 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.world.*;
-import net.minecraftforge.event.world.BlockEvent.BreakEvent;
 
 public class GOTCommonProxy implements IGuiHandler {
 	public void addMapPlayerLocation(GameProfile player, double posX, double posZ) {
-	}
-
-	public void blockbreak(BreakEvent event) {
 	}
 
 	public void cancelItemHighlight() {
@@ -747,13 +743,6 @@ public class GOTCommonProxy implements IGuiHandler {
 		return false;
 	}
 
-	public boolean isSneaking(Entity entity) {
-		return entity.isSneaking();
-	}
-
-	public void launchplayer(EntityPlayer player) {
-	}
-
 	public void onLoad() {
 	}
 
@@ -786,15 +775,12 @@ public class GOTCommonProxy implements IGuiHandler {
 	public void renderCustomPotionEffect(int x, int y, PotionEffect effect, Minecraft mc) {
 	}
 
-	public void resetlaunchertime(int playerid) {
-	}
-
 	public void setClientDifficulty(EnumDifficulty difficulty) {
 	}
 
 	public void setInPortal(EntityPlayer entityplayer) {
 		if (!GOTTickHandlerServer.playersInPortals.containsKey(entityplayer)) {
-			GOTTickHandlerServer.playersInPortals.put(entityplayer, 0);
+			GOTTickHandlerServer.playersInPortals.put(entityplayer, Integer.valueOf(0));
 		}
 	}
 
@@ -827,7 +813,7 @@ public class GOTCommonProxy implements IGuiHandler {
 	}
 
 	public void usePouchOnChest(EntityPlayer entityplayer, World world, int i, int j, int k, int side, ItemStack itemstack, int pouchSlot) {
-		entityplayer.openGui(GOT.instance, GOTCommonProxy.packGuiIDWithSlot(63, pouchSlot), world, i, j, k);
+		entityplayer.openGui(GOT.instance, packGuiIDWithSlot(63, pouchSlot), world, i, j, k);
 	}
 
 	public void validateBannerUsername(GOTEntityBanner banner, int slot, String prevText, boolean valid) {
