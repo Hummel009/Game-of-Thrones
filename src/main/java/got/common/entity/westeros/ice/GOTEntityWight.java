@@ -42,10 +42,6 @@ public class GOTEntityWight extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void dropFewItems(boolean flag, int i) {
-	}
-
-	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
@@ -78,6 +74,10 @@ public class GOTEntityWight extends GOTEntityHumanBase {
 			return super.attackEntityFrom(damagesource, f);
 		}
 		return super.attackEntityFrom(damagesource, 0.0f);
+	}
+
+	@Override
+	public void dropFewItems(boolean flag, int i) {
 	}
 
 	@Override

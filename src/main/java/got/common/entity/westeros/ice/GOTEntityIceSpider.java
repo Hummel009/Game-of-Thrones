@@ -28,10 +28,6 @@ public class GOTEntityIceSpider extends GOTEntitySpiderBase {
 	}
 
 	@Override
-	public void dropFewItems(boolean flag, int i) {
-	}
-
-	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1.0);
@@ -60,6 +56,10 @@ public class GOTEntityIceSpider extends GOTEntitySpiderBase {
 			return super.attackEntityFrom(damagesource, f);
 		}
 		return super.attackEntityFrom(damagesource, 0.0f);
+	}
+
+	@Override
+	public void dropFewItems(boolean flag, int i) {
 	}
 
 	@Override

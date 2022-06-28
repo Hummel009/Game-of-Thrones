@@ -35,10 +35,6 @@ public class GOTEntityStoneMan extends GOTEntityNPC {
 		isNotHuman = true;
 	}
 
-	@Override
-	public void dropFewItems(boolean flag, int i) {
-	}
-
 	public void addTargetTasks() {
 		int target = addTargetTasks(true);
 		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityGoldenMan.class, 0, true));
@@ -58,6 +54,10 @@ public class GOTEntityStoneMan extends GOTEntityNPC {
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0);
 		getEntityAttribute(npcAttackDamage).setBaseValue(7.0);
+	}
+
+	@Override
+	public void dropFewItems(boolean flag, int i) {
 	}
 
 	@Override
