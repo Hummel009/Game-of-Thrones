@@ -7,8 +7,8 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class GOTEntityGlowFX extends EntityFlameFX {
-	public GOTEntityGlowFX(World world, double d, double d1, double d2, double d3, double d4, double d5) {
+public class GOTEntityMoonGlowFX extends EntityFlameFX {
+	public GOTEntityMoonGlowFX(World world, double d, double d1, double d2, double d3, double d4, double d5) {
 		super(world, d, d1, d2, d3, d4, d5);
 		particleRed = 0.15f;
 		particleGreen = 0.9f;
@@ -34,7 +34,7 @@ public class GOTEntityGlowFX extends EntityFlameFX {
 		tessellator.addVertexWithUV(var13 + f1 * var12 - f4 * var12, var14 - f2 * var12, var15 + f3 * var12 - f5 * var12, minU, maxV);
 	}
 
-	public GOTEntityGlowFX setGlowColor(int color) {
+	public GOTEntityMoonGlowFX setMoonGlowColor(int color) {
 		float[] rgb = new Color(color).getColorComponents(null);
 		particleRed = rgb[0];
 		particleGreen = rgb[1];
