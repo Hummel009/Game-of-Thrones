@@ -52,9 +52,7 @@ public class GOTEntityOberynMartell extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		if (!becameWight) {
-			dropItem(GOTRegistry.sunspear, 1);
-		}
+		dropItem(GOTRegistry.sunspear, 1);
 	}
 
 	@Override

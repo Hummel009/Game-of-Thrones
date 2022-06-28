@@ -60,7 +60,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	public UUID invasionID = null;
 	public UUID prevAttackTarget;
 	public boolean addedBurningPanic = false;
-	public boolean becameWight = false;
 	public boolean canBannerBearerSpawnRiding = false;
 	public boolean canBeMarried = false;
 	public boolean clientCombatStance;

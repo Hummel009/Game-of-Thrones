@@ -26,6 +26,10 @@ public class GOTEntityWightGiant extends GOTEntityGiant {
 	}
 
 	@Override
+	public void dropFewItems(boolean flag, int i) {
+	}
+
+	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1.0);
@@ -97,7 +101,6 @@ public class GOTEntityWightGiant extends GOTEntityGiant {
 			wight.setCurrentItemOrArmor(3, ((GOTEntityHumanBase) entity).getEquipmentInSlot(3));
 			wight.setCurrentItemOrArmor(4, ((GOTEntityHumanBase) entity).getEquipmentInSlot(4));
 			wight.familyInfo.setMale(((GOTEntityHumanBase) entity).familyInfo.male);
-			((GOTEntityHumanBase) entity).becameWight = true;
 			worldObj.removeEntity(entity);
 			worldObj.spawnEntityInWorld(wight);
 		} else if (entity instanceof GOTEntityGiant) {

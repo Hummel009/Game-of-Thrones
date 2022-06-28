@@ -10,6 +10,7 @@ CHANGELOG
 * Changed armor stats
 * Changed unpledge sound to amogus impostor sound
 * Changed some waypoint regions because of players' complaints. Essos wp can be unlocked in Kings Landing; Sothoryos - Ghiscar; Ulthos - Asshai; Ibben - Essos; Summer Islands - Sothoryos.
+* Changed standart wight armor (for egg)
 
 * Improved stone men, their skins and mechanics
 * Improved a few armor & weapon textures
@@ -34,6 +35,7 @@ CHANGELOG
 * Fixed bug with 25% of spawning a wrong structure at waypoint
 * Fixed bug with slaves speechbank
 * Fixed bug with towers in asshai
+* Fixed bug with wildling head slot
 
 - Removed Carnotite set of blocks, because it turned out that it was uran ore
 

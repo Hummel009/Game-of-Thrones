@@ -154,7 +154,7 @@ public class GOTEntityWildling extends GOTEntityHumanBase implements IPickpocket
 		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.furBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.furLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.furChestplate));
-		setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.furLeggings));
+		setCurrentItemOrArmor(4, null);
 		return data;
 	}
 

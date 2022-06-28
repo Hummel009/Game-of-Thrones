@@ -35,6 +35,10 @@ public class GOTEntityStoneMan extends GOTEntityNPC {
 		isNotHuman = true;
 	}
 
+	@Override
+	public void dropFewItems(boolean flag, int i) {
+	}
+
 	public void addTargetTasks() {
 		int target = addTargetTasks(true);
 		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityGoldenMan.class, 0, true));
@@ -118,7 +122,6 @@ public class GOTEntityStoneMan extends GOTEntityNPC {
 			infected.setCurrentItemOrArmor(3, ((GOTEntityHumanBase) entity).getEquipmentInSlot(3));
 			infected.setCurrentItemOrArmor(4, ((GOTEntityHumanBase) entity).getEquipmentInSlot(4));
 			infected.familyInfo.setMale(((GOTEntityHumanBase) entity).familyInfo.male);
-			((GOTEntityHumanBase) entity).becameWight = true;
 			worldObj.removeEntity(entity);
 			worldObj.spawnEntityInWorld(infected);
 		}

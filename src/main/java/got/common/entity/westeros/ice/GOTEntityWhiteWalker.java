@@ -158,7 +158,6 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 			wight.setCurrentItemOrArmor(3, ((GOTEntityHumanBase) entity).getEquipmentInSlot(3));
 			wight.setCurrentItemOrArmor(4, ((GOTEntityHumanBase) entity).getEquipmentInSlot(4));
 			wight.familyInfo.setMale(((GOTEntityHumanBase) entity).familyInfo.male);
-			((GOTEntityHumanBase) entity).becameWight = true;
 			worldObj.removeEntity(entity);
 			worldObj.spawnEntityInWorld(wight);
 		} else if (entity instanceof GOTEntityGiant) {

@@ -12,14 +12,13 @@ import got.common.item.GOTMaterialFinder;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.*;
-import net.minecraft.init.Items;
-import net.minecraft.item.*;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class GOTEntityWight extends GOTEntityHumanBase {
-	public static ItemStack[] militiaWeapons = { new ItemStack(GOTRegistry.westerosSword), new ItemStack(GOTRegistry.westerosHammer), new ItemStack(GOTRegistry.westerosPike), new ItemStack(Items.iron_sword), new ItemStack(Items.iron_axe), new ItemStack(GOTRegistry.ironBattleaxe), new ItemStack(GOTRegistry.ironPike), new ItemStack(GOTRegistry.bronzeSword), new ItemStack(GOTRegistry.bronzeAxe), new ItemStack(GOTRegistry.bronzeBattleaxe) };
-	public static int[] leatherDyes = { 10855845, 8026746, 5526612, 3684408, 8350297, 10388590, 4799795, 5330539, 4211801, 2632504 };
+	public static ItemStack[] weapons = { new ItemStack(GOTRegistry.wildlingAxe), new ItemStack(GOTRegistry.wildlingBattleaxe), new ItemStack(GOTRegistry.wildlingDagger), new ItemStack(GOTRegistry.wildlingDaggerPoisoned), new ItemStack(GOTRegistry.wildlingHammer), new ItemStack(GOTRegistry.wildlingPolearm), new ItemStack(GOTRegistry.wildlingSword), new ItemStack(GOTRegistry.wildlingSword), new ItemStack(GOTRegistry.wildlingSword), new ItemStack(GOTRegistry.wildlingSword) };
+	public static ItemStack[] spears = { new ItemStack(GOTRegistry.wildlingSpear) };
 
 	public GOTEntityWight(World world) {
 		super(world);
@@ -40,6 +39,10 @@ public class GOTEntityWight extends GOTEntityHumanBase {
 		spawnsInDarkness = true;
 		isImmuneToFrost = true;
 		isNotHuman = true;
+	}
+
+	@Override
+	public void dropFewItems(boolean flag, int i) {
 	}
 
 	@Override
@@ -75,13 +78,6 @@ public class GOTEntityWight extends GOTEntityHumanBase {
 			return super.attackEntityFrom(damagesource, f);
 		}
 		return super.attackEntityFrom(damagesource, 0.0f);
-	}
-
-	public ItemStack dyeLeather(ItemStack itemstack) {
-		int i = rand.nextInt(leatherDyes.length);
-		int color = leatherDyes[i];
-		((ItemArmor) itemstack.getItem()).func_82813_b(itemstack, color);
-		return itemstack;
 	}
 
 	@Override
@@ -148,7 +144,6 @@ public class GOTEntityWight extends GOTEntityHumanBase {
 			wight.setCurrentItemOrArmor(3, ((GOTEntityHumanBase) entity).getEquipmentInSlot(3));
 			wight.setCurrentItemOrArmor(4, ((GOTEntityHumanBase) entity).getEquipmentInSlot(4));
 			wight.familyInfo.setMale(((GOTEntityHumanBase) entity).familyInfo.male);
-			((GOTEntityHumanBase) entity).becameWight = true;
 			worldObj.removeEntity(entity);
 			worldObj.spawnEntityInWorld(wight);
 		} else if (entity instanceof GOTEntityGiant) {
@@ -169,12 +164,17 @@ public class GOTEntityWight extends GOTEntityHumanBase {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(militiaWeapons.length);
-		npcItemsInv.setMeleeWeapon(militiaWeapons[i].copy());
+		int i = rand.nextInt(weapons.length);
+		npcItemsInv.setMeleeWeapon(weapons[i].copy());
+		if (rand.nextInt(8) == 0) {
+			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());
+			i = rand.nextInt(spears.length);
+			npcItemsInv.setMeleeWeapon(spears[i].copy());
+		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, dyeLeather(new ItemStack(GOTRegistry.furBoots)));
-		setCurrentItemOrArmor(2, dyeLeather(new ItemStack(GOTRegistry.furLeggings)));
-		setCurrentItemOrArmor(3, dyeLeather(new ItemStack(GOTRegistry.furChestplate)));
+		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.furBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.furLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.furChestplate));
 		setCurrentItemOrArmor(4, null);
 		return data;
 	}
