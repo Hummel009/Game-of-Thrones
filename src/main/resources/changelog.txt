@@ -6,6 +6,7 @@ CHANGELOG
 + Added "kill player" type of quests
 + Added lots of achievements
 
+* Changed werewolf stats
 * Changed relation between Reach and Westerlands//Crownlands
 * Changed armor stats
 * Changed unpledge sound to amogus impostor sound

@@ -31,7 +31,7 @@ public class GOTEntityMossovyWerewolf extends GOTEntityNPC {
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(100.0);
+		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.23);
 		getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(30.0);
 		getEntityAttribute(npcAttackDamage).setBaseValue(5.0);
@@ -42,9 +42,9 @@ public class GOTEntityMossovyWerewolf extends GOTEntityNPC {
 		ItemStack itemstack;
 		Entity entity = damagesource.getEntity();
 		if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && ((EntityLivingBase) entity).getHeldItem().getItem() instanceof GOTMaterialFinder && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.SILVER_TOOL || (GOTMaterialFinder) itemstack.getItem() == GOTRegistry.crowbar)) {
-			return super.attackEntityFrom(damagesource, f * 10);
+			return super.attackEntityFrom(damagesource, f);
 		}
-		return super.attackEntityFrom(damagesource, f);
+		return super.attackEntityFrom(damagesource, 1);
 	}
 
 	@Override
