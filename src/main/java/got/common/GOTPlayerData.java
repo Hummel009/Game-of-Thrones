@@ -1654,6 +1654,7 @@ public class GOTPlayerData {
 			}
 		}
 		structuresBanned = playerData.getBoolean("StructuresBanned");
+		teleportedKW = playerData.getBoolean("TeleportedKW");
 		if (playerData.hasKey("QuestData")) {
 			NBTTagCompound questNBT = playerData.getCompoundTag("QuestData");
 			questData.load(questNBT);
@@ -1670,7 +1671,6 @@ public class GOTPlayerData {
 		}
 		checkedMenu = playerData.getBoolean("CheckedMenu");
 		tableSwitched = playerData.getBoolean("TableSwitched");
-		teleportedKW = playerData.getBoolean("TeleportedKW");
 	}
 
 	public void lockFTRegion(GOTWaypoint.Region region) {
@@ -2372,6 +2372,7 @@ public class GOTPlayerData {
 			playerData.setString("ChatBoundFellowship", chatBoundFellowshipID.toString());
 		}
 		playerData.setBoolean("StructuresBanned", structuresBanned);
+		playerData.setBoolean("TeleportedKW", teleportedKW);
 		NBTTagCompound questNBT = new NBTTagCompound();
 		questData.save(questNBT);
 		playerData.setTag("QuestData", questNBT);
@@ -2383,7 +2384,6 @@ public class GOTPlayerData {
 		}
 		playerData.setBoolean("CheckedMenu", checkedMenu);
 		playerData.setBoolean("TableSwitched", tableSwitched);
-		playerData.setBoolean("TeleportedKW", teleportedKW);
 		needsSave = false;
 	}
 
