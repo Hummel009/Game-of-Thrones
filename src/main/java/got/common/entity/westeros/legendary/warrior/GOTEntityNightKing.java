@@ -118,23 +118,20 @@ public class GOTEntityNightKing extends GOTEntityHumanBase {
 		GOTEntityIceSpider spider = new GOTEntityIceSpider(worldObj);
 		if (entity instanceof GOTEntityBericDondarrion || entity instanceof GOTEntityGregorClegane || entity instanceof GOTEntityLancelLannister || entity instanceof GOTEntityTheonGreyjoy) {
 			super.onKillEntity(entity);
-		}
-		if (entity instanceof GOTEntityHumanBase) {
+		} else if (entity instanceof GOTEntityHumanBase) {
 			super.onKillEntity(entity);
 			walker.familyInfo.setAge(((GOTEntityHumanBase) entity).familyInfo.getAge());
 			walker.copyLocationAndAnglesFrom(entity);
 			worldObj.removeEntity(entity);
 			walker.onSpawnWithEgg(null);
 			worldObj.spawnEntityInWorld(walker);
-		}
-		if (entity instanceof GOTEntityGiant) {
+		} else if (entity instanceof GOTEntityGiant) {
 			super.onKillEntity(entity);
 			giant.copyLocationAndAnglesFrom(entity);
 			worldObj.removeEntity(entity);
 			giant.onSpawnWithEgg(null);
 			worldObj.spawnEntityInWorld(giant);
-		}
-		if (entity instanceof GOTEntitySpiderBase) {
+		} else if (entity instanceof GOTEntitySpiderBase) {
 			super.onKillEntity(entity);
 			spider.copyLocationAndAnglesFrom(entity);
 			worldObj.removeEntity(entity);

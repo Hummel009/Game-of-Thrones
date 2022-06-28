@@ -308,7 +308,7 @@ public class GOTRender {
 		renders.put(GOTEntityGhiscarUnsullied.class, new GOTRenderFactionNPCMonofolder("essos/unsullied"));
 		renders.put(GOTEntityMaester.class, new GOTRenderFactionNPCMonofolder("westeros/maester"));
 		renders.put(GOTEntityQohorUnsullied.class, new GOTRenderFactionNPCMonofolder("essos/unsullied"));
-		renders.put(GOTEntityStoneMan.class, new GOTRenderFactionNPCMonofolder("essos/stone"));
+		renders.put(GOTEntityStoneMan.class, new GOTRenderFactionNPC("essos/stone"));
 		renders.put(GOTEntityThennBerserker.class, new GOTRenderFactionNPCMonofolder("westeros/thenn/male", 1.1f));
 		renders.put(GOTEntityProstitute.class, new GOTRenderProstitute());
 		renders.put(GOTEntityAsshaiAlchemist.class, new GOTRenderFactionNPCMonotexture("essos/alchemist"));

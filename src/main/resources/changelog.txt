@@ -11,6 +11,7 @@ CHANGELOG
 * Changed unpledge sound to amogus impostor sound
 * Changed some waypoint regions because of players' complaints. Essos wp can be unlocked in Kings Landing; Sothoryos - Ghiscar; Ulthos - Asshai; Ibben - Essos; Summer Islands - Sothoryos.
 
+* Improved stone men, their skins and mechanics
 * Improved a few armor & weapon textures
 * Improved yellow banners' textures
 * Improved workbench textures, recipes
