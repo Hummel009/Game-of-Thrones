@@ -172,9 +172,9 @@ public class GOTEntityWight extends GOTEntityHumanBase {
 		int i = rand.nextInt(militiaWeapons.length);
 		npcItemsInv.setMeleeWeapon(militiaWeapons[i].copy());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, dyeLeather(new ItemStack(Items.leather_boots)));
-		setCurrentItemOrArmor(2, dyeLeather(new ItemStack(Items.leather_leggings)));
-		setCurrentItemOrArmor(3, dyeLeather(new ItemStack(Items.leather_chestplate)));
+		setCurrentItemOrArmor(1, dyeLeather(new ItemStack(GOTRegistry.furBoots)));
+		setCurrentItemOrArmor(2, dyeLeather(new ItemStack(GOTRegistry.furLeggings)));
+		setCurrentItemOrArmor(3, dyeLeather(new ItemStack(GOTRegistry.furChestplate)));
 		setCurrentItemOrArmor(4, null);
 		return data;
 	}
