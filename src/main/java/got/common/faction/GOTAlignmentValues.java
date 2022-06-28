@@ -103,8 +103,6 @@ public class GOTAlignmentValues {
 		public boolean isKill = false;
 		public boolean killByHiredUnit = false;
 		public boolean isCivilianKill = false;
-		public boolean isRoyalOrder = false;
-		public GOTFaction faction;
 
 		public AlignmentBonus(float f, String s) {
 			bonus = f;

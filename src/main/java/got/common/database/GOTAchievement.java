@@ -68,7 +68,7 @@ public class GOTAchievement {
 	public static GOTAchievement enterGhiscarColony;
 	public static GOTAchievement enterGiftNew;
 	public static GOTAchievement enterGiftOld;
-	public static GOTAchievement enterGOT;
+	public static GOTAchievement enterKnownWorld;
 	public static GOTAchievement enterHauntedForest;
 	public static GOTAchievement enterHillTribes;
 	public static GOTAchievement enterIbben;
@@ -531,7 +531,7 @@ public class GOTAchievement {
 		drinkFire = new GOTAchievement(Category.GENERAL, id++, GOTRegistry.mugWildFire, "DRINK_FIRE");
 		drinkTermite = new GOTAchievement(Category.GENERAL, id++, GOTRegistry.mugTermiteTequila, "DRINK_TERMITE");
 		earnManyCoins = new GOTAchievement(Category.GENERAL, id++, GOTRegistry.coin, "EARN_MANY_COINS");
-		enterGOT = new GOTAchievement(Category.GENERAL, id++, GOTRegistry.gregorCleganeSword, "ENTER_GOT");
+		enterKnownWorld = new GOTAchievement(Category.GENERAL, id++, GOTRegistry.gregorCleganeSword, "ENTER_GOT");
 		factionConquest = new GOTAchievement(Category.GENERAL, id++, GOTRegistry.gregorCleganeSword, "FACTION_CONQUEST");
 		findFourLeafClover = new GOTAchievement(Category.GENERAL, id++, new ItemStack(GOTRegistry.clover, 1, 1), "FIND_FOUR_LEAF_CLOVER");
 		freeman = new GOTAchievement(Category.GENERAL, id++, GOTRegistry.crowbar, "FREEMAN");

@@ -27,7 +27,6 @@ import got.common.util.GOTLog;
 import got.common.world.GOTWorldProvider;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.*;
-import got.common.world.map.GOTWaypoint.Region;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.passive.EntityTameable;
@@ -147,14 +146,13 @@ public class GOTPlayerData {
 					markDirty();
 					sendFellowshipInviteRemovePacket(fs);
 					if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-						EntityPlayer inviter;
 						GOTPacketFellowshipAcceptInviteResult resultPacket = new GOTPacketFellowshipAcceptInviteResult(fs, GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.JOINED);
 						GOTPacketHandler.networkWrapper.sendTo((IMessage) resultPacket, (EntityPlayerMP) entityplayer);
 						UUID inviterID = existingInvite.inviterID;
 						if (inviterID == null) {
 							inviterID = fs.getOwner();
 						}
-						inviter = getOtherPlayer(inviterID);
+						EntityPlayer inviter = getOtherPlayer(inviterID);
 						if (inviter != null) {
 							fs.sendNotification(inviter, "got.gui.fellowships.notifyAccept", entityplayer.getCommandSenderName());
 						}
@@ -180,7 +178,7 @@ public class GOTPlayerData {
 				int biomes = 0;
 				for (GOTAchievement earnedAchievement : earnedAchievements) {
 					if (earnedAchievement.isBiomeAchievement) {
-						++biomes;
+						biomes++;
 					}
 				}
 				if (biomes >= 10) {
@@ -203,95 +201,101 @@ public class GOTPlayerData {
 	}
 
 	public GOTAlignmentBonusMap addAlignment(EntityPlayer entityplayer, GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, double posX, double posY, double posZ) {
-		return this.addAlignment(entityplayer, source, faction, null, posX, posY, posZ);
+		return addAlignment(entityplayer, source, faction, null, posX, posY, posZ);
 	}
 
 	public GOTAlignmentBonusMap addAlignment(EntityPlayer entityplayer, GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, Entity entity) {
-		return this.addAlignment(entityplayer, source, faction, null, entity);
+		return addAlignment(entityplayer, source, faction, null, entity);
 	}
 
 	public GOTAlignmentBonusMap addAlignment(EntityPlayer entityplayer, GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, List<GOTFaction> forcedBonusFactions, double posX, double posY, double posZ) {
 		float bonus = source.bonus;
 		GOTAlignmentBonusMap factionBonusMap = new GOTAlignmentBonusMap();
 		float prevMainAlignment = getAlignment(faction);
-		float conquestBonus = 0.0f;
+		float conquestBonus = 0.0F;
 		if (source.isKill) {
 			List<GOTFaction> killBonuses = faction.getBonusesForKilling();
 			for (GOTFaction bonusFaction : killBonuses) {
 				if (bonusFaction.isPlayableAlignmentFaction() && (bonusFaction.approvesWarCrimes || !source.isCivilianKill)) {
 					if (!source.killByHiredUnit) {
-						float mplier;
-						mplier = forcedBonusFactions != null && forcedBonusFactions.contains(bonusFaction) ? 1.0f : bonusFaction.getControlZoneAlignmentMultiplier(entityplayer);
-						if (mplier > 0.0f) {
+						float mplier = 0.0F;
+						if (forcedBonusFactions != null && forcedBonusFactions.contains(bonusFaction)) {
+							mplier = 1.0F;
+						} else {
+							mplier = bonusFaction.getControlZoneAlignmentMultiplier(entityplayer);
+						}
+						if (mplier > 0.0F) {
 							float alignment = getAlignment(bonusFaction);
 							float factionBonus = Math.abs(bonus);
 							factionBonus *= mplier;
 							if (alignment >= bonusFaction.getPledgeAlignment() && !isPledgedTo(bonusFaction)) {
-								factionBonus *= 0.5f;
+								factionBonus *= 0.5F;
 							}
 							factionBonus = checkBonusForPledgeEnemyLimit(bonusFaction, factionBonus);
-							setAlignment(bonusFaction, alignment += factionBonus);
+							alignment += factionBonus;
+							setAlignment(bonusFaction, alignment);
 							factionBonusMap.put(bonusFaction, Float.valueOf(factionBonus));
 						}
 					}
-					if (bonusFaction != getPledgeFaction()) {
-						continue;
+					if (bonusFaction == getPledgeFaction()) {
+						float conq = bonus;
+						if (source.killByHiredUnit) {
+							conq *= 0.25F;
+						}
+						conquestBonus = GOTConquestGrid.onConquestKill(entityplayer, bonusFaction, faction, conq);
+						getFactionData(bonusFaction).addConquest(Math.abs(conquestBonus));
 					}
-					float conq = bonus;
-					if (source.killByHiredUnit) {
-						conq *= 0.25f;
-					}
-					conquestBonus = GOTConquestGrid.onConquestKill(entityplayer, bonusFaction, faction, conq);
-					getFactionData(bonusFaction).addConquest(Math.abs(conquestBonus));
 				}
 			}
 			List<GOTFaction> killPenalties = faction.getPenaltiesForKilling();
 			for (GOTFaction penaltyFaction : killPenalties) {
 				if (penaltyFaction.isPlayableAlignmentFaction() && !source.killByHiredUnit) {
-					float mplier;
-					mplier = penaltyFaction == faction ? 1.0f : penaltyFaction.getControlZoneAlignmentMultiplier(entityplayer);
-					if (mplier > 0.0f) {
+					float mplier = 0.0F;
+					if (penaltyFaction == faction) {
+						mplier = 1.0F;
+					} else {
+						mplier = penaltyFaction.getControlZoneAlignmentMultiplier(entityplayer);
+					}
+					if (mplier > 0.0F) {
 						float alignment = getAlignment(penaltyFaction);
 						float factionPenalty = -Math.abs(bonus);
 						factionPenalty *= mplier;
 						factionPenalty = GOTAlignmentValues.AlignmentBonus.scalePenalty(factionPenalty, alignment);
-						if (source.isRoyalOrder) {
-							setAlignment(penaltyFaction, alignment += 0);
-							setAlignment(source.faction, alignment += factionPenalty);
-						} else {
-							setAlignment(penaltyFaction, alignment += factionPenalty);
-						}
-						factionBonusMap.put(penaltyFaction, factionPenalty);
+						alignment += factionPenalty;
+						setAlignment(penaltyFaction, alignment);
+						factionBonusMap.put(penaltyFaction, Float.valueOf(factionPenalty));
 					}
 				}
 			}
 		} else if (faction.isPlayableAlignmentFaction()) {
 			float alignment = getAlignment(faction);
 			float factionBonus = bonus;
-			if (factionBonus > 0.0f && alignment >= faction.getPledgeAlignment() && !isPledgedTo(faction)) {
-				factionBonus *= 0.5f;
+			if (factionBonus > 0.0F && alignment >= faction.getPledgeAlignment() && !isPledgedTo(faction)) {
+				factionBonus *= 0.5F;
 			}
 			factionBonus = checkBonusForPledgeEnemyLimit(faction, factionBonus);
-			setAlignment(faction, alignment += factionBonus);
+			alignment += factionBonus;
+			setAlignment(faction, alignment);
 			factionBonusMap.put(faction, Float.valueOf(factionBonus));
 		}
-		if (!factionBonusMap.isEmpty() || conquestBonus != 0.0f) {
+		if (!factionBonusMap.isEmpty() || conquestBonus != 0.0F) {
 			sendAlignmentBonusPacket(source, faction, prevMainAlignment, factionBonusMap, conquestBonus, posX, posY, posZ);
 		}
 		return factionBonusMap;
 	}
 
 	public GOTAlignmentBonusMap addAlignment(EntityPlayer entityplayer, GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, List<GOTFaction> forcedBonusFactions, Entity entity) {
-		return this.addAlignment(entityplayer, source, faction, forcedBonusFactions, entity.posX, entity.boundingBox.minY + entity.height * 0.7, entity.posZ);
+		return addAlignment(entityplayer, source, faction, forcedBonusFactions, entity.posX, entity.boundingBox.minY + entity.height * 0.7D, entity.posZ);
 	}
 
 	public void addAlignmentFromCommand(GOTFaction faction, float add) {
 		float alignment = getAlignment(faction);
-		setAlignment(faction, alignment += add);
+		alignment += add;
+		setAlignment(faction, alignment);
 	}
 
 	public void addCompletedBountyQuest() {
-		++completedBountyQuests;
+		completedBountyQuests++;
 		markDirty();
 	}
 
@@ -319,12 +323,14 @@ public class GOTPlayerData {
 	}
 
 	public void addFellowship(GOTFellowship fs) {
-		UUID fsID;
-		if (fs.containsPlayer(playerUUID) && !fellowshipIDs.contains(fsID = fs.getFellowshipID())) {
-			fellowshipIDs.add(fsID);
-			markDirty();
-			sendFellowshipPacket(fs);
-			addSharedCustomWaypointsFromAllIn(fs.getFellowshipID());
+		if (fs.containsPlayer(playerUUID)) {
+			UUID fsID = fs.getFellowshipID();
+			if (!fellowshipIDs.contains(fsID)) {
+				fellowshipIDs.add(fsID);
+				markDirty();
+				sendFellowshipPacket(fs);
+				addSharedCustomWaypointsFromAllIn(fs.getFellowshipID());
+			}
 		}
 	}
 
@@ -430,7 +436,7 @@ public class GOTPlayerData {
 		} else {
 			checkFellowshipIDs = fellowshipIDs;
 		}
-		ArrayList<UUID> checkFellowPlayerIDs = new ArrayList<>();
+		List<UUID> checkFellowPlayerIDs = new ArrayList<>();
 		if (checkSpecificPlayers != null) {
 			for (UUID player : checkSpecificPlayers) {
 				if (!player.equals(playerUUID)) {
@@ -482,7 +488,8 @@ public class GOTPlayerData {
 		if (client) {
 			for (GOTFellowshipClient fs : fellowshipsClient) {
 				String otherName = fs.getName();
-				if (name.equals(otherName = StringUtils.strip(otherName).toLowerCase())) {
+				otherName = StringUtils.strip(otherName).toLowerCase();
+				if (name.equals(otherName)) {
 					return true;
 				}
 			}
@@ -491,7 +498,8 @@ public class GOTPlayerData {
 				GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
 				if (fs != null) {
 					String otherName = fs.getName();
-					if (name.equals(otherName = StringUtils.strip(otherName).toLowerCase())) {
+					otherName = StringUtils.strip(otherName).toLowerCase();
+					if (name.equals(otherName)) {
 						return true;
 					}
 				}
@@ -515,15 +523,21 @@ public class GOTPlayerData {
 		int leading = 0;
 		if (client) {
 			for (GOTFellowshipClient fs : fellowshipsClient) {
-				if (fs.isOwned() && ++leading >= max) {
-					return false;
+				if (fs.isOwned()) {
+					leading++;
+					if (leading >= max) {
+						return false;
+					}
 				}
 			}
 		} else {
 			for (UUID fsID : fellowshipIDs) {
 				GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
-				if (fs != null && fs.isOwner(playerUUID) && ++leading >= max) {
-					return false;
+				if (fs != null && fs.isOwner(playerUUID)) {
+					leading++;
+					if (leading >= max) {
+						return false;
+					}
 				}
 			}
 		}
@@ -535,10 +549,9 @@ public class GOTPlayerData {
 		if (entityplayer != null) {
 			World world = entityplayer.worldObj;
 			if (!entityplayer.capabilities.isCreativeMode) {
-				double range = 16.0;
-				List entities = world.getEntitiesWithinAABB(EntityLiving.class, entityplayer.boundingBox.expand(range, range, range));
-				for (Object element : entities) {
-					EntityLiving entityliving = (EntityLiving) element;
+				double range = 16.0D;
+				List<EntityLiving> entities = world.getEntitiesWithinAABB(EntityLiving.class, entityplayer.boundingBox.expand(range, range, range));
+				for (EntityLiving entityliving : entities) {
 					if (entityliving.getAttackTarget() == entityplayer) {
 						return false;
 					}
@@ -583,12 +596,17 @@ public class GOTPlayerData {
 	}
 
 	public void checkCustomWaypointsSharedBy(List<UUID> checkSpecificPlayers) {
-		ArrayList<GOTCustomWaypoint> removes = new ArrayList<>();
+		List<GOTCustomWaypoint> removes = new ArrayList<>();
 		for (GOTCustomWaypoint waypoint : customWaypointsShared) {
-			GOTCustomWaypoint wpOriginal;
 			UUID waypointSharingPlayer = waypoint.getSharingPlayerID();
-			if ((checkSpecificPlayers == null || checkSpecificPlayers.contains(waypointSharingPlayer)) && (wpOriginal = GOTLevelData.getData(waypointSharingPlayer).getCustomWaypointByID(waypoint.getID())) != null && !wpOriginal.getPlayersInAllSharedFellowships().contains(playerUUID)) {
-				removes.add(waypoint);
+			if (checkSpecificPlayers == null || checkSpecificPlayers.contains(waypointSharingPlayer)) {
+				GOTCustomWaypoint wpOriginal = GOTLevelData.getData(waypointSharingPlayer).getCustomWaypointByID(waypoint.getID());
+				if (wpOriginal != null) {
+					List<UUID> sharedFellowPlayers = wpOriginal.getPlayersInAllSharedFellowships();
+					if (!sharedFellowPlayers.contains(playerUUID)) {
+						removes.add(waypoint);
+					}
+				}
 			}
 		}
 		for (GOTCustomWaypoint waypoint : removes) {
@@ -609,7 +627,7 @@ public class GOTPlayerData {
 	public void completeMiniQuest(GOTMiniQuest quest) {
 		if (miniQuests.remove(quest)) {
 			addMiniQuestCompleted(quest);
-			++completedMiniquestCount;
+			completedMiniquestCount++;
 			getFactionData(quest.entityFaction).completeMiniQuest();
 			markDirty();
 			GOT.proxy.setTrackedQuest(quest);
@@ -681,7 +699,7 @@ public class GOTPlayerData {
 
 	public void disbandFellowship(GOTFellowship fs, String disbanderUsername) {
 		if (fs.isOwner(playerUUID)) {
-			ArrayList<UUID> memberUUIDs = new ArrayList<>(fs.getMemberUUIDs());
+			List<UUID> memberUUIDs = new ArrayList<>(fs.getMemberUUIDs());
 			fs.setDisbandedAndRemoveAllMembers();
 			removeFellowship(fs);
 			for (UUID memberID : memberUUIDs) {
@@ -705,24 +723,20 @@ public class GOTPlayerData {
 		return pledgeFac.isMortalEnemy(otherFac);
 	}
 
-	public boolean doFactionsDrain(GOTFaction fac1, GOTFaction fac2) {
-		return fac1.isMortalEnemy(fac2);
-	}
-
 	public <T extends EntityLiving> T fastTravelEntity(WorldServer world, T entity, int i, int j, int k) {
 		String entityID = EntityList.getEntityString(entity);
 		NBTTagCompound nbt = new NBTTagCompound();
 		entity.writeToNBT(nbt);
 		entity.setDead();
-		EntityLiving newEntity = (EntityLiving) EntityList.createEntityByName(entityID, world);
-		newEntity.readFromNBT(nbt);
-		newEntity.setLocationAndAngles(i + 0.5, j, k + 0.5, newEntity.rotationYaw, newEntity.rotationPitch);
-		newEntity.fallDistance = 0.0f;
-		newEntity.getNavigator().clearPathEntity();
-		newEntity.setAttackTarget(null);
-		world.spawnEntityInWorld(newEntity);
-		world.updateEntityWithOptionalForce(newEntity, false);
-		return (T) newEntity;
+		EntityLiving entityLiving = (EntityLiving) EntityList.createEntityByName(entityID, world);
+		entityLiving.readFromNBT(nbt);
+		entityLiving.setLocationAndAngles(i + 0.5D, j, k + 0.5D, entityLiving.rotationYaw, entityLiving.rotationPitch);
+		entityLiving.fallDistance = 0.0F;
+		entityLiving.getNavigator().clearPathEntity();
+		entityLiving.setAttackTarget(null);
+		world.spawnEntityInWorld(entityLiving);
+		world.updateEntityWithOptionalForce(entityLiving, false);
+		return (T) entityLiving;
 	}
 
 	public void fastTravelTo(GOTAbstractWaypoint waypoint) {
@@ -732,25 +746,31 @@ public class GOTPlayerData {
 			WorldServer world = (WorldServer) entityplayer.worldObj;
 			int startX = MathHelper.floor_double(entityplayer.posX);
 			int startZ = MathHelper.floor_double(entityplayer.posZ);
-			double range = 256.0;
+			double range = 256.0D;
 			List<EntityLiving> entities = world.getEntitiesWithinAABB(EntityLiving.class, entityplayer.boundingBox.expand(range, range, range));
-			HashSet<EntityLiving> entitiesToTransport = new HashSet<>();
+			Set<EntityLiving> entitiesToTransport = new HashSet<>();
 			for (EntityLiving entity : entities) {
-				EntityTameable pet;
-				if (entity instanceof GOTEntityNPC) {
-					GOTEntityNPC npc = (GOTEntityNPC) entity;
-					if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() == entityplayer && npc.hiredNPCInfo.shouldFollowPlayer()) {
-						entitiesToTransport.add(npc);
-						continue;
+				if (!(entity instanceof GOTEntityDragon)) {
+					if (entity instanceof GOTEntityNPC) {
+						GOTEntityNPC npc = (GOTEntityNPC) entity;
+						if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() == entityplayer && npc.hiredNPCInfo.shouldFollowPlayer()) {
+							entitiesToTransport.add(npc);
+							continue;
+						}
+					}
+					if (entity instanceof EntityTameable) {
+						EntityTameable pet = (EntityTameable) entity;
+						if (pet.getOwner() == entityplayer && !pet.isSitting()) {
+							entitiesToTransport.add(pet);
+							continue;
+						}
+					}
+					if (entity.getLeashed() && entity.getLeashedToEntity() == entityplayer) {
+						entitiesToTransport.add(entity);
 					}
 				}
-				if (entity instanceof EntityTameable && !(entity instanceof GOTEntityDragon) && (pet = (EntityTameable) entity).getOwner() == entityplayer && !pet.isSitting()) {
-					entitiesToTransport.add(pet);
-				} else if (entity.getLeashed() && entity.getLeashedToEntity() == entityplayer) {
-					entitiesToTransport.add(entity);
-				}
 			}
-			HashSet<EntityLiving> removes = new HashSet<>();
+			Set<EntityLiving> removes = new HashSet<>();
 			for (EntityLiving entity : entitiesToTransport) {
 				Entity rider = entity.riddenByEntity;
 				if (rider != null && entitiesToTransport.contains(rider)) {
@@ -764,10 +784,10 @@ public class GOTPlayerData {
 			int j = waypoint.getYCoord(world, i, k);
 			Entity playerMount = entityplayer.ridingEntity;
 			entityplayer.mountEntity(null);
-			entityplayer.setPositionAndUpdate(i + 0.5, j, k + 0.5);
-			entityplayer.fallDistance = 0.0f;
+			entityplayer.setPositionAndUpdate(i + 0.5D, j, k + 0.5D);
+			entityplayer.fallDistance = 0.0F;
 			if (playerMount instanceof EntityLiving) {
-				playerMount = this.fastTravelEntity(world, (EntityLiving) playerMount, i, j, k);
+				playerMount = fastTravelEntity(world, (EntityLiving) playerMount, i, j, k);
 			}
 			if (playerMount != null) {
 				setUUIDToMount(playerMount.getUniqueID());
@@ -775,9 +795,9 @@ public class GOTPlayerData {
 			for (EntityLiving entity : entitiesToTransport) {
 				Entity mount = entity.ridingEntity;
 				entity.mountEntity(null);
-				entity = this.fastTravelEntity(world, entity, i, j, k);
+				entity = fastTravelEntity(world, entity, i, j, k);
 				if (mount instanceof EntityLiving) {
-					mount = this.fastTravelEntity(world, (EntityLiving) mount, i, j, k);
+					mount = fastTravelEntity(world, (EntityLiving) mount, i, j, k);
 					entity.mountEntity(mount);
 				}
 			}
@@ -815,11 +835,11 @@ public class GOTPlayerData {
 			return faction.fixedAlignment;
 		}
 		Float alignment = alignments.get(faction);
-		return alignment != null ? alignment : 0.0f;
+		return alignment != null ? alignment : 0.0F;
 	}
 
 	public List<GOTAbstractWaypoint> getAllAvailableWaypoints() {
-		ArrayList<GOTAbstractWaypoint> waypoints = new ArrayList<>(GOTWaypoint.listAllWaypoints());
+		List<GOTAbstractWaypoint> waypoints = new ArrayList<>(GOTWaypoint.listAllWaypoints());
 		waypoints.addAll(getCustomWaypoints());
 		waypoints.addAll(customWaypointsShared);
 		return waypoints;
@@ -842,9 +862,11 @@ public class GOTPlayerData {
 	}
 
 	public GOTFellowship getChatBoundFellowship() {
-		GOTFellowship fs;
-		if (chatBoundFellowshipID != null && (fs = GOTFellowshipData.getActiveFellowship(chatBoundFellowshipID)) != null) {
-			return fs;
+		if (chatBoundFellowshipID != null) {
+			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(chatBoundFellowshipID);
+			if (fs != null) {
+				return fs;
+			}
 		}
 		return null;
 	}
@@ -917,7 +939,7 @@ public class GOTPlayerData {
 	}
 
 	public List<GOTAchievement> getEarnedAchievements(GOTDimension dimension) {
-		ArrayList<GOTAchievement> earnedAchievements = new ArrayList<>();
+		List<GOTAchievement> earnedAchievements = new ArrayList<>();
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null) {
 			for (GOTAchievement achievement : achievements) {
@@ -961,7 +983,7 @@ public class GOTPlayerData {
 	}
 
 	public List<GOTFellowship> getFellowships() {
-		ArrayList<GOTFellowship> fellowships = new ArrayList<>();
+		List<GOTFellowship> fellowships = new ArrayList<>();
 		for (UUID fsID : fellowshipIDs) {
 			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
 			if (fs != null) {
@@ -1006,7 +1028,12 @@ public class GOTPlayerData {
 	}
 
 	public GOTMiniQuest getMiniQuestForID(UUID id, boolean completed) {
-		ArrayList<GOTMiniQuest> threadSafe = completed ? new ArrayList<>(miniQuestsCompleted) : new ArrayList<>(miniQuests);
+		List<GOTMiniQuest> threadSafe;
+		if (completed) {
+			threadSafe = new ArrayList<>(miniQuestsCompleted);
+		} else {
+			threadSafe = new ArrayList<>(miniQuests);
+		}
 		for (GOTMiniQuest quest : threadSafe) {
 			if (quest.questUUID.equals(id)) {
 				return quest;
@@ -1048,8 +1075,8 @@ public class GOTPlayerData {
 	}
 
 	public EntityPlayer getOtherPlayer(UUID uuid) {
-		for (WorldServer world : MinecraftServer.getServer().worldServers) {
-			EntityPlayer entityplayer = world.func_152378_a(uuid);
+		for (WorldServer worldServer : MinecraftServer.getServer().worldServers) {
+			EntityPlayer entityplayer = worldServer.func_152378_a(uuid);
 			if (entityplayer != null) {
 				return entityplayer;
 			}
@@ -1085,7 +1112,7 @@ public class GOTPlayerData {
 	}
 
 	public float getPledgeEnemyAlignmentLimit(GOTFaction fac) {
-		return 0.0f;
+		return 0.0F;
 	}
 
 	public GOTFaction getPledgeFaction() {
@@ -1157,11 +1184,12 @@ public class GOTPlayerData {
 		int baseMin = GOTLevelData.getWaypointCooldownMin();
 		int baseMax = GOTLevelData.getWaypointCooldownMax();
 		int useCount = getWPUseCount(wp);
-		double dist = entityplayer.getDistance(wp.getXCoord() + 0.5, wp.getYCoordSaved(), wp.getZCoord() + 0.5);
+		double dist = entityplayer.getDistance(wp.getXCoord() + 0.5D, wp.getYCoordSaved(), wp.getZCoord() + 0.5D);
 		double time = baseMin;
-		double added = (baseMax - baseMin) * Math.pow(0.9, useCount);
+		double added = (baseMax - baseMin) * Math.pow(0.9D, useCount);
 		time += added;
-		int seconds = (int) Math.round(time *= Math.max(1.0, dist * 1.2E-5));
+		time *= Math.max(1.0D, dist * 1.2E-5D);
+		int seconds = (int) Math.round(time);
 		seconds = Math.max(seconds, 0);
 		return seconds * 20;
 	}
@@ -1176,8 +1204,8 @@ public class GOTPlayerData {
 				if (cwpSharedUseCounts.containsKey(key)) {
 					return cwpSharedUseCounts.get(key);
 				}
-			} else if (cwpUseCounts.containsKey(ID)) {
-				return cwpUseCounts.get(ID);
+			} else if (cwpUseCounts.containsKey(Integer.valueOf(ID))) {
+				return cwpUseCounts.get(Integer.valueOf(ID));
 			}
 		} else if (wpUseCounts.containsKey(wp)) {
 			return wpUseCounts.get(wp);
@@ -1188,8 +1216,8 @@ public class GOTPlayerData {
 	public void givePureConquestBonus(EntityPlayer entityplayer, GOTFaction bonusFac, GOTFaction enemyFac, float conq, String title, double posX, double posY, double posZ) {
 		conq = GOTConquestGrid.onConquestKill(entityplayer, bonusFac, enemyFac, conq);
 		getFactionData(bonusFac).addConquest(Math.abs(conq));
-		if (conq != 0.0f) {
-			GOTAlignmentValues.AlignmentBonus source = new GOTAlignmentValues.AlignmentBonus(0.0f, title);
+		if (conq != 0.0F) {
+			GOTAlignmentValues.AlignmentBonus source = new GOTAlignmentValues.AlignmentBonus(0.0F, title);
 			GOTPacketAlignmentBonus packet = new GOTPacketAlignmentBonus(bonusFac, getAlignment(bonusFac), new GOTAlignmentBonusMap(), conq, posX, posY, posZ, source);
 			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
 		}
@@ -1207,7 +1235,7 @@ public class GOTPlayerData {
 	public boolean hasActiveOrCompleteMQType(Class<? extends GOTMiniQuest> type) {
 		List<GOTMiniQuest> quests = getMiniQuests();
 		List<GOTMiniQuest> questsComplete = getMiniQuestsCompleted();
-		ArrayList<GOTMiniQuest> allQuests = new ArrayList<>();
+		List<GOTMiniQuest> allQuests = new ArrayList<>();
 		for (GOTMiniQuest q : quests) {
 			if (q.isActive()) {
 				allQuests.add(q);
@@ -1261,7 +1289,7 @@ public class GOTPlayerData {
 	}
 
 	public void incrementNextCwpID() {
-		++nextCwpID;
+		nextCwpID++;
 		markDirty();
 	}
 
@@ -1293,21 +1321,22 @@ public class GOTPlayerData {
 
 	public void leaveFellowship(GOTFellowship fs) {
 		if (!fs.isOwner(playerUUID)) {
-			EntityPlayer entityplayer;
-			EntityPlayer owner;
 			fs.removeMember(playerUUID);
 			if (fellowshipIDs.contains(fs.getFellowshipID())) {
 				removeFellowship(fs);
 			}
-			entityplayer = getPlayer();
-			if (entityplayer != null && !entityplayer.worldObj.isRemote && (owner = getOtherPlayer(fs.getOwner())) != null) {
-				fs.sendNotification(owner, "got.gui.fellowships.notifyLeave", entityplayer.getCommandSenderName());
+			EntityPlayer entityplayer = getPlayer();
+			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
+				EntityPlayer owner = getOtherPlayer(fs.getOwner());
+				if (owner != null) {
+					fs.sendNotification(owner, "got.gui.fellowships.notifyLeave", entityplayer.getCommandSenderName());
+				}
 			}
 		}
 	}
 
 	public List<String> listAllFellowshipNames() {
-		ArrayList<String> list = new ArrayList<>();
+		List<String> list = new ArrayList<>();
 		for (UUID fsID : fellowshipIDs) {
 			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
 			if (fs != null && fs.containsPlayer(playerUUID)) {
@@ -1318,7 +1347,7 @@ public class GOTPlayerData {
 	}
 
 	public List<String> listAllLeadingFellowshipNames() {
-		ArrayList<String> list = new ArrayList<>();
+		List<String> list = new ArrayList<>();
 		for (UUID fsID : fellowshipIDs) {
 			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
 			if (fs != null && fs.isOwner(playerUUID)) {
@@ -1329,47 +1358,44 @@ public class GOTPlayerData {
 	}
 
 	public void load(NBTTagCompound playerData) {
-		GOTShields savedShield;
-		GOTCapes savedCape;
-		UUID fsID;
-		GOTTitle title;
-		GOTFaction cur;
-		GOTFaction faction;
 		alignments.clear();
 		NBTTagList alignmentTags = playerData.getTagList("AlignmentMap", 10);
-		for (int i = 0; i < alignmentTags.tagCount(); ++i) {
-			float alignment;
+		for (int i = 0; i < alignmentTags.tagCount(); i++) {
 			NBTTagCompound nbt = alignmentTags.getCompoundTagAt(i);
-			GOTFaction faction2 = GOTFaction.forName(nbt.getString("Faction"));
-			if (faction2 != null) {
+			GOTFaction faction = GOTFaction.forName(nbt.getString("Faction"));
+			if (faction != null) {
+				float alignment;
 				if (nbt.hasKey("Alignment")) {
 					alignment = nbt.getInteger("Alignment");
 				} else {
 					alignment = nbt.getFloat("AlignF");
 				}
-				alignments.put(faction2, alignment);
+				alignments.put(faction, alignment);
 			}
 		}
 		factionDataMap.clear();
 		NBTTagList factionDataTags = playerData.getTagList("FactionData", 10);
-		for (int i = 0; i < factionDataTags.tagCount(); ++i) {
-			NBTTagCompound nbt = factionDataTags.getCompoundTagAt(i);
-			GOTFaction faction3 = GOTFaction.forName(nbt.getString("Faction"));
-			if (faction3 != null) {
-				GOTFactionData data = new GOTFactionData(this, faction3);
+		for (int j = 0; j < factionDataTags.tagCount(); j++) {
+			NBTTagCompound nbt = factionDataTags.getCompoundTagAt(j);
+			GOTFaction faction = GOTFaction.forName(nbt.getString("Faction"));
+			if (faction != null) {
+				GOTFactionData data = new GOTFactionData(this, faction);
 				data.load(nbt);
-				factionDataMap.put(faction3, data);
+				factionDataMap.put(faction, data);
 			}
 		}
-		if (playerData.hasKey("CurrentFaction") && (cur = GOTFaction.forName(playerData.getString("CurrentFaction"))) != null) {
-			viewingFaction = cur;
+		if (playerData.hasKey("CurrentFaction")) {
+			GOTFaction cur = GOTFaction.forName(playerData.getString("CurrentFaction"));
+			if (cur != null) {
+				viewingFaction = cur;
+			}
 		}
 		prevRegionFactions.clear();
 		NBTTagList prevRegionFactionTags = playerData.getTagList("PrevRegionFactions", 10);
-		for (int i = 0; i < prevRegionFactionTags.tagCount(); ++i) {
-			NBTTagCompound nbt = prevRegionFactionTags.getCompoundTagAt(i);
+		for (int k = 0; k < prevRegionFactionTags.tagCount(); k++) {
+			NBTTagCompound nbt = prevRegionFactionTags.getCompoundTagAt(k);
 			GOTDimension.DimensionRegion region = GOTDimension.DimensionRegion.forName(nbt.getString("Region"));
-			faction = GOTFaction.forName(nbt.getString("Faction"));
+			GOTFaction faction = GOTFaction.forName(nbt.getString("Faction"));
 			if (region != null && faction != null) {
 				prevRegionFactions.put(region, faction);
 			}
@@ -1377,9 +1403,9 @@ public class GOTPlayerData {
 		hideAlignment = playerData.getBoolean("HideAlignment");
 		takenAlignmentRewards.clear();
 		NBTTagList takenRewardsTags = playerData.getTagList("TakenAlignmentRewards", 10);
-		for (int i = 0; i < takenRewardsTags.tagCount(); ++i) {
-			NBTTagCompound nbt = takenRewardsTags.getCompoundTagAt(i);
-			faction = GOTFaction.forName(nbt.getString("Faction"));
+		for (int m = 0; m < takenRewardsTags.tagCount(); m++) {
+			NBTTagCompound nbt = takenRewardsTags.getCompoundTagAt(m);
+			GOTFaction faction = GOTFaction.forName(nbt.getString("Faction"));
 			if (faction != null) {
 				takenAlignmentRewards.add(faction);
 			}
@@ -1411,8 +1437,8 @@ public class GOTPlayerData {
 		}
 		achievements.clear();
 		NBTTagList achievementTags = playerData.getTagList("Achievements", 10);
-		for (int i = 0; i < achievementTags.tagCount(); ++i) {
-			NBTTagCompound nbt = achievementTags.getCompoundTagAt(i);
+		for (int n = 0; n < achievementTags.tagCount(); n++) {
+			NBTTagCompound nbt = achievementTags.getCompoundTagAt(n);
 			String category = nbt.getString("Category");
 			int ID = nbt.getInteger("ID");
 			GOTAchievement achievement = GOTAchievement.achievementForCategoryAndID(GOTAchievement.categoryForName(category), ID);
@@ -1421,8 +1447,11 @@ public class GOTPlayerData {
 			}
 		}
 		shield = null;
-		if (playerData.hasKey("Shield") && (savedShield = GOTShields.shieldForName(playerData.getString("Shield"))) != null) {
-			shield = savedShield;
+		if (playerData.hasKey("Shield")) {
+			GOTShields savedShield = GOTShields.shieldForName(playerData.getString("Shield"));
+			if (savedShield != null) {
+				shield = savedShield;
+			}
 		}
 		if (playerData.hasKey("FriendlyFire")) {
 			friendlyFire = playerData.getBoolean("FriendlyFire");
@@ -1433,13 +1462,17 @@ public class GOTPlayerData {
 		deathPoint = null;
 		if (playerData.hasKey("DeathX") && playerData.hasKey("DeathY") && playerData.hasKey("DeathZ")) {
 			deathPoint = new ChunkCoordinates(playerData.getInteger("DeathX"), playerData.getInteger("DeathY"), playerData.getInteger("DeathZ"));
-			deathDim = playerData.hasKey("DeathDim") ? playerData.getInteger("DeathDim") : GOTDimension.GAME_OF_THRONES.dimensionID;
+			if (playerData.hasKey("DeathDim")) {
+				deathDim = playerData.getInteger("DeathDim");
+			} else {
+				deathDim = GOTDimension.GAME_OF_THRONES.dimensionID;
+			}
 		}
 		alcoholTolerance = playerData.getInteger("Alcohol");
 		miniQuests.clear();
 		NBTTagList miniquestTags = playerData.getTagList("MiniQuests", 10);
-		for (int i = 0; i < miniquestTags.tagCount(); ++i) {
-			NBTTagCompound nbt = miniquestTags.getCompoundTagAt(i);
+		for (int i1 = 0; i1 < miniquestTags.tagCount(); i1++) {
+			NBTTagCompound nbt = miniquestTags.getCompoundTagAt(i1);
 			GOTMiniQuest quest = GOTMiniQuest.loadQuestFromNBT(nbt, this);
 			if (quest != null) {
 				miniQuests.add(quest);
@@ -1447,8 +1480,8 @@ public class GOTPlayerData {
 		}
 		miniQuestsCompleted.clear();
 		NBTTagList miniquestCompletedTags = playerData.getTagList("MiniQuestsCompleted", 10);
-		for (int i = 0; i < miniquestCompletedTags.tagCount(); ++i) {
-			NBTTagCompound nbt = miniquestCompletedTags.getCompoundTagAt(i);
+		for (int i2 = 0; i2 < miniquestCompletedTags.tagCount(); i2++) {
+			NBTTagCompound nbt = miniquestCompletedTags.getCompoundTagAt(i2);
 			GOTMiniQuest quest = GOTMiniQuest.loadQuestFromNBT(nbt, this);
 			if (quest != null) {
 				miniQuestsCompleted.add(quest);
@@ -1463,8 +1496,8 @@ public class GOTPlayerData {
 		}
 		bountiesPlaced.clear();
 		NBTTagList bountyTags = playerData.getTagList("BountiesPlaced", 8);
-		for (int i = 0; i < bountyTags.tagCount(); ++i) {
-			String fName = bountyTags.getStringTagAt(i);
+		for (int i3 = 0; i3 < bountyTags.tagCount(); i3++) {
+			String fName = bountyTags.getStringTagAt(i3);
 			GOTFaction fac = GOTFaction.forName(fName);
 			if (fac != null) {
 				bountiesPlaced.add(fac);
@@ -1485,8 +1518,8 @@ public class GOTPlayerData {
 		}
 		sentMessageTypes.clear();
 		NBTTagList sentMessageTags = playerData.getTagList("SentMessageTypes", 10);
-		for (int i = 0; i < sentMessageTags.tagCount(); ++i) {
-			NBTTagCompound nbt = sentMessageTags.getCompoundTagAt(i);
+		for (int i4 = 0; i4 < sentMessageTags.tagCount(); i4++) {
+			NBTTagCompound nbt = sentMessageTags.getCompoundTagAt(i4);
 			GOTGuiMessageTypes message = GOTGuiMessageTypes.forSaveName(nbt.getString("Message"));
 			if (message != null) {
 				boolean sent = nbt.getBoolean("Sent");
@@ -1494,10 +1527,13 @@ public class GOTPlayerData {
 			}
 		}
 		playerTitle = null;
-		if (playerData.hasKey("PlayerTitle") && (title = GOTTitle.forName(playerData.getString("PlayerTitle"))) != null) {
-			int colorCode = playerData.getInteger("PlayerTitleColor");
-			EnumChatFormatting color = GOTTitle.PlayerTitle.colorForID(colorCode);
-			playerTitle = new GOTTitle.PlayerTitle(title, color);
+		if (playerData.hasKey("PlayerTitle")) {
+			GOTTitle title = GOTTitle.forName(playerData.getString("PlayerTitle"));
+			if (title != null) {
+				int colorCode = playerData.getInteger("PlayerTitleColor");
+				EnumChatFormatting color = GOTTitle.PlayerTitle.colorForID(colorCode);
+				playerTitle = new GOTTitle.PlayerTitle(title, color);
+			}
 		}
 		if (playerData.hasKey("FemRankOverride")) {
 			femRankOverride = playerData.getBoolean("FemRankOverride");
@@ -1516,8 +1552,8 @@ public class GOTPlayerData {
 		}
 		unlockedFTRegions.clear();
 		NBTTagList unlockedFTRegionTags = playerData.getTagList("UnlockedFTRegions", 10);
-		for (int i = 0; i < unlockedFTRegionTags.tagCount(); ++i) {
-			NBTTagCompound nbt = unlockedFTRegionTags.getCompoundTagAt(i);
+		for (int i5 = 0; i5 < unlockedFTRegionTags.tagCount(); i5++) {
+			NBTTagCompound nbt = unlockedFTRegionTags.getCompoundTagAt(i5);
 			String regionName = nbt.getString("Name");
 			GOTWaypoint.Region region = GOTWaypoint.regionForName(regionName);
 			if (region != null) {
@@ -1526,15 +1562,15 @@ public class GOTPlayerData {
 		}
 		customWaypoints.clear();
 		NBTTagList customWaypointTags = playerData.getTagList("CustomWaypoints", 10);
-		for (int i = 0; i < customWaypointTags.tagCount(); ++i) {
-			NBTTagCompound nbt = customWaypointTags.getCompoundTagAt(i);
+		for (int i6 = 0; i6 < customWaypointTags.tagCount(); i6++) {
+			NBTTagCompound nbt = customWaypointTags.getCompoundTagAt(i6);
 			GOTCustomWaypoint waypoint = GOTCustomWaypoint.readFromNBT(nbt, this);
 			customWaypoints.add(waypoint);
 		}
 		cwpSharedUnlocked.clear();
 		NBTTagList cwpSharedUnlockedTags = playerData.getTagList("CWPSharedUnlocked", 10);
-		for (int i = 0; i < cwpSharedUnlockedTags.tagCount(); ++i) {
-			NBTTagCompound nbt = cwpSharedUnlockedTags.getCompoundTagAt(i);
+		for (int i7 = 0; i7 < cwpSharedUnlockedTags.tagCount(); i7++) {
+			NBTTagCompound nbt = cwpSharedUnlockedTags.getCompoundTagAt(i7);
 			UUID sharingPlayer = UUID.fromString(nbt.getString("SharingPlayer"));
 			if (sharingPlayer != null) {
 				int ID = nbt.getInteger("CustomID");
@@ -1544,8 +1580,8 @@ public class GOTPlayerData {
 		}
 		cwpSharedHidden.clear();
 		NBTTagList cwpSharedHiddenTags = playerData.getTagList("CWPSharedHidden", 10);
-		for (int i = 0; i < cwpSharedHiddenTags.tagCount(); ++i) {
-			NBTTagCompound nbt = cwpSharedHiddenTags.getCompoundTagAt(i);
+		for (int i8 = 0; i8 < cwpSharedHiddenTags.tagCount(); i8++) {
+			NBTTagCompound nbt = cwpSharedHiddenTags.getCompoundTagAt(i8);
 			UUID sharingPlayer = UUID.fromString(nbt.getString("SharingPlayer"));
 			if (sharingPlayer != null) {
 				int ID = nbt.getInteger("CustomID");
@@ -1555,8 +1591,8 @@ public class GOTPlayerData {
 		}
 		wpUseCounts.clear();
 		NBTTagList wpCooldownTags = playerData.getTagList("WPUses", 10);
-		for (int i = 0; i < wpCooldownTags.tagCount(); ++i) {
-			NBTTagCompound nbt = wpCooldownTags.getCompoundTagAt(i);
+		for (int i9 = 0; i9 < wpCooldownTags.tagCount(); i9++) {
+			NBTTagCompound nbt = wpCooldownTags.getCompoundTagAt(i9);
 			String name = nbt.getString("WPName");
 			int count = nbt.getInteger("Count");
 			GOTWaypoint wp = GOTWaypoint.waypointForName(name);
@@ -1566,16 +1602,16 @@ public class GOTPlayerData {
 		}
 		cwpUseCounts.clear();
 		NBTTagList cwpCooldownTags = playerData.getTagList("CWPUses", 10);
-		for (int i = 0; i < cwpCooldownTags.tagCount(); ++i) {
-			NBTTagCompound nbt = cwpCooldownTags.getCompoundTagAt(i);
+		for (int i10 = 0; i10 < cwpCooldownTags.tagCount(); i10++) {
+			NBTTagCompound nbt = cwpCooldownTags.getCompoundTagAt(i10);
 			int ID = nbt.getInteger("CustomID");
 			int count = nbt.getInteger("Count");
 			cwpUseCounts.put(ID, count);
 		}
 		cwpSharedUseCounts.clear();
 		NBTTagList cwpSharedCooldownTags = playerData.getTagList("CWPSharedUses", 10);
-		for (int i = 0; i < cwpSharedCooldownTags.tagCount(); ++i) {
-			NBTTagCompound nbt = cwpSharedCooldownTags.getCompoundTagAt(i);
+		for (int i11 = 0; i11 < cwpSharedCooldownTags.tagCount(); i11++) {
+			NBTTagCompound nbt = cwpSharedCooldownTags.getCompoundTagAt(i11);
 			UUID sharingPlayer = UUID.fromString(nbt.getString("SharingPlayer"));
 			if (sharingPlayer != null) {
 				int ID = nbt.getInteger("CustomID");
@@ -1590,29 +1626,32 @@ public class GOTPlayerData {
 		}
 		fellowshipIDs.clear();
 		NBTTagList fellowshipTags = playerData.getTagList("Fellowships", 10);
-		for (int i = 0; i < fellowshipTags.tagCount(); ++i) {
-			NBTTagCompound nbt = fellowshipTags.getCompoundTagAt(i);
-			UUID fsID2 = UUID.fromString(nbt.getString("ID"));
-			if (fsID2 != null) {
-				fellowshipIDs.add(fsID2);
+		for (int i12 = 0; i12 < fellowshipTags.tagCount(); i12++) {
+			NBTTagCompound nbt = fellowshipTags.getCompoundTagAt(i12);
+			UUID fsID = UUID.fromString(nbt.getString("ID"));
+			if (fsID != null) {
+				fellowshipIDs.add(fsID);
 			}
 		}
 		fellowshipInvites.clear();
 		NBTTagList fellowshipInviteTags = playerData.getTagList("FellowshipInvites", 10);
-		for (int i = 0; i < fellowshipInviteTags.tagCount(); ++i) {
-			NBTTagCompound nbt = fellowshipInviteTags.getCompoundTagAt(i);
-			UUID fsID3 = UUID.fromString(nbt.getString("ID"));
-			if (fsID3 != null) {
+		for (int i13 = 0; i13 < fellowshipInviteTags.tagCount(); i13++) {
+			NBTTagCompound nbt = fellowshipInviteTags.getCompoundTagAt(i13);
+			UUID fsID = UUID.fromString(nbt.getString("ID"));
+			if (fsID != null) {
 				UUID inviterID = null;
 				if (nbt.hasKey("InviterID")) {
 					inviterID = UUID.fromString(nbt.getString("InviterID"));
 				}
-				fellowshipInvites.add(new GOTFellowshipInvite(fsID3, inviterID));
+				fellowshipInvites.add(new GOTFellowshipInvite(fsID, inviterID));
 			}
 		}
 		chatBoundFellowshipID = null;
-		if (playerData.hasKey("ChatBoundFellowship") && (fsID = UUID.fromString(playerData.getString("ChatBoundFellowship"))) != null) {
-			chatBoundFellowshipID = fsID;
+		if (playerData.hasKey("ChatBoundFellowship")) {
+			UUID fsID = UUID.fromString(playerData.getString("ChatBoundFellowship"));
+			if (fsID != null) {
+				chatBoundFellowshipID = fsID;
+			}
 		}
 		structuresBanned = playerData.getBoolean("StructuresBanned");
 		if (playerData.hasKey("QuestData")) {
@@ -1623,8 +1662,11 @@ public class GOTPlayerData {
 		askedForJaqen = playerData.getBoolean("AskedForJaqen");
 		balance = playerData.getInteger("Balance");
 		cape = null;
-		if (playerData.hasKey("Cape") && (savedCape = GOTCapes.capeForName(playerData.getString("Cape"))) != null) {
-			cape = savedCape;
+		if (playerData.hasKey("Cape")) {
+			GOTCapes savedCape = GOTCapes.capeForName(playerData.getString("Cape"));
+			if (savedCape != null) {
+				cape = savedCape;
+			}
 		}
 		checkedMenu = playerData.getBoolean("CheckedMenu");
 		tableSwitched = playerData.getBoolean("TableSwitched");
@@ -1656,13 +1698,13 @@ public class GOTPlayerData {
 		if (pledgeKillCooldown > 24000) {
 			revokePledgeFaction(entityplayer, false);
 		} else if (pledgeFaction != null) {
-			ChatComponentTranslation msg = new ChatComponentTranslation("got.chat.pledgeKillWarn", pledgeFaction.factionName());
-			entityplayer.addChatMessage(msg);
+			ChatComponentTranslation chatComponentTranslation = new ChatComponentTranslation("got.chat.pledgeKillWarn", pledgeFaction.factionName());
+			entityplayer.addChatMessage(chatComponentTranslation);
 		}
 	}
 
 	public void onUpdate(EntityPlayerMP entityplayer, WorldServer world) {
-		++pdTick;
+		pdTick++;
 		GOTDimension.DimensionRegion currentRegion = viewingFaction.factionRegion;
 		GOTDimension currentDim = GOTDimension.getCurrentDimensionWithFallback(world);
 		if (currentRegion.getDimension() != currentDim) {
@@ -1678,13 +1720,13 @@ public class GOTPlayerData {
 			GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 		}
 		if (playerTitle != null && !playerTitle.getTitle().canPlayerUse(entityplayer)) {
-			ChatComponentTranslation msg = new ChatComponentTranslation("got.chat.loseTitle", playerTitle.getFullTitleComponent(entityplayer));
-			entityplayer.addChatMessage(msg);
+			ChatComponentTranslation chatComponentTranslation = new ChatComponentTranslation("got.chat.loseTitle", playerTitle.getFullTitleComponent(entityplayer));
+			entityplayer.addChatMessage(chatComponentTranslation);
 			setPlayerTitle(null);
 		}
 		if (pledgeKillCooldown > 0) {
-			--pledgeKillCooldown;
-			if (pledgeKillCooldown == 0 || GOTPlayerData.isTimerAutosaveTick()) {
+			pledgeKillCooldown--;
+			if (pledgeKillCooldown == 0 || isTimerAutosaveTick()) {
 				markDirty();
 			}
 		}
@@ -1700,14 +1742,14 @@ public class GOTPlayerData {
 		}
 		if (!bountiesPlaced.isEmpty()) {
 			for (GOTFaction fac : bountiesPlaced) {
-				ChatComponentTranslation msg = new ChatComponentTranslation("got.chat.bountyPlaced", fac.factionName());
-				msg.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-				entityplayer.addChatMessage(msg);
+				ChatComponentTranslation chatComponentTranslation = new ChatComponentTranslation("got.chat.bountyPlaced", fac.factionName());
+				chatComponentTranslation.getChatStyle().setColor(EnumChatFormatting.YELLOW);
+				entityplayer.addChatMessage(chatComponentTranslation);
 			}
 			bountiesPlaced.clear();
 			markDirty();
 		}
-		this.setTimeSinceFT(ftSinceTick + 1);
+		setTimeSinceFT(ftSinceTick + 1);
 		if (targetFTWaypoint != null) {
 			if (entityplayer.isPlayerSleeping()) {
 				entityplayer.addChatMessage(new ChatComponentTranslation("got.fastTravel.inBed"));
@@ -1715,11 +1757,11 @@ public class GOTPlayerData {
 			} else if (ticksUntilFT > 0) {
 				int seconds = ticksUntilFT / 20;
 				if (ticksUntilFT == ticksUntilFT_max) {
-					entityplayer.addChatMessage(new ChatComponentTranslation("got.fastTravel.travelTicksStart", seconds));
+					entityplayer.addChatMessage(new ChatComponentTranslation("got.fastTravel.travelTicksStart", Integer.valueOf(seconds)));
 				} else if (ticksUntilFT % 20 == 0 && seconds <= 5) {
-					entityplayer.addChatMessage(new ChatComponentTranslation("got.fastTravel.travelTicks", seconds));
+					entityplayer.addChatMessage(new ChatComponentTranslation("got.fastTravel.travelTicks", Integer.valueOf(seconds)));
 				}
-				--ticksUntilFT;
+				ticksUntilFT--;
 				setTicksUntilFT(ticksUntilFT);
 			} else {
 				sendFTBouncePacket(entityplayer);
@@ -1730,9 +1772,9 @@ public class GOTPlayerData {
 		lastOnlineTime = getCurrentOnlineTime();
 		if (uuidToMount != null) {
 			if (uuidToMountTime > 0) {
-				--uuidToMountTime;
+				uuidToMountTime--;
 			} else {
-				double range = 32.0;
+				double range = 32.0D;
 				List entities = world.getEntitiesWithinAABB(EntityLivingBase.class, entityplayer.boundingBox.expand(range, range, range));
 				for (Object obj : entities) {
 					Entity entity = (Entity) obj;
@@ -1745,7 +1787,7 @@ public class GOTPlayerData {
 			}
 		}
 		if (pdTick % 24000 == 0 && alcoholTolerance > 0) {
-			--alcoholTolerance;
+			alcoholTolerance--;
 			setAlcoholTolerance(alcoholTolerance);
 		}
 		unlockSharedCustomWaypoints(entityplayer);
@@ -1769,7 +1811,7 @@ public class GOTPlayerData {
 			}
 		}
 		if (siegeActiveTime > 0) {
-			--siegeActiveTime;
+			siegeActiveTime--;
 		}
 	}
 
@@ -1871,18 +1913,25 @@ public class GOTPlayerData {
 	}
 
 	public void removeFellowship(GOTFellowship fs) {
-		UUID fsID;
-		if ((fs.isDisbanded() || !fs.containsPlayer(playerUUID)) && fellowshipIDs.contains(fsID = fs.getFellowshipID())) {
-			fellowshipIDs.remove(fsID);
-			markDirty();
-			sendFellowshipRemovePacket(fs);
-			unshareFellowshipFromOwnCustomWaypoints(fs);
-			checkCustomWaypointsSharedFromFellowships();
+		if (fs.isDisbanded() || !fs.containsPlayer(playerUUID)) {
+			UUID fsID = fs.getFellowshipID();
+			if (fellowshipIDs.contains(fsID)) {
+				fellowshipIDs.remove(fsID);
+				markDirty();
+				sendFellowshipRemovePacket(fs);
+				unshareFellowshipFromOwnCustomWaypoints(fs);
+				checkCustomWaypointsSharedFromFellowships();
+			}
 		}
 	}
 
 	public void removeMiniQuest(GOTMiniQuest quest, boolean completed) {
-		List<GOTMiniQuest> removeList = completed ? miniQuestsCompleted : miniQuests;
+		List<GOTMiniQuest> removeList;
+		if (completed) {
+			removeList = miniQuestsCompleted;
+		} else {
+			removeList = miniQuests;
+		}
 		if (removeList.remove(quest)) {
 			markDirty();
 			EntityPlayer entityplayer = getPlayer();
@@ -1910,8 +1959,12 @@ public class GOTPlayerData {
 			FMLLog.warning("GOT: Warning! Tried to remove a shared custom waypoint with no owner!");
 			return;
 		}
-		GOTCustomWaypoint existing;
-		existing = customWaypointsShared.contains(waypoint) ? waypoint : getSharedCustomWaypointByID(waypoint.getSharingPlayerID(), waypoint.getID());
+		GOTCustomWaypoint existing = null;
+		if (customWaypointsShared.contains(waypoint)) {
+			existing = waypoint;
+		} else {
+			existing = getSharedCustomWaypointByID(waypoint.getSharingPlayerID(), waypoint.getID());
+		}
 		if (existing != null) {
 			customWaypointsShared.remove(existing);
 			EntityPlayer entityplayer = getPlayer();
@@ -1971,87 +2024,88 @@ public class GOTPlayerData {
 		float pledgeLvl = wasPledge.getPledgeAlignment();
 		float prevAlign = getAlignment(wasPledge);
 		float diff = prevAlign - pledgeLvl;
-		float cd = diff / 5000.0f;
-		cd = MathHelper.clamp_float(cd, 0.0f, 1.0f);
+		float cd = diff / 5000.0F;
+		cd = MathHelper.clamp_float(cd, 0.0F, 1.0F);
 		int cdTicks = 36000;
+		cdTicks += Math.round(cd * 150.0F * 60.0F * 20.0F);
 		setPledgeFaction(null);
 		setBrokenPledgeFaction(wasPledge);
-		setPledgeBreakCooldown(cdTicks += Math.round(cd * 150.0f * 60.0f * 20.0f));
+		setPledgeBreakCooldown(cdTicks);
 		World world = entityplayer.worldObj;
 		if (!world.isRemote) {
-			ChatComponentTranslation msg;
 			GOTFactionRank rank = wasPledge.getRank(prevAlign);
 			GOTFactionRank rankBelow = wasPledge.getRankBelow(rank);
 			GOTFactionRank rankBelow2 = wasPledge.getRankBelow(rankBelow);
 			float newAlign = rankBelow2.alignment;
-			float alignPenalty = (newAlign = Math.max(newAlign, pledgeLvl / 2.0f)) - prevAlign;
-			if (alignPenalty < 0.0f) {
+			newAlign = Math.max(newAlign, pledgeLvl / 2.0F);
+			float alignPenalty = newAlign - prevAlign;
+			if (alignPenalty < 0.0F) {
 				GOTAlignmentValues.AlignmentBonus penalty = GOTAlignmentValues.createPledgePenalty(alignPenalty);
-				double alignX = 0.0;
-				double alignY = 0.0;
-				double alignZ = 0.0;
-				double lookRange = 2.0;
+				double alignX = 0.0D;
+				double alignY = 0.0D;
+				double alignZ = 0.0D;
+				double lookRange = 2.0D;
 				Vec3 posEye = Vec3.createVectorHelper(entityplayer.posX, entityplayer.boundingBox.minY + entityplayer.getEyeHeight(), entityplayer.posZ);
-				Vec3 look = entityplayer.getLook(1.0f);
+				Vec3 look = entityplayer.getLook(1.0F);
 				Vec3 posSight = posEye.addVector(look.xCoord * lookRange, look.yCoord * lookRange, look.zCoord * lookRange);
 				MovingObjectPosition mop = world.rayTraceBlocks(posEye, posSight);
 				if (mop != null && mop.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK) {
-					alignX = mop.blockX + 0.5;
-					alignY = mop.blockY + 0.5;
-					alignZ = mop.blockZ + 0.5;
+					alignX = mop.blockX + 0.5D;
+					alignY = mop.blockY + 0.5D;
+					alignZ = mop.blockZ + 0.5D;
 				} else {
 					alignX = posSight.xCoord;
 					alignY = posSight.yCoord;
 					alignZ = posSight.zCoord;
 				}
-				this.addAlignment(entityplayer, penalty, wasPledge, alignX, alignY, alignZ);
+				addAlignment(entityplayer, penalty, wasPledge, alignX, alignY, alignZ);
 			}
-			world.playSoundAtEntity(entityplayer, "got:event.unpledge", 1.0f, 1.0f);
+			world.playSoundAtEntity(entityplayer, "got:event.unpledge", 1.0F, 1.0F);
 			if (intentional) {
-				msg = new ChatComponentTranslation("got.chat.unpledge", wasPledge.factionName());
+				ChatComponentTranslation chatComponentTranslation = new ChatComponentTranslation("got.chat.unpledge", wasPledge.factionName());
+				entityplayer.addChatMessage(chatComponentTranslation);
 			} else {
-				msg = new ChatComponentTranslation("got.chat.autoUnpledge", wasPledge.factionName());
+				ChatComponentTranslation chatComponentTranslation = new ChatComponentTranslation("got.chat.autoUnpledge", wasPledge.factionName());
+				entityplayer.addChatMessage(chatComponentTranslation);
 			}
-			entityplayer.addChatMessage(msg);
 			checkAlignmentAchievements(wasPledge, prevAlign);
 		}
 	}
 
 	public void runAchievementChecks(EntityPlayer entityplayer, World world) {
-		ArmorMaterial fullMaterial;
 		int i = MathHelper.floor_double(entityplayer.posX);
 		MathHelper.floor_double(entityplayer.boundingBox.minY);
 		int k = MathHelper.floor_double(entityplayer.posZ);
 		BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
 		if (biome instanceof GOTBiome) {
-			Region biomeRegion;
 			GOTBiome gotbiome = (GOTBiome) biome;
 			GOTAchievement ach = gotbiome.getBiomeAchievement();
 			if (ach != null) {
 				addAchievement(ach);
 			}
-			biomeRegion = gotbiome.getBiomeWaypoints();
+			GOTWaypoint.Region biomeRegion = gotbiome.getBiomeWaypoints();
 			if (biomeRegion != null) {
 				unlockFTRegion(biomeRegion);
 			}
 		}
 		if (entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) {
-			addAchievement(GOTAchievement.enterGOT);
+			addAchievement(GOTAchievement.enterKnownWorld);
 		}
 		if (entityplayer.inventory.hasItem(GOTRegistry.pouch)) {
 			addAchievement(GOTAchievement.getPouch);
 		}
-		HashSet<Block> tables = new HashSet<>();
+		Set<Block> tables = new HashSet();
 		int crossbowBolts = 0;
 		for (ItemStack item : entityplayer.inventory.mainInventory) {
-			Block block;
-			if (item != null && item.getItem() instanceof ItemBlock && (block = Block.getBlockFromItem(item.getItem())) instanceof GOTBlockCraftingTable) {
-				tables.add(block);
+			if (item != null && item.getItem() instanceof ItemBlock) {
+				Block block = Block.getBlockFromItem(item.getItem());
+				if (block instanceof GOTBlockCraftingTable) {
+					tables.add(block);
+				}
 			}
-			if (item == null || !(item.getItem() instanceof GOTItemCrossbowBolt)) {
-				continue;
+			if (item != null && item.getItem() instanceof GOTItemCrossbowBolt) {
+				crossbowBolts += item.stackSize;
 			}
-			crossbowBolts += item.stackSize;
 		}
 		if (tables.size() >= 10) {
 			addAchievement(GOTAchievement.collectCraftingTables);
@@ -2059,30 +2113,31 @@ public class GOTPlayerData {
 		if (crossbowBolts >= 128) {
 			addAchievement(GOTAchievement.collectCrossbowBolts);
 		}
-		if (!hasAchievement(GOTAchievement.hireGoldenCompany) && pdTick % 20 == 0) {
-			int hiredUnits = 0;
-			List<GOTEntityGoldenMan> nearbyNPCs = world.getEntitiesWithinAABB(GOTEntityGoldenMan.class, entityplayer.boundingBox.expand(64.0, 64.0, 64.0));
-			for (GOTEntityNPC npc : nearbyNPCs) {
-				if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() == entityplayer) {
-					++hiredUnits;
-				}
-			}
-			if (hiredUnits >= 10) {
-				addAchievement(GOTAchievement.hireGoldenCompany);
-			}
-		}
 		if (!hasAchievement(GOTAchievement.hundreds) && pdTick % 20 == 0) {
 			int hiredUnits = 0;
-			List<GOTEntityNPC> nearbyNPCs = world.getEntitiesWithinAABB(GOTEntityNPC.class, entityplayer.boundingBox.expand(64.0, 64.0, 64.0));
+			List<GOTEntityNPC> nearbyNPCs = world.getEntitiesWithinAABB(GOTEntityNPC.class, entityplayer.boundingBox.expand(64.0D, 64.0D, 64.0D));
 			for (GOTEntityNPC npc : nearbyNPCs) {
 				if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() == entityplayer) {
-					++hiredUnits;
+					hiredUnits++;
 				}
 			}
 			if (hiredUnits >= 100) {
 				addAchievement(GOTAchievement.hundreds);
 			}
 		}
+		if (!hasAchievement(GOTAchievement.hireGoldenCompany) && pdTick % 20 == 0) {
+			int hiredUnits = 0;
+			List<GOTEntityGoldenMan> nearbyNPCs = world.getEntitiesWithinAABB(GOTEntityGoldenMan.class, entityplayer.boundingBox.expand(64.0D, 64.0D, 64.0D));
+			for (GOTEntityNPC npc : nearbyNPCs) {
+				if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() == entityplayer) {
+					hiredUnits++;
+				}
+			}
+			if (hiredUnits >= 10) {
+				addAchievement(GOTAchievement.hireGoldenCompany);
+			}
+		}
+		ArmorMaterial fullMaterial;
 		ItemArmor.ArmorMaterial material = getFullArmorMaterial(entityplayer);
 		if (GOTAchievement.armorAchievements.containsKey(material)) {
 			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.armorAchievements.get(material));
@@ -2110,20 +2165,20 @@ public class GOTPlayerData {
 		for (Map.Entry<GOTFaction, Float> entry : alignments.entrySet()) {
 			GOTFaction faction = entry.getKey();
 			float alignment = entry.getValue();
-			NBTTagCompound nbt6 = new NBTTagCompound();
-			nbt6.setString("Faction", faction.codeName());
-			nbt6.setFloat("AlignF", alignment);
-			alignmentTags.appendTag(nbt6);
+			NBTTagCompound nbt = new NBTTagCompound();
+			nbt.setString("Faction", faction.codeName());
+			nbt.setFloat("AlignF", alignment);
+			alignmentTags.appendTag(nbt);
 		}
 		playerData.setTag("AlignmentMap", alignmentTags);
 		NBTTagList factionDataTags = new NBTTagList();
 		for (Map.Entry<GOTFaction, GOTFactionData> entry : factionDataMap.entrySet()) {
 			GOTFaction faction = entry.getKey();
 			GOTFactionData data = entry.getValue();
-			NBTTagCompound nbt4 = new NBTTagCompound();
-			nbt4.setString("Faction", faction.codeName());
-			data.save(nbt4);
-			factionDataTags.appendTag(nbt4);
+			NBTTagCompound nbt = new NBTTagCompound();
+			nbt.setString("Faction", faction.codeName());
+			data.save(nbt);
+			factionDataTags.appendTag(nbt);
 		}
 		playerData.setTag("FactionData", factionDataTags);
 		playerData.setString("CurrentFaction", viewingFaction.codeName());
@@ -2131,10 +2186,10 @@ public class GOTPlayerData {
 		for (Map.Entry<GOTDimension.DimensionRegion, GOTFaction> entry : prevRegionFactions.entrySet()) {
 			GOTDimension.DimensionRegion region = entry.getKey();
 			GOTFaction faction = entry.getValue();
-			NBTTagCompound nbt3 = new NBTTagCompound();
-			nbt3.setString("Region", region.codeName());
-			nbt3.setString("Faction", faction.codeName());
-			prevRegionFactionTags.appendTag(nbt3);
+			NBTTagCompound nbt = new NBTTagCompound();
+			nbt.setString("Region", region.codeName());
+			nbt.setString("Faction", faction.codeName());
+			prevRegionFactionTags.appendTag(nbt);
 		}
 		playerData.setTag("PrevRegionFactions", prevRegionFactionTags);
 		playerData.setBoolean("HideAlignment", hideAlignment);
@@ -2182,16 +2237,16 @@ public class GOTPlayerData {
 		playerData.setInteger("Alcohol", alcoholTolerance);
 		NBTTagList miniquestTags = new NBTTagList();
 		for (GOTMiniQuest quest : miniQuests) {
-			NBTTagCompound nbt7 = new NBTTagCompound();
-			quest.writeToNBT(nbt7);
-			miniquestTags.appendTag(nbt7);
+			NBTTagCompound nbt = new NBTTagCompound();
+			quest.writeToNBT(nbt);
+			miniquestTags.appendTag(nbt);
 		}
 		playerData.setTag("MiniQuests", miniquestTags);
 		NBTTagList miniquestCompletedTags = new NBTTagList();
 		for (GOTMiniQuest quest : miniQuestsCompleted) {
-			NBTTagCompound nbt8 = new NBTTagCompound();
-			quest.writeToNBT(nbt8);
-			miniquestCompletedTags.appendTag(nbt8);
+			NBTTagCompound nbt = new NBTTagCompound();
+			quest.writeToNBT(nbt);
+			miniquestCompletedTags.appendTag(nbt);
 		}
 		playerData.setTag("MiniQuestsCompleted", miniquestCompletedTags);
 		playerData.setInteger("MQCompleteCount", completedMiniquestCount);
@@ -2236,9 +2291,9 @@ public class GOTPlayerData {
 		playerData.setLong("LastOnlineTime", lastOnlineTime);
 		NBTTagList unlockedFTRegionTags = new NBTTagList();
 		for (GOTWaypoint.Region region : unlockedFTRegions) {
-			NBTTagCompound nbt9 = new NBTTagCompound();
-			nbt9.setString("Name", region.name());
-			unlockedFTRegionTags.appendTag(nbt9);
+			NBTTagCompound nbt = new NBTTagCompound();
+			nbt.setString("Name", region.name());
+			unlockedFTRegionTags.appendTag(nbt);
 		}
 		playerData.setTag("UnlockedFTRegions", unlockedFTRegionTags);
 		NBTTagList customWaypointTags = new NBTTagList();
@@ -2250,49 +2305,49 @@ public class GOTPlayerData {
 		playerData.setTag("CustomWaypoints", customWaypointTags);
 		NBTTagList cwpSharedUnlockedTags = new NBTTagList();
 		for (CWPSharedKey key : cwpSharedUnlocked) {
-			NBTTagCompound nbt10 = new NBTTagCompound();
-			nbt10.setString("SharingPlayer", key.sharingPlayer.toString());
-			nbt10.setInteger("CustomID", key.waypointID);
-			cwpSharedUnlockedTags.appendTag(nbt10);
+			NBTTagCompound nbt = new NBTTagCompound();
+			nbt.setString("SharingPlayer", key.sharingPlayer.toString());
+			nbt.setInteger("CustomID", key.waypointID);
+			cwpSharedUnlockedTags.appendTag(nbt);
 		}
 		playerData.setTag("CWPSharedUnlocked", cwpSharedUnlockedTags);
 		NBTTagList cwpSharedHiddenTags = new NBTTagList();
 		for (CWPSharedKey key : cwpSharedHidden) {
-			NBTTagCompound nbt11 = new NBTTagCompound();
-			nbt11.setString("SharingPlayer", key.sharingPlayer.toString());
-			nbt11.setInteger("CustomID", key.waypointID);
-			cwpSharedHiddenTags.appendTag(nbt11);
+			NBTTagCompound nbt = new NBTTagCompound();
+			nbt.setString("SharingPlayer", key.sharingPlayer.toString());
+			nbt.setInteger("CustomID", key.waypointID);
+			cwpSharedHiddenTags.appendTag(nbt);
 		}
 		playerData.setTag("CWPSharedHidden", cwpSharedHiddenTags);
 		NBTTagList wpUseTags = new NBTTagList();
 		for (Map.Entry<GOTWaypoint, Integer> e : wpUseCounts.entrySet()) {
 			GOTAbstractWaypoint wp = e.getKey();
 			int count = e.getValue();
-			NBTTagCompound nbt12 = new NBTTagCompound();
-			nbt12.setString("WPName", wp.getCodeName());
-			nbt12.setInteger("Count", count);
-			wpUseTags.appendTag(nbt12);
+			NBTTagCompound nbt = new NBTTagCompound();
+			nbt.setString("WPName", wp.getCodeName());
+			nbt.setInteger("Count", count);
+			wpUseTags.appendTag(nbt);
 		}
 		playerData.setTag("WPUses", wpUseTags);
 		NBTTagList cwpUseTags = new NBTTagList();
 		for (Map.Entry<Integer, Integer> e : cwpUseCounts.entrySet()) {
 			int ID = e.getKey();
 			int count = e.getValue();
-			NBTTagCompound nbt5 = new NBTTagCompound();
-			nbt5.setInteger("CustomID", ID);
-			nbt5.setInteger("Count", count);
-			cwpUseTags.appendTag(nbt5);
+			NBTTagCompound nbt = new NBTTagCompound();
+			nbt.setInteger("CustomID", ID);
+			nbt.setInteger("Count", count);
+			cwpUseTags.appendTag(nbt);
 		}
 		playerData.setTag("CWPUses", cwpUseTags);
 		NBTTagList cwpSharedUseTags = new NBTTagList();
 		for (Map.Entry<CWPSharedKey, Integer> e : cwpSharedUseCounts.entrySet()) {
 			CWPSharedKey key = e.getKey();
 			int count = e.getValue();
-			NBTTagCompound nbt2 = new NBTTagCompound();
-			nbt2.setString("SharingPlayer", key.sharingPlayer.toString());
-			nbt2.setInteger("CustomID", key.waypointID);
-			nbt2.setInteger("Count", count);
-			cwpSharedUseTags.appendTag(nbt2);
+			NBTTagCompound nbt = new NBTTagCompound();
+			nbt.setString("SharingPlayer", key.sharingPlayer.toString());
+			nbt.setInteger("CustomID", key.waypointID);
+			nbt.setInteger("Count", count);
+			cwpSharedUseTags.appendTag(nbt);
 		}
 		playerData.setTag("CWPSharedUses", cwpSharedUseTags);
 		playerData.setInteger("NextCWPID", nextCwpID);
@@ -2333,8 +2388,8 @@ public class GOTPlayerData {
 	}
 
 	public List<GOTMiniQuest> selectMiniQuests(MiniQuestSelector selector) {
-		ArrayList<GOTMiniQuest> ret = new ArrayList<>();
-		ArrayList<GOTMiniQuest> threadSafe = new ArrayList<>(miniQuests);
+		List<GOTMiniQuest> ret = new ArrayList<>();
+		List<GOTMiniQuest> threadSafe = new ArrayList<>(miniQuests);
 		for (GOTMiniQuest quest : threadSafe) {
 			if (selector.include(quest)) {
 				ret.add(quest);
@@ -2467,14 +2522,14 @@ public class GOTPlayerData {
 				checkIfStillWaypointSharerForFellowship(fs);
 			}
 		}
-		HashSet<GOTFellowshipInvite> staleFellowshipInvites = new HashSet<>();
+		Set<GOTFellowshipInvite> staleFellowshipInvites = new HashSet<>();
 		for (GOTFellowshipInvite invite : fellowshipInvites) {
 			GOTFellowship fs = GOTFellowshipData.getFellowship(invite.fellowshipID);
 			if (fs != null) {
 				sendFellowshipInvitePacket(fs);
-			} else {
-				staleFellowshipInvites.add(invite);
+				continue;
 			}
+			staleFellowshipInvites.add(invite);
 		}
 		if (!staleFellowshipInvites.isEmpty()) {
 			fellowshipInvites.removeAll(staleFellowshipInvites);
@@ -2489,11 +2544,13 @@ public class GOTPlayerData {
 	}
 
 	public void setAlcoholTolerance(int i) {
-		EntityPlayer entityplayer;
 		alcoholTolerance = i;
 		markDirty();
-		if (alcoholTolerance >= 250 && (entityplayer = getPlayer()) != null && !entityplayer.worldObj.isRemote) {
-			addAchievement(GOTAchievement.gainHighAlcoholTolerance);
+		if (alcoholTolerance >= 250) {
+			EntityPlayer entityplayer = getPlayer();
+			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
+				addAchievement(GOTAchievement.gainHighAlcoholTolerance);
+			}
 		}
 	}
 
@@ -2657,12 +2714,11 @@ public class GOTPlayerData {
 	}
 
 	public void setPledgeBreakCooldown(int i) {
-		boolean bigChange;
-		EntityPlayer entityplayer;
 		int preCD = pledgeBreakCooldown;
 		GOTFaction preBroken = brokenPledgeFaction;
-		pledgeBreakCooldown = i = Math.max(0, i);
-		bigChange = (pledgeBreakCooldown == 0 || preCD == 0) && pledgeBreakCooldown != preCD;
+		i = Math.max(0, i);
+		pledgeBreakCooldown = i;
+		boolean bigChange = (pledgeBreakCooldown == 0 || preCD == 0) && pledgeBreakCooldown != preCD;
 		if (pledgeBreakCooldown > pledgeBreakCooldownStart) {
 			setPledgeBreakCooldownStart(pledgeBreakCooldown);
 			bigChange = true;
@@ -2672,17 +2728,23 @@ public class GOTPlayerData {
 			setBrokenPledgeFaction(null);
 			bigChange = true;
 		}
-		if (bigChange || GOTPlayerData.isTimerAutosaveTick()) {
+		if (bigChange || isTimerAutosaveTick()) {
 			markDirty();
 		}
-		if ((bigChange || pledgeBreakCooldown % 5 == 0) && (entityplayer = getPlayer()) != null && !entityplayer.worldObj.isRemote) {
-			GOTPacketBrokenPledge packet = new GOTPacketBrokenPledge(pledgeBreakCooldown, pledgeBreakCooldownStart, brokenPledgeFaction);
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+		if (bigChange || pledgeBreakCooldown % 5 == 0) {
+			EntityPlayer entityplayer = getPlayer();
+			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
+				GOTPacketBrokenPledge packet = new GOTPacketBrokenPledge(pledgeBreakCooldown, pledgeBreakCooldownStart, brokenPledgeFaction);
+				GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			}
 		}
-		if (pledgeBreakCooldown == 0 && preCD != pledgeBreakCooldown && (entityplayer = getPlayer()) != null && !entityplayer.worldObj.isRemote) {
-			String brokenName = preBroken == null ? StatCollector.translateToLocal("got.gui.factions.pledgeUnknown") : preBroken.factionName();
-			ChatComponentTranslation msg = new ChatComponentTranslation("got.chat.pledgeBreakCooldown", brokenName);
-			entityplayer.addChatMessage(msg);
+		if (pledgeBreakCooldown == 0 && preCD != pledgeBreakCooldown) {
+			EntityPlayer entityplayer = getPlayer();
+			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
+				String brokenName = preBroken == null ? StatCollector.translateToLocal("got.gui.factions.pledgeUnknown") : preBroken.factionName();
+				ChatComponentTranslation chatComponentTranslation = new ChatComponentTranslation("got.chat.pledgeBreakCooldown", brokenName);
+				entityplayer.addChatMessage(chatComponentTranslation);
+			}
 		}
 	}
 
@@ -2692,7 +2754,6 @@ public class GOTPlayerData {
 	}
 
 	public void setPledgeFaction(GOTFaction fac) {
-		EntityPlayer entityplayer;
 		pledgeFaction = fac;
 		pledgeKillCooldown = 0;
 		markDirty();
@@ -2700,11 +2761,11 @@ public class GOTPlayerData {
 			checkAlignmentAchievements(fac, getAlignment(fac));
 			addAchievement(GOTAchievement.pledgeService);
 		}
-		entityplayer = getPlayer();
+		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			if (fac != null) {
 				World world = entityplayer.worldObj;
-				world.playSoundAtEntity(entityplayer, "got:event.pledge", 1.0f, 1.0f);
+				world.playSoundAtEntity(entityplayer, "got:event.pledge", 1.0F, 1.0F);
 			}
 			GOTPacketPledge packet = new GOTPacketPledge(fac);
 			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
@@ -2778,26 +2839,28 @@ public class GOTPlayerData {
 	}
 
 	public void setTimeSinceFT(int i) {
-		this.setTimeSinceFT(i, false);
+		setTimeSinceFT(i, false);
 	}
 
 	public void setTimeSinceFT(int i, boolean forceUpdate) {
-		boolean bigChange;
-		EntityPlayer entityplayer;
 		int preTick = ftSinceTick;
-		ftSinceTick = i = Math.max(0, i);
-		bigChange = (ftSinceTick == 0 || preTick == 0) && ftSinceTick != preTick || preTick < 0 && ftSinceTick >= 0;
-		if (bigChange || GOTPlayerData.isTimerAutosaveTick() || forceUpdate) {
+		i = Math.max(0, i);
+		ftSinceTick = i;
+		boolean bigChange = (ftSinceTick == 0 || preTick == 0) && ftSinceTick != preTick || preTick < 0 && ftSinceTick >= 0;
+		if (bigChange || isTimerAutosaveTick() || forceUpdate) {
 			markDirty();
 		}
-		if ((bigChange || ftSinceTick % 5 == 0 || forceUpdate) && (entityplayer = getPlayer()) != null && !entityplayer.worldObj.isRemote) {
-			GOTPacketFTTimer packet = new GOTPacketFTTimer(ftSinceTick);
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+		if (bigChange || ftSinceTick % 5 == 0 || forceUpdate) {
+			EntityPlayer entityplayer = getPlayer();
+			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
+				GOTPacketFTTimer packet = new GOTPacketFTTimer(ftSinceTick);
+				GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			}
 		}
 	}
 
 	public void setTimeSinceFTWithUpdate(int i) {
-		this.setTimeSinceFT(i, true);
+		setTimeSinceFT(i, true);
 	}
 
 	public void setTrackingMiniQuest(GOTMiniQuest quest) {
@@ -2816,7 +2879,11 @@ public class GOTPlayerData {
 
 	public void setUUIDToMount(UUID uuid) {
 		uuidToMount = uuid;
-		uuidToMountTime = uuidToMount != null ? 10 : 0;
+		if (uuidToMount != null) {
+			uuidToMountTime = 10;
+		} else {
+			uuidToMountTime = 0;
+		}
 		markDirty();
 	}
 
@@ -2908,7 +2975,7 @@ public class GOTPlayerData {
 
 	public void unlockSharedCustomWaypoints(EntityPlayer entityplayer) {
 		if (pdTick % 20 == 0 && entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) {
-			ArrayList<GOTCustomWaypoint> unlockWaypoints = new ArrayList<>();
+			List<GOTCustomWaypoint> unlockWaypoints = new ArrayList<>();
 			for (GOTCustomWaypoint waypoint : customWaypointsShared) {
 				if (waypoint.isShared() && !waypoint.isSharedUnlocked() && waypoint.canUnlockShared(entityplayer)) {
 					unlockWaypoints.add(waypoint);
@@ -2940,21 +3007,24 @@ public class GOTPlayerData {
 	}
 
 	public void updateFastTravelClockFromLastOnlineTime(EntityPlayerMP player, World world) {
-		int diff;
-		int ftClockIncrease;
 		if (lastOnlineTime <= 0L) {
 			return;
 		}
 		MinecraftServer server = MinecraftServer.getServer();
-		if (!server.isSinglePlayer() && (ftClockIncrease = (int) ((diff = (int) (getCurrentOnlineTime() - lastOnlineTime)) * 0.1)) > 0) {
-			setTimeSinceFTWithUpdate(ftSinceTick + ftClockIncrease);
-			ChatComponentTranslation msg = new ChatComponentTranslation("got.chat.ft.offlineTick", GOTLevelData.getHMSTime_Ticks(diff), GOTLevelData.getHMSTime_Ticks(ftClockIncrease));
-			player.addChatMessage(msg);
+		if (!server.isSinglePlayer()) {
+			long currentOnlineTime = getCurrentOnlineTime();
+			int diff = (int) (currentOnlineTime - lastOnlineTime);
+			double offlineFactor = 0.1D;
+			int ftClockIncrease = (int) (diff * offlineFactor);
+			if (ftClockIncrease > 0) {
+				setTimeSinceFTWithUpdate(ftSinceTick + ftClockIncrease);
+				ChatComponentTranslation chatComponentTranslation = new ChatComponentTranslation("got.chat.ft.offlineTick", GOTLevelData.getHMSTime_Ticks(diff), GOTLevelData.getHMSTime_Ticks(ftClockIncrease));
+				player.addChatMessage(chatComponentTranslation);
+			}
 		}
 	}
 
 	public void updateFellowship(GOTFellowship fs, FellowshipUpdateType updateType) {
-		List<UUID> playersToCheckSharedWaypointsFrom;
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			IMessage updatePacket = updateType.createUpdatePacket(this, fs);
@@ -2964,7 +3034,7 @@ public class GOTPlayerData {
 				GOTLog.logger.error("No associated packet for fellowship update type " + updateType.getClass().getName());
 			}
 		}
-		playersToCheckSharedWaypointsFrom = updateType.getPlayersToCheckSharedWaypointsFrom(fs);
+		List<UUID> playersToCheckSharedWaypointsFrom = updateType.getPlayersToCheckSharedWaypointsFrom(fs);
 		if (playersToCheckSharedWaypointsFrom != null && !playersToCheckSharedWaypointsFrom.isEmpty()) {
 			addSharedCustomWaypointsFrom(fs.getFellowshipID(), playersToCheckSharedWaypointsFrom);
 			checkCustomWaypointsSharedBy(playersToCheckSharedWaypointsFrom);
