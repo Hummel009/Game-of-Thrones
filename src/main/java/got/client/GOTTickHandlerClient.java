@@ -59,18 +59,14 @@ import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.world.WorldEvent;
 
 public class GOTTickHandlerClient {
-	public static ResourceLocation portalOverlay = new ResourceLocation("got:misc/portal_overlay.png");
-	public static ResourceLocation elvenPortalOverlay = new ResourceLocation("got:misc/elvenportal_overlay.png");
-	public static ResourceLocation morgulPortalOverlay = new ResourceLocation("got:misc/morgulportal_overlay.png");
-	public static ResourceLocation mistOverlay = new ResourceLocation("got:misc/mist_overlay.png");
-	public static ResourceLocation frostOverlay = new ResourceLocation("got:misc/frost_overlay.png");
+	public static ResourceLocation portalOverlay = new ResourceLocation("got:textures/misc/frost_overlay.png");
+	public static ResourceLocation mistOverlay = new ResourceLocation("got:textures/misc/mist_overlay.png");
+	public static ResourceLocation frostOverlay = new ResourceLocation("got:textures/misc/frost_overlay.png");
+	public static ResourceLocation burnOverlay = new ResourceLocation("got:textures/misc/burn_overlay.png");
+	public static ResourceLocation wightOverlay = new ResourceLocation("got:textures/misc/wight.png");
 	public static float[] frostRGBMiddle = { 0.4F, 0.46F, 0.74F };
 	public static float[] frostRGBEdge = { 1.0F, 1.0F, 1.0F };
-	public static ResourceLocation burnOverlay = new ResourceLocation("got:misc/burn_overlay.png");
-	public static ResourceLocation wightOverlay = new ResourceLocation("got:misc/wight.png");
 	public static HashMap playersInPortals = new HashMap<>();
-	public static HashMap playersInElvenPortals = new HashMap<>();
-	public static HashMap playersInMorgulPortals = new HashMap<>();
 	public static int clientTick;
 	public static float renderTick;
 	public static GOTInvasionStatus watchedInvasion = new GOTInvasionStatus();
@@ -109,6 +105,7 @@ public class GOTTickHandlerClient {
 	public boolean cancelItemHighlight = false;
 	public ItemStack lastHighlightedItemstack;
 	public String highlightedItemstackName;
+	public static boolean renderMenuPrompt = false;
 
 	public GOTTickHandlerClient() {
 		FMLCommonHandler.instance().bus().register(this);
@@ -719,18 +716,6 @@ public class GOTTickHandlerClient {
 						renderOverlay(null, 0.1F + i / 100.0F * 0.6F, mc, portalOverlay);
 					}
 				}
-				if (playersInElvenPortals.containsKey(entityClientPlayerMP)) {
-					int i = (Integer) playersInElvenPortals.get(entityClientPlayerMP);
-					if (i > 0) {
-						renderOverlay(null, 0.1F + i / entityClientPlayerMP.getMaxInPortalTime() * 0.6F, mc, elvenPortalOverlay);
-					}
-				}
-				if (playersInMorgulPortals.containsKey(entityClientPlayerMP)) {
-					int i = (Integer) playersInMorgulPortals.get(entityClientPlayerMP);
-					if (i > 0) {
-						renderOverlay(null, 0.1F + i / entityClientPlayerMP.getMaxInPortalTime() * 0.6F, mc, morgulPortalOverlay);
-					}
-				}
 				float mistTickF = prevMistTick + (mistTick - prevMistTick) * partialTicks;
 				mistTickF /= 80.0F;
 				float mistFactorY = (float) ((EntityPlayer) entityClientPlayerMP).posY / 256.0F;
@@ -966,6 +951,28 @@ public class GOTTickHandlerClient {
 							GL11.glPopMatrix();
 						}
 					}
+				}
+				float promptTick = clientTick + renderTick;
+				float promptAlpha = GOTFunctions.triangleWave(promptTick, 0.5f, 1.0f, 80.0f);
+				ArrayList<String> message = new ArrayList<>();
+				if (entityplayer.dimension != GOTDimension.GAME_OF_THRONES.dimensionID && renderMenuPrompt && minecraft.currentScreen == null) {
+					message.add(StatCollector.translateToLocal("got.gui.help1"));
+					message.add(StatCollector.translateToLocalFormatted("got.gui.help2", GameSettings.getKeyDisplayString(GOTKeyHandler.keyBindingReturn.getKeyCode())));
+				}
+				if (!message.isEmpty()) {
+					ScaledResolution resolution2 = new ScaledResolution(minecraft, minecraft.displayWidth, minecraft.displayHeight);
+					int width = resolution2.getScaledWidth();
+					int height = resolution2.getScaledHeight();
+					int x = 0;
+					int y = height * 2 / 3 - message.size() * minecraft.fontRenderer.FONT_HEIGHT / 2;
+					GL11.glEnable(3042);
+					OpenGlHelper.glBlendFunc(770, 771, 1, 0);
+					for (String line : message) {
+						x = (width - minecraft.fontRenderer.getStringWidth(line)) / 2;
+						minecraft.fontRenderer.drawString(line, x, y, 0xFFFFFF | GOTClientProxy.getAlphaInt(promptAlpha) << 24);
+						y += minecraft.fontRenderer.FONT_HEIGHT;
+					}
+					GL11.glDisable(3042);
 				}
 				if (entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID && minecraft.currentScreen == null && newDate > 0) {
 					int halfMaxDate = 100;
