@@ -46,7 +46,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.*;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
-import net.minecraftforge.common.*;
+import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.oredict.OreDictionary;
 
 @Mod(modid = "got", name = GOT.NAME, version = GOT.VERSION, dependencies = "required-after:Forge@[10.13.4.1558,)")
@@ -258,7 +258,6 @@ public class GOT {
 		GOTBlockReplacement.replaceVanillaItem(Items.glass_bottle, new GOTItemGlassBottle().setTextureName("potion_bottle_empty"));
 		GOTLoader.preInit();
 		Blocks.dragon_egg.setCreativeTab(GOTCreativeTabs.tabStory);
-		MinecraftForge.EVENT_BUS.register(new GOTTrackingEventHandler());
 		proxy.onPreload();
 		int k = 1;
 		for (int i = 0; i < 8; ++i) {

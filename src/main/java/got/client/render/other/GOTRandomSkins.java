@@ -194,7 +194,7 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 				skins.add(skin);
 				++skinCount;
 			}
-			FMLLog.info("GOT: Assembled combinatorial skins for " + skinPath + ": " + skins.size() + " skins");
+			FMLLog.info("Hummel009: Assembled combinatorial skins for " + skinPath + ": " + skins.size() + " skins");
 		}
 	}
 

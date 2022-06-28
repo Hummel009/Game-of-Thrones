@@ -19,7 +19,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.*;
 
-public class GOTBiomeJogosNhaiDesert extends GOTBiome {
+public class GOTBiomeJogosNhaiDesert extends GOTBiome implements GOTBiome.Desert {
 	public static NoiseGeneratorPerlin noiseAridGrass = new NoiseGeneratorPerlin(new Random(62926025827260L), 1);
 	public WorldGenerator boulderGen = new GOTWorldGenBoulder(Blocks.stone, 0, 1, 3);
 	public WorldGenerator boulderGenSandstone = new GOTWorldGenBoulder(GOTRegistry.whiteSandstone, 0, 1, 3);

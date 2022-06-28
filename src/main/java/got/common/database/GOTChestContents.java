@@ -73,7 +73,8 @@ public class GOTChestContents {
 		i++;
 		WESTEROS_W[i] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.arrynChestplate), 1, 1, 10);
 		i++;
-		WESTEROS_W[i++] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.arrynLeggings), 1, 1, 10);
+		WESTEROS_W[i] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.arrynLeggings), 1, 1, 10);
+		i++;
 		WESTEROS_W[i++] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.arrynBoots), 1, 1, 10);
 		WESTEROS_W[i++] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.ironCrossbow), 1, 1, 10);
 		WESTEROS_W[i++] = new WeightedRandomChestContent(new ItemStack(Items.leather), 1, 4, 100);
@@ -149,7 +150,6 @@ public class GOTChestContents {
 		WESTEROS_W[i++] = new WeightedRandomChestContent(new ItemStack(Items.bow), 1, 1, 25);
 		WESTEROS_W[i++] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.westerosBow), 1, 1, 25);
 		WESTEROS_W[i++] = new WeightedRandomChestContent(new ItemStack(Items.arrow), 2, 8, 100);
-
 		i = 0;
 
 		ESSOS_W[i++] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.braavosHelmet), 1, 1, 10);
@@ -907,6 +907,8 @@ public class GOTChestContents {
 		WESTERLANDS_W[2] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.westerlandsLeggings), 1, 1, 25);
 		WESTERLANDS_W[3] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.westerlandsBoots), 1, 1, 25);
 		WESTERLANDS = new GOTChestContents(4, 6, WESTERLANDS_W).enablePouches().setDrinkVessels(GOTFoods.WESTEROS_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
+
+		GIFT = new GOTChestContents(4, 6, GIFT_W).enablePouches().setDrinkVessels(GOTFoods.WESTEROS_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
 
 		BRAAVOS_W[0] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.braavosHelmet), 1, 1, 25);
 		BRAAVOS_W[1] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.braavosChestplate), 1, 1, 25);

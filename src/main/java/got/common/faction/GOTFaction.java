@@ -595,8 +595,6 @@ public enum GOTFaction {
 		GOTFactionRelations.setRelations(STORMLANDS, CROWNLANDS, GOTFactionRelations.Relation.ENEMY);
 		GOTFactionRelations.setRelations(STORMLANDS, DRAGONSTONE, GOTFactionRelations.Relation.ENEMY);
 		GOTFactionRelations.setRelations(STORMLANDS, REACH, GOTFactionRelations.Relation.ALLY);
-		GOTFactionRelations.setRelations(WESTERLANDS, REACH, GOTFactionRelations.Relation.FRIEND);
-		GOTFactionRelations.setRelations(CROWNLANDS, REACH, GOTFactionRelations.Relation.FRIEND);
 		GOTFactionRelations.setRelations(STORMLANDS, WESTERLANDS, GOTFactionRelations.Relation.ENEMY);
 		GOTFactionRelations.setRelations(SUMMER_ISLANDS, CROWNLANDS, GOTFactionRelations.Relation.FRIEND);
 		GOTFactionRelations.setRelations(SUMMER_ISLANDS, DORNE, GOTFactionRelations.Relation.FRIEND);
@@ -621,6 +619,7 @@ public enum GOTFaction {
 		GOTFactionRelations.setRelations(VOLANTIS, TYROSH, GOTFactionRelations.Relation.ENEMY);
 		GOTFactionRelations.setRelations(VOLANTIS, DORNE, GOTFactionRelations.Relation.ENEMY);
 		GOTFactionRelations.setRelations(YI_TI, IBBEN, GOTFactionRelations.Relation.FRIEND);
+		HOSTILE.approvesWarCrimes = true;
 		ARRYN.addControlZone(new GOTControlZone(851, 1335, 191));
 		ASSHAI.addControlZone(new GOTControlZone(3264, 2433, 611));
 		ASSHAI.addControlZone(new GOTControlZone(4550, 2102, 1122));

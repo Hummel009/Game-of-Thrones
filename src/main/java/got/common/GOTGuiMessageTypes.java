@@ -3,7 +3,7 @@ package got.common;
 import net.minecraft.util.StatCollector;
 
 public enum GOTGuiMessageTypes {
-	FRIENDLY_FIRE("friendlyFire");
+	ENCHANTING("enchanting"), FRIENDLY_FIRE("friendlyFire");
 
 	public String messageName;
 

@@ -14,6 +14,7 @@ import cpw.mods.fml.common.eventhandler.*;
 import cpw.mods.fml.common.gameevent.PlayerEvent.*;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
 import got.GOT;
 import got.common.block.GOTVanillaSaplings;
 import got.common.block.other.*;
@@ -22,8 +23,11 @@ import got.common.block.table.GOTBlockCraftingTable;
 import got.common.database.*;
 import got.common.enchant.*;
 import got.common.entity.animal.*;
+import got.common.entity.dragon.*;
 import got.common.entity.essos.GOTEntityStoneMan;
 import got.common.entity.essos.asshai.GOTEntityAsshaiMan;
+import got.common.entity.essos.ghiscar.GOTEntityGhiscarHarpy;
+import got.common.entity.essos.mossovy.GOTEntityMarshWraith;
 import got.common.entity.essos.yiti.GOTEntityYiTiBombardier;
 import got.common.entity.other.*;
 import got.common.entity.westeros.reach.GOTEntityReachSoldier;
@@ -38,9 +42,9 @@ import got.common.util.*;
 import got.common.world.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.essos.*;
-import got.common.world.biome.ulthos.GOTBiomeUlthosDesert;
+import got.common.world.biome.sothoryos.*;
+import got.common.world.biome.ulthos.GOTBiomeUlthos;
 import got.common.world.biome.variant.GOTBiomeVariantStorage;
-import got.common.world.biome.westeros.*;
 import integrator.NEIGOTIntegratorConfig;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
@@ -68,7 +72,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.event.*;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.*;
-import net.minecraftforge.event.entity.minecart.MinecartInteractEvent;
+import net.minecraftforge.event.entity.minecart.*;
 import net.minecraftforge.event.entity.player.*;
 import net.minecraftforge.event.entity.player.PlayerEvent.*;
 import net.minecraftforge.event.terraingen.SaplingGrowTreeEvent;
@@ -231,6 +235,8 @@ public class GOTEventHandler implements IFuelHandler {
 					world.markBlockForUpdate(i, j - 1, k);
 					world.markBlockForUpdate(i, j, k);
 					world.markBlockForUpdate(i, j + 1, k);
+				} else if (block instanceof GOTBlockPlate && GOTBlockPlate.getFoodItem(world, i, j, k) != null) {
+					world.markBlockForUpdate(i, j, k);
 				}
 				return;
 			}
@@ -352,6 +358,11 @@ public class GOTEventHandler implements IFuelHandler {
 				event.setCanceled(true);
 				return;
 			}
+			if (block == Blocks.enchanting_table && !GOTConfig.isEnchantingEnabled(world) && !world.isRemote) {
+				GOTLevelData.getData(entityplayer).sendMessageIfNotReceived(GOTGuiMessageTypes.ENCHANTING);
+				event.setCanceled(true);
+				return;
+			}
 			if (block == Blocks.anvil && (GOTConfig.isGOTEnchantingEnabled(world) || !GOTConfig.isEnchantingEnabled(world)) && !world.isRemote) {
 				entityplayer.openGui(GOT.instance, 53, world, i, j, k);
 				event.setCanceled(true);
@@ -456,22 +467,22 @@ public class GOTEventHandler implements IFuelHandler {
 		EntityPlayer entityplayer = event.player;
 		ItemStack itemstack = event.crafting;
 		if (!entityplayer.worldObj.isRemote) {
+			if (itemstack.getItem() == Items.saddle) {
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftSaddle);
+			}
+			if (itemstack.getItem() == GOTRegistry.bronzeIngot) {
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftBronze);
+			}
 			if (itemstack.getItem() == Item.getItemFromBlock(GOTRegistry.bomb)) {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftBomb);
 			}
 			if (itemstack.getItem() == Item.getItemFromBlock(GOTRegistry.wildFireJar)) {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftWildFire);
 			}
-			if (itemstack.getItem() == Items.saddle) {
-				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftSaddle);
-			}
 			for (GOTEnumDyeColor color : GOTEnumDyeColor.values()) {
 				if (itemstack.getItem() == Item.getItemFromBlock(GOTRegistry.concretePowder.get(color))) {
 					GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.getConcrete);
 				}
-			}
-			if (itemstack.getItem() == GOTRegistry.bronzeIngot) {
-				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftBronze);
 			}
 		}
 	}
@@ -596,9 +607,13 @@ public class GOTEventHandler implements IFuelHandler {
 						chatComponentText.getChatStyle().setColor(EnumChatFormatting.GREEN);
 						entityplayer.addChatMessage(chatComponentText);
 						event.setCanceled(true);
+						return;
 					}
 				}
 			}
+		}
+		if (entity instanceof EntityVillager && !GOTConfig.enableVillagerTrading) {
+			event.setCanceled(true);
 		}
 	}
 
@@ -606,7 +621,7 @@ public class GOTEventHandler implements IFuelHandler {
 	public void onEntityJoinWorld(EntityJoinWorldEvent event) {
 		Entity entity = event.entity;
 		World world = entity.worldObj;
-		if (!world.isRemote && entity instanceof net.minecraft.entity.item.EntityXPOrb && !GOTConfig.enchantingVanilla && world.provider instanceof GOTWorldProvider) {
+		if (!world.isRemote && entity instanceof EntityXPOrb && !GOTConfig.enchantingVanilla && world.provider instanceof GOTWorldProvider) {
 			event.setCanceled(true);
 			return;
 		}
@@ -773,22 +788,18 @@ public class GOTEventHandler implements IFuelHandler {
 		if (attacker instanceof EntityCreature && !GOT.canNPCAttackEntity((EntityCreature) attacker, entity, false)) {
 			cancelAttackEvent(event);
 		}
-		if (event.source instanceof EntityDamageSourceIndirect) {
+		if (event.source instanceof net.minecraft.util.EntityDamageSourceIndirect) {
 			Entity projectile = event.source.getSourceOfDamage();
 			if (projectile instanceof EntityArrow || projectile instanceof GOTEntityCrossbowBolt || projectile instanceof GOTEntityDart) {
-				boolean isLegendaryArmor = true;
+				boolean wearingAllRoyce = true;
 				for (int i = 0; i < 4; i++) {
 					ItemStack armour = entity.getEquipmentInSlot(i + 1);
 					if (armour == null || !(armour.getItem() instanceof ItemArmor) || ((ItemArmor) armour.getItem()).getArmorMaterial() != GOTMaterial.ROYCE) {
-						isLegendaryArmor = false;
+						wearingAllRoyce = false;
 						break;
 					}
 				}
-				ItemStack armour = entity.getEquipmentInSlot(3);
-				if (armour != null && armour.getItem() instanceof ItemArmor && ((ItemArmor) armour.getItem()).getArmorMaterial() == GOTMaterial.BLACKSKIN) {
-					isLegendaryArmor = true;
-				}
-				if (isLegendaryArmor) {
+				if (wearingAllRoyce) {
 					if (!world.isRemote && entity instanceof EntityPlayer) {
 						((EntityPlayer) entity).inventory.damageArmor(event.ammount);
 					}
@@ -849,11 +860,7 @@ public class GOTEventHandler implements IFuelHandler {
 					GOTEntityNPC npc = (GOTEntityNPC) entity;
 					alignmentBonus = new GOTAlignmentValues.AlignmentBonus(npc.getAlignmentBonus(), npc.getEntityClassName());
 					alignmentBonus.needsTranslation = true;
-					alignmentBonus.isCivilianKill = npc.isCivilianNPC() && !npc.isLegendaryNPC();
-					alignmentBonus.isRoyalOrder = npc.isRoyalOrder;
-					alignmentBonus.faction = npc.getFaction();
-				}
-				if (creditHiredUnit || wasSelfDefenceAgainstAlliedUnit) {
+					alignmentBonus.isCivilianKill = npc.isCivilianNPC();
 				}
 				if (alignmentBonus != null && alignmentBonus.bonus != 0.0F) {
 					if (!creditHiredUnit || creditHiredUnit && byNearbyUnit) {
@@ -962,7 +969,7 @@ public class GOTEventHandler implements IFuelHandler {
 					if (attackingPlayer.isPotionActive(Potion.confusion.id)) {
 						GOTLevelData.getData(attackingPlayer).addAchievement(GOTAchievement.killWhileDrunk);
 					}
-					if (entity instanceof GOTEntityYiTiBombardier) {
+					if (entity instanceof GOTEntityYiTiBombardier && ((GOTEntityYiTiBombardier) entity).npcItemsInv.getBomb() != null) {
 						GOTLevelData.getData(attackingPlayer).addAchievement(GOTAchievement.killBombardier);
 					}
 					if (source.getSourceOfDamage() instanceof GOTEntityCrossbowBolt) {
@@ -1000,21 +1007,6 @@ public class GOTEventHandler implements IFuelHandler {
 				} else {
 					entity.dropItem(GOTRegistry.muttonRaw, 1);
 				}
-			}
-		}
-	}
-
-	@SubscribeEvent
-	public void onLivingHeal(LivingHealEvent event) {
-		EntityLivingBase entity = event.entityLiving;
-		World world = entity.worldObj;
-		if (!world.isRemote && entity instanceof EntityPlayer && !((EntityPlayer) entity).capabilities.isCreativeMode && entity.isEntityAlive()) {
-			int i = MathHelper.floor_double(entity.posX);
-			int j = MathHelper.floor_double(entity.boundingBox.minY);
-			int k2 = MathHelper.floor_double(entity.posZ);
-			BiomeGenBase biomeGenBase = world.getBiomeGenForCoords(i, k2);
-			if (biomeGenBase instanceof GOTBiome && (biomeGenBase instanceof GOTBiomeAlwaysWinter || GOTDate.AegonCalendar.getSeason() == GOTDate.Season.WINTER && (!(biomeGenBase instanceof GOTBiome) || !((GOTBiome) biomeGenBase).isNeverWinter) && world.isRaining() || entity.posY > 150.0) && (world.canBlockSeeTheSky(i, j, k2) || entity.isInWater()) && world.getSavedLightValue(EnumSkyBlock.Block, i, j, k2) < 10) {
-				event.amount *= 0.3f;
 			}
 		}
 	}
@@ -1117,23 +1109,161 @@ public class GOTEventHandler implements IFuelHandler {
 				}
 			}
 		}
-		if (!world.isRemote && entity.isEntityAlive() && entity.isInWater() && entity.ridingEntity == null && entity.ticksExisted % 10 == 0) {
+		boolean inWater = entity.isInWater();
+		if (!world.isRemote && GOT.canSpawnMobs(world) && entity.isEntityAlive() && inWater && entity.ridingEntity == null) {
 			boolean flag = true;
 			if (entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode) {
 				flag = false;
 			}
-			if (entity instanceof GOTEntityUlthosSpider || entity instanceof GOTEntityStoneMan || entity instanceof GOTEntityAsshaiMan) {
+			if (entity instanceof EntityWaterMob || entity instanceof GOTEntityMarshWraith) {
 				flag = false;
 			}
-			BiomeGenBase biome = world.getBiomeGenForCoords(MathHelper.floor_double(entity.posX), MathHelper.floor_double(entity.posZ));
 			if (flag) {
-				if (biome instanceof GOTBiomeShadowLand) {
+				int i = MathHelper.floor_double(entity.posX);
+				int k = MathHelper.floor_double(entity.posZ);
+				int j = world.getTopSolidOrLiquidBlock(i, k);
+				while (world.getBlock(i, j + 1, k).getMaterial().isLiquid() || world.getBlock(i, j + 1, k).getMaterial().isSolid()) {
+					j++;
+				}
+				if (j - entity.boundingBox.minY < 2.0D && world.getBlock(i, j, k).getMaterial() == Material.water && world.getBiomeGenForCoords(i, k) instanceof GOTBiomeMossovyMarshes) {
+					List<GOTEntityMarshWraith> nearbyWraiths = world.getEntitiesWithinAABB(GOTEntityMarshWraith.class, entity.boundingBox.expand(15.0D, 15.0D, 15.0D));
+					boolean anyNearbyWraiths = false;
+					for (GOTEntityMarshWraith wraith : nearbyWraiths) {
+						if (wraith.getAttackTarget() == entity && wraith.getDeathFadeTime() == 0) {
+							anyNearbyWraiths = true;
+							break;
+						}
+					}
+					if (!anyNearbyWraiths) {
+						GOTEntityMarshWraith wraith = new GOTEntityMarshWraith(world);
+						int i1 = i + MathHelper.getRandomIntegerInRange(world.rand, -3, 3);
+						int k1 = k + MathHelper.getRandomIntegerInRange(world.rand, -3, 3);
+						int j1 = world.getTopSolidOrLiquidBlock(i1, k1);
+						wraith.setLocationAndAngles(i1 + 0.5D, j1, k1 + 0.5D, world.rand.nextFloat() * 360.0F, 0.0F);
+						if (wraith.getDistanceSqToEntity(entity) <= 144.0D) {
+							world.spawnEntityInWorld(wraith);
+							wraith.setAttackTarget(entity);
+							wraith.attackTargetUUID = entity.getUniqueID();
+							world.playSoundAtEntity(wraith, "got:wraith.spawn", 1.0F, 0.7F + world.rand.nextFloat() * 0.6F);
+						}
+					}
+				}
+			}
+		}
+		if (!world.isRemote && GOT.canSpawnMobs(world) && entity.isEntityAlive() && world.isDaytime()) {
+			float f = 0.0F;
+			int bounders = 0;
+			if (GOTFaction.GHISCAR.isBadRelation(GOT.getNPCFaction(entity))) {
+				float health = entity.getMaxHealth() + entity.getTotalArmorValue();
+				f = health * 2.5F;
+				int i = (int) (health / 15.0F);
+				bounders = 2 + world.rand.nextInt(i + 1);
+			} else if (entity instanceof EntityPlayer) {
+				EntityPlayer entityplayer = (EntityPlayer) entity;
+				float alignment = GOTLevelData.getData(entityplayer).getAlignment(GOTFaction.GHISCAR);
+				if (!entityplayer.capabilities.isCreativeMode && alignment < 0.0F) {
+					f = -alignment;
+					int i = (int) (f / 50.0F);
+					bounders = 2 + world.rand.nextInt(i + 1);
+				}
+			}
+			if (f > 0.0F) {
+				f = Math.min(f, 2000.0F);
+				int chance = (int) (2000000.0F / f);
+				bounders = Math.min(bounders, 5);
+				int i = MathHelper.floor_double(entity.posX);
+				int k = MathHelper.floor_double(entity.posZ);
+				world.getTopSolidOrLiquidBlock(i, k);
+				if (world.rand.nextInt(chance) == 0 && world.getBiomeGenForCoords(i, k) instanceof GOTBiomeMeereen) {
+					List nearbyBounders = world.getEntitiesWithinAABB(GOTEntityGhiscarHarpy.class, entity.boundingBox.expand(12.0D, 6.0D, 12.0D));
+					if (nearbyBounders.isEmpty()) {
+						boolean sentMessage = false;
+						boolean playedHorn = false;
+						for (int l = 0; l < bounders; l++) {
+							GOTEntityGhiscarHarpy bounder = new GOTEntityGhiscarHarpy(world);
+							for (int l1 = 0; l1 < 32; l1++) {
+								int i1 = i - world.rand.nextInt(12) + world.rand.nextInt(12);
+								int k1 = k - world.rand.nextInt(12) + world.rand.nextInt(12);
+								int j1 = world.getTopSolidOrLiquidBlock(i1, k1);
+								if (world.getBlock(i1, j1 - 1, k1).isSideSolid(world, i1, j1 - 1, k1, ForgeDirection.UP) && !world.getBlock(i1, j1, k1).isNormalCube() && !world.getBlock(i1, j1 + 1, k1).isNormalCube()) {
+									bounder.setLocationAndAngles(i1 + 0.5D, j1, k1 + 0.5D, 0.0F, 0.0F);
+									if (bounder.getCanSpawnHere() && entity.getDistanceToEntity(bounder) > 6.0D) {
+										bounder.onSpawnWithEgg(null);
+										world.spawnEntityInWorld(bounder);
+										bounder.setAttackTarget(entity);
+										if (!sentMessage && entity instanceof EntityPlayer) {
+											EntityPlayer entityplayer = (EntityPlayer) entity;
+											bounder.sendSpeechBank(entityplayer, bounder.getSpeechBank(entityplayer));
+											sentMessage = true;
+										}
+										if (!playedHorn) {
+											world.playSoundAtEntity(bounder, "got:item.horn", 2.0F, 2.0F);
+											playedHorn = true;
+										}
+										break;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		if (!world.isRemote && entity.isEntityAlive() && inWater && entity.ridingEntity == null && entity.ticksExisted % 10 == 0) {
+			boolean flag = false;
+			if (entity instanceof EntityPlayer || entity instanceof GOTEntityHumanBase) {
+				flag = true;
+			}
+			if (entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode) {
+				flag = false;
+			}
+			if (entity instanceof GOTEntityAsshaiMan || entity instanceof GOTEntityUlthosSpider || entity instanceof GOTEntityStoneMan) {
+				flag = false;
+			}
+			if (flag) {
+				int i = MathHelper.floor_double(entity.posX);
+				int k = MathHelper.floor_double(entity.posZ);
+				BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
+				if (biome instanceof GOTBiomeShadowLand || biome instanceof GOTBiomeUlthos) {
+					entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 600, 1));
+					entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 600));
+					entity.addPotionEffect(new PotionEffect(Potion.blindness.id, 600));
+				}
+				if (biome instanceof GOTBiomeValyria) {
+					entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 600, 1));
+					entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 600));
+					entity.addPotionEffect(new PotionEffect(Potion.wither.id, 600));
+				}
+			}
+		}
+		if (!world.isRemote && entity.isEntityAlive() && entity.ticksExisted % 10 == 0) {
+			boolean flag = false;
+			if (entity instanceof EntityPlayer || entity instanceof GOTEntityHumanBase) {
+				flag = true;
+			}
+			if (entity instanceof EntityPlayer) {
+				EntityPlayer entityplayer = (EntityPlayer) entity;
+				if (entityplayer.capabilities.isCreativeMode) {
+					flag = false;
+				} else {
+					float alignment = GOTLevelData.getData(entityplayer).getAlignment(GOTFaction.SOTHORYOS);
+					if (alignment > 50.0F) {
+						flag = false;
+					}
+				}
+			}
+			if (GOT.getNPCFaction(entity).isGoodRelation(GOTFaction.SOTHORYOS)) {
+				flag = false;
+			}
+			if (flag) {
+				int i = MathHelper.floor_double(entity.posX);
+				int k = MathHelper.floor_double(entity.posZ);
+				BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
+				if (biome instanceof GOTBiomeSothoryosHell || biome instanceof GOTBiomeYeen) {
 					entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 600, 1));
 					entity.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 600, 1));
 					entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 600));
-					entity.addPotionEffect(new PotionEffect(Potion.blindness.id, 600));
-				} else if (biome instanceof GOTBiomeValyria || biome instanceof GOTBiomeValyriaSea || biome instanceof GOTBiomeValyriaVolcano) {
-					entity.addPotionEffect(new PotionEffect(Potion.wither.id, 600));
+					entity.addPotionEffect(new PotionEffect(Potion.poison.id, 100));
 				}
 			}
 		}
@@ -1156,7 +1286,7 @@ public class GOTEventHandler implements IFuelHandler {
 		}
 		if (!world.isRemote && entity.isEntityAlive() && entity.ticksExisted % 20 == 0) {
 			boolean flag = true;
-			if (entity instanceof GOTBiome.ImmuneToFrost || entity instanceof EntitySheep || entity instanceof EntityHorse || entity instanceof EntitySquid || entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).isImmuneToFrost) {
+			if (entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).isImmuneToFrost || entity instanceof GOTBiome.ImmuneToFrost) {
 				flag = false;
 			}
 			if (entity instanceof EntityPlayer) {
@@ -1165,38 +1295,30 @@ public class GOTEventHandler implements IFuelHandler {
 			if (flag) {
 				int i = MathHelper.floor_double(entity.posX);
 				int j = MathHelper.floor_double(entity.boundingBox.minY);
-				int k2 = MathHelper.floor_double(entity.posZ);
-				BiomeGenBase biome = world.getBiomeGenForCoords(i, k2);
-				if ((biome.temperature == 0.0F || biome instanceof GOTBiome && ((GOTBiome) biome).isAltitudeZone && j >= 140) && (world.canBlockSeeTheSky(i, j, k2) || entity.isInWater()) && world.getSavedLightValue(EnumSkyBlock.Block, i, j, k2) < 10) {
-					int frostProtection = 50;
-					for (int l1 = 1; l1 < 4; ++l1) {
-						ItemStack armor = entity.getEquipmentInSlot(l1);
+				int k = MathHelper.floor_double(entity.posZ);
+				BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
+				if ((biome.temperature == 0.0F || biome instanceof GOTBiome && ((GOTBiome) biome).isAltitudeZone && j >= 140) && (world.canBlockSeeTheSky(i, j, k) || entity.isInWater()) && world.getSavedLightValue(EnumSkyBlock.Block, i, j, k) < 10) {
+					int frostChance = 50;
+					int frostProtection = 0;
+					for (int l = 0; l < 4; l++) {
+						ItemStack armor = entity.getEquipmentInSlot(l + 1);
 						if (armor != null && armor.getItem() instanceof ItemArmor) {
-							ItemArmor.ArmorMaterial armorMaterial = ((ItemArmor) armor.getItem()).getArmorMaterial();
-							Item material = armorMaterial.func_151685_b();
-							if (material == Items.leather) {
-								frostProtection += 50;
-							} else if (material == GOTRegistry.fur || material == GOTRegistry.iceShard || armorMaterial == GOTMaterial.NORTH || armorMaterial == GOTMaterial.REDKING) {
-								frostProtection += 100;
-							} else if (armorMaterial == GOTMaterial.GIFT) {
-								frostProtection += 50;
+							ItemArmor.ArmorMaterial material = ((ItemArmor) armor.getItem()).getArmorMaterial();
+							if (material == GOTMaterial.FUR || material == GOTMaterial.GIFT) {
+								frostProtection += 400;
 							}
 						}
 					}
+					frostChance += frostProtection;
 					if (world.isRaining()) {
-						frostProtection /= 3;
+						frostChance /= 3;
 					}
-					if (entity.isInWater()) {
-						frostProtection /= 20;
+					if (inWater) {
+						frostChance /= 20;
 					}
-					if (biome instanceof GOTBiomeAlwaysWinter) {
-						frostProtection /= 5;
-					}
-					if (world.rand.nextInt(frostProtection = Math.max(frostProtection, 1)) == 0) {
-						entity.attackEntityFrom(GOTDamage.frost, 1.0f);
-					}
-					if (world.rand.nextInt(frostProtection) == 0) {
-						entity.attackEntityFrom(GOTDamage.frost, 1.0f);
+					frostChance = Math.max(frostChance, 1);
+					if (world.rand.nextInt(frostChance) == 0) {
+						entity.attackEntityFrom(GOTDamage.frost, 1.0F);
 					}
 				}
 			}
@@ -1210,28 +1332,29 @@ public class GOTEventHandler implements IFuelHandler {
 				flag = !((EntityPlayer) entity).capabilities.isCreativeMode;
 			}
 			if (flag) {
-				int i2 = MathHelper.floor_double(entity.posX);
-				int j1 = MathHelper.floor_double(entity.boundingBox.minY);
-				int k21 = MathHelper.floor_double(entity.posZ);
-				BiomeGenBase biome = world.getBiomeGenForCoords(i2, k21);
-				if ((biome instanceof GOTBiomeDorneDesert || biome instanceof GOTBiomeJogosNhaiDesert || biome instanceof GOTBiomeQarthDesert || biome instanceof GOTBiomeUlthosDesert) && !entity.isInWater() && world.canBlockSeeTheSky(i2, j1, k21) && world.isDaytime()) {
+				int i = MathHelper.floor_double(entity.posX);
+				int j = MathHelper.floor_double(entity.boundingBox.minY);
+				int k = MathHelper.floor_double(entity.posZ);
+				BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
+				if (biome instanceof GOTBiome.Desert && !inWater && world.canBlockSeeTheSky(i, j, k) && world.isDaytime()) {
 					int burnChance = 50;
 					int burnProtection = 0;
-					for (int l1 = 0; l1 < 4; ++l1) {
-						ItemStack armour = entity.getEquipmentInSlot(l1 + 1);
+					for (int l = 0; l < 4; l++) {
+						ItemStack armour = entity.getEquipmentInSlot(l + 1);
 						if (armour != null && armour.getItem() instanceof ItemArmor) {
 							ItemArmor.ArmorMaterial material = ((ItemArmor) armour.getItem()).getArmorMaterial();
-							if (material.customCraftingMaterial == Items.leather) {
-								burnProtection += 50;
-							}
-							if (material == GOTMaterial.ROBES && material == GOTMaterial.DORNE) {
+							if (material == GOTMaterial.ROBES) {
 								burnProtection += 400;
 							}
 						}
 					}
 					burnChance += burnProtection;
-					if (world.rand.nextInt(burnChance = Math.max(burnChance, 1)) == 0 && entity.attackEntityFrom(DamageSource.onFire, 1.0f) && entity instanceof EntityPlayerMP) {
-						GOTDamage.doBurnDamage((EntityPlayerMP) entity);
+					burnChance = Math.max(burnChance, 1);
+					if (world.rand.nextInt(burnChance) == 0) {
+						boolean attacked = entity.attackEntityFrom(DamageSource.onFire, 1.0F);
+						if (attacked && entity instanceof EntityPlayerMP) {
+							GOTDamage.doBurnDamage((EntityPlayerMP) entity);
+						}
 					}
 				}
 			}
@@ -1257,6 +1380,10 @@ public class GOTEventHandler implements IFuelHandler {
 	}
 
 	@SubscribeEvent
+	public void onMinecartUpdate(MinecartUpdateEvent event) {
+	}
+
+	@SubscribeEvent
 	public void onPlayerChangedDimension(PlayerChangedDimensionEvent event) {
 		EntityPlayer entityplayer = event.player;
 		if (!entityplayer.worldObj.isRemote) {
@@ -1265,6 +1392,26 @@ public class GOTEventHandler implements IFuelHandler {
 			GOTLevelData.sendShieldToAllPlayersInWorld(entityplayer, entityplayer.worldObj);
 			GOTLevelData.sendAllShieldsInWorldToPlayer(entityplayer, entityplayer.worldObj);
 		}
+	}
+
+	@SubscribeEvent
+	public void onPlayerInteract(PlayerInteractEvent evt) {
+		if (FMLCommonHandler.instance().getEffectiveSide() != Side.SERVER || evt.action != PlayerInteractEvent.Action.RIGHT_CLICK_BLOCK) {
+			return;
+		}
+		World world = evt.entity.worldObj;
+		Block block = world.getBlock(evt.x, evt.y, evt.z);
+		if (block != Blocks.dragon_egg) {
+			return;
+		}
+		evt.useBlock = PlayerInteractEvent.Result.DENY;
+		evt.useItem = PlayerInteractEvent.Result.DENY;
+		world.setBlock(evt.x, evt.y, evt.z, Blocks.air);
+		GOTEntityDragon dragon = new GOTEntityDragon(world);
+		dragon.setPosition(evt.x + 0.5, evt.y + 0.5, evt.z + 0.5);
+		dragon.getReproductionHelper().setBreederName(evt.entityPlayer.getCommandSenderName());
+		dragon.getLifeStageHelper().setLifeStage(GOTDragonLifeStage.EGG);
+		world.spawnEntityInWorld(dragon);
 	}
 
 	@SubscribeEvent
@@ -1301,18 +1448,18 @@ public class GOTEventHandler implements IFuelHandler {
 			WorldServer worldserver = (WorldServer) world;
 			ChunkCoordinates deathPoint = GOTLevelData.getData(entityplayermp).getDeathPoint();
 			int deathDimension = GOTLevelData.getData(entityplayermp).getDeathDimension();
-			if (deathDimension == GOTDimension.GAME_OF_THRONES.dimensionID && GOTConfig.GOTRespawning) {
+			if (deathDimension == GOTDimension.GAME_OF_THRONES.dimensionID && GOTConfig.knownWorldRespawning) {
 				ChunkCoordinates bedLocation = entityplayermp.getBedLocation(entityplayermp.dimension);
 				boolean hasBed = bedLocation != null;
 				if (hasBed) {
 					hasBed = EntityPlayer.verifyRespawnCoordinates(worldserver, bedLocation, entityplayermp.isSpawnForced(entityplayermp.dimension)) != null;
 				}
 				ChunkCoordinates spawnLocation = hasBed ? bedLocation : worldserver.getSpawnPoint();
-				double respawnThreshold = hasBed ? GOTConfig.GOTBedRespawnThreshold : GOTConfig.GOTWorldRespawnThreshold;
+				double respawnThreshold = hasBed ? GOTConfig.KWRBedRespawnThreshold : GOTConfig.KWRWorldRespawnThreshold;
 				if (deathPoint != null) {
 					boolean flag = deathPoint.getDistanceSquaredToChunkCoordinates(spawnLocation) > respawnThreshold * respawnThreshold;
 					if (flag) {
-						double randomDistance = MathHelper.getRandomIntegerInRange(worldserver.rand, GOTConfig.GOTMinRespawn, GOTConfig.GOTMaxRespawn);
+						double randomDistance = MathHelper.getRandomIntegerInRange(worldserver.rand, GOTConfig.KWRMinRespawn, GOTConfig.KWRMaxRespawn);
 						float angle = worldserver.rand.nextFloat() * 3.1415927F * 2.0F;
 						int i = deathPoint.posX + (int) (randomDistance * MathHelper.sin(angle));
 						int k = deathPoint.posZ + (int) (randomDistance * MathHelper.cos(angle));
@@ -1379,18 +1526,18 @@ public class GOTEventHandler implements IFuelHandler {
 		if (GOTConfig.enableTitles) {
 			GOTTitle.PlayerTitle playerTitle = GOTLevelData.getData(entityplayer).getPlayerTitle();
 			if (playerTitle != null) {
-				ArrayList<Object> newFormatArgs = new ArrayList<>();
+				ArrayList<Object> newFormatArgs = new ArrayList();
 				for (Object arg : chatComponent.getFormatArgs()) {
 					if (arg instanceof ChatComponentText) {
 						ChatComponentText componentText = (ChatComponentText) arg;
 						if (componentText.getUnformattedText().contains(username)) {
-							ChatComponentText usernameComponent = componentText;
+							ChatComponentText chatComponentText = componentText;
 							IChatComponent titleComponent = playerTitle.getFullTitleComponent(entityplayer);
-							IChatComponent fullUsernameComponent = new ChatComponentText("").appendSibling(titleComponent).appendSibling(usernameComponent);
+							IChatComponent fullUsernameComponent = new ChatComponentText("").appendSibling(titleComponent).appendSibling(chatComponentText);
 							newFormatArgs.add(fullUsernameComponent);
-							continue;
+						} else {
+							newFormatArgs.add(componentText);
 						}
-						newFormatArgs.add(componentText);
 					} else {
 						newFormatArgs.add(arg);
 					}
@@ -1415,8 +1562,20 @@ public class GOTEventHandler implements IFuelHandler {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftBronze);
 			}
 			if (itemstack.getItem() == GOTRegistry.copperIngot) {
-				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.getCopper);
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftCopper);
 			}
+		}
+	}
+
+	@SubscribeEvent
+	public void onStartTracking(PlayerEvent.StartTracking event) {
+		GOTEntityCart target;
+		if (event.target instanceof GOTEntityCart && (target = (GOTEntityCart) event.target).getPulling() != null) {
+			GOTPacketHandler.networkWrapper.sendTo((IMessage) new GOTPacketCargocartUpdate(target.getPulling().getEntityId(), target.getEntityId()), (EntityPlayerMP) event.entityPlayer);
+		}
+		if (event.target instanceof GOTEntityCargocart) {
+			target = (GOTEntityCargocart) event.target;
+			GOTPacketHandler.networkWrapper.sendTo((IMessage) new GOTPacketCargocart(((GOTEntityCargocart) target).getLoad(), target.getEntityId()), (EntityPlayerMP) event.entityPlayer);
 		}
 	}
 

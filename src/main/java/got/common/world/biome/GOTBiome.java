@@ -1285,6 +1285,9 @@ public abstract class GOTBiome extends BiomeGenBase {
 		}
 	}
 
+	public interface Desert {
+	}
+
 	public static class GrassBlockAndMeta {
 		public Block block;
 		public int meta;

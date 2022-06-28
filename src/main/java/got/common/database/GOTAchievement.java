@@ -149,7 +149,7 @@ public class GOTAchievement {
 	public static GOTAchievement freeman;
 	public static GOTAchievement gainHighAlcoholTolerance;
 	public static GOTAchievement getConcrete;
-	public static GOTAchievement getCopper;
+	public static GOTAchievement craftCopper;
 	public static GOTAchievement getDrunk;
 	public static GOTAchievement getPouch;
 	public static GOTAchievement growBaobab;
@@ -538,7 +538,7 @@ public class GOTAchievement {
 		gainHighAlcoholTolerance = new GOTAchievement(Category.GENERAL, id++, GOTRegistry.mugAle, "GAIN_HIGH_ALCOHOL_TOLERANCE");
 		craftBronze = new GOTAchievement(Category.GENERAL, id++, GOTRegistry.bronzeIngot, "GET_BRONZE");
 		getConcrete = new GOTAchievement(Category.GENERAL, id++, GOTRegistry.concretePowder.get(GOTEnumDyeColor.LIME), "GET_CONCRETE");
-		getCopper = new GOTAchievement(Category.GENERAL, id++, GOTRegistry.copperIngot, "GET_COPPER");
+		craftCopper = new GOTAchievement(Category.GENERAL, id++, GOTRegistry.copperIngot, "GET_COPPER");
 		getPouch = new GOTAchievement(Category.GENERAL, id++, GOTRegistry.pouch, "GET_POUCH");
 		hundreds = new GOTAchievement(Category.GENERAL, id++, GOTRegistry.gregorCleganeSword, "HUNDREDS");
 		hireGoldenCompany = new GOTAchievement(Category.GENERAL, id++, GOTRegistry.goldHelmet, "HIRE_GOLDEN_COMPANY");

@@ -700,7 +700,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public boolean isCivilianNPC() {
-		return !isTargetSeeker && !(this instanceof GOTUnitTradeable) && !(this instanceof GOTMercenary);
+		return !isLegendaryNPC && !isTargetSeeker && !(this instanceof GOTUnitTradeable) && !(this instanceof GOTMercenary);
 	}
 
 	public boolean isDrunkard() {
@@ -830,7 +830,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			if (hurtOnlyByPlates && damagesource.getSourceOfDamage() instanceof GOTEntityPlate) {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.killUsingOnlyPlates);
 			}
-			if (damagesource.getSourceOfDamage() instanceof GOTEntityPebble && ((GOTEntityPebble) damagesource.getSourceOfDamage()).isSling() && (width * width * height) > 5.0f) {
+			if (damagesource.getSourceOfDamage() instanceof GOTEntityPebble && ((GOTEntityPebble) damagesource.getSourceOfDamage()).isSling() && width * width * height > 5.0f) {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.killLargeMobWithSlingshot);
 			}
 			if (getKillAchievement() != null) {

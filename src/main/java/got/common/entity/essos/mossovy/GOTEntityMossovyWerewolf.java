@@ -3,8 +3,8 @@ package got.common.entity.essos.mossovy;
 import got.common.database.*;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.westeros.gift.GOTEntityGiftMan;
 import got.common.faction.GOTFaction;
+import got.common.item.GOTMaterialFinder;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
@@ -41,11 +41,8 @@ public class GOTEntityMossovyWerewolf extends GOTEntityNPC {
 	public boolean attackEntityFrom(DamageSource damagesource, float f) {
 		ItemStack itemstack;
 		Entity entity = damagesource.getEntity();
-		if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && (itemstack.getItem() == GOTRegistry.mossovySword || itemstack.getItem() == GOTRegistry.mossovyDagger)) {
-			return super.attackEntityFrom(damagesource, 100.0f);
-		}
-		if (damagesource.getEntity() instanceof GOTEntityGiftMan) {
-			return super.attackEntityFrom(damagesource, 100.0f);
+		if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && ((EntityLivingBase) entity).getHeldItem().getItem() instanceof GOTMaterialFinder && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.SILVER_TOOL || (GOTMaterialFinder) itemstack.getItem() == GOTRegistry.crowbar)) {
+			return super.attackEntityFrom(damagesource, f * 10);
 		}
 		return super.attackEntityFrom(damagesource, f);
 	}

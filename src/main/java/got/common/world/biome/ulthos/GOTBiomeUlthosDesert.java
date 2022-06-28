@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.*;
 
-public class GOTBiomeUlthosDesert extends GOTBiome {
+public class GOTBiomeUlthosDesert extends GOTBiome implements GOTBiome.Desert {
 	public GOTBiomeUlthosDesert(int i, boolean major) {
 		super(i, major);
 		setDisableRain();

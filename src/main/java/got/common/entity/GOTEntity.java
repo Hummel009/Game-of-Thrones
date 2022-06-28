@@ -114,6 +114,7 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityRedPriest.class, id++, 0x7c0a02);
 		GOTEntityRegistry.register(GOTEntityIronbornPriest.class, id++, GOTFaction.IRONBORN);
 		GOTEntityRegistry.register(GOTEntityBarrowWight.class, id++, 2896659);
+		GOTEntityRegistry.register(GOTEntityMarshWraith.class, id++, 10524036);
 		GOTEntityRegistry.register(GOTEntityStoneMan.class, id++, 0xBABABA);
 		GOTEntityRegistry.register(GOTEntityMercenary.class, id++, 0xBABABA);
 
@@ -955,6 +956,7 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityLingeringEffect.class, id++, 64, 1, true);
 		GOTEntityRegistry.register(GOTEntityCargocart.class, id++, 80, 20, false);
 		GOTEntityRegistry.register(GOTEntityPlowcart.class, id++, 80, 20, false);
+		GOTEntityRegistry.register(GOTEntityMarshWraithBall.class, id++, 64, 10, true);
 
 		GOTEntityRegistry.register(GOTEntityHummel009.class, id++);
 

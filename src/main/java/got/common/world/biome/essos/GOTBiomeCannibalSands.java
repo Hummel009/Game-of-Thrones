@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.*;
 
-public class GOTBiomeCannibalSands extends GOTBiome {
+public class GOTBiomeCannibalSands extends GOTBiome implements GOTBiome.Desert {
 	public static NoiseGeneratorPerlin noiseAridGrass = new NoiseGeneratorPerlin(new Random(62926025827260L), 1);
 	public NoiseGeneratorPerlin noiseQuicksand = new NoiseGeneratorPerlin(new Random(42956029606L), 1);
 	public NoiseGeneratorPerlin noiseQuicksand2 = new NoiseGeneratorPerlin(new Random(7185609602367L), 1);

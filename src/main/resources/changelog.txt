@@ -6,6 +6,7 @@ CHANGELOG
 + Added "kill player" type of quests
 + Added lots of achievements
 
+* Changed relation between Reach and Westerlands//Crownlands
 * Changed armor stats
 * Changed unpledge sound to amogus impostor sound
 * Changed some waypoint regions because of players' complaints. Essos wp can be unlocked in Kings Landing; Sothoryos - Ghiscar; Ulthos - Asshai; Ibben - Essos; Summer Islands - Sothoryos.
@@ -19,10 +20,13 @@ CHANGELOG
 * Improved Asshai City, improved a few Asshai structures
 * Improved Asshai landspcape
 * Improved tramp spawning
+* Improved sothoryos virus mechanics
 
 * Optimized client tick handler
 
 * Fixed 33 bugs with bottom table textures
+* Fixed bug with ban of vanilla enchanting
+* Fixed bug with hostile peaceful mobs
 * Fixed bug with furnace GUI
 * Fixed bug with wrong chest contents
 * Fixed bug with Loras Tyrell

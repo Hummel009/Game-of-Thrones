@@ -2,7 +2,7 @@ package got.client.render;
 
 import java.util.*;
 
-import got.client.effect.GOTEntityAlignmentBonus;
+import got.client.effect.*;
 import got.client.render.animal.*;
 import got.client.render.npc.*;
 import got.client.render.other.*;
@@ -397,5 +397,8 @@ public class GOTRender {
 		renders.put(GOTEntityWoolyRhino.class, new GOTRenderWoolyRhino());
 		renders.put(GOTEntityWyvern.class, new GOTRenderWyvern());
 		renders.put(GOTEntityZebra.class, new GOTRenderZebra());
+		renders.put(GOTEntityMarshWraith.class, new GOTRenderMarshWraith());
+		renders.put(GOTEntityMarshWraithBall.class, new GOTRenderWraithBall());
+		renders.put(GOTEntityDeadMarshFace.class, new GOTRenderDeadMarshFace());
 	}
 }

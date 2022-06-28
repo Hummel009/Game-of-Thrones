@@ -37,11 +37,11 @@ public class GOTConfig {
 	public static int bannerWarningCooldown;
 	public static boolean dropMutton;
 	public static boolean drunkMessages;
-	public static boolean GOTRespawning;
-	public static int GOTBedRespawnThreshold;
-	public static int GOTWorldRespawnThreshold;
-	public static int GOTMinRespawn;
-	public static int GOTMaxRespawn;
+	public static boolean knownWorldRespawning;
+	public static int KWRBedRespawnThreshold;
+	public static int KWRWorldRespawnThreshold;
+	public static int KWRMinRespawn;
+	public static int KWRMaxRespawn;
 	public static boolean generateMapFeatures;
 	public static boolean changedHunger;
 	public static boolean canAlwaysEat;
@@ -94,6 +94,7 @@ public class GOTConfig {
 	public static int MIN_PLAYER_DATA_CLEARING_INTERVAL = 600;
 	public static boolean enableFellowshipCreation;
 	public static boolean enableTitles;
+	public static boolean enableVillagerTrading;
 
 	static {
 		allCategories = new ArrayList<>();
@@ -181,13 +182,14 @@ public class GOTConfig {
 		bannerWarningCooldown = config.get(CATEGORY_GAMEPLAY, "Protection Warning Cooldown", 20, "Cooldown time (in ticks) between appearances of the warning message for banner-public land").getInt();
 		dropMutton = config.get(CATEGORY_GAMEPLAY, "Mutton Drops", true, "Enable or disable sheep dropping the mod's mutton items").getBoolean();
 		drunkMessages = config.get(CATEGORY_GAMEPLAY, "Enable Drunken Messages", true).getBoolean();
-		GOTRespawning = config.get(CATEGORY_GAMEPLAY, "Game of Thrones Respawning: Enable", true, "If enabled, when a player dies in Game of Thrones far from their spawn point, they will respawn somewhere near their death point instead").getBoolean();
-		GOTBedRespawnThreshold = config.get(CATEGORY_GAMEPLAY, "Game of Thrones Respawning: Bed Threshold", 5000, "Threshold distance from spawn for applying Game of Thrones Respawning when the player's spawn point is a bed").getInt();
-		GOTWorldRespawnThreshold = config.get(CATEGORY_GAMEPLAY, "Game of Thrones Respawning: World Threshold", 2000, "Threshold distance from spawn for applying Game of Thrones respawning when the player's spawn point is the world spawn (no bed)").getInt();
-		GOTMinRespawn = config.get(CATEGORY_GAMEPLAY, "Game of Thrones Respawning: Min Respawn Range", 500, "Minimum possible range to place the player from their death point").getInt();
-		GOTMaxRespawn = config.get(CATEGORY_GAMEPLAY, "Game of Thrones Respawning: Max Respawn Range", 1500, "Maximum possible range to place the player from their death point").getInt();
+		knownWorldRespawning = config.get(CATEGORY_GAMEPLAY, "Game of Thrones Respawning: Enable", true, "If enabled, when a player dies in Game of Thrones far from their spawn point, they will respawn somewhere near their death point instead").getBoolean();
+		KWRBedRespawnThreshold = config.get(CATEGORY_GAMEPLAY, "Game of Thrones Respawning: Bed Threshold", 5000, "Threshold distance from spawn for applying Game of Thrones Respawning when the player's spawn point is a bed").getInt();
+		KWRWorldRespawnThreshold = config.get(CATEGORY_GAMEPLAY, "Game of Thrones Respawning: World Threshold", 2000, "Threshold distance from spawn for applying Game of Thrones respawning when the player's spawn point is the world spawn (no bed)").getInt();
+		KWRMinRespawn = config.get(CATEGORY_GAMEPLAY, "Game of Thrones Respawning: Min Respawn Range", 500, "Minimum possible range to place the player from their death point").getInt();
+		KWRMaxRespawn = config.get(CATEGORY_GAMEPLAY, "Game of Thrones Respawning: Max Respawn Range", 1500, "Maximum possible range to place the player from their death point").getInt();
 		generateMapFeatures = config.get(CATEGORY_GAMEPLAY, "Generate map features", true).getBoolean();
 		changedHunger = config.get(CATEGORY_GAMEPLAY, "Hunger changes", true, "Food meter decreases more slowly").getBoolean();
+		enableVillagerTrading = config.get(CATEGORY_GAMEPLAY, "Enable Villager trading", true, "Intended for servers. Enable or disable vanilla villager trading").getBoolean();
 		canAlwaysEat = config.get(CATEGORY_GAMEPLAY, "Feast Mode", true, "Food can always be eaten regardless of hunger").getBoolean();
 		forceMapLocations = config.get(CATEGORY_GAMEPLAY, "Force Hide/Show Map Locations", 0, "Force hide or show players' map locations. 0 = per-player (default), 1 = force hide, 2 = force show").getInt();
 		enableInvasions = config.get(CATEGORY_GAMEPLAY, "Enable Invasions", true).getBoolean();
