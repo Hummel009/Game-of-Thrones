@@ -81,7 +81,7 @@ public class GOTPacketFellowship implements IMessage {
 		try {
 			iconData = new PacketBuffer(data).readNBTTagCompoundFromBuffer();
 		} catch (IOException e) {
-			FMLLog.severe("GOT: Error reading fellowship icon data");
+			FMLLog.severe("Hummel009: Error reading fellowship icon data");
 			e.printStackTrace();
 		}
 		fellowshipIcon = ItemStack.loadItemStackFromNBT(iconData);
@@ -131,7 +131,7 @@ public class GOTPacketFellowship implements IMessage {
 		try {
 			new PacketBuffer(data).writeNBTTagCompoundToBuffer(iconData);
 		} catch (IOException e) {
-			FMLLog.severe("GOT: Error writing fellowship icon data");
+			FMLLog.severe("Hummel009: Error writing fellowship icon data");
 			e.printStackTrace();
 		}
 		data.writeBoolean(isOwned);

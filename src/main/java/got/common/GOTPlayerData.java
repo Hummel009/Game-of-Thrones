@@ -398,11 +398,11 @@ public class GOTPlayerData {
 
 	public void addOrUpdateSharedCustomWaypoint(GOTCustomWaypoint waypoint) {
 		if (!waypoint.isShared()) {
-			FMLLog.warning("GOT: Warning! Tried to cache a shared custom waypoint with no owner!");
+			FMLLog.warning("Hummel009: Warning! Tried to cache a shared custom waypoint with no owner!");
 			return;
 		}
 		if (waypoint.getSharingPlayerID().equals(playerUUID)) {
-			FMLLog.warning("GOT: Warning! Tried to share a custom waypoint to its own player (%s)!", playerUUID.toString());
+			FMLLog.warning("Hummel009: Warning! Tried to share a custom waypoint to its own player (%s)!", playerUUID.toString());
 			return;
 		}
 		CWPSharedKey key = CWPSharedKey.keyFor(waypoint.getSharingPlayerID(), waypoint.getID());
@@ -1270,7 +1270,7 @@ public class GOTPlayerData {
 
 	public void hideOrUnhideSharedCustomWaypoint(GOTCustomWaypoint waypoint, boolean hide) {
 		if (!waypoint.isShared()) {
-			FMLLog.warning("GOT: Warning! Tried to unlock a shared custom waypoint with no owner!");
+			FMLLog.warning("Hummel009: Warning! Tried to unlock a shared custom waypoint with no owner!");
 			return;
 		}
 		waypoint.setSharedHidden(hide);
@@ -1956,7 +1956,7 @@ public class GOTPlayerData {
 
 	public void removeSharedCustomWaypoint(GOTCustomWaypoint waypoint) {
 		if (!waypoint.isShared()) {
-			FMLLog.warning("GOT: Warning! Tried to remove a shared custom waypoint with no owner!");
+			FMLLog.warning("Hummel009: Warning! Tried to remove a shared custom waypoint with no owner!");
 			return;
 		}
 		GOTCustomWaypoint existing = null;
@@ -1973,7 +1973,7 @@ public class GOTPlayerData {
 				GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
 			}
 		} else {
-			FMLLog.warning("GOT: Warning! Tried to remove a shared custom waypoint that does not exist!");
+			FMLLog.warning("Hummel009: Warning! Tried to remove a shared custom waypoint that does not exist!");
 		}
 	}
 
@@ -2008,7 +2008,7 @@ public class GOTPlayerData {
 
 	public void renameSharedCustomWaypoint(GOTCustomWaypoint waypoint, String newName) {
 		if (!waypoint.isShared()) {
-			FMLLog.warning("GOT: Warning! Tried to rename a shared custom waypoint with no owner!");
+			FMLLog.warning("Hummel009: Warning! Tried to rename a shared custom waypoint with no owner!");
 			return;
 		}
 		waypoint.rename(newName);
@@ -2959,7 +2959,7 @@ public class GOTPlayerData {
 
 	public void unlockSharedCustomWaypoint(GOTCustomWaypoint waypoint) {
 		if (!waypoint.isShared()) {
-			FMLLog.warning("GOT: Warning! Tried to unlock a shared custom waypoint with no owner!");
+			FMLLog.warning("Hummel009: Warning! Tried to unlock a shared custom waypoint with no owner!");
 			return;
 		}
 		waypoint.setSharedUnlocked();

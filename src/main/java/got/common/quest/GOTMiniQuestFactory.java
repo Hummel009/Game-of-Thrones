@@ -86,7 +86,7 @@ public enum GOTMiniQuestFactory {
 	public GOTMiniQuest createQuest(GOTEntityNPC npc) {
 		int totalWeight = getTotalQuestClassWeight(this);
 		if (totalWeight <= 0) {
-			FMLLog.warning("GOT: No quests registered for %s!", new Object[] { baseName });
+			FMLLog.warning("Hummel009: No quests registered for %s!", new Object[] { baseName });
 			return null;
 		}
 		int randomWeight = rand.nextInt(totalWeight);

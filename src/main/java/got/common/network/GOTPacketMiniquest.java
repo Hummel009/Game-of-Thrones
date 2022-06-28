@@ -29,7 +29,7 @@ public class GOTPacketMiniquest implements IMessage {
 		try {
 			miniquestData = new PacketBuffer(data).readNBTTagCompoundFromBuffer();
 		} catch (IOException e) {
-			FMLLog.severe("GOT: Error reading miniquest data");
+			FMLLog.severe("Hummel009: Error reading miniquest data");
 			e.printStackTrace();
 		}
 		completed = data.readBoolean();
@@ -40,7 +40,7 @@ public class GOTPacketMiniquest implements IMessage {
 		try {
 			new PacketBuffer(data).writeNBTTagCompoundToBuffer(miniquestData);
 		} catch (IOException e) {
-			FMLLog.severe("GOT: Error writing miniquest data");
+			FMLLog.severe("Hummel009: Error writing miniquest data");
 			e.printStackTrace();
 		}
 		data.writeBoolean(completed);

@@ -1069,7 +1069,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			try {
 				invasionID = UUID.fromString(invID);
 			} catch (IllegalArgumentException e) {
-				FMLLog.warning("GOT: Error loading NPC - %s is not a valid invasion UUID", invID);
+				FMLLog.warning("Hummel009: Error loading NPC - %s is not a valid invasion UUID", invID);
 				e.printStackTrace();
 			}
 		}

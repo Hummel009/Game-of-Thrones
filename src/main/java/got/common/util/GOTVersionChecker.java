@@ -38,7 +38,7 @@ public class GOTVersionChecker {
 							}
 						}
 					} catch (Exception e) {
-						GOTLog.logger.warn("GOT: Version check failed");
+						GOTLog.logger.warn("Hummel009: Version check failed");
 						e.printStackTrace();
 					}
 				}

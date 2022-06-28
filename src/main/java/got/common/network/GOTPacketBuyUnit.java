@@ -71,7 +71,7 @@ public class GOTPacketBuyUnit implements IMessage {
 						((EntityPlayer) entityplayer).closeScreen();
 					}
 				} else {
-					GOTLog.logger.error("GOT: Error player " + entityplayer.getCommandSenderName() + " trying to hire unit from " + unitTrader.getNPCName() + " - trade is null or bad index!");
+					GOTLog.logger.error("Hummel009: Error player " + entityplayer.getCommandSenderName() + " trying to hire unit from " + unitTrader.getNPCName() + " - trade is null or bad index!");
 				}
 			}
 			return null;

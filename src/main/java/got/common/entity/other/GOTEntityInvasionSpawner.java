@@ -336,7 +336,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 						recentPlayerContributors.put(player, (int) time);
 						continue;
 					} catch (IllegalArgumentException e) {
-						FMLLog.warning("GOT: Error loading invasion recent players - %s is not a valid UUID", playerS);
+						FMLLog.warning("Hummel009: Error loading invasion recent players - %s is not a valid UUID", playerS);
 						e.printStackTrace();
 					}
 				}

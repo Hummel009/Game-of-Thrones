@@ -101,7 +101,7 @@ public class GOTRenderCamel extends RenderLiving {
 				}
 				res = mc.renderEngine.getDynamicTextureLocation(path, new DynamicTexture(imgDyed));
 			} catch (IOException e) {
-				System.out.println("GOT: Error generating coloured camel carpet texture");
+				System.out.println("Hummel009: Error generating coloured camel carpet texture");
 				e.printStackTrace();
 				res = carpetBase;
 			}

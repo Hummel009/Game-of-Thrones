@@ -120,7 +120,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 				int avgA = (int) (totalA / count);
 				avgColor = new Color(avgR, avgG, avgB, avgA).getRGB();
 			} catch (IOException e) {
-				FMLLog.severe("GOT: Failed to generate average page colour");
+				FMLLog.severe("Hummel009: Failed to generate average page colour");
 				e.printStackTrace();
 				avgColor = 0;
 			}

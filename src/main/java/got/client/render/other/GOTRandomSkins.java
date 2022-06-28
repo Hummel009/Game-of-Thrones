@@ -89,10 +89,10 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 			}
 		} while (true);
 		if (skins.isEmpty()) {
-			FMLLog.warning("GOT: No random skins for %s", skinPath);
+			FMLLog.warning("Hummel009: No random skins for %s", skinPath);
 		}
 		if (foundAfterSkip) {
-			FMLLog.warning("GOT: Random skins %s skipped a number. This is not good - please number your skins from 0 and upwards, with no gaps!", skinPath);
+			FMLLog.warning("Hummel009: Random skins %s skipped a number. This is not good - please number your skins from 0 and upwards, with no gaps!", skinPath);
 		}
 	}
 
@@ -180,7 +180,7 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 							tempLayered.add(newImage);
 						}
 					} catch (IOException e) {
-						FMLLog.severe("GOT: Error combining skins " + skinPath + " on layer " + layer + "!");
+						FMLLog.severe("Hummel009: Error combining skins " + skinPath + " on layer " + layer + "!");
 						e.printStackTrace();
 						break block2;
 					}
