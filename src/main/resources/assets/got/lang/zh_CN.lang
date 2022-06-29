@@ -1,4 +1,68 @@
 ﻿
+item.got.antimonster≠
+entity.got.MarshWraith.name≠
+got.achievement.CATCH_BUTTERFLY.desc≠
+got.achievement.CATCH_BUTTERFLY.title≠
+got.achievement.COLLECT_CRAFTING_TABLES.desc≠
+got.achievement.COLLECT_CRAFTING_TABLES.title≠
+got.achievement.COLLECT_CROSSBOW_BOLTS.desc≠
+got.achievement.COLLECT_CROSSBOW_BOLTS.title≠
+got.achievement.COMBINE_SMITH_SCROLLS.desc≠
+got.achievement.COMBINE_SMITH_SCROLLS.title≠
+got.achievement.COOK_KEBAB.desc≠
+got.achievement.COOK_KEBAB.title≠
+got.achievement.CRAFT_SADDLE.desc≠
+got.achievement.CRAFT_SADDLE.title≠
+got.achievement.DO_MINIQUEST_HUNTER.desc≠
+got.achievement.DO_MINIQUEST_HUNTER.title≠
+got.achievement.DO_MINIQUEST_HUNTER5.desc≠
+got.achievement.DO_MINIQUEST_HUNTER5.title≠
+got.achievement.DRINK_PLANTAIN_BREW.desc≠
+got.achievement.DRINK_PLANTAIN_BREW.title≠
+got.achievement.DRINK_SKULL.desc≠
+got.achievement.DRINK_SKULL.title≠
+got.achievement.FIND_PLANTAIN.desc≠
+got.achievement.FIND_PLANTAIN.title≠
+got.achievement.FISH_RING.desc≠
+got.achievement.FISH_RING.title≠
+got.achievement.GET_DRUNK.desc≠
+got.achievement.GET_DRUNK.title≠
+got.achievement.GROW_BAOBAB.desc≠
+got.achievement.GROW_BAOBAB.title≠
+got.achievement.KILL_BOMBARDIER.desc≠
+got.achievement.KILL_BOMBARDIER.title≠
+got.achievement.KILL_BUTTERFLY.desc≠
+got.achievement.KILL_BUTTERFLY.title≠
+got.achievement.KILL_HUNTING_PLAYER.desc≠
+got.achievement.KILL_HUNTING_PLAYER.title≠
+got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.desc≠
+got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.title≠
+got.achievement.KILL_THIEVING_BANDIT.desc≠
+got.achievement.KILL_THIEVING_BANDIT.title≠
+got.achievement.KILL_USING_ONLY_PLATES.desc≠
+got.achievement.KILL_USING_ONLY_PLATES.title≠
+got.achievement.KILL_WHILE_DRUNK.desc≠
+got.achievement.KILL_WHILE_DRUNK.title≠
+got.achievement.LIGHT_BEACON.desc≠
+got.achievement.LIGHT_BEACON.title≠
+got.achievement.MARRY.desc≠
+got.achievement.MARRY.title≠
+got.achievement.MINE_GLOWSTONE.desc≠
+got.achievement.MINE_GLOWSTONE.title≠
+got.achievement.PICKPOCKET.desc≠
+got.achievement.PICKPOCKET.title≠
+got.achievement.RIDE_CAMEL.desc≠
+got.achievement.RIDE_CAMEL.title≠
+got.achievement.SMELT_OBSIDIAN_SHARD.desc≠
+got.achievement.SMELT_OBSIDIAN_SHARD.title≠
+got.achievement.SPEAK_TO_DRUNKARD.desc≠
+got.achievement.SPEAK_TO_DRUNKARD.title≠
+got.achievement.USE_CROSSBOW.desc≠
+got.achievement.USE_CROSSBOW.title≠
+got.achievement.USE_SPEAR_FROM_FAR.desc≠
+got.achievement.USE_SPEAR_FROM_FAR.title≠
+got.achievement.USE_THROWING_AXE.desc≠
+got.achievement.USE_THROWING_AXE.title≠
 attribute.name.generic.movementSpeedAir=速度(Air)
 color.black=黑色
 color.blue=蓝色
@@ -37,8 +101,8 @@ entity.got.AnyaWaynwood.name=安雅·韦伍德
 entity.got.ArdrianCeltigar.name=阿德里安·赛提加
 entity.got.AreoHotah.name=阿利欧·何塔
 entity.got.ArianneMartell.name=亚莲恩·马泰尔
-entity.got.ArrowFire.name≠
-entity.got.ArrowPoisoned.name≠
+entity.got.ArrowFire.name=发射箭
+entity.got.ArrowPoisoned.name=毒箭
 entity.got.ArrynBaker.name=谷地烘焙师
 entity.got.ArrynBannerBearer.name=谷地旗手
 entity.got.ArrynBartender.name=谷地酒保
@@ -63,7 +127,7 @@ entity.got.ArrynSoldierArcher.name=谷地武装弓箭手
 entity.got.AryaStark.name=艾莉亚·史塔克
 entity.got.AsshaiAlchemist.name=亚夏炼金术士
 entity.got.AsshaiArchmag.name=亚夏大法师
-entity.got.AsshaiBannerBearer.name≠
+entity.got.AsshaiBannerBearer.name=亚夏的旗手
 entity.got.AsshaiCaptain.name=亚夏领主
 entity.got.AsshaiMan.name=亚夏人
 entity.got.AsshaiShadowbinder.name=亚夏缚影士
@@ -73,7 +137,7 @@ entity.got.AuraneWaters.name=奥雷恩·维水
 entity.got.BaelorBlacktyde.name=贝勒·布莱克泰斯
 entity.got.BalonGreyjoy.name=巴隆·葛雷乔伊
 entity.got.Banner.name=旗帜
-entity.got.BannerWall.name≠
+entity.got.BannerWall.name=旗帜
 entity.got.BarbreyDustin.name=芭芭蕾·达斯丁
 entity.got.Barrel.name=木桶
 entity.got.BarristanSelmy.name=巴利斯坦·赛尔弥
@@ -93,7 +157,7 @@ entity.got.Bird.name=鸟
 entity.got.Bison.name=野牛
 entity.got.BlackWalderFrey.name=黑瓦德·佛雷
 entity.got.Boar.name=野猪
-entity.got.Bomb.name≠
+entity.got.Bomb.name=炸弹
 entity.got.BraavosBaker.name=布拉佛斯烘焙师
 entity.got.BraavosBannerBearer.name=布拉佛斯旗手
 entity.got.BraavosBartender.name=布拉佛斯酒保
@@ -121,7 +185,7 @@ entity.got.BryndenTully.name=布林登·徒利
 entity.got.BuGai.name=卜侅
 entity.got.Butterfly.name=蝴蝶
 entity.got.Camel.name=骆驼
-entity.got.Cargocart.name≠
+entity.got.Cargocart.name=大车
 entity.got.CatelynStark.name=凯特琳·史塔克
 entity.got.CerseiLannister.name=瑟曦·兰尼斯特
 entity.got.ClementPiper.name=克莱蒙特·派柏
@@ -218,14 +282,14 @@ entity.got.Elephant.name=象
 entity.got.EllaryaSand.name=艾拉莉亚·沙德
 entity.got.ErikIronmaker.name=艾里·艾枚克
 entity.got.EssosBandit.name=厄斯索斯土匪
-entity.got.EssosScrapTrader.name≠
-entity.got.EssosThief.name=小偷
+entity.got.EssosScrapTrader.name=厄斯索斯料商
+entity.got.EssosThief.name=厄斯索斯小偷
 entity.got.EuronGreyjoy.name=攸伦·葛雷乔伊
-entity.got.FallingFireJar.name≠
-entity.got.FallingTreasure.name≠
-entity.got.FirePot.name≠
+entity.got.FallingFireJar.name=坠落的火罐
+entity.got.FallingTreasure.name=坠落的宝藏
+entity.got.FirePot.name=火焰瓶
 entity.got.Fish.name=鱼
-entity.got.FishHook.name≠
+entity.got.FishHook.name=鱼钩
 entity.got.Flamingo.name=火烈鸟
 entity.got.ForleyPrester.name=佛勒·普莱斯特
 entity.got.FranklynFowler.name=福兰克林·佛勒
@@ -323,7 +387,7 @@ entity.got.IceSpider.name=冰蜘蛛
 entity.got.Ifekevron.name=伊佛维隆人
 entity.got.IllyrioMopatis.name=伊利里欧·摩帕提斯
 entity.got.IlynPayne.name=伊林·派恩
-entity.got.InvasionSpawner.name≠
+entity.got.InvasionSpawner.name=入侵
 entity.got.IronbornBaker.name=铁群岛烘焙师
 entity.got.IronbornBannerBearer.name=铁群岛旗手
 entity.got.IronbornBartender.name=铁群岛酒保
@@ -353,7 +417,7 @@ entity.got.JeorMormont.name=杰奥·莫尔蒙
 entity.got.JoffreyBaratheon.name=乔佛里·拜拉席恩
 entity.got.Jogos.name=鸠格斯奈人
 entity.got.JogosArcher.name=鸠格斯奈射手
-entity.got.JogosBannerBearer.name≠
+entity.got.JogosBannerBearer.name=鸠格斯奈旗手
 entity.got.JogosChief.name=鸠格斯奈头颅
 entity.got.JogosShaman.name=鸠格斯奈萨满
 entity.got.JohnUmber.name=琼恩·安柏
@@ -387,8 +451,8 @@ entity.got.LhazarMason.name=拉札石工
 entity.got.LhazarMiner.name=拉札矿工
 entity.got.LhazarWarlord.name=拉闸军阀
 entity.got.LhazarWarrior.name=拉札战士
-entity.got.LingeringEffect.name≠
-entity.got.LingeringPotion.name≠
+entity.got.Lingering Effect.name=延迟效果
+entity.got.Lingering Potion.name=滞留药水
 entity.got.Lion.name=狮子
 entity.got.LionRug.name=狮皮地毯
 entity.got.Lioness.name=母狮
@@ -457,11 +521,11 @@ entity.got.Midges.name=血蝇
 entity.got.Missandei.name=弥桑黛
 entity.got.MonfordVelaryon.name=莫佛德·瓦列利安
 entity.got.Moqorro.name=马奇罗
-entity.got.MoribaldChester.name≠
-entity.got.MossovyBartender.name≠
-entity.got.MossovyBlacksmith.name≠
-entity.got.MossovyFarmer.name≠
-entity.got.MossovyMan.name≠
+entity.got.MoribaldChester.name=莫里巴尔德切斯特
+entity.got.MossovyBartender.name=莫索维调酒师
+entity.got.MossovyBlacksmith.name=莫索维铁匠
+entity.got.MossovyFarmer.name=莫索维农夫
+entity.got.MossovyMan.name=摩苏伊人
 entity.got.MossovyWerewolf.name=摩苏伊狼人
 entity.got.MossovyWitcher.name=摩苏伊狙魔人
 entity.got.Mullin.name=穆林
@@ -563,11 +627,11 @@ entity.got.PentosMan.name=潘托斯人
 entity.got.PentosMason.name=潘托斯石匠
 entity.got.PentosMiner.name=潘托斯矿材商
 entity.got.PetyrBaelish.name=培提尔·贝里席
-entity.got.Plate.name=盘
-entity.got.Plowcart.name≠
+entity.got.Plate.name=盘子
+entity.got.Plowcart.name=犁车
 entity.got.PodrickPayne.name=波德瑞克·派恩
 entity.got.Polliver.name=波利佛
-entity.got.Portal.name≠
+entity.got.Portal.name=指南针
 entity.got.Prostitute.name=妓女
 entity.got.Pycelle.name=派席尔
 entity.got.QarthBaker.name=魁尔斯烘焙师
@@ -830,8 +894,8 @@ entity.got.WesterlandsMan.name=西境人
 entity.got.WesterlandsMason.name=西境石匠
 entity.got.WesterlandsSoldier.name=西境武装士兵
 entity.got.WesterlandsSoldierArcher.name=西境武装弓箭手
-entity.got.WesterosBandit.name≠
-entity.got.WesterosScrapTrader.name≠
+entity.got.WesterosBandit.name=强盗
+entity.got.WesterosScrapTrader.name=流浪汉
 entity.got.WesterosThief.name=小偷
 entity.got.WhiteBison.name=白野牛
 entity.got.WhiteOryx.name=白色大羚羊
@@ -925,8 +989,8 @@ got.achievement.GET_COPPER.desc=得到铜
 got.achievement.GET_COPPER.title=1.17？
 got.achievement.GET_POUCH.desc=得到袋子
 got.achievement.GET_POUCH.title=真能装！
-got.achievement.HIRE_GOLDEN_COMPANY.desc≠
-got.achievement.HIRE_GOLDEN_COMPANY.title≠
+got.achievement.HIRE_GOLDEN_COMPANY.desc=雇用 10 把金剑
+got.achievement.HIRE_GOLDEN_COMPANY.title=可销售的生物
 got.achievement.HUNDREDS.desc=雇佣100名单位
 got.achievement.HUNDREDS.title=随血与钢行进！
 got.achievement.KILLER.desc=杀死人类
@@ -1029,8 +1093,8 @@ got.achievement.KILL_OBERYN_MARTELL.desc=杀死奥伯伦·马泰尔
 got.achievement.KILL_OBERYN_MARTELL.title=魔山
 got.achievement.KILL_PETYR_BAELISH.desc=杀死培提尔·贝里席
 got.achievement.KILL_PETYR_BAELISH.title=混乱就是阶梯
-got.achievement.KILL_PRIEST.desc≠
-got.achievement.KILL_PRIEST.title≠
+got.achievement.KILL_PRIEST.desc=杀死牧师
+got.achievement.KILL_PRIEST.title=无神论者
 got.achievement.KILL_PROSTITUTE.desc=杀死妓女
 got.achievement.KILL_PROSTITUTE.title=拔吊无情
 got.achievement.KILL_RAMSAY_BOLTON.desc=杀死拉姆斯·波顿
@@ -1205,8 +1269,8 @@ got.achievement.VISIT_MOSSOVY.desc=进入摩苏伊
 got.achievement.VISIT_MOSSOVY.title=恶魔潜藏
 got.achievement.VISIT_MOSSOVY_MARSHES.desc=进入摩苏伊沼泽
 got.achievement.VISIT_MOSSOVY_MARSHES.title=辽阔沼泽
-got.achievement.VISIT_MOSSOVY_SOPKAS.desc≠
-got.achievement.VISIT_MOSSOVY_SOPKAS.title≠
+got.achievement.VISIT_MOSSOVY_SOPKAS.desc=参观摩索维亚Sops
+got.achievement.VISIT_MOSSOVY_SOPKAS.title=远东
 got.achievement.VISIT_MOSSOVY_TUNDRA.desc=进入摩苏伊苔原
 got.achievement.VISIT_MOSSOVY_TUNDRA.title=世界边缘
 got.achievement.VISIT_MYR.desc=进入密尔
@@ -1291,8 +1355,8 @@ got.achievement.VISIT_TROPICAL_FOREST.desc=进入热带丛林
 got.achievement.VISIT_TROPICAL_FOREST.title=蝎子与大象
 got.achievement.VISIT_TYROSH.desc=进入泰洛西
 got.achievement.VISIT_TYROSH.title=偏安一隅
-got.achievement.VISIT_ULOS.desc≠
-got.achievement.VISIT_ULOS.title≠
+got.achievement.VISIT_ULOS.desc=访问乌洛斯
+got.achievement.VISIT_ULOS.title=蜘蛛恐惧症代表
 got.achievement.VISIT_ULTHOS.desc=进入乌尔特斯
 got.achievement.VISIT_ULTHOS.title=蜘蛛，迷雾，诡异
 got.achievement.VISIT_ULTHOS_DESERT.desc=进入乌尔特斯沙漠
@@ -1363,8 +1427,8 @@ got.achievement.WEAR_FULL_HILLMEN.desc=装备整套高山氏族部落铠甲
 got.achievement.WEAR_FULL_HILLMEN.title=明月山脉的癫狂
 got.achievement.WEAR_FULL_IRONBORN.desc=装备整套铁群岛铠甲
 got.achievement.WEAR_FULL_IRONBORN.title=海盗行头
-got.achievement.WEAR_FULL_JOGOS.desc≠
-got.achievement.WEAR_FULL_JOGOS.title≠
+got.achievement.WEAR_FULL_JOGOS.desc=装备全套 Jogos Nhai Armor
+got.achievement.WEAR_FULL_JOGOS.title=东部部落
 got.achievement.WEAR_FULL_KINGSGUARD.desc=装备整套御林铁卫铠甲
 got.achievement.WEAR_FULL_KINGSGUARD.title=国王万岁！
 got.achievement.WEAR_FULL_LHAZAR.desc=装备整套拉札尔铠甲
@@ -1517,7 +1581,7 @@ got.biome.mossovy=摩苏伊
 got.biome.mossovyForest=厄斯索斯森林
 got.biome.mossovyMarshes=摩苏伊湿地
 got.biome.mossovySea=摩苏伊海
-got.biome.mossovySopkas≠
+got.biome.mossovySopkas=莫索维火山
 got.biome.mossovyTundra=摩苏伊苔原
 got.biome.myr=密尔
 got.biome.naath=纳斯
@@ -1620,14 +1684,14 @@ got.capes.REACH.name=河湾地的披风
 got.capes.RIVERLANDS.name=河间地的披风
 got.capes.ROYALGUARD.name=金袍子的披风
 got.capes.STORMLANDS.name=风暴地的披风
-got.capes.TARGARYEN.desc≠
+got.capes.TARGARYEN.desc=对于权力的游戏模组开发者
 got.capes.TARGARYEN.name=坦格利安的披风
 got.capes.TYROSH.name=泰洛西的披风
 got.capes.UNSULLIED.name=无垢者的披风
 got.capes.VOLANTIS.name=瓦兰提斯的披风
 got.capes.WESTERLANDS.name=西境的披风
 got.capes.YITI.name=金国之盾
-got.capes.YITI_FRONTIER.name≠
+got.capes.YITI_FRONTIER.name=伊提边防披风
 got.capes.YITI_SAMURAI.name=夷地之盾
 got.capes.category.ACHIEVABLE=可获取披风
 got.capes.category.ALIGNMENT=结盟值披风
@@ -1842,7 +1906,7 @@ got.container.crafting.jogos=鸠格斯奈制作
 got.container.crafting.lhazar=拉札尔制作
 got.container.crafting.lorath=罗拉斯制作
 got.container.crafting.lys=里斯制作
-got.container.crafting.mossovy≠
+got.container.crafting.mossovy=莫索维制作
 got.container.crafting.myr=密尔制作
 got.container.crafting.north=北境制作
 got.container.crafting.norvos=诺佛斯制作
@@ -1895,10 +1959,10 @@ got.date.month.november=十一月
 got.date.month.october=十月
 got.date.month.september=九月
 got.date=AC
-got.dimension.GameOfThrones.eastEssos≠
+got.dimension.GameOfThrones.eastEssos=东方厄斯索斯
 got.dimension.GameOfThrones.essos=厄斯索斯
 got.dimension.GameOfThrones.other=索斯罗斯 & 乌尔特斯
-got.dimension.GameOfThrones.westEssos≠
+got.dimension.GameOfThrones.westEssos=西方厄斯索斯
 got.dimension.GameOfThrones.westeros=维斯特洛
 got.dimension.GameOfThrones=权力的游戏
 got.dimension.enter=正在重新编写权游第八季
@@ -2005,7 +2069,7 @@ got.faction.GHISCAR.subtitle=奴隶湾上的强盛帝国
 got.faction.HILL_TRIBES.entity=高山氏族部落
 got.faction.HILL_TRIBES.name=高山氏族部落
 got.faction.HILL_TRIBES.subtitle=谷地的高山氏族部落
-got.faction.HOSTILE.name≠
+got.faction.HOSTILE.name=敌对
 got.faction.IBBEN.entity=伊班人
 got.faction.IBBEN.name=伊班
 got.faction.IBBEN.subtitle=海上的捕鲸者
@@ -2092,7 +2156,7 @@ got.faction.rel.FRIEND=朋友
 got.faction.rel.MORTAL_ENEMY=死敌
 got.faction.rel.NEUTRAL=中立
 got.fastTravel.available=现在你能够迅速旅行
-got.fastTravel.inBed≠
+got.fastTravel.inBed=你不能躺着旅行
 got.fastTravel.motion=迅速旅行停止了，不要移动！
 got.fastTravel.skip=按下“ %s”以跳过·
 got.fastTravel.travel=迅速旅行至 %s
@@ -2101,7 +2165,7 @@ got.fastTravel.travelTicksStart=%d秒后迅速旅行，不要移动！
 got.fastTravel.underAttack=你不能在遭受攻击时迅速旅行
 got.gui.achievements.category=%s (%d/ %d)
 got.gui.achievements.hover.name=%s
-got.gui.achievements.hover.subtitle≠
+got.gui.achievements.hover.subtitle=%s 中的成就
 got.gui.achievements.title=权力的游戏成就
 got.gui.achievements=成就
 got.gui.atribute=属性
@@ -2326,8 +2390,8 @@ got.gui.miniquestOffer.decline=拒绝
 got.gui.money.balance=余额： %s
 got.gui.money.get=您已成功转移 %s
 got.gui.money.give=您已成功取出 %s
-got.gui.money.notGet≠
-got.gui.money.notGive≠
+got.gui.money.notGet=你的库存中没有这枚硬币
+got.gui.money.notGive=你的余额中没有那么多钱
 got.gui.money.press=按下硬币以取款/存款
 got.gui.money.transfer=存款
 got.gui.money.withdraw=取款
@@ -2366,9 +2430,9 @@ got.gui.openFolder=打开配置文件夹
 got.gui.options.conquest.desc.off=关闭：杀NPC不影响征服
 got.gui.options.conquest.desc.on=开启：杀敌方NPC增长你宣誓派系的征服，或清除如果存在的敌方征服
 got.gui.options.conquest=征服杀敌
-got.gui.options.femRank.desc.off≠
-got.gui.options.femRank.desc.on≠
-got.gui.options.femRank≠
+got.gui.options.femRank.desc.off=关闭：男性等级会显示在声望栏附近和阵营菜单中，例如朋友、客人等。
+got.gui.options.femRank.desc.on=开启：女性等级会显示在声望栏附近和阵营菜单中，比如朋友、客人等。
+got.gui.options.femRank=女性化标题
 got.gui.options.friendlyFire.desc.off=关闭：盟友NPC不能被攻击、伤害、激怒，除非他们先攻击你
 got.gui.options.friendlyFire.desc.on=开启：除雇佣单位外，所有NPC都能够被攻击
 got.gui.options.friendlyFire=友方伤害
@@ -2511,7 +2575,7 @@ got.miniquest.collect.progress=给予了 %d/ %d
 got.miniquest.collect=收集 %d个 %s
 got.miniquest.kill.progress=杀死了 %d/ %d
 got.miniquest.kill=杀死 %d个 %s
-got.miniquest.pickpocket.progress≠
+got.miniquest.pickpocket.progress=%d个中有%d个被盗
 got.miniquest.pickpocket=盗窃NPC（Shift + RMB）。
 got.miniquest.progressShort=%d/ %d
 got.miniquest.retrieve.progress=给了 %d/ %d

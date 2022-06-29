@@ -1,66 +1,68 @@
 
-got.achievement.CATCH_BUTTERFLY.desc≠
-got.achievement.CATCH_BUTTERFLY.title≠
-got.achievement.COLLECT_CRAFTING_TABLES.desc≠
-got.achievement.COLLECT_CRAFTING_TABLES.title≠
-got.achievement.COLLECT_CROSSBOW_BOLTS.desc≠
-got.achievement.COLLECT_CROSSBOW_BOLTS.title≠
-got.achievement.COMBINE_SMITH_SCROLLS.desc≠
-got.achievement.COMBINE_SMITH_SCROLLS.title≠
-got.achievement.COOK_KEBAB.desc≠
-got.achievement.COOK_KEBAB.title≠
-got.achievement.CRAFT_SADDLE.desc≠
-got.achievement.CRAFT_SADDLE.title≠
-got.achievement.DO_MINIQUEST_HUNTER.desc≠
-got.achievement.DO_MINIQUEST_HUNTER.title≠
-got.achievement.DO_MINIQUEST_HUNTER5.desc≠
-got.achievement.DO_MINIQUEST_HUNTER5.title≠
-got.achievement.DRINK_PLANTAIN_BREW.desc≠
-got.achievement.DRINK_PLANTAIN_BREW.title≠
-got.achievement.DRINK_SKULL.desc≠
-got.achievement.DRINK_SKULL.title≠
-got.achievement.FIND_PLANTAIN.desc≠
-got.achievement.FIND_PLANTAIN.title≠
-got.achievement.FISH_RING.desc≠
-got.achievement.FISH_RING.title≠
-got.achievement.GET_DRUNK.desc≠
-got.achievement.GET_DRUNK.title≠
-got.achievement.GROW_BAOBAB.desc≠
-got.achievement.GROW_BAOBAB.title≠
-got.achievement.KILL_BOMBARDIER.desc≠
-got.achievement.KILL_BOMBARDIER.title≠
-got.achievement.KILL_BUTTERFLY.desc≠
-got.achievement.KILL_BUTTERFLY.title≠
-got.achievement.KILL_HUNTING_PLAYER.desc≠
-got.achievement.KILL_HUNTING_PLAYER.title≠
-got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.desc≠
-got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.title≠
-got.achievement.KILL_THIEVING_BANDIT.desc≠
-got.achievement.KILL_THIEVING_BANDIT.title≠
-got.achievement.KILL_USING_ONLY_PLATES.desc≠
-got.achievement.KILL_USING_ONLY_PLATES.title≠
-got.achievement.KILL_WHILE_DRUNK.desc≠
-got.achievement.KILL_WHILE_DRUNK.title≠
-got.achievement.LIGHT_BEACON.desc≠
-got.achievement.LIGHT_BEACON.title≠
-got.achievement.MARRY.desc≠
-got.achievement.MARRY.title≠
-got.achievement.MINE_GLOWSTONE.desc≠
-got.achievement.MINE_GLOWSTONE.title≠
-got.achievement.PICKPOCKET.desc≠
-got.achievement.PICKPOCKET.title≠
-got.achievement.RIDE_CAMEL.desc≠
-got.achievement.RIDE_CAMEL.title≠
-got.achievement.SMELT_OBSIDIAN_SHARD.desc≠
-got.achievement.SMELT_OBSIDIAN_SHARD.title≠
-got.achievement.SPEAK_TO_DRUNKARD.desc≠
-got.achievement.SPEAK_TO_DRUNKARD.title≠
-got.achievement.USE_CROSSBOW.desc≠
-got.achievement.USE_CROSSBOW.title≠
-got.achievement.USE_SPEAR_FROM_FAR.desc≠
-got.achievement.USE_SPEAR_FROM_FAR.title≠
-got.achievement.USE_THROWING_AXE.desc≠
-got.achievement.USE_THROWING_AXE.title≠
+item.got.antimonster=Вбиває нежить
+entity.got.MarshWraith.name=Болотна примара
+got.achievement.CATCH_BUTTERFLY.desc=Піймайте метелика
+got.achievement.CATCH_BUTTERFLY.title=Згадати дитинство
+got.achievement.COLLECT_CRAFTING_TABLES.desc=Зберіть багато верстатів
+got.achievement.COLLECT_CRAFTING_TABLES.title=Майстер на всі руки
+got.achievement.COLLECT_CROSSBOW_BOLTS.desc=Зберіть 2 стаки арбалетних болтів
+got.achievement.COLLECT_CROSSBOW_BOLTS.title=Колекціонер
+got.achievement.COMBINE_SMITH_SCROLLS.desc=З'єднайте кілька сувоїв
+got.achievement.COMBINE_SMITH_SCROLLS.title=Pen pineapple apple pen
+got.achievement.COOK_KEBAB.desc=Приготуйте кебаб
+got.achievement.COOK_KEBAB.title=Смачно та точка
+got.achievement.CRAFT_SADDLE.desc=Створіть седор
+got.achievement.CRAFT_SADDLE.title=А воно крафтиться!
+got.achievement.DO_MINIQUEST_HUNTER.desc=Виконайте замовлення на вбивство
+got.achievement.DO_MINIQUEST_HUNTER.title=Дикий розвідник
+got.achievement.DO_MINIQUEST_HUNTER5.desc=Виконайте замовлення на вбивство (5)
+got.achievement.DO_MINIQUEST_HUNTER5.title=Виючий ватажок
+got.achievement.DRINK_PLANTAIN_BREW.desc=Випийте настоянку на подорожнику
+got.achievement.DRINK_PLANTAIN_BREW.title=Народна медицина
+got.achievement.DRINK_SKULL.desc=Випийте щось із черепа
+got.achievement.DRINK_SKULL.title=Сила ворога
+got.achievement.FIND_PLANTAIN.desc=Знайди подорожник
+got.achievement.FIND_PLANTAIN.title=Засіб від усіх бід
+got.achievement.FISH_RING.desc=Виловіть кільце вудкою
+got.achievement.FISH_RING.title=Справжня рибалка
+got.achievement.GET_DRUNK.desc=П'янійте від алкоголю
+got.achievement.GET_DRUNK.title=Алкоголік
+got.achievement.GROW_BAOBAB.desc=Виростіть баобаб
+got.achievement.GROW_BAOBAB.title=Розмір має значення
+got.achievement.KILL_BOMBARDIER.desc=Убийте бомбардира
+got.achievement.KILL_BOMBARDIER.title=Counter-Terrorists win
+got.achievement.KILL_BUTTERFLY.desc=Убийте метелика
+got.achievement.KILL_BUTTERFLY.title=Безжалісний
+got.achievement.KILL_HUNTING_PLAYER.desc=Убийте того, хто полює на вас
+got.achievement.KILL_HUNTING_PLAYER.title=Превентивний удар
+got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.desc=Забийте гіганта камінчиками на смерть
+got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.title=Будь-які засоби хороші
+got.achievement.KILL_THIEVING_BANDIT.desc=Убийте бандита, що обікрав вас
+got.achievement.KILL_THIEVING_BANDIT.title=Поверни сотку!
+got.achievement.KILL_USING_ONLY_PLATES.desc=Убийте когось метанням тарілок
+got.achievement.KILL_USING_ONLY_PLATES.title=Кухонний бешкетник
+got.achievement.KILL_WHILE_DRUNK.desc=Убийте, будучи п'яним
+got.achievement.KILL_WHILE_DRUNK.title=На адреналіні
+got.achievement.LIGHT_BEACON.desc=Засвітіть сигнальні багаття
+got.achievement.LIGHT_BEACON.title=Комендантська година
+got.achievement.MARRY.desc=Проведіть весілля
+got.achievement.MARRY.title=Сваха
+got.achievement.MINE_GLOWSTONE.desc=Добудьте світлокам'яну руду
+got.achievement.MINE_GLOWSTONE.title=А воно світиться!
+got.achievement.PICKPOCKET.desc=Вкрадіте щось
+got.achievement.PICKPOCKET.title=Ah shit, here we go again
+got.achievement.RIDE_CAMEL.desc=Покатайтеся на верблюді
+got.achievement.RIDE_CAMEL.title=Тихіше їдеш
+got.achievement.SMELT_OBSIDIAN_SHARD.desc=Добудьте драконяче скло
+got.achievement.SMELT_OBSIDIAN_SHARD.title=Дракона скло
+got.achievement.SPEAK_TO_DRUNKARD.desc=Поговоріть із п'яницею
+got.achievement.SPEAK_TO_DRUNKARD.title=Розсуди, дядьку
+got.achievement.USE_CROSSBOW.desc=Використовуйте арбалет
+got.achievement.USE_CROSSBOW.title=Бути в тренді
+got.achievement.USE_SPEAR_FROM_FAR.desc=Убийте списом з великої відстані
+got.achievement.USE_SPEAR_FROM_FAR.title=Снайпер
+got.achievement.USE_THROWING_AXE.desc=Використовуйте метальна сокира
+got.achievement.USE_THROWING_AXE.title=А його можна і кинути
 attribute.name.generic.movementSpeedAir=Швидкість (Повітря)
 color.black=Чорний
 color.blue=Блакитний
@@ -135,7 +137,7 @@ entity.got.AuraneWaters.name=Ауран Уотерс
 entity.got.BaelorBlacktyde.name=Бейлор Блэктайд
 entity.got.BalonGreyjoy.name=Бейлон Грейджой
 entity.got.Banner.name=Прапор
-entity.got.BannerWall.name≠
+entity.got.BannerWall.name=Прапор
 entity.got.BarbreyDustin.name=Барбрі Дастін
 entity.got.Barrel.name=Бочка
 entity.got.BarristanSelmy.name=Баррістан Селмі
@@ -155,7 +157,7 @@ entity.got.Bird.name=Птах
 entity.got.Bison.name=Зубр
 entity.got.BlackWalderFrey.name=Чорний Волдер Фрей
 entity.got.Boar.name=Кабан
-entity.got.Bomb.name≠
+entity.got.Bomb.name=Бомба
 entity.got.BraavosBaker.name=Пекар Браавоса
 entity.got.BraavosBannerBearer.name=Прапороносець Браавоса
 entity.got.BraavosBartender.name=Шинкар Браавоса
@@ -163,7 +165,7 @@ entity.got.BraavosBlacksmith.name=Коваль Браавоса
 entity.got.BraavosBrewer.name=Пивовар Браавоса
 entity.got.BraavosButcher.name=М'ясник Браавоса
 entity.got.BraavosFarmer.name=Фермер Браавоса
-entity.got.BraavosFarmhand.name≠
+entity.got.BraavosFarmhand.name=Працівник Браавоса
 entity.got.BraavosFishmonger.name=Рибак Браавоса
 entity.got.BraavosFlorist.name=Квітник Браавоса
 entity.got.BraavosGeneral.name=Генерал Браавоса
@@ -462,7 +464,7 @@ entity.got.LorathBlacksmith.name=Коваль Лората
 entity.got.LorathBrewer.name=Пивовар Лората
 entity.got.LorathButcher.name=М'ясник Лората
 entity.got.LorathFarmer.name=Фермер Лората
-entity.got.LorathFarmhand.name≠
+entity.got.LorathFarmhand.name=Працівник Лората
 entity.got.LorathFishmonger.name=Рибак Лората
 entity.got.LorathFlorist.name=Квітник Лората
 entity.got.LorathGeneral.name=Генерал Лората
@@ -587,7 +589,7 @@ entity.got.NorvosBlacksmith.name=Коваль Норвосу
 entity.got.NorvosBrewer.name=Пивовар Норвосу
 entity.got.NorvosButcher.name=М'ясник Норвосу
 entity.got.NorvosFarmer.name=Фермер Норвосу
-entity.got.NorvosFarmhand.name≠
+entity.got.NorvosFarmhand.name=Працівник Норвосу
 entity.got.NorvosFishmonger.name=Рибак Норвосу
 entity.got.NorvosFlorist.name=Квітник Норвосу
 entity.got.NorvosGoldsmith.name=Ювелір Норвосу
@@ -612,7 +614,7 @@ entity.got.PentosBlacksmith.name=Коваль Пентоса
 entity.got.PentosBrewer.name=Пивовар Пентоса
 entity.got.PentosButcher.name=М'ясник Пентоса
 entity.got.PentosFarmer.name=Фермер Пентоса
-entity.got.PentosFarmhand.name≠
+entity.got.PentosFarmhand.name=Працівник Пентоса
 entity.got.PentosFishmonger.name=Рибак Пентоса
 entity.got.PentosFlorist.name=Квітник Пентоса
 entity.got.PentosGoldsmith.name=Ювелір Пентоса
@@ -639,7 +641,7 @@ entity.got.QarthBlacksmith.name=Коваль Кварта
 entity.got.QarthBrewer.name=Пивовар Кварта
 entity.got.QarthButcher.name=М'ясник Кварта
 entity.got.QarthFarmer.name=Фермер Кварта
-entity.got.QarthFarmhand.name≠
+entity.got.QarthFarmhand.name=Працівник Кварта
 entity.got.QarthFishmonger.name=Рибак Кварта
 entity.got.QarthFlorist.name=Квітник Кварта
 entity.got.QarthGoldsmith.name=Ювелір Кварта
@@ -659,7 +661,7 @@ entity.got.QohorBlacksmith.name=Коваль Квохора
 entity.got.QohorBrewer.name=Пивовар Квохора
 entity.got.QohorButcher.name=М'ясник Квохора
 entity.got.QohorFarmer.name=Фермер Квохора
-entity.got.QohorFarmhand.name≠
+entity.got.QohorFarmhand.name=Працівник Квохора
 entity.got.QohorFishmonger.name=Рибак Квохора
 entity.got.QohorFlorist.name=Квітник Квохора
 entity.got.QohorGoldsmith.name=Ювелір Квохора
@@ -3306,12 +3308,12 @@ got.wp.Aegon.info=Острів, відкритий Аліс Вестхілл н�
 got.wp.Aegon=Ейгон
 got.wp.Amberly.info=Родовий замок Роджерсів, васалів Баратеонів.
 got.wp.Amberly=Амберлі
-got.wp.Anbei.info≠
-got.wp.Anbei≠
-got.wp.Anguo.info≠
-got.wp.Anguo≠
-got.wp.Anjiang.info≠
-got.wp.Anjiang≠
+got.wp.Anbei.info=Західний край Великої ітійської стіни - велетенської та стародавньої споруди, що захищає золоту імперію від набігів кочівників з півночі.
+got.wp.Anbei=Аньбей
+got.wp.Anguo.info=Одна з фортець Великої ітійської стіни. Була збудована з ініціативи імператора 4200 років тому; імператор сам профінансував будівництво.
+got.wp.Anguo=Ангуо
+got.wp.Anjiang.info=Одна з фортець Великої ітійської стіни. Зазвичай імператорські рейди степом починалися саме в цій фортеці - у неї гарне стратегічне становище.
+got.wp.Anjiang=Аньцзян
 got.wp.Anogaria.info=Одна із старих валірійських охоронних фортець.
 got.wp.Anogaria=Аногаріс
 got.wp.Antlers.info=Замок будинку Баквелл із Королівських земель.
@@ -3436,8 +3438,8 @@ got.wp.Deepdown.info=Прізвищний замок будинку Кроулі
 got.wp.Deepdown=Надра
 got.wp.DeepwoodMotte.info=Замок будинку Гловерів, васалів Старків.
 got.wp.DeepwoodMotte=Темнолісся
-got.wp.Dingguo.info≠
-got.wp.Dingguo≠
+got.wp.Dingguo.info=Тут було поселення ще до будівництва Великої ітійської стіни - тут було поселення шахтарів та алмазні шахти. Коли їхні поклади вичерпалися, алмази продали, і цього вистачило, щоб побудувати фортецю.
+got.wp.Dingguo=Дінгуо
 got.wp.Doquu.info=Маленьке поселення на однойменному острові. Є найпівденнішим поселенням Літніх островів.
 got.wp.Doquu=Докуу
 got.wp.Downdelving.info=Замок на Великому Віці, володіння однією з наймолодших гілок Гудбразерів.
@@ -3650,8 +3652,8 @@ got.wp.IsleOfWhips.info=Невільничий острів та величез�
 got.wp.IsleOfWhips=Острів Бічів
 got.wp.IvyHall.info=Замок будинку Кідвеллів, васалів Тиреллів.
 got.wp.IvyHall=Плющ
-got.wp.Jianmen.info≠
-got.wp.Jianmen≠
+got.wp.Jianmen.info=Одна з фортець Великої ітійської стіни. Тут була велика в'язниця для бранців. Нині вона порожня, бо кочівники не ризикують штурмувати стіну.
+got.wp.Jianmen=Цзяньмень
 got.wp.Jinqi.info=Ітійське місто, побудоване для оборони імперії від набігів. Столиця при бордових імператорах Йі Ті.
 got.wp.Jinqi=Цзіньці
 got.wp.KDath.info=Місто, яке нібито старше самого часу. Тут процвітають криваві жертвопринесення, причому, схоже, в таких кількостях, що місцевих богів вважають шаленими, а міста бояться навіть шрайки.
@@ -3716,8 +3718,8 @@ got.wp.Lordsport.info=Найбільше місто на Залізних ост
 got.wp.Lordsport=Лордспорт
 got.wp.LotusPoint.info=Спокійне прибережне місто літнійців.
 got.wp.LotusPoint=Лотосовий Мис
-got.wp.Lungmen.info≠
-got.wp.Lungmen≠
+got.wp.Lungmen.info=У цій фортеці в минулі часи навчали не звичайних солдатів-прикордонників, а майстрів кунг-фу, перевіряючи, чи зможуть обороняти стіну бійці без обмундирування. Чим закінчилася ця історія, невідомо.
+got.wp.Lungmen=Лунмень
 got.wp.Lys.info=Одне з Вільних міст. Широко відомий дорогими публічними будинками та досвідченими жрицями кохання.
 got.wp.Lys=Лис
 got.wp.Maidenpool.info=Місто із замком є володінням будинку Мутон. Своєю назвою місто зобов'язане старовинному ставку з казки про Флоріана-дурня і прекрасну Джонквіль.
@@ -3810,14 +3812,14 @@ got.wp.Pennytree.info=Невелике село між двома пагорба
 got.wp.Pennytree=Пенітрі
 got.wp.Pentos.info=Один із Вільних міст, найважливіший порт західного узбережжя Ессоса. У цьому місті проживає магістр Ілліріо Мопатіс, який дав притулок останнім Таргарієнам.
 got.wp.Pentos=Пентос
-got.wp.Pingbei.info≠
-got.wp.Pingbei≠
-got.wp.Pingjiang.info≠
-got.wp.Pingjiang≠
+got.wp.Pingbei.info=Східний край Великої ітійської стіни - велетенської та стародавньої споруди, що захищає золоту імперію від набігів кочівників з півночі.
+got.wp.Pingbei=Пінбей
+got.wp.Pingjiang.info=Одна з фортець Великої ітійської стіни, в якій знаходився пороховий склад. Якось під час відбиття атаки кочівників гармата на Стіні дала осічку, і ядро ​​вибухнуло там, а по ланцюговій реакції - і склад. Не вижив ніхто з обох боків. Фортецю пізніше відновили.
+got.wp.Pingjiang=Пінцзян
 got.wp.PinkmaidenCastle.info=Замок будинку Пайперів, васалів Таллі.
 got.wp.PinkmaidenCastle=Рожева Діва
-got.wp.Pinnu.info≠
-got.wp.Pinnu≠
+got.wp.Pinnu.info=На місці цієї фортеці раніше були пагорби. Імператорські інженери та майстри над монетою вирішили, що дешевше буде викопати пагорби та побудувати фортецю, а не будувати фортецю на пагорбах. У результаті так і вирішили.
+got.wp.Pinnu=Пінну
 got.wp.PlankyTown.info=Найбільший порт Дорна, відбудований прямо на воді зі скріплених разом барж та торгових човнів. Тут же є фортеця для захисту цих воріт Дорн.
 got.wp.PlankyTown=Дощате місто
 got.wp.Plumwood.info=Замок будинку Пламмів, васалів Ланністерів.
@@ -4150,10 +4152,10 @@ got.wp.WitchIsle.info=Замок будинку Апкліффів, васалі
 got.wp.WitchIsle=Відьом Замок
 got.wp.Woodswatch.info=Порожній замок Нічного Дозору.
 got.wp.Woodswatch=Лісовий Дозор-у-Става
-got.wp.Wude.info≠
-got.wp.Wude≠
-got.wp.Wusheng.info≠
-got.wp.Wusheng≠
+got.wp.Wude.info=Найзагадковіша фортеця Великої ітійської стіни: її назва - слово з мови Джогос Нхая, що означає "полудень".
+got.wp.Wude=Уде
+got.wp.Wusheng.info=Одна з фортець Великої ітійської стіни. Кажуть, що її назвали на честь ітійського прикордонника, який навчався в Асшаї та став заклиначем тіней.
+got.wp.Wusheng=Ушен
 got.wp.Wyl.info=Замок будинку Віль. Десь тут легендарний Лицар-Дракон сидів у клітці голяка, чекаючи, поки його двоюрідний брат, Бейлор Благословенний дійде босим до Мартеллів і не переконає їх укласти мир. А ще раніше інший Віль відрубав Орису Баратеону, засновнику роду, праву руку, за що син того Віля згодом по черзі втратив обидві руки та ноги та й голову на додачу.
 got.wp.Wyl=Віль
 got.wp.Wyndhall.info=Замок будинку Естренів, васалів Ланністерів.
@@ -4176,8 +4178,8 @@ got.wp.Zabhad.info=Місто на острові Слонів. Тут живе 
 got.wp.Zabhad=Забхад
 got.wp.Zamettar.info=Одна з колоній Гіскара, згодом захоплена Валірією. Як і всі колонії на Соторіосі, Заметтар захирів і покинуть: валірійці залишили місто, ройнар бігли з нього після жахів Йіна.
 got.wp.Zamettar=Заметтар
-got.wp.Zhenguo.info≠
-got.wp.Zhenguo≠
+got.wp.Zhenguo.info=Головна фортеця Великої ітійської стіни. За легендою, саме з цієї фортеці розпочалося будівництво стіни.
+got.wp.Zhenguo=Чженго
 got.wp.custom.andMore=та %d більше
 got.wp.custom.info=Є шляховою точкою братства «%d»
 got.wp.custom=%s (Власна)
@@ -5468,11 +5470,11 @@ item.got:westerlandsguardLeggings.name=Наголінники сторожів �
 item.got:westerosBow.name=Лук Вестероса
 item.got:westerosDagger.name=Кинджал Вестероса
 item.got:westerosDaggerPoisoned.name=Отруєний кинджал Вестероса
-item.got:westerosGreatsword.name≠
+item.got:westerosGreatsword.name=Дворучний меч Вестероса
 item.got:westerosHammer.name=Бойовий молот Вестероса
 item.got:westerosHorseArmor.name=Кінська броня Вестероса
 item.got:westerosLance.name=Кавалерійський спис Вестероса
-item.got:westerosLongsword.name≠
+item.got:westerosLongsword.name=Півтораручний меч Вестероса
 item.got:westerosPike.name=Піка Вестероса
 item.got:westerosSpear.name=Спис Вестероса
 item.got:westerosSword.name=Меч Вестероса

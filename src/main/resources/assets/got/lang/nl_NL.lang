@@ -1,4 +1,6 @@
 
+item.got.antimonster≠
+entity.got.MarshWraith.name≠
 got.achievement.CATCH_BUTTERFLY.desc≠
 got.achievement.CATCH_BUTTERFLY.title≠
 got.achievement.COLLECT_CRAFTING_TABLES.desc≠
@@ -2895,7 +2897,6 @@ got.structure.MossovySmithy.name≠
 got.structure.MossovyStable.name≠
 got.structure.MossovyTrampHouse.name≠
 got.structure.MossovyVillage.name≠
-got.structure.MossovyVillageLight.name≠
 got.structure.MyrBarracks.name=Kazerne van Myr
 got.structure.MyrBazaar.name=Bazaar van Myr
 got.structure.MyrCityBig.name=Kasteel van Myr

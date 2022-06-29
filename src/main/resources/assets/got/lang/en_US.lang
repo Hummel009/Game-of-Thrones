@@ -1,4 +1,6 @@
 
+item.got.antimonster=Kills undead
+entity.got.MarshWraith.name=Marsh Wraith
 got.achievement.CATCH_BUTTERFLY.desc=Catch a butterfly
 got.achievement.CATCH_BUTTERFLY.title=Remember childhood
 got.achievement.COLLECT_CRAFTING_TABLES.desc=Collect a lot of workbenches
@@ -2163,7 +2165,7 @@ got.fastTravel.travelTicksStart=Fast travel in %d. Don't move!
 got.fastTravel.underAttack=You cannot fast travel while under attack
 got.gui.achievements.category=%s (%d/ %d)
 got.gui.achievements.hover.name=%s
-got.gui.achievements.hover.subtitle≠
+got.gui.achievements.hover.subtitle=Achievement in %s
 got.gui.achievements.title=Game of Thrones Achievements
 got.gui.achievements=Achievements
 got.gui.atribute=Attributes
@@ -2388,8 +2390,8 @@ got.gui.miniquestOffer.decline=Decline
 got.gui.money.balance=Balance: %s
 got.gui.money.get=You have succesfully transferred %s
 got.gui.money.give=You have succesfully withdrawed %s
-got.gui.money.notGet≠
-got.gui.money.notGive≠
+got.gui.money.notGet=You do not have this coin in your inventory
+got.gui.money.notGive=You don't have that much money on your balance sheet
 got.gui.money.press=Press coin to withdraw/transfer money
 got.gui.money.transfer=Transfer money
 got.gui.money.withdraw=Withdraw money

@@ -49,14 +49,14 @@ public class GOTClientProxy extends GOTCommonProxy {
 	public static ResourceLocation particlesTexture = new ResourceLocation("got:textures/misc/particles.png");
 	public static ResourceLocation particles2Texture = new ResourceLocation("got:textures/misc/particles2.png");
 	public static ResourceLocation customPotionsTexture = new ResourceLocation("got:textures/gui/effects.png");
-	public static int TESSELLATOR_MAX_BRIGHTNESS = 15728880;
-	public static int FONTRENDERER_ALPHA_MIN = 4;
 	public static GOTEffectRenderer customEffectRenderer;
 	public static GOTRenderPlayer specialPlayerRenderer = new GOTRenderPlayer();
 	public static GOTSwingHandler swingHandler = new GOTSwingHandler();
 	public static GOTTickHandlerClient tickHandler = new GOTTickHandlerClient();
 	public static GOTGuiHandler guiHandler = new GOTGuiHandler();
 	public static GOTMusic musicHandler;
+	public static int TESSELLATOR_MAX_BRIGHTNESS = 15728880;
+	public static int FONTRENDERER_ALPHA_MIN = 4;
 	public int beaconRenderID;
 	public int barrelRenderID;
 	public int bombRenderID;
