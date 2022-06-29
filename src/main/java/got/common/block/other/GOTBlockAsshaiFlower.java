@@ -57,6 +57,7 @@ public class GOTBlockAsshaiFlower extends GOTBlockFlower {
 			int dur = 100;
 			living.addPotionEffect(new PotionEffect(Potion.poison.id, dur));
 			living.addPotionEffect(new PotionEffect(Potion.blindness.id, dur * 2));
+			living.addPotionEffect(new PotionEffect(Potion.confusion.id, dur));
 		}
 	}
 
@@ -71,24 +72,6 @@ public class GOTBlockAsshaiFlower extends GOTBlockFlower {
 				GOT.proxy.spawnParticle("asshaiWater", d, d1, d2, 0.0, 0.0, 0.0);
 			} else {
 				GOT.proxy.spawnParticle("whiteSmoke", d, d1, d2, 0.0, 0.0, 0.0);
-			}
-		}
-	}
-
-	@Override
-	public void updateTick(World world, int i, int j, int k, Random random) {
-		super.updateTick(world, i, j, k, random);
-		if (!world.isRemote && world.getBiomeGenForCoords(i, k) instanceof GOTBiomeShadowLand) {
-			double range = 5.0;
-			AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(i, j, k, i + 1, j + 1, k + 1).expand(range, range, range);
-			List entities = world.getEntitiesWithinAABB(EntityLivingBase.class, aabb);
-			for (Object obj : entities) {
-				EntityLivingBase entity = (EntityLivingBase) obj;
-				if (!isEntityVulnerable(entity)) {
-					continue;
-				}
-				int dur = 200;
-				entity.addPotionEffect(new PotionEffect(Potion.confusion.id, dur));
 			}
 		}
 	}

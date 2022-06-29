@@ -39,6 +39,7 @@ CHANGELOG
 * Fixed bug with slaves speechbank
 * Fixed bug with towers in asshai
 * Fixed bug with wildling head slot
+* Fixed bug with inability to escape nausea in Asshai
 
 - Removed Carnotite set of blocks, because it turned out that it was uran ore
 
