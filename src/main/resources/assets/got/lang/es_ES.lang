@@ -1,68 +1,4 @@
 ﻿
-item.got.antimonster≠
-entity.got.MarshWraith.name≠
-got.achievement.CATCH_BUTTERFLY.desc≠
-got.achievement.CATCH_BUTTERFLY.title≠
-got.achievement.COLLECT_CRAFTING_TABLES.desc≠
-got.achievement.COLLECT_CRAFTING_TABLES.title≠
-got.achievement.COLLECT_CROSSBOW_BOLTS.desc≠
-got.achievement.COLLECT_CROSSBOW_BOLTS.title≠
-got.achievement.COMBINE_SMITH_SCROLLS.desc≠
-got.achievement.COMBINE_SMITH_SCROLLS.title≠
-got.achievement.COOK_KEBAB.desc≠
-got.achievement.COOK_KEBAB.title≠
-got.achievement.CRAFT_SADDLE.desc≠
-got.achievement.CRAFT_SADDLE.title≠
-got.achievement.DO_MINIQUEST_HUNTER.desc≠
-got.achievement.DO_MINIQUEST_HUNTER.title≠
-got.achievement.DO_MINIQUEST_HUNTER5.desc≠
-got.achievement.DO_MINIQUEST_HUNTER5.title≠
-got.achievement.DRINK_PLANTAIN_BREW.desc≠
-got.achievement.DRINK_PLANTAIN_BREW.title≠
-got.achievement.DRINK_SKULL.desc≠
-got.achievement.DRINK_SKULL.title≠
-got.achievement.FIND_PLANTAIN.desc≠
-got.achievement.FIND_PLANTAIN.title≠
-got.achievement.FISH_RING.desc≠
-got.achievement.FISH_RING.title≠
-got.achievement.GET_DRUNK.desc≠
-got.achievement.GET_DRUNK.title≠
-got.achievement.GROW_BAOBAB.desc≠
-got.achievement.GROW_BAOBAB.title≠
-got.achievement.KILL_BOMBARDIER.desc≠
-got.achievement.KILL_BOMBARDIER.title≠
-got.achievement.KILL_BUTTERFLY.desc≠
-got.achievement.KILL_BUTTERFLY.title≠
-got.achievement.KILL_HUNTING_PLAYER.desc≠
-got.achievement.KILL_HUNTING_PLAYER.title≠
-got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.desc≠
-got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.title≠
-got.achievement.KILL_THIEVING_BANDIT.desc≠
-got.achievement.KILL_THIEVING_BANDIT.title≠
-got.achievement.KILL_USING_ONLY_PLATES.desc≠
-got.achievement.KILL_USING_ONLY_PLATES.title≠
-got.achievement.KILL_WHILE_DRUNK.desc≠
-got.achievement.KILL_WHILE_DRUNK.title≠
-got.achievement.LIGHT_BEACON.desc≠
-got.achievement.LIGHT_BEACON.title≠
-got.achievement.MARRY.desc≠
-got.achievement.MARRY.title≠
-got.achievement.MINE_GLOWSTONE.desc≠
-got.achievement.MINE_GLOWSTONE.title≠
-got.achievement.PICKPOCKET.desc≠
-got.achievement.PICKPOCKET.title≠
-got.achievement.RIDE_CAMEL.desc≠
-got.achievement.RIDE_CAMEL.title≠
-got.achievement.SMELT_OBSIDIAN_SHARD.desc≠
-got.achievement.SMELT_OBSIDIAN_SHARD.title≠
-got.achievement.SPEAK_TO_DRUNKARD.desc≠
-got.achievement.SPEAK_TO_DRUNKARD.title≠
-got.achievement.USE_CROSSBOW.desc≠
-got.achievement.USE_CROSSBOW.title≠
-got.achievement.USE_SPEAR_FROM_FAR.desc≠
-got.achievement.USE_SPEAR_FROM_FAR.title≠
-got.achievement.USE_THROWING_AXE.desc≠
-got.achievement.USE_THROWING_AXE.title≠
 attribute.name.generic.movementSpeedAir=Velocidad (aire)
 color.black=Negro
 color.blue=Azul
@@ -511,6 +447,7 @@ entity.got.ManfreyMartell.name≠
 entity.got.Manticore.name=Mantícora
 entity.got.MargaeryTyrell.name=Margaery Tyrell
 entity.got.MaronVolmark.name≠
+entity.got.MarshWraith.name≠
 entity.got.MathisRowan.name=Mathis Rowan
 entity.got.MatthosSeaworth.name≠
 entity.got.Melisandra.name=Melisandra
@@ -953,18 +890,38 @@ got.achievement.BANNER_PROTECT.desc=Conquistar territorio
 got.achievement.BANNER_PROTECT.title=Conquistador
 got.achievement.BREW_DRINK_IN_BARREL.desc=Preparar bebida en barril
 got.achievement.BREW_DRINK_IN_BARREL.title=Alcohólico
+got.achievement.CATCH_BUTTERFLY.desc≠
+got.achievement.CATCH_BUTTERFLY.title≠
+got.achievement.COLLECT_CRAFTING_TABLES.desc≠
+got.achievement.COLLECT_CRAFTING_TABLES.title≠
+got.achievement.COLLECT_CROSSBOW_BOLTS.desc≠
+got.achievement.COLLECT_CROSSBOW_BOLTS.title≠
+got.achievement.COMBINE_SMITH_SCROLLS.desc≠
+got.achievement.COMBINE_SMITH_SCROLLS.title≠
+got.achievement.COOK_KEBAB.desc≠
+got.achievement.COOK_KEBAB.title≠
 got.achievement.CRAFT_BOMB.desc=Fabrica una bomba
 got.achievement.CRAFT_BOMB.title=Olor a napalm
+got.achievement.CRAFT_SADDLE.desc≠
+got.achievement.CRAFT_SADDLE.title≠
 got.achievement.CRAFT_WILD_FIRE.desc=Crea un frasco de fuego salvaje
 got.achievement.CRAFT_WILD_FIRE.title=La llama verde
 got.achievement.DEFEAT_INVASION.desc=Derrota a la invasión
 got.achievement.DEFEAT_INVASION.title=Guerra relámpago
 got.achievement.DO_LEGENDARY_QUEST.desc=Haz una misión legendaria
 got.achievement.DO_LEGENDARY_QUEST.title=Amigo de los reyes
+got.achievement.DO_MINIQUEST_HUNTER.desc≠
+got.achievement.DO_MINIQUEST_HUNTER.title≠
+got.achievement.DO_MINIQUEST_HUNTER5.desc≠
+got.achievement.DO_MINIQUEST_HUNTER5.title≠
 got.achievement.DO_QUEST.desc=Hacer búsqueda
 got.achievement.DO_QUEST.title=Ayudante
 got.achievement.DRINK_FIRE.desc=Beber fuego salvaje
 got.achievement.DRINK_FIRE.title=Eres más tonto de lo que pareces
+got.achievement.DRINK_PLANTAIN_BREW.desc≠
+got.achievement.DRINK_PLANTAIN_BREW.title≠
+got.achievement.DRINK_SKULL.desc≠
+got.achievement.DRINK_SKULL.title≠
 got.achievement.DRINK_TERMITE.desc=Beber tequila de termitas
 got.achievement.DRINK_TERMITE.title=Ruleta rusa
 got.achievement.EARN_MANY_COINS.desc=Gana 1000 monedas en 1 clic
@@ -977,6 +934,10 @@ got.achievement.FACTION_CONQUEST.desc=Comprometerse y conquistar la tierra
 got.achievement.FACTION_CONQUEST.title=¡Para el rey!
 got.achievement.FIND_FOUR_LEAF_CLOVER.desc=Encuentra el trébol de cuatro hojas
 got.achievement.FIND_FOUR_LEAF_CLOVER.title=Hombre con suerte
+got.achievement.FIND_PLANTAIN.desc≠
+got.achievement.FIND_PLANTAIN.title≠
+got.achievement.FISH_RING.desc≠
+got.achievement.FISH_RING.title≠
 got.achievement.FREEMAN.desc=Habla con Hummel009
 got.achievement.FREEMAN.title=Dr. Freeman?
 got.achievement.GAIN_HIGH_ALCOHOL_TOLERANCE.desc=Conviértete en alcohólico
@@ -987,8 +948,12 @@ got.achievement.GET_CONCRETE.desc=Hacer un cemento
 got.achievement.GET_CONCRETE.title=Pre-hormigón
 got.achievement.GET_COPPER.desc=Obtener cobre
 got.achievement.GET_COPPER.title=1,17?
+got.achievement.GET_DRUNK.desc≠
+got.achievement.GET_DRUNK.title≠
 got.achievement.GET_POUCH.desc=Obtener bolsa
 got.achievement.GET_POUCH.title=Más, que antes
+got.achievement.GROW_BAOBAB.desc≠
+got.achievement.GROW_BAOBAB.title≠
 got.achievement.HIRE_GOLDEN_COMPANY.desc≠
 got.achievement.HIRE_GOLDEN_COMPANY.title≠
 got.achievement.HUNDREDS.desc=Hire 100 units
@@ -1011,10 +976,14 @@ got.achievement.KILL_BERIC_DAYNE.desc=Mata a Beric Dayne
 got.achievement.KILL_BERIC_DAYNE.title=No quedan más dignos
 got.achievement.KILL_BERIC_DONDARRION.desc=Mata a Beric Dondarrion 6 veces.
 got.achievement.KILL_BERIC_DONDARRION.title=Desperdiciado
+got.achievement.KILL_BOMBARDIER.desc≠
+got.achievement.KILL_BOMBARDIER.title≠
 got.achievement.KILL_BRIENNE_TARTH.desc=Mata a Brienne Tarth
 got.achievement.KILL_BRIENNE_TARTH.title=Es una mujer?
 got.achievement.KILL_BRYNDEN_TULLY.desc=Mata a Brynden Tully
 got.achievement.KILL_BRYNDEN_TULLY.title=Pescador negro
+got.achievement.KILL_BUTTERFLY.desc≠
+got.achievement.KILL_BUTTERFLY.title≠
 got.achievement.KILL_BU_GAI.desc=Mata a Bu Gau
 got.achievement.KILL_BU_GAI.title=Jhattar legendario
 got.achievement.KILL_CERSEI_LANNISTER.desc=Mata a Cersei Lannister
@@ -1047,6 +1016,8 @@ got.achievement.KILL_HODOR.desc=Mata a Hodor
 got.achievement.KILL_HODOR.title=¡Sostén la puerta!
 got.achievement.KILL_HOWLAND_REED.desc=Mata a Howland Reed
 got.achievement.KILL_HOWLAND_REED.title=Encontrado y asesinado
+got.achievement.KILL_HUNTING_PLAYER.desc≠
+got.achievement.KILL_HUNTING_PLAYER.title≠
 got.achievement.KILL_IBBEN.desc=Mata a los ibbeneses
 got.achievement.KILL_IBBEN.title=Genocidio neandertal
 got.achievement.KILL_ICE_SPIDER.desc=Mata a la araña de hielo
@@ -1071,6 +1042,8 @@ got.achievement.KILL_KRAZNYS_MO_NAKLOZ.desc=Mata a Kraznys Mo Nakloz
 got.achievement.KILL_KRAZNYS_MO_NAKLOZ.title=Cambia el dragón por el ejército.
 got.achievement.KILL_LANCEL_LANNISTER.desc=Mata al religioso Lancel Lannister
 got.achievement.KILL_LANCEL_LANNISTER.title=Elijo la violencia
+got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.desc≠
+got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.title≠
 got.achievement.KILL_LORAS_TYRELL.desc=Mata a Loras Tyrell
 got.achievement.KILL_LORAS_TYRELL.title=Asesino de los deshonestos
 got.achievement.KILL_MACE_TYRELL.desc=Mata a Mace Tyrell
@@ -1113,6 +1086,8 @@ got.achievement.KILL_THENN_BERSERKER.desc=Mata al entonces n-berserker
 got.achievement.KILL_THENN_BERSERKER.title=Mas poderoso
 got.achievement.KILL_THE_KING.desc=Mata a cualquier rey de los siete reinos
 got.achievement.KILL_THE_KING.title=Kingslayer
+got.achievement.KILL_THIEVING_BANDIT.desc≠
+got.achievement.KILL_THIEVING_BANDIT.title≠
 got.achievement.KILL_THOROS.desc=Mata a Thoros
 got.achievement.KILL_THOROS.title=Ya no te salvará
 got.achievement.KILL_TORMUND.desc=Mata a Tormund
@@ -1127,6 +1102,8 @@ got.achievement.KILL_ULTHOS.desc=Mata a la araña Ulthos
 got.achievement.KILL_ULTHOS.title=¿Qué estás haciendo aquí?
 got.achievement.KILL_UNSULLIED.desc=Mata a los inmaculados
 got.achievement.KILL_UNSULLIED.title=¿Y quién está inmaculado?
+got.achievement.KILL_USING_ONLY_PLATES.desc≠
+got.achievement.KILL_USING_ONLY_PLATES.title≠
 got.achievement.KILL_VARYS.desc=Mata a Varys
 got.achievement.KILL_VARYS.title=Algunas puertas están cerradas permanentemente
 got.achievement.KILL_VASSAL.desc=Mata al vasallo de la Gran Casa
@@ -1135,6 +1112,8 @@ got.achievement.KILL_VICTARION_GREYJOY.desc=Mata a Victarion Greyjoy
 got.achievement.KILL_VICTARION_GREYJOY.title=Defensor del El Norte
 got.achievement.KILL_WEREWOLF.desc=Mata al hombre lobo
 got.achievement.KILL_WEREWOLF.title=Lanza una moneda a tu jugador
+got.achievement.KILL_WHILE_DRUNK.desc≠
+got.achievement.KILL_WHILE_DRUNK.title≠
 got.achievement.KILL_WHITE_WALKER.desc=Mata al caminante blanco
 got.achievement.KILL_WHITE_WALKER.title=Guerrero Valyrio
 got.achievement.KILL_WIGHT.desc=Mata al wight
@@ -1151,16 +1130,30 @@ got.achievement.KILL_YGRITTE.desc=Mata a Ygritte
 got.achievement.KILL_YGRITTE.title=Yo se todo Ygritte
 got.achievement.KILL_YOHN_ROYCE.desc=Mata a Yohn Royce
 got.achievement.KILL_YOHN_ROYCE.title=Guerrero anti-bronce
+got.achievement.LIGHT_BEACON.desc≠
+got.achievement.LIGHT_BEACON.title≠
+got.achievement.MARRY.desc≠
+got.achievement.MARRY.title≠
+got.achievement.MINE_GLOWSTONE.desc≠
+got.achievement.MINE_GLOWSTONE.title≠
 got.achievement.MINE_VALYRIAN.desc=Mineral valyrio
 got.achievement.MINE_VALYRIAN.title=Bajo los volcanes
 got.achievement.OBAMA.desc=Escoge un plátano del árbol
 got.achievement.OBAMA.title=Obama
+got.achievement.PICKPOCKET.desc≠
+got.achievement.PICKPOCKET.title≠
 got.achievement.PLEDGE_SERVICE.desc=Promesa una facción
 got.achievement.PLEDGE_SERVICE.title=¡Prometido!
 got.achievement.REFORGE.desc≠
 got.achievement.REFORGE.title≠
+got.achievement.RIDE_CAMEL.desc≠
+got.achievement.RIDE_CAMEL.title≠
 got.achievement.SHOOT_DOWN_MIDGES.desc=Deja que tus arqueros maten mosquitos
 got.achievement.SHOOT_DOWN_MIDGES.title=¡DEFENSA AÉREA!
+got.achievement.SMELT_OBSIDIAN_SHARD.desc≠
+got.achievement.SMELT_OBSIDIAN_SHARD.title≠
+got.achievement.SPEAK_TO_DRUNKARD.desc≠
+got.achievement.SPEAK_TO_DRUNKARD.title≠
 got.achievement.STEAL.desc=Robar un objeto para un compañero ladrón
 got.achievement.STEAL.title=Misión cumplida
 got.achievement.STEAL_ARBOR_GRAPES.desc=Robar uvas en Arbor
@@ -1181,6 +1174,12 @@ got.achievement.TRAVEL50.desc≠
 got.achievement.TRAVEL50.title≠
 got.achievement.UNSMELT.desc≠
 got.achievement.UNSMELT.title≠
+got.achievement.USE_CROSSBOW.desc≠
+got.achievement.USE_CROSSBOW.title≠
+got.achievement.USE_SPEAR_FROM_FAR.desc≠
+got.achievement.USE_SPEAR_FROM_FAR.title≠
+got.achievement.USE_THROWING_AXE.desc≠
+got.achievement.USE_THROWING_AXE.title≠
 got.achievement.VISIT_ALWAYS_WINTER.desc=Visita la tierra del siempre invierno
 got.achievement.VISIT_ALWAYS_WINTER.title=Entre el hielo eterno
 got.achievement.VISIT_ARBOR.desc=Visita el cenador
@@ -4186,6 +4185,7 @@ got.wp.custom=%s
 got.wp.shared.info=Disponible para %s
 got.wp.shared=%s
 item.got.antiking≠
+item.got.antimonster≠
 item.got.antiwalker≠
 item.got.antiwight≠
 item.got.banner.protect=Porta datos de protección
@@ -5648,10 +5648,10 @@ tile.got:bronzeBars.name=Barras de Bronce
 tile.got:butterflyJar.0.name=Frasco de Mariposa
 tile.got:buttonAndesite.name=Botón
 tile.got:buttonBasalt.name=Botón
-tile.got:buttonLabradorite.name=Labradorite Button
 tile.got:buttonChalk.name=Botón
 tile.got:buttonDiorite.name=Botón
 tile.got:buttonGranite.name=Botón
+tile.got:buttonLabradorite.name=Labradorite Button
 tile.got:buttonRhyolite.name=Botón
 tile.got:chain.name=Cadena
 tile.got:chandelier.0.name=Araña de bronce
@@ -5989,10 +5989,10 @@ tile.got:planksRotten.0.name=Tablones Podridos
 tile.got:plantain.name=Llano
 tile.got:pressurePlateAndesite.name=Placa de presión
 tile.got:pressurePlateBasalt.name=Placa de presión
-tile.got:pressurePlateLabradorite.name=Labradorite Pressure Plate
 tile.got:pressurePlateChalk.name=Placa de Presión
 tile.got:pressurePlateDiorite.name=Placa de presión
 tile.got:pressurePlateGranite.name=Placa de presión
+tile.got:pressurePlateLabradorite.name=Labradorite Pressure Plate
 tile.got:pressurePlateRhyolite.name=Placa de presión
 tile.got:quagmire.name=Cenegal
 tile.got:quicksand.name=Arena movediza
@@ -6213,10 +6213,6 @@ tile.got:stairsBeech.name=Escaleras de Madera de Haya
 tile.got:stairsBone.name=Escaleras de Hueso
 tile.got:stairsBrickCracked.name=Escaleras de Ladrillos Agrietado
 tile.got:stairsBrickMossy.name=Escaleras de Ladrillos Musgoso
-tile.got:stairsLabradorite.name=Labradorite Stairs
-tile.got:stairsLabradoriteBrick.name=Labradorite Brick Stairs
-tile.got:stairsLabradoriteBrickCracked.name=Cracked Labradorite Brick Stairs
-tile.got:stairsLabradoriteBrickMossy.name=Mossy Labradorite Brick Stairs
 tile.got:stairsCatalpa.name=Escaleras de Madera Catalpa
 tile.got:stairsCedar.name=Escaleras de Madera de Cedro
 tile.got:stairsChalk.name=Escaleras de Caliza
@@ -6255,6 +6251,10 @@ tile.got:stairsGreenOak.name=Escaleras de Madera de Roble Verde
 tile.got:stairsHolly.name=Escaleras de Madera de Acebo
 tile.got:stairsIbbinia.name=Escaleras de Madera Ibbinia
 tile.got:stairsKanuka.name=Escaleras de Madera de Kanuka
+tile.got:stairsLabradorite.name=Labradorite Stairs
+tile.got:stairsLabradoriteBrick.name=Labradorite Brick Stairs
+tile.got:stairsLabradoriteBrickCracked.name=Cracked Labradorite Brick Stairs
+tile.got:stairsLabradoriteBrickMossy.name=Mossy Labradorite Brick Stairs
 tile.got:stairsLarch.name=Escaleras de Madera de Alerce
 tile.got:stairsLemon.name=Escaleras de Madera de Limón
 tile.got:stairsLhazarBrick.name=Escaleras de ladrillo Lhazar

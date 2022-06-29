@@ -1,68 +1,4 @@
 ﻿
-item.got.antimonster≠
-entity.got.MarshWraith.name≠
-got.achievement.CATCH_BUTTERFLY.desc≠
-got.achievement.CATCH_BUTTERFLY.title≠
-got.achievement.COLLECT_CRAFTING_TABLES.desc≠
-got.achievement.COLLECT_CRAFTING_TABLES.title≠
-got.achievement.COLLECT_CROSSBOW_BOLTS.desc≠
-got.achievement.COLLECT_CROSSBOW_BOLTS.title≠
-got.achievement.COMBINE_SMITH_SCROLLS.desc≠
-got.achievement.COMBINE_SMITH_SCROLLS.title≠
-got.achievement.COOK_KEBAB.desc≠
-got.achievement.COOK_KEBAB.title≠
-got.achievement.CRAFT_SADDLE.desc≠
-got.achievement.CRAFT_SADDLE.title≠
-got.achievement.DO_MINIQUEST_HUNTER.desc≠
-got.achievement.DO_MINIQUEST_HUNTER.title≠
-got.achievement.DO_MINIQUEST_HUNTER5.desc≠
-got.achievement.DO_MINIQUEST_HUNTER5.title≠
-got.achievement.DRINK_PLANTAIN_BREW.desc≠
-got.achievement.DRINK_PLANTAIN_BREW.title≠
-got.achievement.DRINK_SKULL.desc≠
-got.achievement.DRINK_SKULL.title≠
-got.achievement.FIND_PLANTAIN.desc≠
-got.achievement.FIND_PLANTAIN.title≠
-got.achievement.FISH_RING.desc≠
-got.achievement.FISH_RING.title≠
-got.achievement.GET_DRUNK.desc≠
-got.achievement.GET_DRUNK.title≠
-got.achievement.GROW_BAOBAB.desc≠
-got.achievement.GROW_BAOBAB.title≠
-got.achievement.KILL_BOMBARDIER.desc≠
-got.achievement.KILL_BOMBARDIER.title≠
-got.achievement.KILL_BUTTERFLY.desc≠
-got.achievement.KILL_BUTTERFLY.title≠
-got.achievement.KILL_HUNTING_PLAYER.desc≠
-got.achievement.KILL_HUNTING_PLAYER.title≠
-got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.desc≠
-got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.title≠
-got.achievement.KILL_THIEVING_BANDIT.desc≠
-got.achievement.KILL_THIEVING_BANDIT.title≠
-got.achievement.KILL_USING_ONLY_PLATES.desc≠
-got.achievement.KILL_USING_ONLY_PLATES.title≠
-got.achievement.KILL_WHILE_DRUNK.desc≠
-got.achievement.KILL_WHILE_DRUNK.title≠
-got.achievement.LIGHT_BEACON.desc≠
-got.achievement.LIGHT_BEACON.title≠
-got.achievement.MARRY.desc≠
-got.achievement.MARRY.title≠
-got.achievement.MINE_GLOWSTONE.desc≠
-got.achievement.MINE_GLOWSTONE.title≠
-got.achievement.PICKPOCKET.desc≠
-got.achievement.PICKPOCKET.title≠
-got.achievement.RIDE_CAMEL.desc≠
-got.achievement.RIDE_CAMEL.title≠
-got.achievement.SMELT_OBSIDIAN_SHARD.desc≠
-got.achievement.SMELT_OBSIDIAN_SHARD.title≠
-got.achievement.SPEAK_TO_DRUNKARD.desc≠
-got.achievement.SPEAK_TO_DRUNKARD.title≠
-got.achievement.USE_CROSSBOW.desc≠
-got.achievement.USE_CROSSBOW.title≠
-got.achievement.USE_SPEAR_FROM_FAR.desc≠
-got.achievement.USE_SPEAR_FROM_FAR.title≠
-got.achievement.USE_THROWING_AXE.desc≠
-got.achievement.USE_THROWING_AXE.title≠
 attribute.name.generic.movementSpeedAir=速度(Air)
 color.black=黑色
 color.blue=蓝色
@@ -511,6 +447,7 @@ entity.got.ManfreyMartell.name=曼佛里·马泰尔
 entity.got.Manticore.name=蝎尾兽
 entity.got.MargaeryTyrell.name=玛格丽·提利尔
 entity.got.MaronVolmark.name=马伦·沃马克
+entity.got.MarshWraith.name≠
 entity.got.MathisRowan.name=马图斯·罗宛
 entity.got.MatthosSeaworth.name=马索思·席渥斯
 entity.got.Melisandra.name=梅丽珊卓
@@ -953,18 +890,38 @@ got.achievement.BANNER_PROTECT.desc=征服一片土地
 got.achievement.BANNER_PROTECT.title=征服者
 got.achievement.BREW_DRINK_IN_BARREL.desc=从桶里装一杯酒
 got.achievement.BREW_DRINK_IN_BARREL.title=酒水饮料
+got.achievement.CATCH_BUTTERFLY.desc≠
+got.achievement.CATCH_BUTTERFLY.title≠
+got.achievement.COLLECT_CRAFTING_TABLES.desc≠
+got.achievement.COLLECT_CRAFTING_TABLES.title≠
+got.achievement.COLLECT_CROSSBOW_BOLTS.desc≠
+got.achievement.COLLECT_CROSSBOW_BOLTS.title≠
+got.achievement.COMBINE_SMITH_SCROLLS.desc≠
+got.achievement.COMBINE_SMITH_SCROLLS.title≠
+got.achievement.COOK_KEBAB.desc≠
+got.achievement.COOK_KEBAB.title≠
 got.achievement.CRAFT_BOMB.desc=制作一枚炸弹
 got.achievement.CRAFT_BOMB.title=火药味
+got.achievement.CRAFT_SADDLE.desc≠
+got.achievement.CRAFT_SADDLE.title≠
 got.achievement.CRAFT_WILD_FIRE.desc=制作一枚野火罐
 got.achievement.CRAFT_WILD_FIRE.title=邪焰
 got.achievement.DEFEAT_INVASION.desc=击退一场入侵
 got.achievement.DEFEAT_INVASION.title=闪电战
 got.achievement.DO_LEGENDARY_QUEST.desc=完成一件传奇人物的小任务
 got.achievement.DO_LEGENDARY_QUEST.title=王候之友
+got.achievement.DO_MINIQUEST_HUNTER.desc≠
+got.achievement.DO_MINIQUEST_HUNTER.title≠
+got.achievement.DO_MINIQUEST_HUNTER5.desc≠
+got.achievement.DO_MINIQUEST_HUNTER5.title≠
 got.achievement.DO_QUEST.desc=完成一件小任务
 got.achievement.DO_QUEST.title=好帮手
 got.achievement.DRINK_FIRE.desc=饮下野火
 got.achievement.DRINK_FIRE.title=燃起来了
+got.achievement.DRINK_PLANTAIN_BREW.desc≠
+got.achievement.DRINK_PLANTAIN_BREW.title≠
+got.achievement.DRINK_SKULL.desc≠
+got.achievement.DRINK_SKULL.title≠
 got.achievement.DRINK_TERMITE.desc=白蚁仙人掌酒
 got.achievement.DRINK_TERMITE.title=俄罗斯轮盘赌
 got.achievement.EARN_MANY_COINS.desc=一次赚取1000银币
@@ -977,6 +934,10 @@ got.achievement.FACTION_CONQUEST.desc=宣誓并征服
 got.achievement.FACTION_CONQUEST.title=为了国王！
 got.achievement.FIND_FOUR_LEAF_CLOVER.desc=找到一株四叶草
 got.achievement.FIND_FOUR_LEAF_CLOVER.title=真走运
+got.achievement.FIND_PLANTAIN.desc≠
+got.achievement.FIND_PLANTAIN.title≠
+got.achievement.FISH_RING.desc≠
+got.achievement.FISH_RING.title≠
 got.achievement.FREEMAN.desc=与Hummel009交谈
 got.achievement.FREEMAN.title=弗里曼博士？
 got.achievement.GAIN_HIGH_ALCOHOL_TOLERANCE.desc=酩酊大醉一场
@@ -987,8 +948,12 @@ got.achievement.GET_CONCRETE.desc=得到水泥
 got.achievement.GET_CONCRETE.title=预制混凝土
 got.achievement.GET_COPPER.desc=得到铜
 got.achievement.GET_COPPER.title=1.17？
+got.achievement.GET_DRUNK.desc≠
+got.achievement.GET_DRUNK.title≠
 got.achievement.GET_POUCH.desc=得到袋子
 got.achievement.GET_POUCH.title=真能装！
+got.achievement.GROW_BAOBAB.desc≠
+got.achievement.GROW_BAOBAB.title≠
 got.achievement.HIRE_GOLDEN_COMPANY.desc=雇用 10 把金剑
 got.achievement.HIRE_GOLDEN_COMPANY.title=可销售的生物
 got.achievement.HUNDREDS.desc=雇佣100名单位
@@ -1011,10 +976,14 @@ got.achievement.KILL_BERIC_DAYNE.desc=杀死贝里克·戴恩
 got.achievement.KILL_BERIC_DAYNE.title=人间不值得
 got.achievement.KILL_BERIC_DONDARRION.desc=杀死贝里克唐德利安6次
 got.achievement.KILL_BERIC_DONDARRION.title=无用功？
+got.achievement.KILL_BOMBARDIER.desc≠
+got.achievement.KILL_BOMBARDIER.title≠
 got.achievement.KILL_BRIENNE_TARTH.desc=杀死塔斯岛的布蕾妮
 got.achievement.KILL_BRIENNE_TARTH.title=他是个女人？
 got.achievement.KILL_BRYNDEN_TULLY.desc=杀死布林登·徒利
 got.achievement.KILL_BRYNDEN_TULLY.title=黑渔夫
+got.achievement.KILL_BUTTERFLY.desc≠
+got.achievement.KILL_BUTTERFLY.title≠
 got.achievement.KILL_BU_GAI.desc=杀死卜侅
 got.achievement.KILL_BU_GAI.title=传奇君主
 got.achievement.KILL_CERSEI_LANNISTER.desc=杀死瑟曦·兰尼斯特
@@ -1047,6 +1016,8 @@ got.achievement.KILL_HODOR.desc=杀死阿多
 got.achievement.KILL_HODOR.title=Hold the door！
 got.achievement.KILL_HOWLAND_REED.desc=杀死霍兰·黎德
 got.achievement.KILL_HOWLAND_REED.title=追猎
+got.achievement.KILL_HUNTING_PLAYER.desc≠
+got.achievement.KILL_HUNTING_PLAYER.title≠
 got.achievement.KILL_IBBEN.desc=杀死伊班人
 got.achievement.KILL_IBBEN.title=种族灭绝
 got.achievement.KILL_ICE_SPIDER.desc=杀死冰蜘蛛
@@ -1071,6 +1042,8 @@ got.achievement.KILL_KRAZNYS_MO_NAKLOZ.desc=Kill Kraznys Mo Nakloz
 got.achievement.KILL_KRAZNYS_MO_NAKLOZ.title=Exchange the dragon for the army
 got.achievement.KILL_LANCEL_LANNISTER.desc=杀死信徒蓝赛尔·兰尼斯特
 got.achievement.KILL_LANCEL_LANNISTER.title=我选择暴力
+got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.desc≠
+got.achievement.KILL_LARGE_MOB_WITH_SLINGSHOT.title≠
 got.achievement.KILL_LORAS_TYRELL.desc=杀死洛拉斯·提瑞尔
 got.achievement.KILL_LORAS_TYRELL.title=杀不忠者
 got.achievement.KILL_MACE_TYRELL.desc=杀死梅斯·提利尔
@@ -1113,6 +1086,8 @@ got.achievement.KILL_THENN_BERSERKER.desc=杀死瑟恩狂战士
 got.achievement.KILL_THENN_BERSERKER.title=更强壮！
 got.achievement.KILL_THE_KING.desc=杀死七大王国的任意一位君主
 got.achievement.KILL_THE_KING.title=弑君者
+got.achievement.KILL_THIEVING_BANDIT.desc≠
+got.achievement.KILL_THIEVING_BANDIT.title≠
 got.achievement.KILL_THOROS.desc=杀死索罗斯
 got.achievement.KILL_THOROS.title=无法拯救
 got.achievement.KILL_TORMUND.desc=杀死托蒙德
@@ -1127,6 +1102,8 @@ got.achievement.KILL_ULTHOS.desc=杀死乌尔特斯蜘蛛
 got.achievement.KILL_ULTHOS.title=你在这里做什么？
 got.achievement.KILL_UNSULLIED.desc=杀死无垢者
 got.achievement.KILL_UNSULLIED.title=有种来啊
+got.achievement.KILL_USING_ONLY_PLATES.desc≠
+got.achievement.KILL_USING_ONLY_PLATES.title≠
 got.achievement.KILL_VARYS.desc=杀死瓦里斯
 got.achievement.KILL_VARYS.title=有些心门无法撬开
 got.achievement.KILL_VASSAL.desc=杀死大家族的臣民
@@ -1135,6 +1112,8 @@ got.achievement.KILL_VICTARION_GREYJOY.desc=杀死维克塔利昂·葛雷乔伊
 got.achievement.KILL_VICTARION_GREYJOY.title=北境捍卫者
 got.achievement.KILL_WEREWOLF.desc=杀死狼人
 got.achievement.KILL_WEREWOLF.title=为了吉尔尼斯
+got.achievement.KILL_WHILE_DRUNK.desc≠
+got.achievement.KILL_WHILE_DRUNK.title≠
 got.achievement.KILL_WHITE_WALKER.desc=杀死异鬼
 got.achievement.KILL_WHITE_WALKER.title=瓦雷利安战士
 got.achievement.KILL_WIGHT.desc=杀死尸鬼
@@ -1151,16 +1130,30 @@ got.achievement.KILL_YGRITTE.desc=杀死耶哥蕊特
 got.achievement.KILL_YGRITTE.title=我什么都知道，耶哥蕊特
 got.achievement.KILL_YOHN_ROYCE.desc=杀死约恩·罗伊斯
 got.achievement.KILL_YOHN_ROYCE.title=铜甲武士
+got.achievement.LIGHT_BEACON.desc≠
+got.achievement.LIGHT_BEACON.title≠
+got.achievement.MARRY.desc≠
+got.achievement.MARRY.title≠
+got.achievement.MINE_GLOWSTONE.desc≠
+got.achievement.MINE_GLOWSTONE.title≠
 got.achievement.MINE_VALYRIAN.desc=挖掘瓦雷利亚矿石
 got.achievement.MINE_VALYRIAN.title=火山之下
 got.achievement.OBAMA.desc=从树上摘一个香蕉
 got.achievement.OBAMA.title=OBAMA
+got.achievement.PICKPOCKET.desc≠
+got.achievement.PICKPOCKET.title≠
 got.achievement.PLEDGE_SERVICE.desc=宣誓效忠一个阵营
 got.achievement.PLEDGE_SERVICE.title=立誓！
 got.achievement.REFORGE.desc=重锻一件物品
 got.achievement.REFORGE.title=第二春
+got.achievement.RIDE_CAMEL.desc≠
+got.achievement.RIDE_CAMEL.title≠
 got.achievement.SHOOT_DOWN_MIDGES.desc=使你的弓箭手射下血蝇
 got.achievement.SHOOT_DOWN_MIDGES.title=防空！
+got.achievement.SMELT_OBSIDIAN_SHARD.desc≠
+got.achievement.SMELT_OBSIDIAN_SHARD.title≠
+got.achievement.SPEAK_TO_DRUNKARD.desc≠
+got.achievement.SPEAK_TO_DRUNKARD.title≠
 got.achievement.STEAL.desc=为盗贼伙伴偷取一个物品。
 got.achievement.STEAL.title=任务已完成
 got.achievement.STEAL_ARBOR_GRAPES.desc=在青亭岛窃取葡萄
@@ -1181,6 +1174,12 @@ got.achievement.TRAVEL50.desc=游历50个生物群系
 got.achievement.TRAVEL50.title=撰写《奇迹》
 got.achievement.UNSMELT.desc=重新冶炼不需要的装备
 got.achievement.UNSMELT.title=重复利用
+got.achievement.USE_CROSSBOW.desc≠
+got.achievement.USE_CROSSBOW.title≠
+got.achievement.USE_SPEAR_FROM_FAR.desc≠
+got.achievement.USE_SPEAR_FROM_FAR.title≠
+got.achievement.USE_THROWING_AXE.desc≠
+got.achievement.USE_THROWING_AXE.title≠
 got.achievement.VISIT_ALWAYS_WINTER.desc=进入永冬之地
 got.achievement.VISIT_ALWAYS_WINTER.title=在永恒的冰霜中
 got.achievement.VISIT_ARBOR.desc=进入青亭岛
@@ -4186,6 +4185,7 @@ got.wp.custom=%s
 got.wp.shared.info=分享至 %s
 got.wp.shared=%s
 item.got.antiking≠
+item.got.antimonster≠
 item.got.antiwalker≠
 item.got.antiwight≠
 item.got.banner.protect=带有保护数据
@@ -5648,10 +5648,10 @@ tile.got:bronzeBars.name=青铜栏杆
 tile.got:butterflyJar.0.name=蝴蝶罐
 tile.got:buttonAndesite.name=按钮
 tile.got:buttonBasalt.name=按钮
-tile.got:buttonLabradorite.name=Labradorite Button
 tile.got:buttonChalk.name=按钮
 tile.got:buttonDiorite.name=按钮
 tile.got:buttonGranite.name=按钮
+tile.got:buttonLabradorite.name=Labradorite Button
 tile.got:buttonRhyolite.name=按钮
 tile.got:chain.name=黑钢链
 tile.got:chandelier.0.name=青铜吊灯
@@ -5989,10 +5989,10 @@ tile.got:planksRotten.0.name=朽木板
 tile.got:plantain.name=原上草
 tile.got:pressurePlateAndesite.name=压力板
 tile.got:pressurePlateBasalt.name=压力板
-tile.got:pressurePlateLabradorite.name=Labradorite Pressure Plate
 tile.got:pressurePlateChalk.name=压力板
 tile.got:pressurePlateDiorite.name=压力板
 tile.got:pressurePlateGranite.name=压力板
+tile.got:pressurePlateLabradorite.name=Labradorite Pressure Plate
 tile.got:pressurePlateRhyolite.name=压力板
 tile.got:quagmire.name=沼泽泥
 tile.got:quicksand.name=流沙
@@ -6213,10 +6213,6 @@ tile.got:stairsBeech.name=山毛榉木楼梯
 tile.got:stairsBone.name=骨楼梯
 tile.got:stairsBrickCracked.name=裂砖楼梯
 tile.got:stairsBrickMossy.name=苔砖楼梯
-tile.got:stairsLabradorite.name=Labradorite Stairs
-tile.got:stairsLabradoriteBrick.name=Labradorite Brick Stairs
-tile.got:stairsLabradoriteBrickCracked.name=Cracked Labradorite Brick Stairs
-tile.got:stairsLabradoriteBrickMossy.name=Mossy Labradorite Brick Stairs
 tile.got:stairsCatalpa.name=金叶木楼梯
 tile.got:stairsCedar.name=雪松木楼梯
 tile.got:stairsChalk.name=白垩楼梯
@@ -6255,6 +6251,10 @@ tile.got:stairsGreenOak.name=绿橡木楼梯
 tile.got:stairsHolly.name=冬青木楼梯
 tile.got:stairsIbbinia.name=伊班松木楼梯
 tile.got:stairsKanuka.name=卡努卡木楼梯
+tile.got:stairsLabradorite.name=Labradorite Stairs
+tile.got:stairsLabradoriteBrick.name=Labradorite Brick Stairs
+tile.got:stairsLabradoriteBrickCracked.name=Cracked Labradorite Brick Stairs
+tile.got:stairsLabradoriteBrickMossy.name=Mossy Labradorite Brick Stairs
 tile.got:stairsLarch.name=落叶松木楼梯
 tile.got:stairsLemon.name=柠檬木楼梯
 tile.got:stairsLhazarBrick.name=拉札尔砖楼梯
