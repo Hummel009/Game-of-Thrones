@@ -5,6 +5,7 @@ CHANGELOG
 + Added "kill mob" type of quests
 + Added "kill player" type of quests
 + Added lots of achievements
++ Added new info about silver weapon
 
 * Changed faction colors due to their colors of banner, table, etc.
 * Changed werewolf stats
