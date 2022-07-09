@@ -54,13 +54,14 @@ public class GOTGuiMenu extends GOTGuiScreenBase {
 		int midX = width / 2;
 		int midY = height / 2;
 		buttonList.add(new GOTGuiButtonMenu(this, 2, 0, 0, GOTGuiAchievements.class, StatCollector.translateToLocal("got.gui.achievements"), 30));
-		buttonList.add(new GOTGuiButtonMenu(this, 6, 0, 0, GOTGuiFellowships.class, StatCollector.translateToLocal("got.gui.fellowships"), 25));
 		buttonList.add(new GOTGuiButtonMenu(this, 3, 0, 0, GOTGuiMap.class, StatCollector.translateToLocal("got.gui.map"), 50));
 		buttonList.add(new GOTGuiButtonMenu(this, 4, 0, 0, GOTGuiFactions.class, StatCollector.translateToLocal("got.gui.factions"), 33));
+		buttonList.add(new GOTGuiButtonMenu(this, 8, 0, 0, GOTGuiLanguages.class, StatCollector.translateToLocal("got.gui.languages"), 20));
+
+		buttonList.add(new GOTGuiButtonMenu(this, 6, 0, 0, GOTGuiFellowships.class, StatCollector.translateToLocal("got.gui.fellowships"), 25));
+		buttonList.add(new GOTGuiButtonMenu(this, 7, 0, 0, GOTGuiTitles.class, StatCollector.translateToLocal("got.gui.titles"), 20));
 		buttonList.add(new GOTGuiButtonMenu(this, 5, 0, 0, GOTGuiShields.class, StatCollector.translateToLocal("got.gui.atribute"), 31));
 		buttonList.add(new GOTGuiButtonMenu(this, 1, 0, 0, GOTGuiOptions.class, StatCollector.translateToLocal("got.gui.options"), 24));
-		buttonList.add(new GOTGuiButtonMenu(this, 7, 0, 0, GOTGuiTitles.class, StatCollector.translateToLocal("got.gui.titles"), 20));
-		buttonList.add(new GOTGuiButtonMenu(this, 8, 0, 0, GOTGuiLanguages.class, StatCollector.translateToLocal("got.gui.languages"), 20));
 		ArrayList<GOTGuiButtonMenu> menuButtons = new ArrayList<>();
 		for (Object obj : buttonList) {
 			if (obj instanceof GOTGuiButtonMenu) {

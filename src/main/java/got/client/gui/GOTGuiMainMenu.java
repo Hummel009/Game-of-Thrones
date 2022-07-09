@@ -179,7 +179,6 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 
 	public static void setupWaypoints() {
 		waypointRoute.clear();
-		waypointRoute.add(GOTWaypoint.ThreeEyedRavenCave);
 		waypointRoute.add(GOTWaypoint.CastleBlack);
 		waypointRoute.add(GOTWaypoint.Winterfell);
 		waypointRoute.add(GOTWaypoint.Riverrun);

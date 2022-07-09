@@ -7,16 +7,8 @@ CHANGELOG
 + Added lots of achievements
 + Added new info about silver weapon
 
-* Changed faction colors due to their colors of banner, table, etc.
-* Changed werewolf stats
-* Changed relation between Reach and Westerlands//Crownlands
-* Changed armor stats
-* Changed unpledge sound to amogus impostor sound
-* Changed some waypoint regions because of players' complaints. Essos wp can be unlocked in Kings Landing; Sothoryos - Ghiscar; Ulthos - Asshai; Ibben - Essos; Summer Islands - Sothoryos.
-* Changed standart wight armor (for egg)
-
+* Improved mechanics of stone men, their skins
 * Improved localization icon texture
-* Improved stone men, their skins and mechanics
 * Improved a few armor & weapon textures
 * Improved yellow banners' textures
 * Improved workbench textures, recipes
@@ -28,6 +20,15 @@ CHANGELOG
 * Improved tramp spawning
 * Improved sothoryos virus mechanics
 
+* Changed the order of menu icons
+* Changed faction colors due to their colors of banner, table, etc.
+* Changed werewolf stats
+* Changed relation between Reach and Westerlands//Crownlands
+* Changed armor stats
+* Changed unpledge sound to amogus impostor sound
+* Changed some waypoint regions because of players' complaints. Essos wp can be unlocked in Kings Landing; Sothoryos - Ghiscar; Ulthos - Asshai; Ibben - Essos; Summer Islands - Sothoryos.
+* Changed standart wight armor (for egg)
+
 * Optimized client tick handler
 
 * Fixed 33 bugs with bottom table textures
@@ -36,7 +37,7 @@ CHANGELOG
 * Fixed bug with furnace GUI
 * Fixed bug with wrong chest contents
 * Fixed bug with Loras Tyrell
-* Fixed bug with 25% of spawning a wrong structure at waypoint
+* Fixed bug with 25% of spawning a wrong structure at the few waypoints
 * Fixed bug with slaves speechbank
 * Fixed bug with towers in asshai
 * Fixed bug with wildling head slot
