@@ -6,7 +6,10 @@ CHANGELOG
 + Added "kill player" type of quests
 + Added lots of achievements
 + Added new info about silver weapon
++ Added new ocean types
 
+* Improved Ukrainian, Russian, English translations
+* Improved map texture
 * Improved mechanics of stone men, their skins
 * Improved localization icon texture
 * Improved a few armor & weapon textures
@@ -43,6 +46,7 @@ CHANGELOG
 * Fixed bug with wildling head slot
 * Fixed bug with inability to escape nausea in Asshai
 
+- Removed Ibben Sea biome, because it lost its difference after seasons update
 - Removed Carnotite set of blocks, because it turned out that it was uran ore
 
 >>VERSION 17.7.3

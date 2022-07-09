@@ -76,7 +76,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome ibbenBeach;
 	public static GOTBiome ibbenColony;
 	public static GOTBiome ibbenMountains;
-	public static GOTBiome ibbenSea;
 	public static GOTBiome ibbenTaiga;
 	public static GOTBiome ifekevronForest;
 	public static GOTBiome ironborn;
@@ -194,6 +193,9 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static int SPAWN = 600;
 	public static int CONQUEST_SPAWN = 100;
 	public static int[] NON_USED = { 2, 4, 12, 13, 16, 20, 26, 29, 32, 46, 52, 64, 66, 68, 74, 77, 83, 90, 93, 96, 98, 103, 110, 117, 134, 141, 149, 153 };
+	public static GOTBiome ocean1;
+	public static GOTBiome ocean2;
+	public static GOTBiome ocean3;
 	public GOTDimension biomeDimension;
 	public GOTBiomeDecorator decorator;
 	public int topBlockMeta = 0;
@@ -1036,7 +1038,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		hauntedForest = new GOTBiomeHauntedForest(44, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xA5C9AA).setBiomeName("hauntedForest");
 		ibben = new GOTBiomeIbben(45, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x74B747).setBiomeName("ibben");
 		ibbenColony = new GOTBiomeIbbenColony(47, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x8EA33A).setBiomeName("ibbenColony");
-		ibbenSea = new GOTBiomeOcean(48, true).setIsNeverWinter().setMinMaxHeight(-1.0f, 0.3f).setColor(0x02598E).setBiomeName("ocean");
 		ibbenTaiga = new GOTBiomeIbbenTaiga(49, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x437C1F).setBiomeName("ibbenTaiga");
 		ifekevronForest = new GOTBiomeIfekevronForest(50, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x657231).setBiomeName("ifekevronForest");
 		ironborn = new GOTBiomeIronborn(51, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x86B23E).setBiomeName("ironborn");
@@ -1071,7 +1072,10 @@ public abstract class GOTBiome extends BiomeGenBase {
 		northTown = new GOTBiomeNorthTown(87, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0x9DB27B).setBiomeName("northTown");
 		northWild = new GOTBiomeNorthWild(88, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x97B26C).setBiomeName("northWild");
 		norvos = new GOTBiomeNorvos(89, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x7DA344).setBiomeName("norvos");
-		ocean = new GOTBiomeOcean(91, true).setTemperatureRainfall(0.8F, 0.8F).setMinMaxHeight(-1.0f, 0.3f).setColor(153997).setBiomeName("ocean");
+		ocean = new GOTBiomeOcean(91, true).setTemperatureRainfall(0.8F, 0.8F).setMinMaxHeight(-1.0f, 0.3f).setColor(0x024B75).setBiomeName("ocean");
+		ocean1 = new GOTBiomeOcean(166, true).setTemperatureRainfall(0.8F, 0.8F).setMinMaxHeight(-0.7f, 0.3f).setColor(0x036FAC).setBiomeName("ocean");
+		ocean2 = new GOTBiomeOcean(167, true).setTemperatureRainfall(0.8F, 0.8F).setMinMaxHeight(-0.8f, 0.3f).setColor(0x026193).setBiomeName("ocean");
+		ocean3 = new GOTBiomeOcean(46, true).setTemperatureRainfall(0.8F, 0.8F).setMinMaxHeight(-0.9f, 0.3f).setColor(0x025582).setBiomeName("ocean");
 		pentos = new GOTBiomePentos(92, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x93A040).setBiomeName("pentos");
 		qarth = new GOTBiomeQarth(94, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x9EA880).setBiomeName("qarth");
 		qarthDesert = new GOTBiomeQarthDesert(95, true).setIsNeverWinter().setMinMaxHeight(0.2f, 0.1f).setColor(0xDCC175).setBiomeName("qarthDesert");
