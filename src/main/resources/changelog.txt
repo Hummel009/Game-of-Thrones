@@ -1,5 +1,11 @@
 CHANGELOG
 
+>>VERSION 17.9
+* Improved King Spears biome
+
+* Fixed freeze while F3 on ocean
+* Fixed bug with russian-speaking Illyrio in english translation
+
 >>VERSION 17.8
 + Added labradorite set of blocks
 + Added "kill mob" type of quests

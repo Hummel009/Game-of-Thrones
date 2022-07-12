@@ -268,13 +268,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	public void addBiomeF3Info(List info, World world, GOTBiomeVariant variant) {
-		int colorRGB = color & 0xFFFFFF;
-		String colorString = Integer.toHexString(colorRGB);
-		StringBuilder sb = new StringBuilder(colorString);
-		while (colorString.length() < 6) {
-			sb.insert(0, "0");
-		}
-		info.add("Game of Thrones biome: " + getBiomeDisplayName() + ", ID: " + biomeID + ", c: #" + colorString);
+		info.add("Game of Thrones biome: " + getBiomeDisplayName() + ", ID: " + biomeID + ";");
 		info.add("Variant: " + StatCollector.translateToLocal(variant.getUnlocalizedName()) + ", loaded: " + GOTBiomeVariantStorage.getSize(world));
 	}
 
@@ -1043,11 +1037,11 @@ public abstract class GOTBiome extends BiomeGenBase {
 		ironborn = new GOTBiomeIronborn(51, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x86B23E).setBiomeName("ironborn");
 		ironbornHills = new GOTBiomeIronbornHills(53, true).setIsLongWinter().setMinMaxHeight(0f, 1f).setColor(0x7F9951).setBiomeName("ironbornHills");
 		irontree = new GOTBiomeIrontree(54, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x677F2A).setBiomeName("irontree");
-		island = new GOTBiomeOcean(55, false).setIsNeverWinter().setMinMaxHeight(0.0f, 0.3f).setColor(10138963).setBiomeName("island");
+		island = new GOTBiomeOcean(55, false).setTemperatureRainfall(0.8F, 0.8F).setMinMaxHeight(0.0f, 0.3f).setColor(10138963).setBiomeName("island");
 		isleOfFaces = new GOTBiomeIsleOfFaces(56, true).setIsSeasonalWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0x835832).setBiomeName("isleOfFaces");
 		jogosNhai = new GOTBiomeJogosNhai(57, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xABB74D).setBiomeName("jogosNhai");
 		jogosNhaiDesert = new GOTBiomeJogosNhaiDesert(58, true).setIsNeverWinter().setMinMaxHeight(0.2f, 0.1f).setColor(0xD6C182).setBiomeName("jogosNhaiDesert");
-		kingSpears = new GOTBiomeNorthMountains(59, true).setIsSeasonalWinter().setMinMaxHeight(-1.0f, 2.0f).setColor(0xA0A0A0).setBiomeName("kingSpears");
+		kingSpears = new GOTBiomeOcean(59, true).setTemperatureRainfall(0.8F, 0.8F).setMinMaxHeight(-0.7f, 0.3f).setColor(0xA0A0A0).setBiomeName("kingSpears");
 		lake = new GOTBiomeLake(60, false).setTemperatureRainfall(0.8F, 0.8F).setColor(3433630).setBiomeName("lake");
 		lhazar = new GOTBiomeLhazar(61, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xB5AA46).setBiomeName("lhazar");
 		longSummer = new GOTBiomeLongSummer(62, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x95A03D).setBiomeName("longSummer");
