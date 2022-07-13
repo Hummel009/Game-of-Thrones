@@ -2,6 +2,7 @@ CHANGELOG
 
 >>VERSION 17.9
 * Improved King Spears biome
+* Improved Ukrainian translation (prod. Octobrine)
 
 * Fixed freeze while F3 on ocean
 * Fixed bug with russian-speaking Illyrio in english translation
