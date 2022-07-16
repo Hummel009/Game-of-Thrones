@@ -60,5 +60,5 @@ work is so good to enter the official version?
 
 <!---------------------------------[ Buttons ]--------------------------------->
 
-[Button Curse]: https://img.shields.io/badge/CurseForge-f16436.svg?style=for-the-badge&logoColor=white&logo=CurseForge
+[Button Curse]: https://img.shields.io/badge/Download-f16436.svg?style=for-the-badge&logoColor=white&logo=CurseForge
 [Button Wiki]: https://img.shields.io/badge/Wiki-FA005A.svg?style=for-the-badge&logoColor=white&logo=Fandom
