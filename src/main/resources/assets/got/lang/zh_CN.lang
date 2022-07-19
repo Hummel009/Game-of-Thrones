@@ -3305,6 +3305,8 @@ got.wp.Adakhakileki.info=坐落于厄斯索斯大陆红色荒原北界，石之�
 got.wp.Adakhakileki=阿达卡基拉基
 got.wp.Aegon.info=被艾丽斯·维斯希尔发现，位于夏日群岛西南的一座小岛。
 got.wp.Aegon=伊耿登陆处
+got.wp.AkShaar.info≠
+got.wp.AkShaar≠
 got.wp.Amberly.info=罗杰斯家族的居城
 got.wp.Amberly=安珀利
 got.wp.Anbei=安北
@@ -3334,6 +3336,10 @@ got.wp.Astapor.info=奴隶湾的一座城市，坐落在蠕虫河河口。它以
 got.wp.Astapor=阿斯塔波
 got.wp.Atranta.info=位于河间地，是凡斯家族的家堡。
 got.wp.Atranta=亚兰城
+got.wp.Azhydaar.info≠
+got.wp.Azhydaar≠
+got.wp.AzuuKan.info≠
+got.wp.AzuuKan≠
 got.wp.BaelishKeep.info=无名的，贝里席家族的要塞。贝里席家族是资历很浅的新贵族，在五王之战前曾效忠于谷地的艾林家族。贝里席家族由培提尔·贝里席的曾祖父创立，他是一名为科布瑞家族服务的布拉佛斯佣兵。是他的儿子（培提尔的祖父）被授予了这座位于五指半岛最小半岛北端石头上的小小领主的小要塞。
 got.wp.BaelishKeep=贝里席堡
 got.wp.Bandallon.info=河湾地的布莱巴尔家族的族堡。
@@ -3346,6 +3352,8 @@ got.wp.Barrowtown.info=北境的重要城镇，达斯丁家族的家堡荒冢厅
 got.wp.Barrowtown=荒冢屯
 got.wp.BarterBeach.info=位于蛇蜥群岛中的爪子岛。蛇蜥群岛的海盗们在此处进行交易。
 got.wp.BarterBeach=交易滩
+got.wp.Bashkaruuchu.info≠
+got.wp.Bashkaruuchu≠
 got.wp.Bayasabhad.info=位于远东，也被称为巨蛇之城。是厄斯索斯东部的一个城市，海尔科隆后裔国留下的三个要塞城市之一，以乳头穿着铁环、双颊镶着红宝石的女战士著称。
 got.wp.Bayasabhad=巴亚撒布哈德
 got.wp.Bhorash.info=一座城市废墟。它位于奴隶湾的北岸、黑色大峭壁的东北部。瓦雷利亚大道将之与玛塔里斯及脱罗斯连接，这段道路属于连接瓦兰提斯和弥林的恶魔之路的一部分。
@@ -3674,10 +3682,14 @@ got.wp.KissLock.info=
 got.wp.KissLock=吻别哨
 got.wp.Koj.info=是盛夏群岛中的一座小岛。
 got.wp.Koj=鹿儿岛
+got.wp.Korkunuchtuu.info≠
+got.wp.Korkunuchtuu≠
 got.wp.Kosrak.info=科斯拉克是拉札的一座城市，坐落于斯卡札丹河的一条支流旁，赫西以东，拉札西东北面。一条商路自科斯拉克延伸而出，穿过红色荒原，一路向南直抵如今已成废墟的维斯·托罗若城。此外科斯拉克还有一条商路向东北方延伸，通往阿达卡基拉基。
 got.wp.Kosrak=科斯拉克
 got.wp.KrazaajHas.info=科拉札吉·札斯克是东大陆一处吉斯城市废墟。它原名为卡兹达克，不过如今只有它的多斯拉克语名字留存下来，意思是“尖顶山脉”，意指此城的金字塔。
 got.wp.KrazaajHas=科拉札吉·札斯克
+got.wp.Kujruk.info≠
+got.wp.Kujruk≠
 got.wp.Kyth.info=
 got.wp.Kyth=凯萨
 got.wp.Lannisport.info=兰尼斯港是日落之海沿岸的一个城市，在凯岩城以西，河间大道、黄金大道和滨海大道交汇的地方。在这座港口停泊着兰尼斯特家族的舰队。此外这个城市还以出产金器而闻名。负责维持治安的守备队，与君临或是旧镇的相比，更是以训练有素而出名。
@@ -3776,6 +3788,8 @@ got.wp.Norvos.info=诺佛斯是九大自由贸易城邦之一，位于山区之�
 got.wp.Norvos=诺佛斯
 got.wp.NySar.info=娜·萨星是厄斯索斯大陆的一处城市遗址。它座落在洛恩河与娜恩河的交流处。此地是战士女王娜梅莉亚的城邦，在洛伊拿人入侵中被瓦雷利亚自由堡垒的龙摧毁。娜·萨星比葛·多荷大十倍，其码头大得足以停泊半百条船，而娜梅莉亚的粉色与绿色大理石的宫殿遗迹至今依旧留存在娜·萨星的废墟中，成为洛恩河中巨龟的休憩处。
 got.wp.NySar=娜·萨星
+got.wp.NymduuOoz.info≠
+got.wp.NymduuOoz≠
 got.wp.Oakenshield.info=橡木盾是长城上一座被守夜人军团遗弃的城堡。位于黑城堡以东，水滨寨以西。
 got.wp.Oakenshield=橡木盾
 got.wp.OldAnchor.info=老锚地是谷地马尔寇家族的封城。老锚地位于鹰巢城东边的狭海沿岸。
@@ -3928,6 +3942,8 @@ got.wp.SharpPoint.info=尖角城位于马赛岬顶端，瞭望塔上燃烧着熊
 got.wp.SharpPoint=尖角
 got.wp.Shatterstone.info=碎石堡在铁群岛的老威克岛上，是古柏勒家族的家堡。
 got.wp.Shatterstone=碎石堡
+got.wp.ShyluunUusu.info≠
+got.wp.ShyluunUusu≠
 got.wp.SiQo.info=又称“荣耀的兴都”，是猩红天子在雨林中心建立的新城。
 got.wp.SiQo=兴都
 got.wp.Silverhill.info=银山城位于西境，在深穴城以南，是沙略特家族的家堡。
@@ -3994,6 +4010,8 @@ got.wp.Sunderly.info=桑德利城是盐崖岛的桑德利家族的族堡。
 got.wp.Sunderly=桑德利城
 got.wp.Sunspear.info=阳戟城是马泰尔家族族堡和多恩首府。它位于绿血河以北，坐落于维斯特洛大陆东南海岸，三面环海。多恩亲王的私人住所流水花园位于阳戟城以西三里格的海滩边，一条滨海道路将它们分开。
 got.wp.Sunspear=阳戟城
+got.wp.SuuNym.info≠
+got.wp.SuuNym≠
 got.wp.SweetLotusVale.info=扎勒岛上的一条河谷。它从该岛中部向南延伸，在檀头镇处入海
 got.wp.SweetLotusVale=甜莲花谷
 got.wp.SweetportSound.info=妙港位于王领，是桑格拉斯家族的居所。
@@ -4002,6 +4020,8 @@ got.wp.TallTreesTown.info=高树镇是盛夏群岛上的一个城镇。它是月
 got.wp.TallTreesTown=高树镇
 got.wp.TarbeckHall.info=塔贝克厅是位于西境的一座废墟城堡，位于卡斯特梅城和峭岩城附近。这是古老的塔贝克家族的族堡。
 got.wp.TarbeckHall=塔贝克厅
+got.wp.Tashtoo.info≠
+got.wp.Tashtoo≠
 got.wp.TawneyCastle.info=
 got.wp.TawneyCastle=陶尼堡
 got.wp.Telyria.info=

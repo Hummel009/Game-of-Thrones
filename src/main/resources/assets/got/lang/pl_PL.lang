@@ -3305,6 +3305,8 @@ got.wp.Adakhakileki.info=Kto zbudował miasto, jest teraz zapomniany, ale Dothra
 got.wp.Adakhakileki=Adakhakileki
 got.wp.Aegon.info=Wyspa odkryta przez Alice Westhill, która znajduje się na południowym zachodzie od Letnich Wysp.
 got.wp.Aegon=Aegon
+got.wp.AkShaar.info≠
+got.wp.AkShaar≠
 got.wp.Amberly.info=Rodowy zamek Rogersów, wasali Baratheonów.
 got.wp.Amberly=Amberly
 got.wp.Anbei.info=Miejsce zapomniane nawet przez osoby spisujące mapy
@@ -3335,6 +3337,10 @@ got.wp.Astapor.info=Jedno z trzech centrów handlu niewolnikami w Zatoce Niewoln
 got.wp.Astapor=Astapor
 got.wp.Atranta.info=Zamek przodków młodszej gałęzi rodu Vance, wasali Tullych.
 got.wp.Atranta=Atranta
+got.wp.Azhydaar.info≠
+got.wp.Azhydaar≠
+got.wp.AzuuKan.info≠
+got.wp.AzuuKan≠
 got.wp.BaelishKeep.info=Domena przodków jednego z najmniej znaczących i najbiedniejszych władców Siedmiu Królestw - Beilish. Trzy pokolenia temu pradziadek obecnego lorda Petyra Baelisha przybył do Westeros jako najemnik z Braavos, jego syn otrzymał tytuł szlachecki, jego wnuk został lordem, a jego prawnuk poślubił wdowę po lordzie Arrynie.
 got.wp.BaelishKeep=Baelish Keep
 got.wp.Bandallon.info=Rodowy zamek rodu Blackbar z Reach. Blackbarowie w herbie posiadają czarny pasek na białym tle, podobno każdy z ich rodu to dość pesymistyczni arystokraci.
@@ -3347,6 +3353,8 @@ got.wp.Barrowtown.info=Miastem rządzi ród Dustinów, dawni Barrow Kings z Barr
 got.wp.Barrowtown=Barrowtown
 got.wp.BarterBeach.info=Plaża, na której piraci handlują ze sobą. Prawdopodobnie piracka osada.
 got.wp.BarterBeach=Plaża handlowa
+got.wp.Bashkaruuchu.info≠
+got.wp.Bashkaruuchu≠
 got.wp.Bayasabhad.info=Jedno z ostatnich miast, które powstały wokół cytadeli, zbudowane w celu ochrony lenna Hirkun przed najazdami; królestwo popadło w ruinę po wyschnięciu morza, ale wojownicze Amazonki nadal pilnują strażników.
 got.wp.Bayasabhad=Bayasabhad
 got.wp.Bhorash.info=Ruiny miasta Valyrian lub Ghiskar na Drodze Demonów. .
@@ -3675,10 +3683,14 @@ got.wp.KissLock.info=Zamek Rycerzy Czaszek i Pocałunków.
 got.wp.KissLock=Kiss Lock
 got.wp.Koj.info=Największa stocznia na Wyspach Letnich.
 got.wp.Koj=Koj
+got.wp.Korkunuchtuu.info≠
+got.wp.Korkunuchtuu≠
 got.wp.Kosrak.info=Jedno z miast Lchazar.
 got.wp.Kosrak=Kosrak
 got.wp.KrazaajHas.info=Dawne miasto Ghiskar, Gardak. Być może Dothrakowie nadali nazwę „ostrych gór” już zniszczonym ruinom, podziwiając kształt swoich piramid, być może miasto przetrwało podbój i śmierć Valyrii i zostało splądrowane przez Dothraków.
 got.wp.KrazaajHas=Krazaaj Has
+got.wp.Kujruk.info≠
+got.wp.Kujruk≠
 got.wp.Kyth.info=Miasto Sarnor zniszczone przez Dothraków.
 got.wp.Kyth=Kyth
 got.wp.Lannisport.info=Trzecie pod względem liczby ludności miasto Westeros po stolicy i Starym Mieście; najważniejsze miasto portowe i przemysłowe Ziem Zachodnich. Słynie z rzemieślników, zwłaszcza złotników i kowali do złota. Miastem rządzi młodszy oddział Lannisterów.
@@ -3777,6 +3789,8 @@ got.wp.Norvos.info=Jedno z Wolnych Miast rządzonych przez tzw. „Brodatych kap
 got.wp.Norvos=Norvos
 got.wp.NySar.info=Ruiny starożytnego miasta Roinar z ogromnym portem; teraz z miasta pozostał tylko pałac Nymeria - ten, który zabrał jej ludzi na dziesięć tysięcy statków do Dorn.
 got.wp.NySar=Ny Sar
+got.wp.NymduuOoz.info≠
+got.wp.NymduuOoz≠
 got.wp.Oakenshield.info=Pusty zamek Nocnej Straży. 998. Lord Dowódca Nocnej Straży przekazał zamek Dzikiemu Wodzowi Tormundowi.
 got.wp.Oakenshield=Oakenshield
 got.wp.OldAnchor.info=Zamek domu Melcolmów, wasali Arrynów.
@@ -3929,6 +3943,8 @@ got.wp.SharpPoint.info=Zamek domu Bar-Emmon, wasali Stannisa Baratheona. Są mu 
 got.wp.SharpPoint=SharpPoint
 got.wp.Shatterstone.info=Forteca na Old Vic, należąca do jednej z młodszych gałęzi Goodbrothers.
 got.wp.Shatterstone=Shatterstone
+got.wp.ShyluunUusu.info≠
+got.wp.ShyluunUusu≠
 got.wp.SiQo.info=Legendarna stolica Złotego Cesarstwa Yi Ti w czasach Szkarłatnej Dynastii. Nie jest jasne, dlaczego zdecydowali się przenieść stolicę do dżungli, ale teraz miasto jest stracone, ponieważ natura odzyskała swoje dobra.
 got.wp.SiQo=Si Qo
 got.wp.Silverhill.info=Zamek rodziny Serrettes, wasali Lannisterów.
@@ -3995,6 +4011,8 @@ got.wp.Sunderly.info=Zamek rodu Sanderly, wasali Greyjoyów. Znajduje się na Sa
 got.wp.Sunderly=Bezładnie
 got.wp.Sunspear.info=Dom przodków rodu Martell wyrósł ze starego zamku - Arki Piasków. Odbudowany z żółto-brązowych cegieł adobe, jak Shady City przy murach zamku.
 got.wp.Sunspear=Sunspear
+got.wp.SuuNym.info≠
+got.wp.SuuNym≠
 got.wp.SweetLotusVale.info=Centrum prowincji o tej samej nazwie na południowej wyspie i pierwsza stolica zjednoczonego stanu Wyspy Letnie, założona przez byłego niewolnika - Xandę Ko.
 got.wp.SweetLotusVale=Słodka Dolina Lotosu
 got.wp.SweetportSound.info=Castle the Sanglass, zaprzysiężony Smocza Skała. Nie wiadomo, czy znajduje się na tej wyspie, czy w innym miejscu.
@@ -4003,6 +4021,8 @@ got.wp.TallTreesTown.info=Słoneczne miasto, w którym kapłanki rzeźbią histo
 got.wp.TallTreesTown=Miasto Wysokich Drzew
 got.wp.TarbeckHall.info=Zamek rodu Tarbeków, którzy wraz z Wodzami nie docenili postaci młodego Tywina i stali się bohaterami słynnej piosenki „Reyna z Kastamere”
 got.wp.TarbeckHall=Tarbeck Hall
+got.wp.Tashtoo.info≠
+got.wp.Tashtoo≠
 got.wp.TawneyCastle.info=Zamek rodu Townie, wasali Greyjoyów.
 got.wp.TawneyCastle=Castle Tawney
 got.wp.Telyria.info=Morska brama Valyrii.

@@ -3305,6 +3305,8 @@ got.wp.Adakhakileki.info=Chi ha costruito la città è ormai dimenticato, ma il 
 got.wp.Adakhakileki=Adakhakileki
 got.wp.Aegon.info=Un'isola scoperta da Alice Westhill a sud-ovest delle Isole d'Estate.
 got.wp.Aegon=Aegon
+got.wp.AkShaar.info≠
+got.wp.AkShaar≠
 got.wp.Amberly.info=Castello ancestrale dei Rogers, vassalli dei Baratheons.
 got.wp.Amberly=Ambra
 got.wp.Anbei.info≠
@@ -3335,6 +3337,10 @@ got.wp.Astapor.info=Uno dei tre centri per la tratta degli schiavi a Slaver's Ba
 got.wp.Astapor=Astapor
 got.wp.Atranta.info=Castello ancestrale del ramo più giovane dei Vance, vassalli di Tully.
 got.wp.Atranta=Atranta
+got.wp.Azhydaar.info≠
+got.wp.Azhydaar≠
+got.wp.AzuuKan.info≠
+got.wp.AzuuKan≠
 got.wp.BaelishKeep.info=Il dominio ancestrale di uno dei signori più insignificanti e poveri dei Sette Regni: il Beilish. Tre generazioni fa, il bisnonno dell'attuale Lord Petyr Baelish arrivò a Westeros come mercenario di Braavos, suo figlio ricevette il titolo di cavalierato, suo nipote divenne signore e il suo pronipote sposò la vedova di Lord Arryn.
 got.wp.BaelishKeep=Baelish Keep
 got.wp.Bandallon.info=Castello ancestrale della Casa Blackbar di the Altopiano. I Blackbars hanno una pessima immaginazione: il loro stemma ha una striscia nera (nera) (barra).
@@ -3347,6 +3353,8 @@ got.wp.Barrowtown.info=La città è governata dai Dustins, ex Barrow Kings di Ba
 got.wp.Barrowtown=Barrowtown
 got.wp.BarterBeach.info=La spiaggia dove i pirati commerciavano tra loro. Forse un insediamento pirata.
 got.wp.BarterBeach=Baratto Beach
+got.wp.Bashkaruuchu.info≠
+got.wp.Bashkaruuchu≠
 got.wp.Bayasabhad.info=Una delle ultime città sorte intorno alla cittadella, costruita per proteggere il feudo di Hirkun dalle incursioni; il regno cadde in rovina dopo il mare secco, ma le bellicose Amazzoni sorvegliano ancora la guardia.
 got.wp.Bayasabhad=Bayasabhad
 got.wp.Bhorash.info=Rovine di una città di Valyria o Ghiskar sulla Strada dei Demoni. Distrutto dopo la Rocca di Valyria, e da chi è sconosciuto.
@@ -3675,10 +3683,14 @@ got.wp.KissLock.info=Castello dei Cavalieri di Teschi e Baci.
 got.wp.KissLock=Kiss Lock
 got.wp.Koj.info=Il più grande cantiere navale delle Isole d'Estate.
 got.wp.Koj=Koj
+got.wp.Korkunuchtuu.info≠
+got.wp.Korkunuchtuu≠
 got.wp.Kosrak.info=Una delle città Lkhazar.
 got.wp.Kosrak=Kosrak
 got.wp.KrazaajHas.info=L'ex città Ghiskar di Gardak. Forse i Dothraki diedero il nome di "montagne appuntite"alle rovine già distrutte, ammirando la forma delle sue piramidi, forse la città sopravvisse alla conquista e alla morte di Valyria, e fu saccheggiata dai Dothraki.
 got.wp.KrazaajHas=Krazaaj Has
+got.wp.Kujruk.info≠
+got.wp.Kujruk≠
 got.wp.Kyth.info=Città di Sarnor distrutta dai Dothraki.
 got.wp.Kyth=Kyth
 got.wp.Lannisport.info=La terza città più popolosa di Westeros dopo la capitale e il centro storico; la più importante città portuale e industriale delle Terre d'Occidente. È famosa per i suoi artigiani, soprattutto orafi e fabbri per l'oreficeria. La città è governata dal ramo minore di Lannister.
@@ -3777,6 +3789,8 @@ got.wp.Norvos.info=Una delle città libere governata dai cosiddetti "preti barbu
 got.wp.Norvos=Norvos
 got.wp.NySar.info=Rovine di un'antica città Roinar con un enorme porto; ora della città rimaneva solo il palazzo di Nymeria, quello che portava il suo popolo a Dorn su diecimila navi.
 got.wp.NySar=Ny Sar
+got.wp.NymduuOoz.info≠
+got.wp.NymduuOoz≠
 got.wp.Oakenshield.info=Il castello vuoto dei Guardiani della Notte. Il 998 ° Lord Comandante dei Guardiani della Notte ha consegnato il castello al Capo Selvaggio Tormund.
 got.wp.Oakenshield=Quercia
 got.wp.OldAnchor.info=Il castello della casa dei Melcolm, vassalli degli Arryn.
@@ -3929,6 +3943,8 @@ got.wp.SharpPoint.info=Il castello della casa del Bar-Emmon, vassalli di Stannis
 got.wp.SharpPoint=Punto acuto
 got.wp.Shatterstone.info=Una fortezza sull'Old Vic, di proprietà di uno dei rami più giovani dei Goodbrothers.
 got.wp.Shatterstone=Shatterstone
+got.wp.ShyluunUusu.info≠
+got.wp.ShyluunUusu≠
 got.wp.SiQo.info=La leggendaria capitale dell'Impero d'Oro Yi Ti durante la dinastia scarlatta. Non è chiaro perché abbiano deciso di trasferire la capitale nella giungla, ma ora la città è perduta, perché la natura ha reclamato i suoi possedimenti.
 got.wp.SiQo=Si Qo
 got.wp.Silverhill.info=Il castello della casa dei Serrettes, vassalli dei Lannister.
@@ -3995,6 +4011,8 @@ got.wp.Sunderly.info=Il castello della Casa di Sanderly, vassalli dei Greyjoys. 
 got.wp.Sunderly=Sunderly
 got.wp.Sunspear.info=La casa ancestrale della Casata Martell, è cresciuta da un vecchio castello: l'Arca delle Sabbie. Ricostruito da mattoni di adobe giallo-marroni, come la Città ombrosa alle mura del castello.
 got.wp.Sunspear=Lancia del sole
+got.wp.SuuNym.info≠
+got.wp.SuuNym≠
 got.wp.SweetLotusVale.info=Il centro della provincia con lo stesso nome sull'isola meridionale e la prima capitale dello stato unito delle Isole d'Estate, fondata da un ex schiavo - Xanda Ko.
 got.wp.SweetLotusVale=Sweet Lotus Vale
 got.wp.SweetportSound.info=Castello dei Sanglass, giurato a Roccia del Drago. Non è noto se si trovi su quest'isola o altrove.
@@ -4003,6 +4021,8 @@ got.wp.TallTreesTown.info=Una città soleggiata dove le sacerdotesse scolpiscono
 got.wp.TallTreesTown=Città degli alberi alti
 got.wp.TarbeckHall.info=Il castello della casa di Tarbek, che, insieme ai Redini, sottovalutò il carattere del giovane Tywin e divenne i protagonisti della celebre canzone "Reyna from Kastamere"
 got.wp.TarbeckHall=Tarbeck Hall
+got.wp.Tashtoo.info≠
+got.wp.Tashtoo≠
 got.wp.TawneyCastle.info=Il castello della casa di Townie, vassalli dei Greyjoys.
 got.wp.TawneyCastle=Castello di Tawney
 got.wp.Telyria.info=Porta del mare di Valyria.

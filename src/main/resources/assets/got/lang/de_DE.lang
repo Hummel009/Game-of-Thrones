@@ -3305,6 +3305,8 @@ got.wp.Adakhakileki.info=Es ist jetzt vergessen, von wem die Stadt gebaut wurde,
 got.wp.Adakhakileki=Adakhakileki
 got.wp.Aegon.info=Eine Insel, die Alice Westhill südwestlich der Sommerinseln entdeckt hat.
 got.wp.Aegon=Aegon
+got.wp.AkShaar.info≠
+got.wp.AkShaar≠
 got.wp.Amberly.info=Ahnenburg der Rogers, Vasallen der Baratheons.
 got.wp.Amberly=Amberly
 got.wp.Anbei.info≠
@@ -3335,6 +3337,10 @@ got.wp.Astapor.info=Eines von drei Sklavenhandelszentren in der Bucht der Sklave
 got.wp.Astapor=Astapor
 got.wp.Atranta.info=Ahnenburg des kleinen Zweigs von Vance, Tullys Vasallen.
 got.wp.Atranta=Atranta
+got.wp.Azhydaar.info≠
+got.wp.Azhydaar≠
+got.wp.AzuuKan.info≠
+got.wp.AzuuKan≠
 got.wp.BaelishKeep.info=Die Ahnendomäne eines der unbedeutendsten und ärmsten Herren der sieben Königreiche - der Baelish. Vor drei Generationen kam der Urgroßvater des heutigen Lord Petyr Baelish als Braavos-Söldner nach Westeros, sein Sohn wurde zum Ritter geschlagen, sein Enkel wurde Lord und sein Urenkel heiratete die Witwe von Lord Arryn.
 got.wp.BaelishKeep=Beilish Turm
 got.wp.Bandallon.info=Ahnenburg des Hauses Schwarzbär von der Weite. Schwarzbären haben eine sehr schlechte Vorstellungskraft: Auf ihrem Wappen ist ein schwarzer (schwarzer) Streifen (holzbalken) abgebildet.
@@ -3347,6 +3353,8 @@ got.wp.Barrowtown.info=Die Stadt wird von den Dustins, ehemaligen Hügelkönigen
 got.wp.Barrowtown=Barrowton
 got.wp.BarterBeach.info=Der Strand, an dem Piraten miteinander handelten. Möglicherweise eine Piratensiedlung.
 got.wp.BarterBeach=BarterStrand
+got.wp.Bashkaruuchu.info≠
+got.wp.Bashkaruuchu≠
 got.wp.Bayasabhad.info=Eine der letzten Städte, die um eine Zitadelle herum entstanden ist, die gebaut wurde, um das Lehen von Girkun vor Überfällen zu schützen. Das Königreich verfiel nach dem trockenen Meer, aber die kriegerischen Amazonen beobachten immer noch die Wache.
 got.wp.Bayasabhad=Bayasabhad
 got.wp.Bhorash.info=Ruinen einer valyrischen oder ghiskarischen Stadt an der Dämonenstraße. Von wem sie zerstört wurde, ist unbekannt.#
@@ -3675,10 +3683,14 @@ got.wp.KissLock.info=Schloss der Ritter der Schädel und Küsse.
 got.wp.KissLock=Kussschloss
 got.wp.Koj.info=Die größte Werft der Sommerinseln.
 got.wp.Koj=Koj
+got.wp.Korkunuchtuu.info≠
+got.wp.Korkunuchtuu≠
 got.wp.Kosrak.info=Eine der Städte in Lkhazar.
 got.wp.Kosrak=Ziege
 got.wp.KrazaajHas.info=Die einstige Ghiskar-Stadt Gardak. Vielleicht gaben die Dothraki den bereits zerstörten Ruinen den.name=N "scharfe Berge" und bewunderten die Form ihrer Pyramiden. Vielleicht überlebte die Stadt die Eroberung und den Tod von Valyria und wurde von den Dothraki geplündert.
 got.wp.KrazaajHas=Krazaaj Has
+got.wp.Kujruk.info≠
+got.wp.Kujruk≠
 got.wp.Kyth.info=Stadt Sarnor. Von den Dothraki zerstört.
 got.wp.Kyth=Kif
 got.wp.Lannisport.info=Die drittgrößte Stadt in Westeros nach der Hauptstadt und der Altstadt; die Wightigste Hafen- und Industriestadt der Westlande. Sie ist berühmt für seine Handwerker, insbesondere für Schmiede und Goldschmiede. Die Stadt wird von der Junior-Niederlassung von Lennister regiert.
@@ -3777,6 +3789,8 @@ got.wp.Norvos.info=Eine der freien Städte, die von den sogenannten "bärtigen P
 got.wp.Norvos=Norvos
 got.wp.NySar.info=Ruinen einer alten Stadt in Roinar mit einem riesigen Hafen; jetzt blieb nur der Palast von Nymeria von der Stadt übrig - den, den ihr Volk auf zehntausend Schiffen nach Dorne brachte.
 got.wp.NySar=Ni Sar
+got.wp.NymduuOoz.info≠
+got.wp.NymduuOoz≠
 got.wp.Oakenshield.info=Das Schloss der leeren Nachtwache. Der 998. Lord Hauptmann der Nachtwache übergab die Burg an den Wilden Häuptling Tormund.
 got.wp.Oakenshield=Eichenschild
 got.wp.OldAnchor.info=Schloss des Hauses Melkolm, Vasallen des Arryn.
@@ -3929,6 +3943,8 @@ got.wp.SharpPoint.info=Das Schloss des Hauses der Bar-Emmon, Vasallen von Stanni
 got.wp.SharpPoint=Scharfer Punkt
 got.wp.Shatterstone.info=Festung auf Old Vic, im Besitz eines der kleineren Zweige der guten Brüder.
 got.wp.Shatterstone=Splitterstein
+got.wp.ShyluunUusu.info≠
+got.wp.ShyluunUusu≠
 got.wp.SiQo.info=Legendäre Hauptstadt des Yi Ti Goldenen Reiches während der Scharlachroten Dynastie. Es ist nicht klar, warum sie beschlossen haben, die Hauptstadt in den Dschungel zu verlegen, aber jetzt ist die Stadt verloren, denn die Natur hat ihre Besitztümer zurückerobert.
 got.wp.SiQo=Si-Tso
 got.wp.Silverhill.info=Schloss vom Haus Serrett, Vasallen der Lennister.
@@ -3995,6 +4011,8 @@ got.wp.Sunderly.info=Schloss des Hauses Sanderly, Vasallen der Graufreuds. Das H
 got.wp.Sunderly=Sunderly Schloss
 got.wp.Sunspear.info=Stammhaus des Hauses Martell, das aus einer alten Burg hervorgegangen ist - der Arche des Sandes. Aus gelbbraunen Lehmziegeln wieder aufgebaut, wie die Shady Stadt an den Burgmauern.
 got.wp.Sunspear=Sonnenspeer
+got.wp.SuuNym.info≠
+got.wp.SuuNym≠
 got.wp.SweetLotusVale.info=Das Zentrum der gleichnamigen Provinz auf der Südinsel und die erste Hauptstadt des vereinigten Staates der Sommerinseln, gegründet von einem ehemaligen Sklaven, Xanda Ko.
 got.wp.SweetLotusVale=Süßes Lotustal
 got.wp.SweetportSound.info=Schloss der Sanglasen, vereidigt auf Drachenstein. Es ist nicht bekannt, ob es sich auf dieser Insel oder anderswo befindet.
@@ -4003,6 +4021,8 @@ got.wp.TallTreesTown.info=Eine sonnige Stadt, in der Priesterinnen die Geschicht
 got.wp.TallTreesTown=Hohe Bäume-Stadt
 got.wp.TarbeckHall.info=Das Schloss des Tarbeck-Hauses, das zusammen mit den Reins den Charakter des jungen Tywin unterschätzte und zum Protagonisten des berühmten Liedes „Reyna von Castamere“ wurde.
 got.wp.TarbeckHall=Tarbeck-Hallen
+got.wp.Tashtoo.info≠
+got.wp.Tashtoo≠
 got.wp.TawneyCastle.info=Schloss von Haus Tawney, Vasallen der Graufreuds.
 got.wp.TawneyCastle=Brennnesselküste
 got.wp.Telyria.info=Valyria-Seetor.

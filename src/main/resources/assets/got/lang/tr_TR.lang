@@ -3305,6 +3305,8 @@ got.wp.Adakhakileki.info=Şehri kimin inşa ettiği artık unutuluyor, ancak Dot
 got.wp.Adakhakileki=Adahakileki
 got.wp.Aegon.info=Yaz Adaları'nın güneybatısında, Alice Westhill tarafından keşfedilen bir ada.
 got.wp.Aegon=Aegon
+got.wp.AkShaar.info≠
+got.wp.AkShaar≠
 got.wp.Amberly.info=Rogers'ın atalarının kalesi, Baratheonların vasalları.
 got.wp.Amberly=Kehribar rengi
 got.wp.Anbei.info≠
@@ -3335,6 +3337,10 @@ got.wp.Astapor.info=Meereen ve Yunkai ile birlikte Köle Körfezi'ndeki üç kö
 got.wp.Astapor=Astapor
 got.wp.Atranta.info=Vance'in genç kolunun atalardan kalma kalesi, Tully'nin vassalları.
 got.wp.Atranta=Atranta
+got.wp.Azhydaar.info≠
+got.wp.Azhydaar≠
+got.wp.AzuuKan.info≠
+got.wp.AzuuKan≠
 got.wp.BaelishKeep.info=Yedi Krallığın en önemsiz ve en fakir lordlarından birinin atalarının alanı - Beilish. Üç kuşak önce, şimdiki Lord Petyr Baelish'in büyük büyükbabası Westeros'a Braavos paralı askeri olarak geldi, oğlu şövalyelik aldı, torunu lord oldu ve büyük torunu Lord Arryn'in dul eşiyle evlendi.
 got.wp.BaelishKeep=Baelish Kalesi
 got.wp.Bandallon.info=Menzil'in Blackbar Hanesi'nin atalardan kalma kalesi. Kara çubukların çok kötü bir hayal gücü vardır: armalarında siyah (siyah) bir şerit (çubuk) bulunur.
@@ -3347,6 +3353,8 @@ got.wp.Barrowtown.info=Şehir, Barrowhall'dan eski Barrow Kings Dustins tarafın
 got.wp.Barrowtown=Höyük kasabası
 got.wp.BarterBeach.info=Korsanların birbirleriyle ticaret yaptıkları plaj. Muhtemelen bir korsan yerleşimi.
 got.wp.BarterBeach=Takas plajı
+got.wp.Bashkaruuchu.info≠
+got.wp.Bashkaruuchu≠
 got.wp.Bayasabhad.info=Hirkun Beyliği'ni baskınlardan korumak için inşa edilen kalenin çevresinde ortaya çıkan son şehirlerden biri; krallık kuru denizden sonra çürümeye düştü, ancak savaşçı Amazonlar hala Muhafız izliyor.
 got.wp.Bayasabhad=Bayasabhad
 got.wp.Bhorash.info=Şeytan Yolu'ndaki bir Valyrian veya Ghiskar şehrinin kalıntıları. Valyria Kayası'ndan sonra yok edildi ve kim tarafından bilinmiyor.
@@ -3675,10 +3683,14 @@ got.wp.KissLock.info=Kafatası ve Öpücük Şövalyeleri Kalesi.
 got.wp.KissLock=öpücük kilidi
 got.wp.Koj.info=Yaz Adaları'nın en büyük tersanesi.
 got.wp.Koj=Koj
+got.wp.Korkunuchtuu.info≠
+got.wp.Korkunuchtuu≠
 got.wp.Kosrak.info=Lkhazar şehirlerinden biri.
 got.wp.Kosrak=Kosrak
 got.wp.KrazaajHas.info=Gardak'ın eski Ghiskar kasabası. Belki de Dothrakiler, piramitlerinin şekline hayran kalarak zaten yıkılmış kalıntılara "keskin dağlar" adını verdiler, belki de şehir Valyria'nın fethinden ve ölümünden kurtuldu ve Dothrakiler tarafından yağmalandı.
 got.wp.KrazaajHas=Krazaaj Has
+got.wp.Kujruk.info≠
+got.wp.Kujruk≠
 got.wp.Kyth.info=Sarnor şehri Dothrakiler tarafından yok edildi.
 got.wp.Kyth=Kıt
 got.wp.Lannisport.info=Başkent ve Menzil'den sonra Westeros'un en kalabalık üçüncü şehri; Batı Topraklarının en önemli limanı ve sanayi şehridir. Zanaatkarları, özellikle kuyumcuları ve altın için Demircisileri ile ünlüdür. Şehir, genç Lannister şubesi tarafından yönetiliyor.
@@ -3777,6 +3789,8 @@ got.wp.Norvos.info=Sözde "sakallı rahipler" tarafından yönetilen Özgür Şe
 got.wp.Norvos=Norvos
 got.wp.NySar.info=Büyük bir limana sahip eski bir Roinar şehrinin kalıntıları; şimdi şehirden sadece Nymeria sarayı kalmıştı - halkını on bin gemiyle Dorn'a götüren saray.
 got.wp.NySar=Ny Sar
+got.wp.NymduuOoz.info≠
+got.wp.NymduuOoz≠
 got.wp.Oakenshield.info=Gece Nöbeti'nin boş kalesi. Gece Nöbeti'nin 998. Lord Kumandanı, kaleyi Vahşi Şef Tormund'a teslim etti.
 got.wp.Oakenshield=Oakenshield
 got.wp.OldAnchor.info=Arryn'in vassalları olan Melcolm hanedanının kalesi.
@@ -3929,6 +3943,8 @@ got.wp.SharpPoint.info=Stannis Baratheon'un vassalları olan Bar-Emmon hanedanı
 got.wp.SharpPoint=Keskin nokta
 got.wp.Shatterstone.info=Goodbrothers'ın genç kollarından birine ait olan Old Vic'te bir kale.
 got.wp.Shatterstone=Paramparça
+got.wp.ShyluunUusu.info≠
+got.wp.ShyluunUusu≠
 got.wp.SiQo.info=Kızıl Hanedanlığı döneminde Yi Ti Altın İmparatorluğu'nun efsanevi başkenti. Başkenti neden ormana taşımaya karar verdikleri belli değil, ama şimdi şehir kayboldu, çünkü doğa mülklerini geri aldı.
 got.wp.SiQo=Si Qo
 got.wp.Silverhill.info=Lannister'ın vassalları olan Serrettes'in hanesinin kalesi.
@@ -3995,6 +4011,8 @@ got.wp.Sunderly.info=Sanderly Hanedanı'nın kalesi, Greyjoy'ların vassalları.
 got.wp.Sunderly=Sunderly
 got.wp.Sunspear.info=Martell Hanesi'nin atalarının evi, eski bir kaleden - Kumların Arkından - büyümüştür. Kale duvarlarındaki Gölgeli Şehir gibi sarı-kahverengi kerpiç tuğlalardan yeniden inşa edildi.
 got.wp.Sunspear=Güneş mızrak
+got.wp.SuuNym.info≠
+got.wp.SuuNym≠
 got.wp.SweetLotusVale.info=Güney adasında aynı adı taşıyan ilin merkezi ve eski bir köle olan Xanda Ko tarafından kurulan Birleşik Yaz Adaları devletinin ilk başkenti.
 got.wp.SweetLotusVale=Tatlı Lotus Vadisi
 got.wp.SweetportSound.info=Ejderha Kayası'na yeminli Sanglass Kalesi. Bu adada mı yoksa başka bir yerde mi olduğu bilinmiyor.
@@ -4003,6 +4021,8 @@ got.wp.TallTreesTown.info=Rahibelerin Konuşan Ağaçlar üzerinde yaz insanlar�
 got.wp.TallTreesTown=Uzun Ağaçlar Kasabası
 got.wp.TarbeckHall.info=Reins ile birlikte genç Tywin'in karakterini hafife alan ve ünlü "Kastamere'den Reyna" şarkısının kahramanları olan Tarbek'in evinin kalesi
 got.wp.TarbeckHall=Tarbeck Salonu
+got.wp.Tashtoo.info≠
+got.wp.Tashtoo≠
 got.wp.TawneyCastle.info=Townie hanedanının kalesi, Greyjoyların vassalları.
 got.wp.TawneyCastle=Tawney Kalesi
 got.wp.Telyria.info=Valyria'nın deniz kapısı.
