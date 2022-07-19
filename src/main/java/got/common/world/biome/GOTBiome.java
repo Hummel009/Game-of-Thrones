@@ -1081,7 +1081,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		reachTown = new GOTBiomeReachTown(104, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0x8CB586).setBiomeName("reachTown");
 		redBeach = new GOTBiomeRedBeach(105, false).setBeachBlock(Blocks.sand, 1).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(14403247).setBiomeName("beach");
 		redMesa = new GOTBiomeDorneMesa(106, true).setIsNeverWinter().setMinMaxHeight(1.5f, 0.0f).setColor(0xD6C9A2).setBiomeName("redMesa");
-		redSea = new GOTBiomeRedSea(107, true).setIsNeverWinter().setMinMaxHeight(-1.0f, 0.3f).setColor(0xC15B32).setBiomeName("redSea");
+		redSea = new GOTBiomeRedSea(107, true).setIsNeverWinter().setMinMaxHeight(-1.0f, 0.3f).setColor(0x723232).setBiomeName("redSea");
 		river = new GOTBiomeRiver(108, false).setMinMaxHeight(-0.5f, 0.0f).setColor(3570869).setBiomeName("river");
 		riverlands = new GOTBiomeRiverlands(109, true).setIsSeasonalWinter().setMinMaxHeight(0.1f, 0.15f).setColor(7910726).setBiomeName("riverlands");
 		riverlandsHills = new GOTBiomeWesterosForest(111, true).setIsSeasonalWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x4C822A).setBiomeName("riverlandsHills");

@@ -54,7 +54,7 @@ import net.minecraft.world.World;
 
 public class GOTFixer {
 	public static Map<GOTWaypoint, GOTStructureBase> structures = new EnumMap<>(GOTWaypoint.class);
-	public static GOTVillageGen[] f = new GOTVillageGen[67];
+	public static GOTVillageGen[] f = new GOTVillageGen[66];
 
 	public static void addSpecialLocations(World world, Random random, int i, int k) {
 		GOTWaypoint[] forts = { GOTWaypoint.FiveForts1, GOTWaypoint.FiveForts2, GOTWaypoint.FiveForts3, GOTWaypoint.FiveForts4, GOTWaypoint.FiveForts5 };
@@ -131,10 +131,8 @@ public class GOTFixer {
 		f[30].affix(GOTWaypoint.Lorath, GOTWaypoint.Morosh);
 		f[31] = new GOTStructureLysCity(biome, 0.0f).setIsTown();
 		f[31].affix(GOTWaypoint.Lys);
-		f[32] = new GOTStructureMossovyVillage(biome, 0.0f).setIsFort();
-		f[32].affix(GOTWaypoint.KDath, GOTWaypoint.EastPass, GOTWaypoint.NorthPass, GOTWaypoint.SouthPass, GOTWaypoint.WestPass);
 		f[33] = new GOTStructureMossovyVillage(biome, 0.0f);
-		f[33].affix(GOTWaypoint.Kadar, GOTWaypoint.Nefer);
+		f[33].affix(GOTWaypoint.Tashtoo, GOTWaypoint.Bashkaruuchu, GOTWaypoint.AzuuKan, GOTWaypoint.Kujruk, GOTWaypoint.Korkunuchtuu, GOTWaypoint.NymduuOoz, GOTWaypoint.Azhydaar, GOTWaypoint.AkShaar, GOTWaypoint.SuuNym, GOTWaypoint.ShyluunUusu, GOTWaypoint.Kadar, GOTWaypoint.Nefer, GOTWaypoint.KDath);
 		f[34] = new GOTStructureMyrCity(biome, 0.0f).setIsTown();
 		f[34].affix(GOTWaypoint.Myr.info(-1, 0, 1));
 		f[35] = new GOTStructureNorthCity(biome, 0.0f).setIsCastle();
@@ -199,8 +197,8 @@ public class GOTFixer {
 		f[64].affix(GOTWaypoint.Greenguard, GOTWaypoint.Torches, GOTWaypoint.LongBarrow, GOTWaypoint.Rimegate, GOTWaypoint.SableHall, GOTWaypoint.Woodswatch, GOTWaypoint.Nightfort, GOTWaypoint.DeepLake, GOTWaypoint.Oakenshield, GOTWaypoint.Icemark, GOTWaypoint.HoarfrostHill, GOTWaypoint.Stonedoor, GOTWaypoint.Greyguard, GOTWaypoint.Queensgate, GOTWaypoint.SentinelStand);
 		f[65] = new GOTStructureYiTiCity(biome, 0.0f).setIsWall(false);
 		f[65].affix(GOTWaypoint.Jianmen, GOTWaypoint.Anguo, GOTWaypoint.Dingguo, GOTWaypoint.Pinnu, GOTWaypoint.Pingjiang, GOTWaypoint.Wude, GOTWaypoint.Wusheng, GOTWaypoint.Zhenguo, GOTWaypoint.Lungmen);
-		f[66] = new GOTStructureYiTiCity(biome, 0.0f).setIsWall(true);
-		f[66].affix(GOTWaypoint.Anjiang);
+		f[32] = new GOTStructureYiTiCity(biome, 0.0f).setIsWall(true);
+		f[32].affix(GOTWaypoint.Anjiang);
 
 		for (GOTVillageGen element : f) {
 			biome.decorator.addFixedVillage(element);

@@ -1,11 +1,16 @@
 CHANGELOG
 
 >>VERSION 17.9
++ Added new Mossovy waypoints
+* Greatly improved Ukrainian translation (prod. Octobrine)
+* Greatly Improved Far East map
+
+* Improved Mossovy Sopkas
 * Improved King Spears biome
 * Improved map (more accurate country borders)
-* Improved Ukrainian translation (prod. Octobrine)
 
 * Fixed freeze while F3 on ocean
+* Fixed bug with stolen items info
 * Fixed bug with russian-speaking Illyrio in english translation
 
 >>VERSION 17.8

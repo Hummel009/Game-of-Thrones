@@ -262,10 +262,7 @@ public class GOTTickHandlerClient {
 			tooltip.add("");
 			String owner = IPickpocketable.Helper.getOwner(itemstack);
 			owner = StatCollector.translateToLocalFormatted("item.got.generic.stolen", owner);
-			String wanter = IPickpocketable.Helper.getWanter(itemstack);
-			wanter = StatCollector.translateToLocalFormatted("item.got.generic.stolenWanted", wanter);
 			List<String> robbedLines = new ArrayList<String>(fontRenderer.listFormattedStringToWidth(owner, 200));
-			robbedLines.addAll(fontRenderer.listFormattedStringToWidth(wanter, 200));
 			for (int i = 0; i < robbedLines.size(); i++) {
 				String line = robbedLines.get(i);
 				if (i > 0) {
