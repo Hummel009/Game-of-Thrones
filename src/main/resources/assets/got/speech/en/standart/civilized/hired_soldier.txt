@@ -1,4 +1,4 @@
-Enemies # will fall before us!
+﻿Enemies # will fall before us!
 Enemies # will fall!
 You are a true friend, #
 To #!
