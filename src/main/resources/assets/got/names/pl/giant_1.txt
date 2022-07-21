@@ -1,4 +1,4 @@
-Ban
+﻿Ban
 Bar
 Bed
 Bor

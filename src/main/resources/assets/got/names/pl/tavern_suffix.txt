@@ -1,4 +1,4 @@
-bard
+﻿bard
 szał
 czara
 dzik
