@@ -1,4 +1,4 @@
-#title:尝尝勇气之酒
+﻿#title:尝尝勇气之酒
 #author:阿斯塔波的犁派
 #types:essos,yiti
 #

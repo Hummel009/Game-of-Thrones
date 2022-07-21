@@ -1,4 +1,4 @@
-#title:炼金术指南-灵魂腐蚀药剂
+﻿#title:炼金术指南-灵魂腐蚀药剂
 #author:奥尔瓦尔德,缚影士
 #types:asshai
 #

@@ -1,4 +1,4 @@
-#title:沾满黑色粉末的笔记
+﻿#title:沾满黑色粉末的笔记
 #author:被抹掉的名字
 #types:westeros
 #

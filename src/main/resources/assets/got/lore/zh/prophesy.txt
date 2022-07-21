@@ -1,4 +1,4 @@
-#title:贤者的预言
+﻿#title:贤者的预言
 #author:无名氏
 #types:westeros,essos,yiti
 #

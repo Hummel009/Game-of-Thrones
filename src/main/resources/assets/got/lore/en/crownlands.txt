@@ -1,4 +1,4 @@
-#title:House Baratheon of King's Landing
+﻿#title:House Baratheon of King's Landing
 #author:Maester
 #types:westeros
 #

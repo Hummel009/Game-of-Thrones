@@ -1,4 +1,4 @@
-#title:我们是战士
+﻿#title:我们是战士
 #author:欧阿特,多斯拉克卡奥
 #types:essos
 #

@@ -1,4 +1,4 @@
-#title:疫疗条论-灰鳞病
+﻿#title:疫疗条论-灰鳞病
 #author:{choose:邓迪乌斯, 学城学士/瓦兰提斯的乌里奥/夷地的李周}
 #types:westeros,essos,yiti
 #

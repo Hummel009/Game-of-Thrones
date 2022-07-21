@@ -1,4 +1,4 @@
-#title:密林典-生存导
+﻿#title:密林典-生存导
 #author:科法鲁,丛林萨满
 #types:sothoryos
 #

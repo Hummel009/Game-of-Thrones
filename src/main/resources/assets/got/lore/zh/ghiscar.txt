@@ -1,4 +1,4 @@
-#title:吉斯卡利必将复兴
+﻿#title:吉斯卡利必将复兴
 #author:奴隶湾的斯雷夫
 #types:essos
 #

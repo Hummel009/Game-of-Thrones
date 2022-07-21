@@ -1,4 +1,4 @@
-#title:Sothoryos
+﻿#title:Sothoryos
 #author:Kefalu Dibang
 #types:sothoryos
 #

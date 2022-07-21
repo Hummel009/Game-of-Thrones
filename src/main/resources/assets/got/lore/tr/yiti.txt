@@ -1,4 +1,4 @@
-#title:Golden Empire
+﻿#title:Golden Empire
 #author:Li Zhong
 #types:yiti
 #

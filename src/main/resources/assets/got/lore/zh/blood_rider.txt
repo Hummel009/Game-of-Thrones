@@ -1,4 +1,4 @@
-#title:血盟卫誓词
+﻿#title:血盟卫誓词
 #author:多斯拉克的绰寇
 #types:essos
 #

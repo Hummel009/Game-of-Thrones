@@ -1,4 +1,4 @@
-#title:Shadow Town
+﻿#title:Shadow Town
 #author:Rudolph
 #types:asshai
 #

@@ -1,4 +1,4 @@
-#title:予新晋水舞者的诫词
+﻿#title:予新晋水舞者的诫词
 #author:西利欧·佛瑞尔
 #types:essos
 #

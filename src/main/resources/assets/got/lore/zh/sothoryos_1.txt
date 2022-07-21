@@ -1,4 +1,4 @@
-#title:密林典-地质鉴
+﻿#title:密林典-地质鉴
 #author:科法鲁,丛林萨满
 #types:sothoryos
 #

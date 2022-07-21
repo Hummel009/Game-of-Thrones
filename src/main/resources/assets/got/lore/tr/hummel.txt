@@ -1,4 +1,4 @@
-#title:Function
+﻿#title:Function
 #types:sothoryos
 #author:Hummel009
 #

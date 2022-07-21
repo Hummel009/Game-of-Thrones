@@ -1,4 +1,4 @@
-#title:铁种的一天
+﻿#title:铁种的一天
 #author:巴雷特·派克,白珍珠号船长
 #types:westeros
 #

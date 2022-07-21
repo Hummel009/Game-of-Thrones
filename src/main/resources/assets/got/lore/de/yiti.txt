@@ -1,4 +1,4 @@
-#title:Das Goldene Kaiserreich
+﻿#title:Das Goldene Kaiserreich
 #author:Li Zhong
 #types:yiti
 #

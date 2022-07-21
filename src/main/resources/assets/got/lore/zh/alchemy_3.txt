@@ -1,4 +1,4 @@
-#title:炼金术指南-瓦雷利亚精华
+﻿#title:炼金术指南-瓦雷利亚精华
 #author:奥尔瓦尔德，缚影士
 #types:asshai
 #

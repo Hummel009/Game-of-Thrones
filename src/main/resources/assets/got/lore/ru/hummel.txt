@@ -1,4 +1,4 @@
-#title:Особеность
+﻿#title:Особеность
 #types:sothoryos
 #author:Hummel009
 #

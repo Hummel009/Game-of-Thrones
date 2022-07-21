@@ -1,4 +1,4 @@
-#title:缅怀奈德·史塔克
+﻿#title:缅怀奈德·史塔克
 #author:临冬城的内扎
 #types:westeros
 #

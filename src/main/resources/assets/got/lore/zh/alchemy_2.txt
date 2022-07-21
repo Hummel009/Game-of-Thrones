@@ -1,4 +1,4 @@
-#title:炼金术指南-恶魔的门户
+﻿#title:炼金术指南-恶魔的门户
 #author:奥尔瓦尔德,缚影士
 #types:asshai
 #

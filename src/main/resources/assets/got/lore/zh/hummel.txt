@@ -1,4 +1,4 @@
-#title:特殊的一本书
+﻿#title:特殊的一本书
 #types:sothoryos
 #author:Hummel009
 #

@@ -1,4 +1,4 @@
-#title:Особливість
+﻿#title:Особливість
 #types:sothoryos
 #author:Hummel009
 #
