@@ -97,7 +97,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome mossovy;
 	public static GOTBiome mossovyForest;
 	public static GOTBiome mossovyMarshes;
-	public static GOTBiome mossovySea;
 	public static GOTBiome mossovySopkas;
 	public static GOTBiome myr;
 	public static GOTBiome naath;
