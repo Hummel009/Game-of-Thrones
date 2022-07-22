@@ -31,6 +31,10 @@ public class GOTNames {
 		return GOTNames.getRandomName(male ? "ghiscar_male" : "ghiscar_female", rand);
 	}
 
+	public static String getMossovyName(Random rand, boolean male) {
+		return GOTNames.getRandomName(male ? "mossovy_male" : "mossovy_female", rand);
+	}
+
 	public static String getGiantName(Random rand) {
 		String giant1 = GOTNames.getRandomName("giant_1", rand);
 		String giant2 = GOTNames.getRandomName("giant_2", rand);
