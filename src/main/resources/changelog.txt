@@ -4,6 +4,7 @@ CHANGELOG
 + Added new Mossovy waypoints
 * Greatly improved Ukrainian translation (prod. Octobrine)
 * Greatly Improved Far East map
+* Greatly Improved lore books (prod. Octobrine)
 
 * Improved Mossovy Sopkas
 * Improved King Spears biome
