@@ -369,7 +369,7 @@ public class GOTLore {
 	}
 
 	public enum LoreCategory {
-		WESTEROS("westeros"), ESSOS("essos"), YITI("yiti"), ASSHAI("asshai"), SOTHORYOS("sothoryos");
+		WESTEROS("westeros"), ESSOS("essos"), YITI("yiti"), ASSHAI("asshai"), SOTHORYOS("sothoryos"), MOSSOVY("mossovy");
 
 		public static String allCode = "all";
 		public String categoryName;

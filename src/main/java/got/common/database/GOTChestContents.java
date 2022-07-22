@@ -845,7 +845,7 @@ public class GOTChestContents {
 		BEYOND_WALL = new GOTChestContents(4, 6, BEYOND_WALL_W).enablePouches().setDrinkVessels(GOTFoods.WILD_DRINK);
 		HILLMEN = new GOTChestContents(4, 6, HILLMEN_W).enablePouches().setDrinkVessels(GOTFoods.WILD_DRINK);
 		IBBEN = new GOTChestContents(4, 6, IBBEN_W).enablePouches().setDrinkVessels(GOTFoods.WILD_DRINK);
-		MOSSOVY = new GOTChestContents(4, 6, MOSSOVY_W).enablePouches().setDrinkVessels(GOTFoods.WILD_DRINK).setLore(20, GOTLore.LoreCategory.ASSHAI);
+		MOSSOVY = new GOTChestContents(4, 6, MOSSOVY_W).enablePouches().setDrinkVessels(GOTFoods.WILD_DRINK).setLore(20, GOTLore.LoreCategory.MOSSOVY);
 		DOTHRAKI = new GOTChestContents(4, 6, DOTHRAKI_W).enablePouches().setDrinkVessels(GOTFoods.NOMAD_DRINK);
 		LHAZAR = new GOTChestContents(4, 6, LHAZAR_W).enablePouches().setDrinkVessels(GOTFoods.NOMAD_DRINK);
 		SOTHORYOS = new GOTChestContents(4, 6, SOTHORYOS_W).enablePouches().setDrinkVessels(GOTFoods.SOTHORYOS_DRINK).setLore(20, GOTLore.LoreCategory.SOTHORYOS);
