@@ -157,7 +157,7 @@ public class GOTLore {
 					String path;
 					ZipEntry entry = entries.nextElement();
 					String s = entry.getName();
-					if (s.startsWith(path = "assets/got/lore/" + GOTConfig.languageCode + "/") && s.endsWith(".txt")) {
+					if (s.startsWith(path = "assets/got/texts/" + GOTConfig.languageCode + "/lore/") && s.endsWith(".txt")) {
 						s = s.substring(path.length());
 						int i = s.indexOf(".txt");
 						try {
@@ -171,7 +171,7 @@ public class GOTLore {
 					}
 				}
 			} else {
-				File nameBankDir = new File(GOTRegistry.class.getResource("/assets/got/lore/" + GOTConfig.languageCode).toURI());
+				File nameBankDir = new File(GOTRegistry.class.getResource("/assets/got/texts/" + GOTConfig.languageCode + "/lore/").toURI());
 				for (File file : nameBankDir.listFiles()) {
 					String s = file.getName();
 					int i = s.indexOf(".txt");
