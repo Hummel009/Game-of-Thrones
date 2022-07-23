@@ -37,8 +37,8 @@ entity.got.AnyaWaynwood.name≠
 entity.got.ArdrianCeltigar.name=Ardrian Celtigar
 entity.got.AreoHotah.name≠
 entity.got.ArianneMartell.name≠
-entity.got.ArrowPoison.name=Vergifteter Pfeil
-entity.got.ArrynArcher.name=Grünes Tal Bogenschütze
+entity.got.ArrowFire.name=Brennender Pfeil
+entity.got.ArrowPoisoned.name=Vergifteter Pfeil
 entity.got.ArrynBaker.name=Grünes Tal Bäcker
 entity.got.ArrynBannerBearer.name=Grünes Tal Bannerträger
 entity.got.ArrynBartender.name=Grünes Tal Kneipenwirt
@@ -565,10 +565,10 @@ entity.got.PentosMason.name=Pentos Steinmetz
 entity.got.PentosMiner.name=Pentos Bergmann
 entity.got.PetyrBaelish.name=Petyr Baelish
 entity.got.Plate.name=Teller
-entity.got.Plowcart.name=≠
+entity.got.Plowcart.name≠
 entity.got.PodrickPayne.name=Podrick Payn
 entity.got.Polliver.name≠
-entity.got.Portal.name=≠
+entity.got.Portal.name≠
 entity.got.Prostitute.name=Freudenmädchen
 entity.got.Pycelle.name=Pycelle
 entity.got.QarthBaker.name=Qarth Bäcker
@@ -585,7 +585,7 @@ entity.got.QarthGoldsmith.name=Qarth Goldschmied
 entity.got.QarthGuard.name=Qarth Wache
 entity.got.QarthGuardCaptain.name=Qarth Hauptmann der Wache
 entity.got.QarthLevyman.name=Qarth Miliz
-entity.got.QarthLevymanArcher.name-Qarth Bogenschütze
+entity.got.QarthLevymanArcher.name=Qarth Bogenschütze
 entity.got.QarthLumberman.name=Qarth Holzfäller
 entity.got.QarthMan.name=Qarth Bewohner
 entity.got.QarthMason.name=Qarth Steinmetz
@@ -631,7 +631,7 @@ entity.got.ReachFarmer.name=Weite Bauer
 entity.got.ReachFarmhand.name=Weite Knecht
 entity.got.ReachFishmonger.name=Weite Fischhändler
 entity.got.ReachFlorist.name=Weite Blumenhändler
-entity.got.ReachGoldsmith.nameWeite Goldschmied
+entity.got.ReachGoldsmith.name=Weite Goldschmied
 entity.got.ReachGreengrocer.name=Weite Gemüsehändler
 entity.got.ReachGuard.name=Wache von Altsass
 entity.got.ReachLevyman.name=Weite Miliz
@@ -1834,7 +1834,7 @@ got.command.opHideMap.unhide=/opHideMap: Dein Standort ist nicht länger vor Nic
 got.command.opHideMap.usage=/opHideMap
 got.command.pledgeCooldown.set=Setze die Abklingzeit von %s auf %d Ticks (%s).
 got.command.pledgeCooldown.usage=/pledgeCooldown <ticks> [Spieler]
-got.command.spawnDamping.calc=Welt %d (%s): Der Spawn-Typ %s entspricht %d. %d Spieler auf der Welt. Limit (um %d Chunks) von %d auf %d reduziert. Spawn-Spieler=%d.
+got.command.spawnDamping.calc=Welt %d (%s): Der Spawn-Typ %s entspricht %d. %d Spieler auf der Welt. Limit (um %d Chunks) von %d auf %d reduziert. Spawn-Spieler: %d.
 got.command.spawnDamping.noType=Es gibt keinen Npc für Typ %s
 got.command.spawnDamping.reset=Setze die Spawn-Dämpfung zurück
 got.command.spawnDamping.set=Setze Spawn-Dämpfung für Typ %s zu %d
@@ -2187,7 +2187,7 @@ got.gui.bannerEdit.perms.player=Spieler Berechtigungen
 got.gui.bannerEdit.protectionMode.faction.alignment=Reputationspunkte benötigt:
 got.gui.bannerEdit.protectionMode.faction.desc.1=Spieler mit mindestens:
 got.gui.bannerEdit.protectionMode.faction.desc.2=+%d %s Reputationspunkte
-got.gui.bannerEdit.protectionMode.faction.desc.3can bypass this banner's protection
+got.gui.bannerEdit.protectionMode.faction.desc.3=can bypass this banner's protection
 got.gui.bannerEdit.protectionMode.faction=Schutz: Fraktion
 got.gui.bannerEdit.protectionMode.playerSpecific.desc.1=Spieler und Gemeinschaften sind unten aufgelistet
 got.gui.bannerEdit.protectionMode.playerSpecific.desc.2=ccan bypass this banner's protection
@@ -2311,7 +2311,7 @@ got.gui.fellowships.toggleMapShow=Stelle die Kartenlokation der Gemeinschaftsmit
 got.gui.fellowships.togglePVP=Erlaube PvP zwischen Gefährten der Gemeinschaft
 got.gui.fellowships.transfer=Anführer ändern
 got.gui.fellowships.transferCheck1=Möchstest du wirklich %1$s zum neuen Anführer ernennen?
-got.gui.fellowships.transferCheck2=Wenn du dies tust, wirst du nicht mehr der Anführer sein... Meuterei = Zwecklos!
+got.gui.fellowships.transferCheck2=Wenn du dies tust, wirst du nicht mehr der Anführer sein... Meuterei: Zwecklos!
 got.gui.fellowships=Gemeinschaften
 got.gui.help1=Um in Game of Thrones zu gelangen, musst du ein eisernes Schwert ins Feuer werfen.
 got.gui.help2=Drücke "Enter", um diesen Text auf dem Bildschirm auszublenden.
@@ -2479,9 +2479,9 @@ got.gui.shields.select=Anlegen
 got.gui.shields.selected=Angelegt!
 got.gui.shields.title=Schilde von Spiel um Throne
 got.gui.shields=Schilde
-got.gui.squadronItem.done=Fertig
-got.gui.squadronItem.none=Kein Name
-got.gui.squadronItem.squadron=Schwadron
+got.gui.squadronitem.done=Fertig
+got.gui.squadronitem.none=Kein Name
+got.gui.squadronitem.squadron=Schwadron
 got.gui.time.format.hms=%s %s %s
 got.gui.time.format.ms=%s %s
 got.gui.time.format.s=%s
@@ -3148,11 +3148,11 @@ got.title.KILL_GREGOR_CLEGANE=Legendärer Attentäter III
 got.title.KILL_JAQEN_HGHAR=Valar Morghulis
 got.title.KILL_JEOR_MORMONT=Verräter
 got.title.KILL_JON_SNOW=Für die Nachtwache
-got.title.KILL_KITRA_JUVAIN=Legendärer Kaiser
-got.title.KILL_NIGHT_KING=Legendärer Attentäter I.
+got.title.KILL_NIGHT_KING=Legendärer Attentäter I
 got.title.KILL_OBERYN_MARTELL=Berg
 got.title.KILL_SANDOR_CLEGANE=Hundejäger
 got.title.KILL_THE_KING=Königsmörder
+got.title.KILL_TUGAR_KHAN=Legendärer Kaiser
 got.title.KILL_TYWIN=Statham
 got.title.targaryenF=Tochter des Sturms
 got.title.targaryenM=Kind des Sturms
@@ -3392,7 +3392,7 @@ got.wp.Bronzegate.info=Schloss des Hauses der Buckler, Vasallen der Baratheons.
 got.wp.Bronzegate=Bronzetor
 got.wp.Brownhollow.info=Schloss eines der Zweige des Hauses Brune, Vasallen der Baratheons.
 got.wp.Brownhollow=Braune Höhle
-got.wp.Castamere.info=Rhein-Ahnenburg. Castamaer ist in 9 von 10 Teilen unterirdisch versteckt und in Minen in der Nähe des Kastamere-Sees gebaut (dem die Burg ihren.name=N verdankt). Das Lied "Reyna aus Kastamere" handelt davon, wie der unterirdische Teil des Schlosses versiegelt und mit all seinen Bewohnern überflutet wurde. Nach der Roten Hochzeit wurde das Schloss zusammen mit dem Titel Lord an Ser Rolf Spicer übergeben - als Belohnung für seine Rolle im Schicksal von Robb Stark.
+got.wp.Castamere.info=Rhein-Ahnenburg. Castamaer ist in 9 von 10 Teilen unterirdisch versteckt und in Minen in der Nähe des Kastamere-Sees gebaut. Das Lied "Reyna aus Kastamere" handelt davon, wie der unterirdische Teil des Schlosses versiegelt und mit all seinen Bewohnern überflutet wurde. Nach der Roten Hochzeit wurde das Schloss zusammen mit dem Titel Lord an Ser Rolf Spicer übergeben - als Belohnung für seine Rolle im Schicksal von Robb Stark.
 got.wp.Castamere=Castamaer
 got.wp.CasterlyRock.info=Stammburg des Lennister, der Hauptburg der Westlande. Der erste in der Familie von Casterly fand Goldminen in der Löwenhöhle und baute eine Burg wieder auf, um seinen Reichtum zu schützen. Der goldhaarige Schurke Lann der Kluge, legendärer Lennister-Vorfahr, soll das Schloss durch List übernommen haben (oder indem er erfolgreich eine der Töchter des letzten Lord Casterly geheiratet hat, der keine Söhne hatte).
 got.wp.CasterlyRock=Casterlystein
@@ -3402,7 +3402,7 @@ got.wp.CastleLychester.info=Das heruntergekommene Schloss der Leicesters, in dem
 got.wp.CastleLychester=Leicester Schloss
 got.wp.CatfishRock.info=Schloss des ehemaligen Königshauses von Fisher.
 got.wp.CatfishRock=Somius Rock
-got.wp.Chroyane.info=Früher war es die blühende Roinar-Stadt Kroyane. Nachdem Saroi von den Drachenlords verbrannt worden war, forderte der Prinz der Kroyane,.name=Ns Garin, die Rhoynar auf, die Invasoren zu vereinen und zu bekämpfen. Leider kamen nach einer Reihe von Siegen Dutzende Drachenlords aus Valyria, und die Roynar fielen. Garin wurde in einem Käfig nach Kroyan gebracht, damit er sehen konnte, wie seine Leute versklavt und die Stadt niedergebrannt wurden. In seiner Verzweiflung verfluchte Garin die Valyrians - dann entstanden die Sporen einer grauen Krankheit über Roina ... Jetzt werden die Opfer dieser Krankheit hier vertrieben. So verwandelte sich die schöne Stadt in eine riesige Leprakolonie.
+got.wp.Chroyane.info=Früher war es die blühende Roinar-Stadt Kroyane. Nachdem Saroi von den Drachenlords verbrannt worden war, forderte der Prinz der Kroyane, Garin, die Rhoynar auf, die Invasoren zu vereinen und zu bekämpfen. Leider kamen nach einer Reihe von Siegen Dutzende Drachenlords aus Valyria, und die Roynar fielen. Garin wurde in einem Käfig nach Kroyan gebracht, damit er sehen konnte, wie seine Leute versklavt und die Stadt niedergebrannt wurden. In seiner Verzweiflung verfluchte Garin die Valyrians - dann entstanden die Sporen einer grauen Krankheit über Roina ... Jetzt werden die Opfer dieser Krankheit hier vertrieben. So verwandelte sich die schöne Stadt in eine riesige Leprakolonie.
 got.wp.Chroyane=Kroyane
 got.wp.CiderHall.info=Haus von Fossovey Schloss von des Haueses der Rot-Apfäl-Äste.
 got.wp.CiderHall=CiderHall
@@ -3438,9 +3438,9 @@ got.wp.DeatsHear.info=Schloss der Haushorps, Vasallen der Baratheons.
 got.wp.DeatsHear=Totenkopf
 got.wp.DeepDen.info=Schloss des Hauses Lidden, Vasall der Lennister.
 got.wp.DeepDen=Tiefer Bau
-got.wp.DeepLake.info=Jetzt eine der verlassenen Burgen der Nachtwache. Es wurde vor 200 Jahren auf Initiative von Königin Alisanna erbaut. Die Königin selbst finanzierte den Bau, damit die Brüder der Nachtwache die zu große und teure Nachtfestung verlassen konnten. Das Schloss erhielt seinen.name=N vom See, in dessen Nähe es steht. Der 998. Lord Hauptmann der Nachtwache schickte eine Garnison hierher, um die Wache der Mauer wiederherzustellen.
+got.wp.DeepLake.info=Jetzt eine der verlassenen Burgen der Nachtwache. Es wurde vor 200 Jahren auf Initiative von Königin Alisanna erbaut. Die Königin selbst finanzierte den Bau, damit die Brüder der Nachtwache die zu große und teure Nachtfestung verlassen konnten. Der 998. Lord Hauptmann der Nachtwache schickte eine Garnison hierher, um die Wache der Mauer wiederherzustellen.
 got.wp.DeepLake=Tiefer See
-got.wp.Deepdown.info=Das Familienschloss des Hauses der Krähen ist nur eine Burg mit.name=N, aber tatsächlich ist es eine befestigte Höhle ... aber der Adelstitel der Krähe ist auch eine Formalität.
+got.wp.Deepdown.info=Das Familienschloss des Hauses der Krähen ist nur eine Burg, aber tatsächlich ist es eine befestigte Höhle ... aber der Adelstitel der Krähe ist auch eine Formalität.
 got.wp.Deepdown=Untergrund
 got.wp.DeepwoodMotte.info=Schloss des Hauses der Glovers, Vasallen der Starks.
 got.wp.DeepwoodMotte=Dunkles Auenland
@@ -3452,7 +3452,7 @@ got.wp.Downdelving.info=Schloss auf Great Vic, im Besitz eines kleinen Zweigs de
 got.wp.Downdelving=Gespalten
 got.wp.Draconys.info=Eine der mächtigen und wohlhabenden Kolonialstädte des valyrischen Reiches, die während des Untergangs von Valyria zerstört wurde.
 got.wp.Draconys=Draconys
-got.wp.Dragonstone.info=Eine Insel und eine uneinnehmbare Festung mit demselben.name=N. Vor einigen Jahrhunderten kamen die Targaryens aus dem alten Valyria hierher, und nach ihrem Beitritt und dem Bau von Königsmund trug der älteste Sohn und Erbe des Königs den Titel eines Prinzen von Drachenstein. Nach dem Sturz der Targaryens wurde die Burg an Stannis Baratheon übergeben.
+got.wp.Dragonstone.info=Eine Insel und eine uneinnehmbare Festung mit demselben. Vor einigen Jahrhunderten kamen die Targaryens aus dem alten Valyria hierher, und nach ihrem Beitritt und dem Bau von Königsmund trug der älteste Sohn und Erbe des Königs den Titel eines Prinzen von Drachenstein. Nach dem Sturz der Targaryens wurde die Burg an Stannis Baratheon übergeben.
 got.wp.Dragonstone=Drachenstein
 got.wp.Dreadfort.info=Ahnenschloss von Haus Bolton, Vasallen der Starks. Boltons gehören zu den stärksten und ältesten Häusern im Norden. Sie konkurrierten jahrtausendelang mit den Starks und knieten vor tausend Jahren vor Winterfell nieder. Früher trugen die Bolton-Lords Ledermäntel, die lebenden Menschen entzogen waren. Im Laufe der Zeit haben die Starks diese Tradition unterdrückt, aber einige der alten Trophäen, so die alte Nan, werden immer noch im Schreckensfort aufbewahrt (einschließlich der Haut einiger Starks).
 got.wp.Dreadfort=Schreckensfort
@@ -3636,7 +3636,7 @@ got.wp.Hornwood.info=Ahnenburg des Hauses Hornwald, Vasallen der Starks. Jetzt i
 got.wp.Hornwood=Hornwald
 got.wp.Huiji.info=Einer der südlichen Häfen des Goldenen Reiches.
 got.wp.Huiji=Huiji
-got.wp.Hull.info=Hafenstadt, möglicherweise mit Docks, wie der.name= schon sagt.
+got.wp.Hull.info=Hafenstadt, möglicherweise mit Docks, wie schon sagt.
 got.wp.Hull=Hull
 got.wp.IbNor.info=Eine unbekannte ibbenische Stadt.
 got.wp.IbNor=Ib-Nor
@@ -3674,7 +3674,7 @@ got.wp.Kayce.info=Einst das Hauptqarthier der Eisengeborenen, später von den K�
 got.wp.Kayce=Kayce
 got.wp.KingsLanding.info=Hauptstadt der sieben Königreiche. Erbaut im Auftrag von Aegon dem Eroberer an dem Ort, an dem er zuerst gelandet ist und an dem er Aegonfort gebaut hat. Am Ende der Regierungszeit befahl Aegon I., die alteholzfestung abzureißen, und begann mit dem Bau des Roten Schlosses - der Residenz der Könige des neuen Staates. Royal Hafen ist eine Wightige Hafenstadt.
 got.wp.KingsLanding=Königsmund
-got.wp.Kingsgrave.info=Manwoody Ahnenschloss. Der letzte König des Hauses Manwoody, der sich selbst zum König der Roten Berge erklärte, ging zusammen mit fünf anderen Königen, die von Nymeria gefangen genommen und abgesetzt wurden, in Goldketten an die Mauer. Das Schloss erhielt seinen.name=N, weil es das Grab eines der Könige der Weite wurde.
+got.wp.Kingsgrave.info=Manwoody Ahnenschloss. Der letzte König des Hauses Manwoody, der sich selbst zum König der Roten Berge erklärte, ging zusammen mit fünf anderen Königen, die von Nymeria gefangen genommen und abgesetzt wurden, in Goldketten an die Mauer. Das Schloss erhielt seinen, weil es das Grab eines der Könige der Weite wurde.
 got.wp.Kingsgrave=Königliches Grab
 got.wp.Kingshouse.info=Herrenhaus der Magnaren von Skagos. Aus dem alten Dialekt bedeutet "Magnar" "Herr".
 got.wp.Kingshouse=Königshaus
@@ -3686,7 +3686,7 @@ got.wp.Korkunuchtuu.info≠
 got.wp.Korkunuchtuu≠
 got.wp.Kosrak.info=Eine der Städte in Lkhazar.
 got.wp.Kosrak=Ziege
-got.wp.KrazaajHas.info=Die einstige Ghiskar-Stadt Gardak. Vielleicht gaben die Dothraki den bereits zerstörten Ruinen den.name=N "scharfe Berge" und bewunderten die Form ihrer Pyramiden. Vielleicht überlebte die Stadt die Eroberung und den Tod von Valyria und wurde von den Dothraki geplündert.
+got.wp.KrazaajHas.info=Die einstige Ghiskar-Stadt Gardak. Vielleicht gaben die Dothraki den bereits zerstörten Ruinen den "scharfe Berge" und bewunderten die Form ihrer Pyramiden. Vielleicht überlebte die Stadt die Eroberung und den Tod von Valyria und wurde von den Dothraki geplündert.
 got.wp.KrazaajHas=Krazaaj Has
 got.wp.Kujruk.info≠
 got.wp.Kujruk≠
@@ -3716,7 +3716,7 @@ got.wp.Lizhao.info=Yibin Schwesterstadt. Die östlichste Stadt des "Alten Reiche
 got.wp.Lizhao=Yibin Schwesterstadt
 got.wp.LonelyLight.info=Die kleinste und abgelegenste aller Eiseninseln, Heimat der Burg des Hauses Farwinds, die sich in Seelöwen, Walrosse und sogar Wale verwandeln sollen.
 got.wp.LonelyLight=Lonely Light
-got.wp.LongBarrow.info=Das leere Schloss der Nachtwache, in dem Mance die Mauer überquerte, um an einem Fest in Winterfell zu Ehren von König Roberts Ankunft teilzunehmen. Später vertraute der 998. Oberbefehlshaber der Nachtwache Eisen Emmett und Sorrowful Edd das Kommando über die Burg an, und die Speermänner des freien Volkes siedelten es an, was der Burg ihren zweiten.name=N gab -Shlyukha-Loch.
+got.wp.LongBarrow.info=Das leere Schloss der Nachtwache, in dem Mance die Mauer überquerte, um an einem Fest in Winterfell zu Ehren von König Roberts Ankunft teilzunehmen. Später vertraute der 998. Oberbefehlshaber der Nachtwache Eisen Emmett und Sorrowful Edd das Kommando über die Burg an, und die Speermänner des freien Volkes siedelten es an, was der Burg ihren zweiten gab -Shlyukha-Loch.
 got.wp.LongBarrow=Langer Hügel
 got.wp.LongbowHall.info=Schloss der Hausjäger, Vasallen von Haus Arryn. Nach John Arryns Tod umwarb der ältere Jägerführer Lisa Arryn, aber ohne Erfolg.
 got.wp.LongbowHall=Langbogen
@@ -3732,7 +3732,7 @@ got.wp.Lungmen.info≠
 got.wp.Lungmen≠
 got.wp.Lys.info=Eine der freien Städte. Weithin bekannt für teure Bordelle und raffinierte Priesterinnen der Liebe.
 got.wp.Lys=Lys
-got.wp.Maidenpool.info=Die Burgstadt gehört dem Haus Mouton. Die Stadt verdankt ihren.name=N einem alten Teich aus der Geschichte von Florian dem Narren und dem schönen Jonquil.
+got.wp.Maidenpool.info==Die Burgstadt gehört dem Haus Mouton. Die Stadt verdankt ihren einem alten Teich aus der Geschichte von Florian dem Narren und dem schönen Jonquil.
 got.wp.Maidenpool=Maidenpool
 got.wp.Manjin.info=Eine Stadt in der Nähe des Dschungels. Sie gilt als eine der ersten Städte des Dämmerungsreichs, aber Baozi bestreitet diese Tatsache.
 got.wp.Manjin=Manjin
@@ -3744,7 +3744,7 @@ got.wp.Marahai.info=Halbmondförmige Paradiesinseln. Es gibt zwei Inseln mit akt
 got.wp.Marahai=Marahai
 got.wp.Meereen.info=Eines von drei Sklavenhandelszentren in der Sklavenhändler-Bucht, zusammen mit Astapor und Yunkai. Die Stadt wurde von Menschen aus Gis gegründet. Die Hauptunterhaltung und die Grundlage für den Wohlstand der Stadt sind Kampfgruben und die Ausbildung von Sklaven für Schlachten in der Arena. Hier befindet sich auch die größte Arena, die Große Grube von Daznak (ein Analogon des römischen Kolosseums). Nach der Eroberung der Stadt schaffte Daenerys Targaryen die Sklavenhändlerei ab und schloss vorübergehend die Kampfgruben.
 got.wp.Meereen=Meereen
-got.wp.MhysaFaer.info=Eine der mächtigen und wohlhabenden Kolonialstädte des valyrischen Reiches, die während des Untergangs von Valyria zerstört wurde. "Misa" im.name=N gibt den giskarischen Ursprung der Stadt an (die Position auf der Karte ist weitgehend fraglich).
+got.wp.MhysaFaer.info=Eine der mächtigen und wohlhabenden Kolonialstädte des valyrischen Reiches, die während des Untergangs von Valyria zerstört wurde. "Misa" im gibt den giskarischen Ursprung der Stadt an (die Position auf der Karte ist weitgehend fraglich).
 got.wp.MhysaFaer=Misa Faer
 got.wp.Mistwood.info=Schloss des Hauses der Mertins, Vasallen der Baratheons.
 got.wp.Mistwood=Mistwald
@@ -3754,7 +3754,7 @@ got.wp.Moletown.info=Eine kleine Stadt an der Königsstraße in der Nähe der Sc
 got.wp.Moletown=Maulwurfsstadt
 got.wp.MormontsKeep.info=Ein Schloss mit einer stillenden Frau mit einer Axt am Tor.
 got.wp.MormontsKeep=Mormonisches Herrenhaus
-got.wp.Morne.info=Die Burgruine eines der alten Könige, die von den Sturmkönigen erobert wurden. Es ist merkwürdig, dass der.name= der Burg mit dem Wort Morgen übereinstimmt und es im Osten der Insel Ruinen gibt. Vielleicht ist das im Westen gelegene Ahnenschloss von Tartow, das Sonnenuntergangsschloss, aus einem bestimmten Grund so benannt.
+got.wp.Morne.info=Die Burgruine eines der alten Könige, die von den Sturmkönigen erobert wurden. Es ist merkwürdig, dass der der Burg mit dem Wort Morgen übereinstimmt und es im Osten der Insel Ruinen gibt. Vielleicht ist das im Westen gelegene Ahnenschloss von Tartow, das Sonnenuntergangsschloss, aus einem bestimmten Grund so benannt.
 got.wp.Morne=Morgen
 got.wp.Morosh.info=Handelshafen der Loratia-Kolonie.
 got.wp.Morosh=Morosh
@@ -3800,7 +3800,7 @@ got.wp.OldGhis.info=Die Ruinen der Hauptstadt des Ghiskar-Reiches wurden nach de
 got.wp.OldGhis=Alt-Ghis
 got.wp.OldOak.info=Ahnenschloss der Eichenherzen, die sehr stolz auf ihre Siege über die Dornish sind und diesen Kriegen einen Wandteppichraum gewidmet haben.
 got.wp.OldOak=Alte Eiche
-got.wp.OldStones.info=Der wahre.name= des Schlosses wurde vergessen, und die umliegenden Bewohner nennen die Ruinen genau das, was sie sind - alte Steine. Das Grab von Tristifer IV Madd steht noch immer in den Ruinen der alten Ruinen der Könige des Flusses und der Hügel.
+got.wp.OldStones.info=Der wahre des Schlosses wurde vergessen, und die umliegenden Bewohner nennen die Ruinen genau das, was sie sind - alte Steine. Das Grab von Tristifer IV Madd steht noch immer in den Ruinen der alten Ruinen der Könige des Flusses und der Hügel.
 got.wp.OldStones=Alte Steine
 got.wp.Oldtown.info=Das Wissenschaftszentrum von Westeros, die zweitgrößte Stadt des Landes und der größte Hafen der Reichweite. Hochturm-Wohneigentum.
 got.wp.Oldtown=Altstadt
@@ -3820,7 +3820,7 @@ got.wp.Pebble.info=Die Burg des Hauses der Priester, Vasallen der Arryn, auf der
 got.wp.Pebble=Kiesel
 got.wp.Pebbleton.info=Die Burg des Hauses Merlin in Great Vic, wo Wethead beginnt, die Eisengeborenen zu rufen, um Veche zu halten.
 got.wp.Pebbleton=Kiselton
-got.wp.Pennytree.info=Ein kleines Dorf zwischen zwei Hügeln.name=Ns Titki. Das Dorf erhielt seinen.name=N, weil hier eine Eiche mit daran genagelten Pfennigen wächst (ein Pfennig). Diese Gebiete werden von den Brackens und Schwarzwäldern beansprucht, aber wegen dieser Unruhen wurden die Länder zugunsten der Krone zurückgerufen. Von hier kam der Grenzritter Ser Arlan, der Dukan großzog.
+got.wp.Pennytree.info=Ein kleines Dorf zwischen zwei Hügeln Titki. Das Dorf erhielt seinen.name=N, weil hier eine Eiche mit daran genagelten Pfennigen wächst (ein Pfennig). Diese Gebiete werden von den Brackens und Schwarzwäldern beansprucht, aber wegen dieser Unruhen wurden die Länder zugunsten der Krone zurückgerufen. Von hier kam der Grenzritter Ser Arlan, der Dukan großzog.
 got.wp.Pennytree=Tiki
 got.wp.Pentos.info=Eine der freien Städte, der Wightigste Hafen an der Westküste von Essos. Diese Stadt ist die Heimat des Meisters Illyrio Mopatis, der die letzten Targaryer beschützte.
 got.wp.Pentos=Pentos
@@ -3854,7 +3854,7 @@ got.wp.Qohor.info=Eine der freien Städte und die östlichste von ihnen. Die Sta
 got.wp.Qohor=Qohor
 got.wp.Queenscrown.info=Ein Dorf im Norden. Vor fast dreihundert Jahren verbrachte Königin Alisanna Targaryen die Nacht hier auf ihrem Weg zur Mauer. Danach vergoldeten die Anwohner die Spitze ihres Turms in Erinnerung an die Krone der Königin, die die Nacht mit ihnen verbrachte.
 got.wp.Queenscrown=Krone der Königin
-got.wp.Queensgate.info=Jetzt eine der verlassenen Burgen der Nachtwache, benannt nach Königin Alisanna (früher hieß sie Schneetor). Der 998. Oberbefehlshaber der Nachtwache übergab das Schloss an Mourne mit dem Spit.name=N Weiße Maske, um die Wachen der Mauer wiederherzustellen.
+got.wp.Queensgate.info=Jetzt eine der verlassenen Burgen der Nachtwache, benannt nach Königin Alisanna (früher hieß sie Schneetor). Der 998. Oberbefehlshaber der Nachtwache übergab das Schloss an Mourne mit dem Spit Weiße Maske, um die Wachen der Mauer wiederherzustellen.
 got.wp.Queensgate=Tor der Königin
 got.wp.Raenys.info=Eine Insel, die Alice Westhill südwestlich der Sommerinseln entdeckt hat.
 got.wp.Raenys=Reinis
@@ -3932,7 +3932,7 @@ got.wp.SentinelStand.info=Verlassenes Schloss der Nachtwache.
 got.wp.SentinelStand=Wachtturm
 got.wp.ServinsCastle.info=Ahnenburg des Hauses Servins, Vasallen der Starks. Die Familie Servin endete mit dem Tod von Lehm Servin, der mit dem Bran Stark befreundet war.
 got.wp.ServinsCastle=Servins Schloss
-got.wp.Sevenstreams.info=Sieben Ströme-Dorf ist in einem Sumpf.name=Ns Hexensumpf. Hier teilt sich der Blaue Barb in viele Nebenflüsse und kleine Bäche. Das Land des Frey-Hauses.
+got.wp.Sevenstreams.info=Ns Hexensumpf. Hier teilt sich der Blaue Barb in viele Nebenflüsse und kleine Bäche. Das Land des Frey-Hauses.
 got.wp.Sevenstreams=Sieben Ströme
 got.wp.ShadowTower.info=Eine der drei noch funktionierenden Nachtwachenburgen. Während der Ereignisse der Hauptsaga wird das Schloss von Denis Mallister regiert.
 got.wp.ShadowTower=Zwielichtturm
@@ -3984,7 +3984,7 @@ got.wp.Stokeworth.info=Schloss des Hauses Schurwerth in den Kronlanden. Die Stoc
 got.wp.Stokeworth=Schurwerth
 got.wp.StoneHedge.info=Das Schloss von Haus Bracken, das mit den Blackwood-Häusern von Vranodreev konkurriert.
 got.wp.StoneHedge=Steinbollwerk
-got.wp.Stonedance.info=Die von den Piraten-Eroberern der Halbinsel gegründete Burg, die unter ihrem.name=N - Hook Massy - im Gedächtnis der Nachkommen blieb. Anschließend wurden die Länder von den Sturmkönigen zurückerobert und mit der Eroberung von Aegon betraten sie die Kronlande.
+got.wp.Stonedance.info=Die von den Piraten-Eroberern der Halbinsel gegründete Burg, die unter ihrem - Hook Massy - im Gedächtnis der Nachkommen blieb. Anschließend wurden die Länder von den Sturmkönigen zurückerobert und mit der Eroberung von Aegon betraten sie die Kronlande.
 got.wp.Stonedance=Felssteine
 got.wp.Stonedoor.info=Eine der verlassenen Burgen der Nachtwache. Nicht weit von der Burg entfernt überquerte Jon Schnee mit Stears Trupp die Mauer. Später übergab der 998. Lord Hauptmann der Nachtwache die Burg zur Restaurierung an Wildling Chief Soren Shchitolom.
 got.wp.Stonedoor=Steintür
@@ -4056,7 +4056,7 @@ got.wp.TowerOfGlimmering.info=Schloss eines der Junior-Zweige von Harlow.
 got.wp.TowerOfGlimmering=Turm des Schimmers
 got.wp.TowerOfJoy.info=Ruinen eines Steinturms in den Ausläufern von Dorn. Prinz Rhaegar Targaryen nahm Lyanna Stark, die er nach dem Turnier in Harrenhalen entführt hatte, hierher. Hier starb sie in den Armen ihres Bruders Eddard Stark, der dann befahl, den Turm auf den Boden zu schleifen.
 got.wp.TowerOfJoy=Turm der Freude
-got.wp.TraderTown.info=Die unhöfliche, unregelmäßig wachsende Festungsstadt des selbsternannten orangefarbenen Kaisers Yi Ti.name=Ns Pol-Ko, Hammer von Jogos-Nhai.
+got.wp.TraderTown.info=Die unhöfliche, unregelmäßig wachsende Festungsstadt des selbsternannten orangefarbenen Kaisers Yi Ti Pol-Ko, Hammer von Jogos-Nhai.
 got.wp.TraderTown=Handelsstadt
 got.wp.TudburyHoll.info=Schloss des Hauses Tudbury, Vasallen der Baratheons.
 got.wp.TudburyHoll=Tudbury Hallen
@@ -4086,7 +4086,7 @@ got.wp.VaesDothrak.info=Die Dothraki sind Nomaden und bleiben nicht lange an ein
 got.wp.VaesDothrak=Vaes Dothrak
 got.wp.VaesEfe.info=Ruinen einer unbekannten Stadt, die die Dothraki "die Stadt der Bindungen" nennen; höchstwahrscheinlich haben die Nomaden es geplündert.
 got.wp.VaesEfe=Vaes Efe
-got.wp.VaesGorqoyi.info=Die gut befestigte Stadt Sarnor, Mardosh der Unzugängliche oder die Stadt der Soldaten widerstand sechs Jahre lang den Dothraki Khals, bis sie belagert wurden und die Einwohner zu verhungern begannen. Als ihre eigenen Toten verzehrt wurden, töteten die Sarnor-Krieger Frauen und Kinder und stürmten in die letzte Schlacht. Die Dothraki plünderten die Ruinen, die einen neuen.name=N erhielten - Vaez Gorkoyi, die Stadt des Blutwurfs.
+got.wp.VaesGorqoyi.info=Die gut befestigte Stadt Sarnor, Mardosh der Unzugängliche oder die Stadt der Soldaten widerstand sechs Jahre lang den Dothraki Khals, bis sie belagert wurden und die Einwohner zu verhungern begannen. Als ihre eigenen Toten verzehrt wurden, töteten die Sarnor-Krieger Frauen und Kinder und stürmten in die letzte Schlacht. Die Dothraki plünderten die Ruinen, die einen neuen erhielten - Vaez Gorkoyi, die Stadt des Blutwurfs.
 got.wp.VaesGorqoyi=Vaes Gorkoyi
 got.wp.VaesGraddakh.info=Die Stadt des Sarnor-Königreichs, die im blutigen Zeitalter vom Khalasar zerstört wurde. Khalu Zeggo bekam fast nichts - die Bewohner von Saris flohen kurz vor seinem Erscheinen und nahmen ihre Habseligkeiten mit -, deshalb nannten die Dothraki die Beute "die Stadt des Mülls" - Vaez Graddakh.
 got.wp.VaesGraddakh=Vaes Graddakh
@@ -4098,17 +4098,17 @@ got.wp.VaesKhewo.info=Sarnath der Turm, einst die berühmteste Stadt Sarnors, mi
 got.wp.VaesKhewo=Vaes Khewo
 got.wp.VaesLeisi.info=Möglicherweise aufgegebene Ifekevron-Siedlung.
 got.wp.VaesLeisi=Vaes Leisi
-got.wp.VaesLeqse.info=Ruinen der Sarnor-Stadt Gornat Priozernoye; Der letzte König der Stadt verbündete sich mit Khal Moro, heiratete seine Tochter, aber Moro wurde alt und der Khal Horro, der ihn tötete, zerstörte die Stadt. Der neue.name= Vaes Lekse bedeutet "Stadt der Ratten", die Ratten aßen die Leiche des Königs.
+got.wp.VaesLeqse.info=Ruinen der Sarnor-Stadt Gornat Priozernoye; Der letzte König der Stadt verbündete sich mit Khal Moro, heiratete seine Tochter, aber Moro wurde alt und der Khal Horro, der ihn tötete, zerstörte die Stadt. Der neue Vaes Lekse bedeutet "Stadt der Ratten", die Ratten aßen die Leiche des Königs.
 got.wp.VaesLeqse=Vaes Leqse
 got.wp.VaesMejhah.info=Ruinen einer unbekannten Stadt, die die Dothraki "die Stadt der Motten" nennen; höchstwahrscheinlich haben die Nomaden es geplündert.
 got.wp.VaesMejhah=Vaes Mejhah
-got.wp.VaesOrvik.info=Qarthis Stadt Von den Dothraki zerstört. Die Invasoren gaben der Stadt den.name=N "Stadt der Peitschen". Der Selbs.name= ist längst vergessen.
+got.wp.VaesOrvik.info=Qarthis Stadt Von den Dothraki zerstört. Die Invasoren gaben der Stadt den.name=N "Stadt der Peitschen". Der Selbs ist längst vergessen.
 got.wp.VaesOrvik=Vaes Orvik
 got.wp.VaesQosar.info=Der Weg nach Kwart führt an den Ruinen von Vaes Kozar (Dothrak. "Stadt der Spinnen") vorbei, einer der jetzt zerstörten Städte in Quaati.
 got.wp.VaesQosar=Vaes Kozar
-got.wp.VaesShirosi.info=Dothraki verwüstete die Stadt Quaati. Die Invasoren gaben der Stadt den.name=N "Stadt der Skorpione". Der Selbs.name= ist längst vergessen.
+got.wp.VaesShirosi.info=Dothraki verwüstete die Stadt Quaati. Die Invasoren gaben der Stadt den "Stadt der Skorpione". Der Selbs.name= ist längst vergessen.
 got.wp.VaesShirosi=Vaes Shirosi
-got.wp.VaesTolorro.info=Ruinen einer Qarthikstadt aus weißem Stein, die aus unklaren Gründen verlassen wurde (die Eroberung durch Dothraki?); Hier kommt der Khalasar Daenerys Targaryen nach einer langen Wanderung durch die Wüste. Der wahre.name= der Stadt ist unbekannt. Vaez Tolorro, erfunden von Daenerys, übersetzt aus Dothraki, bedeutet "Stadt der Knochen".
+got.wp.VaesTolorro.info=Ruinen einer Qarthikstadt aus weißem Stein, die aus unklaren Gründen verlassen wurde (die Eroberung durch Dothraki?); Hier kommt der Khalasar Daenerys Targaryen nach einer langen Wanderung durch die Wüste. Der wahre der Stadt ist unbekannt. Vaez Tolorro, erfunden von Daenerys, übersetzt aus Dothraki, bedeutet "Stadt der Knochen".
 got.wp.VaesTolorro=Vaes Tolorro
 got.wp.Vahar.info=Wenn die Qarthisstraße der kürzeste und teuerste Weg zwischen dem Sommer und dem Jademeer ist, dann ist Vahar auf der längste und billigste Weg. Die Stadt lebt vom Gewürzhandel.
 got.wp.Vahar=Vahar
@@ -4144,7 +4144,7 @@ got.wp.WaterGardens.info=Sommer Residenz der Martells. Der Palast mit Gärten un
 got.wp.WaterGardens=Wassergärten
 got.wp.WayfarerRest.info=Ahnenburg des ältesten Zweigs von Vance, Tullys Vasallen.
 got.wp.WayfarerRest=Zuflucht der Wanderer
-got.wp.WeepingTown.info=Eine kleine Handelsstadt, in der ein Schiff mit der Leiche des verräterisch getöteten Deyron I Targaryen ankam. Dieser unglückliche Umstand kommt im.name=N der Stadt zum Ausdruck, und der örtliche Turm wurde Träne genannt.
+got.wp.WeepingTown.info=Eine kleine Handelsstadt, in der ein Schiff mit der Leiche des verräterisch getöteten Deyron I Targaryen ankam. Dieser unglückliche Umstand kommt im der Stadt zum Ausdruck, und der örtliche Turm wurde Träne genannt.
 got.wp.WeepingTown=Weinende Stadt
 got.wp.WestPass.info=Vier Pässe sind alte Grabhügel bis zu den Wolken. Ihre Lage deutet darauf hin, dass es sich um Verteidigungsstrukturen handelte. Aber vor wem und warum sollte Mossia beschützt werden, wenn die Feinde darin sind?
 got.wp.WestPass=Westpass
