@@ -1,4 +1,4 @@
-#title:Боаш
+﻿#title:Боаш
 #author:Яндель, мейстер Цитадели
 #types:essos
 #

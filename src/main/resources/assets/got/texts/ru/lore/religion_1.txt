@@ -1,4 +1,4 @@
-#title:Старые боги
+﻿#title:Старые боги
 #author:Яндель, мейстер Цитадели
 #types:westeros
 #

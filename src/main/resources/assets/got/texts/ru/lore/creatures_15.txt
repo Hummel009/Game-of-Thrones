@@ -1,4 +1,4 @@
-#title:Гуль
+﻿#title:Гуль
 #author:Мукун, Охотник на чудовищ
 #types:mossovy
 #

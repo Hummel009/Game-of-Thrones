@@ -1,4 +1,4 @@
-#title:Тулпар
+﻿#title:Тулпар
 #author:Зуура, Охотница на чудовищ
 #types:mossovy
 #

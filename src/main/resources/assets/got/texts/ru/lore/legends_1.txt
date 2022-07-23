@@ -1,4 +1,4 @@
-#title:Последний герой
+﻿#title:Последний герой
 #author:Неизвестен
 #types:westeros
 #

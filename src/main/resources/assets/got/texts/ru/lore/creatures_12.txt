@@ -1,4 +1,4 @@
-#title:Великаны
+﻿#title:Великаны
 #author:Алия, Странница
 #types:westeros
 #

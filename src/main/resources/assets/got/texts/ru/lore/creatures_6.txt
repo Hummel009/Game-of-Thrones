@@ -1,4 +1,4 @@
-#title:Виверны
+﻿#title:Виверны
 #author:Далар, Странник
 #types:sothoryos
 #

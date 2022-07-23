@@ -1,4 +1,4 @@
-#title:Шрайки
+﻿#title:Шрайки
 #author:Неизвестен
 #types:essos
 #

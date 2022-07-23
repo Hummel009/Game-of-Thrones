@@ -1,4 +1,4 @@
-#title:Дикий Огонь
+﻿#title:Дикий Огонь
 #author:Россарт, Алхимик
 #types:westeros
 #

@@ -1,4 +1,4 @@
-#title:Тень-убийца
+﻿#title:Тень-убийца
 #author:Тобиас, Писарь
 #types:asshai
 #

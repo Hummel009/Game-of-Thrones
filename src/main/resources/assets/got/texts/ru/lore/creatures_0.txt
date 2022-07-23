@@ -1,4 +1,4 @@
-#title:Король Ночи
+﻿#title:Король Ночи
 #author:Дареон, Странник
 #types:westeros
 #

@@ -1,4 +1,4 @@
-#title:Семеро
+﻿#title:Семеро
 #author:Яндель, мейстер Цитадели
 #types:westeros
 #

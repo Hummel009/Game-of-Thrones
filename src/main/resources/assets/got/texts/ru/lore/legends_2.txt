@@ -1,4 +1,4 @@
-#title:Серый Король
+﻿#title:Серый Король
 #author:Неизвестен
 #types:westeros
 #

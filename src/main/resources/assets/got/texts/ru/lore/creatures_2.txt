@@ -1,4 +1,4 @@
-#title:Пятнистые люди
+﻿#title:Пятнистые люди
 #author:Кайра, Странница
 #types:sothoryos
 #

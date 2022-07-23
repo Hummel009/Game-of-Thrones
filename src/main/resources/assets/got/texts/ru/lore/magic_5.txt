@@ -1,4 +1,4 @@
-#title:Варги
+﻿#title:Варги
 #author:Барриан, Странник
 #types:westeros
 #

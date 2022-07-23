@@ -1,4 +1,4 @@
-#title:Албыс
+﻿#title:Албыс
 #author:Жунус, Охотник на чудовищ
 #types:mossovy
 #
