@@ -1670,7 +1670,6 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 			}
 			writer.println(end);
-
 /*
 			writer.print("<page><title>Шаблон:БД Моб-Точка");
 			writer.println(begin);
@@ -1688,7 +1687,6 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 */
-
 			writer.print("<page><title>Шаблон:БД Моб-Устойчивый к жаре");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
@@ -1815,6 +1813,18 @@ public class DatabaseGenerator extends GOTStructureBase {
 				names.add(f.getName());
 			}
 			return names;
+		}
+
+		public static Database forName(String name) {
+			for (Database f : Database.values()) {
+				if (f.matchesNameOrAlias(name)) {
+					return f;
+				}
+			}
+			return null;
+		}
+		public boolean matchesNameOrAlias(String name) {
+			return codeName.equals(name);
 		}
 	}
 }

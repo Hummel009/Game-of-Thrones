@@ -32,7 +32,12 @@ public class GOTCommandDatabase extends CommandBase {
 
 	@Override
 	public void processCommand(ICommandSender sender, String[] args) {
-		DatabaseGenerator.display = args[0];
-		CommandBase.func_152373_a(sender, this, "Database key: " + args[0]);
+		Database db = Database.forName(args[0]);
+		if (db == null) {
+			CommandBase.func_152373_a(sender, this, "Database \"" + args[0] + "\" does not exist.");
+		} else {
+			DatabaseGenerator.display = args[0];
+			CommandBase.func_152373_a(sender, this, "Database \"" + args[0] + "\" is prepared.");
+		}
 	}
 }
