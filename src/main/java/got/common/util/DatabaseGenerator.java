@@ -1,4 +1,4 @@
-﻿package got.common.util;
+package got.common.util;
 
 import java.io.*;
 import java.lang.reflect.Field;
