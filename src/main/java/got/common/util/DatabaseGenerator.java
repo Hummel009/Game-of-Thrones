@@ -92,10 +92,16 @@ public class DatabaseGenerator extends GOTStructureBase {
 	public static String riderLoc = "всадник";
 	public static String categoryTemplates = "Категория:Шаблоны";
 	public static String biomeNoNPC = "В этом биоме нет никаких NPC.";
-	public static String biomeContainerLoc = "Container";
-	public static String biomeContainerMeaning = "Placeholder about containers meaning.";
-	public static String biomeNoVariants = "This biome has no variants.";
-	public static String biomeNoInvasions = "There is no invasions in this biome.";
+	public static String biomeContainerLoc = "Контейнер";
+	public static String biomeContainerMeaning = "Если в биоме указано несколько "
+				+ "контейнеров (контейнеры с монстрами не в счёт), это значит, что "
+				+ "территорию можно завоевать от имени некоторых фракций. Если вы "
+				+ "[[Фракции#Присяга|присягнули]] фракции, а её контейнер указан в "
+				+ "списке ниже, значит, после завоевания территории первый контейнер "
+				+ "спавна (изначальный) переключится на контейнер вашей фракции, и на "
+				+ "оккупированной территории начнут спавнится ваши союзники.";
+	public static String biomeNoVariants = "Этот биом не имеет никаких вариантов.";
+	public static String biomeNoInvasions = "В этот биом не вторгаются никакие фракции.";
 	public static String biomeNoTrees = "В этом биоме нет никаких деревьев.";
 	public static String biomeNoAnimals = "В этом биоме нет зверей, птиц и рыб.";
 	public static String biomeNoStructures = "В этом биоме нет никаких структур.";
