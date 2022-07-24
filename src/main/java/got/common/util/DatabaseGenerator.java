@@ -89,33 +89,33 @@ public class DatabaseGenerator extends GOTStructureBase {
 	public static Map<Class<? extends Entity>, Entity> entities = new HashMap<>();
 	public static Map<Class<? extends Entity>, GOTWaypoint> charPoint = new HashMap<>();
 	public static String display = "null";
-	public static String riderLoc = "вершник";
-	public static String categoryTemplates = "Категорія:Шаблони";
-	public static String biomeNoNPC = "У цьому біомі немає ніяких NPC.";
-	public static String biomeContainerLoc = "Контейнер";
-	public static String biomeContainerMeaning = "Якщо в біомі вказано декілька"
-	+ "контейнерів (контейнери з монстрами не в рахунок), це означає, що "
-	+ "територію можна завоювати від імені деяких фракцій. Якщо ви "
-	+ "[[Фракції#Присяга|присягнули]] фракції, а її контейнер вказано в "
-	+ "списку нижче, значить, після завоювання території перший контейнер"
-	+ "спавна (початковий) переключиться на контейнер вашої фракції, і на "
-	+ "окупованій території почнуть сповнитися ваші союзники.";
-	public static String biomeNoVariants = "Цей біом не має жодних варіантів.";
-	public static String biomeNoInvasions = "У цей біом не вторгаються ніякі фракції.";
-	public static String biomeNoTrees = "У цьому біомі немає дерев.";
-	public static String biomeNoAnimals = "У цьому біомі немає звірів, птахів та риб.";
-	public static String biomeNoStructures = "У цьому біомі немає структур.";
-	public static String biomeLoc = "біом";
-	public static String factionNoEnemies = "Ця фракція взагалі не має ворогів.";
-	public static String factionNoFriends = "Ця фракція не має жодних союзників.";
-	public static String factionNoCharacters = "Не існує персонажів, що належать до цієї фракції.";
-	public static String factionLoc = "фракція";
-	public static String factionNotViolent = "Ця фракція не заохочує вбивство цивільних";
-	public static String factionIsViolent = "Ця фракція заохочує військові злочини";
-	public static String factionNoStructures = "Ця фракція не має жодних структур.";
-	public static String noPledge = "без присяги";
-	public static String rep = "репутації";
-	public static String yesPledge = "з присягою";
+	public static String riderLoc = "\u0432\u0435\u0440\u0448\u043D\u0438\u043A";
+	public static String categoryTemplates = "\u041A\u0430\u0442\u0435\u0433\u043E\u0440\u0456\u044F:\u0428\u0430\u0431\u043B\u043E\u043D\u0438";
+	public static String biomeNoNPC = "\u0423 \u0446\u044C\u043E\u043C\u0443 \u0431\u0456\u043E\u043C\u0456 \u043D\u0435\u043C\u0430\u0454 \u043D\u0456\u044F\u043A\u0438\u0445 NPC.";
+	public static String biomeContainerLoc = "\u041A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440";
+	public static String biomeContainerMeaning = "\u042F\u043A\u0449\u043E \u0432 \u0431\u0456\u043E\u043C\u0456 \u0432\u043A\u0430\u0437\u0430\u043D\u043E \u0434\u0435\u043A\u0456\u043B\u044C\u043A\u0430"
+	+ "\u043A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440\u0456\u0432 (\u043A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440\u0438 \u0437 \u043C\u043E\u043D\u0441\u0442\u0440\u0430\u043C\u0438 \u043D\u0435 \u0432 \u0440\u0430\u0445\u0443\u043D\u043E\u043A), \u0446\u0435 \u043E\u0437\u043D\u0430\u0447\u0430\u0454, \u0449\u043E "
+	+ "\u0442\u0435\u0440\u0438\u0442\u043E\u0440\u0456\u044E \u043C\u043E\u0436\u043D\u0430 \u0437\u0430\u0432\u043E\u044E\u0432\u0430\u0442\u0438 \u0432\u0456\u0434 \u0456\u043C\u0435\u043D\u0456 \u0434\u0435\u044F\u043A\u0438\u0445 \u0444\u0440\u0430\u043A\u0446\u0456\u0439. \u042F\u043A\u0449\u043E \u0432\u0438 "
+	+ "[[\u0424\u0440\u0430\u043A\u0446\u0456\u0457#\u041F\u0440\u0438\u0441\u044F\u0433\u0430|\u043F\u0440\u0438\u0441\u044F\u0433\u043D\u0443\u043B\u0438]] \u0444\u0440\u0430\u043A\u0446\u0456\u0457, \u0430 \u0457\u0457 \u043A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440 \u0432\u043A\u0430\u0437\u0430\u043D\u043E \u0432 "
+	+ "\u0441\u043F\u0438\u0441\u043A\u0443 \u043D\u0438\u0436\u0447\u0435, \u0437\u043D\u0430\u0447\u0438\u0442\u044C, \u043F\u0456\u0441\u043B\u044F \u0437\u0430\u0432\u043E\u044E\u0432\u0430\u043D\u043D\u044F \u0442\u0435\u0440\u0438\u0442\u043E\u0440\u0456\u0457 \u043F\u0435\u0440\u0448\u0438\u0439 \u043A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440"
+	+ "\u0441\u043F\u0430\u0432\u043D\u0430 (\u043F\u043E\u0447\u0430\u0442\u043A\u043E\u0432\u0438\u0439) \u043F\u0435\u0440\u0435\u043A\u043B\u044E\u0447\u0438\u0442\u044C\u0441\u044F \u043D\u0430 \u043A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440 \u0432\u0430\u0448\u043E\u0457 \u0444\u0440\u0430\u043A\u0446\u0456\u0457, \u0456 \u043D\u0430 "
+	+ "\u043E\u043A\u0443\u043F\u043E\u0432\u0430\u043D\u0456\u0439 \u0442\u0435\u0440\u0438\u0442\u043E\u0440\u0456\u0457 \u043F\u043E\u0447\u043D\u0443\u0442\u044C \u0441\u043F\u043E\u0432\u043D\u0438\u0442\u0438\u0441\u044F \u0432\u0430\u0448\u0456 \u0441\u043E\u044E\u0437\u043D\u0438\u043A\u0438.";
+	public static String biomeNoVariants = "\u0426\u0435\u0439 \u0431\u0456\u043E\u043C \u043D\u0435 \u043C\u0430\u0454 \u0436\u043E\u0434\u043D\u0438\u0445 \u0432\u0430\u0440\u0456\u0430\u043D\u0442\u0456\u0432.";
+	public static String biomeNoInvasions = "\u0423 \u0446\u0435\u0439 \u0431\u0456\u043E\u043C \u043D\u0435 \u0432\u0442\u043E\u0440\u0433\u0430\u044E\u0442\u044C\u0441\u044F \u043D\u0456\u044F\u043A\u0456 \u0444\u0440\u0430\u043A\u0446\u0456\u0457.";
+	public static String biomeNoTrees = "\u0423 \u0446\u044C\u043E\u043C\u0443 \u0431\u0456\u043E\u043C\u0456 \u043D\u0435\u043C\u0430\u0454 \u0434\u0435\u0440\u0435\u0432.";
+	public static String biomeNoAnimals = "\u0423 \u0446\u044C\u043E\u043C\u0443 \u0431\u0456\u043E\u043C\u0456 \u043D\u0435\u043C\u0430\u0454 \u0437\u0432\u0456\u0440\u0456\u0432, \u043F\u0442\u0430\u0445\u0456\u0432 \u0442\u0430 \u0440\u0438\u0431.";
+	public static String biomeNoStructures = "\u0423 \u0446\u044C\u043E\u043C\u0443 \u0431\u0456\u043E\u043C\u0456 \u043D\u0435\u043C\u0430\u0454 \u0441\u0442\u0440\u0443\u043A\u0442\u0443\u0440.";
+	public static String biomeLoc = "\u0431\u0456\u043E\u043C";
+	public static String factionNoEnemies = "\u0426\u044F \u0444\u0440\u0430\u043A\u0446\u0456\u044F \u0432\u0437\u0430\u0433\u0430\u043B\u0456 \u043D\u0435 \u043C\u0430\u0454 \u0432\u043E\u0440\u043E\u0433\u0456\u0432.";
+	public static String factionNoFriends = "\u0426\u044F \u0444\u0440\u0430\u043A\u0446\u0456\u044F \u043D\u0435 \u043C\u0430\u0454 \u0436\u043E\u0434\u043D\u0438\u0445 \u0441\u043E\u044E\u0437\u043D\u0438\u043A\u0456\u0432.";
+	public static String factionNoCharacters = "\u041D\u0435 \u0456\u0441\u043D\u0443\u0454 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436\u0456\u0432, \u0449\u043E \u043D\u0430\u043B\u0435\u0436\u0430\u0442\u044C \u0434\u043E \u0446\u0456\u0454\u0457 \u0444\u0440\u0430\u043A\u0446\u0456\u0457.";
+	public static String factionLoc = "\u0444\u0440\u0430\u043A\u0446\u0456\u044F";
+	public static String factionNotViolent = "\u0426\u044F \u0444\u0440\u0430\u043A\u0446\u0456\u044F \u043D\u0435 \u0437\u0430\u043E\u0445\u043E\u0447\u0443\u0454 \u0432\u0431\u0438\u0432\u0441\u0442\u0432\u043E \u0446\u0438\u0432\u0456\u043B\u044C\u043D\u0438\u0445";
+	public static String factionIsViolent = "\u0426\u044F \u0444\u0440\u0430\u043A\u0446\u0456\u044F \u0437\u0430\u043E\u0445\u043E\u0447\u0443\u0454 \u0432\u0456\u0439\u0441\u044C\u043A\u043E\u0432\u0456 \u0437\u043B\u043E\u0447\u0438\u043D\u0438";
+	public static String factionNoStructures = "\u0426\u044F \u0444\u0440\u0430\u043A\u0446\u0456\u044F \u043D\u0435 \u043C\u0430\u0454 \u0436\u043E\u0434\u043D\u0438\u0445 \u0441\u0442\u0440\u0443\u043A\u0442\u0443\u0440.";
+	public static String noPledge = "\u0431\u0435\u0437 \u043F\u0440\u0438\u0441\u044F\u0433\u0438";
+	public static String rep = "\u0440\u0435\u043F\u0443\u0442\u0430\u0446\u0456\u0457";
+	public static String yesPledge = "\u0437 \u043F\u0440\u0438\u0441\u044F\u0433\u043E\u044E";
 
 	public DatabaseGenerator(boolean flag) {
 		super(flag);
@@ -986,9 +986,9 @@ public class DatabaseGenerator extends GOTStructureBase {
 			for (GOTUnitTradeEntries entries : GOTCommander.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class)) {
 				for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 					if (entry.mountClass == null) {
-						writer.println("| [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]] || {{Деньги|" + entry.initialCost * 2 + "}} || +" + entry.alignmentRequired + " || " + (entry.pledgeType == PledgeType.NONE));
+						writer.println("| [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]] || {{\u0414\u0435\u043D\u044C\u0433\u0438|" + entry.initialCost * 2 + "}} || +" + entry.alignmentRequired + " || " + (entry.pledgeType == PledgeType.NONE));
 					} else {
-						writer.println("| [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]] (" + riderLoc + ") || {{Деньги|" + entry.initialCost * 2 + "}} || +" + entry.alignmentRequired + " || " + (entry.pledgeType == PledgeType.NONE));
+						writer.println("| [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]] (" + riderLoc + ") || {{\u0414\u0435\u043D\u044C\u0433\u0438|" + entry.initialCost * 2 + "}} || +" + entry.alignmentRequired + " || " + (entry.pledgeType == PledgeType.NONE));
 					}
 					writer.println("|-");
 				}
@@ -1081,14 +1081,14 @@ public class DatabaseGenerator extends GOTStructureBase {
 			writer.println("<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
 			for (Class mob : entities.keySet()) {
 				String s1 = "<page><title>";
-				String s2 = "</title><revision><text>{{Статья Моб}}</text></revision></page>";
+				String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u041C\u043E\u0431}}</text></revision></page>";
 				writer.print(s1 + GOTEntityRegistry.getEntityName(mob) + s2);
 				writer.println();
 			}
 			for (GOTBiome biome : bmlist) {
 				boolean two = false;
 				String s1 = "<page><title>";
-				String s2 = "</title><revision><text>{{Статья Биом}}</text></revision></page>";
+				String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u0411\u0438\u043E\u043C}}</text></revision></page>";
 				for (GOTFaction fac : fclist) {
 					if (fac.factionName().equals(biome.getName())) {
 						two = true;
@@ -1105,7 +1105,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			for (GOTFaction fac : fclist) {
 				boolean two = false;
 				String s1 = "<page><title>";
-				String s2 = "</title><revision><text>{{Статья Фракция}}</text></revision></page>";
+				String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u0424\u0440\u0430\u043A\u0446\u0438\u044F}}</text></revision></page>";
 				for (GOTBiome biome : bmlist) {
 					if (fac.factionName().equals(biome.getName())) {
 						two = true;
@@ -1127,7 +1127,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 			/* BIOMES */
 
-			writer.print("<page><title>Шаблон:БД Биом-NPC");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0411\u0438\u043E\u043C-NPC");
 			writer.println(begin);
 			for (GOTBiome biome : bmlist) {
 				if (biome.npcSpawnList.factionContainers.isEmpty()) {
@@ -1141,7 +1141,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 					for (FactionContainer cont : biome.npcSpawnList.factionContainers) {
 						if (biome.npcSpawnList.factionContainers.size() > 1) {
 							writer.println("");
-							writer.println(biomeContainerLoc + " №" + i + ":");
+							writer.println(biomeContainerLoc + " \u2116" + i + ":");
 						}
 						for (SpawnListContainer one : cont.spawnLists) {
 							for (GOTSpawnEntry entry : one.spawnList.spawnList) {
@@ -1154,14 +1154,14 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Биом-Бандиты");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0411\u0438\u043E\u043C-\u0411\u0430\u043D\u0434\u0438\u0442\u044B");
 			writer.println(begin);
 			for (GOTBiome biome : bmlist) {
 				writer.println("| " + biome.getName() + " = " + biome.banditChance);
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Биом-Варианты");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0411\u0438\u043E\u043C-\u0412\u0430\u0440\u0438\u0430\u043D\u0442\u044B");
 			writer.println(begin);
 			for (GOTBiome biome : bmlist) {
 				if (biome.biomeVariantsSmall.variantList.isEmpty()) {
@@ -1175,7 +1175,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Биом-Вторжения");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0411\u0438\u043E\u043C-\u0412\u0442\u043E\u0440\u0436\u0435\u043D\u0438\u044F");
 			writer.println(begin);
 			for (GOTBiome biome : bmlist) {
 				if (biome.invasionSpawns.registeredInvasions.isEmpty()) {
@@ -1189,14 +1189,14 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Биом-Высота");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0411\u0438\u043E\u043C-\u0412\u044B\u0441\u043E\u0442\u0430");
 			writer.println(begin);
 			for (GOTBiome biome : bmlist) {
 				writer.println("| " + biome.getName() + " = " + biome.heightBaseParameter);
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Биом-Деревья");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0411\u0438\u043E\u043C-\u0414\u0435\u0440\u0435\u0432\u044C\u044F");
 			writer.println(begin);
 			for (GOTBiome biome : bmlist) {
 				if (biome.decorator.treeTypes.isEmpty()) {
@@ -1210,7 +1210,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Биом-Животные");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0411\u0438\u043E\u043C-\u0416\u0438\u0432\u043E\u0442\u043D\u044B\u0435");
 			writer.println(begin);
 			for (GOTBiome biome : bmlist) {
 				List entries = new ArrayList(biome.getSpawnableList(EnumCreatureType.ambient));
@@ -1233,7 +1233,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Биом-Ископаемые");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0411\u0438\u043E\u043C-\u0418\u0441\u043A\u043E\u043F\u0430\u0435\u043C\u044B\u0435");
 			writer.println(begin);
 			for (GOTBiome biome : bmlist) {
 				writer.println("| " + biome.getName() + " = ");
@@ -1249,28 +1249,28 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Биом-Климат");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0411\u0438\u043E\u043C-\u041A\u043B\u0438\u043C\u0430\u0442");
 			writer.println(begin);
 			for (GOTBiome biome : bmlist) {
 				writer.println("| " + biome.getName() + " = " + biome.climat);
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Биом-Колебания");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0411\u0438\u043E\u043C-\u041A\u043E\u043B\u0435\u0431\u0430\u043D\u0438\u044F");
 			writer.println(begin);
 			for (GOTBiome biome : bmlist) {
 				writer.println("| " + biome.getName() + " = " + biome.heightVariation);
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Биом-Музпак");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0411\u0438\u043E\u043C-\u041C\u0443\u0437\u043F\u0430\u043A");
 			writer.println(begin);
 			for (GOTBiome biome : bmlist) {
 				writer.println("| " + biome.getName() + " = " + biome.biomeName);
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Биом-Ссылка");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0411\u0438\u043E\u043C-\u0421\u0441\u044B\u043B\u043A\u0430");
 			writer.println(begin);
 			writer.println("| #default = [[{{{1}}}]]");
 			for (GOTBiome biome : bmlist) {
@@ -1282,7 +1282,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Биом-Структуры");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0411\u0438\u043E\u043C-\u0421\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u044B");
 			writer.println(begin);
 			for (GOTBiome biome : bmlist) {
 				if (biome.decorator.randomStructures.isEmpty()) {
@@ -1296,7 +1296,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Биом-Фото");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0411\u0438\u043E\u043C-\u0424\u043E\u0442\u043E");
 			writer.println(begin);
 			for (GOTBiome biome : bmlist) {
 				if (!(biome == GOTBiome.thenn || biome == GOTBiome.mercenary)) {
@@ -1307,7 +1307,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Статья-Биом");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0421\u0442\u0430\u0442\u044C\u044F-\u0411\u0438\u043E\u043C");
 			writer.println(begin);
 			writer.println("| #default = {{{1}}}");
 			for (GOTBiome biome : bmlist) {
@@ -1321,7 +1321,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 			/* FACTIONS */
 
-			writer.print("<page><title>Шаблон:БД Фракция-NPC");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0424\u0440\u0430\u043A\u0446\u0438\u044F-NPC");
 			writer.println(begin);
 			for (GOTFaction fac : fclist) {
 				writer.println("| " + fac.factionName() + " =");
@@ -1333,7 +1333,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Фракция-Враги");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0424\u0440\u0430\u043A\u0446\u0438\u044F-\u0412\u0440\u0430\u0433\u0438");
 			writer.println(begin);
 			for (GOTFaction fac : fclist) {
 				boolean empty = true;
@@ -1349,10 +1349,10 @@ public class DatabaseGenerator extends GOTStructureBase {
 					for (GOTFaction fac2 : fclist) {
 						if (fac2.isBadRelation(fac) && fac2 != fac && fac != GOTFaction.HOSTILE && fac2 != GOTFaction.HOSTILE) {
 							if (i == 0) {
-								writer.print("{{БД Фракция-Ссылка|" + fac2.factionName() + "}}");
+								writer.print("{{\u0411\u0414 \u0424\u0440\u0430\u043A\u0446\u0438\u044F-\u0421\u0441\u044B\u043B\u043A\u0430|" + fac2.factionName() + "}}");
 								i++;
 							} else {
-								writer.print(" • {{БД Фракция-Ссылка|" + fac2.factionName() + "}}");
+								writer.print(" \u2022 {{\u0411\u0414 \u0424\u0440\u0430\u043A\u0446\u0438\u044F-\u0421\u0441\u044B\u043B\u043A\u0430|" + fac2.factionName() + "}}");
 							}
 						}
 					}
@@ -1364,7 +1364,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Фракция-Друзья");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0424\u0440\u0430\u043A\u0446\u0438\u044F-\u0414\u0440\u0443\u0437\u044C\u044F");
 			writer.println(begin);
 			for (GOTFaction fac : fclist) {
 				boolean empty = true;
@@ -1380,10 +1380,10 @@ public class DatabaseGenerator extends GOTStructureBase {
 					for (GOTFaction fac2 : fclist) {
 						if (fac2.isGoodRelation(fac) && fac2 != fac) {
 							if (i == 0) {
-								writer.print("{{БД Фракция-Ссылка|" + fac2.factionName() + "}}");
+								writer.print("{{\u0411\u0414 \u0424\u0440\u0430\u043A\u0446\u0438\u044F-\u0421\u0441\u044B\u043B\u043A\u0430|" + fac2.factionName() + "}}");
 								i++;
 							} else {
-								writer.print(" • {{БД Фракция-Ссылка|" + fac2.factionName() + "}}");
+								writer.print(" \u2022 {{\u0411\u0414 \u0424\u0440\u0430\u043A\u0446\u0438\u044F-\u0421\u0441\u044B\u043B\u043A\u0430|" + fac2.factionName() + "}}");
 							}
 						}
 					}
@@ -1394,7 +1394,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Фракция-Жестокость");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0424\u0440\u0430\u043A\u0446\u0438\u044F-\u0416\u0435\u0441\u0442\u043E\u043A\u043E\u0441\u0442\u044C");
 			writer.println(begin);
 			writer.println("| #default = " + factionNotViolent);
 			for (GOTFaction fac : fclist) {
@@ -1404,14 +1404,14 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Фракция-Код");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0424\u0440\u0430\u043A\u0446\u0438\u044F-\u041A\u043E\u0434");
 			writer.println(begin);
 			for (GOTFaction fac : fclist) {
 				writer.println("| " + fac.factionName() + " = " + fac.codeName());
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Фракция-Персонажи");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0424\u0440\u0430\u043A\u0446\u0438\u044F-\u041F\u0435\u0440\u0441\u043E\u043D\u0430\u0436\u0438");
 			writer.println(begin);
 			for (GOTFaction fac : fclist) {
 				boolean empty = true;
@@ -1434,7 +1434,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Фракция-Регион");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0424\u0440\u0430\u043A\u0446\u0438\u044F-\u0420\u0435\u0433\u0438\u043E\u043D");
 			writer.println(begin);
 			for (GOTFaction fac : fclist) {
 				if (fac.factionRegion != null) {
@@ -1443,7 +1443,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Фракция-Ссылка");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0424\u0440\u0430\u043A\u0446\u0438\u044F-\u0421\u0441\u044B\u043B\u043A\u0430");
 			writer.println(begin);
 			writer.println("| #default = [[{{{1}}}]]");
 			for (GOTFaction fac : fclist) {
@@ -1455,7 +1455,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Фракция-Структуры");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0424\u0440\u0430\u043A\u0446\u0438\u044F-\u0421\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u044B");
 			writer.println(begin);
 			for (GOTFaction fac : fclist) {
 				boolean empty = true;
@@ -1478,7 +1478,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Статья-Фракция");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0421\u0442\u0430\u0442\u044C\u044F-\u0424\u0440\u0430\u043A\u0446\u0438\u044F");
 			writer.println(begin);
 			writer.println("| #default = {{{1}}}");
 			for (GOTFaction fac : fclist) {
@@ -1492,7 +1492,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 			/* MOBS */
 
-			writer.print("<page><title>Шаблон:БД Моб-NPC");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-NPC");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				if (entities.get(mob) instanceof GOTEntityNPC) {
@@ -1501,7 +1501,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Агрессор");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0410\u0433\u0440\u0435\u0441\u0441\u043E\u0440");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				if (entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).isTargetSeeker || entities.get(mob) instanceof EntityMob || entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).getFaction() == GOTFaction.HOSTILE) {
@@ -1510,7 +1510,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Биом");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0411\u0438\u043E\u043C");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				int i = 1;
@@ -1531,14 +1531,14 @@ public class DatabaseGenerator extends GOTStructureBase {
 								writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = ");
 							}
 							i++;
-							writer.println("* {{БД Биом-Ссылка|" + biome.getName() + "}};");
+							writer.println("* {{\u0411\u0414 \u0411\u0438\u043E\u043C-\u0421\u0441\u044B\u043B\u043A\u0430|" + biome.getName() + "}};");
 						}
 					}
 				}
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Владелец");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0412\u043B\u0430\u0434\u0435\u043B\u0435\u0446");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				if (entities.get(mob) instanceof GOTUnitTradeable && !((GOTEntityNPC) entities.get(mob)).isLegendaryNPC()) {
@@ -1552,7 +1552,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Ездовой");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0415\u0437\u0434\u043E\u0432\u043E\u0439");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				if (entities.get(mob) instanceof GOTEntityNPCRideable) {
@@ -1561,14 +1561,14 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Здоровье");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0417\u0434\u043E\u0440\u043E\u0432\u044C\u0435");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = " + ((EntityLivingBase) entities.get(mob)).getMaxHealth());
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Знаменосец");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0417\u043D\u0430\u043C\u0435\u043D\u043E\u0441\u0435\u0446");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				if (entities.get(mob) instanceof GOTBannerBearer) {
@@ -1577,7 +1577,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Имя");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0418\u043C\u044F");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				if (entities.get(mob) instanceof GOTEntityNPC) {
@@ -1586,7 +1586,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Командир");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u041A\u043E\u043C\u0430\u043D\u0434\u0438\u0440");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				if (entities.get(mob) instanceof GOTUnitTradeable) {
@@ -1595,7 +1595,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Кузнец");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u041A\u0443\u0437\u043D\u0435\u0446");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				if (entities.get(mob) instanceof GOTTradeable.Smith) {
@@ -1604,7 +1604,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Легендарный");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u041B\u0435\u0433\u0435\u043D\u0434\u0430\u0440\u043D\u044B\u0439");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				if (entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).isLegendaryNPC) {
@@ -1613,7 +1613,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Маунт");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u041C\u0430\u0443\u043D\u0442");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				if (entities.get(mob) instanceof GOTNPCMount) {
@@ -1622,7 +1622,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Морозоустойчивость");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u041C\u043E\u0440\u043E\u0437\u043E\u0443\u0441\u0442\u043E\u0439\u0447\u0438\u0432\u043E\u0441\u0442\u044C");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				if (entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).isImmuneToFrost || entities.get(mob) instanceof GOTBiome.ImmuneToFrost) {
@@ -1631,7 +1631,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Наёмник");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u041D\u0430\u0451\u043C\u043D\u0438\u043A");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				if (entities.get(mob) instanceof GOTMercenary) {
@@ -1640,7 +1640,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Ночной спавн");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u041D\u043E\u0447\u043D\u043E\u0439 \u0441\u043F\u0430\u0432\u043D");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				if (entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).spawnsInDarkness) {
@@ -1649,7 +1649,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Огнеупорность");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u041E\u0433\u043D\u0435\u0443\u043F\u043E\u0440\u043D\u043E\u0441\u0442\u044C");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				if (entities.get(mob).isImmuneToFire()) {
@@ -1658,33 +1658,33 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Покупает");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u041F\u043E\u043A\u0443\u043F\u0430\u0435\u0442");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				if (entities.get(mob) instanceof GOTTradeable) {
 					GOTTradeEntries entries = ((GOTTradeable) entities.get(mob)).getSellPool();
 					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = ");
 					for (GOTTradeEntry entry : entries.tradeEntries) {
-						writer.println("* " + entry.tradeItem.getDisplayName() + ": {{Деньги|" + entry.getCost() + "}};");
+						writer.println("* " + entry.tradeItem.getDisplayName() + ": {{\u0414\u0435\u043D\u044C\u0433\u0438|" + entry.getCost() + "}};");
 					}
 				}
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Продаёт");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u041F\u0440\u043E\u0434\u0430\u0451\u0442");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				if (entities.get(mob) instanceof GOTTradeable) {
 					GOTTradeEntries entries = ((GOTTradeable) entities.get(mob)).getBuyPool();
 					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = ");
 					for (GOTTradeEntry entry : entries.tradeEntries) {
-						writer.println("* " + entry.tradeItem.getDisplayName() + ": {{Деньги|" + entry.getCost() + "}};");
+						writer.println("* " + entry.tradeItem.getDisplayName() + ": {{\u0414\u0435\u043D\u044C\u0433\u0438|" + entry.getCost() + "}};");
 					}
 				}
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Работник");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0420\u0430\u0431\u043E\u0442\u043D\u0438\u043A");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				if (entities.get(mob) instanceof GOTFarmhand) {
@@ -1693,7 +1693,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Репутация");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0420\u0435\u043F\u0443\u0442\u0430\u0446\u0438\u044F");
 			writer.println(begin);
 			for (GOTUnitTradeEntries entries : GOTCommander.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class)) {
 				for (GOTUnitTradeEntry entry : entries.tradeEntries) {
@@ -1702,7 +1702,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Свадьба");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0421\u0432\u0430\u0434\u044C\u0431\u0430");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				if (entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).canBeMarried) {
@@ -1711,7 +1711,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Торговец");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0422\u043E\u0440\u0433\u043E\u0432\u0435\u0446");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				if (entities.get(mob) instanceof GOTTradeable) {
@@ -1720,7 +1720,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Устойчивый к жаре");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0423\u0441\u0442\u043E\u0439\u0447\u0438\u0432\u044B\u0439 \u043A \u0436\u0430\u0440\u0435");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				if (entities.get(mob) instanceof GOTBiome.ImmuneToHeat) {
@@ -1729,14 +1729,14 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Фото");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0424\u043E\u0442\u043E");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = " + mob.getSimpleName().replace("GOTEntity", "") + ".png");
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Фракция");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0424\u0440\u0430\u043A\u0446\u0438\u044F");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				if (entities.get(mob) instanceof GOTEntityNPC) {
@@ -1745,25 +1745,25 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Цена");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0426\u0435\u043D\u0430");
 			writer.println(begin);
 			for (GOTUnitTradeEntries entries : GOTCommander.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class)) {
 				for (GOTUnitTradeEntry entry : entries.tradeEntries) {
-					writer.println("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = {{Деньги|" + entry.initialCost * 2 + "}}");
+					writer.println("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = {{\u0414\u0435\u043D\u044C\u0433\u0438|" + entry.initialCost * 2 + "}}");
 				}
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-ЦенаПрисяга");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0426\u0435\u043D\u0430\u041F\u0440\u0438\u0441\u044F\u0433\u0430");
 			writer.println(begin);
 			for (GOTUnitTradeEntries entries : GOTCommander.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class)) {
 				for (GOTUnitTradeEntry entry : entries.tradeEntries) {
-					writer.println("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = {{Деньги|" + entry.initialCost + "}}");
+					writer.println("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = {{\u0414\u0435\u043D\u044C\u0433\u0438|" + entry.initialCost + "}}");
 				}
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Ценность");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0426\u0435\u043D\u043D\u043E\u0441\u0442\u044C");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				if (entities.get(mob) instanceof GOTEntityNPC) {
@@ -1772,7 +1772,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Юниты");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u042E\u043D\u0438\u0442\u044B");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				if (entities.get(mob) instanceof GOTUnitTradeable) {
@@ -1780,14 +1780,14 @@ public class DatabaseGenerator extends GOTStructureBase {
 					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = ");
 					for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 						if (entry.mountClass == null) {
-							writer.println("* [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]]: {{Деньги|" + entry.initialCost * 2 + "}} " + noPledge + ", {{Деньги|" + entry.initialCost + "}} "+yesPledge+"; " + entry.alignmentRequired + "+ "+rep+";");
+							writer.println("* [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]]: {{\u0414\u0435\u043D\u044C\u0433\u0438|" + entry.initialCost * 2 + "}} " + noPledge + ", {{\u0414\u0435\u043D\u044C\u0433\u0438|" + entry.initialCost + "}} "+yesPledge+"; " + entry.alignmentRequired + "+ "+rep+";");
 						}
 					}
 				}
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Точка");
+			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0422\u043E\u0447\u043A\u0430");
 			writer.println(begin);
 				for (Class<? extends Entity> entity : charPoint.keySet()) {
 					writer.println("| " + GOTEntityRegistry.getEntityName(entity) + " = " + charPoint.get(entity).getDisplayName());
