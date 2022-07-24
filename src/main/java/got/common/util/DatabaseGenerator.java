@@ -1788,14 +1788,14 @@ public class DatabaseGenerator extends GOTStructureBase {
 	}
 
 	public enum Database {
+		FANDOM("fandom"),
 		ACHIEVEMENTS_TABLE("achievementsTable"),
 		ARMOR_TABLE("armorTable"),
 		CAPES_TABLE("capesTable"),
 		FOOD_TABLE("foodTable"),
 		SHIELDS_TABLE("shieldsTable"),
 		UNITS_TABLE("unitsTable"),
-		WEAPON_TABLE("weaponTable"),
-		FANDOM("fandom");
+		WEAPON_TABLE("weaponTable");
 
 		String codeName;
 
