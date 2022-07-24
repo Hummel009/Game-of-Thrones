@@ -90,7 +90,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 	public static Map<Class<? extends Entity>, GOTWaypoint> charPoint = new HashMap<>();
 	public static String display = "null";
 	public static String riderLoc = "вершник";
-	public static String categoryTemplates = "Категорія: Шаблони";
+	public static String categoryTemplates = "Категорія:Шаблони";
 	public static String biomeNoNPC = "У цьому біомі немає ніяких NPC.";
 	public static String biomeContainerLoc = "Контейнер";
 	public static String biomeContainerMeaning = "Якщо в біомі вказано декілька"
@@ -1081,14 +1081,14 @@ public class DatabaseGenerator extends GOTStructureBase {
 			writer.println("<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
 			for (Class mob : entities.keySet()) {
 				String s1 = "<page><title>";
-				String s2 = "</title><revision><text bytes=\"23\" sha1=\"bhe3l3lxazmpavygjy7ukt6qy8asqjb\" xml:space=\"preserve\">{{Статья Моб}}</text></revision></page>";
+				String s2 = "</title><revision><text>{{Статья Моб}}</text></revision></page>";
 				writer.print(s1 + GOTEntityRegistry.getEntityName(mob) + s2);
 				writer.println();
 			}
 			for (GOTBiome biome : bmlist) {
 				boolean two = false;
 				String s1 = "<page><title>";
-				String s2 = "</title><revision><text bytes=\"23\" sha1=\"bhe3l3lxazmpavygjy7ukt6qy8asqjb\" xml:space=\"preserve\">{{Статья Биом}}</text></revision></page>";
+				String s2 = "</title><revision><text>{{Статья Биом}}</text></revision></page>";
 				for (GOTFaction fac : fclist) {
 					if (fac.factionName().equals(biome.getName())) {
 						two = true;
@@ -1105,7 +1105,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			for (GOTFaction fac : fclist) {
 				boolean two = false;
 				String s1 = "<page><title>";
-				String s2 = "</title><revision><text bytes=\"23\" sha1=\"bhe3l3lxazmpavygjy7ukt6qy8asqjb\" xml:space=\"preserve\">{{Статья Фракция}}</text></revision></page>";
+				String s2 = "</title><revision><text>{{Статья Фракция}}</text></revision></page>";
 				for (GOTBiome biome : bmlist) {
 					if (fac.factionName().equals(biome.getName())) {
 						two = true;
@@ -1122,8 +1122,8 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 			}
 
-			String begin = "</title><ns>10</ns><revision><text bytes=\"464\" sha1=\"7n8l851xacjlbvn5izz6mrgnwm76q4a\" xml:space=\"preserve\">&lt;includeonly&gt;{{#switch: {{{1}}}";
-			String end = "}}&lt;/includeonly&gt;&lt;noinclude&gt;[[" + categoryTemplates + "]]&lt;/noinclude&gt;</text><sha1>7n8l851xacjlbvn5izz6mrgnwm76q4a</sha1></revision></page>";
+			String begin = "</title><ns>10</ns><revision><text>&lt;includeonly&gt;{{#switch: {{{1}}}";
+			String end = "}}&lt;/includeonly&gt;&lt;noinclude&gt;[[" + categoryTemplates + "]]&lt;/noinclude&gt;</text></revision></page>";
 
 			/* BIOMES */
 
@@ -1296,6 +1296,17 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
+			writer.print("<page><title>Шаблон:БД Биом-Фото");
+			writer.println(begin);
+			for (GOTBiome biome : bmlist) {
+				if (!(biome == GOTBiome.thenn || biome == GOTBiome.mercenary)) {
+					writer.println("| " + biome.getName() + " = " + biome.biomeName + ".png");
+				} else {
+					writer.println("| " + biome.getName() + " = " + biome.biomeName + " (biome).png");
+				}
+			}
+			writer.println(end);
+
 			writer.print("<page><title>Шаблон:БД Статья-Биом");
 			writer.println(begin);
 			writer.println("| #default = {{{1}}}");
@@ -1334,11 +1345,18 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 				if (!empty) {
 					writer.println("| " + fac.factionName() + " =");
+					int i = 0;
 					for (GOTFaction fac2 : fclist) {
 						if (fac2.isBadRelation(fac) && fac2 != fac && fac != GOTFaction.HOSTILE && fac2 != GOTFaction.HOSTILE) {
-							writer.println("* [[" + fac2.factionName() + "]];");
+							if (i == 0) {
+								writer.print("{{БД Фракция-Ссылка|" + fac2.factionName() + "}}");
+								i++;
+							} else {
+								writer.print(" • {{БД Фракция-Ссылка|" + fac2.factionName() + "}}");
+							}
 						}
 					}
+					writer.println();
 				} else {
 					writer.println("| " + fac.factionName() + " = " + factionNoEnemies);
 				}
@@ -1358,11 +1376,18 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 				if (!empty) {
 					writer.println("| " + fac.factionName() + " =");
+					int i = 0;
 					for (GOTFaction fac2 : fclist) {
 						if (fac2.isGoodRelation(fac) && fac2 != fac) {
-							writer.println("* [[" + fac2.factionName() + "]];");
+							if (i == 0) {
+								writer.print("{{БД Фракция-Ссылка|" + fac2.factionName() + "}}");
+								i++;
+							} else {
+								writer.print(" • {{БД Фракция-Ссылка|" + fac2.factionName() + "}}");
+							}
 						}
 					}
+					writer.println();
 				} else {
 					writer.println("| " + fac.factionName() + " = " + factionNoFriends);
 				}
