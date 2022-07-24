@@ -1032,13 +1032,8 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 		}
 
-		if (!("xml".equals(display))) {
-			writer.println("<includeonly>{{#switch: {{{1}}}");
-		} else {
+		if ("fandom".equals(display)) {
 			writer.println("<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
-		}
-
-		if ("xml".equals(display)) {
 			for (Class mob : entities.keySet()) {
 				String s1 = "<page><title>";
 				String s2 = "</title><revision><text bytes=\"23\" sha1=\"bhe3l3lxazmpavygjy7ukt6qy8asqjb\" xml:space=\"preserve\">{{Статья Моб}}</text></revision></page>";
@@ -1376,15 +1371,28 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 			}
 			writer.println(end);
-		}
 
-		/* Everything for entity */
-		for (Class mob : entities.keySet()) {
-			if ("entityNPC".equals(display) && entities.get(mob) instanceof GOTEntityNPC) {
-				writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
-			} else if ("entityAgressive".equals(display) && entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).isTargetSeeker || "Agressive".equals(display) && entities.get(mob) instanceof EntityMob || "Agressive".equals(display) && entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).getFaction() == GOTFaction.HOSTILE) {
-				writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
-			} else if ("entityBiomes".equals(display)) {
+			writer.print("<page><title>Шаблон:БД Моб-NPC");
+			writer.println(begin);
+			for (Class mob : entities.keySet()) {
+				if (entities.get(mob) instanceof GOTEntityNPC) {
+					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
+				}
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Агрессивный");
+			writer.println(begin);
+			for (Class mob : entities.keySet()) {
+				if (entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).isTargetSeeker || "Agressive".equals(display) && entities.get(mob) instanceof EntityMob || "Agressive".equals(display) && entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).getFaction() == GOTFaction.HOSTILE) {
+					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
+				}
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Биомы");
+			writer.println(begin);
+			for (Class mob : entities.keySet()) {
 				int i = 1;
 				for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
 					List sus = new ArrayList(biome.getSpawnableList(EnumCreatureType.ambient));
@@ -1403,101 +1411,266 @@ public class DatabaseGenerator extends GOTStructureBase {
 								writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = ");
 							}
 							i++;
-							writer.println("* {{\u0411\u0414 \u0411\u0438\u043E\u043C-\u0421\u0441\u044B\u043B\u043A\u0430|" + biome.getName() + "}};");
+							writer.println("* {{БД Биом-Ссылка|" + biome.getName() + "}};");
 						}
 					}
 				}
-			} else if ("entityOwner".equals(display) && entities.get(mob) instanceof GOTUnitTradeable && !((GOTEntityNPC) entities.get(mob)).isLegendaryNPC()) {
-				GOTUnitTradeEntries entries = ((GOTUnitTradeable) entities.get(mob)).getUnits();
-				for (GOTUnitTradeEntry entry : entries.tradeEntries) {
-					if (entry.mountClass == null) {
-						writer.println("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = [[" + GOTEntityRegistry.getEntityName(mob) + "]]");
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Владелец");
+			writer.println(begin);
+			for (Class mob : entities.keySet()) {
+				if (entities.get(mob) instanceof GOTUnitTradeable && !((GOTEntityNPC) entities.get(mob)).isLegendaryNPC()) {
+					GOTUnitTradeEntries entries = ((GOTUnitTradeable) entities.get(mob)).getUnits();
+					for (GOTUnitTradeEntry entry : entries.tradeEntries) {
+						if (entry.mountClass == null) {
+							writer.println("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = [[" + GOTEntityRegistry.getEntityName(mob) + "]]");
+						}
 					}
 				}
-			} else if ("entityOwnerUnits".equals(display) && entities.get(mob) instanceof GOTUnitTradeable) {
-				GOTUnitTradeEntries entries = ((GOTUnitTradeable) entities.get(mob)).getUnits();
-				writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = ");
-				for (GOTUnitTradeEntry entry : entries.tradeEntries) {
-					if (entry.mountClass == null) {
-						writer.println("* [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]]: {{Деньги|" + entry.initialCost * 2 + "}} без присяги, {{Деньги|" + entry.initialCost + "}} с присягой; " + entry.alignmentRequired + "+ репутации;");
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Юниты");
+			writer.println(begin);
+			for (Class mob : entities.keySet()) {
+				if (entities.get(mob) instanceof GOTUnitTradeable) {
+					GOTUnitTradeEntries entries = ((GOTUnitTradeable) entities.get(mob)).getUnits();
+					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = ");
+					for (GOTUnitTradeEntry entry : entries.tradeEntries) {
+						if (entry.mountClass == null) {
+							writer.println("* [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]]: {{Деньги|" + entry.initialCost * 2 + "}} без присяги, {{Деньги|" + entry.initialCost + "}} с присягой; " + entry.alignmentRequired + "+ репутации;");
+						}
 					}
 				}
-			} else if ("entityRideable".equals(display) && entities.get(mob) instanceof GOTEntityNPCRideable) {
-				writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
-			} else if ("entityHealth".equals(display)) {
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Ездовой");
+			writer.println(begin);
+			for (Class mob : entities.keySet()) {
+				if (entities.get(mob) instanceof GOTEntityNPCRideable) {
+					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
+				}
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Здоровье");
+			writer.println(begin);
+			for (Class mob : entities.keySet()) {
 				writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = " + ((EntityLivingBase) entities.get(mob)).getMaxHealth());
-			} else if ("entityBannerBearer".equals(display) && entities.get(mob) instanceof GOTBannerBearer) {
-				writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
-			} else if ("entityName".equals(display) && entities.get(mob) instanceof GOTEntityNPC) {
-				writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = " + ((GOTEntityNPC) entities.get(mob)).getNPCName());
-			} else if ("entityInterwiki".equals(display)) {
-				writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = ");
-			} else if ("entityCommander".equals(display) && entities.get(mob) instanceof GOTUnitTradeable || "entitySmith".equals(display) && entities.get(mob) instanceof GOTTradeable.Smith) {
-				writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
-			} else if ("entityLegendary".equals(display) && entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).isLegendaryNPC) {
-				writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
-			} else if ("entityMount".equals(display) && entities.get(mob) instanceof GOTNPCMount) {
-				writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
-			} else if ("entityImmuneToFrost".equals(display) && entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).isImmuneToFrost || "ImmuneToFrost".equals(display) && entities.get(mob) instanceof GOTBiome.ImmuneToFrost) {
-				writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
-			} else if ("entityMercenary".equals(display) && entities.get(mob) instanceof GOTMercenary) {
-				writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
-			} else if ("entitySpawnDarkness".equals(display) && entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).spawnsInDarkness) {
-				writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
-			} else if ("entityImmuneToFire".equals(display) && entities.get(mob).isImmuneToFire() || "entityFarmhand".equals(display) && entities.get(mob) instanceof GOTFarmhand) {
-				writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
-			} else if ("entityWedding".equals(display) && entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).canBeMarried) {
-				writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
-			} else if ("entityTrader".equals(display) && entities.get(mob) instanceof GOTTradeable) {
-				writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
-			} else if ("entityTraderBuys".equals(display) && entities.get(mob) instanceof GOTTradeable) {
-				GOTTradeEntries entries = ((GOTTradeable) entities.get(mob)).getSellPool();
-				writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = ");
-				for (GOTTradeEntry entry : entries.tradeEntries) {
-					writer.println("* " + entry.tradeItem.getDisplayName() + ": {{Деньги|" + entry.getCost() + "}};");
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Знаменосец");
+			writer.println(begin);
+			for (Class mob : entities.keySet()) {
+				if (entities.get(mob) instanceof GOTBannerBearer) {
+					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				}
-			} else if ("entityTraderSells".equals(display) && entities.get(mob) instanceof GOTTradeable) {
-				GOTTradeEntries entries = ((GOTTradeable) entities.get(mob)).getBuyPool();
-				writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = ");
-				for (GOTTradeEntry entry : entries.tradeEntries) {
-					writer.println("* " + entry.tradeItem.getDisplayName() + ": {{Деньги|" + entry.getCost() + "}};");
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Имя");
+			writer.println(begin);
+			for (Class mob : entities.keySet()) {
+				if (entities.get(mob) instanceof GOTEntityNPC) {
+					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = " + ((GOTEntityNPC) entities.get(mob)).getNPCName());
 				}
-			} else if ("entityImmuneToHeat".equals(display) && entities.get(mob) instanceof GOTBiome.ImmuneToHeat) {
-				writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
-			} else if ("entityPhoto".equals(display)) {
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Торговец");
+			writer.println(begin);
+			for (Class mob : entities.keySet()) {
+				if (entities.get(mob) instanceof GOTUnitTradeable ||entities.get(mob) instanceof GOTTradeable.Smith) {
+					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
+				}
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Персонаж");
+			writer.println(begin);
+			for (Class mob : entities.keySet()) {
+				 if (entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).isLegendaryNPC) {
+						writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
+				}
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Маунт");
+			writer.println(begin);
+			for (Class mob : entities.keySet()) {
+				if (entities.get(mob) instanceof GOTNPCMount) {
+					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
+				}
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Морозоустойчивый");
+			writer.println(begin);
+			for (Class mob : entities.keySet()) {
+				if (entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).isImmuneToFrost || "ImmuneToFrost".equals(display) && entities.get(mob) instanceof GOTBiome.ImmuneToFrost) {
+					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
+				}
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Наёмник");
+			writer.println(begin);
+			for (Class mob : entities.keySet()) {
+				 if (entities.get(mob) instanceof GOTMercenary) {
+						writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
+					}
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Ночной спавн");
+			writer.println(begin);
+			for (Class mob : entities.keySet()) {
+				if (entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).spawnsInDarkness) {
+					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
+				}
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Огнеупорный");
+			writer.println(begin);
+			for (Class mob : entities.keySet()) {
+				if (entities.get(mob).isImmuneToFire()) {
+					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
+				}
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Свадьба");
+			writer.println(begin);
+			for (Class mob : entities.keySet()) {
+				if (entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).canBeMarried) {
+					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
+				}
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Торговец");
+			writer.println(begin);
+			for (Class mob : entities.keySet()) {
+				if (entities.get(mob) instanceof GOTTradeable) {
+					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
+				}
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Покупает");
+			writer.println(begin);
+			for (Class mob : entities.keySet()) {
+				if (entities.get(mob) instanceof GOTTradeable) {
+					GOTTradeEntries entries = ((GOTTradeable) entities.get(mob)).getSellPool();
+					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = ");
+					for (GOTTradeEntry entry : entries.tradeEntries) {
+						writer.println("* " + entry.tradeItem.getDisplayName() + ": {{Деньги|" + entry.getCost() + "}};");
+					}
+				}
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Продаёт");
+			writer.println(begin);
+			for (Class mob : entities.keySet()) {
+				if (entities.get(mob) instanceof GOTTradeable) {
+					GOTTradeEntries entries = ((GOTTradeable) entities.get(mob)).getBuyPool();
+					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = ");
+					for (GOTTradeEntry entry : entries.tradeEntries) {
+						writer.println("* " + entry.tradeItem.getDisplayName() + ": {{Деньги|" + entry.getCost() + "}};");
+					}
+				}
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Жароустойчивый");
+			writer.println(begin);
+			for (Class mob : entities.keySet()) {
+				if (entities.get(mob) instanceof GOTBiome.ImmuneToHeat) {
+					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
+				}
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Фото");
+			writer.println(begin);
+			for (Class mob : entities.keySet()) {
 				writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = " + mob.getSimpleName().replace("GOTEntity", "") + ".png");
-			} else if ("entityFaction".equals(display) && entities.get(mob) instanceof GOTEntityNPC) {
-				writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = " + ((GOTEntityNPC) entities.get(mob)).getFaction().factionName());
-			} else if ("entityValuability".equals(display) && entities.get(mob) instanceof GOTEntityNPC) {
-				writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = " + ((GOTEntityNPC) entities.get(mob)).getAlignmentBonus());
 			}
-		}
-		if ("entityPoint".equals(display)) {
-			for (Class<? extends Entity> entity : charPoint.keySet()) {
-				writer.println("| " + GOTEntityRegistry.getEntityName(entity) + " = " + charPoint.get(entity).getDisplayName());
-			}
-			for (GOTWaypoint wp : GOTFixer.structures.keySet()) {
-				GOTStructureBase str = GOTFixer.structures.get(wp);
-				str.generate(world, random, y, j, k);
-				for (EntityCreature entity : GOTFixer.structures.get(wp).legendaryChar) {
-					writer.println("| " + GOTEntityRegistry.getEntityName(entity.getClass()) + " = " + wp.getDisplayName());
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Фракция");
+			writer.println(begin);
+			for (Class mob : entities.keySet()) {
+				if (entities.get(mob) instanceof GOTEntityNPC) {
+					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = " + ((GOTEntityNPC) entities.get(mob)).getFaction().factionName());
 				}
 			}
-		}
-		for (GOTUnitTradeEntries entries : GOTCommander.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class)) {
-			for (GOTUnitTradeEntry entry : entries.tradeEntries) {
-				if ("entityPrice".equals(display)) {
-					writer.println("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = {{\u0414\u0435\u043D\u044C\u0433\u0438|" + entry.initialCost * 2 + "}}");
-				} else if ("entityPricePledge".equals(display)) {
-					writer.println("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = {{\u0414\u0435\u043D\u044C\u0433\u0438|" + entry.initialCost + "}}");
-				} else if ("entityReputation".equals(display)) {
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Ценность");
+			writer.println(begin);
+			for (Class mob : entities.keySet()) {
+				if (entities.get(mob) instanceof GOTEntityNPC) {
+					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = " + ((GOTEntityNPC) entities.get(mob)).getAlignmentBonus());
+				}
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Точка");
+			writer.println(begin);
+			for (Class mob : entities.keySet()) {
+				for (Class<? extends Entity> entity : charPoint.keySet()) {
+					writer.println("| " + GOTEntityRegistry.getEntityName(entity) + " = " + charPoint.get(entity).getDisplayName());
+				}
+				for (GOTWaypoint wp : GOTFixer.structures.keySet()) {
+					GOTStructureBase str = GOTFixer.structures.get(wp);
+					str.generate(world, random, y, j, k);
+					for (EntityCreature entity : GOTFixer.structures.get(wp).legendaryChar) {
+						writer.println("| " + GOTEntityRegistry.getEntityName(entity.getClass()) + " = " + wp.getDisplayName());
+					}
+				}
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Цена");
+			writer.println(begin);
+			for (GOTUnitTradeEntries entries : GOTCommander.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class)) {
+				for (GOTUnitTradeEntry entry : entries.tradeEntries) {
+					writer.println("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = {{Деньги|" + entry.initialCost * 2 + "}}");
+				}
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-ЦенаПрисяга");
+			writer.println(begin);
+			for (GOTUnitTradeEntries entries : GOTCommander.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class)) {
+				for (GOTUnitTradeEntry entry : entries.tradeEntries) {
+					writer.println("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = {{Деньги|" + entry.initialCost + "}}");
+				}
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Репутация");
+			writer.println(begin);
+			for (GOTUnitTradeEntries entries : GOTCommander.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class)) {
+				for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 					writer.println("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = +" + entry.alignmentRequired);
 				}
 			}
-		}
-		if (!("xml".equals(display))) {
-			writer.println("}}</includeonly><noinclude>[[Категорія:Шаблони]]</noinclude>");
-		} else {
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Ездовой");
+			writer.println(begin);
+			for (Class mob : entities.keySet()) {
+
+			}
+			writer.println(end);
 			writer.println("</mediawiki>");
 		}
 	    writer.close();
@@ -1534,59 +1707,12 @@ public class DatabaseGenerator extends GOTStructureBase {
 	public enum Database {
 		ACHIEVEMENTS_TABLE("achievementsTable"),
 		ARMOR_TABLE("armorTable"),
-		BIOME_BANDITS("biomeBandits"),
-		BIOME_ENTITIES("biomeEntities"),
-		BIOME_HEIGHT("biomeHeight"),
-		BIOME_INVASIONS("biomeInvasions"),
-		BIOME_MINERALS("biomeMinerals"),
-		BIOME_NPC("biomeNPC"),
-		BIOME_NAME("biomeName"),
-		BIOME_STRUCTURES("biomeStructures"),
-		BIOME_TREES("biomeTrees"),
-		BIOME_TYPE("biomeType"),
-		BIOME_VARIANTS("biomeVariants"),
-		BIOME_VARIATION("biomeVariation"),
 		CAPES_TABLE("capesTable"),
-		ENTITY_AGRESSIVE("entityAgressive"),
-		ENTITY_BANNERBEARER("entityBannerBearer"),
-		ENTITY_BIOME_S("entityBiomes"),
-		ENTITY_COMMANDER("entityCommander"),
-		ENTITY_FACTION_("entityFaction"),
-		ENTITY_HEALTH("entityHealth"),
-		ENTITY_IMMUNETOFIRE("entityImmuneToFire"),
-		ENTITY_IMMUNETOFROST("entityImmuneToFrost"),
-		ENTITY_IMMUNETOHEAT("entityImmuneToHeat"),
-		ENTITY_INTERWIKI("entityInterwiki"),
-		ENTITY_LEGENDARY("entityLegendary"),
-		ENTITY_MERCENARY("entityMercenary"),
-		ENTITY_MOUNT("entityMount"),
-		ENTITY_NPC("entityNPC"),
-		ENTITY_NAME("entityName"),
-		ENTITY_OWNER("entityOwner"),
-		ENTITY_OWNERUNITS("entityOwnerUnits"),
-		ENTITY_PHOTO("entityPhoto"),
-		ENTITY_PRICEPLEDGE("entityPricePledge"),
-		ENTITY_REPUTATION("entityReputation"),
-		ENTITY_RIDEABLE("entityRideable"),
-		ENTITY_SPAWNDARKNESS("entitySpawnDarkness"),
-		ENTITY_TRADER("entityTrader"),
-		ENTITY_TRADERBUYS("entityTraderBuys"),
-		ENTITY_TRADERSELLS("entityTraderSells"),
-		ENTITY_VALUABILITY("entityValuability"),
-		ENTITY_WEDDING("entityWedding"),
-		FACTION_BADRELATIONS("factionBadRelations"),
-		FACTION_CHARS("factionChars"),
-		FACTION_CODES("factionCodes"),
-		FACTION_GOODRELATIONS("factionGoodRelations"),
-		FACTION_NPC("factionNPC"),
-		FACTION_REGIONS("factionRegions"),
-		FACTION_STRUCTURES("factionStructures"),
-		FACTION_VIOLENCE("factionViolence"),
-		FACTION_BIOME("factionBiome"),
 		FOOD_TABLE("foodTable"),
 		SHIELDS_TABLE("shieldsTable"),
 		UNITS_TABLE("unitsTable"),
-		WEAPON_TABLE("weaponTable");
+		WEAPON_TABLE("weaponTable"),
+		FANDOM("fandom");
 
 		String codeName;
 
