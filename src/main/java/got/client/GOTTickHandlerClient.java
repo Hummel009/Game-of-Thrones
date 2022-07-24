@@ -1194,7 +1194,7 @@ public class GOTTickHandlerClient {
 				if (biome instanceof GOTBiomeShadowLand && world.rand.nextInt(40) == 0) {
 					GOT.proxy.spawnParticle("asshaiWater", i1 + world.rand.nextFloat(), j1 + 0.75D, k1 + world.rand.nextFloat(), 0.0D, 0.05D, 0.0D);
 				}
-				if (biome instanceof GOTBiomeMossovyMarshes && world.rand.nextInt(800) == 0) {
+				if (biome instanceof GOTBiomeSuudanKorkuu && world.rand.nextInt(800) == 0) {
 					world.spawnEntityInWorld(new GOTEntityDeadMarshFace(world, i1 + world.rand.nextFloat(), j1 + 0.25D - world.rand.nextFloat(), k1 + world.rand.nextFloat()));
 				}
 			}

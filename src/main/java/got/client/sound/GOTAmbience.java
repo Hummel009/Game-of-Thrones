@@ -84,7 +84,7 @@ public class GOTAmbience {
 				if (biome instanceof GOTBiomeUlthos) {
 					spookyBiomeNoise = rand.nextInt(1000) == 0;
 					spookyPitch = 0.85f;
-				} else if (biome instanceof GOTBiomeMossovyMarshes) {
+				} else if (biome instanceof GOTBiomeSuudanKorkuu) {
 					spookyBiomeNoise = rand.nextInt(2400) == 0;
 				} else if (biome instanceof GOTBiomeValyria) {
 					spookyBiomeNoise = rand.nextInt(3000) == 0;

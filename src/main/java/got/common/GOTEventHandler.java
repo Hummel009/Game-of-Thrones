@@ -1125,7 +1125,7 @@ public class GOTEventHandler implements IFuelHandler {
 				while (world.getBlock(i, j + 1, k).getMaterial().isLiquid() || world.getBlock(i, j + 1, k).getMaterial().isSolid()) {
 					j++;
 				}
-				if (j - entity.boundingBox.minY < 2.0D && world.getBlock(i, j, k).getMaterial() == Material.water && world.getBiomeGenForCoords(i, k) instanceof GOTBiomeMossovyMarshes) {
+				if (j - entity.boundingBox.minY < 2.0D && world.getBlock(i, j, k).getMaterial() == Material.water && world.getBiomeGenForCoords(i, k) instanceof GOTBiomeSuudanKorkuu) {
 					List<GOTEntityMarshWraith> nearbyWraiths = world.getEntitiesWithinAABB(GOTEntityMarshWraith.class, entity.boundingBox.expand(15.0D, 15.0D, 15.0D));
 					boolean anyNearbyWraiths = false;
 					for (GOTEntityMarshWraith wraith : nearbyWraiths) {

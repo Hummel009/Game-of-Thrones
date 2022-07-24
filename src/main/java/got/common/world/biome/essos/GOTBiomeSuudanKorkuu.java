@@ -13,8 +13,8 @@ import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenFlowers;
 
-public class GOTBiomeMossovyMarshes extends GOTBiome {
-	public GOTBiomeMossovyMarshes(int i, boolean major) {
+public class GOTBiomeSuudanKorkuu extends GOTBiome {
+	public GOTBiomeSuudanKorkuu(int i, boolean major) {
 		super(i, major);
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
@@ -67,7 +67,7 @@ public class GOTBiomeMossovyMarshes extends GOTBiome {
 
 	@Override
 	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ESSOS.getSubregion("mossovyMarshes");
+		return GOTBiomeMusic.ESSOS.getSubregion("suudanKorkuu");
 	}
 
 	@Override

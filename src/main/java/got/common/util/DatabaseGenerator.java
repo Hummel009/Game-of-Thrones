@@ -1033,6 +1033,19 @@ public class DatabaseGenerator extends GOTStructureBase {
 		}
 
 		if ("fandom".equals(display)) {
+			List<GOTBiome> bmlist = GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class);
+			bmlist.remove(GOTBiome.ocean1);
+			bmlist.remove(GOTBiome.ocean2);
+			bmlist.remove(GOTBiome.ocean3);
+			bmlist.remove(GOTBiome.beach);
+			bmlist.remove(GOTBiome.beachGravel);
+			bmlist.remove(GOTBiome.beachWhite);
+			bmlist.remove(GOTBiome.island);
+			bmlist.remove(GOTBiome.lake);
+			bmlist.remove(GOTBiome.yiTiWasteland);
+			bmlist.remove(GOTBiome.river);
+			bmlist.remove(GOTBiome.redBeach);
+
 			writer.println("<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
 			for (Class mob : entities.keySet()) {
 				String s1 = "<page><title>";
@@ -1040,7 +1053,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				writer.print(s1 + GOTEntityRegistry.getEntityName(mob)+ s2);
 				writer.println();
 			}
-			for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
+			for (GOTBiome biome : bmlist) {
 				boolean two = false;
 				String s1 = "<page><title>";
 				String s2 = "</title><revision><text bytes=\"23\" sha1=\"bhe3l3lxazmpavygjy7ukt6qy8asqjb\" xml:space=\"preserve\">{{Статья Биом}}</text></revision></page>";
@@ -1062,7 +1075,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				boolean two = false;
 				String s1 = "<page><title>";
 				String s2 = "</title><revision><text bytes=\"23\" sha1=\"bhe3l3lxazmpavygjy7ukt6qy8asqjb\" xml:space=\"preserve\">{{Статья Фракция}}</text></revision></page>";
-				for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
+				for (GOTBiome biome : bmlist) {
 					if (fac.factionName().equals(biome.getName())) {
 						two = true;
 						break;
@@ -1082,163 +1095,12 @@ public class DatabaseGenerator extends GOTStructureBase {
 			String begin = "</title><ns>10</ns><revision><text bytes=\"464\" sha1=\"7n8l851xacjlbvn5izz6mrgnwm76q4a\" xml:space=\"preserve\">&lt;includeonly&gt;{{#switch: {{{1}}}";
 			String end = "}}&lt;/includeonly&gt;&lt;noinclude&gt;[[Категория:Шаблоны]]&lt;/noinclude&gt;</text><sha1>7n8l851xacjlbvn5izz6mrgnwm76q4a</sha1></revision></page>";
 
-			writer.print("<page><title>Шаблон:БД Статья-Биом");
-			writer.println(begin);
-			writer.println("| #default = {{{1}}}");
-			for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
-				for (GOTFaction fac : GOTFaction.values()) {
-					if (fac.factionName().equals(biome.getName())) {
-						writer.println("| " + biome.getName() + " (biome) = " + biome.getName());
-					}
-				}
-			}
-			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Биом-Ссылка");
-			writer.println(begin);
-			writer.println("| #default = [[{{{1}}}]]");
-			for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
-				for (GOTFaction fac : GOTFaction.values()) {
-					if (fac.factionName().equals(biome.getName())) {
-						writer.println("| " + biome.getName() + " | " + biome.getName() + " (biome) = [[" + biome.getName() + " (biome)|"+ biome.getName() + "]]");
-					}
-				}
-			}
-			writer.println(end);
-
-			writer.print("<page><title>Шаблон:БД Биом-Климат");
-			writer.println(begin);
-			for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
-				writer.println("| " + biome.getName() + " = " + biome.type);
-			}
-			writer.println(end);
-
-			writer.print("<page><title>Шаблон:БД Биом-Музпак");
-			writer.println(begin);
-			for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
-				writer.println("| " + biome.getName() + " = " + biome.biomeName);
-			}
-			writer.println(end);
-
-			writer.print("<page><title>Шаблон:БД Биом-Колебания");
-			writer.println(begin);
-			for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
-				writer.println("| " + biome.getName() + " = " + biome.heightVariation);
-			}
-			writer.println(end);
-
-			writer.print("<page><title>Шаблон:БД Биом-Высота");
-			writer.println(begin);
-			for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
-				writer.println("| " + biome.getName() + " = " + biome.heightBaseParameter);
-			}
-			writer.println(end);
-
-			writer.print("<page><title>Шаблон:БД Биом-Бандиты");
-			writer.println(begin);
-			for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
-				writer.println("| " + biome.getName() + " = " + biome.banditChance);
-			}
-			writer.println(end);
-
-			writer.print("<page><title>Шаблон:БД Биом-Варианты");
-			writer.println(begin);
-			for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
-				if (biome.biomeVariantsSmall.variantList.isEmpty()) {
-					writer.println("| " + biome.getName() + " = This biome has no variants.");
-				} else {
-					writer.println("| " + biome.getName() + " = ");
-				}
-				for (VariantBucket variant : biome.biomeVariantsSmall.variantList) {
-					writer.println("* " + StatCollector.translateToLocal(variant.variant.getUnlocalizedName()) + ";");
-				}
-			}
-			writer.println(end);
-
-			writer.print("<page><title>Шаблон:БД Биом-Вторжения");
-			writer.println(begin);
-			for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
-				if (biome.invasionSpawns.registeredInvasions.isEmpty()) {
-					writer.println("| " + biome.getName() + " = There is no invasions in this biome.");
-				} else {
-					writer.println("| " + biome.getName() + " = ");
-				}
-				for (GOTInvasions inv : biome.invasionSpawns.registeredInvasions) {
-					writer.println("* " + inv.invasionName() + ";");
-				}
-			}
-			writer.println(end);
-
-			writer.print("<page><title>Шаблон:БД Биом-Структуры");
-			writer.println(begin);
-			for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
-				if (biome.decorator.randomStructures.isEmpty()) {
-					writer.println("| " + biome.getName() + " = There is no structures in this biome.");
-				} else {
-					writer.println("| " + biome.getName() + " = ");
-				}
-				for (RandomStructure structure : biome.decorator.randomStructures) {
-					writer.println("* " + StatCollector.translateToLocal("got.structure." + GOTStructureRegistry.getStructureNameFromClass(structure.structureGen.getClass()) + ".name") + ";");
-				}
-			}
-			writer.println(end);
-
-			writer.print("<page><title>Шаблон:БД Биом-Ископаемые");
-			writer.println(begin);
-			for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
-				if (biome.decorator.biomeSoils.isEmpty() && biome.decorator.biomeOres.isEmpty() && biome.decorator.biomeGems.isEmpty()) {
-					writer.println("| " + biome.getName() + " = There is no minerals in this biome.");
-				} else {
-					writer.println("| " + biome.getName() + " = ");
-				}
-				for (OreGenerant ore : biome.decorator.biomeSoils) {
-					getOreInfo(ore, writer);
-				}
-				for (OreGenerant ore : biome.decorator.biomeOres) {
-					getOreInfo(ore, writer);
-				}
-				for (OreGenerant ore : biome.decorator.biomeGems) {
-					getOreInfo(ore, writer);
-				}
-			}
-			writer.println(end);
-
-			writer.print("<page><title>Шаблон:БД Биом-Деревья");
-			writer.println(begin);
-			for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
-				if (biome.decorator.treeTypes.isEmpty()) {
-					writer.println("| " + biome.getName() + " = There is no trees in this biome.");
-				} else {
-					writer.println("| " + biome.getName() + " = ");
-				}
-				for (WeightedTreeType tree : biome.decorator.treeTypes) {
-					writer.println("* " + StatCollector.translateToLocal("got.tree." + tree.treeType.name().toLowerCase() + ".name") + ";");
-				}
-			}
-			writer.println(end);
-
-			writer.print("<page><title>Шаблон:БД Биом-Мобы");
-			writer.println(begin);
-			for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
-				writer.println("| " + biome.getName() + " = ");
-				List entries = new ArrayList(biome.getSpawnableList(EnumCreatureType.ambient));
-				entries.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
-				entries.addAll(biome.getSpawnableList(EnumCreatureType.creature));
-				entries.addAll(biome.getSpawnableList(EnumCreatureType.monster));
-				entries.addAll(biome.spawnableGOTAmbientList);
-				for (Object entry : entries) {
-					if (GOTEntityRegistry.classToNameMapping.containsKey(((SpawnListEntry) entry).entityClass)) {
-						writer.println("* [[" + GOTEntityRegistry.getEntityName(((SpawnListEntry) entry).entityClass) + "]];");
-					} else {
-						writer.println("* " + StatCollector.translateToLocal("entity." + EntityList.classToStringMapping.get(((SpawnListEntry) entry).entityClass) + ".name") + ";");
-					}
-				}
-			}
-			writer.println(end);
+			/* BIOMES */
 
 			writer.print("<page><title>Шаблон:БД Биом-NPC");
 			writer.println(begin);
-			for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
+			for (GOTBiome biome : bmlist) {
 				if (biome.npcSpawnList.factionContainers.isEmpty()) {
 					writer.println("| " + biome.getName() + " = There is no NPC in this biome.");
 				} else {
@@ -1263,11 +1125,163 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
+			writer.print("<page><title>Шаблон:БД Биом-Бандиты");
+			writer.println(begin);
+			for (GOTBiome biome : bmlist) {
+				writer.println("| " + biome.getName() + " = " + biome.banditChance);
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Биом-Варианты");
+			writer.println(begin);
+			for (GOTBiome biome : bmlist) {
+				if (biome.biomeVariantsSmall.variantList.isEmpty()) {
+					writer.println("| " + biome.getName() + " = This biome has no variants.");
+				} else {
+					writer.println("| " + biome.getName() + " = ");
+				}
+				for (VariantBucket variant : biome.biomeVariantsSmall.variantList) {
+					writer.println("* " + StatCollector.translateToLocal(variant.variant.getUnlocalizedName()) + ";");
+				}
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Биом-Вторжения");
+			writer.println(begin);
+			for (GOTBiome biome : bmlist) {
+				if (biome.invasionSpawns.registeredInvasions.isEmpty()) {
+					writer.println("| " + biome.getName() + " = There is no invasions in this biome.");
+				} else {
+					writer.println("| " + biome.getName() + " = ");
+				}
+				for (GOTInvasions inv : biome.invasionSpawns.registeredInvasions) {
+					writer.println("* " + inv.invasionName() + ";");
+				}
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Биом-Высота");
+			writer.println(begin);
+			for (GOTBiome biome : bmlist) {
+				writer.println("| " + biome.getName() + " = " + biome.heightBaseParameter);
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Биом-Деревья");
+			writer.println(begin);
+			for (GOTBiome biome : bmlist) {
+				if (biome.decorator.treeTypes.isEmpty()) {
+					writer.println("| " + biome.getName() + " = There is no trees in this biome.");
+				} else {
+					writer.println("| " + biome.getName() + " = ");
+				}
+				for (WeightedTreeType tree : biome.decorator.treeTypes) {
+					writer.println("* " + StatCollector.translateToLocal("got.tree." + tree.treeType.name().toLowerCase() + ".name") + ";");
+				}
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Биом-Животные");
+			writer.println(begin);
+			for (GOTBiome biome : bmlist) {
+				writer.println("| " + biome.getName() + " = ");
+				List entries = new ArrayList(biome.getSpawnableList(EnumCreatureType.ambient));
+				entries.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
+				entries.addAll(biome.getSpawnableList(EnumCreatureType.creature));
+				entries.addAll(biome.getSpawnableList(EnumCreatureType.monster));
+				entries.addAll(biome.spawnableGOTAmbientList);
+				for (Object entry : entries) {
+					if (GOTEntityRegistry.classToNameMapping.containsKey(((SpawnListEntry) entry).entityClass)) {
+						writer.println("* [[" + GOTEntityRegistry.getEntityName(((SpawnListEntry) entry).entityClass) + "]];");
+					} else {
+						writer.println("* " + StatCollector.translateToLocal("entity." + EntityList.classToStringMapping.get(((SpawnListEntry) entry).entityClass) + ".name") + ";");
+					}
+				}
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Биом-Ископаемые");
+			writer.println(begin);
+			for (GOTBiome biome : bmlist) {
+				writer.println("| " + biome.getName() + " = ");
+				for (OreGenerant ore : biome.decorator.biomeSoils) {
+					getOreInfo(ore, writer);
+				}
+				for (OreGenerant ore : biome.decorator.biomeOres) {
+					getOreInfo(ore, writer);
+				}
+				for (OreGenerant ore : biome.decorator.biomeGems) {
+					getOreInfo(ore, writer);
+				}
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Биом-Климат");
+			writer.println(begin);
+			for (GOTBiome biome : bmlist) {
+				writer.println("| " + biome.getName() + " = " + biome.climat);
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Биом-Колебания");
+			writer.println(begin);
+			for (GOTBiome biome : bmlist) {
+				writer.println("| " + biome.getName() + " = " + biome.heightVariation);
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Биом-Музпак");
+			writer.println(begin);
+			for (GOTBiome biome : bmlist) {
+				writer.println("| " + biome.getName() + " = " + biome.biomeName);
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Биом-Ссылка");
+			writer.println(begin);
+			writer.println("| #default = [[{{{1}}}]]");
+			for (GOTBiome biome : bmlist) {
+				for (GOTFaction fac : GOTFaction.values()) {
+					if (fac.factionName().equals(biome.getName())) {
+						writer.println("| " + biome.getName() + " | " + biome.getName() + " (biome) = [[" + biome.getName() + " (biome)|"+ biome.getName() + "]]");
+					}
+				}
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Биом-Структуры");
+			writer.println(begin);
+			for (GOTBiome biome : bmlist) {
+				if (biome.decorator.randomStructures.isEmpty()) {
+					writer.println("| " + biome.getName() + " = There is no structures in this biome.");
+				} else {
+					writer.println("| " + biome.getName() + " = ");
+				}
+				for (RandomStructure structure : biome.decorator.randomStructures) {
+					writer.println("* " + StatCollector.translateToLocal("got.structure." + GOTStructureRegistry.getStructureNameFromClass(structure.structureGen.getClass()) + ".name") + ";");
+				}
+			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Статья-Биом");
+			writer.println(begin);
+			writer.println("| #default = {{{1}}}");
+			for (GOTBiome biome : bmlist) {
+				for (GOTFaction fac : GOTFaction.values()) {
+					if (fac.factionName().equals(biome.getName())) {
+						writer.println("| " + biome.getName() + " (biome) = " + biome.getName());
+					}
+				}
+			}
+			writer.println(end);
+
+			/* FACTIONS */
+
 			writer.print("<page><title>Шаблон:БД Статья-Фракция");
 			writer.println(begin);
 			writer.println("| #default = {{{1}}}");
 			for (GOTFaction fac : GOTFaction.values()) {
-				for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
+				for (GOTBiome biome : bmlist) {
 					if (fac.factionName().equals(biome.getName())) {
 						writer.println("| " + fac.factionName() + " (faction) = " + fac.factionName());
 					}
@@ -1279,7 +1293,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			writer.println(begin);
 			writer.println("| #default = [[{{{1}}}]]");
 			for (GOTFaction fac : GOTFaction.values()) {
-				for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
+				for (GOTBiome biome : bmlist) {
 					if (fac.factionName().equals(biome.getName())) {
 						writer.println("| " + fac.factionName() + " | " + fac.factionName() + " (faction) = [[" + fac.factionName() + " (faction)|"+ fac.factionName() + "]]");
 					}
@@ -1297,7 +1311,9 @@ public class DatabaseGenerator extends GOTStructureBase {
 			writer.print("<page><title>Шаблон:БД Фракция-Регион");
 			writer.println(begin);
 			for (GOTFaction fac : GOTFaction.values()) {
-				writer.println("| " + fac.factionName() + " = " + fac.factionRegion.getRegionName());
+				if (fac.factionRegion != null) {
+					writer.println("| " + fac.factionName() + " = " + fac.factionRegion.getRegionName());
+				}
 			}
 			writer.println(end);
 
@@ -1394,7 +1410,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
 				int i = 1;
-				for (GOTBiome biome : GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class)) {
+				for (GOTBiome biome : bmlist) {
 					List sus = new ArrayList(biome.getSpawnableList(EnumCreatureType.ambient));
 					sus.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
 					sus.addAll(biome.getSpawnableList(EnumCreatureType.creature));
@@ -1622,22 +1638,6 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Точка");
-			writer.println(begin);
-			for (Class mob : entities.keySet()) {
-				for (Class<? extends Entity> entity : charPoint.keySet()) {
-					writer.println("| " + GOTEntityRegistry.getEntityName(entity) + " = " + charPoint.get(entity).getDisplayName());
-				}
-				for (GOTWaypoint wp : GOTFixer.structures.keySet()) {
-					GOTStructureBase str = GOTFixer.structures.get(wp);
-					str.generate(world, random, y, j, k);
-					for (EntityCreature entity : GOTFixer.structures.get(wp).legendaryChar) {
-						writer.println("| " + GOTEntityRegistry.getEntityName(entity.getClass()) + " = " + wp.getDisplayName());
-					}
-				}
-			}
-			writer.println(end);
-
 			writer.print("<page><title>Шаблон:БД Моб-Цена");
 			writer.println(begin);
 			for (GOTUnitTradeEntries entries : GOTCommander.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class)) {
@@ -1665,12 +1665,24 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			writer.println(end);
 
-			writer.print("<page><title>Шаблон:БД Моб-Ездовой");
+/*
+			writer.print("<page><title>Шаблон:БД Моб-Точка");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
-
+				for (Class<? extends Entity> entity : charPoint.keySet()) {
+					writer.println("| " + GOTEntityRegistry.getEntityName(entity) + " = " + charPoint.get(entity).getDisplayName());
+				}
+				for (GOTWaypoint wp : GOTFixer.structures.keySet()) {
+					GOTStructureBase str = GOTFixer.structures.get(wp);
+					str.generate(world, random, y, j, k);
+					for (EntityCreature entity : GOTFixer.structures.get(wp).legendaryChar) {
+						writer.println("| " + GOTEntityRegistry.getEntityName(entity.getClass()) + " = " + wp.getDisplayName());
+					}
+				}
 			}
 			writer.println(end);
+*/
+
 			writer.println("</mediawiki>");
 		}
 	    writer.close();

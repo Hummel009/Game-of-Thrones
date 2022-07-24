@@ -95,9 +95,9 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome meereen;
 	public static GOTBiome mercenary;
 	public static GOTBiome mossovy;
-	public static GOTBiome mossovyForest;
-	public static GOTBiome mossovyMarshes;
-	public static GOTBiome mossovySopkas;
+	public static GOTBiome kanduuBet;
+	public static GOTBiome suudanKorkuu;
+	public static GOTBiome kuurulgan;
 	public static GOTBiome myr;
 	public static GOTBiome naath;
 	public static GOTBiome neck;
@@ -221,7 +221,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public boolean isLongWinter;
 	public boolean isNeverWinterAZ;
 	public boolean isSeasonalWinterAZ;
-	public String type;
+	public String climat;
 
 	public GOTBiome(int i, boolean major) {
 		this(i, major, GOTDimension.GAME_OF_THRONES);
@@ -796,7 +796,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	public GOTBiome setIsAlwaysWinter() {
 		isAlwaysWinter = true;
-		type = "isAlwaysWinter";
+		climat = "isAlwaysWinter";
 		decorator.flowersPerChunk = 0;
 		decorator.doubleFlowersPerChunk = 0;
 		decorator.canePerChunk = 0;
@@ -807,7 +807,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	public GOTBiome setIsLongWinter() {
 		isLongWinter = true;
-		type = "isLongWinter";
+		climat = "isLongWinter";
 		decorator.doubleFlowersPerChunk = 0;
 		decorator.canePerChunk = 0;
 		decorator.cornPerChunk = 0;
@@ -818,7 +818,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public GOTBiome setIsLongWinterAZ() {
 		isLongWinter = true;
 		isAltitudeZone = true;
-		type = "isLongWinterAZ";
+		climat = "isLongWinterAZ";
 		decorator.doubleFlowersPerChunk = 0;
 		decorator.canePerChunk = 0;
 		decorator.cornPerChunk = 0;
@@ -828,7 +828,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	public GOTBiome setIsNeverWinter() {
 		isNeverWinter = true;
-		type = "isNeverWinter";
+		climat = "isNeverWinter";
 		decorator.canePerChunk = 4;
 		decorator.cornPerChunk = 4;
 		decorator.generateAgriculture = true;
@@ -841,13 +841,13 @@ public abstract class GOTBiome extends BiomeGenBase {
 		decorator.canePerChunk = 4;
 		decorator.cornPerChunk = 4;
 		decorator.generateAgriculture = true;
-		type = "isNeverWinterAZ";
+		climat = "isNeverWinterAZ";
 		return this;
 	}
 
 	public GOTBiome setIsSeasonalWinter() {
 		isSeasonalWinter = true;
-		type = "isSeasonalWinter";
+		climat = "isSeasonalWinter";
 		decorator.doubleFlowersPerChunk = 0;
 		decorator.canePerChunk = 0;
 		decorator.cornPerChunk = 0;
@@ -858,7 +858,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public GOTBiome setIsSeasonalWinterAZ() {
 		isSeasonalWinterAZ = true;
 		isAltitudeZone = true;
-		type = "isSeasonalWinterAZ";
+		climat = "isSeasonalWinterAZ";
 		decorator.doubleFlowersPerChunk = 0;
 		decorator.canePerChunk = 0;
 		decorator.cornPerChunk = 0;
@@ -1050,9 +1050,9 @@ public abstract class GOTBiome extends BiomeGenBase {
 		meereen = new GOTBiomeMeereen(69, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xB5AA68).setBiomeName("meereen");
 		mercenary = new GOTBiomeMercenary(70, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x94A058).setBiomeName("mercenary");
 		mossovy = new GOTBiomeMossovy(71, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x71843B).setBiomeName("mossovy");
-		mossovyForest = new GOTBiomeMossovyForest(72, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x617232).setBiomeName("mossovyForest");
-		mossovyMarshes = new GOTBiomeMossovyMarshes(73, true).setIsLongWinter().setMinMaxHeight(0.0f, 0.1f).setColor(0x677F43).setBiomeName("mossovyMarshes");
-		mossovySopkas = new GOTBiomeMossovySopkas(75, true).setIsLongWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0xADADAD).setBiomeName("mossovySopkas");
+		kanduuBet = new GOTBiomeKanduuBet(72, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x617232).setBiomeName("kanduuBet");
+		suudanKorkuu = new GOTBiomeSuudanKorkuu(73, true).setIsLongWinter().setMinMaxHeight(0.0f, 0.1f).setColor(0x677F43).setBiomeName("suudanKorkuu");
+		kuurulgan = new GOTBiomeKuurulgan(75, true).setIsLongWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0xADADAD).setBiomeName("kuurulgan");
 		myr = new GOTBiomeMyr(76, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x9AA54F).setBiomeName("myr");
 		naath = new GOTBiomeSummerIslands(78, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x7DA33C).setBiomeName("naath");
 		neck = new GOTBiomeNeck(79, true).setIsLongWinter().setMinMaxHeight(0.0f, 0.1f).setColor(0x578C54).setBiomeName("neck");
@@ -1066,9 +1066,9 @@ public abstract class GOTBiome extends BiomeGenBase {
 		northWild = new GOTBiomeNorthWild(88, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x97B26C).setBiomeName("northWild");
 		norvos = new GOTBiomeNorvos(89, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x7DA344).setBiomeName("norvos");
 		ocean = new GOTBiomeOcean(91, true).setTemperatureRainfall(0.8F, 0.8F).setMinMaxHeight(-1.0f, 0.3f).setColor(0x024B75).setBiomeName("ocean");
-		ocean1 = new GOTBiomeOcean(166, true).setTemperatureRainfall(0.8F, 0.8F).setMinMaxHeight(-0.7f, 0.3f).setColor(0x036FAC).setBiomeName("ocean");
-		ocean2 = new GOTBiomeOcean(167, true).setTemperatureRainfall(0.8F, 0.8F).setMinMaxHeight(-0.8f, 0.3f).setColor(0x026193).setBiomeName("ocean");
-		ocean3 = new GOTBiomeOcean(46, true).setTemperatureRainfall(0.8F, 0.8F).setMinMaxHeight(-0.9f, 0.3f).setColor(0x025582).setBiomeName("ocean");
+		ocean1 = new GOTBiomeOcean(166, false).setTemperatureRainfall(0.8F, 0.8F).setMinMaxHeight(-0.7f, 0.3f).setColor(0x036FAC).setBiomeName("ocean");
+		ocean2 = new GOTBiomeOcean(167, false).setTemperatureRainfall(0.8F, 0.8F).setMinMaxHeight(-0.8f, 0.3f).setColor(0x026193).setBiomeName("ocean");
+		ocean3 = new GOTBiomeOcean(46, false).setTemperatureRainfall(0.8F, 0.8F).setMinMaxHeight(-0.9f, 0.3f).setColor(0x025582).setBiomeName("ocean");
 		pentos = new GOTBiomePentos(92, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x93A040).setBiomeName("pentos");
 		qarth = new GOTBiomeQarth(94, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x9EA880).setBiomeName("qarth");
 		qarthDesert = new GOTBiomeQarthDesert(95, true).setIsNeverWinter().setMinMaxHeight(0.2f, 0.1f).setColor(0xDCC175).setBiomeName("qarthDesert");
@@ -1129,7 +1129,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		wolfswood = new GOTBiomeWolfswood(159, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x4A7F2A).setBiomeName("wolfswood");
 		yeen = new GOTBiomeYeen(160, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x240035).setBiomeName("yeen");
 		yiTi = new GOTBiomeYiTi(161, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xBEB74D).setBiomeName("yiTi");
-		yiTiWasteland = new GOTBiomeYiTiWasteland(163, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xBEB74F).setBiomeName("yiTi");
+		yiTiWasteland = new GOTBiomeYiTiWasteland(163, false).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xBEB74F).setBiomeName("yiTi");
 		yunkai = new GOTBiomeYunkai(164, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(0xA3AA48).setBiomeName("yunkai");
 		ibbenMountains = new GOTBiomeIbbenMountains(165, true).setIsLongWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0x808081).setBiomeName("ibbenMountains");
 		for (int i : NON_USED) {

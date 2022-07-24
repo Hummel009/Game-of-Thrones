@@ -13,8 +13,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
-public class GOTBiomeMossovySopkas extends GOTBiomeMossovy {
-	public GOTBiomeMossovySopkas(int i, boolean major) {
+public class GOTBiomeKuurulgan extends GOTBiomeMossovy {
+	public GOTBiomeKuurulgan(int i, boolean major) {
 		super(i, major);
 		npcSpawnList.clear();
 		spawnableCreatureList.clear();
@@ -104,6 +104,6 @@ public class GOTBiomeMossovySopkas extends GOTBiomeMossovy {
 
 	@Override
 	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ESSOS.getSubregion("mossovySopkas");
+		return GOTBiomeMusic.ESSOS.getSubregion("kuurulgan");
 	}
 }

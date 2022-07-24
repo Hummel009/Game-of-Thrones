@@ -5,8 +5,8 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.spawning.GOTEventSpawner;
 
-public class GOTBiomeMossovyForest extends GOTBiomeMossovy {
-	public GOTBiomeMossovyForest(int i, boolean major) {
+public class GOTBiomeKanduuBet extends GOTBiomeMossovy {
+	public GOTBiomeKanduuBet(int i, boolean major) {
 		super(i, major);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.PINE, 20);
@@ -18,6 +18,6 @@ public class GOTBiomeMossovyForest extends GOTBiomeMossovy {
 
 	@Override
 	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ESSOS.getSubregion("mossovyForest");
+		return GOTBiomeMusic.ESSOS.getSubregion("kanduuBet");
 	}
 }
