@@ -71,7 +71,7 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.biome.GOTBiomeDecorator.*;
 import got.common.world.biome.variant.GOTBiomeVariantList.VariantBucket;
 import got.common.world.feature.GOTTreeType.WeightedTreeType;
-import got.common.world.map.GOTWaypoint;
+import got.common.world.map.*;
 import got.common.world.spawning.GOTBiomeSpawnList.*;
 import got.common.world.spawning.GOTSpawnEntry;
 import got.common.world.structure.other.*;
@@ -1719,23 +1719,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 			}
 			writer.println(end);
-/*
-			writer.print("<page><title>Шаблон:БД Моб-Точка");
-			writer.println(begin);
-			for (Class mob : entities.keySet()) {
-				for (Class<? extends Entity> entity : charPoint.keySet()) {
-					writer.println("| " + GOTEntityRegistry.getEntityName(entity) + " = " + charPoint.get(entity).getDisplayName());
-				}
-				for (GOTWaypoint wp : GOTFixer.structures.keySet()) {
-					GOTStructureBase str = GOTFixer.structures.get(wp);
-					str.generate(world, random, y, j, k);
-					for (EntityCreature entity : GOTFixer.structures.get(wp).legendaryChar) {
-						writer.println("| " + GOTEntityRegistry.getEntityName(entity.getClass()) + " = " + wp.getDisplayName());
-					}
-				}
-			}
-			writer.println(end);
-*/
+
 			writer.print("<page><title>Шаблон:БД Моб-Устойчивый к жаре");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
@@ -1801,6 +1785,20 @@ public class DatabaseGenerator extends GOTStructureBase {
 					}
 				}
 			}
+			writer.println(end);
+
+			writer.print("<page><title>Шаблон:БД Моб-Точка");
+			writer.println(begin);
+				for (Class<? extends Entity> entity : charPoint.keySet()) {
+					writer.println("| " + GOTEntityRegistry.getEntityName(entity) + " = " + charPoint.get(entity).getDisplayName());
+				}
+				for (GOTWaypoint wp : GOTFixer.structures.keySet()) {
+					GOTStructureBase str = GOTFixer.structures.get(wp);
+					str.generate(world, random, y, j, k);
+					for (EntityCreature entity : GOTFixer.structures.get(wp).legendaryChar) {
+						writer.println("| " + GOTEntityRegistry.getEntityName(entity.getClass()) + " = " + wp.getDisplayName());
+					}
+				}
 			writer.println(end);
 
 			writer.println("</mediawiki>");
