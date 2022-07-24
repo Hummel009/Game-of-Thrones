@@ -1,13 +1,28 @@
 package got.common.command;
 
+import java.util.List;
+
 import got.common.util.DatabaseGenerator;
+import got.common.util.DatabaseGenerator.Database;
 import net.minecraft.command.*;
 
 public class GOTCommandDatabase extends CommandBase {
 
 	@Override
+	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
+		switch (args.length) {
+		case 1:
+			List<String> list = Database.getNames();
+			return CommandBase.getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
+		default:
+			break;
+		}
+		return null;
+	}
+
+	@Override
 	public String getCommandName() {
-		return "database";
+		return "db";
 	}
 
 	@Override

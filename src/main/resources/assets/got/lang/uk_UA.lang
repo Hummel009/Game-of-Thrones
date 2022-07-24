@@ -1,4 +1,5 @@
 ﻿
+got.structure.DatabaseGenerator.name=Генератор баз даних
 attribute.name.generic.movementSpeedAir=Швидкість (Повітря)
 color.black=Чорний
 color.blue=Блакитний
@@ -2090,7 +2091,7 @@ got.faction.MOSSOVY.entity=Мосовія
 got.faction.MOSSOVY.name=Мосовія
 got.faction.MOSSOVY.subtitle=Загадкові мисливці на потвор з пусток
 got.faction.MYR.entity=Люди Міру
-got.faction.MYR.name=Міру
+got.faction.MYR.name=Мір
 got.faction.MYR.subtitle=Рабовласницьке місто та центр торгівлі
 got.faction.NIGHT_WATCH.entity=Нічной Дозор
 got.faction.NIGHT_WATCH.name=Нічной Дозор

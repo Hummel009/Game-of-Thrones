@@ -1,4 +1,5 @@
 ﻿
+got.structure.DatabaseGenerator.name=数据库生成器
 attribute.name.generic.movementSpeedAir=速度(Air)
 color.black=黑色
 color.blue=蓝色
