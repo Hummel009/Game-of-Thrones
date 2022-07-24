@@ -89,31 +89,33 @@ public class DatabaseGenerator extends GOTStructureBase {
 	public static Map<Class<? extends Entity>, Entity> entities = new HashMap<>();
 	public static Map<Class<? extends Entity>, GOTWaypoint> charPoint = new HashMap<>();
 	public static String display = "null";
-	public static String riderLoc = "всадник";
-	public static String categoryTemplates = "Категория:Шаблоны";
-	public static String biomeNoNPC = "В этом биоме нет никаких NPC.";
+	public static String riderLoc = "вершник";
+	public static String categoryTemplates = "Категорія: Шаблони";
+	public static String biomeNoNPC = "У цьому біомі немає ніяких NPC.";
 	public static String biomeContainerLoc = "Контейнер";
-	public static String biomeContainerMeaning = "Если в биоме указано несколько "
-				+ "контейнеров (контейнеры с монстрами не в счёт), это значит, что "
-				+ "территорию можно завоевать от имени некоторых фракций. Если вы "
-				+ "[[Фракции#Присяга|присягнули]] фракции, а её контейнер указан в "
-				+ "списке ниже, значит, после завоевания территории первый контейнер "
-				+ "спавна (изначальный) переключится на контейнер вашей фракции, и на "
-				+ "оккупированной территории начнут спавнится ваши союзники.";
-	public static String biomeNoVariants = "Этот биом не имеет никаких вариантов.";
-	public static String biomeNoInvasions = "В этот биом не вторгаются никакие фракции.";
-	public static String biomeNoTrees = "В этом биоме нет никаких деревьев.";
-	public static String biomeNoAnimals = "В этом биоме нет зверей, птиц и рыб.";
-	public static String biomeNoStructures = "В этом биоме нет никаких структур.";
-	public static String biomeLoc = "биом";
-	public static String factionNoEnemies = "У этой фракции вообще нет врагов.";
-	public static String factionNoFriends = "У этой фракции нет никаких союзников.";
-	public static String factionNoCharacters = "Не существует персонажей, принадлежащих этой фракции.";
-	public static String factionLoc = "фракция";
-	public static String factionNotViolent = "Эта фракция не поощряет убийство гражданских";
-	public static String factionIsViolent = "Эта фракция поощряет военные преступления";
-	public static String factionNoStructures = "У этой фракции нет никаких структур.";
+	public static String biomeContainerMeaning = "Якщо в біомі вказано декілька"
+	+ "контейнерів (контейнери з монстрами не в рахунок), це означає, що "
+	+ "територію можна завоювати від імені деяких фракцій. Якщо ви "
+	+ "[[Фракції#Присяга|присягнули]] фракції, а її контейнер вказано в "
+	+ "списку нижче, значить, після завоювання території перший контейнер"
+	+ "спавна (початковий) переключиться на контейнер вашої фракції, і на "
+	+ "окупованій території почнуть сповнитися ваші союзники.";
+	public static String biomeNoVariants = "Цей біом не має жодних варіантів.";
+	public static String biomeNoInvasions = "У цей біом не вторгаються ніякі фракції.";
+	public static String biomeNoTrees = "У цьому біомі немає дерев.";
+	public static String biomeNoAnimals = "У цьому біомі немає звірів, птахів та риб.";
+	public static String biomeNoStructures = "У цьому біомі немає структур.";
+	public static String biomeLoc = "біом";
+	public static String factionNoEnemies = "Ця фракція взагалі не має ворогів.";
+	public static String factionNoFriends = "Ця фракція не має жодних союзників.";
+	public static String factionNoCharacters = "Не існує персонажів, що належать до цієї фракції.";
+	public static String factionLoc = "фракція";
+	public static String factionNotViolent = "Ця фракція не заохочує вбивство цивільних";
+	public static String factionIsViolent = "Ця фракція заохочує військові злочини";
+	public static String factionNoStructures = "Ця фракція не має жодних структур.";
 	public static String noPledge = "без присяги";
+	public static String rep = "репутації";
+	public static String yesPledge = "з присягою";
 
 	public DatabaseGenerator(boolean flag) {
 		super(flag);
@@ -1769,7 +1771,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = ");
 					for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 						if (entry.mountClass == null) {
-							writer.println("* [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]]: {{Деньги|" + entry.initialCost * 2 + "}} " + noPledge + ", {{Деньги|" + entry.initialCost + "}} с присягой; " + entry.alignmentRequired + "+ репутации;");
+							writer.println("* [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]]: {{Деньги|" + entry.initialCost * 2 + "}} " + noPledge + ", {{Деньги|" + entry.initialCost + "}} "+yesPledge+"; " + entry.alignmentRequired + "+ "+rep+";");
 						}
 					}
 				}
