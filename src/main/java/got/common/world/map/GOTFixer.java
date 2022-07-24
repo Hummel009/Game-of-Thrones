@@ -342,7 +342,9 @@ public class GOTFixer {
 			public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 				this.setOriginAndRotation(world, i, j, k, rotation, 0);
 				loadStrScan("euron_ship");
-				generateStrScan(world, random, 16, 27, -58);
+				if (!notGen) {
+					generateStrScan(world, random, 16, 27, -58);
+				}
 				for (int l = 0; l < 10; ++l) {
 					spawnLegendaryNPC(new GOTEntityIronbornSoldier(world), world, 0, 1, 0);
 				}
@@ -610,7 +612,9 @@ public class GOTFixer {
 				this.setOriginAndRotation(world, i, j, k, rotation, 0);
 				loadStrScan("night_king");
 				spawnLegendaryNPC(new GOTEntityNightKing(world), world, 0, 10, 0);
-				generateStrScan(world, random, 0, 0, 0);
+				if (!notGen) {
+					generateStrScan(world, random, 0, 0, 0);
+				}
 				return true;
 			}
 		});

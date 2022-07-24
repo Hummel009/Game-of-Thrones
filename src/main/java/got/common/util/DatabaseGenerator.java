@@ -1794,13 +1794,13 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 				for (GOTWaypoint wp : GOTFixer.structures.keySet()) {
 					GOTStructureBase str = GOTFixer.structures.get(wp);
+					str.notGen = true;
 					str.generate(world, random, y, j, k);
 					for (EntityCreature entity : GOTFixer.structures.get(wp).legendaryChar) {
 						writer.println("| " + GOTEntityRegistry.getEntityName(entity.getClass()) + " = " + wp.getDisplayName());
 					}
 				}
 			writer.println(end);
-
 			writer.println("</mediawiki>");
 		}
 		writer.close();
