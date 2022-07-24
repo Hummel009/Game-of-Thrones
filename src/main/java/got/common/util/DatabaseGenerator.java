@@ -89,6 +89,25 @@ public class DatabaseGenerator extends GOTStructureBase {
 	public static Map<Class<? extends Entity>, Entity> entities = new HashMap<>();
 	public static Map<Class<? extends Entity>, GOTWaypoint> charPoint = new HashMap<>();
 	public static String display = "null";
+	public static String riderLoc = "всадник";
+	public static String categoryTemplates = "Категория:Шаблоны";
+	public static String biomeNoNPC = "В этом биоме нет никаких NPC.";
+	public static String biomeContainerLoc = "Container";
+	public static String biomeContainerMeaning = "Placeholder about containers meaning.";
+	public static String biomeNoVariants = "This biome has no variants.";
+	public static String biomeNoInvasions = "There is no invasions in this biome.";
+	public static String biomeNoTrees = "В этом биоме нет никаких деревьев.";
+	public static String biomeNoAnimals = "В этом биоме нет зверей, птиц и рыб.";
+	public static String biomeNoStructures = "В этом биоме нет никаких структур.";
+	public static String biomeLoc = "биом";
+	public static String factionNoEnemies = "У этой фракции вообще нет врагов.";
+	public static String factionNoFriends = "У этой фракции нет никаких союзников.";
+	public static String factionNoCharacters = "Не существует персонажей, принадлежащих этой фракции.";
+	public static String factionLoc = "фракция";
+	public static String factionNotViolent = "Эта фракция не поощряет убийство гражданских";
+	public static String factionIsViolent = "Эта фракция поощряет военные преступления";
+	public static String factionNoStructures = "У этой фракции нет никаких структур.";
+	public static String noPledge = "без присяги";
 
 	public DatabaseGenerator(boolean flag) {
 		super(flag);
@@ -948,7 +967,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		entities.put(TheonGreyjoyNormal.class, new TheonGreyjoyNormal(world));
 
 		/* Table-pages: capes, shields, achievements, weapons, armor, food */
-	    PrintWriter writer = null;
+		PrintWriter writer = null;
 		try {
 			writer = new PrintWriter(display + ".txt", "UTF-8");
 		} catch (FileNotFoundException | UnsupportedEncodingException e1) {
@@ -959,9 +978,9 @@ public class DatabaseGenerator extends GOTStructureBase {
 			for (GOTUnitTradeEntries entries : GOTCommander.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class)) {
 				for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 					if (entry.mountClass == null) {
-						writer.println("| [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]] || {{\u0414\u0435\u043D\u044C\u0433\u0438|" + entry.initialCost * 2 + "}} || +" + entry.alignmentRequired + " || " + (entry.pledgeType == PledgeType.NONE));
+						writer.println("| [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]] || {{Деньги|" + entry.initialCost * 2 + "}} || +" + entry.alignmentRequired + " || " + (entry.pledgeType == PledgeType.NONE));
 					} else {
-						writer.println("| [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]] (rider) || {{\u0414\u0435\u043D\u044C\u0433\u0438|" + entry.initialCost * 2 + "}} || +" + entry.alignmentRequired + " || " + (entry.pledgeType == PledgeType.NONE));
+						writer.println("| [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]] (" + riderLoc + ") || {{Деньги|" + entry.initialCost * 2 + "}} || +" + entry.alignmentRequired + " || " + (entry.pledgeType == PledgeType.NONE));
 					}
 					writer.println("|-");
 				}
@@ -1047,7 +1066,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			bmlist.remove(GOTBiome.redBeach);
 			bmlist.remove(GOTBiome.newGhis);
 
-			List<GOTFaction> fclist = new ArrayList<GOTFaction>(EnumSet.allOf(GOTFaction.class));
+			List<GOTFaction> fclist = new ArrayList<>(EnumSet.allOf(GOTFaction.class));
 			fclist.remove(GOTFaction.HOSTILE);
 			fclist.remove(GOTFaction.UNALIGNED);
 
@@ -1055,7 +1074,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			for (Class mob : entities.keySet()) {
 				String s1 = "<page><title>";
 				String s2 = "</title><revision><text bytes=\"23\" sha1=\"bhe3l3lxazmpavygjy7ukt6qy8asqjb\" xml:space=\"preserve\">{{Статья Моб}}</text></revision></page>";
-				writer.print(s1 + GOTEntityRegistry.getEntityName(mob)+ s2);
+				writer.print(s1 + GOTEntityRegistry.getEntityName(mob) + s2);
 				writer.println();
 			}
 			for (GOTBiome biome : bmlist) {
@@ -1069,12 +1088,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 					}
 				}
 				if (two) {
-					writer.print(s1 + biome.getName() + " (biome)" + s2);
-					writer.println();
+					writer.print(s1 + biome.getName() + " (" + biomeLoc + ")" + s2);
 				} else {
 					writer.print(s1 + biome.getName() + s2);
-					writer.println();
 				}
+				writer.println();
 			}
 			for (GOTFaction fac : fclist) {
 				boolean two = false;
@@ -1088,18 +1106,16 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 				if (fac.factionRegion != null) {
 					if (two) {
-						writer.print(s1 + fac.factionName() + " (faction)" + s2);
-						writer.println();
+						writer.print(s1 + fac.factionName() + " (" + factionLoc + ")" + s2);
 					} else {
 						writer.print(s1 + fac.factionName() + s2);
-						writer.println();
 					}
+					writer.println();
 				}
 			}
 
 			String begin = "</title><ns>10</ns><revision><text bytes=\"464\" sha1=\"7n8l851xacjlbvn5izz6mrgnwm76q4a\" xml:space=\"preserve\">&lt;includeonly&gt;{{#switch: {{{1}}}";
-			String end = "}}&lt;/includeonly&gt;&lt;noinclude&gt;[[Категория:Шаблоны]]&lt;/noinclude&gt;</text><sha1>7n8l851xacjlbvn5izz6mrgnwm76q4a</sha1></revision></page>";
-
+			String end = "}}&lt;/includeonly&gt;&lt;noinclude&gt;[[" + categoryTemplates + "]]&lt;/noinclude&gt;</text><sha1>7n8l851xacjlbvn5izz6mrgnwm76q4a</sha1></revision></page>";
 
 			/* BIOMES */
 
@@ -1107,17 +1123,17 @@ public class DatabaseGenerator extends GOTStructureBase {
 			writer.println(begin);
 			for (GOTBiome biome : bmlist) {
 				if (biome.npcSpawnList.factionContainers.isEmpty()) {
-					writer.println("| " + biome.getName() + " = There is no NPC in this biome.");
+					writer.println("| " + biome.getName() + " = " + biomeNoNPC);
 				} else {
 					writer.println("| " + biome.getName() + " = ");
 					int i = 1;
 					if (biome.npcSpawnList.factionContainers.size() > 1) {
-						writer.println("Placeholder about containers meaning.");
+						writer.println(biomeContainerMeaning);
 					}
 					for (FactionContainer cont : biome.npcSpawnList.factionContainers) {
 						if (biome.npcSpawnList.factionContainers.size() > 1) {
 							writer.println("");
-							writer.println("Container №" + i + ":");
+							writer.println(biomeContainerLoc + " №" + i + ":");
 						}
 						for (SpawnListContainer one : cont.spawnLists) {
 							for (GOTSpawnEntry entry : one.spawnList.spawnList) {
@@ -1141,7 +1157,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			writer.println(begin);
 			for (GOTBiome biome : bmlist) {
 				if (biome.biomeVariantsSmall.variantList.isEmpty()) {
-					writer.println("| " + biome.getName() + " = This biome has no variants.");
+					writer.println("| " + biome.getName() + " = " + biomeNoVariants);
 				} else {
 					writer.println("| " + biome.getName() + " = ");
 					for (VariantBucket variant : biome.biomeVariantsSmall.variantList) {
@@ -1155,7 +1171,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			writer.println(begin);
 			for (GOTBiome biome : bmlist) {
 				if (biome.invasionSpawns.registeredInvasions.isEmpty()) {
-					writer.println("| " + biome.getName() + " = There is no invasions in this biome.");
+					writer.println("| " + biome.getName() + " = " + biomeNoInvasions);
 				} else {
 					writer.println("| " + biome.getName() + " = ");
 					for (GOTInvasions inv : biome.invasionSpawns.registeredInvasions) {
@@ -1176,7 +1192,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			writer.println(begin);
 			for (GOTBiome biome : bmlist) {
 				if (biome.decorator.treeTypes.isEmpty()) {
-					writer.println("| " + biome.getName() + " = There is no trees in this biome.");
+					writer.println("| " + biome.getName() + " = " + biomeNoTrees);
 				} else {
 					writer.println("| " + biome.getName() + " = ");
 					for (WeightedTreeType tree : biome.decorator.treeTypes) {
@@ -1204,7 +1220,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 						}
 					}
 				} else {
-					writer.println("| " + biome.getName() + " = There is no animals in this biome.");
+					writer.println("| " + biome.getName() + " = " + biomeNoAnimals);
 				}
 			}
 			writer.println(end);
@@ -1252,7 +1268,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			for (GOTBiome biome : bmlist) {
 				for (GOTFaction fac : fclist) {
 					if (fac.factionName().equals(biome.getName())) {
-						writer.println("| " + biome.getName() + " | " + biome.getName() + " (biome) = [[" + biome.getName() + " (biome)|"+ biome.getName() + "]]");
+						writer.println("| " + biome.getName() + " | " + biome.getName() + " (" + biomeLoc + ") = [[" + biome.getName() + " (" + biomeLoc + ")|" + biome.getName() + "]]");
 					}
 				}
 			}
@@ -1262,7 +1278,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			writer.println(begin);
 			for (GOTBiome biome : bmlist) {
 				if (biome.decorator.randomStructures.isEmpty()) {
-					writer.println("| " + biome.getName() + " = There is no structures in this biome.");
+					writer.println("| " + biome.getName() + " = " + biomeNoStructures);
 				} else {
 					writer.println("| " + biome.getName() + " = ");
 					for (RandomStructure structure : biome.decorator.randomStructures) {
@@ -1278,7 +1294,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			for (GOTBiome biome : bmlist) {
 				for (GOTFaction fac : fclist) {
 					if (fac.factionName().equals(biome.getName())) {
-						writer.println("| " + biome.getName() + " (biome) = " + biome.getName());
+						writer.println("| " + biome.getName() + " (" + biomeLoc + ") = " + biome.getName());
 					}
 				}
 			}
@@ -1316,7 +1332,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 						}
 					}
 				} else {
-					writer.println("| " + fac.factionName() + " = This faction has no enemies.");
+					writer.println("| " + fac.factionName() + " = " + factionNoEnemies);
 				}
 
 			}
@@ -1340,17 +1356,17 @@ public class DatabaseGenerator extends GOTStructureBase {
 						}
 					}
 				} else {
-					writer.println("| " + fac.factionName() + " = This faction has no friends.");
+					writer.println("| " + fac.factionName() + " = " + factionNoFriends);
 				}
 			}
 			writer.println(end);
 
 			writer.print("<page><title>Шаблон:БД Фракция-Жестокость");
 			writer.println(begin);
-			writer.println("| #default = Not Violent");
+			writer.println("| #default = " + factionNotViolent);
 			for (GOTFaction fac : fclist) {
 				if (fac.approvesWarCrimes) {
-					writer.println("| " + fac.factionName() + " = Violent");
+					writer.println("| " + fac.factionName() + " = " + factionIsViolent);
 				}
 			}
 			writer.println(end);
@@ -1380,7 +1396,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 						}
 					}
 				} else {
-					writer.println("| " + fac.factionName() + " = This faction has no characters.");
+					writer.println("| " + fac.factionName() + " = " + factionNoCharacters);
 				}
 			}
 			writer.println(end);
@@ -1400,7 +1416,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			for (GOTFaction fac : fclist) {
 				for (GOTBiome biome : bmlist) {
 					if (fac.factionName().equals(biome.getName())) {
-						writer.println("| " + fac.factionName() + " | " + fac.factionName() + " (faction) = [[" + fac.factionName() + " (faction)|"+ fac.factionName() + "]]");
+						writer.println("| " + fac.factionName() + " | " + fac.factionName() + " (" + factionLoc + ") = [[" + fac.factionName() + " (" + factionLoc + ")|" + fac.factionName() + "]]");
 					}
 				}
 			}
@@ -1424,7 +1440,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 						}
 					}
 				} else {
-					writer.println("| " + fac.factionName() + " = This faction has no structures.");
+					writer.println("| " + fac.factionName() + " = " + factionNoStructures);
 				}
 			}
 			writer.println(end);
@@ -1435,7 +1451,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			for (GOTFaction fac : fclist) {
 				for (GOTBiome biome : bmlist) {
 					if (fac.factionName().equals(biome.getName())) {
-						writer.println("| " + fac.factionName() + " (faction) = " + fac.factionName());
+						writer.println("| " + fac.factionName() + " (" + factionLoc + ") = " + fac.factionName());
 					}
 				}
 			}
@@ -1455,7 +1471,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			writer.print("<page><title>Шаблон:БД Моб-Агрессор");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
-				if (entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).isTargetSeeker || "Agressive".equals(display) && entities.get(mob) instanceof EntityMob || "Agressive".equals(display) && entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).getFaction() == GOTFaction.HOSTILE) {
+				if (entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).isTargetSeeker || entities.get(mob) instanceof EntityMob || entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).getFaction() == GOTFaction.HOSTILE) {
 					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				}
 			}
@@ -1558,8 +1574,8 @@ public class DatabaseGenerator extends GOTStructureBase {
 			writer.print("<page><title>Шаблон:БД Моб-Легендарный");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
-				 if (entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).isLegendaryNPC) {
-						writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
+				if (entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).isLegendaryNPC) {
+					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				}
 			}
 			writer.println(end);
@@ -1576,7 +1592,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			writer.print("<page><title>Шаблон:БД Моб-Морозоустойчивость");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
-				if (entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).isImmuneToFrost || "ImmuneToFrost".equals(display) && entities.get(mob) instanceof GOTBiome.ImmuneToFrost) {
+				if (entities.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) entities.get(mob)).isImmuneToFrost || entities.get(mob) instanceof GOTBiome.ImmuneToFrost) {
 					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
 				}
 			}
@@ -1585,9 +1601,9 @@ public class DatabaseGenerator extends GOTStructureBase {
 			writer.print("<page><title>Шаблон:БД Моб-Наёмник");
 			writer.println(begin);
 			for (Class mob : entities.keySet()) {
-				 if (entities.get(mob) instanceof GOTMercenary) {
-						writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
-					}
+				if (entities.get(mob) instanceof GOTMercenary) {
+					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = True");
+				}
 			}
 			writer.println(end);
 
@@ -1747,7 +1763,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = ");
 					for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 						if (entry.mountClass == null) {
-							writer.println("* [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]]: {{Деньги|" + entry.initialCost * 2 + "}} без присяги, {{Деньги|" + entry.initialCost + "}} с присягой; " + entry.alignmentRequired + "+ репутации;");
+							writer.println("* [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]]: {{Деньги|" + entry.initialCost * 2 + "}} " + noPledge + ", {{Деньги|" + entry.initialCost + "}} с присягой; " + entry.alignmentRequired + "+ репутации;");
 						}
 					}
 				}
@@ -1756,7 +1772,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 			writer.println("</mediawiki>");
 		}
-	    writer.close();
+		writer.close();
 		return true;
 	}
 
@@ -1788,14 +1804,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 	}
 
 	public enum Database {
-		FANDOM("fandom"),
-		ACHIEVEMENTS_TABLE("achievementsTable"),
-		ARMOR_TABLE("armorTable"),
-		CAPES_TABLE("capesTable"),
-		FOOD_TABLE("foodTable"),
-		SHIELDS_TABLE("shieldsTable"),
-		UNITS_TABLE("unitsTable"),
-		WEAPON_TABLE("weaponTable");
+		FANDOM("fandom"), ACHIEVEMENTS_TABLE("achievementsTable"), ARMOR_TABLE("armorTable"), CAPES_TABLE("capesTable"), FOOD_TABLE("foodTable"), SHIELDS_TABLE("shieldsTable"), UNITS_TABLE("unitsTable"), WEAPON_TABLE("weaponTable");
 
 		String codeName;
 
@@ -1807,12 +1816,8 @@ public class DatabaseGenerator extends GOTStructureBase {
 			return codeName;
 		}
 
-		public static List<String> getNames() {
-			ArrayList<String> names = new ArrayList<>();
-			for (Database f : Database.values()) {
-				names.add(f.getName());
-			}
-			return names;
+		public boolean matchesNameOrAlias(String name) {
+			return codeName.equals(name);
 		}
 
 		public static Database forName(String name) {
@@ -1823,8 +1828,13 @@ public class DatabaseGenerator extends GOTStructureBase {
 			}
 			return null;
 		}
-		public boolean matchesNameOrAlias(String name) {
-			return codeName.equals(name);
+
+		public static List<String> getNames() {
+			ArrayList<String> names = new ArrayList<>();
+			for (Database f : Database.values()) {
+				names.add(f.getName());
+			}
+			return names;
 		}
 	}
 }
