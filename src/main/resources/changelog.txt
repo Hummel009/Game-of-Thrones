@@ -11,6 +11,7 @@ CHANGELOG
 * Improved King Spears biome
 * Improved map (more accurate country borders)
 
+* Fixed bug with one westeros female name
 * Fixed bug with Si Qo Gate
 * Fixed freeze while F3 on ocean
 * Fixed bug with stolen items info

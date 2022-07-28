@@ -49,7 +49,7 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.oredict.OreDictionary;
 
-@Mod(modid = "got", name = GOT.NAME, version = GOT.VERSION, dependencies = "required-after:Forge@[10.13.4.1558,)")
+@Mod(modid = "got")
 public class GOT {
 	@SidedProxy(clientSide = "got.client.GOTClientProxy", serverSide = "got.common.GOTCommonProxy")
 	public static GOTCommonProxy proxy;
