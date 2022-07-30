@@ -64,7 +64,7 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 	}
 
 	public String getDescription() {
-		return StatCollector.translateToLocal("got.wp." + getCodeName() + ".info=");
+		return StatCollector.translateToLocal("got.wp." + getCodeName() + ".info");
 	}
 
 	@Override
