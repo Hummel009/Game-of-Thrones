@@ -93,13 +93,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 	public static String categoryTemplates = "\u041A\u0430\u0442\u0435\u0433\u043E\u0440\u0456\u044F:\u0428\u0430\u0431\u043B\u043E\u043D\u0438";
 	public static String biomeNoNPC = "\u0423 \u0446\u044C\u043E\u043C\u0443 \u0431\u0456\u043E\u043C\u0456 \u043D\u0435\u043C\u0430\u0454 \u043D\u0456\u044F\u043A\u0438\u0445 NPC.";
 	public static String biomeContainerLoc = "\u041A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440";
-	public static String biomeContainerMeaning = "\u042F\u043A\u0449\u043E \u0432 \u0431\u0456\u043E\u043C\u0456 \u0432\u043A\u0430\u0437\u0430\u043D\u043E \u0434\u0435\u043A\u0456\u043B\u044C\u043A\u0430"
-	+ "\u043A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440\u0456\u0432 (\u043A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440\u0438 \u0437 \u043C\u043E\u043D\u0441\u0442\u0440\u0430\u043C\u0438 \u043D\u0435 \u0432 \u0440\u0430\u0445\u0443\u043D\u043E\u043A), \u0446\u0435 \u043E\u0437\u043D\u0430\u0447\u0430\u0454, \u0449\u043E "
-	+ "\u0442\u0435\u0440\u0438\u0442\u043E\u0440\u0456\u044E \u043C\u043E\u0436\u043D\u0430 \u0437\u0430\u0432\u043E\u044E\u0432\u0430\u0442\u0438 \u0432\u0456\u0434 \u0456\u043C\u0435\u043D\u0456 \u0434\u0435\u044F\u043A\u0438\u0445 \u0444\u0440\u0430\u043A\u0446\u0456\u0439. \u042F\u043A\u0449\u043E \u0432\u0438 "
-	+ "[[\u0424\u0440\u0430\u043A\u0446\u0456\u0457#\u041F\u0440\u0438\u0441\u044F\u0433\u0430|\u043F\u0440\u0438\u0441\u044F\u0433\u043D\u0443\u043B\u0438]] \u0444\u0440\u0430\u043A\u0446\u0456\u0457, \u0430 \u0457\u0457 \u043A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440 \u0432\u043A\u0430\u0437\u0430\u043D\u043E \u0432 "
-	+ "\u0441\u043F\u0438\u0441\u043A\u0443 \u043D\u0438\u0436\u0447\u0435, \u0437\u043D\u0430\u0447\u0438\u0442\u044C, \u043F\u0456\u0441\u043B\u044F \u0437\u0430\u0432\u043E\u044E\u0432\u0430\u043D\u043D\u044F \u0442\u0435\u0440\u0438\u0442\u043E\u0440\u0456\u0457 \u043F\u0435\u0440\u0448\u0438\u0439 \u043A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440"
-	+ "\u0441\u043F\u0430\u0432\u043D\u0430 (\u043F\u043E\u0447\u0430\u0442\u043A\u043E\u0432\u0438\u0439) \u043F\u0435\u0440\u0435\u043A\u043B\u044E\u0447\u0438\u0442\u044C\u0441\u044F \u043D\u0430 \u043A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440 \u0432\u0430\u0448\u043E\u0457 \u0444\u0440\u0430\u043A\u0446\u0456\u0457, \u0456 \u043D\u0430 "
-	+ "\u043E\u043A\u0443\u043F\u043E\u0432\u0430\u043D\u0456\u0439 \u0442\u0435\u0440\u0438\u0442\u043E\u0440\u0456\u0457 \u043F\u043E\u0447\u043D\u0443\u0442\u044C \u0441\u043F\u043E\u0432\u043D\u0438\u0442\u0438\u0441\u044F \u0432\u0430\u0448\u0456 \u0441\u043E\u044E\u0437\u043D\u0438\u043A\u0438.";
+	public static String biomeContainerMeaning = "\u042F\u043A\u0449\u043E \u0432 \u0431\u0456\u043E\u043C\u0456 \u0432\u043A\u0430\u0437\u0430\u043D\u043E \u0434\u0435\u043A\u0456\u043B\u044C\u043A\u0430" + "\u043A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440\u0456\u0432 (\u043A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440\u0438 \u0437 \u043C\u043E\u043D\u0441\u0442\u0440\u0430\u043C\u0438 \u043D\u0435 \u0432 \u0440\u0430\u0445\u0443\u043D\u043E\u043A), \u0446\u0435 \u043E\u0437\u043D\u0430\u0447\u0430\u0454, \u0449\u043E " + "\u0442\u0435\u0440\u0438\u0442\u043E\u0440\u0456\u044E \u043C\u043E\u0436\u043D\u0430 \u0437\u0430\u0432\u043E\u044E\u0432\u0430\u0442\u0438 \u0432\u0456\u0434 \u0456\u043C\u0435\u043D\u0456 \u0434\u0435\u044F\u043A\u0438\u0445 \u0444\u0440\u0430\u043A\u0446\u0456\u0439. \u042F\u043A\u0449\u043E \u0432\u0438 " + "[[\u0424\u0440\u0430\u043A\u0446\u0456\u0457#\u041F\u0440\u0438\u0441\u044F\u0433\u0430|\u043F\u0440\u0438\u0441\u044F\u0433\u043D\u0443\u043B\u0438]] \u0444\u0440\u0430\u043A\u0446\u0456\u0457, \u0430 \u0457\u0457 \u043A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440 \u0432\u043A\u0430\u0437\u0430\u043D\u043E \u0432 " + "\u0441\u043F\u0438\u0441\u043A\u0443 \u043D\u0438\u0436\u0447\u0435, \u0437\u043D\u0430\u0447\u0438\u0442\u044C, \u043F\u0456\u0441\u043B\u044F \u0437\u0430\u0432\u043E\u044E\u0432\u0430\u043D\u043D\u044F \u0442\u0435\u0440\u0438\u0442\u043E\u0440\u0456\u0457 \u043F\u0435\u0440\u0448\u0438\u0439 \u043A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440" + "\u0441\u043F\u0430\u0432\u043D\u0430 (\u043F\u043E\u0447\u0430\u0442\u043A\u043E\u0432\u0438\u0439) \u043F\u0435\u0440\u0435\u043A\u043B\u044E\u0447\u0438\u0442\u044C\u0441\u044F \u043D\u0430 \u043A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440 \u0432\u0430\u0448\u043E\u0457 \u0444\u0440\u0430\u043A\u0446\u0456\u0457, \u0456 \u043D\u0430 " + "\u043E\u043A\u0443\u043F\u043E\u0432\u0430\u043D\u0456\u0439 \u0442\u0435\u0440\u0438\u0442\u043E\u0440\u0456\u0457 \u043F\u043E\u0447\u043D\u0443\u0442\u044C \u0441\u043F\u043E\u0432\u043D\u0438\u0442\u0438\u0441\u044F \u0432\u0430\u0448\u0456 \u0441\u043E\u044E\u0437\u043D\u0438\u043A\u0438.";
 	public static String biomeNoVariants = "\u0426\u0435\u0439 \u0431\u0456\u043E\u043C \u043D\u0435 \u043C\u0430\u0454 \u0436\u043E\u0434\u043D\u0438\u0445 \u0432\u0430\u0440\u0456\u0430\u043D\u0442\u0456\u0432.";
 	public static String biomeNoInvasions = "\u0423 \u0446\u0435\u0439 \u0431\u0456\u043E\u043C \u043D\u0435 \u0432\u0442\u043E\u0440\u0433\u0430\u044E\u0442\u044C\u0441\u044F \u043D\u0456\u044F\u043A\u0456 \u0444\u0440\u0430\u043A\u0446\u0456\u0457.";
 	public static String biomeNoTrees = "\u0423 \u0446\u044C\u043E\u043C\u0443 \u0431\u0456\u043E\u043C\u0456 \u043D\u0435\u043C\u0430\u0454 \u0434\u0435\u0440\u0435\u0432.";
@@ -982,7 +976,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			e1.printStackTrace();
 		}
 
-		if ("unitsTable".equals(display)) {
+		if ("units".equals(display)) {
 			for (GOTUnitTradeEntries entries : GOTCommander.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class)) {
 				for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 					if (entry.mountClass == null) {
@@ -993,73 +987,86 @@ public class DatabaseGenerator extends GOTStructureBase {
 					writer.println("|-");
 				}
 			}
-		} else if ("capesTable".equals(display)) {
+		} else if ("capes".equals(display)) {
 			for (GOTCapes cape : GOTCapes.values()) {
 				writer.println("| " + cape.getCapeName() + " || " + cape.getCapeDesc() + " || [[File:Cape " + cape.name().toLowerCase() + ".png]]");
 				writer.println("|-");
 			}
-		} else if ("shieldsTable".equals(display)) {
+		} else if ("shields".equals(display)) {
 			for (GOTShields shield : GOTShields.values()) {
 				writer.println("| " + shield.getShieldName() + " || " + shield.getShieldDesc() + " || [[File:Shield " + shield.name().toLowerCase() + ".png]]");
 				writer.println("|-");
 			}
-		} else if ("achievementsTable".equals(display)) {
+		} else if ("shields".equals(display)) {
+			for (GOTShields shield : GOTShields.values()) {
+				writer.println("| " + shield.getShieldName() + " || " + shield.getShieldDesc() + " || [[File:Shield " + shield.name().toLowerCase() + ".png]]");
+				writer.println("|-");
+			}
+		} else if ("waypoints".equals(display)) {
+			for (GOTWaypoint wp : GOTWaypoint.values()) {
+				writer.println("| " + wp.getDisplayName() + " || " + wp.getDescription());
+				writer.println("|-");
+			}
+		} else if ("achievements".equals(display)) {
 			for (GOTAchievement ach : GOTCommander.getObjectFieldsOfType(GOTAchievement.class, GOTAchievement.class)) {
 				writer.println("| " + StatCollector.translateToLocal("got.achievement." + ach.name + ".title") + "||" + StatCollector.translateToLocal("got.achievement." + ach.name + ".desc"));
 				writer.println("|-");
 			}
-		}
-		for (Item item : GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Item.class)) {
-			String genInfo = StatCollector.translateToLocal(item.getUnlocalizedName() + ".name") + " || [[File:" + item.getUnlocalizedName().substring(9) + ".png|32px|link=]] ||";
-			if ("foodTable".equals(display) && item instanceof ItemFood) {
-				Field pf0 = null;
-				try {
-					pf0 = ItemFood.class.getDeclaredField("saturationModifier");
-				} catch (NoSuchFieldException | SecurityException e) {
-					e.printStackTrace();
+		} else if ("food".equals(display)) {
+			for (Item item : GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Item.class)) {
+				String genInfo = StatCollector.translateToLocal(item.getUnlocalizedName() + ".name") + " || [[File:" + item.getUnlocalizedName().substring(9) + ".png|32px|link=]] ||";
+				if (item instanceof ItemFood) {
+					Field pf0 = null;
+					try {
+						pf0 = ItemFood.class.getDeclaredField("saturationModifier");
+					} catch (NoSuchFieldException | SecurityException e) {
+					}
+					Field pf1 = null;
+					try {
+						pf1 = ItemFood.class.getDeclaredField("healAmount");
+					} catch (NoSuchFieldException | SecurityException e) {
+					}
+					pf0.setAccessible(true);
+					pf1.setAccessible(true);
+					try {
+						writer.println("| " + genInfo + "{{Bar|bread|" + new DecimalFormat("#.##").format((float) pf0.get(item) * (int) pf1.get(item) * 2) + "}} || {{Bar|food|" + (int) pf1.get(item) + "}} || " + item.getItemStackLimit());
+					} catch (IllegalArgumentException | IllegalAccessException e) {
+					}
+					writer.println("|-");
 				}
-				Field pf1 = null;
-				try {
-					pf1 = ItemFood.class.getDeclaredField("healAmount");
-				} catch (NoSuchFieldException | SecurityException e) {
-					e.printStackTrace();
-				}
-				pf0.setAccessible(true);
-				pf1.setAccessible(true);
-				try {
-					writer.println("| " + genInfo + "{{Bar|bread|" + new DecimalFormat("#.##").format((float) pf0.get(item) * (int) pf1.get(item) * 2) + "}} || {{Bar|food|" + (int) pf1.get(item) + "}} || " + item.getItemStackLimit());
-				} catch (IllegalArgumentException | IllegalAccessException e) {
-					e.printStackTrace();
-				}
-				writer.println("|-");
-			} else if ("armorTable".equals(display) && item instanceof ItemArmor) {
-				writer.println("| " + genInfo + item.getMaxDamage() + " || " + ((ItemArmor) item).damageReduceAmount + " || " + StatCollector.translateToLocal(((ItemArmor) item).getArmorMaterial().customCraftingMaterial.getUnlocalizedName() + ".name"));
-				writer.println("|-");
-			} else if ("weaponTable".equals(display) && item instanceof ItemSword) {
-				Field pf1 = null;
-				try {
-					pf1 = ItemSword.class.getDeclaredField("field_150934_a");
-				} catch (NoSuchFieldException | SecurityException e) {
-					e.printStackTrace();
-				}
-				Field pf2 = null;
-				try {
-					pf2 = ItemSword.class.getDeclaredField("field_150933_b");
-				} catch (NoSuchFieldException | SecurityException e) {
-					e.printStackTrace();
-				}
-				pf1.setAccessible(true);
-				pf2.setAccessible(true);
-				try {
-					writer.println("| " + genInfo + item.getMaxDamage() + " || " + (float) pf1.get(item) + " || " + StatCollector.translateToLocal(((ToolMaterial) pf2.get(item)).getRepairItemStack().getUnlocalizedName() + ".name"));
-				} catch (IllegalArgumentException | IllegalAccessException e) {
-					e.printStackTrace();
-				}
-				writer.println("|-");
 			}
-		}
-
-		if ("fandom".equals(display)) {
+		} else if ("armor".equals(display)) {
+			for (Item item : GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Item.class)) {
+				String genInfo = StatCollector.translateToLocal(item.getUnlocalizedName() + ".name") + " || [[File:" + item.getUnlocalizedName().substring(9) + ".png|32px|link=]] ||";
+				if (item instanceof ItemArmor) {
+					writer.println("| " + genInfo + item.getMaxDamage() + " || " + ((ItemArmor) item).damageReduceAmount + " || " + StatCollector.translateToLocal(((ItemArmor) item).getArmorMaterial().customCraftingMaterial.getUnlocalizedName() + ".name"));
+					writer.println("|-");
+				}
+			}
+		} else if ("weapon".equals(display)) {
+			for (Item item : GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Item.class)) {
+				String genInfo = StatCollector.translateToLocal(item.getUnlocalizedName() + ".name") + " || [[File:" + item.getUnlocalizedName().substring(9) + ".png|32px|link=]] ||";
+				if (item instanceof ItemSword) {
+					Field pf1 = null;
+					try {
+						pf1 = ItemSword.class.getDeclaredField("field_150934_a");
+					} catch (NoSuchFieldException | SecurityException e) {
+					}
+					Field pf2 = null;
+					try {
+						pf2 = ItemSword.class.getDeclaredField("field_150933_b");
+					} catch (NoSuchFieldException | SecurityException e) {
+					}
+					pf1.setAccessible(true);
+					pf2.setAccessible(true);
+					try {
+						writer.println("| " + genInfo + item.getMaxDamage() + " || " + (float) pf1.get(item) + " || " + StatCollector.translateToLocal(((ToolMaterial) pf2.get(item)).getRepairItemStack().getUnlocalizedName() + ".name"));
+					} catch (IllegalArgumentException | IllegalAccessException e) {
+					}
+					writer.println("|-");
+				}
+			}
+		} else if ("xml".equals(display)) {
 			List<GOTBiome> bmlist = GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class);
 			bmlist.remove(GOTBiome.ocean1);
 			bmlist.remove(GOTBiome.ocean2);
@@ -1299,7 +1306,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0411\u0438\u043E\u043C-\u0424\u043E\u0442\u043E");
 			writer.println(begin);
 			for (GOTBiome biome : bmlist) {
-				if (!(biome == GOTBiome.thenn || biome == GOTBiome.mercenary)) {
+				if (((biome != GOTBiome.thenn) && (biome != GOTBiome.mercenary))) {
 					writer.println("| " + biome.getName() + " = " + biome.biomeName + ".png");
 				} else {
 					writer.println("| " + biome.getName() + " = " + biome.biomeName + " (biome).png");
@@ -1780,7 +1787,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 					writer.println("| " + GOTEntityRegistry.getEntityName(mob) + " = ");
 					for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 						if (entry.mountClass == null) {
-							writer.println("* [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]]: {{\u0414\u0435\u043D\u044C\u0433\u0438|" + entry.initialCost * 2 + "}} " + noPledge + ", {{\u0414\u0435\u043D\u044C\u0433\u0438|" + entry.initialCost + "}} "+yesPledge+"; " + entry.alignmentRequired + "+ "+rep+";");
+							writer.println("* [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]]: {{\u0414\u0435\u043D\u044C\u0433\u0438|" + entry.initialCost * 2 + "}} " + noPledge + ", {{\u0414\u0435\u043D\u044C\u0433\u0438|" + entry.initialCost + "}} " + yesPledge + "; " + entry.alignmentRequired + "+ " + rep + ";");
 						}
 					}
 				}
@@ -1789,17 +1796,17 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0422\u043E\u0447\u043A\u0430");
 			writer.println(begin);
-				for (Class<? extends Entity> entity : charPoint.keySet()) {
-					writer.println("| " + GOTEntityRegistry.getEntityName(entity) + " = " + charPoint.get(entity).getDisplayName());
+			for (Class<? extends Entity> entity : charPoint.keySet()) {
+				writer.println("| " + GOTEntityRegistry.getEntityName(entity) + " = " + charPoint.get(entity).getDisplayName());
+			}
+			for (GOTWaypoint wp : GOTFixer.structures.keySet()) {
+				GOTStructureBase str = GOTFixer.structures.get(wp);
+				str.notGen = true;
+				str.generate(world, random, y, j, k);
+				for (EntityCreature entity : GOTFixer.structures.get(wp).legendaryChar) {
+					writer.println("| " + GOTEntityRegistry.getEntityName(entity.getClass()) + " = " + wp.getDisplayName());
 				}
-				for (GOTWaypoint wp : GOTFixer.structures.keySet()) {
-					GOTStructureBase str = GOTFixer.structures.get(wp);
-					str.notGen = true;
-					str.generate(world, random, y, j, k);
-					for (EntityCreature entity : GOTFixer.structures.get(wp).legendaryChar) {
-						writer.println("| " + GOTEntityRegistry.getEntityName(entity.getClass()) + " = " + wp.getDisplayName());
-					}
-				}
+			}
 			writer.println(end);
 			writer.println("</mediawiki>");
 		}
@@ -1835,7 +1842,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 	}
 
 	public enum Database {
-		FANDOM("fandom"), ACHIEVEMENTS_TABLE("achievementsTable"), ARMOR_TABLE("armorTable"), CAPES_TABLE("capesTable"), FOOD_TABLE("foodTable"), SHIELDS_TABLE("shieldsTable"), UNITS_TABLE("unitsTable"), WEAPON_TABLE("weaponTable");
+		XML("xml"), ACHIEVEMENTS("achievements"), ARMOR("armor"), CAPES("capes"), FOOD("food"), SHIELDS("shields"), UNITS("units"), WAYPOINTS("waypoints"), WEAPON("weapon");
 
 		String codeName;
 
