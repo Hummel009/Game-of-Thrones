@@ -1190,7 +1190,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				} else {
 					writer.println("| " + biome.getName() + " = ");
 					for (GOTInvasions inv : biome.invasionSpawns.registeredInvasions) {
-						writer.println("* " + inv.invasionName() + ";");
+						writer.println("* {{\u0411\u0414 \u0424\u0440\u0430\u043A\u0446\u0438\u044F-\u0421\u0441\u044B\u043B\u043A\u0430|" + inv.invasionName() + "}};");
 					}
 				}
 			}
