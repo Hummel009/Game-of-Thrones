@@ -1,6 +1,6 @@
 package got.common.world.biome.essos;
 
-import java.util.Random;
+import java.util.*;
 
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
@@ -22,8 +22,8 @@ public class GOTBiomeShadowTown extends GOTBiomeShadowLand {
 		super(i, major);
 		decorator.flowersPerChunk = 0;
 
-		SpawnListContainer[] c0 = new SpawnListContainer[1];
-		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.ASSHAI_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN);
+		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.ASSHAI_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}

@@ -1,6 +1,6 @@
 package got.common.world.biome.sothoryos;
 
-import java.util.Random;
+import java.util.*;
 
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
@@ -31,9 +31,9 @@ public class GOTBiomeYeen extends GOTBiomeSothoryosJungle {
 		decorator.clearRandomStructures();
 		npcSpawnList.clear();
 		biomeColors.setFoggy(true);
-		SpawnListContainer[] c11 = new SpawnListContainer[1];
-		c11[0] = GOTBiomeSpawnList.entry(GOTSpawnList.JUNGLE_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(c11);
+		ArrayList<SpawnListContainer> c8 = new ArrayList<>();
+		c8.add(GOTBiomeSpawnList.entry(GOTSpawnList.JUNGLE_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN));
+		npcSpawnList.newFactionList(1).add(c8);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 

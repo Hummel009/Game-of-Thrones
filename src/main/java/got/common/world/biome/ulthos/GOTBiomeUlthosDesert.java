@@ -1,6 +1,6 @@
 package got.common.world.biome.ulthos;
 
-import java.util.Random;
+import java.util.*;
 
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
@@ -27,8 +27,8 @@ public class GOTBiomeUlthosDesert extends GOTBiome implements GOTBiome.Desert {
 		spawnableCreatureList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityCamel.class, 10, 1, 2));
 		spawnableGOTAmbientList.clear();
-		SpawnListContainer[] c1 = new SpawnListContainer[1];
-		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
+		ArrayList<SpawnListContainer> c1 = new ArrayList<>();
+		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(1).add(c1);
 		variantChance = 0.3f;
 		this.addBiomeVariant(GOTBiomeVariant.HILLS);

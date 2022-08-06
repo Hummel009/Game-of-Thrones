@@ -1,5 +1,7 @@
 package got.common.world.biome.essos;
 
+import java.util.ArrayList;
+
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
@@ -29,9 +31,9 @@ public class GOTBiomeTropicalForest extends GOTBiome {
 		decorator.doubleGrassPerChunk = 4;
 		registerForestFlowers();
 
-		SpawnListContainer[] c11 = new SpawnListContainer[1];
-		c11[0] = GOTBiomeSpawnList.entry(GOTSpawnList.JUNGLE_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
-		npcSpawnList.newFactionList(1).add(c11);
+		ArrayList<SpawnListContainer> c8 = new ArrayList<>();
+		c8.add(GOTBiomeSpawnList.entry(GOTSpawnList.JUNGLE_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN));
+		npcSpawnList.newFactionList(1).add(c8);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
 		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);

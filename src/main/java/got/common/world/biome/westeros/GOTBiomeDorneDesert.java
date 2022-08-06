@@ -1,6 +1,6 @@
 package got.common.world.biome.westeros;
 
-import java.util.Random;
+import java.util.*;
 
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
@@ -39,8 +39,8 @@ public class GOTBiomeDorneDesert extends GOTBiome implements GOTBiome.Desert {
 		decorator.cactiPerChunk = 0;
 		decorator.deadBushPerChunk = 2;
 
-		SpawnListContainer[] c0 = new SpawnListContainer[1];
-		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN);
+		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(1).add(c0);
 
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);

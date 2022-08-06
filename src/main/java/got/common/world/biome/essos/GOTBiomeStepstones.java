@@ -1,6 +1,6 @@
 package got.common.world.biome.essos;
 
-import java.util.Random;
+import java.util.*;
 
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
@@ -56,14 +56,14 @@ public class GOTBiomeStepstones extends GOTBiome {
 		decorator.grassPerChunk = 10;
 		decorator.treesPerChunk = 1;
 		registerExoticFlowers();
-		SpawnListContainer[] c0 = new SpawnListContainer[1];
-		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN);
+		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(5).add(c0);
-		SpawnListContainer[] c2 = new SpawnListContainer[1];
-		c2[0] = GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN);
+		ArrayList<SpawnListContainer> c2 = new ArrayList<>();
+		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(5).add(c2);
-		SpawnListContainer[] c1 = new SpawnListContainer[1];
-		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN);
+		ArrayList<SpawnListContainer> c1 = new ArrayList<>();
+		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(1).add(c1);
 		setDarkUnreliable();
 	}

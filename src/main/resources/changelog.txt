@@ -3,7 +3,7 @@ CHANGELOG
 >>VERSION 17.9
 + Added new Mossovy waypoints
 * Greatly improved Ukrainian translation (prod. Octobrine)
-* Greatly Improved Far East map
+* Greatly Improved Far East map, improved biome colors
 * Greatly Improved ru & uk lore books (prod. Octobrine)
 
 * Improved and unlocked database generator
@@ -11,9 +11,11 @@ CHANGELOG
 * Improved King Spears biome
 * Improved map (more accurate country borders)
 
+* Recoded biomes: now ArrayLists instead of Arrays needed
+
 * Fixed bug with one westeros female name
 * Fixed bug with Si Qo Gate
-* Fixed freeze while F3 on ocean
+* Fixed freeze while F3 in ocean
 * Fixed bug with stolen items info
 * Fixed bug with russian-speaking Illyrio in english translation
 

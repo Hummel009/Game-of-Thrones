@@ -1,5 +1,7 @@
 package got.common.world.biome.sothoryos;
 
+import java.util.ArrayList;
+
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
@@ -13,8 +15,8 @@ public class GOTBiomeSothoryosHell extends GOTBiomeSothoryosJungle {
 		super(i, major);
 		spawnableCreatureList.clear();
 		npcSpawnList.clear();
-		SpawnListContainer[] c1 = new SpawnListContainer[1];
-		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WYVERN, 1).setSpawnChance(GOTBiome.SPAWN);
+		ArrayList<SpawnListContainer> c1 = new ArrayList<>();
+		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.WYVERN, 1).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(1).add(c1);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}

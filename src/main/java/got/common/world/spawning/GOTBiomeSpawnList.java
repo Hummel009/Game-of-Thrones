@@ -163,8 +163,8 @@ public class GOTBiomeSpawnList {
 			baseWeight = w;
 		}
 
-		public void add(SpawnListContainer... lists) {
-			Collections.addAll(spawnLists, lists);
+		public void add(ArrayList<SpawnListContainer> list) {
+			spawnLists.addAll(list);
 		}
 
 		public void determineFaction(World world) {

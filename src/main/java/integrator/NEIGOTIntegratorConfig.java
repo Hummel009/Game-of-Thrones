@@ -17,7 +17,7 @@ public class NEIGOTIntegratorConfig implements IConfigureNEI {
 
 	@Override
 	public String getName() {
-		return GOT.NAME;
+		return "Game of Thrones";
 	}
 
 	@Override

@@ -1,6 +1,6 @@
 package got.common.world.biome.westeros;
 
-import java.util.Random;
+import java.util.*;
 
 import got.GOT;
 import got.client.sound.GOTBiomeMusic;
@@ -34,8 +34,8 @@ public class GOTBiomeAlwaysWinter extends GOTBiome {
 		spawnableWaterCreatureList.clear();
 		spawnableCaveCreatureList.clear();
 		spawnableGOTAmbientList.clear();
-		SpawnListContainer[] c0 = new SpawnListContainer[1];
-		c0[0] = GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN);
+		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}

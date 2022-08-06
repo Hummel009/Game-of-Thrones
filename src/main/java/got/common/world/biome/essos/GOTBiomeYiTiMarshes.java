@@ -1,5 +1,7 @@
 package got.common.world.biome.essos;
 
+import java.util.ArrayList;
+
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTSpawnList;
@@ -37,8 +39,8 @@ public class GOTBiomeYiTiMarshes extends GOTBiomeYiTi {
 		decorator.waterlilyPerChunk = 4;
 		registerDefaultFlowers();
 
-		SpawnListContainer[] c1 = new SpawnListContainer[1];
-		c1[0] = GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN);
+		ArrayList<SpawnListContainer> c1 = new ArrayList<>();
+		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(1).add(c1);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
