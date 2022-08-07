@@ -50,14 +50,11 @@ public class GOTBiomeShadowMountains extends GOTBiome {
 
 	@Override
 	public void decorate(World world, Random random, int i, int k) {
-		int j1;
-		int i1;
-		int k1;
-		super.decorate(world, random, i, k);
-		int l;
 		int k12;
-		int i12;
+		int l;
 		int j12;
+		int i12;
+		super.decorate(world, random, i, k);
 		if (random.nextInt(60) == 0) {
 			for (l = 0; l < 8; ++l) {
 				i12 = i + random.nextInt(16) + 8;
@@ -67,6 +64,9 @@ public class GOTBiomeShadowMountains extends GOTBiome {
 			}
 		}
 		if (decorator.grassPerChunk > 0) {
+			int k1;
+			int j1;
+			int i1;
 			if (random.nextInt(20) == 0) {
 				for (l = 0; l < 6; ++l) {
 					i12 = i + random.nextInt(6) + 8;
@@ -138,8 +138,8 @@ public class GOTBiomeShadowMountains extends GOTBiome {
 	}
 
 	@Override
-	public GrassBlockAndMeta getRandomGrass(Random random) {
-		return new GrassBlockAndMeta(GOTRegistry.asshaiGrass, 0);
+	public GOTBiome.GrassBlockAndMeta getRandomGrass(Random random) {
+		return new GOTBiome.GrassBlockAndMeta(GOTRegistry.asshaiGrass, 0);
 	}
 
 	public static boolean isBasalt(World world, int i, int j, int k) {

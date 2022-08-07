@@ -13,9 +13,9 @@ import got.common.world.structure.other.*;
 public class GOTBiomeLongSummer extends GOTBiome {
 	public GOTBiomeLongSummer(int i, boolean major) {
 		super(i, major);
-		this.addBiomeVariant(GOTBiomeVariant.HILLS);
-		this.addBiomeVariant(GOTBiomeVariant.HILLS_SCRUBLAND, 1.0f);
-		this.addBiomeVariant(GOTBiomeVariant.SCRUBLAND, 1.0f);
+		addBiomeVariant(GOTBiomeVariant.HILLS);
+		addBiomeVariant(GOTBiomeVariant.HILLS_SCRUBLAND, 1.0f);
+		addBiomeVariant(GOTBiomeVariant.SCRUBLAND, 1.0f);
 		spawnableCreatureList.clear();
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.CHARRED, 1000);

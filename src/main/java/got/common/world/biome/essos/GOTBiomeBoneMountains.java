@@ -22,12 +22,12 @@ public class GOTBiomeBoneMountains extends GOTBiome {
 		npcSpawnList.clear();
 		spawnableGOTAmbientList.clear();
 		spawnableCreatureList.clear();
-		this.addBiomeVariant(GOTBiomeVariant.MOUNTAIN);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST_BEECH, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST_BIRCH, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST_LARCH, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST_PINE, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST_MAPLE, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.MOUNTAIN);
+		addBiomeVariant(GOTBiomeVariant.FOREST_BEECH, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.FOREST_BIRCH, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.FOREST_LARCH, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.FOREST_PINE, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.FOREST_MAPLE, 0.2f);
 		decorator.biomeOreFactor = 2.0f;
 		decorator.biomeGemFactor = 2.0f;
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
@@ -50,16 +50,15 @@ public class GOTBiomeBoneMountains extends GOTBiome {
 
 	@Override
 	public void decorate(World world, Random random, int i, int k) {
-		int l;
 		super.decorate(world, random, i, k);
-		for (l = 0; l < 10; ++l) {
+		for (int l = 0; l < 10; ++l) {
 			Block block = GOTRegistry.boneBlock;
 			if (random.nextInt(5) == 0) {
 				block = GOTRegistry.boneBlock;
 			}
 			for (int l2 = 0; l2 < 10; ++l2) {
-				int k3;
 				int j1;
+				int k3;
 				int i3 = i + random.nextInt(16) + 8;
 				if (world.getBlock(i3, (j1 = world.getHeightValue(i3, k3 = k + random.nextInt(16) + 8)) - 1, k3) != block) {
 					continue;
@@ -79,13 +78,11 @@ public class GOTBiomeBoneMountains extends GOTBiome {
 		for (int j = ySize - 1; j >= sandHeight; --j) {
 			int index = xzIndex * ySize + j;
 			Block block = blocks[index];
-			if (block != topBlock && block != fillerBlock) {
+			if (block != topBlock && block != fillerBlock || j < stoneHeight) {
 				continue;
 			}
-			if (j >= stoneHeight) {
-				blocks[index] = GOTRegistry.boneBlock;
-				meta[index] = 0;
-			}
+			blocks[index] = GOTRegistry.boneBlock;
+			meta[index] = 0;
 		}
 	}
 

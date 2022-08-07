@@ -29,9 +29,9 @@ public class GOTBiomeLhazar extends GOTBiome {
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 5, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 8, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDikDik.class, 8, 1, 2));
-		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
-		this.addBiomeVariant(GOTBiomeVariant.HILLS);
+		addBiomeVariant(GOTBiomeVariant.FLOWERS);
+		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
+		addBiomeVariant(GOTBiomeVariant.HILLS);
 		decorator.grassPerChunk = 6;
 		decorator.doubleGrassPerChunk = 1;
 		decorator.flowersPerChunk = 3;
@@ -54,11 +54,8 @@ public class GOTBiomeLhazar extends GOTBiome {
 		decorator.addTree(GOTTreeType.BAOBAB, 20);
 		registerExoticFlowers();
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
-
 		decorator.addVillage(new GOTStructureLhazarVillage(this, 1.0f));
-
 		invasionSpawns.addInvasion(GOTInvasions.DOTHRAKI, GOTEventSpawner.EventChance.UNCOMMON);
-
 	}
 
 	@Override

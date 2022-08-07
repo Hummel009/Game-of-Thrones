@@ -28,10 +28,10 @@ public class GOTBiomeJogosNhai extends GOTBiome {
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 5, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 8, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDikDik.class, 8, 1, 2));
-		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
-		this.addBiomeVariant(GOTBiomeVariant.HILLS);
-		this.addBiomeVariant(GOTBiomeVariant.SAVANNAH_BAOBAB, 3.0f);
+		addBiomeVariant(GOTBiomeVariant.FLOWERS);
+		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
+		addBiomeVariant(GOTBiomeVariant.HILLS);
+		addBiomeVariant(GOTBiomeVariant.SAVANNAH_BAOBAB, 3.0f);
 		decorator.grassPerChunk = 256;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.CEDAR, 300);
@@ -50,9 +50,7 @@ public class GOTBiomeJogosNhai extends GOTBiome {
 		decorator.addTree(GOTTreeType.ACACIA, 50);
 		decorator.addTree(GOTTreeType.BAOBAB, 20);
 		registerExoticFlowers();
-
 		decorator.addVillage(new GOTStructureJogosVillage(this, 1.0f));
-
 		invasionSpawns.addInvasion(GOTInvasions.YI_TI, GOTEventSpawner.EventChance.UNCOMMON);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}

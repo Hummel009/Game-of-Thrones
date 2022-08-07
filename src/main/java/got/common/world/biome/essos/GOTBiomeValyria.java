@@ -17,7 +17,7 @@ import got.common.world.structure.other.*;
 public class GOTBiomeValyria extends GOTBiome {
 	public GOTBiomeValyria(int i, boolean major) {
 		super(i, major);
-		this.addBiomeVariant(GOTBiomeVariant.HILLS);
+		addBiomeVariant(GOTBiomeVariant.HILLS);
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
 		spawnableMonsterList.clear();
@@ -33,18 +33,16 @@ public class GOTBiomeValyria extends GOTBiome {
 		decorator.doubleFlowersPerChunk = 1;
 		registerPlainsFlowers();
 		biomeColors.setFoggy(true);
-		biomeColors.setGrass(0x808080);
-		biomeColors.setFoliage(0x808080);
-		biomeColors.setSky(0x808080);
-		biomeColors.setClouds(0x808080);
-		biomeColors.setFog(0x808080);
-		biomeColors.setWater(0x808080);
-
+		biomeColors.setGrass(8421504);
+		biomeColors.setFoliage(8421504);
+		biomeColors.setSky(8421504);
+		biomeColors.setClouds(8421504);
+		biomeColors.setFog(8421504);
+		biomeColors.setWater(8421504);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.VALYRIA, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
-
 		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
 		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);

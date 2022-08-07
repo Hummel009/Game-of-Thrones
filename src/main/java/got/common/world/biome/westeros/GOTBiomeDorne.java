@@ -27,36 +27,29 @@ public class GOTBiomeDorne extends GOTBiomeEssos {
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWhiteOryx.class, 12, 1, 2));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityCamel.class, 2, 1, 2));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityHorse.class, 10, 1, 2));
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_LEMON, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_LIME, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_OLIVE, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_ALMOND, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
-
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_LEMON, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_LIME, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_OLIVE, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_ALMOND, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_CONQUEST, 4).setSpawnChance(GOTBiome.SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
-
 		ArrayList<SpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.WESTERLANDS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
-
 		ArrayList<SpawnListContainer> c2 = new ArrayList<>();
 		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c2);
-
 		ArrayList<SpawnListContainer> c3 = new ArrayList<>();
 		c3.add(GOTBiomeSpawnList.entry(GOTSpawnList.RED_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(1).add(c3);
-
 		decorator.addVillage(new GOTStructureDorneCity(this, 1.0f));
-
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		setDarkUnreliable();
-
 		decorator.addRandomStructure(new GOTStructureDorneWatchfort(false), 800);
 	}
 

@@ -13,7 +13,6 @@ public class GOTBiomeNewGhis extends GOTBiomeGhiscar {
 		npcSpawnList.clear();
 		decorator.clearVillages();
 		decorator.clearRandomStructures();
-
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN));

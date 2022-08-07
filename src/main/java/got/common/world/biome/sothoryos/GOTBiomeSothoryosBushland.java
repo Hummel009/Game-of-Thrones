@@ -37,13 +37,13 @@ public class GOTBiomeSothoryosBushland extends GOTBiome {
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 5, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 8, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDikDik.class, 8, 1, 2));
-		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
-		this.addBiomeVariant(GOTBiomeVariant.HILLS);
-		this.addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
-		this.addBiomeVariant(GOTBiomeVariant.DEADFOREST_OAK);
-		this.addBiomeVariant(GOTBiomeVariant.SHRUBLAND_OAK);
+		addBiomeVariant(GOTBiomeVariant.FLOWERS);
+		addBiomeVariant(GOTBiomeVariant.FOREST);
+		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
+		addBiomeVariant(GOTBiomeVariant.HILLS);
+		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
+		addBiomeVariant(GOTBiomeVariant.DEADFOREST_OAK);
+		addBiomeVariant(GOTBiomeVariant.SHRUBLAND_OAK);
 		decorator.treesPerChunk = 0;
 		decorator.logsPerChunk = 1;
 		decorator.grassPerChunk = 16;
@@ -55,14 +55,13 @@ public class GOTBiomeSothoryosBushland extends GOTBiome {
 		npcSpawnList.newFactionList(10).add(c0);
 		decorator.addVillage(new GOTStructureSothoryosVillage(this, 1.0f));
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
-
 		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinSothoryos(1, 4), 400);
 	}
 
 	@Override
 	public void decorate(World world, Random random, int i, int k) {
-		int i1;
 		int k1;
+		int i1;
 		int l;
 		super.decorate(world, random, i, k);
 		if (random.nextInt(32) == 0) {

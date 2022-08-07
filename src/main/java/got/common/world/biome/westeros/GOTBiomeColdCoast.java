@@ -30,7 +30,6 @@ public class GOTBiomeColdCoast extends GOTBiomeFarNorthSnowy {
 		spawnableGOTAmbientList.clear();
 		decorator.addVillage(new GOTStructureWildlingVillage(this, 1.0f));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWalrus.class, 8, 1, 1));
-
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
