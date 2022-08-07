@@ -15,48 +15,46 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ChestGenHooks;
 
 public class GOTChestContents {
-	public static GOTChestContents ARRYN;
-	public static GOTChestContents ASSHAI;
-	public static GOTChestContents BEYOND_WALL;
-	public static GOTChestContents BRAAVOS;
-	public static GOTChestContents CROWNLANDS;
-	public static GOTChestContents DORNE;
-	public static GOTChestContents DRAGONSTONE;
-	public static GOTChestContents GHISCAR;
-	public static GOTChestContents GIFT;
-	public static GOTChestContents GOLDEN;
-	public static GOTChestContents HILLMEN;
-	public static GOTChestContents IBBEN;
-	public static GOTChestContents IRONBORN;
-	public static GOTChestContents LORATH;
-	public static GOTChestContents LYS;
-	public static GOTChestContents MOSSOVY;
-	public static GOTChestContents MYR;
-	public static GOTChestContents DOTHRAKI;
-	public static GOTChestContents JOGOS;
-	public static GOTChestContents NORTH;
-	public static GOTChestContents NORVOS;
-	public static GOTChestContents PENTOS;
-	public static GOTChestContents QARTH;
-	public static GOTChestContents QOHOR;
-	public static GOTChestContents REACH;
-	public static GOTChestContents RIVERLANDS;
-	public static GOTChestContents SOTHORYOS;
-	public static GOTChestContents STORMLANDS;
-	public static GOTChestContents TREASURE;
-	public static GOTChestContents TYROSH;
-	public static GOTChestContents VOLANTIS;
-	public static GOTChestContents WESTERLANDS;
-	public static GOTChestContents YI_TI;
-	public static GOTChestContents SUMMER;
-	public static GOTChestContents LHAZAR;
+	public static ArrayList<WeightedRandomChestContent> WESTEROS_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> ESSOS_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> NOMAD_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> SOTHORYOS_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> YI_TI_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> MOSSOVY_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> GIFT_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> TREASURE_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> ASSHAI_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> BEYOND_WALL_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> IBBEN_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> HILLMEN_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> SUMMER_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> LHAZAR_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> ARRYN_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> BRAAVOS_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> CROWNLANDS_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> DORNE_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> DRAGONSTONE_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> GHISCAR_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> GOLDEN_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> IRONBORN_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> LORATH_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> LYS_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> MYR_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> NORTH_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> NORVOS_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> PENTOS_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> QARTH_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> QOHOR_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> REACH_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> RIVERLANDS_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> STORMLANDS_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> TYROSH_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> VOLANTIS_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> WESTERLANDS_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> JOGOS_L = new ArrayList<>();
+	public static ArrayList<WeightedRandomChestContent> DOTHRAKI_L = new ArrayList<>();
 
 	static {
-        List<WeightedRandomChestContent> WESTEROS_L = new ArrayList<>();
-		WESTEROS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.arrynHelmet), 1, 1, 10));
-		WESTEROS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.arrynChestplate), 1, 1, 10));
-		WESTEROS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.arrynLeggings), 1, 1, 10));
-		WESTEROS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.arrynBoots), 1, 1, 10));
 		WESTEROS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.ironCrossbow), 1, 1, 10));
 		WESTEROS_L.add(new WeightedRandomChestContent(new ItemStack(Items.leather), 1, 4, 100));
 		WESTEROS_L.add(new WeightedRandomChestContent(new ItemStack(Items.iron_ingot), 1, 3, 50));
@@ -132,14 +130,6 @@ public class GOTChestContents {
 		WESTEROS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.westerosBow), 1, 1, 25));
 		WESTEROS_L.add(new WeightedRandomChestContent(new ItemStack(Items.arrow), 2, 8, 100));
 
-		WeightedRandomChestContent[] WESTEROS_W = new WeightedRandomChestContent[WESTEROS_L.size()];
-		WESTEROS_W = WESTEROS_L.toArray(WESTEROS_W);
-
-        List<WeightedRandomChestContent> ESSOS_L = new ArrayList<>();
-		ESSOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.braavosHelmet), 1, 1, 10));
-		ESSOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.braavosChestplate), 1, 1, 10));
-		ESSOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.braavosLeggings), 1, 1, 10));
-		ESSOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.braavosBoots), 1, 1, 10));
 		ESSOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldRing), 1, 1, 10));
 		ESSOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.silverRing), 1, 1, 10));
 		ESSOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.ironCrossbow), 1, 1, 10));
@@ -207,10 +197,6 @@ public class GOTChestContents {
 		ESSOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.mugLimeLiqueur), 1, 1, 25));
 		ESSOS_L.add(new WeightedRandomChestContent(new ItemStack(Items.dye, 1, 4), 1, 8, 25));
 
-		WeightedRandomChestContent[] ESSOS_W = new WeightedRandomChestContent[ESSOS_L.size()];
-		ESSOS_W = ESSOS_L.toArray(ESSOS_W);
-
-        List<WeightedRandomChestContent> SOTHORYOS_L = new ArrayList<>();
 		SOTHORYOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldRing), 1, 1, 10));
 		SOTHORYOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.silverRing), 1, 1, 10));
 		SOTHORYOS_L.add(new WeightedRandomChestContent(new ItemStack(Blocks.melon_block), 2, 8, 50));
@@ -258,10 +244,6 @@ public class GOTChestContents {
 		SOTHORYOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.sarbacaneTrap), 2, 8, 50));
 		SOTHORYOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.dartPoisoned), 1, 4, 25));
 
-		WeightedRandomChestContent[] SOTHORYOS_W = new WeightedRandomChestContent[SOTHORYOS_L.size()];
-		SOTHORYOS_W = SOTHORYOS_L.toArray(SOTHORYOS_W);
-
-        List<WeightedRandomChestContent> YI_TI_L = new ArrayList<>();
 		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldRing), 1, 1, 10));
 		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.silverRing), 1, 1, 10));
 		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(Blocks.melon_block), 2, 8, 50));
@@ -333,10 +315,6 @@ public class GOTChestContents {
 		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.yitiBow), 1, 1, 25));
 		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(Items.arrow), 2, 8, 50));
 
-		WeightedRandomChestContent[] YI_TI_W = new WeightedRandomChestContent[YI_TI_L.size()];
-		YI_TI_W = YI_TI_L.toArray(YI_TI_W);
-
-        List<WeightedRandomChestContent> MOSSOVY_L = new ArrayList<>();
 		MOSSOVY_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.mossovyChestplate), 1, 1, 10));
 		MOSSOVY_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.mossovyLeggings), 1, 1, 10));
 		MOSSOVY_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.mossovyBoots), 1, 1, 10));
@@ -417,10 +395,6 @@ public class GOTChestContents {
 		MOSSOVY_L.add(new WeightedRandomChestContent(new ItemStack(Items.bow), 1, 1, 25));
 		MOSSOVY_L.add(new WeightedRandomChestContent(new ItemStack(Items.arrow), 2, 8, 100));
 
-		WeightedRandomChestContent[] MOSSOVY_W = new WeightedRandomChestContent[MOSSOVY_L.size()];
-		MOSSOVY_W = MOSSOVY_L.toArray(MOSSOVY_W);
-
-        List<WeightedRandomChestContent> GIFT_L = new ArrayList<>();
 		GIFT_L.add(new WeightedRandomChestContent(new ItemStack(Items.leather), 1, 4, 100));
 		GIFT_L.add(new WeightedRandomChestContent(new ItemStack(Items.iron_ingot), 1, 3, 50));
 		GIFT_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.bronzeIngot), 1, 3, 50));
@@ -485,10 +459,6 @@ public class GOTChestContents {
 		GIFT_L.add(new WeightedRandomChestContent(new ItemStack(Items.bow), 1, 1, 25));
 		GIFT_L.add(new WeightedRandomChestContent(new ItemStack(Items.arrow), 2, 8, 100));
 
-		WeightedRandomChestContent[] GIFT_W = new WeightedRandomChestContent[GIFT_L.size()];
-		GIFT_W = GIFT_L.toArray(GIFT_W);
-
-        List<WeightedRandomChestContent> TREASURE_L = new ArrayList<>();
 		TREASURE_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.coin, 1, 0), 1, 20, 200));
 		TREASURE_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.coin, 1, 1), 1, 8, 20));
 		TREASURE_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.coin, 1, 2), 1, 2, 5));
@@ -514,10 +484,6 @@ public class GOTChestContents {
 		TREASURE_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.gobletSilver), 1, 3, 20));
 		TREASURE_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.gobletCopper), 1, 3, 20));
 
-		WeightedRandomChestContent[] TREASURE_W = new WeightedRandomChestContent[TREASURE_L.size()];
-		TREASURE_W = TREASURE_L.toArray(TREASURE_W);
-
-        List<WeightedRandomChestContent> ASSHAI_L = new ArrayList<>();
 		ASSHAI_L.add(new WeightedRandomChestContent(new ItemStack(Items.bone), 1, 3, 100));
 		ASSHAI_L.add(new WeightedRandomChestContent(new ItemStack(Items.stick), 8, 16, 100));
 		ASSHAI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.fur), 1, 4, 50));
@@ -535,10 +501,6 @@ public class GOTChestContents {
 		ASSHAI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.bottlePoison), 1, 1, 50));
 		ASSHAI_L.add(new WeightedRandomChestContent(new ItemStack(Items.saddle), 1, 1, 50));
 
-		WeightedRandomChestContent[] ASSHAI_W = new WeightedRandomChestContent[ASSHAI_L.size()];
-		ASSHAI_W = ASSHAI_L.toArray(ASSHAI_W);
-
-        List<WeightedRandomChestContent> BEYOND_WALL_L = new ArrayList<>();
 		BEYOND_WALL_L.add(new WeightedRandomChestContent(new ItemStack(Items.bread), 1, 3, 75));
 		BEYOND_WALL_L.add(new WeightedRandomChestContent(new ItemStack(Items.potato), 1, 3, 50));
 		BEYOND_WALL_L.add(new WeightedRandomChestContent(new ItemStack(Items.apple), 1, 3, 50));
@@ -561,10 +523,6 @@ public class GOTChestContents {
 		BEYOND_WALL_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.bronzeThrowingAxe), 1, 1, 10));
 		BEYOND_WALL_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.deerCooked), 1, 3, 50));
 
-		WeightedRandomChestContent[] BEYOND_WALL_W = new WeightedRandomChestContent[BEYOND_WALL_L.size()];
-		BEYOND_WALL_W = BEYOND_WALL_L.toArray(BEYOND_WALL_W);
-
-        List<WeightedRandomChestContent> IBBEN_L = new ArrayList<>();
 		IBBEN_L.add(new WeightedRandomChestContent(new ItemStack(Items.leather), 1, 4, 100));
 		IBBEN_L.add(new WeightedRandomChestContent(new ItemStack(Items.iron_ingot), 1, 3, 50));
 		IBBEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.bronzeIngot), 1, 3, 50));
@@ -634,53 +592,41 @@ public class GOTChestContents {
 		IBBEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.ironCrossbow), 1, 1, 25));
 		IBBEN_L.add(new WeightedRandomChestContent(new ItemStack(Items.arrow), 2, 8, 100));
 
-		WeightedRandomChestContent[] IBBEN_W = new WeightedRandomChestContent[IBBEN_L.size()];
-		IBBEN_W = IBBEN_L.toArray(IBBEN_W);
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldRing), 1, 1, 10));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.silverRing), 1, 1, 10));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.nomadSword), 1, 1, 100));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.nomadSpear), 1, 1, 50));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.nomadBattleaxe), 1, 1, 50));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.nomadBow), 1, 1, 50));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(Items.bucket), 1, 3, 25));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(Items.bone), 1, 4, 25));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(Items.feather), 1, 2, 50));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(Items.leather), 1, 4, 50));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.bronzeIngot), 1, 3, 50));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(Items.iron_ingot), 1, 3, 50));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(Items.string), 1, 3, 50));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(Items.stick), 1, 8, 50));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(Items.bread), 1, 3, 25));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.oliveBread), 1, 3, 25));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.date), 1, 3, 100));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(Items.cooked_beef), 1, 2, 25));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.camelCooked), 1, 2, 200));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.kebab), 1, 4, 100));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.shishKebab), 1, 2, 25));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(Items.coal), 1, 4, 75));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(Items.wheat), 1, 5, 100));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.ceramicPlate), 1, 3, 25));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.woodPlate), 1, 3, 25));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.mug), 1, 3, 25));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.ceramicMug), 1, 3, 25));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.waterskin), 1, 3, 25));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.gobletCopper), 1, 3, 25));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.gobletWood), 1, 3, 25));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(Items.glass_bottle), 1, 2, 50));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.mugAraq), 1, 1, 100));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.mugCactusLiqueur), 1, 1, 100));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(Items.dye, 1, 4), 1, 8, 25));
 
-        List<WeightedRandomChestContent> DOTHRAKI_L = new ArrayList<>();
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldRing), 1, 1, 10));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.silverRing), 1, 1, 10));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.dothrakiHelmet), 1, 1, 10));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.dothrakiChestplate), 1, 1, 10));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.dothrakiLeggings), 1, 1, 10));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.dothrakiBoots), 1, 1, 10));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.nomadSword), 1, 1, 100));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.nomadSpear), 1, 1, 50));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.nomadBattleaxe), 1, 1, 50));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.nomadBow), 1, 1, 50));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(Items.bucket), 1, 3, 25));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(Items.bone), 1, 4, 25));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(Items.feather), 1, 2, 50));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(Items.leather), 1, 4, 50));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.bronzeIngot), 1, 3, 50));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(Items.iron_ingot), 1, 3, 50));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(Items.string), 1, 3, 50));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(Items.stick), 1, 8, 50));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(Items.bread), 1, 3, 25));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.oliveBread), 1, 3, 25));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.date), 1, 3, 100));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(Items.cooked_beef), 1, 2, 25));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.camelCooked), 1, 2, 200));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.kebab), 1, 4, 100));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.shishKebab), 1, 2, 25));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(Items.coal), 1, 4, 75));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(Items.wheat), 1, 5, 100));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.ceramicPlate), 1, 3, 25));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.woodPlate), 1, 3, 25));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.mug), 1, 3, 25));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.ceramicMug), 1, 3, 25));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.waterskin), 1, 3, 25));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.gobletCopper), 1, 3, 25));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.gobletWood), 1, 3, 25));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(Items.glass_bottle), 1, 2, 50));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.mugAraq), 1, 1, 100));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.mugCactusLiqueur), 1, 1, 100));
-		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(Items.dye, 1, 4), 1, 8, 25));
-
-		WeightedRandomChestContent[] DOTHRAKI_W = new WeightedRandomChestContent[DOTHRAKI_L.size()];
-		DOTHRAKI_W = DOTHRAKI_L.toArray(DOTHRAKI_W);
-
-        List<WeightedRandomChestContent> HILLMEN_L = new ArrayList<>();
 		HILLMEN_L.add(new WeightedRandomChestContent(new ItemStack(Items.bone), 1, 2, 100));
 		HILLMEN_L.add(new WeightedRandomChestContent(new ItemStack(Items.leather), 1, 2, 100));
 		HILLMEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.fur), 1, 2, 100));
@@ -718,10 +664,6 @@ public class GOTChestContents {
 		HILLMEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.skullCup), 1, 3, 25));
 		HILLMEN_L.add(new WeightedRandomChestContent(new ItemStack(Items.coal), 1, 3, 75));
 
-		WeightedRandomChestContent[] HILLMEN_W = new WeightedRandomChestContent[HILLMEN_L.size()];
-		HILLMEN_W = HILLMEN_L.toArray(HILLMEN_W);
-
-        List<WeightedRandomChestContent> SUMMER_L = new ArrayList<>();
 		SUMMER_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldRing), 1, 1, 10));
 		SUMMER_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.silverRing), 1, 1, 10));
 		SUMMER_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.summerSword), 1, 1, 100));
@@ -764,10 +706,6 @@ public class GOTChestContents {
 		SUMMER_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.mugAraq), 1, 1, 200));
 		SUMMER_L.add(new WeightedRandomChestContent(new ItemStack(Items.dye, 1, 4), 1, 8, 25));
 
-		WeightedRandomChestContent[] SUMMER_W = new WeightedRandomChestContent[SUMMER_L.size()];
-		SUMMER_W = SUMMER_L.toArray(SUMMER_W);
-
-        List<WeightedRandomChestContent> LHAZAR_L = new ArrayList<>();
 		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldRing), 1, 1, 10));
 		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.silverRing), 1, 1, 10));
 		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.lhazarSword), 1, 1, 100));
@@ -814,186 +752,188 @@ public class GOTChestContents {
 		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.mugAraq), 1, 1, 200));
 		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(Items.dye, 1, 4), 1, 8, 25));
 
-		WeightedRandomChestContent[] LHAZAR_W = new WeightedRandomChestContent[LHAZAR_L.size()];
-		LHAZAR_W = LHAZAR_L.toArray(LHAZAR_W);
+		ARRYN_L.addAll(WESTEROS_L);
+		BRAAVOS_L.addAll(ESSOS_L);
+		CROWNLANDS_L.addAll(WESTEROS_L);
+		DORNE_L.addAll(WESTEROS_L);
+		DRAGONSTONE_L.addAll(WESTEROS_L);
+		GHISCAR_L.addAll(ESSOS_L);
+		GOLDEN_L.addAll(ESSOS_L);
+		IRONBORN_L.addAll(WESTEROS_L);
+		LORATH_L.addAll(ESSOS_L);
+		LYS_L.addAll(ESSOS_L);
+		MYR_L.addAll(ESSOS_L);
+		NORTH_L.addAll(WESTEROS_L);
+		NORVOS_L.addAll(ESSOS_L);
+		PENTOS_L.addAll(ESSOS_L);
+		QARTH_L.addAll(ESSOS_L);
+		QOHOR_L.addAll(ESSOS_L);
+		REACH_L.addAll(WESTEROS_L);
+		RIVERLANDS_L.addAll(WESTEROS_L);
+		STORMLANDS_L.addAll(WESTEROS_L);
+		TYROSH_L.addAll(ESSOS_L);
+		VOLANTIS_L.addAll(ESSOS_L);
+		WESTERLANDS_L.addAll(WESTEROS_L);
+		JOGOS_L.addAll(NOMAD_L);
+		DOTHRAKI_L.addAll(NOMAD_L);
 
-		WeightedRandomChestContent[] ARRYN_W = WESTEROS_W.clone();
-		WeightedRandomChestContent[] BRAAVOS_W = ESSOS_W.clone();
-		WeightedRandomChestContent[] CROWNLANDS_W = WESTEROS_W.clone();
-		WeightedRandomChestContent[] DORNE_W = WESTEROS_W.clone();
-		WeightedRandomChestContent[] DRAGONSTONE_W = WESTEROS_W.clone();
-		WeightedRandomChestContent[] GHISCAR_W = ESSOS_W.clone();
-		WeightedRandomChestContent[] GOLDEN_W = ESSOS_W.clone();
-		WeightedRandomChestContent[] IRONBORN_W = WESTEROS_W.clone();
-		WeightedRandomChestContent[] LORATH_W = ESSOS_W.clone();
-		WeightedRandomChestContent[] LYS_W = ESSOS_W.clone();
-		WeightedRandomChestContent[] MYR_W = ESSOS_W.clone();
-		WeightedRandomChestContent[] NORTH_W = WESTEROS_W.clone();
-		WeightedRandomChestContent[] NORVOS_W = ESSOS_W.clone();
-		WeightedRandomChestContent[] PENTOS_W = ESSOS_W.clone();
-		WeightedRandomChestContent[] QARTH_W = ESSOS_W.clone();
-		WeightedRandomChestContent[] QOHOR_W = ESSOS_W.clone();
-		WeightedRandomChestContent[] REACH_W = WESTEROS_W.clone();
-		WeightedRandomChestContent[] RIVERLANDS_W = WESTEROS_W.clone();
-		WeightedRandomChestContent[] STORMLANDS_W = WESTEROS_W.clone();
-		WeightedRandomChestContent[] TYROSH_W = ESSOS_W.clone();
-		WeightedRandomChestContent[] VOLANTIS_W = ESSOS_W.clone();
-		WeightedRandomChestContent[] WESTERLANDS_W = WESTEROS_W.clone();
-		WeightedRandomChestContent[] JOGOS_W = DOTHRAKI_W.clone();
+		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.dothrakiHelmet), 1, 1, 10));
+		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.dothrakiChestplate), 1, 1, 10));
+		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.dothrakiLeggings), 1, 1, 10));
+		DOTHRAKI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.dothrakiBoots), 1, 1, 10));
 
-		ASSHAI = new GOTChestContents(4, 6, ASSHAI_W).enablePouches().setLore(20, GOTLore.LoreCategory.ASSHAI);
-		BEYOND_WALL = new GOTChestContents(4, 6, BEYOND_WALL_W).enablePouches().setDrinkVessels(GOTFoods.WILD_DRINK);
-		HILLMEN = new GOTChestContents(4, 6, HILLMEN_W).enablePouches().setDrinkVessels(GOTFoods.WILD_DRINK);
-		IBBEN = new GOTChestContents(4, 6, IBBEN_W).enablePouches().setDrinkVessels(GOTFoods.WILD_DRINK);
-		MOSSOVY = new GOTChestContents(4, 6, MOSSOVY_W).enablePouches().setDrinkVessels(GOTFoods.WILD_DRINK).setLore(20, GOTLore.LoreCategory.MOSSOVY);
-		DOTHRAKI = new GOTChestContents(4, 6, DOTHRAKI_W).enablePouches().setDrinkVessels(GOTFoods.NOMAD_DRINK);
-		LHAZAR = new GOTChestContents(4, 6, LHAZAR_W).enablePouches().setDrinkVessels(GOTFoods.NOMAD_DRINK);
-		SOTHORYOS = new GOTChestContents(4, 6, SOTHORYOS_W).enablePouches().setDrinkVessels(GOTFoods.SOTHORYOS_DRINK).setLore(20, GOTLore.LoreCategory.SOTHORYOS);
-		TREASURE = new GOTChestContents(4, 6, TREASURE_W).enablePouches();
-		YI_TI = new GOTChestContents(4, 6, YI_TI_W).enablePouches().setDrinkVessels(GOTFoods.RICH_DRINK).setLore(20, GOTLore.LoreCategory.YITI);
-		SUMMER = new GOTChestContents(4, 6, SUMMER_W).enablePouches().setDrinkVessels(GOTFoods.ESSOS_DRINK).setLore(20, GOTLore.LoreCategory.SOTHORYOS);
+		JOGOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.jogosHelmet), 1, 1, 25));
+		JOGOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.jogosChestplate), 1, 1, 25));
+		JOGOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.jogosLeggings), 1, 1, 25));
+		JOGOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.jogosBoots), 1, 1, 25));
 
-		JOGOS_W[0] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.jogosHelmet), 1, 1, 25);
-		JOGOS_W[1] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.jogosChestplate), 1, 1, 25);
-		JOGOS_W[2] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.jogosLeggings), 1, 1, 25);
-		JOGOS_W[3] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.jogosBoots), 1, 1, 25);
-		JOGOS = new GOTChestContents(4, 6, JOGOS_W).enablePouches().setDrinkVessels(GOTFoods.NOMAD_DRINK);
+		ARRYN_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.arrynHelmet), 1, 1, 25));
+		ARRYN_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.arrynChestplate), 1, 1, 25));
+		ARRYN_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.arrynLeggings), 1, 1, 25));
+		ARRYN_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.arrynBoots), 1, 1, 25));
 
-		ARRYN_W[0] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.arrynHelmet), 1, 1, 25);
-		ARRYN_W[1] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.arrynChestplate), 1, 1, 25);
-		ARRYN_W[2] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.arrynLeggings), 1, 1, 25);
-		ARRYN_W[3] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.arrynBoots), 1, 1, 25);
-		ARRYN = new GOTChestContents(4, 6, ARRYN_W).enablePouches().setDrinkVessels(GOTFoods.WESTEROS_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
+		CROWNLANDS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.crownlandsHelmet), 1, 1, 25));
+		CROWNLANDS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.crownlandsChestplate), 1, 1, 25));
+		CROWNLANDS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.crownlandsLeggings), 1, 1, 25));
+		CROWNLANDS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.crownlandsBoots), 1, 1, 25));
 
-		CROWNLANDS_W[0] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.crownlandsHelmet), 1, 1, 25);
-		CROWNLANDS_W[1] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.crownlandsChestplate), 1, 1, 25);
-		CROWNLANDS_W[2] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.crownlandsLeggings), 1, 1, 25);
-		CROWNLANDS_W[3] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.crownlandsBoots), 1, 1, 25);
-		CROWNLANDS = new GOTChestContents(4, 6, CROWNLANDS_W).enablePouches().setDrinkVessels(GOTFoods.WESTEROS_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
+		DORNE_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.dorneHelmet), 1, 1, 25));
+		DORNE_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.dorneChestplate), 1, 1, 25));
+		DORNE_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.dorneLeggings), 1, 1, 25));
+		DORNE_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.dorneBoots), 1, 1, 25));
 
-		DORNE_W[0] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.dorneHelmet), 1, 1, 25);
-		DORNE_W[1] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.dorneChestplate), 1, 1, 25);
-		DORNE_W[2] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.dorneLeggings), 1, 1, 25);
-		DORNE_W[3] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.dorneBoots), 1, 1, 25);
-		DORNE = new GOTChestContents(4, 6, DORNE_W).enablePouches().setDrinkVessels(GOTFoods.WESTEROS_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
+		DRAGONSTONE_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.dragonstoneHelmet), 1, 1, 25));
+		DRAGONSTONE_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.dragonstoneChestplate), 1, 1, 25));
+		DRAGONSTONE_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.dragonstoneLeggings), 1, 1, 25));
+		DRAGONSTONE_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.dragonstoneBoots), 1, 1, 25));
 
-		DRAGONSTONE_W[0] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.dragonstoneHelmet), 1, 1, 25);
-		DRAGONSTONE_W[1] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.dragonstoneChestplate), 1, 1, 25);
-		DRAGONSTONE_W[2] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.dragonstoneLeggings), 1, 1, 25);
-		DRAGONSTONE_W[3] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.dragonstoneBoots), 1, 1, 25);
-		DRAGONSTONE = new GOTChestContents(4, 6, DRAGONSTONE_W).enablePouches().setDrinkVessels(GOTFoods.WESTEROS_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
+		IRONBORN_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.ironbornHelmet), 1, 1, 25));
+		IRONBORN_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.ironbornChestplate), 1, 1, 25));
+		IRONBORN_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.ironbornLeggings), 1, 1, 25));
+		IRONBORN_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.ironbornBoots), 1, 1, 25));
 
-		IRONBORN_W[0] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.ironbornHelmet), 1, 1, 25);
-		IRONBORN_W[1] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.ironbornChestplate), 1, 1, 25);
-		IRONBORN_W[2] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.ironbornLeggings), 1, 1, 25);
-		IRONBORN_W[3] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.ironbornBoots), 1, 1, 25);
-		IRONBORN = new GOTChestContents(4, 6, IRONBORN_W).enablePouches().setDrinkVessels(GOTFoods.WESTEROS_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
+		NORTH_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.northHelmet), 1, 1, 25));
+		NORTH_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.northChestplate), 1, 1, 25));
+		NORTH_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.northLeggings), 1, 1, 25));
+		NORTH_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.northBoots), 1, 1, 25));
 
-		NORTH_W[0] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.northHelmet), 1, 1, 25);
-		NORTH_W[1] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.northChestplate), 1, 1, 25);
-		NORTH_W[2] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.northLeggings), 1, 1, 25);
-		NORTH_W[3] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.northBoots), 1, 1, 25);
-		NORTH = new GOTChestContents(4, 6, NORTH_W).enablePouches().setDrinkVessels(GOTFoods.WESTEROS_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
+		REACH_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.reachHelmet), 1, 1, 25));
+		REACH_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.reachChestplate), 1, 1, 25));
+		REACH_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.reachLeggings), 1, 1, 25));
+		REACH_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.reachBoots), 1, 1, 25));
 
-		REACH_W[0] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.reachHelmet), 1, 1, 25);
-		REACH_W[1] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.reachChestplate), 1, 1, 25);
-		REACH_W[2] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.reachLeggings), 1, 1, 25);
-		REACH_W[3] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.reachBoots), 1, 1, 25);
-		REACH = new GOTChestContents(4, 6, REACH_W).enablePouches().setDrinkVessels(GOTFoods.WESTEROS_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
+		RIVERLANDS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.riverlandsHelmet), 1, 1, 25));
+		RIVERLANDS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.riverlandsChestplate), 1, 1, 25));
+		RIVERLANDS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.riverlandsLeggings), 1, 1, 25));
+		RIVERLANDS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.riverlandsBoots), 1, 1, 25));
 
-		RIVERLANDS_W[0] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.riverlandsHelmet), 1, 1, 25);
-		RIVERLANDS_W[1] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.riverlandsChestplate), 1, 1, 25);
-		RIVERLANDS_W[2] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.riverlandsLeggings), 1, 1, 25);
-		RIVERLANDS_W[3] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.riverlandsBoots), 1, 1, 25);
-		RIVERLANDS = new GOTChestContents(4, 6, RIVERLANDS_W).enablePouches().setDrinkVessels(GOTFoods.WESTEROS_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
+		STORMLANDS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.stormlandsHelmet), 1, 1, 25));
+		STORMLANDS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.stormlandsChestplate), 1, 1, 25));
+		STORMLANDS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.stormlandsLeggings), 1, 1, 25));
+		STORMLANDS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.stormlandsBoots), 1, 1, 25));
 
-		STORMLANDS_W[0] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.stormlandsHelmet), 1, 1, 25);
-		STORMLANDS_W[1] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.stormlandsChestplate), 1, 1, 25);
-		STORMLANDS_W[2] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.stormlandsLeggings), 1, 1, 25);
-		STORMLANDS_W[3] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.stormlandsBoots), 1, 1, 25);
-		STORMLANDS = new GOTChestContents(4, 6, STORMLANDS_W).enablePouches().setDrinkVessels(GOTFoods.WESTEROS_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
+		WESTERLANDS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.westerlandsHelmet), 1, 1, 25));
+		WESTERLANDS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.westerlandsChestplate), 1, 1, 25));
+		WESTERLANDS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.westerlandsLeggings), 1, 1, 25));
+		WESTERLANDS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.westerlandsBoots), 1, 1, 25));
 
-		WESTERLANDS_W[0] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.westerlandsHelmet), 1, 1, 25);
-		WESTERLANDS_W[1] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.westerlandsChestplate), 1, 1, 25);
-		WESTERLANDS_W[2] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.westerlandsLeggings), 1, 1, 25);
-		WESTERLANDS_W[3] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.westerlandsBoots), 1, 1, 25);
-		WESTERLANDS = new GOTChestContents(4, 6, WESTERLANDS_W).enablePouches().setDrinkVessels(GOTFoods.WESTEROS_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
+		BRAAVOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.braavosHelmet), 1, 1, 25));
+		BRAAVOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.braavosChestplate), 1, 1, 25));
+		BRAAVOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.braavosLeggings), 1, 1, 25));
+		BRAAVOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.braavosBoots), 1, 1, 25));
 
-		GIFT = new GOTChestContents(4, 6, GIFT_W).enablePouches().setDrinkVessels(GOTFoods.WESTEROS_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
+		GHISCAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.ghiscarHelmet), 1, 1, 25));
+		GHISCAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.ghiscarChestplate), 1, 1, 25));
+		GHISCAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.ghiscarLeggings), 1, 1, 25));
+		GHISCAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.ghiscarBoots), 1, 1, 25));
 
-		BRAAVOS_W[0] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.braavosHelmet), 1, 1, 25);
-		BRAAVOS_W[1] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.braavosChestplate), 1, 1, 25);
-		BRAAVOS_W[2] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.braavosLeggings), 1, 1, 25);
-		BRAAVOS_W[3] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.braavosBoots), 1, 1, 25);
-		BRAAVOS = new GOTChestContents(4, 6, BRAAVOS_W).enablePouches().setDrinkVessels(GOTFoods.ESSOS_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
+		LORATH_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.lorathHelmet), 1, 1, 25));
+		LORATH_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.lorathChestplate), 1, 1, 25));
+		LORATH_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.lorathLeggings), 1, 1, 25));
+		LORATH_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.lorathBoots), 1, 1, 25));
 
-		GHISCAR_W[0] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.ghiscarHelmet), 1, 1, 25);
-		GHISCAR_W[1] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.ghiscarChestplate), 1, 1, 25);
-		GHISCAR_W[2] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.ghiscarLeggings), 1, 1, 25);
-		GHISCAR_W[3] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.ghiscarBoots), 1, 1, 25);
-		GHISCAR = new GOTChestContents(4, 6, GHISCAR_W).enablePouches().setDrinkVessels(GOTFoods.ESSOS_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
+		LYS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.lysHelmet), 1, 1, 25));
+		LYS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.lysChestplate), 1, 1, 25));
+		LYS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.lysLeggings), 1, 1, 25));
+		LYS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.lysBoots), 1, 1, 25));
 
-		LORATH_W[0] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.lorathHelmet), 1, 1, 25);
-		LORATH_W[1] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.lorathChestplate), 1, 1, 25);
-		LORATH_W[2] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.lorathLeggings), 1, 1, 25);
-		LORATH_W[3] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.lorathBoots), 1, 1, 25);
-		LORATH = new GOTChestContents(4, 6, LORATH_W).enablePouches().setDrinkVessels(GOTFoods.ESSOS_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
+		MYR_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.myrHelmet), 1, 1, 25));
+		MYR_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.myrChestplate), 1, 1, 25));
+		MYR_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.myrLeggings), 1, 1, 25));
+		MYR_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.myrBoots), 1, 1, 25));
 
-		LYS_W[0] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.lysHelmet), 1, 1, 25);
-		LYS_W[1] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.lysChestplate), 1, 1, 25);
-		LYS_W[2] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.lysLeggings), 1, 1, 25);
-		LYS_W[3] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.lysBoots), 1, 1, 25);
-		LYS = new GOTChestContents(4, 6, LYS_W).enablePouches().setDrinkVessels(GOTFoods.ESSOS_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
+		NORVOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.norvosHelmet), 1, 1, 25));
+		NORVOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.norvosChestplate), 1, 1, 25));
+		NORVOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.norvosLeggings), 1, 1, 25));
+		NORVOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.norvosBoots), 1, 1, 25));
 
-		MYR_W[0] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.myrHelmet), 1, 1, 25);
-		MYR_W[1] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.myrChestplate), 1, 1, 25);
-		MYR_W[2] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.myrLeggings), 1, 1, 25);
-		MYR_W[3] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.myrBoots), 1, 1, 25);
-		MYR = new GOTChestContents(4, 6, MYR_W).enablePouches().setDrinkVessels(GOTFoods.ESSOS_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
+		PENTOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.pentosHelmet), 1, 1, 25));
+		PENTOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.pentosChestplate), 1, 1, 25));
+		PENTOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.pentosLeggings), 1, 1, 25));
+		PENTOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.pentosBoots), 1, 1, 25));
 
-		NORVOS_W[0] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.norvosHelmet), 1, 1, 25);
-		NORVOS_W[1] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.norvosChestplate), 1, 1, 25);
-		NORVOS_W[2] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.norvosLeggings), 1, 1, 25);
-		NORVOS_W[3] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.norvosBoots), 1, 1, 25);
-		NORVOS = new GOTChestContents(4, 6, NORVOS_W).enablePouches().setDrinkVessels(GOTFoods.ESSOS_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
+		QARTH_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.qarthHelmet), 1, 1, 25));
+		QARTH_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.qarthChestplate), 1, 1, 25));
+		QARTH_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.qarthLeggings), 1, 1, 25));
+		QARTH_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.qarthBoots), 1, 1, 25));
 
-		PENTOS_W[0] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.pentosHelmet), 1, 1, 25);
-		PENTOS_W[1] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.pentosChestplate), 1, 1, 25);
-		PENTOS_W[2] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.pentosLeggings), 1, 1, 25);
-		PENTOS_W[3] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.pentosBoots), 1, 1, 25);
-		PENTOS = new GOTChestContents(4, 6, PENTOS_W).enablePouches().setDrinkVessels(GOTFoods.ESSOS_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
+		QOHOR_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.qohorHelmet), 1, 1, 25));
+		QOHOR_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.qohorChestplate), 1, 1, 25));
+		QOHOR_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.qohorLeggings), 1, 1, 25));
+		QOHOR_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.qohorBoots), 1, 1, 25));
 
-		QARTH_W[0] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.qarthHelmet), 1, 1, 25);
-		QARTH_W[1] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.qarthChestplate), 1, 1, 25);
-		QARTH_W[2] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.qarthLeggings), 1, 1, 25);
-		QARTH_W[3] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.qarthBoots), 1, 1, 25);
-		QARTH = new GOTChestContents(4, 6, QARTH_W).enablePouches().setDrinkVessels(GOTFoods.ESSOS_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
+		TYROSH_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.tyroshHelmet), 1, 1, 25));
+		TYROSH_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.tyroshChestplate), 1, 1, 25));
+		TYROSH_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.tyroshLeggings), 1, 1, 25));
+		TYROSH_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.tyroshBoots), 1, 1, 25));
 
-		QOHOR_W[0] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.qohorHelmet), 1, 1, 25);
-		QOHOR_W[1] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.qohorChestplate), 1, 1, 25);
-		QOHOR_W[2] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.qohorLeggings), 1, 1, 25);
-		QOHOR_W[3] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.qohorBoots), 1, 1, 25);
-		QOHOR = new GOTChestContents(4, 6, QOHOR_W).enablePouches().setDrinkVessels(GOTFoods.ESSOS_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
+		VOLANTIS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.volantisHelmet), 1, 1, 25));
+		VOLANTIS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.volantisChestplate), 1, 1, 25));
+		VOLANTIS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.volantisLeggings), 1, 1, 25));
+		VOLANTIS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.volantisBoots), 1, 1, 25));
 
-		TYROSH_W[0] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.tyroshHelmet), 1, 1, 25);
-		TYROSH_W[1] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.tyroshChestplate), 1, 1, 25);
-		TYROSH_W[2] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.tyroshLeggings), 1, 1, 25);
-		TYROSH_W[3] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.tyroshBoots), 1, 1, 25);
-		TYROSH = new GOTChestContents(4, 6, TYROSH_W).enablePouches().setDrinkVessels(GOTFoods.ESSOS_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
-
-		VOLANTIS_W[0] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.volantisHelmet), 1, 1, 25);
-		VOLANTIS_W[1] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.volantisChestplate), 1, 1, 25);
-		VOLANTIS_W[2] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.volantisLeggings), 1, 1, 25);
-		VOLANTIS_W[3] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.volantisBoots), 1, 1, 25);
-		VOLANTIS = new GOTChestContents(4, 6, VOLANTIS_W).enablePouches().setDrinkVessels(GOTFoods.ESSOS_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
-
-		GOLDEN_W[0] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldHelmet), 1, 1, 25);
-		GOLDEN_W[1] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldChestplate), 1, 1, 25);
-		GOLDEN_W[2] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldLeggings), 1, 1, 25);
-		GOLDEN_W[3] = new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldBoots), 1, 1, 25);
-		GOLDEN = new GOTChestContents(4, 6, GOLDEN_W).enablePouches().setDrinkVessels(GOTFoods.ESSOS_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
-
+		GOLDEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldHelmet), 1, 1, 25));
+		GOLDEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldChestplate), 1, 1, 25));
+		GOLDEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldLeggings), 1, 1, 25));
+		GOLDEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldBoots), 1, 1, 25));
 	}
+
+	public static GOTChestContents ARRYN = new GOTChestContents(4, 6, ARRYN_L).enablePouches().setDrinkVessels(GOTFoods.WESTEROS_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
+	public static GOTChestContents ASSHAI = new GOTChestContents(4, 6, ASSHAI_L).enablePouches().setLore(20, GOTLore.LoreCategory.ASSHAI);
+	public static GOTChestContents BEYOND_WALL = new GOTChestContents(4, 6, BEYOND_WALL_L).enablePouches().setDrinkVessels(GOTFoods.WILD_DRINK);
+	public static GOTChestContents BRAAVOS = new GOTChestContents(4, 6, BRAAVOS_L).enablePouches().setDrinkVessels(GOTFoods.ESSOS_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
+	public static GOTChestContents CROWNLANDS = new GOTChestContents(4, 6, CROWNLANDS_L).enablePouches().setDrinkVessels(GOTFoods.WESTEROS_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
+	public static GOTChestContents DORNE = new GOTChestContents(4, 6, DORNE_L).enablePouches().setDrinkVessels(GOTFoods.WESTEROS_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
+	public static GOTChestContents DOTHRAKI = new GOTChestContents(4, 6, DOTHRAKI_L).enablePouches().setDrinkVessels(GOTFoods.NOMAD_DRINK);
+	public static GOTChestContents DRAGONSTONE = new GOTChestContents(4, 6, DRAGONSTONE_L).enablePouches().setDrinkVessels(GOTFoods.WESTEROS_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
+	public static GOTChestContents GHISCAR = new GOTChestContents(4, 6, GHISCAR_L).enablePouches().setDrinkVessels(GOTFoods.ESSOS_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
+	public static GOTChestContents GIFT = new GOTChestContents(4, 6, GIFT_L).enablePouches().setDrinkVessels(GOTFoods.WESTEROS_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
+	public static GOTChestContents GOLDEN = new GOTChestContents(4, 6, GOLDEN_L).enablePouches().setDrinkVessels(GOTFoods.ESSOS_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
+	public static GOTChestContents HILLMEN = new GOTChestContents(4, 6, HILLMEN_L).enablePouches().setDrinkVessels(GOTFoods.WILD_DRINK);
+	public static GOTChestContents IBBEN = new GOTChestContents(4, 6, IBBEN_L).enablePouches().setDrinkVessels(GOTFoods.WILD_DRINK);
+	public static GOTChestContents IRONBORN = new GOTChestContents(4, 6, IRONBORN_L).enablePouches().setDrinkVessels(GOTFoods.WESTEROS_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
+	public static GOTChestContents JOGOS = new GOTChestContents(4, 6, JOGOS_L).enablePouches().setDrinkVessels(GOTFoods.NOMAD_DRINK);
+	public static GOTChestContents LHAZAR = new GOTChestContents(4, 6, LHAZAR_L).enablePouches().setDrinkVessels(GOTFoods.NOMAD_DRINK);
+	public static GOTChestContents LORATH = new GOTChestContents(4, 6, LORATH_L).enablePouches().setDrinkVessels(GOTFoods.ESSOS_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
+	public static GOTChestContents LYS = new GOTChestContents(4, 6, LYS_L).enablePouches().setDrinkVessels(GOTFoods.ESSOS_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
+	public static GOTChestContents MOSSOVY = new GOTChestContents(4, 6, MOSSOVY_L).enablePouches().setDrinkVessels(GOTFoods.WILD_DRINK).setLore(20, GOTLore.LoreCategory.MOSSOVY);
+	public static GOTChestContents MYR = new GOTChestContents(4, 6, MYR_L).enablePouches().setDrinkVessels(GOTFoods.ESSOS_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
+	public static GOTChestContents NORTH = new GOTChestContents(4, 6, NORTH_L).enablePouches().setDrinkVessels(GOTFoods.WESTEROS_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
+	public static GOTChestContents NORVOS = new GOTChestContents(4, 6, NORVOS_L).enablePouches().setDrinkVessels(GOTFoods.ESSOS_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
+	public static GOTChestContents PENTOS = new GOTChestContents(4, 6, PENTOS_L).enablePouches().setDrinkVessels(GOTFoods.ESSOS_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
+	public static GOTChestContents QARTH = new GOTChestContents(4, 6, QARTH_L).enablePouches().setDrinkVessels(GOTFoods.ESSOS_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
+	public static GOTChestContents QOHOR = new GOTChestContents(4, 6, QOHOR_L).enablePouches().setDrinkVessels(GOTFoods.ESSOS_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
+	public static GOTChestContents REACH = new GOTChestContents(4, 6, REACH_L).enablePouches().setDrinkVessels(GOTFoods.WESTEROS_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
+	public static GOTChestContents RIVERLANDS = new GOTChestContents(4, 6, RIVERLANDS_L).enablePouches().setDrinkVessels(GOTFoods.WESTEROS_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
+	public static GOTChestContents SOTHORYOS = new GOTChestContents(4, 6, SOTHORYOS_L).enablePouches().setDrinkVessels(GOTFoods.SOTHORYOS_DRINK).setLore(20, GOTLore.LoreCategory.SOTHORYOS);
+	public static GOTChestContents STORMLANDS = new GOTChestContents(4, 6, STORMLANDS_L).enablePouches().setDrinkVessels(GOTFoods.WESTEROS_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
+	public static GOTChestContents SUMMER = new GOTChestContents(4, 6, SUMMER_L).enablePouches().setDrinkVessels(GOTFoods.ESSOS_DRINK).setLore(20, GOTLore.LoreCategory.SOTHORYOS);
+	public static GOTChestContents TREASURE = new GOTChestContents(4, 6, TREASURE_L).enablePouches();
+	public static GOTChestContents TYROSH = new GOTChestContents(4, 6, TYROSH_L).enablePouches().setDrinkVessels(GOTFoods.ESSOS_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
+	public static GOTChestContents VOLANTIS = new GOTChestContents(4, 6, VOLANTIS_L).enablePouches().setDrinkVessels(GOTFoods.ESSOS_DRINK).setLore(20, GOTLore.LoreCategory.ESSOS);
+	public static GOTChestContents WESTERLANDS = new GOTChestContents(4, 6, WESTERLANDS_L).enablePouches().setDrinkVessels(GOTFoods.WESTEROS_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
+	public static GOTChestContents YI_TI = new GOTChestContents(4, 6, YI_TI_L).enablePouches().setDrinkVessels(GOTFoods.RICH_DRINK).setLore(20, GOTLore.LoreCategory.YITI);
+
 
 	public WeightedRandomChestContent[] items;
 	public int minItems;
@@ -1003,7 +943,9 @@ public class GOTChestContents {
 	public List<GOTLore.LoreCategory> loreCategories = new ArrayList<>();
 	public int loreChance = 10;
 
-	public GOTChestContents(int i, int j, WeightedRandomChestContent[] w) {
+	public GOTChestContents(int i, int j, ArrayList<WeightedRandomChestContent> list) {
+		WeightedRandomChestContent[] w = new WeightedRandomChestContent[list.size()];
+		w = list.toArray(w);
 		minItems = i;
 		maxItems = j;
 		items = w;
