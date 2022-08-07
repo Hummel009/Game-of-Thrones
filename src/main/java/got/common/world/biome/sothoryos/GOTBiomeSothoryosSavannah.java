@@ -30,17 +30,19 @@ public class GOTBiomeSothoryosSavannah extends GOTBiome {
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 5, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 8, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDikDik.class, 8, 1, 2));
-		addBiomeVariant(GOTBiomeVariant.FLOWERS);
-		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
-		addBiomeVariant(GOTBiomeVariant.HILLS);
-		addBiomeVariant(GOTBiomeVariant.SAVANNAH_BAOBAB, 3.0f);
+		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
+		this.addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
+		this.addBiomeVariant(GOTBiomeVariant.HILLS);
+		this.addBiomeVariant(GOTBiomeVariant.SAVANNAH_BAOBAB, 3.0f);
 		decorator.grassPerChunk = 256;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.KANUKA, 100);
 		registerExoticFlowers();
+
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
+
 		decorator.addVillage(new GOTStructureSothoryosVillage(this, 1.0f));
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}

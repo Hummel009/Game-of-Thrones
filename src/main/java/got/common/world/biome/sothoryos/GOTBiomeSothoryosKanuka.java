@@ -44,8 +44,8 @@ public class GOTBiomeSothoryosKanuka extends GOTBiome {
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDikDik.class, 8, 1, 2));
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.KANUKA, 100);
-		addBiomeVariant(GOTBiomeVariant.FLOWERS);
-		addBiomeVariant(GOTBiomeVariant.HILLS);
+		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
+		this.addBiomeVariant(GOTBiomeVariant.HILLS);
 		decorator.treesPerChunk = 10;
 		decorator.flowersPerChunk = 3;
 		decorator.doubleFlowersPerChunk = 1;

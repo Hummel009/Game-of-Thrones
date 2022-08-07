@@ -44,11 +44,13 @@ public class GOTBiomeSothoryosMangrove extends GOTBiome {
 
 	@Override
 	public void decorate(World world, Random random, int i, int k) {
+		int i1;
+		int l;
 		super.decorate(world, random, i, k);
-		for (int l = 0; l < 20; ++l) {
+		for (l = 0; l < 20; ++l) {
 			int j1;
 			int k1;
-			int i1 = i + random.nextInt(16);
+			i1 = i + random.nextInt(16);
 			if (!world.getBlock(i1, j1 = 50 + random.nextInt(15), k1 = k + random.nextInt(16)).isOpaqueCube() || world.getBlock(i1, j1 + 1, k1).getMaterial() != Material.water) {
 				continue;
 			}

@@ -19,10 +19,13 @@ public class GOTBiomeIronborn extends GOTBiomeWesteros {
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_CONQUEST, 4).setSpawnChance(GOTBiome.SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
+
 		ArrayList<SpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.NORTH_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
+
 		decorator.addVillage(new GOTStructureIronbornCity(this, 1.0f));
+
 		decorator.addRandomStructure(new GOTStructureIronbornWatchfort(false), 800);
 	}
 

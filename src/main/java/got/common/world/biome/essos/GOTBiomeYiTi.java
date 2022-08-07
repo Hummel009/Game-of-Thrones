@@ -18,29 +18,30 @@ import got.common.world.structure.other.*;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTBiomeYiTi extends GOTBiome {
+
 	public GOTBiomeYiTi(int i, boolean major) {
 		super(i, major);
 		spawnableCreatureList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityHorse.class, 5, 1, 2));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWhiteBison.class, 6, 1, 2));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 4, 1, 1));
-		addBiomeVariant(GOTBiomeVariant.FLOWERS);
-		addBiomeVariant(GOTBiomeVariant.FOREST);
-		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
-		addBiomeVariant(GOTBiomeVariant.HILLS);
-		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
-		addBiomeVariant(GOTBiomeVariant.SHRUBLAND_OAK);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.1f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_LEMON, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_LIME, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_OLIVE, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_ALMOND, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.3f);
-		addBiomeVariant(GOTBiomeVariant.SCRUBLAND_SAND);
-		addBiomeVariant(GOTBiomeVariant.HILLS_SCRUBLAND_SAND);
+		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
+		this.addBiomeVariant(GOTBiomeVariant.FOREST);
+		this.addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
+		this.addBiomeVariant(GOTBiomeVariant.HILLS);
+		this.addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
+		this.addBiomeVariant(GOTBiomeVariant.SHRUBLAND_OAK);
+		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.1f);
+		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
+		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_LEMON, 0.2f);
+		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_LIME, 0.2f);
+		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_OLIVE, 0.2f);
+		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_ALMOND, 0.2f);
+		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
+		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
+		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.3f);
+		this.addBiomeVariant(GOTBiomeVariant.SCRUBLAND_SAND);
+		this.addBiomeVariant(GOTBiomeVariant.HILLS_SCRUBLAND_SAND);
 		decorator.grassPerChunk = 6;
 		decorator.doubleGrassPerChunk = 1;
 		decorator.flowersPerChunk = 3;
@@ -51,18 +52,24 @@ public class GOTBiomeYiTi extends GOTBiome {
 		decorator.addTree(GOTTreeType.LIME, 500);
 		decorator.addTree(GOTTreeType.POMEGRANATE, 500);
 		registerYiTiPlainsFlowers();
+
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.YITI_CONQUEST, 4).setSpawnChance(GOTBiome.SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.YITI_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
+
 		ArrayList<SpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.JOGOS_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
+
 		ArrayList<SpawnListContainer> c2 = new ArrayList<>();
 		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.MANTICORE, 1).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(1).add(c2);
+
 		decorator.addVillage(new GOTStructureYiTiCity(this, 1.0f));
+
 		invasionSpawns.addInvasion(GOTInvasions.JOGOS, GOTEventSpawner.EventChance.UNCOMMON);
+
 		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
 		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);

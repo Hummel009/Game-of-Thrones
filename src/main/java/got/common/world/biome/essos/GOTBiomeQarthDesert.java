@@ -38,7 +38,7 @@ public class GOTBiomeQarthDesert extends GOTBiome implements GOTBiome.Desert {
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(1).add(c0);
-		addBiomeVariant(GOTBiomeVariant.HILLS);
+		this.addBiomeVariant(GOTBiomeVariant.HILLS);
 		decorator.grassPerChunk = 0;
 		decorator.doubleGrassPerChunk = 0;
 		decorator.cactiPerChunk = 0;
@@ -48,10 +48,14 @@ public class GOTBiomeQarthDesert extends GOTBiome implements GOTBiome.Desert {
 
 	@Override
 	public void decorate(World world, Random random, int i, int k) {
-		int i12;
+		int k1;
 		int k12;
-		int j12;
 		int preGrasses;
+		int i1;
+		int j1;
+		int j12;
+		int l;
+		int i12;
 		int grasses = preGrasses = decorator.grassPerChunk;
 		double d1 = noiseAridGrass.func_151601_a(i * 0.002, k * 0.002);
 		if (d1 > 0.5) {
@@ -74,10 +78,10 @@ public class GOTBiomeQarthDesert extends GOTBiome implements GOTBiome.Desert {
 		}
 		if (random.nextInt(120) == 0) {
 			int boulders = 1 + random.nextInt(4);
-			for (int l = 0; l < boulders; ++l) {
-				int i1 = i + random.nextInt(16) + 8;
-				int k1 = k + random.nextInt(16) + 8;
-				int j1 = world.getHeightValue(i1, k1);
+			for (l = 0; l < boulders; ++l) {
+				i1 = i + random.nextInt(16) + 8;
+				k1 = k + random.nextInt(16) + 8;
+				j1 = world.getHeightValue(i1, k1);
 				if (random.nextBoolean()) {
 					boulderGen.generate(world, random, i1, j1, k1);
 					continue;

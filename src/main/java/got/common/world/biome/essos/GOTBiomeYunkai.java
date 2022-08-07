@@ -16,11 +16,13 @@ public class GOTBiomeYunkai extends GOTBiomeGhiscar {
 		npcSpawnList.clear();
 		decorator.clearVillages();
 		decorator.clearRandomStructures();
+
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_GUARDIAN, 4).setSpawnChance(GOTBiome.SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
+
 		decorator.addRandomStructure(new GOTStructureGhiscarFightingPit(false), 250);
 	}
 

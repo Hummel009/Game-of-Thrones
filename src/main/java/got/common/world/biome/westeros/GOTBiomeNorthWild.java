@@ -19,7 +19,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 public class GOTBiomeNorthWild extends GOTBiome {
 	public GOTBiomeNorthWild(int i, boolean major) {
 		super(i, major);
-		addBiomeVariant(GOTBiomeVariant.HILLS);
+		this.addBiomeVariant(GOTBiomeVariant.HILLS);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.SPRUCE, 400);
 		decorator.addTree(GOTTreeType.SPRUCE_THIN, 400);
@@ -37,17 +37,22 @@ public class GOTBiomeNorthWild extends GOTBiome {
 		spawnableCreatureList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 8, 1, 2));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 4, 1, 1));
+
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.NORTH_HILLMEN, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
+
 		ArrayList<SpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
+
 		ArrayList<SpawnListContainer> c2 = new ArrayList<>();
 		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c2);
+
 		decorator.addVillage(new GOTStructureNorthHillmanVillage(this, 1.0f));
+
 		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
 		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);

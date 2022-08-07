@@ -31,7 +31,7 @@ public class GOTBiomeUlthosDesert extends GOTBiome implements GOTBiome.Desert {
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(1).add(c0);
 		variantChance = 0.3f;
-		addBiomeVariant(GOTBiomeVariant.HILLS);
+		this.addBiomeVariant(GOTBiomeVariant.HILLS);
 		decorator.grassPerChunk = 0;
 		decorator.doubleGrassPerChunk = 0;
 		decorator.flowersPerChunk = 0;
@@ -44,9 +44,12 @@ public class GOTBiomeUlthosDesert extends GOTBiome implements GOTBiome.Desert {
 
 	@Override
 	public void decorate(World world, Random random, int i, int k) {
-		int k12;
 		int j1;
+		int l;
+		int i1;
 		int i12;
+		int k1;
+		int k12;
 		super.decorate(world, random, i, k);
 		if (random.nextInt(8) == 0) {
 			i12 = i + random.nextInt(16) + 8;
@@ -68,9 +71,9 @@ public class GOTBiomeUlthosDesert extends GOTBiome implements GOTBiome.Desert {
 		}
 		if (random.nextInt(500) == 0) {
 			int trees = 1 + random.nextInt(4);
-			for (int l = 0; l < trees; ++l) {
-				int i1 = i + random.nextInt(8) + 8;
-				int k1 = k + random.nextInt(8) + 8;
+			for (l = 0; l < trees; ++l) {
+				i1 = i + random.nextInt(8) + 8;
+				k1 = k + random.nextInt(8) + 8;
 				int j12 = world.getHeightValue(i1, k1);
 				decorator.genTree(world, random, i1, j12, k1);
 			}

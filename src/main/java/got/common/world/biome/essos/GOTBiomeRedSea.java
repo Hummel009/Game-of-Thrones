@@ -13,7 +13,7 @@ public class GOTBiomeRedSea extends GOTBiome {
 		spawnableWaterCreatureList.clear();
 		spawnableGOTAmbientList.clear();
 		npcSpawnList.clear();
-		biomeColors.setWater(6556170);
+		biomeColors.setWater(0x640a0a);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 

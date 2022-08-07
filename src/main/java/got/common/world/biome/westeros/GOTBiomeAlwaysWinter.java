@@ -43,8 +43,8 @@ public class GOTBiomeAlwaysWinter extends GOTBiome {
 	@Override
 	public void decorate(World world, Random random, int i, int k) {
 		int k2;
-		int l;
 		int i2;
+		int l;
 		super.decorate(world, random, i, k);
 		for (l = 0; l < 20; ++l) {
 			i2 = i + random.nextInt(16) + 8;

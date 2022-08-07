@@ -10,6 +10,7 @@ import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 
 public class GOTBiomeSothoryosHell extends GOTBiomeSothoryosJungle {
+
 	public GOTBiomeSothoryosHell(int i, boolean major) {
 		super(i, major);
 		spawnableCreatureList.clear();

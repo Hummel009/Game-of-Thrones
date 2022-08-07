@@ -21,6 +21,7 @@ public class GOTBiomeShadowTown extends GOTBiomeShadowLand {
 	public GOTBiomeShadowTown(int i, boolean major) {
 		super(i, major);
 		decorator.flowersPerChunk = 0;
+
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.ASSHAI_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
@@ -66,4 +67,5 @@ public class GOTBiomeShadowTown extends GOTBiomeShadowLand {
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.ESSOS.getSubregion("shadowTown");
 	}
+
 }

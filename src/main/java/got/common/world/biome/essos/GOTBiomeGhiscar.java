@@ -16,13 +16,13 @@ import net.minecraft.world.World;
 public class GOTBiomeGhiscar extends GOTBiomeEssos {
 	public GOTBiomeGhiscar(int i, boolean major) {
 		super(i, major);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_LEMON, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_LIME, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_OLIVE, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_ALMOND, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
+		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
+		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_LEMON, 0.2f);
+		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_LIME, 0.2f);
+		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_OLIVE, 0.2f);
+		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_ALMOND, 0.2f);
+		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
+		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
 		decorator.cactiPerChunk = 1;
 		decorator.addVillage(new GOTStructureGhiscarCity(this, 1.0f));
 		setDarkUnreliable();
