@@ -934,7 +934,6 @@ public class GOTChestContents {
 	public static GOTChestContents WESTERLANDS = new GOTChestContents(4, 6, WESTERLANDS_L).enablePouches().setDrinkVessels(GOTFoods.WESTEROS_DRINK).setLore(20, GOTLore.LoreCategory.WESTEROS);
 	public static GOTChestContents YI_TI = new GOTChestContents(4, 6, YI_TI_L).enablePouches().setDrinkVessels(GOTFoods.RICH_DRINK).setLore(20, GOTLore.LoreCategory.YITI);
 
-
 	public WeightedRandomChestContent[] items;
 	public int minItems;
 	public int maxItems;
