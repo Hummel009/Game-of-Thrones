@@ -14,9 +14,9 @@ import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 public class GOTBiomeIbbenColony extends GOTBiomeEssos {
 	public GOTBiomeIbbenColony(int i, boolean major) {
 		super(i, major);
-		ArrayList<SpawnListContainer> c = new ArrayList<>();
-		c.add(GOTBiomeSpawnList.entry(GOTSpawnList.IBBEN_MILITARY, 2).setSpawnChance(GOTBiome.SPAWN));
-		npcSpawnList.newFactionList(10).add(c);
+		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IBBEN_MILITARY, 2).setSpawnChance(GOTBiome.SPAWN));
+		npcSpawnList.newFactionList(10).add(c0);
 	}
 
 	@Override

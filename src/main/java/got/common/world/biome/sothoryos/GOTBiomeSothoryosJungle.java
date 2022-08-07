@@ -29,12 +29,12 @@ public class GOTBiomeSothoryosJungle extends GOTBiome {
 		spawnableGOTAmbientList.clear();
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 10, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 15, 4, 4));
-		ArrayList<SpawnListContainer> c = new ArrayList<>();
-		c.add(GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN));
-		npcSpawnList.newFactionList(10).add(c);
-		ArrayList<SpawnListContainer> c8 = new ArrayList<>();
-		c8.add(GOTBiomeSpawnList.entry(GOTSpawnList.JUNGLE_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN));
-		npcSpawnList.newFactionList(1).add(c8);
+		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN));
+		npcSpawnList.newFactionList(10).add(c0);
+		ArrayList<SpawnListContainer> c1 = new ArrayList<>();
+		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.JUNGLE_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN));
+		npcSpawnList.newFactionList(1).add(c1);
 		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
 		this.addBiomeVariant(GOTBiomeVariant.HILLS);
 		this.addBiomeVariant(GOTBiomeVariant.MOUNTAIN);

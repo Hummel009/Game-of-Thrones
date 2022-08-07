@@ -52,9 +52,9 @@ public class GOTBiomeSothoryosKanuka extends GOTBiome {
 		decorator.grassPerChunk = 4;
 		decorator.doubleGrassPerChunk = 1;
 		decorator.cornPerChunk = 10;
-		ArrayList<SpawnListContainer> c = new ArrayList<>();
-		c.add(GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN));
-		npcSpawnList.newFactionList(10).add(c);
+		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN));
+		npcSpawnList.newFactionList(10).add(c0);
 		decorator.addVillage(new GOTStructureSothoryosVillage(this, 1.0f));
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinSothoryos(1, 4), 400);

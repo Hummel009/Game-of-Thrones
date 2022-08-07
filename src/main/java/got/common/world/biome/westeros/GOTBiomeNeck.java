@@ -41,9 +41,9 @@ public class GOTBiomeNeck extends GOTBiome {
 		decorator.addTree(GOTTreeType.WILLOW, 100);
 		registerDefaultFlowers();
 
-		ArrayList<SpawnListContainer> c1 = new ArrayList<>();
-		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN));
-		npcSpawnList.newFactionList(1).add(c1);
+		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN));
+		npcSpawnList.newFactionList(1).add(c0);
 	}
 
 	@Override

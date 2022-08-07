@@ -31,9 +31,9 @@ public class GOTBiomeYeen extends GOTBiomeSothoryosJungle {
 		decorator.clearRandomStructures();
 		npcSpawnList.clear();
 		biomeColors.setFoggy(true);
-		ArrayList<SpawnListContainer> c8 = new ArrayList<>();
-		c8.add(GOTBiomeSpawnList.entry(GOTSpawnList.JUNGLE_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN));
-		npcSpawnList.newFactionList(1).add(c8);
+		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.JUNGLE_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN));
+		npcSpawnList.newFactionList(1).add(c0);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 

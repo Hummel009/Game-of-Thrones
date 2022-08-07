@@ -50,9 +50,9 @@ public class GOTBiomeSothoryosBushland extends GOTBiome {
 		decorator.doubleGrassPerChunk = 10;
 		decorator.cornPerChunk = 4;
 		decorator.addTree(GOTTreeType.DRAGONBLOOD, 200);
-		ArrayList<SpawnListContainer> c = new ArrayList<>();
-		c.add(GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN));
-		npcSpawnList.newFactionList(10).add(c);
+		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN));
+		npcSpawnList.newFactionList(10).add(c0);
 		decorator.addVillage(new GOTStructureSothoryosVillage(this, 1.0f));
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 

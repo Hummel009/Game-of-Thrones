@@ -55,9 +55,9 @@ public class GOTBiomeIbben extends GOTBiome {
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IBBEN_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 
-		ArrayList<SpawnListContainer> c2 = new ArrayList<>();
-		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
-		npcSpawnList.newFactionList(0).add(c2);
+		ArrayList<SpawnListContainer> c1 = new ArrayList<>();
+		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
+		npcSpawnList.newFactionList(0).add(c1);
 
 		decorator.addVillage(new GOTStructureIbbenVillage(this, 1.0f));
 

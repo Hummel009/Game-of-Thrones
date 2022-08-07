@@ -40,9 +40,9 @@ public class GOTBiomeValyria extends GOTBiome {
 		biomeColors.setFog(0x808080);
 		biomeColors.setWater(0x808080);
 
-		ArrayList<SpawnListContainer> c = new ArrayList<>();
-		c.add(GOTBiomeSpawnList.entry(GOTSpawnList.VALYRIA, 10).setSpawnChance(GOTBiome.SPAWN));
-		npcSpawnList.newFactionList(10).add(c);
+		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.VALYRIA, 10).setSpawnChance(GOTBiome.SPAWN));
+		npcSpawnList.newFactionList(10).add(c0);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 
 		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
