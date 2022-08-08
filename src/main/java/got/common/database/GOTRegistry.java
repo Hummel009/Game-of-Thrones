@@ -1235,7 +1235,7 @@ public class GOTRegistry {
 	public static Item volantisHelmet;
 	public static Item volantisLeggings;
 	public static Item walkingStick;
-	public static Item warhorn;
+	public static Item conquestHorn;
 	public static Item waterskin;
 	public static Item westerlandsBoots;
 	public static Item westerlandsChestplate;
@@ -2499,7 +2499,7 @@ public class GOTRegistry {
 		volantisHelmet = new GOTItemArmor(GOTMaterial.VOLANTIS, 0);
 		volantisLeggings = new GOTItemArmor(GOTMaterial.VOLANTIS, 2);
 		walkingStick = new GOTItemSword(ToolMaterial.WOOD);
-		warhorn = new GOTItemConquestHorn();
+		conquestHorn = new GOTItemConquestHorn();
 		waterskin = new GOTItemVessel();
 		westerlandsBoots = new GOTItemArmor(GOTMaterial.WESTERLANDS, 3);
 		westerlandsChestplate = new GOTItemArmor(GOTMaterial.WESTERLANDS, 1);
@@ -3459,7 +3459,7 @@ public class GOTRegistry {
 		registerItem(bronzeBattleaxe, "bronzeBattleaxe");
 		registerItem(bronzeCrossbow, "bronzeCrossbow");
 		registerItem(walkingStick, "walkingStick");
-		registerItem(warhorn, "conquestHorn");
+		registerItem(conquestHorn, "conquestHorn");
 		registerItem(berryPieItem, "berryPie");
 		registerItem(mugBlueberryJuice, "mugBlueberryJuice");
 		registerItem(mugBlackberryJuice, "mugBlackberryJuice");
@@ -3882,7 +3882,7 @@ public class GOTRegistry {
 		registerItem(bloodOfTrueKings, "bloodOfTrueKings");
 		registerItem(arrowFire, "arrowFire");
 		registerItem(anonymousMask, "anonymousMask");
-		registerItem(alloySteelIngot, "alloySteelIgnot");
+		registerItem(alloySteelIngot, "alloySteelIngot");
 		registerItem(alloySteelNugget, "alloySteelNugget");
 		registerItem(alloySteelAxe, "alloySteelAxe");
 		registerItem(alloySteelDagger, "alloySteelDagger");

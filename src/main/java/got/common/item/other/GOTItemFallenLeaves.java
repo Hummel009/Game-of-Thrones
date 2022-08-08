@@ -17,7 +17,7 @@ public class GOTItemFallenLeaves extends GOTItemBlockMetadata {
 		Object[] obj = ((GOTBlockFallenLeaves) field_150939_a).leafBlockMetaFromFallenMeta(itemstack.getItemDamage());
 		ItemStack leaves = new ItemStack((Block) obj[0], 1, (int) (Integer) obj[1]);
 		String name = leaves.getDisplayName();
-		return StatCollector.translateToLocalFormatted("tile.got.fallenLeaves", name);
+		return StatCollector.translateToLocalFormatted("tile.got.fallen_leaves", name);
 	}
 
 	@Override

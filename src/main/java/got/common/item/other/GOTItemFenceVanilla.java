@@ -10,6 +10,6 @@ public class GOTItemFenceVanilla extends GOTItemBlockMetadata {
 
 	@Override
 	public String getUnlocalizedName(ItemStack itemstack) {
-		return "tile.got.fenceVanilla." + itemstack.getItemDamage();
+		return "tile.got.fence_vanilla." + itemstack.getItemDamage();
 	}
 }

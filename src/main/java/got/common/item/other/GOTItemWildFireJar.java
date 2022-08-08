@@ -19,6 +19,6 @@ public class GOTItemWildFireJar extends ItemBlock {
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		super.addInformation(itemstack, entityplayer, list, flag);
-		list.add(StatCollector.translateToLocal("tile.got.wildFire.warning"));
+		list.add(StatCollector.translateToLocal("tile.got.wild_fire.warning"));
 	}
 }

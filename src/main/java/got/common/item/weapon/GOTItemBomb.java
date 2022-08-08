@@ -24,10 +24,10 @@ public class GOTItemBomb extends ItemBlock {
 		int meta = itemstack.getItemDamage();
 		int strength = GOTBlockBomb.getBombStrengthLevel(meta);
 		if (strength == 1) {
-			list.add(StatCollector.translateToLocal("tile.got.bomb.doubleStrength"));
+			list.add(StatCollector.translateToLocal("tile.got.bomb.double_strength"));
 		}
 		if (strength == 2) {
-			list.add(StatCollector.translateToLocal("tile.got.bomb.tripleStrength"));
+			list.add(StatCollector.translateToLocal("tile.got.bomb.triple_strength"));
 		}
 		if (GOTBlockBomb.isFireBomb(meta)) {
 			list.add(StatCollector.translateToLocal("tile.got.bomb.fire"));

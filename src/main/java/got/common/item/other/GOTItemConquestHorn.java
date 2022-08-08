@@ -138,7 +138,7 @@ public class GOTItemConquestHorn extends Item {
 	}
 
 	public static ItemStack createHorn(GOTInvasions type) {
-		ItemStack itemstack = new ItemStack(GOTRegistry.warhorn);
+		ItemStack itemstack = new ItemStack(GOTRegistry.conquestHorn);
 		GOTItemConquestHorn.setInvasionType(itemstack, type);
 		return itemstack;
 	}

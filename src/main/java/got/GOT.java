@@ -156,6 +156,8 @@ public class GOT {
 			if (mapping.type == GameRegistry.Type.ITEM) {
 				if (mapping.name.contains("Carnotite")) {
 					newName = mapping.name.replace("Carnotite", "Labradorite");
+				} else if (mapping.name.contains("ignot")) {
+					newName = mapping.name.replace("ignot", "ingot");
 				} else if (mapping.name.contains("carnotite")) {
 					newName = mapping.name.replace("carnotite", "labradorite");
 				} else {
