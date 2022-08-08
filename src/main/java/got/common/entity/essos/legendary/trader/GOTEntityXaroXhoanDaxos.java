@@ -57,7 +57,7 @@ public class GOTEntityXaroXhoanDaxos extends GOTEntityHumanBase implements GOTTr
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.COMMON_GOLDSMITH_BUY;
+		return GOTTradeEntries.C_GOLDSMITH_BUY;
 	}
 
 	@Override
@@ -72,7 +72,7 @@ public class GOTEntityXaroXhoanDaxos extends GOTEntityHumanBase implements GOTTr
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_GOLDSMITH_SELL;
+		return GOTTradeEntries.C_GOLDSMITH_SELL;
 	}
 
 	@Override

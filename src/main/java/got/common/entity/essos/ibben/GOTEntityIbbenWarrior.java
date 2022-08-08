@@ -93,9 +93,4 @@ public class GOTEntityIbbenWarrior extends GOTEntityIbbenMan {
 		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.ibbenChestplate));
 		return data;
 	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
-	}
 }

@@ -168,11 +168,6 @@ public class GOTEntityWesterosBandit extends GOTEntityHumanBase implements IBand
 	}
 
 	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
-	}
-
-	@Override
 	public void setupNPCName() {
 		int i = rand.nextInt(4);
 		switch (i) {

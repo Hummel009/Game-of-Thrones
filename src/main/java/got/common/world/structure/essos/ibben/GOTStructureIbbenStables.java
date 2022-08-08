@@ -324,8 +324,6 @@ public class GOTStructureIbbenStables extends GOTStructureIbbenBase {
 			setBlockAndMetadata(world, -1, 3, k12, Blocks.torch, 1);
 			setBlockAndMetadata(world, 1, 3, k12, Blocks.torch, 2);
 		}
-		GOTEntityIbbenStablemaster stablemaster = new GOTEntityIbbenStablemaster(world);
-		spawnNPCAndSetHome(stablemaster, world, 0, 1, 6, 8);
 		int men = 1 + random.nextInt(3);
 		for (int l = 0; l < men; ++l) {
 			GOTEntityIbbenMan stabler = random.nextBoolean() ? new GOTEntityIbbenWarrior(world) : new GOTEntityIbbenMan(world);

@@ -13,12 +13,12 @@ public class GOTEntityBraavosButcher extends GOTEntityBraavosTrader {
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.COMMON_BUTCHER_BUY;
+		return GOTTradeEntries.C_BUTCHER_BUY;
 	}
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_BUTCHER_SELL;
+		return GOTTradeEntries.C_BUTCHER_SELL;
 	}
 
 	@Override

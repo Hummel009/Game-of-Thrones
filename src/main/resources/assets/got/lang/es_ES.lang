@@ -1,4 +1,10 @@
 ﻿
+entity.got.IbbenMiner.name≠
+entity.got.IbbenFlorist.name≠
+entity.got.YiTiMiner.name≠
+entity.got.YiTiFlorist.name≠
+entity.got.SummerMiner.name≠
+entity.got.SummerFlorist.name≠
 got.biome.yiTiMarshes≠
 got.biome.jogosNhaiHills≠
 got.structure.DatabaseGenerator.name≠
@@ -54,7 +60,7 @@ entity.got.ArrynFarmhand.name=Granjero de Valle de Arryn
 entity.got.ArrynFishmonger.name=Pescadería de Valle de Arryn
 entity.got.ArrynFlorist.name=Floristería de Valle de Arryn
 entity.got.ArrynGoldsmith.name≠
-entity.got.ArrynGreengrocer.name=Verdulero de Valle de Arryn
+entity.got.ArrynMiner.name=Verdulero de Valle de Arryn
 entity.got.ArrynGuard.name=Guardián de Gulltown
 entity.got.ArrynLevyman.name=Levyman de Valle de Arryn
 entity.got.ArrynLevymanArcher.name=Levyman Archer de Valle de Arryn
@@ -148,7 +154,7 @@ entity.got.CrownlandsFarmhand.name=Granjero de Tierras de la Corona
 entity.got.CrownlandsFishmonger.name=Pescadería de Tierras de la Corona
 entity.got.CrownlandsFlorist.name=Floristería de Tierras de la Corona
 entity.got.CrownlandsGoldsmith.name≠
-entity.got.CrownlandsGreengrocer.name=Verdulero de Tierras de la Corona
+entity.got.CrownlandsMiner.name=Verdulero de Tierras de la Corona
 entity.got.CrownlandsGuard.name=Guardián del Desembarco del Rey
 entity.got.CrownlandsLevyman.name=Levyman de Tierras de la Corona
 entity.got.CrownlandsLevymanArcher.name=Arquero de Levyman de Tierras de la Corona
@@ -179,7 +185,7 @@ entity.got.DorneFarmhand.name=Peón de Dorne
 entity.got.DorneFishmonger.name=Pescadería de Dorne
 entity.got.DorneFlorist.name=Floristería de Dorne
 entity.got.DorneGoldsmith.name≠
-entity.got.DorneGreengrocer.name=Verdulero de Dorne
+entity.got.DorneMiner.name=Verdulero de Dorne
 entity.got.DorneLevyman.name=Levyman de Dorne
 entity.got.DorneLevymanArcher.name=Levyman arquero de Dorne
 entity.got.DorneLumberman.name=Leñador de Dorne
@@ -204,7 +210,7 @@ entity.got.DragonstoneFarmhand.name=Granjero de Rocadragón
 entity.got.DragonstoneFishmonger.name=Pescadero de Rocadragón
 entity.got.DragonstoneFlorist.name=Floristería de Rocadragón
 entity.got.DragonstoneGoldsmith.name≠
-entity.got.DragonstoneGreengrocer.name=Verdulero de Rocadragón
+entity.got.DragonstoneMiner.name=Verdulero de Rocadragón
 entity.got.DragonstoneLevyman.name=Levyman de Rocadragón
 entity.got.DragonstoneLevymanArcher.name=Arquero de Levyman de Rocadragón
 entity.got.DragonstoneLumberman.name=Leñador de Rocadragón
@@ -310,15 +316,15 @@ entity.got.IbbenBaker.name=Panadero de Ibben
 entity.got.IbbenBannerBearer.name=Portaestandarte de Ibben
 entity.got.IbbenBlacksmith.name=Herrero de Ibben
 entity.got.IbbenBrewer.name=Cervecero de Ibben
-entity.got.IbbenBuilder.name=Constructor de Ibben
+entity.got.IbbenMason.name=Constructor de Ibben
 entity.got.IbbenButcher.name=Carnicero de Ibben
 entity.got.IbbenFarmer.name=Granjero de Ibben
 entity.got.IbbenFarmhand.name=Peón de Ibben
 entity.got.IbbenFishmonger.name=Pescadería de Ibben
 entity.got.IbbenLumberman.name=Leñador de Ibben
 entity.got.IbbenMan.name=Hombre
-entity.got.IbbenMeadhost.name=Meadhost de Ibben
-entity.got.IbbenOrcharder.name=Huerto de Ibben
+entity.got.IbbenBartender.name=Meadhost de Ibben
+entity.got.IbbenFlorist.name=Huerto de Ibben
 entity.got.IbbenStablemaster.name=Maestro de establos de Ibben
 entity.got.IbbenWarlord.name≠
 entity.got.IbbenWarrior.name=Guerrero de Ibben
@@ -339,7 +345,7 @@ entity.got.IronbornFarmhand.name=Granjero de las Islas del Hierro
 entity.got.IronbornFishmonger.name=Pescadería de las Islas del Hierro
 entity.got.IronbornFlorist.name=Floristería de las Islas del Hierro
 entity.got.IronbornGoldsmith.name≠
-entity.got.IronbornGreengrocer.name=Verdulero de las Islas del Hierro
+entity.got.IronbornMiner.name=Verdulero de las Islas del Hierro
 entity.got.IronbornLevyman.name=Levyman de las Islas del Hierro
 entity.got.IronbornLevymanArcher.name=Arquero de Levyman de las Islas del Hierro
 entity.got.IronbornLumberman.name=Leñador de las Islas del Hierro
@@ -505,7 +511,7 @@ entity.got.NorthFarmhand.name=Granjero del El Norte
 entity.got.NorthFishmonger.name=Pescadería del El Norte
 entity.got.NorthFlorist.name=Floristería del El Norte
 entity.got.NorthGoldsmith.name≠
-entity.got.NorthGreengrocer.name=Verdulero del El Norte
+entity.got.NorthMiner.name=Verdulero del El Norte
 entity.got.NorthGuard.name=Guardia de Puerto Blanco
 entity.got.NorthHillman.name=North Hillman
 entity.got.NorthHillmanArcher.name=Arquero de North Hillman
@@ -635,7 +641,7 @@ entity.got.ReachFarmhand.name=Granjero de alcance
 entity.got.ReachFishmonger.name=Pescadería de alcance
 entity.got.ReachFlorist.name=Floristería de alcance
 entity.got.ReachGoldsmith.name≠
-entity.got.ReachGreengrocer.name=Verdulero de Reach
+entity.got.ReachMiner.name=Verdulero de Reach
 entity.got.ReachGuard.name=Guardián de Oldtown
 entity.got.ReachLevyman.name=Levyman de Reach
 entity.got.ReachLevymanArcher.name=Arquero de alcance de Levyman
@@ -662,7 +668,7 @@ entity.got.RiverlandsFarmhand.name=Granjero de Tierras de los Ríos
 entity.got.RiverlandsFishmonger.name=Pescadería de Tierras de los Ríos
 entity.got.RiverlandsFlorist.name=Floristería de Tierras de los Ríos
 entity.got.RiverlandsGoldsmith.name≠
-entity.got.RiverlandsGreengrocer.name=Verdulero de Tierras de los Ríos
+entity.got.RiverlandsMiner.name=Verdulero de Tierras de los Ríos
 entity.got.RiverlandsLevyman.name=Levyman de Tierras de los Ríos
 entity.got.RiverlandsLevymanArcher.name=Levyman Archer de Tierras de los Ríos
 entity.got.RiverlandsLumberman.name=Leñador de Tierras de los Ríos
@@ -714,7 +720,7 @@ entity.got.StormlandsFarmhand.name=Granjero de Tierras de la Tormenta
 entity.got.StormlandsFishmonger.name=Pescadería de Tierras de la Tormenta
 entity.got.StormlandsFlorist.name=Floristería de Tierras de la Tormenta
 entity.got.StormlandsGoldsmith.name≠
-entity.got.StormlandsGreengrocer.name=Verdulero de Tierras de la Tormenta
+entity.got.StormlandsMiner.name=Verdulero de Tierras de la Tormenta
 entity.got.StormlandsLevyman.name=Levyman de Tierras de la Tormenta
 entity.got.StormlandsLevymanArcher.name=Arquero de Levyman de Tierras de la Tormenta
 entity.got.StormlandsLumberman.name=Leñador de Tierras de la Tormenta
@@ -825,7 +831,7 @@ entity.got.WesterlandsFarmhand.name=Granjero de Tierras del Oeste
 entity.got.WesterlandsFishmonger.name=Pescadería de Tierras del Oeste
 entity.got.WesterlandsFlorist.name=Floristería de Tierras del Oeste
 entity.got.WesterlandsGoldsmith.name≠
-entity.got.WesterlandsGreengrocer.name=Verdulero de Tierras del Oeste
+entity.got.WesterlandsMiner.name=Verdulero de Tierras del Oeste
 entity.got.WesterlandsGuard.name=Guardián de Lannisport
 entity.got.WesterlandsLevyman.name=Levyman de Tierras del Oeste
 entity.got.WesterlandsLevymanArcher.name=Levyman Archer de Tierras del Oeste

@@ -11,7 +11,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
 public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
-	public static Class[] allStallTypes = { Blacksmith.class, Lumber.class, Mason.class, Butcher.class, Brewer.class, Fish.class, Baker.class, Hunter.class, Farmer.class, Gold.class };
+	public static Class[] allStallTypes = { Miner.class, Florist.class, Blacksmith.class, Lumber.class, Mason.class, Butcher.class, Brewer.class, Fish.class, Baker.class, Farmer.class, Gold.class };
 
 	public GOTStructureYiTiMarketStall(boolean flag) {
 		super(flag);
@@ -237,6 +237,26 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		}
 	}
 
+	public static class Florist extends GOTStructureYiTiMarketStall {
+		public Florist(boolean flag) {
+			super(flag);
+		}
+
+		@Override
+		public GOTEntityYiTiMan createTrader(World world) {
+			return new GOTEntityYiTiFlorist(world);
+		}
+
+		@Override
+		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
+			if (IntMath.mod(i1, 2) == 0 && IntMath.mod(k1, 2) == 0) {
+				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 15);
+			} else {
+				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 12);
+			}
+		}
+	}
+
 	public static class Gold extends GOTStructureYiTiMarketStall {
 		public Gold(boolean flag) {
 			super(flag);
@@ -250,26 +270,6 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 		@Override
 		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
 			setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 4);
-		}
-	}
-
-	public static class Hunter extends GOTStructureYiTiMarketStall {
-		public Hunter(boolean flag) {
-			super(flag);
-		}
-
-		@Override
-		public GOTEntityYiTiMan createTrader(World world) {
-			return new GOTEntityYiTiHunter(world);
-		}
-
-		@Override
-		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
-			if (IntMath.mod(i1, 2) == 0 && IntMath.mod(k1, 2) == 0) {
-				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 15);
-			} else {
-				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 12);
-			}
 		}
 	}
 
@@ -313,6 +313,26 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 7);
 			} else {
 				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 14);
+			}
+		}
+	}
+
+	public static class Miner extends GOTStructureYiTiMarketStall {
+		public Miner(boolean flag) {
+			super(flag);
+		}
+
+		@Override
+		public GOTEntityYiTiMan createTrader(World world) {
+			return new GOTEntityYiTiMiner(world);
+		}
+
+		@Override
+		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
+			if (IntMath.mod(i1, 2) == 0 && IntMath.mod(k1, 2) == 0) {
+				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 15);
+			} else {
+				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 12);
 			}
 		}
 	}

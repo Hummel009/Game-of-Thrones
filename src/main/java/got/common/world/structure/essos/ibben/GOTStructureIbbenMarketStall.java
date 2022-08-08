@@ -11,7 +11,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
 public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase {
-	public static Class[] allStallTypes = { Blacksmith.class, Farmer.class, Lumber.class, Builder.class, Brewer.class, Butcher.class, Fish.class, Baker.class, Orcharder.class };
+	public static Class[] allStallTypes = { Goldsmith.class, Miner.class, Blacksmith.class, Farmer.class, Lumber.class, Mason.class, Brewer.class, Butcher.class, Fish.class, Baker.class, Florist.class };
 
 	public GOTStructureIbbenMarketStall(boolean flag) {
 		super(flag);
@@ -173,28 +173,6 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		}
 	}
 
-	public static class Builder extends GOTStructureIbbenMarketStall {
-		public Builder(boolean flag) {
-			super(flag);
-		}
-
-		@Override
-		public GOTEntityIbbenMan createTrader(World world) {
-			return new GOTEntityIbbenBuilder(world);
-		}
-
-		@Override
-		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
-			int i2 = Math.abs(i1);
-			int k2 = Math.abs(k1);
-			if (k2 % 2 == 0 && i2 % 2 == k2 / 2 % 2) {
-				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 12);
-			} else {
-				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 7);
-			}
-		}
-	}
-
 	public static class Butcher extends GOTStructureIbbenMarketStall {
 		public Butcher(boolean flag) {
 			super(flag);
@@ -259,6 +237,49 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		}
 	}
 
+	public static class Florist extends GOTStructureIbbenMarketStall {
+		public Florist(boolean flag) {
+			super(flag);
+		}
+
+		@Override
+		public GOTEntityIbbenMan createTrader(World world) {
+			return new GOTEntityIbbenFlorist(world);
+		}
+
+		@Override
+		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
+			int i2 = Math.abs(i1);
+			if (IntMath.mod(i2 + Math.abs(k1), 2) == 0) {
+				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 14);
+			} else {
+				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 5);
+			}
+		}
+	}
+
+	public static class Goldsmith extends GOTStructureIbbenMarketStall {
+		public Goldsmith(boolean flag) {
+			super(flag);
+		}
+
+		@Override
+		public GOTEntityIbbenMan createTrader(World world) {
+			return new GOTEntityIbbenGoldsmith(world);
+		}
+
+		@Override
+		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
+			int i2 = Math.abs(i1);
+			Math.abs(k1);
+			if (i2 % 2 == 0) {
+				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 12);
+			} else {
+				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 1);
+			}
+		}
+	}
+
 	public static class Lumber extends GOTStructureIbbenMarketStall {
 		public Lumber(boolean flag) {
 			super(flag);
@@ -280,23 +301,46 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		}
 	}
 
-	public static class Orcharder extends GOTStructureIbbenMarketStall {
-		public Orcharder(boolean flag) {
+	public static class Mason extends GOTStructureIbbenMarketStall {
+		public Mason(boolean flag) {
 			super(flag);
 		}
 
 		@Override
 		public GOTEntityIbbenMan createTrader(World world) {
-			return new GOTEntityIbbenOrcharder(world);
+			return new GOTEntityIbbenMason(world);
 		}
 
 		@Override
 		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
 			int i2 = Math.abs(i1);
-			if (IntMath.mod(i2 + Math.abs(k1), 2) == 0) {
-				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 14);
+			int k2 = Math.abs(k1);
+			if (k2 % 2 == 0 && i2 % 2 == k2 / 2 % 2) {
+				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 12);
 			} else {
-				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 5);
+				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 7);
+			}
+		}
+	}
+
+	public static class Miner extends GOTStructureIbbenMarketStall {
+		public Miner(boolean flag) {
+			super(flag);
+		}
+
+		@Override
+		public GOTEntityIbbenMan createTrader(World world) {
+			return new GOTEntityIbbenMiner(world);
+		}
+
+		@Override
+		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
+			int i2 = Math.abs(i1);
+			int k2 = Math.abs(k1);
+			if (k2 % 2 == 0 && i2 % 2 == k2 / 2 % 2) {
+				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 12);
+			} else {
+				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 7);
 			}
 		}
 	}

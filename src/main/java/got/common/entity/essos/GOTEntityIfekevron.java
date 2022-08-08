@@ -59,9 +59,4 @@ public class GOTEntityIfekevron extends GOTEntityNPC {
 	public GOTFaction getFaction() {
 		return GOTFaction.HOSTILE;
 	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
-	}
 }

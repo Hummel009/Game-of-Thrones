@@ -15,12 +15,12 @@ public class GOTEntityYiTiBaker extends GOTEntityYiTiMarketTrader {
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.COMMON_BAKER_BUY;
+		return GOTTradeEntries.C_BAKER_BUY;
 	}
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_BAKER_SELL;
+		return GOTTradeEntries.C_BAKER_SELL;
 	}
 
 	@Override

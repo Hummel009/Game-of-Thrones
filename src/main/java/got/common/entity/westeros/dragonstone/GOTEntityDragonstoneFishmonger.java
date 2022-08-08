@@ -15,12 +15,12 @@ public class GOTEntityDragonstoneFishmonger extends GOTEntityDragonstoneMarketTr
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.COMMON_FISHMONGER_BUY;
+		return GOTTradeEntries.C_FISHMONGER_BUY;
 	}
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_FISHMONGER_SELL;
+		return GOTTradeEntries.C_FISHMONGER_SELL;
 	}
 
 	@Override

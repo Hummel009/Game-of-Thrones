@@ -21,7 +21,7 @@ public class GOTEntityIronbornPriest extends GOTEntityIronbornMan implements GOT
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.COMMON_FISHMONGER_BUY;
+		return GOTTradeEntries.C_FISHMONGER_BUY;
 	}
 
 	@Override
@@ -31,7 +31,7 @@ public class GOTEntityIronbornPriest extends GOTEntityIronbornMan implements GOT
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_BOMZH_SELL;
+		return GOTTradeEntries.C_BOMZH_SELL;
 	}
 
 	@Override
@@ -53,10 +53,5 @@ public class GOTEntityIronbornPriest extends GOTEntityIronbornMan implements GOT
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.alloySteelDagger));
 		npcItemsInv.setIdleItem(null);
 		return data;
-	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
 	}
 }

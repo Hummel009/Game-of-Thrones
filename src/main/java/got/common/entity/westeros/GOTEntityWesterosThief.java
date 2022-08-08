@@ -136,11 +136,6 @@ public class GOTEntityWesterosThief extends GOTEntityHumanBase implements GOTBio
 	}
 
 	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
-	}
-
-	@Override
 	public void setupNPCName() {
 		int i = rand.nextInt(4);
 		switch (i) {

@@ -1,4 +1,10 @@
 ﻿
+entity.got.IbbenMiner.name≠
+entity.got.IbbenFlorist.name≠
+entity.got.YiTiMiner.name≠
+entity.got.YiTiFlorist.name≠
+entity.got.SummerMiner.name≠
+entity.got.SummerFlorist.name≠
 got.biome.yiTiMarshes≠
 got.biome.jogosNhaiHills≠
 got.structure.DatabaseGenerator.name≠
@@ -54,7 +60,7 @@ entity.got.ArrynFarmhand.name=Agriculteur d'Val d'Arryn
 entity.got.ArrynFishmonger.name=Poissonnier d'Val d'Arryn
 entity.got.ArrynFlorist.name=Fleuriste d'Val d'Arryn
 entity.got.ArrynGoldsmith.name≠
-entity.got.ArrynGreengrocer.name=Marchand de légumes d'Val d'Arryn
+entity.got.ArrynMiner.name=Marchand de légumes d'Val d'Arryn
 entity.got.ArrynGuard.name=Gardien de Gulltown
 entity.got.ArrynLevyman.name=Milicien d'Val d'Arryn
 entity.got.ArrynLevymanArcher.name=Archer Milicien d'Val d'Arryn
@@ -148,7 +154,7 @@ entity.got.CrownlandsFarmhand.name=Farmhand de Terres de la Couronne
 entity.got.CrownlandsFishmonger.name=Poissonnier des terres de la Couronne
 entity.got.CrownlandsFlorist.name=Fleuriste de Terres de la Couronne
 entity.got.CrownlandsGoldsmith.name≠
-entity.got.CrownlandsGreengrocer.name=Marchand de légumes de Terres de la Couronne
+entity.got.CrownlandsMiner.name=Marchand de légumes de Terres de la Couronne
 entity.got.CrownlandsGuard.name=Gardien du débarquement du roi
 entity.got.CrownlandsLevyman.name=Milicien de Terres de la Couronne
 entity.got.CrownlandsLevymanArcher.name=Archer Milicien de Terres de la Couronne
@@ -179,7 +185,7 @@ entity.got.DorneFarmhand.name=Fermier de Dorne
 entity.got.DorneFishmonger.name=Poissonnier de Dorne
 entity.got.DorneFlorist.name=Fleuriste de Dorne
 entity.got.DorneGoldsmith.name≠
-entity.got.DorneGreengrocer.name=Marchand de légumes de Dorne
+entity.got.DorneMiner.name=Marchand de légumes de Dorne
 entity.got.DorneLevyman.name=Milicien de Dorne
 entity.got.DorneLevymanArcher.name=Milicien Archer de Dorne
 entity.got.DorneLumberman.name=Bûcheron de Dorne
@@ -204,7 +210,7 @@ entity.got.DragonstoneFarmhand.name=Main de ferme de Peyredragon
 entity.got.DragonstoneFishmonger.name=Poissonnier de Peyredragon
 entity.got.DragonstoneFlorist.name=Fleuriste de Peyredragon
 entity.got.DragonstoneGoldsmith.name≠
-entity.got.DragonstoneGreengrocer.name=Marchand de légumes de Peyredragon
+entity.got.DragonstoneMiner.name=Marchand de légumes de Peyredragon
 entity.got.DragonstoneLevyman.name=Milicien de Peyredragon
 entity.got.DragonstoneLevymanArcher.name=Archer Milicien de Peyredragon
 entity.got.DragonstoneLumberman.name=Bûcheron de Peyredragon
@@ -310,15 +316,15 @@ entity.got.IbbenBaker.name=Boulanger d'Ibben
 entity.got.IbbenBannerBearer.name=Porte-bannière d'Ibben
 entity.got.IbbenBlacksmith.name=Forgeron d'Ibben
 entity.got.IbbenBrewer.name=Brasseur d'Ibben
-entity.got.IbbenBuilder.name=Constructeur d'Ibben
+entity.got.IbbenMason.name=Constructeur d'Ibben
 entity.got.IbbenButcher.name=Boucher d'Ibben
 entity.got.IbbenFarmer.name=Fermier d'Ibben
 entity.got.IbbenFarmhand.name=Fermier d'Ibben
 entity.got.IbbenFishmonger.name=Poissonnier d'Ibben
 entity.got.IbbenLumberman.name=Bûcheron d'Ibben
 entity.got.IbbenMan.name=Homme
-entity.got.IbbenMeadhost.name=Meadhost d'Ibben
-entity.got.IbbenOrcharder.name=Orcharder d'Ibben
+entity.got.IbbenBartender.name=Meadhost d'Ibben
+entity.got.IbbenFlorist.name=Orcharder d'Ibben
 entity.got.IbbenStablemaster.name=Maître des écuries d'Ibben
 entity.got.IbbenWarlord.name=Capitaine d'Ibben
 entity.got.IbbenWarrior.name=Guerrier d'Ibben
@@ -339,7 +345,7 @@ entity.got.IronbornFarmhand.name=Farmhand des Îles de Fer
 entity.got.IronbornFishmonger.name=Poissonnier des Îles de Fer
 entity.got.IronbornFlorist.name=Fleuriste des Îles de Fer
 entity.got.IronbornGoldsmith.name≠
-entity.got.IronbornGreengrocer.name=Marchand de légumes des Îles de Fer
+entity.got.IronbornMiner.name=Marchand de légumes des Îles de Fer
 entity.got.IronbornLevyman.name=Milicien des Îles de Fer
 entity.got.IronbornLevymanArcher.name=Archer Milicien des Îles de Fer
 entity.got.IronbornLumberman.name=Bûcheron des Îles de Fer
@@ -505,7 +511,7 @@ entity.got.NorthFarmhand.name=Fermier du Le Nord
 entity.got.NorthFishmonger.name=Poissonnier du Le Nord
 entity.got.NorthFlorist.name=Fleuriste du Le Nord
 entity.got.NorthGoldsmith.name≠
-entity.got.NorthGreengrocer.name=Marchand de légumes du Le Nord
+entity.got.NorthMiner.name=Marchand de légumes du Le Nord
 entity.got.NorthGuard.name=Garde du port blanc
 entity.got.NorthHillman.name=Le Nord Hillman
 entity.got.NorthHillmanArcher.name=Le Nord Hillman Archer
@@ -635,7 +641,7 @@ entity.got.ReachFarmhand.name=Farmhand de Reach
 entity.got.ReachFishmonger.name=Poissonnier de portée
 entity.got.ReachFlorist.name=Fleuriste de Reach
 entity.got.ReachGoldsmith.name≠
-entity.got.ReachGreengrocer.name=Marchand de légumes de portée
+entity.got.ReachMiner.name=Marchand de légumes de portée
 entity.got.ReachGuard.name=Gardien de la vieille ville
 entity.got.ReachLevyman.name=Milicien de Reach
 entity.got.ReachLevymanArcher.name=Archer de portée Milicien
@@ -662,7 +668,7 @@ entity.got.RiverlandsFarmhand.name=Agriculteur de Le Conflans
 entity.got.RiverlandsFishmonger.name=Poissonnier de Le Conflans
 entity.got.RiverlandsFlorist.name=Fleuriste de Le Conflans
 entity.got.RiverlandsGoldsmith.name≠
-entity.got.RiverlandsGreengrocer.name=Marchand de légumes de Le Conflans
+entity.got.RiverlandsMiner.name=Marchand de légumes de Le Conflans
 entity.got.RiverlandsLevyman.name=Milicien de Le Conflans
 entity.got.RiverlandsLevymanArcher.name=Milicien Archer de Le Conflans
 entity.got.RiverlandsLumberman.name=Bûcheron de Le Conflans
@@ -714,7 +720,7 @@ entity.got.StormlandsFarmhand.name=Farmhand de Terres de l'Orage
 entity.got.StormlandsFishmonger.name=Poissonnier des Terres de l'Orage
 entity.got.StormlandsFlorist.name=Fleuriste de Terres de l'Orage
 entity.got.StormlandsGoldsmith.name≠
-entity.got.StormlandsGreengrocer.name=Marchand de légumes de Terres de l'Orage
+entity.got.StormlandsMiner.name=Marchand de légumes de Terres de l'Orage
 entity.got.StormlandsLevyman.name=Milicien de Terres de l'Orage
 entity.got.StormlandsLevymanArcher.name=Archer Milicien des Terres des Tempêtes
 entity.got.StormlandsLumberman.name=Bûcheron de Terres de l'Orage
@@ -825,7 +831,7 @@ entity.got.WesterlandsFarmhand.name=Fermier de Terres de l'Ouest
 entity.got.WesterlandsFishmonger.name=Poissonnier de Terres de l'Ouest
 entity.got.WesterlandsFlorist.name=Fleuriste de Terres de l'Ouest
 entity.got.WesterlandsGoldsmith.name≠
-entity.got.WesterlandsGreengrocer.name=Marchand de légumes de Terres de l'Ouest
+entity.got.WesterlandsMiner.name=Marchand de légumes de Terres de l'Ouest
 entity.got.WesterlandsGuard.name=Gardien de Lannisport
 entity.got.WesterlandsLevyman.name=Milicien de Terres de l'Ouest
 entity.got.WesterlandsLevymanArcher.name=Milicien Archer de Terres de l'Ouest

@@ -13,12 +13,12 @@ public class GOTEntityCrownlandsBrewer extends GOTEntityCrownlandsMarketTrader {
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.COMMON_BREWER_BUY;
+		return GOTTradeEntries.C_BREWER_BUY;
 	}
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_BREWER_SELL;
+		return GOTTradeEntries.C_BREWER_SELL;
 	}
 
 	@Override

@@ -73,6 +73,7 @@ public class GOTTickHandlerClient {
 	public static GOTGuiNotificationDisplay notificationDisplay;
 	public static GOTGuiMiniquestTracker miniquestTracker;
 	public static boolean anyWightsViewed;
+	public static boolean renderMenuPrompt = false;
 	public GOTAmbience ambienceTicker;
 	public GuiScreen lastGuiOpen;
 	public int mistTick;
@@ -105,7 +106,6 @@ public class GOTTickHandlerClient {
 	public boolean cancelItemHighlight = false;
 	public ItemStack lastHighlightedItemstack;
 	public String highlightedItemstackName;
-	public static boolean renderMenuPrompt = false;
 
 	public GOTTickHandlerClient() {
 		FMLCommonHandler.instance().bus().register(this);

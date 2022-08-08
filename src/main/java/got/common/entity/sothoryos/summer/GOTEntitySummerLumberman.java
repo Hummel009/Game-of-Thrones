@@ -13,12 +13,12 @@ public class GOTEntitySummerLumberman extends GOTEntitySummerTrader {
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.ESSOS_LUMBERMAN_BUY;
+		return GOTTradeEntries.C_LUMBERMAN_BUY;
 	}
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_LUMBERMAN_SELL;
+		return GOTTradeEntries.C_LUMBERMAN_SELL;
 	}
 
 	@Override
@@ -27,10 +27,5 @@ public class GOTEntitySummerLumberman extends GOTEntitySummerTrader {
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.bronzeAxe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
-	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
 	}
 }

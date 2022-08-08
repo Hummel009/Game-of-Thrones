@@ -69,7 +69,7 @@ public class GOTEntityRedPriest extends GOTEntityHumanBase implements GOTTradeab
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_GOLDSMITH_SELL;
+		return GOTTradeEntries.C_GOLDSMITH_SELL;
 	}
 
 	@Override

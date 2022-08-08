@@ -12,7 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
-	public static Class[] stalls = { Mason.class, Butcher.class, Brewer.class, Fish.class, Baker.class, Miner.class, Goldsmith.class, Lumber.class, Hunter.class, Blacksmith.class, Farmer.class };
+	public static Class[] stalls = { Mason.class, Butcher.class, Brewer.class, Fish.class, Baker.class, Miner.class, Goldsmith.class, Lumber.class, Blacksmith.class, Farmer.class };
 
 	public GOTStructureLhazarBazaar(boolean flag) {
 		super(flag);
@@ -251,27 +251,6 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			setBlockAndMetadata(world, 2, 3, 2, GOTRegistry.goldBars, 0);
 			placeFlowerPot(world, 0, 2, 1, getRandomFlower(world, random));
 			GOTEntityLhazarGoldsmith trader = new GOTEntityLhazarGoldsmith(world);
-			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
-			return true;
-		}
-	}
-
-	public static class Hunter extends GOTStructureBase {
-		public Hunter(boolean flag) {
-			super(flag);
-		}
-
-		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
-			setBlockAndMetadata(world, 2, 1, 2, GOTRegistry.wood8, 3);
-			setBlockAndMetadata(world, 2, 2, 2, GOTRegistry.wood8, 3);
-			this.placeSkull(world, random, 2, 3, 2);
-			this.placeSkull(world, random, 3, 2, 2);
-			spawnItemFrame(world, 2, 2, 2, 2, new ItemStack(GOTRegistry.lionFur));
-			placePlateItem(world, random, 1, 2, 0, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.rabbitRaw, 1 + random.nextInt(3)), true);
-			placeWeaponRack(world, 0, 2, 2, 1, new ItemStack(GOTRegistry.lhazarSpear));
-			GOTEntityLhazarHunter trader = new GOTEntityLhazarHunter(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
 			return true;
 		}

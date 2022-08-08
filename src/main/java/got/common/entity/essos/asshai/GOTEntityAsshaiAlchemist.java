@@ -22,12 +22,12 @@ public class GOTEntityAsshaiAlchemist extends GOTEntityAsshaiMan implements GOTT
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.ASSHAI_ALCHEMIST_BUY;
+		return GOTTradeEntries.C_ALCHEMIST_BUY;
 	}
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_GOLDSMITH_SELL;
+		return GOTTradeEntries.C_GOLDSMITH_SELL;
 	}
 
 	@Override
@@ -41,10 +41,5 @@ public class GOTEntityAsshaiAlchemist extends GOTEntityAsshaiMan implements GOTT
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.skullStaff));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
-	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
 	}
 }

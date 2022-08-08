@@ -80,9 +80,4 @@ public class GOTEntitySothoryosBlowgunner extends GOTEntitySothoryosMan {
 			npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
 		}
 	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
-	}
 }

@@ -1,6 +1,6 @@
 package got.common.block.other;
 
-import java.util.*;
+import java.util.Random;
 
 import cpw.mods.fml.relauncher.*;
 import got.GOT;
@@ -10,7 +10,7 @@ import got.common.world.biome.essos.GOTBiomeShadowLand;
 import net.minecraft.entity.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.*;
-import net.minecraft.util.*;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTBlockAsshaiFlower extends GOTBlockFlower {

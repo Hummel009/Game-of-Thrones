@@ -14,9 +14,4 @@ public class GOTEntityNorthHillmanCannibal extends GOTEntityNorthHillman {
 	public int getTotalArmorValue() {
 		return 12;
 	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
-	}
 }

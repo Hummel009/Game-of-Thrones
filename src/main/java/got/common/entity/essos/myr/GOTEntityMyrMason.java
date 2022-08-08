@@ -19,7 +19,7 @@ public class GOTEntityMyrMason extends GOTEntityMyrTrader {
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_MASON_SELL;
+		return GOTTradeEntries.C_MINER_SELL;
 	}
 
 	@Override
@@ -28,10 +28,5 @@ public class GOTEntityMyrMason extends GOTEntityMyrTrader {
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_pickaxe));
 		npcItemsInv.setIdleItem(new ItemStack(GOTRegistry.brick1, 1, 15));
 		return data;
-	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
 	}
 }

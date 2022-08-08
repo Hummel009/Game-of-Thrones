@@ -12,7 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTStructureSummerMarket extends GOTStructureSummerBase {
-	public static Class[] stalls = { Brewer.class, Fish.class, Butcher.class, Baker.class, Lumber.class, Miner.class, Mason.class, Hunter.class, Blacksmith.class, Farmer.class };
+	public static Class[] stalls = { Goldsmith.class, Florist.class, Brewer.class, Fish.class, Butcher.class, Baker.class, Lumber.class, Miner.class, Mason.class, Blacksmith.class, Farmer.class };
 
 	public GOTStructureSummerMarket(boolean flag) {
 		super(flag);
@@ -296,21 +296,40 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 	}
 
-	public static class Hunter extends GOTStructureBase {
-		public Hunter(boolean flag) {
+	public static class Florist extends GOTStructureBase {
+		public Florist(boolean flag) {
 			super(flag);
 		}
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
-			placePlateItem(world, random, 2, 2, 0, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.camelRaw, 1 + random.nextInt(3), 0), true);
-			placePlateItem(world, random, 0, 2, 3, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.rabbitRaw, 1 + random.nextInt(3), 0), true);
-			setBlockAndMetadata(world, 3, 1, 3, GOTRegistry.woodSlabSingle4, 15);
-			placePlateItem(world, random, 3, 2, 3, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.deerRaw, 1 + random.nextInt(3), 0), true);
-			spawnItemFrame(world, 4, 2, 3, 2, new ItemStack(GOTRegistry.fur));
-			spawnItemFrame(world, 3, 2, 4, 3, new ItemStack(Items.leather));
-			GOTEntitySummerHunter trader = new GOTEntitySummerHunter(world);
+			setBlockAndMetadata(world, 2, 1, 4, Blocks.hay_block, 0);
+			setBlockAndMetadata(world, 3, 1, 3, Blocks.hay_block, 0);
+			setBlockAndMetadata(world, 3, 1, 2, GOTRegistry.essosFlower, 9);
+			setBlockAndMetadata(world, 4, 1, 2, GOTRegistry.yitiFlower, 9);
+			GOTEntitySummerFlorist trader = new GOTEntitySummerFlorist(world);
+			spawnNPCAndSetHome(trader, world, 2, 1, 2, 4);
+			return true;
+		}
+	}
+
+	public static class Goldsmith extends GOTStructureBase {
+		public Goldsmith(boolean flag) {
+			super(flag);
+		}
+
+		@Override
+		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
+			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			placeWeaponRack(world, 2, 2, 0, 2, new ItemStack(Items.iron_pickaxe));
+			placeWeaponRack(world, 0, 2, 3, 3, new ItemStack(Items.iron_shovel));
+			setBlockAndMetadata(world, 4, 1, 2, GOTRegistry.oreCopper, 0);
+			setBlockAndMetadata(world, 2, 1, 3, GOTRegistry.oreCopper, 0);
+			setBlockAndMetadata(world, 3, 1, 3, GOTRegistry.oreTin, 0);
+			setBlockAndMetadata(world, 3, 2, 3, GOTRegistry.oreCopper, 0);
+			setBlockAndMetadata(world, 2, 1, 4, GOTRegistry.oreTin, 0);
+			GOTEntitySummerGoldsmith trader = new GOTEntitySummerGoldsmith(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 2, 4);
 			return true;
 		}

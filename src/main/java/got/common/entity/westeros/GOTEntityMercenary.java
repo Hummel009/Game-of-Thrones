@@ -102,10 +102,4 @@ public class GOTEntityMercenary extends GOTEntityHumanBase implements GOTMercena
 	public void onUnitTrade(EntityPlayer entityplayer) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
-	}
-
 }

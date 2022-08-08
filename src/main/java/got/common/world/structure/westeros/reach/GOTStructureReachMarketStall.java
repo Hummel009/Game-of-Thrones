@@ -11,7 +11,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
 public abstract class GOTStructureReachMarketStall extends GOTStructureWesterosMarketStall {
-	public static Class[] allStallTypes = { Goldsmith.class, Greengrocer.class, Lumber.class, Mason.class, Brewer.class, Flowers.class, Butcher.class, Fish.class, Farmer.class, Blacksmith.class, Baker.class };
+	public static Class[] allStallTypes = { Goldsmith.class, Miner.class, Lumber.class, Mason.class, Brewer.class, Flowers.class, Butcher.class, Fish.class, Farmer.class, Blacksmith.class, Baker.class };
 
 	public GOTStructureReachMarketStall(boolean flag) {
 		super(flag);
@@ -211,27 +211,6 @@ public abstract class GOTStructureReachMarketStall extends GOTStructureWesterosM
 		}
 	}
 
-	public static class Greengrocer extends GOTStructureReachMarketStall {
-		public Greengrocer(boolean flag) {
-			super(flag);
-		}
-
-		@Override
-		public GOTEntityReachMan createTrader(World world) {
-			return new GOTEntityReachGreengrocer(world);
-		}
-
-		@Override
-		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
-			int i2 = Math.abs(i1);
-			if (IntMath.mod(i2 + Math.abs(k1), 2) == 0) {
-				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 14);
-			} else {
-				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 5);
-			}
-		}
-	}
-
 	public static class Lumber extends GOTStructureReachMarketStall {
 		public Lumber(boolean flag) {
 			super(flag);
@@ -272,6 +251,27 @@ public abstract class GOTStructureReachMarketStall extends GOTStructureWesterosM
 				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 7);
 			} else {
 				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 8);
+			}
+		}
+	}
+
+	public static class Miner extends GOTStructureReachMarketStall {
+		public Miner(boolean flag) {
+			super(flag);
+		}
+
+		@Override
+		public GOTEntityReachMan createTrader(World world) {
+			return new GOTEntityReachMiner(world);
+		}
+
+		@Override
+		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
+			int i2 = Math.abs(i1);
+			if (IntMath.mod(i2 + Math.abs(k1), 2) == 0) {
+				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 14);
+			} else {
+				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 5);
 			}
 		}
 	}

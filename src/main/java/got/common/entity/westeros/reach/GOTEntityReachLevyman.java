@@ -68,9 +68,4 @@ public class GOTEntityReachLevyman extends GOTEntityReachMan {
 		}
 		return data;
 	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
-	}
 }

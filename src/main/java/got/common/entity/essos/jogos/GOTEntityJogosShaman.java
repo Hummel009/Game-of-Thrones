@@ -28,12 +28,12 @@ public class GOTEntityJogosShaman extends GOTEntityJogos implements GOTTradeable
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.COMMON_FARMER_BUY;
+		return GOTTradeEntries.C_FARMER_BUY;
 	}
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_FARMER_SELL;
+		return GOTTradeEntries.C_FARMER_SELL;
 	}
 
 	@Override
@@ -59,10 +59,5 @@ public class GOTEntityJogosShaman extends GOTEntityJogos implements GOTTradeable
 		setCurrentItemOrArmor(4, null);
 		npcItemsInv.setIdleItem(new ItemStack(GOTRegistry.mugMead));
 		return data;
-	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
 	}
 }

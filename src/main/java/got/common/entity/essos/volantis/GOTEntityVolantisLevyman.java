@@ -67,9 +67,4 @@ public class GOTEntityVolantisLevyman extends GOTEntityVolantisMan {
 		setCurrentItemOrArmor(4, turban);
 		return data;
 	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
-	}
 }

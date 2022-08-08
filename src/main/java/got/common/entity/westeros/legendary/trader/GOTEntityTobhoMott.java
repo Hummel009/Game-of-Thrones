@@ -61,7 +61,7 @@ public class GOTEntityTobhoMott extends GOTEntityHumanBase implements GOTTradeab
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_BLACKSMITH_SELL;
+		return GOTTradeEntries.C_BLACKSMITH_SELL;
 	}
 
 	@Override

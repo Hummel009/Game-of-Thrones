@@ -15,12 +15,12 @@ public class GOTEntityWesterlandsLumberman extends GOTEntityWesterlandsMarketTra
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.WESTEROS_LUMBERMAN_BUY;
+		return GOTTradeEntries.C_LUMBERMAN_BUY;
 	}
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_LUMBERMAN_SELL;
+		return GOTTradeEntries.C_LUMBERMAN_SELL;
 	}
 
 	@Override
@@ -33,10 +33,5 @@ public class GOTEntityWesterlandsLumberman extends GOTEntityWesterlandsMarketTra
 		GOTItemLeatherHat.setFeatherColor(hat, 3916082);
 		setCurrentItemOrArmor(4, hat);
 		return data;
-	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
 	}
 }

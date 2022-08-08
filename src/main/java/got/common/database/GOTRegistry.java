@@ -2,6 +2,8 @@ package got.common.database;
 
 import java.util.*;
 
+import com.google.common.base.CaseFormat;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import got.common.block.*;
 import got.common.block.brick.*;
@@ -3240,7 +3242,8 @@ public class GOTRegistry {
 
 	public static void registerItem(Item item, String codename) {
 		item.setUnlocalizedName("got:" + codename);
-		item.setTextureName("got:" + codename);
+        String lowerUnderscoreName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, codename);
+		item.setTextureName("got:" + lowerUnderscoreName);
 		GameRegistry.registerItem(item, "item." + codename);
 	}
 

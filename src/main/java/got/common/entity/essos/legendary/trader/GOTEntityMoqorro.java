@@ -51,7 +51,7 @@ public class GOTEntityMoqorro extends GOTEntityHumanBase implements GOTTradeable
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.ASSHAI_ALCHEMIST_BUY;
+		return GOTTradeEntries.C_ALCHEMIST_BUY;
 	}
 
 	@Override
@@ -61,7 +61,7 @@ public class GOTEntityMoqorro extends GOTEntityHumanBase implements GOTTradeable
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_GOLDSMITH_SELL;
+		return GOTTradeEntries.C_GOLDSMITH_SELL;
 	}
 
 	@Override

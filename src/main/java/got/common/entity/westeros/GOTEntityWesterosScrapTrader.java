@@ -61,7 +61,7 @@ public class GOTEntityWesterosScrapTrader extends GOTEntityHumanBase implements 
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.COMMON_BOMZH_BUY;
+		return GOTTradeEntries.C_BOMZH_BUY;
 	}
 
 	@Override
@@ -76,7 +76,7 @@ public class GOTEntityWesterosScrapTrader extends GOTEntityHumanBase implements 
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_BOMZH_SELL;
+		return GOTTradeEntries.C_BOMZH_SELL;
 	}
 
 	public String getSmithSpeechBank() {
@@ -134,11 +134,6 @@ public class GOTEntityWesterosScrapTrader extends GOTEntityHumanBase implements 
 		GOTItemLeatherHat.setFeatherColor(hat, featherColor);
 		setCurrentItemOrArmor(4, hat);
 		return data;
-	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
 	}
 
 	@Override

@@ -14,12 +14,12 @@ public class GOTEntityTyroshMiner extends GOTEntityTyroshTrader {
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.COMMON_MINER_BUY;
+		return GOTTradeEntries.C_MINER_BUY;
 	}
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_MINER_SELL;
+		return GOTTradeEntries.C_MINER_SELL;
 	}
 
 	@Override

@@ -53,7 +53,7 @@ public class GOTEntityCraster extends GOTEntityHumanBase implements GOTTradeable
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.COMMON_BUTCHER_BUY;
+		return GOTTradeEntries.C_BUTCHER_BUY;
 	}
 
 	@Override
@@ -68,7 +68,7 @@ public class GOTEntityCraster extends GOTEntityHumanBase implements GOTTradeable
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_BLACKSMITH_SELL;
+		return GOTTradeEntries.C_BLACKSMITH_SELL;
 	}
 
 	@Override

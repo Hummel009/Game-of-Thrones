@@ -26,7 +26,7 @@ public class GOTEntityCrownlandsAlchemist extends GOTEntityCrownlandsMan impleme
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_GOLDSMITH_SELL;
+		return GOTTradeEntries.C_GOLDSMITH_SELL;
 	}
 
 	@Override
@@ -40,10 +40,5 @@ public class GOTEntityCrownlandsAlchemist extends GOTEntityCrownlandsMan impleme
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.skullStaff));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
-	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
 	}
 }

@@ -1,4 +1,10 @@
 ﻿
+entity.got.IbbenMiner.name≠
+entity.got.IbbenFlorist.name≠
+entity.got.YiTiMiner.name≠
+entity.got.YiTiFlorist.name≠
+entity.got.SummerMiner.name≠
+entity.got.SummerFlorist.name≠
 got.biome.yiTiMarshes≠
 got.biome.jogosNhaiHills≠
 got.structure.DatabaseGenerator.name≠
@@ -54,7 +60,7 @@ entity.got.ArrynFarmhand.name=Bracciante agricolo di Valle di Arryn
 entity.got.ArrynFishmonger.name=Pescivendolo di Valle di Arryn
 entity.got.ArrynFlorist.name=Fiorista di Valle di Arryn
 entity.got.ArrynGoldsmith.name≠
-entity.got.ArrynGreengrocer.name=Fruttivendolo di Valle di Arryn
+entity.got.ArrynMiner.name=Fruttivendolo di Valle di Arryn
 entity.got.ArrynGuard.name=Gulltown Guardian
 entity.got.ArrynLevyman.name=Milizia di Valle di Arryn
 entity.got.ArrynLevymanArcher.name=Milizia Archer di Valle di Arryn
@@ -148,7 +154,7 @@ entity.got.CrownlandsFarmhand.name=Bracciante agricolo di Terre della Corona
 entity.got.CrownlandsFishmonger.name=Pescivendolo di Terre della Corona
 entity.got.CrownlandsFlorist.name=Fiorista di Terre della Corona
 entity.got.CrownlandsGoldsmith.name≠
-entity.got.CrownlandsGreengrocer.name=Fruttivendolo di Terre della Corona
+entity.got.CrownlandsMiner.name=Fruttivendolo di Terre della Corona
 entity.got.CrownlandsGuard.name=Guardiano di Approdo del Re
 entity.got.CrownlandsLevyman.name=Milizia di Terre della Corona
 entity.got.CrownlandsLevymanArcher.name=Milizia Archer di Terre della Corona
@@ -179,7 +185,7 @@ entity.got.DorneFarmhand.name=Bracciante agricolo di Dorne
 entity.got.DorneFishmonger.name=Pescivendolo di Dorne
 entity.got.DorneFlorist.name=Fiorista di Dorne
 entity.got.DorneGoldsmith.name≠
-entity.got.DorneGreengrocer.name=Fruttivendolo di Dorne
+entity.got.DorneMiner.name=Fruttivendolo di Dorne
 entity.got.DorneLevyman.name=Milizia di Dorne
 entity.got.DorneLevymanArcher.name=Milizia Archer di Dorne
 entity.got.DorneLumberman.name=Boscaiolo di Dorne
@@ -204,7 +210,7 @@ entity.got.DragonstoneFarmhand.name=Bracciante di Roccia del Drago
 entity.got.DragonstoneFishmonger.name=Pescivendolo di Roccia del Drago
 entity.got.DragonstoneFlorist.name=Fiorista di Dragonstone
 entity.got.DragonstoneGoldsmith.name≠
-entity.got.DragonstoneGreengrocer.name=Fruttivendolo di Roccia del Drago
+entity.got.DragonstoneMiner.name=Fruttivendolo di Roccia del Drago
 entity.got.DragonstoneLevyman.name=Milizia di Dragonstone
 entity.got.DragonstoneLevymanArcher.name=Milizia Archer di Dragonstone
 entity.got.DragonstoneLumberman.name=Boscaiolo di Roccia del Drago
@@ -310,15 +316,15 @@ entity.got.IbbenBaker.name=Panettiere di Ibben
 entity.got.IbbenBannerBearer.name=Stendardo di Ibben
 entity.got.IbbenBlacksmith.name=Fabbro di Ibben
 entity.got.IbbenBrewer.name=Birraio di Ibben
-entity.got.IbbenBuilder.name=Costruttore di Ibben
+entity.got.IbbenMason.name=Costruttore di Ibben
 entity.got.IbbenButcher.name=Macellaio di Ibben
 entity.got.IbbenFarmer.name=Contadino di Ibben
 entity.got.IbbenFarmhand.name=Bracciante agricolo di Ibben
 entity.got.IbbenFishmonger.name=Pescivendolo di Ibben
 entity.got.IbbenLumberman.name=Boscaiolo di Ibben
 entity.got.IbbenMan.name=Uomo
-entity.got.IbbenMeadhost.name=Meadhost di Ibben
-entity.got.IbbenOrcharder.name=Orcharder di Ibben
+entity.got.IbbenBartender.name=Meadhost di Ibben
+entity.got.IbbenFlorist.name=Orcharder di Ibben
 entity.got.IbbenStablemaster.name=Capo di scuderia di Ibben
 entity.got.IbbenWarlord.name=Capitano di Ibben
 entity.got.IbbenWarrior.name=Guerriero di Ibben
@@ -339,7 +345,7 @@ entity.got.IronbornFarmhand.name=Bracciante agricolo delle Isole di Ferro
 entity.got.IronbornFishmonger.name=Pescivendolo delle Isole di Ferro
 entity.got.IronbornFlorist.name=Fiorista delle Isole di Ferro
 entity.got.IronbornGoldsmith.name≠
-entity.got.IronbornGreengrocer.name=Fruttivendolo delle Isole di Ferro
+entity.got.IronbornMiner.name=Fruttivendolo delle Isole di Ferro
 entity.got.IronbornLevyman.name=Milizia di Iron Islands
 entity.got.IronbornLevymanArcher.name=Milizia Archer di Iron Islands
 entity.got.IronbornLumberman.name=Boscaiolo delle Isole di Ferro
@@ -505,7 +511,7 @@ entity.got.NorthFarmhand.name=Bracciante del Nord
 entity.got.NorthFishmonger.name=Pescivendolo del Nord
 entity.got.NorthFlorist.name=Fiorista del Nord
 entity.got.NorthGoldsmith.name≠
-entity.got.NorthGreengrocer.name=Fruttivendolo del Nord
+entity.got.NorthMiner.name=Fruttivendolo del Nord
 entity.got.NorthGuard.name=Guardia del porto bianco
 entity.got.NorthHillman.name=North Hillman
 entity.got.NorthHillmanArcher.name=North Hillman Archer
@@ -635,7 +641,7 @@ entity.got.ReachFarmhand.name=Bracciante di Altopiano
 entity.got.ReachFishmonger.name=Pescivendolo di Altopiano
 entity.got.ReachFlorist.name=Fiorista di Altopiano
 entity.got.ReachGoldsmith.name≠
-entity.got.ReachGreengrocer.name=Fruttivendolo di Altopiano
+entity.got.ReachMiner.name=Fruttivendolo di Altopiano
 entity.got.ReachGuard.name=Oldtown Guardian
 entity.got.ReachLevyman.name=Milizia di Altopiano
 entity.got.ReachLevymanArcher.name=Milizia Archer di Altopiano
@@ -662,7 +668,7 @@ entity.got.RiverlandsFarmhand.name=Bracciante agricolo di Terre dei Fiumi
 entity.got.RiverlandsFishmonger.name=Pescivendolo di Terre dei Fiumi
 entity.got.RiverlandsFlorist.name=Fiorista di Terre dei Fiumi
 entity.got.RiverlandsGoldsmith.name≠
-entity.got.RiverlandsGreengrocer.name=Fruttivendolo di Terre dei Fiumi
+entity.got.RiverlandsMiner.name=Fruttivendolo di Terre dei Fiumi
 entity.got.RiverlandsLevyman.name=Milizia di Terre dei Fiumi
 entity.got.RiverlandsLevymanArcher.name=Milizia Archer di Terre dei Fiumi
 entity.got.RiverlandsLumberman.name=Boscaiolo di Terre dei Fiumi
@@ -714,7 +720,7 @@ entity.got.StormlandsFarmhand.name=Bracciante agricolo di Terre della Tempesta
 entity.got.StormlandsFishmonger.name=Pescivendolo di Terre della Tempesta
 entity.got.StormlandsFlorist.name=Fiorista di Terre della Tempesta
 entity.got.StormlandsGoldsmith.name≠
-entity.got.StormlandsGreengrocer.name=Fruttivendolo di Terre della Tempesta
+entity.got.StormlandsMiner.name=Fruttivendolo di Terre della Tempesta
 entity.got.StormlandsLevyman.name=Milizia di Terre della Tempesta
 entity.got.StormlandsLevymanArcher.name=Milizia Archer di Terre della Tempesta
 entity.got.StormlandsLumberman.name=Boscaiolo di Terre della Tempesta
@@ -825,7 +831,7 @@ entity.got.WesterlandsFarmhand.name=Bracciante agricolo di Terre dell'Ovest
 entity.got.WesterlandsFishmonger.name=Pescivendolo di Terre dell'Ovest
 entity.got.WesterlandsFlorist.name=Fiorista di Terre dell'Ovest
 entity.got.WesterlandsGoldsmith.name≠
-entity.got.WesterlandsGreengrocer.name=Fruttivendolo di Terre dell'Ovest
+entity.got.WesterlandsMiner.name=Fruttivendolo di Terre dell'Ovest
 entity.got.WesterlandsGuard.name=Lannisport Guardian
 entity.got.WesterlandsLevyman.name=Milizia di Terre dell'Ovest
 entity.got.WesterlandsLevymanArcher.name=Milizia Archer di Terre dell'Ovest

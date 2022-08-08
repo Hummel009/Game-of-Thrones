@@ -53,7 +53,7 @@ public class GOTEntityLysBlacksmith extends GOTEntityLysMan implements GOTTradea
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_BLACKSMITH_SELL;
+		return GOTTradeEntries.C_BLACKSMITH_SELL;
 	}
 
 	@Override
@@ -78,10 +78,5 @@ public class GOTEntityLysBlacksmith extends GOTEntityLysMan implements GOTTradea
 		GOTItemRobes.setRobesColor(turban, 4993068);
 		setCurrentItemOrArmor(4, turban);
 		return data;
-	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
 	}
 }

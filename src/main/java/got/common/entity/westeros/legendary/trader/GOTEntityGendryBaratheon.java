@@ -68,7 +68,7 @@ public class GOTEntityGendryBaratheon extends GOTEntityHumanBase implements GOTT
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_BLACKSMITH_SELL;
+		return GOTTradeEntries.C_BLACKSMITH_SELL;
 	}
 
 	@Override

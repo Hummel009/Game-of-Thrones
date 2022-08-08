@@ -1,4 +1,10 @@
 ﻿
+entity.got.IbbenMiner.name≠
+entity.got.IbbenFlorist.name≠
+entity.got.YiTiMiner.name≠
+entity.got.YiTiFlorist.name≠
+entity.got.SummerMiner.name≠
+entity.got.SummerFlorist.name≠
 got.biome.yiTiMarshes≠
 got.biome.jogosNhaiHills≠
 got.structure.DatabaseGenerator.name≠
@@ -54,7 +60,7 @@ entity.got.ArrynFarmhand.name=Boerenknecht van de Vallei van Arryn
 entity.got.ArrynFishmonger.name=Vishandelaar van de Vallei van Arryn
 entity.got.ArrynFlorist.name=Bloemist van de Vallei van Arryn
 entity.got.ArrynGoldsmith.name≠
-entity.got.ArrynGreengrocer.name=Groenteman de van Vallei van Arryn
+entity.got.ArrynMiner.name=Groenteman de van Vallei van Arryn
 entity.got.ArrynGuard.name=Gulltown Bewaker
 entity.got.ArrynLevyman.name=Militie van de Vallei van Arryn
 entity.got.ArrynLevymanArcher.name=Militie Boogschutter de van Vallei van Arryn
@@ -148,7 +154,7 @@ entity.got.CrownlandsFarmhand.name=Boerenknecht van de Kroonlanden
 entity.got.CrownlandsFishmonger.name=Visboer van de Kroonlanden
 entity.got.CrownlandsFlorist.name=Bloemist van de Kroonlanden
 entity.got.CrownlandsGoldsmith.name≠
-entity.got.CrownlandsGreengrocer.name=Groenteman van de Kroonlanden
+entity.got.CrownlandsMiner.name=Groenteman van de Kroonlanden
 entity.got.CrownlandsGuard.name=Koning's Landing Beschermer
 entity.got.CrownlandsLevyman.name=Militie van de Kroonlanden
 entity.got.CrownlandsLevymanArcher.name=Militie Boogschutter van de Kroonlanden
@@ -179,7 +185,7 @@ entity.got.DorneFarmhand.name=Boerenknecht van Dorne
 entity.got.DorneFishmonger.name=Visboer van Dorne
 entity.got.DorneFlorist.name=Bloemist van Dorne
 entity.got.DorneGoldsmith.name≠
-entity.got.DorneGreengrocer.name=Groenteman van Dorne
+entity.got.DorneMiner.name=Groenteman van Dorne
 entity.got.DorneLevyman.name=Militie van Dorne
 entity.got.DorneLevymanArcher.name=Militie Boogschutter van Dorne
 entity.got.DorneLumberman.name=Houthakker van Dorne
@@ -204,7 +210,7 @@ entity.got.DragonstoneFarmhand.name=Boerenknecht van Drakensteen
 entity.got.DragonstoneFishmonger.name=Visboer van Drakensteen
 entity.got.DragonstoneFlorist.name=Bloemist van Drakensteen
 entity.got.DragonstoneGoldsmith.name≠
-entity.got.DragonstoneGreengrocer.name=Groenteman van Drakensteen
+entity.got.DragonstoneMiner.name=Groenteman van Drakensteen
 entity.got.DragonstoneLevyman.name=Militie van Drakensteen
 entity.got.DragonstoneLevymanArcher.name=Militie Boogschutter van Drakensteen
 entity.got.DragonstoneLumberman.name=Houthakker van Drakensteen
@@ -310,15 +316,15 @@ entity.got.IbbenBaker.name=Baker van Ibben
 entity.got.IbbenBannerBearer.name=Vlagdrager van Ibben
 entity.got.IbbenBlacksmith.name=Smid van Ibben
 entity.got.IbbenBrewer.name=Brouwer van Ibben
-entity.got.IbbenBuilder.name=Bouwer van Ibben
+entity.got.IbbenMason.name=Bouwer van Ibben
 entity.got.IbbenButcher.name=Slager van Ibben
 entity.got.IbbenFarmer.name=Boer van Ibben
 entity.got.IbbenFarmhand.name=Boerenknecht van Ibben
 entity.got.IbbenFishmonger.name=Visboer van Ibben
 entity.got.IbbenLumberman.name=Houthakker van Ibben
 entity.got.IbbenMan.name=Mens
-entity.got.IbbenMeadhost.name=Drank-organisateur van Ibben
-entity.got.IbbenOrcharder.name=Opdrachtgever van Ibben
+entity.got.IbbenBartender.name=Drank-organisateur van Ibben
+entity.got.IbbenFlorist.name=Opdrachtgever van Ibben
 entity.got.IbbenStablemaster.name=Stablemaster van Ibben
 entity.got.IbbenWarlord.name=Kapitein van Ibben
 entity.got.IbbenWarrior.name=Krijger van Ibben
@@ -339,7 +345,7 @@ entity.got.IronbornFarmhand.name=Boerenknecht van de IJzereilanden
 entity.got.IronbornFishmonger.name=Vishandelaar van de IJzereilanden
 entity.got.IronbornFlorist.name=Bloemist van de IJzereilanden
 entity.got.IronbornGoldsmith.name≠
-entity.got.IronbornGreengrocer.name=Groenteman van de IJzereilanden
+entity.got.IronbornMiner.name=Groenteman van de IJzereilanden
 entity.got.IronbornLevyman.name=Militie van de IJzereilanden
 entity.got.IronbornLevymanArcher.name=Militie Boogschutter van de IJzereilanden
 entity.got.IronbornLumberman.name=Houthakker van de IJzereilanden
@@ -505,7 +511,7 @@ entity.got.NorthFarmhand.name=Boerenknecht van het Noorden
 entity.got.NorthFishmonger.name=Visboer van het Noorden
 entity.got.NorthFlorist.name=Bloemist van het Noorden
 entity.got.NorthGoldsmith.name≠
-entity.got.NorthGreengrocer.name=Groenteman van het Noorden
+entity.got.NorthMiner.name=Groenteman van het Noorden
 entity.got.NorthGuard.name=Noordelijke Havenwacht
 entity.got.NorthHillman.name=Noordelijke Hillman
 entity.got.NorthHillmanArcher.name=Noordelijke Hillman Boogschutter
@@ -635,7 +641,7 @@ entity.got.ReachFarmhand.name=Farmhand van Bereik
 entity.got.ReachFishmonger.name=Fishmonger van Bereik
 entity.got.ReachFlorist.name=Bloemist van Bereik
 entity.got.ReachGoldsmith.name≠
-entity.got.ReachGreengrocer.name=Groenteman van Bereik
+entity.got.ReachMiner.name=Groenteman van Bereik
 entity.got.ReachGuard.name=Oldtown Guardian
 entity.got.ReachLevyman.name=Militie van Bereik
 entity.got.ReachLevymanArcher.name=Militie Boogschutter van Bereik
@@ -662,7 +668,7 @@ entity.got.RiverlandsFarmhand.name=Boerenknecht van Rivierlanden
 entity.got.RiverlandsFishmonger.name=Visboer van Rivierlanden
 entity.got.RiverlandsFlorist.name=Bloemist van Rivierlanden
 entity.got.RiverlandsGoldsmith.name≠
-entity.got.RiverlandsGreengrocer.name=Groenteman van Rivierlanden
+entity.got.RiverlandsMiner.name=Groenteman van Rivierlanden
 entity.got.RiverlandsLevyman.name=Militie van Rivierlanden
 entity.got.RiverlandsLevymanArcher.name=Militie Boogschutter van Rivierlanden
 entity.got.RiverlandsLumberman.name=Houthakker van Rivierlanden
@@ -714,7 +720,7 @@ entity.got.StormlandsFarmhand.name=Boerenknecht van Stormlanden
 entity.got.StormlandsFishmonger.name=Visboer van Stormlanden
 entity.got.StormlandsFlorist.name=Bloemist van Stormlanden
 entity.got.StormlandsGoldsmith.name≠
-entity.got.StormlandsGreengrocer.name=Groenteman van Stormlanden
+entity.got.StormlandsMiner.name=Groenteman van Stormlanden
 entity.got.StormlandsLevyman.name=Militie van Stormlanden
 entity.got.StormlandsLevymanArcher.name=Militie Boogschutter van Stormlanden
 entity.got.StormlandsLumberman.name=Houthakker van Stormlanden
@@ -825,7 +831,7 @@ entity.got.WesterlandsFarmhand.name=Boerenknecht van Westlanden
 entity.got.WesterlandsFishmonger.name=Visboer van Westlanden
 entity.got.WesterlandsFlorist.name=Bloemist van Westlanden
 entity.got.WesterlandsGoldsmith.name≠
-entity.got.WesterlandsGreengrocer.name=Groenteman van Westlanden
+entity.got.WesterlandsMiner.name=Groenteman van Westlanden
 entity.got.WesterlandsGuard.name=Lannisport Guardian
 entity.got.WesterlandsLevyman.name=Militie van Westlanden
 entity.got.WesterlandsLevymanArcher.name=Militie Boogschutter van Westlanden

@@ -66,9 +66,4 @@ public class GOTEntitySothoryosWarrior extends GOTEntitySothoryosMan {
 		}
 		return data;
 	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
-	}
 }

@@ -13,12 +13,12 @@ public class GOTEntityLhazarMiner extends GOTEntityLhazarTrader {
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.COMMON_MINER_BUY;
+		return GOTTradeEntries.C_MINER_BUY;
 	}
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_MINER_SELL;
+		return GOTTradeEntries.C_MINER_SELL;
 	}
 
 	@Override
@@ -27,10 +27,5 @@ public class GOTEntityLhazarMiner extends GOTEntityLhazarTrader {
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.bronzePickaxe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
-	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
 	}
 }

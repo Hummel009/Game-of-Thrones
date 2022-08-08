@@ -37,12 +37,12 @@ public class GOTEntityYiTiBartender extends GOTEntityYiTiMan implements GOTTrade
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.YITI_BARTENDER_BUY;
+		return GOTTradeEntries.C_BARTENDER_BUY;
 	}
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_BARTENDER_SELL;
+		return GOTTradeEntries.C_BARTENDER_SELL;
 	}
 
 	@Override

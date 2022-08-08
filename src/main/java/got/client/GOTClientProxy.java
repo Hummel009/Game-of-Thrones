@@ -30,7 +30,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.multiplayer.WorldClient;
-import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.entity.Entity;
@@ -614,7 +613,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 				return;
 			}
 			if ("angry".equals(type)) {
-				customEffectRenderer.addEffect((EntityFX) new GOTEntityAngryFX((World) worldClient, d, d1, d2, d3, d4, d5));
+				customEffectRenderer.addEffect(new GOTEntityAngryFX(worldClient, d, d1, d2, d3, d4, d5));
 			} else if ("chill".equals(type)) {
 				mc.effectRenderer.addEffect(new GOTEntityChillFX(worldClient, d, d1, d2, d3, d4, d5));
 			} else if ("largeStone".equals(type)) {
@@ -660,15 +659,15 @@ public class GOTClientProxy extends GOTCommonProxy {
 			} else if ("marshLight".equals(type)) {
 				customEffectRenderer.addEffect(new GOTEntityMarshLightFX(worldClient, d, d1, d2, d3, d4, d5));
 			} else if ("ulthosWater".equals(type)) {
-				mc.effectRenderer.addEffect(new GOTEntityRiverWaterFX((World) worldClient, d, d1, d2, d3, d4, d5, GOTBiome.ulthos.getWaterColorMultiplier()));
-			} else if (type.equals("asshaiTorch")) {
-		        mc.effectRenderer.addEffect((EntityFX)new GOTEntityAsshaiTorchFX((World)worldClient, d, d1, d2, d3, d4, d5));
-		    } else if ("asshaiWater".equals(type)) {
-				mc.effectRenderer.addEffect(new GOTEntityRiverWaterFX((World) worldClient, d, d1, d2, d3, d4, d5, GOTBiome.shadowLand.getWaterColorMultiplier()));
+				mc.effectRenderer.addEffect(new GOTEntityRiverWaterFX(worldClient, d, d1, d2, d3, d4, d5, GOTBiome.ulthos.getWaterColorMultiplier()));
+			} else if ("asshaiTorch".equals(type)) {
+				mc.effectRenderer.addEffect(new GOTEntityAsshaiTorchFX(worldClient, d, d1, d2, d3, d4, d5));
+			} else if ("asshaiWater".equals(type)) {
+				mc.effectRenderer.addEffect(new GOTEntityRiverWaterFX(worldClient, d, d1, d2, d3, d4, d5, GOTBiome.shadowLand.getWaterColorMultiplier()));
 			} else if ("pickpocket".equals(type)) {
 				customEffectRenderer.addEffect(new GOTEntityPickpocketFX(worldClient, d, d1, d2, d3, d4, d5));
 			} else if ("pickpocketFail".equals(type)) {
-				customEffectRenderer.addEffect((EntityFX) new GOTEntityPickpocketFailFX((World) worldClient, d, d1, d2, d3, d4, d5));
+				customEffectRenderer.addEffect(new GOTEntityPickpocketFailFX(worldClient, d, d1, d2, d3, d4, d5));
 			} else if ("wave".equals(type)) {
 				mc.effectRenderer.addEffect(new GOTEntityWaveFX(worldClient, d, d1, d2, d3, d4, d5));
 			} else if ("whiteSmoke".equals(type)) {

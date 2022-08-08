@@ -135,11 +135,6 @@ public class GOTEntityGoldenMan extends GOTEntityHumanBase implements IPickpocke
 	}
 
 	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
-	}
-
-	@Override
 	public void setupNPCName() {
 		familyInfo.setName(GOTNames.getEssosName(rand, familyInfo.isMale()));
 	}

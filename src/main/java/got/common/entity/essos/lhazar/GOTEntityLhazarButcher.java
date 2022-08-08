@@ -13,12 +13,12 @@ public class GOTEntityLhazarButcher extends GOTEntityLhazarTrader {
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.COMMON_BUTCHER_BUY;
+		return GOTTradeEntries.C_BUTCHER_BUY;
 	}
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_BUTCHER_SELL;
+		return GOTTradeEntries.C_BUTCHER_SELL;
 	}
 
 	@Override
@@ -26,10 +26,5 @@ public class GOTEntityLhazarButcher extends GOTEntityLhazarTrader {
 		data = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTRegistry.rabbitRaw));
 		return data;
-	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
 	}
 }

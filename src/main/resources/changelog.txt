@@ -5,20 +5,26 @@ CHANGELOG
 * Greatly improved Ukrainian translation (prod. Octobrine)
 * Greatly Improved Far East map, improved biome colors
 * Greatly Improved ru & uk lore books (prod. Octobrine)
++ Added new female skins
++ Added more miners, goldsmiths, florists
 
 * Improved and unlocked database generator
 * Improved Mossovy Sopkas
 * Improved King Spears biome
 * Improved map (more accurate country borders)
+* Improved trade entries
 
+* Recoded lots of NPC: now they can be women
 * Recoded biomes: now ArrayLists instead of Arrays needed
 
+* Fixed bug with 2 names
 * Fixed bug with one westeros female name
 * Fixed bug with Si Qo Gate
 * Fixed freeze while F3 in ocean
 * Fixed bug with stolen items info
 * Fixed bug with russian-speaking Illyrio in english translation
 
+- Removed hunters and greengrocers (no difference, because farmers and butchers exist)
 >>VERSION 17.8
 + Added labradorite set of blocks
 + Added "kill mob" type of quests

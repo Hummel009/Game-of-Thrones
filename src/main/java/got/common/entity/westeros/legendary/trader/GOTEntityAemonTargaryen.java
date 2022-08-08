@@ -42,7 +42,7 @@ public class GOTEntityAemonTargaryen extends GOTEntityHumanBase implements GOTTr
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.COMMON_MAESTER_BUY;
+		return GOTTradeEntries.C_MAESTER_BUY;
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public class GOTEntityAemonTargaryen extends GOTEntityHumanBase implements GOTTr
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_MAESTER_SELL;
+		return GOTTradeEntries.C_MAESTER_SELL;
 	}
 
 	@Override

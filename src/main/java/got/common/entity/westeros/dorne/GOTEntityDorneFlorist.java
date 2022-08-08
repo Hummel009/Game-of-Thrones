@@ -14,12 +14,12 @@ public class GOTEntityDorneFlorist extends GOTEntityDorneMarketTrader {
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.WESTEROS_FLORIST_BUY;
+		return GOTTradeEntries.C_FLORIST_BUY;
 	}
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_FLORIST_SELL;
+		return GOTTradeEntries.C_FARMER_SELL;
 	}
 
 	@Override

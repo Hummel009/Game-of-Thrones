@@ -19,7 +19,7 @@ public class GOTEntityDorneMason extends GOTEntityDorneMarketTrader {
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_MASON_SELL;
+		return GOTTradeEntries.C_MINER_SELL;
 	}
 
 	@Override
@@ -28,10 +28,5 @@ public class GOTEntityDorneMason extends GOTEntityDorneMarketTrader {
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_pickaxe));
 		npcItemsInv.setIdleItem(new ItemStack(Blocks.stone));
 		return data;
-	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
 	}
 }

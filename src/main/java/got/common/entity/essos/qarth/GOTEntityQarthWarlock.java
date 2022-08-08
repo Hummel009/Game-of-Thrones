@@ -21,12 +21,12 @@ public class GOTEntityQarthWarlock extends GOTEntityQarthTrader implements GOTTr
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.ASSHAI_ALCHEMIST_BUY;
+		return GOTTradeEntries.C_ALCHEMIST_BUY;
 	}
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_BOMZH_SELL;
+		return GOTTradeEntries.C_BOMZH_SELL;
 	}
 
 	@Override

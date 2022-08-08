@@ -53,7 +53,7 @@ public class GOTEntityLuwin extends GOTEntityHumanBase implements GOTTradeable {
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.COMMON_MAESTER_BUY;
+		return GOTTradeEntries.C_MAESTER_BUY;
 	}
 
 	@Override
@@ -63,7 +63,7 @@ public class GOTEntityLuwin extends GOTEntityHumanBase implements GOTTradeable {
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_MAESTER_SELL;
+		return GOTTradeEntries.C_MAESTER_SELL;
 	}
 
 	@Override

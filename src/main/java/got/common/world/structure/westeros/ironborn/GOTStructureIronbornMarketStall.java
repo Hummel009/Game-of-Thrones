@@ -11,7 +11,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
 public abstract class GOTStructureIronbornMarketStall extends GOTStructureWesterosMarketStall {
-	public static Class[] allStallTypes = { Goldsmith.class, Greengrocer.class, Lumber.class, Mason.class, Brewer.class, Flowers.class, Butcher.class, Fish.class, Farmer.class, Blacksmith.class, Baker.class };
+	public static Class[] allStallTypes = { Goldsmith.class, Miner.class, Lumber.class, Mason.class, Brewer.class, Flowers.class, Butcher.class, Fish.class, Farmer.class, Blacksmith.class, Baker.class };
 
 	public GOTStructureIronbornMarketStall(boolean flag) {
 		super(flag);
@@ -211,27 +211,6 @@ public abstract class GOTStructureIronbornMarketStall extends GOTStructureWester
 		}
 	}
 
-	public static class Greengrocer extends GOTStructureIronbornMarketStall {
-		public Greengrocer(boolean flag) {
-			super(flag);
-		}
-
-		@Override
-		public GOTEntityIronbornMan createTrader(World world) {
-			return new GOTEntityIronbornGreengrocer(world);
-		}
-
-		@Override
-		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
-			int i2 = Math.abs(i1);
-			if (IntMath.mod(i2 + Math.abs(k1), 2) == 0) {
-				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 14);
-			} else {
-				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 5);
-			}
-		}
-	}
-
 	public static class Lumber extends GOTStructureIronbornMarketStall {
 		public Lumber(boolean flag) {
 			super(flag);
@@ -272,6 +251,27 @@ public abstract class GOTStructureIronbornMarketStall extends GOTStructureWester
 				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 7);
 			} else {
 				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 8);
+			}
+		}
+	}
+
+	public static class Miner extends GOTStructureIronbornMarketStall {
+		public Miner(boolean flag) {
+			super(flag);
+		}
+
+		@Override
+		public GOTEntityIronbornMan createTrader(World world) {
+			return new GOTEntityIronbornMiner(world);
+		}
+
+		@Override
+		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
+			int i2 = Math.abs(i1);
+			if (IntMath.mod(i2 + Math.abs(k1), 2) == 0) {
+				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 14);
+			} else {
+				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 5);
 			}
 		}
 	}

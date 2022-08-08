@@ -19,7 +19,7 @@ public class GOTEntityLhazarMason extends GOTEntityLhazarTrader {
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_MASON_SELL;
+		return GOTTradeEntries.C_MINER_SELL;
 	}
 
 	@Override
@@ -28,10 +28,5 @@ public class GOTEntityLhazarMason extends GOTEntityLhazarTrader {
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.bronzePickaxe));
 		npcItemsInv.setIdleItem(new ItemStack(Blocks.stone));
 		return data;
-	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
 	}
 }

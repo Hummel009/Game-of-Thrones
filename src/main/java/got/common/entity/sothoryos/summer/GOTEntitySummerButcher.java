@@ -13,12 +13,12 @@ public class GOTEntitySummerButcher extends GOTEntitySummerTrader {
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.COMMON_BUTCHER_BUY;
+		return GOTTradeEntries.C_BUTCHER_BUY;
 	}
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_BUTCHER_SELL;
+		return GOTTradeEntries.C_BUTCHER_SELL;
 	}
 
 	@Override
@@ -26,10 +26,5 @@ public class GOTEntitySummerButcher extends GOTEntitySummerTrader {
 		data = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTRegistry.camelRaw));
 		return data;
-	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
 	}
 }

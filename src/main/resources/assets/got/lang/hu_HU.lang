@@ -1,4 +1,10 @@
 ﻿
+entity.got.IbbenMiner.name≠
+entity.got.IbbenFlorist.name≠
+entity.got.YiTiMiner.name≠
+entity.got.YiTiFlorist.name≠
+entity.got.SummerMiner.name≠
+entity.got.SummerFlorist.name≠
 got.biome.yiTiMarshes≠
 got.biome.jogosNhaiHills≠
 got.structure.DatabaseGenerator.name≠
@@ -54,7 +60,7 @@ entity.got.ArrynFarmhand.name≠
 entity.got.ArrynFishmonger.name≠
 entity.got.ArrynFlorist.name≠
 entity.got.ArrynGoldsmith.name≠
-entity.got.ArrynGreengrocer.name≠
+entity.got.ArrynMiner.name≠
 entity.got.ArrynGuard.name≠
 entity.got.ArrynLevyman.name≠
 entity.got.ArrynLevymanArcher.name≠
@@ -148,7 +154,7 @@ entity.got.CrownlandsFarmhand.name≠
 entity.got.CrownlandsFishmonger.name≠
 entity.got.CrownlandsFlorist.name≠
 entity.got.CrownlandsGoldsmith.name≠
-entity.got.CrownlandsGreengrocer.name≠
+entity.got.CrownlandsMiner.name≠
 entity.got.CrownlandsGuard.name≠
 entity.got.CrownlandsLevyman.name≠
 entity.got.CrownlandsLevymanArcher.name≠
@@ -179,7 +185,7 @@ entity.got.DorneFarmhand.name≠
 entity.got.DorneFishmonger.name≠
 entity.got.DorneFlorist.name≠
 entity.got.DorneGoldsmith.name≠
-entity.got.DorneGreengrocer.name≠
+entity.got.DorneMiner.name≠
 entity.got.DorneLevyman.name≠
 entity.got.DorneLevymanArcher.name≠
 entity.got.DorneLumberman.name≠
@@ -204,7 +210,7 @@ entity.got.DragonstoneFarmhand.name≠
 entity.got.DragonstoneFishmonger.name≠
 entity.got.DragonstoneFlorist.name≠
 entity.got.DragonstoneGoldsmith.name≠
-entity.got.DragonstoneGreengrocer.name≠
+entity.got.DragonstoneMiner.name≠
 entity.got.DragonstoneLevyman.name≠
 entity.got.DragonstoneLevymanArcher.name≠
 entity.got.DragonstoneLumberman.name≠
@@ -310,15 +316,15 @@ entity.got.IbbenBaker.name≠
 entity.got.IbbenBannerBearer.name≠
 entity.got.IbbenBlacksmith.name≠
 entity.got.IbbenBrewer.name≠
-entity.got.IbbenBuilder.name≠
+entity.got.IbbenMason.name≠
 entity.got.IbbenButcher.name≠
 entity.got.IbbenFarmer.name≠
 entity.got.IbbenFarmhand.name≠
 entity.got.IbbenFishmonger.name≠
 entity.got.IbbenLumberman.name≠
 entity.got.IbbenMan.name≠
-entity.got.IbbenMeadhost.name≠
-entity.got.IbbenOrcharder.name≠
+entity.got.IbbenBartender.name≠
+entity.got.IbbenFlorist.name≠
 entity.got.IbbenStablemaster.name≠
 entity.got.IbbenWarlord.name≠
 entity.got.IbbenWarrior.name≠
@@ -339,7 +345,7 @@ entity.got.IronbornFarmhand.name≠
 entity.got.IronbornFishmonger.name≠
 entity.got.IronbornFlorist.name≠
 entity.got.IronbornGoldsmith.name≠
-entity.got.IronbornGreengrocer.name≠
+entity.got.IronbornMiner.name≠
 entity.got.IronbornLevyman.name≠
 entity.got.IronbornLevymanArcher.name≠
 entity.got.IronbornLumberman.name≠
@@ -505,7 +511,7 @@ entity.got.NorthFarmhand.name≠
 entity.got.NorthFishmonger.name≠
 entity.got.NorthFlorist.name≠
 entity.got.NorthGoldsmith.name≠
-entity.got.NorthGreengrocer.name≠
+entity.got.NorthMiner.name≠
 entity.got.NorthGuard.name≠
 entity.got.NorthHillman.name≠
 entity.got.NorthHillmanArcher.name≠
@@ -635,7 +641,7 @@ entity.got.ReachFarmhand.name≠
 entity.got.ReachFishmonger.name≠
 entity.got.ReachFlorist.name≠
 entity.got.ReachGoldsmith.name≠
-entity.got.ReachGreengrocer.name≠
+entity.got.ReachMiner.name≠
 entity.got.ReachGuard.name≠
 entity.got.ReachLevyman.name≠
 entity.got.ReachLevymanArcher.name≠
@@ -662,7 +668,7 @@ entity.got.RiverlandsFarmhand.name≠
 entity.got.RiverlandsFishmonger.name≠
 entity.got.RiverlandsFlorist.name≠
 entity.got.RiverlandsGoldsmith.name≠
-entity.got.RiverlandsGreengrocer.name≠
+entity.got.RiverlandsMiner.name≠
 entity.got.RiverlandsLevyman.name≠
 entity.got.RiverlandsLevymanArcher.name≠
 entity.got.RiverlandsLumberman.name≠
@@ -714,7 +720,7 @@ entity.got.StormlandsFarmhand.name≠
 entity.got.StormlandsFishmonger.name≠
 entity.got.StormlandsFlorist.name≠
 entity.got.StormlandsGoldsmith.name≠
-entity.got.StormlandsGreengrocer.name≠
+entity.got.StormlandsMiner.name≠
 entity.got.StormlandsLevyman.name≠
 entity.got.StormlandsLevymanArcher.name≠
 entity.got.StormlandsLumberman.name≠
@@ -825,7 +831,7 @@ entity.got.WesterlandsFarmhand.name≠
 entity.got.WesterlandsFishmonger.name≠
 entity.got.WesterlandsFlorist.name≠
 entity.got.WesterlandsGoldsmith.name≠
-entity.got.WesterlandsGreengrocer.name≠
+entity.got.WesterlandsMiner.name≠
 entity.got.WesterlandsGuard.name≠
 entity.got.WesterlandsLevyman.name≠
 entity.got.WesterlandsLevymanArcher.name≠

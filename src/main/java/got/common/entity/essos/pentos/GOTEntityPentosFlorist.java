@@ -13,12 +13,12 @@ public class GOTEntityPentosFlorist extends GOTEntityPentosTrader {
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.ESSOS_FLORIST_BUY;
+		return GOTTradeEntries.C_FLORIST_BUY;
 	}
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_FLORIST_SELL;
+		return GOTTradeEntries.C_FARMER_SELL;
 	}
 
 	@Override

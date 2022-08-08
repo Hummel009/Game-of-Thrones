@@ -61,9 +61,4 @@ public class GOTEntityArrynLevyman extends GOTEntityArrynMan {
 		}
 		return data;
 	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
-	}
 }

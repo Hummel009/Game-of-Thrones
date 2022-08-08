@@ -18,7 +18,7 @@ public class GOTEntitySummerMason extends GOTEntitySummerTrader {
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_MASON_SELL;
+		return GOTTradeEntries.C_MINER_SELL;
 	}
 
 	@Override
@@ -27,10 +27,5 @@ public class GOTEntitySummerMason extends GOTEntitySummerTrader {
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.bronzePickaxe));
 		npcItemsInv.setIdleItem(new ItemStack(GOTRegistry.brick1, 1, 15));
 		return data;
-	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
 	}
 }

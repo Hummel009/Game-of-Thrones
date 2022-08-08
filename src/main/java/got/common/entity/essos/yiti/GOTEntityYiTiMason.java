@@ -20,7 +20,7 @@ public class GOTEntityYiTiMason extends GOTEntityYiTiMarketTrader {
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_MASON_SELL;
+		return GOTTradeEntries.C_MINER_SELL;
 	}
 
 	@Override
@@ -36,10 +36,5 @@ public class GOTEntityYiTiMason extends GOTEntityYiTiMarketTrader {
 		setCurrentItemOrArmor(3, body);
 		setCurrentItemOrArmor(2, legs);
 		return data;
-	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
 	}
 }

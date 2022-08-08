@@ -68,9 +68,4 @@ public class GOTEntityRiverlandsLevyman extends GOTEntityRiverlandsMan {
 		}
 		return data;
 	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
-	}
 }

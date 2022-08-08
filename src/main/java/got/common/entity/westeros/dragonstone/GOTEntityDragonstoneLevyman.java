@@ -68,9 +68,4 @@ public class GOTEntityDragonstoneLevyman extends GOTEntityDragonstoneMan {
 		}
 		return data;
 	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
-	}
 }

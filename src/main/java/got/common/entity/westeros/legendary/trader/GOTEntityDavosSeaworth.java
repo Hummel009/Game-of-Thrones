@@ -68,7 +68,7 @@ public class GOTEntityDavosSeaworth extends GOTEntityHumanBase implements GOTTra
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_MAESTER_SELL;
+		return GOTTradeEntries.C_MAESTER_SELL;
 	}
 
 	@Override

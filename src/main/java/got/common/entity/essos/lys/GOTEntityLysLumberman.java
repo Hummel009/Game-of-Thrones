@@ -14,12 +14,12 @@ public class GOTEntityLysLumberman extends GOTEntityLysTrader {
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.ESSOS_LUMBERMAN_BUY;
+		return GOTTradeEntries.C_LUMBERMAN_BUY;
 	}
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_LUMBERMAN_SELL;
+		return GOTTradeEntries.C_LUMBERMAN_SELL;
 	}
 
 	@Override
@@ -28,10 +28,5 @@ public class GOTEntityLysLumberman extends GOTEntityLysTrader {
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_axe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
-	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
 	}
 }

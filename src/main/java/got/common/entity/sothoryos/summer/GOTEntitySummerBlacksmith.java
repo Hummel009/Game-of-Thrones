@@ -48,7 +48,7 @@ public class GOTEntitySummerBlacksmith extends GOTEntitySummerMan implements GOT
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_BLACKSMITH_SELL;
+		return GOTTradeEntries.C_BLACKSMITH_SELL;
 	}
 
 	@Override
@@ -73,10 +73,5 @@ public class GOTEntitySummerBlacksmith extends GOTEntitySummerMan implements GOT
 		GOTItemRobes.setRobesColor(turban, 1643539);
 		setCurrentItemOrArmor(4, turban);
 		return data;
-	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
 	}
 }

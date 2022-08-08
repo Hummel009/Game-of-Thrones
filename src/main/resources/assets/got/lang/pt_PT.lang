@@ -1,4 +1,10 @@
 ﻿
+entity.got.IbbenMiner.name≠
+entity.got.IbbenFlorist.name≠
+entity.got.YiTiMiner.name≠
+entity.got.YiTiFlorist.name≠
+entity.got.SummerMiner.name≠
+entity.got.SummerFlorist.name≠
 got.biome.yiTiMarshes≠
 got.biome.jogosNhaiHills≠
 got.structure.DatabaseGenerator.name≠
@@ -54,7 +60,7 @@ entity.got.ArrynFarmhand.name=Agricultor de Vale de Arryn
 entity.got.ArrynFishmonger.name=Peixeiro de Vale de Arryn
 entity.got.ArrynFlorist.name=Florista de Vale de Arryn
 entity.got.ArrynGoldsmith.name≠
-entity.got.ArrynGreengrocer.name=Verdureiro de Vale de Arryn
+entity.got.ArrynMiner.name=Verdureiro de Vale de Arryn
 entity.got.ArrynGuard.name=Gulltown Guardian
 entity.got.ArrynLevyman.name=Miliciano de Vale de Arryn
 entity.got.ArrynLevymanArcher.name=Miliciano Arqueiro de Vale de Arryn
@@ -148,7 +154,7 @@ entity.got.CrownlandsFarmhand.name=Fazendeiro de Terras da Coroa
 entity.got.CrownlandsFishmonger.name=Peixeiro de Terras da Coroa
 entity.got.CrownlandsFlorist.name=Florista de Terras da Coroa
 entity.got.CrownlandsGoldsmith.name≠
-entity.got.CrownlandsGreengrocer.name=Verdureiro de Terras da Coroa
+entity.got.CrownlandsMiner.name=Verdureiro de Terras da Coroa
 entity.got.CrownlandsGuard.name=Guardião de Porto Real
 entity.got.CrownlandsLevyman.name=Miliciano de Terras da Coroa
 entity.got.CrownlandsLevymanArcher.name=Miliciano Arqueiro de Terras da Coroa
@@ -179,7 +185,7 @@ entity.got.DorneFarmhand.name=Agricultor de Dorne
 entity.got.DorneFishmonger.name=Peixeiro de Dorne
 entity.got.DorneFlorist.name=Florista de Dorne
 entity.got.DorneGoldsmith.name≠
-entity.got.DorneGreengrocer.name=Verdureiro de Dorne
+entity.got.DorneMiner.name=Verdureiro de Dorne
 entity.got.DorneLevyman.name=Miliciano de Dorne
 entity.got.DorneLevymanArcher.name=Miliciano Arqueiro de Dorne
 entity.got.DorneLumberman.name=Lumberman de Dorne
@@ -204,7 +210,7 @@ entity.got.DragonstoneFarmhand.name=Agricultor de Pedra do Dragão
 entity.got.DragonstoneFishmonger.name=Peixeiro de Pedra do Dragão
 entity.got.DragonstoneFlorist.name=Florista de Pedra do Dragão
 entity.got.DragonstoneGoldsmith.name≠
-entity.got.DragonstoneGreengrocer.name=Verdureiro de Pedra do Dragão
+entity.got.DragonstoneMiner.name=Verdureiro de Pedra do Dragão
 entity.got.DragonstoneLevyman.name=Miliciano de Pedra do Dragão
 entity.got.DragonstoneLevymanArcher.name=Miliciano Arqueiro de Pedra do Dragão
 entity.got.DragonstoneLumberman.name=Lumberman de Pedra do Dragão
@@ -310,15 +316,15 @@ entity.got.IbbenBaker.name=Padeiro de Ibben
 entity.got.IbbenBannerBearer.name=Portador da bandeira de Ibben
 entity.got.IbbenBlacksmith.name=Ferreiro de ibben
 entity.got.IbbenBrewer.name=Cervejeiro de Ibben
-entity.got.IbbenBuilder.name=Construtor de Ibben
+entity.got.IbbenMason.name=Construtor de Ibben
 entity.got.IbbenButcher.name=Açougueiro de ibben
 entity.got.IbbenFarmer.name=Fazendeiro de Ibben
 entity.got.IbbenFarmhand.name=Agricultor de Ibben
 entity.got.IbbenFishmonger.name=Peixeiro de Ibben
 entity.got.IbbenLumberman.name=Lumberman de Ibben
 entity.got.IbbenMan.name=Homem
-entity.got.IbbenMeadhost.name=Meadhost de Ibben
-entity.got.IbbenOrcharder.name=Orcharder de Ibben
+entity.got.IbbenBartender.name=Meadhost de Ibben
+entity.got.IbbenFlorist.name=Orcharder de Ibben
 entity.got.IbbenStablemaster.name=Mestre dos estábulos de Ibben
 entity.got.IbbenWarlord.name=Capitão de Ibben
 entity.got.IbbenWarrior.name=Guerreiro de ibben
@@ -339,7 +345,7 @@ entity.got.IronbornFarmhand.name=Agricultor das Ilhas de Ferro
 entity.got.IronbornFishmonger.name=Peixeiro das Ilhas de Ferro
 entity.got.IronbornFlorist.name=Florista das Ilhas de Ferro
 entity.got.IronbornGoldsmith.name≠
-entity.got.IronbornGreengrocer.name=Verdureiro das Ilhas de Ferro
+entity.got.IronbornMiner.name=Verdureiro das Ilhas de Ferro
 entity.got.IronbornLevyman.name=Miliciano das Ilhas de Ferro
 entity.got.IronbornLevymanArcher.name=Miliciano Arqueiro das Ilhas de Ferro
 entity.got.IronbornLumberman.name=Lenhador das Ilhas de Ferro
@@ -505,7 +511,7 @@ entity.got.NorthFarmhand.name=Agricultor do Norte
 entity.got.NorthFishmonger.name=Peixeiro do Norte
 entity.got.NorthFlorist.name=Florista do norte
 entity.got.NorthGoldsmith.name≠
-entity.got.NorthGreengrocer.name=Verdureiro do Norte
+entity.got.NorthMiner.name=Verdureiro do Norte
 entity.got.NorthGuard.name=Guarda do Porto Branco
 entity.got.NorthHillman.name=North Hillman
 entity.got.NorthHillmanArcher.name=North Hillman Arqueiro
@@ -635,7 +641,7 @@ entity.got.ReachFarmhand.name=Agricultor de Campina
 entity.got.ReachFishmonger.name=Peixeiro de Campina
 entity.got.ReachFlorist.name=Florista de Campina
 entity.got.ReachGoldsmith.name≠
-entity.got.ReachGreengrocer.name=Verdureiro de Campina
+entity.got.ReachMiner.name=Verdureiro de Campina
 entity.got.ReachGuard.name=Oldtown Guardian
 entity.got.ReachLevyman.name=Miliciano de Campina
 entity.got.ReachLevymanArcher.name=Miliciano Arqueiro de Campina
@@ -662,7 +668,7 @@ entity.got.RiverlandsFarmhand.name=Agricultor de Terras Fluviais
 entity.got.RiverlandsFishmonger.name=Peixeiro de Terras Fluviais
 entity.got.RiverlandsFlorist.name=Florista de Terras Fluviais
 entity.got.RiverlandsGoldsmith.name≠
-entity.got.RiverlandsGreengrocer.name=Verdureiro de Terras Fluviais
+entity.got.RiverlandsMiner.name=Verdureiro de Terras Fluviais
 entity.got.RiverlandsLevyman.name=Miliciano de Terras Fluviais
 entity.got.RiverlandsLevymanArcher.name=Miliciano Arqueiro de Terras Fluviais
 entity.got.RiverlandsLumberman.name=Lumberman de Terras Fluviais
@@ -714,7 +720,7 @@ entity.got.StormlandsFarmhand.name=Agricultor de Terras da Tempestade
 entity.got.StormlandsFishmonger.name=Peixeiro de Terras da Tempestade
 entity.got.StormlandsFlorist.name=Florista de Terras da Tempestade
 entity.got.StormlandsGoldsmith.name≠
-entity.got.StormlandsGreengrocer.name=Verdureiro de Terras da Tempestade
+entity.got.StormlandsMiner.name=Verdureiro de Terras da Tempestade
 entity.got.StormlandsLevyman.name=Miliciano de Terras da Tempestade
 entity.got.StormlandsLevymanArcher.name=Miliciano Arqueiro de Terras da Tempestade
 entity.got.StormlandsLumberman.name=Lumberman de Terras da Tempestade
@@ -825,7 +831,7 @@ entity.got.WesterlandsFarmhand.name=Agricultor de Terras Ocidentais
 entity.got.WesterlandsFishmonger.name=Peixeiro de Terras Ocidentais
 entity.got.WesterlandsFlorist.name=Florista de Terras Ocidentais
 entity.got.WesterlandsGoldsmith.name≠
-entity.got.WesterlandsGreengrocer.name=Verdureiro de Terras Ocidentais
+entity.got.WesterlandsMiner.name=Verdureiro de Terras Ocidentais
 entity.got.WesterlandsGuard.name=Lannisport Guardian
 entity.got.WesterlandsLevyman.name=Miliciano de Terras Ocidentais
 entity.got.WesterlandsLevymanArcher.name=Miliciano Arqueiro de Terras Ocidentais

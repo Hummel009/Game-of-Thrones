@@ -2,11 +2,13 @@ package got.client.model;
 
 import org.lwjgl.opengl.GL11;
 
+import got.client.render.other.GOTGlowingEyes;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class GOTModelHuman extends GOTModelBiped {
+public class GOTModelHuman extends GOTModelBiped implements GOTGlowingEyes.Model {
+
 	public ModelRenderer bipedChest = new ModelRenderer(this, 24, 0);
 
 	public GOTModelHuman() {
@@ -55,5 +57,11 @@ public class GOTModelHuman extends GOTModelBiped {
 			bipedRightLeg.render(f5);
 			bipedLeftLeg.render(f5);
 		}
+	}
+
+	@Override
+	public void renderGlowingEyes(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+		setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+		bipedHead.render(f5);
 	}
 }

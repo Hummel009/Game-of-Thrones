@@ -27,12 +27,12 @@ public class GOTEntitySothoryosShaman extends GOTEntitySothoryosMan implements G
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.SOTHORYOS_SHAMAN_BUY;
+		return GOTTradeEntries.C_SHAMAN_BUY;
 	}
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_SHAMAN_SELL;
+		return GOTTradeEntries.C_SHAMAN_SELL;
 	}
 
 	@Override
@@ -46,10 +46,5 @@ public class GOTEntitySothoryosShaman extends GOTEntitySothoryosMan implements G
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.sothoryosDaggerPoisoned));
 		npcItemsInv.setIdleItem(new ItemStack(GOTRegistry.bottlePoison));
 		return data;
-	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
 	}
 }

@@ -45,7 +45,7 @@ public class GOTEntityCrownlandsBlacksmith extends GOTEntityCrownlandsMan implem
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_BLACKSMITH_SELL;
+		return GOTTradeEntries.C_BLACKSMITH_SELL;
 	}
 
 	@Override
@@ -67,10 +67,5 @@ public class GOTEntityCrownlandsBlacksmith extends GOTEntityCrownlandsMan implem
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.blacksmithHammer));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
-	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
 	}
 }

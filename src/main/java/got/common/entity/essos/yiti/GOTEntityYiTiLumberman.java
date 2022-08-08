@@ -15,12 +15,12 @@ public class GOTEntityYiTiLumberman extends GOTEntityYiTiMarketTrader {
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.YITI_LUMBERMAN_BUY;
+		return GOTTradeEntries.C_LUMBERMAN_BUY;
 	}
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.COMMON_LUMBERMAN_SELL;
+		return GOTTradeEntries.C_LUMBERMAN_SELL;
 	}
 
 	@Override
@@ -36,10 +36,5 @@ public class GOTEntityYiTiLumberman extends GOTEntityYiTiMarketTrader {
 		setCurrentItemOrArmor(3, body);
 		setCurrentItemOrArmor(2, legs);
 		return data;
-	}
-
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
 	}
 }

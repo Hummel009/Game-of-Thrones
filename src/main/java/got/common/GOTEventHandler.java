@@ -1228,8 +1228,7 @@ public class GOTEventHandler implements IFuelHandler {
 					entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 600, 1));
 					entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 600));
 					entity.addPotionEffect(new PotionEffect(Potion.blindness.id, 600));
-				}
-				else if (biome instanceof GOTBiomeValyria) {
+				} else if (biome instanceof GOTBiomeValyria) {
 					entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 600, 1));
 					entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 600));
 					entity.addPotionEffect(new PotionEffect(Potion.wither.id, 600));

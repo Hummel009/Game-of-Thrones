@@ -156,6 +156,13 @@ public class DatabaseGenerator extends GOTStructureBase {
 		charPoint.put(GOTEntityDenysMallister.class, GOTWaypoint.ShadowTower);
 		charPoint.put(GOTEntityMullin.class, GOTWaypoint.ShadowTower);
 
+		entities.put(GOTEntityIbbenMiner.class, new GOTEntityIbbenMiner(world));
+		entities.put(GOTEntitySummerMiner.class, new GOTEntitySummerMiner(world));
+		entities.put(GOTEntityYiTiMiner.class, new GOTEntityYiTiMiner(world));
+		entities.put(GOTEntityIbbenFlorist.class, new GOTEntitySummerFlorist(world));
+		entities.put(GOTEntitySummerFlorist.class, new GOTEntitySummerFlorist(world));
+		entities.put(GOTEntityYiTiFlorist.class, new GOTEntityYiTiFlorist(world));
+
 		entities.put(GOTEntityBison.class, new GOTEntityBison(world));
 		entities.put(GOTEntityBear.class, new GOTEntityBear(world));
 		entities.put(GOTEntityBird.class, new GOTEntityBird(world));
@@ -245,7 +252,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		entities.put(GOTEntityNorthFarmer.class, new GOTEntityNorthFarmer(world));
 		entities.put(GOTEntityNorthFarmhand.class, new GOTEntityNorthFarmhand(world));
 		entities.put(GOTEntityNorthBartender.class, new GOTEntityNorthBartender(world));
-		entities.put(GOTEntityNorthGreengrocer.class, new GOTEntityNorthGreengrocer(world));
+		entities.put(GOTEntityNorthMiner.class, new GOTEntityNorthMiner(world));
 		entities.put(GOTEntityNorthLumberman.class, new GOTEntityNorthLumberman(world));
 		entities.put(GOTEntityNorthMason.class, new GOTEntityNorthMason(world));
 		entities.put(GOTEntityNorthBrewer.class, new GOTEntityNorthBrewer(world));
@@ -278,7 +285,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		entities.put(GOTEntityIronbornFarmhand.class, new GOTEntityIronbornFarmhand(world));
 		entities.put(GOTEntityIronbornFishmonger.class, new GOTEntityIronbornFishmonger(world));
 		entities.put(GOTEntityIronbornFlorist.class, new GOTEntityIronbornFlorist(world));
-		entities.put(GOTEntityIronbornGreengrocer.class, new GOTEntityIronbornGreengrocer(world));
+		entities.put(GOTEntityIronbornMiner.class, new GOTEntityIronbornMiner(world));
 		entities.put(GOTEntityIronbornLumberman.class, new GOTEntityIronbornLumberman(world));
 		entities.put(GOTEntityIronbornMason.class, new GOTEntityIronbornMason(world));
 		entities.put(GOTEntityWesterlandsMan.class, new GOTEntityWesterlandsMan(world));
@@ -299,7 +306,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		entities.put(GOTEntityWesterlandsFarmhand.class, new GOTEntityWesterlandsFarmhand(world));
 		entities.put(GOTEntityWesterlandsFishmonger.class, new GOTEntityWesterlandsFishmonger(world));
 		entities.put(GOTEntityWesterlandsFlorist.class, new GOTEntityWesterlandsFlorist(world));
-		entities.put(GOTEntityWesterlandsGreengrocer.class, new GOTEntityWesterlandsGreengrocer(world));
+		entities.put(GOTEntityWesterlandsMiner.class, new GOTEntityWesterlandsMiner(world));
 		entities.put(GOTEntityWesterlandsLumberman.class, new GOTEntityWesterlandsLumberman(world));
 		entities.put(GOTEntityWesterlandsMason.class, new GOTEntityWesterlandsMason(world));
 		entities.put(GOTEntityRiverlandsMan.class, new GOTEntityRiverlandsMan(world));
@@ -319,7 +326,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		entities.put(GOTEntityRiverlandsFarmhand.class, new GOTEntityRiverlandsFarmhand(world));
 		entities.put(GOTEntityRiverlandsFishmonger.class, new GOTEntityRiverlandsFishmonger(world));
 		entities.put(GOTEntityRiverlandsFlorist.class, new GOTEntityRiverlandsFlorist(world));
-		entities.put(GOTEntityRiverlandsGreengrocer.class, new GOTEntityRiverlandsGreengrocer(world));
+		entities.put(GOTEntityRiverlandsMiner.class, new GOTEntityRiverlandsMiner(world));
 		entities.put(GOTEntityRiverlandsLumberman.class, new GOTEntityRiverlandsLumberman(world));
 		entities.put(GOTEntityRiverlandsMason.class, new GOTEntityRiverlandsMason(world));
 		entities.put(GOTEntityHillman.class, new GOTEntityHillman(world));
@@ -348,7 +355,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		entities.put(GOTEntityArrynFarmhand.class, new GOTEntityArrynFarmhand(world));
 		entities.put(GOTEntityArrynFishmonger.class, new GOTEntityArrynFishmonger(world));
 		entities.put(GOTEntityArrynFlorist.class, new GOTEntityArrynFlorist(world));
-		entities.put(GOTEntityArrynGreengrocer.class, new GOTEntityArrynGreengrocer(world));
+		entities.put(GOTEntityArrynMiner.class, new GOTEntityArrynMiner(world));
 		entities.put(GOTEntityArrynLumberman.class, new GOTEntityArrynLumberman(world));
 		entities.put(GOTEntityArrynMason.class, new GOTEntityArrynMason(world));
 		entities.put(GOTEntityDragonstoneMan.class, new GOTEntityDragonstoneMan(world));
@@ -368,7 +375,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		entities.put(GOTEntityDragonstoneFarmhand.class, new GOTEntityDragonstoneFarmhand(world));
 		entities.put(GOTEntityDragonstoneFishmonger.class, new GOTEntityDragonstoneFishmonger(world));
 		entities.put(GOTEntityDragonstoneFlorist.class, new GOTEntityDragonstoneFlorist(world));
-		entities.put(GOTEntityDragonstoneGreengrocer.class, new GOTEntityDragonstoneGreengrocer(world));
+		entities.put(GOTEntityDragonstoneMiner.class, new GOTEntityDragonstoneMiner(world));
 		entities.put(GOTEntityDragonstoneLumberman.class, new GOTEntityDragonstoneLumberman(world));
 		entities.put(GOTEntityDragonstoneMason.class, new GOTEntityDragonstoneMason(world));
 		entities.put(GOTEntityCrownlandsMan.class, new GOTEntityCrownlandsMan(world));
@@ -388,7 +395,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		entities.put(GOTEntityCrownlandsFarmhand.class, new GOTEntityCrownlandsFarmhand(world));
 		entities.put(GOTEntityCrownlandsFishmonger.class, new GOTEntityCrownlandsFishmonger(world));
 		entities.put(GOTEntityCrownlandsFlorist.class, new GOTEntityCrownlandsFlorist(world));
-		entities.put(GOTEntityCrownlandsGreengrocer.class, new GOTEntityCrownlandsGreengrocer(world));
+		entities.put(GOTEntityCrownlandsMiner.class, new GOTEntityCrownlandsMiner(world));
 		entities.put(GOTEntityCrownlandsLumberman.class, new GOTEntityCrownlandsLumberman(world));
 		entities.put(GOTEntityCrownlandsMason.class, new GOTEntityCrownlandsMason(world));
 		entities.put(GOTEntityCrownlandsAlchemist.class, new GOTEntityCrownlandsAlchemist(world));
@@ -409,7 +416,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		entities.put(GOTEntityStormlandsFarmhand.class, new GOTEntityStormlandsFarmhand(world));
 		entities.put(GOTEntityStormlandsFishmonger.class, new GOTEntityStormlandsFishmonger(world));
 		entities.put(GOTEntityStormlandsFlorist.class, new GOTEntityStormlandsFlorist(world));
-		entities.put(GOTEntityStormlandsGreengrocer.class, new GOTEntityStormlandsGreengrocer(world));
+		entities.put(GOTEntityStormlandsMiner.class, new GOTEntityStormlandsMiner(world));
 		entities.put(GOTEntityStormlandsLumberman.class, new GOTEntityStormlandsLumberman(world));
 		entities.put(GOTEntityStormlandsMason.class, new GOTEntityStormlandsMason(world));
 		entities.put(GOTEntityReachMan.class, new GOTEntityReachMan(world));
@@ -430,7 +437,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		entities.put(GOTEntityReachFarmhand.class, new GOTEntityReachFarmhand(world));
 		entities.put(GOTEntityReachFishmonger.class, new GOTEntityReachFishmonger(world));
 		entities.put(GOTEntityReachFlorist.class, new GOTEntityReachFlorist(world));
-		entities.put(GOTEntityReachGreengrocer.class, new GOTEntityReachGreengrocer(world));
+		entities.put(GOTEntityReachMiner.class, new GOTEntityReachMiner(world));
 		entities.put(GOTEntityReachLumberman.class, new GOTEntityReachLumberman(world));
 		entities.put(GOTEntityReachMason.class, new GOTEntityReachMason(world));
 		entities.put(GOTEntityDorneMan.class, new GOTEntityDorneMan(world));
@@ -450,7 +457,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		entities.put(GOTEntityDorneFarmhand.class, new GOTEntityDorneFarmhand(world));
 		entities.put(GOTEntityDorneFishmonger.class, new GOTEntityDorneFishmonger(world));
 		entities.put(GOTEntityDorneFlorist.class, new GOTEntityDorneFlorist(world));
-		entities.put(GOTEntityDorneGreengrocer.class, new GOTEntityDorneGreengrocer(world));
+		entities.put(GOTEntityDorneMiner.class, new GOTEntityDorneMiner(world));
 		entities.put(GOTEntityDorneLumberman.class, new GOTEntityDorneLumberman(world));
 		entities.put(GOTEntityDorneMason.class, new GOTEntityDorneMason(world));
 		entities.put(GOTEntityBraavosMan.class, new GOTEntityBraavosMan(world));
@@ -693,7 +700,6 @@ public class DatabaseGenerator extends GOTStructureBase {
 		entities.put(GOTEntityLhazarMiner.class, new GOTEntityLhazarMiner(world));
 		entities.put(GOTEntityLhazarGoldsmith.class, new GOTEntityLhazarGoldsmith(world));
 		entities.put(GOTEntityLhazarLumberman.class, new GOTEntityLhazarLumberman(world));
-		entities.put(GOTEntityLhazarHunter.class, new GOTEntityLhazarHunter(world));
 		entities.put(GOTEntityLhazarBartender.class, new GOTEntityLhazarBartender(world));
 		entities.put(GOTEntityLhazarFarmer.class, new GOTEntityLhazarFarmer(world));
 		entities.put(GOTEntityDothraki.class, new GOTEntityDothraki(world));
@@ -706,18 +712,17 @@ public class DatabaseGenerator extends GOTStructureBase {
 		entities.put(GOTEntityIbbenAxeThrower.class, new GOTEntityIbbenAxeThrower(world));
 		entities.put(GOTEntityIbbenWarlord.class, new GOTEntityIbbenWarlord(world));
 		entities.put(GOTEntityIbbenBlacksmith.class, new GOTEntityIbbenBlacksmith(world));
-		entities.put(GOTEntityIbbenMeadhost.class, new GOTEntityIbbenMeadhost(world));
+		entities.put(GOTEntityIbbenBartender.class, new GOTEntityIbbenBartender(world));
 		entities.put(GOTEntityIbbenBannerBearer.class, new GOTEntityIbbenBannerBearer(world));
 		entities.put(GOTEntityIbbenFarmhand.class, new GOTEntityIbbenFarmhand(world));
 		entities.put(GOTEntityIbbenFarmer.class, new GOTEntityIbbenFarmer(world));
 		entities.put(GOTEntityIbbenLumberman.class, new GOTEntityIbbenLumberman(world));
-		entities.put(GOTEntityIbbenBuilder.class, new GOTEntityIbbenBuilder(world));
+		entities.put(GOTEntityIbbenMason.class, new GOTEntityIbbenMason(world));
 		entities.put(GOTEntityIbbenBrewer.class, new GOTEntityIbbenBrewer(world));
 		entities.put(GOTEntityIbbenButcher.class, new GOTEntityIbbenButcher(world));
 		entities.put(GOTEntityIbbenFishmonger.class, new GOTEntityIbbenFishmonger(world));
 		entities.put(GOTEntityIbbenBaker.class, new GOTEntityIbbenBaker(world));
-		entities.put(GOTEntityIbbenOrcharder.class, new GOTEntityIbbenOrcharder(world));
-		entities.put(GOTEntityIbbenStablemaster.class, new GOTEntityIbbenStablemaster(world));
+		entities.put(GOTEntityIbbenFlorist.class, new GOTEntityIbbenFlorist(world));
 		entities.put(GOTEntityIfekevron.class, new GOTEntityIfekevron(world));
 		entities.put(GOTEntityJogos.class, new GOTEntityJogos(world));
 		entities.put(GOTEntityJogosArcher.class, new GOTEntityJogosArcher(world));
@@ -749,7 +754,6 @@ public class DatabaseGenerator extends GOTStructureBase {
 		entities.put(GOTEntityYiTiBrewer.class, new GOTEntityYiTiBrewer(world));
 		entities.put(GOTEntityYiTiFishmonger.class, new GOTEntityYiTiFishmonger(world));
 		entities.put(GOTEntityYiTiBaker.class, new GOTEntityYiTiBaker(world));
-		entities.put(GOTEntityYiTiHunter.class, new GOTEntityYiTiHunter(world));
 		entities.put(GOTEntityYiTiFarmer.class, new GOTEntityYiTiFarmer(world));
 		entities.put(GOTEntityYiTiGoldsmith.class, new GOTEntityYiTiGoldsmith(world));
 		entities.put(GOTEntityYiTiBartender.class, new GOTEntityYiTiBartender(world));
@@ -782,7 +786,6 @@ public class DatabaseGenerator extends GOTStructureBase {
 		entities.put(GOTEntitySummerBrewer.class, new GOTEntitySummerBrewer(world));
 		entities.put(GOTEntitySummerFishmonger.class, new GOTEntitySummerFishmonger(world));
 		entities.put(GOTEntitySummerBaker.class, new GOTEntitySummerBaker(world));
-		entities.put(GOTEntitySummerHunter.class, new GOTEntitySummerHunter(world));
 		entities.put(GOTEntitySummerMiner.class, new GOTEntitySummerMiner(world));
 		entities.put(GOTEntitySummerFarmhand.class, new GOTEntitySummerFarmhand(world));
 		entities.put(GOTEntitySummerFarmer.class, new GOTEntitySummerFarmer(world));
@@ -992,12 +995,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				writer.println("| " + cape.getCapeName() + " || " + cape.getCapeDesc() + " || [[File:Cape " + cape.name().toLowerCase() + ".png]]");
 				writer.println("|-");
 			}
-		} else if ("shields".equals(display)) {
-			for (GOTShields shield : GOTShields.values()) {
-				writer.println("| " + shield.getShieldName() + " || " + shield.getShieldDesc() + " || [[File:Shield " + shield.name().toLowerCase() + ".png]]");
-				writer.println("|-");
-			}
-		} else if ("shields".equals(display)) {
+		} else if ("shields".equals(display) || "shields".equals(display)) {
 			for (GOTShields shield : GOTShields.values()) {
 				writer.println("| " + shield.getShieldName() + " || " + shield.getShieldDesc() + " || [[File:Shield " + shield.name().toLowerCase() + ".png]]");
 				writer.println("|-");
@@ -1306,7 +1304,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u0411\u0438\u043E\u043C-\u0424\u043E\u0442\u043E");
 			writer.println(begin);
 			for (GOTBiome biome : bmlist) {
-				if (((biome != GOTBiome.thenn) && (biome != GOTBiome.mercenary))) {
+				if (biome != GOTBiome.thenn && biome != GOTBiome.mercenary) {
 					writer.println("| " + biome.getName() + " = " + biome.biomeName + ".png");
 				} else {
 					writer.println("| " + biome.getName() + " = " + biome.biomeName + " (biome).png");
