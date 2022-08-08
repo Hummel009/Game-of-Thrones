@@ -9,7 +9,7 @@ import net.minecraft.item.*;
 import net.minecraft.util.IIcon;
 
 public class GOTBlockYiTiFlower extends GOTBlockFlower {
-	public static String[] flowerNames = { "chrysBlue", "chrysOrange", "chrysPink", "chrysYellow", "chrysWhite" };
+	public static String[] flowerNames = { "chrys_blue", "chrys_orange", "chrys_pink", "chrys_yellow", "chrys_white" };
 	@SideOnly(value = Side.CLIENT)
 	public IIcon[] flowerIcons;
 

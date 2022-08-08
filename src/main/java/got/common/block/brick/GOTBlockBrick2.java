@@ -8,7 +8,7 @@ import net.minecraft.item.*;
 
 public class GOTBlockBrick2 extends GOTBlockBrickBase {
 	public GOTBlockBrick2() {
-		setBrickNames("granite", "granite", "granite", "granite", "granite", "granite", "granite", "granite", "granite", "granite", "basaltCarved", "basaltWesteros", "granite", "granite", "granite", "granite");
+		setBrickNames("granite", "granite", "granite", "granite", "granite", "granite", "granite", "granite", "granite", "granite", "basalt_carved", "basalt_westeros", "granite", "granite", "granite", "granite");
 	}
 
 	@SideOnly(value = Side.CLIENT)

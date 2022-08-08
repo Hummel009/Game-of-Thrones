@@ -8,7 +8,7 @@ import net.minecraft.item.*;
 
 public class GOTBlockBrick5 extends GOTBlockBrickBase {
 	public GOTBlockBrick5() {
-		setBrickNames("mud", "mud", "mud", "rhyoliteCarved", "mud", "mud", "mud", "mud", "mud", "mud", "mud", "yiti", "yitiCarved", "yitiMossy", "yitiCracked", "yitiFlowers");
+		setBrickNames("mud", "mud", "mud", "rhyolite_carved", "mud", "mud", "mud", "mud", "mud", "mud", "mud", "yiti", "yiti_carved", "yiti_mossy", "yiti_cracked", "yiti_flowers");
 	}
 
 	@SideOnly(value = Side.CLIENT)

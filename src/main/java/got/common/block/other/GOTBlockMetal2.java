@@ -10,7 +10,7 @@ import net.minecraft.util.IIcon;
 
 public class GOTBlockMetal2 extends GOTBlockOreStorageBase {
 	public GOTBlockMetal2() {
-		setOreStorageNames("gildedIron", "gildedIron", "gildedIron", "salt", "alloySteel");
+		setOreStorageNames("gilded_iron", "gilded_iron", "gilded_iron", "salt", "alloy_steel");
 	}
 
 	@SideOnly(value = Side.CLIENT)

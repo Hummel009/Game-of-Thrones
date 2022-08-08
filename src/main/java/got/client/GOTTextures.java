@@ -88,8 +88,8 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		}
 		if (map.getTextureType() == 1) {
 			GOTCommonIcons.iconEmptyItem = GOTTextures.generateIconEmpty(map);
-			GOTCommonIcons.iconMeleeWeapon = map.registerIcon("got:slotMelee");
-			GOTCommonIcons.iconBomb = map.registerIcon("got:slotBomb");
+			GOTCommonIcons.iconMeleeWeapon = map.registerIcon("got:slot_melee");
+			GOTCommonIcons.iconBomb = map.registerIcon("got:slot_bomb");
 		}
 	}
 

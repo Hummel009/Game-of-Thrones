@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 
 public class GOTBlockLeaves7 extends GOTBlockLeavesBase {
 	public GOTBlockLeaves7() {
-		setLeafNames("aspen", "greenOak", "fotinia", "almond");
+		setLeafNames("aspen", "green_oak", "fotinia", "almond");
 	}
 
 	@Override

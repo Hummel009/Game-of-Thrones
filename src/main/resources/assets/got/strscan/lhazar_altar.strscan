@@ -278,9 +278,9 @@
 3.6.-2.~FENCE~
 6.6.-2.~FENCE~
 10.6.-2.~FENCE~
--1.6.0."got:tile.stairsBasalt".4
+-1.6.0."got:tile.stairs_basalt".4
 0.6.0."got:tile.rock".0
-1.6.0."got:tile.stairsBasalt".5
+1.6.0."got:tile.stairs_basalt".5
 -10.6.2.~FENCE~
 -6.6.2.~FENCE~
 -2.6.2.~BONE~

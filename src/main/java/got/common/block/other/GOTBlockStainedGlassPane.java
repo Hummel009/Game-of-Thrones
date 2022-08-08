@@ -54,7 +54,7 @@ public class GOTBlockStainedGlassPane extends GOTBlockGlassPane {
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		for (int i = 0; i < paneIcons.length; ++i) {
-			paneIcons[i] = iconregister.registerIcon("got:stainedGlass_" + ItemDye.field_150921_b[BlockStainedGlassPane.func_150103_c(i)]);
+			paneIcons[i] = iconregister.registerIcon("got:stained_glass_" + ItemDye.field_150921_b[BlockStainedGlassPane.func_150103_c(i)]);
 		}
 	}
 }

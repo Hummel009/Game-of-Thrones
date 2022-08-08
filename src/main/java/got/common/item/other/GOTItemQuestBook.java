@@ -43,6 +43,6 @@ public class GOTItemQuestBook extends Item {
 	@Override
 	public void registerIcons(IIconRegister iconregister) {
 		super.registerIcons(iconregister);
-		questOfferIcon = iconregister.registerIcon("got:questOffer");
+		questOfferIcon = iconregister.registerIcon("got:quest_offer");
 	}
 }

@@ -9,7 +9,7 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
 public class GOTBlockSapling3 extends GOTBlockSaplingBase {
 	public GOTBlockSapling3() {
-		setSaplingNames("maple", "larch", "datePalm", "mangrove");
+		setSaplingNames("maple", "larch", "date_palm", "mangrove");
 	}
 
 	@Override

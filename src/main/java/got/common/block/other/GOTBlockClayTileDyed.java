@@ -41,7 +41,11 @@ public class GOTBlockClayTileDyed extends GOTBlockClayTile {
 		clayIcons = new IIcon[16];
 		for (int i = 0; i < clayIcons.length; ++i) {
 			int dyeMeta = BlockColored.func_150031_c(i);
-			clayIcons[i] = iconregister.registerIcon(getTextureName() + "_" + ItemDye.field_150923_a[dyeMeta]);
+			if (ItemDye.field_150923_a[dyeMeta] == "lightBlue") {
+				clayIcons[i] = iconregister.registerIcon(getTextureName() + "_light_blue");
+			} else {
+				clayIcons[i] = iconregister.registerIcon(getTextureName() + "_" + ItemDye.field_150923_a[dyeMeta]);
+			}
 		}
 	}
 }

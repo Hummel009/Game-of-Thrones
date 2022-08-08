@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 
 public class GOTBlockLeaves3 extends GOTBlockLeavesBase {
 	public GOTBlockLeaves3() {
-		setLeafNames("maple", "larch", "datePalm", "mangrove");
+		setLeafNames("maple", "larch", "date_palm", "mangrove");
 	}
 
 	@Override

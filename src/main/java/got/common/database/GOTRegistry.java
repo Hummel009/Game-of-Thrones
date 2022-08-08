@@ -2627,15 +2627,17 @@ public class GOTRegistry {
 	}
 
 	public static void registerBlock(Block block, String codename) {
+        String lowerUnderscoreName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, codename);
 		block.setBlockName("got:" + codename);
-		block.setBlockTextureName("got:" + codename);
-		GameRegistry.registerBlock(block, "tile." + codename);
+		block.setBlockTextureName("got:" + lowerUnderscoreName);
+		GameRegistry.registerBlock(block, "tile." + lowerUnderscoreName);
 	}
 
 	public static void registerBlock(Block block, String codename, Class<? extends ItemBlock> itemClass) {
+        String lowerUnderscoreName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, codename);
 		block.setBlockName("got:" + codename);
-		block.setBlockTextureName("got:" + codename);
-		GameRegistry.registerBlock(block, itemClass, "tile." + codename);
+		block.setBlockTextureName("got:" + lowerUnderscoreName);
+		GameRegistry.registerBlock(block, itemClass, "tile." + lowerUnderscoreName);
 	}
 
 	public static void registerBlocks() {
@@ -3241,10 +3243,10 @@ public class GOTRegistry {
 	}
 
 	public static void registerItem(Item item, String codename) {
-		item.setUnlocalizedName("got:" + codename);
         String lowerUnderscoreName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, codename);
+		item.setUnlocalizedName("got:" + codename);
 		item.setTextureName("got:" + lowerUnderscoreName);
-		GameRegistry.registerItem(item, "item." + codename);
+		GameRegistry.registerItem(item, "item." + lowerUnderscoreName);
 	}
 
 	public static void registerItems() {

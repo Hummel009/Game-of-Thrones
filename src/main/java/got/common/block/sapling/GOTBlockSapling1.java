@@ -9,7 +9,7 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
 public class GOTBlockSapling1 extends GOTBlockSaplingBase {
 	public GOTBlockSapling1() {
-		setSaplingNames("ibbinia", "catalpa", "ulthos", "ulthosRed");
+		setSaplingNames("ibbinia", "catalpa", "ulthos", "ulthos_red");
 	}
 
 	@Override

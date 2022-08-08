@@ -290,8 +290,8 @@ public class GOTItemMug extends Item {
 				drinkIcons[i] = GOTDrinkIcons.registerDrinkIcon(iconregister, this, getIconString(), Vessel.values()[i].name);
 			}
 			liquidIcon = GOTDrinkIcons.registerLiquidIcon(iconregister, this, getIconString());
-			barrelGui_emptyBucketSlotIcon = iconregister.registerIcon("got:barrel_emptyBucketSlot");
-			barrelGui_emptyMugSlotIcon = iconregister.registerIcon("got:barrel_emptyMugSlot");
+			barrelGui_emptyBucketSlotIcon = iconregister.registerIcon("got:barrel_empty_bucket_slot");
+			barrelGui_emptyMugSlotIcon = iconregister.registerIcon("got:barrel_empty_mug_slot");
 		} else {
 			super.registerIcons(iconregister);
 		}
@@ -493,7 +493,7 @@ public class GOTItemMug extends Item {
 	}
 
 	public enum Vessel {
-		MUG(0, "mug", true, 0), MUG_CLAY(1, "clay", true, 1), GOBLET_GOLD(2, "gobletGold", true, 10), GOBLET_SILVER(3, "gobletSilver", true, 8), GOBLET_COPPER(4, "gobletCopper", true, 5), GOBLET_WOOD(5, "gobletWood", true, 0), SKULL(6, "skull", true, 3), GLASS(7, "glass", true, 3), BOTTLE(8, "bottle", true, 2), SKIN(9, "skin", false, 0), HORN(10, "horn", true, 5), HORN_GOLD(11, "hornGold", true, 8);
+		MUG(0, "mug", true, 0), MUG_CLAY(1, "clay", true, 1), GOBLET_GOLD(2, "goblet_gold", true, 10), GOBLET_SILVER(3, "goblet_silver", true, 8), GOBLET_COPPER(4, "goblet_copper", true, 5), GOBLET_WOOD(5, "goblet_wood", true, 0), SKULL(6, "skull", true, 3), GLASS(7, "glass", true, 3), BOTTLE(8, "bottle", true, 2), SKIN(9, "skin", false, 0), HORN(10, "horn", true, 5), HORN_GOLD(11, "horn_gold", true, 8);
 
 		public String name;
 		public int id;

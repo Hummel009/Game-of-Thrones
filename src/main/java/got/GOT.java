@@ -3,6 +3,8 @@ package got;
 import java.awt.Color;
 import java.util.*;
 
+import com.google.common.base.CaseFormat;
+
 import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.event.*;
 import cpw.mods.fml.common.network.NetworkRegistry;
@@ -141,31 +143,27 @@ public class GOT {
 			if (mapping.type == GameRegistry.Type.BLOCK) {
 				if (mapping.name.contains("Carnotite")) {
 					newName = mapping.name.replace("Carnotite", "Labradorite");
-					block = (Block) Block.blockRegistry.getObject(newName);
-					if (block != null) {
-						mapping.remap(block);
-					}
 				} else if (mapping.name.contains("carnotite")) {
 					newName = mapping.name.replace("carnotite", "labradorite");
-					block = (Block) Block.blockRegistry.getObject(newName);
-					if (block != null) {
-						mapping.remap(block);
-					}
+				} else {
+			        newName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, mapping.name);
+				}
+				block = (Block) Block.blockRegistry.getObject(newName);
+				if (block != null) {
+					mapping.remap(block);
 				}
 			}
 			if (mapping.type == GameRegistry.Type.ITEM) {
 				if (mapping.name.contains("Carnotite")) {
 					newName = mapping.name.replace("Carnotite", "Labradorite");
-					item = (Item) Item.itemRegistry.getObject(newName);
-					if (item != null) {
-						mapping.remap(item);
-					}
 				} else if (mapping.name.contains("carnotite")) {
 					newName = mapping.name.replace("carnotite", "labradorite");
-					item = (Item) Item.itemRegistry.getObject(newName);
-					if (item != null) {
-						mapping.remap(item);
-					}
+				} else {
+			        newName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, mapping.name);
+				}
+				item = (Item) Item.itemRegistry.getObject(newName);
+				if (item != null) {
+					mapping.remap(item);
 				}
 			}
 		}

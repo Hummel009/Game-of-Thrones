@@ -10,7 +10,7 @@ import net.minecraft.world.*;
 
 public class GOTBlockLeaves1 extends GOTBlockLeavesBase {
 	public GOTBlockLeaves1() {
-		setLeafNames("ibbinia", "catalpa", "ulthos", "ulthosRed");
+		setLeafNames("ibbinia", "catalpa", "ulthos", "ulthos_red");
 		setSeasonal(false, true, false, false);
 	}
 

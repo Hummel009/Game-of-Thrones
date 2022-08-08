@@ -16,7 +16,7 @@ import net.minecraft.util.*;
 import net.minecraft.world.*;
 
 public class GOTBlockDoubleFlower extends BlockDoublePlant {
-	public static String[] flowerNames = { "blackIris", "yellowIris", "pink", "red" };
+	public static String[] flowerNames = { "black_iris", "yellow_iris", "pink", "red" };
 	@SideOnly(value = Side.CLIENT)
 	public IIcon[] doublePlantBottomIcons;
 	@SideOnly(value = Side.CLIENT)

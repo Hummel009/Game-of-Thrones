@@ -1179,7 +1179,7 @@
 -7.1_.10.~LEAF~
 -6.1.10.~BRICK~
 -5.1.10.~BRICK~
--4.1.10."got:tile.chestBasket".5
+-4.1.10."got:tile.chest_basket".5
 -3.1.10.~THATCH_FLOOR~
 -2.1.10.~LEAF~
 -1.1.10.~THATCH_FLOOR~
@@ -1245,9 +1245,9 @@
 -1.2.-1.~COBBLE_SLAB~
 0.2.-1."got:tile.barrel".2
 1.2.-1.~COBBLE_SLAB~
--1.2.0."got:tile.fallenLeaves1".0
+-1.2.0."got:tile.fallen_leaves1".0
 0.2.0."log".12
-1.2.0."got:tile.fallenLeaves1".0
+1.2.0."got:tile.fallen_leaves1".0
 -1.2.1.~COBBLE_SLAB~
 1.2.1.~COBBLE_SLAB~
 -11.2.2.~BRICK_SLAB~

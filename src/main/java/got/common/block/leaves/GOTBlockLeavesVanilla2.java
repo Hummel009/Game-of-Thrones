@@ -10,8 +10,8 @@ import net.minecraft.world.*;
 
 public class GOTBlockLeavesVanilla2 extends GOTBlockLeavesBase {
 	public GOTBlockLeavesVanilla2() {
-		super(true, "got:leavesV2");
-		setLeafNames("acacia", "darkOak");
+		super(true, "got:leaves_v2");
+		setLeafNames("acacia", "dark_oak");
 		setSeasonal(false, true);
 	}
 
