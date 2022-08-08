@@ -24,7 +24,7 @@ public class GOTRenderSkullStaff implements IItemRenderer {
 			staff.render(f5);
 		}
 	};
-	public static ResourceLocation staffTexture = new ResourceLocation("got:textures/model/skullStaff.png");
+	public static ResourceLocation staffTexture = new ResourceLocation("got:textures/model/skull_staff.png");
 
 	@Override
 	public boolean handleRenderType(ItemStack itemstack, IItemRenderer.ItemRenderType type) {

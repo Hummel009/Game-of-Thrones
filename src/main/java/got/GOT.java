@@ -146,7 +146,7 @@ public class GOT {
 				} else if (mapping.name.contains("carnotite")) {
 					newName = mapping.name.replace("carnotite", "labradorite");
 				} else {
-			        newName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, mapping.name);
+					newName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, mapping.name);
 				}
 				block = (Block) Block.blockRegistry.getObject(newName);
 				if (block != null) {
@@ -159,7 +159,7 @@ public class GOT {
 				} else if (mapping.name.contains("carnotite")) {
 					newName = mapping.name.replace("carnotite", "labradorite");
 				} else {
-			        newName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, mapping.name);
+					newName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, mapping.name);
 				}
 				item = (Item) Item.itemRegistry.getObject(newName);
 				if (item != null) {

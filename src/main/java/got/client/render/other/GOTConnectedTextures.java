@@ -286,19 +286,7 @@ public class GOTConnectedTextures {
 	}
 
 	public enum IconElement {
-		BASE("base", 0),
-		SIDE_LEFT("left", 1),
-		SIDE_RIGHT("right", 1),
-		SIDE_TOP("top", 1),
-		SIDE_BOTTOM("bottom", 1),
-		CORNER_TOPLEFT("top_left", 2),
-		CORNER_TOPRIGHT("top_right", 2),
-		CORNER_BOTTOMLEFT("bottom_left", 2),
-		CORNER_BOTTOMRIGHT("bottom_right", 2),
-		INVCORNER_TOPLEFT("top_left_inv", 2),
-		INVCORNER_TOPRIGHT("top_right_inv", 2),
-		INVCORNER_BOTTOMLEFT("bottom_left_inv", 2),
-		INVCORNER_BOTTOMRIGHT("bottom_right_inv", 2);
+		BASE("base", 0), SIDE_LEFT("left", 1), SIDE_RIGHT("right", 1), SIDE_TOP("top", 1), SIDE_BOTTOM("bottom", 1), CORNER_TOPLEFT("top_left", 2), CORNER_TOPRIGHT("top_right", 2), CORNER_BOTTOMLEFT("bottom_left", 2), CORNER_BOTTOMRIGHT("bottom_right", 2), INVCORNER_TOPLEFT("top_left_inv", 2), INVCORNER_TOPRIGHT("top_right_inv", 2), INVCORNER_BOTTOMLEFT("bottom_left_inv", 2), INVCORNER_BOTTOMRIGHT("bottom_right_inv", 2);
 
 		public static EnumSet<IconElement> allSides;
 		public static EnumSet<IconElement> allCorners;

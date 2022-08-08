@@ -5,7 +5,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderArrowPoisoned extends RenderArrow {
-	public static ResourceLocation arrowPoisonTexture = new ResourceLocation("got:textures/model/arrowPoisoned.png");
+	public static ResourceLocation arrowPoisonTexture = new ResourceLocation("got:textures/model/arrow_poisoned.png");
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {

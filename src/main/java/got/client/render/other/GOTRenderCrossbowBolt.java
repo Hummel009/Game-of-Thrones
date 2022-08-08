@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 
 public class GOTRenderCrossbowBolt extends Render {
-	public static ResourceLocation boltTexture = new ResourceLocation("got:textures/model/crossbowBolt.png");
+	public static ResourceLocation boltTexture = new ResourceLocation("got:textures/model/crossbow_bolt.png");
 
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
