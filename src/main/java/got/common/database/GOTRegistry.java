@@ -2627,10 +2627,7 @@ public class GOTRegistry {
 	}
 
 	public static void registerBlock(Block block, String codename) {
-		String lowerUnderscoreName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, codename);
-		block.setBlockName("got:" + lowerUnderscoreName);
-		block.setBlockTextureName("got:" + lowerUnderscoreName);
-		GameRegistry.registerBlock(block, "tile." + lowerUnderscoreName);
+		registerBlock(block, codename, ItemBlock.class);
 	}
 
 	public static void registerBlock(Block block, String codename, Class<? extends ItemBlock> itemClass) {
