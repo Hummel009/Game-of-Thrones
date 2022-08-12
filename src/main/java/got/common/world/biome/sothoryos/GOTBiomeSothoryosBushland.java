@@ -38,10 +38,8 @@ public class GOTBiomeSothoryosBushland extends GOTBiome {
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 8, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDikDik.class, 8, 1, 2));
 		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST);
 		this.addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
 		this.addBiomeVariant(GOTBiomeVariant.HILLS);
-		this.addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
 		this.addBiomeVariant(GOTBiomeVariant.DEADFOREST_OAK);
 		this.addBiomeVariant(GOTBiomeVariant.SHRUBLAND_OAK);
 		decorator.treesPerChunk = 0;

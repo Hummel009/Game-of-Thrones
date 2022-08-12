@@ -659,7 +659,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 			} else if ("marshLight".equals(type)) {
 				customEffectRenderer.addEffect(new GOTEntityMarshLightFX(worldClient, d, d1, d2, d3, d4, d5));
 			} else if ("ulthosWater".equals(type)) {
-				mc.effectRenderer.addEffect(new GOTEntityRiverWaterFX(worldClient, d, d1, d2, d3, d4, d5, GOTBiome.ulthos.getWaterColorMultiplier()));
+				mc.effectRenderer.addEffect(new GOTEntityRiverWaterFX(worldClient, d, d1, d2, d3, d4, d5, GOTBiome.ulthosForest.getWaterColorMultiplier()));
 			} else if ("asshaiTorch".equals(type)) {
 				mc.effectRenderer.addEffect(new GOTEntityAsshaiTorchFX(worldClient, d, d1, d2, d3, d4, d5));
 			} else if ("asshaiWater".equals(type)) {

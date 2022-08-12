@@ -29,7 +29,7 @@ import got.common.util.*;
 import got.common.world.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.essos.*;
-import got.common.world.biome.ulthos.GOTBiomeUlthos;
+import got.common.world.biome.ulthos.GOTBiomeUlthosForest;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.biome.westeros.*;
 import got.common.world.map.GOTConquestGrid;
@@ -1188,13 +1188,13 @@ public class GOTTickHandlerClient {
 			int meta = world.getBlockMetadata(i1, j1, k1);
 			if (block.getMaterial() == Material.water) {
 				BiomeGenBase biome = world.getBiomeGenForCoords(i1, k1);
-				if (biome instanceof GOTBiomeUlthos && world.rand.nextInt(20) == 0) {
+				if (biome instanceof GOTBiomeUlthosForest && world.rand.nextInt(20) == 0) {
 					GOT.proxy.spawnParticle("ulthosWater", i1 + world.rand.nextFloat(), j1 + 0.75D, k1 + world.rand.nextFloat(), 0.0D, 0.05D, 0.0D);
 				}
 				if (biome instanceof GOTBiomeShadowLand && world.rand.nextInt(40) == 0) {
 					GOT.proxy.spawnParticle("asshaiWater", i1 + world.rand.nextFloat(), j1 + 0.75D, k1 + world.rand.nextFloat(), 0.0D, 0.05D, 0.0D);
 				}
-				if (biome instanceof GOTBiomeSuudanKorkuu && world.rand.nextInt(800) == 0) {
+				if (biome instanceof GOTBiomeMossovyMarshes && world.rand.nextInt(800) == 0) {
 					world.spawnEntityInWorld(new GOTEntityDeadMarshFace(world, i1 + world.rand.nextFloat(), j1 + 0.25D - world.rand.nextFloat(), k1 + world.rand.nextFloat()));
 				}
 			}

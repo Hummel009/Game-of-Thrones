@@ -85,9 +85,4 @@ public class GOTBiomeArrynMountains extends GOTBiomeArryn {
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.WESTEROS.getSubregion("arrynMountains");
 	}
-
-	@Override
-	public float getChanceToSpawnAnimals() {
-		return 0.1f;
-	}
 }

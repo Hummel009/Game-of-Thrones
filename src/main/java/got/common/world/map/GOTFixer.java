@@ -36,6 +36,7 @@ import got.common.world.structure.essos.tyrosh.GOTStructureTyroshCity;
 import got.common.world.structure.essos.volantis.GOTStructureVolantisCity;
 import got.common.world.structure.essos.yiti.GOTStructureYiTiCity;
 import got.common.world.structure.other.*;
+import got.common.world.structure.sothoryos.sothoryos.GOTStructureSothoryosVillage;
 import got.common.world.structure.sothoryos.summer.GOTStructureSummerVillage;
 import got.common.world.structure.westeros.arryn.GOTStructureArrynCity;
 import got.common.world.structure.westeros.crownlands.GOTStructureCrownlandsCity;
@@ -54,7 +55,7 @@ import net.minecraft.world.World;
 
 public class GOTFixer {
 	public static Map<GOTWaypoint, GOTStructureBase> structures = new EnumMap<>(GOTWaypoint.class);
-	public static GOTVillageGen[] f = new GOTVillageGen[66];
+	public static GOTVillageGen[] f = new GOTVillageGen[68];
 
 	public static void addSpecialLocations(World world, Random random, int i, int k) {
 		GOTWaypoint[] forts = { GOTWaypoint.FiveForts1, GOTWaypoint.FiveForts2, GOTWaypoint.FiveForts3, GOTWaypoint.FiveForts4, GOTWaypoint.FiveForts5 };
@@ -131,8 +132,10 @@ public class GOTFixer {
 		f[30].affix(GOTWaypoint.Lorath, GOTWaypoint.Morosh);
 		f[31] = new GOTStructureLysCity(biome, 0.0f).setIsTown();
 		f[31].affix(GOTWaypoint.Lys);
+		f[32] = new GOTStructureYiTiCity(biome, 0.0f).setIsWall(true);
+		f[32].affix(GOTWaypoint.Anjiang);
 		f[33] = new GOTStructureMossovyVillage(biome, 0.0f);
-		f[33].affix(GOTWaypoint.Tashtoo, GOTWaypoint.Bashkaruuchu, GOTWaypoint.AzuuKan, GOTWaypoint.Kujruk, GOTWaypoint.Korkunuchtuu, GOTWaypoint.NymduuOoz, GOTWaypoint.Azhydaar, GOTWaypoint.AkShaar, GOTWaypoint.SuuNym, GOTWaypoint.ShyluunUusu, GOTWaypoint.Kadar, GOTWaypoint.Nefer, GOTWaypoint.KDath);
+		f[33].affix(GOTWaypoint.Kuurulgan, GOTWaypoint.SuudanKorkuu, GOTWaypoint.KanduuBet, GOTWaypoint.Tashtoo, GOTWaypoint.Bashkaruuchu, GOTWaypoint.AzuuKan, GOTWaypoint.Kujruk, GOTWaypoint.Korkunuchtuu, GOTWaypoint.NymduuOoz, GOTWaypoint.Azhydaar, GOTWaypoint.AkShaar, GOTWaypoint.SuuNym, GOTWaypoint.ShyluunUusu, GOTWaypoint.Kadar, GOTWaypoint.Nefer, GOTWaypoint.KDath);
 		f[34] = new GOTStructureMyrCity(biome, 0.0f).setIsTown();
 		f[34].affix(GOTWaypoint.Myr.info(-1, 0, 1));
 		f[35] = new GOTStructureNorthCity(biome, 0.0f).setIsCastle();
@@ -168,7 +171,7 @@ public class GOTFixer {
 		f[50] = new GOTStructureRuins(biome, 0.0f);
 		f[50].affix(GOTWaypoint.WestWatch, GOTWaypoint.KrazaajHas, GOTWaypoint.Morne, GOTWaypoint.NySar, GOTWaypoint.OldGhis, GOTWaypoint.SarMell, GOTWaypoint.Sarhoy, GOTWaypoint.Shandystone, GOTWaypoint.Starpike, GOTWaypoint.Telyria, GOTWaypoint.TorturersDeep, GOTWaypoint.VaesOrvik, GOTWaypoint.VaesQosar, GOTWaypoint.VaesShirosi, GOTWaypoint.VaesTolorro, GOTWaypoint.ValyrianRoad, GOTWaypoint.Velos, GOTWaypoint.VojjorSamvi, GOTWaypoint.GreyGallows, GOTWaypoint.BloodStone, GOTWaypoint.Anogaria, GOTWaypoint.KrazaajHas, GOTWaypoint.Kayakayanaya, GOTWaypoint.Aegon, GOTWaypoint.Raenys, GOTWaypoint.Visenya, GOTWaypoint.Ghozai, GOTWaypoint.Chroyane, GOTWaypoint.GhoyanDrohe, GOTWaypoint.FourteenFlames, GOTWaypoint.Ibbish, GOTWaypoint.Samyriana, GOTWaypoint.Bhorash, GOTWaypoint.Bayasabhad, GOTWaypoint.ArNoy, GOTWaypoint.Adakhakileki, GOTWaypoint.CastleLychester, GOTWaypoint.MhysaFaer, GOTWaypoint.AquosDhaen, GOTWaypoint.Draconys, GOTWaypoint.Tyria, GOTWaypoint.Rhyos, GOTWaypoint.Oros, GOTWaypoint.VulturesRoost, GOTWaypoint.Spicetown, GOTWaypoint.Castamere, GOTWaypoint.Goldenhill, GOTWaypoint.GreyironCastle, GOTWaypoint.HoareCastle, GOTWaypoint.HoareKeep, GOTWaypoint.HoggHall, GOTWaypoint.HollardCastle, GOTWaypoint.OldStones, GOTWaypoint.Summerhall, GOTWaypoint.TarbeckHall, GOTWaypoint.TowerOfJoy, GOTWaypoint.Whispers, GOTWaypoint.WhiteWalls);
 		f[51] = new GOTStructureRuinsBig(biome, 0.0f);
-		f[51].affix(GOTWaypoint.Bonetown, GOTWaypoint.Harrenhal, GOTWaypoint.Stygai, GOTWaypoint.Ulos, GOTWaypoint.Ulthos, GOTWaypoint.Yeen);
+		f[51].affix(GOTWaypoint.EastBay, GOTWaypoint.EastCoast, GOTWaypoint.NorthForests, GOTWaypoint.WhiteMountains, GOTWaypoint.CentralForests, GOTWaypoint.Marshes, GOTWaypoint.RedForests, GOTWaypoint.SouthUlthos, GOTWaypoint.SouthTaiga, GOTWaypoint.Bonetown, GOTWaypoint.Harrenhal, GOTWaypoint.Stygai, GOTWaypoint.Ulos, GOTWaypoint.Yeen);
 		f[52] = new GOTStructureGiftVillage(biome, 0.0f).setIsShadowTower();
 		f[52].affix(GOTWaypoint.ShadowTower);
 		f[53] = new GOTStructureStormlandsCity(biome, 0.0f).setIsCastle();
@@ -176,7 +179,7 @@ public class GOTFixer {
 		f[54] = new GOTStructureStormlandsCity(biome, 0.0f).setIsTown();
 		f[54].affix(GOTWaypoint.WeepingTown);
 		f[55] = new GOTStructureSummerVillage(biome, 0.0f);
-		f[55].affix(GOTWaypoint.Doquu, GOTWaypoint.Ebonhead, GOTWaypoint.GoldenHead, GOTWaypoint.Koj, GOTWaypoint.LastLament, GOTWaypoint.LizardHead, GOTWaypoint.LotusPoint, GOTWaypoint.Naath, GOTWaypoint.Omboru, GOTWaypoint.PearlPalace, GOTWaypoint.RedFlowerVale, GOTWaypoint.SweetLotusVale, GOTWaypoint.TallTreesTown, GOTWaypoint.Walano, GOTWaypoint.Xon);
+		f[55].affix(GOTWaypoint.Hauauru, GOTWaypoint.Matahau, GOTWaypoint.Takutai, GOTWaypoint.Ataahua, GOTWaypoint.Pereki, GOTWaypoint.Ngarara, GOTWaypoint.Tauranga, GOTWaypoint.Matao, GOTWaypoint.Ngahere, GOTWaypoint.Kohuru, GOTWaypoint.Doquu, GOTWaypoint.Ebonhead, GOTWaypoint.GoldenHead, GOTWaypoint.Koj, GOTWaypoint.LastLament, GOTWaypoint.LizardHead, GOTWaypoint.LotusPoint, GOTWaypoint.Naath, GOTWaypoint.Omboru, GOTWaypoint.PearlPalace, GOTWaypoint.RedFlowerVale, GOTWaypoint.SweetLotusVale, GOTWaypoint.TallTreesTown, GOTWaypoint.Walano, GOTWaypoint.Xon);
 		f[56] = new GOTStructureTower(biome, 0.0f);
 		f[56].affix(GOTWaypoint.ThreeTowers1.info(0, 0, 1), GOTWaypoint.ThreeTowers2.info(0, 0, 1), GOTWaypoint.ThreeTowers3.info(0, 0, 1), GOTWaypoint.TowerOfGlimmering, GOTWaypoint.BaelishKeep, GOTWaypoint.HightowerLitehouse, GOTWaypoint.RamseyTower, GOTWaypoint.Standfast, GOTWaypoint.TwinsLeft.info(0, 0, 2), GOTWaypoint.TwinsRight);
 		f[57] = new GOTStructureTyroshCity(biome, 0.0f).setIsTown();
@@ -197,8 +200,10 @@ public class GOTFixer {
 		f[64].affix(GOTWaypoint.Greenguard, GOTWaypoint.Torches, GOTWaypoint.LongBarrow, GOTWaypoint.Rimegate, GOTWaypoint.SableHall, GOTWaypoint.Woodswatch, GOTWaypoint.Nightfort, GOTWaypoint.DeepLake, GOTWaypoint.Oakenshield, GOTWaypoint.Icemark, GOTWaypoint.HoarfrostHill, GOTWaypoint.Stonedoor, GOTWaypoint.Greyguard, GOTWaypoint.Queensgate, GOTWaypoint.SentinelStand);
 		f[65] = new GOTStructureYiTiCity(biome, 0.0f).setIsWall(false);
 		f[65].affix(GOTWaypoint.Jianmen, GOTWaypoint.Anguo, GOTWaypoint.Dingguo, GOTWaypoint.Pinnu, GOTWaypoint.Pingjiang, GOTWaypoint.Wude, GOTWaypoint.Wusheng, GOTWaypoint.Zhenguo, GOTWaypoint.Lungmen);
-		f[32] = new GOTStructureYiTiCity(biome, 0.0f).setIsWall(true);
-		f[32].affix(GOTWaypoint.Anjiang);
+		f[66] = new GOTStructureSothoryosVillage(biome, 0.0f);
+		f[66].affix(GOTWaypoint.Maunga, GOTWaypoint.Raumati, GOTWaypoint.DragonPlace, GOTWaypoint.SouthPoint, GOTWaypoint.BigLake);
+		f[67] = new GOTStructureQarthCity(biome, 0.0f).setIsCastle();
+		f[67].affix(GOTWaypoint.Teriman, GOTWaypoint.Batargas, GOTWaypoint.Karimagar);
 
 		for (GOTVillageGen element : f) {
 			biome.decorator.addFixedVillage(element);

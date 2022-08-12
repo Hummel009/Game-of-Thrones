@@ -17,6 +17,7 @@ import net.minecraft.world.World;
 
 public class GOTStructureQarthCity extends GOTVillageGen {
 	public boolean isTown;
+	public boolean isCastle;
 
 	public GOTStructureQarthCity(GOTBiome biome, float f) {
 		super(biome);
@@ -32,8 +33,15 @@ public class GOTStructureQarthCity extends GOTVillageGen {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
+	public GOTStructureQarthCity setIsCastle() {
+		isCastle = true;
+		fixedVillageChunkRadius = 4;
+		return this;
+	}
+
 	public GOTStructureQarthCity setIsTown() {
 		isTown = true;
+		fixedVillageChunkRadius = 5;
 		return this;
 	}
 
@@ -604,6 +612,8 @@ public class GOTStructureQarthCity extends GOTVillageGen {
 		public void setupVillageProperties(Random random) {
 			if (isTown) {
 				villageType = VillageType.TOWN;
+			} else if (isCastle) {
+				villageType = VillageType.FORT;
 			} else if (random.nextInt(4) == 0) {
 				villageType = VillageType.FORT;
 			} else {

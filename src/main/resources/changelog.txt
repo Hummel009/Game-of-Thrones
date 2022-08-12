@@ -1,13 +1,16 @@
 CHANGELOG
 
 >>VERSION 17.9
-+ Added new Mossovy waypoints
+* Remade Ulthos from scratch
+* Greatly improved Sothoryos
 * Greatly improved Ukrainian translation (prod. Octobrine)
 * Greatly Improved Far East map, improved biome colors
 * Greatly Improved ru & uk lore books (prod. Octobrine)
++ Added new Mossovy, Sothoryos & Ulthos waypoints, achievements, biomes
 + Added new female skins
 + Added more miners, goldsmiths, florists
 
+* Improved spheres of influence
 * Improved and unlocked database generator
 * Improved Mossovy Sopkas
 * Improved King Spears biome

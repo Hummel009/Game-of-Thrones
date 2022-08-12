@@ -12,7 +12,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
-public class GOTBiomeUlthosMountains extends GOTBiomeUlthos {
+public class GOTBiomeUlthosMountains extends GOTBiomeUlthosForest {
 	public GOTBiomeUlthosMountains(int i, boolean major) {
 		super(i, major);
 		npcSpawnList.clear();

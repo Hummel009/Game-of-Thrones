@@ -43,7 +43,7 @@ import got.common.world.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.essos.*;
 import got.common.world.biome.sothoryos.*;
-import got.common.world.biome.ulthos.GOTBiomeUlthos;
+import got.common.world.biome.ulthos.GOTBiomeUlthosForest;
 import got.common.world.biome.variant.GOTBiomeVariantStorage;
 import integrator.NEIGOTIntegratorConfig;
 import net.minecraft.block.*;
@@ -1125,7 +1125,7 @@ public class GOTEventHandler implements IFuelHandler {
 				while (world.getBlock(i, j + 1, k).getMaterial().isLiquid() || world.getBlock(i, j + 1, k).getMaterial().isSolid()) {
 					j++;
 				}
-				if (j - entity.boundingBox.minY < 2.0D && world.getBlock(i, j, k).getMaterial() == Material.water && world.getBiomeGenForCoords(i, k) instanceof GOTBiomeSuudanKorkuu) {
+				if (j - entity.boundingBox.minY < 2.0D && world.getBlock(i, j, k).getMaterial() == Material.water && world.getBiomeGenForCoords(i, k) instanceof GOTBiomeMossovyMarshes) {
 					List<GOTEntityMarshWraith> nearbyWraiths = world.getEntitiesWithinAABB(GOTEntityMarshWraith.class, entity.boundingBox.expand(15.0D, 15.0D, 15.0D));
 					boolean anyNearbyWraiths = false;
 					for (GOTEntityMarshWraith wraith : nearbyWraiths) {
@@ -1224,7 +1224,7 @@ public class GOTEventHandler implements IFuelHandler {
 				int i = MathHelper.floor_double(entity.posX);
 				int k = MathHelper.floor_double(entity.posZ);
 				BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
-				if (biome instanceof GOTBiomeShadowLand || biome instanceof GOTBiomeUlthos) {
+				if (biome instanceof GOTBiomeShadowLand || biome instanceof GOTBiomeUlthosForest) {
 					entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 600, 1));
 					entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 600));
 					entity.addPotionEffect(new PotionEffect(Potion.blindness.id, 600));

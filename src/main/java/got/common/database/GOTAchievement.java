@@ -126,7 +126,6 @@ public class GOTAchievement {
 	public static GOTAchievement enterThenn;
 	public static GOTAchievement enterTropicalForest;
 	public static GOTAchievement enterTyrosh;
-	public static GOTAchievement enterUlos;
 	public static GOTAchievement enterUlthos;
 	public static GOTAchievement enterUlthosDesert;
 	public static GOTAchievement enterUlthosMountains;
@@ -322,6 +321,14 @@ public class GOTAchievement {
 	public static GOTAchievement wearFullYiti;
 	public static GOTAchievement wearFullYitiFrontier;
 	public static GOTAchievement wearFullYitiSamurai;
+	public static GOTAchievement enterQarthColony;
+	public static GOTAchievement enterUlthosDesertCold;
+	public static GOTAchievement enterUlthosForest;
+	public static GOTAchievement enterUlthosFrost;
+	public static GOTAchievement enterUlthosTaiga;
+	public static GOTAchievement enterSummerColony;
+	public static GOTAchievement enterUlthosMarshes;
+	public static GOTAchievement enterUlthosRedForest;
 	public Category category;
 	public int ID;
 	public ItemStack icon;
@@ -700,7 +707,6 @@ public class GOTAchievement {
 		enterRiverlands = new GOTAchievement(Category.ENTER, id++, GOTRegistry.riverlandsHelmet, "VISIT_RIVERLANDS");
 		enterShadowLand = new GOTAchievement(Category.ENTER, id++, GOTRegistry.asshaiFlower, "VISIT_SHADOW_LAND");
 		enterShadowMountains = new GOTAchievement(Category.ENTER, id++, new ItemStack(GOTRegistry.rock, 1, 0), "VISIT_SHADOW_MOUNTAINS");
-		enterUlos = new GOTAchievement(Category.ENTER, id++, GOTRegistry.ulthosTorch, "VISIT_ULOS");
 		enterSkagos = new GOTAchievement(Category.ENTER, id++, GOTRegistry.trident, "VISIT_SKAGOS");
 		enterSkirlingPass = new GOTAchievement(Category.ENTER, id++, GOTRegistry.club, "VISIT_SKIRLING_PASS");
 		enterSothoryosBushland = new GOTAchievement(Category.ENTER, id++, GOTRegistry.termite, "VISIT_SOTHORYOS_BUSHLAND");
@@ -737,6 +743,14 @@ public class GOTAchievement {
 		enterYiTi = new GOTAchievement(Category.ENTER, id++, GOTRegistry.yitiHelmet, "VISIT_YI_TI");
 		enterYiTiWasteland = new GOTAchievement(Category.ENTER, id++, GOTRegistry.yitiHelmetSamurai, "VISIT_YI_TI_WASTELAND");
 		enterCrownlands = new GOTAchievement(Category.ENTER, id++, GOTRegistry.crownlandsHelmet, "VISIT_CROWNLANDS");
+		enterQarthColony = new GOTAchievement(Category.ENTER, id++, GOTRegistry.qarthHelmet, "VISIT_QARTH_COLONY");
+		enterUlthosDesertCold = new GOTAchievement(Category.ENTER, id++, new ItemStack(Blocks.sand), "VISIT_ULTHOS_DESERT_COLD");
+		enterUlthosForest = new GOTAchievement(Category.ENTER, id++, new ItemStack(GOTRegistry.wood1, 1, 2), "VISIT_ULTHOS_FOREST");
+		enterUlthosFrost = new GOTAchievement(Category.ENTER, id++, new ItemStack(Blocks.snow), "VISIT_ULTHOS_FROST");
+		enterUlthosTaiga = new GOTAchievement(Category.ENTER, id++, new ItemStack(GOTRegistry.wood1, 1, 0), "VISIT_ULTHOS_TAIGA");
+		enterSummerColony = new GOTAchievement(Category.ENTER, id++, GOTRegistry.summerHelmet, "VISIT_SUMMER_COLONY");
+		enterUlthosMarshes = new GOTAchievement(Category.ENTER, id++, new ItemStack(GOTRegistry.deadMarshPlant), "ENTER_ULTHOS_MARSHES");
+		enterUlthosRedForest = new GOTAchievement(Category.ENTER, id++, new ItemStack(GOTRegistry.deadMarshPlant), "ENTER_ULTHOS_RED_FOREST");
 		wearFullArryn = GOTAchievement.createArmorAchievement(Category.WEAR, id++, GOTRegistry.arrynChestplate, "WEAR_FULL_ARRYN");
 		wearFullArrynguard = GOTAchievement.createArmorAchievement(Category.WEAR, id++, GOTRegistry.arrynguardChestplate, "WEAR_FULL_ARRYNGUARD");
 		wearFullAsshai = GOTAchievement.createArmorAchievement(Category.WEAR, id++, GOTRegistry.asshaiChestplate, "WEAR_FULL_ASSHAI");

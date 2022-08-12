@@ -13,8 +13,8 @@ import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenFlowers;
 
-public class GOTBiomeSuudanKorkuu extends GOTBiome {
-	public GOTBiomeSuudanKorkuu(int i, boolean major) {
+public class GOTBiomeMossovyMarshes extends GOTBiome {
+	public GOTBiomeMossovyMarshes(int i, boolean major) {
 		super(i, major);
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();

@@ -1,28 +1,42 @@
 package got.common.world.biome.ulthos;
 
+import java.util.ArrayList;
+
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
-import got.common.database.GOTAchievement;
-import got.common.entity.animal.*;
+import got.common.database.*;
+import got.common.entity.animal.GOTEntityMidges;
 import got.common.world.biome.GOTBiome;
+import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
+import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
-import got.common.world.spawning.GOTEventSpawner;
+import got.common.world.spawning.GOTBiomeSpawnList;
+import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class GOTBiomeUlos extends GOTBiome {
-	public GOTBiomeUlos(int i, boolean major) {
+public class GOTBiomeUlthosMarshes extends GOTBiome {
+	public GOTBiomeUlthosMarshes(int i, boolean major) {
 		super(i, major);
 		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 30, 1, 2));
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 10, 4, 4));
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGorcrow.class, 4, 4, 4));
-		decorator.treesPerChunk = 12;
-		decorator.logsPerChunk = 1;
-		decorator.flowersPerChunk = 2;
-		decorator.doubleFlowersPerChunk = 1;
+		spawnableWaterCreatureList.clear();
+		spawnableGOTAmbientList.clear();
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityMidges.class, 10, 4, 4));
+		clearBiomeVariants();
+		variantChance = 1.0f;
+		addBiomeVariant(GOTBiomeVariant.SWAMP_LOWLAND);
+		decorator.sandPerChunk = 0;
+		decorator.clayPerChunk = 0;
+		decorator.quagmirePerChunk = 1;
+		decorator.treesPerChunk = 0;
+		decorator.logsPerChunk = 2;
 		decorator.grassPerChunk = 8;
-		decorator.doubleGrassPerChunk = 6;
+		decorator.doubleGrassPerChunk = 8;
+		decorator.flowersPerChunk = 0;
+		decorator.canePerChunk = 10;
+		decorator.reedPerChunk = 2;
+		decorator.dryReedChance = 1.0f;
+		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.ULTHOS_GREEN_OAK, 1000);
 		decorator.addTree(GOTTreeType.ULTHOS_GREEN_OAK_LARGE, 50);
 		decorator.addTree(GOTTreeType.ULTHOS_RED_OAK, 15);
@@ -41,23 +55,31 @@ public class GOTBiomeUlos extends GOTBiome {
 		decorator.addTree(GOTTreeType.PINE, 400);
 		decorator.addTree(GOTTreeType.ASPEN, 50);
 		decorator.addTree(GOTTreeType.ASPEN_LARGE, 10);
-		registerForestFlowers();
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
+		registerDefaultFlowers();
+
+		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN));
+		npcSpawnList.newFactionList(1).add(c0);
 	}
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterUlos;
+		return GOTAchievement.enterUlthosMarshes;
 	}
 
 	@Override
 	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ULTHOS.getSubregion("ulos");
+		return GOTBiomeMusic.ULTHOS.getSubregion("ulthosMarshes");
 	}
 
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.ULTHOS;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_DIRTY;
 	}
 
 	@Override

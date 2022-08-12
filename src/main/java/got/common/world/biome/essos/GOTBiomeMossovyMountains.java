@@ -13,8 +13,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
-public class GOTBiomeKuurulgan extends GOTBiomeMossovy {
-	public GOTBiomeKuurulgan(int i, boolean major) {
+public class GOTBiomeMossovyMountains extends GOTBiomeMossovy {
+	public GOTBiomeMossovyMountains(int i, boolean major) {
 		super(i, major);
 		npcSpawnList.clear();
 		spawnableCreatureList.clear();

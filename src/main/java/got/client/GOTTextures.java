@@ -16,7 +16,7 @@ import got.client.render.other.GOTBufferedImageIcon;
 import got.common.*;
 import got.common.util.*;
 import got.common.world.biome.GOTBiome;
-import got.common.world.biome.ulthos.GOTBiomeUlthos;
+import got.common.world.biome.sothoryos.GOTBiomeSothoryosHell;
 import got.common.world.genlayer.GOTGenLayerWorld;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.*;
@@ -142,7 +142,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 					color = GOTTextures.getMapOceanColor(true);
 				} else {
 					GOTBiome biome = GOTDimension.GAME_OF_THRONES.biomeList[biomeID];
-					color = biome.heightBaseParameter < 0.0f ? 6453158 : biome.heightBaseParameter > 0.8f ? 14736861 : biome.heightBaseParameter > 0.4f ? 6575407 : biome instanceof GOTBiomeUlthos ? 3290677 : biome.decorator.treesPerChunk > 1 ? 2775058 : biome.temperature < 0.3f ? biome.temperature < 0.2f ? 14215139 : 9470587 : biome.rainfall < 0.2f ? 13548147 : 5468426;
+					color = biome.heightBaseParameter < 0.0f ? 6453158 : biome.heightBaseParameter > 0.8f ? 14736861 : biome.heightBaseParameter > 0.4f ? 6575407 : biome instanceof GOTBiomeSothoryosHell ? 3290677 : biome.decorator.treesPerChunk > 1 ? 2775058 : biome.temperature < 0.3f ? biome.temperature < 0.2f ? 14215139 : 9470587 : biome.rainfall < 0.2f ? 13548147 : 5468426;
 				}
 			} else {
 				color = GOTTextures.getSepia(color);

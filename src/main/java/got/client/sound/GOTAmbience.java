@@ -12,7 +12,7 @@ import got.common.world.GOTWorldProvider;
 import got.common.world.biome.essos.*;
 import got.common.world.biome.other.*;
 import got.common.world.biome.sothoryos.GOTBiomeYeen;
-import got.common.world.biome.ulthos.GOTBiomeUlthos;
+import got.common.world.biome.ulthos.GOTBiomeUlthosForest;
 import got.common.world.biome.westeros.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -81,10 +81,10 @@ public class GOTAmbience {
 				}
 				boolean spookyBiomeNoise = false;
 				float spookyPitch = 1.0f;
-				if (biome instanceof GOTBiomeUlthos) {
+				if (biome instanceof GOTBiomeUlthosForest) {
 					spookyBiomeNoise = rand.nextInt(1000) == 0;
 					spookyPitch = 0.85f;
-				} else if (biome instanceof GOTBiomeSuudanKorkuu) {
+				} else if (biome instanceof GOTBiomeMossovyMarshes) {
 					spookyBiomeNoise = rand.nextInt(2400) == 0;
 				} else if (biome instanceof GOTBiomeValyria) {
 					spookyBiomeNoise = rand.nextInt(3000) == 0;

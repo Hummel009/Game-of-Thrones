@@ -6,6 +6,7 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
+import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.other.*;
@@ -41,5 +42,10 @@ public class GOTBiomeSummerIslands extends GOTBiomeSothoryosJungle {
 	@Override
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.SOTHORYOS.getSubregion("summerIslands");
+	}
+
+	@Override
+	public Region getBiomeWaypoints() {
+		return Region.SUMMER_ISLANDS;
 	}
 }
