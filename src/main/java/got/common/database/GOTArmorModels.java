@@ -118,6 +118,8 @@ public class GOTArmorModels {
 		Map<Item, ModelBiped> map = specialArmorModels.get(key);
 		if (map == null) {
 			map = new HashMap<>();
+			map.put(GOTRegistry.targaryenHelmet, new GOTModelTargaryenHelmet());
+			map.put(GOTRegistry.targaryenChestplate, new GOTModelTargaryenChestplate());
 			map.put(GOTRegistry.arrynHelmet, new GOTModelArrynHelmet(1.0f));
 			map.put(GOTRegistry.asshaiHelmet, new GOTModelAsshaiHelmet(1.0f));
 			map.put(GOTRegistry.bittersteelHelmet, new GOTModelSandorHelmet(1.0f));

@@ -2441,7 +2441,7 @@ public class GOTRegistry {
 		sunspear = new GOTItemLegendarySword(ToolMaterial.IRON, GOTItemLegendarySword.HitEffect.POISON);
 		swanFeather = new Item().setCreativeTab(GOTCreativeTabs.tabMaterials);
 		targaryenBoots = new GOTItemArmor(GOTMaterial.TARGARYEN, 3).setCreativeTab(GOTCreativeTabs.tabStory);
-		targaryenChestplate = new GOTItemArmor(GOTMaterial.TARGARYEN, 1).setCreativeTab(GOTCreativeTabs.tabStory);
+		targaryenChestplate = new GOTItemArmor(GOTMaterial.TARGARYEN, 1, "chestplate").setCreativeTab(GOTCreativeTabs.tabStory);
 		targaryenHelmet = new GOTItemArmor(GOTMaterial.TARGARYEN, 0, "helmet").setCreativeTab(GOTCreativeTabs.tabStory);
 		targaryenLeggings = new GOTItemArmor(GOTMaterial.TARGARYEN, 2).setCreativeTab(GOTCreativeTabs.tabStory);
 		termite = new GOTItemTermite();

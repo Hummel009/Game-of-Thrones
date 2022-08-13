@@ -11,6 +11,8 @@ CHANGELOG
 + Added more miners, goldsmiths, florists
 + Added Shraik
 
+* Improved targaryen armor
+* Improved aegon helmet
 * Improved stats of ifekevrons and stone men
 * Improved summer villages
 * Improved spheres of influence
@@ -30,6 +32,7 @@ CHANGELOG
 * Fixed bug with stolen items info
 * Fixed bug with russian-speaking Illyrio in english translation
 
+- Removed Ulos biome
 - Removed hunters and greengrocers (no difference, because farmers and butchers exist)
 >>VERSION 17.8
 + Added labradorite set of blocks
