@@ -8,6 +8,8 @@ import got.common.world.structure.other.*;
 import net.minecraft.world.World;
 
 public class GOTStructureSothoryosVillage extends GOTVillageGen {
+	public boolean isPyramid;
+
 	public GOTStructureSothoryosVillage(GOTBiome biome, float f) {
 		super(biome);
 		gridScale = 12;
@@ -17,18 +19,36 @@ public class GOTStructureSothoryosVillage extends GOTVillageGen {
 		fixedVillageChunkRadius = 3;
 	}
 
+	public GOTStructureSothoryosVillage setIsPyramid() {
+		fixedVillageChunkRadius = 0;
+		isPyramid = true;
+		return this;
+	}
+
 	@Override
 	public GOTVillageGen.AbstractInstance createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
-	public static class Instance extends GOTVillageGen.AbstractInstance {
+	public class Instance extends GOTVillageGen.AbstractInstance {
+		public VillageType villageType;
 		public Instance(GOTStructureSothoryosVillage village, World world, int i, int k, Random random, LocationInfo loc) {
 			super(village, world, i, k, random, loc);
 		}
 
 		@Override
 		public void addVillageStructures(Random random) {
+			switch (villageType) {
+			case PYRAMID:
+				this.addStructure(new GOTStructureSothoryosPyramid(false), 20, 0, 0, true);
+				break;
+			case VILLAGE:
+				setupVillage(random);
+				break;
+			}
+		}
+
+		private void setupVillage(Random random) {
 			int smithyPos = random.nextInt(4);
 			this.addStructure(new GOTStructureSothoryosChieftainPyramid(false), 0, -11, 0, true);
 			this.addStructure(new GOTStructureSothoryosVillageTree(false), 0, -16, 2);
@@ -86,7 +106,15 @@ public class GOTStructureSothoryosVillage extends GOTVillageGen {
 
 		@Override
 		public void setupVillageProperties(Random random) {
+			if (isPyramid) {
+				villageType = VillageType.PYRAMID;
+			}  else {
+				villageType = VillageType.VILLAGE;
+			}
 		}
 	}
 
+	public enum VillageType {
+		VILLAGE, PYRAMID;
+	}
 }

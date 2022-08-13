@@ -100,6 +100,7 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityWoolyRhino.class, id++, 5653040);
 		GOTEntityRegistry.register(GOTEntityWyvern.class, id++, 2896659);
 		GOTEntityRegistry.register(GOTEntityZebra.class, id++, 15000804);
+		GOTEntityRegistry.register(GOTEntityShryke.class, id++, 2896659);
 
 		GOTEntityRegistry.register(GOTEntityWesterosBandit.class, id++, 0xBABABA);
 		GOTEntityRegistry.register(GOTEntityWesterosThief.class, id++, 0xBABABA);

@@ -69,6 +69,7 @@ public class GOTRender {
 	public static Map<Class, Render> renders = new HashMap<>();
 
 	public static void onInit() {
+		renders.put(GOTEntityShryke.class, new GOTRenderFactionNPCLayered("essos/shryke"));
 		renders.put(GOTEntityHillman.class, new GOTRenderFactionNPCLayered("westeros/wild"));
 		renders.put(GOTEntityIbbenMan.class, new GOTRenderFactionNPCLayered("essos/ibben"));
 		renders.put(GOTEntityNorthHillman.class, new GOTRenderFactionNPCLayered("westeros/wild"));

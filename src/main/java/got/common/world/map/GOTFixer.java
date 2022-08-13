@@ -55,7 +55,7 @@ import net.minecraft.world.World;
 
 public class GOTFixer {
 	public static Map<GOTWaypoint, GOTStructureBase> structures = new EnumMap<>(GOTWaypoint.class);
-	public static GOTVillageGen[] f = new GOTVillageGen[68];
+	public static GOTVillageGen[] f = new GOTVillageGen[69];
 
 	public static void addSpecialLocations(World world, Random random, int i, int k) {
 		GOTWaypoint[] forts = { GOTWaypoint.FiveForts1, GOTWaypoint.FiveForts2, GOTWaypoint.FiveForts3, GOTWaypoint.FiveForts4, GOTWaypoint.FiveForts5 };
@@ -201,9 +201,11 @@ public class GOTFixer {
 		f[65] = new GOTStructureYiTiCity(biome, 0.0f).setIsWall(false);
 		f[65].affix(GOTWaypoint.Jianmen, GOTWaypoint.Anguo, GOTWaypoint.Dingguo, GOTWaypoint.Pinnu, GOTWaypoint.Pingjiang, GOTWaypoint.Wude, GOTWaypoint.Wusheng, GOTWaypoint.Zhenguo, GOTWaypoint.Lungmen);
 		f[66] = new GOTStructureSothoryosVillage(biome, 0.0f);
-		f[66].affix(GOTWaypoint.Maunga, GOTWaypoint.Raumati, GOTWaypoint.DragonPlace, GOTWaypoint.SouthPoint, GOTWaypoint.BigLake);
+		f[66].affix(GOTWaypoint.Maunga, GOTWaypoint.DragonPlace, GOTWaypoint.SouthPoint, GOTWaypoint.BigLake);
 		f[67] = new GOTStructureQarthCity(biome, 0.0f).setIsCastle();
 		f[67].affix(GOTWaypoint.Teriman, GOTWaypoint.Batargas, GOTWaypoint.Karimagar);
+		f[68] = new GOTStructureSothoryosVillage(biome, 0.0f).setIsPyramid();
+		f[68].affix(GOTWaypoint.Raumati);
 
 		for (GOTVillageGen element : f) {
 			biome.decorator.addFixedVillage(element);

@@ -27,15 +27,13 @@ public class GOTStructureSummerVillage extends GOTVillageGen {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
-	public GOTStructureSummerVillage setRuined() {
+	public GOTStructureSummerVillage setIsRuined() {
 		isRuinedVillage = true;
 		return this;
 	}
 
 	public class Instance extends GOTVillageGen.AbstractInstance {
 		public VillageType villageType;
-		public int numOuterHouses;
-		public boolean palisade;
 
 		public Instance(GOTStructureSummerVillage village, World world, int i, int k, Random random, LocationInfo loc) {
 			super(village, world, i, k, random, loc);
@@ -47,7 +45,7 @@ public class GOTStructureSummerVillage extends GOTVillageGen {
 			case VILLAGE:
 				setupVillage(random);
 				break;
-			case FORTRESS:
+			case FORT:
 				setupFortress(random);
 				break;
 			}
@@ -67,7 +65,7 @@ public class GOTStructureSummerVillage extends GOTVillageGen {
 				if (dSq > imn * imn && dSq < imx * imx) {
 					return GOTBezierType.PATH_DIRTY;
 				}
-				if (palisade && k <= -imx && k >= -66 && i1 < 2 + random.nextInt(3)) {
+				if (k <= -imx && k >= -66 && i1 < 2 + random.nextInt(3)) {
 					return GOTBezierType.PATH_DIRTY;
 				}
 			}
@@ -163,7 +161,7 @@ public class GOTStructureSummerVillage extends GOTVillageGen {
 			} else {
 				this.addStructure(new GOTStructureSummerTavern(false), 3, -7, 0, true);
 			}
-			float frac = 1.0f / numOuterHouses;
+			float frac = 1.0f / 8;
 			float turn = 0.0f;
 			while (turn < 1.0f) {
 				float turnR = (float) Math.toRadians((turn += frac) * 360.0f);
@@ -183,13 +181,13 @@ public class GOTStructureSummerVillage extends GOTVillageGen {
 				int l = 25;
 				int i = Math.round(l * cos);
 				int k = Math.round(l * sin);
-				if (palisade && k < 0 && Math.abs(i) < 10) {
+				if (k < 0 && Math.abs(i) < 10) {
 					continue;
 				}
 				this.addStructure(getRandomHouse(random), i, k, r);
 			}
 			if (!isRuinedVillage) {
-				int numFarms = numOuterHouses * 2;
+				int numFarms = 8 * 2;
 				frac = 1.0f / numFarms;
 				turn = 0.0f;
 				while (turn < 1.0f) {
@@ -210,7 +208,7 @@ public class GOTStructureSummerVillage extends GOTVillageGen {
 					int l = 45;
 					int i = Math.round(l * cos);
 					int k = Math.round(l * sin);
-					if (palisade && k < 0 && Math.abs(i) < 10) {
+					if (k < 0 && Math.abs(i) < 10) {
 						continue;
 					}
 					if (random.nextInt(3) == 0) {
@@ -225,13 +223,8 @@ public class GOTStructureSummerVillage extends GOTVillageGen {
 				}
 			}
 			if (!isRuinedVillage) {
-				if (palisade) {
 					this.addStructure(new GOTStructureSummerVillageSign(false), 5 * (random.nextBoolean() ? 1 : -1), -56, 0, true);
-				} else {
-					this.addStructure(new GOTStructureSummerVillageSign(false), 0, -16, 0, true);
-				}
 			}
-			if (palisade) {
 				int rSq = 3721;
 				int rMax = 62;
 				int rSqMax = rMax * rMax;
@@ -257,21 +250,20 @@ public class GOTStructureSummerVillage extends GOTVillageGen {
 						this.addStructure(palisade, i, k, 0);
 					}
 				}
-			}
 		}
 
 		@Override
 		public void setupVillageProperties(Random random) {
-			villageType = random.nextInt(4) == 0 ? VillageType.FORTRESS : VillageType.VILLAGE;
-			numOuterHouses = MathHelper.getRandomIntegerInRange(random, 5, 8);
-			palisade = random.nextInt(3) != 0;
+			if (random.nextInt(4) == 0) {
+				villageType = VillageType.FORT;
+			} else {
+				villageType = VillageType.VILLAGE;
+			}
 		}
 
 	}
 
 	public enum VillageType {
-		VILLAGE, FORTRESS;
-
+		VILLAGE, FORT;
 	}
-
 }

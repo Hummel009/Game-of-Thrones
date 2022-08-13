@@ -22,7 +22,6 @@ import net.minecraftforge.common.util.ForgeDirection;
 public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 	public static int RADIUS = 60;
 	public boolean isGolden;
-	public boolean carson;
 
 	public GOTStructureSothoryosPyramid(boolean flag) {
 		super(flag);
@@ -38,7 +37,6 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 		int depth = 20;
 		this.setOriginAndRotation(world, i, j -= depth - 1, k, rotation, usingPlayer != null ? RADIUS - depth : 0);
 		isGolden = random.nextInt(20) == 0;
-		carson = random.nextInt(200) == 0;
 		int maze1R = 19;
 		int maze1W = maze1R * 2 + 1;
 		GOTMazeGenerator maze1 = new GOTMazeGenerator(maze1W, maze1W);
@@ -83,13 +81,6 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 		maze3.generate(random);
 		maze3.selectOuterEndpoint(random);
 		IInventory[] chests = new IInventory[4];
-		if (carson) {
-			for (IInventory chest : chests) {
-				for (int l = 0; l < chest.getSizeInventory(); ++l) {
-					chest.setInventorySlotContents(l, new ItemStack(Items.wheat, 64));
-				}
-			}
-		}
 		if (restrictions) {
 			for (i1 = -RADIUS; i1 <= RADIUS; ++i1) {
 				for (k12 = -RADIUS; k12 <= RADIUS; ++k12) {

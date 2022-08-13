@@ -512,8 +512,8 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, new GOTStructureAsshaiCity(GOTBiome.shadowTown, 1.0f), "AsshaiCity", GOTFaction.ASSHAI, (IVillageProperties<GOTStructureAsshaiCity.Instance>) instance -> instance.villageType = GOTStructureAsshaiCity.VillageType.TOWN);
 
 		GOTStructureRegistry.register(id++, new GOTStructureSummerVillage(GOTBiome.summerIslands, 1.0f), "SummerVillage", GOTFaction.SUMMER_ISLANDS, (IVillageProperties<GOTStructureSummerVillage.Instance>) instance -> instance.villageType = GOTStructureSummerVillage.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureSummerVillage(GOTBiome.summerIslands, 1.0f), "SummerFortVillage", GOTFaction.SUMMER_ISLANDS, (IVillageProperties<GOTStructureSummerVillage.Instance>) instance -> instance.villageType = GOTStructureSummerVillage.VillageType.FORTRESS);
-		GOTStructureRegistry.register(id++, new GOTStructureSummerVillage(GOTBiome.summerIslands, 1.0f).setRuined(), "SummerVillageRuined", GOTFaction.SUMMER_ISLANDS, (IVillageProperties<GOTStructureSummerVillage.Instance>) instance -> instance.villageType = GOTStructureSummerVillage.VillageType.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureSummerVillage(GOTBiome.summerIslands, 1.0f), "SummerFortVillage", GOTFaction.SUMMER_ISLANDS, (IVillageProperties<GOTStructureSummerVillage.Instance>) instance -> instance.villageType = GOTStructureSummerVillage.VillageType.FORT);
+		GOTStructureRegistry.register(id++, new GOTStructureSummerVillage(GOTBiome.summerIslands, 1.0f).setIsRuined(), "SummerVillageRuined", GOTFaction.SUMMER_ISLANDS, (IVillageProperties<GOTStructureSummerVillage.Instance>) instance -> instance.villageType = GOTStructureSummerVillage.VillageType.VILLAGE);
 
 		GOTStructureRegistry.register(id++, new GOTStructureSothoryosVillage(GOTBiome.sothoryosJungle, 1.0f), "SothoryosVillage", GOTFaction.SOTHORYOS, (IVillageProperties<Instance>) instance -> {
 		});

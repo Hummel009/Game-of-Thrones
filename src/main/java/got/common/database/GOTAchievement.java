@@ -329,6 +329,8 @@ public class GOTAchievement {
 	public static GOTAchievement enterSummerColony;
 	public static GOTAchievement enterUlthosMarshes;
 	public static GOTAchievement enterUlthosRedForest;
+	public static GOTAchievement enterShrykesLand;
+	public static GOTAchievement killShryke;
 	public Category category;
 	public int ID;
 	public ItemStack icon;
@@ -581,6 +583,7 @@ public class GOTAchievement {
 		killLorasTyrell = new GOTAchievement(Category.LEGENDARY, id++, GOTRegistry.gregorCleganeSword, "KILL_LORAS_TYRELL");
 		killMaester = new GOTAchievement(Category.KILL, id++, Items.book, "KILL_MAESTER");
 		killMammoth = new GOTAchievement(Category.KILL, id++, GOTRegistry.stoneSpear, "KILL_MAMMOTH");
+		killShryke = new GOTAchievement(Category.KILL, id++, GOTRegistry.bottlePoison, "KILL_SHRYKE");
 		killMelisandra = new GOTAchievement(Category.LEGENDARY, id++, GOTRegistry.lightbringer, "KILL_MELISANDRA");
 		killNightKing = new GOTAchievement(Category.LEGENDARY, id++, GOTRegistry.nightKingSword, "KILL_NIGHT_KING").createTitle();
 		killNightWatchGuard = new GOTAchievement(Category.KILL, id++, GOTRegistry.westerosSword, "KILL_NIGHT_WATCH_GUARD");
@@ -749,8 +752,9 @@ public class GOTAchievement {
 		enterUlthosFrost = new GOTAchievement(Category.ENTER, id++, new ItemStack(Blocks.snow), "VISIT_ULTHOS_FROST");
 		enterUlthosTaiga = new GOTAchievement(Category.ENTER, id++, new ItemStack(GOTRegistry.wood1, 1, 0), "VISIT_ULTHOS_TAIGA");
 		enterSummerColony = new GOTAchievement(Category.ENTER, id++, GOTRegistry.summerHelmet, "VISIT_SUMMER_COLONY");
-		enterUlthosMarshes = new GOTAchievement(Category.ENTER, id++, new ItemStack(GOTRegistry.deadMarshPlant), "ENTER_ULTHOS_MARSHES");
-		enterUlthosRedForest = new GOTAchievement(Category.ENTER, id++, new ItemStack(GOTRegistry.deadMarshPlant), "ENTER_ULTHOS_RED_FOREST");
+		enterUlthosMarshes = new GOTAchievement(Category.ENTER, id++, new ItemStack(GOTRegistry.deadMarshPlant), "VISIT_ULTHOS_MARSHES");
+		enterUlthosRedForest = new GOTAchievement(Category.ENTER, id++, new ItemStack(GOTRegistry.wood1), "VISIT_ULTHOS_RED_FOREST");
+		enterShrykesLand = new GOTAchievement(Category.ENTER, id++, new ItemStack(GOTRegistry.deadMarshPlant), "VISIT_SHRYKES_LAND");
 		wearFullArryn = GOTAchievement.createArmorAchievement(Category.WEAR, id++, GOTRegistry.arrynChestplate, "WEAR_FULL_ARRYN");
 		wearFullArrynguard = GOTAchievement.createArmorAchievement(Category.WEAR, id++, GOTRegistry.arrynguardChestplate, "WEAR_FULL_ARRYNGUARD");
 		wearFullAsshai = GOTAchievement.createArmorAchievement(Category.WEAR, id++, GOTRegistry.asshaiChestplate, "WEAR_FULL_ASSHAI");

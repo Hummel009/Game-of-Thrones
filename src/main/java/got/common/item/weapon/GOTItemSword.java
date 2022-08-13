@@ -125,6 +125,13 @@ public class GOTItemSword extends ItemSword implements GOTMaterialFinder {
 		entity.addPotionEffect(poison);
 	}
 
+	public static void applyStandardWither(EntityLivingBase entity) {
+		EnumDifficulty difficulty = entity.worldObj.difficultySetting;
+		int duration = 1 + difficulty.getDifficultyId() * 2;
+		PotionEffect poison = new PotionEffect(Potion.wither.id, (duration + itemRand.nextInt(duration)) * 20);
+		entity.addPotionEffect(poison);
+	}
+
 	public enum HitEffect {
 		NONE, FIRE, POISON;
 	}

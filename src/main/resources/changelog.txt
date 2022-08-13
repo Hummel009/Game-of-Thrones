@@ -9,7 +9,10 @@ CHANGELOG
 + Added new Mossovy, Sothoryos & Ulthos waypoints, achievements, biomes
 + Added new female skins
 + Added more miners, goldsmiths, florists
++ Added Shraik
 
+* Improved stats of ifekevrons and stone men
+* Improved summer villages
 * Improved spheres of influence
 * Improved and unlocked database generator
 * Improved Mossovy Sopkas

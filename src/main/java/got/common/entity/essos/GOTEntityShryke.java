@@ -1,19 +1,22 @@
 package got.common.entity.essos;
 
+import got.common.database.GOTAchievement;
 import got.common.entity.ai.*;
 import got.common.entity.essos.gold.GOTEntityGoldenMan;
 import got.common.entity.other.*;
 import got.common.entity.westeros.*;
+import got.common.entity.westeros.ice.*;
 import got.common.entity.westeros.legendary.trader.GOTEntityGendryBaratheon;
 import got.common.entity.westeros.legendary.warrior.*;
 import got.common.faction.GOTFaction;
+import got.common.item.weapon.GOTItemSword;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class GOTEntityIfekevron extends GOTEntityNPC {
-	public GOTEntityIfekevron(World world) {
+public class GOTEntityShryke extends GOTEntityNPC {
+	public GOTEntityShryke(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
@@ -21,10 +24,15 @@ public class GOTEntityIfekevron extends GOTEntityNPC {
 		tasks.addTask(0, new GOTEntityAIAttackOnCollide(this, 1.4, true));
 		tasks.addTask(2, new EntityAIWander(this, 1.0));
 		tasks.addTask(3, new EntityAIWatchClosest2(this, EntityPlayer.class, 8.0f, 0.02f));
-		tasks.addTask(4, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
-		tasks.addTask(5, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
+		tasks.addTask(4, new EntityAIWatchClosest2(this, GOTEntityWhiteWalker.class, 5.0f, 0.02f));
+		tasks.addTask(5, new EntityAIWatchClosest2(this, GOTEntityWight.class, 5.0f, 0.02f));
 		addTargetTasks();
 		spawnsInDarkness = true;
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killShryke;
 	}
 
 	public void addTargetTasks() {
@@ -59,7 +67,18 @@ public class GOTEntityIfekevron extends GOTEntityNPC {
 
 	@Override
 	public String getDeathSound() {
-		return "mob.zombie.death";
+		return "got:crocodile.death";
+	}
+
+	@Override
+	public boolean attackEntityAsMob(Entity entity) {
+		if (super.attackEntityAsMob(entity)) {
+			if (entity instanceof EntityLivingBase) {
+				GOTItemSword.applyStandardPoison((EntityLivingBase)entity);
+			}
+			return true;
+		}
+		return false;
 	}
 
 	@Override
@@ -69,12 +88,12 @@ public class GOTEntityIfekevron extends GOTEntityNPC {
 
 	@Override
 	public String getHurtSound() {
-		return "mob.zombie.hurt";
+		return "got:crocodile.say";
 	}
 
 	@Override
 	public String getLivingSound() {
-		return "mob.zombie.say";
+		return "got:crocodile.say";
 	}
 
 	@Override
@@ -90,6 +109,14 @@ public class GOTEntityIfekevron extends GOTEntityNPC {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
 		} else {
 			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
+		}
+	}
+
+	@Override
+	public void onLivingUpdate() {
+		super.onLivingUpdate();
+		if (getHealth() < getMaxHealth() && ticksExisted % 10 == 0) {
+			heal(1.0f);
 		}
 	}
 

@@ -211,7 +211,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome ulthosRedForest;
 	public static GOTBiome ulthosRedForestEdge;
 	public static GOTBiome cannibalSandsHills;
-	public static GOTBiome shraik;
+	public static GOTBiome shrykesLand;
 	public GOTDimension biomeDimension;
 	public GOTBiomeDecorator decorator;
 	public int topBlockMeta = 0;
@@ -1037,14 +1037,14 @@ public abstract class GOTBiome extends BiomeGenBase {
 		essos = new GOTBiomeEssos(33, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x92A54A).setBiomeName("essos");
 		essosForest = new GOTBiomeEssosForest(34, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x617027).setBiomeName("essosForest");
 		essosHills = new GOTBiomeEssos(35, true).setIsNeverWinter().setMinMaxHeight(0.1f, 1.0f).setColor(0x7B843A).setBiomeName("essosHills");
-		essosMountains = new GOTBiomeEssosMountains(36, true).setIsNeverWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0xE5D3BC).setBiomeName("essosMountains");
+		essosMountains = new GOTBiomeEssosMountains(36, true).setIsNeverWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0xDDDDAF).setBiomeName("essosMountains");
 		farNorthSnowy = new GOTBiomeFarNorthSnowy(37, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xC9DAE0).setBiomeName("farNorthSnowy");
 		fireField = new GOTBiomeFireField(38, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xA3CC61).setBiomeName("fireField");
 		frostfangs = new GOTBiomeFrostfangs(39, true).setIsAlwaysWinter().setMinMaxHeight(2.0f, 2.0f).setColor(0xCBE9F1).setBiomeName("frostfangs");
 		ghiscar = new GOTBiomeGhiscar(40, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xADAF6B).setBiomeName("ghiscar");
 		ghiscarColony = new GOTBiomeGhiscarColony(41, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x5B8C2A).setBiomeName("ghiscarColony");
-		giftNew = new GOTBiomeGiftNew(42, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x9CC452).setBiomeName("giftNew");
-		giftOld = new GOTBiomeGiftOld(43, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xA5C681).setBiomeName("giftOld");
+		giftNew = new GOTBiomeGiftNew(42, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xB9D68B).setBiomeName("giftNew");
+		giftOld = new GOTBiomeGiftOld(43, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x9EC166).setBiomeName("giftOld");
 		hauntedForest = new GOTBiomeHauntedForest(44, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xA5C9AA).setBiomeName("hauntedForest");
 		ibben = new GOTBiomeIbben(45, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x7AA04B).setBiomeName("ibben");
 		ibbenColony = new GOTBiomeIbbenColony(47, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x9EAF56).setBiomeName("ibbenColony");
@@ -1076,12 +1076,12 @@ public abstract class GOTBiome extends BiomeGenBase {
 		neck = new GOTBiomeNeck(79, true).setIsLongWinter().setMinMaxHeight(0.0f, 0.1f).setColor(0x599958).setBiomeName("neck");
 		newGhis = new GOTBiomeNewGhis(80, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xB1AF7A).setBiomeName("ghiscar");
 		north = new GOTBiomeNorth(81, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(8959044).setBiomeName("north");
-		northBarrows = new GOTBiomeNorthBarrows(82, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x87AD4A).setBiomeName("northBarrows");
+		northBarrows = new GOTBiomeNorthBarrows(82, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x94BA53).setBiomeName("northBarrows");
 		northForest = new GOTBiomeNorthForest(84, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x538E2F).setBiomeName("northForest");
 		northHills = new GOTBiomeWesteros(85, true).setIsLongWinter().setMinMaxHeight(0.1f, 1f).setColor(0x74A346).setBiomeName("northHills");
 		northMountains = new GOTBiomeNorthMountains(86, true).setIsLongWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0xD3E0BA).setBiomeName("northMountains");
 		northTown = new GOTBiomeNorthTown(87, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xA4CE61).setBiomeName("northTown");
-		northWild = new GOTBiomeNorthWild(88, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x97B26C).setBiomeName("northWild");
+		northWild = new GOTBiomeNorthWild(88, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xA5BF7C).setBiomeName("northWild");
 		norvos = new GOTBiomeNorvos(89, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x7DA344).setBiomeName("norvos");
 		ocean = new GOTBiomeOcean(91, true).setTemperatureRainfall(0.8F, 0.8F).setMinMaxHeight(-1.0f, 0.3f).setColor(0x024B75).setBiomeName("ocean");
 		ocean1 = new GOTBiomeOcean(166, true).setTemperatureRainfall(0.8F, 0.8F).setMinMaxHeight(-0.7f, 0.3f).setColor(0x036FAC).setBiomeName("ocean");
@@ -1165,7 +1165,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		ulthosRedForest = new GOTBiomeUlthosRedForest(115, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x5E441C).setBiomeName("ulthosRedForest");
 		ulthosRedForestEdge = new GOTBiomeUlthosRedForestEdge(77, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x5E6526).setBiomeName("ulthosRedForestEdge");
 		cannibalSandsHills = new GOTBiomeCannibalSands(83, true).setIsNeverWinter().setMinMaxHeight(0.1f, 1f).setColor(0xA5986A).setBiomeName("cannibalSandsHills");
-		shraik = new GOTBiomeShraik(90, true).setIsNeverWinter().setMinMaxHeight(0.0f, 0.1f).setColor(0xAAAE77).setBiomeName("shraik");
+		shrykesLand = new GOTBiomeShrykesLand(90, true).setIsNeverWinter().setMinMaxHeight(0.0f, 0.1f).setColor(0xAAAE77).setBiomeName("shrykesLand");
 
 		for (int i : NON_USED) {
 			GOTDimension.GAME_OF_THRONES.biomeList[i] = GOTBiome.ocean;

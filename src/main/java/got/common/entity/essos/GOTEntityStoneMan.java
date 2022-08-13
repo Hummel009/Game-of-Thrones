@@ -9,6 +9,7 @@ import got.common.entity.westeros.legendary.reborn.*;
 import got.common.entity.westeros.legendary.trader.GOTEntityGendryBaratheon;
 import got.common.entity.westeros.legendary.warrior.*;
 import got.common.faction.GOTFaction;
+import got.common.item.weapon.GOTItemSword;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,22 +18,16 @@ import net.minecraft.world.World;
 public class GOTEntityStoneMan extends GOTEntityNPC {
 	public GOTEntityStoneMan(World world) {
 		super(world);
-		canBeMarried = false;
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
-		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));
 		tasks.addTask(0, new GOTEntityAIAttackOnCollide(this, 1.4, true));
-		tasks.addTask(3, new GOTEntityAIFollowHiringPlayer(this));
-		tasks.addTask(1, new EntityAIOpenDoor(this, true));
 		tasks.addTask(2, new EntityAIWander(this, 1.0));
 		tasks.addTask(3, new EntityAIWatchClosest2(this, EntityPlayer.class, 8.0f, 0.02f));
 		tasks.addTask(4, new EntityAIWatchClosest2(this, GOTEntityWhiteWalker.class, 5.0f, 0.02f));
 		tasks.addTask(5, new EntityAIWatchClosest2(this, GOTEntityWight.class, 5.0f, 0.02f));
-		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
-		canBeMarried = false;
+		addTargetTasks();
 		spawnsInDarkness = true;
-		isNotHuman = true;
 	}
 
 	public void addTargetTasks() {
@@ -53,7 +48,7 @@ public class GOTEntityStoneMan extends GOTEntityNPC {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0);
-		getEntityAttribute(npcAttackDamage).setBaseValue(7.0);
+		getEntityAttribute(npcAttackDamage).setBaseValue(5.0);
 	}
 
 	@Override
@@ -63,6 +58,17 @@ public class GOTEntityStoneMan extends GOTEntityNPC {
 	@Override
 	public float getAlignmentBonus() {
 		return 5.0f;
+	}
+
+	@Override
+	public boolean attackEntityAsMob(Entity entity) {
+		if (super.attackEntityAsMob(entity)) {
+			if (entity instanceof EntityLivingBase) {
+				GOTItemSword.applyStandardWither((EntityLivingBase)entity);
+			}
+			return true;
+		}
+		return false;
 	}
 
 	@Override
@@ -83,11 +89,6 @@ public class GOTEntityStoneMan extends GOTEntityNPC {
 	@Override
 	public String getLivingSound() {
 		return "mob.zombie.say";
-	}
-
-	@Override
-	public int getTotalArmorValue() {
-		return 15;
 	}
 
 	@Override

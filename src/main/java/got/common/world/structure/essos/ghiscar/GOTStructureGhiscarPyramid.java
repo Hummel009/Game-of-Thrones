@@ -10,16 +10,13 @@ import got.common.item.other.GOTItemBanner;
 import got.common.util.GOTMazeGenerator;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
-import net.minecraft.init.*;
+import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 	public static int RADIUS = 60;
-	public boolean carson;
-	public boolean isGolden;
 
 	public GOTStructureGhiscarPyramid(boolean flag) {
 		super(flag);
@@ -34,8 +31,6 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 		int k12;
 		int depth = 20;
 		this.setOriginAndRotation(world, i, j -= depth - 1, k, rotation, usingPlayer != null ? RADIUS - depth : 0);
-		isGolden = true;
-		carson = random.nextInt(200) == 0;
 		int maze1R = 19;
 		int maze1W = maze1R * 2 + 1;
 		GOTMazeGenerator maze1 = new GOTMazeGenerator(maze1W, maze1W);
@@ -80,13 +75,6 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 		maze3.generate(random);
 		maze3.selectOuterEndpoint(random);
 		IInventory[] chests = new IInventory[4];
-		if (carson) {
-			for (IInventory chest : chests) {
-				for (int l = 0; l < chest.getSizeInventory(); ++l) {
-					chest.setInventorySlotContents(l, new ItemStack(Items.wheat, 64));
-				}
-			}
-		}
 		if (restrictions) {
 			for (i1 = -RADIUS; i1 <= RADIUS; ++i1) {
 				for (k12 = -RADIUS; k12 <= RADIUS; ++k12) {
@@ -221,10 +209,6 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 				}
 				Block pillarBlock = GOTRegistry.brick1;
 				int pillarMeta = 15;
-				if (isGolden) {
-					pillarBlock = GOTRegistry.brick1;
-					pillarMeta = 15;
-				}
 				for (int j19 = topHeight - 26; j19 < topHeight - 22; ++j19) {
 					setBlockAndMetadata(world, i17, j19, k17, pillarBlock, pillarMeta);
 				}
@@ -291,8 +275,6 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 					int k3 = IntMath.mod(k1, 4);
 					if (i2 == roomPillarEdge && k3 == 0 || k2 == roomPillarEdge && i3 == 0) {
 						for (j111 = roomFloor + 2; j111 <= actingRoomTop - 2; ++j111) {
-							if (isGolden) {
-							}
 							setBlockAndMetadata(world, i12, j111, k1, GOTRegistry.brick1, 15);
 						}
 					}
