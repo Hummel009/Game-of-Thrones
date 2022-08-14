@@ -15,12 +15,10 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 public class GOTBiomeSothoryosMountains extends GOTBiomeSothoryosSavannah {
 	public GOTBiomeSothoryosMountains(int i, boolean major) {
 		super(i, major);
-		npcSpawnList.clear();
-		spawnableCreatureList.clear();
-		decorator.clearVillages();
-		invasionSpawns.clearInvasions();
+		setupStandartForestFauna();
 		clearBiomeVariants();
 		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
+		enableRocky = true;
 		decorator.doubleFlowersPerChunk = 0;
 		decorator.doubleGrassPerChunk = 1;
 		decorator.flowersPerChunk = 1;
@@ -29,8 +27,8 @@ public class GOTBiomeSothoryosMountains extends GOTBiomeSothoryosSavannah {
 		decorator.biomeGemFactor = 2.0f;
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
-		enableRocky = true;
-		registerMountainsFlowers();
+		decorator.clearVillages();
+		npcSpawnList.clear();
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 

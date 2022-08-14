@@ -19,15 +19,13 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 public class GOTBiomeBoneMountains extends GOTBiome {
 	public GOTBiomeBoneMountains(int i, boolean major) {
 		super(i, major);
-		npcSpawnList.clear();
-		spawnableGOTAmbientList.clear();
-		spawnableCreatureList.clear();
-		this.addBiomeVariant(GOTBiomeVariant.MOUNTAIN);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST_BEECH, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST_BIRCH, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST_LARCH, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST_PINE, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST_MAPLE, 0.2f);
+		setupStandartForestFauna();
+		addBiomeVariant(GOTBiomeVariant.MOUNTAIN);
+		addBiomeVariant(GOTBiomeVariant.FOREST_BEECH, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.FOREST_BIRCH, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.FOREST_LARCH, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.FOREST_PINE, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.FOREST_MAPLE, 0.2f);
 		decorator.biomeOreFactor = 2.0f;
 		decorator.biomeGemFactor = 2.0f;
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);

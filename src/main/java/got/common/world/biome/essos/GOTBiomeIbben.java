@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
-import got.common.entity.animal.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
@@ -15,22 +14,21 @@ import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.essos.ibben.GOTStructureIbbenVillage;
 import got.common.world.structure.other.*;
-import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTBiomeIbben extends GOTBiome {
 	public GOTBiomeIbben(int i, boolean major) {
 		super(i, major);
-		clearBiomeVariants();
-		this.addBiomeVariant(GOTBiomeVariant.DENSEFOREST_BIRCH);
-		this.addBiomeVariant(GOTBiomeVariant.DENSEFOREST_OAK);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST_ASPEN, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST_BEECH, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST_BIRCH, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST_MAPLE, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.HILLS);
-		this.addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
+		setupTaigaFauna();
+		addBiomeVariant(GOTBiomeVariant.DENSEFOREST_BIRCH);
+		addBiomeVariant(GOTBiomeVariant.DENSEFOREST_OAK);
+		addBiomeVariant(GOTBiomeVariant.FOREST);
+		addBiomeVariant(GOTBiomeVariant.FOREST_ASPEN, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.FOREST_BEECH, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.FOREST_BIRCH, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
+		addBiomeVariant(GOTBiomeVariant.FOREST_MAPLE, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.HILLS);
+		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.SPRUCE, 400);
 		decorator.addTree(GOTTreeType.SPRUCE_THIN, 400);
@@ -43,12 +41,6 @@ public class GOTBiomeIbben extends GOTBiome {
 		decorator.doubleGrassPerChunk = 1;
 		decorator.flowersPerChunk = 3;
 		decorator.doubleFlowersPerChunk = 1;
-		registerPlainsFlowers();
-
-		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWoolyRhino.class, 4, 1, 1));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 8, 1, 2));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityMammoth.class, 2, 1, 1));
 
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IBBEN_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN));

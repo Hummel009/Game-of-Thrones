@@ -15,10 +15,9 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 public class GOTBiomeIbbenMountains extends GOTBiomeIbben {
 	public GOTBiomeIbbenMountains(int i, boolean major) {
 		super(i, major);
+		setupStandartForestFauna();
 		npcSpawnList.clear();
-		spawnableCreatureList.clear();
 		decorator.clearVillages();
-		decorator.clearRandomStructures();
 		invasionSpawns.clearInvasions();
 		clearBiomeVariants();
 		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
@@ -31,7 +30,6 @@ public class GOTBiomeIbbenMountains extends GOTBiomeIbben {
 		decorator.flowersPerChunk = 1;
 		decorator.grassPerChunk = 4;
 		enableRocky = true;
-		registerMountainsFlowers();
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 

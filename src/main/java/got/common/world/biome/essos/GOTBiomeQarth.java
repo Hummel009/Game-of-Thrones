@@ -15,13 +15,13 @@ import got.common.world.structure.essos.qarth.GOTStructureQarthCity;
 public class GOTBiomeQarth extends GOTBiomeEssos {
 	public GOTBiomeQarth(int i, boolean major) {
 		super(i, major);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_LEMON, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_LIME, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_OLIVE, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_ALMOND, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_LEMON, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_LIME, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_OLIVE, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_ALMOND, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
 
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.QARTH_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));

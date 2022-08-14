@@ -28,10 +28,7 @@ public class GOTBiomeFrostfangs extends GOTBiome {
 		decorator.biomeGemFactor = 2.0f;
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
-		npcSpawnList.clear();
-		registerMountainsFlowers();
-		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityShadowcat.class, 8, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityShadowcat.class, 100, 1, 2));
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 

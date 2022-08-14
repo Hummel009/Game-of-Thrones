@@ -17,11 +17,10 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 public class GOTBiomeArrynMountains extends GOTBiomeArryn {
 	public GOTBiomeArrynMountains(int i, boolean major) {
 		super(i, major);
+		setupStandartForestFauna();
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityShadowcat.class, 10, 1, 2));
 		npcSpawnList.clear();
-		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityShadowcat.class, 8, 1, 2));
 		decorator.clearVillages();
-		decorator.clearRandomStructures();
 		invasionSpawns.clearInvasions();
 		clearBiomeVariants();
 		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
@@ -34,7 +33,6 @@ public class GOTBiomeArrynMountains extends GOTBiomeArryn {
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
 		enableRocky = true;
-		registerMountainsFlowers();
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 

@@ -14,10 +14,15 @@ import got.common.world.structure.other.*;
 public class GOTBiomeSummerIslands extends GOTBiomeSothoryosJungle {
 	public GOTBiomeSummerIslands(int i, boolean major) {
 		super(i, major);
+		setUnreliableChance(GOTEventSpawner.EventChance.COMMON);
 		decorator.treesPerChunk = 1;
-		npcSpawnList.clear();
 		decorator.clearVillages();
-		decorator.clearRandomStructures();
+		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
+		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
+		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
+		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
+		invasionSpawns.addInvasion(GOTInvasions.GHISCAR, GOTEventSpawner.EventChance.COMMON);
+		npcSpawnList.clear();
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.SUMMER_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
@@ -27,11 +32,6 @@ public class GOTBiomeSummerIslands extends GOTBiomeSothoryosJungle {
 		ArrayList<SpawnListContainer> c2 = new ArrayList<>();
 		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.MANTICORE, 1).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(1).add(c2);
-		invasionSpawns.addInvasion(GOTInvasions.GHISCAR, GOTEventSpawner.EventChance.COMMON);
-		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
-		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
-		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
-		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
 	}
 
 	@Override

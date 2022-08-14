@@ -4,7 +4,6 @@ import got.common.entity.ai.*;
 import got.common.entity.essos.gold.GOTEntityGoldenMan;
 import got.common.entity.other.*;
 import got.common.entity.westeros.*;
-import got.common.entity.westeros.ice.*;
 import got.common.entity.westeros.legendary.reborn.*;
 import got.common.entity.westeros.legendary.trader.GOTEntityGendryBaratheon;
 import got.common.entity.westeros.legendary.warrior.*;
@@ -24,8 +23,8 @@ public class GOTEntityStoneMan extends GOTEntityNPC {
 		tasks.addTask(0, new GOTEntityAIAttackOnCollide(this, 1.4, true));
 		tasks.addTask(2, new EntityAIWander(this, 1.0));
 		tasks.addTask(3, new EntityAIWatchClosest2(this, EntityPlayer.class, 8.0f, 0.02f));
-		tasks.addTask(4, new EntityAIWatchClosest2(this, GOTEntityWhiteWalker.class, 5.0f, 0.02f));
-		tasks.addTask(5, new EntityAIWatchClosest2(this, GOTEntityWight.class, 5.0f, 0.02f));
+		tasks.addTask(4, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
+		tasks.addTask(5, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		addTargetTasks();
 		spawnsInDarkness = true;
 	}

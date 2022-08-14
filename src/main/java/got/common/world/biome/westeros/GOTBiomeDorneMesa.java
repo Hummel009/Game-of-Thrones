@@ -24,7 +24,7 @@ public class GOTBiomeDorneMesa extends GOTBiome {
 
 	public GOTBiomeDorneMesa(int i, boolean major) {
 		super(i, major);
-		spawnableCreatureList.clear();
+		setupDesertFauna();
 		topBlock = Blocks.sand;
 		topBlockMeta = 1;
 		fillerBlock = Blocks.stained_hardened_clay;
@@ -33,7 +33,6 @@ public class GOTBiomeDorneMesa extends GOTBiome {
 		theBiomeDecorator.reedsPerChunk = 3;
 		theBiomeDecorator.cactiPerChunk = 5;
 		theBiomeDecorator.flowersPerChunk = 0;
-		spawnableCreatureList.clear();
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}

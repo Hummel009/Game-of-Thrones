@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
-import got.common.entity.animal.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
@@ -15,33 +14,29 @@ import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.essos.yiti.GOTStructureYiTiCity;
 import got.common.world.structure.other.*;
-import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTBiomeYiTi extends GOTBiome {
 
 	public GOTBiomeYiTi(int i, boolean major) {
 		super(i, major);
-		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityHorse.class, 5, 1, 2));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWhiteBison.class, 6, 1, 2));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 4, 1, 1));
-		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
-		this.addBiomeVariant(GOTBiomeVariant.HILLS);
-		this.addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
-		this.addBiomeVariant(GOTBiomeVariant.SHRUBLAND_OAK);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.1f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_LEMON, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_LIME, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_OLIVE, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_ALMOND, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.3f);
-		this.addBiomeVariant(GOTBiomeVariant.SCRUBLAND_SAND);
-		this.addBiomeVariant(GOTBiomeVariant.HILLS_SCRUBLAND_SAND);
+		setupStandartPlainsFauna();
+		addBiomeVariant(GOTBiomeVariant.FLOWERS);
+		addBiomeVariant(GOTBiomeVariant.FOREST);
+		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
+		addBiomeVariant(GOTBiomeVariant.HILLS);
+		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
+		addBiomeVariant(GOTBiomeVariant.SHRUBLAND_OAK);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.1f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_LEMON, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_LIME, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_OLIVE, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_ALMOND, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.3f);
+		addBiomeVariant(GOTBiomeVariant.SCRUBLAND_SAND);
+		addBiomeVariant(GOTBiomeVariant.HILLS_SCRUBLAND_SAND);
 		decorator.grassPerChunk = 6;
 		decorator.doubleGrassPerChunk = 1;
 		decorator.flowersPerChunk = 3;
@@ -51,7 +46,6 @@ public class GOTBiomeYiTi extends GOTBiome {
 		decorator.addTree(GOTTreeType.LEMON, 500);
 		decorator.addTree(GOTTreeType.LIME, 500);
 		decorator.addTree(GOTTreeType.POMEGRANATE, 500);
-		registerYiTiPlainsFlowers();
 
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.YITI_CONQUEST, 4).setSpawnChance(GOTBiome.SPAWN));

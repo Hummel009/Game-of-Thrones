@@ -15,7 +15,7 @@ import got.common.world.structure.westeros.gift.GOTStructureGiftVillage;
 public class GOTBiomeGiftNew extends GOTBiomeWesteros {
 	public GOTBiomeGiftNew(int i, boolean major) {
 		super(i, major);
-		spawnableCreatureList.clear();
+		setupStandartForestFauna();
 
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.GIFT_GUARDIAN, 10).setSpawnChance(GOTBiome.SPAWN));

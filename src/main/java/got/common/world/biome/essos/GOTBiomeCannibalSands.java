@@ -29,9 +29,7 @@ public class GOTBiomeCannibalSands extends GOTBiome implements GOTBiome.Desert {
 		setDisableRain();
 		topBlock = Blocks.sand;
 		fillerBlock = Blocks.sandstone;
-		spawnableCreatureList.clear();
-		spawnableGOTAmbientList.clear();
-		this.addBiomeVariant(GOTBiomeVariant.HILLS);
+		addBiomeVariant(GOTBiomeVariant.HILLS);
 		decorator.addOre(new WorldGenMinable(Blocks.lapis_ore, 6), 1.0f, 0, 48);
 		decorator.grassPerChunk = 0;
 		decorator.doubleGrassPerChunk = 0;

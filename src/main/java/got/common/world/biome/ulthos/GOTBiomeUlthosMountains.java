@@ -15,22 +15,20 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 public class GOTBiomeUlthosMountains extends GOTBiomeUlthosForest {
 	public GOTBiomeUlthosMountains(int i, boolean major) {
 		super(i, major);
-		npcSpawnList.clear();
-		spawnableCreatureList.clear();
-		invasionSpawns.clearInvasions();
+		setupStandartForestFauna();
 		clearBiomeVariants();
 		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
+		enableRocky = true;
 		decorator.biomeOreFactor = 2.0f;
 		decorator.biomeGemFactor = 2.0f;
-		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
-		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
 		decorator.doubleFlowersPerChunk = 0;
 		decorator.doubleGrassPerChunk = 1;
 		decorator.flowersPerChunk = 1;
 		decorator.grassPerChunk = 4;
-		enableRocky = true;
-		registerMountainsFlowers();
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
+		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
+		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
+		npcSpawnList.clear();
 	}
 
 	@Override

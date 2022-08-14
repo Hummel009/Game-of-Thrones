@@ -5,7 +5,6 @@ import java.util.*;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
-import got.common.entity.animal.GOTEntityCamel;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTWorldGenBoulder;
@@ -15,7 +14,6 @@ import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.*;
 
@@ -29,10 +27,8 @@ public class GOTBiomeJogosNhaiDesert extends GOTBiome implements GOTBiome.Desert
 		topBlock = GOTRegistry.whiteSand;
 		fillerBlock = GOTRegistry.whiteSandstone;
 		setDisableRain();
-		this.addBiomeVariant(GOTBiomeVariant.HILLS);
-		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityCamel.class, 10, 1, 2));
-		spawnableGOTAmbientList.clear();
+		addBiomeVariant(GOTBiomeVariant.HILLS);
+		setupDesertFauna();
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(1).add(c0);

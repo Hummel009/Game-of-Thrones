@@ -16,10 +16,10 @@ import got.common.world.structure.westeros.reach.*;
 public class GOTBiomeReach extends GOTBiomeWesteros {
 	public GOTBiomeReach(int i, boolean major) {
 		super(i, major);
-		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_LEMON, 0.2f);
-		this.addBiomeVariant(GOTBiomeVariant.ORCHARD_LIME, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.FLOWERS);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_LEMON, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_LIME, 0.2f);
 		decorator.addTree(GOTTreeType.LEMON, 5);
 		decorator.addTree(GOTTreeType.ORANGE, 5);
 		decorator.addTree(GOTTreeType.LIME, 5);

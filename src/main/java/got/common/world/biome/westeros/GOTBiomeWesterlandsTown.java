@@ -15,7 +15,7 @@ public class GOTBiomeWesterlandsTown extends GOTBiomeWesterlands {
 		super(i, major);
 		npcSpawnList.clear();
 		decorator.clearVillages();
-		decorator.clearRandomStructures();
+		setupStandartDomesticFauna();
 
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WESTERLANDS_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN));
@@ -56,10 +56,5 @@ public class GOTBiomeWesterlandsTown extends GOTBiomeWesterlands {
 	@Override
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.PAVING;
-	}
-
-	@Override
-	public boolean hasDomesticAnimals() {
-		return true;
 	}
 }

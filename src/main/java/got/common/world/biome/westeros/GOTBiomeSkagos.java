@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
-import got.common.entity.animal.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
@@ -14,12 +13,11 @@ import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.other.*;
 import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanVillage;
-import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTBiomeSkagos extends GOTBiome {
 	public GOTBiomeSkagos(int i, boolean major) {
 		super(i, major);
-		this.addBiomeVariant(GOTBiomeVariant.HILLS);
+		addBiomeVariant(GOTBiomeVariant.HILLS);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.SPRUCE, 400);
 		decorator.addTree(GOTTreeType.SPRUCE_THIN, 400);
@@ -33,11 +31,7 @@ public class GOTBiomeSkagos extends GOTBiome {
 		decorator.doubleGrassPerChunk = 1;
 		decorator.flowersPerChunk = 3;
 		decorator.doubleFlowersPerChunk = 1;
-		registerPlainsFlowers();
-		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWoolyRhino.class, 2, 1, 1));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 8, 1, 2));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 4, 1, 1));
+		setupTaigaFauna();
 
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.NORTH_HILLMEN, 10).setSpawnChance(GOTBiome.SPAWN));

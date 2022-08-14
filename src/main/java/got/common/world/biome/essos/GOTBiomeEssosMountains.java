@@ -15,11 +15,7 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 public class GOTBiomeEssosMountains extends GOTBiomeEssos {
 	public GOTBiomeEssosMountains(int i, boolean major) {
 		super(i, major);
-		npcSpawnList.clear();
-		spawnableCreatureList.clear();
-		decorator.clearVillages();
-		decorator.clearRandomStructures();
-		invasionSpawns.clearInvasions();
+		setupStandartForestFauna();
 		clearBiomeVariants();
 		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
 		decorator.biomeOreFactor = 2.0f;
@@ -31,7 +27,6 @@ public class GOTBiomeEssosMountains extends GOTBiomeEssos {
 		decorator.flowersPerChunk = 1;
 		decorator.grassPerChunk = 4;
 		enableRocky = true;
-		registerMountainsFlowers();
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 

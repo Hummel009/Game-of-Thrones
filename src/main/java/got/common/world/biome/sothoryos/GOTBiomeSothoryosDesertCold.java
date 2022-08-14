@@ -23,18 +23,16 @@ public class GOTBiomeSothoryosDesertCold extends GOTBiome {
 
 	public GOTBiomeSothoryosDesertCold(int i, boolean major) {
 		super(i, major);
-		setDisableRain();
-		this.addBiomeVariant(GOTBiomeVariant.HILLS);
+		addBiomeVariant(GOTBiomeVariant.HILLS);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 		topBlock = Blocks.sand;
 		fillerBlock = Blocks.sand;
-		spawnableCreatureList.clear();
-		spawnableGOTAmbientList.clear();
-		decorator.addOre(new WorldGenMinable(Blocks.lapis_ore, 6), 1.0f, 0, 48);
 		decorator.grassPerChunk = 0;
 		decorator.doubleGrassPerChunk = 0;
 		decorator.cactiPerChunk = 0;
 		decorator.deadBushPerChunk = 2;
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
+		decorator.addOre(new WorldGenMinable(Blocks.lapis_ore, 6), 1.0f, 0, 48);
+		setDisableRain();
 	}
 
 	@Override

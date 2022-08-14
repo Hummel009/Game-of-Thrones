@@ -119,6 +119,8 @@ public class GOTSpawnList {
 
 	public static GOTSpawnList MANTICORE = new GOTSpawnList(new GOTSpawnEntry(GOTEntityManticore.class, 10, 1, 1));
 
+	public static GOTSpawnList BLIZZARD = new GOTSpawnList(new GOTSpawnEntry(GOTEntityBlizzard.class, 10, 3, 3));
+
 	public static GOTSpawnList MOSSOVY_CIVILIAN = new GOTSpawnList(new GOTSpawnEntry(GOTEntityMossovyMan.class, 10, 1, 2));
 	public static GOTSpawnList MOSSOVY_MILITARY = new GOTSpawnList(new GOTSpawnEntry(GOTEntityMossovyWitcher.class, 10, 1, 1));
 	public static GOTSpawnList MOSSOVY_WEREWOLF = new GOTSpawnList(new GOTSpawnEntry(GOTEntityMossovyWerewolf.class, 10, 1, 2));

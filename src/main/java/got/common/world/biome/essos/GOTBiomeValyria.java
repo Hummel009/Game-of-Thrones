@@ -17,7 +17,7 @@ import got.common.world.structure.other.*;
 public class GOTBiomeValyria extends GOTBiome {
 	public GOTBiomeValyria(int i, boolean major) {
 		super(i, major);
-		this.addBiomeVariant(GOTBiomeVariant.HILLS);
+		addBiomeVariant(GOTBiomeVariant.HILLS);
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
 		spawnableMonsterList.clear();
@@ -31,7 +31,6 @@ public class GOTBiomeValyria extends GOTBiome {
 		decorator.doubleGrassPerChunk = 1;
 		decorator.flowersPerChunk = 3;
 		decorator.doubleFlowersPerChunk = 1;
-		registerPlainsFlowers();
 		biomeColors.setFoggy(true);
 		biomeColors.setGrass(0x808080);
 		biomeColors.setFoliage(0x808080);

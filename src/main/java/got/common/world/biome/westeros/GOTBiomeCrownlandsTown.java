@@ -15,7 +15,7 @@ public class GOTBiomeCrownlandsTown extends GOTBiomeCrownlands {
 		super(i, major);
 		npcSpawnList.clear();
 		decorator.clearVillages();
-		decorator.clearRandomStructures();
+		setupStandartDomesticFauna();
 
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROWNLANDS_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN));
@@ -69,10 +69,5 @@ public class GOTBiomeCrownlandsTown extends GOTBiomeCrownlands {
 	@Override
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.PAVING;
-	}
-
-	@Override
-	public boolean hasDomesticAnimals() {
-		return true;
 	}
 }

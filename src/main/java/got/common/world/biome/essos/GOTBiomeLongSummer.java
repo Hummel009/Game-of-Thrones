@@ -13,10 +13,9 @@ import got.common.world.structure.other.*;
 public class GOTBiomeLongSummer extends GOTBiome {
 	public GOTBiomeLongSummer(int i, boolean major) {
 		super(i, major);
-		this.addBiomeVariant(GOTBiomeVariant.HILLS);
-		this.addBiomeVariant(GOTBiomeVariant.HILLS_SCRUBLAND, 1.0f);
-		this.addBiomeVariant(GOTBiomeVariant.SCRUBLAND, 1.0f);
-		spawnableCreatureList.clear();
+		addBiomeVariant(GOTBiomeVariant.HILLS);
+		addBiomeVariant(GOTBiomeVariant.HILLS_SCRUBLAND, 1.0f);
+		addBiomeVariant(GOTBiomeVariant.SCRUBLAND, 1.0f);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.CHARRED, 1000);
 		decorator.addTree(GOTTreeType.OAK_DEAD, 1000);
@@ -25,7 +24,6 @@ public class GOTBiomeLongSummer extends GOTBiome {
 		decorator.doubleGrassPerChunk = 1;
 		decorator.flowersPerChunk = 3;
 		decorator.doubleFlowersPerChunk = 1;
-		registerPlainsFlowers();
 		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
 		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);

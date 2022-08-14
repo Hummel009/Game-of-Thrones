@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
-import got.common.entity.animal.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
@@ -13,16 +12,11 @@ import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTBiomeNeck extends GOTBiome {
 	public GOTBiomeNeck(int i, boolean major) {
 		super(i, major);
-		spawnableCreatureList.clear();
-		spawnableWaterCreatureList.clear();
-		spawnableGOTAmbientList.clear();
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityMidges.class, 10, 4, 4));
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntitySwan.class, 2, 1, 2));
+		setupMarshFauna();
 		clearBiomeVariants();
 		variantChance = 1.0f;
 		addBiomeVariant(GOTBiomeVariant.SWAMP_LOWLAND);
@@ -39,7 +33,6 @@ public class GOTBiomeNeck extends GOTBiome {
 		decorator.dryReedChance = 1.0f;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.WILLOW, 100);
-		registerDefaultFlowers();
 
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN));

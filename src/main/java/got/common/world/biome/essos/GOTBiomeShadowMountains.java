@@ -26,8 +26,6 @@ public class GOTBiomeShadowMountains extends GOTBiome {
 		topBlockMeta = 0;
 		fillerBlock = GOTRegistry.rock;
 		fillerBlockMeta = 0;
-		spawnableGOTAmbientList.clear();
-		spawnableCreatureList.clear();
 		addBiomeVariant(GOTBiomeVariant.MOUNTAIN);
 		decorator.biomeOreFactor = 2.0f;
 		decorator.biomeGemFactor = 2.0f;

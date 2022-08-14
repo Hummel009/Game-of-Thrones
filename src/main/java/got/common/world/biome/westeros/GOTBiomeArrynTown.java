@@ -15,7 +15,7 @@ public class GOTBiomeArrynTown extends GOTBiomeArryn {
 		super(i, major);
 		npcSpawnList.clear();
 		decorator.clearVillages();
-		decorator.clearRandomStructures();
+		setupStandartDomesticFauna();
 
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.ARRYN_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN));
@@ -48,10 +48,5 @@ public class GOTBiomeArrynTown extends GOTBiomeArryn {
 	@Override
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.PAVING;
-	}
-
-	@Override
-	public boolean hasDomesticAnimals() {
-		return true;
 	}
 }

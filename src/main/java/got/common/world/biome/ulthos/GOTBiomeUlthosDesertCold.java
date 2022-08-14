@@ -18,21 +18,20 @@ import net.minecraft.world.gen.feature.*;
 public class GOTBiomeUlthosDesertCold extends GOTBiome {
 	public GOTBiomeUlthosDesertCold(int i, boolean major) {
 		super(i, major);
-		setDisableRain();
+		addBiomeVariant(GOTBiomeVariant.HILLS);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 		topBlock = Blocks.sand;
 		fillerBlock = Blocks.sand;
-		spawnableCreatureList.clear();
-		spawnableGOTAmbientList.clear();
 		variantChance = 0.3f;
-		this.addBiomeVariant(GOTBiomeVariant.HILLS);
 		decorator.grassPerChunk = 0;
 		decorator.doubleGrassPerChunk = 0;
 		decorator.flowersPerChunk = 0;
 		decorator.doubleFlowersPerChunk = 0;
 		decorator.cactiPerChunk = 0;
 		decorator.deadBushPerChunk = 2;
+		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.OAK_DEAD, 1000);
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
+		setDisableRain();
 	}
 
 	@Override

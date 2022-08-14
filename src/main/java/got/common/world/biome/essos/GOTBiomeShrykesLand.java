@@ -19,8 +19,9 @@ import net.minecraft.world.World;
 public class GOTBiomeShrykesLand extends GOTBiome {
 	public GOTBiomeShrykesLand(int i, boolean major) {
 		super(i, major);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
-		this.addBiomeVariant(GOTBiomeVariant.STEPPE);
+		setupStandartForestFauna();
+		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
+		addBiomeVariant(GOTBiomeVariant.STEPPE);
 		decorator.logsPerChunk = 2;
 		decorator.flowersPerChunk = 2;
 		decorator.doubleFlowersPerChunk = 0;
@@ -29,7 +30,6 @@ public class GOTBiomeShrykesLand extends GOTBiome {
 		decorator.addTree(GOTTreeType.OAK_DEAD, 500);
 		decorator.addTree(GOTTreeType.SPRUCE_DEAD, 500);
 		decorator.addTree(GOTTreeType.BEECH_DEAD, 500);
-		registerPlainsFlowers();
 		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 500);
 		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 1000);
 		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 400);
@@ -40,15 +40,32 @@ public class GOTBiomeShrykesLand extends GOTBiome {
 		npcSpawnList.newFactionList(10).add(c0);
 	}
 
-    @Override
-    public GOTAchievement getBiomeAchievement() {
-        return GOTAchievement.enterShrykesLand;
-    }
+	@Override
+	public void generateBiomeTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, double stoneNoise, int height, GOTBiomeVariant variant) {
+		double d2;
+		Block topBlock_pre = topBlock;
+		int topBlockMeta_pre = topBlockMeta;
+		Block fillerBlock_pre = fillerBlock;
+		int fillerBlockMeta_pre = fillerBlockMeta;
+		double d1 = biomeTerrainNoise.func_151601_a(i * 0.09, k * 0.09);
+		d2 = biomeTerrainNoise.func_151601_a(i * 0.4, k * 0.4);
+		if (d1 + d2 > 0.3) {
+			topBlock = Blocks.dirt;
+			topBlockMeta = 1;
+			fillerBlock = topBlock;
+			fillerBlockMeta = topBlockMeta;
+		}
+		super.generateBiomeTerrain(world, random, blocks, meta, i, k, stoneNoise, height, variant);
+		topBlock = topBlock_pre;
+		topBlockMeta = topBlockMeta_pre;
+		fillerBlock = fillerBlock_pre;
+		fillerBlockMeta = fillerBlockMeta_pre;
+	}
 
-    @Override
-    public GOTWaypoint.Region getBiomeWaypoints() {
-        return GOTWaypoint.Region.MOSSOVY;
-    }
+	@Override
+	public GOTAchievement getBiomeAchievement() {
+		return GOTAchievement.enterShrykesLand;
+	}
 
 	@Override
 	public MusicRegion getBiomeMusic() {
@@ -56,43 +73,27 @@ public class GOTBiomeShrykesLand extends GOTBiome {
 	}
 
 	@Override
+	public GOTWaypoint.Region getBiomeWaypoints() {
+		return GOTWaypoint.Region.MOSSOVY;
+	}
+
+	@Override
+	public float getChanceToSpawnAnimals() {
+		return 0.05f;
+	}
+
+	@Override
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.PATH_DIRTY;
 	}
 
-    @Override
-    public void generateBiomeTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, double stoneNoise, int height, GOTBiomeVariant variant) {
-        double d2;
-        Block topBlock_pre = this.topBlock;
-        int topBlockMeta_pre = this.topBlockMeta;
-        Block fillerBlock_pre = this.fillerBlock;
-        int fillerBlockMeta_pre = this.fillerBlockMeta;
-        double d1 = biomeTerrainNoise.func_151601_a((double)i * 0.09, (double)k * 0.09);
-        if (d1 + (d2 = biomeTerrainNoise.func_151601_a((double)i * 0.4, (double)k * 0.4)) > 0.3) {
-            this.topBlock = Blocks.dirt;
-            this.topBlockMeta = 1;
-            this.fillerBlock = this.topBlock;
-            this.fillerBlockMeta = this.topBlockMeta;
-        }
-        super.generateBiomeTerrain(world, random, blocks, meta, i, k, stoneNoise, height, variant);
-        this.topBlock = topBlock_pre;
-        this.topBlockMeta = topBlockMeta_pre;
-        this.fillerBlock = fillerBlock_pre;
-        this.fillerBlockMeta = fillerBlockMeta_pre;
-    }
+	@Override
+	public float getTreeIncreaseChance() {
+		return 0.05f;
+	}
 
-    @Override
-    public float getChanceToSpawnAnimals() {
-        return 0.05f;
-    }
-
-    @Override
-    public float getTreeIncreaseChance() {
-        return 0.05f;
-    }
-
-    @Override
-    public int spawnCountMultiplier() {
-        return 4;
-    }
+	@Override
+	public int spawnCountMultiplier() {
+		return 4;
+	}
 }

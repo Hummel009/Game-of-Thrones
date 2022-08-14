@@ -17,7 +17,7 @@ public class GOTBiomeFireField extends GOTBiomeReach {
 		super(i, major);
 		npcSpawnList.clear();
 		decorator.clearVillages();
-		decorator.clearRandomStructures();
+		setupStandartDomesticFauna();
 
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.REACH_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN));
@@ -67,10 +67,5 @@ public class GOTBiomeFireField extends GOTBiomeReach {
 	@Override
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.PAVING.setHasFlowers(true);
-	}
-
-	@Override
-	public boolean hasDomesticAnimals() {
-		return true;
 	}
 }

@@ -736,6 +736,7 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntitySummerGoldsmith.class, id++, GOTFaction.SUMMER_ISLANDS);
 
 		GOTEntityRegistry.register(GOTEntityUlthosSpider.class, id++, GOTFaction.ULTHOS);
+		GOTEntityRegistry.register(GOTEntityBlizzard.class, id++, GOTFaction.WHITE_WALKER);
 
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityNightKing.class, id++, GOTFaction.WHITE_WALKER);
 		GOTEntityRegistry.registerLegendaryNPC(GOTEntityCraster.class, id++, GOTFaction.WILDLING);
@@ -960,6 +961,7 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityCargocart.class, id++, 80, 20, false);
 		GOTEntityRegistry.register(GOTEntityPlowcart.class, id++, 80, 20, false);
 		GOTEntityRegistry.register(GOTEntityMarshWraithBall.class, id++, 64, 10, true);
+		GOTEntityRegistry.register(GOTEntitySnowball.class, id++, 64, 1, true);
 
 		GOTEntityRegistry.register(GOTEntityHummel009.class, id++);
 

@@ -2,9 +2,7 @@ package got.common.world.biome.westeros;
 
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
-import got.common.entity.animal.*;
 import got.common.world.feature.GOTTreeType;
-import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTBiomeMassy extends GOTBiomeDragonstone {
 	public GOTBiomeMassy(int i, boolean major) {
@@ -13,9 +11,7 @@ public class GOTBiomeMassy extends GOTBiomeDragonstone {
 		decorator.clearVillages();
 		invasionSpawns.clearInvasions();
 		clearBiomeVariants();
-		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 4, 1, 1));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 8, 1, 2));
+		setupStandartForestFauna();
 		enablePodzol = false;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.OAK, 300);
@@ -31,7 +27,6 @@ public class GOTBiomeMassy extends GOTBiomeDragonstone {
 		decorator.grassPerChunk = 8;
 		decorator.doubleGrassPerChunk = 2;
 		decorator.whiteSand = true;
-		registerForestFlowers();
 	}
 
 	@Override

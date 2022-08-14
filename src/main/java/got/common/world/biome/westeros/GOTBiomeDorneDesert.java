@@ -5,7 +5,6 @@ import java.util.*;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
-import got.common.entity.animal.GOTEntityCamel;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTWorldGenBoulder;
@@ -15,7 +14,6 @@ import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.*;
 
@@ -29,10 +27,8 @@ public class GOTBiomeDorneDesert extends GOTBiome implements GOTBiome.Desert {
 		setDisableRain();
 		topBlock = Blocks.sand;
 		fillerBlock = Blocks.sandstone;
-		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityCamel.class, 10, 1, 2));
-		spawnableGOTAmbientList.clear();
-		this.addBiomeVariant(GOTBiomeVariant.HILLS);
+		setupDesertFauna();
+		addBiomeVariant(GOTBiomeVariant.HILLS);
 		decorator.addOre(new WorldGenMinable(Blocks.lapis_ore, 6), 1.0f, 0, 48);
 		decorator.grassPerChunk = 0;
 		decorator.doubleGrassPerChunk = 0;

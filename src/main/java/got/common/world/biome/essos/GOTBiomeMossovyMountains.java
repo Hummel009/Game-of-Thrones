@@ -16,11 +16,9 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 public class GOTBiomeMossovyMountains extends GOTBiomeMossovy {
 	public GOTBiomeMossovyMountains(int i, boolean major) {
 		super(i, major);
+		setupStandartForestFauna();
 		npcSpawnList.clear();
-		spawnableCreatureList.clear();
 		decorator.clearVillages();
-		decorator.clearRandomStructures();
-		invasionSpawns.clearInvasions();
 		clearBiomeVariants();
 		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
 		decorator.doubleFlowersPerChunk = 0;
@@ -32,7 +30,6 @@ public class GOTBiomeMossovyMountains extends GOTBiomeMossovy {
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
 		enableRocky = true;
-		registerMountainsFlowers();
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 

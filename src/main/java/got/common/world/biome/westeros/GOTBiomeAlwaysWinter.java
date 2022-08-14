@@ -30,10 +30,6 @@ public class GOTBiomeAlwaysWinter extends GOTBiome {
 		boulderGenLarge = new GOTWorldGenBoulder(Blocks.snow, 0, 5, 8).setHeightCheck(6);
 		clayBoulderGenSmall = new GOTWorldGenBoulder(Blocks.packed_ice, 0, 1, 4);
 		clayBoulderGenLarge = new GOTWorldGenBoulder(Blocks.packed_ice, 0, 5, 10).setHeightCheck(6);
-		spawnableCreatureList.clear();
-		spawnableWaterCreatureList.clear();
-		spawnableCaveCreatureList.clear();
-		spawnableGOTAmbientList.clear();
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);

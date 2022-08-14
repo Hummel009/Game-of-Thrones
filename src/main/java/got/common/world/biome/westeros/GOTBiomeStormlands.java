@@ -16,7 +16,7 @@ import got.common.world.structure.westeros.stormlands.*;
 public class GOTBiomeStormlands extends GOTBiomeWesteros {
 	public GOTBiomeStormlands(int i, boolean major) {
 		super(i, major);
-		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
+		addBiomeVariant(GOTBiomeVariant.FLOWERS);
 		decorator.generateAgriculture = true;
 		decorator.cornPerChunk = 4;
 

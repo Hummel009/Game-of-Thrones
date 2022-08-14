@@ -5,26 +5,17 @@ import java.util.ArrayList;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTSpawnList;
-import got.common.entity.animal.GOTEntityMidges;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.map.GOTBezierType;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTBiomeYiTiMarshes extends GOTBiomeYiTi {
 	public GOTBiomeYiTiMarshes(int i, boolean major) {
 		super(i, major);
-		npcSpawnList.clear();
-		decorator.clearVillages();
-		decorator.clearRandomStructures();
-		invasionSpawns.clearInvasions();
+		setupMarshFauna();
 		clearBiomeVariants();
-		spawnableCreatureList.clear();
-		spawnableWaterCreatureList.clear();
-		spawnableGOTAmbientList.clear();
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityMidges.class, 10, 4, 4));
 		variantChance = 1.0f;
 		addBiomeVariantSet(GOTBiomeVariant.SET_SWAMP);
 		decorator.sandPerChunk = 0;
@@ -37,7 +28,9 @@ public class GOTBiomeYiTiMarshes extends GOTBiomeYiTi {
 		decorator.canePerChunk = 10;
 		decorator.reedPerChunk = 5;
 		decorator.waterlilyPerChunk = 4;
-		registerDefaultFlowers();
+		npcSpawnList.clear();
+		decorator.clearVillages();
+		invasionSpawns.clearInvasions();
 
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN));

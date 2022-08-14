@@ -15,7 +15,7 @@ public class GOTBiomeGiftOld extends GOTBiomeWesteros {
 	public GOTBiomeGiftOld(int i, boolean major) {
 		super(i, major);
 		clearBiomeVariants();
-		spawnableCreatureList.clear();
+		setupStandartForestFauna();
 		decorator.treesPerChunk = -1;
 
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();

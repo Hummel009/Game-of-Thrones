@@ -3,11 +3,9 @@ package got.common.world.biome.westeros;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
-import got.common.entity.animal.*;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
-import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTBiomeCrownlandsForest extends GOTBiomeCrownlands {
 	public GOTBiomeCrownlandsForest(int i, boolean major) {
@@ -16,10 +14,7 @@ public class GOTBiomeCrownlandsForest extends GOTBiomeCrownlands {
 		decorator.clearVillages();
 		invasionSpawns.clearInvasions();
 		clearBiomeVariants();
-		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 4, 1, 1));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 8, 1, 2));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBoar.class, 30, 2, 4));
+		setupStandartForestFauna();
 		enablePodzol = false;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.OAK, 300);
@@ -33,7 +28,6 @@ public class GOTBiomeCrownlandsForest extends GOTBiomeCrownlands {
 		decorator.grassPerChunk = 8;
 		decorator.doubleGrassPerChunk = 2;
 		decorator.whiteSand = true;
-		registerForestFlowers();
 	}
 
 	@Override

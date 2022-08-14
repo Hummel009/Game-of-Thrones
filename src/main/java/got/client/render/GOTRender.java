@@ -69,6 +69,7 @@ public class GOTRender {
 	public static Map<Class, Render> renders = new HashMap<>();
 
 	public static void onInit() {
+		renders.put(GOTEntityBlizzard.class, new GOTRenderBlizzard());
 		renders.put(GOTEntityShryke.class, new GOTRenderFactionNPCLayered("essos/shryke"));
 		renders.put(GOTEntityHillman.class, new GOTRenderFactionNPCLayered("westeros/wild"));
 		renders.put(GOTEntityIbbenMan.class, new GOTRenderFactionNPCLayered("essos/ibben"));
@@ -330,6 +331,7 @@ public class GOTRender {
 		renders.put(GOTEntityButterfly.class, new GOTRenderButterfly());
 		renders.put(GOTEntityCamel.class, new GOTRenderCamel());
 		renders.put(GOTEntityCargocart.class, new GOTRenderCargocart());
+		renders.put(GOTEntitySnowball.class, new RenderSnowball(Items.snowball));
 		renders.put(GOTEntityConker.class, new RenderSnowball(GOTRegistry.chestnut));
 		renders.put(GOTEntityCrocodile.class, new GOTRenderCrocodile());
 		renders.put(GOTEntityCrossbowBolt.class, new GOTRenderCrossbowBolt());

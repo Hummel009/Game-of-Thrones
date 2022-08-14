@@ -5,7 +5,6 @@ import java.util.*;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
-import got.common.entity.animal.GOTEntityCamel;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
@@ -15,31 +14,29 @@ import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.*;
 
 public class GOTBiomeUlthosDesert extends GOTBiome implements GOTBiome.Desert {
 	public GOTBiomeUlthosDesert(int i, boolean major) {
 		super(i, major);
-		setDisableRain();
+		setupDesertFauna();
+		addBiomeVariant(GOTBiomeVariant.HILLS);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 		topBlock = Blocks.sand;
 		fillerBlock = Blocks.sand;
-		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityCamel.class, 10, 1, 2));
-		spawnableGOTAmbientList.clear();
-		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN));
-		npcSpawnList.newFactionList(1).add(c0);
 		variantChance = 0.3f;
-		this.addBiomeVariant(GOTBiomeVariant.HILLS);
 		decorator.grassPerChunk = 0;
 		decorator.doubleGrassPerChunk = 0;
 		decorator.flowersPerChunk = 0;
 		decorator.doubleFlowersPerChunk = 0;
 		decorator.cactiPerChunk = 0;
 		decorator.deadBushPerChunk = 2;
+		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.OAK_DEAD, 1000);
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
+		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN));
+		npcSpawnList.newFactionList(1).add(c0);
+		setDisableRain();
 	}
 
 	@Override

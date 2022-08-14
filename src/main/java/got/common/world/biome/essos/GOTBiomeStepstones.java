@@ -5,7 +5,6 @@ import java.util.*;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
-import got.common.entity.animal.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.*;
@@ -14,7 +13,6 @@ import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
@@ -26,21 +24,11 @@ public class GOTBiomeStepstones extends GOTBiome {
 
 	public GOTBiomeStepstones(int i, boolean major) {
 		super(i, major);
-		clearBiomeVariants();
 		topBlock = Blocks.stone;
 		topBlockMeta = 0;
 		fillerBlock = topBlock;
 		fillerBlockMeta = topBlockMeta;
-		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGemsbok.class, 8, 1, 2));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityLion.class, 4, 1, 2));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityLioness.class, 4, 1, 2));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityRhino.class, 2, 1, 1));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityZebra.class, 8, 1, 2));
-		spawnableGOTAmbientList.clear();
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 8, 4, 4));
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 5, 4, 4));
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDikDik.class, 8, 1, 2));
+		setupExoticFauna();
 		biomeTerrain.setXZScale(30.0);
 		decorator.addSoil(new WorldGenMinable(GOTRegistry.redClay, 32, Blocks.dirt), 40.0f, 0, 80);
 		decorator.addTree(GOTTreeType.ACACIA, 1000);
@@ -55,7 +43,6 @@ public class GOTBiomeStepstones extends GOTBiome {
 		decorator.flowersPerChunk = 3;
 		decorator.grassPerChunk = 10;
 		decorator.treesPerChunk = 1;
-		registerExoticFlowers();
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(5).add(c0);

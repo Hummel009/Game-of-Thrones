@@ -4,7 +4,6 @@ import java.util.Random;
 
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
-import got.common.entity.animal.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.*;
@@ -14,7 +13,6 @@ import got.common.world.structure.other.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.*;
 
@@ -25,27 +23,15 @@ public class GOTBiomeEssos extends GOTBiome {
 
 	public GOTBiomeEssos(int i, boolean major) {
 		super(i, major);
-		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityLion.class, 4, 1, 2));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityLioness.class, 4, 1, 2));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGiraffe.class, 4, 1, 2));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityZebra.class, 8, 1, 2));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityRhino.class, 2, 1, 1));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGemsbok.class, 8, 1, 2));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityCamel.class, 6, 1, 2));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityElephant.class, 2, 1, 1));
-		spawnableGOTAmbientList.clear();
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 5, 4, 4));
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 8, 4, 4));
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDikDik.class, 8, 1, 2));
-		this.addBiomeVariant(GOTBiomeVariant.FLOWERS);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST);
-		this.addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
-		this.addBiomeVariant(GOTBiomeVariant.HILLS);
-		this.addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
-		this.addBiomeVariant(GOTBiomeVariant.SHRUBLAND_OAK);
-		this.addBiomeVariant(GOTBiomeVariant.SCRUBLAND_SAND);
-		this.addBiomeVariant(GOTBiomeVariant.HILLS_SCRUBLAND_SAND);
+		setupExoticFauna();
+		addBiomeVariant(GOTBiomeVariant.FLOWERS);
+		addBiomeVariant(GOTBiomeVariant.FOREST);
+		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
+		addBiomeVariant(GOTBiomeVariant.HILLS);
+		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
+		addBiomeVariant(GOTBiomeVariant.SHRUBLAND_OAK);
+		addBiomeVariant(GOTBiomeVariant.SCRUBLAND_SAND);
+		addBiomeVariant(GOTBiomeVariant.HILLS_SCRUBLAND_SAND);
 		decorator.addOre(new WorldGenMinable(Blocks.lapis_ore, 6), 1.0f, 0, 48);
 		decorator.grassPerChunk = 8;
 		decorator.doubleGrassPerChunk = 2;
@@ -69,7 +55,6 @@ public class GOTBiomeEssos extends GOTBiome {
 		decorator.addTree(GOTTreeType.ORANGE, 5);
 		decorator.addTree(GOTTreeType.PALM, 500);
 		decorator.addTree(GOTTreeType.PLUM, 5);
-		registerExoticFlowers();
 
 		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);

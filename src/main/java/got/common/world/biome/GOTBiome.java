@@ -260,23 +260,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		spawnableWaterCreatureList.clear();
 		spawnableMonsterList.clear();
 		spawnableCaveCreatureList.clear();
-		if (hasDomesticAnimals()) {
-			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntitySheep.class, 12, 1, 2));
-			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityPig.class, 10, 2, 4));
-			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityChicken.class, 10, 1, 2));
-			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityCow.class, 8, 1, 2));
-			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 5, 1, 2));
-		} else {
-			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntitySheep.class, 12, 1, 2));
-			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBoar.class, 10, 2, 4));
-			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityChicken.class, 8, 1, 2));
-			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 10, 1, 2));
-			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBison.class, 6, 1, 2));
-		}
 		spawnableWaterCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityFish.class, 10, 4, 4));
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 8, 4, 4));
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityRabbit.class, 8, 1, 2));
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 10, 4, 4));
 		spawnableCaveCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityBat.class, 10, 8, 8));
 		setUnreliableChance(GOTEventSpawner.EventChance.COMMON);
 		invasionSpawns = new GOTBiomeInvasionSpawns(this);
@@ -289,7 +273,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	public void addBiomeVariant(GOTBiomeVariant v) {
-		this.addBiomeVariant(v, 1.0f);
+		addBiomeVariant(v, 1.0f);
 	}
 
 	public void addBiomeVariant(GOTBiomeVariant v, float f) {
@@ -298,7 +282,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	public void addBiomeVariantSet(GOTBiomeVariant[] set) {
 		for (GOTBiomeVariant v : set) {
-			this.addBiomeVariant(v);
+			addBiomeVariant(v);
 		}
 	}
 
@@ -704,10 +688,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return 0;
 	}
 
-	public boolean hasDomesticAnimals() {
-		return false;
-	}
-
 	public boolean hasFog() {
 		return biomeColors.foggy;
 	}
@@ -726,64 +706,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	public double modifyStoneNoiseForFiller(double stoneNoise) {
 		return stoneNoise;
-	}
-
-	public void registerDefaultFlowers() {
-		flowers.clear();
-		addDefaultFlowers();
-	}
-
-	public void registerExoticFlowers() {
-		flowers.clear();
-		addFlower(GOTRegistry.essosFlower, 0, 10);
-		addFlower(GOTRegistry.essosFlower, 1, 10);
-		addFlower(GOTRegistry.essosFlower, 2, 5);
-		addFlower(GOTRegistry.essosFlower, 3, 5);
-	}
-
-	public void registerForestFlowers() {
-		flowers.clear();
-		addDefaultFlowers();
-		addFlower(GOTRegistry.bluebell, 0, 5);
-		addFlower(GOTRegistry.marigold, 0, 10);
-	}
-
-	public void registerJungleFlowers() {
-		flowers.clear();
-		addDefaultFlowers();
-		addFlower(GOTRegistry.essosFlower, 2, 20);
-		addFlower(GOTRegistry.essosFlower, 3, 20);
-	}
-
-	public void registerMountainsFlowers() {
-		flowers.clear();
-		addDefaultFlowers();
-		addFlower(Blocks.red_flower, 1, 10);
-		addFlower(GOTRegistry.bluebell, 0, 5);
-	}
-
-	public void registerPlainsFlowers() {
-		flowers.clear();
-		addFlower(Blocks.red_flower, 4, 3);
-		addFlower(Blocks.red_flower, 5, 3);
-		addFlower(Blocks.red_flower, 6, 3);
-		addFlower(Blocks.red_flower, 7, 3);
-		addFlower(Blocks.red_flower, 0, 20);
-		addFlower(Blocks.red_flower, 3, 20);
-		addFlower(Blocks.red_flower, 8, 20);
-		addFlower(Blocks.yellow_flower, 0, 30);
-		addFlower(GOTRegistry.bluebell, 0, 5);
-		addFlower(GOTRegistry.marigold, 0, 10);
-	}
-
-	public void registerYiTiPlainsFlowers() {
-		registerPlainsFlowers();
-		addFlower(GOTRegistry.marigold, 0, 10);
-		addFlower(GOTRegistry.yitiFlower, 0, 10);
-		addFlower(GOTRegistry.yitiFlower, 1, 10);
-		addFlower(GOTRegistry.yitiFlower, 2, 10);
-		addFlower(GOTRegistry.yitiFlower, 3, 10);
-		addFlower(GOTRegistry.yitiFlower, 4, 10);
 	}
 
 	@Override
@@ -901,6 +823,170 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	public void setUnreliableChance(GOTEventSpawner.EventChance c) {
 		banditChance = c;
+	}
+
+	public void setupDesertFauna() {
+		spawnableCreatureList.clear();
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityCamel.class, 100, 1, 2));
+		spawnableGOTAmbientList.clear();
+	}
+
+	public void setupExoticFauna() {
+		flowers.clear();
+		flowers.add(new FlowerEntry(GOTRegistry.essosFlower, 0, 10));
+		flowers.add(new FlowerEntry(GOTRegistry.essosFlower, 1, 10));
+		flowers.add(new FlowerEntry(GOTRegistry.essosFlower, 3, 20));
+		flowers.add(new FlowerEntry(GOTRegistry.essosFlower, 3, 20));
+		spawnableCreatureList.clear();
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityZebra.class, 30, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGemsbok.class, 15, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWhiteOryx.class, 15, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGiraffe.class, 10, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityLion.class, 10, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityLioness.class, 10, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityRhino.class, 5, 1, 1));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityElephant.class, 5, 1, 1));
+		spawnableGOTAmbientList.clear();
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 40, 4, 4));
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 30, 2, 3));
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityRabbit.class, 15, 1, 2));
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGorcrow.class, 10, 2, 3));
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDikDik.class, 5, 1, 2));
+	}
+
+	public void setupFrostFauna() {
+		spawnableCreatureList.clear();
+		spawnableWaterCreatureList.clear();
+		spawnableCaveCreatureList.clear();
+		spawnableGOTAmbientList.clear();
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntitySnowBear.class, 60, 1, 1));
+	}
+
+	public void setupJungleFauna() {
+		flowers.clear();
+		flowers.add(new FlowerEntry(Blocks.yellow_flower, 0, 20));
+		flowers.add(new FlowerEntry(Blocks.red_flower, 0, 10));
+		flowers.add(new FlowerEntry(GOTRegistry.essosFlower, 3, 20));
+		flowers.add(new FlowerEntry(GOTRegistry.essosFlower, 3, 20));
+		spawnableCreatureList.clear();
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityFlamingo.class, 100, 2, 3));
+		spawnableGOTAmbientList.clear();
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 60, 4, 4));
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 40, 2, 3));
+	}
+
+	public void setupMarshFauna() {
+		flowers.clear();
+		flowers.add(new FlowerEntry(GOTRegistry.deadMarshPlant, 0, 10));
+		spawnableCreatureList.clear();
+		spawnableWaterCreatureList.clear();
+		spawnableGOTAmbientList.clear();
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityMidges.class, 90, 4, 4));
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntitySwan.class, 10, 1, 2));
+	}
+
+	public void setupStandartDomesticFauna() {
+		flowers.clear();
+		flowers.add(new FlowerEntry(Blocks.red_flower, 4, 3));
+		flowers.add(new FlowerEntry(Blocks.red_flower, 5, 3));
+		flowers.add(new FlowerEntry(Blocks.red_flower, 6, 3));
+		flowers.add(new FlowerEntry(Blocks.red_flower, 7, 3));
+		flowers.add(new FlowerEntry(Blocks.red_flower, 0, 20));
+		flowers.add(new FlowerEntry(Blocks.red_flower, 3, 20));
+		flowers.add(new FlowerEntry(Blocks.red_flower, 8, 20));
+		flowers.add(new FlowerEntry(Blocks.yellow_flower, 0, 30));
+		flowers.add(new FlowerEntry(GOTRegistry.bluebell, 0, 5));
+		flowers.add(new FlowerEntry(GOTRegistry.marigold, 0, 10));
+		spawnableCreatureList.clear();
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityHorse.class, 30, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntitySheep.class, 20, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityPig.class, 20, 2, 4));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityCow.class, 20, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityChicken.class, 10, 1, 2));
+		spawnableGOTAmbientList.clear();
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 50, 4, 4));
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 30, 2, 3));
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityRabbit.class, 15, 1, 2));
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGorcrow.class, 5, 2, 3));
+	}
+
+	public void setupStandartForestFauna() {
+		flowers.clear();
+		flowers.add(new FlowerEntry(Blocks.yellow_flower, 0, 20));
+		flowers.add(new FlowerEntry(Blocks.red_flower, 0, 10));
+		flowers.add(new FlowerEntry(GOTRegistry.bluebell, 0, 5));
+		flowers.add(new FlowerEntry(GOTRegistry.marigold, 0, 10));
+		spawnableCreatureList.clear();
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 40, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBoar.class, 30, 2, 3));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 10, 1, 1));
+		spawnableGOTAmbientList.clear();
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 50, 4, 4));
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 30, 2, 3));
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityRabbit.class, 15, 1, 2));
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGorcrow.class, 5, 2, 3));
+		if (!(this instanceof GOTBiomeYiTi)) {
+			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBison.class, 20, 1, 2));
+		} else {
+			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWhiteBison.class, 20, 1, 2));
+			flowers.add(new FlowerEntry(GOTRegistry.marigold, 0, 10));
+			flowers.add(new FlowerEntry(GOTRegistry.yitiFlower, 0, 10));
+			flowers.add(new FlowerEntry(GOTRegistry.yitiFlower, 1, 10));
+			flowers.add(new FlowerEntry(GOTRegistry.yitiFlower, 2, 10));
+			flowers.add(new FlowerEntry(GOTRegistry.yitiFlower, 3, 10));
+			flowers.add(new FlowerEntry(GOTRegistry.yitiFlower, 4, 10));
+		}
+	}
+
+	public void setupStandartPlainsFauna() {
+		flowers.clear();
+		flowers.add(new FlowerEntry(Blocks.red_flower, 4, 3));
+		flowers.add(new FlowerEntry(Blocks.red_flower, 5, 3));
+		flowers.add(new FlowerEntry(Blocks.red_flower, 6, 3));
+		flowers.add(new FlowerEntry(Blocks.red_flower, 7, 3));
+		flowers.add(new FlowerEntry(Blocks.red_flower, 0, 20));
+		flowers.add(new FlowerEntry(Blocks.red_flower, 3, 20));
+		flowers.add(new FlowerEntry(Blocks.red_flower, 8, 20));
+		flowers.add(new FlowerEntry(Blocks.yellow_flower, 0, 30));
+		flowers.add(new FlowerEntry(GOTRegistry.bluebell, 0, 5));
+		flowers.add(new FlowerEntry(GOTRegistry.marigold, 0, 10));
+		spawnableCreatureList.clear();
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityHorse.class, 40, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntitySheep.class, 20, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBoar.class, 20, 2, 3));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityChicken.class, 10, 1, 1));
+		spawnableGOTAmbientList.clear();
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 50, 4, 4));
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 30, 2, 3));
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityRabbit.class, 15, 1, 2));
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGorcrow.class, 5, 2, 3));
+		if (!(this instanceof GOTBiomeYiTi)) {
+			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBison.class, 10, 1, 2));
+		} else {
+			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWhiteBison.class, 10, 1, 2));
+			flowers.add(new FlowerEntry(GOTRegistry.marigold, 0, 10));
+			flowers.add(new FlowerEntry(GOTRegistry.yitiFlower, 0, 10));
+			flowers.add(new FlowerEntry(GOTRegistry.yitiFlower, 1, 10));
+			flowers.add(new FlowerEntry(GOTRegistry.yitiFlower, 2, 10));
+			flowers.add(new FlowerEntry(GOTRegistry.yitiFlower, 3, 10));
+			flowers.add(new FlowerEntry(GOTRegistry.yitiFlower, 4, 10));
+		}
+	}
+
+	public void setupTaigaFauna() {
+		flowers.clear();
+		flowers.add(new FlowerEntry(Blocks.yellow_flower, 0, 20));
+		flowers.add(new FlowerEntry(Blocks.red_flower, 0, 10));
+		flowers.add(new FlowerEntry(GOTRegistry.bluebell, 0, 5));
+		flowers.add(new FlowerEntry(GOTRegistry.marigold, 0, 10));
+		spawnableCreatureList.clear();
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 30, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBoar.class, 20, 2, 3));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBison.class, 15, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 15, 1, 1));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWoolyRhino.class, 10, 1, 1));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityMammoth.class, 10, 1, 1));
+		spawnableGOTAmbientList.clear();
 	}
 
 	public int spawnCountMultiplier() {

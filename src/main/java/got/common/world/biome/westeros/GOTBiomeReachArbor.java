@@ -16,7 +16,8 @@ public class GOTBiomeReachArbor extends GOTBiomeReach {
 	public GOTBiomeReachArbor(int i, boolean major) {
 		super(i, major);
 		clearBiomeVariants();
-		this.addBiomeVariant(GOTBiomeVariant.VINEYARD, 8.0f);
+		setupStandartDomesticFauna();
+		addBiomeVariant(GOTBiomeVariant.VINEYARD, 8.0f);
 	}
 
 	@Override
@@ -84,10 +85,5 @@ public class GOTBiomeReachArbor extends GOTBiomeReach {
 	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterArbor;
-	}
-
-	@Override
-	public boolean hasDomesticAnimals() {
-		return true;
 	}
 }

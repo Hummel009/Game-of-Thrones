@@ -16,12 +16,10 @@ import net.minecraft.world.gen.feature.WorldGenFlowers;
 public class GOTBiomeMossovyMarshes extends GOTBiome {
 	public GOTBiomeMossovyMarshes(int i, boolean major) {
 		super(i, major);
-		spawnableCreatureList.clear();
-		spawnableWaterCreatureList.clear();
-		spawnableGOTAmbientList.clear();
+		setupMarshFauna();
 		clearBiomeVariants();
-		variantChance = 1.0f;
 		addBiomeVariantSet(GOTBiomeVariant.SET_SWAMP);
+		variantChance = 1.0f;
 		decorator.sandPerChunk = 0;
 		decorator.quagmirePerChunk = 1;
 		decorator.treesPerChunk = 0;
@@ -33,8 +31,6 @@ public class GOTBiomeMossovyMarshes extends GOTBiome {
 		decorator.reedPerChunk = 5;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.OAK_DEAD, 100);
-		flowers.clear();
-		addFlower(GOTRegistry.deadMarshPlant, 0, 10);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 

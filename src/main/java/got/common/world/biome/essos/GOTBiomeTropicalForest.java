@@ -5,23 +5,17 @@ import java.util.ArrayList;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
-import got.common.entity.animal.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTBezierType;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.other.*;
-import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTBiomeTropicalForest extends GOTBiome {
 	public GOTBiomeTropicalForest(int i, boolean major) {
 		super(i, major);
-		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityFlamingo.class, 10, 4, 4));
-		spawnableGOTAmbientList.clear();
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 10, 4, 4));
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 10, 4, 4));
+		setupJungleFauna();
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.JUNGLE_LARGE, 1);
 		decorator.treesPerChunk = 6;
@@ -29,7 +23,6 @@ public class GOTBiomeTropicalForest extends GOTBiome {
 		decorator.doubleFlowersPerChunk = 1;
 		decorator.grassPerChunk = 10;
 		decorator.doubleGrassPerChunk = 4;
-		registerForestFlowers();
 
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.JUNGLE_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN));
