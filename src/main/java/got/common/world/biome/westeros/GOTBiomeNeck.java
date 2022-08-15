@@ -8,18 +8,17 @@ import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
-import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 
-public class GOTBiomeNeck extends GOTBiome {
+public class GOTBiomeNeck extends GOTBiomeWesteros {
 	public GOTBiomeNeck(int i, boolean major) {
 		super(i, major);
 		setupMarshFauna();
 		clearBiomeVariants();
-		variantChance = 1.0f;
 		addBiomeVariant(GOTBiomeVariant.SWAMP_LOWLAND);
+		variantChance = 1.0f;
 		decorator.sandPerChunk = 0;
 		decorator.clayPerChunk = 0;
 		decorator.quagmirePerChunk = 1;
@@ -33,7 +32,6 @@ public class GOTBiomeNeck extends GOTBiome {
 		decorator.dryReedChance = 1.0f;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.WILLOW, 100);
-
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(1).add(c0);
@@ -51,12 +49,7 @@ public class GOTBiomeNeck extends GOTBiome {
 
 	@Override
 	public Region getBiomeWaypoints() {
-		return Region.NORTH;
-	}
-
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_DIRTY;
+		return Region.RIVERLANDS;
 	}
 
 	@Override

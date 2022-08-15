@@ -41,6 +41,11 @@ public class GOTBiomeReachTown extends GOTBiomeReach {
 	}
 
 	@Override
+	public boolean getEnableRiver() {
+		return false;
+	}
+
+	@Override
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.WESTEROS.getSubregion("reachTown");
 	}

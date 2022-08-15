@@ -9,7 +9,6 @@ public class GOTBiomeNorthBarrows extends GOTBiomeNorth {
 	public GOTBiomeNorthBarrows(int i, boolean major) {
 		super(i, major);
 		npcSpawnList.clear();
-		decorator.clearVillages();
 		decorator.addRandomStructure(new GOTStructureBarrow(false), 20);
 	}
 

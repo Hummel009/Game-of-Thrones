@@ -14,7 +14,6 @@ public class GOTBiomeVolantisForest extends GOTBiomeVolantis {
 		invasionSpawns.clearInvasions();
 		clearBiomeVariants();
 		setupStandartForestFauna();
-		enablePodzol = false;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.OAK, 300);
 		decorator.addTree(GOTTreeType.OAK_LARGE, 50);

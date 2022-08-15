@@ -8,35 +8,30 @@ import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
-import got.common.world.map.GOTWaypoint.Region;
-import got.common.world.spawning.*;
+import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.*;
 
-public class GOTBiomeUlthosDesert extends GOTBiome implements GOTBiome.Desert {
+public class GOTBiomeUlthosDesert extends GOTBiomeUlthos implements GOTBiome.Desert {
 	public GOTBiomeUlthosDesert(int i, boolean major) {
 		super(i, major);
 		setupDesertFauna();
+		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.HILLS);
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 		topBlock = Blocks.sand;
 		fillerBlock = Blocks.sand;
 		variantChance = 0.3f;
-		decorator.grassPerChunk = 0;
-		decorator.doubleGrassPerChunk = 0;
-		decorator.flowersPerChunk = 0;
-		decorator.doubleFlowersPerChunk = 0;
-		decorator.cactiPerChunk = 0;
+		decorator.cactiPerChunk = 2;
 		decorator.deadBushPerChunk = 2;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.OAK_DEAD, 1000);
+		decorator.addOre(new WorldGenMinable(Blocks.lapis_ore, 6), 1.0f, 0, 48);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(1).add(c0);
-		setDisableRain();
 	}
 
 	@Override
@@ -115,11 +110,6 @@ public class GOTBiomeUlthosDesert extends GOTBiome implements GOTBiome.Desert {
 	}
 
 	@Override
-	public Region getBiomeWaypoints() {
-		return Region.ULTHOS;
-	}
-
-	@Override
 	public float getChanceToSpawnAnimals() {
 		return 0.1f;
 	}
@@ -132,5 +122,10 @@ public class GOTBiomeUlthosDesert extends GOTBiome implements GOTBiome.Desert {
 	@Override
 	public GOTBiome.GrassBlockAndMeta getRandomGrass(Random random) {
 		return new GOTBiome.GrassBlockAndMeta(GOTRegistry.aridGrass, 0);
+	}
+
+	@Override
+	public boolean isBushland() {
+		return false;
 	}
 }

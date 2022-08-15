@@ -8,32 +8,26 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.feature.GOTWorldGenBoulder;
-import got.common.world.map.GOTWaypoint.Region;
-import got.common.world.spawning.*;
+import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class GOTBiomeAlwaysWinter extends GOTBiome {
-	public WorldGenerator boulderGenSmall;
-	public WorldGenerator boulderGenLarge;
-	public WorldGenerator clayBoulderGenSmall;
-	public WorldGenerator clayBoulderGenLarge;
+public class GOTBiomeAlwaysWinter extends GOTBiomeWesterosFrost {
+	public WorldGenerator boulderGenSmall = new GOTWorldGenBoulder(Blocks.snow, 0, 1, 4);
+	public WorldGenerator boulderGenLarge = new GOTWorldGenBoulder(Blocks.snow, 0, 5, 8).setHeightCheck(6);
+	public WorldGenerator clayBoulderGenSmall = new GOTWorldGenBoulder(Blocks.packed_ice, 0, 1, 4);
+	public WorldGenerator clayBoulderGenLarge = new GOTWorldGenBoulder(Blocks.packed_ice, 0, 5, 10).setHeightCheck(6);
 
 	public GOTBiomeAlwaysWinter(int i, boolean major) {
 		super(i, major);
-		topBlock = Blocks.snow;
+		spawnableCreatureList.clear();
 		fillerBlock = Blocks.ice;
-		boulderGenSmall = new GOTWorldGenBoulder(Blocks.snow, 0, 1, 4);
-		boulderGenLarge = new GOTWorldGenBoulder(Blocks.snow, 0, 5, 8).setHeightCheck(6);
-		clayBoulderGenSmall = new GOTWorldGenBoulder(Blocks.packed_ice, 0, 1, 4);
-		clayBoulderGenLarge = new GOTWorldGenBoulder(Blocks.packed_ice, 0, 5, 10).setHeightCheck(6);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override
@@ -88,15 +82,5 @@ public class GOTBiomeAlwaysWinter extends GOTBiome {
 	@Override
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.WESTEROS.getSubregion("alwaysWinter");
-	}
-
-	@Override
-	public Region getBiomeWaypoints() {
-		return Region.ICE;
-	}
-
-	@Override
-	public boolean getEnableRiver() {
-		return false;
 	}
 }

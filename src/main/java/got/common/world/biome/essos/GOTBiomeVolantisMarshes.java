@@ -17,7 +17,7 @@ public class GOTBiomeVolantisMarshes extends GOTBiomeVolantis {
 		setupMarshFauna();
 		clearBiomeVariants();
 		variantChance = 1.0f;
-		addBiomeVariantSet(GOTBiomeVariant.SET_SWAMP);
+		addBiomeVariant(GOTBiomeVariant.SWAMP_LOWLAND);
 		decorator.sandPerChunk = 0;
 		decorator.quagmirePerChunk = 1;
 		decorator.treesPerChunk = 0;

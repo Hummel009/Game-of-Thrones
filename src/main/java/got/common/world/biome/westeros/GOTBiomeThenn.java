@@ -6,36 +6,27 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
-import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.*;
-import got.common.world.map.GOTWaypoint.Region;
-import got.common.world.spawning.*;
+import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.westeros.wildling.thenn.GOTStructureThennVillage;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-public class GOTBiomeThenn extends GOTBiome {
+public class GOTBiomeThenn extends GOTBiomeHauntedForest {
 	public GOTBiomeThenn(int i, boolean major) {
 		super(i, major);
-		addBiomeVariant(GOTBiomeVariant.HILLS);
+		decorator.treesPerChunk = 2;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.FOTINIA, 20);
-		decorator.treesPerChunk = 2;
-		decorator.grassPerChunk = 6;
-		setupTaigaFauna();
-
+		decorator.addVillage(new GOTStructureThennVillage(this, 1.0f));
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(GOTBiome.SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_THENN, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
-
 		ArrayList<SpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
-
-		decorator.addVillage(new GOTStructureThennVillage(this, 1.0f));
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override
@@ -73,17 +64,7 @@ public class GOTBiomeThenn extends GOTBiome {
 	}
 
 	@Override
-	public Region getBiomeWaypoints() {
-		return Region.ICE;
-	}
-
-	@Override
 	public boolean getEnableRiver() {
 		return false;
-	}
-
-	@Override
-	public int spawnCountMultiplier() {
-		return 3;
 	}
 }

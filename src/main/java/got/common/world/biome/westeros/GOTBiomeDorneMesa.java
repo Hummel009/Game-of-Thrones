@@ -5,9 +5,7 @@ import java.util.*;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
-import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -15,7 +13,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
-public class GOTBiomeDorneMesa extends GOTBiome {
+public class GOTBiomeDorneMesa extends GOTBiomeDorneDesert {
 	public byte[] clayMeta;
 	public long seed;
 	public NoiseGeneratorPerlin noise1;
@@ -24,17 +22,10 @@ public class GOTBiomeDorneMesa extends GOTBiome {
 
 	public GOTBiomeDorneMesa(int i, boolean major) {
 		super(i, major);
-		setupDesertFauna();
 		topBlock = Blocks.sand;
 		topBlockMeta = 1;
 		fillerBlock = Blocks.stained_hardened_clay;
-		theBiomeDecorator.treesPerChunk = -1;
-		theBiomeDecorator.deadBushPerChunk = 20;
-		theBiomeDecorator.reedsPerChunk = 3;
-		theBiomeDecorator.cactiPerChunk = 5;
-		theBiomeDecorator.flowersPerChunk = 0;
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

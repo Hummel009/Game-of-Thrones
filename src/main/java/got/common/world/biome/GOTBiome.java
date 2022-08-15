@@ -1124,7 +1124,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		essosForest = new GOTBiomeEssosForest(34, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x617027).setBiomeName("essosForest");
 		essosHills = new GOTBiomeEssos(35, true).setIsNeverWinter().setMinMaxHeight(0.1f, 1.0f).setColor(0x7B843A).setBiomeName("essosHills");
 		essosMountains = new GOTBiomeEssosMountains(36, true).setIsNeverWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0xDDDDAF).setBiomeName("essosMountains");
-		farNorthSnowy = new GOTBiomeFarNorthSnowy(37, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xC9DAE0).setBiomeName("farNorthSnowy");
+		farNorthSnowy = new GOTBiomeWesterosFrost(37, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xC9DAE0).setBiomeName("farNorthSnowy");
 		fireField = new GOTBiomeFireField(38, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xA3CC61).setBiomeName("fireField");
 		frostfangs = new GOTBiomeFrostfangs(39, true).setIsAlwaysWinter().setMinMaxHeight(2.0f, 2.0f).setColor(0xCBE9F1).setBiomeName("frostfangs");
 		ghiscar = new GOTBiomeGhiscar(40, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xADAF6B).setBiomeName("ghiscar");
@@ -1183,8 +1183,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 		reachArbor = new GOTBiomeReachArbor(102, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x8CAC44).setBiomeName("reachArbor");
 		reachTown = new GOTBiomeReachTown(104, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xA2C964).setBiomeName("reachTown");
 		redBeach = new GOTBiomeRedBeach(105, false).setBeachBlock(Blocks.sand, 1).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(14403247).setBiomeName("beach");
-		redMesa = new GOTBiomeDorneMesa(106, true).setIsNeverWinter().setMinMaxHeight(1.5f, 1.0f).setColor(0xDBDAD4).setBiomeName("redMesa");
-		redSea = new GOTBiomeRedSea(107, true).setIsNeverWinter().setMinMaxHeight(-1.0f, 0.3f).setColor(0x916C3E).setBiomeName("redSea");
+		redMesa = new GOTBiomeDorneMesa(106, true).setIsNeverWinter().setMinMaxHeight(1.5f, 0.0f).setColor(0xDBDAD4).setBiomeName("redMesa");
+		redSea = new GOTBiomeRedSea(107, true).setIsNeverWinter().setMinMaxHeight(-1.0f, 0.3f).setColor(0xDDD5AF).setBiomeName("redSea");
 		river = new GOTBiomeRiver(108, false).setMinMaxHeight(-0.5f, 0.0f).setColor(3570869).setBiomeName("river");
 		riverlands = new GOTBiomeRiverlands(109, true).setIsSeasonalWinter().setMinMaxHeight(0.1f, 0.15f).setColor(7910726).setBiomeName("riverlands");
 		riverlandsHills = new GOTBiomeWesterosForest(111, true).setIsSeasonalWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x4C822A).setBiomeName("riverlandsHills");
@@ -1200,7 +1200,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		sothoryosHell = new GOTBiomeSothoryosHell(123, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x2E441B).setBiomeName("sothoryosHell");
 		sothoryosJungle = new GOTBiomeSothoryosJungle(124, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x4A7222).setBiomeName("sothoryosJungle");
 		sothoryosJungleEdge = new GOTBiomeSothoryosJungleEdge(125, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x7B932C).setBiomeName("sothoryosJungleEdge");
-		sothoryosKanuka = new GOTBiomeSothoryosKanuka(126, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x74842B).setBiomeName("sothoryosKanuka");
+		sothoryosKanuka = new GOTBiomeSothoryosForest(126, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x74842B).setBiomeName("sothoryosKanuka");
 		sothoryosMangrove = new GOTBiomeSothoryosMangrove(127, true).setIsNeverWinter().setMinMaxHeight(0.0f, 0.1f).setColor(0x6E8E48).setBiomeName("sothoryosMangrove");
 		sothoryosMountains = new GOTBiomeSothoryosMountains(128, true).setIsNeverWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0xD8D2B1).setBiomeName("sothoryosMountains");
 		sothoryosSavannah = new GOTBiomeSothoryosSavannah(129, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x8CA041).setBiomeName("sothoryosSavannah");

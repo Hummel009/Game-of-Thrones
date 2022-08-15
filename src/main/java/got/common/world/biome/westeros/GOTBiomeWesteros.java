@@ -5,7 +5,6 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
-import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
 
 public class GOTBiomeWesteros extends GOTBiome {
@@ -28,6 +27,10 @@ public class GOTBiomeWesteros extends GOTBiome {
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_ALMOND, 0.1f);
 		addBiomeVariant(GOTBiomeVariant.SCRUBLAND, 1.0f);
 		setupStandartPlainsFauna();
+		decorator.grassPerChunk = 6;
+		decorator.doubleGrassPerChunk = 1;
+		decorator.flowersPerChunk = 3;
+		decorator.doubleFlowersPerChunk = 1;
 		decorator.addTree(GOTTreeType.OAK, 1000);
 		decorator.addTree(GOTTreeType.OAK_LARGE, 300);
 		decorator.addTree(GOTTreeType.BIRCH, 50);
@@ -39,10 +42,6 @@ public class GOTBiomeWesteros extends GOTBiome {
 		decorator.addTree(GOTTreeType.PLUM, 5);
 		decorator.addTree(GOTTreeType.OLIVE, 1);
 		decorator.addTree(GOTTreeType.ALMOND, 1);
-		decorator.grassPerChunk = 6;
-		decorator.doubleGrassPerChunk = 1;
-		decorator.flowersPerChunk = 3;
-		decorator.doubleFlowersPerChunk = 1;
 		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
 		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
@@ -53,11 +52,6 @@ public class GOTBiomeWesteros extends GOTBiome {
 	@Override
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.WESTEROS.getSubregion("westeros");
-	}
-
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_DIRTY;
 	}
 
 	@Override

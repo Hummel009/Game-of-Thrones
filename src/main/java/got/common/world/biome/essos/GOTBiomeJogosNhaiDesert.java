@@ -26,7 +26,6 @@ public class GOTBiomeJogosNhaiDesert extends GOTBiome implements GOTBiome.Desert
 		super(i, major);
 		topBlock = GOTRegistry.whiteSand;
 		fillerBlock = GOTRegistry.whiteSandstone;
-		setDisableRain();
 		addBiomeVariant(GOTBiomeVariant.HILLS);
 		setupDesertFauna();
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();

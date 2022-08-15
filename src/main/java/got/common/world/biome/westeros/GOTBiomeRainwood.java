@@ -12,7 +12,6 @@ public class GOTBiomeRainwood extends GOTBiomeStormlands {
 		invasionSpawns.clearInvasions();
 		clearBiomeVariants();
 		setupStandartForestFauna();
-		enablePodzol = false;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.OAK, 500);
 		decorator.addTree(GOTTreeType.OAK_TALL, 500);

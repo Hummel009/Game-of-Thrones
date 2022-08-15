@@ -5,6 +5,7 @@ import java.util.Random;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
+import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTEventSpawner;
@@ -14,12 +15,10 @@ import net.minecraft.world.gen.feature.*;
 public class GOTBiomeIsleOfFaces extends GOTBiomeWesteros {
 	public GOTBiomeIsleOfFaces(int i, boolean major) {
 		super(i, major);
-		npcSpawnList.clear();
-		decorator.clearVillages();
-		invasionSpawns.clearInvasions();
-		clearBiomeVariants();
 		setupStandartForestFauna();
-		enablePodzol = false;
+		clearBiomeVariants();
+		addBiomeVariant(GOTBiomeVariant.HILLS);
+		addBiomeVariant(GOTBiomeVariant.FLOWERS);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.WEIRWOOD, 10);
 		decorator.treesPerChunk = 1;

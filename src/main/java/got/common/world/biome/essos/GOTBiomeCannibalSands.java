@@ -26,7 +26,6 @@ public class GOTBiomeCannibalSands extends GOTBiome implements GOTBiome.Desert {
 
 	public GOTBiomeCannibalSands(int i, boolean major) {
 		super(i, major);
-		setDisableRain();
 		topBlock = Blocks.sand;
 		fillerBlock = Blocks.sandstone;
 		addBiomeVariant(GOTBiomeVariant.HILLS);

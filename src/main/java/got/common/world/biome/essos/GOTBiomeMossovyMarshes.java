@@ -18,7 +18,7 @@ public class GOTBiomeMossovyMarshes extends GOTBiome {
 		super(i, major);
 		setupMarshFauna();
 		clearBiomeVariants();
-		addBiomeVariantSet(GOTBiomeVariant.SET_SWAMP);
+		addBiomeVariant(GOTBiomeVariant.SWAMP_LOWLAND);
 		variantChance = 1.0f;
 		decorator.sandPerChunk = 0;
 		decorator.quagmirePerChunk = 1;

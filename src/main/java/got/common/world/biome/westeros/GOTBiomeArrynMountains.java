@@ -18,12 +18,10 @@ public class GOTBiomeArrynMountains extends GOTBiomeArryn {
 	public GOTBiomeArrynMountains(int i, boolean major) {
 		super(i, major);
 		setupStandartForestFauna();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityShadowcat.class, 10, 1, 2));
-		npcSpawnList.clear();
-		decorator.clearVillages();
-		invasionSpawns.clearInvasions();
 		clearBiomeVariants();
 		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityShadowcat.class, 10, 1, 2));
 		decorator.doubleFlowersPerChunk = 0;
 		decorator.doubleGrassPerChunk = 1;
 		decorator.flowersPerChunk = 1;
@@ -32,8 +30,10 @@ public class GOTBiomeArrynMountains extends GOTBiomeArryn {
 		decorator.biomeGemFactor = 2.0f;
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
+		decorator.clearVillages();
+		npcSpawnList.clear();
+		invasionSpawns.clearInvasions();
 		enableRocky = true;
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

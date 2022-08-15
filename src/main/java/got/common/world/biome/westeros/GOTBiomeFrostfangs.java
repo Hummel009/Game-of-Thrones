@@ -6,30 +6,25 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.entity.animal.GOTEntityShadowcat;
-import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.map.GOTBezierType;
-import got.common.world.map.GOTWaypoint.Region;
-import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
-public class GOTBiomeFrostfangs extends GOTBiome {
+public class GOTBiomeFrostfangs extends GOTBiomeWesterosFrost {
 	public GOTBiomeFrostfangs(int i, boolean major) {
 		super(i, major);
-		topBlock = Blocks.snow;
-		fillerBlock = Blocks.packed_ice;
+		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.MOUNTAIN);
-		decorator.clearTrees();
+		fillerBlock = Blocks.packed_ice;
 		decorator.biomeOreFactor = 2.0f;
 		decorator.biomeGemFactor = 2.0f;
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityShadowcat.class, 100, 1, 2));
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override
@@ -75,11 +70,6 @@ public class GOTBiomeFrostfangs extends GOTBiome {
 	@Override
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.WESTEROS.getSubregion("frostfangs");
-	}
-
-	@Override
-	public Region getBiomeWaypoints() {
-		return Region.ICE;
 	}
 
 	@Override

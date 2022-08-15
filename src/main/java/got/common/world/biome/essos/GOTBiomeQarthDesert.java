@@ -24,7 +24,6 @@ public class GOTBiomeQarthDesert extends GOTBiome implements GOTBiome.Desert {
 
 	public GOTBiomeQarthDesert(int i, boolean major) {
 		super(i, major);
-		setDisableRain();
 		topBlock = Blocks.sand;
 		topBlockMeta = 1;
 		fillerBlock = GOTRegistry.redSandstone;

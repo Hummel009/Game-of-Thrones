@@ -6,7 +6,7 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 public class GOTBiomeUlthosTaigaEdge extends GOTBiomeUlthosTaiga {
 	public GOTBiomeUlthosTaigaEdge(int i, boolean major) {
 		super(i, major);
-		decorator.treesPerChunk = 1;
+		decorator.treesPerChunk = 2;
 	}
 
 	@Override

@@ -3,19 +3,23 @@ package got.common.world.biome.westeros;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
-import got.common.world.biome.GOTBiome;
+import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.init.Blocks;
 
-public class GOTBiomeFarNorthSnowy extends GOTBiome {
-	public GOTBiomeFarNorthSnowy(int i, boolean major) {
+public class GOTBiomeWesterosFrost extends GOTBiomeWesteros {
+	public GOTBiomeWesterosFrost(int i, boolean major) {
 		super(i, major);
+		setupFrostFauna();
+		clearBiomeVariants();
+		addBiomeVariant(GOTBiomeVariant.HILLS);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
+		decorator.clearTrees();
+		decorator.clearRandomStructures();;
 		topBlock = Blocks.snow;
 		fillerBlock = Blocks.snow;
-		setupFrostFauna();
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

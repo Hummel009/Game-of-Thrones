@@ -6,7 +6,6 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -18,10 +17,7 @@ public class GOTBiomeUlthosMountains extends GOTBiomeUlthosForest {
 		setupStandartForestFauna();
 		clearBiomeVariants();
 		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 		enableRocky = true;
-		decorator.biomeOreFactor = 2.0f;
-		decorator.biomeGemFactor = 2.0f;
 		decorator.doubleFlowersPerChunk = 0;
 		decorator.doubleGrassPerChunk = 1;
 		decorator.flowersPerChunk = 1;

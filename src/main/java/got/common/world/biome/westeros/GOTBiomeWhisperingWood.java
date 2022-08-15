@@ -3,17 +3,21 @@ package got.common.world.biome.westeros;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
+import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 
 public class GOTBiomeWhisperingWood extends GOTBiomeRiverlands {
 	public GOTBiomeWhisperingWood(int i, boolean major) {
 		super(i, major);
-		npcSpawnList.clear();
-		decorator.clearVillages();
-		invasionSpawns.clearInvasions();
-		clearBiomeVariants();
 		setupStandartForestFauna();
-		enablePodzol = false;
+		clearBiomeVariants();
+		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
+		addBiomeVariant(GOTBiomeVariant.HILLS);
+		decorator.treesPerChunk = 10;
+		decorator.flowersPerChunk = 6;
+		decorator.grassPerChunk = 8;
+		decorator.doubleGrassPerChunk = 2;
+		decorator.whiteSand = true;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.OAK, 500);
 		decorator.addTree(GOTTreeType.OAK_LARGE, 100);
@@ -28,11 +32,9 @@ public class GOTBiomeWhisperingWood extends GOTBiomeRiverlands {
 		decorator.addTree(GOTTreeType.ASPEN_LARGE, 5);
 		decorator.addTree(GOTTreeType.APPLE, 5);
 		decorator.addTree(GOTTreeType.PEAR, 5);
-		decorator.treesPerChunk = 10;
-		decorator.flowersPerChunk = 6;
-		decorator.grassPerChunk = 8;
-		decorator.doubleGrassPerChunk = 2;
-		decorator.whiteSand = true;
+		decorator.clearVillages();
+		npcSpawnList.clear();
+		invasionSpawns.clearInvasions();
 	}
 
 	@Override

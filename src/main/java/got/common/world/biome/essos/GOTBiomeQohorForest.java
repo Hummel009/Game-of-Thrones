@@ -14,7 +14,6 @@ public class GOTBiomeQohorForest extends GOTBiomeQohor {
 		invasionSpawns.clearInvasions();
 		clearBiomeVariants();
 		setupStandartForestFauna();
-		enablePodzol = false;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.OAK, 300);
 		decorator.addTree(GOTTreeType.OAK_LARGE, 50);

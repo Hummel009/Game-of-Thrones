@@ -4,7 +4,6 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.world.feature.GOTTreeType;
-import got.common.world.spawning.GOTEventSpawner;
 
 public class GOTBiomeIrontree extends GOTBiomeWolfswood {
 	public GOTBiomeIrontree(int i, boolean major) {
@@ -15,7 +14,6 @@ public class GOTBiomeIrontree extends GOTBiomeWolfswood {
 		decorator.addTree(GOTTreeType.REDWOOD_3, 5000);
 		decorator.addTree(GOTTreeType.REDWOOD_4, 5000);
 		decorator.addTree(GOTTreeType.REDWOOD_5, 2000);
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override
