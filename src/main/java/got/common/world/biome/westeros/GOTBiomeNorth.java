@@ -17,16 +17,16 @@ public class GOTBiomeNorth extends GOTBiomeWesteros {
 	public GOTBiomeNorth(int i, boolean major) {
 		super(i, major);
 		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.DENSEFOREST_BIRCH);
-		addBiomeVariant(GOTBiomeVariant.DENSEFOREST_OAK);
 		addBiomeVariant(GOTBiomeVariant.FOREST);
+		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
+		addBiomeVariant(GOTBiomeVariant.HILLS);
+		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
 		addBiomeVariant(GOTBiomeVariant.FOREST_ASPEN, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.FOREST_BEECH, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.FOREST_BIRCH, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
+		addBiomeVariant(GOTBiomeVariant.FOREST_LARCH, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.FOREST_MAPLE, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.HILLS);
-		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
+		addBiomeVariant(GOTBiomeVariant.FOREST_PINE, 0.2f);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.SPRUCE, 400);
 		decorator.addTree(GOTTreeType.SPRUCE_THIN, 400);

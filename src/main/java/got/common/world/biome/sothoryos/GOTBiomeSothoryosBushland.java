@@ -27,6 +27,7 @@ public class GOTBiomeSothoryosBushland extends GOTBiome {
 		addBiomeVariant(GOTBiomeVariant.FLOWERS);
 		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
+		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 		decorator.biomeGemFactor = 2.0f;
 		decorator.biomeOreFactor = 2.0f;

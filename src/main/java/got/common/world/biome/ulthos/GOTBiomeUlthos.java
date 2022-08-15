@@ -23,6 +23,7 @@ public class GOTBiomeUlthos extends GOTBiome {
 		addBiomeVariant(GOTBiomeVariant.FLOWERS);
 		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
+		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 		decorator.biomeGemFactor = 3.0f;
 		decorator.biomeOreFactor = 3.0f;

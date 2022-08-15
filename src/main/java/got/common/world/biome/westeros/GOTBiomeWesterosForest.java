@@ -9,7 +9,7 @@ public class GOTBiomeWesterosForest extends GOTBiomeWesteros {
 		super(i, major);
 		setupStandartForestFauna();
 		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
+		addBiomeVariant(GOTBiomeVariant.CLEARING);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
 		decorator.treesPerChunk = 10;
 		decorator.flowersPerChunk = 6;

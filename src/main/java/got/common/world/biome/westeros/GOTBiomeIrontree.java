@@ -5,7 +5,7 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.world.feature.GOTTreeType;
 
-public class GOTBiomeIrontree extends GOTBiomeWolfswood {
+public class GOTBiomeIrontree extends GOTBiomeNorthForest {
 	public GOTBiomeIrontree(int i, boolean major) {
 		super(i, major);
 		decorator.clearTrees();

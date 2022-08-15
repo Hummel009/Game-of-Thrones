@@ -7,6 +7,7 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
@@ -16,6 +17,17 @@ public class GOTBiomeStormlands extends GOTBiomeWesteros {
 	public GOTBiomeStormlands(int i, boolean major) {
 		super(i, major);
 		addBiomeVariant(GOTBiomeVariant.FLOWERS);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_LEMON, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_LIME, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.2f);
+		decorator.cornPerChunk = 4;
+		decorator.addTree(GOTTreeType.LEMON, 5);
+		decorator.addTree(GOTTreeType.ORANGE, 5);
+		decorator.addTree(GOTTreeType.LIME, 5);
+		decorator.addTree(GOTTreeType.OLIVE, 5);
+		decorator.addTree(GOTTreeType.OLIVE_LARGE, 10);
 		decorator.generateAgriculture = true;
 		decorator.cornPerChunk = 4;
 		decorator.addVillage(new GOTStructureStormlandsCity(this, 1.0f));

@@ -2,6 +2,7 @@ package got.common.world.biome.westeros;
 
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
+import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 
 public class GOTBiomeMassy extends GOTBiomeDragonstone {
@@ -9,6 +10,8 @@ public class GOTBiomeMassy extends GOTBiomeDragonstone {
 		super(i, major);
 		setupStandartForestFauna();
 		clearBiomeVariants();
+		addBiomeVariant(GOTBiomeVariant.CLEARING);
+		addBiomeVariant(GOTBiomeVariant.HILLS);
 		decorator.treesPerChunk = 10;
 		decorator.flowersPerChunk = 6;
 		decorator.grassPerChunk = 8;

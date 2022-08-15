@@ -22,6 +22,7 @@ public class GOTBiomeDorneMesa extends GOTBiomeDorneDesert {
 
 	public GOTBiomeDorneMesa(int i, boolean major) {
 		super(i, major);
+		clearBiomeVariants();
 		topBlock = Blocks.sand;
 		topBlockMeta = 1;
 		fillerBlock = Blocks.stained_hardened_clay;

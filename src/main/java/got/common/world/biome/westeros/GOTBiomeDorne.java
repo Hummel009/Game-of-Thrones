@@ -17,13 +17,15 @@ public class GOTBiomeDorne extends GOTBiomeEssos {
 	public GOTBiomeDorne(int i, boolean major) {
 		super(i, major);
 		setDarkUnreliable();
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_ALMOND, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_LEMON, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_LIME, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_OLIVE, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_ALMOND, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.2f);
 		decorator.addVillage(new GOTStructureDorneCity(this, 1.0f));
 		decorator.addRandomStructure(new GOTStructureDorneWatchfort(false), 800);
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);

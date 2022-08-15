@@ -9,8 +9,7 @@ public class GOTBiomeNorthForest extends GOTBiomeNorth {
 		super(i, major);
 		setupStandartForestFauna();
 		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.FLOWERS);
-		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
+		addBiomeVariant(GOTBiomeVariant.CLEARING);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
 		decorator.treesPerChunk = 10;
 		decorator.flowersPerChunk = 6;

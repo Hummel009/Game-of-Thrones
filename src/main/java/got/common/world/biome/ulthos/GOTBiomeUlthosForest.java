@@ -6,7 +6,6 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
-import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 
@@ -14,10 +13,6 @@ public class GOTBiomeUlthosForest extends GOTBiomeUlthos {
 	public GOTBiomeUlthosForest(int i, boolean major) {
 		super(i, major);
 		setupStandartForestFauna();
-		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.FLOWERS);
-		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
-		addBiomeVariant(GOTBiomeVariant.HILLS);
 		decorator.treesPerChunk = 8;
 		decorator.logsPerChunk = 3;
 		decorator.flowersPerChunk = 2;

@@ -16,6 +16,7 @@ public class GOTBiomeUlthosTaiga extends GOTBiomeUlthosForest {
 		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
+		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
 		fillerBlock = Blocks.snow;
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBlizzard.class, 20, 3, 3));
 		decorator.clearTrees();

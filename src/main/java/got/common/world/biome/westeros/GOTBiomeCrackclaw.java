@@ -12,6 +12,7 @@ public class GOTBiomeCrackclaw extends GOTBiomeCrownlands {
 		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
+		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
 		decorator.treesPerChunk = 10;
 		decorator.flowersPerChunk = 6;
 		decorator.grassPerChunk = 8;

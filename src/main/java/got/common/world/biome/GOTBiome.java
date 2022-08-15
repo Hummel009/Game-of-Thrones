@@ -1183,8 +1183,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 		reachArbor = new GOTBiomeReachArbor(102, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x8CAC44).setBiomeName("reachArbor");
 		reachTown = new GOTBiomeReachTown(104, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xA2C964).setBiomeName("reachTown");
 		redBeach = new GOTBiomeRedBeach(105, false).setBeachBlock(Blocks.sand, 1).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(14403247).setBiomeName("beach");
-		redMesa = new GOTBiomeDorneMesa(106, true).setIsNeverWinter().setMinMaxHeight(1.5f, 0.0f).setColor(0xDBDAD4).setBiomeName("redMesa");
-		redSea = new GOTBiomeRedSea(107, true).setIsNeverWinter().setMinMaxHeight(-1.0f, 0.3f).setColor(0xDDD5AF).setBiomeName("redSea");
+		redMesa = new GOTBiomeDorneMesa(106, true).setIsNeverWinter().setMinMaxHeight(1.5f, 0.0f).setColor(0xDDD5AF).setBiomeName("redMesa");
+		redSea = new GOTBiomeRedSea(107, true).setIsNeverWinter().setMinMaxHeight(-1.0f, 0.3f).setColor(0x916c3e).setBiomeName("redSea");
 		river = new GOTBiomeRiver(108, false).setMinMaxHeight(-0.5f, 0.0f).setColor(3570869).setBiomeName("river");
 		riverlands = new GOTBiomeRiverlands(109, true).setIsSeasonalWinter().setMinMaxHeight(0.1f, 0.15f).setColor(7910726).setBiomeName("riverlands");
 		riverlandsHills = new GOTBiomeWesterosForest(111, true).setIsSeasonalWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x4C822A).setBiomeName("riverlandsHills");
@@ -1228,7 +1228,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		westerosForest = new GOTBiomeWesterosForest(156, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(5871922).setBiomeName("westerosForest");
 		wetwood = new GOTBiomeWetwood(157, true).setIsSeasonalWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x578C54).setBiomeName("wetwood");
 		whisperingWood = new GOTBiomeWhisperingWood(158, true).setIsSeasonalWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x598632).setBiomeName("whisperingWood");
-		wolfswood = new GOTBiomeWolfswood(159, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x4A7F2A).setBiomeName("wolfswood");
+		wolfswood = new GOTBiomeNorthForest(159, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x4A7F2A).setBiomeName("wolfswood");
 		yeen = new GOTBiomeYeen(160, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x242F0F).setBiomeName("yeen");
 		yiTi = new GOTBiomeYiTi(161, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xAAAE55).setBiomeName("yiTi");
 		yiTiWasteland = new GOTBiomeYiTiWasteland(163, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xaaae56).setBiomeName("yiTi");

@@ -21,7 +21,7 @@ public class GOTBiomeHauntedForest extends GOTBiomeWesteros {
 		super(i, major);
 		setupTaigaFauna();
 		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
+		addBiomeVariant(GOTBiomeVariant.CLEARING);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
 		fillerBlock = Blocks.snow;
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDirewolf.class, 20, 1, 2));
