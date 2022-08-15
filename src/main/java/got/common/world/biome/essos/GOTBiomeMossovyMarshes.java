@@ -5,15 +5,13 @@ import java.util.Random;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
-import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.feature.*;
-import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.feature.GOTWorldGenMarshLights;
 import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenFlowers;
 
-public class GOTBiomeMossovyMarshes extends GOTBiome {
+public class GOTBiomeMossovyMarshes extends GOTBiomeMossovy {
 	public GOTBiomeMossovyMarshes(int i, boolean major) {
 		super(i, major);
 		setupMarshFauna();
@@ -29,8 +27,9 @@ public class GOTBiomeMossovyMarshes extends GOTBiome {
 		decorator.doubleGrassPerChunk = 8;
 		decorator.canePerChunk = 10;
 		decorator.reedPerChunk = 5;
-		decorator.clearTrees();
-		decorator.addTree(GOTTreeType.OAK_DEAD, 100);
+		decorator.clearVillages();
+		decorator.clearRandomStructures();
+		npcSpawnList.clear();
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
@@ -63,11 +62,6 @@ public class GOTBiomeMossovyMarshes extends GOTBiome {
 
 	@Override
 	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ESSOS.getSubregion("suudanKorkuu");
-	}
-
-	@Override
-	public Region getBiomeWaypoints() {
-		return Region.MOSSOVY;
+		return GOTBiomeMusic.ESSOS.getSubregion("mossovyMarshes");
 	}
 }

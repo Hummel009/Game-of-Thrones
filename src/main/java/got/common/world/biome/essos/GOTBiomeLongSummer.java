@@ -3,19 +3,18 @@ package got.common.world.biome.essos;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
-import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
-import got.common.world.structure.other.*;
 
-public class GOTBiomeLongSummer extends GOTBiome {
+public class GOTBiomeLongSummer extends GOTBiomeEssos {
 	public GOTBiomeLongSummer(int i, boolean major) {
 		super(i, major);
+		clearBiomeVariants();
+		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
-		addBiomeVariant(GOTBiomeVariant.HILLS_SCRUBLAND, 1.0f);
-		addBiomeVariant(GOTBiomeVariant.SCRUBLAND, 1.0f);
+		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.CHARRED, 1000);
 		decorator.addTree(GOTTreeType.OAK_DEAD, 1000);
@@ -24,11 +23,6 @@ public class GOTBiomeLongSummer extends GOTBiome {
 		decorator.doubleGrassPerChunk = 1;
 		decorator.flowersPerChunk = 3;
 		decorator.doubleFlowersPerChunk = 1;
-		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
-		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
-		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
-		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
-		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
 	}
 
 	@Override
@@ -49,5 +43,10 @@ public class GOTBiomeLongSummer extends GOTBiome {
 	@Override
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.VALYRIA;
+	}
+
+	@Override
+	public boolean isGrassSea() {
+		return true;
 	}
 }

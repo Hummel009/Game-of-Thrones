@@ -13,9 +13,4 @@ public class GOTBiomeUlthosTaigaEdge extends GOTBiomeUlthosTaiga {
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.ULTHOS.getSubregion("ulthosTaigaEdge");
 	}
-
-	@Override
-	public float getChanceToSpawnAnimals() {
-		return 0.5f;
-	}
 }

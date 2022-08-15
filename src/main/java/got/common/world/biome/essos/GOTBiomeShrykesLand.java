@@ -8,33 +8,34 @@ import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
-import got.common.world.map.*;
-import got.common.world.spawning.*;
+import got.common.world.map.GOTWaypoint;
+import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.other.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-public class GOTBiomeShrykesLand extends GOTBiome {
+public class GOTBiomeShrykesLand extends GOTBiomeJogosNhai {
 	public GOTBiomeShrykesLand(int i, boolean major) {
 		super(i, major);
 		setupStandartForestFauna();
+		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
-		addBiomeVariant(GOTBiomeVariant.STEPPE);
+		addBiomeVariant(GOTBiomeVariant.HILLS);
+		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
 		decorator.logsPerChunk = 2;
 		decorator.flowersPerChunk = 2;
 		decorator.doubleFlowersPerChunk = 0;
 		decorator.grassPerChunk = 10;
 		decorator.doubleGrassPerChunk = 6;
+		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.OAK_DEAD, 500);
 		decorator.addTree(GOTTreeType.SPRUCE_DEAD, 500);
 		decorator.addTree(GOTTreeType.BEECH_DEAD, 500);
 		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 500);
 		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 1000);
 		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 400);
-		setUnreliableChance(GOTEventSpawner.EventChance.RARE);
-
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.SHRAIK, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
@@ -75,25 +76,5 @@ public class GOTBiomeShrykesLand extends GOTBiome {
 	@Override
 	public GOTWaypoint.Region getBiomeWaypoints() {
 		return GOTWaypoint.Region.MOSSOVY;
-	}
-
-	@Override
-	public float getChanceToSpawnAnimals() {
-		return 0.05f;
-	}
-
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_DIRTY;
-	}
-
-	@Override
-	public float getTreeIncreaseChance() {
-		return 0.05f;
-	}
-
-	@Override
-	public int spawnCountMultiplier() {
-		return 4;
 	}
 }

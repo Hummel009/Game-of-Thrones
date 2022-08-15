@@ -7,7 +7,7 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.feature.*;
+import got.common.world.feature.GOTWorldGenSand;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import net.minecraft.block.Block;
@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
-public class GOTBiomeStepstones extends GOTBiome {
+public class GOTBiomeStepstones extends GOTBiomeEssos {
 	public static NoiseGeneratorPerlin noiseGrass = new NoiseGeneratorPerlin(new Random(75796728360672L), 1);
 	public static NoiseGeneratorPerlin noiseDirt = new NoiseGeneratorPerlin(new Random(63275968906L), 1);
 	public static NoiseGeneratorPerlin noiseSand = new NoiseGeneratorPerlin(new Random(127425276902L), 1);
@@ -28,14 +28,8 @@ public class GOTBiomeStepstones extends GOTBiome {
 		topBlockMeta = 0;
 		fillerBlock = topBlock;
 		fillerBlockMeta = topBlockMeta;
-		setupExoticFauna();
 		biomeTerrain.setXZScale(30.0);
 		decorator.addSoil(new WorldGenMinable(GOTRegistry.redClay, 32, Blocks.dirt), 40.0f, 0, 80);
-		decorator.addTree(GOTTreeType.ACACIA, 1000);
-		decorator.addTree(GOTTreeType.BAOBAB, 20);
-		decorator.addTree(GOTTreeType.MANGO, 1);
-		decorator.addTree(GOTTreeType.OAK_DESERT, 300);
-		decorator.addTree(GOTTreeType.PALM, 4000);
 		decorator.clayGen = new GOTWorldGenSand(GOTRegistry.redClay, 5, 1);
 		decorator.clayPerChunk = 4;
 		decorator.doubleFlowersPerChunk = 1;

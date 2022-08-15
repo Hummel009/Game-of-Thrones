@@ -14,9 +14,8 @@ public class GOTBiomeUlthosTaiga extends GOTBiomeUlthosForest {
 		super(i, major);
 		setupTaigaFauna();
 		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
+		addBiomeVariant(GOTBiomeVariant.CLEARING);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
-		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
 		fillerBlock = Blocks.snow;
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBlizzard.class, 20, 3, 3));
 		decorator.clearTrees();
@@ -32,10 +31,5 @@ public class GOTBiomeUlthosTaiga extends GOTBiomeUlthosForest {
 	@Override
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.ULTHOS.getSubregion("ulthosTaiga");
-	}
-
-	@Override
-	public float getChanceToSpawnAnimals() {
-		return 0.5f;
 	}
 }

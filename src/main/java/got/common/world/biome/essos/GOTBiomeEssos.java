@@ -29,10 +29,11 @@ public class GOTBiomeEssos extends GOTBiome {
 		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
 		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
-		addBiomeVariant(GOTBiomeVariant.SHRUBLAND_OAK);
-		addBiomeVariant(GOTBiomeVariant.SCRUBLAND_SAND);
-		addBiomeVariant(GOTBiomeVariant.HILLS_SCRUBLAND_SAND);
-		decorator.addOre(new WorldGenMinable(Blocks.lapis_ore, 6), 1.0f, 0, 48);
+		addBiomeVariant(GOTBiomeVariant.FOREST_CHERRY);
+		addBiomeVariant(GOTBiomeVariant.FOREST_LEMON);
+		addBiomeVariant(GOTBiomeVariant.FOREST_LIME);
+		addBiomeVariant(GOTBiomeVariant.FOREST_CEDAR);
+		addBiomeVariant(GOTBiomeVariant.FOREST_CYPRESS);
 		decorator.grassPerChunk = 8;
 		decorator.doubleGrassPerChunk = 2;
 		decorator.flowersPerChunk = 1;
@@ -57,6 +58,7 @@ public class GOTBiomeEssos extends GOTBiome {
 		decorator.addTree(GOTTreeType.PLUM, 5);
 		decorator.addTree(GOTTreeType.DRAGONBLOOD, 50);
 		decorator.addTree(GOTTreeType.KANUKA, 50);
+		decorator.addOre(new WorldGenMinable(Blocks.lapis_ore, 6), 1.0f, 0, 48);
 		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
@@ -69,32 +71,36 @@ public class GOTBiomeEssos extends GOTBiome {
 		int topBlockMeta_pre = topBlockMeta;
 		Block fillerBlock_pre = fillerBlock;
 		int fillerBlockMeta_pre = fillerBlockMeta;
-		double d1 = noiseDirt.func_151601_a(i * 0.002, k * 0.002);
-		double d2 = noiseDirt.func_151601_a(i * 0.07, k * 0.07);
-		double d3 = noiseDirt.func_151601_a(i * 0.25, k * 0.25);
-		double d4 = noiseSand.func_151601_a(i * 0.002, k * 0.002);
-		double d5 = noiseSand.func_151601_a(i * 0.07, k * 0.07);
-		double d6 = noiseSand.func_151601_a(i * 0.25, k * 0.25);
-		double d7 = noiseRedSand.func_151601_a(i * 0.002, k * 0.002);
-		if (d7 + noiseRedSand.func_151601_a(i * 0.07, k * 0.07) + noiseRedSand.func_151601_a(i * 0.25, k * 0.25) > 0.9) {
-			topBlock = Blocks.sand;
-			topBlockMeta = 1;
-			fillerBlock = topBlock;
-			fillerBlockMeta = topBlockMeta;
-		} else if (d4 + d5 + d6 > 1.2) {
-			topBlock = Blocks.sand;
-			topBlockMeta = 0;
-			fillerBlock = topBlock;
-			fillerBlockMeta = topBlockMeta;
-		} else if (d1 + d2 + d3 > 0.4) {
-			topBlock = Blocks.dirt;
-			topBlockMeta = 1;
+		if (!isGrassSea()) {
+			double d1 = noiseDirt.func_151601_a(i * 0.002, k * 0.002);
+			double d2 = noiseDirt.func_151601_a(i * 0.07, k * 0.07);
+			double d3 = noiseDirt.func_151601_a(i * 0.25, k * 0.25);
+			double d4 = noiseSand.func_151601_a(i * 0.002, k * 0.002);
+			double d5 = noiseSand.func_151601_a(i * 0.07, k * 0.07);
+			double d6 = noiseSand.func_151601_a(i * 0.25, k * 0.25);
+			double d7 = noiseRedSand.func_151601_a(i * 0.002, k * 0.002);
+			if (d7 + noiseRedSand.func_151601_a(i * 0.07, k * 0.07) + noiseRedSand.func_151601_a(i * 0.25, k * 0.25) > 0.9) {
+				topBlock = Blocks.sand;
+				topBlockMeta = 1;
+				fillerBlock = topBlock;
+				fillerBlockMeta = topBlockMeta;
+			} else if (d4 + d5 + d6 > 1.2) {
+				topBlock = Blocks.sand;
+				topBlockMeta = 0;
+				fillerBlock = topBlock;
+				fillerBlockMeta = topBlockMeta;
+			} else if (d1 + d2 + d3 > 0.4) {
+				topBlock = Blocks.dirt;
+				topBlockMeta = 1;
+			}
 		}
 		super.generateBiomeTerrain(world, random, blocks, meta, i, k, stoneNoise, height, variant);
-		topBlock = topBlock_pre;
-		topBlockMeta = topBlockMeta_pre;
-		fillerBlock = fillerBlock_pre;
-		fillerBlockMeta = fillerBlockMeta_pre;
+		if (!isGrassSea()) {
+			topBlock = topBlock_pre;
+			topBlockMeta = topBlockMeta_pre;
+			fillerBlock = fillerBlock_pre;
+			fillerBlockMeta = fillerBlockMeta_pre;
+		}
 	}
 
 	@Override
@@ -104,7 +110,7 @@ public class GOTBiomeEssos extends GOTBiome {
 
 	@Override
 	public Region getBiomeWaypoints() {
-		return Region.DOTHRAKI;
+		return Region.FREE;
 	}
 
 	@Override
@@ -131,6 +137,10 @@ public class GOTBiomeEssos extends GOTBiome {
 	@Override
 	public int getWallTop() {
 		return 90;
+	}
+
+	public boolean isGrassSea() {
+		return false;
 	}
 
 	@Override

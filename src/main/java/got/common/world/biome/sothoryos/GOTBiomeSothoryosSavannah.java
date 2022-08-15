@@ -9,6 +9,8 @@ import got.common.world.map.GOTWaypoint.Region;
 public class GOTBiomeSothoryosSavannah extends GOTBiomeSothoryosBushland {
 	public GOTBiomeSothoryosSavannah(int i, boolean major) {
 		super(i, major);
+		clearBiomeVariants();
+		addBiomeVariant(GOTBiomeVariant.HILLS);
 		addBiomeVariant(GOTBiomeVariant.SAVANNAH_BAOBAB, 3.0f);
 		decorator.grassPerChunk = 256;
 		decorator.logsPerChunk = 0;

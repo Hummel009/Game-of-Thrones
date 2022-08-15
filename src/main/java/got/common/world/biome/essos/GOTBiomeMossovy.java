@@ -18,7 +18,17 @@ public class GOTBiomeMossovy extends GOTBiome {
 	public GOTBiomeMossovy(int i, boolean major) {
 		super(i, major);
 		setupTaigaFauna();
+		clearBiomeVariants();
+		addBiomeVariant(GOTBiomeVariant.FOREST);
+		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
+		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
+		addBiomeVariant(GOTBiomeVariant.FOREST_ASPEN, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.FOREST_BEECH, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.FOREST_BIRCH, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.FOREST_LARCH, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.FOREST_MAPLE, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.FOREST_PINE, 0.2f);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.SPRUCE, 400);
 		decorator.addTree(GOTTreeType.SPRUCE_THIN, 400);
@@ -27,27 +37,23 @@ public class GOTBiomeMossovy extends GOTBiome {
 		decorator.addTree(GOTTreeType.SPRUCE_MEGA_THIN, 20);
 		decorator.addTree(GOTTreeType.FIR, 500);
 		decorator.addTree(GOTTreeType.PINE, 500);
-		decorator.treesPerChunk = 2;
 		decorator.grassPerChunk = 6;
 		decorator.doubleGrassPerChunk = 1;
 		decorator.flowersPerChunk = 3;
 		decorator.doubleFlowersPerChunk = 1;
-
-		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
-		npcSpawnList.newFactionList(10).add(c0);
-
-		ArrayList<SpawnListContainer> c1 = new ArrayList<>();
-		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_WEREWOLF, 1).setSpawnChance(GOTBiome.SPAWN));
-		npcSpawnList.newFactionList(10).add(c1);
-
 		decorator.addVillage(new GOTStructureMossovyVillage(this, 1.0f));
-
+		decorator.addRandomStructure(new GOTStructureBarrow(false), 250);
 		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
 		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
 		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
+		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
+		npcSpawnList.newFactionList(10).add(c0);
+		ArrayList<SpawnListContainer> c1 = new ArrayList<>();
+		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.MOSSOVY_WEREWOLF, 1).setSpawnChance(GOTBiome.SPAWN));
+		npcSpawnList.newFactionList(10).add(c1);
 	}
 
 	@Override

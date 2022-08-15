@@ -6,33 +6,42 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
+import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTBezierType;
-import got.common.world.spawning.*;
+import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.other.*;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.gen.feature.WorldGenMinable;
 
 public class GOTBiomeTropicalForest extends GOTBiome {
 	public GOTBiomeTropicalForest(int i, boolean major) {
 		super(i, major);
 		setupJungleFauna();
-		decorator.clearTrees();
-		decorator.addTree(GOTTreeType.JUNGLE_LARGE, 1);
+		clearBiomeVariants();
+		addBiomeVariant(GOTBiomeVariant.MOUNTAIN);
+		addBiomeVariant(GOTBiomeVariant.HILLS);
+		addBiomeVariant(GOTBiomeVariant.CLEARING);
 		decorator.treesPerChunk = 6;
 		decorator.flowersPerChunk = 4;
-		decorator.doubleFlowersPerChunk = 1;
-		decorator.grassPerChunk = 10;
-		decorator.doubleGrassPerChunk = 4;
-
-		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.JUNGLE_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN));
-		npcSpawnList.newFactionList(1).add(c0);
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
+		decorator.doubleFlowersPerChunk = 4;
+		decorator.grassPerChunk = 15;
+		decorator.doubleGrassPerChunk = 10;
+		decorator.canePerChunk = 5;
+		decorator.cornPerChunk = 10;
+		decorator.logsPerChunk = 0;
+		decorator.clearTrees();
+		decorator.addTree(GOTTreeType.JUNGLE_LARGE, 1);
+		decorator.addGem(new WorldGenMinable(GOTRegistry.oreGem, 4, 8, Blocks.stone), 3.0f, 0, 48);
 		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
 		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
 		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
+		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.JUNGLE_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN));
+		npcSpawnList.newFactionList(1).add(c0);
 	}
 
 	@Override

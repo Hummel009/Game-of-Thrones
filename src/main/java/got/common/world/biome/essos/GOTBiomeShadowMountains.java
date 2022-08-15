@@ -5,45 +5,30 @@ import java.util.Random;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
-import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.feature.*;
-import got.common.world.map.GOTWaypoint.Region;
-import got.common.world.spawning.GOTEventSpawner;
+import got.common.world.feature.GOTWorldGenAsshaiMoss;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
-public class GOTBiomeShadowMountains extends GOTBiome {
+public class GOTBiomeShadowMountains extends GOTBiomeShadowLand {
 	public static NoiseGeneratorPerlin noiseDirt = new NoiseGeneratorPerlin(new Random(389502092662L), 1);
 	public static NoiseGeneratorPerlin noiseGravel = new NoiseGeneratorPerlin(new Random(1379468206L), 1);
 
 	public GOTBiomeShadowMountains(int i, boolean major) {
 		super(i, major);
-		topBlock = GOTRegistry.rock;
-		topBlockMeta = 0;
-		fillerBlock = GOTRegistry.rock;
-		fillerBlockMeta = 0;
+		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.MOUNTAIN);
 		decorator.biomeOreFactor = 2.0f;
 		decorator.biomeGemFactor = 2.0f;
-		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
-		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
-		decorator.clearTrees();
 		decorator.flowersPerChunk = 0;
 		decorator.grassPerChunk = 1;
-		decorator.sandPerChunk = 0;
-		decorator.clayPerChunk = 0;
 		decorator.dryReedChance = 1.0f;
-		enableRocky = false;
-		decorator.addTree(GOTTreeType.CHARRED, 1000);
-		biomeColors.setSky(0);
-		biomeColors.setClouds(0);
-		biomeColors.setFog(0);
-		biomeColors.setWater(0);
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
+		decorator.flowersPerChunk = 0;
+		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
+		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
 	}
 
 	@Override
@@ -128,11 +113,6 @@ public class GOTBiomeShadowMountains extends GOTBiome {
 	@Override
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.ESSOS.getSubregion("shadowMountains");
-	}
-
-	@Override
-	public Region getBiomeWaypoints() {
-		return Region.ASSHAI;
 	}
 
 	@Override

@@ -15,8 +15,6 @@ public class GOTBiomeWesteros extends GOTBiome {
 		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
 		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
-		addBiomeVariant(GOTBiomeVariant.DENSEFOREST_BIRCH);
-		addBiomeVariant(GOTBiomeVariant.DENSEFOREST_OAK);
 		addBiomeVariant(GOTBiomeVariant.FOREST_ASPEN, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.FOREST_BEECH, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.FOREST_BIRCH, 0.2f);

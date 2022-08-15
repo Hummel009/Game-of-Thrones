@@ -535,7 +535,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	public float getChanceToSpawnAnimals() {
-		return 0.25f;
+		return 0.2f;
 	}
 
 	public Vec3 getCloudColor(Vec3 clouds) {
@@ -838,20 +838,20 @@ public abstract class GOTBiome extends BiomeGenBase {
 		flowers.add(new FlowerEntry(GOTRegistry.essosFlower, 3, 20));
 		flowers.add(new FlowerEntry(GOTRegistry.essosFlower, 3, 20));
 		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityZebra.class, 30, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityZebra.class, 15, 1, 2));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGemsbok.class, 15, 1, 2));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWhiteOryx.class, 15, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDikDik.class, 15, 1, 2));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGiraffe.class, 10, 1, 2));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityLion.class, 10, 1, 2));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityLioness.class, 10, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityRabbit.class, 10, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityLion.class, 5, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityLioness.class, 5, 1, 2));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityRhino.class, 5, 1, 1));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityElephant.class, 5, 1, 1));
 		spawnableGOTAmbientList.clear();
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 40, 4, 4));
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 50, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 30, 2, 3));
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityRabbit.class, 15, 1, 2));
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGorcrow.class, 10, 2, 3));
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDikDik.class, 5, 1, 2));
+		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGorcrow.class, 20, 2, 3));
 	}
 
 	public void setupFrostFauna() {
@@ -900,13 +900,13 @@ public abstract class GOTBiome extends BiomeGenBase {
 		spawnableCreatureList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityHorse.class, 30, 1, 2));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntitySheep.class, 20, 1, 2));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityPig.class, 20, 2, 4));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityCow.class, 20, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityPig.class, 15, 2, 4));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityRabbit.class, 15, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityCow.class, 10, 1, 2));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityChicken.class, 10, 1, 2));
 		spawnableGOTAmbientList.clear();
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 50, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 30, 2, 3));
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityRabbit.class, 15, 1, 2));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGorcrow.class, 5, 2, 3));
 	}
 
@@ -917,13 +917,13 @@ public abstract class GOTBiome extends BiomeGenBase {
 		flowers.add(new FlowerEntry(GOTRegistry.bluebell, 0, 5));
 		flowers.add(new FlowerEntry(GOTRegistry.marigold, 0, 10));
 		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 40, 1, 2));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBoar.class, 30, 2, 3));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityDeer.class, 30, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBoar.class, 20, 2, 3));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityRabbit.class, 20, 1, 2));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 10, 1, 1));
 		spawnableGOTAmbientList.clear();
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 50, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 30, 2, 3));
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityRabbit.class, 15, 1, 2));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGorcrow.class, 5, 2, 3));
 		if (!(this instanceof GOTBiomeYiTi)) {
 			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBison.class, 20, 1, 2));
@@ -951,14 +951,14 @@ public abstract class GOTBiome extends BiomeGenBase {
 		flowers.add(new FlowerEntry(GOTRegistry.bluebell, 0, 5));
 		flowers.add(new FlowerEntry(GOTRegistry.marigold, 0, 10));
 		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityHorse.class, 40, 1, 2));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityHorse.class, 30, 1, 2));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntitySheep.class, 20, 1, 2));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBoar.class, 20, 2, 3));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBoar.class, 15, 2, 3));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityRabbit.class, 15, 1, 2));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityChicken.class, 10, 1, 1));
 		spawnableGOTAmbientList.clear();
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 50, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 30, 2, 3));
-		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityRabbit.class, 15, 1, 2));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGorcrow.class, 5, 2, 3));
 		if (!(this instanceof GOTBiomeYiTi)) {
 			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBison.class, 10, 1, 2));
@@ -1012,8 +1012,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 						biome.biomeColors.setSky(4212300);
 						biome.biomeColors.setFog(6188664);
 						biome.biomeColors.setWater(2635588);
-					}
-					if (biome.isNeverWinter || biome.isNeverWinterAZ) {
+					} else if (biome.isNeverWinter || biome.isNeverWinterAZ) {
 						biome.setTemperatureRainfall(0.28F, 2.0F);
 						biome.biomeColors.resetGrass();
 						biome.biomeColors.setSky(11653858);
@@ -1026,13 +1025,11 @@ public abstract class GOTBiome extends BiomeGenBase {
 						biome.biomeColors.setSky(11653858);
 						biome.biomeColors.resetFog();
 						biome.biomeColors.setWater(2635588);
-					}
-					if (biome.isNeverWinter) {
+					} else if (biome.isNeverWinter) {
 						biome.setTemperatureRainfall(0.8F, 0.8F);
 						biome.biomeColors.resetGrass();
 						biome.biomeColors.resetSky();
-					}
-					if (biome.isNeverWinterAZ) {
+					} else if (biome.isNeverWinterAZ) {
 						biome.setTemperatureRainfall(0.28F, 0.8F);
 						biome.biomeColors.resetGrass();
 						biome.biomeColors.resetSky();
@@ -1045,27 +1042,23 @@ public abstract class GOTBiome extends BiomeGenBase {
 						biome.biomeColors.setSky(11653858);
 						biome.biomeColors.resetFog();
 						biome.biomeColors.setWater(2635588);
-					}
-					if (biome.isSeasonalWinter) {
+					} else if (biome.isSeasonalWinter) {
 						biome.setTemperatureRainfall(0.8F, 0.8F);
 						biome.biomeColors.resetGrass();
 						biome.biomeColors.resetSky();
 						biome.biomeColors.resetFog();
 						biome.biomeColors.resetWater();
-					}
-					if (biome.isSeasonalWinterAZ) {
+					} else if (biome.isSeasonalWinterAZ) {
 						biome.setTemperatureRainfall(0.28F, 0.8F);
 						biome.biomeColors.resetGrass();
 						biome.biomeColors.resetSky();
 						biome.biomeColors.resetFog();
 						biome.biomeColors.resetWater();
-					}
-					if (biome.isNeverWinter) {
+					} else if (biome.isNeverWinter) {
 						biome.setTemperatureRainfall(1.2F, 0.4F);
 						biome.biomeColors.setGrass(14538086);
 						biome.biomeColors.setSky(15592678);
-					}
-					if (biome.isNeverWinterAZ) {
+					} else if (biome.isNeverWinterAZ) {
 						biome.setTemperatureRainfall(0.28F, 0.8F);
 						biome.biomeColors.setGrass(14538086);
 						biome.biomeColors.setSky(15592678);
@@ -1079,13 +1072,11 @@ public abstract class GOTBiome extends BiomeGenBase {
 						biome.biomeColors.setSky(11653858);
 						biome.biomeColors.resetFog();
 						biome.biomeColors.setWater(2635588);
-					}
-					if (biome.isNeverWinter) {
+					} else if (biome.isNeverWinter) {
 						biome.setTemperatureRainfall(0.8F, 0.8F);
 						biome.biomeColors.resetGrass();
 						biome.biomeColors.resetSky();
-					}
-					if (biome.isNeverWinterAZ) {
+					} else if (biome.isNeverWinterAZ) {
 						biome.setTemperatureRainfall(0.28F, 0.8F);
 						biome.biomeColors.resetGrass();
 						biome.biomeColors.resetSky();

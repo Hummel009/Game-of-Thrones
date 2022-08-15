@@ -2,88 +2,71 @@ package got.common.world.biome.essos;
 
 import java.util.Random;
 
-import got.GOT;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
-import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
-public class GOTBiomeBoneMountains extends GOTBiome {
+public class GOTBiomeBoneMountains extends GOTBiomeDothrakiSea {
 	public GOTBiomeBoneMountains(int i, boolean major) {
 		super(i, major);
 		setupStandartForestFauna();
-		addBiomeVariant(GOTBiomeVariant.MOUNTAIN);
-		addBiomeVariant(GOTBiomeVariant.FOREST_BEECH, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.FOREST_BIRCH, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.FOREST_LARCH, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.FOREST_PINE, 0.2f);
-		addBiomeVariant(GOTBiomeVariant.FOREST_MAPLE, 0.2f);
+		clearBiomeVariants();
+		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
+		enableRocky = true;
 		decorator.biomeOreFactor = 2.0f;
 		decorator.biomeGemFactor = 2.0f;
+		decorator.doubleFlowersPerChunk = 0;
+		decorator.doubleGrassPerChunk = 1;
+		decorator.flowersPerChunk = 1;
+		decorator.grassPerChunk = 4;
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
-		decorator.treesPerChunk = 1;
-		decorator.flowersPerChunk = 1;
-		decorator.grassPerChunk = 8;
-		decorator.doubleGrassPerChunk = 1;
-		decorator.addTree(GOTTreeType.OAK, 300);
-		decorator.addTree(GOTTreeType.OAK_LARGE, 50);
-		decorator.addTree(GOTTreeType.SPRUCE, 500);
-		decorator.addTree(GOTTreeType.LARCH, 300);
-		decorator.addTree(GOTTreeType.MAPLE, 300);
-		decorator.addTree(GOTTreeType.MAPLE_LARGE, 50);
-		decorator.addTree(GOTTreeType.FIR, 500);
-		decorator.addTree(GOTTreeType.PINE, 500);
-		enableRocky = true;
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override
-	public void decorate(World world, Random random, int i, int k) {
-		int l;
-		super.decorate(world, random, i, k);
-		for (l = 0; l < 10; ++l) {
-			Block block = GOTRegistry.boneBlock;
-			if (random.nextInt(5) == 0) {
-				block = GOTRegistry.boneBlock;
-			}
-			for (int l2 = 0; l2 < 10; ++l2) {
-				int k3;
-				int j1;
-				int i3 = i + random.nextInt(16) + 8;
-				if (world.getBlock(i3, (j1 = world.getHeightValue(i3, k3 = k + random.nextInt(16) + 8)) - 1, k3) != block) {
-					continue;
-				}
-				int height = j1 + random.nextInt(4);
-				for (int j2 = j1; j2 < height && !GOT.isOpaque(world, i3, j2, k3); ++j2) {
-					world.setBlock(i3, j2, k3, block, 0, 3);
-				}
-			}
-		}
-	}
-
-	@Override
 	public void generateMountainTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, int xzIndex, int ySize, int height, int rockDepth, GOTBiomeVariant variant) {
-		int stoneHeight = 110 - rockDepth;
-		int sandHeight = stoneHeight - 6;
-		for (int j = ySize - 1; j >= sandHeight; --j) {
+		int snowHeight = 150 - rockDepth;
+		int stoneHeight = snowHeight - 40;
+		for (int j = ySize - 1; j >= stoneHeight; --j) {
 			int index = xzIndex * ySize + j;
 			Block block = blocks[index];
-			if (block != topBlock && block != fillerBlock) {
-				continue;
-			}
-			if (j >= stoneHeight) {
-				blocks[index] = GOTRegistry.boneBlock;
+			if (j >= snowHeight && block == topBlock) {
+				blocks[index] = Blocks.snow;
+				meta[index] = 0;
+			} else if (block == topBlock || block == fillerBlock) {
+				blocks[index] = Blocks.stone;
 				meta[index] = 0;
 			}
+			block = blocks[index];
+			if (block != Blocks.stone) {
+				continue;
+			}
+			if (random.nextInt(6) == 0) {
+				int h = 1 + random.nextInt(6);
+				for (int j1 = j; j1 > j - h && j1 > 0; --j1) {
+					int indexH = xzIndex * ySize + j1;
+					if (blocks[indexH] != Blocks.stone) {
+						continue;
+					}
+					blocks[indexH] = GOTRegistry.rock;
+					meta[indexH] = 3;
+				}
+				continue;
+			}
+			if (random.nextInt(16) != 0) {
+				continue;
+			}
+			blocks[index] = GOTRegistry.rock;
+			meta[index] = 3;
 		}
 	}
 

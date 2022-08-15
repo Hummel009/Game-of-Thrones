@@ -101,6 +101,6 @@ public class GOTBiomeMossovyMountains extends GOTBiomeMossovy {
 
 	@Override
 	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ESSOS.getSubregion("kuurulgan");
+		return GOTBiomeMusic.ESSOS.getSubregion("mossovyMountains");
 	}
 }
