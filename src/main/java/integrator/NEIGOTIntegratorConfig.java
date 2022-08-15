@@ -22,7 +22,7 @@ public class NEIGOTIntegratorConfig implements IConfigureNEI {
 
 	@Override
 	public String getVersion() {
-		return GOT.VERSION;
+		return String.valueOf(GOT.VERSION);
 	}
 
 	private void hideItem(Block block) {

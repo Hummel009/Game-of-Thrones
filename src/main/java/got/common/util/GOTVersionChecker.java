@@ -28,8 +28,9 @@ public class GOTVersionChecker {
 						}
 						updateReader.close();
 						updateVersion = updateVersion.trim();
-						String currentVersion = GOT.VERSION;
-						if (!updateVersion.equals(currentVersion)) {
+						String support = updateVersion.replace("Version ", "");
+						Double newestVersion = Double.parseDouble(support);
+						if (GOT.VERSION < newestVersion) {
 							ChatComponentText component = new ChatComponentText("Game of Thrones Mod:");
 							component.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 							EntityClientPlayerMP entityplayer = Minecraft.getMinecraft().thePlayer;
