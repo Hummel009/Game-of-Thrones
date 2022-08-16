@@ -30,8 +30,8 @@ public class GOTBiomeUlthosMarshes extends GOTBiomeUlthosForest {
 		decorator.dryReedChance = 1.0f;
 		npcSpawnList.clear();
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN));
-		npcSpawnList.newFactionList(1).add(c0);
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
+		npcSpawnList.newFactionList(10).add(c0);
 	}
 
 	@Override

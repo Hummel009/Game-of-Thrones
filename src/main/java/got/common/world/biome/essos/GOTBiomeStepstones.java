@@ -28,15 +28,15 @@ public class GOTBiomeStepstones extends GOTBiomeEssos {
 		topBlockMeta = 0;
 		fillerBlock = topBlock;
 		fillerBlockMeta = topBlockMeta;
-		biomeTerrain.setXZScale(30.0);
-		decorator.addSoil(new WorldGenMinable(GOTRegistry.redClay, 32, Blocks.dirt), 40.0f, 0, 80);
-		decorator.clayGen = new GOTWorldGenSand(GOTRegistry.redClay, 5, 1);
 		decorator.clayPerChunk = 4;
 		decorator.doubleFlowersPerChunk = 1;
 		decorator.doubleGrassPerChunk = 12;
 		decorator.flowersPerChunk = 3;
 		decorator.grassPerChunk = 10;
 		decorator.treesPerChunk = 1;
+		decorator.clayGen = new GOTWorldGenSand(GOTRegistry.redClay, 5, 1);
+		decorator.addSoil(new WorldGenMinable(GOTRegistry.redClay, 32, Blocks.dirt), 40.0f, 0, 80);
+		biomeTerrain.setXZScale(30.0);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(5).add(c0);
@@ -44,8 +44,8 @@ public class GOTBiomeStepstones extends GOTBiomeEssos {
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(5).add(c1);
 		ArrayList<SpawnListContainer> c2 = new ArrayList<>();
-		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN));
-		npcSpawnList.newFactionList(1).add(c2);
+		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
+		npcSpawnList.newFactionList(10).add(c2);
 		setDarkUnreliable();
 	}
 

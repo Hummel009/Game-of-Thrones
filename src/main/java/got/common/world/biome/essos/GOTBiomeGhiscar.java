@@ -23,6 +23,8 @@ public class GOTBiomeGhiscar extends GOTBiomeEssos {
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_ALMOND, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.1f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.3f);
 		decorator.cactiPerChunk = 1;
 		decorator.addVillage(new GOTStructureGhiscarCity(this, 1.0f));
 		setDarkUnreliable();

@@ -1155,7 +1155,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		north = new GOTBiomeNorth(81, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(8959044).setBiomeName("north");
 		northBarrows = new GOTBiomeNorthBarrows(82, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x94BA53).setBiomeName("northBarrows");
 		northForest = new GOTBiomeNorthForest(84, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x538E2F).setBiomeName("northForest");
-		northHills = new GOTBiomeWesteros(85, true).setIsLongWinter().setMinMaxHeight(0.1f, 1f).setColor(0x74A346).setBiomeName("northHills");
+		northHills = new GOTBiomeNorth(85, true).setIsLongWinter().setMinMaxHeight(0.1f, 1f).setColor(0x74A346).setBiomeName("northHills");
 		northMountains = new GOTBiomeNorthMountains(86, true).setIsLongWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0xD3E0BA).setBiomeName("northMountains");
 		northTown = new GOTBiomeNorthTown(87, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xA4CE61).setBiomeName("northTown");
 		northWild = new GOTBiomeNorthWild(88, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xA5BF7C).setBiomeName("northWild");
@@ -1206,7 +1206,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		tropicalForest = new GOTBiomeTropicalForest(139, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x2E7B40).setBiomeName("tropicalForest");
 		tyrosh = new GOTBiomeTyrosh(140, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x9AA5A2).setBiomeName("tyrosh");
 		valyria = new GOTBiomeValyria(145, true).setMinMaxHeight(0.1f, 0.15f).setTemperatureRainfall(1.2F, 0.8F).setColor(6710111).setBiomeName("valyria");
-		valyriaSea = new GOTBiomeValyriaSea(146, true).setMinMaxHeight(-1.0f, 0.3f).setTemperatureRainfall(0.8F, 0.8F).setColor(0x0D304C).setBiomeName("valyriaSea");
+		valyriaSea = new GOTBiomeValyria(146, true).setMinMaxHeight(-1.0f, 0.3f).setTemperatureRainfall(0.8F, 0.8F).setColor(0x0D304C).setBiomeName("valyriaSea");
 		valyriaVolcano = new GOTBiomeValyriaVolcano(147, true).setMinMaxHeight(2.0f, 2.0f).setTemperatureRainfall(1.2F, 0.8F).setColor(0xA5A5A5).setBiomeName("valyriaVolcano");
 		volantis = new GOTBiomeVolantis(148, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xB2A24C).setBiomeName("volantis");
 		volantisForest = new GOTBiomeVolantisForest(150, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xCE9F32).setBiomeName("volantisForest");

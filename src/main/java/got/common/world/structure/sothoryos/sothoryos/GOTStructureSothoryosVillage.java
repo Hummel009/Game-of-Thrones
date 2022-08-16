@@ -19,19 +19,20 @@ public class GOTStructureSothoryosVillage extends GOTVillageGen {
 		fixedVillageChunkRadius = 3;
 	}
 
-	public GOTStructureSothoryosVillage setIsPyramid() {
-		fixedVillageChunkRadius = 0;
-		isPyramid = true;
-		return this;
-	}
-
 	@Override
 	public GOTVillageGen.AbstractInstance createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
+	public GOTStructureSothoryosVillage setIsPyramid() {
+		fixedVillageChunkRadius = 3;
+		isPyramid = true;
+		return this;
+	}
+
 	public class Instance extends GOTVillageGen.AbstractInstance {
 		public VillageType villageType;
+
 		public Instance(GOTStructureSothoryosVillage village, World world, int i, int k, Random random, LocationInfo loc) {
 			super(village, world, i, k, random, loc);
 		}
@@ -46,6 +47,16 @@ public class GOTStructureSothoryosVillage extends GOTVillageGen {
 				setupVillage(random);
 				break;
 			}
+		}
+
+		@Override
+		public GOTBezierType getPath(Random random, int i, int k) {
+			return null;
+		}
+
+		@Override
+		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
+			return false;
 		}
 
 		private void setupVillage(Random random) {
@@ -95,20 +106,10 @@ public class GOTStructureSothoryosVillage extends GOTVillageGen {
 		}
 
 		@Override
-		public GOTBezierType getPath(Random random, int i, int k) {
-			return null;
-		}
-
-		@Override
-		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
-			return false;
-		}
-
-		@Override
 		public void setupVillageProperties(Random random) {
 			if (isPyramid) {
 				villageType = VillageType.PYRAMID;
-			}  else {
+			} else {
 				villageType = VillageType.VILLAGE;
 			}
 		}

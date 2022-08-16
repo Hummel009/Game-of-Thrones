@@ -33,8 +33,8 @@ public class GOTBiomeSothoryosDesert extends GOTBiomeSothoryosBushland implement
 		decorator.clearRandomStructures();
 		npcSpawnList.clear();
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN));
-		npcSpawnList.newFactionList(1).add(c0);
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
+		npcSpawnList.newFactionList(10).add(c0);
 	}
 
 	@Override
@@ -73,6 +73,11 @@ public class GOTBiomeSothoryosDesert extends GOTBiomeSothoryosBushland implement
 				decorator.genTree(world, random, i1, j12, k1);
 			}
 		}
+	}
+
+	@Override
+	public boolean enableTermite() {
+		return false;
 	}
 
 	@Override
@@ -125,10 +130,5 @@ public class GOTBiomeSothoryosDesert extends GOTBiomeSothoryosBushland implement
 	@Override
 	public GOTBiome.GrassBlockAndMeta getRandomGrass(Random random) {
 		return new GOTBiome.GrassBlockAndMeta(GOTRegistry.aridGrass, 0);
-	}
-
-	@Override
-	public boolean isBushland() {
-		return false;
 	}
 }

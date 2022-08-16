@@ -14,7 +14,7 @@ public class GOTBiomeIfekevronForest extends GOTBiomeTropicalForest {
 		super(i, major);
 		npcSpawnList.clear();
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IFEKEVRON, 10).setSpawnChance(GOTBiome.SPAWN));
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IFEKEVRON, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}

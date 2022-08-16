@@ -2,16 +2,18 @@ package got.common.world.biome.essos;
 
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
-import got.common.world.feature.GOTTreeType;
+import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.spawning.GOTEventSpawner;
 
 public class GOTBiomeIbbenTaiga extends GOTBiomeIbben {
 	public GOTBiomeIbbenTaiga(int i, boolean major) {
 		super(i, major);
-		decorator.clearTrees();
-		decorator.addTree(GOTTreeType.IBBEN_PINE, 20);
-		decorator.treesPerChunk = 10;
+		clearBiomeVariants();
+		addBiomeVariant(GOTBiomeVariant.CLEARING);
+		addBiomeVariant(GOTBiomeVariant.HILLS);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
+		decorator.treesPerChunk = 10;
+		decorator.clearVillages();
 	}
 
 	@Override

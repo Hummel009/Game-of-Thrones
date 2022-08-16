@@ -15,14 +15,19 @@ public class GOTBiomeLongSummer extends GOTBiomeEssos {
 		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
 		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
-		decorator.clearTrees();
-		decorator.addTree(GOTTreeType.CHARRED, 1000);
-		decorator.addTree(GOTTreeType.OAK_DEAD, 1000);
 		decorator.treesPerChunk = 0;
 		decorator.grassPerChunk = 6;
 		decorator.doubleGrassPerChunk = 1;
 		decorator.flowersPerChunk = 3;
 		decorator.doubleFlowersPerChunk = 1;
+		decorator.clearTrees();
+		decorator.addTree(GOTTreeType.CHARRED, 1000);
+		decorator.addTree(GOTTreeType.OAK_DEAD, 1000);
+	}
+
+	@Override
+	public boolean disableNoise() {
+		return true;
 	}
 
 	@Override
@@ -43,10 +48,5 @@ public class GOTBiomeLongSummer extends GOTBiomeEssos {
 	@Override
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.VALYRIA;
-	}
-
-	@Override
-	public boolean isGrassSea() {
-		return true;
 	}
 }

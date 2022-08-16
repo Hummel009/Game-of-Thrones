@@ -42,13 +42,13 @@ public class GOTBiomeWesterlandsTown extends GOTBiomeWesterlands {
 	}
 
 	@Override
-	public boolean getEnableRiver() {
-		return false;
+	public MusicRegion getBiomeMusic() {
+		return GOTBiomeMusic.WESTEROS.getSubregion("westerlandsTown");
 	}
 
 	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion("westerlandsTown");
+	public boolean getEnableRiver() {
+		return false;
 	}
 
 	@Override

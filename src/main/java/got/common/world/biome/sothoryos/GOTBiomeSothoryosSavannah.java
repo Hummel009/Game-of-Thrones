@@ -17,6 +17,11 @@ public class GOTBiomeSothoryosSavannah extends GOTBiomeSothoryosBushland {
 	}
 
 	@Override
+	public boolean enableTermite() {
+		return false;
+	}
+
+	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterSothoryosSavannah;
 	}
@@ -29,11 +34,6 @@ public class GOTBiomeSothoryosSavannah extends GOTBiomeSothoryosBushland {
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.SOTHORYOS;
-	}
-
-	@Override
-	public boolean isBushland() {
-		return false;
 	}
 
 	@Override

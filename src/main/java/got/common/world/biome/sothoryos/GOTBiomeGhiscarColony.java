@@ -27,8 +27,8 @@ public class GOTBiomeGhiscarColony extends GOTBiomeSothoryosJungle {
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 		ArrayList<SpawnListContainer> c1 = new ArrayList<>();
-		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN));
-		npcSpawnList.newFactionList(1).add(c1);
+		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
+		npcSpawnList.newFactionList(10).add(c1);
 	}
 
 	@Override

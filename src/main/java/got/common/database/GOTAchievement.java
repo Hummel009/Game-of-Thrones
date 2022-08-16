@@ -130,7 +130,6 @@ public class GOTAchievement {
 	public static GOTAchievement enterUlthosDesert;
 	public static GOTAchievement enterUlthosMountains;
 	public static GOTAchievement enterValyria;
-	public static GOTAchievement enterValyriaSea;
 	public static GOTAchievement enterValyriaVolcano;
 	public static GOTAchievement enterVolantis;
 	public static GOTAchievement enterVolantisForest;
@@ -734,7 +733,7 @@ public class GOTAchievement {
 		enterUlthosDesert = new GOTAchievement(Category.ENTER, id++, Blocks.sand, "VISIT_ULTHOS_DESERT");
 		enterUlthosMountains = new GOTAchievement(Category.ENTER, id++, new ItemStack(GOTRegistry.rock, 1, 3), "VISIT_ULTHOS_MOUNTAINS");
 		enterValyria = new GOTAchievement(Category.ENTER, id++, Blocks.vine, "VISIT_VALYRIA");
-		enterValyriaSea = new GOTAchievement(Category.ENTER, id++, Blocks.water, "VISIT_VALYRIA_SEA");
+		enterShrykesLand = new GOTAchievement(Category.ENTER, id++, new ItemStack(GOTRegistry.deadMarshPlant), "VISIT_SHRYKES_LAND");
 		enterValyriaVolcano = new GOTAchievement(Category.ENTER, id++, Blocks.lava, "VISIT_VALYRIA_VOLCANO");
 		enterVolantis = new GOTAchievement(Category.ENTER, id++, GOTRegistry.volantisHelmet, "VISIT_VOLANTIS");
 		enterVolantisForest = new GOTAchievement(Category.ENTER, id++, GOTRegistry.orange, "VISIT_VOLANTIS_FOREST");
@@ -754,7 +753,6 @@ public class GOTAchievement {
 		enterSummerColony = new GOTAchievement(Category.ENTER, id++, GOTRegistry.summerHelmet, "VISIT_SUMMER_COLONY");
 		enterUlthosMarshes = new GOTAchievement(Category.ENTER, id++, new ItemStack(GOTRegistry.deadMarshPlant), "VISIT_ULTHOS_MARSHES");
 		enterUlthosRedForest = new GOTAchievement(Category.ENTER, id++, new ItemStack(GOTRegistry.wood1), "VISIT_ULTHOS_RED_FOREST");
-		enterShrykesLand = new GOTAchievement(Category.ENTER, id++, new ItemStack(GOTRegistry.deadMarshPlant), "VISIT_SHRYKES_LAND");
 		wearFullArryn = GOTAchievement.createArmorAchievement(Category.WEAR, id++, GOTRegistry.arrynChestplate, "WEAR_FULL_ARRYN");
 		wearFullArrynguard = GOTAchievement.createArmorAchievement(Category.WEAR, id++, GOTRegistry.arrynguardChestplate, "WEAR_FULL_ARRYNGUARD");
 		wearFullAsshai = GOTAchievement.createArmorAchievement(Category.WEAR, id++, GOTRegistry.asshaiChestplate, "WEAR_FULL_ASSHAI");

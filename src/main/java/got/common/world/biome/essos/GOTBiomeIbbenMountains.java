@@ -6,7 +6,6 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -16,21 +15,20 @@ public class GOTBiomeIbbenMountains extends GOTBiomeIbben {
 	public GOTBiomeIbbenMountains(int i, boolean major) {
 		super(i, major);
 		setupStandartForestFauna();
-		npcSpawnList.clear();
-		decorator.clearVillages();
-		invasionSpawns.clearInvasions();
 		clearBiomeVariants();
 		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
+		enableRocky = true;
 		decorator.biomeOreFactor = 2.0f;
 		decorator.biomeGemFactor = 2.0f;
-		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
-		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
 		decorator.doubleFlowersPerChunk = 0;
 		decorator.doubleGrassPerChunk = 1;
 		decorator.flowersPerChunk = 1;
 		decorator.grassPerChunk = 4;
-		enableRocky = true;
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
+		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
+		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
+		decorator.clearVillages();
+		npcSpawnList.clear();
+		invasionSpawns.clearInvasions();
 	}
 
 	@Override

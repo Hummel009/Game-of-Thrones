@@ -26,13 +26,10 @@ public class GOTFactionRelations {
 	}
 
 	public static Relation getRelations(GOTFaction f1, GOTFaction f2) {
-		if ((f1 == GOTFaction.UNALIGNED || f2 == GOTFaction.UNALIGNED) && f1 != GOTFaction.WHITE_WALKER && f2 != GOTFaction.WHITE_WALKER) {
+		if (f1 == GOTFaction.UNALIGNED || f2 == GOTFaction.UNALIGNED) {
 			return Relation.NEUTRAL;
 		}
 		if (f1 == GOTFaction.HOSTILE || f2 == GOTFaction.HOSTILE) {
-			return Relation.MORTAL_ENEMY;
-		}
-		if ((f1 == GOTFaction.WHITE_WALKER || f2 == GOTFaction.WHITE_WALKER) && f1 != f2) {
 			return Relation.MORTAL_ENEMY;
 		}
 		if (f1 == f2) {

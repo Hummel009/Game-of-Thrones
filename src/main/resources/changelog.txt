@@ -11,6 +11,7 @@ CHANGELOG
 + Added more miners, goldsmiths, florists
 + Added Shraik
 
+* Improved a few spheres of influence
 * Improved targaryen armor
 * Improved aegon helmet
 * Improved stats of ifekevrons and stone men

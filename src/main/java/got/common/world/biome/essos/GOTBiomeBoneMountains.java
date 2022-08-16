@@ -8,7 +8,6 @@ import got.common.database.*;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
-import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -29,7 +28,6 @@ public class GOTBiomeBoneMountains extends GOTBiomeDothrakiSea {
 		decorator.grassPerChunk = 4;
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

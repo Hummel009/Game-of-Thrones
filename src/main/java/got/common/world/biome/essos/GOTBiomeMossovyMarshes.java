@@ -17,6 +17,7 @@ public class GOTBiomeMossovyMarshes extends GOTBiomeMossovy {
 		setupMarshFauna();
 		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.SWAMP_LOWLAND);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 		variantChance = 1.0f;
 		decorator.sandPerChunk = 0;
 		decorator.quagmirePerChunk = 1;
@@ -30,7 +31,6 @@ public class GOTBiomeMossovyMarshes extends GOTBiomeMossovy {
 		decorator.clearVillages();
 		decorator.clearRandomStructures();
 		npcSpawnList.clear();
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

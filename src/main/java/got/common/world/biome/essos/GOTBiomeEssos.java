@@ -29,7 +29,6 @@ public class GOTBiomeEssos extends GOTBiome {
 		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
 		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
-		addBiomeVariant(GOTBiomeVariant.FOREST_CHERRY);
 		addBiomeVariant(GOTBiomeVariant.FOREST_LEMON);
 		addBiomeVariant(GOTBiomeVariant.FOREST_LIME);
 		addBiomeVariant(GOTBiomeVariant.FOREST_CEDAR);
@@ -65,13 +64,17 @@ public class GOTBiomeEssos extends GOTBiome {
 		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
 	}
 
+	public boolean disableNoise() {
+		return false;
+	}
+
 	@Override
 	public void generateBiomeTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, double stoneNoise, int height, GOTBiomeVariant variant) {
 		Block topBlock_pre = topBlock;
 		int topBlockMeta_pre = topBlockMeta;
 		Block fillerBlock_pre = fillerBlock;
 		int fillerBlockMeta_pre = fillerBlockMeta;
-		if (!isGrassSea()) {
+		if (!disableNoise()) {
 			double d1 = noiseDirt.func_151601_a(i * 0.002, k * 0.002);
 			double d2 = noiseDirt.func_151601_a(i * 0.07, k * 0.07);
 			double d3 = noiseDirt.func_151601_a(i * 0.25, k * 0.25);
@@ -95,7 +98,7 @@ public class GOTBiomeEssos extends GOTBiome {
 			}
 		}
 		super.generateBiomeTerrain(world, random, blocks, meta, i, k, stoneNoise, height, variant);
-		if (!isGrassSea()) {
+		if (!disableNoise()) {
 			topBlock = topBlock_pre;
 			topBlockMeta = topBlockMeta_pre;
 			fillerBlock = fillerBlock_pre;
@@ -137,10 +140,6 @@ public class GOTBiomeEssos extends GOTBiome {
 	@Override
 	public int getWallTop() {
 		return 90;
-	}
-
-	public boolean isGrassSea() {
-		return false;
 	}
 
 	@Override

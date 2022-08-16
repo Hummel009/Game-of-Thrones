@@ -10,7 +10,7 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 
-public class GOTBiomeSothoryosMangrove extends GOTBiomeSothoryosBushland {
+public class GOTBiomeSothoryosMangrove extends GOTBiomeSothoryosJungle {
 	public GOTBiomeSothoryosMangrove(int i, boolean major) {
 		super(i, major);
 		setupMarshFauna();
@@ -20,7 +20,7 @@ public class GOTBiomeSothoryosMangrove extends GOTBiomeSothoryosBushland {
 		decorator.sandPerChunk = 0;
 		decorator.clayPerChunk = 0;
 		decorator.quagmirePerChunk = 1;
-		decorator.treesPerChunk = 0;
+		decorator.treesPerChunk = 40;
 		decorator.logsPerChunk = 2;
 		decorator.grassPerChunk = 8;
 		decorator.doubleGrassPerChunk = 8;
@@ -32,8 +32,8 @@ public class GOTBiomeSothoryosMangrove extends GOTBiomeSothoryosBushland {
 		decorator.clearRandomStructures();
 		npcSpawnList.clear();
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN));
-		npcSpawnList.newFactionList(1).add(c0);
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
+		npcSpawnList.newFactionList(10).add(c0);
 	}
 
 	@Override

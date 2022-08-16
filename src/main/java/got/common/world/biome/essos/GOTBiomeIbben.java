@@ -12,21 +12,12 @@ import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.essos.ibben.GOTStructureIbbenVillage;
 
-public class GOTBiomeIbben extends GOTBiomeMossovy {
+public class GOTBiomeIbben extends GOTBiomeEssosCold {
 	public GOTBiomeIbben(int i, boolean major) {
 		super(i, major);
-		decorator.clearTrees();
-		decorator.addTree(GOTTreeType.SPRUCE, 400);
-		decorator.addTree(GOTTreeType.SPRUCE_THIN, 400);
-		decorator.addTree(GOTTreeType.LARCH, 300);
-		decorator.addTree(GOTTreeType.SPRUCE_MEGA, 100);
-		decorator.addTree(GOTTreeType.SPRUCE_MEGA_THIN, 20);
-		decorator.addTree(GOTTreeType.FIR, 500);
 		decorator.addTree(GOTTreeType.IBBEN_PINE, 500);
-		decorator.clearVillages();
 		decorator.addVillage(new GOTStructureIbbenVillage(this, 1.0f));
 		invasionSpawns.addInvasion(GOTInvasions.IRONBORN, GOTEventSpawner.EventChance.UNCOMMON);
-		npcSpawnList.clear();
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IBBEN_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IBBEN_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN));

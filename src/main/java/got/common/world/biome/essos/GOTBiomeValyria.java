@@ -17,38 +17,33 @@ import got.common.world.structure.other.*;
 public class GOTBiomeValyria extends GOTBiome {
 	public GOTBiomeValyria(int i, boolean major) {
 		super(i, major);
+		addBiomeVariant(GOTBiomeVariant.CLEARING);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
-		spawnableCreatureList.clear();
-		spawnableWaterCreatureList.clear();
-		spawnableMonsterList.clear();
-		spawnableGOTAmbientList.clear();
-		decorator.clearTrees();
-		decorator.addTree(GOTTreeType.OAK, 200);
-		decorator.addTree(GOTTreeType.OAK_PARTY, 200);
-		decorator.addTree(GOTTreeType.OAK_LARGE, 2000);
-		decorator.treesPerChunk = 7;
-		decorator.grassPerChunk = 6;
-		decorator.doubleGrassPerChunk = 1;
-		decorator.flowersPerChunk = 3;
-		decorator.doubleFlowersPerChunk = 1;
-		biomeColors.setFoggy(true);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 		biomeColors.setGrass(0x808080);
 		biomeColors.setFoliage(0x808080);
 		biomeColors.setSky(0x808080);
 		biomeColors.setClouds(0x808080);
 		biomeColors.setFog(0x808080);
 		biomeColors.setWater(0x808080);
-
-		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.VALYRIA, 10).setSpawnChance(GOTBiome.SPAWN));
-		npcSpawnList.newFactionList(10).add(c0);
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
-
+		biomeColors.setFoggy(true);
+		decorator.clearTrees();
+		decorator.addTree(GOTTreeType.OAK, 200);
+		decorator.addTree(GOTTreeType.OAK_PARTY, 200);
+		decorator.addTree(GOTTreeType.OAK_LARGE, 2000);
 		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
 		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
 		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
+		decorator.treesPerChunk = 7;
+		decorator.grassPerChunk = 6;
+		decorator.doubleGrassPerChunk = 1;
+		decorator.flowersPerChunk = 3;
+		decorator.doubleFlowersPerChunk = 1;
+		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.VALYRIA, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
+		npcSpawnList.newFactionList(10).add(c0);
 	}
 
 	@Override

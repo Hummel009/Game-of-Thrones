@@ -21,25 +21,21 @@ public class GOTBiomeBraavos extends GOTBiomeEssos {
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_ALMOND, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
-
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.1f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.3f);
+		decorator.addVillage(new GOTStructureBraavosCity(this, 1.0f));
+		invasionSpawns.addInvasion(GOTInvasions.VOLANTIS, GOTEventSpawner.EventChance.UNCOMMON);
+		invasionSpawns.addInvasion(GOTInvasions.PENTOS, GOTEventSpawner.EventChance.UNCOMMON);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.BRAAVOS_CONQUEST, 4).setSpawnChance(GOTBiome.SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.BRAAVOS_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
-
 		ArrayList<SpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.VOLANTIS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
-
 		ArrayList<SpawnListContainer> c2 = new ArrayList<>();
 		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.PENTOS_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c2);
-
-		decorator.addVillage(new GOTStructureBraavosCity(this, 1.0f));
-
-		invasionSpawns.addInvasion(GOTInvasions.VOLANTIS, GOTEventSpawner.EventChance.UNCOMMON);
-		invasionSpawns.addInvasion(GOTInvasions.PENTOS, GOTEventSpawner.EventChance.UNCOMMON);
-
 	}
 
 	@Override
@@ -51,5 +47,4 @@ public class GOTBiomeBraavos extends GOTBiomeEssos {
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.ESSOS.getSubregion("braavos");
 	}
-
 }

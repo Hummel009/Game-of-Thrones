@@ -8,7 +8,7 @@ import got.common.database.*;
 import got.common.entity.animal.GOTEntityWalrus;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.spawning.*;
+import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.westeros.wildling.GOTStructureWildlingVillage;
 import net.minecraft.block.Block;

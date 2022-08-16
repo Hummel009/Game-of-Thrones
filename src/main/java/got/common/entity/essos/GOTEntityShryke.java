@@ -1,12 +1,8 @@
 package got.common.entity.essos;
 
 import got.common.database.GOTAchievement;
-import got.common.entity.ai.*;
-import got.common.entity.essos.gold.GOTEntityGoldenMan;
-import got.common.entity.other.*;
-import got.common.entity.westeros.*;
-import got.common.entity.westeros.legendary.trader.GOTEntityGendryBaratheon;
-import got.common.entity.westeros.legendary.warrior.*;
+import got.common.entity.ai.GOTEntityAIAttackOnCollide;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
 import got.common.item.weapon.GOTItemSword;
 import net.minecraft.entity.*;
@@ -25,26 +21,8 @@ public class GOTEntityShryke extends GOTEntityNPC {
 		tasks.addTask(3, new EntityAIWatchClosest2(this, EntityPlayer.class, 8.0f, 0.02f));
 		tasks.addTask(4, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		tasks.addTask(5, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
-		addTargetTasks();
+		addTargetTasks(true);
 		spawnsInDarkness = true;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killShryke;
-	}
-
-	public void addTargetTasks() {
-		int target = addTargetTasks(true);
-		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityGoldenMan.class, 0, true));
-		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityWesterosBandit.class, 0, true));
-		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityWesterosScrapTrader.class, 0, true));
-		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityGendryBaratheon.class, 0, true));
-		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityBronn.class, 0, true));
-		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityGeroldDayne.class, 0, true));
-		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityThreeEyedRaven.class, 0, true));
-		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityMaester.class, 0, true));
-		targetTasks.addTask(target + 1, new GOTEntityAINearestAttackableTargetBasic(this, GOTEntityProstitute.class, 0, true));
 	}
 
 	@Override
@@ -53,6 +31,17 @@ public class GOTEntityShryke extends GOTEntityNPC {
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0);
 		getEntityAttribute(npcAttackDamage).setBaseValue(5.0);
+	}
+
+	@Override
+	public boolean attackEntityAsMob(Entity entity) {
+		if (super.attackEntityAsMob(entity)) {
+			if (entity instanceof EntityLivingBase) {
+				GOTItemSword.applyStandardPoison((EntityLivingBase) entity);
+			}
+			return true;
+		}
+		return false;
 	}
 
 	@Override
@@ -70,17 +59,6 @@ public class GOTEntityShryke extends GOTEntityNPC {
 	}
 
 	@Override
-	public boolean attackEntityAsMob(Entity entity) {
-		if (super.attackEntityAsMob(entity)) {
-			if (entity instanceof EntityLivingBase) {
-				GOTItemSword.applyStandardPoison((EntityLivingBase)entity);
-			}
-			return true;
-		}
-		return false;
-	}
-
-	@Override
 	public GOTFaction getFaction() {
 		return GOTFaction.HOSTILE;
 	}
@@ -88,6 +66,11 @@ public class GOTEntityShryke extends GOTEntityNPC {
 	@Override
 	public String getHurtSound() {
 		return "got:crocodile.say";
+	}
+
+	@Override
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killShryke;
 	}
 
 	@Override

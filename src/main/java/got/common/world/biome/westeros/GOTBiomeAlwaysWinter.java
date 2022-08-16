@@ -26,7 +26,7 @@ public class GOTBiomeAlwaysWinter extends GOTBiomeWesterosFrost {
 		spawnableCreatureList.clear();
 		fillerBlock = Blocks.ice;
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN));
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 	}
 

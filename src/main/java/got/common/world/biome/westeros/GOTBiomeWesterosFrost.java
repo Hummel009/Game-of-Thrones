@@ -17,7 +17,7 @@ public class GOTBiomeWesterosFrost extends GOTBiomeWesteros {
 		addBiomeVariant(GOTBiomeVariant.HILLS);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 		decorator.clearTrees();
-		decorator.clearRandomStructures();;
+		decorator.clearRandomStructures();
 		topBlock = Blocks.snow;
 		fillerBlock = Blocks.snow;
 	}

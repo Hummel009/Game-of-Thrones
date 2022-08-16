@@ -2,7 +2,6 @@ package got.client.model;
 
 import net.minecraft.client.model.*;
 
-
 public class GOTModelTargaryenHelmet extends GOTModelBiped {
 	public ModelRenderer crown;
 

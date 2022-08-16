@@ -2,7 +2,6 @@ package got.client.model;
 
 import net.minecraft.client.model.*;
 
-
 public class GOTModelTargaryenChestplate extends GOTModelBiped {
 	public ModelRenderer Wings;
 	public ModelRenderer LeftWing;
@@ -26,7 +25,6 @@ public class GOTModelTargaryenChestplate extends GOTModelBiped {
 		Wings = new ModelRenderer(this);
 		Wings.setRotationPoint(0.0F, -3.0F, 0.0F);
 		bipedBody.addChild(Wings);
-
 
 		LeftWing = new ModelRenderer(this);
 		LeftWing.setRotationPoint(0.0F, 5.0F, 3.5F);
@@ -54,7 +52,6 @@ public class GOTModelTargaryenChestplate extends GOTModelBiped {
 		bone2 = new ModelRenderer(this);
 		bone2.setRotationPoint(0.0F, 0.0F, 0.0F);
 		bipedRightArm.addChild(bone2);
-
 
 		cube_r1 = new ModelRenderer(this);
 		cube_r1.setRotationPoint(-2.5984F, 9.0F, 0.031F);

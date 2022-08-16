@@ -37,6 +37,11 @@ public class GOTBiomeSothoryosJungle extends GOTBiomeSothoryosBushland {
 	}
 
 	@Override
+	public boolean enableTermite() {
+		return false;
+	}
+
+	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterSothoryosJungle;
 	}

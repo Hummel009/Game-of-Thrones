@@ -66,7 +66,7 @@ public class GOTBiomeSothoryosBushland extends GOTBiome {
 		int k1;
 		int l;
 		super.decorate(world, random, i, k);
-		if (isBushland()) {
+		if (enableTermite()) {
 			if (random.nextInt(32) == 0) {
 				int boulders = 1 + random.nextInt(4);
 				for (l = 0; l < boulders; ++l) {
@@ -100,6 +100,10 @@ public class GOTBiomeSothoryosBushland extends GOTBiome {
 		}
 	}
 
+	public boolean enableTermite() {
+		return true;
+	}
+
 	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterSothoryosBushland;
@@ -118,9 +122,5 @@ public class GOTBiomeSothoryosBushland extends GOTBiome {
 	@Override
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.SOTHORYOS;
-	}
-
-	public boolean isBushland() {
-		return true;
 	}
 }

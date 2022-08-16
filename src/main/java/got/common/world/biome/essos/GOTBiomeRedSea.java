@@ -6,10 +6,9 @@ import net.minecraft.block.Block;
 public class GOTBiomeRedSea extends GOTBiomeJogosNhai {
 	public GOTBiomeRedSea(int i, boolean major) {
 		super(i, major);
-		decorator.clearRandomStructures();
 		decorator.clearVillages();
-		npcSpawnList.clear();
 		biomeColors.setWater(0x640a0a);
+		npcSpawnList.clear();
 	}
 
 	@Override

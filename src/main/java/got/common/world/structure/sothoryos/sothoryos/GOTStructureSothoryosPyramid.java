@@ -11,8 +11,7 @@ import got.common.tileentity.GOTTileEntitySarbacaneTrap;
 import got.common.util.GOTMazeGenerator;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
-import net.minecraft.init.*;
-import net.minecraft.inventory.IInventory;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
@@ -80,7 +79,6 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 		}
 		maze3.generate(random);
 		maze3.selectOuterEndpoint(random);
-		IInventory[] chests = new IInventory[4];
 		if (restrictions) {
 			for (i1 = -RADIUS; i1 <= RADIUS; ++i1) {
 				for (k12 = -RADIUS; k12 <= RADIUS; ++k12) {

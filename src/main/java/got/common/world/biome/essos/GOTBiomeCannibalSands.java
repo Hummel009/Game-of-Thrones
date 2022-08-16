@@ -13,7 +13,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.*;
 
-public class GOTBiomeCannibalSands extends GOTBiomeJogosNhai implements GOTBiome.Desert {
+public class GOTBiomeCannibalSands extends GOTBiomeEssosPlains implements GOTBiome.Desert {
 	public GOTBiomeCannibalSands(int i, boolean major) {
 		super(i, major);
 		clearBiomeVariants();
@@ -23,12 +23,13 @@ public class GOTBiomeCannibalSands extends GOTBiomeJogosNhai implements GOTBiome
 		variantChance = 0.3f;
 		decorator.cactiPerChunk = 2;
 		decorator.deadBushPerChunk = 2;
+		decorator.treesPerChunk = 0;
+		decorator.logsPerChunk = 1;
+		decorator.grassPerChunk = 16;
+		decorator.doubleGrassPerChunk = 10;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.OAK_DEAD, 1000);
 		decorator.addOre(new WorldGenMinable(Blocks.lapis_ore, 6), 1.0f, 0, 48);
-		decorator.clearVillages();
-		decorator.clearRandomStructures();
-		npcSpawnList.clear();
 		spawnableCreatureList.clear();
 		spawnableGOTAmbientList.clear();
 	}

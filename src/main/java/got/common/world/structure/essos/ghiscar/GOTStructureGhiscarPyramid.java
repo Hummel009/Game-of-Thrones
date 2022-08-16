@@ -11,7 +11,6 @@ import got.common.util.GOTMazeGenerator;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
@@ -74,7 +73,6 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 		}
 		maze3.generate(random);
 		maze3.selectOuterEndpoint(random);
-		IInventory[] chests = new IInventory[4];
 		if (restrictions) {
 			for (i1 = -RADIUS; i1 <= RADIUS; ++i1) {
 				for (k12 = -RADIUS; k12 <= RADIUS; ++k12) {

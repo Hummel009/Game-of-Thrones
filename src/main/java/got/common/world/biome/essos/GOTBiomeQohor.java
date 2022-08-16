@@ -21,12 +21,12 @@ public class GOTBiomeQohor extends GOTBiomeEssos {
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_ALMOND, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
-
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.1f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.3f);
+		decorator.addVillage(new GOTStructureQohorCity(this, 1.0f));
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.QOHOR_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
-
-		decorator.addVillage(new GOTStructureQohorCity(this, 1.0f));
 	}
 
 	@Override
@@ -38,5 +38,4 @@ public class GOTBiomeQohor extends GOTBiomeEssos {
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.ESSOS.getSubregion("qohor");
 	}
-
 }

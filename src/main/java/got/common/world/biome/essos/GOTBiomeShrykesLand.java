@@ -11,16 +11,16 @@ import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.other.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-public class GOTBiomeShrykesLand extends GOTBiomeJogosNhai {
+public class GOTBiomeShrykesLand extends GOTBiomeEssosPlains {
 	public GOTBiomeShrykesLand(int i, boolean major) {
 		super(i, major);
 		setupStandartForestFauna();
 		clearBiomeVariants();
+		addBiomeVariant(GOTBiomeVariant.FOREST);
 		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
 		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
@@ -33,11 +33,8 @@ public class GOTBiomeShrykesLand extends GOTBiomeJogosNhai {
 		decorator.addTree(GOTTreeType.OAK_DEAD, 500);
 		decorator.addTree(GOTTreeType.SPRUCE_DEAD, 500);
 		decorator.addTree(GOTTreeType.BEECH_DEAD, 500);
-		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 500);
-		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 1000);
-		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 400);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.SHRAIK, 10).setSpawnChance(GOTBiome.SPAWN));
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.SHRYKE, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 	}
 

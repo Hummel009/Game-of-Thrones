@@ -16,8 +16,8 @@ public class GOTBiomeVolantisMarshes extends GOTBiomeVolantis {
 		super(i, major);
 		setupMarshFauna();
 		clearBiomeVariants();
-		variantChance = 1.0f;
 		addBiomeVariant(GOTBiomeVariant.SWAMP_LOWLAND);
+		variantChance = 1.0f;
 		decorator.sandPerChunk = 0;
 		decorator.quagmirePerChunk = 1;
 		decorator.treesPerChunk = 0;
@@ -28,13 +28,12 @@ public class GOTBiomeVolantisMarshes extends GOTBiomeVolantis {
 		decorator.canePerChunk = 10;
 		decorator.reedPerChunk = 5;
 		decorator.waterlilyPerChunk = 4;
-		npcSpawnList.clear();
 		decorator.clearVillages();
+		npcSpawnList.clear();
 		invasionSpawns.clearInvasions();
-
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 1).setSpawnChance(GOTBiome.SPAWN));
-		npcSpawnList.newFactionList(1).add(c0);
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
+		npcSpawnList.newFactionList(10).add(c0);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 

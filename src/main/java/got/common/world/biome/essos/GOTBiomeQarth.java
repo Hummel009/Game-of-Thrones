@@ -22,16 +22,15 @@ public class GOTBiomeQarth extends GOTBiomeEssos {
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_ALMOND, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
-
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.1f);
+		addBiomeVariant(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.3f);
+		decorator.addVillage(new GOTStructureQarthCity(this, 1.0f));
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.QARTH_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
-		npcSpawnList.newFactionList(10).add(c0);
-
+		npcSpawnList.newFactionList(8).add(c0);
 		ArrayList<SpawnListContainer> c1 = new ArrayList<>();
-		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.MANTICORE, 1).setSpawnChance(GOTBiome.SPAWN));
-		npcSpawnList.newFactionList(1).add(c1);
-
-		decorator.addVillage(new GOTStructureQarthCity(this, 1.0f));
+		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.MANTICORE, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
+		npcSpawnList.newFactionList(2).add(c1);
 	}
 
 	@Override

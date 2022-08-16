@@ -62,26 +62,25 @@ public abstract class GOTEntityFireball extends Entity {
 		}
 		setBeenAttacked();
 
-		if (p_70097_1_.getEntity() != null) {
-			Vec3 vec3 = p_70097_1_.getEntity().getLookVec();
-
-			if (vec3 != null) {
-				motionX = vec3.xCoord;
-				motionY = vec3.yCoord;
-				motionZ = vec3.zCoord;
-				accelerationX = motionX * 0.1D;
-				accelerationY = motionY * 0.1D;
-				accelerationZ = motionZ * 0.1D;
-			}
-
-			if (p_70097_1_.getEntity() instanceof EntityLivingBase) {
-				shootingEntity = (EntityLivingBase) p_70097_1_.getEntity();
-			}
-
-			return true;
-		} else {
+		if (p_70097_1_.getEntity() == null) {
 			return false;
 		}
+		Vec3 vec3 = p_70097_1_.getEntity().getLookVec();
+
+		if (vec3 != null) {
+			motionX = vec3.xCoord;
+			motionY = vec3.yCoord;
+			motionZ = vec3.zCoord;
+			accelerationX = motionX * 0.1D;
+			accelerationY = motionY * 0.1D;
+			accelerationZ = motionZ * 0.1D;
+		}
+
+		if (p_70097_1_.getEntity() instanceof EntityLivingBase) {
+			shootingEntity = (EntityLivingBase) p_70097_1_.getEntity();
+		}
+
+		return true;
 	}
 
 	@Override

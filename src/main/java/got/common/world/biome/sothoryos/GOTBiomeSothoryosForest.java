@@ -61,6 +61,11 @@ public class GOTBiomeSothoryosForest extends GOTBiomeSothoryosBushland {
 	}
 
 	@Override
+	public boolean enableTermite() {
+		return false;
+	}
+
+	@Override
 	public void generateBiomeTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, double stoneNoise, int height, GOTBiomeVariant variant) {
 		Block topBlock_pre = topBlock;
 		int topBlockMeta_pre = topBlockMeta;
@@ -105,11 +110,6 @@ public class GOTBiomeSothoryosForest extends GOTBiomeSothoryosBushland {
 			return generator;
 		}
 		return super.getRandomWorldGenForDoubleGrass();
-	}
-
-	@Override
-	public boolean isBushland() {
-		return false;
 	}
 
 	public boolean isForest() {

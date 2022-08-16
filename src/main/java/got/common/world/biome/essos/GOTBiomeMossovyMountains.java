@@ -17,20 +17,20 @@ public class GOTBiomeMossovyMountains extends GOTBiomeMossovy {
 	public GOTBiomeMossovyMountains(int i, boolean major) {
 		super(i, major);
 		setupStandartForestFauna();
-		npcSpawnList.clear();
-		decorator.clearVillages();
 		clearBiomeVariants();
 		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
+		enableRocky = true;
 		decorator.doubleFlowersPerChunk = 0;
 		decorator.doubleGrassPerChunk = 1;
 		decorator.flowersPerChunk = 1;
 		decorator.grassPerChunk = 4;
 		decorator.biomeOreFactor = 2.0f;
 		decorator.biomeGemFactor = 2.0f;
+		decorator.clearVillages();
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
-		enableRocky = true;
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
+		npcSpawnList.clear();
 	}
 
 	@Override

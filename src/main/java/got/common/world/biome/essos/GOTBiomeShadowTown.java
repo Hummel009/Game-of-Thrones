@@ -7,7 +7,7 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.spawning.*;
+import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
@@ -21,11 +21,9 @@ public class GOTBiomeShadowTown extends GOTBiomeShadowLand {
 	public GOTBiomeShadowTown(int i, boolean major) {
 		super(i, major);
 		decorator.flowersPerChunk = 0;
-
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.ASSHAI_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override
@@ -67,5 +65,4 @@ public class GOTBiomeShadowTown extends GOTBiomeShadowLand {
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.ESSOS.getSubregion("shadowTown");
 	}
-
 }

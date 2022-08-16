@@ -11,19 +11,17 @@ import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTBezierType;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.other.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
-public class GOTBiomeTropicalForest extends GOTBiome {
+public class GOTBiomeTropicalForest extends GOTBiomeEssos {
 	public GOTBiomeTropicalForest(int i, boolean major) {
 		super(i, major);
 		setupJungleFauna();
 		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.MOUNTAIN);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
 		addBiomeVariant(GOTBiomeVariant.CLEARING);
-		decorator.treesPerChunk = 6;
+		decorator.treesPerChunk = 20;
 		decorator.flowersPerChunk = 4;
 		decorator.doubleFlowersPerChunk = 4;
 		decorator.grassPerChunk = 15;
@@ -32,16 +30,21 @@ public class GOTBiomeTropicalForest extends GOTBiome {
 		decorator.cornPerChunk = 10;
 		decorator.logsPerChunk = 0;
 		decorator.clearTrees();
-		decorator.addTree(GOTTreeType.JUNGLE_LARGE, 1);
+		decorator.addTree(GOTTreeType.JUNGLE, 1000);
+		decorator.addTree(GOTTreeType.JUNGLE_LARGE, 500);
+		decorator.addTree(GOTTreeType.MAHOGANY, 500);
+		decorator.addTree(GOTTreeType.JUNGLE_SHRUB, 1000);
+		decorator.addTree(GOTTreeType.MANGO, 20);
+		decorator.addTree(GOTTreeType.BANANA, 50);
 		decorator.addGem(new WorldGenMinable(GOTRegistry.oreGem, 4, 8, Blocks.stone), 3.0f, 0, 48);
-		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
-		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
-		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
-		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
-		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.JUNGLE_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN));
-		npcSpawnList.newFactionList(1).add(c0);
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.JUNGLE_SCORPION, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
+		npcSpawnList.newFactionList(10).add(c0);
+	}
+
+	@Override
+	public boolean disableNoise() {
+		return true;
 	}
 
 	@Override

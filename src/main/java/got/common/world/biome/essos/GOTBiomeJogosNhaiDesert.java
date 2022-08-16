@@ -15,7 +15,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.*;
 
-public class GOTBiomeJogosNhaiDesert extends GOTBiomeJogosNhai implements GOTBiome.Desert {
+public class GOTBiomeJogosNhaiDesert extends GOTBiomeEssosPlains implements GOTBiome.Desert {
 	public GOTBiomeJogosNhaiDesert(int i, boolean major) {
 		super(i, major);
 		setupDesertFauna();
@@ -33,12 +33,9 @@ public class GOTBiomeJogosNhaiDesert extends GOTBiomeJogosNhai implements GOTBio
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.OAK_DEAD, 1000);
 		decorator.addOre(new WorldGenMinable(Blocks.lapis_ore, 6), 1.0f, 0, 48);
-		decorator.clearVillages();
-		decorator.clearRandomStructures();
-		npcSpawnList.clear();
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 1).setSpawnChance(GOTBiome.SPAWN));
-		npcSpawnList.newFactionList(1).add(c0);
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
+		npcSpawnList.newFactionList(10).add(c0);
 	}
 
 	@Override

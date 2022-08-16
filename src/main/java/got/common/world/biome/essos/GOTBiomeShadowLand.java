@@ -16,15 +16,16 @@ public class GOTBiomeShadowLand extends GOTBiome {
 	public GOTBiomeShadowLand(int i, boolean major) {
 		super(i, major);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
-		topBlock = GOTRegistry.rock;
-		topBlockMeta = 0;
-		fillerBlock = GOTRegistry.rock;
-		fillerBlockMeta = 0;
+		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
 		spawnableGOTAmbientList.clear();
 		flowers.clear();
 		flowers.add(new FlowerEntry(GOTRegistry.asshaiFlower, 0, 20));
+		topBlock = GOTRegistry.rock;
+		topBlockMeta = 0;
+		fillerBlock = GOTRegistry.rock;
+		fillerBlockMeta = 0;
 		decorator.sandPerChunk = 0;
 		decorator.clayPerChunk = 0;
 		decorator.flowersPerChunk = 256;
@@ -34,7 +35,6 @@ public class GOTBiomeShadowLand extends GOTBiome {
 		biomeColors.setClouds(0);
 		biomeColors.setFog(0);
 		biomeColors.setWater(0);
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

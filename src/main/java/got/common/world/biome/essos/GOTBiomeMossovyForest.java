@@ -2,18 +2,16 @@ package got.common.world.biome.essos;
 
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
-import got.common.world.feature.GOTTreeType;
-import got.common.world.spawning.GOTEventSpawner;
+import got.common.world.biome.variant.GOTBiomeVariant;
 
 public class GOTBiomeMossovyForest extends GOTBiomeMossovy {
 	public GOTBiomeMossovyForest(int i, boolean major) {
 		super(i, major);
-		decorator.clearTrees();
-		decorator.addTree(GOTTreeType.PINE, 20);
+		clearBiomeVariants();
+		addBiomeVariant(GOTBiomeVariant.CLEARING);
+		addBiomeVariant(GOTBiomeVariant.HILLS);
 		decorator.treesPerChunk = 10;
 		decorator.clearVillages();
-		decorator.clearRandomStructures();
-		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
 	@Override

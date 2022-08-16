@@ -223,33 +223,33 @@ public class GOTStructureSummerVillage extends GOTVillageGen {
 				}
 			}
 			if (!isRuinedVillage) {
-					this.addStructure(new GOTStructureSummerVillageSign(false), 5 * (random.nextBoolean() ? 1 : -1), -56, 0, true);
+				this.addStructure(new GOTStructureSummerVillageSign(false), 5 * (random.nextBoolean() ? 1 : -1), -56, 0, true);
 			}
-				int rSq = 3721;
-				int rMax = 62;
-				int rSqMax = rMax * rMax;
-				for (int i = -61; i <= 61; ++i) {
-					for (int k = -61; k <= 61; ++k) {
-						int dSq;
-						GOTStructureSummerPalisade palisade;
-						int i1 = Math.abs(i);
-						if (i1 <= 4 && k < 0 || (dSq = i * i + k * k) < rSq || dSq >= rSqMax) {
+			int rSq = 3721;
+			int rMax = 62;
+			int rSqMax = rMax * rMax;
+			for (int i = -61; i <= 61; ++i) {
+				for (int k = -61; k <= 61; ++k) {
+					int dSq;
+					GOTStructureSummerPalisade palisade;
+					int i1 = Math.abs(i);
+					if (i1 <= 4 && k < 0 || (dSq = i * i + k * k) < rSq || dSq >= rSqMax) {
+						continue;
+					}
+					if (isRuinedVillage) {
+						if (random.nextBoolean()) {
 							continue;
 						}
-						if (isRuinedVillage) {
-							if (random.nextBoolean()) {
-								continue;
-							}
-							palisade = new GOTStructureSummerPalisadeRuined(false);
-						} else {
-							palisade = new GOTStructureSummerPalisade(false);
-						}
-						if (i1 == 5 && k < 0) {
-							palisade.setTall();
-						}
-						this.addStructure(palisade, i, k, 0);
+						palisade = new GOTStructureSummerPalisadeRuined(false);
+					} else {
+						palisade = new GOTStructureSummerPalisade(false);
 					}
+					if (i1 == 5 && k < 0) {
+						palisade.setTall();
+					}
+					this.addStructure(palisade, i, k, 0);
 				}
+			}
 		}
 
 		@Override
