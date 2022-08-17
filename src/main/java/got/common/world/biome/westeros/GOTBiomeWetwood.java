@@ -8,7 +8,7 @@ public class GOTBiomeWetwood extends GOTBiomeNeck {
 	public GOTBiomeWetwood(int i, boolean major) {
 		super(i, major);
 		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.CLEARING);
+		addBiomeVariant(GOTBiomeVariant.CLEARING, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
 		decorator.treesPerChunk = 5;
 	}

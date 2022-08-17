@@ -16,7 +16,7 @@ public class GOTBiomeUlthosForest extends GOTBiomeUlthos {
 		setupStandartForestFauna();
 		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.FLOWERS);
-		addBiomeVariant(GOTBiomeVariant.CLEARING);
+		addBiomeVariant(GOTBiomeVariant.CLEARING, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
 		decorator.treesPerChunk = 8;
 		decorator.logsPerChunk = 3;

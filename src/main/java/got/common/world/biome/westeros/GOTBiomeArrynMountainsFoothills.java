@@ -17,7 +17,7 @@ public class GOTBiomeArrynMountainsFoothills extends GOTBiomeWesteros {
 		super(i, major);
 		setupStandartForestFauna();
 		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.CLEARING);
+		addBiomeVariant(GOTBiomeVariant.CLEARING, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
 		decorator.treesPerChunk = 2;
 		decorator.grassPerChunk = 6;

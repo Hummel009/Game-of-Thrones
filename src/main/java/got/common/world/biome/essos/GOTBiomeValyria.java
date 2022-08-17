@@ -17,7 +17,7 @@ import got.common.world.structure.other.*;
 public class GOTBiomeValyria extends GOTBiome {
 	public GOTBiomeValyria(int i, boolean major) {
 		super(i, major);
-		addBiomeVariant(GOTBiomeVariant.CLEARING);
+		addBiomeVariant(GOTBiomeVariant.CLEARING, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 		biomeColors.setGrass(0x808080);

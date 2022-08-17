@@ -15,7 +15,7 @@ public class GOTBiomeSothoryosJungle extends GOTBiomeSothoryosBushland {
 		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.MOUNTAIN);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
-		addBiomeVariant(GOTBiomeVariant.CLEARING);
+		addBiomeVariant(GOTBiomeVariant.CLEARING, 0.2f);
 		topBlock = GOTRegistry.mudGrass;
 		fillerBlock = GOTRegistry.mud;
 		decorator.treesPerChunk = 40;

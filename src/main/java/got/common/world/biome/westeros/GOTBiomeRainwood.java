@@ -10,7 +10,7 @@ public class GOTBiomeRainwood extends GOTBiomeStormlands {
 		super(i, major);
 		setupStandartForestFauna();
 		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.CLEARING);
+		addBiomeVariant(GOTBiomeVariant.CLEARING, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
 		decorator.treesPerChunk = 10;
 		decorator.flowersPerChunk = 6;

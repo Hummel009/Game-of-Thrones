@@ -12,7 +12,7 @@ public class GOTBiomeVolantisForest extends GOTBiomeVolantis {
 		super(i, major);
 		setupStandartForestFauna();
 		clearBiomeVariants();
-		addBiomeVariant(GOTBiomeVariant.CLEARING);
+		addBiomeVariant(GOTBiomeVariant.CLEARING, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 		decorator.treesPerChunk = 10;

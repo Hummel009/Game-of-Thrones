@@ -20,7 +20,7 @@ public class GOTBiomeTropicalForest extends GOTBiomeEssos {
 		setupJungleFauna();
 		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.HILLS);
-		addBiomeVariant(GOTBiomeVariant.CLEARING);
+		addBiomeVariant(GOTBiomeVariant.CLEARING, 0.2f);
 		decorator.treesPerChunk = 20;
 		decorator.flowersPerChunk = 4;
 		decorator.doubleFlowersPerChunk = 4;
