@@ -36,6 +36,7 @@ CHANGELOG
 
 - Removed Ulos biome
 - Removed hunters and greengrocers (no difference, because farmers and butchers exist)
+
 >>VERSION 17.8
 + Added labradorite set of blocks
 + Added "kill mob" type of quests
