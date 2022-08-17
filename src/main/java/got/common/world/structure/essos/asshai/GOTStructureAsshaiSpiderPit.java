@@ -27,26 +27,28 @@ public class GOTStructureAsshaiSpiderPit extends GOTStructureAsshaiBase {
 		this.setOriginAndRotation(world, i, j, k, rotation, 8, -10);
 		originY -= 4;
 		setupRandomBlocks(random);
-        if (this.restrictions) {
-            int minHeight = 0;
-            int maxHeight = 0;
-            for (i12 = -13; i12 <= 12; ++i12) {
-                for (k12 = -12; k12 <= 14; ++k12) {
-                    j12 = this.getTopBlock(world, i12, k12) - 1;
-                    if (!this.isSurface(world, i12, j12, k12)) {
-                        return false;
-                    }
-                    if (j12 < minHeight) {
-                        minHeight = j12;
-                    }
-                    if (j12 <= maxHeight) continue;
-                    maxHeight = j12;
-                }
-            }
-            if (maxHeight - minHeight > 12) {
-                return false;
-            }
-        }
+		if (restrictions) {
+			int minHeight = 0;
+			int maxHeight = 0;
+			for (i12 = -13; i12 <= 12; ++i12) {
+				for (k12 = -12; k12 <= 14; ++k12) {
+					j12 = getTopBlock(world, i12, k12) - 1;
+					if (!isSurface(world, i12, j12, k12)) {
+						return false;
+					}
+					if (j12 < minHeight) {
+						minHeight = j12;
+					}
+					if (j12 <= maxHeight) {
+						continue;
+					}
+					maxHeight = j12;
+				}
+			}
+			if (maxHeight - minHeight > 12) {
+				return false;
+			}
+		}
 		int radius = 8;
 		for (int i13 = -radius; i13 <= radius; ++i13) {
 			for (int k13 = -radius; k13 <= radius; ++k13) {
