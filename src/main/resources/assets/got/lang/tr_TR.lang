@@ -1,16 +1,4 @@
 ﻿
-entity.got.SummerGoldsmith.name≠
-entity.got.YiTiGoldsmith.name≠
-entity.got.IbbenGoldsmith.name≠
-entity.got.IbbenMiner.name≠
-entity.got.IbbenFlorist.name≠
-entity.got.YiTiMiner.name≠
-entity.got.YiTiFlorist.name≠
-entity.got.SummerMiner.name≠
-entity.got.SummerFlorist.name≠
-got.biome.yiTiMarshes≠
-got.biome.jogosNhaiHills≠
-got.structure.DatabaseGenerator.name≠
 attribute.name.generic.movementSpeedAir=Hız (Hava)
 color.black=Siyah
 color.blue=Mavi
@@ -63,13 +51,13 @@ entity.got.ArrynFarmhand.name=Vadi Çiftliği
 entity.got.ArrynFishmonger.name=Vadi Balıkçı
 entity.got.ArrynFlorist.name=Vadi Çiçekçi
 entity.got.ArrynGoldsmith.name=Vadi Kuyumcu
-entity.got.ArrynMiner.name=Vadi Manav
 entity.got.ArrynGuard.name=Martı Kasabası Muhafız
 entity.got.ArrynLevyman.name=Vadi Milis
 entity.got.ArrynLevymanArcher.name=Vadi Milis Okçusu
 entity.got.ArrynLumberman.name=Vadi Oduncu
 entity.got.ArrynMan.name=Vadi Yerleşik
 entity.got.ArrynMason.name=Vadi Duvarcı
+entity.got.ArrynMiner.name=Vadi Manav
 entity.got.ArrynSoldier.name=Vadi Savaşçı
 entity.got.ArrynSoldierArcher.name=Vadi Savaşçı Okçusu
 entity.got.AryaStark.name=Arya Stark
@@ -104,6 +92,7 @@ entity.got.BericDondarrionLife6.name=Beric Dondarrion
 entity.got.Bird.name=Kuş
 entity.got.Bison.name=Bizon
 entity.got.BlackWalderFrey.name=Kara Walder Frey
+entity.got.Blizzard.name≠
 entity.got.Boar.name=Yaban Domuzu
 entity.got.Bomb.name=Bomba
 entity.got.BraavosBaker.name=Braavos Fırıncı
@@ -157,13 +146,13 @@ entity.got.CrownlandsFarmhand.name=Taç Toprakları Çiftliği
 entity.got.CrownlandsFishmonger.name=Taç Toprakları Balıkçı
 entity.got.CrownlandsFlorist.name=Taç Toprakları Çiçekçi
 entity.got.CrownlandsGoldsmith.name=Taç Toprakları Kuyumcu
-entity.got.CrownlandsMiner.name=Taç Toprakları Manav
 entity.got.CrownlandsGuard.name=Taç Toprakları Muhafız
 entity.got.CrownlandsLevyman.name=Taç Toprakları Milis'ı
 entity.got.CrownlandsLevymanArcher.name=Taç Toprakları Milis Okçusu
 entity.got.CrownlandsLumberman.name=Taç Toprakları Oduncu
 entity.got.CrownlandsMan.name=Taç Toprakları Yerleşik
 entity.got.CrownlandsMason.name=Taç Toprakları Duvarcı
+entity.got.CrownlandsMiner.name=Taç Toprakları Manav
 entity.got.DaarioNaharis.name=Daario Naharis
 entity.got.DaenerysTargaryen.name=Daenerys Targaryen
 entity.got.Dagmer.name=Dagmer
@@ -188,12 +177,12 @@ entity.got.DorneFarmhand.name=Dorne Çiftliği
 entity.got.DorneFishmonger.name=Dorne Balıkçı
 entity.got.DorneFlorist.name=Dorne çiçekçi
 entity.got.DorneGoldsmith.name=Dorne Kuyumcu
-entity.got.DorneMiner.name=Dorne manav
 entity.got.DorneLevyman.name=Dorne Milis
 entity.got.DorneLevymanArcher.name=Dorne Milis Okçusu
 entity.got.DorneLumberman.name=Dorne Oduncu
 entity.got.DorneMan.name=Dorne Yerleşik
 entity.got.DorneMason.name=Dorne Duvarcı
+entity.got.DorneMiner.name=Dorne manav
 entity.got.DorneSoldier.name=Dorne Savaşçı
 entity.got.DorneSoldierArcher.name=Dorne Savaşçı Okçusu
 entity.got.Dothraki.name=Dothraki
@@ -213,12 +202,12 @@ entity.got.DragonstoneFarmhand.name=Ejderha Kayası Çiftliği
 entity.got.DragonstoneFishmonger.name=Ejderha Kayası Balıkçı
 entity.got.DragonstoneFlorist.name=Ejderha Kayası Çiçekçi
 entity.got.DragonstoneGoldsmith.name=Ejderha Kayası Kuyumcu
-entity.got.DragonstoneMiner.name=Dragonstone Manav
 entity.got.DragonstoneLevyman.name=Dragonstone Milis
 entity.got.DragonstoneLevymanArcher.name=Ejderha Kayası Milis Okçusu
 entity.got.DragonstoneLumberman.name=Ejderha Kayası Oduncu
 entity.got.DragonstoneMan.name=Ejderha Kayası Yerleşik
 entity.got.DragonstoneMason.name=Ejderha Kayası Duvarcı
+entity.got.DragonstoneMiner.name=Dragonstone Manav
 entity.got.DragonstoneSoldier.name=Dragonstone Savaşçı
 entity.got.DragonstoneSoldierArcher.name=Dragonstone Savaşçı Okçusu
 entity.got.DunstanDrumm.name=Dunstan Davul
@@ -317,17 +306,20 @@ entity.got.IbbenArcher.name=Ibben Milis Okçusu
 entity.got.IbbenAxeThrower.name=Ibben Balta Atıcısı
 entity.got.IbbenBaker.name=Ibben Fırıncı
 entity.got.IbbenBannerBearer.name=Ibben Bayraktar
+entity.got.IbbenBartender.name=Ibben Meadhost
 entity.got.IbbenBlacksmith.name=İbben Demircisi
 entity.got.IbbenBrewer.name=Ibben Biracı
-entity.got.IbbenMason.name=Ibben kurucusu
 entity.got.IbbenButcher.name=İbben Kasabı
 entity.got.IbbenFarmer.name=Ibben Çiftçi
 entity.got.IbbenFarmhand.name=Ibben Çiftliği
 entity.got.IbbenFishmonger.name=İbben Balıkçı
+entity.got.IbbenFlorist.name=İbben Bahçesi
+entity.got.IbbenFlorist.name≠
+entity.got.IbbenGoldsmith.name≠
 entity.got.IbbenLumberman.name=Ibben Oduncu
 entity.got.IbbenMan.name=Ibben Yerleşik
-entity.got.IbbenBartender.name=Ibben Meadhost
-entity.got.IbbenFlorist.name=İbben Bahçesi
+entity.got.IbbenMason.name=Ibben kurucusu
+entity.got.IbbenMiner.name≠
 entity.got.IbbenStablemaster.name=Ibben ahır ustası
 entity.got.IbbenWarlord.name=Ibben kaptanı
 entity.got.IbbenWarrior.name=İbben Savaşçı
@@ -348,12 +340,12 @@ entity.got.IronbornFarmhand.name=Demir Adalar Çiftliği
 entity.got.IronbornFishmonger.name=Demir Adalar Balıkçı
 entity.got.IronbornFlorist.name=Demir Adalar Çiçekçi
 entity.got.IronbornGoldsmith.name=Demir Adalar Kuyumcu
-entity.got.IronbornMiner.name=Demir Adalar Manav
 entity.got.IronbornLevyman.name=Demir Adalar Milis'ı
 entity.got.IronbornLevymanArcher.name=Demir Adalar Milis Okçusu
 entity.got.IronbornLumberman.name=Demir Adalar Oduncu
 entity.got.IronbornMan.name=Demir Adalar Yerleşik
 entity.got.IronbornMason.name=Demir Adalar Duvarcı
+entity.got.IronbornMiner.name=Demir Adalar Manav
 entity.got.IronbornPriest.name=Demirdoğumlu Rahip
 entity.got.IronbornSoldier.name=Demir Adalar Savaşçı
 entity.got.IronbornSoldierArcher.name=Demir Adalar Savaşçı Okçusu
@@ -514,7 +506,6 @@ entity.got.NorthFarmhand.name=Kuzeyin Çiftliği
 entity.got.NorthFishmonger.name=Kuzey Balıkçı
 entity.got.NorthFlorist.name=Kuzey Çiçekçi
 entity.got.NorthGoldsmith.name=Kuzey Kuyumcu
-entity.got.NorthMiner.name=Kuzeyin Manav
 entity.got.NorthGuard.name=Beyaz Liman Muhafız
 entity.got.NorthHillman.name=Kuzey Hillman
 entity.got.NorthHillmanArcher.name=Kuzey Hillman Milis Okçusu
@@ -529,6 +520,7 @@ entity.got.NorthLevymanArcher.name=Kuzeyin Milis Okçusu
 entity.got.NorthLumberman.name=Kuzey Oduncu
 entity.got.NorthMan.name=Kuzeyin Yerleşik
 entity.got.NorthMason.name=Kuzey Duvarcı
+entity.got.NorthMiner.name=Kuzeyin Manav
 entity.got.NorthSoldier.name=Kuzey Savaşçı
 entity.got.NorthSoldierArcher.name=Kuzeyin Savaşçı Okçusu
 entity.got.NorvosBaker.name=Norvos Fırıncı
@@ -644,13 +636,13 @@ entity.got.ReachFarmhand.name=Menzil Çiftliği
 entity.got.ReachFishmonger.name=Menzil Balıkçı
 entity.got.ReachFlorist.name=Menzil Çiçekçi
 entity.got.ReachGoldsmith.name=Menzil Kuyumcu
-entity.got.ReachMiner.name=Menzil Sebze Manav
 entity.got.ReachGuard.name=Menzil Muhafız
 entity.got.ReachLevyman.name=Menzil Milis
 entity.got.ReachLevymanArcher.name=Menzil Milis Okçusu
 entity.got.ReachLumberman.name=Menzil Oduncu
 entity.got.ReachMan.name=Menzil Yerleşik
 entity.got.ReachMason.name=Menzil Duvarcı
+entity.got.ReachMiner.name=Menzil Sebze Manav
 entity.got.ReachSoldier.name=Menzil Savaşçı
 entity.got.ReachSoldierArcher.name=Menzil Savaşçı Okçusu
 entity.got.RedPriest.name=Kızıl Rahip
@@ -671,12 +663,12 @@ entity.got.RiverlandsFarmhand.name=Nehir Toprakları Çiftliği
 entity.got.RiverlandsFishmonger.name=Nehir Toprakları Balıkçı
 entity.got.RiverlandsFlorist.name=Nehir Toprakları Çiçekçi
 entity.got.RiverlandsGoldsmith.name=Nehir Toprakları Kuyumcu
-entity.got.RiverlandsMiner.name=Nehir Toprakları Manav
 entity.got.RiverlandsLevyman.name=Nehir Toprakları Milis'ı
 entity.got.RiverlandsLevymanArcher.name=Nehir Toprakları Milis Okçusu
 entity.got.RiverlandsLumberman.name=Nehir Toprakları Oduncu
 entity.got.RiverlandsMan.name=Nehir Toprakları Yerleşik
 entity.got.RiverlandsMason.name=Nehir Toprakları Duvarcı
+entity.got.RiverlandsMiner.name=Nehir Toprakları Manav
 entity.got.RiverlandsSoldier.name=Nehir Toprakları Savaşçı
 entity.got.RiverlandsSoldierArcher.name=Nehir Toprakları Savaşçı Okçusu
 entity.got.RobbStark.name=Robb Stark
@@ -697,6 +689,7 @@ entity.got.Septon.name=Septon
 entity.got.Shadowcat.name=Gölge kedi
 entity.got.Shae.name=Shae
 entity.got.ShireenBaratheon.name=Shireen Baratheon
+entity.got.Shryke.name≠
 entity.got.SmokeRing.name=Duman Halkası
 entity.got.SnowBear.name=Kar Ayı
 entity.got.SothoryosBannerBearer.name=Sothoryos Bayraktar
@@ -723,12 +716,12 @@ entity.got.StormlandsFarmhand.name=Fırtına Toprakları Çiftliği
 entity.got.StormlandsFishmonger.name=Fırtına Toprakları Balıkçı
 entity.got.StormlandsFlorist.name=Fırtına Toprakları Çiçekçi
 entity.got.StormlandsGoldsmith.name=Fırtına Toprakları Kuyumcu
-entity.got.StormlandsMiner.name=Fırtına Toprakları Manav
 entity.got.StormlandsLevyman.name=Fırtına Toprakları'ndan Milis
 entity.got.StormlandsLevymanArcher.name=Fırtına Toprakları Milis Okçusu
 entity.got.StormlandsLumberman.name=Fırtına Toprakları Oduncu
 entity.got.StormlandsMan.name=Fırtına Toprakları Yerleşik
 entity.got.StormlandsMason.name=Fırtına Toprakları Duvarcı
+entity.got.StormlandsMiner.name=Fırtına Toprakları Manav
 entity.got.StormlandsSoldier.name=Fırtına Toprakları Savaşçı
 entity.got.StormlandsSoldierArcher.name=Fırtına Toprakları Savaşçı Okçusu
 entity.got.SummerArcher.name=Yaz Adaları Milis Okçusu
@@ -741,11 +734,14 @@ entity.got.SummerButcher.name=Yaz Adaları Kasabı
 entity.got.SummerFarmer.name=Yaz Adaları Çiftçi
 entity.got.SummerFarmhand.name=Yaz Adaları Çiftliği
 entity.got.SummerFishmonger.name=Yaz Adaları Balıkçı
+entity.got.SummerFlorist.name≠
+entity.got.SummerGoldsmith.name≠
 entity.got.SummerHunter.name=Yaz Adaları Avcısı
 entity.got.SummerLumberman.name=Yaz Adaları Oduncu
 entity.got.SummerMan.name=Yaz Adaları Yerleşik
 entity.got.SummerMason.name=Yaz Adaları Duvarcı
 entity.got.SummerMiner.name=Yaz Adaları Madenci
+entity.got.SummerMiner.name≠
 entity.got.SummerWarlord.name=Yaz Adaları Savaş Lordu
 entity.got.SummerWarrior.name=Yaz Adaları Savaşçı
 entity.got.Swan.name=Kuğu
@@ -834,13 +830,13 @@ entity.got.WesterlandsFarmhand.name=Batı Toprakları Çiftliği
 entity.got.WesterlandsFishmonger.name=Batı Toprakları Balıkçı
 entity.got.WesterlandsFlorist.name=Batı Toprakları Çiçekçi
 entity.got.WesterlandsGoldsmith.name=Batı Toprakları Kuyumcu
-entity.got.WesterlandsMiner.name=Batı Toprakları Manav
 entity.got.WesterlandsGuard.name=Lannis Limanı Muhafız
 entity.got.WesterlandsLevyman.name=Batı Toprakları Milis'ı
 entity.got.WesterlandsLevymanArcher.name=Batı Toprakları Milis Okçusu
 entity.got.WesterlandsLumberman.name=Batı Toprakları Oduncu
 entity.got.WesterlandsMan.name=Batı Toprakları Yerleşik
 entity.got.WesterlandsMason.name=Batı Toprakları Duvarcı
+entity.got.WesterlandsMiner.name=Batı Toprakları Manav
 entity.got.WesterlandsSoldier.name=Batı Toprakları Savaşçı
 entity.got.WesterlandsSoldierArcher.name=Batı Topraklarının Savaşçı Okçusu
 entity.got.WesterosBandit.name=Haydut
@@ -875,15 +871,18 @@ entity.got.YiTiFarmer.name=Yi Ti Çiftçi
 entity.got.YiTiFarmhand.name=Yi Ti Çiftliği
 entity.got.YiTiFireThrower.name=Yi Ti Ateş Rahibi
 entity.got.YiTiFishmonger.name=Yi Ti Balıkçı
+entity.got.YiTiFlorist.name≠
 entity.got.YiTiFrontier.name=Yi Ti Sınırı
 entity.got.YiTiFrontierCrossbower.name=Yi Ti Sınır-Tabala
 entity.got.YiTiGoldsmith.name=Yi Ti Kuyumcu
+entity.got.YiTiGoldsmith.name≠
 entity.got.YiTiHunter.name=Yi Ti Avcısı
 entity.got.YiTiLevyman.name=Yi Ti Milis
 entity.got.YiTiLevymanCrossbower.name=Yi Ti Milis Kundaklı Yay
 entity.got.YiTiLumberman.name=Yi Ti Oduncu
 entity.got.YiTiMan.name=Yi Ti Yerleşik
 entity.got.YiTiMason.name=Yi Ti Duvarcı
+entity.got.YiTiMiner.name≠
 entity.got.YiTiSamurai.name=Yi Ti Samuray
 entity.got.YiTiShogune.name=Yi Ti Shogun
 entity.got.YiTiSoldier.name=Yi Ti askeri
@@ -1094,6 +1093,8 @@ got.achievement.KILL_SANDOR_CLEGANE.desc=Sandor Clegane'i öldür
 got.achievement.KILL_SANDOR_CLEGANE.title=Köpek avcısı
 got.achievement.KILL_SANSA_STARK.desc=Sansa Stark'ı öldür
 got.achievement.KILL_SANSA_STARK.title=Babana ihanet ettin!
+got.achievement.KILL_SHRYKE.desc≠
+got.achievement.KILL_SHRYKE.title≠
 got.achievement.KILL_THENN_BERSERKER.desc=O zaman çılgına döneni öldür
 got.achievement.KILL_THENN_BERSERKER.title=Daha güçlü
 got.achievement.KILL_THE_KING.desc=Herhangi bir King of Seven Kingdoms öldür
@@ -1306,6 +1307,8 @@ got.achievement.VISIT_PENTOS.desc=Pentos'u ziyaret edin
 got.achievement.VISIT_PENTOS.title=King'in inişinin karşısında
 got.achievement.VISIT_QARTH.desc=The Quarth'ı ziyaret edin
 got.achievement.VISIT_QARTH.title=Tüccarlar ülke
+got.achievement.VISIT_QARTH_COLONY.desc≠
+got.achievement.VISIT_QARTH_COLONY.title≠
 got.achievement.VISIT_QARTH_DESERT.desc=Kızıl Çölü ziyaret edin
 got.achievement.VISIT_QARTH_DESERT.title=Kırmızı kumlar
 got.achievement.VISIT_QOHOR.desc=Qohor'u ziyaret edin
@@ -1326,6 +1329,8 @@ got.achievement.VISIT_SHADOW_MOUNTAINS.desc=Şafak Dağları'nı ziyaret edin
 got.achievement.VISIT_SHADOW_MOUNTAINS.title=Заслоняя солнце
 got.achievement.VISIT_SHADOW_WASTELAND.desc=The Wasteland Of Shadows'u ziyaret edin
 got.achievement.VISIT_SHADOW_WASTELAND.title=Хуже пустоши
+got.achievement.VISIT_SHRYKES_LAND.desc≠
+got.achievement.VISIT_SHRYKES_LAND.title≠
 got.achievement.VISIT_SKAGOS.desc=Skagos'u ziyaret edin
 got.achievement.VISIT_SKAGOS.title=Yünlü bir gergedan arayışı içinde
 got.achievement.VISIT_SKIRLING_PASS.desc=Skirling Pass'ı ziyaret edin
@@ -1356,6 +1361,8 @@ got.achievement.VISIT_STONE_COAST.desc=Stony Shore'u ziyaret edin
 got.achievement.VISIT_STONE_COAST.title=Tartışma elma
 got.achievement.VISIT_STORMLANDS.desc=Fırtına Toprakları'nı ziyaret edin
 got.achievement.VISIT_STORMLANDS.title=Bizimki öfke
+got.achievement.VISIT_SUMMER_COLONY.desc≠
+got.achievement.VISIT_SUMMER_COLONY.title≠
 got.achievement.VISIT_SUMMER_ISLANDS.desc=Yaz Adaları'nı ziyaret edin
 got.achievement.VISIT_SUMMER_ISLANDS.title=Güney adaları
 got.achievement.VISIT_TARTH.desc=Tarth'ı ziyaret edin
@@ -1372,8 +1379,20 @@ got.achievement.VISIT_ULTHOS.desc=Ulthos'u ziyaret edin
 got.achievement.VISIT_ULTHOS.title=Örümcekler, sis, mahremiyet
 got.achievement.VISIT_ULTHOS_DESERT.desc=Ulthos çölünü ziyaret edin
 got.achievement.VISIT_ULTHOS_DESERT.title=En azından bir yerlerde örümcek yok
+got.achievement.VISIT_ULTHOS_DESERT_COLD.desc≠
+got.achievement.VISIT_ULTHOS_DESERT_COLD.title≠
+got.achievement.VISIT_ULTHOS_FOREST.desc≠
+got.achievement.VISIT_ULTHOS_FOREST.title≠
+got.achievement.VISIT_ULTHOS_FROST.desc≠
+got.achievement.VISIT_ULTHOS_FROST.title≠
+got.achievement.VISIT_ULTHOS_MARSHES.desc≠
+got.achievement.VISIT_ULTHOS_MARSHES.title≠
 got.achievement.VISIT_ULTHOS_MOUNTAINS.desc=Ulthos Dağları'nı ziyaret edin
 got.achievement.VISIT_ULTHOS_MOUNTAINS.title=Beyaz bir kenarlıkla
+got.achievement.VISIT_ULTHOS_RED_FOREST.desc≠
+got.achievement.VISIT_ULTHOS_RED_FOREST.title≠
+got.achievement.VISIT_ULTHOS_TAIGA.desc≠
+got.achievement.VISIT_ULTHOS_TAIGA.title≠
 got.achievement.VISIT_VALYRIA.desc=Valyria Yarımadası'nı ziyaret edin
 got.achievement.VISIT_VALYRIA.title=İmparatorluğun Kalıntıları
 got.achievement.VISIT_VALYRIA_SEA.desc=Sigara İçilen Deniz'i ziyaret edin
@@ -1541,6 +1560,7 @@ got.biome.beachWhite=Plaj
 got.biome.blackIslands=Blackwater Körfezi Adaları
 got.biome.boneMountains=Kemik Dağları
 got.biome.braavos=Braavos
+got.biome.cannibalSandsHills≠
 got.biome.coldCoast=Soğuk Sahil
 got.biome.crackclaw=Çatlak Pençe Noktası
 got.biome.crownlands=Taç Toprakları
@@ -1579,7 +1599,10 @@ got.biome.island=Adalet
 got.biome.isleOfFaces=Yüzler Adası
 got.biome.jogosNhai=Jogos Nhai Ovaları
 got.biome.jogosNhaiDesert=Kuru çöl
+got.biome.jogosNhaiHills≠
+got.biome.kanduuBet=Mossovy orman
 got.biome.kingSpears=Su Kralının Mızrakları
+got.biome.kuurulgan=Mossovy sopka
 got.biome.lake=Göl
 got.biome.lhazar=Lhazar
 got.biome.longSummer=Uzun Yaz Ülkeleri
@@ -1589,9 +1612,6 @@ got.biome.massy=Massy'nin Kancası
 got.biome.meereen=Meereen
 got.biome.mercenary=İhtilaflı Topraklar
 got.biome.mossovy=Mossovy
-got.biome.kanduuBet=Mossovy orman
-got.biome.suudanKorkuu=Mossovy bataklıklar
-got.biome.kuurulgan=Mossovy sopka
 got.biome.mossovyTundra=Mossovy tundra
 got.biome.myr=Mür
 got.biome.naath=Naath
@@ -1607,6 +1627,7 @@ got.biome.norvos=Norvos
 got.biome.ocean=Okyanus
 got.biome.pentos=Pentolar
 got.biome.qarth=çeyrek
+got.biome.qarthColony≠
 got.biome.qarthDesert=Qarth Çölü
 got.biome.qohor=Qohor
 got.biome.qohorForest=Qohor Ormanı
@@ -1624,6 +1645,7 @@ got.biome.shadowLand=Gölge Ülkesi
 got.biome.shadowMountains=Şafak Dağları
 got.biome.shadowTown=Asshai
 got.biome.shadowWasteland=Gölgenin Çölü
+got.biome.shrykesLand≠
 got.biome.skagos=Skagos
 got.biome.skirlingPass=Hücum geçişi
 got.biome.sothoryosBushland=Sothoryos çalılık
@@ -1643,7 +1665,9 @@ got.biome.stepstones=Adımlar
 got.biome.stoneCoast=Taş Sahil
 got.biome.stormlands=Fırtına Toprakları
 got.biome.stormlandsTown=Durran Burnu
+got.biome.summerColony≠
 got.biome.summerIslands=Yaz Adaları
+got.biome.suudanKorkuu=Mossovy bataklıklar
 got.biome.tarth=Tart
 got.biome.thenn=Sonra Arazi
 got.biome.tropicalForest=Tropikal ormanlar
@@ -1651,7 +1675,17 @@ got.biome.tyrosh=Tiroş
 got.biome.ulos=Ulolar
 got.biome.ulthos=Ulthos
 got.biome.ulthosDesert=Ulthos Çölü
+got.biome.ulthosDesertCold≠
+got.biome.ulthosForestEdge≠
+got.biome.ulthosForest≠
+got.biome.ulthosFrost≠
+got.biome.ulthosMarshesForest≠
+got.biome.ulthosMarshes≠
 got.biome.ulthosMountains=Ulthos Dağları
+got.biome.ulthosRedForestEdge≠
+got.biome.ulthosRedForest≠
+got.biome.ulthosTaigaEdge≠
+got.biome.ulthosTaiga≠
 got.biome.valyria=Valyria Yarımadası
 got.biome.valyriaSea=Valyria Denizi
 got.biome.valyriaVolcano=Valyria Volkanları
@@ -1668,6 +1702,7 @@ got.biome.whisperingWood=Fısıldayan Ahşap
 got.biome.wolfswood=Kurt ağacı
 got.biome.yeen=Yeen Çorak
 got.biome.yiTi=Yi Ti
+got.biome.yiTiMarshes≠
 got.biome.yiTiWasteland=Yi Ti Sınır Bölgesi
 got.biome.yunkai=Yunkai
 got.capes.ARRYN.name=Vadi Burnu
@@ -2755,6 +2790,7 @@ got.structure.CrownlandsTavern.name=Taç Toprakları Tavernası
 got.structure.CrownlandsTower.name=Taç Toprakları Kulesi
 got.structure.CrownlandsWatchfort.name=Taç Toprakları Gözcü Kalesi
 got.structure.CrownlandsWatchtower.name=Taç Toprakları Gözetleme Kulesi
+got.structure.DatabaseGenerator.name≠
 got.structure.DorneBarn.name=Dorne Ahırı
 got.structure.DorneBath.name=Dorne Hamamı
 got.structure.DorneCityBig.name=Dorne Kasabası
@@ -3346,6 +3382,8 @@ got.wp.Asshai.info=Büyü konusunda yetenekli insanlarla tanınan büyük bir li
 got.wp.Asshai=Asshai
 got.wp.Astapor.info=Meereen ve Yunkai ile birlikte Köle Körfezi'ndeki üç köle ticaret merkezinden biri. Şehir, Gis'ten gelen göçmenler tarafından kurulmuştur ve özellikle Kusursuzların eğitimli köleleri ile ünlüdür; Disiplin, cesaret ve sadakat nedeniyle Lekesizler ordusu bilinen dünyada çok değerlidir.
 got.wp.Astapor=Astapor
+got.wp.Ataahua.info≠
+got.wp.Ataahua≠
 got.wp.Atranta.info=Vance'in genç kolunun atalardan kalma kalesi, Tully'nin vassalları.
 got.wp.Atranta=Atranta
 got.wp.Azhydaar.info≠
@@ -3366,10 +3404,14 @@ got.wp.BarterBeach.info=Korsanların birbirleriyle ticaret yaptıkları plaj. Mu
 got.wp.BarterBeach=Takas plajı
 got.wp.Bashkaruuchu.info≠
 got.wp.Bashkaruuchu≠
+got.wp.Batargas.info≠
+got.wp.Batargas≠
 got.wp.Bayasabhad.info=Hirkun Beyliği'ni baskınlardan korumak için inşa edilen kalenin çevresinde ortaya çıkan son şehirlerden biri; krallık kuru denizden sonra çürümeye düştü, ancak savaşçı Amazonlar hala Muhafız izliyor.
 got.wp.Bayasabhad=Bayasabhad
 got.wp.Bhorash.info=Şeytan Yolu'ndaki bir Valyrian veya Ghiskar şehrinin kalıntıları. Valyria Kayası'ndan sonra yok edildi ve kim tarafından bilinmiyor.
 got.wp.Bhorash=Bhoraş
+got.wp.BigLake.info≠
+got.wp.BigLake≠
 got.wp.Bitterbridge.info=Caswells Evi'nin atalarının kalesi. Burada turnuvanın galibi Brienne Tarth, Kral Renly tarafından Gökkuşağı Muhafızna getirildi.
 got.wp.Bitterbridge=Acı köprü
 got.wp.BlackHeart.info=Soyları tükenmiş Toyn Hanesi'nin kalesi, Değersiz Aegon III'e yapılan başarısız suikast girişiminden sonra onlardan alındı. Daha sonra Connington House tarafından işgal edildi.
@@ -3414,6 +3456,8 @@ got.wp.CastleLychester.info=Berik Dondarrion'un Arya ile birlikte müfrezesinin 
 got.wp.CastleLychester=Lychester Kalesi
 got.wp.CatfishRock.info=Fischer'in eski kraliyet evinin kalesi.
 got.wp.CatfishRock=Yayın balığı kaya
+got.wp.CentralForests.info≠
+got.wp.CentralForests≠
 got.wp.Chroyane.info=Antik çağda, Kroyane'nin müreffeh Roinar kasabasıydı. Saroi, ejderha lordları tarafından yakıldıktan sonra, Garin adlı Prens Kroyane, Rhoynar'ı birleşmeye ve işgalcilerle savaşmaya çağırdı. Ne yazık ki, bir dizi zaferden sonra Valyria'dan düzinelerce ejderha lordu geldi ve Roynar düştü. Garin, halkının nasıl köleleştirildiğini ve şehrin nasıl yandığını görebilmesi için bir kafeste Kroyan'a getirildi. Çaresizlik içinde Garin, Valyrialıları lanetledi - sonra Roina'nın üzerinde gri bir hastalığın sporları ortaya çıktı ... Şimdi bu hastalığın kurbanları burada kovuldu. Böylece güzel şehir büyük bir cüzzamlı kolonisine dönüştü.
 got.wp.Chroyane=Kroyan
 got.wp.CiderHall.info=Kızıl Elma şubesinden Fossoveevlerin evinin kalesi.
@@ -3464,6 +3508,8 @@ got.wp.Downdelving.info=Goodbrothers'ın genç kollarından birine ait olan Grea
 got.wp.Downdelving=Aşağı iniş
 got.wp.Draconys.info=Valyria Kıyameti sırasında yıkılan Valyria İmparatorluğu'nun güçlü ve zengin sömürge şehirlerinden biri.
 got.wp.Draconys=Dracony'ler
+got.wp.DragonPlace.info≠
+got.wp.DragonPlace≠
 got.wp.Dragonstone.info=Ada ve aynı adı taşıyan zaptedilemez kale. Birkaç yüzyıl önce, Targaryenler buraya Eski Valyria'dan geldiler ve tahta çıktıktan ve Kral'ın Şehri'nin inşasından sonra, Ejderha Kayası Prensi unvanı kralın en büyük oğlu ve varisi tarafından karşılandı. Targaryenların devrilmesinden sonra kale Stannis Baratheon'a devredildi.
 got.wp.Dragonstone=Ejderha taşı
 got.wp.Dreadfort.info=Bolton Hanedanı'nın atalarının kalesi, Starkların vassalları. Boltonlar, Kuzey'deki en güçlü ve en eski evler arasındadır. Bin yıl boyunca Starklarla rekabet ettiler ve sadece bin yıl önce Winterfell'in önünde diz çöktüler. Eski günlerde Bolton lordları, yaşayan insanlardan soyulmuş deri pelerinler giyerdi; Zamanla Starklar bu geleneği çiğnediler, ancak eski Nan'a göre eski kupaların bazıları hala Dredford'da tutuluyor (bazı Starkların derisi dahil).
@@ -3480,6 +3526,10 @@ got.wp.Duskendale.info=Demir Taht'ın vassalları olan Rikker'ların evi tarafı
 got.wp.Duskendale=Düskendale
 got.wp.DyreDen.info=Kale, Baratheonların vassalları olan Brune Hanedanı'nın kollarından biridir.
 got.wp.DyreDen=Dyre Den
+got.wp.EastBay.info≠
+got.wp.EastBay≠
+got.wp.EastCoast.info≠
+got.wp.EastCoast≠
 got.wp.EastPass.info=Dört geçiş, bulutlara kadar uzanan antik mezar höyükleridir. Konumları onların savunma yapıları olduğunu gösteriyor. Ama düşmanlar içindeyse, Mossia'yı kimden ve neden savunmalı?
 got.wp.EastPass=Doğu Geçidi
 got.wp.EastWatch.info=Cotter Pike tarafından yönetilen, Gece Nöbeti'nin en doğudaki kalesi. Üç aktiften biri. Diğerlerinden farklı olarak Doğu Gözcüleri'ndeki kardeşler aktif olarak ticaretle uğraşıyorlar.
@@ -3598,6 +3648,8 @@ got.wp.Harroway.info=Üç Dişli Mızrak'ın geçişinde bulunan küçük bir k�
 got.wp.Harroway=Harroway
 got.wp.HarvestHall.info=Baratheonların vasalları olan Selmy'nin evinin kalesi. Efsanevi Barristan Selmy burada doğdu.
 got.wp.HarvestHall=Hasat Salonu
+got.wp.Hauauru.info≠
+got.wp.Hauauru≠
 got.wp.Hayford.info=Kraliyet Toprakları'nın Hayford Kalesi Evi. Burada Jaime Lannister, Elin Payne ile eğitime başladı.
 got.wp.Hayford=Hayford
 got.wp.HaystackHall.info=Errol Hanesi'nin atalardan kalma kalesi, Baratheonların vassalları. Beş Kralın Savaşı'nda önce Renly, sonra Stannis desteklendi.
@@ -3678,8 +3730,12 @@ got.wp.KDath.info=Zamanın kendisinden daha eski olduğu varsayılan bir şehir.
 got.wp.KDath=K Dath
 got.wp.Kadar.info=Mossia'nın kalbinde büyük kalıntılar. Ne oldukları bilinmiyor ama beş kaleyle aynı kara taştan yapılmışlar. bilmece...
 got.wp.Kadar=Kader
+got.wp.KanduuBet.info≠
+got.wp.KanduuBet≠
 got.wp.Karhold.info=Karhold ve çevresindeki topraklar, Kuzey Kralı tarafından en küçük oğlu Carlon Stark'a asi lordu yendiği için ödül olarak verildi. Zamanla, Karhold'dan gelen Starklar Karstarklara dönüştü, ancak Starklara en sadık hanelerden biri olarak kaldı.
 got.wp.Karhold=Karhold
+got.wp.Karimagar.info≠
+got.wp.Karimagar≠
 got.wp.Kayakayanaya.info=Hirkun Beyliği'ni baskınlardan korumak için inşa edilen kalenin çevresinde ortaya çıkan son şehirlerden biri; krallık kuru denizden sonra çürümeye düştü, ancak savaşçı Amazonlar hala Muhafız izliyor.
 got.wp.Kayakayanaya=Kayakayanaya
 got.wp.Kayce.info=Bir zamanlar Demirdoğumlular'ın karargahı, daha sonra maceracı Kenning ve Harlow'un yardımıyla Uçurum kralları tarafından fethedildi. O zamandan beri, kasaba Batı Topraklarının bir parçası oldu ve Kenning'ler Lannister'ın vassalları oldu. Zengin tüccarlar genellikle burayı ziyaret eder.
@@ -3692,6 +3748,8 @@ got.wp.Kingshouse.info=Skagos'tan Magnarların aile mülkü. Eski lehçeden "mag
 got.wp.Kingshouse=Krallık
 got.wp.KissLock.info=Kafatası ve Öpücük Şövalyeleri Kalesi.
 got.wp.KissLock=öpücük kilidi
+got.wp.Kohuru.info≠
+got.wp.Kohuru≠
 got.wp.Koj.info=Yaz Adaları'nın en büyük tersanesi.
 got.wp.Koj=Koj
 got.wp.Korkunuchtuu.info≠
@@ -3702,6 +3760,8 @@ got.wp.KrazaajHas.info=Gardak'ın eski Ghiskar kasabası. Belki de Dothrakiler, 
 got.wp.KrazaajHas=Krazaaj Has
 got.wp.Kujruk.info≠
 got.wp.Kujruk≠
+got.wp.Kuurulgan.info≠
+got.wp.Kuurulgan≠
 got.wp.Kyth.info=Sarnor şehri Dothrakiler tarafından yok edildi.
 got.wp.Kyth=Kıt
 got.wp.Lannisport.info=Başkent ve Menzil'den sonra Westeros'un en kalabalık üçüncü şehri; Batı Topraklarının en önemli limanı ve sanayi şehridir. Zanaatkarları, özellikle kuyumcuları ve altın için Demircisileri ile ünlüdür. Şehir, genç Lannister şubesi tarafından yönetiliyor.
@@ -3754,6 +3814,14 @@ got.wp.ManticoreIsles.info=Yeşim Denizi adaları grubu. Burada neredeyse hiç i
 got.wp.ManticoreIsles=Mantikor Adaları
 got.wp.Marahai.info=Hilal şeklinde cennet adası. Koyda aktif volkanların olduğu iki ada var. Gece gündüz patlamaları ve asla uykuya dalmamaları garip görünebilir.
 got.wp.Marahai=Marahay
+got.wp.Marshes.info≠
+got.wp.Marshes≠
+got.wp.Matahau.info≠
+got.wp.Matahau≠
+got.wp.Matao.info≠
+got.wp.Matao≠
+got.wp.Maunga.info≠
+got.wp.Maunga≠
 got.wp.Meereen.info=Astapor ve Yunkai ile birlikte Köleler Körfezi'ndeki köle ticaretinin üç merkezinden biri. Şehir, Gis'ten insanlar tarafından kuruldu. Ana eğlence ve şehrin refahının temeli, savaş çukurları ve arenadaki savaşlar için köleleri eğitmektir. En büyük arena olan Daznak Büyük Çukuru (Roma Colosseum'un bir benzeri) de burada bulunuyor. Şehrin fethinden sonra Daenerys Targaryen köleliği kaldırdı ve savaş çukurlarını geçici olarak kapattı.
 got.wp.Meereen=Meereen
 got.wp.MhysaFaer.info=Valyria Kıyameti sırasında yıkılan Valyria İmparatorluğu'nun güçlü ve zengin sömürge şehirlerinden biri. Adındaki "Misa", şehrin Giskar kökenli olduğunu gösterir (haritadaki konumu büyük ölçüde tartışmalıdır).
@@ -3786,6 +3854,10 @@ got.wp.NewGhis.info=Daenerys'e karşı koalisyona katılan bir köle kasabası. 
 got.wp.NewGhis=Yeni Ghis
 got.wp.NewIbbish.info=Ibbish'in düşüşünden sonra İbbenliler tarafından, Gece Nöbetçileri Duvarı'ndan sadece biraz daha küçük olan ahşap bir duvarın arkasındaki küçük bir yarımadada inşa edilen bir kasaba. Ibbish'e kıyasla zayıf gölge, ancak yine de anakaradaki tek Ibben kolonisi.
 got.wp.NewIbbish=Yeni Ibbish
+got.wp.Ngahere.info≠
+got.wp.Ngahere≠
+got.wp.Ngarara.info≠
+got.wp.Ngarara≠
 got.wp.NightKing.info≠
 got.wp.NightKing≠
 got.wp.Nightfort.info=Gece Nöbeti'nin devasa, ilk inşa edilmiş ve ilk terk edilmiş kalesi. Kale hakkında birçok korkunç efsane vardı. Burada, Duvar'da, Duvar'ın ötesinde bir geçit oyulmuştur - cadı ağacından Kara Kapı.
@@ -3794,6 +3866,8 @@ got.wp.Nightsong.info=Karon atalarının kalesi, Karonlar Joffrey Baratheon'a ka
 got.wp.Nightsong=Gece şarkısı
 got.wp.Ninestars.info=Vadideki en güçlü hanelerden biri olan Templeton'ların atalardan kalma kalesi, bin savaşçıyı savaşa sürüklüyor. Lisa Arryn'i Robb Stark'ı desteklemeye ikna edemedi.
 got.wp.Ninestars=Dokuz Yıldız
+got.wp.NorthForests.info≠
+got.wp.NorthForests≠
 got.wp.NorthPass.info=Dört geçiş, bulutlara kadar uzanan antik mezar höyükleridir. Konumları onların savunma yapıları olduğunu gösteriyor. Ama düşmanlar içindeyse, Mossia'yı kimden ve neden savunmalı?
 got.wp.NorthPass=Kuzey Geçidi
 got.wp.Norvos.info=Sözde "sakallı rahipler" tarafından yönetilen Özgür Şehirlerden biri. Dothraki ordularından, Norvos'u geçen yol boyunca hareket eden şehir, zengin hediyelerle fidye alır.
@@ -3836,6 +3910,8 @@ got.wp.Pennytree.info=Titki adında iki tepe arasında küçük bir köy. Köy a
 got.wp.Pennytree=Kuruş ağacı
 got.wp.Pentos.info=Essos'un batı kıyısındaki en önemli liman olan Özgür Şehirlerden biri. Bu şehir, son Targaryenleri koruyan usta Illyrio Mopatis'e ev sahipliği yapıyor.
 got.wp.Pentos=Pentolar
+got.wp.Pereki.info≠
+got.wp.Pereki≠
 got.wp.Pingbei.info≠
 got.wp.Pingbei≠
 got.wp.Pingjiang.info≠
@@ -3878,10 +3954,14 @@ got.wp.RamseyTower.info=Ramsay Snow'un Leydi Hornwood'u açlıktan öldürdüğ�
 got.wp.RamseyTower=Ramsey Kulesi
 got.wp.Rathylar.info=Sarnor şehri Dothrakiler tarafından yok edildi.
 got.wp.Rathylar=Rathylar
+got.wp.Raumati.info≠
+got.wp.Raumati≠
 got.wp.RaventreeHall.info=Binlerce yıl boyunca yüzlerce kuzgunun geceyi geçirmek için akın ettiği devasa ve ölü bir pazılı Blackwood evinin aile kalesi. Blackwood'ların Kuzey'den geldikleri ve Starklar tarafından sürülene kadar neredeyse tüm Kurt Ormanı'na hükmettikleri söylenir.
 got.wp.RaventreeHall=Kuzgunağacı salonu
 got.wp.RedFlowerVale.info=Güney adasında aynı adı taşıyan ilin merkezi.
 got.wp.RedFlowerVale=Kırmızı Çiçek Vadisi
+got.wp.RedForests.info≠
+got.wp.RedForests≠
 got.wp.RedHaven.info=Pike üzerinde bulunan Demir Adalar'ndaki en büyük liman.
 got.wp.RedHaven=Kızıl Cennet
 got.wp.RedLake.info=Turnaların hanesinin kalesi, Tyrell'lerin vasalları.
@@ -3974,6 +4054,12 @@ got.wp.Snakewood.info=Linderly hanedanının kalesi, Arryn'in vassalları.
 got.wp.Snakewood=Yılan Ağacı
 got.wp.SouthPass.info=Dört geçiş, bulutlara kadar uzanan antik mezar höyükleridir. Konumları onların savunma yapıları olduğunu gösteriyor. Ama düşmanlar içindeyse, Mossia'yı kimden ve neden savunmalı?
 got.wp.SouthPass=Güney Geçidi
+got.wp.SouthPoint.info≠
+got.wp.SouthPoint≠
+got.wp.SouthTaiga.info≠
+got.wp.SouthTaiga≠
+got.wp.SouthUlthos.info≠
+got.wp.SouthUlthos≠
 got.wp.Southshield.info=Kalkan Adaları'ndan biri, Serri'nin elinde. Ardından Euron adayı Andrik Neulyba'ya verdi.
 got.wp.Southshield=Güney kalkanı
 got.wp.SparrCastle.info=Sparres Evi'nin kalesi, Greyjoy'ların vassalları.
@@ -4024,22 +4110,30 @@ got.wp.Sunspear.info=Martell Hanesi'nin atalarının evi, eski bir kaleden - Kum
 got.wp.Sunspear=Güneş mızrak
 got.wp.SuuNym.info≠
 got.wp.SuuNym≠
+got.wp.SuudanKorkuu.info≠
+got.wp.SuudanKorkuu≠
 got.wp.SweetLotusVale.info=Güney adasında aynı adı taşıyan ilin merkezi ve eski bir köle olan Xanda Ko tarafından kurulan Birleşik Yaz Adaları devletinin ilk başkenti.
 got.wp.SweetLotusVale=Tatlı Lotus Vadisi
 got.wp.SweetportSound.info=Ejderha Kayası'na yeminli Sanglass Kalesi. Bu adada mı yoksa başka bir yerde mi olduğu bilinmiyor.
 got.wp.SweetportSound=Tatlı liman sesi
+got.wp.Takutai.info≠
+got.wp.Takutai≠
 got.wp.TallTreesTown.info=Rahibelerin Konuşan Ağaçlar üzerinde yaz insanlarının tarihini, geleneklerini ve yasalarını oyduğu güneşli bir şehir.
 got.wp.TallTreesTown=Uzun Ağaçlar Kasabası
 got.wp.TarbeckHall.info=Reins ile birlikte genç Tywin'in karakterini hafife alan ve ünlü "Kastamere'den Reyna" şarkısının kahramanları olan Tarbek'in evinin kalesi
 got.wp.TarbeckHall=Tarbeck Salonu
 got.wp.Tashtoo.info≠
 got.wp.Tashtoo≠
+got.wp.Tauranga.info≠
+got.wp.Tauranga≠
 got.wp.TawneyCastle.info=Townie hanedanının kalesi, Greyjoyların vassalları.
 got.wp.TawneyCastle=Tawney Kalesi
 got.wp.Telyria.info=Valyria'nın deniz kapısı.
 got.wp.Telyria=Telyria
 got.wp.TenTowers.info=Demir Adalar en yeni kalesi, Harlow'un eski koluna aittir. Lord Harlow'un sık sık üşütüp ölen çocukları olduğu için inşa edilmişti, bu yüzden mirasçı bırakmayacağından korkmaya başladı.
 got.wp.TenTowers=On Kule
+got.wp.Teriman.info≠
+got.wp.Teriman≠
 got.wp.TheEyrie.info=Arryn Hanesi'nin atalardan kalma kalesi, Vadinin Efendileri. Ay Dağları'nın en yüksek dağı olan Dev'in Mızrağı üzerine inşa edilmiş, neredeyse zaptedilemez, ancak kışın yaşanmaz hale geliyor. Kışın Westeros'ta savaşacak çok şeyin olmaması güzel.
 got.wp.TheEyrie=Kartal Yuvası
 got.wp.ThePaps.info=Arryns'in vassalları olan Ilshem'in evinin kalesi, Soscy adasında.
@@ -4166,6 +4260,8 @@ got.wp.Whispers.info=Brienne of Tart'ın neredeyse öldüğü terk edilmiş eski
 got.wp.Whispers=Fısıltılar
 got.wp.WhiteHarbour.info=Westeros'taki en büyük beş şehirden biri ve kuzeydeki en önemli liman. Şehir, Starklar bu toprakları Manderly Expanse'den sürgün edilenlere verene kadar birçok kez sahiplerini değiştiren Wolf's Lair'in eski kalesinin etrafında inşa edilmiştir. Yeni gelenler, şehir surlarının dışında beyaz duvarlı bir Yeni Kale inşa ettiler.
 got.wp.WhiteHarbour=Beyaz Liman
+got.wp.WhiteMountains.info≠
+got.wp.WhiteMountains≠
 got.wp.WhiteWalls.info=Butterwell'lerin atadan kalma alanı. Zengin büyük kale sadece 40 yıl sürdü ve İkinci Kara Ateş Ayaklanması'nın başarısızlığından sonra yıkıldı.
 got.wp.WhiteWalls=Beyaz duvarlar
 got.wp.WhiteWood.info=Dev bir cadı ağacının gölgesinde küçük bir yabanıl köyü.

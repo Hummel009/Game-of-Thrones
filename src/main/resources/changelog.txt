@@ -26,6 +26,7 @@ CHANGELOG
 * Recoded lots of NPC: now they can be women
 * Recoded biomes: now ArrayLists instead of Arrays needed
 
+* Fixed bug with white walkers attack ai
 * Fixed bug with 2 names
 * Fixed bug with one westeros female name
 * Fixed bug with Si Qo Gate

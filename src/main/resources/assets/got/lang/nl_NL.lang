@@ -1,16 +1,4 @@
 ﻿
-entity.got.SummerGoldsmith.name≠
-entity.got.YiTiGoldsmith.name≠
-entity.got.IbbenGoldsmith.name≠
-entity.got.IbbenMiner.name≠
-entity.got.IbbenFlorist.name≠
-entity.got.YiTiMiner.name≠
-entity.got.YiTiFlorist.name≠
-entity.got.SummerMiner.name≠
-entity.got.SummerFlorist.name≠
-got.biome.yiTiMarshes≠
-got.biome.jogosNhaiHills≠
-got.structure.DatabaseGenerator.name≠
 attribute.name.generic.movementSpeedAir=Snelheid (lucht)
 color.black=Zwart
 color.blue=Blauw
@@ -63,13 +51,13 @@ entity.got.ArrynFarmhand.name=Boerenknecht van de Vallei van Arryn
 entity.got.ArrynFishmonger.name=Vishandelaar van de Vallei van Arryn
 entity.got.ArrynFlorist.name=Bloemist van de Vallei van Arryn
 entity.got.ArrynGoldsmith.name≠
-entity.got.ArrynMiner.name=Groenteman de van Vallei van Arryn
 entity.got.ArrynGuard.name=Gulltown Bewaker
 entity.got.ArrynLevyman.name=Militie van de Vallei van Arryn
 entity.got.ArrynLevymanArcher.name=Militie Boogschutter de van Vallei van Arryn
 entity.got.ArrynLumberman.name=Houthakker van de Vallei van Arryn
 entity.got.ArrynMan.name=Man van de Vallei van Arryn
 entity.got.ArrynMason.name=Metselaar van de Vallei van Arryn
+entity.got.ArrynMiner.name=Groenteman de van Vallei van Arryn
 entity.got.ArrynSoldier.name=Krijger van de Vallei van Arryn
 entity.got.ArrynSoldierArcher.name=Krijger Boogschutter van de Vallei van Arryn
 entity.got.AryaStark.name=Arya Stark
@@ -104,6 +92,7 @@ entity.got.BericDondarrionLife6.name=Beric Dondarrion
 entity.got.Bird.name=Vogel
 entity.got.Bison.name=Bison
 entity.got.BlackWalderFrey.name≠
+entity.got.Blizzard.name≠
 entity.got.Boar.name=Wild Zwijn
 entity.got.Bomb.name≠
 entity.got.BraavosBaker.name=Bakker van Braavos
@@ -157,13 +146,13 @@ entity.got.CrownlandsFarmhand.name=Boerenknecht van de Kroonlanden
 entity.got.CrownlandsFishmonger.name=Visboer van de Kroonlanden
 entity.got.CrownlandsFlorist.name=Bloemist van de Kroonlanden
 entity.got.CrownlandsGoldsmith.name≠
-entity.got.CrownlandsMiner.name=Groenteman van de Kroonlanden
 entity.got.CrownlandsGuard.name=Koning's Landing Beschermer
 entity.got.CrownlandsLevyman.name=Militie van de Kroonlanden
 entity.got.CrownlandsLevymanArcher.name=Militie Boogschutter van de Kroonlanden
 entity.got.CrownlandsLumberman.name=Houthakker van de Kroonlanden
 entity.got.CrownlandsMan.name=Man van de Kroonlanden
 entity.got.CrownlandsMason.name=Metselaar van de Kroonlanden
+entity.got.CrownlandsMiner.name=Groenteman van de Kroonlanden
 entity.got.DaarioNaharis.name≠
 entity.got.DaenerysTargaryen.name=Daenerys Targaryen
 entity.got.Dagmer.name≠
@@ -188,12 +177,12 @@ entity.got.DorneFarmhand.name=Boerenknecht van Dorne
 entity.got.DorneFishmonger.name=Visboer van Dorne
 entity.got.DorneFlorist.name=Bloemist van Dorne
 entity.got.DorneGoldsmith.name≠
-entity.got.DorneMiner.name=Groenteman van Dorne
 entity.got.DorneLevyman.name=Militie van Dorne
 entity.got.DorneLevymanArcher.name=Militie Boogschutter van Dorne
 entity.got.DorneLumberman.name=Houthakker van Dorne
 entity.got.DorneMan.name=Man van Dorne
 entity.got.DorneMason.name=Metselaar van Dorne
+entity.got.DorneMiner.name=Groenteman van Dorne
 entity.got.DorneSoldier.name=Krijger van Dorne
 entity.got.DorneSoldierArcher.name=Krijger Boogschutter van Dorne
 entity.got.Dothraki.name=Dothraki
@@ -213,12 +202,12 @@ entity.got.DragonstoneFarmhand.name=Boerenknecht van Drakensteen
 entity.got.DragonstoneFishmonger.name=Visboer van Drakensteen
 entity.got.DragonstoneFlorist.name=Bloemist van Drakensteen
 entity.got.DragonstoneGoldsmith.name≠
-entity.got.DragonstoneMiner.name=Groenteman van Drakensteen
 entity.got.DragonstoneLevyman.name=Militie van Drakensteen
 entity.got.DragonstoneLevymanArcher.name=Militie Boogschutter van Drakensteen
 entity.got.DragonstoneLumberman.name=Houthakker van Drakensteen
 entity.got.DragonstoneMan.name=Man van Drakensteen
 entity.got.DragonstoneMason.name=Metselaar van Drakensteen
+entity.got.DragonstoneMiner.name=Groenteman van Drakensteen
 entity.got.DragonstoneSoldier.name=Krijger van Drakensteen
 entity.got.DragonstoneSoldierArcher.name=Krijger Boogschutter van Drakensteen
 entity.got.DunstanDrumm.name=Dunstan Drumm
@@ -317,17 +306,20 @@ entity.got.IbbenArcher.name=Boogschutter van Ibben
 entity.got.IbbenAxeThrower.name=Bijlwerper van Ibben
 entity.got.IbbenBaker.name=Baker van Ibben
 entity.got.IbbenBannerBearer.name=Vlagdrager van Ibben
+entity.got.IbbenBartender.name=Drank-organisateur van Ibben
 entity.got.IbbenBlacksmith.name=Smid van Ibben
 entity.got.IbbenBrewer.name=Brouwer van Ibben
-entity.got.IbbenMason.name=Bouwer van Ibben
 entity.got.IbbenButcher.name=Slager van Ibben
 entity.got.IbbenFarmer.name=Boer van Ibben
 entity.got.IbbenFarmhand.name=Boerenknecht van Ibben
 entity.got.IbbenFishmonger.name=Visboer van Ibben
+entity.got.IbbenFlorist.name=Opdrachtgever van Ibben
+entity.got.IbbenFlorist.name≠
+entity.got.IbbenGoldsmith.name≠
 entity.got.IbbenLumberman.name=Houthakker van Ibben
 entity.got.IbbenMan.name=Mens
-entity.got.IbbenBartender.name=Drank-organisateur van Ibben
-entity.got.IbbenFlorist.name=Opdrachtgever van Ibben
+entity.got.IbbenMason.name=Bouwer van Ibben
+entity.got.IbbenMiner.name≠
 entity.got.IbbenStablemaster.name=Stablemaster van Ibben
 entity.got.IbbenWarlord.name=Kapitein van Ibben
 entity.got.IbbenWarrior.name=Krijger van Ibben
@@ -348,12 +340,12 @@ entity.got.IronbornFarmhand.name=Boerenknecht van de IJzereilanden
 entity.got.IronbornFishmonger.name=Vishandelaar van de IJzereilanden
 entity.got.IronbornFlorist.name=Bloemist van de IJzereilanden
 entity.got.IronbornGoldsmith.name≠
-entity.got.IronbornMiner.name=Groenteman van de IJzereilanden
 entity.got.IronbornLevyman.name=Militie van de IJzereilanden
 entity.got.IronbornLevymanArcher.name=Militie Boogschutter van de IJzereilanden
 entity.got.IronbornLumberman.name=Houthakker van de IJzereilanden
 entity.got.IronbornMan.name=Man van de IJzereilanden
 entity.got.IronbornMason.name=Metselaar van de IJzereilanden
+entity.got.IronbornMiner.name=Groenteman van de IJzereilanden
 entity.got.IronbornPriest.name≠
 entity.got.IronbornSoldier.name=Strijder van de IJzereilanden
 entity.got.IronbornSoldierArcher.name=Boogschutter van de IJzereilanden
@@ -514,7 +506,6 @@ entity.got.NorthFarmhand.name=Boerenknecht van het Noorden
 entity.got.NorthFishmonger.name=Visboer van het Noorden
 entity.got.NorthFlorist.name=Bloemist van het Noorden
 entity.got.NorthGoldsmith.name≠
-entity.got.NorthMiner.name=Groenteman van het Noorden
 entity.got.NorthGuard.name=Noordelijke Havenwacht
 entity.got.NorthHillman.name=Noordelijke Hillman
 entity.got.NorthHillmanArcher.name=Noordelijke Hillman Boogschutter
@@ -529,6 +520,7 @@ entity.got.NorthLevymanArcher.name=Militie Boogschutter van het Noorden
 entity.got.NorthLumberman.name=Houthakker van het Noorden
 entity.got.NorthMan.name=Man van het Noorden
 entity.got.NorthMason.name=Metselaar van het Noorden
+entity.got.NorthMiner.name=Groenteman van het Noorden
 entity.got.NorthSoldier.name=Krijger van het Noorden
 entity.got.NorthSoldierArcher.name=Krijger Boogschutter het Noorden
 entity.got.NorvosBaker.name=Baker van Norvos
@@ -644,13 +636,13 @@ entity.got.ReachFarmhand.name=Farmhand van Bereik
 entity.got.ReachFishmonger.name=Fishmonger van Bereik
 entity.got.ReachFlorist.name=Bloemist van Bereik
 entity.got.ReachGoldsmith.name≠
-entity.got.ReachMiner.name=Groenteman van Bereik
 entity.got.ReachGuard.name=Oldtown Guardian
 entity.got.ReachLevyman.name=Militie van Bereik
 entity.got.ReachLevymanArcher.name=Militie Boogschutter van Bereik
 entity.got.ReachLumberman.name=Houthakker van Bereik
 entity.got.ReachMan.name=Man van Bereik
 entity.got.ReachMason.name=Mason van Bereik
+entity.got.ReachMiner.name=Groenteman van Bereik
 entity.got.ReachSoldier.name=Krijger van Bereik
 entity.got.ReachSoldierArcher.name=Krijger Boogschutter van Bereik
 entity.got.RedPriest.name≠
@@ -671,12 +663,12 @@ entity.got.RiverlandsFarmhand.name=Boerenknecht van Rivierlanden
 entity.got.RiverlandsFishmonger.name=Visboer van Rivierlanden
 entity.got.RiverlandsFlorist.name=Bloemist van Rivierlanden
 entity.got.RiverlandsGoldsmith.name≠
-entity.got.RiverlandsMiner.name=Groenteman van Rivierlanden
 entity.got.RiverlandsLevyman.name=Militie van Rivierlanden
 entity.got.RiverlandsLevymanArcher.name=Militie Boogschutter van Rivierlanden
 entity.got.RiverlandsLumberman.name=Houthakker van Rivierlanden
 entity.got.RiverlandsMan.name=Man van Rivierlanden
 entity.got.RiverlandsMason.name=Metselaar van Rivierlanden
+entity.got.RiverlandsMiner.name=Groenteman van Rivierlanden
 entity.got.RiverlandsSoldier.name=Strijder van Rivierlanden
 entity.got.RiverlandsSoldierArcher.name=Krijger Boogschutter van Rivierlanden
 entity.got.RobbStark.name=Robb Stark
@@ -697,6 +689,7 @@ entity.got.Septon.name≠
 entity.got.Shadowcat.name=Schaduw kat
 entity.got.Shae.name≠
 entity.got.ShireenBaratheon.name≠
+entity.got.Shryke.name≠
 entity.got.SmokeRing.name=Rookkring
 entity.got.SnowBear.name=Sneeuw Beer
 entity.got.SothoryosBannerBearer.name=Sothoryos Vlaghouder
@@ -723,12 +716,12 @@ entity.got.StormlandsFarmhand.name=Boerenknecht van Stormlanden
 entity.got.StormlandsFishmonger.name=Visboer van Stormlanden
 entity.got.StormlandsFlorist.name=Bloemist van Stormlanden
 entity.got.StormlandsGoldsmith.name≠
-entity.got.StormlandsMiner.name=Groenteman van Stormlanden
 entity.got.StormlandsLevyman.name=Militie van Stormlanden
 entity.got.StormlandsLevymanArcher.name=Militie Boogschutter van Stormlanden
 entity.got.StormlandsLumberman.name=Houthakker van Stormlanden
 entity.got.StormlandsMan.name=Man van Stormlanden
 entity.got.StormlandsMason.name=Metselaar van Stormlanden
+entity.got.StormlandsMiner.name=Groenteman van Stormlanden
 entity.got.StormlandsSoldier.name=Krijger van Stormlanden
 entity.got.StormlandsSoldierArcher.name=Krijger Boogschutter van Stormlanden
 entity.got.SummerArcher.name=Boogschutter van Zomereilanden
@@ -741,11 +734,14 @@ entity.got.SummerButcher.name=Slager van de Zomereilanden
 entity.got.SummerFarmer.name=Boer van Zomereilanden
 entity.got.SummerFarmhand.name=Boerenknecht van Zomereilanden
 entity.got.SummerFishmonger.name=Visboer van Zomereilanden
+entity.got.SummerFlorist.name≠
+entity.got.SummerGoldsmith.name≠
 entity.got.SummerHunter.name=Jager van Zomereilanden
 entity.got.SummerLumberman.name=Houthakker van Zomereilanden
 entity.got.SummerMan.name=Man van Zomereilanden
 entity.got.SummerMason.name=Mason van Zomereilanden
 entity.got.SummerMiner.name=Mijnwerker van Zomereilanden
+entity.got.SummerMiner.name≠
 entity.got.SummerWarlord.name=Warlord van Zomereilanden
 entity.got.SummerWarrior.name=Krijger van Zomereilanden
 entity.got.Swan.name=Zwaan
@@ -834,13 +830,13 @@ entity.got.WesterlandsFarmhand.name=Boerenknecht van Westlanden
 entity.got.WesterlandsFishmonger.name=Visboer van Westlanden
 entity.got.WesterlandsFlorist.name=Bloemist van Westlanden
 entity.got.WesterlandsGoldsmith.name≠
-entity.got.WesterlandsMiner.name=Groenteman van Westlanden
 entity.got.WesterlandsGuard.name=Lannisport Guardian
 entity.got.WesterlandsLevyman.name=Militie van Westlanden
 entity.got.WesterlandsLevymanArcher.name=Militie Boogschutter van Westlanden
 entity.got.WesterlandsLumberman.name=Houthakker van Westlanden
 entity.got.WesterlandsMan.name=Man van Westlanden
 entity.got.WesterlandsMason.name=Metselaar van Westlanden
+entity.got.WesterlandsMiner.name=Groenteman van Westlanden
 entity.got.WesterlandsSoldier.name=Strijder van Westlanden
 entity.got.WesterlandsSoldierArcher.name=Krijger Boogschutter van Westlanden
 entity.got.WesterosBandit.name=Bandit
@@ -875,15 +871,18 @@ entity.got.YiTiFarmer.name=Boer van Yi Ti
 entity.got.YiTiFarmhand.name=Boerenknecht van Yi Ti
 entity.got.YiTiFireThrower.name=Vuurpriester van Yi Ti
 entity.got.YiTiFishmonger.name=Visboer van Yi Ti
+entity.got.YiTiFlorist.name≠
 entity.got.YiTiFrontier.name≠
 entity.got.YiTiFrontierCrossbower.name≠
 entity.got.YiTiGoldsmith.name=Goudsmid van Yi Ti
+entity.got.YiTiGoldsmith.name≠
 entity.got.YiTiHunter.name=Jager van Yi Ti
 entity.got.YiTiLevyman.name=Militie van Yi Ti
 entity.got.YiTiLevymanCrossbower.name≠
 entity.got.YiTiLumberman.name=Houthakker van Yi Ti
 entity.got.YiTiMan.name=Man van Yi Ti
 entity.got.YiTiMason.name=Metselaar van Yi Ti
+entity.got.YiTiMiner.name≠
 entity.got.YiTiSamurai.name=Samurai van Yi Ti
 entity.got.YiTiShogune.name=Shogun van Yi Ti
 entity.got.YiTiSoldier.name=Soldaat van Yi Ti
@@ -1094,6 +1093,8 @@ got.achievement.KILL_SANDOR_CLEGANE.desc=Dood Sandor Clegane
 got.achievement.KILL_SANDOR_CLEGANE.title=Hondenjager
 got.achievement.KILL_SANSA_STARK.desc=Dood Sansa Stark
 got.achievement.KILL_SANSA_STARK.title=Je hebt je vader verraden!
+got.achievement.KILL_SHRYKE.desc≠
+got.achievement.KILL_SHRYKE.title≠
 got.achievement.KILL_THENN_BERSERKER.desc=Dood de thenn-berserker
 got.achievement.KILL_THENN_BERSERKER.title=Krachtiger
 got.achievement.KILL_THE_KING.desc=Dood een willekeurige koning van zeven koninkrijken
@@ -1306,6 +1307,8 @@ got.achievement.VISIT_PENTOS.desc=Bezoek Pentos
 got.achievement.VISIT_PENTOS.title=Tegenover King's landing
 got.achievement.VISIT_QARTH.desc=Bezoek The Quarth
 got.achievement.VISIT_QARTH.title=Land van kooplieden
+got.achievement.VISIT_QARTH_COLONY.desc≠
+got.achievement.VISIT_QARTH_COLONY.title≠
 got.achievement.VISIT_QARTH_DESERT.desc=Bezoek de rode woestijn
 got.achievement.VISIT_QARTH_DESERT.title=Rood zand
 got.achievement.VISIT_QOHOR.desc=Bezoek Qohor
@@ -1326,6 +1329,8 @@ got.achievement.VISIT_SHADOW_MOUNTAINS.desc=Bezoek de Dawn Mountains
 got.achievement.VISIT_SHADOW_MOUNTAINS.title=Заслоняя солнце
 got.achievement.VISIT_SHADOW_WASTELAND.desc=Bezoek The Wasteland van Shadows
 got.achievement.VISIT_SHADOW_WASTELAND.title=Хуже пустоши
+got.achievement.VISIT_SHRYKES_LAND.desc≠
+got.achievement.VISIT_SHRYKES_LAND.title≠
 got.achievement.VISIT_SKAGOS.desc=Bezoek Skagos
 got.achievement.VISIT_SKAGOS.title=Op zoek naar een wolharige neushoorn
 got.achievement.VISIT_SKIRLING_PASS.desc=Bezoek de Skirling Pass
@@ -1356,6 +1361,8 @@ got.achievement.VISIT_STONE_COAST.desc=Bezoek de Stony Shore
 got.achievement.VISIT_STONE_COAST.title=Appel van twist
 got.achievement.VISIT_STORMLANDS.desc=Bezoek de Stormlanden
 got.achievement.VISIT_STORMLANDS.title=De onze is de woede
+got.achievement.VISIT_SUMMER_COLONY.desc≠
+got.achievement.VISIT_SUMMER_COLONY.title≠
 got.achievement.VISIT_SUMMER_ISLANDS.desc=Bezoek de Zomereilanden
 got.achievement.VISIT_SUMMER_ISLANDS.title=Zuidelijke eilanden
 got.achievement.VISIT_TARTH.desc=Bezoek Tarth
@@ -1372,8 +1379,20 @@ got.achievement.VISIT_ULTHOS.desc=Bezoek Ulthos
 got.achievement.VISIT_ULTHOS.title=Spinnen, mist, privacy
 got.achievement.VISIT_ULTHOS_DESERT.desc=Bezoek de woestijn van Ulthos
 got.achievement.VISIT_ULTHOS_DESERT.title=Nou ja, er zijn tenminste geen spinnen ergens
+got.achievement.VISIT_ULTHOS_DESERT_COLD.desc≠
+got.achievement.VISIT_ULTHOS_DESERT_COLD.title≠
+got.achievement.VISIT_ULTHOS_FOREST.desc≠
+got.achievement.VISIT_ULTHOS_FOREST.title≠
+got.achievement.VISIT_ULTHOS_FROST.desc≠
+got.achievement.VISIT_ULTHOS_FROST.title≠
+got.achievement.VISIT_ULTHOS_MARSHES.desc≠
+got.achievement.VISIT_ULTHOS_MARSHES.title≠
 got.achievement.VISIT_ULTHOS_MOUNTAINS.desc=Bezoek de bergen van Ulthos
 got.achievement.VISIT_ULTHOS_MOUNTAINS.title=Met een witte rand
+got.achievement.VISIT_ULTHOS_RED_FOREST.desc≠
+got.achievement.VISIT_ULTHOS_RED_FOREST.title≠
+got.achievement.VISIT_ULTHOS_TAIGA.desc≠
+got.achievement.VISIT_ULTHOS_TAIGA.title≠
 got.achievement.VISIT_VALYRIA.desc=Bezoek het schiereiland Valyrian
 got.achievement.VISIT_VALYRIA.title=Ruïnes van het rijk
 got.achievement.VISIT_VALYRIA_SEA.desc=Bezoek de Rokende Zee
@@ -1541,6 +1560,7 @@ got.biome.beachWhite=Wit Strand
 got.biome.blackIslands=Eilanden van Blackwater Bay
 got.biome.boneMountains=Bone Mountains
 got.biome.braavos=Braavos
+got.biome.cannibalSandsHills≠
 got.biome.coldCoast=Koude kust
 got.biome.crackclaw=Crackclaw Point
 got.biome.crownlands=Kroonlanden
@@ -1579,7 +1599,10 @@ got.biome.island=Eiland
 got.biome.isleOfFaces=Isle van Faces
 got.biome.jogosNhai=Jogos Nhai Plains
 got.biome.jogosNhaiDesert=Gedroogde woestijn
+got.biome.jogosNhaiHills≠
+got.biome.kanduuBet=Mossovy Forest
 got.biome.kingSpears=Speren van de Waterkoning
+got.biome.kuurulgan≠
 got.biome.lake=Meer
 got.biome.lhazar=Lhazar
 got.biome.longSummer=Landen van de lange zomer
@@ -1589,9 +1612,6 @@ got.biome.massy=Massy's Hook
 got.biome.meereen=Meereen
 got.biome.mercenary=Betwiste landen
 got.biome.mossovy=Mossovy
-got.biome.kanduuBet=Mossovy Forest
-got.biome.suudanKorkuu=Mossovy moerassen
-got.biome.kuurulgan≠
 got.biome.mossovyTundra=Mossovy-toendra
 got.biome.myr=Myr
 got.biome.naath=Naath
@@ -1607,6 +1627,7 @@ got.biome.norvos=Norvos
 got.biome.ocean=Oceaan
 got.biome.pentos=Pentos
 got.biome.qarth=Qarth
+got.biome.qarthColony≠
 got.biome.qarthDesert=Qarth-woestijn
 got.biome.qohor=Qohor
 got.biome.qohorForest=Qohor Forest
@@ -1624,6 +1645,7 @@ got.biome.shadowLand=Land van de Schaduw
 got.biome.shadowMountains=Dawn Mountains
 got.biome.shadowTown=Asshai
 got.biome.shadowWasteland=Wasteland van de Schaduw
+got.biome.shrykesLand≠
 got.biome.skagos=Skagos
 got.biome.skirlingPass=Skirling Pass
 got.biome.sothoryosBushland=Sothoryos Bushland
@@ -1643,7 +1665,9 @@ got.biome.stepstones=Stappen
 got.biome.stoneCoast=Stone Coast
 got.biome.stormlands=Stormlanden
 got.biome.stormlandsTown=Kaap Durran
+got.biome.summerColony≠
 got.biome.summerIslands=Zomer eilanden
+got.biome.suudanKorkuu=Mossovy moerassen
 got.biome.tarth=Tarth
 got.biome.thenn=Thenn Land
 got.biome.tropicalForest=Tropische bossen
@@ -1651,7 +1675,17 @@ got.biome.tyrosh=Tyrosh
 got.biome.ulos≠
 got.biome.ulthos=Ulthos
 got.biome.ulthosDesert=Ulthos-woestijn
+got.biome.ulthosDesertCold≠
+got.biome.ulthosForestEdge≠
+got.biome.ulthosForest≠
+got.biome.ulthosFrost≠
+got.biome.ulthosMarshesForest≠
+got.biome.ulthosMarshes≠
 got.biome.ulthosMountains=Ulthos-gebergte
+got.biome.ulthosRedForestEdge≠
+got.biome.ulthosRedForest≠
+got.biome.ulthosTaigaEdge≠
+got.biome.ulthosTaiga≠
 got.biome.valyria=Valyria-schiereiland
 got.biome.valyriaSea=Valyria-zee
 got.biome.valyriaVolcano=Valyria-vulkanen
@@ -1668,6 +1702,7 @@ got.biome.whisperingWood=Whispering Wood
 got.biome.wolfswood=Wolfswood
 got.biome.yeen=Yeen Wasteland
 got.biome.yiTi=Yi Ti
+got.biome.yiTiMarshes≠
 got.biome.yiTiWasteland=Yi Ti grenszone
 got.biome.yunkai=Yunkai
 got.capes.ARRYN.name=Kaap van Vallei van Arryn
@@ -2755,6 +2790,7 @@ got.structure.CrownlandsTavern.name=Herberg van Kroonlanden
 got.structure.CrownlandsTower.name=Torentje van Kroonlanden
 got.structure.CrownlandsWatchfort.name=Watchfort van Kroonlanden
 got.structure.CrownlandsWatchtower.name=Uitkijktoren van Kroonlanden
+got.structure.DatabaseGenerator.name≠
 got.structure.DorneBarn.name=Schuur van Dorne
 got.structure.DorneBath.name=Bad van Dorne
 got.structure.DorneCityBig.name=Stad Dorne
@@ -3346,6 +3382,8 @@ got.wp.Asshai.info=Een grote havenstad, bekend om mensen die bedreven zijn in to
 got.wp.Asshai=Asshai
 got.wp.Astapor.info=Een van de drie slavenhandelscentra in Slaver's Bay, samen met Meereen en Yunkai. De stad is gesticht door immigranten uit Gis en staat bekend om de bijzonder goed opgeleide slaven van de Flawless; een leger van de onbezoedelden vanwege discipline, moed en loyaliteit wordt in de hele bekende wereld zeer gewaardeerd.
 got.wp.Astapor=Astapor
+got.wp.Ataahua.info≠
+got.wp.Ataahua≠
 got.wp.Atranta.info=Voorouderlijk kasteel van de jongere tak van de Vance, de vazallen van Tully.
 got.wp.Atranta=Atranta
 got.wp.Azhydaar.info≠
@@ -3366,10 +3404,14 @@ got.wp.BarterBeach.info=Het strand waar piraten met elkaar handelden. Mogelijk e
 got.wp.BarterBeach=Ruilhandel strand
 got.wp.Bashkaruuchu.info≠
 got.wp.Bashkaruuchu≠
+got.wp.Batargas.info≠
+got.wp.Batargas≠
 got.wp.Bayasabhad.info=Een van de laatste steden die rond de citadel is ontstaan, gebouwd om het leengoed van Hirkun te beschermen tegen invallen; het koninkrijk raakte in verval na de droge zee, maar de oorlogszuchtige Amazones houden nog steeds de wacht in de gaten.
 got.wp.Bayasabhad=Bayasab had
 got.wp.Bhorash.info=Ruïnes van een stad in Valyrian van Ghiskar aan de Demon Road. Vernietigd na de Rots van Valyria, en door wie het onbekend is.
 got.wp.Bhorash=Bhorash
+got.wp.BigLake.info≠
+got.wp.BigLake≠
 got.wp.Bitterbridge.info=Het voorouderlijk kasteel van het Huis van de Caswells. Hier werd de winnaar van het toernooi, Brienne Tarth, door koning Renly naar zijn Rainbow Guard gebracht.
 got.wp.Bitterbridge=Bitterbridge
 got.wp.BlackHeart.info=Het kasteel van het uitgestorven House Toyn, van hen afgenomen na de mislukte aanslag op Aegon III de Onwaardige. Het werd later bezet door het Connington House.
@@ -3414,6 +3456,8 @@ got.wp.CastleLychester.info=Het vervallen kasteel van Leicester, waar het detach
 got.wp.CastleLychester=Kasteel Lychester
 got.wp.CatfishRock.info=Het kasteel van het voormalige koningshuis van Fischer.
 got.wp.CatfishRock=Meerval Rock
+got.wp.CentralForests.info≠
+got.wp.CentralForests≠
 got.wp.Chroyane.info=In de oudheid was het de welvarende Roinar-stad Kroyane. Nadat Saroi was verbrand door de drakenheren, riep Prins Kroyane genaamd Garin de Rhoynar op om zich te verenigen en de indringers te bestrijden. Helaas, na een reeks overwinningen kwamen tientallen drakenheren uit Valyria en de Roynar viel. Garin werd in een kooi naar Kroyan gebracht, zodat hij kon zien hoe zijn volk tot slaaf werd gemaakt en de stad platbrandde. Wanhopig vervloekte Garin de Valyriërs - toen kwamen de sporen van een grijze ziekte boven Roina ... Nu worden de slachtoffers van deze ziekte hier verdreven. Dus de prachtige stad veranderde in een enorme leprakolonie.
 got.wp.Chroyane=Chroyane
 got.wp.CiderHall.info=Het kasteel van het huis van de Fossoveevs uit de tak van de Rode Appel.
@@ -3464,6 +3508,8 @@ got.wp.Downdelving.info=Castle on Great Vic, eigendom van een van de jongere tak
 got.wp.Downdelving=Downdelving
 got.wp.Draconys.info=Een van de machtige en rijke koloniale steden van het Valyrische rijk, verwoest tijdens de ondergang van Valyria.
 got.wp.Draconys=Draconys
+got.wp.DragonPlace.info≠
+got.wp.DragonPlace≠
 got.wp.Dragonstone.info=Het eiland en het onneembare fort met dezelfde naam. Enkele eeuwen geleden kwamen de Targaryens hier aan vanuit Old Valyria, en na hun toetreding en de bouw van King's Landing werd de titel van Prins van Drakensteen gedragen door de oudste zoon en erfgenaam van de koning. Na de omverwerping van de Targaryens werd het kasteel overgedragen aan Stannis Baratheon.
 got.wp.Dragonstone=Drakensteen
 got.wp.Dreadfort.info=Voorouderlijk kasteel van het huis van Bolton, vazallen van de Starks. Boltons behoren tot de sterkste en oudste huizen in het Noorden. Ze wedijverden duizenden jaren met de Starks en knielden nog maar duizend jaar geleden voor Winterfell. Vroeger droegen de heren van Bolton leren mantels die van levende mensen waren ontdaan; Na verloop van tijd hebben de Starks deze traditie gesmoord, maar volgens de oude Nan worden sommige van de oude trofeeën nog steeds in Dredford bewaard (inclusief de huid van enkele van de Starks).
@@ -3480,6 +3526,10 @@ got.wp.Duskendale.info=Een grote havenstad geregeerd door het huis van de Rikker
 got.wp.Duskendale=Duskendale
 got.wp.DyreDen.info=Het kasteel is een van de takken van het Huis van Brune, vazallen van de Baratheons.
 got.wp.DyreDen=Dyre Den
+got.wp.EastBay.info≠
+got.wp.EastBay≠
+got.wp.EastCoast.info≠
+got.wp.EastCoast≠
 got.wp.EastPass.info=Vier passen zijn oude grafheuvels, tot aan de wolken. Hun locatie suggereert dat het verdedigingsstructuren waren. Maar van wie en waarom Mossia verdedigen, als de vijanden erin zitten?
 got.wp.EastPass=EastPass
 got.wp.EastWatch.info=Het meest oostelijke kasteel van de Nachtwacht, geregeerd door Cotter Pike. Een van de drie actief. In tegenstelling tot de anderen zijn de broers van de Eastern Watch actief betrokken bij de handel.
@@ -3598,6 +3648,8 @@ got.wp.Harroway.info=Harroway
 got.wp.Harroway=Harrynhal
 got.wp.HarvestHall.info=Het kasteel van het huis van Selmy, de vazallen van de Baratheons. De legendarische Barristan Selmy werd hier geboren.
 got.wp.HarvestHall=Oogsthal
+got.wp.Hauauru.info≠
+got.wp.Hauauru≠
 got.wp.Hayford.info=Castle House Hayford van de Royal Lands. Hier begon Jaime Lannister te trainen bij Elin Payne.
 got.wp.Hayford=Hayford
 got.wp.HaystackHall.info=Voorouderlijk kasteel van House Errol, vazallen van de Baratheons. In de Oorlog van de Vijf Koningen werd Renly gesteund, daarna Stannis.
@@ -3678,8 +3730,12 @@ got.wp.KDath.info=Een stad die zogenaamd ouder is dan de tijd zelf. Bloedige off
 got.wp.KDath=K Dath
 got.wp.Kadar.info=Enorme ruïnes in het hart van Mossia. Het is niet bekend waar ze van over waren, maar ze zijn gemaakt van dezelfde zwarte steen als vijf bolwerken. Raadsel ...
 got.wp.Kadar=Kadar
+got.wp.KanduuBet.info≠
+got.wp.KanduuBet≠
 got.wp.Karhold.info=Karhold en de landen eromheen werden door de koning van het Noorden aan zijn jongste zoon Carlon Stark geschonken als beloning voor het verslaan van de opstandige heer. Na verloop van tijd veranderden de Starks van Karhold in Karstarks, maar bleven ze een van de meest toegewijde huizen aan de Starks.
 got.wp.Karhold=Karhold
+got.wp.Karimagar.info≠
+got.wp.Karimagar≠
 got.wp.Kayakayanaya.info=Een van de laatste steden die rond de citadel is ontstaan, gebouwd om het leengoed van Hirkun te beschermen tegen invallen; het koninkrijk raakte in verval na de droge zee, maar de oorlogszuchtige Amazones houden nog steeds de wacht in de gaten.
 got.wp.Kayakayanaya=Kayakayanaya
 got.wp.Kayce.info=Ooit het hoofdkwartier van de Ironborn, later veroverd door de koningen van de klif met de hulp van de avontuurlijke Kenning en Harlow. Sindsdien maakt de stad deel uit van de Western Lands en zijn de Kennings vazallen van de Lannister. Vermogende kooplieden bezoeken hier vaak.
@@ -3692,6 +3748,8 @@ got.wp.Kingshouse.info=Het familiedomein van de Magnars uit Skagos. Van het oude
 got.wp.Kingshouse=Kingshouse
 got.wp.KissLock.info=Kasteel van de Ridders van Schedels en Kussen.
 got.wp.KissLock=Kiss Lock
+got.wp.Kohuru.info≠
+got.wp.Kohuru≠
 got.wp.Koj.info=De grootste scheepswerf van de Zomereilanden.
 got.wp.Koj=Koj
 got.wp.Korkunuchtuu.info≠
@@ -3702,6 +3760,8 @@ got.wp.KrazaajHas.info=De voormalige Ghiskar-stad Gardak. Misschien gaven de Dot
 got.wp.KrazaajHas=Krazaaj heeft
 got.wp.Kujruk.info≠
 got.wp.Kujruk≠
+got.wp.Kuurulgan.info≠
+got.wp.Kuurulgan≠
 got.wp.Kyth.info=Sarnor stad verwoest door de Dothraki.
 got.wp.Kyth=Kyth
 got.wp.Lannisport.info=De derde meest bevolkte stad Westeros na de hoofdstad en de oude binnenstad; de belangrijkste haven- en industriestad van de Westelijke Landen. Het is beroemd om zijn ambachtslieden, vooral goudsmeden en smeden voor goud. De stad wordt geregeerd door de junior Lannister-tak.
@@ -3754,6 +3814,14 @@ got.wp.ManticoreIsles.info=De Jade Sea-eilandengroep. Er zijn hier bijna geen me
 got.wp.ManticoreIsles=Manticore-eilanden
 got.wp.Marahai.info=Paradijs-eiland in de vorm van een halve maan. Er zijn twee eilanden met actieve vulkanen in de baai. Het lijkt misschien vreemd dat ze dag en nacht uitbarsten en nooit in slaap vallen.
 got.wp.Marahai=Marahai
+got.wp.Marshes.info≠
+got.wp.Marshes≠
+got.wp.Matahau.info≠
+got.wp.Matahau≠
+got.wp.Matao.info≠
+got.wp.Matao≠
+got.wp.Maunga.info≠
+got.wp.Maunga≠
 got.wp.Meereen.info=Een van de drie centra van de slavenhandel in de Baai van Slaven, samen met Astapor en Yunkai. De stad is gesticht door mensen uit Gis. Het belangrijkste entertainment en de basis van de welvaart van de stad zijn vechtkuilen en het trainen van slaven voor veldslagen in de arena. De grootste arena, de Grote Put van Daznak (een analoog van het Romeinse Colosseum) bevindt zich hier ook. Na de verovering van de stad schafte Daenerys Targaryen de slavernij af en sloot tijdelijk de gevechtskuilen.
 got.wp.Meereen=Meereen
 got.wp.MhysaFaer.info=Een van de machtige en rijke koloniale steden van het Valyrische rijk, verwoest tijdens de ondergang van Valyria. "Misa"in de naam geeft de giscarische oorsprong van de stad aan (de positie op de kaart is grotendeels twijfelachtig).
@@ -3786,6 +3854,10 @@ got.wp.NewGhis.info=Een slavenstad die zich bij de coalitie tegen Daenerys aansl
 got.wp.NewGhis=Nieuwe Ghis
 got.wp.NewIbbish.info=Een stad gebouwd door de Ibbenians na de val van Ibbish, op een klein schiereiland achter een houten muur die slechts iets kleiner is dan de Wall van the Night's Watch. Zwakke schaduw vergeleken met Ibbish, maar nog steeds de enige kolonie van Ibben op het vasteland.
 got.wp.NewIbbish=Nieuwe Ibbish
+got.wp.Ngahere.info≠
+got.wp.Ngahere≠
+got.wp.Ngarara.info≠
+got.wp.Ngarara≠
 got.wp.NightKing.info≠
 got.wp.NightKing≠
 got.wp.Nightfort.info=Het enorme, eerst gebouwde en eerste verlaten kasteel van de Nachtwacht. Er waren veel angstaanjagende legendes over het kasteel. Hier, in de muur, was een doorgang achter de muur uitgehouwen - de zwarte poort uit het heksenbos.
@@ -3794,6 +3866,8 @@ got.wp.Nightsong.info=Het voorouderlijke kasteel van Karon, van hen afgenomen te
 got.wp.Nightsong=Nightsong
 got.wp.Ninestars.info=Het voorouderlijk kasteel van de Templetons, een van de machtigste huizen in de vallei, geschikt voor duizend strijders. Vergeefs overtuigde Lisa Arryn om Robb Stark te steunen.
 got.wp.Ninestars=Ninestars
+got.wp.NorthForests.info≠
+got.wp.NorthForests≠
 got.wp.NorthPass.info=Vier passen zijn oude grafheuvels, tot aan de wolken. Hun locatie suggereert dat het verdedigingsstructuren waren. Maar van wie en waarom Mossia verdedigen, als de vijanden erin zitten?
 got.wp.NorthPass=Noorden Pass
 got.wp.Norvos.info=Een van de vrije steden geregeerd door de zogenaamde "bebaarde priesters". Van de Dothraki-hordes, die zich langs de weg langs Norvos voortbewegen, lost de stad geld op met rijke geschenken.
@@ -3836,6 +3910,8 @@ got.wp.Pennytree.info=Een klein dorpje tussen twee heuvels genaamd Titki. Het do
 got.wp.Pennytree=Pennytree
 got.wp.Pentos.info=Een van de Free Cities, de belangrijkste haven aan de westkust van Essos. Deze stad is de thuisbasis van de meester Illyrio Mopatis, die de laatste Targaryens beschermde.
 got.wp.Pentos=Pentos
+got.wp.Pereki.info≠
+got.wp.Pereki≠
 got.wp.Pingbei.info≠
 got.wp.Pingbei≠
 got.wp.Pingjiang.info≠
@@ -3878,10 +3954,14 @@ got.wp.RamseyTower.info=De toren waar Ramsay Snow Lady Hornwood uithongerde.
 got.wp.RamseyTower=Ramsey Tower
 got.wp.Rathylar.info=Sarnor stad verwoest door de Dothraki.
 got.wp.Rathylar=Rathylar
+got.wp.Raumati.info≠
+got.wp.Raumati≠
 got.wp.RaventreeHall.info=Het familiekasteel van het Blackwood-huis met een enorme en dode snijboom, waar honderden raven elke avond naartoe komen om de nacht door te brengen - en zo duizend jaar lang. Er wordt gezegd dat de Blackwoods uit het Noorden komen en over bijna het hele Wolf Forest heersten totdat ze werden verdreven door de Starks.
 got.wp.RaventreeHall=Raventree Hall
 got.wp.RedFlowerVale.info=Het centrum van de gelijknamige provincie op het zuidelijke eiland.
 got.wp.RedFlowerVale=Rode Bloemvallei
+got.wp.RedForests.info≠
+got.wp.RedForests≠
 got.wp.RedHaven.info=De grootste haven van de IJzereilanden, gelegen op Pike.
 got.wp.RedHaven=Red Haven
 got.wp.RedLake.info=Het kasteel van het huis van Cranes, vazallen van de Tyrells.
@@ -3974,6 +4054,12 @@ got.wp.Snakewood.info=Kasteel van het huis van Linderly, vazallen van de Arryn.
 got.wp.Snakewood=Snakewood
 got.wp.SouthPass.info=Vier passen zijn oude grafheuvels, tot aan de wolken. Hun locatie suggereert dat het verdedigingsstructuren waren. Maar van wie en waarom Mossia verdedigen, als de vijanden erin zitten?
 got.wp.SouthPass=Zuidpas
+got.wp.SouthPoint.info≠
+got.wp.SouthPoint≠
+got.wp.SouthTaiga.info≠
+got.wp.SouthTaiga≠
+got.wp.SouthUlthos.info≠
+got.wp.SouthUlthos≠
 got.wp.Southshield.info=Een van de Shield-eilanden, het bezit van Serri. Vervolgens schonk Euron het eiland aan Andrik Neulyba.
 got.wp.Southshield=Southshield
 got.wp.SparrCastle.info=Het kasteel van het Huis van Sparres, vazallen van de Greyjoys.
@@ -4024,22 +4110,30 @@ got.wp.Sunspear.info=Het voorouderlijk huis van House Martell, groeide uit een o
 got.wp.Sunspear=Zonnespeer
 got.wp.SuuNym.info≠
 got.wp.SuuNym≠
+got.wp.SuudanKorkuu.info≠
+got.wp.SuudanKorkuu≠
 got.wp.SweetLotusVale.info=Het centrum van de gelijknamige provincie op het zuidelijke eiland en de eerste hoofdstad van de verenigde staat van de Zomer-eilanden, gesticht door een voormalige slaaf - Xanda Ko.
 got.wp.SweetLotusVale=Zoete Lotus Vale
 got.wp.SweetportSound.info=Castle van the Sanglass, gezworen aan Drakensteen. Het is niet bekend van het zich op dit eiland van elders bevindt.
 got.wp.SweetportSound=Sweetport-geluid
+got.wp.Takutai.info≠
+got.wp.Takutai≠
 got.wp.TallTreesTown.info=Een zonnige stad waar priesteressen de geschiedenis, tradities en wetten van de zomermensen uithakken aan de Talking Trees.
 got.wp.TallTreesTown=Tall Trees Town
 got.wp.TarbeckHall.info=Het kasteel van het huis van Tarbek, die samen met de teugels het karakter van de jonge Tywin onderschatte en de hoofdrolspelers werd van het beroemde lied "Reyna uit Kastamere"
 got.wp.TarbeckHall=Tarbeck Hall
 got.wp.Tashtoo.info≠
 got.wp.Tashtoo≠
+got.wp.Tauranga.info≠
+got.wp.Tauranga≠
 got.wp.TawneyCastle.info=Het kasteel van het huis van Townie, vazallen van de Greyjoys.
 got.wp.TawneyCastle=Tawney Castle
 got.wp.Telyria.info=Valyria's zeepoort.
 got.wp.Telyria=Telyria
 got.wp.TenTowers.info=Het nieuwste kasteel van de IJzereilanden behoort tot de oudere tak van Harlow. Het werd gebouwd omdat ene Lord Harlow het vaak koud had en kinderen stierf, dus hij begon te vrezen dat hij geen erfgenamen zou achterlaten.
 got.wp.TenTowers=Tien Torens
+got.wp.Teriman.info≠
+got.wp.Teriman≠
 got.wp.TheEyrie.info=Voorouderlijk kasteel van House Arryn, Lords van the Valley. Gebouwd op de top van de hoogste berg in de Moon Mountains, de Giant's Spear, is het bijna onneembaar, maar wordt het in de winter onbewoonbaar. Het is goed dat je in de winter niet veel te vechten hebt in Westeros.
 got.wp.TheEyrie=Het Eyrie
 got.wp.ThePaps.info=Het kasteel van het huis van Ilshem, vazallen van de Arryns, op het eiland Soscy.
@@ -4166,6 +4260,8 @@ got.wp.Whispers.info=Een oud verlaten kasteel, waar Brienne van Tart bijna stier
 got.wp.Whispers=Fluistert
 got.wp.WhiteHarbour.info=Een van de vijf grootste steden in Westeros en de belangrijkste haven in het Noorden. De stad is gebouwd rond het oude fort Wolf's Lair, dat vele malen van eigenaar veranderde totdat de Starks dit land aan de verbannen uit Manderly Expanse gaven. De nieuwkomers bouwden voor zichzelf een nieuw kasteel met witte muren buiten de stadsmuren.
 got.wp.WhiteHarbour=Witte Haven
+got.wp.WhiteMountains.info≠
+got.wp.WhiteMountains≠
 got.wp.WhiteWalls.info=Voorouderlijk domein van de Butterwells. Het rijke grote kasteel duurde slechts 40 jaar en werd afgebroken na het mislukken van de Tweede Blackfire-opstand.
 got.wp.WhiteWalls=Witte muren
 got.wp.WhiteWood.info=Een klein dorpje met wildlingen in de schaduw van een gigantische heksenboom.

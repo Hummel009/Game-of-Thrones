@@ -1,16 +1,4 @@
 ﻿
-entity.got.SummerGoldsmith.name≠
-entity.got.YiTiGoldsmith.name≠
-entity.got.IbbenGoldsmith.name≠
-entity.got.IbbenMiner.name≠
-entity.got.IbbenFlorist.name≠
-entity.got.YiTiMiner.name≠
-entity.got.YiTiFlorist.name≠
-entity.got.SummerMiner.name≠
-entity.got.SummerFlorist.name≠
-got.biome.yiTiMarshes≠
-got.biome.jogosNhaiHills≠
-got.structure.DatabaseGenerator.name≠
 attribute.name.generic.movementSpeedAir=Velocidade (Ar)
 color.black=Preto
 color.blue=Azul
@@ -63,13 +51,13 @@ entity.got.ArrynFarmhand.name=Agricultor de Vale de Arryn
 entity.got.ArrynFishmonger.name=Peixeiro de Vale de Arryn
 entity.got.ArrynFlorist.name=Florista de Vale de Arryn
 entity.got.ArrynGoldsmith.name≠
-entity.got.ArrynMiner.name=Verdureiro de Vale de Arryn
 entity.got.ArrynGuard.name=Gulltown Guardian
 entity.got.ArrynLevyman.name=Miliciano de Vale de Arryn
 entity.got.ArrynLevymanArcher.name=Miliciano Arqueiro de Vale de Arryn
 entity.got.ArrynLumberman.name=Lenhador de Vale de Arryn
 entity.got.ArrynMan.name=Homem do Vale de Arryn
 entity.got.ArrynMason.name=Pedreiro de Vale de Arryn
+entity.got.ArrynMiner.name=Verdureiro de Vale de Arryn
 entity.got.ArrynSoldier.name=Guerreiro do Vale Arryn
 entity.got.ArrynSoldierArcher.name=Arqueiro guerreiro de Vale de Arryn
 entity.got.AryaStark.name=Arya Stark
@@ -104,6 +92,7 @@ entity.got.BericDondarrionLife6.name=Beric Dondarrion
 entity.got.Bird.name=Pássaro
 entity.got.Bison.name=Auroque
 entity.got.BlackWalderFrey.name≠
+entity.got.Blizzard.name≠
 entity.got.Boar.name=Javali Selvagem
 entity.got.Bomb.name≠
 entity.got.BraavosBaker.name=Padeiro de Bravos
@@ -157,13 +146,13 @@ entity.got.CrownlandsFarmhand.name=Fazendeiro de Terras da Coroa
 entity.got.CrownlandsFishmonger.name=Peixeiro de Terras da Coroa
 entity.got.CrownlandsFlorist.name=Florista de Terras da Coroa
 entity.got.CrownlandsGoldsmith.name≠
-entity.got.CrownlandsMiner.name=Verdureiro de Terras da Coroa
 entity.got.CrownlandsGuard.name=Guardião de Porto Real
 entity.got.CrownlandsLevyman.name=Miliciano de Terras da Coroa
 entity.got.CrownlandsLevymanArcher.name=Miliciano Arqueiro de Terras da Coroa
 entity.got.CrownlandsLumberman.name=Lumberman de Terras da Coroa
 entity.got.CrownlandsMan.name=Man de Terras da Coroa
 entity.got.CrownlandsMason.name=Pedreiro de Terras da Coroa
+entity.got.CrownlandsMiner.name=Verdureiro de Terras da Coroa
 entity.got.DaarioNaharis.name≠
 entity.got.DaenerysTargaryen.name=Daenerys Targaryen
 entity.got.Dagmer.name≠
@@ -188,12 +177,12 @@ entity.got.DorneFarmhand.name=Agricultor de Dorne
 entity.got.DorneFishmonger.name=Peixeiro de Dorne
 entity.got.DorneFlorist.name=Florista de Dorne
 entity.got.DorneGoldsmith.name≠
-entity.got.DorneMiner.name=Verdureiro de Dorne
 entity.got.DorneLevyman.name=Miliciano de Dorne
 entity.got.DorneLevymanArcher.name=Miliciano Arqueiro de Dorne
 entity.got.DorneLumberman.name=Lumberman de Dorne
 entity.got.DorneMan.name=Man de Dorne
 entity.got.DorneMason.name=Maçom de Dorne
+entity.got.DorneMiner.name=Verdureiro de Dorne
 entity.got.DorneSoldier.name=Guerreiro de Dorne
 entity.got.DorneSoldierArcher.name=Arqueiro guerreiro de Dorne
 entity.got.Dothraki.name=Dothraki
@@ -213,12 +202,12 @@ entity.got.DragonstoneFarmhand.name=Agricultor de Pedra do Dragão
 entity.got.DragonstoneFishmonger.name=Peixeiro de Pedra do Dragão
 entity.got.DragonstoneFlorist.name=Florista de Pedra do Dragão
 entity.got.DragonstoneGoldsmith.name≠
-entity.got.DragonstoneMiner.name=Verdureiro de Pedra do Dragão
 entity.got.DragonstoneLevyman.name=Miliciano de Pedra do Dragão
 entity.got.DragonstoneLevymanArcher.name=Miliciano Arqueiro de Pedra do Dragão
 entity.got.DragonstoneLumberman.name=Lumberman de Pedra do Dragão
 entity.got.DragonstoneMan.name=Homem de Pedra do Dragão
 entity.got.DragonstoneMason.name=Pedreiro de Pedra do Dragão
+entity.got.DragonstoneMiner.name=Verdureiro de Pedra do Dragão
 entity.got.DragonstoneSoldier.name=Guerreiro da Pedra do Dragão
 entity.got.DragonstoneSoldierArcher.name=Guerreiro Arqueiro de Pedra do Dragão
 entity.got.DunstanDrumm.name=Dunstan Drumm
@@ -317,17 +306,20 @@ entity.got.IbbenArcher.name=Arqueiro de Ibben
 entity.got.IbbenAxeThrower.name=Atirador de machado de Ibben
 entity.got.IbbenBaker.name=Padeiro de Ibben
 entity.got.IbbenBannerBearer.name=Portador da bandeira de Ibben
+entity.got.IbbenBartender.name=Meadhost de Ibben
 entity.got.IbbenBlacksmith.name=Ferreiro de ibben
 entity.got.IbbenBrewer.name=Cervejeiro de Ibben
-entity.got.IbbenMason.name=Construtor de Ibben
 entity.got.IbbenButcher.name=Açougueiro de ibben
 entity.got.IbbenFarmer.name=Fazendeiro de Ibben
 entity.got.IbbenFarmhand.name=Agricultor de Ibben
 entity.got.IbbenFishmonger.name=Peixeiro de Ibben
+entity.got.IbbenFlorist.name=Orcharder de Ibben
+entity.got.IbbenFlorist.name≠
+entity.got.IbbenGoldsmith.name≠
 entity.got.IbbenLumberman.name=Lumberman de Ibben
 entity.got.IbbenMan.name=Homem
-entity.got.IbbenBartender.name=Meadhost de Ibben
-entity.got.IbbenFlorist.name=Orcharder de Ibben
+entity.got.IbbenMason.name=Construtor de Ibben
+entity.got.IbbenMiner.name≠
 entity.got.IbbenStablemaster.name=Mestre dos estábulos de Ibben
 entity.got.IbbenWarlord.name=Capitão de Ibben
 entity.got.IbbenWarrior.name=Guerreiro de ibben
@@ -348,12 +340,12 @@ entity.got.IronbornFarmhand.name=Agricultor das Ilhas de Ferro
 entity.got.IronbornFishmonger.name=Peixeiro das Ilhas de Ferro
 entity.got.IronbornFlorist.name=Florista das Ilhas de Ferro
 entity.got.IronbornGoldsmith.name≠
-entity.got.IronbornMiner.name=Verdureiro das Ilhas de Ferro
 entity.got.IronbornLevyman.name=Miliciano das Ilhas de Ferro
 entity.got.IronbornLevymanArcher.name=Miliciano Arqueiro das Ilhas de Ferro
 entity.got.IronbornLumberman.name=Lenhador das Ilhas de Ferro
 entity.got.IronbornMan.name=Homem das Ilhas de Ferro
 entity.got.IronbornMason.name=Maçom das Ilhas de Ferro
+entity.got.IronbornMiner.name=Verdureiro das Ilhas de Ferro
 entity.got.IronbornPriest.name≠
 entity.got.IronbornSoldier.name=Guerreiro das ilhas de ferro
 entity.got.IronbornSoldierArcher.name=Arqueiro guerreiro das Ilhas de Ferro
@@ -514,7 +506,6 @@ entity.got.NorthFarmhand.name=Agricultor do Norte
 entity.got.NorthFishmonger.name=Peixeiro do Norte
 entity.got.NorthFlorist.name=Florista do norte
 entity.got.NorthGoldsmith.name≠
-entity.got.NorthMiner.name=Verdureiro do Norte
 entity.got.NorthGuard.name=Guarda do Porto Branco
 entity.got.NorthHillman.name=North Hillman
 entity.got.NorthHillmanArcher.name=North Hillman Arqueiro
@@ -529,6 +520,7 @@ entity.got.NorthLevymanArcher.name=Miliciano Arqueiro do Norte
 entity.got.NorthLumberman.name=Lumberman de North
 entity.got.NorthMan.name=Homem do norte
 entity.got.NorthMason.name=Maçom do norte
+entity.got.NorthMiner.name=Verdureiro do Norte
 entity.got.NorthSoldier.name=Guerreiro do norte
 entity.got.NorthSoldierArcher.name=Guerreiro Arqueiro do Norte
 entity.got.NorvosBaker.name=Padeiro de Norvos
@@ -644,13 +636,13 @@ entity.got.ReachFarmhand.name=Agricultor de Campina
 entity.got.ReachFishmonger.name=Peixeiro de Campina
 entity.got.ReachFlorist.name=Florista de Campina
 entity.got.ReachGoldsmith.name≠
-entity.got.ReachMiner.name=Verdureiro de Campina
 entity.got.ReachGuard.name=Oldtown Guardian
 entity.got.ReachLevyman.name=Miliciano de Campina
 entity.got.ReachLevymanArcher.name=Miliciano Arqueiro de Campina
 entity.got.ReachLumberman.name=Lumberman de Campina
 entity.got.ReachMan.name=Homem de Campina
 entity.got.ReachMason.name=Maçom de Campina
+entity.got.ReachMiner.name=Verdureiro de Campina
 entity.got.ReachSoldier.name=Guerreiro do Campina
 entity.got.ReachSoldierArcher.name=Guerreiro Arqueiro de Campina
 entity.got.RedPriest.name≠
@@ -671,12 +663,12 @@ entity.got.RiverlandsFarmhand.name=Agricultor de Terras Fluviais
 entity.got.RiverlandsFishmonger.name=Peixeiro de Terras Fluviais
 entity.got.RiverlandsFlorist.name=Florista de Terras Fluviais
 entity.got.RiverlandsGoldsmith.name≠
-entity.got.RiverlandsMiner.name=Verdureiro de Terras Fluviais
 entity.got.RiverlandsLevyman.name=Miliciano de Terras Fluviais
 entity.got.RiverlandsLevymanArcher.name=Miliciano Arqueiro de Terras Fluviais
 entity.got.RiverlandsLumberman.name=Lumberman de Terras Fluviais
 entity.got.RiverlandsMan.name=Man de Terras Fluviais
 entity.got.RiverlandsMason.name=Pedreiro de Terras Fluviais
+entity.got.RiverlandsMiner.name=Verdureiro de Terras Fluviais
 entity.got.RiverlandsSoldier.name=Warrior de Terras Fluviais
 entity.got.RiverlandsSoldierArcher.name=Arqueiro guerreiro de Terras Fluviais
 entity.got.RobbStark.name=Robb Stark
@@ -697,6 +689,7 @@ entity.got.Septon.name≠
 entity.got.Shadowcat.name=Shadow Cat
 entity.got.Shae.name≠
 entity.got.ShireenBaratheon.name≠
+entity.got.Shryke.name≠
 entity.got.SmokeRing.name=Anel de Fumaça
 entity.got.SnowBear.name=Urso da neve
 entity.got.SothoryosBannerBearer.name=Portador da bandeira de Sothoryos
@@ -723,12 +716,12 @@ entity.got.StormlandsFarmhand.name=Agricultor de Terras da Tempestade
 entity.got.StormlandsFishmonger.name=Peixeiro de Terras da Tempestade
 entity.got.StormlandsFlorist.name=Florista de Terras da Tempestade
 entity.got.StormlandsGoldsmith.name≠
-entity.got.StormlandsMiner.name=Verdureiro de Terras da Tempestade
 entity.got.StormlandsLevyman.name=Miliciano de Terras da Tempestade
 entity.got.StormlandsLevymanArcher.name=Miliciano Arqueiro de Terras da Tempestade
 entity.got.StormlandsLumberman.name=Lumberman de Terras da Tempestade
 entity.got.StormlandsMan.name=Homem de Terras da Tempestade
 entity.got.StormlandsMason.name=Maçom de Terras da Tempestade
+entity.got.StormlandsMiner.name=Verdureiro de Terras da Tempestade
 entity.got.StormlandsSoldier.name=Warrior de Terras da Tempestade
 entity.got.StormlandsSoldierArcher.name=Arqueiro guerreiro de Terras da Tempestade
 entity.got.SummerArcher.name=Arqueiro das Ilhas de Verão
@@ -741,11 +734,14 @@ entity.got.SummerButcher.name=Açougueiro das ilhas de verão
 entity.got.SummerFarmer.name=Fazendeiro das Ilhas de Verão
 entity.got.SummerFarmhand.name=Agricultor das Ilhas de Verão
 entity.got.SummerFishmonger.name=Peixeiro das Ilhas de Verão
+entity.got.SummerFlorist.name≠
+entity.got.SummerGoldsmith.name≠
 entity.got.SummerHunter.name=Hunter de Summer Islands
 entity.got.SummerLumberman.name=Lumberman de Summer Islands
 entity.got.SummerMan.name=Man de Summer Islands
 entity.got.SummerMason.name=Pedreiro de Summer Islands
 entity.got.SummerMiner.name=Mineiro das ilhas de verão
+entity.got.SummerMiner.name≠
 entity.got.SummerWarlord.name=Warlord de Summer Islands
 entity.got.SummerWarrior.name=Guerreiro das Ilhas de Verão
 entity.got.Swan.name=Cisne
@@ -834,13 +830,13 @@ entity.got.WesterlandsFarmhand.name=Agricultor de Terras Ocidentais
 entity.got.WesterlandsFishmonger.name=Peixeiro de Terras Ocidentais
 entity.got.WesterlandsFlorist.name=Florista de Terras Ocidentais
 entity.got.WesterlandsGoldsmith.name≠
-entity.got.WesterlandsMiner.name=Verdureiro de Terras Ocidentais
 entity.got.WesterlandsGuard.name=Lannisport Guardian
 entity.got.WesterlandsLevyman.name=Miliciano de Terras Ocidentais
 entity.got.WesterlandsLevymanArcher.name=Miliciano Arqueiro de Terras Ocidentais
 entity.got.WesterlandsLumberman.name=Lumberman de Terras Ocidentais
 entity.got.WesterlandsMan.name=Homem das Terras Ocidentais
 entity.got.WesterlandsMason.name=Pedreiro de Terras Ocidentais
+entity.got.WesterlandsMiner.name=Verdureiro de Terras Ocidentais
 entity.got.WesterlandsSoldier.name=Guerreiro das Terras Ocidentais
 entity.got.WesterlandsSoldierArcher.name=Arqueiro guerreiro de Terras Ocidentais
 entity.got.WesterosBandit.name=Bandido
@@ -875,15 +871,18 @@ entity.got.YiTiFarmer.name=Fazendeiro de Yi Ti
 entity.got.YiTiFarmhand.name=Agricultor de Yi Ti
 entity.got.YiTiFireThrower.name=Sacerdote do Fogo de Yi Ti
 entity.got.YiTiFishmonger.name=Peixeiro de Yi Ti
+entity.got.YiTiFlorist.name≠
 entity.got.YiTiFrontier.name≠
 entity.got.YiTiFrontierCrossbower.name≠
 entity.got.YiTiGoldsmith.name=Ourives de Yi Ti
+entity.got.YiTiGoldsmith.name≠
 entity.got.YiTiHunter.name=Caçador de Yi Ti
 entity.got.YiTiLevyman.name=Miliciano de Yi Ti
 entity.got.YiTiLevymanCrossbower.name≠
 entity.got.YiTiLumberman.name=Lenhador de Yi Ti
 entity.got.YiTiMan.name=Homem de Yi Ti
 entity.got.YiTiMason.name=Maçom de Yi Ti
+entity.got.YiTiMiner.name≠
 entity.got.YiTiSamurai.name=Samurai de Yi Ti
 entity.got.YiTiShogune.name=Shogun de Yi Ti
 entity.got.YiTiSoldier.name=Soldado de Yi Ti
@@ -1094,6 +1093,8 @@ got.achievement.KILL_SANDOR_CLEGANE.desc=Mate Sandor Clegane
 got.achievement.KILL_SANDOR_CLEGANE.title=Doghunter
 got.achievement.KILL_SANSA_STARK.desc=Mate Sansa Stark
 got.achievement.KILL_SANSA_STARK.title=Você traiu seu pai!
+got.achievement.KILL_SHRYKE.desc≠
+got.achievement.KILL_SHRYKE.title≠
 got.achievement.KILL_THENN_BERSERKER.desc=Mate o thenn-berserker
 got.achievement.KILL_THENN_BERSERKER.title=Mais poderoso
 got.achievement.KILL_THE_KING.desc=Mate qualquer Rei dos Sete Reinos
@@ -1306,6 +1307,8 @@ got.achievement.VISIT_PENTOS.desc=Visite Pentos
 got.achievement.VISIT_PENTOS.title=Em frente ao desembarque do Rei
 got.achievement.VISIT_QARTH.desc=Visite o Quarth
 got.achievement.VISIT_QARTH.title=País dos comerciantes
+got.achievement.VISIT_QARTH_COLONY.desc≠
+got.achievement.VISIT_QARTH_COLONY.title≠
 got.achievement.VISIT_QARTH_DESERT.desc=Visite o Deserto Vermelho
 got.achievement.VISIT_QARTH_DESERT.title=Areias vermelhas
 got.achievement.VISIT_QOHOR.desc=Visite Qohor
@@ -1326,6 +1329,8 @@ got.achievement.VISIT_SHADOW_MOUNTAINS.desc=Visite as montanhas Dawn
 got.achievement.VISIT_SHADOW_MOUNTAINS.title=Заслоняя солнце
 got.achievement.VISIT_SHADOW_WASTELAND.desc=Visite o Wasteland de Shadows
 got.achievement.VISIT_SHADOW_WASTELAND.title=Хуже пустоши
+got.achievement.VISIT_SHRYKES_LAND.desc≠
+got.achievement.VISIT_SHRYKES_LAND.title≠
 got.achievement.VISIT_SKAGOS.desc=Visite Skagos
 got.achievement.VISIT_SKAGOS.title=Em busca de um rinoceronte lanudo
 got.achievement.VISIT_SKIRLING_PASS.desc=Visite o Skirling Pass
@@ -1356,6 +1361,8 @@ got.achievement.VISIT_STONE_COAST.desc=Visite Stony Shore
 got.achievement.VISIT_STONE_COAST.title=Maçã da contenção
 got.achievement.VISIT_STORMLANDS.desc=Visite Terras da Tempestade
 got.achievement.VISIT_STORMLANDS.title=A nossa é a fúria
+got.achievement.VISIT_SUMMER_COLONY.desc≠
+got.achievement.VISIT_SUMMER_COLONY.title≠
 got.achievement.VISIT_SUMMER_ISLANDS.desc=Visite as ilhas de verão
 got.achievement.VISIT_SUMMER_ISLANDS.title=Ilhas do sul
 got.achievement.VISIT_TARTH.desc=Visite Tarth
@@ -1372,8 +1379,20 @@ got.achievement.VISIT_ULTHOS.desc=Visite Ulthos
 got.achievement.VISIT_ULTHOS.title=Aranhas, névoa, privacidade
 got.achievement.VISIT_ULTHOS_DESERT.desc=Visite o deserto de Ulthos
 got.achievement.VISIT_ULTHOS_DESERT.title=Bem, pelo menos não há aranhas em algum lugar
+got.achievement.VISIT_ULTHOS_DESERT_COLD.desc≠
+got.achievement.VISIT_ULTHOS_DESERT_COLD.title≠
+got.achievement.VISIT_ULTHOS_FOREST.desc≠
+got.achievement.VISIT_ULTHOS_FOREST.title≠
+got.achievement.VISIT_ULTHOS_FROST.desc≠
+got.achievement.VISIT_ULTHOS_FROST.title≠
+got.achievement.VISIT_ULTHOS_MARSHES.desc≠
+got.achievement.VISIT_ULTHOS_MARSHES.title≠
 got.achievement.VISIT_ULTHOS_MOUNTAINS.desc=Visite as montanhas de Ulthos
 got.achievement.VISIT_ULTHOS_MOUNTAINS.title=Com uma borda branca
+got.achievement.VISIT_ULTHOS_RED_FOREST.desc≠
+got.achievement.VISIT_ULTHOS_RED_FOREST.title≠
+got.achievement.VISIT_ULTHOS_TAIGA.desc≠
+got.achievement.VISIT_ULTHOS_TAIGA.title≠
 got.achievement.VISIT_VALYRIA.desc=Visite a Península Valiriana
 got.achievement.VISIT_VALYRIA.title=Ruínas do Império
 got.achievement.VISIT_VALYRIA_SEA.desc=Visite o Mar do Fumo
@@ -1541,6 +1560,7 @@ got.biome.beachWhite=De praia
 got.biome.blackIslands=Isles de Blackwater Bay
 got.biome.boneMountains=Montanhas ósseas
 got.biome.braavos=Bravos
+got.biome.cannibalSandsHills≠
 got.biome.coldCoast=Costa fria
 got.biome.crackclaw=Ponto Crackclaw
 got.biome.crownlands=Terras da Coroa
@@ -1579,7 +1599,10 @@ got.biome.island=Ilha
 got.biome.isleOfFaces=Ilha das Faces
 got.biome.jogosNhai=Jogos Nhai Plains
 got.biome.jogosNhaiDesert=Deserto Seco
+got.biome.jogosNhaiHills≠
+got.biome.kanduuBet=Floresta Mossovy
 got.biome.kingSpears=Lanças do Rei da Água
+got.biome.kuurulgan≠
 got.biome.lake=Lago
 got.biome.lhazar=Lhazar
 got.biome.longSummer=Terras do Longo Verão
@@ -1589,9 +1612,6 @@ got.biome.massy=Massy's Hook
 got.biome.meereen=Meereen
 got.biome.mercenary=Terras Disputadas
 got.biome.mossovy=Mossovy
-got.biome.kanduuBet=Floresta Mossovy
-got.biome.suudanKorkuu=Mossovy Marshes
-got.biome.kuurulgan≠
 got.biome.mossovyTundra=Mossovy Tundra
 got.biome.myr=Myr
 got.biome.naath=Naath
@@ -1607,6 +1627,7 @@ got.biome.norvos=Norvos
 got.biome.ocean=Oceano
 got.biome.pentos=Pentos
 got.biome.qarth=Qarth
+got.biome.qarthColony≠
 got.biome.qarthDesert=Deserto Qarth
 got.biome.qohor=Qohor
 got.biome.qohorForest=Floresta Qohor
@@ -1624,6 +1645,7 @@ got.biome.shadowLand=Terra da sombra
 got.biome.shadowMountains=Montanhas Dawn
 got.biome.shadowTown=Asshai
 got.biome.shadowWasteland=Wasteland de the Shadow
+got.biome.shrykesLand≠
 got.biome.skagos=Skagos
 got.biome.skirlingPass=Skirling Pass
 got.biome.sothoryosBushland=Sothoryos Bushland
@@ -1643,7 +1665,9 @@ got.biome.stepstones=Passos
 got.biome.stoneCoast=Costa de Pedra
 got.biome.stormlands=Terras da Tempestade
 got.biome.stormlandsTown=Cabo Durran
+got.biome.summerColony≠
 got.biome.summerIslands=Ilhas de verão
+got.biome.suudanKorkuu=Mossovy Marshes
 got.biome.tarth=Tarth
 got.biome.thenn=Thenn Land
 got.biome.tropicalForest=As florestas tropicais
@@ -1651,7 +1675,17 @@ got.biome.tyrosh=Tyrosh
 got.biome.ulos≠
 got.biome.ulthos=Ulthos
 got.biome.ulthosDesert=Deserto de Ulthos
+got.biome.ulthosDesertCold≠
+got.biome.ulthosForestEdge≠
+got.biome.ulthosForest≠
+got.biome.ulthosFrost≠
+got.biome.ulthosMarshesForest≠
+got.biome.ulthosMarshes≠
 got.biome.ulthosMountains=Montanhas Ulthos
+got.biome.ulthosRedForestEdge≠
+got.biome.ulthosRedForest≠
+got.biome.ulthosTaigaEdge≠
+got.biome.ulthosTaiga≠
 got.biome.valyria=Península Valíria
 got.biome.valyriaSea=Mar de Valíria
 got.biome.valyriaVolcano=Vulcões Valyria
@@ -1668,6 +1702,7 @@ got.biome.whisperingWood=Madeira Sussurrante
 got.biome.wolfswood=Wolfswood
 got.biome.yeen=Yeen Wasteland
 got.biome.yiTi=Yi Ti
+got.biome.yiTiMarshes≠
 got.biome.yiTiWasteland=Zona de fronteira de Yi Ti
 got.biome.yunkai=Yunkai
 got.capes.ARRYN.name=Vale do Cabo Arryn
@@ -2755,6 +2790,7 @@ got.structure.CrownlandsTavern.name=Tavern de Terras da Coroa
 got.structure.CrownlandsTower.name=Torre de Terras da Coroa
 got.structure.CrownlandsWatchfort.name=Watchfort de Terras da Coroa
 got.structure.CrownlandsWatchtower.name=Torre de Vigia de Terras da Coroa
+got.structure.DatabaseGenerator.name≠
 got.structure.DorneBarn.name=Celeiro de Dorne
 got.structure.DorneBath.name=Banho de Dorne
 got.structure.DorneCityBig.name=Cidade de Dorne
@@ -3346,6 +3382,8 @@ got.wp.Asshai.info=Uma grande cidade portuária, conhecida por pessoas habilidos
 got.wp.Asshai=Asshai
 got.wp.Astapor.info=Um dos três centros de comércio de escravos na Baía dos Escravos, junto com Meereen e Yunkai. A cidade foi fundada por imigrantes de Gis e é famosa por escravos especialmente educados dos Impecáveis; um exército de Imaculados devido à disciplina, coragem e lealdade é altamente valorizado em todo o mundo conhecido.
 got.wp.Astapor=Astapor
+got.wp.Ataahua.info≠
+got.wp.Ataahua≠
 got.wp.Atranta.info=Castelo ancestral do ramo mais jovem dos Vance, os vassalos de Tully.
 got.wp.Atranta=Atranta
 got.wp.Azhydaar.info≠
@@ -3366,10 +3404,14 @@ got.wp.BarterBeach.info=A praia onde os piratas negociavam uns com os outros. Po
 got.wp.BarterBeach=Barter Beach
 got.wp.Bashkaruuchu.info≠
 got.wp.Bashkaruuchu≠
+got.wp.Batargas.info≠
+got.wp.Batargas≠
 got.wp.Bayasabhad.info=Uma das últimas cidades que surgiram ao redor da cidadela, construída para proteger o feudo de Hirkun de ataques; o reino entrou em decadência depois do mar seco, mas as guerreiras amazonas ainda vigiam a guarda.
 got.wp.Bayasabhad=Bayasabhad
 got.wp.Bhorash.info=Ruínas de uma cidade valiriana ou Ghiskar na Estrada do Demônio. Destruída após a Rocha de Valíria, e por quem é desconhecida.
 got.wp.Bhorash=Bhorash
+got.wp.BigLake.info≠
+got.wp.BigLake≠
 got.wp.Bitterbridge.info=O castelo ancestral da Casa dos Caswells. Aqui, a vencedora do torneio, Brienne Tarth, foi trazida pelo Rei Renly para sua Guarda Arco-íris.
 got.wp.Bitterbridge=Bitterbridge
 got.wp.BlackHeart.info=O castelo da extinta Casa Toyn, tirado deles após a tentativa fracassada de assassinato de Aegon III, o Indigno. Posteriormente, foi ocupada pela Connington House.
@@ -3414,6 +3456,8 @@ got.wp.CastleLychester.info=O castelo em ruínas de Leicester, onde o destacamen
 got.wp.CastleLychester=Castle Lychester
 got.wp.CatfishRock.info=O castelo da antiga casa real de Fischer.
 got.wp.CatfishRock=Rocha Catfish
+got.wp.CentralForests.info≠
+got.wp.CentralForests≠
 got.wp.Chroyane.info=Nos tempos antigos, era a próspera cidade Roinar de Kroyane. Depois que Saroi foi queimado pelos senhores dos dragões, o Príncipe Kroyane chamado Garin chamou o Rhoynar para se unir e lutar contra os invasores. Depois de uma série de vitórias, dezenas de dragonlords chegaram de Valyria, e o Roynar caiu. Garin foi levado para Kroyan em uma gaiola para que ele pudesse ver como seu povo foi escravizado e a cidade incendiada. Em desespero, Garin amaldiçoou os valirianos - então os esporos de uma doença cinza surgiram sobre Roina ... Agora as vítimas desta doença são expulsas para cá. Assim, a bela cidade se transformou em uma enorme colônia de leprosos.
 got.wp.Chroyane=Chroyane
 got.wp.CiderHall.info=O castelo da casa dos Fossoveevs do ramo da Maçã Vermelha.
@@ -3464,6 +3508,8 @@ got.wp.Downdelving.info=Castelo em Great Vic, propriedade de um dos ramos mais j
 got.wp.Downdelving=Downdelving
 got.wp.Draconys.info=Uma das poderosas e ricas cidades coloniais do Império Valiriano, destruída durante a Doom de Valyria.
 got.wp.Draconys=Draconys
+got.wp.DragonPlace.info≠
+got.wp.DragonPlace≠
 got.wp.Dragonstone.info=A ilha e a fortaleza inexpugnável com o mesmo nome. Vários séculos atrás, os Targaryen chegaram aqui da Velha Valíria, e após sua ascensão e a construção de Porto Real, o título de Príncipe de Pedra do Dragão foi assumido pelo filho mais velho e herdeiro do rei. Após a derrubada dos Targaryens, o castelo foi entregue a Stannis Baratheon.
 got.wp.Dragonstone=Pedra do dragão
 got.wp.Dreadfort.info=Castelo ancestral da Casa de Bolton, vassalos dos Starks. Boltons estão entre as casas mais fortes e mais antigas do Norte. Eles rivalizaram com os Stark por milênios e se ajoelharam diante de Winterfell apenas mil anos atrás. Antigamente, os senhores de Bolton usavam capas de couro retiradas de pessoas vivas; com o tempo, os Stark acabaram com essa tradição, mas alguns dos antigos troféus, de acordo com a velha Nan, ainda são mantidos em Dredford (incluindo a pele de alguns dos Stark).
@@ -3480,6 +3526,10 @@ got.wp.Duskendale.info=Uma importante cidade portuária governada pela casa dos 
 got.wp.Duskendale=Valdocaso
 got.wp.DyreDen.info=O castelo é um dos ramos da Casa de Brune, vassalos dos Baratheons.
 got.wp.DyreDen=Dyre Den
+got.wp.EastBay.info≠
+got.wp.EastBay≠
+got.wp.EastCoast.info≠
+got.wp.EastCoast≠
 got.wp.EastPass.info=Quatro passagens são túmulos antigos, até as nuvens. Sua localização sugere que eram estruturas defensivas. Mas de quem e por que defender Mossia, se os inimigos estão dentro dela?
 got.wp.EastPass=EastPass
 got.wp.EastWatch.info=O castelo mais a leste da Patrulha da Noite, governado por Cotter Pike. Um dos três ativos. Ao contrário dos outros, os irmãos da Guarda Oriental estão ativamente envolvidos no comércio.
@@ -3598,6 +3648,8 @@ got.wp.Harroway.info=Uma pequena aldeia localizada no cruzamento do Tridente. Re
 got.wp.Harroway=Harroway
 got.wp.HarvestHall.info=O castelo da casa de Selmy, os vassalos dos Baratheons. O lendário Barristan Selmy nasceu aqui.
 got.wp.HarvestHall=Harvest Hall
+got.wp.Hauauru.info≠
+got.wp.Hauauru≠
 got.wp.Hayford.info=Castle House Hayford das Terras Reais. Aqui Jaime Lannister começou a treinar com Elin Payne.
 got.wp.Hayford=Hayford
 got.wp.HaystackHall.info=Castelo ancestral da Casa Errol, vassalos dos Baratheons. Na Guerra dos Cinco Reis, Renly foi apoiado, depois Stannis.
@@ -3678,8 +3730,12 @@ got.wp.KDath.info=Uma cidade supostamente mais antiga que o próprio tempo. Sacr
 got.wp.KDath=K Dath
 got.wp.Kadar.info=Enormes ruínas no coração de Mossia. Não se sabe do que eles restaram, mas são feitos da mesma pedra negra de cinco fortalezas. Enigma ...
 got.wp.Kadar=Kadar
+got.wp.KanduuBet.info≠
+got.wp.KanduuBet≠
 got.wp.Karhold.info=Karhold e as terras ao redor foram concedidas pelo Rei do Norte a seu filho mais novo Carlon Stark como recompensa por derrotar o senhor rebelde. Com o tempo, os Starks de Karhold se transformaram em Karstarks, mas continuaram sendo uma das casas mais devotadas aos Stark.
 got.wp.Karhold=Karhold
+got.wp.Karimagar.info≠
+got.wp.Karimagar≠
 got.wp.Kayakayanaya.info=Uma das últimas cidades que surgiram ao redor da cidadela, construída para proteger o feudo de Hirkun de ataques; o reino entrou em decadência depois do mar seco, mas as guerreiras amazonas ainda vigiam a guarda.
 got.wp.Kayakayanaya=Kayakayanaya
 got.wp.Kayce.info=Outrora a sede dos Ironborn, mais tarde conquistada pelos reis do penhasco com a ajuda dos aventureiros Kenning e Harlow. Desde então, a cidade faz parte das Terras do Oeste, e os Kennings são vassalos dos Lannister. Comerciantes ricos costumam visitar aqui.
@@ -3692,6 +3748,8 @@ got.wp.Kingshouse.info=A propriedade da família dos Magnars de Skagos. Do antig
 got.wp.Kingshouse=Kingshouse
 got.wp.KissLock.info=Castelo dos Cavaleiros das Caveiras e Beijos.
 got.wp.KissLock=Kiss Lock
+got.wp.Kohuru.info≠
+got.wp.Kohuru≠
 got.wp.Koj.info=O maior estaleiro das Ilhas Summer.
 got.wp.Koj=Koj
 got.wp.Korkunuchtuu.info≠
@@ -3702,6 +3760,8 @@ got.wp.KrazaajHas.info=A antiga cidade Ghiskar de Gardak. Talvez os dothraki ten
 got.wp.KrazaajHas=Krazaaj Has
 got.wp.Kujruk.info≠
 got.wp.Kujruk≠
+got.wp.Kuurulgan.info≠
+got.wp.Kuurulgan≠
 got.wp.Kyth.info=Cidade de Sarnor destruída pelos Dothraki.
 got.wp.Kyth=Kyth
 got.wp.Lannisport.info=A terceira cidade mais populosa de Westeros depois da capital e da Cidade Velha; o porto e a cidade industrial mais importante das Terras Ocidentais. É famosa por seus artesãos, especialmente ourives e ferreiros de ouro. A cidade é governada pelo ramo Júnior de Lannister.
@@ -3754,6 +3814,14 @@ got.wp.ManticoreIsles.info=O grupo de ilhas do Mar de Jade. Quase não há pesso
 got.wp.ManticoreIsles=Ilhas Manticore
 got.wp.Marahai.info=Ilha paradisíaca em forma de lua crescente. Existem duas ilhas com vulcões ativos na baía. Pode parecer estranho que eles explodam dia e noite e nunca caiam no sono.
 got.wp.Marahai=Marahai
+got.wp.Marshes.info≠
+got.wp.Marshes≠
+got.wp.Matahau.info≠
+got.wp.Matahau≠
+got.wp.Matao.info≠
+got.wp.Matao≠
+got.wp.Maunga.info≠
+got.wp.Maunga≠
 got.wp.Meereen.info=Um dos três centros do comércio de escravos na Baía dos Escravos junto com Astapor e Yunkai. A cidade foi fundada por gente de Gis. O principal entretenimento e a base da prosperidade da cidade são as lutas e o treinamento de escravos para as batalhas na arena. A maior arena, o Grande Poço de Daznak (um análogo do Coliseu Romano) também está localizada aqui. Após a conquista da cidade, Daenerys Targaryen aboliu a escravidão e fechou temporariamente os campos de combate.
 got.wp.Meereen=Meereen
 got.wp.MhysaFaer.info=Uma das poderosas e ricas cidades coloniais do Império Valiriano, destruída durante a Doom de Valyria. "Misa"no nome indica a origem giscariana da cidade (a posição no mapa é bastante questionável).
@@ -3786,6 +3854,10 @@ got.wp.NewGhis.info=Uma cidade de escravos que se juntou à coalizão contra Dae
 got.wp.NewGhis=New Ghis
 got.wp.NewIbbish.info=Uma cidade construída pelos Ibbenians após a queda de Ibbish, em uma pequena península atrás de uma parede de madeira apenas ligeiramente menor que a Parede da Patrulha da Noite. Sombra fraca em comparação com Ibbish, mas ainda é a única colônia de Ibben no continente.
 got.wp.NewIbbish=New Ibbish
+got.wp.Ngahere.info≠
+got.wp.Ngahere≠
+got.wp.Ngarara.info≠
+got.wp.Ngarara≠
 got.wp.NightKing.info≠
 got.wp.NightKing≠
 got.wp.Nightfort.info=O enorme castelo da Patrulha da Noite, primeiro construído e abandonado. Havia muitas lendas terríveis sobre o castelo. Aqui, na Muralha, uma passagem além da Muralha foi esculpida - o Portão Negro da madeira das bruxas.
@@ -3794,6 +3866,8 @@ got.wp.Nightsong.info=O castelo ancestral de Karon, tirado deles em favor dos P�
 got.wp.Nightsong=Canção Noturna
 got.wp.Ninestars.info=O ancestral castelo dos Templetons, uma das casas mais poderosas do Vale, com capacidade para mil lutadores. Persuadiu Lisa Arryn, sem sucesso, a apoiar Robb Stark.
 got.wp.Ninestars=Ninestars
+got.wp.NorthForests.info≠
+got.wp.NorthForests≠
 got.wp.NorthPass.info=Quatro passagens são túmulos antigos, até as nuvens. Sua localização sugere que eram estruturas defensivas. Mas de quem e por que defender Mossia, se os inimigos estão dentro dela?
 got.wp.NorthPass=North Pass
 got.wp.Norvos.info=Uma das Cidades Livres governada pelos chamados "padres barbudos". Das hordas dothraki, movendo-se ao longo da estrada que passa por Norvos, a cidade resgata com ricos presentes.
@@ -3836,6 +3910,8 @@ got.wp.Pennytree.info=Uma pequena aldeia entre duas colinas chamada Titki. A ald
 got.wp.Pennytree=Pennytree
 got.wp.Pentos.info=Uma das Cidades Livres, o porto mais importante da costa oeste de Essos. Esta cidade é a casa do mestre Illyrio Mopatis, que abrigou os últimos Targaryens.
 got.wp.Pentos=Pentos
+got.wp.Pereki.info≠
+got.wp.Pereki≠
 got.wp.Pingbei.info≠
 got.wp.Pingbei≠
 got.wp.Pingjiang.info≠
@@ -3878,10 +3954,14 @@ got.wp.RamseyTower.info=A torre onde Ramsay Snow matou Lady Hornwood de fome.
 got.wp.RamseyTower=Ramsey Tower
 got.wp.Rathylar.info=Cidade de Sarnor destruída pelos Dothraki.
 got.wp.Rathylar=Rathylar
+got.wp.Raumati.info≠
+got.wp.Raumati≠
 got.wp.RaventreeHall.info=O castelo da família da casa Blackwood com um enorme e morto chardree, para o qual centenas de corvos se reúnem para passar a noite todas as noites - e assim por mil anos. Diz-se que os Blackwoods vêm do Norte e governaram quase toda a Wolf Forest até serem expulsos pelos Stark.
 got.wp.RaventreeHall=Raventree Hall
 got.wp.RedFlowerVale.info=Centro da província de mesmo nome na ilha do sul.
 got.wp.RedFlowerVale=Vale Flor Vermelha
+got.wp.RedForests.info≠
+got.wp.RedForests≠
 got.wp.RedHaven.info=O maior porto das Ilhas de Ferro, localizado em Pike.
 got.wp.RedHaven=Red Haven
 got.wp.RedLake.info=O castelo da casa dos Cranes, vassalos dos Tyrells.
@@ -3974,6 +4054,12 @@ got.wp.Snakewood.info=Castelo da casa de Linderly, vassalos do Arryn.
 got.wp.Snakewood=Snakewood
 got.wp.SouthPass.info=Quatro passagens são túmulos antigos, até as nuvens. Sua localização sugere que eram estruturas defensivas. Mas de quem e por que defender Mossia, se os inimigos estão dentro dela?
 got.wp.SouthPass=South Pass
+got.wp.SouthPoint.info≠
+got.wp.SouthPoint≠
+got.wp.SouthTaiga.info≠
+got.wp.SouthTaiga≠
+got.wp.SouthUlthos.info≠
+got.wp.SouthUlthos≠
 got.wp.Southshield.info=Uma das ilhas Shield, propriedade de Serri. Posteriormente, a Euron deu a ilha a Andrik Neulyba.
 got.wp.Southshield=Southshield
 got.wp.SparrCastle.info=O castelo da Casa dos Sparres, vassalos dos Greyjoys.
@@ -4024,22 +4110,30 @@ got.wp.Sunspear.info=A casa ancestral da Casa Martell cresceu a partir de um ant
 got.wp.Sunspear=Lança solar
 got.wp.SuuNym.info≠
 got.wp.SuuNym≠
+got.wp.SuudanKorkuu.info≠
+got.wp.SuudanKorkuu≠
 got.wp.SweetLotusVale.info=Centro da província com o mesmo nome na ilha do sul e a primeira capital do estado unido das Ilhas de Verão, fundada por uma ex-escrava - Xanda Ko.
 got.wp.SweetLotusVale=Sweet Lotus Vale
 got.wp.SweetportSound.info=Castelo do Sanglass, jurado a Pedra do Dragão. Não se sabe se está localizado nesta ilha ou em outro lugar.
 got.wp.SweetportSound=Sweetport Sound
+got.wp.Takutai.info≠
+got.wp.Takutai≠
 got.wp.TallTreesTown.info=Uma cidade ensolarada onde as sacerdotisas gravam a história, as tradições e as leis do povo do verão nas Árvores Falantes.
 got.wp.TallTreesTown=Tall Trees Town
 got.wp.TarbeckHall.info=O castelo da casa de Tarbek, que, junto com as Rédeas, subestimou o caráter do jovem Tywin e se tornou protagonista da famosa canção "Reyna de Kastamere"
 got.wp.TarbeckHall=Tarbeck Hall
 got.wp.Tashtoo.info≠
 got.wp.Tashtoo≠
+got.wp.Tauranga.info≠
+got.wp.Tauranga≠
 got.wp.TawneyCastle.info=O castelo da casa de Townie, vassalos dos Greyjoys.
 got.wp.TawneyCastle=Castelo Tawney
 got.wp.Telyria.info=Portão marítimo da Valíria.
 got.wp.Telyria=Telyria
 got.wp.TenTowers.info=O mais novo castelo das Ilhas de Ferro, pertence ao ramo mais antigo de Harlow. Foi construído porque um certo Lorde Harlow freqüentemente tinha filhos resfriados e mortos, então ele começou a temer que não deixaria herdeiros.
 got.wp.TenTowers=Dez torres
+got.wp.Teriman.info≠
+got.wp.Teriman≠
 got.wp.TheEyrie.info=Castelo ancestral da Casa Arryn, Senhores do Vale. Construída no topo da montanha mais alta das Montanhas da Lua, a Lança do Gigante, é quase inexpugnável, mas torna-se inabitável no inverno. É bom que você não tenha muito o que lutar em Westeros no inverno.
 got.wp.TheEyrie=O ninho
 got.wp.ThePaps.info=O castelo da casa de Ilshem, vassalos dos Arryns, na ilha de Soscy.
@@ -4166,6 +4260,8 @@ got.wp.Whispers.info=Um antigo castelo abandonado, perto do qual Brienne de Tart
 got.wp.Whispers=Sussurros
 got.wp.WhiteHarbour.info=Uma das cinco maiores cidades de Westeros e o porto mais importante do Norte. A cidade foi construída em torno da antiga fortaleza de Wolf's Lair, que mudou de dono muitas vezes até que os Stark deram essas terras aos exilados da Expansão de Manderly. Os recém-chegados construíram para si próprios um Novo Castelo de paredes brancas fora das muralhas da cidade.
 got.wp.WhiteHarbour=Porto Branco
+got.wp.WhiteMountains.info≠
+got.wp.WhiteMountains≠
 got.wp.WhiteWalls.info=Domínio ancestral dos Butterwells. O grande castelo rico durou apenas 40 anos e foi demolido após o fracasso da Segunda Revolta Blackfire.
 got.wp.WhiteWalls=Paredes Brancas
 got.wp.WhiteWood.info=Uma pequena aldeia de selvagens sob a sombra de uma árvore-feiticeira gigante.

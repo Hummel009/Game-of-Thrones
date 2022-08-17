@@ -1,16 +1,4 @@
 ﻿
-entity.got.SummerGoldsmith.name≠
-entity.got.YiTiGoldsmith.name≠
-entity.got.IbbenGoldsmith.name≠
-entity.got.IbbenMiner.name≠
-entity.got.IbbenFlorist.name≠
-entity.got.YiTiMiner.name≠
-entity.got.YiTiFlorist.name≠
-entity.got.SummerMiner.name≠
-entity.got.SummerFlorist.name≠
-got.biome.yiTiMarshes=夷地沼泽
-got.biome.jogosNhaiHills=鸠格斯奈小山
-got.structure.DatabaseGenerator.name=数据库生成器
 attribute.name.generic.movementSpeedAir=速度(Air)
 color.black=黑色
 color.blue=蓝色
@@ -63,13 +51,13 @@ entity.got.ArrynFarmhand.name=谷地农工
 entity.got.ArrynFishmonger.name=谷地鱼贩
 entity.got.ArrynFlorist.name=谷地花贩
 entity.got.ArrynGoldsmith.name=谷底金匠
-entity.got.ArrynMiner.name=谷地果菜贩
 entity.got.ArrynGuard.name=海鸥镇卫士
 entity.got.ArrynLevyman.name=谷地民兵
 entity.got.ArrynLevymanArcher.name=谷地民兵弓箭手
 entity.got.ArrynLumberman.name=谷地木材商
 entity.got.ArrynMan.name=谷地人
 entity.got.ArrynMason.name=谷地石匠
+entity.got.ArrynMiner.name=谷地果菜贩
 entity.got.ArrynSoldier.name=谷地武装士兵
 entity.got.ArrynSoldierArcher.name=谷地武装弓箭手
 entity.got.AryaStark.name=艾莉亚·史塔克
@@ -104,6 +92,7 @@ entity.got.BericDondarrionLife6.name=贝里克·唐德利恩
 entity.got.Bird.name=鸟
 entity.got.Bison.name=野牛
 entity.got.BlackWalderFrey.name=黑瓦德·佛雷
+entity.got.Blizzard.name≠
 entity.got.Boar.name=野猪
 entity.got.Bomb.name=炸弹
 entity.got.BraavosBaker.name=布拉佛斯烘焙师
@@ -157,13 +146,13 @@ entity.got.CrownlandsFarmhand.name=王领农工
 entity.got.CrownlandsFishmonger.name=王领鱼贩
 entity.got.CrownlandsFlorist.name=王领花贩
 entity.got.CrownlandsGoldsmith.name=王领金匠
-entity.got.CrownlandsMiner.name=王领果菜贩
 entity.got.CrownlandsGuard.name=王城护卫队
 entity.got.CrownlandsLevyman.name=王领民兵
 entity.got.CrownlandsLevymanArcher.name=王领民兵弓箭手
 entity.got.CrownlandsLumberman.name=王领木材商
 entity.got.CrownlandsMan.name=王领人
 entity.got.CrownlandsMason.name=王领石匠
+entity.got.CrownlandsMiner.name=王领果菜贩
 entity.got.DaarioNaharis.name=达里奥·纳哈里斯
 entity.got.DaenerysTargaryen.name=丹妮莉丝·坦格利安
 entity.got.Dagmer.name=裂颚达格摩
@@ -188,12 +177,12 @@ entity.got.DorneFarmhand.name=多恩农工
 entity.got.DorneFishmonger.name=多恩鱼贩
 entity.got.DorneFlorist.name=多恩花贩
 entity.got.DorneGoldsmith.name=多恩金匠
-entity.got.DorneMiner.name=多恩果菜商
 entity.got.DorneLevyman.name=多恩民兵
 entity.got.DorneLevymanArcher.name=多恩民兵弓箭手
 entity.got.DorneLumberman.name=多恩木材商
 entity.got.DorneMan.name=多恩人
 entity.got.DorneMason.name=多恩石匠
+entity.got.DorneMiner.name=多恩果菜商
 entity.got.DorneSoldier.name=多恩武装战士
 entity.got.DorneSoldierArcher.name=多恩武装弓箭手
 entity.got.Dothraki.name=多斯拉克人
@@ -213,12 +202,12 @@ entity.got.DragonstoneFarmhand.name=龙石岛农工
 entity.got.DragonstoneFishmonger.name=龙石岛鱼贩
 entity.got.DragonstoneFlorist.name=龙石岛花贩
 entity.got.DragonstoneGoldsmith.name=龙石岛金匠
-entity.got.DragonstoneMiner.name=龙石岛果菜贩
 entity.got.DragonstoneLevyman.name=龙石岛民兵
 entity.got.DragonstoneLevymanArcher.name=龙石岛民兵弓箭手
 entity.got.DragonstoneLumberman.name=龙石岛木材商
 entity.got.DragonstoneMan.name=龙石岛人
 entity.got.DragonstoneMason.name=龙石岛石匠
+entity.got.DragonstoneMiner.name=龙石岛果菜贩
 entity.got.DragonstoneSoldier.name=龙石岛武装战士
 entity.got.DragonstoneSoldierArcher.name=龙石岛武装弓箭手
 entity.got.DunstanDrumm.name=邓斯坦鼓
@@ -317,17 +306,20 @@ entity.got.IbbenArcher.name=伊班弓箭手
 entity.got.IbbenAxeThrower.name=伊班投斧手
 entity.got.IbbenBaker.name=伊班糕点师
 entity.got.IbbenBannerBearer.name=伊班旗手
+entity.got.IbbenBartender.name=伊班酒保
 entity.got.IbbenBlacksmith.name=伊班铁匠
 entity.got.IbbenBrewer.name=伊班酿酒商
-entity.got.IbbenMason.name=伊班工匠
 entity.got.IbbenButcher.name=伊班肉贩
 entity.got.IbbenFarmer.name=伊班农场主
 entity.got.IbbenFarmhand.name=伊班农工
 entity.got.IbbenFishmonger.name=伊班鱼贩
+entity.got.IbbenFlorist.name=伊班果园主
+entity.got.IbbenFlorist.name≠
+entity.got.IbbenGoldsmith.name≠
 entity.got.IbbenLumberman.name=伊班木材商
 entity.got.IbbenMan.name=伊班人
-entity.got.IbbenBartender.name=伊班酒保
-entity.got.IbbenFlorist.name=伊班果园主
+entity.got.IbbenMason.name=伊班工匠
+entity.got.IbbenMiner.name≠
 entity.got.IbbenStablemaster.name=伊班马夫
 entity.got.IbbenWarlord.name=伊班守卫队长
 entity.got.IbbenWarrior.name=伊班战士
@@ -348,12 +340,12 @@ entity.got.IronbornFarmhand.name=铁群岛农工
 entity.got.IronbornFishmonger.name=铁群岛鱼贩
 entity.got.IronbornFlorist.name=铁群岛花贩
 entity.got.IronbornGoldsmith.name=铁群岛金匠
-entity.got.IronbornMiner.name=铁群岛果菜贩
 entity.got.IronbornLevyman.name=铁群岛民兵
 entity.got.IronbornLevymanArcher.name=铁群岛民兵弓箭手
 entity.got.IronbornLumberman.name=铁群岛木材商
 entity.got.IronbornMan.name=铁种
 entity.got.IronbornMason.name=铁群岛石匠
+entity.got.IronbornMiner.name=铁群岛果菜贩
 entity.got.IronbornPriest.name=淹人
 entity.got.IronbornSoldier.name=铁群岛武装士兵
 entity.got.IronbornSoldierArcher.name=铁群岛武装弓箭手
@@ -514,7 +506,6 @@ entity.got.NorthFarmhand.name=北境农工
 entity.got.NorthFishmonger.name=北境鱼贩
 entity.got.NorthFlorist.name=北境花贩
 entity.got.NorthGoldsmith.name=北境金匠
-entity.got.NorthMiner.name=北境果菜贩
 entity.got.NorthGuard.name=白港守卫
 entity.got.NorthHillman.name=北境山区民
 entity.got.NorthHillmanArcher.name=北境山区民弓箭手
@@ -529,6 +520,7 @@ entity.got.NorthLevymanArcher.name=北境民兵弓箭手
 entity.got.NorthLumberman.name=北境木材商
 entity.got.NorthMan.name=北境人
 entity.got.NorthMason.name=北境石匠
+entity.got.NorthMiner.name=北境果菜贩
 entity.got.NorthSoldier.name=北境武装士兵
 entity.got.NorthSoldierArcher.name=北境武装弓箭手
 entity.got.NorvosBaker.name=诺佛斯烘焙师
@@ -644,13 +636,13 @@ entity.got.ReachFarmhand.name=河湾地农工
 entity.got.ReachFishmonger.name=河湾地鱼贩
 entity.got.ReachFlorist.name=河湾地花贩
 entity.got.ReachGoldsmith.name=河湾地金匠
-entity.got.ReachMiner.name=河湾地果菜贩
 entity.got.ReachGuard.name=旧镇守卫
 entity.got.ReachLevyman.name=河湾地民兵
 entity.got.ReachLevymanArcher.name=河湾地民兵弓箭手
 entity.got.ReachLumberman.name=河湾地木材商
 entity.got.ReachMan.name=河湾地人
 entity.got.ReachMason.name=河湾地石匠
+entity.got.ReachMiner.name=河湾地果菜贩
 entity.got.ReachSoldier.name=河湾地武装士兵
 entity.got.ReachSoldierArcher.name=河湾地武装弓箭手
 entity.got.RedPriest.name=红袍僧
@@ -671,12 +663,12 @@ entity.got.RiverlandsFarmhand.name=河间地农工
 entity.got.RiverlandsFishmonger.name=河间地鱼贩
 entity.got.RiverlandsFlorist.name=河间地花贩
 entity.got.RiverlandsGoldsmith.name=河间地金匠
-entity.got.RiverlandsMiner.name=河间地果菜贩
 entity.got.RiverlandsLevyman.name=河间地民兵
 entity.got.RiverlandsLevymanArcher.name=河间地民兵弓箭手
 entity.got.RiverlandsLumberman.name=河间地木材商
 entity.got.RiverlandsMan.name=河间地人
 entity.got.RiverlandsMason.name=河间地石匠
+entity.got.RiverlandsMiner.name=河间地果菜贩
 entity.got.RiverlandsSoldier.name=河间地武装士兵
 entity.got.RiverlandsSoldierArcher.name=河间地武装弓箭手
 entity.got.RobbStark.name=罗柏·史塔克
@@ -697,6 +689,7 @@ entity.got.Septon.name=修士
 entity.got.Shadowcat.name=影子山猫
 entity.got.Shae.name=雪伊
 entity.got.ShireenBaratheon.name=希琳·拜拉席恩
+entity.got.Shryke.name≠
 entity.got.SmokeRing.name=烟环
 entity.got.SnowBear.name=雪熊
 entity.got.SothoryosBannerBearer.name=索斯罗斯旗手
@@ -723,12 +716,12 @@ entity.got.StormlandsFarmhand.name=风暴地农工
 entity.got.StormlandsFishmonger.name=风暴地鱼贩
 entity.got.StormlandsFlorist.name=风暴地花贩
 entity.got.StormlandsGoldsmith.name=风暴地金匠
-entity.got.StormlandsMiner.name=风暴地果菜贩
 entity.got.StormlandsLevyman.name=风暴地民兵
 entity.got.StormlandsLevymanArcher.name=风暴地民兵弓箭手
 entity.got.StormlandsLumberman.name=风暴地木材商
 entity.got.StormlandsMan.name=风暴地人
 entity.got.StormlandsMason.name=风暴地石匠
+entity.got.StormlandsMiner.name=风暴地果菜贩
 entity.got.StormlandsSoldier.name=风暴地武装士兵
 entity.got.StormlandsSoldierArcher.name=风暴地武装弓箭手
 entity.got.SummerArcher.name=盛夏群岛弓箭手
@@ -741,11 +734,14 @@ entity.got.SummerButcher.name=盛夏群岛肉贩
 entity.got.SummerFarmer.name=盛夏群岛农场主
 entity.got.SummerFarmhand.name=盛夏群岛农工
 entity.got.SummerFishmonger.name=盛夏群岛渔夫
+entity.got.SummerFlorist.name≠
+entity.got.SummerGoldsmith.name≠
 entity.got.SummerHunter.name=盛夏群岛猎人
 entity.got.SummerLumberman.name=盛夏群岛木材商
 entity.got.SummerMan.name=盛夏群岛人
 entity.got.SummerMason.name=盛夏群岛石匠
 entity.got.SummerMiner.name=盛夏群岛矿物商
+entity.got.SummerMiner.name≠
 entity.got.SummerWarlord.name=盛夏群岛领主
 entity.got.SummerWarrior.name=盛夏群岛战士
 entity.got.Swan.name=天鹅
@@ -834,13 +830,13 @@ entity.got.WesterlandsFarmhand.name=西境农工
 entity.got.WesterlandsFishmonger.name=西境鱼贩
 entity.got.WesterlandsFlorist.name=西境花贩
 entity.got.WesterlandsGoldsmith.name=西境金匠
-entity.got.WesterlandsMiner.name=西境果菜贩
 entity.got.WesterlandsGuard.name=兰尼斯港守卫
 entity.got.WesterlandsLevyman.name=西境民兵
 entity.got.WesterlandsLevymanArcher.name=西境民兵弓箭手
 entity.got.WesterlandsLumberman.name=西境木材商
 entity.got.WesterlandsMan.name=西境人
 entity.got.WesterlandsMason.name=西境石匠
+entity.got.WesterlandsMiner.name=西境果菜贩
 entity.got.WesterlandsSoldier.name=西境武装士兵
 entity.got.WesterlandsSoldierArcher.name=西境武装弓箭手
 entity.got.WesterosBandit.name=强盗
@@ -875,15 +871,18 @@ entity.got.YiTiFarmer.name=夷地农场主
 entity.got.YiTiFarmhand.name=夷地农工
 entity.got.YiTiFireThrower.name=夷地投火手
 entity.got.YiTiFishmonger.name=夷地鱼贩
+entity.got.YiTiFlorist.name≠
 entity.got.YiTiFrontier.name=夷地边境守卫
 entity.got.YiTiFrontierCrossbower.name=夷地边境守卫弩手
 entity.got.YiTiGoldsmith.name=夷地金匠
+entity.got.YiTiGoldsmith.name≠
 entity.got.YiTiHunter.name=夷地猎人
 entity.got.YiTiLevyman.name=夷地防人
 entity.got.YiTiLevymanCrossbower.name=夷地民兵弩手
 entity.got.YiTiLumberman.name=夷地木材商
 entity.got.YiTiMan.name=夷地人
 entity.got.YiTiMason.name=夷地石匠
+entity.got.YiTiMiner.name≠
 entity.got.YiTiSamurai.name=夷地武士
 entity.got.YiTiShogune.name=夷地将领
 entity.got.YiTiSoldier.name=夷地士兵
@@ -1094,6 +1093,8 @@ got.achievement.KILL_SANDOR_CLEGANE.desc=杀死桑铎·克里冈
 got.achievement.KILL_SANDOR_CLEGANE.title=猎狗人
 got.achievement.KILL_SANSA_STARK.desc=杀死珊莎·史塔克
 got.achievement.KILL_SANSA_STARK.title=你背叛了你的父亲！
+got.achievement.KILL_SHRYKE.desc≠
+got.achievement.KILL_SHRYKE.title≠
 got.achievement.KILL_THENN_BERSERKER.desc=杀死瑟恩狂战士
 got.achievement.KILL_THENN_BERSERKER.title=更强壮！
 got.achievement.KILL_THE_KING.desc=杀死七大王国的任意一位君主
@@ -1306,6 +1307,8 @@ got.achievement.VISIT_PENTOS.desc=进入潘托斯
 got.achievement.VISIT_PENTOS.title=君临彼岸
 got.achievement.VISIT_QARTH.desc=进入魁尔斯
 got.achievement.VISIT_QARTH.title=商贾之国
+got.achievement.VISIT_QARTH_COLONY.desc≠
+got.achievement.VISIT_QARTH_COLONY.title≠
 got.achievement.VISIT_QARTH_DESERT.desc=进入魁尔斯沙漠
 got.achievement.VISIT_QARTH_DESERT.title=红沙
 got.achievement.VISIT_QOHOR.desc=进入科霍尔
@@ -1326,6 +1329,8 @@ got.achievement.VISIT_SHADOW_MOUNTAINS.desc=进入黎明山脉
 got.achievement.VISIT_SHADOW_MOUNTAINS.title=遮天蔽日
 got.achievement.VISIT_SHADOW_WASTELAND.desc=进入阴影荒地
 got.achievement.VISIT_SHADOW_WASTELAND.title=骇人荒野
+got.achievement.VISIT_SHRYKES_LAND.desc≠
+got.achievement.VISIT_SHRYKES_LAND.title≠
 got.achievement.VISIT_SKAGOS.desc=进入斯卡格斯岛
 got.achievement.VISIT_SKAGOS.title=寻找毛犀
 got.achievement.VISIT_SKIRLING_PASS.desc=进入风声峡
@@ -1356,6 +1361,8 @@ got.achievement.VISIT_STONE_COAST.desc=进入磐石海岸
 got.achievement.VISIT_STONE_COAST.title=争议焦点
 got.achievement.VISIT_STORMLANDS.desc=进入风暴地
 got.achievement.VISIT_STORMLANDS.title=怒火燎原
+got.achievement.VISIT_SUMMER_COLONY.desc≠
+got.achievement.VISIT_SUMMER_COLONY.title≠
 got.achievement.VISIT_SUMMER_ISLANDS.desc=进入盛夏群岛
 got.achievement.VISIT_SUMMER_ISLANDS.title=南方岛屿
 got.achievement.VISIT_TARTH.desc=进入塔斯岛
@@ -1372,8 +1379,20 @@ got.achievement.VISIT_ULTHOS.desc=进入乌尔特斯
 got.achievement.VISIT_ULTHOS.title=蜘蛛，迷雾，诡异
 got.achievement.VISIT_ULTHOS_DESERT.desc=进入乌尔特斯沙漠
 got.achievement.VISIT_ULTHOS_DESERT.title=至少没有蜘蛛
+got.achievement.VISIT_ULTHOS_DESERT_COLD.desc≠
+got.achievement.VISIT_ULTHOS_DESERT_COLD.title≠
+got.achievement.VISIT_ULTHOS_FOREST.desc≠
+got.achievement.VISIT_ULTHOS_FOREST.title≠
+got.achievement.VISIT_ULTHOS_FROST.desc≠
+got.achievement.VISIT_ULTHOS_FROST.title≠
+got.achievement.VISIT_ULTHOS_MARSHES.desc≠
+got.achievement.VISIT_ULTHOS_MARSHES.title≠
 got.achievement.VISIT_ULTHOS_MOUNTAINS.desc=进入乌尔特斯山脉
 got.achievement.VISIT_ULTHOS_MOUNTAINS.title=白色边界
+got.achievement.VISIT_ULTHOS_RED_FOREST.desc≠
+got.achievement.VISIT_ULTHOS_RED_FOREST.title≠
+got.achievement.VISIT_ULTHOS_TAIGA.desc≠
+got.achievement.VISIT_ULTHOS_TAIGA.title≠
 got.achievement.VISIT_VALYRIA.desc=进入瓦雷利亚半岛
 got.achievement.VISIT_VALYRIA.title=帝国废墟
 got.achievement.VISIT_VALYRIA_SEA.desc=进入瓦雷利亚海
@@ -1541,6 +1560,7 @@ got.biome.beachWhite=白沙滩
 got.biome.blackIslands=黑水湾
 got.biome.boneMountains=骸骨山脉
 got.biome.braavos=布拉佛斯
+got.biome.cannibalSandsHills≠
 got.biome.coldCoast=冰冷海岸
 got.biome.crackclaw=蟹爪半岛
 got.biome.crownlands=王领
@@ -1579,7 +1599,10 @@ got.biome.island=岛屿
 got.biome.isleOfFaces=千面屿
 got.biome.jogosNhai=鸠格斯奈
 got.biome.jogosNhaiDesert=干涸沙漠
+got.biome.jogosNhaiHills=鸠格斯奈小山
+got.biome.kanduuBet=坎杜贝特
 got.biome.kingSpears=人鱼王之矛
+got.biome.kuurulgan=库鲁尔甘
 got.biome.lake=湖
 got.biome.lhazar=拉札尔
 got.biome.longSummer=长夏之地
@@ -1589,9 +1612,6 @@ got.biome.massy=摩西之钩
 got.biome.meereen=弥林
 got.biome.mercenary=争议之地
 got.biome.mossovy=摩苏伊
-got.biome.kanduuBet=坎杜贝特
-got.biome.suudanKorkuu=苏丹科尔库
-got.biome.kuurulgan=库鲁尔甘
 got.biome.mossovyTundra=苏克达尔
 got.biome.myr=密尔
 got.biome.naath=纳斯
@@ -1607,6 +1627,7 @@ got.biome.norvos=诺佛斯
 got.biome.ocean=大海
 got.biome.pentos=潘托斯
 got.biome.qarth=魁尔斯
+got.biome.qarthColony≠
 got.biome.qarthDesert=魁尔斯沙漠
 got.biome.qohor=科霍尔
 got.biome.qohorForest=科霍尔森林
@@ -1624,6 +1645,7 @@ got.biome.shadowLand=阴影之地
 got.biome.shadowMountains=黎明山脉
 got.biome.shadowTown=阴影之地
 got.biome.shadowWasteland=阴影荒地
+got.biome.shrykesLand≠
 got.biome.skagos=斯卡格斯岛
 got.biome.skirlingPass=风声峡
 got.biome.sothoryosBushland=索斯罗斯矮灌丛地
@@ -1643,7 +1665,9 @@ got.biome.stepstones=海盗海岸
 got.biome.stoneCoast=磐石海岸
 got.biome.stormlands=风暴地
 got.biome.stormlandsTown=杜伦岬
+got.biome.summerColony≠
 got.biome.summerIslands=夏日群岛
+got.biome.suudanKorkuu=苏丹科尔库
 got.biome.tarth=塔斯岛
 got.biome.thenn=瑟恩
 got.biome.tropicalForest=热带丛林
@@ -1651,7 +1675,17 @@ got.biome.tyrosh=泰洛西
 got.biome.ulos=乌斯岛
 got.biome.ulthos=乌尔特斯
 got.biome.ulthosDesert=乌尔特斯沙漠
+got.biome.ulthosDesertCold≠
+got.biome.ulthosForestEdge≠
+got.biome.ulthosForest≠
+got.biome.ulthosFrost≠
+got.biome.ulthosMarshesForest≠
+got.biome.ulthosMarshes≠
 got.biome.ulthosMountains=乌尔特斯山脉
+got.biome.ulthosRedForestEdge≠
+got.biome.ulthosRedForest≠
+got.biome.ulthosTaigaEdge≠
+got.biome.ulthosTaiga≠
 got.biome.valyria=瓦雷利亚半岛
 got.biome.valyriaSea=瓦雷利亚海
 got.biome.valyriaVolcano=瓦雷利亚火山
@@ -1668,6 +1702,7 @@ got.biome.whisperingWood=呓语森林
 got.biome.wolfswood=狼林
 got.biome.yeen=夷林荒地
 got.biome.yiTi=夷地
+got.biome.yiTiMarshes=夷地沼泽
 got.biome.yiTiWasteland=夷地边野
 got.biome.yunkai=渊凯
 got.capes.ARRYN.name=艾林谷的披风
@@ -2755,6 +2790,7 @@ got.structure.CrownlandsTavern.name=王领酒馆
 got.structure.CrownlandsTower.name=王领塔楼
 got.structure.CrownlandsWatchfort.name=王领瞭望堡
 got.structure.CrownlandsWatchtower.name=王领岗楼
+got.structure.DatabaseGenerator.name=数据库生成器
 got.structure.DorneBarn.name=多恩谷仓
 got.structure.DorneBath.name=多恩澡堂
 got.structure.DorneCityBig.name=多恩筑城
@@ -3346,6 +3382,8 @@ got.wp.Asshai.info=位于已知世界的最东南方。亚夏的东北部就是�
 got.wp.Asshai=亚夏
 got.wp.Astapor.info=奴隶湾的一座城市，坐落在蠕虫河河口。它以出产一种特殊的奴隶——无垢者而闻名。
 got.wp.Astapor=阿斯塔波
+got.wp.Ataahua.info≠
+got.wp.Ataahua≠
 got.wp.Atranta.info=位于河间地，是凡斯家族的家堡。
 got.wp.Atranta=亚兰城
 got.wp.Azhydaar.info=古代摩索维国王卡图拉的故乡。
@@ -3366,10 +3404,14 @@ got.wp.BarterBeach.info=位于蛇蜥群岛中的爪子岛。蛇蜥群岛的海�
 got.wp.BarterBeach=交易滩
 got.wp.Bashkaruuchu.info=寒冷而阴郁的摩索维首都，沉浸在放荡和着迷中。如果第一个是生活的真相，那么第二个是当局的发明。
 got.wp.Bashkaruuchu=巴什卡鲁丘
+got.wp.Batargas.info≠
+got.wp.Batargas≠
 got.wp.Bayasabhad.info=位于远东，也被称为巨蛇之城。是厄斯索斯东部的一个城市，海尔科隆后裔国留下的三个要塞城市之一，以乳头穿着铁环、双颊镶着红宝石的女战士著称。
 got.wp.Bayasabhad=巴亚撒布哈德
 got.wp.Bhorash.info=一座城市废墟。它位于奴隶湾的北岸、黑色大峭壁的东北部。瓦雷利亚大道将之与玛塔里斯及脱罗斯连接，这段道路属于连接瓦兰提斯和弥林的恶魔之路的一部分。
 got.wp.Bhorash=巴哈拉西
+got.wp.BigLake.info≠
+got.wp.BigLake≠
 got.wp.Bitterbridge.info=河湾地境内卡斯威家族的属地与家堡，是玫瑰大道横跨曼德河的要害。一道古老的石拱桥架设在曼德河上，苦桥因此得名。
 got.wp.Bitterbridge=苦桥
 got.wp.BlackHeart.info=已经消亡的托因家族的城堡，在尝试暗杀伊耿三世失败后被夺走。后来被封给克林顿家族。
@@ -3414,6 +3456,8 @@ got.wp.CastleLychester.info=莱彻斯特家族的族堡。
 got.wp.CastleLychester=莱彻斯特堡
 got.wp.CatfishRock.info=旧时皇室的行宫。
 got.wp.CatfishRock=鲶鱼岩
+got.wp.CentralForests.info≠
+got.wp.CentralForests≠
 got.wp.Chroyane.info=曾是洛伊拿人统治的一座伟大的城市，如今只剩一片废墟。这里雾气缭绕，四处都有感染灰鳞病的石民在漫步。
 got.wp.Chroyane=伤心领
 got.wp.CiderHall.info=河湾地的果酒厅的佛索威家族的家堡。
@@ -3464,6 +3508,8 @@ got.wp.Downdelving.info=古柏勒家族的领地。
 got.wp.Downdelving=深钻厅
 got.wp.Draconys.info=最强大，最富有的瓦雷利亚殖民城市之一，于瓦雷利亚的末日中毁灭。
 got.wp.Draconys=德拉贡尼斯
+got.wp.DragonPlace.info≠
+got.wp.DragonPlace≠
 got.wp.Dragonstone.info=位于黑水湾出口处的岛屿，其城堡被雕刻成龙的形状。是从瓦雷利亚自由堡垒流亡而来的坦格利安家族的封地。
 got.wp.Dragonstone=龙石岛
 got.wp.Dreadfort.info=波顿家族的城堡。
@@ -3480,6 +3526,10 @@ got.wp.Duskendale.info=位于王领的大型城镇。其建于港口旁，道路
 got.wp.Duskendale=暮谷镇
 got.wp.DyreDen.info=布伦家族的家堡。
 got.wp.DyreDen=恐穴堡
+got.wp.EastBay.info≠
+got.wp.EastBay≠
+got.wp.EastCoast.info≠
+got.wp.EastCoast≠
 got.wp.EastPass.info=四座荒废的高塔直插云霄。选址意味着是为了防御而建，但是无人知晓他们要如何防卫明明处于防线以内的敌人。
 got.wp.EastPass=东隘口
 got.wp.EastWatch.info=长城最东边的城堡，由卡特·派克率领部分守夜人驻守于此。
@@ -3598,6 +3648,8 @@ got.wp.Harroway.info=位于三叉戟河口的一个小村庄。以已灭绝的�
 got.wp.Harroway=哈罗威伯爵的小镇
 got.wp.HarvestHall.info=赛尔弥家族的族堡是丰收厅。他们的纹章是棕色底色上三把黄色的小麦秸秆，赛尔弥家族只是有产骑士。但在魔龙的狂舞附录中，赛尔弥家族的族长被称为伯爵。
 got.wp.HarvestHall=丰收厅
+got.wp.Hauauru.info≠
+got.wp.Hauauru≠
 got.wp.Hayford.info=王领的哈佛家族的族堡。
 got.wp.Hayford=哈佛城
 got.wp.HaystackHall.info=草厅是风暴地的埃洛尔家族的家堡，位于国王大道以东，风息堡以北。
@@ -3678,8 +3730,12 @@ got.wp.KDath.info=卡达什位于伯劳鸟之地，是厄斯索斯东部的一�
 got.wp.KDath=卡达什
 got.wp.Kadar.info=无尽森林之间的定居点，其古老的文化遗产在几个世纪的黑暗中消失了。
 got.wp.Kadar=卡达尔
+got.wp.KanduuBet.info≠
+got.wp.KanduuBet≠
 got.wp.Karhold.info=卡霍城是北境卡史塔克家族的家堡，是一座坚固的堡垒。建造这座城堡的人是卡隆·史塔克，他也是卡史塔克家族的建立者。他命名这座城堡为卡隆之城。最后这个名字演变成了卡霍城。
 got.wp.Karhold=卡霍城
+got.wp.Karimagar.info≠
+got.wp.Karimagar≠
 got.wp.Kayakayanaya.info=城堡周围最后出现的城市之一，旨在保护Hirkun封地免遭袭击；王国在干涸的大海之后衰落，但好战的亚马逊人仍然守卫着。
 got.wp.Kayakayanaya=卡亚卡亚纳亚
 got.wp.Kayce.info=凯切镇位于西境，在仙女岛以南的一个半岛上，是肯宁家族的家堡。
@@ -3692,6 +3748,8 @@ got.wp.Kingshouse.info=国王厅是北境斯卡格斯岛，马格拿氏族的族
 got.wp.Kingshouse=国王厅
 got.wp.KissLock.info=骷髅与亲吻骑士城堡。
 got.wp.KissLock=吻别哨
+got.wp.Kohuru.info≠
+got.wp.Kohuru≠
 got.wp.Koj.info=是盛夏群岛中的一座小岛。
 got.wp.Koj=鹿儿岛
 got.wp.Korkunuchtuu.info=一座传说中的城市，在远古之杖统治时期以首都而闻名。它现在是伟大的皇家财务官的住所。
@@ -3702,6 +3760,8 @@ got.wp.KrazaajHas.info=科拉札吉·札斯克是东大陆一处吉斯城市废�
 got.wp.KrazaajHas=科拉札吉·札斯克
 got.wp.Kujruk.info=古堡。这座城堡已经被一些忠于地下城主的午夜战士守卫了数千年。
 got.wp.Kujruk=库鲁克
+got.wp.Kuurulgan.info≠
+got.wp.Kuurulgan≠
 got.wp.Kyth.info=萨诺城被多斯拉克人摧毁。
 got.wp.Kyth=凯萨
 got.wp.Lannisport.info=兰尼斯港是日落之海沿岸的一个城市，在凯岩城以西，河间大道、黄金大道和滨海大道交汇的地方。在这座港口停泊着兰尼斯特家族的舰队。此外这个城市还以出产金器而闻名。负责维持治安的守备队，与君临或是旧镇的相比，更是以训练有素而出名。
@@ -3754,6 +3814,14 @@ got.wp.ManticoreIsles.info=蝎尾兽群岛由玉海东部的七座小岛组成�
 got.wp.ManticoreIsles=蝎尾兽群岛
 got.wp.Marahai.info=莫拉海岛是玉海中央一座新月形的岛屿，在厄斯索斯的海岸以南。在莫拉海岛的海湾中还有两座火山小岛。
 got.wp.Marahai=莫拉海岛
+got.wp.Marshes.info≠
+got.wp.Marshes≠
+got.wp.Matahau.info≠
+got.wp.Matahau≠
+got.wp.Matao.info≠
+got.wp.Matao≠
+got.wp.Maunga.info≠
+got.wp.Maunga≠
 got.wp.Meereen.info=弥林是奴隶湾的一处城邦，坐落于海湾的最北边，矗立于斯卡札丹河畔。它因奴隶贸易而闻名。
 got.wp.Meereen=弥林
 got.wp.MhysaFaer.info=瓦雷利亚帝国强大而富有的殖民城市之一，在瓦雷利亚的毁灭中被摧毁。名称中的"Misa"表示这座城市的吉斯卡里亚人起源（地图上的位置很大程度上值得怀疑）。
@@ -3786,6 +3854,10 @@ got.wp.NewGhis.info=新吉斯是悲痛海湾中一座岛屿城邦。它是吉斯
 got.wp.NewGhis=新吉斯
 got.wp.NewIbbish.info=新伊斯是伊班人在厄斯索斯大陆的殖民地城市，位于伊佛维隆诸王国北部森林覆盖的半岛上。新伊斯向北是鲸鱼湾，东南方有一座伊班城市废墟，这座城如今的多斯拉克语名字是"维斯·阿斯克"。
 got.wp.NewIbbish=新伊斯
+got.wp.Ngahere.info≠
+got.wp.Ngahere≠
+got.wp.Ngarara.info≠
+got.wp.Ngarara≠
 got.wp.NightKing.info=维斯特洛最北端的一个苏斯峡谷
 got.wp.NightKing=峡谷
 got.wp.Nightfort.info=长夜堡是长城上的一座守夜人城堡。只有长夜堡的楼梯是从长城本身的冰壁里凿出来的。长夜堡在五王之战两百年前被守夜人遗弃。这里最后的守夜人弟兄被派遣到了深湖居。长夜堡位于冰痕城东侧，深湖居西侧。
@@ -3794,6 +3866,8 @@ got.wp.Nightsong.info=夜歌城是卡伦家族的家堡，位于风暴地西南�
 got.wp.Nightsong=夜歌城
 got.wp.Ninestars.info=九星城位于谷地，是坦帕顿家族的家堡。
 got.wp.Ninestars=九星城
+got.wp.NorthForests.info≠
+got.wp.NorthForests≠
 got.wp.NorthPass.info=四个关口是古坟，直通云端。它们的位置表明它们是防御结构。但是，如果敌人在里面，从谁那里以及为什么要保卫莫西亚呢？
 got.wp.NorthPass=北关
 got.wp.Norvos.info=诺佛斯是九大自由贸易城邦之一，位于山区之中，是少数不是港口城市的自由城邦。诺佛斯气候寒冷，天空总是乌云密布，山区长年刮着凛冽的大风，这里的阳光苍白昏暗。城邦被群山围绕，茂密的黑森林中有榉木、橡树、松树和大量不同野生动物，像野猪、棕熊、狼或其他猎物。接近城市范围，梯田举目可见，人们住在受木墙保护的庄园与围村内耕种土地。附近的河流湍急又多石，山脉区藏有无数洞穴，栖息着棕熊与狼群，有些甚至保存了古代巨人的骸骨与人类始祖留下的壁画。诺佛斯西北几百里格外一处巨大的岩洞网更是深不见底，人们说那是冥界的入口，"长腿"洛马斯将这个洞穴网封为世界七大自然奇迹之一。
@@ -3836,6 +3910,8 @@ got.wp.Pennytree.info=铜板树村是坐落在河间地两个被称作"乳头峰
 got.wp.Pennytree=铜分树村
 got.wp.Pentos.info=潘托斯是九大自由贸易城邦之一，位于厄斯索斯大陆的西部，濒临狭海，与七大王国遥距相望，是最接近君临的自由贸易城邦。
 got.wp.Pentos=潘托斯
+got.wp.Pereki.info≠
+got.wp.Pereki≠
 got.wp.Pingbei.info=夷地长城的最东端，这是一个巨大而古老的建筑，保护黄金帝国免受来自北方游牧民族的袭击。
 got.wp.Pingbei=平北
 got.wp.Pingjiang.info=商贸城的一个关隘，里面有一个火药库。有一天，在击退游牧民族的进攻时，长城上的大炮哑火了，炮弹就在那里爆炸了，这个连锁反应导致火药库爆炸。双方都没有活下来。该堡垒后来被重建了。
@@ -3878,10 +3954,14 @@ got.wp.RamseyTower.info=拉姆齐·斯诺饿死霍伍德夫人的塔。
 got.wp.RamseyTower=拉姆斯塔
 got.wp.Rathylar.info=萨诺城被多斯拉克人摧毁。
 got.wp.Rathylar=洛茨拉
+got.wp.Raumati.info≠
+got.wp.Raumati≠
 got.wp.RaventreeHall.info=鸦树城是布莱伍德家族的家堡，位于河间地的布莱伍德谷。
 got.wp.RaventreeHall=鸦树城
 got.wp.RedFlowerVale.info=位于盛夏群岛中的扎勒岛，是一条从该岛中部横贯至东部海岸的河谷。
 got.wp.RedFlowerVale=红花谷
+got.wp.RedForests.info≠
+got.wp.RedForests≠
 got.wp.RedHaven.info=铁群岛最大的港口，位于派克。
 got.wp.RedHaven=红港
 got.wp.RedLake.info=红湖，是河湾地西北部唯一的一个大湖。同名城堡红湖城坐落在它的北岸。
@@ -3974,6 +4054,12 @@ got.wp.Snakewood.info=蛇木城位于谷地，是林德利家族的家堡，坐�
 got.wp.Snakewood=蛇木城
 got.wp.SouthPass.info=四个关口是古坟，直通云端。它们的位置表明它们是防御结构。但是，如果敌人在里面，从谁那里以及为什么要保卫莫西亚呢？
 got.wp.SouthPass=南隘口
+got.wp.SouthPoint.info≠
+got.wp.SouthPoint≠
+got.wp.SouthTaiga.info≠
+got.wp.SouthTaiga≠
+got.wp.SouthUlthos.info≠
+got.wp.SouthUlthos≠
 got.wp.Southshield.info=南盾岛是河湾地的盾牌列岛中的一个，靠近曼德河口。是西瑞家族的封地。
 got.wp.Southshield=南盾岛
 got.wp.SparrCastle.info=Sparres家族的城堡，葛雷乔伊家族的附庸。
@@ -4024,22 +4110,30 @@ got.wp.Sunspear.info=阳戟城是马泰尔家族族堡和多恩首府。它位�
 got.wp.Sunspear=阳戟城
 got.wp.SuuNym.info=有一个传说，阿梭尔亚亥的名字石石在远古时代就住在这里。相传，战后他来到这里创作伟大的歌曲和神圣的文本。
 got.wp.SuuNym=苏尼姆
+got.wp.SuudanKorkuu.info≠
+got.wp.SuudanKorkuu≠
 got.wp.SweetLotusVale.info=扎勒岛上的一条河谷。它从该岛中部向南延伸，在檀头镇处入海
 got.wp.SweetLotusVale=甜莲花谷
 got.wp.SweetportSound.info=妙港位于王领，是桑格拉斯家族的居所。
 got.wp.SweetportSound=妙港
+got.wp.Takutai.info≠
+got.wp.Takutai≠
 got.wp.TallTreesTown.info=高树镇是盛夏群岛上的一个城镇。它是月桂风号的母港。
 got.wp.TallTreesTown=高树镇
 got.wp.TarbeckHall.info=塔贝克厅是位于西境的一座废墟城堡，位于卡斯特梅城和峭岩城附近。这是古老的塔贝克家族的族堡。
 got.wp.TarbeckHall=塔贝克厅
 got.wp.Tashtoo.info=伊本的船只停靠的古老海港。造船厂工人居住的村庄最终变成了一个船只停靠在港口的小镇。
 got.wp.Tashtoo=塔什图
+got.wp.Tauranga.info≠
+got.wp.Tauranga≠
 got.wp.TawneyCastle.info=TawneyCastle家族的城堡，葛雷乔伊家族的附庸。
 got.wp.TawneyCastle=陶尼堡
 got.wp.Telyria.info=瓦雷利亚的海门。
 got.wp.Telyria=特里瑞亚
 got.wp.TenTowers.info=哈尔洛家族的居城。
 got.wp.TenTowers=十塔城
+got.wp.Teriman.info≠
+got.wp.Teriman≠
 got.wp.TheEyrie.info=一座古老的城堡，位于艾林谷，是安达尔人最古老的传人之一艾林家族的家堡。
 got.wp.TheEyrie=鹰巢城
 got.wp.ThePaps.info=位于五指半岛东北角狭海内，效忠谷地的艾林家族。
@@ -4166,6 +4260,8 @@ got.wp.Whispers.info=轻语堡是蟹爪半岛上的一处城堡废墟，曾是�
 got.wp.Whispers=轻语堡
 got.wp.WhiteHarbour.info=白港是一个大港口城市，坐落于临冬城南方，是曼德勒家族的封地。白港是颈泽以北最大的居住地，但是是维斯特洛五大城市中最小的。白港是北境主要的贸易港口，其位于白刃河河口，可以提供更多的贸易机会去更北的地区。
 got.wp.WhiteHarbour=白港
+got.wp.WhiteMountains.info≠
+got.wp.WhiteMountains≠
 got.wp.WhiteWalls.info=白墙城是巴特维尔家族的家堡，位于神眼湖畔。五王之战的七八十年前左右，十字路口客栈附近有个渡船码头，人们可以搭摆渡渡过三叉戟河前往哈罗威伯爵的小镇和白墙城，可是后来河流改道，这个渡口便被废弃了。
 got.wp.WhiteWalls=白墙城
 got.wp.WhiteWood.info=一棵巨大的巫树阴影下的野人小村庄。
