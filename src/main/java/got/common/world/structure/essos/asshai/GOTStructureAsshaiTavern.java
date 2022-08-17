@@ -513,10 +513,10 @@ public class GOTStructureAsshaiTavern extends GOTStructureAsshaiBase {
 			if (i2 == 3) {
 				setBlockAndMetadata(world, i13, 6, 1, bedBlock, 0);
 				setBlockAndMetadata(world, i13, 6, 2, bedBlock, 8);
-				setBlockAndMetadata(world, i13, 6, 0, Blocks.chest, 4);
+				setBlockAndMetadata(world, i13, 6, 0, GOTRegistry.chestStone, 4);
 				setBlockAndMetadata(world, i13, 6, 13, bedBlock, 2);
 				setBlockAndMetadata(world, i13, 6, 12, bedBlock, 10);
-				setBlockAndMetadata(world, i13, 6, 14, Blocks.chest, 4);
+				setBlockAndMetadata(world, i13, 6, 14, GOTRegistry.chestStone, 4);
 			}
 			if (i2 == 1) {
 				setBlockAndMetadata(world, i13, 6, 2, plankStairBlock, 2);
@@ -577,10 +577,10 @@ public class GOTStructureAsshaiTavern extends GOTStructureAsshaiBase {
 			if (k2 == 0) {
 				setBlockAndMetadata(world, -6, 6, k12, bedBlock, 1);
 				setBlockAndMetadata(world, -5, 6, k12, bedBlock, 9);
-				setBlockAndMetadata(world, -7, 6, k12, Blocks.chest, 2);
+				setBlockAndMetadata(world, -7, 6, k12, GOTRegistry.chestStone, 2);
 				setBlockAndMetadata(world, 10, 6, k12, bedBlock, 3);
 				setBlockAndMetadata(world, 9, 6, k12, bedBlock, 11);
-				setBlockAndMetadata(world, 11, 6, k12, Blocks.chest, 2);
+				setBlockAndMetadata(world, 11, 6, k12, GOTRegistry.chestStone, 2);
 			}
 			if (k2 == 2) {
 				setBlockAndMetadata(world, -5, 6, k12, plankStairBlock, 1);
@@ -637,10 +637,10 @@ public class GOTStructureAsshaiTavern extends GOTStructureAsshaiBase {
 		}
 		setBlockAndMetadata(world, 11, 6, 11, bedBlock, 0);
 		setBlockAndMetadata(world, 11, 6, 12, bedBlock, 8);
-		setBlockAndMetadata(world, 11, 6, 10, Blocks.chest, 5);
+		setBlockAndMetadata(world, 11, 6, 10, GOTRegistry.chestStone, 5);
 		setBlockAndMetadata(world, 7, 6, 13, bedBlock, 2);
 		setBlockAndMetadata(world, 7, 6, 12, bedBlock, 10);
-		setBlockAndMetadata(world, 7, 6, 14, Blocks.chest, 4);
+		setBlockAndMetadata(world, 7, 6, 14, GOTRegistry.chestStone, 4);
 		setBlockAndMetadata(world, 9, 6, 14, plankBlock, plankMeta);
 		this.placeMug(world, random, 9, 7, 14, 0, GOTFoods.WESTEROS_DRINK);
 		setBlockAndMetadata(world, 10, 6, 13, plankBlock, plankMeta);
@@ -683,10 +683,10 @@ public class GOTStructureAsshaiTavern extends GOTStructureAsshaiBase {
 		}
 		setBlockAndMetadata(world, 11, 6, 3, bedBlock, 2);
 		setBlockAndMetadata(world, 11, 6, 2, bedBlock, 10);
-		setBlockAndMetadata(world, 11, 6, 4, Blocks.chest, 5);
+		setBlockAndMetadata(world, 11, 6, 4, GOTRegistry.chestStone, 5);
 		setBlockAndMetadata(world, 7, 6, 1, bedBlock, 0);
 		setBlockAndMetadata(world, 7, 6, 2, bedBlock, 8);
-		setBlockAndMetadata(world, 7, 6, 0, Blocks.chest, 4);
+		setBlockAndMetadata(world, 7, 6, 0, GOTRegistry.chestStone, 4);
 		setBlockAndMetadata(world, 9, 6, 0, plankBlock, plankMeta);
 		this.placeMug(world, random, 9, 7, 0, 2, GOTFoods.WESTEROS_DRINK);
 		setBlockAndMetadata(world, 10, 6, 1, plankBlock, plankMeta);
@@ -729,10 +729,10 @@ public class GOTStructureAsshaiTavern extends GOTStructureAsshaiBase {
 		}
 		setBlockAndMetadata(world, -7, 6, 3, bedBlock, 2);
 		setBlockAndMetadata(world, -7, 6, 2, bedBlock, 10);
-		setBlockAndMetadata(world, -7, 6, 4, Blocks.chest, 4);
+		setBlockAndMetadata(world, -7, 6, 4, GOTRegistry.chestStone, 4);
 		setBlockAndMetadata(world, -3, 6, 1, bedBlock, 0);
 		setBlockAndMetadata(world, -3, 6, 2, bedBlock, 8);
-		setBlockAndMetadata(world, -3, 6, 0, Blocks.chest, 5);
+		setBlockAndMetadata(world, -3, 6, 0, GOTRegistry.chestStone, 5);
 		setBlockAndMetadata(world, -5, 6, 0, plankBlock, plankMeta);
 		this.placeMug(world, random, -5, 7, 0, 2, GOTFoods.WESTEROS_DRINK);
 		setBlockAndMetadata(world, -6, 6, 1, plankBlock, plankMeta);

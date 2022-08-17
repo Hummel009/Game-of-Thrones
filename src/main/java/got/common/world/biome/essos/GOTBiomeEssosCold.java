@@ -31,7 +31,7 @@ public abstract class GOTBiomeEssosCold extends GOTBiome {
 		decorator.doubleGrassPerChunk = 1;
 		decorator.flowersPerChunk = 3;
 		decorator.doubleFlowersPerChunk = 1;
-		decorator.addRandomStructure(new GOTStructureBarrow(false), 250);
+		decorator.addRandomStructure(new GOTStructureBarrow(false), 150);
 		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
 		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);

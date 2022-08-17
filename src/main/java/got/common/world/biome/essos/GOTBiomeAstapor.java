@@ -13,7 +13,7 @@ import got.common.world.structure.essos.ghiscar.GOTStructureGhiscarFightingPit;
 public class GOTBiomeAstapor extends GOTBiomeGhiscar {
 	public GOTBiomeAstapor(int i, boolean major) {
 		super(i, major);
-		decorator.addRandomStructure(new GOTStructureGhiscarFightingPit(false), 250);
+		decorator.addRandomStructure(new GOTStructureGhiscarFightingPit(false), 150);
 		npcSpawnList.clear();
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN));

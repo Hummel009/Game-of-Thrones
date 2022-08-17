@@ -2,334 +2,336 @@ package got.common.world.structure.essos.asshai;
 
 import java.util.Random;
 
-import got.GOT;
 import got.common.database.*;
-import got.common.entity.essos.asshai.*;
-import got.common.entity.other.GOTEntityNPCRespawner;
-import got.common.world.structure.other.GOTStructureBase;
+import got.common.entity.essos.asshai.GOTEntityAsshaiCaptain;
+import got.common.item.other.GOTItemBanner;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-public class GOTStructureAsshaiTower extends GOTStructureBase {
-	public GOTStructureAsshaiTower(boolean flag) {
-		super(flag);
-	}
+public class GOTStructureAsshaiTower
+extends GOTStructureAsshaiBase {
+    public GOTStructureAsshaiTower(boolean flag) {
+        super(flag);
+    }
 
-	@Override
-	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		this.setOriginAndRotation(world, i, j, k, rotation, 19);
-		setupRandomBlocks(random);
-		int j1;
-		int k1;
-		int i1;
-		int j12;
-		int k12;
-		int sections = 5;
-		int equipmentSection = 1 + random.nextInt(sections);
-		if (restrictions) {
-			for (int i12 = i - 7; i12 <= i + 7; ++i12) {
-				for (k12 = k - 7; k12 <= k + 7; ++k12) {
-					j12 = world.getHeightValue(i12, k12) - 1;
-					Block block = world.getBlock(i12, j12, k12);
-					int meta = world.getBlockMetadata(i12, j12, k12);
-					if (block == GOTRegistry.asshaiDirt || block == GOTRegistry.basaltGravel || block == GOTRegistry.rock && meta == 0 || block == Blocks.grass || block == Blocks.dirt) {
-						continue;
-					}
-					return false;
-				}
-			}
-		}
-		for (k1 = k - 2; k1 <= k + 2; ++k1) {
-			for (j1 = j; !GOT.isOpaque(world, i - 6, j1, k1) && j1 >= 0; --j1) {
-				setBlockAndNotifyAdequately(world, i - 6, j1, k1, GOTRegistry.brick1, 0);
-			}
-			for (j1 = j; !GOT.isOpaque(world, i + 6, j1, k1) && j1 >= 0; --j1) {
-				setBlockAndNotifyAdequately(world, i + 6, j1, k1, GOTRegistry.brick1, 0);
-			}
-		}
-		for (k1 = k - 4; k1 <= k + 4; ++k1) {
-			for (j1 = j; !GOT.isOpaque(world, i - 5, j1, k1) && j1 >= 0; --j1) {
-				setBlockAndNotifyAdequately(world, i - 5, j1, k1, GOTRegistry.brick1, 0);
-			}
-			for (j1 = j; !GOT.isOpaque(world, i + 5, j1, k1) && j1 >= 0; --j1) {
-				setBlockAndNotifyAdequately(world, i + 5, j1, k1, GOTRegistry.brick1, 0);
-			}
-		}
-		for (k1 = k - 5; k1 <= k + 5; ++k1) {
-			for (i1 = i - 4; i1 <= i - 3; ++i1) {
-				for (j12 = j; !GOT.isOpaque(world, i1, j12, k1) && j12 >= 0; --j12) {
-					setBlockAndNotifyAdequately(world, i1, j12, k1, GOTRegistry.brick1, 0);
-				}
-			}
-			for (i1 = i + 3; i1 <= i + 4; ++i1) {
-				for (j12 = j; !GOT.isOpaque(world, i1, j12, k1) && j12 >= 0; --j12) {
-					setBlockAndNotifyAdequately(world, i1, j12, k1, GOTRegistry.brick1, 0);
-				}
-			}
-		}
-		for (k1 = k - 6; k1 <= k + 6; ++k1) {
-			for (i1 = i - 2; i1 <= i + 2; ++i1) {
-				for (j12 = j; !GOT.isOpaque(world, i1, j12, k1) && j12 >= 0; --j12) {
-					setBlockAndNotifyAdequately(world, i1, j12, k1, GOTRegistry.brick1, 0);
-				}
-			}
-		}
-		for (int l = 0; l <= sections; ++l) {
-			generateTowerSection(world, random, i, j, k, l, false, l == equipmentSection);
-		}
-		generateTowerSection(world, random, i, j, k, sections + 1, true, false);
-		GOTEntityAsshaiCaptain trader = new GOTEntityAsshaiCaptain(world);
-		trader.setLocationAndAngles(i + 0.5, j + (sections + 1) * 8 + 1, k - 4 + 0.5, world.rand.nextFloat() * 360.0f, 0.0f);
-		trader.onSpawnWithEgg(null);
-		trader.setHomeArea(i, j + (sections + 1) * 8, k, 24);
-		world.spawnEntityInWorld(trader);
-		GOTEntityAsshaiAlchemist trader2 = new GOTEntityAsshaiAlchemist(world);
-		trader2.setLocationAndAngles(i + 0.5, j + (sections + 1) * 8 + 1, k - 4 + 0.5, world.rand.nextFloat() * 360.0f, 0.0f);
-		trader2.onSpawnWithEgg(null);
-		trader2.setHomeArea(i, j + (sections + 1) * 8, k, 24);
-		world.spawnEntityInWorld(trader2);
-		switch (rotation) {
-		case 0: {
-			for (i1 = i - 1; i1 <= i + 1; ++i1) {
-				setBlockAndNotifyAdequately(world, i1, j, k - 6, GOTRegistry.slabDouble1, 0);
-				for (j12 = j + 1; j12 <= j + 4; ++j12) {
-					setBlockAndNotifyAdequately(world, i1, j12, k - 6, GOTRegistry.gateIronBars, 3);
-				}
-			}
-			break;
-		}
-		case 1: {
-			for (k12 = k - 1; k12 <= k + 1; ++k12) {
-				setBlockAndNotifyAdequately(world, i + 6, j, k12, GOTRegistry.slabDouble1, 0);
-				for (j12 = j + 1; j12 <= j + 4; ++j12) {
-					setBlockAndNotifyAdequately(world, i + 6, j12, k12, GOTRegistry.gateIronBars, 4);
-				}
-			}
-			break;
-		}
-		case 2: {
-			for (i1 = i - 1; i1 <= i + 1; ++i1) {
-				setBlockAndNotifyAdequately(world, i1, j, k + 6, GOTRegistry.slabDouble1, 0);
-				for (j12 = j + 1; j12 <= j + 4; ++j12) {
-					setBlockAndNotifyAdequately(world, i1, j12, k + 6, GOTRegistry.gateIronBars, 2);
-				}
-			}
-			break;
-		}
-		case 3: {
-			for (k12 = k - 1; k12 <= k + 1; ++k12) {
-				setBlockAndNotifyAdequately(world, i - 6, j, k12, GOTRegistry.slabDouble1, 0);
-				for (j12 = j + 1; j12 <= j + 4; ++j12) {
-					setBlockAndNotifyAdequately(world, i - 6, j12, k12, GOTRegistry.gateIronBars, 5);
-				}
-			}
-		}
-		}
-		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClass(GOTEntityAsshaiWarrior.class);
-		respawner.setCheckRanges(12, -8, 50, 20);
-		respawner.setSpawnRanges(5, 1, 40, 16);
-		placeNPCRespawner(respawner, world, i, j, k);
-		return true;
-	}
+    @Override
+    public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
+        int i1;
+        int j1;
+        int step;
+        int k1;
+        int i12;
+        int k12;
+        int distSq;
+        int i13;
+        int k13;
+        int j12;
+        int k14;
+        int j2;
+        int j13;
+        int radius = 6;
+        int radiusPlusOne = radius + 1;
+        this.setOriginAndRotation(world, i, j, k, rotation, radiusPlusOne);
+        int sections = 6;
+        int sectionHeight = 6;
+        int topHeight = sections * sectionHeight;
+        double radiusD = (double)radius - 0.5;
+        double radiusDPlusOne = radiusD + 1.0;
+        int wallThresholdMin = (int)(radiusD * radiusD);
+        int wallThresholdMax = (int)(radiusDPlusOne * radiusDPlusOne);
+        if (this.restrictions) {
+            int minHeight = 0;
+            int maxHeight = 0;
+            for (i13 = -radiusPlusOne; i13 <= radiusPlusOne; ++i13) {
+                for (k13 = -radiusPlusOne; k13 <= radiusPlusOne; ++k13) {
+                    int distSq2 = i13 * i13 + k13 * k13;
+                    if (distSq2 >= wallThresholdMax) continue;
+                    int j14 = this.getTopBlock(world, i13, k13) - 1;
+                    Block block = this.getBlock(world, i13, j14, k13);
+                    if (block != Blocks.grass && block != Blocks.dirt && block != Blocks.stone) {
+                        return false;
+                    }
+                    if (j14 < minHeight) {
+                        minHeight = j14;
+                    }
+                    if (j14 > maxHeight) {
+                        maxHeight = j14;
+                    }
+                    if (maxHeight - minHeight <= 16) continue;
+                    return false;
+                }
+            }
+        }
+        for (i1 = -radius; i1 <= radius; ++i1) {
+            for (k1 = -radius; k1 <= radius; ++k1) {
+                distSq = i1 * i1 + k1 * k1;
+                if (distSq >= wallThresholdMax) continue;
+                for (j13 = 0; !(j13 != 0 && this.isOpaque(world, i1, j13, k1) || this.getY(j13) < 0); --j13) {
+                    if (distSq >= wallThresholdMin) {
+                        this.placeRandomBrick(world, random, i1, j13, k1);
+                    } else {
+                        this.setBlockAndMetadata(world, i1, j13, k1, GOTRegistry.brick1, 0);
+                    }
+                    this.setGrassToDirt(world, i1, j13 - 1, k1);
+                }
+            }
+        }
+        for (int l = 0; l < sections; ++l) {
+            int step2;
+            int sectionBase = l * sectionHeight;
+            for (j1 = sectionBase + 1; j1 <= sectionBase + sectionHeight; ++j1) {
+                for (i12 = -radius; i12 <= radius; ++i12) {
+                    for (int k15 = -radius; k15 <= radius; ++k15) {
+                        int distSq3 = i12 * i12 + k15 * k15;
+                        if (distSq3 >= wallThresholdMax) continue;
+                        if (distSq3 >= wallThresholdMin) {
+                            this.placeRandomBrick(world, random, i12, j1, k15);
+                            continue;
+                        }
+                        if (j1 == sectionBase + sectionHeight) {
+                            this.setBlockAndMetadata(world, i12, j1, k15, GOTRegistry.brick1, 0);
+                            continue;
+                        }
+                        this.setAir(world, i12, j1, k15);
+                    }
+                }
+            }
+            for (j1 = sectionBase + 2; j1 <= sectionBase + 3; ++j1) {
+                for (k13 = -1; k13 <= 1; ++k13) {
+                    this.setBlockAndMetadata(world, -radius, j1, k13, GOTRegistry.asshaiBars, 0);
+                    this.setBlockAndMetadata(world, radius, j1, k13, GOTRegistry.asshaiBars, 0);
+                }
+                for (i12 = -1; i12 <= 1; ++i12) {
+                    this.setBlockAndMetadata(world, i12, j1, -radius, GOTRegistry.asshaiBars, 0);
+                }
+            }
+            if (l > 0) {
+                this.setAir(world, 0, sectionBase, 0);
+                for (i13 = -1; i13 <= 1; ++i13) {
+                    for (k13 = -1; k13 <= 1; ++k13) {
+                        int i2 = Math.abs(i13);
+                        int k2 = Math.abs(k13);
+                        if (i2 == 1 || k2 == 1) {
+                            this.setBlockAndMetadata(world, i13, sectionBase + 1, k13, GOTRegistry.wallStone1, 1);
+                        }
+                        if (i2 != 1 || k2 != 1) continue;
+                        this.setBlockAndMetadata(world, i13, sectionBase + 2, k13, GOTRegistry.wallStone1, 1);
+                        this.placeSkull(world, random, i13, sectionBase + 2, k13);
+                    }
+                }
+            } else {
+                for (i13 = -1; i13 <= 1; ++i13) {
+                    for (j13 = sectionBase + 1; j13 <= sectionBase + 3; ++j13) {
+                        this.setAir(world, i13, j13, -radius);
+                    }
+                    this.setBlockAndMetadata(world, i13, sectionBase, -radius, GOTRegistry.brick1, 0);
+                }
+                this.placeRandomStairs(world, random, -1, sectionBase + 3, -radius, 4);
+                this.placeRandomStairs(world, random, 1, sectionBase + 3, -radius, 5);
+                this.placeWallBanner(world, 0, sectionBase + 6, -radius, GOTItemBanner.BannerType.ASSHAI, 2);
+                for (i13 = -5; i13 <= 5; ++i13) {
+                    this.setBlockAndMetadata(world, i13, sectionBase, 0, GOTRegistry.brick1, 0);
+                }
+                for (k14 = -6; k14 <= 3; ++k14) {
+                    this.setBlockAndMetadata(world, 0, sectionBase, k14, GOTRegistry.brick1, 0);
+                }
+                this.setBlockAndMetadata(world, 0, sectionBase + 1, 0, GOTRegistry.brick1, 0);
+                this.setBlockAndMetadata(world, 0, sectionBase + 2, 0, GOTRegistry.wallStone1, 1);
+                this.placeSkull(world, random, 0, sectionBase + 3, 0);
+            }
+            for (j1 = sectionBase + 1; j1 <= sectionBase + 5; ++j1) {
+                this.setBlockAndMetadata(world, -2, j1, -5, GOTRegistry.planks1, 3);
+                this.setBlockAndMetadata(world, 2, j1, -5, GOTRegistry.planks1, 3);
+                this.setBlockAndMetadata(world, 5, j1, -2, GOTRegistry.planks1, 3);
+                this.setBlockAndMetadata(world, 5, j1, 2, GOTRegistry.planks1, 3);
+                this.setBlockAndMetadata(world, -3, j1, 4, GOTRegistry.planks1, 3);
+                this.setBlockAndMetadata(world, 3, j1, 4, GOTRegistry.planks1, 3);
+                this.setBlockAndMetadata(world, -5, j1, -2, GOTRegistry.planks1, 3);
+                this.setBlockAndMetadata(world, -5, j1, 2, GOTRegistry.planks1, 3);
+            }
+            this.setBlockAndMetadata(world, -3, sectionBase + 4, 3, GOTRegistry.asshaiTorch, 4);
+            this.setBlockAndMetadata(world, 3, sectionBase + 4, 3, GOTRegistry.asshaiTorch, 4);
+            this.setBlockAndMetadata(world, 4, sectionBase + 4, -2, GOTRegistry.asshaiTorch, 1);
+            this.setBlockAndMetadata(world, 4, sectionBase + 4, 2, GOTRegistry.asshaiTorch, 1);
+            this.setBlockAndMetadata(world, -2, sectionBase + 4, -4, GOTRegistry.asshaiTorch, 3);
+            this.setBlockAndMetadata(world, 2, sectionBase + 4, -4, GOTRegistry.asshaiTorch, 3);
+            this.setBlockAndMetadata(world, -4, sectionBase + 4, -2, GOTRegistry.asshaiTorch, 2);
+            this.setBlockAndMetadata(world, -4, sectionBase + 4, 2, GOTRegistry.asshaiTorch, 2);
+            this.setBlockAndMetadata(world, -3, sectionBase + 5, 3, GOTRegistry.stairsBasaltBrick, 6);
+            this.setBlockAndMetadata(world, 3, sectionBase + 5, 3, GOTRegistry.stairsBasaltBrick, 6);
+            this.setBlockAndMetadata(world, 4, sectionBase + 5, -2, GOTRegistry.stairsBasaltBrick, 5);
+            this.setBlockAndMetadata(world, 5, sectionBase + 5, -1, GOTRegistry.stairsBasaltBrick, 7);
+            this.setBlockAndMetadata(world, 5, sectionBase + 5, 1, GOTRegistry.stairsBasaltBrick, 6);
+            this.setBlockAndMetadata(world, 4, sectionBase + 5, 2, GOTRegistry.stairsBasaltBrick, 5);
+            this.setBlockAndMetadata(world, -2, sectionBase + 5, -4, GOTRegistry.stairsBasaltBrick, 7);
+            this.setBlockAndMetadata(world, -1, sectionBase + 5, -5, GOTRegistry.stairsBasaltBrick, 4);
+            this.setBlockAndMetadata(world, 1, sectionBase + 5, -5, GOTRegistry.stairsBasaltBrick, 5);
+            this.setBlockAndMetadata(world, 2, sectionBase + 5, -4, GOTRegistry.stairsBasaltBrick, 7);
+            this.setBlockAndMetadata(world, -4, sectionBase + 5, -2, GOTRegistry.stairsBasaltBrick, 4);
+            this.setBlockAndMetadata(world, -5, sectionBase + 5, -1, GOTRegistry.stairsBasaltBrick, 7);
+            this.setBlockAndMetadata(world, -5, sectionBase + 5, 1, GOTRegistry.stairsBasaltBrick, 6);
+            this.setBlockAndMetadata(world, -4, sectionBase + 5, 2, GOTRegistry.stairsBasaltBrick, 4);
+            for (step2 = 0; step2 <= 2; ++step2) {
+                this.setBlockAndMetadata(world, 1 - step2, sectionBase + 1 + step2, 4, GOTRegistry.stairsBasaltBrick, 0);
+                for (j13 = sectionBase + 1; j13 <= sectionBase + step2; ++j13) {
+                    this.setBlockAndMetadata(world, 1 - step2, j13, 4, GOTRegistry.brick1, 0);
+                }
+            }
+            for (k14 = 4; k14 <= 5; ++k14) {
+                for (j13 = sectionBase + 1; j13 <= sectionBase + 3; ++j13) {
+                    this.setBlockAndMetadata(world, -2, j13, k14, GOTRegistry.brick1, 0);
+                }
+            }
+            for (i13 = -2; i13 <= 0; ++i13) {
+                this.setAir(world, i13, sectionBase + sectionHeight, 5);
+            }
+            for (step2 = 0; step2 <= 2; ++step2) {
+                this.setBlockAndMetadata(world, -1 + step2, sectionBase + 4 + step2, 5, GOTRegistry.stairsBasaltBrick, 1);
+                this.setBlockAndMetadata(world, -1 + step2, sectionBase + 3 + step2, 5, GOTRegistry.brick1, 0);
+                this.setBlockAndMetadata(world, -1 + step2, sectionBase + 2 + step2, 5, GOTRegistry.stairsBasaltBrick, 4);
+            }
+            this.setBlockAndMetadata(world, 2, sectionBase + 5, 5, GOTRegistry.stairsBasaltBrick, 4);
+        }
+        this.placeChest(world, random, -1, 1, 5, GOTRegistry.chestStone, 0, GOTChestContents.ASSHAI);
+        for (k12 = -3; k12 <= 3; k12 += 6) {
+            for (step = 0; step <= 3; ++step) {
+                this.placeBrickSupports(world, random, -9 + step, k12);
+                this.placeBrickSupports(world, random, 9 - step, k12);
+                this.placeRandomStairs(world, random, -9 + step, 1 + step * 2, k12, 1);
+                this.placeRandomStairs(world, random, 9 - step, 1 + step * 2, k12, 0);
+                for (j1 = 1; j1 <= step * 2; ++j1) {
+                    this.placeRandomBrick(world, random, -9 + step, j1, k12);
+                    this.placeRandomBrick(world, random, 9 - step, j1, k12);
+                }
+            }
+        }
+        for (i1 = -3; i1 <= 3; i1 += 6) {
+            for (step = 0; step <= 3; ++step) {
+                this.placeBrickSupports(world, random, i1, -9 + step);
+                this.placeBrickSupports(world, random, i1, 9 - step);
+                this.placeRandomStairs(world, random, i1, 1 + step * 2, -9 + step, 2);
+                this.placeRandomStairs(world, random, i1, 1 + step * 2, 9 - step, 3);
+                for (j1 = 1; j1 <= step * 2; ++j1) {
+                    this.placeRandomBrick(world, random, i1, j1, -9 + step);
+                    this.placeRandomBrick(world, random, i1, j1, 9 - step);
+                }
+            }
+        }
+        for (i1 = -radius; i1 <= radius; ++i1) {
+            for (k1 = -radius; k1 <= radius; ++k1) {
+                distSq = i1 * i1 + k1 * k1;
+                if (distSq >= wallThresholdMax || distSq < (int)Math.pow(radiusD - 0.25, 2.0)) continue;
+                int i2 = Math.abs(i1);
+                int k2 = Math.abs(k1);
+                this.setBlockAndMetadata(world, i1, topHeight + 1, k1, GOTRegistry.wallStone1, 1);
+                if (i2 < 3 || k2 < 3) continue;
+                this.setBlockAndMetadata(world, i1, topHeight + 2, k1, GOTRegistry.wallStone1, 1);
+                if (i2 != 4 || k2 != 4) continue;
+                this.setBlockAndMetadata(world, i1, topHeight + 3, k1, GOTRegistry.wallStone1, 1);
+                this.setBlockAndMetadata(world, i1, topHeight + 4, k1, GOTRegistry.wallStone1, 1);
+                this.setBlockAndMetadata(world, i1, topHeight + 5, k1, GOTRegistry.asshaiTorch, 5);
+            }
+        }
+        this.setAir(world, -2, topHeight + 1, 5);
+        for (i1 = -2; i1 <= 2; i1 += 4) {
+            for (step = 0; step <= 4; ++step) {
+                j1 = topHeight + 1 + step * 2;
+                k13 = -9 + step;
+                this.placeRandomStairs(world, random, i1, j1 - 2, k13, 7);
+                for (j2 = j1 - 1; j2 <= j1 + 1; ++j2) {
+                    this.placeRandomBrick(world, random, i1, j2, k13);
+                }
+                this.placeRandomStairs(world, random, i1, j1 + 2, k13, 2);
+                k13 = 9 - step;
+                this.placeRandomStairs(world, random, i1, j1 - 2, k13, 6);
+                for (j2 = j1 - 1; j2 <= j1 + 1; ++j2) {
+                    this.placeRandomBrick(world, random, i1, j2, k13);
+                }
+                this.placeRandomStairs(world, random, i1, j1 + 2, k13, 3);
+            }
+            for (j12 = topHeight - 4; j12 <= topHeight + 2; ++j12) {
+                for (k14 = -9; k14 <= -8; ++k14) {
+                    this.placeRandomBrick(world, random, i1, j12, k14);
+                }
+                for (k14 = 8; k14 <= 9; ++k14) {
+                    this.placeRandomBrick(world, random, i1, j12, k14);
+                }
+            }
+            this.placeRandomBrick(world, random, i1, topHeight - 1, -7);
+            this.placeRandomBrick(world, random, i1, topHeight, -7);
+            this.setBlockAndMetadata(world, i1, topHeight + 1, -7, GOTRegistry.wallStone1, 1);
+            this.placeRandomBrick(world, random, i1, topHeight - 1, 7);
+            this.placeRandomBrick(world, random, i1, topHeight, 7);
+            this.setBlockAndMetadata(world, i1, topHeight + 1, 7, GOTRegistry.wallStone1, 1);
+            this.placeRandomStairs(world, random, i1, topHeight - 4, -9, 6);
+            this.placeRandomStairs(world, random, i1, topHeight - 5, -8, 6);
+            this.placeRandomStairs(world, random, i1, topHeight - 4, 9, 7);
+            this.placeRandomStairs(world, random, i1, topHeight - 5, 8, 7);
+        }
+        for (k12 = -2; k12 <= 2; k12 += 4) {
+            for (step = 0; step <= 4; ++step) {
+                j1 = topHeight + 1 + step * 2;
+                i12 = -9 + step;
+                this.placeRandomStairs(world, random, i12, j1 - 2, k12, 4);
+                for (j2 = j1 - 1; j2 <= j1 + 1; ++j2) {
+                    this.placeRandomBrick(world, random, i12, j2, k12);
+                }
+                this.placeRandomStairs(world, random, i12, j1 + 2, k12, 1);
+                i12 = 9 - step;
+                this.placeRandomStairs(world, random, i12, j1 - 2, k12, 5);
+                for (j2 = j1 - 1; j2 <= j1 + 1; ++j2) {
+                    this.placeRandomBrick(world, random, i12, j2, k12);
+                }
+                this.placeRandomStairs(world, random, i12, j1 + 2, k12, 0);
+            }
+            for (j12 = topHeight - 4; j12 <= topHeight + 2; ++j12) {
+                for (i13 = -9; i13 <= -8; ++i13) {
+                    this.placeRandomBrick(world, random, i13, j12, k12);
+                }
+                for (i13 = 8; i13 <= 9; ++i13) {
+                    this.placeRandomBrick(world, random, i13, j12, k12);
+                }
+            }
+            this.placeRandomBrick(world, random, -7, topHeight - 1, k12);
+            this.placeRandomBrick(world, random, -7, topHeight, k12);
+            this.setBlockAndMetadata(world, -7, topHeight + 1, k12, GOTRegistry.wallStone1, 1);
+            this.placeRandomBrick(world, random, 7, topHeight - 1, k12);
+            this.placeRandomBrick(world, random, 7, topHeight, k12);
+            this.setBlockAndMetadata(world, 7, topHeight + 1, k12, GOTRegistry.wallStone1, 1);
+            this.placeRandomStairs(world, random, -9, topHeight - 4, k12, 5);
+            this.placeRandomStairs(world, random, -8, topHeight - 5, k12, 5);
+            this.placeRandomStairs(world, random, 9, topHeight - 4, k12, 4);
+            this.placeRandomStairs(world, random, 8, topHeight - 5, k12, 4);
+        }
+        this.spawnNPCAndSetHome(new GOTEntityAsshaiCaptain(world), world, 0, topHeight + 1, 0, 16);
+        this.setBlockAndMetadata(world, 0, topHeight + 1, -4, GOTRegistry.commandTable, 0);
+        return true;
+    }
 
-	public void generateTowerSection(World world, Random random, int i, int j, int k, int section, boolean isTop, boolean isEquipmentSection) {
-		int j1;
-		int i1;
-		for (j1 = section == 0 ? j : (j += section * 8) + 1; j1 <= (isTop ? j + 10 : j + 8); ++j1) {
-			int i12;
-			int k1;
-			Block fillBlock = Blocks.air;
-			int fillMeta = 0;
-			if (j1 == j) {
-				fillBlock = GOTRegistry.slabDouble1;
-				fillMeta = 0;
-			} else if (j1 == j + 8 && !isTop) {
-				fillBlock = GOTRegistry.slabSingle1;
-				fillMeta = 8;
-			} else {
-				fillBlock = Blocks.air;
-				fillMeta = 0;
-			}
-			for (k1 = k - 2; k1 <= k + 2; ++k1) {
-				setBlockAndNotifyAdequately(world, i - 5, j1, k1, fillBlock, fillMeta);
-				setBlockAndNotifyAdequately(world, i + 5, j1, k1, fillBlock, fillMeta);
-			}
-			for (k1 = k - 4; k1 <= k + 4; ++k1) {
-				for (i12 = i - 4; i12 <= i - 3; ++i12) {
-					setBlockAndNotifyAdequately(world, i12, j1, k1, fillBlock, fillMeta);
-				}
-				for (i12 = i + 3; i12 <= i + 4; ++i12) {
-					setBlockAndNotifyAdequately(world, i12, j1, k1, fillBlock, fillMeta);
-				}
-			}
-			for (k1 = k - 5; k1 <= k + 5; ++k1) {
-				for (i12 = i - 2; i12 <= i + 2; ++i12) {
-					setBlockAndNotifyAdequately(world, i12, j1, k1, fillBlock, fillMeta);
-				}
-			}
-		}
-		for (j1 = j + 1; j1 <= (isTop ? j + 1 : j + 8); ++j1) {
-			for (int k1 = k - 2; k1 <= k + 2; ++k1) {
-				setBlockAndNotifyAdequately(world, i - 6, j1, k1, GOTRegistry.brick1, 0);
-				setBlockAndNotifyAdequately(world, i + 6, j1, k1, GOTRegistry.brick1, 0);
-			}
-			for (int i13 = i - 2; i13 <= i + 2; ++i13) {
-				setBlockAndNotifyAdequately(world, i13, j1, k - 6, GOTRegistry.brick1, 0);
-				setBlockAndNotifyAdequately(world, i13, j1, k + 6, GOTRegistry.brick1, 0);
-			}
-			setBlockAndNotifyAdequately(world, i - 5, j1, k - 4, GOTRegistry.brick1, 0);
-			setBlockAndNotifyAdequately(world, i - 5, j1, k - 3, GOTRegistry.brick1, 0);
-			setBlockAndNotifyAdequately(world, i - 5, j1, k + 3, GOTRegistry.brick1, 0);
-			setBlockAndNotifyAdequately(world, i - 5, j1, k + 4, GOTRegistry.brick1, 0);
-			setBlockAndNotifyAdequately(world, i - 4, j1, k - 5, GOTRegistry.brick1, 0);
-			setBlockAndNotifyAdequately(world, i - 4, j1, k + 5, GOTRegistry.brick1, 0);
-			setBlockAndNotifyAdequately(world, i - 3, j1, k - 5, GOTRegistry.brick1, 0);
-			setBlockAndNotifyAdequately(world, i - 3, j1, k + 5, GOTRegistry.brick1, 0);
-			setBlockAndNotifyAdequately(world, i + 3, j1, k - 5, GOTRegistry.brick1, 0);
-			setBlockAndNotifyAdequately(world, i + 3, j1, k + 5, GOTRegistry.brick1, 0);
-			setBlockAndNotifyAdequately(world, i + 4, j1, k - 5, GOTRegistry.brick1, 0);
-			setBlockAndNotifyAdequately(world, i + 4, j1, k + 5, GOTRegistry.brick1, 0);
-			setBlockAndNotifyAdequately(world, i + 5, j1, k - 4, GOTRegistry.brick1, 0);
-			setBlockAndNotifyAdequately(world, i + 5, j1, k - 3, GOTRegistry.brick1, 0);
-			setBlockAndNotifyAdequately(world, i + 5, j1, k + 3, GOTRegistry.brick1, 0);
-			setBlockAndNotifyAdequately(world, i + 5, j1, k + 4, GOTRegistry.brick1, 0);
-		}
-		placeBigTorch(world, i - 5, j + 1, k - 2);
-		placeBigTorch(world, i - 5, j + 1, k + 2);
-		placeBigTorch(world, i + 5, j + 1, k - 2);
-		placeBigTorch(world, i + 5, j + 1, k + 2);
-		placeBigTorch(world, i - 2, j + 1, k - 5);
-		placeBigTorch(world, i + 2, j + 1, k - 5);
-		placeBigTorch(world, i - 2, j + 1, k + 5);
-		placeBigTorch(world, i + 2, j + 1, k + 5);
-		if (!isTop) {
-			for (j1 = j + 2; j1 <= j + 4; ++j1) {
-				for (int k1 = k - 1; k1 <= k + 1; ++k1) {
-					setBlockAndNotifyAdequately(world, i - 6, j1, k1, GOTRegistry.asshaiBars, 0);
-					setBlockAndNotifyAdequately(world, i + 6, j1, k1, GOTRegistry.asshaiBars, 0);
-				}
-				for (int i14 = i - 1; i14 <= i + 1; ++i14) {
-					setBlockAndNotifyAdequately(world, i14, j1, k - 6, GOTRegistry.asshaiBars, 0);
-					setBlockAndNotifyAdequately(world, i14, j1, k + 6, GOTRegistry.asshaiBars, 0);
-				}
-			}
-			for (i1 = i - 2; i1 <= i + 2; ++i1) {
-				for (int k1 = k - 2; k1 <= k + 2; ++k1) {
-					setBlockAndNotifyAdequately(world, i1, j + 8, k1, Blocks.air, 0);
-				}
-			}
-			setBlockAndNotifyAdequately(world, i - 2, j + 1, k + 1, GOTRegistry.slabSingle1, 0);
-			setBlockAndNotifyAdequately(world, i - 2, j + 1, k + 2, GOTRegistry.slabSingle1, 8);
-			setBlockAndNotifyAdequately(world, i - 1, j + 2, k + 2, GOTRegistry.slabSingle1, 0);
-			setBlockAndNotifyAdequately(world, i, j + 2, k + 2, GOTRegistry.slabSingle1, 8);
-			setBlockAndNotifyAdequately(world, i + 1, j + 3, k + 2, GOTRegistry.slabSingle1, 0);
-			setBlockAndNotifyAdequately(world, i + 2, j + 3, k + 2, GOTRegistry.slabSingle1, 8);
-			setBlockAndNotifyAdequately(world, i + 2, j + 4, k + 1, GOTRegistry.slabSingle1, 0);
-			setBlockAndNotifyAdequately(world, i + 2, j + 4, k, GOTRegistry.slabSingle1, 8);
-			setBlockAndNotifyAdequately(world, i + 2, j + 5, k - 1, GOTRegistry.slabSingle1, 0);
-			setBlockAndNotifyAdequately(world, i + 2, j + 5, k - 2, GOTRegistry.slabSingle1, 8);
-			setBlockAndNotifyAdequately(world, i + 1, j + 6, k - 2, GOTRegistry.slabSingle1, 0);
-			setBlockAndNotifyAdequately(world, i, j + 6, k - 2, GOTRegistry.slabSingle1, 8);
-			setBlockAndNotifyAdequately(world, i - 1, j + 7, k - 2, GOTRegistry.slabSingle1, 0);
-			setBlockAndNotifyAdequately(world, i - 2, j + 7, k - 2, GOTRegistry.slabSingle1, 8);
-			setBlockAndNotifyAdequately(world, i - 2, j + 8, k - 1, GOTRegistry.slabSingle1, 0);
-			setBlockAndNotifyAdequately(world, i - 2, j + 8, k, GOTRegistry.slabSingle1, 8);
-		}
-		for (i1 = i - 1; i1 <= i + 1; ++i1) {
-			for (int k1 = k - 1; k1 <= k + 1; ++k1) {
-				for (int j12 = j + 1; j12 <= (isTop ? j + 3 : j + 8); ++j12) {
-					setBlockAndNotifyAdequately(world, i1, j12, k1, GOTRegistry.brick1, 0);
-				}
-			}
-		}
-		if (isEquipmentSection) {
-			int l = random.nextInt(4);
-			switch (l) {
-			case 0: {
-				for (int i15 = i - 1; i15 <= i + 1; ++i15) {
-					setBlockAndNotifyAdequately(world, i15, j + 1, k - 5, GOTRegistry.bomb, 0);
-					setBlockAndNotifyAdequately(world, i15, j + 1, k + 5, GOTRegistry.slabSingle1, 9);
-					this.placeBarrel(world, random, i15, j + 2, k + 5, 2, GOTFoods.ESSOS_DRINK);
-				}
-				break;
-			}
-			case 1: {
-				for (int k1 = k - 1; k1 <= k + 1; ++k1) {
-					setBlockAndNotifyAdequately(world, i + 5, j + 1, k1, GOTRegistry.bomb, 0);
-					setBlockAndNotifyAdequately(world, i - 5, j + 1, k1, GOTRegistry.slabSingle1, 9);
-					this.placeBarrel(world, random, i - 5, j + 2, k1, 5, GOTFoods.ESSOS_DRINK);
-				}
-				break;
-			}
-			case 2: {
-				for (int i16 = i - 1; i16 <= i + 1; ++i16) {
-					setBlockAndNotifyAdequately(world, i16, j + 1, k + 5, GOTRegistry.bomb, 0);
-					setBlockAndNotifyAdequately(world, i16, j + 1, k - 5, GOTRegistry.slabSingle1, 9);
-					this.placeBarrel(world, random, i16, j + 2, k - 5, 3, GOTFoods.ESSOS_DRINK);
-				}
-				break;
-			}
-			case 3: {
-				for (int k1 = k - 1; k1 <= k + 1; ++k1) {
-					setBlockAndNotifyAdequately(world, i - 5, j + 1, k1, GOTRegistry.bomb, 0);
-					setBlockAndNotifyAdequately(world, i + 5, j + 1, k1, GOTRegistry.slabSingle1, 9);
-					this.placeBarrel(world, random, i + 5, j + 2, k1, 4, GOTFoods.ESSOS_DRINK);
-				}
-				break;
-			}
-			}
-		}
-		if (isTop) {
-			for (j1 = j + 1; j1 <= j + 8; ++j1) {
-				for (int k1 = k - 1; k1 <= k + 1; ++k1) {
-					setBlockAndNotifyAdequately(world, i - 7, j1, k1, GOTRegistry.brick1, 0);
-					setBlockAndNotifyAdequately(world, i + 7, j1, k1, GOTRegistry.brick1, 0);
-				}
-				for (int i17 = i - 1; i17 <= i + 1; ++i17) {
-					setBlockAndNotifyAdequately(world, i17, j1, k - 7, GOTRegistry.brick1, 0);
-					setBlockAndNotifyAdequately(world, i17, j1, k + 7, GOTRegistry.brick1, 0);
-				}
-			}
-			for (int k1 = k - 1; k1 <= k + 1; ++k1) {
-				setBlockAndNotifyAdequately(world, i - 7, j, k1, GOTRegistry.stairsBasaltBrick, 4);
-				setBlockAndNotifyAdequately(world, i - 6, j + 2, k1, GOTRegistry.stairsBasaltBrick, 1);
-				setBlockAndNotifyAdequately(world, i - 7, j + 9, k1, GOTRegistry.stairsBasaltBrick, 0);
-				setBlockAndNotifyAdequately(world, i - 6, j + 9, k1, GOTRegistry.stairsBasaltBrick, 5);
-				setBlockAndNotifyAdequately(world, i - 6, j + 10, k1, GOTRegistry.stairsBasaltBrick, 0);
-				setBlockAndNotifyAdequately(world, i + 7, j, k1, GOTRegistry.stairsBasaltBrick, 5);
-				setBlockAndNotifyAdequately(world, i + 6, j + 2, k1, GOTRegistry.stairsBasaltBrick, 0);
-				setBlockAndNotifyAdequately(world, i + 7, j + 9, k1, GOTRegistry.stairsBasaltBrick, 1);
-				setBlockAndNotifyAdequately(world, i + 6, j + 9, k1, GOTRegistry.stairsBasaltBrick, 4);
-				setBlockAndNotifyAdequately(world, i + 6, j + 10, k1, GOTRegistry.stairsBasaltBrick, 1);
-			}
-			for (i1 = i - 1; i1 <= i + 1; ++i1) {
-				setBlockAndNotifyAdequately(world, i1, j, k - 7, GOTRegistry.stairsBasaltBrick, 6);
-				setBlockAndNotifyAdequately(world, i1, j + 2, k - 6, GOTRegistry.stairsBasaltBrick, 3);
-				setBlockAndNotifyAdequately(world, i1, j + 9, k - 7, GOTRegistry.stairsBasaltBrick, 2);
-				setBlockAndNotifyAdequately(world, i1, j + 9, k - 6, GOTRegistry.stairsBasaltBrick, 7);
-				setBlockAndNotifyAdequately(world, i1, j + 10, k - 6, GOTRegistry.stairsBasaltBrick, 2);
-				setBlockAndNotifyAdequately(world, i1, j, k + 7, GOTRegistry.stairsBasaltBrick, 7);
-				setBlockAndNotifyAdequately(world, i1, j + 2, k + 6, GOTRegistry.stairsBasaltBrick, 2);
-				setBlockAndNotifyAdequately(world, i1, j + 9, k + 7, GOTRegistry.stairsBasaltBrick, 3);
-				setBlockAndNotifyAdequately(world, i1, j + 9, k + 6, GOTRegistry.stairsBasaltBrick, 6);
-				setBlockAndNotifyAdequately(world, i1, j + 10, k + 6, GOTRegistry.stairsBasaltBrick, 3);
-			}
-			for (j1 = j; j1 <= j + 4; ++j1) {
-				setBlockAndNotifyAdequately(world, i - 5, j1, k - 5, GOTRegistry.brick1, 0);
-				setBlockAndNotifyAdequately(world, i - 5, j1, k + 5, GOTRegistry.brick1, 0);
-				setBlockAndNotifyAdequately(world, i + 5, j1, k - 5, GOTRegistry.brick1, 0);
-				setBlockAndNotifyAdequately(world, i + 5, j1, k + 5, GOTRegistry.brick1, 0);
-			}
-			setBlockAndNotifyAdequately(world, i - 5, j + 2, k - 4, GOTRegistry.stairsBasaltBrick, 3);
-			setBlockAndNotifyAdequately(world, i - 4, j + 2, k - 5, GOTRegistry.stairsBasaltBrick, 1);
-			setBlockAndNotifyAdequately(world, i - 5, j + 2, k + 4, GOTRegistry.stairsBasaltBrick, 2);
-			setBlockAndNotifyAdequately(world, i - 4, j + 2, k + 5, GOTRegistry.stairsBasaltBrick, 1);
-			setBlockAndNotifyAdequately(world, i + 5, j + 2, k - 4, GOTRegistry.stairsBasaltBrick, 3);
-			setBlockAndNotifyAdequately(world, i + 4, j + 2, k - 5, GOTRegistry.stairsBasaltBrick, 0);
-			setBlockAndNotifyAdequately(world, i + 5, j + 2, k + 4, GOTRegistry.stairsBasaltBrick, 2);
-			setBlockAndNotifyAdequately(world, i + 4, j + 2, k + 5, GOTRegistry.stairsBasaltBrick, 0);
-		}
-	}
+    public void placeBrickSupports(World world, Random random, int i, int k) {
+        int j = 0;
+        while (!this.isOpaque(world, i, j, k) && this.getY(j) >= 0) {
+            this.placeRandomBrick(world, random, i, j, k);
+            this.setGrassToDirt(world, i, j - 1, k);
+            --j;
+        }
+    }
+
+    public void placeRandomBrick(World world, Random random, int i, int j, int k) {
+        if (random.nextInt(4) == 0) {
+            this.setBlockAndMetadata(world, i, j, k, GOTRegistry.brick1, 7);
+        } else {
+            this.setBlockAndMetadata(world, i, j, k, GOTRegistry.brick1, 0);
+        }
+    }
+
+    public void placeRandomStairs(World world, Random random, int i, int j, int k, int meta) {
+        if (random.nextInt(6) == 0) {
+            this.setBlockAndMetadata(world, i, j, k, GOTRegistry.stairsBasaltBrickCracked, meta);
+        } else {
+            this.setBlockAndMetadata(world, i, j, k, GOTRegistry.stairsBasaltBrick, meta);
+        }
+    }
 }
+
