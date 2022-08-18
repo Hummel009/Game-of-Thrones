@@ -76,6 +76,7 @@ public class GOTRender {
 		renders.put(GOTEntityNorthHillman.class, new GOTRenderFactionNPCLayered("westeros/wild"));
 		renders.put(GOTEntityArrynMan.class, new GOTRenderFactionNPC("westeros/westeros"));
 		renders.put(GOTEntityAsshaiMan.class, new GOTRenderFactionNPC("essos/asshai"));
+		renders.put(GOTEntityAsshaiArchmag.class, new GOTRenderFactionNPC("essos/asshai"));
 		renders.put(GOTEntityBraavosMan.class, new GOTRenderFactionNPC("essos/free"));
 		renders.put(GOTEntityCrasterWife.class, new GOTRenderFactionNPC("westeros/wild"));
 		renders.put(GOTEntityCrownlandsMan.class, new GOTRenderFactionNPC("westeros/westeros"));

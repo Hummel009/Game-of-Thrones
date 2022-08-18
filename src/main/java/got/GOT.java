@@ -486,6 +486,11 @@ public class GOT {
 		return false;
 	}
 
+	public static boolean isUkraine() {
+		Calendar calendar = Calendar.getInstance();
+		return calendar.get(2) == 7 && calendar.get(5) == 24;
+	}
+
 	public static IEntitySelector selectLivingExceptCreativePlayers() {
 		return new IEntitySelector() {
 

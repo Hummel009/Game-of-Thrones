@@ -1127,7 +1127,11 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public void sendSpeechBank(EntityPlayer entityplayer, String speechBank, String location, String objective) {
-		GOTSpeech.sendSpeech(entityplayer, this, GOTSpeech.getRandomSpeechForPlayer(this, speechBank, entityplayer, location, objective));
+		if (!GOT.isUkraine()) {
+			GOTSpeech.sendSpeech(entityplayer, this, GOTSpeech.getRandomSpeechForPlayer(this, speechBank, entityplayer, location, objective));
+		} else {
+			GOTSpeech.sendSpeech(entityplayer, this, "\u0421\u043B\u0430\u0432\u0430 \u0423\u043A\u0440\u0430\u0457\u043D\u0456!");
+		}
 		markNPCSpoken();
 	}
 
