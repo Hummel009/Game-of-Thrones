@@ -186,6 +186,7 @@ public class GOTStructureAsshaiSpiderPit extends GOTStructureAsshaiBase {
 		spiderSpawner.setCheckRanges(12, -8, 16, 10);
 		spiderSpawner.setSpawnRanges(4, -4, 4, 24);
 		spiderSpawner.setSpawnInterval(1);
+		spiderSpawner.setNoPlayerRange(1);
 		placeNPCRespawner(spiderSpawner, world, 0, 0, 0);
 		return true;
 	}
