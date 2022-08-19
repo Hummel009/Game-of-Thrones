@@ -72,7 +72,7 @@ public class GOTStructureAsshaiTower extends GOTStructureAsshaiBase {
 				if (distSq >= wallThresholdMax) {
 					continue;
 				}
-				for (j13 = 0; (((j13 == 0) || !isOpaque(world, i1, j13, k1)) && (getY(j13) >= 0)); --j13) {
+				for (j13 = 0; (j13 == 0 || !isOpaque(world, i1, j13, k1)) && getY(j13) >= 0; --j13) {
 					if (distSq >= wallThresholdMin) {
 						placeRandomBrick(world, random, i1, j13, k1);
 					} else {
