@@ -88,28 +88,8 @@ import net.minecraft.world.gen.feature.*;
 public class DatabaseGenerator extends GOTStructureBase {
 	public static Map<Class<? extends Entity>, Entity> entities = new HashMap<>();
 	public static Map<Class<? extends Entity>, GOTWaypoint> charPoint = new HashMap<>();
+	public static String language = "en";
 	public static String display = "null";
-	public static String riderLoc = "\u0432\u0435\u0440\u0448\u043D\u0438\u043A";
-	public static String categoryTemplates = "\u041A\u0430\u0442\u0435\u0433\u043E\u0440\u0456\u044F:\u0428\u0430\u0431\u043B\u043E\u043D\u0438";
-	public static String biomeNoNPC = "\u0423 \u0446\u044C\u043E\u043C\u0443 \u0431\u0456\u043E\u043C\u0456 \u043D\u0435\u043C\u0430\u0454 \u043D\u0456\u044F\u043A\u0438\u0445 NPC.";
-	public static String biomeContainerLoc = "\u041A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440";
-	public static String biomeContainerMeaning = "\u042F\u043A\u0449\u043E \u0432 \u0431\u0456\u043E\u043C\u0456 \u0432\u043A\u0430\u0437\u0430\u043D\u043E \u0434\u0435\u043A\u0456\u043B\u044C\u043A\u0430" + "\u043A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440\u0456\u0432 (\u043A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440\u0438 \u0437 \u043C\u043E\u043D\u0441\u0442\u0440\u0430\u043C\u0438 \u043D\u0435 \u0432 \u0440\u0430\u0445\u0443\u043D\u043E\u043A), \u0446\u0435 \u043E\u0437\u043D\u0430\u0447\u0430\u0454, \u0449\u043E " + "\u0442\u0435\u0440\u0438\u0442\u043E\u0440\u0456\u044E \u043C\u043E\u0436\u043D\u0430 \u0437\u0430\u0432\u043E\u044E\u0432\u0430\u0442\u0438 \u0432\u0456\u0434 \u0456\u043C\u0435\u043D\u0456 \u0434\u0435\u044F\u043A\u0438\u0445 \u0444\u0440\u0430\u043A\u0446\u0456\u0439. \u042F\u043A\u0449\u043E \u0432\u0438 " + "[[\u0424\u0440\u0430\u043A\u0446\u0456\u0457#\u041F\u0440\u0438\u0441\u044F\u0433\u0430|\u043F\u0440\u0438\u0441\u044F\u0433\u043D\u0443\u043B\u0438]] \u0444\u0440\u0430\u043A\u0446\u0456\u0457, \u0430 \u0457\u0457 \u043A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440 \u0432\u043A\u0430\u0437\u0430\u043D\u043E \u0432 " + "\u0441\u043F\u0438\u0441\u043A\u0443 \u043D\u0438\u0436\u0447\u0435, \u0437\u043D\u0430\u0447\u0438\u0442\u044C, \u043F\u0456\u0441\u043B\u044F \u0437\u0430\u0432\u043E\u044E\u0432\u0430\u043D\u043D\u044F \u0442\u0435\u0440\u0438\u0442\u043E\u0440\u0456\u0457 \u043F\u0435\u0440\u0448\u0438\u0439 \u043A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440" + "\u0441\u043F\u0430\u0432\u043D\u0430 (\u043F\u043E\u0447\u0430\u0442\u043A\u043E\u0432\u0438\u0439) \u043F\u0435\u0440\u0435\u043A\u043B\u044E\u0447\u0438\u0442\u044C\u0441\u044F \u043D\u0430 \u043A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440 \u0432\u0430\u0448\u043E\u0457 \u0444\u0440\u0430\u043A\u0446\u0456\u0457, \u0456 \u043D\u0430 " + "\u043E\u043A\u0443\u043F\u043E\u0432\u0430\u043D\u0456\u0439 \u0442\u0435\u0440\u0438\u0442\u043E\u0440\u0456\u0457 \u043F\u043E\u0447\u043D\u0443\u0442\u044C \u0441\u043F\u043E\u0432\u043D\u0438\u0442\u0438\u0441\u044F \u0432\u0430\u0448\u0456 \u0441\u043E\u044E\u0437\u043D\u0438\u043A\u0438.";
-	public static String biomeNoVariants = "\u0426\u0435\u0439 \u0431\u0456\u043E\u043C \u043D\u0435 \u043C\u0430\u0454 \u0436\u043E\u0434\u043D\u0438\u0445 \u0432\u0430\u0440\u0456\u0430\u043D\u0442\u0456\u0432.";
-	public static String biomeNoInvasions = "\u0423 \u0446\u0435\u0439 \u0431\u0456\u043E\u043C \u043D\u0435 \u0432\u0442\u043E\u0440\u0433\u0430\u044E\u0442\u044C\u0441\u044F \u043D\u0456\u044F\u043A\u0456 \u0444\u0440\u0430\u043A\u0446\u0456\u0457.";
-	public static String biomeNoTrees = "\u0423 \u0446\u044C\u043E\u043C\u0443 \u0431\u0456\u043E\u043C\u0456 \u043D\u0435\u043C\u0430\u0454 \u0434\u0435\u0440\u0435\u0432.";
-	public static String biomeNoAnimals = "\u0423 \u0446\u044C\u043E\u043C\u0443 \u0431\u0456\u043E\u043C\u0456 \u043D\u0435\u043C\u0430\u0454 \u0437\u0432\u0456\u0440\u0456\u0432, \u043F\u0442\u0430\u0445\u0456\u0432 \u0442\u0430 \u0440\u0438\u0431.";
-	public static String biomeNoStructures = "\u0423 \u0446\u044C\u043E\u043C\u0443 \u0431\u0456\u043E\u043C\u0456 \u043D\u0435\u043C\u0430\u0454 \u0441\u0442\u0440\u0443\u043A\u0442\u0443\u0440.";
-	public static String biomeLoc = "\u0431\u0456\u043E\u043C";
-	public static String factionNoEnemies = "\u0426\u044F \u0444\u0440\u0430\u043A\u0446\u0456\u044F \u0432\u0437\u0430\u0433\u0430\u043B\u0456 \u043D\u0435 \u043C\u0430\u0454 \u0432\u043E\u0440\u043E\u0433\u0456\u0432.";
-	public static String factionNoFriends = "\u0426\u044F \u0444\u0440\u0430\u043A\u0446\u0456\u044F \u043D\u0435 \u043C\u0430\u0454 \u0436\u043E\u0434\u043D\u0438\u0445 \u0441\u043E\u044E\u0437\u043D\u0438\u043A\u0456\u0432.";
-	public static String factionNoCharacters = "\u041D\u0435 \u0456\u0441\u043D\u0443\u0454 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436\u0456\u0432, \u0449\u043E \u043D\u0430\u043B\u0435\u0436\u0430\u0442\u044C \u0434\u043E \u0446\u0456\u0454\u0457 \u0444\u0440\u0430\u043A\u0446\u0456\u0457.";
-	public static String factionLoc = "\u0444\u0440\u0430\u043A\u0446\u0456\u044F";
-	public static String factionNotViolent = "\u0426\u044F \u0444\u0440\u0430\u043A\u0446\u0456\u044F \u043D\u0435 \u0437\u0430\u043E\u0445\u043E\u0447\u0443\u0454 \u0432\u0431\u0438\u0432\u0441\u0442\u0432\u043E \u0446\u0438\u0432\u0456\u043B\u044C\u043D\u0438\u0445";
-	public static String factionIsViolent = "\u0426\u044F \u0444\u0440\u0430\u043A\u0446\u0456\u044F \u0437\u0430\u043E\u0445\u043E\u0447\u0443\u0454 \u0432\u0456\u0439\u0441\u044C\u043A\u043E\u0432\u0456 \u0437\u043B\u043E\u0447\u0438\u043D\u0438";
-	public static String factionNoStructures = "\u0426\u044F \u0444\u0440\u0430\u043A\u0446\u0456\u044F \u043D\u0435 \u043C\u0430\u0454 \u0436\u043E\u0434\u043D\u0438\u0445 \u0441\u0442\u0440\u0443\u043A\u0442\u0443\u0440.";
-	public static String noPledge = "\u0431\u0435\u0437 \u043F\u0440\u0438\u0441\u044F\u0433\u0438";
-	public static String rep = "\u0440\u0435\u043F\u0443\u0442\u0430\u0446\u0456\u0457";
-	public static String yesPledge = "\u0437 \u043F\u0440\u0438\u0441\u044F\u0433\u043E\u044E";
 
 	public DatabaseGenerator(boolean flag) {
 		super(flag);
@@ -117,6 +97,109 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 	@Override
 	public boolean generate(World world, Random random, int y, int j, int k, int rotation) {
+		String riderLoc;
+		String categoryTemplates;
+		String biomeNoNPC;
+		String biomeContainerLoc;
+		String biomeContainerMeaning;
+		String biomeNoVariants;
+		String biomeNoInvasions;
+		String biomeNoTrees;
+		String biomeNoAnimals;
+		String biomeNoStructures;
+		String biomeLoc;
+		String factionNoEnemies;
+		String factionNoFriends;
+		String factionNoCharacters;
+		String factionLoc;
+		String factionNotViolent;
+		String factionIsViolent;
+		String factionNoStructures;
+		String noPledge;
+		String rep;
+		String yesPledge;
+		if (language == "ru") {
+			riderLoc = "всадник";
+			categoryTemplates = "Категория:Шаблоны";
+			biomeNoNPC = "В этом биоме нет никаких NPC.";
+			biomeContainerLoc = "Контейнер";
+			biomeContainerMeaning = "Если в биоме указано несколько контейнеров (контейнеры "
+			+ "с монстрами не учитываются), это означает, что территорию можно "
+			+ "завоевать от имени некоторых фракций. Если вы [[Фракции#Присяга|присягнули]] "
+			+ "фракции, а её контейнер указан в списке ниже, значит, после завоевания "
+			+ "территории первый контейнер (начальный) переключится на контейнер "
+			+ "вашей фракции, и на оккупированной территории начнут спавниться ваши союзники.";
+			biomeNoVariants = "Этот биом не имеет каких-то отличительных вариантов в рельефе и фауне.";
+			biomeNoInvasions = "В этот биом не вторгаются никакие фракции.";
+			biomeNoTrees = "В этом биоме нет деревьев.";
+			biomeNoAnimals = "В этом биоме нет зверей, птиц и рыб.";
+			biomeNoStructures = "В этом биоме нет структур.";
+			biomeLoc = "биом";
+			factionNoEnemies = "У этой фракции нет врагов.";
+			factionNoFriends = "У этой фракции нет союзников.";
+			factionNoCharacters = "Не существует персонажей, принадлежащих к этой фракции.";
+			factionLoc = "фракция";
+			factionNotViolent = "Эта фракция не поощряет убийство гражданских";
+			factionIsViolent = "Эта фракция поощряет военные преступления";
+			factionNoStructures = "У этой фракции нет своих структур.";
+			noPledge = "без присяги";
+			rep = "репутации";
+			yesPledge = "с присягой";
+		} else if (language == "uk") {
+			riderLoc = "вершник";
+			categoryTemplates = "Категорія:Шаблони";
+			biomeNoNPC = "У цьому біомі немає ніяких NPC.";
+			biomeContainerLoc = "Контейнер";
+			biomeContainerMeaning = "Якщо в біомі вказано кілька контейнерів (контейнери "
+			+ "з монстрами не враховуються), це означає, що територію можна "
+			+ "завоювати від імені деяких фракцій. Якщо ви [[Фракції#Присяга|присягнули]] "
+			+ "фракції, а її контейнер вказаний у списку нижче, отже, після завоювання"
+			+ "території перший контейнер (початковий) переключиться на контейнер"
+			+ "вашої фракції, і на окупованій території почнуть сповнитися ваші союзники.";
+			biomeNoVariants = "Цей біом не має якихось відмінних варіантів у рельєфі та фауні.";
+			biomeNoInvasions = "У цей біом не вторгаються жодні фракції.";
+			biomeNoTrees = "У цьому біомі немає дерев.";
+			biomeNoAnimals = "У цьому біомі немає звірів, птахів та риб.";
+			biomeNoStructures = "У цьому біомі немає структур.";
+			biomeLoc = "біом";
+			factionNoEnemies = "Ця фракція не має ворогів.";
+			factionNoFriends = "Ця фракція не має союзників.";
+			factionNoCharacters = "Не існує персонажів, що належать до цієї фракції.";
+			factionLoc = "фракція";
+			factionNotViolent = "Ця фракція не заохочує вбивство цивільних";
+			factionIsViolent = "Ця фракція заохочує військові злочини";
+			factionNoStructures = "Ця фракція не має своїх структур.";
+			noPledge = "без присяги";
+			rep = "репутації";
+			yesPledge = "з присягою";
+		} else {
+			riderLoc = "rider";
+			categoryTemplates = "Category:Templates";
+			biomeNoNPC = "There are no NPCs in this biome.";
+			biomeContainerLoc = "Container";
+			biomeContainerMeaning = "If the biome has multiple containers (containers "
+			+ "with monsters are not taken into account), this means that the territory can be "
+			+ "conquered on behalf of certain factions. If you [[Factions#Pledge|pledged]]] to"
+			+ "faction, and its container is listed below, so after the conquest "
+			+ "first container (initial) of this territory will switch to container of"
+			+ "your faction, and your allies will spawn in the occupied territory.";
+			biomeNoVariants = "This biome does not have any distinctive terrain or fauna variations.";
+			biomeNoInvasions = "No factions are invading this biome.";
+			biomeNoTrees = "There are no trees in this biome.";
+			biomeNoAnimals = "There are no animals, birds or fish in this biome.";
+			biomeNoStructures = "There are no structures in this biome.";
+			biomeLoc = "biome";
+			factionNoEnemies = "This faction has no enemies.";
+			factionNoFriends = "This faction has no allies.";
+			factionNoCharacters = "There are no characters that belong to this faction.";
+			factionLoc = "faction";
+			factionNotViolent = "This faction does not encourage the killing of civilians";
+			factionIsViolent = "This faction encourages war crimes";
+			factionNoStructures = "This faction has no faction of its own.";
+			noPledge = "without pledge";
+			rep = "reputation";
+			yesPledge = "with pledge";
+		}
 		charPoint.put(GOTEntityYgritte.class, GOTWaypoint.Hardhome);
 		charPoint.put(GOTEntityTormund.class, GOTWaypoint.Hardhome);
 		charPoint.put(GOTEntityManceRayder.class, GOTWaypoint.Hardhome);
