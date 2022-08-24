@@ -120,7 +120,7 @@ public class GOTGuiBarrel extends GuiContainer {
 	@Override
 	public void initGui() {
 		super.initGui();
-		brewingButton = new GOTGuiButton(0, guiLeft + 25, guiTop + 97, 100, 20, StatCollector.translateToLocal("got.container.barrel.startBrewing"));
+		brewingButton = new GOTGuiButton(0, guiLeft + 70, guiTop + 85, 60, 20, StatCollector.translateToLocal("got.container.barrel.startBrewing"));
 		buttonList.add(brewingButton);
 	}
 }
