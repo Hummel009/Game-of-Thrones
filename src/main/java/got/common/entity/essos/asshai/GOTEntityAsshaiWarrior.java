@@ -68,4 +68,9 @@ public class GOTEntityAsshaiWarrior extends GOTEntityAsshaiMan {
 		setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.asshaiHelmet));
 		return data;
 	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
+	}
 }

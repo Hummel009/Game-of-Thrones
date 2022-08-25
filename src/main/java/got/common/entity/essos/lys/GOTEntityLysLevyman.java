@@ -67,4 +67,9 @@ public class GOTEntityLysLevyman extends GOTEntityLysMan {
 		setCurrentItemOrArmor(4, turban);
 		return data;
 	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
+	}
 }

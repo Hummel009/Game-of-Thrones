@@ -67,4 +67,9 @@ public class GOTEntityPentosLevyman extends GOTEntityPentosMan {
 		setCurrentItemOrArmor(4, turban);
 		return data;
 	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
+	}
 }

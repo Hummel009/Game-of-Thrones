@@ -21,4 +21,9 @@ public class GOTEntityGoldenWarrior extends GOTEntityGoldenMan {
 		setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldHelmet));
 		return data;
 	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
+	}
 }

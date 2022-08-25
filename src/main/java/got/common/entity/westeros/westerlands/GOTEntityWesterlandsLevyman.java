@@ -68,4 +68,9 @@ public class GOTEntityWesterlandsLevyman extends GOTEntityWesterlandsMan {
 		}
 		return data;
 	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
+	}
 }

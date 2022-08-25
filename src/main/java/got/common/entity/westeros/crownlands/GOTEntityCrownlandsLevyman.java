@@ -61,4 +61,9 @@ public class GOTEntityCrownlandsLevyman extends GOTEntityCrownlandsMan {
 		}
 		return data;
 	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
+	}
 }

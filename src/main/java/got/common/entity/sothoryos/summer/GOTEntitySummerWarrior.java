@@ -66,4 +66,9 @@ public class GOTEntitySummerWarrior extends GOTEntitySummerMan {
 		}
 		return data;
 	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
+	}
 }

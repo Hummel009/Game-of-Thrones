@@ -83,4 +83,9 @@ public class GOTEntityHillmanWarrior extends GOTEntityHillman {
 		}
 		return data;
 	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
+	}
 }

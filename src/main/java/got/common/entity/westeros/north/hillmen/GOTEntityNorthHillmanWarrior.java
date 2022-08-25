@@ -46,4 +46,9 @@ public class GOTEntityNorthHillmanWarrior extends GOTEntityNorthHillman {
 		setCurrentItemOrArmor(3, new ItemStack(Items.leather_chestplate));
 		return data;
 	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
+	}
 }

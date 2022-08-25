@@ -75,4 +75,9 @@ public class GOTEntityLhazarWarrior extends GOTEntityLhazarMan {
 		}
 		return data;
 	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
+	}
 }

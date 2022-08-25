@@ -76,4 +76,9 @@ public class GOTEntityNorthLevyman extends GOTEntityNorthMan {
 		}
 		return data;
 	}
+
+	@Override
+	public void setupNPCGender() {
+		familyInfo.setMale(true);
+	}
 }
