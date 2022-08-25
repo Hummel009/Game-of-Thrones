@@ -39,9 +39,6 @@ import net.minecraftforge.common.MinecraftForge;
 public class GOTRegistry {
 	public static Map<GOTEnumDyeColor, GOTBlockConcretePowder> concretePowder = new HashMap();
 	public static Map<GOTEnumDyeColor, GOTBlockConcrete> concrete = new HashMap();
-	public static Item westerosLongsword;
-	public static Item westerosGreatsword;
-	public static Item rice;
 	public static Block leavesSnowy;
 	public static Block ricePlant;
 	public static Block aleHornBlock;
@@ -1302,6 +1299,9 @@ public class GOTRegistry {
 	public static Item yitiSword;
 	public static Item zebraCooked;
 	public static Item zebraRaw;
+	public static Item westerosLongsword;
+	public static Item westerosGreatsword;
+	public static Item rice;
 
 	public static void assignContent() {
 		planks1 = new GOTBlockPlanks1();
