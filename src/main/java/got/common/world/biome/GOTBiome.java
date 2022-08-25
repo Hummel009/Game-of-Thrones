@@ -1120,8 +1120,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 		frostfangs = new GOTBiomeFrostfangs(39, true).setIsAlwaysWinter().setMinMaxHeight(2.0f, 2.0f).setColor(0xCBE9F1).setBiomeName("frostfangs");
 		ghiscar = new GOTBiomeGhiscar(40, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xADAF6B).setBiomeName("ghiscar");
 		ghiscarColony = new GOTBiomeGhiscarColony(41, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x5B8C2A).setBiomeName("ghiscarColony");
-		giftNew = new GOTBiomeGiftNew(42, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xB9D68B).setBiomeName("giftNew");
-		giftOld = new GOTBiomeGiftOld(43, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x9EC166).setBiomeName("giftOld");
+		giftNew = new GOTBiomeGiftNew(42, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x9EC166).setBiomeName("giftNew");
+		giftOld = new GOTBiomeGiftOld(43, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xB9D68B).setBiomeName("giftOld");
 		hauntedForest = new GOTBiomeHauntedForest(44, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xA5C9AA).setBiomeName("hauntedForest");
 		ibben = new GOTBiomeIbben(45, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x7AA04B).setBiomeName("ibben");
 		ibbenColony = new GOTBiomeIbbenColony(47, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x9EAF56).setBiomeName("ibbenColony");
