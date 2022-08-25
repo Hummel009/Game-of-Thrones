@@ -1,5 +1,14 @@
 CHANGELOG
 
+>>VERSION 17.9.1
+* Fixed bug that removed The Wall
+
+* Improved GUI (factions, menu, barrel)
+* Improved Essos banner textures. Not only colors, but symbols are also were changed.
+* Improved Essos shield textures.
+* Improved crafting textures
+* Improved name banks
+
 >>VERSION 17.9
 * Remade Ulthos from scratch
 * Greatly improved Sothoryos
