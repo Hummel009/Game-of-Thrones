@@ -1,5 +1,13 @@
 CHANGELOG
 
+>>VERSION 17.9.2
++ Added GOT API (got.common.util.GOTAPI.java)
++ Added full French translation (prod. Agripas)
+
+* Fixed bug with GOT Mod Updater
+
+- Removed Commander, because GOT API is bigger and better
+
 >>VERSION 17.9.1
 * Fixed bug that removed The Wall
 
