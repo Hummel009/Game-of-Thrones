@@ -1048,7 +1048,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		}
 
 		if ("units".equals(display)) {
-			for (GOTUnitTradeEntries entries : GOTCommander.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class)) {
+			for (GOTUnitTradeEntries entries : GOTAPI.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class)) {
 				for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 					if (entry.mountClass == null) {
 						writer.println("| [[" + GOTEntityRegistry.getEntityName(entry.entityClass) + "]] || {{\u0414\u0435\u043D\u044C\u0433\u0438|" + entry.initialCost * 2 + "}} || +" + entry.alignmentRequired + " || " + (entry.pledgeType == PledgeType.NONE));
@@ -1074,12 +1074,12 @@ public class DatabaseGenerator extends GOTStructureBase {
 				writer.println("|-");
 			}
 		} else if ("achievements".equals(display)) {
-			for (GOTAchievement ach : GOTCommander.getObjectFieldsOfType(GOTAchievement.class, GOTAchievement.class)) {
+			for (GOTAchievement ach : GOTAPI.getObjectFieldsOfType(GOTAchievement.class, GOTAchievement.class)) {
 				writer.println("| " + StatCollector.translateToLocal("got.achievement." + ach.name + ".title") + "||" + StatCollector.translateToLocal("got.achievement." + ach.name + ".desc"));
 				writer.println("|-");
 			}
 		} else if ("food".equals(display)) {
-			for (Item item : GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Item.class)) {
+			for (Item item : GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Item.class)) {
 				String genInfo = StatCollector.translateToLocal(item.getUnlocalizedName() + ".name") + " || [[File:" + item.getUnlocalizedName().substring(9) + ".png|32px|link=]] ||";
 				if (item instanceof ItemFood) {
 					Field pf0 = null;
@@ -1102,7 +1102,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 			}
 		} else if ("armor".equals(display)) {
-			for (Item item : GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Item.class)) {
+			for (Item item : GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Item.class)) {
 				String genInfo = StatCollector.translateToLocal(item.getUnlocalizedName() + ".name") + " || [[File:" + item.getUnlocalizedName().substring(9) + ".png|32px|link=]] ||";
 				if (item instanceof ItemArmor) {
 					writer.println("| " + genInfo + item.getMaxDamage() + " || " + ((ItemArmor) item).damageReduceAmount + " || " + StatCollector.translateToLocal(((ItemArmor) item).getArmorMaterial().customCraftingMaterial.getUnlocalizedName() + ".name"));
@@ -1110,7 +1110,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 			}
 		} else if ("weapon".equals(display)) {
-			for (Item item : GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Item.class)) {
+			for (Item item : GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Item.class)) {
 				String genInfo = StatCollector.translateToLocal(item.getUnlocalizedName() + ".name") + " || [[File:" + item.getUnlocalizedName().substring(9) + ".png|32px|link=]] ||";
 				if (item instanceof ItemSword) {
 					Field pf1 = null;
@@ -1133,7 +1133,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 			}
 		} else if ("xml".equals(display)) {
-			List<GOTBiome> bmlist = GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class);
+			List<GOTBiome> bmlist = GOTAPI.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class);
 			bmlist.remove(GOTBiome.ocean1);
 			bmlist.remove(GOTBiome.ocean2);
 			bmlist.remove(GOTBiome.ocean3);
@@ -1768,7 +1768,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0420\u0435\u043F\u0443\u0442\u0430\u0446\u0438\u044F");
 			writer.println(begin);
-			for (GOTUnitTradeEntries entries : GOTCommander.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class)) {
+			for (GOTUnitTradeEntries entries : GOTAPI.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class)) {
 				for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 					writer.println("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = +" + entry.alignmentRequired);
 				}
@@ -1820,7 +1820,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0426\u0435\u043D\u0430");
 			writer.println(begin);
-			for (GOTUnitTradeEntries entries : GOTCommander.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class)) {
+			for (GOTUnitTradeEntries entries : GOTAPI.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class)) {
 				for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 					writer.println("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = {{\u0414\u0435\u043D\u044C\u0433\u0438|" + entry.initialCost * 2 + "}}");
 				}
@@ -1829,7 +1829,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 			writer.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0426\u0435\u043D\u0430\u041F\u0440\u0438\u0441\u044F\u0433\u0430");
 			writer.println(begin);
-			for (GOTUnitTradeEntries entries : GOTCommander.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class)) {
+			for (GOTUnitTradeEntries entries : GOTAPI.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class)) {
 				for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 					writer.println("| " + GOTEntityRegistry.getEntityName(entry.entityClass) + " = {{\u0414\u0435\u043D\u044C\u0433\u0438|" + entry.initialCost + "}}");
 				}

@@ -1370,7 +1370,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			return;
 		}
 		setupMapClipping();
-		for (GOTLabels label : GOTLabels.allMapLabels()) {
+		for (GOTMapLabels label : GOTMapLabels.allMapLabels()) {
 			float[] pos = transformMapCoords(label.posX, label.posY);
 			float x = pos[0];
 			float y = pos[1];

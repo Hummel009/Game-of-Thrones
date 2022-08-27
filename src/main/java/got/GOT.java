@@ -71,7 +71,7 @@ public class GOT {
 	@Mod.EventHandler
 	public void load(FMLInitializationEvent event) {
 		proxy.onLoad();
-		for (Block block : GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Block.class)) {
+		for (Block block : GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Block.class)) {
 			if (block instanceof GOTBlockWoodBase) {
 				Blocks.fire.setFireInfo(block, 5, 5);
 			}
@@ -229,7 +229,7 @@ public class GOT {
 			int b = (int) (baseB * rgb[2]);
 			biome.waterColorMultiplier = new Color(r, g, b).getRGB();
 		}
-		int[] nums = { GOTAchievement.id, GOTPacketHandler.id, BannerType.values().length, GOTEntity.id, GOTStructure.id, GOTCommander.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class).size(), GOTRoads.id, GOTWalls.id, GOTWaypoint.values().length, GOTFaction.values().length, GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Item.class).size(), GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Block.class).size() };
+		int[] nums = { GOTAchievement.id, GOTPacketHandler.id, BannerType.values().length, GOTEntity.id, GOTStructure.id, GOTAPI.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class).size(), GOTRoads.id, GOTWalls.id, GOTWaypoint.values().length, GOTFaction.values().length, GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Item.class).size(), GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Block.class).size() };
 		String[] strings = { " achievements", " packets", " banners", " mobs", " structures", " biomes", " roads", " walls", " waypoints", " factions", " items", " blocks" };
 		for (int i = 0; i < nums.length; i++) {
 			GOTLog.logger.info(new StringBuilder().append("Hummel009: Registered ").append(nums[i]).append(strings[i]).toString());

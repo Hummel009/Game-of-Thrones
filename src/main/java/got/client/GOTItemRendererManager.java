@@ -7,7 +7,7 @@ import got.client.render.other.*;
 import got.common.database.GOTRegistry;
 import got.common.item.other.GOTItemAnimalJar;
 import got.common.item.weapon.*;
-import got.common.util.GOTCommander;
+import got.common.util.GOTAPI;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.resources.*;
@@ -28,7 +28,7 @@ public class GOTItemRendererManager implements IResourceManagerReloadListener {
 	public void onResourceManagerReload(IResourceManager resourceManager) {
 		largeItemRenderers.clear();
 		try {
-			for (Item item : GOTCommander.getObjectFieldsOfType(GOTRegistry.class, Item.class)) {
+			for (Item item : GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Item.class)) {
 				boolean isLarge;
 				MinecraftForgeClient.registerItemRenderer(item, null);
 				GOTRenderLargeItem largeItemRenderer = GOTRenderLargeItem.getRendererIfLarge(item);
