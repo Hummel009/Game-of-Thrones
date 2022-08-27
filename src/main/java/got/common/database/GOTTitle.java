@@ -218,10 +218,10 @@ public class GOTTitle {
 		return this;
 	}
 
-	public GOTTitle setPlayerExclusive(String... players) {
-		UUID[] us = new UUID[players.length];
-		for (int i = 0; i < players.length; ++i) {
-			us[i] = UUID.fromString(players[i]);
+	public GOTTitle setPlayerExclusive(ArrayList<String> players) {
+		UUID[] us = new UUID[players.size()];
+		for (int i = 0; i < players.size(); ++i) {
+			us[i] = UUID.fromString(players.get(i));
 		}
 		return this.setPlayerExclusive(us);
 	}
@@ -274,8 +274,8 @@ public class GOTTitle {
 	}
 
 	public static void onInit() {
-		targaryenF = new GOTTitle("targaryenF").setPlayerExclusive(GOT.DEVS);
-		targaryenM = new GOTTitle("targaryenM").setPlayerExclusive(GOT.DEVS);
+		targaryenF = new GOTTitle("targaryenF").setPlayerExclusive(GOT.devs);
+		targaryenM = new GOTTitle("targaryenM").setPlayerExclusive(GOT.devs);
 	}
 
 	public static class PlayerTitle {

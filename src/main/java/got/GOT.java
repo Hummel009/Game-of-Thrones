@@ -58,7 +58,19 @@ public class GOT {
 	@Mod.Instance(value = "got")
 	public static GOT instance;
 	public static String VERSION = "17.9.2";
-	public static String[] DEVS = { "40cd453d-4c71-4afe-9ae3-a2b8cb2b6f00", "ce6eec82-0678-4be3-933d-05acb902d558", "ce924ff6-8450-41ad-865e-89c5897837c4", "9aee5b32-8e19-4d4b-a2d6-1318af62733d", "1f63e38e-4059-4a4f-b7c4-0fac4a48e744", "72fd4cfd-064e-4cf1-874d-74000c152f48", "a05ba4aa-2cd0-43b1-957c-7971c9af53d4", "22be67c2-ba43-48db-b2ba-32857e78ddad", "694406b3-10e4-407d-99bb-17218696627a" };
+	public static ArrayList<String> devs = new ArrayList<>();
+	static {
+		devs.add("76ae4f2f-e70a-4680-b7cd-3100fa8b567b");
+		devs.add("40cd453d-4c71-4afe-9ae3-a2b8cb2b6f00");
+		devs.add("ce6eec82-0678-4be3-933d-05acb902d558");
+		devs.add("ce924ff6-8450-41ad-865e-89c5897837c4");
+		devs.add("9aee5b32-8e19-4d4b-a2d6-1318af62733d");
+		devs.add("694406b3-10e4-407d-99bb-17218696627a");
+		devs.add("1f63e38e-4059-4a4f-b7c4-0fac4a48e744");
+		devs.add("72fd4cfd-064e-4cf1-874d-74000c152f48");
+		devs.add("a05ba4aa-2cd0-43b1-957c-7971c9af53d4");
+		devs.add("22be67c2-ba43-48db-b2ba-32857e78ddad");
+	}
 	public static GOTEventHandler eventHandler;
 	public static GOTPacketHandler packetHandler;
 	public static GOTTickHandlerServer tickHandler;

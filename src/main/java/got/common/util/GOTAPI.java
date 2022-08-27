@@ -98,7 +98,7 @@ public class GOTAPI {
 	 * @param hidden   - will be displayed in the GUI or not.
 	 * @param players  - UUIDs of the owners.
 	 */
-	public static GOTCapes addCape(String enumName, boolean hidden, String... players) {
+	public static GOTCapes addCape(String enumName, boolean hidden, ArrayList<String> players) {
 		return addCape(enumName, GOTCapes.CapeType.EXCLUSIVE, hidden, players);
 	}
 
@@ -109,8 +109,8 @@ public class GOTAPI {
 	 * @param hidden   - will be displayed in the GUI or not.
 	 * @param players  - UUIDs of the owners.
 	 */
-	public static GOTCapes addCape(String enumName, GOTCapes.CapeType type, boolean hidden, String... players) {
-		Class[] classArr = { GOTCapes.CapeType.class, Boolean.TYPE, String[].class };
+	public static GOTCapes addCape(String enumName, GOTCapes.CapeType type, boolean hidden, ArrayList<String> players) {
+		Class[] classArr = { GOTCapes.CapeType.class, Boolean.TYPE, ArrayList.class };
 		Object[] args = { type, hidden, players };
 		return EnumHelper.addEnum(GOTCapes.class, enumName, classArr, args);
 	}
@@ -279,7 +279,7 @@ public class GOTAPI {
 	 * @param hidden   - will be displayed in the GUI or not.
 	 * @param players  - UUIDs of the owners.
 	 */
-	public static GOTShields addShield(String enumName, boolean hidden, String... players) {
+	public static GOTShields addShield(String enumName, boolean hidden, ArrayList<String> players) {
 		return addShield(enumName, GOTShields.ShieldType.EXCLUSIVE, hidden, players);
 	}
 
@@ -290,8 +290,8 @@ public class GOTAPI {
 	 * @param hidden   - will be displayed in the GUI or not.
 	 * @param players  - UUIDs of the owners.
 	 */
-	public static GOTShields addShield(String enumName, GOTShields.ShieldType type, boolean hidden, String... players) {
-		Class[] classArr = { GOTShields.ShieldType.class, Boolean.TYPE, String[].class };
+	public static GOTShields addShield(String enumName, GOTShields.ShieldType type, boolean hidden, ArrayList<String> players) {
+		Class[] classArr = { GOTShields.ShieldType.class, Boolean.TYPE, ArrayList.class };
 		Object[] args = { type, hidden, players };
 		return EnumHelper.addEnum(GOTShields.class, enumName, classArr, args);
 	}
