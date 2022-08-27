@@ -1,0 +1,5 @@
+﻿#title:Akwan le Taureau Rouge
+#author:Yandel, mestre de la Citadelle
+#types:essos
+#
+Aquan le Taureau Rouge est une divinité. A Braavos, sur l'île des Dieux, se trouve le temple d'Aquan le Taureau Rouge. Une tradition associée à cette divinité veut que chaque treizième jour, un veau blanc soit abattu et que des bols de sang soient distribués aux pauvres. 

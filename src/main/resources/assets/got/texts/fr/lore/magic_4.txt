@@ -1,0 +1,7 @@
+﻿#title:Blood Magic
+#auteur:Irma, magicien débutant
+#types:essos
+#
+La magie du sang est un type de magie pratiqué en Valyria. Il a été affirmé que la magie du sang impliquait souvent des "pratiques inhabituelles impliquant des créatures monstrueuses". Dans les colonies valyriennes des îles du Basilic, la magie du sang était utilisée pour croiser des esclaves et des animaux afin d'obtenir des enfants laids et mi-humains. Les magiciens du sang se trouvent à Asshai et Quochor.
+
+La magie du sang est basée sur des rituels tels que le pyro, le diga et le hula. La magie du sang n'est utilisée que pour les sacrifices et les sorts d'amour qui nécessitent la non-interférence des dieux et des lanceurs de sorts. Ce type de magie n'existe pas dans les légendes et les religions. 

@@ -1,0 +1,8 @@
+﻿#title:Lettre à un marchand d'esclaves
+#author:Mozlar
+#types:essos
+#
+"Aknas !
+Annulez cet ordre pour les travailleurs de terrain. J'ai besoin de scribes, d'esclaves de bibliothèque, les plus intelligents que tu puisses trouver. Ils doivent savoir lire et écrire. Les fugitifs sont bons tant qu'ils ne répandent rien. Maîtresse Marrona Rhagan paie une fortune pour que les meilleurs produits, les plus intelligents, lui soient livrés personnellement. Ne me demandez pas pourquoi.
+Une dernière chose : n'envoyez pas de personnes portant des marques ou des marques de fouet. Il y avait quelques esclaves marqués au fer rouge dans la dernière cargaison, et ses hommes ont brûlé le visage des courriers avant de les renvoyer. Said Marrona n'aimait pas les marchandises avariées. Point étrange pour un aristocrate, mais elle paie bien."
+- Mozlar.

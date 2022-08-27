@@ -1,0 +1,7 @@
+﻿#title:Nightwatch
+#author:Yandel, mestre de la Citadelle
+#types:westeros
+#
+La Garde de nuit est une organisation militaire, un ordre ancien qui se consacre à la garde du Mur, à sa sécurité et à la défense des sept royaumes contre les menaces venant du Nord. La légende veut qu'elle ait été fondée il y a huit mille ans, à l'époque de la Longue Nuit. Les membres de la Watch servent toute leur vie, en faisant vœu de célibat et d'ascétisme. Ils portent du noir en signe de leur ordre. Les citoyens des Sept Royaumes appellent les sentinelles leurs frères noirs et les sauvageons de l'autre côté du Mur, qui détestent la Garde, les appellent les "corbeaux". Dans les siècles passés, la Garde était une armée puissante et le service était extrêmement honorable, mais aujourd'hui, la Garde n'est plus que l'ombre de sa grandeur passée.
+
+La Garde de nuit est l'une des plus anciennes organisations de Westeros, qui a survécu pendant des milliers d'années à l'essor et à la chute des royaumes des Premiers Hommes, à l'invasion des Andals et à la conquête du continent par Aegon Targaryen. Selon les légendes, les Watchmen ont combattu les Inhumains à l'époque de la Longue Nuit, il y a six ou huit mille ans. Le nom "La Garde de nuit" nous rappelle également la longue nuit.

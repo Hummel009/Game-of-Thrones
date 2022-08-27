@@ -1,0 +1,7 @@
+﻿#title:Faceless
+#author:Yandel, mestre de la Citadelle
+#types:essos
+#
+Les Sans-Visage sont une société secrète d'assassins qui vénèrent le Manyfaced, le dieu de la mort, à Braavos. Le centre des Sans-Visage à Braavos est la Maison Blanche et Noire, un temple des Manyfaced. Les Sans-Visage sont réputés pour être des assassins compétents mais extrêmement coûteux. Ils peuvent en fait changer d'apparence et se déguiser en d'autres personnes, grâce à une sorte de magie.
+
+Les Sans-Visage vénèrent les Nombreux Visages, le Dieu de la Mort, qui décide qui vit et qui meurt. Il a de nombreux visages et de nombreuses oreilles pour écouter les humains. La mort est un cadeau du dieu, une fin miséricordieuse à la souffrance. Les Sans-Visage sont eux-mêmes les instruments de la mort, qui ne choisissent pas eux-mêmes leurs victimes, mais écoutent la volonté du dieu.

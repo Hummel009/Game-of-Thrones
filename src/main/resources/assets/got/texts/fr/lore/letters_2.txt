@@ -1,0 +1,13 @@
+﻿#title:Tattered shopping list
+#author:unknown
+#types:essos
+#
+"Sucre
+Farine de blé
+Couteau à surlonge
+Ginger (gaz du grand-père)
+Encre
+Huile de poisson
+Champignons séchés
+Blush (lissa).
+N'oubliez pas de demander quand d'autres cires seront disponibles."

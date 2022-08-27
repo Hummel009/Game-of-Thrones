@@ -1,0 +1,6 @@
+﻿#title:Un traité sur la guérison. La maladie de Gray
+#author:{choose:Danwintius, Mestre de la Citadelle/Ullio de Volantis/Li Zhou de Yi Ti}
+#types:westeros,essos,yiti
+#
+
+La maladie grise, parfois appelée malédiction de Garin, est une affliction qui transforme la peau en pierre. La fièvre grise est très dangereuse - la maladie se transmet par le moindre contact, et entraîne presque toujours la mort. Dans de rares cas, la maladie peut être guérie en coupant la peau de pierre d'une personne. Le plus souvent, les personnes infectées sont envoyées finir leur vie dans la péninsule valyrienne, où elles meurent.

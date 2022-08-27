@@ -1,0 +1,5 @@
+﻿#title:Constructeurs de labyrinthes
+#author:Unknown
+#types:essos
+#
+Une race qui a autrefois habité Lorath et les îles proches. Les bâtisseurs étaient plus grands que les humains, mais plus petits que les géants. Il ne restait d'eux que des os et des labyrinthes. Les bâtisseurs les ont construits à partir de blocs de pierre taillés. De longues structures construites par eux peuvent être trouvées partout dans l'archipel. Un labyrinthe sévèrement envahi et enterré a été trouvé sur une péninsule au sud de Loras. Sur Lorassion se trouve un labyrinthe géant qui occupe plus des trois quarts de la surface de l'île. Le labyrinthe de Laurassion comporte quatre niveaux souterrains. La fonction des labyrinthes est inconnue - ils ont pu servir de temples ou de cités à parts égales. Les légendes lauraciennes disent que les bâtisseurs des labyrinthes ont été détruits par des ennemis venus de la mer - des sirènes ou des phoques-garous.

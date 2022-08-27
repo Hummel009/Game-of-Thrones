@@ -1,0 +1,7 @@
+﻿#title:Iron Bank
+#author:Yandel, mestre de la Citadelle
+#types:essos
+#
+La Banque de Fer est la plus grande et la plus puissante banque de Braavos. La banque est très riche et prête souvent à diverses personnes, dont le roi des sept royaumes. Toutes les Cités libres ont leurs propres banques, mais la Banque de Fer est considérée comme plus influente que toutes les autres réunies. Il a une réputation très intimidante en tant que collecteur de dettes. 
+
+La banque paie souvent les assassinats politiques et les coups d'État dans les villes et les États dont les dirigeants refusent de payer leurs dettes. Après être montés sur le trône, les nouveaux dirigeants préfèrent rembourser toutes les dettes afin de ne pas subir le sort de leurs prédécesseurs. "La banque de fer reçoit toujours son dû", dit un proverbe braavosi.

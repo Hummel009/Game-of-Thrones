@@ -1,0 +1,7 @@
+﻿#title:Ultimatum
+#author:Maison zo Raezn
+#types:essos
+#
+Passant un messager avec un message, j'espère que vous n'êtes pas encore complètement fou et que vous comprenez les lois concernant l'immunité des ambassadeurs. J'attends votre accord. Déposez vos armes, nous avons tout pour vous vaincre, et si vous ne le faites pas, nous vous réduirons à une seule âme en un rien de temps. Si vous vous rendez, vous sauverez vos misérables vies, et on vous donnera les territoires que vous avez déjà gagnés en toute indépendance.
+
+- Seigneur sage

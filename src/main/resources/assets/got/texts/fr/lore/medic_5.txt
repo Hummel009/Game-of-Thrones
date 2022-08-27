@@ -1,0 +1,6 @@
+﻿#title:Un traité sur la guérison. Le ver d'os
+#author:{choose:Danwintius, mestre de la Citadelle/Ullio de Volantis/Li Zhou de Yi Ti}
+#types:westeros,essos,yiti
+#
+
+Le Bone Worm est une maladie et une bête qui accueille les voyageurs dans le Green Peck de Sotorios. Cette maladie est considérée comme la pire des Sotorians - les vers infestent les humains et dévorent leurs os, leur infligeant des douleurs infernales, les laissant ensuite paralysés. On ne sait pas s'il s'agit d'une seule maladie ou de plusieurs. Une guérison est possible si l'on remarque à temps la douleur d'un membre et qu'on le coupe sans regret. La contagiosité est faible ; il est probable que les vers pénètrent dans l'intestin d'une personne si elle mange des fruits sotoriens. Il est donc préférable de ne pas consommer de fruits inconnus et de se familiariser avec le contenu du traité sur le Sotoriosa.

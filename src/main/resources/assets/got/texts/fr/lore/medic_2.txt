@@ -1,0 +1,6 @@
+﻿#title:Un traité sur la guérison. The Black Affliction.
+#author:{choose:Danwintius, Mestre de la Citadelle/Ullio de Volantis/Li Zhou de Yi Ti}
+#types:westeros,essos,yiti
+#
+
+Le Black Blight est une affliction qui accueille les voyageurs dans le Green Peck de Sotorios. Elle fait pourrir le corps à l'intérieur et à l'extérieur jusqu'à ce que la personne meure. On ne sait pas s'il s'agit d'une seule ou de plusieurs maladies ; en tout cas, il n'y a pas de remède. La seule façon de survivre est de ne pas être infecté par elle ; on dit que plus on vit à Sotorios, moins on a de chances d'être infecté - comme le prouve le fait que les Sotorians eux-mêmes ne contractent pas la maladie noire. La fièvre noire est très contagieuse - elle surgit de nulle part, de l'air, et ses émanations ne sont pas visibles.

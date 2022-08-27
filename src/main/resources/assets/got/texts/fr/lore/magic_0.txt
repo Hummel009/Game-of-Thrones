@@ -1,0 +1,7 @@
+﻿#title:Les lanceurs de sorts de l'ombre
+#auteur:Grizella, la vagabonde
+#types:asshai
+#
+Un lanceur de sorts d'ombre est un mage capable de contrôler les ombres magiques. Cet art est pratiqué à Asshai. Leurs capacités sont inconnues, mais incluent probablement la naissance d'ombres tueuses. À Asshai, les lanceurs de sorts d'ombre sont considérés comme les plus sinistres de tous les mages locaux ; ils portent des masques en bois laqué qui cachent leur visage. Seuls les lanceurs de sorts de l'ombre osent manger le poisson empoisonné de la rivière Ash, mais même eux ont peur de s'approcher des portes de la ville morte de Stygian.
+
+" Les plus sinistres de tous les sorciers d'Asshai sont les lanceurs de sorts d'ombre, dont le visage est caché aux yeux des dieux et des hommes par leurs masques laqués. Eux seuls s'aventurent sur la rivière, au-delà des murs d'Asshai, au coeur des ténèbres."

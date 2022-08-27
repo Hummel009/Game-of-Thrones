@@ -1,0 +1,11 @@
+﻿#title:Journal d'une sage-femme
+#author:Unknown
+#types:westeros
+#
+"Je ne me souviens pas d'un hiver plus froid - même la rivière est gelée. Il y a peu d'hommes prêts à errer ici dans une telle tempête de neige. Imaginez ma surprise quand quelqu'un a frappé à la porte. C'était une jeune femme. Elle cherchait la maison d'été des Servin. "Ce n'est certainement pas la bonne saison", ai-je dit en m'avançant vers elle, "mais vous avez raison, c'est ici. La femme a rejeté sa cape et j'ai pu voir qu'elle était en train d'accoucher : à mon avis, c'était dans une semaine ou deux. "S'il vous plaît, aidez-moi", a-t-elle presque demandé en larmes. Je l'ai emmenée dans la maison, je l'ai fait asseoir près du feu et je lui ai apporté du thé et des pantoufles.
+Elle est très jeune, pas plus de vingt ans. Ses mains sont délicates, douces, visiblement peu habituées à ce travail. Ses vêtements sont sales à cause du voyage, mais ils sont assez décents. La cape seule vaut au moins cinquante cerfs d'argent : bleue, avec une bordure en fourrure de renard.
+Son nom est Alice, mais elle n'a pas dit grand chose d'autre. Eh bien, beaucoup de filles viennent ici qui ne parlent pas d'elles-mêmes. Je peux comprendre ça."
+
+"Alice a donné naissance à un garçon. Une bonne santé. Et une tête poilue ! Je l'ai appelé Edwill. Il a essayé de me donner un gros médaillon en or avec un faucon dedans comme paiement. Je lui ai demandé ce que c'était. Ça avait l'air cher. Elle m'a dit que c'était celui de mon père et qu'elle n'en avait plus besoin. J'ai dit qu'elle n'en avait peut-être pas besoin, mais que son fils pourrait bien vouloir connaître ses origines un jour."
+
+"Voici la nouvelle année. Alice est bien et prête à partir, mais il fait trop froid dehors - je ne peux pas la mettre dehors. Je vais lui demander de rester et de m'aider : il y a longtemps que j'aurais besoin d'aide, mes doigts ne sont plus les mêmes, ils n'obéissent pas très bien... Une fille intelligente. Elle sera une bonne élève."

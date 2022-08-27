@@ -1,0 +1,9 @@
+﻿#title:Wildfire
+#author:Rossart, Alchemist
+#types:westeros
+#
+Wildfire est un mélange combustible utilisé à des fins militaires. Il est préparé par la guilde des alchimistes de Port-Réal. Wildfire brûle avec une flamme verte brillante pendant très longtemps et ne peut pas être éteinte. Les Targaryens ont un intérêt particulier pour le feu grégeois depuis la mort des derniers dragons ; le roi Aerys le Fou s'est entouré de pyromanciens, a exécuté ses ennemis avec du feu grégeois et, à la fin de la rébellion de Robert Baratheon, a ordonné de brûler tout Port-Réal avec cette potion. 
+
+Dans des conditions normales, le feu grégeois est un liquide vert sombre. Elle s'épaissit et coule lentement dans un récipient incliné lorsqu'elle est froide, et prend la consistance d'une huile de lampe lorsqu'elle est chauffée. Il est très volatil et très fluide ; il est capable d'imprégner le tissu, le bois, le cuir et, si l'on en croit les alchimistes, même l'acier ; ainsi, tout matériau devient inflammable. Le feu grégeois est plus léger que l'eau et se répand à la surface lorsqu'il pénètre dans l'eau.
+
+La température des flammes du feu de forêt est très élevée, sa chaleur fait fondre les métaux les plus durs et la chair s'écoule des os comme de la cire. Le feu grégeois est conservé dans des pots d'argile sphériques de la taille d'un poing, aux parois très fines ; le col est scellé avec de la cire. Les parois du récipient sont délibérément rendues rugueuses et rugueuses, afin que le récipient ne glisse pas des doigts. Les vases fabriqués à l'époque du roi Aerys étaient faits en forme de fruits selon les souhaits du roi.

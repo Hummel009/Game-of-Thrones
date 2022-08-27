@@ -1,0 +1,5 @@
+﻿#title:Tulpar
+#author:Zuura, Monster Hunter
+#types:mossovy
+#
+Un cheval ailé qui, dit-on, aide les guerriers mossoviens dans leurs combats contre les mauvais esprits. Il transporte les guerriers dans les airs, peut lancer des éclairs et fait trembler le sol avec son hennissement. Le sabot de Tulpar fait jaillir une source dont l'eau inspire les conteurs.

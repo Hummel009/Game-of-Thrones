@@ -1,0 +1,7 @@
+﻿#title:Immortels
+#auteur:Moritz, magicien débutant
+#types:essos
+#
+Qarth, une ville commerciale située au carrefour des routes commerciales entre l'est et l'ouest, abrite une ancienne tradition magique basée sur l'utilisation d'une drogue connue sous le nom d'ombre du soir. L'ombre du soir trouble l'esprit et provoque des visions étranges, mais les sorciers assurent que ces visions leur révèlent la vérité et la sagesse. Les sorciers sont dirigés par les Immortels, dont la sinistre Maison des Immortels se dresse dans un jardin d'arbres noirs - leurs feuilles sont utilisées pour fabriquer la potion du sorcier. 
+
+Les Immortels ressemblent à d'anciennes momies flétries. Ils ne sont peut-être même pas tout à fait vivants, mais ils ont le pouvoir de déverrouiller le passé et de prédire l'avenir. On peut également trouver des sorciers qarthiens en dehors de Qarth, même à Westeros. Tous les Immortels sont morts dans l'incendie de la Maison des Immortels.

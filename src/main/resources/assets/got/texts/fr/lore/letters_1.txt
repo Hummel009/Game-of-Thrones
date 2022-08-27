@@ -1,0 +1,9 @@
+﻿#title:Lettre de Jenny
+#author:Jenny
+#types:westeros
+#
+Mon cher prince !
+
+Vous êtes trop gentil avec moi. Je suis une humble et insignifiante fille et ne mérite pas votre attention, mais votre volonté de tolérer ma présence démontre votre véritable noblesse royale ! Je ne peux pas vous remercier assez pour le magnifique collier que vous m'avez offert. Je le chérirai comme la prunelle de mes yeux et je ne manquerai pas de le porter lors de notre prochaine rencontre. Je sais que ma gratitude ne signifie rien pour vous, mais merci encore, et je serai toujours votre humble et dévoué serviteur.
+
+- Cordialement, D.

@@ -1,0 +1,14 @@
+﻿#title:Scénario pour "Le Septième Samouraï"
+#author:Unknown
+#types:yiti
+#
+Acte V : Scène III
+Nakamoro commande les samouraïs dans une bataille acharnée contre les voleurs...
+...Une attaque sous le commandement de Nakamoro balaie les voleurs, et ils se dispersent au sol.
+Une ligne :
+"Yoriyasu : Dépêche-toi, Nakamoro ! Les voleurs nous échappent !"
+"Nakamoro : "Ils n'abandonneront pas Kurako aussi facilement. Gardez les yeux ouverts !"
+...Après avoir vaincu les voleurs, Nakamoro regarde distraitement autour de lui et crie :
+" Nakamoro : " Voleur ! Où est le voleur ?"
+"Yoriyasu : 'Ils ont été écrasés.'"
+Nakamoro reste immobile, regarde autour de lui, puis fond en larmes.

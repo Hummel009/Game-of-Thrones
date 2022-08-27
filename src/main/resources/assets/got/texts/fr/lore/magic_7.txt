@@ -1,0 +1,7 @@
+﻿#title:Czardrevo
+#author:Matthar, Archimestre de la Citadelle
+#types:westeros
+#
+Czardreva est un genre d'arbres à feuilles caduques que l'on trouve à Westeros. Ce sont des arbres sacrés de la foi dans les anciens dieux. Les czardrevs ont une écorce et un bois blancs, des feuilles à cinq pointes d'un rouge écarlate foncé et une sève rouge qui ressemble à du sang. Les czardrevs vivent très longtemps, beaucoup d'entre eux ont plusieurs milliers d'années. 
+
+Certains cairngorms ont des visages humains sculptés dans leurs troncs par les enfants de la forêt en des temps immémoriaux : les adeptes des anciens dieux croient que les yeux sculptés sont la façon dont les dieux regardent le monde, en particulier lorsqu'ils contemplent leurs adorateurs en prière. Au sud du Mur, les arbres ciards sont rares, principalement dans les mottes des châteaux : les Andals, en plantant leur foi dans les Sept, ont coupé ces arbres.

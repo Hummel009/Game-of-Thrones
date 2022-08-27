@@ -1,0 +1,7 @@
+﻿#title:Maesters
+#author:Yandel, Mestre de la Citadelle
+#types:westeros
+#
+L'ordre des Maesters est un groupe d'hommes érudits au service des seigneurs de Westeros. Presque tous les châteaux des sept royaumes ont un mestre érudit. Les mestres servent de mentors, de conseillers, de médecins et de gardiens du savoir. Ils prononcent des vœux de service et de célibat et, pour marquer leur rang, portent autour du cou une chaîne dont chaque maillon est forgé dans un métal différent.
+
+Le centre de l'organisation, une sorte d'université où sont formés les mestres, est la Citadelle de Staromest. Il a été construit par la Maison de Hightower, souveraine de Staromest, et est toujours sous leur patronage aujourd'hui.

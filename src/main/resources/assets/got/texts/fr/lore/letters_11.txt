@@ -1,0 +1,9 @@
+﻿#title:Lettre écrite par une bougie allumée
+#author:Unknown
+#types:westeros
+#
+"Seigneur de la lumière, réchauffe-moi et protège-moi, car la nuit est sombre et pleine de terreurs.
+Quand la comète rouge est passée, j'ai pleuré de joie, je ne voyais rien autour de moi, mais je me suis battu pour toi. Quand j'ai vu les gens qui brûlaient en adorant de faux dieux, mes mains ont tremblé au point que je pouvais à peine tenir mon arc, mais j'ai quand même combattu pour toi et j'ai abattu celui qui pensait empêcher le sacrifice. Quand j'ai vu mon ami mourir dans l'incendie, j'ai crié jusqu'à ce que ma voix s'éteigne, mais je me suis quand même battu pour toi.
+Je me sens comme un étranger sur ce continent. De faux dieux sont adorés ici, mais j'ai trouvé un seigneur qui vous soutient. Son nom est Stannis Baratheon. Une prêtresse l'a proclamé Azor Achaeus renaissant et je me suis battu pour vous sous sa bannière depuis. Il y a beaucoup de traîtres païens parmi ses partisans, mais tôt ou tard, ils verront la lumière, croiront en vous ou brûleront dans le feu pour leur folie. 
+J'ai tellement peur, mon Seigneur.
+Mais je me battrai quand même pour toi."

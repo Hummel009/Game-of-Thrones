@@ -1,0 +1,7 @@
+﻿#title:Seigneur de l'Harmonie
+#author:Yandel, mestre de la Citadelle
+#types:sothoryos
+#
+Le Seigneur de l'Harmonie est la principale divinité naatienne. Il est souvent représenté comme un géant rieur, barbu et nu, toujours entouré d'une ribambelle de jeunes filles élancées aux ailes de papillon. Des centaines de différentes sortes de papillons de nuit volent sur l'île et les habitants de Naath les honorent comme des messagers du seigneur chargés de protéger son peuple. Il se peut toutefois que ces mythes aient une part de vérité, car bien que la nature soumise des Naatiens fasse de leur île une cible pour les envahisseurs, les étrangers venus d'outre-mer ne survivent pas longtemps sur l'île Butterfly.
+
+Il y a un temple en bois du Seigneur de l'Harmonie sur l'île des Dieux à Braavos.

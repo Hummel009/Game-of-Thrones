@@ -1,0 +1,7 @@
+﻿#title:Sorcières de la forêt
+#author:Arianna, the Wanderer
+#types:westeros
+#
+Les sorcières de la forêt sont un nom commun pour les sorciers et les herboristes de Westeros. Les activités des sorcières de la forêt sont mêlées de superstition, et il est possible qu'au moins certaines d'entre elles possèdent des talents magiques en plus de l'herboristerie. A Essos, les femmes de professions similaires sont appelées meigs.
+
+La médecine maegee "scientifique" n'est accessible qu'aux habitants des châteaux et des grandes villes. En dehors de ceux-ci, les gens du peuple recourent aux services des guérisseurs populaires, considérés comme des charlatans par les Maegeans érudits. En tant qu'herboristes, les sorcières de la forêt savent préparer le thé de la lune, une infusion à base de plantes qui prévient la grossesse. On dit que les sorcières de la forêt sont capables de prédire le temps, un don qui se transmet de génération en génération. Dans les terres au-delà du Mur, les sorcières des forêts agissent aussi comme prêtresses des anciens dieux.

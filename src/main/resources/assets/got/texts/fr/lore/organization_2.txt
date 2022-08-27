@@ -1,0 +1,7 @@
+﻿#title:Épées d'or
+#author:Yandel, mestre de la Citadelle
+#types:essos
+#
+Les Épées d'or sont une importante force mercenaire opérant dans les Cités libres. Principalement composée de fugitifs de Westeros et de leurs descendants, elle comprend de nombreux chevaliers et anciens seigneurs qui nourrissent l'espoir de rentrer chez eux. Elle a été fondée vers 200 après J.-C. par Aegor "Burning Blade" Rivers, l'un des grands bâtards du roi Aegon IV l'Indigne. Ils sont l'une des unités mercenaires les plus fortes et les plus célèbres d'Essos. Leur devise est "Notre parole est d'or" ; ils ont également une deuxième devise, "De l'or au-dessus, de l'acier brûlant en dessous", en l'honneur du fondateur de l'escouade. Les Golden Swords sont fiers de ne jamais rompre un contrat qu'ils ont déjà signé et de se battre pour leur employeur jusqu'au dernier homme.
+
+Les Épées d'or ont l'étrange tradition de conserver les crânes dorés de leurs commandants. Eigor Rivers, son premier capitaine général, a légué sur son lit de mort de séparer son crâne de sa chair, de le dorer et de le porter partout où vont les Épées d'or - jusqu'à ce qu'elles reviennent à Westeros pour reconquérir le royaume. Ses successeurs ont fait de même, si bien qu'aujourd'hui, les mercenaires, campés, arborent un anneau entier de crânes dorés sur des piques, avec le crâne d'Aegor Rivers au centre sur le plus grand. Les capitaines des Épées d'or portent plusieurs bracelets d'or - un pour chaque année de service.

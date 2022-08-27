@@ -1,0 +1,6 @@
+﻿#title:Un traité sur la guérison. Pus oculaire
+#author:{choose:Danwintius, Mestre de la Citadelle/Ullio de Volantis/Li Zhou de Yi Ti}
+#types:westeros,essos,yiti
+#
+
+Le pus oculaire est une maladie qui accueille les voyageurs dans le Peck vert de Sotorios. Cette maladie n'est pas mortelle, mais elle provoque la cécité. Les yeux, moins souvent un seul, deviennent jaunes et éclatent. On peut y remédier en rinçant les yeux avec de l'eau, mais cela aide peu. La contagiosité est faible ; à titre de comparaison, 190 marins ont été infectés par l'intestin pourri l'été dernier, tandis que 5 seulement ont contracté le pus oculaire.
