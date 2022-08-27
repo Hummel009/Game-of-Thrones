@@ -4,15 +4,17 @@ CHANGELOG
 + Added GOT API (got.common.util.GOTAPI.java)
 + Added full French translation (prod. Agripas)
 
+* Improved Ukrainian translation of Yi Ti names
+
 * Fixed bug with GOT Mod Updater
 
-- Removed Commander, because GOT API is bigger and better
+- Removed GOTCommander
 
 >>VERSION 17.9.1
 * Fixed bug that removed The Wall
 
 * Improved GUI (factions, menu, barrel)
-* Improved Essos banner textures. Not only colors, but symbols are also were changed.
+* Improved Essos banner textures. Not only colors, but symbols also were changed.
 * Improved Essos shield textures.
 * Improved crafting textures
 * Improved name banks

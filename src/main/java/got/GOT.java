@@ -59,6 +59,14 @@ public class GOT {
 	public static GOT instance;
 	public static String VERSION = "17.9.2";
 	public static ArrayList<String> devs = new ArrayList<>();
+	public static GOTEventHandler eventHandler;
+	public static GOTPacketHandler packetHandler;
+	public static GOTTickHandlerServer tickHandler;
+	public static WorldType worldTypeGOT;
+	public static WorldType worldTypeGOTClassic;
+	public static Map<ItemStack, Integer> buy = new GOTItemStackMapImpl<>();
+	public static Map<ItemStack, Integer> sell = new GOTItemStackMapImpl<>();
+	public static String langsName = "\u0420\u0443\u0441\u0441\u043A\u0438\u0439 (ru), \u0423\u043A\u0440\u0430\u0457\u043D\u0441\u044C\u043A\u0430 (uk), English (en), Fran\u00E7ais (fr), Deutsch (de), Polska (pl), T\u00FCrk\u00E7e (tr), \u4E2D\u6587 (zh)";
 	static {
 		devs.add("76ae4f2f-e70a-4680-b7cd-3100fa8b567b");
 		devs.add("40cd453d-4c71-4afe-9ae3-a2b8cb2b6f00");
@@ -71,14 +79,6 @@ public class GOT {
 		devs.add("a05ba4aa-2cd0-43b1-957c-7971c9af53d4");
 		devs.add("22be67c2-ba43-48db-b2ba-32857e78ddad");
 	}
-	public static GOTEventHandler eventHandler;
-	public static GOTPacketHandler packetHandler;
-	public static GOTTickHandlerServer tickHandler;
-	public static WorldType worldTypeGOT;
-	public static WorldType worldTypeGOTClassic;
-	public static Map<ItemStack, Integer> buy = new GOTItemStackMapImpl<>();
-	public static Map<ItemStack, Integer> sell = new GOTItemStackMapImpl<>();
-	public static String langsName = "\u0420\u0443\u0441\u0441\u043A\u0438\u0439 (ru), \u0423\u043A\u0440\u0430\u0457\u043D\u0441\u044C\u043A\u0430 (uk), English (en), Fran\u00E7ais (fr), Deutsch (de), Polska (pl), T\u00FCrk\u00E7e (tr), \u4E2D\u6587 (zh)";
 
 	@Mod.EventHandler
 	public void load(FMLInitializationEvent event) {
