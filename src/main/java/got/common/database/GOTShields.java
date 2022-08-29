@@ -22,6 +22,10 @@ public enum GOTShields {
 		this(ShieldType.ACHIEVABLE, false, new ArrayList());
 	}
 
+	GOTShields(ArrayList<String> players) {
+		this(false, players);
+	}
+
 	GOTShields(boolean hidden, ArrayList<String> players) {
 		this(ShieldType.EXCLUSIVE, hidden, players);
 	}
@@ -42,10 +46,6 @@ public enum GOTShields {
 			exclusiveUUIDs[i] = UUID.fromString(s);
 		}
 		isHidden = hidden;
-	}
-
-	GOTShields(ArrayList<String> players) {
-		this(false, players);
 	}
 
 	public boolean canDisplay(EntityPlayer entityplayer) {

@@ -190,7 +190,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 	public static int SPAWN = 600;
 	public static int CONQUEST_SPAWN = 100;
-	public static int[] NON_USED = { 93, 96, 98, 103, 110, 117, 134, 141, 149, 153 };
+	public static int[] NON_USED = { 96, 98, 103, 110, 117, 134, 141, 149, 153 };
 	public static GOTBiome ocean1;
 	public static GOTBiome ocean2;
 	public static GOTBiome ocean3;
@@ -212,6 +212,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome ulthosRedForestEdge;
 	public static GOTBiome cannibalSandsHills;
 	public static GOTBiome shrykesLand;
+	public static GOTBiome lorathMaze;
 	public GOTDimension biomeDimension;
 	public GOTBiomeDecorator decorator;
 	public int topBlockMeta = 0;
@@ -1243,7 +1244,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		ulthosRedForestEdge = new GOTBiomeUlthosRedForestEdge(77, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x5E6526).setBiomeName("ulthosRedForestEdge");
 		cannibalSandsHills = new GOTBiomeCannibalSands(83, true).setIsNeverWinter().setMinMaxHeight(0.1f, 1f).setColor(0xA5986A).setBiomeName("cannibalSandsHills");
 		shrykesLand = new GOTBiomeShrykesLand(90, true).setIsNeverWinter().setMinMaxHeight(0.0f, 0.1f).setColor(0xAAAE77).setBiomeName("shrykesLand");
-
+		lorathMaze = new GOTBiomeLorathMaze(93, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xA8AF7B).setBiomeName("lorathMaze");
 		for (int i : NON_USED) {
 			GOTDimension.GAME_OF_THRONES.biomeList[i] = GOTBiome.ocean;
 		}

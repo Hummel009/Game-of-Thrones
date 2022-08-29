@@ -6,6 +6,7 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
+import got.common.world.map.GOTBezierType;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 
@@ -27,5 +28,15 @@ public class GOTBiomeIfekevronForest extends GOTBiomeTropicalForest {
 	@Override
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.ESSOS.getSubregion("ifekevronForest");
+	}
+
+	@Override
+	public GOTBezierType getWallBlock() {
+		return GOTBezierType.WOOD;
+	}
+
+	@Override
+	public int getWallTop() {
+		return 90;
 	}
 }
