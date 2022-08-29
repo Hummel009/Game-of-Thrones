@@ -25,6 +25,8 @@ public class GOTBiomeLorathMaze extends GOTBiomeLorath {
 		decorator.clearVillages();
 		invasionSpawns.clearInvasions();
 		npcSpawnList.clear();
+		spawnableCreatureList.clear();
+		spawnableGOTAmbientList.clear();
 	}
 
 	@Override
