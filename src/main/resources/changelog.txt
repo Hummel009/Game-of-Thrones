@@ -1,5 +1,13 @@
 CHANGELOG
 
+>>VERSION 17.9.3
++ Added Lorath Maze biome
+
+* Improved Ibbenese Wall
+* Improved faction relations
+
+* Fixed a few typos in ukrainian translation
+
 >>VERSION 17.9.2
 + Added GOT API (got.common.util.GOTAPI.java)
 + Added full French translation (prod. Agripas)
