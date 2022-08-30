@@ -22,11 +22,6 @@ public class GOTBiomeIbbenColony extends GOTBiomeEssos {
 	}
 
 	@Override
-	public boolean disableNoise() {
-		return true;
-	}
-
-	@Override
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.ESSOS.getSubregion("ibbenColony");
 	}
@@ -34,11 +29,6 @@ public class GOTBiomeIbbenColony extends GOTBiomeEssos {
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.IBBEN;
-	}
-
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_DIRTY;
 	}
 
 	@Override

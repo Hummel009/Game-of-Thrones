@@ -40,6 +40,11 @@ public class GOTBiomeMercenary extends GOTBiomeEssos {
 	}
 
 	@Override
+	public boolean disableNoise() {
+		return false;
+	}
+
+	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterMercenary;
 	}

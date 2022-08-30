@@ -190,7 +190,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 	public static int SPAWN = 600;
 	public static int CONQUEST_SPAWN = 100;
-	public static int[] NON_USED = { 96, 98, 103, 110, 117, 134, 141, 149, 153 };
+	public static int[] NON_USED = {96, 98, 103, 110, 117, 134, 141, 149, 153 };
 	public static GOTBiome ocean1;
 	public static GOTBiome ocean2;
 	public static GOTBiome ocean3;

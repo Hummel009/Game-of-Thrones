@@ -15,7 +15,7 @@ public class GOTStructureEssosTownGate extends GOTStructureEssosBase {
 	}
 
 	@Override
-	public boolean forceCedarWood() {
+	public boolean forceMonotypeWood() {
 		return true;
 	}
 

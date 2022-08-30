@@ -8,7 +8,6 @@ import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
-import got.common.world.map.GOTBezierType;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import net.minecraft.init.Blocks;
@@ -43,11 +42,6 @@ public class GOTBiomeTropicalForest extends GOTBiomeEssos {
 	}
 
 	@Override
-	public boolean disableNoise() {
-		return true;
-	}
-
-	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterTropicalForest;
 	}
@@ -55,10 +49,5 @@ public class GOTBiomeTropicalForest extends GOTBiomeEssos {
 	@Override
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.ESSOS.getSubregion("tropicalForest");
-	}
-
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_DIRTY;
 	}
 }

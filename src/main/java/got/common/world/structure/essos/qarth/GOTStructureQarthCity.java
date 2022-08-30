@@ -76,11 +76,11 @@ public class GOTStructureQarthCity extends GOTVillageGen {
 		}
 
 		public GOTStructureBase getFlowers(Random random) {
-			return new GOTStructureEssosTownFlowers(false);
+			return new GOTStructureQarthTownFlowers(false);
 		}
 
 		public GOTStructureBase getFortCorner(Random random) {
-			return new GOTStructureEssosFortCorner(false);
+			return new GOTStructureQarthFortCorner(false);
 		}
 
 		public GOTStructureBase getFortGate(Random random) {
@@ -92,11 +92,11 @@ public class GOTStructureQarthCity extends GOTVillageGen {
 		}
 
 		public GOTStructureBase getFortWallLong(Random random) {
-			return new GOTStructureEssosFortWall.Long(false);
+			return new GOTStructureQarthFortWall.Long(false);
 		}
 
 		public GOTStructureBase getFortWallShort(Random random) {
-			return new GOTStructureEssosFortWall.Short(false);
+			return new GOTStructureQarthFortWall.Short(false);
 		}
 
 		public GOTStructureBase getHouse(Random random) {
@@ -104,7 +104,7 @@ public class GOTStructureQarthCity extends GOTVillageGen {
 		}
 
 		public GOTStructureBase getLamp(Random random) {
-			return new GOTStructureEssosLamp(false);
+			return new GOTStructureQarthLamp(false);
 		}
 
 		public GOTStructureBase getMansion(Random random) {
@@ -171,7 +171,7 @@ public class GOTStructureQarthCity extends GOTVillageGen {
 			if (random.nextBoolean()) {
 				return new GOTStructureQarthFarm(false);
 			}
-			return new GOTStructureEssosPasture(false);
+			return new GOTStructureQarthPasture(false);
 		}
 
 		public GOTStructureBase getRandomHouse(Random random) {
@@ -197,7 +197,7 @@ public class GOTStructureQarthCity extends GOTVillageGen {
 		}
 
 		public GOTStructureBase getStatue(Random random) {
-			return new GOTStructureEssosStatue(false);
+			return new GOTStructureQarthStatue(false);
 		}
 
 		public GOTStructureBase getTavern(Random random) {
@@ -213,35 +213,35 @@ public class GOTStructureQarthCity extends GOTVillageGen {
 		}
 
 		public GOTStructureBase getTownWallCorner(Random random) {
-			return new GOTStructureEssosTownCorner(false);
+			return new GOTStructureQarthTownCorner(false);
 		}
 
 		public GOTStructureBase getTownWallExtra(Random random) {
-			return new GOTStructureEssosTownWall.Extra(false);
+			return new GOTStructureQarthTownWall.Extra(false);
 		}
 
 		public GOTStructureBase getTownWallLong(Random random) {
-			return new GOTStructureEssosTownWall.Long(false);
+			return new GOTStructureQarthTownWall.Long(false);
 		}
 
 		public GOTStructureBase getTownWallShort(Random random) {
-			return new GOTStructureEssosTownWall.Short(false);
+			return new GOTStructureQarthTownWall.Short(false);
 		}
 
 		public GOTStructureBase getTownWallSideMid(Random random) {
-			return new GOTStructureEssosTownWall.SideMid(false);
+			return new GOTStructureQarthTownWall.SideMid(false);
 		}
 
 		public GOTStructureBase getTraining(Random random) {
-			return new GOTStructureEssosTraining(false);
+			return new GOTStructureQarthTraining(false);
 		}
 
 		public GOTStructureBase getTree(Random random) {
-			return new GOTStructureEssosTownTree(false);
+			return new GOTStructureQarthTownTree(false);
 		}
 
 		public GOTStructureBase getWell(Random random) {
-			return new GOTStructureEssosWell(false);
+			return new GOTStructureQarthWell(false);
 		}
 
 		@Override

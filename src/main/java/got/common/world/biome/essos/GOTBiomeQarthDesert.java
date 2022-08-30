@@ -8,6 +8,7 @@ import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
+import got.common.world.map.GOTBezierType;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import net.minecraft.block.Block;
@@ -25,6 +26,7 @@ public class GOTBiomeQarthDesert extends GOTBiomeLhazar implements GOTBiome.Dese
 		topBlockMeta = 1;
 		fillerBlock = GOTRegistry.redSandstone;
 		variantChance = 0.3f;
+        decorator.grassPerChunk = 5;
 		decorator.cactiPerChunk = 2;
 		decorator.deadBushPerChunk = 2;
 		decorator.treesPerChunk = 0;
@@ -35,7 +37,6 @@ public class GOTBiomeQarthDesert extends GOTBiomeLhazar implements GOTBiome.Dese
 		decorator.addTree(GOTTreeType.OAK_DEAD, 1000);
 		decorator.addOre(new WorldGenMinable(Blocks.lapis_ore, 6), 1.0f, 0, 48);
 		decorator.clearVillages();
-		decorator.clearRandomStructures();
 		npcSpawnList.clear();
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
@@ -130,5 +131,10 @@ public class GOTBiomeQarthDesert extends GOTBiomeLhazar implements GOTBiome.Dese
 	@Override
 	public GOTBiome.GrassBlockAndMeta getRandomGrass(Random random) {
 		return new GOTBiome.GrassBlockAndMeta(GOTRegistry.aridGrass, 0);
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SANDY;
 	}
 }

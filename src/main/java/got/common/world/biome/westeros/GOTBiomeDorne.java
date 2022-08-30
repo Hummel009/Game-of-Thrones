@@ -8,6 +8,7 @@ import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.essos.GOTBiomeEssos;
 import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
@@ -45,6 +46,11 @@ public class GOTBiomeDorne extends GOTBiomeEssos {
 	}
 
 	@Override
+	public boolean disableNoise() {
+		return false;
+	}
+
+	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterDorne;
 	}
@@ -57,5 +63,10 @@ public class GOTBiomeDorne extends GOTBiomeEssos {
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.DORNE;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SANDY;
 	}
 }

@@ -68,11 +68,11 @@ public class GOTStructureLorathCity extends GOTVillageGen {
 		}
 
 		public GOTStructureBase getFlowers(Random random) {
-			return new GOTStructureEssosTownFlowers(false);
+			return new GOTStructureLorathTownFlowers(false);
 		}
 
 		public GOTStructureBase getFortCorner(Random random) {
-			return new GOTStructureEssosFortCorner(false);
+			return new GOTStructureLorathFortCorner(false);
 		}
 
 		public GOTStructureBase getFortGate(Random random) {
@@ -84,11 +84,11 @@ public class GOTStructureLorathCity extends GOTVillageGen {
 		}
 
 		public GOTStructureBase getFortWallLong(Random random) {
-			return new GOTStructureEssosFortWall.Long(false);
+			return new GOTStructureLorathFortWall.Long(false);
 		}
 
 		public GOTStructureBase getFortWallShort(Random random) {
-			return new GOTStructureEssosFortWall.Short(false);
+			return new GOTStructureLorathFortWall.Short(false);
 		}
 
 		public GOTStructureBase getHouse(Random random) {
@@ -96,7 +96,7 @@ public class GOTStructureLorathCity extends GOTVillageGen {
 		}
 
 		public GOTStructureBase getLamp(Random random) {
-			return new GOTStructureEssosLamp(false);
+			return new GOTStructureLorathLamp(false);
 		}
 
 		public GOTStructureBase getMansion(Random random) {
@@ -140,7 +140,7 @@ public class GOTStructureLorathCity extends GOTVillageGen {
 				}
 			}
 			if (villageType == VillageType.TOWN && i1 <= 72 && k1 <= 42) {
-				return GOTBezierType.PATH_SANDY;
+				return GOTBezierType.PATH_DIRTY;
 			}
 			if (villageType == VillageType.FORT) {
 				if (i1 <= 3 && k >= -45 && k <= -15) {
@@ -163,7 +163,7 @@ public class GOTStructureLorathCity extends GOTVillageGen {
 			if (random.nextBoolean()) {
 				return new GOTStructureLorathFarm(false);
 			}
-			return new GOTStructureEssosPasture(false);
+			return new GOTStructureLorathPasture(false);
 		}
 
 		public GOTStructureBase getRandomHouse(Random random) {
@@ -189,7 +189,7 @@ public class GOTStructureLorathCity extends GOTVillageGen {
 		}
 
 		public GOTStructureBase getStatue(Random random) {
-			return new GOTStructureEssosStatue(false);
+			return new GOTStructureLorathStatue(false);
 		}
 
 		public GOTStructureBase getTavern(Random random) {
@@ -205,35 +205,35 @@ public class GOTStructureLorathCity extends GOTVillageGen {
 		}
 
 		public GOTStructureBase getTownWallCorner(Random random) {
-			return new GOTStructureEssosTownCorner(false);
+			return new GOTStructureLorathTownCorner(false);
 		}
 
 		public GOTStructureBase getTownWallExtra(Random random) {
-			return new GOTStructureEssosTownWall.Extra(false);
+			return new GOTStructureLorathTownWall.Extra(false);
 		}
 
 		public GOTStructureBase getTownWallLong(Random random) {
-			return new GOTStructureEssosTownWall.Long(false);
+			return new GOTStructureLorathTownWall.Long(false);
 		}
 
 		public GOTStructureBase getTownWallShort(Random random) {
-			return new GOTStructureEssosTownWall.Short(false);
+			return new GOTStructureLorathTownWall.Short(false);
 		}
 
 		public GOTStructureBase getTownWallSideMid(Random random) {
-			return new GOTStructureEssosTownWall.SideMid(false);
+			return new GOTStructureLorathTownWall.SideMid(false);
 		}
 
 		public GOTStructureBase getTraining(Random random) {
-			return new GOTStructureEssosTraining(false);
+			return new GOTStructureLorathTraining(false);
 		}
 
 		public GOTStructureBase getTree(Random random) {
-			return new GOTStructureEssosTownTree(false);
+			return new GOTStructureLorathTownTree(false);
 		}
 
 		public GOTStructureBase getWell(Random random) {
-			return new GOTStructureEssosWell(false);
+			return new GOTStructureLorathWell(false);
 		}
 
 		@Override
@@ -241,7 +241,7 @@ public class GOTStructureLorathCity extends GOTVillageGen {
 			if (villageType == VillageType.TOWN || villageType == VillageType.FORT) {
 				Block block = world.getBlock(i, j, k);
 				int meta = world.getBlockMetadata(i, j, k);
-				if (block == Blocks.dirt && meta == 1 || block == GOTRegistry.dirtPath && meta == 0 || block == GOTRegistry.brick1 && meta == 15 || block == GOTRegistry.brick3 && meta == 11 || block == GOTRegistry.pillar1 && meta == 5 || block == Blocks.sand && meta == 0 || block == Blocks.sandstone && meta == 0 || block == GOTRegistry.slabSingleDirt && meta == 0 || block == GOTRegistry.slabSingleDirt && meta == 1 || block == GOTRegistry.slabSingleSand && meta == 0 || block == GOTRegistry.slabSingle4 && meta == 0 || block == GOTRegistry.slabSingle7 && meta == 1 || block == GOTRegistry.slabSingle4 && meta == 7) {
+				if (block == Blocks.stone || block == GOTRegistry.rock) {
 					return true;
 				}
 			}

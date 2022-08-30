@@ -26,11 +26,6 @@ public class GOTBiomeLongSummer extends GOTBiomeEssos {
 	}
 
 	@Override
-	public boolean disableNoise() {
-		return true;
-	}
-
-	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterLongSummer;
 	}

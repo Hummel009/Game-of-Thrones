@@ -29,10 +29,10 @@ public class GOTBiomeEssos extends GOTBiome {
 		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
 		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
-		addBiomeVariant(GOTBiomeVariant.FOREST_LEMON);
-		addBiomeVariant(GOTBiomeVariant.FOREST_LIME);
-		addBiomeVariant(GOTBiomeVariant.FOREST_CEDAR);
-		addBiomeVariant(GOTBiomeVariant.FOREST_CYPRESS);
+		addBiomeVariant(GOTBiomeVariant.FOREST_LEMON, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.FOREST_LIME, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.FOREST_CEDAR, 0.2f);
+		addBiomeVariant(GOTBiomeVariant.FOREST_CYPRESS, 0.2f);
 		decorator.grassPerChunk = 8;
 		decorator.doubleGrassPerChunk = 2;
 		decorator.flowersPerChunk = 1;
@@ -61,11 +61,10 @@ public class GOTBiomeEssos extends GOTBiome {
 		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
-		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
 	}
 
 	public boolean disableNoise() {
-		return false;
+		return true;
 	}
 
 	@Override
@@ -125,11 +124,6 @@ public class GOTBiomeEssos extends GOTBiome {
 			doubleFlowerGen.setFlowerType(2);
 		}
 		return doubleFlowerGen;
-	}
-
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_SANDY;
 	}
 
 	@Override

@@ -55,11 +55,6 @@ public class GOTBiomeYiTi extends GOTBiomeEssos {
 	}
 
 	@Override
-	public boolean disableNoise() {
-		return true;
-	}
-
-	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterYiTi;
 	}

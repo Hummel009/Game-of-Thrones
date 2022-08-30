@@ -21,7 +21,7 @@ public abstract class GOTStructureEssosTownWall extends GOTStructureEssosBase {
 	}
 
 	@Override
-	public boolean forceCedarWood() {
+	public boolean forceMonotypeWood() {
 		return true;
 	}
 
@@ -126,5 +126,4 @@ public abstract class GOTStructureEssosTownWall extends GOTStructureEssosBase {
 			rightExtent = 4;
 		}
 	}
-
 }

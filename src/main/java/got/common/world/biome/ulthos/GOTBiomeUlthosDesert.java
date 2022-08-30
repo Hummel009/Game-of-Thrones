@@ -24,6 +24,7 @@ public class GOTBiomeUlthosDesert extends GOTBiomeUlthos implements GOTBiome.Des
 		topBlock = Blocks.sand;
 		fillerBlock = Blocks.sand;
 		variantChance = 0.3f;
+        decorator.grassPerChunk = 5;
 		decorator.cactiPerChunk = 2;
 		decorator.deadBushPerChunk = 2;
 		decorator.clearTrees();

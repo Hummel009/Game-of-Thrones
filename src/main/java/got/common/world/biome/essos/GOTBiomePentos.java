@@ -7,6 +7,7 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.map.GOTBezierType;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.essos.pentos.GOTStructurePentosCity;
@@ -34,8 +35,18 @@ public class GOTBiomePentos extends GOTBiomeEssos {
 	}
 
 	@Override
+	public boolean disableNoise() {
+		return false;
+	}
+
+	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterPentos;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SANDY;
 	}
 
 	@Override

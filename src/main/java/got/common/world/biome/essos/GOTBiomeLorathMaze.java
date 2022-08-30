@@ -49,11 +49,6 @@ public class GOTBiomeLorathMaze extends GOTBiomeLorath {
 	}
 
 	@Override
-	public boolean disableNoise() {
-		return true;
-	}
-
-	@Override
 	public void generateBiomeTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, double stoneNoise, int height, GOTBiomeVariant variant) {
 		Block topBlock_pre = topBlock;
 		int topBlockMeta_pre = topBlockMeta;

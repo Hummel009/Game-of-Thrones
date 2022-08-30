@@ -7,13 +7,21 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.feature.GOTWorldGenBoulder;
+import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.structure.essos.ghiscar.GOTStructureGhiscarCity;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.NoiseGeneratorPerlin;
+import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class GOTBiomeGhiscar extends GOTBiomeEssos {
+	public static NoiseGeneratorPerlin noiseDirt = new NoiseGeneratorPerlin(new Random(3869098386927266L), 1);
+	public static NoiseGeneratorPerlin noiseSand = new NoiseGeneratorPerlin(new Random(92726978206783582L), 1);
+	public WorldGenerator boulderGen = new GOTWorldGenBoulder(Blocks.stone, 0, 1, 2);
+
 	public GOTBiomeGhiscar(int i, boolean major) {
 		super(i, major);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
@@ -25,13 +33,30 @@ public class GOTBiomeGhiscar extends GOTBiomeEssos {
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.1f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.3f);
+		decorator.doubleGrassPerChunk = 1;
+		decorator.flowersPerChunk = 3;
 		decorator.cactiPerChunk = 1;
+		decorator.deadBushPerChunk = 1;
 		decorator.addVillage(new GOTStructureGhiscarCity(this, 1.0f));
 		setDarkUnreliable();
 	}
 
 	@Override
+	public void decorate(World world, Random random, int i, int k) {
+		super.decorate(world, random, i, k);
+		if (random.nextInt(12) == 0) {
+			int boulders = 1 + random.nextInt(4);
+			for (int l = 0; l < boulders; ++l) {
+				int i1 = i + random.nextInt(16) + 8;
+				int k1 = k + random.nextInt(16) + 8;
+				boulderGen.generate(world, random, i1, world.getHeightValue(i1, k1), k1);
+			}
+		}
+	}
+
+	@Override
 	public void generateBiomeTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, double stoneNoise, int height, GOTBiomeVariant variant) {
+		double d4;
 		Block topBlock_pre = topBlock;
 		int topBlockMeta_pre = topBlockMeta;
 		Block fillerBlock_pre = fillerBlock;
@@ -39,7 +64,8 @@ public class GOTBiomeGhiscar extends GOTBiomeEssos {
 		double d1 = noiseDirt.func_151601_a(i * 0.09, k * 0.09);
 		double d2 = noiseDirt.func_151601_a(i * 0.4, k * 0.4);
 		double d3 = noiseSand.func_151601_a(i * 0.09, k * 0.09);
-		if (d3 + noiseSand.func_151601_a(i * 0.4, k * 0.4) > 0.6) {
+		d4 = noiseSand.func_151601_a(i * 0.4, k * 0.4);
+		if (d3 + d4 > 0.6) {
 			topBlock = Blocks.sand;
 			topBlockMeta = 0;
 			fillerBlock = topBlock;
@@ -74,9 +100,11 @@ public class GOTBiomeGhiscar extends GOTBiomeEssos {
 
 	@Override
 	public GOTBiome.GrassBlockAndMeta getRandomGrass(Random random) {
-		if (random.nextBoolean()) {
-			return new GOTBiome.GrassBlockAndMeta(GOTRegistry.aridGrass, 0);
-		}
-		return super.getRandomGrass(random);
+		return new GOTBiome.GrassBlockAndMeta(GOTRegistry.aridGrass, 0);
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SANDY;
 	}
 }

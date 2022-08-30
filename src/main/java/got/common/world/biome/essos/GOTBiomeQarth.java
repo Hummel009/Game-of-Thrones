@@ -11,10 +11,14 @@ import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.essos.qarth.GOTStructureQarthCity;
+import net.minecraft.init.Blocks;
 
-public class GOTBiomeQarth extends GOTBiomeEssos {
+public class GOTBiomeQarth extends GOTBiomeQarthDesert {
 	public GOTBiomeQarth(int i, boolean major) {
 		super(i, major);
+		topBlock = Blocks.sand;
+		topBlockMeta = 0;
+		fillerBlock = Blocks.sandstone;
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_LEMON, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_LIME, 0.2f);
@@ -24,7 +28,9 @@ public class GOTBiomeQarth extends GOTBiomeEssos {
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.1f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.3f);
+        decorator.grassPerChunk = 5;
 		decorator.addVillage(new GOTStructureQarthCity(this, 1.0f));
+		npcSpawnList.clear();
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.QARTH_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(8).add(c0);
