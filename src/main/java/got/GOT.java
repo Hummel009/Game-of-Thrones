@@ -78,6 +78,10 @@ public class GOT {
 		devs.add("72fd4cfd-064e-4cf1-874d-74000c152f48");
 		devs.add("a05ba4aa-2cd0-43b1-957c-7971c9af53d4");
 		devs.add("22be67c2-ba43-48db-b2ba-32857e78ddad");
+		devs.add("c52f6daa-1479-4304-b8de-30b7b1903b23");
+		devs.add("56c71aab-8a68-465d-b386-5f721dd68df6");
+		devs.add("188e4e9c-8c67-443d-9b6c-a351076a43e3");
+		devs.add("f8cc9b45-509a-4034-8740-0b84ce7e4492");
 	}
 
 	@Mod.EventHandler
