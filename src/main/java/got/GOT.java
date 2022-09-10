@@ -57,7 +57,7 @@ public class GOT {
 	public static GOTCommonProxy proxy;
 	@Mod.Instance(value = "got")
 	public static GOT instance;
-	public static String VERSION = "17.9.2";
+	public static String VERSION = "17.9.3";
 	public static ArrayList<String> devs = new ArrayList<>();
 	public static GOTEventHandler eventHandler;
 	public static GOTPacketHandler packetHandler;
