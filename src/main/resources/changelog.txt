@@ -5,6 +5,7 @@ CHANGELOG
 + Added Lorath Maze biome
 * Reworked all the free cities biomes + Ghiscar & Qarth
 
+* Improved colored hair of a few essos factions
 * Improved recipes. Lots of recipes were moved to vanilla table
 * Improved Ibbenese Wall
 * Improved faction relations
