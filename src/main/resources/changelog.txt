@@ -10,6 +10,7 @@ CHANGELOG
 * Improved faction relations
 * Improved essos weapon textures
 
+* Fixed bug with Qarkash location
 * Fixed bug with volantis, north table
 * Fixed bug with wrong recipes
 * Fixed bug with lots of grass near fixed towns

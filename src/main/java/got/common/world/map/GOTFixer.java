@@ -153,7 +153,7 @@ public class GOTFixer {
 		f[41] = new GOTStructurePentosCity(biome, 0.0f).setIsTown();
 		f[41].affix(GOTWaypoint.Pentos.info(-1, 0, 1));
 		f[42] = new GOTStructureQarthCity(biome, 0.0f).setIsTown();
-		f[42].affix(GOTWaypoint.PortYhos.info(0, 1, 0), GOTWaypoint.Qarkash.info(0, 0, 0), GOTWaypoint.Qarth.info(0, 1, 0));
+		f[42].affix(GOTWaypoint.PortYhos.info(0, 1, 0), GOTWaypoint.Qarkash.info(0, 1, 0), GOTWaypoint.Qarth.info(0, 1, 0));
 		f[43] = new GOTStructureQohorCity(biome, 0.0f).setIsTown();
 		f[43].affix(GOTWaypoint.Qohor.info(0, -1, 2));
 		f[44] = new GOTStructureReachCity(biome, 0.0f).setIsCastle();
