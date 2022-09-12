@@ -1,6 +1,7 @@
 CHANGELOG
 
 >>VERSION 17.9.3
++ Added new hill biomes for the Near Essos
 + Added Lorath Maze biome
 * Reworked all the free cities biomes + Ghiscar & Qarth
 
@@ -9,6 +10,7 @@ CHANGELOG
 * Improved faction relations
 * Improved essos weapon textures
 
+* Fixed bug with volantis, north table
 * Fixed bug with wrong recipes
 * Fixed bug with lots of grass near fixed towns
 * Fixed a few typos in ukrainian translation

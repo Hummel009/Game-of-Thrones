@@ -301,8 +301,6 @@ public class GOTRecipe {
 		ibben.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.ibbenBoots), "X X", "X X", Character.valueOf('X'), "ingotIron"));
 		ibben.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.ibbenSword), "X", "X", "Y", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
 		ibben.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.ibbenHarpoon), "  X", " Y ", "YZ ", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood", Character.valueOf('Z'), Items.string));
-		ibben.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.club), "X", "X", "X", Character.valueOf('X'), "plankWood"));
-		ibben.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.trident), " XX", " YX", "Y  ", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
 		ibben.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.tableIbben), "XX", "XX", Character.valueOf('X'), "plankWood"));
 		ibben.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.slabSingle11, 6, 4), "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.rock, 1, 2)));
 		ibben.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.smoothStone, 2, 2), "X", "X", Character.valueOf('X'), new ItemStack(GOTRegistry.rock, 1, 2)));
@@ -312,8 +310,6 @@ public class GOTRecipe {
 		ibben.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.stairsRhyoliteBrick, 4), "X  ", "XX ", "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.brick1, 1, 4)));
 		ibben.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.wallStone1, 6, 8), "XXX", "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.rock, 1, 2)));
 		ibben.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.wallStone1, 6, 6), "XXX", "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.brick1, 1, 4)));
-		ibben.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.flintSpear), "  X", " Y ", "Y  ", Character.valueOf('X'), Items.flint, Character.valueOf('Y'), "stickWood"));
-		ibben.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.flintDagger), "X", "Y", Character.valueOf('X'), Items.flint, Character.valueOf('Y'), "stickWood"));
 		ibben.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.banner, 1, GOTItemBanner.BannerType.IBBEN.bannerID), "X", "Y", "Z", Character.valueOf('X'), Blocks.wool, Character.valueOf('Y'), "stickWood", Character.valueOf('Z'), "plankWood"));
 		ibben.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.pillar1, 3, 8), "X", "X", "X", Character.valueOf('X'), new ItemStack(GOTRegistry.rock, 1, 2)));
 		ibben.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.slabSingle5, 6, 2), "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.pillar1, 1, 8)));
@@ -418,7 +414,7 @@ public class GOTRecipe {
 		north.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.northguardChestplate), "X X", "XXX", "XXX", Character.valueOf('X'), GOTRegistry.alloySteelIngot));
 		north.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.northguardLeggings), "XXX", "X X", "X X", Character.valueOf('X'), GOTRegistry.alloySteelIngot));
 		north.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.northguardBoots), "X X", "X X", Character.valueOf('X'), GOTRegistry.alloySteelIngot));
-		north.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.tableNorth), "XX", "YY", Character.valueOf('X'), "plankWood", Character.valueOf('Y'), new ItemStack(GOTRegistry.rock, 1, 1)));
+		north.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.tableNorth), "XX", "XX", Character.valueOf('X'), "plankWood"));
 		north.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.northHelmet), "XXX", "X X", Character.valueOf('X'), "ingotIron"));
 		north.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.northChestplate), "X X", "XXX", "XXX", Character.valueOf('X'), "ingotIron"));
 		north.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.northLeggings), "XXX", "X X", "X X", Character.valueOf('X'), "ingotIron"));
@@ -608,6 +604,8 @@ public class GOTRecipe {
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.brick6, 1, 3), "XXX", "XYX", "XXX", Character.valueOf('X'), GOTRegistry.westerosSword, Character.valueOf('Y'), Items.lava_bucket));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.brick6, 1, 3), "XXX", "XYX", "XXX", Character.valueOf('X'), Items.iron_sword, Character.valueOf('Y'), Items.lava_bucket));
 
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.flintSpear), "  X", " Y ", "Y  ", Character.valueOf('X'), Items.flint, Character.valueOf('Y'), "stickWood"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.flintDagger), "X", "Y", Character.valueOf('X'), Items.flint, Character.valueOf('Y'), "stickWood"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.club), "X", "X", "X", Character.valueOf('X'), "plankWood"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.trident), " XX", " YX", "Y  ", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
 
@@ -1466,6 +1464,7 @@ public class GOTRecipe {
 		summer.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.summerDagger), "X", "Y", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
 		summer.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.summerSpear), "  X", " Y ", "Y  ", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
 		summer.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.summerPike), "  X", " YX", "Y  ", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
+		summer.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.essosBow), " XY", "X Y", " XY", Character.valueOf('X'), "stickWood", Character.valueOf('Y'), Items.string));
 	}
 
 	public static void createTinyBasaltRecipes() {
@@ -1644,17 +1643,15 @@ public class GOTRecipe {
 	}
 
 	public static void createYiTiRecipes() {
-		OreDictionary.registerOre("yitiStone", new ItemStack(Blocks.stone, 1, 0));
-
 		yiti.add(new GOTRecipeRobesDye(GOTMaterial.KAFTAN));
 		yiti.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.banner, 1, GOTItemBanner.BannerType.YITI.bannerID), "X", "Y", "Z", Character.valueOf('X'), Blocks.wool, Character.valueOf('Y'), "stickWood", Character.valueOf('Z'), "plankWood"));
 		yiti.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.brick5, 1, 12), "XX", "XX", Character.valueOf('X'), new ItemStack(GOTRegistry.brick5, 1, 11)));
-		yiti.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.brick5, 4, 11), "XX", "XX", Character.valueOf('X'), "yitiStone"));
+		yiti.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.brick5, 4, 11), "XX", "XX", Character.valueOf('X'), new ItemStack(Blocks.stone, 1, 0)));
 		yiti.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.brick6, 1, 0), " X ", "XYX", " X ", Character.valueOf('X'), "nuggetGold", Character.valueOf('Y'), new ItemStack(GOTRegistry.brick5, 1, 11)));
 		yiti.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.brick6, 1, 2), "XX", "XX", Character.valueOf('X'), new ItemStack(GOTRegistry.brick6, 1, 1)));
 		yiti.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.brick6, 4, 1), "XX", "XX", Character.valueOf('X'), new ItemStack(GOTRegistry.rock, 1, 4)));
 		yiti.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.gateYiTi, 4), "ZYZ", "YXY", "ZYZ", Character.valueOf('X'), GOTRegistry.gateGear, Character.valueOf('Y'), "plankWood", Character.valueOf('Z'), GOTRegistry.yitiSteelIngot));
-		yiti.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.pillar2, 3, 8), "X", "X", "X", Character.valueOf('X'), "yitiStone"));
+		yiti.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.pillar2, 3, 8), "X", "X", "X", Character.valueOf('X'), new ItemStack(Blocks.stone, 1, 0)));
 		yiti.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.pillar2, 3, 9), "X", "X", "X", Character.valueOf('X'), new ItemStack(GOTRegistry.rock, 1, 4)));
 		yiti.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.slabSingle12, 6, 0), "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.brick5, 1, 11)));
 		yiti.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.slabSingle12, 6, 1), "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.brick5, 1, 13)));

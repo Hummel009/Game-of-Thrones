@@ -62,7 +62,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome dragonstone;
 	public static GOTBiome essos;
 	public static GOTBiome essosForest;
-	public static GOTBiome essosHills;
 	public static GOTBiome essosMountains;
 	public static GOTBiome farNorthSnowy;
 	public static GOTBiome fireField;
@@ -190,7 +189,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 	public static int SPAWN = 600;
 	public static int CONQUEST_SPAWN = 100;
-	public static int[] NON_USED = {96, 98, 103, 110, 117, 134, 141, 149, 153 };
+	public static int[] NON_USED = {134, 141, 149, 153 };
 	public static GOTBiome ocean1;
 	public static GOTBiome ocean2;
 	public static GOTBiome ocean3;
@@ -213,6 +212,12 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome cannibalSandsHills;
 	public static GOTBiome shrykesLand;
 	public static GOTBiome lorathMaze;
+	public static GOTBiome norvosHills;
+	public static GOTBiome lhazarHills;
+	public static GOTBiome ibbenColonyHills;
+	public static GOTBiome dothrakiHills;
+	public static GOTBiome pentosHills;
+	public static GOTBiome braavosHills;
 	public GOTDimension biomeDimension;
 	public GOTBiomeDecorator decorator;
 	public int topBlockMeta = 0;
@@ -1089,6 +1094,12 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	public static void preInit() {
+		braavosHills = new GOTBiomeBraavos(96, true).setIsNeverWinter().setMinMaxHeight(0.1f, 1.0f).setColor(0x938448).setBiomeName("braavosHills");
+		pentosHills = new GOTBiomePentos(98, true).setIsNeverWinter().setMinMaxHeight(0.1f, 1.0f).setColor(0xA0944E).setBiomeName("pentosHills");
+		dothrakiHills = new GOTBiomeDothrakiSea(103, true).setIsNeverWinter().setMinMaxHeight(0.1f, 1.0f).setColor(0x8A9346).setBiomeName("dothrakiHills");
+		ibbenColonyHills = new GOTBiomeIbbenColony(110, true).setIsNeverWinter().setMinMaxHeight(0.1f, 1.0f).setColor(0x919E5A).setBiomeName("ibbenColonyHills");
+		lhazarHills = new GOTBiomeLhazar(117, true).setIsNeverWinter().setMinMaxHeight(0.1f, 1.0f).setColor(0x9FA35E).setBiomeName("lhazarHills");
+
 		alwaysWinter = new GOTBiomeAlwaysWinter(1, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xBEDAE0).setBiomeName("alwaysWinter");
 		arryn = new GOTBiomeArryn(3, true).setIsSeasonalWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x74AD45).setBiomeName("arryn");
 		arrynMountainsFoothills = new GOTBiomeArrynMountainsFoothills(5, true).setIsSeasonalWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x1E772F).setBiomeName("arrynForest");
@@ -1114,7 +1125,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		dragonstone = new GOTBiomeDragonstone(31, true).setIsSeasonalWinter().setMinMaxHeight(0.3f, 0.35f).setColor(0x75A83F).setBiomeName("dragonstone");
 		essos = new GOTBiomeEssos(33, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x92A54A).setBiomeName("essos");
 		essosForest = new GOTBiomeEssosForest(34, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x617027).setBiomeName("essosForest");
-		essosHills = new GOTBiomeEssos(35, true).setIsNeverWinter().setMinMaxHeight(0.1f, 1.0f).setColor(0x7B843A).setBiomeName("essosHills");
+		norvosHills = new GOTBiomeNorvos(35, true).setIsNeverWinter().setMinMaxHeight(0.1f, 1.0f).setColor(0x728E47).setBiomeName("norvosHills");
 		essosMountains = new GOTBiomeEssosMountains(36, true).setIsNeverWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0xDDDDAF).setBiomeName("essosMountains");
 		farNorthSnowy = new GOTBiomeWesterosFrost(37, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xC9DAE0).setBiomeName("farNorthSnowy");
 		fireField = new GOTBiomeFireField(38, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xA3CC61).setBiomeName("fireField");
