@@ -23,7 +23,7 @@ public class GOTEntityYiTiBombardier extends GOTEntityYiTiSoldier {
 
 	@Override
 	public EntityAIBase createYiTiAttackAI() {
-		tasks.addTask(2, new GOTEntityAIBombardierAttack(this, 1.1));
+		tasks.addTask(2, new GOTEntityAIBombardierAttack(this, 1.4));
 		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
 	}
 

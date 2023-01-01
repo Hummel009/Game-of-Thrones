@@ -48,7 +48,6 @@ import got.common.world.biome.variant.GOTBiomeVariantStorage;
 import integrator.NEIGOTIntegratorConfig;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
-import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.item.*;
@@ -894,15 +893,12 @@ public class GOTEventHandler implements IFuelHandler {
 						int sentSpeeches = 0;
 						int maxSpeeches = 5;
 						double range = 8.0D;
-						List<EntityLiving> nearbyAlliedNPCs = world.selectEntitiesWithinAABB(EntityLiving.class, entity.boundingBox.expand(range, range, range), new IEntitySelector() {
-							@Override
-							public boolean isEntityApplicable(Entity entitySelect) {
-								if (entitySelect.isEntityAlive()) {
-									GOTFaction fac = GOT.getNPCFaction(entitySelect);
-									return fac.isGoodRelation(entityFaction);
-								}
-								return false;
+						List<EntityLiving> nearbyAlliedNPCs = world.selectEntitiesWithinAABB(EntityLiving.class, entity.boundingBox.expand(range, range, range), entitySelect -> {
+							if (entitySelect.isEntityAlive()) {
+								GOTFaction fac = GOT.getNPCFaction(entitySelect);
+								return fac.isGoodRelation(entityFaction);
 							}
+							return false;
 						});
 						for (EntityLiving npc : nearbyAlliedNPCs) {
 							if (npc instanceof GOTEntityNPC) {

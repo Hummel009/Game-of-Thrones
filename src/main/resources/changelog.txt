@@ -1,5 +1,9 @@
 CHANGELOG
 
+>>VERSION 17.9.4
+* Optimization
+* Fixed bug with Yi Ti bombardier, having speed 1.1 instead of 1.4 while attacking
+
 >>VERSION 17.9.3
 + Added new hill biomes for the Near Essos
 + Added Lorath Maze biome
