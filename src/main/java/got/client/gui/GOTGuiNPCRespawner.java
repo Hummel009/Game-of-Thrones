@@ -163,7 +163,7 @@ public class GOTGuiNPCRespawner extends GOTGuiScreenBase {
 		buttonList.add(sliderNoPlayerRange);
 		sliderNoPlayerRange.setMinMaxValues(0, 64);
 		sliderNoPlayerRange.setSliderValue(theSpawner.noPlayerRange);
-		buttonDestroy = new GuiButton(0, guiLeft + xSize / 2 - 50, guiTop + 255, 100, 20, StatCollector.translateToLocal("got.gui.npcRespawner.destroy"));
+		buttonDestroy = new GOTGuiButton(0, guiLeft + xSize / 2 - 50, guiTop + 255, 100, 20, StatCollector.translateToLocal("got.gui.npcRespawner.destroy"));
 		buttonList.add(buttonDestroy);
 	}
 

@@ -289,7 +289,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 	public void initGui() {
 		guiLeft = (width - xSize) / 2;
 		guiTop = (height - ySize) / 2;
-		buttonMode = new GuiButton(0, guiLeft + xSize / 2 - 80, guiTop + 20, 160, 20, "");
+		buttonMode = new GOTGuiButton(0, guiLeft + xSize / 2 - 80, guiTop + 20, 160, 20, "");
 		buttonList.add(buttonMode);
 		buttonSelfProtection = new GOTGuiButtonBanner(1, guiLeft + xSize / 2 - 24, guiTop + 224, 212, 100);
 		buttonList.add(buttonSelfProtection);

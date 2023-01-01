@@ -45,8 +45,8 @@ public class GOTGuiHornSelect extends GOTGuiScreenBase {
 	public void initGui() {
 		guiLeft = (width - xSize) / 2;
 		guiTop = (height - ySize) / 2;
-		buttonList.add(new GuiButton(1, guiLeft + 40, guiTop + 40, 120, 20, StatCollector.translateToLocal("got.gui.hornSelect.haltReady")));
-		buttonList.add(new GuiButton(3, guiLeft + 40, guiTop + 75, 120, 20, StatCollector.translateToLocal("got.gui.hornSelect.summon")));
+		buttonList.add(new GOTGuiButton(1, guiLeft + 40, guiTop + 40, 120, 20, StatCollector.translateToLocal("got.gui.hornSelect.haltReady")));
+		buttonList.add(new GOTGuiButton(3, guiLeft + 40, guiTop + 75, 120, 20, StatCollector.translateToLocal("got.gui.hornSelect.summon")));
 	}
 
 	@Override

@@ -54,7 +54,7 @@ public class GOTGuiSquadronItem extends GOTGuiScreenBase {
 	public void initGui() {
 		guiLeft = (width - xSize) / 2;
 		guiTop = (height - ySize) / 2;
-		buttonDone = new GuiButton(1, guiLeft + xSize / 2 - 40, guiTop + 85, 80, 20, StatCollector.translateToLocal("got.gui.squadronItem.done"));
+		buttonDone = new GOTGuiButton(1, guiLeft + xSize / 2 - 40, guiTop + 85, 80, 20, StatCollector.translateToLocal("got.gui.squadronItem.done"));
 		buttonList.add(buttonDone);
 		ItemStack itemstack = mc.thePlayer.inventory.getCurrentItem();
 		if (itemstack != null && itemstack.getItem() instanceof GOTSquadrons.SquadronItem) {

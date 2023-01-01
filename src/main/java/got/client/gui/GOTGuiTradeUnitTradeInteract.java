@@ -27,7 +27,7 @@ public class GOTGuiTradeUnitTradeInteract extends GOTGuiTradeInteract {
 	@Override
 	public void initGui() {
 		super.initGui();
-		buttonHire = new GuiButton(-1, width / 2 - 65, height / 5 * 3 + 50, 130, 20, StatCollector.translateToLocal("got.gui.npc.hire"));
+		buttonHire = new GOTGuiButton(-1, width / 2 - 65, height / 5 * 3 + 50, 130, 20, StatCollector.translateToLocal("got.gui.npc.hire"));
 		buttonList.add(buttonHire);
 	}
 }

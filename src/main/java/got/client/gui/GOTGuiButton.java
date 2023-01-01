@@ -4,6 +4,8 @@ import org.lwjgl.opengl.GL11;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.*;
+import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.util.ResourceLocation;
 
 public class GOTGuiButton extends GuiButton {
 	public GOTGuiButton(int i, int x, int y, int w, int h, String s) {
@@ -18,15 +20,15 @@ public class GOTGuiButton extends GuiButton {
 	public void drawButton(Minecraft mc, int i, int j) {
 		if (visible) {
 			FontRenderer fontrenderer = mc.fontRenderer;
-			mc.getTextureManager().bindTexture(GOTGuiQuestBook.guiTexture);
+			mc.getTextureManager().bindTexture(new ResourceLocation("got:textures/gui/buttons.png"));
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			field_146123_n = i >= xPosition && j >= yPosition && i < xPosition + width && j < yPosition + height;
 			int k = getHoverState(field_146123_n);
-			Gui.func_146110_a(xPosition, yPosition, 170.0f, 256 + k * 20, width, height, 512.0f, 512.0f);
 			GL11.glEnable(3042);
-			GL11.glBlendFunc(770, 771);
-			Gui.func_146110_a(xPosition, yPosition, 170.0f, 316.0f, width / 2, height, 512.0f, 512.0f);
-			Gui.func_146110_a(xPosition + width / 2, yPosition, 370 - width / 2, 316.0f, width / 2, height, 512.0f, 512.0f);
+			OpenGlHelper.glBlendFunc(770, 771, 1, 0);
+			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+			drawTexturedModalRect(xPosition, yPosition, 0, 46 + k * 20, width / 2, height);
+			drawTexturedModalRect(xPosition + width / 2, yPosition, 200 - width / 2, 46 + k * 20, width / 2, height);
 			mouseDragged(mc, i, j);
 			int color = 8019267;
 			if (!enabled) {

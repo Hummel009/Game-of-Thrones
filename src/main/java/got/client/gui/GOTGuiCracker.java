@@ -48,7 +48,7 @@ public class GOTGuiCracker extends GuiContainer {
 	@Override
 	public void initGui() {
 		super.initGui();
-		buttonSeal = new GuiButton(0, guiLeft + xSize / 2 - 40, guiTop + 48, 80, 20, StatCollector.translateToLocal("got.gui.cracker.seal"));
+		buttonSeal = new GOTGuiButton(0, guiLeft + xSize / 2 - 40, guiTop + 48, 80, 20, StatCollector.translateToLocal("got.gui.cracker.seal"));
 		buttonList.add(buttonSeal);
 		buttonSeal.enabled = false;
 	}
