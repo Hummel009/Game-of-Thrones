@@ -28,7 +28,7 @@ public class GOTBiomeQarth extends GOTBiomeQarthDesert {
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.1f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.3f);
-        decorator.grassPerChunk = 5;
+		decorator.grassPerChunk = 5;
 		decorator.addVillage(new GOTStructureQarthCity(this, 1.0f));
 		npcSpawnList.clear();
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();

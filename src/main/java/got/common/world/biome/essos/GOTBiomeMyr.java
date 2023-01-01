@@ -50,11 +50,6 @@ public class GOTBiomeMyr extends GOTBiomeEssos {
 	}
 
 	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_SANDY;
-	}
-
-	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterMyr;
 	}
@@ -62,5 +57,10 @@ public class GOTBiomeMyr extends GOTBiomeEssos {
 	@Override
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.ESSOS.getSubregion("myr");
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SANDY;
 	}
 }

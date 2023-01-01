@@ -203,9 +203,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 						ArrayList<GOTMusicCategory> regionCategories = new ArrayList<>();
 						if (region != null && regionData.has("categories")) {
 							JsonArray catList = regionData.get("categories").getAsJsonArray();
-							Iterator<JsonElement> s = catList.iterator();
-							while (s.hasNext()) {
-								JsonElement cat = s.next();
+							for (JsonElement cat : catList) {
 								String categoryName = cat.getAsString();
 								GOTMusicCategory category = GOTMusicCategory.forName(categoryName);
 								if (category != null) {
@@ -248,9 +246,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 					}
 					if (trackData.has("authors")) {
 						JsonArray authorList = trackData.get("authors").getAsJsonArray();
-						Iterator<JsonElement> r = authorList.iterator();
-						while (r.hasNext()) {
-							JsonElement a = r.next();
+						for (JsonElement a : authorList) {
 							String author = a.getAsString();
 							track.addAuthor(author);
 						}

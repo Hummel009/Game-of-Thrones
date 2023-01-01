@@ -42,7 +42,7 @@ public class GOTEntityRegistry {
 	}
 
 	public static Class<? extends Entity> getClassFromString(String name) {
-		return (Class) EntityList.stringToClassMapping.get(name);
+		return EntityList.stringToClassMapping.get(name);
 	}
 
 	public static int getEntityID(Entity entity) {
@@ -69,7 +69,7 @@ public class GOTEntityRegistry {
 	}
 
 	public static String getStringFromClass(Class entityClass) {
-		return (String) EntityList.classToStringMapping.get(entityClass);
+		return EntityList.classToStringMapping.get(entityClass);
 	}
 
 	public static String getStringFromID(int id) {
@@ -99,7 +99,7 @@ public class GOTEntityRegistry {
 		String name = entityClass.getSimpleName();
 		String cut = name.replace("GOTEntity", "");
 		EntityRegistry.registerModEntity(entityClass, cut, id, GOT.instance, updateRange, updateFreq, sendVelocityUpdates);
-		String fullName = (String) EntityList.classToStringMapping.get(entityClass);
+		String fullName = EntityList.classToStringMapping.get(entityClass);
 		stringToIDMapping.put(fullName, id);
 		IDToStringMapping.put(id, fullName);
 		classToIDMapping.put(entityClass, id);

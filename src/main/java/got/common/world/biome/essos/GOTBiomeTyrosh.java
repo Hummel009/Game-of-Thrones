@@ -49,11 +49,6 @@ public class GOTBiomeTyrosh extends GOTBiomeEssos {
 	}
 
 	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_SANDY;
-	}
-
-	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterTyrosh;
 	}
@@ -61,5 +56,10 @@ public class GOTBiomeTyrosh extends GOTBiomeEssos {
 	@Override
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.ESSOS.getSubregion("tyrosh");
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SANDY;
 	}
 }

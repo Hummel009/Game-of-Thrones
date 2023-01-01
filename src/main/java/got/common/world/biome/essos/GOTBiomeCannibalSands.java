@@ -21,7 +21,7 @@ public class GOTBiomeCannibalSands extends GOTBiomeEssosPlains implements GOTBio
 		topBlock = Blocks.sand;
 		fillerBlock = Blocks.sand;
 		variantChance = 0.3f;
-        decorator.grassPerChunk = 5;
+		decorator.grassPerChunk = 5;
 		decorator.cactiPerChunk = 2;
 		decorator.deadBushPerChunk = 2;
 		decorator.treesPerChunk = 0;

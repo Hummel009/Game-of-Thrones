@@ -26,7 +26,7 @@ public class GOTBiomeQarthDesert extends GOTBiomeLhazar implements GOTBiome.Dese
 		topBlockMeta = 1;
 		fillerBlock = GOTRegistry.redSandstone;
 		variantChance = 0.3f;
-        decorator.grassPerChunk = 5;
+		decorator.grassPerChunk = 5;
 		decorator.cactiPerChunk = 2;
 		decorator.deadBushPerChunk = 2;
 		decorator.treesPerChunk = 0;

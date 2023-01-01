@@ -1,6 +1,7 @@
 package got.common.quest;
 
 import java.util.*;
+import java.util.Map.Entry;
 
 import cpw.mods.fml.common.FMLLog;
 import got.common.GOTLore;
@@ -16,6 +17,7 @@ import got.common.entity.westeros.legendary.reborn.GOTEntityTheonGreyjoy;
 import got.common.entity.westeros.legendary.warrior.*;
 import got.common.faction.GOTFaction;
 import got.common.item.other.GOTItemBanner;
+import got.common.quest.GOTMiniQuest.QuestFactoryBase;
 import net.minecraft.init.*;
 import net.minecraft.item.ItemStack;
 
@@ -38,13 +40,17 @@ public enum GOTMiniQuestFactory {
 	public GOTFaction alignmentRewardOverride;
 
 	GOTMiniQuestFactory() {
-		baseName = "legendary";
-		setAchievement(GOTAchievement.doLegendaryQuest);
+		this(false);
 	}
 
 	GOTMiniQuestFactory(Boolean isStandart) {
-		baseName = "standart";
-		setAchievement(GOTAchievement.doQuest);
+		if (isStandart) {
+			baseName = "standart";
+			setAchievement(GOTAchievement.doQuest);
+		} else {
+			baseName = "legendary";
+			setAchievement(GOTAchievement.doLegendaryQuest);
+		}
 	}
 
 	public void addQuest(GOTMiniQuest.QuestFactoryBase factory) {
@@ -91,10 +97,8 @@ public enum GOTMiniQuestFactory {
 		}
 		int randomWeight = rand.nextInt(totalWeight);
 		int i = randomWeight;
-		Iterator<Map.Entry<Class<? extends GOTMiniQuest>, List<GOTMiniQuest.QuestFactoryBase>>> iterator = questFactories.entrySet().iterator();
 		List<GOTMiniQuest.QuestFactoryBase> chosenFactoryList = null;
-		while (iterator.hasNext()) {
-			Map.Entry<Class<? extends GOTMiniQuest>, List<GOTMiniQuest.QuestFactoryBase>> next = iterator.next();
+		for (Entry<Class<? extends GOTMiniQuest>, List<QuestFactoryBase>> next : questFactories.entrySet()) {
 			chosenFactoryList = next.getValue();
 			i -= getQuestClassWeight(next.getKey());
 			if (i < 0) {

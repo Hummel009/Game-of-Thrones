@@ -108,7 +108,7 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 			if (field_92025_p != null && field_92025_p.length() > 0) {
 				Gui.drawRect(field_92022_t - 2, field_92021_u - 2, field_92020_v + 2, field_92019_w - 1, 1428160512);
 				drawString(fontRendererObj, field_92025_p, field_92022_t, field_92021_u, -1);
-				drawString(fontRendererObj, field_146972_A, (width - field_92024_r) / 2, ((GuiButton) buttonList.get(0)).yPosition - 12, -1);
+				drawString(fontRendererObj, field_146972_A, (width - field_92024_r) / 2, buttonList.get(0).yPosition - 12, -1);
 			}
 			for (Object button : buttonList) {
 				((GuiButton) button).drawButton(mc, i, j);
@@ -135,7 +135,7 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 		int moveDown = Math.min(idealMoveDown, lowestSuitableHeight - lowerButtonMaxY);
 		moveDown = Math.max(moveDown, 0);
 		for (int i = 0; i < buttonList.size(); ++i) {
-			GuiButton button = (GuiButton) buttonList.get(i);
+			GuiButton button = buttonList.get(i);
 			button.yPosition += moveDown;
 			if (button.getClass() == GuiButton.class) {
 				GOTGuiButton newButton = new GOTGuiButton(button.id, button.xPosition, button.yPosition, button.width, button.height, button.displayString);

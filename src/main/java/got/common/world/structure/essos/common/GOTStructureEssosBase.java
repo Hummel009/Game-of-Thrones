@@ -355,12 +355,12 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		return null;
 	}
 
-	public boolean isSandstone() {
-		return isGhiscar || isQarth || isPentos;
-	}
-
 	public boolean isNorthernTrees() {
 		return isBraavos || isLorath || isNorvos || isQohor;
+	}
+
+	public boolean isSandstone() {
+		return isGhiscar || isQarth || isPentos;
 	}
 
 	@Override

@@ -1,6 +1,6 @@
 package got.common.recipe;
 
-import java.util.*;
+import java.util.ArrayList;
 
 import got.common.database.GOTRegistry;
 import got.common.tileentity.GOTTileEntityBarrel;
@@ -35,10 +35,8 @@ public class GOTRecipeBrewing {
 					continue;
 				}
 				boolean inRecipe = false;
-				Iterator<Object> it = ingredients.iterator();
-				while (it.hasNext()) {
+				for (Object next : ingredients) {
 					boolean match = false;
-					Object next = it.next();
 					if (next instanceof ItemStack) {
 						match = GOTRecipe.checkItemEquals((ItemStack) next, itemstack);
 					} else if (next instanceof ArrayList) {

@@ -45,12 +45,12 @@ public class GOTBiomePentos extends GOTBiomeEssos {
 	}
 
 	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_SANDY;
+	public MusicRegion getBiomeMusic() {
+		return GOTBiomeMusic.ESSOS.getSubregion("pentos");
 	}
 
 	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ESSOS.getSubregion("pentos");
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SANDY;
 	}
 }
