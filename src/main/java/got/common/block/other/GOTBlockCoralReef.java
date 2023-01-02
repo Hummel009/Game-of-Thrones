@@ -25,6 +25,7 @@ public class GOTBlockCoralReef extends Block {
 		setHardness(1.0f);
 		setResistance(5.0f);
 		setStepSound(Block.soundTypeStone);
+		setLightLevel(1.0f);
 	}
 
 	@Override
