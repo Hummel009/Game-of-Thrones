@@ -11,6 +11,7 @@ import got.common.world.feature.GOTWorldGenBoulder;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.structure.essos.ghiscar.GOTStructureGhiscarCity;
+import got.common.world.structure.other.GOTStructureStoneRuin;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -39,6 +40,7 @@ public class GOTBiomeGhiscar extends GOTBiomeEssos {
 		decorator.deadBushPerChunk = 1;
 		decorator.addVillage(new GOTStructureGhiscarCity(this, 1.0f));
 		setDarkUnreliable();
+		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
 	}
 
 	@Override

@@ -7,6 +7,7 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
+import got.common.world.structure.other.*;
 
 public class GOTBiomeLongSummer extends GOTBiomeEssos {
 	public GOTBiomeLongSummer(int i, boolean major) {
@@ -23,6 +24,8 @@ public class GOTBiomeLongSummer extends GOTBiomeEssos {
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.CHARRED, 1000);
 		decorator.addTree(GOTTreeType.OAK_DEAD, 1000);
+		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
+		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
 	}
 
 	@Override

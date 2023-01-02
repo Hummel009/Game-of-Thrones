@@ -8,6 +8,7 @@ import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
+import got.common.world.structure.other.GOTStructureStoneRuin;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -33,6 +34,7 @@ public class GOTBiomeCannibalSands extends GOTBiomeEssosPlains implements GOTBio
 		decorator.addOre(new WorldGenMinable(Blocks.lapis_ore, 6), 1.0f, 0, 48);
 		spawnableCreatureList.clear();
 		spawnableGOTAmbientList.clear();
+		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
 	}
 
 	@Override

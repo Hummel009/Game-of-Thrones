@@ -12,6 +12,7 @@ import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
+import got.common.world.structure.other.GOTStructureStoneRuin;
 import got.common.world.structure.westeros.dorne.*;
 
 public class GOTBiomeDorne extends GOTBiomeEssos {
@@ -43,6 +44,7 @@ public class GOTBiomeDorne extends GOTBiomeEssos {
 		ArrayList<SpawnListContainer> c3 = new ArrayList<>();
 		c3.add(GOTBiomeSpawnList.entry(GOTSpawnList.RED_SCORPION, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(2).add(c3);
+		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
 	}
 
 	@Override

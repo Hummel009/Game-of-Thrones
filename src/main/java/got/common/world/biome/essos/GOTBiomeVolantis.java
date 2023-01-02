@@ -10,6 +10,7 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.essos.volantis.GOTStructureVolantisCity;
+import got.common.world.structure.other.GOTStructureStoneRuin;
 
 public class GOTBiomeVolantis extends GOTBiomeEssos {
 	public GOTBiomeVolantis(int i, boolean major) {
@@ -49,6 +50,8 @@ public class GOTBiomeVolantis extends GOTBiomeEssos {
 		ArrayList<SpawnListContainer> c5 = new ArrayList<>();
 		c5.add(GOTBiomeSpawnList.entry(GOTSpawnList.NORVOS_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c5);
+		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
+		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
 	}
 
 	@Override

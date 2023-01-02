@@ -13,7 +13,7 @@ public class GOTEntitySummerMason extends GOTEntitySummerTrader {
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.ESSOS_MASON_BUY;
+		return GOTTradeEntries.SUD_MASON_BUY;
 	}
 
 	@Override

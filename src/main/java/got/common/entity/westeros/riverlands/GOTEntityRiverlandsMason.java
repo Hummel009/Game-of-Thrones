@@ -14,7 +14,7 @@ public class GOTEntityRiverlandsMason extends GOTEntityRiverlandsMarketTrader {
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.WESTEROS_MASON_BUY;
+		return GOTTradeEntries.NORD_MASON_BUY;
 	}
 
 	@Override

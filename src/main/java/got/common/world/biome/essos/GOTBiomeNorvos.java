@@ -12,6 +12,7 @@ import got.common.world.feature.*;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.essos.norvos.GOTStructureNorvosCity;
+import got.common.world.structure.other.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -53,6 +54,8 @@ public class GOTBiomeNorvos extends GOTBiomeEssos {
 		ArrayList<SpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.VOLANTIS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
+		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
+		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
 	}
 
 	@Override

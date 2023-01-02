@@ -11,6 +11,7 @@ import got.common.world.feature.GOTTreeType;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.essos.qohor.GOTStructureQohorCity;
+import got.common.world.structure.other.*;
 
 public class GOTBiomeQohor extends GOTBiomeEssos {
 	public GOTBiomeQohor(int i, boolean major) {
@@ -39,6 +40,8 @@ public class GOTBiomeQohor extends GOTBiomeEssos {
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.QOHOR_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
+		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
+		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
 	}
 
 	@Override

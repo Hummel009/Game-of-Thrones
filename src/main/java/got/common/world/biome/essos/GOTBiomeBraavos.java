@@ -11,6 +11,7 @@ import got.common.world.feature.GOTTreeType;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.essos.braavos.GOTStructureBraavosCity;
+import got.common.world.structure.other.*;
 
 public class GOTBiomeBraavos extends GOTBiomeEssos {
 	public GOTBiomeBraavos(int i, boolean major) {
@@ -47,6 +48,8 @@ public class GOTBiomeBraavos extends GOTBiomeEssos {
 		ArrayList<SpawnListContainer> c2 = new ArrayList<>();
 		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.PENTOS_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c2);
+		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
+		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
 	}
 
 	@Override

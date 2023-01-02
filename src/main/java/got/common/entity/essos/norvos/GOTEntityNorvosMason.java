@@ -14,7 +14,7 @@ public class GOTEntityNorvosMason extends GOTEntityNorvosTrader {
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.ESSOS_MASON_BUY;
+		return GOTTradeEntries.NORD_MASON_BUY;
 	}
 
 	@Override

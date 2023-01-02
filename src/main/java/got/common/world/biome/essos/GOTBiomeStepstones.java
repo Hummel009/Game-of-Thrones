@@ -10,6 +10,7 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTWorldGenSand;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
+import got.common.world.structure.other.GOTStructureStoneRuin;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -47,6 +48,8 @@ public class GOTBiomeStepstones extends GOTBiomeEssos {
 		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c2);
 		setDarkUnreliable();
+		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
+		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
 	}
 
 	@Override

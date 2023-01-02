@@ -9,6 +9,7 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.essos.gold.GOTStructureGoldenCamp;
+import got.common.world.structure.other.GOTStructureStoneRuin;
 
 public class GOTBiomeMercenary extends GOTBiomeEssos {
 	public GOTBiomeMercenary(int i, boolean major) {
@@ -37,6 +38,8 @@ public class GOTBiomeMercenary extends GOTBiomeEssos {
 		ArrayList<SpawnListContainer> c5 = new ArrayList<>();
 		c5.add(GOTBiomeSpawnList.entry(GOTSpawnList.VOLANTIS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c5);
+		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
+		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
 	}
 
 	@Override

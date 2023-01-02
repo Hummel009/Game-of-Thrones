@@ -11,6 +11,7 @@ import got.common.world.map.GOTBezierType;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.essos.myr.GOTStructureMyrCity;
+import got.common.world.structure.other.GOTStructureStoneRuin;
 
 public class GOTBiomeMyr extends GOTBiomeEssos {
 	public GOTBiomeMyr(int i, boolean major) {
@@ -42,6 +43,8 @@ public class GOTBiomeMyr extends GOTBiomeEssos {
 		ArrayList<SpawnListContainer> c3 = new ArrayList<>();
 		c3.add(GOTBiomeSpawnList.entry(GOTSpawnList.LYS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c3);
+		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
+		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
 	}
 
 	@Override
