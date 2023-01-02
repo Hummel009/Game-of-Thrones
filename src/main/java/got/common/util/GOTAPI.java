@@ -699,15 +699,17 @@ public class GOTAPI {
 	 */
 	@SideOnly(value = Side.CLIENT)
 	public static void setClientMapImage(ResourceLocation mapTexture) {
-		GOTTextures.mapTexture = null;
+		ResourceLocation sepiaMapTexture;
+		GOTTextures.mapTexture = mapTexture;
 		try {
 			BufferedImage mapImage = getImage(Minecraft.getMinecraft().getResourceManager().getResource(mapTexture).getInputStream());
-			GOTTextures.sepiaMapTexture = GOTTextures.convertToSepia(mapImage, new ResourceLocation("got:map_sepia"));
+			sepiaMapTexture = GOTTextures.convertToSepia(mapImage, new ResourceLocation("lotr:map_sepia"));
 		} catch (IOException e) {
 			FMLLog.severe("Failed to generate GOT sepia map");
 			e.printStackTrace();
-			GOTTextures.sepiaMapTexture = mapTexture;
+			sepiaMapTexture = mapTexture;
 		}
+		GOTTextures.sepiaMapTexture = sepiaMapTexture;
 	}
 
 	/**
