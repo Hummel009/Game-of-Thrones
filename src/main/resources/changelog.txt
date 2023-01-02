@@ -5,6 +5,7 @@ CHANGELOG
 * Added more random structures
 * Improved chest contents and trade entries
 * Improved GUI
+* Improvde village paths
 * Fixed bug with trapdoors in structures
 * Fixed bug with wrong titles that shouldn't exist
 * Fixed bug with GOTAPI$setClientMapImage

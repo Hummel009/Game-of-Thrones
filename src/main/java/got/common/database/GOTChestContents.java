@@ -119,7 +119,7 @@ public class GOTChestContents {
 		NORD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.mugMead), 1, 1, 10));
 		NORD_L.add(new WeightedRandomChestContent(new ItemStack(Items.bow), 1, 1, 25));
 		NORD_L.add(new WeightedRandomChestContent(new ItemStack(Items.arrow), 2, 8, 100));
-		
+
 		SUD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldRing), 1, 1, 10));
 		SUD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.silverRing), 1, 1, 10));
 		SUD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.ironCrossbow), 1, 1, 10));
@@ -181,7 +181,7 @@ public class GOTChestContents {
 		SUD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.mugLemonLiqueur), 1, 1, 25));
 		SUD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.mugLimeLiqueur), 1, 1, 25));
 		SUD_L.add(new WeightedRandomChestContent(new ItemStack(Items.dye, 1, 4), 1, 8, 25));
-		
+
 		SOTHORYOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldRing), 1, 1, 10));
 		SOTHORYOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.silverRing), 1, 1, 10));
 		SOTHORYOS_L.add(new WeightedRandomChestContent(new ItemStack(Blocks.melon_block), 2, 8, 50));
@@ -750,7 +750,7 @@ public class GOTChestContents {
 		RIVERLANDS_L.addAll(NORD_L);
 		STORMLANDS_L.addAll(NORD_L);
 		WESTERLANDS_L.addAll(NORD_L);
-		
+
 		DORNE_L.addAll(SUD_L);
 		GHISCAR_L.addAll(SUD_L);
 		GOLDEN_L.addAll(SUD_L);
@@ -760,7 +760,7 @@ public class GOTChestContents {
 		QARTH_L.addAll(SUD_L);
 		TYROSH_L.addAll(SUD_L);
 		VOLANTIS_L.addAll(SUD_L);
-		
+
 		JOGOS_L.addAll(NOMAD_L);
 		DOTHRAKI_L.addAll(NOMAD_L);
 

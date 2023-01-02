@@ -76,7 +76,7 @@ public class GOTStructureDorneCity extends GOTVillageGen {
 				int dSq = i * i + k * k;
 				int imn = 20 + random.nextInt(4);
 				if (dSq < imn * imn) {
-					return GOTBezierType.PATH_DIRTY;
+					return GOTBezierType.PATH_SANDY;
 				}
 				int omn = 53 - random.nextInt(4);
 				int omx = 60 + random.nextInt(4);

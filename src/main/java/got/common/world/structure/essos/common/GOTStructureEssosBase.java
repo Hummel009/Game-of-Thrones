@@ -66,8 +66,6 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 	public int woodBeamMeta4;
 	public int woodBeamMeta8;
 	public Block doorBlock;
-	public Block plank2Block;
-	public int plank2Meta;
 	public Block roofBlock;
 	public int roofMeta;
 	public Block roofSlabBlock;
@@ -368,13 +366,13 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 	public void setupRandomBlocks(Random random) {
 		super.setupRandomBlocks(random);
 		if (isSandstone()) {
-			stoneBlock = Blocks.sandstone;
-			stoneMeta = 0;
-			stoneStairBlock = Blocks.sandstone_stairs;
-			stoneWallBlock = GOTRegistry.wallStoneV;
-			stoneWallMeta = 4;
-			gateMetalBlock = GOTRegistry.gateBronzeBars;
 			if (canUseRedBricks() && random.nextInt(4) == 0) {
+				gateMetalBlock = GOTRegistry.gateBronzeBars;
+				stoneBlock = Blocks.sandstone;
+				stoneMeta = 0;
+				stoneStairBlock = Blocks.sandstone_stairs;
+				stoneWallBlock = GOTRegistry.wallStoneV;
+				stoneWallMeta = 4;
 				brickBlock = GOTRegistry.brick3;
 				brickMeta = 13;
 				brickSlabBlock = GOTRegistry.slabSingle7;
@@ -385,6 +383,12 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 				pillarBlock = GOTRegistry.pillar1;
 				pillarMeta = 15;
 			} else {
+				gateMetalBlock = GOTRegistry.gateBronzeBars;
+				stoneBlock = Blocks.sandstone;
+				stoneMeta = 0;
+				stoneStairBlock = Blocks.sandstone_stairs;
+				stoneWallBlock = GOTRegistry.wallStoneV;
+				stoneWallMeta = 4;
 				brickBlock = GOTRegistry.brick1;
 				brickMeta = 15;
 				brickSlabBlock = GOTRegistry.slabSingle4;
@@ -407,6 +411,11 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 			brick2WallMeta = 4;
 			pillar2Block = GOTRegistry.pillar1;
 			pillar2Meta = 15;
+			roofBlock = GOTRegistry.thatch;
+			roofMeta = 1;
+			roofSlabBlock = GOTRegistry.slabSingleThatch;
+			roofSlabMeta = 1;
+			roofStairBlock = GOTRegistry.stairsReed;
 		} else {
 			gateMetalBlock = GOTRegistry.gateIronBars;
 			stoneBlock = GOTRegistry.rock;
@@ -435,15 +444,16 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 			brick2WallMeta = 10;
 			pillar2Block = GOTRegistry.pillar1;
 			pillar2Meta = 9;
+			roofBlock = GOTRegistry.thatch;
+			roofMeta = 1;
+			roofSlabBlock = GOTRegistry.slabSingleThatch;
+			roofSlabMeta = 1;
+			roofStairBlock = GOTRegistry.stairsReed;
 		}
-		roofBlock = GOTRegistry.thatch;
-		roofMeta = 1;
-		roofSlabBlock = GOTRegistry.slabSingleThatch;
-		roofSlabMeta = 1;
-		roofStairBlock = GOTRegistry.stairsReed;
-
 		if (isNorthernTrees()) {
 			if (forceMonotypeWood()) {
+				woodBlock = GOTRegistry.wood2;
+				woodMeta = 1;
 				plankBlock = GOTRegistry.planks1;
 				plankMeta = 9;
 				plankSlabBlock = GOTRegistry.woodSlabSingle2;
@@ -460,6 +470,8 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 				int randomWood = random.nextInt(7);
 				switch (randomWood) {
 				case 0:
+					woodBlock = GOTRegistry.wood2;
+					woodMeta = 1;
 					plankBlock = GOTRegistry.planks1;
 					plankMeta = 9;
 					plankSlabBlock = GOTRegistry.woodSlabSingle2;
@@ -474,6 +486,8 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 					trapdoorBlock = GOTRegistry.trapdoorBeech;
 					break;
 				case 1:
+					woodBlock = GOTRegistry.wood4;
+					woodMeta = 2;
 					plankBlock = GOTRegistry.planks2;
 					plankMeta = 2;
 					plankSlabBlock = GOTRegistry.woodSlabSingle3;
@@ -488,6 +502,8 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 					trapdoorBlock = GOTRegistry.trapdoorCedar;
 					break;
 				case 2:
+					woodBlock = GOTRegistry.wood2;
+					woodMeta = 0;
 					plankBlock = GOTRegistry.planks1;
 					plankMeta = 8;
 					plankSlabBlock = GOTRegistry.woodSlabSingle2;
@@ -502,6 +518,8 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 					trapdoorBlock = GOTRegistry.trapdoorAramant;
 					break;
 				case 3:
+					woodBlock = Blocks.log;
+					woodMeta = 2;
 					plankBlock = Blocks.planks;
 					plankMeta = 2;
 					plankSlabBlock = Blocks.wooden_slab;
@@ -516,6 +534,8 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 					trapdoorBlock = GOTRegistry.trapdoorBirch;
 					break;
 				default:
+					woodBlock = Blocks.log;
+					woodMeta = 0;
 					plankBlock = Blocks.planks;
 					plankMeta = 0;
 					plankSlabBlock = Blocks.wooden_slab;
@@ -531,7 +551,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 					break;
 				}
 			}
-		} else if (random.nextBoolean() || forceMonotypeWood()) {
+		} else if (forceMonotypeWood()) {
 			woodBlock = GOTRegistry.wood4;
 			woodMeta = 2;
 			plankBlock = GOTRegistry.planks2;
@@ -603,8 +623,6 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		}
 		woodBeamMeta4 = woodBeamMeta | 4;
 		woodBeamMeta8 = woodBeamMeta | 8;
-		plank2Block = GOTRegistry.planks2;
-		plank2Meta = 11;
 		bedBlock = GOTRegistry.strawBed;
 		if (random.nextBoolean()) {
 			cropBlock = Blocks.wheat;
