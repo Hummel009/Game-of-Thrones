@@ -82,12 +82,15 @@ public class GOTStructureEssosFortress extends GOTStructureEssosBase {
 		associateBlockMetaAlias("PLANK_SLAB_INV", plankSlabBlock, plankSlabMeta | 8);
 		associateBlockAlias("PLANK_STAIR", plankStairBlock);
 		associateBlockMetaAlias("FENCE", fenceBlock, fenceMeta);
+		associateBlockAlias("FENCE_GATE", fenceGateBlock);
 		associateBlockMetaAlias("BEAM", woodBeamBlock, woodBeamMeta);
 		associateBlockMetaAlias("BEAM|4", woodBeamBlock, woodBeamMeta4);
 		associateBlockMetaAlias("BEAM|8", woodBeamBlock, woodBeamMeta8);
 		associateBlockAlias("DOOR", doorBlock);
 		associateBlockMetaAlias("PLANK2", plank2Block, plank2Meta);
 		associateBlockMetaAlias("ROOF", roofBlock, roofMeta);
+		associateBlockMetaAlias("ROOF_SLAB", roofSlabBlock, roofSlabMeta);
+		associateBlockMetaAlias("ROOF_SLAB_INV", roofSlabBlock, roofSlabMeta | 8);
 		associateBlockAlias("ROOF_STAIR", roofStairBlock);
 		associateBlockAlias("GATE_METAL", gateMetalBlock);
 		addBlockMetaAliasOption("GROUND", 1, Blocks.dirt, 1);
