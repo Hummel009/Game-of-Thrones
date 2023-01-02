@@ -17,6 +17,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.client.network.NetHandlerPlayClient;
+import net.minecraft.command.IEntitySelector;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.*;
 import net.minecraft.entity.*;
@@ -333,9 +334,13 @@ public class GOTReplacedMethods {
 	public static class Piston {
 		public static boolean canPushBlock(Block block, World world, int i, int j, int k, boolean flag) {
 			AxisAlignedBB bannerSearchBox = AxisAlignedBB.getBoundingBox(i, j, k, i + 1, j + 4, k + 1);
-			List banners = world.selectEntitiesWithinAABB(GOTEntityBanner.class, bannerSearchBox, entity -> {
-				GOTEntityBanner banner = (GOTEntityBanner) entity;
-				return !banner.isDead && banner.isProtectingTerritory();
+			List banners = world.selectEntitiesWithinAABB(GOTEntityBanner.class, bannerSearchBox, new IEntitySelector() {
+
+				@Override
+				public boolean isEntityApplicable(Entity entity) {
+					GOTEntityBanner banner = (GOTEntityBanner) entity;
+					return !banner.isDead && banner.isProtectingTerritory();
+				}
 			});
 			if (!banners.isEmpty()) {
 				return false;

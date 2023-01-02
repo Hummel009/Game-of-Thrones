@@ -508,19 +508,29 @@ public class GOT {
 	}
 
 	public static IEntitySelector selectLivingExceptCreativePlayers() {
-		return entity -> {
-			if (entity instanceof EntityLivingBase && entity.isEntityAlive()) {
-				if (entity instanceof EntityPlayer) {
-					return !((EntityPlayer) entity).capabilities.isCreativeMode;
+		return new IEntitySelector() {
+
+			@Override
+			public boolean isEntityApplicable(Entity entity) {
+				if (entity instanceof EntityLivingBase && entity.isEntityAlive()) {
+					if (entity instanceof EntityPlayer) {
+						return !((EntityPlayer) entity).capabilities.isCreativeMode;
+					}
+					return true;
 				}
-				return true;
+				return false;
 			}
-			return false;
 		};
 	}
 
 	public static IEntitySelector selectNonCreativePlayers() {
-		return entity -> entity instanceof EntityPlayer && entity.isEntityAlive() && !((EntityPlayer) entity).capabilities.isCreativeMode;
+		return new IEntitySelector() {
+
+			@Override
+			public boolean isEntityApplicable(Entity entity) {
+				return entity instanceof EntityPlayer && entity.isEntityAlive() && !((EntityPlayer) entity).capabilities.isCreativeMode;
+			}
+		};
 	}
 
 	public static void transferEntityToDimension(Entity entity, int newDimension, Teleporter teleporter) {

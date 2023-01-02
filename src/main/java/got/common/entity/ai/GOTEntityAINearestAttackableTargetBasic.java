@@ -28,15 +28,19 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 		targetChance = chance;
 		targetSorter = new TargetSorter(entity);
 		setMutexBits(1);
-		targetSelector = testEntity -> {
-			if (testEntity instanceof EntityLivingBase) {
-				EntityLivingBase testEntityLiving = (EntityLivingBase) testEntity;
-				if (selector != null && !selector.isEntityApplicable(testEntityLiving)) {
-					return false;
+		targetSelector = new IEntitySelector() {
+
+			@Override
+			public boolean isEntityApplicable(Entity testEntity) {
+				if (testEntity instanceof EntityLivingBase) {
+					EntityLivingBase testEntityLiving = (EntityLivingBase) testEntity;
+					if (selector != null && !selector.isEntityApplicable(testEntityLiving)) {
+						return false;
+					}
+					return GOTEntityAINearestAttackableTargetBasic.this.isSuitableTarget(testEntityLiving, false);
 				}
-				return GOTEntityAINearestAttackableTargetBasic.this.isSuitableTarget(testEntityLiving, false);
+				return false;
 			}
-			return false;
 		};
 	}
 

@@ -8,6 +8,7 @@ import got.common.GOTSquadrons;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetBasic;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.network.*;
+import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.item.ItemStack;
@@ -28,7 +29,13 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 			Vec3 vec = hitTarget.hitVec;
 			AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(vec.xCoord, vec.yCoord, vec.zCoord, vec.xCoord, vec.yCoord, vec.zCoord);
 			aabb = aabb.expand(6.0, 6.0, 6.0);
-			spreadTargets = world.selectEntitiesWithinAABB(EntityLivingBase.class, aabb, entity -> entity.isEntityAlive() && GOT.canPlayerAttackEntity(entityplayer, (EntityLivingBase) entity, false));
+			spreadTargets = world.selectEntitiesWithinAABB(EntityLivingBase.class, aabb, new IEntitySelector() {
+
+				@Override
+				public boolean isEntityApplicable(Entity entity) {
+					return entity.isEntityAlive() && GOT.canPlayerAttackEntity(entityplayer, (EntityLivingBase) entity, false);
+				}
+			});
 		}
 		boolean anyAttackCommanded = false;
 		List nearbyHiredUnits = world.getEntitiesWithinAABB(GOTEntityNPC.class, entityplayer.boundingBox.expand(12.0, 12.0, 12.0));
