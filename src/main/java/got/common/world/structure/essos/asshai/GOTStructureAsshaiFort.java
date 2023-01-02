@@ -47,7 +47,6 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 			}
 		}
 		loadStrScan("asshai_fort");
-		associateBlockMetaAlias("TABLE", GOTRegistry.tableAsshai, 0);
 		associateBlockMetaAlias("BRICK", brickBlock, brickMeta);
 		associateBlockMetaAlias("BRICK_SLAB", brickSlabBlock, brickSlabMeta);
 		associateBlockMetaAlias("BRICK_SLAB_INV", brickSlabBlock, brickSlabMeta | 8);
@@ -66,6 +65,7 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 		associateBlockMetaAlias("PLANK_SLAB_INV", plankSlabBlock, plankSlabMeta | 8);
 		associateBlockAlias("PLANK_STAIR", plankStairBlock);
 		associateBlockMetaAlias("FENCE", fenceBlock, fenceMeta);
+		associateBlockAlias("TRAPDOOR", GOTRegistry.trapdoorCharred);
 		associateBlockMetaAlias("BEAM", woodBeamBlock, woodBeamMeta);
 		associateBlockMetaAlias("BEAM|4", woodBeamBlock, woodBeamMeta | 4);
 		associateBlockMetaAlias("BEAM|8", woodBeamBlock, woodBeamMeta | 8);
@@ -76,6 +76,7 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 		associateBlockAlias("GATE_STANDART", gateBlock);
 		associateBlockMetaAlias("BARS", barsBlock, 0);
 		associateBlockMetaAlias("CHANDELIER", chandelierBlock, chandelierMeta);
+		associateBlockMetaAlias("TABLE", GOTRegistry.tableAsshai, 0);
 		generateStrScan(world, random, 0, 0, 0);
 		setBlockAndMetadata(world, -2, 11, -15, GOTRegistry.commandTable, 0);
 		placeBigTorch(world, -3, 2, -18);

@@ -70,10 +70,10 @@ public class GOTStructureSummerFort extends GOTStructureSummerBase {
 		associateBlockAlias("PLANK_STAIR", plankStairBlock);
 		associateBlockMetaAlias("FENCE", fenceBlock, fenceMeta);
 		associateBlockAlias("FENCE_GATE", fenceGateBlock);
-		associateBlockMetaAlias("ROOF", roofBlock, roofMeta);
 		associateBlockMetaAlias("PLANK2", plank2Block, plank2Meta);
 		associateBlockMetaAlias("PLANK2_SLAB", plank2SlabBlock, plank2SlabMeta);
 		associateBlockMetaAlias("PLANK2_SLAB_INV", plank2SlabBlock, plank2SlabMeta | 8);
+		associateBlockMetaAlias("ROOF", roofBlock, roofMeta);
 		associateBlockMetaAlias("BONE", boneBlock, boneMeta);
 		generateStrScan(world, random, 0, 1, 0);
 		setBlockAndMetadata(world, 2, 0, 8, bedBlock, 0);

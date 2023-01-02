@@ -62,12 +62,12 @@ public class GOTStructureSummerHouse extends GOTStructureSummerBase {
 		associateBlockMetaAlias("PLANK_SLAB_INV", plankSlabBlock, plankSlabMeta | 8);
 		associateBlockAlias("PLANK_STAIR", plankStairBlock);
 		associateBlockMetaAlias("FENCE", fenceBlock, fenceMeta);
-		associateBlockAlias("DOOR", doorBlock);
 		associateBlockMetaAlias("PLANK2", plank2Block, plank2Meta);
 		if (isRuined()) {
 			setBlockAliasChance("PLANK2", 0.8f);
 		}
 		associateBlockMetaAlias("ROOF", roofBlock, roofMeta);
+		associateBlockAlias("DOOR", doorBlock);
 		generateStrScan(world, random, 0, 1, 0);
 		if (!isRuined()) {
 			setBlockAndMetadata(world, 0, 1, 3, bedBlock, 0);

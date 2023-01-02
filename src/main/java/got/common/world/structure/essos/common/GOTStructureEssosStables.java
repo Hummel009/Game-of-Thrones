@@ -81,13 +81,13 @@ public class GOTStructureEssosStables extends GOTStructureEssosBase {
 		associateBlockAlias("PLANK_STAIR", plankStairBlock);
 		associateBlockMetaAlias("FENCE", fenceBlock, fenceMeta);
 		associateBlockAlias("FENCE_GATE", fenceGateBlock);
-		associateBlockMetaAlias("BEAM", woodBeamBlock, woodBeamMeta);
-		associateBlockMetaAlias("BEAM|4", woodBeamBlock, woodBeamMeta4);
-		associateBlockMetaAlias("BEAM|8", woodBeamBlock, woodBeamMeta8);
 		associateBlockMetaAlias("ROOF", roofBlock, roofMeta);
 		associateBlockMetaAlias("ROOF_SLAB", roofSlabBlock, roofSlabMeta);
 		associateBlockMetaAlias("ROOF_SLAB_INV", roofSlabBlock, roofSlabMeta | 8);
 		associateBlockAlias("ROOF_STAIR", roofStairBlock);
+		associateBlockMetaAlias("BEAM", woodBeamBlock, woodBeamMeta);
+		associateBlockMetaAlias("BEAM|4", woodBeamBlock, woodBeamMeta4);
+		associateBlockMetaAlias("BEAM|8", woodBeamBlock, woodBeamMeta8);
 		generateStrScan(world, random, 0, 1, 0);
 		this.placeChest(world, random, -3, 1, 6, GOTRegistry.chestBasket, 2, getChestContents());
 		int numnpc = 1 + random.nextInt(2);

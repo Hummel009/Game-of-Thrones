@@ -62,9 +62,9 @@ public class GOTStructureEssosBazaar extends GOTStructureEssosBase {
 		associateBlockMetaAlias("BRICK2", brick2Block, brick2Meta);
 		associateBlockMetaAlias("BRICK2_SLAB", brick2SlabBlock, brick2SlabMeta);
 		associateBlockMetaAlias("BRICK2_SLAB_INV", brick2SlabBlock, brick2SlabMeta | 8);
+		associateBlockMetaAlias("BEAM", woodBeamBlock, woodBeamMeta);
 		associateBlockMetaAlias("FENCE", fenceBlock, fenceMeta);
 		associateBlockAlias("FENCE_GATE", fenceGateBlock);
-		associateBlockMetaAlias("BEAM", woodBeamBlock, woodBeamMeta);
 		generateStrScan(world, random, 0, 0, 0);
 		placeAnimalJar(world, -3, 1, -7, GOTRegistry.butterflyJar, 0, new GOTEntityButterfly(world));
 		placeAnimalJar(world, 11, 1, -1, GOTRegistry.birdCageWood, 0, null);

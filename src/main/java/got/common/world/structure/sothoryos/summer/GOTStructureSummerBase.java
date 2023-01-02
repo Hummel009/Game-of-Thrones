@@ -17,6 +17,7 @@ public abstract class GOTStructureSummerBase extends GOTStructureBase {
 	public int plankSlabMeta;
 	public Block plankStairBlock;
 	public Block fenceBlock;
+	public Block trapdoorBlock;
 	public int fenceMeta;
 	public Block fenceGateBlock;
 	public Block doorBlock;
@@ -63,6 +64,7 @@ public abstract class GOTStructureSummerBase extends GOTStructureBase {
 		fenceMeta = 2;
 		fenceGateBlock = GOTRegistry.fenceGateCedar;
 		doorBlock = GOTRegistry.doorCedar;
+		trapdoorBlock = GOTRegistry.trapdoorCedar;
 		int randomWool = random.nextInt(3);
 		switch (randomWool) {
 		case 0:
@@ -110,6 +112,7 @@ public abstract class GOTStructureSummerBase extends GOTStructureBase {
 				fenceMeta = 3;
 				fenceGateBlock = GOTRegistry.fenceGateCharred;
 				doorBlock = GOTRegistry.doorCharred;
+				trapdoorBlock = GOTRegistry.trapdoorCharred;
 			}
 			if (random.nextBoolean()) {
 				plank2Block = GOTRegistry.planks1;

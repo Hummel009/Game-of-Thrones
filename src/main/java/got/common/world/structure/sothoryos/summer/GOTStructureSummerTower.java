@@ -49,6 +49,7 @@ public class GOTStructureSummerTower extends GOTStructureSummerBase {
 		associateBlockMetaAlias("PLANK", plankBlock, plankMeta);
 		associateBlockMetaAlias("PLANK_SLAB", plankSlabBlock, plankSlabMeta);
 		associateBlockMetaAlias("FENCE", fenceBlock, fenceMeta);
+		associateBlockAlias("TRAPDOOR", trapdoorBlock);
 		associateBlockMetaAlias("ROOF", roofBlock, roofMeta);
 		generateStrScan(world, random, 0, 1, 0);
 		this.placeSkull(world, random, -3, 5, -3);

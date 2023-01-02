@@ -29,6 +29,7 @@ public abstract class GOTStructureDothrakiBase extends GOTStructureBase {
 	public Block beamBlock;
 	public int beamMeta;
 	public Block bedBlock;
+	public Block trapdoorBlock;
 
 	public GOTStructureDothrakiBase(boolean flag) {
 		super(flag);
@@ -75,6 +76,7 @@ public abstract class GOTStructureDothrakiBase extends GOTStructureBase {
 			fenceGateBlock = Blocks.fence_gate;
 			beamBlock = GOTRegistry.woodBeamV1;
 			beamMeta = 0;
+			trapdoorBlock = Blocks.trapdoor;
 			break;
 		case 1:
 			plankBlock = GOTRegistry.planks2;
@@ -87,6 +89,7 @@ public abstract class GOTStructureDothrakiBase extends GOTStructureBase {
 			fenceGateBlock = GOTRegistry.fenceGateCedar;
 			beamBlock = GOTRegistry.woodBeam4;
 			beamMeta = 2;
+			trapdoorBlock = GOTRegistry.trapdoorCedar;
 			break;
 		case 2:
 			plankBlock = GOTRegistry.planks1;
@@ -99,6 +102,7 @@ public abstract class GOTStructureDothrakiBase extends GOTStructureBase {
 			fenceGateBlock = GOTRegistry.fenceGateDatePalm;
 			beamBlock = GOTRegistry.woodBeam3;
 			beamMeta = 2;
+			trapdoorBlock = GOTRegistry.trapdoorDatePalm;
 			break;
 		default:
 			break;

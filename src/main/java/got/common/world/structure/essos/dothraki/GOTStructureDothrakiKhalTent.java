@@ -58,6 +58,7 @@ public class GOTStructureDothrakiKhalTent extends GOTStructureDothrakiBase {
 		associateBlockMetaAlias("PLANK_SLAB_INV", plankSlabBlock, plankSlabMeta | 8);
 		associateBlockAlias("PLANK_STAIR", plankStairBlock);
 		associateBlockMetaAlias("FENCE", fenceBlock, fenceMeta);
+		associateBlockAlias("TRAPDOOR", trapdoorBlock);
 		associateBlockMetaAlias("TENT", tentBlock, tentMeta);
 		associateBlockMetaAlias("TENT2", tent2Block, tent2Meta);
 		associateBlockMetaAlias("CARPET", carpetBlock, carpetMeta);

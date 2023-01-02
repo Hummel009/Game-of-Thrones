@@ -54,9 +54,9 @@ public class GOTStructureLhazarAltar extends GOTStructureLhazarBase {
 		associateBlockMetaAlias("PLANK_SLAB", plankSlabBlock, plankSlabMeta);
 		associateBlockMetaAlias("PLANK_SLAB_INV", plankSlabBlock, plankSlabMeta | 8);
 		associateBlockAlias("PLANK_STAIR", plankStairBlock);
-		associateBlockMetaAlias("FENCE", fenceBlock, fenceMeta);
 		associateBlockMetaAlias("FLAG", flagBlock, flagMeta);
 		associateBlockMetaAlias("BONE", boneBlock, boneMeta);
+		associateBlockMetaAlias("FENCE", fenceBlock, fenceMeta);
 		generateStrScan(world, random, 0, 0, 0);
 		this.placeSkull(world, 0, 7, 0, 0);
 		int holeX = 0;

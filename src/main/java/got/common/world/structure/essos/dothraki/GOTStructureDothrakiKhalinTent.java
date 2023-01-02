@@ -57,7 +57,6 @@ public class GOTStructureDothrakiKhalinTent extends GOTStructureDothrakiBase {
 			}
 		}
 		loadStrScan("nomad_bazaar");
-		associateBlockMetaAlias("PLANK", plankBlock, plankMeta);
 		associateBlockMetaAlias("PLANK_SLAB", plankSlabBlock, plankSlabMeta);
 		associateBlockMetaAlias("PLANK_SLAB_INV", plankSlabBlock, plankSlabMeta | 8);
 		associateBlockAlias("PLANK_STAIR", plankStairBlock);
@@ -67,7 +66,6 @@ public class GOTStructureDothrakiKhalinTent extends GOTStructureDothrakiBase {
 		associateBlockMetaAlias("TENT2", tent2Block, tent2Meta);
 		associateBlockMetaAlias("CARPET", carpetBlock, carpetMeta);
 		associateBlockMetaAlias("CARPET2", carpet2Block, carpet2Meta);
-		associateBlockAlias("TABLE", GOTRegistry.tableDothraki);
 		generateStrScan(world, random, 0, 1, 0);
 		this.placeSkull(world, random, -8, 2, -4);
 		this.placeBarrel(world, random, 7, 2, -4, 3, GOTFoods.NOMAD_DRINK);

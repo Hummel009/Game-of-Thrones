@@ -77,6 +77,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 	public Block bedBlock;
 	public Block tableBlock;
 	public Block cropBlock;
+	public Block trapdoorBlock;
 	public GOTItemBanner.BannerType bannerType;
 	public boolean isBraavos;
 	public boolean isGhiscar;
@@ -454,6 +455,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 				woodBeamBlock = GOTRegistry.woodBeam2;
 				woodBeamMeta = 1;
 				doorBlock = GOTRegistry.doorBeech;
+				trapdoorBlock = GOTRegistry.trapdoorBeech;
 			} else {
 				int randomWood = random.nextInt(7);
 				switch (randomWood) {
@@ -469,6 +471,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 					woodBeamBlock = GOTRegistry.woodBeam2;
 					woodBeamMeta = 1;
 					doorBlock = GOTRegistry.doorBeech;
+					trapdoorBlock = GOTRegistry.trapdoorBeech;
 					break;
 				case 1:
 					plankBlock = GOTRegistry.planks2;
@@ -482,6 +485,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 					woodBeamBlock = GOTRegistry.woodBeam4;
 					woodBeamMeta = 2;
 					doorBlock = GOTRegistry.doorCedar;
+					trapdoorBlock = GOTRegistry.trapdoorCedar;
 					break;
 				case 2:
 					plankBlock = GOTRegistry.planks1;
@@ -495,6 +499,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 					woodBeamBlock = GOTRegistry.woodBeam2;
 					woodBeamMeta = 0;
 					doorBlock = GOTRegistry.doorAramant;
+					trapdoorBlock = GOTRegistry.trapdoorAramant;
 					break;
 				case 3:
 					plankBlock = Blocks.planks;
@@ -508,6 +513,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 					woodBeamBlock = GOTRegistry.woodBeamV1;
 					woodBeamMeta = 2;
 					doorBlock = GOTRegistry.doorBirch;
+					trapdoorBlock = GOTRegistry.trapdoorBirch;
 					break;
 				default:
 					plankBlock = Blocks.planks;
@@ -521,6 +527,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 					woodBeamBlock = GOTRegistry.woodBeamV1;
 					woodBeamMeta = 0;
 					doorBlock = Blocks.wooden_door;
+					trapdoorBlock = Blocks.trapdoor;
 					break;
 				}
 			}
@@ -538,6 +545,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 			woodBeamBlock = GOTRegistry.woodBeam4;
 			woodBeamMeta = 2;
 			doorBlock = GOTRegistry.doorCedar;
+			trapdoorBlock = GOTRegistry.trapdoorCedar;
 		} else {
 			int randomWood = random.nextInt(3);
 			switch (randomWood) {
@@ -555,6 +563,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 				woodBeamBlock = GOTRegistry.woodBeam6;
 				woodBeamMeta = 3;
 				doorBlock = GOTRegistry.doorOlive;
+				trapdoorBlock = GOTRegistry.trapdoorOlive;
 				break;
 			case 1:
 				woodBlock = GOTRegistry.wood3;
@@ -570,6 +579,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 				woodBeamBlock = GOTRegistry.woodBeam3;
 				woodBeamMeta = 2;
 				doorBlock = GOTRegistry.doorDatePalm;
+				trapdoorBlock = GOTRegistry.trapdoorDatePalm;
 				break;
 			case 2:
 				woodBlock = GOTRegistry.wood8;
@@ -585,6 +595,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 				woodBeamBlock = GOTRegistry.woodBeam8;
 				woodBeamMeta = 3;
 				doorBlock = GOTRegistry.doorPalm;
+				trapdoorBlock = GOTRegistry.trapdoorPalm;
 				break;
 			default:
 				break;
