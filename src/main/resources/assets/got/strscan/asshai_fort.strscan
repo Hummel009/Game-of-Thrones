@@ -16,6 +16,7 @@
 ~PLANK_SLAB_INV~
 #PLANK_STAIR#
 ~FENCE~
+#TRAPDOOR#
 ~BEAM~
 ~BEAM|4~
 ~BEAM|8~
@@ -8377,13 +8378,13 @@
 -20.10.-12.~PILLAR~
 -5.10.-12.~SMOOTH_SLAB~
 -4.10.-12.~PILLAR~
--3.10.-12."got:tile.trapdoor_charred".9
+-3.10.-12.#TRAPDOOR#.9
 -2.10.-12.~PLANK_SLAB_INV~
 -1.10.-12.~PLANK_SLAB_INV~
 0.10.-12.~PLANK_SLAB_INV~
 1.10.-12.~PLANK_SLAB_INV~
 2.10.-12.~PLANK_SLAB_INV~
-3.10.-12."got:tile.trapdoor_charred".9
+3.10.-12.#TRAPDOOR#.9
 4.10.-12.~PILLAR~
 5.10.-12.~SMOOTH_SLAB~
 11.10.-12.~BRICK_SLAB~
@@ -8492,10 +8493,10 @@
 -8.10.16.~TILE~
 -7.10.16.~TILE~
 -6.10.16.~BEAM|8~
--5.10.16."got:tile.trapdoor_charred".10
+-5.10.16.#TRAPDOOR#.10
 -4.10.16.~PLANK~
 -3.10.16.~PLANK~
--2.10.16."got:tile.trapdoor_charred".11
+-2.10.16.#TRAPDOOR#.11
 -1.10.16.~BEAM|8~
 0.10.16.~TILE~
 1.10.16.~TILE~
@@ -8818,7 +8819,7 @@
 -24.14.-13.~PLANK~
 -23.14.-13.~PLANK~
 -22.14.-13.~PLANK~
--21.14.-13."got:tile.trapdoor_charred".9
+-21.14.-13.#TRAPDOOR#.9
 -20.14.-13.~PLANK~
 -19.14.-13.~PILLAR~
 -25.14.-12.~BRICK_WALL~
@@ -8861,7 +8862,7 @@
 -1.14.14.#PLANK_STAIR#.1
 11.14.14.~PILLAR~
 12.14.14.~PLANK~
-13.14.14."got:tile.trapdoor_charred".8
+13.14.14.#TRAPDOOR#.8
 14.14.14.~PLANK~
 15.14.14.~PLANK~
 16.14.14.~PLANK~

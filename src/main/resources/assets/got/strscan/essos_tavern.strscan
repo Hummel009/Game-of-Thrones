@@ -12,6 +12,7 @@
 ~BEAM|4~
 ~BEAM|8~
 #DOOR#
+#TRAPDOOR#
 ~ROOF~
 ~ROOF_SLAB~
 ~ROOF_SLAB_INV~
@@ -2343,7 +2344,7 @@
 5.8.-15.~BEAM~
 -6.8.-14.~BRICK_SLAB~
 -5.8.-14.~BEAM|8~
--2.8.-14."trapdoor".14
+-2.8.-14.#TRAPDOOR#.14
 -1.8.-14."grass".0
 0.8.-14.~BEAM|8~
 1.8.-14.#PLANK_STAIR#.5
@@ -2353,7 +2354,7 @@
 -5.8.-13.~BEAM|8~
 -3.8.-13."carpet".14
 -2.8.-13."carpet".14
--1.8.-13."trapdoor".13
+-1.8.-13.#TRAPDOOR#.13
 0.8.-13.~BEAM|8~
 5.8.-13.~BEAM|8~
 -6.8.-12.~BRICK_SLAB~
@@ -2505,12 +2506,12 @@
 -5.8.7.~BEAM|8~
 -3.8.7."carpet".14
 -2.8.7."carpet".14
--1.8.7."trapdoor".12
+-1.8.7.#TRAPDOOR#.12
 0.8.7.~BEAM|8~
 5.8.7.~BEAM|8~
 -6.8.8.~BRICK_SLAB~
 -5.8.8.~BEAM|8~
--2.8.8."trapdoor".14
+-2.8.8.#TRAPDOOR#.14
 -1.8.8."grass".0
 0.8.8.~BEAM|8~
 1.8.8.#PLANK_STAIR#.5

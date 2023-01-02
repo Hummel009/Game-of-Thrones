@@ -1,6 +1,7 @@
 ~PLANK~
 ~PLANK_SLAB~
 ~FENCE~
+#TRAPDOOR#
 ~ROOF~
 
 0.0.0."got:tile.rope".2
@@ -218,7 +219,7 @@
 0.11.-1.~PLANK_SLAB~
 3.11.-1.~FENCE~
 -3.11.0.~FENCE~
-0.11.0."trapdoor".1
+0.11.0.#TRAPDOOR#.1
 3.11.0.~FENCE~
 -3.11.1.~FENCE~
 3.11.1.~FENCE~
