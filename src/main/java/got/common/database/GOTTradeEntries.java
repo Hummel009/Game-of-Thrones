@@ -847,7 +847,6 @@ public class GOTTradeEntries {
 		WESTEROS_BLACKSMITH_B_L.add(new GOTTradeEntry(new ItemStack(GOTRegistry.westerosSword), 15));
 		NORD_MASON_B_L.add(new GOTTradeEntry(new ItemStack(Blocks.cobblestone, 8), 1));
 		NORD_MASON_B_L.add(new GOTTradeEntry(new ItemStack(Blocks.hardened_clay, 8), 4));
-		NORD_MASON_B_L.add(new GOTTradeEntry(new ItemStack(Blocks.sandstone, 8), 4));
 		NORD_MASON_B_L.add(new GOTTradeEntry(new ItemStack(Blocks.stone, 8), 2));
 		NORD_MASON_B_L.add(new GOTTradeEntry(new ItemStack(Blocks.stonebrick, 1, 8), 2));
 		NORD_MASON_B_L.add(new GOTTradeEntry(new ItemStack(GOTRegistry.brick1, 1, 5), 2));
