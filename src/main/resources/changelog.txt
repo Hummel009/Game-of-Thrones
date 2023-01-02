@@ -2,6 +2,7 @@ CHANGELOG
 
 >>VERSION 17.9.4
 * Optimization
+* Added more random structures
 * Improved chest contents and trade entries
 * Improved GUI
 * Fixed bug with GOTAPI$setClientMapImage
