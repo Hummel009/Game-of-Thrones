@@ -5,6 +5,7 @@ CHANGELOG
 * Added more random structures
 * Improved chest contents and trade entries
 * Improved GUI
+* Fixed bug with wrong titles that shouldn't exist
 * Fixed bug with GOTAPI$setClientMapImage
 * Fixed bug with Yi Ti bombardier, having speed 1.1 instead of 1.4 while attacking
 
