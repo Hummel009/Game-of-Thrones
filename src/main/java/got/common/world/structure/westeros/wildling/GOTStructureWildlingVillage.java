@@ -79,7 +79,7 @@ public class GOTStructureWildlingVillage extends GOTVillageGen {
 		@Override
 		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
 			Block block = world.getBlock(i, j, k);
-			return block == Blocks.snow;
+			return block == Blocks.snow || block == Blocks.ice;
 		}
 
 		public void setupHardhome(Random random) {
