@@ -703,7 +703,7 @@ public class GOTAPI {
 		GOTTextures.mapTexture = mapTexture;
 		try {
 			BufferedImage mapImage = getImage(Minecraft.getMinecraft().getResourceManager().getResource(mapTexture).getInputStream());
-			sepiaMapTexture = GOTTextures.convertToSepia(mapImage, new ResourceLocation("lotr:map_sepia"));
+			sepiaMapTexture = GOTTextures.convertToSepia(mapImage, new ResourceLocation("got:map_sepia"));
 		} catch (IOException e) {
 			FMLLog.severe("Failed to generate GOT sepia map");
 			e.printStackTrace();
