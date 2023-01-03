@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.google.common.math.IntMath;
 
+import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.westeros.dragonstone.*;
 import got.common.world.biome.GOTBiome;
@@ -124,7 +125,10 @@ public class GOTStructureDragonstoneCity extends GOTVillageGen {
 		@Override
 		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
 			Block block = world.getBlock(i, j, k);
-			return villageType == VillageType.TOWN && block == Blocks.cobblestone;
+			if (block == Blocks.stone || block == GOTRegistry.rock) {
+				return true;
+			}
+			return false;
 		}
 
 		public void setupCastle(Random random) {
