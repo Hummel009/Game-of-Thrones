@@ -49,13 +49,19 @@ public class GOTStructureEssosTraining extends GOTStructureEssosBase {
 		associateBlockAlias("PLANK_STAIR", plankStairBlock);
 		associateBlockMetaAlias("FENCE", fenceBlock, fenceMeta);
 		associateBlockMetaAlias("BEAM", woodBeamBlock, woodBeamMeta);
-		addBlockMetaAliasOption("GROUND", 1, Blocks.dirt, 1);
-		addBlockMetaAliasOption("GROUND", 2, GOTRegistry.pillar1, 5);
-		addBlockMetaAliasOption("GROUND", 3, GOTRegistry.dirtPath, 0);
-		addBlockMetaAliasOption("GROUND", 5, Blocks.sand, 0);
-		addBlockMetaAliasOption("GROUND", 5, Blocks.sandstone, 0);
-		addBlockMetaAliasOption("GROUND", 7, GOTRegistry.brick1, 15);
-		addBlockMetaAliasOption("GROUND", 8, GOTRegistry.brick3, 11);
+		if (isGhiscar || isPentos || isQarth) {
+			addBlockMetaAliasOption("GROUND", 1, Blocks.dirt, 1);
+			addBlockMetaAliasOption("GROUND", 2, GOTRegistry.pillar1, 5);
+			addBlockMetaAliasOption("GROUND", 3, GOTRegistry.dirtPath, 0);
+			addBlockMetaAliasOption("GROUND", 5, Blocks.sand, 0);
+			addBlockMetaAliasOption("GROUND", 5, Blocks.sandstone, 0);
+			addBlockMetaAliasOption("GROUND", 7, GOTRegistry.brick1, 15);
+			addBlockMetaAliasOption("GROUND", 8, GOTRegistry.brick3, 11);
+		} else {
+			addBlockMetaAliasOption("GROUND", 8, Blocks.dirt, 1);
+			addBlockMetaAliasOption("GROUND", 2, Blocks.gravel, 0);
+			addBlockMetaAliasOption("GROUND", 5, GOTRegistry.dirtPath, 0);
+		}
 		generateStrScan(world, random, 0, 0, 0);
 		placeWeaponRack(world, -5, 2, -4, 2, getRandomWeapon(random));
 		placeWeaponRack(world, 5, 2, -4, 2, getRandomWeapon(random));

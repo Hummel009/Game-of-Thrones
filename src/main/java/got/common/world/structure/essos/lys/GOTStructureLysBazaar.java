@@ -205,9 +205,9 @@ public class GOTStructureLysBazaar extends GOTStructureEssosBazaar {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			this.setOriginAndRotation(world, i, j, k, rotation, 0);
-			setBlockAndMetadata(world, -1, 1, 1, GOTRegistry.brick1, 15);
-			setBlockAndMetadata(world, -1, 2, 1, GOTRegistry.slabSingle4, 0);
-			setBlockAndMetadata(world, 1, 1, 1, GOTRegistry.brick3, 13);
+			setBlockAndMetadata(world, -1, 1, 1, GOTRegistry.brick1, 1);
+			setBlockAndMetadata(world, -1, 2, 1, GOTRegistry.slabSingle1, 3);
+			setBlockAndMetadata(world, 1, 1, 1, GOTRegistry.brick1, 5);
 			placeWeaponRack(world, 1, 2, 1, 2, new ItemStack(GOTRegistry.bronzePickaxe));
 			GOTEntityLysMason trader = new GOTEntityLysMason(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);

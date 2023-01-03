@@ -56,16 +56,22 @@ public class GOTStructureEssosStables extends GOTStructureEssosBase {
 				if ((i2 > 3 || k2 > 6) && (i1 < 4 || i1 > 7 || k2 > 5)) {
 					continue;
 				}
-				random.nextInt(2);
-				if (random.nextBoolean()) {
-					setBlockAndMetadata(world, i1, 0, k1, Blocks.sand, 0);
+				if (isGhiscar || isPentos || isQarth) {
+					if (random.nextBoolean()) {
+						setBlockAndMetadata(world, i1, 0, k1, Blocks.sand, 0);
+					} else {
+						setBlockAndMetadata(world, i1, 0, k1, GOTRegistry.dirtPath, 0);
+					}
 				} else {
-					setBlockAndMetadata(world, i1, 0, k1, GOTRegistry.dirtPath, 0);
+					if (random.nextBoolean()) {
+						setBlockAndMetadata(world, i1, 0, k1, Blocks.dirt, 1);
+					} else {
+						setBlockAndMetadata(world, i1, 0, k1, GOTRegistry.dirtPath, 0);
+					}
 				}
-				if (random.nextInt(4) != 0) {
-					continue;
+				if (random.nextInt(4) == 0) {
+					setBlockAndMetadata(world, i1, 1, k1, GOTRegistry.thatchFloor, 0);
 				}
-				setBlockAndMetadata(world, i1, 1, k1, GOTRegistry.thatchFloor, 0);
 			}
 		}
 		loadStrScan("essos_stable");

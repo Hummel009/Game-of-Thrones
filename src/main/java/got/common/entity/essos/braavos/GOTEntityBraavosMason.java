@@ -2,7 +2,7 @@ package got.common.entity.essos.braavos;
 
 import got.common.database.*;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.init.Items;
+import net.minecraft.init.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -26,7 +26,7 @@ public class GOTEntityBraavosMason extends GOTEntityBraavosTrader {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_pickaxe));
-		npcItemsInv.setIdleItem(new ItemStack(GOTRegistry.brick1, 1, 15));
+		npcItemsInv.setIdleItem(new ItemStack(Blocks.stone));
 		return data;
 	}
 }
