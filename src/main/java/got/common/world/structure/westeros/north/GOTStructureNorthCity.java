@@ -10,8 +10,6 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
 import got.common.world.structure.westeros.common.*;
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
@@ -130,10 +128,6 @@ public class GOTStructureNorthCity extends GOTVillageGen {
 
 		@Override
 		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
-			if (!isSmallTown) {
-				Block block = world.getBlock(i, j, k);
-				return villageType == VillageType.TOWN && block == Blocks.cobblestone;
-			}
 			return false;
 		}
 

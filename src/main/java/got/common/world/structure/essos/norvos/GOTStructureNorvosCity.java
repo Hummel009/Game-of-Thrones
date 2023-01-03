@@ -238,11 +238,9 @@ public class GOTStructureNorvosCity extends GOTVillageGen {
 
 		@Override
 		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
-			if (villageType == VillageType.TOWN || villageType == VillageType.FORT) {
-				Block block = world.getBlock(i, j, k);
-				if (block == Blocks.stone || block == GOTRegistry.rock) {
-					return true;
-				}
+			Block block = world.getBlock(i, j, k);
+			if (block == Blocks.stone || block == GOTRegistry.rock) {
+				return true;
 			}
 			return false;
 		}

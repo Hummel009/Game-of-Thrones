@@ -3,9 +3,11 @@ CHANGELOG
 >>VERSION 17.9.4
 * Optimization
 * Added more random structures
+* Improved dragonstone biome
 * Improved chest contents and trade entries
 * Improved GUI
 * Improvde village paths
+* Fixed bug with disappearing Dorne villages
 * Fixed bug with trapdoors in structures
 * Fixed bug with wrong titles that shouldn't exist
 * Fixed bug with GOTAPI$setClientMapImage

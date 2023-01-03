@@ -8,6 +8,8 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.essos.mossovy.GOTStructureMossovyWell;
 import got.common.world.structure.other.*;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
 public class GOTStructureThennVillage extends GOTVillageGen {
@@ -93,7 +95,8 @@ public class GOTStructureThennVillage extends GOTVillageGen {
 
 		@Override
 		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
-			return false;
+			Block block = world.getBlock(i, j, k);
+			return block == Blocks.snow;
 		}
 
 		@Override

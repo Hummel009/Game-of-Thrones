@@ -7,6 +7,8 @@ import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
@@ -108,6 +110,11 @@ public class GOTStructureGoldenCamp extends GOTVillageGen {
 
 		@Override
 		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
+			Block block = world.getBlock(i, j, k);
+			int meta = world.getBlockMetadata(i, j, k);
+			if (block == Blocks.dirt && meta == 1 || block == Blocks.sand && meta == 1 || block == Blocks.sand && meta == 0) {
+				return true;
+			}
 			return false;
 		}
 
