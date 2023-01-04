@@ -32,9 +32,9 @@ public class GOTGuiButtonLeftRight extends GuiButton {
 				color = 8019267;
 			}
 			if (leftOrRight) {
-				fontrenderer.drawString(displayString, xPosition + 67, yPosition + (height - 8) / 2, color);
+				fontrenderer.drawString(displayString, xPosition + 67 - fontrenderer.getStringWidth(displayString) / 2, yPosition + (height - 8) / 2, color);
 			} else {
-				fontrenderer.drawString(displayString, xPosition + width - 67, yPosition + (height - 8) / 2, color);
+				fontrenderer.drawString(displayString, xPosition + width - 67 - fontrenderer.getStringWidth(displayString) / 2, yPosition + (height - 8) / 2, color);
 			}
 		}
 	}
