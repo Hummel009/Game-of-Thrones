@@ -77,6 +77,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 	private static String biomeMinerals = StatCollector.translateToLocal("db.biomeMinerals.name");
 	private static String biomeHasAnimals = StatCollector.translateToLocal("db.biomeHasAnimals.name");
 	private static String factionHasCharacters = StatCollector.translateToLocal("db.factionHasCharacters.name");
+	private static String mineralBiomes = StatCollector.translateToLocal("db.mineralBiomes.name");
 
 	public DatabaseGenerator(boolean flag) {
 		super(flag);
@@ -275,6 +276,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				String end = "}}&lt;/includeonly&gt;&lt;noinclude&gt;[[" + categoryTemplates + "]]&lt;/noinclude&gt;</text></revision></page>";
 
 				/* MINERALS */
+				
 				HashSet<String> minerals = new HashSet<>();
 				for (GOTBiome biome : bmlist) {
 					if (biome != null) {
@@ -293,11 +295,18 @@ public class DatabaseGenerator extends GOTStructureBase {
 						}
 					}
 				}
+				
+				for (String str : minerals) {
+					String s1 = "<page><title>";
+					String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u0418\u0441\u043A\u043E\u043F\u0430\u0435\u043C\u043E\u0435}}</text></revision></page>";
+					xml.print(s1 + str + s2);
+					xml.println();
+				}
 
-				xml.print("<page><title>Template:DB Biome-SpawnNPC");
+				xml.print("<page><title>Template:DB Mineral-Biomes");
 				xml.println(begin);
 				for (String str : minerals) {
-					xml.println("| " + str + " = ");
+					xml.println("| " + str + " = " + mineralBiomes);
 					for (GOTBiome biome : bmlist) {
 						if (biome != null && biome != null) {
 							List<OreGenerant> sus = new ArrayList<>(biome.decorator.biomeSoils);
@@ -307,8 +316,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 								WorldGenMinable gen = oreGenerant.oreGen;
 								Block block = GOTReflection.getOreBlock(gen);
 								int meta = GOTReflection.getOreMeta(gen);
+								float oreChance = oreGenerant.oreChance;
+								int minHeight = oreGenerant.minHeight;
+								int maxHeight = oreGenerant.maxHeight;
 								if (getBlockMetaName(block, meta).equals(str) || getBlockName(block).equals(str)) {
-									xml.println("* " + getBiomeLink(biome) + ";");
+									xml.println("* " + getBiomeLink(biome) + " (" + oreChance + "%; Y: " + minHeight + "-" + maxHeight + ");");
 								}
 							}
 						}
@@ -571,9 +583,9 @@ public class DatabaseGenerator extends GOTStructureBase {
 								int maxHeight = oreGenerant.maxHeight;
 
 								if (block instanceof GOTBlockOreGem || block instanceof BlockDirt || block instanceof GOTBlockRock) {
-									xml.println("* " + getBlockMetaName(block, meta) + " (" + oreChance + "%; Y: " + minHeight + "-" + maxHeight + ");");
+									xml.println("* [[" + getBlockMetaName(block, meta) + "]] (" + oreChance + "%; Y: " + minHeight + "-" + maxHeight + ");");
 								} else {
-									xml.println("* " + getBlockName(block) + " (" + oreChance + "%; Y: " + minHeight + "-" + maxHeight + ");");
+									xml.println("* [[" + getBlockName(block) + "]] (" + oreChance + "%; Y: " + minHeight + "-" + maxHeight + ");");
 								}
 							}
 						}
