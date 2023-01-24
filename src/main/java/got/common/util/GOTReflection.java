@@ -8,18 +8,22 @@ import org.apache.logging.log4j.Level;
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.asm.transformers.deobf.FMLDeobfuscatingRemapper;
 import cpw.mods.fml.relauncher.ReflectionHelper;
+import cpw.mods.fml.relauncher.ReflectionHelper.*;
 import net.minecraft.block.*;
 import net.minecraft.command.*;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.projectile.EntityFishHook;
 import net.minecraft.event.HoverEvent;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.AnimalChest;
-import net.minecraft.item.Item;
+import net.minecraft.item.*;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.potion.Potion;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.storage.WorldInfo;
 
 public class GOTReflection {
@@ -31,6 +35,82 @@ public class GOTReflection {
 			GOTReflection.logFailure(e);
 			return false;
 		}
+	}
+
+	public static Entity newEntity(Class entityClass, World world) {
+		try {
+			Class[] param = new Class[1];
+			param[0] = World.class;
+			return (Entity) entityClass.getDeclaredConstructor(param).newInstance(world);
+		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public static Block getOreBlock(WorldGenMinable ore) {
+		Field privateField = null;
+		Block b = null;
+		try {
+			privateField = getPotentiallyObfuscatedPrivateValue(WorldGenMinable.class, "field_150519_a");
+			privateField.setAccessible(true);
+			b = (Block) privateField.get(ore);
+		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e2) {
+			e2.printStackTrace();
+		}
+		return b;
+	}
+
+	public static ToolMaterial getToolMaterial(Item item) {
+		Field privateField = null;
+		ToolMaterial tm = null;
+		try {
+			privateField = getPotentiallyObfuscatedPrivateValue(ItemSword.class, "field_150933_b");
+			privateField.setAccessible(true);
+			tm = (ToolMaterial) privateField.get(item);
+		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e2) {
+			e2.printStackTrace();
+		}
+		return tm;
+	}
+
+	public static float getDamageAmount(Item item) {
+		Field privateField = null;
+		float f = 0.0f;
+		try {
+			privateField = getPotentiallyObfuscatedPrivateValue(ItemSword.class, "field_150934_a");
+			privateField.setAccessible(true);
+			f = (float) privateField.get(item);
+		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e2) {
+			e2.printStackTrace();
+		}
+		return f;
+	}
+
+	public static <T, E> T getPotentiallyObfuscatedPrivateValue(Class<? super E> classToAccess, String fieldName) {
+		try {
+			return ReflectionHelper.getPrivateValue(classToAccess, null, ObfuscationReflectionHelper.remapFieldNames(classToAccess.getName(), fieldName));
+		} catch (UnableToFindFieldException | UnableToAccessFieldException | NullPointerException e) {
+			try {
+				return (T) classToAccess.getDeclaredField(fieldName);
+			} catch (NoSuchFieldException | SecurityException e1) {
+				e1.printStackTrace();
+			}
+		}
+		return null;
+	}
+
+	public static int getOreMeta(WorldGenMinable ore) {
+		Field privateField = null;
+		int i = 0;
+		try {
+			privateField = getPotentiallyObfuscatedPrivateValue(WorldGenMinable.class, "mineableBlockMeta");
+			privateField.setAccessible(true);
+			i = (int) privateField.get(ore);
+		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e2) {
+			e2.printStackTrace();
+		}
+		return i;
 	}
 
 	public static Item getCropItem(BlockCrops block) {

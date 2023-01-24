@@ -14,8 +14,8 @@ public class GOTStructureRegistry {
 	public static HashMap<Integer, IStructureProvider> idToClassMapping = new HashMap();
 	public static HashMap<Integer, String> idToStringMapping = new HashMap();
 	public static HashMap<Integer, StructureColorInfo> structureItemSpawners = new LinkedHashMap<>();
-	public static HashMap<Class<? extends WorldGenerator>, String> classToNameMapping = new HashMap();
-	public static HashMap<Class<? extends WorldGenerator>, GOTFaction> classToFactionMapping = new HashMap();
+	public static HashMap<Class, String> classToNameMapping = new HashMap();
+	public static HashMap<Class, GOTFaction> classToFactionMapping = new HashMap();
 
 	public static String getNameFromID(int ID) {
 		return idToStringMapping.get(ID);
@@ -27,14 +27,6 @@ public class GOTStructureRegistry {
 
 	public static IStructureProvider getStructureForID(int ID) {
 		return idToClassMapping.get(ID);
-	}
-
-	public static String getStructureName(Class<? extends WorldGenerator> entityClass) {
-		return StatCollector.translateToLocal("got.structure." + GOTStructureRegistry.getStructureNameFromClass(entityClass) + ".name");
-	}
-
-	public static String getStructureNameFromClass(Class entityClass) {
-		return classToNameMapping.get(entityClass);
 	}
 
 	public static void onInit() {

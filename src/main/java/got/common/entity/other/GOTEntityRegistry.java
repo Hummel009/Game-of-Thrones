@@ -9,19 +9,18 @@ import got.common.faction.GOTFaction;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.*;
 import net.minecraft.item.*;
-import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 public class GOTEntityRegistry {
 	public static Map<Integer, SpawnEggInfo> spawnEggs = new LinkedHashMap<>();
 	public static Map<String, Integer> stringToIDMapping = new HashMap<>();
-	public static Map<Class<? extends Entity>, String> classToNameMapping = new HashMap<>();
 	public static Map<Integer, String> IDToStringMapping = new HashMap<>();
-	public static Map<Class<? extends Entity>, Integer> classToIDMapping = new HashMap<>();
-	public static Map<Class<? extends Entity>, GOTFaction> classToFactionMapping = new HashMap<>();
+	public static Map<Class, String> classToNameMapping = new HashMap<>();
+	public static Map<Class, Integer> classToIDMapping = new HashMap<>();
+	public static Map<Class, GOTFaction> classToFactionMapping = new HashMap<>();
+	public static ArrayList<Class> allEntities = new ArrayList<>();
 
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
-
 		for (GOTEntityRegistry.SpawnEggInfo info : GOTEntityRegistry.spawnEggs.values()) {
 			list.add(new ItemStack(item, 1, info.spawnedID));
 		}
@@ -53,14 +52,6 @@ public class GOTEntityRegistry {
 		return classToIDMapping.get(entityClass);
 	}
 
-	public static String getEntityName(Class<? extends Entity> entityClass) {
-		return StatCollector.translateToLocal("entity.got." + GOTEntityRegistry.getEntityNameFromClass(entityClass) + ".name");
-	}
-
-	public static String getEntityNameFromClass(Class entityClass) {
-		return classToNameMapping.get(entityClass);
-	}
-
 	public static int getIDFromString(String name) {
 		if (!stringToIDMapping.containsKey(name)) {
 			return 0;
@@ -80,22 +71,31 @@ public class GOTEntityRegistry {
 		GOTEntity.preInit();
 	}
 
-	public static void register(Class<? extends Entity> entityClass, int id) {
-		register(entityClass, id, 80, 3, true);
+	public static void registerHidden(Class<? extends Entity> entityClass, int id) {
+		registerHidden(entityClass, id, 80, 3, true);
+	}
+
+	public static void register(Class<? extends Entity> entityClass, int id, int color) {
+		registerHidden(entityClass, id, 80, 3, true);
+		allEntities.add(entityClass);
+		spawnEggs.put(id, new SpawnEggInfo(id, color, color));
 	}
 
 	public static void register(Class<? extends Entity> entityClass, int id, GOTFaction faction) {
-		register(entityClass, id, 80, 3, true);
+		registerHidden(entityClass, id, 80, 3, true);
+		allEntities.add(entityClass);
 		spawnEggs.put(id, new SpawnEggInfo(id, faction.eggColor, faction.eggColor));
 		classToFactionMapping.put(entityClass, faction);
 	}
 
-	public static void register(Class<? extends Entity> entityClass, int id, int color) {
-		register(entityClass, id, 80, 3, true);
-		spawnEggs.put(id, new SpawnEggInfo(id, color, color));
+	public static void registerLegendaryNPC(Class<? extends Entity> entityClass, int id, GOTFaction faction) {
+		registerHidden(entityClass, id, 80, 3, true);
+		allEntities.add(entityClass);
+		spawnEggs.put(id, new SpawnEggInfo(id, 9605778, faction.eggColor));
+		classToFactionMapping.put(entityClass, faction);
 	}
 
-	public static void register(Class<? extends Entity> entityClass, int id, int updateRange, int updateFreq, boolean sendVelocityUpdates) {
+	public static void registerHidden(Class<? extends Entity> entityClass, int id, int updateRange, int updateFreq, boolean sendVelocityUpdates) {
 		String name = entityClass.getSimpleName();
 		String cut = name.replace("GOTEntity", "");
 		EntityRegistry.registerModEntity(entityClass, cut, id, GOT.instance, updateRange, updateFreq, sendVelocityUpdates);
@@ -104,11 +104,6 @@ public class GOTEntityRegistry {
 		IDToStringMapping.put(id, fullName);
 		classToIDMapping.put(entityClass, id);
 		classToNameMapping.put(entityClass, cut);
-	}
-
-	public static void registerLegendaryNPC(Class<? extends Entity> entityClass, int id, GOTFaction faction) {
-		register(entityClass, id, 80, 3, true);
-		spawnEggs.put(id, new SpawnEggInfo(id, 9605778, faction.eggColor));
 	}
 
 	public static class SpawnEggInfo {
