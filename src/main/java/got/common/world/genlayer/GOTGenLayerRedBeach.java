@@ -34,7 +34,7 @@ public class GOTGenLayerRedBeach extends GOTGenLayer {
 					int biome4 = biomes[i1 + 1 + (k1 + 1 + 1) * (xSize + 2)];
 					if (biome1 == targetBiome.biomeID || biome2 == targetBiome.biomeID || biome3 == targetBiome.biomeID || biome4 == targetBiome.biomeID) {
 						if (!(biome instanceof GOTBiomeRedBeach)) {
-							newBiomeID = GOTBiome.redBeach.biomeID;
+							newBiomeID = GOTBiome.beachRed.biomeID;
 						}
 					}
 				}

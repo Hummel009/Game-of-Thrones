@@ -119,7 +119,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome reach;
 	public static GOTBiome reachArbor;
 	public static GOTBiome reachTown;
-	public static GOTBiome redBeach;
+	public static GOTBiome beachRed;
 	public static GOTBiome redMesa;
 	public static GOTBiome redSea;
 	public static GOTBiome river;
@@ -1163,7 +1163,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		myr = new GOTBiomeMyr(76, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xA0A349).setBiomeName("myr");
 		naath = new GOTBiomeSummerIslands(78, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x7DA33C).setBiomeName("naath");
 		neck = new GOTBiomeNeck(79, true).setIsLongWinter().setMinMaxHeight(0.0f, 0.1f).setColor(0x599958).setBiomeName("neck");
-		newGhis = new GOTBiomeNewGhis(80, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xB1AF7A).setBiomeName("ghiscar");
+		newGhis = new GOTBiomeNewGhis(80, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xB1AF7A).setBiomeName("newGhis");
 		north = new GOTBiomeNorth(81, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(8959044).setBiomeName("north");
 		northBarrows = new GOTBiomeNorthBarrows(82, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x94BA53).setBiomeName("northBarrows");
 		northForest = new GOTBiomeNorthForest(84, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x538E2F).setBiomeName("northForest");
@@ -1185,7 +1185,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		reach = new GOTBiomeReach(101, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x8BBA44).setBiomeName("reach");
 		reachArbor = new GOTBiomeReachArbor(102, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x8CAC44).setBiomeName("reachArbor");
 		reachTown = new GOTBiomeReachTown(104, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xA2C964).setBiomeName("reachTown");
-		redBeach = new GOTBiomeRedBeach(105, false).setBeachBlock(Blocks.sand, 1).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(14403247).setBiomeName("beach");
+		beachRed = new GOTBiomeRedBeach(105, false).setBeachBlock(Blocks.sand, 1).setIsNeverWinter().setMinMaxHeight(0.1f, 0.0f).setColor(14403247).setBiomeName("beach");
 		redMesa = new GOTBiomeDorneMesa(106, true).setIsNeverWinter().setMinMaxHeight(1.5f, 0.0f).setColor(0xDDD5AF).setBiomeName("redMesa");
 		redSea = new GOTBiomeRedSea(107, true).setIsNeverWinter().setMinMaxHeight(-1.0f, 0.3f).setColor(0x916c3e).setBiomeName("redSea");
 		river = new GOTBiomeRiver(108, false).setMinMaxHeight(-0.5f, 0.0f).setColor(3570869).setBiomeName("river");
@@ -1234,7 +1234,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		wolfswood = new GOTBiomeNorthForest(159, true).setIsLongWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x4A7F2A).setBiomeName("wolfswood");
 		yeen = new GOTBiomeYeen(160, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x242F0F).setBiomeName("yeen");
 		yiTi = new GOTBiomeYiTi(161, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xAAAE55).setBiomeName("yiTi");
-		yiTiWasteland = new GOTBiomeYiTiWasteland(163, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xaaae56).setBiomeName("yiTi");
+		yiTiWasteland = new GOTBiomeYiTiWasteland(163, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xaaae56).setBiomeName("yiTiWasteland");
 		yunkai = new GOTBiomeYunkai(164, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xb9ba7a).setBiomeName("yunkai");
 		ibbenMountains = new GOTBiomeIbbenMountains(165, true).setIsLongWinterAZ().setMinMaxHeight(2.0f, 2.0f).setColor(0xafbc9f).setBiomeName("ibbenMountains");
 		ulthosForest = new GOTBiomeUlthosForest(142, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x2E441C).setBiomeName("ulthosForest");
@@ -1248,7 +1248,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		ulthosTaigaEdge = new GOTBiomeUlthosTaigaEdge(29, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x818E66).setBiomeName("ulthosTaigaEdge");
 		ulthosDesertCold = new GOTBiomeUlthosDesertCold(32, true).setIsAlwaysWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0xD8D2AD).setBiomeName("ulthosDesertCold");
 		summerColony = new GOTBiomeSummerColony(64, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x9BAD53).setBiomeName("summerColony");
-		summerColonyMangrove = new GOTBiomeSummerColonyMangrove(66, true).setIsNeverWinter().setMinMaxHeight(0.0f, 0.1f).setColor(0x85A361).setBiomeName("summerColony");
+		summerColonyMangrove = new GOTBiomeSummerColonyMangrove(66, true).setIsNeverWinter().setMinMaxHeight(0.0f, 0.1f).setColor(0x85A361).setBiomeName("summerColonyMangrove");
 		ulthosMarshes = new GOTBiomeUlthosMarshes(68, true).setIsNeverWinter().setMinMaxHeight(0.0f, 0.1f).setColor(0x599058).setBiomeName("ulthosMarshes");
 		ulthosMarshesForest = new GOTBiomeUlthosMarshesForest(74, true).setIsNeverWinter().setMinMaxHeight(0.0f, 0.1f).setColor(0x41753F).setBiomeName("ulthosMarshesForest");
 		ulthosRedForest = new GOTBiomeUlthosRedForest(115, true).setIsNeverWinter().setMinMaxHeight(0.1f, 0.15f).setColor(0x5E441C).setBiomeName("ulthosRedForest");
