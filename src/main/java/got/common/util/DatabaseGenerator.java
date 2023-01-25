@@ -215,14 +215,14 @@ public class DatabaseGenerator extends GOTStructureBase {
 									}
 								} else if (entry.mountClass == null) {
 									if (entry.alignmentRequired < 101.0f) {
-										fUnits.println("| " + getEntityLink(entry.entityClass) + " || - || {{Coins|" + entry.initialCost + "}} || +100.0 || + ");
+										fUnits.println("| " + getEntityLink(entry.entityClass) + " || N/A || {{Coins|" + entry.initialCost + "}} || +100.0 || + ");
 									} else {
-										fUnits.println("| " + getEntityLink(entry.entityClass) + " || - || {{Coins|" + entry.initialCost + "}} || +" + entry.alignmentRequired + " || + ");
+										fUnits.println("| " + getEntityLink(entry.entityClass) + " || N/A || {{Coins|" + entry.initialCost + "}} || +" + entry.alignmentRequired + " || + ");
 									}
 								} else if (entry.alignmentRequired < 101.0f) {
-									fUnits.println("| " + getEntityLink(entry.entityClass) + " || - || {{Coins|" + entry.initialCost + "}} (" + rider + ") || +100.0 || + ");
+									fUnits.println("| " + getEntityLink(entry.entityClass) + " || N/A || {{Coins|" + entry.initialCost + "}} (" + rider + ") || +100.0 || + ");
 								} else {
-									fUnits.println("| " + getEntityLink(entry.entityClass) + " || - || {{Coins|" + entry.initialCost + "}} (" + rider + ") || +" + entry.alignmentRequired + " || + ");
+									fUnits.println("| " + getEntityLink(entry.entityClass) + " || N/A || {{Coins|" + entry.initialCost + "}} (" + rider + ") || +" + entry.alignmentRequired + " || + ");
 								}
 								fUnits.println("|-");
 							}
@@ -246,7 +246,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 						if (material != null && material.customCraftingMaterial != null) {
 							fArmor.println("| " + getItemName(item) + " || " + getItemFilename(item) + " || " + item.getMaxDamage() + " || " + damage + " || " + getItemName(material.customCraftingMaterial));
 						} else {
-							fArmor.println("| " + getItemName(item) + " || " + getItemFilename(item) + " || " + item.getMaxDamage() + " || " + damage + " || - ");
+							fArmor.println("| " + getItemName(item) + " || " + getItemFilename(item) + " || " + item.getMaxDamage() + " || " + damage + " || N/A ");
 						}
 						fArmor.println("|-");
 					}
@@ -261,7 +261,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 						if (material.getRepairItemStack() != null) {
 							fWeapon.println("| " + getItemName(item) + " || " + getItemFilename(item) + " || " + item.getMaxDamage() + " || " + damage + " || " + getItemName(material.getRepairItemStack().getItem()));
 						} else {
-							fWeapon.println("| " + getItemName(item) + " || " + getItemFilename(item) + " || " + item.getMaxDamage() + " || " + damage + " || - ");
+							fWeapon.println("| " + getItemName(item) + " || " + getItemFilename(item) + " || " + item.getMaxDamage() + " || " + damage + " || N/A ");
 						}
 						fWeapon.println("|-");
 					}
