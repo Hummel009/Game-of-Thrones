@@ -203,21 +203,16 @@ public class DatabaseGenerator extends GOTStructureBase {
 									} else {
 										units.println("| " + getEntityLink(entry.entityClass) + " || {{Coins|" + entry.initialCost * 2 + "}} (" + riderLoc + ") || {{Coins|" + entry.initialCost + "}} || +" + entry.alignmentRequired + " || - ");
 									}
-								} else {
-									if (entry.mountClass == null) {
-										if (entry.alignmentRequired < 101.0f) {
-											units.println("| " + getEntityLink(entry.entityClass) + " || - || {{Coins|" + entry.initialCost + "}} || +100.0 || + ");
-										} else {
-											units.println("| " + getEntityLink(entry.entityClass) + " || - || {{Coins|" + entry.initialCost + "}} || +" + entry.alignmentRequired + " || + ");
-										}
+								} else if (entry.mountClass == null) {
+									if (entry.alignmentRequired < 101.0f) {
+										units.println("| " + getEntityLink(entry.entityClass) + " || - || {{Coins|" + entry.initialCost + "}} || +100.0 || + ");
 									} else {
-										if (entry.alignmentRequired < 101.0f) {
-											units.println("| " + getEntityLink(entry.entityClass) + " || - || {{Coins|" + entry.initialCost + "}} (" + riderLoc + ") || +100.0 || + ");
-										} else {
-											units.println("| " + getEntityLink(entry.entityClass) + " || - || {{Coins|" + entry.initialCost + "}} (" + riderLoc + ") || +" + entry.alignmentRequired + " || + ");
-										}
+										units.println("| " + getEntityLink(entry.entityClass) + " || - || {{Coins|" + entry.initialCost + "}} || +" + entry.alignmentRequired + " || + ");
 									}
-
+								} else if (entry.alignmentRequired < 101.0f) {
+									units.println("| " + getEntityLink(entry.entityClass) + " || - || {{Coins|" + entry.initialCost + "}} (" + riderLoc + ") || +100.0 || + ");
+								} else {
+									units.println("| " + getEntityLink(entry.entityClass) + " || - || {{Coins|" + entry.initialCost + "}} (" + riderLoc + ") || +" + entry.alignmentRequired + " || + ");
 								}
 								units.println("|-");
 							}
@@ -336,7 +331,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				for (Class str : structureSet) {
 					xml.println("| " + getStructureName(str) + " = " + structureBiomes);
 					next: for (GOTBiome biome : biomeSet) {
-						if ((biome != null) && !biome.decorator.randomStructures.isEmpty()) {
+						if (biome != null && !biome.decorator.randomStructures.isEmpty()) {
 							for (RandomStructure structure : biome.decorator.randomStructures) {
 								if (structure.structureGen.getClass() == str) {
 									xml.println("* " + getBiomeLink(biome) + ";");
@@ -783,11 +778,9 @@ public class DatabaseGenerator extends GOTStructureBase {
 										for (SpawnListContainer one : conqCont.spawnLists) {
 											for (GOTSpawnEntry entry : one.spawnList.spawnList) {
 												Entity entity = classToObjectMapping.get(entry.entityClass);
-												if (entity instanceof GOTEntityNPC) {
-													if (((GOTEntityNPC) entity).getFaction() == fac) {
-														conquests.add(biome);
-														continue next;
-													}
+												if (entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).getFaction() == fac) {
+													conquests.add(biome);
+													continue next;
 												}
 											}
 										}
@@ -1349,22 +1342,16 @@ public class DatabaseGenerator extends GOTStructureBase {
 		return true;
 	}
 
-	private void searchForEntities(World world) {
-		for (Class clazz : GOTEntityRegistry.entitySet) {
-			classToObjectMapping.put(clazz, GOTReflection.newEntity(clazz, world));
-		}
-	}
-
-	private String getBannerName(BannerType banner) {
-		return StatCollector.translateToLocal("item.got:banner." + banner.bannerName + ".name");
-	}
-
 	private String getAchievementDesc(GOTAchievement ach) {
 		return StatCollector.translateToLocal("got.achievement." + ach.getCodeName() + ".desc");
 	}
 
 	private String getAchievementTitle(GOTAchievement ach) {
 		return StatCollector.translateToLocal("got.achievement." + ach.getCodeName() + ".title");
+	}
+
+	private String getBannerName(BannerType banner) {
+		return StatCollector.translateToLocal("item.got:banner." + banner.bannerName + ".name");
 	}
 
 	private String getBiomeLink(GOTBiome biome) {
@@ -1461,6 +1448,12 @@ public class DatabaseGenerator extends GOTStructureBase {
 		return StatCollector.translateToLocal("got.tree." + treeType.name().toLowerCase() + ".name");
 	}
 
+	private void searchForEntities(World world) {
+		for (Class clazz : GOTEntityRegistry.entitySet) {
+			classToObjectMapping.put(clazz, GOTReflection.newEntity(clazz, world));
+		}
+	}
+
 	private void searchForMinerals(HashSet<GOTBiome> bmlist, HashSet<String> minerals) {
 		for (GOTBiome biome : bmlist) {
 			if (biome != null) {
@@ -1476,16 +1469,6 @@ public class DatabaseGenerator extends GOTStructureBase {
 					} else {
 						minerals.add(getBlockName(block));
 					}
-				}
-			}
-		}
-	}
-
-	private void searchForStructures(HashSet<GOTBiome> bmlist, HashSet<Class> strlist) {
-		for (GOTBiome biome : bmlist) {
-			if (biome != null && !biome.decorator.randomStructures.isEmpty()) {
-				for (RandomStructure structure : biome.decorator.randomStructures) {
-					strlist.add(structure.structureGen.getClass());
 				}
 			}
 		}
@@ -1545,6 +1528,16 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 			}
 			factionPageMapping.put(preName, preName);
+		}
+	}
+
+	private void searchForStructures(HashSet<GOTBiome> bmlist, HashSet<Class> strlist) {
+		for (GOTBiome biome : bmlist) {
+			if (biome != null && !biome.decorator.randomStructures.isEmpty()) {
+				for (RandomStructure structure : biome.decorator.randomStructures) {
+					strlist.add(structure.structureGen.getClass());
+				}
+			}
 		}
 	}
 
