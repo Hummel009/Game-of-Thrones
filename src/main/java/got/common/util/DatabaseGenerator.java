@@ -94,8 +94,10 @@ public class DatabaseGenerator extends GOTStructureBase {
 	private static String factionNoBanners = StatCollector.translateToLocal("db.factionNoBanners.name");
 	private static String factionNoRanks = StatCollector.translateToLocal("db.factionNoRanks.name");
 	private static String factionHasRanks = StatCollector.translateToLocal("db.factionHasRanks.name");
-	private static String factionNoConquest = StatCollector.translateToLocal("db.factionHasRanks.name");
-	private static String factionYesConquest = StatCollector.translateToLocal("db.factionHasRanks.name");
+	private static String factionNoConquest = StatCollector.translateToLocal("db.factionNoConquest.name");
+	private static String factionYesConquest = StatCollector.translateToLocal("db.factionYesConquest.name");
+	private static String factionNoSpawn = StatCollector.translateToLocal("db.factionNoSpawn.name");
+	private static String factionYesSpawn = StatCollector.translateToLocal("db.factionYesSpawn.name");
 
 	public DatabaseGenerator(boolean flag) {
 		super(flag);
@@ -624,11 +626,9 @@ public class DatabaseGenerator extends GOTStructureBase {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeNoTrees);
 						} else {
 							HashMap<GOTTreeType, GOTBiomeVariant> remap = new HashMap<>();
-							for (GOTTreeType standart : trees1) {
-								for (GOTTreeType treeType : trees2.keySet()) {
-									if (!trees1.contains(treeType)) {
-										remap.put(treeType, trees2.get(treeType));
-									}
+							for (GOTTreeType treeType : trees2.keySet()) {
+								if (!trees1.contains(treeType)) {
+									remap.put(treeType, trees2.get(treeType));
 								}
 							}
 							if (remap.isEmpty()) {
@@ -636,14 +636,14 @@ public class DatabaseGenerator extends GOTStructureBase {
 							} else {
 								xml.println("| " + getBiomePagename(biome) + " = " + biomeHasTrees2);
 							}
-							if (trees1.isEmpty()) {
-								for (GOTTreeType standart : trees1) {
-									xml.println("* [[" + getTreeName(standart) + "]];");
+							if (!trees1.isEmpty()) {
+								for (GOTTreeType treeType : trees1) {
+									xml.println("* [[" + getTreeName(treeType) + "]];");
 								}
 							}
 							if (!remap.isEmpty()) {
-								for (GOTTreeType variant : remap.keySet()) {
-									xml.println("* [[" + getTreeName(variant) + "]] (" + getBiomeVariantName(remap.get(variant)).toLowerCase() + ")" + ";");
+								for (GOTTreeType treeType : remap.keySet()) {
+									xml.println("* [[" + getTreeName(treeType) + "]] (" + getBiomeVariantName(remap.get(treeType)).toLowerCase() + ")" + ";");
 								}
 							}
 						}
@@ -759,22 +759,64 @@ public class DatabaseGenerator extends GOTStructureBase {
 				 * fac invas
 				 */
 
+				xml.print("<page><title>Template:DB Faction-Spawn");
+				xml.println(begin);
+				for (GOTFaction fac : factionSet) {
+					HashSet<GOTBiome> conquests = new HashSet<>();
+					next: for (GOTBiome biome : biomeSet) {
+						if (biome != null) {
+							List<FactionContainer> facContainers = biome.npcSpawnList.factionContainers;
+							if (!facContainers.isEmpty()) {
+								ArrayList<FactionContainer> conqContainers = new ArrayList<>();
+								for (FactionContainer container : facContainers) {
+									if (container.baseWeight > 0) {
+										conqContainers.add(container);
+									}
+								}
+								if (!conqContainers.isEmpty()) {
+									for (FactionContainer conqCont : conqContainers) {
+										for (SpawnListContainer one : conqCont.spawnLists) {
+											for (GOTSpawnEntry entry : one.spawnList.spawnList) {
+												Entity entity = classToObjectMapping.get(entry.entityClass);
+												if (entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).getFaction() == fac) {
+													conquests.add(biome);
+													continue next;
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					if (conquests.isEmpty()) {
+						xml.println("| " + getFactionPagename(fac) + " = " + factionNoSpawn);
+					} else {
+						xml.println("| " + getFactionPagename(fac) + " = " + factionYesSpawn);
+						for (GOTBiome biome : conquests) {
+							xml.println("* " + getBiomeLink(biome) + ";");
+						}
+					}
+
+				}
+				xml.println(end);
+
 				xml.print("<page><title>Template:DB Faction-Conquest");
 				xml.println(begin);
 				for (GOTFaction fac : factionSet) {
 					HashSet<GOTBiome> conquests = new HashSet<>();
 					next: for (GOTBiome biome : biomeSet) {
 						if (biome != null) {
-							List<FactionContainer> facConts = biome.npcSpawnList.factionContainers;
-							if (!facConts.isEmpty()) {
-								ArrayList<FactionContainer> conqConts = new ArrayList<>();
-								for (FactionContainer cont : facConts) {
-									if (cont.baseWeight <= 0) {
-										conqConts.add(cont);
+							List<FactionContainer> facContainers = biome.npcSpawnList.factionContainers;
+							if (!facContainers.isEmpty()) {
+								ArrayList<FactionContainer> conqContainers = new ArrayList<>();
+								for (FactionContainer container : facContainers) {
+									if (container.baseWeight <= 0) {
+										conqContainers.add(container);
 									}
 								}
-								if (!conqConts.isEmpty()) {
-									for (FactionContainer conqCont : conqConts) {
+								if (!conqContainers.isEmpty()) {
+									for (FactionContainer conqCont : conqContainers) {
 										for (SpawnListContainer one : conqCont.spawnLists) {
 											for (GOTSpawnEntry entry : one.spawnList.spawnList) {
 												Entity entity = classToObjectMapping.get(entry.entityClass);
