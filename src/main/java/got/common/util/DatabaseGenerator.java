@@ -74,8 +74,8 @@ public class DatabaseGenerator extends GOTStructureBase {
 	private static String biomeConquestOnly = StatCollector.translateToLocal("db.biomeConquestOnly.name");
 	private static String biomeSpawnOnly = StatCollector.translateToLocal("db.biomeSpawnOnly.name");
 	private static String biomeHasStructures = StatCollector.translateToLocal("db.biomeHasStructures.name");
-	private static String biomeHasTrees1 = StatCollector.translateToLocal("db.biomeHasTrees1.name");
-	private static String biomeHasTrees2 = StatCollector.translateToLocal("db.biomeHasTrees2.name");
+	private static String biomeHasTreesBiomeOnly = StatCollector.translateToLocal("db.biomeHasTrees1.name");
+	private static String biomeHasTreesBiomeAndVariant = StatCollector.translateToLocal("db.biomeHasTrees2.name");
 	private static String biomeMinerals = StatCollector.translateToLocal("db.biomeMinerals.name");
 	private static String biomeHasAnimals = StatCollector.translateToLocal("db.biomeHasAnimals.name");
 	private static String factionHasCharacters = StatCollector.translateToLocal("db.factionHasCharacters.name");
@@ -145,131 +145,130 @@ public class DatabaseGenerator extends GOTStructureBase {
 		classToWaypointMapping.put(GOTEntityMullin.class, GOTWaypoint.ShadowTower);
 
 		try {
-			HashSet<Item> itemSet = GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Item.class);
-			HashSet<GOTUnitTradeEntries> unitTradeEntrySet = GOTAPI.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class);
-			HashSet<GOTAchievement> achievementSet = GOTAPI.getObjectFieldsOfType(GOTAchievement.class, GOTAchievement.class);
-			HashSet<GOTBiome> biomeSet = GOTAPI.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class);
-			HashSet<GOTFaction> factionSet = new HashSet<>(EnumSet.allOf(GOTFaction.class));
-			HashSet<GOTTreeType> treeTypeSet = new HashSet<>(EnumSet.allOf(GOTTreeType.class));
-			HashSet<GOTWaypoint> waypointSet = new HashSet<>(EnumSet.allOf(GOTWaypoint.class));
-			HashSet<GOTCapes> capeSet = new HashSet<>(EnumSet.allOf(GOTCapes.class));
-			HashSet<GOTShields> shieldSet = new HashSet<>(EnumSet.allOf(GOTShields.class));
-			HashSet<String> mineralSet = new HashSet<>();
-			HashSet<Class> structureSet = new HashSet<>();
+			HashSet<Item> items = GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Item.class);
+			HashSet<GOTUnitTradeEntries> units = GOTAPI.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class);
+			HashSet<GOTAchievement> achievements = GOTAPI.getObjectFieldsOfType(GOTAchievement.class, GOTAchievement.class);
+			HashSet<GOTBiome> biomes = GOTAPI.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class);
+			HashSet<GOTFaction> factions = new HashSet<>(EnumSet.allOf(GOTFaction.class));
+			HashSet<GOTTreeType> trees = new HashSet<>(EnumSet.allOf(GOTTreeType.class));
+			HashSet<GOTWaypoint> waypoints = new HashSet<>(EnumSet.allOf(GOTWaypoint.class));
+			HashSet<GOTCapes> capes = new HashSet<>(EnumSet.allOf(GOTCapes.class));
+			HashSet<GOTShields> shields = new HashSet<>(EnumSet.allOf(GOTShields.class));
+			HashSet<String> minerals = new HashSet<>();
+			HashSet<Class> structures = new HashSet<>();
 			searchForEntities(world);
-			searchForMinerals(biomeSet, mineralSet);
-			searchForStructures(biomeSet, structureSet);
-			searchForPagenamesEntity(biomeSet, factionSet);
-			searchForPagenamesBiome(biomeSet, factionSet);
-			searchForPagenamesFaction(biomeSet, factionSet);
-			biomeSet.remove(GOTBiome.ocean1);
-			biomeSet.remove(GOTBiome.ocean2);
-			biomeSet.remove(GOTBiome.ocean3);
-			biomeSet.remove(GOTBiome.beachGravel);
-			biomeSet.remove(GOTBiome.beachWhite);
-			biomeSet.remove(GOTBiome.beachRed);
+			searchForMinerals(biomes, minerals);
+			searchForStructures(biomes, structures);
+			searchForPagenamesEntity(biomes, factions);
+			searchForPagenamesBiome(biomes, factions);
+			searchForPagenamesFaction(biomes, factions);
+			biomes.remove(GOTBiome.ocean1);
+			biomes.remove(GOTBiome.ocean2);
+			biomes.remove(GOTBiome.ocean3);
+			biomes.remove(GOTBiome.beachGravel);
+			biomes.remove(GOTBiome.beachWhite);
+			biomes.remove(GOTBiome.beachRed);
 
 			if ("tables".equals(display)) {
-				PrintWriter achievements = new PrintWriter("achievements.txt", "UTF-8");
-				for (GOTAchievement ach : achievementSet) {
+				PrintWriter fAchievements = new PrintWriter("achievements.txt", "UTF-8");
+				for (GOTAchievement ach : achievements) {
 					if (ach != null) {
-						achievements.println("| " + getAchievementTitle(ach) + " || " + getAchievementDesc(ach));
-						achievements.println("|-");
+						fAchievements.println("| " + getAchievementTitle(ach) + " || " + getAchievementDesc(ach));
+						fAchievements.println("|-");
 					}
 				}
-				achievements.close();
+				fAchievements.close();
 
-				PrintWriter shields = new PrintWriter("shields.txt", "UTF-8");
-				for (GOTShields shield : shieldSet) {
-					shields.println("| " + shield.getShieldName() + " || " + shield.getShieldDesc() + " || " + getShieldFilename(shield));
-					shields.println("|-");
+				PrintWriter fShields = new PrintWriter("shields.txt", "UTF-8");
+				for (GOTShields shield : shields) {
+					fShields.println("| " + shield.getShieldName() + " || " + shield.getShieldDesc() + " || " + getShieldFilename(shield));
+					fShields.println("|-");
 				}
-				shields.close();
+				fShields.close();
 
-				PrintWriter capes = new PrintWriter("capes.txt", "UTF-8");
-				for (GOTCapes cape : capeSet) {
-					capes.println("| " + cape.getCapeName() + " || " + cape.getCapeDesc() + " || " + getCapeFilename(cape));
-					capes.println("|-");
+				PrintWriter fCapes = new PrintWriter("capes.txt", "UTF-8");
+				for (GOTCapes cape : capes) {
+					fCapes.println("| " + cape.getCapeName() + " || " + cape.getCapeDesc() + " || " + getCapeFilename(cape));
+					fCapes.println("|-");
 				}
-				capes.close();
+				fCapes.close();
 
-				PrintWriter units = new PrintWriter("units.txt", "UTF-8");
-				for (GOTUnitTradeEntries entries : unitTradeEntrySet) {
-					if (entries != null) {
-						GOTUnitTradeEntry[] tradeEntries = entries.tradeEntries;
-						for (GOTUnitTradeEntry entry : tradeEntries) {
+				PrintWriter fUnits = new PrintWriter("units.txt", "UTF-8");
+				for (GOTUnitTradeEntries unitTradeEntries : units) {
+					if (unitTradeEntries != null) {
+						for (GOTUnitTradeEntry entry : unitTradeEntries.tradeEntries) {
 							if (entry != null) {
 								if (entry.getPledgeType() == PledgeType.NONE) {
 									if (entry.mountClass == null) {
-										units.println("| " + getEntityLink(entry.entityClass) + " || {{Coins|" + entry.initialCost * 2 + "}} || {{Coins|" + entry.initialCost + "}} || +" + entry.alignmentRequired + " || - ");
+										fUnits.println("| " + getEntityLink(entry.entityClass) + " || {{Coins|" + entry.initialCost * 2 + "}} || {{Coins|" + entry.initialCost + "}} || +" + entry.alignmentRequired + " || - ");
 									} else {
-										units.println("| " + getEntityLink(entry.entityClass) + " || {{Coins|" + entry.initialCost * 2 + "}} (" + riderLoc + ") || {{Coins|" + entry.initialCost + "}} || +" + entry.alignmentRequired + " || - ");
+										fUnits.println("| " + getEntityLink(entry.entityClass) + " || {{Coins|" + entry.initialCost * 2 + "}} (" + riderLoc + ") || {{Coins|" + entry.initialCost + "}} || +" + entry.alignmentRequired + " || - ");
 									}
 								} else if (entry.mountClass == null) {
 									if (entry.alignmentRequired < 101.0f) {
-										units.println("| " + getEntityLink(entry.entityClass) + " || - || {{Coins|" + entry.initialCost + "}} || +100.0 || + ");
+										fUnits.println("| " + getEntityLink(entry.entityClass) + " || - || {{Coins|" + entry.initialCost + "}} || +100.0 || + ");
 									} else {
-										units.println("| " + getEntityLink(entry.entityClass) + " || - || {{Coins|" + entry.initialCost + "}} || +" + entry.alignmentRequired + " || + ");
+										fUnits.println("| " + getEntityLink(entry.entityClass) + " || - || {{Coins|" + entry.initialCost + "}} || +" + entry.alignmentRequired + " || + ");
 									}
 								} else if (entry.alignmentRequired < 101.0f) {
-									units.println("| " + getEntityLink(entry.entityClass) + " || - || {{Coins|" + entry.initialCost + "}} (" + riderLoc + ") || +100.0 || + ");
+									fUnits.println("| " + getEntityLink(entry.entityClass) + " || - || {{Coins|" + entry.initialCost + "}} (" + riderLoc + ") || +100.0 || + ");
 								} else {
-									units.println("| " + getEntityLink(entry.entityClass) + " || - || {{Coins|" + entry.initialCost + "}} (" + riderLoc + ") || +" + entry.alignmentRequired + " || + ");
+									fUnits.println("| " + getEntityLink(entry.entityClass) + " || - || {{Coins|" + entry.initialCost + "}} (" + riderLoc + ") || +" + entry.alignmentRequired + " || + ");
 								}
-								units.println("|-");
+								fUnits.println("|-");
 							}
 						}
 					}
 				}
-				units.close();
+				fUnits.close();
 
-				PrintWriter waypoints = new PrintWriter("waypoints.txt", "UTF-8");
-				for (GOTWaypoint wp : waypointSet) {
-					waypoints.println("| " + wp.getDisplayName() + " || " + wp.getLoreText(usingPlayer));
-					waypoints.println("|-");
+				PrintWriter fWaypoints = new PrintWriter("waypoints.txt", "UTF-8");
+				for (GOTWaypoint wp : waypoints) {
+					fWaypoints.println("| " + wp.getDisplayName() + " || " + wp.getLoreText(usingPlayer));
+					fWaypoints.println("|-");
 				}
-				waypoints.close();
+				fWaypoints.close();
 
-				PrintWriter armor = new PrintWriter("armor.txt", "UTF-8");
-				for (Item item : itemSet) {
+				PrintWriter fArmor = new PrintWriter("armor.txt", "UTF-8");
+				for (Item item : items) {
 					if (item instanceof ItemArmor) {
 						float damage = ((ItemArmor) item).damageReduceAmount;
 						ArmorMaterial material = ((ItemArmor) item).getArmorMaterial();
 						if (material != null && material.customCraftingMaterial != null) {
-							armor.println("| " + getItemName(item) + " || " + getItemFilename(item) + " || " + item.getMaxDamage() + " || " + damage + " || " + getItemName(material.customCraftingMaterial));
+							fArmor.println("| " + getItemName(item) + " || " + getItemFilename(item) + " || " + item.getMaxDamage() + " || " + damage + " || " + getItemName(material.customCraftingMaterial));
 						} else {
-							armor.println("| " + getItemName(item) + " || " + getItemFilename(item) + " || " + item.getMaxDamage() + " || " + damage + " || - ");
+							fArmor.println("| " + getItemName(item) + " || " + getItemFilename(item) + " || " + item.getMaxDamage() + " || " + damage + " || - ");
 						}
-						armor.println("|-");
+						fArmor.println("|-");
 					}
 				}
-				armor.close();
+				fArmor.close();
 
-				PrintWriter weapon = new PrintWriter("weapon.txt", "UTF-8");
-				for (Item item : itemSet) {
+				PrintWriter fWeapon = new PrintWriter("weapon.txt", "UTF-8");
+				for (Item item : items) {
 					if (item instanceof ItemSword) {
 						float damage = GOTReflection.getDamageAmount(item);
 						ToolMaterial material = GOTReflection.getToolMaterial(item);
 						if (material.getRepairItemStack() != null) {
-							weapon.println("| " + getItemName(item) + " || " + getItemFilename(item) + " || " + item.getMaxDamage() + " || " + damage + " || " + getItemName(material.getRepairItemStack().getItem()));
+							fWeapon.println("| " + getItemName(item) + " || " + getItemFilename(item) + " || " + item.getMaxDamage() + " || " + damage + " || " + getItemName(material.getRepairItemStack().getItem()));
 						} else {
-							weapon.println("| " + getItemName(item) + " || " + getItemFilename(item) + " || " + item.getMaxDamage() + " || " + damage + " || - ");
+							fWeapon.println("| " + getItemName(item) + " || " + getItemFilename(item) + " || " + item.getMaxDamage() + " || " + damage + " || - ");
 						}
-						weapon.println("|-");
+						fWeapon.println("|-");
 					}
 				}
-				weapon.close();
+				fWeapon.close();
 
-				PrintWriter food = new PrintWriter("food.txt", "UTF-8");
-				for (Item item : itemSet) {
+				PrintWriter fFood = new PrintWriter("food.txt", "UTF-8");
+				for (Item item : items) {
 					if (item instanceof ItemFood && item != null) {
-						int healAmount = ((ItemFood) item).func_150905_g(null);
-						float saturationModifier = ((ItemFood) item).func_150906_h(null);
-						food.println("| " + getItemName(item) + " || " + getItemFilename(item) + " || " + "{{Bar|bread|" + new DecimalFormat("#.##").format(saturationModifier * healAmount * 2) + "}} || {{Bar|food|" + healAmount + "}} || " + item.getItemStackLimit());
-						food.println("|-");
+						int heal = ((ItemFood) item).func_150905_g(null);
+						float saturation = ((ItemFood) item).func_150906_h(null);
+						fFood.println("| " + getItemName(item) + " || " + getItemFilename(item) + " || " + "{{Bar|bread|" + new DecimalFormat("#.##").format(saturation * heal * 2) + "}} || {{Bar|food|" + heal + "}} || " + item.getItemStackLimit());
+						fFood.println("|-");
 					}
 				}
-				food.close();
+				fFood.close();
 
 			} else if ("xml".equals(display)) {
 				PrintWriter xml = new PrintWriter("xml.txt", "UTF-8");
@@ -277,21 +276,21 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				/* ALL PAGES */
 
-				for (String str : mineralSet) {
+				for (String str : minerals) {
 					String s1 = "<page><title>";
 					String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u0418\u0441\u043A\u043E\u043F\u0430\u0435\u043C\u043E\u0435}}</text></revision></page>";
 					xml.print(s1 + str + s2);
 					xml.println();
 				}
 
-				for (Class mob : GOTEntityRegistry.entitySet) {
+				for (Class entityClass : classToObjectMapping.keySet()) {
 					String s1 = "<page><title>";
 					String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u041C\u043E\u0431}}</text></revision></page>";
-					xml.print(s1 + getEntityPagename(mob) + s2);
+					xml.print(s1 + getEntityPagename(entityClass) + s2);
 					xml.println();
 				}
 
-				for (GOTBiome biome : biomeSet) {
+				for (GOTBiome biome : biomes) {
 					if (biome != null) {
 						String s1 = "<page><title>";
 						String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u0411\u0438\u043E\u043C}}</text></revision></page>";
@@ -300,24 +299,24 @@ public class DatabaseGenerator extends GOTStructureBase {
 					}
 				}
 
-				for (GOTFaction fac : factionSet) {
+				for (GOTFaction fac : factions) {
 					String s1 = "<page><title>";
 					String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u0424\u0440\u0430\u043A\u0446\u0438\u044F}}</text></revision></page>";
 					xml.print(s1 + getFactionPagename(fac) + s2);
 					xml.println();
 				}
 
-				for (GOTTreeType tree : treeTypeSet) {
+				for (GOTTreeType tree : trees) {
 					String s1 = "<page><title>";
 					String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u0414\u0435\u0440\u0435\u0432\u043E}}</text></revision></page>";
 					xml.print(s1 + getTreeName(tree) + s2);
 					xml.println();
 				}
 
-				for (Class str : structureSet) {
+				for (Class strClass : structures) {
 					String s1 = "<page><title>";
 					String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u0421\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u0430}}</text></revision></page>";
-					xml.print(s1 + getStructureName(str) + s2);
+					xml.print(s1 + getStructureName(strClass) + s2);
 					xml.println();
 				}
 
@@ -330,12 +329,12 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Structure-Biomes");
 				xml.println(begin);
-				for (Class str : structureSet) {
-					xml.println("| " + getStructureName(str) + " = " + structureBiomes);
-					next: for (GOTBiome biome : biomeSet) {
+				for (Class strClass : structures) {
+					xml.println("| " + getStructureName(strClass) + " = " + structureBiomes);
+					next: for (GOTBiome biome : biomes) {
 						if (biome != null && !biome.decorator.randomStructures.isEmpty()) {
 							for (RandomStructure structure : biome.decorator.randomStructures) {
-								if (structure.structureGen.getClass() == str) {
+								if (structure.structureGen.getClass() == strClass) {
 									xml.println("* " + getBiomeLink(biome) + ";");
 									continue next;
 								}
@@ -349,22 +348,18 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Mineral-Biomes");
 				xml.println(begin);
-				for (String str : mineralSet) {
-					xml.println("| " + str + " = " + mineralBiomes);
-					next: for (GOTBiome biome : biomeSet) {
+				for (String mineral : minerals) {
+					xml.println("| " + mineral + " = " + mineralBiomes);
+					next: for (GOTBiome biome : biomes) {
 						if (biome != null) {
-							List<OreGenerant> generants = new ArrayList<>(biome.decorator.biomeSoils);
-							generants.addAll(biome.decorator.biomeOres);
-							generants.addAll(biome.decorator.biomeGems);
-							for (OreGenerant oreGenerant : generants) {
-								WorldGenMinable gen = oreGenerant.oreGen;
-								Block block = GOTReflection.getOreBlock(gen);
-								int meta = GOTReflection.getOreMeta(gen);
-								float oreChance = oreGenerant.oreChance;
-								int minHeight = oreGenerant.minHeight;
-								int maxHeight = oreGenerant.maxHeight;
-								if (getBlockMetaName(block, meta).equals(str) || getBlockName(block).equals(str)) {
-									xml.println("* " + getBiomeLink(biome) + " (" + oreChance + "%; Y: " + minHeight + "-" + maxHeight + ");");
+							List<OreGenerant> oreGenerants = new ArrayList<>(biome.decorator.biomeSoils);
+							oreGenerants.addAll(biome.decorator.biomeOres);
+							oreGenerants.addAll(biome.decorator.biomeGems);
+							for (OreGenerant oreGenerant : oreGenerants) {
+								Block block = GOTReflection.getOreBlock(oreGenerant.oreGen);
+								int meta = GOTReflection.getOreMeta(oreGenerant.oreGen);
+								if (getBlockMetaName(block, meta).equals(mineral) || getBlockName(block).equals(mineral)) {
+									xml.println("* " + getBiomeLink(biome) + " (" + oreGenerant.oreChance + "%; Y: " + oreGenerant.minHeight + "-" + oreGenerant.maxHeight + ");");
 									continue next;
 								}
 							}
@@ -377,36 +372,36 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Tree-Biomes");
 				xml.println(begin);
-				for (GOTTreeType tree : treeTypeSet) {
-					HashSet<GOTBiome> biomes1 = new HashSet<>();
-					HashSet<GOTBiome> biomes2 = new HashSet<>();
-					next: for (GOTBiome biome : biomeSet) {
+				for (GOTTreeType tree : trees) {
+					HashSet<GOTBiome> biomesTree = new HashSet<>();
+					HashSet<GOTBiome> biomesVariantTree = new HashSet<>();
+					next: for (GOTBiome biome : biomes) {
 						if (biome != null) {
 							for (WeightedTreeType weightedTreeType : biome.decorator.treeTypes) {
 								if (weightedTreeType.treeType == tree) {
-									biomes1.add(biome);
+									biomesTree.add(biome);
 									continue next;
 								}
 							}
 							for (VariantBucket variantBucket : biome.getBiomeVariantsSmall().variantList) {
-								for (WeightedTreeType treeType : variantBucket.variant.treeTypes) {
-									if (treeType.treeType == tree) {
-										biomes2.add(biome);
+								for (WeightedTreeType weightedTreeType : variantBucket.variant.treeTypes) {
+									if (weightedTreeType.treeType == tree) {
+										biomesVariantTree.add(biome);
 										continue next;
 									}
 								}
 							}
 						}
 					}
-					if (biomes1.isEmpty() && biomes2.isEmpty()) {
+					if (biomesTree.isEmpty() && biomesVariantTree.isEmpty()) {
 						xml.println("| " + getTreeName(tree) + " = " + treeNoBiomes);
 					} else {
 						xml.println("| " + getTreeName(tree) + " = " + treeHasBiomes);
 					}
-					for (GOTBiome biome : biomes1) {
+					for (GOTBiome biome : biomesTree) {
 						xml.println("* " + getBiomeLink(biome) + ";");
 					}
-					for (GOTBiome biome : biomes2) {
+					for (GOTBiome biome : biomesVariantTree) {
 						xml.println("* " + getBiomeLink(biome) + " (" + treeVariantOnly + ");");
 					}
 				}
@@ -416,25 +411,25 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Biome-SpawnNPC");
 				xml.println(begin);
-				for (GOTBiome biome : biomeSet) {
+				for (GOTBiome biome : biomes) {
 					if (biome != null) {
 						List<FactionContainer> facContainers = biome.npcSpawnList.factionContainers;
 						if (facContainers.isEmpty()) {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeNoSpawn);
 						} else {
 							ArrayList<FactionContainer> spawnContainers = new ArrayList<>();
-							for (FactionContainer container : facContainers) {
-								if (container.baseWeight > 0) {
-									spawnContainers.add(container);
+							for (FactionContainer facContainer : facContainers) {
+								if (facContainer.baseWeight > 0) {
+									spawnContainers.add(facContainer);
 								}
 							}
 							if (spawnContainers.isEmpty()) {
 								xml.println("| " + getBiomePagename(biome) + " = " + biomeConquestOnly);
 							} else {
 								xml.println("| " + getBiomePagename(biome) + " = " + biomeHasSpawn);
-								for (FactionContainer factionContainer : spawnContainers) {
-									for (SpawnListContainer spawnListContainer : factionContainer.spawnLists) {
-										for (GOTSpawnEntry entry : spawnListContainer.spawnList.spawnList) {
+								for (FactionContainer facContainer : spawnContainers) {
+									for (SpawnListContainer container : facContainer.spawnLists) {
+										for (GOTSpawnEntry entry : container.spawnList.spawnList) {
 											xml.println("* " + getEntityLink(entry.entityClass) + "; ");
 										}
 									}
@@ -447,36 +442,36 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Biome-ConquestNPC");
 				xml.println(begin);
-				for (GOTBiome biome : biomeSet) {
+				for (GOTBiome biome : biomes) {
 					if (biome != null) {
 						List<FactionContainer> facContainers = biome.npcSpawnList.factionContainers;
 						if (facContainers.isEmpty()) {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeNoConquest);
 						} else {
-							ArrayList<FactionContainer> conqContainers = new ArrayList<>();
-							for (FactionContainer container : facContainers) {
-								if (container.baseWeight <= 0) {
-									conqContainers.add(container);
+							ArrayList<FactionContainer> conqestContainers = new ArrayList<>();
+							for (FactionContainer facContainer : facContainers) {
+								if (facContainer.baseWeight <= 0) {
+									conqestContainers.add(facContainer);
 								}
 							}
-							if (conqContainers.isEmpty()) {
+							if (conqestContainers.isEmpty()) {
 								xml.println("| " + getBiomePagename(biome) + " = " + biomeSpawnOnly);
 							} else {
 								xml.println("| " + getBiomePagename(biome) + " = " + biomeHasConquest);
-								HashSet<GOTFaction> facs = new HashSet<>();
-								for (FactionContainer conqCont : conqContainers) {
-									next: for (SpawnListContainer spawnListContainer : conqCont.spawnLists) {
-										for (GOTSpawnEntry entry : spawnListContainer.spawnList.spawnList) {
+								HashSet<GOTFaction> conquestFactions = new HashSet<>();
+								for (FactionContainer facContainer : conqestContainers) {
+									next: for (SpawnListContainer container : facContainer.spawnLists) {
+										for (GOTSpawnEntry entry : container.spawnList.spawnList) {
 											Entity entity = classToObjectMapping.get(entry.entityClass);
 											if (entity instanceof GOTEntityNPC) {
 												GOTFaction fac = ((GOTEntityNPC) entity).getFaction();
-												facs.add(fac);
+												conquestFactions.add(fac);
 												continue next;
 											}
 										}
 									}
 								}
-								for (GOTFaction fac : facs) {
+								for (GOTFaction fac : conquestFactions) {
 									xml.println("* " + getFactionLink(fac) + "; ");
 								}
 							}
@@ -487,7 +482,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Biome-Bandits");
 				xml.println(begin);
-				for (GOTBiome biome : biomeSet) {
+				for (GOTBiome biome : biomes) {
 					if (biome != null) {
 						xml.println("| " + getBiomePagename(biome) + " = " + biome.banditChance);
 					}
@@ -496,7 +491,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Biome-Name");
 				xml.println(begin);
-				for (GOTBiome biome : biomeSet) {
+				for (GOTBiome biome : biomes) {
 					if (biome != null) {
 						xml.println("| " + getBiomePagename(biome) + " = " + getBiomeName(biome));
 					}
@@ -507,7 +502,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				if (lotrStyle) {
 					xml.print("<page><title>Template:DB Biome-Rainfall");
 					xml.println(begin);
-					for (GOTBiome biome : biomeSet) {
+					for (GOTBiome biome : biomes) {
 						if (biome != null) {
 							xml.println("| " + getBiomePagename(biome) + " = " + biome.rainfall);
 						}
@@ -516,7 +511,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 					xml.print("<page><title>Template:DB Biome-Temperature");
 					xml.println(begin);
-					for (GOTBiome biome : biomeSet) {
+					for (GOTBiome biome : biomes) {
 						if (biome != null) {
 							xml.println("| " + getBiomePagename(biome) + " = " + biome.temperature);
 						}
@@ -524,7 +519,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				} else {
 					xml.print("<page><title>Template:DB Biome-Climat");
 					xml.println(begin);
-					for (GOTBiome biome : biomeSet) {
+					for (GOTBiome biome : biomes) {
 						if (biome != null) {
 							xml.println("| " + getBiomePagename(biome) + " = " + biome.climat);
 						}
@@ -534,7 +529,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Biome-Variants");
 				xml.println(begin);
-				for (GOTBiome biome : biomeSet) {
+				for (GOTBiome biome : biomes) {
 					if (biome != null) {
 						if (biome.getBiomeVariantsSmall().variantList.isEmpty()) {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeNoVariants);
@@ -550,24 +545,24 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Biome-Invasions");
 				xml.println(begin);
-				for (GOTBiome biome : biomeSet) {
+				for (GOTBiome biome : biomes) {
 					if (biome != null) {
 						if (biome.invasionSpawns.registeredInvasions.isEmpty()) {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeNoInvasions);
 						} else {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeHasInvasions);
-							HashSet<GOTFaction> facs = new HashSet<>();
-							next: for (GOTInvasions inv : biome.invasionSpawns.registeredInvasions) {
-								for (InvasionSpawnEntry entry : inv.invasionMobs) {
+							HashSet<GOTFaction> invasionFactions = new HashSet<>();
+							next: for (GOTInvasions invasion : biome.invasionSpawns.registeredInvasions) {
+								for (InvasionSpawnEntry entry : invasion.invasionMobs) {
 									Entity entity = classToObjectMapping.get(entry.entityClass);
 									if (entity instanceof GOTEntityNPC) {
 										GOTFaction fac = ((GOTEntityNPC) entity).getFaction();
-										facs.add(fac);
+										invasionFactions.add(fac);
 										continue next;
 									}
 								}
 							}
-							for (GOTFaction fac : facs) {
+							for (GOTFaction fac : invasionFactions) {
 								xml.println("* " + getFactionLink(fac) + ";");
 							}
 						}
@@ -577,14 +572,14 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Biome-Waypoints");
 				xml.println(begin);
-				for (GOTBiome biome : biomeSet) {
+				for (GOTBiome biome : biomes) {
 					if (biome != null) {
 						Region region = biome.getBiomeWaypoints();
 						if (region == null) {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeNoWaypoints);
 						} else {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeHasWaypoints);
-							for (GOTWaypoint wp : waypointSet) {
+							for (GOTWaypoint wp : waypoints) {
 								if (wp.region == region) {
 									xml.println("* " + wp.getDisplayName() + " (" + getFactionLink(wp.faction) + ");");
 								}
@@ -596,7 +591,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Biome-Achievement");
 				xml.println(begin);
-				for (GOTBiome biome : biomeSet) {
+				for (GOTBiome biome : biomes) {
 					if (biome != null) {
 						GOTAchievement ach = biome.getBiomeAchievement();
 						if (ach == null) {
@@ -610,40 +605,40 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Biome-Trees");
 				xml.println(begin);
-				for (GOTBiome biome : biomeSet) {
+				for (GOTBiome biome : biomes) {
 					if (biome != null) {
-						HashSet<GOTTreeType> trees1 = new HashSet<>();
-						HashMap<GOTTreeType, GOTBiomeVariant> trees2 = new HashMap<>();
-						for (WeightedTreeType treeType : biome.decorator.treeTypes) {
-							trees1.add(treeType.treeType);
+						HashSet<GOTTreeType> treesBiome = new HashSet<>();
+						HashMap<GOTTreeType, GOTBiomeVariant> treesVariant = new HashMap<>();
+						for (WeightedTreeType weightedTreeType : biome.decorator.treeTypes) {
+							treesBiome.add(weightedTreeType.treeType);
 						}
 						for (VariantBucket variantBucket : biome.getBiomeVariantsSmall().variantList) {
-							for (WeightedTreeType treeType : variantBucket.variant.treeTypes) {
-								trees2.put(treeType.treeType, variantBucket.variant);
+							for (WeightedTreeType weightedTreeType : variantBucket.variant.treeTypes) {
+								treesVariant.put(weightedTreeType.treeType, variantBucket.variant);
 							}
 						}
-						if (trees1.isEmpty() && trees2.isEmpty()) {
+						if (treesBiome.isEmpty() && treesVariant.isEmpty()) {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeNoTrees);
 						} else {
-							HashMap<GOTTreeType, GOTBiomeVariant> remap = new HashMap<>();
-							for (GOTTreeType treeType : trees2.keySet()) {
-								if (!trees1.contains(treeType)) {
-									remap.put(treeType, trees2.get(treeType));
+							HashMap<GOTTreeType, GOTBiomeVariant> treesVariantOnly = new HashMap<>();
+							for (GOTTreeType treeFromVariant : treesVariant.keySet()) {
+								if (!treesBiome.contains(treeFromVariant)) {
+									treesVariantOnly.put(treeFromVariant, treesVariant.get(treeFromVariant));
 								}
 							}
-							if (remap.isEmpty()) {
-								xml.println("| " + getBiomePagename(biome) + " = " + biomeHasTrees1);
+							if (treesVariantOnly.isEmpty()) {
+								xml.println("| " + getBiomePagename(biome) + " = " + biomeHasTreesBiomeOnly);
 							} else {
-								xml.println("| " + getBiomePagename(biome) + " = " + biomeHasTrees2);
+								xml.println("| " + getBiomePagename(biome) + " = " + biomeHasTreesBiomeAndVariant);
 							}
-							if (!trees1.isEmpty()) {
-								for (GOTTreeType treeType : trees1) {
-									xml.println("* [[" + getTreeName(treeType) + "]];");
+							if (!treesBiome.isEmpty()) {
+								for (GOTTreeType tree : treesBiome) {
+									xml.println("* [[" + getTreeName(tree) + "]];");
 								}
 							}
-							if (!remap.isEmpty()) {
-								for (GOTTreeType treeType : remap.keySet()) {
-									xml.println("* [[" + getTreeName(treeType) + "]] (" + getBiomeVariantName(remap.get(treeType)).toLowerCase() + ")" + ";");
+							if (!treesVariantOnly.isEmpty()) {
+								for (GOTTreeType tree : treesVariantOnly.keySet()) {
+									xml.println("* [[" + getTreeName(tree) + "]] (" + getBiomeVariantName(treesVariantOnly.get(tree)).toLowerCase() + ")" + ";");
 								}
 							}
 						}
@@ -653,7 +648,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Biome-Mobs");
 				xml.println(begin);
-				for (GOTBiome biome : biomeSet) {
+				for (GOTBiome biome : biomes) {
 					if (biome != null) {
 						List<SpawnListEntry> entries = new ArrayList<>(biome.getSpawnableList(EnumCreatureType.ambient));
 						entries.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
@@ -678,25 +673,20 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Biome-Minerals");
 				xml.println(begin);
-				for (GOTBiome biome : biomeSet) {
+				for (GOTBiome biome : biomes) {
 					if (biome != null) {
 						xml.println("| " + getBiomePagename(biome) + " = " + biomeMinerals);
 						List<OreGenerant> generants = new ArrayList<>(biome.decorator.biomeSoils);
 						generants.addAll(biome.decorator.biomeOres);
 						generants.addAll(biome.decorator.biomeGems);
 						for (OreGenerant oreGenerant : generants) {
-							WorldGenMinable gen = oreGenerant.oreGen;
-							Block block = GOTReflection.getOreBlock(gen);
-							int meta = GOTReflection.getOreMeta(gen);
-
-							float oreChance = oreGenerant.oreChance;
-							int minHeight = oreGenerant.minHeight;
-							int maxHeight = oreGenerant.maxHeight;
+							Block block = GOTReflection.getOreBlock(oreGenerant.oreGen);
+							int meta = GOTReflection.getOreMeta(oreGenerant.oreGen);
 
 							if (block instanceof GOTBlockOreGem || block instanceof BlockDirt || block instanceof GOTBlockRock) {
-								xml.println("* [[" + getBlockMetaName(block, meta) + "]] (" + oreChance + "%; Y: " + minHeight + "-" + maxHeight + ");");
+								xml.println("* [[" + getBlockMetaName(block, meta) + "]] (" + oreGenerant.oreChance + "%; Y: " + oreGenerant.minHeight + "-" + oreGenerant.maxHeight + ");");
 							} else {
-								xml.println("* [[" + getBlockName(block) + "]] (" + oreChance + "%; Y: " + minHeight + "-" + maxHeight + ");");
+								xml.println("* [[" + getBlockName(block) + "]] (" + oreGenerant.oreChance + "%; Y: " + oreGenerant.minHeight + "-" + oreGenerant.maxHeight + ");");
 							}
 						}
 					}
@@ -705,7 +695,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Biome-Music");
 				xml.println(begin);
-				for (GOTBiome biome : biomeSet) {
+				for (GOTBiome biome : biomes) {
 					if (biome != null) {
 						if (biome.getBiomeMusic() != null) {
 							xml.println("| " + getBiomePagename(biome) + " = " + biome.getBiomeMusic().subregion);
@@ -718,7 +708,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Biome-Structures");
 				xml.println(begin);
-				for (GOTBiome biome : biomeSet) {
+				for (GOTBiome biome : biomes) {
 					if (biome != null) {
 						if (biome.decorator.randomStructures.isEmpty()) {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeNoStructures);
@@ -734,7 +724,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Biome-Photo");
 				xml.println(begin);
-				for (GOTBiome biome : biomeSet) {
+				for (GOTBiome biome : biomes) {
 					if (biome != null) {
 						xml.println("| " + getBiomePagename(biome) + " = " + biome.biomeName + " (biome).png");
 					}
@@ -745,12 +735,12 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Faction-NPC");
 				xml.println(begin);
-				for (GOTFaction fac : factionSet) {
+				for (GOTFaction fac : factions) {
 					xml.println("| " + getFactionPagename(fac) + " = ");
-					for (Class mob : classToObjectMapping.keySet()) {
-						Entity entity = classToObjectMapping.get(mob);
+					for (Class entityClass : classToObjectMapping.keySet()) {
+						Entity entity = classToObjectMapping.get(entityClass);
 						if (entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).getFaction() == fac && !((GOTEntityNPC) entity).isLegendaryNPC()) {
-							xml.println("* " + getEntityLink(mob) + ";");
+							xml.println("* " + getEntityLink(entityClass) + ";");
 						}
 					}
 				}
@@ -761,25 +751,25 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Faction-Spawn");
 				xml.println(begin);
-				for (GOTFaction fac : factionSet) {
-					HashSet<GOTBiome> conquests = new HashSet<>();
-					next: for (GOTBiome biome : biomeSet) {
+				for (GOTFaction fac : factions) {
+					HashSet<GOTBiome> spawnBiomes = new HashSet<>();
+					next: for (GOTBiome biome : biomes) {
 						if (biome != null) {
 							List<FactionContainer> facContainers = biome.npcSpawnList.factionContainers;
 							if (!facContainers.isEmpty()) {
-								ArrayList<FactionContainer> conqContainers = new ArrayList<>();
+								ArrayList<FactionContainer> spawnContainers = new ArrayList<>();
 								for (FactionContainer container : facContainers) {
 									if (container.baseWeight > 0) {
-										conqContainers.add(container);
+										spawnContainers.add(container);
 									}
 								}
-								if (!conqContainers.isEmpty()) {
-									for (FactionContainer conqCont : conqContainers) {
-										for (SpawnListContainer one : conqCont.spawnLists) {
-											for (GOTSpawnEntry entry : one.spawnList.spawnList) {
+								if (!spawnContainers.isEmpty()) {
+									for (FactionContainer facContainer : spawnContainers) {
+										for (SpawnListContainer container : facContainer.spawnLists) {
+											for (GOTSpawnEntry entry : container.spawnList.spawnList) {
 												Entity entity = classToObjectMapping.get(entry.entityClass);
 												if (entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).getFaction() == fac) {
-													conquests.add(biome);
+													spawnBiomes.add(biome);
 													continue next;
 												}
 											}
@@ -789,11 +779,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 							}
 						}
 					}
-					if (conquests.isEmpty()) {
+					if (spawnBiomes.isEmpty()) {
 						xml.println("| " + getFactionPagename(fac) + " = " + factionNoSpawn);
 					} else {
 						xml.println("| " + getFactionPagename(fac) + " = " + factionYesSpawn);
-						for (GOTBiome biome : conquests) {
+						for (GOTBiome biome : spawnBiomes) {
 							xml.println("* " + getBiomeLink(biome) + ";");
 						}
 					}
@@ -803,25 +793,25 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Faction-Conquest");
 				xml.println(begin);
-				for (GOTFaction fac : factionSet) {
-					HashSet<GOTBiome> conquests = new HashSet<>();
-					next: for (GOTBiome biome : biomeSet) {
+				for (GOTFaction fac : factions) {
+					HashSet<GOTBiome> conquestBiomes = new HashSet<>();
+					next: for (GOTBiome biome : biomes) {
 						if (biome != null) {
 							List<FactionContainer> facContainers = biome.npcSpawnList.factionContainers;
 							if (!facContainers.isEmpty()) {
-								ArrayList<FactionContainer> conqContainers = new ArrayList<>();
+								ArrayList<FactionContainer> conquestContainers = new ArrayList<>();
 								for (FactionContainer container : facContainers) {
 									if (container.baseWeight <= 0) {
-										conqContainers.add(container);
+										conquestContainers.add(container);
 									}
 								}
-								if (!conqContainers.isEmpty()) {
-									for (FactionContainer conqCont : conqContainers) {
-										for (SpawnListContainer one : conqCont.spawnLists) {
-											for (GOTSpawnEntry entry : one.spawnList.spawnList) {
+								if (!conquestContainers.isEmpty()) {
+									for (FactionContainer facContainer : conquestContainers) {
+										for (SpawnListContainer container : facContainer.spawnLists) {
+											for (GOTSpawnEntry entry : container.spawnList.spawnList) {
 												Entity entity = classToObjectMapping.get(entry.entityClass);
 												if (entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).getFaction() == fac) {
-													conquests.add(biome);
+													conquestBiomes.add(biome);
 													continue next;
 												}
 											}
@@ -831,11 +821,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 							}
 						}
 					}
-					if (conquests.isEmpty()) {
+					if (conquestBiomes.isEmpty()) {
 						xml.println("| " + getFactionPagename(fac) + " = " + factionNoConquest);
 					} else {
 						xml.println("| " + getFactionPagename(fac) + " = " + factionYesConquest);
-						for (GOTBiome biome : conquests) {
+						for (GOTBiome biome : conquestBiomes) {
 							xml.println("* " + getBiomeLink(biome) + ";");
 						}
 					}
@@ -845,7 +835,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Faction-Ranks");
 				xml.println(begin);
-				for (GOTFaction fac : factionSet) {
+				for (GOTFaction fac : factions) {
 					if (fac.ranksSortedDescending.isEmpty()) {
 						xml.println("| " + getFactionPagename(fac) + " = " + factionNoRanks);
 					} else {
@@ -859,7 +849,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Faction-Banners");
 				xml.println(begin);
-				for (GOTFaction fac : factionSet) {
+				for (GOTFaction fac : factions) {
 					if (fac.factionBanners.isEmpty()) {
 						xml.println("| " + getFactionPagename(fac) + " = " + factionNoBanners);
 					} else {
@@ -873,18 +863,18 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Faction-Waypoints");
 				xml.println(begin);
-				for (GOTFaction fac : factionSet) {
-					ArrayList<GOTWaypoint> wps = new ArrayList<>();
-					for (GOTWaypoint wp : waypointSet) {
+				for (GOTFaction fac : factions) {
+					ArrayList<GOTWaypoint> facWaypoints = new ArrayList<>();
+					for (GOTWaypoint wp : waypoints) {
 						if (wp.faction == fac) {
-							wps.add(wp);
+							facWaypoints.add(wp);
 						}
 					}
-					if (wps.isEmpty()) {
+					if (facWaypoints.isEmpty()) {
 						xml.println("| " + getFactionPagename(fac) + " = " + factionNoWaypoints);
 					} else {
 						xml.println("| " + getFactionPagename(fac) + " = " + factionHasWaypoints);
-						for (GOTWaypoint wp : wps) {
+						for (GOTWaypoint wp : facWaypoints) {
 							xml.println("* " + wp.getDisplayName() + ";");
 						}
 					}
@@ -893,29 +883,29 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Faction-Attr");
 				xml.println(begin);
-				for (GOTFaction fac : factionSet) {
-					ArrayList<GOTCapes> capes = new ArrayList<>();
-					ArrayList<GOTShields> shields = new ArrayList<>();
-					for (GOTCapes cape : capeSet) {
+				for (GOTFaction fac : factions) {
+					ArrayList<GOTCapes> facCapes = new ArrayList<>();
+					ArrayList<GOTShields> facShields = new ArrayList<>();
+					for (GOTCapes cape : capes) {
 						if (cape.alignmentFaction == fac) {
-							capes.add(cape);
+							facCapes.add(cape);
 						}
 					}
-					for (GOTShields shield : shieldSet) {
+					for (GOTShields shield : shields) {
 						if (shield.alignmentFaction == fac) {
-							shields.add(shield);
+							facShields.add(shield);
 						}
 					}
 
-					if (capes.isEmpty() && shields.isEmpty()) {
+					if (facCapes.isEmpty() && facShields.isEmpty()) {
 						xml.println("| " + getFactionPagename(fac) + " = " + factionNoAttr);
 					} else {
 						xml.println("| " + getFactionPagename(fac) + " = ");
 						xml.println("&lt;table class=\"wikitable shields\"&gt;");
-						for (GOTCapes cape : capes) {
+						for (GOTCapes cape : facCapes) {
 							xml.println("&lt;tr&gt;&lt;td&gt;" + cape.getCapeName() + "&lt;/td&gt;&lt;td&gt;" + cape.getCapeDesc() + "&lt;/td&gt;&lt;td&gt;" + getCapeFilename(cape) + "&lt;/td&gt;&lt;/tr&gt;");
 						}
-						for (GOTShields shield : shields) {
+						for (GOTShields shield : facShields) {
 							xml.println("&lt;tr&gt;&lt;td&gt;" + shield.getShieldName() + "&lt;/td&gt;&lt;td&gt;" + shield.getShieldDesc() + "&lt;/td&gt;&lt;td&gt;" + getShieldFilename(shield) + "&lt;/td&gt;&lt;/tr&gt;");
 						}
 						xml.println("&lt;table&gt;");
@@ -925,7 +915,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Faction-Pledge");
 				xml.println(begin);
-				for (GOTFaction fac : factionSet) {
+				for (GOTFaction fac : factions) {
 					if (fac.getPledgeRank() != null) {
 						xml.println("| " + getFactionPagename(fac) + " = " + fac.getPledgeRank().getDisplayName() + "/" + fac.getPledgeRank().getDisplayNameFem() + " (+" + fac.getPledgeAlignment() + ")");
 					}
@@ -934,20 +924,20 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Faction-Chars");
 				xml.println(begin);
-				for (GOTFaction fac : factionSet) {
-					ArrayList<Class> chars = new ArrayList<>();
-					for (Class mob : classToObjectMapping.keySet()) {
-						Entity entity = classToObjectMapping.get(mob);
+				for (GOTFaction fac : factions) {
+					ArrayList<Class> facCharacters = new ArrayList<>();
+					for (Class entityClass : classToObjectMapping.keySet()) {
+						Entity entity = classToObjectMapping.get(entityClass);
 						if (entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).getFaction() == fac && ((GOTEntityNPC) entity).isLegendaryNPC()) {
-							chars.add(mob);
+							facCharacters.add(entityClass);
 						}
 					}
-					if (chars.isEmpty()) {
+					if (facCharacters.isEmpty()) {
 						xml.println("| " + getFactionPagename(fac) + " = " + factionNoCharacters);
 					} else {
 						xml.println("| " + getFactionPagename(fac) + " = " + factionHasCharacters);
-						for (Class mob : chars) {
-							xml.println("* " + getEntityLink(mob) + ";");
+						for (Class entityClass : facCharacters) {
+							xml.println("* " + getEntityLink(entityClass) + ";");
 						}
 					}
 				}
@@ -955,19 +945,19 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Faction-Enemies");
 				xml.println(begin);
-				for (GOTFaction fac1 : factionSet) {
-					ArrayList<GOTFaction> enemies = new ArrayList<>();
-					for (GOTFaction fac2 : factionSet) {
+				for (GOTFaction fac1 : factions) {
+					ArrayList<GOTFaction> facEnemies = new ArrayList<>();
+					for (GOTFaction fac2 : factions) {
 						if (fac1.isBadRelation(fac2) && fac1 != fac2) {
-							enemies.add(fac2);
+							facEnemies.add(fac2);
 						}
 					}
-					if (enemies.isEmpty()) {
+					if (facEnemies.isEmpty()) {
 						xml.println("| " + getFactionPagename(fac1) + " = " + factionNoEnemies);
 					} else {
 						xml.println("| " + getFactionPagename(fac1) + " = ");
 						int i = 0;
-						for (GOTFaction fac : enemies) {
+						for (GOTFaction fac : facEnemies) {
 							if (i == 0) {
 								xml.print(getFactionLink(fac));
 								i++;
@@ -982,19 +972,19 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Faction-Friends");
 				xml.println(begin);
-				for (GOTFaction fac1 : factionSet) {
-					ArrayList<GOTFaction> enemies = new ArrayList<>();
-					for (GOTFaction fac2 : factionSet) {
+				for (GOTFaction fac1 : factions) {
+					ArrayList<GOTFaction> facFriends = new ArrayList<>();
+					for (GOTFaction fac2 : factions) {
 						if (fac1.isGoodRelation(fac2) && fac1 != fac2) {
-							enemies.add(fac2);
+							facFriends.add(fac2);
 						}
 					}
-					if (enemies.isEmpty()) {
+					if (facFriends.isEmpty()) {
 						xml.println("| " + getFactionPagename(fac1) + " = " + factionNoFriends);
 					} else {
 						xml.println("| " + getFactionPagename(fac1) + " = ");
 						int i = 0;
-						for (GOTFaction fac : enemies) {
+						for (GOTFaction fac : facFriends) {
 							if (i == 0) {
 								xml.print(getFactionLink(fac));
 								i++;
@@ -1010,7 +1000,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				xml.print("<page><title>Template:DB Faction-WarCrimes");
 				xml.println(begin);
 				xml.println("| #default = " + factionNotViolent);
-				for (GOTFaction fac : factionSet) {
+				for (GOTFaction fac : factions) {
 					if (fac.approvesWarCrimes) {
 						xml.println("| " + getFactionPagename(fac) + " = " + factionIsViolent);
 					}
@@ -1019,21 +1009,21 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Faction-Codename");
 				xml.println(begin);
-				for (GOTFaction fac : factionSet) {
+				for (GOTFaction fac : factions) {
 					xml.println("| " + getFactionPagename(fac) + " = " + fac.codeName());
 				}
 				xml.println(end);
 
 				xml.print("<page><title>Template:DB Faction-Name");
 				xml.println(begin);
-				for (GOTFaction fac : factionSet) {
+				for (GOTFaction fac : factions) {
 					xml.println("| " + getFactionPagename(fac) + " = " + getFactionName(fac));
 				}
 				xml.println(end);
 
 				xml.print("<page><title>Template:DB Faction-Region");
 				xml.println(begin);
-				for (GOTFaction fac : factionSet) {
+				for (GOTFaction fac : factions) {
 					if (fac.factionRegion != null) {
 						xml.println("| " + getFactionPagename(fac) + " = " + fac.factionRegion.getRegionName());
 					} else {
@@ -1044,18 +1034,18 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Faction-Structures");
 				xml.println(begin);
-				for (GOTFaction fac : factionSet) {
-					ArrayList<Class> structures = new ArrayList<>();
-					for (Class str : GOTStructureRegistry.classToFactionMapping.keySet()) {
-						if (GOTStructureRegistry.classToFactionMapping.get(str) == fac) {
-							structures.add(str);
+				for (GOTFaction fac : factions) {
+					ArrayList<Class> facStructures = new ArrayList<>();
+					for (Class strClass : GOTStructureRegistry.classToFactionMapping.keySet()) {
+						if (GOTStructureRegistry.classToFactionMapping.get(strClass) == fac) {
+							facStructures.add(strClass);
 						}
 					}
-					if (structures.isEmpty()) {
+					if (facStructures.isEmpty()) {
 						xml.println("| " + getFactionPagename(fac) + " = " + factionNoStructures);
 					} else {
 						xml.println("| " + getFactionPagename(fac) + " = ");
-						for (Class str : structures) {
+						for (Class str : facStructures) {
 							xml.println("* " + getStructureName(str) + ";");
 						}
 					}
@@ -1086,7 +1076,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				xml.println(begin);
 				for (Class mob : classToObjectMapping.keySet()) {
 					int i = 1;
-					for (GOTBiome biome : biomeSet) {
+					for (GOTBiome biome : biomes) {
 						List sus = new ArrayList(biome.getSpawnableList(EnumCreatureType.ambient));
 						sus.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
 						sus.addAll(biome.getSpawnableList(EnumCreatureType.creature));
@@ -1376,9 +1366,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				xml.println("</mediawiki>");
 				xml.close();
 			}
-		} catch (FileNotFoundException |
-
-					UnsupportedEncodingException e) {
+		} catch (FileNotFoundException | UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
 		return true;
@@ -1410,8 +1398,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 	}
 
 	private String getBiomePagename(GOTBiome biome) {
-		String biomeName = getBiomeName(biome);
-		return biomePageMapping.get(biomeName);
+		return biomePageMapping.get(getBiomeName(biome));
 	}
 
 	private String getBiomeVariantName(GOTBiomeVariant variant) {
@@ -1430,9 +1417,9 @@ public class DatabaseGenerator extends GOTStructureBase {
 		return "[[File:Cape " + cape.name().toLowerCase() + ".png]]";
 	}
 
-	private String getEntityLink(Class clazz) {
-		String entityName = getEntityName(clazz);
-		String entityPagename = getEntityPagename(clazz);
+	private String getEntityLink(Class entityClass) {
+		String entityName = getEntityName(entityClass);
+		String entityPagename = getEntityPagename(entityClass);
 		if (entityName.equals(entityPagename)) {
 			return "[[" + entityPagename + "]]";
 		}
@@ -1443,9 +1430,8 @@ public class DatabaseGenerator extends GOTStructureBase {
 		return StatCollector.translateToLocal("entity.got." + GOTEntityRegistry.classToNameMapping.get(entityClass) + ".name");
 	}
 
-	private String getEntityPagename(Class clazz) {
-		String entityName = getEntityName(clazz);
-		return entityPageMapping.get(entityName);
+	private String getEntityPagename(Class entityClass) {
+		return entityPageMapping.get(getEntityName(entityClass));
 	}
 
 	private String getEntityVanillaName(Class<? extends Entity> entityClass) {
@@ -1466,8 +1452,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 	}
 
 	private String getFactionPagename(GOTFaction fac) {
-		String facName = getFactionName(fac);
-		return factionPageMapping.get(facName);
+		return factionPageMapping.get(getFactionName(fac));
 	}
 
 	private String getItemFilename(Item item) {
@@ -1486,18 +1471,18 @@ public class DatabaseGenerator extends GOTStructureBase {
 		return StatCollector.translateToLocal("got.structure." + GOTStructureRegistry.classToNameMapping.get(entityClass) + ".name");
 	}
 
-	private String getTreeName(GOTTreeType treeType) {
-		return StatCollector.translateToLocal("got.tree." + treeType.name().toLowerCase() + ".name");
+	private String getTreeName(GOTTreeType tree) {
+		return StatCollector.translateToLocal("got.tree." + tree.name().toLowerCase() + ".name");
 	}
 
 	private void searchForEntities(World world) {
-		for (Class clazz : GOTEntityRegistry.entitySet) {
-			classToObjectMapping.put(clazz, GOTReflection.newEntity(clazz, world));
+		for (Class entityClass : GOTEntityRegistry.entitySet) {
+			classToObjectMapping.put(entityClass, GOTReflection.newEntity(entityClass, world));
 		}
 	}
 
-	private void searchForMinerals(HashSet<GOTBiome> bmlist, HashSet<String> minerals) {
-		for (GOTBiome biome : bmlist) {
+	private void searchForMinerals(HashSet<GOTBiome> biomes, HashSet<String> minerals) {
+		for (GOTBiome biome : biomes) {
 			if (biome != null) {
 				List<OreGenerant> generants = new ArrayList<>(biome.decorator.biomeSoils);
 				generants.addAll(biome.decorator.biomeOres);
@@ -1516,10 +1501,10 @@ public class DatabaseGenerator extends GOTStructureBase {
 		}
 	}
 
-	private void searchForPagenamesBiome(HashSet<GOTBiome> bmList, HashSet<GOTFaction> facList) {
-		next: for (GOTBiome biome : bmList) {
+	private void searchForPagenamesBiome(HashSet<GOTBiome> biomes, HashSet<GOTFaction> factions) {
+		next: for (GOTBiome biome : biomes) {
 			String preName = getBiomeName(biome);
-			for (GOTFaction fac : facList) {
+			for (GOTFaction fac : factions) {
 				if (preName.equals(getFactionName(fac))) {
 					biomePageMapping.put(preName, preName + " (" + biomeLoc + ")");
 					continue next;
@@ -1535,16 +1520,16 @@ public class DatabaseGenerator extends GOTStructureBase {
 		}
 	}
 
-	private void searchForPagenamesEntity(HashSet<GOTBiome> bmList, HashSet<GOTFaction> facList) {
+	private void searchForPagenamesEntity(HashSet<GOTBiome> biomes, HashSet<GOTFaction> factions) {
 		next: for (Class mob : GOTEntityRegistry.entitySet) {
 			String preName = getEntityName(mob);
-			for (GOTBiome biome : bmList) {
+			for (GOTBiome biome : biomes) {
 				if (preName.equals(getBiomeName(biome))) {
 					entityPageMapping.put(preName, preName + " (" + entityLoc + ")");
 					continue next;
 				}
 			}
-			for (GOTFaction fac : facList) {
+			for (GOTFaction fac : factions) {
 				if (preName.equals(getFactionName(fac))) {
 					entityPageMapping.put(preName, preName + " (" + entityLoc + ")");
 					continue next;
@@ -1554,10 +1539,10 @@ public class DatabaseGenerator extends GOTStructureBase {
 		}
 	}
 
-	private void searchForPagenamesFaction(HashSet<GOTBiome> bmList, HashSet<GOTFaction> fclist) {
-		next: for (GOTFaction fac : fclist) {
+	private void searchForPagenamesFaction(HashSet<GOTBiome> biomes, HashSet<GOTFaction> factions) {
+		next: for (GOTFaction fac : factions) {
 			String preName = getFactionName(fac);
-			for (GOTBiome biome : bmList) {
+			for (GOTBiome biome : biomes) {
 				if (preName.equals(getBiomeName(biome))) {
 					factionPageMapping.put(preName, preName + " (" + factionLoc + ")");
 					continue next;
@@ -1573,11 +1558,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 		}
 	}
 
-	private void searchForStructures(HashSet<GOTBiome> bmlist, HashSet<Class> strlist) {
-		for (GOTBiome biome : bmlist) {
+	private void searchForStructures(HashSet<GOTBiome> biomes, HashSet<Class> structures) {
+		for (GOTBiome biome : biomes) {
 			if (biome != null && !biome.decorator.randomStructures.isEmpty()) {
 				for (RandomStructure structure : biome.decorator.randomStructures) {
-					strlist.add(structure.structureGen.getClass());
+					structures.add(structure.structureGen.getClass());
 				}
 			}
 		}
@@ -1588,8 +1573,8 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 		String codeName;
 
-		Database(String string) {
-			codeName = string;
+		Database(String name) {
+			codeName = name;
 		}
 
 		public String getCodename() {
