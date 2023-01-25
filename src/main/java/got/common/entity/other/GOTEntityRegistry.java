@@ -18,7 +18,7 @@ public class GOTEntityRegistry {
 	public static Map<Class, String> classToNameMapping = new HashMap<>();
 	public static Map<Class, Integer> classToIDMapping = new HashMap<>();
 	public static Map<Class, GOTFaction> classToFactionMapping = new HashMap<>();
-	public static ArrayList<Class> allEntities = new ArrayList<>();
+	public static Set<Class> entitySet = new HashSet<>();
 
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (GOTEntityRegistry.SpawnEggInfo info : GOTEntityRegistry.spawnEggs.values()) {
@@ -77,20 +77,20 @@ public class GOTEntityRegistry {
 
 	public static void register(Class<? extends Entity> entityClass, int id, int color) {
 		registerHidden(entityClass, id, 80, 3, true);
-		allEntities.add(entityClass);
+		entitySet.add(entityClass);
 		spawnEggs.put(id, new SpawnEggInfo(id, color, color));
 	}
 
 	public static void register(Class<? extends Entity> entityClass, int id, GOTFaction faction) {
 		registerHidden(entityClass, id, 80, 3, true);
-		allEntities.add(entityClass);
+		entitySet.add(entityClass);
 		spawnEggs.put(id, new SpawnEggInfo(id, faction.eggColor, faction.eggColor));
 		classToFactionMapping.put(entityClass, faction);
 	}
 
 	public static void registerLegendaryNPC(Class<? extends Entity> entityClass, int id, GOTFaction faction) {
 		registerHidden(entityClass, id, 80, 3, true);
-		allEntities.add(entityClass);
+		entitySet.add(entityClass);
 		spawnEggs.put(id, new SpawnEggInfo(id, 9605778, faction.eggColor));
 		classToFactionMapping.put(entityClass, faction);
 	}

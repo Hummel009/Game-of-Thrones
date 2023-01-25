@@ -450,12 +450,12 @@ public class GOTAPI {
 	 * @param clazz - class file with fields.
 	 * @param type  - needed type.
 	 */
-	public static <E, T> List<T> getObjectFieldsOfType(Class<? extends E> clazz, Class<? extends T> type) {
+	public static <E, T> HashSet<T> getObjectFieldsOfType(Class<? extends E> clazz, Class<? extends T> type) {
 		return getObjectFieldsOfType(clazz, null, type);
 	}
 
-	private static <E, T> List<T> getObjectFieldsOfType(Class<? extends E> clazz, E instance, Class<? extends T> type) {
-		ArrayList<Object> list = new ArrayList<>();
+	private static <E, T> HashSet<T> getObjectFieldsOfType(Class<? extends E> clazz, E instance, Class<? extends T> type) {
+		HashSet<Object> list = new HashSet<>();
 		try {
 			for (Field field : clazz.getDeclaredFields()) {
 				if (field == null) {
@@ -475,7 +475,7 @@ public class GOTAPI {
 		} catch (IllegalAccessException | IllegalArgumentException e) {
 			GOTLog.logger.error("Errored when getting all field from: " + clazz.getName() + " of type: " + type.getName());
 		}
-		return (List<T>) list;
+		return (HashSet<T>) list;
 	}
 
 	private static String getPath(ResourceLocation res) {

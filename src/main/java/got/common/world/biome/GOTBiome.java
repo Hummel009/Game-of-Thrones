@@ -34,7 +34,7 @@ import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.*;
 import net.minecraftforge.common.util.EnumHelper;
 
-public abstract class GOTBiome extends BiomeGenBase {
+public class GOTBiome extends BiomeGenBase {
 	public static Class[][] correctCreatureTypeParams = { { EnumCreatureType.class, Class.class, Integer.TYPE, Material.class, Boolean.TYPE, Boolean.TYPE } };
 	public static EnumCreatureType creatureType_GOTAmbient = EnumHelper.addEnum(correctCreatureTypeParams, EnumCreatureType.class, "GOTAmbient", GOTAmbientCreature.class, 45, Material.air, true, false);
 	public static GOTBiome alwaysWinter;
@@ -522,7 +522,9 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return biomeColors.grass != null ? biomeColors.grass.getRGB() : getBaseGrassColor(i, j, k);
 	}
 
-	public abstract MusicRegion getBiomeMusic();
+	public MusicRegion getBiomeMusic() {
+		return null;
+	}
 
 	public GOTBiomeVariantList getBiomeVariantsLarge() {
 		return biomeVariantsLarge;
