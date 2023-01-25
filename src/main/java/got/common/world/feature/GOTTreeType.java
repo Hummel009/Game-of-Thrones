@@ -33,7 +33,7 @@ public enum GOTTreeType {
 			return new GOTWorldGenOlive(flag).setBlocks(GOTRegistry.wood8, 2, GOTRegistry.leaves8, 2);
 		}
 		return new GOTWorldGenDesertTrees(flag, GOTRegistry.wood8, 2, GOTRegistry.leaves8, 2);
-	}), PALM((flag, rand) -> new GOTWorldGenPalm(flag, GOTRegistry.wood8, 3, GOTRegistry.leaves8, 3).setMinMaxHeight(6, 11)), DRAGONBLOOD((flag, rand) -> new GOTWorldGenDragonblood(flag, 3, 7, 0)), DRAGONBLOOD_LARGE((flag, rand) -> new GOTWorldGenDragonblood(flag, 6, 10, 1)), DRAGONBLOOD_HUGE((flag, rand) -> new GOTWorldGenDragonblood(flag, 8, 16, 2)), KANUKA((flag, rand) -> new GOTWorldGenKanuka(flag)), NULL(null);
+	}), PALM((flag, rand) -> new GOTWorldGenPalm(flag, GOTRegistry.wood8, 3, GOTRegistry.leaves8, 3).setMinMaxHeight(6, 11)), DRAGONBLOOD((flag, rand) -> new GOTWorldGenDragonblood(flag, 3, 7, 0)), DRAGONBLOOD_LARGE((flag, rand) -> new GOTWorldGenDragonblood(flag, 6, 10, 1)), DRAGONBLOOD_HUGE((flag, rand) -> new GOTWorldGenDragonblood(flag, 8, 16, 2)), KANUKA((flag, rand) -> new GOTWorldGenKanuka(flag));
 
 	public ITreeFactory treeFactory;
 

@@ -24,6 +24,7 @@ import got.common.world.biome.variant.GOTBiomeVariantList.VariantBucket;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.feature.GOTTreeType.WeightedTreeType;
 import got.common.world.map.*;
+import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList.*;
 import got.common.world.spawning.GOTSpawnEntry;
 import got.common.world.structure.other.*;
@@ -78,6 +79,14 @@ public class DatabaseGenerator extends GOTStructureBase {
 	private static String biomeHasAnimals = StatCollector.translateToLocal("db.biomeHasAnimals.name");
 	private static String factionHasCharacters = StatCollector.translateToLocal("db.factionHasCharacters.name");
 	private static String mineralBiomes = StatCollector.translateToLocal("db.mineralBiomes.name");
+
+	private static String biomeNoAchievement = StatCollector.translateToLocal("db.biomeNoAchievement.name");
+	private static String biomeHasWaypoints = StatCollector.translateToLocal("db.biomeHasWaypoints.name");
+	private static String biomeNoWaypoints = StatCollector.translateToLocal("db.biomeNoWaypoints.name");
+	private static String treeHasBiomes = StatCollector.translateToLocal("db.treeHasBiomes.name");
+	private static String treeNoBiomes = StatCollector.translateToLocal("db.treeNoBiomes.name");
+	private static String treeVariantOnly = StatCollector.translateToLocal("db.treeVariantOnly.name");
+	private static String structureBiomes = StatCollector.translateToLocal("db.structureBiomes.name");
 
 	public DatabaseGenerator(boolean flag) {
 		super(flag);
@@ -140,7 +149,8 @@ public class DatabaseGenerator extends GOTStructureBase {
 			bmlist.remove(GOTBiome.beachWhite);
 			bmlist.remove(GOTBiome.beachRed);
 			List<GOTFaction> fclist = new ArrayList<>(EnumSet.allOf(GOTFaction.class));
-			new ArrayList<>(EnumSet.allOf(GOTTreeType.class));
+			List<GOTTreeType> trlist = new ArrayList<>(EnumSet.allOf(GOTTreeType.class));
+			List<GOTWaypoint> wplist = new ArrayList<>(EnumSet.allOf(GOTWaypoint.class));
 
 			if ("tables".equals(display)) {
 				PrintWriter achievements = new PrintWriter("achievements.txt", "UTF-8");
@@ -247,26 +257,54 @@ public class DatabaseGenerator extends GOTStructureBase {
 				PrintWriter xml = new PrintWriter("xml.txt", "UTF-8");
 				xml.println("<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
 
+				HashSet<String> minlist = new HashSet<>();
+				HashSet<Class> strlist = new HashSet<>();
+				searchForAllMinerals(minlist, bmlist);
+				searchForAllStructures(strlist, bmlist);
+
 				/* ALL PAGES */
+
+				for (String str : minlist) {
+					String s1 = "<page><title>";
+					String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u0418\u0441\u043A\u043E\u043F\u0430\u0435\u043C\u043E\u0435}}</text></revision></page>";
+					xml.print(s1 + str + s2);
+					xml.println();
+				}
 
 				for (Class mob : classToObjectMapping.keySet()) {
 					String s1 = "<page><title>";
 					String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u041C\u043E\u0431}}</text></revision></page>";
-					xml.print(s1 + searchEntityPagename(mob, bmlist, fclist) + s2);
+					xml.print(s1 + searchForEntityPagename(mob, bmlist, fclist) + s2);
 					xml.println();
 				}
+
 				for (GOTBiome biome : bmlist) {
 					if (biome != null) {
 						String s1 = "<page><title>";
 						String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u0411\u0438\u043E\u043C}}</text></revision></page>";
-						xml.print(s1 + searchBiomePagename(biome, fclist, GOTEntityRegistry.allEntities) + s2);
+						xml.print(s1 + searchForBiomePagename(biome, fclist, GOTEntityRegistry.allEntities) + s2);
 						xml.println();
 					}
 				}
+
 				for (GOTFaction fac : fclist) {
 					String s1 = "<page><title>";
 					String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u0424\u0440\u0430\u043A\u0446\u0438\u044F}}</text></revision></page>";
-					xml.print(s1 + searchFactionPagename(fac, bmlist, GOTEntityRegistry.allEntities) + s2);
+					xml.print(s1 + searchForFactionPagename(fac, bmlist, GOTEntityRegistry.allEntities) + s2);
+					xml.println();
+				}
+
+				for (GOTTreeType tree : trlist) {
+					String s1 = "<page><title>";
+					String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u0414\u0435\u0440\u0435\u0432\u043E}}</text></revision></page>";
+					xml.print(s1 + getTreeName(tree) + s2);
+					xml.println();
+				}
+
+				for (Class str : strlist) {
+					String s1 = "<page><title>";
+					String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u0421\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u0430}}</text></revision></page>";
+					xml.print(s1 + getStructureName(str) + s2);
 					xml.println();
 				}
 
@@ -275,40 +313,32 @@ public class DatabaseGenerator extends GOTStructureBase {
 				String begin = "</title><ns>10</ns><revision><text>&lt;includeonly&gt;{{#switch: {{{1}}}";
 				String end = "}}&lt;/includeonly&gt;&lt;noinclude&gt;[[" + categoryTemplates + "]]&lt;/noinclude&gt;</text></revision></page>";
 
-				/* MINERALS */
-				
-				HashSet<String> minerals = new HashSet<>();
-				for (GOTBiome biome : bmlist) {
-					if (biome != null) {
-						List<OreGenerant> sus = new ArrayList<>(biome.decorator.biomeSoils);
-						sus.addAll(biome.decorator.biomeOres);
-						sus.addAll(biome.decorator.biomeGems);
-						for (OreGenerant oreGenerant : sus) {
-							WorldGenMinable gen = oreGenerant.oreGen;
-							Block block = GOTReflection.getOreBlock(gen);
-							int meta = GOTReflection.getOreMeta(gen);
-							if (block instanceof GOTBlockOreGem || block instanceof BlockDirt || block instanceof GOTBlockRock) {
-								minerals.add(getBlockMetaName(block, meta));
-							} else {
-								minerals.add(getBlockName(block));
+				/* STRUCTURES */
+
+				xml.print("<page><title>Template:DB Structure-Biomes");
+				xml.println(begin);
+				for (Class str : strlist) {
+					xml.println("| " + str + " = " + structureBiomes);
+					for (GOTBiome biome : bmlist) {
+						if ((biome != null) && !biome.decorator.randomStructures.isEmpty()) {
+							for (RandomStructure structure : biome.decorator.randomStructures) {
+								if (structure.getClass() == str) {
+									xml.println("* " + getBiomeLink(biome) + ";");
+								}
 							}
 						}
 					}
 				}
-				
-				for (String str : minerals) {
-					String s1 = "<page><title>";
-					String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u0418\u0441\u043A\u043E\u043F\u0430\u0435\u043C\u043E\u0435}}</text></revision></page>";
-					xml.print(s1 + str + s2);
-					xml.println();
-				}
+				xml.println(end);
+
+				/* MINERALS */
 
 				xml.print("<page><title>Template:DB Mineral-Biomes");
 				xml.println(begin);
-				for (String str : minerals) {
+				for (String str : minlist) {
 					xml.println("| " + str + " = " + mineralBiomes);
 					for (GOTBiome biome : bmlist) {
-						if (biome != null && biome != null) {
+						if (biome != null) {
 							List<OreGenerant> sus = new ArrayList<>(biome.decorator.biomeSoils);
 							sus.addAll(biome.decorator.biomeOres);
 							sus.addAll(biome.decorator.biomeGems);
@@ -324,6 +354,51 @@ public class DatabaseGenerator extends GOTStructureBase {
 								}
 							}
 						}
+					}
+				}
+				xml.println(end);
+
+				/* TREES */
+
+				xml.print("<page><title>Template:DB Tree-Biomes");
+				xml.println(begin);
+				for (GOTTreeType tree : trlist) {
+					HashSet<GOTBiome> biomes1 = new HashSet<>();
+					HashSet<GOTBiome> biomes2 = new HashSet<>();
+					for (GOTBiome biome : bmlist) {
+						if (biome != null) {
+							for (WeightedTreeType wtt : biome.decorator.treeTypes) {
+								if (wtt.treeType == tree) {
+									biomes1.add(biome);
+								}
+							}
+							for (VariantBucket wtt : biome.getBiomeVariantsSmall().variantList) {
+								for (WeightedTreeType treeType : wtt.variant.treeTypes) {
+									if (treeType.treeType == tree) {
+										biomes2.add(biome);
+									}
+								}
+							}
+						}
+					}
+					if (biomes1.isEmpty() && biomes2.isEmpty()) {
+						xml.println("| " + getTreeName(tree) + " = " + treeNoBiomes);
+					} else {
+						xml.println("| " + getTreeName(tree) + " = " + treeHasBiomes);
+					}
+					HashSet<GOTBiome> remap = new HashSet<>();
+					for (GOTBiome biome1 : biomes1) {
+						for (GOTBiome biome2 : biomes2) {
+							if (!biomes1.contains(biome2)) {
+								remap.add(biome2);
+							}
+						}
+					}
+					for (GOTBiome biome : biomes1) {
+						xml.println("* " + getBiomeLink(biome) + ";");
+					}
+					for (GOTBiome biome : remap) {
+						xml.println("* " + getBiomeLink(biome) + " (" + treeVariantOnly + ");");
 					}
 				}
 				xml.println(end);
@@ -489,11 +564,35 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 				xml.println(end);
 
-				xml.print("<page><title>Template:DB Biome-Height");
+				xml.print("<page><title>Template:DB Biome-Waypoints");
 				xml.println(begin);
 				for (GOTBiome biome : bmlist) {
 					if (biome != null) {
-						xml.println("| " + getBiomePagename(biome) + " = " + biome.heightBaseParameter);
+						Region wprg = biome.getBiomeWaypoints();
+						if (wprg == null) {
+							xml.println("| " + getBiomePagename(biome) + " = " + biomeNoWaypoints);
+						} else {
+							xml.println("| " + getBiomePagename(biome) + " = " + biomeHasWaypoints);
+							for (GOTWaypoint wp : wplist) {
+								if (wp.region == wprg) {
+									xml.println("* " + wp.getDisplayName() + " (" + getFactionLink(wp.faction) + ");");
+								}
+							}
+						}
+					}
+				}
+				xml.println(end);
+
+				xml.print("<page><title>Template:DB Biome-Achievement");
+				xml.println(begin);
+				for (GOTBiome biome : bmlist) {
+					if (biome != null) {
+						GOTAchievement ach = biome.getBiomeAchievement();
+						if (ach == null) {
+							xml.println("| " + getBiomePagename(biome) + " = " + biomeNoAchievement);
+						} else {
+							xml.println("| " + getBiomePagename(biome) + " = \"" + getAchievementTitle(ach) + "\"");
+						}
 					}
 				}
 				xml.println(end);
@@ -529,10 +628,10 @@ public class DatabaseGenerator extends GOTStructureBase {
 								xml.println("| " + getBiomePagename(biome) + " = " + biomeHasTrees2);
 							}
 							for (GOTTreeType standart : trees1) {
-								xml.println("* " + getTreeName(standart) + ";");
+								xml.println("* [[" + getTreeName(standart) + "]];");
 							}
 							for (GOTTreeType variant : remap.keySet()) {
-								xml.println("* " + getTreeName(variant) + " (" + getBiomeVariantName(remap.get(variant)).toLowerCase() + ")" + ";");
+								xml.println("* [[" + getTreeName(variant) + "]] (" + getBiomeVariantName(remap.get(variant)).toLowerCase() + ")" + ";");
 							}
 						}
 					}
@@ -593,15 +692,6 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 				xml.println(end);
 
-				xml.print("<page><title>Template:DB Biome-HeightVariation");
-				xml.println(begin);
-				for (GOTBiome biome : bmlist) {
-					if (biome != null) {
-						xml.println("| " + getBiomePagename(biome) + " = " + biome.heightVariation);
-					}
-				}
-				xml.println(end);
-
 				xml.print("<page><title>Template:DB Biome-Music");
 				xml.println(begin);
 				for (GOTBiome biome : bmlist) {
@@ -620,7 +710,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 						} else {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeHasStructures);
 							for (RandomStructure structure : biome.decorator.randomStructures) {
-								xml.println("* " + getStructureName(structure.structureGen.getClass()) + ";");
+								xml.println("* [[" + getStructureName(structure.structureGen.getClass()) + "]];");
 							}
 						}
 					}
@@ -1208,7 +1298,37 @@ public class DatabaseGenerator extends GOTStructureBase {
 		return StatCollector.translateToLocal("got.tree." + treeType.name().toLowerCase() + ".name");
 	}
 
-	private String searchBiomePagename(GOTBiome biome, List<GOTFaction> facList, List<Class> entityList) {
+	private void searchForAllMinerals(HashSet<String> minerals, List<GOTBiome> bmlist) {
+		for (GOTBiome biome : bmlist) {
+			if (biome != null) {
+				List<OreGenerant> generants = new ArrayList<>(biome.decorator.biomeSoils);
+				generants.addAll(biome.decorator.biomeOres);
+				generants.addAll(biome.decorator.biomeGems);
+				for (OreGenerant oreGenerant : generants) {
+					WorldGenMinable gen = oreGenerant.oreGen;
+					Block block = GOTReflection.getOreBlock(gen);
+					int meta = GOTReflection.getOreMeta(gen);
+					if (block instanceof GOTBlockOreGem || block instanceof BlockDirt || block instanceof GOTBlockRock) {
+						minerals.add(getBlockMetaName(block, meta));
+					} else {
+						minerals.add(getBlockName(block));
+					}
+				}
+			}
+		}
+	}
+
+	private void searchForAllStructures(HashSet<Class> strlist, List<GOTBiome> bmlist) {
+		for (GOTBiome biome : bmlist) {
+			if (biome != null && !biome.decorator.randomStructures.isEmpty()) {
+				for (RandomStructure structure : biome.decorator.randomStructures) {
+					strlist.add(structure.structureGen.getClass());
+				}
+			}
+		}
+	}
+
+	private String searchForBiomePagename(GOTBiome biome, List<GOTFaction> facList, List<Class> entityList) {
 		String preName = getBiomeName(biome);
 		for (GOTFaction fac : facList) {
 			if (preName.equals(getFactionName(fac))) {
@@ -1226,7 +1346,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		return preName;
 	}
 
-	private String searchEntityPagename(Class entity, List<GOTBiome> bmList, List<GOTFaction> facList) {
+	private String searchForEntityPagename(Class entity, List<GOTBiome> bmList, List<GOTFaction> facList) {
 		String preName = getEntityName(entity);
 		for (GOTBiome biome : bmList) {
 			if (preName.equals(getBiomeName(biome))) {
@@ -1244,7 +1364,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		return preName;
 	}
 
-	private String searchFactionPagename(GOTFaction fac, List<GOTBiome> bmList, List<Class> entityList) {
+	private String searchForFactionPagename(GOTFaction fac, List<GOTBiome> bmList, List<Class> entityList) {
 		String preName = getFactionName(fac);
 		for (GOTBiome biome : bmList) {
 			if (preName.equals(getBiomeName(biome))) {
