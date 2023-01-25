@@ -318,11 +318,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 				xml.print("<page><title>Template:DB Structure-Biomes");
 				xml.println(begin);
 				for (Class str : strlist) {
-					xml.println("| " + str + " = " + structureBiomes);
+					xml.println("| " + getStructureName(str) + " = " + structureBiomes);
 					for (GOTBiome biome : bmlist) {
 						if ((biome != null) && !biome.decorator.randomStructures.isEmpty()) {
 							for (RandomStructure structure : biome.decorator.randomStructures) {
-								if (structure.getClass() == str) {
+								if (structure.structureGen.getClass() == str) {
 									xml.println("* " + getBiomeLink(biome) + ";");
 								}
 							}
