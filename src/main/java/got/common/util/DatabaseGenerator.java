@@ -1174,26 +1174,38 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>DB Mob-Owner");
 				xml.println(begin);
-				next: for (Class entityClass : hireable) {
-					for (Class ownerClass : classToObjectMapping.keySet()) {
+				for (Class entityClass : hireable) {
+					HashMap<Class, Class> owners = new HashMap<>();
+					loop: for (Class ownerClass : classToObjectMapping.keySet()) {
 						if (classToObjectMapping.get(ownerClass) instanceof GOTUnitTradeable) {
 							GOTUnitTradeEntries entries = ((GOTUnitTradeable) classToObjectMapping.get(ownerClass)).getUnits();
 							if (!((GOTEntityNPC) classToObjectMapping.get(ownerClass)).isLegendaryNPC()) {
 								for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 									if (entry.entityClass == entityClass) {
-										xml.println("| " + getEntityPagename(entityClass) + " = " + getEntityLink(ownerClass));
-										continue next;
-									}
-								}
-							} else {
-								for (GOTUnitTradeEntry entry : entries.tradeEntries) {
-									if (entry.entityClass == entityClass) {
-										xml.println("| " + getEntityPagename(entityClass) + " = " + getEntityLink(ownerClass));
-										continue next;
+										owners.put(entityClass, ownerClass);
+										break loop;
 									}
 								}
 							}
 						}
+					}
+					if (owners.isEmpty()) {
+						loop: for (Class ownerClass : classToObjectMapping.keySet()) {
+							if (classToObjectMapping.get(ownerClass) instanceof GOTUnitTradeable) {
+								GOTUnitTradeEntries entries = ((GOTUnitTradeable) classToObjectMapping.get(ownerClass)).getUnits();
+								if (((GOTEntityNPC) classToObjectMapping.get(ownerClass)).isLegendaryNPC()) {
+									for (GOTUnitTradeEntry entry : entries.tradeEntries) {
+										if (entry.entityClass == entityClass) {
+											owners.put(entityClass, ownerClass);
+											break loop;
+										}
+									}
+								}
+							}
+						}
+					}
+					if (!owners.isEmpty()) {
+						xml.println("| " + getEntityPagename(entityClass) + " = " + getEntityLink(owners.get(entityClass)));
 					}
 				}
 				xml.println(end);
@@ -1355,10 +1367,14 @@ public class DatabaseGenerator extends GOTStructureBase {
 					for (GOTUnitTradeEntries entries : units) {
 						for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 							if (entry.entityClass == entityClass) {
-								if (entry.alignmentRequired < 101.0f) {
-									xml.println("| " + getEntityPagename(entityClass) + " = +" + 100.0);
-								} else {
+								if (entry.getPledgeType() == PledgeType.NONE) {
 									xml.println("| " + getEntityPagename(entityClass) + " = " + entry.alignmentRequired);
+								} else {
+									if (entry.alignmentRequired < 101.0f) {
+										xml.println("| " + getEntityPagename(entityClass) + " = +" + 100.0);
+									} else {
+										xml.println("| " + getEntityPagename(entityClass) + " = " + entry.alignmentRequired);
+									}
 								}
 								continue next;
 							}
@@ -1386,12 +1402,26 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 				xml.println(end);
 
+				xml.print("<page><title>Template:DB Mob-Achievement");
+				xml.println(begin);
+				for (Class entityClass : classToObjectMapping.keySet()) {
+					if (classToObjectMapping.get(entityClass) instanceof GOTEntityNPC) {
+						GOTAchievement ach = ((GOTEntityNPC) classToObjectMapping.get(entityClass)).getKillAchievement();
+						if (ach != null) {
+							xml.println("| " + getEntityPagename(entityClass) + " = \"" + getAchievementTitle(ach) + "\"");
+						} else {
+							xml.println("| " + getEntityPagename(entityClass) + " = N/A");
+						}
+					}
+				}
+				xml.println(end);
+
 				xml.print("<page><title>Template:DB Mob-Bonus");
 				xml.println(begin);
 				for (Class entityClass : classToObjectMapping.keySet()) {
 					if (classToObjectMapping.get(entityClass) instanceof GOTEntityNPC) {
 						float bonus = ((GOTEntityNPC) classToObjectMapping.get(entityClass)).getAlignmentBonus();
-						xml.println("| " + getEntityPagename(entityClass) + " = " + bonus);
+						xml.println("| " + getEntityPagename(entityClass) + " = +" + bonus);
 					}
 				}
 				xml.println(end);

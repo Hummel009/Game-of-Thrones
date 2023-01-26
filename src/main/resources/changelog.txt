@@ -1,5 +1,9 @@
 CHANGELOG
 
+>>VERSION 17.9.5
+* Improved database generator
+* Fixed bug with prostitute
+
 >>VERSION 17.9.4
 * Optimization
 * Added more random structures
