@@ -1432,7 +1432,6 @@ public class DatabaseGenerator extends GOTStructureBase {
 									xml.println("* " + getEntityLink(entry.entityClass) + ": N/A " + noPledge + ", {{Coins|" + entry.initialCost + "}} " + yesPledge + "; +" + 100.0 + "+ " + rep + ";");
 								} else {
 									xml.println("* " + getEntityLink(entry.entityClass) + ": N/A " + noPledge + ", {{Coins|" + entry.initialCost + "}} " + yesPledge + "; +" + entry.alignmentRequired + "+ " + rep + ";");
-
 								}
 							}
 						}
