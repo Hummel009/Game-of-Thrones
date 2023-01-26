@@ -34,7 +34,7 @@ import net.minecraft.entity.*;
 import net.minecraft.item.*;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
-import net.minecraft.util.StatCollector;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenMinable;
@@ -118,6 +118,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 	@Override
 	public boolean generate(World world, Random random, int y, int j, int k, int rotation) {
+		long time = System.nanoTime();
 		classToWaypointMapping.put(GOTEntityYgritte.class, GOTWaypoint.Hardhome);
 		classToWaypointMapping.put(GOTEntityTormund.class, GOTWaypoint.Hardhome);
 		classToWaypointMapping.put(GOTEntityManceRayder.class, GOTWaypoint.Hardhome);
@@ -763,15 +764,13 @@ public class DatabaseGenerator extends GOTStructureBase {
 				for (GOTFaction fac : factions) {
 					HashSet<GOTBiome> invasionBiomes = new HashSet<>();
 					next: for (GOTBiome biome : biomes) {
-						if ((biome != null) && !biome.invasionSpawns.registeredInvasions.isEmpty()) {
+						if (biome != null && !biome.invasionSpawns.registeredInvasions.isEmpty()) {
 							for (GOTInvasions invasion : biome.invasionSpawns.registeredInvasions) {
 								for (InvasionSpawnEntry entry : invasion.invasionMobs) {
 									Entity entity = classToObjectMapping.get(entry.entityClass);
-									if (entity instanceof GOTEntityNPC) {
-										if (fac == ((GOTEntityNPC) entity).getFaction()) {
-											invasionBiomes.add(biome);
-											continue next;
-										}
+									if (entity instanceof GOTEntityNPC && fac == ((GOTEntityNPC) entity).getFaction()) {
+										invasionBiomes.add(biome);
+										continue next;
 									}
 								}
 							}
@@ -1460,6 +1459,9 @@ public class DatabaseGenerator extends GOTStructureBase {
 		} catch (FileNotFoundException | UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
+		long newTime = System.nanoTime();
+		ChatComponentText chatComponentTranslation = new ChatComponentText("Generated databases in " + (newTime - time) / 1.0E9 + "s");
+		usingPlayer.addChatMessage(chatComponentTranslation);
 		return true;
 	}
 
