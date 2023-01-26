@@ -1,6 +1,7 @@
 package got.common.util;
 
 import java.io.*;
+import java.nio.file.*;
 import java.text.DecimalFormat;
 import java.util.*;
 
@@ -184,9 +185,9 @@ public class DatabaseGenerator extends GOTStructureBase {
 			biomes.remove(GOTBiome.beachGravel);
 			biomes.remove(GOTBiome.beachWhite);
 			biomes.remove(GOTBiome.beachRed);
-
+			Files.createDirectories(Paths.get("hummel"));
 			if ("tables".equals(display)) {
-				PrintWriter fAchievements = new PrintWriter("achievements.txt", "UTF-8");
+				PrintWriter fAchievements = new PrintWriter("hummel/achievements.txt", "UTF-8");
 				for (GOTAchievement ach : achievements) {
 					if (ach != null) {
 						fAchievements.println("| " + getAchievementTitle(ach) + " || " + getAchievementDesc(ach));
@@ -195,21 +196,21 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 				fAchievements.close();
 
-				PrintWriter fShields = new PrintWriter("shields.txt", "UTF-8");
+				PrintWriter fShields = new PrintWriter("hummel/shields.txt", "UTF-8");
 				for (GOTShields shield : shields) {
 					fShields.println("| " + shield.getShieldName() + " || " + shield.getShieldDesc() + " || " + getShieldFilename(shield));
 					fShields.println("|-");
 				}
 				fShields.close();
 
-				PrintWriter fCapes = new PrintWriter("capes.txt", "UTF-8");
+				PrintWriter fCapes = new PrintWriter("hummel/capes.txt", "UTF-8");
 				for (GOTCapes cape : capes) {
 					fCapes.println("| " + cape.getCapeName() + " || " + cape.getCapeDesc() + " || " + getCapeFilename(cape));
 					fCapes.println("|-");
 				}
 				fCapes.close();
 
-				PrintWriter fUnits = new PrintWriter("units.txt", "UTF-8");
+				PrintWriter fUnits = new PrintWriter("hummel/units.txt", "UTF-8");
 				for (GOTUnitTradeEntries unitTradeEntries : units) {
 					if (unitTradeEntries != null) {
 						for (GOTUnitTradeEntry entry : unitTradeEntries.tradeEntries) {
@@ -238,14 +239,14 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 				fUnits.close();
 
-				PrintWriter fWaypoints = new PrintWriter("waypoints.txt", "UTF-8");
+				PrintWriter fWaypoints = new PrintWriter("hummel/waypoints.txt", "UTF-8");
 				for (GOTWaypoint wp : waypoints) {
 					fWaypoints.println("| " + wp.getDisplayName() + " || " + wp.getLoreText(usingPlayer));
 					fWaypoints.println("|-");
 				}
 				fWaypoints.close();
 
-				PrintWriter fArmor = new PrintWriter("armor.txt", "UTF-8");
+				PrintWriter fArmor = new PrintWriter("hummel/armor.txt", "UTF-8");
 				for (Item item : items) {
 					if (item instanceof ItemArmor) {
 						float damage = ((ItemArmor) item).damageReduceAmount;
@@ -260,7 +261,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 				fArmor.close();
 
-				PrintWriter fWeapon = new PrintWriter("weapon.txt", "UTF-8");
+				PrintWriter fWeapon = new PrintWriter("hummel/weapon.txt", "UTF-8");
 				for (Item item : items) {
 					if (item instanceof ItemSword) {
 						float damage = GOTReflection.getDamageAmount(item);
@@ -275,7 +276,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 				fWeapon.close();
 
-				PrintWriter fFood = new PrintWriter("food.txt", "UTF-8");
+				PrintWriter fFood = new PrintWriter("hummel/food.txt", "UTF-8");
 				for (Item item : items) {
 					if (item instanceof ItemFood && item != null) {
 						int heal = ((ItemFood) item).func_150905_g(null);
@@ -287,7 +288,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				fFood.close();
 
 			} else if ("xml".equals(display)) {
-				PrintWriter xml = new PrintWriter("xml.txt", "UTF-8");
+				PrintWriter xml = new PrintWriter("hummel/xml.txt", "UTF-8");
 				xml.println("<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
 
 				/* ALL PAGES */
@@ -1456,7 +1457,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				xml.println("</mediawiki>");
 				xml.close();
 			}
-		} catch (FileNotFoundException | UnsupportedEncodingException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		long newTime = System.nanoTime();
