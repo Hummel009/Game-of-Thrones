@@ -6,7 +6,7 @@ import cpw.mods.fml.common.FMLLog;
 import got.common.faction.GOTFaction;
 import got.common.world.structure.GOTStructure;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.*;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 

@@ -411,11 +411,6 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 			brick2WallMeta = 4;
 			pillar2Block = GOTRegistry.pillar1;
 			pillar2Meta = 15;
-			roofBlock = GOTRegistry.thatch;
-			roofMeta = 1;
-			roofSlabBlock = GOTRegistry.slabSingleThatch;
-			roofSlabMeta = 1;
-			roofStairBlock = GOTRegistry.stairsReed;
 		} else {
 			gateMetalBlock = GOTRegistry.gateIronBars;
 			stoneBlock = GOTRegistry.rock;
@@ -444,12 +439,12 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 			brick2WallMeta = 10;
 			pillar2Block = GOTRegistry.pillar1;
 			pillar2Meta = 9;
-			roofBlock = GOTRegistry.thatch;
-			roofMeta = 1;
-			roofSlabBlock = GOTRegistry.slabSingleThatch;
-			roofSlabMeta = 1;
-			roofStairBlock = GOTRegistry.stairsReed;
 		}
+		roofBlock = GOTRegistry.thatch;
+		roofMeta = 1;
+		roofSlabBlock = GOTRegistry.slabSingleThatch;
+		roofSlabMeta = 1;
+		roofStairBlock = GOTRegistry.stairsReed;
 		if (isNorthernTrees()) {
 			if (forceMonotypeWood()) {
 				woodBlock = GOTRegistry.wood2;

@@ -1,6 +1,6 @@
 package got.common.entity.essos.volantis;
 
-import got.common.database.*;
+import got.common.database.GOTTradeEntries;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.init.*;
 import net.minecraft.item.ItemStack;

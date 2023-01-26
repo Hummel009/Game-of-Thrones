@@ -62,12 +62,10 @@ public class GOTStructureEssosStables extends GOTStructureEssosBase {
 					} else {
 						setBlockAndMetadata(world, i1, 0, k1, GOTRegistry.dirtPath, 0);
 					}
+				} else if (random.nextBoolean()) {
+					setBlockAndMetadata(world, i1, 0, k1, Blocks.dirt, 1);
 				} else {
-					if (random.nextBoolean()) {
-						setBlockAndMetadata(world, i1, 0, k1, Blocks.dirt, 1);
-					} else {
-						setBlockAndMetadata(world, i1, 0, k1, GOTRegistry.dirtPath, 0);
-					}
+					setBlockAndMetadata(world, i1, 0, k1, GOTRegistry.dirtPath, 0);
 				}
 				if (random.nextInt(4) == 0) {
 					setBlockAndMetadata(world, i1, 1, k1, GOTRegistry.thatchFloor, 0);

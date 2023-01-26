@@ -41,8 +41,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	public GOTStructureScan currentStrScan;
 	public Map<String, BlockAliasPool> scanAliases = new HashMap<>();
 	public Map<String, Float> scanAliasChances = new HashMap<>();
-	public List<EntityCreature> legendaryChar = new ArrayList<>();
-	public boolean notGen = false;
+	public List<EntityCreature> characters = new ArrayList<>();
+	public boolean disable = false;
 
 	public GOTStructureBase() {
 		super(false);
@@ -75,9 +75,17 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		addBlockMetaAliasOption(alias, 1, block, meta);
 	}
 
+	public void clear() {
+		characters.clear();
+	}
+
 	public void clearScanAlias(String alias) {
 		scanAliases.remove(alias);
 		scanAliasChances.remove(alias);
+	}
+
+	public void disable() {
+		disable = true;
 	}
 
 	public void fillChest(World world, Random random, int i, int j, int k, GOTChestContents contents, int amount) {
@@ -1113,23 +1121,23 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public void spawnLegendaryNPC(EntityCreature entity, World world, int i, int j, int k) {
-		int i1 = i;
-		int k1 = k;
-		i = getX(i1, k1);
-		k = getZ(i1, k1);
-		j = getY(j);
-		if (!isInSBB(i, j, k)) {
-			return;
-		}
-		entity.setLocationAndAngles(i + 0.5, j, k + 0.5, 0.0f, 0.0f);
-		entity.onSpawnWithEgg(null);
-		if (entity instanceof GOTEntityNPC) {
-			((GOTEntityNPC) entity).isNPCPersistent = true;
-		}
-		if (!notGen) {
+		if (!disable) {
+			int i1 = i;
+			int k1 = k;
+			i = getX(i1, k1);
+			k = getZ(i1, k1);
+			j = getY(j);
+			if (!isInSBB(i, j, k)) {
+				return;
+			}
+			entity.setLocationAndAngles(i + 0.5, j, k + 0.5, 0.0f, 0.0f);
+			entity.onSpawnWithEgg(null);
+			if (entity instanceof GOTEntityNPC) {
+				((GOTEntityNPC) entity).isNPCPersistent = true;
+			}
 			world.spawnEntityInWorld(entity);
 		} else {
-			legendaryChar.add(entity);
+			characters.add(entity);
 		}
 	}
 
@@ -1205,5 +1213,4 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		}
 
 	}
-
 }

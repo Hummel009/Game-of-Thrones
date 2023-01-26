@@ -14,7 +14,7 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 
 	public GOTEntityProstitute(World world) {
 		super(world);
-		canBeMarried = true;
+		canBeMarried = false;
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);

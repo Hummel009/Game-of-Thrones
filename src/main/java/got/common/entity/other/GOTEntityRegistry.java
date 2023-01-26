@@ -71,8 +71,11 @@ public class GOTEntityRegistry {
 		GOTEntity.preInit();
 	}
 
-	public static void registerHidden(Class<? extends Entity> entityClass, int id) {
+	public static void register(Class<? extends Entity> entityClass, int id, GOTFaction faction) {
 		registerHidden(entityClass, id, 80, 3, true);
+		entitySet.add(entityClass);
+		spawnEggs.put(id, new SpawnEggInfo(id, faction.eggColor, faction.eggColor));
+		classToFactionMapping.put(entityClass, faction);
 	}
 
 	public static void register(Class<? extends Entity> entityClass, int id, int color) {
@@ -81,18 +84,8 @@ public class GOTEntityRegistry {
 		spawnEggs.put(id, new SpawnEggInfo(id, color, color));
 	}
 
-	public static void register(Class<? extends Entity> entityClass, int id, GOTFaction faction) {
+	public static void registerHidden(Class<? extends Entity> entityClass, int id) {
 		registerHidden(entityClass, id, 80, 3, true);
-		entitySet.add(entityClass);
-		spawnEggs.put(id, new SpawnEggInfo(id, faction.eggColor, faction.eggColor));
-		classToFactionMapping.put(entityClass, faction);
-	}
-
-	public static void registerLegendaryNPC(Class<? extends Entity> entityClass, int id, GOTFaction faction) {
-		registerHidden(entityClass, id, 80, 3, true);
-		entitySet.add(entityClass);
-		spawnEggs.put(id, new SpawnEggInfo(id, 9605778, faction.eggColor));
-		classToFactionMapping.put(entityClass, faction);
 	}
 
 	public static void registerHidden(Class<? extends Entity> entityClass, int id, int updateRange, int updateFreq, boolean sendVelocityUpdates) {
@@ -104,6 +97,13 @@ public class GOTEntityRegistry {
 		IDToStringMapping.put(id, fullName);
 		classToIDMapping.put(entityClass, id);
 		classToNameMapping.put(entityClass, cut);
+	}
+
+	public static void registerLegendaryNPC(Class<? extends Entity> entityClass, int id, GOTFaction faction) {
+		registerHidden(entityClass, id, 80, 3, true);
+		entitySet.add(entityClass);
+		spawnEggs.put(id, new SpawnEggInfo(id, 9605778, faction.eggColor));
+		classToFactionMapping.put(entityClass, faction);
 	}
 
 	public static class SpawnEggInfo {

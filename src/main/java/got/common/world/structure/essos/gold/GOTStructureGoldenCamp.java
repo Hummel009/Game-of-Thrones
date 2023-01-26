@@ -112,7 +112,7 @@ public class GOTStructureGoldenCamp extends GOTVillageGen {
 		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
 			Block block = world.getBlock(i, j, k);
 			int meta = world.getBlockMetadata(i, j, k);
-			if (block == Blocks.dirt && meta == 1 || block == Blocks.sand && meta == 1 || block == Blocks.sand && meta == 0) {
+			if (((block == Blocks.dirt || block == Blocks.sand) && meta == 1) || block == Blocks.sand && meta == 0) {
 				return true;
 			}
 			return false;

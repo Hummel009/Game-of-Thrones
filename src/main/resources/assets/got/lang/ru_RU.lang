@@ -1,5 +1,12 @@
 ﻿
 tile.dirt.0.name=Грунт
+
+db.entityConquestOnly.name=(завоевание)
+db.entityInvasionOnly.name=(вторжение)
+db.entityNoBiomes.name=Этот моб не спавнится ни в каких биомах.
+db.entityHasBiomes.name=Этот моб спавнится в указанных ниже биомах.
+db.entityConquestInvasion.name=(завоевание/вторжение)
+
 db.factionNoInvasion.name=Эта фракция не вторгается ни в какие биомы.
 db.factionHasInvasion.name=Эта фракция вторгается в следующие биомы:
 db.factionHasSpawn.name=Мобы этой фракции могут заспавниться в следующих биомах:

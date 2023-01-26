@@ -31,7 +31,6 @@ import got.common.world.spawning.GOTSpawnEntry;
 import got.common.world.structure.other.*;
 import net.minecraft.block.*;
 import net.minecraft.entity.*;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.item.*;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
@@ -47,7 +46,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 	private static HashMap<String, String> factionPageMapping = new HashMap<>();
 	private static HashMap<String, String> entityPageMapping = new HashMap<>();
 	private static HashMap<String, String> biomePageMapping = new HashMap<>();
-	
+
 	private static String biomeHasAnimals = StatCollector.translateToLocal("db.biomeHasAnimals.name");
 	private static String biomeHasConquest = StatCollector.translateToLocal("db.biomeHasConquest.name");
 	private static String biomeHasInvasions = StatCollector.translateToLocal("db.biomeHasInvasions.name");
@@ -68,7 +67,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 	private static String biomeMinerals = StatCollector.translateToLocal("db.biomeMinerals.name");
 	private static String biomeConquestOnly = StatCollector.translateToLocal("db.biomeConquestOnly.name");
 	private static String biomeSpawnOnly = StatCollector.translateToLocal("db.biomeSpawnOnly.name");
-	
+
 	private static String factionHasBanners = StatCollector.translateToLocal("db.factionHasBanners.name");
 	private static String factionHasCharacters = StatCollector.translateToLocal("db.factionHasCharacters.name");
 	private static String factionHasConquest = StatCollector.translateToLocal("db.factionHasConquest.name");
@@ -97,16 +96,21 @@ public class DatabaseGenerator extends GOTStructureBase {
 	private static String biomePage = StatCollector.translateToLocal("db.biomeLoc.name");
 	private static String factionPage = StatCollector.translateToLocal("db.factionLoc.name");
 	private static String entityPage = StatCollector.translateToLocal("db.entityLoc.name");
-	
+
 	private static String rider = StatCollector.translateToLocal("db.rider.name");
 	private static String noPledge = StatCollector.translateToLocal("db.noPledge.name");
 	private static String yesPledge = StatCollector.translateToLocal("db.yesPledge.name");
 	private static String rep = StatCollector.translateToLocal("db.rep.name");
 	private static String category = StatCollector.translateToLocal("db.categoryTemplates.name");
-	
+
 	private static String mineralBiomes = StatCollector.translateToLocal("db.mineralBiomes.name");
 	private static String structureBiomes = StatCollector.translateToLocal("db.structureBiomes.name");
-	
+
+	private static String entityNoBiomes = StatCollector.translateToLocal("db.entityNoBiomes.name");
+	private static String entityHasBiomes = StatCollector.translateToLocal("db.entityHasBiomes.name");
+	private static String entityConquestOnly = StatCollector.translateToLocal("db.entityConquestOnly.name");
+	private static String entityInvasionOnly = StatCollector.translateToLocal("db.entityInvasionOnly.name");
+	private static String entityConquestInvasion = StatCollector.translateToLocal("db.entityConquestInvasion.name");
 
 	public DatabaseGenerator(boolean flag) {
 		super(flag);
@@ -165,9 +169,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 			HashSet<GOTShields> shields = new HashSet<>(EnumSet.allOf(GOTShields.class));
 			HashSet<String> minerals = new HashSet<>();
 			HashSet<Class> structures = new HashSet<>();
+			HashSet<Class> hireable = new HashSet<>();
 			searchForEntities(world);
 			searchForMinerals(biomes, minerals);
 			searchForStructures(biomes, structures);
+			searchForHireable(hireable, units);
 			searchForPagenamesEntity(biomes, factions);
 			searchForPagenamesBiome(biomes, factions);
 			searchForPagenamesFaction(biomes, factions);
@@ -630,11 +636,6 @@ public class DatabaseGenerator extends GOTStructureBase {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeNoTrees);
 						} else {
 							HashMap<GOTTreeType, GOTBiomeVariant> treesVariantOnly = new HashMap<>();
-							for (GOTTreeType treeFromVariant : treesVariant.keySet()) {
-								if (!treesBiome.contains(treeFromVariant)) {
-									treesVariantOnly.put(treeFromVariant, treesVariant.get(treeFromVariant));
-								}
-							}
 							if (treesVariantOnly.isEmpty()) {
 								xml.println("| " + getBiomePagename(biome) + " = " + biomeHasTreesBiomeOnly);
 							} else {
@@ -647,7 +648,9 @@ public class DatabaseGenerator extends GOTStructureBase {
 							}
 							if (!treesVariantOnly.isEmpty()) {
 								for (GOTTreeType tree : treesVariantOnly.keySet()) {
-									xml.println("* [[" + getTreeName(tree) + "]] (" + getBiomeVariantName(treesVariantOnly.get(tree)).toLowerCase() + ")" + ";");
+									if (!treesBiome.contains(tree)) {
+										xml.println("* [[" + getTreeName(tree) + "]] (" + getBiomeVariantName(treesVariantOnly.get(tree)).toLowerCase() + ")" + ";");
+									}
 								}
 							}
 						}
@@ -754,22 +757,20 @@ public class DatabaseGenerator extends GOTStructureBase {
 					}
 				}
 				xml.println(end);
-				
+
 				xml.print("<page><title>Template:DB Faction-Invasions");
 				xml.println(begin);
 				for (GOTFaction fac : factions) {
 					HashSet<GOTBiome> invasionBiomes = new HashSet<>();
 					next: for (GOTBiome biome : biomes) {
-						if (biome != null) {
-							if (!biome.invasionSpawns.registeredInvasions.isEmpty()) {
-								for (GOTInvasions invasion : biome.invasionSpawns.registeredInvasions) {
-									for (InvasionSpawnEntry entry : invasion.invasionMobs) {
-										Entity entity = classToObjectMapping.get(entry.entityClass);
-										if (entity instanceof GOTEntityNPC) {
-											if (fac == ((GOTEntityNPC) entity).getFaction()) {
-												invasionBiomes.add(biome);
-												continue next;
-											}
+						if ((biome != null) && !biome.invasionSpawns.registeredInvasions.isEmpty()) {
+							for (GOTInvasions invasion : biome.invasionSpawns.registeredInvasions) {
+								for (InvasionSpawnEntry entry : invasion.invasionMobs) {
+									Entity entity = classToObjectMapping.get(entry.entityClass);
+									if (entity instanceof GOTEntityNPC) {
+										if (fac == ((GOTEntityNPC) entity).getFaction()) {
+											invasionBiomes.add(biome);
+											continue next;
 										}
 									}
 								}
@@ -1092,178 +1093,197 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				/* MOBS */
 
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-NPC");
+				xml.print("<page><title>Template:DB Mob-Spawn");
 				xml.println(begin);
-				for (Class mob : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(mob) instanceof GOTEntityNPC) {
-						xml.println("| " + getEntityName(mob) + " = True");
-					}
-				}
-				xml.println(end);
-
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0410\u0433\u0440\u0435\u0441\u0441\u043E\u0440");
-				xml.println(begin);
-				for (Class mob : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) classToObjectMapping.get(mob)).isTargetSeeker || classToObjectMapping.get(mob) instanceof EntityMob || classToObjectMapping.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) classToObjectMapping.get(mob)).getFaction() == GOTFaction.HOSTILE) {
-						xml.println("| " + getEntityName(mob) + " = True");
-					}
-				}
-				xml.println(end);
-
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0411\u0438\u043E\u043C");
-				xml.println(begin);
-				for (Class mob : classToObjectMapping.keySet()) {
-					int i = 1;
-					for (GOTBiome biome : biomes) {
-						List sus = new ArrayList(biome.getSpawnableList(EnumCreatureType.ambient));
-						sus.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
-						sus.addAll(biome.getSpawnableList(EnumCreatureType.creature));
-						sus.addAll(biome.getSpawnableList(EnumCreatureType.monster));
-						sus.addAll(biome.spawnableGOTAmbientList);
-						for (FactionContainer cont : biome.npcSpawnList.factionContainers) {
-							for (SpawnListContainer one : cont.spawnLists) {
-								sus.addAll(one.spawnList.spawnList);
-							}
-						}
-						for (Object var : sus) {
-							if (((SpawnListEntry) var).entityClass.equals(mob)) {
-								if (i == 1) {
-									xml.println("| " + getEntityName(mob) + " = ");
+				for (Class entityClass : classToObjectMapping.keySet()) {
+					HashSet<GOTBiome> spawnBiomes = new HashSet<>();
+					HashSet<GOTBiome> conquestBiomes = new HashSet<>();
+					HashSet<GOTBiome> invasionBiomes = new HashSet<>();
+					HashSet<GOTBiome> unnaturalBiomes = new HashSet<>();
+					next: for (GOTBiome biome : biomes) {
+						List<SpawnListEntry> spawnEntries = new ArrayList<>();
+						List<SpawnListEntry> conquestEntries = new ArrayList<>();
+						List<InvasionSpawnEntry> invasionEntries = new ArrayList<>();
+						spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.ambient));
+						spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
+						spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.creature));
+						spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.monster));
+						spawnEntries.addAll(biome.spawnableGOTAmbientList);
+						for (FactionContainer facContainer : biome.npcSpawnList.factionContainers) {
+							if (facContainer.baseWeight > 0) {
+								for (SpawnListContainer container : facContainer.spawnLists) {
+									spawnEntries.addAll(container.spawnList.spawnList);
 								}
-								i++;
-								xml.println("* " + getBiomeLink(biome) + ";");
+							} else {
+								for (SpawnListContainer container : facContainer.spawnLists) {
+									conquestEntries.addAll(container.spawnList.spawnList);
+								}
+							}
+						}
+						if (!biome.invasionSpawns.registeredInvasions.isEmpty()) {
+							for (GOTInvasions invasion : biome.invasionSpawns.registeredInvasions) {
+								invasionEntries.addAll(invasion.invasionMobs);
+							}
+						}
+						for (SpawnListEntry entry : spawnEntries) {
+							if (entry.entityClass == entityClass) {
+								spawnBiomes.add(biome);
+								continue next;
+							}
+						}
+						for (SpawnListEntry entry : conquestEntries) {
+							if (entry.entityClass == entityClass) {
+								conquestBiomes.add(biome);
+								break;
+							}
+						}
+						for (InvasionSpawnEntry entry : invasionEntries) {
+							if (entry.entityClass == entityClass) {
+								invasionBiomes.add(biome);
+								break;
+							}
+						}
+					}
+					if (spawnBiomes.isEmpty() && conquestBiomes.isEmpty() && invasionBiomes.isEmpty()) {
+						xml.println("| " + getEntityPagename(entityClass) + " = " + entityNoBiomes);
+					} else {
+						xml.println("| " + getEntityPagename(entityClass) + " = " + entityHasBiomes);
+						for (GOTBiome biome : spawnBiomes) {
+							xml.println("* " + getBiomeLink(biome) + ";");
+						}
+						for (GOTBiome biome : conquestBiomes) {
+							if (!invasionBiomes.contains(biome)) {
+								xml.println("* " + getBiomeLink(biome) + " " + entityConquestOnly + ";");
+							}
+						}
+						for (GOTBiome biome : invasionBiomes) {
+							if (!conquestBiomes.contains(biome)) {
+								xml.println("* " + getBiomeLink(biome) + " " + entityInvasionOnly + ";");
+							}
+						}
+						unnaturalBiomes.addAll(conquestBiomes);
+						unnaturalBiomes.addAll(invasionBiomes);
+						for (GOTBiome biome : unnaturalBiomes) {
+							if (conquestBiomes.contains(biome) && invasionBiomes.contains(biome)) {
+								xml.println("* " + getBiomeLink(biome) + " " + entityConquestInvasion + ";");
 							}
 						}
 					}
 				}
 				xml.println(end);
 
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0412\u043B\u0430\u0434\u0435\u043B\u0435\u0446");
+				xml.print("<page><title>DB Mob-Owner");
 				xml.println(begin);
-				for (Class mob : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(mob) instanceof GOTUnitTradeable && !((GOTEntityNPC) classToObjectMapping.get(mob)).isLegendaryNPC()) {
-						GOTUnitTradeEntries entries = ((GOTUnitTradeable) classToObjectMapping.get(mob)).getUnits();
-						for (GOTUnitTradeEntry entry : entries.tradeEntries) {
-							if (entry.mountClass == null) {
-								xml.println("| " + getEntityName(entry.entityClass) + " = " + getEntityLink(mob));
+				next: for (Class entityClass : hireable) {
+					for (Class ownerClass : classToObjectMapping.keySet()) {
+						if (classToObjectMapping.get(ownerClass) instanceof GOTUnitTradeable) {
+							GOTUnitTradeEntries entries = ((GOTUnitTradeable) classToObjectMapping.get(ownerClass)).getUnits();
+							if (!((GOTEntityNPC) classToObjectMapping.get(ownerClass)).isLegendaryNPC()) {
+								for (GOTUnitTradeEntry entry : entries.tradeEntries) {
+									if (entry.entityClass == entityClass) {
+										xml.println("| " + getEntityPagename(entityClass) + " = " + getEntityLink(ownerClass));
+										continue next;
+									}
+								}
+							} else {
+								for (GOTUnitTradeEntry entry : entries.tradeEntries) {
+									if (entry.entityClass == entityClass) {
+										xml.println("| " + getEntityPagename(entityClass) + " = " + getEntityLink(ownerClass));
+										continue next;
+									}
+								}
 							}
 						}
 					}
 				}
 				xml.println(end);
 
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0415\u0437\u0434\u043E\u0432\u043E\u0439");
+				xml.print("<page><title>Template:DB Mob-Health");
 				xml.println(begin);
-				for (Class mob : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(mob) instanceof GOTEntityNPCRideable) {
-						xml.println("| " + getEntityName(mob) + " = True");
+				for (Class entityClass : classToObjectMapping.keySet()) {
+					EntityLivingBase entity = (EntityLivingBase) classToObjectMapping.get(entityClass);
+					xml.println("| " + getEntityPagename(entityClass) + " = " + entity.getMaxHealth());
+				}
+				xml.println(end);
+
+				xml.print("<page><title>Template: DB Mob-Rideable1");
+				xml.println(begin);
+				for (Class entityClass : classToObjectMapping.keySet()) {
+					if (classToObjectMapping.get(entityClass) instanceof GOTEntityNPCRideable) {
+						xml.println("| " + getEntityPagename(entityClass) + " = True");
 					}
 				}
 				xml.println(end);
 
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0417\u0434\u043E\u0440\u043E\u0432\u044C\u0435");
+				xml.print("<page><title>Template:DB Mob-Rideable2");
 				xml.println(begin);
-				for (Class mob : classToObjectMapping.keySet()) {
-					xml.println("| " + getEntityName(mob) + " = " + ((EntityLivingBase) classToObjectMapping.get(mob)).getMaxHealth());
-				}
-				xml.println(end);
-
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0417\u043D\u0430\u043C\u0435\u043D\u043E\u0441\u0435\u0446");
-				xml.println(begin);
-				for (Class mob : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(mob) instanceof GOTBannerBearer) {
-						xml.println("| " + getEntityName(mob) + " = True");
+				for (Class entityClass : classToObjectMapping.keySet()) {
+					if (classToObjectMapping.get(entityClass) instanceof GOTNPCMount) {
+						xml.println("| " + getEntityPagename(entityClass) + " = True");
 					}
 				}
 				xml.println(end);
 
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0418\u043C\u044F");
+				xml.print("<page><title>Template:DB Mob-BannerBearer");
 				xml.println(begin);
-				for (Class mob : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(mob) instanceof GOTEntityNPC) {
-						xml.println("| " + getEntityName(mob) + " = " + ((GOTEntityNPC) classToObjectMapping.get(mob)).getNPCName());
+				for (Class entityClass : classToObjectMapping.keySet()) {
+					if (classToObjectMapping.get(entityClass) instanceof GOTBannerBearer) {
+						xml.println("| " + getEntityPagename(entityClass) + " = True");
 					}
 				}
 				xml.println(end);
 
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u041A\u043E\u043C\u0430\u043D\u0434\u0438\u0440");
+				xml.print("<page><title>Template:DB Mob-UnitTradeable");
 				xml.println(begin);
-				for (Class mob : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(mob) instanceof GOTUnitTradeable) {
-						xml.println("| " + getEntityName(mob) + " = True");
+				for (Class entityClass : classToObjectMapping.keySet()) {
+					if (classToObjectMapping.get(entityClass) instanceof GOTUnitTradeable) {
+						xml.println("| " + getEntityPagename(entityClass) + " = True");
 					}
 				}
 				xml.println(end);
 
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u041A\u0443\u0437\u043D\u0435\u0446");
+				xml.print("<page><title>Template:DB Mob-Tradeable");
 				xml.println(begin);
-				for (Class mob : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(mob) instanceof GOTTradeable.Smith) {
-						xml.println("| " + getEntityName(mob) + " = True");
+				for (Class entityClass : classToObjectMapping.keySet()) {
+					if (classToObjectMapping.get(entityClass) instanceof GOTTradeable) {
+						xml.println("| " + getEntityPagename(entityClass) + " = True");
 					}
 				}
 				xml.println(end);
 
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u041B\u0435\u0433\u0435\u043D\u0434\u0430\u0440\u043D\u044B\u0439");
+				xml.print("<page><title>Template:DB Mob-Smith");
 				xml.println(begin);
-				for (Class mob : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) classToObjectMapping.get(mob)).isLegendaryNPC) {
-						xml.println("| " + getEntityName(mob) + " = True");
+				for (Class entityClass : classToObjectMapping.keySet()) {
+					if (classToObjectMapping.get(entityClass) instanceof GOTTradeable.Smith) {
+						xml.println("| " + getEntityPagename(entityClass) + " = True");
 					}
 				}
 				xml.println(end);
 
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u041C\u0430\u0443\u043D\u0442");
+				xml.print("<page><title>Template:DB Mob-Mercenary");
 				xml.println(begin);
-				for (Class mob : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(mob) instanceof GOTNPCMount) {
-						xml.println("| " + getEntityName(mob) + " = True");
+				for (Class entityClass : classToObjectMapping.keySet()) {
+					if (classToObjectMapping.get(entityClass) instanceof GOTMercenary) {
+						xml.println("| " + getEntityPagename(entityClass) + " = True");
 					}
 				}
 				xml.println(end);
 
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u041C\u043E\u0440\u043E\u0437\u043E\u0443\u0441\u0442\u043E\u0439\u0447\u0438\u0432\u043E\u0441\u0442\u044C");
+				xml.print("<page><title>Template:DB Mob-Farmhand");
 				xml.println(begin);
-				for (Class mob : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) classToObjectMapping.get(mob)).isImmuneToFrost || classToObjectMapping.get(mob) instanceof GOTBiome.ImmuneToFrost) {
-						xml.println("| " + getEntityName(mob) + " = True");
+				for (Class entityClass : classToObjectMapping.keySet()) {
+					if (classToObjectMapping.get(entityClass) instanceof GOTFarmhand) {
+						xml.println("| " + getEntityPagename(entityClass) + " = True");
 					}
 				}
 				xml.println(end);
 
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u041D\u0430\u0451\u043C\u043D\u0438\u043A");
+				xml.print("<page><title>Template:DB Mob-Buys");
 				xml.println(begin);
-				for (Class mob : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(mob) instanceof GOTMercenary) {
-						xml.println("| " + getEntityName(mob) + " = True");
-					}
-				}
-				xml.println(end);
-
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u041D\u043E\u0447\u043D\u043E\u0439 \u0441\u043F\u0430\u0432\u043D");
-				xml.println(begin);
-				for (Class mob : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) classToObjectMapping.get(mob)).spawnsInDarkness) {
-						xml.println("| " + getEntityName(mob) + " = True");
-					}
-				}
-				xml.println(end);
-
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u041E\u0433\u043D\u0435\u0443\u043F\u043E\u0440\u043D\u043E\u0441\u0442\u044C");
-				xml.println(begin);
-				for (Class mob : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(mob).isImmuneToFire()) {
-						xml.println("| " + getEntityName(mob) + " = True");
-					}
-				}
-				xml.println(end);
-
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u041F\u043E\u043A\u0443\u043F\u0430\u0435\u0442");
-				xml.println(begin);
-				for (Class mob : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(mob) instanceof GOTTradeable) {
-						GOTTradeEntries entries = ((GOTTradeable) classToObjectMapping.get(mob)).getSellPool();
-						xml.println("| " + getEntityName(mob) + " = ");
+				for (Class entityClass : classToObjectMapping.keySet()) {
+					if (classToObjectMapping.get(entityClass) instanceof GOTTradeable) {
+						GOTTradeEntries entries = ((GOTTradeable) classToObjectMapping.get(entityClass)).getSellPool();
+						xml.println("| " + getEntityPagename(entityClass) + " = ");
 						for (GOTTradeEntry entry : entries.tradeEntries) {
 							xml.println("* " + entry.tradeItem.getDisplayName() + ": {{Coins|" + entry.getCost() + "}};");
 						}
@@ -1271,12 +1291,12 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 				xml.println(end);
 
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u041F\u0440\u043E\u0434\u0430\u0451\u0442");
+				xml.print("<page><title>Template:DB Mob-Sells");
 				xml.println(begin);
-				for (Class mob : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(mob) instanceof GOTTradeable) {
-						GOTTradeEntries entries = ((GOTTradeable) classToObjectMapping.get(mob)).getBuyPool();
-						xml.println("| " + getEntityName(mob) + " = ");
+				for (Class entityClass : classToObjectMapping.keySet()) {
+					if (classToObjectMapping.get(entityClass) instanceof GOTTradeable) {
+						GOTTradeEntries entries = ((GOTTradeable) classToObjectMapping.get(entityClass)).getBuyPool();
+						xml.println("| " + getEntityPagename(entityClass) + " = ");
 						for (GOTTradeEntry entry : entries.tradeEntries) {
 							xml.println("* " + entry.tradeItem.getDisplayName() + ": {{Coins|" + entry.getCost() + "}};");
 						}
@@ -1284,121 +1304,155 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 				xml.println(end);
 
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0420\u0430\u0431\u043E\u0442\u043D\u0438\u043A");
+				xml.print("<page><title>Template:DB Mob-Character");
 				xml.println(begin);
-				for (Class mob : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(mob) instanceof GOTFarmhand) {
-						xml.println("| " + getEntityName(mob) + " = True");
+				for (Class entityClass : classToObjectMapping.keySet()) {
+					if (classToObjectMapping.get(entityClass) instanceof GOTEntityNPC && ((GOTEntityNPC) classToObjectMapping.get(entityClass)).isLegendaryNPC()) {
+						xml.println("| " + getEntityPagename(entityClass) + " = True");
 					}
 				}
 				xml.println(end);
 
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0420\u0435\u043F\u0443\u0442\u0430\u0446\u0438\u044F");
+				xml.print("<page><title>Template:DB Mob-ImmuneToFrost");
 				xml.println(begin);
-				for (GOTUnitTradeEntries entries : GOTAPI.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class)) {
-					for (GOTUnitTradeEntry entry : entries.tradeEntries) {
-						xml.println("| " + getEntityName(entry.entityClass) + " = +" + entry.alignmentRequired);
+				for (Class entityClass : classToObjectMapping.keySet()) {
+					if (classToObjectMapping.get(entityClass) instanceof GOTEntityNPC && ((GOTEntityNPC) classToObjectMapping.get(entityClass)).isImmuneToFrost || classToObjectMapping.get(entityClass) instanceof GOTBiome.ImmuneToFrost) {
+						xml.println("| " + getEntityPagename(entityClass) + " = True");
 					}
 				}
 				xml.println(end);
 
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0421\u0432\u0430\u0434\u044C\u0431\u0430");
+				xml.print("<page><title>Template:DB Mob-ImmuneToFire");
 				xml.println(begin);
-				for (Class mob : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(mob) instanceof GOTEntityNPC && ((GOTEntityNPC) classToObjectMapping.get(mob)).canBeMarried) {
-						xml.println("| " + getEntityName(mob) + " = True");
+				for (Class entityClass : classToObjectMapping.keySet()) {
+					if (classToObjectMapping.get(entityClass).isImmuneToFire()) {
+						xml.println("| " + getEntityPagename(entityClass) + " = True");
 					}
 				}
 				xml.println(end);
 
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0422\u043E\u0440\u0433\u043E\u0432\u0435\u0446");
+				xml.print("<page><title>Template:DB Mob-ImmuneToHeat");
 				xml.println(begin);
-				for (Class mob : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(mob) instanceof GOTTradeable) {
-						xml.println("| " + getEntityName(mob) + " = True");
+				for (Class entityClass : classToObjectMapping.keySet()) {
+					if (classToObjectMapping.get(entityClass) instanceof GOTBiome.ImmuneToHeat) {
+						xml.println("| " + getEntityPagename(entityClass) + " = True");
 					}
 				}
 				xml.println(end);
 
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0423\u0441\u0442\u043E\u0439\u0447\u0438\u0432\u044B\u0439 \u043A \u0436\u0430\u0440\u0435");
+				xml.print("<page><title>Template:DB Mob-SpawnInDarkness");
 				xml.println(begin);
-				for (Class mob : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(mob) instanceof GOTBiome.ImmuneToHeat) {
-						xml.println("| " + getEntityName(mob) + " = True");
+				for (Class entityClass : classToObjectMapping.keySet()) {
+					if (classToObjectMapping.get(entityClass) instanceof GOTEntityNPC && ((GOTEntityNPC) classToObjectMapping.get(entityClass)).spawnsInDarkness) {
+						xml.println("| " + getEntityPagename(entityClass) + " = True");
 					}
 				}
 				xml.println(end);
 
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0424\u043E\u0442\u043E");
+				xml.print("<page><title>Template:DB Mob-Alignment");
 				xml.println(begin);
-				for (Class mob : classToObjectMapping.keySet()) {
-					xml.println("| " + getEntityName(mob) + " = " + mob.getSimpleName().replace("GOTEntity", "") + ".png");
-				}
-				xml.println(end);
-
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0424\u0440\u0430\u043A\u0446\u0438\u044F");
-				xml.println(begin);
-				for (Class mob : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(mob) instanceof GOTEntityNPC) {
-						xml.println("| " + getEntityName(mob) + " = " + getFactionPagename(((GOTEntityNPC) classToObjectMapping.get(mob)).getFaction()));
-					}
-				}
-				xml.println(end);
-
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0426\u0435\u043D\u0430");
-				xml.println(begin);
-				for (GOTUnitTradeEntries entries : GOTAPI.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class)) {
-					for (GOTUnitTradeEntry entry : entries.tradeEntries) {
-						xml.println("| " + getEntityName(entry.entityClass) + " = {{Coins|" + entry.initialCost * 2 + "}}");
-					}
-				}
-				xml.println(end);
-
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0426\u0435\u043D\u0430\u041F\u0440\u0438\u0441\u044F\u0433\u0430");
-				xml.println(begin);
-				for (GOTUnitTradeEntries entries : GOTAPI.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class)) {
-					for (GOTUnitTradeEntry entry : entries.tradeEntries) {
-						xml.println("| " + getEntityName(entry.entityClass) + " = {{Coins|" + entry.initialCost + "}}");
-					}
-				}
-				xml.println(end);
-
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0426\u0435\u043D\u043D\u043E\u0441\u0442\u044C");
-				xml.println(begin);
-				for (Class mob : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(mob) instanceof GOTEntityNPC) {
-						xml.println("| " + getEntityName(mob) + " = " + ((GOTEntityNPC) classToObjectMapping.get(mob)).getAlignmentBonus());
-					}
-				}
-				xml.println(end);
-
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u042E\u043D\u0438\u0442\u044B");
-				xml.println(begin);
-				for (Class mob : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(mob) instanceof GOTUnitTradeable) {
-						GOTUnitTradeEntries entries = ((GOTUnitTradeable) classToObjectMapping.get(mob)).getUnits();
-						xml.println("| " + getEntityName(mob) + " = ");
+				next: for (Class entityClass : hireable) {
+					for (GOTUnitTradeEntries entries : units) {
 						for (GOTUnitTradeEntry entry : entries.tradeEntries) {
-							if (entry.mountClass == null) {
-								xml.println("* " + getEntityLink(entry.entityClass) + ": {{Coins|" + entry.initialCost * 2 + "}} " + noPledge + ", {{Coins|" + entry.initialCost + "}} " + yesPledge + "; " + entry.alignmentRequired + "+ " + rep + ";");
+							if (entry.entityClass == entityClass) {
+								if (entry.alignmentRequired < 101.0f) {
+									xml.println("| " + getEntityPagename(entityClass) + " = +" + 100.0);
+								} else {
+									xml.println("| " + getEntityPagename(entityClass) + " = " + entry.alignmentRequired);
+								}
+								continue next;
 							}
 						}
 					}
 				}
 				xml.println(end);
 
-				xml.print("<page><title>\u0428\u0430\u0431\u043B\u043E\u043D:\u0411\u0414 \u041C\u043E\u0431-\u0422\u043E\u0447\u043A\u0430");
+				xml.print("<page><title>Template:DB Mob-Marriage");
 				xml.println(begin);
-				for (Class<? extends Entity> entity : classToWaypointMapping.keySet()) {
-					xml.println("| " + getEntityName(entity) + " = " + classToWaypointMapping.get(entity).getDisplayName());
+				for (Class entityClass : classToObjectMapping.keySet()) {
+					if (classToObjectMapping.get(entityClass) instanceof GOTEntityNPC && ((GOTEntityNPC) classToObjectMapping.get(entityClass)).canBeMarried) {
+						xml.println("| " + getEntityPagename(entityClass) + " = True");
+					}
+				}
+				xml.println(end);
+
+				xml.print("<page><title>Template:DB Mob-Faction");
+				xml.println(begin);
+				for (Class entityClass : classToObjectMapping.keySet()) {
+					if (classToObjectMapping.get(entityClass) instanceof GOTEntityNPC) {
+						GOTFaction fac = ((GOTEntityNPC) classToObjectMapping.get(entityClass)).getFaction();
+						xml.println("| " + getEntityPagename(entityClass) + " = " + getFactionLink(fac));
+					}
+				}
+				xml.println(end);
+
+				xml.print("<page><title>Template:DB Mob-Bonus");
+				xml.println(begin);
+				for (Class entityClass : classToObjectMapping.keySet()) {
+					if (classToObjectMapping.get(entityClass) instanceof GOTEntityNPC) {
+						float bonus = ((GOTEntityNPC) classToObjectMapping.get(entityClass)).getAlignmentBonus();
+						xml.println("| " + getEntityPagename(entityClass) + " = " + bonus);
+					}
+				}
+				xml.println(end);
+
+				xml.print("<page><title>Template:DB Mob-Price");
+				xml.println(begin);
+				for (GOTUnitTradeEntries entries : units) {
+					for (GOTUnitTradeEntry entry : entries.tradeEntries) {
+						if (entry.getPledgeType() == PledgeType.NONE) {
+							xml.println("| " + getEntityPagename(entry.entityClass) + " = {{Coins|" + entry.initialCost * 2 + "}}");
+						} else {
+							xml.println("| " + getEntityPagename(entry.entityClass) + " = N/A");
+						}
+					}
+				}
+				xml.println(end);
+
+				xml.print("<page><title>Template:DB Mob-PricePledge");
+				xml.println(begin);
+				for (GOTUnitTradeEntries entries : units) {
+					for (GOTUnitTradeEntry entry : entries.tradeEntries) {
+						xml.println("| " + getEntityPagename(entry.entityClass) + " = {{Coins|" + entry.initialCost + "}}");
+					}
+				}
+				xml.println(end);
+
+				xml.print("<page><title>Template:DB Mob-Units");
+				xml.println(begin);
+				for (Class ownerClass : classToObjectMapping.keySet()) {
+					if (classToObjectMapping.get(ownerClass) instanceof GOTUnitTradeable) {
+						GOTUnitTradeEntries entries = ((GOTUnitTradeable) classToObjectMapping.get(ownerClass)).getUnits();
+						xml.println("| " + getEntityPagename(ownerClass) + " = ");
+						for (GOTUnitTradeEntry entry : entries.tradeEntries) {
+							if (entry.mountClass == null) {
+								if (entry.getPledgeType() == PledgeType.NONE) {
+									xml.println("* " + getEntityLink(entry.entityClass) + ": {{Coins|" + entry.initialCost * 2 + "}} " + noPledge + ", {{Coins|" + entry.initialCost + "}} " + yesPledge + "; " + entry.alignmentRequired + "+ " + rep + ";");
+								} else if (entry.alignmentRequired < 101.0f) {
+									xml.println("* " + getEntityLink(entry.entityClass) + ": N/A " + noPledge + ", {{Coins|" + entry.initialCost + "}} " + yesPledge + "; +" + 100.0 + "+ " + rep + ";");
+								} else {
+									xml.println("* " + getEntityLink(entry.entityClass) + ": N/A " + noPledge + ", {{Coins|" + entry.initialCost + "}} " + yesPledge + "; +" + entry.alignmentRequired + "+ " + rep + ";");
+
+								}
+							}
+						}
+					}
+				}
+				xml.println(end);
+
+				xml.print("<page><title>Template:DB Mob-Waypoint");
+				xml.println(begin);
+				for (Class entityClass : classToWaypointMapping.keySet()) {
+					xml.println("| " + getEntityPagename(entityClass) + " = " + classToWaypointMapping.get(entityClass).getDisplayName());
 				}
 				for (GOTWaypoint wp : GOTFixer.structures.keySet()) {
 					GOTStructureBase str = GOTFixer.structures.get(wp);
-					str.notGen = true;
+					str.disable();
 					str.generate(world, random, y, j, k);
-					for (EntityCreature entity : GOTFixer.structures.get(wp).legendaryChar) {
-						xml.println("| " + getEntityName(entity.getClass()) + " = " + wp.getDisplayName());
+					for (EntityCreature entity : GOTFixer.structures.get(wp).characters) {
+						xml.println("| " + getEntityPagename(entity.getClass()) + " = " + wp.getDisplayName());
 					}
+					str.clear();
 				}
 				xml.println(end);
 				xml.println("</mediawiki>");
@@ -1516,6 +1570,14 @@ public class DatabaseGenerator extends GOTStructureBase {
 	private void searchForEntities(World world) {
 		for (Class entityClass : GOTEntityRegistry.entitySet) {
 			classToObjectMapping.put(entityClass, GOTReflection.newEntity(entityClass, world));
+		}
+	}
+
+	private void searchForHireable(HashSet<Class> hireable, HashSet<GOTUnitTradeEntries> units) {
+		for (GOTUnitTradeEntries entries : units) {
+			for (GOTUnitTradeEntry entry : entries.tradeEntries) {
+				hireable.add(entry.entityClass);
+			}
 		}
 	}
 

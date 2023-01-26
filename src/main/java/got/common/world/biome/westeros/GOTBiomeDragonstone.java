@@ -19,7 +19,7 @@ import net.minecraft.world.gen.feature.*;
 
 public class GOTBiomeDragonstone extends GOTBiomeWesteros {
 	public WorldGenerator boulderGen = new GOTWorldGenBoulder(Blocks.stone, 0, 2, 4);
-	
+
 	public GOTBiomeDragonstone(int i, boolean major) {
 		super(i, major);
 		decorator.addSoil(new WorldGenMinable(GOTRegistry.obsidianGravel, 32), 20.0f, 0, 64);
