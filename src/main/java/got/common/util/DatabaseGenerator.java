@@ -372,8 +372,8 @@ public class DatabaseGenerator extends GOTStructureBase {
 				for (Class strClass : structures) {
 					xml.println("| " + getStructureName(strClass) + " = " + structureBiomes);
 					next: for (GOTBiome biome : biomes) {
-						if (biome != null && !biome.decorator.randomStructures.isEmpty()) {
-							for (RandomStructure structure : biome.decorator.randomStructures) {
+						if (biome != null && !biome.getDecorator().randomStructures.isEmpty()) {
+							for (RandomStructure structure : biome.getDecorator().randomStructures) {
 								if (structure.structureGen.getClass() == strClass) {
 									xml.println("* " + getBiomeLink(biome) + ";");
 									continue next;
@@ -392,9 +392,9 @@ public class DatabaseGenerator extends GOTStructureBase {
 					xml.println("| " + mineral + " = " + mineralBiomes);
 					next: for (GOTBiome biome : biomes) {
 						if (biome != null) {
-							List<OreGenerant> oreGenerants = new ArrayList<>(biome.decorator.biomeSoils);
-							oreGenerants.addAll(biome.decorator.biomeOres);
-							oreGenerants.addAll(biome.decorator.biomeGems);
+							List<OreGenerant> oreGenerants = new ArrayList<>(biome.getDecorator().biomeSoils);
+							oreGenerants.addAll(biome.getDecorator().biomeOres);
+							oreGenerants.addAll(biome.getDecorator().biomeGems);
 							for (OreGenerant oreGenerant : oreGenerants) {
 								Block block = GOTReflection.getOreBlock(oreGenerant.oreGen);
 								int meta = GOTReflection.getOreMeta(oreGenerant.oreGen);
@@ -417,7 +417,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 					HashSet<GOTBiome> biomesVariantTree = new HashSet<>();
 					next: for (GOTBiome biome : biomes) {
 						if (biome != null) {
-							for (WeightedTreeType weightedTreeType : biome.decorator.treeTypes) {
+							for (WeightedTreeType weightedTreeType : biome.getDecorator().treeTypes) {
 								if (weightedTreeType.treeType == tree) {
 									biomesTree.add(biome);
 									continue next;
@@ -453,7 +453,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				xml.println(begin);
 				for (GOTBiome biome : biomes) {
 					if (biome != null) {
-						List<FactionContainer> facContainers = biome.npcSpawnList.factionContainers;
+						List<FactionContainer> facContainers = biome.getNpcSpawnList().factionContainers;
 						if (facContainers.isEmpty()) {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeNoSpawn);
 						} else {
@@ -484,7 +484,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				xml.println(begin);
 				for (GOTBiome biome : biomes) {
 					if (biome != null) {
-						List<FactionContainer> facContainers = biome.npcSpawnList.factionContainers;
+						List<FactionContainer> facContainers = biome.getNpcSpawnList().factionContainers;
 						if (facContainers.isEmpty()) {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeNoConquest);
 						} else {
@@ -524,7 +524,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				xml.println(begin);
 				for (GOTBiome biome : biomes) {
 					if (biome != null) {
-						xml.println("| " + getBiomePagename(biome) + " = " + biome.banditChance);
+						xml.println("| " + getBiomePagename(biome) + " = " + biome.getBanditChance());
 					}
 				}
 				xml.println(end);
@@ -561,7 +561,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 					xml.println(begin);
 					for (GOTBiome biome : biomes) {
 						if (biome != null) {
-							xml.println("| " + getBiomePagename(biome) + " = " + biome.climat);
+							xml.println("| " + getBiomePagename(biome) + " = " + biome.getClimatType());
 						}
 					}
 				}
@@ -587,12 +587,12 @@ public class DatabaseGenerator extends GOTStructureBase {
 				xml.println(begin);
 				for (GOTBiome biome : biomes) {
 					if (biome != null) {
-						if (biome.invasionSpawns.registeredInvasions.isEmpty()) {
+						if (biome.getInvasionSpawns().registeredInvasions.isEmpty()) {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeNoInvasions);
 						} else {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeHasInvasions);
 							HashSet<GOTFaction> invasionFactions = new HashSet<>();
-							next: for (GOTInvasions invasion : biome.invasionSpawns.registeredInvasions) {
+							next: for (GOTInvasions invasion : biome.getInvasionSpawns().registeredInvasions) {
 								for (InvasionSpawnEntry entry : invasion.invasionMobs) {
 									Entity entity = classToObjectMapping.get(entry.entityClass);
 									if (entity instanceof GOTEntityNPC) {
@@ -649,7 +649,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 					if (biome != null) {
 						HashSet<GOTTreeType> treesBiome = new HashSet<>();
 						HashMap<GOTTreeType, GOTBiomeVariant> treesVariant = new HashMap<>();
-						for (WeightedTreeType weightedTreeType : biome.decorator.treeTypes) {
+						for (WeightedTreeType weightedTreeType : biome.getDecorator().treeTypes) {
 							treesBiome.add(weightedTreeType.treeType);
 						}
 						for (VariantBucket variantBucket : biome.getBiomeVariantsSmall().variantList) {
@@ -713,9 +713,9 @@ public class DatabaseGenerator extends GOTStructureBase {
 				for (GOTBiome biome : biomes) {
 					if (biome != null) {
 						xml.println("| " + getBiomePagename(biome) + " = " + biomeMinerals);
-						List<OreGenerant> oreGenerants = new ArrayList<>(biome.decorator.biomeSoils);
-						oreGenerants.addAll(biome.decorator.biomeOres);
-						oreGenerants.addAll(biome.decorator.biomeGems);
+						List<OreGenerant> oreGenerants = new ArrayList<>(biome.getDecorator().biomeSoils);
+						oreGenerants.addAll(biome.getDecorator().biomeOres);
+						oreGenerants.addAll(biome.getDecorator().biomeGems);
 						for (OreGenerant oreGenerant : oreGenerants) {
 							Block block = GOTReflection.getOreBlock(oreGenerant.oreGen);
 							int meta = GOTReflection.getOreMeta(oreGenerant.oreGen);
@@ -747,11 +747,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 				xml.println(begin);
 				for (GOTBiome biome : biomes) {
 					if (biome != null) {
-						if (biome.decorator.randomStructures.isEmpty()) {
+						if (biome.getDecorator().randomStructures.isEmpty()) {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeNoStructures);
 						} else {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeHasStructures);
-							for (RandomStructure structure : biome.decorator.randomStructures) {
+							for (RandomStructure structure : biome.getDecorator().randomStructures) {
 								xml.println("* [[" + getStructureName(structure.structureGen.getClass()) + "]];");
 							}
 						}
@@ -788,8 +788,8 @@ public class DatabaseGenerator extends GOTStructureBase {
 				for (GOTFaction fac : factions) {
 					HashSet<GOTBiome> invasionBiomes = new HashSet<>();
 					next: for (GOTBiome biome : biomes) {
-						if (biome != null && !biome.invasionSpawns.registeredInvasions.isEmpty()) {
-							for (GOTInvasions invasion : biome.invasionSpawns.registeredInvasions) {
+						if (biome != null && !biome.getInvasionSpawns().registeredInvasions.isEmpty()) {
+							for (GOTInvasions invasion : biome.getInvasionSpawns().registeredInvasions) {
 								for (InvasionSpawnEntry entry : invasion.invasionMobs) {
 									Entity entity = classToObjectMapping.get(entry.entityClass);
 									if (entity instanceof GOTEntityNPC && fac == ((GOTEntityNPC) entity).getFaction()) {
@@ -817,7 +817,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 					HashSet<GOTBiome> spawnBiomes = new HashSet<>();
 					next: for (GOTBiome biome : biomes) {
 						if (biome != null) {
-							List<FactionContainer> facContainers = biome.npcSpawnList.factionContainers;
+							List<FactionContainer> facContainers = biome.getNpcSpawnList().factionContainers;
 							if (!facContainers.isEmpty()) {
 								ArrayList<FactionContainer> spawnContainers = new ArrayList<>();
 								for (FactionContainer facContainer : facContainers) {
@@ -859,7 +859,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 					HashSet<GOTBiome> conquestBiomes = new HashSet<>();
 					next: for (GOTBiome biome : biomes) {
 						if (biome != null) {
-							List<FactionContainer> facContainers = biome.npcSpawnList.factionContainers;
+							List<FactionContainer> facContainers = biome.getNpcSpawnList().factionContainers;
 							if (!facContainers.isEmpty()) {
 								ArrayList<FactionContainer> conquestContainers = new ArrayList<>();
 								for (FactionContainer facContainer : facContainers) {
@@ -1132,8 +1132,8 @@ public class DatabaseGenerator extends GOTStructureBase {
 							spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
 							spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.creature));
 							spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.monster));
-							spawnEntries.addAll(biome.spawnableGOTAmbientList);
-							for (FactionContainer facContainer : biome.npcSpawnList.factionContainers) {
+							spawnEntries.addAll(biome.getSpawnableGOTAmbientList());
+							for (FactionContainer facContainer : biome.getNpcSpawnList().factionContainers) {
 								if (facContainer.baseWeight > 0) {
 									for (SpawnListContainer container : facContainer.spawnLists) {
 										spawnEntries.addAll(container.spawnList.spawnList);
@@ -1144,8 +1144,8 @@ public class DatabaseGenerator extends GOTStructureBase {
 									}
 								}
 							}
-							if (!biome.invasionSpawns.registeredInvasions.isEmpty()) {
-								for (GOTInvasions invasion : biome.invasionSpawns.registeredInvasions) {
+							if (!biome.getInvasionSpawns().registeredInvasions.isEmpty()) {
+								for (GOTInvasions invasion : biome.getInvasionSpawns().registeredInvasions) {
 									invasionEntries.addAll(invasion.invasionMobs);
 								}
 							}
@@ -1637,9 +1637,9 @@ public class DatabaseGenerator extends GOTStructureBase {
 	private void searchForMinerals(HashSet<GOTBiome> biomes, HashSet<String> minerals) {
 		for (GOTBiome biome : biomes) {
 			if (biome != null) {
-				List<OreGenerant> oreGenerants = new ArrayList<>(biome.decorator.biomeSoils);
-				oreGenerants.addAll(biome.decorator.biomeOres);
-				oreGenerants.addAll(biome.decorator.biomeGems);
+				List<OreGenerant> oreGenerants = new ArrayList<>(biome.getDecorator().biomeSoils);
+				oreGenerants.addAll(biome.getDecorator().biomeOres);
+				oreGenerants.addAll(biome.getDecorator().biomeGems);
 				for (OreGenerant oreGenerant : oreGenerants) {
 					WorldGenMinable gen = oreGenerant.oreGen;
 					Block block = GOTReflection.getOreBlock(gen);
@@ -1715,8 +1715,8 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 	private void searchForStructures(HashSet<GOTBiome> biomes, HashSet<Class> structures) {
 		for (GOTBiome biome : biomes) {
-			if (biome != null && !biome.decorator.randomStructures.isEmpty()) {
-				for (RandomStructure structure : biome.decorator.randomStructures) {
+			if (biome != null && !biome.getDecorator().randomStructures.isEmpty()) {
+				for (RandomStructure structure : biome.getDecorator().randomStructures) {
 					structures.add(structure.structureGen.getClass());
 				}
 			}

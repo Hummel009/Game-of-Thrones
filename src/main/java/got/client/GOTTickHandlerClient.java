@@ -869,13 +869,13 @@ public class GOTTickHandlerClient {
 					int clouds1 = 11842740;
 					int fog0 = 16777215;
 					int fog1 = 10197915;
-					gotbiome.biomeColors.setSky(GOTColorUtil.lerpColors_I(sky0, sky1, wightFactor));
-					gotbiome.biomeColors.setClouds(GOTColorUtil.lerpColors_I(clouds0, clouds1, wightFactor));
-					gotbiome.biomeColors.setFog(GOTColorUtil.lerpColors_I(fog0, fog1, wightFactor));
+					gotbiome.getBiomeColors().setSky(GOTColorUtil.lerpColors_I(sky0, sky1, wightFactor));
+					gotbiome.getBiomeColors().setClouds(GOTColorUtil.lerpColors_I(clouds0, clouds1, wightFactor));
+					gotbiome.getBiomeColors().setFog(GOTColorUtil.lerpColors_I(fog0, fog1, wightFactor));
 				} else {
-					gotbiome.biomeColors.resetSky();
-					gotbiome.biomeColors.resetClouds();
-					gotbiome.biomeColors.resetFog();
+					gotbiome.getBiomeColors().resetSky();
+					gotbiome.getBiomeColors().resetClouds();
+					gotbiome.getBiomeColors().resetFog();
 				}
 			}
 			GL11.glFogf(2915, fogStart);

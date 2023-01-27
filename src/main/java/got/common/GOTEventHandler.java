@@ -1296,7 +1296,7 @@ public class GOTEventHandler implements IFuelHandler {
 				int j = MathHelper.floor_double(entity.boundingBox.minY);
 				int k = MathHelper.floor_double(entity.posZ);
 				BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
-				if ((biome.temperature == 0.0F || biome instanceof GOTBiome && ((GOTBiome) biome).isAltitudeZone && j >= 140) && (world.canBlockSeeTheSky(i, j, k) || entity.isInWater()) && world.getSavedLightValue(EnumSkyBlock.Block, i, j, k) < 10) {
+				if ((biome.temperature == 0.0F || biome instanceof GOTBiome && ((GOTBiome) biome).getClimatType().isAltitudeZone() && j >= 140) && (world.canBlockSeeTheSky(i, j, k) || entity.isInWater()) && world.getSavedLightValue(EnumSkyBlock.Block, i, j, k) < 10) {
 					int frostChance = 50;
 					int frostProtection = 0;
 					for (int l = 0; l < 4; l++) {
@@ -1376,10 +1376,6 @@ public class GOTEventHandler implements IFuelHandler {
 			}
 			event.setCanceled(true);
 		}
-	}
-
-	@SubscribeEvent
-	public void onMinecartUpdate(MinecartUpdateEvent event) {
 	}
 
 	@SubscribeEvent

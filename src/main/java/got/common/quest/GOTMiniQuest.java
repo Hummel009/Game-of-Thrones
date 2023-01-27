@@ -449,7 +449,7 @@ public abstract class GOTMiniQuest {
 		nbt.setInteger("DateGiven", dateGiven);
 		if (biomeGiven != null) {
 			nbt.setByte("BiomeID", (byte) biomeGiven.biomeID);
-			nbt.setString("BiomeDim", biomeGiven.biomeDimension.dimensionName);
+			nbt.setString("BiomeDim", biomeGiven.getBiomeDimension().dimensionName);
 		}
 		nbt.setFloat("RewardFactor", rewardFactor);
 		nbt.setBoolean("WillHire", willHire);

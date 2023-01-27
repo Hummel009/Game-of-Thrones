@@ -211,33 +211,24 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome yiTiWasteland;
 	public static GOTBiome yunkai;
 
-	public GOTDimension biomeDimension;
-	public GOTBiomeDecorator decorator;
-	public int topBlockMeta = 0;
-	public int fillerBlockMeta = 0;
-	public float temperatureBase;
-	public float rainfallBase;
-	public float heightBaseParameter;
-	public boolean enablePodzol = true;
-	public boolean enableRocky = false;
-	public GOTBiomeVariantList biomeVariantsLarge = new GOTBiomeVariantList();
-	public GOTBiomeVariantList biomeVariantsSmall = new GOTBiomeVariantList();
-	public GOTBiomeSpawnList npcSpawnList = new GOTBiomeSpawnList(this);
-	public List spawnableGOTAmbientList = new ArrayList();
-	public GOTEventSpawner.EventChance banditChance;
-	public Class<? extends GOTEntityWesterosBandit> banditEntityClass;
-	public GOTBiomeInvasionSpawns invasionSpawns;
-	public BiomeColors biomeColors = new BiomeColors(this);
-	public BiomeTerrain biomeTerrain = new BiomeTerrain(this);
-	public float variantChance = 0.4f;
-	public boolean isAltitudeZone;
-	public boolean isAlwaysWinter;
-	public boolean isNeverWinter;
-	public boolean isSeasonalWinter;
-	public boolean isLongWinter;
-	public boolean isNeverWinterAZ;
-	public boolean isSeasonalWinterAZ;
-	public String climat;
+	protected GOTBiomeDecorator decorator;
+	protected int topBlockMeta = 0;
+	protected int fillerBlockMeta = 0;
+	protected float heightBaseParameter;
+	protected boolean enablePodzol = true;
+	protected boolean enableRocky = false;
+	protected GOTBiomeVariantList biomeVariantsLarge = new GOTBiomeVariantList();
+	protected GOTBiomeVariantList biomeVariantsSmall = new GOTBiomeVariantList();
+	protected GOTBiomeSpawnList npcSpawnList = new GOTBiomeSpawnList(this);
+	protected List spawnableGOTAmbientList = new ArrayList();
+	protected GOTEventSpawner.EventChance banditChance;
+	protected Class<? extends GOTEntityWesterosBandit> banditEntityClass;
+	protected GOTBiomeInvasionSpawns invasionSpawns;
+	protected BiomeColors biomeColors = new BiomeColors(this);
+	protected BiomeTerrain biomeTerrain = new BiomeTerrain(this);
+	protected float variantChance = 0.4f;
+	protected ClimatType climatType;
+	protected GOTDimension biomeDimension;
 
 	public GOTBiome(int i, boolean major) {
 		this(i, major, GOTDimension.GAME_OF_THRONES);
@@ -463,6 +454,10 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public void generateMountainTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, int xzIndex, int ySize, int height, int rockDepth, GOTBiomeVariant variant) {
 	}
 
+	public GOTEventSpawner.EventChance getBanditChance() {
+		return banditChance;
+	}
+
 	public Class<? extends GOTEntityWesterosBandit> getBanditEntityClass() {
 		if (banditEntityClass == null) {
 			return GOTEntityWesterosBandit.class;
@@ -499,6 +494,14 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return null;
 	}
 
+	public BiomeColors getBiomeColors() {
+		return biomeColors;
+	}
+
+	public GOTDimension getBiomeDimension() {
+		return biomeDimension;
+	}
+
 	public String getBiomeDisplayName() {
 		return StatCollector.translateToLocal("got.biome." + biomeName);
 	}
@@ -516,6 +519,10 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	public abstract MusicRegion getBiomeMusic();
+
+	public BiomeTerrain getBiomeTerrain() {
+		return biomeTerrain;
+	}
 
 	public GOTBiomeVariantList getBiomeVariantsLarge() {
 		return biomeVariantsLarge;
@@ -537,6 +544,10 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return 0.2f;
 	}
 
+	public ClimatType getClimatType() {
+		return climatType;
+	}
+
 	public Vec3 getCloudColor(Vec3 clouds) {
 		if (biomeColors.clouds != null) {
 			float[] colors = biomeColors.clouds.getColorComponents(null);
@@ -547,12 +558,20 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return clouds;
 	}
 
+	public GOTBiomeDecorator getDecorator() {
+		return decorator;
+	}
+
 	public boolean getEnableRain() {
 		return enableRain;
 	}
 
 	public boolean getEnableRiver() {
 		return true;
+	}
+
+	public int getFillerBlockMeta() {
+		return fillerBlockMeta;
 	}
 
 	public Vec3 getFogColor(Vec3 fog) {
@@ -565,8 +584,20 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return fog;
 	}
 
+	public float getHeightBaseParameter() {
+		return heightBaseParameter;
+	}
+
+	public GOTBiomeInvasionSpawns getInvasionSpawns() {
+		return invasionSpawns;
+	}
+
 	public String getName() {
 		return StatCollector.translateToLocal("got.biome." + biomeName);
+	}
+
+	public GOTBiomeSpawnList getNpcSpawnList() {
+		return npcSpawnList;
 	}
 
 	public GOTBiomeSpawnList getNPCSpawnList() {
@@ -656,12 +687,20 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return 0;
 	}
 
+	public List getSpawnableGOTAmbientList() {
+		return spawnableGOTAmbientList;
+	}
+
 	@Override
 	public List getSpawnableList(EnumCreatureType creatureType) {
 		if (creatureType == creatureType_GOTAmbient) {
 			return spawnableGOTAmbientList;
 		}
 		return super.getSpawnableList(creatureType);
+	}
+
+	public int getTopBlockMeta() {
+		return topBlockMeta;
 	}
 
 	public WorldGenAbstractTree getTreeGen(World world, Random random, int i, int k) {
@@ -677,6 +716,10 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	public GOTEventSpawner.EventChance getUnreliableChance() {
 		return banditChance;
+	}
+
+	public float getVariantChance() {
+		return variantChance;
 	}
 
 	public GOTBezierType getWallBlock() {
@@ -695,6 +738,14 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return true;
 	}
 
+	public boolean isEnablePodzol() {
+		return enablePodzol;
+	}
+
+	public boolean isEnableRocky() {
+		return enableRocky;
+	}
+
 	public boolean isRiver() {
 		return false;
 	}
@@ -707,9 +758,41 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return stoneNoise;
 	}
 
+	public void setBanditChance(GOTEventSpawner.EventChance banditChance) {
+		this.banditChance = banditChance;
+	}
+
+	public void setBanditEntityClass(Class<? extends GOTEntityWesterosBandit> banditEntityClass) {
+		this.banditEntityClass = banditEntityClass;
+	}
+
+	public void setBiomeColors(BiomeColors biomeColors) {
+		this.biomeColors = biomeColors;
+	}
+
+	public void setBiomeDimension(GOTDimension biomeDimension) {
+		this.biomeDimension = biomeDimension;
+	}
+
 	@Override
 	public GOTBiome setBiomeName(String s) {
 		return (GOTBiome) super.setBiomeName(s);
+	}
+
+	public void setBiomeTerrain(BiomeTerrain biomeTerrain) {
+		this.biomeTerrain = biomeTerrain;
+	}
+
+	public void setBiomeVariantsLarge(GOTBiomeVariantList biomeVariantsLarge) {
+		this.biomeVariantsLarge = biomeVariantsLarge;
+	}
+
+	public void setBiomeVariantsSmall(GOTBiomeVariantList biomeVariantsSmall) {
+		this.biomeVariantsSmall = biomeVariantsSmall;
+	}
+
+	public void setClimat(ClimatType climat) {
+		climatType = climat;
 	}
 
 	@Override
@@ -732,9 +815,28 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return this;
 	}
 
+	public void setEnablePodzol(boolean enablePodzol) {
+		this.enablePodzol = enablePodzol;
+	}
+
+	public void setEnableRocky(boolean enableRocky) {
+		this.enableRocky = enableRocky;
+	}
+
+	public void setFillerBlockMeta(int fillerBlockMeta) {
+		this.fillerBlockMeta = fillerBlockMeta;
+	}
+
+	public void setHeightBaseParameter(float heightBaseParameter) {
+		this.heightBaseParameter = heightBaseParameter;
+	}
+
+	public void setInvasionSpawns(GOTBiomeInvasionSpawns invasionSpawns) {
+		this.invasionSpawns = invasionSpawns;
+	}
+
 	public GOTBiome setIsAlwaysWinter() {
-		isAlwaysWinter = true;
-		climat = "isAlwaysWinter";
+		climatType = ClimatType.WINTER;
 		decorator.flowersPerChunk = 0;
 		decorator.doubleFlowersPerChunk = 0;
 		decorator.canePerChunk = 0;
@@ -744,8 +846,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	public GOTBiome setIsLongWinter() {
-		isLongWinter = true;
-		climat = "isLongWinter";
+		climatType = ClimatType.COLD;
 		decorator.doubleFlowersPerChunk = 0;
 		decorator.canePerChunk = 0;
 		decorator.cornPerChunk = 0;
@@ -754,9 +855,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	public GOTBiome setIsLongWinterAZ() {
-		isLongWinter = true;
-		isAltitudeZone = true;
-		climat = "isLongWinterAZ";
+		climatType = ClimatType.COLD_AZ;
 		decorator.doubleFlowersPerChunk = 0;
 		decorator.canePerChunk = 0;
 		decorator.cornPerChunk = 0;
@@ -765,8 +864,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	public GOTBiome setIsNeverWinter() {
-		isNeverWinter = true;
-		climat = "isNeverWinter";
+		climatType = ClimatType.SUMMER;
 		decorator.canePerChunk = 4;
 		decorator.cornPerChunk = 4;
 		decorator.generateAgriculture = true;
@@ -774,18 +872,15 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	public GOTBiome setIsNeverWinterAZ() {
-		isNeverWinterAZ = true;
-		isAltitudeZone = true;
+		climatType = ClimatType.SUMMER_AZ;
 		decorator.canePerChunk = 4;
 		decorator.cornPerChunk = 4;
 		decorator.generateAgriculture = true;
-		climat = "isNeverWinterAZ";
 		return this;
 	}
 
 	public GOTBiome setIsSeasonalWinter() {
-		isSeasonalWinter = true;
-		climat = "isSeasonalWinter";
+		climatType = ClimatType.NORMAL;
 		decorator.doubleFlowersPerChunk = 0;
 		decorator.canePerChunk = 0;
 		decorator.cornPerChunk = 0;
@@ -794,9 +889,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	public GOTBiome setIsSeasonalWinterAZ() {
-		isSeasonalWinterAZ = true;
-		isAltitudeZone = true;
-		climat = "isSeasonalWinterAZ";
+		climatType = ClimatType.NORMAL_AZ;
 		decorator.doubleFlowersPerChunk = 0;
 		decorator.canePerChunk = 0;
 		decorator.cornPerChunk = 0;
@@ -812,12 +905,22 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return this;
 	}
 
+	public void setNpcSpawnList(GOTBiomeSpawnList npcSpawnList) {
+		this.npcSpawnList = npcSpawnList;
+	}
+
+	public void setSpawnableGOTAmbientList(List spawnableGOTAmbientList) {
+		this.spawnableGOTAmbientList = spawnableGOTAmbientList;
+	}
+
 	@Override
 	public GOTBiome setTemperatureRainfall(float f, float f1) {
-		temperatureBase = f;
-		rainfallBase = f1;
 		super.setTemperatureRainfall(f, f1);
 		return this;
+	}
+
+	public void setTopBlockMeta(int topBlockMeta) {
+		this.topBlockMeta = topBlockMeta;
 	}
 
 	public void setUnreliableChance(GOTEventSpawner.EventChance c) {
@@ -988,6 +1091,10 @@ public abstract class GOTBiome extends BiomeGenBase {
 		spawnableGOTAmbientList.clear();
 	}
 
+	public void setVariantChance(float variantChance) {
+		this.variantChance = variantChance;
+	}
+
 	public int spawnCountMultiplier() {
 		return 1;
 	}
@@ -995,90 +1102,168 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static void performSeasonChanges() {
 		for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.biomeList) {
 			if (biome != null) {
-				if (biome.isAlwaysWinter) {
-					biome.setTemperatureRainfall(0.0F, 2.0F);
-					biome.biomeColors.setGrass(0xffffff);
-					biome.biomeColors.setFoggy(true);
-					biome.biomeColors.setSky(4212300);
-					biome.biomeColors.setFog(6188664);
-					biome.biomeColors.setWater(2635588);
-				}
 				switch (GOTDate.AegonCalendar.getSeason()) {
 				case WINTER:
-					if (biome.isLongWinter || biome.isSeasonalWinter || biome.isSeasonalWinterAZ) {
+					switch (biome.climatType) {
+					case COLD:
+					case COLD_AZ:
+					case NORMAL:
+					case NORMAL_AZ:
 						biome.setTemperatureRainfall(0.0F, 2.0F);
 						biome.biomeColors.setGrass(0xffffff);
 						biome.biomeColors.setSky(4212300);
 						biome.biomeColors.setFog(6188664);
 						biome.biomeColors.setWater(2635588);
-					} else if (biome.isNeverWinter || biome.isNeverWinterAZ) {
+						biome.biomeColors.setFoggy(false);
+						break;
+					case SUMMER:
+					case SUMMER_AZ:
 						biome.setTemperatureRainfall(0.28F, 2.0F);
 						biome.biomeColors.resetGrass();
 						biome.biomeColors.setSky(11653858);
+						biome.biomeColors.resetFog();
+						biome.biomeColors.setWater(2635588);
+						biome.biomeColors.setFoggy(false);
+						break;
+					case WINTER:
+						biome.setTemperatureRainfall(0.0F, 2.0F);
+						biome.biomeColors.setGrass(0xffffff);
+						biome.biomeColors.setSky(4212300);
+						biome.biomeColors.setFog(6188664);
+						biome.biomeColors.setWater(2635588);
+						biome.biomeColors.setFoggy(true);
+						break;
 					}
 					break;
 				case SPRING:
-					if (biome.isLongWinter || biome.isSeasonalWinter || biome.isSeasonalWinterAZ) {
+					switch (biome.climatType) {
+					case COLD:
+					case COLD_AZ:
+					case NORMAL:
+					case NORMAL_AZ:
 						biome.setTemperatureRainfall(0.28F, 0.8F);
 						biome.biomeColors.resetGrass();
 						biome.biomeColors.setSky(11653858);
 						biome.biomeColors.resetFog();
 						biome.biomeColors.setWater(2635588);
-					} else if (biome.isNeverWinter) {
+						biome.biomeColors.setFoggy(false);
+						break;
+					case SUMMER:
 						biome.setTemperatureRainfall(0.8F, 0.8F);
 						biome.biomeColors.resetGrass();
 						biome.biomeColors.resetSky();
-					} else if (biome.isNeverWinterAZ) {
+						biome.biomeColors.resetFog();
+						biome.biomeColors.resetWater();
+						biome.biomeColors.setFoggy(false);
+						break;
+					case SUMMER_AZ:
 						biome.setTemperatureRainfall(0.28F, 0.8F);
 						biome.biomeColors.resetGrass();
 						biome.biomeColors.resetSky();
+						biome.biomeColors.resetFog();
+						biome.biomeColors.resetWater();
+						biome.biomeColors.setFoggy(false);
+						break;
+					case WINTER:
+						biome.setTemperatureRainfall(0.0F, 2.0F);
+						biome.biomeColors.setGrass(0xffffff);
+						biome.biomeColors.setSky(4212300);
+						biome.biomeColors.setFog(6188664);
+						biome.biomeColors.setWater(2635588);
+						biome.biomeColors.setFoggy(true);
+						break;
 					}
 					break;
 				case SUMMER:
-					if (biome.isLongWinter) {
+					switch (biome.climatType) {
+					case COLD:
+					case COLD_AZ:
 						biome.setTemperatureRainfall(0.28F, 0.8F);
 						biome.biomeColors.resetGrass();
 						biome.biomeColors.setSky(11653858);
 						biome.biomeColors.resetFog();
 						biome.biomeColors.setWater(2635588);
-					} else if (biome.isSeasonalWinter) {
+						biome.biomeColors.setFoggy(false);
+						break;
+					case NORMAL:
 						biome.setTemperatureRainfall(0.8F, 0.8F);
 						biome.biomeColors.resetGrass();
 						biome.biomeColors.resetSky();
 						biome.biomeColors.resetFog();
 						biome.biomeColors.resetWater();
-					} else if (biome.isSeasonalWinterAZ) {
+						biome.biomeColors.setFoggy(false);
+						break;
+					case NORMAL_AZ:
 						biome.setTemperatureRainfall(0.28F, 0.8F);
 						biome.biomeColors.resetGrass();
 						biome.biomeColors.resetSky();
 						biome.biomeColors.resetFog();
 						biome.biomeColors.resetWater();
-					} else if (biome.isNeverWinter) {
+						biome.biomeColors.setFoggy(false);
+						break;
+					case SUMMER:
 						biome.setTemperatureRainfall(1.2F, 0.4F);
 						biome.biomeColors.setGrass(14538086);
 						biome.biomeColors.setSky(15592678);
-					} else if (biome.isNeverWinterAZ) {
+						biome.biomeColors.resetFog();
+						biome.biomeColors.resetWater();
+						biome.biomeColors.setFoggy(false);
+						break;
+					case SUMMER_AZ:
 						biome.setTemperatureRainfall(0.28F, 0.8F);
 						biome.biomeColors.setGrass(14538086);
 						biome.biomeColors.setSky(15592678);
+						biome.biomeColors.resetFog();
+						biome.biomeColors.resetWater();
+						biome.biomeColors.setFoggy(false);
+						break;
+					case WINTER:
+						biome.setTemperatureRainfall(0.0F, 2.0F);
+						biome.biomeColors.setGrass(0xffffff);
+						biome.biomeColors.setSky(4212300);
+						biome.biomeColors.setFog(6188664);
+						biome.biomeColors.setWater(2635588);
+						biome.biomeColors.setFoggy(true);
+						break;
 					}
 					break;
 				case AUTUMN:
-					if (biome.isLongWinter || biome.isSeasonalWinter || biome.isSeasonalWinterAZ) {
+					switch (biome.climatType) {
+					case COLD:
+					case COLD_AZ:
+					case NORMAL:
+					case NORMAL_AZ:
 						biome.setTemperatureRainfall(0.28F, 2.0F);
 						biome.biomeColors.setGrass(0xd09f4d);
-						biome.biomeColors.setFoggy(true);
 						biome.biomeColors.setSky(11653858);
 						biome.biomeColors.resetFog();
 						biome.biomeColors.setWater(2635588);
-					} else if (biome.isNeverWinter) {
+						biome.biomeColors.setFoggy(true);
+						break;
+					case SUMMER:
 						biome.setTemperatureRainfall(0.8F, 0.8F);
 						biome.biomeColors.resetGrass();
 						biome.biomeColors.resetSky();
-					} else if (biome.isNeverWinterAZ) {
+						biome.biomeColors.resetFog();
+						biome.biomeColors.resetWater();
+						biome.biomeColors.setFoggy(false);
+						break;
+					case SUMMER_AZ:
 						biome.setTemperatureRainfall(0.28F, 0.8F);
 						biome.biomeColors.resetGrass();
 						biome.biomeColors.resetSky();
+						biome.biomeColors.resetFog();
+						biome.biomeColors.resetWater();
+						biome.biomeColors.setFoggy(false);
+						break;
+					case WINTER:
+						biome.setTemperatureRainfall(0.0F, 2.0F);
+						biome.biomeColors.setGrass(0xffffff);
+						biome.biomeColors.setSky(4212300);
+						biome.biomeColors.setFog(6188664);
+						biome.biomeColors.setWater(2635588);
+						biome.biomeColors.setFoggy(true);
+						break;
 					}
 					break;
 				}
@@ -1396,6 +1581,26 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 		public void setXZScale(double d) {
 			xzScale = d;
+		}
+	}
+
+	public enum ClimatType {
+		WINTER("isAlwaysWinter", false), COLD("isLongWinter", false), COLD_AZ("isLongWinterAZ", true), SUMMER("isNeverWinter", false), SUMMER_AZ("isNeverWinterAZ", true), NORMAL("isSeasonalWinter", false), NORMAL_AZ("isSeasonalWinterAZ", true);
+
+		private boolean altitudeZone = false;
+		private String climatName;
+
+		ClimatType(String name, boolean zone) {
+			climatName = name;
+			altitudeZone = zone;
+		}
+
+		public String getClimateName() {
+			return climatName;
+		}
+
+		public boolean isAltitudeZone() {
+			return altitudeZone;
 		}
 	}
 

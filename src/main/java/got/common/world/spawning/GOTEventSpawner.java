@@ -88,7 +88,7 @@ public class GOTEventSpawner {
 			if (chunkposition == null || !((biome = world.getBiomeGenForCoords(i = chunkposition.chunkPosX, k = chunkposition.chunkPosZ)) instanceof GOTBiome)) {
 				continue;
 			}
-			GOTBiomeInvasionSpawns invasionSpawns = ((GOTBiome) biome).invasionSpawns;
+			GOTBiomeInvasionSpawns invasionSpawns = ((GOTBiome) biome).getInvasionSpawns();
 			for (EventChance invChance : EventChance.values()) {
 				int range;
 				List<GOTInvasions> invList = invasionSpawns.getInvasionsForChance(invChance);

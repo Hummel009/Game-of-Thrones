@@ -48,7 +48,7 @@ public class GOTBiomeVariantScrubland extends GOTBiomeVariant {
 			j = height;
 			index = xzIndex * ySize + j;
 			blocks[index] = biome.fillerBlock;
-			meta[index] = (byte) biome.fillerBlockMeta;
+			meta[index] = (byte) biome.getFillerBlockMeta();
 			int logHeight = 1 + random.nextInt(4);
 			for (int j1 = 1; j1 <= logHeight; ++j1) {
 				blocks[index + j1] = Blocks.log;

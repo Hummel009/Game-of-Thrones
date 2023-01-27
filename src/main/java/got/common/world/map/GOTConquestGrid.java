@@ -170,7 +170,7 @@ public class GOTConquestGrid {
 				Iterator<GOTBiome> biome1 = includedBiomes.iterator();
 				while (biome1.hasNext()) {
 					GOTBiome biome2 = biome1.next();
-					if (!biome2.npcSpawnList.isFactionPresent(world, fac)) {
+					if (!biome2.getNpcSpawnList().isFactionPresent(world, fac)) {
 						continue;
 					}
 					cachedFacs.add(fac);

@@ -995,7 +995,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		Block fillerBlock = biome.fillerBlock;
 		int fillerMeta = 0;
 		if (biome instanceof GOTBiome) {
-			fillerMeta = ((GOTBiome) biome).fillerBlockMeta;
+			fillerMeta = ((GOTBiome) biome).getFillerBlockMeta();
 		}
 		setBlockAndMetadata(world, i, j, k, fillerBlock, fillerMeta);
 	}
@@ -1005,7 +1005,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		Block topBlock = biome.topBlock;
 		int topMeta = 0;
 		if (biome instanceof GOTBiome) {
-			topMeta = ((GOTBiome) biome).topBlockMeta;
+			topMeta = ((GOTBiome) biome).getTopBlockMeta();
 		}
 		setBlockAndMetadata(world, i, j, k, topBlock, topMeta);
 	}
