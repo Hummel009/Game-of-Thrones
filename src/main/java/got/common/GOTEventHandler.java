@@ -406,7 +406,6 @@ public class GOTEventHandler implements IFuelHandler {
 		NBTTagCompound data = event.getData();
 		if (!world.isRemote && world.provider instanceof GOTWorldProvider) {
 			GOTBiomeVariantStorage.loadChunkVariants(world, chunk, data);
-			GOTBiome.performSeasonChanges();
 		}
 	}
 
@@ -417,7 +416,6 @@ public class GOTEventHandler implements IFuelHandler {
 		NBTTagCompound data = event.getData();
 		if (!world.isRemote && world.provider instanceof GOTWorldProvider) {
 			GOTBiomeVariantStorage.saveChunkVariants(world, chunk, data);
-			GOTBiome.performSeasonChanges();
 		}
 	}
 
@@ -429,7 +427,6 @@ public class GOTEventHandler implements IFuelHandler {
 		Chunk chunk = world.getChunkFromChunkCoords(chunkCoords.chunkXPos, chunkCoords.chunkZPos);
 		if (!world.isRemote && world.provider instanceof GOTWorldProvider) {
 			GOTBiomeVariantStorage.sendChunkVariantsToPlayer(world, chunk, entityplayer);
-			GOTBiome.performSeasonChanges();
 		}
 	}
 
@@ -441,7 +438,6 @@ public class GOTEventHandler implements IFuelHandler {
 		Chunk chunk = world.getChunkFromChunkCoords(chunkCoords.chunkXPos, chunkCoords.chunkZPos);
 		if (!world.isRemote && world.provider instanceof GOTWorldProvider) {
 			GOTBiomeVariantStorage.sendUnwatchToPlayer(world, chunk, entityplayer);
-			GOTBiome.performSeasonChanges();
 		}
 	}
 
