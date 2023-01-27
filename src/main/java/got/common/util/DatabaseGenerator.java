@@ -690,10 +690,10 @@ public class DatabaseGenerator extends GOTStructureBase {
 				for (GOTBiome biome : biomes) {
 					if (biome != null) {
 						xml.println("| " + getBiomePagename(biome) + " = " + biomeMinerals);
-						List<OreGenerant> generants = new ArrayList<>(biome.decorator.biomeSoils);
-						generants.addAll(biome.decorator.biomeOres);
-						generants.addAll(biome.decorator.biomeGems);
-						for (OreGenerant oreGenerant : generants) {
+						List<OreGenerant> oreGenerants = new ArrayList<>(biome.decorator.biomeSoils);
+						oreGenerants.addAll(biome.decorator.biomeOres);
+						oreGenerants.addAll(biome.decorator.biomeGems);
+						for (OreGenerant oreGenerant : oreGenerants) {
 							Block block = GOTReflection.getOreBlock(oreGenerant.oreGen);
 							int meta = GOTReflection.getOreMeta(oreGenerant.oreGen);
 
@@ -797,9 +797,9 @@ public class DatabaseGenerator extends GOTStructureBase {
 							List<FactionContainer> facContainers = biome.npcSpawnList.factionContainers;
 							if (!facContainers.isEmpty()) {
 								ArrayList<FactionContainer> spawnContainers = new ArrayList<>();
-								for (FactionContainer container : facContainers) {
-									if (container.baseWeight > 0) {
-										spawnContainers.add(container);
+								for (FactionContainer facContainer : facContainers) {
+									if (facContainer.baseWeight > 0) {
+										spawnContainers.add(facContainer);
 									}
 								}
 								if (!spawnContainers.isEmpty()) {
@@ -839,9 +839,9 @@ public class DatabaseGenerator extends GOTStructureBase {
 							List<FactionContainer> facContainers = biome.npcSpawnList.factionContainers;
 							if (!facContainers.isEmpty()) {
 								ArrayList<FactionContainer> conquestContainers = new ArrayList<>();
-								for (FactionContainer container : facContainers) {
-									if (container.baseWeight <= 0) {
-										conquestContainers.add(container);
+								for (FactionContainer facContainer : facContainers) {
+									if (facContainer.baseWeight <= 0) {
+										conquestContainers.add(facContainer);
 									}
 								}
 								if (!conquestContainers.isEmpty()) {
@@ -1616,10 +1616,10 @@ public class DatabaseGenerator extends GOTStructureBase {
 	private void searchForMinerals(HashSet<GOTBiome> biomes, HashSet<String> minerals) {
 		for (GOTBiome biome : biomes) {
 			if (biome != null) {
-				List<OreGenerant> generants = new ArrayList<>(biome.decorator.biomeSoils);
-				generants.addAll(biome.decorator.biomeOres);
-				generants.addAll(biome.decorator.biomeGems);
-				for (OreGenerant oreGenerant : generants) {
+				List<OreGenerant> oreGenerants = new ArrayList<>(biome.decorator.biomeSoils);
+				oreGenerants.addAll(biome.decorator.biomeOres);
+				oreGenerants.addAll(biome.decorator.biomeGems);
+				for (OreGenerant oreGenerant : oreGenerants) {
 					WorldGenMinable gen = oreGenerant.oreGen;
 					Block block = GOTReflection.getOreBlock(gen);
 					int meta = GOTReflection.getOreMeta(gen);
