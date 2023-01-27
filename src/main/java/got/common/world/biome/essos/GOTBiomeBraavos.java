@@ -35,6 +35,8 @@ public class GOTBiomeBraavos extends GOTBiomeEssos {
 		decorator.addTree(GOTTreeType.OAK_LARGE, 30);
 		decorator.addTree(GOTTreeType.MAPLE, 100);
 		decorator.addTree(GOTTreeType.MAPLE_LARGE, 10);
+		decorator.addTree(GOTTreeType.MAPLE_PARTY, 2);
+		decorator.addTree(GOTTreeType.ARAMANT, 5);
 		decorator.addVillage(new GOTStructureBraavosCity(this, 1.0f));
 		invasionSpawns.addInvasion(GOTInvasions.VOLANTIS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.PENTOS, GOTEventSpawner.EventChance.UNCOMMON);

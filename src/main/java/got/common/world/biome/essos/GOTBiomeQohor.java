@@ -36,6 +36,7 @@ public class GOTBiomeQohor extends GOTBiomeEssos {
 		decorator.addTree(GOTTreeType.LARCH, 300);
 		decorator.addTree(GOTTreeType.MAPLE, 100);
 		decorator.addTree(GOTTreeType.MAPLE_LARGE, 10);
+		decorator.addTree(GOTTreeType.MAPLE_PARTY, 2);
 		decorator.addVillage(new GOTStructureQohorCity(this, 1.0f));
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.QOHOR_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));

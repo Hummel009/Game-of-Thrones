@@ -33,11 +33,14 @@ public class GOTBiomeUlthos extends GOTBiome {
 		decorator.doubleGrassPerChunk = 10;
 		decorator.cornPerChunk = 4;
 		decorator.clearTrees();
+		decorator.addTree(GOTTreeType.ULTHOS_OAK_DEAD, 20);
 		decorator.addTree(GOTTreeType.ULTHOS_OAK_LARGE, 1000);
 		decorator.addTree(GOTTreeType.OAK_LARGE, 300);
 		decorator.addTree(GOTTreeType.SPRUCE, 200);
 		decorator.addTree(GOTTreeType.FIR, 200);
 		decorator.addTree(GOTTreeType.PINE, 400);
+		decorator.addTree(GOTTreeType.DARK_OAK, 200);
+		decorator.addTree(GOTTreeType.DARK_OAK_PARTY, 10);
 		decorator.addSoil(new WorldGenMinable(GOTRegistry.obsidianGravel, 32), 20.0f, 0, 64);
 	}
 

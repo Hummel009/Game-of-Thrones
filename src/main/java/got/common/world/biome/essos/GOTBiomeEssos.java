@@ -40,6 +40,7 @@ public class GOTBiomeEssos extends GOTBiome {
 		decorator.cactiPerChunk = 1;
 		decorator.cornPerChunk = 4;
 		decorator.addTree(GOTTreeType.ACACIA, 300);
+		decorator.addTree(GOTTreeType.ACACIA_DEAD, 1);
 		decorator.addTree(GOTTreeType.ALMOND, 5);
 		decorator.addTree(GOTTreeType.BAOBAB, 20);
 		decorator.addTree(GOTTreeType.CEDAR, 300);
@@ -56,6 +57,8 @@ public class GOTBiomeEssos extends GOTBiome {
 		decorator.addTree(GOTTreeType.PALM, 500);
 		decorator.addTree(GOTTreeType.PLUM, 5);
 		decorator.addTree(GOTTreeType.DRAGONBLOOD, 50);
+		decorator.addTree(GOTTreeType.DRAGONBLOOD_HUGE, 5);
+		decorator.addTree(GOTTreeType.DRAGONBLOOD_LARGE, 1);
 		decorator.addTree(GOTTreeType.KANUKA, 50);
 		decorator.addOre(new WorldGenMinable(Blocks.lapis_ore, 6), 1.0f, 0, 48);
 		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);

@@ -7,6 +7,7 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.feature.GOTTreeType;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 
@@ -31,6 +32,14 @@ public class GOTBiomeSothoryosMangrove extends GOTBiomeSothoryosJungle {
 		decorator.clearVillages();
 		decorator.clearRandomStructures();
 		npcSpawnList.clear();
+		decorator.clearTrees();
+		decorator.addTree(GOTTreeType.JUNGLE, 1000);
+		decorator.addTree(GOTTreeType.JUNGLE_LARGE, 500);
+		decorator.addTree(GOTTreeType.MAHOGANY, 500);
+		decorator.addTree(GOTTreeType.MANGROVE, 500);
+		decorator.addTree(GOTTreeType.JUNGLE_SHRUB, 1000);
+		decorator.addTree(GOTTreeType.MANGO, 20);
+		decorator.addTree(GOTTreeType.BANANA, 50);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);

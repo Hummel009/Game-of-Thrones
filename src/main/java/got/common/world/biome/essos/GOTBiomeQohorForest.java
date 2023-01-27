@@ -26,6 +26,8 @@ public class GOTBiomeQohorForest extends GOTBiomeQohor {
 		decorator.addTree(GOTTreeType.BEECH, 100);
 		decorator.addTree(GOTTreeType.BEECH_LARGE, 20);
 		decorator.addTree(GOTTreeType.CATALPA, 730);
+		decorator.addTree(GOTTreeType.CATALPA_BOUGHS, 13);
+		decorator.addTree(GOTTreeType.CATALPA_PARTY, 7);
 		decorator.addTree(GOTTreeType.ASPEN, 100);
 		decorator.addTree(GOTTreeType.ASPEN_LARGE, 20);
 		npcSpawnList.clear();

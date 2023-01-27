@@ -32,6 +32,9 @@ public abstract class GOTBiomeWesteros extends GOTBiome {
 		decorator.addTree(GOTTreeType.OAK_LARGE, 300);
 		decorator.addTree(GOTTreeType.BIRCH, 50);
 		decorator.addTree(GOTTreeType.BIRCH_LARGE, 20);
+		decorator.addTree(GOTTreeType.BIRCH_PARTY, 3);
+		decorator.addTree(GOTTreeType.BIRCH_TALL, 4);
+		decorator.addTree(GOTTreeType.BIRCH_DEAD, 1);
 		decorator.addTree(GOTTreeType.BEECH, 50);
 		decorator.addTree(GOTTreeType.BEECH_LARGE, 20);
 		decorator.addTree(GOTTreeType.APPLE, 5);
@@ -39,6 +42,7 @@ public abstract class GOTBiomeWesteros extends GOTBiome {
 		decorator.addTree(GOTTreeType.PLUM, 5);
 		decorator.addTree(GOTTreeType.OLIVE, 1);
 		decorator.addTree(GOTTreeType.ALMOND, 1);
+		decorator.addTree(GOTTreeType.CHESTNUT, 20);
 		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
 		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);

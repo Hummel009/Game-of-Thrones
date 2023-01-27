@@ -23,7 +23,9 @@ public class GOTBiomeMassy extends GOTBiomeDragonstone {
 		decorator.addTree(GOTTreeType.LARCH, 200);
 		decorator.addTree(GOTTreeType.BEECH, 100);
 		decorator.addTree(GOTTreeType.BEECH_LARGE, 20);
-		decorator.addTree(GOTTreeType.BIRCH, 730);
+		decorator.addTree(GOTTreeType.BIRCH, 700);
+		decorator.addTree(GOTTreeType.BIRCH_TALL, 30);
+		decorator.addTree(GOTTreeType.BIRCH_DEAD, 3);
 		decorator.addTree(GOTTreeType.ASPEN, 100);
 		decorator.addTree(GOTTreeType.ASPEN_LARGE, 20);
 		decorator.clearVillages();

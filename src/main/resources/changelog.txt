@@ -1,6 +1,8 @@
 CHANGELOG
 
 >>VERSION 17.9.5
+* Optimized Seasons mechanics. 12x faster and 6x more stable (proved by maths expectation and variance)
+
 * Improved database generator
 * Fixed bug with prostitute
 
