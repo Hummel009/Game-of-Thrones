@@ -998,10 +998,10 @@ public abstract class GOTBiome extends BiomeGenBase {
 				if (biome.isAlwaysWinter) {
 					biome.setTemperatureRainfall(0.0F, 2.0F);
 					biome.biomeColors.setGrass(0xffffff);
+					biome.biomeColors.setFoggy(true);
 					biome.biomeColors.setSky(4212300);
 					biome.biomeColors.setFog(6188664);
 					biome.biomeColors.setWater(2635588);
-					biome.biomeColors.setFoggy(true);
 				}
 				switch (GOTDate.AegonCalendar.getSeason()) {
 				case WINTER:
@@ -1011,14 +1011,10 @@ public abstract class GOTBiome extends BiomeGenBase {
 						biome.biomeColors.setSky(4212300);
 						biome.biomeColors.setFog(6188664);
 						biome.biomeColors.setWater(2635588);
-						biome.biomeColors.setFoggy(false);
 					} else if (biome.isNeverWinter || biome.isNeverWinterAZ) {
 						biome.setTemperatureRainfall(0.28F, 2.0F);
 						biome.biomeColors.resetGrass();
 						biome.biomeColors.setSky(11653858);
-						biome.biomeColors.resetFog();
-						biome.biomeColors.resetWater();
-						biome.biomeColors.setFoggy(false);
 					}
 					break;
 				case SPRING:
@@ -1028,21 +1024,14 @@ public abstract class GOTBiome extends BiomeGenBase {
 						biome.biomeColors.setSky(11653858);
 						biome.biomeColors.resetFog();
 						biome.biomeColors.setWater(2635588);
-						biome.biomeColors.setFoggy(false);
 					} else if (biome.isNeverWinter) {
 						biome.setTemperatureRainfall(0.8F, 0.8F);
 						biome.biomeColors.resetGrass();
 						biome.biomeColors.resetSky();
-						biome.biomeColors.resetFog();
-						biome.biomeColors.resetWater();
-						biome.biomeColors.setFoggy(false);
 					} else if (biome.isNeverWinterAZ) {
 						biome.setTemperatureRainfall(0.28F, 0.8F);
 						biome.biomeColors.resetGrass();
 						biome.biomeColors.resetSky();
-						biome.biomeColors.resetFog();
-						biome.biomeColors.resetWater();
-						biome.biomeColors.setFoggy(false);
 					}
 					break;
 				case SUMMER:
@@ -1052,59 +1041,44 @@ public abstract class GOTBiome extends BiomeGenBase {
 						biome.biomeColors.setSky(11653858);
 						biome.biomeColors.resetFog();
 						biome.biomeColors.setWater(2635588);
-						biome.biomeColors.setFoggy(false);
 					} else if (biome.isSeasonalWinter) {
 						biome.setTemperatureRainfall(0.8F, 0.8F);
 						biome.biomeColors.resetGrass();
 						biome.biomeColors.resetSky();
 						biome.biomeColors.resetFog();
 						biome.biomeColors.resetWater();
-						biome.biomeColors.setFoggy(false);
 					} else if (biome.isSeasonalWinterAZ) {
 						biome.setTemperatureRainfall(0.28F, 0.8F);
 						biome.biomeColors.resetGrass();
 						biome.biomeColors.resetSky();
 						biome.biomeColors.resetFog();
 						biome.biomeColors.resetWater();
-						biome.biomeColors.setFoggy(false);
 					} else if (biome.isNeverWinter) {
 						biome.setTemperatureRainfall(1.2F, 0.4F);
 						biome.biomeColors.setGrass(14538086);
 						biome.biomeColors.setSky(15592678);
-						biome.biomeColors.resetFog();
-						biome.biomeColors.resetWater();
-						biome.biomeColors.setFoggy(false);
 					} else if (biome.isNeverWinterAZ) {
 						biome.setTemperatureRainfall(0.28F, 0.8F);
 						biome.biomeColors.setGrass(14538086);
 						biome.biomeColors.setSky(15592678);
-						biome.biomeColors.resetFog();
-						biome.biomeColors.resetWater();
-						biome.biomeColors.setFoggy(false);
 					}
 					break;
 				case AUTUMN:
 					if (biome.isLongWinter || biome.isSeasonalWinter || biome.isSeasonalWinterAZ) {
 						biome.setTemperatureRainfall(0.28F, 2.0F);
 						biome.biomeColors.setGrass(0xd09f4d);
+						biome.biomeColors.setFoggy(true);
 						biome.biomeColors.setSky(11653858);
 						biome.biomeColors.resetFog();
 						biome.biomeColors.setWater(2635588);
-						biome.biomeColors.setFoggy(true);
 					} else if (biome.isNeverWinter) {
 						biome.setTemperatureRainfall(0.8F, 0.8F);
 						biome.biomeColors.resetGrass();
 						biome.biomeColors.resetSky();
-						biome.biomeColors.resetFog();
-						biome.biomeColors.resetWater();
-						biome.biomeColors.setFoggy(false);
 					} else if (biome.isNeverWinterAZ) {
 						biome.setTemperatureRainfall(0.28F, 0.8F);
 						biome.biomeColors.resetGrass();
 						biome.biomeColors.resetSky();
-						biome.biomeColors.resetFog();
-						biome.biomeColors.resetWater();
-						biome.biomeColors.setFoggy(false);
 					}
 					break;
 				}
