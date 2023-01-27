@@ -10,9 +10,8 @@ import got.common.entity.other.GOTEntityPortal;
 import got.common.faction.*;
 import got.common.fellowship.GOTFellowshipData;
 import got.common.item.other.GOTItemStructureSpawner;
-import got.common.util.*;
+import got.common.util.GOTReflection;
 import got.common.world.*;
-import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariantStorage;
 import got.common.world.map.GOTConquestGrid;
 import got.common.world.spawning.*;
@@ -199,10 +198,6 @@ public class GOTTickHandlerServer {
 			if (world.provider instanceof GOTWorldProvider && world.getTotalWorldTime() % 100L == 0L) {
 				GOTBiomeVariantStorage.performCleanup((WorldServer) world);
 			}
-			long time = System.nanoTime();
-			GOTBiome.performSeasonChanges();
-			long newTime = System.nanoTime();
-			System.out.println("Season changes took " + (newTime - time) / 1.0E3);
 		}
 	}
 }
