@@ -199,7 +199,10 @@ public class GOTTickHandlerServer {
 			if (world.provider instanceof GOTWorldProvider && world.getTotalWorldTime() % 100L == 0L) {
 				GOTBiomeVariantStorage.performCleanup((WorldServer) world);
 			}
+			long time = System.nanoTime();
 			GOTBiome.performSeasonChanges();
+			long newTime = System.nanoTime();
+			System.out.println("Season changes took " + (newTime - time) / 1.0E3);
 		}
 	}
 }
