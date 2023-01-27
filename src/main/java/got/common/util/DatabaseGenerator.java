@@ -1101,46 +1101,48 @@ public class DatabaseGenerator extends GOTStructureBase {
 					HashSet<GOTBiome> invasionBiomes = new HashSet<>();
 					HashSet<GOTBiome> unnaturalBiomes = new HashSet<>();
 					next: for (GOTBiome biome : biomes) {
-						List<SpawnListEntry> spawnEntries = new ArrayList<>();
-						List<SpawnListEntry> conquestEntries = new ArrayList<>();
-						List<InvasionSpawnEntry> invasionEntries = new ArrayList<>();
-						spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.ambient));
-						spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
-						spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.creature));
-						spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.monster));
-						spawnEntries.addAll(biome.spawnableGOTAmbientList);
-						for (FactionContainer facContainer : biome.npcSpawnList.factionContainers) {
-							if (facContainer.baseWeight > 0) {
-								for (SpawnListContainer container : facContainer.spawnLists) {
-									spawnEntries.addAll(container.spawnList.spawnList);
+						if (biome != null) {
+							List<SpawnListEntry> spawnEntries = new ArrayList<>();
+							List<SpawnListEntry> conquestEntries = new ArrayList<>();
+							List<InvasionSpawnEntry> invasionEntries = new ArrayList<>();
+							spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.ambient));
+							spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
+							spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.creature));
+							spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.monster));
+							spawnEntries.addAll(biome.spawnableGOTAmbientList);
+							for (FactionContainer facContainer : biome.npcSpawnList.factionContainers) {
+								if (facContainer.baseWeight > 0) {
+									for (SpawnListContainer container : facContainer.spawnLists) {
+										spawnEntries.addAll(container.spawnList.spawnList);
+									}
+								} else {
+									for (SpawnListContainer container : facContainer.spawnLists) {
+										conquestEntries.addAll(container.spawnList.spawnList);
+									}
 								}
-							} else {
-								for (SpawnListContainer container : facContainer.spawnLists) {
-									conquestEntries.addAll(container.spawnList.spawnList);
+							}
+							if (!biome.invasionSpawns.registeredInvasions.isEmpty()) {
+								for (GOTInvasions invasion : biome.invasionSpawns.registeredInvasions) {
+									invasionEntries.addAll(invasion.invasionMobs);
 								}
 							}
-						}
-						if (!biome.invasionSpawns.registeredInvasions.isEmpty()) {
-							for (GOTInvasions invasion : biome.invasionSpawns.registeredInvasions) {
-								invasionEntries.addAll(invasion.invasionMobs);
+							for (SpawnListEntry entry : spawnEntries) {
+								if (entry.entityClass == entityClass) {
+									spawnBiomes.add(biome);
+									continue next;
+								}
 							}
-						}
-						for (SpawnListEntry entry : spawnEntries) {
-							if (entry.entityClass == entityClass) {
-								spawnBiomes.add(biome);
-								continue next;
+							for (SpawnListEntry entry : conquestEntries) {
+								if (entry.entityClass == entityClass) {
+									conquestBiomes.add(biome);
+									break;
+								}
 							}
-						}
-						for (SpawnListEntry entry : conquestEntries) {
-							if (entry.entityClass == entityClass) {
-								conquestBiomes.add(biome);
-								break;
-							}
-						}
-						for (InvasionSpawnEntry entry : invasionEntries) {
-							if (entry.entityClass == entityClass) {
-								invasionBiomes.add(biome);
-								break;
+							for (InvasionSpawnEntry entry : invasionEntries) {
+								if (entry.entityClass == entityClass) {
+									invasionBiomes.add(biome);
+									break;
+								}
 							}
 						}
 					}
@@ -1367,14 +1369,10 @@ public class DatabaseGenerator extends GOTStructureBase {
 					for (GOTUnitTradeEntries entries : units) {
 						for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 							if (entry.entityClass == entityClass) {
-								if (entry.getPledgeType() == PledgeType.NONE) {
+								if (entry.getPledgeType() == PledgeType.NONE || entry.alignmentRequired >= 101.0f) {
 									xml.println("| " + getEntityPagename(entityClass) + " = " + entry.alignmentRequired);
 								} else {
-									if (entry.alignmentRequired < 101.0f) {
-										xml.println("| " + getEntityPagename(entityClass) + " = +" + 100.0);
-									} else {
-										xml.println("| " + getEntityPagename(entityClass) + " = " + entry.alignmentRequired);
-									}
+									xml.println("| " + getEntityPagename(entityClass) + " = +" + 100.0);
 								}
 								continue next;
 							}
@@ -1635,20 +1633,22 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 	private void searchForPagenamesBiome(HashSet<GOTBiome> biomes, HashSet<GOTFaction> factions) {
 		next: for (GOTBiome biome : biomes) {
-			String preName = getBiomeName(biome);
-			for (GOTFaction fac : factions) {
-				if (preName.equals(getFactionName(fac))) {
-					biomePageMapping.put(preName, preName + " (" + biomePage + ")");
-					continue next;
+			if (biome != null) {
+				String preName = getBiomeName(biome);
+				for (GOTFaction fac : factions) {
+					if (preName.equals(getFactionName(fac))) {
+						biomePageMapping.put(preName, preName + " (" + biomePage + ")");
+						continue next;
+					}
 				}
-			}
-			for (Class entity : GOTEntityRegistry.entitySet) {
-				if (preName.equals(getEntityName(entity))) {
-					biomePageMapping.put(preName, preName + " (" + biomePage + ")");
-					continue next;
+				for (Class entity : GOTEntityRegistry.entitySet) {
+					if (preName.equals(getEntityName(entity))) {
+						biomePageMapping.put(preName, preName + " (" + biomePage + ")");
+						continue next;
+					}
 				}
+				biomePageMapping.put(preName, preName);
 			}
-			biomePageMapping.put(preName, preName);
 		}
 	}
 
@@ -1656,7 +1656,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		next: for (Class mob : GOTEntityRegistry.entitySet) {
 			String preName = getEntityName(mob);
 			for (GOTBiome biome : biomes) {
-				if (preName.equals(getBiomeName(biome))) {
+				if (biome != null && preName.equals(getBiomeName(biome))) {
 					entityPageMapping.put(preName, preName + " (" + entityPage + ")");
 					continue next;
 				}
@@ -1675,7 +1675,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		next: for (GOTFaction fac : factions) {
 			String preName = getFactionName(fac);
 			for (GOTBiome biome : biomes) {
-				if (preName.equals(getBiomeName(biome))) {
+				if (biome != null && preName.equals(getBiomeName(biome))) {
 					factionPageMapping.put(preName, preName + " (" + factionPage + ")");
 					continue next;
 				}
