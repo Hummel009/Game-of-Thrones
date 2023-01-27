@@ -202,7 +202,7 @@ public class GOTTickHandlerServer {
 			long time = System.nanoTime();
 			GOTBiome.performSeasonChanges();
 			long newTime = System.nanoTime();
-			GOTLog.logger.debug("Season changes took " + (newTime - time) / 1.0E9);
+			System.out.println("Season changes took " + (newTime - time) / 1.0E3);
 		}
 	}
 }

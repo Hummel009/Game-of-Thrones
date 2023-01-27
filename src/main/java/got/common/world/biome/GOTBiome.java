@@ -1101,7 +1101,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	public static void performSeasonChanges() {
 		for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.biomeList) {
-			if (biome != null) {
+			if (biome != null && biome.climatType != null) {
 				switch (GOTDate.AegonCalendar.getSeason()) {
 				case WINTER:
 					switch (biome.climatType) {
