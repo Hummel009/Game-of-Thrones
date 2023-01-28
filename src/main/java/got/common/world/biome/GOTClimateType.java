@@ -6,15 +6,15 @@ public enum GOTClimateType {
 	WINTER("isAlwaysWinter", false), COLD("isLongWinter", false), COLD_AZ("isLongWinterAZ", true), SUMMER("isNeverWinter", false), SUMMER_AZ("isNeverWinterAZ", true), NORMAL("isSeasonalWinter", false), NORMAL_AZ("isSeasonalWinterAZ", true);
 
 	private boolean altitudeZone = false;
-	private String climatName;
+	private String climateName;
 	
 	GOTClimateType(String name, boolean zone) {
-		climatName = name;
+		climateName = name;
 		altitudeZone = zone;
 	}
 
 	public String getClimateName() {
-		return climatName;
+		return climateName;
 	}
 
 	public boolean isAltitudeZone() {
