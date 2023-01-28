@@ -27,7 +27,6 @@ public class GOTBiomeNeck extends GOTBiomeWesteros {
 		decorator.grassPerChunk = 8;
 		decorator.doubleGrassPerChunk = 8;
 		decorator.flowersPerChunk = 0;
-		decorator.canePerChunk = 10;
 		decorator.reedPerChunk = 2;
 		decorator.dryReedChance = 1.0f;
 		decorator.clearTrees();

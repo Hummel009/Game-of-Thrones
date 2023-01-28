@@ -5,7 +5,6 @@ CHANGELOG
 
 * Improved biome tree sets. Now no trees are available from creative only. Every tree can be found in the world.
 * Improved database generator
-* Fixed bug with prostitute
 
 >>VERSION 17.9.4
 * Optimization

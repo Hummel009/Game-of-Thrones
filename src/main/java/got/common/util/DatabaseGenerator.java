@@ -561,7 +561,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 					xml.println(begin);
 					for (GOTBiome biome : biomes) {
 						if (biome != null) {
-							xml.println("| " + getBiomePagename(biome) + " = " + biome.getClimatType());
+							xml.println("| " + getBiomePagename(biome) + " = " + biome.getClimateType());
 						}
 					}
 				}

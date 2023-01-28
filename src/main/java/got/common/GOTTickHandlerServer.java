@@ -12,7 +12,7 @@ import got.common.fellowship.GOTFellowshipData;
 import got.common.item.other.GOTItemStructureSpawner;
 import got.common.util.GOTReflection;
 import got.common.world.*;
-import got.common.world.biome.GOTBiome;
+import got.common.world.biome.GOTClimateType;
 import got.common.world.biome.variant.GOTBiomeVariantStorage;
 import got.common.world.map.GOTConquestGrid;
 import got.common.world.spawning.*;
@@ -200,7 +200,7 @@ public class GOTTickHandlerServer {
 				GOTBiomeVariantStorage.performCleanup((WorldServer) world);
 			}
 			if (world.getTotalWorldTime() % 20L == 0L) {
-				GOTBiome.performSeasonChanges();
+				GOTClimateType.performSeasonalChanges();
 			}
 		}
 	}
