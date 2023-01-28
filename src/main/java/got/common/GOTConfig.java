@@ -18,6 +18,7 @@ public class GOTConfig {
 	public static String CATEGORY_GUI;
 	public static String CATEGORY_ENVIRONMENT;
 	public static String CATEGORY_MISC;
+	public static boolean lgbt;
 	public static boolean strictFactionTitleRequirements;
 	public static int customWaypointMinY;
 	public static boolean allowBannerProtection;
@@ -163,6 +164,7 @@ public class GOTConfig {
 		languageCode = config.getString("languageCode", CATEGORY_LANGUAGE, languageCode, "Choose:" + GOT.langsName + ".");
 		enableFellowshipCreation = config.get(CATEGORY_GAMEPLAY, "Enable Fellowship creation", true, "If disabled, admins can still create Fellowships using the command").getBoolean();
 		clearMap = config.get(CATEGORY_GAMEPLAY, "No fixed structures and characters", false, "Useful for servers. Disable fixed structures to build your own").getBoolean();
+		lgbt = config.get(CATEGORY_GAMEPLAY, "Enable LGBT marriages between NPC", false, "RENLY BARATHEON TRIGGERED").getBoolean();
 		allowBannerProtection = config.get(CATEGORY_GAMEPLAY, "Allow Banner Protection", true).getBoolean();
 		enableTitles = config.get(CATEGORY_GAMEPLAY, "Enable Titles", true).getBoolean();
 		allowSelfProtectingBanners = config.get(CATEGORY_GAMEPLAY, "Allow Self-Protecting Banners", true).getBoolean();
