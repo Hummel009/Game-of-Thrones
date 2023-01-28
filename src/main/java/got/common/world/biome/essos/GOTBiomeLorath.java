@@ -41,6 +41,7 @@ public class GOTBiomeLorath extends GOTBiomeEssos {
 		decorator.addTree(GOTTreeType.LARCH, 300);
 		decorator.addTree(GOTTreeType.MAPLE, 100);
 		decorator.addTree(GOTTreeType.MAPLE_LARGE, 10);
+		decorator.addTree(GOTTreeType.MAPLE_PARTY, 2);
 		decorator.addVillage(new GOTStructureLorathCity(this, 1.0f));
 		invasionSpawns.addInvasion(GOTInvasions.IBBEN, GOTEventSpawner.EventChance.UNCOMMON);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();

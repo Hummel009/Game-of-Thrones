@@ -29,7 +29,6 @@ public class GOTBiomeVariant {
 	public static GOTBiomeVariant DEADFOREST_OAK = new GOTBiomeVariantDeadForest(13, "deadForest_oak").addTreeTypes(0.5f, GOTTreeType.OAK_DEAD, 100);
 	public static GOTBiomeVariant DEADFOREST_SPRUCE = new GOTBiomeVariantDeadForest(14, "deadForest_spruce").addTreeTypes(0.5f, GOTTreeType.SPRUCE_DEAD, 100);
 	public static GOTBiomeVariant DEADFOREST_OAK_SPRUCE = new GOTBiomeVariantDeadForest(15, "deadForest_oak_spruce").addTreeTypes(0.5f, GOTTreeType.OAK_DEAD, 100, GOTTreeType.SPRUCE_DEAD, 100);
-	public static GOTBiomeVariant SHRUBLAND_OAK = new GOTBiomeVariant(16, "shrubland_oak", VariantScale.LARGE).setTrees(6.0f).addTreeTypes(0.7f, GOTTreeType.OAK_SHRUB, 100);
 	public static GOTBiomeVariant DENSEFOREST_BIRCH = new GOTBiomeVariantDenseForest(17, "denseForest_birch").addTreeTypes(0.5f, GOTTreeType.BIRCH_LARGE, 600, GOTTreeType.BIRCH_PARTY, 100);
 	public static GOTBiomeVariant SWAMP_LOWLAND = new GOTBiomeVariant(18, "swampLowland", VariantScale.SMALL).setHeight(-0.12f, 0.2f).setTrees(0.5f).setGrass(5.0f).setMarsh();
 	public static GOTBiomeVariant SWAMP_UPLAND = new GOTBiomeVariant(19, "swampUpland", VariantScale.SMALL).setHeight(0.12f, 1.0f).setTrees(6.0f).setGrass(5.0f);
@@ -51,15 +50,11 @@ public class GOTBiomeVariant {
 	public static GOTBiomeVariant ORCHARD_OLIVE = new GOTBiomeVariantOrchard(39, "orchard_olive").addTreeTypes(1.0f, GOTTreeType.OLIVE, 100);
 	public static GOTBiomeVariant ORCHARD_PLUM = new GOTBiomeVariantOrchard(40, "orchard_plum").addTreeTypes(1.0f, GOTTreeType.PLUM, 100);
 	public static GOTBiomeVariant RIVER = new GOTBiomeVariant(41, "river", VariantScale.NONE).setAbsoluteHeight(-0.5f, 0.05f);
-	public static GOTBiomeVariant SCRUBLAND = new GOTBiomeVariantScrubland(42, "scrubland", Blocks.stone).setHeight(0.0f, 0.8f);
-	public static GOTBiomeVariant HILLS_SCRUBLAND = new GOTBiomeVariantScrubland(43, "hills_scrubland", Blocks.stone).setHeight(0.5f, 2.0f);
 	public static GOTBiomeVariant WASTELAND = new GOTBiomeVariantWasteland(44, "wasteland", Blocks.stone).setHeight(0.0f, 0.5f);
 	public static GOTBiomeVariant ORCHARD_DATE = new GOTBiomeVariantOrchard(45, "orchard_date").addTreeTypes(1.0f, GOTTreeType.DATE_PALM, 100);
 	public static GOTBiomeVariant DENSEFOREST_DARK_OAK = new GOTBiomeVariantDenseForest(46, "denseForest_darkOak").addTreeTypes(0.5f, GOTTreeType.DARK_OAK, 600, GOTTreeType.DARK_OAK_PARTY, 100);
 	public static GOTBiomeVariant ORCHARD_POMEGRANATE = new GOTBiomeVariantOrchard(47, "orchard_pomegranate").addTreeTypes(1.0f, GOTTreeType.POMEGRANATE, 100);
 	public static GOTBiomeVariant DUNES = new GOTBiomeVariantDunes(48, "dunes");
-	public static GOTBiomeVariant SCRUBLAND_SAND = new GOTBiomeVariantScrubland(49, "scrubland_sand", Blocks.sandstone).setHeight(0.0f, 0.8f);
-	public static GOTBiomeVariant HILLS_SCRUBLAND_SAND = new GOTBiomeVariantScrubland(50, "hills_scrubland_sand", Blocks.sandstone).setHeight(0.5f, 2.0f);
 	public static GOTBiomeVariant WASTELAND_SAND = new GOTBiomeVariantWasteland(51, "wasteland_sand", Blocks.sandstone).setHeight(0.0f, 0.5f);
 	public static GOTBiomeVariant FOREST_CHERRY = new GOTBiomeVariantForest(52, "forest_cherry").addTreeTypes(0.8f, GOTTreeType.CHERRY, 1000);
 	public static GOTBiomeVariant FOREST_LEMON = new GOTBiomeVariantForest(53, "forest_lemon").addTreeTypes(0.8f, GOTTreeType.LEMON, 1000);

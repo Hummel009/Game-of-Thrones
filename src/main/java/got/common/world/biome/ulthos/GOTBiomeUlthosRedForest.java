@@ -13,6 +13,7 @@ public class GOTBiomeUlthosRedForest extends GOTBiomeUlthosForest {
 		decorator.addTree(GOTTreeType.ULTHOS_RED_OAK_LARGE, 50);
 		decorator.addTree(GOTTreeType.ULTHOS_GREEN_OAK, 15);
 		decorator.addTree(GOTTreeType.ULTHOS_GREEN_OAK_LARGE, 10);
+		decorator.addTree(GOTTreeType.ULTHOS_GREEN_OAK_EXTREME, 1);
 		decorator.addTree(GOTTreeType.OAK, 50);
 		decorator.addTree(GOTTreeType.OAK_LARGE, 100);
 		decorator.addTree(GOTTreeType.ULTHOS_OAK, 50);
@@ -22,6 +23,7 @@ public class GOTBiomeUlthosRedForest extends GOTBiomeUlthosForest {
 		decorator.addTree(GOTTreeType.SPRUCE_MEGA_THIN, 20);
 		decorator.addTree(GOTTreeType.CHESTNUT, 20);
 		decorator.addTree(GOTTreeType.CHESTNUT_LARGE, 50);
+		decorator.addTree(GOTTreeType.CHESTNUT_PARTY, 3);
 		decorator.addTree(GOTTreeType.LARCH, 200);
 		decorator.addTree(GOTTreeType.FIR, 200);
 		decorator.addTree(GOTTreeType.PINE, 400);

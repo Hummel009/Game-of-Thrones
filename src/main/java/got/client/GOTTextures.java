@@ -142,7 +142,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 					color = GOTTextures.getMapOceanColor(true);
 				} else {
 					GOTBiome biome = GOTDimension.GAME_OF_THRONES.biomeList[biomeID];
-					color = biome.heightBaseParameter < 0.0f ? 6453158 : biome.heightBaseParameter > 0.8f ? 14736861 : biome.heightBaseParameter > 0.4f ? 6575407 : biome instanceof GOTBiomeSothoryosHell ? 3290677 : biome.decorator.treesPerChunk > 1 ? 2775058 : biome.temperature < 0.3f ? biome.temperature < 0.2f ? 14215139 : 9470587 : biome.rainfall < 0.2f ? 13548147 : 5468426;
+					color = biome.getHeightBaseParameter() < 0.0f ? 6453158 : biome.getHeightBaseParameter() > 0.8f ? 14736861 : biome.getHeightBaseParameter() > 0.4f ? 6575407 : biome instanceof GOTBiomeSothoryosHell ? 3290677 : biome.getDecorator().treesPerChunk > 1 ? 2775058 : biome.temperature < 0.3f ? biome.temperature < 0.2f ? 14215139 : 9470587 : biome.rainfall < 0.2f ? 13548147 : 5468426;
 				}
 			} else {
 				color = GOTTextures.getSepia(color);

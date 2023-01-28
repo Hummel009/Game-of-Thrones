@@ -7,7 +7,7 @@ import got.GOT;
 import got.client.render.other.*;
 import got.common.*;
 import got.common.util.GOTModChecker;
-import got.common.world.biome.GOTBiome;
+import got.common.world.biome.*;
 import got.common.world.biome.other.GOTBiomeOcean;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -58,10 +58,10 @@ public class GOTWorldProvider extends WorldProvider {
 		if (biome instanceof GOTBiomeOcean) {
 			return GOTBiomeOcean.isFrozen(i, k) && canFreezeIgnoreTemp(i, j, k, isBlockUpdate);
 		}
-		if (((GOTBiome) biome).isAlwaysWinter) {
+		if (((GOTBiome) biome).getClimateType() == GOTClimateType.WINTER) {
 			return worldObj.canBlockFreezeBody(i, j, k, isBlockUpdate);
 		}
-		if (((GOTBiome) biome).isAltitudeZone) {
+		if (((GOTBiome) biome).getClimateType().isAltitudeZone()) {
 			return j >= 140 && worldObj.canBlockFreezeBody(i, j, k, isBlockUpdate);
 		}
 		return false;
@@ -104,10 +104,10 @@ public class GOTWorldProvider extends WorldProvider {
 		if (biome instanceof GOTBiomeOcean) {
 			return GOTBiomeOcean.isFrozen(i, k) && canSnowIgnoreTemp(i, j, k, checkLight);
 		}
-		if (((GOTBiome) biome).isAlwaysWinter) {
+		if (((GOTBiome) biome).getClimateType() == GOTClimateType.WINTER) {
 			return worldObj.canSnowAtBody(i, j, k, checkLight);
 		}
-		if (((GOTBiome) biome).isAltitudeZone) {
+		if (((GOTBiome) biome).getClimateType().isAltitudeZone()) {
 			return j >= 140 && worldObj.canSnowAtBody(i, j, k, checkLight);
 		}
 		return false;

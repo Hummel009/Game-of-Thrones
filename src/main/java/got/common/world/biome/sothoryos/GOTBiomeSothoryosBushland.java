@@ -37,6 +37,7 @@ public class GOTBiomeSothoryosBushland extends GOTBiome {
 		decorator.doubleGrassPerChunk = 10;
 		decorator.cornPerChunk = 4;
 		decorator.addTree(GOTTreeType.ACACIA, 300);
+		decorator.addTree(GOTTreeType.ACACIA_DEAD, 5);
 		decorator.addTree(GOTTreeType.PLUM, 5);
 		decorator.addTree(GOTTreeType.BAOBAB, 20);
 		decorator.addTree(GOTTreeType.CEDAR, 300);

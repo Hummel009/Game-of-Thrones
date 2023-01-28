@@ -28,6 +28,7 @@ public class GOTBiomeRainwood extends GOTBiomeStormlands {
 		decorator.addTree(GOTTreeType.PINE, 100);
 		decorator.addTree(GOTTreeType.MAPLE, 50);
 		decorator.addTree(GOTTreeType.MAPLE_LARGE, 20);
+		decorator.addTree(GOTTreeType.MAPLE_PARTY, 2);
 		decorator.addTree(GOTTreeType.ASPEN, 100);
 		decorator.addTree(GOTTreeType.ASPEN_LARGE, 20);
 		decorator.clearVillages();

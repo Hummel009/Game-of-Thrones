@@ -151,11 +151,11 @@ public class GOTChunkProvider implements IChunkProvider {
 		double heightStretch = 6.0;
 		int noiseCentralIndex = (xSize - 1) / 2 + biomeSampleRadius + ((zSize - 1) / 2 + biomeSampleRadius) * (xSize + biomeSampleWidth);
 		GOTBiome noiseCentralBiome = (GOTBiome) biomesForGeneration[noiseCentralIndex];
-		if (noiseCentralBiome.biomeTerrain.hasXZScale()) {
-			xzNoiseScale = noiseCentralBiome.biomeTerrain.getXZScale();
+		if (noiseCentralBiome.getBiomeTerrain().hasXZScale()) {
+			xzNoiseScale = noiseCentralBiome.getBiomeTerrain().getXZScale();
 		}
-		if (noiseCentralBiome.biomeTerrain.hasHeightStretchFactor()) {
-			heightStretch *= noiseCentralBiome.biomeTerrain.getHeightStretchFactor();
+		if (noiseCentralBiome.getBiomeTerrain().hasHeightStretchFactor()) {
+			heightStretch *= noiseCentralBiome.getBiomeTerrain().getHeightStretchFactor();
 		}
 		noise5 = noiseGen5.generateNoiseOctaves(noise5, i, k, xSize, zSize, 1.121, 1.121, 0.5);
 		noise6 = noiseGen6.generateNoiseOctaves(noise6, i, k, xSize, zSize, 200.0, 200.0, 0.5);

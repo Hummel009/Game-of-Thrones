@@ -6,11 +6,9 @@ import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import got.GOT;
-import got.common.GOTConfig;
 import got.common.block.other.*;
 import got.common.database.GOTRegistry;
 import got.common.tileentity.*;
-import got.common.world.biome.GOTBiome;
 import net.minecraft.block.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.*;
@@ -1009,10 +1007,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int i, int j, int k, Block block, int id, RenderBlocks renderblocks) {
 		boolean fancyGraphics = Minecraft.getMinecraft().gameSettings.fancyGraphics;
-
 		BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
-		boolean snowy = biome instanceof GOTBiome && ((GOTBiome) biome).temperature == 0.0F || biome instanceof GOTBiome && ((GOTBiome) biome).isAltitudeZone && j >= 140;
-
 		if (id == GOT.proxy.getBeaconRenderID()) {
 			renderBeacon(world, i, j, k, renderblocks);
 			return true;
@@ -1057,16 +1052,6 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			return true;
 		}
 		if (id == GOT.proxy.getLeavesRenderID()) {
-			if (snowy) {
-				if (GOTConfig.enableSnowyLeaves) {
-					renderblocks.setOverrideBlockTexture(GOTRegistry.leavesSnowy.getIcon(i, 0));
-					renderblocks.renderStandardBlock(block, i, j, k);
-					renderblocks.clearOverrideBlockTexture();
-				} else {
-					renderblocks.renderStandardBlock(block, i, j, k);
-				}
-				return true;
-			}
 			return renderblocks.renderStandardBlock(block, i, j, k);
 		}
 		if (id == GOT.proxy.getFallenLeavesRenderID()) {

@@ -7,6 +7,7 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTBezierType;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
@@ -25,6 +26,7 @@ public class GOTBiomePentos extends GOTBiomeEssos {
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.1f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.3f);
+		decorator.addTree(GOTTreeType.ARAMANT, 5);
 		decorator.addVillage(new GOTStructurePentosCity(this, 1.0f));
 		invasionSpawns.addInvasion(GOTInvasions.BRAAVOS, GOTEventSpawner.EventChance.UNCOMMON);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();

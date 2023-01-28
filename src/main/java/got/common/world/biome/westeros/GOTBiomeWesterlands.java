@@ -6,6 +6,7 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.*;
 import got.common.world.biome.GOTBiome;
+import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.*;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
@@ -15,6 +16,7 @@ public class GOTBiomeWesterlands extends GOTBiomeWesteros {
 
 	public GOTBiomeWesterlands(int i, boolean major) {
 		super(i, major);
+		decorator.addTree(GOTTreeType.ARAMANT, 5);
 		decorator.addVillage(new GOTStructureWesterlandsCity(this, 1.0f));
 		decorator.addRandomStructure(new GOTStructureWesterlandsWatchfort(false), 800);
 		invasionSpawns.addInvasion(GOTInvasions.DRAGONSTONE, GOTEventSpawner.EventChance.UNCOMMON);

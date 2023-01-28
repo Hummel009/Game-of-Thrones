@@ -2,7 +2,7 @@ package got.common.entity.other;
 
 import java.util.*;
 
-import got.common.GOTLevelData;
+import got.common.*;
 import got.common.database.GOTRegistry;
 import got.common.network.*;
 import net.minecraft.entity.Entity;
@@ -39,7 +39,8 @@ public class GOTFamilyInfo {
 		if (npc.getClass() != theEntity.getClass() || npc.familyInfo.spouseUniqueID != null || npc.familyInfo.getAge() != 0 || npc.getEquipmentInSlot(4) != null) {
 			return false;
 		}
-		if (npc == theEntity || npc.familyInfo.isMale() == isMale() || maleParentID != null && maleParentID == npc.familyInfo.maleParentID || femaleParentID != null && femaleParentID == npc.familyInfo.femaleParentID) {
+		boolean lgbt = GOTConfig.lgbt || (npc.familyInfo.isMale() == isMale());
+		if (lgbt || npc == theEntity || maleParentID != null && maleParentID == npc.familyInfo.maleParentID || femaleParentID != null && femaleParentID == npc.familyInfo.femaleParentID) {
 			return false;
 		}
 		ItemStack heldItem = npc.getEquipmentInSlot(0);

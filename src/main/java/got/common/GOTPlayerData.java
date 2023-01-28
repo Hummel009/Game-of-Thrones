@@ -1795,7 +1795,7 @@ public class GOTPlayerData {
 			int i = MathHelper.floor_double(entityplayer.posX);
 			int k = MathHelper.floor_double(entityplayer.posZ);
 			GOTBiome biome = (GOTBiome) world.provider.getBiomeGenForCoords(i, k);
-			if (biome.biomeDimension == GOTDimension.GAME_OF_THRONES) {
+			if (biome.getBiomeDimension() == GOTDimension.GAME_OF_THRONES) {
 				GOTBiome prevLastBiome = lastBiome;
 				lastBiome = biome;
 				if (prevLastBiome != biome) {
