@@ -300,6 +300,67 @@ public class GOTConnectedTextures {
 			allCombos = new HashMap<>();
 			ArrayList<Set<IconElement>> permutations = new ArrayList<>();
 			boolean[] trueOrFalse = { false, true };
+			for (int i = 0; i < 8192; i++) {
+				boolean base = trueOrFalse[(i >> 0) & 1];
+				boolean left = trueOrFalse[(i >> 1) & 1];
+				boolean right = trueOrFalse[(i >> 2) & 1];
+				boolean top = trueOrFalse[(i >> 3) & 1];
+				boolean bottom = trueOrFalse[(i >> 4) & 1];
+				boolean topLeft = trueOrFalse[(i >> 5) & 1];
+				boolean topRight = trueOrFalse[(i >> 6) & 1];
+				boolean bottomLeft = trueOrFalse[(i >> 7) & 1];
+				boolean bottomRight = trueOrFalse[(i >> 8) & 1];
+				boolean topLeftInv = trueOrFalse[(i >> 9) & 1];
+				boolean topRightInv = trueOrFalse[(i >> 10) & 1];
+				boolean bottomLeftInv = trueOrFalse[(i >> 11) & 1];
+				boolean bottomRightInv = trueOrFalse[(i >> 12) & 1];
+				boolean addBottom;
+				HashSet<IconElement> set = new HashSet<>();
+				if (base) {
+					set.add(BASE);
+				}
+				boolean addLeft = left && (!top || topLeft) && (!bottom || bottomLeft);
+				boolean addRight = right && (!top || topRight) && (!bottom || bottomRight);
+				boolean addTop = top && (!left || topLeft) && (!right || topRight);
+				addBottom = bottom && (!left || bottomLeft) && (!right || bottomRight);
+				if (addLeft) {
+					set.add(SIDE_LEFT);
+				}
+				if (addRight) {
+					set.add(SIDE_RIGHT);
+				}
+				if (addTop) {
+					set.add(SIDE_TOP);
+				}
+				if (addBottom) {
+					set.add(SIDE_BOTTOM);
+				}
+				if (topLeft && addTop && addLeft) {
+					set.add(CORNER_TOPLEFT);
+				}
+				if (topRight && addTop && addRight) {
+					set.add(CORNER_TOPRIGHT);
+				}
+				if (bottomLeft && addBottom && addLeft) {
+					set.add(CORNER_BOTTOMLEFT);
+				}
+				if (bottomRight && addBottom && addRight) {
+					set.add(CORNER_BOTTOMRIGHT);
+				}
+				if (topLeftInv && !topLeft && !addTop && !addLeft) {
+					set.add(INVCORNER_TOPLEFT);
+				}
+				if (topRightInv && !topRight && !addTop && !addRight) {
+					set.add(INVCORNER_TOPRIGHT);
+				}
+				if (bottomLeftInv && !bottomLeft && !addBottom && !addLeft) {
+					set.add(INVCORNER_BOTTOMLEFT);
+				}
+				if (bottomRightInv && !bottomRight && !addBottom && !addRight) {
+					set.add(INVCORNER_BOTTOMRIGHT);
+				}
+				permutations.add(set);
+			}
 			for (boolean base : trueOrFalse) {
 				for (boolean left : trueOrFalse) {
 					for (boolean right : trueOrFalse) {
