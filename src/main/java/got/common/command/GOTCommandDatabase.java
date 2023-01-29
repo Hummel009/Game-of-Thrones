@@ -4,20 +4,18 @@ import java.util.List;
 
 import got.common.util.DatabaseGenerator;
 import got.common.util.DatabaseGenerator.Database;
+import java.util.Collections;
 import net.minecraft.command.*;
 
 public class GOTCommandDatabase extends CommandBase {
 
 	@Override
 	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
-		switch (args.length) {
-		case 1:
+		if (args.length == 1) {
 			List<String> list = Database.getNames();
 			return CommandBase.getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
-		default:
-			break;
 		}
-		return null;
+		return Collections.emptyList();
 	}
 
 	@Override

@@ -280,7 +280,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				PrintWriter fFood = new PrintWriter("hummel/food.txt", "UTF-8");
 				for (Item item : items) {
-					if (item instanceof ItemFood && item != null) {
+					if (item instanceof ItemFood) {
 						int heal = ((ItemFood) item).func_150905_g(null);
 						float saturation = ((ItemFood) item).func_150906_h(null);
 						fFood.println("| " + getItemName(item) + " || " + getItemFilename(item) + " || " + "{{Bar|bread|" + new DecimalFormat("#.##").format(saturation * heal * 2) + "}} || {{Bar|food|" + heal + "}} || " + item.getItemStackLimit());
