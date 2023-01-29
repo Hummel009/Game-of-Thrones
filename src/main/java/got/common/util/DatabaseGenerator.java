@@ -4,6 +4,7 @@ import java.io.*;
 import java.nio.file.*;
 import java.text.DecimalFormat;
 import java.util.*;
+import java.util.Map.Entry;
 import java.util.stream.*;
 
 import got.common.block.other.*;
@@ -39,12 +40,12 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
-import net.minecraft.world.gen.feature.WorldGenMinable;
+import net.minecraft.world.gen.feature.*;
 
 public class DatabaseGenerator extends GOTStructureBase {
 	public static String display = "null";
-	private static HashMap<Class, Entity> classToObjectMapping = new HashMap<>();
-	private static HashMap<Class, GOTWaypoint> classToWaypointMapping = new HashMap<>();
+	private static HashMap<Class<? extends Entity>, Entity> classToObjectMapping = new HashMap<>();
+	private static HashMap<Class<? extends Entity>, GOTWaypoint> classToWaypointMapping = new HashMap<>();
 	private static HashMap<String, String> factionPageMapping = new HashMap<>();
 	private static HashMap<String, String> entityPageMapping = new HashMap<>();
 	private static HashMap<String, String> biomePageMapping = new HashMap<>();
@@ -171,8 +172,8 @@ public class DatabaseGenerator extends GOTStructureBase {
 			HashSet<GOTCapes> capes = new HashSet<>(EnumSet.allOf(GOTCapes.class));
 			HashSet<GOTShields> shields = new HashSet<>(EnumSet.allOf(GOTShields.class));
 			HashSet<String> minerals = new HashSet<>();
-			HashSet<Class> structures = new HashSet<>();
-			HashSet<Class> hireable = new HashSet<>();
+			HashSet<Class<? extends WorldGenerator>> structures = new HashSet<>();
+			HashSet<Class<? extends Entity>> hireable = new HashSet<>();
 			searchForEntities(world);
 			searchForMinerals(biomes, minerals);
 			searchForStructures(biomes, structures);
@@ -293,9 +294,9 @@ public class DatabaseGenerator extends GOTStructureBase {
 				xml.println("<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
 
 				/* ALL PAGES */
-				
+
 				File file = new File("hummel/sitemap.txt");
-				if(!file.exists()){
+				if (!file.exists()) {
 					file.createNewFile();
 				}
 				List<String> sitemap;
@@ -313,7 +314,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 					}
 				}
 
-				for (Class entityClass : classToObjectMapping.keySet()) {
+				for (Class<? extends Entity> entityClass : classToObjectMapping.keySet()) {
 					String pageName = getEntityPagename(entityClass);
 					if (!sitemap.contains(pageName)) {
 						String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u041C\u043E\u0431}}</text></revision></page>";
@@ -351,7 +352,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 					}
 				}
 
-				for (Class strClass : structures) {
+				for (Class<? extends WorldGenerator> strClass : structures) {
 					String pageName = getStructureName(strClass);
 					if (!sitemap.contains(pageName)) {
 						String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u0421\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u0430}}</text></revision></page>";
@@ -369,7 +370,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Structure-Biomes");
 				xml.println(begin);
-				for (Class strClass : structures) {
+				for (Class<? extends WorldGenerator> strClass : structures) {
 					xml.println("| " + getStructureName(strClass) + " = " + structureBiomes);
 					next: for (GOTBiome biome : biomes) {
 						if (biome != null && !biome.getDecorator().randomStructures.isEmpty()) {
@@ -648,7 +649,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				for (GOTBiome biome : biomes) {
 					if (biome != null) {
 						HashSet<GOTTreeType> treesBiome = new HashSet<>();
-						HashMap<GOTTreeType, GOTBiomeVariant> treesVariant = new HashMap<>();
+						EnumMap<GOTTreeType, GOTBiomeVariant> treesVariant = new EnumMap<>(GOTTreeType.class);
 						for (WeightedTreeType weightedTreeType : biome.getDecorator().treeTypes) {
 							treesBiome.add(weightedTreeType.treeType);
 						}
@@ -660,7 +661,8 @@ public class DatabaseGenerator extends GOTStructureBase {
 						if (treesBiome.isEmpty() && treesVariant.isEmpty()) {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeNoTrees);
 						} else {
-							HashMap<GOTTreeType, GOTBiomeVariant> treesVariantOnly = new HashMap<>();
+							EnumMap<GOTTreeType, GOTBiomeVariant> treesVariantOnly = new EnumMap<>(GOTTreeType.class);
+
 							if (treesVariantOnly.isEmpty()) {
 								xml.println("| " + getBiomePagename(biome) + " = " + biomeHasTreesBiomeOnly);
 							} else {
@@ -672,9 +674,9 @@ public class DatabaseGenerator extends GOTStructureBase {
 								}
 							}
 							if (!treesVariantOnly.isEmpty()) {
-								for (GOTTreeType tree : treesVariantOnly.keySet()) {
-									if (!treesBiome.contains(tree)) {
-										xml.println("* [[" + getTreeName(tree) + "]] (" + getBiomeVariantName(treesVariantOnly.get(tree)).toLowerCase() + ")" + ";");
+								for (Entry<GOTTreeType, GOTBiomeVariant> tree : treesVariantOnly.entrySet()) {
+									if (!treesBiome.contains(tree.getKey())) {
+										xml.println("* [[" + getTreeName(tree.getKey()) + "]] (" + getBiomeVariantName(tree.getValue()).toLowerCase() + ")" + ";");
 									}
 								}
 							}
@@ -774,10 +776,10 @@ public class DatabaseGenerator extends GOTStructureBase {
 				xml.println(begin);
 				for (GOTFaction fac : factions) {
 					xml.println("| " + getFactionPagename(fac) + " = ");
-					for (Class entityClass : classToObjectMapping.keySet()) {
-						Entity entity = classToObjectMapping.get(entityClass);
+					for (Entry<Class<? extends Entity>, Entity> entityEntry : classToObjectMapping.entrySet()) {
+						Entity entity = entityEntry.getValue();
 						if (entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).getFaction() == fac && !((GOTEntityNPC) entity).isLegendaryNPC()) {
-							xml.println("* " + getEntityLink(entityClass) + ";");
+							xml.println("* " + getEntityLink(entityEntry.getKey()) + ";");
 						}
 					}
 				}
@@ -987,18 +989,18 @@ public class DatabaseGenerator extends GOTStructureBase {
 				xml.print("<page><title>Template:DB Faction-Chars");
 				xml.println(begin);
 				for (GOTFaction fac : factions) {
-					ArrayList<Class> facCharacters = new ArrayList<>();
-					for (Class entityClass : classToObjectMapping.keySet()) {
-						Entity entity = classToObjectMapping.get(entityClass);
+					ArrayList<Class<? extends Entity>> facCharacters = new ArrayList<>();
+					for (Entry<Class<? extends Entity>, Entity> entityEntry : classToObjectMapping.entrySet()) {
+						Entity entity = entityEntry.getValue();
 						if (entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).getFaction() == fac && ((GOTEntityNPC) entity).isLegendaryNPC()) {
-							facCharacters.add(entityClass);
+							facCharacters.add(entityEntry.getKey());
 						}
 					}
 					if (facCharacters.isEmpty()) {
 						xml.println("| " + getFactionPagename(fac) + " = " + factionNoCharacters);
 					} else {
 						xml.println("| " + getFactionPagename(fac) + " = " + factionHasCharacters);
-						for (Class entityClass : facCharacters) {
+						for (Class<? extends Entity> entityClass : facCharacters) {
 							xml.println("* " + getEntityLink(entityClass) + ";");
 						}
 					}
@@ -1097,8 +1099,8 @@ public class DatabaseGenerator extends GOTStructureBase {
 				xml.print("<page><title>Template:DB Faction-Structures");
 				xml.println(begin);
 				for (GOTFaction fac : factions) {
-					ArrayList<Class> facStructures = new ArrayList<>();
-					for (Class strClass : GOTStructureRegistry.classToFactionMapping.keySet()) {
+					ArrayList<Class<? extends WorldGenerator>> facStructures = new ArrayList<>();
+					for (Class<? extends WorldGenerator> strClass : GOTStructureRegistry.classToFactionMapping.keySet()) {
 						if (GOTStructureRegistry.classToFactionMapping.get(strClass) == fac) {
 							facStructures.add(strClass);
 						}
@@ -1107,7 +1109,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 						xml.println("| " + getFactionPagename(fac) + " = " + factionNoStructures);
 					} else {
 						xml.println("| " + getFactionPagename(fac) + " = ");
-						for (Class str : facStructures) {
+						for (Class<? extends WorldGenerator> str : facStructures) {
 							xml.println("* " + getStructureName(str) + ";");
 						}
 					}
@@ -1118,7 +1120,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Mob-Spawn");
 				xml.println(begin);
-				for (Class entityClass : classToObjectMapping.keySet()) {
+				for (Class<? extends Entity> entityClass : classToObjectMapping.keySet()) {
 					HashSet<GOTBiome> spawnBiomes = new HashSet<>();
 					HashSet<GOTBiome> conquestBiomes = new HashSet<>();
 					HashSet<GOTBiome> invasionBiomes = new HashSet<>();
@@ -1199,15 +1201,15 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>DB Mob-Owner");
 				xml.println(begin);
-				for (Class entityClass : hireable) {
-					HashMap<Class, Class> owners = new HashMap<>();
-					loop: for (Class ownerClass : classToObjectMapping.keySet()) {
-						if (classToObjectMapping.get(ownerClass) instanceof GOTUnitTradeable) {
-							GOTUnitTradeEntries entries = ((GOTUnitTradeable) classToObjectMapping.get(ownerClass)).getUnits();
-							if (!((GOTEntityNPC) classToObjectMapping.get(ownerClass)).isLegendaryNPC()) {
+				for (Class<? extends Entity> entityClass : hireable) {
+					HashMap<Class<? extends Entity>, Class<? extends Entity>> owners = new HashMap<>();
+					loop: for (Entry<Class<? extends Entity>, Entity> ownerEntry : classToObjectMapping.entrySet()) {
+						if (ownerEntry.getValue() instanceof GOTUnitTradeable) {
+							GOTUnitTradeEntries entries = ((GOTUnitTradeable) ownerEntry.getValue()).getUnits();
+							if (!((GOTEntityNPC) ownerEntry.getValue()).isLegendaryNPC()) {
 								for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 									if (entry.entityClass == entityClass) {
-										owners.put(entityClass, ownerClass);
+										owners.put(entityClass, ownerEntry.getKey());
 										break loop;
 									}
 								}
@@ -1215,13 +1217,13 @@ public class DatabaseGenerator extends GOTStructureBase {
 						}
 					}
 					if (owners.isEmpty()) {
-						loop: for (Class ownerClass : classToObjectMapping.keySet()) {
-							if (classToObjectMapping.get(ownerClass) instanceof GOTUnitTradeable) {
-								GOTUnitTradeEntries entries = ((GOTUnitTradeable) classToObjectMapping.get(ownerClass)).getUnits();
-								if (((GOTEntityNPC) classToObjectMapping.get(ownerClass)).isLegendaryNPC()) {
+						loop: for (Entry<Class<? extends Entity>, Entity> ownerEntry : classToObjectMapping.entrySet()) {
+							if (ownerEntry.getValue() instanceof GOTUnitTradeable) {
+								GOTUnitTradeEntries entries = ((GOTUnitTradeable) ownerEntry.getValue()).getUnits();
+								if (((GOTEntityNPC) ownerEntry.getValue()).isLegendaryNPC()) {
 									for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 										if (entry.entityClass == entityClass) {
-											owners.put(entityClass, ownerClass);
+											owners.put(entityClass, ownerEntry.getKey());
 											break loop;
 										}
 									}
@@ -1237,90 +1239,90 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Mob-Health");
 				xml.println(begin);
-				for (Class entityClass : classToObjectMapping.keySet()) {
-					EntityLivingBase entity = (EntityLivingBase) classToObjectMapping.get(entityClass);
-					xml.println("| " + getEntityPagename(entityClass) + " = " + entity.getMaxHealth());
+				for (Entry<Class<? extends Entity>, Entity> entityEntry : classToObjectMapping.entrySet()) {
+					EntityLivingBase entity = (EntityLivingBase) entityEntry.getValue();
+					xml.println("| " + getEntityPagename(entityEntry.getKey()) + " = " + entity.getMaxHealth());
 				}
 				xml.println(end);
 
 				xml.print("<page><title>Template: DB Mob-Rideable1");
 				xml.println(begin);
-				for (Class entityClass : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(entityClass) instanceof GOTEntityNPCRideable) {
-						xml.println("| " + getEntityPagename(entityClass) + " = True");
+				for (Entry<Class<? extends Entity>, Entity> entityEntry : classToObjectMapping.entrySet()) {
+					if (entityEntry.getValue() instanceof GOTEntityNPCRideable) {
+						xml.println("| " + getEntityPagename(entityEntry.getKey()) + " = True");
 					}
 				}
 				xml.println(end);
 
 				xml.print("<page><title>Template:DB Mob-Rideable2");
 				xml.println(begin);
-				for (Class entityClass : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(entityClass) instanceof GOTNPCMount) {
-						xml.println("| " + getEntityPagename(entityClass) + " = True");
+				for (Entry<Class<? extends Entity>, Entity> entityEntry : classToObjectMapping.entrySet()) {
+					if (entityEntry.getValue() instanceof GOTNPCMount) {
+						xml.println("| " + getEntityPagename(entityEntry.getKey()) + " = True");
 					}
 				}
 				xml.println(end);
 
 				xml.print("<page><title>Template:DB Mob-BannerBearer");
 				xml.println(begin);
-				for (Class entityClass : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(entityClass) instanceof GOTBannerBearer) {
-						xml.println("| " + getEntityPagename(entityClass) + " = True");
+				for (Entry<Class<? extends Entity>, Entity> entityEntry : classToObjectMapping.entrySet()) {
+					if (entityEntry.getValue() instanceof GOTBannerBearer) {
+						xml.println("| " + getEntityPagename(entityEntry.getKey()) + " = True");
 					}
 				}
 				xml.println(end);
 
 				xml.print("<page><title>Template:DB Mob-UnitTradeable");
 				xml.println(begin);
-				for (Class entityClass : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(entityClass) instanceof GOTUnitTradeable) {
-						xml.println("| " + getEntityPagename(entityClass) + " = True");
+				for (Entry<Class<? extends Entity>, Entity> entityEntry : classToObjectMapping.entrySet()) {
+					if (entityEntry.getValue() instanceof GOTUnitTradeable) {
+						xml.println("| " + getEntityPagename(entityEntry.getKey()) + " = True");
 					}
 				}
 				xml.println(end);
 
 				xml.print("<page><title>Template:DB Mob-Tradeable");
 				xml.println(begin);
-				for (Class entityClass : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(entityClass) instanceof GOTTradeable) {
-						xml.println("| " + getEntityPagename(entityClass) + " = True");
+				for (Entry<Class<? extends Entity>, Entity> entityEntry : classToObjectMapping.entrySet()) {
+					if (entityEntry.getValue() instanceof GOTTradeable) {
+						xml.println("| " + getEntityPagename(entityEntry.getKey()) + " = True");
 					}
 				}
 				xml.println(end);
 
 				xml.print("<page><title>Template:DB Mob-Smith");
 				xml.println(begin);
-				for (Class entityClass : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(entityClass) instanceof GOTTradeable.Smith) {
-						xml.println("| " + getEntityPagename(entityClass) + " = True");
+				for (Entry<Class<? extends Entity>, Entity> entityEntry : classToObjectMapping.entrySet()) {
+					if (entityEntry.getValue() instanceof GOTTradeable.Smith) {
+						xml.println("| " + getEntityPagename(entityEntry.getKey()) + " = True");
 					}
 				}
 				xml.println(end);
 
 				xml.print("<page><title>Template:DB Mob-Mercenary");
 				xml.println(begin);
-				for (Class entityClass : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(entityClass) instanceof GOTMercenary) {
-						xml.println("| " + getEntityPagename(entityClass) + " = True");
+				for (Entry<Class<? extends Entity>, Entity> entityEntry : classToObjectMapping.entrySet()) {
+					if (entityEntry.getValue() instanceof GOTMercenary) {
+						xml.println("| " + getEntityPagename(entityEntry.getKey()) + " = True");
 					}
 				}
 				xml.println(end);
 
 				xml.print("<page><title>Template:DB Mob-Farmhand");
 				xml.println(begin);
-				for (Class entityClass : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(entityClass) instanceof GOTFarmhand) {
-						xml.println("| " + getEntityPagename(entityClass) + " = True");
+				for (Entry<Class<? extends Entity>, Entity> entityEntry : classToObjectMapping.entrySet()) {
+					if (entityEntry.getValue() instanceof GOTFarmhand) {
+						xml.println("| " + getEntityPagename(entityEntry.getKey()) + " = True");
 					}
 				}
 				xml.println(end);
 
 				xml.print("<page><title>Template:DB Mob-Buys");
 				xml.println(begin);
-				for (Class entityClass : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(entityClass) instanceof GOTTradeable) {
-						GOTTradeEntries entries = ((GOTTradeable) classToObjectMapping.get(entityClass)).getSellPool();
-						xml.println("| " + getEntityPagename(entityClass) + " = ");
+				for (Entry<Class<? extends Entity>, Entity> entityEntry : classToObjectMapping.entrySet()) {
+					if (entityEntry.getValue() instanceof GOTTradeable) {
+						GOTTradeEntries entries = ((GOTTradeable) entityEntry.getValue()).getSellPool();
+						xml.println("| " + getEntityPagename(entityEntry.getKey()) + " = ");
 						for (GOTTradeEntry entry : entries.tradeEntries) {
 							xml.println("* " + entry.tradeItem.getDisplayName() + ": {{Coins|" + entry.getCost() + "}};");
 						}
@@ -1330,10 +1332,10 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Mob-Sells");
 				xml.println(begin);
-				for (Class entityClass : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(entityClass) instanceof GOTTradeable) {
-						GOTTradeEntries entries = ((GOTTradeable) classToObjectMapping.get(entityClass)).getBuyPool();
-						xml.println("| " + getEntityPagename(entityClass) + " = ");
+				for (Entry<Class<? extends Entity>, Entity> entityEntry : classToObjectMapping.entrySet()) {
+					if (entityEntry.getValue() instanceof GOTTradeable) {
+						GOTTradeEntries entries = ((GOTTradeable) entityEntry.getValue()).getBuyPool();
+						xml.println("| " + getEntityPagename(entityEntry.getKey()) + " = ");
 						for (GOTTradeEntry entry : entries.tradeEntries) {
 							xml.println("* " + entry.tradeItem.getDisplayName() + ": {{Coins|" + entry.getCost() + "}};");
 						}
@@ -1343,52 +1345,52 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Mob-Character");
 				xml.println(begin);
-				for (Class entityClass : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(entityClass) instanceof GOTEntityNPC && ((GOTEntityNPC) classToObjectMapping.get(entityClass)).isLegendaryNPC()) {
-						xml.println("| " + getEntityPagename(entityClass) + " = True");
+				for (Entry<Class<? extends Entity>, Entity> entityEntry : classToObjectMapping.entrySet()) {
+					if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).isLegendaryNPC()) {
+						xml.println("| " + getEntityPagename(entityEntry.getKey()) + " = True");
 					}
 				}
 				xml.println(end);
 
 				xml.print("<page><title>Template:DB Mob-ImmuneToFrost");
 				xml.println(begin);
-				for (Class entityClass : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(entityClass) instanceof GOTEntityNPC && ((GOTEntityNPC) classToObjectMapping.get(entityClass)).isImmuneToFrost || classToObjectMapping.get(entityClass) instanceof GOTBiome.ImmuneToFrost) {
-						xml.println("| " + getEntityPagename(entityClass) + " = True");
+				for (Entry<Class<? extends Entity>, Entity> entityEntry : classToObjectMapping.entrySet()) {
+					if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).isImmuneToFrost || entityEntry.getValue() instanceof GOTBiome.ImmuneToFrost) {
+						xml.println("| " + getEntityPagename(entityEntry.getKey()) + " = True");
 					}
 				}
 				xml.println(end);
 
 				xml.print("<page><title>Template:DB Mob-ImmuneToFire");
 				xml.println(begin);
-				for (Class entityClass : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(entityClass).isImmuneToFire()) {
-						xml.println("| " + getEntityPagename(entityClass) + " = True");
+				for (Entry<Class<? extends Entity>, Entity> entityEntry : classToObjectMapping.entrySet()) {
+					if (entityEntry.getValue().isImmuneToFire()) {
+						xml.println("| " + getEntityPagename(entityEntry.getKey()) + " = True");
 					}
 				}
 				xml.println(end);
 
 				xml.print("<page><title>Template:DB Mob-ImmuneToHeat");
 				xml.println(begin);
-				for (Class entityClass : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(entityClass) instanceof GOTBiome.ImmuneToHeat) {
-						xml.println("| " + getEntityPagename(entityClass) + " = True");
+				for (Entry<Class<? extends Entity>, Entity> entityEntry : classToObjectMapping.entrySet()) {
+					if (entityEntry.getValue() instanceof GOTBiome.ImmuneToHeat) {
+						xml.println("| " + getEntityPagename(entityEntry.getKey()) + " = True");
 					}
 				}
 				xml.println(end);
 
 				xml.print("<page><title>Template:DB Mob-SpawnInDarkness");
 				xml.println(begin);
-				for (Class entityClass : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(entityClass) instanceof GOTEntityNPC && ((GOTEntityNPC) classToObjectMapping.get(entityClass)).spawnsInDarkness) {
-						xml.println("| " + getEntityPagename(entityClass) + " = True");
+				for (Entry<Class<? extends Entity>, Entity> entityEntry : classToObjectMapping.entrySet()) {
+					if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).spawnsInDarkness) {
+						xml.println("| " + getEntityPagename(entityEntry.getKey()) + " = True");
 					}
 				}
 				xml.println(end);
 
 				xml.print("<page><title>Template:DB Mob-Alignment");
 				xml.println(begin);
-				next: for (Class entityClass : hireable) {
+				next: for (Class<? extends Entity> entityClass : hireable) {
 					for (GOTUnitTradeEntries entries : units) {
 						for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 							if (entry.entityClass == entityClass) {
@@ -1406,32 +1408,32 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Mob-Marriage");
 				xml.println(begin);
-				for (Class entityClass : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(entityClass) instanceof GOTEntityNPC && ((GOTEntityNPC) classToObjectMapping.get(entityClass)).canBeMarried) {
-						xml.println("| " + getEntityPagename(entityClass) + " = True");
+				for (Entry<Class<? extends Entity>, Entity> entityEntry : classToObjectMapping.entrySet()) {
+					if (entityEntry.getValue() instanceof GOTEntityNPC && ((GOTEntityNPC) entityEntry.getValue()).canBeMarried) {
+						xml.println("| " + getEntityPagename(entityEntry.getKey()) + " = True");
 					}
 				}
 				xml.println(end);
 
 				xml.print("<page><title>Template:DB Mob-Faction");
 				xml.println(begin);
-				for (Class entityClass : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(entityClass) instanceof GOTEntityNPC) {
-						GOTFaction fac = ((GOTEntityNPC) classToObjectMapping.get(entityClass)).getFaction();
-						xml.println("| " + getEntityPagename(entityClass) + " = " + getFactionLink(fac));
+				for (Entry<Class<? extends Entity>, Entity> entityEntry : classToObjectMapping.entrySet()) {
+					if (entityEntry.getValue() instanceof GOTEntityNPC) {
+						GOTFaction fac = ((GOTEntityNPC) entityEntry.getValue()).getFaction();
+						xml.println("| " + getEntityPagename(entityEntry.getKey()) + " = " + getFactionLink(fac));
 					}
 				}
 				xml.println(end);
 
 				xml.print("<page><title>Template:DB Mob-Achievement");
 				xml.println(begin);
-				for (Class entityClass : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(entityClass) instanceof GOTEntityNPC) {
-						GOTAchievement ach = ((GOTEntityNPC) classToObjectMapping.get(entityClass)).getKillAchievement();
+				for (Entry<Class<? extends Entity>, Entity> entityEntry : classToObjectMapping.entrySet()) {
+					if (entityEntry.getValue() instanceof GOTEntityNPC) {
+						GOTAchievement ach = ((GOTEntityNPC) entityEntry.getValue()).getKillAchievement();
 						if (ach != null) {
-							xml.println("| " + getEntityPagename(entityClass) + " = \"" + getAchievementTitle(ach) + "\"");
+							xml.println("| " + getEntityPagename(entityEntry.getKey()) + " = \"" + getAchievementTitle(ach) + "\"");
 						} else {
-							xml.println("| " + getEntityPagename(entityClass) + " = N/A");
+							xml.println("| " + getEntityPagename(entityEntry.getKey()) + " = N/A");
 						}
 					}
 				}
@@ -1439,10 +1441,10 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Mob-Bonus");
 				xml.println(begin);
-				for (Class entityClass : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(entityClass) instanceof GOTEntityNPC) {
-						float bonus = ((GOTEntityNPC) classToObjectMapping.get(entityClass)).getAlignmentBonus();
-						xml.println("| " + getEntityPagename(entityClass) + " = +" + bonus);
+				for (Entry<Class<? extends Entity>, Entity> entityEntry : classToObjectMapping.entrySet()) {
+					if (entityEntry.getValue() instanceof GOTEntityNPC) {
+						float bonus = ((GOTEntityNPC) entityEntry.getValue()).getAlignmentBonus();
+						xml.println("| " + getEntityPagename(entityEntry.getKey()) + " = +" + bonus);
 					}
 				}
 				xml.println(end);
@@ -1471,10 +1473,10 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Mob-Units");
 				xml.println(begin);
-				for (Class ownerClass : classToObjectMapping.keySet()) {
-					if (classToObjectMapping.get(ownerClass) instanceof GOTUnitTradeable) {
-						GOTUnitTradeEntries entries = ((GOTUnitTradeable) classToObjectMapping.get(ownerClass)).getUnits();
-						xml.println("| " + getEntityPagename(ownerClass) + " = ");
+				for (Entry<Class<? extends Entity>, Entity> ownerEntry : classToObjectMapping.entrySet()) {
+					if (ownerEntry.getValue() instanceof GOTUnitTradeable) {
+						GOTUnitTradeEntries entries = ((GOTUnitTradeable) ownerEntry.getValue()).getUnits();
+						xml.println("| " + getEntityPagename(ownerEntry.getKey()) + " = ");
 						for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 							if (entry.mountClass == null) {
 								if (entry.getPledgeType() == PledgeType.NONE) {
@@ -1492,8 +1494,8 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Mob-Waypoint");
 				xml.println(begin);
-				for (Class entityClass : classToWaypointMapping.keySet()) {
-					xml.println("| " + getEntityPagename(entityClass) + " = " + classToWaypointMapping.get(entityClass).getDisplayName());
+				for (Entry<Class<? extends Entity>, GOTWaypoint> entityEntry : classToWaypointMapping.entrySet()) {
+					xml.println("| " + getEntityPagename(entityEntry.getKey()) + " = " + entityEntry.getValue().getDisplayName());
 				}
 				for (GOTWaypoint wp : GOTFixer.structures.keySet()) {
 					GOTStructureBase str = GOTFixer.structures.get(wp);
@@ -1562,7 +1564,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		return "[[File:Cape " + cape.name().toLowerCase() + ".png]]";
 	}
 
-	private String getEntityLink(Class entityClass) {
+	private String getEntityLink(Class<? extends Entity> entityClass) {
 		String entityName = getEntityName(entityClass);
 		String entityPagename = getEntityPagename(entityClass);
 		if (entityName.equals(entityPagename)) {
@@ -1575,7 +1577,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		return StatCollector.translateToLocal("entity.got." + GOTEntityRegistry.classToNameMapping.get(entityClass) + ".name");
 	}
 
-	private String getEntityPagename(Class entityClass) {
+	private String getEntityPagename(Class<? extends Entity> entityClass) {
 		return entityPageMapping.get(getEntityName(entityClass));
 	}
 
@@ -1612,8 +1614,8 @@ public class DatabaseGenerator extends GOTStructureBase {
 		return "[[File:Shield " + shield.name().toLowerCase() + ".png]]";
 	}
 
-	private String getStructureName(Class entityClass) {
-		return StatCollector.translateToLocal("got.structure." + GOTStructureRegistry.classToNameMapping.get(entityClass) + ".name");
+	private String getStructureName(Class<? extends WorldGenerator> structureClass) {
+		return StatCollector.translateToLocal("got.structure." + GOTStructureRegistry.classToNameMapping.get(structureClass) + ".name");
 	}
 
 	private String getTreeName(GOTTreeType tree) {
@@ -1621,12 +1623,12 @@ public class DatabaseGenerator extends GOTStructureBase {
 	}
 
 	private void searchForEntities(World world) {
-		for (Class entityClass : GOTEntityRegistry.entitySet) {
+		for (Class<? extends Entity> entityClass : GOTEntityRegistry.entitySet) {
 			classToObjectMapping.put(entityClass, GOTReflection.newEntity(entityClass, world));
 		}
 	}
 
-	private void searchForHireable(HashSet<Class> hireable, HashSet<GOTUnitTradeEntries> units) {
+	private void searchForHireable(HashSet<Class<? extends Entity>> hireable, HashSet<GOTUnitTradeEntries> units) {
 		for (GOTUnitTradeEntries entries : units) {
 			for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 				hireable.add(entry.entityClass);
@@ -1664,8 +1666,8 @@ public class DatabaseGenerator extends GOTStructureBase {
 						continue next;
 					}
 				}
-				for (Class entity : GOTEntityRegistry.entitySet) {
-					if (preName.equals(getEntityName(entity))) {
+				for (Class<? extends Entity> entityClass : GOTEntityRegistry.entitySet) {
+					if (preName.equals(getEntityName(entityClass))) {
 						biomePageMapping.put(preName, preName + " (" + biomePage + ")");
 						continue next;
 					}
@@ -1676,8 +1678,8 @@ public class DatabaseGenerator extends GOTStructureBase {
 	}
 
 	private void searchForPagenamesEntity(HashSet<GOTBiome> biomes, HashSet<GOTFaction> factions) {
-		next: for (Class mob : GOTEntityRegistry.entitySet) {
-			String preName = getEntityName(mob);
+		next: for (Class<? extends Entity> entityClass : GOTEntityRegistry.entitySet) {
+			String preName = getEntityName(entityClass);
 			for (GOTBiome biome : biomes) {
 				if (biome != null && preName.equals(getBiomeName(biome))) {
 					entityPageMapping.put(preName, preName + " (" + entityPage + ")");
@@ -1703,8 +1705,8 @@ public class DatabaseGenerator extends GOTStructureBase {
 					continue next;
 				}
 			}
-			for (Class entity : GOTEntityRegistry.entitySet) {
-				if (preName.equals(getEntityName(entity))) {
+			for (Class<? extends Entity> entityClass : GOTEntityRegistry.entitySet) {
+				if (preName.equals(getEntityName(entityClass))) {
 					factionPageMapping.put(preName, preName + " (" + factionPage + ")");
 					continue next;
 				}
@@ -1713,7 +1715,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		}
 	}
 
-	private void searchForStructures(HashSet<GOTBiome> biomes, HashSet<Class> structures) {
+	private void searchForStructures(HashSet<GOTBiome> biomes, HashSet<Class<? extends WorldGenerator>> structures) {
 		for (GOTBiome biome : biomes) {
 			if (biome != null && !biome.getDecorator().randomStructures.isEmpty()) {
 				for (RandomStructure structure : biome.getDecorator().randomStructures) {
