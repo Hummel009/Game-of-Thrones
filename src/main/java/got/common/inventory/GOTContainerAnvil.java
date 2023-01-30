@@ -524,7 +524,7 @@ public class GOTContainerAnvil extends Container {
 						return;
 					}
 				}
-				HashMap outputEnchants = new HashMap(inputEnchants);
+				HashMap outputEnchants = new HashMap<>(inputEnchants);
 				if (GOTConfig.enchantingVanilla) {
 					Map combinerEnchants = EnchantmentHelper.getEnchantments(combinerItem);
 					for (Object obj : combinerEnchants.keySet()) {

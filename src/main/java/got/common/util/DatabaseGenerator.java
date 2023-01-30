@@ -53,7 +53,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 	public static String biomePage = StatCollector.translateToLocal("db.biomeLoc.name");
 	public static String factionPage = StatCollector.translateToLocal("db.factionLoc.name");
 	public static String entityPage = StatCollector.translateToLocal("db.entityLoc.name");
-	
+
 	public DatabaseGenerator(boolean flag) {
 		super(flag);
 	}
@@ -121,7 +121,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		String entityConquestOnly = StatCollector.translateToLocal("db.entityConquestOnly.name");
 		String entityInvasionOnly = StatCollector.translateToLocal("db.entityInvasionOnly.name");
 		String entityConquestInvasion = StatCollector.translateToLocal("db.entityConquestInvasion.name");
-		
+
 		classToWaypointMapping.put(GOTEntityYgritte.class, GOTWaypoint.Hardhome);
 		classToWaypointMapping.put(GOTEntityTormund.class, GOTWaypoint.Hardhome);
 		classToWaypointMapping.put(GOTEntityManceRayder.class, GOTWaypoint.Hardhome);
@@ -166,11 +166,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 			HashSet<GOTUnitTradeEntries> units = new HashSet<>(GOTAPI.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class));
 			HashSet<GOTAchievement> achievements = new HashSet<>(GOTAPI.getObjectFieldsOfType(GOTAchievement.class, GOTAchievement.class));
 			HashSet<GOTBiome> biomes = new HashSet<>(GOTAPI.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class));
-			HashSet<GOTFaction> factions = new HashSet<>(EnumSet.allOf(GOTFaction.class));
-			HashSet<GOTTreeType> trees = new HashSet<>(EnumSet.allOf(GOTTreeType.class));
-			HashSet<GOTWaypoint> waypoints = new HashSet<>(EnumSet.allOf(GOTWaypoint.class));
-			HashSet<GOTCapes> capes = new HashSet<>(EnumSet.allOf(GOTCapes.class));
-			HashSet<GOTShields> shields = new HashSet<>(EnumSet.allOf(GOTShields.class));
+			EnumSet<GOTFaction> factions = EnumSet.allOf(GOTFaction.class);
+			EnumSet<GOTTreeType> trees = EnumSet.allOf(GOTTreeType.class);
+			EnumSet<GOTWaypoint> waypoints = EnumSet.allOf(GOTWaypoint.class);
+			EnumSet<GOTCapes> capes = EnumSet.allOf(GOTCapes.class);
+			EnumSet<GOTShields> shields = EnumSet.allOf(GOTShields.class);
 			HashSet<String> minerals = new HashSet<>();
 			HashSet<Class<? extends WorldGenerator>> structures = new HashSet<>();
 			HashSet<Class<? extends Entity>> hireable = new HashSet<>();
@@ -499,7 +499,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 								xml.println("| " + getBiomePagename(biome) + " = " + biomeSpawnOnly);
 							} else {
 								xml.println("| " + getBiomePagename(biome) + " = " + biomeHasConquest);
-								HashSet<GOTFaction> conquestFactions = new HashSet<>();
+								EnumSet<GOTFaction> conquestFactions = EnumSet.allOf(GOTFaction.class);
 								for (FactionContainer facContainer : conqestContainers) {
 									next: for (SpawnListContainer container : facContainer.spawnLists) {
 										for (GOTSpawnEntry entry : container.spawnList.spawnList) {
@@ -592,7 +592,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeNoInvasions);
 						} else {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeHasInvasions);
-							HashSet<GOTFaction> invasionFactions = new HashSet<>();
+							EnumSet<GOTFaction> invasionFactions = EnumSet.allOf(GOTFaction.class);
 							next: for (GOTInvasions invasion : biome.getInvasionSpawns().registeredInvasions) {
 								for (InvasionSpawnEntry entry : invasion.invasionMobs) {
 									Entity entity = classToObjectMapping.get(entry.entityClass);
@@ -648,7 +648,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				xml.println(begin);
 				for (GOTBiome biome : biomes) {
 					if (biome != null) {
-						HashSet<GOTTreeType> treesBiome = new HashSet<>();
+						EnumSet<GOTTreeType> treesBiome = EnumSet.allOf(GOTTreeType.class);
 						EnumMap<GOTTreeType, GOTBiomeVariant> treesVariant = new EnumMap<>(GOTTreeType.class);
 						for (WeightedTreeType weightedTreeType : biome.getDecorator().treeTypes) {
 							treesBiome.add(weightedTreeType.treeType);
@@ -1628,7 +1628,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		}
 	}
 
-	public void searchForHireable(HashSet<Class<? extends Entity>> hireable, HashSet<GOTUnitTradeEntries> units) {
+	public void searchForHireable(Collection<Class<? extends Entity>> hireable, Iterable<GOTUnitTradeEntries> units) {
 		for (GOTUnitTradeEntries entries : units) {
 			for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 				hireable.add(entry.entityClass);
@@ -1636,7 +1636,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		}
 	}
 
-	public void searchForMinerals(HashSet<GOTBiome> biomes, HashSet<String> minerals) {
+	public void searchForMinerals(Iterable<GOTBiome> biomes, Collection<String> minerals) {
 		for (GOTBiome biome : biomes) {
 			if (biome != null) {
 				List<OreGenerant> oreGenerants = new ArrayList<>(biome.getDecorator().biomeSoils);
@@ -1656,7 +1656,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		}
 	}
 
-	public void searchForPagenamesBiome(HashSet<GOTBiome> biomes, HashSet<GOTFaction> factions) {
+	public void searchForPagenamesBiome(Iterable<GOTBiome> biomes, Iterable<GOTFaction> factions) {
 		next: for (GOTBiome biome : biomes) {
 			if (biome != null) {
 				String preName = getBiomeName(biome);
@@ -1677,7 +1677,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		}
 	}
 
-	public void searchForPagenamesEntity(HashSet<GOTBiome> biomes, HashSet<GOTFaction> factions) {
+	public void searchForPagenamesEntity(Iterable<GOTBiome> biomes, Iterable<GOTFaction> factions) {
 		next: for (Class<? extends Entity> entityClass : GOTEntityRegistry.entitySet) {
 			String preName = getEntityName(entityClass);
 			for (GOTBiome biome : biomes) {
@@ -1696,7 +1696,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		}
 	}
 
-	public void searchForPagenamesFaction(HashSet<GOTBiome> biomes, HashSet<GOTFaction> factions) {
+	public void searchForPagenamesFaction(Iterable<GOTBiome> biomes, Iterable<GOTFaction> factions) {
 		next: for (GOTFaction fac : factions) {
 			String preName = getFactionName(fac);
 			for (GOTBiome biome : biomes) {
@@ -1715,7 +1715,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		}
 	}
 
-	public void searchForStructures(HashSet<GOTBiome> biomes, HashSet<Class<? extends WorldGenerator>> structures) {
+	public void searchForStructures(Iterable<GOTBiome> biomes, Collection<Class<? extends WorldGenerator>> structures) {
 		for (GOTBiome biome : biomes) {
 			if (biome != null && !biome.getDecorator().randomStructures.isEmpty()) {
 				for (RandomStructure structure : biome.getDecorator().randomStructures) {
@@ -1728,7 +1728,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 	public enum Database {
 		XML("xml"), TABLES("tables");
 
-		String codeName;
+		public String codeName;
 
 		Database(String name) {
 			codeName = name;

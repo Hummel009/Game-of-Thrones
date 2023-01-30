@@ -32,10 +32,6 @@ public class GOTHandlerTableShaped extends ShapedRecipeHandler {
 		return getRecipeName();
 	}
 
-	public List<IRecipe> getRecipeList() {
-		return recipeList;
-	}
-
 	@Override
 	public String getRecipeName() {
 		return StatCollector.translateToLocal("got.container.crafting." + recipeName);
@@ -43,7 +39,7 @@ public class GOTHandlerTableShaped extends ShapedRecipeHandler {
 
 	@Override
 	public void loadCraftingRecipes(ItemStack result) {
-		List<IRecipe> allrecipes = getRecipeList();
+		List<IRecipe> allrecipes = recipeList;
 		for (IRecipe irecipe : allrecipes) {
 			if (NEIServerUtils.areStacksSameTypeCrafting(irecipe.getRecipeOutput(), result)) {
 				ShapedRecipeHandler.CachedShapedRecipe recipe = null;
@@ -62,7 +58,7 @@ public class GOTHandlerTableShaped extends ShapedRecipeHandler {
 	@Override
 	public void loadCraftingRecipes(String outputId, Object... results) {
 		if (outputId.equals(getOverlayIdentifier())) {
-			List<IRecipe> allrecipes = getRecipeList();
+			List<IRecipe> allrecipes = recipeList;
 			for (IRecipe irecipe : allrecipes) {
 				ShapedRecipeHandler.CachedShapedRecipe recipe = null;
 				if (irecipe instanceof ShapedRecipes) {
@@ -86,7 +82,7 @@ public class GOTHandlerTableShaped extends ShapedRecipeHandler {
 
 	@Override
 	public void loadUsageRecipes(ItemStack ingredient) {
-		List<IRecipe> allrecipes = getRecipeList();
+		List<IRecipe> allrecipes = recipeList;
 		for (IRecipe irecipe : allrecipes) {
 			ShapedRecipeHandler.CachedShapedRecipe recipe = null;
 			if (irecipe instanceof ShapedRecipes) {

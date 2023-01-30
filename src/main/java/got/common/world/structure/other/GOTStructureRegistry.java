@@ -11,11 +11,11 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class GOTStructureRegistry {
-	public static HashMap<Integer, IStructureProvider> idToClassMapping = new HashMap();
-	public static HashMap<Integer, String> idToStringMapping = new HashMap();
+	public static HashMap<Integer, IStructureProvider> idToClassMapping = new HashMap<>();
+	public static HashMap<Integer, String> idToStringMapping = new HashMap<>();
 	public static HashMap<Integer, StructureColorInfo> structureItemSpawners = new LinkedHashMap<>();
-	public static HashMap<Class, String> classToNameMapping = new HashMap();
-	public static HashMap<Class, GOTFaction> classToFactionMapping = new HashMap();
+	public static HashMap<Class, String> classToNameMapping = new HashMap<>();
+	public static HashMap<Class, GOTFaction> classToFactionMapping = new HashMap<>();
 
 	public static String getNameFromID(int ID) {
 		return idToStringMapping.get(ID);

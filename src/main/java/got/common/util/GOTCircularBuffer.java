@@ -5,8 +5,8 @@ import java.util.Arrays;
 import got.client.model.GOTModelDragonAnimaton;
 
 public class GOTCircularBuffer {
-	public double buffer[];
-	public int index = 0;
+	public double[] buffer;
+	public int index;
 
 	public GOTCircularBuffer(int size) {
 		buffer = new double[size];

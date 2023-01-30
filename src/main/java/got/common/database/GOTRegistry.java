@@ -37,8 +37,8 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.MinecraftForge;
 
 public class GOTRegistry {
-	public static Map<GOTEnumDyeColor, GOTBlockConcretePowder> concretePowder = new HashMap();
-	public static Map<GOTEnumDyeColor, GOTBlockConcrete> concrete = new HashMap();
+	public static Map<GOTEnumDyeColor, GOTBlockConcretePowder> concretePowder = new HashMap<>();
+	public static Map<GOTEnumDyeColor, GOTBlockConcrete> concrete = new HashMap<>();
 	public static Block leavesSnowy;
 	public static Block ricePlant;
 	public static Block aleHornBlock;

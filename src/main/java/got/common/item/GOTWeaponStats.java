@@ -17,9 +17,9 @@ import net.minecraftforge.common.ISpecialArmor;
 public class GOTWeaponStats {
 	public static int basePlayerMeleeTime = 15;
 	public static int baseMobMeleeTime = 20;
-	public static Map meleeSpeed = new HashMap();
-	public static Map meleeReach = new HashMap();
-	public static Map meleeExtraKnockback = new HashMap();
+	public static Map meleeSpeed = new HashMap<>();
+	public static Map meleeReach = new HashMap<>();
+	public static Map meleeExtraKnockback = new HashMap<>();
 	public static float MAX_MODIFIABLE_REACH;
 	public static float MAX_MODIFIABLE_SPEED;
 	public static int MAX_MODIFIABLE_KNOCKBACK;
