@@ -40,7 +40,7 @@ public interface FellowshipUpdateType {
 
 		@Override
 		public List<UUID> getPlayersToCheckSharedWaypointsFrom(GOTFellowship fs) {
-			return null;
+			return Collections.emptyList();
 		}
 	}
 
@@ -70,7 +70,7 @@ public interface FellowshipUpdateType {
 
 		@Override
 		public List<UUID> getPlayersToCheckSharedWaypointsFrom(GOTFellowship fs) {
-			return null;
+			return Collections.emptyList();
 		}
 	}
 
@@ -100,7 +100,7 @@ public interface FellowshipUpdateType {
 
 		@Override
 		public List<UUID> getPlayersToCheckSharedWaypointsFrom(GOTFellowship fs) {
-			return null;
+			return Collections.emptyList();
 		}
 	}
 
@@ -118,7 +118,7 @@ public interface FellowshipUpdateType {
 
 		@Override
 		public List<UUID> getPlayersToCheckSharedWaypointsFrom(GOTFellowship fs) {
-			return null;
+			return Collections.emptyList();
 		}
 	}
 
@@ -148,7 +148,7 @@ public interface FellowshipUpdateType {
 
 		@Override
 		public List<UUID> getPlayersToCheckSharedWaypointsFrom(GOTFellowship fs) {
-			return null;
+			return Collections.emptyList();
 		}
 	}
 
@@ -160,7 +160,7 @@ public interface FellowshipUpdateType {
 
 		@Override
 		public List<UUID> getPlayersToCheckSharedWaypointsFrom(GOTFellowship fs) {
-			return null;
+			return Collections.emptyList();
 		}
 	}
 
@@ -172,7 +172,7 @@ public interface FellowshipUpdateType {
 
 		@Override
 		public List<UUID> getPlayersToCheckSharedWaypointsFrom(GOTFellowship fs) {
-			return null;
+			return Collections.emptyList();
 		}
 	}
 
@@ -192,7 +192,7 @@ public interface FellowshipUpdateType {
 
 		@Override
 		public List<UUID> getPlayersToCheckSharedWaypointsFrom(GOTFellowship fs) {
-			return null;
+			return Collections.emptyList();
 		}
 	}
 

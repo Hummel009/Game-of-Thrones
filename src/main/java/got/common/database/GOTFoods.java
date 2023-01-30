@@ -85,7 +85,12 @@ public class GOTFoods {
 	public void setDrinkVessel(ItemStack itemstack, Random random, boolean requirePlaceable) {
 		Item item = itemstack.getItem();
 		if (item instanceof GOTItemMug && ((GOTItemMug) item).isFullMug) {
-			GOTItemMug.Vessel v = requirePlaceable ? getRandomPlaceableVessel(random) : getRandomVessel(random);
+			GOTItemMug.Vessel v;
+			if (requirePlaceable) {
+				v = getRandomPlaceableVessel(random);
+			} else {
+				v = getRandomVessel(random);
+			}
 			GOTItemMug.setVessel(itemstack, v, true);
 		}
 	}
@@ -99,7 +104,11 @@ public class GOTFoods {
 			}
 			placeable.add(v);
 		}
-		drinkVesselsPlaceable = !placeable.isEmpty() ? placeable.toArray(new GOTItemMug.Vessel[0]) : new GOTItemMug.Vessel[] { GOTItemMug.Vessel.MUG };
+		if (!placeable.isEmpty()) {
+			drinkVesselsPlaceable = placeable.toArray(new GOTItemMug.Vessel[0]);
+		} else {
+			drinkVesselsPlaceable = new GOTItemMug.Vessel[] { GOTItemMug.Vessel.MUG };
+		}
 		return this;
 	}
 }

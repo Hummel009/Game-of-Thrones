@@ -4,15 +4,15 @@ import java.util.UUID;
 
 import got.common.GOTPlayerData;
 import got.common.entity.other.GOTEntityRegistry;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
 
 public class GOTMiniQuestRetrieve extends GOTMiniQuestCollect {
-	public Class killEntityType;
-	public boolean hasDropped = false;
+	public Class<? extends Entity> killEntityType;
+	public boolean hasDropped;
 
 	public GOTMiniQuestRetrieve(GOTPlayerData pd) {
 		super(pd);

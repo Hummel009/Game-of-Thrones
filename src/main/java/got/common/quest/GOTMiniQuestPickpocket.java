@@ -197,7 +197,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 					spawnAngryFX(npc);
 				}
 				if (!noticed || rand.nextFloat() < 0.5f) {
-					List nearbyFriends = npc.worldObj.selectEntitiesWithinAABB(GOTEntityNPC.class, npc.boundingBox.expand(16.0, 16.0, 16.0), new IEntitySelector() {
+					List<GOTEntityNPC> nearbyFriends = npc.worldObj.selectEntitiesWithinAABB(GOTEntityNPC.class, npc.boundingBox.expand(16.0, 16.0, 16.0), new IEntitySelector() {
 
 						@Override
 						public boolean isEntityApplicable(Entity entity) {
@@ -208,9 +208,8 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 							return false;
 						}
 					});
-					for (Object o : nearbyFriends) {
+					for (GOTEntityNPC otherNPC : nearbyFriends) {
 						double maxRange;
-						GOTEntityNPC otherNPC = (GOTEntityNPC) o;
 						if (otherNPC == npc) {
 							continue;
 						}
@@ -316,7 +315,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 			return GOTMiniQuestPickpocket.class;
 		}
 
-		public QFPickpocket setPickpocketNumber(int min, int max) {
+		public QFPickpocket<Q> setPickpocketNumber(int min, int max) {
 			this.minTarget = min;
 			this.maxTarget = max;
 			return this;

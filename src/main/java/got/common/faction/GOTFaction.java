@@ -36,9 +36,9 @@ public enum GOTFaction {
 	public GOTAchievement.Category achieveCategory;
 	public GOTMapRegion factionMapInfo;
 	public List<GOTControlZone> controlZones = new ArrayList<>();
-	public boolean isolationist = false;
+	public boolean isolationist ;
 	public int eggColor;
-	public boolean approvesWarCrimes = false;
+	public boolean approvesWarCrimes;
 	public List<String> legacyAliases = new ArrayList<>();
 
 	GOTFaction(boolean registry, int alignment) {
@@ -213,7 +213,11 @@ public enum GOTFaction {
 	}
 
 	public int getControlZoneReducedRange() {
-		return isolationist ? 0 : 50;
+		if (isolationist) {
+			return 0;
+		} else {
+			return 50;
+		}
 	}
 
 	public List<GOTControlZone> getControlZones() {
@@ -344,7 +348,7 @@ public enum GOTFaction {
 		}
 		double nearbyRange = 24.0;
 		AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(d, d1, d2, d, d1, d2).expand(nearbyRange, nearbyRange, nearbyRange);
-		List nearbyNPCs = world.selectEntitiesWithinAABB(EntityLivingBase.class, aabb, new GOTNPCSelectForInfluence(this));
+		List<EntityLivingBase> nearbyNPCs = world.selectEntitiesWithinAABB(EntityLivingBase.class, aabb, new GOTNPCSelectForInfluence(this));
 		return !nearbyNPCs.isEmpty();
 	}
 

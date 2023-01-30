@@ -373,8 +373,8 @@ public class DatabaseGenerator extends GOTStructureBase {
 				for (Class<? extends WorldGenerator> strClass : structures) {
 					xml.println("| " + getStructureName(strClass) + " = " + structureBiomes);
 					next: for (GOTBiome biome : biomes) {
-						if (biome != null && !biome.getDecorator().randomStructures.isEmpty()) {
-							for (RandomStructure structure : biome.getDecorator().randomStructures) {
+						if (biome != null && !biome.decorator.randomStructures.isEmpty()) {
+							for (RandomStructure structure : biome.decorator.randomStructures) {
 								if (structure.structureGen.getClass() == strClass) {
 									xml.println("* " + getBiomeLink(biome) + ";");
 									continue next;
@@ -393,9 +393,9 @@ public class DatabaseGenerator extends GOTStructureBase {
 					xml.println("| " + mineral + " = " + mineralBiomes);
 					next: for (GOTBiome biome : biomes) {
 						if (biome != null) {
-							List<OreGenerant> oreGenerants = new ArrayList<>(biome.getDecorator().biomeSoils);
-							oreGenerants.addAll(biome.getDecorator().biomeOres);
-							oreGenerants.addAll(biome.getDecorator().biomeGems);
+							List<OreGenerant> oreGenerants = new ArrayList<>(biome.decorator.biomeSoils);
+							oreGenerants.addAll(biome.decorator.biomeOres);
+							oreGenerants.addAll(biome.decorator.biomeGems);
 							for (OreGenerant oreGenerant : oreGenerants) {
 								Block block = GOTReflection.getOreBlock(oreGenerant.oreGen);
 								int meta = GOTReflection.getOreMeta(oreGenerant.oreGen);
@@ -418,7 +418,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 					HashSet<GOTBiome> biomesVariantTree = new HashSet<>();
 					next: for (GOTBiome biome : biomes) {
 						if (biome != null) {
-							for (WeightedTreeType weightedTreeType : biome.getDecorator().treeTypes) {
+							for (WeightedTreeType weightedTreeType : biome.decorator.treeTypes) {
 								if (weightedTreeType.treeType == tree) {
 									biomesTree.add(biome);
 									continue next;
@@ -650,7 +650,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 					if (biome != null) {
 						EnumSet<GOTTreeType> treesBiome = EnumSet.allOf(GOTTreeType.class);
 						EnumMap<GOTTreeType, GOTBiomeVariant> treesVariant = new EnumMap<>(GOTTreeType.class);
-						for (WeightedTreeType weightedTreeType : biome.getDecorator().treeTypes) {
+						for (WeightedTreeType weightedTreeType : biome.decorator.treeTypes) {
 							treesBiome.add(weightedTreeType.treeType);
 						}
 						for (VariantBucket variantBucket : biome.getBiomeVariantsSmall().variantList) {
@@ -715,9 +715,9 @@ public class DatabaseGenerator extends GOTStructureBase {
 				for (GOTBiome biome : biomes) {
 					if (biome != null) {
 						xml.println("| " + getBiomePagename(biome) + " = " + biomeMinerals);
-						List<OreGenerant> oreGenerants = new ArrayList<>(biome.getDecorator().biomeSoils);
-						oreGenerants.addAll(biome.getDecorator().biomeOres);
-						oreGenerants.addAll(biome.getDecorator().biomeGems);
+						List<OreGenerant> oreGenerants = new ArrayList<>(biome.decorator.biomeSoils);
+						oreGenerants.addAll(biome.decorator.biomeOres);
+						oreGenerants.addAll(biome.decorator.biomeGems);
 						for (OreGenerant oreGenerant : oreGenerants) {
 							Block block = GOTReflection.getOreBlock(oreGenerant.oreGen);
 							int meta = GOTReflection.getOreMeta(oreGenerant.oreGen);
@@ -749,11 +749,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 				xml.println(begin);
 				for (GOTBiome biome : biomes) {
 					if (biome != null) {
-						if (biome.getDecorator().randomStructures.isEmpty()) {
+						if (biome.decorator.randomStructures.isEmpty()) {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeNoStructures);
 						} else {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeHasStructures);
-							for (RandomStructure structure : biome.getDecorator().randomStructures) {
+							for (RandomStructure structure : biome.decorator.randomStructures) {
 								xml.println("* [[" + getStructureName(structure.structureGen.getClass()) + "]];");
 							}
 						}
@@ -1639,9 +1639,9 @@ public class DatabaseGenerator extends GOTStructureBase {
 	public void searchForMinerals(Iterable<GOTBiome> biomes, Collection<String> minerals) {
 		for (GOTBiome biome : biomes) {
 			if (biome != null) {
-				List<OreGenerant> oreGenerants = new ArrayList<>(biome.getDecorator().biomeSoils);
-				oreGenerants.addAll(biome.getDecorator().biomeOres);
-				oreGenerants.addAll(biome.getDecorator().biomeGems);
+				List<OreGenerant> oreGenerants = new ArrayList<>(biome.decorator.biomeSoils);
+				oreGenerants.addAll(biome.decorator.biomeOres);
+				oreGenerants.addAll(biome.decorator.biomeGems);
 				for (OreGenerant oreGenerant : oreGenerants) {
 					WorldGenMinable gen = oreGenerant.oreGen;
 					Block block = GOTReflection.getOreBlock(gen);
@@ -1717,8 +1717,8 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 	public void searchForStructures(Iterable<GOTBiome> biomes, Collection<Class<? extends WorldGenerator>> structures) {
 		for (GOTBiome biome : biomes) {
-			if (biome != null && !biome.getDecorator().randomStructures.isEmpty()) {
-				for (RandomStructure structure : biome.getDecorator().randomStructures) {
+			if (biome != null && !biome.decorator.randomStructures.isEmpty()) {
+				for (RandomStructure structure : biome.decorator.randomStructures) {
 					structures.add(structure.structureGen.getClass());
 				}
 			}

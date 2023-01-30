@@ -2,6 +2,7 @@ package got.common.database;
 
 import java.io.*;
 import java.util.*;
+import java.util.Map.Entry;
 import java.util.zip.*;
 
 import org.apache.commons.io.FileUtils;
@@ -85,8 +86,8 @@ public class GOTSpeech {
 		if (MinecraftServer.getServer() == null) {
 			return;
 		}
-		for (Object player : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
-			((EntityPlayer) player).addChatMessage(message);
+		for (EntityPlayer player : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+			player.addChatMessage(message);
 		}
 	}
 
@@ -147,8 +148,8 @@ public class GOTSpeech {
 			FMLLog.severe("Failed to load GOT speech banks");
 			e.printStackTrace();
 		}
-		for (String speechBankName : speechBankNamesAndReaders.keySet()) {
-			BufferedReader reader = speechBankNamesAndReaders.get(speechBankName);
+		for (Entry<String, BufferedReader> speechBankName : speechBankNamesAndReaders.entrySet()) {
+			BufferedReader reader = speechBankName.getValue();
 			try {
 				String line;
 				ArrayList<String> speeches = new ArrayList<>();
@@ -164,13 +165,18 @@ public class GOTSpeech {
 				}
 				reader.close();
 				if (speeches.isEmpty()) {
-					FMLLog.severe("GOT speech bank " + speechBankName + " is empty!");
+					FMLLog.severe("GOT speech bank " + speechBankName.getKey() + " is empty!");
 					continue;
 				}
-				SpeechBank bank = random ? new SpeechBank(speechBankName, random, speeches) : new SpeechBank(speechBankName, random, allLines);
-				allSpeechBanks.put(speechBankName, bank);
+				SpeechBank bank;
+				if (random) {
+					bank = new SpeechBank(speechBankName.getKey(), random, speeches);
+				} else {
+					bank = new SpeechBank(speechBankName.getKey(), random, allLines);
+				}
+				allSpeechBanks.put(speechBankName.getKey(), bank);
 			} catch (Exception e) {
-				FMLLog.severe("Failed to load GOT speech bank " + speechBankName);
+				FMLLog.severe("Failed to load GOT speech bank " + speechBankName.getKey());
 				e.printStackTrace();
 			}
 		}

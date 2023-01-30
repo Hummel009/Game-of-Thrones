@@ -12,12 +12,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.event.HoverEvent;
 import net.minecraft.init.*;
 import net.minecraft.item.*;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.*;
 
 public class GOTAchievement {
 	public static int id = 1;
-	public static Map<ItemArmor.ArmorMaterial, GOTAchievement> armorAchievements = new HashMap<>();
+	public static Map<ItemArmor.ArmorMaterial, GOTAchievement> armorAchievements = new EnumMap<>(ArmorMaterial.class);
 	public static GOTAchievement bannerProtect;
 	public static GOTAchievement brewDrinkInBarrel;
 	public static GOTAchievement catchButterfly;

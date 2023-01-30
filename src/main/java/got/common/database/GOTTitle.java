@@ -14,19 +14,16 @@ public class GOTTitle {
 	public static GOTTitle targaryenF;
 	public static GOTTitle targaryenM;
 	public static int nextTitleID;
-	static {
-		nextTitleID = 0;
-	}
 	public int titleID;
 	public String name;
-	public boolean isHidden = false;
+	public boolean isHidden;
 	public TitleType titleType = TitleType.STARTER;
 	public UUID[] uuids;
 	public List<GOTFaction> alignmentFactions = new ArrayList<>();
 	public float alignmentRequired;
-	public boolean anyAlignment = false;
+	public boolean anyAlignment;
 	public GOTAchievement titleAchievement;
-	public boolean useAchievementName = false;
+	public boolean useAchievementName;
 	public GOTFactionRank titleRank;
 
 	public boolean isFeminineRank;

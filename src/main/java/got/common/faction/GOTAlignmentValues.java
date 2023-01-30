@@ -3,6 +3,7 @@ package got.common.faction;
 import java.text.*;
 
 import got.common.util.GOTLog;
+import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.*;
 
@@ -60,7 +61,7 @@ public class GOTAlignmentValues {
 		entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.insufficientAlignment3", componentAlignReq, faction1.factionName(), faction2.factionName(), faction3.factionName()));
 	}
 
-	public static void notifyMiniQuestsNeeded(EntityPlayer entityplayer, GOTFaction faction) {
+	public static void notifyMiniQuestsNeeded(ICommandSender entityplayer, GOTFaction faction) {
 		entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.requireMiniQuest", faction.factionName()));
 	}
 
@@ -100,9 +101,9 @@ public class GOTAlignmentValues {
 		public float bonus;
 		public String name;
 		public boolean needsTranslation = true;
-		public boolean isKill = false;
-		public boolean killByHiredUnit = false;
-		public boolean isCivilianKill = false;
+		public boolean isKill;
+		public boolean killByHiredUnit;
+		public boolean isCivilianKill;
 
 		public AlignmentBonus(float f, String s) {
 			bonus = f;

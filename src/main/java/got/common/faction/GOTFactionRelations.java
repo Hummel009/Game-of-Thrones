@@ -16,7 +16,7 @@ public class GOTFactionRelations {
 	public static Map<FactionPair, Relation> defaultMap = new HashMap<>();
 	public static Map<FactionPair, Relation> overrideMap = new HashMap<>();
 	public static boolean needsLoad = true;
-	public static boolean needsSave = false;
+	public static boolean needsSave;
 
 	public static Relation getFromDefaultMap(FactionPair key) {
 		if (defaultMap.containsKey(key)) {
@@ -123,8 +123,7 @@ public class GOTFactionRelations {
 	public static void sendPacketToAll(IMessage packet) {
 		MinecraftServer srv = MinecraftServer.getServer();
 		if (srv != null) {
-			for (Object obj : srv.getConfigurationManager().playerEntityList) {
-				EntityPlayerMP entityplayer = (EntityPlayerMP) obj;
+			for (EntityPlayerMP entityplayer : srv.getConfigurationManager().playerEntityList) {
 				GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 			}
 		}

@@ -66,14 +66,14 @@ public class GOTTickHandlerClient {
 	public static ResourceLocation wightOverlay = new ResourceLocation("got:textures/misc/wight.png");
 	public static float[] frostRGBMiddle = { 0.4F, 0.46F, 0.74F };
 	public static float[] frostRGBEdge = { 1.0F, 1.0F, 1.0F };
-	public static HashMap playersInPortals = new HashMap<>();
+	public static Map<EntityPlayer, Integer> playersInPortals = new HashMap<>();
 	public static int clientTick;
 	public static float renderTick;
 	public static GOTInvasionStatus watchedInvasion = new GOTInvasionStatus();
 	public static GOTGuiNotificationDisplay notificationDisplay;
 	public static GOTGuiMiniquestTracker miniquestTracker;
 	public static boolean anyWightsViewed;
-	public static boolean renderMenuPrompt = false;
+	public static boolean renderMenuPrompt;
 	public GOTAmbience ambienceTicker;
 	public GuiScreen lastGuiOpen;
 	public int mistTick;
@@ -95,15 +95,15 @@ public class GOTTickHandlerClient {
 	public int frostTick;
 	public int burnTick;
 	public int drunkennessDirection = 1;
-	public int newDate = 0;
-	public int prevWightLookTick = 0;
-	public int wightLookTick = 0;
-	public int prevWightNearTick = 0;
-	public int wightNearTick = 0;
-	public boolean addedClientPoisonEffect = false;
-	public GOTMusicTrack lastTrack = null;
-	public int musicTrackTick = 0;
-	public boolean cancelItemHighlight = false;
+	public int newDate;
+	public int prevWightLookTick;
+	public int wightLookTick;
+	public int prevWightNearTick;
+	public int wightNearTick;
+	public boolean addedClientPoisonEffect;
+	public GOTMusicTrack lastTrack;
+	public int musicTrackTick;
+	public boolean cancelItemHighlight;
 	public ItemStack lastHighlightedItemstack;
 	public String highlightedItemstackName;
 
@@ -262,7 +262,7 @@ public class GOTTickHandlerClient {
 			tooltip.add("");
 			String owner = IPickpocketable.Helper.getOwner(itemstack);
 			owner = StatCollector.translateToLocalFormatted("item.got.generic.stolen", owner);
-			List<String> robbedLines = new ArrayList<String>(fontRenderer.listFormattedStringToWidth(owner, 200));
+			List<String> robbedLines = new ArrayList<>(fontRenderer.listFormattedStringToWidth(owner, 200));
 			for (int i = 0; i < robbedLines.size(); i++) {
 				String line = robbedLines.get(i);
 				if (i > 0) {
@@ -340,7 +340,14 @@ public class GOTTickHandlerClient {
 					}
 				} catch (Exception exception) {
 				}
-				boolean fancyGraphics = optifineSetting == 0 ? minecraft.gameSettings.fancyGraphics : optifineSetting == 1 ? false : optifineSetting == 2;
+				boolean fancyGraphics = false;
+				if (optifineSetting == 0) {
+					fancyGraphics = minecraft.gameSettings.fancyGraphics;
+				} else if (optifineSetting == 1) {
+					fancyGraphics = false;
+				} else if (optifineSetting == 2) {
+					fancyGraphics = true;
+				}
 				GOTBlockLeavesBase.setAllGraphicsLevels(fancyGraphics);
 			} else {
 				GOTBlockLeavesBase.setAllGraphicsLevels(minecraft.gameSettings.fancyGraphics);
@@ -400,7 +407,7 @@ public class GOTTickHandlerClient {
 					}
 					prevWightNearTick = wightNearTick;
 					double wightRange = 32.0D;
-					List nearbyWights = world.getEntitiesWithinAABB(GOTEntityBarrowWight.class, viewer.boundingBox.expand(wightRange, wightRange, wightRange));
+					List<GOTEntityBarrowWight> nearbyWights = world.getEntitiesWithinAABB(GOTEntityBarrowWight.class, viewer.boundingBox.expand(wightRange, wightRange, wightRange));
 					if (!nearbyWights.isEmpty()) {
 						if (wightNearTick < 100) {
 							wightNearTick++;
@@ -494,7 +501,7 @@ public class GOTTickHandlerClient {
 						}
 					}
 					if (inPortal) {
-						i = (Integer) playersInPortals.get(entityplayer);
+						i = playersInPortals.get(entityplayer);
 						i++;
 						playersInPortals.put(entityplayer, Integer.valueOf(i));
 						if (i >= 100) {
@@ -560,7 +567,12 @@ public class GOTTickHandlerClient {
 		EntityPlayerSP entityplayer = event.entity;
 		float fov = event.newfov;
 		ItemStack itemstack = entityplayer.getHeldItem();
-		Item item = itemstack == null ? null : itemstack.getItem();
+		Item item;
+		if (itemstack != null) {
+			item = itemstack.getItem();
+		} else {
+			item = null;
+		}
 		float usage = -1.0F;
 		if (entityplayer.isUsingItem()) {
 			float maxDrawTime = 0.0F;
@@ -695,7 +707,11 @@ public class GOTTickHandlerClient {
 					List<GOTEnchantment> enchants = GOTEnchantmentHelper.getEnchantList(itemstack);
 					if (!enchants.isEmpty()) {
 						lastHighlightedItemstack = itemstack;
-						highlightedItemstackName = itemstack.hasDisplayName() ? itemstack.getDisplayName() : null;
+						if (itemstack.hasDisplayName()) {
+							highlightedItemstackName = itemstack.getDisplayName();
+						} else {
+							highlightedItemstackName = null;
+						}
 						itemstack.setStackDisplayName(GOTEnchantmentHelper.getFullEnchantedName(itemstack, itemstack.getDisplayName()));
 					}
 				}
@@ -708,7 +724,7 @@ public class GOTTickHandlerClient {
 					renderOverlay(null, brightness, mc, null);
 				}
 				if (playersInPortals.containsKey(entityClientPlayerMP)) {
-					int i = (Integer) playersInPortals.get(entityClientPlayerMP);
+					int i = playersInPortals.get(entityClientPlayerMP);
 					if (i > 0) {
 						renderOverlay(null, 0.1F + i / 100.0F * 0.6F, mc, portalOverlay);
 					}
@@ -1245,7 +1261,11 @@ public class GOTTickHandlerClient {
 	}
 
 	public static void drawConquestText(FontRenderer f, int x, int y, String s, boolean cleanse, float alphaF) {
-		drawBorderedText(f, x, y, s, cleanse ? 16773846 : 14833677, alphaF);
+		if (cleanse) {
+			drawBorderedText(f, x, y, s, 16773846, alphaF);
+		} else {
+			drawBorderedText(f, x, y, s, 14833677, alphaF);
+		}
 	}
 
 	public static void drawTexturedModalRect(double x, double y, int u, int v, int width, int height) {
@@ -1301,7 +1321,11 @@ public class GOTTickHandlerClient {
 				alignMin = -firstRankAlign;
 				alignMax = firstRankAlign;
 				rankMin = GOTFactionRank.RANK_ENEMY;
-				rankMax = firstRank != null && !firstRank.isDummyRank() ? firstRank : GOTFactionRank.RANK_NEUTRAL;
+				if (firstRank != null && !firstRank.isDummyRank()) {
+					rankMax = firstRank;
+				} else {
+					rankMax = GOTFactionRank.RANK_NEUTRAL;
+				}
 			} else if (alignment < 0.0F) {
 				alignMax = -firstRankAlign;
 				alignMin = alignMax * 10.0F;
@@ -1353,8 +1377,15 @@ public class GOTTickHandlerClient {
 			}
 			if (alpha > 0.0F) {
 				int arrowSize = 14;
-				int y0 = definedZone ? 60 : 88;
-				int y1 = definedZone ? 74 : 102;
+				int y0;
+				int y1;
+				if (definedZone) {
+					y0 = 60;
+					y1 = 74;
+				} else {
+					y0 = 88;
+					y1 = 102;
+				}
 				GL11.glEnable(3042);
 				OpenGlHelper.glBlendFunc(770, 771, 1, 0);
 				GL11.glColor4f(factionColors[0], factionColors[1], factionColors[2], alpha);

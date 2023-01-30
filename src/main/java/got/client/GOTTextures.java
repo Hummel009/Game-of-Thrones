@@ -142,7 +142,27 @@ public class GOTTextures implements IResourceManagerReloadListener {
 					color = GOTTextures.getMapOceanColor(true);
 				} else {
 					GOTBiome biome = GOTDimension.GAME_OF_THRONES.biomeList[biomeID];
-					color = biome.getHeightBaseParameter() < 0.0f ? 6453158 : biome.getHeightBaseParameter() > 0.8f ? 14736861 : biome.getHeightBaseParameter() > 0.4f ? 6575407 : biome instanceof GOTBiomeSothoryosHell ? 3290677 : biome.getDecorator().treesPerChunk > 1 ? 2775058 : biome.temperature < 0.3f ? biome.temperature < 0.2f ? 14215139 : 9470587 : biome.rainfall < 0.2f ? 13548147 : 5468426;
+					if (biome.getHeightBaseParameter() < 0.0f) {
+						color = 6453158;
+					} else if (biome.getHeightBaseParameter() > 0.8f) {
+						color = 14736861;
+					} else if (biome.getHeightBaseParameter() > 0.4f) {
+						color = 6575407;
+					} else if (biome instanceof GOTBiomeSothoryosHell) {
+						color = 3290677;
+					} else if (biome.decorator.treesPerChunk > 1) {
+						color = 2775058;
+					} else if (biome.temperature < 0.3f) {
+						if (biome.temperature < 0.2f) {
+							color = 14215139;
+						} else {
+							color = 9470587;
+						}
+					} else if (biome.rainfall < 0.2f) {
+						color = 13548147;
+					} else {
+						color = 5468426;
+					}
 				}
 			} else {
 				color = GOTTextures.getSepia(color);
@@ -311,7 +331,11 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		float bBg = hsbBg[2];
 		float limit = 0.4f;
 		if (Math.abs(bText - bBg) < limit) {
-			bText = bBg > 0.66f ? bBg - limit : bBg + limit;
+			if (bBg > 0.66f) {
+				bText = bBg - limit;
+			} else {
+				bText = bBg + limit;
+			}
 		}
 		return Color.HSBtoRGB(hsbText[0], hsbText[1], bText);
 	}
@@ -375,7 +399,11 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	}
 
 	public static ResourceLocation getMapTexture(EntityPlayer entityplayer, boolean sepia) {
-		return GOTConfig.osrsMap || sepia ? sepiaMapTexture : mapTexture;
+		if (GOTConfig.osrsMap || sepia) {
+			return sepiaMapTexture;
+		} else {
+			return mapTexture;
+		}
 	}
 
 	public static int getSepia(int rgb) {

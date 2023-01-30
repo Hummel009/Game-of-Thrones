@@ -7,15 +7,15 @@ import got.common.faction.GOTFaction;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTAlignmentTicker {
-	public static Map<GOTFaction, GOTAlignmentTicker> allFactionTickers = new HashMap<>();
+	public static Map<GOTFaction, GOTAlignmentTicker> allFactionTickers = new EnumMap<>(GOTFaction.class);
 	public static int moveTime = 20;
 	public static int flashTime = 30;
 	public static int numericalTime = 200;
 	public GOTFaction theFac;
 	public float oldAlign;
 	public float newAlign;
-	public int moveTick = 0;
-	public int prevMoveTick = 0;
+	public int moveTick;
+	public int prevMoveTick;
 	public int flashTick;
 	public int numericalTick;
 
@@ -67,12 +67,7 @@ public class GOTAlignmentTicker {
 	}
 
 	public static GOTAlignmentTicker forFaction(GOTFaction fac) {
-		GOTAlignmentTicker ticker = allFactionTickers.get(fac);
-		if (ticker == null) {
-			ticker = new GOTAlignmentTicker(fac);
-			allFactionTickers.put(fac, ticker);
-		}
-		return ticker;
+		return allFactionTickers.computeIfAbsent(fac, GOTAlignmentTicker::new);
 	}
 
 	public static void updateAll(EntityPlayer entityplayer, boolean forceInstant) {

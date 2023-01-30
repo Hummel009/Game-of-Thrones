@@ -237,14 +237,14 @@ public enum GOTInvasions {
 	}
 
 	public static class InvasionSpawnEntry extends WeightedRandom.Item {
-		public Class entityClass;
+		public Class<? extends GOTEntityNPC> entityClass;
 
 		public InvasionSpawnEntry(Class<? extends GOTEntityNPC> c, int chance) {
 			super(chance);
 			entityClass = c;
 		}
 
-		public Class getEntityClass() {
+		public Class<? extends GOTEntityNPC> getEntityClass() {
 			return entityClass;
 		}
 	}

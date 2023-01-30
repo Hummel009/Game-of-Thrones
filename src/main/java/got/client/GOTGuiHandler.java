@@ -53,8 +53,8 @@ public class GOTGuiHandler {
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
-	public GuiButton getDifficultyButton(GuiOptions gui, List buttons) {
-		for (Object obj : buttons) {
+	public GuiButton getDifficultyButton(GuiOptions gui, Iterable<GuiButton> buttons) {
+		for (GuiButton obj : buttons) {
 			GuiOptionButton button;
 			if (obj instanceof GuiOptionButton && (button = (GuiOptionButton) obj).returnEnumOptions() == GameSettings.Options.DIFFICULTY) {
 				return button;
@@ -82,7 +82,7 @@ public class GOTGuiHandler {
 	public void postActionPerformed(GuiScreenEvent.ActionPerformedEvent.Post event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		GuiScreen gui = event.gui;
-		List buttons = event.buttonList;
+		List<GuiButton> buttons = event.buttonList;
 		GuiButton button = event.button;
 		if (gui instanceof GuiOptions && button instanceof GOTGuiButtonLock && button.enabled && mc.isSingleplayer()) {
 			GOTLevelData.setSavedDifficulty(mc.gameSettings.difficulty);
@@ -118,7 +118,7 @@ public class GOTGuiHandler {
 				ChatComponentTranslation subtitle = new ChatComponentTranslation("got.gui.achievements.hover.subtitle", achievement.getDimension().getDimensionName(), category.getDisplayName());
 				subtitle.getChatStyle().setItalic(true);
 				String desc = achievement.getDescription(entityplayer);
-				ArrayList list = Lists.newArrayList((Object[]) new String[] { name.getFormattedText(), subtitle.getFormattedText() });
+				ArrayList<String> list = Lists.newArrayList(name.getFormattedText(), subtitle.getFormattedText());
 				list.addAll(mc.fontRenderer.listFormattedStringToWidth(desc, 150));
 				proxyGui.func_146283_a(list, mouseX, mouseY);
 			} catch (Exception e) {
@@ -131,7 +131,7 @@ public class GOTGuiHandler {
 	public void postInitGui(GuiScreenEvent.InitGuiEvent.Post event) {
 		GuiButton buttonDifficulty;
 		GuiScreen gui = event.gui;
-		List buttons = event.buttonList;
+		List<GuiButton> buttons = event.buttonList;
 		if (gui instanceof GuiOptions && (buttonDifficulty = getDifficultyButton((GuiOptions) gui, buttons)) != null) {
 			GOTGuiButtonLock lock = new GOTGuiButtonLock(1000000, buttonDifficulty.xPosition + buttonDifficulty.width + 4, buttonDifficulty.yPosition);
 			lock.enabled = !GOTLevelData.isDifficultyLocked();

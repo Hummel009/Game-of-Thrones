@@ -107,7 +107,7 @@ public class GOTFellowshipClient {
 		return new GameProfile(playerUuid, getUsernameFor(playerUuid));
 	}
 
-	public List<GameProfile> getProfilesFor(List<UUID> playerUuids) {
+	public List<GameProfile> getProfilesFor(Iterable<UUID> playerUuids) {
 		ArrayList<GameProfile> list = new ArrayList<>();
 		for (UUID playerUuid : playerUuids) {
 			list.add(getProfileFor(playerUuid));

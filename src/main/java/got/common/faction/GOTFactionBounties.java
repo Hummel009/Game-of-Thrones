@@ -15,13 +15,13 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.UsernameCache;
 
 public class GOTFactionBounties {
-	public static Map<GOTFaction, GOTFactionBounties> factionBountyMap = new HashMap<>();
+	public static Map<GOTFaction, GOTFactionBounties> factionBountyMap = new EnumMap<>(GOTFaction.class);
 	public static boolean needsLoad = true;
 	public static int KILL_RECORD_TIME = 3456000;
 	public static int BOUNTY_KILLED_TIME = 864000;
 	public GOTFaction theFaction;
 	public Map<UUID, PlayerData> playerList = new HashMap<>();
-	public boolean needsSave = false;
+	public boolean needsSave;
 
 	public GOTFactionBounties(GOTFaction f) {
 		theFaction = f;
@@ -43,12 +43,7 @@ public class GOTFactionBounties {
 	}
 
 	public PlayerData forPlayer(UUID id) {
-		PlayerData pd = playerList.get(id);
-		if (pd == null) {
-			pd = new PlayerData(this, id);
-			playerList.put(id, pd);
-		}
-		return pd;
+		return playerList.computeIfAbsent(id, k -> new PlayerData(this, id));
 	}
 
 	public void markDirty() {

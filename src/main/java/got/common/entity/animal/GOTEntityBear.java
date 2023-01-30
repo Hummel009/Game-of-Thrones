@@ -86,7 +86,7 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 
 	@Override
 	public boolean canWorldGenSpawnAt(int i, int j, int k, GOTBiome biome, GOTBiomeVariant variant) {
-		int trees = biome.getDecorator().getVariantTreesPerChunk(variant);
+		int trees = biome.decorator.getVariantTreesPerChunk(variant);
 		return trees >= 1;
 	}
 

@@ -15,44 +15,44 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ChestGenHooks;
 
 public class GOTChestContents {
-	public static ArrayList<WeightedRandomChestContent> NORD_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> SUD_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> NOMAD_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> SOTHORYOS_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> YI_TI_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> MOSSOVY_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> GIFT_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> TREASURE_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> ASSHAI_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> BEYOND_WALL_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> IBBEN_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> HILLMEN_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> SUMMER_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> LHAZAR_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> ARRYN_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> BRAAVOS_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> CROWNLANDS_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> DORNE_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> DRAGONSTONE_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> GHISCAR_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> GOLDEN_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> IRONBORN_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> LORATH_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> LYS_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> MYR_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> NORTH_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> NORVOS_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> PENTOS_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> QARTH_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> QOHOR_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> REACH_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> RIVERLANDS_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> STORMLANDS_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> TYROSH_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> VOLANTIS_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> WESTERLANDS_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> JOGOS_L = new ArrayList<>();
-	public static ArrayList<WeightedRandomChestContent> DOTHRAKI_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> NORD_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> SUD_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> NOMAD_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> SOTHORYOS_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> YI_TI_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> MOSSOVY_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> GIFT_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> TREASURE_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> ASSHAI_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> BEYOND_WALL_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> IBBEN_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> HILLMEN_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> SUMMER_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> LHAZAR_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> ARRYN_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> BRAAVOS_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> CROWNLANDS_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> DORNE_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> DRAGONSTONE_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> GHISCAR_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> GOLDEN_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> IRONBORN_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> LORATH_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> LYS_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> MYR_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> NORTH_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> NORVOS_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> PENTOS_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> QARTH_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> QOHOR_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> REACH_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> RIVERLANDS_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> STORMLANDS_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> TYROSH_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> VOLANTIS_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> WESTERLANDS_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> JOGOS_L = new ArrayList<>();
+	public static List<WeightedRandomChestContent> DOTHRAKI_L = new ArrayList<>();
 
 	static {
 		NORD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.ironCrossbow), 1, 1, 10));
@@ -1034,12 +1034,12 @@ public class GOTChestContents {
 	public WeightedRandomChestContent[] items;
 	public int minItems;
 	public int maxItems;
-	public boolean pouches = false;
+	public boolean pouches;
 	public GOTItemMug.Vessel[] vesselTypes;
 	public List<GOTLore.LoreCategory> loreCategories = new ArrayList<>();
 	public int loreChance = 10;
 
-	public GOTChestContents(int i, int j, ArrayList<WeightedRandomChestContent> list) {
+	public GOTChestContents(int i, int j, List<WeightedRandomChestContent> list) {
 		WeightedRandomChestContent[] w = new WeightedRandomChestContent[list.size()];
 		w = list.toArray(w);
 		minItems = i;
@@ -1081,7 +1081,7 @@ public class GOTChestContents {
 
 	public static void fillChest(World world, Random random, int i, int j, int k, GOTChestContents itemPool, int amount) {
 		TileEntity tileentity = world.getTileEntity(i, j, k);
-		if (tileentity == null || !(tileentity instanceof IInventory)) {
+		if (!(tileentity instanceof IInventory)) {
 			if (j >= 0 && j < 256) {
 				FMLLog.warning("Warning: GOTChestContents attempted to fill a chest at " + i + ", " + j + ", " + k + " which does not exist");
 			}

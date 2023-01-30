@@ -31,7 +31,7 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 	public static int STAGE_TALK_FINAL = 14;
 	public static int STAGE_COMPLETE = 15;
 	public static int NUM_STAGES = 15;
-	public int stage = 0;
+	public int stage;
 	public boolean movedOn;
 
 	public GOTMiniQuestWelcome(GOTPlayerData pd) {

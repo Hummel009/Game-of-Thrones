@@ -208,7 +208,7 @@ public class GOTFixer {
 		f[68].affix(GOTWaypoint.Raumati);
 
 		for (GOTVillageGen element : f) {
-			biome.getDecorator().addFixedVillage(element);
+			biome.decorator.addFixedVillage(element);
 		}
 	}
 

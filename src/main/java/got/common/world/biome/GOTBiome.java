@@ -558,10 +558,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return clouds;
 	}
 
-	public GOTBiomeDecorator getDecorator() {
-		return decorator;
-	}
-
 	public boolean getEnableRain() {
 		return enableRain;
 	}

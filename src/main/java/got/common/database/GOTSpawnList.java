@@ -213,7 +213,7 @@ public class GOTSpawnList {
 		}
 		GOTFaction commonFaction = null;
 		for (GOTSpawnEntry entry : spawnList) {
-			Class entityClass = entry.entityClass;
+			Class<? extends GOTEntityNPC> entityClass = entry.entityClass;
 			if (GOTEntityNPC.class.isAssignableFrom(entityClass)) {
 				try {
 					GOTEntityNPC npc = (GOTEntityNPC) GOTEntityRegistry.createEntityByClass(entityClass, world);

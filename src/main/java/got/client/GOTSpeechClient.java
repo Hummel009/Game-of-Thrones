@@ -3,6 +3,7 @@ package got.client;
 import java.util.*;
 
 import got.common.entity.other.GOTEntityNPC;
+import net.minecraft.entity.Entity;
 
 public class GOTSpeechClient {
 	public static Map<UUID, TimedSpeech> npcSpeeches = new HashMap<>();
@@ -12,7 +13,7 @@ public class GOTSpeechClient {
 		npcSpeeches.clear();
 	}
 
-	public static TimedSpeech getSpeechFor(GOTEntityNPC npc) {
+	public static TimedSpeech getSpeechFor(Entity npc) {
 		UUID key = npc.getUniqueID();
 		if (npcSpeeches.containsKey(key)) {
 			return npcSpeeches.get(key);
@@ -24,11 +25,11 @@ public class GOTSpeechClient {
 		return GOTSpeechClient.getSpeechFor(npc) != null;
 	}
 
-	public static void receiveSpeech(GOTEntityNPC npc, String speech) {
+	public static void receiveSpeech(Entity npc, String speech) {
 		npcSpeeches.put(npc.getUniqueID(), new TimedSpeech(speech, DISPLAY_TIME));
 	}
 
-	public static void removeSpeech(GOTEntityNPC npc) {
+	public static void removeSpeech(Entity npc) {
 		npcSpeeches.remove(npc.getUniqueID());
 	}
 

@@ -11,53 +11,53 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 
 public class GOTTradeEntries {
-	public static ArrayList<GOTTradeEntry> BAELISH_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_ALCHEMIST_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_BAKER_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_BAKER_S_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_BARTENDER_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_BARTENDER_S_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_BLACKSMITH_S_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_BOMZH_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_BOMZH_S_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_BREWER_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_BREWER_S_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_BUTCHER_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_BUTCHER_S_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_FARMER_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_FARMER_S_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_FISHMONGER_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_FISHMONGER_S_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_FLORIST_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_GOLDSMITH_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_GOLDSMITH_S_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_MAESTER_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_MAESTER_S_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_MINER_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_MINER_S_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_SHAMAN_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_SHAMAN_S_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_LUMBERMAN_S_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> C_LUMBERMAN_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> BAELISH_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_ALCHEMIST_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_BAKER_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_BAKER_S_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_BARTENDER_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_BARTENDER_S_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_BLACKSMITH_S_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_BOMZH_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_BOMZH_S_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_BREWER_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_BREWER_S_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_BUTCHER_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_BUTCHER_S_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_FARMER_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_FARMER_S_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_FISHMONGER_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_FISHMONGER_S_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_FLORIST_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_GOLDSMITH_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_GOLDSMITH_S_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_MAESTER_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_MAESTER_S_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_MINER_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_MINER_S_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_SHAMAN_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_SHAMAN_S_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_LUMBERMAN_S_L = new ArrayList<>();
+	public static List<GOTTradeEntry> C_LUMBERMAN_B_L = new ArrayList<>();
 
-	public static ArrayList<GOTTradeEntry> IBBEN_MASON_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> YITI_MASON_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> SUD_MASON_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> NORD_MASON_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> IBBEN_MASON_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> YITI_MASON_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> SUD_MASON_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> NORD_MASON_B_L = new ArrayList<>();
 
-	public static ArrayList<GOTTradeEntry> ESSOS_BLACKSMITH_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> IBBEN_BLACKSMITH_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> LHAZAR_BLACKSMITH_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> MOSSOVY_BLACKSMITH_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> QOHOR_BLACKSMITH_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> SOTHORYOS_BLACKSMITH_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> SUMMER_BLACKSMITH_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> THENN_BLACKSMITH_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> WESTEROS_BLACKSMITH_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> YITI_BLACKSMITH_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> ESSOS_BLACKSMITH_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> IBBEN_BLACKSMITH_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> LHAZAR_BLACKSMITH_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> MOSSOVY_BLACKSMITH_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> QOHOR_BLACKSMITH_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> SOTHORYOS_BLACKSMITH_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> SUMMER_BLACKSMITH_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> THENN_BLACKSMITH_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> WESTEROS_BLACKSMITH_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> YITI_BLACKSMITH_B_L = new ArrayList<>();
 
-	public static ArrayList<GOTTradeEntry> CROWNLANDS_ALCHEMIST_B_L = new ArrayList<>();
-	public static ArrayList<GOTTradeEntry> DAVOS_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> CROWNLANDS_ALCHEMIST_B_L = new ArrayList<>();
+	public static List<GOTTradeEntry> DAVOS_B_L = new ArrayList<>();
 
 	public static int VALYRIAN_INGOT_SELL = 512;
 	public static int GOLD_INGOT_SELL = 128;
@@ -952,7 +952,7 @@ public class GOTTradeEntries {
 
 	public GOTItemMug.Vessel[] drinkVessels;
 
-	public GOTTradeEntries(GOTTradeEntries.TradeType t, ArrayList<GOTTradeEntry> list) {
+	public GOTTradeEntries(GOTTradeEntries.TradeType t, List<GOTTradeEntry> list) {
 		GOTTradeEntry[] arr = new GOTTradeEntry[list.size()];
 		arr = list.toArray(arr);
 		tradeType = t;

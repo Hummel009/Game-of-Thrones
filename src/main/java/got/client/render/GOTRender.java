@@ -62,11 +62,12 @@ import got.common.entity.westeros.westerlands.GOTEntityWesterlandsMan;
 import got.common.entity.westeros.wildling.*;
 import got.common.entity.westeros.wildling.thenn.*;
 import net.minecraft.client.renderer.entity.*;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.projectile.EntityPotion;
 import net.minecraft.init.Items;
 
 public class GOTRender {
-	public static Map<Class, Render> renders = new HashMap<>();
+	public static Map<Class<? extends Entity>, Render> renders = new HashMap<>();
 
 	public static void onInit() {
 		renders.put(GOTEntityBlizzard.class, new GOTRenderBlizzard());

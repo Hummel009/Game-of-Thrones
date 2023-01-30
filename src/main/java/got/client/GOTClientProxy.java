@@ -1,6 +1,7 @@
 package got.client;
 
 import java.util.*;
+import java.util.Map.Entry;
 
 import org.lwjgl.opengl.GL11;
 
@@ -31,6 +32,7 @@ import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -379,8 +381,8 @@ public class GOTClientProxy extends GOTCommonProxy {
 		customEffectRenderer = new GOTEffectRenderer(Minecraft.getMinecraft());
 		GOTTextures.onInit();
 		GOTRender.onInit();
-		for (Class cl : GOTRender.renders.keySet()) {
-			RenderingRegistry.registerEntityRenderingHandler(cl, GOTRender.renders.get(cl));
+		for (Entry<Class<? extends Entity>, Render> cl : GOTRender.renders.entrySet()) {
+			RenderingRegistry.registerEntityRenderingHandler(cl.getKey(), cl.getValue());
 		}
 		beaconRenderID = RenderingRegistry.getNextAvailableRenderId();
 		barrelRenderID = RenderingRegistry.getNextAvailableRenderId();

@@ -4,13 +4,13 @@ import java.util.Random;
 
 import got.common.GOTPlayerData;
 import got.common.entity.other.*;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
 
 public class GOTMiniQuestKillEntity extends GOTMiniQuestKill {
-	public Class entityType;
+	public Class<? extends Entity> entityType;
 
 	public GOTMiniQuestKillEntity(GOTPlayerData pd) {
 		super(pd);
@@ -48,7 +48,7 @@ public class GOTMiniQuestKillEntity extends GOTMiniQuestKill {
 	}
 
 	public static class QFKillEntity extends GOTMiniQuestKill.QFKill<GOTMiniQuestKillEntity> {
-		public Class entityType;
+		public Class<? extends Entity> entityType;
 
 		public QFKillEntity(String name) {
 			super(name);
@@ -66,7 +66,7 @@ public class GOTMiniQuestKillEntity extends GOTMiniQuestKill {
 			return GOTMiniQuestKillEntity.class;
 		}
 
-		public QFKillEntity setKillEntity(Class entityClass, int min, int max) {
+		public QFKillEntity setKillEntity(Class<? extends Entity> entityClass, int min, int max) {
 			entityType = entityClass;
 			setKillTarget(min, max);
 			return this;

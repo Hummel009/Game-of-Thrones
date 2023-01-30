@@ -23,8 +23,8 @@ import net.minecraft.world.biome.BiomeGenBase;
 public abstract class GOTMiniQuest {
 	public static Map<String, Class<? extends GOTMiniQuest>> nameToQuestMapping = new HashMap<>();
 	public static Map<Class<? extends GOTMiniQuest>, String> questToNameMapping = new HashMap<>();
-	public static int MAX_MINIQUESTS_PER_FACTION;
-	public static double RENDER_HEAD_DISTANCE;
+	public static int MAX_MINIQUESTS_PER_FACTION = 5;
+	public static double RENDER_HEAD_DISTANCE = 12.0;
 	public static float defaultRewardFactor = 1.0f;
 	static {
 		GOTMiniQuest.registerQuestType("Collect", GOTMiniQuestCollect.class);
@@ -33,8 +33,6 @@ public abstract class GOTMiniQuest {
 		GOTMiniQuest.registerQuestType("Bounty", GOTMiniQuestBounty.class);
 		GOTMiniQuest.registerQuestType("Welcome", GOTMiniQuestWelcome.class);
 		GOTMiniQuest.registerQuestType("Pickpocket", GOTMiniQuestPickpocket.class);
-		MAX_MINIQUESTS_PER_FACTION = 5;
-		RENDER_HEAD_DISTANCE = 12.0;
 	}
 	public GOTMiniQuestFactory questGroup;
 	public GOTPlayerData playerData;
@@ -47,12 +45,12 @@ public abstract class GOTMiniQuest {
 	public int dateGiven;
 	public GOTBiome biomeGiven;
 	public float rewardFactor = 1.0f;
-	public boolean willHire = false;
+	public boolean willHire;
 	public float hiringAlignment;
 	public List<ItemStack> rewardItemTable = new ArrayList<>();
 	public boolean completed;
 	public int dateCompleted;
-	public boolean isLegendary = false;
+	public boolean isLegendary;
 	public int coinsRewarded;
 	public float alignmentRewarded;
 	public boolean wasHired;
@@ -199,7 +197,11 @@ public abstract class GOTMiniQuest {
 	}
 
 	public ChunkCoordinates getLastLocation() {
-		return lastLocation == null ? null : (ChunkCoordinates) lastLocation.getLeft();
+		if (lastLocation != null) {
+			return lastLocation.getLeft();
+		} else {
+			return null;
+		}
 	}
 
 	public abstract String getObjectiveInSpeech();
@@ -536,9 +538,9 @@ public abstract class GOTMiniQuest {
 		public GOTMiniQuestFactory questFactoryGroup;
 		public String questName;
 		public float rewardFactor = 1.0f;
-		public boolean willHire = false;
+		public boolean willHire;
 		public float hiringAlignment;
-		public boolean isLegendary = false;
+		public boolean isLegendary;
 		public List<ItemStack> rewardItems;
 
 		public QuestFactoryBase(String name) {
@@ -578,29 +580,29 @@ public abstract class GOTMiniQuest {
 			this.questFactoryGroup = factory;
 		}
 
-		public QuestFactoryBase setHiring() {
+		public QuestFactoryBase<Q> setHiring() {
 			this.willHire = true;
 			this.hiringAlignment = 100.0F;
 			return this;
 		}
 
-		public QuestFactoryBase setHiring(float f) {
+		public QuestFactoryBase<Q> setHiring(float f) {
 			this.willHire = true;
 			this.hiringAlignment = f;
 			return this;
 		}
 
-		public QuestFactoryBase setIsLegendary() {
+		public QuestFactoryBase<Q> setIsLegendary() {
 			this.isLegendary = true;
 			return this;
 		}
 
-		public QuestFactoryBase setRewardFactor(float f) {
+		public QuestFactoryBase<Q> setRewardFactor(float f) {
 			this.rewardFactor = f;
 			return this;
 		}
 
-		public QuestFactoryBase setRewardItems(ItemStack[] items) {
+		public QuestFactoryBase<Q> setRewardItems(ItemStack[] items) {
 			this.rewardItems = Arrays.asList(items);
 			return this;
 		}

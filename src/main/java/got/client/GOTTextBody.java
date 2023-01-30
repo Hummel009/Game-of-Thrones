@@ -69,9 +69,9 @@ public class GOTTextBody {
 		block0: for (int i = size() - 1; i >= 0; --i) {
 			String part = getText(i);
 			int color = getColor(i);
-			List lineList = fr.listFormattedStringToWidth(part, textWidth);
+			List<String> lineList = fr.listFormattedStringToWidth(part, textWidth);
 			for (int l = lineList.size() - 1; l >= 0; --l) {
-				String line = (String) lineList.get(l);
+				String line = lineList.get(l);
 				if (d1 > 0) {
 					--d1;
 				} else {

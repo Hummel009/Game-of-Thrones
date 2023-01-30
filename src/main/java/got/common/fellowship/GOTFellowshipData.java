@@ -12,7 +12,7 @@ import net.minecraft.server.MinecraftServer;
 public class GOTFellowshipData {
 	public static Map<UUID, GOTFellowship> fellowshipMap = new HashMap<>();
 	public static boolean needsLoad = true;
-	public static boolean doFullClearing = false;
+	public static boolean doFullClearing;
 
 	public static void addFellowship(GOTFellowship fs) {
 		if (!fellowshipMap.containsKey(fs.getFellowshipID())) {
@@ -118,8 +118,7 @@ public class GOTFellowshipData {
 			ArrayList<GOTFellowship> clearing = new ArrayList<>();
 			for (GOTFellowship fs : fellowshipMap.values()) {
 				boolean foundMember = false;
-				for (Object player : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
-					EntityPlayer entityplayer = (EntityPlayer) player;
+				for (EntityPlayer entityplayer : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
 					if (!fs.containsPlayer(entityplayer.getUniqueID())) {
 						continue;
 					}

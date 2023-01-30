@@ -2,6 +2,7 @@ package got.common.database;
 
 import java.io.*;
 import java.util.*;
+import java.util.Map.Entry;
 import java.util.zip.*;
 
 import org.apache.commons.io.input.BOMInputStream;
@@ -143,8 +144,8 @@ public class GOTNames {
 			FMLLog.severe("Failed to load GOT name banks");
 			e.printStackTrace();
 		}
-		for (String nameBankName : nameBankNamesAndReaders.keySet()) {
-			BufferedReader reader = nameBankNamesAndReaders.get(nameBankName);
+		for (Entry<String, BufferedReader> nameBankName : nameBankNamesAndReaders.entrySet()) {
+			BufferedReader reader = nameBankName.getValue();
 			try {
 				String line;
 				ArrayList<String> nameList = new ArrayList<>();
@@ -153,13 +154,13 @@ public class GOTNames {
 				}
 				reader.close();
 				if (nameList.isEmpty()) {
-					FMLLog.severe("GOT name bank " + nameBankName + " is empty!");
+					FMLLog.severe("GOT name bank " + nameBankName.getKey() + " is empty!");
 					continue;
 				}
 				String[] nameBank = nameList.toArray(new String[0]);
-				allNameBanks.put(nameBankName, nameBank);
+				allNameBanks.put(nameBankName.getKey(), nameBank);
 			} catch (Exception e) {
-				FMLLog.severe("Failed to load GOT name bank " + nameBankName);
+				FMLLog.severe("Failed to load GOT name bank " + nameBankName.getKey());
 				e.printStackTrace();
 			}
 		}

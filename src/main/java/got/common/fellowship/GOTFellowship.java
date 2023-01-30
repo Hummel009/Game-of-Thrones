@@ -18,10 +18,10 @@ import net.minecraft.util.*;
 import net.minecraftforge.common.ForgeHooks;
 
 public class GOTFellowship {
-	public boolean needsSave = false;
+	public boolean needsSave;
 	public UUID fellowshipUUID;
 	public String fellowshipName;
-	public boolean disbanded = false;
+	public boolean disbanded;
 	public ItemStack fellowshipIcon;
 	public UUID ownerUUID;
 	public List<UUID> memberUUIDs = new ArrayList<>();
@@ -306,8 +306,7 @@ public class GOTFellowship {
 			MinecraftServer server = MinecraftServer.getServer();
 			server.addChatMessage(fullChatComponent);
 			S02PacketChat packetChat = new S02PacketChat(fullChatComponent, false);
-			for (Object player : server.getConfigurationManager().playerEntityList) {
-				EntityPlayerMP entityplayer = (EntityPlayerMP) player;
+			for (EntityPlayerMP entityplayer : server.getConfigurationManager().playerEntityList) {
 				if (!containsPlayer(entityplayer.getUniqueID())) {
 					continue;
 				}

@@ -37,11 +37,10 @@ public class GOTEntityRenderer extends EntityRenderer {
 			Vec3 sightVec = posVec.addVector(lookVec.xCoord * reach, lookVec.yCoord * reach, lookVec.zCoord * reach);
 			Vec3 targetVec = null;
 			float lookWidth = GOTWeaponStats.getMeleeExtraLookWidth();
-			List entities = theMC.theWorld.getEntitiesWithinAABBExcludingEntity(theMC.renderViewEntity, theMC.renderViewEntity.boundingBox.addCoord(lookVec.xCoord * reach, lookVec.yCoord * reach, lookVec.zCoord * reach).expand(lookWidth, lookWidth, lookWidth));
+			List<Entity> entities = theMC.theWorld.getEntitiesWithinAABBExcludingEntity(theMC.renderViewEntity, theMC.renderViewEntity.boundingBox.addCoord(lookVec.xCoord * reach, lookVec.yCoord * reach, lookVec.zCoord * reach).expand(lookWidth, lookWidth, lookWidth));
 			double leastDist = maxDist;
-			for (Object entitie : entities) {
+			for (Entity entity : entities) {
 				double entityDist;
-				Entity entity = (Entity) entitie;
 				if (entity.canBeCollidedWith()) {
 					float f = entity.getCollisionBorderSize();
 					AxisAlignedBB entityBB = entity.boundingBox.expand(f, f, f);
@@ -51,7 +50,11 @@ public class GOTEntityRenderer extends EntityRenderer {
 							continue;
 						}
 						thePointedEntity = entity;
-						targetVec = movingobjectposition == null ? posVec : movingobjectposition.hitVec;
+						if (movingobjectposition == null) {
+							targetVec = posVec;
+						} else {
+							targetVec = movingobjectposition.hitVec;
+						}
 						leastDist = 0.0;
 						continue;
 					}

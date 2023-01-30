@@ -61,9 +61,9 @@ public abstract class GOTMiniQuestCollectBase extends GOTMiniQuest {
 			}
 			slotNumbers.add(slot);
 		}
-		Iterator slot = slotNumbers.iterator();
+		Iterator<Integer> slot = slotNumbers.iterator();
 		while (slot.hasNext()) {
-			int slot2 = (Integer) slot.next();
+			int slot2 = slot.next();
 			ItemStack itemstack = entityplayer.inventory.mainInventory[slot2];
 			if (itemstack != null && isQuestItem(itemstack)) {
 				int amountRemaining = collectTarget - amountGiven;

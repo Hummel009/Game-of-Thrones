@@ -99,7 +99,7 @@ public class GOTMiniQuestCollect extends GOTMiniQuestCollectBase {
 			return GOTMiniQuestCollect.class;
 		}
 
-		public QFCollect setCollectItem(ItemStack itemstack, int min, int max) {
+		public QFCollect<Q> setCollectItem(ItemStack itemstack, int min, int max) {
 			this.collectItem = itemstack;
 			if (this.collectItem.isItemStackDamageable()) {
 				this.collectItem.setItemDamage(32767);

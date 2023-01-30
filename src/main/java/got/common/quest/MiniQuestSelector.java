@@ -64,7 +64,7 @@ public interface MiniQuestSelector {
 	}
 
 	public static class OptionalActive implements MiniQuestSelector {
-		public boolean activeOnly = false;
+		public boolean activeOnly;
 
 		@Override
 		public boolean include(GOTMiniQuest quest) {

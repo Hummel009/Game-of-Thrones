@@ -37,8 +37,8 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.MinecraftForge;
 
 public class GOTRegistry {
-	public static Map<GOTEnumDyeColor, GOTBlockConcretePowder> concretePowder = new HashMap<>();
-	public static Map<GOTEnumDyeColor, GOTBlockConcrete> concrete = new HashMap<>();
+	public static Map<GOTEnumDyeColor, GOTBlockConcretePowder> concretePowder = new EnumMap<>(GOTEnumDyeColor.class);
+	public static Map<GOTEnumDyeColor, GOTBlockConcrete> concrete = new EnumMap<>(GOTEnumDyeColor.class);
 	public static Block leavesSnowy;
 	public static Block ricePlant;
 	public static Block aleHornBlock;
@@ -1907,7 +1907,7 @@ public class GOTRegistry {
 		aleHornGold = new GOTItemVessel();
 		alloySteelAxe = new GOTItemAxe(GOTMaterial.COBALT_TOOL);
 		alloySteelDagger = new GOTItemDagger(GOTMaterial.COBALT_TOOL);
-		alloySteelDaggerPoisoned = new GOTItemDagger(GOTMaterial.COBALT_TOOL, GOTItemDagger.HitEffect.POISON);
+		alloySteelDaggerPoisoned = new GOTItemDagger(GOTMaterial.COBALT_TOOL, GOTItemSword.HitEffect.POISON);
 		alloySteelHalberd = new GOTItemPolearmLong(GOTMaterial.COBALT_TOOL);
 		alloySteelHoe = new GOTItemHoe(GOTMaterial.COBALT_TOOL);
 		alloySteelIngot = new Item().setCreativeTab(GOTCreativeTabs.tabMaterials);
@@ -1939,7 +1939,7 @@ public class GOTRegistry {
 		asshaiBow = new GOTItemBow(ToolMaterial.WOOD, 1.25).setDrawTime(30);
 		asshaiChestplate = new GOTItemArmor(GOTMaterial.ASSHAI, 1);
 		asshaiDagger = new GOTItemDagger(GOTMaterial.ASSHAI_TOOL);
-		asshaiDaggerPoisoned = new GOTItemDagger(GOTMaterial.ASSHAI_TOOL, GOTItemDagger.HitEffect.POISON);
+		asshaiDaggerPoisoned = new GOTItemDagger(GOTMaterial.ASSHAI_TOOL, GOTItemSword.HitEffect.POISON);
 		asshaiHammer = new GOTItemHammer(GOTMaterial.ASSHAI_TOOL);
 		asshaiHelmet = new GOTItemArmor(GOTMaterial.ASSHAI, 0);
 		asshaiLeggings = new GOTItemArmor(GOTMaterial.ASSHAI, 2);
@@ -1956,7 +1956,7 @@ public class GOTRegistry {
 		banner = new GOTItemBanner();
 		bannerTab = new GOTItemBannerTab();
 		bearRug = new GOTItemBearRug();
-		bericSword = new GOTItemLegendarySword(ToolMaterial.IRON, GOTItemLegendarySword.HitEffect.FIRE);
+		bericSword = new GOTItemLegendarySword(ToolMaterial.IRON, GOTItemSword.HitEffect.FIRE);
 		berryPieItem = new GOTItemPlaceableFood(berryPie);
 		blackArakh = new GOTItemLegendarySword(GOTMaterial.VALYRIAN_TOOL);
 		blackberry = new GOTItemBerry();
@@ -1989,7 +1989,7 @@ public class GOTRegistry {
 		bronzeChestplate = new GOTItemArmor(GOTMaterial.BRONZE, 1);
 		bronzeCrossbow = new GOTItemCrossbow(GOTMaterial.BRONZE_TOOL);
 		bronzeDagger = new GOTItemDagger(GOTMaterial.BRONZE_TOOL);
-		bronzeDaggerPoisoned = new GOTItemDagger(GOTMaterial.BRONZE_TOOL, GOTItemDagger.HitEffect.POISON);
+		bronzeDaggerPoisoned = new GOTItemDagger(GOTMaterial.BRONZE_TOOL, GOTItemSword.HitEffect.POISON);
 		bronzeHelmet = new GOTItemArmor(GOTMaterial.BRONZE, 0);
 		bronzeHoe = new GOTItemHoe(GOTMaterial.BRONZE_TOOL);
 		bronzeIngot = new Item().setCreativeTab(GOTCreativeTabs.tabMaterials);
@@ -2063,7 +2063,7 @@ public class GOTRegistry {
 		emerald = new GOTItemGemWithAnvilNameColor(EnumChatFormatting.GREEN);
 		essosBow = new GOTItemBow(ToolMaterial.WOOD, 1.125);
 		essosDagger = new GOTItemDagger(ToolMaterial.IRON);
-		essosDaggerPoisoned = new GOTItemDagger(ToolMaterial.IRON, GOTItemDagger.HitEffect.POISON);
+		essosDaggerPoisoned = new GOTItemDagger(ToolMaterial.IRON, GOTItemSword.HitEffect.POISON);
 		essosHammer = new GOTItemHammer(ToolMaterial.IRON);
 		essosHorseArmor = new GOTItemMountArmor(ArmorMaterial.IRON, GOTItemMountArmor.Mount.HORSE, "horse_essos");
 		essosPike = new GOTItemPike(ToolMaterial.IRON);
@@ -2145,7 +2145,7 @@ public class GOTRegistry {
 		ironBattleaxe = new GOTItemBattleaxe(ToolMaterial.IRON);
 		ironCrossbow = new GOTItemCrossbow(ToolMaterial.IRON);
 		ironDagger = new GOTItemDagger(ToolMaterial.IRON);
-		ironDaggerPoisoned = new GOTItemDagger(ToolMaterial.IRON, GOTItemDagger.HitEffect.POISON);
+		ironDaggerPoisoned = new GOTItemDagger(ToolMaterial.IRON, GOTItemSword.HitEffect.POISON);
 		ironHorseArmor = new GOTItemMountArmor(ArmorMaterial.IRON, GOTItemMountArmor.Mount.HORSE, null).setTemplateItem(Items.iron_horse_armor);
 		ironPike = new GOTItemPike(ToolMaterial.IRON);
 		ironSpear = new GOTItemSpear(ToolMaterial.IRON);
@@ -2185,7 +2185,7 @@ public class GOTRegistry {
 		lhazarChestplateLion = new GOTItemArmor(GOTMaterial.LHAZAR_LION, 1);
 		lhazarClub = new GOTItemHammer(ToolMaterial.WOOD);
 		lhazarDagger = new GOTItemDagger(GOTMaterial.HORN_TOOL);
-		lhazarDaggerPoisoned = new GOTItemDagger(GOTMaterial.HORN_TOOL, GOTItemDagger.HitEffect.POISON);
+		lhazarDaggerPoisoned = new GOTItemDagger(GOTMaterial.HORN_TOOL, GOTItemSword.HitEffect.POISON);
 		lhazarHelmet = new GOTItemArmor(GOTMaterial.LHAZAR, 0);
 		lhazarHelmetLion = new GOTItemArmor(GOTMaterial.LHAZAR_LION, 0, "helmet");
 		lhazarLeggings = new GOTItemArmor(GOTMaterial.LHAZAR, 2);
@@ -2298,7 +2298,7 @@ public class GOTRegistry {
 		npcRespawner = new GOTItemNPCRespawner();
 		nymeriaWhip = new GOTItemLegendaryWhip();
 		oathkeeper = new GOTItemLegendarySword(GOTMaterial.VALYRIAN_TOOL);
-		obaraSpear = new GOTItemLegendarySword(ToolMaterial.IRON, GOTItemLegendarySword.HitEffect.POISON);
+		obaraSpear = new GOTItemLegendarySword(ToolMaterial.IRON, GOTItemSword.HitEffect.POISON);
 		obsidianShard = new Item().setCreativeTab(GOTCreativeTabs.tabMaterials);
 		olive = new GOTItemFood(1, 0.1f, false);
 		oliveBread = new GOTItemFood(5, 0.6f, false);
@@ -2404,7 +2404,7 @@ public class GOTRegistry {
 		sothoryosChestplate = new GOTItemArmor(GOTMaterial.SOTHORYOS, 1);
 		sothoryosChestplateGold = new GOTItemArmor(GOTMaterial.SOTHORYOS_GOLD, 1);
 		sothoryosDagger = new GOTItemDagger(GOTMaterial.OBSIDIAN_TOOL);
-		sothoryosDaggerPoisoned = new GOTItemDagger(GOTMaterial.OBSIDIAN_TOOL, GOTItemDagger.HitEffect.POISON);
+		sothoryosDaggerPoisoned = new GOTItemDagger(GOTMaterial.OBSIDIAN_TOOL, GOTItemSword.HitEffect.POISON);
 		sothoryosDoubleTorchItem = new GOTItemDoubleTorch(sothoryosDoubleTorch).setCreativeTab(GOTCreativeTabs.tabDeco);
 		sothoryosHammer = new GOTItemHammer(GOTMaterial.OBSIDIAN_TOOL);
 		sothoryosHelmet = new GOTItemArmor(GOTMaterial.SOTHORYOS, 0);
@@ -2432,13 +2432,13 @@ public class GOTRegistry {
 		summerBoots = new GOTItemArmor(GOTMaterial.SUMMER, 3);
 		summerChestplate = new GOTItemArmor(GOTMaterial.SUMMER, 1, "body");
 		summerDagger = new GOTItemDagger(ToolMaterial.IRON);
-		summerDaggerPoisoned = new GOTItemDagger(ToolMaterial.IRON, GOTItemDagger.HitEffect.POISON);
+		summerDaggerPoisoned = new GOTItemDagger(ToolMaterial.IRON, GOTItemSword.HitEffect.POISON);
 		summerHelmet = new GOTItemArmor(GOTMaterial.SUMMER, 0);
 		summerLeggings = new GOTItemArmor(GOTMaterial.SUMMER, 2);
 		summerPike = new GOTItemPike(ToolMaterial.IRON);
 		summerSpear = new GOTItemSpear(ToolMaterial.IRON);
 		summerSword = new GOTItemSword(ToolMaterial.IRON);
-		sunspear = new GOTItemLegendarySword(ToolMaterial.IRON, GOTItemLegendarySword.HitEffect.POISON);
+		sunspear = new GOTItemLegendarySword(ToolMaterial.IRON, GOTItemSword.HitEffect.POISON);
 		swanFeather = new Item().setCreativeTab(GOTCreativeTabs.tabMaterials);
 		targaryenBoots = new GOTItemArmor(GOTMaterial.TARGARYEN, 3).setCreativeTab(GOTCreativeTabs.tabStory);
 		targaryenChestplate = new GOTItemArmor(GOTMaterial.TARGARYEN, 1, "chestplate").setCreativeTab(GOTCreativeTabs.tabStory);
@@ -2455,7 +2455,7 @@ public class GOTRegistry {
 		tugarKhanSword = new GOTItemLegendarySword(ToolMaterial.IRON);
 		turnip = new ItemSeedFood(2, 0.3f, turnipCrop, Blocks.farmland).setCreativeTab(GOTCreativeTabs.tabFood);
 		turnipCooked = new GOTItemFood(6, 0.6f, false);
-		tyeneDagger = new GOTItemLegendaryDagger(ToolMaterial.IRON, GOTItemDagger.HitEffect.POISON);
+		tyeneDagger = new GOTItemLegendaryDagger(ToolMaterial.IRON, GOTItemSword.HitEffect.POISON);
 		tyrionAxe = new GOTItemLegendaryBattleaxe(ToolMaterial.IRON);
 		tyroshBoots = new GOTItemArmor(GOTMaterial.TYROSH, 3);
 		tyroshChestplate = new GOTItemArmor(GOTMaterial.TYROSH, 1);
@@ -2473,7 +2473,7 @@ public class GOTRegistry {
 		valyrianChisel = new GOTItemChisel(signCarvedGlowing);
 		valyrianCrossbow = new GOTItemCrossbow(GOTMaterial.VALYRIAN_TOOL);
 		valyrianDagger = new GOTItemDagger(GOTMaterial.VALYRIAN_TOOL);
-		valyrianDaggerPoisoned = new GOTItemDagger(GOTMaterial.VALYRIAN_TOOL, GOTItemDagger.HitEffect.POISON);
+		valyrianDaggerPoisoned = new GOTItemDagger(GOTMaterial.VALYRIAN_TOOL, GOTItemSword.HitEffect.POISON);
 		valyrianHalberd = new GOTItemPolearmLong(GOTMaterial.VALYRIAN_TOOL);
 		valyrianHammer = new GOTItemHammer(GOTMaterial.VALYRIAN_TOOL);
 		valyrianHelmet = new GOTItemArmor(GOTMaterial.VALYRIAN, 0, "helmet");
@@ -2511,7 +2511,7 @@ public class GOTRegistry {
 		westerlandsguardLeggings = new GOTItemArmor(GOTMaterial.WESTERLANDSGUARD, 2);
 		westerosBow = new GOTItemBow(ToolMaterial.WOOD, 1.125);
 		westerosDagger = new GOTItemDagger(ToolMaterial.IRON);
-		westerosDaggerPoisoned = new GOTItemDagger(ToolMaterial.IRON, GOTItemDagger.HitEffect.POISON);
+		westerosDaggerPoisoned = new GOTItemDagger(ToolMaterial.IRON, GOTItemSword.HitEffect.POISON);
 		westerosHammer = new GOTItemHammer(ToolMaterial.IRON);
 		westerosHorseArmor = new GOTItemMountArmor(ArmorMaterial.IRON, GOTItemMountArmor.Mount.HORSE, "horse_westeros");
 		westerosLance = new GOTItemLance(ToolMaterial.IRON);
@@ -2534,7 +2534,7 @@ public class GOTRegistry {
 		wildlingAxe = new GOTItemAxe(ToolMaterial.IRON);
 		wildlingBattleaxe = new GOTItemBattleaxe(ToolMaterial.IRON);
 		wildlingDagger = new GOTItemDagger(ToolMaterial.IRON);
-		wildlingDaggerPoisoned = new GOTItemDagger(ToolMaterial.IRON, GOTItemDagger.HitEffect.POISON);
+		wildlingDaggerPoisoned = new GOTItemDagger(ToolMaterial.IRON, GOTItemSword.HitEffect.POISON);
 		wildlingHammer = new GOTItemHammer(ToolMaterial.IRON);
 		wildlingPolearm = new GOTItemPolearm(ToolMaterial.IRON);
 		wildlingSpear = new GOTItemSpear(ToolMaterial.IRON);
@@ -2552,7 +2552,7 @@ public class GOTRegistry {
 		yitiChestplateFrontier = new GOTItemArmor(GOTMaterial.YITI_FRONTIER, 1);
 		yitiChestplateSamurai = new GOTItemArmor(GOTMaterial.YITI_SAMURAI, 1);
 		yitiDagger = new GOTItemDagger(ToolMaterial.IRON);
-		yitiDaggerPoisoned = new GOTItemDagger(ToolMaterial.IRON, GOTItemDagger.HitEffect.POISON);
+		yitiDaggerPoisoned = new GOTItemDagger(ToolMaterial.IRON, GOTItemSword.HitEffect.POISON);
 		yitiHelmet = new GOTItemArmor(GOTMaterial.YITI, 0);
 		yitiHelmetFrontier = new GOTItemArmor(GOTMaterial.YITI_FRONTIER, 0);
 		yitiHelmetSamurai = new GOTItemArmor(GOTMaterial.YITI_SAMURAI, 0, "helmet");

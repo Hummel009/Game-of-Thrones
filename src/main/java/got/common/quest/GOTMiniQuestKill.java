@@ -93,7 +93,7 @@ public abstract class GOTMiniQuestKill extends GOTMiniQuest {
 		nbt.setInteger("Count", killCount);
 	}
 
-	public static abstract class QFKill<Q extends GOTMiniQuestKill> extends GOTMiniQuest.QuestFactoryBase<Q> {
+	public abstract static class QFKill<Q extends GOTMiniQuestKill> extends GOTMiniQuest.QuestFactoryBase<Q> {
 		public int minTarget;
 		public int maxTarget;
 
@@ -108,7 +108,7 @@ public abstract class GOTMiniQuestKill extends GOTMiniQuest {
 			return (Q) quest;
 		}
 
-		public QFKill setKillTarget(int min, int max) {
+		public QFKill<Q> setKillTarget(int min, int max) {
 			this.minTarget = min;
 			this.maxTarget = max;
 			return this;

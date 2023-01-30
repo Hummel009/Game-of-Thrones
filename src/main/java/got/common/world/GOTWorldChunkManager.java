@@ -204,7 +204,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 				boolean[] flags = GOTFixedStructures._mountainNear_structureNear(worldObj, xPos, zPos);
 				boolean mountainNear = flags[0];
 				boolean structureNear = flags[1];
-				boolean fixedVillageNear = biome.getDecorator().anyFixedVillagesAt(worldObj, xPos, zPos);
+				boolean fixedVillageNear = biome.decorator.anyFixedVillagesAt(worldObj, xPos, zPos);
 				if (fixedVillageNear) {
 					variant = GOTBiomeVariant.STEPPE;
 				} else {

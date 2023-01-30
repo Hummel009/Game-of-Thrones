@@ -13,6 +13,7 @@ import cpw.mods.fml.common.gameevent.TickEvent.ClientTickEvent;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import got.GOT;
 import got.common.*;
+import got.common.GOTDimension.DimensionRegion;
 import got.common.faction.GOTFaction;
 import got.common.network.*;
 import net.minecraft.client.Minecraft;
@@ -59,7 +60,7 @@ public class GOTKeyHandler {
 		GOTPlayerData pd = GOTLevelData.getData(GOTKeyHandler.mc.thePlayer);
 		boolean usedAlignmentKeys = false;
 		boolean skippedHelp = false;
-		HashMap<GOTDimension.DimensionRegion, GOTFaction> lastViewedRegions = new HashMap<>();
+		Map<GOTDimension.DimensionRegion, GOTFaction> lastViewedRegions = new EnumMap<>(DimensionRegion.class);
 		GOTDimension currentDimension = GOTDimension.getCurrentDimension(GOTKeyHandler.mc.theWorld);
 		GOTFaction currentFaction = pd.getViewingFaction();
 		GOTDimension.DimensionRegion currentRegion = currentFaction.factionRegion;
@@ -84,7 +85,7 @@ public class GOTKeyHandler {
 				currentFaction = factionList.get(i);
 				usedAlignmentKeys = true;
 			}
-			if (regionList != null && currentRegion != null) {
+			if (regionList != null) {
 				if (keyBindingAlignmentGroupPrev.getIsKeyPressed()) {
 					pd.setRegionLastViewedFaction(currentRegion, currentFaction);
 					lastViewedRegions.put(currentRegion, currentFaction);
