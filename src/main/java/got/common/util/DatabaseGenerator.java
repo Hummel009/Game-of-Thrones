@@ -44,77 +44,16 @@ import net.minecraft.world.gen.feature.*;
 
 public class DatabaseGenerator extends GOTStructureBase {
 	public static String display = "null";
-	private static HashMap<Class<? extends Entity>, Entity> classToObjectMapping = new HashMap<>();
-	private static HashMap<Class<? extends Entity>, GOTWaypoint> classToWaypointMapping = new HashMap<>();
-	private static HashMap<String, String> factionPageMapping = new HashMap<>();
-	private static HashMap<String, String> entityPageMapping = new HashMap<>();
-	private static HashMap<String, String> biomePageMapping = new HashMap<>();
+	public static Map<Class<? extends Entity>, Entity> classToObjectMapping = new HashMap<>();
+	public static Map<Class<? extends Entity>, GOTWaypoint> classToWaypointMapping = new HashMap<>();
+	public static Map<String, String> factionPageMapping = new HashMap<>();
+	public static Map<String, String> entityPageMapping = new HashMap<>();
+	public static Map<String, String> biomePageMapping = new HashMap<>();
 
-	private static String biomeHasAnimals = StatCollector.translateToLocal("db.biomeHasAnimals.name");
-	private static String biomeHasConquest = StatCollector.translateToLocal("db.biomeHasConquest.name");
-	private static String biomeHasInvasions = StatCollector.translateToLocal("db.biomeHasInvasions.name");
-	private static String biomeHasSpawn = StatCollector.translateToLocal("db.biomeHasSpawn.name");
-	private static String biomeHasStructures = StatCollector.translateToLocal("db.biomeHasStructures.name");
-	private static String biomeHasTreesBiomeAndVariant = StatCollector.translateToLocal("db.biomeHasTrees2.name");
-	private static String biomeHasTreesBiomeOnly = StatCollector.translateToLocal("db.biomeHasTrees1.name");
-	private static String biomeHasWaypoints = StatCollector.translateToLocal("db.biomeHasWaypoints.name");
-	private static String biomeNoAchievement = StatCollector.translateToLocal("db.biomeNoAchievement.name");
-	private static String biomeNoAnimals = StatCollector.translateToLocal("db.biomeNoAnimals.name");
-	private static String biomeNoConquest = StatCollector.translateToLocal("db.biomeNoConquest.name");
-	private static String biomeNoInvasions = StatCollector.translateToLocal("db.biomeNoInvasions.name");
-	private static String biomeNoSpawn = StatCollector.translateToLocal("db.biomeNoSpawn.name");
-	private static String biomeNoStructures = StatCollector.translateToLocal("db.biomeNoStructures.name");
-	private static String biomeNoTrees = StatCollector.translateToLocal("db.biomeNoTrees.name");
-	private static String biomeNoVariants = StatCollector.translateToLocal("db.biomeNoVariants.name");
-	private static String biomeNoWaypoints = StatCollector.translateToLocal("db.biomeNoWaypoints.name");
-	private static String biomeMinerals = StatCollector.translateToLocal("db.biomeMinerals.name");
-	private static String biomeConquestOnly = StatCollector.translateToLocal("db.biomeConquestOnly.name");
-	private static String biomeSpawnOnly = StatCollector.translateToLocal("db.biomeSpawnOnly.name");
-
-	private static String factionHasBanners = StatCollector.translateToLocal("db.factionHasBanners.name");
-	private static String factionHasCharacters = StatCollector.translateToLocal("db.factionHasCharacters.name");
-	private static String factionHasConquest = StatCollector.translateToLocal("db.factionHasConquest.name");
-	private static String factionHasInvasion = StatCollector.translateToLocal("db.factionHasInvasion.name");
-	private static String factionHasRanks = StatCollector.translateToLocal("db.factionHasRanks.name");
-	private static String factionHasSpawn = StatCollector.translateToLocal("db.factionHasSpawn.name");
-	private static String factionHasWarCrimes = StatCollector.translateToLocal("db.factionIsViolent.name");
-	private static String factionHasWaypoints = StatCollector.translateToLocal("db.factionHasWaypoints.name");
-	private static String factionNoAttr = StatCollector.translateToLocal("db.factionNoAttr.name");
-	private static String factionNoBanners = StatCollector.translateToLocal("db.factionNoBanners.name");
-	private static String factionNoCharacters = StatCollector.translateToLocal("db.factionNoCharacters.name");
-	private static String factionNoConquest = StatCollector.translateToLocal("db.factionNoConquest.name");
-	private static String factionNoEnemies = StatCollector.translateToLocal("db.factionNoEnemies.name");
-	private static String factionNoFriends = StatCollector.translateToLocal("db.factionNoFriends.name");
-	private static String factionNoInvasion = StatCollector.translateToLocal("db.factionNoInvasion.name");
-	private static String factionNoRanks = StatCollector.translateToLocal("db.factionNoRanks.name");
-	private static String factionNoSpawn = StatCollector.translateToLocal("db.factionNoSpawn.name");
-	private static String factionNoStructures = StatCollector.translateToLocal("db.factionNoStructures.name");
-	private static String factionNoWarCrimes = StatCollector.translateToLocal("db.factionNotViolent.name");
-	private static String factionNoWaypoints = StatCollector.translateToLocal("db.factionNoWaypoints.name");
-
-	private static String treeHasBiomes = StatCollector.translateToLocal("db.treeHasBiomes.name");
-	private static String treeNoBiomes = StatCollector.translateToLocal("db.treeNoBiomes.name");
-	private static String treeVariantOnly = StatCollector.translateToLocal("db.treeVariantOnly.name");
-
-	private static String biomePage = StatCollector.translateToLocal("db.biomeLoc.name");
-	private static String factionPage = StatCollector.translateToLocal("db.factionLoc.name");
-	private static String entityPage = StatCollector.translateToLocal("db.entityLoc.name");
-
-	private static String rider = StatCollector.translateToLocal("db.rider.name");
-	private static String noPledge = StatCollector.translateToLocal("db.noPledge.name");
-	private static String yesPledge = StatCollector.translateToLocal("db.yesPledge.name");
-	private static String rep = StatCollector.translateToLocal("db.rep.name");
-	private static String category = StatCollector.translateToLocal("db.categoryTemplates.name");
-
-	private static String mineralBiomes = StatCollector.translateToLocal("db.mineralBiomes.name");
-	private static String structureBiomes = StatCollector.translateToLocal("db.structureBiomes.name");
-
-	private static String entityNoBiomes = StatCollector.translateToLocal("db.entityNoBiomes.name");
-	private static String entityHasBiomes = StatCollector.translateToLocal("db.entityHasBiomes.name");
-	private static String entityConquestOnly = StatCollector.translateToLocal("db.entityConquestOnly.name");
-	private static String entityInvasionOnly = StatCollector.translateToLocal("db.entityInvasionOnly.name");
-	private static String entityConquestInvasion = StatCollector.translateToLocal("db.entityConquestInvasion.name");
-
+	public static String biomePage = StatCollector.translateToLocal("db.biomeLoc.name");
+	public static String factionPage = StatCollector.translateToLocal("db.factionLoc.name");
+	public static String entityPage = StatCollector.translateToLocal("db.entityLoc.name");
+	
 	public DatabaseGenerator(boolean flag) {
 		super(flag);
 	}
@@ -122,6 +61,67 @@ public class DatabaseGenerator extends GOTStructureBase {
 	@Override
 	public boolean generate(World world, Random random, int y, int j, int k, int rotation) {
 		long time = System.nanoTime();
+		String biomeHasAnimals = StatCollector.translateToLocal("db.biomeHasAnimals.name");
+		String biomeHasConquest = StatCollector.translateToLocal("db.biomeHasConquest.name");
+		String biomeHasInvasions = StatCollector.translateToLocal("db.biomeHasInvasions.name");
+		String biomeHasSpawn = StatCollector.translateToLocal("db.biomeHasSpawn.name");
+		String biomeHasStructures = StatCollector.translateToLocal("db.biomeHasStructures.name");
+		String biomeHasTreesBiomeAndVariant = StatCollector.translateToLocal("db.biomeHasTrees2.name");
+		String biomeHasTreesBiomeOnly = StatCollector.translateToLocal("db.biomeHasTrees1.name");
+		String biomeHasWaypoints = StatCollector.translateToLocal("db.biomeHasWaypoints.name");
+		String biomeNoAchievement = StatCollector.translateToLocal("db.biomeNoAchievement.name");
+		String biomeNoAnimals = StatCollector.translateToLocal("db.biomeNoAnimals.name");
+		String biomeNoConquest = StatCollector.translateToLocal("db.biomeNoConquest.name");
+		String biomeNoInvasions = StatCollector.translateToLocal("db.biomeNoInvasions.name");
+		String biomeNoSpawn = StatCollector.translateToLocal("db.biomeNoSpawn.name");
+		String biomeNoStructures = StatCollector.translateToLocal("db.biomeNoStructures.name");
+		String biomeNoTrees = StatCollector.translateToLocal("db.biomeNoTrees.name");
+		String biomeNoVariants = StatCollector.translateToLocal("db.biomeNoVariants.name");
+		String biomeNoWaypoints = StatCollector.translateToLocal("db.biomeNoWaypoints.name");
+		String biomeMinerals = StatCollector.translateToLocal("db.biomeMinerals.name");
+		String biomeConquestOnly = StatCollector.translateToLocal("db.biomeConquestOnly.name");
+		String biomeSpawnOnly = StatCollector.translateToLocal("db.biomeSpawnOnly.name");
+
+		String factionHasBanners = StatCollector.translateToLocal("db.factionHasBanners.name");
+		String factionHasCharacters = StatCollector.translateToLocal("db.factionHasCharacters.name");
+		String factionHasConquest = StatCollector.translateToLocal("db.factionHasConquest.name");
+		String factionHasInvasion = StatCollector.translateToLocal("db.factionHasInvasion.name");
+		String factionHasRanks = StatCollector.translateToLocal("db.factionHasRanks.name");
+		String factionHasSpawn = StatCollector.translateToLocal("db.factionHasSpawn.name");
+		String factionHasWarCrimes = StatCollector.translateToLocal("db.factionIsViolent.name");
+		String factionHasWaypoints = StatCollector.translateToLocal("db.factionHasWaypoints.name");
+		String factionNoAttr = StatCollector.translateToLocal("db.factionNoAttr.name");
+		String factionNoBanners = StatCollector.translateToLocal("db.factionNoBanners.name");
+		String factionNoCharacters = StatCollector.translateToLocal("db.factionNoCharacters.name");
+		String factionNoConquest = StatCollector.translateToLocal("db.factionNoConquest.name");
+		String factionNoEnemies = StatCollector.translateToLocal("db.factionNoEnemies.name");
+		String factionNoFriends = StatCollector.translateToLocal("db.factionNoFriends.name");
+		String factionNoInvasion = StatCollector.translateToLocal("db.factionNoInvasion.name");
+		String factionNoRanks = StatCollector.translateToLocal("db.factionNoRanks.name");
+		String factionNoSpawn = StatCollector.translateToLocal("db.factionNoSpawn.name");
+		String factionNoStructures = StatCollector.translateToLocal("db.factionNoStructures.name");
+		String factionNoWarCrimes = StatCollector.translateToLocal("db.factionNotViolent.name");
+		String factionNoWaypoints = StatCollector.translateToLocal("db.factionNoWaypoints.name");
+
+		String treeHasBiomes = StatCollector.translateToLocal("db.treeHasBiomes.name");
+		String treeNoBiomes = StatCollector.translateToLocal("db.treeNoBiomes.name");
+		String treeVariantOnly = StatCollector.translateToLocal("db.treeVariantOnly.name");
+
+		String rider = StatCollector.translateToLocal("db.rider.name");
+		String noPledge = StatCollector.translateToLocal("db.noPledge.name");
+		String yesPledge = StatCollector.translateToLocal("db.yesPledge.name");
+		String rep = StatCollector.translateToLocal("db.rep.name");
+		String category = StatCollector.translateToLocal("db.categoryTemplates.name");
+
+		String mineralBiomes = StatCollector.translateToLocal("db.mineralBiomes.name");
+		String structureBiomes = StatCollector.translateToLocal("db.structureBiomes.name");
+
+		String entityNoBiomes = StatCollector.translateToLocal("db.entityNoBiomes.name");
+		String entityHasBiomes = StatCollector.translateToLocal("db.entityHasBiomes.name");
+		String entityConquestOnly = StatCollector.translateToLocal("db.entityConquestOnly.name");
+		String entityInvasionOnly = StatCollector.translateToLocal("db.entityInvasionOnly.name");
+		String entityConquestInvasion = StatCollector.translateToLocal("db.entityConquestInvasion.name");
+		
 		classToWaypointMapping.put(GOTEntityYgritte.class, GOTWaypoint.Hardhome);
 		classToWaypointMapping.put(GOTEntityTormund.class, GOTWaypoint.Hardhome);
 		classToWaypointMapping.put(GOTEntityManceRayder.class, GOTWaypoint.Hardhome);
@@ -162,10 +162,10 @@ public class DatabaseGenerator extends GOTStructureBase {
 		classToWaypointMapping.put(GOTEntityMullin.class, GOTWaypoint.ShadowTower);
 
 		try {
-			HashSet<Item> items = GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Item.class);
-			HashSet<GOTUnitTradeEntries> units = GOTAPI.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class);
-			HashSet<GOTAchievement> achievements = GOTAPI.getObjectFieldsOfType(GOTAchievement.class, GOTAchievement.class);
-			HashSet<GOTBiome> biomes = GOTAPI.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class);
+			HashSet<Item> items = new HashSet<>(GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Item.class));
+			HashSet<GOTUnitTradeEntries> units = new HashSet<>(GOTAPI.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class));
+			HashSet<GOTAchievement> achievements = new HashSet<>(GOTAPI.getObjectFieldsOfType(GOTAchievement.class, GOTAchievement.class));
+			HashSet<GOTBiome> biomes = new HashSet<>(GOTAPI.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class));
 			HashSet<GOTFaction> factions = new HashSet<>(EnumSet.allOf(GOTFaction.class));
 			HashSet<GOTTreeType> trees = new HashSet<>(EnumSet.allOf(GOTTreeType.class));
 			HashSet<GOTWaypoint> waypoints = new HashSet<>(EnumSet.allOf(GOTWaypoint.class));

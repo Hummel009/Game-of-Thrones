@@ -98,7 +98,7 @@ public class GOTAPI {
 	 * @param hidden   - will be displayed in the GUI or not.
 	 * @param players  - UUIDs of the owners.
 	 */
-	public static GOTCapes addCape(String enumName, boolean hidden, ArrayList<String> players) {
+	public static GOTCapes addCape(String enumName, boolean hidden, List<String> players) {
 		return addCape(enumName, GOTCapes.CapeType.EXCLUSIVE, hidden, players);
 	}
 
@@ -109,7 +109,7 @@ public class GOTAPI {
 	 * @param hidden   - will be displayed in the GUI or not.
 	 * @param players  - UUIDs of the owners.
 	 */
-	public static GOTCapes addCape(String enumName, GOTCapes.CapeType type, boolean hidden, ArrayList<String> players) {
+	public static GOTCapes addCape(String enumName, GOTCapes.CapeType type, boolean hidden, List<String> players) {
 		Class[] classArr = { GOTCapes.CapeType.class, Boolean.TYPE, ArrayList.class };
 		Object[] args = { type, hidden, players };
 		return EnumHelper.addEnum(GOTCapes.class, enumName, classArr, args);
@@ -279,7 +279,7 @@ public class GOTAPI {
 	 * @param hidden   - will be displayed in the GUI or not.
 	 * @param players  - UUIDs of the owners.
 	 */
-	public static GOTShields addShield(String enumName, boolean hidden, ArrayList<String> players) {
+	public static GOTShields addShield(String enumName, boolean hidden, List<String> players) {
 		return addShield(enumName, GOTShields.ShieldType.EXCLUSIVE, hidden, players);
 	}
 
@@ -290,7 +290,7 @@ public class GOTAPI {
 	 * @param hidden   - will be displayed in the GUI or not.
 	 * @param players  - UUIDs of the owners.
 	 */
-	public static GOTShields addShield(String enumName, GOTShields.ShieldType type, boolean hidden, ArrayList<String> players) {
+	public static GOTShields addShield(String enumName, GOTShields.ShieldType type, boolean hidden, List<String> players) {
 		Class[] classArr = { GOTShields.ShieldType.class, Boolean.TYPE, ArrayList.class };
 		Object[] args = { type, hidden, players };
 		return EnumHelper.addEnum(GOTShields.class, enumName, classArr, args);
@@ -432,6 +432,7 @@ public class GOTAPI {
 			try {
 				in.close();
 			} catch (IOException e) {
+				GOTLog.logger.error("Failed to convert a input stream into a buffered image.");
 			}
 		}
 		return null;
@@ -450,7 +451,7 @@ public class GOTAPI {
 	 * @param clazz - class file with fields.
 	 * @param type  - needed type.
 	 */
-	public static <E, T> HashSet<T> getObjectFieldsOfType(Class<? extends E> clazz, Class<? extends T> type) {
+	public static <E, T> Set<T> getObjectFieldsOfType(Class<? extends E> clazz, Class<? extends T> type) {
 		return getObjectFieldsOfType(clazz, null, type);
 	}
 
