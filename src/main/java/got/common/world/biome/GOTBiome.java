@@ -791,6 +791,12 @@ public abstract class GOTBiome extends BiomeGenBase {
 		climateType = climate;
 	}
 
+	public GOTBiome setClimateType(GOTClimateType type) {
+		climateType = type;
+		decorator.generateAgriculture = type == GOTClimateType.SUMMER;
+		return this;
+	}
+
 	@Override
 	public GOTBiome setColor(int color) {
 		color |= 0xFF000000;
@@ -829,12 +835,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	public void setInvasionSpawns(GOTBiomeInvasionSpawns invasionSpawns) {
 		this.invasionSpawns = invasionSpawns;
-	}
-
-	public GOTBiome setClimateType(GOTClimateType type) {
-		climateType = type;
-		decorator.generateAgriculture = type == GOTClimateType.SUMMER;
-		return this;
 	}
 
 	public GOTBiome setMinMaxHeight(float f, float f1) {

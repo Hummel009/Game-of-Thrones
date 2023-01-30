@@ -1,10 +1,9 @@
 package got.common.command;
 
-import java.util.List;
+import java.util.*;
 
 import got.common.util.DatabaseGenerator;
 import got.common.util.DatabaseGenerator.Database;
-import java.util.Collections;
 import net.minecraft.command.*;
 
 public class GOTCommandDatabase extends CommandBase {

@@ -372,7 +372,7 @@ public class GOTLevelData {
 			}
 		}
 		for (UUID player : clearing) {
-			boolean saved = GOTLevelData.saveAndClearData(player);
+			GOTLevelData.saveAndClearData(player);
 		}
 	}
 

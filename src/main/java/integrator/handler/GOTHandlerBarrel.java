@@ -71,9 +71,9 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 
 	@Override
 	public void loadUsageRecipes(ItemStack ingredient) {
-		for (int i = 0; i < barrelRecipes.size(); i++) {
+		for (CachedBarrelRecipe barrelRecipe : barrelRecipes) {
 
-			CachedBarrelRecipe recipe = barrelRecipes.get(i);
+			CachedBarrelRecipe recipe = barrelRecipe;
 			List<PositionedStack> ingreds;
 			if (recipe.contains(ingreds = recipe.getIngredients(), ingredient)) {
 

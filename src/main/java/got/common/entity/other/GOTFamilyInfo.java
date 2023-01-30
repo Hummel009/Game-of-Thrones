@@ -39,7 +39,7 @@ public class GOTFamilyInfo {
 		if (npc.getClass() != theEntity.getClass() || npc.familyInfo.spouseUniqueID != null || npc.familyInfo.getAge() != 0 || npc.getEquipmentInSlot(4) != null) {
 			return false;
 		}
-		boolean lgbt = GOTConfig.lgbt || (npc.familyInfo.isMale() == isMale());
+		boolean lgbt = GOTConfig.lgbt || npc.familyInfo.isMale() == isMale();
 		if (lgbt || npc == theEntity || maleParentID != null && maleParentID == npc.familyInfo.maleParentID || femaleParentID != null && femaleParentID == npc.familyInfo.femaleParentID) {
 			return false;
 		}

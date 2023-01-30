@@ -59,12 +59,11 @@ public class GOTVec3d {
 		GOTVec3d gOTVec3d = (GOTVec3d) p_equals_1_;
 		if (Double.compare(gOTVec3d.xCoord, xCoord) != 0) {
 			return false;
+		}
+		if (Double.compare(gOTVec3d.yCoord, yCoord) != 0) {
+			return false;
 		} else {
-			if (Double.compare(gOTVec3d.yCoord, yCoord) != 0) {
-				return false;
-			} else {
-				return Double.compare(gOTVec3d.zCoord, zCoord) == 0;
-			}
+			return Double.compare(gOTVec3d.zCoord, zCoord) == 0;
 		}
 	}
 
@@ -79,9 +78,8 @@ public class GOTVec3d {
 		double d3 = (x - xCoord) / d0;
 		if (d3 >= 0.0 && d3 <= 1.0) {
 			return new GOTVec3d(xCoord + d0 * d3, yCoord + d1 * d3, zCoord + d2 * d3);
-		} else {
-			return null;
 		}
+		return null;
 	}
 
 	@Nullable
@@ -95,9 +93,8 @@ public class GOTVec3d {
 		double d3 = (y - yCoord) / d1;
 		if (d3 >= 0.0 && d3 <= 1.0) {
 			return new GOTVec3d(xCoord + d0 * d3, yCoord + d1 * d3, zCoord + d2 * d3);
-		} else {
-			return null;
 		}
+		return null;
 	}
 
 	@Nullable
@@ -111,9 +108,8 @@ public class GOTVec3d {
 		double d3 = (z - zCoord) / d2;
 		if (d3 >= 0.0 && d3 <= 1.0) {
 			return new GOTVec3d(xCoord + d0 * d3, yCoord + d1 * d3, zCoord + d2 * d3);
-		} else {
-			return null;
 		}
+		return null;
 	}
 
 	@Override
@@ -138,9 +134,8 @@ public class GOTVec3d {
 		double d0 = MathHelper.sqrt_double(xCoord * xCoord + yCoord * yCoord + zCoord * zCoord);
 		if (d0 < 1.0E-4) {
 			return ZERO;
-		} else {
-			return new GOTVec3d(xCoord / d0, yCoord / d0, zCoord / d0);
 		}
+		return new GOTVec3d(xCoord / d0, yCoord / d0, zCoord / d0);
 	}
 
 	public GOTVec3d rotatePitch(float pitch) {

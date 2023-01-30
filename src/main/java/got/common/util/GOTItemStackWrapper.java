@@ -1,5 +1,7 @@
 package got.common.util;
 
+import java.util.Objects;
+
 import net.minecraft.item.*;
 import net.minecraft.nbt.NBTTagCompound;
 
@@ -31,22 +33,14 @@ public class GOTItemStackWrapper {
 			return false;
 		}
 		GOTItemStackWrapper other = (GOTItemStackWrapper) obj;
-		if (item == null) {
-			if (other.item != null) {
-				return false;
-			}
-		} else if (!item.equals(other.item)) {
+		if (!Objects.equals(item, other.item)) {
 			return false;
 		}
 		if (damage != other.damage || isNBTSensitive != other.isNBTSensitive) {
 			return false;
 		}
 		if (isNBTSensitive) {
-			if (compound == null) {
-				if (other.compound != null) {
-					return false;
-				}
-			} else if (!compound.equals(other.compound)) {
+			if (!Objects.equals(compound, other.compound)) {
 				return false;
 			}
 		}

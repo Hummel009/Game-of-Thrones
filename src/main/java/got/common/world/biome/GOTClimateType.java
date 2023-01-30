@@ -7,10 +7,14 @@ public enum GOTClimateType {
 
 	public boolean altitudeZone = false;
 	public String climateName;
-	
+
 	GOTClimateType(String name, boolean zone) {
 		climateName = name;
 		altitudeZone = zone;
+	}
+
+	public boolean isAltitudeZone() {
+		return altitudeZone;
 	}
 
 	public static void performSeasonalChanges() {
@@ -183,9 +187,5 @@ public enum GOTClimateType {
 				}
 			}
 		}
-	}
-
-	public boolean isAltitudeZone() {
-		return altitudeZone;
 	}
 }

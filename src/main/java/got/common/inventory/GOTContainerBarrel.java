@@ -35,7 +35,7 @@ public class GOTContainerBarrel extends Container {
 			addSlotToContainer(new Slot(inv, i, 25 + i * 18, 197));
 		}
 		if (!barrel.getWorldObj().isRemote && inv.player instanceof EntityPlayerMP) {
-			barrel.players.add(inv.player);
+			barrel.players.add((EntityPlayerMP) inv.player);
 		}
 	}
 

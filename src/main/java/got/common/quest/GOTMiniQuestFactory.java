@@ -18,10 +18,10 @@ import got.common.entity.westeros.legendary.warrior.*;
 import got.common.faction.GOTFaction;
 import got.common.item.other.GOTItemBanner;
 import got.common.quest.GOTMiniQuest.QuestFactoryBase;
+import got.common.quest.GOTMiniQuestBounty.QFBounty;
 import got.common.quest.GOTMiniQuestCollect.QFCollect;
 import got.common.quest.GOTMiniQuestKillEntity.QFKillEntity;
 import got.common.quest.GOTMiniQuestKillFaction.QFKillFaction;
-import got.common.quest.GOTMiniQuestBounty.QFBounty;
 import net.minecraft.init.*;
 import net.minecraft.item.ItemStack;
 

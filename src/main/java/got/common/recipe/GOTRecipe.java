@@ -65,7 +65,13 @@ public class GOTRecipe {
 	public static String[] dyeOreNames = { "dyeBlack", "dyeRed", "dyeGreen", "dyeBrown", "dyeBlue", "dyePurple", "dyeCyan", "dyeLightGray", "dyeGray", "dyePink", "dyeLime", "dyeYellow", "dyeLightBlue", "dyeMagenta", "dyeOrange", "dyeWhite" };
 	public static List<IRecipe> mossovy = new ArrayList<>();
 
-	public static void addDyeableWoolRobeRecipes(List recipeList, ItemStack result, Object... params) {
+	public static void addDyeableWoolRobeRecipes(List[] recipeLists, ItemStack result, Object... params) {
+		for (List<IRecipe> list : recipeLists) {
+			GOTRecipe.addDyeableWoolRobeRecipes(list, result, params);
+		}
+	}
+
+	public static void addDyeableWoolRobeRecipes(List<IRecipe> recipeList, ItemStack result, Object... params) {
 		for (int i = 0; i <= 15; ++i) {
 			Object[] paramsDyed = Arrays.copyOf(params, params.length);
 			ItemStack wool = new ItemStack(Blocks.wool, 1, i);
@@ -96,14 +102,8 @@ public class GOTRecipe {
 		}
 	}
 
-	public static void addDyeableWoolRobeRecipes(List[] recipeLists, ItemStack result, Object... params) {
-		for (List list : recipeLists) {
-			GOTRecipe.addDyeableWoolRobeRecipes(list, result, params);
-		}
-	}
-
 	public static void addRecipeTo(List[] recipeLists, IRecipe recipe) {
-		for (List list : recipeLists) {
+		for (List<IRecipe> list : recipeLists) {
 			list.add(recipe);
 		}
 	}
@@ -112,7 +112,7 @@ public class GOTRecipe {
 		try {
 			Field field = FurnaceRecipes.class.getDeclaredFields()[2];
 			field.setAccessible(true);
-			HashMap map = (HashMap) field.get(FurnaceRecipes.smelting());
+			HashMap<ItemStack, Float> map = (HashMap) field.get(FurnaceRecipes.smelting());
 			map.put(new ItemStack(item, 1, 32767), Float.valueOf(xp));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -1696,9 +1696,8 @@ public class GOTRecipe {
 		yiti.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.tableYiTi), "XX", "XX", Character.valueOf('X'), "plankWood"));
 	}
 
-	public static ItemStack findMatchingRecipe(List recipeList, InventoryCrafting inv, World world) {
-		for (Object element : recipeList) {
-			IRecipe recipe = (IRecipe) element;
+	public static ItemStack findMatchingRecipe(Iterable<IRecipe> recipeList, InventoryCrafting inv, World world) {
+		for (IRecipe recipe : recipeList) {
 			if (!recipe.matches(inv, world)) {
 				continue;
 			}
@@ -1712,7 +1711,7 @@ public class GOTRecipe {
 	}
 
 	public static void modifyStandardRecipes() {
-		List recipeList = CraftingManager.getInstance().getRecipeList();
+		List<IRecipe> recipeList = CraftingManager.getInstance().getRecipeList();
 		GOTRecipe.removeRecipesItem(recipeList, Item.getItemFromBlock(Blocks.fence));
 		GOTRecipe.removeRecipesItemStack(recipeList, new ItemStack(Blocks.sandstone, 1, 2));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.sandstone, 2, 2), "X", "X", Character.valueOf('X'), new ItemStack(Blocks.sandstone, 1, 0)));
@@ -1880,10 +1879,9 @@ public class GOTRecipe {
 		OreDictionary.registerOre("vine", GOTRegistry.mirkVines);
 	}
 
-	public static void removeRecipesClass(List recipeList, Class<? extends IRecipe> recipeClass) {
+	public static void removeRecipesClass(Collection<IRecipe> recipeList, Class<? extends IRecipe> recipeClass) {
 		ArrayList<IRecipe> recipesToRemove = new ArrayList<>();
-		for (Object obj : recipeList) {
-			IRecipe recipe = (IRecipe) obj;
+		for (IRecipe recipe : recipeList) {
 			if (!recipeClass.isAssignableFrom(recipe.getClass())) {
 				continue;
 			}
@@ -1892,10 +1890,9 @@ public class GOTRecipe {
 		recipeList.removeAll(recipesToRemove);
 	}
 
-	public static void removeRecipesItem(List recipeList, Item outputItem) {
+	public static void removeRecipesItem(Collection<IRecipe> recipeList, Item outputItem) {
 		ArrayList<IRecipe> recipesToRemove = new ArrayList<>();
-		for (Object obj : recipeList) {
-			IRecipe recipe = (IRecipe) obj;
+		for (IRecipe recipe : recipeList) {
 			ItemStack output = recipe.getRecipeOutput();
 			if (output == null || output.getItem() != outputItem) {
 				continue;
@@ -1905,10 +1902,9 @@ public class GOTRecipe {
 		recipeList.removeAll(recipesToRemove);
 	}
 
-	public static void removeRecipesItemStack(List recipeList, ItemStack outputItemStack) {
+	public static void removeRecipesItemStack(Collection<IRecipe> recipeList, ItemStack outputItemStack) {
 		ArrayList<IRecipe> recipesToRemove = new ArrayList<>();
-		for (Object obj : recipeList) {
-			IRecipe recipe = (IRecipe) obj;
+		for (IRecipe recipe : recipeList) {
 			ItemStack output = recipe.getRecipeOutput();
 			if (output == null || !output.isItemEqual(outputItemStack)) {
 				continue;

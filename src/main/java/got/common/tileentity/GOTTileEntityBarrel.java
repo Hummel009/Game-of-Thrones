@@ -18,7 +18,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.StatCollector;
 
 public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
-	public static int EMPTY = 0;
+	public static int EMPTY;
 	public static int BREWING = 1;
 	public static int FULL = 2;
 	public static int brewTime = 12000;
@@ -32,7 +32,7 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 	public int brewingAnim;
 	public int brewingAnimPrev;
 	public String specialBarrelName;
-	public List players = new ArrayList<>();
+	public List<EntityPlayerMP> players = new ArrayList<>();
 
 	@Override
 	public boolean canExtractItem(int slot, ItemStack extractItem, int side) {
@@ -214,7 +214,7 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 			}
 			if (!worldObj.isRemote) {
 				for (i = 0; i < players.size(); ++i) {
-					EntityPlayerMP entityplayer = (EntityPlayerMP) players.get(i);
+					EntityPlayerMP entityplayer = players.get(i);
 					entityplayer.openContainer.detectAndSendChanges();
 					entityplayer.sendContainerToPlayer(entityplayer.openContainer);
 				}

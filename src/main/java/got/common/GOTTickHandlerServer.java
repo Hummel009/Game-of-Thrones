@@ -84,7 +84,7 @@ public class GOTTickHandlerServer {
 					if (inPortal) {
 						i = playersInPortals.get(entityplayer);
 						i++;
-						playersInPortals.put(entityplayer, Integer.valueOf(i));
+						playersInPortals.put(entityplayer, i);
 						if (i >= 100) {
 							int dimension = 0;
 							if (entityplayer.dimension == 0) {

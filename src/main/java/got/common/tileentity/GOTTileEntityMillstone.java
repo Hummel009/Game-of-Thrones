@@ -16,7 +16,7 @@ public class GOTTileEntityMillstone extends TileEntity implements IInventory, IS
 	public ItemStack[] inventory = new ItemStack[2];
 	public String specialMillstoneName;
 	public boolean isMilling;
-	public int currentMillTime = 0;
+	public int currentMillTime;
 
 	@Override
 	public boolean canExtractItem(int slot, ItemStack itemstack, int side) {

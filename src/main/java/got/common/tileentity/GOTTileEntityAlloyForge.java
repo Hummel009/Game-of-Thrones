@@ -13,7 +13,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.*;
-import net.minecraft.inventory.*;
+import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.*;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.*;
@@ -22,12 +22,12 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.*;
 import net.minecraft.util.StatCollector;
 
-public class GOTTileEntityAlloyForge extends TileEntity implements IInventory, ISidedInventory {
+public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInventory {
 	public ItemStack[] inventory = new ItemStack[getForgeInvSize()];
 	public String specialForgeName;
-	public int forgeSmeltTime = 0;
-	public int currentItemFuelValue = 0;
-	public int currentSmeltTime = 0;
+	public int forgeSmeltTime;
+	public int currentItemFuelValue;
+	public int currentSmeltTime;
 	public int[] inputSlots;
 	public int[] outputSlots;
 	public int fuelSlot;

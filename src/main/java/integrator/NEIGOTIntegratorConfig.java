@@ -1,7 +1,6 @@
 package integrator;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import codechicken.nei.api.*;
 import got.GOT;

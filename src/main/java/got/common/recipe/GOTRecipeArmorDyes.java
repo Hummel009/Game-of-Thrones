@@ -7,10 +7,10 @@ import net.minecraft.block.BlockColored;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.*;
-import net.minecraft.item.crafting.*;
+import net.minecraft.item.crafting.RecipesArmorDyes;
 import net.minecraft.world.World;
 
-public class GOTRecipeArmorDyes extends RecipesArmorDyes implements IRecipe {
+public class GOTRecipeArmorDyes extends RecipesArmorDyes {
 	@Override
 	public ItemStack getCraftingResult(InventoryCrafting inv) {
 		ItemStack armor = null;

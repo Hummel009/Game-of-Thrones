@@ -8,7 +8,7 @@ import got.common.database.GOTRegistry;
 import got.common.inventory.GOTSlotStackSize;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.inventory.*;
+import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.*;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.*;
@@ -17,11 +17,11 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.*;
 import net.minecraft.util.StatCollector;
 
-public class GOTTileEntityOven extends TileEntity implements IInventory, ISidedInventory {
+public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 	public ItemStack[] inventory = new ItemStack[19];
-	public int ovenCookTime = 0;
-	public int currentItemFuelValue = 0;
-	public int currentCookTime = 0;
+	public int ovenCookTime;
+	public int currentItemFuelValue;
+	public int currentCookTime;
 	public String specialOvenName;
 	public int[] inputSlots = { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
 	public int[] outputSlots = { 9, 10, 11, 12, 13, 14, 15, 16, 17 };
@@ -190,7 +190,7 @@ public class GOTTileEntityOven extends TileEntity implements IInventory, ISidedI
 	@Override
 	public boolean isItemValidForSlot(int slot, ItemStack itemstack) {
 		if (slot < 9) {
-			return itemstack == null ? false : GOTTileEntityOven.isCookResultAcceptable(FurnaceRecipes.smelting().getSmeltingResult(itemstack));
+			return itemstack != null && GOTTileEntityOven.isCookResultAcceptable(FurnaceRecipes.smelting().getSmeltingResult(itemstack));
 		}
 		if (slot < 18) {
 			return false;

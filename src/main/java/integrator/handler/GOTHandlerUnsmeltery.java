@@ -121,9 +121,8 @@ public class GOTHandlerUnsmeltery extends FurnaceRecipeHandler {
 			}
 			if (lastIngredient == null) {
 				return result;
-			} else {
-				return lastIngredient;
 			}
+			return lastIngredient;
 		}
 
 		@Override

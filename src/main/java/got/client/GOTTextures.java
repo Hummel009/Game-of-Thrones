@@ -401,9 +401,8 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	public static ResourceLocation getMapTexture(EntityPlayer entityplayer, boolean sepia) {
 		if (GOTConfig.osrsMap || sepia) {
 			return sepiaMapTexture;
-		} else {
-			return mapTexture;
 		}
+		return mapTexture;
 	}
 
 	public static int getSepia(int rgb) {

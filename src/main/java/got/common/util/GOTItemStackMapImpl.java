@@ -42,9 +42,8 @@ public class GOTItemStackMapImpl<V> implements GOTItemStackMap<V> {
 	public V get(Object key) {
 		if (key instanceof ItemStack) {
 			return this.innerMap.get(new GOTItemStackWrapper((ItemStack) key, this.isNBTSensitive));
-		} else {
-			return null;
 		}
+		return null;
 	}
 
 	@Override

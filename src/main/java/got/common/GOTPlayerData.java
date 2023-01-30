@@ -840,9 +840,8 @@ public class GOTPlayerData {
 		Float alignment = alignments.get(faction);
 		if (alignment != null) {
 			return alignment;
-		} else {
-			return 0.0F;
 		}
+		return 0.0F;
 	}
 
 	public List<GOTAbstractWaypoint> getAllAvailableWaypoints() {

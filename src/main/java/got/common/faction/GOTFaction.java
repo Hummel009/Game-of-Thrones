@@ -36,7 +36,7 @@ public enum GOTFaction {
 	public GOTAchievement.Category achieveCategory;
 	public GOTMapRegion factionMapInfo;
 	public List<GOTControlZone> controlZones = new ArrayList<>();
-	public boolean isolationist ;
+	public boolean isolationist;
 	public int eggColor;
 	public boolean approvesWarCrimes;
 	public List<String> legacyAliases = new ArrayList<>();
@@ -215,9 +215,8 @@ public enum GOTFaction {
 	public int getControlZoneReducedRange() {
 		if (isolationist) {
 			return 0;
-		} else {
-			return 50;
 		}
+		return 50;
 	}
 
 	public List<GOTControlZone> getControlZones() {

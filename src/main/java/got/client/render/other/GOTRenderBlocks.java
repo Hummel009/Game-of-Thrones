@@ -17,7 +17,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	public static Random blockRand = new Random();
@@ -1007,7 +1006,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int i, int j, int k, Block block, int id, RenderBlocks renderblocks) {
 		boolean fancyGraphics = Minecraft.getMinecraft().gameSettings.fancyGraphics;
-		BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
+		world.getBiomeGenForCoords(i, k);
 		if (id == GOT.proxy.getBeaconRenderID()) {
 			renderBeacon(world, i, j, k, renderblocks);
 			return true;

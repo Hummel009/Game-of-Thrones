@@ -52,9 +52,7 @@ public class GOTHandlerOven extends TemplateRecipeHandler {
 		result.stackSize = 1;
 		if (GOTTileEntityOven.isCookResultAcceptable(result)) {
 			Map<ItemStack, ItemStack> map = FurnaceRecipes.smelting().getSmeltingList();
-			Iterator<ItemStack> it = map.keySet().iterator();
-			while (it.hasNext()) {
-				ItemStack itemStack = it.next();
+			for (ItemStack itemStack : map.keySet()) {
 				if (NEIServerUtils.areStacksSameTypeCrafting(FurnaceRecipes.smelting().getSmeltingResult(itemStack), result)) {
 					arecipes.add(new CachedOvenRecipe(itemStack, result));
 				}

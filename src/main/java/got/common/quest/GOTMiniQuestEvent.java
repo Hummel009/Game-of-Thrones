@@ -1,6 +1,6 @@
 package got.common.quest;
 
-public abstract interface GOTMiniQuestEvent {
+public interface GOTMiniQuestEvent {
 
 	public static class CycleAlignment implements GOTMiniQuestEvent {
 	}

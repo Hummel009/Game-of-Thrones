@@ -1,15 +1,15 @@
 package got.common.recipe;
 
-import java.util.ArrayList;
+import java.util.*;
 
 import got.common.database.GOTRegistry;
-import got.common.tileentity.GOTTileEntityBarrel;
 import net.minecraft.init.*;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class GOTRecipeBrewing {
-	public static ArrayList<ShapelessOreRecipe> recipes = new ArrayList<>();
+	public static List<ShapelessOreRecipe> recipes = new ArrayList<>();
 	public static int BARREL_CAPACITY = 16;
 
 	public static void addBrewingRecipe(ItemStack result, Object... ingredients) {
@@ -19,7 +19,7 @@ public class GOTRecipeBrewing {
 		recipes.add(new ShapelessOreRecipe(result, ingredients));
 	}
 
-	public static ItemStack findMatchingRecipe(GOTTileEntityBarrel barrel) {
+	public static ItemStack findMatchingRecipe(IInventory barrel) {
 		for (int i = 6; i < 9; ++i) {
 			ItemStack itemstack = barrel.getStackInSlot(i);
 			if (GOTRecipeBrewing.isWaterSource(itemstack)) {

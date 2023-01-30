@@ -199,9 +199,8 @@ public abstract class GOTMiniQuest {
 	public ChunkCoordinates getLastLocation() {
 		if (lastLocation != null) {
 			return lastLocation.getLeft();
-		} else {
-			return null;
 		}
+		return null;
 	}
 
 	public abstract String getObjectiveInSpeech();

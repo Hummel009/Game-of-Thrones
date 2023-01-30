@@ -72,7 +72,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.event.*;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.*;
-import net.minecraftforge.event.entity.minecart.*;
+import net.minecraftforge.event.entity.minecart.MinecartInteractEvent;
 import net.minecraftforge.event.entity.player.*;
 import net.minecraftforge.event.entity.player.PlayerEvent.*;
 import net.minecraftforge.event.terraingen.SaplingGrowTreeEvent;
@@ -1642,12 +1642,10 @@ public class GOTEventHandler implements IFuelHandler {
 							j1 += (rand.nextInt(3) - 1) * rand.nextInt(3) / 2;
 							k1 += rand.nextInt(3) - 1;
 							Block below = world.getBlock(i1, j1 - 1, k1);
-							if (below instanceof IGrowable) {
-								if (below.canSustainPlant(world, i1, j1 - 1, k1, ForgeDirection.UP, Blocks.tallgrass)) {
-									if (!world.getBlock(i1, j1, k1).isNormalCube()) {
-										subAttempts++;
-										continue;
-									}
+							if ((below instanceof IGrowable) && below.canSustainPlant(world, i1, j1 - 1, k1, ForgeDirection.UP, Blocks.tallgrass)) {
+								if (!world.getBlock(i1, j1, k1).isNormalCube()) {
+									subAttempts++;
+									continue;
 								}
 							}
 							continue label46;

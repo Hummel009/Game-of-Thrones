@@ -780,7 +780,7 @@ public class GOTCommonProxy implements IGuiHandler {
 
 	public void setInPortal(EntityPlayer entityplayer) {
 		if (!GOTTickHandlerServer.playersInPortals.containsKey(entityplayer)) {
-			GOTTickHandlerServer.playersInPortals.put(entityplayer, Integer.valueOf(0));
+			GOTTickHandlerServer.playersInPortals.put(entityplayer, 0);
 		}
 	}
 

@@ -21,7 +21,7 @@ public class GOTTileEntityAnimalJar extends TileEntity {
 	public Entity jarEntity;
 	public int ticksExisted = -1;
 	public float targetYaw;
-	public boolean hasTargetYaw = false;
+	public boolean hasTargetYaw;
 
 	public void clearEntityData() {
 		jarEntity = null;
@@ -127,9 +127,8 @@ public class GOTTileEntityAnimalJar extends TileEntity {
 		int i = MathHelper.floor_double(xCoord) >> 4;
 		int k = MathHelper.floor_double(zCoord) >> 4;
 		PlayerManager playermanager = ((WorldServer) worldObj).getPlayerManager();
-		List players = worldObj.playerEntities;
-		for (Object obj : players) {
-			EntityPlayerMP entityplayer = (EntityPlayerMP) obj;
+		List<EntityPlayerMP> players = worldObj.playerEntities;
+		for (EntityPlayerMP entityplayer : players) {
 			if (!playermanager.isPlayerWatchingChunk(entityplayer, i, k)) {
 				continue;
 			}

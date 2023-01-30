@@ -165,9 +165,8 @@ public class GOTTileEntityChest extends TileEntity implements IInventory {
 		if (!worldObj.isRemote && numPlayersUsing != 0 && (ticksSinceSync + xCoord + yCoord + zCoord) % 200 == 0) {
 			numPlayersUsing = 0;
 			float range = 5.0f;
-			List players = worldObj.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(xCoord - range, yCoord - range, zCoord - range, xCoord + 1 + range, yCoord + 1 + range, zCoord + 1 + range));
-			for (Object obj : players) {
-				EntityPlayer entityplayer = (EntityPlayer) obj;
+			List<EntityPlayer> players = worldObj.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(xCoord - range, yCoord - range, zCoord - range, xCoord + 1 + range, yCoord + 1 + range, zCoord + 1 + range));
+			for (EntityPlayer entityplayer : players) {
 				if (!(entityplayer.openContainer instanceof ContainerChest) || ((ContainerChest) entityplayer.openContainer).getLowerChestInventory() != this) {
 					continue;
 				}

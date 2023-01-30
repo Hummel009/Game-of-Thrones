@@ -1,6 +1,6 @@
 package got.common.recipe;
 
-import java.util.*;
+import java.util.ArrayList;
 
 import got.common.database.GOTRegistry;
 import got.common.faction.GOTFaction;
@@ -30,7 +30,7 @@ public class GOTRecipePouch implements IRecipe {
 		hasOverrideColor = flag;
 	}
 
-	public int getCombinedMeta(List<ItemStack> pouches) {
+	public int getCombinedMeta(Iterable<ItemStack> pouches) {
 		int size = 0;
 		for (ItemStack pouch : pouches) {
 			size += pouch.getItemDamage() + 1;

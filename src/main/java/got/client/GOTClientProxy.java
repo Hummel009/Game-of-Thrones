@@ -544,10 +544,10 @@ public class GOTClientProxy extends GOTCommonProxy {
 	@Override
 	public void setInPortal(EntityPlayer entityplayer) {
 		if (!GOTTickHandlerClient.playersInPortals.containsKey(entityplayer)) {
-			GOTTickHandlerClient.playersInPortals.put(entityplayer, Integer.valueOf(0));
+			GOTTickHandlerClient.playersInPortals.put(entityplayer, 0);
 		}
 		if (Minecraft.getMinecraft().isSingleplayer() && !GOTTickHandlerServer.playersInPortals.containsKey(entityplayer)) {
-			GOTTickHandlerServer.playersInPortals.put(entityplayer, Integer.valueOf(0));
+			GOTTickHandlerServer.playersInPortals.put(entityplayer, 0);
 		}
 	}
 

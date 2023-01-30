@@ -341,12 +341,18 @@ public class GOTTickHandlerClient {
 				} catch (Exception exception) {
 				}
 				boolean fancyGraphics = false;
-				if (optifineSetting == 0) {
+				switch (optifineSetting) {
+				case 0:
 					fancyGraphics = minecraft.gameSettings.fancyGraphics;
-				} else if (optifineSetting == 1) {
+					break;
+				case 1:
 					fancyGraphics = false;
-				} else if (optifineSetting == 2) {
+					break;
+				case 2:
 					fancyGraphics = true;
+					break;
+				default:
+					break;
 				}
 				GOTBlockLeavesBase.setAllGraphicsLevels(fancyGraphics);
 			} else {
@@ -503,7 +509,7 @@ public class GOTTickHandlerClient {
 					if (inPortal) {
 						i = playersInPortals.get(entityplayer);
 						i++;
-						playersInPortals.put(entityplayer, Integer.valueOf(i));
+						playersInPortals.put(entityplayer, i);
 						if (i >= 100) {
 							minecraft.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("portal.trigger"), world.rand.nextFloat() * 0.4F + 0.8F));
 							playersInPortals.remove(entityplayer);
