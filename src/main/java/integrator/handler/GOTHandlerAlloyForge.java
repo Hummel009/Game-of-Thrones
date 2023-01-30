@@ -18,7 +18,7 @@ import net.minecraft.init.*;
 import net.minecraft.item.*;
 
 public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
-	private GOTTileEntityAlloyForge alloyForgeDummy = new GOTTileEntityAlloyForge();
+	public GOTTileEntityAlloyForge alloyForgeDummy = new GOTTileEntityAlloyForge();
 
 	@Override
 	public void drawBackground(int recipe) {
@@ -33,7 +33,7 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 		drawProgressBar(75, 45, 176, 14, 24, 25, 48, 1);
 	}
 
-	private ArrayList<CachedForgeRecipe> getAlloySmeltingRecipes(ItemStack result) {
+	public List<CachedForgeRecipe> getAlloySmeltingRecipes(ItemStack result) {
 		ArrayList<CachedForgeRecipe> ret = new ArrayList<>();
 		if (NEIServerUtils.areStacksSameTypeCrafting(result, new ItemStack(GOTRegistry.bronzeIngot))) {
 			result.stackSize = 2;
@@ -69,7 +69,7 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 		return ret;
 	}
 
-	private ArrayList<CachedForgeRecipe> getAlloySmeltingRecipesUsage(ItemStack ingredient) {
+	public List<CachedForgeRecipe> getAlloySmeltingRecipesUsage(ItemStack ingredient) {
 		ArrayList<CachedForgeRecipe> ret = new ArrayList<>();
 		if (NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTRegistry.copperIngot)) || NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTRegistry.oreCopper))) {
 			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[] { ingredient }, new ItemStack[] { new ItemStack(GOTRegistry.oreTin), new ItemStack(GOTRegistry.tinIngot) }, new ItemStack(GOTRegistry.bronzeIngot, 2));
@@ -137,10 +137,10 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 		return alloyForgeDummy.getForgeName();
 	}
 
-	private void handlerCRStack(Item forgeItem, ItemStack result) {
+	public void handlerCRStack(Item forgeItem, ItemStack result) {
 		ItemStack stack = new ItemStack(forgeItem, 1);
 		if (NEIServerUtils.areStacksSameType(alloyForgeDummy.getSmeltingResult(stack), result)) {
-			ArrayList<ItemStack> list = new ArrayList();
+			ArrayList<Object> list = new ArrayList<>();
 			stack.getItem().getSubItems(forgeItem, (CreativeTabs) null, list);
 			for (Object tmp : list) {
 				if (!(tmp instanceof ItemStack)) {
@@ -203,12 +203,12 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 	}
 
 	public class CachedForgeRecipe extends TemplateRecipeHandler.CachedRecipe {
-		private ArrayList<PositionedStack> ingredients;
-		private PositionedStack[] resultItem;
-		private int fuelX;
-		private int fuelY;
+		public List<PositionedStack> ingredients;
+		public PositionedStack[] resultItem;
+		public int fuelX;
+		public int fuelY;
 
-		private CachedForgeRecipe(ItemStack[] alloyItems, ItemStack[] forgeItems, ItemStack resultItem) {
+		public CachedForgeRecipe(ItemStack[] alloyItems, ItemStack[] forgeItems, ItemStack resultItem) {
 			this.resultItem = null;
 			fuelX = 75;
 			fuelY = 117;

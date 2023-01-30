@@ -18,11 +18,11 @@ public enum GOTCapes {
 	public ResourceLocation capeTexture;
 	public boolean isHidden;
 
-	GOTCapes(boolean hidden, ArrayList<String> players) {
+	GOTCapes(boolean hidden, List<String> players) {
 		this(CapeType.EXCLUSIVE, hidden, players);
 	}
 
-	GOTCapes(CapeType type, boolean hidden, ArrayList<String> players) {
+	GOTCapes(CapeType type, boolean hidden, List<String> players) {
 		capeType = type;
 		capeID = capeType.list.size();
 		capeType.list.add(this);
@@ -36,7 +36,7 @@ public enum GOTCapes {
 	}
 
 	GOTCapes(GOTFaction faction) {
-		this(CapeType.ALIGNMENT, false, new ArrayList());
+		this(CapeType.ALIGNMENT, false, new ArrayList<>());
 		alignmentFaction = faction;
 	}
 

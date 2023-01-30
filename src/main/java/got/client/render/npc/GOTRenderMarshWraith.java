@@ -9,24 +9,24 @@ import net.minecraft.entity.*;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderMarshWraith extends RenderLiving {
-	private static ResourceLocation skin = new ResourceLocation("got:textures/entity/essos/mossovy/wraith/marshWraith.png");
+	public static ResourceLocation skin = new ResourceLocation("got:textures/entity/essos/mossovy/wraith/marshWraith.png");
 
 	public GOTRenderMarshWraith() {
 		super(new GOTModelMarshWraith(), 0.5f);
 	}
 
 	@Override
-	protected float getDeathMaxRotation(EntityLivingBase entity) {
+	public float getDeathMaxRotation(EntityLivingBase entity) {
 		return 0.0f;
 	}
 
 	@Override
-	protected ResourceLocation getEntityTexture(Entity entity) {
+	public ResourceLocation getEntityTexture(Entity entity) {
 		return skin;
 	}
 
 	@Override
-	protected void preRenderCallback(EntityLivingBase entity, float f) {
+	public void preRenderCallback(EntityLivingBase entity, float f) {
 		super.preRenderCallback(entity, f);
 		float f1 = 0.9375f;
 		GL11.glScalef(f1, f1, f1);

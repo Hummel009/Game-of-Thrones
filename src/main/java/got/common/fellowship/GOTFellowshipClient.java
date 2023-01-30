@@ -13,11 +13,11 @@ public class GOTFellowshipClient {
 	public ItemStack fellowshipIcon;
 	public boolean isOwned;
 	public boolean isAdminned;
-	private UUID ownerUUID;
-	private List<UUID> memberUUIDs = new ArrayList<>();
-	private Map<UUID, String> usernameMap = new HashMap<>();
-	private Map<UUID, GOTTitle.PlayerTitle> titleMap = new HashMap<>();
-	private Set<UUID> adminUUIDs = new HashSet<>();
+	public UUID ownerUUID;
+	public List<UUID> memberUUIDs = new ArrayList<>();
+	public Map<UUID, String> usernameMap = new HashMap<>();
+	public Map<UUID, GOTTitle.PlayerTitle> titleMap = new HashMap<>();
+	public Set<UUID> adminUUIDs = new HashSet<>();
 	public boolean preventPVP;
 	public boolean preventHiredFF;
 	public boolean showMapLocations;
@@ -103,11 +103,11 @@ public class GOTFellowshipClient {
 		return preventPVP;
 	}
 
-	private GameProfile getProfileFor(UUID playerUuid) {
+	public GameProfile getProfileFor(UUID playerUuid) {
 		return new GameProfile(playerUuid, getUsernameFor(playerUuid));
 	}
 
-	private List<GameProfile> getProfilesFor(List<UUID> playerUuids) {
+	public List<GameProfile> getProfilesFor(List<UUID> playerUuids) {
 		ArrayList<GameProfile> list = new ArrayList<>();
 		for (UUID playerUuid : playerUuids) {
 			list.add(getProfileFor(playerUuid));

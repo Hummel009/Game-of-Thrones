@@ -52,7 +52,7 @@ public class GOTBlockFence extends BlockFence {
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
-		ArrayList plankTypes = new ArrayList();
+		ArrayList plankTypes = new ArrayList<>();
 		plankBlock.getSubBlocks(Item.getItemFromBlock(plankBlock), plankBlock.getCreativeTabToDisplayOn(), plankTypes);
 		for (Object plankType : plankTypes) {
 			Object obj = plankType;

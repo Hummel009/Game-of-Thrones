@@ -96,9 +96,9 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 		return true;
 	}
 
-	protected abstract void placeRandomBrick(World var1, Random var2, int var3, int var4, int var5);
+	public abstract void placeRandomBrick(World var1, Random var2, int var3, int var4, int var5);
 
-	protected abstract void placeRandomSlab(World var1, Random var2, int var3, int var4, int var5);
+	public abstract void placeRandomSlab(World var1, Random var2, int var3, int var4, int var5);
 
 	public static class RuinAsshai extends GOTStructureStoneRuin {
 		public RuinAsshai(int i, int j) {
@@ -106,7 +106,7 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 		}
 
 		@Override
-		protected void placeRandomBrick(World world, Random random, int i, int j, int k) {
+		public void placeRandomBrick(World world, Random random, int i, int j, int k) {
 			int l = random.nextInt(2);
 			switch (l) {
 			case 0: {
@@ -120,7 +120,7 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 		}
 
 		@Override
-		protected void placeRandomSlab(World world, Random random, int i, int j, int k) {
+		public void placeRandomSlab(World world, Random random, int i, int j, int k) {
 			int l = random.nextInt(2);
 			switch (l) {
 			case 0: {
@@ -140,7 +140,7 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 		}
 
 		@Override
-		protected void placeRandomBrick(World world, Random random, int i, int j, int k) {
+		public void placeRandomBrick(World world, Random random, int i, int j, int k) {
 			int l = random.nextInt(2);
 			switch (l) {
 			case 0: {
@@ -154,7 +154,7 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 		}
 
 		@Override
-		protected void placeRandomSlab(World world, Random random, int i, int j, int k) {
+		public void placeRandomSlab(World world, Random random, int i, int j, int k) {
 			int l = random.nextInt(2);
 			switch (l) {
 			case 0: {
@@ -174,7 +174,7 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 		}
 
 		@Override
-		protected void placeRandomBrick(World world, Random random, int i, int j, int k) {
+		public void placeRandomBrick(World world, Random random, int i, int j, int k) {
 			int l = random.nextInt(3);
 			switch (l) {
 			case 0: {
@@ -192,7 +192,7 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 		}
 
 		@Override
-		protected void placeRandomSlab(World world, Random random, int i, int j, int k) {
+		public void placeRandomSlab(World world, Random random, int i, int j, int k) {
 			if (random.nextInt(4) == 0) {
 				setBlockAndMetadata(world, i, j, k, GOTRegistry.slabSingle8, 5);
 			} else {
@@ -220,7 +220,7 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 		}
 
 		@Override
-		protected void placeRandomBrick(World world, Random random, int i, int j, int k) {
+		public void placeRandomBrick(World world, Random random, int i, int j, int k) {
 			int l = random.nextInt(3);
 			switch (l) {
 			case 0: {
@@ -238,7 +238,7 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 		}
 
 		@Override
-		protected void placeRandomSlab(World world, Random random, int i, int j, int k) {
+		public void placeRandomSlab(World world, Random random, int i, int j, int k) {
 			if (random.nextInt(4) == 0) {
 				setBlockAndMetadata(world, i, j, k, Blocks.stone_slab, 0);
 			} else {
@@ -266,7 +266,7 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 		}
 
 		@Override
-		protected void placeRandomBrick(World world, Random random, int i, int j, int k) {
+		public void placeRandomBrick(World world, Random random, int i, int j, int k) {
 			int l = random.nextInt(3);
 			switch (l) {
 			case 0: {
@@ -284,7 +284,7 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 		}
 
 		@Override
-		protected void placeRandomSlab(World world, Random random, int i, int j, int k) {
+		public void placeRandomSlab(World world, Random random, int i, int j, int k) {
 			if (random.nextInt(4) == 0) {
 				setBlockAndMetadata(world, i, j, k, GOTRegistry.slabSingle12, 4);
 			} else {

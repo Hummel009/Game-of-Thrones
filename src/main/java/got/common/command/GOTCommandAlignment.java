@@ -49,7 +49,7 @@ public class GOTCommandAlignment extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender sender, String[] args) {
 		if (args.length >= 2) {
-			List<GOTFaction> factions = new ArrayList();
+			List<GOTFaction> factions = new ArrayList<>();
 			if ("all".equalsIgnoreCase(args[1])) {
 				factions = GOTFaction.getPlayableAlignmentFactions();
 			} else {

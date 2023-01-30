@@ -330,7 +330,7 @@ public class GOTItemMug extends Item {
 			}
 			potionEquivalent.setTagCompound(new NBTTagCompound());
 			potionEquivalent.getTagCompound().setTag("CustomPotionEffects", effectsData);
-			ArrayList effectTooltips = new ArrayList();
+			ArrayList effectTooltips = new ArrayList<>();
 			potionEquivalent.getItem().addInformation(potionEquivalent, entityplayer, effectTooltips, flag);
 			list.addAll(effectTooltips);
 		}

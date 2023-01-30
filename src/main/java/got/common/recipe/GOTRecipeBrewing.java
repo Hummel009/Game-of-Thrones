@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class GOTRecipeBrewing {
-	public static ArrayList<ShapelessOreRecipe> recipes = new ArrayList();
+	public static ArrayList<ShapelessOreRecipe> recipes = new ArrayList<>();
 	public static int BARREL_CAPACITY = 16;
 
 	public static void addBrewingRecipe(ItemStack result, Object... ingredients) {

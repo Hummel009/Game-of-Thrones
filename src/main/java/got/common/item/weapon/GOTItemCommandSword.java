@@ -24,7 +24,7 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 
 	public void command(EntityPlayer entityplayer, World world, ItemStack itemstack, MovingObjectPosition hitTarget) {
 		entityplayer.setRevengeTarget(null);
-		List spreadTargets = new ArrayList();
+		List spreadTargets = new ArrayList<>();
 		if (hitTarget != null) {
 			Vec3 vec = hitTarget.hitVec;
 			AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(vec.xCoord, vec.yCoord, vec.zCoord, vec.xCoord, vec.yCoord, vec.zCoord);

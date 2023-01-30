@@ -20,8 +20,8 @@ import net.minecraft.world.World;
 
 public class GOTEntityMarshWraith extends GOTEntityNPC {
 	public UUID attackTargetUUID;
-	private boolean checkedForAttackTarget;
-	private int timeUntilDespawn = -1;
+	public boolean checkedForAttackTarget;
+	public int timeUntilDespawn = -1;
 
 	public GOTEntityMarshWraith(World world) {
 		super(world);

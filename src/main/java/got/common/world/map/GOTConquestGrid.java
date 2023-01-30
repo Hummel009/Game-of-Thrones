@@ -150,7 +150,7 @@ public class GOTConquestGrid {
 		if (cachedFacs == null) {
 			Object biome;
 			cachedFacs = new ArrayList<>();
-			ArrayList includedBiomes = new ArrayList();
+			ArrayList includedBiomes = new ArrayList<>();
 			int[] mapMin = GOTConquestGrid.getMinCoordsOnMap(zone);
 			int[] mapMax = GOTConquestGrid.getMaxCoordsOnMap(zone);
 			int mapXMin = mapMin[0];

@@ -451,7 +451,7 @@ public class GOTEventHandler implements IFuelHandler {
 				IConfigureNEI iConfigNEI = element;
 				if (iConfigNEI.getClass().equals(NEIGOTIntegratorConfig.class)) {
 					NEIGOTIntegratorConfig configNEI = (NEIGOTIntegratorConfig) iConfigNEI;
-					for (ItemStack element2 : configNEI.getHiddenItems()) {
+					for (ItemStack element2 : configNEI.hiddenItems) {
 						if (ItemInfo.hiddenItems.contains(element2)) {
 							ItemInfo.hiddenItems.remove(element2);
 						}
@@ -1521,7 +1521,7 @@ public class GOTEventHandler implements IFuelHandler {
 		if (GOTConfig.enableTitles) {
 			GOTTitle.PlayerTitle playerTitle = GOTLevelData.getData(entityplayer).getPlayerTitle();
 			if (playerTitle != null) {
-				ArrayList<Object> newFormatArgs = new ArrayList();
+				ArrayList<Object> newFormatArgs = new ArrayList<>();
 				for (Object arg : chatComponent.getFormatArgs()) {
 					if (arg instanceof ChatComponentText) {
 						ChatComponentText componentText = (ChatComponentText) arg;

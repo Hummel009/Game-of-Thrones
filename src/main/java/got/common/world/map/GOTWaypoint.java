@@ -495,9 +495,9 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 	public int xCoord;
 	public int zCoord;
 	public boolean isHidden;
-	private int rotation;
-	private int addX;
-	private int addZ;
+	public int rotation;
+	public int addX;
+	public int addZ;
 
 	GOTWaypoint(Region r, GOTFaction f, int x, int y) {
 		this(r, f, x, y, false);

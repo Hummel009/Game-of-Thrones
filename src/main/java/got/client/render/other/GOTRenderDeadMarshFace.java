@@ -10,8 +10,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderDeadMarshFace extends Render {
-	private static ResourceLocation skin = new ResourceLocation("got:textures/entity/essos/mossovy/wraith/marshWraith.png");
-	private ModelBase model = new GOTModelMarshWraith();
+	public static ResourceLocation skin = new ResourceLocation("got:textures/entity/essos/mossovy/wraith/marshWraith.png");
+	public ModelBase model = new GOTModelMarshWraith();
 
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
@@ -34,7 +34,7 @@ public class GOTRenderDeadMarshFace extends Render {
 	}
 
 	@Override
-	protected ResourceLocation getEntityTexture(Entity entity) {
+	public ResourceLocation getEntityTexture(Entity entity) {
 		return skin;
 	}
 }

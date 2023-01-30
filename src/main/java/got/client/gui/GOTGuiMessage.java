@@ -40,7 +40,7 @@ public class GOTGuiMessage extends GOTGuiScreenBase {
 		String msg = type.getMessage();
 		int pageWidth = xSize - border * 2;
 		String[] splitNewline = msg.split(Pattern.quote("\\n"));
-		ArrayList<String> msgLines = new ArrayList();
+		ArrayList<String> msgLines = new ArrayList<>();
 		for (String line : splitNewline) {
 			msgLines.addAll(fontRendererObj.listFormattedStringToWidth(line, pageWidth));
 		}

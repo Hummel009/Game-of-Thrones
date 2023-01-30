@@ -57,7 +57,7 @@ public class GOTEntityAsshaiSpherebinder extends GOTEntityAsshaiWarrior {
 				y *= force;
 				z *= force;
 				if (entity instanceof EntityPlayerMP) {
-					((EntityPlayerMP) entity).playerNetServerHandler.sendPacket(new S27PacketExplosion(posX, posY, posZ, 0.0f, new ArrayList(), Vec3.createVectorHelper(x, y, z)));
+					((EntityPlayerMP) entity).playerNetServerHandler.sendPacket(new S27PacketExplosion(posX, posY, posZ, 0.0f, new ArrayList<>(), Vec3.createVectorHelper(x, y, z)));
 					continue;
 				}
 				entity.motionX += x;

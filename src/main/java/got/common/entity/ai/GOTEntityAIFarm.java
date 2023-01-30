@@ -133,7 +133,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 		setAppropriateHomeRange(targetAction);
 		Random rand = theEntity.getRNG();
 		boolean isChestAction = targetAction == Action.DEPOSITING || targetAction == Action.COLLECTING;
-		List<TileEntityChest> chests = new ArrayList();
+		List<TileEntityChest> chests = new ArrayList<>();
 		if (isChestAction) {
 			chests = gatherNearbyChests();
 		}
@@ -386,7 +386,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	public boolean isSolidOpenWalkTarget(int i, int j, int k) {
 		Block below = theWorld.getBlock(i, j - 1, k);
 		if (below.isOpaqueCube() || below.canSustainPlant((IBlockAccess) theWorld, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.wheat)) {
-			ArrayList bounds = new ArrayList();
+			ArrayList bounds = new ArrayList<>();
 			AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(i, j, k, i + 1, j + 2, k + 1);
 			for (int j1 = j; j1 <= j + 1; ++j1) {
 				theWorld.getBlock(i, j1, k).addCollisionBoxesToList(theWorld, i, j1, k, aabb, bounds, theEntity);

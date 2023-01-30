@@ -592,7 +592,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 			switch (currentPage) {
 			case ALLIES:
 				List<GOTFaction> friends;
-				currentAlliesEnemies = new ArrayList();
+				currentAlliesEnemies = new ArrayList<>();
 				List<GOTFaction> allies = currentFaction.getOthersOfRelation(GOTFactionRelations.Relation.ALLY);
 				if (!allies.isEmpty()) {
 					currentAlliesEnemies.add(GOTFactionRelations.Relation.ALLY);
@@ -608,7 +608,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 				break;
 			case ENEMIES:
 				List<GOTFaction> enemies;
-				currentAlliesEnemies = new ArrayList();
+				currentAlliesEnemies = new ArrayList<>();
 				List<GOTFaction> mortals = currentFaction.getOthersOfRelation(GOTFactionRelations.Relation.MORTAL_ENEMY);
 				if (!mortals.isEmpty()) {
 					currentAlliesEnemies.add(GOTFactionRelations.Relation.MORTAL_ENEMY);
@@ -623,7 +623,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 				}
 				break;
 			case RANKS:
-				currentAlliesEnemies = new ArrayList();
+				currentAlliesEnemies = new ArrayList<>();
 				currentAlliesEnemies.add(StatCollector.translateToLocal("got.gui.factions.rankHeader"));
 				if (GOTLevelData.getData(mc.thePlayer).getAlignment(currentFaction) <= 0.0f) {
 					currentAlliesEnemies.add(GOTFactionRank.RANK_ENEMY);

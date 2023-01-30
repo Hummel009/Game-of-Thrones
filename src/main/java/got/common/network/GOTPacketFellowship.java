@@ -109,7 +109,7 @@ public class GOTPacketFellowship implements IMessage {
 		showMapLocations = data.readBoolean();
 	}
 
-	private void readTitleForPlayer(ByteBuf data, UUID playerUuid) {
+	public void readTitleForPlayer(ByteBuf data, UUID playerUuid) {
 		GOTTitle.PlayerTitle playerTitle = GOTTitle.PlayerTitle.readNullableTitle(data);
 		if (playerTitle != null) {
 			titleMap.put(playerUuid, playerTitle);

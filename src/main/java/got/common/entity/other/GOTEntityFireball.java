@@ -10,14 +10,14 @@ import net.minecraft.util.*;
 import net.minecraft.world.World;
 
 public abstract class GOTEntityFireball extends Entity {
-	private int field_145795_e = -1;
-	private int field_145793_f = -1;
-	private int field_145794_g = -1;
-	private Block field_145796_h;
-	private boolean inGround;
+	public int field_145795_e = -1;
+	public int field_145793_f = -1;
+	public int field_145794_g = -1;
+	public Block field_145796_h;
+	public boolean inGround;
 	public EntityLivingBase shootingEntity;
-	private int ticksAlive;
-	private int ticksInAir;
+	public int ticksAlive;
+	public int ticksInAir;
 	public double accelerationX;
 	public double accelerationY;
 	public double accelerationZ;
@@ -89,7 +89,7 @@ public abstract class GOTEntityFireball extends Entity {
 	}
 
 	@Override
-	protected void entityInit() {
+	public void entityInit() {
 	}
 
 	@Override
@@ -108,7 +108,7 @@ public abstract class GOTEntityFireball extends Entity {
 		return 1.0F;
 	}
 
-	protected float getMotionFactor() {
+	public float getMotionFactor() {
 		return 0.95F;
 	}
 
@@ -126,7 +126,7 @@ public abstract class GOTEntityFireball extends Entity {
 		return p_70112_1_ < d1 * d1;
 	}
 
-	protected abstract void onImpact(MovingObjectPosition p_70227_1_);
+	public abstract void onImpact(MovingObjectPosition p_70227_1_);
 
 	@Override
 	public void onUpdate() {

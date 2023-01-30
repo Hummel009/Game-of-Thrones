@@ -15,9 +15,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 
 public class GOTBiomeShadowTown extends GOTBiomeShadowLand {
-	private NoiseGeneratorPerlin noiseDirt = new NoiseGeneratorPerlin(new Random(42956029606L), 1);
-	private NoiseGeneratorPerlin noiseGravel = new NoiseGeneratorPerlin(new Random(7185609602367L), 1);
-	private NoiseGeneratorPerlin noiseStone = new NoiseGeneratorPerlin(new Random(12480634985056L), 1);
+	public NoiseGeneratorPerlin noiseDirt = new NoiseGeneratorPerlin(new Random(42956029606L), 1);
+	public NoiseGeneratorPerlin noiseGravel = new NoiseGeneratorPerlin(new Random(7185609602367L), 1);
+	public NoiseGeneratorPerlin noiseStone = new NoiseGeneratorPerlin(new Random(12480634985056L), 1);
 
 	public GOTBiomeShadowTown(int i, boolean major) {
 		super(i, major);

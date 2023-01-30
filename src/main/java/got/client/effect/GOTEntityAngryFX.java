@@ -8,7 +8,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityAngryFX extends EntityFX {
-	private float angryScale;
+	public float angryScale;
 
 	public GOTEntityAngryFX(World world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
 		super(world, x, y, z, 0.0, 0.0, 0.0);

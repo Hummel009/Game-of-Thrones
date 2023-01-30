@@ -143,7 +143,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 	}
 
 	@Override
-	protected void dropEquipment(boolean flag, int i) {
+	public void dropEquipment(boolean flag, int i) {
 	}
 
 	@Override

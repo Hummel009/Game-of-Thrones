@@ -12,9 +12,9 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityBlizzard extends EntityCreature implements GOTBiome.ImmuneToFrost {
-	private float heightOffset = 0.5F;
-	private int heightOffsetUpdateTime;
-	private int firingState;
+	public float heightOffset = 0.5F;
+	public int heightOffsetUpdateTime;
+	public int firingState;
 
 	public GOTEntityBlizzard(World world) {
 		super(world);
@@ -22,7 +22,7 @@ public class GOTEntityBlizzard extends EntityCreature implements GOTBiome.Immune
 	}
 
 	@Override
-	protected void attackEntity(Entity entity, float f) {
+	public void attackEntity(Entity entity, float f) {
 		if (attackTime <= 0 && f < 2.0f && entity.boundingBox.maxY > boundingBox.minY && entity.boundingBox.minY < boundingBox.maxY) {
 			attackTime = 20;
 			attackEntityAsMob(entity);
@@ -74,11 +74,11 @@ public class GOTEntityBlizzard extends EntityCreature implements GOTBiome.Immune
 	}
 
 	@Override
-	protected void fall(float f) {
+	public void fall(float f) {
 	}
 
 	@Override
-	protected Entity findPlayerToAttack() {
+	public Entity findPlayerToAttack() {
 		EntityPlayer entityplayer = worldObj.getClosestVulnerablePlayerToEntity(this, 16.0D);
 		return entityplayer != null && canEntityBeSeen(entityplayer) ? entityplayer : null;
 	}
@@ -108,17 +108,17 @@ public class GOTEntityBlizzard extends EntityCreature implements GOTBiome.Immune
 	}
 
 	@Override
-	protected String getDeathSound() {
+	public String getDeathSound() {
 		return "mob.blaze.death";
 	}
 
 	@Override
-	protected Item getDropItem() {
+	public Item getDropItem() {
 		return GOTRegistry.valyrianPowder;
 	}
 
 	@Override
-	protected String getHurtSound() {
+	public String getHurtSound() {
 		return "mob.blaze.hit";
 	}
 
@@ -127,7 +127,7 @@ public class GOTEntityBlizzard extends EntityCreature implements GOTBiome.Immune
 	}
 
 	@Override
-	protected String getLivingSound() {
+	public String getLivingSound() {
 		return "mob.blaze.breathe";
 	}
 

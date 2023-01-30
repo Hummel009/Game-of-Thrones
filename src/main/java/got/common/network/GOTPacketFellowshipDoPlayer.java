@@ -9,7 +9,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketFellowshipDoPlayer extends GOTPacketFellowshipDo {
-	private UUID subjectUuid;
+	public UUID subjectUuid;
 	public PlayerFunction function;
 
 	public GOTPacketFellowshipDoPlayer() {

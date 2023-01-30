@@ -211,24 +211,24 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome yiTiWasteland;
 	public static GOTBiome yunkai;
 
-	protected GOTBiomeDecorator decorator;
-	protected int topBlockMeta = 0;
-	protected int fillerBlockMeta = 0;
-	protected float heightBaseParameter;
-	protected boolean enablePodzol = true;
-	protected boolean enableRocky = false;
-	protected GOTBiomeVariantList biomeVariantsLarge = new GOTBiomeVariantList();
-	protected GOTBiomeVariantList biomeVariantsSmall = new GOTBiomeVariantList();
-	protected GOTBiomeSpawnList npcSpawnList = new GOTBiomeSpawnList(this);
-	protected List spawnableGOTAmbientList = new ArrayList();
-	protected GOTEventSpawner.EventChance banditChance;
-	protected Class<? extends GOTEntityWesterosBandit> banditEntityClass;
-	protected GOTBiomeInvasionSpawns invasionSpawns;
-	protected BiomeColors biomeColors = new BiomeColors(this);
-	protected BiomeTerrain biomeTerrain = new BiomeTerrain(this);
-	protected float variantChance = 0.4f;
-	protected GOTClimateType climateType;
-	protected GOTDimension biomeDimension;
+	public GOTBiomeDecorator decorator;
+	public int topBlockMeta = 0;
+	public int fillerBlockMeta = 0;
+	public float heightBaseParameter;
+	public boolean enablePodzol = true;
+	public boolean enableRocky = false;
+	public GOTBiomeVariantList biomeVariantsLarge = new GOTBiomeVariantList();
+	public GOTBiomeVariantList biomeVariantsSmall = new GOTBiomeVariantList();
+	public GOTBiomeSpawnList npcSpawnList = new GOTBiomeSpawnList(this);
+	public List spawnableGOTAmbientList = new ArrayList<>();
+	public GOTEventSpawner.EventChance banditChance;
+	public Class<? extends GOTEntityWesterosBandit> banditEntityClass;
+	public GOTBiomeInvasionSpawns invasionSpawns;
+	public BiomeColors biomeColors = new BiomeColors(this);
+	public BiomeTerrain biomeTerrain = new BiomeTerrain(this);
+	public float variantChance = 0.4f;
+	public GOTClimateType climateType;
+	public GOTDimension biomeDimension;
 
 	public GOTBiome(int i, boolean major) {
 		this(i, major, GOTDimension.GAME_OF_THRONES);

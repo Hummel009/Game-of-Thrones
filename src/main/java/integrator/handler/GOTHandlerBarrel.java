@@ -13,7 +13,8 @@ import net.minecraft.util.StatCollector;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class GOTHandlerBarrel extends ShapelessRecipeHandler {
-	private ArrayList<CachedBarrelRecipe> barrelRecipes = new ArrayList<>();
+	public List<CachedBarrelRecipe> barrelRecipes = new ArrayList<>();
+	public Random rand = new Random();
 
 	public GOTHandlerBarrel() {
 		for (int i = 0; i < GOTRecipeBrewing.recipes.size(); i++) {
@@ -23,20 +24,10 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 	}
 
 	@Override
-	public void drawBackground(int recipe) {
-		super.drawBackground(recipe);
-	}
-
-	@Override
 	public void drawExtras(int recipe) {
 	}
 
-	@Override
-	public void drawForeground(int recipe) {
-		super.drawForeground(recipe);
-	}
-
-	private CachedBarrelRecipe getBarrelRecipe(ShapelessOreRecipe recipe) {
+	public CachedBarrelRecipe getBarrelRecipe(ShapelessOreRecipe recipe) {
 		return new CachedBarrelRecipe(forgeShapelessRecipe(recipe));
 	}
 
@@ -112,15 +103,15 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 	}
 
 	public class CachedBarrelRecipe extends TemplateRecipeHandler.CachedRecipe {
-		private ArrayList<PositionedStack> recipeIngreds;
-		private PositionedStack recipeResult;
-		private int lastCycleR;
-		private boolean fixedResult;
+		public List<PositionedStack> recipeIngreds;
+		public PositionedStack recipeResult;
+		public int lastCycleR;
+		public boolean fixedResult;
 
-		private CachedBarrelRecipe(ShapelessRecipeHandler.CachedShapelessRecipe recipe) {
+		public CachedBarrelRecipe(ShapelessRecipeHandler.CachedShapelessRecipe recipe) {
 			lastCycleR = GOTHandlerBarrel.this.cycleticks;
 			fixedResult = false;
-			recipeIngreds = new ArrayList();
+			recipeIngreds = new ArrayList<>();
 			for (int i = 0; i < recipe.getIngredients().size(); ++i) {
 				PositionedStack tmp = new PositionedStack(recipe.ingredients.get(i).items, getX(i), getY(i));
 				tmp.item = recipe.ingredients.get(i).item;
@@ -133,11 +124,10 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 			recipeResult = new PositionedStack(new ItemStack[] { new ItemStack(recipe.getResult().item.getItem(), 1, 0), new ItemStack(recipe.getResult().item.getItem(), 1, 1), new ItemStack(recipe.getResult().item.getItem(), 1, 2), new ItemStack(recipe.getResult().item.getItem(), 1, 3), new ItemStack(recipe.getResult().item.getItem(), 1, 4) }, 119, 24, true);
 		}
 
-		private PositionedStack getCycledResult(int cycle, PositionedStack result) {
+		public PositionedStack getCycledResult(int cycle, PositionedStack result) {
 			if (cycle != lastCycleR) {
 				lastCycleR = cycle;
 				if (!fixedResult) {
-					Random rand = new Random();
 					result.setPermutationToRender(rand.nextInt(result.items.length));
 				}
 			}
@@ -154,7 +144,7 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 			return getCycledResult(GOTHandlerBarrel.this.cycleticks / 20, recipeResult);
 		}
 
-		private int getX(int i) {
+		public int getX(int i) {
 			switch (i) {
 			case 0:
 			case 3:
@@ -178,7 +168,7 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 			return 0;
 		}
 
-		private int getY(int i) {
+		public int getY(int i) {
 			switch (i) {
 			case 0:
 			case 1:

@@ -10,9 +10,9 @@ import got.common.fellowship.GOTFellowship;
 import io.netty.buffer.ByteBuf;
 
 public class GOTPacketFellowshipAcceptInviteResult implements IMessage {
-	private UUID fellowshipID;
-	private String fellowshipName;
-	private AcceptInviteResult result;
+	public UUID fellowshipID;
+	public String fellowshipName;
+	public AcceptInviteResult result;
 
 	public GOTPacketFellowshipAcceptInviteResult() {
 	}

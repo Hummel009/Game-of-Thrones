@@ -58,7 +58,7 @@ public class GOT {
 	@Mod.Instance(value = "got")
 	public static GOT instance;
 	public static String VERSION = "17.9.4";
-	public static ArrayList<String> devs = new ArrayList<>();
+	public static List<String> devs = new ArrayList<>();
 	public static GOTEventHandler eventHandler;
 	public static GOTPacketHandler packetHandler;
 	public static GOTTickHandlerServer tickHandler;
@@ -487,7 +487,7 @@ public class GOT {
 		return calendar.get(2) == 0 && calendar.get(5) == 1;
 	}
 
-	public static boolean isOpaque(World world, int i, int j, int k) {
+	public static boolean isOpaque(IBlockAccess world, int i, int j, int k) {
 		return world.getBlock(i, j, k).isOpaqueCube();
 	}
 

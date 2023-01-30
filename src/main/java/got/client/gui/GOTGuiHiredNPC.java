@@ -39,7 +39,7 @@ public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 			fontRendererObj.drawString(s, x, y, 3618615);
 			y += fontRendererObj.FONT_HEIGHT;
 			x += 4;
-			ArrayList requirementLines = new ArrayList();
+			ArrayList requirementLines = new ArrayList<>();
 			int maxWidth = xSize - 12 - 4;
 			GOTFaction fac = theNPC.getHiringFaction();
 			String alignS = GOTAlignmentValues.formatAlignForDisplay(theNPC.hiredNPCInfo.alignmentRequiredToCommand);

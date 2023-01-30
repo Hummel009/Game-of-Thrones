@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 
 @SideOnly(Side.CLIENT)
 public class GOTRenderBlizzard extends RenderLiving {
-	private int f;
+	public int f;
 
 	public GOTRenderBlizzard() {
 		super(new ModelBlaze(), 0.5F);
@@ -43,11 +43,11 @@ public class GOTRenderBlizzard extends RenderLiving {
 	}
 
 	@Override
-	protected ResourceLocation getEntityTexture(Entity entity) {
+	public ResourceLocation getEntityTexture(Entity entity) {
 		return this.getEntityTexture((GOTEntityBlizzard) entity);
 	}
 
-	protected ResourceLocation getEntityTexture(GOTEntityBlizzard entity) {
+	public ResourceLocation getEntityTexture(GOTEntityBlizzard entity) {
 		return new ResourceLocation("got:textures/entity/ulthos/blizzard.png");
 	}
 }

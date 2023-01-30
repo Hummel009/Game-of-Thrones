@@ -25,7 +25,7 @@ public class GOTEffectRenderer {
 		if (layer >= particleLayers.length) {
 			List[] newLayers = new List[layer + 1];
 			for (int l = 0; l < newLayers.length; ++l) {
-				newLayers[l] = l < particleLayers.length ? particleLayers[l] : new ArrayList();
+				newLayers[l] = l < particleLayers.length ? particleLayers[l] : new ArrayList<>();
 			}
 			particleLayers = newLayers;
 		}

@@ -19,8 +19,8 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 	public static GOTDimension currentDimension;
 	public static GOTDimension prevDimension;
 	public static GOTAchievement.Category currentCategory;
-	public ArrayList currentCategoryTakenAchievements = new ArrayList();
-	public ArrayList currentCategoryUntakenAchievements = new ArrayList();
+	public ArrayList currentCategoryTakenAchievements = new ArrayList<>();
+	public ArrayList currentCategoryUntakenAchievements = new ArrayList<>();
 	public int currentCategoryTakenCount;
 	public int currentCategoryUntakenCount;
 	public GOTGuiButtonAchievements buttonCategoryPrev;

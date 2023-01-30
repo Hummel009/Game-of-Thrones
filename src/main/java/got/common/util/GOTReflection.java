@@ -236,7 +236,7 @@ public class GOTReflection {
 				}
 			}
 			commandMap.values().removeAll(mapremoves);
-			ArrayList setremoves = new ArrayList();
+			ArrayList setremoves = new ArrayList<>();
 			for (Object obj : commandSet) {
 				if (obj.getClass() == commandClass) {
 					setremoves.add(obj);

@@ -48,7 +48,7 @@ public class GOTMiniQuestKillFaction extends GOTMiniQuestKill {
 	}
 
 	public static class QFKillFaction extends GOTMiniQuestKill.QFKill<GOTMiniQuestKillFaction> {
-		private GOTFaction killFaction;
+		public GOTFaction killFaction;
 
 		public QFKillFaction() {
 			super("kill");

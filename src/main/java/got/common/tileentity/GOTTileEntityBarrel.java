@@ -32,7 +32,7 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 	public int brewingAnim;
 	public int brewingAnimPrev;
 	public String specialBarrelName;
-	public List players = new ArrayList();
+	public List players = new ArrayList<>();
 
 	@Override
 	public boolean canExtractItem(int slot, ItemStack extractItem, int side) {

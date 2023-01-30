@@ -202,7 +202,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 	}
 
-	private boolean canCreateWaypointAtPosition() {
+	public boolean canCreateWaypointAtPosition() {
 		int minY = GOTConfig.getCustomWaypointMinY(mc.theWorld);
 		return minY < 0 || mc.thePlayer.boundingBox.minY >= minY;
 	}
@@ -377,7 +377,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 					ArrayList allZones = (ArrayList) facConquestGrids.get(conquestViewingFaction);
 					if (allZones == null) {
-						allZones = new ArrayList();
+						allZones = new ArrayList<>();
 					}
 					ArrayList<GOTConquestZone> zonesInView = new ArrayList<>();
 					highestViewedConqStr = 0.0f;
@@ -561,7 +561,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				int stringWidth = 250;
 				String[] splitNewline = loadText.split(Pattern.quote("\\n"));
-				ArrayList<String> loadLines = new ArrayList();
+				ArrayList<String> loadLines = new ArrayList<>();
 				for (String line : splitNewline) {
 					loadLines.addAll(fontRendererObj.listFormattedStringToWidth(line, stringWidth));
 				}
@@ -791,7 +791,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				int stringX = mapXMin + mapWidth / 2;
 				int stringY = rectY0 + 3 + mc.fontRenderer.FONT_HEIGHT;
 				int stringWidth = (int) ((mapWidth - overlayBorder * 2) * 0.75f);
-				ArrayList<String> displayLines = new ArrayList();
+				ArrayList<String> displayLines = new ArrayList<>();
 				for (String s4 : overlayLines) {
 					displayLines.addAll(fontRendererObj.listFormattedStringToWidth(s4, stringWidth));
 				}

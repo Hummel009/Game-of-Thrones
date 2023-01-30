@@ -15,7 +15,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.*;
 
 public class GOTBlockLeavesBase extends BlockLeaves {
-	public static List allLeafBlocks = new ArrayList();
+	public static List allLeafBlocks = new ArrayList<>();
 	@SideOnly(value = Side.CLIENT)
 	public IIcon[][] leafIcons;
 	public String[] leafNames;

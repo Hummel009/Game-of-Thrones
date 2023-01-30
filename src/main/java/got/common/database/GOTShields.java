@@ -19,23 +19,19 @@ public enum GOTShields {
 	public boolean isHidden;
 
 	GOTShields() {
-		this(ShieldType.ACHIEVABLE, false, new ArrayList());
+		this(ShieldType.ACHIEVABLE, false, new ArrayList<>());
 	}
 
-	GOTShields(ArrayList<String> players) {
-		this(false, players);
-	}
-
-	GOTShields(boolean hidden, ArrayList<String> players) {
+	GOTShields(boolean hidden, List<String> players) {
 		this(ShieldType.EXCLUSIVE, hidden, players);
 	}
 
 	GOTShields(GOTFaction faction) {
-		this(ShieldType.ALIGNMENT, false, new ArrayList());
+		this(ShieldType.ALIGNMENT, false, new ArrayList<>());
 		alignmentFaction = faction;
 	}
 
-	GOTShields(ShieldType type, boolean hidden, ArrayList<String> players) {
+	GOTShields(ShieldType type, boolean hidden, List<String> players) {
 		shieldType = type;
 		shieldID = shieldType.list.size();
 		shieldType.list.add(this);

@@ -76,7 +76,7 @@ public enum GOTMiniQuestFactory {
 		factory.setFactoryGroup(this);
 		List<GOTMiniQuest.QuestFactoryBase> list = questFactories.get(registryClass);
 		if (list == null) {
-			list = new ArrayList();
+			list = new ArrayList<>();
 			questFactories.put(registryClass, list);
 		}
 		list.add(factory);

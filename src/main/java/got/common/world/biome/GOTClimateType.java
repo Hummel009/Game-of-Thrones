@@ -5,20 +5,12 @@ import got.common.*;
 public enum GOTClimateType {
 	WINTER("isAlwaysWinter", false), COLD("isLongWinter", false), COLD_AZ("isLongWinterAZ", true), SUMMER("isNeverWinter", false), SUMMER_AZ("isNeverWinterAZ", true), NORMAL("isSeasonalWinter", false), NORMAL_AZ("isSeasonalWinterAZ", true);
 
-	private boolean altitudeZone = false;
-	private String climateName;
+	public boolean altitudeZone = false;
+	public String climateName;
 	
 	GOTClimateType(String name, boolean zone) {
 		climateName = name;
 		altitudeZone = zone;
-	}
-
-	public String getClimateName() {
-		return climateName;
-	}
-
-	public boolean isAltitudeZone() {
-		return altitudeZone;
 	}
 
 	public static void performSeasonalChanges() {
@@ -191,5 +183,9 @@ public enum GOTClimateType {
 				}
 			}
 		}
+	}
+
+	public boolean isAltitudeZone() {
+		return altitudeZone;
 	}
 }

@@ -13,7 +13,7 @@ import net.minecraft.item.*;
 import net.minecraft.util.StatCollector;
 
 public class GOTHandlerKebab extends TemplateRecipeHandler {
-	private GOTTileEntityKebabStand kebabStand = new GOTTileEntityKebabStand();
+	public GOTTileEntityKebabStand kebabStand = new GOTTileEntityKebabStand();
 
 	@Override
 	public void drawForeground(int recipe) {
@@ -43,7 +43,7 @@ public class GOTHandlerKebab extends TemplateRecipeHandler {
 	public void loadCraftingRecipes(ItemStack result) {
 		result.stackSize = 1;
 		if (NEIServerUtils.areStacksSameTypeCrafting(result, new ItemStack(GOTRegistry.kebab, 1))) {
-			FMLControlledNamespacedRegistry items = GameData.getItemRegistry();
+			FMLControlledNamespacedRegistry<Item> items = GameData.getItemRegistry();
 			Iterator<Item> it = items.iterator();
 			while (it.hasNext()) {
 				ItemStack stack = new ItemStack(it.next(), 1);
@@ -87,10 +87,10 @@ public class GOTHandlerKebab extends TemplateRecipeHandler {
 	}
 
 	public class CachedKebabRecipe extends TemplateRecipeHandler.CachedRecipe {
-		private PositionedStack result;
-		private PositionedStack ingredient;
+		public PositionedStack result;
+		public PositionedStack ingredient;
 
-		private CachedKebabRecipe(ItemStack ingredient) {
+		public CachedKebabRecipe(ItemStack ingredient) {
 			result = new PositionedStack(new ItemStack(GOTRegistry.kebab, 1), 119, 24);
 			this.ingredient = new PositionedStack(ingredient, 43, 24);
 		}

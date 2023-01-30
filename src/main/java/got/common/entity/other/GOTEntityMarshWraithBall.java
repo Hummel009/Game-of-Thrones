@@ -47,13 +47,13 @@ public class GOTEntityMarshWraithBall extends EntityThrowable {
 	}
 
 	@Override
-	protected void entityInit() {
+	public void entityInit() {
 		super.entityInit();
 		dataWatcher.addObject(16, (short) 0);
 	}
 
 	@Override
-	protected float func_70182_d() {
+	public float func_70182_d() {
 		return 0.5f;
 	}
 
@@ -62,12 +62,12 @@ public class GOTEntityMarshWraithBall extends EntityThrowable {
 	}
 
 	@Override
-	protected float getGravityVelocity() {
+	public float getGravityVelocity() {
 		return 0.0f;
 	}
 
 	@Override
-	protected void onImpact(MovingObjectPosition m) {
+	public void onImpact(MovingObjectPosition m) {
 		if (m.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK) {
 			if (!worldObj.isRemote) {
 				setDead();

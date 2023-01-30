@@ -59,7 +59,7 @@ public class GOTStructureSothoryosVillage extends GOTVillageGen {
 			return false;
 		}
 
-		private void setupVillage(Random random) {
+		public void setupVillage(Random random) {
 			int smithyPos = random.nextInt(4);
 			this.addStructure(new GOTStructureSothoryosChieftainPyramid(false), 0, -11, 0, true);
 			this.addStructure(new GOTStructureSothoryosVillageTree(false), 0, -16, 2);

@@ -14,7 +14,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 
 public class GOTPacketFellowshipInvitePlayer extends GOTPacketFellowshipDo {
-	private String invitedUsername;
+	public String invitedUsername;
 
 	public GOTPacketFellowshipInvitePlayer() {
 	}
@@ -41,7 +41,7 @@ public class GOTPacketFellowshipInvitePlayer extends GOTPacketFellowshipDo {
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketFellowshipInvitePlayer, IMessage> {
-		private UUID findInvitedPlayerUUID(String invitedUsername) {
+		public UUID findInvitedPlayerUUID(String invitedUsername) {
 			GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152655_a(invitedUsername);
 			if (profile != null && profile.getId() != null) {
 				return profile.getId();

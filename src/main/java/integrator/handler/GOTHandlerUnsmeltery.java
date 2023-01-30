@@ -2,7 +2,6 @@ package integrator.handler;
 
 import java.util.Iterator;
 
-import codechicken.core.ReflectionManager;
 import codechicken.nei.*;
 import codechicken.nei.recipe.*;
 import cpw.mods.fml.common.registry.*;
@@ -33,24 +32,24 @@ public class GOTHandlerUnsmeltery extends FurnaceRecipeHandler {
 
 	@Override
 	public void loadCraftingRecipes(ItemStack result) {
-		FMLControlledNamespacedRegistry items = GameData.getItemRegistry();
+		FMLControlledNamespacedRegistry<Item> items = GameData.getItemRegistry();
 		Iterator<Item> it = items.iterator();
 		while (it.hasNext()) {
 			ItemStack stack = new ItemStack(it.next(), 1);
 			ItemStack equipmentMaterial = GOTTileEntityUnsmeltery.getEquipmentMaterial(stack);
 			if (equipmentMaterial != null && NEIServerUtils.areStacksSameTypeCrafting(equipmentMaterial, result)) {
-				ItemStack randomResult = getRandomUnsmelteryResult(stack);
+				ItemStack randomResult = unsmelteryTileEntity.getRandomUnsmeltingResult(null);
 				UnsmeltingPair pair = new UnsmeltingPair(stack, randomResult != null ? randomResult : equipmentMaterial);
 				arecipes.add(pair);
 			}
 		}
-		FMLControlledNamespacedRegistry blocks = GameData.getBlockRegistry();
+		FMLControlledNamespacedRegistry<Block> blocks = GameData.getBlockRegistry();
 		Iterator<Block> it2 = blocks.iterator();
 		while (it2.hasNext()) {
 			ItemStack stack = new ItemStack(it2.next(), 1);
 			ItemStack equipmentMaterial = GOTTileEntityUnsmeltery.getEquipmentMaterial(stack);
 			if (equipmentMaterial != null && NEIServerUtils.areStacksSameTypeCrafting(equipmentMaterial, result)) {
-				ItemStack randomResult = getRandomUnsmelteryResult(stack);
+				ItemStack randomResult = unsmelteryTileEntity.getRandomUnsmeltingResult(null);
 				UnsmeltingPair pair = new UnsmeltingPair(stack, randomResult != null ? randomResult : equipmentMaterial);
 				arecipes.add(pair);
 			}
@@ -66,7 +65,7 @@ public class GOTHandlerUnsmeltery extends FurnaceRecipeHandler {
 
 	@Override
 	public void loadUsageRecipes(ItemStack ingredient) {
-		ItemStack resultStack = getRandomUnsmelteryResult(ingredient);
+		ItemStack resultStack = unsmelteryTileEntity.getRandomUnsmeltingResult(null);
 		if (resultStack != null) {
 			UnsmeltingPair pair = new UnsmeltingPair(ingredient, resultStack);
 			arecipes.add(pair);
@@ -90,31 +89,21 @@ public class GOTHandlerUnsmeltery extends FurnaceRecipeHandler {
 		return 2;
 	}
 
-	public static ItemStack getRandomUnsmelteryResult(ItemStack stack) {
-		ItemStack ret = null;
-		try {
-			ret = ReflectionManager.callMethod(GOTTileEntityUnsmeltery.class, ItemStack.class, unsmelteryTileEntity, "getRandomUnsmeltingResult");
-		} catch (Exception exception) {
-		}
-
-		return ret;
-	}
-
 	public class UnsmeltingPair extends FurnaceRecipeHandler.SmeltingPair {
-		private ItemStack ingredient;
-		private PositionedStack lastIngredient;
-		private int lastCycle;
+		public ItemStack ingredient;
+		public PositionedStack lastIngredient;
+		public int lastCycle;
 
-		private UnsmeltingPair(ItemStack ingred, ItemStack result) {
+		public UnsmeltingPair(ItemStack ingred, ItemStack result) {
 			super(ingred, result);
 			lastCycle = GOTHandlerUnsmeltery.this.cycleticks / 48;
 			ingredient = ingred;
 		}
 
-		private PositionedStack getCycledResult(int cycle, PositionedStack result) {
+		public PositionedStack getCycledResult(int cycle, PositionedStack result) {
 			if (cycle != lastCycle) {
 				lastCycle = cycle;
-				ItemStack stack = GOTHandlerUnsmeltery.getRandomUnsmelteryResult(ingredient);
+				ItemStack stack = unsmelteryTileEntity.getRandomUnsmeltingResult(null);
 				if (stack != null) {
 					lastIngredient = new PositionedStack(stack, result.relx, result.rely);
 					return lastIngredient;

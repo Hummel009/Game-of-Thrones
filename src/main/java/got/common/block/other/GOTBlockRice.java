@@ -35,7 +35,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public class GOTBlockRice extends BlockLilyPad implements IGrowable {
 	@SideOnly(value = Side.CLIENT)
-	private IIcon[] field_149867_a;
+	public IIcon[] field_149867_a;
 
 	public GOTBlockRice() {
 		setTickRandomly(true);
@@ -76,7 +76,7 @@ public class GOTBlockRice extends BlockLilyPad implements IGrowable {
 		p_149863_1_.setBlockMetadataWithNotify(p_149863_2_, p_149863_3_, p_149863_4_, l, 2);
 	}
 
-	private float func_149864_n(World p_149864_1_, int p_149864_2_, int p_149864_3_, int p_149864_4_) {
+	public float func_149864_n(World p_149864_1_, int p_149864_2_, int p_149864_3_, int p_149864_4_) {
 		float f = 1.0f;
 		Block block = p_149864_1_.getBlock(p_149864_2_, p_149864_3_, p_149864_4_ - 1);
 		Block block1 = p_149864_1_.getBlock(p_149864_2_, p_149864_3_, p_149864_4_ + 1);
@@ -110,11 +110,11 @@ public class GOTBlockRice extends BlockLilyPad implements IGrowable {
 		return f;
 	}
 
-	protected Item func_149865_P() {
+	public Item func_149865_P() {
 		return GOTRegistry.rice;
 	}
 
-	protected Item func_149866_i() {
+	public Item func_149866_i() {
 		return GOTRegistry.rice;
 	}
 

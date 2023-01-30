@@ -51,7 +51,7 @@ public class GOTHandlerOven extends TemplateRecipeHandler {
 	public void loadCraftingRecipes(ItemStack result) {
 		result.stackSize = 1;
 		if (GOTTileEntityOven.isCookResultAcceptable(result)) {
-			Map map = FurnaceRecipes.smelting().getSmeltingList();
+			Map<ItemStack, ItemStack> map = FurnaceRecipes.smelting().getSmeltingList();
 			Iterator<ItemStack> it = map.keySet().iterator();
 			while (it.hasNext()) {
 				ItemStack itemStack = it.next();
@@ -96,12 +96,12 @@ public class GOTHandlerOven extends TemplateRecipeHandler {
 	}
 
 	public class CachedOvenRecipe extends TemplateRecipeHandler.CachedRecipe {
-		private ArrayList<PositionedStack> ingredients;
-		private ArrayList<PositionedStack> results;
-		private int fuelX;
-		private int fuelY;
+		public List<PositionedStack> ingredients;
+		public List<PositionedStack> results;
+		public int fuelX;
+		public int fuelY;
 
-		private CachedOvenRecipe(ItemStack ingredient, ItemStack result) {
+		public CachedOvenRecipe(ItemStack ingredient, ItemStack result) {
 			ingredients = new ArrayList<>();
 			results = new ArrayList<>();
 			fuelX = 75;

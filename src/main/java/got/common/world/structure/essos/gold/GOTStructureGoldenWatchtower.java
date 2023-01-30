@@ -12,14 +12,14 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
 public class GOTStructureGoldenWatchtower extends GOTStructureBase {
-	private Block woodBlock;
-	private int woodMeta;
-	private Block plankBlock;
-	private int plankMeta;
-	private Block fenceBlock;
-	private int fenceMeta;
-	private Block stairBlock;
-	private Block trapdoorBlock;
+	public Block woodBlock;
+	public int woodMeta;
+	public Block plankBlock;
+	public int plankMeta;
+	public Block fenceBlock;
+	public int fenceMeta;
+	public Block stairBlock;
+	public Block trapdoorBlock;
 
 	public GOTStructureGoldenWatchtower(boolean flag) {
 		super(flag);
@@ -200,7 +200,7 @@ public class GOTStructureGoldenWatchtower extends GOTStructureBase {
 		return true;
 	}
 
-	private void generateSupportPillar(World world, int i, int j, int k) {
+	public void generateSupportPillar(World world, int i, int j, int k) {
 		int j1 = j;
 		while (!isOpaque(world, i, j1, k) && getY(j1) >= 0) {
 			setBlockAndMetadata(world, i, j1, k, woodBlock, woodMeta);

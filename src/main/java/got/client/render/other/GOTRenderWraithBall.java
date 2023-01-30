@@ -9,7 +9,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderWraithBall extends Render {
-	private static ResourceLocation texture = new ResourceLocation("got:textures/entity/essos/mossovy/wraith/marshWraith_ball.png");
+	public static ResourceLocation texture = new ResourceLocation("got:textures/entity/essos/mossovy/wraith/marshWraith_ball.png");
 
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
@@ -28,7 +28,7 @@ public class GOTRenderWraithBall extends Render {
 		GL11.glPopMatrix();
 	}
 
-	private void drawSprite(Tessellator tessellator, int index) {
+	public void drawSprite(Tessellator tessellator, int index) {
 		float var3 = (index % 4 * 16 + 0) / 64.0f;
 		float var4 = (index % 4 * 16 + 16) / 64.0f;
 		float var5 = (index / 4 * 16 + 0) / 64.0f;
@@ -48,7 +48,7 @@ public class GOTRenderWraithBall extends Render {
 	}
 
 	@Override
-	protected ResourceLocation getEntityTexture(Entity entity) {
+	public ResourceLocation getEntityTexture(Entity entity) {
 		return texture;
 	}
 }

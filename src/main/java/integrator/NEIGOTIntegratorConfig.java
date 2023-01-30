@@ -1,6 +1,7 @@
 package integrator;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import codechicken.nei.api.*;
 import got.GOT;
@@ -9,11 +10,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 
 public class NEIGOTIntegratorConfig implements IConfigureNEI {
-	private ArrayList<ItemStack> hiddenItems = new ArrayList<>();
-
-	public ArrayList<ItemStack> getHiddenItems() {
-		return hiddenItems;
-	}
+	public List<ItemStack> hiddenItems = new ArrayList<>();
 
 	@Override
 	public String getName() {
@@ -22,23 +19,23 @@ public class NEIGOTIntegratorConfig implements IConfigureNEI {
 
 	@Override
 	public String getVersion() {
-		return String.valueOf(GOT.VERSION);
+		return GOT.VERSION;
 	}
 
-	private void hideItem(Block block) {
+	public void hideItem(Block block) {
 		hideItem(false, block);
 	}
 
-	private void hideItem(boolean all, Block block) {
+	public void hideItem(boolean all, Block block) {
 		hideItem(new ItemStack(block), all);
 	}
 
-	private void hideItem(ItemStack stack, boolean all) {
+	public void hideItem(ItemStack stack, boolean all) {
 		int i = all ? 0 : 8;
 		while (i < 16) {
 			ItemStack s = new ItemStack(stack.getItem(), 1, i);
 			API.hideItem(s);
-			getHiddenItems().add(s);
+			hiddenItems.add(s);
 			i++;
 		}
 	}
@@ -146,9 +143,5 @@ public class NEIGOTIntegratorConfig implements IConfigureNEI {
 		hideItem(GOTRegistry.woodSlabSingle3);
 		hideItem(GOTRegistry.woodSlabSingle4);
 		hideItem(GOTRegistry.woodSlabSingle5);
-	}
-
-	public void setHiddenItems(ArrayList<ItemStack> hiddenItems) {
-		this.hiddenItems = hiddenItems;
 	}
 }
