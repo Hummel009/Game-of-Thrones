@@ -3,10 +3,9 @@ package got.common.util;
 import got.client.model.GOTModelDragonAnimaton;
 
 public class GOTTickFloat {
-
 	public float min;
 	public float max;
-	public boolean clamp = false;
+	public boolean clamp;
 	public float current;
 	public float previous;
 
@@ -48,7 +47,11 @@ public class GOTTickFloat {
 
 	public void set(float value) {
 		sync();
-		current = clamp ? GOTModelDragonAnimaton.clamp(value, min, max) : value;
+		if (clamp) {
+			current = GOTModelDragonAnimaton.clamp(value, min, max);
+		} else {
+			current = value;
+		}
 	}
 
 	public GOTTickFloat setLimit(float min, float max) {

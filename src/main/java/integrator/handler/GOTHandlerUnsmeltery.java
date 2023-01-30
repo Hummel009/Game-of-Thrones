@@ -39,7 +39,12 @@ public class GOTHandlerUnsmeltery extends FurnaceRecipeHandler {
 			ItemStack equipmentMaterial = GOTTileEntityUnsmeltery.getEquipmentMaterial(stack);
 			if (equipmentMaterial != null && NEIServerUtils.areStacksSameTypeCrafting(equipmentMaterial, result)) {
 				ItemStack randomResult = unsmelteryTileEntity.getRandomUnsmeltingResult(null);
-				UnsmeltingPair pair = new UnsmeltingPair(stack, randomResult != null ? randomResult : equipmentMaterial);
+				UnsmeltingPair pair;
+				if (randomResult != null) {
+					pair = new UnsmeltingPair(stack, randomResult);
+				} else {
+					pair = new UnsmeltingPair(stack, equipmentMaterial);
+				}
 				arecipes.add(pair);
 			}
 		}
@@ -50,7 +55,12 @@ public class GOTHandlerUnsmeltery extends FurnaceRecipeHandler {
 			ItemStack equipmentMaterial = GOTTileEntityUnsmeltery.getEquipmentMaterial(stack);
 			if (equipmentMaterial != null && NEIServerUtils.areStacksSameTypeCrafting(equipmentMaterial, result)) {
 				ItemStack randomResult = unsmelteryTileEntity.getRandomUnsmeltingResult(null);
-				UnsmeltingPair pair = new UnsmeltingPair(stack, randomResult != null ? randomResult : equipmentMaterial);
+				UnsmeltingPair pair;
+				if (randomResult != null) {
+					pair = new UnsmeltingPair(stack, randomResult);
+				} else {
+					pair = new UnsmeltingPair(stack, equipmentMaterial);
+				}
 				arecipes.add(pair);
 			}
 		}
@@ -109,7 +119,11 @@ public class GOTHandlerUnsmeltery extends FurnaceRecipeHandler {
 					return lastIngredient;
 				}
 			}
-			return lastIngredient == null ? result : lastIngredient;
+			if (lastIngredient == null) {
+				return result;
+			} else {
+				return lastIngredient;
+			}
 		}
 
 		@Override

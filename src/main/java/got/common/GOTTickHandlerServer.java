@@ -28,7 +28,7 @@ import net.minecraft.world.storage.WorldInfo;
 import net.minecraftforge.common.DimensionManager;
 
 public class GOTTickHandlerServer {
-	public static HashMap playersInPortals = new HashMap<>();
+	public static Map<EntityPlayer, Integer> playersInPortals = new HashMap<>();
 
 	public GOTTickHandlerServer() {
 		FMLCommonHandler.instance().bus().register(this);
@@ -57,9 +57,8 @@ public class GOTTickHandlerServer {
 					entityplayer.func_143004_u();
 				}
 				if (entityplayer.dimension == 0 && GOTLevelData.madePortal == 0) {
-					List items = world.getEntitiesWithinAABB(EntityItem.class, entityplayer.boundingBox.expand(16.0D, 16.0D, 16.0D));
-					for (Object obj : items) {
-						EntityItem item = (EntityItem) obj;
+					List<EntityItem> items = world.getEntitiesWithinAABB(EntityItem.class, entityplayer.boundingBox.expand(16.0D, 16.0D, 16.0D));
+					for (EntityItem item : items) {
 						if (GOTLevelData.madePortal == 0 && item.getEntityItem() != null && item.getEntityItem().getItem() == Items.iron_sword && item.isBurning()) {
 							GOTLevelData.setMadePortal(1);
 							GOTLevelData.markOverworldPortalLocation(MathHelper.floor_double(item.posX), MathHelper.floor_double(item.posY), MathHelper.floor_double(item.posZ));
@@ -83,7 +82,7 @@ public class GOTTickHandlerServer {
 						}
 					}
 					if (inPortal) {
-						i = (Integer) playersInPortals.get(entityplayer);
+						i = playersInPortals.get(entityplayer);
 						i++;
 						playersInPortals.put(entityplayer, Integer.valueOf(i));
 						if (i >= 100) {

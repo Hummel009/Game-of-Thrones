@@ -15,7 +15,7 @@ public enum GOTDimension {
 
 	public String dimensionName;
 	public int dimensionID;
-	public Class providerClass;
+	public Class<? extends WorldProvider> providerClass;
 	public boolean loadSpawn;
 	public GOTBiome[] biomeList = new GOTBiome[256];
 	public Map<Integer, Integer> colorsToBiomeIDs = new HashMap<>();
@@ -26,7 +26,7 @@ public enum GOTDimension {
 	public List<GOTAchievement.Category> achievementCategories = new ArrayList<>();
 	public List<GOTAchievement> allAchievements = new ArrayList<>();
 
-	GOTDimension(String s, int i, Class c, boolean flag, int spawns, EnumSet<DimensionRegion> regions) {
+	GOTDimension(String s, int i, Class<? extends WorldProvider> c, boolean flag, int spawns, EnumSet<DimensionRegion> regions) {
 		dimensionName = s;
 		dimensionID = i;
 		providerClass = c;

@@ -6,7 +6,7 @@ import net.minecraft.world.WorldServer;
 
 public class GOTPlayerQuestData {
 	public GOTPlayerData playerData;
-	public boolean givenFirstPouches = false;
+	public boolean givenFirstPouches;
 
 	public GOTPlayerQuestData(GOTPlayerData pd) {
 		playerData = pd;

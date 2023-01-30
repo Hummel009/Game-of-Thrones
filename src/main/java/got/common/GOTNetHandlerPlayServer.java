@@ -20,7 +20,7 @@ import net.minecraft.world.WorldServer;
 public class GOTNetHandlerPlayServer extends NetHandlerPlayServer {
 	public MinecraftServer theServer;
 	public double defaultReach = -1.0;
-	public int lastAttackTime = 0;
+	public int lastAttackTime;
 	public double lastX;
 	public double lastY;
 	public double lastZ;

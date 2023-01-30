@@ -10,7 +10,7 @@ import net.minecraft.util.*;
 
 public class GOTVersionChecker {
 	public static String versionURL = "https://raw.githubusercontent.com/Hummel009/Game-of-Thrones/master/version.txt";
-	public static boolean checkedUpdate = false;
+	public static boolean checkedUpdate;
 
 	public static void checkForUpdates() {
 		if (!checkedUpdate) {

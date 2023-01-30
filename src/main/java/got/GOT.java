@@ -1,6 +1,7 @@
 package got;
 
 import java.awt.Color;
+import java.time.LocalDate;
 import java.util.*;
 
 import com.google.common.base.CaseFormat;
@@ -473,18 +474,18 @@ public class GOT {
 	}
 
 	public static boolean isAprilFools() {
-		Calendar calendar = Calendar.getInstance();
-		return calendar.get(2) == 3 && calendar.get(5) == 1;
+		LocalDate calendar = LocalDate.now();
+		return calendar.getMonthValue() == 4 && calendar.getDayOfMonth() == 1;
 	}
 
 	public static boolean isGuyFawkes() {
-		Calendar calendar = Calendar.getInstance();
-		return calendar.get(2) == 10 && calendar.get(5) == 5;
+		LocalDate calendar = LocalDate.now();
+		return calendar.getMonthValue() == 11 && calendar.getDayOfMonth() == 5;
 	}
 
 	public static boolean isNewYear() {
-		Calendar calendar = Calendar.getInstance();
-		return calendar.get(2) == 0 && calendar.get(5) == 1;
+		LocalDate calendar = LocalDate.now();
+		return calendar.getMonthValue() == 1 && calendar.getDayOfMonth() == 1;
 	}
 
 	public static boolean isOpaque(IBlockAccess world, int i, int j, int k) {
@@ -503,8 +504,8 @@ public class GOT {
 	}
 
 	public static boolean isUkraine() {
-		Calendar calendar = Calendar.getInstance();
-		return calendar.get(2) == 7 && calendar.get(5) == 24;
+		LocalDate calendar = LocalDate.now();
+		return calendar.getMonthValue() == 8 && calendar.getDayOfMonth() == 24;
 	}
 
 	public static IEntitySelector selectLivingExceptCreativePlayers() {

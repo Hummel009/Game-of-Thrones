@@ -53,7 +53,12 @@ public class GOTMazeGenerator {
 				validDirs.add(dir);
 			}
 			if (!validDirs.isEmpty()) {
-				Dir dir = lastDir != null && validDirs.contains(lastDir) && random.nextFloat() >= windyness ? lastDir : (Dir) validDirs.get(random.nextInt(validDirs.size()));
+				Dir dir;
+				if (lastDir != null && validDirs.contains(lastDir) && random.nextFloat() >= windyness) {
+					dir = lastDir;
+				} else {
+					dir = validDirs.get(random.nextInt(validDirs.size()));
+				}
 				int x = pos.xPos;
 				int z = pos.zPos;
 				if (getFlag(x, z, (short) 4)) {

@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 
 public class GOTItemStackMapImpl<V> implements GOTItemStackMap<V> {
 	public boolean isNBTSensitive;
-	public HashMap<GOTItemStackWrapper, V> innerMap = new HashMap();
+	public Map<GOTItemStackWrapper, V> innerMap = new HashMap<>();
 
 	public GOTItemStackMapImpl() {
 		this(false);
@@ -40,7 +40,11 @@ public class GOTItemStackMapImpl<V> implements GOTItemStackMap<V> {
 
 	@Override
 	public V get(Object key) {
-		return key instanceof ItemStack ? (V) this.innerMap.get(new GOTItemStackWrapper((ItemStack) key, this.isNBTSensitive)) : null;
+		if (key instanceof ItemStack) {
+			return this.innerMap.get(new GOTItemStackWrapper((ItemStack) key, this.isNBTSensitive));
+		} else {
+			return null;
+		}
 	}
 
 	@Override

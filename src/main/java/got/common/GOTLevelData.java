@@ -14,6 +14,7 @@ import got.GOT;
 import got.common.database.*;
 import got.common.fellowship.*;
 import got.common.network.*;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.*;
 import net.minecraft.nbt.*;
 import net.minecraft.server.MinecraftServer;
@@ -227,8 +228,12 @@ public class GOTLevelData {
 			} else {
 				waypointCooldownMin = 60;
 			}
-			enableAlignmentZones = levelData.hasKey("AlignmentZones") ? levelData.getBoolean("AlignmentZones") : true;
-			conquestRate = levelData.hasKey("ConqRate") ? levelData.getFloat("ConqRate") : 1.0f;
+			enableAlignmentZones = !levelData.hasKey("AlignmentZones") || levelData.getBoolean("AlignmentZones");
+			if (levelData.hasKey("ConqRate")) {
+				conquestRate = levelData.getFloat("ConqRate");
+			} else {
+				conquestRate = 1.0f;
+			}
 			if (levelData.hasKey("SavedDifficulty")) {
 				int id = levelData.getInteger("SavedDifficulty");
 				difficulty = EnumDifficulty.getDifficultyEnum(id);
@@ -366,15 +371,9 @@ public class GOTLevelData {
 				clearing.add(player);
 			}
 		}
-		clearing.size();
-		playerDataMap.size();
 		for (UUID player : clearing) {
 			boolean saved = GOTLevelData.saveAndClearData(player);
-			if (!saved) {
-				continue;
-			}
 		}
-		playerDataMap.size();
 	}
 
 	public static void saveData(UUID player) {
@@ -415,7 +414,7 @@ public class GOTLevelData {
 		}
 	}
 
-	public static void sendAlignmentToAllPlayersInWorld(EntityPlayer entityplayer, World world) {
+	public static void sendAlignmentToAllPlayersInWorld(Entity entityplayer, World world) {
 		for (Object element : world.playerEntities) {
 			EntityPlayer worldPlayer = (EntityPlayer) element;
 			GOTPacketAlignment packet = new GOTPacketAlignment(entityplayer.getUniqueID());
@@ -528,7 +527,7 @@ public class GOTLevelData {
 		GOTPacketHandler.networkWrapper.sendTo((IMessage) packetLocations, (EntityPlayerMP) sendPlayer);
 	}
 
-	public static void sendShieldToAllPlayersInWorld(EntityPlayer entityplayer, World world) {
+	public static void sendShieldToAllPlayersInWorld(Entity entityplayer, World world) {
 		for (Object element : world.playerEntities) {
 			EntityPlayer worldPlayer = (EntityPlayer) element;
 			GOTPacketShield packet = new GOTPacketShield(entityplayer.getUniqueID());
@@ -550,9 +549,8 @@ public class GOTLevelData {
 		enableAlignmentZones = flag;
 		GOTLevelData.markDirty();
 		if (!GOT.proxy.isClient()) {
-			List players = MinecraftServer.getServer().getConfigurationManager().playerEntityList;
-			for (Object player : players) {
-				EntityPlayerMP entityplayer = (EntityPlayerMP) player;
+			List<EntityPlayerMP> players = MinecraftServer.getServer().getConfigurationManager().playerEntityList;
+			for (EntityPlayerMP entityplayer : players) {
 				GOTPacketEnableAlignmentZones packet = new GOTPacketEnableAlignmentZones(enableAlignmentZones);
 				GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 			}
@@ -582,7 +580,11 @@ public class GOTLevelData {
 	}
 
 	public static void setStructuresBanned(boolean banned) {
-		structuresBanned = banned ? 1 : 0;
+		if (banned) {
+			structuresBanned = 1;
+		} else {
+			structuresBanned = 0;
+		}
 		GOTLevelData.markDirty();
 	}
 
@@ -596,9 +598,8 @@ public class GOTLevelData {
 		waypointCooldownMin = min;
 		GOTLevelData.markDirty();
 		if (!GOT.proxy.isClient()) {
-			List players = MinecraftServer.getServer().getConfigurationManager().playerEntityList;
-			for (Object player : players) {
-				EntityPlayerMP entityplayer = (EntityPlayerMP) player;
+			List<EntityPlayerMP> players = MinecraftServer.getServer().getConfigurationManager().playerEntityList;
+			for (EntityPlayerMP entityplayer : players) {
 				GOTPacketFTCooldown packet = new GOTPacketFTCooldown(waypointCooldownMax, waypointCooldownMin);
 				GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 			}

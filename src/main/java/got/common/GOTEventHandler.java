@@ -777,7 +777,12 @@ public class GOTEventHandler implements IFuelHandler {
 	@SubscribeEvent
 	public void onLivingAttacked(LivingAttackEvent event) {
 		EntityLivingBase entity = event.entityLiving;
-		EntityLivingBase attacker = event.source.getEntity() instanceof EntityLivingBase ? (EntityLivingBase) event.source.getEntity() : null;
+		EntityLivingBase attacker;
+		if (event.source.getEntity() instanceof EntityLivingBase) {
+			attacker = (EntityLivingBase) event.source.getEntity();
+		} else {
+			attacker = null;
+		}
 		World world = entity.worldObj;
 		if (entity instanceof GOTNPCMount && entity.riddenByEntity != null && attacker == entity.riddenByEntity) {
 			cancelAttackEvent(event);
@@ -922,7 +927,6 @@ public class GOTEventHandler implements IFuelHandler {
 									}
 								}
 							}
-							continue;
 						}
 					}
 					if (!playerData.isSiegeActive()) {
@@ -1014,7 +1018,12 @@ public class GOTEventHandler implements IFuelHandler {
 	@SubscribeEvent
 	public void onLivingHurt(LivingHurtEvent event) {
 		EntityLivingBase entity = event.entityLiving;
-		EntityLivingBase attacker = event.source.getEntity() instanceof EntityLivingBase ? (EntityLivingBase) event.source.getEntity() : null;
+		EntityLivingBase attacker;
+		if (event.source.getEntity() instanceof EntityLivingBase) {
+			attacker = (EntityLivingBase) event.source.getEntity();
+		} else {
+			attacker = null;
+		}
 		World world = entity.worldObj;
 		if (entity instanceof EntityPlayerMP && event.source == GOTDamage.frost) {
 			GOTDamage.doFrostDamage((EntityPlayerMP) entity);
@@ -1175,7 +1184,7 @@ public class GOTEventHandler implements IFuelHandler {
 				int k = MathHelper.floor_double(entity.posZ);
 				world.getTopSolidOrLiquidBlock(i, k);
 				if (world.rand.nextInt(chance) == 0 && world.getBiomeGenForCoords(i, k) instanceof GOTBiomeMeereen) {
-					List nearbyBounders = world.getEntitiesWithinAABB(GOTEntityGhiscarHarpy.class, entity.boundingBox.expand(12.0D, 6.0D, 12.0D));
+					List<GOTEntityGhiscarHarpy> nearbyBounders = world.getEntitiesWithinAABB(GOTEntityGhiscarHarpy.class, entity.boundingBox.expand(12.0D, 6.0D, 12.0D));
 					if (nearbyBounders.isEmpty()) {
 						boolean sentMessage = false;
 						boolean playedHorn = false;
@@ -1399,8 +1408,8 @@ public class GOTEventHandler implements IFuelHandler {
 		if (block != Blocks.dragon_egg) {
 			return;
 		}
-		evt.useBlock = PlayerInteractEvent.Result.DENY;
-		evt.useItem = PlayerInteractEvent.Result.DENY;
+		evt.useBlock = Event.Result.DENY;
+		evt.useItem = Event.Result.DENY;
 		world.setBlock(evt.x, evt.y, evt.z, Blocks.air);
 		GOTEntityDragon dragon = new GOTEntityDragon(world);
 		dragon.setPosition(evt.x + 0.5, evt.y + 0.5, evt.z + 0.5);
@@ -1446,11 +1455,16 @@ public class GOTEventHandler implements IFuelHandler {
 			if (deathDimension == GOTDimension.GAME_OF_THRONES.dimensionID && GOTConfig.knownWorldRespawning) {
 				ChunkCoordinates bedLocation = entityplayermp.getBedLocation(entityplayermp.dimension);
 				boolean hasBed = bedLocation != null;
+				ChunkCoordinates spawnLocation;
+				double respawnThreshold;
 				if (hasBed) {
 					hasBed = EntityPlayer.verifyRespawnCoordinates(worldserver, bedLocation, entityplayermp.isSpawnForced(entityplayermp.dimension)) != null;
+					spawnLocation = bedLocation;
+					respawnThreshold = GOTConfig.KWRBedRespawnThreshold;
+				} else {
+					spawnLocation = worldserver.getSpawnPoint();
+					respawnThreshold = GOTConfig.KWRWorldRespawnThreshold;
 				}
-				ChunkCoordinates spawnLocation = hasBed ? bedLocation : worldserver.getSpawnPoint();
-				double respawnThreshold = hasBed ? GOTConfig.KWRBedRespawnThreshold : GOTConfig.KWRWorldRespawnThreshold;
 				if (deathPoint != null) {
 					boolean flag = deathPoint.getDistanceSquaredToChunkCoordinates(spawnLocation) > respawnThreshold * respawnThreshold;
 					if (flag) {
@@ -1634,9 +1648,7 @@ public class GOTEventHandler implements IFuelHandler {
 										subAttempts++;
 										continue;
 									}
-									continue label46;
 								}
-								continue label46;
 							}
 							continue label46;
 						}

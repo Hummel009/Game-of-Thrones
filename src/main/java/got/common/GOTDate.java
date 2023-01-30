@@ -48,8 +48,7 @@ public class GOTDate {
 		AegonCalendar.currentDay = date;
 		GOTLevelData.markDirty();
 		FMLLog.info("Updating GOT day: " + AegonCalendar.getDate().getDateName(false));
-		for (Object obj : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
-			EntityPlayerMP entityplayer = (EntityPlayerMP) obj;
+		for (EntityPlayerMP entityplayer : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
 			GOTDate.sendUpdatePacket(entityplayer, true);
 		}
 	}

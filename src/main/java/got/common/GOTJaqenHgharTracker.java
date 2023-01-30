@@ -1,6 +1,7 @@
 package got.common;
 
 import java.util.*;
+import java.util.Map.Entry;
 
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.eventhandler.Event;
@@ -35,13 +36,16 @@ public class GOTJaqenHgharTracker {
 				UUID id = UUID.fromString(nbt.getString("ID"));
 				int cd = nbt.getInteger("CD");
 				activeGreyWanderers.put(id, cd);
-				continue;
 			} catch (Exception e) {
 				FMLLog.severe("Error loading GOT data: invalid Grey Wanderer");
 				e.printStackTrace();
 			}
 		}
-		spawnCooldown = levelData.hasKey("GWSpawnTick") ? levelData.getInteger("GWSpawnTick") : 2400;
+		if (levelData.hasKey("GWSpawnTick")) {
+			spawnCooldown = levelData.getInteger("GWSpawnTick");
+		} else {
+			spawnCooldown = 2400;
+		}
 	}
 
 	public static void markDirty() {
@@ -54,11 +58,10 @@ public class GOTJaqenHgharTracker {
 		}
 		if (!world.playerEntities.isEmpty() && --spawnCooldown <= 0) {
 			spawnCooldown = 2400;
-			ArrayList players = new ArrayList(world.playerEntities);
+			ArrayList<EntityPlayer> players = new ArrayList<>(world.playerEntities);
 			Collections.shuffle(players);
 			Random rand = world.rand;
-			block0: for (Object obj : players) {
-				EntityPlayer entityplayer = (EntityPlayer) obj;
+			block0: for (EntityPlayer entityplayer : players) {
 				if (!GOTLevelData.getData(entityplayer).hasAnyJHQuest()) {
 					for (int attempts = 0; attempts < 32; ++attempts) {
 						int k;
@@ -112,12 +115,12 @@ public class GOTJaqenHgharTracker {
 
 	public static void updateCooldowns() {
 		HashSet<UUID> removes = new HashSet<>();
-		for (UUID id : activeGreyWanderers.keySet()) {
-			int cd = activeGreyWanderers.get(id);
+		for (Entry<UUID, Integer> id : activeGreyWanderers.entrySet()) {
+			int cd = id.getValue();
 			cd--;
-			activeGreyWanderers.put(id, cd);
+			activeGreyWanderers.put(id.getKey(), cd);
 			if (cd <= 0) {
-				removes.add(id);
+				removes.add(id.getKey());
 			}
 		}
 		if (!removes.isEmpty()) {

@@ -6,7 +6,7 @@ public class GOTModChecker {
 	public static int hasShaders = -1;
 	public static int hasLOTR = -1;
 	public static int hasWeather2 = -1;
-	public static boolean hasgot = false;
+	public static boolean hasgot;
 
 	public static boolean hasLOTR() {
 		if (hasLOTR == -1) {

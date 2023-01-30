@@ -24,7 +24,7 @@ import net.minecraftforge.common.util.FakePlayer;
 
 public class GOTBannerProtection {
 	public static int MAX_RANGE = 64;
-	public static Map<Pair, Integer> protectionBlocks = new HashMap<>();
+	public static Map<Pair<Block, Integer>, Integer> protectionBlocks = new HashMap<>();
 	public static Map<UUID, Integer> lastWarningTimes;
 
 	static {
@@ -207,7 +207,7 @@ public class GOTBannerProtection {
 		return i;
 	}
 
-	public static boolean hasWarningCooldown(EntityPlayer entityplayer) {
+	public static boolean hasWarningCooldown(Entity entityplayer) {
 		return lastWarningTimes.containsKey(entityplayer.getUniqueID());
 	}
 
@@ -229,11 +229,10 @@ public class GOTBannerProtection {
 		String protectorName = null;
 		AxisAlignedBB originCube = AxisAlignedBB.getBoundingBox(i, j, k, i + 1, j + 1, k + 1).expand(searchExtra, searchExtra, searchExtra);
 		AxisAlignedBB searchCube = originCube.expand(64.0, 64.0, 64.0);
-		List banners = world.getEntitiesWithinAABB(GOTEntityBanner.class, searchCube);
+		List<GOTEntityBanner> banners = world.getEntitiesWithinAABB(GOTEntityBanner.class, searchCube);
 		if (!banners.isEmpty()) {
-			for (Object banner2 : banners) {
+			for (GOTEntityBanner banner : banners) {
 				ProtectType result;
-				GOTEntityBanner banner = (GOTEntityBanner) banner2;
 				AxisAlignedBB protectionCube = banner.createProtectionCube();
 				if (banner.isProtectingTerritory() && protectionCube.intersectsWith(searchCube) && protectionCube.intersectsWith(originCube) && (result = protectFilter.protects(banner)) != ProtectType.NONE) {
 
@@ -269,7 +268,7 @@ public class GOTBannerProtection {
 		return false;
 	}
 
-	public static void setWarningCooldown(EntityPlayer entityplayer) {
+	public static void setWarningCooldown(Entity entityplayer) {
 		lastWarningTimes.put(entityplayer.getUniqueID(), GOTConfig.bannerWarningCooldown);
 	}
 
@@ -292,7 +291,7 @@ public class GOTBannerProtection {
 	public static class FilterForPlayer implements IFilter {
 		public EntityPlayer thePlayer;
 		public Permission thePerm;
-		public boolean ignoreCreativeMode = false;
+		public boolean ignoreCreativeMode;
 
 		public FilterForPlayer(EntityPlayer p, Permission perm) {
 			thePlayer = p;

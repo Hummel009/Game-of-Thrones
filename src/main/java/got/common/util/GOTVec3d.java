@@ -57,7 +57,15 @@ public class GOTVec3d {
 			return false;
 		}
 		GOTVec3d gOTVec3d = (GOTVec3d) p_equals_1_;
-		return Double.compare(gOTVec3d.xCoord, xCoord) != 0 ? false : Double.compare(gOTVec3d.yCoord, yCoord) != 0 ? false : Double.compare(gOTVec3d.zCoord, zCoord) == 0;
+		if (Double.compare(gOTVec3d.xCoord, xCoord) != 0) {
+			return false;
+		} else {
+			if (Double.compare(gOTVec3d.yCoord, yCoord) != 0) {
+				return false;
+			} else {
+				return Double.compare(gOTVec3d.zCoord, zCoord) == 0;
+			}
+		}
 	}
 
 	@Nullable
@@ -69,7 +77,11 @@ public class GOTVec3d {
 			return null;
 		}
 		double d3 = (x - xCoord) / d0;
-		return d3 >= 0.0 && d3 <= 1.0 ? new GOTVec3d(xCoord + d0 * d3, yCoord + d1 * d3, zCoord + d2 * d3) : null;
+		if (d3 >= 0.0 && d3 <= 1.0) {
+			return new GOTVec3d(xCoord + d0 * d3, yCoord + d1 * d3, zCoord + d2 * d3);
+		} else {
+			return null;
+		}
 	}
 
 	@Nullable
@@ -81,7 +93,11 @@ public class GOTVec3d {
 			return null;
 		}
 		double d3 = (y - yCoord) / d1;
-		return d3 >= 0.0 && d3 <= 1.0 ? new GOTVec3d(xCoord + d0 * d3, yCoord + d1 * d3, zCoord + d2 * d3) : null;
+		if (d3 >= 0.0 && d3 <= 1.0) {
+			return new GOTVec3d(xCoord + d0 * d3, yCoord + d1 * d3, zCoord + d2 * d3);
+		} else {
+			return null;
+		}
 	}
 
 	@Nullable
@@ -93,7 +109,11 @@ public class GOTVec3d {
 			return null;
 		}
 		double d3 = (z - zCoord) / d2;
-		return d3 >= 0.0 && d3 <= 1.0 ? new GOTVec3d(xCoord + d0 * d3, yCoord + d1 * d3, zCoord + d2 * d3) : null;
+		if (d3 >= 0.0 && d3 <= 1.0) {
+			return new GOTVec3d(xCoord + d0 * d3, yCoord + d1 * d3, zCoord + d2 * d3);
+		} else {
+			return null;
+		}
 	}
 
 	@Override
@@ -116,7 +136,11 @@ public class GOTVec3d {
 
 	public GOTVec3d normalize() {
 		double d0 = MathHelper.sqrt_double(xCoord * xCoord + yCoord * yCoord + zCoord * zCoord);
-		return d0 < 1.0E-4 ? ZERO : new GOTVec3d(xCoord / d0, yCoord / d0, zCoord / d0);
+		if (d0 < 1.0E-4) {
+			return ZERO;
+		} else {
+			return new GOTVec3d(xCoord / d0, yCoord / d0, zCoord / d0);
+		}
 	}
 
 	public GOTVec3d rotatePitch(float pitch) {

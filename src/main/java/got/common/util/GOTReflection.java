@@ -16,6 +16,7 @@ import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.projectile.EntityFishHook;
 import net.minecraft.event.HoverEvent;
+import net.minecraft.event.HoverEvent.Action;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.AnimalChest;
 import net.minecraft.item.*;
@@ -74,7 +75,7 @@ public class GOTReflection {
 			return (String[]) ObfuscationReflectionHelper.getPrivateValue(EntityHorse.class, null, "horseArmorTextures", "field_110270_bw");
 		} catch (Exception e) {
 			GOTReflection.logFailure(e);
-			return null;
+			return new String[0];
 		}
 	}
 
@@ -96,12 +97,12 @@ public class GOTReflection {
 		}
 	}
 
-	public static Map getHoverEventMappings() {
+	public static Map<String, Action> getHoverEventMappings() {
 		try {
 			return (Map) ObfuscationReflectionHelper.getPrivateValue(HoverEvent.Action.class, null, "nameMapping", "field_150690_d");
 		} catch (Exception e) {
 			GOTReflection.logFailure(e);
-			return null;
+			return Collections.emptyMap();
 		}
 	}
 
@@ -201,11 +202,11 @@ public class GOTReflection {
 		throw new RuntimeException(e);
 	}
 
-	public static Entity newEntity(Class entityClass, World world) {
+	public static Entity newEntity(Class<? extends Entity> entityClass, World world) {
 		try {
 			Class[] param = new Class[1];
 			param[0] = World.class;
-			return (Entity) entityClass.getDeclaredConstructor(param).newInstance(world);
+			return entityClass.getDeclaredConstructor(param).newInstance(world);
 		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
 			e.printStackTrace();
 		}
@@ -223,21 +224,20 @@ public class GOTReflection {
 		return mappedNames;
 	}
 
-	public static void removeCommand(Class commandClass) {
+	public static void removeCommand(Class<? extends ICommand> commandClass) {
 		try {
 			CommandHandler handler = (CommandHandler) MinecraftServer.getServer().getCommandManager();
-			Map commandMap = handler.getCommands();
-			Set commandSet = (Set) ObfuscationReflectionHelper.getPrivateValue(CommandHandler.class, handler, "commandSet", "field_71561_b");
+			Map<String, ICommand> commandMap = handler.getCommands();
+			Set<ICommand> commandSet = (Set) ObfuscationReflectionHelper.getPrivateValue(CommandHandler.class, handler, "commandSet", "field_71561_b");
 			ArrayList<ICommand> mapremoves = new ArrayList<>();
-			for (Object obj : commandMap.values()) {
-				ICommand command = (ICommand) obj;
+			for (ICommand command : commandMap.values()) {
 				if (command.getClass() == commandClass) {
 					mapremoves.add(command);
 				}
 			}
 			commandMap.values().removeAll(mapremoves);
-			ArrayList setremoves = new ArrayList<>();
-			for (Object obj : commandSet) {
+			ArrayList<ICommand> setremoves = new ArrayList<>();
+			for (ICommand obj : commandSet) {
 				if (obj.getClass() == commandClass) {
 					setremoves.add(obj);
 				}

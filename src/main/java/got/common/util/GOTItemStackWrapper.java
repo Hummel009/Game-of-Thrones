@@ -31,10 +31,26 @@ public class GOTItemStackWrapper {
 			return false;
 		}
 		GOTItemStackWrapper other = (GOTItemStackWrapper) obj;
-		if ((item == null ? other.item != null : !item.equals(other.item)) || damage != other.damage || isNBTSensitive != other.isNBTSensitive) {
+		if (item == null) {
+			if (other.item != null) {
+				return false;
+			}
+		} else if (!item.equals(other.item)) {
 			return false;
 		}
-		return !isNBTSensitive || !(compound == null ? other.compound != null : !compound.equals(other.compound));
+		if (damage != other.damage || isNBTSensitive != other.isNBTSensitive) {
+			return false;
+		}
+		if (isNBTSensitive) {
+			if (compound == null) {
+				if (other.compound != null) {
+					return false;
+				}
+			} else if (!compound.equals(other.compound)) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	public int getDamage() {
@@ -52,11 +68,21 @@ public class GOTItemStackWrapper {
 	@Override
 	public int hashCode() {
 		int result = 1;
-		result = 31 * result + (item == null ? 0 : item.hashCode());
+		if (item == null) {
+			result = 31 * result + 0;
+		} else {
+			result = 31 * result + item.hashCode();
+		}
 		result = 31 * result + damage;
-		result = 31 * result + (isNBTSensitive ? 1231 : 1237);
 		if (isNBTSensitive) {
-			result = 31 * result + (compound == null ? 0 : compound.hashCode());
+			result = 31 * result + 1231;
+			if (compound == null) {
+				result = 31 * result + 0;
+			} else {
+				result = 31 * result + compound.hashCode();
+			}
+		} else {
+			result = 31 * result + 1237;
 		}
 		return result;
 	}

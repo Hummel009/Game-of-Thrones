@@ -2,6 +2,7 @@ package got.common;
 
 import java.io.*;
 import java.util.*;
+import java.util.Map.Entry;
 import java.util.regex.*;
 import java.util.zip.*;
 
@@ -130,7 +131,7 @@ public class GOTLore {
 		return text;
 	}
 
-	public static GOTLore getMultiRandomLore(List<LoreCategory> categories, Random random, boolean rewardsOnly) {
+	public static GOTLore getMultiRandomLore(Iterable<LoreCategory> categories, Random random, boolean rewardsOnly) {
 		ArrayList<GOTLore> allLore = new ArrayList<>();
 		for (LoreCategory c : categories) {
 			for (GOTLore lore : c.loreList) {
@@ -193,9 +194,9 @@ public class GOTLore {
 			GOTLog.logger.error("Failed to load GOT lore");
 			e.printStackTrace();
 		}
-		for (Map.Entry entry : loreReaders.entrySet()) {
-			String loreName = (String) entry.getKey();
-			BufferedReader reader = (BufferedReader) entry.getValue();
+		for (Entry<String, BufferedReader> entry : loreReaders.entrySet()) {
+			String loreName = entry.getKey();
+			BufferedReader reader = entry.getValue();
 			try {
 				Object categoryString;
 				String line;
@@ -304,7 +305,11 @@ public class GOTLore {
 			}
 			part = "";
 			int indexOf = remainingText.indexOf(newline);
-			part = indexOf >= 0 ? remainingText.substring(0, indexOf) : remainingText;
+			if (indexOf >= 0) {
+				part = remainingText.substring(0, indexOf);
+			} else {
+				part = remainingText;
+			}
 			Collections.addAll(splitTxtWords, StringUtils.split(part, " "));
 			remainingText = remainingText.substring(part.length());
 		}
