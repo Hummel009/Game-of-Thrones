@@ -20,6 +20,7 @@ public class GOTBiomeQohorForest extends GOTBiomeQohor {
 		decorator.whiteSand = true;
 		decorator.clearVillages();
 		decorator.clearTrees();
+		decorator.addTree(GOTTreeType.BEECH_PARTY, 2);
 		decorator.addTree(GOTTreeType.OAK, 300);
 		decorator.addTree(GOTTreeType.OAK_LARGE, 50);
 		decorator.addTree(GOTTreeType.LARCH, 200);

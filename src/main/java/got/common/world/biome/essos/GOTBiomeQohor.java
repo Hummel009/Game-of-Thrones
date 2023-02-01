@@ -27,6 +27,7 @@ public class GOTBiomeQohor extends GOTBiomeEssos {
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.1f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.3f);
 		decorator.clearTrees();
+		decorator.addTree(GOTTreeType.BEECH_PARTY, 2);
 		decorator.addTree(GOTTreeType.BEECH, 50);
 		decorator.addTree(GOTTreeType.BEECH_LARGE, 20);
 		decorator.addTree(GOTTreeType.SPRUCE, 400);

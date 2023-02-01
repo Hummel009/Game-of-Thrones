@@ -21,6 +21,7 @@ public class GOTBiomeVolantisForest extends GOTBiomeVolantis {
 		decorator.doubleGrassPerChunk = 2;
 		decorator.whiteSand = true;
 		decorator.clearTrees();
+		decorator.addTree(GOTTreeType.BEECH_PARTY, 2);
 		decorator.addTree(GOTTreeType.OAK, 300);
 		decorator.addTree(GOTTreeType.OAK_LARGE, 50);
 		decorator.addTree(GOTTreeType.LARCH, 200);

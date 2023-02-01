@@ -18,6 +18,7 @@ public class GOTBiomeRainwood extends GOTBiomeStormlands {
 		decorator.doubleGrassPerChunk = 2;
 		decorator.whiteSand = true;
 		decorator.clearTrees();
+		decorator.addTree(GOTTreeType.BEECH_PARTY, 20);
 		decorator.addTree(GOTTreeType.OAK, 500);
 		decorator.addTree(GOTTreeType.OAK_TALL, 500);
 		decorator.addTree(GOTTreeType.OAK_LARGE, 200);
