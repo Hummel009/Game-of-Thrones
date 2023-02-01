@@ -2,6 +2,7 @@ CHANGELOG
 
 >>VERSION 17.9.5
 * Optimized Seasons mechanics. 8x faster and 8x more stable (proved by maths expectation and variance)
+* Optimized lots of places with enum maps
 
 * Fixed bug with a gew Essos waypoints
 * Improved biome tree sets. Now no trees are available from creative only. Every tree can be found in the world.
