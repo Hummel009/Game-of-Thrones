@@ -2,6 +2,7 @@ package got.common.entity.animal;
 
 import java.util.List;
 
+import got.common.database.GOTRegistry;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.*;
@@ -87,8 +88,14 @@ public class GOTEntityWalrus extends EntityAnimal implements GOTBiome.ImmuneToFr
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(Items.fish, 5);
-		dropItem(Items.slime_ball, 1);
+		int meat = rand.nextInt(3) + rand.nextInt(1 + i);
+		for (int l = 0; l < meat; ++l) {
+			if (isBurning()) {
+				dropItem(GOTRegistry.walrusLardCooked, 1);
+				continue;
+			}
+			dropItem(GOTRegistry.walrusLardRaw, 1);
+		}
 	}
 
 	@Override

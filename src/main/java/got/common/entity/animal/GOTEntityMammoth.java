@@ -67,8 +67,15 @@ public class GOTEntityMammoth extends GOTEntityHorse implements GOTBiome.ImmuneT
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(Items.beef, 10);
-		dropItem(GOTRegistry.fur, 10);
+		int meat = 10 + rand.nextInt(3) + rand.nextInt(1 + i);
+		for (int l = 0; l < meat; ++l) {
+			if (isBurning()) {
+				dropItem(GOTRegistry.elephantCooked, 1);
+				continue;
+			}
+			dropItem(GOTRegistry.elephantRaw, 1);
+			dropItem(GOTRegistry.fur, 1);
+		}
 	}
 
 	@Override

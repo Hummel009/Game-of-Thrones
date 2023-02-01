@@ -525,6 +525,8 @@ public class GOTRecipe {
 		GameRegistry.addSmelting(GOTRegistry.lionRaw, new ItemStack(GOTRegistry.lionCooked), 0.35f);
 		GameRegistry.addSmelting(GOTRegistry.zebraRaw, new ItemStack(GOTRegistry.zebraCooked), 0.35f);
 		GameRegistry.addSmelting(GOTRegistry.rhinoRaw, new ItemStack(GOTRegistry.rhinoCooked), 0.35f);
+		GameRegistry.addSmelting(GOTRegistry.walrusLardRaw, new ItemStack(GOTRegistry.walrusLardCooked), 0.35f);
+		GameRegistry.addSmelting(GOTRegistry.elephantRaw, new ItemStack(GOTRegistry.elephantCooked), 0.35f);
 		GameRegistry.addSmelting(GOTRegistry.muttonRaw, new ItemStack(GOTRegistry.muttonCooked), 0.35f);
 		GameRegistry.addSmelting(GOTRegistry.deerRaw, new ItemStack(GOTRegistry.deerCooked), 0.35f);
 		GameRegistry.addSmelting(GOTRegistry.camelRaw, new ItemStack(GOTRegistry.camelCooked), 0.35f);

@@ -3,6 +3,7 @@ package got.common.entity.animal;
 import java.util.List;
 
 import got.GOT;
+import got.common.database.GOTRegistry;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.util.GOTReflection;
 import net.minecraft.block.Block;
@@ -64,7 +65,14 @@ public class GOTEntityElephant extends GOTEntityHorse {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(Items.beef, 10);
+		int meat = 7 + rand.nextInt(3) + rand.nextInt(1 + i);
+		for (int l = 0; l < meat; ++l) {
+			if (isBurning()) {
+				dropItem(GOTRegistry.elephantCooked, 1);
+				continue;
+			}
+			dropItem(GOTRegistry.elephantRaw, 1);
+		}
 	}
 
 	@Override

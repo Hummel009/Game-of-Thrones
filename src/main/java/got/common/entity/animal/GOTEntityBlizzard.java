@@ -60,10 +60,11 @@ public class GOTEntityBlizzard extends EntityCreature implements GOTBiome.Immune
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		if (flag) {
-			int j = rand.nextInt(2 + i);
+			int j = rand.nextInt() + 2;
 			for (int k = 0; k < j; ++k) {
 				dropItem(GOTRegistry.valyrianPowder, 1);
 			}
+			dropItem(GOTRegistry.valyrianNugget, 1);
 		}
 	}
 

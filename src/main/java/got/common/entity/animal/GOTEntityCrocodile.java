@@ -69,7 +69,6 @@ public class GOTEntityCrocodile extends GOTEntityNPC implements GOTBiome.ImmuneT
 			}
 			case 2: {
 				dropItem(Items.leather, 1);
-				continue block7;
 			}
 			}
 		}

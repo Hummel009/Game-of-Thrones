@@ -4,6 +4,7 @@ CHANGELOG
 * Optimized Seasons mechanics. 8x faster and 8x more stable (proved by maths expectation and variance)
 * Optimized lots of places with enum maps
 
+* Improved Blizzards' drops: 2-3 vayrian powders & 1 nugget per mob.
 * Fixed bug with a new Essos waypoints
 * Improved biome tree sets. Now no trees are available from creative only. Every tree can be found in the world.
 * Improved database generator
@@ -14,7 +15,7 @@ CHANGELOG
 * Improved dragonstone biome
 * Improved chest contents and trade entries
 * Improved GUI
-* Improvde village paths
+* Improved village paths
 * Fixed bug with disappearing Dorne villages
 * Fixed bug with trapdoors in structures
 * Fixed bug with wrong titles that shouldn't exist

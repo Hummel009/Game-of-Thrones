@@ -19,7 +19,7 @@ public class GOTEntityDirewolf extends EntityAnimal implements GOTBiome.ImmuneTo
 	public EntityAIBase attackAI = new GOTEntityAIAttackOnCollide(this, 1.4, false);
 	public EntityAIBase panicAI = new EntityAIPanic(this, 1.5);
 	public EntityAIBase targetNearAI = new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true);
-	public int hostileTick = 0;
+	public int hostileTick;
 	public boolean prevIsChild = true;
 
 	public GOTEntityDirewolf(World world) {
@@ -88,7 +88,7 @@ public class GOTEntityDirewolf extends EntityAnimal implements GOTBiome.ImmuneTo
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(Items.beef, 1);
-		dropItem(GOTRegistry.fur, 1);
+		dropItem(GOTRegistry.fur, 2);
 	}
 
 	@Override

@@ -1096,6 +1096,10 @@ public class GOTRegistry {
 	public static Item rhinoCooked;
 	public static Item rhinoHorn;
 	public static Item rhinoRaw;
+	public static Item elephantCooked;
+	public static Item elephantRaw;
+	public static Item walrusLardCooked;
+	public static Item walrusLardRaw;
 	public static Item riverlandsBoots;
 	public static Item riverlandsChestplate;
 	public static Item riverlandsHelmet;
@@ -2363,6 +2367,10 @@ public class GOTRegistry {
 		rhinoCooked = new GOTItemFood(7, 0.4f, true);
 		rhinoHorn = new Item().setCreativeTab(GOTCreativeTabs.tabMaterials);
 		rhinoRaw = new GOTItemFood(2, 0.1f, true);
+		elephantCooked = new GOTItemFood(7, 0.4f, true);
+		elephantRaw = new GOTItemFood(2, 0.1f, true);
+		walrusLardCooked = new GOTItemFood(7, 0.4f, true);
+		walrusLardRaw = new GOTItemFood(2, 0.1f, true);
 		riverlandsBoots = new GOTItemArmor(GOTMaterial.RIVERLANDS, 3);
 		riverlandsChestplate = new GOTItemArmor(GOTMaterial.RIVERLANDS, 1);
 		riverlandsHelmet = new GOTItemArmor(GOTMaterial.RIVERLANDS, 0);
@@ -3916,5 +3924,9 @@ public class GOTRegistry {
 		registerItem(rice, "rice");
 		registerItem(westerosLongsword, "westerosLongsword");
 		registerItem(westerosGreatsword, "westerosGreatsword");
+		registerItem(elephantRaw, "elephantRaw");
+		registerItem(elephantCooked, "elephantCooked");
+		registerItem(walrusLardRaw, "walrusLardRaw");
+		registerItem(walrusLardCooked, "walrusLardCooked");
 	}
 }
