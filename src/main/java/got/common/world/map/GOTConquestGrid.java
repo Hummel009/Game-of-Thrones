@@ -167,9 +167,7 @@ public class GOTConquestGrid {
 				}
 			}
 			block2: for (GOTFaction fac : GOTFaction.getPlayableAlignmentFactions()) {
-				Iterator<GOTBiome> biome1 = includedBiomes.iterator();
-				while (biome1.hasNext()) {
-					GOTBiome biome2 = biome1.next();
+				for (GOTBiome biome2 : includedBiomes) {
 					if (!biome2.getNpcSpawnList().isFactionPresent(world, fac)) {
 						continue;
 					}

@@ -17,7 +17,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
-	public static int VENOM_NONE ;
+	public static int VENOM_NONE;
 	public static int VENOM_SLOWNESS = 1;
 	public static int VENOM_POISON = 2;
 	public static int CLIMB_TIME = 100;

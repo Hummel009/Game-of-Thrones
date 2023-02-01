@@ -1,12 +1,11 @@
 package got.common.command;
 
-import java.util.List;
+import java.util.*;
 
 import com.mojang.authlib.GameProfile;
 
 import got.common.*;
 import got.common.network.*;
-import java.util.Collections;
 import net.minecraft.command.*;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;

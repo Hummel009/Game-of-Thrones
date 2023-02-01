@@ -170,7 +170,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 					JsonArray regions = trackData.get("regions").getAsJsonArray();
 					for (JsonElement r : regions) {
 						GOTBiomeMusic region;
-						JsonObject regionData = (r).getAsJsonObject();
+						JsonObject regionData = r.getAsJsonObject();
 						String regionName = regionData.get("name").getAsString();
 						boolean allRegions = false;
 						if ("all".equalsIgnoreCase(regionName)) {
@@ -187,7 +187,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 						if (region != null && regionData.has("sub")) {
 							JsonArray subList = regionData.get("sub").getAsJsonArray();
 							for (JsonElement s : subList) {
-								String sub = (s).getAsString();
+								String sub = s.getAsString();
 								if (region.hasSubregion(sub)) {
 									subregionNames.add(sub);
 								} else {

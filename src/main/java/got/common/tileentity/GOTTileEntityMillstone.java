@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.*;
 import got.common.block.other.GOTBlockMillstone;
 import got.common.recipe.GOTRecipeMillstone;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.*;
+import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.*;
 import net.minecraft.network.NetworkManager;

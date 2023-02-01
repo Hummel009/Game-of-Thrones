@@ -37,7 +37,7 @@ public class GOTEntityBanner extends Entity {
 	public boolean selfProtection = true;
 	public float alignmentProtection = ALIGNMENT_PROTECTION_MIN;
 	public GOTBannerWhitelistEntry[] allowedPlayers = new GOTBannerWhitelistEntry[WHITELIST_DEFAULT];
-	public Set<Permission> defaultPermissions  = EnumSet.noneOf(Permission.class);
+	public Set<Permission> defaultPermissions = EnumSet.noneOf(Permission.class);
 	public boolean clientside_playerHasPermission;
 
 	public GOTEntityBanner(World world) {

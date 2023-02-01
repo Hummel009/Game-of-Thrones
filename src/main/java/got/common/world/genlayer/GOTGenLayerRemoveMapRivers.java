@@ -68,9 +68,7 @@ public class GOTGenLayerRemoveMapRivers extends GOTGenLayer {
 							}
 							maxCount = count;
 						}
-						Iterator<Entry<Integer, Integer>> subBiomeID1 = priorityMap.entrySet().iterator();
-						while (subBiomeID1.hasNext()) {
-							Entry<Integer, Integer> e = subBiomeID1.next();
+						for (Entry<Integer, Integer> e : priorityMap.entrySet()) {
 							id = e.getKey();
 							count = e.getValue();
 							if (count != maxCount) {

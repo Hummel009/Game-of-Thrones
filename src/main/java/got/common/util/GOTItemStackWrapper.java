@@ -33,16 +33,11 @@ public class GOTItemStackWrapper {
 			return false;
 		}
 		GOTItemStackWrapper other = (GOTItemStackWrapper) obj;
-		if (!Objects.equals(item, other.item)) {
+		if (!Objects.equals(item, other.item) || damage != other.damage || isNBTSensitive != other.isNBTSensitive) {
 			return false;
 		}
-		if (damage != other.damage || isNBTSensitive != other.isNBTSensitive) {
+		if (isNBTSensitive && !Objects.equals(compound, other.compound)) {
 			return false;
-		}
-		if (isNBTSensitive) {
-			if (!Objects.equals(compound, other.compound)) {
-				return false;
-			}
 		}
 		return true;
 	}

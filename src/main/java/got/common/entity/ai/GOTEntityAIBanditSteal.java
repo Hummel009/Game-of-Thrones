@@ -206,8 +206,8 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 		}
 	}
 
-	public abstract static interface BanditItemFilter {
-		public abstract boolean isApplicable(ItemStack var1);
+	public interface BanditItemFilter {
+		boolean isApplicable(ItemStack var1);
 	}
 
 }

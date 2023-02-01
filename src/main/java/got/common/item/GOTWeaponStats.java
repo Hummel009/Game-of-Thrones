@@ -282,10 +282,10 @@ public class GOTWeaponStats {
 	}
 
 	public static void registerMeleeReach(Object obj, float f) {
-		meleeReach.put(obj, Float.valueOf(f));
+		meleeReach.put(obj, f);
 	}
 
 	public static void registerMeleeSpeed(Object obj, float f) {
-		meleeSpeed.put(obj, Float.valueOf(f));
+		meleeSpeed.put(obj, f);
 	}
 }

@@ -185,14 +185,6 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 			return name().toLowerCase();
 		}
 
-		public static String[] typeNames() {
-			String[] names = new String[ProstituteType.values().length];
-			for (int i = 0; i < names.length; ++i) {
-				names[i] = ProstituteType.values()[i].textureName();
-			}
-			return names;
-		}
-
 		public static ProstituteType forID(int ID) {
 			for (ProstituteType t : ProstituteType.values()) {
 				if (t.prostituteID == ID) {
@@ -200,6 +192,14 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 				}
 			}
 			return LIGHT_1;
+		}
+
+		public static String[] typeNames() {
+			String[] names = new String[ProstituteType.values().length];
+			for (int i = 0; i < names.length; ++i) {
+				names[i] = ProstituteType.values()[i].textureName();
+			}
+			return names;
 		}
 	}
 }

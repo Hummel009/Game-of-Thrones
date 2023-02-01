@@ -1,9 +1,8 @@
 package got.common.command;
 
-import java.util.List;
+import java.util.*;
 
 import got.common.GOTTime;
-import java.util.Collections;
 import net.minecraft.command.*;
 
 public class GOTCommandTime extends CommandBase {

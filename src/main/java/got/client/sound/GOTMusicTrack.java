@@ -31,7 +31,7 @@ public class GOTMusicTrack extends PositionedSound {
 
 	public GOTTrackRegionInfo createRegionInfo(GOTBiomeMusic reg) {
 		return regions.computeIfAbsent(reg, GOTTrackRegionInfo::new);
-		}
+	}
 
 	public Set<GOTBiomeMusic> getAllRegions() {
 		return regions.keySet();

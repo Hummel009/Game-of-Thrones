@@ -1,11 +1,10 @@
 package got.common.command;
 
-import java.util.List;
+import java.util.*;
 
 import org.apache.commons.lang3.StringUtils;
 
 import got.common.entity.dragon.*;
-import java.util.Collections;
 import net.minecraft.command.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;

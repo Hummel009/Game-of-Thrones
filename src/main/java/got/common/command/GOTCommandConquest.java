@@ -1,11 +1,10 @@
 package got.common.command;
 
-import java.util.List;
+import java.util.*;
 
 import got.common.GOTLevelData;
 import got.common.faction.GOTFaction;
 import got.common.world.map.*;
-import java.util.Collections;
 import net.minecraft.command.*;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ChatComponentTranslation;
