@@ -1,11 +1,4 @@
 ﻿
-got.biome.norvosHills≠
-got.biome.braavosHills≠
-got.biome.pentosHills≠
-got.biome.dothrakiHills≠
-got.biome.ibbenColonyHills≠
-got.biome.lhazarHills≠
-got.biome.lorathMaze≠
 attribute.name.generic.movementSpeedAir=Velocidade (Ar)
 color.black=Preto
 color.blue=Azul
@@ -1567,6 +1560,7 @@ got.biome.beachWhite=De praia
 got.biome.blackIslands=Isles de Blackwater Bay
 got.biome.boneMountains=Montanhas ósseas
 got.biome.braavos=Bravos
+got.biome.braavosHills≠
 got.biome.cannibalSandsHills≠
 got.biome.coldCoast=Costa fria
 got.biome.crackclaw=Ponto Crackclaw
@@ -1579,6 +1573,7 @@ got.biome.dorneDesert=Deserto de Dorne
 got.biome.dorneMountains=Montanhas Vermelhas
 got.biome.dorneValley=Dorne Valley
 got.biome.doshKhalin=Mãe das montanhas
+got.biome.dothrakiHills≠
 got.biome.dothrakiSea=Mar Dothraki
 got.biome.dragonstone=Pedra do dragão
 got.biome.essos=Terras não habitadas
@@ -1596,6 +1591,7 @@ got.biome.giftOld=Presente
 got.biome.hauntedForest=Floresta assombrada
 got.biome.ibben=Ibben
 got.biome.ibbenColony=Colônia Ibben
+got.biome.ibbenColonyHills≠
 got.biome.ibbenMountains=Ibben Mountains
 got.biome.ibbenTaiga=Floresta Ibben
 got.biome.ifekevronForest=Floresta Ifekevron
@@ -1612,8 +1608,10 @@ got.biome.kingSpears=Lanças do Rei da Água
 got.biome.kuurulgan≠
 got.biome.lake=Lago
 got.biome.lhazar=Lhazar
+got.biome.lhazarHills≠
 got.biome.longSummer=Terras do Longo Verão
 got.biome.lorath=Lorath
+got.biome.lorathMaze≠
 got.biome.lys=Lys
 got.biome.massy=Massy's Hook
 got.biome.meereen=Meereen
@@ -1623,6 +1621,7 @@ got.biome.mossovyTundra=Mossovy Tundra
 got.biome.myr=Myr
 got.biome.naath=Naath
 got.biome.neck=North Marshes
+got.biome.newGhis≠
 got.biome.north=Norte
 got.biome.northBarrows=Barrows
 got.biome.northForest=Floresta do norte
@@ -1631,8 +1630,10 @@ got.biome.northMountains=Montanhas do Norte
 got.biome.northTown=Porto Branco
 got.biome.northWild=Wild North
 got.biome.norvos=Norvos
+got.biome.norvosHills≠
 got.biome.ocean=Oceano
 got.biome.pentos=Pentos
+got.biome.pentosHills≠
 got.biome.qarth=Qarth
 got.biome.qarthColony≠
 got.biome.qarthDesert=Deserto Qarth
@@ -1672,6 +1673,7 @@ got.biome.stepstones=Passos
 got.biome.stoneCoast=Costa de Pedra
 got.biome.stormlands=Terras da Tempestade
 got.biome.stormlandsTown=Cabo Durran
+got.biome.summerColonyMangrove≠
 got.biome.summerColony≠
 got.biome.summerIslands=Ilhas de verão
 got.biome.suudanKorkuu=Mossovy Marshes
@@ -2011,6 +2013,64 @@ got.date.month.november=Novemver
 got.date.month.october=Outubro
 got.date.month.september=Setembro
 got.date=AC
+got.db.biomeConquestOnly.name≠
+got.db.biomeHasAnimals.name≠
+got.db.biomeHasConquest.name≠
+got.db.biomeHasInvasions.name≠
+got.db.biomeHasSpawn.name≠
+got.db.biomeHasStructures.name≠
+got.db.biomeHasTrees1.name≠
+got.db.biomeHasTrees2.name≠
+got.db.biomeHasWaypoints.name≠
+got.db.biomeLoc.name≠
+got.db.biomeMinerals.name≠
+got.db.biomeNoAchievement.name≠
+got.db.biomeNoAnimals.name≠
+got.db.biomeNoConquest.name≠
+got.db.biomeNoInvasions.name≠
+got.db.biomeNoSpawn.name≠
+got.db.biomeNoStructures.name≠
+got.db.biomeNoTrees.name≠
+got.db.biomeNoVariants.name≠
+got.db.biomeNoWaypoints.name≠
+got.db.biomeSpawnOnly.name≠
+got.db.categoryTemplates.name≠
+got.db.entityConquestInvasion.name≠
+got.db.entityConquestOnly.name≠
+got.db.entityHasBiomes.name≠
+got.db.entityInvasionOnly.name≠
+got.db.entityLoc.name≠
+got.db.entityNoBiomes.name≠
+got.db.factionHasBanners.name≠
+got.db.factionHasCharacters.name≠
+got.db.factionHasConquest.name≠
+got.db.factionHasInvasion.name≠
+got.db.factionHasRanks.name≠
+got.db.factionHasSpawn.name≠
+got.db.factionHasWaypoints.name≠
+got.db.factionIsViolent.name≠
+got.db.factionLoc.name≠
+got.db.factionNoAttr.name≠
+got.db.factionNoBanners.name≠
+got.db.factionNoCharacters.name≠
+got.db.factionNoConquest.name≠
+got.db.factionNoEnemies.name≠
+got.db.factionNoFriends.name≠
+got.db.factionNoInvasion.name≠
+got.db.factionNoRanks.name≠
+got.db.factionNoSpawn.name≠
+got.db.factionNoStructures.name≠
+got.db.factionNoWaypoints.name≠
+got.db.factionNotViolent.name≠
+got.db.mineralBiomes.name≠
+got.db.noPledge.name≠
+got.db.rep.name≠
+got.db.rider.name≠
+got.db.structureBiomes.name≠
+got.db.treeHasBiomes.name≠
+got.db.treeNoBiomes.name≠
+got.db.treeVariantOnly.name≠
+got.db.yesPledge.name≠
 got.dimension.GameOfThrones.eastEssos≠
 got.dimension.GameOfThrones.essos=Essos
 got.dimension.GameOfThrones.other=Sothoryos e Ulthos
@@ -3222,33 +3282,48 @@ got.travellingTrader.arrive=%s chegou nas redondezas
 got.travellingTrader.arriveMP=%s chegou nas redondezas de %s
 got.travellingTrader.depart=%s foi embora da área
 got.tree.acacia.name=Acacia
+got.tree.acacia_dead.name≠
 got.tree.almond.name=Almonds
 got.tree.apple.name=Apple Tree
+got.tree.aramant.name≠
 got.tree.aspen.name=Awnberry
 got.tree.aspen_large.name=Giant aspen
 got.tree.banana.name=Panana tree
 got.tree.baobab.name=Baobab
 got.tree.beech.name=Beech
+got.tree.beech_dead.name≠
 got.tree.beech_large.name=Giant Beech
+got.tree.beech_party.name≠
 got.tree.birch.name=Birch
+got.tree.birch_dead.name≠
 got.tree.birch_large.name=Giant Birch
+got.tree.birch_party.name≠
+got.tree.birch_tall.name≠
 got.tree.catalpa.name=Catalpa
+got.tree.catalpa_boughs.name≠
+got.tree.catalpa_party.name≠
 got.tree.cedar.name=Cedar
 got.tree.cedar_large.name=Giant Cedar
 got.tree.charred.name=Burntwood
 got.tree.cherry.name=Cherry tree
 got.tree.chestnut.name=Chestnut
 got.tree.chestnut_large.name=Chestnut tree
+got.tree.chestnut_party.name≠
 got.tree.cypress.name=Cypress
 got.tree.cypress_large.name=Giant Cypress
+got.tree.dark_oak.name≠
+got.tree.dark_oak_party.name≠
 got.tree.date_palm.name=Finilla palm
 got.tree.dragonblood.name=Dragonblood
+got.tree.dragonblood_huge.name≠
+got.tree.dragonblood_large.name≠
 got.tree.fir.name=Fir
 got.tree.fotinia.name=Fotinia
 got.tree.holly.name=Phodunum
 got.tree.holly_large.name=Giant holly
 got.tree.ibben_pine.name=Ibbinia
 got.tree.jungle.name=Tropical tree
+got.tree.jungle_cloud.name≠
 got.tree.jungle_large.name=Giant tropical tree
 got.tree.jungle_shrub.name=Tropical shrub
 got.tree.kanuka.name=Kunz tree
@@ -3260,18 +3335,24 @@ got.tree.mango.name=Mango
 got.tree.mangrove.name=Mangrove tree
 got.tree.maple.name=Maple
 got.tree.maple_large.name=Giant Maple
+got.tree.maple_party.name≠
 got.tree.oak.name=Oak
 got.tree.oak_dead.name=Dead oak
 got.tree.oak_desert.name=Desert Oak
+got.tree.oak_giant.name≠
 got.tree.oak_large.name=Giant Oak
 got.tree.oak_party.name=Holy oak
+got.tree.oak_shrub.name≠
+got.tree.oak_swamp.name≠
 got.tree.oak_tall.name=High oak
+got.tree.oak_taller.name≠
 got.tree.olive.name=Olive
 got.tree.olive_large.name=Giant olive
 got.tree.orange.name=Orange tree
 got.tree.palm.name=Palm tree
 got.tree.pear.name=Pear tree
 got.tree.pine.name=Pine tree
+got.tree.pine_shrub.name≠
 got.tree.plum.name=Plum tree
 got.tree.pomegranate.name=Pomegranate tree
 got.tree.redwood.name=Ironwood
@@ -3280,17 +3361,21 @@ got.tree.redwood_3.name=Ironwood (3rd variety)
 got.tree.redwood_4.name=Ironwood (4th variety)
 got.tree.redwood_5.name=Ironwood (5th variety)
 got.tree.spruce.name=Spruce
+got.tree.spruce_dead.name≠
 got.tree.spruce_mega.name=Giant Spruce
 got.tree.spruce_mega_thin.name=Giant Thin Spruce
 got.tree.spruce_thin.name=Thin Spruce
 got.tree.ulthos_green_oak.name=Green Oak
+got.tree.ulthos_green_oak_extreme.name≠
 got.tree.ulthos_green_oak_large.name=Giant Green Oak
 got.tree.ulthos_oak.name=Ulthos oak
+got.tree.ulthos_oak_dead.name≠
 got.tree.ulthos_oak_large.name=Giant Ulthos oak
 got.tree.ulthos_red_oak.name=Red Oak
 got.tree.ulthos_red_oak_large.name=Giant Red Oak
 got.tree.weirwood.name=Chardwood
 got.tree.willow.name=Willow
+got.tree.willow_water.name≠
 got.unit.Rider=Cavaleiro
 got.unitinfo.Banner=Porta Estandartes dão várias melhorias de combate a NPCs da mesma facção à sua volta
 got.unitinfo.Corsair=Corsários são melhores em saquear moedas de inimigos derrotados
@@ -3311,7 +3396,9 @@ got.variant.forest.name=Forest
 got.variant.forest_aspen.name=Awn Grove
 got.variant.forest_beech.name=beech grove
 got.variant.forest_birch.name=Birch Grove
+got.variant.forest_cedar.name≠
 got.variant.forest_cherry.name=Cherry forest
+got.variant.forest_cypress.name≠
 got.variant.forest_larch.name=Larch forest
 got.variant.forest_lemon.name=Lemon grove
 got.variant.forest_light.name=Rare Forest
@@ -5664,6 +5751,7 @@ item.got:zebra_cooked.name=Zebra Assada
 item.got:zebra_raw.name=Zebra Cru
 tile.concrete.name=%s concreto
 tile.concrete_powder.name=Pó de concreto %s
+tile.dirt.0.name≠
 tile.dirt.coarse.name=Terra Estéril
 tile.got.bomb.double_strength=Двухкратная сила
 tile.got.bomb.fire=Зажигательная

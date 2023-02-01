@@ -1,11 +1,4 @@
 ﻿
-got.biome.norvosHills=Пагорби Норвосу
-got.biome.braavosHills=Пагорби Браавосу
-got.biome.pentosHills=Пагорби Пентосу
-got.biome.dothrakiHills=Пагорби дотракійського моря
-got.biome.ibbenColonyHills=Пагорби іббенійських колоній
-got.biome.lhazarHills=Пагорби Лхазару
-got.biome.lorathMaze=Лабіринти Лорату
 attribute.name.generic.movementSpeedAir=Швидкість (Повітря)
 color.black=Чорний
 color.blue=Блакитний
@@ -1567,6 +1560,7 @@ got.biome.beachWhite=Побережжя
 got.biome.blackIslands=Острови Чорноводної затоки
 got.biome.boneMountains=Хребет Кісток
 got.biome.braavos=Браавос
+got.biome.braavosHills=Пагорби Браавосу
 got.biome.cannibalSandsHills=Пагорби людожерських пісків
 got.biome.coldCoast=Холодний берег
 got.biome.crackclaw=Розколота клешня
@@ -1579,6 +1573,7 @@ got.biome.dorneDesert=Дорнійська пустеля
 got.biome.dorneMountains=Червоні гори
 got.biome.dorneValley=Долина Дорну
 got.biome.doshKhalin=Матір гір
+got.biome.dothrakiHills=Пагорби дотракійського моря
 got.biome.dothrakiSea=Дотракійське море
 got.biome.dragonstone=Драконів Камінь
 got.biome.essos=Безлюдні землі
@@ -1596,6 +1591,7 @@ got.biome.giftOld=Дар
 got.biome.hauntedForest=Зачарований Ліс
 got.biome.ibben=Іббен
 got.biome.ibbenColony=Іббенійські колонії
+got.biome.ibbenColonyHills=Пагорби іббенійських колоній
 got.biome.ibbenMountains=Іббенійські гори
 got.biome.ibbenTaiga=Іббенський ліс
 got.biome.ifekevronForest=Іфекевронські ліси
@@ -1610,8 +1606,10 @@ got.biome.jogosNhaiHills=Пагорби Джоґос Нхаю
 got.biome.kingSpears=Списи Водяного Короля
 got.biome.lake=Озеро
 got.biome.lhazar=Лхазар
+got.biome.lhazarHills=Пагорби Лхазару
 got.biome.longSummer=Край Довгого Літа
 got.biome.lorath=Лорат
+got.biome.lorathMaze=Лабіринти Лорату
 got.biome.lys=Ліс
 got.biome.massy=Гак Массі
 got.biome.meereen=Міерін
@@ -1624,6 +1622,7 @@ got.biome.mossovyTundra=Суук Дарак
 got.biome.myr=Мір
 got.biome.naath=Наат
 got.biome.neck=Перешийок
+got.biome.newGhis≠
 got.biome.north=Північ
 got.biome.northBarrows=Кургани
 got.biome.northForest=Хвойні ліси
@@ -1632,8 +1631,10 @@ got.biome.northMountains=Північні гори
 got.biome.northTown=Біла гавань
 got.biome.northWild=Дика Північ
 got.biome.norvos=Норвос
+got.biome.norvosHills=Пагорби Норвосу
 got.biome.ocean=Океан
 got.biome.pentos=Пентос
+got.biome.pentosHills=Пагорби Пентосу
 got.biome.qarth=Кварт
 got.biome.qarthColony=Квартійські колонії
 got.biome.qarthDesert=Червона пустеля
@@ -1674,6 +1675,7 @@ got.biome.stoneCoast=Кам'яний берег
 got.biome.stormlands=Штормові землі
 got.biome.stormlandsTown=Мис Дюрран
 got.biome.summerColony=Літнійські колонії
+got.biome.summerColonyMangrove≠
 got.biome.summerIslands=Літні острови
 got.biome.tarth=Тарт
 got.biome.thenn=Теннія
@@ -2011,6 +2013,64 @@ got.date.month.november=Листопада
 got.date.month.october=Жовтня
 got.date.month.september=Вересня
 got.date=З.Е.
+got.db.biomeConquestOnly.name≠
+got.db.biomeHasAnimals.name≠
+got.db.biomeHasConquest.name≠
+got.db.biomeHasInvasions.name≠
+got.db.biomeHasSpawn.name≠
+got.db.biomeHasStructures.name≠
+got.db.biomeHasTrees1.name≠
+got.db.biomeHasTrees2.name≠
+got.db.biomeHasWaypoints.name≠
+got.db.biomeLoc.name≠
+got.db.biomeMinerals.name≠
+got.db.biomeNoAchievement.name≠
+got.db.biomeNoAnimals.name≠
+got.db.biomeNoConquest.name≠
+got.db.biomeNoInvasions.name≠
+got.db.biomeNoSpawn.name≠
+got.db.biomeNoStructures.name≠
+got.db.biomeNoTrees.name≠
+got.db.biomeNoVariants.name≠
+got.db.biomeNoWaypoints.name≠
+got.db.biomeSpawnOnly.name≠
+got.db.categoryTemplates.name≠
+got.db.entityConquestInvasion.name≠
+got.db.entityConquestOnly.name≠
+got.db.entityHasBiomes.name≠
+got.db.entityInvasionOnly.name≠
+got.db.entityLoc.name≠
+got.db.entityNoBiomes.name≠
+got.db.factionHasBanners.name≠
+got.db.factionHasCharacters.name≠
+got.db.factionHasConquest.name≠
+got.db.factionHasInvasion.name≠
+got.db.factionHasRanks.name≠
+got.db.factionHasSpawn.name≠
+got.db.factionHasWaypoints.name≠
+got.db.factionIsViolent.name≠
+got.db.factionLoc.name≠
+got.db.factionNoAttr.name≠
+got.db.factionNoBanners.name≠
+got.db.factionNoCharacters.name≠
+got.db.factionNoConquest.name≠
+got.db.factionNoEnemies.name≠
+got.db.factionNoFriends.name≠
+got.db.factionNoInvasion.name≠
+got.db.factionNoRanks.name≠
+got.db.factionNoSpawn.name≠
+got.db.factionNoStructures.name≠
+got.db.factionNoWaypoints.name≠
+got.db.factionNotViolent.name≠
+got.db.mineralBiomes.name≠
+got.db.noPledge.name≠
+got.db.rep.name≠
+got.db.rider.name≠
+got.db.structureBiomes.name≠
+got.db.treeHasBiomes.name≠
+got.db.treeNoBiomes.name≠
+got.db.treeVariantOnly.name≠
+got.db.yesPledge.name≠
 got.dimension.GameOfThrones.eastEssos=Західний Ессос
 got.dimension.GameOfThrones.essos=Ессос
 got.dimension.GameOfThrones.other=Соторіос та Ультос
@@ -3222,33 +3282,48 @@ got.travellingTrader.arrive=%s прибув у регіон
 got.travellingTrader.arriveMP=%s прибув до %s
 got.travellingTrader.depart=%s покинув регіон
 got.tree.acacia.name=Акація
+got.tree.acacia_dead.name≠
 got.tree.almond.name=Мигдаль
 got.tree.apple.name=Яблуня
+got.tree.aramant.name≠
 got.tree.aspen.name=Осика
 got.tree.aspen_large.name=Гігантська осика
 got.tree.banana.name=Бананове дерево
 got.tree.baobab.name=Баобаб
 got.tree.beech.name=Бук
+got.tree.beech_dead.name≠
 got.tree.beech_large.name=Гігантський бук
+got.tree.beech_party.name≠
 got.tree.birch.name=Береза
+got.tree.birch_dead.name≠
 got.tree.birch_large.name=Гігантська береза
+got.tree.birch_party.name≠
+got.tree.birch_tall.name≠
 got.tree.catalpa.name=Катальпа
+got.tree.catalpa_boughs.name≠
+got.tree.catalpa_party.name≠
 got.tree.cedar.name=Кедр
 got.tree.cedar_large.name=Гігантський кедр
 got.tree.charred.name=Обвуглене дерево
 got.tree.cherry.name=Вишневе дерево
 got.tree.chestnut.name=Каштан
 got.tree.chestnut_large.name=Каштанове дерево
+got.tree.chestnut_party.name≠
 got.tree.cypress.name=Кіпаріс
 got.tree.cypress_large.name=Гігантський кіпаріс
+got.tree.dark_oak.name≠
+got.tree.dark_oak_party.name≠
 got.tree.date_palm.name=Фінікова пальма
 got.tree.dragonblood.name=Драконова кров
+got.tree.dragonblood_huge.name≠
+got.tree.dragonblood_large.name≠
 got.tree.fir.name=Ялиця
 got.tree.fotinia.name=Фотинія
 got.tree.holly.name=Падуб
 got.tree.holly_large.name=Гігантський падуб
 got.tree.ibben_pine.name=Ібінія
 got.tree.jungle.name=Тропічне дерево
+got.tree.jungle_cloud.name≠
 got.tree.jungle_large.name=Гігантське тропічне дерево
 got.tree.jungle_shrub.name=Тропічний чагарник
 got.tree.kanuka.name=Кунцеве дерево
@@ -3260,18 +3335,24 @@ got.tree.mango.name=Манго
 got.tree.mangrove.name=Мангрове дерево
 got.tree.maple.name=Клен
 got.tree.maple_large.name=Гігантський клен
+got.tree.maple_party.name≠
 got.tree.oak.name=Дуб
 got.tree.oak_dead.name=Мертвий дуб
 got.tree.oak_desert.name=Пустельний дуб
+got.tree.oak_giant.name≠
 got.tree.oak_large.name=Гігантський дуб
 got.tree.oak_party.name=Великий дуб
+got.tree.oak_shrub.name≠
+got.tree.oak_swamp.name≠
 got.tree.oak_tall.name=Високий дуб
+got.tree.oak_taller.name≠
 got.tree.olive.name=Олива
 got.tree.olive_large.name=Гігантська олива
 got.tree.orange.name=Апельсинове дерево
 got.tree.palm.name=Пальма
 got.tree.pear.name=Грушеве дерево
 got.tree.pine.name=Сосна
+got.tree.pine_shrub.name≠
 got.tree.plum.name=Сливове дерево
 got.tree.pomegranate.name=Гранатове дерево
 got.tree.redwood.name=Залізноствол
@@ -3280,17 +3361,21 @@ got.tree.redwood_3.name=Залізноствол (3 різновид)
 got.tree.redwood_4.name=Залізноствол (4 різновид)
 got.tree.redwood_5.name=Залізноствол (5 різновид)
 got.tree.spruce.name=Ялина
+got.tree.spruce_dead.name≠
 got.tree.spruce_mega.name=Гігантська ялина
 got.tree.spruce_mega_thin.name=Гігантська тонка ялина
 got.tree.spruce_thin.name=Тонка ялина
 got.tree.ulthos_green_oak.name=Зеленодуб
+got.tree.ulthos_green_oak_extreme.name≠
 got.tree.ulthos_green_oak_large.name=Гігантський зеленодуб
 got.tree.ulthos_oak.name=Ультоський дуб
+got.tree.ulthos_oak_dead.name≠
 got.tree.ulthos_oak_large.name=Гігантський ультоський дуб
 got.tree.ulthos_red_oak.name=Краснодуб
 got.tree.ulthos_red_oak_large.name=Гігантський краснодуб
 got.tree.weirwood.name=Чардрево
 got.tree.willow.name=Іва
+got.tree.willow_water.name≠
 got.unit.Rider=Вершник
 got.unitinfo.Banner=Прапороносці покращують здоров'я та шкоду ваших воїнів
 got.unitinfo.Corsair=Пірати крадуть монети краще, ніж солдати
@@ -3311,7 +3396,9 @@ got.variant.forest.name=Ліс
 got.variant.forest_aspen.name=Осиновий гай
 got.variant.forest_beech.name=Буковий гай
 got.variant.forest_birch.name=Березовий гай
+got.variant.forest_cedar.name≠
 got.variant.forest_cherry.name=Вишневий ліс
+got.variant.forest_cypress.name≠
 got.variant.forest_larch.name=Листяний ліс
 got.variant.forest_lemon.name=Лимонний гай
 got.variant.forest_light.name=Рідкісний ліс
@@ -5664,6 +5751,7 @@ item.got:zebra_cooked.name=Смажене м'ясо зебри
 item.got:zebra_raw.name=Сире м'ясо зебри
 tile.concrete.name=%s бетон
 tile.concrete_powder.name=%s цемент
+tile.dirt.0.name≠
 tile.dirt.coarse.name=Піщаний бруд
 tile.got.bomb.double_strength=Двухкратная сила
 tile.got.bomb.fire=Зажигательная

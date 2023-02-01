@@ -1,11 +1,4 @@
 ﻿
-got.biome.norvosHills≠
-got.biome.braavosHills≠
-got.biome.pentosHills≠
-got.biome.dothrakiHills≠
-got.biome.ibbenColonyHills≠
-got.biome.lhazarHills≠
-got.biome.lorathMaze≠
 attribute.name.generic.movementSpeedAir=Hız (Hava)
 color.black=Siyah
 color.blue=Mavi
@@ -1567,6 +1560,7 @@ got.biome.beachWhite=Plaj
 got.biome.blackIslands=Blackwater Körfezi Adaları
 got.biome.boneMountains=Kemik Dağları
 got.biome.braavos=Braavos
+got.biome.braavosHills≠
 got.biome.cannibalSandsHills≠
 got.biome.coldCoast=Soğuk Sahil
 got.biome.crackclaw=Çatlak Pençe Noktası
@@ -1579,6 +1573,7 @@ got.biome.dorneDesert=Dorne Çölü
 got.biome.dorneMountains=Kızıl Dağlar
 got.biome.dorneValley=Dorne Vadisi
 got.biome.doshKhalin=Dağların Annesi
+got.biome.dothrakiHills≠
 got.biome.dothrakiSea=Dothraki Denizi
 got.biome.dragonstone=Ejderha taşı
 got.biome.essos=Yaşanamayan Araziler
@@ -1596,6 +1591,7 @@ got.biome.giftOld=Hediye
 got.biome.hauntedForest=Perili orman
 got.biome.ibben=Ibben
 got.biome.ibbenColony=İbben Kolonisi
+got.biome.ibbenColonyHills≠
 got.biome.ibbenMountains=İbben Dağları
 got.biome.ibbenTaiga=İbben Ormanı
 got.biome.ifekevronForest=Ifekevron Ormanı
@@ -1612,8 +1608,10 @@ got.biome.kingSpears=Su Kralının Mızrakları
 got.biome.kuurulgan=Mossovy sopka
 got.biome.lake=Göl
 got.biome.lhazar=Lhazar
+got.biome.lhazarHills≠
 got.biome.longSummer=Uzun Yaz Ülkeleri
 got.biome.lorath=Lorath
+got.biome.lorathMaze≠
 got.biome.lys=Lys
 got.biome.massy=Massy'nin Kancası
 got.biome.meereen=Meereen
@@ -1623,6 +1621,7 @@ got.biome.mossovyTundra=Mossovy tundra
 got.biome.myr=Mür
 got.biome.naath=Naath
 got.biome.neck=Kuzey Bataklıkları
+got.biome.newGhis≠
 got.biome.north=Kuzey
 got.biome.northBarrows=Höyükler
 got.biome.northForest=Kuzey Ormanı
@@ -1631,8 +1630,10 @@ got.biome.northMountains=Kuzey Dağları
 got.biome.northTown=Beyaz Liman
 got.biome.northWild=Vahşi kuzey
 got.biome.norvos=Norvos
+got.biome.norvosHills≠
 got.biome.ocean=Okyanus
 got.biome.pentos=Pentolar
+got.biome.pentosHills≠
 got.biome.qarth=çeyrek
 got.biome.qarthColony≠
 got.biome.qarthDesert=Qarth Çölü
@@ -1672,6 +1673,7 @@ got.biome.stepstones=Adımlar
 got.biome.stoneCoast=Taş Sahil
 got.biome.stormlands=Fırtına Toprakları
 got.biome.stormlandsTown=Durran Burnu
+got.biome.summerColonyMangrove≠
 got.biome.summerColony≠
 got.biome.summerIslands=Yaz Adaları
 got.biome.suudanKorkuu=Mossovy bataklıklar
@@ -2011,6 +2013,64 @@ got.date.month.november=Kasım
 got.date.month.october=Ekim
 got.date.month.september=Eylül
 got.date=AC
+got.db.biomeConquestOnly.name≠
+got.db.biomeHasAnimals.name≠
+got.db.biomeHasConquest.name≠
+got.db.biomeHasInvasions.name≠
+got.db.biomeHasSpawn.name≠
+got.db.biomeHasStructures.name≠
+got.db.biomeHasTrees1.name≠
+got.db.biomeHasTrees2.name≠
+got.db.biomeHasWaypoints.name≠
+got.db.biomeLoc.name≠
+got.db.biomeMinerals.name≠
+got.db.biomeNoAchievement.name≠
+got.db.biomeNoAnimals.name≠
+got.db.biomeNoConquest.name≠
+got.db.biomeNoInvasions.name≠
+got.db.biomeNoSpawn.name≠
+got.db.biomeNoStructures.name≠
+got.db.biomeNoTrees.name≠
+got.db.biomeNoVariants.name≠
+got.db.biomeNoWaypoints.name≠
+got.db.biomeSpawnOnly.name≠
+got.db.categoryTemplates.name≠
+got.db.entityConquestInvasion.name≠
+got.db.entityConquestOnly.name≠
+got.db.entityHasBiomes.name≠
+got.db.entityInvasionOnly.name≠
+got.db.entityLoc.name≠
+got.db.entityNoBiomes.name≠
+got.db.factionHasBanners.name≠
+got.db.factionHasCharacters.name≠
+got.db.factionHasConquest.name≠
+got.db.factionHasInvasion.name≠
+got.db.factionHasRanks.name≠
+got.db.factionHasSpawn.name≠
+got.db.factionHasWaypoints.name≠
+got.db.factionIsViolent.name≠
+got.db.factionLoc.name≠
+got.db.factionNoAttr.name≠
+got.db.factionNoBanners.name≠
+got.db.factionNoCharacters.name≠
+got.db.factionNoConquest.name≠
+got.db.factionNoEnemies.name≠
+got.db.factionNoFriends.name≠
+got.db.factionNoInvasion.name≠
+got.db.factionNoRanks.name≠
+got.db.factionNoSpawn.name≠
+got.db.factionNoStructures.name≠
+got.db.factionNoWaypoints.name≠
+got.db.factionNotViolent.name≠
+got.db.mineralBiomes.name≠
+got.db.noPledge.name≠
+got.db.rep.name≠
+got.db.rider.name≠
+got.db.structureBiomes.name≠
+got.db.treeHasBiomes.name≠
+got.db.treeNoBiomes.name≠
+got.db.treeVariantOnly.name≠
+got.db.yesPledge.name≠
 got.dimension.GameOfThrones.eastEssos=Doğu Essos
 got.dimension.GameOfThrones.essos=Essos
 got.dimension.GameOfThrones.other=Sothoryos ve Ulthos
@@ -3222,33 +3282,48 @@ got.travellingTrader.arrive=%s Yakına Geldi
 got.travellingTrader.arriveMP=%s Yakınına Geldi; %s
 got.travellingTrader.depart=%s Bölgeden Ayrıldı
 got.tree.acacia.name=Akasya
+got.tree.acacia_dead.name≠
 got.tree.almond.name=Badem
 got.tree.apple.name=Elma ağacı
+got.tree.aramant.name≠
 got.tree.aspen.name=Aspen
 got.tree.aspen_large.name=Dev kavak
 got.tree.banana.name=Muz ağacı
 got.tree.baobab.name=Baobab
 got.tree.beech.name=Kayın
+got.tree.beech_dead.name≠
 got.tree.beech_large.name=Dev kayın
+got.tree.beech_party.name≠
 got.tree.birch.name=Huş ağacı
+got.tree.birch_dead.name≠
 got.tree.birch_large.name=Dev huş ağacı
+got.tree.birch_party.name≠
+got.tree.birch_tall.name≠
 got.tree.catalpa.name=Katalpa
+got.tree.catalpa_boughs.name≠
+got.tree.catalpa_party.name≠
 got.tree.cedar.name=Sedir
 got.tree.cedar_large.name=Dev Sedir
 got.tree.charred.name=Kömürleşmiş ağaç
 got.tree.cherry.name=Kiraz ağacı
 got.tree.chestnut.name=Kestane
 got.tree.chestnut_large.name=Kestane ağacı
+got.tree.chestnut_party.name≠
 got.tree.cypress.name=Selvi
 got.tree.cypress_large.name=Dev Selvi
+got.tree.dark_oak.name≠
+got.tree.dark_oak_party.name≠
 got.tree.date_palm.name=Hurma ağacı
 got.tree.dragonblood.name=Ejderha Kanı
+got.tree.dragonblood_huge.name≠
+got.tree.dragonblood_large.name≠
 got.tree.fir.name=Köknar
 got.tree.fotinia.name=Fotinia
 got.tree.holly.name=çobanpüskülü
 got.tree.holly_large.name=Dev çobanpüskülü
 got.tree.ibben_pine.name=Ibbinia
 got.tree.jungle.name=Tropikal ağaç
+got.tree.jungle_cloud.name≠
 got.tree.jungle_large.name=Dev tropikal ağaç
 got.tree.jungle_shrub.name=Tropikal çalı
 got.tree.kanuka.name=Kunz ağacı
@@ -3260,18 +3335,24 @@ got.tree.mango.name=Mango
 got.tree.mangrove.name=Mangrov ağacı
 got.tree.maple.name=Akçaağaç
 got.tree.maple_large.name=Dev akçaağaç
+got.tree.maple_party.name≠
 got.tree.oak.name=Meşe
 got.tree.oak_dead.name=Ölü Meşe
 got.tree.oak_desert.name=Çöl Meşesi
+got.tree.oak_giant.name≠
 got.tree.oak_large.name=Dev Meşe
 got.tree.oak_party.name=Dev Meşe
+got.tree.oak_shrub.name≠
+got.tree.oak_swamp.name≠
 got.tree.oak_tall.name=Uzun Meşe
+got.tree.oak_taller.name≠
 got.tree.olive.name=Zeytin
 got.tree.olive_large.name=Dev zeytin
 got.tree.orange.name=Portakal ağacı
 got.tree.palm.name=Palmiye ağacı
 got.tree.pear.name=Armut ağacı
 got.tree.pine.name=Çam ağacı
+got.tree.pine_shrub.name≠
 got.tree.plum.name=Erik ağacı
 got.tree.pomegranate.name=Nar ağacı
 got.tree.redwood.name=Demirağacı
@@ -3280,17 +3361,21 @@ got.tree.redwood_3.name=Tinfoil (3 tür)
 got.tree.redwood_4.name=Tinfoil (4 tür)
 got.tree.redwood_5.name=Tinfoil (5 tür)
 got.tree.spruce.name=Ladin
+got.tree.spruce_dead.name≠
 got.tree.spruce_mega.name=Dev Ladin
 got.tree.spruce_mega_thin.name=Dev İnce Ladin
 got.tree.spruce_thin.name=İnce Ladin
 got.tree.ulthos_green_oak.name=Yeşil Meşe
+got.tree.ulthos_green_oak_extreme.name≠
 got.tree.ulthos_green_oak_large.name=Dev Yeşil Meşe
 got.tree.ulthos_oak.name=Ulthos meşesi
+got.tree.ulthos_oak_dead.name≠
 got.tree.ulthos_oak_large.name=Dev Ulthos meşesi
 got.tree.ulthos_red_oak.name=Kızıl Meşe
 got.tree.ulthos_red_oak_large.name=Dev Kızıl Meşe
 got.tree.weirwood.name=Chardwood
 got.tree.willow.name=Söğüt
+got.tree.willow_water.name≠
 got.unit.Rider=Binici
 got.unitinfo.Banner=Bayraktarları, Yakındaki Dost Birimleri İyleştirir.
 got.unitinfo.Corsair=Korsanlar Öldürdükleri Düşmanlardan Para Çıkarma Konusunda İyidir
@@ -3311,7 +3396,9 @@ got.variant.forest.name=Orman
 got.variant.forest_aspen.name=Aspen Grove
 got.variant.forest_beech.name=Kayın Korusu
 got.variant.forest_birch.name=Huş Korusu
+got.variant.forest_cedar.name≠
 got.variant.forest_cherry.name=Kiraz ağacı
+got.variant.forest_cypress.name≠
 got.variant.forest_larch.name=Karaçam ormanı
 got.variant.forest_lemon.name=Limon Korusu
 got.variant.forest_light.name=Nadir Orman
@@ -5664,6 +5751,7 @@ item.got:zebra_cooked.name=Pişmiş Zebra
 item.got:zebra_raw.name=Çiğ Zebra
 tile.concrete.name=%s Beton
 tile.concrete_powder.name=%s Beton Tozu
+tile.dirt.0.name≠
 tile.dirt.coarse.name=Çorak Toprak
 tile.got.bomb.double_strength=Двухкратная сила
 tile.got.bomb.fire=Зажигательная

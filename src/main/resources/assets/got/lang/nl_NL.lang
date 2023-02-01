@@ -1,11 +1,4 @@
 ﻿
-got.biome.norvosHills≠
-got.biome.braavosHills≠
-got.biome.pentosHills≠
-got.biome.dothrakiHills≠
-got.biome.ibbenColonyHills≠
-got.biome.lhazarHills≠
-got.biome.lorathMaze≠
 attribute.name.generic.movementSpeedAir=Snelheid (lucht)
 color.black=Zwart
 color.blue=Blauw
@@ -1567,6 +1560,7 @@ got.biome.beachWhite=Wit Strand
 got.biome.blackIslands=Eilanden van Blackwater Bay
 got.biome.boneMountains=Bone Mountains
 got.biome.braavos=Braavos
+got.biome.braavosHills≠
 got.biome.cannibalSandsHills≠
 got.biome.coldCoast=Koude kust
 got.biome.crackclaw=Crackclaw Point
@@ -1579,6 +1573,7 @@ got.biome.dorneDesert=Dorne-woestijn
 got.biome.dorneMountains=Rode bergen
 got.biome.dorneValley=Dorne Valley
 got.biome.doshKhalin=Moeder van de bergen
+got.biome.dothrakiHills≠
 got.biome.dothrakiSea=Dothraki Zee
 got.biome.dragonstone=Drakensteen
 got.biome.essos=Onbewoonde gebieden
@@ -1596,6 +1591,7 @@ got.biome.giftOld=Geschenk
 got.biome.hauntedForest=Behekste bos
 got.biome.ibben=Ibben
 got.biome.ibbenColony=Ibben Colony
+got.biome.ibbenColonyHills≠
 got.biome.ibbenMountains=Ibben Mountains
 got.biome.ibbenTaiga=Bos van Ibben
 got.biome.ifekevronForest=Ifekevron-bos
@@ -1612,8 +1608,10 @@ got.biome.kingSpears=Speren van de Waterkoning
 got.biome.kuurulgan≠
 got.biome.lake=Meer
 got.biome.lhazar=Lhazar
+got.biome.lhazarHills≠
 got.biome.longSummer=Landen van de lange zomer
 got.biome.lorath=Lorath
+got.biome.lorathMaze≠
 got.biome.lys=Lys
 got.biome.massy=Massy's Hook
 got.biome.meereen=Meereen
@@ -1623,6 +1621,7 @@ got.biome.mossovyTundra=Mossovy-toendra
 got.biome.myr=Myr
 got.biome.naath=Naath
 got.biome.neck=Noorden-moerassen
+got.biome.newGhis≠
 got.biome.north=Noorden
 got.biome.northBarrows=Kruiwagens
 got.biome.northForest=Noorden Forest
@@ -1631,8 +1630,10 @@ got.biome.northMountains=Noordenelijke bergen
 got.biome.northTown=Witte Haven
 got.biome.northWild=Wilde Noorden
 got.biome.norvos=Norvos
+got.biome.norvosHills≠
 got.biome.ocean=Oceaan
 got.biome.pentos=Pentos
+got.biome.pentosHills≠
 got.biome.qarth=Qarth
 got.biome.qarthColony≠
 got.biome.qarthDesert=Qarth-woestijn
@@ -1672,6 +1673,7 @@ got.biome.stepstones=Stappen
 got.biome.stoneCoast=Stone Coast
 got.biome.stormlands=Stormlanden
 got.biome.stormlandsTown=Kaap Durran
+got.biome.summerColonyMangrove≠
 got.biome.summerColony≠
 got.biome.summerIslands=Zomer eilanden
 got.biome.suudanKorkuu=Mossovy moerassen
@@ -2011,6 +2013,64 @@ got.date.month.november=Novemver
 got.date.month.october=Oktober
 got.date.month.september=September
 got.date=AC
+got.db.biomeConquestOnly.name≠
+got.db.biomeHasAnimals.name≠
+got.db.biomeHasConquest.name≠
+got.db.biomeHasInvasions.name≠
+got.db.biomeHasSpawn.name≠
+got.db.biomeHasStructures.name≠
+got.db.biomeHasTrees1.name≠
+got.db.biomeHasTrees2.name≠
+got.db.biomeHasWaypoints.name≠
+got.db.biomeLoc.name≠
+got.db.biomeMinerals.name≠
+got.db.biomeNoAchievement.name≠
+got.db.biomeNoAnimals.name≠
+got.db.biomeNoConquest.name≠
+got.db.biomeNoInvasions.name≠
+got.db.biomeNoSpawn.name≠
+got.db.biomeNoStructures.name≠
+got.db.biomeNoTrees.name≠
+got.db.biomeNoVariants.name≠
+got.db.biomeNoWaypoints.name≠
+got.db.biomeSpawnOnly.name≠
+got.db.categoryTemplates.name≠
+got.db.entityConquestInvasion.name≠
+got.db.entityConquestOnly.name≠
+got.db.entityHasBiomes.name≠
+got.db.entityInvasionOnly.name≠
+got.db.entityLoc.name≠
+got.db.entityNoBiomes.name≠
+got.db.factionHasBanners.name≠
+got.db.factionHasCharacters.name≠
+got.db.factionHasConquest.name≠
+got.db.factionHasInvasion.name≠
+got.db.factionHasRanks.name≠
+got.db.factionHasSpawn.name≠
+got.db.factionHasWaypoints.name≠
+got.db.factionIsViolent.name≠
+got.db.factionLoc.name≠
+got.db.factionNoAttr.name≠
+got.db.factionNoBanners.name≠
+got.db.factionNoCharacters.name≠
+got.db.factionNoConquest.name≠
+got.db.factionNoEnemies.name≠
+got.db.factionNoFriends.name≠
+got.db.factionNoInvasion.name≠
+got.db.factionNoRanks.name≠
+got.db.factionNoSpawn.name≠
+got.db.factionNoStructures.name≠
+got.db.factionNoWaypoints.name≠
+got.db.factionNotViolent.name≠
+got.db.mineralBiomes.name≠
+got.db.noPledge.name≠
+got.db.rep.name≠
+got.db.rider.name≠
+got.db.structureBiomes.name≠
+got.db.treeHasBiomes.name≠
+got.db.treeNoBiomes.name≠
+got.db.treeVariantOnly.name≠
+got.db.yesPledge.name≠
 got.dimension.GameOfThrones.eastEssos≠
 got.dimension.GameOfThrones.essos=Essos
 got.dimension.GameOfThrones.other=Sothoryos en Ulthos
@@ -3222,33 +3282,48 @@ got.travellingTrader.arrive=%s is dichtbij aangekomen
 got.travellingTrader.arriveMP=%s is bij %s aangekomen
 got.travellingTrader.depart=%s heeft het gebied verlaten
 got.tree.acacia.name≠
+got.tree.acacia_dead.name≠
 got.tree.almond.name≠
 got.tree.apple.name≠
+got.tree.aramant.name≠
 got.tree.aspen.name≠
 got.tree.aspen_large.name≠
 got.tree.banana.name≠
 got.tree.baobab.name≠
 got.tree.beech.name≠
+got.tree.beech_dead.name≠
 got.tree.beech_large.name≠
+got.tree.beech_party.name≠
 got.tree.birch.name≠
+got.tree.birch_dead.name≠
 got.tree.birch_large.name≠
+got.tree.birch_party.name≠
+got.tree.birch_tall.name≠
 got.tree.catalpa.name≠
+got.tree.catalpa_boughs.name≠
+got.tree.catalpa_party.name≠
 got.tree.cedar.name≠
 got.tree.cedar_large.name≠
 got.tree.charred.name≠
 got.tree.cherry.name≠
 got.tree.chestnut.name≠
 got.tree.chestnut_large.name≠
+got.tree.chestnut_party.name≠
 got.tree.cypress.name≠
 got.tree.cypress_large.name≠
+got.tree.dark_oak.name≠
+got.tree.dark_oak_party.name≠
 got.tree.date_palm.name≠
 got.tree.dragonblood.name≠
+got.tree.dragonblood_huge.name≠
+got.tree.dragonblood_large.name≠
 got.tree.fir.name≠
 got.tree.fotinia.name≠
 got.tree.holly.name≠
 got.tree.holly_large.name≠
 got.tree.ibben_pine.name≠
 got.tree.jungle.name≠
+got.tree.jungle_cloud.name≠
 got.tree.jungle_large.name≠
 got.tree.jungle_shrub.name≠
 got.tree.kanuka.name≠
@@ -3260,18 +3335,24 @@ got.tree.mango.name≠
 got.tree.mangrove.name≠
 got.tree.maple.name≠
 got.tree.maple_large.name≠
+got.tree.maple_party.name≠
 got.tree.oak.name≠
 got.tree.oak_dead.name≠
 got.tree.oak_desert.name≠
+got.tree.oak_giant.name≠
 got.tree.oak_large.name≠
 got.tree.oak_party.name≠
+got.tree.oak_shrub.name≠
+got.tree.oak_swamp.name≠
 got.tree.oak_tall.name≠
+got.tree.oak_taller.name≠
 got.tree.olive.name≠
 got.tree.olive_large.name≠
 got.tree.orange.name≠
 got.tree.palm.name≠
 got.tree.pear.name≠
 got.tree.pine.name≠
+got.tree.pine_shrub.name≠
 got.tree.plum.name≠
 got.tree.pomegranate.name≠
 got.tree.redwood.name≠
@@ -3280,17 +3361,21 @@ got.tree.redwood_3.name≠
 got.tree.redwood_4.name≠
 got.tree.redwood_5.name≠
 got.tree.spruce.name≠
+got.tree.spruce_dead.name≠
 got.tree.spruce_mega.name≠
 got.tree.spruce_mega_thin.name≠
 got.tree.spruce_thin.name≠
 got.tree.ulthos_green_oak.name≠
+got.tree.ulthos_green_oak_extreme.name≠
 got.tree.ulthos_green_oak_large.name≠
 got.tree.ulthos_oak.name≠
+got.tree.ulthos_oak_dead.name≠
 got.tree.ulthos_oak_large.name≠
 got.tree.ulthos_red_oak.name≠
 got.tree.ulthos_red_oak_large.name≠
 got.tree.weirwood.name≠
 got.tree.willow.name≠
+got.tree.willow_water.name≠
 got.unit.Rider=Rijder
 got.unitinfo.Banner=Vlagdragers verbeteren de gezondheid en het gevecht van soldaten
 got.unitinfo.Corsair=Corsairs stelen meer geld dan soldaten
@@ -3311,7 +3396,9 @@ got.variant.forest.name≠
 got.variant.forest_aspen.name≠
 got.variant.forest_beech.name≠
 got.variant.forest_birch.name≠
+got.variant.forest_cedar.name≠
 got.variant.forest_cherry.name≠
+got.variant.forest_cypress.name≠
 got.variant.forest_larch.name≠
 got.variant.forest_lemon.name≠
 got.variant.forest_light.name≠
@@ -5664,6 +5751,7 @@ item.got:zebra_cooked.name=Gekookte Zebra
 item.got:zebra_raw.name=Raw Zebra
 tile.concrete.name=%s concreet
 tile.concrete_powder.name=%s betonpoeder
+tile.dirt.0.name≠
 tile.dirt.coarse.name=Onvruchtbare Aarde
 tile.got.bomb.double_strength=Двухкратная сила
 tile.got.bomb.fire=Зажигательная

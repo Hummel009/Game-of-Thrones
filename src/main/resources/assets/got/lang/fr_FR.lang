@@ -1,11 +1,4 @@
 ﻿
-got.biome.norvosHills≠
-got.biome.braavosHills≠
-got.biome.pentosHills≠
-got.biome.dothrakiHills≠
-got.biome.ibbenColonyHills≠
-got.biome.lhazarHills≠
-got.biome.lorathMaze≠
 attribute.name.generic.movementSpeedAir=Vitesse (Air)
 color.black=Noir
 color.blue=Bleu
@@ -1536,11 +1529,11 @@ got.achievement.WEAR_FULL_YITI_FRONTIER.desc≠
 got.achievement.WEAR_FULL_YITI_FRONTIER.title≠
 got.achievement.WEAR_FULL_YITI_SAMURAI.desc=Portez un ensemble complet de Yi Ti Samurai
 got.achievement.WEAR_FULL_YITI_SAMURAI.title=Yi Ti Samurai
+got.achievement.category.ENTER=Biomes
 got.achievement.category.GENERAL=Général
 got.achievement.category.KILL=Tuer
 got.achievement.category.LEGENDARY=Légendaire
 got.achievement.category.TITLES=Titres
-got.achievement.category.ENTER=Biomes
 got.achievement.category.WEAR=Armure
 got.alignment.bountyKilled=Tué pour une prime !
 got.alignment.breakPledge=Allégeance brisée
@@ -1567,6 +1560,7 @@ got.biome.beachWhite=Plage blanche
 got.biome.blackIslands=Îles de la baie de Blackwater
 got.biome.boneMountains=Montagnes d'os
 got.biome.braavos=Braavos
+got.biome.braavosHills≠
 got.biome.cannibalSandsHills=Montagnes de sables mouvants
 got.biome.coldCoast=Côte froide
 got.biome.crackclaw=Crackclaw
@@ -1579,6 +1573,7 @@ got.biome.dorneDesert=Désert de Dorne
 got.biome.dorneMountains=Montagnes rouges
 got.biome.dorneValley=Vallée Dorne
 got.biome.doshKhalin=Mère des montagnes
+got.biome.dothrakiHills≠
 got.biome.dothrakiSea=Mer Dothraki
 got.biome.dragonstone=Peyredragon
 got.biome.essos=Essos
@@ -1596,6 +1591,7 @@ got.biome.giftOld=Gift
 got.biome.hauntedForest=Forêt hantée
 got.biome.ibben=Ibben
 got.biome.ibbenColony=Colonie Ibben
+got.biome.ibbenColonyHills≠
 got.biome.ibbenMountains=Montagnes d'Ibben
 got.biome.ibbenTaiga=Forêt d'Ibben
 got.biome.ifekevronForest=Forêt d'Ifekevron
@@ -1612,8 +1608,10 @@ got.biome.kingSpears=Lances du roi de l'eau
 got.biome.kuurulgan≠
 got.biome.lake=Lac
 got.biome.lhazar=Lhazar
+got.biome.lhazarHills≠
 got.biome.longSummer=Terres du l'été long
 got.biome.lorath=Lorath
+got.biome.lorathMaze≠
 got.biome.lys=Lys
 got.biome.massy=Crochet de Massy
 got.biome.meereen=Meereen
@@ -1623,6 +1621,7 @@ got.biome.mossovyTundra=Mossovy Tundra
 got.biome.myr=Myr
 got.biome.naath=Naath
 got.biome.neck=Marais du Nord
+got.biome.newGhis≠
 got.biome.north=Le Nord
 got.biome.northBarrows=Barrows
 got.biome.northForest=Forêt du Nord
@@ -1631,8 +1630,10 @@ got.biome.northMountains=Montagnes du Nord
 got.biome.northTown=White Harbour
 got.biome.northWild=Le Nord sauvage
 got.biome.norvos=Norvos
+got.biome.norvosHills≠
 got.biome.ocean=Océan
 got.biome.pentos=Pentos
+got.biome.pentosHills≠
 got.biome.qarth=Qarth
 got.biome.qarthColony=Colonie de Qarth
 got.biome.qarthDesert=Désert de Qarth
@@ -1672,6 +1673,7 @@ got.biome.stepstones=Pas
 got.biome.stoneCoast=Côte de pierre
 got.biome.stormlands=Terres de l'Orage
 got.biome.stormlandsTown=Cape Durran
+got.biome.summerColonyMangrove≠
 got.biome.summerColony≠
 got.biome.summerIslands=Îles d'Été
 got.biome.suudanKorkuu=Marais de Mossovy
@@ -2011,6 +2013,64 @@ got.date.month.november=Novemver
 got.date.month.october=Octobre
 got.date.month.september=Septembre
 got.date=AC
+got.db.biomeConquestOnly.name≠
+got.db.biomeHasAnimals.name≠
+got.db.biomeHasConquest.name≠
+got.db.biomeHasInvasions.name≠
+got.db.biomeHasSpawn.name≠
+got.db.biomeHasStructures.name≠
+got.db.biomeHasTrees1.name≠
+got.db.biomeHasTrees2.name≠
+got.db.biomeHasWaypoints.name≠
+got.db.biomeLoc.name≠
+got.db.biomeMinerals.name≠
+got.db.biomeNoAchievement.name≠
+got.db.biomeNoAnimals.name≠
+got.db.biomeNoConquest.name≠
+got.db.biomeNoInvasions.name≠
+got.db.biomeNoSpawn.name≠
+got.db.biomeNoStructures.name≠
+got.db.biomeNoTrees.name≠
+got.db.biomeNoVariants.name≠
+got.db.biomeNoWaypoints.name≠
+got.db.biomeSpawnOnly.name≠
+got.db.categoryTemplates.name≠
+got.db.entityConquestInvasion.name≠
+got.db.entityConquestOnly.name≠
+got.db.entityHasBiomes.name≠
+got.db.entityInvasionOnly.name≠
+got.db.entityLoc.name≠
+got.db.entityNoBiomes.name≠
+got.db.factionHasBanners.name≠
+got.db.factionHasCharacters.name≠
+got.db.factionHasConquest.name≠
+got.db.factionHasInvasion.name≠
+got.db.factionHasRanks.name≠
+got.db.factionHasSpawn.name≠
+got.db.factionHasWaypoints.name≠
+got.db.factionIsViolent.name≠
+got.db.factionLoc.name≠
+got.db.factionNoAttr.name≠
+got.db.factionNoBanners.name≠
+got.db.factionNoCharacters.name≠
+got.db.factionNoConquest.name≠
+got.db.factionNoEnemies.name≠
+got.db.factionNoFriends.name≠
+got.db.factionNoInvasion.name≠
+got.db.factionNoRanks.name≠
+got.db.factionNoSpawn.name≠
+got.db.factionNoStructures.name≠
+got.db.factionNoWaypoints.name≠
+got.db.factionNotViolent.name≠
+got.db.mineralBiomes.name≠
+got.db.noPledge.name≠
+got.db.rep.name≠
+got.db.rider.name≠
+got.db.structureBiomes.name≠
+got.db.treeHasBiomes.name≠
+got.db.treeNoBiomes.name≠
+got.db.treeVariantOnly.name≠
+got.db.yesPledge.name≠
 got.dimension.GameOfThrones.eastEssos≠
 got.dimension.GameOfThrones.essos=Essos
 got.dimension.GameOfThrones.other=Sothoryos et Ulthos
@@ -2214,7 +2274,6 @@ got.fastTravel.skip=Pressez '%s' pour passer
 got.fastTravel.travel=Voyage rapide vers %s
 got.fastTravel.travelTicks=Voyage rapide dans %d...
 got.fastTravel.travelTicksStart=Voyage rapide dans %d secondes. Ne bougez pas !
-got.fastTravel.underAttack=Vous ne pouvez pas voyager lorsque vous êtes attaqué
 got.fastTravel.underAttack=Vous ne pouvez pas voyager lorsque vous êtes attaqué
 got.gui.achievements.category=%s (%d/%d)
 got.gui.achievements.hover.name=%s
@@ -2680,22 +2739,22 @@ got.rank.WESTERLANDS≠
 got.rank.WHITE_WALKER≠
 got.rank.WILDLING≠
 got.rank.YI_TI≠
-got.rank.defender_fm=Protectrice
 got.rank.defender=Protecteur
-got.rank.enemy_fm=Ennemie
+got.rank.defender_fm=Protectrice
 got.rank.enemy=Ennemi
-got.rank.friend_fm=Amie
+got.rank.enemy_fm=Ennemie
 got.rank.friend=Ami
-got.rank.guest_fm=Invitée
+got.rank.friend_fm=Amie
 got.rank.guest=Invité
-got.rank.hero_fm=Heroïne
+got.rank.guest_fm=Invitée
 got.rank.hero=Hero
-got.rank.king_fm=Reine
+got.rank.hero_fm=Heroïne
 got.rank.king=Roi
-got.rank.leader_fm=Dirigeante
+got.rank.king_fm=Reine
 got.rank.leader=Dirigeant
-got.rank.neutral_fm=Neutre
+got.rank.leader_fm=Dirigeante
 got.rank.neutral=Neutre
+got.rank.neutral_fm=Neutre
 got.shields.ACHIEVEMENT_BRONZE.desc=Décerné pour avoir complété 25 succès en Game of Thrones
 got.shields.ACHIEVEMENT_BRONZE.name=Bouclier de bronze de l'aventurier
 got.shields.ACHIEVEMENT_GOLD.desc=Décerné pour avoir complété 100 succès en Game of Thrones
@@ -3223,33 +3282,48 @@ got.travellingTrader.arrive=%s est arrivé à proximité
 got.travellingTrader.arriveMP=%s est arrivé à proximité de %s
 got.travellingTrader.depart=%s a quitté la région
 got.tree.acacia.name≠
+got.tree.acacia_dead.name≠
 got.tree.almond.name≠
 got.tree.apple.name≠
+got.tree.aramant.name≠
 got.tree.aspen.name≠
 got.tree.aspen_large.name≠
 got.tree.banana.name≠
 got.tree.baobab.name≠
 got.tree.beech.name≠
+got.tree.beech_dead.name≠
 got.tree.beech_large.name≠
+got.tree.beech_party.name≠
 got.tree.birch.name≠
+got.tree.birch_dead.name≠
 got.tree.birch_large.name≠
+got.tree.birch_party.name≠
+got.tree.birch_tall.name≠
 got.tree.catalpa.name≠
+got.tree.catalpa_boughs.name≠
+got.tree.catalpa_party.name≠
 got.tree.cedar.name≠
 got.tree.cedar_large.name≠
 got.tree.charred.name≠
 got.tree.cherry.name≠
 got.tree.chestnut.name≠
 got.tree.chestnut_large.name≠
+got.tree.chestnut_party.name≠
 got.tree.cypress.name≠
 got.tree.cypress_large.name≠
+got.tree.dark_oak.name≠
+got.tree.dark_oak_party.name≠
 got.tree.date_palm.name≠
 got.tree.dragonblood.name≠
+got.tree.dragonblood_huge.name≠
+got.tree.dragonblood_large.name≠
 got.tree.fir.name≠
 got.tree.fotinia.name≠
 got.tree.holly.name≠
 got.tree.holly_large.name≠
 got.tree.ibben_pine.name≠
 got.tree.jungle.name≠
+got.tree.jungle_cloud.name≠
 got.tree.jungle_large.name≠
 got.tree.jungle_shrub.name≠
 got.tree.kanuka.name≠
@@ -3261,18 +3335,24 @@ got.tree.mango.name≠
 got.tree.mangrove.name≠
 got.tree.maple.name≠
 got.tree.maple_large.name≠
+got.tree.maple_party.name≠
 got.tree.oak.name≠
 got.tree.oak_dead.name≠
 got.tree.oak_desert.name≠
+got.tree.oak_giant.name≠
 got.tree.oak_large.name≠
 got.tree.oak_party.name≠
+got.tree.oak_shrub.name≠
+got.tree.oak_swamp.name≠
 got.tree.oak_tall.name≠
+got.tree.oak_taller.name≠
 got.tree.olive.name≠
 got.tree.olive_large.name≠
 got.tree.orange.name≠
 got.tree.palm.name≠
 got.tree.pear.name≠
 got.tree.pine.name≠
+got.tree.pine_shrub.name≠
 got.tree.plum.name≠
 got.tree.pomegranate.name≠
 got.tree.redwood.name≠
@@ -3281,17 +3361,21 @@ got.tree.redwood_3.name≠
 got.tree.redwood_4.name≠
 got.tree.redwood_5.name≠
 got.tree.spruce.name≠
+got.tree.spruce_dead.name≠
 got.tree.spruce_mega.name≠
 got.tree.spruce_mega_thin.name≠
 got.tree.spruce_thin.name≠
 got.tree.ulthos_green_oak.name≠
+got.tree.ulthos_green_oak_extreme.name≠
 got.tree.ulthos_green_oak_large.name≠
 got.tree.ulthos_oak.name≠
+got.tree.ulthos_oak_dead.name≠
 got.tree.ulthos_oak_large.name≠
 got.tree.ulthos_red_oak.name≠
 got.tree.ulthos_red_oak_large.name≠
 got.tree.weirwood.name≠
 got.tree.willow.name≠
+got.tree.willow_water.name≠
 got.unit.Rider=Cavalier
 got.unitinfo.Banner=Les porte-bannières fournissent diverses améliorations de combat aux PNJs des environs de la même faction
 got.unitinfo.Corsair=Les corsaires rapportent plus de pièces des ennemis qu'ils tuent
@@ -3312,7 +3396,9 @@ got.variant.forest.name≠
 got.variant.forest_aspen.name≠
 got.variant.forest_beech.name≠
 got.variant.forest_birch.name≠
+got.variant.forest_cedar.name≠
 got.variant.forest_cherry.name≠
+got.variant.forest_cypress.name≠
 got.variant.forest_larch.name≠
 got.variant.forest_lemon.name≠
 got.variant.forest_light.name≠
@@ -5665,6 +5751,7 @@ item.got:zebra_cooked.name=Zèbre cuit
 item.got:zebra_raw.name=Zèbre cru
 tile.concrete.name=Béton %s
 tile.concrete_powder.name=Poudre de béton %s
+tile.dirt.0.name≠
 tile.dirt.coarse.name=Terre stérile
 tile.got.bomb.double_strength=Двухкратная сила
 tile.got.bomb.fire=Зажигательная
