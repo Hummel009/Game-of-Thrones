@@ -1305,7 +1305,11 @@ public class GOTEventHandler implements IFuelHandler {
 				int j = MathHelper.floor_double(entity.boundingBox.minY);
 				int k = MathHelper.floor_double(entity.posZ);
 				BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
-				if ((biome.temperature == 0.0F || biome instanceof GOTBiome && ((GOTBiome) biome).getClimateType().isAltitudeZone() && j >= 140) && (world.canBlockSeeTheSky(i, j, k) || entity.isInWater()) && world.getSavedLightValue(EnumSkyBlock.Block, i, j, k) < 10) {
+				boolean standartColdBiome = biome instanceof GOTBiome && biome.temperature == 0.0f;
+				boolean altitudeColdBiome = biome instanceof GOTBiome && ((GOTBiome) biome).getClimateType().isAltitudeZone() && k >= 140;
+				boolean isOpenAir = world.canBlockSeeTheSky(i, j, k);
+				boolean noLightSource = world.getSavedLightValue(EnumSkyBlock.Block, i, j, k) < 10;
+				if ((standartColdBiome || altitudeColdBiome) && (isOpenAir || inWater) && noLightSource) {
 					int frostChance = 50;
 					int frostProtection = 0;
 					for (int l = 0; l < 4; l++) {
@@ -1326,7 +1330,7 @@ public class GOTEventHandler implements IFuelHandler {
 					}
 					frostChance = Math.max(frostChance, 1);
 					if (world.rand.nextInt(frostChance) == 0) {
-						entity.attackEntityFrom(GOTDamage.frost, 1.0F);
+						entity.attackEntityFrom(GOTDamage.frost, 1.0f);
 					}
 				}
 			}
