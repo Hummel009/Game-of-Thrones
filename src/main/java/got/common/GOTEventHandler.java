@@ -1642,7 +1642,7 @@ public class GOTEventHandler implements IFuelHandler {
 							j1 += (rand.nextInt(3) - 1) * rand.nextInt(3) / 2;
 							k1 += rand.nextInt(3) - 1;
 							Block below = world.getBlock(i1, j1 - 1, k1);
-							if ((below instanceof IGrowable && below.canSustainPlant(world, i1, j1 - 1, k1, ForgeDirection.UP, Blocks.tallgrass)) && !world.getBlock(i1, j1, k1).isNormalCube()) {
+							if (below instanceof IGrowable && below.canSustainPlant(world, i1, j1 - 1, k1, ForgeDirection.UP, Blocks.tallgrass) && !world.getBlock(i1, j1, k1).isNormalCube()) {
 								subAttempts++;
 								continue;
 							}
