@@ -20,6 +20,8 @@ public class GOTBiomeWhisperingWood extends GOTBiomeRiverlands {
 		decorator.whiteSand = true;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.OAK, 500);
+		decorator.addTree(GOTTreeType.OAK_TALLER, 5);
+		decorator.addTree(GOTTreeType.OAK_GIANT, 2);
 		decorator.addTree(GOTTreeType.OAK_LARGE, 100);
 		decorator.addTree(GOTTreeType.CHESTNUT, 100);
 		decorator.addTree(GOTTreeType.CHESTNUT_LARGE, 50);

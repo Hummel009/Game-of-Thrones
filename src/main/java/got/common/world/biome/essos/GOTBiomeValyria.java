@@ -29,6 +29,8 @@ public class GOTBiomeValyria extends GOTBiome {
 		biomeColors.setFoggy(true);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.OAK, 200);
+		decorator.addTree(GOTTreeType.OAK_TALLER, 200);
+		decorator.addTree(GOTTreeType.OAK_GIANT, 20);
 		decorator.addTree(GOTTreeType.OAK_PARTY, 200);
 		decorator.addTree(GOTTreeType.OAK_LARGE, 2000);
 		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);

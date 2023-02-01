@@ -33,6 +33,8 @@ public class GOTBiomeQohor extends GOTBiomeEssos {
 		decorator.addTree(GOTTreeType.SPRUCE, 400);
 		decorator.addTree(GOTTreeType.SPRUCE_THIN, 200);
 		decorator.addTree(GOTTreeType.OAK, 200);
+		decorator.addTree(GOTTreeType.OAK_TALLER, 5);
+		decorator.addTree(GOTTreeType.OAK_GIANT, 2);
 		decorator.addTree(GOTTreeType.OAK_LARGE, 30);
 		decorator.addTree(GOTTreeType.LARCH, 300);
 		decorator.addTree(GOTTreeType.MAPLE, 100);
