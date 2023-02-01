@@ -52,7 +52,7 @@ public class GOTPlayerData {
 	private GOTFaction viewingFaction;
 	private Map<GOTDimension.DimensionRegion, GOTFaction> prevRegionFactions = new EnumMap<>(DimensionRegion.class);
 	private boolean hideAlignment;
-	private Set<GOTFaction> takenAlignmentRewards = EnumSet.allOf(GOTFaction.class);
+	private Set<GOTFaction> takenAlignmentRewards = EnumSet.noneOf(GOTFaction.class);
 	private GOTFaction pledgeFaction;
 	private int pledgeKillCooldown;
 	private int pledgeBreakCooldown;
@@ -88,7 +88,7 @@ public class GOTPlayerData {
 	private UUID uuidToMount;
 	private int uuidToMountTime;
 	private long lastOnlineTime = -1L;
-	private Set<GOTWaypoint.Region> unlockedFTRegions = EnumSet.allOf(Region.class);
+	private Set<GOTWaypoint.Region> unlockedFTRegions = EnumSet.noneOf(Region.class);
 	private List<GOTCustomWaypoint> customWaypoints = new ArrayList<>();
 	private List<GOTCustomWaypoint> customWaypointsShared = new ArrayList<>();
 	private Set<CWPSharedKey> cwpSharedUnlocked = new HashSet<>();

@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class GOTInventoryHiredReplacedItems extends GOTInventoryNPC {
-	public static int HELMET = 0;
+	public static int HELMET;
 	public static int BODY = 1;
 	public static int LEGS = 2;
 	public static int BOOTS = 3;
@@ -13,7 +13,7 @@ public class GOTInventoryHiredReplacedItems extends GOTInventoryNPC {
 	public static int BOMB = 5;
 	public static int RANGED = 6;
 	public boolean[] hasReplacedEquipment = new boolean[7];
-	public boolean replacedMeleeWeapons = false;
+	public boolean replacedMeleeWeapons;
 
 	public GOTInventoryHiredReplacedItems(GOTEntityNPC npc) {
 		super("HiredReplacedItems", npc, 7);

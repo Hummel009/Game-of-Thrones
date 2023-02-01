@@ -7,7 +7,6 @@ import org.apache.logging.log4j.*;
 import cpw.mods.fml.relauncher.*;
 import got.client.model.*;
 import got.common.entity.ai.*;
-import got.common.world.biome.GOTBiome;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -19,7 +18,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 
-public class GOTEntityDragon extends GOTEntityFlyingTameable implements GOTBiome.ImmuneToFrost {
+public class GOTEntityDragon extends GOTEntityFlyingTameable {
 
 	public static Logger L = LogManager.getLogger();
 	public static double BASE_SPEED_GROUND = 0.3;
@@ -216,7 +215,6 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable implements GOTBiome
 			return getCustomNameTag();
 		}
 		String entName = EntityList.getEntityString(this);
-		getBreed().getName().toLowerCase();
 		return StatCollector.translateToLocal("entity." + entName + ".name");
 	}
 

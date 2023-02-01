@@ -8,7 +8,7 @@ public class GOTWalls {
 	public static List<GOTWalls> allWalls = new ArrayList<>();
 	public static WallPointDatabase wallPointDatabase = new WallPointDatabase();
 	public static int walls = allWalls.size();
-	public static int id = 0;
+	public static int id;
 	public WallPoint[] wallPoints;
 	public List<WallPoint> endpoints = new ArrayList<>();
 

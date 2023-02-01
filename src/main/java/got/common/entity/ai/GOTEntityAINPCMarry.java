@@ -1,18 +1,3 @@
-/*
- * Decompiled with CFR 0.148.
- *
- * Could not load the following classes:
- *  net.minecraft.entity.Entity
- *  net.minecraft.entity.ai.EntityAIBase
- *  net.minecraft.entity.ai.EntityLookHelper
- *  net.minecraft.entity.item.EntityXPOrb
- *  net.minecraft.entity.player.EntityPlayer
- *  net.minecraft.item.Item
- *  net.minecraft.item.ItemStack
- *  net.minecraft.pathfinding.PathNavigate
- *  net.minecraft.util.AxisAlignedBB
- *  net.minecraft.world.World
- */
 package got.common.entity.ai;
 
 import java.util.List;
@@ -31,7 +16,7 @@ public class GOTEntityAINPCMarry extends EntityAIBase {
 	public GOTEntityNPC theNPC;
 	public World theWorld;
 	public GOTEntityNPC theSpouse;
-	public int marryDelay = 0;
+	public int marryDelay;
 	public double moveSpeed;
 
 	public GOTEntityAINPCMarry(GOTEntityNPC npc, double d) {

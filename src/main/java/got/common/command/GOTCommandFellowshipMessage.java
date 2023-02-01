@@ -26,7 +26,7 @@ public class GOTCommandFellowshipMessage extends CommandBase {
 			matches.addAll(GOTCommandFellowship.listFellowshipsMatchingLastWord(args, argsOriginal, 0, playerData, false));
 			return matches;
 		}
-		return null;
+		return Collections.emptyList();
 	}
 
 	@Override

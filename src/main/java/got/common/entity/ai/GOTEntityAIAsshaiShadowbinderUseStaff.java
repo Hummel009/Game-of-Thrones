@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class GOTEntityAIAsshaiShadowbinderUseStaff extends EntityAIBase {
 	public GOTEntityAsshaiShadowbinder wizard;
-	public int attackTick = 0;
+	public int attackTick;
 	public World theWorld;
 
 	public GOTEntityAIAsshaiShadowbinderUseStaff(GOTEntityAsshaiShadowbinder shadowbinder) {
@@ -59,10 +59,7 @@ public class GOTEntityAIAsshaiShadowbinderUseStaff extends EntityAIBase {
 			}
 			++targets;
 		}
-		if (targets >= 1) {
-			return true;
-		}
-		return false;
+		return targets >= 1;
 	}
 
 	@Override

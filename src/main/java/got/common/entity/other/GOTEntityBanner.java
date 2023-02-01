@@ -6,6 +6,7 @@ import com.mojang.authlib.GameProfile;
 
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.*;
+import got.common.GOTBannerProtection.Permission;
 import got.common.database.GOTRegistry;
 import got.common.fellowship.*;
 import got.common.item.other.GOTItemBanner;
@@ -29,14 +30,14 @@ public class GOTEntityBanner extends Entity {
 	public static int WHITELIST_MIN = 1;
 	public static int WHITELIST_MAX = 4000;
 	public NBTTagCompound protectData;
-	public boolean wasEverProtecting = false;
+	public boolean wasEverProtecting;
 	public boolean playerSpecificProtection;
-	public boolean structureProtection = false;
+	public boolean structureProtection;
 	public int customRange;
 	public boolean selfProtection = true;
 	public float alignmentProtection = ALIGNMENT_PROTECTION_MIN;
 	public GOTBannerWhitelistEntry[] allowedPlayers = new GOTBannerWhitelistEntry[WHITELIST_DEFAULT];
-	public Set<GOTBannerProtection.Permission> defaultPermissions = new HashSet<>();
+	public Set<Permission> defaultPermissions  = EnumSet.noneOf(Permission.class);
 	public boolean clientside_playerHasPermission;
 
 	public GOTEntityBanner(World world) {
@@ -345,7 +346,7 @@ public class GOTEntityBanner extends Entity {
 		structureProtection = nbt.getBoolean("StructureProtection");
 		customRange = nbt.getShort("CustomRange");
 		customRange = MathHelper.clamp_int(customRange, 0, 64);
-		selfProtection = nbt.hasKey("SelfProtection") ? nbt.getBoolean("SelfProtection") : true;
+		selfProtection = !nbt.hasKey("SelfProtection") || nbt.getBoolean("SelfProtection");
 		if (nbt.hasKey("AlignmentProtection")) {
 			setAlignmentProtection(nbt.getInteger("AlignmentProtection"));
 		} else {

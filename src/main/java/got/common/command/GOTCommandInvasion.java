@@ -4,6 +4,7 @@ import java.util.List;
 
 import got.common.database.GOTInvasions;
 import got.common.entity.other.GOTEntityInvasionSpawner;
+import java.util.Collections;
 import net.minecraft.command.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -14,7 +15,7 @@ public class GOTCommandInvasion extends CommandBase {
 		if (args.length == 1) {
 			return CommandBase.getListOfStringsMatchingLastWord(args, GOTInvasions.listInvasionNames());
 		}
-		return null;
+		return Collections.emptyList();
 	}
 
 	@Override

@@ -5,10 +5,11 @@ import java.util.*;
 import cpw.mods.fml.common.FMLLog;
 import got.common.database.GOTInvasions;
 import got.common.world.biome.GOTBiome;
+import got.common.world.spawning.GOTEventSpawner.EventChance;
 
 public class GOTBiomeInvasionSpawns {
 	public GOTBiome theBiome;
-	public Map<GOTEventSpawner.EventChance, List<GOTInvasions>> invasionsByChance = new HashMap<>();
+	public Map<GOTEventSpawner.EventChance, List<GOTInvasions>> invasionsByChance = new EnumMap<>(EventChance.class);
 	public List<GOTInvasions> registeredInvasions = new ArrayList<>();
 
 	public GOTBiomeInvasionSpawns(GOTBiome biome) {

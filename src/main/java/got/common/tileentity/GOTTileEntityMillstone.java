@@ -12,7 +12,7 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.StatCollector;
 
-public class GOTTileEntityMillstone extends TileEntity implements IInventory, ISidedInventory {
+public class GOTTileEntityMillstone extends TileEntity implements ISidedInventory {
 	public ItemStack[] inventory = new ItemStack[2];
 	public String specialMillstoneName;
 	public boolean isMilling;

@@ -20,10 +20,8 @@ public class GOTCommandAlignment extends CommandBase {
 			return CommandBase.getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
 		case 4:
 			return CommandBase.getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
-		default:
-			break;
 		}
-		return null;
+		return Collections.emptyList();
 	}
 
 	@Override
@@ -88,7 +86,7 @@ public class GOTCommandAlignment extends CommandBase {
 						throw new PlayerNotFoundException();
 					}
 				}
-				HashMap<GOTFaction, Float> newAlignments = new HashMap<>();
+				Map<GOTFaction, Float> newAlignments = new EnumMap<>(GOTFaction.class);
 				for (GOTFaction f : factions) {
 					newAlignment = GOTLevelData.getData(entityplayer).getAlignment(f) + alignment;
 					if (newAlignment < -2147483647.0f) {

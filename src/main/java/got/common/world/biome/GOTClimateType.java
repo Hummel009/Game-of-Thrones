@@ -5,7 +5,7 @@ import got.common.*;
 public enum GOTClimateType {
 	WINTER("isAlwaysWinter", false), COLD("isLongWinter", false), COLD_AZ("isLongWinterAZ", true), SUMMER("isNeverWinter", false), SUMMER_AZ("isNeverWinterAZ", true), NORMAL("isSeasonalWinter", false), NORMAL_AZ("isSeasonalWinterAZ", true);
 
-	public boolean altitudeZone = false;
+	public boolean altitudeZone;
 	public String climateName;
 
 	GOTClimateType(String name, boolean zone) {

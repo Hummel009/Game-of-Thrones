@@ -257,7 +257,7 @@ public abstract class GOTBezierType {
 		}
 	}
 
-	public static abstract class BridgeType {
+	public abstract static class BridgeType {
 		public static BridgeType DEFAULT = new BridgeType() {
 
 			@Override

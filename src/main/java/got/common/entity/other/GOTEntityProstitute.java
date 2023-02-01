@@ -185,7 +185,7 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 			return name().toLowerCase();
 		}
 
-		public static String[] bearTypeNames() {
+		public static String[] typeNames() {
 			String[] names = new String[ProstituteType.values().length];
 			for (int i = 0; i < names.length; ++i) {
 				names[i] = ProstituteType.values()[i].textureName();

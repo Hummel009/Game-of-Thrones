@@ -32,7 +32,7 @@ public class GOTHiredNPCInfo {
 	public Task hiredTask = Task.WARRIOR;
 	public UUID hiringPlayerUUID;
 	public boolean canMove = true;
-	public boolean doneFirstUpdate = false;
+	public boolean doneFirstUpdate;
 	public boolean guardMode;
 	public boolean inCombat;
 	public boolean isActive;
@@ -41,11 +41,11 @@ public class GOTHiredNPCInfo {
 	public boolean resendBasicData = true;
 	public boolean targetFromCommandSword;
 	public boolean teleportAutomatically = true;
-	public boolean wasAttackCommanded = false;
+	public boolean wasAttackCommanded;
 	public float alignmentRequiredToCommand;
 	public int guardRange = GUARD_RANGE_DEFAULT;
 	public int mobKills;
-	public int xp = 0;
+	public int xp;
 	public int xpLevel = 1;
 
 	public GOTHiredNPCInfo(GOTEntityNPC npc) {

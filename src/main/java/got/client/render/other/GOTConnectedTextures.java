@@ -91,7 +91,7 @@ public class GOTConnectedTextures {
 		if (!blockIconsMap.containsKey(blockName) || blockIconsMap.get(blockName).isEmpty()) {
 			return Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite("");
 		}
-		HashSet<IconElement> set = new HashSet<>();
+		Set<IconElement> set = EnumSet.noneOf(IconElement.class);
 		if (!noBase) {
 			set.add(IconElement.BASE);
 		}
@@ -196,7 +196,7 @@ public class GOTConnectedTextures {
 		IResourceManager resourceManager = mc.getResourceManager();
 		String baseIconName = GOTConnectedTextures.getBaseIconName(iconName);
 		String modID = GOTConnectedTextures.getModID(iconName);
-		HashMap<IconElement, BufferedImage> iconElementMap = new HashMap<>();
+		Map<IconElement, BufferedImage> iconElementMap = new EnumMap<>(IconElement.class);
 		try {
 			for (IconElement e : IconElement.values()) {
 				ResourceLocation res = new ResourceLocation(modID, "textures/blocks/" + baseIconName + "_" + e.iconName + ".png");
@@ -256,7 +256,7 @@ public class GOTConnectedTextures {
 		IResourceManager resourceManager = mc.getResourceManager();
 		String baseIconName = GOTConnectedTextures.getBaseIconName(iconName);
 		String modID = GOTConnectedTextures.getModID(iconName);
-		HashMap<IconElement, BufferedImage> iconElementMap = new HashMap<>();
+		Map<IconElement, BufferedImage> iconElementMap = new EnumMap<>(IconElement.class);
 		try {
 			ResourceLocation res = new ResourceLocation(modID, "textures/blocks/" + baseIconName + ".png");
 			BufferedImage blockIconImage = ImageIO.read(resourceManager.getResource(res).getInputStream());
@@ -288,9 +288,9 @@ public class GOTConnectedTextures {
 	public enum IconElement {
 		BASE("base", 0), SIDE_LEFT("left", 1), SIDE_RIGHT("right", 1), SIDE_TOP("top", 1), SIDE_BOTTOM("bottom", 1), CORNER_TOPLEFT("top_left", 2), CORNER_TOPRIGHT("top_right", 2), CORNER_BOTTOMLEFT("bottom_left", 2), CORNER_BOTTOMRIGHT("bottom_right", 2), INVCORNER_TOPLEFT("top_left_inv", 2), INVCORNER_TOPRIGHT("top_right_inv", 2), INVCORNER_BOTTOMLEFT("bottom_left_inv", 2), INVCORNER_BOTTOMRIGHT("bottom_right_inv", 2);
 
-		public static EnumSet<IconElement> allSides;
-		public static EnumSet<IconElement> allCorners;
-		public static EnumSet<IconElement> allInvCorners;
+		public static Set<IconElement> allSides;
+		public static Set<IconElement> allCorners;
+		public static Set<IconElement> allInvCorners;
 		public static Map<Integer, Set<IconElement>> allCombos;
 		public static Comparator<IconElement> comparator;
 		static {
@@ -315,7 +315,7 @@ public class GOTConnectedTextures {
 				boolean bottomLeftInv = trueOrFalse[i >> 11 & 1];
 				boolean bottomRightInv = trueOrFalse[i >> 12 & 1];
 				boolean addBottom;
-				HashSet<IconElement> set = new HashSet<>();
+				Set<IconElement> set = EnumSet.noneOf(IconElement.class);
 				if (base) {
 					set.add(BASE);
 				}

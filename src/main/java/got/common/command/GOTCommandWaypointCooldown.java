@@ -3,6 +3,7 @@ package got.common.command;
 import java.util.List;
 
 import got.common.GOTLevelData;
+import java.util.Collections;
 import net.minecraft.command.*;
 
 public class GOTCommandWaypointCooldown extends CommandBase {
@@ -13,7 +14,7 @@ public class GOTCommandWaypointCooldown extends CommandBase {
 		if (args.length == 1) {
 			return CommandBase.getListOfStringsMatchingLastWord(args, "max", "min");
 		}
-		return null;
+		return Collections.emptyList();
 	}
 
 	@Override

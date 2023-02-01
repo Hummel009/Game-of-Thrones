@@ -2,6 +2,7 @@ package got.common.world.structure.other;
 
 import java.io.*;
 import java.util.*;
+import java.util.Map.Entry;
 import java.util.zip.*;
 
 import org.apache.commons.io.FileUtils;
@@ -101,8 +102,8 @@ public class GOTStructureScan {
 			FMLLog.severe("Failed to load GOT structure scans");
 			e.printStackTrace();
 		}
-		for (String strName : scanNamesAndReaders.keySet()) {
-			BufferedReader reader = scanNamesAndReaders.get(strName);
+		for (Entry<String, BufferedReader> strName : scanNamesAndReaders.entrySet()) {
+			BufferedReader reader = strName.getValue();
 			int curLine = 0;
 			try {
 				String nextLine;
@@ -112,10 +113,10 @@ public class GOTStructureScan {
 				}
 				reader.close();
 				if (lines.isEmpty()) {
-					FMLLog.severe("GOT structure scans " + strName + " is empty!");
+					FMLLog.severe("GOT structure scans " + strName.getKey() + " is empty!");
 					continue;
 				}
-				GOTStructureScan scan = new GOTStructureScan(strName);
+				GOTStructureScan scan = new GOTStructureScan(strName.getKey());
 				for (String line : lines) {
 					String alias;
 					String s1;
@@ -204,7 +205,7 @@ public class GOTStructureScan {
 				}
 				allLoadedScans.put(scan.scanName, scan);
 			} catch (Exception e) {
-				FMLLog.severe("Failed to load GOT structure scan " + strName + ": error on line " + curLine);
+				FMLLog.severe("Failed to load GOT structure scan " + strName.getKey() + ": error on line " + curLine);
 				e.printStackTrace();
 			}
 		}
@@ -317,12 +318,12 @@ public class GOTStructureScan {
 		}
 	}
 
-	public static abstract class ScanStepBase {
+	public abstract static class ScanStepBase {
 		public int x;
 		public int y;
 		public int z;
-		public boolean fillDown = false;
-		public boolean findLowest = false;
+		public boolean fillDown;
+		public boolean findLowest;
 		public int lineNumber;
 
 		public ScanStepBase(int _x, int _y, int _z) {

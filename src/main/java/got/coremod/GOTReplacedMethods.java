@@ -81,7 +81,7 @@ public class GOTReplacedMethods {
 			return world.getBlockMetadata(i, j, k);
 		}
 
-		public static void getSubBlocks(Block thisBlock, Item item, CreativeTabs tab, List list) {
+		public static void getSubBlocks(Block thisBlock, Item item, CreativeTabs tab, List<ItemStack> list) {
 			list.add(new ItemStack(thisBlock, 1, 0));
 			list.add(new ItemStack(thisBlock, 1, 1));
 			list.add(new ItemStack(thisBlock, 1, 2));
@@ -334,7 +334,7 @@ public class GOTReplacedMethods {
 	public static class Piston {
 		public static boolean canPushBlock(Block block, World world, int i, int j, int k, boolean flag) {
 			AxisAlignedBB bannerSearchBox = AxisAlignedBB.getBoundingBox(i, j, k, i + 1, j + 4, k + 1);
-			List banners = world.selectEntitiesWithinAABB(GOTEntityBanner.class, bannerSearchBox, new IEntitySelector() {
+			List<GOTEntityBanner> banners = world.selectEntitiesWithinAABB(GOTEntityBanner.class, bannerSearchBox, new IEntitySelector() {
 
 				@Override
 				public boolean isEntityApplicable(Entity entity) {

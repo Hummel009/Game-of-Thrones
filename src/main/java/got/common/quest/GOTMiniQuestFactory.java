@@ -78,12 +78,7 @@ public enum GOTMiniQuestFactory {
 			throw new IllegalArgumentException("Could not find registered quest class for " + questClass.toString());
 		}
 		factory.setFactoryGroup(this);
-		List<QuestFactoryBase<? extends GOTMiniQuest>> list = questFactories.get(registryClass);
-		if (list == null) {
-			list = new ArrayList<>();
-			questFactories.put(registryClass, list);
-		}
-		list.add(factory);
+		questFactories.computeIfAbsent(registryClass, k -> new ArrayList<>()).add(factory);
 	}
 
 	public GOTFaction checkAlignmentRewardFaction(GOTFaction fac) {

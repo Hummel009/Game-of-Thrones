@@ -30,8 +30,8 @@ import net.minecraftforge.common.util.ForgeDirection;
 public abstract class GOTStructureBase extends WorldGenerator {
 	public boolean restrictions = true;
 	public boolean notifyChanges;
-	public EntityPlayer usingPlayer = null;
-	public boolean shouldFindSurface = false;
+	public EntityPlayer usingPlayer;
+	public boolean shouldFindSurface;
 	public GOTVillageGen.AbstractInstance villageInstance;
 	public int originX;
 	public int originY;
@@ -42,7 +42,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	public Map<String, BlockAliasPool> scanAliases = new HashMap<>();
 	public Map<String, Float> scanAliasChances = new HashMap<>();
 	public List<EntityCreature> characters = new ArrayList<>();
-	public boolean disable = false;
+	public boolean disable;
 
 	public GOTStructureBase() {
 		super(false);
@@ -59,12 +59,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public void addBlockMetaAliasOption(String alias, int weight, Block block, int meta) {
-		BlockAliasPool pool = scanAliases.get(alias);
-		if (pool == null) {
-			pool = new BlockAliasPool();
-			scanAliases.put(alias, pool);
-		}
-		pool.addEntry(1, block, meta);
+		scanAliases.computeIfAbsent(alias, k -> new BlockAliasPool()).addEntry(1, block, meta);
 	}
 
 	public void associateBlockAlias(String alias, Block block) {

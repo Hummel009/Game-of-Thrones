@@ -26,7 +26,7 @@ public class GOTCommandFellowship extends CommandBase {
 		if (args.length > 2) {
 			String function = args[0];
 			if ("create".equals(function)) {
-				return null;
+				return Collections.emptyList();
 			}
 			if ("option".equals(function)) {
 				String[] argsOriginal = Arrays.copyOf(args, args.length);
@@ -98,7 +98,7 @@ public class GOTCommandFellowship extends CommandBase {
 				}
 			}
 		}
-		return null;
+		return Collections.emptyList();
 	}
 
 	@Override

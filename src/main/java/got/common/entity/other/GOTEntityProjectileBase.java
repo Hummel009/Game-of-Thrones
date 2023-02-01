@@ -23,14 +23,14 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 	public int yTile = -1;
 	public int zTile = -1;
 	public Block inTile;
-	public int inData = 0;
-	public boolean inGround = false;
-	public int shake = 0;
+	public int inData;
+	public boolean inGround;
+	public int shake;
 	public Entity shootingEntity;
 	public int ticksInGround;
-	public int ticksInAir = 0;
-	public int canBePickedUp = 0;
-	public int knockbackStrength = 0;
+	public int ticksInAir;
+	public int canBePickedUp;
+	public int knockbackStrength;
 
 	public GOTEntityProjectileBase(World world) {
 		super(world);
@@ -452,8 +452,6 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 			float f = MathHelper.sqrt_double(d * d + d2 * d2);
 			prevRotationYaw = rotationYaw = (float) (Math.atan2(d, d2) * 180.0 / 3.141592653589793);
 			prevRotationPitch = rotationPitch = (float) (Math.atan2(d1, f) * 180.0 / 3.141592653589793);
-			prevRotationPitch = rotationPitch;
-			prevRotationYaw = rotationYaw;
 			setLocationAndAngles(posX, posY, posZ, rotationYaw, rotationPitch);
 			ticksInGround = 0;
 		}

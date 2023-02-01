@@ -5,10 +5,11 @@ import java.util.*;
 import com.mojang.authlib.GameProfile;
 
 import got.common.GOTBannerProtection;
+import got.common.GOTBannerProtection.Permission;
 
 public class GOTBannerWhitelistEntry {
 	public GameProfile profile;
-	public Set<GOTBannerProtection.Permission> perms = new HashSet<>();
+	public Set<Permission> perms = EnumSet.noneOf(Permission.class);
 
 	public GOTBannerWhitelistEntry(GameProfile p) {
 		profile = p;

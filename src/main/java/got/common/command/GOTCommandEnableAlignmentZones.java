@@ -3,6 +3,7 @@ package got.common.command;
 import java.util.List;
 
 import got.common.GOTLevelData;
+import java.util.Collections;
 import net.minecraft.command.*;
 
 public class GOTCommandEnableAlignmentZones extends CommandBase {
@@ -11,7 +12,7 @@ public class GOTCommandEnableAlignmentZones extends CommandBase {
 		if (args.length == 1) {
 			return CommandBase.getListOfStringsMatchingLastWord(args, "enable", "disable");
 		}
-		return null;
+		return Collections.emptyList();
 	}
 
 	@Override

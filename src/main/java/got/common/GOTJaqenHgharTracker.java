@@ -107,10 +107,10 @@ public class GOTJaqenHgharTracker {
 	}
 
 	public static void setWandererActive(UUID id) {
-		if (activeGreyWanderers.containsKey(id)) {
-			activeGreyWanderers.put(id, 3600);
+		activeGreyWanderers.computeIfPresent(id, (key, value) -> {
 			GOTJaqenHgharTracker.markDirty();
-		}
+			return 3600;
+		});
 	}
 
 	public static void updateCooldowns() {

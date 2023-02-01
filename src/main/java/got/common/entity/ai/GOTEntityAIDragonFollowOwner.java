@@ -33,11 +33,7 @@ public class GOTEntityAIDragonFollowOwner extends EntityAIBase {
 
 	@Override
 	public boolean continueExecuting() {
-		if (nav.noPath() || dragon.isSitting()) {
-			return false;
-		}
-
-		return true;
+		return !nav.noPath() && !dragon.isSitting();
 	}
 
 	@Override

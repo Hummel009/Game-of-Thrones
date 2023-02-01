@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 public class GOTMusicTrack extends PositionedSound {
 	public String filename;
 	public String title;
-	public Map<GOTBiomeMusic, GOTTrackRegionInfo> regions = new HashMap<>();
+	public Map<GOTBiomeMusic, GOTTrackRegionInfo> regions = new EnumMap<>(GOTBiomeMusic.class);
 	public List<String> authors = new ArrayList<>();
 
 	public GOTMusicTrack(String s) {
@@ -30,13 +30,8 @@ public class GOTMusicTrack extends PositionedSound {
 	}
 
 	public GOTTrackRegionInfo createRegionInfo(GOTBiomeMusic reg) {
-		GOTTrackRegionInfo info = regions.get(reg);
-		if (info == null) {
-			info = new GOTTrackRegionInfo(reg);
-			regions.put(reg, info);
+		return regions.computeIfAbsent(reg, GOTTrackRegionInfo::new);
 		}
-		return info;
-	}
 
 	public Set<GOTBiomeMusic> getAllRegions() {
 		return regions.keySet();

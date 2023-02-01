@@ -5,6 +5,7 @@ import java.util.List;
 import got.common.GOTLevelData;
 import got.common.faction.GOTFaction;
 import got.common.world.map.*;
+import java.util.Collections;
 import net.minecraft.command.*;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ChatComponentTranslation;
@@ -20,7 +21,7 @@ public class GOTCommandConquest extends CommandBase {
 			List<String> list = GOTFaction.getPlayableAlignmentFactionNames();
 			return CommandBase.getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
 		}
-		return null;
+		return Collections.emptyList();
 	}
 
 	@Override

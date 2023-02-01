@@ -3,6 +3,7 @@ package got.common.world.map;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.text.*;
+import java.time.LocalDateTime;
 import java.util.*;
 
 import com.google.common.io.Files;
@@ -26,7 +27,7 @@ public class GOTCustomWaypointLogger {
 		try {
 			File logFile;
 			File dupeLogDir;
-			Date date = Calendar.getInstance().getTime();
+			LocalDateTime date = LocalDateTime.now();
 			StringBuilder logLine = new StringBuilder(String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s", MONTH_DATE_FORMAT.format(date), TIME_FORMAT.format(date), function, entityplayer.getCommandSenderName(), entityplayer.getPersistentID(), cwp.getCodeName(), cwp.getXCoord(), cwp.getYCoordSaved(), cwp.getZCoord(), cwp.isShared(), cwp.isShared() ? cwp.getSharingPlayerName() : "N/A", cwp.isShared() ? cwp.getSharingPlayerID() : "N/A"));
 			if (cwp.isShared()) {
 				List<UUID> fsIDs = cwp.getSharedFellowshipIDs();

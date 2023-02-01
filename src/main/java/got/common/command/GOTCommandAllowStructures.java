@@ -14,7 +14,7 @@ public class GOTCommandAllowStructures extends CommandBase {
 			ArrayList<String> bannedNames = new ArrayList<>(GOTLevelData.getBannedStructurePlayersUsernames());
 			return CommandBase.getListOfStringsMatchingLastWord(args, bannedNames.toArray(new String[0]));
 		}
-		return null;
+		return Collections.emptyList();
 	}
 
 	@Override

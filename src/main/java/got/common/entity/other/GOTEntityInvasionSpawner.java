@@ -28,10 +28,10 @@ public class GOTEntityInvasionSpawner extends Entity {
 	public float prevSpawnerSpin;
 	public int invasionSize;
 	public int invasionRemaining;
-	public int successiveFailedSpawns = 0;
-	public int timeSincePlayerProgress = 0;
+	public int successiveFailedSpawns;
+	public int timeSincePlayerProgress;
 	public Map<UUID, Integer> recentPlayerContributors = new HashMap<>();
-	public boolean isWarhorn = false;
+	public boolean isWarhorn;
 	public boolean spawnsPersistent = true;
 	public List<GOTFaction> bonusFactions = new ArrayList<>();
 
@@ -334,7 +334,6 @@ public class GOTEntityInvasionSpawner extends Entity {
 						}
 						short time = playerData.getShort("Time");
 						recentPlayerContributors.put(player, (int) time);
-						continue;
 					} catch (IllegalArgumentException e) {
 						FMLLog.warning("Hummel009: Error loading invasion recent players - %s is not a valid UUID", playerS);
 						e.printStackTrace();

@@ -21,7 +21,7 @@ public class GOTEntityQuestInfo {
 	public static int maxOfferTime = 24000;
 	public GOTEntityNPC theNPC;
 	public GOTMiniQuest miniquestOffer;
-	public int offerTime = 0;
+	public int offerTime;
 	public int offerChance;
 	public float minAlignment;
 	public Map<UUID, GOTMiniQuest> playerSpecificOffers = new HashMap<>();
@@ -254,7 +254,6 @@ public class GOTEntityQuestInfo {
 						continue;
 					}
 					playerSpecificOffers.put(playerID, offer);
-					continue;
 				} catch (Exception e) {
 					FMLLog.warning("Error loading NPC player-specific miniquest offer");
 					e.printStackTrace();

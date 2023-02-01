@@ -12,10 +12,10 @@ import net.minecraft.world.World;
 
 public class GOTEntityAIMFMate extends EntityAIBase {
 	public GOTEntityAnimalMF theAnimal;
-	World theWorld;
+	public World theWorld;
 	public GOTEntityAnimalMF targetMate;
-	int breeding = 0;
-	double moveSpeed;
+	public int breeding;
+	public double moveSpeed;
 
 	public GOTEntityAIMFMate(GOTEntityAnimalMF animal, double d) {
 		theAnimal = animal;

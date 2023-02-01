@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 
 import got.common.entity.dragon.*;
+import java.util.Collections;
 import net.minecraft.command.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -13,13 +14,12 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.WorldServer;
 
 public class GOTCommandDragon extends CommandBase {
-
 	@Override
 	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
 			return CommandBase.getListOfStringsMatchingLastWord(args, "stage adult", "tame");
 		}
-		return null;
+		return Collections.emptyList();
 	}
 
 	public void appyModifier(ICommandSender sender, EntityModifier modifier, boolean global) {

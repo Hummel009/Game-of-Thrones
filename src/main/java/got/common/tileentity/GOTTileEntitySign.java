@@ -15,7 +15,7 @@ public abstract class GOTTileEntitySign extends TileEntity {
 	public int lineBeingEdited = -1;
 	public boolean editable = true;
 	public EntityPlayer editingPlayer;
-	public boolean isFakeGuiSign = false;
+	public boolean isFakeGuiSign;
 
 	public GOTTileEntitySign() {
 		Arrays.fill(signText, "");

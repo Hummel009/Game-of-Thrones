@@ -11,6 +11,7 @@ import net.minecraft.entity.*;
 import net.minecraft.util.*;
 import net.minecraft.world.*;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraftforge.event.ForgeEventFactory;
 
 public class GOTSpawnerAnimals {
@@ -19,19 +20,7 @@ public class GOTSpawnerAnimals {
 	public static Map<Integer, DimInfo> dimInfos = new HashMap<>();
 
 	public static TypeInfo forDimAndType(World world, EnumCreatureType type) {
-		TypeInfo typeInfo;
-		int dimID = world.provider.dimensionId;
-		DimInfo dimInfo = dimInfos.get(dimID);
-		if (dimInfo == null) {
-			dimInfo = new DimInfo();
-			dimInfos.put(dimID, dimInfo);
-		}
-		typeInfo = dimInfo.types.get(type);
-		if (typeInfo == null) {
-			typeInfo = new TypeInfo();
-			dimInfo.types.put(type, typeInfo);
-		}
-		return typeInfo;
+		return dimInfos.computeIfAbsent(world.provider.dimensionId, k -> new DimInfo()).types.computeIfAbsent(type, k -> new TypeInfo());
 	}
 
 	public static int performSpawning(WorldServer world, boolean hostiles, boolean peacefuls, boolean rareTick) {
@@ -153,7 +142,7 @@ public class GOTSpawnerAnimals {
 	public static void worldGenSpawnAnimals(World world, GOTBiome biome, GOTBiomeVariant variant, int i, int k, Random rand) {
 		int spawnRange = 16;
 		int spawnFuzz = 5;
-		List spawnList = biome.getSpawnableList(EnumCreatureType.creature);
+		List<SpawnListEntry> spawnList = biome.getSpawnableList(EnumCreatureType.creature);
 		if (!spawnList.isEmpty()) {
 			while (rand.nextFloat() < biome.getSpawningChance()) {
 				BiomeGenBase.SpawnListEntry spawnEntry = (BiomeGenBase.SpawnListEntry) WeightedRandom.getRandomItem(world.rand, spawnList);
@@ -203,18 +192,11 @@ public class GOTSpawnerAnimals {
 	}
 
 	public static class DimInfo {
-		public Map<EnumCreatureType, TypeInfo> types = new HashMap<>();
-
-		public DimInfo() {
-		}
+		public Map<EnumCreatureType, TypeInfo> types = new EnumMap<>(EnumCreatureType.class);
 	}
 
 	public static class TypeInfo {
 		public int failedCycles;
 		public int blockedCycles;
-
-		public TypeInfo() {
-		}
 	}
-
 }

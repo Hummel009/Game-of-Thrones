@@ -151,9 +151,7 @@ public abstract class GOTVillageGen {
 					slabArray.set(i2, k2, j2);
 				}
 			}
-			if (slabArray.get(-1, 0) < j1 || slabArray.get(1, 0) < j1 || slabArray.get(0, -1) < j1 || slabArray.get(0, 1) < j1) {
-				isSlab = true;
-			} else if (slabArray.get(-1, -1) < j1 || slabArray.get(1, -1) < j1 || slabArray.get(-1, 1) < j1 || slabArray.get(1, 1) < j1) {
+			if ((slabArray.get(-1, 0) < j1 || slabArray.get(1, 0) < j1 || slabArray.get(0, -1) < j1 || slabArray.get(0, 1) < j1) || (slabArray.get(-1, -1) < j1 || slabArray.get(1, -1) < j1 || slabArray.get(-1, 1) < j1 || slabArray.get(1, 1) < j1)) {
 				isSlab = true;
 			}
 			if (isSlab && world.getBlock(i, j1 + 1, k).isOpaqueCube()) {
@@ -289,7 +287,7 @@ public abstract class GOTVillageGen {
 		villageRand.setSeed(seed);
 	}
 
-	public static abstract class AbstractInstance<V extends GOTVillageGen> {
+	public abstract static class AbstractInstance<V extends GOTVillageGen> {
 		public GOTBiome instanceVillageBiome;
 		public World theWorld;
 		public Random instanceRand;

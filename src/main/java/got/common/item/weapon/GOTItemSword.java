@@ -19,7 +19,7 @@ import net.minecraft.world.*;
 public class GOTItemSword extends ItemSword implements GOTMaterialFinder {
 	@SideOnly(value = Side.CLIENT)
 	public IIcon glowingIcon;
-	public boolean isGlowing = false;
+	public boolean isGlowing;
 	public float gotWeaponDamage;
 	public ToolMaterial gotMaterial;
 	public HitEffect effect;

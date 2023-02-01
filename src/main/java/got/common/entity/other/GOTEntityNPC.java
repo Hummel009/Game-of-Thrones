@@ -57,36 +57,36 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	public List<GOTFaction> killBonusFactions = new ArrayList<>();
 	public List<ItemStack> enpouchedDrops = new ArrayList<>();
 	public Random festiveRand = new Random();
-	public UUID invasionID = null;
+	public UUID invasionID;
 	public UUID prevAttackTarget;
-	public boolean addedBurningPanic = false;
-	public boolean canBannerBearerSpawnRiding = false;
-	public boolean canBeMarried = false;
+	public boolean addedBurningPanic;
+	public boolean canBannerBearerSpawnRiding;
+	public boolean canBeMarried;
 	public boolean clientCombatStance;
 	public boolean clientIsEating;
 	public boolean combatStance;
-	public boolean enpouchNPCDrops = false;
-	public boolean firstUpdatedAttackMode = false;
+	public boolean enpouchNPCDrops;
+	public boolean firstUpdatedAttackMode;
 	public boolean hurtOnlyByPlates = true;
-	public boolean initFestiveItems = false;
-	public boolean isChilly = false;
-	public boolean isConquestSpawning = false;
-	public boolean isImmuneToFrost = false;
-	public boolean isLegendaryNPC = false;
-	public boolean isNPCPersistent = false;
-	public boolean isNotHuman = false;
-	public boolean isPassive = false;
-	public boolean isRoyalOrder = false;
-	public boolean isTargetSeeker = false;
-	public boolean isTraderEscort = false;
-	public boolean liftBannerRestrictions = false;
-	public boolean liftSpawnRestrictions = false;
-	public boolean loadingFromNBT = false;
+	public boolean initFestiveItems;
+	public boolean isChilly;
+	public boolean isConquestSpawning;
+	public boolean isImmuneToFrost;
+	public boolean isLegendaryNPC;
+	public boolean isNPCPersistent;
+	public boolean isNotHuman;
+	public boolean isPassive;
+	public boolean isRoyalOrder;
+	public boolean isTargetSeeker;
+	public boolean isTraderEscort;
+	public boolean liftBannerRestrictions;
+	public boolean liftSpawnRestrictions;
+	public boolean loadingFromNBT;
 	public boolean prevCombatStance;
 	public boolean ridingMount;
-	public boolean setInitialHome = false;
+	public boolean setInitialHome;
 	public boolean spawnRidingHorse;
-	public boolean spawnsInDarkness = false;
+	public boolean spawnsInDarkness;
 	public float npcHeight;
 	public float npcWidth = -1.0f;
 	public int combatCooldown;
@@ -95,7 +95,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	public int initHomeY;
 	public int initHomeZ;
 	public int nearbyBannerFactor;
-	public int npcTalkTick = 0;
+	public int npcTalkTick;
 
 	public GOTEntityNPC(World world) {
 		super(world);
@@ -406,9 +406,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		ArrayList<ItemStack> pouchContents = new ArrayList<>();
 		while (!items.isEmpty()) {
 			pouchContents.add(items.remove(0));
-			if (pouchContents.size() < GOTItemPouch.getCapacity(pouch)) {
-				continue;
-			}
 		}
 		for (ItemStack itemstack : pouchContents) {
 			if (GOTItemPouch.tryAddItemToPouch(pouch, itemstack, false)) {
@@ -463,10 +460,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	@Override
 	public boolean getCanSpawnHere() {
 		if ((!spawnsInDarkness || liftSpawnRestrictions || isConquestSpawning && conquestSpawnIgnoresDarkness() || isValidLightLevelForDarkSpawn()) && super.getCanSpawnHere()) {
-			if (!liftBannerRestrictions && (GOTBannerProtection.isProtected(worldObj, this, GOTBannerProtection.forNPC(this), false) || !isConquestSpawning && GOTEntityNPCRespawner.isSpawnBlocked(this))) {
-				return false;
-			}
-			return true;
+			return liftBannerRestrictions || !GOTBannerProtection.isProtected(worldObj, this, GOTBannerProtection.forNPC(this), false) && (isConquestSpawning || !GOTEntityNPCRespawner.isSpawnBlocked(this));
 		}
 		return false;
 	}

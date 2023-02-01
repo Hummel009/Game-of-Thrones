@@ -26,7 +26,7 @@ public class GOTConquestGrid {
 	public static GOTConquestZone dummyZone = new GOTConquestZone(-999, -999).setDummyZone();
 	public static boolean needsLoad = true;
 	public static Set<GridCoordPair> dirtyZones = new HashSet<>();
-	public static float MIN_CONQUEST = 0.0f;
+	public static float MIN_CONQUEST;
 	public static Map<GridCoordPair, List<GOTFaction>> cachedZoneFactions = new HashMap<>();
 
 	public static boolean anyChangedZones() {
@@ -57,8 +57,8 @@ public class GOTConquestGrid {
 	public static void checkNotifyConquest(GOTConquestZone zone, EntityPlayer originPlayer, GOTFaction faction, float newConq, float prevConq, boolean isCleansing) {
 		if (MathHelper.floor_double(newConq / 50.0f) != MathHelper.floor_double(prevConq / 50.0f) || newConq == 0.0f && prevConq != newConq) {
 			World world = originPlayer.worldObj;
-			List playerEntities = world.playerEntities;
-			for (Object obj : playerEntities) {
+			List<EntityPlayer> playerEntities = world.playerEntities;
+			for (EntityPlayer obj : playerEntities) {
 				GOTFaction pledgeFac;
 				EntityPlayerMP player = (EntityPlayerMP) obj;
 				GOTPlayerData pd = GOTLevelData.getData(player);
@@ -148,9 +148,9 @@ public class GOTConquestGrid {
 		}
 		cachedFacs = cachedZoneFactions.get(gridCoords = GridCoordPair.forZone(zone));
 		if (cachedFacs == null) {
-			Object biome;
+			GOTBiome biome;
 			cachedFacs = new ArrayList<>();
-			ArrayList includedBiomes = new ArrayList<>();
+			ArrayList<GOTBiome> includedBiomes = new ArrayList<>();
 			int[] mapMin = GOTConquestGrid.getMinCoordsOnMap(zone);
 			int[] mapMax = GOTConquestGrid.getMaxCoordsOnMap(zone);
 			int mapXMin = mapMin[0];

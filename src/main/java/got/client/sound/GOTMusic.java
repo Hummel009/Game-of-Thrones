@@ -127,12 +127,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 	public static GOTRegionTrackPool getTracksForRegion(GOTBiomeMusic region, String sub) {
 		if (region.hasSubregion(sub) || region.hasNoSubregions() && sub == null) {
 			GOTBiomeMusic.MusicRegion key = region.getSubregion(sub);
-			GOTRegionTrackPool regionPool = regionTracks.get(key);
-			if (regionPool == null) {
-				regionPool = new GOTRegionTrackPool(region, sub);
-				regionTracks.put(key, regionPool);
-			}
-			return regionPool;
+			return regionTracks.computeIfAbsent(key, k -> new GOTRegionTrackPool(region, sub));
 		}
 		GOTLog.logger.warn("Hummel009: No subregion " + sub + " for region " + region.regionName + "!");
 		return null;
@@ -173,9 +168,9 @@ public class GOTMusic implements IResourceManagerReloadListener {
 						track.setTitle(title);
 					}
 					JsonArray regions = trackData.get("regions").getAsJsonArray();
-					for (Object r : regions) {
+					for (JsonElement r : regions) {
 						GOTBiomeMusic region;
-						JsonObject regionData = ((JsonElement) r).getAsJsonObject();
+						JsonObject regionData = (r).getAsJsonObject();
 						String regionName = regionData.get("name").getAsString();
 						boolean allRegions = false;
 						if ("all".equalsIgnoreCase(regionName)) {
@@ -191,8 +186,8 @@ public class GOTMusic implements IResourceManagerReloadListener {
 						ArrayList<String> subregionNames = new ArrayList<>();
 						if (region != null && regionData.has("sub")) {
 							JsonArray subList = regionData.get("sub").getAsJsonArray();
-							for (Object s : subList) {
-								String sub = ((JsonElement) s).getAsString();
+							for (JsonElement s : subList) {
+								String sub = (s).getAsString();
 								if (region.hasSubregion(sub)) {
 									subregionNames.add(sub);
 								} else {

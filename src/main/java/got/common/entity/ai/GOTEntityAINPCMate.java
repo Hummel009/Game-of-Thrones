@@ -9,7 +9,7 @@ public class GOTEntityAINPCMate extends EntityAIBase {
 	public GOTEntityNPC theNPC;
 	public World theWorld;
 	public GOTEntityNPC theSpouse;
-	public int spawnBabyDelay = 0;
+	public int spawnBabyDelay;
 	public double moveSpeed;
 
 	public GOTEntityAINPCMate(GOTEntityNPC npc, double d) {

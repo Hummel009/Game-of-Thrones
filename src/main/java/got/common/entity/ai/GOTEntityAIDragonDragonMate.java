@@ -12,7 +12,7 @@ public class GOTEntityAIDragonDragonMate extends EntityAIBase {
 	public GOTEntityDragon dragon;
 	public GOTEntityDragon dragonMate;
 	public World theWorld;
-	public int spawnBabyDelay = 0;
+	public int spawnBabyDelay;
 	public double speed;
 
 	public GOTEntityAIDragonDragonMate(GOTEntityDragon dragon, double speed) {

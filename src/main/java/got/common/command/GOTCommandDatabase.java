@@ -7,7 +7,6 @@ import got.common.util.DatabaseGenerator.Database;
 import net.minecraft.command.*;
 
 public class GOTCommandDatabase extends CommandBase {
-
 	@Override
 	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {

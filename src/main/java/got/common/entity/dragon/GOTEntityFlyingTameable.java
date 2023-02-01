@@ -27,7 +27,7 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 	public EntityAITasks airTasks;
 	public GOTDragonFlightWaypoint waypoint;
 	public double airSpeedHorizonal = 1.5;
-	public double airSpeedVertical = 0;
+	public double airSpeedVertical;
 	public float yawAdd;
 	public int yawSpeed = 30;
 	public int inAirTicks;

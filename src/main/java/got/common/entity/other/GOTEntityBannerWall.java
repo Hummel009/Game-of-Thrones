@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 
 public class GOTEntityBannerWall extends EntityHanging {
 	public NBTTagCompound protectData;
-	public boolean updatedClientBB = false;
+	public boolean updatedClientBB;
 
 	public GOTEntityBannerWall(World world) {
 		super(world);

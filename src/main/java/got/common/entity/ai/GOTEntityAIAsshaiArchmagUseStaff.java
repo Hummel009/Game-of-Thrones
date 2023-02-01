@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class GOTEntityAIAsshaiArchmagUseStaff extends EntityAIBase {
 	public GOTEntityAsshaiArchmag wizard;
-	public int attackTick = 0;
+	public int attackTick;
 	public World theWorld;
 
 	public GOTEntityAIAsshaiArchmagUseStaff(GOTEntityAsshaiArchmag archmag) {
@@ -59,10 +59,7 @@ public class GOTEntityAIAsshaiArchmagUseStaff extends EntityAIBase {
 			}
 			++targets;
 		}
-		if (targets >= 1) {
-			return true;
-		}
-		return false;
+		return targets >= 1;
 	}
 
 	@Override

@@ -28,11 +28,7 @@ public class GOTEntityAIBombardierAttack extends EntityAIBase {
 
 	@Override
 	public boolean continueExecuting() {
-		if (attacker.npcItemsInv.getBomb() == null) {
-			return false;
-		}
-		EntityLivingBase entity = attacker.getAttackTarget();
-		return entity == null ? false : !entityTarget.isEntityAlive() ? false : !attacker.getNavigator().noPath();
+		return attacker.npcItemsInv.getBomb() != null && attacker.getAttackTarget() != null && entityTarget.isEntityAlive() && !attacker.getNavigator().noPath();
 	}
 
 	@Override

@@ -31,7 +31,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	public World theWorld;
 	public double moveSpeed;
 	public float farmingEfficiency;
-	public Action action = null;
+	public Action action;
 	public ChunkCoordinates actionTarget;
 	public ChunkCoordinates pathTarget;
 	public int pathingTick;
@@ -579,7 +579,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 		}
 		if (theEntity.getRNG().nextFloat() < farmingEfficiency * 0.1f) {
 			TargetPair depositTarget;
-			Map<Action, Boolean> map = new HashMap<>();
+			Map<Action, Boolean> map = new EnumMap<>(Action.class);
 			map.put(Action.DEPOSITING, canDoDepositing());
 			map.put(Action.HOEING, canDoHoeing());
 			map.put(Action.PLANTING, canDoPlanting());
@@ -751,9 +751,8 @@ public class GOTEntityAIFarm extends EntityAIBase {
 					ItemStack seedItem = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(0);
 					ItemStack cropItem = getCropForSeed(getSeedsToPlant());
 					boolean addedOneCropSeed = false;
-					block3: for (Object obj : drops) {
+					block3: for (ItemStack drop : drops) {
 						ItemStack itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(0);
-						ItemStack drop = (ItemStack) obj;
 						if (drop.isItemEqual(cropItem)) {
 							if (drop.isItemEqual(seedItem) && !addedOneCropSeed) {
 								addedOneCropSeed = true;

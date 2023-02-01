@@ -18,7 +18,7 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.structure.MapGenStructure;
 
 public class GOTWorldChunkManager extends WorldChunkManager {
-	public static int LAYER_BIOME = 0;
+	public static int LAYER_BIOME;
 	public static int LAYER_VARIANTS_LARGE = 1;
 	public static int LAYER_VARIANTS_SMALL = 2;
 	public static int LAYER_VARIANTS_LAKES = 3;
@@ -271,12 +271,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 	}
 
 	public GOTVillagePositionCache getStructureCache(MapGenStructure structure) {
-		GOTVillagePositionCache cache = structureCacheMap.get(structure);
-		if (cache == null) {
-			cache = new GOTVillagePositionCache();
-			structureCacheMap.put(structure, cache);
-		}
-		return cache;
+		return structureCacheMap.computeIfAbsent(structure, k -> new GOTVillagePositionCache());
 	}
 
 	@Override
@@ -293,12 +288,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 	}
 
 	public GOTVillagePositionCache getVillageCache(GOTVillageGen village) {
-		GOTVillagePositionCache cache = villageCacheMap.get(village);
-		if (cache == null) {
-			cache = new GOTVillagePositionCache();
-			villageCacheMap.put(village, cache);
-		}
-		return cache;
+		return villageCacheMap.computeIfAbsent(village, k -> new GOTVillagePositionCache());
 	}
 
 	@Override

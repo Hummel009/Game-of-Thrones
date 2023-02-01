@@ -14,7 +14,9 @@ import net.minecraft.potion.*;
 import net.minecraft.world.World;
 
 public class GOTEntityLingeringEffect extends Entity implements IEntityAdditionalSpawnData {
-	public static int TICKS_DATA_WATCHER = 10, WIDTH_DATA_WATCHER = 11, HEIGHT_DATA_WATCHER = 12;
+	public static int TICKS_DATA_WATCHER = 10;
+	public static int WIDTH_DATA_WATCHER = 11;
+	public static int HEIGHT_DATA_WATCHER = 12;
 	public EntityLivingBase thrower;
 	public ItemStack stack;
 	public int MAX_TICKS = 30 * 20;

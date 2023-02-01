@@ -3,6 +3,7 @@ package got.common.command;
 import java.util.List;
 
 import got.common.faction.*;
+import java.util.Collections;
 import net.minecraft.command.*;
 
 public class GOTCommandFactionRelations extends CommandBase {
@@ -20,10 +21,8 @@ public class GOTCommandFactionRelations extends CommandBase {
 			List<String> list = GOTFactionRelations.Relation.listRelationNames();
 			return CommandBase.getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
 		}
-		default:
-			break;
 		}
-		return null;
+		return Collections.emptyList();
 	}
 
 	@Override

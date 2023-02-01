@@ -26,10 +26,8 @@ public class GOTCommandAchievement extends CommandBase {
 			return CommandBase.getListOfStringsMatchingLastWord(args, names.toArray(new String[0]));
 		case 3:
 			return CommandBase.getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
-		default:
-			break;
 		}
-		return null;
+		return Collections.emptyList();
 	}
 
 	public GOTAchievement findAchievementByName(String name) {

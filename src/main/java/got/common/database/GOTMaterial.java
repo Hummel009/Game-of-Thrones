@@ -77,7 +77,7 @@ public class GOTMaterial {
 	public static ToolMaterial OBSIDIAN_TOOL = EnumHelper.addToolMaterial("GOT_OBSIDIAN_TOOL", 2, 250, 6.0F, 2.0F, 14);
 	public static ToolMaterial SILVER_TOOL = EnumHelper.addToolMaterial("GOT_SILVER_TOOL", 2, 250, 6.0F, 2.0F, 14);
 	public static ToolMaterial VALYRIAN_TOOL = EnumHelper.addToolMaterial("GOT_VALYRIAN_TOOL", 4, 2400, 9.0F, 5.0F, 8);
-	public static ToolMaterial ASSHAI_TOOL = EnumHelper.addToolMaterial("ASSHAI_TOOL", 2, 250, 6.0F, 2.0F, 14);
+	public static ToolMaterial ASSHAI_TOOL = EnumHelper.addToolMaterial("GOT_ASSHAI_TOOL", 2, 250, 6.0F, 2.0F, 14);
 
 	public static ItemArmor.ArmorMaterial getArmorMaterialByName(String name) {
 		return ItemArmor.ArmorMaterial.valueOf(name);

@@ -29,21 +29,13 @@ import net.minecraftforge.oredict.*;
 
 public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 	public static Random unsmeltingRand = new Random();
-
 	public static Map<Pair<Item, Integer>, Integer> unsmeltableCraftingCounts = new HashMap<>();
-
 	public float prevRocking;
-
 	public float rocking;
-
 	public float prevRockingPhase;
-
 	public float rockingPhase = unsmeltingRand.nextFloat() * 3.1415927F * 2.0F;
-
 	public boolean prevServerActive;
-
 	public boolean serverActive;
-
 	public boolean clientActive;
 
 	public boolean canBeUnsmelted(ItemStack itemstack) {

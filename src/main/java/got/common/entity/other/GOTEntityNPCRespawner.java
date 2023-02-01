@@ -35,9 +35,9 @@ public class GOTEntityNPCRespawner extends Entity {
 	public int spawnVerticalMin = -2;
 	public int spawnVerticalMax = 2;
 	public int homeRange = -1;
-	public boolean setHomePosFromSpawn = false;
-	public int mountSetting = 0;
-	public int blockEnemySpawns = 0;
+	public boolean setHomePosFromSpawn;
+	public int mountSetting;
+	public int blockEnemySpawns;
 
 	public GOTEntityNPCRespawner(World world) {
 		super(world);

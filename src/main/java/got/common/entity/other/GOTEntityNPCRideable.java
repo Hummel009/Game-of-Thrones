@@ -30,7 +30,7 @@ public abstract class GOTEntityNPCRideable extends GOTEntityNPC implements GOTNP
 
 	@Override
 	public boolean canRenameNPC() {
-		return isNPCTamed() ? true : super.canRenameNPC();
+		return isNPCTamed() || super.canRenameNPC();
 	}
 
 	@Override

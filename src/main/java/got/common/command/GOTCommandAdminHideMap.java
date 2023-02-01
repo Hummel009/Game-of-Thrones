@@ -3,6 +3,7 @@ package got.common.command;
 import java.util.List;
 
 import got.common.GOTLevelData;
+import java.util.Collections;
 import net.minecraft.command.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;
@@ -11,7 +12,7 @@ import net.minecraft.util.ChatComponentTranslation;
 public class GOTCommandAdminHideMap extends CommandBase {
 	@Override
 	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
-		return null;
+		return Collections.emptyList();
 	}
 
 	@Override

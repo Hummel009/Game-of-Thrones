@@ -90,7 +90,7 @@ public class GOTFishing {
 
 	public static class FishingItem extends WeightedRandom.Item {
 		public ItemStack theItem;
-		public float maxDurability = 0.0f;
+		public float maxDurability;
 
 		public FishingItem(ItemStack item, int weight) {
 			super(weight);

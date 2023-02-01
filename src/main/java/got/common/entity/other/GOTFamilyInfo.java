@@ -23,7 +23,7 @@ public class GOTFamilyInfo {
 	public UUID maleParentID;
 	public UUID femaleParentID;
 	public UUID ringGivingPlayer;
-	public boolean doneFirstUpdate = false;
+	public boolean doneFirstUpdate;
 	public boolean resendData = true;
 	public int age;
 	public boolean male;

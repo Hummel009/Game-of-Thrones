@@ -9,7 +9,7 @@ public class GOTGenLayerBiomeVariantsLake extends GOTGenLayer {
 	public static int FLAG_JUNGLE = 2;
 	public static int FLAG_MANGROVE = 4;
 	public int zoomScale;
-	public int lakeFlags = 0;
+	public int lakeFlags;
 
 	public GOTGenLayerBiomeVariantsLake(long l, GOTGenLayer layer, int i) {
 		super(l);

@@ -3,6 +3,7 @@ package got.common.command;
 import java.util.List;
 
 import got.common.GOTLevelData;
+import java.util.Collections;
 import net.minecraft.command.*;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
@@ -16,7 +17,7 @@ public class GOTCommandFastTravelClock extends CommandBase {
 		if (args.length == 2) {
 			return CommandBase.getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
 		}
-		return null;
+		return Collections.emptyList();
 	}
 
 	@Override

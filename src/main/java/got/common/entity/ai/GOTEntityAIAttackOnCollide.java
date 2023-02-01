@@ -14,7 +14,7 @@ public class GOTEntityAIAttackOnCollide extends EntityAIBase {
 	public World worldObj;
 	public EntityCreature theOwner;
 	public EntityLivingBase attackTarget;
-	public int attackTick = 0;
+	public int attackTick;
 	public double moveSpeed;
 	public boolean sightNotRequired;
 	public PathEntity entityPathEntity;

@@ -8,7 +8,7 @@ public class GOTRoads {
 	public static List<GOTRoads> allRoads = new ArrayList<>();
 	public static RoadPointDatabase roadPointDatabase = new RoadPointDatabase();
 	public static int roads = allRoads.size();
-	public static int id = 0;
+	public static int id;
 	public RoadPoint[] roadPoints;
 	public List<RoadPoint> endpoints = new ArrayList<>();
 

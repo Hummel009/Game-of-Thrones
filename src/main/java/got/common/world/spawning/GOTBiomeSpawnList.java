@@ -8,7 +8,7 @@ import got.common.faction.GOTFaction;
 import got.common.util.GOTLog;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.*;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.*;
 import net.minecraft.world.World;
 
 public class GOTBiomeSpawnList {
@@ -40,7 +40,7 @@ public class GOTBiomeSpawnList {
 			for (SpawnListContainer listCont : facCont.spawnLists) {
 				GOTSpawnList list = listCont.spawnList;
 				for (GOTSpawnEntry e : list.getReadOnlyList()) {
-					Class spawnClass = e.entityClass;
+					Class<? extends Entity> spawnClass = e.entityClass;
 					if (!desiredClass.isAssignableFrom(spawnClass)) {
 						continue;
 					}
@@ -163,7 +163,7 @@ public class GOTBiomeSpawnList {
 			baseWeight = w;
 		}
 
-		public void add(ArrayList<SpawnListContainer> list) {
+		public void add(List<SpawnListContainer> list) {
 			spawnLists.addAll(list);
 		}
 
@@ -241,7 +241,7 @@ public class GOTBiomeSpawnList {
 	public static class SpawnListContainer {
 		public GOTSpawnList spawnList;
 		public int weight;
-		public int spawnChance = 0;
+		public int spawnChance;
 		public float conquestThreshold = -1.0f;
 
 		public SpawnListContainer(GOTSpawnList list, int w) {

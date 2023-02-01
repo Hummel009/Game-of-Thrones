@@ -18,7 +18,7 @@ public abstract class GOTEntityAIDragonRide extends EntityAIBase {
 
 	public boolean getControlFlag(int index) {
 		BitSet controlFlags = dragon.getControlFlags();
-		return controlFlags == null ? false : controlFlags.get(index);
+		return controlFlags != null && controlFlags.get(index);
 	}
 
 	public boolean isFlyDown() {

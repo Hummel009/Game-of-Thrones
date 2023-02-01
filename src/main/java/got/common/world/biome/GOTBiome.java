@@ -212,15 +212,15 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome yunkai;
 
 	public GOTBiomeDecorator decorator;
-	public int topBlockMeta = 0;
-	public int fillerBlockMeta = 0;
+	public int topBlockMeta;
+	public int fillerBlockMeta;
 	public float heightBaseParameter;
 	public boolean enablePodzol = true;
-	public boolean enableRocky = false;
+	public boolean enableRocky;
 	public GOTBiomeVariantList biomeVariantsLarge = new GOTBiomeVariantList();
 	public GOTBiomeVariantList biomeVariantsSmall = new GOTBiomeVariantList();
 	public GOTBiomeSpawnList npcSpawnList = new GOTBiomeSpawnList(this);
-	public List spawnableGOTAmbientList = new ArrayList<>();
+	public List<SpawnListEntry> spawnableGOTAmbientList = new ArrayList<>();
 	public GOTEventSpawner.EventChance banditChance;
 	public Class<? extends GOTEntityWesterosBandit> banditEntityClass;
 	public GOTBiomeInvasionSpawns invasionSpawns;
@@ -257,7 +257,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		GOTFixer.affixWaypointLocations(this);
 	}
 
-	public void addBiomeF3Info(List info, World world, GOTBiomeVariant variant) {
+	public void addBiomeF3Info(List<String> info, World world, GOTBiomeVariant variant) {
 		info.add("Game of Thrones biome: " + getBiomeDisplayName() + ", ID: " + biomeID + ";");
 		info.add("Variant: " + StatCollector.translateToLocal(variant.getUnlocalizedName()) + ", loaded: " + GOTBiomeVariantStorage.getSize(world));
 	}
@@ -683,7 +683,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return 0;
 	}
 
-	public List getSpawnableGOTAmbientList() {
+	public List<SpawnListEntry> getSpawnableGOTAmbientList() {
 		return spawnableGOTAmbientList;
 	}
 
@@ -849,7 +849,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		this.npcSpawnList = npcSpawnList;
 	}
 
-	public void setSpawnableGOTAmbientList(List spawnableGOTAmbientList) {
+	public void setSpawnableGOTAmbientList(List<SpawnListEntry> spawnableGOTAmbientList) {
 		this.spawnableGOTAmbientList = spawnableGOTAmbientList;
 	}
 
@@ -1239,7 +1239,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		public Color clouds;
 		public Color fog;
 		public boolean foggy;
-		public boolean hasCustomWater = false;
+		public boolean hasCustomWater;
 
 		public BiomeColors(GOTBiome biome) {
 			theBiome = biome;

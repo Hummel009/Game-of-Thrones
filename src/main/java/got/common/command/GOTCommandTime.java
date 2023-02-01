@@ -3,6 +3,7 @@ package got.common.command;
 import java.util.List;
 
 import got.common.GOTTime;
+import java.util.Collections;
 import net.minecraft.command.*;
 
 public class GOTCommandTime extends CommandBase {
@@ -14,7 +15,7 @@ public class GOTCommandTime extends CommandBase {
 		if (args.length == 2 && "set".equals(args[0])) {
 			return CommandBase.getListOfStringsMatchingLastWord(args, "day", "night");
 		}
-		return null;
+		return Collections.emptyList();
 	}
 
 	@Override

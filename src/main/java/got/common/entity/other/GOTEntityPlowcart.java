@@ -10,7 +10,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class GOTEntityPlowcart extends GOTEntityCart {
-	public boolean plowing = false;
+	public boolean plowing;
 	public int lasthit;
 	public int hitcount;
 	public double bladeOffset = 1.2;

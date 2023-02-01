@@ -3,6 +3,7 @@ package got.common.command;
 import java.util.List;
 
 import got.common.GOTDate;
+import java.util.Collections;
 import net.minecraft.command.*;
 import net.minecraft.util.ChatComponentTranslation;
 
@@ -12,7 +13,7 @@ public class GOTCommandDate extends CommandBase {
 		if (args.length == 1) {
 			return CommandBase.getListOfStringsMatchingLastWord(args, "get", "set", "add");
 		}
-		return null;
+		return Collections.emptyList();
 	}
 
 	@Override

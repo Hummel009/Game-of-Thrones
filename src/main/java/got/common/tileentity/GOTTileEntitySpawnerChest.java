@@ -18,7 +18,7 @@ public class GOTTileEntitySpawnerChest extends TileEntityChest {
 		entityClassName = nbt.getString("MobID");
 	}
 
-	public void setMobID(Class entityClass) {
+	public void setMobID(Class<? extends Entity> entityClass) {
 		entityClassName = GOTEntityRegistry.getStringFromClass(entityClass);
 	}
 

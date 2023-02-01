@@ -23,14 +23,10 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 	public static byte[] biomeImageData;
 	public static int originX = 810;
 	public static int originZ = 730;
-	public static int scale;
+	public static int scale = IntMath.pow(2, 7);
 	public static int imageWidth;
 	public static int imageHeight;
-	static {
-		scale = IntMath.pow(2, 7);
-	}
-
-	String imageName;
+	public static String imageName;
 
 	public GOTGenLayerWorld() {
 		super(0L);

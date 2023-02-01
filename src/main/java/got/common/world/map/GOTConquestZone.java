@@ -7,15 +7,15 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 public class GOTConquestZone {
-	public static List<GOTFaction> allPlayableFacs = null;
+	public static List<GOTFaction> allPlayableFacs;
 	public int gridX;
 	public int gridZ;
-	public boolean isDummyZone = false;
+	public boolean isDummyZone;
 	public float[] conquestStrengths;
 	public long lastChangeTime;
-	public long isEmptyKey = 0L;
+	public long isEmptyKey;
 	public boolean isLoaded = true;
-	public boolean clientSide = false;
+	public boolean clientSide;
 
 	public GOTConquestZone(int i, int k) {
 		gridX = i;
@@ -120,7 +120,11 @@ public class GOTConquestZone {
 		}
 		int index = allPlayableFacs.indexOf(fac);
 		conquestStrengths[index] = str;
-		isEmptyKey = str == 0.0f ? (isEmptyKey &= 1L << index ^ 0xFFFFFFFFFFFFFFFFL) : (isEmptyKey |= 1L << index);
+		if (str == 0.0f) {
+			isEmptyKey &= (1L << index) ^ 0xFFFFFFFFFFFFFFFFL;
+		} else {
+			isEmptyKey |= 1L << index;
+		}
 		markDirty();
 	}
 

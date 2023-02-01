@@ -1,6 +1,7 @@
 package got.common.item;
 
 import java.util.*;
+import java.util.Map.Entry;
 
 import com.google.common.collect.Multimap;
 
@@ -17,9 +18,9 @@ import net.minecraftforge.common.ISpecialArmor;
 public class GOTWeaponStats {
 	public static int basePlayerMeleeTime = 15;
 	public static int baseMobMeleeTime = 20;
-	public static Map meleeSpeed = new HashMap<>();
-	public static Map meleeReach = new HashMap<>();
-	public static Map meleeExtraKnockback = new HashMap<>();
+	public static Map<Object, Float> meleeSpeed = new HashMap<>();
+	public static Map<Object, Float> meleeReach = new HashMap<>();
+	public static Map<Object, Integer> meleeExtraKnockback = new HashMap<>();
 	public static float MAX_MODIFIABLE_REACH;
 	public static float MAX_MODIFIABLE_SPEED;
 	public static int MAX_MODIFIABLE_KNOCKBACK;
@@ -111,7 +112,7 @@ public class GOTWeaponStats {
 		float damage = 0.0f;
 		if (itemstack != null && (weaponAttributes = itemstack.getAttributeModifiers()) != null) {
 			for (Object obj : weaponAttributes.entries()) {
-				Map.Entry e = (Map.Entry) obj;
+				Entry e = (Entry) obj;
 				AttributeModifier mod = (AttributeModifier) e.getValue();
 				if (mod.getID() != GOTItemSword.accessWeaponDamageModifier()) {
 					continue;
@@ -249,7 +250,7 @@ public class GOTWeaponStats {
 		Multimap weaponAttributes;
 		if (itemstack != null && (weaponAttributes = itemstack.getAttributeModifiers()) != null) {
 			for (Object obj : weaponAttributes.entries()) {
-				Map.Entry e = (Map.Entry) obj;
+				Entry e = (Entry) obj;
 				AttributeModifier mod = (AttributeModifier) e.getValue();
 				if (mod.getID() != GOTItemSword.accessWeaponDamageModifier()) {
 					continue;
@@ -263,7 +264,7 @@ public class GOTWeaponStats {
 	public static boolean isPoisoned(ItemStack itemstack) {
 		if (itemstack != null) {
 			Item item = itemstack.getItem();
-			return item instanceof GOTItemDagger && ((GOTItemDagger) item).getHitEffect() == GOTItemDagger.HitEffect.POISON;
+			return item instanceof GOTItemDagger && ((GOTItemDagger) item).getHitEffect() == GOTItemSword.HitEffect.POISON;
 		}
 		return false;
 	}

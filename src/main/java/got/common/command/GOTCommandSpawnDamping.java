@@ -22,7 +22,7 @@ public class GOTCommandSpawnDamping extends CommandBase {
 			types.add(GOTSpawnDamping.TYPE_NPC);
 			return CommandBase.getListOfStringsMatchingLastWord(args, types.toArray(new String[0]));
 		}
-		return null;
+		return Collections.emptyList();
 	}
 
 	@Override

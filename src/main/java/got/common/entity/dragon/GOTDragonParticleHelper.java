@@ -14,26 +14,32 @@ public class GOTDragonParticleHelper extends GOTDragonHelper {
 	}
 
 	public void spawnBodyParticle(String effect) {
-		double ox, oy, oz;
+		double ox;
+		double oy;
+		double oz;
 		float s = dragon.getScale() * 1.2f;
-		if ("explode".equals(effect)) {
+		switch (effect) {
+		case "explode":
 			ox = rand.nextGaussian() * s;
 			oy = rand.nextGaussian() * s;
 			oz = rand.nextGaussian() * s;
-		} else if ("cloud".equals(effect)) {
+			break;
+		case "cloud":
 			ox = (rand.nextDouble() - 0.5) * 0.1;
 			oy = rand.nextDouble() * 0.2;
 			oz = (rand.nextDouble() - 0.5) * 0.1;
-		} else if ("reddust".equals(effect)) {
+			break;
+		case "reddust":
 			ox = 0.8;
 			oy = 0;
 			oz = 0.8;
-		} else {
+			break;
+		default:
 			ox = 0;
 			oy = 0;
 			oz = 0;
+			break;
 		}
-
 		double x = dragon.posX + (rand.nextDouble() - 0.5) * dragon.width * s;
 		double y = dragon.posY + (rand.nextDouble() - 0.5) * dragon.height * s;
 		double z = dragon.posZ + (rand.nextDouble() - 0.5) * dragon.width * s;

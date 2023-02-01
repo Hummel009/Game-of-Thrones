@@ -1,6 +1,7 @@
 package got.common.entity.dragon;
 
 import java.util.*;
+import java.util.Map.Entry;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.apache.logging.log4j.*;
@@ -83,26 +84,23 @@ public class GOTDragonBreedHelper extends GOTDragonHelper {
 					for (int zn = -BLOCK_RANGE; zn <= BLOCK_RANGE; zn++) {
 						for (int yn = -BLOCK_RANGE; yn <= BLOCK_RANGE; yn++) {
 							Block block = dragon.worldObj.getBlock(bx + xn, by + yn, bz + zn);
-							for (GOTDragonBreed breed : breedPoints.keySet()) {
-								if (breed.isHabitatBlock(block)) {
-									breedPoints.get(breed).incrementAndGet();
+							for (Entry<GOTDragonBreed, AtomicInteger> breed : breedPoints.entrySet()) {
+								if (breed.getKey().isHabitatBlock(block)) {
+									breed.getValue().incrementAndGet();
 								}
 							}
 						}
 					}
 				}
 				BiomeGenBase biome = dragon.worldObj.getBiomeGenForCoords(bx, bz);
-				for (GOTDragonBreed breed : breedPoints.keySet()) {
-
-					if (breed.isHabitatBiome(biome)) {
-						breedPoints.get(breed).incrementAndGet();
+				for (Entry<GOTDragonBreed, AtomicInteger> breed : breedPoints.entrySet()) {
+					if (breed.getKey().isHabitatBiome(biome)) {
+						breed.getValue().incrementAndGet();
 					}
-
-					if (breed.isHabitatEnvironment(dragon)) {
-						breedPoints.get(breed).addAndGet(3);
+					if (breed.getKey().isHabitatEnvironment(dragon)) {
+						breed.getValue().addAndGet(3);
 					}
 				}
-
 				GOTDragonBreed newBreed = null;
 				int maxPoints = 0;
 				for (Map.Entry<GOTDragonBreed, AtomicInteger> breedPoint : breedPoints.entrySet()) {

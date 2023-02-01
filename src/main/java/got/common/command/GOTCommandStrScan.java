@@ -12,7 +12,7 @@ import net.minecraft.util.*;
 import net.minecraft.world.World;
 
 public class GOTCommandStrScan extends CommandBase {
-	public boolean scanning = false;
+	public boolean scanning;
 	public int originX;
 	public int originY;
 	public int originZ;
@@ -29,7 +29,7 @@ public class GOTCommandStrScan extends CommandBase {
 
 	@Override
 	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
-		return null;
+		return Collections.emptyList();
 	}
 
 	@Override
