@@ -1547,177 +1547,177 @@ got.alignment.miniQuest=¡Encargo Terminado!
 got.alignment.pickpocket=Robado
 got.alignment.vineyardSteal=Robo de Viñedo
 got.attribute.desc=Puedes seleccionarlo después de obtener más de 100 reputación con esta facción.
-got.biome.alwaysWinter=Tierras de siempre invierno
-got.biome.arryn=Valle de Arryn
-got.biome.arrynBaelish=Los dedos
-got.biome.arrynForest=Laderas lunares
-got.biome.arrynMountains=Montañas lunares
-got.biome.arrynTown=Pueblo Gaviota
-got.biome.astapor=Astapor
-got.biome.beach=Playa
-got.biome.beachGravel=Playa
-got.biome.beachWhite=Playa
-got.biome.blackIslands=Islas de Blackwater Bay
-got.biome.boneMountains=Montañas de hueso
-got.biome.braavos=Braavos
-got.biome.braavosHills≠
-got.biome.cannibalSands=Arenas caníbales
-got.biome.cannibalSandsHills≠
-got.biome.coldCoast=Costa Fría
-got.biome.crackclaw=Punto de Crackclaw
-got.biome.crownlands=Tierras de la Corona
-got.biome.crownlandsForest=King Forest
-got.biome.crownlandsTown=Desembarco del Rey
-got.biome.dorne=Dorne
-got.biome.dorneDesert=Desierto de Dorne
-got.biome.dorneMountains=Montañas Rojas
-got.biome.dorneValley=Dorne Valley
-got.biome.doshKhalin=Madre de las Montañas
-got.biome.dothrakiHills≠
-got.biome.dothrakiSea=Mar Dothraki
-got.biome.dragonstone=Rocadragón
-got.biome.essos=Tierras deshabitadas
-got.biome.essosForest=Bosques de Essos
-got.biome.essosHills=Colinas de Norvoss
-got.biome.essosMountains=Montañas de Essos
-got.biome.farNorthSnowy=Páramo nevado
-got.biome.fireField=Highgarden
-got.biome.freeCities=Tierras de ciudades libres
-got.biome.frostfangs=Colmillos de escarcha
-got.biome.ghiscar=Bahía de Ghiscar
-got.biome.ghiscarColony=Colonias ghiscarianas
-got.biome.giftNew=Nuevo regalo
-got.biome.giftOld=Regalo
-got.biome.hauntedForest=Bosque embrujado
-got.biome.ibben=Ibben
-got.biome.ibbenColony=Colonia Ibben
-got.biome.ibbenColonyHills≠
-got.biome.ibbenMountains=Ibben Mountains
-got.biome.ibbenTaiga=Bosque de Ibben
-got.biome.ifekevronForest=Bosque de Ifekevron
-got.biome.ironborn=Islas de Hierro
-got.biome.ironbornHills=Iron Hills
-got.biome.irontree=Bosque de Forrester
-got.biome.island=Isla
-got.biome.isleOfFaces=Isla de las Caras
-got.biome.jogosNhai=Llanuras de Jogos Nhai
-got.biome.jogosNhaiDesert=Desierto Desecado
-got.biome.jogosNhaiHills≠
-got.biome.kanduuBet=Bosque Mossovy
-got.biome.kingSpears=Lanzas del Rey del Agua
-got.biome.kuurulgan≠
-got.biome.lake=Lago
-got.biome.lhazar=Lhazar
-got.biome.lhazarHills≠
-got.biome.longSummer=Tierras del largo verano
-got.biome.lorath=Lorath
-got.biome.lorathMaze≠
-got.biome.lys=Lys
-got.biome.massy=El gancho de Massy
-got.biome.massyHills≠
-got.biome.meereen=Meereen
-got.biome.mercenary=Tierras en disputa
-got.biome.mossovy=Mossovy
-got.biome.mossovyTundra=Tundra Mossovy
-got.biome.myr=Myr
-got.biome.naath=Naath
-got.biome.neck=Marismas del El Norte
-got.biome.newGhis≠
-got.biome.north=El Norte
-got.biome.northBarrows=Túmulos
-got.biome.northForest=Bosque del El Norte
-got.biome.northHills=North Hills
-got.biome.northMountains=Montañas del El Norte
-got.biome.northTown=Puerto blanco
-got.biome.northWild=Salvaje El Norte
-got.biome.norvos=Norvos
-got.biome.norvosHills≠
-got.biome.ocean=Oceano
-got.biome.pentos=Pentos
-got.biome.pentosHills≠
-got.biome.qarth=Qarth
-got.biome.qarthColony≠
-got.biome.qarthDesert=Desierto de Qarth
-got.biome.qohor=Qohor
-got.biome.qohorForest=Bosque de Qohor
-got.biome.rainwood=Rainwood
-got.biome.reach=Reach
-got.biome.reachArbor=Cenador
-got.biome.reachHills≠
-got.biome.reachTown=Pueblo Viejo
-got.biome.redMesa=Meseta Roja
-got.biome.redSea=Mar sangriento
-got.biome.river=Río
-got.biome.riverlands=Tierras de los Rios
-got.biome.riverlandsHills=Bosque de la Hermandad sin Banners
-got.biome.sarnor=Sarnor
-got.biome.shadowLand=Tierra de la Sombra
-got.biome.shadowMountains=Montañas del amanecer
-got.biome.shadowTown=Asshai
-got.biome.shadowWasteland=Páramo de la Sombra
-got.biome.shrykesLand≠
-got.biome.skagos=Skagos
-got.biome.skirlingPass=Pase Skirling
-got.biome.sothoryosBushland=Sothoryos Bushland
-got.biome.sothoryosDeserHills=Colinas del desierto de Sothoryos
-got.biome.sothoryosDesert=Desierto de Sothoryos
-got.biome.sothoryosDesertCold=Desierto Frío de Sothoryos
-got.biome.sothoryosFrost=Esfera polar de Sothoryos
-got.biome.sothoryosHell=Infierno verde
-got.biome.sothoryosJungle=Selva de Sothoryos
-got.biome.sothoryosJungleEdge=Borde de la jungla de Sothoryos
-got.biome.sothoryosKanuka=Sothoryos Kanuka
-got.biome.sothoryosMangrove=Manglar de Sothoryos
-got.biome.sothoryosMountains=Montañas Sothoryos
-got.biome.sothoryosSavannah=Sabana de Sothoryos
-got.biome.sothoryosTaiga=Sothoryos Taiga
-got.biome.stepstones=Pasos
-got.biome.stoneCoast=Costa de Piedra
-got.biome.stormlands=Tierras del Tormento
-got.biome.stormlandsTown=Cabo Durran
-got.biome.summerColonyMangrove≠
-got.biome.summerColony≠
-got.biome.summerIslands=Islas del Verano
-got.biome.suudanKorkuu=Marismas de Mossovy
-got.biome.tarth=Tarth
-got.biome.thenn=Thenn Land
-got.biome.tropicalForest=Bosques tropicales
-got.biome.tyrosh=Tyrosh
-got.biome.ulos≠
-got.biome.ulthos=Ulthos
-got.biome.ulthosDesert=Desierto de Ulthos
-got.biome.ulthosDesertCold≠
-got.biome.ulthosForestEdge≠
-got.biome.ulthosForest≠
-got.biome.ulthosFrost≠
-got.biome.ulthosMarshesForest≠
-got.biome.ulthosMarshes≠
-got.biome.ulthosMountains=Montañas Ulthos
-got.biome.ulthosRedForestEdge≠
-got.biome.ulthosRedForest≠
-got.biome.ulthosTaigaEdge≠
-got.biome.ulthosTaiga≠
-got.biome.valyria=Península de Valyria
-got.biome.valyriaSea=Mar de Valyria
-got.biome.valyriaVolcano=Volcanes de Valyria
-got.biome.volantis=Volantis
-got.biome.volantisForest=Costa naranja
-got.biome.volantisMarshes=Valle de Selhoru
-got.biome.westerlands=Tierras del Oeste
-got.biome.westerlandsHills=Westerlands Hills
-got.biome.westerlandsTown=Lannisport
-got.biome.westerosForest1≠
-got.biome.westerosForest2≠
-got.biome.westerosForest=Bosques de Westeros
-got.biome.westerosMountains=Montañas de Westeros
-got.biome.wetwood=Wetwood
-got.biome.whisperingWood=Madera susurrante
-got.biome.wolfswood=Wolfswood
-got.biome.yeen=Yeen Wasteland
-got.biome.yiTi=Yi Ti
-got.biome.yiTiMarshes≠
-got.biome.yiTiWasteland=Zona fronteriza de Yi Ti
-got.biome.yunkai=Yunkai
+got.biome.alwaysWinter.name=Tierras de siempre invierno
+got.biome.arryn.name=Valle de Arryn
+got.biome.arrynBaelish.name=Los dedos
+got.biome.arrynForest.name=Laderas lunares
+got.biome.arrynMountains.name=Montañas lunares
+got.biome.arrynTown.name=Pueblo Gaviota
+got.biome.astapor.name=Astapor
+got.biome.beach.name=Playa
+got.biome.beachGravel.name=Playa
+got.biome.beachWhite.name=Playa
+got.biome.blackIslands.name=Islas de Blackwater Bay
+got.biome.boneMountains.name=Montañas de hueso
+got.biome.braavos.name=Braavos
+got.biome.braavosHills.name≠
+got.biome.cannibalSands.name=Arenas caníbales
+got.biome.cannibalSandsHills.name≠
+got.biome.coldCoast.name=Costa Fría
+got.biome.crackclaw.name=Punto de Crackclaw
+got.biome.crownlands.name=Tierras de la Corona
+got.biome.crownlandsForest.name=King Forest
+got.biome.crownlandsTown.name=Desembarco del Rey
+got.biome.dorne.name=Dorne
+got.biome.dorneDesert.name=Desierto de Dorne
+got.biome.dorneMountains.name=Montañas Rojas
+got.biome.dorneValley.name=Dorne Valley
+got.biome.doshKhalin.name=Madre de las Montañas
+got.biome.dothrakiHills.name≠
+got.biome.dothrakiSea.name=Mar Dothraki
+got.biome.dragonstone.name=Rocadragón
+got.biome.essos.name=Tierras deshabitadas
+got.biome.essosForest.name=Bosques de Essos
+got.biome.essosHills.name=Colinas de Norvoss
+got.biome.essosMountains.name=Montañas de Essos
+got.biome.farNorthSnowy.name=Páramo nevado
+got.biome.fireField.name=Highgarden
+got.biome.freeCities.name=Tierras de ciudades libres
+got.biome.frostfangs.name=Colmillos de escarcha
+got.biome.ghiscar.name=Bahía de Ghiscar
+got.biome.ghiscarColony.name=Colonias ghiscarianas
+got.biome.giftNew.name=Nuevo regalo
+got.biome.giftOld.name=Regalo
+got.biome.hauntedForest.name=Bosque embrujado
+got.biome.ibben.name=Ibben
+got.biome.ibbenColony.name=Colonia Ibben
+got.biome.ibbenColonyHills.name≠
+got.biome.ibbenMountains.name=Ibben Mountains
+got.biome.ibbenTaiga.name=Bosque de Ibben
+got.biome.ifekevronForest.name=Bosque de Ifekevron
+got.biome.ironborn.name=Islas de Hierro
+got.biome.ironbornHills.name=Iron Hills
+got.biome.irontree.name=Bosque de Forrester
+got.biome.island.name=Isla
+got.biome.isleOfFaces.name=Isla de las Caras
+got.biome.jogosNhai.name=Llanuras de Jogos Nhai
+got.biome.jogosNhaiDesert.name=Desierto Desecado
+got.biome.jogosNhaiHills.name≠
+got.biome.kanduuBet.name=Bosque Mossovy
+got.biome.kingSpears.name=Lanzas del Rey del Agua
+got.biome.kuurulgan.name≠
+got.biome.lake.name=Lago
+got.biome.lhazar.name=Lhazar
+got.biome.lhazarHills.name≠
+got.biome.longSummer.name=Tierras del largo verano
+got.biome.lorath.name=Lorath
+got.biome.lorathMaze.name≠
+got.biome.lys.name=Lys
+got.biome.massy.name=El gancho de Massy
+got.biome.massyHills.name≠
+got.biome.meereen.name=Meereen
+got.biome.mercenary.name=Tierras en disputa
+got.biome.mossovy.name=Mossovy
+got.biome.mossovyTundra.name=Tundra Mossovy
+got.biome.myr.name=Myr
+got.biome.naath.name=Naath
+got.biome.neck.name=Marismas del El Norte
+got.biome.newGhis.name≠
+got.biome.north.name=El Norte
+got.biome.northBarrows.name=Túmulos
+got.biome.northForest.name=Bosque del El Norte
+got.biome.northHills.name=North Hills
+got.biome.northMountains.name=Montañas del El Norte
+got.biome.northTown.name=Puerto blanco
+got.biome.northWild.name=Salvaje El Norte
+got.biome.norvos.name=Norvos
+got.biome.norvosHills.name≠
+got.biome.ocean.name=Oceano
+got.biome.pentos.name=Pentos
+got.biome.pentosHills.name≠
+got.biome.qarth.name=Qarth
+got.biome.qarthColony.name≠
+got.biome.qarthDesert.name=Desierto de Qarth
+got.biome.qohor.name=Qohor
+got.biome.qohorForest.name=Bosque de Qohor
+got.biome.rainwood.name=Rainwood
+got.biome.reach.name=Reach
+got.biome.reachArbor.name=Cenador
+got.biome.reachHills.name≠
+got.biome.reachTown.name=Pueblo Viejo
+got.biome.redMesa.name=Meseta Roja
+got.biome.redSea.name=Mar sangriento
+got.biome.river.name=Río
+got.biome.riverlands.name=Tierras de los Rios
+got.biome.riverlandsHills.name=Bosque de la Hermandad sin Banners
+got.biome.sarnor.name=Sarnor
+got.biome.shadowLand.name=Tierra de la Sombra
+got.biome.shadowMountains.name=Montañas del amanecer
+got.biome.shadowTown.name=Asshai
+got.biome.shadowWasteland.name=Páramo de la Sombra
+got.biome.shrykesLand.name≠
+got.biome.skagos.name=Skagos
+got.biome.skirlingPass.name=Pase Skirling
+got.biome.sothoryosBushland.name=Sothoryos Bushland
+got.biome.sothoryosDeserHills.name=Colinas del desierto de Sothoryos
+got.biome.sothoryosDesert.name=Desierto de Sothoryos
+got.biome.sothoryosDesertCold.name=Desierto Frío de Sothoryos
+got.biome.sothoryosFrost.name=Esfera polar de Sothoryos
+got.biome.sothoryosHell.name=Infierno verde
+got.biome.sothoryosJungle.name=Selva de Sothoryos
+got.biome.sothoryosJungleEdge.name=Borde de la jungla de Sothoryos
+got.biome.sothoryosKanuka.name=Sothoryos Kanuka
+got.biome.sothoryosMangrove.name=Manglar de Sothoryos
+got.biome.sothoryosMountains.name=Montañas Sothoryos
+got.biome.sothoryosSavannah.name=Sabana de Sothoryos
+got.biome.sothoryosTaiga.name=Sothoryos Taiga
+got.biome.stepstones.name=Pasos
+got.biome.stoneCoast.name=Costa de Piedra
+got.biome.stormlands.name=Tierras del Tormento
+got.biome.stormlandsTown.name=Cabo Durran
+got.biome.summerColonyMangrove.name≠
+got.biome.summerColony.name≠
+got.biome.summerIslands.name=Islas del Verano
+got.biome.suudanKorkuu.name=Marismas de Mossovy
+got.biome.tarth.name=Tarth
+got.biome.thenn.name=Thenn Land
+got.biome.tropicalForest.name=Bosques tropicales
+got.biome.tyrosh.name=Tyrosh
+got.biome.ulos.name≠
+got.biome.ulthos.name=Ulthos
+got.biome.ulthosDesert.name=Desierto de Ulthos
+got.biome.ulthosDesertCold.name≠
+got.biome.ulthosForestEdge.name≠
+got.biome.ulthosForest.name≠
+got.biome.ulthosFrost.name≠
+got.biome.ulthosMarshesForest.name≠
+got.biome.ulthosMarshes.name≠
+got.biome.ulthosMountains.name=Montañas Ulthos
+got.biome.ulthosRedForestEdge.name≠
+got.biome.ulthosRedForest.name≠
+got.biome.ulthosTaigaEdge.name≠
+got.biome.ulthosTaiga.name≠
+got.biome.valyria.name=Península de Valyria
+got.biome.valyriaSea.name=Mar de Valyria
+got.biome.valyriaVolcano.name=Volcanes de Valyria
+got.biome.volantis.name=Volantis
+got.biome.volantisForest.name=Costa naranja
+got.biome.volantisMarshes.name=Valle de Selhoru
+got.biome.westerlands.name=Tierras del Oeste
+got.biome.westerlandsHills.name=Westerlands Hills
+got.biome.westerlandsTown.name=Lannisport
+got.biome.westerosForest1.name≠
+got.biome.westerosForest2.name≠
+got.biome.westerosForest.name=Bosques de Westeros
+got.biome.westerosMountains.name=Montañas de Westeros
+got.biome.wetwood.name=Wetwood
+got.biome.whisperingWood.name=Madera susurrante
+got.biome.wolfswood.name=Wolfswood
+got.biome.yeen.name=Yeen Wasteland
+got.biome.yiTi.name=Yi Ti
+got.biome.yiTiMarshes.name≠
+got.biome.yiTiWasteland.name=Zona fronteriza de Yi Ti
+got.biome.yunkai.name=Yunkai
 got.capes.ARRYN.name=Cabo de Valle de Arryn
 got.capes.ARRYNGUARD.name=Guardia del Cabo de Arryn
 got.capes.ASSHAI.name=Cabo de Asshai

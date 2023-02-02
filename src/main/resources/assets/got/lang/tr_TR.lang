@@ -1547,177 +1547,177 @@ got.alignment.miniQuest=Görev Tamamlandı!
 got.alignment.pickpocket=Yankesicilik!
 got.alignment.vineyardSteal=Üzüm Çalmak
 got.attribute.desc=Bu fraksiyonla +100 itibara Menzil  ödülü
-got.biome.alwaysWinter=Daima Kış Toprakları
-got.biome.arryn=Vadi
-got.biome.arrynBaelish=Parmaklar
-got.biome.arrynForest=Ay etekleri
-got.biome.arrynMountains=Ay Dağları
-got.biome.arrynTown=Martı Kasabası
-got.biome.astapor=Astapor
-got.biome.beach=Plaj
-got.biome.beachGravel=Plaj
-got.biome.beachWhite=Plaj
-got.biome.blackIslands=Blackwater Körfezi Adaları
-got.biome.boneMountains=Kemik Dağları
-got.biome.braavos=Braavos
-got.biome.braavosHills≠
-got.biome.cannibalSands=Yamyam kumları
-got.biome.cannibalSandsHills≠
-got.biome.coldCoast=Soğuk Sahil
-got.biome.crackclaw=Çatlak Pençe Noktası
-got.biome.crownlands=Taç Toprakları
-got.biome.crownlandsForest=Kral Ormanı
-got.biome.crownlandsTown=Taç Toprakları
-got.biome.dorne=Dorne
-got.biome.dorneDesert=Dorne Çölü
-got.biome.dorneMountains=Kızıl Dağlar
-got.biome.dorneValley=Dorne Vadisi
-got.biome.doshKhalin=Dağların Annesi
-got.biome.dothrakiHills≠
-got.biome.dothrakiSea=Dothraki Denizi
-got.biome.dragonstone=Ejderha taşı
-got.biome.essos=Yaşanamayan Araziler
-got.biome.essosForest=Essos ormanları
-got.biome.essosHills=Norvoss Tepeleri
-got.biome.essosMountains=Essos Dağları
-got.biome.farNorthSnowy=Karlı çorak
-got.biome.fireField=Yüksek bahçe
-got.biome.freeCities=Özgür Şehirlerin Toprakları
-got.biome.frostfangs=Buz Dişleri
-got.biome.ghiscar=Ghiscar Körfezi
-got.biome.ghiscarColony=Ghiskar Kolonileri
-got.biome.giftNew=Yeni Hediye
-got.biome.giftOld=Hediye
-got.biome.hauntedForest=Perili orman
-got.biome.ibben=Ibben
-got.biome.ibbenColony=İbben Kolonisi
-got.biome.ibbenColonyHills≠
-got.biome.ibbenMountains=İbben Dağları
-got.biome.ibbenTaiga=İbben Ormanı
-got.biome.ifekevronForest=Ifekevron Ormanı
-got.biome.ironborn=Demir Adalar
-got.biome.ironbornHills=Demir Tepeler
-got.biome.irontree=Forrester'ın Ormanı
-got.biome.island=Adalet
-got.biome.isleOfFaces=Yüzler Adası
-got.biome.jogosNhai=Jogos Nhai Ovaları
-got.biome.jogosNhaiDesert=Kuru çöl
-got.biome.jogosNhaiHills≠
-got.biome.kanduuBet=Mossovy orman
-got.biome.kingSpears=Su Kralının Mızrakları
-got.biome.kuurulgan=Mossovy sopka
-got.biome.lake=Göl
-got.biome.lhazar=Lhazar
-got.biome.lhazarHills≠
-got.biome.longSummer=Uzun Yaz Ülkeleri
-got.biome.lorath=Lorath
-got.biome.lorathMaze≠
-got.biome.lys=Lys
-got.biome.massy=Massy'nin Kancası
-got.biome.massyHills≠
-got.biome.meereen=Meereen
-got.biome.mercenary=İhtilaflı Topraklar
-got.biome.mossovy=Mossovy
-got.biome.mossovyTundra=Mossovy tundra
-got.biome.myr=Mür
-got.biome.naath=Naath
-got.biome.neck=Kuzey Bataklıkları
-got.biome.newGhis≠
-got.biome.north=Kuzey
-got.biome.northBarrows=Höyükler
-got.biome.northForest=Kuzey Ormanı
-got.biome.northHills=Kuzey Tepeleri
-got.biome.northMountains=Kuzey Dağları
-got.biome.northTown=Beyaz Liman
-got.biome.northWild=Vahşi kuzey
-got.biome.norvos=Norvos
-got.biome.norvosHills≠
-got.biome.ocean=Okyanus
-got.biome.pentos=Pentolar
-got.biome.pentosHills≠
-got.biome.qarth=çeyrek
-got.biome.qarthColony≠
-got.biome.qarthDesert=Qarth Çölü
-got.biome.qohor=Qohor
-got.biome.qohorForest=Qohor Ormanı
-got.biome.rainwood=Yağmur ağacı
-got.biome.reach=Menzil 
-got.biome.reachArbor=çardak
-got.biome.reachHills≠
-got.biome.reachTown=Eski kasaba
-got.biome.redMesa=Kırmızı plato
-got.biome.redSea=Kanlı deniz
-got.biome.river=Nehir
-got.biome.riverlands=Nehir Toprakları
-got.biome.riverlandsHills=Afişsiz Kardeşlik Ormanı
-got.biome.sarnor=Sarnor
-got.biome.shadowLand=Gölge Ülkesi
-got.biome.shadowMountains=Şafak Dağları
-got.biome.shadowTown=Asshai
-got.biome.shadowWasteland=Gölgenin Çölü
-got.biome.shrykesLand≠
-got.biome.skagos=Skagos
-got.biome.skirlingPass=Hücum geçişi
-got.biome.sothoryosBushland=Sothoryos çalılık
-got.biome.sothoryosDeserHills=Sothoryos Çölü Tepeleri
-got.biome.sothoryosDesert=Sothoryos Çölü
-got.biome.sothoryosDesertCold=Sothoryos Soğuk Çölü
-got.biome.sothoryosFrost=Sothoryos Kutup Küresi
-got.biome.sothoryosHell=Yeşil Cehennem
-got.biome.sothoryosJungle=Sothoryos ormanı
-got.biome.sothoryosJungleEdge=Sothoryos Ormanının Kenarı
-got.biome.sothoryosKanuka=Sothoryos kanuka
-got.biome.sothoryosMangrove=Sothoryos mangrov
-got.biome.sothoryosMountains=Sothoryos Dağları
-got.biome.sothoryosSavannah=Sothoryos savana
-got.biome.sothoryosTaiga=Sothoryos Tayga
-got.biome.stepstones=Adımlar
-got.biome.stoneCoast=Taş Sahil
-got.biome.stormlands=Fırtına Toprakları
-got.biome.stormlandsTown=Durran Burnu
-got.biome.summerColonyMangrove≠
-got.biome.summerColony≠
-got.biome.summerIslands=Yaz Adaları
-got.biome.suudanKorkuu=Mossovy bataklıklar
-got.biome.tarth=Tart
-got.biome.thenn=Sonra Arazi
-got.biome.tropicalForest=Tropikal ormanlar
-got.biome.tyrosh=Tiroş
-got.biome.ulos=Ulolar
-got.biome.ulthos=Ulthos
-got.biome.ulthosDesert=Ulthos Çölü
-got.biome.ulthosDesertCold≠
-got.biome.ulthosForestEdge≠
-got.biome.ulthosForest≠
-got.biome.ulthosFrost≠
-got.biome.ulthosMarshesForest≠
-got.biome.ulthosMarshes≠
-got.biome.ulthosMountains=Ulthos Dağları
-got.biome.ulthosRedForestEdge≠
-got.biome.ulthosRedForest≠
-got.biome.ulthosTaigaEdge≠
-got.biome.ulthosTaiga≠
-got.biome.valyria=Valyria Yarımadası
-got.biome.valyriaSea=Valyria Denizi
-got.biome.valyriaVolcano=Valyria Volkanları
-got.biome.volantis=Volantis
-got.biome.volantisForest=Turuncu Sahil
-got.biome.volantisMarshes=Selhoru Vadisi
-got.biome.westerlands=Batı Toprakları
-got.biome.westerlandsHills=Batı Toprakları Tepeleri
-got.biome.westerlandsTown=Lannis Limanı
-got.biome.westerosForest1≠
-got.biome.westerosForest2≠
-got.biome.westerosForest=Westeros Ormanları
-got.biome.westerosMountains=Westeros Dağları
-got.biome.wetwood=ıslak odun
-got.biome.whisperingWood=Fısıldayan Ahşap
-got.biome.wolfswood=Kurt ağacı
-got.biome.yeen=Yeen Çorak
-got.biome.yiTi=Yi Ti
-got.biome.yiTiMarshes≠
-got.biome.yiTiWasteland=Yi Ti Sınır Bölgesi
-got.biome.yunkai=Yunkai
+got.biome.alwaysWinter.name=Daima Kış Toprakları
+got.biome.arryn.name=Vadi
+got.biome.arrynBaelish.name=Parmaklar
+got.biome.arrynForest.name=Ay etekleri
+got.biome.arrynMountains.name=Ay Dağları
+got.biome.arrynTown.name=Martı Kasabası
+got.biome.astapor.name=Astapor
+got.biome.beach.name=Plaj
+got.biome.beachGravel.name=Plaj
+got.biome.beachWhite.name=Plaj
+got.biome.blackIslands.name=Blackwater Körfezi Adaları
+got.biome.boneMountains.name=Kemik Dağları
+got.biome.braavos.name=Braavos
+got.biome.braavosHills.name≠
+got.biome.cannibalSands.name=Yamyam kumları
+got.biome.cannibalSandsHills.name≠
+got.biome.coldCoast.name=Soğuk Sahil
+got.biome.crackclaw.name=Çatlak Pençe Noktası
+got.biome.crownlands.name=Taç Toprakları
+got.biome.crownlandsForest.name=Kral Ormanı
+got.biome.crownlandsTown.name=Taç Toprakları
+got.biome.dorne.name=Dorne
+got.biome.dorneDesert.name=Dorne Çölü
+got.biome.dorneMountains.name=Kızıl Dağlar
+got.biome.dorneValley.name=Dorne Vadisi
+got.biome.doshKhalin.name=Dağların Annesi
+got.biome.dothrakiHills.name≠
+got.biome.dothrakiSea.name=Dothraki Denizi
+got.biome.dragonstone.name=Ejderha taşı
+got.biome.essos.name=Yaşanamayan Araziler
+got.biome.essosForest.name=Essos ormanları
+got.biome.essosHills.name=Norvoss Tepeleri
+got.biome.essosMountains.name=Essos Dağları
+got.biome.farNorthSnowy.name=Karlı çorak
+got.biome.fireField.name=Yüksek bahçe
+got.biome.freeCities.name=Özgür Şehirlerin Toprakları
+got.biome.frostfangs.name=Buz Dişleri
+got.biome.ghiscar.name=Ghiscar Körfezi
+got.biome.ghiscarColony.name=Ghiskar Kolonileri
+got.biome.giftNew.name=Yeni Hediye
+got.biome.giftOld.name=Hediye
+got.biome.hauntedForest.name=Perili orman
+got.biome.ibben.name=Ibben
+got.biome.ibbenColony.name=İbben Kolonisi
+got.biome.ibbenColonyHills.name≠
+got.biome.ibbenMountains.name=İbben Dağları
+got.biome.ibbenTaiga.name=İbben Ormanı
+got.biome.ifekevronForest.name=Ifekevron Ormanı
+got.biome.ironborn.name=Demir Adalar
+got.biome.ironbornHills.name=Demir Tepeler
+got.biome.irontree.name=Forrester'ın Ormanı
+got.biome.island.name=Adalet
+got.biome.isleOfFaces.name=Yüzler Adası
+got.biome.jogosNhai.name=Jogos Nhai Ovaları
+got.biome.jogosNhaiDesert.name=Kuru çöl
+got.biome.jogosNhaiHills.name≠
+got.biome.kanduuBet.name=Mossovy orman
+got.biome.kingSpears.name=Su Kralının Mızrakları
+got.biome.kuurulgan.name=Mossovy sopka
+got.biome.lake.name=Göl
+got.biome.lhazar.name=Lhazar
+got.biome.lhazarHills.name≠
+got.biome.longSummer.name=Uzun Yaz Ülkeleri
+got.biome.lorath.name=Lorath
+got.biome.lorathMaze.name≠
+got.biome.lys.name=Lys
+got.biome.massy.name=Massy'nin Kancası
+got.biome.massyHills.name≠
+got.biome.meereen.name=Meereen
+got.biome.mercenary.name=İhtilaflı Topraklar
+got.biome.mossovy.name=Mossovy
+got.biome.mossovyTundra.name=Mossovy tundra
+got.biome.myr.name=Mür
+got.biome.naath.name=Naath
+got.biome.neck.name=Kuzey Bataklıkları
+got.biome.newGhis.name≠
+got.biome.north.name=Kuzey
+got.biome.northBarrows.name=Höyükler
+got.biome.northForest.name=Kuzey Ormanı
+got.biome.northHills.name=Kuzey Tepeleri
+got.biome.northMountains.name=Kuzey Dağları
+got.biome.northTown.name=Beyaz Liman
+got.biome.northWild.name=Vahşi kuzey
+got.biome.norvos.name=Norvos
+got.biome.norvosHills.name≠
+got.biome.ocean.name=Okyanus
+got.biome.pentos.name=Pentolar
+got.biome.pentosHills.name≠
+got.biome.qarth.name=çeyrek
+got.biome.qarthColony.name≠
+got.biome.qarthDesert.name=Qarth Çölü
+got.biome.qohor.name=Qohor
+got.biome.qohorForest.name=Qohor Ormanı
+got.biome.rainwood.name=Yağmur ağacı
+got.biome.reach.name=Menzil 
+got.biome.reachArbor.name=çardak
+got.biome.reachHills.name≠
+got.biome.reachTown.name=Eski kasaba
+got.biome.redMesa.name=Kırmızı plato
+got.biome.redSea.name=Kanlı deniz
+got.biome.river.name=Nehir
+got.biome.riverlands.name=Nehir Toprakları
+got.biome.riverlandsHills.name=Afişsiz Kardeşlik Ormanı
+got.biome.sarnor.name=Sarnor
+got.biome.shadowLand.name=Gölge Ülkesi
+got.biome.shadowMountains.name=Şafak Dağları
+got.biome.shadowTown.name=Asshai
+got.biome.shadowWasteland.name=Gölgenin Çölü
+got.biome.shrykesLand.name≠
+got.biome.skagos.name=Skagos
+got.biome.skirlingPass.name=Hücum geçişi
+got.biome.sothoryosBushland.name=Sothoryos çalılık
+got.biome.sothoryosDeserHills.name=Sothoryos Çölü Tepeleri
+got.biome.sothoryosDesert.name=Sothoryos Çölü
+got.biome.sothoryosDesertCold.name=Sothoryos Soğuk Çölü
+got.biome.sothoryosFrost.name=Sothoryos Kutup Küresi
+got.biome.sothoryosHell.name=Yeşil Cehennem
+got.biome.sothoryosJungle.name=Sothoryos ormanı
+got.biome.sothoryosJungleEdge.name=Sothoryos Ormanının Kenarı
+got.biome.sothoryosKanuka.name=Sothoryos kanuka
+got.biome.sothoryosMangrove.name=Sothoryos mangrov
+got.biome.sothoryosMountains.name=Sothoryos Dağları
+got.biome.sothoryosSavannah.name=Sothoryos savana
+got.biome.sothoryosTaiga.name=Sothoryos Tayga
+got.biome.stepstones.name=Adımlar
+got.biome.stoneCoast.name=Taş Sahil
+got.biome.stormlands.name=Fırtına Toprakları
+got.biome.stormlandsTown.name=Durran Burnu
+got.biome.summerColonyMangrove.name≠
+got.biome.summerColony.name≠
+got.biome.summerIslands.name=Yaz Adaları
+got.biome.suudanKorkuu.name=Mossovy bataklıklar
+got.biome.tarth.name=Tart
+got.biome.thenn.name=Sonra Arazi
+got.biome.tropicalForest.name=Tropikal ormanlar
+got.biome.tyrosh.name=Tiroş
+got.biome.ulos.name=Ulolar
+got.biome.ulthos.name=Ulthos
+got.biome.ulthosDesert.name=Ulthos Çölü
+got.biome.ulthosDesertCold.name≠
+got.biome.ulthosForestEdge.name≠
+got.biome.ulthosForest.name≠
+got.biome.ulthosFrost.name≠
+got.biome.ulthosMarshesForest.name≠
+got.biome.ulthosMarshes.name≠
+got.biome.ulthosMountains.name=Ulthos Dağları
+got.biome.ulthosRedForestEdge.name≠
+got.biome.ulthosRedForest.name≠
+got.biome.ulthosTaigaEdge.name≠
+got.biome.ulthosTaiga.name≠
+got.biome.valyria.name=Valyria Yarımadası
+got.biome.valyriaSea.name=Valyria Denizi
+got.biome.valyriaVolcano.name=Valyria Volkanları
+got.biome.volantis.name=Volantis
+got.biome.volantisForest.name=Turuncu Sahil
+got.biome.volantisMarshes.name=Selhoru Vadisi
+got.biome.westerlands.name=Batı Toprakları
+got.biome.westerlandsHills.name=Batı Toprakları Tepeleri
+got.biome.westerlandsTown.name=Lannis Limanı
+got.biome.westerosForest1.name≠
+got.biome.westerosForest2.name≠
+got.biome.westerosForest.name=Westeros Ormanları
+got.biome.westerosMountains.name=Westeros Dağları
+got.biome.wetwood.name=ıslak odun
+got.biome.whisperingWood.name=Fısıldayan Ahşap
+got.biome.wolfswood.name=Kurt ağacı
+got.biome.yeen.name=Yeen Çorak
+got.biome.yiTi.name=Yi Ti
+got.biome.yiTiMarshes.name≠
+got.biome.yiTiWasteland.name=Yi Ti Sınır Bölgesi
+got.biome.yunkai.name=Yunkai
 got.capes.ARRYN.name=Vadi Burnu
 got.capes.ARRYNGUARD.name=Arryn Muhafız Burnu
 got.capes.ASSHAI.name=Asshai Burnu
