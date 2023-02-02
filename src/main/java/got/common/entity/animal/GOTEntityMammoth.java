@@ -171,11 +171,7 @@ public class GOTEntityMammoth extends GOTEntityHorse implements GOTBiome.ImmuneT
 			if (riddenByEntity instanceof EntityLivingBase) {
 				EntityLivingBase rhinoRider = (EntityLivingBase) riddenByEntity;
 				float momentum = MathHelper.sqrt_double(motionX * motionX + motionZ * motionZ);
-				if (momentum > 0.2f) {
-					setSprinting(true);
-				} else {
-					setSprinting(false);
-				}
+				setSprinting(momentum > 0.2f);
 				if (momentum >= 0.32f) {
 					float strength = momentum * 15.0f;
 					Vec3.createVectorHelper(posX, posY, posZ);
@@ -206,11 +202,7 @@ public class GOTEntityMammoth extends GOTEntityHorse implements GOTBiome.ImmuneT
 				}
 			} else if (getAttackTarget() != null) {
 				float momentum = MathHelper.sqrt_double(motionX * motionX + motionZ * motionZ);
-				if (momentum > 0.2f) {
-					setSprinting(true);
-				} else {
-					setSprinting(false);
-				}
+				setSprinting(momentum > 0.2f);
 			} else {
 				setSprinting(false);
 			}
