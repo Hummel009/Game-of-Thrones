@@ -67,13 +67,13 @@ public class GOTEntityMammoth extends GOTEntityHorse implements GOTBiome.ImmuneT
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		int meat = 10 + rand.nextInt(3) + rand.nextInt(1 + i);
+		int meat = 7 + rand.nextInt(2);
 		for (int l = 0; l < meat; ++l) {
 			if (isBurning()) {
 				dropItem(GOTRegistry.elephantCooked, 1);
-				continue;
+			} else {
+				dropItem(GOTRegistry.elephantRaw, 1);
 			}
-			dropItem(GOTRegistry.elephantRaw, 1);
 			dropItem(GOTRegistry.fur, 1);
 		}
 	}
@@ -142,6 +142,7 @@ public class GOTEntityMammoth extends GOTEntityHorse implements GOTBiome.ImmuneT
 
 	@Override
 	public void onDeath(DamageSource damagesource) {
+		super.onDeath(damagesource);
 		EntityPlayer entityplayer;
 		if (!worldObj.isRemote && damagesource.getEntity() instanceof EntityPlayer) {
 			entityplayer = (EntityPlayer) damagesource.getEntity();

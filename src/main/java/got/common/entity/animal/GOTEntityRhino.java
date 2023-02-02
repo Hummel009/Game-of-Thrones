@@ -52,13 +52,13 @@ public class GOTEntityRhino extends GOTEntityHorse {
 		for (int k = 0; k < j; ++k) {
 			dropItem(GOTRegistry.rhinoHorn, 1);
 		}
-		int meat = rand.nextInt(3) + rand.nextInt(1 + i);
+		int meat = 3 + rand.nextInt(2);
 		for (int l = 0; l < meat; ++l) {
 			if (isBurning()) {
 				dropItem(GOTRegistry.rhinoCooked, 1);
-				continue;
+			} else {
+				dropItem(GOTRegistry.rhinoRaw, 1);
 			}
-			dropItem(GOTRegistry.rhinoRaw, 1);
 		}
 	}
 

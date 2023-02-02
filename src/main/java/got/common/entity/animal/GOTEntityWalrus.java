@@ -88,7 +88,7 @@ public class GOTEntityWalrus extends EntityAnimal implements GOTBiome.ImmuneToFr
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		int meat = rand.nextInt(3) + rand.nextInt(1 + i);
+		int meat = 3 + rand.nextInt(2);
 		for (int l = 0; l < meat; ++l) {
 			if (isBurning()) {
 				dropItem(GOTRegistry.walrusLardCooked, 1);

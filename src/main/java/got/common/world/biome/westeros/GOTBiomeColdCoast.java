@@ -24,7 +24,7 @@ public class GOTBiomeColdCoast extends GOTBiomeWesterosFrost {
 
 	public GOTBiomeColdCoast(int i, boolean major) {
 		super(i, major);
-		setupFrostFauna();
+		spawnableCreatureList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWalrus.class, 40, 1, 1));
 		decorator.addVillage(new GOTStructureWildlingVillage(this, 1.0f));
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
@@ -58,6 +58,11 @@ public class GOTBiomeColdCoast extends GOTBiomeWesterosFrost {
 		topBlockMeta = topBlockMeta_pre;
 		fillerBlock = fillerBlock_pre;
 		fillerBlockMeta = fillerBlockMeta_pre;
+	}
+
+	@Override
+	public float getChanceToSpawnAnimals() {
+		return 0.2f;
 	}
 
 	@Override

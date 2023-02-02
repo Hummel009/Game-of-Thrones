@@ -1064,7 +1064,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		coldCoast = new GOTBiomeColdCoast(17, true).setClimateType(GOTClimateType.WINTER).setColor(0xC0D6CC).setMinMaxHeight(0.1f, 0.15f).setBiomeName("coldCoast");
 		crackclaw = new GOTBiomeCrackclaw(18, true).setClimateType(GOTClimateType.NORMAL).setColor(0x648E37).setMinMaxHeight(0.1f, 0.15f).setBiomeName("crackclaw");
 		crownlands = new GOTBiomeCrownlands(19, true).setClimateType(GOTClimateType.NORMAL).setColor(0x99BF80).setMinMaxHeight(0.1f, 0.15f).setBiomeName("crownlands");
-		crownlandsForest = new GOTBiomeCrownlandsForest(21, true).setClimateType(GOTClimateType.SUMMER).setColor(0x649345).setMinMaxHeight(0.1f, 0.15f).setBiomeName("crownlandsForest");
+		crownlandsForest = new GOTBiomeCrownlandsForest(21, true).setClimateType(GOTClimateType.SUMMER).setColor(0x608736).setMinMaxHeight(0.1f, 0.15f).setBiomeName("crownlandsForest");
 		crownlandsTown = new GOTBiomeCrownlandsTown(22, true).setClimateType(GOTClimateType.NORMAL).setColor(0xB6D6A0).setMinMaxHeight(0.1f, 0.15f).setBiomeName("crownlandsTown");
 		dorne = new GOTBiomeDorne(24, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9fb255).setMinMaxHeight(0.1f, 0.15f).setBiomeName("dorne");
 		dorneDesert = new GOTBiomeDorneDesert(25, true).setClimateType(GOTClimateType.SUMMER).setColor(14074229).setMinMaxHeight(0.1f, 0.15f).setBiomeName("dorneDesert");

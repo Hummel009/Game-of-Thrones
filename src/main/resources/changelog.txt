@@ -17,6 +17,8 @@ CHANGELOG
 * Optimized Seasons mechanics. 8x faster and 8x more stable (proved by maths expectation and variance)
 * Optimized lots of places with enum maps
 
+* Fixed bug with mammoth drops
+* Fixed bug with rare walruses in cold coast
 * Fixed a few bugs linked with wrongly selected season for the biome
 * Fixed bug with grey fog around the shadows
 * Fixed bug that made Red Clay the most rare mineral in the world

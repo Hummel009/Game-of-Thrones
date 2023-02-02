@@ -87,8 +87,10 @@ public class GOTEntityDirewolf extends EntityAnimal implements GOTBiome.ImmuneTo
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(Items.beef, 1);
-		dropItem(GOTRegistry.fur, 2);
+		int meat = 2 + rand.nextInt(2);
+		for (int l = 0; l < meat; ++l) {
+			dropItem(GOTRegistry.fur, 1);
+		}
 	}
 
 	@Override

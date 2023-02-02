@@ -54,13 +54,19 @@ public class GOTEntityWoolyRhino extends GOTEntityHorse implements GOTBiome.Immu
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		if (isBurning()) {
-			dropItem(GOTRegistry.rhinoCooked, 5);
-		} else {
-			dropItem(GOTRegistry.rhinoRaw, 5);
+		int j = rand.nextInt(2) + rand.nextInt(1 + i);
+		for (int k = 0; k < j; ++k) {
+			dropItem(GOTRegistry.rhinoHorn, 1);
 		}
-		dropItem(GOTRegistry.fur, 5);
-		dropItem(GOTRegistry.rhinoHorn, 1);
+		int meat = 3 + rand.nextInt(2);
+		for (int l = 0; l < meat; ++l) {
+			if (isBurning()) {
+				dropItem(GOTRegistry.rhinoCooked, 1);
+			} else {
+				dropItem(GOTRegistry.rhinoRaw, 1);
+			}
+			dropItem(GOTRegistry.fur, 1);
+		}
 	}
 
 	@Override
