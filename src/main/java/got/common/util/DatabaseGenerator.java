@@ -1541,7 +1541,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 	}
 
 	public String getBiomeName(GOTBiome biome) {
-		return StatCollector.translateToLocal("got.biome." + biome.biomeName);
+		return StatCollector.translateToLocal("got.biome." + biome.biomeName + ".name");
 	}
 
 	public String getBiomePagename(GOTBiome biome) {

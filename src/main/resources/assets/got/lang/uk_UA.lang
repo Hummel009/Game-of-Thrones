@@ -1561,13 +1561,13 @@ got.biome.blackIslands=Острови Чорноводної затоки
 got.biome.boneMountains=Хребет Кісток
 got.biome.braavos=Браавос
 got.biome.braavosHills=Пагорби Браавосу
+got.biome.cannibalSands=Людожерські піски
 got.biome.cannibalSandsHills=Пагорби людожерських пісків
 got.biome.coldCoast=Холодний берег
 got.biome.crackclaw=Розколота клешня
 got.biome.crownlands=Королівські землі
 got.biome.crownlandsForest=Королівський ліс
 got.biome.crownlandsTown=Королівська Гавань
-got.biome.deathDesert=Людожерські піски
 got.biome.dorne=Дорнійське узбережжя
 got.biome.dorneDesert=Дорнійська пустеля
 got.biome.dorneMountains=Червоні гори
@@ -1612,6 +1612,7 @@ got.biome.lorath=Лорат
 got.biome.lorathMaze=Лабіринти Лорату
 got.biome.lys=Ліс
 got.biome.massy=Гак Массі
+got.biome.massyHills≠
 got.biome.meereen=Міерін
 got.biome.mercenary=Спірні землі
 got.biome.mossovy=Мосовія
@@ -1643,6 +1644,7 @@ got.biome.qohorForest=Квогорський ліс
 got.biome.rainwood=Дощовий ліс
 got.biome.reach=Простір
 got.biome.reachArbor=Арбор
+got.biome.reachHills≠
 got.biome.reachTown=Старе Місто
 got.biome.redMesa=Червоне плато
 got.biome.redSea=Криваве море
@@ -1704,6 +1706,8 @@ got.biome.volantisMarshes=Ессоські болота
 got.biome.westerlands=Західні землі
 got.biome.westerlandsHills=Пагорби Західних земель
 got.biome.westerlandsTown=Ланніспорт
+got.biome.westerosForest1≠
+got.biome.westerosForest2≠
 got.biome.westerosForest=Вестероські ліси
 got.biome.westerosMountains=Вестероські гори
 got.biome.wetwood=Мокрий ліс
@@ -5147,9 +5151,14 @@ item.got:braavos_helmet.name=Шолом Браавосу
 item.got:braavos_leggings.name=Наголінники Браавосу
 item.got:branding_iron.name=тавро
 item.got:brightroar.name=Світлий Рев
+item.got:bronzeNugget.name≠
 item.got:bronze_axe.name=Сокира з бронзи
 item.got:bronze_battleaxe.name=Бойова сокира з бронзи
 item.got:bronze_boots.name=Чоботи із бронзи
+item.got:bronze_chainmail_boots.name≠
+item.got:bronze_chainmail_chestplate.name≠
+item.got:bronze_chainmail_helmet.name≠
+item.got:bronze_chainmail_leggings.name≠
 item.got:bronze_chestplate.name=Нагрудник із бронзи
 item.got:bronze_crossbow.name=Арбалет із бронзи
 item.got:bronze_dagger.name=Кинджал із бронзи
@@ -5239,6 +5248,8 @@ item.got:dye.4.name=Подрібнене вугілля
 item.got:dye.5.name=Коричневий барвник
 item.got:eddard_sword.name=Меч Еддарда Старка
 item.got:elderberry.name=Бузина
+item.got:elephant_cooked.name≠
+item.got:elephant_raw.name≠
 item.got:emerald.name=Смарагд
 item.got:essos_bow.name=Лук Ессосу
 item.got:essos_dagger.name=Кинджал Ессосу
@@ -5321,6 +5332,7 @@ item.got:ice_shard.name=Уламок льоду
 item.got:ice_spear.name=Крижаний спис
 item.got:ice_sword.name=Крижаний меч
 item.got:indomitable.name=Неприборканий
+item.got:ironNugget.name≠
 item.got:iron_battleaxe.name=Бойова сокира із заліза
 item.got:iron_crossbow.name=Арбалет із заліза
 item.got:iron_dagger.name=Кинджал із заліза
@@ -5651,6 +5663,10 @@ item.got:valyrian_axe.name=Сокира з валірійської сталі
 item.got:valyrian_battleaxe.name=Бойова сокира з валірійської сталі
 item.got:valyrian_book.name=Книга валірійської сталі
 item.got:valyrian_boots.name=Чоботи з валірійської сталі
+item.got:valyrian_chainmail_boots.name≠
+item.got:valyrian_chainmail_chestplate.name≠
+item.got:valyrian_chainmail_helmet.name≠
+item.got:valyrian_chainmail_leggings.name≠
 item.got:valyrian_chestplate.name=Нагрудник із валірійської сталі
 item.got:valyrian_chisel.name=Валірійське зубило
 item.got:valyrian_crossbow.name=Арбалет із валірійської сталі
@@ -5681,6 +5697,8 @@ item.got:volantis_chestplate.name=Нагрудник Волантісу
 item.got:volantis_helmet.name=Шолом Волантісу
 item.got:volantis_leggings.name=Наголінники Волантісу
 item.got:walking_stick.name=Тростина
+item.got:walrus_lard_cooked.name≠
+item.got:walrus_lard_raw.name≠
 item.got:waterskin.name=Бурдюк
 item.got:westerlands_boots.name=Чоботи Західних земель
 item.got:westerlands_chestplate.name=Нагрудник Західних земель

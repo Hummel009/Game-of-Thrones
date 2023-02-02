@@ -1561,13 +1561,13 @@ got.biome.blackIslands=Isole di Blackwater Bay
 got.biome.boneMountains=Montagne di ossa
 got.biome.braavos=Braavos
 got.biome.braavosHills≠
+got.biome.cannibalSands=Cannibal Sands
 got.biome.cannibalSandsHills≠
 got.biome.coldCoast=Costa fredda
 got.biome.crackclaw=Punto Crackclaw
 got.biome.crownlands=Terre della Corona
 got.biome.crownlandsForest=King Forest
 got.biome.crownlandsTown=Sbarco del re
-got.biome.deathDesert=Cannibal Sands
 got.biome.dorne=Dorne
 got.biome.dorneDesert=Dorne Desert
 got.biome.dorneMountains=Montagne rosse
@@ -1614,6 +1614,7 @@ got.biome.lorath=Lorath
 got.biome.lorathMaze≠
 got.biome.lys=Lys
 got.biome.massy=Massy Hook
+got.biome.massyHills≠
 got.biome.meereen=Meereen
 got.biome.mercenary=Terre contese
 got.biome.mossovy=Mossovy
@@ -1642,6 +1643,7 @@ got.biome.qohorForest=Foresta di Qohor
 got.biome.rainwood=Rainwood
 got.biome.reach=Raggiungere
 got.biome.reachArbor=Pergolato
+got.biome.reachHills≠
 got.biome.reachTown=Città vecchia
 got.biome.redMesa=Altopiano rosso
 got.biome.redSea=Mare insanguinato
@@ -1704,6 +1706,8 @@ got.biome.volantisMarshes=Valle di Selhoru
 got.biome.westerlands=Terre dell'Ovest
 got.biome.westerlandsHills=Westerlands Hills
 got.biome.westerlandsTown=Lannisport
+got.biome.westerosForest1≠
+got.biome.westerosForest2≠
 got.biome.westerosForest=Foreste di Westeros
 got.biome.westerosMountains=Montagne di Westeros
 got.biome.wetwood=Wetwood
@@ -5147,9 +5151,14 @@ item.got:braavos_helmet.name=Elmo di Braavos
 item.got:braavos_leggings.name=Gambiere di Braavos
 item.got:branding_iron.name=Ferro da marchio
 item.got:brightroar.name=Brightroar
+item.got:bronzeNugget.name≠
 item.got:bronze_axe.name=Ascia di bronzo
 item.got:bronze_battleaxe.name=Ascia da battaglia in bronzo
 item.got:bronze_boots.name=Stivali di bronzo
+item.got:bronze_chainmail_boots.name≠
+item.got:bronze_chainmail_chestplate.name≠
+item.got:bronze_chainmail_helmet.name≠
+item.got:bronze_chainmail_leggings.name≠
 item.got:bronze_chestplate.name=Pettorale in bronzo
 item.got:bronze_crossbow.name=Balestra di bronzo
 item.got:bronze_dagger.name=Pugnale di bronzo
@@ -5239,6 +5248,8 @@ item.got:dye.4.name=Polvere di carbonella
 item.got:dye.5.name=Tinta marrone
 item.got:eddard_sword.name=Spada di Eddard Stark
 item.got:elderberry.name=Bacche di sambuco
+item.got:elephant_cooked.name≠
+item.got:elephant_raw.name≠
 item.got:emerald.name=Smeraldo
 item.got:essos_bow.name=Arco di Essos
 item.got:essos_dagger.name=Città libere Dagger
@@ -5321,6 +5332,7 @@ item.got:ice_shard.name≠
 item.got:ice_spear.name≠
 item.got:ice_sword.name=Spada di ghiaccio
 item.got:indomitable.name≠
+item.got:ironNugget.name≠
 item.got:iron_battleaxe.name=Ascia da battaglia di ferro
 item.got:iron_crossbow.name=Balestra di ferro
 item.got:iron_dagger.name=Pugnale di ferro
@@ -5651,6 +5663,10 @@ item.got:valyrian_axe.name=Ascia di Valyria
 item.got:valyrian_battleaxe.name=Ascia da battaglia di Valyria
 item.got:valyrian_book.name=Libro di vero argento
 item.got:valyrian_boots.name=Stivali di Valyria
+item.got:valyrian_chainmail_boots.name≠
+item.got:valyrian_chainmail_chestplate.name≠
+item.got:valyrian_chainmail_helmet.name≠
+item.got:valyrian_chainmail_leggings.name≠
 item.got:valyrian_chestplate.name=Corazza di Valyria
 item.got:valyrian_chisel.name=Scalpello di Valyria
 item.got:valyrian_crossbow.name=Balestra di Valyria
@@ -5681,6 +5697,8 @@ item.got:volantis_chestplate.name=Corazza di Volantis
 item.got:volantis_helmet.name=Elmo di Volantis
 item.got:volantis_leggings.name=Gambali di Volantis
 item.got:walking_stick.name≠
+item.got:walrus_lard_cooked.name≠
+item.got:walrus_lard_raw.name≠
 item.got:waterskin.name=Otre
 item.got:westerlands_boots.name=Stivali delle Terre dell'Ovest
 item.got:westerlands_chestplate.name=Pettorale delle Terre dell'Ovest

@@ -1561,13 +1561,13 @@ got.biome.blackIslands=Blackwater Körfezi Adaları
 got.biome.boneMountains=Kemik Dağları
 got.biome.braavos=Braavos
 got.biome.braavosHills≠
+got.biome.cannibalSands=Yamyam kumları
 got.biome.cannibalSandsHills≠
 got.biome.coldCoast=Soğuk Sahil
 got.biome.crackclaw=Çatlak Pençe Noktası
 got.biome.crownlands=Taç Toprakları
 got.biome.crownlandsForest=Kral Ormanı
 got.biome.crownlandsTown=Taç Toprakları
-got.biome.deathDesert=Yamyam kumları
 got.biome.dorne=Dorne
 got.biome.dorneDesert=Dorne Çölü
 got.biome.dorneMountains=Kızıl Dağlar
@@ -1614,6 +1614,7 @@ got.biome.lorath=Lorath
 got.biome.lorathMaze≠
 got.biome.lys=Lys
 got.biome.massy=Massy'nin Kancası
+got.biome.massyHills≠
 got.biome.meereen=Meereen
 got.biome.mercenary=İhtilaflı Topraklar
 got.biome.mossovy=Mossovy
@@ -1642,6 +1643,7 @@ got.biome.qohorForest=Qohor Ormanı
 got.biome.rainwood=Yağmur ağacı
 got.biome.reach=Menzil 
 got.biome.reachArbor=çardak
+got.biome.reachHills≠
 got.biome.reachTown=Eski kasaba
 got.biome.redMesa=Kırmızı plato
 got.biome.redSea=Kanlı deniz
@@ -1704,6 +1706,8 @@ got.biome.volantisMarshes=Selhoru Vadisi
 got.biome.westerlands=Batı Toprakları
 got.biome.westerlandsHills=Batı Toprakları Tepeleri
 got.biome.westerlandsTown=Lannis Limanı
+got.biome.westerosForest1≠
+got.biome.westerosForest2≠
 got.biome.westerosForest=Westeros Ormanları
 got.biome.westerosMountains=Westeros Dağları
 got.biome.wetwood=ıslak odun
@@ -5147,9 +5151,14 @@ item.got:braavos_helmet.name=Braavos Kask
 item.got:braavos_leggings.name=Braavos Pantolon
 item.got:branding_iron.name=Bağlama Demiri
 item.got:brightroar.name=Parlak kükreme
+item.got:bronzeNugget.name≠
 item.got:bronze_axe.name=Bronz balta
 item.got:bronze_battleaxe.name=Bronz Savaş Baltası
 item.got:bronze_boots.name=Bronz Bot
+item.got:bronze_chainmail_boots.name≠
+item.got:bronze_chainmail_chestplate.name≠
+item.got:bronze_chainmail_helmet.name≠
+item.got:bronze_chainmail_leggings.name≠
 item.got:bronze_chestplate.name=Bronz Zırh
 item.got:bronze_crossbow.name=Bronz Kundaklı Yay
 item.got:bronze_dagger.name=Bronz hançer
@@ -5239,6 +5248,8 @@ item.got:dye.4.name=Odun Kömürü Tozu
 item.got:dye.5.name=Kahverengi Boya
 item.got:eddard_sword.name=Eddard Stark Kılıcı
 item.got:elderberry.name=Mürver
+item.got:elephant_cooked.name≠
+item.got:elephant_raw.name≠
 item.got:emerald.name=Zümrüt
 item.got:essos_bow.name=Essos Yayı
 item.got:essos_dagger.name=Özgür Şehirler Hançeri
@@ -5321,6 +5332,7 @@ item.got:ice_shard.name=Buz parçası
 item.got:ice_spear.name=Ak Gezenler Mızrağı
 item.got:ice_sword.name=Buz Kılıcı
 item.got:indomitable.name=Yılmaz
+item.got:ironNugget.name≠
 item.got:iron_battleaxe.name=Demir Savaş Baltası
 item.got:iron_crossbow.name=Demir Kundaklı Yay
 item.got:iron_dagger.name=Demir hançer
@@ -5651,6 +5663,10 @@ item.got:valyrian_axe.name=Valyria Baltası
 item.got:valyrian_battleaxe.name=Valyria Savaş Baltası
 item.got:valyrian_book.name=Gerçek Gümüş Kitabı
 item.got:valyrian_boots.name=Valyria Bot
+item.got:valyrian_chainmail_boots.name≠
+item.got:valyrian_chainmail_chestplate.name≠
+item.got:valyrian_chainmail_helmet.name≠
+item.got:valyrian_chainmail_leggings.name≠
 item.got:valyrian_chestplate.name=Valyrian Zırh
 item.got:valyrian_chisel.name=Valyria Keski
 item.got:valyrian_crossbow.name=Valyria Kundaklı Yay
@@ -5681,6 +5697,8 @@ item.got:volantis_chestplate.name=Volantis Zırh
 item.got:volantis_helmet.name=Volantis Kask
 item.got:volantis_leggings.name=Volantis Pantolon
 item.got:walking_stick.name=Baston
+item.got:walrus_lard_cooked.name≠
+item.got:walrus_lard_raw.name≠
 item.got:waterskin.name=Suderisi
 item.got:westerlands_boots.name=Batı Toprakları Bot
 item.got:westerlands_chestplate.name=Batı Toprakları Zırh

@@ -1561,13 +1561,13 @@ got.biome.blackIslands=黑水湾
 got.biome.boneMountains=骸骨山脉
 got.biome.braavos=布拉佛斯
 got.biome.braavosHills≠
+got.biome.cannibalSands=食人沙漠
 got.biome.cannibalSandsHills≠
 got.biome.coldCoast=冰冷海岸
 got.biome.crackclaw=蟹爪半岛
 got.biome.crownlands=王领
 got.biome.crownlandsForest=御林
 got.biome.crownlandsTown=君临
-got.biome.deathDesert=食人沙漠
 got.biome.dorne=多恩
 got.biome.dorneDesert=多恩沙漠
 got.biome.dorneMountains=赤红山脉
@@ -1614,6 +1614,7 @@ got.biome.lorath=罗拉斯
 got.biome.lorathMaze≠
 got.biome.lys=里斯
 got.biome.massy=摩西之钩
+got.biome.massyHills≠
 got.biome.meereen=弥林
 got.biome.mercenary=争议之地
 got.biome.mossovy=摩苏伊
@@ -1642,6 +1643,7 @@ got.biome.qohorForest=科霍尔森林
 got.biome.rainwood=雨林
 got.biome.reach=河湾地
 got.biome.reachArbor=青亭岛
+got.biome.reachHills≠
 got.biome.reachTown=旧镇
 got.biome.redMesa=红色高原
 got.biome.redSea=血海
@@ -1704,6 +1706,8 @@ got.biome.volantisMarshes=赛荷鲁谷地
 got.biome.westerlands=西境
 got.biome.westerlandsHills=维斯特洛丘陵
 got.biome.westerlandsTown=兰尼斯港
+got.biome.westerosForest1≠
+got.biome.westerosForest2≠
 got.biome.westerosForest=森林
 got.biome.westerosMountains=维斯特洛山脉
 got.biome.wetwood=湿林
@@ -5147,9 +5151,14 @@ item.got:braavos_helmet.name=布拉佛斯头盔
 item.got:braavos_leggings.name=布拉佛斯护腿
 item.got:branding_iron.name=烙铁
 item.got:brightroar.name=光啸
+item.got:bronzeNugget.name≠
 item.got:bronze_axe.name=青铜斧
 item.got:bronze_battleaxe.name=青铜战斧
 item.got:bronze_boots.name=青铜靴子
+item.got:bronze_chainmail_boots.name≠
+item.got:bronze_chainmail_chestplate.name≠
+item.got:bronze_chainmail_helmet.name≠
+item.got:bronze_chainmail_leggings.name≠
 item.got:bronze_chestplate.name=青铜胸甲
 item.got:bronze_crossbow.name=青铜弩
 item.got:bronze_dagger.name=青铜匕首
@@ -5239,6 +5248,8 @@ item.got:dye.4.name=木炭尘
 item.got:dye.5.name=棕色染料
 item.got:eddard_sword.name=艾德史塔克的剑
 item.got:elderberry.name=接骨木莓
+item.got:elephant_cooked.name≠
+item.got:elephant_raw.name≠
 item.got:emerald.name=绿宝石
 item.got:essos_bow.name=厄斯索斯弓
 item.got:essos_dagger.name=自由联邦匕首
@@ -5321,6 +5332,7 @@ item.got:ice_shard.name=冰碎片
 item.got:ice_spear.name=冰矛
 item.got:ice_sword.name=冰剑
 item.got:indomitable.name=不屈
+item.got:ironNugget.name≠
 item.got:iron_battleaxe.name=铁战斧
 item.got:iron_crossbow.name=铁弩
 item.got:iron_dagger.name=铁匕首
@@ -5651,6 +5663,10 @@ item.got:valyrian_axe.name=瓦雷利亚钢斧
 item.got:valyrian_battleaxe.name=瓦雷利亚钢战斧
 item.got:valyrian_book.name=锻造手札
 item.got:valyrian_boots.name=瓦雷利亚钢靴子
+item.got:valyrian_chainmail_boots.name≠
+item.got:valyrian_chainmail_chestplate.name≠
+item.got:valyrian_chainmail_helmet.name≠
+item.got:valyrian_chainmail_leggings.name≠
 item.got:valyrian_chestplate.name=瓦雷利亚钢胸甲
 item.got:valyrian_chisel.name=瓦雷利安钢凿子
 item.got:valyrian_crossbow.name=瓦雷利亚钢弩
@@ -5681,6 +5697,8 @@ item.got:volantis_chestplate.name=瓦兰提斯胸甲
 item.got:volantis_helmet.name=瓦兰提斯头盔
 item.got:volantis_leggings.name=瓦兰提斯护腿
 item.got:walking_stick.name=手杖
+item.got:walrus_lard_cooked.name≠
+item.got:walrus_lard_raw.name≠
 item.got:waterskin.name=水袋
 item.got:westerlands_boots.name=西境靴子
 item.got:westerlands_chestplate.name=西境胸甲

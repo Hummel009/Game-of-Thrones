@@ -590,7 +590,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	public String getName() {
-		return StatCollector.translateToLocal("got.biome." + biomeName);
+		return StatCollector.translateToLocal("got.biome." + biomeName + ".name");
 	}
 
 	public GOTBiomeSpawnList getNpcSpawnList() {
@@ -1059,7 +1059,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		boneMountains = new GOTBiomeBoneMountains(14, true).setClimateType(GOTClimateType.SUMMER_AZ).setColor(0xE5E2B3).setMinMaxHeight(2.0f, 2.0f).setBiomeName("boneMountains");
 		braavos = new GOTBiomeBraavos(15, true).setClimateType(GOTClimateType.SUMMER).setColor(0xAA9747).setMinMaxHeight(0.1f, 0.15f).setBiomeName("braavos");
 		braavosHills = new GOTBiomeBraavos(96, true).setClimateType(GOTClimateType.SUMMER).setColor(0x938448).setMinMaxHeight(0.1f, 1.0f).setBiomeName("braavosHills");
-		cannibalSands = new GOTBiomeCannibalSands(23, true).setClimateType(GOTClimateType.SUMMER).setColor(0xCCBC82).setMinMaxHeight(0.1f, 0.15f).setBiomeName("deathDesert");
+		cannibalSands = new GOTBiomeCannibalSands(23, true).setClimateType(GOTClimateType.SUMMER).setColor(0xCCBC82).setMinMaxHeight(0.1f, 0.15f).setBiomeName("cannibalSands");
 		cannibalSandsHills = new GOTBiomeCannibalSands(83, true).setClimateType(GOTClimateType.SUMMER).setColor(0xA5986A).setMinMaxHeight(0.1f, 1f).setBiomeName("cannibalSandsHills");
 		coldCoast = new GOTBiomeColdCoast(17, true).setClimateType(GOTClimateType.WINTER).setColor(0xC0D6CC).setMinMaxHeight(0.1f, 0.15f).setBiomeName("coldCoast");
 		crackclaw = new GOTBiomeCrackclaw(18, true).setClimateType(GOTClimateType.NORMAL).setColor(0x648E37).setMinMaxHeight(0.1f, 0.15f).setBiomeName("crackclaw");
@@ -1197,8 +1197,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 		westerlands = new GOTBiomeWesterlands(152, true).setClimateType(GOTClimateType.NORMAL).setColor(0xAFBA5E).setMinMaxHeight(0.1f, 0.15f).setBiomeName("westerlands");
 		westerlandsHills = new GOTBiomeWesterlandsHills(154, true).setClimateType(GOTClimateType.NORMAL).setColor(0x9BA360).setMinMaxHeight(0.1f, 1.0f).setBiomeName("westerlandsHills");
 		westerlandsTown = new GOTBiomeWesterlandsTown(155, true).setClimateType(GOTClimateType.NORMAL).setColor(0xC5CE7D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("westerlandsTown");
-		westerosForest1 = new GOTBiomeNorthForest(134, true).setClimateType(GOTClimateType.NORMAL).setColor(0x467C3D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("northForest");
-		westerosForest2 = new GOTBiomeWesterosForest(156, true).setClimateType(GOTClimateType.SUMMER).setColor(0x618736).setMinMaxHeight(0.1f, 0.15f).setBiomeName("westerosForest");
+		westerosForest1 = new GOTBiomeNorthForest(134, true).setClimateType(GOTClimateType.NORMAL).setColor(0x467C3D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("westerosForest1");
+		westerosForest2 = new GOTBiomeWesterosForest(156, true).setClimateType(GOTClimateType.SUMMER).setColor(0x618736).setMinMaxHeight(0.1f, 0.15f).setBiomeName("westerosForest2");
 		wetwood = new GOTBiomeWetwood(157, true).setClimateType(GOTClimateType.COLD).setColor(0x488958).setMinMaxHeight(0.1f, 0.15f).setBiomeName("wetwood");
 		whisperingWood = new GOTBiomeWhisperingWood(158, true).setClimateType(GOTClimateType.NORMAL).setColor(0x598632).setMinMaxHeight(0.1f, 0.15f).setBiomeName("whisperingWood");
 		wolfswood = new GOTBiomeNorthForest(159, true).setClimateType(GOTClimateType.COLD).setColor(0x5F913E).setMinMaxHeight(0.1f, 0.15f).setBiomeName("wolfswood");

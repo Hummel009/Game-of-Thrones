@@ -1561,13 +1561,13 @@ got.biome.blackIslands=Wyspy Blackwater Bay
 got.biome.boneMountains=Góry Kości
 got.biome.braavos=Braavos
 got.biome.braavosHills≠
+got.biome.cannibalSands=Cannibal Sands
 got.biome.cannibalSandsHills≠
 got.biome.coldCoast=Cold Coast
 got.biome.crackclaw=Crackclaw Point
 got.biome.crownlands=Krainy korony
 got.biome.crownlandsForest=King Forest
 got.biome.crownlandsTown=Królewska Przystań
-got.biome.deathDesert=Cannibal Sands
 got.biome.dorne=Dorne
 got.biome.dorneDesert=Pustynia Dorne
 got.biome.dorneMountains=Czerwone Góry
@@ -1614,6 +1614,7 @@ got.biome.lorath=Lorath
 got.biome.lorathMaze≠
 got.biome.lys=Lys
 got.biome.massy=Hak Massy'ego
+got.biome.massyHills≠
 got.biome.meereen=Meereen
 got.biome.mercenary=Ziemie sporne
 got.biome.mossovy=Mossovy
@@ -1642,6 +1643,7 @@ got.biome.qohorForest=Las Qohor
 got.biome.rainwood=Rainwood
 got.biome.reach=Reach
 got.biome.reachArbor=Altanka
+got.biome.reachHills≠
 got.biome.reachTown=Stare Miasto
 got.biome.redMesa=Czerwony płaskowyż
 got.biome.redSea=Krwawe morze
@@ -1704,6 +1706,8 @@ got.biome.volantisMarshes=Dolina Selhoru
 got.biome.westerlands=Krainy zachodu
 got.biome.westerlandsHills=Krainy zachodu Hills
 got.biome.westerlandsTown=Lannisport
+got.biome.westerosForest1≠
+got.biome.westerosForest2≠
 got.biome.westerosForest=Lasy Westeros
 got.biome.westerosMountains=Góry Westeros
 got.biome.wetwood=Wetwood
@@ -5147,9 +5151,14 @@ item.got:braavos_helmet.name=Hełm Braavosa
 item.got:braavos_leggings.name=Nogawice marki Braavos
 item.got:branding_iron.name=Znakujące żelazo
 item.got:brightroar.name=Brightroar
+item.got:bronzeNugget.name≠
 item.got:bronze_axe.name=Brązowy topór
 item.got:bronze_battleaxe.name=Brązowy topór bojowy
 item.got:bronze_boots.name=Brązowe buty
+item.got:bronze_chainmail_boots.name≠
+item.got:bronze_chainmail_chestplate.name≠
+item.got:bronze_chainmail_helmet.name≠
+item.got:bronze_chainmail_leggings.name≠
 item.got:bronze_chestplate.name=Napierśnik z brązu
 item.got:bronze_crossbow.name=Brązowa kusza
 item.got:bronze_dagger.name=Sztylet z brązu
@@ -5239,6 +5248,8 @@ item.got:dye.4.name=Pył z węgla drzewnego
 item.got:dye.5.name=Brązowy barwnik
 item.got:eddard_sword.name=Miecz Eddarda Starka
 item.got:elderberry.name=Owoce czarnego bzu
+item.got:elephant_cooked.name≠
+item.got:elephant_raw.name≠
 item.got:emerald.name=Szmaragd
 item.got:essos_bow.name=Łuk Essos
 item.got:essos_dagger.name=Sztylet Wolnych Miast
@@ -5321,6 +5332,7 @@ item.got:ice_shard.name≠
 item.got:ice_spear.name≠
 item.got:ice_sword.name=Lodowy Miecz
 item.got:indomitable.name≠
+item.got:ironNugget.name≠
 item.got:iron_battleaxe.name=Żelazny topór bojowy
 item.got:iron_crossbow.name=Żelazna kusza
 item.got:iron_dagger.name=Żelazny sztylet
@@ -5651,6 +5663,10 @@ item.got:valyrian_axe.name=Valyrian Axe
 item.got:valyrian_battleaxe.name=Valyriański topór bojowy
 item.got:valyrian_book.name=Księga Prawdziwego Srebra
 item.got:valyrian_boots.name=Buty Valyrian
+item.got:valyrian_chainmail_boots.name≠
+item.got:valyrian_chainmail_chestplate.name≠
+item.got:valyrian_chainmail_helmet.name≠
+item.got:valyrian_chainmail_leggings.name≠
 item.got:valyrian_chestplate.name=Valyrian Chestplate
 item.got:valyrian_chisel.name=Dłuto Valyrian
 item.got:valyrian_crossbow.name=Valyrian Crossbow
@@ -5681,6 +5697,8 @@ item.got:volantis_chestplate.name=Napierśnik Volantisa
 item.got:volantis_helmet.name=Hełm Volantisa
 item.got:volantis_leggings.name=Nogawice Volantis
 item.got:walking_stick.name≠
+item.got:walrus_lard_cooked.name≠
+item.got:walrus_lard_raw.name≠
 item.got:waterskin.name=Bukłak
 item.got:westerlands_boots.name=Buty z Krainy zachodu
 item.got:westerlands_chestplate.name=Napierśnik z Krainy zachodu
