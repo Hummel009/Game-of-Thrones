@@ -1,4 +1,6 @@
 ﻿
+item.got:bronze_ring.name≠
+item.got:copper_ring.name≠
 attribute.name.generic.movementSpeedAir=Vitesse (Air)
 color.black=Noir
 color.blue=Bleu

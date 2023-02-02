@@ -1,4 +1,6 @@
 ﻿
+item.got:bronze_ring.name=Бронзовое кольцо
+item.got:copper_ring.name=Медное кольцо
 attribute.name.generic.movementSpeedAir=Скорость (Воздух)
 color.black=Чёрный
 color.blue=Голубой
@@ -5303,7 +5305,7 @@ item.got:gold_boots.name=Ботинки Золотых Мечей
 item.got:gold_chestplate.name=Нагрудник Золотых Мечей
 item.got:gold_helmet.name=Шлем Золотых Мечей
 item.got:gold_leggings.name=Поножи Золотых Мечей
-item.got:gold_ring.name=Кольцо из золота
+item.got:gold_ring.name=Золотое кольцо
 item.got:grape_red.name=Красный виноград
 item.got:grape_white.name=Зелёный виноград
 item.got:gregor_clegane_sword.name=Меч Григора Клигана
@@ -5586,7 +5588,7 @@ item.got:seeds_grape_white.name=Семена зелёного винограда
 item.got:shish_kebab.name=Шашлык на шампуре
 item.got:silver_ingot.name=Слиток серебра
 item.got:silver_nugget.name=Самородок серебра
-item.got:silver_ring.name=Кольцо из серебра
+item.got:silver_ring.name=Серебряное кольцо
 item.got:skull_cup.name=Чаша из черепа
 item.got:skull_staff.name=Посох с черепом
 item.got:sling.name=Рогатка

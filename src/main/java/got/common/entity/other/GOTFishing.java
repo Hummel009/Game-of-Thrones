@@ -63,6 +63,8 @@ public class GOTFishing {
 		treasure.add(new FishingItem(new ItemStack(GOTRegistry.silverNugget), 50));
 		treasure.add(new FishingItem(new ItemStack(GOTRegistry.silverIngot), 5));
 		treasure.add(new FishingItem(new ItemStack(GOTRegistry.valyrianNugget), 5));
+		treasure.add(new FishingItem(new ItemStack(GOTRegistry.copperRing), 10));
+		treasure.add(new FishingItem(new ItemStack(GOTRegistry.bronzeRing), 10));
 		treasure.add(new FishingItem(new ItemStack(GOTRegistry.silverRing), 10));
 		treasure.add(new FishingItem(new ItemStack(GOTRegistry.goldRing), 5));
 		treasure.add(new FishingItem(new ItemStack(GOTRegistry.valyrianRing), 1));

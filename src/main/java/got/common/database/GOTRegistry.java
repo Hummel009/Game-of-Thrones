@@ -849,6 +849,8 @@ public class GOTRegistry {
 	public static Item goldHorseArmor;
 	public static Item goldLeggings;
 	public static Item goldRing;
+	public static Item copperRing;
+	public static Item bronzeRing;
 	public static Item grapeRed;
 	public static Item grapeWhite;
 	public static Item gregorCleganeSword;
@@ -2140,7 +2142,9 @@ public class GOTRegistry {
 		goldHelmet = new GOTItemArmor(GOTMaterial.GOLDENCOMPANY, 0);
 		goldHorseArmor = new GOTItemMountArmor(ArmorMaterial.GOLD, GOTItemMountArmor.Mount.HORSE, null).setTemplateItem(Items.golden_horse_armor);
 		goldLeggings = new GOTItemArmor(GOTMaterial.GOLDENCOMPANY, 2);
-		goldRing = new GOTItemRing();
+		goldRing = new GOTItemRing();;
+		bronzeRing = new GOTItemRing();;
+		copperRing = new GOTItemRing();
 		grapeRed = new GOTItemFood(2, 0.2f, false);
 		grapeWhite = new GOTItemFood(2, 0.2f, false);
 		gregorCleganeSword = new GOTItemLegendaryGreatsword(ToolMaterial.IRON);
@@ -3277,6 +3281,8 @@ public class GOTRegistry {
 
 	public static void registerItems() {
 		registerItem(goldRing, "goldRing");
+		registerItem(copperRing, "copperRing");
+		registerItem(bronzeRing, "bronzeRing");
 		registerItem(pouch, "pouch");
 		registerItem(copperIngot, "copperIngot");
 		registerItem(tinIngot, "tinIngot");

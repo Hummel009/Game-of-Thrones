@@ -1117,7 +1117,9 @@ public class GOTRecipe {
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.rhinoArmor), "X  ", "XYX", "XXX", Character.valueOf('X'), Items.leather, Character.valueOf('Y'), Items.string));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.rollingPin), "XYX", Character.valueOf('X'), "stickWood", Character.valueOf('Y'), "plankWood"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.silverBars, 16), "XXX", "XXX", Character.valueOf('X'), "ingotSilver"));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.silverRing), "XXX", "X X", "XXX", Character.valueOf('X'), "nuggetSilver"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.silverRing), "XXX", "X X", "XXX", Character.valueOf('X'), GOTRegistry.silverNugget));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.bronzeRing), "XXX", "X X", "XXX", Character.valueOf('X'), GOTRegistry.bronzeNugget));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.copperRing), "XXX", "X X", "XXX", Character.valueOf('X'), GOTRegistry.copperNugget));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.skullCup), "X", "Y", Character.valueOf('X'), new ItemStack(Items.skull, 1, 0), Character.valueOf('Y'), "ingotTin"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.skullStaff), "X", "Y", Character.valueOf('X'), Items.skull, Character.valueOf('Y'), "stickWood"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.slabBoneSingle, 6, 0), "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.boneBlock, 1, 0)));

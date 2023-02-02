@@ -68,6 +68,8 @@ public class GOTChestContents {
 		NORD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.bronzeIngot), 1, 3, 50));
 		NORD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldRing), 1, 1, 10));
 		NORD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.silverRing), 1, 1, 10));
+		NORD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.copperRing), 1, 1, 10));
+		NORD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.bronzeRing), 1, 1, 10));
 		NORD_L.add(new WeightedRandomChestContent(new ItemStack(Items.coal), 1, 3, 100));
 		NORD_L.add(new WeightedRandomChestContent(new ItemStack(Items.coal, 1, 1), 1, 3, 100));
 		NORD_L.add(new WeightedRandomChestContent(new ItemStack(Items.flint), 1, 3, 50));
@@ -137,6 +139,8 @@ public class GOTChestContents {
 		SUD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldRing), 1, 1, 10));
 		SUD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.silverRing), 1, 1, 10));
 		SUD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.ironCrossbow), 1, 1, 10));
+		SUD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.copperRing), 1, 1, 10));
+		SUD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.bronzeRing), 1, 1, 10));
 		SUD_L.add(new WeightedRandomChestContent(new ItemStack(Items.arrow), 1, 6, 75));
 		SUD_L.add(new WeightedRandomChestContent(new ItemStack(Items.paper), 2, 8, 50));
 		SUD_L.add(new WeightedRandomChestContent(new ItemStack(Items.bucket), 1, 3, 25));
@@ -198,6 +202,8 @@ public class GOTChestContents {
 
 		SOTHORYOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldRing), 1, 1, 10));
 		SOTHORYOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.silverRing), 1, 1, 10));
+		SOTHORYOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.copperRing), 1, 1, 10));
+		SOTHORYOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.bronzeRing), 1, 1, 10));
 		SOTHORYOS_L.add(new WeightedRandomChestContent(new ItemStack(Blocks.melon_block), 2, 8, 50));
 		SOTHORYOS_L.add(new WeightedRandomChestContent(new ItemStack(Items.melon), 2, 8, 50));
 		SOTHORYOS_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.obsidianShard), 1, 4, 50));
@@ -245,6 +251,8 @@ public class GOTChestContents {
 
 		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldRing), 1, 1, 10));
 		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.silverRing), 1, 1, 10));
+		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.copperRing), 1, 1, 10));
+		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.bronzeRing), 1, 1, 10));
 		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(Blocks.melon_block), 2, 8, 50));
 		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(Items.melon), 2, 8, 50));
 		YI_TI_L.add(new WeightedRandomChestContent(new ItemStack(Items.paper), 2, 8, 50));
@@ -330,6 +338,8 @@ public class GOTChestContents {
 		MOSSOVY_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.bronzeIngot), 1, 3, 50));
 		MOSSOVY_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldRing), 1, 1, 10));
 		MOSSOVY_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.silverRing), 1, 1, 10));
+		MOSSOVY_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.copperRing), 1, 1, 10));
+		MOSSOVY_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.bronzeRing), 1, 1, 10));
 		MOSSOVY_L.add(new WeightedRandomChestContent(new ItemStack(Items.coal), 1, 3, 100));
 		MOSSOVY_L.add(new WeightedRandomChestContent(new ItemStack(Items.coal, 1, 1), 1, 3, 100));
 		MOSSOVY_L.add(new WeightedRandomChestContent(new ItemStack(Items.flint), 1, 3, 50));
@@ -413,6 +423,8 @@ public class GOTChestContents {
 		GIFT_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.bronzeIngot), 1, 3, 50));
 		GIFT_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldRing), 1, 1, 10));
 		GIFT_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.silverRing), 1, 1, 10));
+		GIFT_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.copperRing), 1, 1, 10));
+		GIFT_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.bronzeRing), 1, 1, 10));
 		GIFT_L.add(new WeightedRandomChestContent(new ItemStack(Items.coal), 1, 3, 100));
 		GIFT_L.add(new WeightedRandomChestContent(new ItemStack(Items.coal, 1, 1), 1, 3, 100));
 		GIFT_L.add(new WeightedRandomChestContent(new ItemStack(Items.flint), 1, 3, 50));
@@ -493,6 +505,8 @@ public class GOTChestContents {
 		TREASURE_L.add(new WeightedRandomChestContent(new ItemStack(Items.iron_boots), 1, 1, 10));
 		TREASURE_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldRing), 1, 1, 20));
 		TREASURE_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.silverRing), 1, 1, 20));
+		TREASURE_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.copperRing), 1, 1, 10));
+		TREASURE_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.bronzeRing), 1, 1, 10));
 		TREASURE_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.gobletGold), 1, 3, 20));
 		TREASURE_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.gobletSilver), 1, 3, 20));
 		TREASURE_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.gobletCopper), 1, 3, 20));
@@ -552,6 +566,8 @@ public class GOTChestContents {
 		IBBEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.bronzeIngot), 1, 3, 50));
 		IBBEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldRing), 1, 1, 10));
 		IBBEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.silverRing), 1, 1, 10));
+		IBBEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.copperRing), 1, 1, 10));
+		IBBEN_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.bronzeRing), 1, 1, 10));
 		IBBEN_L.add(new WeightedRandomChestContent(new ItemStack(Items.coal), 1, 3, 100));
 		IBBEN_L.add(new WeightedRandomChestContent(new ItemStack(Items.coal, 1, 1), 1, 3, 100));
 		IBBEN_L.add(new WeightedRandomChestContent(new ItemStack(Items.flint), 1, 3, 50));
@@ -618,6 +634,8 @@ public class GOTChestContents {
 
 		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldRing), 1, 1, 10));
 		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.silverRing), 1, 1, 10));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.copperRing), 1, 1, 10));
+		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.bronzeRing), 1, 1, 10));
 		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.nomadSword), 1, 1, 100));
 		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.nomadSpear), 1, 1, 50));
 		NOMAD_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.nomadBattleaxe), 1, 1, 50));
@@ -708,6 +726,8 @@ public class GOTChestContents {
 		SUMMER_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.copperNugget), 1, 6, 25));
 		SUMMER_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldRing), 1, 1, 10));
 		SUMMER_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.silverRing), 1, 1, 10));
+		SUMMER_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.copperRing), 1, 1, 10));
+		SUMMER_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.bronzeRing), 1, 1, 10));
 		SUMMER_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.summerSword), 1, 1, 100));
 		SUMMER_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.summerDagger), 1, 1, 50));
 		SUMMER_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.summerDaggerPoisoned), 1, 1, 50));
@@ -757,6 +777,8 @@ public class GOTChestContents {
 		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.copperNugget), 1, 6, 25));
 		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.goldRing), 1, 1, 10));
 		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.silverRing), 1, 1, 10));
+		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.copperRing), 1, 1, 10));
+		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.bronzeRing), 1, 1, 10));
 		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.lhazarSword), 1, 1, 100));
 		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.lhazarDagger), 1, 1, 50));
 		LHAZAR_L.add(new WeightedRandomChestContent(new ItemStack(GOTRegistry.lhazarDaggerPoisoned), 1, 1, 50));

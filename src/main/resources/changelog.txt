@@ -8,6 +8,7 @@ CHANGELOG
 + Added werewolf sounds
 + Added new Massy biome, and renamed old to the "Massy Hills"
 
+* Improved Russian & English translations
 * Improved the wearing of levymans
 * Improved the craft of valyrian armor. Now the armor is more valuable.
 * Improved Blizzards' drops: 2-3 valyrian powders & 1 nugget per mob.
