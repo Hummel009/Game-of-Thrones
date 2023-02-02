@@ -504,7 +504,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	public String getBiomeDisplayName() {
-		return StatCollector.translateToLocal("got.biome." + biomeName);
+		return StatCollector.translateToLocal("got.biome." + biomeName + ".name");
 	}
 
 	@SideOnly(value = Side.CLIENT)
@@ -1076,7 +1076,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		essosForest = new GOTBiomeEssosForest(34, true).setClimateType(GOTClimateType.SUMMER).setColor(0x617027).setMinMaxHeight(0.1f, 0.15f).setBiomeName("essosForest");
 		essosMarshes = new GOTBiomeEssosMarshes(4, true).setClimateType(GOTClimateType.SUMMER).setColor(0x89933E).setMinMaxHeight(0.0f, 0.1f).setBiomeName("volantisMarshes");
 		essosMountains = new GOTBiomeEssosMountains(36, true).setClimateType(GOTClimateType.SUMMER_AZ).setColor(0xDDDDAF).setMinMaxHeight(2.0f, 2.0f).setBiomeName("essosMountains");
-		farNorthSnowy = new GOTBiomeWesterosFrost(37, true).setClimateType(GOTClimateType.WINTER).setColor(0xD3E1E2).setMinMaxHeight(0.1f, 0.15f).setBiomeName("farNorthSnowy");
+		farNorthSnowy = new GOTBiomeWesterosFrost(37, true).setClimateType(GOTClimateType.WINTER).setColor(0xD7E4E5).setMinMaxHeight(0.1f, 0.15f).setBiomeName("farNorthSnowy");
 		fireField = new GOTBiomeFireField(38, true).setClimateType(GOTClimateType.SUMMER).setColor(0xCFD689).setMinMaxHeight(0.1f, 0.15f).setBiomeName("fireField");
 		frostfangs = new GOTBiomeFrostfangs(39, true).setClimateType(GOTClimateType.WINTER).setColor(0xB8C5C6).setMinMaxHeight(2.0f, 2.0f).setBiomeName("frostfangs");
 		ghiscar = new GOTBiomeGhiscar(40, true).setClimateType(GOTClimateType.SUMMER).setColor(0xADAF6B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ghiscar");
@@ -1150,7 +1150,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		shadowMountains = new GOTBiomeShadowMountains(113, true).setMinMaxHeight(2.0f, 2.0f).setColor(0x635E3B).setTemperatureRainfall(1.0f, 0.2f).setBiomeName("shadowMountains");
 		shadowTown = new GOTBiomeShadowTown(114, true).setMinMaxHeight(0.1f, 0.15f).setColor(0xA39C68).setTemperatureRainfall(1.0f, 0.2f).setBiomeName("shadowTown");
 		shrykesLand = new GOTBiomeShrykesLand(90, true).setClimateType(GOTClimateType.SUMMER).setColor(0xAAAE77).setMinMaxHeight(0.0f, 0.1f).setBiomeName("shrykesLand");
-		skagos = new GOTBiomeSkagos(116, true).setClimateType(GOTClimateType.COLD).setColor(0x94AF67).setMinMaxHeight(0.1f, 0.15f).setBiomeName("skagos");
+		skagos = new GOTBiomeSkagos(116, true).setClimateType(GOTClimateType.COLD).setColor(0x97BF85).setMinMaxHeight(0.1f, 0.15f).setBiomeName("skagos");
 		sothoryosBushland = new GOTBiomeSothoryosBushland(118, true).setClimateType(GOTClimateType.SUMMER).setColor(0x998F3D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosBushland");
 		sothoryosDesert = new GOTBiomeSothoryosDesert(119, true).setClimateType(GOTClimateType.SUMMER).setColor(0xCCB882).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosDesert");
 		sothoryosDesertCold = new GOTBiomeSothoryosDesertCold(120, true).setClimateType(GOTClimateType.WINTER).setColor(0xDAD4AF).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosDesertCold");

@@ -63,7 +63,7 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 		}
 		float fade = fadeIn ? (System.currentTimeMillis() - firstRenderTime) / 1000.0f : 1.0f;
 		float fadeAlpha = fadeIn ? MathHelper.clamp_float(fade - 1.0f, 0.0f, 1.0f) : 1.0f;
-		GOTGuiMainMenu.mapRenderer.zoomExp = -0.1f + MathHelper.cos((tickCounter + f) * 0.003f) * 0.8f;
+		GOTGuiMainMenu.mapRenderer.zoomExp = -0.3f;
 		if (fadeIn) {
 			float slowerFade = fade * 0.5f;
 			float fadeInZoom = MathHelper.clamp_float(1.0f - slowerFade, 0.0f, 1.0f) * -1.5f;
