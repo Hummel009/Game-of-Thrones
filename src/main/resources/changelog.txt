@@ -5,6 +5,7 @@ CHANGELOG
 + Added bronze chain armor and valyrian chain armor.
 + Added bronze nugget and iron nugget.
 + Added all the new items to the chest contents or trade entries.
++ Added werewolf sounds
 
 * Improved the wearing of levymans
 * Improved the craft of valyrian armor. Now the armor is more valuable.
@@ -15,8 +16,14 @@ CHANGELOG
 * Optimized Seasons mechanics. 8x faster and 8x more stable (proved by maths expectation and variance)
 * Optimized lots of places with enum maps
 
+* Fixed bug with grey fog around the shadows
+* Fixed bug that made Red Clay the most rare mineral in the world
+* Fixed bug with low number of ores in Iron Islands' Hills
+* Fixed bug with elephants in Dorne
 * Fixed bug with transparent pixel on the map
 * Fixed bug with a new Essos waypoints
+
+* Moved water effects from Ulthos to Yeen
 
 - Removed item called valyrian mail, because new armor replaced that
 

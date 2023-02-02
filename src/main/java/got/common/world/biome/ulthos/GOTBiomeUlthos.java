@@ -34,7 +34,7 @@ public class GOTBiomeUlthos extends GOTBiome {
 		decorator.cornPerChunk = 4;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.ULTHOS_OAK_DEAD, 20);
-		decorator.addTree(GOTTreeType.ULTHOS_OAK_LARGE, 1000);
+		decorator.addTree(GOTTreeType.ULTHOS_OAK_LARGE, 1500);
 		decorator.addTree(GOTTreeType.OAK_LARGE, 300);
 		decorator.addTree(GOTTreeType.SPRUCE, 200);
 		decorator.addTree(GOTTreeType.FIR, 200);

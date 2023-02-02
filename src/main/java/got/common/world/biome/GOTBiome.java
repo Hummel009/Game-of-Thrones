@@ -889,7 +889,9 @@ public abstract class GOTBiome extends BiomeGenBase {
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityLion.class, 5, 1, 2));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityLioness.class, 5, 1, 2));
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityRhino.class, 5, 1, 1));
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityElephant.class, 5, 1, 1));
+		if (!(this instanceof GOTBiomeDorne)) {
+			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityElephant.class, 5, 1, 1));
+		}
 		spawnableGOTAmbientList.clear();
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 50, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 30, 2, 3));

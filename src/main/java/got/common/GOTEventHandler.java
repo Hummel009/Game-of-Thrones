@@ -43,7 +43,6 @@ import got.common.world.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.essos.*;
 import got.common.world.biome.sothoryos.*;
-import got.common.world.biome.ulthos.GOTBiomeUlthosForest;
 import got.common.world.biome.variant.GOTBiomeVariantStorage;
 import integrator.NEIGOTIntegratorConfig;
 import net.minecraft.block.*;
@@ -1184,8 +1183,8 @@ public class GOTEventHandler implements IFuelHandler {
 				int k = MathHelper.floor_double(entity.posZ);
 				world.getTopSolidOrLiquidBlock(i, k);
 				if (world.rand.nextInt(chance) == 0 && world.getBiomeGenForCoords(i, k) instanceof GOTBiomeMeereen) {
-					List<GOTEntityGhiscarHarpy> nearbyBounders = world.getEntitiesWithinAABB(GOTEntityGhiscarHarpy.class, entity.boundingBox.expand(12.0D, 6.0D, 12.0D));
-					if (nearbyBounders.isEmpty()) {
+					List<GOTEntityGhiscarHarpy> nearbyHarpies = world.getEntitiesWithinAABB(GOTEntityGhiscarHarpy.class, entity.boundingBox.expand(12.0D, 6.0D, 12.0D));
+					if (nearbyHarpies.isEmpty()) {
 						boolean sentMessage = false;
 						boolean playedHorn = false;
 						for (int l = 0; l < bounders; l++) {
@@ -1226,17 +1225,16 @@ public class GOTEventHandler implements IFuelHandler {
 			if (entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode) {
 				flag = false;
 			}
-			if (entity instanceof GOTEntityAsshaiMan || entity instanceof GOTEntityUlthosSpider || entity instanceof GOTEntityStoneMan) {
+			if (entity instanceof GOTEntityAsshaiMan || entity instanceof GOTEntityJungleScorpion || entity instanceof GOTEntityStoneMan) {
 				flag = false;
 			}
 			if (flag) {
 				int i = MathHelper.floor_double(entity.posX);
 				int k = MathHelper.floor_double(entity.posZ);
 				BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
-				if (biome instanceof GOTBiomeShadowLand || biome instanceof GOTBiomeUlthosForest) {
+				if (biome instanceof GOTBiomeShadowLand || biome instanceof GOTBiomeYeen) {
 					entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 600, 1));
 					entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 600));
-					entity.addPotionEffect(new PotionEffect(Potion.blindness.id, 600));
 				} else if (biome instanceof GOTBiomeValyria) {
 					entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 600, 1));
 					entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 600));

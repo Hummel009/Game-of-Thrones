@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 public class GOTEntityGhiscarGladiator extends GOTEntityGhiscarMan {
 	public static ItemStack[] weaponsIron = { new ItemStack(GOTRegistry.essosSword), new ItemStack(GOTRegistry.essosDagger), new ItemStack(GOTRegistry.essosDaggerPoisoned), new ItemStack(GOTRegistry.essosHammer) };
 	public static int[] turbanColors = { 1643539, 6309443, 7014914, 7809314, 5978155 };
-	
+
 	public GOTEntityGhiscarGladiator(World world) {
 		super(world);
 		canBeMarried = false;

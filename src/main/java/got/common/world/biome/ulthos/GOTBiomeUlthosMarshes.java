@@ -18,7 +18,6 @@ public class GOTBiomeUlthosMarshes extends GOTBiomeUlthosForest {
 		addBiomeVariant(GOTBiomeVariant.SWAMP_LOWLAND);
 		variantChance = 1.0f;
 		decorator.sandPerChunk = 0;
-		decorator.clayPerChunk = 0;
 		decorator.quagmirePerChunk = 1;
 		decorator.treesPerChunk = 0;
 		decorator.logsPerChunk = 2;

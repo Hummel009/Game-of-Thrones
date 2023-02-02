@@ -29,9 +29,9 @@ import got.common.util.*;
 import got.common.world.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.essos.*;
-import got.common.world.biome.ulthos.GOTBiomeUlthosForest;
+import got.common.world.biome.sothoryos.GOTBiomeYeen;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.biome.westeros.*;
+import got.common.world.biome.westeros.GOTBiomeFrostfangs;
 import got.common.world.map.GOTConquestGrid;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -850,7 +850,7 @@ public class GOTTickHandlerClient {
 		WorldClient worldClient = mc.theWorld;
 		WorldProvider provider = ((World) worldClient).provider;
 		int i = MathHelper.floor_double(viewer.posX);
-		int j = MathHelper.floor_double(viewer.boundingBox.minY);
+		MathHelper.floor_double(viewer.boundingBox.minY);
 		int k = MathHelper.floor_double(viewer.posZ);
 		BiomeGenBase biome = worldClient.getBiomeGenForCoords(i, k);
 		float farPlane = event.farPlaneDistance;
@@ -882,23 +882,6 @@ public class GOTTickHandlerClient {
 				float wightOpacityEnd = 0.75F;
 				fogStart -= fogStart * wightFactor * wightOpacityStart;
 				fogEnd -= fogEnd * wightFactor * wightOpacityEnd;
-			}
-			if (gotbiome instanceof GOTBiomeNorthBarrows) {
-				if (wightFactor > 0.0F) {
-					int sky0 = gotbiome.getBaseSkyColorByTemp(i, j, k);
-					int sky1 = 9674385;
-					int clouds0 = 16777215;
-					int clouds1 = 11842740;
-					int fog0 = 16777215;
-					int fog1 = 10197915;
-					gotbiome.getBiomeColors().setSky(GOTColorUtil.lerpColors_I(sky0, sky1, wightFactor));
-					gotbiome.getBiomeColors().setClouds(GOTColorUtil.lerpColors_I(clouds0, clouds1, wightFactor));
-					gotbiome.getBiomeColors().setFog(GOTColorUtil.lerpColors_I(fog0, fog1, wightFactor));
-				} else {
-					gotbiome.getBiomeColors().resetSky();
-					gotbiome.getBiomeColors().resetClouds();
-					gotbiome.getBiomeColors().resetFog();
-				}
 			}
 			GL11.glFogf(2915, fogStart);
 			GL11.glFogf(2916, fogEnd);
@@ -1210,7 +1193,7 @@ public class GOTTickHandlerClient {
 			int meta = world.getBlockMetadata(i1, j1, k1);
 			if (block.getMaterial() == Material.water) {
 				BiomeGenBase biome = world.getBiomeGenForCoords(i1, k1);
-				if (biome instanceof GOTBiomeUlthosForest && world.rand.nextInt(20) == 0) {
+				if (biome instanceof GOTBiomeYeen && world.rand.nextInt(20) == 0) {
 					GOT.proxy.spawnParticle("ulthosWater", i1 + world.rand.nextFloat(), j1 + 0.75D, k1 + world.rand.nextFloat(), 0.0D, 0.05D, 0.0D);
 				}
 				if (biome instanceof GOTBiomeShadowLand && world.rand.nextInt(40) == 0) {

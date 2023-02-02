@@ -13,6 +13,18 @@ public class GOTEntityUtils {
 	public static int[] leatherDyes = { 10855845, 8026746, 5526612, 3684408, 8350297, 10388590, 4799795, 5330539, 4211801, 2632504 };
 	public static int[] turbanColors = { 1643539, 6309443, 7014914, 7809314, 5978155 };
 
+	public static ItemStack dyeLeather(ItemStack itemstack, int color) {
+		((ItemArmor) itemstack.getItem()).func_82813_b(itemstack, color);
+		return itemstack;
+	}
+
+	public static ItemStack dyeLeather(ItemStack itemstack, Random rand) {
+		int i = rand.nextInt(leatherDyes.length);
+		int color = leatherDyes[i];
+		((ItemArmor) itemstack.getItem()).func_82813_b(itemstack, color);
+		return itemstack;
+	}
+
 	public static EntityAITasks.EntityAITaskEntry removeAITask(EntityCreature entity, Class taskClass) {
 		int i;
 		EntityAITasks.EntityAITaskEntry taskEntry;
@@ -70,22 +82,8 @@ public class GOTEntityUtils {
 			int robeColor = turbanColors[rand.nextInt(turbanColors.length)];
 			GOTItemRobes.setRobesColor(turban, robeColor);
 			npc.setCurrentItemOrArmor(4, turban);
-		} else {
-			if (rand.nextInt(5) != 0) {
-				npc.setCurrentItemOrArmor(4, dyeLeather(new ItemStack(Items.leather_helmet), rand));
-			}
+		} else if (rand.nextInt(5) != 0) {
+			npc.setCurrentItemOrArmor(4, dyeLeather(new ItemStack(Items.leather_helmet), rand));
 		}
-	}
-
-	public static ItemStack dyeLeather(ItemStack itemstack, Random rand) {
-		int i = rand.nextInt(leatherDyes.length);
-		int color = leatherDyes[i];
-		((ItemArmor) itemstack.getItem()).func_82813_b(itemstack, color);
-		return itemstack;
-	}
-
-	public static ItemStack dyeLeather(ItemStack itemstack, int color) {
-		((ItemArmor) itemstack.getItem()).func_82813_b(itemstack, color);
-		return itemstack;
 	}
 }

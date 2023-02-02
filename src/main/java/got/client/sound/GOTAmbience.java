@@ -12,8 +12,7 @@ import got.common.world.GOTWorldProvider;
 import got.common.world.biome.essos.*;
 import got.common.world.biome.other.*;
 import got.common.world.biome.sothoryos.GOTBiomeYeen;
-import got.common.world.biome.ulthos.GOTBiomeUlthosForest;
-import got.common.world.biome.westeros.*;
+import got.common.world.biome.westeros.GOTBiomeHauntedForest;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
@@ -71,17 +70,13 @@ public class GOTAmbience {
 			if (enableAmbience) {
 				if (ticksSinceWight > 0) {
 					--ticksSinceWight;
-				} else {
-					boolean wights;
-					wights = GOTTickHandlerClient.anyWightsViewed && rand.nextInt(20) == 0 || biome instanceof GOTBiomeNorthBarrows && rand.nextInt(3000) == 0;
-					if (wights) {
-						world.playSound(x, y, z, "got:wight.ambience", 1.0f, 0.8f + rand.nextFloat() * 0.4f, false);
-						ticksSinceWight = 300;
-					}
+				} else if (GOTTickHandlerClient.anyWightsViewed && rand.nextInt(20) == 0) {
+					world.playSound(x, y, z, "got:wight.ambience", 1.0f, 0.8f + rand.nextFloat() * 0.4f, false);
+					ticksSinceWight = 300;
 				}
 				boolean spookyBiomeNoise = false;
 				float spookyPitch = 1.0f;
-				if (biome instanceof GOTBiomeUlthosForest) {
+				if (biome instanceof GOTBiomeYeen) {
 					spookyBiomeNoise = rand.nextInt(1000) == 0;
 					spookyPitch = 0.85f;
 				} else if (biome instanceof GOTBiomeMossovyMarshes) {
@@ -90,7 +85,7 @@ public class GOTAmbience {
 					spookyBiomeNoise = rand.nextInt(3000) == 0;
 				} else if (biome instanceof GOTBiomeHauntedForest) {
 					spookyBiomeNoise = rand.nextInt(6000) == 0;
-				} else if (biome instanceof GOTBiomeShadowLand || biome instanceof GOTBiomeYeen) {
+				} else if (biome instanceof GOTBiomeShadowLand) {
 					spookyBiomeNoise = rand.nextInt(1000) == 0;
 					spookyPitch = 0.75f;
 				}

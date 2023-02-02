@@ -19,7 +19,6 @@ public class GOTBiomeSothoryosMangrove extends GOTBiomeSothoryosJungle {
 		addBiomeVariant(GOTBiomeVariant.SWAMP_LOWLAND);
 		variantChance = 1.0f;
 		decorator.sandPerChunk = 0;
-		decorator.clayPerChunk = 0;
 		decorator.quagmirePerChunk = 1;
 		decorator.treesPerChunk = 40;
 		decorator.logsPerChunk = 2;

@@ -69,12 +69,32 @@ public class GOTEntityMossovyWerewolf extends GOTEntityNPC {
 	}
 
 	@Override
+	public String getDeathSound() {
+		return "got:direwolf.death";
+	}
+
+	@Override
 	public GOTFaction getFaction() {
 		return GOTFaction.HOSTILE;
 	}
 
 	@Override
+	public String getHurtSound() {
+		return "got:direwolf.hurt";
+	}
+
+	@Override
 	public GOTAchievement getKillAchievement() {
 		return GOTAchievement.killWerewolf;
+	}
+
+	@Override
+	public String getLivingSound() {
+		return "got:direwolf.say";
+	}
+
+	@Override
+	public int getTalkInterval() {
+		return 200;
 	}
 }

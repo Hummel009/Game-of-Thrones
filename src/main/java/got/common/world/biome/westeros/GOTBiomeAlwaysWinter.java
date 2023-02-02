@@ -16,10 +16,10 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class GOTBiomeAlwaysWinter extends GOTBiomeWesterosFrost {
-	public WorldGenerator boulderGenSmall = new GOTWorldGenBoulder(Blocks.snow, 0, 1, 4);
-	public WorldGenerator boulderGenLarge = new GOTWorldGenBoulder(Blocks.snow, 0, 5, 8).setHeightCheck(6);
-	public WorldGenerator clayBoulderGenSmall = new GOTWorldGenBoulder(Blocks.packed_ice, 0, 1, 4);
-	public WorldGenerator clayBoulderGenLarge = new GOTWorldGenBoulder(Blocks.packed_ice, 0, 5, 10).setHeightCheck(6);
+	public WorldGenerator snowBoulderGenSmall = new GOTWorldGenBoulder(Blocks.snow, 0, 1, 4);
+	public WorldGenerator snowBoulderGenLarge = new GOTWorldGenBoulder(Blocks.snow, 0, 5, 8).setHeightCheck(6);
+	public WorldGenerator iceBoulderGenSmall = new GOTWorldGenBoulder(Blocks.packed_ice, 0, 1, 4);
+	public WorldGenerator iceBoulderGenLarge = new GOTWorldGenBoulder(Blocks.packed_ice, 0, 5, 10).setHeightCheck(6);
 
 	public GOTBiomeAlwaysWinter(int i, boolean major) {
 		super(i, major);
@@ -40,19 +40,19 @@ public class GOTBiomeAlwaysWinter extends GOTBiomeWesterosFrost {
 			i2 = i + random.nextInt(16) + 8;
 			k2 = k + random.nextInt(16) + 8;
 			if (random.nextInt(5) == 0) {
-				clayBoulderGenSmall.generate(world, random, i2, world.getHeightValue(i2, k2), k2);
+				iceBoulderGenSmall.generate(world, random, i2, world.getHeightValue(i2, k2), k2);
 				continue;
 			}
-			boulderGenSmall.generate(world, random, i2, world.getHeightValue(i2, k2), k2);
+			snowBoulderGenSmall.generate(world, random, i2, world.getHeightValue(i2, k2), k2);
 		}
 		for (l = 0; l < 20; ++l) {
 			i2 = i + random.nextInt(16) + 8;
 			k2 = k + random.nextInt(16) + 8;
 			if (random.nextInt(5) == 0) {
-				clayBoulderGenLarge.generate(world, random, i2, world.getHeightValue(i2, k2), k2);
+				iceBoulderGenLarge.generate(world, random, i2, world.getHeightValue(i2, k2), k2);
 				continue;
 			}
-			boulderGenLarge.generate(world, random, i2, world.getHeightValue(i2, k2), k2);
+			snowBoulderGenLarge.generate(world, random, i2, world.getHeightValue(i2, k2), k2);
 		}
 		for (l = 0; l < 10; ++l) {
 			Block block = Blocks.snow;
