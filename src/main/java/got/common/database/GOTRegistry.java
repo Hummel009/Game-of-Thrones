@@ -3281,8 +3281,6 @@ public class GOTRegistry {
 
 	public static void registerItems() {
 		registerItem(goldRing, "goldRing");
-		registerItem(copperRing, "copperRing");
-		registerItem(bronzeRing, "bronzeRing");
 		registerItem(pouch, "pouch");
 		registerItem(copperIngot, "copperIngot");
 		registerItem(tinIngot, "tinIngot");
@@ -3964,5 +3962,7 @@ public class GOTRegistry {
 		registerItem(valyrianChainmailChestplate, "valyrianChainmailChestplate");
 		registerItem(valyrianChainmailLeggings, "valyrianChainmailLeggings");
 		registerItem(valyrianChainmailBoots, "valyrianChainmailBoots");
+		registerItem(copperRing, "copperRing");
+		registerItem(bronzeRing, "bronzeRing");
 	}
 }
