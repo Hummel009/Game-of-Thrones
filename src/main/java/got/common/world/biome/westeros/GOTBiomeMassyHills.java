@@ -5,8 +5,8 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 
-public class GOTBiomeMassy extends GOTBiomeDragonstone {
-	public GOTBiomeMassy(int i, boolean major) {
+public class GOTBiomeMassyHills extends GOTBiomeDragonstone {
+	public GOTBiomeMassyHills(int i, boolean major) {
 		super(i, major);
 		setupStandartForestFauna();
 		clearBiomeVariants();

@@ -6,6 +6,7 @@ CHANGELOG
 + Added bronze nugget and iron nugget.
 + Added all the new items to the chest contents or trade entries.
 + Added werewolf sounds
++ Added new Massy biome, and renamed old to the "Massy Hills"
 
 * Improved the wearing of levymans
 * Improved the craft of valyrian armor. Now the armor is more valuable.
@@ -16,6 +17,7 @@ CHANGELOG
 * Optimized Seasons mechanics. 8x faster and 8x more stable (proved by maths expectation and variance)
 * Optimized lots of places with enum maps
 
+* Fixed a few bugs linked with wrongly selected season for the biome
 * Fixed bug with grey fog around the shadows
 * Fixed bug that made Red Clay the most rare mineral in the world
 * Fixed bug with low number of ores in Iron Islands' Hills
@@ -25,6 +27,7 @@ CHANGELOG
 
 * Moved water effects from Ulthos to Yeen
 
+- Removed Dorne Valley (no differences from Dorne)
 - Removed item called valyrian mail, because new armor replaced that
 
 >>VERSION 17.9.4
