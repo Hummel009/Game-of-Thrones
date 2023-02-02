@@ -15,7 +15,8 @@ public class GOTMaterial {
 	public static ArmorMaterial BLACKSKIN = EnumHelper.addArmorMaterial("GOT_BLACKSKIN", 24, new int[] { 2, 7, 6, 3 }, 9);
 	public static ArmorMaterial BONE = EnumHelper.addArmorMaterial("GOT_BONE", 5, new int[] { 1, 3, 2, 1 }, 15);
 	public static ArmorMaterial BRAAVOS = EnumHelper.addArmorMaterial("GOT_BRAAVOS", 15, new int[] { 2, 6, 5, 2 }, 9);
-	public static ArmorMaterial BRONZE = EnumHelper.addArmorMaterial("GOT_BRONZE", 15, new int[] { 2, 5, 4, 1 }, 12);
+	public static ArmorMaterial BRONZE_CHAINMAIL = EnumHelper.addArmorMaterial("GOT_BRONZE_CHAINMAIL", 15, new int[] { 2, 4, 3, 1 }, 12);
+	public static ArmorMaterial BRONZE = EnumHelper.addArmorMaterial("GOT_BRONZE", 15, new int[] { 2, 5, 4, 1 }, 9);
 	public static ArmorMaterial CROWNLANDS = EnumHelper.addArmorMaterial("GOT_CROWNLANDS", 15, new int[] { 2, 6, 5, 2 }, 9);
 	public static ArmorMaterial DORNE = EnumHelper.addArmorMaterial("GOT_DORNE", 15, new int[] { 2, 6, 5, 2 }, 9);
 	public static ArmorMaterial DOTHRAKI = EnumHelper.addArmorMaterial("GOT_DOTHRAKI", 5, new int[] { 1, 3, 2, 1 }, 15);
@@ -60,6 +61,7 @@ public class GOTMaterial {
 	public static ArmorMaterial TARGARYEN = EnumHelper.addArmorMaterial("GOT_TARGARYEN", 24, new int[] { 2, 7, 6, 3 }, 9);
 	public static ArmorMaterial TYROSH = EnumHelper.addArmorMaterial("GOT_TYROSH", 15, new int[] { 2, 6, 5, 2 }, 9);
 	public static ArmorMaterial UNSULLIED = EnumHelper.addArmorMaterial("GOT_UNSULLIED", 24, new int[] { 2, 7, 6, 3 }, 9);
+	public static ArmorMaterial VALYRIAN_CHAINMAIL = EnumHelper.addArmorMaterial("GOT_VALYRIAN_CHAINMAIL", 33, new int[] { 3, 7, 5, 2 }, 13);
 	public static ArmorMaterial VALYRIAN = EnumHelper.addArmorMaterial("GOT_VALYRIAN", 33, new int[] { 3, 8, 6, 3 }, 10);
 	public static ArmorMaterial VOLANTIS = EnumHelper.addArmorMaterial("GOT_VOLANTIS", 15, new int[] { 2, 6, 5, 2 }, 9);
 	public static ArmorMaterial WESTERLANDS = EnumHelper.addArmorMaterial("GOT_WESTERLANDS", 15, new int[] { 2, 6, 5, 2 }, 9);
@@ -96,7 +98,8 @@ public class GOTMaterial {
 		BLACKSKIN.customCraftingMaterial = Items.iron_ingot;
 		BONE.customCraftingMaterial = Items.bone;
 		BRAAVOS.customCraftingMaterial = Items.iron_ingot;
-		BRONZE.customCraftingMaterial = Items.iron_ingot;
+		BRONZE.customCraftingMaterial = GOTRegistry.bronzeIngot;
+		BRONZE_CHAINMAIL.customCraftingMaterial = GOTRegistry.bronzeIngot;
 		CROWNLANDS.customCraftingMaterial = Items.iron_ingot;
 		DORNE.customCraftingMaterial = Items.iron_ingot;
 		DOTHRAKI.customCraftingMaterial = Item.getItemFromBlock(GOTRegistry.driedReeds);
@@ -141,6 +144,7 @@ public class GOTMaterial {
 		TARGARYEN.customCraftingMaterial = Items.iron_ingot;
 		TYROSH.customCraftingMaterial = Items.iron_ingot;
 		UNSULLIED.customCraftingMaterial = Items.iron_ingot;
+		VALYRIAN_CHAINMAIL.customCraftingMaterial = GOTRegistry.valyrianIngot;
 		VALYRIAN.customCraftingMaterial = GOTRegistry.valyrianIngot;
 		VOLANTIS.customCraftingMaterial = Items.iron_ingot;
 		WESTERLANDS.customCraftingMaterial = Items.iron_ingot;

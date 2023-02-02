@@ -1,4 +1,18 @@
 ﻿
+item.got:bronzeNugget.name=Bronze Nugget
+item.got:ironNugget.name=Iron Nugget
+item.got:bronze_chainmail_boots.name=Bronze Chain Boots
+item.got:bronze_chainmail_chestplate.name=Bronze Chain Chestplate
+item.got:bronze_chainmail_helmet.name=Bronze Chain Helmet
+item.got:bronze_chainmail_leggings.name=Bronze Chain Leggings
+item.got:valyrian_chainmail_boots.name=Valyrian Chain Boots
+item.got:valyrian_chainmail_chestplate.name=Valyrian Chain Chestplate
+item.got:valyrian_chainmail_helmet.name=Valyrian Chain Helmet
+item.got:valyrian_chainmail_leggings.name=Valyrian Chain Leggings
+item.got:walrus_lard_raw.name=Raw Walrus Lard
+item.got:walrus_lard_cooked.name=Cooked Walrus Lard
+item.got:elephant_raw.name=Raw Elephant
+item.got:elephant_cooked.name=Cooked Elephant
 attribute.name.generic.movementSpeedAir=Speed (Air)
 color.black=Black
 color.blue=Blue

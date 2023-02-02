@@ -1,13 +1,24 @@
 CHANGELOG
 
 >>VERSION 17.9.5
++ Added walrus lard and elephant meat. Now killing walruses, mammoths and elephants is more useful.
++ Added bronze chain armor and valyrian chain armor.
++ Added bronze nugget and iron nugget.
++ Added all the new items to the chest contents or trade entries.
+
+* Improved the wearing of levymans
+* Improved the craft of valyrian armor. Now the armor is more valuable.
+* Improved Blizzards' drops: 2-3 valyrian powders & 1 nugget per mob.
+* Improved biome tree sets. Now no trees are available from creative only. Every tree can be found in the world.
+* Improved database generator
+
 * Optimized Seasons mechanics. 8x faster and 8x more stable (proved by maths expectation and variance)
 * Optimized lots of places with enum maps
 
-* Improved Blizzards' drops: 2-3 vayrian powders & 1 nugget per mob.
+* Fixed bug with transparent pixel on the map
 * Fixed bug with a new Essos waypoints
-* Improved biome tree sets. Now no trees are available from creative only. Every tree can be found in the world.
-* Improved database generator
+
+- Removed item called valyrian mail, because new armor replaced that
 
 >>VERSION 17.9.4
 * Optimization
@@ -17,7 +28,7 @@ CHANGELOG
 * Improved GUI
 * Improved village paths
 * Fixed bug with disappearing Dorne villages
-* Fixed bug with trapdoors in structures
+* Fixed bug with trapdoors in structures, that were crashing the game
 * Fixed bug with wrong titles that shouldn't exist
 * Fixed bug with GOTAPI$setClientMapImage
 * Fixed bug with Yi Ti bombardier, having speed 1.1 instead of 1.4 while attacking

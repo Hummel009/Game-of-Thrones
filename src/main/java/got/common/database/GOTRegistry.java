@@ -1218,7 +1218,6 @@ public class GOTRegistry {
 	public static Item valyrianHorseArmor;
 	public static Item valyrianIngot;
 	public static Item valyrianLeggings;
-	public static Item valyrianMail;
 	public static Item valyrianMattock;
 	public static Item valyrianNugget;
 	public static Item valyrianPickaxe;
@@ -1306,6 +1305,16 @@ public class GOTRegistry {
 	public static Item westerosLongsword;
 	public static Item westerosGreatsword;
 	public static Item rice;
+	public static Item ironNugget;
+	public static Item bronzeNugget;
+	public static Item bronzeChainmailBoots;
+	public static Item bronzeChainmailChestplate;
+	public static Item bronzeChainmailHelmet;
+	public static Item bronzeChainmailLeggings;
+	public static Item valyrianChainmailBoots;
+	public static Item valyrianChainmailChestplate;
+	public static Item valyrianChainmailHelmet;
+	public static Item valyrianChainmailLeggings;
 
 	public static void assignContent() {
 		planks1 = new GOTBlockPlanks1();
@@ -2036,6 +2045,17 @@ public class GOTRegistry {
 		crownlandsChestplate = new GOTItemArmor(GOTMaterial.CROWNLANDS, 1);
 		crownlandsHelmet = new GOTItemArmor(GOTMaterial.CROWNLANDS, 0);
 		crownlandsLeggings = new GOTItemArmor(GOTMaterial.CROWNLANDS, 2);
+
+		bronzeChainmailBoots = new GOTItemArmor(GOTMaterial.BRONZE_CHAINMAIL, 3);
+		bronzeChainmailChestplate = new GOTItemArmor(GOTMaterial.BRONZE_CHAINMAIL, 1);
+		bronzeChainmailHelmet = new GOTItemArmor(GOTMaterial.BRONZE_CHAINMAIL, 0);
+		bronzeChainmailLeggings = new GOTItemArmor(GOTMaterial.BRONZE_CHAINMAIL, 2);
+
+		valyrianChainmailBoots = new GOTItemArmor(GOTMaterial.VALYRIAN_CHAINMAIL, 3);
+		valyrianChainmailChestplate = new GOTItemArmor(GOTMaterial.VALYRIAN_CHAINMAIL, 1);
+		valyrianChainmailHelmet = new GOTItemArmor(GOTMaterial.VALYRIAN_CHAINMAIL, 0);
+		valyrianChainmailLeggings = new GOTItemArmor(GOTMaterial.VALYRIAN_CHAINMAIL, 2);
+
 		cutwave = new GOTItemLegendarySword(GOTMaterial.VALYRIAN_TOOL);
 		daarioArakh = new GOTItemLegendarySword(ToolMaterial.IRON);
 		darkSister = new GOTItemLegendarySword(GOTMaterial.VALYRIAN_TOOL);
@@ -2399,6 +2419,8 @@ public class GOTRegistry {
 		shishKebab = new GOTItemKebab(8, 0.8f, false).setFull3D();
 		silverIngot = new Item().setCreativeTab(GOTCreativeTabs.tabMaterials);
 		silverNugget = new Item().setCreativeTab(GOTCreativeTabs.tabMaterials);
+		ironNugget = new Item().setCreativeTab(GOTCreativeTabs.tabMaterials);
+		bronzeNugget = new Item().setCreativeTab(GOTCreativeTabs.tabMaterials);
 		silverRing = new GOTItemRing();
 		skullCup = new GOTItemVessel();
 		skullStaff = new GOTItemSkullStaff();
@@ -2489,7 +2511,6 @@ public class GOTRegistry {
 		valyrianHorseArmor = new GOTItemMountArmor(GOTMaterial.VALYRIAN, GOTItemMountArmor.Mount.HORSE, "horse_valyrian");
 		valyrianIngot = new Item().setCreativeTab(GOTCreativeTabs.tabMaterials);
 		valyrianLeggings = new GOTItemArmor(GOTMaterial.VALYRIAN, 2);
-		valyrianMail = new Item().setCreativeTab(GOTCreativeTabs.tabMaterials);
 		valyrianMattock = new GOTItemMattock(GOTMaterial.VALYRIAN_TOOL);
 		valyrianNugget = new Item().setCreativeTab(GOTCreativeTabs.tabMaterials);
 		valyrianPickaxe = new GOTItemPickaxe(GOTMaterial.VALYRIAN_TOOL);
@@ -3658,7 +3679,6 @@ public class GOTRegistry {
 		registerItem(bountyTrophy, "bountyTrophy");
 		registerItem(lhazarSword, "lhazarSword");
 		registerItem(smithScroll, "smithScroll");
-		registerItem(valyrianMail, "valyrianMail");
 		registerItem(valyrianBook, "valyrianBook");
 		registerItem(summerHelmet, "summerHelmet");
 		registerItem(summerChestplate, "summerChestplate");
@@ -3928,5 +3948,15 @@ public class GOTRegistry {
 		registerItem(elephantCooked, "elephantCooked");
 		registerItem(walrusLardRaw, "walrusLardRaw");
 		registerItem(walrusLardCooked, "walrusLardCooked");
+		registerItem(ironNugget, "ironNugget");
+		registerItem(bronzeNugget, "bronzeNugget");
+		registerItem(bronzeChainmailHelmet, "bronzeChainmailHelmet");
+		registerItem(bronzeChainmailChestplate, "bronzeChainmailChestplate");
+		registerItem(bronzeChainmailLeggings, "bronzeChainmailLeggings");
+		registerItem(bronzeChainmailBoots, "bronzeChainmailBoots");
+		registerItem(valyrianChainmailHelmet, "valyrianChainmailHelmet");
+		registerItem(valyrianChainmailChestplate, "valyrianChainmailChestplate");
+		registerItem(valyrianChainmailLeggings, "valyrianChainmailLeggings");
+		registerItem(valyrianChainmailBoots, "valyrianChainmailBoots");
 	}
 }

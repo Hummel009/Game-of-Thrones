@@ -1,4 +1,8 @@
 ﻿
+item.got:walrus_lard_raw.name≠
+item.got:walrus_lard_cooked.name≠
+item.got:elephant_raw.name≠
+item.got:elephant_cooked.name≠
 attribute.name.generic.movementSpeedAir=Geschwindigkeit (Luft)
 color.black=Schwarz
 color.blue=Blau

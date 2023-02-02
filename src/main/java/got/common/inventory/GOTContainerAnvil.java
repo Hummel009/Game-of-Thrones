@@ -183,7 +183,7 @@ public class GOTContainerAnvil extends Container {
 				break;
 			}
 		}
-		if (materialPrice <= 0.0f && (isRepairMaterial(inputItem, new ItemStack(GOTRegistry.valyrianIngot)) || isRepairMaterial(inputItem, new ItemStack(GOTRegistry.valyrianMail))) && theTrader instanceof GOTEntityQohorBlacksmith) {
+		if (materialPrice <= 0.0f && isRepairMaterial(inputItem, new ItemStack(GOTRegistry.valyrianIngot)) && theTrader instanceof GOTEntityQohorBlacksmith) {
 			materialPrice = 200.0f;
 		}
 		return materialPrice;

@@ -6,14 +6,13 @@ import got.common.faction.GOTFaction;
 import got.common.item.other.GOTItemRobes;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.*;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityGhiscarGladiator extends GOTEntityGhiscarMan {
 	public static ItemStack[] weaponsIron = { new ItemStack(GOTRegistry.essosSword), new ItemStack(GOTRegistry.essosDagger), new ItemStack(GOTRegistry.essosDaggerPoisoned), new ItemStack(GOTRegistry.essosHammer) };
 	public static int[] turbanColors = { 1643539, 6309443, 7014914, 7809314, 5978155 };
-	public static int[] leatherDyes = { 10855845, 8026746, 5526612, 3684408, 8350297, 10388590, 4799795, 5330539, 4211801, 2632504 };
-
+	
 	public GOTEntityGhiscarGladiator(World world) {
 		super(world);
 		canBeMarried = false;
@@ -31,13 +30,6 @@ public class GOTEntityGhiscarGladiator extends GOTEntityGhiscarMan {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-	}
-
-	public ItemStack dyeLeather(ItemStack itemstack) {
-		int i = rand.nextInt(leatherDyes.length);
-		int color = leatherDyes[i];
-		((ItemArmor) itemstack.getItem()).func_82813_b(itemstack, color);
-		return itemstack;
 	}
 
 	@Override

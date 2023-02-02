@@ -663,6 +663,21 @@ public class GOTRecipe {
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.wallStone1, 6, 4), "XXX", "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.brick1, 1, 2)));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.wallStone1, 6, 5), "XXX", "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.brick1, 1, 3)));
 
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.chainmail_helmet), "XXX", "Y Y", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), GOTRegistry.ironNugget));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.chainmail_chestplate), "X X", "YYY", "XXX", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), GOTRegistry.ironNugget));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.chainmail_leggings), "XXX", "Y Y", "X X", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), GOTRegistry.ironNugget));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.chainmail_boots), "Y Y", "X X", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), GOTRegistry.ironNugget));
+
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.bronzeChainmailHelmet), "XXX", "Y Y", Character.valueOf('X'), GOTRegistry.bronzeIngot, Character.valueOf('Y'), GOTRegistry.bronzeNugget));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.bronzeChainmailChestplate), "X X", "YYY", "XXX", Character.valueOf('X'), GOTRegistry.bronzeIngot, Character.valueOf('Y'), GOTRegistry.bronzeNugget));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.bronzeChainmailLeggings), "XXX", "Y Y", "X X", Character.valueOf('X'), GOTRegistry.bronzeIngot, Character.valueOf('Y'), GOTRegistry.bronzeNugget));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.bronzeChainmailBoots), "Y Y", "X X", Character.valueOf('X'), GOTRegistry.bronzeIngot, Character.valueOf('Y'), GOTRegistry.bronzeNugget));
+
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.valyrianChainmailHelmet), "XXX", "Y Y", Character.valueOf('X'), GOTRegistry.valyrianIngot, Character.valueOf('Y'), GOTRegistry.valyrianNugget));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.valyrianChainmailChestplate), "X X", "YYY", "XXX", Character.valueOf('X'), GOTRegistry.valyrianIngot, Character.valueOf('Y'), GOTRegistry.valyrianNugget));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.valyrianChainmailLeggings), "XXX", "Y Y", "X X", Character.valueOf('X'), GOTRegistry.valyrianIngot, Character.valueOf('Y'), GOTRegistry.valyrianNugget));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.valyrianChainmailBoots), "Y Y", "X X", Character.valueOf('X'), GOTRegistry.valyrianIngot, Character.valueOf('Y'), GOTRegistry.valyrianNugget));
+
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.alloySteelAxe), "XX", "XY", " Y", Character.valueOf('X'), GOTRegistry.alloySteelIngot, Character.valueOf('Y'), "stickWood"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.alloySteelDagger), "X", "Y", Character.valueOf('X'), GOTRegistry.alloySteelIngot, Character.valueOf('Y'), "stickWood"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.alloySteelHalberd), " XX", " YX", "Y  ", Character.valueOf('X'), GOTRegistry.alloySteelIngot, Character.valueOf('Y'), "stickWood"));
@@ -736,6 +751,8 @@ public class GOTRecipe {
 		GameRegistry.addRecipe(new ItemStack(GOTRegistry.chestBasket), "XXX", "X X", "XXX", Character.valueOf('X'), GOTRegistry.driedReeds);
 		GameRegistry.addRecipe(new ItemStack(GOTRegistry.clayTile, 4, 0), "XX", "XX", Character.valueOf('X'), new ItemStack(Blocks.hardened_clay, 1, 0));
 		GameRegistry.addRecipe(new ItemStack(GOTRegistry.copperIngot), "XXX", "XXX", "XXX", Character.valueOf('X'), GOTRegistry.copperNugget);
+		GameRegistry.addRecipe(new ItemStack(GOTRegistry.bronzeIngot), "XXX", "XXX", "XXX", Character.valueOf('X'), GOTRegistry.bronzeNugget);
+		GameRegistry.addRecipe(new ItemStack(Items.iron_ingot), "XXX", "XXX", "XXX", Character.valueOf('X'), GOTRegistry.ironNugget);
 		GameRegistry.addRecipe(new ItemStack(GOTRegistry.cornBread), "XXX", Character.valueOf('X'), GOTRegistry.corn);
 		GameRegistry.addRecipe(new ItemStack(GOTRegistry.diamondHorseArmor), "X  ", "XYX", "XXX", Character.valueOf('X'), Items.diamond, Character.valueOf('Y'), Items.leather);
 		GameRegistry.addRecipe(new ItemStack(GOTRegistry.dirtPath, 2, 0), "XX", Character.valueOf('X'), Blocks.dirt);
@@ -892,14 +909,12 @@ public class GOTRecipe {
 		GameRegistry.addRecipe(new ItemStack(GOTRegistry.stairsWillow, 4), "X  ", "XX ", "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.planks2, 1, 9));
 		GameRegistry.addRecipe(new ItemStack(GOTRegistry.thatch, 4, 1), "XX", "XX", Character.valueOf('X'), GOTRegistry.driedReeds);
 		GameRegistry.addRecipe(new ItemStack(GOTRegistry.thatch, 6, 0), "XYX", "YXY", "XYX", Character.valueOf('X'), Items.wheat, Character.valueOf('Y'), Blocks.dirt);
-		GameRegistry.addRecipe(new ItemStack(GOTRegistry.valyrianBoots), "X X", "X X", Character.valueOf('X'), GOTRegistry.valyrianMail);
-		GameRegistry.addRecipe(new ItemStack(GOTRegistry.valyrianChestplate), "X X", "XXX", "XXX", Character.valueOf('X'), GOTRegistry.valyrianMail);
-		GameRegistry.addRecipe(new ItemStack(GOTRegistry.valyrianHelmet), "XXX", "X X", Character.valueOf('X'), GOTRegistry.valyrianMail);
-		GameRegistry.addRecipe(new ItemStack(GOTRegistry.valyrianHorseArmor), "X  ", "XYX", "XXX", Character.valueOf('X'), GOTRegistry.valyrianMail, Character.valueOf('Y'), Items.leather);
+		GameRegistry.addRecipe(new ItemStack(GOTRegistry.valyrianBoots), "X X", "X X", Character.valueOf('X'), GOTRegistry.valyrianIngot);
+		GameRegistry.addRecipe(new ItemStack(GOTRegistry.valyrianChestplate), "X X", "XXX", "XXX", Character.valueOf('X'), GOTRegistry.valyrianIngot);
+		GameRegistry.addRecipe(new ItemStack(GOTRegistry.valyrianHelmet), "XXX", "X X", Character.valueOf('X'), GOTRegistry.valyrianIngot);
+		GameRegistry.addRecipe(new ItemStack(GOTRegistry.valyrianHorseArmor), "X  ", "XYX", "XXX", Character.valueOf('X'), GOTRegistry.valyrianIngot, Character.valueOf('Y'), Items.leather);
 		GameRegistry.addRecipe(new ItemStack(GOTRegistry.valyrianIngot), "XXX", "XXX", "XXX", Character.valueOf('X'), GOTRegistry.valyrianNugget);
-		GameRegistry.addRecipe(new ItemStack(GOTRegistry.valyrianIngot, 2), "XX", "XX", Character.valueOf('X'), GOTRegistry.valyrianMail);
-		GameRegistry.addRecipe(new ItemStack(GOTRegistry.valyrianLeggings), "XXX", "X X", "X X", Character.valueOf('X'), GOTRegistry.valyrianMail);
-		GameRegistry.addRecipe(new ItemStack(GOTRegistry.valyrianMail, 8), "XX", "XX", Character.valueOf('X'), GOTRegistry.valyrianIngot);
+		GameRegistry.addRecipe(new ItemStack(GOTRegistry.valyrianLeggings), "XXX", "X X", "X X", Character.valueOf('X'), GOTRegistry.valyrianIngot);
 		GameRegistry.addRecipe(new ItemStack(GOTRegistry.valyrianRing), "XXX", "X X", "XXX", Character.valueOf('X'), GOTRegistry.valyrianNugget);
 		GameRegistry.addRecipe(new ItemStack(GOTRegistry.wallStone1, 6, 13), "XXX", "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.rock, 1, 3));
 		GameRegistry.addRecipe(new ItemStack(GOTRegistry.wallStone1, 6, 14), "XXX", "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.brick1, 1, 14));
@@ -1316,6 +1331,8 @@ public class GOTRecipe {
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTRegistry.topaz, 9), new ItemStack(GOTRegistry.blockGem, 1, 0));
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTRegistry.valyrianIngot, 9), new ItemStack(GOTRegistry.blockMetal1, 1, 4));
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTRegistry.valyrianNugget, 9), GOTRegistry.valyrianIngot);
+		GameRegistry.addShapelessRecipe(new ItemStack(GOTRegistry.bronzeNugget, 9), GOTRegistry.bronzeIngot);
+		GameRegistry.addShapelessRecipe(new ItemStack(GOTRegistry.ironNugget, 9), Items.iron_ingot);
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTRegistry.yitiSteelIngot, 9), new ItemStack(GOTRegistry.blockMetal2, 1, 2));
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 1), new ItemStack(GOTRegistry.essosFlower, 1, 0));
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 13), new ItemStack(GOTRegistry.essosFlower, 1, 3));

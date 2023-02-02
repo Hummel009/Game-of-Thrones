@@ -1,4 +1,18 @@
 ﻿
+item.got:bronzeNugget.name=Бронзовый самородок
+item.got:ironNugget.name=Железный самородок
+item.got:bronze_chainmail_boots.name=Бронзовые кольчужные ботинки
+item.got:bronze_chainmail_chestplate.name=Бронзовая кольчуга
+item.got:bronze_chainmail_helmet.name=Бронзовый койф
+item.got:bronze_chainmail_leggings.name=Бронзовые кольчужные поножи
+item.got:valyrian_chainmail_boots.name=Валирийские кольчужные ботинки
+item.got:valyrian_chainmail_chestplate.name=Валирийская кольчуга
+item.got:valyrian_chainmail_helmet.name=Валирийский койф
+item.got:valyrian_chainmail_leggings.name=Валирийские кольчужные поножи
+item.got:walrus_lard_raw.name=Сырое сало моржа
+item.got:walrus_lard_cooked.name=Жареное сало моржа
+item.got:elephant_raw.name=Сырое мясо слона
+item.got:elephant_cooked.name=Жареное мясо моржа
 attribute.name.generic.movementSpeedAir=Скорость (Воздух)
 color.black=Чёрный
 color.blue=Голубой
