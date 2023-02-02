@@ -14,6 +14,7 @@ public class GOTBiomeIronbornHills extends GOTBiomeIronborn {
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreTin, 8), 8.0f, 0, 255);
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCopper, 8), 8.0f, 0, 255);
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
+		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
 	}
 
 	@Override

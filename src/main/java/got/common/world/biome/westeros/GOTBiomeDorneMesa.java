@@ -26,6 +26,7 @@ public class GOTBiomeDorneMesa extends GOTBiomeDorneDesert {
 		topBlock = Blocks.sand;
 		topBlockMeta = 1;
 		fillerBlock = Blocks.stained_hardened_clay;
+		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
 	}
 
