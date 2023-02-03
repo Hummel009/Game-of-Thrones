@@ -14,7 +14,6 @@ import com.google.common.math.IntMath;
 import cpw.mods.fml.common.*;
 import got.GOT;
 import got.common.GOTDimension;
-import got.common.database.GOTRegistry;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.world.*;
 
@@ -47,7 +46,7 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 					}
 					zip.close();
 				} else {
-					File file = new File(GOTRegistry.class.getResource("/" + imageName).toURI());
+					File file = new File(GOT.class.getResource("/" + imageName).toURI());
 					biomeImage = ImageIO.read(new FileInputStream(file));
 				}
 				if (biomeImage == null) {

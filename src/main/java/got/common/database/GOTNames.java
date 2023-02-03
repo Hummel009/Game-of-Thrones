@@ -122,7 +122,7 @@ public class GOTNames {
 					}
 				}
 			} else {
-				File nameBankDir = new File(GOTRegistry.class.getResource("/assets/got/texts/" + GOTConfig.languageCode + "/names/").toURI());
+				File nameBankDir = new File(GOT.class.getResource("/assets/got/texts/" + GOTConfig.languageCode + "/names/").toURI());
 				for (File file : nameBankDir.listFiles()) {
 					String s = file.getName();
 					int i = s.indexOf(".txt");
