@@ -1,4 +1,6 @@
 ﻿
+item.got:iron_nugget.name=Железный самородок
+item.got:bronze_nugget.name=Бронзовый самородок
 item.got:bronze_ring.name=Бронзовое кольцо
 item.got:copper_ring.name=Медное кольцо
 attribute.name.generic.movementSpeedAir=Скорость (Воздух)

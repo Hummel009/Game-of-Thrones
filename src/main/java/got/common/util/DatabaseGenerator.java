@@ -499,7 +499,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 								xml.println("| " + getBiomePagename(biome) + " = " + biomeSpawnOnly);
 							} else {
 								xml.println("| " + getBiomePagename(biome) + " = " + biomeHasConquest);
-								EnumSet<GOTFaction> conquestFactions = EnumSet.allOf(GOTFaction.class);
+								EnumSet<GOTFaction> conquestFactions = EnumSet.noneOf(GOTFaction.class);
 								for (FactionContainer facContainer : conqestContainers) {
 									next: for (SpawnListContainer container : facContainer.spawnLists) {
 										for (GOTSpawnEntry entry : container.spawnList.spawnList) {
@@ -592,7 +592,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeNoInvasions);
 						} else {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeHasInvasions);
-							EnumSet<GOTFaction> invasionFactions = EnumSet.allOf(GOTFaction.class);
+							EnumSet<GOTFaction> invasionFactions = EnumSet.noneOf(GOTFaction.class);
 							next: for (GOTInvasions invasion : biome.getInvasionSpawns().registeredInvasions) {
 								for (InvasionSpawnEntry entry : invasion.invasionMobs) {
 									Entity entity = classToObjectMapping.get(entry.entityClass);
@@ -648,7 +648,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				xml.println(begin);
 				for (GOTBiome biome : biomes) {
 					if (biome != null) {
-						EnumSet<GOTTreeType> treesBiome = EnumSet.allOf(GOTTreeType.class);
+						EnumSet<GOTTreeType> treesBiome = EnumSet.noneOf(GOTTreeType.class);
 						EnumMap<GOTTreeType, GOTBiomeVariant> treesVariant = new EnumMap<>(GOTTreeType.class);
 						for (WeightedTreeType weightedTreeType : biome.decorator.treeTypes) {
 							treesBiome.add(weightedTreeType.treeType);
