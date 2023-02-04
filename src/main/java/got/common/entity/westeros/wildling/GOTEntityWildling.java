@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTEntityWildling extends GOTEntityHumanBase implements IPickpocketable {
-	public static ItemStack[] weapons = { new ItemStack(GOTRegistry.wildlingAxe), new ItemStack(GOTRegistry.wildlingBattleaxe), new ItemStack(GOTRegistry.wildlingDagger), new ItemStack(GOTRegistry.wildlingDaggerPoisoned), new ItemStack(GOTRegistry.wildlingHammer), new ItemStack(GOTRegistry.wildlingPolearm), new ItemStack(GOTRegistry.wildlingSword), new ItemStack(GOTRegistry.wildlingSword), new ItemStack(GOTRegistry.wildlingSword), new ItemStack(GOTRegistry.wildlingSword) };
+	public static ItemStack[] weapons = { new ItemStack(GOTRegistry.wildlingBattleaxe), new ItemStack(GOTRegistry.wildlingDagger), new ItemStack(GOTRegistry.wildlingDaggerPoisoned), new ItemStack(GOTRegistry.wildlingHammer), new ItemStack(GOTRegistry.wildlingPolearm), new ItemStack(GOTRegistry.wildlingSword), new ItemStack(GOTRegistry.wildlingSword), new ItemStack(GOTRegistry.wildlingSword), new ItemStack(GOTRegistry.wildlingSword) };
 	public static ItemStack[] spears = { new ItemStack(GOTRegistry.wildlingSpear) };
 
 	public GOTEntityWildling(World world) {

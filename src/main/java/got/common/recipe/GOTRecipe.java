@@ -1240,7 +1240,6 @@ public class GOTRecipe {
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTRegistry.alloySteelNugget, 9), GOTRegistry.alloySteelIngot);
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTRegistry.amber, 9), new ItemStack(GOTRegistry.blockGem, 1, 4));
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTRegistry.amethyst, 9), new ItemStack(GOTRegistry.blockGem, 1, 1));
-		GameRegistry.addShapelessRecipe(new ItemStack(GOTRegistry.blackrootStick, 2), GOTRegistry.blackroot);
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTRegistry.bottlePoison), Items.glass_bottle, GOTRegistry.wildberry);
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTRegistry.bronzeIngot, 1), GOTRegistry.copperIngot, GOTRegistry.tinIngot);
 		GameRegistry.addShapelessRecipe(new ItemStack(GOTRegistry.bronzeIngot, 9), new ItemStack(GOTRegistry.blockMetal1, 1, 2));
@@ -1613,7 +1612,6 @@ public class GOTRecipe {
 		wildling.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.wildlingBattleaxe), "XXX", "XYX", " Y ", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
 		wildling.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.wildlingDagger), "X", "Y", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
 		wildling.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.wildlingSpear), "  X", " Y ", "Y  ", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
-		wildling.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.wildlingAxe), "XX", "XY", " Y", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
 		wildling.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.wildlingHammer), "XYX", "XYX", " Y ", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
 		wildling.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.banner, 1, GOTItemBanner.BannerType.WILDLING.bannerID), "X", "Y", "Z", Character.valueOf('X'), Blocks.wool, Character.valueOf('Y'), "stickWood", Character.valueOf('Z'), "plankWood"));
 		wildling.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.wildlingPolearm), " XX", " YX", "Y  ", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
@@ -1843,7 +1841,6 @@ public class GOTRecipe {
 			}
 			OreDictionary.registerOre("treeSapling", new ItemStack(block, 1, 32767));
 		}
-		OreDictionary.registerOre("stickWood", GOTRegistry.blackrootStick);
 		for (Object obj : Item.itemRegistry) {
 			Item item = (Item) obj;
 			if (item == Items.bone || item instanceof GOTItemBone) {

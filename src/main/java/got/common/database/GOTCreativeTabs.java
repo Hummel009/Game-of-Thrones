@@ -47,7 +47,7 @@ public class GOTCreativeTabs extends CreativeTabs {
 		GOTCreativeTabs.tabFood.theIcon = new ItemStack(GOTRegistry.mugVodka);
 		GOTCreativeTabs.tabMaterials.theIcon = new ItemStack(GOTRegistry.valyrianIngot);
 		GOTCreativeTabs.tabMisc.theIcon = new ItemStack(GOTRegistry.coin, 1, 6);
-		GOTCreativeTabs.tabTools.theIcon = new ItemStack(GOTRegistry.wildlingAxe);
+		GOTCreativeTabs.tabTools.theIcon = new ItemStack(GOTRegistry.bronzePickaxe);
 		GOTCreativeTabs.tabCombat.theIcon = new ItemStack(GOTRegistry.ironbornHelmet);
 		GOTCreativeTabs.tabStory.theIcon = new ItemStack(GOTRegistry.bane);
 		GOTCreativeTabs.tabSpawn.theIcon = new ItemStack(GOTRegistry.spawnEgg, 1, 248);
