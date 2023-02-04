@@ -68,11 +68,7 @@ public class GOTEntityDragonstoneSoldier extends GOTEntityDragonstoneLevyman {
 			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosSword));
 			break;
 		}
-		if (rand.nextInt(3) == 0) {
-			npcItemsInv.setMeleeWeaponMounted(new ItemStack(GOTRegistry.westerosLance));
-		} else {
 			npcItemsInv.setMeleeWeaponMounted(npcItemsInv.getMeleeWeapon());
-		}
 		if (rand.nextInt(5) == 0) {
 			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());
 			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosSpear));

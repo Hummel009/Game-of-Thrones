@@ -203,7 +203,6 @@ public class GOTRecipe {
 		commonWesteros.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.westerosDagger), "X", "Y", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
 		commonWesteros.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.westerosHammer), "XYX", "XYX", " Y ", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
 		commonWesteros.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.westerosHorseArmor), "X  ", "XYX", "XXX", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), Items.leather));
-		commonWesteros.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.westerosLance), "  X", " X ", "Y  ", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
 		commonWesteros.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.westerosPike), "  X", " YX", "Y  ", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
 		commonWesteros.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.westerosSpear), "  X", " Y ", "Y  ", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
 		commonWesteros.add(new ShapedOreRecipe(new ItemStack(GOTRegistry.westerosSword), "X", "X", "Y", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "stickWood"));
@@ -1181,7 +1180,7 @@ public class GOTRecipe {
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.valyrianBattleaxe), "XXX", "XYX", " Y ", Character.valueOf('X'), GOTRegistry.valyrianIngot, Character.valueOf('Y'), "stickWood"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.valyrianCrossbow), "XXY", "ZYX", "YZX", Character.valueOf('X'), GOTRegistry.valyrianIngot, Character.valueOf('Y'), "stickWood", Character.valueOf('Z'), Items.string));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.valyrianDagger), "X", "Y", Character.valueOf('X'), GOTRegistry.valyrianIngot, Character.valueOf('Y'), "stickWood"));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.valyrianHalberd), " XX", " YX", "Y  ", Character.valueOf('X'), GOTRegistry.valyrianIngot, Character.valueOf('Y'), "stickWood"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.valyrianPike), " XX", " YX", "Y  ", Character.valueOf('X'), GOTRegistry.valyrianIngot, Character.valueOf('Y'), "stickWood"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.valyrianHammer), "XYX", "XYX", " Y ", Character.valueOf('X'), GOTRegistry.valyrianIngot, Character.valueOf('Y'), "stickWood"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.valyrianHoe), "XX", " Y", " Y", Character.valueOf('X'), GOTRegistry.valyrianIngot, Character.valueOf('Y'), "stickWood"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.valyrianMattock), "XXX", "XY ", " Y ", Character.valueOf('X'), GOTRegistry.valyrianIngot, Character.valueOf('Y'), "stickWood"));

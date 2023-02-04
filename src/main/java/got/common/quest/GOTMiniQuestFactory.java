@@ -273,7 +273,6 @@ public enum GOTMiniQuestFactory {
 			kingdom.getKey().addQuest(new QFCollect<>().setCollectItem(new ItemStack(GOTRegistry.westerosDaggerPoisoned), 1, 5).setRewardFactor(3.0f));
 			kingdom.getKey().addQuest(new QFCollect<>().setCollectItem(new ItemStack(GOTRegistry.westerosHammer), 1, 5).setRewardFactor(3.0f));
 			kingdom.getKey().addQuest(new QFCollect<>().setCollectItem(new ItemStack(GOTRegistry.westerosHorseArmor), 1, 5).setRewardFactor(3.0f));
-			kingdom.getKey().addQuest(new QFCollect<>().setCollectItem(new ItemStack(GOTRegistry.westerosLance), 1, 5).setRewardFactor(3.0f));
 			kingdom.getKey().addQuest(new QFCollect<>().setCollectItem(new ItemStack(GOTRegistry.westerosPike), 1, 5).setRewardFactor(3.0f));
 			kingdom.getKey().addQuest(new QFCollect<>().setCollectItem(new ItemStack(GOTRegistry.westerosSpear), 1, 5).setRewardFactor(3.0f));
 			kingdom.getKey().addQuest(new QFCollect<>().setCollectItem(new ItemStack(GOTRegistry.westerosSword), 1, 5).setRewardFactor(3.0f));
