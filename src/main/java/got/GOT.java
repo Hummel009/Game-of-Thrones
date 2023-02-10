@@ -65,8 +65,6 @@ public class GOT {
 	public static GOTTickHandlerServer tickHandler;
 	public static WorldType worldTypeGOT;
 	public static WorldType worldTypeGOTClassic;
-	public static Map<ItemStack, Integer> buy = new GOTItemStackMapImpl<>();
-	public static Map<ItemStack, Integer> sell = new GOTItemStackMapImpl<>();
 	public static String langsName = "\u0420\u0443\u0441\u0441\u043A\u0438\u0439 (ru), \u0423\u043A\u0440\u0430\u0457\u043D\u0441\u044C\u043A\u0430 (uk), English (en), Fran\u00E7ais (fr), Deutsch (de), Polska (pl), T\u00FCrk\u00E7e (tr), \u4E2D\u6587 (zh)";
 	static {
 		devs.add("76ae4f2f-e70a-4680-b7cd-3100fa8b567b");
@@ -272,12 +270,7 @@ public class GOT {
 		GOTLoader.preInit();
 		Blocks.dragon_egg.setCreativeTab(GOTCreativeTabs.tabStory);
 		proxy.onPreload();
-		int k = 1;
-		for (int i = 0; i < 8; ++i) {
-			buy.put(new ItemStack(GOTRegistry.coin, 1, i), k);
-			sell.put(new ItemStack(GOTRegistry.coin, 1, i), k);
-			k *= 4;
-		}
+		GOTBlockIronBank.preInit();
 	}
 
 	public static boolean canDropLoot(World world) {

@@ -14,15 +14,10 @@ import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTMusicTicker {
 	public static GOTMusicTrack currentTrack;
-	public static boolean wasPlayingMenu;
+	public static boolean wasPlayingMenu = true;
 	public static int firstTiming = 100;
-	public static int timing;
+	public static int timing = 100;
 	public static int nullTrackResetTiming = 400;
-
-	static {
-		wasPlayingMenu = true;
-		timing = 100;
-	}
 
 	public static GOTMusicCategory getCurrentCategory(Minecraft mc, Random rand) {
 		WorldClient world = mc.theWorld;

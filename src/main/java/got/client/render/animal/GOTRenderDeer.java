@@ -9,11 +9,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderDeer extends RenderLiving {
 	public static GOTRandomSkins elkSkins;
-	public static ResourceLocation saddleTexture;
-
-	static {
-		saddleTexture = new ResourceLocation("got:textures/entity/animal/elk/saddle.png");
-	}
+	public static ResourceLocation saddleTexture = new ResourceLocation("got:textures/entity/animal/elk/saddle.png");
 
 	public GOTRenderDeer() {
 		super(new GOTModelDeer(), 0.5f);

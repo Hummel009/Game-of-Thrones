@@ -30,8 +30,8 @@ public class GOTRenderNorthernLights {
 	public static boolean atNightKing;
 	public static int nightKingChange;
 	public static int nightKingChangeTime = 200;
-	public static Random rand;
-	public static Random dateRand;
+	public static Random rand = new Random();
+	public static Random dateRand = new Random();
 	public static float[] colorTopCurrent;
 	public static float[] colorMidCurrent;
 	public static float[] colorBottomCurrent;
@@ -42,21 +42,10 @@ public class GOTRenderNorthernLights {
 	public static int colorChangeTick;
 	public static int timeUntilColorChange;
 	public static int nightKingCheckTime;
-	public static AuroraCycle wave0;
-	public static List<AuroraCycle> waveOscillations;
-	public static List<AuroraCycle> glowOscillations;
-	public static AuroraCycle glow0;
-
-	static {
-		atNightKing = false;
-		nightKingChange = 0;
-		rand = new Random();
-		dateRand = new Random();
-		wave0 = new AuroraCycle(4.0f, 0.01f, 0.9f);
-		waveOscillations = new ArrayList<>();
-		glowOscillations = new ArrayList<>();
-		glow0 = new AuroraCycle(20.0f, 0.02f, 0.6f);
-	}
+	public static AuroraCycle wave0 = new AuroraCycle(4.0f, 0.01f, 0.9f);
+	public static List<AuroraCycle> waveOscillations = new ArrayList<>();
+	public static List<AuroraCycle> glowOscillations = new ArrayList<>();
+	public static AuroraCycle glow0 = new AuroraCycle(20.0f, 0.02f, 0.6f);
 
 	public static Color[] generateColorSet() {
 		float h1 = MathHelper.randomFloatClamp(rand, 0.22f, 0.48f);

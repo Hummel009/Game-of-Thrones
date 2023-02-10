@@ -29,19 +29,11 @@ public class GOTMusic implements IResourceManagerReloadListener {
 	public static File musicDir;
 	public static String jsonFilename = "music.json";
 	public static String musicResourcePath = "musicpacks";
-	public static GOTMusicResourceManager trackResourceManager;
-	public static List<GOTMusicTrack> allTracks;
-	public static Map<GOTBiomeMusic.MusicRegion, GOTRegionTrackPool> regionTracks;
+	public static GOTMusicResourceManager trackResourceManager = new GOTMusicResourceManager();
+	public static List<GOTMusicTrack> allTracks = new ArrayList<>();
+	public static Map<GOTBiomeMusic.MusicRegion, GOTRegionTrackPool> regionTracks = new HashMap<>();
 	public static boolean initSubregions;
-	public static Random musicRand;
-
-	static {
-		trackResourceManager = new GOTMusicResourceManager();
-		allTracks = new ArrayList<>();
-		regionTracks = new HashMap<>();
-		initSubregions = false;
-		musicRand = new Random();
-	}
+	public static Random musicRand = new Random();
 
 	public GOTMusic() {
 		((IReloadableResourceManager) Minecraft.getMinecraft().getResourceManager()).registerReloadListener(this);

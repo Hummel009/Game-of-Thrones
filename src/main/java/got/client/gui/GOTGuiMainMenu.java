@@ -21,20 +21,14 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 	public static ResourceLocation menuOverlay = new ResourceLocation("got:textures/gui/menu_overlay.png");
 	public static GOTGuiRendererMap mapRenderer;
 	public static int tickCounter;
-	public static Random rand;
-	public static boolean isFirstMenu;
-	public static List<GOTWaypoint> waypointRoute;
+	public static Random rand = new Random();
+	public static boolean isFirstMenu = true;
+	public static List<GOTWaypoint> waypointRoute = new ArrayList<>();
 	public static int currentWPIndex;
 	public static boolean randomWPStart;
 	public static float mapSpeed;
 	public static float mapVelX;
 	public static float mapVelY;
-	static {
-		rand = new Random();
-		isFirstMenu = true;
-		waypointRoute = new ArrayList<>();
-		randomWPStart = false;
-	}
 	public GOTGuiMap mapGui;
 	public boolean fadeIn = isFirstMenu;
 	public long firstRenderTime;
@@ -110,11 +104,11 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 				drawString(fontRendererObj, field_92025_p, field_92022_t, field_92021_u, -1);
 				drawString(fontRendererObj, field_146972_A, (width - field_92024_r) / 2, buttonList.get(0).yPosition - 12, -1);
 			}
-			for (Object button : buttonList) {
-				((GuiButton) button).drawButton(mc, i, j);
+			for (GuiButton button : buttonList) {
+				button.drawButton(mc, i, j);
 			}
-			for (Object label : labelList) {
-				((GuiLabel) label).func_146159_a(mc, i, j);
+			for (GuiLabel label : labelList) {
+				label.func_146159_a(mc, i, j);
 			}
 		}
 	}

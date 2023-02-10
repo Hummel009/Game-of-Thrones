@@ -5,8 +5,8 @@ import java.util.UUID;
 
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.*;
-import got.GOT;
 import got.common.*;
+import got.common.block.other.GOTBlockIronBank;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
@@ -49,10 +49,10 @@ public class GOTPacketMoneyGive extends GOTPacketMoney implements IMessage {
 		public IMessage onMessage(GOTPacketMoneyGive packet, MessageContext context) {
 			ItemStack item = packet.item;
 			UUID hummel = packet.hummel;
-			if (GOT.buy.containsKey(item)) {
+			if (GOTBlockIronBank.buy.containsKey(item)) {
 				EntityPlayerMP player = context.getServerHandler().playerEntity;
 				GOTPlayerData pd = GOTLevelData.getData(player);
-				int cost = GOT.buy.get(item);
+				int cost = GOTBlockIronBank.buy.get(item);
 				if (hummel.equals(player.getUniqueID())) {
 					player.inventory.addItemStackToInventory(item);
 				} else if (pd.getBalance() >= cost && player.inventory.addItemStackToInventory(item)) {

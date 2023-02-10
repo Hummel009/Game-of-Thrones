@@ -18,21 +18,14 @@ import net.minecraftforge.client.IRenderHandler;
 public class GOTCloudRenderer extends IRenderHandler {
 	public static ResourceLocation cloudTexture = new ResourceLocation("got:textures/sky/clouds.png");
 	public static int cloudRange;
-	public static Random cloudRand;
-	public static CloudProperty cloudOpacity;
-	public static CloudProperty cloudSpeed;
-	public static CloudProperty cloudAngle;
+	public static Random cloudRand = new Random();
+	public static CloudProperty cloudOpacity = new CloudProperty(233591206262L, 0.1f, 1.0f, 0.001f);
+	public static CloudProperty cloudSpeed = new CloudProperty(6283905602629L, 0.0f, 0.5f, 0.001f);
+	public static CloudProperty cloudAngle = new CloudProperty(360360635650636L, 0.0f, 6.2831855f, 0.01f);
 	public static double cloudPosXPre;
 	public static double cloudPosX;
 	public static double cloudPosZPre;
 	public static double cloudPosZ;
-
-	static {
-		cloudRand = new Random();
-		cloudOpacity = new CloudProperty(233591206262L, 0.1f, 1.0f, 0.001f);
-		cloudSpeed = new CloudProperty(6283905602629L, 0.0f, 0.5f, 0.001f);
-		cloudAngle = new CloudProperty(360360635650636L, 0.0f, 6.2831855f, 0.01f);
-	}
 
 	@Override
 	public void render(float partialTicks, WorldClient world, Minecraft mc) {
