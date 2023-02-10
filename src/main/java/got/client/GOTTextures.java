@@ -32,9 +32,9 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	public static ResourceLocation missingTexture = mc.getTextureManager().getDynamicTextureLocation("got.missingSkin", TextureUtil.missingTexture);
 	public static ResourceLocation mapTexture;
 	public static ResourceLocation sepiaMapTexture;
-	public static ResourceLocation overlayTexture;
-	public static ResourceLocation mapTerrain;
-	public static ResourceLocation osrsTexture;
+	public static ResourceLocation overlayTexture = new ResourceLocation("got:textures/map/mapOverlay.png");
+	public static ResourceLocation mapTerrain = new ResourceLocation("got:textures/map/terrain.png");
+	public static ResourceLocation osrsTexture = new ResourceLocation("got:textures/map/osrs.png");
 	public static int OSRS_WATER = 6453158;
 	public static int OSRS_GRASS = 5468426;
 	public static int OSRS_BEACH = 9279778;
@@ -48,28 +48,14 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	public static int OSRS_WILD = 3290677;
 	public static int OSRS_PATH = 6575407;
 	public static int OSRS_KINGDOM_COLOR = 16755200;
-	public static ResourceLocation particleTextures;
-	public static ResourceLocation newWaterParticles;
+	public static ResourceLocation particleTextures = new ResourceLocation("textures/particle/particles.png");
+	public static ResourceLocation newWaterParticles = new ResourceLocation("got:textures/misc/waterParticles.png");
 	public static int newWaterU;
-	public static int newWaterV;
-	public static int newWaterWidth;
-	public static int newWaterHeight;
-	public static Map<ResourceLocation, ResourceLocation> eyesTextures;
-	public static Map<ResourceLocation, Integer> averagedPageColors;
-
-	static {
-		overlayTexture = new ResourceLocation("got:textures/map/mapOverlay.png");
-		mapTerrain = new ResourceLocation("got:textures/map/terrain.png");
-		osrsTexture = new ResourceLocation("got:textures/map/osrs.png");
-		particleTextures = new ResourceLocation("textures/particle/particles.png");
-		newWaterParticles = new ResourceLocation("got:textures/misc/waterParticles.png");
-		newWaterU = 0;
-		newWaterV = 8;
-		newWaterWidth = 64;
-		newWaterHeight = 8;
-		eyesTextures = new HashMap<>();
-		averagedPageColors = new HashMap<>();
-	}
+	public static int newWaterV = 8;
+	public static int newWaterWidth = 64;
+	public static int newWaterHeight = 8;
+	public static Map<ResourceLocation, ResourceLocation> eyesTextures = new HashMap<>();
+	public static Map<ResourceLocation, Integer> averagedPageColors = new HashMap<>();
 
 	@Override
 	public void onResourceManagerReload(IResourceManager resourceManager) {

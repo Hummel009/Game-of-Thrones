@@ -20,11 +20,7 @@ public class GOTAttackTiming {
 	public static int prevAttackTime;
 	public static int fullAttackTime;
 	public static ItemStack attackItem;
-	public static int lastCheckTick;
-
-	static {
-		lastCheckTick = -1;
-	}
+	public static int lastCheckTick = -1;
 
 	public static void doAttackTiming() {
 		int currentTick = GOTTickHandlerClient.clientTick;

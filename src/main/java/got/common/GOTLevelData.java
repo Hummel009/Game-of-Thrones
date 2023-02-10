@@ -36,7 +36,7 @@ public class GOTLevelData {
 	public static int waypointCooldownMax;
 	public static int waypointCooldownMin;
 	public static boolean enableAlignmentZones;
-	public static float conquestRate;
+	public static float conquestRate = 1.0f;
 	public static boolean clientside_thisServer_feastMode;
 	public static boolean clientside_thisServer_fellowshipCreation;
 	public static int clientside_thisServer_fellowshipMaxSize;
@@ -46,21 +46,11 @@ public class GOTLevelData {
 	public static int clientside_thisServer_customWaypointMinY;
 	public static EnumDifficulty difficulty;
 	public static boolean difficultyLock;
-	public static Map<UUID, GOTPlayerData> playerDataMap;
-	public static Map<UUID, Optional<GOTTitle.PlayerTitle>> playerTitleOfflineCacheMap;
-	public static boolean needsLoad;
+	public static Map<UUID, GOTPlayerData> playerDataMap = new HashMap<>();
+	public static Map<UUID, Optional<GOTTitle.PlayerTitle>> playerTitleOfflineCacheMap = new HashMap<>();
+	public static boolean needsLoad = true;
 	public static boolean needsSave;
-	public static Random rand;
-
-	static {
-		conquestRate = 1.0f;
-		difficultyLock = false;
-		playerDataMap = new HashMap<>();
-		playerTitleOfflineCacheMap = new HashMap<>();
-		needsLoad = true;
-		needsSave = false;
-		rand = new Random();
-	}
+	public static Random rand = new Random();
 
 	public static boolean anyDataNeedsSave() {
 		if (needsSave || GOTSpawnDamping.needsSave) {

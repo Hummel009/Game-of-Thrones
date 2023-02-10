@@ -12,12 +12,12 @@ import net.minecraftforge.common.config.*;
 
 public class GOTConfig {
 	public static Configuration config;
-	public static List<String> allCategories;
-	public static String CATEGORY_LANGUAGE;
-	public static String CATEGORY_GAMEPLAY;
-	public static String CATEGORY_GUI;
-	public static String CATEGORY_ENVIRONMENT;
-	public static String CATEGORY_MISC;
+	public static List<String> allCategories = new ArrayList<>();
+	public static String CATEGORY_LANGUAGE = GOTConfig.getCategory("1_language");
+	public static String CATEGORY_GAMEPLAY = GOTConfig.getCategory("2_gameplay");
+	public static String CATEGORY_GUI = GOTConfig.getCategory("3_gui");
+	public static String CATEGORY_ENVIRONMENT = GOTConfig.getCategory("4_environment");
+	public static String CATEGORY_MISC = GOTConfig.getCategory("5_misc");
 	public static boolean lgbt;
 	public static boolean strictFactionTitleRequirements;
 	public static int customWaypointMinY;
@@ -95,15 +95,6 @@ public class GOTConfig {
 	public static boolean enableFellowshipCreation;
 	public static boolean enableTitles;
 	public static boolean enableVillagerTrading;
-
-	static {
-		allCategories = new ArrayList<>();
-		CATEGORY_LANGUAGE = GOTConfig.getCategory("1_language");
-		CATEGORY_GAMEPLAY = GOTConfig.getCategory("2_gameplay");
-		CATEGORY_GUI = GOTConfig.getCategory("3_gui");
-		CATEGORY_ENVIRONMENT = GOTConfig.getCategory("4_environment");
-		CATEGORY_MISC = GOTConfig.getCategory("5_misc");
-	}
 
 	public static boolean areStrictFactionTitleRequirementsEnabled(World world) {
 		if (!world.isRemote) {

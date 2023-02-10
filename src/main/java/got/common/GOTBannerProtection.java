@@ -25,7 +25,7 @@ import net.minecraftforge.common.util.FakePlayer;
 public class GOTBannerProtection {
 	public static int MAX_RANGE = 64;
 	public static Map<Pair<Block, Integer>, Integer> protectionBlocks = new HashMap<>();
-	public static Map<UUID, Integer> lastWarningTimes;
+	public static Map<UUID, Integer> lastWarningTimes = new HashMap<>();
 
 	static {
 		Pair<Block, Integer> BRONZE = Pair.of(GOTRegistry.blockMetal1, 2);
@@ -36,7 +36,6 @@ public class GOTBannerProtection {
 		protectionBlocks.put(SILVER, 16);
 		protectionBlocks.put(GOLD, 32);
 		protectionBlocks.put(VALYRIAN, 64);
-		lastWarningTimes = new HashMap<>();
 	}
 
 	public static IFilter anyBanner() {

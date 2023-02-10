@@ -13,11 +13,7 @@ public class GOTTime {
 	public static int DAY_LENGTH = 48000;
 	public static long totalTime;
 	public static long worldTime;
-	public static boolean needsLoad;
-
-	static {
-		needsLoad = true;
-	}
+	public static boolean needsLoad = true;
 
 	public static void addWorldTime(long time) {
 		worldTime += time;
