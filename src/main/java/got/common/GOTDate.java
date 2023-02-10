@@ -261,7 +261,7 @@ public class GOTDate {
 	public enum Season {
 		SPRING("spring", 0), SUMMER("summer", 1), AUTUMN("autumn", 2), WINTER("winter", 3);
 
-		public static Season[] allSeasons = new Season[] { SPRING, SUMMER, AUTUMN, WINTER };
+		public static Season[] allSeasons = { SPRING, SUMMER, AUTUMN, WINTER };
 		public String name;
 		public int seasonID;
 

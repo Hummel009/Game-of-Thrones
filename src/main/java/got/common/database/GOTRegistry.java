@@ -2142,8 +2142,8 @@ public class GOTRegistry {
 		goldHelmet = new GOTItemArmor(GOTMaterial.GOLDENCOMPANY, 0);
 		goldHorseArmor = new GOTItemMountArmor(ArmorMaterial.GOLD, GOTItemMountArmor.Mount.HORSE, null).setTemplateItem(Items.golden_horse_armor);
 		goldLeggings = new GOTItemArmor(GOTMaterial.GOLDENCOMPANY, 2);
-		goldRing = new GOTItemRing();;
-		bronzeRing = new GOTItemRing();;
+		goldRing = new GOTItemRing();
+		bronzeRing = new GOTItemRing();
 		copperRing = new GOTItemRing();
 		grapeRed = new GOTItemFood(2, 0.2f, false);
 		grapeWhite = new GOTItemFood(2, 0.2f, false);

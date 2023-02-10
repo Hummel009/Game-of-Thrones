@@ -61,11 +61,6 @@ public class GOTBiomeColdCoast extends GOTBiomeWesterosFrost {
 	}
 
 	@Override
-	public float getChanceToSpawnAnimals() {
-		return 0.2f;
-	}
-
-	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterColdCoast;
 	}
@@ -73,5 +68,10 @@ public class GOTBiomeColdCoast extends GOTBiomeWesterosFrost {
 	@Override
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.WESTEROS.getSubregion("coldCoast");
+	}
+
+	@Override
+	public float getChanceToSpawnAnimals() {
+		return 0.2f;
 	}
 }

@@ -49,12 +49,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		notifyChanges = false;
 	}
 
-
-	public GOTStructureBase setRestrictions(boolean b) {
-		restrictions = b;
-		return this;
-	}
-
 	public GOTStructureBase(boolean flag) {
 		super(flag);
 		notifyChanges = flag;
@@ -1081,6 +1075,11 @@ public abstract class GOTStructureBase extends WorldGenerator {
 			shouldFindSurface = false;
 			findSurface(world, -shiftX, -shift);
 		}
+	}
+
+	public GOTStructureBase setRestrictions(boolean b) {
+		restrictions = b;
+		return this;
 	}
 
 	public void setStructureBB(StructureBoundingBox box) {

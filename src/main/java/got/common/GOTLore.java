@@ -13,7 +13,7 @@ import com.google.common.base.Charsets;
 
 import cpw.mods.fml.common.ModContainer;
 import got.GOT;
-import got.common.database.*;
+import got.common.database.GOTNames;
 import got.common.util.GOTLog;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
