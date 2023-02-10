@@ -3,6 +3,7 @@ CHANGELOG
 >>VERSION 17.9.6 HOTFIX
 * Fixed crash in altitude biomes linked to season changes 
 * Fixed wrong info in database generator
+* Fixed bug with untranslated labels
 
 >>VERSION 17.9.5
 + Added walrus lard and elephant meat. Now killing walruses, mammoths and elephants is more useful.
