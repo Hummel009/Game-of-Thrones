@@ -12,13 +12,8 @@ import net.minecraft.world.gen.structure.*;
 
 public class GOTStructureSothoryosPyramidMapgen extends MapGenStructure {
 	public static List spawnBiomes;
-	public static int minDist;
-	public static int separation;
-	static {
-		minDist = 12;
-		separation = 24;
-	}
-
+	public static int minDist = 12;
+	public static int separation = 24;
 	public int spawnChance = 10;
 
 	@Override

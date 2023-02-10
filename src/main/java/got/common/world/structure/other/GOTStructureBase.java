@@ -49,6 +49,12 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		notifyChanges = false;
 	}
 
+
+	public GOTStructureBase setRestrictions(boolean b) {
+		restrictions = b;
+		return this;
+	}
+
 	public GOTStructureBase(boolean flag) {
 		super(flag);
 		notifyChanges = flag;

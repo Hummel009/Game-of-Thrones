@@ -21,9 +21,9 @@ public class GOTWeaponStats {
 	public static Map<Object, Float> meleeSpeed = new HashMap<>();
 	public static Map<Object, Float> meleeReach = new HashMap<>();
 	public static Map<Object, Integer> meleeExtraKnockback = new HashMap<>();
-	public static float MAX_MODIFIABLE_REACH;
-	public static float MAX_MODIFIABLE_SPEED;
-	public static int MAX_MODIFIABLE_KNOCKBACK;
+	public static float MAX_MODIFIABLE_REACH = 2.0f;
+	public static float MAX_MODIFIABLE_SPEED = 1.6f;
+	public static int MAX_MODIFIABLE_KNOCKBACK = 2;
 
 	static {
 		GOTWeaponStats.registerMeleeSpeed(GOTItemGreatsword.class, 0.667f);
@@ -44,9 +44,6 @@ public class GOTWeaponStats {
 		GOTWeaponStats.registerMeleeReach(GOTItemLance.class, 2.0f);
 		GOTWeaponStats.registerMeleeExtraKnockback(GOTItemHammer.class, 1);
 		GOTWeaponStats.registerMeleeExtraKnockback(GOTItemLance.class, 1);
-		MAX_MODIFIABLE_REACH = 2.0f;
-		MAX_MODIFIABLE_SPEED = 1.6f;
-		MAX_MODIFIABLE_KNOCKBACK = 2;
 	}
 
 	public static int getArmorProtection(ItemStack itemstack) {

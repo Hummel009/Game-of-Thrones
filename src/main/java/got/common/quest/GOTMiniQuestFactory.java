@@ -28,13 +28,8 @@ import net.minecraft.item.ItemStack;
 public enum GOTMiniQuestFactory {
 	CRIMINAL(true), IBBEN(true), SUMMER(true), SOTHORYOS(true), ASSHAI(true), WILDLING(true), MOSSOVY(true), HOWLAND, BALON, DAENERYS, VARYS, OBERYN, STANNIS, JONSNOW, RENLY, KITRA, BUGAI, TYRION, CERSEI, RAMSAY, SANDOR, MELISANDRA, DORAN, MARGAERY, ELLARYA, ARYA, OLENNA, SAMWELL, LYSA, CATELYN, DAVEN, ARIANNE, MELLARIO, NORTH(true), RIVERLANDS(true), DORNE(true), REACH(true), STORMLANDS(true), IRONBORN(true), WESTERLANDS(true), ARRYN(true), CROWNLANDS(true), DRAGONSTONE(true), GIFT(true), HILLMEN(true), BRAAVOS(true), LORATH(true), NORVOS(true), QOHOR(true), PENTOS(true), LYS(true), MYR(true), TYROSH(true), VOLANTIS(true), GHISCAR(true), QARTH(true), LHAZAR(true), YI_TI(true), DOTHRAKI(true), JOGOS(true);
 
-	static {
-		rand = new Random();
-		questClassWeights = new HashMap<>();
-	}
-
-	public static Random rand;
-	public static Map<Class<? extends GOTMiniQuest>, Integer> questClassWeights;
+	public static Random rand = new Random();
+	public static Map<Class<? extends GOTMiniQuest>, Integer> questClassWeights = new HashMap<>();
 	public Map<Class<? extends GOTMiniQuest>, List<QuestFactoryBase<? extends GOTMiniQuest>>> questFactories = new HashMap<>();
 	public List<GOTLore.LoreCategory> loreCategories = new ArrayList<>();
 	public boolean noAlignRewardForEnemy;

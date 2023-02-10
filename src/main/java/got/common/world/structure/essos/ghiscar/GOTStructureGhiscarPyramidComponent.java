@@ -2,22 +2,18 @@ package got.common.world.structure.essos.ghiscar;
 
 import java.util.*;
 
+import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.*;
 
 public class GOTStructureGhiscarPyramidComponent extends StructureComponent {
-	public static GOTStructureGhiscarPyramid pyramidGen = new GOTStructureGhiscarPyramid(false);
-	public static Random pyramidRand;
-	static {
-		GOTStructureGhiscarPyramidComponent.pyramidGen.restrictions = false;
-		pyramidRand = new Random();
-	}
+	public static GOTStructureBase pyramidGen = new GOTStructureGhiscarPyramid(false).setRestrictions(false);
+	public static Random pyramidRand = new Random();
 	public int posX;
 	public int posY = -1;
 	public int posZ;
 	public int direction;
-
 	public long pyramidSeed = -1L;
 
 	public GOTStructureGhiscarPyramidComponent() {
