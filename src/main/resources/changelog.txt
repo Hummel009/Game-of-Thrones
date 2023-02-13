@@ -1,6 +1,13 @@
 CHANGELOG
 
 >>VERSION 17.9.7 HOTFIX
+* Improved Russian, Ukrainian, English translations
+* Improved weapon & armor durability because of arguments of players
+
+* Improved structure of lang files. Now it's much easier to finish partial translations of the mod
+
+* Fixed bug with HUGE bug, that allowed us to get 60000+ money from lhazar brewer
+* Fixed bug with wrong rep required by lhazar smith
 * Fixed a few crashes linked to null pointers.
 
 >>VERSION 17.9.6 HOTFIX

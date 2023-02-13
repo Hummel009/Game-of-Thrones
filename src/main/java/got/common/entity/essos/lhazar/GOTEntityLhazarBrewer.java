@@ -19,7 +19,7 @@ public class GOTEntityLhazarBrewer extends GOTEntityLhazarTrader {
 
 	@Override
 	public GOTTradeEntries getSellPool() {
-		return GOTTradeEntries.C_BREWER_BUY;
+		return GOTTradeEntries.C_BREWER_SELL;
 	}
 
 	@Override
