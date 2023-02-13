@@ -1616,6 +1616,9 @@ got.biome.massyHills.name=
 got.biome.meereen.name=弥林
 got.biome.mercenary.name=争议之地
 got.biome.mossovy.name=摩苏伊
+got.biome.mossovyForest.name≠
+got.biome.mossovyMarshes.name≠
+got.biome.mossovyMountains.name≠
 got.biome.mossovyTundra.name=苏克达尔
 got.biome.myr.name=密尔
 got.biome.naath.name=纳斯
@@ -2827,7 +2830,7 @@ got.structure.AsshaiFort.name=亚夏堡垒
 got.structure.AsshaiHouse.name=亚夏宅
 got.structure.AsshaiLaboratory.name=亚夏炼金室
 got.structure.AsshaiOblivionAltar.name=亚夏遗忘祭坛
-got.structure.AsshaiSpiderPit≠
+got.structure.AsshaiSpiderPit.name≠
 got.structure.AsshaiTavern.name=亚夏酒馆
 got.structure.AsshaiTower.name=亚夏岗塔
 got.structure.Barrow.name=古冢

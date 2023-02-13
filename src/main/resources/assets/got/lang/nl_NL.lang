@@ -1604,7 +1604,6 @@ got.biome.jogosNhai.name=Jogos Nhai Plains
 got.biome.jogosNhaiDesert.name=Gedroogde woestijn
 got.biome.jogosNhaiHills.name≠
 got.biome.kingSpears.name=Speren van de Waterkoning
-got.biome.kuurulgan.name≠
 got.biome.lake.name=Meer
 got.biome.lhazar.name=Lhazar
 got.biome.lhazarHills.name≠
@@ -1617,6 +1616,9 @@ got.biome.massyHills.name≠
 got.biome.meereen.name=Meereen
 got.biome.mercenary.name=Betwiste landen
 got.biome.mossovy.name=Mossovy
+got.biome.mossovyForest.name≠
+got.biome.mossovyMarshes.name≠
+got.biome.mossovyMountains.name≠
 got.biome.mossovyTundra.name=Mossovy-toendra
 got.biome.myr.name=Myr
 got.biome.naath.name=Naath
@@ -2595,6 +2597,9 @@ got.gui.shields.select=Selecteer Schild
 got.gui.shields.selected=Geselecteerd!
 got.gui.shields.title=Het Spel Der Tronen Schilden
 got.gui.shields=Schilden
+got.gui.squadronitem.done≠
+got.gui.squadronitem.none≠
+got.gui.squadronitem.squadron≠
 got.gui.time.format.hms=%s %s %s
 got.gui.time.format.ms=%s %s
 got.gui.time.format.s=%s
@@ -2825,7 +2830,7 @@ got.structure.AsshaiFort.name=Fort van Asshai
 got.structure.AsshaiHouse.name=Huis van Asshai
 got.structure.AsshaiLaboratory.name=Laboratorium van Asshai
 got.structure.AsshaiOblivionAltar.name=Oblivion Altaar van Asshai
-got.structure.AsshaiSpiderPit≠
+got.structure.AsshaiSpiderPit.name≠
 got.structure.AsshaiTavern.name=Taverne van Asshai
 got.structure.AsshaiTower.name=Toren van Asshai
 got.structure.Barrow.name=Barrow

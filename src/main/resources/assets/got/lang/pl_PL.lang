@@ -440,7 +440,7 @@ entity.got.LysMiner.name=Górnik Lys
 entity.got.LysSlave.name=Niewolnik Lys
 entity.got.LysSlaver.name=Handlarz niewolnikami Lys
 entity.got.LysSoldier.name=Piechur Lys
-entity.got.LysSoldierArcher.nameŁucznik Lys
+entity.got.LysSoldierArcher.name≠
 entity.got.LysaArryn.name=Lysa Arryn
 entity.got.MaceTyrell.name=Mace Tyrell
 entity.got.MaegeMormont.name=Maege Mormont
@@ -765,7 +765,7 @@ entity.got.TobhoMott.name=Tobho Mott
 entity.got.TommenBaratheon.name=Tommen Baratheon
 entity.got.Tormund.name=Tormund
 entity.got.TraderRespawn.name=Punkt odrodzenia handlarza
-entity.got.TrystaneMartell.nameTrystaena Martell
+entity.got.TrystaneMartell.name≠
 entity.got.TugarKhan.name=Tugar Khan
 entity.got.TychoNestoris.name=Tycho Nestoris
 entity.got.TyrionLannister.name=Tyrion Lannister
@@ -1604,7 +1604,6 @@ got.biome.jogosNhai.name=Jogos Nhai Plains
 got.biome.jogosNhaiDesert.name=Wysuszona Pustynia
 got.biome.jogosNhaiHills.name≠
 got.biome.kingSpears.name=Włócznie Króla Wody
-got.biome.kuurulgan.name≠
 got.biome.lake.name=Jezioro
 got.biome.lhazar.name=Lhazar
 got.biome.lhazarHills.name≠
@@ -1617,6 +1616,9 @@ got.biome.massyHills.name≠
 got.biome.meereen.name=Meereen
 got.biome.mercenary.name=Ziemie sporne
 got.biome.mossovy.name=Mossovy
+got.biome.mossovyForest.name≠
+got.biome.mossovyMarshes.name≠
+got.biome.mossovyMountains.name≠
 got.biome.mossovyTundra.name=Mossova tundra
 got.biome.myr.name=Myr
 got.biome.naath.name=Naath
@@ -2653,8 +2655,11 @@ got.invasion.NORTH.horn=Summon Invasion - Polnóc
 got.invasion.NORVOS.horn=Summon Invasion - Norvos
 got.invasion.PENTOS.horn=Summon Invasion - Pentos
 got.invasion.REACH.horn=Summon Invasion - Reach
+got.invasion.RIVERLANDS.horn≠
+got.invasion.STORMLANDS.horn≠
 got.invasion.TYROSH.horn=Summon Invasion - Tyrosh
 got.invasion.VOLANTIS.horn=Summon Invasion - Volantis
+got.invasion.WESTERLANDS.horn≠
 got.invasion.WILDLING.horn=Summon Invasion - Dzicy
 got.invasion.WILDLING_GIANT.horn=Summon Invasion - Dzicy z gigantem
 got.invasion.WILDLING_GIANT=Dziki z gigantami
@@ -2825,7 +2830,7 @@ got.structure.AsshaiFort.name=Twierdza Asshai
 got.structure.AsshaiHouse.name=Dom Asshai
 got.structure.AsshaiLaboratory.name=Laboratorium Asshai
 got.structure.AsshaiOblivionAltar.name=OłtarAsshai zapomnieniu
-got.structure.AsshaiSpiderPit≠
+got.structure.AsshaiSpiderPit.name≠
 got.structure.AsshaiTavern.name=Tawerna Asshai
 got.structure.AsshaiTower.name=Wieża Asshai
 got.structure.Barrow.name=Kurhan
@@ -2929,7 +2934,7 @@ got.structure.GoldenWatchtower.name=Wierza Złotej Kompanii
 got.structure.HillmanCampfire.name=Obóz Plemion Górskich
 got.structure.HillmanFort.name=Fort Plemion Górskich
 got.structure.HillmanHouse.name=Dom Plemion Górskich
-got.structure.HillmanTavern.nameTawerna Plemion Górskich
+got.structure.HillmanTavern.name≠
 got.structure.HillmanVillage.name=Wioska Plemion Górskich
 got.structure.HorthHillmanCamp.name=Obóz Północnych współplemieńców
 got.structure.IbbenBarn.name=Barn Ibbena
@@ -3008,7 +3013,7 @@ got.structure.MossovyHouse.name=Mossovy Dom
 got.structure.MossovyInn.name≠
 got.structure.MossovyOffice.name≠
 got.structure.MossovySmithy.name=Mossovy kowal
-got.structure.MossovyStable.nameMossova stajnia
+got.structure.MossovyStable.name≠
 got.structure.MossovyTrampHouse.name=Mossovy dom złodzieji
 got.structure.MossovyVillage.name=Mossova wioska
 got.structure.MyrBarracks.name=Koszary Myr

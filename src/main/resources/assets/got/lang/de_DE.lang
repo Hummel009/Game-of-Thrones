@@ -1604,7 +1604,6 @@ got.biome.jogosNhai.name=Ebenen der Jogos Nhai
 got.biome.jogosNhaiDesert.name=Schrumpfendes Meer
 got.biome.jogosNhaiHills.name≠
 got.biome.kingSpears.name=Speere des Königs der Meerjungfrauen
-got.biome.kuurulgan.name≠
 got.biome.lake.name=See
 got.biome.lhazar.name=Lhazar
 got.biome.lhazarHills.name≠
@@ -1617,6 +1616,9 @@ got.biome.massyHills.name≠
 got.biome.meereen.name=Meereen
 got.biome.mercenary.name=Umstrittene Lande
 got.biome.mossovy.name=Mossovy
+got.biome.mossovyForest.name≠
+got.biome.mossovyMarshes.name≠
+got.biome.mossovyMountains.name≠
 got.biome.mossovyTundra.name=Mossovy Tundra
 got.biome.myr.name=Welt
 got.biome.naath.name=Naath
@@ -2828,7 +2830,7 @@ got.structure.AsshaiFort.name=Asshai Festung
 got.structure.AsshaiHouse.name=Asshai Haus
 got.structure.AsshaiLaboratory.name=Asshai Labor
 got.structure.AsshaiOblivionAltar.name=Asshai Altar des Vergessens
-got.structure.AsshaiSpiderPit≠
+got.structure.AsshaiSpiderPit.name≠
 got.structure.AsshaiTavern.name=Asshai Taverne
 got.structure.AsshaiTower.name=Asshai Turm
 got.structure.Barrow.name=Kurgan

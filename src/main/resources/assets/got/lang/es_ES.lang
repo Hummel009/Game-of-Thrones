@@ -1604,7 +1604,6 @@ got.biome.jogosNhai.name=Llanuras de Jogos Nhai
 got.biome.jogosNhaiDesert.name=Desierto Desecado
 got.biome.jogosNhaiHills.name≠
 got.biome.kingSpears.name=Lanzas del Rey del Agua
-got.biome.kuurulgan.name≠
 got.biome.lake.name=Lago
 got.biome.lhazar.name=Lhazar
 got.biome.lhazarHills.name≠
@@ -1617,6 +1616,9 @@ got.biome.massyHills.name≠
 got.biome.meereen.name=Meereen
 got.biome.mercenary.name=Tierras en disputa
 got.biome.mossovy.name=Mossovy
+got.biome.mossovyForest.name≠
+got.biome.mossovyMarshes.name≠
+got.biome.mossovyMountains.name≠
 got.biome.mossovyTundra.name=Tundra Mossovy
 got.biome.myr.name=Myr
 got.biome.naath.name=Naath
@@ -2595,6 +2597,9 @@ got.gui.shields.select=Usar Escudo
 got.gui.shields.selected=Escudo Elegido
 got.gui.shields.title=Escudos de La Juego de Tronos
 got.gui.shields=Escudos
+got.gui.squadronitem.done≠
+got.gui.squadronitem.none≠
+got.gui.squadronitem.squadron≠
 got.gui.time.format.hms=%s %s %s
 got.gui.time.format.ms=%s %s
 got.gui.time.format.s=%s
@@ -2816,6 +2821,7 @@ got.structure.ArrynSmithy.name=Herrería de Valle de Arryn
 got.structure.ArrynStables.name=Establos de Valle de Arryn
 got.structure.ArrynStoneHouse.name=Casa de piedra de Valle de Arryn
 got.structure.ArrynTavern.name=Taberna de Valle de Arryn
+got.structure.ArrynTower.name≠
 got.structure.ArrynWatchfort.name=Atalaya de Valle de Arryn
 got.structure.ArrynWatchtower.name=Atalaya de Valle de Arryn
 got.structure.AsshaiAltar.name≠
@@ -2824,7 +2830,7 @@ got.structure.AsshaiFort.name=Fortaleza de Asshai
 got.structure.AsshaiHouse.name=Casa de Asshai
 got.structure.AsshaiLaboratory.name=Laboratorio de Asshai
 got.structure.AsshaiOblivionAltar.name=Altar del olvido de Asshai
-got.structure.AsshaiSpiderPit≠
+got.structure.AsshaiSpiderPit.name≠
 got.structure.AsshaiTavern.name=Taberna de Asshai
 got.structure.AsshaiTower.name=Torre de Asshai
 got.structure.Barrow.name=Carretilla
@@ -2854,6 +2860,7 @@ got.structure.CrownlandsSmithy.name=Herrería de Tierras de la Corona
 got.structure.CrownlandsStables.name=Establos de Tierras de la Corona
 got.structure.CrownlandsStoneHouse.name=Casa de piedra de Tierras de la Corona
 got.structure.CrownlandsTavern.name=Taberna de Tierras de la Corona
+got.structure.CrownlandsTower.name≠
 got.structure.CrownlandsWatchfort.name=Watchfort de Tierras de la Corona
 got.structure.CrownlandsWatchtower.name=Atalaya de Tierras de la Corona
 got.structure.DatabaseGenerator.name≠
@@ -2869,6 +2876,7 @@ got.structure.DorneSmithy.name=Herrería de Dorne
 got.structure.DorneStables.name=Establos de Dorne
 got.structure.DorneStoneHouse.name=Casa de piedra de Dorne
 got.structure.DorneTavern.name=Taberna de Dorne
+got.structure.DorneTower.name≠
 got.structure.DorneWatchfort.name=Watchfort de Dorne
 got.structure.DorneWatchtower.name=Atalaya de Dorne
 got.structure.DothrakiKhalTent.name=Tienda de Khal del mar Dothraki
@@ -2889,6 +2897,7 @@ got.structure.DragonstoneSmithy.name=Herrería de Rocadragón
 got.structure.DragonstoneStables.name=Establos de Rocadragón
 got.structure.DragonstoneStoneHouse.name=Casa de piedra de Rocadragón
 got.structure.DragonstoneTavern.name=Taberna de Rocadragón
+got.structure.DragonstoneTower.name≠
 got.structure.DragonstoneWatchfort.name=Atalaya de Rocadragón
 got.structure.DragonstoneWatchtower.name=Atalaya de Rocadragón
 got.structure.GhiscarBarracks.name=Cuartel de Ghiscar
@@ -2922,6 +2931,10 @@ got.structure.GiftVillageLight.name=Luz de la aldea de la guardia de la noche
 got.structure.GiftWatchtower.name=Atalaya de la Guardia de la Noche
 got.structure.GoldenCamp.name=Campamento de la Compañía Dorada
 got.structure.GoldenWatchtower.name≠
+got.structure.HillmanCampfire.name≠
+got.structure.HillmanFort.name≠
+got.structure.HillmanHouse.name≠
+got.structure.HillmanTavern.name≠
 got.structure.HillmanVillage.name≠
 got.structure.HorthHillmanCamp.name=Campamento de los montañeses del El Norte
 got.structure.IbbenBarn.name=Granero de Ibben
@@ -2945,6 +2958,7 @@ got.structure.IronbornSmithy.name=Herrería de las Islas del Hierro
 got.structure.IronbornStables.name=Establos de las Islas del Hierro
 got.structure.IronbornStoneHouse.name=Casa de piedra de las islas de hierro
 got.structure.IronbornTavern.name=Taberna de las Islas del Hierro
+got.structure.IronbornTower.name≠
 got.structure.IronbornWatchfort.name=Atalaya de las Islas del Hierro
 got.structure.IronbornWatchtower.name=Atalaya de las Islas del Hierro
 got.structure.JogosChiefTent.name=Tienda del cacique de Jogos Nhai
@@ -3099,6 +3113,7 @@ got.structure.ReachSmithy.name=Herrería de alcance
 got.structure.ReachStables.name=Establos de alcance
 got.structure.ReachStoneHouse.name=Casa de piedra del alcance
 got.structure.ReachTavern.name=Taberna de alcance
+got.structure.ReachTower.name≠
 got.structure.ReachWatchfort.name=Watchfort de Reach
 got.structure.ReachWatchtower.name=Atalaya de alcance
 got.structure.RiverlandsBarn.name=Granero de Tierras de los Ríos
@@ -3113,13 +3128,20 @@ got.structure.RiverlandsSmithy.name=Herrería de Tierras de los Ríos
 got.structure.RiverlandsStables.name=Establos de Tierras de los Ríos
 got.structure.RiverlandsStoneHouse.name=Casa de piedra de Tierras de los Ríos
 got.structure.RiverlandsTavern.name=Taberna de Tierras de los Ríos
+got.structure.RiverlandsTower.name≠
 got.structure.RiverlandsWatchfort.name=Watchfort de Tierras de los Ríos
 got.structure.RiverlandsWatchtower.name=Atalaya de Tierras de los Ríos
 got.structure.RottenHouse.name≠
+got.structure.RuinAsshai.name≠
+got.structure.RuinSandstone.name≠
+got.structure.RuinSothoryos.name≠
+got.structure.RuinStone.name≠
+got.structure.RuinYiTi.name≠
 got.structure.RuinedGiftHouse.name=Casa de regalos en ruinas
 got.structure.RuinedGiftTower.name=Torre de regalos en ruinas
 got.structure.RuinedHouse.name≠
 got.structure.RuinedNorthTower.name=Ruina de la torre baliza del El Norte
+got.structure.RuinedTower.name≠
 got.structure.SmallStoneRuin.name≠
 got.structure.SothoryosChieftainPyramid.name=Pirámide del cacique de Sothoryos
 got.structure.SothoryosHouseLarge.name=Casa de piedra de Sothoryos
@@ -3129,11 +3151,6 @@ got.structure.SothoryosPyramid.name=Pirámide de Sothoryos
 got.structure.SothoryosSmithy.name=Herrería Sothoryos
 got.structure.SothoryosVillage.name=Pueblo de Sothoryos
 got.structure.SothoryosWatchtower.name=Atalaya de Sothoryos
-got.structure.StoneRuinAsshai.name≠
-got.structure.StoneRuinSandstone.name≠
-got.structure.StoneRuinSothoryos.name≠
-got.structure.StoneRuinStandart.name≠
-got.structure.StoneRuinYiTi.name≠
 got.structure.StormlandsBarn.name=Granero de Tierras de la Tormenta
 got.structure.StormlandsBath.name=Baño de Tierras de la Tormenta
 got.structure.StormlandsCityBig.name=Pueblo de Tierras de la Tormenta
@@ -3146,6 +3163,7 @@ got.structure.StormlandsSmithy.name=Herrería de Tierras de la Tormenta
 got.structure.StormlandsStables.name=Establos de Tierras de la Tormenta
 got.structure.StormlandsStoneHouse.name=Casa de piedra de Tierras de la Tormenta
 got.structure.StormlandsTavern.name=Taberna de Tierras de la Tormenta
+got.structure.StormlandsTower.name≠
 got.structure.StormlandsWatchfort.name=Fuerte de vigilancia de las Tierras de la Tormenta
 got.structure.StormlandsWatchtower.name=Atalaya de Tierras de la Tormenta
 got.structure.SummerFort.name=Fuerte de las Islas del Verano
@@ -3201,6 +3219,7 @@ got.structure.WesterlandsSmithy.name=Herrería de Tierras del Oeste
 got.structure.WesterlandsStables.name=Establos de Tierras del Oeste
 got.structure.WesterlandsStoneHouse.name=Casa de piedra de Tierras del Oeste
 got.structure.WesterlandsTavern.name=Taberna de Tierras del Oeste
+got.structure.WesterlandsTower.name≠
 got.structure.WesterlandsWatchfort.name=Watchfort de Tierras del Oeste
 got.structure.WesterlandsWatchtower.name=Atalaya de Tierras del Oeste
 got.structure.WildlingCamp.name=Campamento de los salvajes

@@ -1616,6 +1616,9 @@ got.biome.massyHills.name≠
 got.biome.meereen.name=Meereen
 got.biome.mercenary.name=İhtilaflı Topraklar
 got.biome.mossovy.name=Mossovy
+got.biome.mossovyForest.name≠
+got.biome.mossovyMarshes.name≠
+got.biome.mossovyMountains.name≠
 got.biome.mossovyTundra.name=Mossovy tundra
 got.biome.myr.name=Mür
 got.biome.naath.name=Naath
@@ -1981,6 +1984,8 @@ got.container.crafting.yiti=Yi Ti Üretimi
 got.container.dartTrap=Dart Tuzağı
 got.container.millstone=Değirmentaşı
 got.container.oven=Fırın
+got.container.smith.cost≠
+got.container.smith≠
 got.container.trade.buy=Satın al
 got.container.trade.locked=...
 got.container.trade.sell=Sat
@@ -2510,6 +2515,7 @@ got.gui.npc.command=Emir Ver
 got.gui.npc.dismiss=Askeri İşten Çıkar
 got.gui.npc.exchange=Para Takas Et
 got.gui.npc.hire=Çağır
+got.gui.npc.smith≠
 got.gui.npc.talk=Konuş
 got.gui.npc.trade=Takas Yap
 got.gui.npcRespawner.blockEnemy.off=Kapalı
@@ -2591,6 +2597,9 @@ got.gui.shields.select=Kalkan Seç
 got.gui.shields.selected=Seçildi!
 got.gui.shields.title=Kalkanları
 got.gui.shields=Kalkanlar
+got.gui.squadronitem.done≠
+got.gui.squadronitem.none≠
+got.gui.squadronitem.squadron≠
 got.gui.time.format.hms=%s %s %s
 got.gui.time.format.ms=%s %s
 got.gui.time.format.s=%s
@@ -2821,7 +2830,7 @@ got.structure.AsshaiFort.name=Asshai Kalesi
 got.structure.AsshaiHouse.name=Asshai Evi
 got.structure.AsshaiLaboratory.name=Asshai Laboratuvarı
 got.structure.AsshaiOblivionAltar.name=Asshai Oblivion Sunağı
-got.structure.AsshaiSpiderPit≠
+got.structure.AsshaiSpiderPit.name≠
 got.structure.AsshaiTavern.name=Asshai Tavernası
 got.structure.AsshaiTower.name=Asshai Kulesi
 got.structure.Barrow.name=Höyük
