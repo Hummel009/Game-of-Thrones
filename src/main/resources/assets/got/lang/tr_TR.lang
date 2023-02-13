@@ -1,6 +1,4 @@
 ﻿
-item.got:bronze_ring.name≠
-item.got:copper_ring.name≠
 attribute.name.generic.movementSpeedAir=Hız (Hava)
 color.black=Siyah
 color.blue=Mavi
@@ -1677,8 +1675,8 @@ got.biome.stepstones.name=Adımlar
 got.biome.stoneCoast.name=Taş Sahil
 got.biome.stormlands.name=Fırtına Toprakları
 got.biome.stormlandsTown.name=Durran Burnu
-got.biome.summerColonyMangrove.name≠
 got.biome.summerColony.name≠
+got.biome.summerColonyMangrove.name≠
 got.biome.summerIslands.name=Yaz Adaları
 got.biome.suudanKorkuu.name=Mossovy bataklıklar
 got.biome.tarth.name=Tart
@@ -1689,16 +1687,16 @@ got.biome.ulos.name=Ulolar
 got.biome.ulthos.name=Ulthos
 got.biome.ulthosDesert.name=Ulthos Çölü
 got.biome.ulthosDesertCold.name≠
-got.biome.ulthosForestEdge.name≠
 got.biome.ulthosForest.name≠
+got.biome.ulthosForestEdge.name≠
 got.biome.ulthosFrost.name≠
-got.biome.ulthosMarshesForest.name≠
 got.biome.ulthosMarshes.name≠
+got.biome.ulthosMarshesForest.name≠
 got.biome.ulthosMountains.name=Ulthos Dağları
-got.biome.ulthosRedForestEdge.name≠
 got.biome.ulthosRedForest.name≠
-got.biome.ulthosTaigaEdge.name≠
+got.biome.ulthosRedForestEdge.name≠
 got.biome.ulthosTaiga.name≠
+got.biome.ulthosTaigaEdge.name≠
 got.biome.valyria.name=Valyria Yarımadası
 got.biome.valyriaSea.name=Valyria Denizi
 got.biome.valyriaVolcano.name=Valyria Volkanları
@@ -1708,9 +1706,9 @@ got.biome.volantisMarshes.name=Selhoru Vadisi
 got.biome.westerlands.name=Batı Toprakları
 got.biome.westerlandsHills.name=Batı Toprakları Tepeleri
 got.biome.westerlandsTown.name=Lannis Limanı
+got.biome.westerosForest.name=Westeros Ormanları
 got.biome.westerosForest1.name≠
 got.biome.westerosForest2.name≠
-got.biome.westerosForest.name=Westeros Ormanları
 got.biome.westerosMountains.name=Westeros Dağları
 got.biome.wetwood.name=ıslak odun
 got.biome.whisperingWood.name=Fısıldayan Ahşap
@@ -5153,7 +5151,6 @@ item.got:braavos_helmet.name=Braavos Kask
 item.got:braavos_leggings.name=Braavos Pantolon
 item.got:branding_iron.name=Bağlama Demiri
 item.got:brightroar.name=Parlak kükreme
-item.got:bronzeNugget.name≠
 item.got:bronze_axe.name=Bronz balta
 item.got:bronze_battleaxe.name=Bronz Savaş Baltası
 item.got:bronze_boots.name=Bronz Bot
@@ -5169,7 +5166,9 @@ item.got:bronze_helmet.name=Bronz kask
 item.got:bronze_hoe.name=Bronz çapa
 item.got:bronze_ingot.name=Bronz külçe
 item.got:bronze_leggings.name=Bronz Pantolon
+item.got:bronze_nugget.name≠
 item.got:bronze_pickaxe.name=Bronz kazma
+item.got:bronze_ring.name≠
 item.got:bronze_shovel.name=Bronz kürek
 item.got:bronze_spear.name=Bronz mızrak
 item.got:bronze_sword.name=Bronz kılıç
@@ -5203,6 +5202,7 @@ item.got:command_sword.name=Komut Kılıcı
 item.got:conquest_horn.name=Savaş Borusu
 item.got:copper_ingot.name=Bakır Külçe
 item.got:copper_nugget.name=Bakır külçe
+item.got:copper_ring.name≠
 item.got:coral.name=Mercan
 item.got:corn.name=Mısır
 item.got:corn_bread.name=Mısırlı Ekmek
@@ -5334,11 +5334,11 @@ item.got:ice_shard.name=Buz parçası
 item.got:ice_spear.name=Ak Gezenler Mızrağı
 item.got:ice_sword.name=Buz Kılıcı
 item.got:indomitable.name=Yılmaz
-item.got:ironNugget.name≠
 item.got:iron_battleaxe.name=Demir Savaş Baltası
 item.got:iron_crossbow.name=Demir Kundaklı Yay
 item.got:iron_dagger.name=Demir hançer
 item.got:iron_dagger_poisoned.name=Zehirli Demir Hançer
+item.got:iron_nugget.name≠
 item.got:iron_pike.name=Demir turna
 item.got:iron_spear.name=Demir Mızrak
 item.got:iron_throwing_axe.name=Demir Fırlatma Baltası

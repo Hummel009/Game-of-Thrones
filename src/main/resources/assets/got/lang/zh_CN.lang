@@ -1,6 +1,4 @@
 ﻿
-item.got:bronze_ring.name≠
-item.got:copper_ring.name≠
 attribute.name.generic.movementSpeedAir=速度(Air)
 color.black=黑色
 color.blue=蓝色
@@ -1677,8 +1675,8 @@ got.biome.stepstones.name=海盗海岸
 got.biome.stoneCoast.name=磐石海岸
 got.biome.stormlands.name=风暴地
 got.biome.stormlandsTown.name=杜伦岬
-got.biome.summerColonyMangrove.name=
 got.biome.summerColony.name=
+got.biome.summerColonyMangrove.name=
 got.biome.summerIslands.name=夏日群岛
 got.biome.suudanKorkuu.name=苏丹科尔库
 got.biome.tarth.name=塔斯岛
@@ -1689,16 +1687,16 @@ got.biome.ulos.name=乌斯岛
 got.biome.ulthos.name=乌尔特斯
 got.biome.ulthosDesert.name=乌尔特斯沙漠
 got.biome.ulthosDesertCold.name=
-got.biome.ulthosForestEdge.name=
 got.biome.ulthosForest.name=
+got.biome.ulthosForestEdge.name=
 got.biome.ulthosFrost.name=
-got.biome.ulthosMarshesForest.name=
 got.biome.ulthosMarshes.name=
+got.biome.ulthosMarshesForest.name=
 got.biome.ulthosMountains.name=乌尔特斯山脉
-got.biome.ulthosRedForestEdge.name=
 got.biome.ulthosRedForest.name=
-got.biome.ulthosTaigaEdge.name=
+got.biome.ulthosRedForestEdge.name=
 got.biome.ulthosTaiga.name=
+got.biome.ulthosTaigaEdge.name=
 got.biome.valyria.name=瓦雷利亚半岛
 got.biome.valyriaSea.name=瓦雷利亚海
 got.biome.valyriaVolcano.name=瓦雷利亚火山
@@ -1708,9 +1706,9 @@ got.biome.volantisMarshes.name=赛荷鲁谷地
 got.biome.westerlands.name=西境
 got.biome.westerlandsHills.name=维斯特洛丘陵
 got.biome.westerlandsTown.name=兰尼斯港
+got.biome.westerosForest.name=森林
 got.biome.westerosForest1.name=
 got.biome.westerosForest2.name=
-got.biome.westerosForest.name=森林
 got.biome.westerosMountains.name=维斯特洛山脉
 got.biome.wetwood.name=湿林
 got.biome.whisperingWood.name=呓语森林
@@ -5153,7 +5151,6 @@ item.got:braavos_helmet.name=布拉佛斯头盔
 item.got:braavos_leggings.name=布拉佛斯护腿
 item.got:branding_iron.name=烙铁
 item.got:brightroar.name=光啸
-item.got:bronzeNugget.name≠
 item.got:bronze_axe.name=青铜斧
 item.got:bronze_battleaxe.name=青铜战斧
 item.got:bronze_boots.name=青铜靴子
@@ -5169,7 +5166,9 @@ item.got:bronze_helmet.name=青铜头盔
 item.got:bronze_hoe.name=青铜锄
 item.got:bronze_ingot.name=青铜锭
 item.got:bronze_leggings.name=青铜护腿
+item.got:bronze_nugget.name≠
 item.got:bronze_pickaxe.name=青铜镐子
+item.got:bronze_ring.name≠
 item.got:bronze_shovel.name=青铜锹
 item.got:bronze_spear.name=青铜矛
 item.got:bronze_sword.name=青铜剑
@@ -5203,6 +5202,7 @@ item.got:command_sword.name=命令之剑
 item.got:conquest_horn.name=战争号角
 item.got:copper_ingot.name=铜锭
 item.got:copper_nugget.name=铜粒
+item.got:copper_ring.name≠
 item.got:coral.name=珊瑚
 item.got:corn.name=玉米
 item.got:corn_bread.name=玉米面包
@@ -5334,11 +5334,11 @@ item.got:ice_shard.name=冰碎片
 item.got:ice_spear.name=冰矛
 item.got:ice_sword.name=冰剑
 item.got:indomitable.name=不屈
-item.got:ironNugget.name≠
 item.got:iron_battleaxe.name=铁战斧
 item.got:iron_crossbow.name=铁弩
 item.got:iron_dagger.name=铁匕首
 item.got:iron_dagger_poisoned.name=淬毒铁匕首
+item.got:iron_nugget.name≠
 item.got:iron_pike.name=铁长矛
 item.got:iron_spear.name=铁矛
 item.got:iron_throwing_axe.name=铁投斧

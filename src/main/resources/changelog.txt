@@ -1,7 +1,10 @@
 CHANGELOG
 
+>>VERSION 17.9.7 HOTFIX
+* Fixed a few crashes linked to null pointers.
+
 >>VERSION 17.9.6 HOTFIX
-* Fixed crash in altitude biomes linked to season changes 
+* Fixed crash in altitude biomes linked to season changes
 * Fixed wrong info in database generator
 * Fixed bug with untranslated labels
 

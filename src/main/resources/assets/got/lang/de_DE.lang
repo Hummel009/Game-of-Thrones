@@ -1,6 +1,4 @@
 ﻿
-item.got:bronze_ring.name≠
-item.got:copper_ring.name≠
 attribute.name.generic.movementSpeedAir=Geschwindigkeit (Luft)
 color.black=Schwarz
 color.blue=Blau
@@ -1677,8 +1675,8 @@ got.biome.stepstones.name=Trittsteine
 got.biome.stoneCoast.name=Steinige Küste
 got.biome.stormlands.name=Sturmlande
 got.biome.stormlandsTown.name=Sturmkap
-got.biome.summerColonyMangrove.name≠
 got.biome.summerColony.name≠
+got.biome.summerColonyMangrove.name≠
 got.biome.summerIslands.name=Sommerinseln
 got.biome.suudanKorkuu.name=Mossovy Sümpfe
 got.biome.tarth.name=Tarth
@@ -1689,16 +1687,16 @@ got.biome.ulos.name=Ulos
 got.biome.ulthos.name=Ulthos
 got.biome.ulthosDesert.name=Ulthos Wüste
 got.biome.ulthosDesertCold.name≠
-got.biome.ulthosForestEdge.name≠
 got.biome.ulthosForest.name≠
+got.biome.ulthosForestEdge.name≠
 got.biome.ulthosFrost.name≠
-got.biome.ulthosMarshesForest.name≠
 got.biome.ulthosMarshes.name≠
+got.biome.ulthosMarshesForest.name≠
 got.biome.ulthosMountains.name=Ulthos Berge
-got.biome.ulthosRedForestEdge.name≠
 got.biome.ulthosRedForest.name≠
-got.biome.ulthosTaigaEdge.name≠
+got.biome.ulthosRedForestEdge.name≠
 got.biome.ulthosTaiga.name≠
+got.biome.ulthosTaigaEdge.name≠
 got.biome.valyria.name=Valyrische Halbinsel
 got.biome.valyriaSea.name=Rauchendes Meer
 got.biome.valyriaVolcano.name=Valyria Vulkane
@@ -1708,9 +1706,9 @@ got.biome.volantisMarshes.name=Essos Sümpfe
 got.biome.westerlands.name=Westlande
 got.biome.westerlandsHills.name=Westlande Hügel
 got.biome.westerlandsTown.name=Lennishort
+got.biome.westerosForest.name=Westeros Wälder
 got.biome.westerosForest1.name≠
 got.biome.westerosForest2.name≠
-got.biome.westerosForest.name=Westeros Wälder
 got.biome.westerosMountains.name=Westeros Berge
 got.biome.wetwood.name=Feuchtwald
 got.biome.whisperingWood.name=Wisperwald
@@ -5153,7 +5151,6 @@ item.got:braavos_helmet.name=Braavos Helm
 item.got:braavos_leggings.name=Braavos Beinschutz
 item.got:branding_iron.name=Brenneisen
 item.got:brightroar.name=Helles Gebrüll
-item.got:bronzeNugget.name≠
 item.got:bronze_axe.name=Bronze Axt
 item.got:bronze_battleaxe.name=Bronze Streitaxt
 item.got:bronze_boots.name=Bronze Stiefel
@@ -5169,7 +5166,9 @@ item.got:bronze_helmet.name=Bronzehelm
 item.got:bronze_hoe.name=Bronzehacke
 item.got:bronze_ingot.name=Bronzebarren
 item.got:bronze_leggings.name=Bronzebeinschutz
+item.got:bronze_nugget.name≠
 item.got:bronze_pickaxe.name=Bronzespitzhacke
+item.got:bronze_ring.name≠
 item.got:bronze_shovel.name=Bronzeschaufel
 item.got:bronze_spear.name=Bronzespeer
 item.got:bronze_sword.name=Bronzeschwert
@@ -5203,6 +5202,7 @@ item.got:command_sword.name=Schwert der Befehle
 item.got:conquest_horn.name=Horn der Eroberung
 item.got:copper_ingot.name=Kupferbarren
 item.got:copper_nugget.name=Kupfernugget
+item.got:copper_ring.name≠
 item.got:coral.name=Koralle
 item.got:corn.name=Maiskolben
 item.got:corn_bread.name=Maisbrot
@@ -5334,11 +5334,11 @@ item.got:ice_shard.name≠
 item.got:ice_spear.name≠
 item.got:ice_sword.name=Eisschwert
 item.got:indomitable.name≠
-item.got:ironNugget.name≠
 item.got:iron_battleaxe.name=Eisenkampfaxt
 item.got:iron_crossbow.name=Eisenarmbrust
 item.got:iron_dagger.name=Eisendolch
 item.got:iron_dagger_poisoned.name=Vergifteter Eisendolch
+item.got:iron_nugget.name≠
 item.got:iron_pike.name=Eisenpike
 item.got:iron_spear.name=Eisenspeer
 item.got:iron_throwing_axe.name=Eisenwurfaxt

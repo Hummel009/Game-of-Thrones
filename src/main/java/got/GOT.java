@@ -58,7 +58,7 @@ public class GOT {
 	public static GOTCommonProxy proxy;
 	@Mod.Instance(value = "got")
 	public static GOT instance;
-	public static String VERSION = "17.9.6";
+	public static String VERSION = "17.9.7";
 	public static List<String> devs = new ArrayList<>();
 	public static GOTEventHandler eventHandler;
 	public static GOTPacketHandler packetHandler;
@@ -86,7 +86,8 @@ public class GOT {
 	@Mod.EventHandler
 	public void load(FMLInitializationEvent event) {
 		proxy.onLoad();
-		for (Block block : GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Block.class)) {
+		Set<Block> set = GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Block.class);
+		for (Block block : set) {
 			if (block instanceof GOTBlockWoodBase) {
 				Blocks.fire.setFireInfo(block, 5, 5);
 			}

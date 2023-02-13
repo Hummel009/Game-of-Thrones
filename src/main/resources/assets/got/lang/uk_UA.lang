@@ -1,6 +1,4 @@
 ﻿
-item.got:bronze_ring.name≠
-item.got:copper_ring.name≠
 attribute.name.generic.movementSpeedAir=Швидкість (Повітря)
 color.black=Чорний
 color.blue=Блакитний
@@ -1570,18 +1568,18 @@ got.biome.crackclaw.name=Розколота клешня
 got.biome.crownlands.name=Королівські землі
 got.biome.crownlandsForest.name=Королівський ліс
 got.biome.crownlandsTown.name=Королівська Гавань
-got.biome.dorne.name=Дорнійське узбережжя
+got.biome.dorne.name=Дорн
 got.biome.dorneDesert.name=Дорнійська пустеля
 got.biome.dorneMountains.name=Червоні гори
 got.biome.dorneValley.name=Долина Дорну
-got.biome.doshKhalin.name=Матір гір
+got.biome.doshKhalin.name=Матір Гір
 got.biome.dothrakiHills.name=Пагорби дотракійського моря
 got.biome.dothrakiSea.name=Дотракійське море
 got.biome.dragonstone.name=Драконів Камінь
 got.biome.essos.name=Безлюдні землі
-got.biome.essosForest.name=Ессоські ліси
-got.biome.essosHills.name=Ессоські пагорби
-got.biome.essosMountains.name=Ессоські гори
+got.biome.essosForest.name=Ліси Ессосу
+got.biome.essosHills.name=Пагорби Ессосу
+got.biome.essosMountains.name=Гори Ессосу
 got.biome.farNorthSnowy.name=Снігова пустка
 got.biome.fireField.name=Гайґарден
 got.biome.freeCities.name=Землі Вільних міст
@@ -1595,14 +1593,14 @@ got.biome.ibben.name=Іббен
 got.biome.ibbenColony.name=Іббенійські колонії
 got.biome.ibbenColonyHills.name=Пагорби іббенійських колоній
 got.biome.ibbenMountains.name=Іббенійські гори
-got.biome.ibbenTaiga.name=Іббенський ліс
-got.biome.ifekevronForest.name=Іфекевронські ліси
+got.biome.ibbenTaiga.name=Іббенійські ліси
+got.biome.ifekevronForest.name=Іфекевронський ліс
 got.biome.ironborn.name=Залізні острови
 got.biome.ironbornHills.name=Пагорби Залізних островів
 got.biome.irontree.name=Ліс Форрестерів
 got.biome.island.name=Острів
 got.biome.isleOfFaces.name=Острів Ликів
-got.biome.jogosNhai.name=Джоґос-нхайські рівнини
+got.biome.jogosNhai.name=Рівнини Джоґос Нхаю
 got.biome.jogosNhaiDesert.name=Засохла пустеля
 got.biome.jogosNhaiHills.name=Пагорби Джоґос Нхаю
 got.biome.kingSpears.name=Списи Водяного Короля
@@ -1614,23 +1612,23 @@ got.biome.lorath.name=Лорат
 got.biome.lorathMaze.name=Лабіринти Лорату
 got.biome.lys.name=Ліс
 got.biome.massy.name=Гак Массі
-got.biome.massyHills.name≠
+got.biome.massyHills.name=Пагорби Массі
 got.biome.meereen.name=Міерін
 got.biome.mercenary.name=Спірні землі
 got.biome.mossovy.name=Мосовія
 got.biome.mossovyForest.name=Мосовійська тайга
 got.biome.mossovyMarshes.name=Мосовійські драговини
 got.biome.mossovyMountains.name=Мосовійські сопки
-got.biome.mossovyTundra.name=Суук Дарак
+got.biome.mossovyTundra.name=Мосовійська тундра
 got.biome.myr.name=Мір
 got.biome.naath.name=Наат
 got.biome.neck.name=Перешийок
-got.biome.newGhis.name≠
+got.biome.newGhis.nameНовий Ґіс
 got.biome.north.name=Північ
-got.biome.northBarrows.name=Кургани
-got.biome.northForest.name=Хвойні ліси
-got.biome.northHills.name=Північні пагорби
-got.biome.northMountains.name=Північні гори
+got.biome.northBarrows.name=Кургани Півночі
+got.biome.northForest.name=Хвойні ліси Півночі
+got.biome.northHills.name=Пагорби Півночі
+got.biome.northMountains.name=Гори Півночі
 got.biome.northTown.name=Біла гавань
 got.biome.northWild.name=Дика Північ
 got.biome.norvos.name=Норвос
@@ -1646,7 +1644,7 @@ got.biome.qohorForest.name=Квогорський ліс
 got.biome.rainwood.name=Дощовий ліс
 got.biome.reach.name=Простір
 got.biome.reachArbor.name=Арбор
-got.biome.reachHills.name≠
+got.biome.reachHills.name=Пагорби Простіру
 got.biome.reachTown.name=Старе Місто
 got.biome.redMesa.name=Червоне плато
 got.biome.redSea.name=Криваве море
@@ -1679,7 +1677,7 @@ got.biome.stoneCoast.name=Кам'яний берег
 got.biome.stormlands.name=Штормові землі
 got.biome.stormlandsTown.name=Мис Дюрран
 got.biome.summerColony.name=Літнійські колонії
-got.biome.summerColonyMangrove.name≠
+got.biome.summerColonyMangrove.name=Мангрові літнійські колонії
 got.biome.summerIslands.name=Літні острови
 got.biome.tarth.name=Тарт
 got.biome.thenn.name=Теннія
@@ -1691,31 +1689,31 @@ got.biome.ulthosDesert.name=Пустеля Ультосу
 got.biome.ulthosDesertCold.name=Холодна пустеля Ультосу
 got.biome.ulthosForest.name=Хаща Ультосу
 got.biome.ulthosForestEdge.name=Рідколісся Ультосу
-got.biome.ulthosFrost.name=Вічна мерзлота Ультосу
+got.biome.ulthosFrost.name=Полярна область Ультосу
 got.biome.ulthosMarshes.name=Болота Ультосу
 got.biome.ulthosMarshesForest.name=Заболочені ліси Ультосу
-got.biome.ulthosMountains.name=Ультоські гори
+got.biome.ulthosMountains.name=Гори Ультосу
 got.biome.ulthosRedForest.name=Багряні ліси Ультосу
 got.biome.ulthosRedForestEdge.name=Багряне рідколісся Ультосу
 got.biome.ulthosTaiga.name=Тайга Ультосу
-got.biome.ulthosTaigaEdge.name=Рідка тайга Ультосу
+got.biome.ulthosTaigaEdge.name=Лісотундра Ультосу
 got.biome.valyria.name=Валірійський півострів
 got.biome.valyriaSea.name=Димне море
 got.biome.valyriaVolcano.name=Валірійські вулкани
 got.biome.volantis.name=Волантіс
 got.biome.volantisForest.name=Апельсиновий берег
-got.biome.volantisMarshes.name=Ессоські болота
+got.biome.volantisMarshes.name=Болота Ессосу
 got.biome.westerlands.name=Західні землі
 got.biome.westerlandsHills.name=Пагорби Західних земель
 got.biome.westerlandsTown.name=Ланніспорт
-got.biome.westerosForest1.name≠
-got.biome.westerosForest2.name≠
-got.biome.westerosForest.name=Вестероські ліси
-got.biome.westerosMountains.name=Вестероські гори
+got.biome.westerosForest.name=Ліси Вестеросу
+got.biome.westerosForest1.name=Хвойні ліси Вестеросу
+got.biome.westerosForest2.name=Листяні ліси Вестеросу
+got.biome.westerosMountains.name=Гори Вестеросу
 got.biome.wetwood.name=Мокрий ліс
 got.biome.whisperingWood.name=Шепчучий ліс
 got.biome.wolfswood.name=Вовчий ліс
-got.biome.yeen.name=Пустош Йіну
+got.biome.yeen.name=Йін
 got.biome.yiTi.name=Йі Ті
 got.biome.yiTiMarshes.name=Болота Йі Ті
 got.biome.yiTiWasteland.name=Прикордонна зона Йі Ті
@@ -2019,64 +2017,64 @@ got.date.month.november=Листопада
 got.date.month.october=Жовтня
 got.date.month.september=Вересня
 got.date=З.Е.
-got.db.biomeConquestOnly.name≠
-got.db.biomeHasAnimals.name≠
-got.db.biomeHasConquest.name≠
-got.db.biomeHasInvasions.name≠
-got.db.biomeHasSpawn.name≠
-got.db.biomeHasStructures.name≠
-got.db.biomeHasTrees1.name≠
-got.db.biomeHasTrees2.name≠
-got.db.biomeHasWaypoints.name≠
-got.db.biomeLoc.name≠
-got.db.biomeMinerals.name≠
-got.db.biomeNoAchievement.name≠
-got.db.biomeNoAnimals.name≠
-got.db.biomeNoConquest.name≠
-got.db.biomeNoInvasions.name≠
-got.db.biomeNoSpawn.name≠
-got.db.biomeNoStructures.name≠
-got.db.biomeNoTrees.name≠
-got.db.biomeNoVariants.name≠
-got.db.biomeNoWaypoints.name≠
-got.db.biomeSpawnOnly.name≠
-got.db.categoryTemplates.name≠
-got.db.entityConquestInvasion.name≠
-got.db.entityConquestOnly.name≠
-got.db.entityHasBiomes.name≠
-got.db.entityInvasionOnly.name≠
-got.db.entityLoc.name≠
-got.db.entityNoBiomes.name≠
-got.db.factionHasBanners.name≠
-got.db.factionHasCharacters.name≠
-got.db.factionHasConquest.name≠
-got.db.factionHasInvasion.name≠
-got.db.factionHasRanks.name≠
-got.db.factionHasSpawn.name≠
-got.db.factionHasWaypoints.name≠
-got.db.factionIsViolent.name≠
-got.db.factionLoc.name≠
-got.db.factionNoAttr.name≠
-got.db.factionNoBanners.name≠
-got.db.factionNoCharacters.name≠
-got.db.factionNoConquest.name≠
-got.db.factionNoEnemies.name≠
-got.db.factionNoFriends.name≠
-got.db.factionNoInvasion.name≠
-got.db.factionNoRanks.name≠
-got.db.factionNoSpawn.name≠
-got.db.factionNoStructures.name≠
-got.db.factionNoWaypoints.name≠
-got.db.factionNotViolent.name≠
-got.db.mineralBiomes.name≠
-got.db.noPledge.name≠
-got.db.rep.name≠
-got.db.rider.name≠
-got.db.structureBiomes.name≠
-got.db.treeHasBiomes.name≠
-got.db.treeNoBiomes.name≠
-got.db.treeVariantOnly.name≠
-got.db.yesPledge.name≠
+got.db.biomeConquestOnly.name=У цьому біомі не спавняться ніякі NPC, проте, якщо ви завоюєте біом, там будуть спавніться ваші союзники.
+got.db.biomeHasAnimals.name=Нижче перелічені всі моби, які можуть зустрітися під час подорожі по біому.
+got.db.biomeHasConquest.name=Цей біом можна завоювати [[Фракції#Присяга|від імені]] наступних фракцій:
+got.db.biomeHasInvasions.name=У цей біом вторгаються такі фракції:
+got.db.biomeHasSpawn.name=У цьому біомі сповняться наступні NPC:
+got.db.biomeHasStructures.name=У цьому біомі можуть зустрічатися такі споруди:
+got.db.biomeHasTrees1.name=У цьому біомі ростуть такі види дерев:
+got.db.biomeHasTrees2.name=Нижче вказані всі види дерев, що ростуть у біомі. Якщо вид дерев зустрічається лише у певному варіанті біома, то варіант буде вказано у дужках.
+got.db.biomeHasWaypoints.name=При відвідуванні цього біома розблокуються напісані нижче дорожні точки. Пам'ятайте: щоб ви могли на них телепортуватися, ви повинні бути в добрих чи нейтральних відносинах із фракцією точки. Фракції вказані у дужках біля пунктів.
+got.db.biomeLoc.name=біом
+got.db.biomeMinerals.name=Нижче вказані всі корисні копалини, які ви можете виявити, якщо побудуєте шахту в цьому біомі. Діапазон Y - висота, від і до якої зустрічається копалина. Шанс спавна руди вказано у відсотках.
+got.db.biomeNoAchievement.name=У цього біома немає досягнення за відвідування
+got.db.biomeNoAnimals.name=У цьому біомі немає звірів, птахів та риб.
+got.db.biomeNoConquest.name=Цей біом не можна завоювати від імені будь-якої фракції.
+got.db.biomeNoInvasions.name=У цей біом не вторгаються жодні фракції.
+got.db.biomeNoSpawn.name=У цьому біомі не сповняться ніякі NPC.
+got.db.biomeNoStructures.name=У цьому біомі немає структур.
+got.db.biomeNoTrees.name=У цьому біомі немає дерев.
+got.db.biomeNoVariants.name=Цей біом не має якихось відмінних варіантів у рельєфі та фауні.
+got.db.biomeNoWaypoints.name=При відвідуванні цього біома не розблоковуються жодні дорожні точки.
+got.db.biomeSpawnOnly.name=Цей біом не можна завоювати. Тут спавняться лише ті NPC, які були спочатку.
+got.db.categoryTemplates.name=Категорія:Шаблони
+got.db.entityConquestInvasion.name=(завоювання/вторгнення)
+got.db.entityConquestOnly.name=(завоювання)
+got.db.entityHasBiomes.name=Цей моб спавниться у наведених нижче біомах.
+got.db.entityInvasionOnly.name=(вторгнення)
+got.db.entityLoc.name=моб
+got.db.entityNoBiomes.name=Цей моб не спавниться ні в яких біомах.
+got.db.factionHasBanners.name=Цей фракції належать нижчезазначені [[прапори]]. Якщо у вас є +1 репутації цієї фракції, ви можете поставити прапор на валірійський/золотий/срібний/бронзовий блок і заприватити територію в певному радіусі (помітний на F3). Прапор налаштовується при ПКМ у ньому.
+got.db.factionHasCharacters.name=У моді є персонажі, що належать до цієї фракції. Це:
+got.db.factionHasConquest.name=Після [[Фракції#Присяга|присяги]] від імені цієї фракції можна завоювати наступні біоми:
+got.db.factionHasInvasion.name=Ця фракція вторгається в наступні біоми:
+got.db.factionHasRanks.name=Фракційні ранги стають доступними при досягненні вказаної в дужках репутації. Після неї ранг також стає титулом, його можна вибрати в меню для відображення чату поруч із ніком.
+got.db.factionHasSpawn.name=Моби цієї фракції можуть спати в наступних біомах:
+got.db.factionHasWaypoints.name=Ця фракція контролює наведені нижче дорожні пункті. Ви не зможете на них телепортуватись, якщо у вас буде погана репутація.
+got.db.factionIsViolent.name=Ця фракція заохочує військові злочини
+got.db.factionLoc.name=фракція
+got.db.factionNoAttr.name=Ця фракція не має ні щитів, ні плащів.
+got.db.factionNoBanners.name=Ця фракція не має прапорів.
+got.db.factionNoCharacters.name=Персонажів, що належать до цієї фракції, не існує.
+got.db.factionNoConquest.name=Від імені цієї фракції не можна завоювати жодного біома.
+got.db.factionNoEnemies.name=Ця фракція не має ворогів.
+got.db.factionNoFriends.name=Ця фракція не має союзників.
+got.db.factionNoInvasion.name=Ця фракція не вторгається в жодні біоми.
+got.db.factionNoRanks.name=Ця фракція не має репутаційних рангів та титулів.
+got.db.factionNoSpawn.name=Моби цієї фракції ніде не сповняться.
+got.db.factionNoStructures.name=Ця фракція не має своїх структур.
+got.db.factionNoWaypoints.name=Ця фракція не контролює жодних дорожніх точок.
+got.db.factionNotViolent.name=Ця фракція не заохочує вбивство цивільних
+got.db.mineralBiomes.name=Нижче вказані всі біоми, в яких ви можете виявити цю корисну копалину. Діапазон Y - висота, від і до якої зустрічається копалина. Шанс спавна руди для кожного біома вказаний у відсотках.
+got.db.noPledge.name=без присяги
+got.db.rep.name=репутації
+got.db.rider.name=вершник
+got.db.structureBiomes.name=Ця структура зустрічається в наступних біомах:
+got.db.treeHasBiomes.name=Це дерево росте в наступних біомах:
+got.db.treeNoBiomes.name=Це дерево вважається вимерлим і його неможливо зустріти у світі на даний момент. Тим не менш, його можна отримати гравцем у креативі.
+got.db.treeVariantOnly.name=тільки у варіантах біома
+got.db.yesPledge.name=з присягою
 got.dimension.GameOfThrones.eastEssos=Західний Ессос
 got.dimension.GameOfThrones.essos=Ессос
 got.dimension.GameOfThrones.other=Соторіос та Ультос
@@ -3288,49 +3286,49 @@ got.travellingTrader.arrive=%s прибув у регіон
 got.travellingTrader.arriveMP=%s прибув до %s
 got.travellingTrader.depart=%s покинув регіон
 got.tree.acacia.name=Акація
-got.tree.acacia_dead.name≠
+got.tree.acacia_dead.name=Вмерла акація
 got.tree.almond.name=Мигдаль
 got.tree.apple.name=Яблуня
-got.tree.aramant.name≠
+got.tree.aramant.name=Арамант
 got.tree.aspen.name=Осика
-got.tree.aspen_large.name=Гігантська осика
+got.tree.aspen_large.name=Велика осика
 got.tree.banana.name=Бананове дерево
 got.tree.baobab.name=Баобаб
 got.tree.beech.name=Бук
-got.tree.beech_dead.name≠
-got.tree.beech_large.name=Гігантський бук
-got.tree.beech_party.name≠
+got.tree.beech_dead.name=Вмерлий бук
+got.tree.beech_large.name=Великий бук
+got.tree.beech_party.name=Гігантський бук
 got.tree.birch.name=Береза
-got.tree.birch_dead.name≠
-got.tree.birch_large.name=Гігантська береза
-got.tree.birch_party.name≠
-got.tree.birch_tall.name≠
+got.tree.birch_dead.name=Вмерла береза
+got.tree.birch_large.name=Велика береза
+got.tree.birch_party.name=Гігантська береза
+got.tree.birch_tall.name=Вісока береза
 got.tree.catalpa.name=Катальпа
-got.tree.catalpa_boughs.name≠
-got.tree.catalpa_party.name≠
+got.tree.catalpa_boughs.name=Гілляста катальпа
+got.tree.catalpa_party.name=Гігантська катальпа
 got.tree.cedar.name=Кедр
-got.tree.cedar_large.name=Гігантський кедр
+got.tree.cedar_large.name=Великий кедр
 got.tree.charred.name=Обвуглене дерево
-got.tree.cherry.name=Вишневе дерево
+got.tree.cherry.name=Вишня
 got.tree.chestnut.name=Каштан
-got.tree.chestnut_large.name=Каштанове дерево
-got.tree.chestnut_party.name≠
+got.tree.chestnut_large.name=Великий каштан
+got.tree.chestnut_party.name=Гігантський каштан
 got.tree.cypress.name=Кіпаріс
-got.tree.cypress_large.name=Гігантський кіпаріс
-got.tree.dark_oak.name≠
-got.tree.dark_oak_party.name≠
+got.tree.cypress_large.name=Великий кіпаріс
+got.tree.dark_oak.name=Темний дуб
+got.tree.dark_oak_party.name=Гігантський темний дуб
 got.tree.date_palm.name=Фінікова пальма
-got.tree.dragonblood.name=Драконова кров
-got.tree.dragonblood_huge.name≠
-got.tree.dragonblood_large.name≠
+got.tree.dragonblood.name=Драконово дерево
+got.tree.dragonblood_huge.name=Гігантське драконово дерево
+got.tree.dragonblood_large.name=Велике драконово дерево
 got.tree.fir.name=Ялиця
 got.tree.fotinia.name=Фотинія
 got.tree.holly.name=Падуб
-got.tree.holly_large.name=Гігантський падуб
+got.tree.holly_large.name=Великий падуб
 got.tree.ibben_pine.name=Ібінія
 got.tree.jungle.name=Тропічне дерево
-got.tree.jungle_cloud.name≠
-got.tree.jungle_large.name=Гігантське тропічне дерево
+got.tree.jungle_cloud.name=Облачне тропічне дерево
+got.tree.jungle_large.name=Велике тропічне дерево
 got.tree.jungle_shrub.name=Тропічний чагарник
 got.tree.kanuka.name=Кунцеве дерево
 got.tree.larch.name=Модрина
@@ -3340,48 +3338,48 @@ got.tree.mahogany.name=Червоне дерево
 got.tree.mango.name=Манго
 got.tree.mangrove.name=Мангрове дерево
 got.tree.maple.name=Клен
-got.tree.maple_large.name=Гігантський клен
-got.tree.maple_party.name≠
+got.tree.maple_large.name=Великий клен
+got.tree.maple_party.name=Гігантський клен
 got.tree.oak.name=Дуб
 got.tree.oak_dead.name=Мертвий дуб
 got.tree.oak_desert.name=Пустельний дуб
-got.tree.oak_giant.name≠
-got.tree.oak_large.name=Гігантський дуб
-got.tree.oak_party.name=Великий дуб
-got.tree.oak_shrub.name≠
-got.tree.oak_swamp.name≠
+got.tree.oak_giant.name=Огромний дуб
+got.tree.oak_large.name=Великий дуб
+got.tree.oak_party.name=Гігантський дуб
+got.tree.oak_shrub.name=Дубовий чагарник
+got.tree.oak_swamp.name=Болотний дуб
 got.tree.oak_tall.name=Високий дуб
-got.tree.oak_taller.name≠
+got.tree.oak_taller.name=Дуже високий дуб
 got.tree.olive.name=Олива
-got.tree.olive_large.name=Гігантська олива
+got.tree.olive_large.name=Велика олива
 got.tree.orange.name=Апельсинове дерево
 got.tree.palm.name=Пальма
 got.tree.pear.name=Грушеве дерево
 got.tree.pine.name=Сосна
-got.tree.pine_shrub.name≠
+got.tree.pine_shrub.name=Сосновий чагарник
 got.tree.plum.name=Сливове дерево
 got.tree.pomegranate.name=Гранатове дерево
-got.tree.redwood.name=Залізноствол
+got.tree.redwood.name=Залізноствол (1 різновид)
 got.tree.redwood_2.name=Залізноствол (2 різновид)
 got.tree.redwood_3.name=Залізноствол (3 різновид)
 got.tree.redwood_4.name=Залізноствол (4 різновид)
 got.tree.redwood_5.name=Залізноствол (5 різновид)
 got.tree.spruce.name=Ялина
-got.tree.spruce_dead.name≠
+got.tree.spruce_dead.name=Вмерла ялина
 got.tree.spruce_mega.name=Гігантська ялина
 got.tree.spruce_mega_thin.name=Гігантська тонка ялина
 got.tree.spruce_thin.name=Тонка ялина
-got.tree.ulthos_green_oak.name=Зеленодуб
-got.tree.ulthos_green_oak_extreme.name≠
-got.tree.ulthos_green_oak_large.name=Гігантський зеленодуб
-got.tree.ulthos_oak.name=Ультоський дуб
-got.tree.ulthos_oak_dead.name≠
-got.tree.ulthos_oak_large.name=Гігантський ультоський дуб
-got.tree.ulthos_red_oak.name=Краснодуб
-got.tree.ulthos_red_oak_large.name=Гігантський краснодуб
+got.tree.ulthos_green_oak.name=Зеленодуб Ультосу
+got.tree.ulthos_green_oak_extreme.name=Гігантський зеленодуб Ультосу
+got.tree.ulthos_green_oak_large.name=Великий зеленодуб Ультосу
+got.tree.ulthos_oak.name=Дуб Ультосу
+got.tree.ulthos_oak_dead.name=Вмерлий дуб Ультосу
+got.tree.ulthos_oak_large.name=Великий дуб Ультосу
+got.tree.ulthos_red_oak.name=Червонодуб Ультосу
+got.tree.ulthos_red_oak_large.name=Великий червонодуб Ультосу
 got.tree.weirwood.name=Чардрево
 got.tree.willow.name=Іва
-got.tree.willow_water.name≠
+got.tree.willow_water.name=Водна іва
 got.unit.Rider=Вершник
 got.unitinfo.Banner=Прапороносці покращують здоров'я та шкоду ваших воїнів
 got.unitinfo.Corsair=Пірати крадуть монети краще, ніж солдати
@@ -3402,14 +3400,14 @@ got.variant.forest.name=Ліс
 got.variant.forest_aspen.name=Осиновий гай
 got.variant.forest_beech.name=Буковий гай
 got.variant.forest_birch.name=Березовий гай
-got.variant.forest_cedar.name≠
-got.variant.forest_cherry.name=Вишневий ліс
-got.variant.forest_cypress.name≠
-got.variant.forest_larch.name=Листяний ліс
+got.variant.forest_cedar.name=Кедровий гай
+got.variant.forest_cherry.name=Вишневий гай
+got.variant.forest_cypress.name=Кіпарісовий гай
+got.variant.forest_larch.name=Листяний гай
 got.variant.forest_lemon.name=Лимонний гай
-got.variant.forest_light.name=Рідкісний ліс
+got.variant.forest_light.name=Рідкісний гай
 got.variant.forest_lime.name=Лаймовий гай
-got.variant.forest_maple.name=Кленовий ліс
+got.variant.forest_maple.name=Кленовий гай
 got.variant.forest_pine.name=Сосновий гай
 got.variant.forest_weirwood.name=Ліс чардрев
 got.variant.hills.name=Пагорби
@@ -4264,7 +4262,7 @@ got.wp.TowerOfGlimmering.info=Замок однієї з найменших гі
 got.wp.TowerOfGlimmering=Вежа Мерехтіння
 got.wp.TowerOfJoy.info=Руїни кам'яної вежі в передгір'ях Дорну. Принц Рейгар Тарґарієн відвіз сюди викрадену ним після турніру в Гарренголлі Ліанну Старк. Тут же вона померла на руках у брата, Еддарда Старка, який наказав зрівняти вежу з землею.
 got.wp.TowerOfJoy=Вежа Радості
-got.wp.TraderTown.info=Грубий, безладно зростаючий місто-фортеця самопроголошеного помаранчевого імператора Йі Ті на ім'я Пол-Ко, Молот Джоґос-Нхая.
+got.wp.TraderTown.info=Грубий, безладно зростаючий місто-фортеця самопроголошеного помаранчевого імператора Йі Ті на ім'я Пол-Ко, Молот Джоґос Нхая.
 got.wp.TraderTown=Торгове місто
 got.wp.TudburyHoll.info=Замок сім'ї Тадбері, васалів Баратеонів.
 got.wp.TudburyHoll=Тадберіхол
@@ -4475,7 +4473,7 @@ item.got:alloy_steel_dagger.name=Кинжал із легованої сталі
 item.got:alloy_steel_dagger_poisoned.name=Отруєний кинджал з легованої сталі
 item.got:alloy_steel_halberd.name=Алебарда з легованої сталі
 item.got:alloy_steel_hoe.name=Мотика з легованої сталі
-item.got:alloy_steel_ingot.name=Злиток легованої сталі
+item.got:alloy_steel_ingot.name=Зливок легованої сталі
 item.got:alloy_steel_nugget.name=Шматок легованої сталі
 item.got:alloy_steel_pickaxe.name=Кайло з легованої сталі
 item.got:alloy_steel_shovel.name=Лопата з легованої сталі
@@ -4784,7 +4782,7 @@ item.got:banner.ironsmith.name=Прапор Айронсмітів
 item.got:banner.jaremymallister.name=Прапор Джеремі Малістера
 item.got:banner.jast.name=Прапор Джастів
 item.got:banner.joffrey.name=Прапор Баратеонів із Королівської Гавані
-item.got:banner.jogos.name=Прапор Джоґос-Нхая
+item.got:banner.jogos.name=Прапор Джоґос Нхая
 item.got:banner.jonconnington.name=Прапор Джона Коннінґтона
 item.got:banner.jonking.name=Прапор Джона Сноу (Король)
 item.got:banner.jonsnow.name=Прапор Джона Сноу
@@ -5153,27 +5151,28 @@ item.got:braavos_helmet.name=Шолом Браавосу
 item.got:braavos_leggings.name=Наголінники Браавосу
 item.got:branding_iron.name=тавро
 item.got:brightroar.name=Світлий Рев
-item.got:bronzeNugget.name≠
-item.got:bronze_axe.name=Сокира з бронзи
-item.got:bronze_battleaxe.name=Бойова сокира з бронзи
-item.got:bronze_boots.name=Чоботи із бронзи
-item.got:bronze_chainmail_boots.name≠
-item.got:bronze_chainmail_chestplate.name≠
-item.got:bronze_chainmail_helmet.name≠
-item.got:bronze_chainmail_leggings.name≠
-item.got:bronze_chestplate.name=Нагрудник із бронзи
-item.got:bronze_crossbow.name=Арбалет із бронзи
-item.got:bronze_dagger.name=Кинджал із бронзи
-item.got:bronze_dagger_poisoned.name=Отруєний кинджал із бронзи
-item.got:bronze_helmet.name=Шолом із бронзи
-item.got:bronze_hoe.name=Мотика з бронзи
+item.got:bronze_axe.name=Бронзова сокира
+item.got:bronze_battleaxe.name=Бронзова бойова сокира
+item.got:bronze_boots.name=Бронзові чоботи
+item.got:bronze_chainmail_boots.name=Бронзові кольчужні чоботи
+item.got:bronze_chainmail_chestplate.name=Бронзова кольчуга
+item.got:bronze_chainmail_helmet.name=Бронзовий койф
+item.got:bronze_chainmail_leggings.name=Бронзові кольчужні наголінники
+item.got:bronze_chestplate.name=Бронзовий нагрудник
+item.got:bronze_crossbow.name=Бронзовий арбалет
+item.got:bronze_dagger.name=Бронзовий кинджал
+item.got:bronze_dagger_poisoned.name=Отруєний бронзовий кинджал
+item.got:bronze_helmet.name=Бронзовий шолом
+item.got:bronze_hoe.name=Бронзова мотика
 item.got:bronze_ingot.name=Зливок бронзи
-item.got:bronze_leggings.name=Наголінники з бронзи
-item.got:bronze_pickaxe.name=Кайло із бронзи
-item.got:bronze_shovel.name=Лопата з бронзи
-item.got:bronze_spear.name=Спис з бронзи
-item.got:bronze_sword.name=Меч з бронзи
-item.got:bronze_throwing_axe.name=Металева сокира з бронзи
+item.got:bronze_leggings.name=Бронзові наголінники
+item.got:bronze_nugget.name=Бронзовий самородок
+item.got:bronze_pickaxe.name=Бронзова кирка
+item.got:bronze_ring.name=Бронзовий перстень
+item.got:bronze_shovel.name=Бронзова лопата
+item.got:bronze_spear.name=Бронзовий спис
+item.got:bronze_sword.name=Бронзовий меч
+item.got:bronze_throwing_axe.name=Бронзова метальна сокира
 item.got:camel_cooked.name=Смажена верблюжатина
 item.got:camel_raw.name=Сира верблюжатина
 item.got:cargocart.name=Візок
@@ -5202,7 +5201,8 @@ item.got:command_horn.name=Ріг командування
 item.got:command_sword.name=Меч командування
 item.got:conquest_horn.name=Ріг завоювання
 item.got:copper_ingot.name=Зливок міді
-item.got:copper_nugget.name=Самородок міді
+item.got:copper_nugget.name=Мідний самородок
+item.got:copper_ring.name=Мідний перстень
 item.got:coral.name=Корал
 item.got:corn.name=Кукурудза
 item.got:corn_bread.name=Кукурудзяний хліб
@@ -5250,8 +5250,8 @@ item.got:dye.4.name=Подрібнене вугілля
 item.got:dye.5.name=Коричневий барвник
 item.got:eddard_sword.name=Меч Еддарда Старка
 item.got:elderberry.name=Бузина
-item.got:elephant_cooked.name≠
-item.got:elephant_raw.name≠
+item.got:elephant_cooked.name=Смажене м'ясо слона
+item.got:elephant_raw.name=Сире м'ясо слона
 item.got:emerald.name=Смарагд
 item.got:essos_bow.name=Лук Ессосу
 item.got:essos_dagger.name=Кинджал Ессосу
@@ -5272,10 +5272,10 @@ item.got:flint_dagger.name=Кремнієвий кинджал
 item.got:flint_spear.name=Кремнієвий спис
 item.got:fur.name=Хутро
 item.got:fur_bed.name=Ліжко з хутра деривовків
-item.got:fur_boots.name=Чоботи з хутра
-item.got:fur_chestplate.name=Кожух з хутра
-item.got:fur_helmet.name=Шапка з хутра
-item.got:fur_leggings.name=Штани з хутра
+item.got:fur_boots.name=Хутряні валянки
+item.got:fur_chestplate.name=Хутровий кожух
+item.got:fur_helmet.name=Хутряна шапка
+item.got:fur_leggings.name=Хутряні штани
 item.got:fuse.name=Запальний смолоскип
 item.got:gammon.name=Хамон
 item.got:gate_gear.name=Шестерні для брами
@@ -5334,24 +5334,24 @@ item.got:ice_shard.name=Уламок льоду
 item.got:ice_spear.name=Крижаний спис
 item.got:ice_sword.name=Крижаний меч
 item.got:indomitable.name=Неприборканий
-item.got:ironNugget.name≠
-item.got:iron_battleaxe.name=Бойова сокира із заліза
-item.got:iron_crossbow.name=Арбалет із заліза
-item.got:iron_dagger.name=Кинджал із заліза
-item.got:iron_dagger_poisoned.name=Отруєний кинджал із заліза
-item.got:iron_pike.name=Піка із заліза
-item.got:iron_spear.name=Спис із заліза
-item.got:iron_throwing_axe.name=Металева сокира із заліза
+item.got:iron_battleaxe.name=Залізна бойова сокира
+item.got:iron_crossbow.name=Залізний арбалет
+item.got:iron_dagger.name=Залізний кинджал
+item.got:iron_dagger_poisoned.name=Отруєний залізний кинджал
+item.got:iron_nugget.name=Залізний самородок
+item.got:iron_pike.name=Залізна піка
+item.got:iron_spear.name=Залізний спис
+item.got:iron_throwing_axe.name=Залізна метальна сокира
 item.got:ironborn_boots.name=Чоботи Залізних островів
 item.got:ironborn_chestplate.name=Нагрудник Залізних островів
 item.got:ironborn_helmet.name=Шолом Залізних островів
 item.got:ironborn_leggings.name=Наголінники Залізних островів
 item.got:jaime_sword.name=Меч Джейме Ланністера
 item.got:joffrey_crossbow.name=Арбалет Джоффрі Баратеона
-item.got:jogos_boots.name=Чоботи Джоґос-Нхая
-item.got:jogos_chestplate.name=Нагрудник Джоґос-Нхая
-item.got:jogos_helmet.name=Шолом Джоґос-Нхая
-item.got:jogos_leggings.name=Неголінники Джоґос-Нхая
+item.got:jogos_boots.name=Чоботи Джоґос Нхая
+item.got:jogos_chestplate.name=Нагрудник Джоґос Нхая
+item.got:jogos_helmet.name=Шолом Джоґос Нхая
+item.got:jogos_leggings.name=Неголінники Джоґос Нхая
 item.got:just_maid.name=Справедлива Діва
 item.got:kaftan_chestplate.name=Кафтан
 item.got:kaftan_leggings.name=Штани
@@ -5370,20 +5370,20 @@ item.got:leek_soup.name=Луковий суп
 item.got:lemon.name=Лимон
 item.got:lemon_cake.name=Лимонний пиріг
 item.got:lettuce.name=Салат-латук
-item.got:lhazar_battleaxe.name=Лхазарська бойова сокира
-item.got:lhazar_boots.name=Лхазарські чоботи
+item.got:lhazar_battleaxe.name=Бойова сокира Лхазару
+item.got:lhazar_boots.name=Чоботи Лхазару
 item.got:lhazar_boots_lion.name=Чоботи вождя Лхазару
-item.got:lhazar_chestplate.name=Лхазарський нагрудник
+item.got:lhazar_chestplate.name=Нагрудник Лхазару
 item.got:lhazar_chestplate_lion.name=Нагрудник вождя Лхазару
-item.got:lhazar_club.name=Лхазарський кистінь
-item.got:lhazar_dagger.name=Лхазарський кинджал
-item.got:lhazar_dagger_poisoned.name=Отруєний лхазарський кинджал
-item.got:lhazar_helmet.name=Лхазарський шолом
+item.got:lhazar_club.name=Кістень Лхазару
+item.got:lhazar_dagger.name=Кинджал Лхазару
+item.got:lhazar_dagger_poisoned.name=Отруєний кинджал Лхазару
+item.got:lhazar_helmet.name=Шолом Лхазару
 item.got:lhazar_helmet_lion.name=Шолом вождя Лхазару
-item.got:lhazar_leggings.name=Лхазарські наголінники
+item.got:lhazar_leggings.name=Наголінники Лхазару
 item.got:lhazar_leggings_lion.name=Наголінники вождя Лхазару
-item.got:lhazar_spear.name=Лхазарський спис
-item.got:lhazar_sword.name=Лхазарський меч
+item.got:lhazar_spear.name=Спис Лхазару
+item.got:lhazar_sword.name=Меч Лхазару
 item.got:lightbringer.name=Світлоносний
 item.got:lime.name=Лайм
 item.got:lingering_potion.name=Оседающее зелье
@@ -5409,7 +5409,7 @@ item.got:melon_soup.name=Суп з кавуна
 item.got:mossovy_boots.name=Мосовійські унти
 item.got:mossovy_chestplate.name=Мосовійський нагрудник
 item.got:mossovy_dagger.name=Срібний кинджал
-item.got:mossovy_leggings.name=Мосовійські неголінники 
+item.got:mossovy_leggings.name=Мосовійські наголінники 
 item.got:mossovy_sword.name=Срібний меч
 item.got:mug.name=Кружка
 item.got:mug_ale.name=Ель
@@ -5587,8 +5587,8 @@ item.got:seeds_grape_red.name=Насіння червоного виноград
 item.got:seeds_grape_white.name=Насіння зеленого винограда
 item.got:shish_kebab.name=Шашлик
 item.got:silver_ingot.name=Зливок срібла
-item.got:silver_nugget.name=Самородок срібла
-item.got:silver_ring.name=Перстень зі срібла
+item.got:silver_nugget.name=Срібний самородок
+item.got:silver_ring.name=Срібний перстень
 item.got:skull_cup.name=Чаша з черепа
 item.got:skull_staff.name=Палиця з черепом
 item.got:sling.name=Рогатка
@@ -5665,10 +5665,10 @@ item.got:valyrian_axe.name=Сокира з валірійської сталі
 item.got:valyrian_battleaxe.name=Бойова сокира з валірійської сталі
 item.got:valyrian_book.name=Книга валірійської сталі
 item.got:valyrian_boots.name=Чоботи з валірійської сталі
-item.got:valyrian_chainmail_boots.name≠
-item.got:valyrian_chainmail_chestplate.name≠
-item.got:valyrian_chainmail_helmet.name≠
-item.got:valyrian_chainmail_leggings.name≠
+item.got:valyrian_chainmail_boots.name=Кольчужні чоботи з валірійскої сталі
+item.got:valyrian_chainmail_chestplate.name=Кольчуга з валірійскої сталі
+item.got:valyrian_chainmail_helmet.name=Койф з валірійскої сталі
+item.got:valyrian_chainmail_leggings.name=Кольчужні наголінники з валірійскої сталі
 item.got:valyrian_chestplate.name=Нагрудник із валірійської сталі
 item.got:valyrian_chisel.name=Валірійське зубило
 item.got:valyrian_crossbow.name=Арбалет із валірійської сталі
@@ -5699,8 +5699,8 @@ item.got:volantis_chestplate.name=Нагрудник Волантісу
 item.got:volantis_helmet.name=Шолом Волантісу
 item.got:volantis_leggings.name=Наголінники Волантісу
 item.got:walking_stick.name=Тростина
-item.got:walrus_lard_cooked.name≠
-item.got:walrus_lard_raw.name≠
+item.got:walrus_lard_cooked.name=Смажене сало моржу
+item.got:walrus_lard_raw.name=Сире сало моржу
 item.got:waterskin.name=Бурдюк
 item.got:westerlands_boots.name=Чоботи Західних земель
 item.got:westerlands_chestplate.name=Нагрудник Західних земель
@@ -5771,7 +5771,7 @@ item.got:zebra_cooked.name=Смажене м'ясо зебри
 item.got:zebra_raw.name=Сире м'ясо зебри
 tile.concrete.name=%s бетон
 tile.concrete_powder.name=%s цемент
-tile.dirt.0.name≠
+tile.dirt.0.name=Бруд
 tile.dirt.coarse.name=Піщаний бруд
 tile.got.bomb.double_strength=Двухкратная сила
 tile.got.bomb.fire=Зажигательная

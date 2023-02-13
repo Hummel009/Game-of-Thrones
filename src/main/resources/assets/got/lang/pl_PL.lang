@@ -1,6 +1,4 @@
 ﻿
-item.got:bronze_ring.name≠
-item.got:copper_ring.name≠
 attribute.name.generic.movementSpeedAir=Prędkość (powietrze)
 color.black=Czarny
 color.blue=Niebieski
@@ -1677,8 +1675,8 @@ got.biome.stepstones.name=Kroki
 got.biome.stoneCoast.name=Kamienne Wybrzeże
 got.biome.stormlands.name=Kraina burzy
 got.biome.stormlandsTown.name=Przylądek Durran
-got.biome.summerColonyMangrove.name≠
 got.biome.summerColony.name≠
+got.biome.summerColonyMangrove.name≠
 got.biome.summerIslands.name=Letnie Wyspy
 got.biome.suudanKorkuu.name=Mossove bagna
 got.biome.tarth.name=Tarth
@@ -1689,16 +1687,16 @@ got.biome.ulos.name≠
 got.biome.ulthos.name=Ulthos
 got.biome.ulthosDesert.name=Pustynia Ulthos
 got.biome.ulthosDesertCold.name≠
-got.biome.ulthosForestEdge.name≠
 got.biome.ulthosForest.name≠
+got.biome.ulthosForestEdge.name≠
 got.biome.ulthosFrost.name≠
-got.biome.ulthosMarshesForest.name≠
 got.biome.ulthosMarshes.name≠
+got.biome.ulthosMarshesForest.name≠
 got.biome.ulthosMountains.name=Góry Ulthos
-got.biome.ulthosRedForestEdge.name≠
 got.biome.ulthosRedForest.name≠
-got.biome.ulthosTaigaEdge.name≠
+got.biome.ulthosRedForestEdge.name≠
 got.biome.ulthosTaiga.name≠
+got.biome.ulthosTaigaEdge.name≠
 got.biome.valyria.name=Półwysep Valyria
 got.biome.valyriaSea.name=Morze Valyrii
 got.biome.valyriaVolcano.name=Wulkany Valyria
@@ -1708,9 +1706,9 @@ got.biome.volantisMarshes.name=Dolina Selhoru
 got.biome.westerlands.name=Krainy zachodu
 got.biome.westerlandsHills.name=Krainy zachodu Hills
 got.biome.westerlandsTown.name=Lannisport
+got.biome.westerosForest.name=Lasy Westeros
 got.biome.westerosForest1.name≠
 got.biome.westerosForest2.name≠
-got.biome.westerosForest.name=Lasy Westeros
 got.biome.westerosMountains.name=Góry Westeros
 got.biome.wetwood.name=Wetwood
 got.biome.whisperingWood.name=Szepczące drewno
@@ -5153,7 +5151,6 @@ item.got:braavos_helmet.name=Hełm Braavosa
 item.got:braavos_leggings.name=Nogawice marki Braavos
 item.got:branding_iron.name=Znakujące żelazo
 item.got:brightroar.name=Brightroar
-item.got:bronzeNugget.name≠
 item.got:bronze_axe.name=Brązowy topór
 item.got:bronze_battleaxe.name=Brązowy topór bojowy
 item.got:bronze_boots.name=Brązowe buty
@@ -5169,7 +5166,9 @@ item.got:bronze_helmet.name=Hełm z brązu
 item.got:bronze_hoe.name=Brązowa motyka
 item.got:bronze_ingot.name=Sztabka brązu
 item.got:bronze_leggings.name=Brązowe Nogawice
+item.got:bronze_nugget.name≠
 item.got:bronze_pickaxe.name=Brązowy kilof
+item.got:bronze_ring.name≠
 item.got:bronze_shovel.name=Łopata z brązu
 item.got:bronze_spear.name=Włócznia z brązu
 item.got:bronze_sword.name=Miecz z brązu
@@ -5203,6 +5202,7 @@ item.got:command_sword.name=Miecz dowodzenis
 item.got:conquest_horn.name=Róg wojenny
 item.got:copper_ingot.name=Miedziana Sztaba
 item.got:copper_nugget.name=Bryłka miedzi
+item.got:copper_ring.name≠
 item.got:coral.name=Koral
 item.got:corn.name=Kukurydza
 item.got:corn_bread.name=Kukurydziany chleb
@@ -5334,11 +5334,11 @@ item.got:ice_shard.name≠
 item.got:ice_spear.name≠
 item.got:ice_sword.name=Lodowy Miecz
 item.got:indomitable.name≠
-item.got:ironNugget.name≠
 item.got:iron_battleaxe.name=Żelazny topór bojowy
 item.got:iron_crossbow.name=Żelazna kusza
 item.got:iron_dagger.name=Żelazny sztylet
 item.got:iron_dagger_poisoned.name=Zatruty Żelazny Sztylet
+item.got:iron_nugget.name≠
 item.got:iron_pike.name=Iron Pike
 item.got:iron_spear.name=Żelazna włócznia
 item.got:iron_throwing_axe.name=Żelazny topór do rzucania
