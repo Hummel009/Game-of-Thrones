@@ -1603,7 +1603,6 @@ got.biome.isleOfFaces.name=Ilha das Faces
 got.biome.jogosNhai.name=Jogos Nhai Plains
 got.biome.jogosNhaiDesert.name=Deserto Seco
 got.biome.jogosNhaiHills.name≠
-got.biome.kanduuBet.name=Floresta Mossovy
 got.biome.kingSpears.name=Lanças do Rei da Água
 got.biome.kuurulgan.name≠
 got.biome.lake.name=Lago
@@ -1678,7 +1677,6 @@ got.biome.stormlandsTown.name=Cabo Durran
 got.biome.summerColony.name≠
 got.biome.summerColonyMangrove.name≠
 got.biome.summerIslands.name=Ilhas de verão
-got.biome.suudanKorkuu.name=Mossovy Marshes
 got.biome.tarth.name=Tarth
 got.biome.thenn.name=Thenn Land
 got.biome.tropicalForest.name=As florestas tropicais
@@ -2597,9 +2595,6 @@ got.gui.shields.select=Escolher Escudo
 got.gui.shields.selected=Selecionado!
 got.gui.shields.title=Escudos da Juego de Tronos
 got.gui.shields=Escudos
-got.gui.squadronItem.done=Pronto
-got.gui.squadronItem.none=Nenhum
-got.gui.squadronItem.squadron=Esquadrão da unidade contratada:
 got.gui.time.format.hms=%s %s %s
 got.gui.time.format.ms=%s %s
 got.gui.time.format.s=%s

@@ -1529,7 +1529,6 @@ got.achievement.WEAR_FULL_YITI_FRONTIER.desc≠
 got.achievement.WEAR_FULL_YITI_FRONTIER.title≠
 got.achievement.WEAR_FULL_YITI_SAMURAI.desc=Portez un ensemble complet de Yi Ti Samurai
 got.achievement.WEAR_FULL_YITI_SAMURAI.title=Yi Ti Samurai
-got.achievement.category.ENTER=Biomes
 got.achievement.category.GENERAL=Général
 got.achievement.category.KILL=Tuer
 got.achievement.category.LEGENDARY=Légendaire
@@ -1603,7 +1602,6 @@ got.biome.isleOfFaces.name=Île des Visages
 got.biome.jogosNhai.name=Plaines de Jogos
 got.biome.jogosNhaiDesert.name=Désert desséché
 got.biome.jogosNhaiHills.name≠
-got.biome.kanduuBet.name=Forêt de Mossovy
 got.biome.kingSpears.name=Lances du roi de l'eau
 got.biome.kuurulgan.name≠
 got.biome.lake.name=Lac
@@ -1678,7 +1676,6 @@ got.biome.stormlandsTown.name=Cape Durran
 got.biome.summerColony.name≠
 got.biome.summerColonyMangrove.name≠
 got.biome.summerIslands.name=Îles d'Été
-got.biome.suudanKorkuu.name=Marais de Mossovy
 got.biome.tarth.name=Tarth
 got.biome.thenn.name=Terre de Thenn
 got.biome.tropicalForest.name=Forêts tropicales
@@ -2532,7 +2529,6 @@ got.gui.npcRespawner.mounts.1=ON
 got.gui.npcRespawner.mounts.2=Défaut
 got.gui.npcRespawner.mounts=Monture
 got.gui.npcRespawner.noPlayerRange=Rayon sans joueur
-got.gui.npcRespawner.spawnCape=Maximum d'entités
 got.gui.npcRespawner.spawnClass1=Classe primaire de PNJ
 got.gui.npcRespawner.spawnClass2=Classe secondaire de PNJ
 got.gui.npcRespawner.spawnHorizontal=Rayon X/Z d'apparition
@@ -2597,9 +2593,6 @@ got.gui.shields.select=Équiper
 got.gui.shields.selected=Sélectionné !
 got.gui.shields.title=Bouclier de la Game of Thrones
 got.gui.shields=Boucliers
-got.gui.squadronItem.done=Fait
-got.gui.squadronItem.none=Aucun
-got.gui.squadronItem.squadron=Companie assignée à la recrue:
 got.gui.time.format.hms=%s %s %s
 got.gui.time.format.ms=%s %s
 got.gui.time.format.s=%s

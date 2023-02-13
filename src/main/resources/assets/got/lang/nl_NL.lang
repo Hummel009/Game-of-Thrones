@@ -1603,7 +1603,6 @@ got.biome.isleOfFaces.name=Isle van Faces
 got.biome.jogosNhai.name=Jogos Nhai Plains
 got.biome.jogosNhaiDesert.name=Gedroogde woestijn
 got.biome.jogosNhaiHills.name≠
-got.biome.kanduuBet.name=Mossovy Forest
 got.biome.kingSpears.name=Speren van de Waterkoning
 got.biome.kuurulgan.name≠
 got.biome.lake.name=Meer
@@ -1678,7 +1677,6 @@ got.biome.stormlandsTown.name=Kaap Durran
 got.biome.summerColony.name≠
 got.biome.summerColonyMangrove.name≠
 got.biome.summerIslands.name=Zomer eilanden
-got.biome.suudanKorkuu.name=Mossovy moerassen
 got.biome.tarth.name=Tarth
 got.biome.thenn.name=Thenn Land
 got.biome.tropicalForest.name=Tropische bossen
@@ -2597,9 +2595,6 @@ got.gui.shields.select=Selecteer Schild
 got.gui.shields.selected=Geselecteerd!
 got.gui.shields.title=Het Spel Der Tronen Schilden
 got.gui.shields=Schilden
-got.gui.squadronItem.done=Klaar
-got.gui.squadronItem.none=Geen
-got.gui.squadronItem.squadron=Toegewezen Eskader:
 got.gui.time.format.hms=%s %s %s
 got.gui.time.format.ms=%s %s
 got.gui.time.format.s=%s

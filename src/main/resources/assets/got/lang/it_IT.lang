@@ -1603,7 +1603,6 @@ got.biome.isleOfFaces.name=Isola dei volti
 got.biome.jogosNhai.name=Jogos Nhai Plains
 got.biome.jogosNhaiDesert.name=Deserto essiccato
 got.biome.jogosNhaiHills.name≠
-got.biome.kanduuBet.name=Foresta Mossovy
 got.biome.kingSpears.name=Lance del Re dell'Acqua
 got.biome.kuurulgan.name≠
 got.biome.lake.name=Lago
@@ -1678,7 +1677,6 @@ got.biome.stormlandsTown.name=Capo Durran
 got.biome.summerColony.name≠
 got.biome.summerColonyMangrove.name≠
 got.biome.summerIslands.name=Isole estive
-got.biome.suudanKorkuu.name=Mossovy Marshes
 got.biome.tarth.name=Tarth
 got.biome.thenn.name=Thenn Land
 got.biome.tropicalForest.name=Foreste tropicali
@@ -2597,9 +2595,6 @@ got.gui.shields.select=Seleziona Scudo
 got.gui.shields.selected=Selezionato!
 got.gui.shields.title=Scudi della Trono di Spade
 got.gui.shields=Scudi
-got.gui.squadronItem.done=Fatto
-got.gui.squadronItem.none=Nessuno
-got.gui.squadronItem.squadron=Squadrone assegnato:
 got.gui.time.format.hms=%s %s %s
 got.gui.time.format.ms=%s %s
 got.gui.time.format.s=%s

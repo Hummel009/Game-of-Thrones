@@ -1603,7 +1603,6 @@ got.biome.isleOfFaces.name=Wyspa Twarzy
 got.biome.jogosNhai.name=Jogos Nhai Plains
 got.biome.jogosNhaiDesert.name=Wysuszona Pustynia
 got.biome.jogosNhaiHills.name≠
-got.biome.kanduuBet.name=Mossovy las
 got.biome.kingSpears.name=Włócznie Króla Wody
 got.biome.kuurulgan.name≠
 got.biome.lake.name=Jezioro
@@ -1678,7 +1677,6 @@ got.biome.stormlandsTown.name=Przylądek Durran
 got.biome.summerColony.name≠
 got.biome.summerColonyMangrove.name≠
 got.biome.summerIslands.name=Letnie Wyspy
-got.biome.suudanKorkuu.name=Mossove bagna
 got.biome.tarth.name=Tarth
 got.biome.thenn.name=Thenn Land
 got.biome.tropicalForest.name=Lasy tropikalne
@@ -2663,9 +2661,6 @@ got.invasion.WILDLING_GIANT=Dziki z gigantami
 got.invasion.WILDLING_THENN.horn=Summon Invasion - Thenn
 got.invasion.WILDLING_THENN=Thenn
 got.invasion.YI_TI.horn=Summon Invasion - Yi Ti
-got.invasion.riverlands.horn=Summon Invasion - Dorzecze
-got.invasion.stormlands.horn=Summon Invasion - Kraina burzy
-got.invasion.westerlands.horn=Summon Invasion - Kraina zachodu
 got.loading=Ładowanie
 got.map.essos=Essos
 got.map.ibben=Ibben

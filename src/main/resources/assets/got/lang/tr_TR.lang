@@ -1603,9 +1603,7 @@ got.biome.isleOfFaces.name=Yüzler Adası
 got.biome.jogosNhai.name=Jogos Nhai Ovaları
 got.biome.jogosNhaiDesert.name=Kuru çöl
 got.biome.jogosNhaiHills.name≠
-got.biome.kanduuBet.name=Mossovy orman
 got.biome.kingSpears.name=Su Kralının Mızrakları
-got.biome.kuurulgan.name=Mossovy sopka
 got.biome.lake.name=Göl
 got.biome.lhazar.name=Lhazar
 got.biome.lhazarHills.name≠
@@ -1678,7 +1676,6 @@ got.biome.stormlandsTown.name=Durran Burnu
 got.biome.summerColony.name≠
 got.biome.summerColonyMangrove.name≠
 got.biome.summerIslands.name=Yaz Adaları
-got.biome.suudanKorkuu.name=Mossovy bataklıklar
 got.biome.tarth.name=Tart
 got.biome.thenn.name=Sonra Arazi
 got.biome.tropicalForest.name=Tropikal ormanlar
@@ -1925,8 +1922,6 @@ got.compas.NORTH=Kuzey
 got.compas.SOUTH=Güneş ışığı
 got.compas.WEST=Batı
 got.compas=Pusula
-got.container.Demircisi.cost=Tutan Para: %d
-got.container.Demircisi=Demircisi
 got.container.alloyForge=Alaşım Fırını
 got.container.anvil.cost=Gereken Materiyal: %d
 got.container.anvil.engraveOwner=Kazımalı Mülkiyet
@@ -2511,7 +2506,6 @@ got.gui.money.notGive≠
 got.gui.money.press=Para çekmek/aktarmak için madeni paraya basın
 got.gui.money.transfer=Para transferi
 got.gui.money.withdraw=Para çekmek
-got.gui.npc.Demircisi=Demircisi
 got.gui.npc.command=Emir Ver
 got.gui.npc.dismiss=Askeri İşten Çıkar
 got.gui.npc.exchange=Para Takas Et
@@ -2597,9 +2591,6 @@ got.gui.shields.select=Kalkan Seç
 got.gui.shields.selected=Seçildi!
 got.gui.shields.title=Kalkanları
 got.gui.shields=Kalkanlar
-got.gui.squadronItem.done=Hiç
-got.gui.squadronItem.none=Hiç
-got.gui.squadronItem.squadron=Atanmış Çağırılmış Asker Bölüğü:
 got.gui.time.format.hms=%s %s %s
 got.gui.time.format.ms=%s %s
 got.gui.time.format.s=%s
