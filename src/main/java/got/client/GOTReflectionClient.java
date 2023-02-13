@@ -47,7 +47,11 @@ public class GOTReflectionClient {
 	public static int getFormattingColor(EnumChatFormatting ecf) {
 		FontRenderer fr = Minecraft.getMinecraft().fontRenderer;
 		int colorIndex = ecf.ordinal();
-		return GOTReflectionClient.getColorCodes(fr)[colorIndex];
+		int[] arr = GOTReflectionClient.getColorCodes(fr);
+		if (arr != null) {
+			return arr[colorIndex];
+		}
+		return 0xffffff;
 	}
 
 	public static float getFOVModifier(EntityRenderer renderer, float tick, boolean flag) {

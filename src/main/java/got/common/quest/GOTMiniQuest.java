@@ -510,11 +510,13 @@ public abstract class GOTMiniQuest {
 			return null;
 		}
 		GOTMiniQuest quest = GOTMiniQuest.newQuestInstance(questType, playerData);
-		quest.readFromNBT(nbt);
-		if (quest.isValidQuest()) {
-			return quest;
+		if (quest != null) {
+			quest.readFromNBT(nbt);
+			if (quest.isValidQuest()) {
+				return quest;
+			}
+			FMLLog.severe("Loaded an invalid GOT miniquest " + quest.speechBankStart);
 		}
-		FMLLog.severe("Loaded an invalid GOT miniquest " + quest.speechBankStart);
 		return null;
 	}
 
@@ -548,25 +550,28 @@ public abstract class GOTMiniQuest {
 
 		public Q createQuest(GOTEntityNPC npc, Random rand) {
 			GOTMiniQuest quest = GOTMiniQuest.newQuestInstance(this.getQuestClass(), null);
-			quest.questGroup = this.getFactoryGroup();
-			String pathName = "miniquest/" + this.getFactoryGroup().getBaseName() + "/";
-			String pathNameBaseSpeech = "miniquest/" + this.getFactoryGroup().getBaseSpeechGroup().getBaseName() + "/";
-			String questPathName = pathName + this.questName + "_";
-			quest.speechBankStart = questPathName + "start";
-			quest.speechBankProgress = questPathName + "progress";
-			quest.speechBankComplete = questPathName + "complete";
-			quest.speechBankTooMany = pathNameBaseSpeech + "_tooMany";
-			quest.isLegendary = this.isLegendary;
-			quest.quoteStart = GOTSpeech.getRandomSpeech(quest.speechBankStart);
-			quest.quoteComplete = GOTSpeech.getRandomSpeech(quest.speechBankComplete);
-			quest.setNPCInfo(npc);
-			quest.rewardFactor = this.rewardFactor;
-			quest.willHire = this.willHire;
-			quest.hiringAlignment = this.hiringAlignment;
-			if (this.rewardItems != null) {
-				quest.rewardItemTable.addAll(this.rewardItems);
+			if (quest != null) {
+				quest.questGroup = this.getFactoryGroup();
+				String pathName = "miniquest/" + this.getFactoryGroup().getBaseName() + "/";
+				String pathNameBaseSpeech = "miniquest/" + this.getFactoryGroup().getBaseSpeechGroup().getBaseName() + "/";
+				String questPathName = pathName + this.questName + "_";
+				quest.speechBankStart = questPathName + "start";
+				quest.speechBankProgress = questPathName + "progress";
+				quest.speechBankComplete = questPathName + "complete";
+				quest.speechBankTooMany = pathNameBaseSpeech + "_tooMany";
+				quest.isLegendary = this.isLegendary;
+				quest.quoteStart = GOTSpeech.getRandomSpeech(quest.speechBankStart);
+				quest.quoteComplete = GOTSpeech.getRandomSpeech(quest.speechBankComplete);
+				quest.setNPCInfo(npc);
+				quest.rewardFactor = this.rewardFactor;
+				quest.willHire = this.willHire;
+				quest.hiringAlignment = this.hiringAlignment;
+				if (this.rewardItems != null) {
+					quest.rewardItemTable.addAll(this.rewardItems);
+				}
+				return (Q) quest;
 			}
-			return (Q) quest;
+			return null;
 		}
 
 		public GOTMiniQuestFactory getFactoryGroup() {

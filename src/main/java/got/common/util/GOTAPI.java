@@ -742,19 +742,21 @@ public class GOTAPI {
 	 */
 	public static void setServerMapImage(ResourceLocation res) {
 		BufferedImage img = getImage(getInputStream(res));
-		GOTGenLayerWorld.imageWidth = img.getWidth();
-		GOTGenLayerWorld.imageHeight = img.getHeight();
-		int[] colors = img.getRGB(0, 0, GOTGenLayerWorld.imageWidth, GOTGenLayerWorld.imageHeight, null, 0, GOTGenLayerWorld.imageWidth);
-		GOTGenLayerWorld.biomeImageData = new byte[GOTGenLayerWorld.imageWidth * GOTGenLayerWorld.imageHeight];
-		for (int i = 0; i < colors.length; ++i) {
-			int color = colors[i];
-			Integer biomeID = GOTDimension.GAME_OF_THRONES.colorsToBiomeIDs.get(color);
-			if (biomeID != null) {
-				GOTGenLayerWorld.biomeImageData[i] = (byte) biomeID.intValue();
-				continue;
+		if (img != null) {
+			GOTGenLayerWorld.imageWidth = img.getWidth();
+			GOTGenLayerWorld.imageHeight = img.getHeight();
+			int[] colors = img.getRGB(0, 0, GOTGenLayerWorld.imageWidth, GOTGenLayerWorld.imageHeight, null, 0, GOTGenLayerWorld.imageWidth);
+			GOTGenLayerWorld.biomeImageData = new byte[GOTGenLayerWorld.imageWidth * GOTGenLayerWorld.imageHeight];
+			for (int i = 0; i < colors.length; ++i) {
+				int color = colors[i];
+				Integer biomeID = GOTDimension.GAME_OF_THRONES.colorsToBiomeIDs.get(color);
+				if (biomeID != null) {
+					GOTGenLayerWorld.biomeImageData[i] = (byte) biomeID.intValue();
+					continue;
+				}
+				GOTLog.logger.error("Found unknown biome on map: " + Integer.toHexString(color) + " at location: " + i % GOTGenLayerWorld.imageWidth + ", " + i / GOTGenLayerWorld.imageWidth);
+				GOTGenLayerWorld.biomeImageData[i] = (byte) GOTBiome.ocean.biomeID;
 			}
-			GOTLog.logger.error("Found unknown biome on map: " + Integer.toHexString(color) + " at location: " + i % GOTGenLayerWorld.imageWidth + ", " + i / GOTGenLayerWorld.imageWidth);
-			GOTGenLayerWorld.biomeImageData[i] = (byte) GOTBiome.ocean.biomeID;
 		}
 	}
 }

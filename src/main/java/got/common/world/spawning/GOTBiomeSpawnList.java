@@ -119,9 +119,12 @@ public class GOTBiomeSpawnList {
 					FMLLog.severe("WARNING NPE in " + biomeIdentifier + ", " + chosenFacContainer.theFaction.codeName());
 					GOTLog.logger.warn("WARNING NPE in " + biomeIdentifier + ", " + chosenFacContainer.theFaction.codeName());
 				}
-				GOTSpawnEntry entry = spawnList.spawnList.getRandomSpawnEntry(rand);
-				int chance = spawnList.spawnChance;
-				return new GOTSpawnEntry.Instance(entry, chance, isConquestSpawn);
+				if (spawnList != null) {
+					GOTSpawnEntry entry = spawnList.spawnList.getRandomSpawnEntry(rand);
+					int chance = spawnList.spawnChance;
+					return new GOTSpawnEntry.Instance(entry, chance, isConquestSpawn);
+				}
+				return null;
 			}
 		}
 		return null;

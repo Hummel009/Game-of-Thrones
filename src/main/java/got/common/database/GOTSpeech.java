@@ -1,14 +1,13 @@
 package got.common.database;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.zip.*;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.input.BOMInputStream;
-
-import com.google.common.base.Charsets;
 
 import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
@@ -116,7 +115,7 @@ public class GOTSpeech {
 					int i = s.indexOf(".txt");
 					try {
 						s = s.substring(0, i);
-						BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(zip.getInputStream(entry)), Charsets.UTF_8.name()));
+						BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(zip.getInputStream(entry)), StandardCharsets.UTF_8.name()));
 						speechBankNamesAndReaders.put(s, reader);
 					} catch (Exception e) {
 						FMLLog.severe("Failed to load GOT speech bank " + s + "from zip file");
@@ -136,7 +135,7 @@ public class GOTSpeech {
 					}
 					try {
 						s = s.substring(0, i);
-						BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(new FileInputStream(subfile)), Charsets.UTF_8.name()));
+						BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(new FileInputStream(subfile)), StandardCharsets.UTF_8.name()));
 						speechBankNamesAndReaders.put(s, reader);
 					} catch (Exception e) {
 						FMLLog.severe("Failed to load GOT speech bank " + s + " from MCP folder");

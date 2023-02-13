@@ -593,10 +593,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return StatCollector.translateToLocal("got.biome." + biomeName + ".name");
 	}
 
-	public GOTBiomeSpawnList getNpcSpawnList() {
-		return npcSpawnList;
-	}
-
 	public GOTBiomeSpawnList getNPCSpawnList() {
 		return npcSpawnList;
 	}

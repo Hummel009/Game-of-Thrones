@@ -5,7 +5,6 @@ import java.util.*;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.google.common.base.Optional;
 import com.mojang.authlib.GameProfile;
 
 import cpw.mods.fml.common.FMLLog;
@@ -155,12 +154,15 @@ public class GOTLevelData {
 			return playerDataMap.get(player).getPlayerTitle();
 		}
 		if (playerTitleOfflineCacheMap.containsKey(player)) {
-			return playerTitleOfflineCacheMap.get(player).orNull();
+			return playerTitleOfflineCacheMap.get(player).orElse(null);
 		}
 		GOTPlayerData pd = GOTLevelData.loadData(player);
-		GOTTitle.PlayerTitle playerTitle = pd.getPlayerTitle();
-		playerTitleOfflineCacheMap.put(player, Optional.fromNullable(playerTitle));
-		return playerTitle;
+		if (pd != null) {
+			GOTTitle.PlayerTitle playerTitle = pd.getPlayerTitle();
+			playerTitleOfflineCacheMap.put(player, Optional.ofNullable(playerTitle));
+			return playerTitle;
+		}
+		return null;
 	}
 
 	public static EnumDifficulty getSavedDifficulty() {
@@ -258,7 +260,7 @@ public class GOTLevelData {
 		}
 	}
 
-	public static NBTTagCompound loadNBTFromFile(File file) throws FileNotFoundException, IOException {
+	public static NBTTagCompound loadNBTFromFile(File file) throws IOException {
 		if (file.exists()) {
 			FileInputStream fis = new FileInputStream(file);
 			NBTTagCompound nbt = CompressedStreamTools.readCompressed(fis);
@@ -339,7 +341,7 @@ public class GOTLevelData {
 				GOTLevelData.saveData(player);
 				saved = true;
 			}
-			playerTitleOfflineCacheMap.put(player, Optional.fromNullable(pd.getPlayerTitle()));
+			playerTitleOfflineCacheMap.put(player, Optional.ofNullable(pd.getPlayerTitle()));
 			playerDataMap.remove(player);
 			return saved;
 		}
@@ -378,7 +380,7 @@ public class GOTLevelData {
 		}
 	}
 
-	public static void saveNBTToFile(File file, NBTTagCompound nbt) throws FileNotFoundException, IOException {
+	public static void saveNBTToFile(File file, NBTTagCompound nbt) throws IOException {
 		CompressedStreamTools.writeCompressed(nbt, new FileOutputStream(file));
 	}
 

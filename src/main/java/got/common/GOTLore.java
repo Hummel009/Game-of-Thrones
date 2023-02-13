@@ -1,6 +1,7 @@
 package got.common;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.regex.*;
@@ -8,8 +9,6 @@ import java.util.zip.*;
 
 import org.apache.commons.io.input.BOMInputStream;
 import org.apache.commons.lang3.StringUtils;
-
-import com.google.common.base.Charsets;
 
 import cpw.mods.fml.common.ModContainer;
 import got.GOT;
@@ -163,7 +162,7 @@ public class GOTLore {
 						int i = s.indexOf(".txt");
 						try {
 							s = s.substring(0, i);
-							BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(zip.getInputStream(entry)), Charsets.UTF_8.name()));
+							BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(zip.getInputStream(entry)), StandardCharsets.UTF_8.name()));
 							loreReaders.put(s, reader);
 						} catch (Exception e) {
 							GOTLog.logger.error("Failed to load GOT lore " + s + "from zip file");
@@ -181,7 +180,7 @@ public class GOTLore {
 					} else {
 						try {
 							s = s.substring(0, i);
-							BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(new FileInputStream(file)), Charsets.UTF_8.name()));
+							BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(new FileInputStream(file)), StandardCharsets.UTF_8.name()));
 							loreReaders.put(s, reader);
 						} catch (Exception e) {
 							GOTLog.logger.error("Failed to load GOT lore " + s + " from MCP folder");

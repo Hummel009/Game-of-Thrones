@@ -1,6 +1,5 @@
 package got.common;
 
-import java.io.IOException;
 import java.util.*;
 
 import org.apache.commons.lang3.StringUtils;
@@ -2475,7 +2474,7 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void sendMiniQuestPacket(EntityPlayerMP entityplayer, GOTMiniQuest quest, boolean completed) throws IOException {
+	public void sendMiniQuestPacket(EntityPlayerMP entityplayer, GOTMiniQuest quest, boolean completed) {
 		NBTTagCompound nbt = new NBTTagCompound();
 		quest.writeToNBT(nbt);
 		GOTPacketMiniquest packet = new GOTPacketMiniquest(nbt, completed);
@@ -2490,7 +2489,7 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void sendPlayerData(EntityPlayerMP entityplayer) throws IOException {
+	public void sendPlayerData(EntityPlayerMP entityplayer) {
 		NBTTagCompound nbt = new NBTTagCompound();
 		save(nbt);
 		nbt.removeTag("Achievements");
@@ -3054,12 +3053,7 @@ public class GOTPlayerData {
 		markDirty();
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-			try {
-				sendMiniQuestPacket((EntityPlayerMP) entityplayer, quest, false);
-			} catch (IOException e) {
-				FMLLog.severe("Error sending miniquest packet to player " + entityplayer.getCommandSenderName());
-				e.printStackTrace();
-			}
+			sendMiniQuestPacket((EntityPlayerMP) entityplayer, quest, false);
 		}
 	}
 

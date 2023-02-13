@@ -49,12 +49,13 @@ public class GOTReflection {
 	}
 
 	public static float getDamageAmount(Item item) {
-		Field privateField = null;
 		float f = 0.0f;
 		try {
-			privateField = getPotentiallyObfuscatedPrivateValue(ItemSword.class, "field_150934_a");
-			privateField.setAccessible(true);
-			f = (float) privateField.get(item);
+			Field privateField = getPotentiallyObfuscatedPrivateValue(ItemSword.class, "field_150934_a");
+			if (privateField != null) {
+				privateField.setAccessible(true);
+				f = (float) privateField.get(item);
+			}
 		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e2) {
 			e2.printStackTrace();
 		}
@@ -107,12 +108,13 @@ public class GOTReflection {
 	}
 
 	public static Block getOreBlock(WorldGenMinable ore) {
-		Field privateField = null;
 		Block b = null;
 		try {
-			privateField = getPotentiallyObfuscatedPrivateValue(WorldGenMinable.class, "field_150519_a");
-			privateField.setAccessible(true);
-			b = (Block) privateField.get(ore);
+			Field privateField = getPotentiallyObfuscatedPrivateValue(WorldGenMinable.class, "field_150519_a");
+			if (privateField != null) {
+				privateField.setAccessible(true);
+				b = (Block) privateField.get(ore);
+			}
 		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e2) {
 			e2.printStackTrace();
 		}
@@ -120,12 +122,13 @@ public class GOTReflection {
 	}
 
 	public static int getOreMeta(WorldGenMinable ore) {
-		Field privateField = null;
 		int i = 0;
 		try {
-			privateField = getPotentiallyObfuscatedPrivateValue(WorldGenMinable.class, "mineableBlockMeta");
-			privateField.setAccessible(true);
-			i = (int) privateField.get(ore);
+			Field privateField = getPotentiallyObfuscatedPrivateValue(WorldGenMinable.class, "mineableBlockMeta");
+			if (privateField != null) {
+				privateField.setAccessible(true);
+				i = (int) privateField.get(ore);
+			}
 		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e2) {
 			e2.printStackTrace();
 		}
@@ -167,12 +170,13 @@ public class GOTReflection {
 	}
 
 	public static ToolMaterial getToolMaterial(Item item) {
-		Field privateField = null;
 		ToolMaterial tm = null;
 		try {
-			privateField = getPotentiallyObfuscatedPrivateValue(ItemSword.class, "field_150933_b");
-			privateField.setAccessible(true);
-			tm = (ToolMaterial) privateField.get(item);
+			Field privateField = getPotentiallyObfuscatedPrivateValue(ItemSword.class, "field_150933_b");
+			if (privateField != null) {
+				privateField.setAccessible(true);
+				tm = (ToolMaterial) privateField.get(item);
+			}
 		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e2) {
 			e2.printStackTrace();
 		}

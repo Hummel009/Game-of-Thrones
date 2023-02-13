@@ -454,7 +454,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				xml.println(begin);
 				for (GOTBiome biome : biomes) {
 					if (biome != null) {
-						List<FactionContainer> facContainers = biome.getNpcSpawnList().factionContainers;
+						List<FactionContainer> facContainers = biome.getNPCSpawnList().factionContainers;
 						if (facContainers.isEmpty()) {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeNoSpawn);
 						} else {
@@ -485,7 +485,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				xml.println(begin);
 				for (GOTBiome biome : biomes) {
 					if (biome != null) {
-						List<FactionContainer> facContainers = biome.getNpcSpawnList().factionContainers;
+						List<FactionContainer> facContainers = biome.getNPCSpawnList().factionContainers;
 						if (facContainers.isEmpty()) {
 							xml.println("| " + getBiomePagename(biome) + " = " + biomeNoConquest);
 						} else {
@@ -819,7 +819,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 					HashSet<GOTBiome> spawnBiomes = new HashSet<>();
 					next: for (GOTBiome biome : biomes) {
 						if (biome != null) {
-							List<FactionContainer> facContainers = biome.getNpcSpawnList().factionContainers;
+							List<FactionContainer> facContainers = biome.getNPCSpawnList().factionContainers;
 							if (!facContainers.isEmpty()) {
 								ArrayList<FactionContainer> spawnContainers = new ArrayList<>();
 								for (FactionContainer facContainer : facContainers) {
@@ -861,7 +861,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 					HashSet<GOTBiome> conquestBiomes = new HashSet<>();
 					next: for (GOTBiome biome : biomes) {
 						if (biome != null) {
-							List<FactionContainer> facContainers = biome.getNpcSpawnList().factionContainers;
+							List<FactionContainer> facContainers = biome.getNPCSpawnList().factionContainers;
 							if (!facContainers.isEmpty()) {
 								ArrayList<FactionContainer> conquestContainers = new ArrayList<>();
 								for (FactionContainer facContainer : facContainers) {
@@ -1135,7 +1135,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 							spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.creature));
 							spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.monster));
 							spawnEntries.addAll(biome.getSpawnableGOTAmbientList());
-							for (FactionContainer facContainer : biome.getNpcSpawnList().factionContainers) {
+							for (FactionContainer facContainer : biome.getNPCSpawnList().factionContainers) {
 								if (facContainer.baseWeight > 0) {
 									for (SpawnListContainer container : facContainer.spawnLists) {
 										spawnEntries.addAll(container.spawnList.spawnList);

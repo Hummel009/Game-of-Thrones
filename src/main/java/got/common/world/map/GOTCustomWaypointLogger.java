@@ -1,7 +1,7 @@
 package got.common.world.map;
 
 import java.io.*;
-import java.nio.charset.Charset;
+import java.nio.charset.*;
 import java.text.*;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -15,7 +15,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.common.DimensionManager;
 
 public class GOTCustomWaypointLogger {
-	public static Charset CHARSET = Charset.forName("UTF-8");
+	public static Charset CHARSET = StandardCharsets.UTF_8;
 	public static DateFormat DATE_FORMAT = new SimpleDateFormat("YYYY-MM");
 	public static DateFormat MONTH_DATE_FORMAT = new SimpleDateFormat("MM-dd");
 	public static DateFormat TIME_FORMAT = new SimpleDateFormat("HH:mm:ss");
