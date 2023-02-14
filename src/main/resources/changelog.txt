@@ -11,12 +11,12 @@ CHANGELOG
 * Fixed bug with wrong rep required by lhazar smith
 * Fixed a few crashes linked to null pointers.
 
->>BUILD 17.9.6
+>>BUILD 10.02.23
 * Fixed crash in altitude biomes linked to season changes
 * Fixed wrong info in database generator
 * Fixed bug with untranslated labels
 
->>BUILD 17.9.5
+>>BUILD 02.02.23
 + Added walrus lard and elephant meat. Now killing walruses, mammoths and elephants is more useful.
 + Added bronze chain armor and valyrian chain armor.
 + Added bronze nugget and iron nugget.
@@ -49,7 +49,7 @@ CHANGELOG
 - Removed Dorne Valley (no differences from Dorne)
 - Removed item called valyrian mail, because new armor replaced that
 
->>BUILD 17.9.4
+>>BUILD 04.01.23
 * Optimization
 * Added more random structures
 * Improved dragonstone biome
@@ -62,7 +62,7 @@ CHANGELOG
 * Fixed bug with GOTAPI$setClientMapImage
 * Fixed bug with Yi Ti bombardier, having speed 1.1 instead of 1.4 while attacking
 
->>BUILD 17.9.3
+>>BUILD 12.09.22
 + Added new hill biomes for the Near Essos
 + Added Lorath Maze biome
 * Reworked all the free cities biomes + Ghiscar & Qarth
@@ -79,7 +79,7 @@ CHANGELOG
 * Fixed bug with lots of grass near fixed towns
 * Fixed a few typos in ukrainian translation
 
->>BUILD 17.9.2
+>>BUILD 27.08.22
 + Added GOT API (got.common.util.GOTAPI.java)
 + Added full French translation (prod. Agripas)
 
@@ -89,7 +89,7 @@ CHANGELOG
 
 - Removed GOTCommander
 
->>BUILD 17.9.1
+>>BUILD 25.08.22
 * Fixed bug that removed The Wall
 
 * Improved GUI (factions, menu, barrel)
@@ -98,7 +98,7 @@ CHANGELOG
 * Improved crafting textures
 * Improved name banks
 
->>BUILD 17.9
+>>BUILD 19.08.22
 * Remade Ulthos from scratch
 * Greatly improved Sothoryos
 * Greatly improved Ukrainian translation (prod. Octobrine)
@@ -135,7 +135,7 @@ CHANGELOG
 - Removed Ulos biome
 - Removed hunters and greengrocers (no difference, because farmers and butchers exist)
 
->>BUILD 17.8
+>>BUILD 10.07.22
 + Added labradorite set of blocks
 + Added "kill mob" type of quests
 + Added "kill player" type of quests
@@ -184,7 +184,7 @@ CHANGELOG
 - Removed Ibben Sea biome, because it lost its difference after seasons update
 - Removed Carnotite set of blocks, because it turned out that it was uran ore
 
->>BUILD 17.7.3
+>>BUILD 06.06.22
 + Added full Polish edition (lore, speech, names, quests: prod. Axel)
 + Added strict title rules, as in the LOTR
 + Added min Y limit for waypoint creation, as in the LOTR
@@ -198,7 +198,7 @@ CHANGELOG
 * Fixed bug with road near Bronze Gate & Sarsfield
 * Fixed bug with towers quantity near "Three Towers" waypoint
 
->>BUILD 17.7.2
+>>BUILD 11.05.22
 + Recreated Polish translation (prod. Axel Snow)
 
 * Improved 2nd Tyrosh male skin
@@ -215,12 +215,12 @@ CHANGELOG
 * Fixed potential bugs, caused by "legendary" mercenaries
 * Returned black roofs to the Dorne
 
->>BUILD 17.7.1
+>>BUILD 03.04.22
 * Improved ukrainian translation (prod. DDPAT Knife Series)
 * Fixed bug with anvil texture
 * Fixed bug with agressive mobs AI
 
->>BUILD 17.7
+>>BUILD 02.03.22
 * Greatly improved the Ice Wall and the Yi Ti Wall
 * Greatly improved all the banners in the game (prod. Hummel009)
 + Added ruined wall castles
@@ -272,7 +272,7 @@ CHANGELOG
 * Fixed bug with shields GUI
 * Fixed bug with smithing
 
->>BUILD 17.6
+>>BUILD 26.01.22
 + Added full Ukrainian edition (lore, speech, names, quests: prod. DDPAT Knife Series)
 + Added full Turkish edition (lore, speech, names, quests: prod. Ness)
 
@@ -347,7 +347,7 @@ CHANGELOG
 - Removed 28 technical biomes
 - Removed camps and tents of wildling, thenn and north hillmen
 
->>BUILD 17.5
+>>BUILD 01.12.21
 * Reworked Mossovy. Added table, new mobs, structures, villages and fixed genstructures.
 * Reworked economics. New gold, silver and valyrian prices. New prices for all items made of these materials
 * Reworked units, their prices and armor stats. Balance everywhere!
@@ -419,7 +419,7 @@ CHANGELOG
 - Removed Ironborn Corsair
 - Removed levyman riders from units
 
->>BUILD 17.4
+>>BUILD 15.10.21
 + ADDED SEASONS
 + Added new money system
 + Added new banners
@@ -510,7 +510,7 @@ CHANGELOG
 
 - Removed Ice battleaxe
 
->>BUILD 17.3
+>>BUILD 16.08.21
 + New waypoint system with dynamic travel time.
 + Added grappling hooks
 + Added Languages GUI
@@ -546,7 +546,7 @@ CHANGELOG
 
 - Removed old Lhazar.
 
->>BUILD 17.2
+>>BUILD 01.06.21
 + Added Full German Edition of the Mod (powered by The Sword of the Morning & Minecraft_PiTo)
 + Added Full Chinese Edition of the Mod (powered by Hamma Baki & Roobimwbj)
 + Added Full English Edition of the Mod (powered by beautifulrobloxgirl3 & Hummel009)
@@ -571,7 +571,7 @@ CHANGELOG
 * Fixed bug with Winterwell Weirwood
 * Fixed bug with Three-eyed Raven spawning
 
->>BUILD 17.1
+>>BUILD 02.03.21
 * REPLACED SOME BRICK & ARMOR TEXTURES DUE TO COPYRIGHT ISSUE
 * Reduced and systematized legendary mobs' alignment points
 + Added burning arrows (can be crafted like poisoned arrow but sulfur instead of poison)
@@ -649,7 +649,7 @@ CHANGELOG
 * Renamed Black Andesite blocks into Westeros Basalt (rus)
 - Removed Night Watch's bow
 
->>BUILD 17.0
+>>BUILD 09.12.20
 * Realistic spawning system: mobs no longer spawn in open space. NPC spawn only near waypoints with fixed structures and in random villages.
 + Added 200+ Achievements
 + Added Achievements Command
@@ -700,7 +700,7 @@ CHANGELOG
 * Updated commander's banner method and added simplified banner registry
 - Removed Commander's methods that are getting non-public fields through Reflection helper. Use direct coding, as in the original Mod code
 
->>BUILD 16.1
+>>BUILD 30.10.20
 + Added Pycelle (legendary maester)
 + Added Yara Greyjoy (legendary unit-trader)
 + Added Rickard Karstark (legendary unit-trader)
@@ -726,7 +726,7 @@ CHANGELOG
 * Improved structure spawners colors; now spawners have dynamic ID instead of static
 * Improved banner ids; now banners have dynamic ID instead of static
 
->>BUILD 16.0
+>>BUILD 19.10.20
 + Added Cersei Lannister & her quest
 + Added Euron Greyjoy & deaf corsairs
 + Added Walder Frey & his special unit trade entries
@@ -755,7 +755,7 @@ CHANGELOG
 - Removed Fast Quests Config
 * Twice reduced mob spawning
 
->>BUILD 15.2
+>>BUILD 10.10.20
 + Added Carnotite
 + Added Tyrion Lannister and his quest
 + Added mount banner bearers
@@ -773,7 +773,7 @@ CHANGELOG
 * Fixed bug with Elks
 * Fixed bug with Mount GUI
 
->>BUILD 15.1
+>>BUILD 28.09.20
 + Added Tywin Lannister (spawns at Casterly Rock) with drop: his armor, Oathkeeper & Widow Wail.
 + Added Alloy Forge recipe: Oathkeeper + Widow Wail = Ice
 * Fixed bug with map
@@ -784,7 +784,7 @@ CHANGELOG
 * Fixed bug with legendary double drops
 * Improved Night Watch Castles
 
->>BUILD 15.0
+>>BUILD 25.09.20
 + Added Great Ibbenese Wooden Wall
 + Added 260+ banners
 + Added Ibbenese crafting table with recipes
@@ -823,7 +823,7 @@ CHANGELOG
 - Removed unused blocks & items (now NEI isn't littered with waste)
 - Removed unused assets
 
->>BUILD 14.2
+>>BUILD 01.09.20
 + Unlocked Music Packs (like in LOTR)
 + GOTCommander Library (tool for submodding)
 + Added 5 Mossovy waypoints
@@ -864,7 +864,7 @@ CHANGELOG
 * Returned Valyrian powder, valyrian chisel and their recipes
 * Turned public fields into public
 
->>BUILD 14.1
+>>BUILD 22.08.20
 + ADDED PORTAL IN GOT (drop iron sword in fire)
 + Added Kitra Juvain (non-canon jhattar) with her legendary quest
 + Added Beric Dondarrion
@@ -909,7 +909,7 @@ CHANGELOG
 * Fixed crash with armor stand
 * Fixed trader speechbanks
 
->>BUILD 14.0
+>>BUILD 12.08.20
 + ADDED THE WALL
 + ADDED MOUNT FUNCTIONS TO MAMMOTHS AND ELEPHANTS (tame with wheat)
 + Added 3 inhabited Night's Watch castles
@@ -944,7 +944,7 @@ CHANGELOG
 * Improved prices (gold, silver, valyrian steel raised)
 * Improved Essos mobs spawning
 
->>BUILD 13.1
+>>BUILD 02.08.20
 + Added Asshai Alchemists (travelling traders)
 + Added Asshai Archmag's Staff
 + Added Asshai structures
@@ -1003,7 +1003,7 @@ CHANGELOG
 * Optimized mob rendering
 * Optimized terrain loading
 
->>BUILD 13.0
+>>BUILD 10.07.20
 + Added faction Ibben, with its content, mobs, structures
 + Added faction Summer Islands, with its content, mobs, structures
 + Added 300+ fixed structures (villages, castles, towns, ruins and towers) on most waypoints
@@ -1054,7 +1054,7 @@ CHANGELOG
 - Removed Oberyn's House
 - Removed mobs "renegade"
 
->>BUILD 12.10
+>>BUILD 16.06.20
 + Added frost hood after walkers' and wights' attack
 * Optimized farmer's AI (-14% of lags on servers!)
 * Improved targaryen shield
@@ -1065,7 +1065,7 @@ CHANGELOG
 * Fixed bug with UCP (fences)
 * Fixed crash with UCP (farmers)
 
->>BUILD 12.9
+>>BUILD 15.06.20
 + UCP released
 + Added Northern Lights (appear with 50% chance during the night to north of wp "Three-eyed Raven")
 + Added Yohn Royce (spawns at wp Runestone)
@@ -1106,7 +1106,7 @@ CHANGELOG
 - Removed Lhazar Warrior
 - Removed Lhazar Banner Bearer
 
->>BUILD 12.8
+>>BUILD 25.05.20
 + Added Jeor Mormont
 + Added Jon Snow and his legendary quest
 + Added Cotter Pyke
@@ -1129,7 +1129,7 @@ CHANGELOG
 * Fixed bug with MQ unicode
 - Removed Night's Watch Captains
 
->>BUILD 12.7
+>>BUILD 22.05.20
 + Added Wildling archer
 + Added Polar Bear
 + Added Emperor of Yi Ti
@@ -1148,7 +1148,7 @@ CHANGELOG
 - Removed Sharks
 - Removed Wildling warriors
 
->>BUILD 12.6
+>>BUILD 06.05.20
 + Added manticores
 + Added 4 biomes
 * Fixed bugs with Dothraki and Jogos structures
@@ -1158,7 +1158,7 @@ CHANGELOG
 * Optimization
 * Improved shields' textures
 
->>BUILD 12.5
+>>BUILD 02.05.20
 + Added Chinese translation (中文翻譯!)
 + Added Oberyn Martell speechbanks
 * Improved world map (rivers)
@@ -1169,7 +1169,7 @@ CHANGELOG
 * Improved Russian and English translations
 * Fixed wilding structures
 
->>BUILD 12.4
+>>BUILD 29.04.20
 + Added 1 road and 5 waypoints
 + Added shark
 * Fixed Crafting tables on global servers
@@ -1182,7 +1182,7 @@ CHANGELOG
 * Improved map
 * Improved translations
 
->>BUILD 12.3
+>>BUILD 24.04.20
 + Added 3 waypoints
 * Fixed Asshai Shadowbinders' Staffs
 * Fixed Mossovy spawning
@@ -1192,13 +1192,13 @@ CHANGELOG
 * Improved Yi Ti textures and translations
 - Removed bugged achievements. Now servers running GoT Mod should not crash.
 
->>BUILD 12.2
+>>BUILD 22.04.20
 * Fixed Asshai staffs
 * Fixed elephants and mammoths
 * Fixed invasions
 * Fixed Yi Ti textures
 
->>BUILD 12.1
+>>BUILD 20.04.20
 + Added Asshai Shadowbinders
 * Fixed Gregor Clegane
 * Fixed too large quests
@@ -1207,7 +1207,7 @@ CHANGELOG
 * Improved Yi Ti textures
 * Improved translations
 
->>BUILD 12.0
+>>BUILD 19.04.20
 + Added Craster, Stannis Baratheon and Renly Baratheon with their Quests
 + Added Dothraki faction with mobs, structures
 + Added Jogos Nhai faction with mobs, structures
@@ -1228,7 +1228,7 @@ CHANGELOG
 * Translation improvements
 - Naath
 
->>BUILD 11.1
+>>BUILD 14.04.20
 + Added Asshai biome
 + Added Daenerys Targaryen (waypoint Pentos) with her miniquest.
 + Added Night King's table
@@ -1239,7 +1239,7 @@ CHANGELOG
 * Fixed spawning
 * Improved Land of the Shadow biome
 
->>BUILD 11.0
+>>BUILD 10.04.20
 + Added 30 waypoints with their description (only RUS now)
 + Added Conquest for all the Free Cities and Westeros Regions (50+)
 + Added Ghiscar Fighting Pit
@@ -1249,3 +1249,133 @@ CHANGELOG
 * Fixed bugs with North structures
 * Improved English Translation (powered by native speaker)
 * Improved map
+
+>>BUILD 03.04.20 (10.1)
+No info
+
+>>BUILD 31.03.20 (10.0)
+No info
+
+>>BUILD 26.03.20 (9.0)
+No info
+
+>>BUILD 18.03.20 (8.5)
+No info
+
+>>BUILD 14.03.20 (8.4)
+No info
+
+>>BUILD 08.03.20 (8.3)
+No info
+
+>>BUILD 04.03.20 (8.2)
+No info
+
+>>BUILD 01.03.20 (8.1)
+No info
+
+>>BUILD 26.02.20 (8.0)
+No info
+
+>>BUILD 23.02.20 (7.3)
+No info
+
+>>BUILD 09.02.20 (7.0)
+No info
+
+>>BUILD 26.01.20 (6.3)
+No info
+
+>>BUILD 16.01.20 (6.0)
+No info
+
+>>BUILD 07.01.20 (5.1)
+No info
+
+>>BUILD 05.01.20 (5.0)
+No info
+
+// THE OLDEST VERSIONS
+>>BUILD 12.12.19 (4.4)
+No info
+
+>>BUILD 05.09.19 (4.3)
+No info
+
+>>BUILD 28.08.19 (4.2.1)
+No info
+
+>>BUILD 27.08.19 (4.2)
+No info
+
+>>BUILD 25.08.19 (4.1)
+No info
+
+>>BUILD 14.08.19 (4.0)
+No info
+
+>>BUILD 14.08.19 (3.5.1)
+No info
+
+>>BUILD 09.08.19 (3.5)
+No info
+
+>>BUILD 08.08.19 (3.4)
+No info
+
+>>BUILD 08.08.19 (3.3)
+No info
+
+>>BUILD 07.08.19 (3.2.2)
+No info
+
+>>BUILD 07.08.19 (3.2.1)
+No info
+
+>>BUILD 07.08.19 (3.2)
+No info
+
+>>BUILD 07.08.19 (3.1.3)
+No info
+
+>>BUILD 06.08.19 (3.1.2)
+No info
+
+>>BUILD 06.08.19 (3.1.1)
+No info
+
+>>BUILD 06.08.19 (3.1)
+No info
+
+>>BUILD 05.08.19 (3.0)
+No info
+
+>>BUILD 04.08.19 (2.9)
+No info
+
+>>BUILD 04.08.19 (2.8)
+No info
+
+>>BUILD 03.08.19 (2.7)
+No info
+
+>>BUILD 02.08.19 (2.6)
+No info
+
+>>BUILD 01.08.19 (2.5)
+No info
+
+>>BUILD 10.07.19 (2.4)
+No info
+
+>>BUILD 08.07.19 (2.3)
+No info
+
+>>BUILD 28.06.19 (2.2)
+No info
+
+>>BUILD 14.06.19 (2.1)
+No info
+
+>>BUILD 05.06.19 (2.0)
+No info
