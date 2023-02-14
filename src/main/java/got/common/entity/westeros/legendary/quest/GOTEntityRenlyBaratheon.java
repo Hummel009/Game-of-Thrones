@@ -47,6 +47,10 @@ public class GOTEntityRenlyBaratheon extends GOTEntityHumanBase {
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(GOTRegistry.bloodOfTrueKings, 1);
+		dropItem(GOTRegistry.renlyBoots, 1);
+		dropItem(GOTRegistry.renlyChestplate, 1);
+		dropItem(GOTRegistry.renlyHelmet, 1);
+		dropItem(GOTRegistry.renlyLeggings, 1);
 	}
 
 	@Override

@@ -6,6 +6,7 @@ CHANGELOG
 
 * Improved structure of lang files. Now it's much easier to finish partial translations of the mod
 
+* Fixed bug with smithing prices and alloy steel smithing
 * Fixed bug with HUGE bug, that allowed us to get 60000+ money from lhazar brewer
 * Fixed bug with wrong rep required by lhazar smith
 * Fixed a few crashes linked to null pointers.

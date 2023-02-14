@@ -45,14 +45,6 @@ public class GOTEntityGarlanTyrell extends GOTEntityHumanBase implements GOTUnit
 	}
 
 	@Override
-	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.renlyBoots, 1);
-		dropItem(GOTRegistry.renlyChestplate, 1);
-		dropItem(GOTRegistry.renlyHelmet, 1);
-		dropItem(GOTRegistry.renlyLeggings, 1);
-	}
-
-	@Override
 	public float getAlignmentBonus() {
 		return 300.0f;
 	}
@@ -107,10 +99,6 @@ public class GOTEntityGarlanTyrell extends GOTEntityHumanBase implements GOTUnit
 		data = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.renlyBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.renlyLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.renlyChestplate));
-		setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.renlyHelmet));
 		return data;
 	}
 
