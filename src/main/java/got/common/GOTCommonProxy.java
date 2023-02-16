@@ -21,7 +21,6 @@ import got.common.util.GOTReflection;
 import got.common.world.map.*;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.inventory.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityMinecartContainer;
@@ -107,24 +106,16 @@ public class GOTCommonProxy implements IGuiHandler {
 		return 0;
 	}
 
-	public Object openGuiOven(EntityPlayer entityplayer, World world, int i, int j, int k) {
-		TileEntity oven = world.getTileEntity(i, j, k);
-		if (oven instanceof GOTTileEntityOven) {
-			return new GOTGuiOven(entityplayer.inventory, (GOTTileEntityOven) oven);
-		}
-		return null;
-	}
-
 	@Override
 	public Object getClientGuiElement(int ID, EntityPlayer entityplayer, World world, int i, int j, int k) {
 		HashMap<Integer, Runnable> interfaces = new HashMap<>();
 		interfaces.put(0, () -> openGuiOven(entityplayer, world, i, j, k));
-		interfaces.put(1, () -> openGuiHiredInteractNoFunc(entityplayer, world, i, j, k));
+		interfaces.put(1, () -> openGuiHiredInteractNoFunc(world, i));
 		interfaces.put(2, () -> new GOTGuiCraftingTable.Ibben(entityplayer.inventory, world, i, j, k));
-		interfaces.put(3, () -> openGuiTrade(entityplayer, world, i, j, k));
+		interfaces.put(3, () -> openGuiTrade(entityplayer, world, i));
 		interfaces.put(4, GOTGuiIronBank::new);
 		interfaces.put(5, () -> openGuiAlloyForge(entityplayer, world, i, j, k));
-		interfaces.put(7, () -> openGuiUnitTrade(entityplayer, world, i, j, k));
+		interfaces.put(7, () -> openGuiUnitTrade(entityplayer, world, i));
 		interfaces.put(9, GOTGuiHornSelect::new);
 		interfaces.put(11, () -> GOTGuiMenu.openMenu(entityplayer));
 		interfaces.put(13, () -> new GOTGuiCraftingTable.North(entityplayer.inventory, world, i, j, k));
@@ -132,22 +123,34 @@ public class GOTCommonProxy implements IGuiHandler {
 		interfaces.put(16, () -> openGuiBarrel(entityplayer, world, i, j, k));
 		interfaces.put(17, () -> openGuiArmorStand(entityplayer, world, i, j, k));
 		interfaces.put(18, () -> new GOTGuiCraftingTable.Hillmen(entityplayer.inventory, world, i, j, k));
-		interfaces.put(19, () -> openGuiTradeInteract(entityplayer, world, i, j, k));
-		interfaces.put(20, () -> openGuiUnitTradeInteract(entityplayer, world, i, j, k));
-		interfaces.put(21, () -> openGuiHiredInteract(entityplayer, world, i, j, k));
-		interfaces.put(22, () -> openGuiHiredFarmerInventory(entityplayer, world, i, j, k));
+		interfaces.put(19, () -> openGuiTradeInteract(world, i));
+		interfaces.put(20, () -> openGuiUnitTradeInteract(world, i));
+		interfaces.put(21, () -> openGuiHiredInteract(world, i));
+		interfaces.put(22, () -> openGuiHiredFarmerInventory(entityplayer, world, i));
 		interfaces.put(23, () -> new GOTGuiCraftingTable.Wildling(entityplayer.inventory, world, i, j, k));
-		interfaces.put(24, () -> openGuiTradeUnitTradeInteract(entityplayer, world, i, j, k));
+		interfaces.put(24, () -> openGuiTradeUnitTradeInteract(world, i));
 		interfaces.put(25, () -> new GOTGuiCraftingTable.Summer(entityplayer.inventory, world, i, j, k));
 		interfaces.put(28, () -> new GOTGuiCraftingTable.Gift(entityplayer.inventory, world, i, j, k));
-		interfaces.put(29, () -> openGuiMountInventory(entityplayer, world, i, j, k));
+		interfaces.put(29, () -> openGuiMountInventory(entityplayer, world, i, j));
 		interfaces.put(32, GOTGuiQuestBook::new);
 		interfaces.put(33, GOTGuiSquadronItem::new);
+		interfaces.put(35, () -> openGuiCoinExchange(entityplayer, world, i));
 		interfaces.put(37, () -> new GOTGuiCraftingTable.Lhazar(entityplayer.inventory, world, i, j, k));
+		interfaces.put(38, () -> openGuiUnsmeltery(entityplayer, world, i, j, k));
 		interfaces.put(39, () -> new GOTGuiCraftingTable.Sothoryos(entityplayer.inventory, world, i, j, k));
+		interfaces.put(40, () -> openGuiDispenser(entityplayer, world, i, j, k));
+		interfaces.put(41, () -> openGuiChest(entityplayer, world, i, j, k));
+		interfaces.put(45, () -> openGuiNPCRespawner(world, i));
+		interfaces.put(46, () -> openGuiHiredWarriorInventory(entityplayer, world, i));
+		interfaces.put(47, () -> openGuiGuiEditSign(world, i, j, k));
+		interfaces.put(48, () -> openGuiCracker(entityplayer));
 		interfaces.put(49, () -> new GOTGuiCraftingTable.YiTi(entityplayer.inventory, world, i, j, k));
+		interfaces.put(52, () -> openGuiMillstone(entityplayer, world, i, j, k));
 		interfaces.put(53, () -> new GOTGuiAnvil(entityplayer, i, j, k));
-
+		interfaces.put(54, () -> openGuiAnvil(entityplayer, world, i));
+		interfaces.put(55, () -> openGuiBookshelf(entityplayer, world, i, j, k));
+		interfaces.put(58, () -> openGuiMercenaryInteract(world, i));
+		interfaces.put(59, () -> openGuiMercenaryHire(entityplayer, world, i));
 		interfaces.put(60, () -> new GOTGuiMap().setConquestGrid());
 		interfaces.put(61, GOTGuiBrandingIron::new);
 		interfaces.put(62, () -> new GOTGuiCraftingTable.Arryn(entityplayer.inventory, world, i, j, k));
@@ -174,97 +177,8 @@ public class GOTCommonProxy implements IGuiHandler {
 		interfaces.put(86, () -> new GOTGuiCraftingTable.Dothraki(entityplayer.inventory, world, i, j, k));
 		interfaces.put(87, () -> new GOTGuiCraftingTable.Jogos(entityplayer.inventory, world, i, j, k));
 		interfaces.put(88, () -> new GOTGuiCraftingTable.Mossovy(entityplayer.inventory, world, i, j, k));
-
-		interfaces.put(35, () -> openGuiCoinExchange(entityplayer, world, i, j, k));
-
-
 		if (interfaces.containsKey(ID)) {
 			interfaces.get(ID).run();
-		}
-
-		switch (ID) {
-		case 38:
-			TileEntity unsmeltery = world.getTileEntity(i, j, k);
-			if (unsmeltery instanceof GOTTileEntityUnsmeltery) {
-				return new GOTGuiUnsmeltery(entityplayer.inventory, (GOTTileEntityUnsmeltery) unsmeltery);
-			}
-			break;
-		case 40:
-			TileEntity trap = world.getTileEntity(i, j, k);
-			if (trap instanceof GOTTileEntitySarbacaneTrap) {
-				return new GuiDispenser(entityplayer.inventory, (GOTTileEntitySarbacaneTrap) trap);
-			}
-			break;
-		case 41:
-			TileEntity chest = world.getTileEntity(i, j, k);
-			if (chest instanceof GOTTileEntityChest) {
-				return new GuiChest(entityplayer.inventory, (GOTTileEntityChest) chest);
-			}
-			break;
-		case 45:
-			Entity entity = world.getEntityByID(i);
-			if (entity instanceof GOTEntityNPCRespawner) {
-				return new GOTGuiNPCRespawner((GOTEntityNPCRespawner) entity);
-			}
-			break;
-		case 46:
-			Entity entity = world.getEntityByID(i);
-			if (entity instanceof GOTEntityNPC) {
-				GOTEntityNPC npc = (GOTEntityNPC) entity;
-				if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer().equals(entityplayer) && npc.hiredNPCInfo.getTask() == GOTHiredNPCInfo.Task.WARRIOR) {
-					return new GOTGuiHiredWarriorInventory(entityplayer.inventory, npc);
-				}
-			}
-			break;
-		case 47:
-			Block block = world.getBlock(i, j, k);
-			int meta = world.getBlockMetadata(i, j, k);
-			GOTTileEntitySign fake = (GOTTileEntitySign) block.createTileEntity(world, meta);
-			fake.setWorldObj(world);
-			fake.xCoord = i;
-			fake.yCoord = j;
-			fake.zCoord = k;
-			fake.isFakeGuiSign = true;
-			return new GOTGuiEditSign(fake);
-		case 48:
-			if (entityplayer.inventory.getCurrentItem() != null && entityplayer.inventory.getCurrentItem().getItem() instanceof GOTItemCracker) {
-				return new GOTGuiCracker(entityplayer);
-			}
-			break;
-		case 52:
-			TileEntity millstone = world.getTileEntity(i, j, k);
-			if (millstone instanceof GOTTileEntityMillstone) {
-				return new GOTGuiMillstone(entityplayer.inventory, (GOTTileEntityMillstone) millstone);
-			}
-			break;
-		case 54:
-			Entity entity = world.getEntityByID(i);
-			if (entity instanceof GOTEntityNPC) {
-				return new GOTGuiAnvil(entityplayer, (GOTEntityNPC) entity);
-			}
-			break;
-		case 55:
-			TileEntity bookshelf;
-			if (world.getBlock(i, j, k) == Blocks.bookshelf) {
-				world.setBlock(i, j, k, GOTRegistry.bookshelfStorage, 0, 3);
-			}
-			bookshelf = world.getTileEntity(i, j, k);
-			if (bookshelf instanceof GOTTileEntityBookshelf) {
-				return new GOTGuiBookshelf(entityplayer.inventory, (GOTTileEntityBookshelf) bookshelf);
-			}
-			break;
-		case 58:
-			Entity entity = world.getEntityByID(i);
-			if (entity instanceof GOTMercenary) {
-				return new GOTGuiMercenaryInteract((GOTEntityNPC) entity);
-			}
-			break;
-		case 59:
-			Entity entity = world.getEntityByID(i);
-			if (entity instanceof GOTMercenary) {
-				return new GOTGuiMercenaryHire(entityplayer, (GOTMercenary) entity, world);
-			}
-			break;
 		}
 		if (GOTCommonProxy.testForSlotPackedGuiID(ID, 63)) {
 			int slot = GOTCommonProxy.unpackSlot(ID);
@@ -279,119 +193,6 @@ public class GOTCommonProxy implements IGuiHandler {
 			if (minecart instanceof EntityMinecartContainer) {
 				return new GOTGuiChestWithPouch(entityplayer, slot, (EntityMinecartContainer) minecart);
 			}
-		}
-		return null;
-	}
-
-	private Object openGuiCoinExchange(EntityPlayer entityplayer, World world, int i, int j, int k) {
-		Entity entity = world.getEntityByID(i);
-		if (entity instanceof GOTEntityNPC) {
-			return new GOTGuiCoinExchange(entityplayer, (GOTEntityNPC) entity);
-		}
-		return null;
-	}
-
-	private Object openGuiMountInventory(EntityPlayer entityplayer, World world, int i, int j, int k) {
-		GOTEntityNPCRideable npcRideable;
-		Entity entity = world.getEntityByID(i);
-		if (entity instanceof GOTEntityHorse) {
-			GOTEntityHorse horse = (GOTEntityHorse) entity;
-			return new GOTGuiMountInventory(entityplayer.inventory, new AnimalChest(horse.getCommandSenderName(), j), horse);
-		}
-		npcRideable = (GOTEntityNPCRideable) entity;
-		if (entity instanceof GOTEntityNPCRideable && npcRideable.getMountInventory() != null) {
-			return new GOTGuiNPCMountInventory(entityplayer.inventory, new AnimalChest(npcRideable.getCommandSenderName(), j), npcRideable);
-		}
-		return null;
-	}
-
-	private Object openGuiTradeUnitTradeInteract(EntityPlayer entityplayer, World world, int i, int j, int k) {
-		Entity entity = world.getEntityByID(i);
-		if (entity instanceof GOTTradeable) {
-			return new GOTGuiTradeUnitTradeInteract((GOTEntityNPC) entity);
-		}
-		return null;
-	}
-
-	private Object openGuiHiredFarmerInventory(EntityPlayer entityplayer, World world, int i, int j, int k) {
-		Entity entity = world.getEntityByID(i);
-		if (entity instanceof GOTEntityNPC) {
-			GOTEntityNPC npc = (GOTEntityNPC) entity;
-			if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer().equals(entityplayer) && npc.hiredNPCInfo.getTask() == GOTHiredNPCInfo.Task.FARMER) {
-				return new GOTGuiHiredFarmerInventory(entityplayer.inventory, npc);
-			}
-		}
-		return null;
-	}
-
-	private Object openGuiHiredInteract(EntityPlayer entityplayer, World world, int i, int j, int k) {
-		Entity entity = world.getEntityByID(i);
-		if (entity instanceof GOTEntityNPC) {
-			return new GOTGuiHiredInteract((GOTEntityNPC) entity);
-		}
-		return null;
-	}
-
-	private Object openGuiUnitTradeInteract(EntityPlayer entityplayer, World world, int i, int j, int k) {
-		Entity entity = world.getEntityByID(i);
-		if (entity instanceof GOTUnitTradeable) {
-			return new GOTGuiUnitTradeInteract((GOTEntityNPC) entity);
-		}
-		return null;
-	}
-
-	private Object openGuiTradeInteract(EntityPlayer entityplayer, World world, int i, int j, int k) {
-		Entity entity = world.getEntityByID(i);
-		if (entity instanceof GOTTradeable) {
-			return new GOTGuiTradeInteract((GOTEntityNPC) entity);
-		}
-		return null;
-	}
-
-	private Object openGuiArmorStand(EntityPlayer entityplayer, World world, int i, int j, int k) {
-		TileEntity stand = world.getTileEntity(i, j, k);
-		if (stand instanceof GOTTileEntityArmorStand) {
-			return new GOTGuiArmorStand(entityplayer.inventory, (GOTTileEntityArmorStand) stand);
-		}
-		return null;
-	}
-
-	private Object openGuiBarrel(EntityPlayer entityplayer, World world, int i, int j, int k) {
-		TileEntity barrel = world.getTileEntity(i, j, k);
-		if (barrel instanceof GOTTileEntityBarrel) {
-			return new GOTGuiBarrel(entityplayer.inventory, (GOTTileEntityBarrel) barrel);
-		}
-		return null;
-	}
-
-	private Object openGuiUnitTrade(EntityPlayer entityplayer, World world, int i, int j, int k) {
-		Entity entity = world.getEntityByID(i);
-		if (entity instanceof GOTUnitTradeable) {
-			return new GOTGuiUnitTrade(entityplayer, (GOTUnitTradeable) entity, world);
-		}
-		return null;
-	}
-
-	private Object openGuiAlloyForge(EntityPlayer entityplayer, World world, int i, int j, int k) {
-		TileEntity forge = world.getTileEntity(i, j, k);
-		if (forge instanceof GOTTileEntityAlloyForge) {
-			return new GOTGuiAlloyForge(entityplayer.inventory, (GOTTileEntityAlloyForge) forge);
-		}
-		return null;
-	}
-
-	private Object openGuiTrade(EntityPlayer entityplayer, World world, int i, int j, int k) {
-		Entity entity = world.getEntityByID(i);
-		if (entity instanceof GOTTradeable) {
-			return new GOTGuiTrade(entityplayer.inventory, (GOTTradeable) entity, world);
-		}
-		return null;
-	}
-
-	private Object openGuiHiredInteractNoFunc(EntityPlayer entityplayer, World world, int i, int j, int k) {
-		Entity entity = world.getEntityByID(i);
-		if (entity instanceof GOTEntityNPC) {
-			return new GOTGuiHiredInteractNoFunc((GOTEntityNPC) entity);
 		}
 		return null;
 	}
@@ -815,6 +616,233 @@ public class GOTCommonProxy implements IGuiHandler {
 	}
 
 	public void validateBannerUsername(GOTEntityBanner banner, int slot, String prevText, boolean valid) {
+	}
+
+	public static Object openGuiAlloyForge(EntityPlayer entityplayer, World world, int i, int j, int k) {
+		TileEntity forge = world.getTileEntity(i, j, k);
+		if (forge instanceof GOTTileEntityAlloyForge) {
+			return new GOTGuiAlloyForge(entityplayer.inventory, (GOTTileEntityAlloyForge) forge);
+		}
+		return null;
+	}
+
+	public static Object openGuiAnvil(EntityPlayer entityplayer, World world, int i) {
+		Entity entity = world.getEntityByID(i);
+		if (entity instanceof GOTEntityNPC) {
+			return new GOTGuiAnvil(entityplayer, (GOTEntityNPC) entity);
+		}
+		return null;
+	}
+
+	public static Object openGuiArmorStand(EntityPlayer entityplayer, World world, int i, int j, int k) {
+		TileEntity stand = world.getTileEntity(i, j, k);
+		if (stand instanceof GOTTileEntityArmorStand) {
+			return new GOTGuiArmorStand(entityplayer.inventory, (GOTTileEntityArmorStand) stand);
+		}
+		return null;
+	}
+
+	public static Object openGuiBarrel(EntityPlayer entityplayer, World world, int i, int j, int k) {
+		TileEntity barrel = world.getTileEntity(i, j, k);
+		if (barrel instanceof GOTTileEntityBarrel) {
+			return new GOTGuiBarrel(entityplayer.inventory, (GOTTileEntityBarrel) barrel);
+		}
+		return null;
+	}
+
+	public static Object openGuiBookshelf(EntityPlayer entityplayer, World world, int i, int j, int k) {
+		TileEntity bookshelf;
+		if (world.getBlock(i, j, k) == Blocks.bookshelf) {
+			world.setBlock(i, j, k, GOTRegistry.bookshelfStorage, 0, 3);
+		}
+		bookshelf = world.getTileEntity(i, j, k);
+		if (bookshelf instanceof GOTTileEntityBookshelf) {
+			return new GOTGuiBookshelf(entityplayer.inventory, (GOTTileEntityBookshelf) bookshelf);
+		}
+		return null;
+	}
+
+	public static Object openGuiChest(EntityPlayer entityplayer, World world, int i, int j, int k) {
+		TileEntity chest = world.getTileEntity(i, j, k);
+		if (chest instanceof GOTTileEntityChest) {
+			return new GuiChest(entityplayer.inventory, (GOTTileEntityChest) chest);
+		}
+		return null;
+	}
+
+	public static Object openGuiCoinExchange(EntityPlayer entityplayer, World world, int i) {
+		Entity entity = world.getEntityByID(i);
+		if (entity instanceof GOTEntityNPC) {
+			return new GOTGuiCoinExchange(entityplayer, (GOTEntityNPC) entity);
+		}
+		return null;
+	}
+
+	public static Object openGuiCracker(EntityPlayer entityplayer) {
+		if (entityplayer.inventory.getCurrentItem() != null && entityplayer.inventory.getCurrentItem().getItem() instanceof GOTItemCracker) {
+			return new GOTGuiCracker(entityplayer);
+		}
+		return null;
+	}
+
+	public static Object openGuiDispenser(EntityPlayer entityplayer, World world, int i, int j, int k) {
+		TileEntity trap = world.getTileEntity(i, j, k);
+		if (trap instanceof GOTTileEntitySarbacaneTrap) {
+			return new GuiDispenser(entityplayer.inventory, (GOTTileEntitySarbacaneTrap) trap);
+		}
+		return null;
+	}
+
+	public static Object openGuiGuiEditSign(World world, int i, int j, int k) {
+		Block block = world.getBlock(i, j, k);
+		int meta = world.getBlockMetadata(i, j, k);
+		GOTTileEntitySign fake = (GOTTileEntitySign) block.createTileEntity(world, meta);
+		fake.setWorldObj(world);
+		fake.xCoord = i;
+		fake.yCoord = j;
+		fake.zCoord = k;
+		fake.isFakeGuiSign = true;
+		return new GOTGuiEditSign(fake);
+	}
+
+	public static Object openGuiHiredFarmerInventory(EntityPlayer entityplayer, World world, int i) {
+		Entity entity = world.getEntityByID(i);
+		if (entity instanceof GOTEntityNPC) {
+			GOTEntityNPC npc = (GOTEntityNPC) entity;
+			if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer().equals(entityplayer) && npc.hiredNPCInfo.getTask() == GOTHiredNPCInfo.Task.FARMER) {
+				return new GOTGuiHiredFarmerInventory(entityplayer.inventory, npc);
+			}
+		}
+		return null;
+	}
+
+	public static Object openGuiHiredInteract(World world, int i) {
+		Entity entity = world.getEntityByID(i);
+		if (entity instanceof GOTEntityNPC) {
+			return new GOTGuiHiredInteract((GOTEntityNPC) entity);
+		}
+		return null;
+	}
+
+	public static Object openGuiHiredInteractNoFunc(World world, int i) {
+		Entity entity = world.getEntityByID(i);
+		if (entity instanceof GOTEntityNPC) {
+			return new GOTGuiHiredInteractNoFunc((GOTEntityNPC) entity);
+		}
+		return null;
+	}
+
+	public static Object openGuiHiredWarriorInventory(EntityPlayer entityplayer, World world, int i) {
+		Entity entity = world.getEntityByID(i);
+		if (entity instanceof GOTEntityNPC) {
+			GOTEntityNPC npc = (GOTEntityNPC) entity;
+			if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer().equals(entityplayer) && npc.hiredNPCInfo.getTask() == GOTHiredNPCInfo.Task.WARRIOR) {
+				return new GOTGuiHiredWarriorInventory(entityplayer.inventory, npc);
+			}
+		}
+		return null;
+	}
+
+	public static Object openGuiMercenaryHire(EntityPlayer entityplayer, World world, int i) {
+		Entity entity = world.getEntityByID(i);
+		if (entity instanceof GOTMercenary) {
+			return new GOTGuiMercenaryHire(entityplayer, (GOTMercenary) entity, world);
+		}
+		return null;
+	}
+
+	public static Object openGuiMercenaryInteract(World world, int i) {
+		Entity entity = world.getEntityByID(i);
+		if (entity instanceof GOTMercenary) {
+			return new GOTGuiMercenaryInteract((GOTEntityNPC) entity);
+		}
+		return null;
+	}
+
+	public static Object openGuiMillstone(EntityPlayer entityplayer, World world, int i, int j, int k) {
+		TileEntity millstone = world.getTileEntity(i, j, k);
+		if (millstone instanceof GOTTileEntityMillstone) {
+			return new GOTGuiMillstone(entityplayer.inventory, (GOTTileEntityMillstone) millstone);
+		}
+		return null;
+	}
+
+	public static Object openGuiMountInventory(EntityPlayer entityplayer, World world, int i, int j) {
+		GOTEntityNPCRideable npcRideable;
+		Entity entity = world.getEntityByID(i);
+		if (entity instanceof GOTEntityHorse) {
+			GOTEntityHorse horse = (GOTEntityHorse) entity;
+			return new GOTGuiMountInventory(entityplayer.inventory, new AnimalChest(horse.getCommandSenderName(), j), horse);
+		}
+		npcRideable = (GOTEntityNPCRideable) entity;
+		if (entity instanceof GOTEntityNPCRideable && npcRideable.getMountInventory() != null) {
+			return new GOTGuiNPCMountInventory(entityplayer.inventory, new AnimalChest(npcRideable.getCommandSenderName(), j), npcRideable);
+		}
+		return null;
+	}
+
+	public static Object openGuiNPCRespawner(World world, int i) {
+		Entity entity = world.getEntityByID(i);
+		if (entity instanceof GOTEntityNPCRespawner) {
+			return new GOTGuiNPCRespawner((GOTEntityNPCRespawner) entity);
+		}
+		return null;
+	}
+
+	public static Object openGuiOven(EntityPlayer entityplayer, World world, int i, int j, int k) {
+		TileEntity oven = world.getTileEntity(i, j, k);
+		if (oven instanceof GOTTileEntityOven) {
+			return new GOTGuiOven(entityplayer.inventory, (GOTTileEntityOven) oven);
+		}
+		return null;
+	}
+
+	public static Object openGuiTrade(EntityPlayer entityplayer, World world, int i) {
+		Entity entity = world.getEntityByID(i);
+		if (entity instanceof GOTTradeable) {
+			return new GOTGuiTrade(entityplayer.inventory, (GOTTradeable) entity, world);
+		}
+		return null;
+	}
+
+	public static Object openGuiTradeInteract(World world, int i) {
+		Entity entity = world.getEntityByID(i);
+		if (entity instanceof GOTTradeable) {
+			return new GOTGuiTradeInteract((GOTEntityNPC) entity);
+		}
+		return null;
+	}
+
+	public static Object openGuiTradeUnitTradeInteract(World world, int i) {
+		Entity entity = world.getEntityByID(i);
+		if (entity instanceof GOTTradeable) {
+			return new GOTGuiTradeUnitTradeInteract((GOTEntityNPC) entity);
+		}
+		return null;
+	}
+
+	public static Object openGuiUnitTrade(EntityPlayer entityplayer, World world, int i) {
+		Entity entity = world.getEntityByID(i);
+		if (entity instanceof GOTUnitTradeable) {
+			return new GOTGuiUnitTrade(entityplayer, (GOTUnitTradeable) entity, world);
+		}
+		return null;
+	}
+
+	public static Object openGuiUnitTradeInteract(World world, int i) {
+		Entity entity = world.getEntityByID(i);
+		if (entity instanceof GOTUnitTradeable) {
+			return new GOTGuiUnitTradeInteract((GOTEntityNPC) entity);
+		}
+		return null;
+	}
+
+	public static Object openGuiUnsmeltery(EntityPlayer entityplayer, World world, int i, int j, int k) {
+		TileEntity unsmeltery = world.getTileEntity(i, j, k);
+		if (unsmeltery instanceof GOTTileEntityUnsmeltery) {
+			return new GOTGuiUnsmeltery(entityplayer.inventory, (GOTTileEntityUnsmeltery) unsmeltery);
+		}
+		return null;
 	}
 
 	public static int packGuiIDWithSlot(int guiID, int slotNo) {
