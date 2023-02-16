@@ -1,6 +1,7 @@
 package got.common.world.biome;
 
 import java.util.*;
+import java.util.Map.Entry;
 
 import got.common.GOTConfig;
 import got.common.database.GOTRegistry;
@@ -8,7 +9,7 @@ import got.common.world.*;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.*;
 import got.common.world.map.*;
-import got.common.world.structure.other.GOTVillageGen;
+import got.common.world.structure.other.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
@@ -398,9 +399,9 @@ public class GOTBiomeDecorator {
 		this.decorate();
 		if (!GOTConfig.clearMap) {
 			GOTFixer.addSpecialLocations(world, random, i, k);
-			for (GOTWaypoint wp : GOTFixer.structures.keySet()) {
-				if (GOTFixedStructures.fixedAt(i, k, wp)) {
-					GOTFixer.structures.get(wp).generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k), k, 0);
+			for (Entry<GOTWaypoint, GOTStructureBase> wp : GOTFixer.structures.entrySet()) {
+				if (GOTFixedStructures.fixedAt(i, k, wp.getKey())) {
+					wp.getValue().generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k), k, 0);
 				}
 			}
 		}
