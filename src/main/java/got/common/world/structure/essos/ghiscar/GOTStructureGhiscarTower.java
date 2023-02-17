@@ -5,6 +5,6 @@ import got.common.world.structure.essos.common.GOTStructureEssosTower;
 public class GOTStructureGhiscarTower extends GOTStructureEssosTower {
 	public GOTStructureGhiscarTower(boolean flag) {
 		super(flag);
-		isGhiscar = true;
+		type = Type.GHISCAR;
 	}
 }
