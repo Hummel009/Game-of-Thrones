@@ -15,7 +15,7 @@ public class GOTStructureQohorBazaar extends GOTStructureEssosBazaar {
 
 	public GOTStructureQohorBazaar(boolean flag) {
 		super(flag);
-		cityType = CityType.QOHOR;
+		city = City.QOHOR;
 	}
 
 	@Override

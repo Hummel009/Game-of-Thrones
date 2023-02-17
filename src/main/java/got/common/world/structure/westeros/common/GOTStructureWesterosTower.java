@@ -163,7 +163,7 @@ public class GOTStructureWesterosTower extends GOTStructureWesterosBase {
 			}
 			setBlockAndMetadata(world, 0, doorBase + 3, -1, Blocks.torch, 3);
 			setBlockAndMetadata(world, 1, doorBase + 1, -1, tableBlock, 0);
-			placeWallBanner(world, 2, doorBase + 4, -1, banner, 3);
+			placeWallBanner(world, 2, doorBase + 4, -1, bannerType, 3);
 			this.placeChest(world, random, -1, doorBase + 1, -1, GOTRegistry.chestStone, 3, getChestContents());
 			for (j1 = doorBase + 1; j1 <= doorBase + 4; ++j1) {
 				setBlockAndMetadata(world, 1, j1, 1, brickBlock, brickMeta);

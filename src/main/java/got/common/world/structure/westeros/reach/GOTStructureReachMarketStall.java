@@ -15,7 +15,7 @@ public abstract class GOTStructureReachMarketStall extends GOTStructureWesterosM
 
 	public GOTStructureReachMarketStall(boolean flag) {
 		super(flag);
-		isReach = true;
+		kingdom = Kingdom.REACH;
 	}
 
 	public static GOTStructureBase getRandomStall(Random random, boolean flag) {

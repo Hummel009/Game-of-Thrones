@@ -757,7 +757,7 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 		} else if (isCrossroads) {
 			spawnNPCAndSetHome(new GOTEntityHotPie(world), world, -4, 1, 7, 2);
 			spawnNPCAndSetHome(new GOTEntityVargoHoat(world), world, 2, 1, 7, 16);
-		} else if (isDorne) {
+		} else if (kingdom == Kingdom.DORNE) {
 			spawnNPCAndSetHome(getBartender(world), world, -4, 1, 7, 2);
 			spawnNPCAndSetHome(new GOTEntityMercenary(world), world, 2, 1, 7, 16);
 			spawnNPCAndSetHome(new GOTEntityEssosThief(world), world, 2, 1, 7, 16);

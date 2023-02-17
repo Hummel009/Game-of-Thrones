@@ -5,6 +5,6 @@ import got.common.world.structure.westeros.common.GOTStructureWesterosGatehouse;
 public class GOTStructureRiverlandsGatehouse extends GOTStructureWesterosGatehouse {
 	public GOTStructureRiverlandsGatehouse(boolean flag) {
 		super(flag);
-		isRiverlands = true;
+		kingdom = Kingdom.RIVERLANDS;
 	}
 }

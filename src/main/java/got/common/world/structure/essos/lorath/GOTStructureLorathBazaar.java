@@ -15,7 +15,7 @@ public class GOTStructureLorathBazaar extends GOTStructureEssosBazaar {
 
 	public GOTStructureLorathBazaar(boolean flag) {
 		super(flag);
-		cityType = CityType.LORATH;
+		city = City.LORATH;
 	}
 
 	@Override

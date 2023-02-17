@@ -24,7 +24,7 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.potion.Potion;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenMinable;
+import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.storage.WorldInfo;
 
 public class GOTReflection {
@@ -211,6 +211,17 @@ public class GOTReflection {
 			Class[] param = new Class[1];
 			param[0] = World.class;
 			return entityClass.getDeclaredConstructor(param).newInstance(world);
+		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public static WorldGenerator newStructure(Class<? extends WorldGenerator> structureClass, boolean bool) {
+		try {
+			Class[] param = new Class[1];
+			param[0] = boolean.class;
+			return structureClass.getDeclaredConstructor(param).newInstance(bool);
 		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
 			e.printStackTrace();
 		}

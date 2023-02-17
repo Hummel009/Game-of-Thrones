@@ -15,7 +15,7 @@ public abstract class GOTStructureCrownlandsMarketStall extends GOTStructureWest
 
 	public GOTStructureCrownlandsMarketStall(boolean flag) {
 		super(flag);
-		isCrownlands = true;
+		kingdom = Kingdom.CROWNLANDS;
 	}
 
 	public static GOTStructureBase getRandomStall(Random random, boolean flag) {

@@ -5,6 +5,6 @@ import got.common.world.structure.essos.common.GOTStructureEssosLamp;
 public class GOTStructureNorvosLamp extends GOTStructureEssosLamp {
 	public GOTStructureNorvosLamp(boolean flag) {
 		super(flag);
-		cityType = CityType.NORVOS;
+		city = City.NORVOS;
 	}
 }

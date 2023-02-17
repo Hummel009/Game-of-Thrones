@@ -5,6 +5,6 @@ import got.common.world.structure.essos.common.GOTStructureEssosLamp;
 public class GOTStructureVolantisLamp extends GOTStructureEssosLamp {
 	public GOTStructureVolantisLamp(boolean flag) {
 		super(flag);
-		cityType = CityType.VOLANTIS;
+		city = City.VOLANTIS;
 	}
 }

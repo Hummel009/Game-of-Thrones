@@ -5,6 +5,6 @@ import got.common.world.structure.westeros.common.GOTStructureWesterosTavern;
 public class GOTStructureReachTavern extends GOTStructureWesterosTavern {
 	public GOTStructureReachTavern(boolean flag) {
 		super(flag);
-		isReach = true;
+		kingdom = Kingdom.REACH;
 	}
 }

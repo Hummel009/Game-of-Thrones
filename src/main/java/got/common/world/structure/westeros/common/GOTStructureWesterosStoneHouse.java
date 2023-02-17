@@ -212,7 +212,7 @@ public class GOTStructureWesterosStoneHouse extends GOTStructureWesterosBase {
 		for (int j15 = 1; j15 <= 3; ++j15) {
 			setBlockAndMetadata(world, 0, j15, 5, pillarBlock, pillarMeta);
 		}
-		placeWallBanner(world, 0, 3, 5, banner, 2);
+		placeWallBanner(world, 0, 3, 5, bannerType, 2);
 		for (int i13 : new int[] { -3, 1 }) {
 			setBlockAndMetadata(world, i13, 2, 5, brickStairBlock, 0);
 			setBlockAndMetadata(world, i13, 3, 5, brickStairBlock, 4);

@@ -170,16 +170,16 @@ public class GOTStructureWesterosGatehouse extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 2, 10, -2, Blocks.torch, 1);
 		setBlockAndMetadata(world, -2, 10, 2, Blocks.torch, 2);
 		setBlockAndMetadata(world, 2, 10, 2, Blocks.torch, 1);
-		placeWallBanner(world, 1, 10, -3, banner, 0);
-		placeWallBanner(world, -1, 10, -3, banner, 0);
+		placeWallBanner(world, 1, 10, -3, bannerType, 0);
+		placeWallBanner(world, -1, 10, -3, bannerType, 0);
 		setBlockAndMetadata(world, -3, 12, -3, Blocks.torch, 3);
 		setBlockAndMetadata(world, 3, 12, -3, Blocks.torch, 3);
 		setBlockAndMetadata(world, -3, 12, 3, Blocks.torch, 4);
 		setBlockAndMetadata(world, 3, 12, 3, Blocks.torch, 4);
-		placeWallBanner(world, -3, 7, -3, banner, 2);
-		placeWallBanner(world, 3, 7, -3, banner, 2);
-		placeWallBanner(world, 3, 7, 3, banner, 0);
-		placeWallBanner(world, -3, 7, 3, banner, 0);
+		placeWallBanner(world, -3, 7, -3, bannerType, 2);
+		placeWallBanner(world, 3, 7, -3, bannerType, 2);
+		placeWallBanner(world, 3, 7, 3, bannerType, 0);
+		placeWallBanner(world, -3, 7, 3, bannerType, 0);
 
 		for (i1 = -5; i1 <= 5; ++i1) {
 			i22 = Math.abs(i1);

@@ -5,6 +5,6 @@ import got.common.world.structure.westeros.common.GOTStructureWesterosBrewery;
 public class GOTStructureReachBrewery extends GOTStructureWesterosBrewery {
 	public GOTStructureReachBrewery(boolean flag) {
 		super(flag);
-		isReach = true;
+		kingdom = Kingdom.REACH;
 	}
 }

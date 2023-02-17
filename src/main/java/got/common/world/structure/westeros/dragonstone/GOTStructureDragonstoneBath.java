@@ -5,6 +5,6 @@ import got.common.world.structure.westeros.common.GOTStructureWesterosBath;
 public class GOTStructureDragonstoneBath extends GOTStructureWesterosBath {
 	public GOTStructureDragonstoneBath(boolean flag) {
 		super(flag);
-		isDragonstone = true;
+		kingdom = Kingdom.DRAGONSTONE;
 	}
 }

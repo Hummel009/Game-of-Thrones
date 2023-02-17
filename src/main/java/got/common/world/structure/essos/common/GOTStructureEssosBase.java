@@ -26,140 +26,139 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public abstract class GOTStructureEssosBase extends GOTStructureBase {
-	public static Map<CityType, Class<? extends Entity>> bartenders = new EnumMap<>(CityType.class);
-	public static Map<CityType, Class<? extends Entity>> blacksmiths = new EnumMap<>(CityType.class);
-	public static Map<CityType, BannerType> banners = new EnumMap<>(CityType.class);
-	public static Map<CityType, GOTChestContents> chests = new EnumMap<>(CityType.class);
-	public static Map<CityType, Block> tables = new EnumMap<>(CityType.class);
-	public static Map<CityType, Class<? extends Entity>> archers = new EnumMap<>(CityType.class);
-	public static Map<CityType, Class<? extends Entity>> farmers = new EnumMap<>(CityType.class);
-	public static Map<CityType, Class<? extends Entity>> farmhands = new EnumMap<>(CityType.class);
-	public static Map<CityType, Class<? extends Entity>> generals = new EnumMap<>(CityType.class);
-	public static Map<CityType, Class<? extends Entity>> men = new EnumMap<>(CityType.class);
-	public static Map<CityType, Class<? extends Entity>> soldiers = new EnumMap<>(CityType.class);
-
+	public static Map<City, Class<? extends Entity>> bartenders = new EnumMap<>(City.class);
+	public static Map<City, Class<? extends Entity>> blacksmiths = new EnumMap<>(City.class);
+	public static Map<City, BannerType> banners = new EnumMap<>(City.class);
+	public static Map<City, GOTChestContents> chests = new EnumMap<>(City.class);
+	public static Map<City, Block> tables = new EnumMap<>(City.class);
+	public static Map<City, Class<? extends Entity>> archers = new EnumMap<>(City.class);
+	public static Map<City, Class<? extends Entity>> farmers = new EnumMap<>(City.class);
+	public static Map<City, Class<? extends Entity>> farmhands = new EnumMap<>(City.class);
+	public static Map<City, Class<? extends Entity>> generals = new EnumMap<>(City.class);
+	public static Map<City, Class<? extends Entity>> men = new EnumMap<>(City.class);
+	public static Map<City, Class<? extends Entity>> soldiers = new EnumMap<>(City.class);
 	static {
-		archers.put(CityType.BRAAVOS, GOTEntityBraavosSoldierArcher.class);
-		archers.put(CityType.GHISCAR, GOTEntityGhiscarCorsairArcher.class);
-		archers.put(CityType.LORATH, GOTEntityLorathSoldierArcher.class);
-		archers.put(CityType.LYS, GOTEntityLysSoldierArcher.class);
-		archers.put(CityType.MYR, GOTEntityMyrSoldierArcher.class);
-		archers.put(CityType.NORVOS, GOTEntityNorvosLevymanArcher.class);
-		archers.put(CityType.PENTOS, GOTEntityPentosLevymanArcher.class);
-		archers.put(CityType.QARTH, GOTEntityQarthLevymanArcher.class);
-		archers.put(CityType.QOHOR, GOTEntityQohorLevymanArcher.class);
-		archers.put(CityType.TYROSH, GOTEntityTyroshSoldierArcher.class);
-		archers.put(CityType.VOLANTIS, GOTEntityVolantisSoldierArcher.class);
-		banners.put(CityType.BRAAVOS, GOTItemBanner.BannerType.BRAAVOS);
-		banners.put(CityType.GHISCAR, GOTItemBanner.BannerType.GHISCAR);
-		banners.put(CityType.LORATH, GOTItemBanner.BannerType.LORATH);
-		banners.put(CityType.LYS, GOTItemBanner.BannerType.LYS);
-		banners.put(CityType.MYR, GOTItemBanner.BannerType.MYR);
-		banners.put(CityType.NORVOS, GOTItemBanner.BannerType.NORVOS);
-		banners.put(CityType.PENTOS, GOTItemBanner.BannerType.PENTOS);
-		banners.put(CityType.QARTH, GOTItemBanner.BannerType.QARTH);
-		banners.put(CityType.QOHOR, GOTItemBanner.BannerType.QOHOR);
-		banners.put(CityType.TYROSH, GOTItemBanner.BannerType.TYROSH);
-		banners.put(CityType.VOLANTIS, GOTItemBanner.BannerType.VOLANTIS);
-		bartenders.put(CityType.BRAAVOS, GOTEntityBraavosBartender.class);
-		bartenders.put(CityType.GHISCAR, GOTEntityGhiscarBartender.class);
-		bartenders.put(CityType.LORATH, GOTEntityLorathBartender.class);
-		bartenders.put(CityType.LYS, GOTEntityLysBartender.class);
-		bartenders.put(CityType.MYR, GOTEntityMyrBartender.class);
-		bartenders.put(CityType.NORVOS, GOTEntityNorvosBartender.class);
-		bartenders.put(CityType.PENTOS, GOTEntityPentosBartender.class);
-		bartenders.put(CityType.QARTH, GOTEntityQarthBartender.class);
-		bartenders.put(CityType.QOHOR, GOTEntityQohorBartender.class);
-		bartenders.put(CityType.TYROSH, GOTEntityTyroshBartender.class);
-		bartenders.put(CityType.VOLANTIS, GOTEntityVolantisBartender.class);
-		blacksmiths.put(CityType.BRAAVOS, GOTEntityBraavosBlacksmith.class);
-		blacksmiths.put(CityType.GHISCAR, GOTEntityGhiscarBlacksmith.class);
-		blacksmiths.put(CityType.LORATH, GOTEntityLorathBlacksmith.class);
-		blacksmiths.put(CityType.LYS, GOTEntityLysBlacksmith.class);
-		blacksmiths.put(CityType.MYR, GOTEntityMyrBlacksmith.class);
-		blacksmiths.put(CityType.NORVOS, GOTEntityNorvosBlacksmith.class);
-		blacksmiths.put(CityType.PENTOS, GOTEntityPentosBlacksmith.class);
-		blacksmiths.put(CityType.QARTH, GOTEntityQarthBlacksmith.class);
-		blacksmiths.put(CityType.QOHOR, GOTEntityQohorBlacksmith.class);
-		blacksmiths.put(CityType.TYROSH, GOTEntityTyroshBlacksmith.class);
-		blacksmiths.put(CityType.VOLANTIS, GOTEntityVolantisBlacksmith.class);
-		chests.put(CityType.BRAAVOS, GOTChestContents.BRAAVOS);
-		chests.put(CityType.GHISCAR, GOTChestContents.GHISCAR);
-		chests.put(CityType.LORATH, GOTChestContents.LORATH);
-		chests.put(CityType.LYS, GOTChestContents.LYS);
-		chests.put(CityType.MYR, GOTChestContents.MYR);
-		chests.put(CityType.NORVOS, GOTChestContents.NORVOS);
-		chests.put(CityType.PENTOS, GOTChestContents.PENTOS);
-		chests.put(CityType.QARTH, GOTChestContents.QARTH);
-		chests.put(CityType.QOHOR, GOTChestContents.QOHOR);
-		chests.put(CityType.TYROSH, GOTChestContents.TYROSH);
-		chests.put(CityType.VOLANTIS, GOTChestContents.VOLANTIS);
-		farmers.put(CityType.BRAAVOS, GOTEntityBraavosFarmer.class);
-		farmers.put(CityType.GHISCAR, GOTEntityGhiscarSlaver.class);
-		farmers.put(CityType.LORATH, GOTEntityLorathFarmer.class);
-		farmers.put(CityType.LYS, GOTEntityLysSlaver.class);
-		farmers.put(CityType.MYR, GOTEntityMyrSlaver.class);
-		farmers.put(CityType.NORVOS, GOTEntityNorvosFarmer.class);
-		farmers.put(CityType.PENTOS, GOTEntityPentosFarmer.class);
-		farmers.put(CityType.QARTH, GOTEntityQarthFarmer.class);
-		farmers.put(CityType.QOHOR, GOTEntityQohorFarmer.class);
-		farmers.put(CityType.TYROSH, GOTEntityTyroshSlaver.class);
-		farmers.put(CityType.VOLANTIS, GOTEntityVolantisSlaver.class);
-		farmhands.put(CityType.BRAAVOS, GOTEntityBraavosFarmhand.class);
-		farmhands.put(CityType.GHISCAR, GOTEntityGhiscarSlave.class);
-		farmhands.put(CityType.LORATH, GOTEntityLorathFarmhand.class);
-		farmhands.put(CityType.LYS, GOTEntityLysSlave.class);
-		farmhands.put(CityType.MYR, GOTEntityMyrSlave.class);
-		farmhands.put(CityType.NORVOS, GOTEntityNorvosFarmhand.class);
-		farmhands.put(CityType.PENTOS, GOTEntityPentosFarmhand.class);
-		farmhands.put(CityType.QARTH, GOTEntityQarthFarmhand.class);
-		farmhands.put(CityType.QOHOR, GOTEntityQohorFarmhand.class);
-		farmhands.put(CityType.TYROSH, GOTEntityTyroshSlave.class);
-		farmhands.put(CityType.VOLANTIS, GOTEntityVolantisSlave.class);
-		generals.put(CityType.BRAAVOS, GOTEntityBraavosGeneral.class);
-		generals.put(CityType.GHISCAR, GOTEntityGhiscarAdmiral.class);
-		generals.put(CityType.LORATH, GOTEntityLorathGeneral.class);
-		generals.put(CityType.LYS, GOTEntityLysGeneral.class);
-		generals.put(CityType.MYR, GOTEntityMyrGeneral.class);
-		generals.put(CityType.NORVOS, GOTEntityNorvosGuardCaptain.class);
-		generals.put(CityType.PENTOS, GOTEntityPentosGuardCaptain.class);
-		generals.put(CityType.QARTH, GOTEntityQarthGuardCaptain.class);
-		generals.put(CityType.QOHOR, GOTEntityQohorGuardCaptain.class);
-		generals.put(CityType.TYROSH, GOTEntityTyroshGeneral.class);
-		generals.put(CityType.VOLANTIS, GOTEntityVolantisGeneral.class);
-		men.put(CityType.BRAAVOS, GOTEntityBraavosMan.class);
-		men.put(CityType.GHISCAR, GOTEntityGhiscarMan.class);
-		men.put(CityType.LORATH, GOTEntityLorathMan.class);
-		men.put(CityType.LYS, GOTEntityLysMan.class);
-		men.put(CityType.MYR, GOTEntityMyrMan.class);
-		men.put(CityType.NORVOS, GOTEntityNorvosMan.class);
-		men.put(CityType.PENTOS, GOTEntityPentosMan.class);
-		men.put(CityType.QARTH, GOTEntityQarthMan.class);
-		men.put(CityType.QOHOR, GOTEntityQohorMan.class);
-		men.put(CityType.TYROSH, GOTEntityTyroshMan.class);
-		men.put(CityType.VOLANTIS, GOTEntityVolantisMan.class);
-		soldiers.put(CityType.BRAAVOS, GOTEntityBraavosSoldier.class);
-		soldiers.put(CityType.GHISCAR, GOTEntityGhiscarCorsair.class);
-		soldiers.put(CityType.LORATH, GOTEntityLorathSoldier.class);
-		soldiers.put(CityType.LYS, GOTEntityLysSoldier.class);
-		soldiers.put(CityType.MYR, GOTEntityMyrSoldier.class);
-		soldiers.put(CityType.NORVOS, GOTEntityNorvosLevyman.class);
-		soldiers.put(CityType.PENTOS, GOTEntityPentosLevyman.class);
-		soldiers.put(CityType.QARTH, GOTEntityQarthLevyman.class);
-		soldiers.put(CityType.QOHOR, GOTEntityQohorLevyman.class);
-		soldiers.put(CityType.TYROSH, GOTEntityTyroshSoldier.class);
-		soldiers.put(CityType.VOLANTIS, GOTEntityVolantisSoldier.class);
-		tables.put(CityType.BRAAVOS, GOTRegistry.tableBraavos);
-		tables.put(CityType.GHISCAR, GOTRegistry.tableGhiscar);
-		tables.put(CityType.LORATH, GOTRegistry.tableLorath);
-		tables.put(CityType.LYS, GOTRegistry.tableLys);
-		tables.put(CityType.MYR, GOTRegistry.tableMyr);
-		tables.put(CityType.NORVOS, GOTRegistry.tableNorvos);
-		tables.put(CityType.PENTOS, GOTRegistry.tablePentos);
-		tables.put(CityType.QARTH, GOTRegistry.tableQarth);
-		tables.put(CityType.QOHOR, GOTRegistry.tableQohor);
-		tables.put(CityType.TYROSH, GOTRegistry.tableTyrosh);
-		tables.put(CityType.VOLANTIS, GOTRegistry.tableVolantis);
+		archers.put(City.BRAAVOS, GOTEntityBraavosSoldierArcher.class);
+		archers.put(City.GHISCAR, GOTEntityGhiscarCorsairArcher.class);
+		archers.put(City.LORATH, GOTEntityLorathSoldierArcher.class);
+		archers.put(City.LYS, GOTEntityLysSoldierArcher.class);
+		archers.put(City.MYR, GOTEntityMyrSoldierArcher.class);
+		archers.put(City.NORVOS, GOTEntityNorvosLevymanArcher.class);
+		archers.put(City.PENTOS, GOTEntityPentosLevymanArcher.class);
+		archers.put(City.QARTH, GOTEntityQarthLevymanArcher.class);
+		archers.put(City.QOHOR, GOTEntityQohorLevymanArcher.class);
+		archers.put(City.TYROSH, GOTEntityTyroshSoldierArcher.class);
+		archers.put(City.VOLANTIS, GOTEntityVolantisSoldierArcher.class);
+		banners.put(City.BRAAVOS, GOTItemBanner.BannerType.BRAAVOS);
+		banners.put(City.GHISCAR, GOTItemBanner.BannerType.GHISCAR);
+		banners.put(City.LORATH, GOTItemBanner.BannerType.LORATH);
+		banners.put(City.LYS, GOTItemBanner.BannerType.LYS);
+		banners.put(City.MYR, GOTItemBanner.BannerType.MYR);
+		banners.put(City.NORVOS, GOTItemBanner.BannerType.NORVOS);
+		banners.put(City.PENTOS, GOTItemBanner.BannerType.PENTOS);
+		banners.put(City.QARTH, GOTItemBanner.BannerType.QARTH);
+		banners.put(City.QOHOR, GOTItemBanner.BannerType.QOHOR);
+		banners.put(City.TYROSH, GOTItemBanner.BannerType.TYROSH);
+		banners.put(City.VOLANTIS, GOTItemBanner.BannerType.VOLANTIS);
+		bartenders.put(City.BRAAVOS, GOTEntityBraavosBartender.class);
+		bartenders.put(City.GHISCAR, GOTEntityGhiscarBartender.class);
+		bartenders.put(City.LORATH, GOTEntityLorathBartender.class);
+		bartenders.put(City.LYS, GOTEntityLysBartender.class);
+		bartenders.put(City.MYR, GOTEntityMyrBartender.class);
+		bartenders.put(City.NORVOS, GOTEntityNorvosBartender.class);
+		bartenders.put(City.PENTOS, GOTEntityPentosBartender.class);
+		bartenders.put(City.QARTH, GOTEntityQarthBartender.class);
+		bartenders.put(City.QOHOR, GOTEntityQohorBartender.class);
+		bartenders.put(City.TYROSH, GOTEntityTyroshBartender.class);
+		bartenders.put(City.VOLANTIS, GOTEntityVolantisBartender.class);
+		blacksmiths.put(City.BRAAVOS, GOTEntityBraavosBlacksmith.class);
+		blacksmiths.put(City.GHISCAR, GOTEntityGhiscarBlacksmith.class);
+		blacksmiths.put(City.LORATH, GOTEntityLorathBlacksmith.class);
+		blacksmiths.put(City.LYS, GOTEntityLysBlacksmith.class);
+		blacksmiths.put(City.MYR, GOTEntityMyrBlacksmith.class);
+		blacksmiths.put(City.NORVOS, GOTEntityNorvosBlacksmith.class);
+		blacksmiths.put(City.PENTOS, GOTEntityPentosBlacksmith.class);
+		blacksmiths.put(City.QARTH, GOTEntityQarthBlacksmith.class);
+		blacksmiths.put(City.QOHOR, GOTEntityQohorBlacksmith.class);
+		blacksmiths.put(City.TYROSH, GOTEntityTyroshBlacksmith.class);
+		blacksmiths.put(City.VOLANTIS, GOTEntityVolantisBlacksmith.class);
+		chests.put(City.BRAAVOS, GOTChestContents.BRAAVOS);
+		chests.put(City.GHISCAR, GOTChestContents.GHISCAR);
+		chests.put(City.LORATH, GOTChestContents.LORATH);
+		chests.put(City.LYS, GOTChestContents.LYS);
+		chests.put(City.MYR, GOTChestContents.MYR);
+		chests.put(City.NORVOS, GOTChestContents.NORVOS);
+		chests.put(City.PENTOS, GOTChestContents.PENTOS);
+		chests.put(City.QARTH, GOTChestContents.QARTH);
+		chests.put(City.QOHOR, GOTChestContents.QOHOR);
+		chests.put(City.TYROSH, GOTChestContents.TYROSH);
+		chests.put(City.VOLANTIS, GOTChestContents.VOLANTIS);
+		farmers.put(City.BRAAVOS, GOTEntityBraavosFarmer.class);
+		farmers.put(City.GHISCAR, GOTEntityGhiscarSlaver.class);
+		farmers.put(City.LORATH, GOTEntityLorathFarmer.class);
+		farmers.put(City.LYS, GOTEntityLysSlaver.class);
+		farmers.put(City.MYR, GOTEntityMyrSlaver.class);
+		farmers.put(City.NORVOS, GOTEntityNorvosFarmer.class);
+		farmers.put(City.PENTOS, GOTEntityPentosFarmer.class);
+		farmers.put(City.QARTH, GOTEntityQarthFarmer.class);
+		farmers.put(City.QOHOR, GOTEntityQohorFarmer.class);
+		farmers.put(City.TYROSH, GOTEntityTyroshSlaver.class);
+		farmers.put(City.VOLANTIS, GOTEntityVolantisSlaver.class);
+		farmhands.put(City.BRAAVOS, GOTEntityBraavosFarmhand.class);
+		farmhands.put(City.GHISCAR, GOTEntityGhiscarSlave.class);
+		farmhands.put(City.LORATH, GOTEntityLorathFarmhand.class);
+		farmhands.put(City.LYS, GOTEntityLysSlave.class);
+		farmhands.put(City.MYR, GOTEntityMyrSlave.class);
+		farmhands.put(City.NORVOS, GOTEntityNorvosFarmhand.class);
+		farmhands.put(City.PENTOS, GOTEntityPentosFarmhand.class);
+		farmhands.put(City.QARTH, GOTEntityQarthFarmhand.class);
+		farmhands.put(City.QOHOR, GOTEntityQohorFarmhand.class);
+		farmhands.put(City.TYROSH, GOTEntityTyroshSlave.class);
+		farmhands.put(City.VOLANTIS, GOTEntityVolantisSlave.class);
+		generals.put(City.BRAAVOS, GOTEntityBraavosGeneral.class);
+		generals.put(City.GHISCAR, GOTEntityGhiscarAdmiral.class);
+		generals.put(City.LORATH, GOTEntityLorathGeneral.class);
+		generals.put(City.LYS, GOTEntityLysGeneral.class);
+		generals.put(City.MYR, GOTEntityMyrGeneral.class);
+		generals.put(City.NORVOS, GOTEntityNorvosGuardCaptain.class);
+		generals.put(City.PENTOS, GOTEntityPentosGuardCaptain.class);
+		generals.put(City.QARTH, GOTEntityQarthGuardCaptain.class);
+		generals.put(City.QOHOR, GOTEntityQohorGuardCaptain.class);
+		generals.put(City.TYROSH, GOTEntityTyroshGeneral.class);
+		generals.put(City.VOLANTIS, GOTEntityVolantisGeneral.class);
+		men.put(City.BRAAVOS, GOTEntityBraavosMan.class);
+		men.put(City.GHISCAR, GOTEntityGhiscarMan.class);
+		men.put(City.LORATH, GOTEntityLorathMan.class);
+		men.put(City.LYS, GOTEntityLysMan.class);
+		men.put(City.MYR, GOTEntityMyrMan.class);
+		men.put(City.NORVOS, GOTEntityNorvosMan.class);
+		men.put(City.PENTOS, GOTEntityPentosMan.class);
+		men.put(City.QARTH, GOTEntityQarthMan.class);
+		men.put(City.QOHOR, GOTEntityQohorMan.class);
+		men.put(City.TYROSH, GOTEntityTyroshMan.class);
+		men.put(City.VOLANTIS, GOTEntityVolantisMan.class);
+		soldiers.put(City.BRAAVOS, GOTEntityBraavosSoldier.class);
+		soldiers.put(City.GHISCAR, GOTEntityGhiscarCorsair.class);
+		soldiers.put(City.LORATH, GOTEntityLorathSoldier.class);
+		soldiers.put(City.LYS, GOTEntityLysSoldier.class);
+		soldiers.put(City.MYR, GOTEntityMyrSoldier.class);
+		soldiers.put(City.NORVOS, GOTEntityNorvosLevyman.class);
+		soldiers.put(City.PENTOS, GOTEntityPentosLevyman.class);
+		soldiers.put(City.QARTH, GOTEntityQarthLevyman.class);
+		soldiers.put(City.QOHOR, GOTEntityQohorLevyman.class);
+		soldiers.put(City.TYROSH, GOTEntityTyroshSoldier.class);
+		soldiers.put(City.VOLANTIS, GOTEntityVolantisSoldier.class);
+		tables.put(City.BRAAVOS, GOTRegistry.tableBraavos);
+		tables.put(City.GHISCAR, GOTRegistry.tableGhiscar);
+		tables.put(City.LORATH, GOTRegistry.tableLorath);
+		tables.put(City.LYS, GOTRegistry.tableLys);
+		tables.put(City.MYR, GOTRegistry.tableMyr);
+		tables.put(City.NORVOS, GOTRegistry.tableNorvos);
+		tables.put(City.PENTOS, GOTRegistry.tablePentos);
+		tables.put(City.QARTH, GOTRegistry.tableQarth);
+		tables.put(City.QOHOR, GOTRegistry.tableQohor);
+		tables.put(City.TYROSH, GOTRegistry.tableTyrosh);
+		tables.put(City.VOLANTIS, GOTRegistry.tableVolantis);
 	}
 	public Block stoneBlock;
 	public int stoneMeta;
@@ -213,7 +212,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 	public Block trapdoorBlock;
 	public Block barsBlock;
 	public BannerType bannerType;
-	public CityType cityType = CityType.NULL;
+	public City city;
 
 	public GOTStructureEssosBase(boolean flag) {
 		super(flag);
@@ -228,35 +227,35 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 	}
 
 	public BannerType getBannerType() {
-		return banners.get(cityType);
+		return banners.get(city);
 	}
 
 	public GOTEntityNPC getBartender(World world) {
-		return (GOTEntityNPC) GOTReflection.newEntity(bartenders.get(cityType), world);
+		return (GOTEntityNPC) GOTReflection.newEntity(bartenders.get(city), world);
 	}
 
 	public GOTEntityNPC getBlacksmith(World world) {
-		return (GOTEntityNPC) GOTReflection.newEntity(blacksmiths.get(cityType), world);
+		return (GOTEntityNPC) GOTReflection.newEntity(blacksmiths.get(city), world);
 	}
 
 	public GOTChestContents getChestContents() {
-		return chests.get(cityType);
+		return chests.get(city);
 	}
 
 	public GOTEntityNPC getFarmer(World world) {
-		return (GOTEntityNPC) GOTReflection.newEntity(farmers.get(cityType), world);
+		return (GOTEntityNPC) GOTReflection.newEntity(farmers.get(city), world);
 	}
 
 	public GOTEntityNPC getFarmhand(World world) {
-		return (GOTEntityNPC) GOTReflection.newEntity(farmhands.get(cityType), world);
+		return (GOTEntityNPC) GOTReflection.newEntity(farmhands.get(city), world);
 	}
 
 	public GOTEntityNPC getGeneral(World world) {
-		return (GOTEntityNPC) GOTReflection.newEntity(generals.get(cityType), world);
+		return (GOTEntityNPC) GOTReflection.newEntity(generals.get(city), world);
 	}
 
 	public GOTEntityNPC getMan(World world) {
-		return (GOTEntityNPC) GOTReflection.newEntity(men.get(cityType), world);
+		return (GOTEntityNPC) GOTReflection.newEntity(men.get(city), world);
 	}
 
 	public ItemStack getRandomItem(Random random) {
@@ -270,27 +269,27 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 	}
 
 	public GOTEntityNPC getSoldier(World world) {
-		return (GOTEntityNPC) GOTReflection.newEntity(soldiers.get(cityType), world);
+		return (GOTEntityNPC) GOTReflection.newEntity(soldiers.get(city), world);
 	}
 
 	public GOTEntityNPC getSoldierArcher(World world) {
-		return (GOTEntityNPC) GOTReflection.newEntity(archers.get(cityType), world);
+		return (GOTEntityNPC) GOTReflection.newEntity(archers.get(city), world);
 	}
 
 	public Block getTable() {
-		return tables.get(cityType);
+		return tables.get(city);
 	}
 
 	public boolean hasBlackPeople() {
-		return cityType == CityType.GHISCAR;
+		return city == City.GHISCAR;
 	}
 
 	public boolean hasNorthernTrees() {
-		return cityType == CityType.BRAAVOS || cityType == CityType.LORATH || cityType == CityType.NORVOS || cityType == CityType.QOHOR;
+		return city == City.BRAAVOS || city == City.LORATH || city == City.NORVOS || city == City.QOHOR;
 	}
 
 	public boolean hasSandstone() {
-		return cityType == CityType.GHISCAR || cityType == CityType.QARTH || cityType == CityType.PENTOS;
+		return city == City.GHISCAR || city == City.QARTH || city == City.PENTOS;
 	}
 
 	@Override
@@ -564,7 +563,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		bannerType = getBannerType();
 	}
 
-	public enum CityType {
-		BRAAVOS, GHISCAR, LORATH, VOLANTIS, TYROSH, QOHOR, QARTH, PENTOS, NORVOS, MYR, LYS, NULL;
+	public enum City {
+		BRAAVOS, GHISCAR, LORATH, VOLANTIS, TYROSH, QOHOR, QARTH, PENTOS, NORVOS, MYR, LYS;
 	}
 }

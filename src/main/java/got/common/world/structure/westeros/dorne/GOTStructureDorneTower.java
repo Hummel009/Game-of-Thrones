@@ -5,6 +5,6 @@ import got.common.world.structure.westeros.common.GOTStructureWesterosTower;
 public class GOTStructureDorneTower extends GOTStructureWesterosTower {
 	public GOTStructureDorneTower(boolean flag) {
 		super(flag);
-		isDorne = true;
+		kingdom = Kingdom.DORNE;
 	}
 }

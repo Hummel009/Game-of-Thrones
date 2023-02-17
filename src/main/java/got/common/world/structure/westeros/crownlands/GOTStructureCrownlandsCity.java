@@ -403,7 +403,7 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 				} else {
 					this.addStructure(new GOTStructureCrownlandsStoneHouse(false), houseZ, -houseX, 2, true);
 				}
-				if (Math.abs(k1) >= 2 && (false || k1 <= 2)) {
+				if (Math.abs(k1) >= 2 && k1 <= 2) {
 					if (treepiece) {
 						this.addStructure(new GOTStructureCrownlandsVillageFarm.Tree(false), houseZ, houseX + 2, 0, true);
 					} else {

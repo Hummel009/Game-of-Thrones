@@ -15,7 +15,7 @@ public abstract class GOTStructureDorneMarketStall extends GOTStructureWesterosM
 
 	public GOTStructureDorneMarketStall(boolean flag) {
 		super(flag);
-		isDorne = true;
+		kingdom = Kingdom.DORNE;
 	}
 
 	public static GOTStructureBase getRandomStall(Random random, boolean flag) {

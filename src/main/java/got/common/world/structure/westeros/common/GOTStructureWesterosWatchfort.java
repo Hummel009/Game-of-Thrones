@@ -273,7 +273,7 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, i1, 5, -6, brick2SlabBlock, brick2SlabMeta);
 			placeRandomStairs(world, random, i1, 1, -8, 2);
 		}
-		placeWallBanner(world, 0, 7, -5, banner, 2);
+		placeWallBanner(world, 0, 7, -5, bannerType, 2);
 		for (i1 = -1; i1 <= 1; ++i1) {
 			for (k12 = -7; k12 <= -6; ++k12) {
 				placeRandomBrick(world, random, i1, 1, k12);
@@ -393,10 +393,10 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 1, 13, 11, Blocks.torch, 1);
 		setBlockAndMetadata(world, -1, 13, 23, Blocks.torch, 2);
 		setBlockAndMetadata(world, 1, 13, 23, Blocks.torch, 1);
-		this.placeBanner(world, -2, 14, 11, banner, 3);
-		this.placeBanner(world, 2, 14, 11, banner, 1);
-		this.placeBanner(world, -2, 14, 23, banner, 3);
-		this.placeBanner(world, 2, 14, 23, banner, 1);
+		this.placeBanner(world, -2, 14, 11, bannerType, 3);
+		this.placeBanner(world, 2, 14, 11, bannerType, 1);
+		this.placeBanner(world, -2, 14, 23, bannerType, 3);
+		this.placeBanner(world, 2, 14, 23, bannerType, 1);
 		for (j14 = 12; j14 <= 14; ++j14) {
 			placeRandomBrick(world, random, -2, j14, 17);
 			placeRandomBrick(world, random, 2, j14, 17);

@@ -5,6 +5,6 @@ import got.common.world.structure.westeros.common.GOTStructureWesterosBarn;
 public class GOTStructureStormlandsBarn extends GOTStructureWesterosBarn {
 	public GOTStructureStormlandsBarn(boolean flag) {
 		super(flag);
-		isStormlands = true;
+		kingdom = Kingdom.STORMLANDS;
 	}
 }

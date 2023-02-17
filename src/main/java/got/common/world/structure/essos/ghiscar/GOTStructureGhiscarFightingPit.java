@@ -13,7 +13,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 public class GOTStructureGhiscarFightingPit extends GOTStructureEssosBase {
 	public GOTStructureGhiscarFightingPit(boolean flag) {
 		super(flag);
-		cityType = CityType.GHISCAR;
+		city = City.GHISCAR;
 	}
 
 	@Override

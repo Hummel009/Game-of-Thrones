@@ -5,6 +5,6 @@ import got.common.world.structure.westeros.common.GOTStructureWesterosWatchtower
 public class GOTStructureIronbornWatchtower extends GOTStructureWesterosWatchtower {
 	public GOTStructureIronbornWatchtower(boolean flag) {
 		super(flag);
-		isIronborn = true;
+		kingdom = Kingdom.IRONBORN;
 	}
 }

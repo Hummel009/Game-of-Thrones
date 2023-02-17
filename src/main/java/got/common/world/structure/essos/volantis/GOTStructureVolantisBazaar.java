@@ -15,7 +15,7 @@ public class GOTStructureVolantisBazaar extends GOTStructureEssosBazaar {
 
 	public GOTStructureVolantisBazaar(boolean flag) {
 		super(flag);
-		cityType = CityType.VOLANTIS;
+		city = City.VOLANTIS;
 	}
 
 	@Override

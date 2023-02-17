@@ -5,6 +5,6 @@ import got.common.world.structure.westeros.common.GOTStructureWesterosHouse;
 public class GOTStructureNorthHouse extends GOTStructureWesterosHouse {
 	public GOTStructureNorthHouse(boolean flag) {
 		super(flag);
-		isNorth = true;
+		kingdom = Kingdom.NORTH;
 	}
 }

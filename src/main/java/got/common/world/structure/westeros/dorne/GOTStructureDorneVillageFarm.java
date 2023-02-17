@@ -5,27 +5,27 @@ import got.common.world.structure.westeros.common.GOTStructureWesterosVillageFar
 public abstract class GOTStructureDorneVillageFarm extends GOTStructureWesterosVillageFarm {
 	public GOTStructureDorneVillageFarm(boolean flag) {
 		super(flag);
-		isDorne = true;
+		kingdom = Kingdom.DORNE;
 	}
 
 	public static class Animals extends GOTStructureWesterosVillageFarm.Animals {
 		public Animals(boolean flag) {
 			super(flag);
-			isDorne = true;
+			kingdom = Kingdom.DORNE;
 		}
 	}
 
 	public static class Crops extends GOTStructureWesterosVillageFarm.Crops {
 		public Crops(boolean flag) {
 			super(flag);
-			isDorne = true;
+			kingdom = Kingdom.DORNE;
 		}
 	}
 
 	public static class Tree extends GOTStructureWesterosVillageFarm.Tree {
 		public Tree(boolean flag) {
 			super(flag);
-			isDorne = true;
+			kingdom = Kingdom.DORNE;
 		}
 	}
 }

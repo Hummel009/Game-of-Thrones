@@ -71,7 +71,7 @@ public class GOTArmorModels {
 				return 16;
 			}
 			GL11.glColor3f(1.0f, 1.0f, 1.0f);
-			if (armor!= null && armor.isItemEnchanted()) {
+			if (armor != null && armor.isItemEnchanted()) {
 				return 15;
 			}
 			return 1;
@@ -259,7 +259,7 @@ public class GOTArmorModels {
 		}
 		if (entity instanceof EntityPlayer) {
 			ItemStack heldRight = entity.getHeldItem();
-			if (mainModel!= null) {
+			if (mainModel != null) {
 				model.aimedBow = mainModel.aimedBow;
 			}
 			setupHeldItem(model, entity, heldRight, true);

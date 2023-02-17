@@ -5,6 +5,6 @@ import got.common.world.structure.essos.common.GOTStructureEssosTownFlowers;
 public class GOTStructureTyroshTownFlowers extends GOTStructureEssosTownFlowers {
 	public GOTStructureTyroshTownFlowers(boolean flag) {
 		super(flag);
-		cityType = CityType.TYROSH;
+		city = City.TYROSH;
 	}
 }

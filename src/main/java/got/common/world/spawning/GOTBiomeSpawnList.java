@@ -124,7 +124,6 @@ public class GOTBiomeSpawnList {
 					int chance = spawnList.spawnChance;
 					return new GOTSpawnEntry.Instance(entry, chance, isConquestSpawn);
 				}
-				return null;
 			}
 		}
 		return null;

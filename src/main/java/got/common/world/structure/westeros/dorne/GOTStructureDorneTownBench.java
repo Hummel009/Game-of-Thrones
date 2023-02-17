@@ -5,6 +5,6 @@ import got.common.world.structure.westeros.common.GOTStructureWesterosTownBench;
 public class GOTStructureDorneTownBench extends GOTStructureWesterosTownBench {
 	public GOTStructureDorneTownBench(boolean flag) {
 		super(flag);
-		isDorne = true;
+		kingdom = Kingdom.DORNE;
 	}
 }

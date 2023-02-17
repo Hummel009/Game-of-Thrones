@@ -302,8 +302,8 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 				setGrassToDirt(world, i8, i12 - 1, i11);
 			}
 		}
-		placeWallBanner(world, -2, 4, -11, banner, 2);
-		placeWallBanner(world, 2, 4, -11, banner, 2);
+		placeWallBanner(world, -2, 4, -11, bannerType, 2);
+		placeWallBanner(world, 2, 4, -11, bannerType, 2);
 		for (i8 = -2; i8 <= 2; i8++) {
 			for (int i11 = -2; i11 <= 2; i11++) {
 				setBlockAndMetadata(world, i8, 0, i11, brick2Block, brick2Meta);
@@ -337,10 +337,10 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 		}
 		setBlockAndMetadata(world, 0, 10, 0, brickCarved, brickCarvedMeta);
 		setBlockAndMetadata(world, 0, 11, 0, GOTRegistry.beacon, 0);
-		placeWallBanner(world, 0, 9, 0, banner, 0);
-		placeWallBanner(world, 0, 9, 0, banner, 1);
-		placeWallBanner(world, 0, 9, 0, banner, 2);
-		placeWallBanner(world, 0, 9, 0, banner, 3);
+		placeWallBanner(world, 0, 9, 0, bannerType, 0);
+		placeWallBanner(world, 0, 9, 0, bannerType, 1);
+		placeWallBanner(world, 0, 9, 0, bannerType, 2);
+		placeWallBanner(world, 0, 9, 0, bannerType, 3);
 		setBlockAndMetadata(world, 0, 4, 0, GOTRegistry.chandelier, 2);
 		setBlockAndMetadata(world, -3, 3, -8, brickWallBlock, brickWallMeta);
 		setBlockAndMetadata(world, -3, 4, -8, Blocks.torch, 5);
@@ -470,8 +470,8 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 				placeChest(world, random, i1, 1, 8, GOTRegistry.chestStone, 2, getChestContents());
 			}
 		}
-		placeWallBanner(world, -2, 3, 9, banner, 2);
-		placeWallBanner(world, 2, 3, 9, banner, 2);
+		placeWallBanner(world, -2, 3, 9, bannerType, 2);
+		placeWallBanner(world, 2, 3, 9, bannerType, 2);
 		setBlockAndMetadata(world, -4, 1, 5, plankBlock, plankMeta);
 		setBlockAndMetadata(world, -3, 1, 5, plankBlock, plankMeta);
 		placeBarrel(world, random, -4, 2, 5, 3, GOTFoods.WESTEROS_DRINK);
@@ -493,15 +493,15 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 			septon.spawnRidingHorse = false;
 			spawnNPCAndSetHome(septon, world, 0, 1, 0, 12);
 		}
-		if (isDragonstone) {
+		if (kingdom == Kingdom.DRAGONSTONE) {
 			GOTEntityRedPriest priest = new GOTEntityRedPriest(world);
 			priest.spawnRidingHorse = false;
 			spawnNPCAndSetHome(priest, world, 0, 1, 0, 12);
-		} else if (isIronborn) {
+		} else if (kingdom == Kingdom.IRONBORN) {
 			GOTEntityIronbornPriest priest = new GOTEntityIronbornPriest(world);
 			priest.spawnRidingHorse = false;
 			spawnNPCAndSetHome(priest, world, 0, 1, 0, 12);
-		} else if (isCrownlandsRed) {
+		} else if (kingdom == Kingdom.CROWNLANDS_RED) {
 			spawnLegendaryNPC(new GOTEntitySandorClegane(world), world, -2, 1, -2);
 			spawnLegendaryNPC(new GOTEntityJoffreyBaratheon(world), world, 2, 1, -2);
 			spawnLegendaryNPC(new GOTEntityCerseiLannister(world), world, 2, 1, 2);

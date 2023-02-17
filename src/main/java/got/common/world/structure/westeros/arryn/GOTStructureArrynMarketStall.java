@@ -15,7 +15,7 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 
 	public GOTStructureArrynMarketStall(boolean flag) {
 		super(flag);
-		isArryn = true;
+		kingdom = Kingdom.ARRYN;
 	}
 
 	public static GOTStructureBase getRandomStall(Random random, boolean flag) {

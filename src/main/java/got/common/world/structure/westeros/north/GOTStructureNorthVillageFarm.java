@@ -5,13 +5,13 @@ import got.common.world.structure.westeros.common.GOTStructureWesterosVillageFar
 public abstract class GOTStructureNorthVillageFarm extends GOTStructureWesterosVillageFarm {
 	public GOTStructureNorthVillageFarm(boolean flag) {
 		super(flag);
-		isNorth = true;
+		kingdom = Kingdom.NORTH;
 	}
 
 	public static class Crops extends GOTStructureWesterosVillageFarm.Crops {
 		public Crops(boolean flag) {
 			super(flag);
-			isNorth = true;
+			kingdom = Kingdom.NORTH;
 		}
 	}
 }
