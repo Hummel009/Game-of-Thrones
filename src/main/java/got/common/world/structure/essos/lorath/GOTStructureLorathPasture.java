@@ -5,6 +5,6 @@ import got.common.world.structure.essos.common.GOTStructureEssosPasture;
 public class GOTStructureLorathPasture extends GOTStructureEssosPasture {
 	public GOTStructureLorathPasture(boolean flag) {
 		super(flag);
-		isLorath = true;
+		type = Type.LORATH;
 	}
 }

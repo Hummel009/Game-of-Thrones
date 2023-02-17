@@ -5,6 +5,6 @@ import got.common.world.structure.essos.common.GOTStructureEssosMansion;
 public class GOTStructureVolantisMansion extends GOTStructureEssosMansion {
 	public GOTStructureVolantisMansion(boolean flag) {
 		super(flag);
-		isVolantis = true;
+		type = Type.VOLANTIS;
 	}
 }

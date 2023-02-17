@@ -15,7 +15,7 @@ public class GOTStructurePentosBazaar extends GOTStructureEssosBazaar {
 
 	public GOTStructurePentosBazaar(boolean flag) {
 		super(flag);
-		isPentos = true;
+		type = Type.PENTOS;
 	}
 
 	@Override

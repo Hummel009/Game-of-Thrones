@@ -5,6 +5,6 @@ import got.common.world.structure.essos.common.GOTStructureEssosStatue;
 public class GOTStructureQohorStatue extends GOTStructureEssosStatue {
 	public GOTStructureQohorStatue(boolean flag) {
 		super(flag);
-		isQohor = true;
+		type = Type.QOHOR;
 	}
 }

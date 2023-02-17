@@ -5,6 +5,6 @@ import got.common.world.structure.essos.common.GOTStructureEssosSmithy;
 public class GOTStructurePentosSmithy extends GOTStructureEssosSmithy {
 	public GOTStructurePentosSmithy(boolean flag) {
 		super(flag);
-		isPentos = true;
+		type = Type.PENTOS;
 	}
 }

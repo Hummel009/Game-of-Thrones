@@ -5,6 +5,6 @@ import got.common.world.structure.essos.common.GOTStructureEssosFortress;
 public class GOTStructureNorvosFortress extends GOTStructureEssosFortress {
 	public GOTStructureNorvosFortress(boolean flag) {
 		super(flag);
-		isNorvos = true;
+		type = Type.NORVOS;
 	}
 }

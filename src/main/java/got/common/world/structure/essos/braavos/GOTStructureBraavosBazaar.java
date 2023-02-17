@@ -15,7 +15,7 @@ public class GOTStructureBraavosBazaar extends GOTStructureEssosBazaar {
 
 	public GOTStructureBraavosBazaar(boolean flag) {
 		super(flag);
-		isBraavos = true;
+		type = Type.BRAAVOS;
 	}
 
 	@Override

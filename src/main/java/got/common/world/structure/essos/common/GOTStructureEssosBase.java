@@ -1,7 +1,6 @@
 package got.common.world.structure.essos.common;
 
 import java.util.*;
-import java.util.Map.Entry;
 
 import got.common.database.*;
 import got.common.entity.essos.braavos.*;
@@ -18,14 +17,150 @@ import got.common.entity.essos.volantis.*;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.item.other.GOTItemBanner;
 import got.common.item.other.GOTItemBanner.BannerType;
+import got.common.util.GOTReflection;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
-import net.minecraft.entity.EntityCreature;
+import net.minecraft.entity.Entity;
 import net.minecraft.init.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public abstract class GOTStructureEssosBase extends GOTStructureBase {
+	public static Map<Type, Class<? extends Entity>> bartenders = new EnumMap<>(Type.class);
+	public static Map<Type, Class<? extends Entity>> blacksmiths = new EnumMap<>(Type.class);
+	public static Map<Type, BannerType> banners = new EnumMap<>(Type.class);
+	public static Map<Type, GOTChestContents> chests = new EnumMap<>(Type.class);
+	public static Map<Type, Block> tables = new EnumMap<>(Type.class);
+	public static Map<Type, Class<? extends Entity>> archers = new EnumMap<>(Type.class);
+	public static Map<Type, Class<? extends Entity>> farmers = new EnumMap<>(Type.class);
+	public static Map<Type, Class<? extends Entity>> farmhands = new EnumMap<>(Type.class);
+	public static Map<Type, Class<? extends Entity>> generals = new EnumMap<>(Type.class);
+	public static Map<Type, Class<? extends Entity>> men = new EnumMap<>(Type.class);
+	public static Map<Type, Class<? extends Entity>> soldiers = new EnumMap<>(Type.class);
+
+	static {
+		archers.put(Type.BRAAVOS, GOTEntityBraavosSoldierArcher.class);
+		archers.put(Type.GHISCAR, GOTEntityGhiscarCorsairArcher.class);
+		archers.put(Type.LORATH, GOTEntityLorathSoldierArcher.class);
+		archers.put(Type.LYS, GOTEntityLysSoldierArcher.class);
+		archers.put(Type.MYR, GOTEntityMyrSoldierArcher.class);
+		archers.put(Type.NORVOS, GOTEntityNorvosLevymanArcher.class);
+		archers.put(Type.PENTOS, GOTEntityPentosLevymanArcher.class);
+		archers.put(Type.QARTH, GOTEntityQarthLevymanArcher.class);
+		archers.put(Type.QOHOR, GOTEntityQohorLevymanArcher.class);
+		archers.put(Type.TYROSH, GOTEntityTyroshSoldierArcher.class);
+		archers.put(Type.VOLANTIS, GOTEntityVolantisSoldierArcher.class);
+		banners.put(Type.BRAAVOS, GOTItemBanner.BannerType.BRAAVOS);
+		banners.put(Type.GHISCAR, GOTItemBanner.BannerType.GHISCAR);
+		banners.put(Type.LORATH, GOTItemBanner.BannerType.LORATH);
+		banners.put(Type.LYS, GOTItemBanner.BannerType.LYS);
+		banners.put(Type.MYR, GOTItemBanner.BannerType.MYR);
+		banners.put(Type.NORVOS, GOTItemBanner.BannerType.NORVOS);
+		banners.put(Type.PENTOS, GOTItemBanner.BannerType.PENTOS);
+		banners.put(Type.QARTH, GOTItemBanner.BannerType.QARTH);
+		banners.put(Type.QOHOR, GOTItemBanner.BannerType.QOHOR);
+		banners.put(Type.TYROSH, GOTItemBanner.BannerType.TYROSH);
+		banners.put(Type.VOLANTIS, GOTItemBanner.BannerType.VOLANTIS);
+		bartenders.put(Type.BRAAVOS, GOTEntityBraavosBartender.class);
+		bartenders.put(Type.GHISCAR, GOTEntityGhiscarBartender.class);
+		bartenders.put(Type.LORATH, GOTEntityLorathBartender.class);
+		bartenders.put(Type.LYS, GOTEntityLysBartender.class);
+		bartenders.put(Type.MYR, GOTEntityMyrBartender.class);
+		bartenders.put(Type.NORVOS, GOTEntityNorvosBartender.class);
+		bartenders.put(Type.PENTOS, GOTEntityPentosBartender.class);
+		bartenders.put(Type.QARTH, GOTEntityQarthBartender.class);
+		bartenders.put(Type.QOHOR, GOTEntityQohorBartender.class);
+		bartenders.put(Type.TYROSH, GOTEntityTyroshBartender.class);
+		bartenders.put(Type.VOLANTIS, GOTEntityVolantisBartender.class);
+		blacksmiths.put(Type.BRAAVOS, GOTEntityBraavosBlacksmith.class);
+		blacksmiths.put(Type.GHISCAR, GOTEntityGhiscarBlacksmith.class);
+		blacksmiths.put(Type.LORATH, GOTEntityLorathBlacksmith.class);
+		blacksmiths.put(Type.LYS, GOTEntityLysBlacksmith.class);
+		blacksmiths.put(Type.MYR, GOTEntityMyrBlacksmith.class);
+		blacksmiths.put(Type.NORVOS, GOTEntityNorvosBlacksmith.class);
+		blacksmiths.put(Type.PENTOS, GOTEntityPentosBlacksmith.class);
+		blacksmiths.put(Type.QARTH, GOTEntityQarthBlacksmith.class);
+		blacksmiths.put(Type.QOHOR, GOTEntityQohorBlacksmith.class);
+		blacksmiths.put(Type.TYROSH, GOTEntityTyroshBlacksmith.class);
+		blacksmiths.put(Type.VOLANTIS, GOTEntityVolantisBlacksmith.class);
+		chests.put(Type.BRAAVOS, GOTChestContents.BRAAVOS);
+		chests.put(Type.GHISCAR, GOTChestContents.GHISCAR);
+		chests.put(Type.LORATH, GOTChestContents.LORATH);
+		chests.put(Type.LYS, GOTChestContents.LYS);
+		chests.put(Type.MYR, GOTChestContents.MYR);
+		chests.put(Type.NORVOS, GOTChestContents.NORVOS);
+		chests.put(Type.PENTOS, GOTChestContents.PENTOS);
+		chests.put(Type.QARTH, GOTChestContents.QARTH);
+		chests.put(Type.QOHOR, GOTChestContents.QOHOR);
+		chests.put(Type.TYROSH, GOTChestContents.TYROSH);
+		chests.put(Type.VOLANTIS, GOTChestContents.VOLANTIS);
+		farmers.put(Type.BRAAVOS, GOTEntityBraavosFarmer.class);
+		farmers.put(Type.GHISCAR, GOTEntityGhiscarSlaver.class);
+		farmers.put(Type.LORATH, GOTEntityLorathFarmer.class);
+		farmers.put(Type.LYS, GOTEntityLysSlaver.class);
+		farmers.put(Type.MYR, GOTEntityMyrSlaver.class);
+		farmers.put(Type.NORVOS, GOTEntityNorvosFarmer.class);
+		farmers.put(Type.PENTOS, GOTEntityPentosFarmer.class);
+		farmers.put(Type.QARTH, GOTEntityQarthFarmer.class);
+		farmers.put(Type.QOHOR, GOTEntityQohorFarmer.class);
+		farmers.put(Type.TYROSH, GOTEntityTyroshSlaver.class);
+		farmers.put(Type.VOLANTIS, GOTEntityVolantisSlaver.class);
+		farmhands.put(Type.BRAAVOS, GOTEntityBraavosFarmhand.class);
+		farmhands.put(Type.GHISCAR, GOTEntityGhiscarSlave.class);
+		farmhands.put(Type.LORATH, GOTEntityLorathFarmhand.class);
+		farmhands.put(Type.LYS, GOTEntityLysSlave.class);
+		farmhands.put(Type.MYR, GOTEntityMyrSlave.class);
+		farmhands.put(Type.NORVOS, GOTEntityNorvosFarmhand.class);
+		farmhands.put(Type.PENTOS, GOTEntityPentosFarmhand.class);
+		farmhands.put(Type.QARTH, GOTEntityQarthFarmhand.class);
+		farmhands.put(Type.QOHOR, GOTEntityQohorFarmhand.class);
+		farmhands.put(Type.TYROSH, GOTEntityTyroshSlave.class);
+		farmhands.put(Type.VOLANTIS, GOTEntityVolantisSlave.class);
+		generals.put(Type.BRAAVOS, GOTEntityBraavosGeneral.class);
+		generals.put(Type.GHISCAR, GOTEntityGhiscarAdmiral.class);
+		generals.put(Type.LORATH, GOTEntityLorathGeneral.class);
+		generals.put(Type.LYS, GOTEntityLysGeneral.class);
+		generals.put(Type.MYR, GOTEntityMyrGeneral.class);
+		generals.put(Type.NORVOS, GOTEntityNorvosGuardCaptain.class);
+		generals.put(Type.PENTOS, GOTEntityPentosGuardCaptain.class);
+		generals.put(Type.QARTH, GOTEntityQarthGuardCaptain.class);
+		generals.put(Type.QOHOR, GOTEntityQohorGuardCaptain.class);
+		generals.put(Type.TYROSH, GOTEntityTyroshGeneral.class);
+		generals.put(Type.VOLANTIS, GOTEntityVolantisGeneral.class);
+		men.put(Type.BRAAVOS, GOTEntityBraavosMan.class);
+		men.put(Type.GHISCAR, GOTEntityGhiscarMan.class);
+		men.put(Type.LORATH, GOTEntityLorathMan.class);
+		men.put(Type.LYS, GOTEntityLysMan.class);
+		men.put(Type.MYR, GOTEntityMyrMan.class);
+		men.put(Type.NORVOS, GOTEntityNorvosMan.class);
+		men.put(Type.PENTOS, GOTEntityPentosMan.class);
+		men.put(Type.QARTH, GOTEntityQarthMan.class);
+		men.put(Type.QOHOR, GOTEntityQohorMan.class);
+		men.put(Type.TYROSH, GOTEntityTyroshMan.class);
+		men.put(Type.VOLANTIS, GOTEntityVolantisMan.class);
+		soldiers.put(Type.BRAAVOS, GOTEntityBraavosSoldier.class);
+		soldiers.put(Type.GHISCAR, GOTEntityGhiscarCorsair.class);
+		soldiers.put(Type.LORATH, GOTEntityLorathSoldier.class);
+		soldiers.put(Type.LYS, GOTEntityLysSoldier.class);
+		soldiers.put(Type.MYR, GOTEntityMyrSoldier.class);
+		soldiers.put(Type.NORVOS, GOTEntityNorvosLevyman.class);
+		soldiers.put(Type.PENTOS, GOTEntityPentosLevyman.class);
+		soldiers.put(Type.QARTH, GOTEntityQarthLevyman.class);
+		soldiers.put(Type.QOHOR, GOTEntityQohorLevyman.class);
+		soldiers.put(Type.TYROSH, GOTEntityTyroshSoldier.class);
+		soldiers.put(Type.VOLANTIS, GOTEntityVolantisSoldier.class);
+		tables.put(Type.BRAAVOS, GOTRegistry.tableBraavos);
+		tables.put(Type.GHISCAR, GOTRegistry.tableGhiscar);
+		tables.put(Type.LORATH, GOTRegistry.tableLorath);
+		tables.put(Type.LYS, GOTRegistry.tableLys);
+		tables.put(Type.MYR, GOTRegistry.tableMyr);
+		tables.put(Type.NORVOS, GOTRegistry.tableNorvos);
+		tables.put(Type.PENTOS, GOTRegistry.tablePentos);
+		tables.put(Type.QARTH, GOTRegistry.tableQarth);
+		tables.put(Type.QOHOR, GOTRegistry.tableQohor);
+		tables.put(Type.TYROSH, GOTRegistry.tableTyrosh);
+		tables.put(Type.VOLANTIS, GOTRegistry.tableVolantis);
+	}
 	public Block stoneBlock;
 	public int stoneMeta;
 	public Block stoneStairBlock;
@@ -77,18 +212,9 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 	public Block cropBlock;
 	public Block trapdoorBlock;
 	public GOTItemBanner.BannerType bannerType;
-	public boolean isBraavos;
-	public boolean isGhiscar;
-	public boolean isLorath;
-	public boolean isVolantis;
-	public boolean isTyrosh;
-	public boolean isQohor;
-	public boolean isQarth;
-	public boolean isPentos;
-	public boolean isNorvos;
-	public boolean isMyr;
-	public boolean isLys;
 	public Block barsBlock;
+
+	public Type type = Type.NULL;
 
 	public GOTStructureEssosBase(boolean flag) {
 		super(flag);
@@ -103,179 +229,35 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 	}
 
 	public BannerType getBannerType() {
-		Map<Boolean, BannerType> map = new HashMap<>();
-		map.put(isBraavos, GOTItemBanner.BannerType.BRAAVOS);
-		map.put(isGhiscar, GOTItemBanner.BannerType.GHISCAR);
-		map.put(isLorath, GOTItemBanner.BannerType.LORATH);
-		map.put(isLys, GOTItemBanner.BannerType.LYS);
-		map.put(isMyr, GOTItemBanner.BannerType.MYR);
-		map.put(isNorvos, GOTItemBanner.BannerType.NORVOS);
-		map.put(isPentos, GOTItemBanner.BannerType.PENTOS);
-		map.put(isQarth, GOTItemBanner.BannerType.QARTH);
-		map.put(isQohor, GOTItemBanner.BannerType.QOHOR);
-		map.put(isTyrosh, GOTItemBanner.BannerType.TYROSH);
-		map.put(isVolantis, GOTItemBanner.BannerType.VOLANTIS);
-
-		for (Entry<Boolean, BannerType> npc : map.entrySet()) {
-			if (Boolean.TRUE.equals(npc.getKey())) {
-				return npc.getValue();
-			}
-		}
-		return null;
+		return banners.get(type);
 	}
 
-	public EntityCreature getBartender(World world) {
-		Map<Boolean, GOTEntityNPC> map = new HashMap<>();
-		map.put(isBraavos, new GOTEntityBraavosBartender(world));
-		map.put(isGhiscar, new GOTEntityGhiscarBartender(world));
-		map.put(isLorath, new GOTEntityLorathBartender(world));
-		map.put(isLys, new GOTEntityLysBartender(world));
-		map.put(isMyr, new GOTEntityMyrBartender(world));
-		map.put(isNorvos, new GOTEntityNorvosBartender(world));
-		map.put(isPentos, new GOTEntityPentosBartender(world));
-		map.put(isQarth, new GOTEntityQarthBartender(world));
-		map.put(isQohor, new GOTEntityQohorBartender(world));
-		map.put(isTyrosh, new GOTEntityTyroshBartender(world));
-		map.put(isVolantis, new GOTEntityVolantisBartender(world));
-
-		for (Entry<Boolean, GOTEntityNPC> npc : map.entrySet()) {
-			if (Boolean.TRUE.equals(npc.getKey())) {
-				return npc.getValue();
-			}
-		}
-		return null;
+	public GOTEntityNPC getBartender(World world) {
+		return (GOTEntityNPC) GOTReflection.newEntity(bartenders.get(type), world);
 	}
 
 	public GOTEntityNPC getBlacksmith(World world) {
-		Map<Boolean, GOTEntityNPC> map = new HashMap<>();
-		map.put(isBraavos, new GOTEntityBraavosBlacksmith(world));
-		map.put(isGhiscar, new GOTEntityGhiscarBlacksmith(world));
-		map.put(isLorath, new GOTEntityLorathBlacksmith(world));
-		map.put(isLys, new GOTEntityLysBlacksmith(world));
-		map.put(isMyr, new GOTEntityMyrBlacksmith(world));
-		map.put(isNorvos, new GOTEntityNorvosBlacksmith(world));
-		map.put(isPentos, new GOTEntityPentosBlacksmith(world));
-		map.put(isQarth, new GOTEntityQarthBlacksmith(world));
-		map.put(isQohor, new GOTEntityQohorBlacksmith(world));
-		map.put(isTyrosh, new GOTEntityTyroshBlacksmith(world));
-		map.put(isVolantis, new GOTEntityVolantisBlacksmith(world));
-
-		for (Entry<Boolean, GOTEntityNPC> npc : map.entrySet()) {
-			if (Boolean.TRUE.equals(npc.getKey())) {
-				return npc.getValue();
-			}
-		}
-		return null;
+		return (GOTEntityNPC) GOTReflection.newEntity(blacksmiths.get(type), world);
 	}
 
 	public GOTChestContents getChestContents() {
-		Map<Boolean, GOTChestContents> map = new HashMap<>();
-		map.put(isBraavos, GOTChestContents.BRAAVOS);
-		map.put(isGhiscar, GOTChestContents.GHISCAR);
-		map.put(isLorath, GOTChestContents.LORATH);
-		map.put(isLys, GOTChestContents.LYS);
-		map.put(isMyr, GOTChestContents.MYR);
-		map.put(isNorvos, GOTChestContents.NORVOS);
-		map.put(isPentos, GOTChestContents.PENTOS);
-		map.put(isQarth, GOTChestContents.QARTH);
-		map.put(isQohor, GOTChestContents.QOHOR);
-		map.put(isTyrosh, GOTChestContents.TYROSH);
-		map.put(isVolantis, GOTChestContents.VOLANTIS);
-
-		for (Entry<Boolean, GOTChestContents> chest : map.entrySet()) {
-			if (Boolean.TRUE.equals(chest.getKey())) {
-				return chest.getValue();
-			}
-		}
-		return null;
+		return chests.get(type);
 	}
 
 	public GOTEntityNPC getFarmer(World world) {
-		Map<Boolean, GOTEntityNPC> map = new HashMap<>();
-		map.put(isBraavos, new GOTEntityBraavosFarmer(world));
-		map.put(isGhiscar, new GOTEntityGhiscarSlaver(world));
-		map.put(isLorath, new GOTEntityLorathFarmer(world));
-		map.put(isLys, new GOTEntityLysSlaver(world));
-		map.put(isMyr, new GOTEntityMyrSlaver(world));
-		map.put(isNorvos, new GOTEntityNorvosFarmer(world));
-		map.put(isPentos, new GOTEntityPentosFarmer(world));
-		map.put(isQarth, new GOTEntityQarthFarmer(world));
-		map.put(isQohor, new GOTEntityQohorFarmer(world));
-		map.put(isTyrosh, new GOTEntityTyroshSlaver(world));
-		map.put(isVolantis, new GOTEntityVolantisSlaver(world));
-
-		for (Entry<Boolean, GOTEntityNPC> npc : map.entrySet()) {
-			if (Boolean.TRUE.equals(npc.getKey())) {
-				return npc.getValue();
-			}
-		}
-		return null;
+		return (GOTEntityNPC) GOTReflection.newEntity(farmers.get(type), world);
 	}
 
 	public GOTEntityNPC getFarmhand(World world) {
-		Map<Boolean, GOTEntityNPC> map = new HashMap<>();
-		map.put(isBraavos, new GOTEntityBraavosFarmhand(world));
-		map.put(isGhiscar, new GOTEntityGhiscarSlave(world));
-		map.put(isLorath, new GOTEntityLorathFarmhand(world));
-		map.put(isLys, new GOTEntityLysSlave(world));
-		map.put(isMyr, new GOTEntityMyrSlave(world));
-		map.put(isNorvos, new GOTEntityNorvosFarmhand(world));
-		map.put(isPentos, new GOTEntityPentosFarmhand(world));
-		map.put(isQarth, new GOTEntityQarthFarmhand(world));
-		map.put(isQohor, new GOTEntityQohorFarmhand(world));
-		map.put(isTyrosh, new GOTEntityTyroshSlave(world));
-		map.put(isVolantis, new GOTEntityVolantisSlave(world));
-
-		for (Entry<Boolean, GOTEntityNPC> npc : map.entrySet()) {
-			if (Boolean.TRUE.equals(npc.getKey())) {
-				return npc.getValue();
-			}
-		}
-		return null;
+		return (GOTEntityNPC) GOTReflection.newEntity(farmhands.get(type), world);
 	}
 
 	public GOTEntityNPC getGeneral(World world) {
-		Map<Boolean, GOTEntityNPC> map = new HashMap<>();
-		map.put(isBraavos, new GOTEntityBraavosGeneral(world));
-		map.put(isGhiscar, new GOTEntityGhiscarAdmiral(world));
-		map.put(isLorath, new GOTEntityLorathGeneral(world));
-		map.put(isLys, new GOTEntityLysGeneral(world));
-		map.put(isMyr, new GOTEntityMyrGeneral(world));
-		map.put(isNorvos, new GOTEntityNorvosGuardCaptain(world));
-		map.put(isPentos, new GOTEntityPentosGuardCaptain(world));
-		map.put(isQarth, new GOTEntityQarthGuardCaptain(world));
-		map.put(isQohor, new GOTEntityQohorGuardCaptain(world));
-		map.put(isTyrosh, new GOTEntityTyroshGeneral(world));
-		map.put(isVolantis, new GOTEntityVolantisGeneral(world));
-
-		for (Entry<Boolean, GOTEntityNPC> npc : map.entrySet()) {
-			if (Boolean.TRUE.equals(npc.getKey())) {
-				return npc.getValue();
-			}
-		}
-		return null;
+		return (GOTEntityNPC) GOTReflection.newEntity(generals.get(type), world);
 	}
 
 	public GOTEntityNPC getMan(World world) {
-		Map<Boolean, GOTEntityNPC> map = new HashMap<>();
-		map.put(isBraavos, new GOTEntityBraavosMan(world));
-		map.put(isGhiscar, new GOTEntityGhiscarMan(world));
-		map.put(isLorath, new GOTEntityLorathMan(world));
-		map.put(isLys, new GOTEntityLysMan(world));
-		map.put(isMyr, new GOTEntityMyrMan(world));
-		map.put(isNorvos, new GOTEntityNorvosMan(world));
-		map.put(isPentos, new GOTEntityPentosMan(world));
-		map.put(isQarth, new GOTEntityQarthMan(world));
-		map.put(isQohor, new GOTEntityQohorMan(world));
-		map.put(isTyrosh, new GOTEntityTyroshMan(world));
-		map.put(isVolantis, new GOTEntityVolantisMan(world));
-
-		for (Entry<Boolean, GOTEntityNPC> npc : map.entrySet()) {
-			if (Boolean.TRUE.equals(npc.getKey())) {
-				return npc.getValue();
-			}
-		}
-		return null;
+		return (GOTEntityNPC) GOTReflection.newEntity(men.get(type), world);
 	}
 
 	public ItemStack getRandomItem(Random random) {
@@ -289,77 +271,23 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 	}
 
 	public GOTEntityNPC getSoldier(World world) {
-		Map<Boolean, GOTEntityNPC> map = new HashMap<>();
-		map.put(isBraavos, new GOTEntityBraavosSoldier(world));
-		map.put(isGhiscar, new GOTEntityGhiscarCorsair(world));
-		map.put(isLorath, new GOTEntityLorathSoldier(world));
-		map.put(isLys, new GOTEntityLysSoldier(world));
-		map.put(isMyr, new GOTEntityMyrSoldier(world));
-		map.put(isNorvos, new GOTEntityNorvosLevyman(world));
-		map.put(isPentos, new GOTEntityPentosLevyman(world));
-		map.put(isQarth, new GOTEntityQarthLevyman(world));
-		map.put(isQohor, new GOTEntityQohorLevyman(world));
-		map.put(isTyrosh, new GOTEntityTyroshSoldier(world));
-		map.put(isVolantis, new GOTEntityVolantisSoldier(world));
-
-		for (Entry<Boolean, GOTEntityNPC> npc : map.entrySet()) {
-			if (Boolean.TRUE.equals(npc.getKey())) {
-				return npc.getValue();
-			}
-		}
-		return null;
+		return (GOTEntityNPC) GOTReflection.newEntity(soldiers.get(type), world);
 	}
 
 	public GOTEntityNPC getSoldierArcher(World world) {
-		Map<Boolean, GOTEntityNPC> map = new HashMap<>();
-		map.put(isBraavos, new GOTEntityBraavosSoldierArcher(world));
-		map.put(isGhiscar, new GOTEntityGhiscarCorsairArcher(world));
-		map.put(isLorath, new GOTEntityLorathSoldierArcher(world));
-		map.put(isLys, new GOTEntityLysSoldierArcher(world));
-		map.put(isMyr, new GOTEntityMyrSoldierArcher(world));
-		map.put(isNorvos, new GOTEntityNorvosLevymanArcher(world));
-		map.put(isPentos, new GOTEntityPentosLevymanArcher(world));
-		map.put(isQarth, new GOTEntityQarthLevymanArcher(world));
-		map.put(isQohor, new GOTEntityQohorLevymanArcher(world));
-		map.put(isTyrosh, new GOTEntityTyroshSoldierArcher(world));
-		map.put(isVolantis, new GOTEntityVolantisSoldierArcher(world));
-
-		for (Entry<Boolean, GOTEntityNPC> npc : map.entrySet()) {
-			if (Boolean.TRUE.equals(npc.getKey())) {
-				return npc.getValue();
-			}
-		}
-		return null;
+		return (GOTEntityNPC) GOTReflection.newEntity(archers.get(type), world);
 	}
 
 	public Block getTable() {
-		Map<Boolean, Block> map = new HashMap<>();
-		map.put(isBraavos, GOTRegistry.tableBraavos);
-		map.put(isGhiscar, GOTRegistry.tableGhiscar);
-		map.put(isLorath, GOTRegistry.tableLorath);
-		map.put(isLys, GOTRegistry.tableLys);
-		map.put(isMyr, GOTRegistry.tableMyr);
-		map.put(isNorvos, GOTRegistry.tableNorvos);
-		map.put(isPentos, GOTRegistry.tablePentos);
-		map.put(isQarth, GOTRegistry.tableQarth);
-		map.put(isQohor, GOTRegistry.tableQohor);
-		map.put(isTyrosh, GOTRegistry.tableTyrosh);
-		map.put(isVolantis, GOTRegistry.tableVolantis);
-
-		for (Entry<Boolean, Block> npc : map.entrySet()) {
-			if (Boolean.TRUE.equals(npc.getKey())) {
-				return npc.getValue();
-			}
-		}
-		return null;
+		return tables.get(type);
 	}
 
 	public boolean isNorthernTrees() {
-		return isBraavos || isLorath || isNorvos || isQohor;
+		return type == Type.BRAAVOS || type == Type.LORATH || type == Type.NORVOS || type == Type.QOHOR;
 	}
 
 	public boolean isSandstone() {
-		return isGhiscar || isQarth || isPentos;
+		return type == Type.GHISCAR || type == Type.QARTH || type == Type.PENTOS;
 	}
 
 	@Override
@@ -631,5 +559,9 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		}
 		tableBlock = getTable();
 		bannerType = getBannerType();
+	}
+
+	public enum Type {
+		BRAAVOS, GHISCAR, LORATH, VOLANTIS, TYROSH, QOHOR, QARTH, PENTOS, NORVOS, MYR, LYS, NULL;
 	}
 }

@@ -5,6 +5,6 @@ import got.common.world.structure.essos.common.GOTStructureEssosFortCorner;
 public class GOTStructureLorathFortCorner extends GOTStructureEssosFortCorner {
 	public GOTStructureLorathFortCorner(boolean flag) {
 		super(flag);
-		isLorath = true;
+		type = Type.LORATH;
 	}
 }

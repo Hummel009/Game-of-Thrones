@@ -5,6 +5,6 @@ import got.common.world.structure.essos.common.GOTStructureEssosTownGate;
 public class GOTStructureBraavosTownGate extends GOTStructureEssosTownGate {
 	public GOTStructureBraavosTownGate(boolean flag) {
 		super(flag);
-		isBraavos = true;
+		type = Type.BRAAVOS;
 	}
 }

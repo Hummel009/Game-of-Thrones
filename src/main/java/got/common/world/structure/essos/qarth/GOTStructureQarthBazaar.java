@@ -15,7 +15,7 @@ public class GOTStructureQarthBazaar extends GOTStructureEssosBazaar {
 
 	public GOTStructureQarthBazaar(boolean flag) {
 		super(flag);
-		isQarth = true;
+		type = Type.QARTH;
 	}
 
 	@Override

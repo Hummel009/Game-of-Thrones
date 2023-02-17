@@ -5,6 +5,6 @@ import got.common.world.structure.essos.common.GOTStructureEssosStables;
 public class GOTStructureLysStables extends GOTStructureEssosStables {
 	public GOTStructureLysStables(boolean flag) {
 		super(flag);
-		isLys = true;
+		type = Type.LYS;
 	}
 }

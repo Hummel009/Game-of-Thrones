@@ -5,6 +5,6 @@ import got.common.world.structure.essos.common.GOTStructureEssosTavern;
 public class GOTStructureTyroshTavern extends GOTStructureEssosTavern {
 	public GOTStructureTyroshTavern(boolean flag) {
 		super(flag);
-		isTyrosh = true;
+		type = Type.TYROSH;
 	}
 }
