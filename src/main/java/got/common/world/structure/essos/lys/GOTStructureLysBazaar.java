@@ -15,7 +15,7 @@ public class GOTStructureLysBazaar extends GOTStructureEssosBazaar {
 
 	public GOTStructureLysBazaar(boolean flag) {
 		super(flag);
-		type = Type.LYS;
+		cityType = CityType.LYS;
 	}
 
 	@Override

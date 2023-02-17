@@ -5,6 +5,6 @@ import got.common.world.structure.essos.common.GOTStructureEssosWell;
 public class GOTStructurePentosWell extends GOTStructureEssosWell {
 	public GOTStructurePentosWell(boolean flag) {
 		super(flag);
-		type = Type.PENTOS;
+		cityType = CityType.PENTOS;
 	}
 }

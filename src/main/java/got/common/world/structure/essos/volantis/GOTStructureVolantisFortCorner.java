@@ -5,6 +5,6 @@ import got.common.world.structure.essos.common.GOTStructureEssosFortCorner;
 public class GOTStructureVolantisFortCorner extends GOTStructureEssosFortCorner {
 	public GOTStructureVolantisFortCorner(boolean flag) {
 		super(flag);
-		type = Type.VOLANTIS;
+		cityType = CityType.VOLANTIS;
 	}
 }

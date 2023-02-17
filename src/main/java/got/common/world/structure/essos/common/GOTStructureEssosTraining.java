@@ -49,7 +49,7 @@ public class GOTStructureEssosTraining extends GOTStructureEssosBase {
 		associateBlockAlias("PLANK_STAIR", plankStairBlock);
 		associateBlockMetaAlias("FENCE", fenceBlock, fenceMeta);
 		associateBlockMetaAlias("BEAM", woodBeamBlock, woodBeamMeta);
-		if (isSandyCity()) {
+		if (hasSandstone()) {
 			addBlockMetaAliasOption("GROUND", 1, Blocks.dirt, 1);
 			addBlockMetaAliasOption("GROUND", 2, GOTRegistry.pillar1, 5);
 			addBlockMetaAliasOption("GROUND", 3, GOTRegistry.dirtPath, 0);

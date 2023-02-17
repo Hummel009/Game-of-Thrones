@@ -5,6 +5,6 @@ import got.common.world.structure.essos.common.GOTStructureEssosFortress;
 public class GOTStructureMyrFortress extends GOTStructureEssosFortress {
 	public GOTStructureMyrFortress(boolean flag) {
 		super(flag);
-		type = Type.MYR;
+		cityType = CityType.MYR;
 	}
 }

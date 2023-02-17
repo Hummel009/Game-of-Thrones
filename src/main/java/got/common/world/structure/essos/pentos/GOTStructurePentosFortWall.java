@@ -5,14 +5,14 @@ import got.common.world.structure.essos.common.GOTStructureEssosFortWall;
 public class GOTStructurePentosFortWall extends GOTStructureEssosFortWall {
 	public GOTStructurePentosFortWall(boolean flag) {
 		super(flag);
-		type = Type.PENTOS;
+		cityType = CityType.PENTOS;
 	}
 
 	public static class Long extends GOTStructureEssosFortWall.Long {
 		public Long(boolean flag) {
 			super(flag);
 			isLong = true;
-			type = Type.PENTOS;
+			cityType = CityType.PENTOS;
 		}
 	}
 
@@ -20,7 +20,7 @@ public class GOTStructurePentosFortWall extends GOTStructureEssosFortWall {
 		public Short(boolean flag) {
 			super(flag);
 			isLong = false;
-			type = Type.PENTOS;
+			cityType = CityType.PENTOS;
 		}
 	}
 }

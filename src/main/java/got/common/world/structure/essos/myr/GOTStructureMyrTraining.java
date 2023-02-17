@@ -5,6 +5,6 @@ import got.common.world.structure.essos.common.GOTStructureEssosTraining;
 public class GOTStructureMyrTraining extends GOTStructureEssosTraining {
 	public GOTStructureMyrTraining(boolean flag) {
 		super(flag);
-		type = Type.MYR;
+		cityType = CityType.MYR;
 	}
 }

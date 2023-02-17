@@ -5,6 +5,6 @@ import got.common.world.structure.essos.common.GOTStructureEssosHouse;
 public class GOTStructureLysHouse extends GOTStructureEssosHouse {
 	public GOTStructureLysHouse(boolean flag) {
 		super(flag);
-		type = Type.LYS;
+		cityType = CityType.LYS;
 	}
 }

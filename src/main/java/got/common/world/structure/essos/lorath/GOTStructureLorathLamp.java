@@ -5,6 +5,6 @@ import got.common.world.structure.essos.common.GOTStructureEssosLamp;
 public class GOTStructureLorathLamp extends GOTStructureEssosLamp {
 	public GOTStructureLorathLamp(boolean flag) {
 		super(flag);
-		type = Type.LORATH;
+		cityType = CityType.LORATH;
 	}
 }
