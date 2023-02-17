@@ -139,7 +139,7 @@ public class GOTStructureEssosTavern extends GOTStructureEssosBase {
 		placeWallBanner(world, 2, 5, -15, bannerType, 0);
 		spawnNPCAndSetHome(getBartender(world), world, -2, 1, 8, 4);
 		spawnNPCAndSetHome(new GOTEntityGoldenCaptain(world), world, 0, 1, 0, 16);
-		if (isGhiscar) {
+		if (isNiggerFolk()) {
 			spawnNPCAndSetHome(new GOTEntityEssosThief(world), world, 0, 1, 0, 16);
 			spawnNPCAndSetHome(new GOTEntityEssosScrapTrader(world), world, 0, 1, 0, 16);
 		} else {

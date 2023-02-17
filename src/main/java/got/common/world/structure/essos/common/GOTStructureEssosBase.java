@@ -282,12 +282,20 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		return tables.get(type);
 	}
 
+	public boolean isNiggerFolk() {
+		return type == Type.GHISCAR;
+	}
+
 	public boolean isNorthernTrees() {
 		return type == Type.BRAAVOS || type == Type.LORATH || type == Type.NORVOS || type == Type.QOHOR;
 	}
 
 	public boolean isSandstone() {
 		return type == Type.GHISCAR || type == Type.QARTH || type == Type.PENTOS;
+	}
+
+	public boolean isSandyCity() {
+		return type == Type.GHISCAR || type == Type.PENTOS || type == Type.QARTH;
 	}
 
 	@Override

@@ -93,7 +93,7 @@ public class GOTStructureEssosFortress extends GOTStructureEssosBase {
 		associateBlockMetaAlias("ROOF_SLAB_INV", roofSlabBlock, roofSlabMeta | 8);
 		associateBlockAlias("ROOF_STAIR", roofStairBlock);
 		associateBlockAlias("GATE_METAL", gateMetalBlock);
-		if (isGhiscar || isPentos || isQarth) {
+		if (isSandyCity()) {
 			addBlockMetaAliasOption("GROUND", 1, Blocks.dirt, 1);
 			addBlockMetaAliasOption("GROUND", 2, GOTRegistry.pillar1, 5);
 			addBlockMetaAliasOption("GROUND", 3, GOTRegistry.dirtPath, 0);

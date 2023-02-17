@@ -56,7 +56,7 @@ public class GOTStructureEssosStables extends GOTStructureEssosBase {
 				if ((i2 > 3 || k2 > 6) && (i1 < 4 || i1 > 7 || k2 > 5)) {
 					continue;
 				}
-				if (isGhiscar || isPentos || isQarth) {
+				if (isSandyCity()) {
 					if (random.nextBoolean()) {
 						setBlockAndMetadata(world, i1, 0, k1, Blocks.sand, 0);
 					} else {
