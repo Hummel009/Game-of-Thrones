@@ -85,7 +85,7 @@ public class GOTBiomeBoneMountains extends GOTBiomeDothrakiSea {
 
 	@Override
 	public GOTBezierType getWallBlock() {
-		return GOTBezierType.COBBLEBRICK;
+		return GOTBezierType.WALL_YITI;
 	}
 
 	@Override

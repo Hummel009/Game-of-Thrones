@@ -71,12 +71,12 @@ public class GOTBiomeYiTi extends GOTBiomeEssos {
 
 	@Override
 	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PAVING;
+		return GOTBezierType.PATH_PAVING;
 	}
 
 	@Override
 	public GOTBezierType getWallBlock() {
-		return GOTBezierType.COBBLEBRICK;
+		return GOTBezierType.WALL_YITI;
 	}
 
 	@Override

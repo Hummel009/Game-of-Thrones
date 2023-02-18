@@ -54,7 +54,7 @@ public class GOTBiomeShadowLand extends GOTBiome {
 
 	@Override
 	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.ASSHAI;
+		return GOTBezierType.PATH_ASSHAI;
 	}
 
 	public static boolean isBlackSurface(World world, int i, int j, int k) {

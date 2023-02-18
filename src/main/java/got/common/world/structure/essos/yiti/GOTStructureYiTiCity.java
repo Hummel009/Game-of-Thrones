@@ -101,27 +101,27 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 			if (villageType == VillageType.TOWN) {
 				innerOut = 18;
 				if (i1 <= innerOut && k1 <= innerOut && (i1 >= 12 || k1 >= 12)) {
-					return GOTBezierType.YITI;
+					return GOTBezierType.TOWN_YITI;
 				}
 				if (i1 <= 3 && k1 >= innerOut && k1 <= 86 || k1 <= 3 && i1 >= innerOut && i1 <= 86) {
-					return GOTBezierType.YITI;
+					return GOTBezierType.TOWN_YITI;
 				}
 				outerOut = 66;
 				if (i1 <= outerOut && k1 <= outerOut && (i1 >= 60 || k1 >= 60)) {
-					return GOTBezierType.YITI;
+					return GOTBezierType.TOWN_YITI;
 				}
 			}
 			if (villageType == VillageType.FORT) {
 				innerOut = 24;
 				if (i1 <= innerOut && k1 <= innerOut && (i1 >= 20 || k1 >= 20)) {
-					return GOTBezierType.YITI;
+					return GOTBezierType.TOWN_YITI;
 				}
 				if (k >= 14 && k <= 54 && i1 <= 2) {
-					return GOTBezierType.YITI;
+					return GOTBezierType.TOWN_YITI;
 				}
 				outerOut = 52;
 				if (i1 <= outerOut && k1 <= outerOut && (i1 >= 48 || k1 >= 48)) {
-					return GOTBezierType.YITI;
+					return GOTBezierType.TOWN_YITI;
 				}
 			}
 			return null;

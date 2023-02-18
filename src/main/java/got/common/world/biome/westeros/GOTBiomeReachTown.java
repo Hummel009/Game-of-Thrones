@@ -47,6 +47,6 @@ public class GOTBiomeReachTown extends GOTBiomeReach {
 
 	@Override
 	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PAVING;
+		return GOTBezierType.PATH_PAVING;
 	}
 }

@@ -32,7 +32,7 @@ public class GOTBiomeIfekevronForest extends GOTBiomeTropicalForest {
 
 	@Override
 	public GOTBezierType getWallBlock() {
-		return GOTBezierType.WOOD;
+		return GOTBezierType.WALL_IBBEN;
 	}
 
 	@Override

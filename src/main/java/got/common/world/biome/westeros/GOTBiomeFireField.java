@@ -43,6 +43,6 @@ public class GOTBiomeFireField extends GOTBiomeReach {
 
 	@Override
 	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PAVING.setHasFlowers(true);
+		return GOTBezierType.PATH_PAVING.setHasFlowers(true);
 	}
 }

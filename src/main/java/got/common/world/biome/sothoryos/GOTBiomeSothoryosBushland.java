@@ -122,6 +122,6 @@ public class GOTBiomeSothoryosBushland extends GOTBiome {
 
 	@Override
 	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.SOTHORYOS;
+		return GOTBezierType.PATH_SOTHORYOS;
 	}
 }

@@ -94,7 +94,7 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 				break;
 			case RED_KEEP:
 				if (i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36 || k1 <= 1 && i1 >= 12 && i1 <= 36 || k >= 26 && k <= 28 && i1 <= 12) {
-					return GOTBezierType.PAVING;
+					return GOTBezierType.PATH_PAVING;
 				}
 				break;
 			case TOWN:

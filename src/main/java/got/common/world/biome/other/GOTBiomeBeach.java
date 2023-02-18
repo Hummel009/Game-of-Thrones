@@ -20,7 +20,7 @@ public class GOTBiomeBeach extends GOTBiomeOcean {
 
 	@Override
 	public GOTBezierType getWallBlock() {
-		return GOTBezierType.ICE;
+		return GOTBezierType.WALL_ICE;
 	}
 
 	public GOTBiomeBeach setBeachBlock(Block block, int meta) {

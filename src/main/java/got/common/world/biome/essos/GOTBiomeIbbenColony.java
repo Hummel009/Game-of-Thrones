@@ -36,7 +36,7 @@ public class GOTBiomeIbbenColony extends GOTBiomeEssos {
 
 	@Override
 	public GOTBezierType getWallBlock() {
-		return GOTBezierType.WOOD;
+		return GOTBezierType.WALL_IBBEN;
 	}
 
 	@Override

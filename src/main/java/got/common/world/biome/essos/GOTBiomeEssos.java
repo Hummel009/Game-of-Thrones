@@ -136,7 +136,7 @@ public class GOTBiomeEssos extends GOTBiome {
 
 	@Override
 	public GOTBezierType getWallBlock() {
-		return GOTBezierType.WOOD;
+		return GOTBezierType.WALL_IBBEN;
 	}
 
 	@Override

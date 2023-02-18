@@ -79,7 +79,7 @@ public class GOTBiomeFrostfangs extends GOTBiomeWesterosFrost {
 
 	@Override
 	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.SNOW;
+		return GOTBezierType.PATH_SNOWY;
 	}
 
 	@Override

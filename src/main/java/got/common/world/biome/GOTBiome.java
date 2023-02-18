@@ -716,7 +716,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	public GOTBezierType getWallBlock() {
-		return GOTBezierType.ICE;
+		return GOTBezierType.WALL_ICE;
 	}
 
 	public int getWallTop() {
