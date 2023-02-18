@@ -5,10 +5,8 @@ import java.util.*;
 import org.apache.commons.lang3.tuple.Pair;
 
 public class GOTBeziers {
-	//public static List<GOTBeziers> allBeziers = new ArrayList<>();
-	//public static int beziers = allBeziers.size();
-	//public static BezierPointDatabase bezierPointDatabase = new BezierPointDatabase();
-
+	public static List<GOTBeziers> allBeziers = new ArrayList<>();
+	
 	public static List<GOTBeziers> allRoads = new ArrayList<>();
 	public static int roads = allRoads.size();
 	public static BezierPointDatabase roadPointDatabase = new BezierPointDatabase();
@@ -303,6 +301,7 @@ public class GOTBeziers {
 		BezierPoint[] array = points.toArray(new BezierPoint[0]);
 		GOTBeziers[] beziers = BezierCurves.getSplines(array, false);
 		allRoads.addAll(Arrays.asList(beziers));
+		allBeziers.addAll(Arrays.asList(beziers));
 	}
 
 	public static void registerWall(int id, Object... waypoints) {
@@ -319,6 +318,7 @@ public class GOTBeziers {
 		BezierPoint[] array = points.toArray(new BezierPoint[0]);
 		GOTBeziers[] beziers = BezierCurves.getSplines(array, true);
 		allWalls.addAll(Arrays.asList(beziers));
+		allBeziers.addAll(Arrays.asList(beziers));
 	}
 
 	public static class BezierCurves {
