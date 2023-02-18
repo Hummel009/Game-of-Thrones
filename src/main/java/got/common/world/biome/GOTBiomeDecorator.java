@@ -398,7 +398,16 @@ public class GOTBiomeDecorator {
 		chunkZ = k;
 		Thread decorateThread = new Thread(this::decorate);
 		decorateThread.start();
-		Thread affixThread = new Thread(() -> affix(world, random, i, k));
+		Thread affixThread = new Thread(() -> {
+			if (!GOTConfig.clearMap) {
+				GOTFixer.addSpecialLocations(world, random, i, k);
+				for (Entry<GOTWaypoint, GOTStructureBase> wp : GOTFixer.structures.entrySet()) {
+					if (GOTFixedStructures.fixedAt(i, k, wp.getKey())) {
+						wp.getValue().generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k), k, 0);
+					}
+				}
+			}
+		});
 		affixThread.start();
 		try {
 			decorateThread.join();
@@ -469,18 +478,6 @@ public class GOTBiomeDecorator {
 			trees = Math.max(trees, 1);
 		}
 		return Math.round(trees * variant.treeFactor);
-	}
-
-	public static void affix(World world, Random random, int i, int k) {
-		if (!GOTConfig.clearMap) {
-			GOTFixer.addSpecialLocations(world, random, i, k);
-			for (Entry<GOTWaypoint, GOTStructureBase> wp : GOTFixer.structures.entrySet()) {
-				if (GOTFixedStructures.fixedAt(i, k, wp.getKey())) {
-					wp.getValue().generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k), k, 0);
-				}
-			}
-		}
-
 	}
 
 	public static class OreGenerant {
