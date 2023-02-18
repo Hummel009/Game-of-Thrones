@@ -49,27 +49,14 @@ public abstract class GOTBezierType {
 
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
+			BezierBlock[] blockTypes;
 			if (slab) {
-				float f = rand.nextFloat();
-				if (f < 0.5f) {
-					return new BezierBlock(GOTRegistry.slabSingleDirt, 1);
-				}
-				if (f < 0.8f) {
-					return new BezierBlock(GOTRegistry.slabSingleDirt, 0);
-				}
-				return new BezierBlock(GOTRegistry.slabSingleGravel, 0);
+				blockTypes = new BezierBlock[] { new BezierBlock(GOTRegistry.slabSingleDirt, 1), new BezierBlock(GOTRegistry.slabSingleDirt, 0), new BezierBlock(GOTRegistry.slabSingleGravel, 0) };
+			} else {
+				blockTypes = new BezierBlock[] { new BezierBlock(GOTRegistry.dirtPath, 0), new BezierBlock(Blocks.dirt, 1), new BezierBlock(Blocks.gravel, 0) };
 			}
-			if (top) {
-				float f = rand.nextFloat();
-				if (f < 0.5f) {
-					return new BezierBlock(GOTRegistry.dirtPath, 0);
-				}
-				if (f < 0.8f) {
-					return new BezierBlock(Blocks.dirt, 1);
-				}
-				return new BezierBlock(Blocks.gravel, 0);
-			}
-			return new BezierBlock(GOTRegistry.dirtPath, 0);
+			int index = (int) (rand.nextFloat() * blockTypes.length);
+			return blockTypes[index];
 		}
 	};
 
@@ -88,42 +75,14 @@ public abstract class GOTBezierType {
 
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
+			BezierBlock[] blockTypes;
 			if (slab) {
-				float f = rand.nextFloat();
-				if (f < 0.17f) {
-					return new BezierBlock(GOTRegistry.slabSingleDirt, 0);
-				}
-				if (f < 0.33f) {
-					return new BezierBlock(GOTRegistry.slabSingleDirt, 1);
-				}
-				if (f < 0.5f) {
-					return new BezierBlock(GOTRegistry.slabSingleSand, 0);
-				}
-				if (f < 0.67f) {
-					return new BezierBlock(GOTRegistry.slabSingle4, 0);
-				}
-				if (f < 0.83f) {
-					return new BezierBlock(GOTRegistry.slabSingle7, 1);
-				}
-				return new BezierBlock(GOTRegistry.slabSingle4, 7);
+				blockTypes = new BezierBlock[] { new BezierBlock(GOTRegistry.slabSingleDirt, 0), new BezierBlock(GOTRegistry.slabSingleDirt, 1), new BezierBlock(GOTRegistry.slabSingleSand, 0), new BezierBlock(GOTRegistry.slabSingle4, 0), new BezierBlock(GOTRegistry.slabSingle7, 1), new BezierBlock(GOTRegistry.slabSingle4, 7) };
+			} else {
+				blockTypes = new BezierBlock[] { new BezierBlock(Blocks.dirt, 1), new BezierBlock(GOTRegistry.dirtPath, 0), top ? new BezierBlock(Blocks.sand, 0) : new BezierBlock(Blocks.sandstone, 0), new BezierBlock(GOTRegistry.brick1, 15), new BezierBlock(GOTRegistry.brick3, 11), new BezierBlock(GOTRegistry.pillar1, 5) };
 			}
-			float f = rand.nextFloat();
-			if (f < 0.17f) {
-				return new BezierBlock(Blocks.dirt, 1);
-			}
-			if (f < 0.33f) {
-				return new BezierBlock(GOTRegistry.dirtPath, 0);
-			}
-			if (f < 0.5f) {
-				return top ? new BezierBlock(Blocks.sand, 0) : new BezierBlock(Blocks.sandstone, 0);
-			}
-			if (f < 0.67f) {
-				return new BezierBlock(GOTRegistry.brick1, 15);
-			}
-			if (f < 0.83f) {
-				return new BezierBlock(GOTRegistry.brick3, 11);
-			}
-			return new BezierBlock(GOTRegistry.pillar1, 5);
+			int index = (int) (rand.nextFloat() * blockTypes.length);
+			return blockTypes[index];
 		}
 	};
 
@@ -131,22 +90,13 @@ public abstract class GOTBezierType {
 
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
+			BezierBlock[] blocks;
 			if (slab) {
-				if (rand.nextInt(4) == 0) {
-					if (rand.nextBoolean()) {
-						return new BezierBlock(GOTRegistry.slabSingle8, 1);
-					}
-					return new BezierBlock(GOTRegistry.slabSingle8, 2);
-				}
-				return new BezierBlock(GOTRegistry.slabSingle8, 0);
+				blocks = new BezierBlock[] { new BezierBlock(GOTRegistry.slabSingle8, 0), new BezierBlock(GOTRegistry.slabSingle8, 1), new BezierBlock(GOTRegistry.slabSingle8, 2), new BezierBlock(GOTRegistry.slabSingle8, rand.nextBoolean() ? 1 : 2) };
+			} else {
+				blocks = new BezierBlock[] { new BezierBlock(GOTRegistry.brick4, 0), new BezierBlock(GOTRegistry.brick4, 1), new BezierBlock(GOTRegistry.brick4, 2), new BezierBlock(GOTRegistry.brick4, rand.nextBoolean() ? 1 : 2) };
 			}
-			if (rand.nextInt(4) == 0) {
-				if (rand.nextBoolean()) {
-					return new BezierBlock(GOTRegistry.brick4, 1);
-				}
-				return new BezierBlock(GOTRegistry.brick4, 2);
-			}
-			return new BezierBlock(GOTRegistry.brick4, 0);
+			return blocks[rand.nextInt(blocks.length)];
 		}
 	};
 
@@ -181,12 +131,14 @@ public abstract class GOTBezierType {
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
 			if (slab) {
 				if (rand.nextInt(8) == 0) {
-					return rand.nextBoolean() ? new BezierBlock(GOTRegistry.slabSingle12, 1) : new BezierBlock(GOTRegistry.slabSingle12, 2);
+					int meta = rand.nextBoolean() ? 1 : 2;
+					return new BezierBlock(GOTRegistry.slabSingle12, meta);
 				}
 				return new BezierBlock(GOTRegistry.slabSingle12, 0);
 			}
 			if (rand.nextInt(8) == 0) {
-				return rand.nextBoolean() ? new BezierBlock(GOTRegistry.brick5, 13) : new BezierBlock(GOTRegistry.brick5, 14);
+				int meta = rand.nextBoolean() ? 13 : 14;
+				return new BezierBlock(GOTRegistry.brick5, meta);
 			}
 			return new BezierBlock(GOTRegistry.brick5, 11);
 		}

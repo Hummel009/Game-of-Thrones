@@ -95,6 +95,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		blacksmiths.put(Kingdom.WESTERLANDS, GOTEntityWesterlandsBlacksmith.class);
 		captains.put(Kingdom.ARRYN, GOTEntityArrynCaptain.class);
 		captains.put(Kingdom.CROWNLANDS, GOTEntityCrownlandsCaptain.class);
+		captains.put(Kingdom.CROWNLANDS_RED, GOTEntityCrownlandsCaptain.class);
 		captains.put(Kingdom.DORNE, GOTEntityDorneCaptain.class);
 		captains.put(Kingdom.DRAGONSTONE, GOTEntityDragonstoneCaptain.class);
 		captains.put(Kingdom.IRONBORN, GOTEntityIronbornCaptain.class);
