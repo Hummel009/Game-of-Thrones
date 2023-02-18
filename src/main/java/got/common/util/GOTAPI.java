@@ -20,8 +20,7 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.genlayer.GOTGenLayerWorld;
 import got.common.world.map.*;
-import got.common.world.map.GOTRoads.RoadPointDatabase;
-import got.common.world.map.GOTWalls.WallPointDatabase;
+import got.common.world.map.GOTBeziers.BezierPointDatabase;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.DynamicTexture;
@@ -378,21 +377,12 @@ public class GOTAPI {
 	}
 
 	/**
-	 * @apiNote Clears all the roads in the world.
+	 * @apiNote Clears all the roads and walls in the world.
 	 * @apiNote Should be used at the FMLInitializationEvent or later.
 	 */
-	public static void clearRoadDataBase() {
-		GOTRoads.allRoads.clear();
-		GOTRoads.roadPointDatabase = new RoadPointDatabase();
-	}
-
-	/**
-	 * @apiNote Clears all the walls in the world.
-	 * @apiNote Should be used at the FMLInitializationEvent or later.
-	 */
-	public static void clearWallDataBase() {
-		GOTWalls.allWalls.clear();
-		GOTWalls.wallPointDatabase = new WallPointDatabase();
+	public static void clearBezierDataBase() {
+		GOTBeziers.allBeziers.clear();
+		GOTBeziers.bezierPointDatabase = new BezierPointDatabase();
 	}
 
 	/**

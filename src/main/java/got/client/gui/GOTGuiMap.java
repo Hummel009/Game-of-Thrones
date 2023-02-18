@@ -499,8 +499,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		zLevel += 50.0f;
 		GOTTextures.drawMapCompassBottomLeft(mapXMin + 12, mapYMax - 12, zLevel, 1.0);
 		zLevel -= 50.0f;
-		this.renderRoads();
-		this.renderWalls();
+		this.renderBeziers();
 		renderPlayers(i, j);
 		if (!loadingConquestGrid) {
 			renderMiniQuests(mc.thePlayer, i, j);
@@ -1666,49 +1665,49 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 	}
 
-	public void renderRoads() {
+	public void renderBeziers() {
 		if (!showWP && !showCWP || !GOTFixedStructures.hasMapFeatures(mc.theWorld)) {
 			return;
 		}
-		this.renderRoads(hasMapLabels());
+		this.renderBeziers(hasMapLabels());
 	}
 
-	public void renderRoads(boolean labels) {
-		float roadZoomlerp = (zoomExp - -3.3f) / 2.2f;
-		roadZoomlerp = Math.min(roadZoomlerp, 1.0f);
+	public void renderBeziers(boolean labels) {
+		float bezierZoomlerp = (zoomExp - -3.3f) / 2.2f;
+		bezierZoomlerp = Math.min(bezierZoomlerp, 1.0f);
 		if (!enableZoomOutWPFading) {
-			roadZoomlerp = 1.0f;
+			bezierZoomlerp = 1.0f;
 		}
-		if (roadZoomlerp > 0.0f) {
-			for (GOTRoads road : GOTRoads.allRoads) {
+		if (bezierZoomlerp > 0.0f) {
+			for (GOTBeziers bezier : GOTBeziers.allBeziers) {
 				int interval = Math.round(400.0f / zoomScaleStable);
 				interval = Math.max(interval, 1);
-				for (int i = 0; i < road.roadPoints.length; i += interval) {
+				for (int i = 0; i < bezier.bezierPoints.length; i += interval) {
 					int clip;
-					GOTRoads.RoadPoint point = road.roadPoints[i];
+					GOTBeziers.BezierPoint point = bezier.bezierPoints[i];
 					float[] pos = this.transformCoords(point.x, point.z);
 					float x = pos[0];
 					float y = pos[1];
 					if (x >= mapXMin && x < mapXMax && y >= mapYMin && y < mapYMax) {
-						double roadWidth = 1.0;
-						int roadColor = 0;
-						float roadAlpha = roadZoomlerp;
+						double bezierWidth = 1.0;
+						int bezierColor = 0;
+						float bezierAlpha = bezierZoomlerp;
 						if (GOTGuiMap.isOSRS()) {
-							roadWidth = 3.0 * zoomScale;
-							roadColor = 6575407;
-							roadAlpha = 1.0f;
+							bezierWidth = 3.0 * zoomScale;
+							bezierColor = 6575407;
+							bezierAlpha = 1.0f;
 						}
-						double roadWidthLess1 = roadWidth - 1.0;
+						double bezierWidthLess1 = bezierWidth - 1.0;
 						GL11.glDisable(3553);
 						GL11.glEnable(3042);
 						GL11.glBlendFunc(770, 771);
 						Tessellator tessellator = Tessellator.instance;
 						tessellator.startDrawingQuads();
-						tessellator.setColorRGBA_I(roadColor, (int) (roadAlpha * 255.0f));
-						tessellator.addVertex(x - roadWidthLess1, y + roadWidth, zLevel);
-						tessellator.addVertex(x + roadWidth, y + roadWidth, zLevel);
-						tessellator.addVertex(x + roadWidth, y - roadWidthLess1, zLevel);
-						tessellator.addVertex(x - roadWidthLess1, y - roadWidthLess1, zLevel);
+						tessellator.setColorRGBA_I(bezierColor, (int) (bezierAlpha * 255.0f));
+						tessellator.addVertex(x - bezierWidthLess1, y + bezierWidth, zLevel);
+						tessellator.addVertex(x + bezierWidth, y + bezierWidth, zLevel);
+						tessellator.addVertex(x + bezierWidth, y - bezierWidthLess1, zLevel);
+						tessellator.addVertex(x - bezierWidthLess1, y - bezierWidthLess1, zLevel);
 						tessellator.draw();
 						GL11.glDisable(3042);
 						GL11.glEnable(3553);
@@ -1723,7 +1722,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 							boolean endNear = false;
 							double dMax = (nameWidth / 2.0 + 25.0) * scale;
 							double dMaxSq = dMax * dMax;
-							for (GOTRoads.RoadPoint end : road.endpoints) {
+							for (GOTBeziers.BezierPoint end : bezier.endpoints) {
 								float dy;
 								float[] endPos = this.transformCoords(end.x, end.z);
 								float endX = endPos[0];
@@ -1738,108 +1737,8 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 								GL11.glPushMatrix();
 								GL11.glTranslatef(x, y, 0.0f);
 								GL11.glScalef(scale, scale, scale);
-								GOTRoads.RoadPoint nextPoint = road.roadPoints[Math.min(i + 1, road.roadPoints.length - 1)];
-								GOTRoads.RoadPoint prevPoint = road.roadPoints[Math.max(i - 1, 0)];
-								double grad = (nextPoint.z - prevPoint.z) / (nextPoint.x - prevPoint.x);
-								float angle = (float) Math.atan(grad);
-								angle = (float) Math.toDegrees(angle);
-								if (Math.abs(angle) > 90.0f) {
-									angle += 180.0f;
-								}
-								GL11.glRotatef(angle, 0.0f, 0.0f, 1.0f);
-								float alpha = zoomlerp;
-								int alphaI = GOTClientProxy.getAlphaInt(alpha *= 0.8f);
-								GL11.glEnable(3042);
-								GL11.glBlendFunc(770, 771);
-								int strX = -nameWidth / 2;
-								int strY = -15;
-								fontRendererObj.drawString(name, strX + 1, strY + 1, 0 + (alphaI << 24));
-								fontRendererObj.drawString(name, strX, strY, 16777215 + (alphaI << 24));
-								GL11.glDisable(3042);
-								GL11.glPopMatrix();
-								endMapClipping();
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
-	public void renderWalls() {
-		if (!showWP && !showCWP || !GOTFixedStructures.hasMapFeatures(mc.theWorld)) {
-			return;
-		}
-		this.renderWalls(hasMapLabels());
-	}
-
-	public void renderWalls(boolean labels) {
-		float WallZoomlerp = (zoomExp - -3.3f) / 2.2f;
-		WallZoomlerp = Math.min(WallZoomlerp, 1.0f);
-		if (!enableZoomOutWPFading) {
-			WallZoomlerp = 1.0f;
-		}
-		if (WallZoomlerp > 0.0f) {
-			for (GOTWalls Wall : GOTWalls.allWalls) {
-				int interval = Math.round(400.0f / zoomScaleStable);
-				interval = Math.max(interval, 1);
-				for (int i = 0; i < Wall.wallPoints.length; i += interval) {
-					int clip;
-					GOTWalls.WallPoint point = Wall.wallPoints[i];
-					float[] pos = this.transformCoords(point.x, point.z);
-					float x = pos[0];
-					float y = pos[1];
-					if (x >= mapXMin && x < mapXMax && y >= mapYMin && y < mapYMax) {
-						double WallWidth = 1.0;
-						int WallColor = 0;
-						float WallAlpha = WallZoomlerp;
-						if (GOTGuiMap.isOSRS()) {
-							WallWidth = 3.0 * zoomScale;
-							WallColor = 6575407;
-							WallAlpha = 1.0f;
-						}
-						double WallWidthLess1 = WallWidth - 1.0;
-						GL11.glDisable(3553);
-						GL11.glEnable(3042);
-						GL11.glBlendFunc(770, 771);
-						Tessellator tessellator = Tessellator.instance;
-						tessellator.startDrawingQuads();
-						tessellator.setColorRGBA_I(WallColor, (int) (WallAlpha * 255.0f));
-						tessellator.addVertex(x - WallWidthLess1, y + WallWidth, zLevel);
-						tessellator.addVertex(x + WallWidth, y + WallWidth, zLevel);
-						tessellator.addVertex(x + WallWidth, y - WallWidthLess1, zLevel);
-						tessellator.addVertex(x - WallWidthLess1, y - WallWidthLess1, zLevel);
-						tessellator.draw();
-						GL11.glDisable(3042);
-						GL11.glEnable(3553);
-					}
-					if (labels && x >= mapXMin - (clip = 200) && x <= mapXMax + clip && y >= mapYMin - clip && y <= mapYMax + clip) {
-						float zoomlerp = (zoomExp - -1.0f) / 4.0f;
-						float scale = zoomlerp = Math.min(zoomlerp, 1.0f);
-						String name = null;
-						int nameWidth = fontRendererObj.getStringWidth(name);
-						int nameInterval = (int) ((nameWidth * 2 + 100) * 200.0f / zoomScaleStable);
-						if (i % nameInterval < interval) {
-							boolean endNear = false;
-							double dMax = (nameWidth / 2.0 + 25.0) * scale;
-							double dMaxSq = dMax * dMax;
-							for (GOTWalls.WallPoint end : Wall.endpoints) {
-								float dy;
-								float[] endPos = this.transformCoords(end.x, end.z);
-								float endX = endPos[0];
-								float dx = x - endX;
-								double dSq = dx * dx + (dy = y - endPos[1]) * dy;
-								if (dSq < dMaxSq) {
-									endNear = true;
-								}
-							}
-							if (!endNear && zoomlerp > 0.0f) {
-								setupMapClipping();
-								GL11.glPushMatrix();
-								GL11.glTranslatef(x, y, 0.0f);
-								GL11.glScalef(scale, scale, scale);
-								GOTWalls.WallPoint nextPoint = Wall.wallPoints[Math.min(i + 1, Wall.wallPoints.length - 1)];
-								GOTWalls.WallPoint prevPoint = Wall.wallPoints[Math.max(i - 1, 0)];
+								GOTBeziers.BezierPoint nextPoint = bezier.bezierPoints[Math.min(i + 1, bezier.bezierPoints.length - 1)];
+								GOTBeziers.BezierPoint prevPoint = bezier.bezierPoints[Math.max(i - 1, 0)];
 								double grad = (nextPoint.z - prevPoint.z) / (nextPoint.x - prevPoint.x);
 								float angle = (float) Math.atan(grad);
 								angle = (float) Math.toDegrees(angle);

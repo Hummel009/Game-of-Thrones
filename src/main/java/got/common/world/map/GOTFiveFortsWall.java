@@ -34,7 +34,7 @@ public class GOTFiveFortsWall extends GOTStructureBase {
 					if (circleDist >= 0.08) {
 						continue;
 					}
-					float roadNear = GOTRoads.isRoadNear(i1, k1, 9);
+					float roadNear = GOTBeziers.isRoadNear(i1, k1, 9);
 					boolean gate = roadNear >= 0.0f;
 					boolean fences = false;
 					boolean wallEdge = circleDist > 0.025;

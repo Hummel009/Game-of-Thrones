@@ -53,10 +53,10 @@ public enum GOTFixedStructures {
 					break;
 				}
 			}
-			if (!structureNear && GOTRoads.isRoadNear(x, z, 32) >= 0.0f) {
+			if (!structureNear && GOTBeziers.isRoadNear(x, z, 32) >= 0.0f) {
 				structureNear = true;
 			}
-			if (!structureNear && GOTWalls.isWallNear(x, z, 32) >= 0.0f) {
+			if (!structureNear && GOTBeziers.isWallNear(x, z, 32) >= 0.0f) {
 				structureNear = true;
 			}
 		}

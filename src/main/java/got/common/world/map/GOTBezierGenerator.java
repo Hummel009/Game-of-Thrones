@@ -21,7 +21,7 @@ public class GOTBezierGenerator {
 		GOTBezierType wallType = biome.getWallBlock();
 		int wallTop = biome.getWallTop();
 
-		if (GOTWalls.isWallAt(i, k)) {
+		if (GOTBeziers.isWallAt(i, k)) {
 			int index;
 			int j;
 			for (j = wallTop; j > 62; --j) {
@@ -34,7 +34,7 @@ public class GOTBezierGenerator {
 			return true;
 		}
 
-		if (GOTRoads.isRoadAt(i, k)) {
+		if (GOTBeziers.isRoadAt(i, k)) {
 			int index;
 			int j;
 			int indexLower;
@@ -167,7 +167,7 @@ public class GOTBezierGenerator {
 			boolean adjRoad = false;
 			block5: for (i1 = -2; i1 <= 2; ++i1) {
 				for (int k1 = -2; k1 <= 2; ++k1) {
-					if (i1 == 0 && k1 == 0 || !GOTRoads.isRoadAt(i + i1, k + k1)) {
+					if (i1 == 0 && k1 == 0 || !GOTBeziers.isRoadAt(i + i1, k + k1)) {
 						continue;
 					}
 					adjRoad = true;
@@ -183,7 +183,7 @@ public class GOTBezierGenerator {
 				adjRoad = false;
 				block7: for (i1 = -3; i1 <= 3; ++i1) {
 					for (int k1 = -3; k1 <= 3; ++k1) {
-						if (Math.abs(i1) <= 2 && Math.abs(k1) <= 2 || !GOTRoads.isRoadAt(i + i1, k + k1)) {
+						if (Math.abs(i1) <= 2 && Math.abs(k1) <= 2 || !GOTBeziers.isRoadAt(i + i1, k + k1)) {
 							continue;
 						}
 						adjRoad = true;
@@ -202,13 +202,13 @@ public class GOTBezierGenerator {
 	}
 
 	public static boolean isBridgeEdgePillar(int i, int k) {
-		return GOTRoads.isRoadAt(i, k) && GOTBezierGenerator.isFenceAt(i, k) && GOTBezierGenerator.isPillarAt(i, k);
+		return GOTBeziers.isRoadAt(i, k) && GOTBezierGenerator.isFenceAt(i, k) && GOTBezierGenerator.isPillarAt(i, k);
 	}
 
 	public static boolean isFenceAt(int i, int k) {
 		for (int i1 = -1; i1 <= 1; ++i1) {
 			for (int k1 = -1; k1 <= 1; ++k1) {
-				if (i1 == 0 && k1 == 0 || GOTRoads.isRoadAt(i + i1, k + k1)) {
+				if (i1 == 0 && k1 == 0 || GOTBeziers.isRoadAt(i + i1, k + k1)) {
 					continue;
 				}
 				return true;

@@ -96,10 +96,10 @@ public abstract class GOTVillageGen {
 					int j1 = (Integer) pathData[0];
 					boolean isSlab = (Boolean) pathData[2];
 					instance.setupWorldPositionSeed(i1, k1);
-					GOTBezierType.BezierBlock roadblock = pathType.getBlock(instance.instanceRand, biome, true, isSlab);
-					GOTBezierType.BezierBlock roadblockSolid = pathType.getBlock(instance.instanceRand, biome, false, false);
-					world.setBlock(i1, j1, k1, roadblock.block, roadblock.meta, 2);
-					world.setBlock(i1, j1 - 1, k1, roadblockSolid.block, roadblockSolid.meta, 2);
+					GOTBezierType.BezierBlock bezierblock = pathType.getBlock(instance.instanceRand, biome, true, isSlab);
+					GOTBezierType.BezierBlock bezierblockSolid = pathType.getBlock(instance.instanceRand, biome, false, false);
+					world.setBlock(i1, j1, k1, bezierblock.block, bezierblock.meta, 2);
+					world.setBlock(i1, j1 - 1, k1, bezierblockSolid.block, bezierblockSolid.meta, 2);
 					Block above = world.getBlock(i1, j1 + 1, k1);
 					if (!above.canBlockStay(world, i1, j1 + 1, k1)) {
 						world.setBlock(i1, j1 + 1, k1, Blocks.air, 0, 3);
@@ -131,11 +131,11 @@ public abstract class GOTVillageGen {
 		int[] coords = instance.getRelativeCoords(i, k);
 		int i1 = coords[0];
 		int k1 = coords[1];
-		GOTBezierType road = instance.getPath(instance.instanceRand, i1, k1);
+		GOTBezierType bezier = instance.getPath(instance.instanceRand, i1, k1);
 		boolean isPath = false;
 		boolean isSlab = false;
 		int j1 = getTopTerrainBlock(world, i, k, biome, true);
-		if (road != null && j1 > 0 && GOTStructureBase.isSurfaceStatic(world, i, j1, k)) {
+		if (bezier != null && j1 > 0 && GOTStructureBase.isSurfaceStatic(world, i, j1, k)) {
 			isPath = true;
 			int slabRange = 1;
 			CentredSquareArray<Integer> slabArray = new CentredSquareArray<>(slabRange);
@@ -161,7 +161,7 @@ public abstract class GOTVillageGen {
 		Object[] ret = new Object[3];
 		if (isPath) {
 			ret[0] = j1;
-			ret[1] = road;
+			ret[1] = bezier;
 			ret[2] = isSlab;
 		} else {
 			ret[0] = -1;
@@ -257,8 +257,7 @@ public abstract class GOTVillageGen {
 			}
 			if (villageRand.nextFloat() < spawnChance) {
 				int diagRange = (int) Math.round((villageRange + 8) * SQRT2);
-				boolean anythingNear;
-				anythingNear = GOTRoads.isRoadNear(i1, k1, diagRange) >= 0.0f;
+				boolean anythingNear = GOTBeziers.isRoadNear(i1, k1, diagRange) >= 0.0f || GOTBeziers.isWallNear(i1, k1, diagRange) >= 0.0f;
 				if (!anythingNear && !(anythingNear = GOTMountains.mountainNear(i1, k1, diagRange))) {
 					anythingNear = GOTFixedStructures.structureNear(world, i1, k1, diagRange);
 				}

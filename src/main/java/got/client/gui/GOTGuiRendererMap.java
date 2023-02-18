@@ -33,7 +33,7 @@ public class GOTGuiRendererMap {
 		int[] statics = GOTGuiMap.setFakeStaticProperties(x1 - x0, y1 - y0, x0, x1, y0, y1);
 		mapGui.enableZoomOutWPFading = false;
 		mapGui.renderMapAndOverlay(sepia, 1.0f, true);
-		mapGui.renderRoads(false);
+		mapGui.renderBeziers(false);
 		mapGui.renderWaypoints(GOTWaypoint.listAllWaypoints(), 0, 0, 0, false, true);
 		GOTGuiMap.setFakeStaticProperties(statics[0], statics[1], statics[2], statics[3], statics[4], statics[5]);
 	}

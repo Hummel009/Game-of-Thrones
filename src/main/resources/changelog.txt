@@ -2,6 +2,8 @@ CHANGELOG
 
 >>BUILD 23.??.??
 * Optimized Essos and Westeros structures
+* Improved Ice wall and Ibbenese wall
+* Improved valyrian roads
 
 >>BUILD 23.02.14
 * Improved Russian, Ukrainian, English translations

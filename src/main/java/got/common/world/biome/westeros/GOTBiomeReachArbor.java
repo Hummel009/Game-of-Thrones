@@ -6,7 +6,7 @@ import com.google.common.math.IntMath;
 
 import got.common.database.*;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.map.GOTRoads;
+import got.common.world.map.GOTBeziers;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -29,7 +29,7 @@ public class GOTBiomeReachArbor extends GOTBiomeReach {
 		int ySize = blocks.length / 256;
 		boolean vineyard;
 		vineyard = variant == GOTBiomeVariant.VINEYARD;
-		if (vineyard && !GOTRoads.isRoadAt(i, k)) {
+		if (vineyard && !GOTBeziers.isRoadAt(i, k)) {
 			for (int j = 128; j >= 0; --j) {
 				int index = xzIndex * ySize + j;
 				Block above = blocks[index + 1];
