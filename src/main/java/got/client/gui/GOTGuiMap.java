@@ -1679,7 +1679,10 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			bezierZoomlerp = 1.0f;
 		}
 		if (bezierZoomlerp > 0.0f) {
-			for (GOTBeziers bezier : GOTBeziers.allBeziers) {
+			List<GOTBeziers> allBeziers = new ArrayList<>();
+			allBeziers.addAll(GOTBeziers.allRoads);
+			allBeziers.addAll(GOTBeziers.allWalls);
+			for (GOTBeziers bezier : allBeziers) {
 				int interval = Math.round(400.0f / zoomScaleStable);
 				interval = Math.max(interval, 1);
 				for (int i = 0; i < bezier.bezierPoints.length; i += interval) {

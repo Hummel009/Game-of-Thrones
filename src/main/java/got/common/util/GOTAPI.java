@@ -377,12 +377,21 @@ public class GOTAPI {
 	}
 
 	/**
-	 * @apiNote Clears all the roads and walls in the world.
+	 * @apiNote Clears all the roads in the world.
 	 * @apiNote Should be used at the FMLInitializationEvent or later.
 	 */
-	public static void clearBezierDataBase() {
-		GOTBeziers.allBeziers.clear();
-		GOTBeziers.bezierPointDatabase = new BezierPointDatabase();
+	public static void clearRoadDataBase() {
+		GOTBeziers.allRoads.clear();
+		GOTBeziers.roadPointDatabase = new BezierPointDatabase();
+	}
+
+	/**
+	 * @apiNote Clears all the walls in the world.
+	 * @apiNote Should be used at the FMLInitializationEvent or later.
+	 */
+	public static void clearWallDataBase() {
+		GOTBeziers.allWalls.clear();
+		GOTBeziers.wallPointDatabase = new BezierPointDatabase();
 	}
 
 	/**

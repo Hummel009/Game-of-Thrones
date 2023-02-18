@@ -5,9 +5,18 @@ import java.util.*;
 import org.apache.commons.lang3.tuple.Pair;
 
 public class GOTBeziers {
-	public static List<GOTBeziers> allBeziers = new ArrayList<>();
-	public static BezierPointDatabase bezierPointDatabase = new BezierPointDatabase();
-	public static int beziers = allBeziers.size();
+	//public static List<GOTBeziers> allBeziers = new ArrayList<>();
+	//public static int beziers = allBeziers.size();
+	//public static BezierPointDatabase bezierPointDatabase = new BezierPointDatabase();
+
+	public static List<GOTBeziers> allRoads = new ArrayList<>();
+	public static int roads = allRoads.size();
+	public static BezierPointDatabase roadPointDatabase = new BezierPointDatabase();
+
+	public static List<GOTBeziers> allWalls = new ArrayList<>();
+	public static int walls = allWalls.size();
+	public static BezierPointDatabase wallPointDatabase = new BezierPointDatabase();
+	
 	public static int id;
 	public BezierPoint[] bezierPoints;
 	public List<BezierPoint> endpoints = new ArrayList<>();
@@ -27,11 +36,8 @@ public class GOTBeziers {
 	public static float isRoadNear(int x, int z, int width) {
 		double widthSq = width * width;
 		float leastSqRatio = -1.0f;
-		List<BezierPoint> points = bezierPointDatabase.getPointsForCoords(x, z);
+		List<BezierPoint> points = roadPointDatabase.getPointsForCoords(x, z);
 		for (BezierPoint point : points) {
-			if (point.isWall) {
-				continue;
-			}
 			double dx = point.x - x;
 			double dz = point.z - z;
 			double distSq = dx * dx + dz * dz;
@@ -58,11 +64,8 @@ public class GOTBeziers {
 	public static float isWallNear(int x, int z, int width) {
 		double widthSq = width * width;
 		float leastSqRatio = -1.0f;
-		List<BezierPoint> points = bezierPointDatabase.getPointsForCoords(x, z);
+		List<BezierPoint> points = wallPointDatabase.getPointsForCoords(x, z);
 		for (BezierPoint point : points) {
-			if (!point.isWall) {
-				continue;
-			}
 			double dx = point.x - x;
 			double dz = point.z - z;
 			double distSq = dx * dx + dz * dz;
@@ -87,8 +90,10 @@ public class GOTBeziers {
 	}
 
 	public static void onInit() {
-		allBeziers.clear();
-		bezierPointDatabase = new BezierPointDatabase();
+		allRoads.clear();
+		allWalls.clear();
+		roadPointDatabase = new BezierPointDatabase();
+		wallPointDatabase = new BezierPointDatabase();
 		GOTBeziers.registerWall(id++, GOTWaypoint.WestWatch, GOTWaypoint.ShadowTower, GOTWaypoint.SentinelStand, GOTWaypoint.Greyguard, GOTWaypoint.Stonedoor, GOTWaypoint.HoarfrostHill, GOTWaypoint.Icemark, GOTWaypoint.Nightfort, GOTWaypoint.DeepLake, GOTWaypoint.Queensgate, GOTWaypoint.CastleBlack, GOTWaypoint.Oakenshield, GOTWaypoint.Woodswatch, GOTWaypoint.SableHall, GOTWaypoint.Rimegate, GOTWaypoint.LongBarrow, GOTWaypoint.Torches, GOTWaypoint.Greenguard, GOTWaypoint.EastWatch);
 		GOTBeziers.registerWall(id++, GOTWaypoint.Anbei, GOTWaypoint.Jianmen, GOTWaypoint.Anguo, GOTWaypoint.Anjiang, GOTWaypoint.Dingguo, GOTWaypoint.Pinnu, GOTWaypoint.Pingjiang, GOTWaypoint.Wude, GOTWaypoint.Wusheng, GOTWaypoint.Zhenguo, GOTWaypoint.Lungmen, GOTWaypoint.Pingbei);
 
@@ -297,7 +302,7 @@ public class GOTBeziers {
 		}
 		BezierPoint[] array = points.toArray(new BezierPoint[0]);
 		GOTBeziers[] beziers = BezierCurves.getSplines(array, false);
-		allBeziers.addAll(Arrays.asList(beziers));
+		allRoads.addAll(Arrays.asList(beziers));
 	}
 
 	public static void registerWall(int id, Object... waypoints) {
@@ -313,7 +318,7 @@ public class GOTBeziers {
 		}
 		BezierPoint[] array = points.toArray(new BezierPoint[0]);
 		GOTBeziers[] beziers = BezierCurves.getSplines(array, true);
-		allBeziers.addAll(Arrays.asList(beziers));
+		allWalls.addAll(Arrays.asList(beziers));
 	}
 
 	public static class BezierCurves {
@@ -381,7 +386,11 @@ public class GOTBeziers {
 					BezierPoint point;
 					double t = (double) l / (double) points;
 					bezier.bezierPoints[l] = point = new BezierPoint(p1.x + dx * t, p1.z + dz * t, false, wall);
-					bezierPointDatabase.add(point);
+					if (wall) {
+						wallPointDatabase.add(point);
+					} else {
+						roadPointDatabase.add(point);
+					}
 				}
 				return new GOTBeziers[] { bezier };
 			}
@@ -420,7 +429,11 @@ public class GOTBeziers {
 					BezierPoint point;
 					double t = (double) l / (double) points;
 					bezier.bezierPoints[l] = point = BezierCurves.bezier(p1, cp1, cp2, p2, t, wall);
-					bezierPointDatabase.add(point);
+					if (wall) {
+						wallPointDatabase.add(point);
+					} else {
+						roadPointDatabase.add(point);
+					}
 				}
 			}
 			return beziers;
