@@ -396,15 +396,18 @@ public class GOTBiomeDecorator {
 		rand = random;
 		chunkX = i;
 		chunkZ = k;
-		this.decorate();
-		if (!GOTConfig.clearMap) {
-			GOTFixer.addSpecialLocations(world, random, i, k);
-			for (Entry<GOTWaypoint, GOTStructureBase> wp : GOTFixer.structures.entrySet()) {
-				if (GOTFixedStructures.fixedAt(i, k, wp.getKey())) {
-					wp.getValue().generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k), k, 0);
-				}
-			}
+		Thread decorateThread = new Thread(this::decorate);
+		decorateThread.start();
+		Thread affixThread = new Thread(() -> affix(world, random, i, k));
+		affixThread.start();
+		try {
+			decorateThread.join();
+			affixThread.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			Thread.currentThread().interrupt();
 		}
+
 	}
 
 	public void generateOres() {
@@ -466,6 +469,18 @@ public class GOTBiomeDecorator {
 			trees = Math.max(trees, 1);
 		}
 		return Math.round(trees * variant.treeFactor);
+	}
+
+	public static void affix(World world, Random random, int i, int k) {
+		if (!GOTConfig.clearMap) {
+			GOTFixer.addSpecialLocations(world, random, i, k);
+			for (Entry<GOTWaypoint, GOTStructureBase> wp : GOTFixer.structures.entrySet()) {
+				if (GOTFixedStructures.fixedAt(i, k, wp.getKey())) {
+					wp.getValue().generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k), k, 0);
+				}
+			}
+		}
+
 	}
 
 	public static class OreGenerant {
