@@ -247,8 +247,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				sb = new StringBuilder();
 				for (GOTWaypoint wp : waypoints) {
-					sb.append("\n| ").append(wp.getDisplayName()).append(" || ").append(wp.getLoreText(usingPlayer));
-					sb.append("\n|-");
+					sb.append("\n| ").append(wp.getDisplayName()).append(" || ").append(wp.getLoreText(usingPlayer)).append("\n|-");
 				}
 				PrintWriter fWaypoints = new PrintWriter("hummel/waypoints.txt", "UTF-8");
 				fWaypoints.write(sb.toString());
@@ -263,7 +262,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 						if (material != null && material.customCraftingMaterial != null) {
 							sb.append(getItemName(material.customCraftingMaterial));
 						} else {
-							sb.append("N/A ");
+							sb.append("N/A");
 						}
 						sb.append("\n|-");
 					}
@@ -277,10 +276,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 					if (item instanceof ItemSword) {
 						float damage = GOTReflection.getDamageAmount(item);
 						ToolMaterial material = GOTReflection.getToolMaterial(item);
+						sb.append("\n| ").append(getItemName(item)).append(" || ").append(getItemFilename(item)).append(" || ").append(item.getMaxDamage()).append(" || ").append(damage).append(" || ");
 						if (material.getRepairItemStack() != null) {
-							sb.append("\n| ").append(getItemName(item)).append(" || ").append(getItemFilename(item)).append(" || ").append(item.getMaxDamage()).append(" || ").append(damage).append(" || ").append(getItemName(material.getRepairItemStack().getItem()));
+							sb.append(getItemName(material.getRepairItemStack().getItem()));
 						} else {
-							sb.append("\n| ").append(getItemName(item)).append(" || ").append(getItemFilename(item)).append(" || ").append(item.getMaxDamage()).append(" || ").append(damage).append(" || N/A ");
+							sb.append("N/A");
 						}
 						sb.append("\n|-");
 					}
@@ -294,8 +294,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 					if (item instanceof ItemFood) {
 						int heal = ((ItemFood) item).func_150905_g(null);
 						float saturation = ((ItemFood) item).func_150906_h(null);
-						sb.append("\n| ").append(getItemName(item)).append(" || ").append(getItemFilename(item)).append(" || ").append("{{Bar|bread|").append(new DecimalFormat("#.##").format(saturation * heal * 2)).append("}} || {{Bar|food|").append(heal).append("}} || ").append(item.getItemStackLimit());
-						sb.append("\n|-");
+						sb.append("\n| ").append(getItemName(item)).append(" || ").append(getItemFilename(item)).append(" || ").append("{{Bar|bread|").append(new DecimalFormat("#.##").format(saturation * heal * 2)).append("}} || {{Bar|food|").append(heal).append("}} || ").append(item.getItemStackLimit()).append("\n|-");
 					}
 				}
 				PrintWriter fFood = new PrintWriter("hummel/food.txt", "UTF-8");
