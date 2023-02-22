@@ -186,13 +186,13 @@ public class DatabaseGenerator extends GOTStructureBase {
 			Files.createDirectories(Paths.get("hummel"));
 			if ("tables".equals(display)) {
 				StringBuilder sb;
-				
+
 				sb = new StringBuilder();
 				for (GOTAchievement ach : achievements) {
-				    if (ach != null) {
-				        sb.append("\n| ").append(getAchievementTitle(ach)).append(" || ").append(getAchievementDesc(ach));
+					if (ach != null) {
+						sb.append("\n| ").append(getAchievementTitle(ach)).append(" || ").append(getAchievementDesc(ach));
 						sb.append("\n|-");
-				    }
+					}
 				}
 				PrintWriter fAchievements = new PrintWriter("hummel/achievements.txt", "UTF-8");
 				fAchievements.write(sb.toString());
@@ -305,7 +305,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 			} else if ("xml".equals(display)) {
 				StringBuilder sb = new StringBuilder();
-				
+
 				sb.append("\n<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");
 
 				/* ALL PAGES */
@@ -1026,18 +1026,18 @@ public class DatabaseGenerator extends GOTStructureBase {
 							facEnemies.add(fac2);
 						}
 					}
+					sb.append("\n| ").append(getFactionPagename(fac1)).append(" = ");
 					if (facEnemies.isEmpty()) {
-						sb.append("\n| ").append(getFactionPagename(fac1)).append(" = ").append(factionNoEnemies);
+						sb.append(factionNoEnemies);
 					} else {
-						sb.append("\n| ").append(getFactionPagename(fac1)).append(" = ");
-						int i = 0;
+						boolean first = true;
 						for (GOTFaction fac : facEnemies) {
-							if (i == 0) {
-								sb.append(getFactionLink(fac));
-								i++;
+							if (first) {
+								first = false;
 							} else {
-								sb.append(" \u2022 ").append(getFactionLink(fac));
+								sb.append(" \u2022 ");
 							}
+							sb.append(getFactionLink(fac));
 						}
 					}
 				}
@@ -1046,26 +1046,26 @@ public class DatabaseGenerator extends GOTStructureBase {
 				sb.append("<page><title>Template:DB Faction-Friends");
 				sb.append("\n").append(begin);
 				for (GOTFaction fac1 : factions) {
-				    ArrayList<GOTFaction> facFriends = new ArrayList<>();
-				    for (GOTFaction fac2 : factions) {
-				        if (fac1.isGoodRelation(fac2) && fac1 != fac2) {
-				            facFriends.add(fac2);
-				        }
-				    }
-				    sb.append("\n| ").append(getFactionPagename(fac1)).append(" = ");
-				    if (facFriends.isEmpty()) {
-				        sb.append(factionNoFriends);
-				    } else {
-				        boolean first = true;
-				        for (GOTFaction fac : facFriends) {
-				            if (first) {
-				                first = false;
-				            } else {
-				                sb.append(" \u2022 ");
-				            }
-				            sb.append(getFactionLink(fac));
-				        }
-				    }
+					ArrayList<GOTFaction> facFriends = new ArrayList<>();
+					for (GOTFaction fac2 : factions) {
+						if (fac1.isGoodRelation(fac2) && fac1 != fac2) {
+							facFriends.add(fac2);
+						}
+					}
+					sb.append("\n| ").append(getFactionPagename(fac1)).append(" = ");
+					if (facFriends.isEmpty()) {
+						sb.append(factionNoFriends);
+					} else {
+						boolean first = true;
+						for (GOTFaction fac : facFriends) {
+							if (first) {
+								first = false;
+							} else {
+								sb.append(" \u2022 ");
+							}
+							sb.append(getFactionLink(fac));
+						}
+					}
 				}
 				sb.append("\n").append(end);
 
@@ -1516,7 +1516,6 @@ public class DatabaseGenerator extends GOTStructureBase {
 				}
 				sb.append("\n").append(end);
 				sb.append("\n</mediawiki>");
-				
 
 				PrintWriter xml = new PrintWriter("hummel/import.xml", "UTF-8");
 				xml.write(sb.toString());
