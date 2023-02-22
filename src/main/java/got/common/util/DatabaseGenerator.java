@@ -1402,10 +1402,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 					for (GOTUnitTradeEntries entries : units) {
 						for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 							if (entry.entityClass == entityClass) {
+								sb.append("\n| ").append(getEntityPagename(entityClass)).append(" = ");
 								if (entry.getPledgeType() == PledgeType.NONE || entry.alignmentRequired >= 101.0f) {
-									sb.append("\n| ").append(getEntityPagename(entityClass)).append(" = ").append(entry.alignmentRequired);
+									sb.append(entry.alignmentRequired);
 								} else {
-									sb.append("\n| ").append(getEntityPagename(entityClass)).append(" = +").append(100.0);
+									sb.append("+").append(100.0);
 								}
 								continue next;
 							}
@@ -1438,10 +1439,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 				for (Entry<Class<? extends Entity>, Entity> entityEntry : classToObjectMapping.entrySet()) {
 					if (entityEntry.getValue() instanceof GOTEntityNPC) {
 						GOTAchievement ach = ((GOTEntityNPC) entityEntry.getValue()).getKillAchievement();
+						sb.append("\n| ").append(getEntityPagename(entityEntry.getKey())).append(" = ");
 						if (ach != null) {
-							sb.append("\n| ").append(getEntityPagename(entityEntry.getKey())).append(" = \"").append(getAchievementTitle(ach)).append("\"");
+							sb.append("\"").append(getAchievementTitle(ach)).append("\"");
 						} else {
-							sb.append("\n| ").append(getEntityPagename(entityEntry.getKey())).append(" = N/A");
+							sb.append("N/A");
 						}
 					}
 				}
@@ -1461,10 +1463,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 				sb.append("\n").append(begin);
 				for (GOTUnitTradeEntries entries : units) {
 					for (GOTUnitTradeEntry entry : entries.tradeEntries) {
+						sb.append("\n| ").append(getEntityPagename(entry.entityClass)).append(" = ");
 						if (entry.getPledgeType() == PledgeType.NONE) {
-							sb.append("\n| ").append(getEntityPagename(entry.entityClass)).append(" = {{Coins|").append(entry.initialCost * 2).append("}}");
+							sb.append("{{Coins|").append(entry.initialCost * 2).append("}}");
 						} else {
-							sb.append("\n| ").append(getEntityPagename(entry.entityClass)).append(" = N/A");
+							sb.append("N/A");
 						}
 					}
 				}
@@ -1487,12 +1490,13 @@ public class DatabaseGenerator extends GOTStructureBase {
 						sb.append("\n| ").append(getEntityPagename(ownerEntry.getKey())).append(" = ");
 						for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 							if (entry.mountClass == null) {
+								sb.append("\n* ").append(getEntityLink(entry.entityClass));
 								if (entry.getPledgeType() == PledgeType.NONE) {
-									sb.append("\n* ").append(getEntityLink(entry.entityClass)).append(": {{Coins|").append(entry.initialCost * 2).append("}} ").append(noPledge).append(", {{Coins|").append(entry.initialCost).append("}} ").append(yesPledge).append("; ").append(entry.alignmentRequired).append("+ ").append(rep).append(";");
+									sb.append(": {{Coins|").append(entry.initialCost * 2).append("}} ").append(noPledge).append(", {{Coins|").append(entry.initialCost).append("}} ").append(yesPledge).append("; ").append(entry.alignmentRequired).append("+ ").append(rep).append(";");
 								} else if (entry.alignmentRequired < 101.0f) {
-									sb.append("\n* ").append(getEntityLink(entry.entityClass)).append(": N/A ").append(noPledge).append(", {{Coins|").append(entry.initialCost).append("}} ").append(yesPledge).append("; +").append(100.0).append("+ ").append(rep).append(";");
+									sb.append(": N/A ").append(noPledge).append(", {{Coins|").append(entry.initialCost).append("}} ").append(yesPledge).append("; +").append(100.0).append("+ ").append(rep).append(";");
 								} else {
-									sb.append("\n* ").append(getEntityLink(entry.entityClass)).append(": N/A ").append(noPledge).append(", {{Coins|").append(entry.initialCost).append("}} ").append(yesPledge).append("; +").append(entry.alignmentRequired).append("+ ").append(rep).append(";");
+									sb.append(": N/A ").append(noPledge).append(", {{Coins|").append(entry.initialCost).append("}} ").append(yesPledge).append("; +").append(entry.alignmentRequired).append("+ ").append(rep).append(";");
 								}
 							}
 						}
