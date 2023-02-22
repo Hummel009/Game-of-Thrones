@@ -190,8 +190,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				sb = new StringBuilder();
 				for (GOTAchievement ach : achievements) {
 					if (ach != null) {
-						sb.append("\n| ").append(getAchievementTitle(ach)).append(" || ").append(getAchievementDesc(ach));
-						sb.append("\n|-");
+						sb.append("\n| ").append(getAchievementTitle(ach)).append(" || ").append(getAchievementDesc(ach)).append("\n|-");
 					}
 				}
 				PrintWriter fAchievements = new PrintWriter("hummel/achievements.txt", "UTF-8");
@@ -200,8 +199,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				sb = new StringBuilder();
 				for (GOTShields shield : shields) {
-					sb.append("\n| ").append(shield.getShieldName()).append(" || ").append(shield.getShieldDesc()).append(" || ").append(getShieldFilename(shield));
-					sb.append("\n|-");
+					sb.append("\n| ").append(shield.getShieldName()).append(" || ").append(shield.getShieldDesc()).append(" || ").append(getShieldFilename(shield)).append("\n|-");
 				}
 				PrintWriter fShields = new PrintWriter("hummel/shields.txt", "UTF-8");
 				fShields.write(sb.toString());
@@ -209,8 +207,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				sb = new StringBuilder();
 				for (GOTCapes cape : capes) {
-					sb.append("\n| ").append(cape.getCapeName()).append(" || ").append(cape.getCapeDesc()).append(" || ").append(getCapeFilename(cape));
-					sb.append("\n|-");
+					sb.append("\n| ").append(cape.getCapeName()).append(" || ").append(cape.getCapeDesc()).append(" || ").append(getCapeFilename(cape)).append("\n|-");
 				}
 				PrintWriter fCapes = new PrintWriter("hummel/capes.txt", "UTF-8");
 				fCapes.write(sb.toString());
@@ -221,22 +218,23 @@ public class DatabaseGenerator extends GOTStructureBase {
 					if (unitTradeEntries != null) {
 						for (GOTUnitTradeEntry entry : unitTradeEntries.tradeEntries) {
 							if (entry != null) {
+								sb.append("\n| ").append(getEntityLink(entry.entityClass));
 								if (entry.getPledgeType() == PledgeType.NONE) {
 									if (entry.mountClass == null) {
-										sb.append("\n| ").append(getEntityLink(entry.entityClass)).append(" || {{Coins|").append(entry.initialCost * 2).append("}} || {{Coins|").append(entry.initialCost).append("}} || +").append(entry.alignmentRequired).append(" || -");
+										sb.append(" || {{Coins|").append(entry.initialCost * 2).append("}} || {{Coins|").append(entry.initialCost).append("}} || +").append(entry.alignmentRequired).append(" || -");
 									} else {
-										sb.append("\n| ").append(getEntityLink(entry.entityClass)).append(" || {{Coins|").append(entry.initialCost * 2).append("}} (").append(rider).append(") || {{Coins|").append(entry.initialCost).append("}} || +").append(entry.alignmentRequired).append(" || -");
+										sb.append(" || {{Coins|").append(entry.initialCost * 2).append("}} (").append(rider).append(") || {{Coins|").append(entry.initialCost).append("}} || +").append(entry.alignmentRequired).append(" || -");
 									}
 								} else if (entry.mountClass == null) {
 									if (entry.alignmentRequired < 101.0f) {
-										sb.append("\n| ").append(getEntityLink(entry.entityClass)).append(" || N/A || {{Coins|").append(entry.initialCost).append("}} || +100.0 || +");
+										sb.append(" || N/A || {{Coins|").append(entry.initialCost).append("}} || +100.0 || +");
 									} else {
-										sb.append("\n| ").append(getEntityLink(entry.entityClass)).append(" || N/A || {{Coins|").append(entry.initialCost).append("}} || +").append(entry.alignmentRequired).append(" || +");
+										sb.append(" || N/A || {{Coins|").append(entry.initialCost).append("}} || +").append(entry.alignmentRequired).append(" || +");
 									}
 								} else if (entry.alignmentRequired < 101.0f) {
-									sb.append("\n| ").append(getEntityLink(entry.entityClass)).append(" || N/A || {{Coins|").append(entry.initialCost).append("}} (").append(rider).append(") || +100.0 || +");
+									sb.append(" || N/A || {{Coins|").append(entry.initialCost).append("}} (").append(rider).append(") || +100.0 || +");
 								} else {
-									sb.append("\n| ").append(getEntityLink(entry.entityClass)).append(" || N/A || {{Coins|").append(entry.initialCost).append("}} (").append(rider).append(") || +").append(entry.alignmentRequired).append(" || +");
+									sb.append(" || N/A || {{Coins|").append(entry.initialCost).append("}} (").append(rider).append(") || +").append(entry.alignmentRequired).append(" || +");
 								}
 								sb.append("\n|-");
 							}
@@ -261,10 +259,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 					if (item instanceof ItemArmor) {
 						float damage = ((ItemArmor) item).damageReduceAmount;
 						ArmorMaterial material = ((ItemArmor) item).getArmorMaterial();
+						sb.append("\n| ").append(getItemName(item)).append(" || ").append(getItemFilename(item)).append(" || ").append(item.getMaxDamage()).append(" || ").append(damage).append(" || ");
 						if (material != null && material.customCraftingMaterial != null) {
-							sb.append("\n| ").append(getItemName(item)).append(" || ").append(getItemFilename(item)).append(" || ").append(item.getMaxDamage()).append(" || ").append(damage).append(" || ").append(getItemName(material.customCraftingMaterial));
+							sb.append(getItemName(material.customCraftingMaterial));
 						} else {
-							sb.append("\n| ").append(getItemName(item)).append(" || ").append(getItemFilename(item)).append(" || ").append(item.getMaxDamage()).append(" || ").append(damage).append(" || N/A ");
+							sb.append("N/A ");
 						}
 						sb.append("\n|-");
 					}
@@ -1096,10 +1095,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 				sb.append("<page><title>Template:DB Faction-Region");
 				sb.append("\n").append(begin);
 				for (GOTFaction fac : factions) {
+					sb.append("\n| ").append(getFactionPagename(fac)).append(" = ");
 					if (fac.factionRegion != null) {
-						sb.append("\n| ").append(getFactionPagename(fac)).append(" = ").append(fac.factionRegion.getRegionName());
+						sb.append(fac.factionRegion.getRegionName());
 					} else {
-						sb.append("\n| ").append(getFactionPagename(fac)).append(" = N/A");
+						sb.append("N/A");
 					}
 				}
 				sb.append("\n").append(end);
