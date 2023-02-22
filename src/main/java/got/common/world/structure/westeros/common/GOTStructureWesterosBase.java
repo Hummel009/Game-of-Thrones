@@ -36,151 +36,154 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public abstract class GOTStructureWesterosBase extends GOTStructureBase {
-	public static Map<Kingdom, BannerType> banners = new EnumMap<>(Kingdom.class);
-	public static Map<Kingdom, Class<? extends Entity>> bartenders = new EnumMap<>(Kingdom.class);
-	public static Map<Kingdom, Class<? extends Entity>> blacksmiths = new EnumMap<>(Kingdom.class);
-	public static Map<Kingdom, Class<? extends Entity>> captains = new EnumMap<>(Kingdom.class);
-	public static Map<Kingdom, GOTChestContents> chests = new EnumMap<>(Kingdom.class);
-	public static Map<Kingdom, Class<? extends Entity>> farmers = new EnumMap<>(Kingdom.class);
-	public static Map<Kingdom, Class<? extends Entity>> farmhands = new EnumMap<>(Kingdom.class);
-	public static Map<Kingdom, Class<? extends Entity>> men = new EnumMap<>(Kingdom.class);
-	public static Map<Kingdom, Class<? extends Entity>> soldiers = new EnumMap<>(Kingdom.class);
-	public static Map<Kingdom, Class<? extends Entity>> archers = new EnumMap<>(Kingdom.class);
-	public static Map<Kingdom, Block> tables = new EnumMap<>(Kingdom.class);
-	public static Map<Kingdom, Class<? extends WorldGenerator>> towers = new EnumMap<>(Kingdom.class);
+	public static final Map<Kingdom, BannerType> BANNERS = new EnumMap<>(Kingdom.class);
+	public static final Map<Kingdom, Block> TABLES = new EnumMap<>(Kingdom.class);
+	public static final Map<Kingdom, Class<? extends Entity>> ARCHERS = new EnumMap<>(Kingdom.class);
+	public static final Map<Kingdom, Class<? extends Entity>> BARTENDERS = new EnumMap<>(Kingdom.class);
+	public static final Map<Kingdom, Class<? extends Entity>> CAPTAINS = new EnumMap<>(Kingdom.class);
+	public static final Map<Kingdom, Class<? extends Entity>> FARMERS = new EnumMap<>(Kingdom.class);
+	public static final Map<Kingdom, Class<? extends Entity>> FARMHANDS = new EnumMap<>(Kingdom.class);
+	public static final Map<Kingdom, Class<? extends Entity>> MEN = new EnumMap<>(Kingdom.class);
+	public static final Map<Kingdom, Class<? extends Entity>> SMITHS = new EnumMap<>(Kingdom.class);
+	public static final Map<Kingdom, Class<? extends Entity>> SOLDIERS = new EnumMap<>(Kingdom.class);
+	public static final Map<Kingdom, Class<? extends WorldGenerator>> TOWERS = new EnumMap<>(Kingdom.class);
+	public static final Map<Kingdom, GOTChestContents> CHESTS = new EnumMap<>(Kingdom.class);
+	public static final Set<Kingdom> KINGDOMS_WITH_MAESTERS = EnumSet.of(Kingdom.ARRYN, Kingdom.CROWNLANDS, Kingdom.REACH, Kingdom.RIVERLANDS, Kingdom.STORMLANDS, Kingdom.WESTERLANDS, Kingdom.NORTH);
+	public static final Set<Kingdom> KINGDOMS_WITH_SEPTONS = EnumSet.of(Kingdom.ARRYN, Kingdom.CROWNLANDS, Kingdom.RIVERLANDS, Kingdom.STORMLANDS, Kingdom.WESTERLANDS);
+
 	static {
-		archers.put(Kingdom.ARRYN, GOTEntityArrynSoldierArcher.class);
-		archers.put(Kingdom.CROWNLANDS, GOTEntityCrownlandsLevymanArcher.class);
-		archers.put(Kingdom.CROWNLANDS_RED, GOTEntityKingsguard.class);
-		archers.put(Kingdom.DORNE, GOTEntityDorneSoldierArcher.class);
-		archers.put(Kingdom.DRAGONSTONE, GOTEntityDragonstoneSoldierArcher.class);
-		archers.put(Kingdom.IRONBORN, GOTEntityIronbornSoldierArcher.class);
-		archers.put(Kingdom.NORTH, GOTEntityNorthSoldierArcher.class);
-		archers.put(Kingdom.REACH, GOTEntityReachSoldierArcher.class);
-		archers.put(Kingdom.RIVERLANDS, GOTEntityRiverlandsSoldierArcher.class);
-		archers.put(Kingdom.STORMLANDS, GOTEntityStormlandsSoldierArcher.class);
-		archers.put(Kingdom.WESTERLANDS, GOTEntityWesterlandsSoldierArcher.class);
-		banners.put(Kingdom.ARRYN, GOTItemBanner.BannerType.ARRYN);
-		banners.put(Kingdom.CROWNLANDS, GOTItemBanner.BannerType.ROBERT);
-		banners.put(Kingdom.CROWNLANDS_RED, GOTItemBanner.BannerType.JOFFREY);
-		banners.put(Kingdom.DORNE, GOTItemBanner.BannerType.MARTELL);
-		banners.put(Kingdom.DRAGONSTONE, GOTItemBanner.BannerType.STANNIS);
-		banners.put(Kingdom.IRONBORN, GOTItemBanner.BannerType.GREYJOY);
-		banners.put(Kingdom.NORTH, GOTItemBanner.BannerType.ROBB);
-		banners.put(Kingdom.REACH, GOTItemBanner.BannerType.TYRELL);
-		banners.put(Kingdom.RIVERLANDS, GOTItemBanner.BannerType.TULLY);
-		banners.put(Kingdom.STORMLANDS, GOTItemBanner.BannerType.RENLY);
-		banners.put(Kingdom.WESTERLANDS, GOTItemBanner.BannerType.LANNISTER);
-		bartenders.put(Kingdom.ARRYN, GOTEntityArrynBartender.class);
-		bartenders.put(Kingdom.CROWNLANDS, GOTEntityCrownlandsBartender.class);
-		bartenders.put(Kingdom.CROWNLANDS_RED, GOTEntityCrownlandsBartender.class);
-		bartenders.put(Kingdom.DORNE, GOTEntityDorneBartender.class);
-		bartenders.put(Kingdom.DRAGONSTONE, GOTEntityDragonstoneBartender.class);
-		bartenders.put(Kingdom.IRONBORN, GOTEntityIronbornBartender.class);
-		bartenders.put(Kingdom.NORTH, GOTEntityNorthBartender.class);
-		bartenders.put(Kingdom.REACH, GOTEntityReachBartender.class);
-		bartenders.put(Kingdom.RIVERLANDS, GOTEntityRiverlandsBartender.class);
-		bartenders.put(Kingdom.STORMLANDS, GOTEntityStormlandsBartender.class);
-		bartenders.put(Kingdom.WESTERLANDS, GOTEntityWesterlandsBartender.class);
-		blacksmiths.put(Kingdom.ARRYN, GOTEntityArrynBlacksmith.class);
-		blacksmiths.put(Kingdom.CROWNLANDS, GOTEntityCrownlandsBlacksmith.class);
-		blacksmiths.put(Kingdom.CROWNLANDS_RED, GOTEntityCrownlandsBlacksmith.class);
-		blacksmiths.put(Kingdom.DORNE, GOTEntityDorneBlacksmith.class);
-		blacksmiths.put(Kingdom.DRAGONSTONE, GOTEntityDragonstoneBlacksmith.class);
-		blacksmiths.put(Kingdom.IRONBORN, GOTEntityIronbornBlacksmith.class);
-		blacksmiths.put(Kingdom.NORTH, GOTEntityNorthBlacksmith.class);
-		blacksmiths.put(Kingdom.REACH, GOTEntityReachBlacksmith.class);
-		blacksmiths.put(Kingdom.RIVERLANDS, GOTEntityRiverlandsBlacksmith.class);
-		blacksmiths.put(Kingdom.STORMLANDS, GOTEntityStormlandsBlacksmith.class);
-		blacksmiths.put(Kingdom.WESTERLANDS, GOTEntityWesterlandsBlacksmith.class);
-		captains.put(Kingdom.ARRYN, GOTEntityArrynCaptain.class);
-		captains.put(Kingdom.CROWNLANDS, GOTEntityCrownlandsCaptain.class);
-		captains.put(Kingdom.CROWNLANDS_RED, GOTEntityCrownlandsCaptain.class);
-		captains.put(Kingdom.DORNE, GOTEntityDorneCaptain.class);
-		captains.put(Kingdom.DRAGONSTONE, GOTEntityDragonstoneCaptain.class);
-		captains.put(Kingdom.IRONBORN, GOTEntityIronbornCaptain.class);
-		captains.put(Kingdom.NORTH, GOTEntityNorthCaptain.class);
-		captains.put(Kingdom.REACH, GOTEntityReachCaptain.class);
-		captains.put(Kingdom.RIVERLANDS, GOTEntityRiverlandsCaptain.class);
-		captains.put(Kingdom.STORMLANDS, GOTEntityStormlandsCaptain.class);
-		captains.put(Kingdom.WESTERLANDS, GOTEntityWesterlandsCaptain.class);
-		chests.put(Kingdom.ARRYN, GOTChestContents.ARRYN);
-		chests.put(Kingdom.CROWNLANDS, GOTChestContents.CROWNLANDS);
-		chests.put(Kingdom.CROWNLANDS_RED, GOTChestContents.CROWNLANDS);
-		chests.put(Kingdom.DORNE, GOTChestContents.DORNE);
-		chests.put(Kingdom.DRAGONSTONE, GOTChestContents.DRAGONSTONE);
-		chests.put(Kingdom.IRONBORN, GOTChestContents.IRONBORN);
-		chests.put(Kingdom.NORTH, GOTChestContents.NORTH);
-		chests.put(Kingdom.REACH, GOTChestContents.REACH);
-		chests.put(Kingdom.RIVERLANDS, GOTChestContents.RIVERLANDS);
-		chests.put(Kingdom.STORMLANDS, GOTChestContents.STORMLANDS);
-		chests.put(Kingdom.WESTERLANDS, GOTChestContents.WESTERLANDS);
-		farmers.put(Kingdom.ARRYN, GOTEntityArrynFarmer.class);
-		farmers.put(Kingdom.CROWNLANDS, GOTEntityCrownlandsFarmer.class);
-		farmers.put(Kingdom.CROWNLANDS_RED, GOTEntityCrownlandsFarmer.class);
-		farmers.put(Kingdom.DORNE, GOTEntityDorneFarmer.class);
-		farmers.put(Kingdom.DRAGONSTONE, GOTEntityDragonstoneFarmer.class);
-		farmers.put(Kingdom.IRONBORN, GOTEntityIronbornFarmer.class);
-		farmers.put(Kingdom.NORTH, GOTEntityNorthFarmer.class);
-		farmers.put(Kingdom.REACH, GOTEntityReachFarmer.class);
-		farmers.put(Kingdom.RIVERLANDS, GOTEntityRiverlandsFarmer.class);
-		farmers.put(Kingdom.STORMLANDS, GOTEntityStormlandsFarmer.class);
-		farmers.put(Kingdom.WESTERLANDS, GOTEntityWesterlandsFarmer.class);
-		farmhands.put(Kingdom.ARRYN, GOTEntityArrynFarmhand.class);
-		farmhands.put(Kingdom.CROWNLANDS, GOTEntityCrownlandsFarmhand.class);
-		farmhands.put(Kingdom.CROWNLANDS_RED, GOTEntityCrownlandsFarmhand.class);
-		farmhands.put(Kingdom.DORNE, GOTEntityDorneFarmhand.class);
-		farmhands.put(Kingdom.DRAGONSTONE, GOTEntityDragonstoneFarmhand.class);
-		farmhands.put(Kingdom.IRONBORN, GOTEntityIronbornFarmhand.class);
-		farmhands.put(Kingdom.NORTH, GOTEntityNorthFarmhand.class);
-		farmhands.put(Kingdom.REACH, GOTEntityReachFarmhand.class);
-		farmhands.put(Kingdom.RIVERLANDS, GOTEntityRiverlandsFarmhand.class);
-		farmhands.put(Kingdom.STORMLANDS, GOTEntityStormlandsFarmhand.class);
-		farmhands.put(Kingdom.WESTERLANDS, GOTEntityWesterlandsFarmhand.class);
-		men.put(Kingdom.ARRYN, GOTEntityArrynMan.class);
-		men.put(Kingdom.CROWNLANDS, GOTEntityCrownlandsMan.class);
-		men.put(Kingdom.CROWNLANDS_RED, GOTEntityCrownlandsMan.class);
-		men.put(Kingdom.DORNE, GOTEntityDorneMan.class);
-		men.put(Kingdom.DRAGONSTONE, GOTEntityDragonstoneMan.class);
-		men.put(Kingdom.IRONBORN, GOTEntityIronbornMan.class);
-		men.put(Kingdom.NORTH, GOTEntityNorthMan.class);
-		men.put(Kingdom.REACH, GOTEntityReachMan.class);
-		men.put(Kingdom.RIVERLANDS, GOTEntityRiverlandsMan.class);
-		men.put(Kingdom.STORMLANDS, GOTEntityStormlandsMan.class);
-		men.put(Kingdom.WESTERLANDS, GOTEntityWesterlandsMan.class);
-		soldiers.put(Kingdom.ARRYN, GOTEntityArrynSoldier.class);
-		soldiers.put(Kingdom.CROWNLANDS, GOTEntityCrownlandsLevyman.class);
-		soldiers.put(Kingdom.CROWNLANDS_RED, GOTEntityKingsguard.class);
-		soldiers.put(Kingdom.DORNE, GOTEntityDorneSoldier.class);
-		soldiers.put(Kingdom.DRAGONSTONE, GOTEntityDragonstoneSoldier.class);
-		soldiers.put(Kingdom.IRONBORN, GOTEntityIronbornSoldier.class);
-		soldiers.put(Kingdom.NORTH, GOTEntityNorthSoldier.class);
-		soldiers.put(Kingdom.REACH, GOTEntityReachSoldier.class);
-		soldiers.put(Kingdom.RIVERLANDS, GOTEntityRiverlandsSoldier.class);
-		soldiers.put(Kingdom.STORMLANDS, GOTEntityStormlandsSoldier.class);
-		soldiers.put(Kingdom.WESTERLANDS, GOTEntityWesterlandsSoldier.class);
-		tables.put(Kingdom.ARRYN, GOTRegistry.tableArryn);
-		tables.put(Kingdom.CROWNLANDS, GOTRegistry.tableCrownlands);
-		tables.put(Kingdom.CROWNLANDS_RED, GOTRegistry.tableCrownlands);
-		tables.put(Kingdom.DORNE, GOTRegistry.tableDorne);
-		tables.put(Kingdom.DRAGONSTONE, GOTRegistry.tableDragonstone);
-		tables.put(Kingdom.IRONBORN, GOTRegistry.tableIronborn);
-		tables.put(Kingdom.NORTH, GOTRegistry.tableNorth);
-		tables.put(Kingdom.REACH, GOTRegistry.tableReach);
-		tables.put(Kingdom.RIVERLANDS, GOTRegistry.tableRiverlands);
-		tables.put(Kingdom.STORMLANDS, GOTRegistry.tableStormlands);
-		tables.put(Kingdom.WESTERLANDS, GOTRegistry.tableWesterlands);
-		towers.put(Kingdom.ARRYN, GOTStructureArrynTower.class);
-		towers.put(Kingdom.CROWNLANDS, GOTStructureCrownlandsTower.class);
-		towers.put(Kingdom.CROWNLANDS_RED, GOTStructureCrownlandsTower.class);
-		towers.put(Kingdom.DORNE, GOTStructureDorneTower.class);
-		towers.put(Kingdom.DRAGONSTONE, GOTStructureDragonstoneTower.class);
-		towers.put(Kingdom.IRONBORN, GOTStructureIronbornTower.class);
-		towers.put(Kingdom.NORTH, GOTStructureNorthTower.class);
-		towers.put(Kingdom.REACH, GOTStructureReachTower.class);
-		towers.put(Kingdom.RIVERLANDS, GOTStructureRiverlandsTower.class);
-		towers.put(Kingdom.STORMLANDS, GOTStructureStormlandsTower.class);
-		towers.put(Kingdom.WESTERLANDS, GOTStructureWesterlandsTower.class);
+		ARCHERS.put(Kingdom.ARRYN, GOTEntityArrynSoldierArcher.class);
+		ARCHERS.put(Kingdom.CROWNLANDS, GOTEntityCrownlandsLevymanArcher.class);
+		ARCHERS.put(Kingdom.CROWNLANDS_RED, GOTEntityKingsguard.class);
+		ARCHERS.put(Kingdom.DORNE, GOTEntityDorneSoldierArcher.class);
+		ARCHERS.put(Kingdom.DRAGONSTONE, GOTEntityDragonstoneSoldierArcher.class);
+		ARCHERS.put(Kingdom.IRONBORN, GOTEntityIronbornSoldierArcher.class);
+		ARCHERS.put(Kingdom.NORTH, GOTEntityNorthSoldierArcher.class);
+		ARCHERS.put(Kingdom.REACH, GOTEntityReachSoldierArcher.class);
+		ARCHERS.put(Kingdom.RIVERLANDS, GOTEntityRiverlandsSoldierArcher.class);
+		ARCHERS.put(Kingdom.STORMLANDS, GOTEntityStormlandsSoldierArcher.class);
+		ARCHERS.put(Kingdom.WESTERLANDS, GOTEntityWesterlandsSoldierArcher.class);
+		BANNERS.put(Kingdom.ARRYN, GOTItemBanner.BannerType.ARRYN);
+		BANNERS.put(Kingdom.CROWNLANDS, GOTItemBanner.BannerType.ROBERT);
+		BANNERS.put(Kingdom.CROWNLANDS_RED, GOTItemBanner.BannerType.JOFFREY);
+		BANNERS.put(Kingdom.DORNE, GOTItemBanner.BannerType.MARTELL);
+		BANNERS.put(Kingdom.DRAGONSTONE, GOTItemBanner.BannerType.STANNIS);
+		BANNERS.put(Kingdom.IRONBORN, GOTItemBanner.BannerType.GREYJOY);
+		BANNERS.put(Kingdom.NORTH, GOTItemBanner.BannerType.ROBB);
+		BANNERS.put(Kingdom.REACH, GOTItemBanner.BannerType.TYRELL);
+		BANNERS.put(Kingdom.RIVERLANDS, GOTItemBanner.BannerType.TULLY);
+		BANNERS.put(Kingdom.STORMLANDS, GOTItemBanner.BannerType.RENLY);
+		BANNERS.put(Kingdom.WESTERLANDS, GOTItemBanner.BannerType.LANNISTER);
+		BARTENDERS.put(Kingdom.ARRYN, GOTEntityArrynBartender.class);
+		BARTENDERS.put(Kingdom.CROWNLANDS, GOTEntityCrownlandsBartender.class);
+		BARTENDERS.put(Kingdom.CROWNLANDS_RED, GOTEntityCrownlandsBartender.class);
+		BARTENDERS.put(Kingdom.DORNE, GOTEntityDorneBartender.class);
+		BARTENDERS.put(Kingdom.DRAGONSTONE, GOTEntityDragonstoneBartender.class);
+		BARTENDERS.put(Kingdom.IRONBORN, GOTEntityIronbornBartender.class);
+		BARTENDERS.put(Kingdom.NORTH, GOTEntityNorthBartender.class);
+		BARTENDERS.put(Kingdom.REACH, GOTEntityReachBartender.class);
+		BARTENDERS.put(Kingdom.RIVERLANDS, GOTEntityRiverlandsBartender.class);
+		BARTENDERS.put(Kingdom.STORMLANDS, GOTEntityStormlandsBartender.class);
+		BARTENDERS.put(Kingdom.WESTERLANDS, GOTEntityWesterlandsBartender.class);
+		CAPTAINS.put(Kingdom.ARRYN, GOTEntityArrynCaptain.class);
+		CAPTAINS.put(Kingdom.CROWNLANDS, GOTEntityCrownlandsCaptain.class);
+		CAPTAINS.put(Kingdom.CROWNLANDS_RED, GOTEntityCrownlandsCaptain.class);
+		CAPTAINS.put(Kingdom.DORNE, GOTEntityDorneCaptain.class);
+		CAPTAINS.put(Kingdom.DRAGONSTONE, GOTEntityDragonstoneCaptain.class);
+		CAPTAINS.put(Kingdom.IRONBORN, GOTEntityIronbornCaptain.class);
+		CAPTAINS.put(Kingdom.NORTH, GOTEntityNorthCaptain.class);
+		CAPTAINS.put(Kingdom.REACH, GOTEntityReachCaptain.class);
+		CAPTAINS.put(Kingdom.RIVERLANDS, GOTEntityRiverlandsCaptain.class);
+		CAPTAINS.put(Kingdom.STORMLANDS, GOTEntityStormlandsCaptain.class);
+		CAPTAINS.put(Kingdom.WESTERLANDS, GOTEntityWesterlandsCaptain.class);
+		CHESTS.put(Kingdom.ARRYN, GOTChestContents.ARRYN);
+		CHESTS.put(Kingdom.CROWNLANDS, GOTChestContents.CROWNLANDS);
+		CHESTS.put(Kingdom.CROWNLANDS_RED, GOTChestContents.CROWNLANDS);
+		CHESTS.put(Kingdom.DORNE, GOTChestContents.DORNE);
+		CHESTS.put(Kingdom.DRAGONSTONE, GOTChestContents.DRAGONSTONE);
+		CHESTS.put(Kingdom.IRONBORN, GOTChestContents.IRONBORN);
+		CHESTS.put(Kingdom.NORTH, GOTChestContents.NORTH);
+		CHESTS.put(Kingdom.REACH, GOTChestContents.REACH);
+		CHESTS.put(Kingdom.RIVERLANDS, GOTChestContents.RIVERLANDS);
+		CHESTS.put(Kingdom.STORMLANDS, GOTChestContents.STORMLANDS);
+		CHESTS.put(Kingdom.WESTERLANDS, GOTChestContents.WESTERLANDS);
+		FARMERS.put(Kingdom.ARRYN, GOTEntityArrynFarmer.class);
+		FARMERS.put(Kingdom.CROWNLANDS, GOTEntityCrownlandsFarmer.class);
+		FARMERS.put(Kingdom.CROWNLANDS_RED, GOTEntityCrownlandsFarmer.class);
+		FARMERS.put(Kingdom.DORNE, GOTEntityDorneFarmer.class);
+		FARMERS.put(Kingdom.DRAGONSTONE, GOTEntityDragonstoneFarmer.class);
+		FARMERS.put(Kingdom.IRONBORN, GOTEntityIronbornFarmer.class);
+		FARMERS.put(Kingdom.NORTH, GOTEntityNorthFarmer.class);
+		FARMERS.put(Kingdom.REACH, GOTEntityReachFarmer.class);
+		FARMERS.put(Kingdom.RIVERLANDS, GOTEntityRiverlandsFarmer.class);
+		FARMERS.put(Kingdom.STORMLANDS, GOTEntityStormlandsFarmer.class);
+		FARMERS.put(Kingdom.WESTERLANDS, GOTEntityWesterlandsFarmer.class);
+		FARMHANDS.put(Kingdom.ARRYN, GOTEntityArrynFarmhand.class);
+		FARMHANDS.put(Kingdom.CROWNLANDS, GOTEntityCrownlandsFarmhand.class);
+		FARMHANDS.put(Kingdom.CROWNLANDS_RED, GOTEntityCrownlandsFarmhand.class);
+		FARMHANDS.put(Kingdom.DORNE, GOTEntityDorneFarmhand.class);
+		FARMHANDS.put(Kingdom.DRAGONSTONE, GOTEntityDragonstoneFarmhand.class);
+		FARMHANDS.put(Kingdom.IRONBORN, GOTEntityIronbornFarmhand.class);
+		FARMHANDS.put(Kingdom.NORTH, GOTEntityNorthFarmhand.class);
+		FARMHANDS.put(Kingdom.REACH, GOTEntityReachFarmhand.class);
+		FARMHANDS.put(Kingdom.RIVERLANDS, GOTEntityRiverlandsFarmhand.class);
+		FARMHANDS.put(Kingdom.STORMLANDS, GOTEntityStormlandsFarmhand.class);
+		FARMHANDS.put(Kingdom.WESTERLANDS, GOTEntityWesterlandsFarmhand.class);
+		MEN.put(Kingdom.ARRYN, GOTEntityArrynMan.class);
+		MEN.put(Kingdom.CROWNLANDS, GOTEntityCrownlandsMan.class);
+		MEN.put(Kingdom.CROWNLANDS_RED, GOTEntityCrownlandsMan.class);
+		MEN.put(Kingdom.DORNE, GOTEntityDorneMan.class);
+		MEN.put(Kingdom.DRAGONSTONE, GOTEntityDragonstoneMan.class);
+		MEN.put(Kingdom.IRONBORN, GOTEntityIronbornMan.class);
+		MEN.put(Kingdom.NORTH, GOTEntityNorthMan.class);
+		MEN.put(Kingdom.REACH, GOTEntityReachMan.class);
+		MEN.put(Kingdom.RIVERLANDS, GOTEntityRiverlandsMan.class);
+		MEN.put(Kingdom.STORMLANDS, GOTEntityStormlandsMan.class);
+		MEN.put(Kingdom.WESTERLANDS, GOTEntityWesterlandsMan.class);
+		SMITHS.put(Kingdom.ARRYN, GOTEntityArrynBlacksmith.class);
+		SMITHS.put(Kingdom.CROWNLANDS, GOTEntityCrownlandsBlacksmith.class);
+		SMITHS.put(Kingdom.CROWNLANDS_RED, GOTEntityCrownlandsBlacksmith.class);
+		SMITHS.put(Kingdom.DORNE, GOTEntityDorneBlacksmith.class);
+		SMITHS.put(Kingdom.DRAGONSTONE, GOTEntityDragonstoneBlacksmith.class);
+		SMITHS.put(Kingdom.IRONBORN, GOTEntityIronbornBlacksmith.class);
+		SMITHS.put(Kingdom.NORTH, GOTEntityNorthBlacksmith.class);
+		SMITHS.put(Kingdom.REACH, GOTEntityReachBlacksmith.class);
+		SMITHS.put(Kingdom.RIVERLANDS, GOTEntityRiverlandsBlacksmith.class);
+		SMITHS.put(Kingdom.STORMLANDS, GOTEntityStormlandsBlacksmith.class);
+		SMITHS.put(Kingdom.WESTERLANDS, GOTEntityWesterlandsBlacksmith.class);
+		SOLDIERS.put(Kingdom.ARRYN, GOTEntityArrynSoldier.class);
+		SOLDIERS.put(Kingdom.CROWNLANDS, GOTEntityCrownlandsLevyman.class);
+		SOLDIERS.put(Kingdom.CROWNLANDS_RED, GOTEntityKingsguard.class);
+		SOLDIERS.put(Kingdom.DORNE, GOTEntityDorneSoldier.class);
+		SOLDIERS.put(Kingdom.DRAGONSTONE, GOTEntityDragonstoneSoldier.class);
+		SOLDIERS.put(Kingdom.IRONBORN, GOTEntityIronbornSoldier.class);
+		SOLDIERS.put(Kingdom.NORTH, GOTEntityNorthSoldier.class);
+		SOLDIERS.put(Kingdom.REACH, GOTEntityReachSoldier.class);
+		SOLDIERS.put(Kingdom.RIVERLANDS, GOTEntityRiverlandsSoldier.class);
+		SOLDIERS.put(Kingdom.STORMLANDS, GOTEntityStormlandsSoldier.class);
+		SOLDIERS.put(Kingdom.WESTERLANDS, GOTEntityWesterlandsSoldier.class);
+		TABLES.put(Kingdom.ARRYN, GOTRegistry.tableArryn);
+		TABLES.put(Kingdom.CROWNLANDS, GOTRegistry.tableCrownlands);
+		TABLES.put(Kingdom.CROWNLANDS_RED, GOTRegistry.tableCrownlands);
+		TABLES.put(Kingdom.DORNE, GOTRegistry.tableDorne);
+		TABLES.put(Kingdom.DRAGONSTONE, GOTRegistry.tableDragonstone);
+		TABLES.put(Kingdom.IRONBORN, GOTRegistry.tableIronborn);
+		TABLES.put(Kingdom.NORTH, GOTRegistry.tableNorth);
+		TABLES.put(Kingdom.REACH, GOTRegistry.tableReach);
+		TABLES.put(Kingdom.RIVERLANDS, GOTRegistry.tableRiverlands);
+		TABLES.put(Kingdom.STORMLANDS, GOTRegistry.tableStormlands);
+		TABLES.put(Kingdom.WESTERLANDS, GOTRegistry.tableWesterlands);
+		TOWERS.put(Kingdom.ARRYN, GOTStructureArrynTower.class);
+		TOWERS.put(Kingdom.CROWNLANDS, GOTStructureCrownlandsTower.class);
+		TOWERS.put(Kingdom.CROWNLANDS_RED, GOTStructureCrownlandsTower.class);
+		TOWERS.put(Kingdom.DORNE, GOTStructureDorneTower.class);
+		TOWERS.put(Kingdom.DRAGONSTONE, GOTStructureDragonstoneTower.class);
+		TOWERS.put(Kingdom.IRONBORN, GOTStructureIronbornTower.class);
+		TOWERS.put(Kingdom.NORTH, GOTStructureNorthTower.class);
+		TOWERS.put(Kingdom.REACH, GOTStructureReachTower.class);
+		TOWERS.put(Kingdom.RIVERLANDS, GOTStructureRiverlandsTower.class);
+		TOWERS.put(Kingdom.STORMLANDS, GOTStructureStormlandsTower.class);
+		TOWERS.put(Kingdom.WESTERLANDS, GOTStructureWesterlandsTower.class);
 	}
 	public Block rockBlock;
 	public int rockMeta;
@@ -264,31 +267,31 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 	}
 
 	public BannerType getBanner() {
-		return banners.get(kingdom);
+		return BANNERS.get(kingdom);
 	}
 
 	public GOTEntityNPC getBartender(World world) {
-		return (GOTEntityNPC) GOTReflection.newEntity(bartenders.get(kingdom), world);
+		return (GOTEntityNPC) GOTReflection.newEntity(BARTENDERS.get(kingdom), world);
 	}
 
 	public GOTEntityNPC getBlacksmith(World world) {
-		return (GOTEntityNPC) GOTReflection.newEntity(blacksmiths.get(kingdom), world);
+		return (GOTEntityNPC) GOTReflection.newEntity(SMITHS.get(kingdom), world);
 	}
 
 	public GOTEntityNPC getCaptain(World world) {
-		return (GOTEntityNPC) GOTReflection.newEntity(captains.get(kingdom), world);
+		return (GOTEntityNPC) GOTReflection.newEntity(CAPTAINS.get(kingdom), world);
 	}
 
 	public GOTChestContents getChestContents() {
-		return chests.get(kingdom);
+		return CHESTS.get(kingdom);
 	}
 
 	public GOTEntityNPC getFarmer(World world) {
-		return (GOTEntityNPC) GOTReflection.newEntity(farmers.get(kingdom), world);
+		return (GOTEntityNPC) GOTReflection.newEntity(FARMERS.get(kingdom), world);
 	}
 
 	public GOTEntityNPC getFarmhand(World world) {
-		return (GOTEntityNPC) GOTReflection.newEntity(farmhands.get(kingdom), world);
+		return (GOTEntityNPC) GOTReflection.newEntity(FARMHANDS.get(kingdom), world);
 	}
 
 	public ItemStack getFramedItem(Random random) {
@@ -297,31 +300,31 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 	}
 
 	public GOTEntityNPC getMan(World world) {
-		return (GOTEntityNPC) GOTReflection.newEntity(men.get(kingdom), world);
+		return (GOTEntityNPC) GOTReflection.newEntity(MEN.get(kingdom), world);
 	}
 
 	public GOTEntityNPC getSoldier(World world) {
-		return (GOTEntityNPC) GOTReflection.newEntity(soldiers.get(kingdom), world);
+		return (GOTEntityNPC) GOTReflection.newEntity(SOLDIERS.get(kingdom), world);
 	}
 
 	public GOTEntityNPC getSoldierArcher(World world) {
-		return (GOTEntityNPC) GOTReflection.newEntity(archers.get(kingdom), world);
+		return (GOTEntityNPC) GOTReflection.newEntity(ARCHERS.get(kingdom), world);
 	}
 
 	public Block getTable() {
-		return tables.get(kingdom);
+		return TABLES.get(kingdom);
 	}
 
 	public GOTStructureWesterosTower getTower(boolean notifyChanges) {
-		return (GOTStructureWesterosTower) GOTReflection.newStructure(towers.get(kingdom), notifyChanges);
+		return (GOTStructureWesterosTower) GOTReflection.newStructure(TOWERS.get(kingdom), notifyChanges);
 	}
 
 	public boolean hasMaester() {
-		return kingdom == Kingdom.ARRYN || kingdom == Kingdom.CROWNLANDS || kingdom == Kingdom.REACH || kingdom == Kingdom.RIVERLANDS || kingdom == Kingdom.STORMLANDS || kingdom == Kingdom.WESTERLANDS || kingdom == Kingdom.NORTH;
+	    return KINGDOMS_WITH_MAESTERS.contains(kingdom);
 	}
 
 	public boolean hasSepton() {
-		return kingdom == Kingdom.ARRYN || kingdom == Kingdom.CROWNLANDS || kingdom == Kingdom.RIVERLANDS || kingdom == Kingdom.STORMLANDS || kingdom == Kingdom.WESTERLANDS;
+	    return KINGDOMS_WITH_SEPTONS.contains(kingdom);
 	}
 
 	public GOTStructureBase setGranite() {
