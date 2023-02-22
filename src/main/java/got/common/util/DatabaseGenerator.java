@@ -442,10 +442,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 							}
 						}
 					}
+					sb.append("\n| ").append(getTreeName(tree)).append(" = ");
 					if (biomesTree.isEmpty() && biomesVariantTree.isEmpty()) {
-						sb.append("\n| ").append(getTreeName(tree)).append(" = ").append(treeNoBiomes);
+						sb.append(treeNoBiomes);
 					} else {
-						sb.append("\n| ").append(getTreeName(tree)).append(" = ").append(treeHasBiomes);
+						sb.append(treeHasBiomes);
 					}
 					for (GOTBiome biome : biomesTree) {
 						sb.append("\n* ").append(getBiomeLink(biome)).append(";");
@@ -472,10 +473,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 									spawnContainers.add(facContainer);
 								}
 							}
+							sb.append("\n| ").append(getBiomePagename(biome)).append(" = ");
 							if (spawnContainers.isEmpty()) {
-								sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(biomeConquestOnly);
+								sb.append(biomeConquestOnly);
 							} else {
-								sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(biomeHasSpawn);
+								sb.append(biomeHasSpawn);
 								for (FactionContainer facContainer : spawnContainers) {
 									for (SpawnListContainer container : facContainer.spawnLists) {
 										for (GOTSpawnEntry entry : container.spawnList.spawnList) {
@@ -503,10 +505,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 									conqestContainers.add(facContainer);
 								}
 							}
+							sb.append("\n| ").append(getBiomePagename(biome)).append(" = ");
 							if (conqestContainers.isEmpty()) {
-								sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(biomeSpawnOnly);
+								sb.append(biomeSpawnOnly);
 							} else {
-								sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(biomeHasConquest);
+								sb.append(biomeHasConquest);
 								EnumSet<GOTFaction> conquestFactions = EnumSet.noneOf(GOTFaction.class);
 								for (FactionContainer facContainer : conqestContainers) {
 									next: for (SpawnListContainer container : facContainer.spawnLists) {
@@ -580,10 +583,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 				sb.append("\n").append(begin);
 				for (GOTBiome biome : biomes) {
 					if (biome != null) {
+						sb.append("\n| ").append(getBiomePagename(biome)).append(" = ");
 						if (biome.getBiomeVariantsSmall().variantList.isEmpty()) {
-							sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(biomeNoVariants);
+							sb.append(biomeNoVariants);
 						} else {
-							sb.append("\n| ").append(getBiomePagename(biome)).append(" = ");
+							sb.append(" = ");
 							for (VariantBucket variantBucket : biome.getBiomeVariantsSmall().variantList) {
 								sb.append("\n* ").append(getBiomeVariantName(variantBucket.variant)).append(";");
 							}
@@ -596,10 +600,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 				sb.append("\n").append(begin);
 				for (GOTBiome biome : biomes) {
 					if (biome != null) {
+						sb.append("\n| ").append(getBiomePagename(biome)).append(" = ");
 						if (biome.getInvasionSpawns().registeredInvasions.isEmpty()) {
-							sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(biomeNoInvasions);
+							sb.append(biomeNoInvasions);
 						} else {
-							sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(biomeHasInvasions);
+							sb.append(biomeHasInvasions);
 							EnumSet<GOTFaction> invasionFactions = EnumSet.noneOf(GOTFaction.class);
 							next: for (GOTInvasions invasion : biome.getInvasionSpawns().registeredInvasions) {
 								for (InvasionSpawnEntry entry : invasion.invasionMobs) {
@@ -624,10 +629,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 				for (GOTBiome biome : biomes) {
 					if (biome != null) {
 						Region region = biome.getBiomeWaypoints();
+						sb.append("\n| ").append(getBiomePagename(biome)).append(" = ");
 						if (region == null) {
-							sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(biomeNoWaypoints);
+							sb.append(biomeNoWaypoints);
 						} else {
-							sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(biomeHasWaypoints);
+							sb.append(biomeHasWaypoints);
 							for (GOTWaypoint wp : waypoints) {
 								if (wp.region == region) {
 									sb.append("\n* ").append(wp.getDisplayName()).append(" (").append(getFactionLink(wp.faction)).append(");");
@@ -643,10 +649,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 				for (GOTBiome biome : biomes) {
 					if (biome != null) {
 						GOTAchievement ach = biome.getBiomeAchievement();
+						sb.append("\n| ").append(getBiomePagename(biome)).append(" = ");
 						if (ach == null) {
-							sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(biomeNoAchievement);
+							sb.append(biomeNoAchievement);
 						} else {
-							sb.append("\n| ").append(getBiomePagename(biome)).append(" = \"").append(getAchievementTitle(ach)).append("\"");
+							sb.append("\"").append(getAchievementTitle(ach)).append("\"");
 						}
 					}
 				}
@@ -656,37 +663,32 @@ public class DatabaseGenerator extends GOTStructureBase {
 				sb.append("\n").append(begin);
 				for (GOTBiome biome : biomes) {
 					if (biome != null) {
-						EnumSet<GOTTreeType> treesBiome = EnumSet.noneOf(GOTTreeType.class);
-						EnumMap<GOTTreeType, GOTBiomeVariant> treesVariant = new EnumMap<>(GOTTreeType.class);
+						EnumSet<GOTTreeType> trees = EnumSet.noneOf(GOTTreeType.class);
+						EnumMap<GOTTreeType, GOTBiomeVariant> additionalTrees = new EnumMap<>(GOTTreeType.class);
 						for (WeightedTreeType weightedTreeType : biome.decorator.treeTypes) {
-							treesBiome.add(weightedTreeType.treeType);
+							trees.add(weightedTreeType.treeType);
 						}
 						for (VariantBucket variantBucket : biome.getBiomeVariantsSmall().variantList) {
 							for (WeightedTreeType weightedTreeType : variantBucket.variant.treeTypes) {
-								treesVariant.put(weightedTreeType.treeType, variantBucket.variant);
+								if (!trees.contains(weightedTreeType.treeType)) {
+									additionalTrees.put(weightedTreeType.treeType, variantBucket.variant);
+								}
 							}
 						}
-						if (treesBiome.isEmpty() && treesVariant.isEmpty()) {
-							sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(biomeNoTrees);
+						sb.append("\n| ").append(getBiomePagename(biome)).append(" = ");
+						if (trees.isEmpty() && additionalTrees.isEmpty()) {
+							sb.append(biomeNoTrees);
 						} else {
-							EnumMap<GOTTreeType, GOTBiomeVariant> treesVariantOnly = new EnumMap<>(GOTTreeType.class);
-
-							if (treesVariantOnly.isEmpty()) {
-								sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(biomeHasTreesBiomeOnly);
+							if (additionalTrees.isEmpty()) {
+								sb.append(biomeHasTreesBiomeOnly);
 							} else {
-								sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(biomeHasTreesBiomeAndVariant);
+								sb.append(biomeHasTreesBiomeAndVariant);
 							}
-							if (!treesBiome.isEmpty()) {
-								for (GOTTreeType tree : treesBiome) {
-									sb.append("\n* [[").append(getTreeName(tree)).append("]];");
-								}
+							for (GOTTreeType tree : trees) {
+								sb.append("\n* [[").append(getTreeName(tree)).append("]];");
 							}
-							if (!treesVariantOnly.isEmpty()) {
-								for (Entry<GOTTreeType, GOTBiomeVariant> tree : treesVariantOnly.entrySet()) {
-									if (!treesBiome.contains(tree.getKey())) {
-										sb.append("\n* [[").append(getTreeName(tree.getKey())).append("]] (").append(getBiomeVariantName(tree.getValue()).toLowerCase()).append(")").append(";");
-									}
-								}
+							for (Entry<GOTTreeType, GOTBiomeVariant> tree : additionalTrees.entrySet()) {
+								sb.append("\n* [[").append(getTreeName(tree.getKey())).append("]] (").append(getBiomeVariantName(tree.getValue()).toLowerCase()).append(")").append(";");
 							}
 						}
 					}
@@ -702,10 +704,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 						entries.addAll(biome.getSpawnableList(EnumCreatureType.creature));
 						entries.addAll(biome.getSpawnableList(EnumCreatureType.monster));
 						entries.addAll(biome.getSpawnableList(GOTBiome.creatureType_GOTAmbient));
+						sb.append("\n| ").append(getBiomePagename(biome)).append(" = ");
 						if (entries.isEmpty()) {
-							sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(biomeNoAnimals);
+							sb.append(biomeNoAnimals);
 						} else {
-							sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(biomeHasAnimals);
+							sb.append(biomeHasAnimals);
 							for (SpawnListEntry entry : entries) {
 								if (GOTEntityRegistry.classToNameMapping.containsKey(entry.entityClass)) {
 									sb.append("\n* ").append(getEntityLink(entry.entityClass)).append(";");
@@ -729,7 +732,6 @@ public class DatabaseGenerator extends GOTStructureBase {
 						for (OreGenerant oreGenerant : oreGenerants) {
 							Block block = GOTReflection.getOreBlock(oreGenerant.oreGen);
 							int meta = GOTReflection.getOreMeta(oreGenerant.oreGen);
-
 							if (block instanceof GOTBlockOreGem || block instanceof BlockDirt || block instanceof GOTBlockRock) {
 								sb.append("\n* [[").append(getBlockMetaName(block, meta)).append("]] (").append(oreGenerant.oreChance).append("%; Y: ").append(oreGenerant.minHeight).append("-").append(oreGenerant.maxHeight).append(");");
 							} else {
@@ -744,10 +746,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 				sb.append("\n").append(begin);
 				for (GOTBiome biome : biomes) {
 					if (biome != null) {
+						sb.append("\n| ").append(getBiomePagename(biome)).append(" = ");
 						if (biome.getBiomeMusic() != null) {
-							sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(biome.getBiomeMusic().subregion);
+							sb.append(biome.getBiomeMusic().subregion);
 						} else {
-							sb.append("\n| ").append(getBiomePagename(biome)).append(" = N/A");
+							sb.append("N/A");
 						}
 					}
 				}
@@ -757,23 +760,15 @@ public class DatabaseGenerator extends GOTStructureBase {
 				sb.append("\n").append(begin);
 				for (GOTBiome biome : biomes) {
 					if (biome != null) {
+						sb.append("\n| ").append(getBiomePagename(biome)).append(" = ");
 						if (biome.decorator.randomStructures.isEmpty()) {
-							sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(biomeNoStructures);
+							sb.append(biomeNoStructures);
 						} else {
-							sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(biomeHasStructures);
+							sb.append(biomeHasStructures);
 							for (RandomStructure structure : biome.decorator.randomStructures) {
 								sb.append("\n* [[").append(getStructureName(structure.structureGen.getClass())).append("]];");
 							}
 						}
-					}
-				}
-				sb.append("\n").append(end);
-
-				sb.append("<page><title>Template:DB Biome-Photo");
-				sb.append("\n").append(begin);
-				for (GOTBiome biome : biomes) {
-					if (biome != null) {
-						sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(biome.biomeName).append(" (biome).png");
 					}
 				}
 				sb.append("\n").append(end);
@@ -810,10 +805,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 							}
 						}
 					}
+					sb.append("\n| ").append(getFactionPagename(fac)).append(" = ");
 					if (invasionBiomes.isEmpty()) {
-						sb.append("\n| ").append(getFactionPagename(fac)).append(" = ").append(factionNoInvasion);
+						sb.append(factionNoInvasion);
 					} else {
-						sb.append("\n| ").append(getFactionPagename(fac)).append(" = ").append(factionHasInvasion);
+						sb.append(factionHasInvasion);
 						for (GOTBiome biome : invasionBiomes) {
 							sb.append("\n* ").append(getBiomeLink(biome)).append(";");
 						}
@@ -851,10 +847,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 							}
 						}
 					}
+					sb.append("\n| ").append(getFactionPagename(fac)).append(" = ");
 					if (spawnBiomes.isEmpty()) {
-						sb.append("\n| ").append(getFactionPagename(fac)).append(" = ").append(factionNoSpawn);
+						sb.append(factionNoSpawn);
 					} else {
-						sb.append("\n| ").append(getFactionPagename(fac)).append(" = ").append(factionHasSpawn);
+						sb.append(factionHasSpawn);
 						for (GOTBiome biome : spawnBiomes) {
 							sb.append("\n* ").append(getBiomeLink(biome)).append(";");
 						}
@@ -893,10 +890,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 							}
 						}
 					}
+					sb.append("\n| ").append(getFactionPagename(fac)).append(" = ");
 					if (conquestBiomes.isEmpty()) {
-						sb.append("\n| ").append(getFactionPagename(fac)).append(" = ").append(factionNoConquest);
+						sb.append(factionNoConquest);
 					} else {
-						sb.append("\n| ").append(getFactionPagename(fac)).append(" = ").append(factionHasConquest);
+						sb.append(factionHasConquest);
 						for (GOTBiome biome : conquestBiomes) {
 							sb.append("\n* ").append(getBiomeLink(biome)).append(";");
 						}
@@ -908,10 +906,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 				sb.append("<page><title>Template:DB Faction-Ranks");
 				sb.append("\n").append(begin);
 				for (GOTFaction fac : factions) {
+					sb.append("\n| ").append(getFactionPagename(fac)).append(" = ");
 					if (fac.ranksSortedDescending.isEmpty()) {
-						sb.append("\n| ").append(getFactionPagename(fac)).append(" = ").append(factionNoRanks);
+						sb.append(factionNoRanks);
 					} else {
-						sb.append("\n| ").append(getFactionPagename(fac)).append(" = ").append(factionHasRanks);
+						sb.append(factionHasRanks);
 						for (GOTFactionRank rank : fac.ranksSortedDescending) {
 							sb.append("\n* ").append(rank.getDisplayFullName()).append("/").append(rank.getDisplayFullNameFem()).append(" (+").append(rank.alignment).append(");");
 						}
@@ -922,10 +921,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 				sb.append("<page><title>Template:DB Faction-Banners");
 				sb.append("\n").append(begin);
 				for (GOTFaction fac : factions) {
+					sb.append("\n| ").append(getFactionPagename(fac)).append(" = ");
 					if (fac.factionBanners.isEmpty()) {
-						sb.append("\n| ").append(getFactionPagename(fac)).append(" = ").append(factionNoBanners);
+						sb.append(factionNoBanners);
 					} else {
-						sb.append("\n| ").append(getFactionPagename(fac)).append(" = ").append(factionHasBanners);
+						sb.append(factionHasBanners);
 						for (BannerType banner : fac.factionBanners) {
 							sb.append("\n* ").append(getBannerName(banner)).append(";");
 						}
@@ -942,10 +942,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 							facWaypoints.add(wp);
 						}
 					}
+					sb.append("\n| ").append(getFactionPagename(fac)).append(" = ");
 					if (facWaypoints.isEmpty()) {
-						sb.append("\n| ").append(getFactionPagename(fac)).append(" = ").append(factionNoWaypoints);
+						sb.append(factionNoWaypoints);
 					} else {
-						sb.append("\n| ").append(getFactionPagename(fac)).append(" = ").append(factionHasWaypoints);
+						sb.append(factionHasWaypoints);
 						for (GOTWaypoint wp : facWaypoints) {
 							sb.append("\n* ").append(wp.getDisplayName()).append(";");
 						}
@@ -969,10 +970,10 @@ public class DatabaseGenerator extends GOTStructureBase {
 						}
 					}
 
+					sb.append("\n| ").append(getFactionPagename(fac)).append(" = ");
 					if (facCapes.isEmpty() && facShields.isEmpty()) {
-						sb.append("\n| ").append(getFactionPagename(fac)).append(" = ").append(factionNoAttr);
+						sb.append(factionNoAttr);
 					} else {
-						sb.append("\n| ").append(getFactionPagename(fac)).append(" = ");
 						sb.append("\n&lt;table class=\"wikitable shields\"&gt;");
 						for (GOTCapes cape : facCapes) {
 							sb.append("\n&lt;tr&gt;&lt;td&gt;").append(cape.getCapeName()).append("&lt;/td&gt;&lt;td&gt;").append(cape.getCapeDesc()).append("&lt;/td&gt;&lt;td&gt;").append(getCapeFilename(cape)).append("&lt;/td&gt;&lt;/tr&gt;");
@@ -1004,10 +1005,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 							facCharacters.add(entityEntry.getKey());
 						}
 					}
+					sb.append("\n| ").append(getFactionPagename(fac)).append(" = ");
 					if (facCharacters.isEmpty()) {
-						sb.append("\n| ").append(getFactionPagename(fac)).append(" = ").append(factionNoCharacters);
+						sb.append(factionNoCharacters);
 					} else {
-						sb.append("\n| ").append(getFactionPagename(fac)).append(" = ").append(factionHasCharacters);
+						sb.append(factionHasCharacters);
 						for (Class<? extends Entity> entityClass : facCharacters) {
 							sb.append("\n* ").append(getEntityLink(entityClass)).append(";");
 						}
@@ -1112,10 +1114,10 @@ public class DatabaseGenerator extends GOTStructureBase {
 							facStructures.add(strClass);
 						}
 					}
+					sb.append("\n| ").append(getFactionPagename(fac)).append(" = ");
 					if (facStructures.isEmpty()) {
-						sb.append("\n| ").append(getFactionPagename(fac)).append(" = ").append(factionNoStructures);
+						sb.append(factionNoStructures);
 					} else {
-						sb.append("\n| ").append(getFactionPagename(fac)).append(" = ");
 						for (Class<? extends WorldGenerator> str : facStructures) {
 							sb.append("\n* ").append(getStructureName(str)).append(";");
 						}
@@ -1153,10 +1155,8 @@ public class DatabaseGenerator extends GOTStructureBase {
 									}
 								}
 							}
-							if (!biome.getInvasionSpawns().registeredInvasions.isEmpty()) {
-								for (GOTInvasions invasion : biome.getInvasionSpawns().registeredInvasions) {
-									invasionEntries.addAll(invasion.invasionMobs);
-								}
+							for (GOTInvasions invasion : biome.getInvasionSpawns().registeredInvasions) {
+								invasionEntries.addAll(invasion.invasionMobs);
 							}
 							for (SpawnListEntry entry : spawnEntries) {
 								if (entry.entityClass == entityClass) {
@@ -1167,21 +1167,24 @@ public class DatabaseGenerator extends GOTStructureBase {
 							for (SpawnListEntry entry : conquestEntries) {
 								if (entry.entityClass == entityClass) {
 									conquestBiomes.add(biome);
+									unnaturalBiomes.add(biome);
 									break;
 								}
 							}
 							for (InvasionSpawnEntry entry : invasionEntries) {
 								if (entry.entityClass == entityClass) {
 									invasionBiomes.add(biome);
+									unnaturalBiomes.add(biome);
 									break;
 								}
 							}
 						}
 					}
+					sb.append("\n| ").append(getEntityPagename(entityClass)).append(" = ");
 					if (spawnBiomes.isEmpty() && conquestBiomes.isEmpty() && invasionBiomes.isEmpty()) {
-						sb.append("\n| ").append(getEntityPagename(entityClass)).append(" = ").append(entityNoBiomes);
+						sb.append(entityNoBiomes);
 					} else {
-						sb.append("\n| ").append(getEntityPagename(entityClass)).append(" = ").append(entityHasBiomes);
+						sb.append(entityHasBiomes);
 						for (GOTBiome biome : spawnBiomes) {
 							sb.append("\n* ").append(getBiomeLink(biome)).append(";");
 						}
@@ -1195,8 +1198,6 @@ public class DatabaseGenerator extends GOTStructureBase {
 								sb.append("\n* ").append(getBiomeLink(biome)).append(" ").append(entityInvasionOnly).append(";");
 							}
 						}
-						unnaturalBiomes.addAll(conquestBiomes);
-						unnaturalBiomes.addAll(invasionBiomes);
 						for (GOTBiome biome : unnaturalBiomes) {
 							if (conquestBiomes.contains(biome) && invasionBiomes.contains(biome)) {
 								sb.append("\n* ").append(getBiomeLink(biome)).append(" ").append(entityConquestInvasion).append(";");
