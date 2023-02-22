@@ -370,18 +370,17 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Structure-Biomes");
 				xml.println(begin);
-				for (Class<? extends WorldGenerator> strClass : structures) {
-					xml.println("| " + getStructureName(strClass) + " = " + structureBiomes);
-					next: for (GOTBiome biome : biomes) {
-						if (biome != null && !biome.decorator.randomStructures.isEmpty()) {
-							for (RandomStructure structure : biome.decorator.randomStructures) {
-								if (structure.structureGen.getClass() == strClass) {
-									xml.println("* " + getBiomeLink(biome) + ";");
-									continue next;
-								}
-							}
-						}
-					}
+				for (GOTBiome biome : biomes) {
+				    if (biome != null && !biome.decorator.randomStructures.isEmpty()) {
+				        for (Class<? extends WorldGenerator> strClass : structures) {
+				            xml.println("| " + getStructureName(strClass) + " = " + structureBiomes);
+				            for (RandomStructure structure : biome.decorator.randomStructures) {
+				                if (structure.structureGen.getClass() == strClass) {
+				                    xml.println("* " + getBiomeLink(biome) + ";");
+				                }
+				            }
+				        }
+				    }
 				}
 				xml.println(end);
 
@@ -389,23 +388,25 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				xml.print("<page><title>Template:DB Mineral-Biomes");
 				xml.println(begin);
-				for (String mineral : minerals) {
-					xml.println("| " + mineral + " = " + mineralBiomes);
-					next: for (GOTBiome biome : biomes) {
-						if (biome != null) {
-							List<OreGenerant> oreGenerants = new ArrayList<>(biome.decorator.biomeSoils);
-							oreGenerants.addAll(biome.decorator.biomeOres);
-							oreGenerants.addAll(biome.decorator.biomeGems);
-							for (OreGenerant oreGenerant : oreGenerants) {
-								Block block = GOTReflection.getOreBlock(oreGenerant.oreGen);
-								int meta = GOTReflection.getOreMeta(oreGenerant.oreGen);
-								if (getBlockMetaName(block, meta).equals(mineral) || getBlockName(block).equals(mineral)) {
-									xml.println("* " + getBiomeLink(biome) + " (" + oreGenerant.oreChance + "%; Y: " + oreGenerant.minHeight + "-" + oreGenerant.maxHeight + ");");
-									continue next;
-								}
-							}
-						}
-					}
+				for (GOTBiome biome : biomes) {
+				    if (biome != null) {
+				        List<OreGenerant> oreGenerants = new ArrayList<>(biome.decorator.biomeSoils);
+				        oreGenerants.addAll(biome.decorator.biomeOres);
+				        oreGenerants.addAll(biome.decorator.biomeGems);
+				        for (OreGenerant oreGenerant : oreGenerants) {
+				            Block block = GOTReflection.getOreBlock(oreGenerant.oreGen);
+				            int meta = GOTReflection.getOreMeta(oreGenerant.oreGen);
+				            String blockName = getBlockName(block);
+				            String blockMetaName = getBlockMetaName(block, meta);
+				            for (String mineral : minerals) {
+				                if (blockMetaName.equals(mineral) || blockName.equals(mineral)) {
+				                    xml.println("| " + mineral + " = " + mineralBiomes);
+				                    xml.println("* " + getBiomeLink(biome) + " (" + oreGenerant.oreChance + "%; Y: " + oreGenerant.minHeight + "-" + oreGenerant.maxHeight + ");");
+				                    break;
+				                }
+				            }
+				        }
+				    }
 				}
 				xml.println(end);
 
