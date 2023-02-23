@@ -1271,6 +1271,106 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 	}
 
+	public void renderBeziers() {
+		if (!showWP && !showCWP || !GOTFixedStructures.hasMapFeatures(mc.theWorld)) {
+			return;
+		}
+		this.renderBeziers(hasMapLabels());
+	}
+
+	public void renderBeziers(boolean labels) {
+		float bezierZoomlerp = (zoomExp - -3.3f) / 2.2f;
+		bezierZoomlerp = Math.min(bezierZoomlerp, 1.0f);
+		if (!enableZoomOutWPFading) {
+			bezierZoomlerp = 1.0f;
+		}
+		if (bezierZoomlerp > 0.0f) {
+			for (GOTBeziers bezier : GOTBeziers.allBeziers) {
+				int interval = Math.round(400.0f / zoomScaleStable);
+				interval = Math.max(interval, 1);
+				for (int i = 0; i < bezier.bezierPoints.length; i += interval) {
+					int clip;
+					GOTBeziers.BezierPoint point = bezier.bezierPoints[i];
+					float[] pos = this.transformCoords(point.x, point.z);
+					float x = pos[0];
+					float y = pos[1];
+					if (x >= mapXMin && x < mapXMax && y >= mapYMin && y < mapYMax) {
+						double bezierWidth = 1.0;
+						int bezierColor = 0;
+						float bezierAlpha = bezierZoomlerp;
+						if (GOTGuiMap.isOSRS()) {
+							bezierWidth = 3.0 * zoomScale;
+							bezierColor = 6575407;
+							bezierAlpha = 1.0f;
+						}
+						double bezierWidthLess1 = bezierWidth - 1.0;
+						GL11.glDisable(3553);
+						GL11.glEnable(3042);
+						GL11.glBlendFunc(770, 771);
+						Tessellator tessellator = Tessellator.instance;
+						tessellator.startDrawingQuads();
+						tessellator.setColorRGBA_I(bezierColor, (int) (bezierAlpha * 255.0f));
+						tessellator.addVertex(x - bezierWidthLess1, y + bezierWidth, zLevel);
+						tessellator.addVertex(x + bezierWidth, y + bezierWidth, zLevel);
+						tessellator.addVertex(x + bezierWidth, y - bezierWidthLess1, zLevel);
+						tessellator.addVertex(x - bezierWidthLess1, y - bezierWidthLess1, zLevel);
+						tessellator.draw();
+						GL11.glDisable(3042);
+						GL11.glEnable(3553);
+					}
+					if (labels && x >= mapXMin - (clip = 200) && x <= mapXMax + clip && y >= mapYMin - clip && y <= mapYMax + clip) {
+						float zoomlerp = (zoomExp - -1.0f) / 4.0f;
+						float scale = zoomlerp = Math.min(zoomlerp, 1.0f);
+						String name = null;
+						int nameWidth = fontRendererObj.getStringWidth(name);
+						int nameInterval = (int) ((nameWidth * 2 + 100) * 200.0f / zoomScaleStable);
+						if (i % nameInterval < interval) {
+							boolean endNear = false;
+							double dMax = (nameWidth / 2.0 + 25.0) * scale;
+							double dMaxSq = dMax * dMax;
+							for (GOTBeziers.BezierPoint end : bezier.endpoints) {
+								float dy;
+								float[] endPos = this.transformCoords(end.x, end.z);
+								float endX = endPos[0];
+								float dx = x - endX;
+								double dSq = dx * dx + (dy = y - endPos[1]) * dy;
+								if (dSq < dMaxSq) {
+									endNear = true;
+								}
+							}
+							if (!endNear && zoomlerp > 0.0f) {
+								setupMapClipping();
+								GL11.glPushMatrix();
+								GL11.glTranslatef(x, y, 0.0f);
+								GL11.glScalef(scale, scale, scale);
+								GOTBeziers.BezierPoint nextPoint = bezier.bezierPoints[Math.min(i + 1, bezier.bezierPoints.length - 1)];
+								GOTBeziers.BezierPoint prevPoint = bezier.bezierPoints[Math.max(i - 1, 0)];
+								double grad = (nextPoint.z - prevPoint.z) / (nextPoint.x - prevPoint.x);
+								float angle = (float) Math.atan(grad);
+								angle = (float) Math.toDegrees(angle);
+								if (Math.abs(angle) > 90.0f) {
+									angle += 180.0f;
+								}
+								GL11.glRotatef(angle, 0.0f, 0.0f, 1.0f);
+								float alpha = zoomlerp;
+								int alphaI = GOTClientProxy.getAlphaInt(alpha *= 0.8f);
+								GL11.glEnable(3042);
+								GL11.glBlendFunc(770, 771);
+								int strX = -nameWidth / 2;
+								int strY = -15;
+								fontRendererObj.drawString(name, strX + 1, strY + 1, 0 + (alphaI << 24));
+								fontRendererObj.drawString(name, strX, strY, 16777215 + (alphaI << 24));
+								GL11.glDisable(3042);
+								GL11.glPopMatrix();
+								endMapClipping();
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
 	public void renderControlZone(int mouseX, int mouseY) {
 		List<GOTControlZone> controlZones;
 		mouseControlZone = false;
@@ -1662,106 +1762,6 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			drawFancyRect(rectX, rectY, rectX + rectWidth, rectY + rectHeight);
 			mc.fontRenderer.drawString(mouseOverPlayerName, rectX + border, rectY + border, 16777215);
 			GL11.glTranslatef(0.0f, 0.0f, -300.0f);
-		}
-	}
-
-	public void renderBeziers() {
-		if (!showWP && !showCWP || !GOTFixedStructures.hasMapFeatures(mc.theWorld)) {
-			return;
-		}
-		this.renderBeziers(hasMapLabels());
-	}
-
-	public void renderBeziers(boolean labels) {
-		float bezierZoomlerp = (zoomExp - -3.3f) / 2.2f;
-		bezierZoomlerp = Math.min(bezierZoomlerp, 1.0f);
-		if (!enableZoomOutWPFading) {
-			bezierZoomlerp = 1.0f;
-		}
-		if (bezierZoomlerp > 0.0f) {
-			for (GOTBeziers bezier : GOTBeziers.allBeziers) {
-				int interval = Math.round(400.0f / zoomScaleStable);
-				interval = Math.max(interval, 1);
-				for (int i = 0; i < bezier.bezierPoints.length; i += interval) {
-					int clip;
-					GOTBeziers.BezierPoint point = bezier.bezierPoints[i];
-					float[] pos = this.transformCoords(point.x, point.z);
-					float x = pos[0];
-					float y = pos[1];
-					if (x >= mapXMin && x < mapXMax && y >= mapYMin && y < mapYMax) {
-						double bezierWidth = 1.0;
-						int bezierColor = 0;
-						float bezierAlpha = bezierZoomlerp;
-						if (GOTGuiMap.isOSRS()) {
-							bezierWidth = 3.0 * zoomScale;
-							bezierColor = 6575407;
-							bezierAlpha = 1.0f;
-						}
-						double bezierWidthLess1 = bezierWidth - 1.0;
-						GL11.glDisable(3553);
-						GL11.glEnable(3042);
-						GL11.glBlendFunc(770, 771);
-						Tessellator tessellator = Tessellator.instance;
-						tessellator.startDrawingQuads();
-						tessellator.setColorRGBA_I(bezierColor, (int) (bezierAlpha * 255.0f));
-						tessellator.addVertex(x - bezierWidthLess1, y + bezierWidth, zLevel);
-						tessellator.addVertex(x + bezierWidth, y + bezierWidth, zLevel);
-						tessellator.addVertex(x + bezierWidth, y - bezierWidthLess1, zLevel);
-						tessellator.addVertex(x - bezierWidthLess1, y - bezierWidthLess1, zLevel);
-						tessellator.draw();
-						GL11.glDisable(3042);
-						GL11.glEnable(3553);
-					}
-					if (labels && x >= mapXMin - (clip = 200) && x <= mapXMax + clip && y >= mapYMin - clip && y <= mapYMax + clip) {
-						float zoomlerp = (zoomExp - -1.0f) / 4.0f;
-						float scale = zoomlerp = Math.min(zoomlerp, 1.0f);
-						String name = null;
-						int nameWidth = fontRendererObj.getStringWidth(name);
-						int nameInterval = (int) ((nameWidth * 2 + 100) * 200.0f / zoomScaleStable);
-						if (i % nameInterval < interval) {
-							boolean endNear = false;
-							double dMax = (nameWidth / 2.0 + 25.0) * scale;
-							double dMaxSq = dMax * dMax;
-							for (GOTBeziers.BezierPoint end : bezier.endpoints) {
-								float dy;
-								float[] endPos = this.transformCoords(end.x, end.z);
-								float endX = endPos[0];
-								float dx = x - endX;
-								double dSq = dx * dx + (dy = y - endPos[1]) * dy;
-								if (dSq < dMaxSq) {
-									endNear = true;
-								}
-							}
-							if (!endNear && zoomlerp > 0.0f) {
-								setupMapClipping();
-								GL11.glPushMatrix();
-								GL11.glTranslatef(x, y, 0.0f);
-								GL11.glScalef(scale, scale, scale);
-								GOTBeziers.BezierPoint nextPoint = bezier.bezierPoints[Math.min(i + 1, bezier.bezierPoints.length - 1)];
-								GOTBeziers.BezierPoint prevPoint = bezier.bezierPoints[Math.max(i - 1, 0)];
-								double grad = (nextPoint.z - prevPoint.z) / (nextPoint.x - prevPoint.x);
-								float angle = (float) Math.atan(grad);
-								angle = (float) Math.toDegrees(angle);
-								if (Math.abs(angle) > 90.0f) {
-									angle += 180.0f;
-								}
-								GL11.glRotatef(angle, 0.0f, 0.0f, 1.0f);
-								float alpha = zoomlerp;
-								int alphaI = GOTClientProxy.getAlphaInt(alpha *= 0.8f);
-								GL11.glEnable(3042);
-								GL11.glBlendFunc(770, 771);
-								int strX = -nameWidth / 2;
-								int strY = -15;
-								fontRendererObj.drawString(name, strX + 1, strY + 1, 0 + (alphaI << 24));
-								fontRendererObj.drawString(name, strX, strY, 16777215 + (alphaI << 24));
-								GL11.glDisable(3042);
-								GL11.glPopMatrix();
-								endMapClipping();
-							}
-						}
-					}
-				}
-			}
 		}
 	}
 

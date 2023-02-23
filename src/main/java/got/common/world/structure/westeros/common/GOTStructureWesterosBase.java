@@ -320,11 +320,11 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 	}
 
 	public boolean hasMaester() {
-	    return KINGDOMS_WITH_MAESTERS.contains(kingdom);
+		return KINGDOMS_WITH_MAESTERS.contains(kingdom);
 	}
 
 	public boolean hasSepton() {
-	    return KINGDOMS_WITH_SEPTONS.contains(kingdom);
+		return KINGDOMS_WITH_SEPTONS.contains(kingdom);
 	}
 
 	public GOTStructureBase setGranite() {

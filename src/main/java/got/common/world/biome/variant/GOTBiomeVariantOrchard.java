@@ -36,7 +36,7 @@ public class GOTBiomeVariantOrchard extends GOTBiomeVariant {
 		int chunkZ = k & 0xF;
 		int xzIndex = chunkX * 16 + chunkZ;
 		int ySize = blocks.length / 256;
-		if ((!GOTBeziers.isRoadAt(i, k) && !GOTBeziers.isWallAt(i, k))) {
+		if (!GOTBeziers.isRoadAt(i, k) && !GOTBeziers.isWallAt(i, k)) {
 			for (int j = 128; j >= 0; --j) {
 				int index = xzIndex * ySize + j;
 				Block above = blocks[index + 1];
