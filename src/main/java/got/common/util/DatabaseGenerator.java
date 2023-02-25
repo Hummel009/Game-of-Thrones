@@ -255,12 +255,14 @@ public class DatabaseGenerator extends GOTStructureBase {
 				if (!file.exists()) {
 					file.createNewFile();
 				}
-				List<String> sitemap;
+				Set<String> sitemap = new HashSet<>();
+				Set<String> neededPages = new HashSet<>();
 				try (Stream<String> lines = Files.lines(Paths.get("hummel/sitemap.txt"))) {
-					sitemap = lines.collect(Collectors.toList());
+					sitemap = lines.collect(Collectors.toSet());
 				}
 
 				for (String pageName : MINERALS) {
+					neededPages.add(pageName);
 					if (!sitemap.contains(pageName)) {
 						String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u0418\u0441\u043A\u043E\u043F\u0430\u0435\u043C\u043E\u0435}}</text></revision></page>\n";
 						sb.append(TITLE).append(pageName).append(s2);
@@ -269,6 +271,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				for (Class<? extends Entity> entityClass : CLASS_TO_OBJ.keySet()) {
 					String pageName = getEntityPagename(entityClass);
+					neededPages.add(pageName);
 					if (!sitemap.contains(pageName)) {
 						String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u041C\u043E\u0431}}</text></revision></page>\n";
 						sb.append(TITLE).append(pageName).append(s2);
@@ -278,6 +281,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				for (GOTBiome biome : BIOMES) {
 					if (biome != null) {
 						String pageName = getBiomePagename(biome);
+						neededPages.add(pageName);
 						if (!sitemap.contains(pageName)) {
 							String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u0411\u0438\u043E\u043C}}</text></revision></page>\n";
 							sb.append(TITLE).append(pageName).append(s2);
@@ -287,6 +291,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				for (GOTFaction fac : FACTIONS) {
 					String pageName = getFactionPagename(fac);
+					neededPages.add(pageName);
 					if (!sitemap.contains(pageName)) {
 						String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u0424\u0440\u0430\u043A\u0446\u0438\u044F}}</text></revision></page>\n";
 						sb.append(TITLE).append(pageName).append(s2);
@@ -295,6 +300,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				for (GOTTreeType tree : TREES) {
 					String pageName = getTreeName(tree);
+					neededPages.add(pageName);
 					if (!sitemap.contains(pageName)) {
 						String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u0414\u0435\u0440\u0435\u0432\u043E}}</text></revision></page>\n";
 						sb.append(TITLE).append(pageName).append(s2);
@@ -303,11 +309,22 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				for (Class<? extends WorldGenerator> strClass : STRUCTURES) {
 					String pageName = getStructureName(strClass);
+					neededPages.add(pageName);
 					if (!sitemap.contains(pageName)) {
 						String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u0421\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u0430}}</text></revision></page>\n";
 						sb.append(TITLE).append(pageName).append(s2);
 					}
 				}
+
+				StringBuilder del = new StringBuilder();
+				for (String existing : sitemap) {
+					if (!neededPages.contains(existing)) {
+						del.append(existing).append("\n");
+					}
+				}
+				PrintWriter removal = new PrintWriter("hummel/removal.txt", "UTF-8");
+				removal.write(del.toString());
+				removal.close();
 
 				/* STRUCTURES */
 
@@ -522,7 +539,6 @@ public class DatabaseGenerator extends GOTStructureBase {
 						if (biome.getBiomeVariantsSmall().variantList.isEmpty()) {
 							sb.append(Lang.BIOME_NO_VARIANTS);
 						} else {
-							sb.append(" = ");
 							for (VariantBucket variantBucket : biome.getBiomeVariantsSmall().variantList) {
 								sb.append("\n* ").append(getBiomeVariantName(variantBucket.variant)).append(";");
 							}
