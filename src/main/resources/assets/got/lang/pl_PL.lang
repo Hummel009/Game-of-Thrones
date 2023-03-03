@@ -223,7 +223,7 @@ entity.got.EssosScrapTrader.name=Sprzedawca złomu z Essos
 entity.got.EssosThief.name=Złodziej z Essos
 entity.got.EuronGreyjoy.name=Euron Greyjoy
 entity.got.FallingFireJar.name=Dziki ogień
-entity.got.FallingTreasure.name=Obniża się bogactwo 
+entity.got.FallingTreasure.name=Obniża się bogactwo
 entity.got.FirePot.name=Garnek z ogniem
 entity.got.Fish.name=Ryba
 entity.got.FishHook.name≠Fish Hook
@@ -380,8 +380,8 @@ entity.got.LhazarBannerBearer.name=Lhazarski Chorąży
 entity.got.LhazarBartender.name=Lhazarski Barman
 entity.got.LhazarBlacksmith.name=Lhazarski Kowal
 entity.got.LhazarBrewer.name=Lhazarski Piwowar
-entity.got.LhazarButcher.name=Lhazarski Rzeźnik 
-entity.got.LhazarFarmer.name=Lhazarski Rolnik 
+entity.got.LhazarButcher.name=Lhazarski Rzeźnik
+entity.got.LhazarFarmer.name=Lhazarski Rolnik
 entity.got.LhazarFishmonger.name=Lhazarski sprzedawca ryb
 entity.got.LhazarGoldsmith.name=Lhazarski Złotnik
 entity.got.LhazarHunter.name=Lhazarski Łowca
@@ -1214,7 +1214,7 @@ got.achievement.VISIT_CANNIBAL_SANDS.title=I gdzie?
 got.achievement.VISIT_COLD_COAST.desc=Odwiedź zimne wybrzeże
 got.achievement.VISIT_COLD_COAST.title=Morsy i ludzie
 got.achievement.VISIT_CROWNLANDS.desc=Odwiedź Królewskie Ziemie
-got.achievement.VISIT_CROWNLANDS.title=Jabłko niezgody 
+got.achievement.VISIT_CROWNLANDS.title=Jabłko niezgody
 got.achievement.VISIT_CROWNLANDS_FOREST.desc=Odwiedź las królewski
 got.achievement.VISIT_CROWNLANDS_FOREST.title=Szukasz też dzika?
 got.achievement.VISIT_DORNE.desc=Odwiedź The Dorne
@@ -2138,7 +2138,7 @@ got.enchant.rangedDamage.desc=%s do szybkości strzału
 got.enchant.rangedKnockback.desc=%s do odrzutu
 got.enchant.rangedKnockback1=Odrzucający
 got.enchant.rangedKnockback2=Uderzający
-got.enchant.rangedStrong1=Silny 
+got.enchant.rangedStrong1=Silny
 got.enchant.rangedStrong2=Potężny
 got.enchant.rangedStrong3=Gwałtowny
 got.enchant.rangedWeak1=Słaby
@@ -2296,7 +2296,7 @@ got.gui.bannerEdit.perm.FOOD=Jedzenie i picie
 got.gui.bannerEdit.perm.FULL=Wszytkie zezwolenia (włącznie z kładzeniem i niszczenie bloków)
 got.gui.bannerEdit.perm.PERSONAL_CONTAINERS=Osobiste schowki
 got.gui.bannerEdit.perm.SWITCHES=Przełączniki
-got.gui.bannerEdit.perm.TABLES=Stoły rzemieślnicze 
+got.gui.bannerEdit.perm.TABLES=Stoły rzemieślnicze
 got.gui.bannerEdit.perms.allPlayers=Wszyscy gracze
 got.gui.bannerEdit.perms.default=Podstawowe zezwolenia
 got.gui.bannerEdit.perms.fellowship=Zezwolenia drużyn
@@ -2304,7 +2304,7 @@ got.gui.bannerEdit.perms.name=%s
 got.gui.bannerEdit.perms.player=Zezwolenia graczy
 got.gui.bannerEdit.protectionMode.faction.alignment=Potrzebne punkty sympatii:
 got.gui.bannerEdit.protectionMode.faction.desc.1=Gracze którzy mają przynajmniej:
-got.gui.bannerEdit.protectionMode.faction.desc.2=+%d punktów sympatii dla frakcji: %s 
+got.gui.bannerEdit.protectionMode.faction.desc.2=+%d punktów sympatii dla frakcji: %s
 got.gui.bannerEdit.protectionMode.faction.desc.3=mogą ominąć ochronę tej chorągwi
 got.gui.bannerEdit.protectionMode.faction=Ochrona: Frakcja
 got.gui.bannerEdit.protectionMode.playerSpecific.desc.1=Gracze i drużyny niżej wpisane
@@ -2436,7 +2436,7 @@ got.gui.help2=Naciśnij "Enter", aby ukryć ten tekst na ekranie.
 got.gui.hornSelect.haltReady=Wstrzymaj/przygotuj jednostki
 got.gui.hornSelect.summon=Przywołaj jednostki
 got.gui.hornSelect.title=Wybór rogu dowodzenia
-got.gui.languages.guide1=Mod "Game of Thrones" zawiera wiele danych tekstowych, takich jak książki, nazwy, questy, linie. Są one przetłumaczone na następujące języki: 
+got.gui.languages.guide1=Mod "Game of Thrones" zawiera wiele danych tekstowych, takich jak książki, nazwy, questy, linie. Są one przetłumaczone na następujące języki:
 got.gui.languages.guide2=. Aby zmienić język, otwórz folder konfiguracyjny, otwórz plik GOT.cfg za pomocą notatnika i edytuj wartość languageCode. Po tym, zrestartuj grę.
 got.gui.languages=Języki
 got.gui.map.conquest.allyBoost=Pomaga tylko sojusznikom frakcji: %s
@@ -2679,7 +2679,7 @@ got.map.summer=Lato na morzu
 got.map.sunset=Morze Zachodzącego Słońca
 got.map.ulthos=Ulthos
 got.map.westeros=Westeros
-got.menu.title=Gra o Tron Mod: Gra o Tron w Minecraft 
+got.menu.title=Gra o Tron Mod: Gra o Tron w Minecraft
 got.miniquest.bounty.claimed.short=Nagroda zdobyta przez kogoś innego
 got.miniquest.bounty.claimed=Nagrodę za gracza %s zdobył ktoś inny. Zadanie nieudane.
 got.miniquest.bounty.killedBy.short=Zabity przez cel
@@ -3138,7 +3138,7 @@ got.structure.RuinSothoryos.name=Ruiny Sothoryos
 got.structure.RuinStone.name=Ruiny kamienne
 got.structure.RuinYiTi.name=Ruiny Yi Ti
 got.structure.RuinedGiftHouse.name=Zrujnowany dom z podarunkami
-got.structure.RuinedGiftTower.name=Zniszczona Wieża  
+got.structure.RuinedGiftTower.name=Zniszczona Wieża 
 got.structure.RuinedHouse.name=Zrujnowany dom
 got.structure.RuinedNorthTower.name=Ruiny wierzy Północcnej
 got.structure.RuinedTower.name=Zrujnowana gondorska wieża latarniowa
@@ -3279,7 +3279,7 @@ got.title.targaryenF=Stormborn
 got.title.targaryenM=Stormborn
 got.titles.unlock.alignment.any=Zdobądź %s punktów sympatii jakiejkolwiek frakcji
 got.titles.unlock.alignment.pledge=Złóż przysięge frakcji %1$s i zdobądź %2$s punktów sympatii
-got.titles.unlock.alignment=Zdobądź %2$s punktów sympatii frakcji %1$s 
+got.titles.unlock.alignment=Zdobądź %2$s punktów sympatii frakcji %1$s
 got.titles.unlock.exclusive=Ekskluzywny tytuł!
 got.titles.unlock.starter=Tytuł startowy
 got.travellingTrader.arrive=%s przybył w tę okolicę
@@ -4080,7 +4080,7 @@ got.wp.RisvellsCastle.info=Rodowy zamek rodu Riswell, wasali Starków. Riswellow
 got.wp.RisvellsCastle=Zamek Ryswells
 got.wp.Riverrun.info=Rodowy zamek rodu Tully, panów nadrzecznych. Zbudowany u zbiegu rzek Kamnegonka i Krasny Zubets.
 got.wp.Riverrun=Riverrun
-got.wp.Riverspring.info=Zamek rodu Sarwików, wasali Lannisterów. 
+got.wp.Riverspring.info=Zamek rodu Sarwików, wasali Lannisterów.
 got.wp.Riverspring=Riverspring
 got.wp.RooksRest.info=Zamek domu Staunton, wasali korony.
 got.wp.RooksRest=Rooks Rest
@@ -4612,7 +4612,7 @@ item.got:banner.charlton.name=Sztandar Charlton
 item.got:banner.chelsted.name=Sztandar z Chelsted
 item.got:banner.chester.name=Sztandar Chester
 item.got:banner.chyttering.name=Sztandar Chyttering
-item.got:banner.clegane.name=Sztandar Clegane'a 
+item.got:banner.clegane.name=Sztandar Clegane'a
 item.got:banner.cleos.name≠Banner of Cleos Frey
 item.got:banner.clifton.name≠Banner of Clifton
 item.got:banner.cockshaw.name=Sztandar Cockshaw
@@ -4682,7 +4682,7 @@ item.got:banner.fell.name=Sztandar upadku
 item.got:banner.fenn.name=Sztandar Fenna
 item.got:banner.ferren.name≠Banner of Ferren
 item.got:banner.fireball.name=Sztandar Fireball
-item.got:banner.firstFlint.name=Sztandar z 
+item.got:banner.firstFlint.name=Sztandar z
 item.got:banner.firstmen.name≠Banner of First Men
 item.got:banner.fisher.name=Sztandar Fishera
 item.got:banner.fisherSS.name≠Banner of Stone Coast Fishers
@@ -4706,16 +4706,16 @@ item.got:banner.freyBook.name=Sztandar Frey (książka)
 item.got:banner.freyriverrun.name≠Banner of Frey of Riverrun
 item.got:banner.frost.name≠Banner of Frost
 item.got:banner.galtry.name≠Banner of Galtry
-item.got:banner.gardener.name=Sztandar ogrodnika 
+item.got:banner.gardener.name=Sztandar ogrodnika
 item.got:banner.gardenerBook.name≠Banner of Gardener (Book)
-item.got:banner.gargalen.name=Sztandar Gargalen 
+item.got:banner.gargalen.name=Sztandar Gargalen
 item.got:banner.gaunt.name=Sztandar chudy
 item.got:banner.ghiscar.name=Sztandar Ghiscara
 item.got:banner.glenmore.name=Sztandar Glenmore
 item.got:banner.glover.name=Sztandar Glovera
 item.got:banner.goldencompany.name=Sztandar Złotej Firmy
 item.got:banner.goodbrook.name=Sztandar Goodbrook
-item.got:banner.goodbrother.name=Sztandar Goodbrother 
+item.got:banner.goodbrother.name=Sztandar Goodbrother
 item.got:banner.goodbrotherCL.name≠Banner of Dead Lake Goodbrother
 item.got:banner.goodbrotherCSK.name≠Banner of Crowspire Goodbrother
 item.got:banner.goodbrotherD.name≠Banner of Goodbrother of the Rift
@@ -4758,7 +4758,7 @@ item.got:banner.hayford.name=Sztandar Hayforda
 item.got:banner.heddle.name=Sztandar Heddle'a
 item.got:banner.herston.name≠Banner of Herston
 item.got:banner.hersy.name=Sztandar Hersy
-item.got:banner.hetherspoon.name=Sztandar Hetherspoon 
+item.got:banner.hetherspoon.name=Sztandar Hetherspoon
 item.got:banner.hewett.name=Sztandar Hewett
 item.got:banner.hightower.name=Sztandar Hightower
 item.got:banner.hightowerBook.name≠Banner of Hightower (Book)
@@ -4766,7 +4766,7 @@ item.got:banner.hillmen.name=Sztandar wieśniaków
 item.got:banner.hoare.name=Sztandar Hoare'a
 item.got:banner.hogg.name≠Banner of Hogg
 item.got:banner.hollard.name=Sztandar Hollarda
-item.got:banner.hornwood.name=Sztandar Hornwood 
+item.got:banner.hornwood.name=Sztandar Hornwood
 item.got:banner.hornwoodBook.name≠Banner of Hornwood (Book)
 item.got:banner.horpe.name=Sztandar Horpe'a
 item.got:banner.hugh.name≠Banner of Hugh
@@ -4874,7 +4874,7 @@ item.got:banner.morsBook.name≠Banner of Mors Martell (Book)
 item.got:banner.moss.name≠Banner of Moss
 item.got:banner.mossovy.name≠Banner of Mossovy
 item.got:banner.mudd.name=Sztandar błotny
-item.got:banner.mullendore.name=Sztandar Mullenfore 
+item.got:banner.mullendore.name=Sztandar Mullenfore
 item.got:banner.musgood.name≠Banner of Musgood
 item.got:banner.myatt.name≠Banner of Mayatt
 item.got:banner.myr.name=Sztandar Myr
@@ -4941,7 +4941,7 @@ item.got:banner.robb.name=Sztandar Robba Starka
 item.got:banner.robbBook.name≠Banner of Robb Stark (Book)
 item.got:banner.robert.name=Sztandar Roberta
 item.got:banner.robertB.name=Sztandar Robert (książka)
-item.got:banner.robertashford.name≠Banner of Robert Ashford 
+item.got:banner.robertashford.name≠Banner of Robert Ashford
 item.got:banner.robertblackwood.name≠Banner of Robert Blackwood
 item.got:banner.rodrikryswell.name≠Banner of Rodrik Riswell
 item.got:banner.rogerblackwood.name≠Banner of Roger Blackwood
@@ -4987,9 +4987,9 @@ item.got:banner.slate.name=Sztandar Slate
 item.got:banner.sloane.name≠Banner of Sloane
 item.got:banner.slynt.name=Sztandar Slynta
 item.got:banner.smallwood.name=Sztandar Smallwood
-item.got:banner.sothoryos.name=Sztandar Sothoryosa 
+item.got:banner.sothoryos.name=Sztandar Sothoryosa
 item.got:banner.sparr.name=Sztandar Sparra
-item.got:banner.sparrow.name=Sztandar Wróbla 
+item.got:banner.sparrow.name=Sztandar Wróbla
 item.got:banner.spicer.name=Sztandar Spicera
 item.got:banner.stackhouse.name≠Banner of Stackhouse
 item.got:banner.stackspear.name=Sztandar Stackspear
@@ -5109,11 +5109,11 @@ item.got:banner.yarwyck.name=Sztandar Yarwycka
 item.got:banner.yew.name=Sztandar cisu
 item.got:banner.yiti.name=Sztandar Yiti
 item.got:banner.yitiBu.name=Sztandar Bu
-item.got:banner.yitiChoq.name=Sztandar Choq 
+item.got:banner.yitiChoq.name=Sztandar Choq
 item.got:banner.yitiHar.name=Sztandar Har
 item.got:banner.yitiJar.name=Sztandar Jar
 item.got:banner.yitiLo.name=Sztandar Lo
-item.got:banner.yitiMaroon.name=Sztandar Maroon 
+item.got:banner.yitiMaroon.name=Sztandar Maroon
 item.got:banner.yitiMengo.name=Sztandar Mengo
 item.got:banner.yitiPearl.name=Sztandar Rearl
 item.got:banner.yitiPurple.name=Sztandar fioletu

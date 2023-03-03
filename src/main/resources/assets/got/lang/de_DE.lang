@@ -273,7 +273,7 @@ entity.got.GoldenSpearman.name=Speerkämpfer der Goldenen Kompanie
 entity.got.GoldenWarrior.name=Krieger der Goldenen Kompanie
 entity.got.Gorcrow.name=Gorcrow
 entity.got.GoroldGoodbrother.name≠Gorold Goodbrother
-entity.got.GregorCleganeAlive.name=Gregor Clegane 
+entity.got.GregorCleganeAlive.name=Gregor Clegane
 entity.got.GregorCleganeDead.name=Gregor Clegane
 entity.got.GreyWorm.name≠Grey Worm
 entity.got.GulianSwann.name≠Gulian Swann
@@ -290,7 +290,7 @@ entity.got.Hillman.name=Mondberge Stammesmitglied
 entity.got.HillmanArcher.name=Mondberge Bogenschütze
 entity.got.HillmanAxeThrower.name=Mondberge Axtwerfer
 entity.got.HillmanBannerBearer.name=Mondberge Bannerträger
-entity.got.HillmanBartender.name=Mondberge Kneipenwirt 
+entity.got.HillmanBartender.name=Mondberge Kneipenwirt
 entity.got.HillmanBerserker.name=Mondberge Berserker
 entity.got.HillmanWarlord.name=Mondberge Kriegsherr
 entity.got.HillmanWarrior.name=Mondberge Krieger
@@ -330,7 +330,7 @@ entity.got.IlynPayne.name=Ilyn Payn
 entity.got.InvasionSpawner.name≠Invasion Spawner
 entity.got.IronbornBaker.name=Eiseninseln Bäcker
 entity.got.IronbornBannerBearer.name=Eiseninseln Bannerträger
-entity.got.IronbornBartender.name=Eiseninseln Kneipenwirt 
+entity.got.IronbornBartender.name=Eiseninseln Kneipenwirt
 entity.got.IronbornBlacksmith.name=Eiseninseln Schmied
 entity.got.IronbornBrewer.name=Eiseninseln Brauer
 entity.got.IronbornButcher.name=Eiseninseln Metzger
@@ -446,7 +446,7 @@ entity.got.MaceTyrell.name=Maes Tyrell
 entity.got.MaegeMormont.name≠Maege Mormont
 entity.got.Maester.name=Maester
 entity.got.Mammoth.name=Mammut
-entity.got.ManceRayder.name=Manke Rayder 
+entity.got.ManceRayder.name=Manke Rayder
 entity.got.ManfreyMartell.name≠Manfrey Martell
 entity.got.Manticore.name=Mantikor
 entity.got.MargaeryTyrell.name=Margaery Tyrell
@@ -525,7 +525,7 @@ entity.got.NorthSoldier.name=Norden Krieger
 entity.got.NorthSoldierArcher.name=Norden Krieger-Bogenschütze
 entity.got.NorvosBaker.name=Norvos Bäcker
 entity.got.NorvosBannerBearer.name=Norvos Bannerträger
-entity.got.NorvosBartender.name=Norvos Kneipenwirt 
+entity.got.NorvosBartender.name=Norvos Kneipenwirt
 entity.got.NorvosBlacksmith.name=Norvos Schmied
 entity.got.NorvosBrewer.name=Norvos Brauer
 entity.got.NorvosButcher.name=Norvos Metzger
@@ -550,7 +550,7 @@ entity.got.PaxterRedwyne.name=Paxter Rothweyn
 entity.got.Pebble.name=Kiesel
 entity.got.PentosBaker.name=Pentos Bäcker
 entity.got.PentosBannerBearer.name=Pentos Bannerträger
-entity.got.PentosBartender.name=Pentos Kneipenwirt 
+entity.got.PentosBartender.name=Pentos Kneipenwirt
 entity.got.PentosBlacksmith.name=Pentos Schmied
 entity.got.PentosBrewer.name=Pentos Brauer
 entity.got.PentosButcher.name=Pentos Metzger
@@ -626,7 +626,7 @@ entity.got.RandyllTarly.name=Randyll Tarly
 entity.got.RazdalMoEraz.name≠Razdal Mo Eraz
 entity.got.ReachBaker.name=Weite Bäcker
 entity.got.ReachBannerBearer.name=Weite Bannerträger
-entity.got.ReachBartender.name=Weite Kneipenwirt 
+entity.got.ReachBartender.name=Weite Kneipenwirt
 entity.got.ReachBlacksmith.name=Weite Schmied
 entity.got.ReachBrewer.name=Weite Brauer
 entity.got.ReachButcher.name=Weite Metzger
@@ -653,7 +653,7 @@ entity.got.RickardKarstark.name=Rickard Karstark
 entity.got.RickonStark.name≠Rickon Stark
 entity.got.RiverlandsBaker.name=Flusslande Bäcker
 entity.got.RiverlandsBannerBearer.name=Flusslande Bannerträger
-entity.got.RiverlandsBartender.name=Flusslande Kneipenwirt 
+entity.got.RiverlandsBartender.name=Flusslande Kneipenwirt
 entity.got.RiverlandsBlacksmith.name=Flusslande Schmied
 entity.got.RiverlandsBrewer.name=Flusslande Brauer
 entity.got.RiverlandsButcher.name=Flusslande Metzger
@@ -706,7 +706,7 @@ entity.got.StannisBaratheon.name=Stannis Baratheon
 entity.got.StoneMan.name=Steinmensch
 entity.got.StormlandsBaker.name=Sturmlande Bäcker
 entity.got.StormlandsBannerBearer.name=Sturmlande Bannerträger
-entity.got.StormlandsBartender.name=Sturmlande Kneipenwirt 
+entity.got.StormlandsBartender.name=Sturmlande Kneipenwirt
 entity.got.StormlandsBlacksmith.name=Sturmlande Schmied
 entity.got.StormlandsBrewer.name=Sturmlande Brauer
 entity.got.StormlandsButcher.name=Sturmlande Metzger
@@ -820,7 +820,7 @@ entity.got.WalderFrey.name=Walder Frey
 entity.got.Walrus.name=Walross
 entity.got.WesterlandsBaker.name=Westlande Bäcker
 entity.got.WesterlandsBannerBearer.name=Westlande Bannerträger
-entity.got.WesterlandsBartender.name=Westlande Kneipenwirt 
+entity.got.WesterlandsBartender.name=Westlande Kneipenwirt
 entity.got.WesterlandsBlacksmith.name=Westlande Schmied
 entity.got.WesterlandsBrewer.name=Westlande Brauer
 entity.got.WesterlandsButcher.name=Westlande Metzger
@@ -862,7 +862,7 @@ entity.got.YaraGreyjoy.name=Asha Graufreud
 entity.got.Ygritte.name=Ygritte
 entity.got.YiTiBaker.name=Yi Ti Bäcker
 entity.got.YiTiBannerBearer.name=Yi Ti Bannerträger
-entity.got.YiTiBartender.name=Yi Ti Kneipenwirt 
+entity.got.YiTiBartender.name=Yi Ti Kneipenwirt
 entity.got.YiTiBlacksmith.name=Yi Ti Schmied
 entity.got.YiTiBombardier.name=Yi Ti Sappeur
 entity.got.YiTiBrewer.name=Yi Ti Brauer
@@ -873,7 +873,7 @@ entity.got.YiTiFireThrower.name=Yi Ti Feuerpriester
 entity.got.YiTiFishmonger.name=Yi Ti Fischhändler
 entity.got.YiTiFlorist.name≠Florist of Yi Ti
 entity.got.YiTiFrontier.name≠Frontier of Yi Ti
-entity.got.YiTiFrontierCrossbower.name≠FrontierCrossbower of Yi Ti 
+entity.got.YiTiFrontierCrossbower.name≠FrontierCrossbower of Yi Ti
 entity.got.YiTiGoldsmith.name=Yi Ti Goldschmied
 entity.got.YiTiGoldsmith.name≠Goldsmith of Yi Ti
 entity.got.YiTiHunter.name=Yi Ti Jäger
@@ -892,15 +892,15 @@ entity.got.Yoren.name≠Yoren
 entity.got.YoungGriff.name≠Young Griff
 entity.got.Zebra.name=Zebra
 generator.got.info=Du wirst sofort in der Welt von Spiel um Throne erscheinen.
-generator.got=Spiel um Throne 
-generator.gotClassic.info=Du wirst in der Welt von Spiel um Throne mit zufälligen Biomen erscheinen. 
+generator.got=Spiel um Throne
+generator.gotClassic.info=Du wirst in der Welt von Spiel um Throne mit zufälligen Biomen erscheinen.
 generator.gotClassic=Zufällige Spiel um Throne-Welt
-got.achievement.BANDIT.desc=Töte die Wache 
-got.achievement.BANDIT.title=Bandit 
-got.achievement.BANNER_PROTECT.desc=Beanspruche ein Gebiet mit einer Flagge 
-got.achievement.BANNER_PROTECT.title=Eroberer 
+got.achievement.BANDIT.desc=Töte die Wache
+got.achievement.BANDIT.title=Bandit
+got.achievement.BANNER_PROTECT.desc=Beanspruche ein Gebiet mit einer Flagge
+got.achievement.BANNER_PROTECT.title=Eroberer
 got.achievement.BREW_DRINK_IN_BARREL.desc=Braue ein alkoholisches Getränk in einem Fass
-got.achievement.BREW_DRINK_IN_BARREL.title=Im Wein liegt die Wahrheit! 
+got.achievement.BREW_DRINK_IN_BARREL.title=Im Wein liegt die Wahrheit!
 got.achievement.CATCH_BUTTERFLY.desc≠Catch a butterfly
 got.achievement.CATCH_BUTTERFLY.title≠Remember childhood
 got.achievement.COLLECT_CRAFTING_TABLES.desc≠Collect a lot of workbenches
@@ -911,23 +911,23 @@ got.achievement.COMBINE_SMITH_SCROLLS.desc≠Connect several scrolls
 got.achievement.COMBINE_SMITH_SCROLLS.title≠Pen pineapple apple pen
 got.achievement.COOK_KEBAB.desc≠Prepare a kebab
 got.achievement.COOK_KEBAB.title≠McDonalds
-got.achievement.CRAFT_BOMB.desc=Stelle eine Bombe her 
+got.achievement.CRAFT_BOMB.desc=Stelle eine Bombe her
 got.achievement.CRAFT_BOMB.title=In einem Wimpernschlag...
 got.achievement.CRAFT_SADDLE.desc≠Create a sedor
 got.achievement.CRAFT_SADDLE.title≠And it's crafting!
-got.achievement.CRAFT_WILD_FIRE.desc=Erstelle Seefeuer 
-got.achievement.CRAFT_WILD_FIRE.title=Seefeuer 
+got.achievement.CRAFT_WILD_FIRE.desc=Erstelle Seefeuer
+got.achievement.CRAFT_WILD_FIRE.title=Seefeuer
 got.achievement.DEFEAT_INVASION.desc=Besiege eine Invasion
 got.achievement.DEFEAT_INVASION.title=Stratege
-got.achievement.DO_LEGENDARY_QUEST.desc=Schließe eine legendäre Quest ab 
+got.achievement.DO_LEGENDARY_QUEST.desc=Schließe eine legendäre Quest ab
 got.achievement.DO_LEGENDARY_QUEST.title=Hand des Königs
 got.achievement.DO_MINIQUEST_HUNTER.desc≠Execute a kill order
 got.achievement.DO_MINIQUEST_HUNTER.title≠Wild Scout
 got.achievement.DO_MINIQUEST_HUNTER5.desc≠Execute a kill order (5)
 got.achievement.DO_MINIQUEST_HUNTER5.title≠Howling Leader
-got.achievement.DO_QUEST.desc=Schließe eine kleine Quest ab 
+got.achievement.DO_QUEST.desc=Schließe eine kleine Quest ab
 got.achievement.DO_QUEST.title=Helfer
-got.achievement.DRINK_FIRE.desc=Trinke Seefeuer 
+got.achievement.DRINK_FIRE.desc=Trinke Seefeuer
 got.achievement.DRINK_FIRE.title=Auf den Spuren von Aerion Leuchtflamme
 got.achievement.DRINK_PLANTAIN_BREW.desc≠Drink the tincture on plantain
 got.achievement.DRINK_PLANTAIN_BREW.title≠Traditional medicine
@@ -935,7 +935,7 @@ got.achievement.DRINK_SKULL.desc≠Drink something from the skull
 got.achievement.DRINK_SKULL.title≠Enemy Power
 got.achievement.DRINK_TERMITE.desc=Trinke Termitentequila
 got.achievement.DRINK_TERMITE.title=Russisches Roulette
-got.achievement.EARN_MANY_COINS.desc=Führe den Handel mit 1.000 Münzen mit einem Klick aus 
+got.achievement.EARN_MANY_COINS.desc=Führe den Handel mit 1.000 Münzen mit einem Klick aus
 got.achievement.EARN_MANY_COINS.title=Reich wie ein Lennister
 got.achievement.ENGRAVE.desc=Den Namen des Besitzers vom Gegenstand entfernen
 got.achievement.ENGRAVE.title=Geschichte löschen!
@@ -1208,13 +1208,13 @@ got.achievement.VISIT_ASSHAI.title=Stadt der Nekromanten
 got.achievement.VISIT_BONE_MOUNTAINS.desc=Besuche die Knochenberge
 got.achievement.VISIT_BONE_MOUNTAINS.title=Das Land der Jogwin
 got.achievement.VISIT_BRAAVOS.desc=Besuche Braavos
-got.achievement.VISIT_BRAAVOS.title=Heimat der Gesichtslosen Männer 
+got.achievement.VISIT_BRAAVOS.title=Heimat der Gesichtslosen Männer
 got.achievement.VISIT_CANNIBAL_SANDS.desc=Besuche die Kannibalensande
 got.achievement.VISIT_CANNIBAL_SANDS.title=Eine Gegend zum Verlieben
 got.achievement.VISIT_COLD_COAST.desc=Besuche die Eisige Küste
 got.achievement.VISIT_COLD_COAST.title=Walrosse und Menschen. Und Walrossmenschen.
 got.achievement.VISIT_CROWNLANDS.desc=Besuche Kronland
-got.achievement.VISIT_CROWNLANDS.title=Apfel der Zwietracht 
+got.achievement.VISIT_CROWNLANDS.title=Apfel der Zwietracht
 got.achievement.VISIT_CROWNLANDS_FOREST.desc=Besuche den Königswald
 got.achievement.VISIT_CROWNLANDS_FOREST.title=Auch auf Eberjagd?
 got.achievement.VISIT_DORNE.desc=Besuche Dorne
@@ -1224,7 +1224,7 @@ got.achievement.VISIT_DORNE_DESERT.title=Ein Grab aus Sand
 got.achievement.VISIT_DORNE_MESA.desc=Besuche das Rote Plateau
 got.achievement.VISIT_DORNE_MESA.title=Ein Quell der Freude
 got.achievement.VISIT_DORNE_MOUNTAINS.desc=Besuche die Roten  Berge
-got.achievement.VISIT_DORNE_MOUNTAINS.title=Ein Treffen mit dem Geierkönig gefällig? 
+got.achievement.VISIT_DORNE_MOUNTAINS.title=Ein Treffen mit dem Geierkönig gefällig?
 got.achievement.VISIT_DOSH_KHALIN.desc=Besuche die Mutter aller Berge
 got.achievement.VISIT_DOSH_KHALIN.title=Das Heiligtum der Dothraki
 got.achievement.VISIT_DOTHRAKI_SEA.desc=Besuche das Dothrakische Meer
@@ -1276,10 +1276,10 @@ got.achievement.VISIT_LORATH.title=Stadt der Labyrinthe
 got.achievement.VISIT_LYS.desc=Besuche Lys
 got.achievement.VISIT_LYS.title=Stadt der Freuden
 got.achievement.VISIT_MERCENARY.desc=Besuche die Umstrittenen Lande
-got.achievement.VISIT_MERCENARY.title=Für welche Kompanie kämpfst du? 
+got.achievement.VISIT_MERCENARY.title=Für welche Kompanie kämpfst du?
 got.achievement.VISIT_MOSSOVY.desc=Besuche Mossovy
 got.achievement.VISIT_MOSSOVY.title=Auf den Spuren von Corlys Velaryon
-got.achievement.VISIT_MOSSOVY_MARSHES.desc=Besuche die Sümpfe von Mossovy 
+got.achievement.VISIT_MOSSOVY_MARSHES.desc=Besuche die Sümpfe von Mossovy
 got.achievement.VISIT_MOSSOVY_MARSHES.title=Endlose Sümpfe
 got.achievement.VISIT_MOSSOVY_SOPKAS.desc≠Visit Mossovy Sopkas
 got.achievement.VISIT_MOSSOVY_SOPKAS.title≠Far East
@@ -1630,7 +1630,7 @@ got.biome.northForest.name=Norden Nadelwälder
 got.biome.northHills.name=Norden Hügel
 got.biome.northMountains.name=Norden Berge
 got.biome.northTown.name=Weißwasserhafen
-got.biome.northWild.name=Heimat der Bergstämme 
+got.biome.northWild.name=Heimat der Bergstämme
 got.biome.norvos.name=Norvos
 got.biome.norvosHills.name≠Norvos Hills
 got.biome.ocean.name=Ozean
@@ -2314,7 +2314,7 @@ got.gui.bannerEdit.selfProtection.off=Selbstschutz: AUS
 got.gui.bannerEdit.selfProtection.on=Selbstschutz: AN
 got.gui.bannerEdit.title=Banner Schutz
 got.gui.brandingIron.done=Fertig
-got.gui.brandingIron.naming=Brenneisen benennen: 
+got.gui.brandingIron.naming=Brenneisen benennen:
 got.gui.brandingIron.title=Brenneisen
 got.gui.brandingIron.unnameHint=Füge Eisenbarren hinzu, um den Namen zu ändern
 got.gui.button.off=AUS
@@ -2436,7 +2436,7 @@ got.gui.help2=Drücke "Enter", um diesen Text auf dem Bildschirm auszublenden.
 got.gui.hornSelect.haltReady=Anhalten/Vorbereiten
 got.gui.hornSelect.summon=Herbeirufen
 got.gui.hornSelect.title=Horn der Befehle
-got.gui.languages.guide1=Mod "Game of Thrones" enthält eine Menge Textdaten, wie Bücher, Namen, Quests, Zeilen. Sie sind in die folgenden Sprachen übersetzt: 
+got.gui.languages.guide1=Mod "Game of Thrones" enthält eine Menge Textdaten, wie Bücher, Namen, Quests, Zeilen. Sie sind in die folgenden Sprachen übersetzt:
 got.gui.languages.guide2=. Um die Sprache zu ändern, öffnen Sie den Konfigurationsordner, öffnen Sie die Datei GOT.cfg mit Notepad und bearbeiten Sie den Wert languageCode. Danach starten Sie das Spiel neu.
 got.gui.languages=Lokalisierung
 got.gui.map.conquest.allyBoost=Nur Verbündete helfen %s
@@ -2465,7 +2465,7 @@ got.gui.map.customWaypoint.protected.1=%s
 got.gui.map.customWaypoint.protected.2=Du kannst hier keine eigenen Wegpunkte setzen
 got.gui.map.customWaypoint.rename.1=%s umbenennen:
 got.gui.map.customWaypoint.rename.button=Egpunkt umbenennen
-got.gui.map.customWaypoint.share.1=Das Teilen des Wegpunktes %s erlaubt Mitgliedern deiner Geminschaft ihn zu nutzen 
+got.gui.map.customWaypoint.share.1=Das Teilen des Wegpunktes %s erlaubt Mitgliedern deiner Geminschaft ihn zu nutzen
 got.gui.map.customWaypoint.share.button=Wegpunkt teilen
 got.gui.map.customWaypoint.shareNew.1=Teile %s mit Gemeinschaft
 got.gui.map.customWaypoint.shareNew.already=Wegpunkt wurde bereits geteillt
@@ -2516,14 +2516,14 @@ got.gui.npc.dismiss=Einheit entlassen
 got.gui.npc.exchange=Wechseln
 got.gui.npc.hire=Anheuern
 got.gui.npc.smith=Schmieden
-got.gui.npc.talk=Reden 
+got.gui.npc.talk=Reden
 got.gui.npc.trade=Handeln
 got.gui.npcRespawner.blockEnemy.off=AUS
 got.gui.npcRespawner.blockEnemy.tooltip=Nicht blockiert spawn Eroberung
 got.gui.npcRespawner.blockEnemy=Block Enemy Spawns
 got.gui.npcRespawner.checkHorizontal=Überprüfe X/Z-Reichweite
 got.gui.npcRespawner.checkVerticalMax=Überprüfe Y-Maximum
-got.gui.npcRespawner.checkVerticalMin=Überprüfe Y-Minimum 
+got.gui.npcRespawner.checkVerticalMin=Überprüfe Y-Minimum
 got.gui.npcRespawner.destroy=Zerstören
 got.gui.npcRespawner.homeRange.off=AUS
 got.gui.npcRespawner.homeRange=Heim-Distanz
@@ -2575,7 +2575,7 @@ got.gui.redBook.mq.deleteYes=Ja...
 got.gui.redBook.mq.diary.asked=%s gab mir den Auftrag: "%s"
 got.gui.redBook.mq.diary.complete=Auftrag erledigt!
 got.gui.redBook.mq.diary.dead=%s ist zwischenzeitlich zu Tode gekommen. Der Auftrag ist gescheitert.
-got.gui.redBook.mq.diary.movedOn=%s ist fortgegangen. Der Auftrag ist gescheitert. 
+got.gui.redBook.mq.diary.movedOn=%s ist fortgegangen. Der Auftrag ist gescheitert.
 got.gui.redBook.mq.diary.progress=%s
 got.gui.redBook.mq.diary.quote="%s"
 got.gui.redBook.mq.diary.reward.align=|> +%1$d Reputationspunkte zu %2$s
@@ -2627,7 +2627,7 @@ got.hiredNPC.commandReq.align=%s Reputationspunkte mit %s
 got.hiredNPC.commandReq.pledge.ANY_DWARF=Eid mit einer Zwergenfraktion
 got.hiredNPC.commandReq.pledge.ANY_ELF=Eid mit einer Elbenfraktion
 got.hiredNPC.commandReq.pledge.FACTION=Eid mit %s
-got.hiredNPC.commandReq=Kommando benötigt: 
+got.hiredNPC.commandReq=Kommando benötigt:
 got.hiredNPC.death=Deine rekrutierte Einheit %s
 got.hiredNPC.desert=Deine rekrutierte Einheit %s hat dein Kommando verlassen
 got.hiredNPC.dismiss=Deine rekrutierte Einheit %s folgt nun anderen Pflichten
@@ -2697,7 +2697,7 @@ got.miniquest.progressShort=%d / %d
 got.miniquest.retrieve.progress=%d von %d geborgen
 got.miniquest.retrieve1=Berge die verlorenen %s
 got.miniquest.retrieveMany=Berge die verlorenen %d %s
-got.miniquest.welcome.align=Nutze '%s' und '%s' um die Reputationspunkteen durchzuwechseln 
+got.miniquest.welcome.align=Nutze '%s' und '%s' um die Reputationspunkteen durchzuwechseln
 got.miniquest.welcome.alignRegions=Nutze '%s' und '%s' um die Reputationspunktesregionen zu ändern
 got.miniquest.welcome.book=Öffne das Rote Buch
 got.miniquest.welcome.factions=Drücke '%s' um den Völker-Guide zu öffnen
@@ -2866,7 +2866,7 @@ got.structure.CrownlandsWatchtower.name=Kronlanden Wachturm
 got.structure.DatabaseGenerator.name≠Database Generator
 got.structure.DorneBarn.name=Dorne Scheune
 got.structure.DorneBath.name=Dorne Schwimmbad
-got.structure.DorneCityBig.name=Dorne Stadt 
+got.structure.DorneCityBig.name=Dorne Stadt
 got.structure.DorneCityLittle.name=Dorne Dorf
 got.structure.DorneCityMedium.name=Dorne Schloss
 got.structure.DorneCottage.name=Dorne Hütte
@@ -3143,7 +3143,7 @@ got.structure.RuinedHouse.name=Zerfallenes Haus
 got.structure.RuinedNorthTower.name=Ruinen des Wachtturms von Norden
 got.structure.RuinedTower.name=Ruinen des Leuchtturms von Norden
 got.structure.SmallStoneRuin.name≠Small ruins
-got.structure.SothoryosChieftainPyramid.name=Sothoryos Pyramide des Häuptlings 
+got.structure.SothoryosChieftainPyramid.name=Sothoryos Pyramide des Häuptlings
 got.structure.SothoryosHouseLarge.name=Sothoryos Villa
 got.structure.SothoryosHouseSimple.name=Sothoryos Haus
 got.structure.SothoryosHouseStilts.name=Sothoryos Haus auf Stelzen
@@ -3583,7 +3583,7 @@ got.wp.CrastersKeep=Crasters Schloss
 got.wp.CrossroadsInn.info=Kreuzung von drei Straßen - Königsstraße, Fluss- und Hochstraße. Es gibt eine Taverne, die so genannt wird - eine Taverne am Scheideweg.
 got.wp.CrossroadsInn=Kreuzung
 got.wp.CrowSpikeKeep.info=Festung auf dem Krähenspitzenkap, im Besitz eines der kleineren Zweige der Great Vic, Guten Brüder.
-got.wp.CrowSpikeKeep=Krähenspitzenkap 
+got.wp.CrowSpikeKeep=Krähenspitzenkap
 got.wp.CrowsNest.info=Schloss des Hauses Morrigen, Vasallen der Baratheons.
 got.wp.CrowsNest=Krähennest
 got.wp.DarkDell.info=Die Burg des Hauses der Wyrvels, Vasallen der Tyrells.
@@ -4941,7 +4941,7 @@ item.got:banner.robb.name=Robb Stark Banner
 item.got:banner.robbBook.name≠Banner of Robb Stark (Book)
 item.got:banner.robert.name=Baratheon Banner
 item.got:banner.robertB.name=Baratheon Banner (Kopf)
-item.got:banner.robertashford.name≠Banner of Robert Ashford 
+item.got:banner.robertashford.name≠Banner of Robert Ashford
 item.got:banner.robertblackwood.name≠Banner of Robert Blackwood
 item.got:banner.rodrikryswell.name≠Banner of Rodrik Riswell
 item.got:banner.rogerblackwood.name≠Banner of Roger Blackwood

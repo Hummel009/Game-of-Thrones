@@ -37,8 +37,8 @@ entity.got.AnyaWaynwood.name≠Anya Waynwood
 entity.got.ArdrianCeltigar.name=Ardrian Celtigar
 entity.got.AreoHotah.name≠Areo Hotah
 entity.got.ArianneMartell.name≠Arianne Martell
-entity.got.ArrowFire.name≠Fire Arrow 
-entity.got.ArrowPoisoned.name≠Poisoned Arrow 
+entity.got.ArrowFire.name≠Fire Arrow
+entity.got.ArrowPoisoned.name≠Poisoned Arrow
 entity.got.ArrynBaker.name=Panadero de Valle de Arryn
 entity.got.ArrynBannerBearer.name=Portaestandarte de Valle de Arryn
 entity.got.ArrynBartender.name=Camarero de Valle de Arryn
@@ -466,7 +466,7 @@ entity.got.MoribaldChester.name≠Moribald Chester
 entity.got.MossovyBartender.name≠Bartender of Mossovy
 entity.got.MossovyBlacksmith.name≠Blacksmith of Mossovy
 entity.got.MossovyFarmer.name≠Farmer of Mossovy
-entity.got.MossovyMan.name≠Man of Mossovy 
+entity.got.MossovyMan.name≠Man of Mossovy
 entity.got.MossovyWerewolf.name=Hombre lobo Mossovy
 entity.got.MossovyWitcher.name=Brujo mossovy
 entity.got.Mullin.name=Mullin
@@ -873,7 +873,7 @@ entity.got.YiTiFireThrower.name≠Fire-Priest of Yi Ti
 entity.got.YiTiFishmonger.name=Pescadería de Yi Ti
 entity.got.YiTiFlorist.name≠Florist of Yi Ti
 entity.got.YiTiFrontier.name≠Frontier of Yi Ti
-entity.got.YiTiFrontierCrossbower.name≠FrontierCrossbower of Yi Ti 
+entity.got.YiTiFrontierCrossbower.name≠FrontierCrossbower of Yi Ti
 entity.got.YiTiGoldsmith.name=Orfebre de Yi Ti
 entity.got.YiTiGoldsmith.name≠Goldsmith of Yi Ti
 entity.got.YiTiHunter.name=Cazador de Yi Ti
@@ -1214,7 +1214,7 @@ got.achievement.VISIT_CANNIBAL_SANDS.title=¿Y donde?
 got.achievement.VISIT_COLD_COAST.desc=Visita la costa fría
 got.achievement.VISIT_COLD_COAST.title=Morsas y personas
 got.achievement.VISIT_CROWNLANDS.desc=Visite Crownlands
-got.achievement.VISIT_CROWNLANDS.title=Manzana de la discordia 
+got.achievement.VISIT_CROWNLANDS.title=Manzana de la discordia
 got.achievement.VISIT_CROWNLANDS_FOREST.desc=Visita el bosque real
 got.achievement.VISIT_CROWNLANDS_FOREST.title=¿Buscas un jabalí también?
 got.achievement.VISIT_DORNE.desc=Visita el Dorne
@@ -2122,7 +2122,7 @@ got.enchant.protectFall.desc=%s protección contra caídas
 got.enchant.protectFall1=Gruesas
 got.enchant.protectFall2=Forradas
 got.enchant.protectFall3=Acolchadas
-got.enchant.protectFire.desc=%s protección contra fuego 
+got.enchant.protectFire.desc=%s protección contra fuego
 got.enchant.protectFire1=De Enfriamiento
 got.enchant.protectFire2=Inmarchitable
 got.enchant.protectFire3=Refrigerante
@@ -2350,7 +2350,7 @@ got.gui.factions.listRank=• %s (%s)
 got.gui.factions.pageOther=Reputación de %s
 got.gui.factions.pledge=Prestar Juramento
 got.gui.factions.pledgeBreakCooldown=No puedes prestar juramento a %1$s, porque el mundo aún no ha olvidado tu juramento roto con %2$s.
-got.gui.factions.pledgeDesc1=Prestar juramento a %s te otorgará su amistad y obtendrás algunos beneficios especiales. 
+got.gui.factions.pledgeDesc1=Prestar juramento a %s te otorgará su amistad y obtendrás algunos beneficios especiales.
 got.gui.factions.pledgeDesc2=Si eliges hacer este juramento, puedes romperlo en cualquier momento, pero hacerlo incurrirá en una gran penalización.
 got.gui.factions.pledgeEnemies=No puedes prestar juramento a %s mientras mantengas buenas relaciones con sus enemigos mortales (%s).
 got.gui.factions.pledgeLocked=No puedes aumentar tu reputación con %1$s debido a tu juramento con %2$s
@@ -2422,7 +2422,7 @@ got.gui.fellowships.removeCheck=¿Estás seguro de que deseas remover a %2$s de 
 got.gui.fellowships.rename=Renombrar la Comunidad
 got.gui.fellowships.renameName=Ingresa un nombre nuevo para %s:
 got.gui.fellowships.renameThis=Renombrar Comunidad
-got.gui.fellowships.setIcon=Establecer artículo seleccionado como el icono de la Comunidad 
+got.gui.fellowships.setIcon=Establecer artículo seleccionado como el icono de la Comunidad
 got.gui.fellowships.title=Comunidades de la Juego de Tronos
 got.gui.fellowships.toggleHiredFF=Prevenir daño entre las unidades contratadas de los miembros
 got.gui.fellowships.toggleMapShow=Alternar ubicación de los miembros visible en el mapa
@@ -2436,7 +2436,7 @@ got.gui.help2=Pulse "Enter" para ocultar este texto en la pantalla.
 got.gui.hornSelect.haltReady=Detener/Activar
 got.gui.hornSelect.summon=Invocar Unidades
 got.gui.hornSelect.title=Selecciónar Cuerno
-got.gui.languages.guide1=Mod "Juego de Tronos" contiene muchos datos de texto, como libros, nombres, misiones, líneas. Están traducidos a los siguientes idiomas: 
+got.gui.languages.guide1=Mod "Juego de Tronos" contiene muchos datos de texto, como libros, nombres, misiones, líneas. Están traducidos a los siguientes idiomas:
 got.gui.languages.guide2=. Para cambiar el idioma, abra la carpeta de configuración, abra el archivo GOT.cfg con el bloc de notas y edite el valor de languageCode. Después de eso, reinicie el juego.
 got.gui.languages=Localization
 got.gui.map.conquest.allyBoost=Sólo ayuda a los aliados de %s
@@ -2552,7 +2552,7 @@ got.gui.options.femRank≠FF: near the reputation bar and in the faction menu, m
 got.gui.options.friendlyFire.desc.off=DESACTIVADO: Las unidades aliadas no pueden ser atacadas, dañadas, o asesinadas, excepto en defensa propia
 got.gui.options.friendlyFire.desc.on=ACTIVADO: Todas las unidades, excepto las contratadas, pueden ser atacadas
 got.gui.options.friendlyFire=Dañar Aliados
-got.gui.options.hiredDeathMessages.desc.off=DESACTIVADO: No recibir mensajes de chat por unidades destruidas 
+got.gui.options.hiredDeathMessages.desc.off=DESACTIVADO: No recibir mensajes de chat por unidades destruidas
 got.gui.options.hiredDeathMessages.desc.on=ACTIVADO: Recibir un mensaje de chat si una unidad contratada es asesinada
 got.gui.options.hiredDeathMessages=Aviso de Unidad Caída
 got.gui.options.showAlignment.desc.off=DESACTIVADO: Los otros jugadores no podrán ver tu reputación
@@ -2586,7 +2586,7 @@ got.gui.redBook.mq.diary.reward.item=• %2$d %1$s
 got.gui.redBook.mq.diary.reward=%s me ha recompenzado con:
 got.gui.redBook.mq.diary.willHire=Si completo este encargo, %s me va a prestar juramento.
 got.gui.redBook.mq.movedOn=El solicitador se ha marchado
-got.gui.redBook.mq.numActive=%d Encargos Activos 
+got.gui.redBook.mq.numActive=%d Encargos Activos
 got.gui.redBook.mq.numComplete=%d Encargos Terminados
 got.gui.redBook.mq.tracking=¡Progreso en seguimiento!
 got.gui.redBook.mq.viewActive=Activo
@@ -4080,7 +4080,7 @@ got.wp.RisvellsCastle.info=Castillo ancestral de la Casa Riswell, vasallos de lo
 got.wp.RisvellsCastle=Castillo de Ryswells
 got.wp.Riverrun.info=Castillo ancestral de la casa de Tully, Lords de the Tierras de los Ríos. Construido en la confluencia de los ríos Kamnegonka y Krasny Zubets.
 got.wp.Riverrun=Riverrun
-got.wp.Riverspring.info=El castillo de la casa de los Sarviks, vasallos de los Lannister. 
+got.wp.Riverspring.info=El castillo de la casa de los Sarviks, vasallos de los Lannister.
 got.wp.Riverspring=Riverspring
 got.wp.RooksRest.info=Castillo de la casa de Staunton, vasallos de la corona.
 got.wp.RooksRest=Descanso de las torres
@@ -4612,7 +4612,7 @@ item.got:banner.charlton.name=Estandarte de Charlton
 item.got:banner.chelsted.name=Estandarte de Chelsted
 item.got:banner.chester.name=Estandarte de Chester
 item.got:banner.chyttering.name=Estandarte de Chyttering
-item.got:banner.clegane.name=Estandarte de Clegane 
+item.got:banner.clegane.name=Estandarte de Clegane
 item.got:banner.cleos.name≠Banner of Cleos Frey
 item.got:banner.clifton.name≠Banner of Clifton
 item.got:banner.cockshaw.name=Estandarte de Cockshaw
@@ -4682,7 +4682,7 @@ item.got:banner.fell.name=Estandarte de Cayó
 item.got:banner.fenn.name=Estandarte de Fenn
 item.got:banner.ferren.name≠Banner of Ferren
 item.got:banner.fireball.name=Estandarte de bola de fuego
-item.got:banner.firstFlint.name=Estandarte de 
+item.got:banner.firstFlint.name=Estandarte de
 item.got:banner.firstmen.name≠Banner of First Men
 item.got:banner.fisher.name=Estandarte de Fisher
 item.got:banner.fisherSS.name≠Banner of Stone Coast Fishers
@@ -4706,16 +4706,16 @@ item.got:banner.freyBook.name=Estandarte de Frey (libro)
 item.got:banner.freyriverrun.name≠Banner of Frey of Riverrun
 item.got:banner.frost.name≠Banner of Frost
 item.got:banner.galtry.name≠Banner of Galtry
-item.got:banner.gardener.name=Estandarte de jardinero 
+item.got:banner.gardener.name=Estandarte de jardinero
 item.got:banner.gardenerBook.name≠Banner of Gardener (Book)
-item.got:banner.gargalen.name=Estandarte de Gargalen 
+item.got:banner.gargalen.name=Estandarte de Gargalen
 item.got:banner.gaunt.name=Estandarte de Gaunt
 item.got:banner.ghiscar.name=Estandarte de Ghiscar
 item.got:banner.glenmore.name=Estandarte de Glenmore
 item.got:banner.glover.name=Estandarte de Glover
 item.got:banner.goldencompany.name=Estandarte de la Compañía Dorada
 item.got:banner.goodbrook.name=Estandarte de Goodbrook
-item.got:banner.goodbrother.name=Estandarte de Goodbrother 
+item.got:banner.goodbrother.name=Estandarte de Goodbrother
 item.got:banner.goodbrotherCL.name≠Banner of Dead Lake Goodbrother
 item.got:banner.goodbrotherCSK.name≠Banner of Crowspire Goodbrother
 item.got:banner.goodbrotherD.name≠Banner of Goodbrother of the Rift
@@ -4758,7 +4758,7 @@ item.got:banner.hayford.name=Estandarte de Hayford
 item.got:banner.heddle.name=Estandarte de Heddle
 item.got:banner.herston.name≠Banner of Herston
 item.got:banner.hersy.name=Estandarte de Hersy
-item.got:banner.hetherspoon.name=Estandarte de Hetherspoon 
+item.got:banner.hetherspoon.name=Estandarte de Hetherspoon
 item.got:banner.hewett.name=Estandarte de Hewett
 item.got:banner.hightower.name=Estandarte de Hightower
 item.got:banner.hightowerBook.name≠Banner of Hightower (Book)
@@ -4766,7 +4766,7 @@ item.got:banner.hillmen.name=Estandarte de los montañeses
 item.got:banner.hoare.name=Estandarte de Hoare
 item.got:banner.hogg.name≠Banner of Hogg
 item.got:banner.hollard.name=Estandarte de Hollard
-item.got:banner.hornwood.name=Estandarte de Hornwood 
+item.got:banner.hornwood.name=Estandarte de Hornwood
 item.got:banner.hornwoodBook.name≠Banner of Hornwood (Book)
 item.got:banner.horpe.name=Estandarte de Horpe
 item.got:banner.hugh.name≠Banner of Hugh
@@ -4874,7 +4874,7 @@ item.got:banner.morsBook.name≠Banner of Mors Martell (Book)
 item.got:banner.moss.name≠Banner of Moss
 item.got:banner.mossovy.name≠Banner of Mossovy
 item.got:banner.mudd.name=Estandarte de Mudd
-item.got:banner.mullendore.name=Estandarte de Mullenfore 
+item.got:banner.mullendore.name=Estandarte de Mullenfore
 item.got:banner.musgood.name≠Banner of Musgood
 item.got:banner.myatt.name≠Banner of Mayatt
 item.got:banner.myr.name=Estandarte de Myr
@@ -4941,7 +4941,7 @@ item.got:banner.robb.name=Estandarte de Robb Stark
 item.got:banner.robbBook.name≠Banner of Robb Stark (Book)
 item.got:banner.robert.name=Estandarte de Robert
 item.got:banner.robertB.name=Estandarte de Robert (Libro)
-item.got:banner.robertashford.name≠Banner of Robert Ashford 
+item.got:banner.robertashford.name≠Banner of Robert Ashford
 item.got:banner.robertblackwood.name≠Banner of Robert Blackwood
 item.got:banner.rodrikryswell.name≠Banner of Rodrik Riswell
 item.got:banner.rogerblackwood.name≠Banner of Roger Blackwood
@@ -4987,9 +4987,9 @@ item.got:banner.slate.name=Estandarte de pizarra
 item.got:banner.sloane.name≠Banner of Sloane
 item.got:banner.slynt.name=Estandarte de Slynt
 item.got:banner.smallwood.name=Estandarte de Smallwood
-item.got:banner.sothoryos.name=Estandarte de Sothoryos 
+item.got:banner.sothoryos.name=Estandarte de Sothoryos
 item.got:banner.sparr.name=Estandarte de Sparr
-item.got:banner.sparrow.name=Estandarte de gorrión 
+item.got:banner.sparrow.name=Estandarte de gorrión
 item.got:banner.spicer.name=Estandarte de Spicer
 item.got:banner.stackhouse.name≠Banner of Stackhouse
 item.got:banner.stackspear.name=Estandarte de lanza de pila
@@ -5109,11 +5109,11 @@ item.got:banner.yarwyck.name=Estandarte de Yarwyck
 item.got:banner.yew.name=Estandarte de tejo
 item.got:banner.yiti.name=Estandarte de Yiti
 item.got:banner.yitiBu.name=Estandarte de Bu
-item.got:banner.yitiChoq.name=Estandarte de Choq 
+item.got:banner.yitiChoq.name=Estandarte de Choq
 item.got:banner.yitiHar.name=Estandarte de Har
 item.got:banner.yitiJar.name=Estandarte de Jar
 item.got:banner.yitiLo.name=Estandarte de Lo
-item.got:banner.yitiMaroon.name=Estandarte de granate 
+item.got:banner.yitiMaroon.name=Estandarte de granate
 item.got:banner.yitiMengo.name=Estandarte de Mengo
 item.got:banner.yitiPearl.name=Estandarte de Rearl
 item.got:banner.yitiPurple.name=Estandarte de púrpura
@@ -5585,7 +5585,7 @@ item.got:sapphire.name=Zafiro
 item.got:sarbacane.name=Cerbatana
 item.got:seeds_grape_red.name=Semillas de Uvas Rojas
 item.got:seeds_grape_white.name=Semillas de Uvas Verdes
-item.got:shish_kebab.name=Kebab Shish 
+item.got:shish_kebab.name=Kebab Shish
 item.got:silver_ingot.name=Lingote de plata
 item.got:silver_nugget.name=Pepita de Plata
 item.got:silver_ring.name=Anillo de Plata

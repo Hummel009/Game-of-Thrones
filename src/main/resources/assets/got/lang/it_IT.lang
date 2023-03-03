@@ -37,8 +37,8 @@ entity.got.AnyaWaynwood.name≠Anya Waynwood
 entity.got.ArdrianCeltigar.name=Ardrian Celtigar
 entity.got.AreoHotah.name≠Areo Hotah
 entity.got.ArianneMartell.name≠Arianne Martell
-entity.got.ArrowFire.name≠Fire Arrow 
-entity.got.ArrowPoisoned.name≠Poisoned Arrow 
+entity.got.ArrowFire.name≠Fire Arrow
+entity.got.ArrowPoisoned.name≠Poisoned Arrow
 entity.got.ArrynBaker.name=Panettiere di Valle di Arryn
 entity.got.ArrynBannerBearer.name=Alfiere dello Stendardo di Valle di Arryn
 entity.got.ArrynBartender.name=Barista di Valle di Arryn
@@ -466,7 +466,7 @@ entity.got.MoribaldChester.name≠Moribald Chester
 entity.got.MossovyBartender.name≠Bartender of Mossovy
 entity.got.MossovyBlacksmith.name≠Blacksmith of Mossovy
 entity.got.MossovyFarmer.name≠Farmer of Mossovy
-entity.got.MossovyMan.name≠Man of Mossovy 
+entity.got.MossovyMan.name≠Man of Mossovy
 entity.got.MossovyWerewolf.name=Lupo mannaro Mossovy
 entity.got.MossovyWitcher.name=Strigo Mossovy
 entity.got.Mullin.name=Mullin
@@ -873,7 +873,7 @@ entity.got.YiTiFireThrower.name=Sacerdote del Fuoco di Yi Ti
 entity.got.YiTiFishmonger.name=Pescivendolo di Yi Ti
 entity.got.YiTiFlorist.name≠Florist of Yi Ti
 entity.got.YiTiFrontier.name≠Frontier of Yi Ti
-entity.got.YiTiFrontierCrossbower.name≠FrontierCrossbower of Yi Ti 
+entity.got.YiTiFrontierCrossbower.name≠FrontierCrossbower of Yi Ti
 entity.got.YiTiGoldsmith.name=Orafo di Yi Ti
 entity.got.YiTiGoldsmith.name≠Goldsmith of Yi Ti
 entity.got.YiTiHunter.name=Cacciatore di Yi Ti
@@ -1214,7 +1214,7 @@ got.achievement.VISIT_CANNIBAL_SANDS.title=E dove?
 got.achievement.VISIT_COLD_COAST.desc=Visita la costa fredda
 got.achievement.VISIT_COLD_COAST.title=Trichechi e persone
 got.achievement.VISIT_CROWNLANDS.desc=Visita Crownlands
-got.achievement.VISIT_CROWNLANDS.title=Mela della discordia 
+got.achievement.VISIT_CROWNLANDS.title=Mela della discordia
 got.achievement.VISIT_CROWNLANDS_FOREST.desc=Visita la foresta reale
 got.achievement.VISIT_CROWNLANDS_FOREST.title=Cerchi anche un cinghiale?
 got.achievement.VISIT_DORNE.desc=Visita The Dorne
@@ -2436,7 +2436,7 @@ got.gui.help2=Premi "Invio" per nascondere questo testo sullo schermo.
 got.gui.hornSelect.haltReady=Arresta/Prepara Unità
 got.gui.hornSelect.summon=Richiama unità
 got.gui.hornSelect.title=Selezione del Corno di Comando
-got.gui.languages.guide1=Mod "Game of Thrones" contiene molti dati di testo, come libri, nomi, missioni, linee. Sono tradotti nelle seguenti lingue: 
+got.gui.languages.guide1=Mod "Game of Thrones" contiene molti dati di testo, come libri, nomi, missioni, linee. Sono tradotti nelle seguenti lingue:
 got.gui.languages.guide2=. Per cambiare la lingua, apri la cartella di configurazione, apri il file GOT.cfg con il blocco note e modifica il valore languageCode. Dopo di che, riavvia il gioco.
 got.gui.languages=Localization
 got.gui.map.conquest.allyBoost=Supporta i tuoi alleati di %s
@@ -4080,7 +4080,7 @@ got.wp.RisvellsCastle.info=Castello ancestrale di Casa Riswell, vassalli degli S
 got.wp.RisvellsCastle=Castello di Ryswells
 got.wp.Riverrun.info=Castello ancestrale della casa di Tully, Signori delle Terre dei Fiumi. Costruito alla confluenza dei fiumi Kamnegonka e Krasny Zubets.
 got.wp.Riverrun=Delta delle Acque
-got.wp.Riverspring.info=Il castello della casa dei Sarviks, vassalli dei Lannister. 
+got.wp.Riverspring.info=Il castello della casa dei Sarviks, vassalli dei Lannister.
 got.wp.Riverspring=Riverspring
 got.wp.RooksRest.info=Castello della casa di Staunton, vassalli della corona.
 got.wp.RooksRest=Rooks Rest
@@ -4612,7 +4612,7 @@ item.got:banner.charlton.name=Stendardo di Charlton
 item.got:banner.chelsted.name=Banner di Chelsted
 item.got:banner.chester.name=Banner di Chester
 item.got:banner.chyttering.name=Banner di Chyttering
-item.got:banner.clegane.name=Stendardo di Clegane 
+item.got:banner.clegane.name=Stendardo di Clegane
 item.got:banner.cleos.name≠Banner of Cleos Frey
 item.got:banner.clifton.name≠Banner of Clifton
 item.got:banner.cockshaw.name=Banner di Cockshaw
@@ -4682,7 +4682,7 @@ item.got:banner.fell.name=Banner di Fell
 item.got:banner.fenn.name=Stendardo di Fenn
 item.got:banner.ferren.name≠Banner of Ferren
 item.got:banner.fireball.name=Banner di Fireball
-item.got:banner.firstFlint.name=Banner di 
+item.got:banner.firstFlint.name=Banner di
 item.got:banner.firstmen.name≠Banner of First Men
 item.got:banner.fisher.name=Banner di Fisher
 item.got:banner.fisherSS.name≠Banner of Stone Coast Fishers
@@ -4706,16 +4706,16 @@ item.got:banner.freyBook.name=Banner di Frey (libro)
 item.got:banner.freyriverrun.name≠Banner of Frey of Riverrun
 item.got:banner.frost.name≠Banner of Frost
 item.got:banner.galtry.name≠Banner of Galtry
-item.got:banner.gardener.name=Banner di giardiniere 
+item.got:banner.gardener.name=Banner di giardiniere
 item.got:banner.gardenerBook.name≠Banner of Gardener (Book)
-item.got:banner.gargalen.name=Stendardo di Gargalen 
+item.got:banner.gargalen.name=Stendardo di Gargalen
 item.got:banner.gaunt.name=Stendardo di Gaunt
 item.got:banner.ghiscar.name=Stendardo di Ghiscar
 item.got:banner.glenmore.name=Banner di Glenmore
 item.got:banner.glover.name=Stendardo di Glover
 item.got:banner.goldencompany.name=Banner di Golden Company
 item.got:banner.goodbrook.name=Banner di Goodbrook
-item.got:banner.goodbrother.name=Banner di Goodbrother 
+item.got:banner.goodbrother.name=Banner di Goodbrother
 item.got:banner.goodbrotherCL.name≠Banner of Dead Lake Goodbrother
 item.got:banner.goodbrotherCSK.name≠Banner of Crowspire Goodbrother
 item.got:banner.goodbrotherD.name≠Banner of Goodbrother of the Rift
@@ -4758,7 +4758,7 @@ item.got:banner.hayford.name=Banner di Hayford
 item.got:banner.heddle.name=Banner di Heddle
 item.got:banner.herston.name≠Banner of Herston
 item.got:banner.hersy.name=Banner di Hersy
-item.got:banner.hetherspoon.name=Banner di Hetherspoon 
+item.got:banner.hetherspoon.name=Banner di Hetherspoon
 item.got:banner.hewett.name=Banner di Hewett
 item.got:banner.hightower.name=Banner di Hightower
 item.got:banner.hightowerBook.name≠Banner of Hightower (Book)
@@ -4766,7 +4766,7 @@ item.got:banner.hillmen.name=Banner di Hillmen
 item.got:banner.hoare.name=Banner di Hoare
 item.got:banner.hogg.name≠Banner of Hogg
 item.got:banner.hollard.name=Banner di Hollard
-item.got:banner.hornwood.name=Stendardo di Hornwood 
+item.got:banner.hornwood.name=Stendardo di Hornwood
 item.got:banner.hornwoodBook.name≠Banner of Hornwood (Book)
 item.got:banner.horpe.name=Stendardo di Horpe
 item.got:banner.hugh.name≠Banner of Hugh
@@ -4874,7 +4874,7 @@ item.got:banner.morsBook.name≠Banner of Mors Martell (Book)
 item.got:banner.moss.name≠Banner of Moss
 item.got:banner.mossovy.name≠Banner of Mossovy
 item.got:banner.mudd.name=Banner di Mudd
-item.got:banner.mullendore.name=Banner di Mullenfore 
+item.got:banner.mullendore.name=Banner di Mullenfore
 item.got:banner.musgood.name≠Banner of Musgood
 item.got:banner.myatt.name≠Banner of Mayatt
 item.got:banner.myr.name=Banner di Myr
@@ -4941,7 +4941,7 @@ item.got:banner.robb.name=Stendardo di Robb Stark
 item.got:banner.robbBook.name≠Banner of Robb Stark (Book)
 item.got:banner.robert.name=Stendardo di Robert
 item.got:banner.robertB.name=Banner di Robert (Libro)
-item.got:banner.robertashford.name≠Banner of Robert Ashford 
+item.got:banner.robertashford.name≠Banner of Robert Ashford
 item.got:banner.robertblackwood.name≠Banner of Robert Blackwood
 item.got:banner.rodrikryswell.name≠Banner of Rodrik Riswell
 item.got:banner.rogerblackwood.name≠Banner of Roger Blackwood
@@ -4987,9 +4987,9 @@ item.got:banner.slate.name=Banner di ardesia
 item.got:banner.sloane.name≠Banner of Sloane
 item.got:banner.slynt.name=Stendardo di Slynt
 item.got:banner.smallwood.name=Banner di Smallwood
-item.got:banner.sothoryos.name=Stendardo di Sothoryos 
+item.got:banner.sothoryos.name=Stendardo di Sothoryos
 item.got:banner.sparr.name=Stendardo di Sparr
-item.got:banner.sparrow.name=Banner di Sparrow 
+item.got:banner.sparrow.name=Banner di Sparrow
 item.got:banner.spicer.name=Banner di Spicer
 item.got:banner.stackhouse.name≠Banner of Stackhouse
 item.got:banner.stackspear.name=Stendardo di Stackspear
@@ -5109,11 +5109,11 @@ item.got:banner.yarwyck.name=Stendardo di Yarwyck
 item.got:banner.yew.name=Banner di Yew
 item.got:banner.yiti.name=Banner di Yiti
 item.got:banner.yitiBu.name=Banner di Bu
-item.got:banner.yitiChoq.name=Banner di Choq 
+item.got:banner.yitiChoq.name=Banner di Choq
 item.got:banner.yitiHar.name=Banner di Har
 item.got:banner.yitiJar.name=Banner di Jar
 item.got:banner.yitiLo.name=Banner di Lo
-item.got:banner.yitiMaroon.name=Banner di Maroon 
+item.got:banner.yitiMaroon.name=Banner di Maroon
 item.got:banner.yitiMengo.name=Stendardo di Mengo
 item.got:banner.yitiPearl.name=Stendardo di Rearl
 item.got:banner.yitiPurple.name=Banner di viola

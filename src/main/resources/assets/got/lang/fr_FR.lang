@@ -37,8 +37,8 @@ entity.got.AnyaWaynwood.name≠Anya Waynwood
 entity.got.ArdrianCeltigar.name=Ardrian Celtigar
 entity.got.AreoHotah.name≠Areo Hotah
 entity.got.ArianneMartell.name≠Arianne Martell
-entity.got.ArrowFire.name≠Fire Arrow 
-entity.got.ArrowPoisoned.name≠Poisoned Arrow 
+entity.got.ArrowFire.name≠Fire Arrow
+entity.got.ArrowPoisoned.name≠Poisoned Arrow
 entity.got.ArrynBaker.name=Boulanger du Val d'Arryn
 entity.got.ArrynBannerBearer.name=Porte-bannière du Val d'Arryn
 entity.got.ArrynBartender.name=Barman du Val d'Arryn
@@ -466,7 +466,7 @@ entity.got.MoribaldChester.name≠Moribald Chester
 entity.got.MossovyBartender.name≠Bartender of Mossovy
 entity.got.MossovyBlacksmith.name≠Blacksmith of Mossovy
 entity.got.MossovyFarmer.name≠Farmer of Mossovy
-entity.got.MossovyMan.name≠Man of Mossovy 
+entity.got.MossovyMan.name≠Man of Mossovy
 entity.got.MossovyWerewolf.name=Loup-garou Mossovy
 entity.got.MossovyWitcher.name=Sorceleur mossovy
 entity.got.Mullin.name=Mullin
@@ -873,7 +873,7 @@ entity.got.YiTiFireThrower.name=Prêtre du feu de Yi Ti
 entity.got.YiTiFishmonger.name=Poissonnier de Yi Ti
 entity.got.YiTiFlorist.name≠Florist of Yi Ti
 entity.got.YiTiFrontier.name≠Frontier of Yi Ti
-entity.got.YiTiFrontierCrossbower.name≠FrontierCrossbower of Yi Ti 
+entity.got.YiTiFrontierCrossbower.name≠FrontierCrossbower of Yi Ti
 entity.got.YiTiGoldsmith.name=Orfèvre de Yi Ti
 entity.got.YiTiGoldsmith.name≠Goldsmith of Yi Ti
 entity.got.YiTiHunter.name=Chasseur de Yi Ti
@@ -4941,7 +4941,7 @@ item.got:banner.robb.name=Bannière de Robb Stark
 item.got:banner.robbBook.name≠Banner of Robb Stark (Book)
 item.got:banner.robert.name=Bannière de Robert
 item.got:banner.robertB.name=Bannière de Robert (Livre)
-item.got:banner.robertashford.name≠Banner of Robert Ashford 
+item.got:banner.robertashford.name≠Banner of Robert Ashford
 item.got:banner.robertblackwood.name≠Banner of Robert Blackwood
 item.got:banner.rodrikryswell.name≠Banner of Rodrik Riswell
 item.got:banner.rogerblackwood.name≠Banner of Roger Blackwood

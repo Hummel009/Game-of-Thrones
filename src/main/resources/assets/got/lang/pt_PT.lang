@@ -37,8 +37,8 @@ entity.got.AnyaWaynwood.name≠Anya Waynwood
 entity.got.ArdrianCeltigar.name=Ardrian Celtigar
 entity.got.AreoHotah.name≠Areo Hotah
 entity.got.ArianneMartell.name≠Arianne Martell
-entity.got.ArrowFire.name≠Fire Arrow 
-entity.got.ArrowPoisoned.name≠Poisoned Arrow 
+entity.got.ArrowFire.name≠Fire Arrow
+entity.got.ArrowPoisoned.name≠Poisoned Arrow
 entity.got.ArrynBaker.name=Padeiro de Vale de Arryn
 entity.got.ArrynBannerBearer.name=Portador da bandeira de Vale de Arryn
 entity.got.ArrynBartender.name=Barman de Vale de Arryn
@@ -466,7 +466,7 @@ entity.got.MoribaldChester.name≠Moribald Chester
 entity.got.MossovyBartender.name≠Bartender of Mossovy
 entity.got.MossovyBlacksmith.name≠Blacksmith of Mossovy
 entity.got.MossovyFarmer.name≠Farmer of Mossovy
-entity.got.MossovyMan.name≠Man of Mossovy 
+entity.got.MossovyMan.name≠Man of Mossovy
 entity.got.MossovyWerewolf.name=Mossovy Werewolf
 entity.got.MossovyWitcher.name=Bruxo Mossovy
 entity.got.Mullin.name=Mullin
@@ -873,7 +873,7 @@ entity.got.YiTiFireThrower.name=Sacerdote do Fogo de Yi Ti
 entity.got.YiTiFishmonger.name=Peixeiro de Yi Ti
 entity.got.YiTiFlorist.name≠Florist of Yi Ti
 entity.got.YiTiFrontier.name≠Frontier of Yi Ti
-entity.got.YiTiFrontierCrossbower.name≠FrontierCrossbower of Yi Ti 
+entity.got.YiTiFrontierCrossbower.name≠FrontierCrossbower of Yi Ti
 entity.got.YiTiGoldsmith.name=Ourives de Yi Ti
 entity.got.YiTiGoldsmith.name≠Goldsmith of Yi Ti
 entity.got.YiTiHunter.name=Caçador de Yi Ti
@@ -1214,7 +1214,7 @@ got.achievement.VISIT_CANNIBAL_SANDS.title=E onde?
 got.achievement.VISIT_COLD_COAST.desc=Visite a costa fria
 got.achievement.VISIT_COLD_COAST.title=Morsas e pessoas
 got.achievement.VISIT_CROWNLANDS.desc=Visite Crownlands
-got.achievement.VISIT_CROWNLANDS.title=Maçã da Discórdia 
+got.achievement.VISIT_CROWNLANDS.title=Maçã da Discórdia
 got.achievement.VISIT_CROWNLANDS_FOREST.desc=Visite a Floresta Real
 got.achievement.VISIT_CROWNLANDS_FOREST.title=Procurando por um javali também?
 got.achievement.VISIT_DORNE.desc=Visite The Dorne
@@ -1769,7 +1769,7 @@ got.chat.ftDisabled=Viagens rápidas estão desabilitadas nesse servidor
 got.chat.insufficientAlignment2=Você precisa de pelo menos %s %s ou %s de reputazione para realizar essa ação
 got.chat.insufficientAlignment3=Você precisa de pelo menos %s %s, %s, ou %s de reputazione para realizar essa ação
 got.chat.insufficientAlignment=Você precisa de pelo menos %s de reputazione com %s para realizar essa ação
-got.chat.invasion.start=Uma invasão de %s está acontecendo nas redondezas! 
+got.chat.invasion.start=Uma invasão de %s está acontecendo nas redondezas!
 got.chat.killedByBounty1=Seu alvo, %s, matou-lhe, e você falhou a missão!
 got.chat.killedByBounty2=%s estão desapontados, e sua reputação com eles diminuiu...
 got.chat.killedByBounty=%s foi morto(a) por seu alvo, %s!
@@ -2436,7 +2436,7 @@ got.gui.help2=Carregue em "Enter" para esconder este texto no ecrã.
 got.gui.hornSelect.haltReady=Parar/Mobilizar Unidades
 got.gui.hornSelect.summon=Convocar Unidades
 got.gui.hornSelect.title=Seleção da Trompa de Comando
-got.gui.languages.guide1=Mod "Game of Thrones" contém muitos dados de texto, tais como livros, nomes, quests, linhas. Estão traduzidos para as seguintes línguas: 
+got.gui.languages.guide1=Mod "Game of Thrones" contém muitos dados de texto, tais como livros, nomes, quests, linhas. Estão traduzidos para as seguintes línguas:
 got.gui.languages.guide2=. Para alterar o idioma, abrir a pasta de configuração, abrir o ficheiro GOT.cfg com bloco de notas e editar o valor do código do idioma. Depois disso, reinicie o jogo.
 got.gui.languages=Localization
 got.gui.map.conquest.allyBoost=Apenas ajuda os aliados de %s
@@ -4081,7 +4081,7 @@ got.wp.RisvellsCastle.info=Castelo ancestral da Casa Riswell, vassalos dos Stark
 got.wp.RisvellsCastle=Castelo Ryswells
 got.wp.Riverrun.info=Castelo ancestral da casa de Tully, Senhores das Terras Fluviais. Construído na confluência dos rios Kamnegonka e Krasny Zubets.
 got.wp.Riverrun=Correrrio
-got.wp.Riverspring.info=O castelo da casa dos Sarviks, vassalos do Lannister. 
+got.wp.Riverspring.info=O castelo da casa dos Sarviks, vassalos do Lannister.
 got.wp.Riverspring=Riverspring
 got.wp.RooksRest.info=Castelo da casa de Staunton, vassalos da coroa.
 got.wp.RooksRest=Rooks Rest
@@ -4613,7 +4613,7 @@ item.got:banner.charlton.name=Banner de Charlton
 item.got:banner.chelsted.name=Bandeira de Chelsted
 item.got:banner.chester.name=Banner de Chester
 item.got:banner.chyttering.name=Banner de Chyttering
-item.got:banner.clegane.name=Bandeira de Clegane 
+item.got:banner.clegane.name=Bandeira de Clegane
 item.got:banner.cleos.name≠Banner of Cleos Frey
 item.got:banner.clifton.name≠Banner of Clifton
 item.got:banner.cockshaw.name=Banner de Cockshaw
@@ -4683,7 +4683,7 @@ item.got:banner.fell.name=Bandeira de Caiu
 item.got:banner.fenn.name=Bandeira de Fenn
 item.got:banner.ferren.name≠Banner of Ferren
 item.got:banner.fireball.name=Banner de Fireball
-item.got:banner.firstFlint.name=Estandarte de 
+item.got:banner.firstFlint.name=Estandarte de
 item.got:banner.firstmen.name≠Banner of First Men
 item.got:banner.fisher.name=Bandeira de Fisher
 item.got:banner.fisherSS.name≠Banner of Stone Coast Fishers
@@ -4707,16 +4707,16 @@ item.got:banner.freyBook.name=Banner de Frey (livro)
 item.got:banner.freyriverrun.name≠Banner of Frey of Riverrun
 item.got:banner.frost.name≠Banner of Frost
 item.got:banner.galtry.name≠Banner of Galtry
-item.got:banner.gardener.name=Estandarte do jardineiro 
+item.got:banner.gardener.name=Estandarte do jardineiro
 item.got:banner.gardenerBook.name≠Banner of Gardener (Book)
-item.got:banner.gargalen.name=Bandeira de Gargalen 
+item.got:banner.gargalen.name=Bandeira de Gargalen
 item.got:banner.gaunt.name=Banner de Gaunt
 item.got:banner.ghiscar.name=Bandeira do Ghiscar
 item.got:banner.glenmore.name=Banner de Glenmore
 item.got:banner.glover.name=Bandeira de Glover
 item.got:banner.goldencompany.name=Bandeira da Golden Company
 item.got:banner.goodbrook.name=Bandeira de Goodbrook
-item.got:banner.goodbrother.name=Banner de Goodbrother 
+item.got:banner.goodbrother.name=Banner de Goodbrother
 item.got:banner.goodbrotherCL.name≠Banner of Dead Lake Goodbrother
 item.got:banner.goodbrotherCSK.name≠Banner of Crowspire Goodbrother
 item.got:banner.goodbrotherD.name≠Banner of Goodbrother of the Rift
@@ -4759,7 +4759,7 @@ item.got:banner.hayford.name=Banner de Hayford
 item.got:banner.heddle.name=Banner de Heddle
 item.got:banner.herston.name≠Banner of Herston
 item.got:banner.hersy.name=Banner de Hersy
-item.got:banner.hetherspoon.name=Bandeira de Hetherspoon 
+item.got:banner.hetherspoon.name=Bandeira de Hetherspoon
 item.got:banner.hewett.name=Bandeira de Hewett
 item.got:banner.hightower.name=Banner de Hightower
 item.got:banner.hightowerBook.name≠Banner of Hightower (Book)
@@ -4767,7 +4767,7 @@ item.got:banner.hillmen.name=Banner de Hillmen
 item.got:banner.hoare.name=Bandeira de Hoare
 item.got:banner.hogg.name≠Banner of Hogg
 item.got:banner.hollard.name=Banner de Hollard
-item.got:banner.hornwood.name=Banner de Hornwood 
+item.got:banner.hornwood.name=Banner de Hornwood
 item.got:banner.hornwoodBook.name≠Banner of Hornwood (Book)
 item.got:banner.horpe.name=Bandeira do Horpe
 item.got:banner.hugh.name≠Banner of Hugh
@@ -4875,7 +4875,7 @@ item.got:banner.morsBook.name≠Banner of Mors Martell (Book)
 item.got:banner.moss.name≠Banner of Moss
 item.got:banner.mossovy.name≠Banner of Mossovy
 item.got:banner.mudd.name=Banner de Mudd
-item.got:banner.mullendore.name=Bandeira de Mullenfore 
+item.got:banner.mullendore.name=Bandeira de Mullenfore
 item.got:banner.musgood.name≠Banner of Musgood
 item.got:banner.myatt.name≠Banner of Mayatt
 item.got:banner.myr.name=Bandeira de Myr
@@ -4942,7 +4942,7 @@ item.got:banner.robb.name=Bandeira de Robb Stark
 item.got:banner.robbBook.name≠Banner of Robb Stark (Book)
 item.got:banner.robert.name=Estandarte de robert
 item.got:banner.robertB.name=Banner de Robert (livro)
-item.got:banner.robertashford.name≠Banner of Robert Ashford 
+item.got:banner.robertashford.name≠Banner of Robert Ashford
 item.got:banner.robertblackwood.name≠Banner of Robert Blackwood
 item.got:banner.rodrikryswell.name≠Banner of Rodrik Riswell
 item.got:banner.rogerblackwood.name≠Banner of Roger Blackwood
@@ -4988,9 +4988,9 @@ item.got:banner.slate.name=Banner de Slate
 item.got:banner.sloane.name≠Banner of Sloane
 item.got:banner.slynt.name=Bandeira de Slynt
 item.got:banner.smallwood.name=Banner de Smallwood
-item.got:banner.sothoryos.name=Bandeira de Sothoryos 
+item.got:banner.sothoryos.name=Bandeira de Sothoryos
 item.got:banner.sparr.name=Banner de Sparr
-item.got:banner.sparrow.name=Bandeira do Pardal 
+item.got:banner.sparrow.name=Bandeira do Pardal
 item.got:banner.spicer.name=Estandarte de Spicer
 item.got:banner.stackhouse.name≠Banner of Stackhouse
 item.got:banner.stackspear.name=Banner de Stackspear
@@ -5110,11 +5110,11 @@ item.got:banner.yarwyck.name=Bandeira de Yarwyck
 item.got:banner.yew.name=Bandeira de Teixo
 item.got:banner.yiti.name=Estandarte do yiti
 item.got:banner.yitiBu.name=Banner de Bu
-item.got:banner.yitiChoq.name=Bandeira de Choq 
+item.got:banner.yitiChoq.name=Bandeira de Choq
 item.got:banner.yitiHar.name=Bandeira de Har
 item.got:banner.yitiJar.name=Banner de Jar
 item.got:banner.yitiLo.name=Bandeira de Lo
-item.got:banner.yitiMaroon.name=Banner de Maroon 
+item.got:banner.yitiMaroon.name=Banner de Maroon
 item.got:banner.yitiMengo.name=Bandeira do Mengo
 item.got:banner.yitiPearl.name=Banner de Rearl
 item.got:banner.yitiPurple.name=Bandeira de Roxo
@@ -6317,7 +6317,7 @@ tile.got:slab_clay_tile_dyed_single2.4.name=Laje de Telha de Barro Marrom
 tile.got:slab_clay_tile_dyed_single2.5.name=Laje de Telha de Barro Verde
 tile.got:slab_clay_tile_dyed_single2.6.name=Laje de Telha de Barro Vermelha
 tile.got:slab_clay_tile_dyed_single2.7.name=Laje de Telha de Barro Preta
-tile.got:slab_clay_tile_single.0.name=Laje de Telha de Barro 
+tile.got:slab_clay_tile_single.0.name=Laje de Telha de Barro
 tile.got:slab_single1.0.name=Laje de basalto liso
 tile.got:slab_single1.1.name=Laje de tijolo de basalto
 tile.got:slab_single1.2.name=Laje lisa de Andesite

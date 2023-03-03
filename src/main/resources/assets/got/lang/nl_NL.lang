@@ -37,8 +37,8 @@ entity.got.AnyaWaynwood.name≠Anya Waynwood
 entity.got.ArdrianCeltigar.name=Ardrian Celtigar
 entity.got.AreoHotah.name≠Areo Hotah
 entity.got.ArianneMartell.name≠Arianne Martell
-entity.got.ArrowFire.name≠Fire Arrow 
-entity.got.ArrowPoisoned.name≠Poisoned Arrow 
+entity.got.ArrowFire.name≠Fire Arrow
+entity.got.ArrowPoisoned.name≠Poisoned Arrow
 entity.got.ArrynBaker.name=Bakker van de Vallei van Arryn
 entity.got.ArrynBannerBearer.name=Vlaghouder van de Vallei van Arryn
 entity.got.ArrynBartender.name=Herbergier van de Vallei van Arryn
@@ -381,7 +381,7 @@ entity.got.LhazarBartender.name=Lhazar Barman
 entity.got.LhazarBlacksmith.name=Lhazar smid
 entity.got.LhazarBrewer.name=Lhazar brouwer
 entity.got.LhazarButcher.name=Lhazar slager
-entity.got.LhazarFarmer.name=Lhazar boer 
+entity.got.LhazarFarmer.name=Lhazar boer
 entity.got.LhazarFishmonger.name=Lhazar Vishandelaar
 entity.got.LhazarGoldsmith.name=Lhazar goudsmid
 entity.got.LhazarHunter.name=Lhazar Jager
@@ -466,7 +466,7 @@ entity.got.MoribaldChester.name≠Moribald Chester
 entity.got.MossovyBartender.name≠Bartender of Mossovy
 entity.got.MossovyBlacksmith.name≠Blacksmith of Mossovy
 entity.got.MossovyFarmer.name≠Farmer of Mossovy
-entity.got.MossovyMan.name≠Man of Mossovy 
+entity.got.MossovyMan.name≠Man of Mossovy
 entity.got.MossovyWerewolf.name=Mossovy Weerwolf
 entity.got.MossovyWitcher.name=Mossovy Witcher
 entity.got.Mullin.name=Mullin
@@ -873,7 +873,7 @@ entity.got.YiTiFireThrower.name=Vuurpriester van Yi Ti
 entity.got.YiTiFishmonger.name=Visboer van Yi Ti
 entity.got.YiTiFlorist.name≠Florist of Yi Ti
 entity.got.YiTiFrontier.name≠Frontier of Yi Ti
-entity.got.YiTiFrontierCrossbower.name≠FrontierCrossbower of Yi Ti 
+entity.got.YiTiFrontierCrossbower.name≠FrontierCrossbower of Yi Ti
 entity.got.YiTiGoldsmith.name=Goudsmid van Yi Ti
 entity.got.YiTiGoldsmith.name≠Goldsmith of Yi Ti
 entity.got.YiTiHunter.name=Jager van Yi Ti
@@ -1214,7 +1214,7 @@ got.achievement.VISIT_CANNIBAL_SANDS.title=En waar?
 got.achievement.VISIT_COLD_COAST.desc=Bezoek de koude kust
 got.achievement.VISIT_COLD_COAST.title=Walrussen en mensen
 got.achievement.VISIT_CROWNLANDS.desc=Bezoek Crownlands
-got.achievement.VISIT_CROWNLANDS.title=Apple of Discord 
+got.achievement.VISIT_CROWNLANDS.title=Apple of Discord
 got.achievement.VISIT_CROWNLANDS_FOREST.desc=Bezoek het Royal Forest
 got.achievement.VISIT_CROWNLANDS_FOREST.title=Ook op zoek naar een zwijn?
 got.achievement.VISIT_DORNE.desc=Bezoek The Dorne
@@ -2087,7 +2087,7 @@ got.enchant.break1=Broos
 got.enchant.break2=Haveloos
 got.enchant.chill.desc.melee=Bevriest vijanden
 got.enchant.chill.desc.ranged=Schiet een bevroren projectiel af
-got.enchant.chill=Koelend 
+got.enchant.chill=Koelend
 got.enchant.damage.desc.throw=%s Afstands schade
 got.enchant.damage.desc=%s Gevechts schade
 got.enchant.descFormat=%s: %s
@@ -2097,7 +2097,7 @@ got.enchant.durable2=Duurzaam
 got.enchant.durable3=Langdurig
 got.enchant.fire.desc.melee=Zet vijanden in vuur
 got.enchant.fire.desc.ranged=Schiet een vurig projectiel af
-got.enchant.fire=Brandend 
+got.enchant.fire=Brandend
 got.enchant.headhunting.desc.melee=Maakt je vijand een kopje kleiner
 got.enchant.headhunting.desc.ranged=Maakt je getroffen vijand een kopje kleiner
 got.enchant.headhunting=Onthoofd
@@ -2130,13 +2130,13 @@ got.enchant.protectPolearm.desc=%s bescherming vs. polearms
 got.enchant.protectPolearm=Klopt
 got.enchant.protectRanged.desc=%s Verhoogde verdediging tegen afstandschade
 got.enchant.protectRanged1=Afschampend
-got.enchant.protectRanged2=Afbuigend 
+got.enchant.protectRanged2=Afbuigend
 got.enchant.protectRanged3=Eölisch
 got.enchant.protectWeak1=Arm
 got.enchant.protectWeak2=Ruw
 got.enchant.rangedDamage.desc=%s Verhoogde aanval met afstandswapens
 got.enchant.rangedKnockback.desc=%s Verhoogde terugslag met afstandswapens
-got.enchant.rangedKnockback1=Doorslaand 
+got.enchant.rangedKnockback1=Doorslaand
 got.enchant.rangedKnockback2=Treffend
 got.enchant.rangedStrong1=Sterk
 got.enchant.rangedStrong2=Krachtig
@@ -2436,7 +2436,7 @@ got.gui.help2=Druk op "Enter" om deze tekst op het scherm te verbergen.
 got.gui.hornSelect.haltReady=Eenheden Halt/Paraat
 got.gui.hornSelect.summon=Eenheden Ontbieden
 got.gui.hornSelect.title=Commandohoorn Selectie
-got.gui.languages.guide1=Mod "Game of Thrones" bevat veel tekstgegevens, zoals boeken, namen, quests, regels. Ze zijn vertaald in de volgende talen: 
+got.gui.languages.guide1=Mod "Game of Thrones" bevat veel tekstgegevens, zoals boeken, namen, quests, regels. Ze zijn vertaald in de volgende talen:
 got.gui.languages.guide2=. Om de taal te veranderen, open de configuratie map, open het GOT.cfg bestand met notepad en bewerk de languageCode waarde. Start daarna het spel opnieuw op.
 got.gui.languages=Localization
 got.gui.map.conquest.allyBoost=Helpt alleen %s bondgenoten
@@ -2475,7 +2475,7 @@ got.gui.map.fastTravel.prompt=Press '%s' to fast travel to the selected waypoint
 got.gui.map.fastTravel.waitTime=(Waypoint wait time: %s. Decreases after each travel here)
 got.gui.map.locked.conquerable=(You can unlock it through %s conquest)
 got.gui.map.locked.enemy=Deze waypoint is niet toegankelijk voor vijandige Spelers
-got.gui.map.locked.region=Verkrijg deze waypoint door het gebied the bezoeken 
+got.gui.map.locked.region=Verkrijg deze waypoint door het gebied the bezoeken
 got.gui.map.locked.shared=Ontgrendel dit gedeelde waypoint door de nabije omgeving te bezoeken
 got.gui.map.title=Kaart van Het Spel Der Tronen
 got.gui.map.tp=Druk op '%s' om te teleporteren (/tp)
@@ -4080,7 +4080,7 @@ got.wp.RisvellsCastle.info=Voorouderlijk kasteel van House Riswell, vazallen van
 got.wp.RisvellsCastle=Ryswells Castle
 got.wp.Riverrun.info=Voorouderlijk kasteel van het huis van Tully, Lords van the Rivierlanden. Gebouwd aan de samenvloeiing van de rivieren Kamnegonka en Krasny Zubets.
 got.wp.Riverrun=Rivierrun
-got.wp.Riverspring.info=Het kasteel van het huis van de Sarviks, vazallen van de Lannister. 
+got.wp.Riverspring.info=Het kasteel van het huis van de Sarviks, vazallen van de Lannister.
 got.wp.Riverspring=Rivierenveer
 got.wp.RooksRest.info=Kasteel van het huis van Staunton, vazallen van de kroon.
 got.wp.RooksRest=Rooks Rust
@@ -4612,7 +4612,7 @@ item.got:banner.charlton.name=Vlag van Charlton
 item.got:banner.chelsted.name=Vlag van Chelsted
 item.got:banner.chester.name=Vlag van Chester
 item.got:banner.chyttering.name=Vlag van Chyttering
-item.got:banner.clegane.name=Vlag van Clegane 
+item.got:banner.clegane.name=Vlag van Clegane
 item.got:banner.cleos.name≠Banner of Cleos Frey
 item.got:banner.clifton.name≠Banner of Clifton
 item.got:banner.cockshaw.name=Vlag van Cockshaw
@@ -4682,7 +4682,7 @@ item.got:banner.fell.name=Vlag van Fell
 item.got:banner.fenn.name=Vlag van Fenn
 item.got:banner.ferren.name≠Banner of Ferren
 item.got:banner.fireball.name=Vlag van vuurbal
-item.got:banner.firstFlint.name=Vlag van 
+item.got:banner.firstFlint.name=Vlag van
 item.got:banner.firstmen.name≠Banner of First Men
 item.got:banner.fisher.name=Vlag van Fisher
 item.got:banner.fisherSS.name≠Banner of Stone Coast Fishers
@@ -4706,16 +4706,16 @@ item.got:banner.freyBook.name=Vlag van Frey (boek)
 item.got:banner.freyriverrun.name≠Banner of Frey of Riverrun
 item.got:banner.frost.name≠Banner of Frost
 item.got:banner.galtry.name≠Banner of Galtry
-item.got:banner.gardener.name=Vlag van tuinman 
+item.got:banner.gardener.name=Vlag van tuinman
 item.got:banner.gardenerBook.name≠Banner of Gardener (Book)
-item.got:banner.gargalen.name=Vlag van Gargalen 
+item.got:banner.gargalen.name=Vlag van Gargalen
 item.got:banner.gaunt.name=Vlag van Gaunt
 item.got:banner.ghiscar.name=Vlag van Ghiscar
 item.got:banner.glenmore.name=Vlag van Glenmore
 item.got:banner.glover.name=Vlag van Glover
 item.got:banner.goldencompany.name=Vlag van Golden Company
 item.got:banner.goodbrook.name=Vlag van Goodbrook
-item.got:banner.goodbrother.name=Vlag van Goodbrother 
+item.got:banner.goodbrother.name=Vlag van Goodbrother
 item.got:banner.goodbrotherCL.name≠Banner of Dead Lake Goodbrother
 item.got:banner.goodbrotherCSK.name≠Banner of Crowspire Goodbrother
 item.got:banner.goodbrotherD.name≠Banner of Goodbrother of the Rift
@@ -4758,7 +4758,7 @@ item.got:banner.hayford.name=Vlag van Hayford
 item.got:banner.heddle.name=Vlag van Heddle
 item.got:banner.herston.name≠Banner of Herston
 item.got:banner.hersy.name=Vlag van Hersy
-item.got:banner.hetherspoon.name=Vlag van Hetherspoon 
+item.got:banner.hetherspoon.name=Vlag van Hetherspoon
 item.got:banner.hewett.name=Vlag van Hewett
 item.got:banner.hightower.name=Vlag van Hightower
 item.got:banner.hightowerBook.name≠Banner of Hightower (Book)
@@ -4766,7 +4766,7 @@ item.got:banner.hillmen.name=Vlag van Hillmen
 item.got:banner.hoare.name=Vlag van Hoare
 item.got:banner.hogg.name≠Banner of Hogg
 item.got:banner.hollard.name=Vlag van Hollard
-item.got:banner.hornwood.name=Vlag van Hornwood 
+item.got:banner.hornwood.name=Vlag van Hornwood
 item.got:banner.hornwoodBook.name≠Banner of Hornwood (Book)
 item.got:banner.horpe.name=Vlag van Horpe
 item.got:banner.hugh.name≠Banner of Hugh
@@ -4874,7 +4874,7 @@ item.got:banner.morsBook.name≠Banner of Mors Martell (Book)
 item.got:banner.moss.name≠Banner of Moss
 item.got:banner.mossovy.name≠Banner of Mossovy
 item.got:banner.mudd.name=Vlag van Mudd
-item.got:banner.mullendore.name=Vlag van Mullenfore 
+item.got:banner.mullendore.name=Vlag van Mullenfore
 item.got:banner.musgood.name≠Banner of Musgood
 item.got:banner.myatt.name≠Banner of Mayatt
 item.got:banner.myr.name=Vlag van Myr
@@ -4941,7 +4941,7 @@ item.got:banner.robb.name=Vlag van Robb Stark
 item.got:banner.robbBook.name≠Banner of Robb Stark (Book)
 item.got:banner.robert.name=Vlag van Robert
 item.got:banner.robertB.name=Vlag van Robert (boek)
-item.got:banner.robertashford.name≠Banner of Robert Ashford 
+item.got:banner.robertashford.name≠Banner of Robert Ashford
 item.got:banner.robertblackwood.name≠Banner of Robert Blackwood
 item.got:banner.rodrikryswell.name≠Banner of Rodrik Riswell
 item.got:banner.rogerblackwood.name≠Banner of Roger Blackwood
@@ -4987,9 +4987,9 @@ item.got:banner.slate.name=Vlag van leisteen
 item.got:banner.sloane.name≠Banner of Sloane
 item.got:banner.slynt.name=Vlag van Slynt
 item.got:banner.smallwood.name=Vlag van Smallwood
-item.got:banner.sothoryos.name=Vlag van Sothoryos 
+item.got:banner.sothoryos.name=Vlag van Sothoryos
 item.got:banner.sparr.name=Vlag van Sparr
-item.got:banner.sparrow.name=Vlag van Sparrow 
+item.got:banner.sparrow.name=Vlag van Sparrow
 item.got:banner.spicer.name=Vlag van Spicer
 item.got:banner.stackhouse.name≠Banner of Stackhouse
 item.got:banner.stackspear.name=Vlag van Stackspear
@@ -5109,11 +5109,11 @@ item.got:banner.yarwyck.name=Vlag van Yarwyck
 item.got:banner.yew.name=Vlag van taxus
 item.got:banner.yiti.name=Vlag van Yiti
 item.got:banner.yitiBu.name=Vlag van Bu
-item.got:banner.yitiChoq.name=Vlag van Choq 
+item.got:banner.yitiChoq.name=Vlag van Choq
 item.got:banner.yitiHar.name=Vlag van Har
 item.got:banner.yitiJar.name=Vlag van Jar
 item.got:banner.yitiLo.name=Vlag van Lo
-item.got:banner.yitiMaroon.name=Vlag van Maroon 
+item.got:banner.yitiMaroon.name=Vlag van Maroon
 item.got:banner.yitiMengo.name=Vlag van Mengo
 item.got:banner.yitiPearl.name=Vlag van Rearl
 item.got:banner.yitiPurple.name=Vlag van paars
@@ -5441,7 +5441,7 @@ item.got:mug_milk.name=Melk
 item.got:mug_orange_juice.name=Sinaasappelsap
 item.got:mug_perry.name=Perry
 item.got:mug_plantain_brew.name=Weegbree Brew
-item.got:mug_plum_kvass.name=Pruimenkwas 
+item.got:mug_plum_kvass.name=Pruimenkwas
 item.got:mug_pomegranate_juice.name=Granaatappel-sap
 item.got:mug_pomegranate_wine.name=Granaatappel-wijn
 item.got:mug_poppy_milk.name=Melk van de papaver
@@ -6388,7 +6388,7 @@ tile.got:slab_single_dirt.5.name=Bruschatka-plaat
 tile.got:slab_single_gravel.0.name=Grindplaat
 tile.got:slab_single_gravel.1.name=Mordor Grindplaat
 tile.got:slab_single_gravel.2.name=Obsidiaan Grindplaat
-tile.got:slab_single_sand.0.name=Zandplaat 
+tile.got:slab_single_sand.0.name=Zandplaat
 tile.got:slab_single_sand.1.name=Rode Zandplaat
 tile.got:slab_single_sand.2.name=Witte Zandplaat
 tile.got:slab_single_thatch.0.name=Stro Plaat
@@ -6644,7 +6644,7 @@ tile.got:treasure_gold.name=Gouden Schatbult
 tile.got:treasure_silver.name=Zilveren Schatbult
 tile.got:ulthos_bars.name=Ulthos Bars
 tile.got:ulthos_torch.name=Ulthos fakkel
-tile.got:unsmeltery.name=Ontsmelterij 
+tile.got:unsmeltery.name=Ontsmelterij
 tile.got:valyrian_bars.name=Valyrian Bars
 tile.got:wall_bone.0.name=Bot muur
 tile.got:wall_clay_tile.0.name=Kleitegel Muur
@@ -6736,7 +6736,7 @@ tile.got:wood5.0.name=Pijnhouten Treden
 tile.got:wood5.1.name=Citroenhout
 tile.got:wood5.2.name=Sinaasappelhout Wood
 tile.got:wood5.3.name=Limoenhout
-tile.got:wood6.0.name=Mahoniehout 
+tile.got:wood6.0.name=Mahoniehout
 tile.got:wood6.1.name=Wilgenhout
 tile.got:wood6.2.name=Cipreshout
 tile.got:wood6.3.name=Olijvenhout
