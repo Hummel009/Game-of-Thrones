@@ -5,8 +5,12 @@ import java.util.*;
 import got.common.util.DatabaseGenerator;
 import got.common.util.DatabaseGenerator.Database;
 import net.minecraft.command.*;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.World;
 
 public class GOTCommandDatabase extends CommandBase {
+	public Random rand = new Random();
+	
 	@Override
 	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
@@ -28,12 +32,15 @@ public class GOTCommandDatabase extends CommandBase {
 
 	@Override
 	public void processCommand(ICommandSender sender, String[] args) {
+		World world = sender.getEntityWorld();
 		Database db = Database.forName(args[0]);
 		if (db == null) {
 			CommandBase.func_152373_a(sender, this, "Database \"" + args[0] + "\" does not exist.");
 		} else {
 			DatabaseGenerator.setDisplay(args[0]);
 			CommandBase.func_152373_a(sender, this, "Database \"" + args[0] + "\" is prepared.");
+			DatabaseGenerator gen = new DatabaseGenerator();
+			gen.generate(world, (EntityPlayer) sender, rand);
 		}
 	}
 }

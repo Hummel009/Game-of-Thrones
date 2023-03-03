@@ -1,7 +1,6 @@
 package got.common.world.structure;
 
 import got.common.faction.GOTFaction;
-import got.common.util.DatabaseGenerator;
 import got.common.world.biome.GOTBiome;
 import got.common.world.structure.essos.asshai.*;
 import got.common.world.structure.essos.braavos.*;
@@ -519,8 +518,6 @@ public class GOTStructure {
 
 		GOTStructureRegistry.register(id++, new GOTStructureSothoryosVillage(GOTBiome.sothoryosJungle, 1.0f), "SothoryosVillage", GOTFaction.SOTHORYOS, (IVillageProperties<Instance>) instance -> {
 		});
-
-		GOTStructureRegistry.register(id++, DatabaseGenerator.class, 9605778);
 
 		GOTStructureSothoryosPyramidMapgen.register();
 		GOTStructureGhiscarPyramidMapgen.register();

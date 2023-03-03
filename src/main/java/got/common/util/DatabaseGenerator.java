@@ -36,6 +36,7 @@ import got.common.world.spawning.GOTSpawnEntry;
 import got.common.world.structure.other.*;
 import net.minecraft.block.*;
 import net.minecraft.entity.*;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.*;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
@@ -44,7 +45,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.gen.feature.*;
 
-public class DatabaseGenerator extends GOTStructureBase {
+public class DatabaseGenerator {
 	private static String display = "null";
 	private static final Map<Class<? extends Entity>, Entity> CLASS_TO_OBJ = new HashMap<>();
 	private static final Map<Class<? extends Entity>, GOTWaypoint> CLASS_TO_WP = new HashMap<>();
@@ -116,12 +117,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		CLASS_TO_WP.put(GOTEntityMullin.class, GOTWaypoint.ShadowTower);
 	}
 
-	public DatabaseGenerator(boolean flag) {
-		super(flag);
-	}
-
-	@Override
-	public boolean generate(World world, Random random, int y, int j, int k, int rotation) {
+	public boolean generate(World world, EntityPlayer player, Random random) {
 		long time = System.nanoTime();
 		try {
 			searchForEntities(world);
@@ -191,7 +187,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 
 				sb = new StringBuilder();
 				for (GOTWaypoint wp : WAYPOINTS) {
-					sb.append("\n| ").append(wp.getDisplayName()).append(" || ").append(wp.getLoreText(usingPlayer)).append("\n|-");
+					sb.append("\n| ").append(wp.getDisplayName()).append(" || ").append(wp.getLoreText(player)).append("\n|-");
 				}
 				PrintWriter fWaypoints = new PrintWriter("hummel/waypoints.txt", "UTF-8");
 				fWaypoints.write(sb.toString());
@@ -1453,7 +1449,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				for (GOTWaypoint wp : GOTFixer.structures.keySet()) {
 					GOTStructureBase str = GOTFixer.structures.get(wp);
 					str.disable();
-					str.generate(world, random, y, j, k);
+					str.generate(world, random, 0, 0, 0);
 					for (EntityCreature entity : GOTFixer.structures.get(wp).characters) {
 						sb.append("\n| ").append(getEntityPagename(entity.getClass())).append(" = ").append(wp.getDisplayName());
 					}
@@ -1471,7 +1467,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 		}
 		long newTime = System.nanoTime();
 		ChatComponentText chatComponentTranslation = new ChatComponentText("Generated databases in " + (newTime - time) / 1.0E9 + "s");
-		usingPlayer.addChatMessage(chatComponentTranslation);
+		player.addChatMessage(chatComponentTranslation);
 		return true;
 	}
 
