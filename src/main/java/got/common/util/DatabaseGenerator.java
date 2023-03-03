@@ -480,16 +480,16 @@ public class DatabaseGenerator extends GOTStructureBase {
 					sb.append("\n| ").append(getBiomePagename(biome)).append(" = ");
 					AegonCalendar.getDate().month.season = Season.WINTER;
 					GOTClimateType.performSeasonalChanges();
-					sb.append("WINTER: ").append(biome.temperature);
+					sb.append(Lang.SEASON_WINTER).append(": ").append(biome.temperature);
 					AegonCalendar.getDate().month.season = Season.SPRING;
 					GOTClimateType.performSeasonalChanges();
-					sb.append("<br>SPRING: ").append(biome.temperature);
+					sb.append(Lang.SEASON_SPRING).append(": ").append(biome.temperature);
 					AegonCalendar.getDate().month.season = Season.SUMMER;
 					GOTClimateType.performSeasonalChanges();
-					sb.append("<br>SUMMER: ").append(biome.temperature);
+					sb.append(Lang.SEASON_SUMMER).append(": ").append(biome.temperature);
 					AegonCalendar.getDate().month.season = Season.AUTUMN;
 					GOTClimateType.performSeasonalChanges();
-					sb.append("<br>AUTUMN: ").append(biome.temperature);
+					sb.append("&lt;br&rt;").append(Lang.SEASON_AUTUMN).append(": ").append(biome.temperature);
 				}
 				sb.append(END);
 
@@ -499,16 +499,16 @@ public class DatabaseGenerator extends GOTStructureBase {
 					sb.append("\n| ").append(getBiomePagename(biome)).append(" = ");
 					AegonCalendar.getDate().month.season = Season.WINTER;
 					GOTClimateType.performSeasonalChanges();
-					sb.append("WINTER: ").append(biome.rainfall);
+					sb.append(Lang.SEASON_WINTER).append(": ").append(biome.rainfall);
 					AegonCalendar.getDate().month.season = Season.SPRING;
 					GOTClimateType.performSeasonalChanges();
-					sb.append("<br>SPRING: ").append(biome.rainfall);
+					sb.append("&lt;br&rt;").append(Lang.SEASON_SPRING).append(": ").append(biome.rainfall);
 					AegonCalendar.getDate().month.season = Season.SUMMER;
 					GOTClimateType.performSeasonalChanges();
-					sb.append("<br>SUMMER: ").append(biome.rainfall);
+					sb.append("&lt;br&rt;").append(Lang.SEASON_SUMMER).append(": ").append(biome.rainfall);
 					AegonCalendar.getDate().month.season = Season.AUTUMN;
 					GOTClimateType.performSeasonalChanges();
-					sb.append("<br>AUTUMN: ").append(biome.rainfall);
+					sb.append("&lt;br&rt;").append(Lang.SEASON_AUTUMN).append(": ").append(biome.rainfall);
 				}
 				AegonCalendar.getDate().month.season = season;
 				sb.append(END);
@@ -1707,25 +1707,11 @@ public class DatabaseGenerator extends GOTStructureBase {
 	}
 
 	private enum Lang {
-		PAGE_BIOME("biomeLoc"), PAGE_FACTION("factionLoc"), PAGE_ENTITY("entityLoc"), BIOME_HAS_ANIMALS("biomeHasAnimals"), BIOME_HAS_CONQUEST("biomeHasConquest"), BIOME_HAS_INVASIONS("biomeHasInvasions"), BIOME_HAS_SPAWN("biomeHasSpawn"), BIOME_HAS_STRUCTURES("biomeHasStructures"), BIOME_HAS_TREES("biomeHasTrees2"), BIOME_HAS_TREES_BIOME_ONLY("biomeHasTrees1"), BIOME_HAS_WAYPOINTS("biomeHasWaypoints"), BIOME_NO_ACHIEVEMENT("biomeNoAchievement"), BIOME_NO_ANIMALS("biomeNoAnimals"), BIOME_NO_CONQUEST("biomeNoConquest"), BIOME_NO_INVASIONS("biomeNoInvasions"), BIOME_NO_SPAWN("biomeNoSpawn"), BIOME_NO_STRUCTURES("biomeNoStructures"), BIOME_NO_TREES("biomeNoTrees"), BIOME_NO_VARIANTS("biomeNoVariants"), BIOME_NO_WAYPOINTS("biomeNoWaypoints"), BIOME_HAS_MINERALS("biomeMinerals"), BIOME_CONQUEST_ONLY("biomeConquestOnly"), BIOME_SPAWN_ONLY("biomeSpawnOnly"), FACTION_HAS_BANNERS("factionHasBanners"), FACTION_HAS_CHARS("factionHasCharacters"), FACTION_HAS_CONQUEST("factionHasConquest"), FACTION_HAS_INVASION("factionHasInvasion"), FACTION_HAS_RANKS("factionHasRanks"), FACTION_HAS_SPAWN("factionHasSpawn"), FACTION_HAS_WAR_CRIMES("factionIsViolent"), FACTION_HAS_WAYPOINTS("factionHasWaypoints"), FACTION_NO_ATTRIBUTES("factionNoAttr"), FACTION_NO_BANNERS("factionNoBanners"), FACTION_NO_CHARS("factionNoCharacters"), FACTION_NO_CONQUEST("factionNoConquest"), FACTION_NO_ENEMIES("factionNoEnemies"), FACTION_NO_FRIENDS("factionNoFriends"), FACTION_NO_INVASIONS("factionNoInvasion"), FACTION_NO_RANKS("factionNoRanks"), FACTION_NO_SPAWN("factionNoSpawn"), FACTION_NO_STRUCTURES("factionNoStructures"), FACTION_NO_WAR_CRIMES("factionNotViolent"), FACTION_NO_WAYPOINTS("factionNoWaypoints"), TREE_HAS_BIOMES("treeHasBiomes"), TREE_NO_BIOMES("treeNoBiomes"), TREE_VARIANT_ONLY("treeVariantOnly"), RIDER("rider"), NO_PLEDGE("noPledge"), NEED_PLEDGE("yesPledge"), REPUTATION("rep"), MINERAL_BIOMES("mineralBiomes"), STRUCTURE_BIOMES("structureBiomes"), ENTITY_NO_BIOMES("entityNoBiomes"), ENTITY_HAS_BIOMES("entityHasBiomes"), ENTITY_CONQUEST("entityConquestOnly"), ENTITY_INVASION("entityInvasionOnly"), ENTITY_CONQUEST_INVASION("entityConquestInvasion"), CATEGORY("categoryTemplates"), 
-		CLIMATE_COLD("climateCold"), 
-		CLIMATE_COLD_AZ("climateColdAZ"), 
-		CLIMATE_NORMAL("climateNormal"), 
-		CLIMATE_NORMAL_AZ("climateNormalAZ"), 
-		CLIMATE_SUMMER("climateSummer"), 
-		CLIMATE_SUMMER_AZ("climateSummerAZ"), 
-		CLIMATE_WINTER("climateWinter"), 
-		CLIMATE_NULL("climateNull");
-
-		private String key;
-
-		Lang(String string) {
-			key = string;
-		}
+		PAGE_BIOME, PAGE_FACTION, PAGE_ENTITY, BIOME_HAS_ANIMALS, BIOME_HAS_CONQUEST, BIOME_HAS_INVASIONS, BIOME_HAS_SPAWN, BIOME_HAS_STRUCTURES, BIOME_HAS_TREES, BIOME_HAS_TREES_BIOME_ONLY, BIOME_HAS_WAYPOINTS, BIOME_NO_ACHIEVEMENT, BIOME_NO_ANIMALS, BIOME_NO_CONQUEST, BIOME_NO_INVASIONS, BIOME_NO_SPAWN, BIOME_NO_STRUCTURES, BIOME_NO_TREES, BIOME_NO_VARIANTS, BIOME_NO_WAYPOINTS, BIOME_HAS_MINERALS, BIOME_CONQUEST_ONLY, BIOME_SPAWN_ONLY, FACTION_HAS_BANNERS, FACTION_HAS_CHARS, FACTION_HAS_CONQUEST, FACTION_HAS_INVASION, FACTION_HAS_RANKS, FACTION_HAS_SPAWN, FACTION_HAS_WAR_CRIMES, FACTION_HAS_WAYPOINTS, FACTION_NO_ATTRIBUTES, FACTION_NO_BANNERS, FACTION_NO_CHARS, FACTION_NO_CONQUEST, FACTION_NO_ENEMIES, FACTION_NO_FRIENDS, FACTION_NO_INVASIONS, FACTION_NO_RANKS, FACTION_NO_SPAWN, FACTION_NO_STRUCTURES, FACTION_NO_WAR_CRIMES, FACTION_NO_WAYPOINTS, TREE_HAS_BIOMES, TREE_NO_BIOMES, TREE_VARIANT_ONLY, RIDER, NO_PLEDGE, NEED_PLEDGE, REPUTATION, MINERAL_BIOMES, STRUCTURE_BIOMES, ENTITY_NO_BIOMES, ENTITY_HAS_BIOMES, ENTITY_CONQUEST, ENTITY_INVASION, ENTITY_CONQUEST_INVASION, CATEGORY, CLIMATE_COLD, CLIMATE_COLD_AZ, CLIMATE_NORMAL, CLIMATE_NORMAL_AZ, CLIMATE_SUMMER, CLIMATE_SUMMER_AZ, CLIMATE_WINTER, CLIMATE_NULL, SEASON_WINTER, SEASON_AUTUMN, SEASON_SUMMER, SEASON_SPRING;
 
 		@Override
 		public String toString() {
-			return StatCollector.translateToLocal("got.db." + key + ".name");
+			return StatCollector.translateToLocal("got.db." + name() + ".name");
 		}
 	}
 }
