@@ -133,7 +133,7 @@ public class DatabaseGenerator extends GOTStructureBase {
 				sb = new StringBuilder();
 				for (GOTAchievement ach : ACHIEVEMENTS) {
 					if (ach != null) {
-						sb.append("\n| ").append(getAchievementTitle(ach)).append(" || ").append(getAchievementDesc(ach)).append("\n");
+						sb.append("\n| ").append(getAchievementTitle(ach)).append(" || ").append(getAchievementDesc(ach)).append("\n|-");
 					}
 				}
 				PrintWriter fAchievements = new PrintWriter("hummel/achievements.txt", "UTF-8");
@@ -528,8 +528,8 @@ public class DatabaseGenerator extends GOTStructureBase {
 							sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(biome.getClimateType());
 						}
 					}
+					sb.append(END);
 				}
-				sb.append(END);
 
 				sb.append(TITLE).append("Template:DB Biome-Variants");
 				sb.append(BEGIN);
