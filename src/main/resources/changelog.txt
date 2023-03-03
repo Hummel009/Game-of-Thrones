@@ -2,8 +2,10 @@ CHANGELOG
 
 >>BUILD 23.??.??
 * Optimized Essos and Westeros structures
+* Improved Database Generator (now only command is needed)
 * Improved Ice wall and Ibbenese wall
 * Improved valyrian roads
+* Fixed a few bugs in translations
 
 >>BUILD 23.02.14
 * Improved Russian, Ukrainian, English translations
