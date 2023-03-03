@@ -483,13 +483,13 @@ public class DatabaseGenerator extends GOTStructureBase {
 					sb.append(Lang.SEASON_WINTER).append(": ").append(biome.temperature);
 					AegonCalendar.getDate().month.season = Season.SPRING;
 					GOTClimateType.performSeasonalChanges();
-					sb.append("&lt;br&rt;").append(Lang.SEASON_SPRING).append(": ").append(biome.temperature);
+					sb.append("&lt;br&gt;").append(Lang.SEASON_SPRING).append(": ").append(biome.temperature);
 					AegonCalendar.getDate().month.season = Season.SUMMER;
 					GOTClimateType.performSeasonalChanges();
-					sb.append("&lt;br&rt;").append(Lang.SEASON_SUMMER).append(": ").append(biome.temperature);
+					sb.append("&lt;br&gt;").append(Lang.SEASON_SUMMER).append(": ").append(biome.temperature);
 					AegonCalendar.getDate().month.season = Season.AUTUMN;
 					GOTClimateType.performSeasonalChanges();
-					sb.append("&lt;br&rt;").append(Lang.SEASON_AUTUMN).append(": ").append(biome.temperature);
+					sb.append("&lt;br&gt;").append(Lang.SEASON_AUTUMN).append(": ").append(biome.temperature);
 				}
 				sb.append(END);
 
@@ -502,13 +502,13 @@ public class DatabaseGenerator extends GOTStructureBase {
 					sb.append(Lang.SEASON_WINTER).append(": ").append(biome.rainfall);
 					AegonCalendar.getDate().month.season = Season.SPRING;
 					GOTClimateType.performSeasonalChanges();
-					sb.append("&lt;br&rt;").append(Lang.SEASON_SPRING).append(": ").append(biome.rainfall);
+					sb.append("&lt;br&gt;").append(Lang.SEASON_SPRING).append(": ").append(biome.rainfall);
 					AegonCalendar.getDate().month.season = Season.SUMMER;
 					GOTClimateType.performSeasonalChanges();
-					sb.append("&lt;br&rt;").append(Lang.SEASON_SUMMER).append(": ").append(biome.rainfall);
+					sb.append("&lt;br&gt;").append(Lang.SEASON_SUMMER).append(": ").append(biome.rainfall);
 					AegonCalendar.getDate().month.season = Season.AUTUMN;
 					GOTClimateType.performSeasonalChanges();
-					sb.append("&lt;br&rt;").append(Lang.SEASON_AUTUMN).append(": ").append(biome.rainfall);
+					sb.append("&lt;br&gt;").append(Lang.SEASON_AUTUMN).append(": ").append(biome.rainfall);
 				}
 				AegonCalendar.getDate().month.season = season;
 				sb.append(END);
