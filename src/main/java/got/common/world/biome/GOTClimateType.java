@@ -3,13 +3,11 @@ package got.common.world.biome;
 import got.common.*;
 
 public enum GOTClimateType {
-	WINTER("isAlwaysWinter", false), COLD("isLongWinter", false), COLD_AZ("isLongWinterAZ", true), SUMMER("isNeverWinter", false), SUMMER_AZ("isNeverWinterAZ", true), NORMAL("isSeasonalWinter", false), NORMAL_AZ("isSeasonalWinterAZ", true);
+	WINTER(false), COLD(false), COLD_AZ(true), SUMMER(false), SUMMER_AZ(true), NORMAL(false), NORMAL_AZ(true);
 
 	public boolean altitudeZone;
-	public String climateName;
 
-	GOTClimateType(String name, boolean zone) {
-		climateName = name;
+	GOTClimateType(boolean zone) {
 		altitudeZone = zone;
 	}
 
