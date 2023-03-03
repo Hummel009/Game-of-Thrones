@@ -217,7 +217,7 @@ public class DatabaseGenerator {
 						float damage = GOTReflection.getDamageAmount(item);
 						ToolMaterial material = GOTReflection.getToolMaterial(item);
 						sb.append("\n| ").append(getItemName(item)).append(" || ").append(getItemFilename(item)).append(" || ").append(item.getMaxDamage()).append(" || ").append(damage).append(" || ");
-						if (material.getRepairItemStack() == null) {
+						if (material == null || material.getRepairItemStack() == null) {
 							sb.append("N/A");
 						} else {
 							sb.append(getItemName(material.getRepairItemStack().getItem()));
