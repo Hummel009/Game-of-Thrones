@@ -114,12 +114,6 @@ public class DatabaseGenerator extends GOTStructureBase {
 		CLASS_TO_WP.put(GOTEntityHarmune.class, GOTWaypoint.EastWatch);
 		CLASS_TO_WP.put(GOTEntityDenysMallister.class, GOTWaypoint.ShadowTower);
 		CLASS_TO_WP.put(GOTEntityMullin.class, GOTWaypoint.ShadowTower);
-		searchForMinerals(BIOMES, MINERALS);
-		searchForStructures(BIOMES, STRUCTURES);
-		searchForHireable(HIREABLE, UNITS);
-		searchForPagenamesEntity(BIOMES, FACTIONS);
-		searchForPagenamesBiome(BIOMES, FACTIONS);
-		searchForPagenamesFaction(BIOMES, FACTIONS);
 	}
 
 	public DatabaseGenerator(boolean flag) {
@@ -131,6 +125,12 @@ public class DatabaseGenerator extends GOTStructureBase {
 		long time = System.nanoTime();
 		try {
 			searchForEntities(world);
+			searchForMinerals(BIOMES, MINERALS);
+			searchForStructures(BIOMES, STRUCTURES);
+			searchForHireable(HIREABLE, UNITS);
+			searchForPagenamesEntity(BIOMES, FACTIONS);
+			searchForPagenamesBiome(BIOMES, FACTIONS);
+			searchForPagenamesFaction(BIOMES, FACTIONS);
 			Files.createDirectories(Paths.get("hummel"));
 			if ("tables".equals(display)) {
 				StringBuilder sb;
