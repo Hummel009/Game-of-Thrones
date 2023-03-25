@@ -10,7 +10,6 @@ import got.GOT;
 import got.common.block.table.GOTBlockCraftingTable;
 import got.common.database.*;
 import got.common.inventory.GOTContainerCraftingTable;
-import got.common.item.GOTMaterialFinder;
 import got.common.item.other.GOTItemMountArmor;
 import got.common.item.weapon.*;
 import got.common.recipe.GOTRecipe;
