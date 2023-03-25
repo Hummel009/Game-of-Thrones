@@ -1,11 +1,16 @@
 CHANGELOG
 
->>BUILD 23.??.??
+>>BUILD 23.03.25
+* Experimental: Multithreading in world decorator
 * Optimized Essos and Westeros structures
+* Readded compatibility with Weather 2 AGAIN
+
 * Improved Database Generator (now only command is needed)
 * Improved Ice wall and Ibbenese wall
 * Improved valyrian roads
+
 * Fixed a few bugs in translations
+? Fixed something linked to materials
 
 >>BUILD 23.02.14
 * Improved Russian, Ukrainian, English translations

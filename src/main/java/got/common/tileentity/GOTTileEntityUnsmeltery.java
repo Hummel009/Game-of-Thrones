@@ -10,6 +10,7 @@ import got.GOT;
 import got.common.block.table.GOTBlockCraftingTable;
 import got.common.database.*;
 import got.common.inventory.GOTContainerCraftingTable;
+import got.common.item.GOTMaterialFinder;
 import got.common.item.other.GOTItemMountArmor;
 import got.common.item.weapon.*;
 import got.common.recipe.GOTRecipe;
@@ -330,6 +331,8 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 			material = ((ItemTool) item).func_150913_i().getRepairItemStack();
 		} else if (item instanceof ItemSword) {
 			material = GOTMaterial.getToolMaterialByName(((ItemSword) item).getToolMaterialName()).getRepairItemStack();
+		} else if (item instanceof ItemHoe) {
+			material = GOTMaterial.getToolMaterialByName(((ItemHoe) item).getToolMaterialName()).getRepairItemStack();
 		} else if (item instanceof GOTItemCrossbow) {
 			material = ((GOTItemCrossbow) item).getCrossbowMaterial().getRepairItemStack();
 		} else if (item instanceof GOTItemThrowingAxe) {
@@ -344,9 +347,6 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 				return material;
 			}
 		} else {
-			if (item instanceof ItemHoe) {
-				return GOTMaterial.getToolMaterialByName(((ItemHoe) item).getToolMaterialName()).getRepairItemStack();
-			}
 			if (item == Items.bucket) {
 				return new ItemStack(Items.iron_ingot);
 			}

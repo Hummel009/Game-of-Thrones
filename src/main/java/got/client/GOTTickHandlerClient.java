@@ -321,7 +321,7 @@ public class GOTTickHandlerClient {
 					GOTLog.logger.info("Hummel009: Render distance was above 16 - set to 16 to prevent a vanilla crash");
 				}
 			}
-			if (minecraft.entityRenderer != null && !(minecraft.entityRenderer instanceof GOTEntityRenderer)) {
+			if (!GOTModChecker.hasWeather2() && !GOTModChecker.hasLOTR() && minecraft.entityRenderer != null && !(minecraft.entityRenderer instanceof GOTEntityRenderer)) {
 				minecraft.entityRenderer = new GOTEntityRenderer(minecraft, minecraft.getResourceManager());
 				((IReloadableResourceManager) minecraft.getResourceManager()).registerReloadListener(minecraft.entityRenderer);
 				FMLLog.info("Hummel009: Successfully replaced entityrenderer");

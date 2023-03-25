@@ -82,11 +82,19 @@ public class GOTMaterial {
 	public static ToolMaterial ASSHAI_TOOL = EnumHelper.addToolMaterial("GOT_ASSHAI_TOOL", 2, 450, 6.0F, 2.0F, 14);
 
 	public static ItemArmor.ArmorMaterial getArmorMaterialByName(String name) {
-		return ItemArmor.ArmorMaterial.valueOf(name);
+		try {
+			return ItemArmor.ArmorMaterial.valueOf(name);
+		} catch (Exception e) {
+			return ItemArmor.ArmorMaterial.IRON;
+		}
 	}
 
 	public static Item.ToolMaterial getToolMaterialByName(String name) {
-		return Item.ToolMaterial.valueOf(name);
+		try {
+			return Item.ToolMaterial.valueOf(name);
+		} catch (Exception e) {
+			return Item.ToolMaterial.IRON;
+		}
 	}
 
 	public static void onInit() {

@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 
 public class GOTCommandDatabase extends CommandBase {
 	public Random rand = new Random();
-	
+
 	@Override
 	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
