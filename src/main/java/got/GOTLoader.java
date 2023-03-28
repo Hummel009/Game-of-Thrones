@@ -60,7 +60,7 @@ public class GOTLoader {
 		GOTCapes.preInit();
 		GOTPoisonedDrinks.preInit();
 		GOTPotionChanges.preInit();
-		if (GOTModChecker.hasNEI()) {
+		if (GOTModChecker.hasNEI() && GOTModChecker.hasGuiContainer()) {
 			NEIGOTIntegrator.registerRecipes();
 		}
 	}
