@@ -3026,7 +3026,7 @@ public class GOTPlayerData {
 			int ftClockIncrease = (int) (diff * offlineFactor);
 			if (ftClockIncrease > 0) {
 				setTimeSinceFTWithUpdate(ftSinceTick + ftClockIncrease);
-				ChatComponentTranslation chatComponentTranslation = new ChatComponentTranslation("got.chat.ft.offlineTick", GOTLevelData.getHMSTime_Ticks(diff), GOTLevelData.getHMSTime_Ticks(ftClockIncrease));
+				ChatComponentTranslation chatComponentTranslation = new ChatComponentTranslation("got.chat.ft.offlineTick", GOTLevelData.getHMSTime_Ticks(ftClockIncrease));
 				player.addChatMessage(chatComponentTranslation);
 			}
 		}

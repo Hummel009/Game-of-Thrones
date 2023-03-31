@@ -92,7 +92,7 @@ entity.got.BericDondarrionLife6.name=贝里克·唐德利恩
 entity.got.Bird.name=鸟
 entity.got.Bison.name=野牛
 entity.got.BlackWalderFrey.name=黑瓦德·佛雷
-entity.got.Blizzard.name≠Blizzard
+entity.got.Blizzard.name=暴风雪
 entity.got.Boar.name=野猪
 entity.got.Bomb.name=炸弹
 entity.got.BraavosBaker.name=布拉佛斯烘焙师
@@ -314,12 +314,12 @@ entity.got.IbbenFarmer.name=伊班农场主
 entity.got.IbbenFarmhand.name=伊班农工
 entity.got.IbbenFishmonger.name=伊班鱼贩
 entity.got.IbbenFlorist.name=伊班果园主
-entity.got.IbbenFlorist.name≠Florist of Ibben
-entity.got.IbbenGoldsmith.name≠Goldsmith of Ibben
+entity.got.IbbenFlorist.name=伊班花店
+entity.got.IbbenGoldsmith.name=伊班金史密斯
 entity.got.IbbenLumberman.name=伊班木材商
 entity.got.IbbenMan.name=伊班人
 entity.got.IbbenMason.name=伊班工匠
-entity.got.IbbenMiner.name≠Miner of Ibben
+entity.got.IbbenMiner.name=伊班矿工
 entity.got.IbbenStablemaster.name=伊班马夫
 entity.got.IbbenWarlord.name=伊班守卫队长
 entity.got.IbbenWarrior.name=伊班战士
@@ -689,7 +689,7 @@ entity.got.Septon.name=修士
 entity.got.Shadowcat.name=影子山猫
 entity.got.Shae.name=雪伊
 entity.got.ShireenBaratheon.name=希琳·拜拉席恩
-entity.got.Shryke.name≠Shryke
+entity.got.Shryke.name=爬行类
 entity.got.SmokeRing.name=烟环
 entity.got.SnowBear.name=雪熊
 entity.got.SothoryosBannerBearer.name=索斯罗斯旗手
@@ -734,14 +734,14 @@ entity.got.SummerButcher.name=盛夏群岛肉贩
 entity.got.SummerFarmer.name=盛夏群岛农场主
 entity.got.SummerFarmhand.name=盛夏群岛农工
 entity.got.SummerFishmonger.name=盛夏群岛渔夫
-entity.got.SummerFlorist.name≠Florist of Summer Islands
-entity.got.SummerGoldsmith.name≠Goldsmith of Summer Islands
+entity.got.SummerFlorist.name=盛夏群岛花店
+entity.got.SummerGoldsmith.name=盛夏群岛金史密斯
 entity.got.SummerHunter.name=盛夏群岛猎人
 entity.got.SummerLumberman.name=盛夏群岛木材商
 entity.got.SummerMan.name=盛夏群岛人
 entity.got.SummerMason.name=盛夏群岛石匠
 entity.got.SummerMiner.name=盛夏群岛矿物商
-entity.got.SummerMiner.name≠Miner of Summer Islands
+entity.got.SummerMiner.name=盛夏群岛矿工
 entity.got.SummerWarlord.name=盛夏群岛领主
 entity.got.SummerWarrior.name=盛夏群岛战士
 entity.got.Swan.name=天鹅
@@ -871,18 +871,18 @@ entity.got.YiTiFarmer.name=夷地农场主
 entity.got.YiTiFarmhand.name=夷地农工
 entity.got.YiTiFireThrower.name=夷地投火手
 entity.got.YiTiFishmonger.name=夷地鱼贩
-entity.got.YiTiFlorist.name≠Florist of Yi Ti
+entity.got.YiTiFlorist.name=夷地花店
 entity.got.YiTiFrontier.name=夷地边境守卫
 entity.got.YiTiFrontierCrossbower.name=夷地边境守卫弩手
 entity.got.YiTiGoldsmith.name=夷地金匠
-entity.got.YiTiGoldsmith.name≠Goldsmith of Yi Ti
+entity.got.YiTiGoldsmith.name=夷地金史密斯
 entity.got.YiTiHunter.name=夷地猎人
 entity.got.YiTiLevyman.name=夷地防人
 entity.got.YiTiLevymanCrossbower.name=夷地民兵弩手
 entity.got.YiTiLumberman.name=夷地木材商
 entity.got.YiTiMan.name=夷地人
 entity.got.YiTiMason.name=夷地石匠
-entity.got.YiTiMiner.name≠Miner of Yi Ti
+entity.got.YiTiMiner.name=夷地矿工
 entity.got.YiTiSamurai.name=夷地武士
 entity.got.YiTiShogune.name=夷地将领
 entity.got.YiTiSoldier.name=夷地士兵
@@ -1093,8 +1093,8 @@ got.achievement.KILL_SANDOR_CLEGANE.desc=杀死桑铎·克里冈
 got.achievement.KILL_SANDOR_CLEGANE.title=猎狗人
 got.achievement.KILL_SANSA_STARK.desc=杀死珊莎·史塔克
 got.achievement.KILL_SANSA_STARK.title=你背叛了你的父亲！
-got.achievement.KILL_SHRYKE.desc≠Kill a shryke
-got.achievement.KILL_SHRYKE.title≠Fighting reptiloids
+got.achievement.KILL_SHRYKE.desc=杀死一个爬行动物
+got.achievement.KILL_SHRYKE.title=他们的战斗
 got.achievement.KILL_THENN_BERSERKER.desc=杀死瑟恩狂战士
 got.achievement.KILL_THENN_BERSERKER.title=更强壮！
 got.achievement.KILL_THE_KING.desc=杀死七大王国的任意一位君主
@@ -1307,8 +1307,8 @@ got.achievement.VISIT_PENTOS.desc=进入潘托斯
 got.achievement.VISIT_PENTOS.title=君临彼岸
 got.achievement.VISIT_QARTH.desc=进入魁尔斯
 got.achievement.VISIT_QARTH.title=商贾之国
-got.achievement.VISIT_QARTH_COLONY.desc≠Visit Quartic colonies
-got.achievement.VISIT_QARTH_COLONY.title≠Eastern Colonizers
+got.achievement.VISIT_QARTH_COLONY.desc=访问魁尔斯的殖民地
+got.achievement.VISIT_QARTH_COLONY.title=东方殖民者
 got.achievement.VISIT_QARTH_DESERT.desc=进入魁尔斯沙漠
 got.achievement.VISIT_QARTH_DESERT.title=红沙
 got.achievement.VISIT_QOHOR.desc=进入科霍尔
@@ -1329,8 +1329,8 @@ got.achievement.VISIT_SHADOW_MOUNTAINS.desc=进入黎明山脉
 got.achievement.VISIT_SHADOW_MOUNTAINS.title=遮天蔽日
 got.achievement.VISIT_SHADOW_WASTELAND.desc=进入阴影荒地
 got.achievement.VISIT_SHADOW_WASTELAND.title=骇人荒野
-got.achievement.VISIT_SHRYKES_LAND.desc≠Visit Land of the Shrykes
-got.achievement.VISIT_SHRYKES_LAND.title≠Nibiru
+got.achievement.VISIT_SHRYKES_LAND.desc=访问爬行动物之乡
+got.achievement.VISIT_SHRYKES_LAND.title=尼比鲁
 got.achievement.VISIT_SKAGOS.desc=进入斯卡格斯岛
 got.achievement.VISIT_SKAGOS.title=寻找毛犀
 got.achievement.VISIT_SKIRLING_PASS.desc=进入风声峡
@@ -1361,8 +1361,8 @@ got.achievement.VISIT_STONE_COAST.desc=进入磐石海岸
 got.achievement.VISIT_STONE_COAST.title=争议焦点
 got.achievement.VISIT_STORMLANDS.desc=进入风暴地
 got.achievement.VISIT_STORMLANDS.title=怒火燎原
-got.achievement.VISIT_SUMMER_COLONY.desc≠Visit the Summer Colonies
-got.achievement.VISIT_SUMMER_COLONY.title≠Western Colonizers
+got.achievement.VISIT_SUMMER_COLONY.desc=访问盛夏群岛的殖民地
+got.achievement.VISIT_SUMMER_COLONY.title=西方殖民者
 got.achievement.VISIT_SUMMER_ISLANDS.desc=进入盛夏群岛
 got.achievement.VISIT_SUMMER_ISLANDS.title=南方岛屿
 got.achievement.VISIT_TARTH.desc=进入塔斯岛
@@ -1379,20 +1379,20 @@ got.achievement.VISIT_ULTHOS.desc=进入乌尔特斯
 got.achievement.VISIT_ULTHOS.title=蜘蛛，迷雾，诡异
 got.achievement.VISIT_ULTHOS_DESERT.desc=进入乌尔特斯沙漠
 got.achievement.VISIT_ULTHOS_DESERT.title=至少没有蜘蛛
-got.achievement.VISIT_ULTHOS_DESERT_COLD.desc≠Visit Ulthos Cold Desert
-got.achievement.VISIT_ULTHOS_DESERT_COLD.title≠The path, senseless and merciless
-got.achievement.VISIT_ULTHOS_FOREST.desc≠Visit Ulthos Forest
-got.achievement.VISIT_ULTHOS_FOREST.title≠The wrong forest and the wrong spiders
-got.achievement.VISIT_ULTHOS_FROST.desc≠Visit Ulthos Permafrost
-got.achievement.VISIT_ULTHOS_FROST.title≠My condolences to the survivors
-got.achievement.VISIT_ULTHOS_MARSHES.desc≠Visit the Ultos marshes
-got.achievement.VISIT_ULTHOS_MARSHES.title≠Isthmus II
+got.achievement.VISIT_ULTHOS_DESERT_COLD.desc=访问乌尔茨的冷漠沙漠
+got.achievement.VISIT_ULTHOS_DESERT_COLD.title=这条路，毫无意义，无情无义
+got.achievement.VISIT_ULTHOS_FOREST.desc=访问乌尔特斯森林
+got.achievement.VISIT_ULTHOS_FOREST.title=错误的森林和错误的蜘蛛
+got.achievement.VISIT_ULTHOS_FROST.desc=访问乌尔特斯的永久冻土层
+got.achievement.VISIT_ULTHOS_FROST.title=我对幸存者表示慰问
+got.achievement.VISIT_ULTHOS_MARSHES.desc=参观乌尔特斯的沼泽地
+got.achievement.VISIT_ULTHOS_MARSHES.title=地峡II
 got.achievement.VISIT_ULTHOS_MOUNTAINS.desc=进入乌尔特斯山脉
 got.achievement.VISIT_ULTHOS_MOUNTAINS.title=白色边界
-got.achievement.VISIT_ULTHOS_RED_FOREST.desc≠Visit the crimson forests of Ultos
-got.achievement.VISIT_ULTHOS_RED_FOREST.title≠Wine and blood
-got.achievement.VISIT_ULTHOS_TAIGA.desc≠Visit Ulthos Taiga
-got.achievement.VISIT_ULTHOS_TAIGA.title≠Taiga in the southeast, why not?
+got.achievement.VISIT_ULTHOS_RED_FOREST.desc=参观乌尔托斯的深红色森林
+got.achievement.VISIT_ULTHOS_RED_FOREST.title=酒和血
+got.achievement.VISIT_ULTHOS_TAIGA.desc=访问乌尔特斯的泰加
+got.achievement.VISIT_ULTHOS_TAIGA.title=东南部的泰戈尔，为什么不呢？
 got.achievement.VISIT_VALYRIA.desc=进入瓦雷利亚半岛
 got.achievement.VISIT_VALYRIA.title=帝国废墟
 got.achievement.VISIT_VALYRIA_SEA.desc=进入瓦雷利亚海
@@ -1560,9 +1560,9 @@ got.biome.beachWhite.name=白沙滩
 got.biome.blackIslands.name=黑水湾
 got.biome.boneMountains.name=骸骨山脉
 got.biome.braavos.name=布拉佛斯
-got.biome.braavosHills.name=
+got.biome.braavosHills.name=布拉佛斯的山丘
 got.biome.cannibalSands.name=食人沙漠
-got.biome.cannibalSandsHills.name=
+got.biome.cannibalSandsHills.name=食人沙漠的山丘
 got.biome.coldCoast.name=冰冷海岸
 got.biome.crackclaw.name=蟹爪半岛
 got.biome.crownlands.name=王领
@@ -1573,7 +1573,7 @@ got.biome.dorneDesert.name=多恩沙漠
 got.biome.dorneMountains.name=赤红山脉
 got.biome.dorneValley.name=多恩谷
 got.biome.doshKhalin.name=圣母山
-got.biome.dothrakiHills.name=
+got.biome.dothrakiHills.name=多斯拉克海的山
 got.biome.dothrakiSea.name=多斯拉克海
 got.biome.dragonstone.name=龙石岛
 got.biome.essos.name=厄斯索斯
@@ -1591,7 +1591,7 @@ got.biome.giftOld.name=赠地
 got.biome.hauntedForest.name=鬼影森林
 got.biome.ibben.name=伊班
 got.biome.ibbenColony.name=伊班殖民地
-got.biome.ibbenColonyHills.name=
+got.biome.ibbenColonyHills.name=伊班殖民地的山丘
 got.biome.ibbenMountains.name=伊班山脉
 got.biome.ibbenTaiga.name=伊班林地
 got.biome.ifekevronForest.name=伊佛维隆森林
@@ -1606,24 +1606,24 @@ got.biome.jogosNhaiHills.name=鸠格斯奈小山
 got.biome.kingSpears.name=人鱼王之矛
 got.biome.lake.name=湖
 got.biome.lhazar.name=拉札尔
-got.biome.lhazarHills.name=
+got.biome.lhazarHills.name=拉札尔的山
 got.biome.longSummer.name=长夏之地
 got.biome.lorath.name=罗拉斯
-got.biome.lorathMaze.name=
+got.biome.lorathMaze.name=罗拉斯的迷宫
 got.biome.lys.name=里斯
 got.biome.massy.name=摩西之钩
-got.biome.massyHills.name=
+got.biome.massyHills.name=摩西之钩的山
 got.biome.meereen.name=弥林
 got.biome.mercenary.name=争议之地
 got.biome.mossovy.name=摩苏伊
-got.biome.mossovyForest.name≠Mossovy Taiga
-got.biome.mossovyMarshes.name≠Mossovy Marshes
-got.biome.mossovyMountains.name≠Mossovy Mountains
+got.biome.mossovyForest.name=摩苏伊的泰格
+got.biome.mossovyMarshes.name=摩苏伊的沼泽地
+got.biome.mossovyMountains.name=摩苏伊的山
 got.biome.mossovyTundra.name=苏克达尔
 got.biome.myr.name=密尔
 got.biome.naath.name=纳斯
 got.biome.neck.name=颈泽
-got.biome.newGhis.name=
+got.biome.newGhis.name=新基斯
 got.biome.north.name=北境
 got.biome.northBarrows.name=北境冢地
 got.biome.northForest.name=北境森林
@@ -1632,19 +1632,19 @@ got.biome.northMountains.name=北境山脉
 got.biome.northTown.name=白港
 got.biome.northWild.name=北境荒地
 got.biome.norvos.name=诺佛斯
-got.biome.norvosHills.name=
+got.biome.norvosHills.name=诺佛斯的山
 got.biome.ocean.name=大海
 got.biome.pentos.name=潘托斯
-got.biome.pentosHills.name=
+got.biome.pentosHills.name=潘托斯的山
 got.biome.qarth.name=魁尔斯
-got.biome.qarthColony.name=
+got.biome.qarthColony.name=魁尔斯的殖民地
 got.biome.qarthDesert.name=魁尔斯沙漠
 got.biome.qohor.name=科霍尔
 got.biome.qohorForest.name=科霍尔森林
 got.biome.rainwood.name=雨林
 got.biome.reach.name=河湾地
 got.biome.reachArbor.name=青亭岛
-got.biome.reachHills.name=
+got.biome.reachHills.name=河湾地的山
 got.biome.reachTown.name=旧镇
 got.biome.redMesa.name=红色高原
 got.biome.redSea.name=血海
@@ -1656,7 +1656,7 @@ got.biome.shadowLand.name=阴影之地
 got.biome.shadowMountains.name=黎明山脉
 got.biome.shadowTown.name=阴影之地
 got.biome.shadowWasteland.name=阴影荒地
-got.biome.shrykesLand.name=
+got.biome.shrykesLand.name=爬行动物之乡
 got.biome.skagos.name=斯卡格斯岛
 got.biome.skirlingPass.name=风声峡
 got.biome.sothoryosBushland.name=索斯罗斯矮灌丛地
@@ -1676,8 +1676,8 @@ got.biome.stepstones.name=海盗海岸
 got.biome.stoneCoast.name=磐石海岸
 got.biome.stormlands.name=风暴地
 got.biome.stormlandsTown.name=杜伦岬
-got.biome.summerColony.name=
-got.biome.summerColonyMangrove.name=
+got.biome.summerColony.name=夏日群岛的殖民地
+got.biome.summerColonyMangrove.name=夏日群岛的红树林群落
 got.biome.summerIslands.name=夏日群岛
 got.biome.tarth.name=塔斯岛
 got.biome.thenn.name=瑟恩
@@ -1686,17 +1686,17 @@ got.biome.tyrosh.name=泰洛西
 got.biome.ulos.name=乌斯岛
 got.biome.ulthos.name=乌尔特斯
 got.biome.ulthosDesert.name=乌尔特斯沙漠
-got.biome.ulthosDesertCold.name=
-got.biome.ulthosForest.name=
-got.biome.ulthosForestEdge.name=
-got.biome.ulthosFrost.name=
-got.biome.ulthosMarshes.name=
-got.biome.ulthosMarshesForest.name=
+got.biome.ulthosDesertCold.name=寒冷的乌尔特斯沙漠
+got.biome.ulthosForest.name=乌尔特斯的森林
+got.biome.ulthosForestEdge.name=乌尔特斯的森林边缘
+got.biome.ulthosFrost.name=乌尔特斯的永冻层
+got.biome.ulthosMarshes.name=乌尔特斯的沼泽地
+got.biome.ulthosMarshesForest.name=乌尔特斯森林沼泽地
 got.biome.ulthosMountains.name=乌尔特斯山脉
-got.biome.ulthosRedForest.name=
-got.biome.ulthosRedForestEdge.name=
-got.biome.ulthosTaiga.name=
-got.biome.ulthosTaigaEdge.name=
+got.biome.ulthosRedForest.name=乌尔特斯的红森林
+got.biome.ulthosRedForestEdge.name=乌尔特斯的红色森林边缘
+got.biome.ulthosTaiga.name=乌尔特斯的泰格
+got.biome.ulthosTaigaEdge.name=乌尔特斯的泰加边缘
 got.biome.valyria.name=瓦雷利亚半岛
 got.biome.valyriaSea.name=瓦雷利亚海
 got.biome.valyriaVolcano.name=瓦雷利亚火山
@@ -1707,8 +1707,8 @@ got.biome.westerlands.name=西境
 got.biome.westerlandsHills.name=维斯特洛丘陵
 got.biome.westerlandsTown.name=兰尼斯港
 got.biome.westerosForest.name=森林
-got.biome.westerosForest1.name=
-got.biome.westerosForest2.name=
+got.biome.westerosForest1.name=针叶树森林
+got.biome.westerosForest2.name=落叶森林
 got.biome.westerosMountains.name=维斯特洛山脉
 got.biome.wetwood.name=湿林
 got.biome.whisperingWood.name=呓语森林
@@ -1765,6 +1765,7 @@ got.chat.bountyKilled1=%s得到了%s对你的悬赏！
 got.chat.bountyKilled2=%s极其愤怒，你与他们的声望大幅下跌……
 got.chat.bountyPlaced=%s将你的通缉令挂在了悬赏栏之上！
 got.chat.conquestHornProtected=%s无法奇袭此区域
+got.chat.ft.offlineTick=当你离线时，你的快速旅行的等待时间减少了%s
 got.chat.ftDisabled=此服务器里禁用迅速旅行
 got.chat.insufficientAlignment2=做此动作你需要至少%s点%s或%s结盟值
 got.chat.insufficientAlignment3=做此动作你需要至少%s点%s、%s或%s结盟值
@@ -2017,64 +2018,76 @@ got.date.month.november=十一月
 got.date.month.october=十月
 got.date.month.september=九月
 got.date=AC
-got.db.BIOME_CONQUEST_ONLY.name≠No NPCs will spawn in this biome; however, if you conquer the biome, your allies will spawn there.
-got.db.BIOME_HAS_ANIMALS.name≠Below is a list of all mobs that you may encounter as you travel through the biome.
-got.db.BIOME_HAS_CONQUEST.name≠This biome can be [[Factions#Conquest|conquered]] by the following factions:
-got.db.BIOME_HAS_INVASIONS.name≠The following factions invade this biome:
-got.db.BIOME_HAS_SPAWN.name≠The following NPCs spawn in this biome:
-got.db.BIOME_HAS_STRUCTURES.name≠The following buildings can be found in this biome:
-got.db.BIOME_HAS_TREES_BIOME_ONLY.name≠The following tree species grow in this biome:
-got.db.BIOME_HAS_TREES.name≠All tree species growing in the biome are listed below. If a tree species is found only in a certain biome variant, the variant will be indicated in brackets.
-got.db.BIOME_HAS_WAYPOINTS.name≠When you visit that biome, the waypoints below will be unlocked. Remember: you must be on good or neutral terms with the waypoint faction to be able to teleport to them. Factions are indicated in brackets next to the waypoints.
-got.db.PAGE_BIOME.name≠biome
-got.db.BIOME_HAS_MINERALS.name≠Below are all the minerals you can find if you build a mine in this biome. Range Y is the height from and to which the fossil is found. The chance of spawning an ore is given as a percentage.
-got.db.BIOME_NO_ACHIEVEMENT.name≠This biome has no achievement for visiting
-got.db.BIOME_NO_ANIMALS.name≠This biome has no animals, birds or fish.
-got.db.BIOME_NO_CONQUEST.name≠This biome cannot be conquered on behalf of any faction.
-got.db.BIOME_NO_INVASIONS.name≠This biome cannot be invaded by any faction.
-got.db.BIOME_NO_SPAWN.name≠No NPCs can spawn in this biome.
-got.db.BIOME_NO_STRUCTURES.name≠There are no structures in this biome.
-got.db.BIOME_NO_TREES.name≠There are no trees in this biome.
-got.db.BIOME_NO_VARIANTS.name≠This biome does not have any distinctive variations in topography and fauna.
-got.db.BIOME_NO_WAYPOINTS.name≠No waypoints are unlocked when visiting this biome.
-got.db.BIOME_SPAWN_ONLY.name≠This biome cannot be conquered. Only the NPCs that were originally here will spawn here.
-got.db.CATEGORY.name≠Category:Templates
-got.db.ENTITY_CONQUEST_INVASION.name≠(conquest/invasion)
-got.db.ENTITY_CONQUEST.name≠(conquest)
-got.db.ENTITY_HAS_BIOMES.name≠This mob spawns in the biomes listed below.
-got.db.ENTITY_INVASION.name≠(invasion)
-got.db.PAGE_ENTITY.name≠mob
-got.db.ENTITY_NO_BIOMES.name≠This mob does not spawn in any biomes.
-got.db.FACTION_HAS_BANNERS.name≠This faction owns the following [[banners]]. If you have +1 reputation with this faction, you can put a banner on a Valyrian/Gold/Silver/Bronze block and own a territory in a certain radius (seen on F3). The banner is set up when you RMB on it.
-got.db.FACTION_HAS_CHARS.name≠There are characters in the mod that belong to this faction. These are:
-got.db.FACTION_HAS_CONQUEST.name≠After [[Faction#Pledge|pledging]], the following biomes can be conquered on behalf of this faction:
-got.db.FACTION_HAS_INVASION.name≠This faction invades the following biomes:
-got.db.FACTION_HAS_RANKS.name≠Faction ranks become available when you reach the reputation indicated in brackets. After it the rank also becomes a title, it can be chosen in the menu to be displayed in the chat next to the nickname.
-got.db.FACTION_HAS_SPAWN.name≠Mobs of this faction can spawn in the following biomes:
-got.db.FACTION_HAS_WAYPOINTS.name≠This faction controls the waypoints listed below. You will not be able to teleport to them if you have a bad reputation.
-got.db.FACTION_HAS_WAR_CRIMES.name≠This faction encourages war crimes
-got.db.PAGE_FACTION.name≠faction
-got.db.FACTION_NO_ATTRIBUTES.name≠This faction has no shields or cloaks.
-got.db.FACTION_NO_BANNERS.name≠This faction has no banners.
-got.db.FACTION_NO_CHARS.name≠Characters belonging to this faction do not exist.
-got.db.FACTION_NO_CONQUEST.name≠No biomes can be conquered on behalf of this faction.
-got.db.FACTION_NO_ENEMIES.name≠This faction has no enemies.
-got.db.FACTION_NO_FRIENDS.name≠This faction has no allies.
-got.db.FACTION_NO_INVASIONS.name≠This faction does not invade any biomes.
-got.db.FACTION_NO_RANKS.name≠This faction has no reputation ranks and titles.
-got.db.FACTION_NO_SPAWN.name≠Mobs of this faction do not spawn anywhere.
-got.db.FACTION_NO_STRUCTURES.name≠This faction has no structures of its own.
-got.db.FACTION_NO_WAYPOINTS.name≠This faction has no control over any waypoints.
-got.db.FACTION_NO_WAR_CRIMES.name≠This faction does not encourage the killing of civilians.
-got.db.MINERAL_BIOMES.name≠Below are all the biomes in which you can find this mineral. The Y range is the height from and to which the fossil is found. The chance of spawning ore for each biome is given as a percentage.
-got.db.NO_PLEDGE.name≠without pledge
-got.db.REPUTATION.name≠alignment
-got.db.RIDER.name≠rider
-got.db.STRUCTURE_BIOMES.name≠This construction is found in the following biomes:
-got.db.TREE_HAS_BIOMES.name≠This tree grows in the following biomes:
-got.db.TREE_NO_BIOMES.name≠This tree is considered extinct and cannot be found in the world at this time. However, it can be obtained by the player in creative mode.
-got.db.TREE_VARIANT_ONLY.name≠only in biome variants
-got.db.NEED_PLEDGE.name≠with pledge
+got.db.BIOME_CONQUEST_ONLY.name=没有NPC会在这个生物群落中产生；但是如果你征服了这个生物群落，你的盟友会在那里产生。
+got.db.BIOME_HAS_ANIMALS.name=下面是你在该生物群落中旅行时可能遇到的所有小怪的列表。
+got.db.BIOME_HAS_CONQUEST.name=该生物群落可以被以下派别[[派别#征服|征服了]]所征服：
+got.db.BIOME_HAS_INVASIONS.name=以下派别入侵该生物群落：
+got.db.BIOME_HAS_MINERALS.name=以下是你在这个生物群落中建矿可以找到的所有矿物。范围Y是发现化石的高度，从和到。生成矿石的几率以百分比给出。
+got.db.BIOME_HAS_SPAWN.name=以下NPC在该生物群落中产卵：
+got.db.BIOME_HAS_STRUCTURES.name=在该生物群落中可以找到下列建筑：
+got.db.BIOME_HAS_TREES.name=所有生长在该生物群落的树种都列在下面。如果一个树种只在某个生物群落的变体中发现，该变体将在括号中注明。
+got.db.BIOME_HAS_TREES_BIOME_ONLY.name=以下树种生长于该生物群落：
+got.db.BIOME_HAS_WAYPOINTS.name=当你访问该生物群落时，下面的航点将被解锁。记住：你必须与航点的派别保持良好或中立的关系，才能传送到它们。派别在航点旁边的括号中显示。
+got.db.BIOME_NO_ACHIEVEMENT.name=这个生物群落没有可供参观的成就。
+got.db.BIOME_NO_ANIMALS.name=这个生物群落没有动物、鸟类或鱼类。
+got.db.BIOME_NO_CONQUEST.name=该生物群落不能以任何派别的名义被征服。
+got.db.BIOME_NO_INVASIONS.name=这个生物群落不能被任何派别入侵。
+got.db.BIOME_NO_SPAWN.name=在此生物群落中不能产生NPC。
+got.db.BIOME_NO_STRUCTURES.name=该生物群落中没有任何结构。
+got.db.BIOME_NO_TREES.name=该生物群落中没有树木。
+got.db.BIOME_NO_VARIANTS.name=该生物群落在地形和动物方面没有任何明显的变化。
+got.db.BIOME_NO_WAYPOINTS.name=访问该生物群落时没有解锁的航点。
+got.db.BIOME_SPAWN_ONLY.name=该生物群落不能被征服。只有原来在这里的NPC会在这里产卵。
+got.db.类别.name=类别:Templates
+got.db.CLIMATE_COLD.name=这个生物群落的冬天很严酷：暴风雪很频繁，草地上都是雪。天空中布满了密集的云层。甚至水看起来也很冷。如果你不穿衣服到外面去，站在远离热量和光线的地方，你会被冻死。到了春天，情况有所改善，雪融化了，雨变得更频繁。草地变成了邛崃色，外面很冷，但不可能冻死。夏天与春天没有什么不同，所以不要指望等待热天。到了秋天，草开始枯萎，变成褐色。天气依然如故。[[类别：寒冷气候]]
+got.db.CLIMATE_COLD_AZ.name=在这个生物群落中，有一个高海拔区。山区气候与平原气候不同的主要原因是海拔的增加和高空温度的降低。山区的山峰上有永恒的冬天、雪和暴风雪。然而，这里的霜冻并不像遥远的北方那样严重，只有在历年的冬天才会死于寒冷；其余时间的负温度并不明显。冬天，山脚下的暴风雪非常普遍，草地上覆盖着雪。天空被浓密的云层所覆盖。甚至水看起来也很冷。如果你不穿衣服到外面去，站在远离热和光的地方，你会被冻死。到了春天，情况有所改善，雪融化了，雨变得更频繁。草地变成了邛崃色，外面很冷，但不可能冻死。夏天与春天没有什么不同，所以不要指望等待热天。到了秋天，草开始枯萎，变成褐色。天气依然如故。[[类别：寒冷气候]][[类别：高海拔地区]]
+got.db.CLIMATE_NORMAL.name=这个生物群落的冬天很严酷：暴风雪非常频繁，草地上都是雪。天空中布满了密集的云层。甚至水看起来也很冷。如果你不穿衣服出去，站在远离热和光的地方，你会被冻死的。到了春天，情况有所改善，雪融化了，雨变得更频繁。草地变成了邛崃色，外面很冷，但不可能冻死。夏天，太阳终于开始真正变暖，外面变暖了，草变成了鲜绿色。到了秋天，草开始枯萎，变成褐色。天气依然如故。[[类别:正常气候]]
+got.db.CLIMATE_NORMAL_AZ.name=在这个生物群落中，有一个高海拔区。山区气候与平原气候不同的主要原因是海拔的增加和高空温度的降低。山区的山峰上有永恒的冬天、雪和暴风雪。然而，这里的霜冻并不像遥远的北方那样严重，只有在历年的冬季才会死于寒冷；其余时间的负温度是不重要的。山脚下的冬天很严酷：暴风雪非常频繁，草地上覆盖着雪。天空中布满了密集的云层。甚至连水都看起来很冷。如果你不穿衣服到外面去，站在远离热和光的地方，你会被冻死。到了春天，情况有所改善，雪融化了，雨变得更频繁。草地变成了邛崃色，外面很冷，但不可能冻死。夏天，太阳终于开始真正变暖，外面变暖了，草变成了鲜绿色。到了秋天，草开始枯萎，变成褐色。天气依然如故。[[类别：正常气候]][[类别：高海拔地区]]
+got.db.CLIMATE_NULL.name=这个生物群落本身没有季节变化。这里没有雪，但这个地方也不能称为热。雨水以通常的频率到来，水、草和天空的颜色在一年中没有变化。[[类别:没有季节性变化]]
+got.db.CLIMATE_SUMMER.name=这个生物群落从不下雪。在夏季，有晴朗的天空和干燥的草地。雨水很少。在春天和秋天，草变得更明亮，因为降水开始更频繁地下降。冬天，草是邛崃色的，因为冷风有时仍然从北方吹来，给这里带来恶劣的天气。[[类别：炎热气候]]
+got.db.CLIMATE_SUMMER_AZ.name=在这个生物群落中，有一个高海拔区。山区气候与平原气候不同的主要原因是海拔的增加和高空温度的降低。山区的山峰上有永恒的冬天、雪和暴风雪。尽管如此，这里的霜冻并不像遥远的北方那样严重，你也不可能死于寒冷--负温度是微不足道的。在这个生物群落中，雪从不落在山脚下。在夏季，有晴朗的天空和干燥的草地。雨水很少。在春天和秋天，草变得更明亮，因为降水开始更频繁地下降。冬天，草是邛崃色的，因为冷风有时仍然从北方吹来，给这里带来坏天气。[[类别：炎热气候]][[类别：高海拔地区]]
+got.db.CLIMATE_WINTER.name=该生物群落全年都有雪和霜，一年中气候没有一丝变化。经常有暴风雪，草地上覆盖着雪。天空被浓密的云层所覆盖。甚至水看起来也很冷。如果你不穿衣服到外面去，站在远离热量和光线的地方，你会被冻死。
+got.db.ENTITY_CONQUEST.name=(征服)
+got.db.ENTITY_CONQUEST_INVASION.name=(征服/入侵)
+got.db.ENTITY_HAS_BIOMES.name=该暴民在下列生物群落中产生。
+got.db.ENTITY_INVASION.name=(入侵)
+got.db.ENTITY_NO_BIOMES.name=该暴徒不在任何生物群落中产生。
+got.db.FACTION_HAS_BANNERS.name=该派别拥有以下[[标语]]。如果你在这个派别有+1的声望，你可以在瓦雷利亚/金/银/铜块上设置一个旗帜，并在一定范围内拥有一个领土（在F3上看到）。旗帜是在你对它进行人民币结算时设置的。
+got.db.FACTION_HAS_CHARS.name=MOD中存在属于该派别的角色。这些是：
+got.db.FACTION_HAS_CONQUEST.name=在[[派别#承诺|认捐]]之后，可以代表该派别征服以下生物群落：
+got.db.FACTION_HAS_INVASION.name=该派系入侵以下生物群落：
+got.db.FACTION_HAS_RANKS.name=当你达到括号中所示的声望时就可以获得行动等级。在它之后，等级也变成了一个头衔，它可以在菜单中选择，在聊天中显示在昵称旁边。
+got.db.FACTION_HAS_SPAWN.name=该派系的暴徒可以在以下生物群落中产卵：
+got.db.FACTION_HAS_WAR_CRIMES.name=该派别鼓励战争犯罪。
+got.db.FACTION_HAS_WAYPOINTS.name=该派别控制着以下的航点。如果你有不好的名声，你将不能传送到他们那里。
+got.db.FACTION_NO_ATTRIBUTES.name=该派别没有护盾或隐身衣。
+got.db.FACTION_NO_BANNERS.name=该派别没有旗帜。
+got.db.FACTION_NO_CHARS.name=属于该派别的角色不存在。
+got.db.FACTION_NO_CONQUEST.name=不能以该派别的名义征服任何生物群落。
+got.db.FACTION_NO_ENEMIES.name=此派别没有敌人。
+got.db.FACTION_NO_FRIENDS.name=此派别没有盟友。
+got.db.FACTION_NO_INVASIONS.name=此派别不入侵任何生物群落。
+got.db.FACTION_NO_RANKS.name=该派别没有声誉等级和称号。
+got.db.FACTION_NO_SPAWN.name=该派别的暴徒不会在任何地方产卵。
+got.db.FACTION_NO_STRUCTURES.name=该派别没有自己的结构。
+got.db.FACTION_NO_WAR_CRIMES.name=该派别不鼓励杀害平民。
+got.db.FACTION_NO_WAYPOINTS.name=该派别对任何航点没有控制权。
+got.db.MINERAL_BIOMES.name=下面是所有可以找到这种矿物的生物群落。Y范围是发现化石的高度，从哪里开始到哪里。每个生物群落产生矿石的几率以百分比形式给出。
+got.db.NEED_PLEDGE.name=承诺书
+got.db.NO_PLEDGE.name=无押金
+got.db.PAGE_BIOME.name=生物群落
+got.db.PAGE_ENTITY.name=暴徒
+got.db.PAGE_FACTION.name=派系
+got.db.reputation.name=对齐
+got.db.RIDER.name=骑手
+got.db.SEASON_AUTUMN.name=秋季
+got.db.SEASON_SPRING.name=春天
+got.db.SEASON_SUMMER.name=夏天
+got.db.SEASON_WINTER.name=冬天
+got.db.STRUCTURE_BIOMES.name=该建筑在下列生物群落中发现：
+got.db.TREE_HAS_BIOMES.name=此树生长在以下生物群落：
+got.db.TREE_NO_BIOMES.name=此树被认为已经灭绝，目前在世界范围内无法找到。但是，玩家可以在创意模式中获得它。
+got.db.TREE_VARIANT_ONLY.name=只在生物群落变体中出现。
 got.dimension.GameOfThrones.eastEssos=东方厄斯索斯
 got.dimension.GameOfThrones.essos=厄斯索斯
 got.dimension.GameOfThrones.other=索斯罗斯&乌尔特斯
@@ -2824,13 +2837,13 @@ got.structure.ArrynTavern.name=谷地酒馆
 got.structure.ArrynTower.name=谷地塔楼
 got.structure.ArrynWatchfort.name=谷地瞭望堡
 got.structure.ArrynWatchtower.name=谷地岗楼
-got.structure.AsshaiAltar.name≠Altar of Asshai
+got.structure.AsshaiAltar.name=亚夏的祭坛
 got.structure.AsshaiCity.name=亚夏城市
 got.structure.AsshaiFort.name=亚夏堡垒
 got.structure.AsshaiHouse.name=亚夏宅
 got.structure.AsshaiLaboratory.name=亚夏炼金室
 got.structure.AsshaiOblivionAltar.name=亚夏遗忘祭坛
-got.structure.AsshaiSpiderPit.name≠Spider Pit of Asshai
+got.structure.AsshaiSpiderPit.name=亚夏的蜘蛛坑
 got.structure.AsshaiTavern.name=亚夏酒馆
 got.structure.AsshaiTower.name=亚夏岗塔
 got.structure.Barrow.name=古冢
@@ -3285,157 +3298,157 @@ got.titles.unlock.starter=起始头衔
 got.travellingTrader.arrive=%s已经抵达了附近
 got.travellingTrader.arriveMP=%s已经赶到了%s附近
 got.travellingTrader.depart=%s启程离开了
-got.tree.acacia.name=金合欢
-got.tree.acacia_dead.name≠Dead Acacia
+got.tree.acacia.name=相思树
+got.tree.acacia_dead.name=死亡相思树
 got.tree.almond.name=杏仁
-got.tree.apple.name=苹果树
-got.tree.aramant.name≠Aramant
-got.tree.aspen.name=芒莓
-got.tree.aspen_large.name=巨型白杨
-got.tree.banana.name=香蕉树
+got.tree.apple.name=苹果
+got.tree.aramant.name=阿拉曼特
+got.tree.aspen.name=阿斯本
+got.tree.aspen_large.name=大杨树
+got.tree.banana.name=香蕉
 got.tree.baobab.name=猴面包树
-got.tree.beech.name=山毛榉
-got.tree.beech_dead.name≠Dead Beech
-got.tree.beech_large.name=巨型山毛榉
-got.tree.beech_party.name≠Giant Beech
-got.tree.birch.name=桦木
-got.tree.birch_dead.name≠Dead Birch
-got.tree.birch_large.name=巨桦树
-got.tree.birch_party.name≠Giant Birch
-got.tree.birch_tall.name≠Tall Birch
-got.tree.catalpa.name=楸树
-got.tree.catalpa_boughs.name≠Bough Catalpa
-got.tree.catalpa_party.name≠Giant Catalpa
+got.tree.beech.name=榉树
+got.tree.beech_dead.name=死榉树
+got.tree.beech_large.name=大榉树
+got.tree.beech_party.name=巨大的山毛榉
+got.tree.birch.name=白桦树
+got.tree.birch_dead.name=死桦树
+got.tree.birch_large.name=大桦树
+got.tree.birch_party.name=巨大的桦树
+got.tree.birch_tall.name=高桦树
+got.tree.catalpa.name=加藤树
+got.tree.catalpa_boughs.name=枝叶茂盛的梓树
+got.tree.catalpa_party.name=巨大的梓树
 got.tree.cedar.name=雪松
-got.tree.cedar_large.name=巨型雪松
-got.tree.charred.name=烧木
-got.tree.cherry.name=樱桃树
-got.tree.chestnut.name=栗子
-got.tree.chestnut_large.name=栗树
-got.tree.chestnut_party.name≠Giant Chestnut
+got.tree.cedar_large.name=大雪松
+got.tree.charred.name=红树
+got.tree.cherry.name=樱桃
+got.tree.chestnut.name=栗子树
+got.tree.chestnut_large.name=大栗子
+got.tree.chestnut_party.name=巨大的栗子
 got.tree.cypress.name=柏树
-got.tree.cypress_large.name=巨型柏树
-got.tree.dark_oak.name≠Dark Oak
-got.tree.dark_oak_party.name≠Giant Dark Oak
-got.tree.date_palm.name=菲尼拉棕榈
-got.tree.dragonblood.name=龙血
-got.tree.dragonblood_huge.name≠Giant Dragonblood
-got.tree.dragonblood_large.name≠Large Dragonblood
+got.tree.cypress_large.name=大柏树
+got.tree.dark_oak.name=黑橡树
+got.tree.dark_oak_party.name=巨大的黑橡树
+got.tree.date_palm.name=日期棕榈
+got.tree.dragonblood.name=龙血树
+got.tree.dragonblood_huge.name=巨大的龙血树
+got.tree.dragonblood_large.name=大龙血
 got.tree.fir.name=冷杉
-got.tree.fotinia.name=福提尼亚
-got.tree.holly.name=Phodunum
-got.tree.holly_large.name=巨型冬青
-got.tree.ibben_pine.name=伊比尼亚
-got.tree.jungle.name=热带树
-got.tree.jungle_cloud.name≠Cloud Jungle Tree
-got.tree.jungle_large.name=巨大的热带树
-got.tree.jungle_shrub.name=热带灌木
-got.tree.kanuka.name=昆兹树
+got.tree.fotinia.name=佛蒂尼娅
+got.tree.holly.name=霍利
+got.tree.holly_large.name=大冬青
+got.tree.ibben_pine.name=伊比尼娅
+got.tree.jungle.name=丛林树
+got.tree.jungle_cloud.name=云雾丛林树
+got.tree.jungle_large.name=大型丛林树
+got.tree.jungle_shrub.name=丛林灌木
+got.tree.kanuka.name=卡努卡
 got.tree.larch.name=落叶松
-got.tree.lemon.name=柠檬树
-got.tree.lime.name=椴树
-got.tree.mahogany.name=红木
+got.tree.lemon.name=柠檬
+got.tree.lime.name=莱姆
+got.tree.mahogany.name=桃花心木
 got.tree.mango.name=芒果
 got.tree.mangrove.name=红树林
 got.tree.maple.name=枫树
-got.tree.maple_large.name=巨型枫树
-got.tree.maple_party.name≠Giant Maple
+got.tree.maple_large.name=大枫树
+got.tree.maple_party.name=巨大的枫树
 got.tree.oak.name=橡木
-got.tree.oak_dead.name=死橡木
+got.tree.oak_dead.name=死亡橡木
 got.tree.oak_desert.name=沙漠橡树
-got.tree.oak_giant.name≠Very large Oak
-got.tree.oak_large.name=巨橡
-got.tree.oak_party.name=圣橡树
-got.tree.oak_shrub.name≠Oak Shrub
-got.tree.oak_swamp.name≠Swamp Oak
-got.tree.oak_tall.name=高橡木
-got.tree.oak_taller.name≠Very Tall Oak
-got.tree.olive.name=橄榄
-got.tree.olive_large.name=巨型橄榄
-got.tree.orange.name=橙树
+got.tree.oak_giant.name=非常大的橡树
+got.tree.oak_large.name=大型栎树
+got.tree.oak_party.name=巨大的дуб
+got.tree.oak_shrub.name=橡树灌木
+got.tree.oak_swamp.name=沼泽橡树
+got.tree.oak_tall.name=高橡树
+got.tree.oak_taller.name=非常高的橡树
+got.tree.olive.name=橄榄树
+got.tree.olive_large.name=大橄榄
+got.tree.orange.name=橙子
 got.tree.palm.name=棕榈树
-got.tree.pear.name=梨树
+got.tree.pear.name=梨子
 got.tree.pine.name=松树
-got.tree.pine_shrub.name≠Pine Shrub
-got.tree.plum.name=梅树
-got.tree.pomegranate.name=石榴树
-got.tree.redwood.name=铁木
-got.tree.redwood_2.name=铁木（第2种）
-got.tree.redwood_3.name=铁木（第三种）
-got.tree.redwood_4.name=铁木（第四种）
-got.tree.redwood_5.name=铁木（第五种）
+got.tree.pine_shrub.name=松树灌木
+got.tree.plum.name=李子
+got.tree.pomegranate.name=石榴
+got.tree.redwood.name=铁木耳(1)
+got.tree.redwood_2.name=铁木真 (2)
+got.tree.redwood_3.name=铁木真 (3)
+got.tree.redwood_4.name=铁木真 (4)
+got.tree.redwood_5.name=铁木真 (5)
 got.tree.spruce.name=云杉
-got.tree.spruce_dead.name≠Dead Spruce
-got.tree.spruce_mega.name=巨型云杉
-got.tree.spruce_mega_thin.name=巨型薄云杉
-got.tree.spruce_thin.name=薄云杉
-got.tree.ulthos_green_oak.name=绿橡木
-got.tree.ulthos_green_oak_extreme.name≠Giant Ulthos Green Oak
-got.tree.ulthos_green_oak_large.name=巨型绿橡树
-got.tree.ulthos_oak.name=Ulthos橡木
-got.tree.ulthos_oak_dead.name≠Dead Ulthos Oak
-got.tree.ulthos_oak_large.name=巨型乌索斯橡木
-got.tree.ulthos_red_oak.name=红橡木
-got.tree.ulthos_red_oak_large.name=巨型红橡木
-got.tree.weirwood.name=Chardwood
+got.tree.spruce_dead.name=死亡云杉
+got.tree.spruce_mega.name=巨大的云杉
+got.tree.spruce_mega_thin.name=巨大的薄云杉
+got.tree.spruce_thin.name=薄型云杉
+got.tree.ulthos_green_oak.name=Ulthos绿橡。
+got.tree.ulthos_green_oak_extreme.name=巨大的Ulthos绿橡树
+got.tree.ulthos_green_oak_large.name=大型乌尔禾绿橡树
+got.tree.ulthos_oak.name=Ulthos Oak
+got.tree.ulthos_oak_dead.name=死亡的乌尔禾橡树
+got.tree.ulthos_oak_large.name=大乌尔禾橡树
+got.tree.ulthos_red_oak.name=红色乌尔禾橡树
+got.tree.ulthos_red_oak_large.name=大红乌尔禾橡树
+got.tree.weirwood.name=卫矛木
 got.tree.willow.name=柳树
-got.tree.willow_water.name≠Water Willow
+got.tree.willow_water.name=水曲柳
 got.unit.Rider=骑手
 got.unitinfo.Banner=旗手提高附近同派系NPC的多种战斗力
 got.unitinfo.Corsair=海盗更擅长在杀敌时掠夺银币！
 got.usemem=UsedRAM
 got.variant.boulders_red.name=红色巨石
-got.variant.clearing.name=林间空地
-got.variant.deadForest_oak.name=死橡木
-got.variant.deadForest_oak_spruce.name=死亡混交林
-got.variant.deadForest_spruce.name=死云杉
-got.variant.denseForest_birch.name=茂密的桦木
-got.variant.denseForest_darkOak.name=浓密的深色橡木
-got.variant.denseForest_oak.name=浓橡木
-got.variant.denseForest_oak_spruce.name=茂密的混交林
-got.variant.denseForest_spruce.name=茂密的云杉林
-got.variant.dunes.name=巴尔汗
-got.variant.flowers.name=风景
+got.variant.clearing.name=大刀阔斧
+got.variant.deadForest_oak.name=死亡橡树
+got.variant.deadForest_oak_spruce.name=死亡混合林
+got.variant.deadForest_spruce.name=死亡云杉
+got.variant.denseForest_birch.name=密集桦树
+got.variant.denseForest_darkOak.name=密集的黑橡树
+got.variant.denseForest_oak.name=致密橡木
+got.variant.denseForest_oak_spruce.name=茂密的混合森林
+got.variant.denseForest_spruce.name=密集云杉林
+got.variant.dunes.name=巴克汉斯
+got.variant.flower.name=景观
 got.variant.forest.name=森林
-got.variant.forest_aspen.name=艾文格罗夫
-got.variant.forest_beech.name=山毛榉树林
-got.variant.forest_birch.name=白桦林
-got.variant.forest_cedar.name≠Cedar forest
-got.variant.forest_cherry.name=樱桃林
-got.variant.forest_cypress.name≠Cypress forest
-got.variant.forest_larch.name=落叶松林
-got.variant.forest_lemon.name=柠檬树林
-got.variant.forest_light.name=珍稀森林
-got.variant.forest_lime.name=石灰林
-got.variant.forest_maple.name=枫木
+got.variant.forest_aspen.name=芒果林
+got.variant.forest_beech.name=榉树林
+got.variant.forest_birch.name=桦树林
+got.variant.forest_cedar.name=雪松林
+got.variant.forest_cherry.name=樱桃树林
+got.variant.forest_cypress.name=柏树林
+got.variant.forest_larch.name=落叶松森林
+got.variant.forest_lemon.name=柠檬林
+got.variant.forest_light.name=稀有森林
+got.variant.forest_lime.name=莱姆丛林
+got.variant.forest_maple.name=枫树林
 got.variant.forest_pine.name=松树林
-got.variant.forest_weirwood.name=夏木森林
-got.variant.hills.name=丘陵
-got.variant.hills_forest.name=森林丘陵
-got.variant.hills_scrubland.name=丘陵灌丛
-got.variant.hills_scrubland_sand.name=丘陵沙质灌木
-got.variant.lake.name=湖
+got.variant.forest_weirwood.name=卡德伍德森林
+got.variant.hills.name=山丘
+got.variant.hills_forest.name=森林山丘
+got.variant.hills_scrubland.name=丘陵灌木地
+got.variant.hills_scrubland_sand.name=丘陵沙地灌木丛
+got.variant.lake.name=湖泊
 got.variant.mountain.name=山
-got.variant.orchard_almond.name=杏仁花园
+got.variant.orchard_almond.name=杏仁园
 got.variant.orchard_apple_pear.name=苹果梨园
-got.variant.orchard_date.name=芬尼拉果园
-got.variant.orchard_lemon.name=柠檬果园
-got.variant.orchard_lime.name=青柠园
+got.variant.orchard_date.name=菲尼拉果园
+got.variant.orchard_lemon.name=柠檬园
+got.variant.orchard_lime.name=莱姆园
 got.variant.orchard_olive.name=橄榄园
-got.variant.orchard_orange.name=橘园
+got.variant.orchard_orange.name=橘子园
 got.variant.orchard_plum.name=李子园
 got.variant.orchard_pomegranate.name=石榴园
 got.variant.river.name=河流
-got.variant.savannahBaobab.name=猴面包林
+got.variant.savannahBaobab.name=猴面包树林
 got.variant.scrubland.name=丛林地
-got.variant.scrubland_sand.name=沙质灌木
+got.variant.scrubland_sand.name=沙地灌木
 got.variant.shrubland_oak.name=橡树灌木
-got.variant.standard.name=普通
+got.variant.standard.name=普通的
 got.variant.swampLowland.name=沼泽地
 got.variant.swampUpland.name=沼泽地
 got.variant.vineyard.name=葡萄园
 got.variant.wasteland.name=湿地
-got.variant.wasteland_sand.name=沙地荒地
+got.variant.wasteland_sand.name=沙地荒原
 got.weaponstat.kb=击退：+%d
 got.weaponstat.meleeDamage=近身伤害：+%d
 got.weaponstat.meleeSpeed=近身速度：%d%%
@@ -3482,8 +3495,8 @@ got.wp.Asshai.info=位于已知世界的最东南方。亚夏的东北部就是�
 got.wp.Asshai=亚夏
 got.wp.Astapor.info=奴隶湾的一座城市，坐落在蠕虫河河口。它以出产一种特殊的奴隶——无垢者而闻名。
 got.wp.Astapor=阿斯塔波
-got.wp.Ataahua.info≠An ancient sea fort where the legendary sword was kept. The place of the holiday preserves the memory of the exploits of the young king Rinne, who died at the hands of a cruel sorcerer during the storming of the castle.
-got.wp.Ataahua≠An ancient sea fort where the legendary sword was kept. The place of the holiday preserves the memory of the exploits of the young king Rinne, who died at the hands of a cruel sorcerer during the storming of the castle.
+got.wp.Ataahua.info=一个古老的海上堡垒，传说中的剑就保存在这里。这个节日的地方保存着年轻国王林恩的功绩，他在攻打城堡时死在一个残酷的巫师手中。
+got.wp.Ataahua=阿塔瓦
 got.wp.Atranta.info=位于河间地，是凡斯家族的家堡。
 got.wp.Atranta=亚兰城
 got.wp.Azhydaar.info=古代摩索维国王卡图拉的故乡。
@@ -3504,14 +3517,14 @@ got.wp.BarterBeach.info=位于蛇蜥群岛中的爪子岛。蛇蜥群岛的海�
 got.wp.BarterBeach=交易滩
 got.wp.Bashkaruuchu.info=寒冷而阴郁的摩索维首都，沉浸在放荡和着迷中。如果第一个是生活的真相，那么第二个是当局的发明。
 got.wp.Bashkaruuchu=巴什卡鲁丘
-got.wp.Batargas.info≠One of the three currently inhabited Qarth colonies in Sotorios. It is from here that ships with wyverns go to Qarth. There is a small standing army here, adapted for conducting a not too heavy war.
-got.wp.Batargas≠One of the three currently inhabited Qarth colonies in Sotorios. It is from here that ships with wyverns go to Qarth. There is a small standing army here, adapted for conducting a not too heavy war.
+got.wp.Batargas.info=目前居住在Sotorios的三个Qarth殖民地之一。带着狼人的船只正是从这里前往Qarth。这里有一支小型的常备军，适合进行不太激烈的战争。
+got.wp.Batargas=巴塔戈斯
 got.wp.Bayasabhad.info=位于远东，也被称为巨蛇之城。是厄斯索斯东部的一个城市，海尔科隆后裔国留下的三个要塞城市之一，以乳头穿着铁环、双颊镶着红宝石的女战士著称。
 got.wp.Bayasabhad=巴亚撒布哈德
 got.wp.Bhorash.info=一座城市废墟。它位于奴隶湾的北岸、黑色大峭壁的东北部。瓦雷利亚大道将之与玛塔里斯及脱罗斯连接，这段道路属于连接瓦兰提斯和弥林的恶魔之路的一部分。
 got.wp.Bhorash=巴哈拉西
-got.wp.BigLake.info≠A sacred lake for many Sotori tribes. Of course: there are not so many lakes in their arid plain, and even such huge ones. And water is the source of life.
-got.wp.BigLake≠A sacred lake for many Sotori tribes. Of course: there are not so many lakes in their arid plain, and even such huge ones. And water is the source of life.
+got.wp.BigLake.info=许多索托里部落的圣湖。当然：在他们的干旱平原上没有这么多的湖，甚至没有这么大的湖。而水是生命的源泉。
+got.wp.BigLake=大湖
 got.wp.Bitterbridge.info=河湾地境内卡斯威家族的属地与家堡，是玫瑰大道横跨曼德河的要害。一道古老的石拱桥架设在曼德河上，苦桥因此得名。
 got.wp.Bitterbridge=苦桥
 got.wp.BlackHeart.info=已经消亡的托因家族的城堡，在尝试暗杀伊耿三世失败后被夺走。后来被封给克林顿家族。
@@ -3556,8 +3569,8 @@ got.wp.CastleLychester.info=莱彻斯特家族的族堡。
 got.wp.CastleLychester=莱彻斯特堡
 got.wp.CatfishRock.info=旧时皇室的行宫。
 got.wp.CatfishRock=鲶鱼岩
-got.wp.CentralForests.info≠Central Ultos, sometimes referred to as the southern part of northern Ultos. Forests are still widespread here, the same as in the north of the mainland.
-got.wp.CentralForests≠Central Ultos, sometimes referred to as the southern part of northern Ultos. Forests are still widespread here, the same as in the north of the mainland.
+got.wp.CentralForests.info=中央Ultos，有时被称为Ultos北部的南部。这里的森林仍然很普遍，与大陆北部一样。
+got.wp.CentralForests=中央森林组织
 got.wp.Chroyane.info=曾是洛伊拿人统治的一座伟大的城市，如今只剩一片废墟。这里雾气缭绕，四处都有感染灰鳞病的石民在漫步。
 got.wp.Chroyane=伤心领
 got.wp.CiderHall.info=河湾地的果酒厅的佛索威家族的家堡。
@@ -3608,8 +3621,8 @@ got.wp.Downdelving.info=古柏勒家族的领地。
 got.wp.Downdelving=深钻厅
 got.wp.Draconys.info=最强大，最富有的瓦雷利亚殖民城市之一，于瓦雷利亚的末日中毁灭。
 got.wp.Draconys=德拉贡尼斯
-got.wp.DragonPlace.info≠It is believed that this is the southernmost place where Jainara Beleiris visited on her dragon. Here she set up camp and had plenty of rest, after which she turned back.
-got.wp.DragonPlace≠It is believed that this is the southernmost place where Jainara Beleiris visited on her dragon. Here she set up camp and had plenty of rest, after which she turned back.
+got.wp.DragonPlace.info=据说这是Jainara Beleiris骑着龙到过的最南端的地方。她在这里安营扎寨，得到了充分的休息，之后她就折返了。
+got.wp.DragonPlace=龙之岛
 got.wp.Dragonstone.info=位于黑水湾出口处的岛屿，其城堡被雕刻成龙的形状。是从瓦雷利亚自由堡垒流亡而来的坦格利安家族的封地。
 got.wp.Dragonstone=龙石岛
 got.wp.Dreadfort.info=波顿家族的城堡。
@@ -3626,10 +3639,10 @@ got.wp.Duskendale.info=位于王领的大型城镇。其建于港口旁，道路
 got.wp.Duskendale=暮谷镇
 got.wp.DyreDen.info=布伦家族的家堡。
 got.wp.DyreDen=恐穴堡
-got.wp.EastBay.info≠A huge eastern bay that visually separates the central Ultos from the northern one. There are no navigators here and no human foot has ever set foot here.
-got.wp.EastBay≠A huge eastern bay that visually separates the central Ultos from the northern one. There are no navigators here and no human foot has ever set foot here.
-got.wp.EastCoast.info≠This is not the extreme east of the world and not the extreme east of Ultos, since there are even more eastern shores in southern Ultos. Nevertheless, Asshaians believe that this is the extreme east of the continent.
-got.wp.EastCoast≠This is not the extreme east of the world and not the extreme east of Ultos, since there are even more eastern shores in southern Ultos. Nevertheless, Asshaians believe that this is the extreme east of the continent.
+got.wp.EastBay.info=一个巨大的东部海湾，在视觉上将Ultos中部与北部分开。这里没有航海家，也没有人类的脚踏入过这里。
+got.wp.EastBay=东海湾
+got.wp.EastCoast.info=这里不是世界的极东，也不是Ultos的极东，因为在Ultos南部还有更多的东海岸。尽管如此，亚夏人认为这里是大陆的最东边。
+got.wp.EastCoast=东海岸
 got.wp.EastPass.info=四座荒废的高塔直插云霄。选址意味着是为了防御而建，但是无人知晓他们要如何防卫明明处于防线以内的敌人。
 got.wp.EastPass=东隘口
 got.wp.EastWatch.info=长城最东边的城堡，由卡特·派克率领部分守夜人驻守于此。
@@ -3748,8 +3761,8 @@ got.wp.Harroway.info=位于三叉戟河口的一个小村庄。以已灭绝的�
 got.wp.Harroway=哈罗威伯爵的小镇
 got.wp.HarvestHall.info=赛尔弥家族的族堡是丰收厅。他们的纹章是棕色底色上三把黄色的小麦秸秆，赛尔弥家族只是有产骑士。但在魔龙的狂舞附录中，赛尔弥家族的族长被称为伯爵。
 got.wp.HarvestHall=丰收厅
-got.wp.Hauauru.info≠The sea port of the Letnians, in which, according to the Sotori ritual, the Matabele sacrifices a man, usually a monk or a wife.
-got.wp.Hauauru≠The sea port of the Letnians, in which, according to the Sotori ritual, the Matabele sacrifices a man, usually a monk or a wife.
+got.wp.Hauauru.info=Letnians的海港，根据Sotori仪式，马塔贝利人在这里祭祀一个男人，通常是一个和尚或一个妻子。
+got.wp.Hauauru=哈乌鲁
 got.wp.Hayford.info=王领的哈佛家族的族堡。
 got.wp.Hayford=哈佛城
 got.wp.HaystackHall.info=草厅是风暴地的埃洛尔家族的家堡，位于国王大道以东，风息堡以北。
@@ -3830,12 +3843,12 @@ got.wp.KDath.info=卡达什位于伯劳鸟之地，是厄斯索斯东部的一�
 got.wp.KDath=卡达什
 got.wp.Kadar.info=无尽森林之间的定居点，其古老的文化遗产在几个世纪的黑暗中消失了。
 got.wp.Kadar=卡达尔
-got.wp.KanduuBet.info≠The old temple of Menelon is located in this town, it is more than two thousand years old. Elesuun, the legendary king of Mossovia, was born here several centuries ago.
-got.wp.KanduuBet≠The old temple of Menelon is located in this town, it is more than two thousand years old. Elesuun, the legendary king of Mossovia, was born here several centuries ago.
+got.wp.KanduuBet.info=Menelon的古庙就在这个小镇上，它有两千多年的历史。几个世纪前，传说中的莫索维亚国王Elesuun就出生在这里。
+got.wp.KanduuBet=坎杜贝特
 got.wp.Karhold.info=卡霍城是北境卡史塔克家族的家堡，是一座坚固的堡垒。建造这座城堡的人是卡隆·史塔克，他也是卡史塔克家族的建立者。他命名这座城堡为卡隆之城。最后这个名字演变成了卡霍城。
 got.wp.Karhold=卡霍城
-got.wp.Karimagar.info≠The largest of the Quartic colonies in Sotorios, one of the three inhabited at the moment. The legendary sorcerer Marduk Neturei is considered the head of the harbor.
-got.wp.Karimagar≠The largest of the Quartic colonies in Sotorios, one of the three inhabited at the moment. The legendary sorcerer Marduk Neturei is considered the head of the harbor.
+got.wp.Karimagar.info=Sotorios最大的Quartic殖民地，目前有人居住的三个殖民地之一。传说中的巫师Marduk Neturei被认为是港湾的首领。
+got.wp.Karimagar=卡里马加
 got.wp.Kayakayanaya.info=城堡周围最后出现的城市之一，旨在保护Hirkun封地免遭袭击；王国在干涸的大海之后衰落，但好战的亚马逊人仍然守卫着。
 got.wp.Kayakayanaya=卡亚卡亚纳亚
 got.wp.Kayce.info=凯切镇位于西境，在仙女岛以南的一个半岛上，是肯宁家族的家堡。
@@ -3848,8 +3861,8 @@ got.wp.Kingshouse.info=国王厅是北境斯卡格斯岛，马格拿氏族的族
 got.wp.Kingshouse=国王厅
 got.wp.KissLock.info=骷髅与亲吻骑士城堡。
 got.wp.KissLock=吻别哨
-got.wp.Kohuru.info≠This is a relatively young settlement on the coast, where a strong Sotori shaman is in captivity. His assistants create smoke and read sacred texts.
-got.wp.Kohuru≠This is a relatively young settlement on the coast, where a strong Sotori shaman is in captivity. His assistants create smoke and read sacred texts.
+got.wp.Kohuru.info=这是海岸边一个相对年轻的定居点，一个强大的索托里巫师被囚禁在这里。他的助手们在这里制造烟雾，宣读神圣的文字。
+got.wp.Kohuru=小鹤
 got.wp.Koj.info=是盛夏群岛中的一座小岛。
 got.wp.Koj=鹿儿岛
 got.wp.Korkunuchtuu.info=一座传说中的城市，在远古之杖统治时期以首都而闻名。它现在是伟大的皇家财务官的住所。
@@ -3860,8 +3873,8 @@ got.wp.KrazaajHas.info=科拉札吉·札斯克是东大陆一处吉斯城市废�
 got.wp.KrazaajHas=科拉札吉·札斯克
 got.wp.Kujruk.info=古堡。这座城堡已经被一些忠于地下城主的午夜战士守卫了数千年。
 got.wp.Kujruk=库鲁克
-got.wp.Kuurulgan.info≠It is written in ancient scrolls that a sufferer's boat was once washed up here, who was sent "far away" by someone. This man never returned to his native land, and the place where he drowned became a place of mourning.
-got.wp.Kuurulgan≠It is written in ancient scrolls that a sufferer's boat was once washed up here, who was sent "far away" by someone. This man never returned to his native land, and the place where he drowned became a place of mourning.
+got.wp.Kuurulgan.info=古卷中记载，曾经有一个受难者的船被冲到这里，他被某人送到了 "远方"。这个人再也没有回到他的故乡，而他淹死的地方也成了哀悼的地方。
+got.wp.Kuurulgan=库鲁尔干
 got.wp.Kyth.info=萨诺城被多斯拉克人摧毁。
 got.wp.Kyth=凯萨
 got.wp.Lannisport.info=兰尼斯港是日落之海沿岸的一个城市，在凯岩城以西，河间大道、黄金大道和滨海大道交汇的地方。在这座港口停泊着兰尼斯特家族的舰队。此外这个城市还以出产金器而闻名。负责维持治安的守备队，与君临或是旧镇的相比，更是以训练有素而出名。
@@ -3914,14 +3927,14 @@ got.wp.ManticoreIsles.info=蝎尾兽群岛由玉海东部的七座小岛组成�
 got.wp.ManticoreIsles=蝎尾兽群岛
 got.wp.Marahai.info=莫拉海岛是玉海中央一座新月形的岛屿，在厄斯索斯的海岸以南。在莫拉海岛的海湾中还有两座火山小岛。
 got.wp.Marahai=莫拉海岛
-got.wp.Marshes.info≠A narrow swampy part of Ultos, reminiscent of the Isthmus in Westeros. Its origin is unknown, but, no doubt, one day it will finally sink, and then southern Ultos will become a separate continent.
-got.wp.Marshes≠A narrow swampy part of Ultos, reminiscent of the Isthmus in Westeros. Its origin is unknown, but, no doubt, one day it will finally sink, and then southern Ultos will become a separate continent.
-got.wp.Matahau.info≠An ancient settlement of the Letnians, in which a huge shining black pearl was found. According to legend, this is a black hole that descended from the sky and absorbs the light of the stars.
-got.wp.Matahau≠An ancient settlement of the Letnians, in which a huge shining black pearl was found. According to legend, this is a black hole that descended from the sky and absorbs the light of the stars.
-got.wp.Matao.info≠According to legend, there is an altar of the Cursed God standing on a high mountain. There were people who claimed that this was not a mountain, but a man-made pyramid.
-got.wp.Matao≠According to legend, there is an altar of the Cursed God standing on a high mountain. There were people who claimed that this was not a mountain, but a man-made pyramid.
-got.wp.Maunga.info≠A significant place for all the tribes in the district. Here all the surrounding chiefs gather every 6 years. Why exactly is it? No one knows, it just happened.
-got.wp.Maunga≠A significant place for all the tribes in the district. Here all the surrounding chiefs gather every 6 years. Why exactly is it? No one knows, it just happened.
+got.wp.Marshes.info=Ultos的一个狭窄的沼泽地带，让人联想到维斯特洛的地峡。它的起源不详，但是，毫无疑问，有一天它将最终沉没，然后Ultos南部将成为一个独立的大陆。
+got.wp.Marshes=沼泽地
+got.wp.Matahau.info=Letnians的一个古老定居点，在这里发现了一颗巨大的闪亮的黑珍珠。据传说，这是一个从天而降的黑洞，它吸收了星星的光芒。
+got.wp.Matahau=马塔哈乌
+got.wp.Matao.info=根据传说，有一个诅咒之神的祭坛矗立在一座高山上。有的人声称这不是一座山，而是一座人造的金字塔。
+got.wp.Matao=马涛。
+got.wp.Maunga.info=该地区所有部落的一个重要场所。在这里，所有周围的酋长每6年聚集一次。到底是为什么呢？没有人知道，它就这样发生了。
+got.wp.Maunga=毛加
 got.wp.Meereen.info=弥林是奴隶湾的一处城邦，坐落于海湾的最北边，矗立于斯卡札丹河畔。它因奴隶贸易而闻名。
 got.wp.Meereen=弥林
 got.wp.MhysaFaer.info=瓦雷利亚帝国强大而富有的殖民城市之一，在瓦雷利亚的毁灭中被摧毁。名称中的"Misa"表示这座城市的吉斯卡里亚人起源（地图上的位置很大程度上值得怀疑）。
@@ -3954,10 +3967,10 @@ got.wp.NewGhis.info=新吉斯是悲痛海湾中一座岛屿城邦。它是吉斯
 got.wp.NewGhis=新吉斯
 got.wp.NewIbbish.info=新伊斯是伊班人在厄斯索斯大陆的殖民地城市，位于伊佛维隆诸王国北部森林覆盖的半岛上。新伊斯向北是鲸鱼湾，东南方有一座伊班城市废墟，这座城如今的多斯拉克语名字是"维斯·阿斯克"。
 got.wp.NewIbbish=新伊斯
-got.wp.Ngahere.info≠An inconspicuous port in the west of the wild lands of Sotorios. A few squat houses, a few bars, an old two-story castle and tents at the pier.
-got.wp.Ngahere≠An inconspicuous port in the west of the wild lands of Sotorios. A few squat houses, a few bars, an old two-story castle and tents at the pier.
-got.wp.Ngarara.info≠Despite the fact that the Letnians do not respect shamanism, bearded shamans in turbans hang around here. Here it is, a mixture of Sotori and summer culture!
-got.wp.Ngarara≠Despite the fact that the Letnians do not respect shamanism, bearded shamans in turbans hang around here. Here it is, a mixture of Sotori and summer culture!
+got.wp.Ngahere.info=索托里奥斯荒芜之地西部的一个不起眼的港口。几间棚屋，几间酒吧，一座古老的两层楼的城堡和码头上的帐篷。
+got.wp.Ngahere=尼亚赫勒
+got.wp.Ngarara.info=尽管莱特尼人不尊重萨满教，但戴着头巾的大胡子萨满在这里流连。在这里，是索托里和夏季文化的混合体!
+got.wp.Ngarara=恩加拉罗
 got.wp.NightKing.info=维斯特洛最北端的一个苏斯峡谷
 got.wp.NightKing=峡谷
 got.wp.Nightfort.info=长夜堡是长城上的一座守夜人城堡。只有长夜堡的楼梯是从长城本身的冰壁里凿出来的。长夜堡在五王之战两百年前被守夜人遗弃。这里最后的守夜人弟兄被派遣到了深湖居。长夜堡位于冰痕城东侧，深湖居西侧。
@@ -3966,8 +3979,8 @@ got.wp.Nightsong.info=夜歌城是卡伦家族的家堡，位于风暴地西南�
 got.wp.Nightsong=夜歌城
 got.wp.Ninestars.info=九星城位于谷地，是坦帕顿家族的家堡。
 got.wp.Ninestars=九星城
-got.wp.NorthForests.info≠It is that part of Ultos about which something is known in Asshai, namely that there are forests and large spiders here. An unfriendly place, probably.
-got.wp.NorthForests≠It is that part of Ultos about which something is known in Asshai, namely that there are forests and large spiders here. An unfriendly place, probably.
+got.wp.NorthForests.info=它是Ultos的那一部分，关于它的一些事情在Asshai是已知的，即这里有森林和大蜘蛛。一个不友好的地方，可能。
+got.wp.NorthForests=北方森林
 got.wp.NorthPass.info=四个关口是古坟，直通云端。它们的位置表明它们是防御结构。但是，如果敌人在里面，从谁那里以及为什么要保卫莫西亚呢？
 got.wp.NorthPass=北关
 got.wp.Norvos.info=诺佛斯是九大自由贸易城邦之一，位于山区之中，是少数不是港口城市的自由城邦。诺佛斯气候寒冷，天空总是乌云密布，山区长年刮着凛冽的大风，这里的阳光苍白昏暗。城邦被群山围绕，茂密的黑森林中有榉木、橡树、松树和大量不同野生动物，像野猪、棕熊、狼或其他猎物。接近城市范围，梯田举目可见，人们住在受木墙保护的庄园与围村内耕种土地。附近的河流湍急又多石，山脉区藏有无数洞穴，栖息着棕熊与狼群，有些甚至保存了古代巨人的骸骨与人类始祖留下的壁画。诺佛斯西北几百里格外一处巨大的岩洞网更是深不见底，人们说那是冥界的入口，"长腿"洛马斯将这个洞穴网封为世界七大自然奇迹之一。
@@ -4010,8 +4023,8 @@ got.wp.Pennytree.info=铜板树村是坐落在河间地两个被称作"乳头峰
 got.wp.Pennytree=铜分树村
 got.wp.Pentos.info=潘托斯是九大自由贸易城邦之一，位于厄斯索斯大陆的西部，濒临狭海，与七大王国遥距相望，是最接近君临的自由贸易城邦。
 got.wp.Pentos=潘托斯
-got.wp.Pereki.info≠In this town, the masters and alchemists of the summer islands meet, who write treatises on history and astrology, as well as learn the latest political events, trying to predict the time of their death.
-got.wp.Pereki≠In this town, the masters and alchemists of the summer islands meet, who write treatises on history and astrology, as well as learn the latest political events, trying to predict the time of their death.
+got.wp.Pereki.info=在这个小镇上，夏季岛屿的大师和炼金术士们聚会，他们撰写历史和占星术的论文，同时了解最新的政治事件，试图预测他们的死亡时间。
+got.wp.Pereki=裴瑞基
 got.wp.Pingbei.info=夷地长城的最东端，这是一个巨大而古老的建筑，保护黄金帝国免受来自北方游牧民族的袭击。
 got.wp.Pingbei=平北
 got.wp.Pingjiang.info=商贸城的一个关隘，里面有一个火药库。有一天，在击退游牧民族的进攻时，长城上的大炮哑火了，炮弹就在那里爆炸了，这个连锁反应导致火药库爆炸。双方都没有活下来。该堡垒后来被重建了。
@@ -4054,14 +4067,14 @@ got.wp.RamseyTower.info=拉姆齐·斯诺饿死霍伍德夫人的塔。
 got.wp.RamseyTower=拉姆斯塔
 got.wp.Rathylar.info=萨诺城被多斯拉克人摧毁。
 got.wp.Rathylar=洛茨拉
-got.wp.Raumati.info≠The ancient sanctuary of Sotorios, where his first emperor is buried. The temple is so ancient that even the local tribes have no myths about its foundation.
-got.wp.Raumati≠The ancient sanctuary of Sotorios, where his first emperor is buried. The temple is so ancient that even the local tribes have no myths about its foundation.
+got.wp.Raumati.info=索托里奥斯的古老圣地，他的第一个皇帝就埋在这里。这座寺庙非常古老，甚至连当地的部落都没有关于其基础的神话。
+got.wp.Raumati=镭玛蒂
 got.wp.RaventreeHall.info=鸦树城是布莱伍德家族的家堡，位于河间地的布莱伍德谷。
 got.wp.RaventreeHall=鸦树城
 got.wp.RedFlowerVale.info=位于盛夏群岛中的扎勒岛，是一条从该岛中部横贯至东部海岸的河谷。
 got.wp.RedFlowerVale=红花谷
-got.wp.RedForests.info≠There are several islands in this bay, on which a very rare tree grows - the red Ultos oak. It is rare only because it does not grow anywhere else in the world. But there are a dime a dozen of these trees here.
-got.wp.RedForests≠There are several islands in this bay, on which a very rare tree grows - the red Ultos oak. It is rare only because it does not grow anywhere else in the world. But there are a dime a dozen of these trees here.
+got.wp.RedForests.info=这个海湾里有几个岛屿，上面生长着一种非常罕见的树--红色的Ultos栎。说它罕见，只是因为它在世界其他地方都不生长。但这里的这种树一毛不拔。
+got.wp.RedForests=红色森林
 got.wp.RedHaven.info=铁群岛最大的港口，位于派克。
 got.wp.RedHaven=红港
 got.wp.RedLake.info=红湖，是河湾地西北部唯一的一个大湖。同名城堡红湖城坐落在它的北岸。
@@ -4154,12 +4167,12 @@ got.wp.Snakewood.info=蛇木城位于谷地，是林德利家族的家堡，坐�
 got.wp.Snakewood=蛇木城
 got.wp.SouthPass.info=四个关口是古坟，直通云端。它们的位置表明它们是防御结构。但是，如果敌人在里面，从谁那里以及为什么要保卫莫西亚呢？
 got.wp.SouthPass=南隘口
-got.wp.SouthPoint.info≠The southernmost point where the Letnian ships sailed. Nevertheless, they did not build a harbor here: it is too far from their native lands.
-got.wp.SouthPoint≠The southernmost point where the Letnian ships sailed. Nevertheless, they did not build a harbor here: it is too far from their native lands.
-got.wp.SouthTaiga.info≠Ultos extends so far south that it reaches the southern polar regions. There is always snow here. There are quite a few animals here - few survive in the year-round frost. The plants here are exclusively coniferous.
-got.wp.SouthTaiga≠Ultos extends so far south that it reaches the southern polar regions. There is always snow here. There are quite a few animals here - few survive in the year-round frost. The plants here are exclusively coniferous.
-got.wp.SouthUlthos.info≠Clearly a separate part of Ultos from the swamps and to the extreme south. Here the climate is getting cooler, but not critical.
-got.wp.SouthUlthos≠Clearly a separate part of Ultos from the swamps and to the extreme south. Here the climate is getting cooler, but not critical.
+got.wp.SouthPoint.info=Letnian人船只航行的最南端。然而，他们并没有在这里建造港口：这里离他们的故乡太远了。
+got.wp.SouthPoint=南点
+got.wp.SouthTaiga.info=Ultos向南延伸，以至于到达南部的极地地区。这里总是有雪。这里有相当多的动物--很少有动物能在终年的霜冻中生存。这里的植物都是针叶植物。
+got.wp.SouthTaiga=南部地区
+got.wp.SouthUlthos.info=明显是Ultos的一个独立部分，与沼泽地和最南边的地方不同。这里的气候越来越冷，但并不关键。
+got.wp.SouthUlthos=南乌尔都斯
 got.wp.Southshield.info=南盾岛是河湾地的盾牌列岛中的一个，靠近曼德河口。是西瑞家族的封地。
 got.wp.Southshield=南盾岛
 got.wp.SparrCastle.info=Sparres家族的城堡，葛雷乔伊家族的附庸。
@@ -4210,30 +4223,30 @@ got.wp.Sunspear.info=阳戟城是马泰尔家族族堡和多恩首府。它位�
 got.wp.Sunspear=阳戟城
 got.wp.SuuNym.info=有一个传说，阿梭尔亚亥的名字石石在远古时代就住在这里。相传，战后他来到这里创作伟大的歌曲和神圣的文本。
 got.wp.SuuNym=苏尼姆
-got.wp.SuudanKorkuu.info≠This ancient fortress is unusual in that it is a whole complex of buildings surrounded by a moat without a wall. Warehouses of weapons, food and medicines were built on its territory, workshops and stables were placed.
-got.wp.SuudanKorkuu≠This ancient fortress is unusual in that it is a whole complex of buildings surrounded by a moat without a wall. Warehouses of weapons, food and medicines were built on its territory, workshops and stables were placed.
+got.wp.SuudanKorkuu.info=这个古老的堡垒是不寻常的，因为它是一个由护城河包围的整个建筑群，没有围墙。在它的领土上建有武器、食品和药品的仓库，还放置了车间和马厩。
+got.wp.SuudanKorkuu=苏丹-科库
 got.wp.SweetLotusVale.info=扎勒岛上的一条河谷。它从该岛中部向南延伸，在檀头镇处入海
 got.wp.SweetLotusVale=甜莲花谷
 got.wp.SweetportSound.info=妙港位于王领，是桑格拉斯家族的居所。
 got.wp.SweetportSound=妙港
-got.wp.Takutai.info≠The fort on the coast where the legendary Ulysses lived, drowned in a storm after a long journey. This is a very beautiful place.
-got.wp.Takutai≠The fort on the coast where the legendary Ulysses lived, drowned in a storm after a long journey. This is a very beautiful place.
+got.wp.Takutai.info=传说中尤利西斯居住的海岸上的堡垒，在长途跋涉后被淹没在风暴中。这是一个非常美丽的地方。
+got.wp.Takutai=塔库台
 got.wp.TallTreesTown.info=高树镇是盛夏群岛上的一个城镇。它是月桂风号的母港。
 got.wp.TallTreesTown=高树镇
 got.wp.TarbeckHall.info=塔贝克厅是位于西境的一座废墟城堡，位于卡斯特梅城和峭岩城附近。这是古老的塔贝克家族的族堡。
 got.wp.TarbeckHall=塔贝克厅
 got.wp.Tashtoo.info=伊本的船只停靠的古老海港。造船厂工人居住的村庄最终变成了一个船只停靠在港口的小镇。
 got.wp.Tashtoo=塔什图
-got.wp.Tauranga.info≠Every navigator of the Summer Islands visits this place, because Tana's relatives once found refuge here. She was the leader of a very rich tribe, and gave gold to her rescuers.
-got.wp.Tauranga≠Every navigator of the Summer Islands visits this place, because Tana's relatives once found refuge here. She was the leader of a very rich tribe, and gave gold to her rescuers.
+got.wp.Tauranga.info=每个夏日群岛的航海家都会访问这个地方，因为塔娜的亲戚曾经在这里避难。她是一个非常富有的部落的首领，并把黄金送给了救她的人。
+got.wp.Tauranga=陶朗加
 got.wp.TawneyCastle.info=TawneyCastle家族的城堡，葛雷乔伊家族的附庸。
 got.wp.TawneyCastle=陶尼堡
 got.wp.Telyria.info=瓦雷利亚的海门。
 got.wp.Telyria=特里瑞亚
 got.wp.TenTowers.info=哈尔洛家族的居城。
 got.wp.TenTowers=十塔城
-got.wp.Teriman.info≠One of the three currently inhabited Qarth colonies in Sotorios. It is located further than all the others. It is known for the fact that particularly dangerous criminals are exiled here.
-got.wp.Teriman≠One of the three currently inhabited Qarth colonies in Sotorios. It is located further than all the others. It is known for the fact that particularly dangerous criminals are exiled here.
+got.wp.Teriman.info=Sotorios目前居住的三个Qarth殖民地中的一个。它的位置比其他所有的都远。它因特别危险的罪犯被流放到这里而闻名。
+got.wp.Teriman=特里曼
 got.wp.TheEyrie.info=一座古老的城堡，位于艾林谷，是安达尔人最古老的传人之一艾林家族的家堡。
 got.wp.TheEyrie=鹰巢城
 got.wp.ThePaps.info=位于五指半岛东北角狭海内，效忠谷地的艾林家族。
@@ -4329,7 +4342,7 @@ got.wp.Valysar=瓦利萨
 got.wp.Velos.info=瓦罗斯是雪松岛上的一座城市，如今已成废墟。该城坐落在雪松岛最南端，正对奴隶湾。据说瓦雷利亚的末日浩劫来临之时，三百英尺高的巨浪咆哮入城，夺走了成百上千的生命，活下来的只有出海的人，还有一小部分在岛上一座坚固石塔里值守的哨兵，这座石塔位于岛内最高峰，得以幸免于难。塔里的哨兵眼睁睁看着丘陵和山谷尽数被狂暴的海浪吞没，美丽的瓦罗斯连同它的雪松和粉色大理石瞬间消失在眼前。
 got.wp.Velos=瓦罗斯
 got.wp.VictarionLanding.info=维克塔利昂·葛雷乔伊营地，与北方开战。
-got.wp.VictarionLanding=维克塔利昂·葛雷乔伊的营地
+got.wp.VictarionLanding=薇卡里昂登陆
 got.wp.Vinetown.info=蔓藤镇是河湾地位于雷德温海峡旁的一座小镇港。
 got.wp.Vinetown=蔓藤镇
 got.wp.Visenya.info=维桑尼亚丘陵是俯瞰君临的三座丘陵之一，其上建有贝勒大圣堂。丘陵的底部是静默修女街道。
@@ -4360,8 +4373,8 @@ got.wp.Whispers.info=轻语堡是蟹爪半岛上的一处城堡废墟，曾是�
 got.wp.Whispers=轻语堡
 got.wp.WhiteHarbour.info=白港是一个大港口城市，坐落于临冬城南方，是曼德勒家族的封地。白港是颈泽以北最大的居住地，但是是维斯特洛五大城市中最小的。白港是北境主要的贸易港口，其位于白刃河河口，可以提供更多的贸易机会去更北的地区。
 got.wp.WhiteHarbour=白港
-got.wp.WhiteMountains.info≠Mountains, mostly consisting of diorite. Beautiful white stone is very common here, and nowhere else in the world is it found in such quantity.
-got.wp.WhiteMountains≠Mountains, mostly consisting of diorite. Beautiful white stone is very common here, and nowhere else in the world is it found in such quantity.
+got.wp.WhiteMountains.info=山体，主要由闪长岩组成。美丽的白色石头在这里非常常见，世界上没有任何地方能找到如此多的白色石头。
+got.wp.WhiteMountains=白色山峰
 got.wp.WhiteWalls.info=白墙城是巴特维尔家族的家堡，位于神眼湖畔。五王之战的七八十年前左右，十字路口客栈附近有个渡船码头，人们可以搭摆渡渡过三叉戟河前往哈罗威伯爵的小镇和白墙城，可是后来河流改道，这个渡口便被废弃了。
 got.wp.WhiteWalls=白墙城
 got.wp.WhiteWood.info=一棵巨大的巫树阴影下的野人小村庄。
@@ -5154,10 +5167,10 @@ item.got:brightroar.name=光啸
 item.got:bronze_axe.name=青铜斧
 item.got:bronze_battleaxe.name=青铜战斧
 item.got:bronze_boots.name=青铜靴子
-item.got:bronze_chainmail_boots.name≠Bronze Chain Boots
-item.got:bronze_chainmail_chestplate.name≠Bronze Chain Chestplate
-item.got:bronze_chainmail_helmet.name≠Bronze Chain Helmet
-item.got:bronze_chainmail_leggings.name≠Bronze Chain Leggings
+item.got:bronze_chainmail_boots.name=青铜链靴
+item.got:bronze_chainmail_chestplate.name=青铜链胸甲
+item.got:bronze_chainmail_helmet.name=青铜链头盔
+item.got:bronze_chainmail_leggings.name=青铜链护腿。
 item.got:bronze_chestplate.name=青铜胸甲
 item.got:bronze_crossbow.name=青铜弩
 item.got:bronze_dagger.name=青铜匕首
@@ -5166,9 +5179,9 @@ item.got:bronze_helmet.name=青铜头盔
 item.got:bronze_hoe.name=青铜锄
 item.got:bronze_ingot.name=青铜锭
 item.got:bronze_leggings.name=青铜护腿
-item.got:bronze_nugget.name≠Bronze Nugget
+item.got:bronze_nugget.name=古铜色金块
 item.got:bronze_pickaxe.name=青铜镐子
-item.got:bronze_ring.name≠Bronze Ring
+item.got:bronze_ring.name=青铜戒指
 item.got:bronze_shovel.name=青铜锹
 item.got:bronze_spear.name=青铜矛
 item.got:bronze_sword.name=青铜剑
@@ -5202,7 +5215,7 @@ item.got:command_sword.name=命令之剑
 item.got:conquest_horn.name=战争号角
 item.got:copper_ingot.name=铜锭
 item.got:copper_nugget.name=铜粒
-item.got:copper_ring.name≠Copper Ring
+item.got:copper_ring.name=铜环
 item.got:coral.name=珊瑚
 item.got:corn.name=玉米
 item.got:corn_bread.name=玉米面包
@@ -5250,8 +5263,8 @@ item.got:dye.4.name=木炭尘
 item.got:dye.5.name=棕色染料
 item.got:eddard_sword.name=艾德史塔克的剑
 item.got:elderberry.name=接骨木莓
-item.got:elephant_cooked.name≠Cooked Elephant
-item.got:elephant_raw.name≠Raw Elephant
+item.got:elephant_cooked.name=煮熟的大象
+item.got:elephant_raw.name=原始大象
 item.got:emerald.name=绿宝石
 item.got:essos_bow.name=厄斯索斯弓
 item.got:essos_dagger.name=自由联邦匕首
@@ -5338,7 +5351,7 @@ item.got:iron_battleaxe.name=铁战斧
 item.got:iron_crossbow.name=铁弩
 item.got:iron_dagger.name=铁匕首
 item.got:iron_dagger_poisoned.name=淬毒铁匕首
-item.got:iron_nugget.name≠Iron Nugget
+item.got:iron_nugget.name=铁金块
 item.got:iron_pike.name=铁长矛
 item.got:iron_spear.name=铁矛
 item.got:iron_throwing_axe.name=铁投斧
@@ -5665,10 +5678,10 @@ item.got:valyrian_axe.name=瓦雷利亚钢斧
 item.got:valyrian_battleaxe.name=瓦雷利亚钢战斧
 item.got:valyrian_book.name=锻造手札
 item.got:valyrian_boots.name=瓦雷利亚钢靴子
-item.got:valyrian_chainmail_boots.name≠Valyrian Chain Boots
-item.got:valyrian_chainmail_chestplate.name≠Valyrian Chain Chestplate
-item.got:valyrian_chainmail_helmet.name≠Valyrian Chain Helmet
-item.got:valyrian_chainmail_leggings.name≠Valyrian Chain Leggings
+item.got:valyrian_chainmail_boots.name=瓦雷利亚链靴
+item.got:valyrian_chainmail_chestplate.name=瓦雷利亚链胸甲
+item.got:valyrian_chainmail_helmet.name=瓦雷利亚链式头盔
+item.got:valyrian_chainmail_leggings.name=瓦雷利亚链式紧身裤
 item.got:valyrian_chestplate.name=瓦雷利亚钢胸甲
 item.got:valyrian_chisel.name=瓦雷利安钢凿子
 item.got:valyrian_crossbow.name=瓦雷利亚钢弩
@@ -5699,8 +5712,8 @@ item.got:volantis_chestplate.name=瓦兰提斯胸甲
 item.got:volantis_helmet.name=瓦兰提斯头盔
 item.got:volantis_leggings.name=瓦兰提斯护腿
 item.got:walking_stick.name=手杖
-item.got:walrus_lard_cooked.name≠Cooked Walrus Lard
-item.got:walrus_lard_raw.name≠Raw Walrus Lard
+item.got:walrus_lard_cooked.name=煮熟的海象猪油
+item.got:walrus_lard_raw.name=生海象猪油
 item.got:waterskin.name=水袋
 item.got:westerlands_boots.name=西境靴子
 item.got:westerlands_chestplate.name=西境胸甲
@@ -5771,21 +5784,21 @@ item.got:zebra_cooked.name=熟斑马肉
 item.got:zebra_raw.name=生斑马肉
 tile.concrete.name=%s混凝土
 tile.concrete_powder.name=%s混凝土粉末
-tile.dirt.0.name≠Dirt
+tile.dirt.0.name=泥土
 tile.dirt.coarse.name=无草泥土
-tile.got.bomb.double_strength=Двухкратная сила
-tile.got.bomb.fire=Зажигательная
-tile.got.bomb.triple_strength=Трёхкратная сила
-tile.got.fallen_leaves=Опавшие %s
+tile.got.bomb.double_strength=两倍的力量
+tile.got.bomb.fire=煽动性的
+tile.got.bomb.triple_strength=三倍的力量
+tile.got.fallen_leaves=堕落%s
 tile.got.fence_vanilla.0.name=橡栅栏
 tile.got.fence_vanilla.1.name=云杉栅栏
 tile.got.fence_vanilla.2.name=桦栅栏
 tile.got.fence_vanilla.3.name=丛林栅栏
 tile.got.fence_vanilla.4.name=金合欢栅栏
 tile.got.fence_vanilla.5.name=深色橡栅栏
-tile.got.kebab_stand.cooked=Один уже прожарился
-tile.got.kebab_stand.meats=Нанизано %d кусков мяса
-tile.got.wild_fire.warning=Чрезвычайно взрывоопасен
+tile.got.kebab_stand.cooked=一个已经被炸死了
+tile.got.kebab_stand.meats=串联了%d块肉
+tile.got.wild_fire.warning=极具爆炸性
 tile.got:alloy_forge.name=合金锻炉
 tile.got:arid_grass.name=干草丛
 tile.got:asshai_bars.name=黑钢栏杆
