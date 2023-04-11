@@ -101,7 +101,7 @@ CHANGELOG
 
 - Removed GOTCommander
 
->>BUILD 25.08.22
+>>BUILD 22.08.25
 * Fixed bug that removed The Wall
 
 * Improved GUI (factions, menu, barrel)
