@@ -4,6 +4,7 @@
 .project
 .settings
 bin
+out
 build/classes
 build/resources
 build/sources

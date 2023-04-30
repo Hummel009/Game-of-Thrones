@@ -66,6 +66,7 @@ public class GOT {
 	public static WorldType worldTypeGOT;
 	public static WorldType worldTypeGOTClassic;
 	public static String langsName = "\u0420\u0443\u0441\u0441\u043A\u0438\u0439 (ru), \u0423\u043A\u0440\u0430\u0457\u043D\u0441\u044C\u043A\u0430 (uk), English (en), Fran\u00E7ais (fr), Deutsch (de), Polska (pl), T\u00FCrk\u00E7e (tr), \u4E2D\u6587 (zh)";
+
 	static {
 		devs.add("76ae4f2f-e70a-4680-b7cd-3100fa8b567b");
 		devs.add("40cd453d-4c71-4afe-9ae3-a2b8cb2b6f00");
@@ -245,10 +246,10 @@ public class GOT {
 			int b = (int) (baseB * rgb[2]);
 			biome.waterColorMultiplier = new Color(r, g, b).getRGB();
 		}
-		int[] nums = { GOTAchievement.id, GOTPacketHandler.id, BannerType.values().length, GOTEntity.id, GOTStructure.id, GOTAPI.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class).size(), GOTBeziers.id, GOTWaypoint.values().length, GOTFaction.values().length, GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Item.class).size(), GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Block.class).size() };
-		String[] strings = { " achievements", " packets", " banners", " mobs", " structures", " biomes", " beziers", " waypoints", " factions", " items", " blocks" };
+		int[] nums = {GOTAchievement.id, GOTPacketHandler.id, BannerType.values().length, GOTEntity.id, GOTStructure.id, GOTAPI.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class).size(), GOTBeziers.id, GOTWaypoint.values().length, GOTFaction.values().length, GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Item.class).size(), GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Block.class).size()};
+		String[] strings = {" achievements", " packets", " banners", " mobs", " structures", " biomes", " beziers", " waypoints", " factions", " items", " blocks"};
 		for (int i = 0; i < nums.length; i++) {
-			GOTLog.logger.info(new StringBuilder().append("Hummel009: Registered ").append(nums[i]).append(strings[i]).toString());
+			GOTLog.logger.info("Hummel009: Registered " + nums[i] + strings[i]);
 		}
 	}
 
@@ -303,7 +304,7 @@ public class GOT {
 				if (targetNPC != null && targetNPC.hiredNPCInfo.isActive) {
 					UUID hiringPlayerUUID = npc.hiredNPCInfo.getHiringPlayerUUID();
 					UUID targetHiringPlayerUUID = targetNPC.hiredNPCInfo.getHiringPlayerUUID();
-					if (hiringPlayerUUID != null && targetHiringPlayerUUID != null && hiringPlayerUUID.equals(targetHiringPlayerUUID) && !attackerFaction.isBadRelation(getNPCFaction(targetNPC))) {
+					if (hiringPlayerUUID != null && hiringPlayerUUID.equals(targetHiringPlayerUUID) && !attackerFaction.isBadRelation(getNPCFaction(targetNPC))) {
 						return false;
 					}
 				}
@@ -320,9 +321,7 @@ public class GOT {
 				if (target instanceof EntityPlayer && GOTLevelData.getData((EntityPlayer) target).getAlignment(attackerFaction) >= 0.0f && attacker.getAttackTarget() != target) {
 					return false;
 				}
-				if (target.riddenByEntity instanceof EntityPlayer && GOTLevelData.getData((EntityPlayer) target.riddenByEntity).getAlignment(attackerFaction) >= 0.0f && attacker.getAttackTarget() != target && attacker.getAttackTarget() != target.riddenByEntity) {
-					return false;
-				}
+				return !(target.riddenByEntity instanceof EntityPlayer) || !(GOTLevelData.getData((EntityPlayer) target.riddenByEntity).getAlignment(attackerFaction) >= 0.0f) || attacker.getAttackTarget() == target || attacker.getAttackTarget() == target.riddenByEntity;
 			}
 		}
 		return true;
