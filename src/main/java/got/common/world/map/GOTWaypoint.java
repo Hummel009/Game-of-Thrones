@@ -49,8 +49,7 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 	}
 
 	public static List<GOTAbstractWaypoint> listAllWaypoints() {
-		ArrayList<GOTAbstractWaypoint> list = new ArrayList<>(Arrays.asList(values()));
-		return list;
+		return new ArrayList<>(Arrays.asList(values()));
 	}
 
 	public static int mapToWorldR(double r) {

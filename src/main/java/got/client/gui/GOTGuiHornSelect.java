@@ -37,8 +37,7 @@ public class GOTGuiHornSelect extends GOTGuiScreenBase {
 		fontRendererObj.drawString(s, guiLeft + xSize / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 11, 4210752);
 		super.drawScreen(i, j, f);
 		for (GuiButton element : buttonList) {
-			GuiButton button = element;
-			itemRenderer.renderItemIntoGUI(fontRendererObj, mc.getTextureManager(), new ItemStack(GOTRegistry.commandHorn, 1, button.id), button.xPosition - 22, button.yPosition + 2);
+			itemRenderer.renderItemIntoGUI(fontRendererObj, mc.getTextureManager(), new ItemStack(GOTRegistry.commandHorn, 1, element.id), element.xPosition - 22, element.yPosition + 2);
 		}
 	}
 

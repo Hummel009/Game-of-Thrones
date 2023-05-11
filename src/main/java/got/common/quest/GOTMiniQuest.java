@@ -108,8 +108,7 @@ public abstract class GOTMiniQuest {
 
 	public static <Q extends GOTMiniQuest> Q newQuestInstance(Class<Q> questType, GOTPlayerData playerData) {
 		try {
-			Q quest = questType.getConstructor(GOTPlayerData.class).newInstance(playerData);
-			return quest;
+			return questType.getConstructor(GOTPlayerData.class).newInstance(playerData);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
