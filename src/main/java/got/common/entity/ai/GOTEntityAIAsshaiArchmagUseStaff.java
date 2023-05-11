@@ -72,7 +72,7 @@ public class GOTEntityAIAsshaiArchmagUseStaff extends EntityAIBase {
 	@Override
 	public void updateTask() {
 		attackTick = Math.max(attackTick - 1, 0);
-		if (attackTick <= 0) {
+		if (attackTick == 0) {
 			attackTick = 40;
 			GOTItemAsshaiArchmagStaff.wizardUseStaff(wizard.getEquipmentInSlot(0), theWorld, wizard);
 			wizard.setIsUsingStaff(false);

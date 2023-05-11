@@ -46,7 +46,7 @@ public class GOTRecipeTreasurePile implements IRecipe {
 				resultMeta = ingredientTotalSize - 1;
 			}
 		}
-		if (resultCount <= 0 || resultMeta > 7) {
+		if (resultCount == 0 || resultMeta > 7) {
 			return null;
 		}
 		if (ingredientCount == 1 && ingredientTotalSize == 8) {

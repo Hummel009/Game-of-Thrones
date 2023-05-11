@@ -249,7 +249,7 @@ public class GOTLore {
 						}
 					}
 					++usedWords;
-					if (pageText.length() <= 0) {
+					if (pageText.length() == 0) {
 						continue;
 					}
 					pageText = pageText + word;

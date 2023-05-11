@@ -149,9 +149,6 @@ public class GOTEntityWesterosThief extends GOTEntityHumanBase implements GOTBio
 			case 0:
 				familyInfo.setName(GOTNames.getWesterosName(rand, true));
 				break;
-			case 1:
-				familyInfo.setName(GOTNames.getWildName(rand, true));
-				break;
 			case 2:
 				familyInfo.setName(GOTNames.getEssosName(rand, true));
 				break;

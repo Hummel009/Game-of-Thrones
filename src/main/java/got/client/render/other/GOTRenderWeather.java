@@ -113,7 +113,7 @@ public class GOTRenderWeather extends IRenderHandler {
 						float f9 = biomegenbase.getFloatTemperature(i1, l1, l);
 						if (ashy) {
 							if (b1 != 1) {
-								if (b1 >= 0) {
+								if (b1 == 0) {
 									tessellator.draw();
 								}
 								b1 = 1;
@@ -139,7 +139,7 @@ public class GOTRenderWeather extends IRenderHandler {
 						}
 						if (sandy) {
 							if (b1 != 1) {
-								if (b1 >= 0) {
+								if (b1 == 0) {
 									tessellator.draw();
 								}
 								b1 = 1;
@@ -188,7 +188,7 @@ public class GOTRenderWeather extends IRenderHandler {
 							continue;
 						}
 						if (b1 != 1) {
-							if (b1 >= 0) {
+							if (b1 == 0) {
 								tessellator.draw();
 							}
 							b1 = 1;

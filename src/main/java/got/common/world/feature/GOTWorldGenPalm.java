@@ -113,7 +113,7 @@ public class GOTWorldGenPalm extends WorldGenAbstractTree {
 				} else if (!replacingWood) {
 					setBlockAndNotifyAdequately(world, i1, j1, k1, leafBlock, leafMeta);
 				}
-				if (l >= 5) {
+				if (l == 5) {
 					continue block5;
 				}
 			}

@@ -44,9 +44,6 @@ public class GOTEntityEssosBandit extends GOTEntityWesterosBandit {
 			case 0:
 				familyInfo.setName(GOTNames.getGhiscarName(rand, true));
 				break;
-			case 1:
-				familyInfo.setName(GOTNames.getWildName(rand, true));
-				break;
 			case 2:
 				familyInfo.setName(GOTNames.getLhazarName(rand, true));
 				break;

@@ -30,6 +30,7 @@ public class GOTBlockWall4 extends GOTBlockWallBase {
 			case 4:
 				return GOTRegistry.brick4.getIcon(i, 4);
 			case 5:
+			case 15:
 				return GOTRegistry.brick6.getIcon(i, 4);
 			case 6:
 				return GOTRegistry.brick6.getIcon(i, 6);
@@ -49,8 +50,6 @@ public class GOTBlockWall4 extends GOTBlockWallBase {
 				return GOTRegistry.brick6.getIcon(i, 1);
 			case 14:
 				return GOTRegistry.brick6.getIcon(i, 3);
-			case 15:
-				return GOTRegistry.brick6.getIcon(i, 4);
 			default:
 				break;
 		}

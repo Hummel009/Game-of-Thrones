@@ -364,7 +364,7 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 					setBlockAndMetadata(world, i12, actingRoomTop, k1, Blocks.flowing_lava, 0);
 				}
 				if (i2 == roomPillarEdge - 1 || k2 == roomPillarEdge - 1) {
-					if (random.nextInt(4) <= 0) {
+					if (random.nextInt(4) == 0) {
 						continue;
 					}
 					setBlockAndMetadata(world, i12, roomFloor, k1, Blocks.obsidian, 0);

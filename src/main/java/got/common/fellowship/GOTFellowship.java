@@ -135,12 +135,8 @@ public class GOTFellowship {
 			memberUUIDs.add(0, prevOwner);
 		}
 		ownerUUID = owner;
-		if (memberUUIDs.contains(owner)) {
-			memberUUIDs.remove(owner);
-		}
-		if (adminUUIDs.contains(owner)) {
-			adminUUIDs.remove(owner);
-		}
+		memberUUIDs.remove(owner);
+		adminUUIDs.remove(owner);
 		GOTLevelData.getData(ownerUUID).addFellowship(this);
 		updateForAllMembers(new FellowshipUpdateType.SetOwner(ownerUUID));
 		markDirty();
@@ -276,12 +272,8 @@ public class GOTFellowship {
 	public void removeMember(UUID player) {
 		if (memberUUIDs.contains(player)) {
 			memberUUIDs.remove(player);
-			if (adminUUIDs.contains(player)) {
-				adminUUIDs.remove(player);
-			}
-			if (waypointSharerUUIDs.contains(player)) {
-				waypointSharerUUIDs.remove(player);
-			}
+			adminUUIDs.remove(player);
+			waypointSharerUUIDs.remove(player);
 			GOTLevelData.getData(player).removeFellowship(this);
 			updateForAllMembers(new FellowshipUpdateType.RemoveMember(player));
 			markDirty();

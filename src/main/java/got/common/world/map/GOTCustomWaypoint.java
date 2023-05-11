@@ -379,9 +379,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	}
 
 	public void removeSharedFellowship(UUID fsID) {
-		if (sharedFellowshipIDs.contains(fsID)) {
-			sharedFellowshipIDs.remove(fsID);
-		}
+		sharedFellowshipIDs.remove(fsID);
 	}
 
 	public void rename(String newName) {

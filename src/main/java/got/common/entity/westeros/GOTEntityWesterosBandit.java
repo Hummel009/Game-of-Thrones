@@ -186,9 +186,6 @@ public class GOTEntityWesterosBandit extends GOTEntityHumanBase implements IBand
 			case 0:
 				familyInfo.setName(GOTNames.getWesterosName(rand, true));
 				break;
-			case 1:
-				familyInfo.setName(GOTNames.getWildName(rand, true));
-				break;
 			case 2:
 				familyInfo.setName(GOTNames.getEssosName(rand, true));
 				break;

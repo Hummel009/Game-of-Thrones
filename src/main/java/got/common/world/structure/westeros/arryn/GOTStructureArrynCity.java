@@ -301,7 +301,7 @@ public class GOTStructureArrynCity extends GOTVillageGen {
 			houseX = 54;
 			for (int k1 = -2; k1 <= 2; ++k1) {
 				int houseZ = k1 * 12;
-				if (k1 <= -2 || k1 >= 1) {
+				if (k1 == -2 || k1 >= 1) {
 					addStructure(new GOTStructureArrynStoneHouse(false), -houseX, houseZ, 3, true);
 					addStructure(new GOTStructureArrynStoneHouse(false), houseX, houseZ, 1, true);
 				}

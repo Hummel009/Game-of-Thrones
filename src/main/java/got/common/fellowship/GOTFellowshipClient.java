@@ -170,9 +170,7 @@ public class GOTFellowshipClient {
 		if (memberUUIDs.contains(memberUuid)) {
 			memberUUIDs.remove(memberUuid);
 			usernameMap.remove(memberUuid);
-			if (adminUUIDs.contains(memberUuid)) {
-				adminUUIDs.remove(memberUuid);
-			}
+			adminUUIDs.remove(memberUuid);
 			titleMap.remove(memberUuid);
 		}
 	}
@@ -197,12 +195,8 @@ public class GOTFellowshipClient {
 			}
 			ownerUUID = newOwnerUuid;
 			usernameMap.put(ownerUUID, newOwner.getName());
-			if (memberUUIDs.contains(newOwnerUuid)) {
-				memberUUIDs.remove(newOwnerUuid);
-			}
-			if (adminUUIDs.contains(newOwnerUuid)) {
-				adminUUIDs.remove(newOwnerUuid);
-			}
+			memberUUIDs.remove(newOwnerUuid);
+			adminUUIDs.remove(newOwnerUuid);
 			isOwned = owned;
 			if (isOwned) {
 				isAdminned = false;
