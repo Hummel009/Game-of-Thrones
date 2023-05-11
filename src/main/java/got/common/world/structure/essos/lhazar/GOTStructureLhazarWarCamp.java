@@ -67,7 +67,7 @@ public class GOTStructureLhazarWarCamp extends GOTStructureLhazarBase {
 										setBlockAndMetadata(world, i1, 0, k1, Blocks.dirt, 1);
 										break;
 									case 2:
-										setBlockAndMetadata(world, i1, j1, k1, Blocks.sand, 1);
+										setBlockAndMetadata(world, i1, 0, k1, Blocks.sand, 1);
 										break;
 									default:
 										break;

@@ -126,7 +126,7 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 						setBlockAndMetadata(world, i13, 2, 25, brickBlock, brickMeta);
 						setBlockAndMetadata(world, i13, 3, 25, plank2Block, plank2Meta);
 						setBlockAndMetadata(world, i13, 4, 25, plankBlock, plankMeta);
-						setBlockAndMetadata(world, i13, 5, k1, woodBeamBlock, woodBeamMeta | 4);
+						setBlockAndMetadata(world, i13, 5, 25, woodBeamBlock, woodBeamMeta | 4);
 					}
 				}
 				if (k1 < 3 || k1 > 25) {
