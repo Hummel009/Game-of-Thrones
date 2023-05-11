@@ -33,7 +33,7 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 	public int yawSpeed = 30;
 	public int inAirTicks;
 
-	public GOTEntityFlyingTameable(World world) {
+	protected GOTEntityFlyingTameable(World world) {
 		super(world);
 		waypoint = new GOTDragonFlightWaypoint(this);
 		airTasks = new EntityAITasks(world != null ? world.theProfiler : null);

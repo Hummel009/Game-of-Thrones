@@ -31,7 +31,7 @@ public abstract class GOTStructureJogosBase extends GOTStructureBase {
 	public Block bedBlock;
 	public Block trapdoorBlock;
 
-	public GOTStructureJogosBase(boolean flag) {
+	protected GOTStructureJogosBase(boolean flag) {
 		super(flag);
 	}
 

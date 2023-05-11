@@ -18,7 +18,7 @@ import java.awt.*;
 import java.util.Random;
 
 public abstract class GOTEntityLhazarTrader extends GOTEntityLhazarMan implements GOTTradeable {
-	public GOTEntityLhazarTrader(World world) {
+	protected GOTEntityLhazarTrader(World world) {
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(false);

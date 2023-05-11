@@ -5,7 +5,7 @@ import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.world.World;
 
-public class GOTEntityGorcrow extends GOTEntityBird implements GOTBiome.ImmuneToFrost {
+public class GOTEntityGorcrow extends GOTEntityBird {
 	public static float GORCROW_SCALE = 1.4f;
 
 	public GOTEntityGorcrow(World world) {

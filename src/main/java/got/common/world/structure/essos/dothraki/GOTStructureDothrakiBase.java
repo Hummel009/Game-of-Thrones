@@ -31,7 +31,7 @@ public abstract class GOTStructureDothrakiBase extends GOTStructureBase {
 	public Block bedBlock;
 	public Block trapdoorBlock;
 
-	public GOTStructureDothrakiBase(boolean flag) {
+	protected GOTStructureDothrakiBase(boolean flag) {
 		super(flag);
 	}
 

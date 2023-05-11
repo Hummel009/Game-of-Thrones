@@ -10,6 +10,7 @@ import net.minecraft.util.EnumChatFormatting;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 
 public class GOTVersionChecker {
 	public static String versionURL = "https://raw.githubusercontent.com/Hummel009/Game-of-Thrones/master/version.txt";
@@ -24,7 +25,7 @@ public class GOTVersionChecker {
 					try {
 						String line;
 						URL url = new URL(versionURL);
-						BufferedReader updateReader = new BufferedReader(new InputStreamReader(url.openStream()));
+						BufferedReader updateReader = new BufferedReader(new InputStreamReader(url.openStream(), StandardCharsets.UTF_8));
 						String updateVersion = "";
 						while ((line = updateReader.readLine()) != null) {
 							updateVersion = updateVersion + line;

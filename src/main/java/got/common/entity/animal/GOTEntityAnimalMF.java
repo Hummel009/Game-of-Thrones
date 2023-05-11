@@ -10,7 +10,7 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public abstract class GOTEntityAnimalMF extends EntityAnimal implements GOTBiome.ImmuneToFrost {
-	public GOTEntityAnimalMF(World world) {
+	protected GOTEntityAnimalMF(World world) {
 		super(world);
 	}
 

@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public abstract class GOTEntityYiTiMarketTrader extends GOTEntityYiTiMan implements GOTTradeable {
-	public GOTEntityYiTiMarketTrader(World world) {
+	protected GOTEntityYiTiMarketTrader(World world) {
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(false);

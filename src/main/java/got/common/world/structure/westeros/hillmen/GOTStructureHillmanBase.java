@@ -33,7 +33,7 @@ public abstract class GOTStructureHillmanBase extends GOTStructureBase {
 	public int barsMeta;
 	public Block bedBlock;
 
-	public GOTStructureHillmanBase(boolean flag) {
+	protected GOTStructureHillmanBase(boolean flag) {
 		super(flag);
 	}
 

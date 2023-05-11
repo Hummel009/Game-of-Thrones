@@ -12,7 +12,7 @@ import java.util.Random;
 public abstract class GOTStructureStormlandsMarketStall extends GOTStructureWesterosMarketStall {
 	public static Class[] allStallTypes = {Goldsmith.class, Miner.class, Lumber.class, Mason.class, Brewer.class, Flowers.class, Butcher.class, Fish.class, Farmer.class, Blacksmith.class, Baker.class};
 
-	public GOTStructureStormlandsMarketStall(boolean flag) {
+	protected GOTStructureStormlandsMarketStall(boolean flag) {
 		super(flag);
 		kingdom = Kingdom.STORMLANDS;
 	}

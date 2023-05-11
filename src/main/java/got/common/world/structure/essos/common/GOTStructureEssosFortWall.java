@@ -7,7 +7,7 @@ import java.util.Random;
 public abstract class GOTStructureEssosFortWall extends GOTStructureEssosBase {
 	public boolean isLong;
 
-	public GOTStructureEssosFortWall(boolean flag) {
+	protected GOTStructureEssosFortWall(boolean flag) {
 		super(flag);
 	}
 

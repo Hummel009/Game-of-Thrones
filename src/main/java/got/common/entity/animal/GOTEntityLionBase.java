@@ -20,14 +20,14 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public abstract class GOTEntityLionBase extends GOTEntityAnimalMF implements GOTBiome.ImmuneToFrost {
+public abstract class GOTEntityLionBase extends GOTEntityAnimalMF {
 	public EntityAIBase attackAI = new GOTEntityAIAttackOnCollide(this, 1.5, false);
 	public EntityAIBase panicAI = new EntityAIPanic(this, 1.5);
 	public EntityAIBase targetNearAI = new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true);
 	public int hostileTick;
 	public boolean prevIsChild = true;
 
-	public GOTEntityLionBase(World world) {
+	protected GOTEntityLionBase(World world) {
 		super(world);
 		setSize(1.4f, 1.6f);
 		getNavigator().setAvoidsWater(true);

@@ -21,7 +21,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public abstract class GOTEntityScorpionSmall extends GOTEntityNPC implements GOTBiome.ImmuneToHeat {
-	public GOTEntityScorpionSmall(World world) {
+	protected GOTEntityScorpionSmall(World world) {
 		super(world);
 		canBeMarried = false;
 		setSize(1.2f * 0.2f, 0.9f * 0.2f);

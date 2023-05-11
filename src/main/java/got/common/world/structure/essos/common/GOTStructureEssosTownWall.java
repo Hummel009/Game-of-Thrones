@@ -10,7 +10,7 @@ public abstract class GOTStructureEssosTownWall extends GOTStructureEssosBase {
 	public int leftExtent;
 	public int rightExtent;
 
-	public GOTStructureEssosTownWall(boolean flag) {
+	protected GOTStructureEssosTownWall(boolean flag) {
 		super(flag);
 	}
 

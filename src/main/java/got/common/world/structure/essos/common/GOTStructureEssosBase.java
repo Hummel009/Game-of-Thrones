@@ -220,7 +220,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 	public BannerType bannerType;
 	public City city;
 
-	public GOTStructureEssosBase(boolean flag) {
+	protected GOTStructureEssosBase(boolean flag) {
 		super(flag);
 	}
 

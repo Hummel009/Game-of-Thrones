@@ -25,7 +25,7 @@ public abstract class GOTEntityScorpionBig extends GOTEntityNPC implements GOTBi
 	public float scorpionWidth = -1.0f;
 	public float scorpionHeight;
 
-	public GOTEntityScorpionBig(World world) {
+	protected GOTEntityScorpionBig(World world) {
 		super(world);
 		canBeMarried = false;
 		setSize(1.2f, 0.9f);
