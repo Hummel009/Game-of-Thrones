@@ -8,10 +8,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.*;
 
 public class GOTAlignmentValues {
-	public static float MAX_ALIGNMENT = 10000.0f;
 	public static AlignmentBonus MARRIAGE_BONUS = new AlignmentBonus(5.0f, "got.alignment.marriage");
-	public static AlignmentBonus FANGORN_TREE_PENALTY = new AlignmentBonus(-1.0f, "got.alignment.cutFangornTree");
-	public static AlignmentBonus ROHAN_HORSE_PENALTY = new AlignmentBonus(-1.0f, "got.alignment.killRohanHorse");
 	public static AlignmentBonus VINEYARD_STEAL_PENALTY = new AlignmentBonus(-1.0f, "got.alignment.vineyardSteal");
 	public static AlignmentBonus PICKPOCKET_PENALTY = new AlignmentBonus(-1.0f, "got.alignment.pickpocket");
 	public static DecimalFormat alignFormat = new DecimalFormat(",##0.0");
