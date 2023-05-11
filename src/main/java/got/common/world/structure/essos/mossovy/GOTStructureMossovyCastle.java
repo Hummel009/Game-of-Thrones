@@ -34,7 +34,7 @@ public class GOTStructureMossovyCastle extends GOTStructureMossovyBase {
 		int i15;
 		int i2;
 		int j13;
-		this.setOriginAndRotation(world, i, j, k, rotation, 13);
+		setOriginAndRotation(world, i, j, k, rotation, 13);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			for (i15 = -12; i15 <= 12; ++i15) {
@@ -390,8 +390,8 @@ public class GOTStructureMossovyCastle extends GOTStructureMossovyBase {
 		setBlockAndMetadata(world, -5, 2, 9, fenceBlock, fenceMeta);
 		setBlockAndMetadata(world, -6, 1, 9, plankBlock, plankMeta);
 		setBlockAndMetadata(world, -6, 2, 9, Blocks.torch, 4);
-		this.placeChest(world, random, -7, 1, 9, 2, GOTChestContents.MOSSOVY);
-		this.placeChest(world, random, -8, 1, 9, 2, GOTChestContents.MOSSOVY);
+		placeChest(world, random, -7, 1, 9, 2, GOTChestContents.MOSSOVY);
+		placeChest(world, random, -8, 1, 9, 2, GOTChestContents.MOSSOVY);
 		setBlockAndMetadata(world, -9, 1, 8, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, -9, 1, 7, tableBlock, 0);
 		setBlockAndMetadata(world, -9, 1, 6, plankBlock, plankMeta);
@@ -443,10 +443,10 @@ public class GOTStructureMossovyCastle extends GOTStructureMossovyBase {
 			setBlockAndMetadata(world, 9, 1, k16, bedBlock, 1);
 			setBlockAndMetadata(world, 10, 1, k16, bedBlock, 9);
 		}
-		this.placeChest(world, random, 8, 1, 6, 3, GOTChestContents.MOSSOVY);
-		this.placeChest(world, random, 8, 1, 10, 2, GOTChestContents.MOSSOVY);
+		placeChest(world, random, 8, 1, 6, 3, GOTChestContents.MOSSOVY);
+		placeChest(world, random, 8, 1, 10, 2, GOTChestContents.MOSSOVY);
 		setBlockAndMetadata(world, 10, 1, 8, plankBlock, plankMeta);
-		this.placeBarrel(world, random, 10, 2, 8, 5, GOTFoods.WESTEROS_DRINK);
+		placeBarrel(world, random, 10, 2, 8, 5, GOTFoods.WESTEROS_DRINK);
 		for (int j18 = 1; j18 <= 4; ++j18) {
 			setBlockAndMetadata(world, 6, j18, -9, woodBeamBlock, woodBeamMeta);
 			setBlockAndMetadata(world, 7, j18, -9, plankBlock, plankMeta);

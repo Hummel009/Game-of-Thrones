@@ -108,9 +108,9 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 	@Override
 	public void drawGuiContainerForegroundLayer(int i, int j) {
 		GOTUnitTradeEntry curTrade = currentTrade();
-		this.drawCenteredString(theUnitTrader.getNPCName(), 110, 11, 4210752);
+		drawCenteredString(theUnitTrader.getNPCName(), 110, 11, 4210752);
 		fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 30, 162, 4210752);
-		this.drawCenteredString(curTrade.getUnitTradeName(), 138, 50, 4210752);
+		drawCenteredString(curTrade.getUnitTradeName(), 138, 50, 4210752);
 		int reqX = 64;
 		int reqXText = reqX + 19;
 		int reqY = 65;

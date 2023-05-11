@@ -246,13 +246,13 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 
 		@Override
 		public List<PositionedStack> getIngredients() {
-			return getCycledIngredients(GOTHandlerAlloyForge.this.cycleticks / 48, ingredients);
+			return getCycledIngredients(cycleticks / 48, ingredients);
 		}
 
 		@Override
 		public List<PositionedStack> getOtherStacks() {
 			ArrayList<PositionedStack> tmp = new ArrayList<>();
-			PositionedStack tmpStack = FurnaceRecipeHandler.afuels.get(GOTHandlerAlloyForge.this.cycleticks / 48 % FurnaceRecipeHandler.afuels.size()).stack;
+			PositionedStack tmpStack = FurnaceRecipeHandler.afuels.get(cycleticks / 48 % FurnaceRecipeHandler.afuels.size()).stack;
 			tmpStack.relx = fuelX;
 			tmpStack.rely = fuelY;
 			tmp.add(tmpStack);

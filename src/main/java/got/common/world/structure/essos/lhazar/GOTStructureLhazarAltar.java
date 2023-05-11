@@ -17,7 +17,7 @@ public class GOTStructureLhazarAltar extends GOTStructureLhazarBase {
 		int step;
 		int k1;
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 13);
+		setOriginAndRotation(world, i, j, k, rotation, 13);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -58,7 +58,7 @@ public class GOTStructureLhazarAltar extends GOTStructureLhazarBase {
 		associateBlockMetaAlias("BONE", boneBlock, boneMeta);
 		associateBlockMetaAlias("FENCE", fenceBlock, fenceMeta);
 		generateStrScan(world, random, 0, 0, 0);
-		this.placeSkull(world, 0, 7, 0, 0);
+		placeSkull(world, 0, 7, 0, 0);
 		int holeX = 0;
 		int holeZ = 6;
 		int holeR = 3;
@@ -90,7 +90,7 @@ public class GOTStructureLhazarAltar extends GOTStructureLhazarBase {
 						if (random.nextInt(6) != 0) {
 							continue;
 						}
-						this.placeSkull(world, random, i2, j2 + 1, k2);
+						placeSkull(world, random, i2, j2 + 1, k2);
 					}
 				}
 			}

@@ -301,17 +301,17 @@ public abstract class GOTVillageGen {
 		public List<StructureInfo> structures = new ArrayList<>();
 
 		public AbstractInstance(V village, World world, int i, int k, Random random, LocationInfo loc) {
-			this.instanceVillageBiome = ((GOTVillageGen) village).villageBiome;
-			this.theWorld = world;
-			this.instanceRand = new Random();
-			this.instanceRandSeed = random.nextLong();
-			this.centreX = i;
-			this.centreZ = k;
-			this.locationInfo = loc;
+			instanceVillageBiome = ((GOTVillageGen) village).villageBiome;
+			theWorld = world;
+			instanceRand = new Random();
+			instanceRandSeed = random.nextLong();
+			centreX = i;
+			centreZ = k;
+			locationInfo = loc;
 		}
 
 		public void addStructure(GOTStructureBase structure, int x, int z, int r) {
-			this.addStructure(structure, x, z, r, false);
+			addStructure(structure, x, z, r, false);
 		}
 
 		public void addStructure(GOTStructureBase structure, int x, int z, int r, boolean force) {
@@ -320,7 +320,7 @@ public abstract class GOTVillageGen {
 			if (force) {
 				structure.shouldFindSurface = true;
 			}
-			this.structures.add(new StructureInfo(structure, x, z, r));
+			structures.add(new StructureInfo(structure, x, z, r));
 		}
 
 		public abstract void addVillageStructures(Random var1);
@@ -330,56 +330,56 @@ public abstract class GOTVillageGen {
 		public int[] getRelativeCoords(int xWorld, int zWorld) {
 			int xRel = 0;
 			int zRel = 0;
-			switch (this.rotationMode) {
+			switch (rotationMode) {
 				case 0: {
-					xRel = this.centreX - xWorld;
-					zRel = this.centreZ - zWorld;
+					xRel = centreX - xWorld;
+					zRel = centreZ - zWorld;
 					break;
 				}
 				case 1: {
-					xRel = this.centreZ - zWorld;
-					zRel = xWorld - this.centreX;
+					xRel = centreZ - zWorld;
+					zRel = xWorld - centreX;
 					break;
 				}
 				case 2: {
-					xRel = xWorld - this.centreX;
-					zRel = zWorld - this.centreZ;
+					xRel = xWorld - centreX;
+					zRel = zWorld - centreZ;
 					break;
 				}
 				case 3: {
-					xRel = zWorld - this.centreZ;
-					zRel = this.centreX - xWorld;
+					xRel = zWorld - centreZ;
+					zRel = centreX - xWorld;
 				}
 			}
 			return new int[]{xRel, zRel};
 		}
 
 		public int getStructureRotation(int r) {
-			return (r + this.rotationMode + 2) % 4;
+			return (r + rotationMode + 2) % 4;
 		}
 
 		public int[] getWorldCoords(int xRel, int zRel) {
-			int xWorld = this.centreX;
-			int zWorld = this.centreZ;
-			switch (this.rotationMode) {
+			int xWorld = centreX;
+			int zWorld = centreZ;
+			switch (rotationMode) {
 				case 0: {
-					xWorld = this.centreX - xRel;
-					zWorld = this.centreZ - zRel;
+					xWorld = centreX - xRel;
+					zWorld = centreZ - zRel;
 					break;
 				}
 				case 1: {
-					xWorld = this.centreX + zRel;
-					zWorld = this.centreZ - xRel;
+					xWorld = centreX + zRel;
+					zWorld = centreZ - xRel;
 					break;
 				}
 				case 2: {
-					xWorld = this.centreX + xRel;
-					zWorld = this.centreZ + zRel;
+					xWorld = centreX + xRel;
+					zWorld = centreZ + zRel;
 					break;
 				}
 				case 3: {
-					xWorld = this.centreX - zRel;
-					zWorld = this.centreZ + xRel;
+					xWorld = centreX - zRel;
+					zWorld = centreZ + xRel;
 				}
 			}
 			return new int[]{xWorld, zWorld};
@@ -388,37 +388,37 @@ public abstract class GOTVillageGen {
 		public abstract boolean isVillageSpecificSurface(World var1, int var2, int var3, int var4);
 
 		public void setRotation(int i) {
-			this.rotationMode = i;
+			rotationMode = i;
 		}
 
 		public void setupBaseAndVillageProperties() {
-			this.setupVillageSeed();
-			this.rotationMode = this.locationInfo.isFixedLocation() ? (this.locationInfo.rotation + 2) % 4 : this.instanceRand.nextInt(4);
-			this.setupVillageProperties(this.instanceRand);
+			setupVillageSeed();
+			rotationMode = locationInfo.isFixedLocation() ? (locationInfo.rotation + 2) % 4 : instanceRand.nextInt(4);
+			setupVillageProperties(instanceRand);
 		}
 
 		public abstract void setupVillageProperties(Random var1);
 
 		public void setupVillageSeed() {
-			long seed = this.centreX * 580682095692076767L + this.centreZ * 12789948968296726L + this.theWorld.getWorldInfo().getSeed() + 49920968939865L;
-			this.instanceRand.setSeed(seed += this.instanceRandSeed);
+			long seed = centreX * 580682095692076767L + centreZ * 12789948968296726L + theWorld.getWorldInfo().getSeed() + 49920968939865L;
+			instanceRand.setSeed(seed += instanceRandSeed);
 		}
 
 		public void setupVillageStructures() {
-			this.setupVillageSeed();
-			this.structures.clear();
-			this.addVillageStructures(this.instanceRand);
+			setupVillageSeed();
+			structures.clear();
+			addVillageStructures(instanceRand);
 		}
 
 		public void setupWorldPositionSeed(int i, int k) {
-			this.setupVillageSeed();
-			int[] coords = this.getRelativeCoords(i, k);
+			setupVillageSeed();
+			int[] coords = getRelativeCoords(i, k);
 			int i1 = coords[0];
 			int k1 = coords[1];
-			long seed1 = this.instanceRand.nextLong();
-			long seed2 = this.instanceRand.nextLong();
-			long seed = i1 * seed1 + k1 * seed2 ^ this.theWorld.getWorldInfo().getSeed();
-			this.instanceRand.setSeed(seed);
+			long seed1 = instanceRand.nextLong();
+			long seed2 = instanceRand.nextLong();
+			long seed = i1 * seed1 + k1 * seed2 ^ theWorld.getWorldInfo().getSeed();
+			instanceRand.setSeed(seed);
 		}
 	}
 

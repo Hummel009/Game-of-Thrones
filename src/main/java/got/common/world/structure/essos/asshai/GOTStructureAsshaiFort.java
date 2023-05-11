@@ -20,7 +20,7 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		this.setOriginAndRotation(world, i, j, k, rotation, 19);
+		setOriginAndRotation(world, i, j, k, rotation, 19);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -130,13 +130,13 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 		placeAsshaiArmor(world, random, 0, 4, 12, 1);
 		placeAsshaiArmor(world, random, 6, 4, 13, 2);
 		placeAsshaiArmor(world, random, 1, 4, 13, 2);
-		this.placeChest(world, random, 15, 1, 7, GOTRegistry.chestStone, 2, GOTChestContents.ASSHAI);
-		this.placeChest(world, random, 9, 4, 11, GOTRegistry.chestStone, 3, GOTChestContents.ASSHAI);
-		this.placeChest(world, random, -2, 4, 11, GOTRegistry.chestStone, 3, GOTChestContents.ASSHAI);
-		this.placeChest(world, random, 12, 4, 13, GOTRegistry.chestStone, 5, GOTChestContents.ASSHAI);
-		this.placeChest(world, random, -5, 4, 13, GOTRegistry.chestStone, 4, GOTChestContents.ASSHAI);
-		this.placeChest(world, random, 12, 4, 17, GOTRegistry.chestStone, 5, GOTChestContents.ASSHAI);
-		this.placeChest(world, random, -5, 4, 17, GOTRegistry.chestStone, 4, GOTChestContents.ASSHAI);
+		placeChest(world, random, 15, 1, 7, GOTRegistry.chestStone, 2, GOTChestContents.ASSHAI);
+		placeChest(world, random, 9, 4, 11, GOTRegistry.chestStone, 3, GOTChestContents.ASSHAI);
+		placeChest(world, random, -2, 4, 11, GOTRegistry.chestStone, 3, GOTChestContents.ASSHAI);
+		placeChest(world, random, 12, 4, 13, GOTRegistry.chestStone, 5, GOTChestContents.ASSHAI);
+		placeChest(world, random, -5, 4, 13, GOTRegistry.chestStone, 4, GOTChestContents.ASSHAI);
+		placeChest(world, random, 12, 4, 17, GOTRegistry.chestStone, 5, GOTChestContents.ASSHAI);
+		placeChest(world, random, -5, 4, 17, GOTRegistry.chestStone, 4, GOTChestContents.ASSHAI);
 		for (int j1 = 4; j1 <= 5; ++j1) {
 			for (int i1 : new int[]{-3, -1, 1}) {
 				setBlockAndMetadata(world, i1, j1, 17, bedBlock, 0);
@@ -153,7 +153,7 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 					placePlate(world, random, i1, 5, k1, GOTRegistry.woodPlateBlock, GOTFoods.WESTEROS);
 					continue;
 				}
-				this.placeMug(world, random, i1, 5, k1, random.nextInt(4), GOTFoods.WESTEROS_DRINK);
+				placeMug(world, random, i1, 5, k1, random.nextInt(4), GOTFoods.WESTEROS_DRINK);
 			}
 		}
 		GOTEntityAsshaiCaptain captain = new GOTEntityAsshaiCaptain(world);

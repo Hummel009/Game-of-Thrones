@@ -26,7 +26,7 @@ public abstract class GOTStructureEssosTownWall extends GOTStructureEssosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		setOriginAndRotation(world, i, j, k, rotation, 0);
 		setupRandomBlocks(random);
 		for (int i1 = -leftExtent; i1 <= rightExtent; ++i1) {
 			int pillarOffset;

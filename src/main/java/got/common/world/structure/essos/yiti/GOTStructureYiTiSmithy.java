@@ -27,7 +27,7 @@ public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 		int j12;
 		int i22;
 		int k2;
-		this.setOriginAndRotation(world, i, j, k, rotation, 7);
+		setOriginAndRotation(world, i, j, k, rotation, 7);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -272,7 +272,7 @@ public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 		setBlockAndMetadata(world, 4, 1, 5, tableBlock, 0);
 		setBlockAndMetadata(world, 5, 1, 5, woodBeamBlock, woodBeamMeta);
 		for (int k16 = 3; k16 <= 4; ++k16) {
-			this.placeChest(world, random, 5, 1, k16, 5, GOTChestContents.YI_TI);
+			placeChest(world, random, 5, 1, k16, 5, GOTChestContents.YI_TI);
 		}
 		placeWeaponRack(world, 4, 3, 5, 6, random.nextBoolean() ? null : getWeaponItem(random));
 		placeWeaponRack(world, 5, 3, 4, 7, random.nextBoolean() ? null : getWeaponItem(random));

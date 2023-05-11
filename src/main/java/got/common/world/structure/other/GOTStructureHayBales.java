@@ -15,7 +15,7 @@ public class GOTStructureHayBales extends GOTStructureBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		setOriginAndRotation(world, i, j, k, rotation, 0);
 		setupRandomBlocks(random);
 		int width = 1 + random.nextInt(3);
 		int size = 4 + width * width * (2 + random.nextInt(3));

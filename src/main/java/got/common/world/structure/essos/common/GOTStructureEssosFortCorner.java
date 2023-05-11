@@ -19,7 +19,7 @@ public class GOTStructureEssosFortCorner extends GOTStructureEssosBase {
 		int j1;
 		boolean beam;
 		int j12;
-		this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		setOriginAndRotation(world, i, j, k, rotation, 0);
 		setupRandomBlocks(random);
 		for (int i1 = -4; i1 <= 1; ++i1) {
 			int i2 = Math.abs(i1);

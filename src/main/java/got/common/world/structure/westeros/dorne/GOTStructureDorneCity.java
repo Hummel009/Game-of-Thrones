@@ -47,7 +47,7 @@ public class GOTStructureDorneCity extends GOTVillageGen {
 	}
 
 	public enum VillageType {
-		VILLAGE, TOWN, FORT;
+		VILLAGE, TOWN, FORT
 	}
 
 	public class Instance extends GOTVillageGen.AbstractInstance {
@@ -171,7 +171,7 @@ public class GOTStructureDorneCity extends GOTVillageGen {
 		}
 
 		public void setupCastle(Random random) {
-			this.addStructure(new GOTStructureNPCRespawner(false) {
+			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
 				public void setupRespawner(GOTEntityNPCRespawner spawner) {
@@ -183,7 +183,7 @@ public class GOTStructureDorneCity extends GOTVillageGen {
 			}, 0, 0, 0);
 			for (int i1 : new int[]{-20, 20}) {
 				for (int k1 : new int[]{-20, 20}) {
-					this.addStructure(new GOTStructureNPCRespawner(false) {
+					addStructure(new GOTStructureNPCRespawner(false) {
 
 						@Override
 						public void setupRespawner(GOTEntityNPCRespawner spawner) {
@@ -195,48 +195,48 @@ public class GOTStructureDorneCity extends GOTVillageGen {
 					}, i1, k1, 0);
 				}
 			}
-			this.addStructure(new GOTStructureDorneFortress(false), 0, 12, 2, true);
-			this.addStructure(new GOTStructureDorneFortGate(false), 0, -37, 0, true);
-			this.addStructure(new GOTStructureDorneFortWall.Right(false), -11, -37, 0, true);
-			this.addStructure(new GOTStructureDorneFortWall.Left(false), 11, -37, 0, true);
-			this.addStructure(new GOTStructureDorneWatchtower(false), -23, -33, 2, true);
-			this.addStructure(new GOTStructureDorneWatchtower(false), 23, -33, 2, true);
-			this.addStructure(new GOTStructureDorneFortGate(false), -37, 0, 3, true);
-			this.addStructure(new GOTStructureDorneFortWall.Left(false), -37, -11, 3, true);
-			this.addStructure(new GOTStructureDorneFortWall.Right(false), -37, 11, 3, true);
-			this.addStructure(new GOTStructureDorneWatchtower(false), -33, -23, 1, true);
-			this.addStructure(new GOTStructureDorneWatchtower(false), -33, 23, 1, true);
-			this.addStructure(new GOTStructureDorneFortGate(false), 0, 37, 2, true);
-			this.addStructure(new GOTStructureDorneFortWall.Left(false), -11, 37, 2, true);
-			this.addStructure(new GOTStructureDorneFortWall.Right(false), 11, 37, 2, true);
-			this.addStructure(new GOTStructureDorneWatchtower(false), -23, 33, 0, true);
-			this.addStructure(new GOTStructureDorneWatchtower(false), 23, 33, 0, true);
-			this.addStructure(new GOTStructureDorneFortGate(false), 37, 0, 1, true);
-			this.addStructure(new GOTStructureDorneFortWall.Right(false), 37, -11, 1, true);
-			this.addStructure(new GOTStructureDorneFortWall.Left(false), 37, 11, 1, true);
-			this.addStructure(new GOTStructureDorneWatchtower(false), 33, -23, 3, true);
-			this.addStructure(new GOTStructureDorneWatchtower(false), 33, 23, 3, true);
-			this.addStructure(new GOTStructureDorneFortWallCorner(false), -30, -30, 3);
-			this.addStructure(new GOTStructureDorneFortWallCorner(false), -30, 30, 2);
-			this.addStructure(new GOTStructureDorneFortWallCorner(false), 30, 30, 1);
-			this.addStructure(new GOTStructureDorneFortWallCorner(false), 30, -30, 2);
-			this.addStructure(new GOTStructureDorneStables(false), -24, 2, 0);
-			this.addStructure(new GOTStructureDorneStables(false), -24, -2, 2);
-			this.addStructure(new GOTStructureDorneSmithy(false), 24, 1, 0);
-			this.addStructure(new GOTStructureDorneSmithy(false), 24, -1, 2);
-			this.addStructure(new GOTStructureDorneStoneHouse(false), -3, -25, 1);
-			this.addStructure(new GOTStructureDorneStoneHouse(false), 3, -25, 3);
-			this.addStructure(new GOTStructureDorneVillageFarm.Crops(false), -18, -21, 1);
-			this.addStructure(new GOTStructureDorneVillageFarm.Crops(false), 18, -21, 3);
-			this.addStructure(new GOTStructureDorneWell(false), -12, 27, 1);
-			this.addStructure(new GOTStructureDorneWell(false), 12, 27, 3);
+			addStructure(new GOTStructureDorneFortress(false), 0, 12, 2, true);
+			addStructure(new GOTStructureDorneFortGate(false), 0, -37, 0, true);
+			addStructure(new GOTStructureDorneFortWall.Right(false), -11, -37, 0, true);
+			addStructure(new GOTStructureDorneFortWall.Left(false), 11, -37, 0, true);
+			addStructure(new GOTStructureDorneWatchtower(false), -23, -33, 2, true);
+			addStructure(new GOTStructureDorneWatchtower(false), 23, -33, 2, true);
+			addStructure(new GOTStructureDorneFortGate(false), -37, 0, 3, true);
+			addStructure(new GOTStructureDorneFortWall.Left(false), -37, -11, 3, true);
+			addStructure(new GOTStructureDorneFortWall.Right(false), -37, 11, 3, true);
+			addStructure(new GOTStructureDorneWatchtower(false), -33, -23, 1, true);
+			addStructure(new GOTStructureDorneWatchtower(false), -33, 23, 1, true);
+			addStructure(new GOTStructureDorneFortGate(false), 0, 37, 2, true);
+			addStructure(new GOTStructureDorneFortWall.Left(false), -11, 37, 2, true);
+			addStructure(new GOTStructureDorneFortWall.Right(false), 11, 37, 2, true);
+			addStructure(new GOTStructureDorneWatchtower(false), -23, 33, 0, true);
+			addStructure(new GOTStructureDorneWatchtower(false), 23, 33, 0, true);
+			addStructure(new GOTStructureDorneFortGate(false), 37, 0, 1, true);
+			addStructure(new GOTStructureDorneFortWall.Right(false), 37, -11, 1, true);
+			addStructure(new GOTStructureDorneFortWall.Left(false), 37, 11, 1, true);
+			addStructure(new GOTStructureDorneWatchtower(false), 33, -23, 3, true);
+			addStructure(new GOTStructureDorneWatchtower(false), 33, 23, 3, true);
+			addStructure(new GOTStructureDorneFortWallCorner(false), -30, -30, 3);
+			addStructure(new GOTStructureDorneFortWallCorner(false), -30, 30, 2);
+			addStructure(new GOTStructureDorneFortWallCorner(false), 30, 30, 1);
+			addStructure(new GOTStructureDorneFortWallCorner(false), 30, -30, 2);
+			addStructure(new GOTStructureDorneStables(false), -24, 2, 0);
+			addStructure(new GOTStructureDorneStables(false), -24, -2, 2);
+			addStructure(new GOTStructureDorneSmithy(false), 24, 1, 0);
+			addStructure(new GOTStructureDorneSmithy(false), 24, -1, 2);
+			addStructure(new GOTStructureDorneStoneHouse(false), -3, -25, 1);
+			addStructure(new GOTStructureDorneStoneHouse(false), 3, -25, 3);
+			addStructure(new GOTStructureDorneVillageFarm.Crops(false), -18, -21, 1);
+			addStructure(new GOTStructureDorneVillageFarm.Crops(false), 18, -21, 3);
+			addStructure(new GOTStructureDorneWell(false), -12, 27, 1);
+			addStructure(new GOTStructureDorneWell(false), 12, 27, 3);
 		}
 
 		public void setupTown(Random random) {
 			int l;
 			int wallX;
 			boolean outerTavern = random.nextBoolean();
-			this.addStructure(new GOTStructureNPCRespawner(false) {
+			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
 				public void setupRespawner(GOTEntityNPCRespawner spawner) {
@@ -251,7 +251,7 @@ public class GOTStructureDorneCity extends GOTVillageGen {
 				int n = arrn.length;
 				for (int i = 0; i < n; ++i) {
 					int k1 = arrn[i];
-					this.addStructure(new GOTStructureNPCRespawner(false) {
+					addStructure(new GOTStructureNPCRespawner(false) {
 
 						@Override
 						public void setupRespawner(GOTEntityNPCRespawner spawner) {
@@ -263,93 +263,93 @@ public class GOTStructureDorneCity extends GOTVillageGen {
 					}, i1, k1, 0);
 				}
 			}
-			this.addStructure(new GOTStructureDorneWell(false), 0, -4, 0, true);
+			addStructure(new GOTStructureDorneWell(false), 0, -4, 0, true);
 			int stallPos = 12;
 			for (int k1 = -1; k1 <= 1; ++k1) {
 				int k2 = k1 * stallPos;
 				if (random.nextInt(3) != 0) {
-					this.addStructure(GOTStructureDorneMarketStall.getRandomStall(random, false), -stallPos + 3, k2, 1, true);
+					addStructure(GOTStructureDorneMarketStall.getRandomStall(random, false), -stallPos + 3, k2, 1, true);
 				}
 				if (random.nextInt(3) == 0) {
 					continue;
 				}
-				this.addStructure(GOTStructureDorneMarketStall.getRandomStall(random, false), stallPos - 3, k2, 3, true);
+				addStructure(GOTStructureDorneMarketStall.getRandomStall(random, false), stallPos - 3, k2, 3, true);
 			}
 			if (random.nextInt(3) != 0) {
-				this.addStructure(GOTStructureDorneMarketStall.getRandomStall(random, false), 0, stallPos - 3, 0, true);
+				addStructure(GOTStructureDorneMarketStall.getRandomStall(random, false), 0, stallPos - 3, 0, true);
 			}
 			if (random.nextInt(3) != 0) {
-				this.addStructure(GOTStructureDorneMarketStall.getRandomStall(random, false), 0, -stallPos + 3, 2, true);
+				addStructure(GOTStructureDorneMarketStall.getRandomStall(random, false), 0, -stallPos + 3, 2, true);
 			}
 			int flowerX = 12;
 			int flowerZ = 18;
 			for (int i1 : new int[]{-flowerX, flowerX}) {
-				this.addStructure(new GOTStructureDorneTownGarden(false), i1, flowerZ, 0, true);
-				this.addStructure(new GOTStructureDorneTownGarden(false), i1, -flowerZ, 2, true);
-				this.addStructure(new GOTStructureDorneTownGarden(false), -flowerZ, i1, 1, true);
-				this.addStructure(new GOTStructureDorneTownGarden(false), flowerZ, i1, 3, true);
+				addStructure(new GOTStructureDorneTownGarden(false), i1, flowerZ, 0, true);
+				addStructure(new GOTStructureDorneTownGarden(false), i1, -flowerZ, 2, true);
+				addStructure(new GOTStructureDorneTownGarden(false), -flowerZ, i1, 1, true);
+				addStructure(new GOTStructureDorneTownGarden(false), flowerZ, i1, 3, true);
 			}
 			int lampZ = 21;
 			for (int i1 : new int[]{-1, 1}) {
 				int lampX = i1 * 6;
-				this.addStructure(new GOTStructureDorneLampPost(false), lampX, lampZ, 0, true);
-				this.addStructure(new GOTStructureDorneLampPost(false), lampX, -lampZ, 2, true);
+				addStructure(new GOTStructureDorneLampPost(false), lampX, lampZ, 0, true);
+				addStructure(new GOTStructureDorneLampPost(false), lampX, -lampZ, 2, true);
 				if (i1 != -1) {
-					this.addStructure(new GOTStructureDorneLampPost(false), -lampZ, lampX, 1, true);
+					addStructure(new GOTStructureDorneLampPost(false), -lampZ, lampX, 1, true);
 				}
-				this.addStructure(new GOTStructureDorneLampPost(false), lampZ, lampX, 3, true);
+				addStructure(new GOTStructureDorneLampPost(false), lampZ, lampX, 3, true);
 			}
 			int houseX = 24;
 			for (int k1 = -1; k1 <= 1; ++k1) {
 				int houseZ = k1 * 12;
 				if (k1 == 1) {
-					this.addStructure(new GOTStructureDorneStoneHouse(false), -houseX, houseZ, 1, true);
-					this.addStructure(new GOTStructureDorneStoneHouse(false), houseX, houseZ, 3, true);
+					addStructure(new GOTStructureDorneStoneHouse(false), -houseX, houseZ, 1, true);
+					addStructure(new GOTStructureDorneStoneHouse(false), houseX, houseZ, 3, true);
 				}
 				if (k1 == 0) {
 					continue;
 				}
-				this.addStructure(new GOTStructureDorneStoneHouse(false), houseZ, houseX, 0, true);
-				this.addStructure(new GOTStructureDorneStoneHouse(false), houseZ, -houseX, 2, true);
+				addStructure(new GOTStructureDorneStoneHouse(false), houseZ, houseX, 0, true);
+				addStructure(new GOTStructureDorneStoneHouse(false), houseZ, -houseX, 2, true);
 			}
-			this.addStructure(new GOTStructureDorneSmithy(false), 0, -26, 2, true);
-			this.addStructure(new GOTStructureDorneObelisk(false), 0, 27, 0, true);
-			this.addStructure(new GOTStructureDorneTavern(false), -houseX, -5, 1, true);
-			this.addStructure(new GOTStructureDorneTownTrees(false), -47, -13, 2, true);
-			this.addStructure(new GOTStructureDorneTownTrees(false), -47, 1, 0, true);
+			addStructure(new GOTStructureDorneSmithy(false), 0, -26, 2, true);
+			addStructure(new GOTStructureDorneObelisk(false), 0, 27, 0, true);
+			addStructure(new GOTStructureDorneTavern(false), -houseX, -5, 1, true);
+			addStructure(new GOTStructureDorneTownTrees(false), -47, -13, 2, true);
+			addStructure(new GOTStructureDorneTownTrees(false), -47, 1, 0, true);
 			for (int i1 : new int[]{-43, -51}) {
-				this.addStructure(new GOTStructureDorneTownBench(false), i1, -9, 2, true);
-				this.addStructure(new GOTStructureDorneTownBench(false), i1, -3, 0, true);
+				addStructure(new GOTStructureDorneTownBench(false), i1, -9, 2, true);
+				addStructure(new GOTStructureDorneTownBench(false), i1, -3, 0, true);
 			}
-			this.addStructure(new GOTStructureDorneBath(false), houseX + 2, -6, 3, true);
-			this.addStructure(new GOTStructureDorneTownGarden(false), 51, -13, 2, true);
-			this.addStructure(new GOTStructureDorneTownGarden(false), 51, 1, 0, true);
-			this.addStructure(new GOTStructureDorneTownGarden(false), 52, -6, 3, true);
+			addStructure(new GOTStructureDorneBath(false), houseX + 2, -6, 3, true);
+			addStructure(new GOTStructureDorneTownGarden(false), 51, -13, 2, true);
+			addStructure(new GOTStructureDorneTownGarden(false), 51, 1, 0, true);
+			addStructure(new GOTStructureDorneTownGarden(false), 52, -6, 3, true);
 			int wellX = 22;
 			int wellZ = 31;
 			for (int i1 : new int[]{-wellX, wellX}) {
-				this.addStructure(new GOTStructureDorneWell(false), i1, -wellZ, 2, true);
-				this.addStructure(new GOTStructureDorneWell(false), i1, wellZ, 0, true);
-				this.addStructure(new GOTStructureDorneWell(false), -wellZ, i1, 1, true);
-				this.addStructure(new GOTStructureDorneWell(false), wellZ, i1, 3, true);
+				addStructure(new GOTStructureDorneWell(false), i1, -wellZ, 2, true);
+				addStructure(new GOTStructureDorneWell(false), i1, wellZ, 0, true);
+				addStructure(new GOTStructureDorneWell(false), -wellZ, i1, 1, true);
+				addStructure(new GOTStructureDorneWell(false), wellZ, i1, 3, true);
 			}
 			houseX = 54;
 			for (int k1 = -2; k1 <= 2; ++k1) {
 				int houseZ = k1 * 12;
 				if (k1 <= -2 || k1 >= 1) {
-					this.addStructure(new GOTStructureDorneStoneHouse(false), -houseX, houseZ, 3, true);
-					this.addStructure(new GOTStructureDorneStoneHouse(false), houseX, houseZ, 1, true);
+					addStructure(new GOTStructureDorneStoneHouse(false), -houseX, houseZ, 3, true);
+					addStructure(new GOTStructureDorneStoneHouse(false), houseX, houseZ, 1, true);
 				}
-				this.addStructure(new GOTStructureDorneStoneHouse(false), houseZ, houseX, 2, true);
-				this.addStructure(new GOTStructureDorneStoneHouse(false), houseZ, -houseX, 0, true);
+				addStructure(new GOTStructureDorneStoneHouse(false), houseZ, houseX, 2, true);
+				addStructure(new GOTStructureDorneStoneHouse(false), houseZ, -houseX, 0, true);
 			}
 			int treeX = 47;
 			int treeZ = 35;
 			for (int i1 : new int[]{-treeX, treeX}) {
-				this.addStructure(new GOTStructureDorneTownTrees(false), i1, -treeZ, 0, true);
-				this.addStructure(new GOTStructureDorneTownTrees(false), i1, treeZ, 2, true);
-				this.addStructure(new GOTStructureDorneTownTrees(false), -treeZ, i1, 3, true);
-				this.addStructure(new GOTStructureDorneTownTrees(false), treeZ, i1, 1, true);
+				addStructure(new GOTStructureDorneTownTrees(false), i1, -treeZ, 0, true);
+				addStructure(new GOTStructureDorneTownTrees(false), i1, treeZ, 2, true);
+				addStructure(new GOTStructureDorneTownTrees(false), -treeZ, i1, 3, true);
+				addStructure(new GOTStructureDorneTownTrees(false), treeZ, i1, 1, true);
 			}
 			houseX = 64;
 			int lampX = 59;
@@ -358,111 +358,111 @@ public class GOTStructureDorneCity extends GOTVillageGen {
 				int houseZ = k1 * 12;
 				treepiece = IntMath.mod(k1, 2) == 1;
 				if (treepiece) {
-					this.addStructure(new GOTStructureDorneVillageFarm.Tree(false), -houseX - 2, houseZ, 1, true);
-					this.addStructure(new GOTStructureDorneVillageFarm.Tree(false), houseX + 2, houseZ, 3, true);
+					addStructure(new GOTStructureDorneVillageFarm.Tree(false), -houseX - 2, houseZ, 1, true);
+					addStructure(new GOTStructureDorneVillageFarm.Tree(false), houseX + 2, houseZ, 3, true);
 				} else {
-					this.addStructure(new GOTStructureDorneStoneHouse(false), -houseX, houseZ, 1, true);
-					this.addStructure(new GOTStructureDorneStoneHouse(false), houseX, houseZ, 3, true);
+					addStructure(new GOTStructureDorneStoneHouse(false), -houseX, houseZ, 1, true);
+					addStructure(new GOTStructureDorneStoneHouse(false), houseX, houseZ, 3, true);
 				}
 				if (treepiece) {
-					this.addStructure(new GOTStructureDorneVillageFarm.Tree(false), houseZ, -houseX - 2, 2, true);
+					addStructure(new GOTStructureDorneVillageFarm.Tree(false), houseZ, -houseX - 2, 2, true);
 				} else {
-					this.addStructure(new GOTStructureDorneStoneHouse(false), houseZ, -houseX, 2, true);
+					addStructure(new GOTStructureDorneStoneHouse(false), houseZ, -houseX, 2, true);
 				}
 				if (Math.abs(k1) >= 2 && (!outerTavern || k1 <= 2)) {
 					if (treepiece) {
-						this.addStructure(new GOTStructureDorneVillageFarm.Tree(false), houseZ, houseX + 2, 0, true);
+						addStructure(new GOTStructureDorneVillageFarm.Tree(false), houseZ, houseX + 2, 0, true);
 					} else {
-						this.addStructure(new GOTStructureDorneStoneHouse(false), houseZ, houseX, 0, true);
+						addStructure(new GOTStructureDorneStoneHouse(false), houseZ, houseX, 0, true);
 					}
 				}
-				this.addStructure(new GOTStructureDorneLampPost(false), -lampX, houseZ, 1, true);
-				this.addStructure(new GOTStructureDorneLampPost(false), lampX, houseZ, 3, true);
-				this.addStructure(new GOTStructureDorneLampPost(false), houseZ, lampX, 0, true);
-				this.addStructure(new GOTStructureDorneLampPost(false), houseZ, -lampX, 2, true);
+				addStructure(new GOTStructureDorneLampPost(false), -lampX, houseZ, 1, true);
+				addStructure(new GOTStructureDorneLampPost(false), lampX, houseZ, 3, true);
+				addStructure(new GOTStructureDorneLampPost(false), houseZ, lampX, 0, true);
+				addStructure(new GOTStructureDorneLampPost(false), houseZ, -lampX, 2, true);
 			}
 			if (outerTavern) {
-				this.addStructure(new GOTStructureDorneTavern(false), 44, houseX, 0, true);
+				addStructure(new GOTStructureDorneTavern(false), 44, houseX, 0, true);
 			}
 			int gardenX = 42;
 			int gardenZ = 48;
-			this.addStructure(new GOTStructureDorneVillageFarm.Tree(false), -gardenX, -gardenZ, 1, true);
-			this.addStructure(new GOTStructureDorneVillageFarm.Tree(false), -gardenX, gardenZ, 1, true);
-			this.addStructure(new GOTStructureDorneVillageFarm.Tree(false), gardenX, -gardenZ, 3, true);
-			this.addStructure(new GOTStructureDorneVillageFarm.Tree(false), gardenX, gardenZ, 3, true);
+			addStructure(new GOTStructureDorneVillageFarm.Tree(false), -gardenX, -gardenZ, 1, true);
+			addStructure(new GOTStructureDorneVillageFarm.Tree(false), -gardenX, gardenZ, 1, true);
+			addStructure(new GOTStructureDorneVillageFarm.Tree(false), gardenX, -gardenZ, 3, true);
+			addStructure(new GOTStructureDorneVillageFarm.Tree(false), gardenX, gardenZ, 3, true);
 			int obeliskX = 62;
 			int obeliskZ = 66;
-			this.addStructure(new GOTStructureDorneObelisk(false), -obeliskX, -obeliskZ, 1, true);
-			this.addStructure(new GOTStructureDorneObelisk(false), -obeliskX, obeliskZ, 1, true);
-			this.addStructure(new GOTStructureDorneObelisk(false), obeliskX, -obeliskZ, 3, true);
-			this.addStructure(new GOTStructureDorneObelisk(false), obeliskX, obeliskZ, 3, true);
+			addStructure(new GOTStructureDorneObelisk(false), -obeliskX, -obeliskZ, 1, true);
+			addStructure(new GOTStructureDorneObelisk(false), -obeliskX, obeliskZ, 1, true);
+			addStructure(new GOTStructureDorneObelisk(false), obeliskX, -obeliskZ, 3, true);
+			addStructure(new GOTStructureDorneObelisk(false), obeliskX, obeliskZ, 3, true);
 			wellX = 64;
 			wellZ = 57;
-			this.addStructure(new GOTStructureDorneWell(false), -wellX, -wellZ, 1, true);
-			this.addStructure(new GOTStructureDorneWell(false), -wellX, wellZ, 1, true);
-			this.addStructure(new GOTStructureDorneWell(false), wellX, -wellZ, 3, true);
-			this.addStructure(new GOTStructureDorneWell(false), wellX, wellZ, 3, true);
-			this.addStructure(new GOTStructureDorneWell(false), -wellZ, -wellX, 2, true);
-			this.addStructure(new GOTStructureDorneWell(false), wellZ, -wellX, 2, true);
-			this.addStructure(new GOTStructureDorneWell(false), -wellZ, wellX, 0, true);
-			this.addStructure(new GOTStructureDorneWell(false), wellZ, wellX, 0, true);
+			addStructure(new GOTStructureDorneWell(false), -wellX, -wellZ, 1, true);
+			addStructure(new GOTStructureDorneWell(false), -wellX, wellZ, 1, true);
+			addStructure(new GOTStructureDorneWell(false), wellX, -wellZ, 3, true);
+			addStructure(new GOTStructureDorneWell(false), wellX, wellZ, 3, true);
+			addStructure(new GOTStructureDorneWell(false), -wellZ, -wellX, 2, true);
+			addStructure(new GOTStructureDorneWell(false), wellZ, -wellX, 2, true);
+			addStructure(new GOTStructureDorneWell(false), -wellZ, wellX, 0, true);
+			addStructure(new GOTStructureDorneWell(false), wellZ, wellX, 0, true);
 			treeX = 75;
 			treeZ = 61;
-			this.addStructure(new GOTStructureDorneTownTrees(false), -treeX, -treeZ, 1, true);
-			this.addStructure(new GOTStructureDorneTownTrees(false), -treeX, treeZ, 1, true);
-			this.addStructure(new GOTStructureDorneTownTrees(false), treeX, -treeZ, 3, true);
-			this.addStructure(new GOTStructureDorneTownTrees(false), treeX, treeZ, 3, true);
-			this.addStructure(new GOTStructureDorneTownTrees(false), -treeZ, -treeX, 2, true);
-			this.addStructure(new GOTStructureDorneTownTrees(false), treeZ, -treeX, 2, true);
-			this.addStructure(new GOTStructureDorneTownTrees(false), -treeZ, treeX, 0, true);
-			this.addStructure(new GOTStructureDorneTownTrees(false), treeZ, treeX, 0, true);
-			this.addStructure(new GOTStructureDorneTownTrees(false), -14, 71, 1, true);
-			this.addStructure(new GOTStructureDorneTownTrees(false), 14, 71, 3, true);
+			addStructure(new GOTStructureDorneTownTrees(false), -treeX, -treeZ, 1, true);
+			addStructure(new GOTStructureDorneTownTrees(false), -treeX, treeZ, 1, true);
+			addStructure(new GOTStructureDorneTownTrees(false), treeX, -treeZ, 3, true);
+			addStructure(new GOTStructureDorneTownTrees(false), treeX, treeZ, 3, true);
+			addStructure(new GOTStructureDorneTownTrees(false), -treeZ, -treeX, 2, true);
+			addStructure(new GOTStructureDorneTownTrees(false), treeZ, -treeX, 2, true);
+			addStructure(new GOTStructureDorneTownTrees(false), -treeZ, treeX, 0, true);
+			addStructure(new GOTStructureDorneTownTrees(false), treeZ, treeX, 0, true);
+			addStructure(new GOTStructureDorneTownTrees(false), -14, 71, 1, true);
+			addStructure(new GOTStructureDorneTownTrees(false), 14, 71, 3, true);
 			for (int k1 : new int[]{67, 75}) {
-				this.addStructure(new GOTStructureDorneTownBench(false), -10, k1, 1, true);
-				this.addStructure(new GOTStructureDorneTownBench(false), 10, k1, 3, true);
+				addStructure(new GOTStructureDorneTownBench(false), -10, k1, 1, true);
+				addStructure(new GOTStructureDorneTownBench(false), 10, k1, 3, true);
 			}
-			this.addStructure(new GOTStructureDorneGatehouse(false), 0, 84, 2, true);
-			this.addStructure(new GOTStructureDorneLampPost(false), -4, 73, 0, true);
-			this.addStructure(new GOTStructureDorneLampPost(false), 4, 73, 0, true);
+			addStructure(new GOTStructureDorneGatehouse(false), 0, 84, 2, true);
+			addStructure(new GOTStructureDorneLampPost(false), -4, 73, 0, true);
+			addStructure(new GOTStructureDorneLampPost(false), 4, 73, 0, true);
 			int towerX = 78;
 			int towerZ = 74;
 			for (int i1 : new int[]{-towerX, towerX}) {
-				this.addStructure(new GOTStructureDorneWatchtower(false), i1, -towerZ, 2, true);
-				this.addStructure(new GOTStructureDorneWatchtower(false), i1, towerZ, 0, true);
+				addStructure(new GOTStructureDorneWatchtower(false), i1, -towerZ, 2, true);
+				addStructure(new GOTStructureDorneWatchtower(false), i1, towerZ, 0, true);
 			}
 			int wallZ = 82;
 			int wallEndX = 76;
 			for (l = 0; l <= 3; ++l) {
 				wallX = 12 + l * 16;
-				this.addStructure(getWallLeft(false), -wallX, wallZ, 2, true);
-				this.addStructure(getWallRight(false), wallX, wallZ, 2, true);
+				addStructure(getWallLeft(false), -wallX, wallZ, 2, true);
+				addStructure(getWallRight(false), wallX, wallZ, 2, true);
 			}
-			this.addStructure(getWallLeftEndShort(false), -wallEndX, wallZ, 2, true);
-			this.addStructure(getWallRightEndShort(false), wallEndX, wallZ, 2, true);
-			this.addStructure(getWallCentre(false), -wallZ, 0, 3, true);
-			this.addStructure(getWallCentre(false), wallZ, 0, 1, true);
-			this.addStructure(getWallCentre(false), 0, -wallZ, 0, true);
+			addStructure(getWallLeftEndShort(false), -wallEndX, wallZ, 2, true);
+			addStructure(getWallRightEndShort(false), wallEndX, wallZ, 2, true);
+			addStructure(getWallCentre(false), -wallZ, 0, 3, true);
+			addStructure(getWallCentre(false), wallZ, 0, 1, true);
+			addStructure(getWallCentre(false), 0, -wallZ, 0, true);
 			for (l = 0; l <= 3; ++l) {
 				wallX = 12 + l * 16;
-				this.addStructure(getWallLeft(false), -wallZ, -wallX, 3, true);
-				this.addStructure(getWallRight(false), -wallZ, wallX, 3, true);
-				this.addStructure(getWallLeft(false), wallZ, wallX, 1, true);
-				this.addStructure(getWallRight(false), wallZ, -wallX, 1, true);
-				this.addStructure(getWallLeft(false), wallX, -wallZ, 0, true);
-				this.addStructure(getWallRight(false), -wallX, -wallZ, 0, true);
+				addStructure(getWallLeft(false), -wallZ, -wallX, 3, true);
+				addStructure(getWallRight(false), -wallZ, wallX, 3, true);
+				addStructure(getWallLeft(false), wallZ, wallX, 1, true);
+				addStructure(getWallRight(false), wallZ, -wallX, 1, true);
+				addStructure(getWallLeft(false), wallX, -wallZ, 0, true);
+				addStructure(getWallRight(false), -wallX, -wallZ, 0, true);
 			}
-			this.addStructure(getWallLeftEnd(false), -wallZ, -wallEndX, 3, true);
-			this.addStructure(getWallRightEnd(false), -wallZ, wallEndX, 3, true);
-			this.addStructure(getWallLeftEnd(false), wallZ, wallEndX, 1, true);
-			this.addStructure(getWallRightEnd(false), wallZ, -wallEndX, 1, true);
-			this.addStructure(getWallLeftEndShort(false), wallEndX, -wallZ, 0, true);
-			this.addStructure(getWallRightEndShort(false), -wallEndX, -wallZ, 0, true);
+			addStructure(getWallLeftEnd(false), -wallZ, -wallEndX, 3, true);
+			addStructure(getWallRightEnd(false), -wallZ, wallEndX, 3, true);
+			addStructure(getWallLeftEnd(false), wallZ, wallEndX, 1, true);
+			addStructure(getWallRightEnd(false), wallZ, -wallEndX, 1, true);
+			addStructure(getWallLeftEndShort(false), wallEndX, -wallZ, 0, true);
+			addStructure(getWallRightEndShort(false), -wallEndX, -wallZ, 0, true);
 		}
 
 		public void setupVillage(Random random) {
-			this.addStructure(new GOTStructureDorneWell(false), 0, -4, 0, true);
-			this.addStructure(new GOTStructureNPCRespawner(false) {
+			addStructure(new GOTStructureDorneWell(false), 0, -4, 0, true);
+			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
 				public void setupRespawner(GOTEntityNPCRespawner spawner) {
@@ -472,7 +472,7 @@ public class GOTStructureDorneCity extends GOTVillageGen {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			this.addStructure(new GOTStructureNPCRespawner(false) {
+			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
 				public void setupRespawner(GOTEntityNPCRespawner spawner) {
@@ -482,22 +482,22 @@ public class GOTStructureDorneCity extends GOTVillageGen {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			this.addStructure(new GOTStructureDorneCottage(false), -21, 0, 1);
-			this.addStructure(new GOTStructureDorneCottage(false), 0, -21, 2);
-			this.addStructure(new GOTStructureDorneCottage(false), 21, 0, 3);
-			this.addStructure(new GOTStructureDorneTavern(false), 0, 21, 0);
+			addStructure(new GOTStructureDorneCottage(false), -21, 0, 1);
+			addStructure(new GOTStructureDorneCottage(false), 0, -21, 2);
+			addStructure(new GOTStructureDorneCottage(false), 21, 0, 3);
+			addStructure(new GOTStructureDorneTavern(false), 0, 21, 0);
 			if (random.nextBoolean()) {
 				if (random.nextInt(3) == 0) {
-					this.addStructure(GOTStructureDorneMarketStall.getRandomStall(random, false), -9, -12, 1);
+					addStructure(GOTStructureDorneMarketStall.getRandomStall(random, false), -9, -12, 1);
 				}
 				if (random.nextInt(3) == 0) {
-					this.addStructure(GOTStructureDorneMarketStall.getRandomStall(random, false), 9, -12, 3);
+					addStructure(GOTStructureDorneMarketStall.getRandomStall(random, false), 9, -12, 3);
 				}
 				if (random.nextInt(3) == 0) {
-					this.addStructure(GOTStructureDorneMarketStall.getRandomStall(random, false), -9, 12, 1);
+					addStructure(GOTStructureDorneMarketStall.getRandomStall(random, false), -9, 12, 1);
 				}
 				if (random.nextInt(3) == 0) {
-					this.addStructure(GOTStructureDorneMarketStall.getRandomStall(random, false), 9, 12, 3);
+					addStructure(GOTStructureDorneMarketStall.getRandomStall(random, false), 9, 12, 3);
 				}
 			}
 			int houses = 20;
@@ -525,7 +525,7 @@ public class GOTStructureDorneCity extends GOTVillageGen {
 					l = 61;
 					i = Math.round(l * cos);
 					k = Math.round(l * sin);
-					this.addStructure(getRandomHouse(random), i, k, r);
+					addStructure(getRandomHouse(random), i, k, r);
 					continue;
 				}
 				if (random.nextInt(3) == 0) {
@@ -534,34 +534,34 @@ public class GOTStructureDorneCity extends GOTVillageGen {
 				l = 65;
 				i = Math.round(l * cos);
 				k = Math.round(l * sin);
-				this.addStructure(new GOTStructureHayBales(false), i, k, r);
+				addStructure(new GOTStructureHayBales(false), i, k, r);
 			}
 			int signPos = Math.round(50.0f * MathHelper.cos((float) Math.toRadians(45.0)));
 			int signDisp = Math.round(7.0f * MathHelper.cos((float) Math.toRadians(45.0)));
-			this.addStructure(new GOTStructureWesterosVillageSign(false), -signPos, -signPos + signDisp, 1);
-			this.addStructure(new GOTStructureWesterosVillageSign(false), signPos, -signPos + signDisp, 3);
-			this.addStructure(new GOTStructureWesterosVillageSign(false), -signPos, signPos - signDisp, 1);
-			this.addStructure(new GOTStructureWesterosVillageSign(false), signPos, signPos - signDisp, 3);
+			addStructure(new GOTStructureWesterosVillageSign(false), -signPos, -signPos + signDisp, 1);
+			addStructure(new GOTStructureWesterosVillageSign(false), signPos, -signPos + signDisp, 3);
+			addStructure(new GOTStructureWesterosVillageSign(false), -signPos, signPos - signDisp, 1);
+			addStructure(new GOTStructureWesterosVillageSign(false), signPos, signPos - signDisp, 3);
 			int farmX = 38;
 			int farmZ = 17;
 			int farmSize = 6;
 			if (random.nextBoolean()) {
-				this.addStructure(getRandomFarm(random), -farmX + farmSize, -farmZ, 1);
+				addStructure(getRandomFarm(random), -farmX + farmSize, -farmZ, 1);
 			}
 			if (random.nextBoolean()) {
-				this.addStructure(getRandomFarm(random), -farmZ + farmSize, -farmX, 1);
+				addStructure(getRandomFarm(random), -farmZ + farmSize, -farmX, 1);
 			}
 			if (random.nextBoolean()) {
-				this.addStructure(getRandomFarm(random), farmX - farmSize, -farmZ, 3);
+				addStructure(getRandomFarm(random), farmX - farmSize, -farmZ, 3);
 			}
 			if (random.nextBoolean()) {
-				this.addStructure(getRandomFarm(random), farmZ - farmSize, -farmX, 3);
+				addStructure(getRandomFarm(random), farmZ - farmSize, -farmX, 3);
 			}
 			if (random.nextBoolean()) {
-				this.addStructure(getRandomFarm(random), -farmX + farmSize, farmZ, 1);
+				addStructure(getRandomFarm(random), -farmX + farmSize, farmZ, 1);
 			}
 			if (random.nextBoolean()) {
-				this.addStructure(getRandomFarm(random), farmX - farmSize, farmZ, 3);
+				addStructure(getRandomFarm(random), farmX - farmSize, farmZ, 3);
 			}
 		}
 

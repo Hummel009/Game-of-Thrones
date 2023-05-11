@@ -70,7 +70,7 @@ public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GO
 			for (Object element : list) {
 				GOTEntityBison bison;
 				Entity entity = (Entity) element;
-				if (entity.getClass() != this.getClass() || (bison = (GOTEntityBison) entity).isChild()) {
+				if (entity.getClass() != getClass() || (bison = (GOTEntityBison) entity).isChild()) {
 					continue;
 				}
 				bison.setAttackTarget((EntityLivingBase) attacker);

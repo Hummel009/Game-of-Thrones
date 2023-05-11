@@ -42,7 +42,7 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 		int i22;
 		int k14;
 		int k15;
-		this.setOriginAndRotation(world, i, j, k, rotation, 11);
+		setOriginAndRotation(world, i, j, k, rotation, 11);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -481,16 +481,16 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 		setBlockAndMetadata(world, -2, 1, 2, fenceGateBlock, 0);
 		setBlockAndMetadata(world, -1, 1, 2, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, -4, 1, 1, Blocks.cauldron, 3);
-		this.placeChest(world, random, -1, 0, -1, 3, GOTChestContents.YI_TI);
-		this.placeBarrel(world, random, -3, 2, -2, 2, GOTFoods.YITI_DRINK);
-		this.placeBarrel(world, random, 0, 2, -1, 4, GOTFoods.YITI_DRINK);
+		placeChest(world, random, -1, 0, -1, 3, GOTChestContents.YI_TI);
+		placeBarrel(world, random, -3, 2, -2, 2, GOTFoods.YITI_DRINK);
+		placeBarrel(world, random, 0, 2, -1, 4, GOTFoods.YITI_DRINK);
 		for (i12 = -4; i12 <= 0; ++i12) {
 			for (k12 = -2; k12 <= 2; ++k12) {
 				if ((i12 != -4 || k12 < -1 || k12 > 0) && (k12 != -2 || i12 < -2 || i12 > -1) && (i12 != 0 || k12 < 0 || k12 > 1)) {
 					continue;
 				}
 				if (random.nextBoolean()) {
-					this.placeMug(world, random, i12, 2, k12, random.nextInt(4), GOTFoods.YITI_DRINK);
+					placeMug(world, random, i12, 2, k12, random.nextInt(4), GOTFoods.YITI_DRINK);
 					continue;
 				}
 				placePlate(world, random, i12, 2, k12, plateBlock, GOTFoods.YITI);
@@ -619,7 +619,7 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 					continue;
 				}
 				if (random.nextBoolean()) {
-					this.placeMug(world, random, i, j + 1, k, random.nextInt(4), GOTFoods.YITI_DRINK);
+					placeMug(world, random, i, j + 1, k, random.nextInt(4), GOTFoods.YITI_DRINK);
 					continue;
 				}
 				placePlate(world, random, i, j + 1, k, plateBlock, GOTFoods.YITI);

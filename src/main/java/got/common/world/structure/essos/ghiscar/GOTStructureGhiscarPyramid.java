@@ -30,7 +30,7 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 		int k1;
 		int k12;
 		int depth = 20;
-		this.setOriginAndRotation(world, i, j -= depth - 1, k, rotation, usingPlayer != null ? RADIUS - depth : 0);
+		setOriginAndRotation(world, i, j -= depth - 1, k, rotation, usingPlayer != null ? RADIUS - depth : 0);
 		int maze1R = 19;
 		int maze1W = maze1R * 2 + 1;
 		GOTMazeGenerator maze1 = new GOTMazeGenerator(maze1W, maze1W);
@@ -333,10 +333,10 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 			}
 		}
 		placePyramidBanner(world, 0, roomFloor + 6, 0);
-		this.placeSpawnerChest(world, random, -1, roomFloor + 5, 0, GOTRegistry.spawnerChestStone, 5, GOTEntityGhiscarHarpy.class, GOTChestContents.GHISCAR);
-		this.placeSpawnerChest(world, random, 1, roomFloor + 5, 0, GOTRegistry.spawnerChestStone, 4, GOTEntityGhiscarHarpy.class, GOTChestContents.GHISCAR);
-		this.placeSpawnerChest(world, random, 0, roomFloor + 5, -1, GOTRegistry.spawnerChestStone, 2, GOTEntityGhiscarHarpy.class, GOTChestContents.GHISCAR);
-		this.placeSpawnerChest(world, random, 0, roomFloor + 5, 1, GOTRegistry.spawnerChestStone, 3, GOTEntityGhiscarHarpy.class, GOTChestContents.GHISCAR);
+		placeSpawnerChest(world, random, -1, roomFloor + 5, 0, GOTRegistry.spawnerChestStone, 5, GOTEntityGhiscarHarpy.class, GOTChestContents.GHISCAR);
+		placeSpawnerChest(world, random, 1, roomFloor + 5, 0, GOTRegistry.spawnerChestStone, 4, GOTEntityGhiscarHarpy.class, GOTChestContents.GHISCAR);
+		placeSpawnerChest(world, random, 0, roomFloor + 5, -1, GOTRegistry.spawnerChestStone, 2, GOTEntityGhiscarHarpy.class, GOTChestContents.GHISCAR);
+		placeSpawnerChest(world, random, 0, roomFloor + 5, 1, GOTRegistry.spawnerChestStone, 3, GOTEntityGhiscarHarpy.class, GOTChestContents.GHISCAR);
 		stepX = 1;
 		stepY = topHeight - 36;
 		stepZ = 0;
@@ -453,7 +453,7 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 		for (int j1 = 0; j1 <= 3; ++j1) {
 			setAir(world, i, j + j1, k);
 		}
-		this.placeBanner(world, i, j, k, GOTItemBanner.BannerType.GHISCAR, 0, true, 64);
+		placeBanner(world, i, j, k, GOTItemBanner.BannerType.GHISCAR, 0, true, 64);
 	}
 
 	public void placeRandomBrick(World world, Random random, int i, int j, int k) {

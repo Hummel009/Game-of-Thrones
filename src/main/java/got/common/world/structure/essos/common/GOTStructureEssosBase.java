@@ -570,6 +570,6 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 	}
 
 	public enum City {
-		BRAAVOS, GHISCAR, LORATH, VOLANTIS, TYROSH, QOHOR, QARTH, PENTOS, NORVOS, MYR, LYS;
+		BRAAVOS, GHISCAR, LORATH, VOLANTIS, TYROSH, QOHOR, QARTH, PENTOS, NORVOS, MYR, LYS
 	}
 }

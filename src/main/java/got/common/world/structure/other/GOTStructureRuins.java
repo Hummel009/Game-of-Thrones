@@ -84,7 +84,7 @@ public class GOTStructureRuins extends GOTVillageGen {
 					}
 					if (random.nextInt(5) == 0) {
 						setBlockAndNotifyAdequately(world, i1, j1 + 1, k1, GOTRegistry.wallStone1, 3);
-						this.placeSkull(world, random, i1, j1 + 2, k1);
+						placeSkull(world, random, i1, j1 + 2, k1);
 						continue;
 					}
 					if (random.nextInt(3) == 0) {
@@ -343,13 +343,13 @@ public class GOTStructureRuins extends GOTVillageGen {
 
 		@Override
 		public void addVillageStructures(Random random) {
-			this.addStructure(new GOTStructureRuinsPart(false), -8, 0, 0, true);
-			this.addStructure(new GOTStructureRuinsPart(false), +8, 0, 0, true);
-			this.addStructure(new GOTStructureRuinsPart(false), -8, -8, 0, true);
-			this.addStructure(new GOTStructureRuinsPart(false), +8, -8, 0, true);
-			this.addStructure(new GOTStructureRuinsPart(false), -8, +8, 0, true);
-			this.addStructure(new GOTStructureRuinsPart(false), +8, +8, 0, true);
-			this.addStructure(new GOTStructureRuinsTower(false), 0, +6, 0, true);
+			addStructure(new GOTStructureRuinsPart(false), -8, 0, 0, true);
+			addStructure(new GOTStructureRuinsPart(false), +8, 0, 0, true);
+			addStructure(new GOTStructureRuinsPart(false), -8, -8, 0, true);
+			addStructure(new GOTStructureRuinsPart(false), +8, -8, 0, true);
+			addStructure(new GOTStructureRuinsPart(false), -8, +8, 0, true);
+			addStructure(new GOTStructureRuinsPart(false), +8, +8, 0, true);
+			addStructure(new GOTStructureRuinsTower(false), 0, +6, 0, true);
 		}
 
 		@Override

@@ -188,7 +188,7 @@ public class GOTEntityJaqenHghar extends GOTEntityHumanBase {
 			if (addMQOfferFor(entityplayer)) {
 				GOTJaqenHgharTracker.setJaqenHgharActive(getUniqueID());
 				String speechBank = "legendary/jaqen_welcome";
-				this.sendSpeechBank(entityplayer, speechBank);
+				sendSpeechBank(entityplayer, speechBank);
 				return true;
 			}
 		}

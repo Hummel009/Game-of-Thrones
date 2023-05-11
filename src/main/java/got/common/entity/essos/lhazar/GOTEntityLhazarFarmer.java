@@ -15,7 +15,7 @@ public class GOTEntityLhazarFarmer extends GOTEntityLhazarMan implements GOTTrad
 	public GOTEntityLhazarFarmer(World world) {
 		super(world);
 		canBeMarried = false;
-		this.addTargetTasks(false);
+		addTargetTasks(false);
 	}
 
 	@Override

@@ -47,7 +47,7 @@ public class GOTStructureWildlingChieftainHouse extends GOTStructureBase {
 		int k14;
 		int i12;
 		int j16;
-		this.setOriginAndRotation(world, i, j, k, rotation, 5);
+		setOriginAndRotation(world, i, j, k, rotation, 5);
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -339,7 +339,7 @@ public class GOTStructureWildlingChieftainHouse extends GOTStructureBase {
 		setBlockAndMetadata(world, -2, 1, 3, GOTRegistry.tableWildling, 0);
 		setBlockAndMetadata(world, -2, 1, 2, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, 2, 1, 3, Blocks.furnace, 5);
-		this.placeChest(world, random, 2, 1, 2, 5, GOTChestContents.BEYOND_WALL);
+		placeChest(world, random, 2, 1, 2, 5, GOTChestContents.BEYOND_WALL);
 		if (isHardhome) {
 			spawnNPCAndSetHome(new GOTEntityYgritte(world), world, 1, 1, 0, 8);
 			spawnNPCAndSetHome(new GOTEntityTormund(world), world, -1, 1, 0, 8);

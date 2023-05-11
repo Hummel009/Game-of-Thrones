@@ -32,7 +32,7 @@ public class GOTEntityGorcrow extends GOTEntityBird implements GOTBiome.ImmuneTo
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		this.setBirdType(GOTEntityBird.BirdType.CROW);
+		setBirdType(GOTEntityBird.BirdType.CROW);
 		return data;
 	}
 }

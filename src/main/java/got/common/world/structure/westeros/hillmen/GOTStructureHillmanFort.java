@@ -25,7 +25,7 @@ public class GOTStructureHillmanFort extends GOTStructureHillmanBase {
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int i1;
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 10);
+		setOriginAndRotation(world, i, j, k, rotation, 10);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -108,10 +108,10 @@ public class GOTStructureHillmanFort extends GOTStructureHillmanBase {
 		setBlockAndMetadata(world, 7, 1, 8, bedBlock, 8);
 		setBlockAndMetadata(world, 5, 1, 7, bedBlock, 0);
 		setBlockAndMetadata(world, 5, 1, 8, bedBlock, 8);
-		this.placeChest(world, random, 5, 1, 5, GOTRegistry.chestBasket, 3, GOTChestContents.HILLMEN);
-		this.placeChest(world, random, -4, 1, 8, GOTRegistry.chestBasket, 2, GOTChestContents.HILLMEN);
-		this.placeChest(world, random, 6, 1, -8, Blocks.chest, 3, GOTChestContents.HILLMEN);
-		this.placeChest(world, random, 5, 1, -8, Blocks.chest, 3, GOTChestContents.HILLMEN);
+		placeChest(world, random, 5, 1, 5, GOTRegistry.chestBasket, 3, GOTChestContents.HILLMEN);
+		placeChest(world, random, -4, 1, 8, GOTRegistry.chestBasket, 2, GOTChestContents.HILLMEN);
+		placeChest(world, random, 6, 1, -8, Blocks.chest, 3, GOTChestContents.HILLMEN);
+		placeChest(world, random, 5, 1, -8, Blocks.chest, 3, GOTChestContents.HILLMEN);
 		for (i1 = -6; i1 <= -5; ++i1) {
 			int j12 = 1;
 			int k1 = 8;
@@ -122,12 +122,12 @@ public class GOTStructureHillmanFort extends GOTStructureHillmanBase {
 			placeArmorStand(world, i1, j12, k1, 0, new ItemStack[]{new ItemStack(GOTRegistry.furHelmet), new ItemStack(GOTRegistry.furChestplate), new ItemStack(GOTRegistry.furLeggings), new ItemStack(GOTRegistry.furBoots)});
 		}
 		placeWeaponRack(world, -7, 2, -3, 5, getRandomHillmanWeapon(random));
-		this.placeBarrel(world, random, 8, 2, 7, 2, GOTFoods.WILD_DRINK);
-		this.placeSkull(world, random, -2, 7, -11);
-		this.placeSkull(world, random, 2, 7, -11);
-		this.placeSkull(world, random, -11, 7, 2);
-		this.placeSkull(world, random, 3, 7, 8);
-		this.placeSkull(world, random, 11, 8, -3);
+		placeBarrel(world, random, 8, 2, 7, 2, GOTFoods.WILD_DRINK);
+		placeSkull(world, random, -2, 7, -11);
+		placeSkull(world, random, 2, 7, -11);
+		placeSkull(world, random, -11, 7, 2);
+		placeSkull(world, random, 3, 7, 8);
+		placeSkull(world, random, 11, 8, -3);
 		setBlockAndMetadata(world, 6, 1, -3, GOTRegistry.commandTable, 0);
 		placeWallBanner(world, -2, 5, -11, GOTItemBanner.BannerType.HILLMEN, 2);
 		placeWallBanner(world, 2, 5, -11, GOTItemBanner.BannerType.HILLMEN, 2);

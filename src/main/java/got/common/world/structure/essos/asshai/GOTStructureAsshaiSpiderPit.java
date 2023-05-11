@@ -26,7 +26,7 @@ public class GOTStructureAsshaiSpiderPit extends GOTStructureAsshaiBase {
 		int i1;
 		int i12;
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 8, -10);
+		setOriginAndRotation(world, i, j, k, rotation, 8, -10);
 		originY -= 4;
 		setupRandomBlocks(random);
 		if (restrictions) {
@@ -149,14 +149,14 @@ public class GOTStructureAsshaiSpiderPit extends GOTStructureAsshaiBase {
 		placeBigTorch(world, -4, 8, 4);
 		placeBigTorch(world, -8, 10, -4);
 		placeBigTorch(world, -12, 10, -4);
-		this.placeChest(world, random, 0, -7, 1, GOTRegistry.chestStone, 4, GOTChestContents.ASSHAI);
-		this.placeChest(world, random, 1, 7, 12, GOTRegistry.chestStone, 2, GOTChestContents.ASSHAI);
+		placeChest(world, random, 0, -7, 1, GOTRegistry.chestStone, 4, GOTChestContents.ASSHAI);
+		placeChest(world, random, 1, 7, 12, GOTRegistry.chestStone, 2, GOTChestContents.ASSHAI);
 		setBlockAndMetadata(world, -2, 7, 9, bedBlock, 3);
 		setBlockAndMetadata(world, -3, 7, 9, bedBlock, 11);
 		setBlockAndMetadata(world, -2, 7, 11, bedBlock, 3);
 		setBlockAndMetadata(world, -3, 7, 11, bedBlock, 11);
-		this.placeBarrel(world, random, 3, 8, 11, 5, GOTFoods.RICH_DRINK);
-		this.placeMug(world, random, 3, 8, 10, 1, GOTFoods.RICH_DRINK);
+		placeBarrel(world, random, 3, 8, 11, 5, GOTFoods.RICH_DRINK);
+		placeMug(world, random, 3, 8, 10, 1, GOTFoods.RICH_DRINK);
 		placePlateWithCertainty(world, random, 3, 8, 9, GOTRegistry.woodPlateBlock, GOTFoods.WESTEROS);
 		int maxStep = 12;
 		for (i12 = -1; i12 <= 1; ++i12) {

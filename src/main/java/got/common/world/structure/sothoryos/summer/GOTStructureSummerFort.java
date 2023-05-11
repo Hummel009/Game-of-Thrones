@@ -23,7 +23,7 @@ public class GOTStructureSummerFort extends GOTStructureSummerBase {
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int j1;
 		int i1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 12);
+		setOriginAndRotation(world, i, j, k, rotation, 12);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -90,9 +90,9 @@ public class GOTStructureSummerFort extends GOTStructureSummerBase {
 		setBlockAndMetadata(world, -10, 1, 8, bedBlock, 8);
 		setBlockAndMetadata(world, -7, 1, 10, bedBlock, 3);
 		setBlockAndMetadata(world, -8, 1, 10, bedBlock, 11);
-		this.placeChest(world, random, 0, 0, 7, GOTRegistry.chestBasket, 3, GOTChestContents.SUMMER);
-		this.placeChest(world, random, -9, 1, 9, GOTRegistry.chestBasket, 2, GOTChestContents.SUMMER);
-		this.placeChest(world, random, 9, 1, 9, GOTRegistry.chestBasket, 2, GOTChestContents.SUMMER);
+		placeChest(world, random, 0, 0, 7, GOTRegistry.chestBasket, 3, GOTChestContents.SUMMER);
+		placeChest(world, random, -9, 1, 9, GOTRegistry.chestBasket, 2, GOTChestContents.SUMMER);
+		placeChest(world, random, 9, 1, 9, GOTRegistry.chestBasket, 2, GOTChestContents.SUMMER);
 		for (i1 = -2; i1 <= 0; ++i1) {
 			int j13 = 1;
 			int k1 = 9;
@@ -100,7 +100,7 @@ public class GOTStructureSummerFort extends GOTStructureSummerBase {
 				placePlate(world, random, i1, j13, k1, GOTRegistry.ceramicPlateBlock, GOTFoods.SOTHORYOS);
 				continue;
 			}
-			this.placeMug(world, random, i1, j13, k1, 0, GOTFoods.SOTHORYOS_DRINK);
+			placeMug(world, random, i1, j13, k1, 0, GOTFoods.SOTHORYOS_DRINK);
 		}
 		placeWeaponRack(world, 4, 2, -1, 6, getRandomWeapon(random));
 		placeWeaponRack(world, 5, 2, 0, 5, getRandomWeapon(random));
@@ -113,14 +113,14 @@ public class GOTStructureSummerFort extends GOTStructureSummerBase {
 		placeSummerArmor(world, random, 9, 1, -3, 1);
 		placeSummerArmor(world, random, 9, 1, 0, 1);
 		placeSummerArmor(world, random, 9, 1, 3, 1);
-		this.placeSkull(world, random, -8, 3, -4);
-		this.placeSkull(world, random, -8, 3, 2);
-		this.placeSkull(world, random, -10, 6, 0);
-		this.placeSkull(world, random, 10, 6, 0);
-		this.placeSkull(world, random, -13, 8, -15);
-		this.placeSkull(world, random, 13, 8, -15);
-		this.placeSkull(world, random, -13, 8, 15);
-		this.placeSkull(world, random, 13, 8, 15);
+		placeSkull(world, random, -8, 3, -4);
+		placeSkull(world, random, -8, 3, 2);
+		placeSkull(world, random, -10, 6, 0);
+		placeSkull(world, random, 10, 6, 0);
+		placeSkull(world, random, -13, 8, -15);
+		placeSkull(world, random, 13, 8, -15);
+		placeSkull(world, random, -13, 8, 15);
+		placeSkull(world, random, 13, 8, 15);
 		placeWallBanner(world, 0, 5, -13, GOTItemBanner.BannerType.SUMMER, 2);
 		placeWallBanner(world, -3, 4, -13, GOTItemBanner.BannerType.SUMMER, 2);
 		placeWallBanner(world, 3, 4, -13, GOTItemBanner.BannerType.SUMMER, 2);

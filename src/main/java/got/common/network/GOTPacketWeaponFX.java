@@ -37,7 +37,7 @@ public class GOTPacketWeaponFX implements IMessage {
 	}
 
 	public enum Type {
-		ASSHAI, INFERNAL, CHILLING;
+		ASSHAI, INFERNAL, CHILLING
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketWeaponFX, IMessage> {

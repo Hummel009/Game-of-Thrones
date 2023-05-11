@@ -24,7 +24,7 @@ public class GOTStructureHillmanTavern extends GOTStructureHillmanBase {
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 8);
+		setOriginAndRotation(world, i, j, k, rotation, 8);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -89,9 +89,9 @@ public class GOTStructureHillmanTavern extends GOTStructureHillmanBase {
 		placeFlowerPot(world, 8, 2, 5, getRandomFlower(world, random));
 		placeFlowerPot(world, -8, 2, -4, getRandomFlower(world, random));
 		placeFlowerPot(world, -8, 2, 4, getRandomFlower(world, random));
-		this.placeChest(world, random, 7, 1, -5, GOTRegistry.chestBasket, 5, GOTChestContents.HILLMEN);
-		this.placeBarrel(world, random, 7, 2, 6, 2, GOTFoods.WILD_DRINK);
-		this.placeBarrel(world, random, 4, 2, 6, 2, GOTFoods.WILD_DRINK);
+		placeChest(world, random, 7, 1, -5, GOTRegistry.chestBasket, 5, GOTChestContents.HILLMEN);
+		placeBarrel(world, random, 7, 2, 6, 2, GOTFoods.WILD_DRINK);
+		placeBarrel(world, random, 4, 2, 6, 2, GOTFoods.WILD_DRINK);
 		placeFoodOrDrink(world, random, -6, 2, -6);
 		placeFoodOrDrink(world, random, -5, 2, -6);
 		placeFoodOrDrink(world, random, -6, 2, -1);
@@ -140,7 +140,7 @@ public class GOTStructureHillmanTavern extends GOTStructureHillmanBase {
 	public void placeFoodOrDrink(World world, Random random, int i, int j, int k) {
 		if (random.nextBoolean()) {
 			if (random.nextBoolean()) {
-				this.placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.WILD_DRINK);
+				placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.WILD_DRINK);
 			} else {
 				Block plateBlock = random.nextBoolean() ? GOTRegistry.woodPlateBlock : GOTRegistry.ceramicPlateBlock;
 				if (random.nextBoolean()) {

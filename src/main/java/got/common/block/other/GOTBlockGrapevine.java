@@ -91,7 +91,7 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 	public boolean checkCanStay(World world, int i, int j, int k) {
 		if (!canBlockStay(world, i, j, k)) {
 			int meta = world.getBlockMetadata(i, j, k);
-			this.dropBlockAsItem(world, i, j, k, meta, 0);
+			dropBlockAsItem(world, i, j, k, meta, 0);
 			if (hasGrapes) {
 				world.setBlock(i, j, k, GOTRegistry.grapevine, 0, 3);
 				Block newBlock = world.getBlock(i, j, k);
@@ -282,7 +282,7 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 			if (!world.isRemote) {
 				ArrayList<ItemStack> drops = getVineDrops(world, i, j, k, meta, 0);
 				for (ItemStack itemstack : drops) {
-					this.dropBlockAsItem(world, i, j, k, itemstack);
+					dropBlockAsItem(world, i, j, k, itemstack);
 				}
 			}
 			world.setBlock(i, j, k, GOTRegistry.grapevine, 0, 3);

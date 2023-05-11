@@ -1158,7 +1158,7 @@ public class GOTChestContents {
 	}
 
 	public GOTChestContents setDrinkVessels(GOTFoods foods) {
-		return this.setDrinkVessels(foods.getDrinkVessels());
+		return setDrinkVessels(foods.getDrinkVessels());
 	}
 
 	public GOTChestContents setDrinkVessels(GOTItemMug.Vessel... v) {

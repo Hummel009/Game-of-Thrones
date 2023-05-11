@@ -122,12 +122,12 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 		int x = guiLeft + xSize / 2;
 		int y = guiTop + 145;
 		s = currentShield.getShieldName();
-		this.drawCenteredString(s, x, y, 16777215);
+		drawCenteredString(s, x, y, 16777215);
 		y += fontRendererObj.FONT_HEIGHT * 2;
 		List desc = fontRendererObj.listFormattedStringToWidth(currentShield.getShieldDesc(), 220);
 		for (Object element : desc) {
 			s = (String) element;
-			this.drawCenteredString(s, x, y, 16777215);
+			drawCenteredString(s, x, y, 16777215);
 			y += fontRendererObj.FONT_HEIGHT;
 		}
 		shieldLeft.enabled = canGoLeft();

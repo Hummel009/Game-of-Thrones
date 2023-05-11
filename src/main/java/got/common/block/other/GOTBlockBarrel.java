@@ -51,7 +51,7 @@ public class GOTBlockBarrel extends BlockContainer {
 			}
 			barrel.setInventorySlotContents(9, brewing);
 			if (!world.isRemote && (meta & 8) == 0) {
-				this.dropBlockAsItem(world, i, j, k, getBarrelDrop(world, i, j, k, meta));
+				dropBlockAsItem(world, i, j, k, getBarrelDrop(world, i, j, k, meta));
 			}
 		}
 		super.breakBlock(world, i, j, k, block, meta);

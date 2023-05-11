@@ -39,7 +39,7 @@ public class GOTRenderThrowingAxe extends Render {
 		ItemStack axeItem = axe.getProjectileItem();
 		IIcon icon = axeItem.getIconIndex();
 		if (icon == null) {
-			FMLLog.severe("Error rendering throwing axe: no icon for " + axeItem.toString());
+			FMLLog.severe("Error rendering throwing axe: no icon for " + axeItem);
 			GL11.glPopMatrix();
 			return;
 		}

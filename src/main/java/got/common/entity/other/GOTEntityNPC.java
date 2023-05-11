@@ -140,7 +140,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public int addTargetTasks(boolean seekTargets) {
-		return this.addTargetTasks(seekTargets, GOTEntityAINearestAttackableTargetBasic.class);
+		return addTargetTasks(seekTargets, GOTEntityAINearestAttackableTargetBasic.class);
 	}
 
 	public int addTargetTasks(boolean seekTargets, Class<? extends GOTEntityAINearestAttackableTargetBasic> c) {
@@ -360,7 +360,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public void dropItemList(List<ItemStack> items) {
-		this.dropItemList(items, true);
+		dropItemList(items, true);
 	}
 
 	public void dropItemList(List<ItemStack> items, boolean applyOwnership) {
@@ -858,7 +858,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			entityDropItem(pouch, 0.0f);
 		}
 		enpouchNPCDrops = false;
-		this.dropItemList(enpouchedDrops, false);
+		dropItemList(enpouchedDrops, false);
 		if (!worldObj.isRemote && damagesource.getEntity() instanceof EntityPlayer) {
 			entityplayer = (EntityPlayer) damagesource.getEntity();
 			if (hurtOnlyByPlates && damagesource.getSourceOfDamage() instanceof GOTEntityPlate) {
@@ -1149,7 +1149,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public void sendSpeechBank(EntityPlayer entityplayer, String speechBank) {
-		this.sendSpeechBank(entityplayer, speechBank, null);
+		sendSpeechBank(entityplayer, speechBank, null);
 	}
 
 	public void sendSpeechBank(EntityPlayer entityplayer, String speechBank, GOTMiniQuest miniquest) {
@@ -1158,7 +1158,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		if (miniquest != null) {
 			objective = miniquest.getProgressedObjectiveInSpeech();
 		}
-		this.sendSpeechBank(entityplayer, speechBank, location, objective);
+		sendSpeechBank(entityplayer, speechBank, location, objective);
 	}
 
 	public void sendSpeechBank(EntityPlayer entityplayer, String speechBank, String location, String objective) {
@@ -1178,7 +1178,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	@Override
 	public void setAttackTarget(EntityLivingBase target) {
 		boolean speak = target != null && getEntitySenses().canSee(target) && rand.nextInt(3) == 0;
-		this.setAttackTarget(target, speak);
+		setAttackTarget(target, speak);
 	}
 
 	public void setAttackTarget(EntityLivingBase target, boolean speak) {
@@ -1208,7 +1208,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 					double range = 16.0;
 					List nearbyMobs = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(range, range, range), selectorAttackingNPCs);
 					if (nearbyMobs.size() <= 5) {
-						this.sendSpeechBank(entityplayer, speechBank);
+						sendSpeechBank(entityplayer, speechBank);
 					}
 				}
 			}
@@ -1346,7 +1346,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	public boolean speakTo(EntityPlayer entityplayer) {
 		String speechBank = getSpeechBank(entityplayer);
 		if (speechBank != null) {
-			this.sendSpeechBank(entityplayer, speechBank);
+			sendSpeechBank(entityplayer, speechBank);
 			if (getTalkAchievement() != null) {
 				GOTLevelData.getData(entityplayer).addAchievement(getTalkAchievement());
 			}
@@ -1358,7 +1358,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	public void updateCombat() {
 		EntityLivingBase entity;
 		if (!worldObj.isRemote && getAttackTarget() != null && (!(entity = getAttackTarget()).isEntityAlive() || entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode)) {
-			this.setAttackTarget(null);
+			setAttackTarget(null);
 		}
 		boolean changedMounted = false;
 		boolean changedAttackMode = false;
@@ -1431,7 +1431,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 				@Override
 				public boolean isEntityApplicable(Entity entity) {
 					EntityLivingBase living = (EntityLivingBase) entity;
-					return living != GOTEntityNPC.this && living.isEntityAlive() && GOT.getNPCFaction(living) == GOTEntityNPC.this.getFaction();
+					return living != GOTEntityNPC.this && living.isEntityAlive() && GOT.getNPCFaction(living) == getFaction();
 				}
 			});
 			nearbyBannerFactor = Math.min(bannerBearers.size(), 5);
@@ -1475,7 +1475,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public enum AttackMode {
-		MELEE, RANGED, IDLE;
+		MELEE, RANGED, IDLE
 
 	}
 

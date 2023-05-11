@@ -61,7 +61,7 @@ public class GOTGuiTrade extends GuiContainer {
 		int x;
 		int cost;
 		int l;
-		this.drawCenteredString(theEntity.getNPCName(), 89, 11, 4210752);
+		drawCenteredString(theEntity.getNPCName(), 89, 11, 4210752);
 		fontRendererObj.drawString(StatCollector.translateToLocal("got.container.trade.buy"), 8, 28, 4210752);
 		fontRendererObj.drawString(StatCollector.translateToLocal("got.container.trade.sell"), 8, 79, 4210752);
 		fontRendererObj.drawString(StatCollector.translateToLocal("got.container.trade.sellOffer"), 8, 129, 4210752);
@@ -82,7 +82,7 @@ public class GOTGuiTrade extends GuiContainer {
 					y = slotBuy.yDisplayPosition;
 					Gui.drawRect(x, y, x + 16, y + 16, lockedTradeColor);
 					GL11.glTranslatef(0.0f, 0.0f, -200.0f);
-					this.drawCenteredString(StatCollector.translateToLocal("got.container.trade.locked"), slotBuy.xDisplayPosition + 8, slotBuy.yDisplayPosition + 22, 4210752);
+					drawCenteredString(StatCollector.translateToLocal("got.container.trade.locked"), slotBuy.xDisplayPosition + 8, slotBuy.yDisplayPosition + 22, 4210752);
 				}
 			}
 
@@ -103,7 +103,7 @@ public class GOTGuiTrade extends GuiContainer {
 					y = slotSell.yDisplayPosition;
 					Gui.drawRect(x, y, x + 16, y + 16, lockedTradeColor);
 					GL11.glTranslatef(0.0f, 0.0f, -200.0f);
-					this.drawCenteredString(StatCollector.translateToLocal("got.container.trade.locked"), slotSell.xDisplayPosition + 8, slotSell.yDisplayPosition + 22, 4210752);
+					drawCenteredString(StatCollector.translateToLocal("got.container.trade.locked"), slotSell.xDisplayPosition + 8, slotSell.yDisplayPosition + 22, 4210752);
 				}
 			}
 		}
@@ -140,7 +140,7 @@ public class GOTGuiTrade extends GuiContainer {
 			y *= 2;
 			y += fontRendererObj.FONT_HEIGHT / 2;
 		}
-		this.drawCenteredString(s, x, y, 4210752);
+		drawCenteredString(s, x, y, 4210752);
 		if (halfSize) {
 			GL11.glPopMatrix();
 		}

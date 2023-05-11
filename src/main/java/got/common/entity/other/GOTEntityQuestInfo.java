@@ -107,7 +107,7 @@ public class GOTEntityQuestInfo {
 	}
 
 	public GOTMiniQuest getOfferFor(EntityPlayer entityplayer) {
-		return this.getOfferFor(entityplayer, null);
+		return getOfferFor(entityplayer, null);
 	}
 
 	public GOTMiniQuest getOfferFor(EntityPlayer entityplayer, boolean[] isSpecific) {
@@ -147,7 +147,7 @@ public class GOTEntityQuestInfo {
 				}
 				return true;
 			}
-			GOTMiniQuest offer = this.getOfferFor(entityplayer);
+			GOTMiniQuest offer = getOfferFor(entityplayer);
 			if (offer != null && offer.isValidQuest() && offer.canPlayerAccept(entityplayer)) {
 				List<GOTMiniQuest> questsForFaction = playerData.getMiniQuestsForFaction(theNPC.getFaction(), true);
 				if (questsForFaction.size() < GOTMiniQuest.MAX_MINIQUESTS_PER_FACTION) {
@@ -293,7 +293,7 @@ public class GOTEntityQuestInfo {
 		removeOpenOfferPlayer(entityplayer);
 		if (accept) {
 			boolean[] container = new boolean[1];
-			GOTMiniQuest quest = this.getOfferFor(entityplayer, container);
+			GOTMiniQuest quest = getOfferFor(entityplayer, container);
 			boolean isSpecific = container[0];
 			if (quest != null && quest.isValidQuest() && canOfferQuestsTo(entityplayer)) {
 				quest.setPlayerData(GOTLevelData.getData(entityplayer));
@@ -316,7 +316,7 @@ public class GOTEntityQuestInfo {
 	}
 
 	public void sendData(EntityPlayerMP entityplayer) {
-		GOTMiniQuest questOffer = this.getOfferFor(entityplayer);
+		GOTMiniQuest questOffer = getOfferFor(entityplayer);
 		boolean isOffering = questOffer != null && canOfferQuestsTo(entityplayer);
 		int color = questOffer != null ? questOffer.getQuestColor() : 0;
 		boolean prevOffering = false;

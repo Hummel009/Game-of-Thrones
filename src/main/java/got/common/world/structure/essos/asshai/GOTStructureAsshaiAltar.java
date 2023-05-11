@@ -16,7 +16,7 @@ public class GOTStructureAsshaiAltar extends GOTStructureAsshaiBase {
 		int i1;
 		int k1;
 		int k12;
-		this.setOriginAndRotation(world, i, j, k, rotation, 6);
+		setOriginAndRotation(world, i, j, k, rotation, 6);
 		for (i1 = -5; i1 <= 5; ++i1) {
 			for (k1 = -5; k1 <= 5; ++k1) {
 				j1 = 0;

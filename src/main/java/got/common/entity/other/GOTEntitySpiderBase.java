@@ -260,7 +260,7 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
 				}
 				if (hasRequiredAlignment) {
 					entityplayer.mountEntity(this);
-					this.setAttackTarget(null);
+					setAttackTarget(null);
 					getNavigator().clearPathEntity();
 					return true;
 				}

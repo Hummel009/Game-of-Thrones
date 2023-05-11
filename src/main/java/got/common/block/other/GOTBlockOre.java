@@ -85,12 +85,12 @@ public class GOTBlockOre extends Block {
 		if (i > 0 && Item.getItemFromBlock(this) != getItemDropped(0, random, i)) {
 			int factor = random.nextInt(i + 2) - 1;
 			factor = Math.max(factor, 0);
-			int drops = this.quantityDropped(random) * (factor + 1);
+			int drops = quantityDropped(random) * (factor + 1);
 			if (this == GOTRegistry.oreGlowstone) {
 				drops = Math.min(drops, 8);
 			}
 			return drops;
 		}
-		return this.quantityDropped(random);
+		return quantityDropped(random);
 	}
 }

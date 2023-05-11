@@ -83,15 +83,15 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 		drawDefaultBackground();
 		mc.getTextureManager().bindTexture(guiTexture);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		this.drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
+		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		String name = theNPC.getNPCName();
-		this.drawCenteredString(name, guiLeft + xSize / 2, guiTop + 8, 8019267);
+		drawCenteredString(name, guiLeft + xSize / 2, guiTop + 8, 8019267);
 		renderNPC(guiLeft + npcX, guiTop + npcY, guiLeft + npcX - i, guiTop + npcY - j, f);
 		fontRendererObj.drawSplitString(description, guiLeft + descriptionX, guiTop + descriptionY, descriptionWidth, 8019267);
 		String objective = theMiniQuest.getQuestObjective();
 		int objWidth = fontRendererObj.getStringWidth(objective);
 		int objY = guiTop + ySize - 50;
-		this.drawCenteredString(objective, guiLeft + xSize / 2, objY, 8019267);
+		drawCenteredString(objective, guiLeft + xSize / 2, objY, 8019267);
 		RenderHelper.enableGUIStandardItemLighting();
 		GL11.glDisable(2896);
 		GL11.glEnable(32826);

@@ -115,7 +115,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 		drawDefaultBackground();
 		mc.getTextureManager().bindTexture(guiTexture);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		this.drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize, 512);
+		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize, 512);
 		int x = guiLeft + xSize / 2 - pageBorder - pageWidth / 2;
 		int y = guiTop + 30;
 		if (page == Page.MINIQUESTS && selectedMiniquest == null) {
@@ -124,21 +124,21 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 			x = (int) (x * invScale);
 			y = (int) (y * invScale);
 			GL11.glScalef(scale, scale, scale);
-			this.drawCenteredString(page.getTitle(), x, y, 8019267);
+			drawCenteredString(page.getTitle(), x, y, 8019267);
 			GL11.glScalef(invScale, invScale, invScale);
 			x = guiLeft + xSize / 2 - pageBorder - pageWidth / 2;
 			y = guiTop + 50;
 			if (viewCompleted) {
-				this.drawCenteredString(StatCollector.translateToLocal("got.gui.redBook.mq.viewComplete"), x, y, 8019267);
+				drawCenteredString(StatCollector.translateToLocal("got.gui.redBook.mq.viewComplete"), x, y, 8019267);
 			} else {
-				this.drawCenteredString(StatCollector.translateToLocal("got.gui.redBook.mq.viewActive"), x, y, 8019267);
+				drawCenteredString(StatCollector.translateToLocal("got.gui.redBook.mq.viewActive"), x, y, 8019267);
 			}
 		}
 		if (page == Page.MINIQUESTS) {
 			if (selectedMiniquest == null) {
-				this.drawCenteredString(GOTDate.AegonCalendar.getDate().getDateName(false), guiLeft + xSize / 2 - pageBorder - pageWidth / 2, guiTop + ySize - 30, 8019267);
-				this.drawCenteredString(StatCollector.translateToLocalFormatted("got.gui.redBook.mq.numActive", getPlayerData().getActiveMiniQuests().size()), x, guiTop + 120, 8019267);
-				this.drawCenteredString(StatCollector.translateToLocalFormatted("got.gui.redBook.mq.numComplete", getPlayerData().getCompletedMiniQuestsTotal()), x, guiTop + 140, 8019267);
+				drawCenteredString(GOTDate.AegonCalendar.getDate().getDateName(false), guiLeft + xSize / 2 - pageBorder - pageWidth / 2, guiTop + ySize - 30, 8019267);
+				drawCenteredString(StatCollector.translateToLocalFormatted("got.gui.redBook.mq.numActive", getPlayerData().getActiveMiniQuests().size()), x, guiTop + 120, 8019267);
+				drawCenteredString(StatCollector.translateToLocalFormatted("got.gui.redBook.mq.numComplete", getPlayerData().getCompletedMiniQuestsTotal()), x, guiTop + 140, 8019267);
 			} else {
 				GOTMiniQuest quest = selectedMiniquest;
 				mc.getTextureManager().bindTexture(guiTexture);
@@ -146,7 +146,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 				GL11.glColor4f(questRGB[0], questRGB[1], questRGB[2], 1.0f);
 				x = guiLeft + diaryX;
 				y = guiTop + diaryY;
-				this.drawTexturedModalRect(x, y, 0, 256, diaryWidth, diaryHeight, 512);
+				drawTexturedModalRect(x, y, 0, 256, diaryWidth, diaryHeight, 512);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				int textW = diaryWidth - diaryBorder * 2;
 				int textBottom = y + diaryHeight - diaryBorder;
@@ -268,7 +268,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 				int lineY = guiTop + 50;
 				for (Object obj : deleteTextLines) {
 					String line = (String) obj;
-					this.drawCenteredString(line, lineX, lineY, 8019267);
+					drawCenteredString(line, lineX, lineY, 8019267);
 					lineY += fontRendererObj.FONT_HEIGHT;
 				}
 				int questX = guiLeft + xSize / 2 + pageBorder + pageWidth / 2 - qPanelWidth / 2;
@@ -279,12 +279,12 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 		if (hasScrollBar()) {
 			mc.getTextureManager().bindTexture(guiTexture_miniquests);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-			this.drawTexturedModalRect(guiLeft + scrollBarX, guiTop + scrollBarY, 244, 0, scrollBarWidth, scrollBarHeight);
+			drawTexturedModalRect(guiLeft + scrollBarX, guiTop + scrollBarY, 244, 0, scrollBarWidth, scrollBarHeight);
 			if (canScroll()) {
 				int scroll = (int) (currentScroll * (scrollBarHeight - scrollBarBorder * 2 - scrollWidgetHeight));
-				this.drawTexturedModalRect(guiLeft + scrollBarX + scrollBarBorder, guiTop + scrollBarY + scrollBarBorder + scroll, 224, 0, scrollWidgetWidth, scrollWidgetHeight);
+				drawTexturedModalRect(guiLeft + scrollBarX + scrollBarBorder, guiTop + scrollBarY + scrollBarBorder + scroll, 224, 0, scrollWidgetWidth, scrollWidgetHeight);
 			} else {
-				this.drawTexturedModalRect(guiLeft + scrollBarX + scrollBarBorder, guiTop + scrollBarY + scrollBarBorder, 234, 0, scrollWidgetWidth, scrollWidgetHeight);
+				drawTexturedModalRect(guiLeft + scrollBarX + scrollBarBorder, guiTop + scrollBarY + scrollBarBorder, 234, 0, scrollWidgetWidth, scrollWidgetHeight);
 			}
 		}
 		boolean hasQuestViewButtons = page == Page.MINIQUESTS && selectedMiniquest == null;
@@ -447,14 +447,14 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 		mc.getTextureManager().bindTexture(guiTexture_miniquests);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		if (mouseInPanel || quest == selectedMiniquest) {
-			this.drawTexturedModalRect(questX, questY, 0, qPanelHeight, qPanelWidth, qPanelHeight);
+			drawTexturedModalRect(questX, questY, 0, qPanelHeight, qPanelWidth, qPanelHeight);
 		} else {
-			this.drawTexturedModalRect(questX, questY, 0, 0, qPanelWidth, qPanelHeight);
+			drawTexturedModalRect(questX, questY, 0, 0, qPanelWidth, qPanelHeight);
 		}
 		float[] questRGB = quest.getQuestColorComponents();
 		GL11.glColor4f(questRGB[0], questRGB[1], questRGB[2], 1.0f);
 		GL11.glEnable(3008);
-		this.drawTexturedModalRect(questX, questY, 0, qPanelHeight * 2, qPanelWidth, qPanelHeight);
+		drawTexturedModalRect(questX, questY, 0, qPanelHeight * 2, qPanelWidth, qPanelHeight);
 		GL11.glDisable(3008);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		String questName = quest.entityName;
@@ -497,7 +497,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 			if (mouseInDelete) {
 				delV += qWidgetSize;
 			}
-			this.drawTexturedModalRect(questX + qDelX, questY + qDelY, delU, delV, qWidgetSize, qWidgetSize);
+			drawTexturedModalRect(questX + qDelX, questY + qDelY, delU, delV, qWidgetSize, qWidgetSize);
 			if (!viewCompleted) {
 				int trackU = qPanelWidth + qWidgetSize;
 				int trackV = 0;
@@ -507,7 +507,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 				if (isTracking) {
 					trackU += qWidgetSize;
 				}
-				this.drawTexturedModalRect(questX + qTrackX, questY + qTrackY, trackU, trackV, qWidgetSize, qWidgetSize);
+				drawTexturedModalRect(questX + qTrackX, questY + qTrackY, trackU, trackV, qWidgetSize, qWidgetSize);
 			}
 		}
 		RenderHelper.enableGUIStandardItemLighting();

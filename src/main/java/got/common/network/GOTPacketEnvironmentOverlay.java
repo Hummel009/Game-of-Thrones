@@ -28,7 +28,7 @@ public class GOTPacketEnvironmentOverlay implements IMessage {
 	}
 
 	public enum Overlay {
-		FROST, BURN;
+		FROST, BURN
 
 	}
 

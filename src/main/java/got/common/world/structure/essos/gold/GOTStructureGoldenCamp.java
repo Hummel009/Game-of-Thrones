@@ -37,8 +37,8 @@ public class GOTStructureGoldenCamp extends GOTVillageGen {
 
 		@Override
 		public void addVillageStructures(Random random) {
-			this.addStructure(new GOTStructureGoldenWatchtower(false), 0, -4, 0, true);
-			this.addStructure(new GOTStructureNPCRespawner(false) {
+			addStructure(new GOTStructureGoldenWatchtower(false), 0, -4, 0, true);
+			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
 				public void setupRespawner(GOTEntityNPCRespawner spawner) {
@@ -48,10 +48,10 @@ public class GOTStructureGoldenCamp extends GOTVillageGen {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			this.addStructure(new GOTStructureGoldenTent(false), -21, 0, 1);
-			this.addStructure(new GOTStructureGoldenTent(false), 0, -21, 2);
-			this.addStructure(new GOTStructureGoldenTent(false), 21, 0, 3);
-			this.addStructure(new GOTStructureGoldenTent(false), 0, 21, 0);
+			addStructure(new GOTStructureGoldenTent(false), -21, 0, 1);
+			addStructure(new GOTStructureGoldenTent(false), 0, -21, 2);
+			addStructure(new GOTStructureGoldenTent(false), 21, 0, 3);
+			addStructure(new GOTStructureGoldenTent(false), 0, 21, 0);
 			int houses = 20;
 			float frac = 1.0f / houses;
 			float turn = 0.0f;
@@ -77,18 +77,18 @@ public class GOTStructureGoldenCamp extends GOTVillageGen {
 					l = 61;
 					i = Math.round(l * cos);
 					k = Math.round(l * sin);
-					this.addStructure(new GOTStructureGoldenTent(false), i, k, r);
+					addStructure(new GOTStructureGoldenTent(false), i, k, r);
 				}
 			}
 			int farmX = 38;
 			int farmZ = 17;
 			int farmSize = 6;
-			this.addStructure(new GOTStructureGoldenTent(false), -farmX + farmSize, -farmZ, 1);
-			this.addStructure(new GOTStructureGoldenTent(false), -farmZ + farmSize, -farmX, 1);
-			this.addStructure(new GOTStructureGoldenTent(false), farmX - farmSize, -farmZ, 3);
-			this.addStructure(new GOTStructureGoldenTent(false), farmZ - farmSize, -farmX, 3);
-			this.addStructure(new GOTStructureGoldenTent(false), -farmX + farmSize, farmZ, 1);
-			this.addStructure(new GOTStructureGoldenTent(false), farmX - farmSize, farmZ, 3);
+			addStructure(new GOTStructureGoldenTent(false), -farmX + farmSize, -farmZ, 1);
+			addStructure(new GOTStructureGoldenTent(false), -farmZ + farmSize, -farmX, 1);
+			addStructure(new GOTStructureGoldenTent(false), farmX - farmSize, -farmZ, 3);
+			addStructure(new GOTStructureGoldenTent(false), farmZ - farmSize, -farmX, 3);
+			addStructure(new GOTStructureGoldenTent(false), -farmX + farmSize, farmZ, 1);
+			addStructure(new GOTStructureGoldenTent(false), farmX - farmSize, farmZ, 3);
 
 		}
 

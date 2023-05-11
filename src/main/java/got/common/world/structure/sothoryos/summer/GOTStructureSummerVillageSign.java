@@ -12,7 +12,7 @@ public class GOTStructureSummerVillageSign extends GOTStructureSummerBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		setOriginAndRotation(world, i, j, k, rotation, 0);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int i1 = 0;
@@ -30,7 +30,7 @@ public class GOTStructureSummerVillageSign extends GOTStructureSummerBase {
 		setBlockAndMetadata(world, 0, 2, 0, woodBlock, woodMeta);
 		setBlockAndMetadata(world, 0, 3, 0, woodBlock, woodMeta);
 		setBlockAndMetadata(world, 0, 4, 0, fenceBlock, fenceMeta);
-		this.placeSkull(world, random, 0, 5, 0);
+		placeSkull(world, random, 0, 5, 0);
 		setBlockAndMetadata(world, -1, 3, 0, Blocks.torch, 1);
 		setBlockAndMetadata(world, 1, 3, 0, Blocks.torch, 2);
 		setBlockAndMetadata(world, 0, 3, -1, Blocks.torch, 4);

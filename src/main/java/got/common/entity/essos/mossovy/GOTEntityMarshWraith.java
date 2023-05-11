@@ -177,7 +177,7 @@ public class GOTEntityMarshWraith extends GOTEntityNPC {
 					if (!(entity instanceof EntityLiving) || !entity.getUniqueID().equals(attackTargetUUID)) {
 						continue;
 					}
-					this.setAttackTarget((EntityLiving) entity);
+					setAttackTarget((EntityLiving) entity);
 					break;
 				}
 				checkedForAttackTarget = true;
@@ -203,7 +203,7 @@ public class GOTEntityMarshWraith extends GOTEntityNPC {
 						--timeUntilDespawn;
 					} else {
 						setDeathFadeTime(30);
-						this.setAttackTarget(null);
+						setAttackTarget(null);
 					}
 				}
 			}

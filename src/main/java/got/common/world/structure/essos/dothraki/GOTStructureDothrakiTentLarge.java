@@ -16,7 +16,7 @@ public class GOTStructureDothrakiTentLarge extends GOTStructureDothrakiBase {
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 8);
+		setOriginAndRotation(world, i, j, k, rotation, 8);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -69,7 +69,7 @@ public class GOTStructureDothrakiTentLarge extends GOTStructureDothrakiBase {
 		setBlockAndMetadata(world, -4, 1, 4, bedBlock, 0);
 		setBlockAndMetadata(world, -4, 1, 5, bedBlock, 8);
 		placeWeaponRack(world, 0, 3, 6, 6, getRandomNomadWeapon(random));
-		this.placeChest(world, random, -4, 1, -5, GOTRegistry.chestBasket, 3, GOTChestContents.DOTHRAKI);
+		placeChest(world, random, -4, 1, -5, GOTRegistry.chestBasket, 3, GOTChestContents.DOTHRAKI);
 		GOTEntityDothraki male = new GOTEntityDothraki(world);
 		male.familyInfo.setMale(true);
 		male.spawnRidingHorse = false;

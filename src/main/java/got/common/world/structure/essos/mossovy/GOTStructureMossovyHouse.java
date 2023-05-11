@@ -27,7 +27,7 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 		int i13;
 		int k12;
 		int randPath;
-		this.setOriginAndRotation(world, i, j, k, rotation, 9);
+		setOriginAndRotation(world, i, j, k, rotation, 9);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			for (i1 = -7; i1 <= 8; ++i1) {
@@ -164,9 +164,9 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 		placeRandomFlowerPot(world, random, 2, 5, 1);
 		plantFlower(world, random, 0, 2, 3);
 		plantFlower(world, random, 8, 6, -1);
-		this.placeChest(world, random, -1, 1, 1, 4, GOTChestContents.MOSSOVY);
-		this.placeChest(world, random, 1, 5, 1, 2, GOTChestContents.MOSSOVY);
-		this.placeMug(world, random, 3, 2, -2, 3, GOTFoods.WESTEROS_DRINK);
+		placeChest(world, random, -1, 1, 1, 4, GOTChestContents.MOSSOVY);
+		placeChest(world, random, 1, 5, 1, 2, GOTChestContents.MOSSOVY);
+		placeMug(world, random, 3, 2, -2, 3, GOTFoods.WESTEROS_DRINK);
 		placePlateWithCertainty(world, random, 3, 2, -3, GOTRegistry.plateBlock, GOTFoods.WESTEROS);
 		setBlockAndMetadata(world, 0, 5, 0, bedBlock, 3);
 		setBlockAndMetadata(world, -1, 5, 0, bedBlock, 11);

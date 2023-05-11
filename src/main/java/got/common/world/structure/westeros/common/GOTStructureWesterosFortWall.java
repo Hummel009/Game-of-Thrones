@@ -14,7 +14,7 @@ public abstract class GOTStructureWesterosFortWall extends GOTStructureWesterosB
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		setOriginAndRotation(world, i, j, k, rotation, 0);
 		setupRandomBlocks(random);
 		int xMin = -8;
 		int xMax = 6;

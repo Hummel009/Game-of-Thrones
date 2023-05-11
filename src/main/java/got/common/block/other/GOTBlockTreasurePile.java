@@ -277,7 +277,7 @@ public class GOTBlockTreasurePile extends Block {
 	@Override
 	public void updateTick(World world, int i, int j, int k, Random random) {
 		if (!world.isRemote && !tryFall(world, i, j, k) && !canBlockStay(world, i, j, k)) {
-			this.dropBlockAsItem(world, i, j, k, world.getBlockMetadata(i, j, k), 0);
+			dropBlockAsItem(world, i, j, k, world.getBlockMetadata(i, j, k), 0);
 			world.setBlockToAir(i, j, k);
 		}
 	}

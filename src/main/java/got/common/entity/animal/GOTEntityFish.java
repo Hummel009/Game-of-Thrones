@@ -83,7 +83,7 @@ public class GOTEntityFish extends EntityWaterMob implements GOTRandomSkinEntity
 	}
 
 	public void setFishType(FishType type) {
-		this.setFishType(type.ordinal());
+		setFishType(type.ordinal());
 	}
 
 	public void setFishType(int i) {
@@ -124,11 +124,11 @@ public class GOTEntityFish extends EntityWaterMob implements GOTRandomSkinEntity
 		int k = MathHelper.floor_double(posZ);
 		worldObj.getBiomeGenForCoords(i, k);
 		if (rand.nextInt(30) == 0) {
-			this.setFishType(FishType.CLOWNFISH);
+			setFishType(FishType.CLOWNFISH);
 		} else if (rand.nextInt(8) == 0) {
-			this.setFishType(FishType.SALMON);
+			setFishType(FishType.SALMON);
 		} else {
-			this.setFishType(FishType.COMMON);
+			setFishType(FishType.COMMON);
 		}
 		return data;
 	}
@@ -136,7 +136,7 @@ public class GOTEntityFish extends EntityWaterMob implements GOTRandomSkinEntity
 	@Override
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
-		this.setFishType(nbt.getInteger("FishType"));
+		setFishType(nbt.getInteger("FishType"));
 	}
 
 	@Override

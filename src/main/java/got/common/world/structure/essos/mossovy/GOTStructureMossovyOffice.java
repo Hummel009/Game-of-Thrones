@@ -21,7 +21,7 @@ public class GOTStructureMossovyOffice extends GOTStructureMossovyBase {
 		int k1;
 		int i1;
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 8);
+		setOriginAndRotation(world, i, j, k, rotation, 8);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			for (i1 = -9; i1 <= 9; ++i1) {
@@ -91,23 +91,23 @@ public class GOTStructureMossovyOffice extends GOTStructureMossovyBase {
 		setBlockAndMetadata(world, 1, 2, 1, doorBlock, 9);
 		setBlockAndMetadata(world, 2, 1, 1, doorBlock, 3);
 		setBlockAndMetadata(world, 2, 2, 1, doorBlock, 8);
-		this.placeChest(world, random, -4, 1, -2, 3, GOTChestContents.MOSSOVY);
-		this.placeChest(world, random, 6, 1, 0, 5, GOTChestContents.MOSSOVY);
-		this.placeChest(world, random, 1, 1, 2, 2, GOTChestContents.MOSSOVY);
-		this.placeChest(world, random, 2, 1, 2, 2, GOTChestContents.MOSSOVY);
+		placeChest(world, random, -4, 1, -2, 3, GOTChestContents.MOSSOVY);
+		placeChest(world, random, 6, 1, 0, 5, GOTChestContents.MOSSOVY);
+		placeChest(world, random, 1, 1, 2, 2, GOTChestContents.MOSSOVY);
+		placeChest(world, random, 2, 1, 2, 2, GOTChestContents.MOSSOVY);
 		if (random.nextInt(3) == 0) {
-			this.placeChest(world, random, 0, 9, -3, 3, GOTChestContents.MOSSOVY);
+			placeChest(world, random, 0, 9, -3, 3, GOTChestContents.MOSSOVY);
 		}
 		if (random.nextInt(3) == 0) {
-			this.placeChest(world, random, 6, 9, 0, 5, GOTChestContents.MOSSOVY);
+			placeChest(world, random, 6, 9, 0, 5, GOTChestContents.MOSSOVY);
 		}
 		if (random.nextInt(3) == 0) {
-			this.placeChest(world, random, 5, 9, 1, 2, GOTChestContents.MOSSOVY);
+			placeChest(world, random, 5, 9, 1, 2, GOTChestContents.MOSSOVY);
 		}
-		this.placeMug(world, random, -5, 2, -2, 0, GOTFoods.WESTEROS_DRINK);
-		this.placeBarrel(world, random, -6, 2, -2, 3, GOTFoods.WESTEROS_DRINK);
-		this.placeMug(world, random, 6, 6, 1, 3, GOTFoods.WESTEROS_DRINK);
-		this.placeMug(world, random, 6, 6, 2, 3, GOTFoods.WESTEROS_DRINK);
+		placeMug(world, random, -5, 2, -2, 0, GOTFoods.WESTEROS_DRINK);
+		placeBarrel(world, random, -6, 2, -2, 3, GOTFoods.WESTEROS_DRINK);
+		placeMug(world, random, 6, 6, 1, 3, GOTFoods.WESTEROS_DRINK);
+		placeMug(world, random, 6, 6, 2, 3, GOTFoods.WESTEROS_DRINK);
 		placePlate(world, random, -4, 2, 2, GOTRegistry.ceramicPlateBlock, GOTFoods.WESTEROS);
 		placePlate(world, random, -5, 2, 2, GOTRegistry.plateBlock, GOTFoods.WESTEROS);
 		placePlate(world, random, 0, 6, -4, GOTRegistry.ceramicPlateBlock, GOTFoods.WESTEROS);

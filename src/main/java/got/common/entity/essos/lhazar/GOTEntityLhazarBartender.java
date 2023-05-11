@@ -15,7 +15,7 @@ public class GOTEntityLhazarBartender extends GOTEntityLhazarMan implements GOTT
 	public GOTEntityLhazarBartender(World world) {
 		super(world);
 		canBeMarried = false;
-		this.addTargetTasks(false);
+		addTargetTasks(false);
 	}
 
 	@Override

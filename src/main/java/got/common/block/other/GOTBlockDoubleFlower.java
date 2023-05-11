@@ -58,7 +58,7 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 		if (!canBlockStay(world, i, j, k)) {
 			int l = world.getBlockMetadata(i, j, k);
 			if (!isTop(l)) {
-				this.dropBlockAsItem(world, i, j, k, l, 0);
+				dropBlockAsItem(world, i, j, k, l, 0);
 				if (world.getBlock(i, j + 1, k) == this) {
 					world.setBlock(i, j + 1, k, Blocks.air, 0, 2);
 				}
@@ -91,7 +91,7 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 	@Override
 	public void func_149853_b(World world, Random random, int i, int j, int k) {
 		int meta = func_149885_e(world, i, j, k);
-		this.dropBlockAsItem(world, i, j, k, new ItemStack(this, 1, meta));
+		dropBlockAsItem(world, i, j, k, new ItemStack(this, 1, meta));
 	}
 
 	@Override

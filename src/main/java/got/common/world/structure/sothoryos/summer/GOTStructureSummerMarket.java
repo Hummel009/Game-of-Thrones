@@ -31,7 +31,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		int k12;
 		int k1;
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 8);
+		setOriginAndRotation(world, i, j, k, rotation, 8);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -98,7 +98,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		placeAnimalJar(world, -3, 1, -1, GOTRegistry.birdCageWood, 0, new GOTEntityBird(world));
 		placeAnimalJar(world, -2, 3, -2, GOTRegistry.birdCage, 0, new GOTEntityBird(world));
 		placeAnimalJar(world, 6, 3, 1, GOTRegistry.birdCage, 0, new GOTEntityBird(world));
-		this.placeSkull(world, random, 2, 4, -5);
+		placeSkull(world, random, 2, 4, -5);
 		ArrayList<Class> stallClasses = new ArrayList<>(Arrays.asList(stalls));
 		while (stallClasses.size() > 4) {
 			stallClasses.remove(random.nextInt(stallClasses.size()));
@@ -177,7 +177,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
 			placeFlowerPot(world, 2, 2, 0, getRandomFlower(world, random));
 			placePlateItem(world, random, 2, 2, 0, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.oliveBread, 1 + random.nextInt(3), 0), true);
 			placePlateItem(world, random, 0, 2, 2, GOTRegistry.ceramicPlateBlock, new ItemStack(Items.bread, 1 + random.nextInt(3), 0), true);
@@ -198,7 +198,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
 			placeWeaponRack(world, 3, 2, 0, 2, new GOTStructureSummerMarket(false).getRandomWeapon(random));
 			placeWeaponRack(world, 0, 2, 4, 3, new GOTStructureSummerMarket(false).getRandomWeapon(random));
 			placeFlowerPot(world, 0, 2, 2, getRandomFlower(world, random));
@@ -218,9 +218,9 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
-			this.placeMug(world, random, 3, 2, 0, 0, GOTFoods.SOTHORYOS_DRINK);
-			this.placeMug(world, random, 0, 2, 2, 1, GOTFoods.SOTHORYOS_DRINK);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
+			placeMug(world, random, 3, 2, 0, 0, GOTFoods.SOTHORYOS_DRINK);
+			placeMug(world, random, 0, 2, 2, 1, GOTFoods.SOTHORYOS_DRINK);
 			setBlockAndMetadata(world, 0, 2, 4, GOTRegistry.barrel, 4);
 			setBlockAndMetadata(world, 3, 1, 3, GOTRegistry.woodSlabSingle4, 15);
 			setBlockAndMetadata(world, 3, 2, 3, GOTRegistry.barrel, 2);
@@ -237,7 +237,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
 			placePlateItem(world, random, 2, 2, 0, GOTRegistry.ceramicPlateBlock, new ItemStack(GOTRegistry.camelRaw, 1 + random.nextInt(3), 0), true);
 			placePlateItem(world, random, 0, 2, 2, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.kebab, 1 + random.nextInt(3), 0), true);
 			placePlateItem(world, random, 0, 2, 4, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.kebab, 1 + random.nextInt(3), 0), true);
@@ -259,7 +259,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 2, 1, 4, Blocks.hay_block, 0);
 			setBlockAndMetadata(world, 3, 1, 3, Blocks.hay_block, 0);
 			setBlockAndMetadata(world, 3, 1, 2, GOTRegistry.berryBush, 9);
@@ -287,7 +287,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
 			placePlateItem(world, random, 2, 2, 0, GOTRegistry.ceramicPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 1), true);
 			placePlateItem(world, random, 0, 2, 3, GOTRegistry.woodPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 0), true);
 			placeFlowerPot(world, 0, 2, 4, getRandomFlower(world, random));
@@ -308,7 +308,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 2, 1, 4, Blocks.hay_block, 0);
 			setBlockAndMetadata(world, 3, 1, 3, Blocks.hay_block, 0);
 			setBlockAndMetadata(world, 3, 1, 2, GOTRegistry.essosFlower, 9);
@@ -326,7 +326,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
 			placeWeaponRack(world, 2, 2, 0, 2, new ItemStack(Items.iron_pickaxe));
 			placeWeaponRack(world, 0, 2, 3, 3, new ItemStack(Items.iron_shovel));
 			setBlockAndMetadata(world, 4, 1, 2, GOTRegistry.oreCopper, 0);
@@ -347,7 +347,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
 			placeFlowerPot(world, 2, 2, 0, new ItemStack(GOTRegistry.sapling4, 1, 2));
 			placeFlowerPot(world, 0, 2, 2, new ItemStack(GOTRegistry.sapling8, 1, 3));
 			placeFlowerPot(world, 0, 2, 4, new ItemStack(GOTRegistry.sapling7, 1, 3));
@@ -370,7 +370,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
 			placeFlowerPot(world, 2, 2, 0, getRandomFlower(world, random));
 			placeWeaponRack(world, 0, 2, 3, 3, new ItemStack(GOTRegistry.bronzePickaxe));
 			setBlockAndMetadata(world, 4, 1, 2, Blocks.sandstone, 0);
@@ -391,7 +391,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
 			placeWeaponRack(world, 2, 2, 0, 2, new ItemStack(GOTRegistry.bronzePickaxe));
 			placeWeaponRack(world, 0, 2, 3, 3, new ItemStack(GOTRegistry.bronzeShovel));
 			setBlockAndMetadata(world, 4, 1, 2, GOTRegistry.oreCopper, 0);

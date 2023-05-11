@@ -19,7 +19,7 @@ public class GOTStructureDothrakiKhalTent extends GOTStructureDothrakiBase {
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 9);
+		setOriginAndRotation(world, i, j, k, rotation, 9);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -76,12 +76,12 @@ public class GOTStructureDothrakiKhalTent extends GOTStructureDothrakiBase {
 		setBlockAndMetadata(world, 5, 1, 5, bedBlock, 8);
 		setBlockAndMetadata(world, 6, 1, 4, bedBlock, 0);
 		setBlockAndMetadata(world, 6, 1, 5, bedBlock, 8);
-		this.placeChest(world, random, -11, 1, 0, GOTRegistry.chestBasket, 4, GOTChestContents.DOTHRAKI);
-		this.placeChest(world, random, 11, 1, 0, GOTRegistry.chestBasket, 5, GOTChestContents.DOTHRAKI);
-		this.placeMug(world, random, -4, 2, -5, 2, GOTFoods.NOMAD_DRINK);
+		placeChest(world, random, -11, 1, 0, GOTRegistry.chestBasket, 4, GOTChestContents.DOTHRAKI);
+		placeChest(world, random, 11, 1, 0, GOTRegistry.chestBasket, 5, GOTChestContents.DOTHRAKI);
+		placeMug(world, random, -4, 2, -5, 2, GOTFoods.NOMAD_DRINK);
 		placePlateWithCertainty(world, random, -6, 2, -5, GOTRegistry.ceramicPlateBlock, GOTFoods.NOMAD);
 		placePlateWithCertainty(world, random, 6, 2, -5, GOTRegistry.ceramicPlateBlock, GOTFoods.NOMAD);
-		this.placeMug(world, random, 4, 2, -5, 2, GOTFoods.NOMAD_DRINK);
+		placeMug(world, random, 4, 2, -5, 2, GOTFoods.NOMAD_DRINK);
 		setBlockAndMetadata(world, -1, 4, -9, Blocks.skull, 2);
 		setBlockAndMetadata(world, 1, 4, -9, Blocks.skull, 2);
 		GOTEntityDothrakiKhal chief = new GOTEntityDothrakiKhal(world);

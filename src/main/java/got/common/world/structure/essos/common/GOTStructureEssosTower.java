@@ -18,7 +18,7 @@ public class GOTStructureEssosTower extends GOTStructureEssosBase {
 		int k1;
 		int i1;
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 3);
+		setOriginAndRotation(world, i, j, k, rotation, 3);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			for (i1 = -3; i1 <= 3; ++i1) {
@@ -53,9 +53,9 @@ public class GOTStructureEssosTower extends GOTStructureEssosBase {
 		associateBlockAlias("TRAPDOOR", trapdoorBlock);
 		associateBlockAlias("GATE_METAL", gateMetalBlock);
 		generateStrScan(world, random, 0, 0, 0);
-		this.placeChest(world, random, -1, 1, -1, GOTRegistry.chestBasket, 4, getChestContents());
-		this.placeMug(world, random, -1, 2, 1, 0, GOTFoods.ESSOS_DRINK);
-		this.placeBarrel(world, random, 1, 2, 1, 2, GOTFoods.ESSOS_DRINK);
+		placeChest(world, random, -1, 1, -1, GOTRegistry.chestBasket, 4, getChestContents());
+		placeMug(world, random, -1, 2, 1, 0, GOTFoods.ESSOS_DRINK);
+		placeBarrel(world, random, 1, 2, 1, 2, GOTFoods.ESSOS_DRINK);
 		placeWeaponRack(world, -1, 8, 0, 5, getRandomWeapon(random));
 		placeWeaponRack(world, 1, 8, 0, 7, getRandomWeapon(random));
 		placeWallBanner(world, 0, 14, -3, bannerType, 2);

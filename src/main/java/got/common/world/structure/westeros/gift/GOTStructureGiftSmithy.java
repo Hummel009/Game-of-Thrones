@@ -27,7 +27,7 @@ public class GOTStructureGiftSmithy extends GOTStructureGiftBase {
 		int k13;
 		int k14;
 		int i13;
-		this.setOriginAndRotation(world, i, j, k, rotation, 5);
+		setOriginAndRotation(world, i, j, k, rotation, 5);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -188,14 +188,14 @@ public class GOTStructureGiftSmithy extends GOTStructureGiftBase {
 		placePlate(world, random, 4, 2, -3, plateBlock, GOTFoods.WESTEROS);
 		setBlockAndMetadata(world, 5, 1, -3, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, 6, 1, -3, plankBlock, plankMeta);
-		this.placeMug(world, random, 6, 2, -3, 2, GOTFoods.WESTEROS_DRINK);
+		placeMug(world, random, 6, 2, -3, 2, GOTFoods.WESTEROS_DRINK);
 		setBlockAndMetadata(world, 7, 1, -2, plankBlock, plankMeta);
-		this.placeBarrel(world, random, 7, 2, -2, 5, GOTFoods.WESTEROS_DRINK);
+		placeBarrel(world, random, 7, 2, -2, 5, GOTFoods.WESTEROS_DRINK);
 		setBlockAndMetadata(world, 3, 1, 2, plankBlock, plankMeta);
-		this.placeMug(world, random, 3, 2, 2, 3, GOTFoods.WESTEROS_DRINK);
+		placeMug(world, random, 3, 2, 2, 3, GOTFoods.WESTEROS_DRINK);
 		setBlockAndMetadata(world, 5, 1, 3, bedBlock, 1);
 		setBlockAndMetadata(world, 6, 1, 3, bedBlock, 9);
-		this.placeChest(world, random, 7, 1, 2, 5, GOTChestContents.GIFT);
+		placeChest(world, random, 7, 1, 2, 5, GOTChestContents.GIFT);
 		setBlockAndMetadata(world, 8, 0, 0, GOTRegistry.hearth, 0);
 		setBlockAndMetadata(world, 8, 1, 0, Blocks.fire, 0);
 		for (j12 = 2; j12 <= 3; ++j12) {
@@ -204,7 +204,7 @@ public class GOTStructureGiftSmithy extends GOTStructureGiftBase {
 		setBlockAndMetadata(world, 7, 1, 0, barsBlock, 0);
 		setBlockAndMetadata(world, 7, 2, 0, Blocks.furnace, 5);
 		spawnItemFrame(world, 7, 3, 0, 3, getRangerFramedItem(random));
-		this.placeChest(world, random, 1, 1, 2, 5, GOTChestContents.GIFT);
+		placeChest(world, random, 1, 1, 2, 5, GOTChestContents.GIFT);
 		setBlockAndMetadata(world, 1, 1, -2, tableBlock, 0);
 		setBlockAndMetadata(world, 1, 1, -3, Blocks.crafting_table, 0);
 		for (j12 = 1; j12 <= 3; ++j12) {

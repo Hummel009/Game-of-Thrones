@@ -200,7 +200,7 @@ public class GOTBiomeVariant {
 	}
 
 	public enum VariantScale {
-		LARGE, SMALL, NONE;
+		LARGE, SMALL, NONE
 
 	}
 

@@ -16,7 +16,7 @@ public class GOTStructureEssosMansion extends GOTStructureEssosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		this.setOriginAndRotation(world, i, j, k, rotation, 9);
+		setOriginAndRotation(world, i, j, k, rotation, 9);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -98,10 +98,10 @@ public class GOTStructureEssosMansion extends GOTStructureEssosBase {
 		plantFlower(world, random, 1, 1, -5);
 		plantFlower(world, random, 2, 1, -5);
 		placeWallBanner(world, 3, 3, -4, bannerType, 0);
-		this.placeChest(world, random, -3, 1, 3, GOTRegistry.chestBasket, 2, getChestContents());
-		this.placeBarrel(world, random, 6, 2, 2, 4, GOTFoods.ESSOS_DRINK);
+		placeChest(world, random, -3, 1, 3, GOTRegistry.chestBasket, 2, getChestContents());
+		placeBarrel(world, random, 6, 2, 2, 4, GOTFoods.ESSOS_DRINK);
 		placePlateWithCertainty(world, random, 6, 2, 1, GOTRegistry.ceramicPlateBlock, GOTFoods.ESSOS);
-		this.placeMug(world, random, 6, 2, 3, 3, GOTFoods.ESSOS_DRINK);
+		placeMug(world, random, 6, 2, 3, 3, GOTFoods.ESSOS_DRINK);
 		placeWeaponRack(world, 10, 2, -2, 7, getRandomWeapon(random));
 		setBlockAndMetadata(world, 8, 5, -1, bedBlock, 1);
 		setBlockAndMetadata(world, 9, 5, -1, bedBlock, 9);

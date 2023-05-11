@@ -205,7 +205,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 	}
 
 	public void setBirdType(BirdType type) {
-		this.setBirdType(type.ordinal());
+		setBirdType(type.ordinal());
 	}
 
 	public void setBirdType(int i) {
@@ -369,16 +369,16 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
 		if (biome instanceof GOTBiomeSothoryosJungle) {
 			if (rand.nextInt(8) == 0) {
-				this.setBirdType(BirdType.CROW);
+				setBirdType(BirdType.CROW);
 			} else {
-				this.setBirdType(BirdType.SOTHORYOS);
+				setBirdType(BirdType.SOTHORYOS);
 			}
 		} else if (rand.nextInt(6) == 0) {
-			this.setBirdType(BirdType.CROW);
+			setBirdType(BirdType.CROW);
 		} else if (rand.nextInt(10) == 0) {
-			this.setBirdType(BirdType.MAGPIE);
+			setBirdType(BirdType.MAGPIE);
 		} else {
-			this.setBirdType(BirdType.COMMON);
+			setBirdType(BirdType.COMMON);
 		}
 		return data;
 	}
@@ -421,7 +421,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 	@Override
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
-		this.setBirdType(nbt.getInteger("BirdType"));
+		setBirdType(nbt.getInteger("BirdType"));
 		setBirdStill(nbt.getBoolean("BirdStill"));
 		birdInv.writeToNBT(nbt);
 		nbt.setShort("StealTime", (short) stolenTime);
@@ -454,9 +454,9 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 					@Override
 					public boolean isEntityApplicable(Entity e) {
 						EntityPlayer entityplayer;
-						if (e instanceof EntityPlayer && GOTEntityBird.this.canStealPlayer(entityplayer = (EntityPlayer) e)) {
-							ChunkCoordinates coords = GOTEntityBird.this.getPlayerFlightTarget(entityplayer);
-							return GOTEntityBird.this.isValidFlightTarget(coords);
+						if (e instanceof EntityPlayer && canStealPlayer(entityplayer = (EntityPlayer) e)) {
+							ChunkCoordinates coords = getPlayerFlightTarget(entityplayer);
+							return isValidFlightTarget(coords);
 						}
 						return false;
 					}
@@ -471,9 +471,9 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 						@Override
 						public boolean isEntityApplicable(Entity e) {
 							EntityItem eItem;
-							if (e instanceof EntityItem && GOTEntityBird.this.canStealItem(eItem = (EntityItem) e)) {
-								ChunkCoordinates coords = GOTEntityBird.this.getItemFlightTarget(eItem);
-								return GOTEntityBird.this.isValidFlightTarget(coords);
+							if (e instanceof EntityItem && canStealItem(eItem = (EntityItem) e)) {
+								ChunkCoordinates coords = getItemFlightTarget(eItem);
+								return isValidFlightTarget(coords);
 							}
 							return false;
 						}

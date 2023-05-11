@@ -10,7 +10,7 @@ public class GOTModelGiraffeRug extends ModelBase {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		giraffeModel.setRiddenHeadNeckRotation(f, f1, f2, f3, f4, f5);
-		this.setRotationAngles();
+		setRotationAngles();
 		GL11.glTranslatef(0.0f, 0.1f, 0.0f);
 		GL11.glPushMatrix();
 		GL11.glScalef(1.5f, 0.4f, 1.0f);

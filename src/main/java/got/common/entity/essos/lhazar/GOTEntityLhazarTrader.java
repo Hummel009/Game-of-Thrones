@@ -21,7 +21,7 @@ public abstract class GOTEntityLhazarTrader extends GOTEntityLhazarMan implement
 	public GOTEntityLhazarTrader(World world) {
 		super(world);
 		canBeMarried = false;
-		this.addTargetTasks(false);
+		addTargetTasks(false);
 	}
 
 	public static ItemStack createTraderTurban(Random random) {

@@ -94,10 +94,10 @@ public class GOTBlockOreGem extends Block {
 	@Override
 	public int quantityDroppedWithBonus(int i, Random random) {
 		if (i > 0 && Item.getItemFromBlock(this) != getItemDropped(0, random, i)) {
-			int drops = this.quantityDropped(random);
+			int drops = quantityDropped(random);
 			return drops += random.nextInt(i + 1);
 		}
-		return this.quantityDropped(random);
+		return quantityDropped(random);
 	}
 
 	@SideOnly(Side.CLIENT)

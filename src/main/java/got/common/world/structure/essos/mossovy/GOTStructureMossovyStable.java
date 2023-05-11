@@ -24,7 +24,7 @@ public class GOTStructureMossovyStable extends GOTStructureMossovyBase {
 		int j12;
 		int i12;
 		int k12;
-		this.setOriginAndRotation(world, i, j, k, rotation, 6);
+		setOriginAndRotation(world, i, j, k, rotation, 6);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			for (i1 = -9; i1 <= 9; ++i1) {
@@ -116,9 +116,9 @@ public class GOTStructureMossovyStable extends GOTStructureMossovyBase {
 		setBlockAndMetadata(world, -3, 1, 5, bedBlock, 10);
 		placeRandomFlowerPot(world, random, 3, 2, 5);
 		placePlateWithCertainty(world, random, 1, 2, 7, GOTRegistry.ceramicPlateBlock, GOTFoods.WESTEROS);
-		this.placeMug(world, random, 0, 2, 7, 3, GOTFoods.WESTEROS_DRINK);
-		this.placeBarrel(world, random, -1, 2, 7, 2, GOTFoods.WESTEROS_DRINK);
-		this.placeChest(world, random, -3, 1, 7, 4, GOTChestContents.MOSSOVY);
+		placeMug(world, random, 0, 2, 7, 3, GOTFoods.WESTEROS_DRINK);
+		placeBarrel(world, random, -1, 2, 7, 2, GOTFoods.WESTEROS_DRINK);
+		placeChest(world, random, -3, 1, 7, 4, GOTChestContents.MOSSOVY);
 		placeWeaponRack(world, 0, 2, 3, 6, getRandomBreeWeapon(random));
 		GOTEntityMossovyMan stabler = new GOTEntityMossovyMan(world);
 		spawnNPCAndSetHome(stabler, world, 0, 1, -1, 16);

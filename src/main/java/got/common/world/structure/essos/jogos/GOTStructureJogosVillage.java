@@ -36,7 +36,7 @@ public class GOTStructureJogosVillage extends GOTVillageGen {
 	}
 
 	public enum VillageType {
-		SMALL, BIG;
+		SMALL, BIG
 
 	}
 
@@ -65,7 +65,7 @@ public class GOTStructureJogosVillage extends GOTVillageGen {
 
 		public void setupVillage(Random random) {
 			if (villageType == VillageType.SMALL) {
-				this.addStructure(new GOTStructureNPCRespawner(false) {
+				addStructure(new GOTStructureNPCRespawner(false) {
 
 					@Override
 					public void setupRespawner(GOTEntityNPCRespawner spawner) {
@@ -75,7 +75,7 @@ public class GOTStructureJogosVillage extends GOTVillageGen {
 						spawner.setBlockEnemySpawnRange(40);
 					}
 				}, 0, 0, 0);
-				this.addStructure(new GOTStructureNPCRespawner(false) {
+				addStructure(new GOTStructureNPCRespawner(false) {
 
 					@Override
 					public void setupRespawner(GOTEntityNPCRespawner spawner) {
@@ -85,9 +85,9 @@ public class GOTStructureJogosVillage extends GOTVillageGen {
 						spawner.setBlockEnemySpawnRange(40);
 					}
 				}, 0, 0, 0);
-				this.addStructure(new GOTStructureJogosTentLarge(false), 0, -8, 0, true);
+				addStructure(new GOTStructureJogosTentLarge(false), 0, -8, 0, true);
 			} else if (villageType == VillageType.BIG) {
-				this.addStructure(new GOTStructureNPCRespawner(false) {
+				addStructure(new GOTStructureNPCRespawner(false) {
 
 					@Override
 					public void setupRespawner(GOTEntityNPCRespawner spawner) {
@@ -97,7 +97,7 @@ public class GOTStructureJogosVillage extends GOTVillageGen {
 						spawner.setBlockEnemySpawnRange(60);
 					}
 				}, 0, 0, 0);
-				this.addStructure(new GOTStructureNPCRespawner(false) {
+				addStructure(new GOTStructureNPCRespawner(false) {
 
 					@Override
 					public void setupRespawner(GOTEntityNPCRespawner spawner) {
@@ -107,11 +107,11 @@ public class GOTStructureJogosVillage extends GOTVillageGen {
 						spawner.setBlockEnemySpawnRange(60);
 					}
 				}, 0, 0, 0);
-				this.addStructure(new GOTStructureJogosWell(false), 0, 0, 0, true);
-				this.addStructure(new GOTStructureJogosChiefTent(false), 0, 14, 0, true);
-				this.addStructure(new GOTStructureJogosShamanTent(false), 0, -14, 2, true);
-				this.addStructure(new GOTStructureJogosTentLarge(false), -14, 0, 1, true);
-				this.addStructure(new GOTStructureJogosTentLarge(false), 14, 0, 3, true);
+				addStructure(new GOTStructureJogosWell(false), 0, 0, 0, true);
+				addStructure(new GOTStructureJogosChiefTent(false), 0, 14, 0, true);
+				addStructure(new GOTStructureJogosShamanTent(false), 0, -14, 2, true);
+				addStructure(new GOTStructureJogosTentLarge(false), -14, 0, 1, true);
+				addStructure(new GOTStructureJogosTentLarge(false), 14, 0, 3, true);
 			}
 			int minOuterSize = 0;
 			if (villageType == VillageType.SMALL) {
@@ -139,7 +139,7 @@ public class GOTStructureJogosVillage extends GOTVillageGen {
 				int l = minOuterSize + random.nextInt(5);
 				int i = Math.round(l * cos);
 				int k = Math.round(l * sin);
-				this.addStructure(new GOTStructureJogosTent(false), i, k, r);
+				addStructure(new GOTStructureJogosTent(false), i, k, r);
 			}
 		}
 

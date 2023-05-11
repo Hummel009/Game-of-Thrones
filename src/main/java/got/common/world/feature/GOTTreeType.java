@@ -45,7 +45,7 @@ public enum GOTTreeType {
 		return treeFactory.createTree(flag, rand);
 	}
 
-	public static interface ITreeFactory {
+	public interface ITreeFactory {
 		WorldGenAbstractTree createTree(boolean var1, Random var2);
 	}
 

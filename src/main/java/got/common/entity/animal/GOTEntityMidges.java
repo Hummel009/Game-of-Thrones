@@ -213,11 +213,11 @@ public class GOTEntityMidges extends EntityLiving implements GOTAmbientCreature 
 		public int maxMidgeTick = 80;
 
 		public Midge() {
-			midge_initialPosX = midge_posX = -1.0f + GOTEntityMidges.this.rand.nextFloat() * 2.0f;
-			midge_initialPosY = midge_posY = GOTEntityMidges.this.rand.nextFloat() * 2.0f;
-			midge_initialPosZ = midge_posZ = -1.0f + GOTEntityMidges.this.rand.nextFloat() * 2.0f;
-			midge_rotation = GOTEntityMidges.this.rand.nextFloat() * 360.0f;
-			midgeTick = GOTEntityMidges.this.rand.nextInt(maxMidgeTick);
+			midge_initialPosX = midge_posX = -1.0f + rand.nextFloat() * 2.0f;
+			midge_initialPosY = midge_posY = rand.nextFloat() * 2.0f;
+			midge_initialPosZ = midge_posZ = -1.0f + rand.nextFloat() * 2.0f;
+			midge_rotation = rand.nextFloat() * 360.0f;
+			midgeTick = rand.nextInt(maxMidgeTick);
 		}
 
 		public void update() {

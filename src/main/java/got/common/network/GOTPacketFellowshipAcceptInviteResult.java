@@ -57,7 +57,7 @@ public class GOTPacketFellowshipAcceptInviteResult implements IMessage {
 	}
 
 	public enum AcceptInviteResult {
-		JOINED, DISBANDED, TOO_LARGE, NONEXISTENT;
+		JOINED, DISBANDED, TOO_LARGE, NONEXISTENT
 
 	}
 

@@ -28,7 +28,7 @@ public class GOTStructureRuinedHouse extends GOTStructureBase {
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int i1;
 		int width = 4 + random.nextInt(3);
-		this.setOriginAndRotation(world, i, j, k, rotation, width + 1);
+		setOriginAndRotation(world, i, j, k, rotation, width + 1);
 		if (restrictions) {
 			int minHeight = 1;
 			int maxHeight = 1;
@@ -102,9 +102,9 @@ public class GOTStructureRuinedHouse extends GOTStructureBase {
 			setBlockAndMetadata(world, -width + 1, 1, -width + 2, Blocks.furnace, 0);
 		}
 		if (random.nextBoolean()) {
-			this.placeChest(world, random, width - 1, 1, width - 2, 5, GOTChestContents.TREASURE);
+			placeChest(world, random, width - 1, 1, width - 2, 5, GOTChestContents.TREASURE);
 		} else {
-			this.placeChest(world, random, -width + 1, 1, width - 2, 5, GOTChestContents.TREASURE);
+			placeChest(world, random, -width + 1, 1, width - 2, 5, GOTChestContents.TREASURE);
 		}
 		return true;
 	}

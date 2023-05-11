@@ -43,7 +43,7 @@ public class GOTPacketBlockFX implements IMessage {
 	}
 
 	public enum Type {
-		UTUMNO_EVAPORATE;
+		UTUMNO_EVAPORATE
 
 	}
 

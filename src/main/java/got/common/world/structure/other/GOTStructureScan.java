@@ -284,7 +284,7 @@ public class GOTStructureScan {
 	}
 
 	public void includeAlias(String alias, GOTScanAlias.Type type) {
-		this.includeAlias(new GOTScanAlias(alias, type));
+		includeAlias(new GOTScanAlias(alias, type));
 	}
 
 	public static class ScanStep extends ScanStepBase {

@@ -33,7 +33,7 @@ public class GOTStructureYiTiTower extends GOTStructureYiTiBaseTown {
 		int i12;
 		int k2;
 		int i2;
-		this.setOriginAndRotation(world, i, j, k, rotation, 3);
+		setOriginAndRotation(world, i, j, k, rotation, 3);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			for (i12 = -3; i12 <= 3; ++i12) {
@@ -139,7 +139,7 @@ public class GOTStructureYiTiTower extends GOTStructureYiTiBaseTown {
 		for (int j14 = 6; j14 <= 9; ++j14) {
 			setBlockAndMetadata(world, 1, j14, -1, Blocks.ladder, 3);
 		}
-		this.placeChest(world, random, 1, 5, -1, 3, GOTChestContents.YI_TI);
+		placeChest(world, random, 1, 5, -1, 3, GOTChestContents.YI_TI);
 		setBlockAndMetadata(world, -1, 8, 0, Blocks.torch, 2);
 		setBlockAndMetadata(world, 1, 8, 0, Blocks.torch, 1);
 		spawnItemFrame(world, -2, 7, 0, 1, getFramedItem(random));

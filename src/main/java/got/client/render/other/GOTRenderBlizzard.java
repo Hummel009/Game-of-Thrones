@@ -21,17 +21,17 @@ public class GOTRenderBlizzard extends RenderLiving {
 
 	@Override
 	public void doRender(Entity entity, double d1, double d2, double d3, float d4, float d5) {
-		this.doRender((GOTEntityBlizzard) entity, d1, d2, d3, d4, d5);
+		doRender((GOTEntityBlizzard) entity, d1, d2, d3, d4, d5);
 	}
 
 	@Override
 	public void doRender(EntityLiving entity, double d1, double d2, double d3, float d4, float d5) {
-		this.doRender((GOTEntityBlizzard) entity, d1, d2, d3, d4, d5);
+		doRender((GOTEntityBlizzard) entity, d1, d2, d3, d4, d5);
 	}
 
 	@Override
 	public void doRender(EntityLivingBase entity, double d1, double d2, double d3, float d4, float d5) {
-		this.doRender((GOTEntityBlizzard) entity, d1, d2, d3, d4, d5);
+		doRender((GOTEntityBlizzard) entity, d1, d2, d3, d4, d5);
 	}
 
 	public void doRender(GOTEntityBlizzard entity, double d1, double d2, double d3, float d4, float d5) {
@@ -47,7 +47,7 @@ public class GOTRenderBlizzard extends RenderLiving {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return this.getEntityTexture((GOTEntityBlizzard) entity);
+		return getEntityTexture((GOTEntityBlizzard) entity);
 	}
 
 	public ResourceLocation getEntityTexture(GOTEntityBlizzard entity) {

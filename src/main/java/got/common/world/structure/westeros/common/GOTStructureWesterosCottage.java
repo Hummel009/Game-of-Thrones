@@ -26,7 +26,7 @@ public class GOTStructureWesterosCottage extends GOTStructureWesterosBase {
 		int i13;
 		int k132;
 		int l;
-		this.setOriginAndRotation(world, i, j, k, rotation, 6);
+		setOriginAndRotation(world, i, j, k, rotation, 6);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -213,13 +213,13 @@ public class GOTStructureWesterosCottage extends GOTStructureWesterosBase {
 		placePlateWithCertainty(world, random, -4, 2, 1, plateBlock, GOTFoods.WESTEROS);
 		setBlockAndMetadata(world, -4, 1, 2, Blocks.cauldron, 3);
 		setBlockAndMetadata(world, -4, 1, 3, rockSlabDoubleBlock, rockSlabDoubleMeta);
-		this.placeMug(world, random, -4, 2, 3, 3, GOTFoods.WESTEROS_DRINK);
+		placeMug(world, random, -4, 2, 3, 3, GOTFoods.WESTEROS_DRINK);
 		setBlockAndMetadata(world, -3, 1, 4, rockSlabDoubleBlock, rockSlabDoubleMeta);
 		placeFlowerPot(world, -3, 2, 4, getRandomFlower(world, random));
 		setBlockAndMetadata(world, -2, 1, 4, Blocks.hay_block, 0);
 		setBlockAndMetadata(world, 4, 1, 0, tableBlock, 0);
-		this.placeChest(world, random, 4, 1, 1, 5, getChestContents());
-		this.placeChest(world, random, 4, 1, 2, 5, getChestContents());
+		placeChest(world, random, 4, 1, 1, 5, getChestContents());
+		placeChest(world, random, 4, 1, 2, 5, getChestContents());
 		setBlockAndMetadata(world, 4, 1, 3, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, 3, 1, 4, rockSlabDoubleBlock, rockSlabDoubleMeta);
 		placeFlowerPot(world, 3, 2, 4, getRandomFlower(world, random));

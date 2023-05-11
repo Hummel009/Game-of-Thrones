@@ -29,7 +29,7 @@ public class GOTStructureAsshaiGatehouse extends GOTStructureAsshaiBase {
 		int k2;
 		int k13;
 		int j13;
-		this.setOriginAndRotation(world, i, j, k, rotation, 4);
+		setOriginAndRotation(world, i, j, k, rotation, 4);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;

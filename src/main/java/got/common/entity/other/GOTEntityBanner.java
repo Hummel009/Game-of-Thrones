@@ -200,7 +200,7 @@ public class GOTEntityBanner extends Entity {
 	}
 
 	public void setPlacingPlayer(EntityPlayer player) {
-		this.whitelistPlayer(0, player.getGameProfile());
+		whitelistPlayer(0, player.getGameProfile());
 	}
 
 	public int getProtectionRange() {
@@ -597,14 +597,14 @@ public class GOTEntityBanner extends Entity {
 
 	public void whitelistFellowship(int index, GOTFellowship fs, List<GOTBannerProtection.Permission> perms) {
 		if (isValidFellowship(fs)) {
-			this.whitelistPlayer(index, new GOTFellowshipProfile(this, fs.getFellowshipID(), ""), perms);
+			whitelistPlayer(index, new GOTFellowshipProfile(this, fs.getFellowshipID(), ""), perms);
 		}
 	}
 
 	public void whitelistPlayer(int index, GameProfile profile) {
 		ArrayList<GOTBannerProtection.Permission> defaultPerms = new ArrayList<>();
 		defaultPerms.add(GOTBannerProtection.Permission.FULL);
-		this.whitelistPlayer(index, profile, defaultPerms);
+		whitelistPlayer(index, profile, defaultPerms);
 	}
 
 	public void whitelistPlayer(int index, GameProfile profile, List<GOTBannerProtection.Permission> perms) {

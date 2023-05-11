@@ -34,7 +34,7 @@ public class GOTPacketFellowshipToggle extends GOTPacketFellowshipDo {
 	}
 
 	public enum ToggleFunction {
-		PVP, HIRED_FF, MAP_SHOW;
+		PVP, HIRED_FF, MAP_SHOW
 
 	}
 

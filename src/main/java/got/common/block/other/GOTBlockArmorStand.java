@@ -39,7 +39,7 @@ public class GOTBlockArmorStand extends Block {
 	@Override
 	public boolean canBlockStay(World world, int i, int j, int k) {
 		int meta = world.getBlockMetadata(i, j, k);
-		if (this.hasTileEntity(meta)) {
+		if (hasTileEntity(meta)) {
 			return world.getBlock(i, j - 1, k).isSideSolid(world, i, j - 1, k, ForgeDirection.UP) && world.getBlock(i, j + 1, k) == this;
 		}
 		return world.getBlock(i, j - 1, k) == this;
@@ -52,7 +52,7 @@ public class GOTBlockArmorStand extends Block {
 
 	@Override
 	public TileEntity createTileEntity(World world, int metadata) {
-		if (this.hasTileEntity(metadata)) {
+		if (hasTileEntity(metadata)) {
 			return new GOTTileEntityArmorStand();
 		}
 		return null;
@@ -60,7 +60,7 @@ public class GOTBlockArmorStand extends Block {
 
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int i, int j, int k) {
-		if (this.hasTileEntity(world.getBlockMetadata(i, j, k))) {
+		if (hasTileEntity(world.getBlockMetadata(i, j, k))) {
 			return AxisAlignedBB.getBoundingBox(i, j, k, i + 1.0, j + 0.125, k + 1.0);
 		}
 		return null;
@@ -80,7 +80,7 @@ public class GOTBlockArmorStand extends Block {
 
 	@Override
 	public Item getItemDropped(int i, Random random, int j) {
-		return this.hasTileEntity(i) ? GOTRegistry.armorStandItem : null;
+		return hasTileEntity(i) ? GOTRegistry.armorStandItem : null;
 	}
 
 	@Override
@@ -100,10 +100,10 @@ public class GOTBlockArmorStand extends Block {
 
 	@Override
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int side, float f, float f1, float f2) {
-		if (!this.hasTileEntity(world.getBlockMetadata(i, j, k))) {
+		if (!hasTileEntity(world.getBlockMetadata(i, j, k))) {
 			--j;
 		}
-		if (this.hasTileEntity(world.getBlockMetadata(i, j, k))) {
+		if (hasTileEntity(world.getBlockMetadata(i, j, k))) {
 			if (!world.isRemote) {
 				entityplayer.openGui(GOT.instance, 17, world, i, j, k);
 			}
@@ -114,7 +114,7 @@ public class GOTBlockArmorStand extends Block {
 
 	@Override
 	public void onBlockHarvested(World world, int i, int j, int k, int meta, EntityPlayer entityplayer) {
-		if (entityplayer.capabilities.isCreativeMode && !this.hasTileEntity(meta) && world.getBlock(i, j - 1, k) == this) {
+		if (entityplayer.capabilities.isCreativeMode && !hasTileEntity(meta) && world.getBlock(i, j - 1, k) == this) {
 			world.setBlockToAir(i, j - 1, k);
 		}
 	}
@@ -122,11 +122,11 @@ public class GOTBlockArmorStand extends Block {
 	@Override
 	public void onNeighborBlockChange(World world, int i, int j, int k, Block block) {
 		int meta = world.getBlockMetadata(i, j, k);
-		if (this.hasTileEntity(meta)) {
+		if (hasTileEntity(meta)) {
 			if (!canBlockStay(world, i, j, k)) {
 				world.setBlockToAir(i, j, k);
 				if (!world.isRemote) {
-					this.dropBlockAsItem(world, i, j, k, meta, 0);
+					dropBlockAsItem(world, i, j, k, meta, 0);
 				}
 			}
 		} else if (!canBlockStay(world, i, j, k)) {

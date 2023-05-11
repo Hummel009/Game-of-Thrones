@@ -84,7 +84,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 						}
 						regionString.append(": {").append(subs).append("}");
 					}
-					writer.println(regionString.toString());
+					writer.println(regionString);
 				}
 			} else if ("#CATEGORIES#".equals(line)) {
 				for (GOTMusicCategory category : GOTMusicCategory.values()) {

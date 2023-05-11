@@ -140,7 +140,7 @@ public class GOTRenderLargeItem implements IItemRenderer {
 			}
 			GL11.glTranslatef(-1.0f, 0.0f, 0.0f);
 		}
-		this.renderLargeItem();
+		renderLargeItem();
 		if (itemstack != null && itemstack.hasEffect(0)) {
 			GOTClientProxy.renderEnchantmentEffect();
 		}
@@ -148,11 +148,11 @@ public class GOTRenderLargeItem implements IItemRenderer {
 	}
 
 	public void renderLargeItem() {
-		this.renderLargeItem(largeIcon);
+		renderLargeItem(largeIcon);
 	}
 
 	public void renderLargeItem(ExtraLargeIconToken token) {
-		this.renderLargeItem(token.icon);
+		renderLargeItem(token.icon);
 	}
 
 	public void renderLargeItem(IIcon icon) {

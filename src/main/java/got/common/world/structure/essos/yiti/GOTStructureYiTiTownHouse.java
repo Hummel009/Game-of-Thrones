@@ -23,7 +23,7 @@ public class GOTStructureYiTiTownHouse extends GOTStructureYiTiBaseTown {
 		int k13;
 		int k12;
 		int l;
-		this.setOriginAndRotation(world, i, j, k, rotation, 7);
+		setOriginAndRotation(world, i, j, k, rotation, 7);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -267,11 +267,11 @@ public class GOTStructureYiTiTownHouse extends GOTStructureYiTiBaseTown {
 		setBlockAndMetadata(world, -3, 1, -4, plankStairBlock, 4);
 		placePlate(world, random, -2, 2, -5, plateBlock, GOTFoods.YITI);
 		placePlate(world, random, -3, 2, -5, plateBlock, GOTFoods.YITI);
-		this.placeMug(world, random, -3, 2, -4, 3, GOTFoods.YITI_DRINK);
+		placeMug(world, random, -3, 2, -4, 3, GOTFoods.YITI_DRINK);
 		setBlockAndMetadata(world, 3, 1, -4, tableBlock, 0);
 		for (int k131 : new int[]{-1, 1}) {
 			setBlockAndMetadata(world, -3, 1, k131, plankSlabBlock, plankSlabMeta | 8);
-			this.placeBarrel(world, random, -3, 2, k131, 4, GOTFoods.YITI_DRINK);
+			placeBarrel(world, random, -3, 2, k131, 4, GOTFoods.YITI_DRINK);
 		}
 		for (i1 = -3; i1 <= 3; ++i1) {
 			setBlockAndMetadata(world, i1, 1, 5, plankStairBlock, 6);
@@ -282,7 +282,7 @@ public class GOTStructureYiTiTownHouse extends GOTStructureYiTiBaseTown {
 				placePlate(world, random, i1, 2, 5, plateBlock, GOTFoods.YITI);
 				continue;
 			}
-			this.placeMug(world, random, i1, 2, 5, 0, GOTFoods.YITI_DRINK);
+			placeMug(world, random, i1, 2, 5, 0, GOTFoods.YITI_DRINK);
 		}
 		setBlockAndMetadata(world, -1, 1, 5, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, 1, 1, 5, Blocks.cauldron, 3);
@@ -299,7 +299,7 @@ public class GOTStructureYiTiTownHouse extends GOTStructureYiTiBaseTown {
 			setBlockAndMetadata(world, i12, 5, 4, bedBlock, 0);
 			setBlockAndMetadata(world, i12, 5, 5, bedBlock, 8);
 		}
-		this.placeChest(world, random, 0, 5, 5, 2, GOTChestContents.YI_TI);
+		placeChest(world, random, 0, 5, 5, 2, GOTChestContents.YI_TI);
 		setBlockAndMetadata(world, 0, 7, 5, GOTRegistry.chandelier, 3);
 		GOTEntityYiTiMan male = new GOTEntityYiTiMan(world);
 		male.familyInfo.setMale(true);

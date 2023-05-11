@@ -185,7 +185,7 @@ public class GOTItemCoin extends Item {
 		if (i >= values.length) {
 			i = 0;
 		}
-		list.add(EnumChatFormatting.DARK_GRAY + StatCollector.translateToLocal("item.got:coin.nominal.name") + ": " + String.valueOf(values[i]));
+		list.add(EnumChatFormatting.DARK_GRAY + StatCollector.translateToLocal("item.got:coin.nominal.name") + ": " + values[i]);
 	}
 
 	@Override
@@ -211,7 +211,7 @@ public class GOTItemCoin extends Item {
 		if (i >= values.length) {
 			i = 0;
 		}
-		return super.getUnlocalizedName() + "." + values[i];
+		return getUnlocalizedName() + "." + values[i];
 	}
 
 	@Override

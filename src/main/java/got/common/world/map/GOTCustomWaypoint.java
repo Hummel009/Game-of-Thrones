@@ -337,7 +337,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	}
 
 	public boolean hasSharedFellowship(GOTFellowship fs) {
-		return this.hasSharedFellowship(fs.getFellowshipID());
+		return hasSharedFellowship(fs.getFellowshipID());
 	}
 
 	public boolean hasSharedFellowship(UUID fsID) {

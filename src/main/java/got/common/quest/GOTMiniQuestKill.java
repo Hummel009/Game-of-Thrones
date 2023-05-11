@@ -105,13 +105,13 @@ public abstract class GOTMiniQuestKill extends GOTMiniQuest {
 		@Override
 		public Q createQuest(GOTEntityNPC npc, Random rand) {
 			GOTMiniQuestKill quest = super.createQuest(npc, rand);
-			quest.killTarget = MathHelper.getRandomIntegerInRange(rand, this.minTarget, this.maxTarget);
+			quest.killTarget = MathHelper.getRandomIntegerInRange(rand, minTarget, maxTarget);
 			return (Q) quest;
 		}
 
 		public QFKill<Q> setKillTarget(int min, int max) {
-			this.minTarget = min;
-			this.maxTarget = max;
+			minTarget = min;
+			maxTarget = max;
 			return this;
 		}
 	}

@@ -64,7 +64,7 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 		String titleName = currentTitle == null ? StatCollector.translateToLocal("got.gui.titles.currentTitle.none") : currentTitle.getTitle().getDisplayName(mc.thePlayer);
 		EnumChatFormatting currentColor = currentTitle == null ? EnumChatFormatting.WHITE : currentTitle.getColor();
 		titleName = currentColor + titleName + EnumChatFormatting.RESET;
-		this.drawCenteredString(StatCollector.translateToLocalFormatted("got.gui.titles.currentTitle", titleName), guiLeft + xSize / 2, guiTop, 16777215);
+		drawCenteredString(StatCollector.translateToLocalFormatted("got.gui.titles.currentTitle", titleName), guiLeft + xSize / 2, guiTop, 16777215);
 		displayedTitleInfo.clear();
 		int titleX = guiLeft + xSize / 2;
 		int titleY = guiTop + 30;
@@ -100,13 +100,13 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 				displayedTitleInfo.put(title, Pair.of(mouseOver != 0, Pair.of(titleX, titleY)));
 			}
 			int textColor = title != null ? title.canPlayerUse(mc.thePlayer) ? mouseOver != 0 ? 16777120 : 16777215 : mouseOver != 0 ? 12303291 : 7829367 : 7829367;
-			this.drawCenteredString(name, titleX, titleY, textColor);
+			drawCenteredString(name, titleX, titleY, textColor);
 			titleY += yIncrement;
 		}
 		displayedColorBoxes.clear();
 		if (selectedTitle != null) {
 			String title = selectedColor + selectedTitle.getDisplayName(mc.thePlayer);
-			this.drawCenteredString(title, guiLeft + xSize / 2, guiTop + 185, 16777215);
+			drawCenteredString(title, guiLeft + xSize / 2, guiTop + 185, 16777215);
 			ArrayList<EnumChatFormatting> colorCodes = new ArrayList<>();
 			for (EnumChatFormatting ecf : EnumChatFormatting.values()) {
 				if (ecf.isColor()) {
@@ -121,7 +121,7 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 				GL11.glColor4f(rgb[0], rgb[1], rgb[2], 1.0f);
 				boolean mouseOver = i >= colorX && i < colorX + colorBoxWidth && j >= colorY && j < colorY + colorBoxWidth;
 				GL11.glDisable(3553);
-				this.drawTexturedModalRect(colorX, colorY + (mouseOver ? -1 : 0), 0, 0, colorBoxWidth, colorBoxWidth);
+				drawTexturedModalRect(colorX, colorY + (mouseOver ? -1 : 0), 0, 0, colorBoxWidth, colorBoxWidth);
 				GL11.glEnable(3553);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				displayedColorBoxes.put(code, Pair.of(colorX, colorY));

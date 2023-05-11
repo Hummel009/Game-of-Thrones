@@ -44,7 +44,7 @@ public abstract class GOTStructureSothoryosHouse extends GOTStructureBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		this.setOriginAndRotation(world, i, j, k, rotation, getOffset());
+		setOriginAndRotation(world, i, j, k, rotation, getOffset());
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;

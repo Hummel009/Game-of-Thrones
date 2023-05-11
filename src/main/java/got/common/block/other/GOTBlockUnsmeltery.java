@@ -23,7 +23,7 @@ public class GOTBlockUnsmeltery extends GOTBlockForgeBase {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(IBlockAccess world, int i, int j, int k, int side) {
-		return this.getIcon(side, world.getBlockMetadata(i, j, k));
+		return getIcon(side, world.getBlockMetadata(i, j, k));
 	}
 
 	@SideOnly(Side.CLIENT)

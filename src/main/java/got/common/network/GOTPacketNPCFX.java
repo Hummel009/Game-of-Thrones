@@ -35,7 +35,7 @@ public class GOTPacketNPCFX implements IMessage {
 	}
 
 	public enum FXType {
-		HEARTS, EATING, SMOKE;
+		HEARTS, EATING, SMOKE
 
 	}
 

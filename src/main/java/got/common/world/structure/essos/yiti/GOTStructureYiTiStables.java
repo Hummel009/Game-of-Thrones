@@ -26,7 +26,7 @@ public class GOTStructureYiTiStables extends GOTStructureYiTiBase {
 		int j1;
 		int k12;
 		int i2;
-		this.setOriginAndRotation(world, i, j, k, rotation, 1);
+		setOriginAndRotation(world, i, j, k, rotation, 1);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -199,8 +199,8 @@ public class GOTStructureYiTiStables extends GOTStructureYiTiBase {
 		spawnItemFrame(world, 0, 4, -1, 2, new ItemStack(Items.saddle));
 		spawnItemFrame(world, 0, 4, -1, 1, new ItemStack(Items.saddle));
 		spawnItemFrame(world, 0, 4, -1, 3, new ItemStack(Items.saddle));
-		this.placeChest(world, random, -3, 1, 4, 4, GOTChestContents.YI_TI);
-		this.placeChest(world, random, 3, 1, 4, 5, GOTChestContents.YI_TI);
+		placeChest(world, random, -3, 1, 4, 4, GOTChestContents.YI_TI);
+		placeChest(world, random, 3, 1, 4, 5, GOTChestContents.YI_TI);
 		setBlockAndMetadata(world, 0, 1, 4, plankStairBlock, 2);
 		setBlockAndMetadata(world, 0, 1, 5, Blocks.cauldron, 3);
 		setBlockAndMetadata(world, 0, 1, 6, Blocks.cauldron, 3);

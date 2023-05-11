@@ -42,12 +42,12 @@ public class GOTSlotMillstone extends Slot {
 	@Override
 	public void onCrafting(ItemStack itemstack, int i) {
 		itemsTaken += i;
-		this.onCrafting(itemstack);
+		onCrafting(itemstack);
 	}
 
 	@Override
 	public void onPickupFromSlot(EntityPlayer entityplayer, ItemStack itemstack) {
-		this.onCrafting(itemstack);
+		onCrafting(itemstack);
 		super.onPickupFromSlot(entityplayer, itemstack);
 	}
 }

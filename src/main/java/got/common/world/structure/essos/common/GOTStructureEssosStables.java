@@ -16,7 +16,7 @@ public class GOTStructureEssosStables extends GOTStructureEssosBase {
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 8);
+		setOriginAndRotation(world, i, j, k, rotation, 8);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -93,7 +93,7 @@ public class GOTStructureEssosStables extends GOTStructureEssosBase {
 		associateBlockMetaAlias("BEAM|4", woodBeamBlock, woodBeamMeta4);
 		associateBlockMetaAlias("BEAM|8", woodBeamBlock, woodBeamMeta8);
 		generateStrScan(world, random, 0, 1, 0);
-		this.placeChest(world, random, -3, 1, 6, GOTRegistry.chestBasket, 2, getChestContents());
+		placeChest(world, random, -3, 1, 6, GOTRegistry.chestBasket, 2, getChestContents());
 		int numnpc = 1 + random.nextInt(2);
 		for (int l = 0; l < numnpc; ++l) {
 			GOTEntityNPC npc = getMan(world);

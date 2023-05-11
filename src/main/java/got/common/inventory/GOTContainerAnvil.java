@@ -69,7 +69,7 @@ public class GOTContainerAnvil extends Container {
 			@Override
 			public void markDirty() {
 				super.markDirty();
-				GOTContainerAnvil.this.onCraftMatrixChanged(this);
+				onCraftMatrixChanged(this);
 			}
 		};
 		addSlotToContainer(new Slot(invInput, 0, 27, 58));

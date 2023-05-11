@@ -49,7 +49,7 @@ public class GOTStructureWildlingBarn extends GOTStructureWesterosBase {
 		int k122;
 		int k2;
 		int i22;
-		this.setOriginAndRotation(world, i, j, k, rotation, 1);
+		setOriginAndRotation(world, i, j, k, rotation, 1);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -387,8 +387,8 @@ public class GOTStructureWildlingBarn extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i13, j16, 14, Blocks.hay_block, 0);
 			}
 		}
-		this.placeChest(world, random, -4, 1, 13, 4, GOTChestContents.BEYOND_WALL);
-		this.placeChest(world, random, -4, 1, 14, 4, GOTChestContents.BEYOND_WALL);
+		placeChest(world, random, -4, 1, 13, 4, GOTChestContents.BEYOND_WALL);
+		placeChest(world, random, -4, 1, 14, 4, GOTChestContents.BEYOND_WALL);
 		setBlockAndMetadata(world, 4, 1, 13, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, 4, 1, 14, GOTRegistry.tableWildling, 0);
 		setBlockAndMetadata(world, -2, 3, 1, Blocks.torch, 3);

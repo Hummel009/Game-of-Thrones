@@ -304,7 +304,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 
 	@Override
 	public BiomeGenBase[] loadBlockGeneratorData(BiomeGenBase[] biomes, int i, int k, int xSize, int zSize) {
-		return this.getBiomeGenAt(biomes, i, k, xSize, zSize, true);
+		return getBiomeGenAt(biomes, i, k, xSize, zSize, true);
 	}
 
 	public void setupGenLayers() {

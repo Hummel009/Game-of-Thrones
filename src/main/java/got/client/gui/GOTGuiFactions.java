@@ -230,7 +230,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 			mc.getTextureManager().bindTexture(factionsTexture);
 		}
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		this.drawTexturedModalRect(guiLeft, guiTop + pageY, 0, 0, pageWidth, pageHeight);
+		drawTexturedModalRect(guiLeft, guiTop + pageY, 0, 0, pageWidth, pageHeight);
 		if (currentRegion != null && currentDimension.dimensionRegions.size() > 1) {
 			buttonRegions.displayString = currentRegion.getRegionName();
 			buttonRegions.enabled = true;
@@ -246,7 +246,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 			int y = guiTop;
 			GOTTickHandlerClient.renderAlignmentBar(alignment, isOtherPlayer, currentFaction, x, y, true, false, true, true);
 			String s = currentFaction.factionSubtitle();
-			this.drawCenteredString(s, x, y += fontRendererObj.FONT_HEIGHT + 22, 16777215);
+			drawCenteredString(s, x, y += fontRendererObj.FONT_HEIGHT + 22, 16777215);
 			if (!useFullPageTexture()) {
 				if (currentFaction.factionMapInfo != null) {
 					GOTMapRegion mapInfo = currentFaction.factionMapInfo;
@@ -274,9 +274,9 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 				mc.getTextureManager().bindTexture(factionsTexture);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				if (currentFaction.approvesWarCrimes) {
-					this.drawTexturedModalRect(wcX, wcY, 33, 142, wcWidth, wcWidth);
+					drawTexturedModalRect(wcX, wcY, 33, 142, wcWidth, wcWidth);
 				} else {
-					this.drawTexturedModalRect(wcX, wcY, 41, 142, wcWidth, wcWidth);
+					drawTexturedModalRect(wcX, wcY, 41, 142, wcWidth, wcWidth);
 				}
 				if (i >= wcX && i < wcX + wcWidth && j >= wcY && j < wcY + wcWidth) {
 					mouseOverWarCrimes = true;
@@ -410,9 +410,9 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 						displayLines.add("");
 						GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 						mc.getTextureManager().bindTexture(factionsTexture);
-						this.drawTexturedModalRect(guiLeft + pageWidth / 2 - 97, guiTop + pageY + 56, 0, 240, 194, 16);
+						drawTexturedModalRect(guiLeft + pageWidth / 2 - 97, guiTop + pageY + 56, 0, 240, 194, 16);
 						float cdFrac = (float) clientPD.getPledgeBreakCooldown() / (float) clientPD.getPledgeBreakCooldownStart();
-						this.drawTexturedModalRect(guiLeft + pageWidth / 2 - 75, guiTop + pageY + 60, 22, 232, MathHelper.ceiling_float_int(cdFrac * 150.0f), 8);
+						drawTexturedModalRect(guiLeft + pageWidth / 2 - 75, guiTop + pageY + 60, 22, 232, MathHelper.ceiling_float_int(cdFrac * 150.0f), 8);
 					}
 				} else if (isUnpledging) {
 					String desc5 = StatCollector.translateToLocalFormatted("got.gui.factions.unpledgeDesc1", currentFaction.factionName());
@@ -430,7 +430,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		if (hasScrollBar()) {
 			mc.getTextureManager().bindTexture(factionsTexture);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-			this.drawTexturedModalRect(guiLeft + scrollBarX, guiTop + scrollBarY, 0, 128, scrollBarWidth, scrollBarHeight);
+			drawTexturedModalRect(guiLeft + scrollBarX, guiTop + scrollBarY, 0, 128, scrollBarWidth, scrollBarHeight);
 			int factions = currentFactionList.size();
 			for (int index = 0; index < factions; ++index) {
 				GOTFaction faction = currentFactionList.get(index);
@@ -459,7 +459,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			if (canScroll()) {
 				int scroll = (int) (currentScroll * (scrollBarWidth - scrollBarBorder * 2 - scrollWidgetWidth));
-				this.drawTexturedModalRect(guiLeft + scrollBarX + scrollBarBorder + scroll, guiTop + scrollBarY + scrollBarBorder, 0, 142, scrollWidgetWidth, scrollWidgetHeight);
+				drawTexturedModalRect(guiLeft + scrollBarX + scrollBarBorder + scroll, guiTop + scrollBarY + scrollBarBorder, 0, 142, scrollWidgetWidth, scrollWidgetHeight);
 			}
 		}
 		super.drawScreen(i, j, f);

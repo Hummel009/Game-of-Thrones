@@ -183,7 +183,7 @@ public class GOTVec3d {
 	}
 
 	public GOTVec3d subtract(GOTVec3d vec) {
-		return this.subtract(vec.xCoord, vec.yCoord, vec.zCoord);
+		return subtract(vec.xCoord, vec.yCoord, vec.zCoord);
 	}
 
 	public GOTVec3d subtractReverse(GOTVec3d vec) {

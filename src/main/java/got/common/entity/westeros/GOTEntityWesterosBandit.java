@@ -49,7 +49,7 @@ public class GOTEntityWesterosBandit extends GOTEntityHumanBase implements IBand
 		tasks.addTask(6, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.05f));
 		tasks.addTask(7, new EntityAIWatchClosest(this, EntityLiving.class, 8.0f, 0.02f));
 		tasks.addTask(8, new EntityAILookIdle(this));
-		this.addTargetTasks(true, GOTEntityAINearestAttackableTargetBandit.class);
+		addTargetTasks(true, GOTEntityAINearestAttackableTargetBandit.class);
 		isImmuneToFrost = true;
 	}
 

@@ -380,12 +380,12 @@ public class GOTConquestGrid {
 	}
 
 	public enum ConquestEffective {
-		EFFECTIVE, ALLY_BOOST, NO_EFFECT;
+		EFFECTIVE, ALLY_BOOST, NO_EFFECT
 
 	}
 
 	public enum ConquestViewable {
-		UNPLEDGED, CAN_VIEW, NEED_RANK;
+		UNPLEDGED, CAN_VIEW, NEED_RANK
 
 	}
 

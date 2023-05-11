@@ -23,7 +23,7 @@ public class GOTStructureGiftLodge extends GOTStructureGiftBase {
 		int j12;
 		int i2;
 		int j13;
-		this.setOriginAndRotation(world, i, j, k, rotation, 5);
+		setOriginAndRotation(world, i, j, k, rotation, 5);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -158,16 +158,16 @@ public class GOTStructureGiftLodge extends GOTStructureGiftBase {
 		setBlockAndMetadata(world, -3, 1, -3, plankBlock, plankMeta);
 		placePlate(world, random, -3, 2, -3, plateBlock, GOTFoods.WESTEROS);
 		setBlockAndMetadata(world, -4, 1, -2, plankBlock, plankMeta);
-		this.placeMug(world, random, -4, 2, -2, 3, GOTFoods.WESTEROS_DRINK);
-		this.placeChest(world, random, -4, 1, -1, 4, GOTChestContents.GIFT);
+		placeMug(world, random, -4, 2, -2, 3, GOTFoods.WESTEROS_DRINK);
+		placeChest(world, random, -4, 1, -1, 4, GOTChestContents.GIFT);
 		setBlockAndMetadata(world, -4, 1, 0, Blocks.crafting_table, 0);
-		this.placeChest(world, random, -4, 1, 1, 4, GOTChestContents.GIFT);
+		placeChest(world, random, -4, 1, 1, 4, GOTChestContents.GIFT);
 		setBlockAndMetadata(world, -4, 1, 2, plankBlock, plankMeta);
-		this.placeBarrel(world, random, -4, 2, 2, 4, GOTFoods.WESTEROS_DRINK);
+		placeBarrel(world, random, -4, 2, 2, 4, GOTFoods.WESTEROS_DRINK);
 		setBlockAndMetadata(world, -3, 1, 3, plankBlock, plankMeta);
-		this.placeBarrel(world, random, -3, 2, 3, 2, GOTFoods.WESTEROS_DRINK);
+		placeBarrel(world, random, -3, 2, 3, 2, GOTFoods.WESTEROS_DRINK);
 		setBlockAndMetadata(world, -2, 1, 3, plankBlock, plankMeta);
-		this.placeMug(world, random, -2, 2, 3, 0, GOTFoods.WESTEROS_DRINK);
+		placeMug(world, random, -2, 2, 3, 0, GOTFoods.WESTEROS_DRINK);
 		int[] k15 = {-3, 3};
 		k12 = k15.length;
 		for (i2 = 0; i2 < k12; ++i2) {
@@ -235,7 +235,7 @@ public class GOTStructureGiftLodge extends GOTStructureGiftBase {
 		setBlockAndMetadata(world, 0, -2, 3, tableBlock, 0);
 		for (int i1 : new int[]{-1, 1}) {
 			int amount = 2 + random.nextInt(5);
-			this.placeChest(world, random, i1, -2, 3, 2, GOTChestContents.GIFT, amount);
+			placeChest(world, random, i1, -2, 3, 2, GOTChestContents.GIFT, amount);
 		}
 		GOTEntityGiftMan male = new GOTEntityGiftMan(world);
 		male.familyInfo.setMale(true);

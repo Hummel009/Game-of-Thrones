@@ -69,7 +69,7 @@ public class GOTEntitySeagull extends GOTEntityBird {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		this.setBirdType(GOTEntityBird.BirdType.COMMON);
+		setBirdType(GOTEntityBird.BirdType.COMMON);
 		return data;
 	}
 }

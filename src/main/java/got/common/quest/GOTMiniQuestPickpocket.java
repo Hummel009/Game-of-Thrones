@@ -319,7 +319,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		@Override
 		public Q createQuest(GOTEntityNPC npc, Random rand) {
 			GOTMiniQuestPickpocket quest = super.createQuest(npc, rand);
-			quest.collectTarget = MathHelper.getRandomIntegerInRange(rand, this.minTarget, this.maxTarget);
+			quest.collectTarget = MathHelper.getRandomIntegerInRange(rand, minTarget, maxTarget);
 			return (Q) quest;
 		}
 
@@ -329,8 +329,8 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		}
 
 		public QFPickpocket<Q> setPickpocketNumber(int min, int max) {
-			this.minTarget = min;
-			this.maxTarget = max;
+			minTarget = min;
+			maxTarget = max;
 			return this;
 		}
 	}

@@ -82,7 +82,7 @@ public class GOTGuiLanguages extends GOTGuiMenuWBBase {
 		int y = guiTop + 40;
 		for (Object element : fontRendererObj.listFormattedStringToWidth(s2, 220)) {
 			s2 = (String) element;
-			this.drawCenteredString(s2, x, y, 16777215);
+			drawCenteredString(s2, x, y, 16777215);
 			y += fontRendererObj.FONT_HEIGHT;
 		}
 		super.drawScreen(i, j, f);

@@ -31,7 +31,7 @@ public class GOTBlockSapling6 extends GOTBlockSaplingBase {
 			case 2:
 				for (i1 = 0; i1 >= -1; --i1) {
 					for (k1 = 0; k1 >= -1; --k1) {
-						if (!this.isSameSapling(world, i + i1, j, k + k1, meta) || !this.isSameSapling(world, i + i1 + 1, j, k + k1, meta) || !this.isSameSapling(world, i + i1, j, k + k1 + 1, meta) || !this.isSameSapling(world, i + i1 + 1, j, k + k1 + 1, meta)) {
+						if (!isSameSapling(world, i + i1, j, k + k1, meta) || !isSameSapling(world, i + i1 + 1, j, k + k1, meta) || !isSameSapling(world, i + i1, j, k + k1 + 1, meta) || !isSameSapling(world, i + i1 + 1, j, k + k1 + 1, meta)) {
 							continue;
 						}
 						treeGen = GOTTreeType.CYPRESS_LARGE.create(true, random);
@@ -53,7 +53,7 @@ public class GOTBlockSapling6 extends GOTBlockSaplingBase {
 			case 3:
 				for (i1 = 0; i1 >= -1; --i1) {
 					for (k1 = 0; k1 >= -1; --k1) {
-						if (!this.isSameSapling(world, i + i1, j, k + k1, meta) || !this.isSameSapling(world, i + i1 + 1, j, k + k1, meta) || !this.isSameSapling(world, i + i1, j, k + k1 + 1, meta) || !this.isSameSapling(world, i + i1 + 1, j, k + k1 + 1, meta)) {
+						if (!isSameSapling(world, i + i1, j, k + k1, meta) || !isSameSapling(world, i + i1 + 1, j, k + k1, meta) || !isSameSapling(world, i + i1, j, k + k1 + 1, meta) || !isSameSapling(world, i + i1 + 1, j, k + k1 + 1, meta)) {
 							continue;
 						}
 						treeGen = GOTTreeType.OLIVE_LARGE.create(true, random);

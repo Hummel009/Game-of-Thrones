@@ -486,7 +486,7 @@ public abstract class GOTMiniQuest {
 	public void writeToNBT(NBTTagCompound nbt) {
 		NBTTagList itemTags;
 		NBTTagCompound itemData;
-		nbt.setString("QuestType", questToNameMapping.get(this.getClass()));
+		nbt.setString("QuestType", questToNameMapping.get(getClass()));
 		if (questGroup != null) {
 			nbt.setString("QuestGroup", questGroup.getBaseName());
 		}
@@ -561,29 +561,29 @@ public abstract class GOTMiniQuest {
 		public List<ItemStack> rewardItems;
 
 		public QuestFactoryBase(String name) {
-			this.questName = name;
+			questName = name;
 		}
 
 		public Q createQuest(GOTEntityNPC npc, Random rand) {
-			GOTMiniQuest quest = newQuestInstance(this.getQuestClass(), null);
+			GOTMiniQuest quest = newQuestInstance(getQuestClass(), null);
 			if (quest != null) {
-				quest.questGroup = this.getFactoryGroup();
-				String pathName = "miniquest/" + this.getFactoryGroup().getBaseName() + "/";
-				String pathNameBaseSpeech = "miniquest/" + this.getFactoryGroup().getBaseSpeechGroup().getBaseName() + "/";
-				String questPathName = pathName + this.questName + "_";
+				quest.questGroup = getFactoryGroup();
+				String pathName = "miniquest/" + getFactoryGroup().getBaseName() + "/";
+				String pathNameBaseSpeech = "miniquest/" + getFactoryGroup().getBaseSpeechGroup().getBaseName() + "/";
+				String questPathName = pathName + questName + "_";
 				quest.speechBankStart = questPathName + "start";
 				quest.speechBankProgress = questPathName + "progress";
 				quest.speechBankComplete = questPathName + "complete";
 				quest.speechBankTooMany = pathNameBaseSpeech + "_tooMany";
-				quest.isLegendary = this.isLegendary;
+				quest.isLegendary = isLegendary;
 				quest.quoteStart = GOTSpeech.getRandomSpeech(quest.speechBankStart);
 				quest.quoteComplete = GOTSpeech.getRandomSpeech(quest.speechBankComplete);
 				quest.setNPCInfo(npc);
-				quest.rewardFactor = this.rewardFactor;
-				quest.willHire = this.willHire;
-				quest.hiringAlignment = this.hiringAlignment;
-				if (this.rewardItems != null) {
-					quest.rewardItemTable.addAll(this.rewardItems);
+				quest.rewardFactor = rewardFactor;
+				quest.willHire = willHire;
+				quest.hiringAlignment = hiringAlignment;
+				if (rewardItems != null) {
+					quest.rewardItemTable.addAll(rewardItems);
 				}
 				return (Q) quest;
 			}
@@ -591,39 +591,39 @@ public abstract class GOTMiniQuest {
 		}
 
 		public GOTMiniQuestFactory getFactoryGroup() {
-			return this.questFactoryGroup;
+			return questFactoryGroup;
 		}
 
 		public void setFactoryGroup(GOTMiniQuestFactory factory) {
-			this.questFactoryGroup = factory;
+			questFactoryGroup = factory;
 		}
 
 		public abstract Class<Q> getQuestClass();
 
 		public QuestFactoryBase<Q> setHiring() {
-			this.willHire = true;
-			this.hiringAlignment = 100.0F;
+			willHire = true;
+			hiringAlignment = 100.0F;
 			return this;
 		}
 
 		public QuestFactoryBase<Q> setHiring(float f) {
-			this.willHire = true;
-			this.hiringAlignment = f;
+			willHire = true;
+			hiringAlignment = f;
 			return this;
 		}
 
 		public QuestFactoryBase<Q> setIsLegendary() {
-			this.isLegendary = true;
+			isLegendary = true;
 			return this;
 		}
 
 		public QuestFactoryBase<Q> setRewardFactor(float f) {
-			this.rewardFactor = f;
+			rewardFactor = f;
 			return this;
 		}
 
 		public QuestFactoryBase<Q> setRewardItems(ItemStack[] items) {
-			this.rewardItems = Arrays.asList(items);
+			rewardItems = Arrays.asList(items);
 			return this;
 		}
 	}

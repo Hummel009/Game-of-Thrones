@@ -46,7 +46,7 @@ public class GOTBlockSapling2 extends GOTBlockSaplingBase {
 			case 2:
 				for (int i12 = 0; i12 >= -1; --i12) {
 					for (k1 = 0; k1 >= -1; --k1) {
-						if (!this.isSameSapling(world, i + i12, j, k + k1, meta) || !this.isSameSapling(world, i + i12 + 1, j, k + k1, meta) || !this.isSameSapling(world, i + i12, j, k + k1 + 1, meta) || !this.isSameSapling(world, i + i12 + 1, j, k + k1 + 1, meta)) {
+						if (!isSameSapling(world, i + i12, j, k + k1, meta) || !isSameSapling(world, i + i12 + 1, j, k + k1, meta) || !isSameSapling(world, i + i12, j, k + k1 + 1, meta) || !isSameSapling(world, i + i12 + 1, j, k + k1 + 1, meta)) {
 							continue;
 						}
 						treeGen = GOTTreeType.HOLLY_LARGE.create(true, random);

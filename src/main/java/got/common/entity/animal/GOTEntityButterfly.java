@@ -103,7 +103,7 @@ public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreatu
 	}
 
 	public void setButterflyType(ButterflyType type) {
-		this.setButterflyType(type.ordinal());
+		setButterflyType(type.ordinal());
 	}
 
 	public void setButterflyType(int i) {
@@ -144,13 +144,13 @@ public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreatu
 		int k = MathHelper.floor_double(posZ);
 		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
 		if (biome instanceof GOTBiomeUlthosForest) {
-			this.setButterflyType(ButterflyType.ULTHOS);
+			setButterflyType(ButterflyType.ULTHOS);
 		} else if (biome instanceof GOTBiomeQohorForest || biome instanceof GOTBiomeVolantisForest) {
-			this.setButterflyType(ButterflyType.QOHOR);
+			setButterflyType(ButterflyType.QOHOR);
 		} else if (biome instanceof GOTBiomeSummerIslands) {
-			this.setButterflyType(ButterflyType.SOTHORYOS);
+			setButterflyType(ButterflyType.SOTHORYOS);
 		} else {
-			this.setButterflyType(ButterflyType.COMMON);
+			setButterflyType(ButterflyType.COMMON);
 		}
 		return data;
 	}
@@ -182,7 +182,7 @@ public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreatu
 	@Override
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
-		this.setButterflyType(nbt.getInteger("ButterflyType"));
+		setButterflyType(nbt.getInteger("ButterflyType"));
 		setButterflyStill(nbt.getBoolean("ButterflyStill"));
 	}
 

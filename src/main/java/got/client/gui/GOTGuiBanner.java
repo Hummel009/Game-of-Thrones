@@ -121,7 +121,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 				if (i >= x && i < x + 10 && j >= y && j < y + 10) {
 					mouseOverPermission = p;
 				}
-				this.drawTexturedModalRect(x, y, 200 + (getEnabled.apply(p) ? 0 : 20) + (mouseOverPermission == p ? 10 : 0), 160 + p.ordinal() * 10, 10, 10);
+				drawTexturedModalRect(x, y, 200 + (getEnabled.apply(p) ? 0 : 20) + (mouseOverPermission == p ? 10 : 0), 160 + p.ordinal() * 10, 10, 10);
 				x += 14;
 				if (p == GOTBannerProtection.Permission.FULL) {
 					x += 4;
@@ -151,7 +151,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		drawDefaultBackground();
 		mc.getTextureManager().bindTexture(bannerTexture);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		this.drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
+		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		String title = StatCollector.translateToLocal("got.gui.bannerEdit.title");
 		fontRendererObj.drawString(title, guiLeft + xSize / 2 - fontRendererObj.getStringWidth(title) / 2, guiTop + 6, 4210752);
 		if (theBanner.isPlayerSpecificProtection()) {
@@ -182,7 +182,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 					int permX = textBox.xPosition + textBox.width + permIconX;
 					int permY = textBox.yPosition + permIconY;
 					boolean mouseOver = i >= permX && i < permX + permIconWidth && j >= permY && j < permY + permIconWidth;
-					this.drawTexturedModalRect(permX, permY, 200 + (mouseOver ? permIconWidth : 0), 150, permIconWidth, permIconWidth);
+					drawTexturedModalRect(permX, permY, 200 + (mouseOver ? permIconWidth : 0), 150, permIconWidth, permIconWidth);
 					if (mouseOver) {
 						permissionsMouseoverIndex = index;
 						permissionsMouseoverY = textBox.yPosition;
@@ -192,10 +192,10 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 			if (hasScrollBar()) {
 				mc.getTextureManager().bindTexture(bannerTexture);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-				this.drawTexturedModalRect(guiLeft + scrollBarX, guiTop + scrollBarY, 200, 0, scrollBarWidth, scrollBarHeight);
+				drawTexturedModalRect(guiLeft + scrollBarX, guiTop + scrollBarY, 200, 0, scrollBarWidth, scrollBarHeight);
 				if (canScroll()) {
 					int scroll = (int) (currentScroll * (scrollBarHeight - scrollBarBorder * 2 - scrollWidgetHeight));
-					this.drawTexturedModalRect(guiLeft + scrollBarX + scrollBarBorder, guiTop + scrollBarY + scrollBarBorder + scroll, 212, 0, scrollWidgetWidth, scrollWidgetHeight);
+					drawTexturedModalRect(guiLeft + scrollBarX + scrollBarBorder, guiTop + scrollBarY + scrollBarBorder + scroll, 212, 0, scrollWidgetWidth, scrollWidgetHeight);
 				}
 			}
 		} else {

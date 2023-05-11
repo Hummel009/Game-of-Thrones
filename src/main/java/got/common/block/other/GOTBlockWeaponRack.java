@@ -32,7 +32,7 @@ public class GOTBlockWeaponRack extends BlockContainer {
 		ItemStack weaponItem;
 		GOTTileEntityWeaponRack rack = (GOTTileEntityWeaponRack) world.getTileEntity(i, j, k);
 		if (rack != null && (weaponItem = rack.getWeaponItem()) != null) {
-			this.dropBlockAsItem(world, i, j, k, weaponItem);
+			dropBlockAsItem(world, i, j, k, weaponItem);
 		}
 		super.breakBlock(world, i, j, k, block, meta);
 	}
@@ -117,7 +117,7 @@ public class GOTBlockWeaponRack extends BlockContainer {
 						entityplayer.setCurrentItemOrArmor(0, rackItem);
 						world.playSoundEffect(i + 0.5, j + 0.5, k + 0.5, "random.pop", 0.2f, ((world.rand.nextFloat() - world.rand.nextFloat()) * 0.7f + 1.0f) * 2.0f);
 					} else {
-						this.dropBlockAsItem(world, i, j, k, rackItem);
+						dropBlockAsItem(world, i, j, k, rackItem);
 					}
 					rack.setWeaponItem(null);
 				}
@@ -160,7 +160,7 @@ public class GOTBlockWeaponRack extends BlockContainer {
 	public void onNeighborBlockChange(World world, int i, int j, int k, Block block) {
 		if (!canBlockStay(world, i, j, k)) {
 			int meta = world.getBlockMetadata(i, j, k);
-			this.dropBlockAsItem(world, i, j, k, meta, 0);
+			dropBlockAsItem(world, i, j, k, meta, 0);
 			world.setBlockToAir(i, j, k);
 		}
 	}

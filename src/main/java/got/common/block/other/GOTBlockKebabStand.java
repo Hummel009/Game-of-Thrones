@@ -126,7 +126,7 @@ public class GOTBlockKebabStand extends BlockContainer {
 					ItemStack meat = stand.removeFirstMeat();
 					if (meat != null) {
 						if (!entityplayer.inventory.addItemStackToInventory(meat)) {
-							this.dropBlockAsItem(world, i, j, k, meat);
+							dropBlockAsItem(world, i, j, k, meat);
 						}
 						entityplayer.inventoryContainer.detectAndSendChanges();
 						world.playSoundEffect(i + 0.5, j + 0.5, k + 0.5, "random.pop", 0.5f, 0.5f + world.rand.nextFloat() * 0.5f);
@@ -146,7 +146,7 @@ public class GOTBlockKebabStand extends BlockContainer {
 		if (entityplayer.capabilities.isCreativeMode) {
 			world.setBlockMetadataWithNotify(i, j, k, meta |= 8, 4);
 		}
-		this.dropBlockAsItem(world, i, j, k, meta, 0);
+		dropBlockAsItem(world, i, j, k, meta, 0);
 		super.onBlockHarvested(world, i, j, k, meta, entityplayer);
 	}
 
@@ -183,7 +183,7 @@ public class GOTBlockKebabStand extends BlockContainer {
 	public void onNeighborBlockChange(World world, int i, int j, int k, Block block) {
 		if (!canBlockStay(world, i, j, k)) {
 			int meta = world.getBlockMetadata(i, j, k);
-			this.dropBlockAsItem(world, i, j, k, meta, 0);
+			dropBlockAsItem(world, i, j, k, meta, 0);
 			world.setBlockToAir(i, j, k);
 		}
 	}

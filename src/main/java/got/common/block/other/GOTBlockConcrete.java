@@ -14,7 +14,7 @@ public class GOTBlockConcrete extends Block {
 		setBlockName("concrete_" + this.color);
 		setCreativeTab(GOTCreativeTabs.tabBlock);
 		setHardness(1.5f);
-		this.setHarvestLevel("pickaxe", 0);
+		setHarvestLevel("pickaxe", 0);
 		setResistance(10.0f);
 		setBlockTextureName("got:concrete_" + this.color.getName());
 	}

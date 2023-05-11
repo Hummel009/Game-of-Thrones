@@ -110,7 +110,7 @@ public class GOTHandlerUnsmeltery extends FurnaceRecipeHandler {
 
 		public UnsmeltingPair(ItemStack ingred, ItemStack result) {
 			super(ingred, result);
-			lastCycle = GOTHandlerUnsmeltery.this.cycleticks / 48;
+			lastCycle = cycleticks / 48;
 			ingredient = ingred;
 		}
 
@@ -131,7 +131,7 @@ public class GOTHandlerUnsmeltery extends FurnaceRecipeHandler {
 
 		@Override
 		public PositionedStack getResult() {
-			return getCycledResult(GOTHandlerUnsmeltery.this.cycleticks / 48, super.getResult());
+			return getCycledResult(cycleticks / 48, super.getResult());
 		}
 	}
 }

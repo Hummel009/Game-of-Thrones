@@ -17,7 +17,7 @@ public class GOTStructureWesterosWatchtower extends GOTStructureWesterosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		this.setOriginAndRotation(world, i, j, k, rotation, 4);
+		setOriginAndRotation(world, i, j, k, rotation, 4);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -111,8 +111,8 @@ public class GOTStructureWesterosWatchtower extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 0, 10, 2, Blocks.trapdoor, 9);
 		for (int k5 = -2; k5 <= 2; ++k5) {
 			if (IntMath.mod(k5, 2) == 0) {
-				this.placeChest(world, random, -2, 1, k5, 4, getChestContents());
-				this.placeChest(world, random, 2, 1, k5, 5, getChestContents());
+				placeChest(world, random, -2, 1, k5, 4, getChestContents());
+				placeChest(world, random, 2, 1, k5, 5, getChestContents());
 			} else {
 				setBlockAndMetadata(world, -1, 1, k5, bedBlock, 3);
 				setBlockAndMetadata(world, -2, 1, k5, bedBlock, 11);
@@ -123,7 +123,7 @@ public class GOTStructureWesterosWatchtower extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, -2, 3, 0, Blocks.torch, 2);
 		setBlockAndMetadata(world, 2, 3, 0, Blocks.torch, 1);
 		setBlockAndMetadata(world, 0, 5, 0, GOTRegistry.chandelier, 1);
-		this.placeChest(world, random, -2, 7, -2, GOTRegistry.chestStone, 4, getChestContents());
+		placeChest(world, random, -2, 7, -2, GOTRegistry.chestStone, 4, getChestContents());
 		setBlockAndMetadata(world, -2, 7, 0, GOTRegistry.armorStand, 3);
 		setBlockAndMetadata(world, -2, 8, 0, GOTRegistry.armorStand, 7);
 		setBlockAndMetadata(world, -2, 7, 2, Blocks.anvil, 0);
@@ -134,9 +134,9 @@ public class GOTStructureWesterosWatchtower extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 2, 7, 0, Blocks.stone_slab, 8);
 		setBlockAndMetadata(world, 2, 7, 1, Blocks.stone_slab, 8);
 		setBlockAndMetadata(world, 2, 7, 2, Blocks.stone_slab, 8);
-		this.placeMug(world, random, 2, 8, 0, 1, GOTFoods.WESTEROS_DRINK);
+		placeMug(world, random, 2, 8, 0, 1, GOTFoods.WESTEROS_DRINK);
 		placePlateWithCertainty(world, random, 2, 8, 1, plateBlock, GOTFoods.WESTEROS);
-		this.placeBarrel(world, random, 2, 8, 2, 5, GOTFoods.WESTEROS_DRINK);
+		placeBarrel(world, random, 2, 8, 2, 5, GOTFoods.WESTEROS_DRINK);
 		setBlockAndMetadata(world, 0, 9, 0, GOTRegistry.chandelier, 1);
 		for (int i3 = -4; i3 <= 4; ++i3) {
 			for (int k3 = -4; k3 <= 4; ++k3) {
@@ -158,7 +158,7 @@ public class GOTStructureWesterosWatchtower extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 0, 11, 0, pillarBlock, pillarMeta);
 		setBlockAndMetadata(world, 0, 12, 0, pillarBlock, pillarMeta);
 		setBlockAndMetadata(world, 0, 13, 0, brickCarved, brickCarvedMeta);
-		this.placeBanner(world, 0, 14, 0, bannerType, 2);
+		placeBanner(world, 0, 14, 0, bannerType, 2);
 		setBlockAndMetadata(world, 0, 11, -3, Blocks.torch, 3);
 		setBlockAndMetadata(world, 0, 11, 3, Blocks.torch, 4);
 		setBlockAndMetadata(world, -3, 11, 0, Blocks.torch, 2);

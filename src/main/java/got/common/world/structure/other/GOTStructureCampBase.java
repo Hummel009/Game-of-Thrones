@@ -38,7 +38,7 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 		if (restrictions && (!GOTStructureBase.isSurfaceStatic(world, i, j - 1, k) || world.getBlock(i, j, k).getMaterial().isLiquid())) {
 			return false;
 		}
-		this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		setOriginAndRotation(world, i, j, k, rotation, 0);
 		setupRandomBlocks(random);
 		int groundRange = 12;
 		for (int i12 = -groundRange; i12 <= groundRange; ++i12) {
@@ -200,7 +200,7 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 				setBlockAndMetadata(world, scarecrowX, highestFarmHeight + 1, scarecrowZ, fenceBlock, fenceMeta);
 				if (hasDoubleTorches) {
 					setBlockAndMetadata(world, scarecrowX, highestFarmHeight + 2, scarecrowZ, Blocks.wool, 12);
-					this.placeSkull(world, random, scarecrowX, highestFarmHeight + 3, scarecrowZ);
+					placeSkull(world, random, scarecrowX, highestFarmHeight + 3, scarecrowZ);
 				} else {
 					setBlockAndMetadata(world, scarecrowX, highestFarmHeight + 2, scarecrowZ, Blocks.hay_block, 0);
 					setBlockAndMetadata(world, scarecrowX, highestFarmHeight + 3, scarecrowZ, Blocks.pumpkin, random.nextInt(4));
@@ -221,7 +221,7 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 					continue;
 				}
 				setBlockAndMetadata(world, i16, j1, k1, fenceBlock, fenceMeta);
-				this.placeSkull(world, random, i16, j1 + 1, k1);
+				placeSkull(world, random, i16, j1 + 1, k1);
 			}
 			for (l = 0; l < 6; ++l) {
 				range = 12;
@@ -231,10 +231,10 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 				if (i16 * i16 + k1 * k1 <= 20 || !isSurface(world, i16, j1 - 1, k1) || !isReplaceable(world, i16, j1, k1) || !isAir(world, i16, j1 + 1, k1)) {
 					continue;
 				}
-				this.placeSkull(world, random, i16, j1, k1);
+				placeSkull(world, random, i16, j1, k1);
 			}
 		}
-		this.placeNPCRespawner(world, random, 0, 0, 0);
+		placeNPCRespawner(world, random, 0, 0, 0);
 		return true;
 	}
 

@@ -31,7 +31,7 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 		int step;
 		int k13;
 		int k14;
-		this.setOriginAndRotation(world, i, j, k, rotation, 6);
+		setOriginAndRotation(world, i, j, k, rotation, 6);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -271,13 +271,13 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 		setBlockAndMetadata(world, -3, 1, -3, plankStairBlock, 2);
 		setBlockAndMetadata(world, -3, 1, -2, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, -3, 1, -1, GOTRegistry.tableIbben, 0);
-		this.placeChest(world, random, -3, 1, 0, 4, GOTChestContents.IBBEN);
+		placeChest(world, random, -3, 1, 0, 4, GOTChestContents.IBBEN);
 		setBlockAndMetadata(world, 2, 1, -4, plankStairBlock, 7);
 		setBlockAndMetadata(world, 2, 1, -3, plankSlabBlock, plankSlabMeta | 8);
 		setBlockAndMetadata(world, 2, 1, -2, plankStairBlock, 6);
 		setBlockAndMetadata(world, 2, 1, -1, Blocks.cauldron, 3);
-		this.placeBarrel(world, random, 2, 2, -4, 5, GOTFoods.WILD_DRINK);
-		this.placeMug(world, random, 2, 2, -3, 1, GOTFoods.WILD_DRINK);
+		placeBarrel(world, random, 2, 2, -4, 5, GOTFoods.WILD_DRINK);
+		placeMug(world, random, 2, 2, -3, 1, GOTFoods.WILD_DRINK);
 		if (random.nextBoolean()) {
 			placePlateWithCertainty(world, random, 2, 2, -2, plateBlock, GOTFoods.WILD);
 		} else {
@@ -350,7 +350,7 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 				while (!isOpaque(world, i15, j110 - 1, k12) && getY(j110) >= 0) {
 					--j110;
 				}
-				this.placeChest(world, random, i15, j110, k12, 3, GOTChestContents.IBBEN);
+				placeChest(world, random, i15, j110, k12, 3, GOTChestContents.IBBEN);
 			}
 		}
 		GOTEntityIbbenMan male = new GOTEntityIbbenMan(world);

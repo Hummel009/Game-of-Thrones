@@ -143,7 +143,7 @@ public class GOTFactionBounties {
 	}
 
 	public PlayerData forPlayer(EntityPlayer entityplayer) {
-		return this.forPlayer(entityplayer.getUniqueID());
+		return forPlayer(entityplayer.getUniqueID());
 	}
 
 	public PlayerData forPlayer(UUID id) {

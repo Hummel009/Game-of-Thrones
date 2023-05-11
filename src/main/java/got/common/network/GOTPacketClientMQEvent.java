@@ -33,7 +33,7 @@ public class GOTPacketClientMQEvent implements IMessage {
 	}
 
 	public enum ClientMQEvent {
-		MAP, FACTIONS;
+		MAP, FACTIONS
 
 	}
 

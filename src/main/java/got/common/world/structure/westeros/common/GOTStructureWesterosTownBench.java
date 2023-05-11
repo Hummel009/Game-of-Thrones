@@ -12,7 +12,7 @@ public class GOTStructureWesterosTownBench extends GOTStructureWesterosBase {
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int i1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		setOriginAndRotation(world, i, j, k, rotation, 0);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			for (int i12 = -2; i12 <= 2; ++i12) {

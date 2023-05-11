@@ -16,7 +16,7 @@ public class GOTEntityLhazarWarlord extends GOTEntityLhazarWarrior implements GO
 	public GOTEntityLhazarWarlord(World world) {
 		super(world);
 		canBeMarried = false;
-		this.addTargetTasks(false);
+		addTargetTasks(false);
 	}
 
 	@Override

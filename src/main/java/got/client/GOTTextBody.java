@@ -18,7 +18,7 @@ public class GOTTextBody {
 	}
 
 	public void add(String s) {
-		this.add(s, defaultColor);
+		add(s, defaultColor);
 	}
 
 	public void add(String s, int c) {
@@ -26,7 +26,7 @@ public class GOTTextBody {
 	}
 
 	public void addLinebreak() {
-		this.add(LINEBREAK);
+		add(LINEBREAK);
 	}
 
 	public int getColor(int i) {

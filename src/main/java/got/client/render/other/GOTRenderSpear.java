@@ -34,7 +34,7 @@ public class GOTRenderSpear extends Render {
 		if (customRenderer != null) {
 			customRenderer.renderItem(IItemRenderer.ItemRenderType.EQUIPPED, itemstack, new Object[2]);
 		} else {
-			FMLLog.severe("Error rendering spear: no custom renderer for " + itemstack.toString());
+			FMLLog.severe("Error rendering spear: no custom renderer for " + itemstack);
 		}
 		GL11.glDisable(32826);
 		GL11.glPopMatrix();

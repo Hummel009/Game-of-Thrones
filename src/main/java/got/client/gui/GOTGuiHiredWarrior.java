@@ -51,7 +51,7 @@ public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
 				buttonList.clear();
 				updatePage = true;
 			} else {
-				this.sendActionPacket(button.id);
+				sendActionPacket(button.id);
 			}
 		}
 	}
@@ -171,7 +171,7 @@ public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
 			if (sliderGuardRange.dragging) {
 				int i = sliderGuardRange.getSliderValue();
 				theNPC.hiredNPCInfo.setGuardRange(i);
-				this.sendActionPacket(sliderGuardRange.id, i);
+				sendActionPacket(sliderGuardRange.id, i);
 			}
 			squadronNameField.updateCursorCounter();
 		}

@@ -20,7 +20,7 @@ public class GOTStructureLhazarSmithy extends GOTStructureLhazarBase {
 		int i1;
 		int k1;
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 6);
+		setOriginAndRotation(world, i, j, k, rotation, 6);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -81,12 +81,12 @@ public class GOTStructureLhazarSmithy extends GOTStructureLhazarBase {
 		generateStrScan(world, random, 0, 0, 0);
 		setBlockAndMetadata(world, 0, 1, 3, bedBlock, 0);
 		setBlockAndMetadata(world, 0, 1, 4, bedBlock, 8);
-		this.placeChest(world, random, -4, 1, -2, GOTRegistry.chestBasket, 3, GOTChestContents.LHAZAR);
+		placeChest(world, random, -4, 1, -2, GOTRegistry.chestBasket, 3, GOTChestContents.LHAZAR);
 		placeFlowerPot(world, 2, 2, -4, getRandomFlower(world, random));
 		placeFlowerPot(world, -2, 2, 4, getRandomFlower(world, random));
 		placeFlowerPot(world, -4, 1, 1, new ItemStack(Blocks.cactus));
-		this.placeMug(world, random, 4, 2, -1, 1, GOTFoods.NOMAD_DRINK);
-		this.placeMug(world, random, 2, 2, 4, 0, GOTFoods.NOMAD_DRINK);
+		placeMug(world, random, 4, 2, -1, 1, GOTFoods.NOMAD_DRINK);
+		placeMug(world, random, 2, 2, 4, 0, GOTFoods.NOMAD_DRINK);
 		placePlate(world, random, 4, 2, 0, GOTRegistry.woodPlateBlock, GOTFoods.NOMAD);
 		placePlate(world, random, 4, 2, 1, GOTRegistry.woodPlateBlock, GOTFoods.NOMAD);
 		if (random.nextBoolean()) {

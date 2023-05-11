@@ -151,7 +151,7 @@ public class GOTEntityNPCRespawner extends Entity {
 	}
 
 	public boolean isEnemySpawnBlocked(GOTEntityNPC npc) {
-		return this.isEnemySpawnBlocked(npc.getFaction());
+		return isEnemySpawnBlocked(npc.getFaction());
 	}
 
 	public boolean isEnemySpawnBlocked(GOTFaction spawnFaction) {

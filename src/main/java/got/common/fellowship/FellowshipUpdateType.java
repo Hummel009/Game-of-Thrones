@@ -16,7 +16,7 @@ public interface FellowshipUpdateType {
 
 	List<UUID> getPlayersToCheckSharedWaypointsFrom(GOTFellowship var1);
 
-	public static class AddMember implements FellowshipUpdateType {
+	class AddMember implements FellowshipUpdateType {
 		public UUID memberID;
 
 		public AddMember(UUID member) {
@@ -34,7 +34,7 @@ public interface FellowshipUpdateType {
 		}
 	}
 
-	public static class ChangeIcon implements FellowshipUpdateType {
+	class ChangeIcon implements FellowshipUpdateType {
 		@Override
 		public IMessage createUpdatePacket(GOTPlayerData pd, GOTFellowship fs) {
 			return new GOTPacketFellowshipPartialUpdate.ChangeIcon(fs);
@@ -46,7 +46,7 @@ public interface FellowshipUpdateType {
 		}
 	}
 
-	public static class Full implements FellowshipUpdateType {
+	class Full implements FellowshipUpdateType {
 		@Override
 		public IMessage createUpdatePacket(GOTPlayerData pd, GOTFellowship fs) {
 			return new GOTPacketFellowship(pd, fs, false);
@@ -58,7 +58,7 @@ public interface FellowshipUpdateType {
 		}
 	}
 
-	public static class RemoveAdmin implements FellowshipUpdateType {
+	class RemoveAdmin implements FellowshipUpdateType {
 		public UUID adminID;
 
 		public RemoveAdmin(UUID admin) {
@@ -76,7 +76,7 @@ public interface FellowshipUpdateType {
 		}
 	}
 
-	public static class RemoveMember implements FellowshipUpdateType {
+	class RemoveMember implements FellowshipUpdateType {
 		public UUID memberID;
 
 		public RemoveMember(UUID member) {
@@ -94,7 +94,7 @@ public interface FellowshipUpdateType {
 		}
 	}
 
-	public static class Rename implements FellowshipUpdateType {
+	class Rename implements FellowshipUpdateType {
 		@Override
 		public IMessage createUpdatePacket(GOTPlayerData pd, GOTFellowship fs) {
 			return new GOTPacketFellowshipPartialUpdate.Rename(fs);
@@ -106,7 +106,7 @@ public interface FellowshipUpdateType {
 		}
 	}
 
-	public static class SetAdmin implements FellowshipUpdateType {
+	class SetAdmin implements FellowshipUpdateType {
 		public UUID adminID;
 
 		public SetAdmin(UUID admin) {
@@ -124,7 +124,7 @@ public interface FellowshipUpdateType {
 		}
 	}
 
-	public static class SetOwner implements FellowshipUpdateType {
+	class SetOwner implements FellowshipUpdateType {
 		public UUID ownerID;
 
 		public SetOwner(UUID owner) {
@@ -142,7 +142,7 @@ public interface FellowshipUpdateType {
 		}
 	}
 
-	public static class ToggleHiredFriendlyFire implements FellowshipUpdateType {
+	class ToggleHiredFriendlyFire implements FellowshipUpdateType {
 		@Override
 		public IMessage createUpdatePacket(GOTPlayerData pd, GOTFellowship fs) {
 			return new GOTPacketFellowshipPartialUpdate.ToggleHiredFriendlyFire(fs);
@@ -154,7 +154,7 @@ public interface FellowshipUpdateType {
 		}
 	}
 
-	public static class TogglePvp implements FellowshipUpdateType {
+	class TogglePvp implements FellowshipUpdateType {
 		@Override
 		public IMessage createUpdatePacket(GOTPlayerData pd, GOTFellowship fs) {
 			return new GOTPacketFellowshipPartialUpdate.TogglePvp(fs);
@@ -166,7 +166,7 @@ public interface FellowshipUpdateType {
 		}
 	}
 
-	public static class ToggleShowMapLocations implements FellowshipUpdateType {
+	class ToggleShowMapLocations implements FellowshipUpdateType {
 		@Override
 		public IMessage createUpdatePacket(GOTPlayerData pd, GOTFellowship fs) {
 			return new GOTPacketFellowshipPartialUpdate.ToggleShowMap(fs);
@@ -178,7 +178,7 @@ public interface FellowshipUpdateType {
 		}
 	}
 
-	public static class UpdatePlayerTitle implements FellowshipUpdateType {
+	class UpdatePlayerTitle implements FellowshipUpdateType {
 		public UUID playerID;
 		public GOTTitle.PlayerTitle playerTitle;
 

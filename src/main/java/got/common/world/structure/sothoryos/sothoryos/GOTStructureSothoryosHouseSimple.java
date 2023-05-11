@@ -17,7 +17,7 @@ public class GOTStructureSothoryosHouseSimple extends GOTStructureSothoryosHouse
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		this.setOriginAndRotation(world, i, j, k, rotation, 3);
+		setOriginAndRotation(world, i, j, k, rotation, 3);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -72,13 +72,13 @@ public class GOTStructureSothoryosHouseSimple extends GOTStructureSothoryosHouse
 		setBlockAndMetadata(world, -2, 1, 2, bedBlock, 8);
 		setBlockAndMetadata(world, 2, 1, 1, bedBlock, 0);
 		setBlockAndMetadata(world, 2, 1, 2, bedBlock, 8);
-		this.placeChest(world, random, 0, 1, 2, GOTRegistry.chestBasket, 2, GOTChestContents.SOTHORYOS);
+		placeChest(world, random, 0, 1, 2, GOTRegistry.chestBasket, 2, GOTChestContents.SOTHORYOS);
 		placeSothoryosFlowerPot(world, -2, 2, 0, random);
 		placeSothoryosFlowerPot(world, -1, 2, 2, random);
 		placeSothoryosFlowerPot(world, 0, 4, -2, random);
 		placeSothoryosFlowerPot(world, 0, 4, 2, random);
 		placePlateWithCertainty(world, random, 1, 2, 2, GOTRegistry.woodPlateBlock, GOTFoods.SOTHORYOS);
-		this.placeMug(world, random, 2, 2, 0, 3, GOTFoods.SOTHORYOS_DRINK);
+		placeMug(world, random, 2, 2, 0, 3, GOTFoods.SOTHORYOS_DRINK);
 		GOTEntitySothoryosMan male = new GOTEntitySothoryosMan(world);
 		male.familyInfo.setMale(true);
 		male.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));

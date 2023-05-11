@@ -24,7 +24,7 @@ public class GOTStructureIbbenStables extends GOTStructureIbbenBase {
 		int k1;
 		int i2;
 		int k2;
-		this.setOriginAndRotation(world, i, j, k, rotation, 1);
+		setOriginAndRotation(world, i, j, k, rotation, 1);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;

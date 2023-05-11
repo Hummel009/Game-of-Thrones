@@ -31,7 +31,7 @@ public class GOTStructureWildlingKeep extends GOTStructureWesterosBase {
 		int i13;
 		int k14;
 		int j13;
-		this.setOriginAndRotation(world, i, j, k, rotation, 1);
+		setOriginAndRotation(world, i, j, k, rotation, 1);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -270,13 +270,13 @@ public class GOTStructureWildlingKeep extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, -3, 1, -3, plankStairBlock, 2);
 		setBlockAndMetadata(world, -3, 1, -2, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, -3, 1, -1, GOTRegistry.tableWildling, 0);
-		this.placeChest(world, random, -3, 1, 0, 4, GOTChestContents.BEYOND_WALL);
+		placeChest(world, random, -3, 1, 0, 4, GOTChestContents.BEYOND_WALL);
 		setBlockAndMetadata(world, 2, 1, -4, plankStairBlock, 7);
 		setBlockAndMetadata(world, 2, 1, -3, plankSlabBlock, plankSlabMeta | 8);
 		setBlockAndMetadata(world, 2, 1, -2, plankStairBlock, 6);
 		setBlockAndMetadata(world, 2, 1, -1, Blocks.cauldron, 3);
-		this.placeBarrel(world, random, 2, 2, -4, 5, GOTFoods.WESTEROS_DRINK);
-		this.placeMug(world, random, 2, 2, -3, 1, GOTFoods.WESTEROS_DRINK);
+		placeBarrel(world, random, 2, 2, -4, 5, GOTFoods.WESTEROS_DRINK);
+		placeMug(world, random, 2, 2, -3, 1, GOTFoods.WESTEROS_DRINK);
 		if (random.nextBoolean()) {
 			placePlateWithCertainty(world, random, 2, 2, -2, plateBlock, GOTFoods.WILD);
 		} else {
@@ -339,7 +339,7 @@ public class GOTStructureWildlingKeep extends GOTStructureWesterosBase {
 				while (!isOpaque(world, i15, j110 - 1, k14) && getY(j110) >= 0) {
 					--j110;
 				}
-				this.placeChest(world, random, i15, j110, k14, 3, GOTChestContents.BEYOND_WALL);
+				placeChest(world, random, i15, j110, k14, 3, GOTChestContents.BEYOND_WALL);
 			}
 		}
 		for (int i17 = -1; i17 <= 0; ++i17) {

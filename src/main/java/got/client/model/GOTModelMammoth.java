@@ -273,7 +273,7 @@ public class GOTModelMammoth extends ModelBase {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		byte tusks = 0;
-		this.setRotationAngles(f, f1, f2, f3, f4, f5, tusks, false, false);
+		setRotationAngles(f, f1, f2, f3, f4, f5, tusks, false, false);
 		LeftTuskB.render(f5);
 		RightTuskB.render(f5);
 		LeftTuskC.render(f5);

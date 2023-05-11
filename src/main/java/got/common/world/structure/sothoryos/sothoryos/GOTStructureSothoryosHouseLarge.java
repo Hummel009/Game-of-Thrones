@@ -198,8 +198,8 @@ public class GOTStructureSothoryosHouseLarge extends GOTStructureSothoryosHouse 
 		}
 		setBlockAndMetadata(world, -3, 5, -1, woodBlock, woodMeta);
 		placeSothoryosFlowerPot(world, -3, 6, -1, random);
-		this.placeSkull(world, random, -2, 9, 0);
-		this.placeSkull(world, random, 1, 9, 0);
+		placeSkull(world, random, -2, 9, 0);
+		placeSkull(world, random, 1, 9, 0);
 		int[] k17 = {-1, 1};
 		k1 = k17.length;
 		for (j1 = 0; j1 < k1; ++j1) {
@@ -225,7 +225,7 @@ public class GOTStructureSothoryosHouseLarge extends GOTStructureSothoryosHouse 
 					placePlateWithCertainty(world, random, i12, 2, k1, plateBlock, GOTFoods.SOTHORYOS);
 					continue;
 				}
-				this.placeMug(world, random, i12, 2, k1, random.nextInt(4), GOTFoods.SOTHORYOS_DRINK);
+				placeMug(world, random, i12, 2, k1, random.nextInt(4), GOTFoods.SOTHORYOS_DRINK);
 			}
 		}
 		for (i12 = -5; i12 <= -4; ++i12) {
@@ -234,7 +234,7 @@ public class GOTStructureSothoryosHouseLarge extends GOTStructureSothoryosHouse 
 		setBlockAndMetadata(world, -3, 1, 3, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, -2, 1, 3, GOTRegistry.tableSothoryos, 0);
 		for (i12 = 1; i12 <= 2; ++i12) {
-			this.placeChest(world, random, i12, 1, 3, 2, GOTChestContents.SOTHORYOS);
+			placeChest(world, random, i12, 1, 3, 2, GOTChestContents.SOTHORYOS);
 		}
 		for (i12 = 3; i12 <= 4; ++i12) {
 			setBlockAndMetadata(world, i12, 1, 3, woodBlock, woodMeta);
@@ -242,9 +242,9 @@ public class GOTStructureSothoryosHouseLarge extends GOTStructureSothoryosHouse 
 		setBlockAndMetadata(world, -5, 1, -3, woodBlock, woodMeta);
 		setBlockAndMetadata(world, -5, 1, -2, plankBlock, plankMeta);
 		setBlockAndMetadata(world, -5, 1, -1, woodBlock, woodMeta);
-		this.placeBarrel(world, random, -5, 2, -3, 4, GOTFoods.SOTHORYOS_DRINK);
-		this.placeMug(world, random, -5, 2, -2, 3, GOTFoods.SOTHORYOS_DRINK);
-		this.placeMug(world, random, -5, 2, -1, 3, GOTFoods.SOTHORYOS_DRINK);
+		placeBarrel(world, random, -5, 2, -3, 4, GOTFoods.SOTHORYOS_DRINK);
+		placeMug(world, random, -5, 2, -2, 3, GOTFoods.SOTHORYOS_DRINK);
+		placeMug(world, random, -5, 2, -1, 3, GOTFoods.SOTHORYOS_DRINK);
 		setBlockAndMetadata(world, 4, 1, -3, woodBlock, woodMeta);
 		setBlockAndMetadata(world, 4, 1, -2, plankBlock, plankMeta);
 		setBlockAndMetadata(world, 4, 1, -1, woodBlock, woodMeta);

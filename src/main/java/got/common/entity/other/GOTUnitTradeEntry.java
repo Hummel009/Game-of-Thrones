@@ -155,7 +155,7 @@ public class GOTUnitTradeEntry {
 	}
 
 	public GOTUnitTradeEntry setMountArmor(Item item) {
-		return this.setMountArmor(item, 1.0f);
+		return setMountArmor(item, 1.0f);
 	}
 
 	public GOTUnitTradeEntry setMountArmor(Item item, float chance) {

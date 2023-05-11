@@ -20,7 +20,7 @@ public class GOTStructureJogosChiefTent extends GOTStructureJogosBase {
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 9);
+		setOriginAndRotation(world, i, j, k, rotation, 9);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -77,12 +77,12 @@ public class GOTStructureJogosChiefTent extends GOTStructureJogosBase {
 		setBlockAndMetadata(world, 5, 1, 5, bedBlock, 8);
 		setBlockAndMetadata(world, 6, 1, 4, bedBlock, 0);
 		setBlockAndMetadata(world, 6, 1, 5, bedBlock, 8);
-		this.placeChest(world, random, -11, 1, 0, GOTRegistry.chestBasket, 4, GOTChestContents.JOGOS);
-		this.placeChest(world, random, 11, 1, 0, GOTRegistry.chestBasket, 5, GOTChestContents.JOGOS);
-		this.placeMug(world, random, -4, 2, -5, 2, GOTFoods.NOMAD_DRINK);
+		placeChest(world, random, -11, 1, 0, GOTRegistry.chestBasket, 4, GOTChestContents.JOGOS);
+		placeChest(world, random, 11, 1, 0, GOTRegistry.chestBasket, 5, GOTChestContents.JOGOS);
+		placeMug(world, random, -4, 2, -5, 2, GOTFoods.NOMAD_DRINK);
 		placePlateWithCertainty(world, random, -6, 2, -5, GOTRegistry.ceramicPlateBlock, GOTFoods.NOMAD);
 		placePlateWithCertainty(world, random, 6, 2, -5, GOTRegistry.ceramicPlateBlock, GOTFoods.NOMAD);
-		this.placeMug(world, random, 4, 2, -5, 2, GOTFoods.NOMAD_DRINK);
+		placeMug(world, random, 4, 2, -5, 2, GOTFoods.NOMAD_DRINK);
 		placeWallBanner(world, 0, 3, 7, GOTItemBanner.BannerType.JOGOS, 2);
 		placeWallBanner(world, -5, 4, 6, GOTItemBanner.BannerType.JOGOS, 2);
 		placeWallBanner(world, 5, 4, 6, GOTItemBanner.BannerType.JOGOS, 2);

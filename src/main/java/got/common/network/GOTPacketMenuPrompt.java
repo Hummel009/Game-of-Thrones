@@ -28,7 +28,7 @@ public class GOTPacketMenuPrompt implements IMessage {
 	}
 
 	public enum Type {
-		MENU;
+		MENU
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketMenuPrompt, IMessage> {

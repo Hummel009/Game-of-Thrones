@@ -32,7 +32,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int j1;
 		int i1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 3);
+		setOriginAndRotation(world, i, j, k, rotation, 3);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;

@@ -425,7 +425,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 			public boolean isEntityApplicable(Entity entity) {
 				if (entity.isEntityAlive() && entity instanceof GOTEntityNPC) {
 					GOTEntityNPC npc = (GOTEntityNPC) entity;
-					return npc.isInvasionSpawned() && npc.getInvasionID().equals(GOTEntityInvasionSpawner.this.getInvasionID());
+					return npc.isInvasionSpawned() && npc.getInvasionID().equals(getInvasionID());
 				}
 				return false;
 			}
@@ -438,11 +438,11 @@ public class GOTEntityInvasionSpawner extends Entity {
 	}
 
 	public void startInvasion() {
-		this.startInvasion(null);
+		startInvasion(null);
 	}
 
 	public void startInvasion(EntityPlayer announcePlayer) {
-		this.startInvasion(announcePlayer, -1);
+		startInvasion(announcePlayer, -1);
 	}
 
 	public void startInvasion(EntityPlayer announcePlayer, int size) {

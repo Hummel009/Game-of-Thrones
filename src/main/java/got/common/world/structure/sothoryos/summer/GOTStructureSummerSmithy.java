@@ -17,7 +17,7 @@ public class GOTStructureSummerSmithy extends GOTStructureSummerBase {
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 5);
+		setOriginAndRotation(world, i, j, k, rotation, 5);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -79,11 +79,11 @@ public class GOTStructureSummerSmithy extends GOTStructureSummerBase {
 		} else {
 			placeArmorStand(world, 0, 1, 3, 0, new ItemStack[]{null, new ItemStack(GOTRegistry.summerChestplate), null, null});
 		}
-		this.placeChest(world, random, 5, 1, -2, GOTRegistry.chestBasket, 5, GOTChestContents.SUMMER);
-		this.placeChest(world, random, -7, 1, 3, GOTRegistry.chestBasket, 2, GOTChestContents.SUMMER);
-		this.placeBarrel(world, random, -3, 2, -1, 5, GOTFoods.SOTHORYOS_DRINK);
-		this.placeMug(world, random, -3, 2, 0, 2, GOTFoods.SOTHORYOS_DRINK);
-		this.placeMug(world, random, -9, 2, -2, 3, GOTFoods.SOTHORYOS_DRINK);
+		placeChest(world, random, 5, 1, -2, GOTRegistry.chestBasket, 5, GOTChestContents.SUMMER);
+		placeChest(world, random, -7, 1, 3, GOTRegistry.chestBasket, 2, GOTChestContents.SUMMER);
+		placeBarrel(world, random, -3, 2, -1, 5, GOTFoods.SOTHORYOS_DRINK);
+		placeMug(world, random, -3, 2, 0, 2, GOTFoods.SOTHORYOS_DRINK);
+		placeMug(world, random, -9, 2, -2, 3, GOTFoods.SOTHORYOS_DRINK);
 		placePlate(world, random, -5, 2, 3, GOTRegistry.ceramicPlateBlock, GOTFoods.SOTHORYOS);
 		placePlate(world, random, -3, 2, 3, GOTRegistry.ceramicPlateBlock, GOTFoods.SOTHORYOS);
 		placeFlowerPot(world, -4, 2, 3, getRandomFlower(world, random));

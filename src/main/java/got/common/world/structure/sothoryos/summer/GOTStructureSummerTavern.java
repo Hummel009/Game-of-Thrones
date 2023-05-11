@@ -27,7 +27,7 @@ public class GOTStructureSummerTavern extends GOTStructureSummerBase {
 		int j12;
 		int j1;
 		int i1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 7, -3);
+		setOriginAndRotation(world, i, j, k, rotation, 7, -3);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -124,15 +124,15 @@ public class GOTStructureSummerTavern extends GOTStructureSummerBase {
 			placeFoodOrDrink(world, random, -12, 2, -2);
 			placeFoodOrDrink(world, random, -12, 2, 1);
 			placeFoodOrDrink(world, random, -12, 2, 2);
-			this.placeBarrel(world, random, -12, 2, 3, 4, GOTFoods.SOTHORYOS_DRINK);
-			this.placeBarrel(world, random, -11, 2, 4, 2, GOTFoods.SOTHORYOS_DRINK);
+			placeBarrel(world, random, -12, 2, 3, 4, GOTFoods.SOTHORYOS_DRINK);
+			placeBarrel(world, random, -11, 2, 4, 2, GOTFoods.SOTHORYOS_DRINK);
 			placeKebabStand(world, random, -10, 2, -4, GOTRegistry.kebabStand, 3);
 			setBlockAndMetadata(world, 11, 1, -3, bedBlock, 2);
 			setBlockAndMetadata(world, 11, 1, -4, bedBlock, 10);
 			setBlockAndMetadata(world, 11, 1, 3, bedBlock, 0);
 			setBlockAndMetadata(world, 11, 1, 4, bedBlock, 8);
-			this.placeChest(world, random, 12, 1, -3, GOTRegistry.chestBasket, 3, GOTChestContents.SUMMER);
-			this.placeChest(world, random, 12, 1, 3, GOTRegistry.chestBasket, 2, GOTChestContents.SUMMER);
+			placeChest(world, random, 12, 1, -3, GOTRegistry.chestBasket, 3, GOTChestContents.SUMMER);
+			placeChest(world, random, 12, 1, 3, GOTRegistry.chestBasket, 2, GOTChestContents.SUMMER);
 			placeFlowerPot(world, 12, 2, -1, getRandomFlower(world, random));
 			placeFoodOrDrink(world, random, 11, 2, -1);
 			placeFlowerPot(world, 11, 2, 1, getRandomFlower(world, random));
@@ -212,7 +212,7 @@ public class GOTStructureSummerTavern extends GOTStructureSummerBase {
 	public void placeFoodOrDrink(World world, Random random, int i, int j, int k) {
 		if (random.nextBoolean()) {
 			if (random.nextBoolean()) {
-				this.placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.SOTHORYOS_DRINK);
+				placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.SOTHORYOS_DRINK);
 			} else {
 				Block plateBlock = random.nextBoolean() ? GOTRegistry.woodPlateBlock : GOTRegistry.ceramicPlateBlock;
 				if (random.nextBoolean()) {

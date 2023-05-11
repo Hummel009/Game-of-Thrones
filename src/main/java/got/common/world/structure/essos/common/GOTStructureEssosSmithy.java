@@ -14,7 +14,7 @@ public class GOTStructureEssosSmithy extends GOTStructureEssosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		this.setOriginAndRotation(world, i, j, k, rotation, 5, -1);
+		setOriginAndRotation(world, i, j, k, rotation, 5, -1);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -82,10 +82,10 @@ public class GOTStructureEssosSmithy extends GOTStructureEssosBase {
 		setBlockAndMetadata(world, -2, 5, -2, bedBlock, 2);
 		setBlockAndMetadata(world, -1, 5, -3, bedBlock, 10);
 		setBlockAndMetadata(world, -2, 5, -3, bedBlock, 10);
-		this.placeChest(world, random, 3, 1, 6, GOTRegistry.chestBasket, 5, getChestContents());
-		this.placeChest(world, random, 2, 5, -3, GOTRegistry.chestBasket, 5, getChestContents());
+		placeChest(world, random, 3, 1, 6, GOTRegistry.chestBasket, 5, getChestContents());
+		placeChest(world, random, 2, 5, -3, GOTRegistry.chestBasket, 5, getChestContents());
 		placePlateWithCertainty(world, random, -1, 6, 3, GOTRegistry.ceramicPlateBlock, GOTFoods.ESSOS);
-		this.placeMug(world, random, -2, 6, 3, 0, GOTFoods.ESSOS_DRINK);
+		placeMug(world, random, -2, 6, 3, 0, GOTFoods.ESSOS_DRINK);
 		placeWeaponRack(world, -3, 1, 8, 1, getRandomWeapon(random));
 		placeWeaponRack(world, 3, 1, 8, 3, getRandomWeapon(random));
 		GOTEntityNPC npc = getBlacksmith(world);

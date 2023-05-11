@@ -30,7 +30,7 @@ public class GOTStructureWesterosBrewery extends GOTStructureWesterosBase {
 		int k12;
 		int k13;
 		int i13;
-		this.setOriginAndRotation(world, i, j, k, rotation, 1);
+		setOriginAndRotation(world, i, j, k, rotation, 1);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			for (i12 = -6; i12 <= 6; ++i12) {
@@ -264,9 +264,9 @@ public class GOTStructureWesterosBrewery extends GOTStructureWesterosBase {
 				continue;
 			}
 			setBlockAndMetadata(world, -4, 1, k1, plankBlock, plankMeta);
-			this.placeBarrel(world, random, -4, 2, k1, 4, drink);
+			placeBarrel(world, random, -4, 2, k1, 4, drink);
 			setBlockAndMetadata(world, 4, 1, k1, plankBlock, plankMeta);
-			this.placeBarrel(world, random, 4, 2, k1, 5, drink);
+			placeBarrel(world, random, 4, 2, k1, 5, drink);
 		}
 		for (k1 = 8; k1 <= 11; ++k1) {
 			for (i1 = -1; i1 <= 1; ++i1) {
@@ -276,8 +276,8 @@ public class GOTStructureWesterosBrewery extends GOTStructureWesterosBase {
 				}
 				setBlockAndMetadata(world, i1, 1, k1, plankSlabBlock, plankSlabMeta | 8);
 			}
-			this.placeMug(world, random, -1, 2, k1, 1, drink, GOTFoods.WESTEROS_DRINK);
-			this.placeMug(world, random, 1, 2, k1, 3, drink, GOTFoods.WESTEROS_DRINK);
+			placeMug(world, random, -1, 2, k1, 1, drink, GOTFoods.WESTEROS_DRINK);
+			placeMug(world, random, 1, 2, k1, 3, drink, GOTFoods.WESTEROS_DRINK);
 		}
 		setBlockAndMetadata(world, 0, 1, 17, tableBlock, 0);
 		for (i13 = -2; i13 <= 2; ++i13) {

@@ -29,7 +29,7 @@ public abstract class GOTStructureTentBase extends GOTStructureBase {
 		int k1;
 		int j1;
 		int i1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 4);
+		setOriginAndRotation(world, i, j, k, rotation, 4);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			for (i1 = -2; i1 <= 2; ++i1) {
@@ -133,7 +133,7 @@ public abstract class GOTStructureTentBase extends GOTStructureBase {
 			setBlockAndMetadata(world, 1, 1, -1, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, 1, 1, 1, fenceBlock, fenceMeta);
 		} else {
-			this.placeChest(world, random, 1, 1, 0, 5, chestContents);
+			placeChest(world, random, 1, 1, 0, 5, chestContents);
 			setBlockAndMetadata(world, 1, 1, -1, Blocks.crafting_table, 0);
 			setGrassToDirt(world, 1, 0, -1);
 			setBlockAndMetadata(world, 1, 1, 1, tableBlock, 0);

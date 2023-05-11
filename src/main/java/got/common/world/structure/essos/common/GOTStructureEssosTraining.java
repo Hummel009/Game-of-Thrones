@@ -13,7 +13,7 @@ public class GOTStructureEssosTraining extends GOTStructureEssosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		this.setOriginAndRotation(world, i, j, k, rotation, 5);
+		setOriginAndRotation(world, i, j, k, rotation, 5);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -65,9 +65,9 @@ public class GOTStructureEssosTraining extends GOTStructureEssosBase {
 		generateStrScan(world, random, 0, 0, 0);
 		placeWeaponRack(world, -5, 2, -4, 2, getRandomWeapon(random));
 		placeWeaponRack(world, 5, 2, -4, 2, getRandomWeapon(random));
-		this.placeSkull(world, 0, 3, 2, 0);
-		this.placeSkull(world, -5, 3, 0, 12);
-		this.placeSkull(world, 5, 3, 0, 4);
+		placeSkull(world, 0, 3, 2, 0);
+		placeSkull(world, -5, 3, 0, 12);
+		placeSkull(world, 5, 3, 0, 4);
 		return true;
 	}
 }

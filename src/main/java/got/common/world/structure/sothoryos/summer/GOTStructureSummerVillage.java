@@ -35,7 +35,7 @@ public class GOTStructureSummerVillage extends GOTVillageGen {
 	}
 
 	public enum VillageType {
-		VILLAGE, FORT;
+		VILLAGE, FORT
 	}
 
 	public class Instance extends GOTVillageGen.AbstractInstance {
@@ -97,7 +97,7 @@ public class GOTStructureSummerVillage extends GOTVillageGen {
 		}
 
 		public void setupFortress(Random random) {
-			this.addStructure(new GOTStructureNPCRespawner(false) {
+			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
 				public void setupRespawner(GOTEntityNPCRespawner spawner) {
@@ -107,16 +107,16 @@ public class GOTStructureSummerVillage extends GOTVillageGen {
 					spawner.setBlockEnemySpawnRange(50);
 				}
 			}, 0, 0, 0);
-			this.addStructure(new GOTStructureSummerFort(false), 0, -12, 0, true);
-			this.addStructure(new GOTStructureSummerTower(false), -24, -24, 0, true);
-			this.addStructure(new GOTStructureSummerTower(false), 24, -24, 0, true);
-			this.addStructure(new GOTStructureSummerTower(false), -24, 24, 2, true);
-			this.addStructure(new GOTStructureSummerTower(false), 24, 24, 2, true);
+			addStructure(new GOTStructureSummerFort(false), 0, -12, 0, true);
+			addStructure(new GOTStructureSummerTower(false), -24, -24, 0, true);
+			addStructure(new GOTStructureSummerTower(false), 24, -24, 0, true);
+			addStructure(new GOTStructureSummerTower(false), -24, 24, 2, true);
+			addStructure(new GOTStructureSummerTower(false), 24, 24, 2, true);
 			for (int l = -1; l <= 1; ++l) {
 				int k = l * 10;
 				int i = 24;
-				this.addStructure(new GOTStructureSummerTent(false), -i, k, 1, true);
-				this.addStructure(new GOTStructureSummerTent(false), i, k, 3, true);
+				addStructure(new GOTStructureSummerTent(false), -i, k, 1, true);
+				addStructure(new GOTStructureSummerTent(false), i, k, 3, true);
 			}
 			int rSq = 1764;
 			int rMax = 43;
@@ -132,14 +132,14 @@ public class GOTStructureSummerVillage extends GOTVillageGen {
 					if (i1 == 5 && k < 0) {
 						palisade.setTall();
 					}
-					this.addStructure(palisade, i, k, 0);
+					addStructure(palisade, i, k, 0);
 				}
 			}
 		}
 
 		public void setupVillage(Random random) {
 			if (!isRuinedVillage) {
-				this.addStructure(new GOTStructureNPCRespawner(false) {
+				addStructure(new GOTStructureNPCRespawner(false) {
 
 					@Override
 					public void setupRespawner(GOTEntityNPCRespawner spawner) {
@@ -149,7 +149,7 @@ public class GOTStructureSummerVillage extends GOTVillageGen {
 						spawner.setBlockEnemySpawnRange(64);
 					}
 				}, 0, 0, 0);
-				this.addStructure(new GOTStructureNPCRespawner(false) {
+				addStructure(new GOTStructureNPCRespawner(false) {
 
 					@Override
 					public void setupRespawner(GOTEntityNPCRespawner spawner) {
@@ -161,11 +161,11 @@ public class GOTStructureSummerVillage extends GOTVillageGen {
 				}, 0, 0, 0);
 			}
 			if (isRuinedVillage) {
-				this.addStructure(new GOTStructureSummerTavernRuined(false), 3, -7, 0, true);
+				addStructure(new GOTStructureSummerTavernRuined(false), 3, -7, 0, true);
 			} else if (random.nextBoolean()) {
-				this.addStructure(new GOTStructureSummerMarket(false), 0, -8, 0, true);
+				addStructure(new GOTStructureSummerMarket(false), 0, -8, 0, true);
 			} else {
-				this.addStructure(new GOTStructureSummerTavern(false), 3, -7, 0, true);
+				addStructure(new GOTStructureSummerTavern(false), 3, -7, 0, true);
 			}
 			float frac = 1.0f / 8;
 			float turn = 0.0f;
@@ -190,7 +190,7 @@ public class GOTStructureSummerVillage extends GOTVillageGen {
 				if (k < 0 && Math.abs(i) < 10) {
 					continue;
 				}
-				this.addStructure(getRandomHouse(random), i, k, r);
+				addStructure(getRandomHouse(random), i, k, r);
 			}
 			if (!isRuinedVillage) {
 				int numFarms = 8 * 2;
@@ -218,18 +218,18 @@ public class GOTStructureSummerVillage extends GOTVillageGen {
 						continue;
 					}
 					if (random.nextInt(3) == 0) {
-						this.addStructure(new GOTStructureHayBales(false), i, k, r);
+						addStructure(new GOTStructureHayBales(false), i, k, r);
 						continue;
 					}
 					if (random.nextInt(3) == 0) {
-						this.addStructure(new GOTStructureSummerPasture(false), i, k, r);
+						addStructure(new GOTStructureSummerPasture(false), i, k, r);
 						continue;
 					}
-					this.addStructure(new GOTStructureSummerFarm(false), i, k, r);
+					addStructure(new GOTStructureSummerFarm(false), i, k, r);
 				}
 			}
 			if (!isRuinedVillage) {
-				this.addStructure(new GOTStructureSummerVillageSign(false), 5 * (random.nextBoolean() ? 1 : -1), -56, 0, true);
+				addStructure(new GOTStructureSummerVillageSign(false), 5 * (random.nextBoolean() ? 1 : -1), -56, 0, true);
 			}
 			int rSq = 3721;
 			int rMax = 62;
@@ -253,7 +253,7 @@ public class GOTStructureSummerVillage extends GOTVillageGen {
 					if (i1 == 5 && k < 0) {
 						palisade.setTall();
 					}
-					this.addStructure(palisade, i, k, 0);
+					addStructure(palisade, i, k, 0);
 				}
 			}
 		}

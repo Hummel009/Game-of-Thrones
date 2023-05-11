@@ -357,7 +357,7 @@ public class GOTFixer {
 		structures.put(GOTWaypoint.Euron, new Spawner() {
 			@Override
 			public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-				this.setOriginAndRotation(world, i, j, k, rotation, 0);
+				setOriginAndRotation(world, i, j, k, rotation, 0);
 				loadStrScan("euron_ship");
 				if (!disable) {
 					generateStrScan(world, random, 16, 27, -58);
@@ -626,7 +626,7 @@ public class GOTFixer {
 		structures.put(GOTWaypoint.NightKing, new Spawner() {
 			@Override
 			public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-				this.setOriginAndRotation(world, i, j, k, rotation, 0);
+				setOriginAndRotation(world, i, j, k, rotation, 0);
 				loadStrScan("night_king");
 				spawnLegendaryNPC(new GOTEntityNightKing(world), world, 0, 10, 0);
 				if (!disable) {
@@ -960,7 +960,7 @@ public class GOTFixer {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
 			spawnLegendaryNPC(world);
 			return true;
 		}

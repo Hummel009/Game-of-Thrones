@@ -225,7 +225,7 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 			if (!world.isRemote) {
 				ArrayList<ItemStack> drops = getBerryDrops(world, i, j, k, meta);
 				for (ItemStack berry : drops) {
-					this.dropBlockAsItem(world, i, j, k, berry);
+					dropBlockAsItem(world, i, j, k, berry);
 				}
 			}
 			return true;

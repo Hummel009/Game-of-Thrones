@@ -20,7 +20,7 @@ public class GOTStructureSummerStables extends GOTStructureSummerBase {
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 9);
+		setOriginAndRotation(world, i, j, k, rotation, 9);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -74,9 +74,9 @@ public class GOTStructureSummerStables extends GOTStructureSummerBase {
 		spawnItemFrame(world, 2, 2, 0, 3, new ItemStack(Items.lead));
 		setBlockAndMetadata(world, -3, 1, 6, bedBlock, 0);
 		setBlockAndMetadata(world, -3, 1, 7, bedBlock, 8);
-		this.placeChest(world, random, -4, 1, 6, GOTRegistry.chestBasket, 4, GOTChestContents.SUMMER);
+		placeChest(world, random, -4, 1, 6, GOTRegistry.chestBasket, 4, GOTChestContents.SUMMER);
 		placePlateWithCertainty(world, random, 4, 2, 6, GOTRegistry.woodPlateBlock, GOTFoods.SOTHORYOS);
-		this.placeMug(world, random, 4, 2, 5, 1, GOTFoods.SOTHORYOS_DRINK);
+		placeMug(world, random, 4, 2, 5, 1, GOTFoods.SOTHORYOS_DRINK);
 		GOTEntitySummerMan summer = new GOTEntitySummerMan(world);
 		spawnNPCAndSetHome(summer, world, 0, 1, 0, 12);
 		for (int k1 : new int[]{-2, 2}) {

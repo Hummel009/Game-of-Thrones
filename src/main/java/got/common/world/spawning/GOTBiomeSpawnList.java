@@ -148,7 +148,7 @@ public class GOTBiomeSpawnList {
 	}
 
 	public FactionContainer newFactionList(int w) {
-		return this.newFactionList(w, 1.0f);
+		return newFactionList(w, 1.0f);
 	}
 
 	public FactionContainer newFactionList(int w, float conq) {

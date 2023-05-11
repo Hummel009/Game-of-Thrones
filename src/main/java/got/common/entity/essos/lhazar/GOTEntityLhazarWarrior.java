@@ -10,7 +10,7 @@ public class GOTEntityLhazarWarrior extends GOTEntityLhazarMan {
 	public GOTEntityLhazarWarrior(World world) {
 		super(world);
 		canBeMarried = false;
-		this.addTargetTasks(true);
+		addTargetTasks(true);
 	}
 
 	@Override

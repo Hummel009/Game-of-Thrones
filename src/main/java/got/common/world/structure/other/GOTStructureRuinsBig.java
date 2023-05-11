@@ -31,7 +31,7 @@ public class GOTStructureRuinsBig extends GOTVillageGen {
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			int j2;
 			int j1;
-			this.setOriginAndRotation(world, i, j, k, 2, 0);
+			setOriginAndRotation(world, i, j, k, 2, 0);
 			originY = 0;
 			int radius = 8;
 			int baseHeight = 40;
@@ -181,11 +181,11 @@ public class GOTStructureRuinsBig extends GOTVillageGen {
 
 		@Override
 		public void addVillageStructures(Random random) {
-			this.addStructure(new GOTStructureHarrenhal(), 0, 0, 0, true);
-			this.addStructure(new GOTStructureHarrenhal(), -15, -15, 0, true);
-			this.addStructure(new GOTStructureHarrenhal(), -15, 15, 0, true);
-			this.addStructure(new GOTStructureHarrenhal(), 15, -15, 0, true);
-			this.addStructure(new GOTStructureHarrenhal(), 15, 15, 0, true);
+			addStructure(new GOTStructureHarrenhal(), 0, 0, 0, true);
+			addStructure(new GOTStructureHarrenhal(), -15, -15, 0, true);
+			addStructure(new GOTStructureHarrenhal(), -15, 15, 0, true);
+			addStructure(new GOTStructureHarrenhal(), 15, -15, 0, true);
+			addStructure(new GOTStructureHarrenhal(), 15, 15, 0, true);
 		}
 
 		@Override

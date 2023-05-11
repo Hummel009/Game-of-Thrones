@@ -39,7 +39,7 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 	}
 
 	public enum VillageType {
-		VILLAGE, TOWN, FORT;
+		VILLAGE, TOWN, FORT
 	}
 
 	public class Instance extends GOTVillageGen.AbstractInstance<GOTStructureLhazarVillage> {
@@ -117,7 +117,7 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 		}
 
 		public void setupFort(Random random) {
-			this.addStructure(new GOTStructureNPCRespawner(false) {
+			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
 				public void setupRespawner(GOTEntityNPCRespawner spawner) {
@@ -127,23 +127,23 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			this.addStructure(new GOTStructureLhazarWarCamp(false), 0, -15, 0, true);
+			addStructure(new GOTStructureLhazarWarCamp(false), 0, -15, 0, true);
 			int towerX = 36;
-			this.addStructure(new GOTStructureLhazarTower(false), -towerX, -towerX + 4, 2, true);
-			this.addStructure(new GOTStructureLhazarTower(false), towerX, -towerX + 4, 2, true);
-			this.addStructure(new GOTStructureLhazarTower(false), -towerX, towerX - 4, 0, true);
-			this.addStructure(new GOTStructureLhazarTower(false), towerX, towerX - 4, 0, true);
+			addStructure(new GOTStructureLhazarTower(false), -towerX, -towerX + 4, 2, true);
+			addStructure(new GOTStructureLhazarTower(false), towerX, -towerX + 4, 2, true);
+			addStructure(new GOTStructureLhazarTower(false), -towerX, towerX - 4, 0, true);
+			addStructure(new GOTStructureLhazarTower(false), towerX, towerX - 4, 0, true);
 			for (int l = -1; l <= 1; ++l) {
 				int i = l * 16;
 				int k = 28;
-				this.addStructure(getRandomFarm(random), i, k, 0);
-				this.addStructure(getRandomFarm(random), -k, i, 1);
-				this.addStructure(getRandomFarm(random), k, i, 3);
+				addStructure(getRandomFarm(random), i, k, 0);
+				addStructure(getRandomFarm(random), -k, i, 1);
+				addStructure(getRandomFarm(random), k, i, 3);
 			}
 		}
 
 		public void setupTown(Random random) {
-			this.addStructure(new GOTStructureNPCRespawner(false) {
+			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
 				public void setupRespawner(GOTEntityNPCRespawner spawner) {
@@ -155,7 +155,7 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 			}, 0, 0, 0);
 			for (int i1 : new int[]{-40, 40}) {
 				for (int k1 : new int[]{-40, 40}) {
-					this.addStructure(new GOTStructureNPCRespawner(false) {
+					addStructure(new GOTStructureNPCRespawner(false) {
 
 						@Override
 						public void setupRespawner(GOTEntityNPCRespawner spawner) {
@@ -167,35 +167,35 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 					}, i1, k1, 0);
 				}
 			}
-			this.addStructure(new GOTStructureLhazarPyramid(false), 0, -11, 0, true);
+			addStructure(new GOTStructureLhazarPyramid(false), 0, -11, 0, true);
 			int lightR = 15;
-			this.addStructure(new GOTStructureLhazarVillageLight(false), -lightR, -lightR, 0, true);
-			this.addStructure(new GOTStructureLhazarVillageLight(false), lightR, -lightR, 0, true);
-			this.addStructure(new GOTStructureLhazarVillageLight(false), -lightR, lightR, 0, true);
-			this.addStructure(new GOTStructureLhazarVillageLight(false), lightR, lightR, 0, true);
-			this.addStructure(new GOTStructureLhazarBazaar(false), -74, 0, 1, true);
-			this.addStructure(new GOTStructureLhazarAltar(false), 74, 0, 3, true);
-			this.addStructure(new GOTStructureLhazarTotem(false), 0, 79, 0, true);
+			addStructure(new GOTStructureLhazarVillageLight(false), -lightR, -lightR, 0, true);
+			addStructure(new GOTStructureLhazarVillageLight(false), lightR, -lightR, 0, true);
+			addStructure(new GOTStructureLhazarVillageLight(false), -lightR, lightR, 0, true);
+			addStructure(new GOTStructureLhazarVillageLight(false), lightR, lightR, 0, true);
+			addStructure(new GOTStructureLhazarBazaar(false), -74, 0, 1, true);
+			addStructure(new GOTStructureLhazarAltar(false), 74, 0, 3, true);
+			addStructure(new GOTStructureLhazarTotem(false), 0, 79, 0, true);
 			for (int l = 0; l <= 2; ++l) {
 				int i = 5;
 				int k = 32 + l * 20;
-				this.addStructure(new GOTStructureLhazarHouse(false), -i, -k, 1, true);
-				this.addStructure(new GOTStructureLhazarHouse(false), i, -k, 3, true);
-				this.addStructure(new GOTStructureLhazarHouse(false), -i, k, 1, true);
-				this.addStructure(new GOTStructureLhazarHouse(false), i, k, 3, true);
-				this.addStructure(new GOTStructureLhazarHouse(false), k, -i, 2, true);
-				this.addStructure(new GOTStructureLhazarHouse(false), k, i, 0, true);
+				addStructure(new GOTStructureLhazarHouse(false), -i, -k, 1, true);
+				addStructure(new GOTStructureLhazarHouse(false), i, -k, 3, true);
+				addStructure(new GOTStructureLhazarHouse(false), -i, k, 1, true);
+				addStructure(new GOTStructureLhazarHouse(false), i, k, 3, true);
+				addStructure(new GOTStructureLhazarHouse(false), k, -i, 2, true);
+				addStructure(new GOTStructureLhazarHouse(false), k, i, 0, true);
 				if (l != 0) {
 					continue;
 				}
-				this.addStructure(new GOTStructureLhazarSmithy(false), -k - 6, -i, 2, true);
-				this.addStructure(new GOTStructureLhazarTavern(false), -k - 6, i, 0, true);
+				addStructure(new GOTStructureLhazarSmithy(false), -k - 6, -i, 2, true);
+				addStructure(new GOTStructureLhazarTavern(false), -k - 6, i, 0, true);
 			}
 			int xzTownTower = (int) (rTownTower / Math.sqrt(2.0));
-			this.addStructure(new GOTStructureLhazarTower(false), -xzTownTower, -xzTownTower + 4, 2, true);
-			this.addStructure(new GOTStructureLhazarTower(false), xzTownTower, -xzTownTower + 4, 2, true);
-			this.addStructure(new GOTStructureLhazarTower(false), -xzTownTower, xzTownTower - 4, 0, true);
-			this.addStructure(new GOTStructureLhazarTower(false), xzTownTower, xzTownTower - 4, 0, true);
+			addStructure(new GOTStructureLhazarTower(false), -xzTownTower, -xzTownTower + 4, 2, true);
+			addStructure(new GOTStructureLhazarTower(false), xzTownTower, -xzTownTower + 4, 2, true);
+			addStructure(new GOTStructureLhazarTower(false), -xzTownTower, xzTownTower - 4, 0, true);
+			addStructure(new GOTStructureLhazarTower(false), xzTownTower, xzTownTower - 4, 0, true);
 			int turn = 0;
 			int numTurns = 24;
 			while (turn <= numTurns) {
@@ -222,10 +222,10 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 				int i = Math.round(l * cos);
 				int k = Math.round(l * sin);
 				if (random.nextInt(3) == 0) {
-					this.addStructure(new GOTStructureHayBales(false), i, k, r);
+					addStructure(new GOTStructureHayBales(false), i, k, r);
 					continue;
 				}
-				this.addStructure(getRandomFarm(random), i, k, r);
+				addStructure(getRandomFarm(random), i, k, r);
 			}
 			if (townWall) {
 				int rSq = 9604;
@@ -242,14 +242,14 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 						if (i1 == 7 && k < 0) {
 							wall.setTall();
 						}
-						this.addStructure(wall, i, k, 0);
+						addStructure(wall, i, k, 0);
 					}
 				}
 			}
 		}
 
 		public void setupVillage(Random random) {
-			this.addStructure(new GOTStructureNPCRespawner(false) {
+			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
 				public void setupRespawner(GOTEntityNPCRespawner spawner) {
@@ -259,7 +259,7 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 					spawner.setBlockEnemySpawnRange(64);
 				}
 			}, 0, 0, 0);
-			this.addStructure(new GOTStructureNPCRespawner(false) {
+			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
 				public void setupRespawner(GOTEntityNPCRespawner spawner) {
@@ -269,8 +269,8 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 					spawner.setBlockEnemySpawnRange(64);
 				}
 			}, 0, 0, 0);
-			this.addStructure(new GOTStructureLhazarTotem(false), 0, -2, 0, true);
-			this.addStructure(new GOTStructureLhazarTavern(false), 0, 24, 0, true);
+			addStructure(new GOTStructureLhazarTotem(false), 0, -2, 0, true);
+			addStructure(new GOTStructureLhazarTavern(false), 0, 24, 0, true);
 			for (int h = 0; h < numOuterHouses; ++h) {
 				float turn = (float) h / (float) (numOuterHouses - 1);
 				float turnMin = 0.15f;
@@ -294,7 +294,7 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 				int l = 24;
 				int i = Math.round(l * cos);
 				int k = Math.round(l * sin);
-				this.addStructure(getRandomHouse(random), i, k, r);
+				addStructure(getRandomHouse(random), i, k, r);
 			}
 			int numFarms = numOuterHouses * 2;
 			float frac = 1.0f / numFarms;
@@ -318,10 +318,10 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 				int i = Math.round(l * cos);
 				int k = Math.round(l * sin);
 				if (random.nextInt(3) == 0) {
-					this.addStructure(new GOTStructureHayBales(false), i, k, r);
+					addStructure(new GOTStructureHayBales(false), i, k, r);
 					continue;
 				}
-				this.addStructure(getRandomFarm(random), i, k, r);
+				addStructure(getRandomFarm(random), i, k, r);
 			}
 		}
 

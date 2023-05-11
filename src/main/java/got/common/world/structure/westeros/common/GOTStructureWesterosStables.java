@@ -26,7 +26,7 @@ public class GOTStructureWesterosStables extends GOTStructureWesterosBase {
 		int j13;
 		int i13;
 		int k12;
-		this.setOriginAndRotation(world, i, j, k, rotation, 6);
+		setOriginAndRotation(world, i, j, k, rotation, 6);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -187,19 +187,19 @@ public class GOTStructureWesterosStables extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, -3, 1, 4, plankBlock, plankMeta);
 		placeFlowerPot(world, -3, 2, 4, getRandomFlower(world, random));
 		setBlockAndMetadata(world, -2, 1, 4, plankSlabBlock, plankSlabMeta | 8);
-		this.placeMug(world, random, -2, 2, 4, 0, GOTFoods.WESTEROS_DRINK);
+		placeMug(world, random, -2, 2, 4, 0, GOTFoods.WESTEROS_DRINK);
 		setBlockAndMetadata(world, -1, 1, 4, Blocks.cauldron, 3);
 		setBlockAndMetadata(world, 0, 1, 4, plankSlabBlock, plankSlabMeta | 8);
 		placePlateWithCertainty(world, random, 0, 2, 4, plateBlock, GOTFoods.WESTEROS);
 		setBlockAndMetadata(world, 1, 1, 4, Blocks.furnace, 2);
 		setBlockAndMetadata(world, 2, 1, 4, plankSlabBlock, plankSlabMeta | 8);
-		this.placeMug(world, random, 2, 2, 4, 0, GOTFoods.WESTEROS_DRINK);
+		placeMug(world, random, 2, 2, 4, 0, GOTFoods.WESTEROS_DRINK);
 		setBlockAndMetadata(world, 3, 1, 4, plankBlock, plankMeta);
 		placeFlowerPot(world, 3, 2, 4, getRandomFlower(world, random));
 		setBlockAndMetadata(world, -3, 1, 1, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, -2, 1, 1, tableBlock, 0);
 		setBlockAndMetadata(world, 3, 1, 1, plankBlock, plankMeta);
-		this.placeMug(world, random, 3, 2, 1, 2, GOTFoods.WESTEROS_DRINK);
+		placeMug(world, random, 3, 2, 1, 2, GOTFoods.WESTEROS_DRINK);
 		setBlockAndMetadata(world, 0, 3, 3, GOTRegistry.chandelier, 1);
 		for (j13 = 1; j13 <= 6; ++j13) {
 			setBlockAndMetadata(world, 0, j13, 0, pillarBlock, pillarMeta);
@@ -217,13 +217,13 @@ public class GOTStructureWesterosStables extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 2, 5, 1, Blocks.hay_block, 0);
 		setBlockAndMetadata(world, 2, 5, 2, Blocks.hay_block, 0);
 		if (random.nextInt(3) == 0) {
-			this.placeChest(world, random, 3, 5, 1, 5, GOTChestContents.TREASURE);
+			placeChest(world, random, 3, 5, 1, 5, GOTChestContents.TREASURE);
 		}
 		setBlockAndMetadata(world, 3, 6, 2, Blocks.torch, 1);
 		setBlockAndMetadata(world, -2, 5, 3, bedBlock, 3);
 		setBlockAndMetadata(world, -3, 5, 3, bedBlock, 11);
-		this.placeChest(world, random, -3, 5, 1, 3, getChestContents());
-		this.placeBarrel(world, random, -2, 5, 1, 3, GOTFoods.WESTEROS_DRINK);
+		placeChest(world, random, -3, 5, 1, 3, getChestContents());
+		placeBarrel(world, random, -2, 5, 1, 3, GOTFoods.WESTEROS_DRINK);
 		GOTEntityNPC westerosman = getMan(world);
 		spawnNPCAndSetHome(westerosman, world, 0, 1, 2, 8);
 		return true;

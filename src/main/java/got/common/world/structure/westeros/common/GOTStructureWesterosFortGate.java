@@ -12,7 +12,7 @@ public class GOTStructureWesterosFortGate extends GOTStructureWesterosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		setOriginAndRotation(world, i, j, k, rotation, 0);
 		setupRandomBlocks(random);
 		findSurface(world, 0, 0);
 		int gateX = originX;

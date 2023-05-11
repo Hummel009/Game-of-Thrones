@@ -805,7 +805,7 @@ public class GOTAchievement {
 	}
 
 	public GOTAchievement createTitle() {
-		return this.createTitle(null);
+		return createTitle(null);
 	}
 
 	public GOTAchievement createTitle(String s) {

@@ -16,7 +16,7 @@ public class GOTStructureJogosTent extends GOTStructureJogosBase {
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 7);
+		setOriginAndRotation(world, i, j, k, rotation, 7);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -65,7 +65,7 @@ public class GOTStructureJogosTent extends GOTStructureJogosBase {
 		setBlockAndMetadata(world, -3, 1, 2, bedBlock, 3);
 		setBlockAndMetadata(world, -4, 1, 2, bedBlock, 11);
 		placeWeaponRack(world, 0, 3, 5, 6, getRandomNomadWeapon(random));
-		this.placeChest(world, random, 0, 1, 5, GOTRegistry.chestBasket, 2, GOTChestContents.JOGOS);
+		placeChest(world, random, 0, 1, 5, GOTRegistry.chestBasket, 2, GOTChestContents.JOGOS);
 		GOTEntityJogos male = new GOTEntityJogos(world);
 		male.familyInfo.setMale(true);
 		male.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));

@@ -18,7 +18,7 @@ public class GOTStructureSothoryosSmithy extends GOTStructureSothoryosHouse {
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 6);
+		setOriginAndRotation(world, i, j, k, rotation, 6);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -94,7 +94,7 @@ public class GOTStructureSothoryosSmithy extends GOTStructureSothoryosHouse {
 		generateStrScan(world, random, 0, 0, 0);
 		setBlockAndMetadata(world, 0, 5, 5, bedBlock, 1);
 		setBlockAndMetadata(world, 1, 5, 5, bedBlock, 9);
-		this.placeChest(world, random, 2, 5, 4, GOTRegistry.chestBasket, 5, GOTChestContents.SOTHORYOS);
+		placeChest(world, random, 2, 5, 4, GOTRegistry.chestBasket, 5, GOTChestContents.SOTHORYOS);
 		placeSothoryosFlowerPot(world, 2, 6, 5, random);
 		placePlateWithCertainty(world, random, 2, 6, 3, GOTRegistry.woodPlateBlock, GOTFoods.SOTHORYOS);
 		placeSothoryosTorch(world, -4, 2, -4);

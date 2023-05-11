@@ -7,7 +7,7 @@ public class GOTEntityNorthHillmanCannibal extends GOTEntityNorthHillman {
 	public GOTEntityNorthHillmanCannibal(World world) {
 		super(world);
 		canBeMarried = false;
-		this.addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
+		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
 	}
 
 	@Override

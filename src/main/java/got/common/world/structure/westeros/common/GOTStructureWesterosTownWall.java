@@ -53,7 +53,7 @@ public class GOTStructureWesterosTownWall extends GOTStructureWesterosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		setOriginAndRotation(world, i, j, k, rotation, 0);
 		setupRandomBlocks(random);
 		for (int i1 = xMin; i1 <= xMax; ++i1) {
 			int j1;

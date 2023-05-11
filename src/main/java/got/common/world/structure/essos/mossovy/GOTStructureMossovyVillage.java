@@ -38,7 +38,7 @@ public class GOTStructureMossovyVillage extends GOTVillageGen {
 	}
 
 	public enum VillageType {
-		VILLAGE, FORT;
+		VILLAGE, FORT
 	}
 
 	public class Instance extends GOTVillageGen.AbstractInstance {
@@ -85,12 +85,12 @@ public class GOTStructureMossovyVillage extends GOTVillageGen {
 		}
 
 		public void setupFort(Random random) {
-			this.addStructure(new GOTStructureMossovyCastle(false), 0, 0, 0, true);
+			addStructure(new GOTStructureMossovyCastle(false), 0, 0, 0, true);
 		}
 
 		public void setupVillage(Random random) {
-			this.addStructure(new GOTStructureMossovyWell(false), 0, -4, 0, true);
-			this.addStructure(new GOTStructureNPCRespawner(false) {
+			addStructure(new GOTStructureMossovyWell(false), 0, -4, 0, true);
+			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
 				public void setupRespawner(GOTEntityNPCRespawner spawner) {
@@ -100,7 +100,7 @@ public class GOTStructureMossovyVillage extends GOTVillageGen {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			this.addStructure(new GOTStructureNPCRespawner(false) {
+			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
 				public void setupRespawner(GOTEntityNPCRespawner spawner) {
@@ -110,10 +110,10 @@ public class GOTStructureMossovyVillage extends GOTVillageGen {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			this.addStructure(new GOTStructureMossovyOffice(false), -21, 0, 1);
-			this.addStructure(new GOTStructureMossovyBarn(false), 0, -21, 2);
-			this.addStructure(new GOTStructureMossovySmithy(false), 21, 0, 3);
-			this.addStructure(new GOTStructureMossovyInn(false), 0, 21, 0);
+			addStructure(new GOTStructureMossovyOffice(false), -21, 0, 1);
+			addStructure(new GOTStructureMossovyBarn(false), 0, -21, 2);
+			addStructure(new GOTStructureMossovySmithy(false), 21, 0, 3);
+			addStructure(new GOTStructureMossovyInn(false), 0, 21, 0);
 			int houses = 20;
 			float frac = 1.0f / houses;
 			float turn = 0.0f;
@@ -139,7 +139,7 @@ public class GOTStructureMossovyVillage extends GOTVillageGen {
 					l = 61;
 					i = Math.round(l * cos);
 					k = Math.round(l * sin);
-					this.addStructure(new GOTStructureMossovyHouse(false), i, k, r);
+					addStructure(new GOTStructureMossovyHouse(false), i, k, r);
 					continue;
 				}
 				if (random.nextInt(3) == 0) {
@@ -148,23 +148,23 @@ public class GOTStructureMossovyVillage extends GOTVillageGen {
 				l = 65;
 				i = Math.round(l * cos);
 				k = Math.round(l * sin);
-				this.addStructure(new GOTStructureHayBales(false), i, k, r);
+				addStructure(new GOTStructureHayBales(false), i, k, r);
 			}
 			int signPos = Math.round(50.0f * MathHelper.cos((float) Math.toRadians(45.0)));
 			int signDisp = Math.round(7.0f * MathHelper.cos((float) Math.toRadians(45.0)));
-			this.addStructure(new GOTStructureMossovyLampPost(false), -signPos, -signPos + signDisp, 1);
-			this.addStructure(new GOTStructureMossovyLampPost(false), signPos, -signPos + signDisp, 3);
-			this.addStructure(new GOTStructureMossovyLampPost(false), -signPos, signPos - signDisp, 1);
-			this.addStructure(new GOTStructureMossovyLampPost(false), signPos, signPos - signDisp, 3);
+			addStructure(new GOTStructureMossovyLampPost(false), -signPos, -signPos + signDisp, 1);
+			addStructure(new GOTStructureMossovyLampPost(false), signPos, -signPos + signDisp, 3);
+			addStructure(new GOTStructureMossovyLampPost(false), -signPos, signPos - signDisp, 1);
+			addStructure(new GOTStructureMossovyLampPost(false), signPos, signPos - signDisp, 3);
 			int farmX = 38;
 			int farmZ = 17;
 			int farmSize = 6;
-			this.addStructure(new GOTStructureMossovyTrampHouse(false), -farmX + farmSize, -farmZ, 1);
-			this.addStructure(new GOTStructureMossovyTrampHouse(false), -farmZ + farmSize, -farmX, 1);
-			this.addStructure(new GOTStructureMossovyTrampHouse(false), farmX - farmSize, -farmZ, 3);
-			this.addStructure(new GOTStructureMossovyTrampHouse(false), farmZ - farmSize, -farmX, 3);
-			this.addStructure(new GOTStructureMossovyTrampHouse(false), -farmX + farmSize, farmZ, 1);
-			this.addStructure(new GOTStructureMossovyTrampHouse(false), farmX - farmSize, farmZ, 3);
+			addStructure(new GOTStructureMossovyTrampHouse(false), -farmX + farmSize, -farmZ, 1);
+			addStructure(new GOTStructureMossovyTrampHouse(false), -farmZ + farmSize, -farmX, 1);
+			addStructure(new GOTStructureMossovyTrampHouse(false), farmX - farmSize, -farmZ, 3);
+			addStructure(new GOTStructureMossovyTrampHouse(false), farmZ - farmSize, -farmX, 3);
+			addStructure(new GOTStructureMossovyTrampHouse(false), -farmX + farmSize, farmZ, 1);
+			addStructure(new GOTStructureMossovyTrampHouse(false), farmX - farmSize, farmZ, 3);
 		}
 
 		@Override

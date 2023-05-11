@@ -16,7 +16,7 @@ public class GOTStructureIbbenGatehouse extends GOTStructureIbbenBase {
 		int k1;
 		int i1;
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 2);
+		setOriginAndRotation(world, i, j, k, rotation, 2);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			for (i1 = -9; i1 <= 9; ++i1) {

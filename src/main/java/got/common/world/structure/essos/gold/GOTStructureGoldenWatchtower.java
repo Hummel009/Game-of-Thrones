@@ -35,7 +35,7 @@ public class GOTStructureGoldenWatchtower extends GOTStructureBase {
 		int i1;
 		int i12;
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		setOriginAndRotation(world, i, j, k, rotation, 0);
 		if (restrictions) {
 			for (int i13 = -4; i13 <= 4; ++i13) {
 				for (int k12 = -4; k12 <= 4; ++k12) {
@@ -167,7 +167,7 @@ public class GOTStructureGoldenWatchtower extends GOTStructureBase {
 		setBlockAndMetadata(world, 0, 17, 2, Blocks.torch, 5);
 		setBlockAndMetadata(world, -2, 17, 0, Blocks.torch, 5);
 		setBlockAndMetadata(world, 2, 17, 0, Blocks.torch, 5);
-		this.placeChest(world, random, 0, 16, 1, 0, GOTChestContents.GOLDEN);
+		placeChest(world, random, 0, 16, 1, 0, GOTChestContents.GOLDEN);
 		setBlockAndMetadata(world, 0, 11, 1, GOTRegistry.alloyForge, 0);
 		for (j1 = 17; j1 <= 18; ++j1) {
 			setBlockAndMetadata(world, -2, j1, -2, fenceBlock, fenceMeta);

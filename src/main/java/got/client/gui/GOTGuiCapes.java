@@ -129,12 +129,12 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 		int x = guiLeft + xSize / 2;
 		int y = guiTop + 145;
 		s = currentCape.getCapeName();
-		this.drawCenteredString(s, x, y, 16777215);
+		drawCenteredString(s, x, y, 16777215);
 		y += fontRendererObj.FONT_HEIGHT * 2;
 		List desc = fontRendererObj.listFormattedStringToWidth(currentCape.getCapeDesc(), 220);
 		for (Object element : desc) {
 			s = (String) element;
-			this.drawCenteredString(s, x, y, 16777215);
+			drawCenteredString(s, x, y, 16777215);
 			y += fontRendererObj.FONT_HEIGHT;
 		}
 		capeLeft.enabled = canGoLeft();

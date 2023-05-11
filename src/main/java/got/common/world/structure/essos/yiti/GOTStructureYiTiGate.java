@@ -13,7 +13,7 @@ public class GOTStructureYiTiGate extends GOTStructureYiTiBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		this.setOriginAndRotation(world, i, j, k, rotation, 0, 0);
+		setOriginAndRotation(world, i, j, k, rotation, 0, 0);
 		setupRandomBlocks(random);
 		originY += 1;
 		originZ -= 7;

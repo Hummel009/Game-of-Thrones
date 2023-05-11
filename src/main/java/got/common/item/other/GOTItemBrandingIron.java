@@ -110,7 +110,7 @@ public class GOTItemBrandingIron extends Item {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIconIndex(ItemStack itemstack) {
-		return this.getIcon(itemstack, 0);
+		return getIcon(itemstack, 0);
 	}
 
 	@Override

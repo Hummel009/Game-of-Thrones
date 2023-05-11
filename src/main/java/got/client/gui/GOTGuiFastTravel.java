@@ -91,7 +91,7 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 		fontRendererObj.drawStringWithShadow(title + titleExtra, width / 2 - fontRendererObj.getStringWidth(title) / 2, 0 + border, 16777215);
 		for (Object obj : messageLines) {
 			String s1 = (String) obj;
-			this.drawCenteredString(fontRendererObj, s1, width / 2, messageY, 16777215);
+			drawCenteredString(fontRendererObj, s1, width / 2, messageY, 16777215);
 			messageY += fh;
 		}
 		if (chunkLoaded) {

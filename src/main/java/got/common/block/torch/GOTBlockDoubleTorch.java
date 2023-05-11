@@ -113,7 +113,7 @@ public class GOTBlockDoubleTorch extends Block {
 		if (!canBlockStay(world, i, j, k)) {
 			int meta = world.getBlockMetadata(i, j, k);
 			if (meta == 0) {
-				this.dropBlockAsItem(world, i, j, k, meta, 0);
+				dropBlockAsItem(world, i, j, k, meta, 0);
 				if (world.getBlock(i, j + 1, k) == this) {
 					world.setBlock(i, j + 1, k, Blocks.air, 0, 2);
 				}

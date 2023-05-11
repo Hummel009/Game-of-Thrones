@@ -42,7 +42,7 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 					if (selector != null && !selector.isEntityApplicable(testEntityLiving)) {
 						return false;
 					}
-					return GOTEntityAINearestAttackableTargetBasic.this.isSuitableTarget(testEntityLiving, false);
+					return isSuitableTarget(testEntityLiving, false);
 				}
 				return false;
 			}

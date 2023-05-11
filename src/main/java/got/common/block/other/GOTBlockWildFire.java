@@ -177,7 +177,7 @@ public class GOTBlockWildFire extends BlockFire {
 							continue;
 						}
 						int enco = getEncouragement(block);
-						int flam = this.getFlammability(block);
+						int flam = getFlammability(block);
 						infos.put(block, Pair.of(enco, flam));
 						Blocks.fire.setFireInfo(block, 30, 30);
 					}

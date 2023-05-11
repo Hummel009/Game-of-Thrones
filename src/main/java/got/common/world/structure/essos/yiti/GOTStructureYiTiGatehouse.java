@@ -24,7 +24,7 @@ public class GOTStructureYiTiGatehouse extends GOTStructureYiTiBaseTown {
 		int j1;
 		int k2;
 		int k14;
-		this.setOriginAndRotation(world, i, j, k, rotation, 4);
+		setOriginAndRotation(world, i, j, k, rotation, 4);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			for (i12 = -7; i12 <= 7; ++i12) {

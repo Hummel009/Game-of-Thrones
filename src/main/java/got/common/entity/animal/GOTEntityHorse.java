@@ -84,7 +84,7 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 			for (Object element : list) {
 				GOTEntityHorse mount;
 				Entity entity = (Entity) element;
-				if (entity.getClass() != this.getClass() || (mount = (GOTEntityHorse) entity).isChild() || mount.isTame()) {
+				if (entity.getClass() != getClass() || (mount = (GOTEntityHorse) entity).isChild() || mount.isTame()) {
 					continue;
 				}
 				mount.setAttackTarget((EntityLivingBase) attacker);
@@ -113,7 +113,7 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 	@Override
 	public EntityAgeable createChild(EntityAgeable otherParent) {
 		EntityHorse superChild = (EntityHorse) super.createChild(otherParent);
-		GOTEntityHorse child = (GOTEntityHorse) EntityList.createEntityByName(GOTEntityRegistry.getStringFromClass(this.getClass()), worldObj);
+		GOTEntityHorse child = (GOTEntityHorse) EntityList.createEntityByName(GOTEntityRegistry.getStringFromClass(getClass()), worldObj);
 		child.setHorseType(superChild.getHorseType());
 		child.setHorseVariant(superChild.getHorseVariant());
 		double maxHealth = getChildAttribute(this, otherParent, SharedMonsterAttributes.maxHealth, 3.0);
@@ -160,7 +160,7 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 			if (getGrowingAge() < 0) {
 				setGrowingAge(0);
 			}
-			if (this.getClass() == GOTEntityHorse.class) {
+			if (getClass() == GOTEntityHorse.class) {
 				setHorseType(0);
 			}
 		}
@@ -199,7 +199,7 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 
 	@Override
 	public String getCommandSenderName() {
-		if (this.getClass() == GOTEntityHorse.class) {
+		if (getClass() == GOTEntityHorse.class) {
 			return super.getCommandSenderName();
 		}
 		if (hasCustomNameTag()) {
@@ -365,7 +365,7 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 		int i = MathHelper.floor_double(posX);
 		int k = MathHelper.floor_double(posZ);
 		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
-		if (this.getClass() == GOTEntityHorse.class) {
+		if (getClass() == GOTEntityHorse.class) {
 			float healthBoost = 0.0f;
 			float speedBoost = 0.0f;
 			float jumpAdd = 0.0f;

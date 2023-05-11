@@ -225,21 +225,21 @@ public class GOTTitle {
 	}
 
 	public GOTTitle setAlignment(GOTFaction faction) {
-		return this.setAlignment(faction, faction.getPledgeAlignment());
+		return setAlignment(faction, faction.getPledgeAlignment());
 	}
 
 	public GOTTitle setAlignment(GOTFaction faction, float alignment) {
-		return this.setMultiAlignment(alignment, faction);
+		return setMultiAlignment(alignment, faction);
 	}
 
 	public GOTTitle setAnyAlignment(float alignment) {
-		this.setMultiAlignment(alignment, GOTFaction.getPlayableAlignmentFactions());
+		setMultiAlignment(alignment, GOTFaction.getPlayableAlignmentFactions());
 		anyAlignment = true;
 		return this;
 	}
 
 	public GOTTitle setMultiAlignment(float alignment, GOTFaction... factions) {
-		return this.setMultiAlignment(alignment, Arrays.asList(factions));
+		return setMultiAlignment(alignment, Arrays.asList(factions));
 	}
 
 	public GOTTitle setMultiAlignment(float alignment, List<GOTFaction> factions) {
@@ -254,7 +254,7 @@ public class GOTTitle {
 		for (int i = 0; i < devs.size(); ++i) {
 			us[i] = UUID.fromString(devs.get(i));
 		}
-		return this.setPlayerExclusive(us);
+		return setPlayerExclusive(us);
 	}
 
 	public GOTTitle setPlayerExclusive(UUID... players) {
@@ -269,7 +269,7 @@ public class GOTTitle {
 		for (UUID[] players : playersArrays) {
 			allPlayers.addAll(Arrays.asList(players));
 		}
-		return this.setPlayerExclusive(allPlayers.toArray(new UUID[0]));
+		return setPlayerExclusive(allPlayers.toArray(new UUID[0]));
 	}
 
 	public GOTTitle setShieldExclusive(GOTShields... shields) {
@@ -277,11 +277,11 @@ public class GOTTitle {
 		for (GOTShields shield : shields) {
 			allPlayers.addAll(Arrays.asList(shield.exclusiveUUIDs));
 		}
-		return this.setPlayerExclusive(allPlayers.toArray(new UUID[0]));
+		return setPlayerExclusive(allPlayers.toArray(new UUID[0]));
 	}
 
 	public enum TitleType {
-		STARTER, PLAYER_EXCLUSIVE, ALIGNMENT, ACHIEVEMENT, RANK;
+		STARTER, PLAYER_EXCLUSIVE, ALIGNMENT, ACHIEVEMENT, RANK
 
 	}
 

@@ -21,7 +21,7 @@ public class GOTStructureLhazarTower extends GOTStructureLhazarBase {
 		int j1;
 		int i1;
 		int k1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 4);
+		setOriginAndRotation(world, i, j, k, rotation, 4);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			for (i1 = -3; i1 <= 3; ++i1) {
@@ -58,10 +58,10 @@ public class GOTStructureLhazarTower extends GOTStructureLhazarBase {
 		associateBlockMetaAlias("FLAG", flagBlock, flagMeta);
 		associateBlockMetaAlias("BONE", boneBlock, boneMeta);
 		generateStrScan(world, random, 0, 0, 0);
-		this.placeChest(world, random, -2, 1, 0, GOTRegistry.chestBasket, 4, GOTChestContents.LHAZAR);
-		this.placeSkull(world, random, 2, 2, 1);
-		this.placeBarrel(world, random, -2, 2, -1, 4, GOTFoods.NOMAD_DRINK);
-		this.placeMug(world, random, 2, 2, -1, 2, GOTFoods.NOMAD_DRINK);
+		placeChest(world, random, -2, 1, 0, GOTRegistry.chestBasket, 4, GOTChestContents.LHAZAR);
+		placeSkull(world, random, 2, 2, 1);
+		placeBarrel(world, random, -2, 2, -1, 4, GOTFoods.NOMAD_DRINK);
+		placeMug(world, random, 2, 2, -1, 2, GOTFoods.NOMAD_DRINK);
 		placePlate(world, random, 2, 2, 0, GOTRegistry.woodPlateBlock, GOTFoods.NOMAD);
 		placePlate(world, random, -2, 2, 1, GOTRegistry.woodPlateBlock, GOTFoods.NOMAD);
 		placeWallBanner(world, 0, 8, -3, GOTItemBanner.BannerType.LHAZAR, 2);

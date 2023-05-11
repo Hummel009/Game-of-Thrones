@@ -77,7 +77,7 @@ public class GOTBlockCoralReef extends Block {
 
 	@Override
 	public int quantityDroppedWithBonus(int i, Random random) {
-		int drops = this.quantityDropped(random);
+		int drops = quantityDropped(random);
 		if (i > 0) {
 			int factor = random.nextInt(i + 2) - 1;
 			factor = Math.max(factor, 0);

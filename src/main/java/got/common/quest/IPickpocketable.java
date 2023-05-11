@@ -7,7 +7,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import java.util.UUID;
 
 public interface IPickpocketable {
-	public static class Helper {
+	class Helper {
 		public static String getOwner(ItemStack itemstack) {
 			if (itemstack.hasTagCompound()) {
 				return itemstack.getTagCompound().getCompoundTag("GOTPickpocket").getString("Owner");

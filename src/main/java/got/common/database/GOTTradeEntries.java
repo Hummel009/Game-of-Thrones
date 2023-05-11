@@ -1050,7 +1050,7 @@ public class GOTTradeEntries {
 	}
 
 	public GOTTradeEntries setVessels(GOTFoods foods) {
-		return this.setVessels(foods.getDrinkVessels());
+		return setVessels(foods.getDrinkVessels());
 	}
 
 	public GOTTradeEntries setVessels(GOTItemMug.Vessel... v) {
@@ -1076,6 +1076,6 @@ public class GOTTradeEntries {
 	}
 
 	public enum TradeType {
-		WE_CAN_BUY, WE_CAN_SELL;
+		WE_CAN_BUY, WE_CAN_SELL
 	}
 }

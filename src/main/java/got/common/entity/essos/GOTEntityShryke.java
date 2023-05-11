@@ -85,7 +85,7 @@ public class GOTEntityShryke extends GOTEntityNPC {
 
 	@Override
 	public void onArtificalSpawn() {
-		if (canBeMarried && this.getClass() == familyInfo.marriageEntityClass && rand.nextInt(7) == 0) {
+		if (canBeMarried && getClass() == familyInfo.marriageEntityClass && rand.nextInt(7) == 0) {
 			familyInfo.setChild();
 		}
 	}

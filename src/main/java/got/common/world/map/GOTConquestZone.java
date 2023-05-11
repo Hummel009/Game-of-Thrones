@@ -54,7 +54,7 @@ public class GOTConquestZone {
 	}
 
 	public void addConquestStrength(GOTFaction fac, float add, World world) {
-		float str = this.getConquestStrength(fac, world);
+		float str = getConquestStrength(fac, world);
 		setConquestStrength(fac, str += add, world);
 	}
 
@@ -72,7 +72,7 @@ public class GOTConquestZone {
 	public void checkForEmptiness(World world) {
 		boolean emptyCheck = true;
 		for (GOTFaction fac : allPlayableFacs) {
-			float str = this.getConquestStrength(fac, world);
+			float str = getConquestStrength(fac, world);
 			if (str == 0.0f) {
 				continue;
 			}
@@ -101,7 +101,7 @@ public class GOTConquestZone {
 	}
 
 	public float getConquestStrength(GOTFaction fac, World world) {
-		return this.getConquestStrength(fac, world.getTotalWorldTime());
+		return getConquestStrength(fac, world.getTotalWorldTime());
 	}
 
 	public float getConquestStrengthRaw(GOTFaction fac) {
@@ -176,7 +176,7 @@ public class GOTConquestZone {
 			if (otherFac == fac || conquestStrengths[i] <= 0.0f) {
 				continue;
 			}
-			float otherStr = this.getConquestStrength(otherFac, world);
+			float otherStr = getConquestStrength(otherFac, world);
 			setConquestStrengthRaw(otherFac, otherStr);
 		}
 	}

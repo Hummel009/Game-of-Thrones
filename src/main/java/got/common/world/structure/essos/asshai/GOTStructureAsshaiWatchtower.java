@@ -27,7 +27,7 @@ public class GOTStructureAsshaiWatchtower extends GOTStructureAsshaiBase {
 		int j12;
 		int k12;
 		int i2;
-		this.setOriginAndRotation(world, i, j, k, rotation, 4);
+		setOriginAndRotation(world, i, j, k, rotation, 4);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -127,8 +127,8 @@ public class GOTStructureAsshaiWatchtower extends GOTStructureAsshaiBase {
 		setBlockAndMetadata(world, 0, 10, 2, GOTRegistry.trapdoorCharred, 9);
 		for (k12 = -2; k12 <= 2; ++k12) {
 			if (IntMath.mod(k12, 2) == 0) {
-				this.placeChest(world, random, -2, 1, k12, GOTRegistry.chestStone, 4, GOTChestContents.ASSHAI);
-				this.placeChest(world, random, 2, 1, k12, GOTRegistry.chestStone, 5, GOTChestContents.ASSHAI);
+				placeChest(world, random, -2, 1, k12, GOTRegistry.chestStone, 4, GOTChestContents.ASSHAI);
+				placeChest(world, random, 2, 1, k12, GOTRegistry.chestStone, 5, GOTChestContents.ASSHAI);
 				continue;
 			}
 			setBlockAndMetadata(world, -1, 1, k12, bedBlock, 3);
@@ -139,7 +139,7 @@ public class GOTStructureAsshaiWatchtower extends GOTStructureAsshaiBase {
 		setBlockAndMetadata(world, -2, 3, 0, GOTRegistry.asshaiTorch, 2);
 		setBlockAndMetadata(world, 2, 3, 0, GOTRegistry.asshaiTorch, 1);
 		setBlockAndMetadata(world, 0, 5, 0, GOTRegistry.chandelier, 12);
-		this.placeChest(world, random, -2, 7, -2, GOTRegistry.chestStone, 4, GOTChestContents.ASSHAI);
+		placeChest(world, random, -2, 7, -2, GOTRegistry.chestStone, 4, GOTChestContents.ASSHAI);
 		setBlockAndMetadata(world, -2, 7, 0, GOTRegistry.armorStand, 3);
 		setBlockAndMetadata(world, -2, 8, 0, GOTRegistry.armorStand, 7);
 		setBlockAndMetadata(world, -2, 7, 2, Blocks.anvil, 0);
@@ -150,9 +150,9 @@ public class GOTStructureAsshaiWatchtower extends GOTStructureAsshaiBase {
 		setBlockAndMetadata(world, 2, 7, 0, Blocks.stone_slab, 8);
 		setBlockAndMetadata(world, 2, 7, 1, Blocks.stone_slab, 8);
 		setBlockAndMetadata(world, 2, 7, 2, Blocks.stone_slab, 8);
-		this.placeMug(world, random, 2, 8, 0, 1, GOTFoods.WESTEROS_DRINK);
+		placeMug(world, random, 2, 8, 0, 1, GOTFoods.WESTEROS_DRINK);
 		placePlateWithCertainty(world, random, 2, 8, 1, plateBlock, GOTFoods.WESTEROS);
-		this.placeBarrel(world, random, 2, 8, 2, 5, GOTFoods.WESTEROS_DRINK);
+		placeBarrel(world, random, 2, 8, 2, 5, GOTFoods.WESTEROS_DRINK);
 		setBlockAndMetadata(world, 0, 9, 0, GOTRegistry.chandelier, 12);
 		for (i1 = -4; i1 <= 4; ++i1) {
 			for (k1 = -4; k1 <= 4; ++k1) {
@@ -177,7 +177,7 @@ public class GOTStructureAsshaiWatchtower extends GOTStructureAsshaiBase {
 		setBlockAndMetadata(world, 0, 11, 0, pillarBlock, pillarMeta);
 		setBlockAndMetadata(world, 0, 12, 0, pillarBlock, pillarMeta);
 		setBlockAndMetadata(world, 0, 13, 0, GOTRegistry.brick1, 0);
-		this.placeBanner(world, 0, 14, 0, GOTItemBanner.BannerType.ASSHAI, 2);
+		placeBanner(world, 0, 14, 0, GOTItemBanner.BannerType.ASSHAI, 2);
 		setBlockAndMetadata(world, 0, 11, -3, GOTRegistry.asshaiTorch, 3);
 		setBlockAndMetadata(world, 0, 11, 3, GOTRegistry.asshaiTorch, 4);
 		setBlockAndMetadata(world, -3, 11, 0, GOTRegistry.asshaiTorch, 2);

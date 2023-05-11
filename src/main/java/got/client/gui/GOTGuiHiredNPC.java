@@ -30,7 +30,7 @@ public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 		drawDefaultBackground();
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		mc.getTextureManager().bindTexture(guiTexture);
-		this.drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
+		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		String s = theNPC.getNPCName();
 		fontRendererObj.drawString(s, guiLeft + xSize / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 11, 3618615);
 		s = theNPC.getEntityClassName();
@@ -71,11 +71,11 @@ public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 	@Override
 	public void onGuiClosed() {
 		super.onGuiClosed();
-		this.sendActionPacket(-1);
+		sendActionPacket(-1);
 	}
 
 	public void sendActionPacket(int action) {
-		this.sendActionPacket(action, 0);
+		sendActionPacket(action, 0);
 	}
 
 	public void sendActionPacket(int action, int value) {

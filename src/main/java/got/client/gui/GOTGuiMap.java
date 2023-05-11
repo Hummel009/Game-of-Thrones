@@ -358,9 +358,9 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		if (!isConquestGrid) {
 			String title = StatCollector.translateToLocal("got.gui.map.title");
 			if (fullscreen) {
-				this.drawCenteredString(title, width / 2, 10, 16777215);
+				drawCenteredString(title, width / 2, 10, 16777215);
 			} else {
-				this.drawCenteredString(title, width / 2, guiTop - 30, 16777215);
+				drawCenteredString(title, width / 2, guiTop - 30, 16777215);
 			}
 		}
 		if (hasControlZones && GOTFaction.controlZonesEnabled(mc.theWorld)) {
@@ -517,7 +517,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 						drawFancyRect(rectX, rectY, rectX + rectWidth, rectY + rectHeight);
 						mc.getTextureManager().bindTexture(GOTClientProxy.alignmentTexture);
 						GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-						this.drawTexturedModalRect(rectX + border, rectY + border, 0, 228, iconSize, iconSize);
+						drawTexturedModalRect(rectX + border, rectY + border, 0, 228, iconSize, iconSize);
 						mc.fontRenderer.drawString(tooltip, rectX + iconSize + border * 2, rectY + border + (iconSize - strHeight) / 2, 16777215);
 						if (subtip != null) {
 							GL11.glPushMatrix();
@@ -537,14 +537,14 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		zLevel += 50.0f;
 		GOTTextures.drawMapCompassBottomLeft(mapXMin + 12, mapYMax - 12, zLevel, 1.0);
 		zLevel -= 50.0f;
-		this.renderBeziers();
+		renderBeziers();
 		renderPlayers(i, j);
 		if (!loadingConquestGrid) {
 			renderMiniQuests(mc.thePlayer, i, j);
 		}
-		this.renderWaypoints(0, i, j);
+		renderWaypoints(0, i, j);
 		renderLabels();
-		this.renderWaypoints(1, i, j);
+		renderWaypoints(1, i, j);
 		if (!loadingConquestGrid && selectedWaypoint != null && isWaypointVisible(selectedWaypoint)) {
 			if (!hasOverlay) {
 				renderWaypointTooltip(selectedWaypoint, true, i, j);
@@ -596,14 +596,14 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				int stringX = mapXMin + mapWidth / 2;
 				int stringY = (mapYMin + mapYMax) / 2 - loadLines.size() * fontRendererObj.FONT_HEIGHT / 2;
 				for (String s2 : loadLines) {
-					this.drawCenteredString(s2, stringX, stringY, 3748142);
+					drawCenteredString(s2, stringX, stringY, 3748142);
 					stringY += fontRendererObj.FONT_HEIGHT;
 				}
 				GL11.glDisable(3042);
 			}
 			mc.getTextureManager().bindTexture(conquestTexture);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-			this.drawTexturedModalRect(mapXMin - 8, mapYMin - 22, 0, 0, mapWidth + 16, mapHeight + 22 + 54, 512);
+			drawTexturedModalRect(mapXMin - 8, mapYMin - 22, 0, 0, mapWidth + 16, mapHeight + 22 + 54, 512);
 		}
 		zLevel = 100.0f;
 		if (!hasOverlay) {
@@ -666,7 +666,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					int strY = y3 + border;
 					drawFancyRect(x3, y3, x3 + rectWidth, y3 + rectHeight);
 					for (String s3 : lines) {
-						this.drawCenteredString(s3, strX, strY, 16777215);
+						drawCenteredString(s3, strX, strY, 16777215);
 						strY += stringHeight + border;
 					}
 				}
@@ -707,10 +707,10 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					drawFancyRect(x4, y4, x4 + rectWidth, y4 + rectHeight);
 					int strX = mapXMin + mapWidth / 2;
 					int strY = y4 + border;
-					this.drawCenteredString(biomeName, strX, strY, 16777215);
-					this.drawCenteredString(coords, strX, strY += stringHeight + border, 16777215);
+					drawCenteredString(biomeName, strX, strY, 16777215);
+					drawCenteredString(coords, strX, strY += stringHeight + border, 16777215);
 					if (canTeleport()) {
-						this.drawCenteredString(teleport, strX, strY + (stringHeight + border) * 2, 16777215);
+						drawCenteredString(teleport, strX, strY + (stringHeight + border) * 2, 16777215);
 					}
 				}
 				zLevel -= 500.0f;
@@ -732,7 +732,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				float labelScaleRel = labelScale / guiScale;
 				mc.getTextureManager().bindTexture(GOTClientProxy.alignmentTexture);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-				this.drawTexturedModalRect(mapXMax - keyBorder - iconSize, mapYMax - keyBorder - iconSize, 0, 228, iconSize, iconSize);
+				drawTexturedModalRect(mapXMax - keyBorder - iconSize, mapYMax - keyBorder - iconSize, 0, 228, iconSize, iconSize);
 				for (int pass = 0; pass <= 1; ++pass) {
 					for (int l = 0; l <= 10; ++l) {
 						float frac = (10 - l) / 10.0f;
@@ -750,7 +750,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 							int strY = (int) ((y0 + keyHeight / 2) / labelScaleRel) - fontRendererObj.FONT_HEIGHT / 2;
 							GL11.glPushMatrix();
 							GL11.glScalef(labelScaleRel, labelScaleRel, 1.0f);
-							this.drawCenteredString(keyLabel, strX, strY, 16777215);
+							drawCenteredString(keyLabel, strX, strY, 16777215);
 							GL11.glPopMatrix();
 						}
 					}
@@ -759,7 +759,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			if (hasConquestScrollBar()) {
 				mc.getTextureManager().bindTexture(GOTGuiFactions.factionsTexture);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-				this.drawTexturedModalRect(facScrollX, facScrollY, 0, 128, facScrollWidth, facScrollHeight);
+				drawTexturedModalRect(facScrollX, facScrollY, 0, 128, facScrollWidth, facScrollHeight);
 				int factions = currentFactionList.size();
 				for (int index = 0; index < factions; ++index) {
 					GOTFaction faction = currentFactionList.get(index);
@@ -786,7 +786,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				mc.getTextureManager().bindTexture(GOTGuiFactions.factionsTexture);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				int scroll = (int) (currentFacScroll * (facScrollWidth - facScrollBorder * 2 - facScrollWidgetWidth));
-				this.drawTexturedModalRect(facScrollX + facScrollBorder + scroll, facScrollY + facScrollBorder, 0, 142, facScrollWidgetWidth, facScrollWidgetHeight);
+				drawTexturedModalRect(facScrollX + facScrollBorder + scroll, facScrollY + facScrollBorder, 0, 142, facScrollWidgetWidth, facScrollWidgetHeight);
 			}
 		}
 		if (!hasOverlay && hasControlZones) {
@@ -824,7 +824,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					displayLines.addAll(fontRendererObj.listFormattedStringToWidth(s4, stringWidth));
 				}
 				for (String s5 : displayLines) {
-					this.drawCenteredString(s5, stringX, stringY, 16777215);
+					drawCenteredString(s5, stringX, stringY, 16777215);
 					stringY += mc.fontRenderer.FONT_HEIGHT;
 				}
 				stringY += mc.fontRenderer.FONT_HEIGHT;
@@ -858,7 +858,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 							}
 							mc.getTextureManager().bindTexture(GOTGuiFellowships.iconsTextures);
 							GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-							this.drawTexturedModalRect(iconRemoveX, iconRemoveY, 8, 16 + (mouseOverRemove ? 0 : iconWidth), iconWidth, iconWidth);
+							drawTexturedModalRect(iconRemoveX, iconRemoveY, 8, 16 + (mouseOverRemove ? 0 : iconWidth), iconWidth, iconWidth);
 							fsY = stringY += mc.fontRenderer.FONT_HEIGHT + 5;
 						}
 					}
@@ -1232,7 +1232,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				float[] pos;
 				boolean unlocked = waypoint.hasPlayerUnlocked(mc.thePlayer);
 				boolean hidden = waypoint.isHidden();
-				if (isWaypointVisible(waypoint) && (!hidden || unlocked) && (distToWP = Math.sqrt((dx = (pos = this.transformCoords(waypoint.getXCoord(), waypoint.getZCoord()))[0] - i) * dx + (dy = pos[1] - j) * dy)) <= 5.0 && distToWP <= distanceSelectedWP) {
+				if (isWaypointVisible(waypoint) && (!hidden || unlocked) && (distToWP = Math.sqrt((dx = (pos = transformCoords(waypoint.getXCoord(), waypoint.getZCoord()))[0] - i) * dx + (dy = pos[1] - j) * dy)) <= 5.0 && distToWP <= distanceSelectedWP) {
 					selectedWaypoint = waypoint;
 					distanceSelectedWP = distToWP;
 				}
@@ -1313,7 +1313,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		if (!showWP && !showCWP || !GOTFixedStructures.hasMapFeatures(mc.theWorld)) {
 			return;
 		}
-		this.renderBeziers(hasMapLabels());
+		renderBeziers(hasMapLabels());
 	}
 
 	public void renderBeziers(boolean labels) {
@@ -1329,7 +1329,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				for (int i = 0; i < bezier.bezierPoints.length; i += interval) {
 					int clip;
 					GOTBeziers.BezierPoint point = bezier.bezierPoints[i];
-					float[] pos = this.transformCoords(point.x, point.z);
+					float[] pos = transformCoords(point.x, point.z);
 					float x = pos[0];
 					float y = pos[1];
 					if (x >= mapXMin && x < mapXMax && y >= mapYMin && y < mapYMax) {
@@ -1368,7 +1368,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 							double dMaxSq = dMax * dMax;
 							for (GOTBeziers.BezierPoint end : bezier.endpoints) {
 								float dy;
-								float[] endPos = this.transformCoords(end.x, end.z);
+								float[] endPos = transformCoords(end.x, end.z);
 								float endX = endPos[0];
 								float dx = x - endX;
 								double dSq = dx * dx + (dy = y - endPos[1]) * dy;
@@ -1446,11 +1446,11 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 						float angle = (float) l / (float) sides * 2.0f * 3.1415927f;
 						double x = zone.xCoord;
 						double z = zone.zCoord;
-						float[] trans2 = this.transformCoords(x += MathHelper.cos(angle) * radiusWorld, z += MathHelper.sin(angle) * radiusWorld);
+						float[] trans2 = transformCoords(x += MathHelper.cos(angle) * radiusWorld, z += MathHelper.sin(angle) * radiusWorld);
 						tessellator.addVertex(trans2[0], trans2[1], zLevel);
 					}
 					tessellator.draw();
-					if ((!mouseControlZone || !mouseControlZoneReduced) && (dx = mouseX - (trans = this.transformCoords(zone.xCoord, zone.zCoord))[0]) * dx + (dy = mouseY - trans[1]) * dy <= (rScaled = radius * zoomScale) * rScaled) {
+					if ((!mouseControlZone || !mouseControlZoneReduced) && (dx = mouseX - (trans = transformCoords(zone.xCoord, zone.zCoord))[0]) * dx + (dy = mouseY - trans[1]) * dy <= (rScaled = radius * zoomScale) * rScaled) {
 						if (pass >= 1) {
 							mouseControlZone = true;
 						} else if (pass == 0) {
@@ -1475,7 +1475,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			strY += border / 2;
 		}
 		for (String s : lines) {
-			this.drawCenteredString(s, strX, strY, 16777215);
+			drawCenteredString(s, strX, strY, 16777215);
 			strY += border;
 		}
 	}
@@ -1622,7 +1622,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			if (widget.visible) {
 				mc.getTextureManager().bindTexture(mapIconsTexture);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-				this.drawTexturedModalRect(mapXMin + widget.getMapXPos(mapWidth), mapYMin + widget.getMapYPos(mapHeight), widget.getTexU(), widget.getTexV(), widget.width, widget.width);
+				drawTexturedModalRect(mapXMin + widget.getMapXPos(mapWidth), mapYMin + widget.getMapYPos(mapHeight), widget.getTexU(), widget.getTexV(), widget.width, widget.width);
 				if (widget.isMouseOver(mouseX - mapXMin, mouseY - mapYMin, mapWidth, mapHeight)) {
 					mouseOverWidget = widget;
 				}
@@ -1651,7 +1651,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		for (GOTMiniQuest quest : quests) {
 			ChunkCoordinates location = quest.getLastLocation();
 			if (location != null) {
-				float[] pos = this.transformCoords(location.posX, location.posZ);
+				float[] pos = transformCoords(location.posX, location.posZ);
 				int questX = Math.round(pos[0]);
 				int questY = Math.round(pos[1]);
 				float scale = 0.5f;
@@ -1773,7 +1773,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			PlayerLocationInfo info = (PlayerLocationInfo) entry.getValue();
 			GameProfile profile = info.profile;
 			String playerName = profile.getName();
-			double distToPlayer = renderPlayerIcon(profile, playerName, playerX = Math.round((pos = this.transformCoords(info.posX, info.posZ))[0]), playerY = Math.round(pos[1]), mouseX, mouseY);
+			double distToPlayer = renderPlayerIcon(profile, playerName, playerX = Math.round((pos = transformCoords(info.posX, info.posZ))[0]), playerY = Math.round(pos[1]), mouseX, mouseY);
 			if (distToPlayer <= iconWidthHalf + 3 && distToPlayer <= distanceMouseOverPlayer) {
 				mouseOverPlayerName = playerName;
 				mouseOverPlayerX = playerX;
@@ -1807,7 +1807,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		if (!showWP && !showCWP && !showHiddenSWP || !GOTFixedStructures.hasMapFeatures(mc.theWorld)) {
 			return;
 		}
-		this.renderWaypoints(GOTLevelData.getData(mc.thePlayer).getAllAvailableWaypoints(), pass, mouseX, mouseY, hasMapLabels(), false);
+		renderWaypoints(GOTLevelData.getData(mc.thePlayer).getAllAvailableWaypoints(), pass, mouseX, mouseY, hasMapLabels(), false);
 	}
 
 	public void renderWaypoints(List<GOTAbstractWaypoint> waypoints, int pass, int mouseX, int mouseY, boolean labels, boolean overrideToggles) {
@@ -1843,8 +1843,8 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 								drawTexturedModalRectFloat(x / 0.33F - 8.0F, y / 0.33F - 8.0F, 0, 0, 15.0F, 15.0F);
 								GL11.glPopMatrix();
 							} else {
-								GOTAbstractWaypoint.WaypointLockState state = (this.mc.thePlayer != null) ? waypoint.getLockState(this.mc.thePlayer) : GOTAbstractWaypoint.WaypointLockState.STANDARD_UNLOCKED;
-								this.mc.getTextureManager().bindTexture(mapIconsTexture);
+								GOTAbstractWaypoint.WaypointLockState state = (mc.thePlayer != null) ? waypoint.getLockState(mc.thePlayer) : GOTAbstractWaypoint.WaypointLockState.STANDARD_UNLOCKED;
+								mc.getTextureManager().bindTexture(mapIconsTexture);
 								GL11.glColor4f(1.0F, 1.0F, 1.0F, wpAlpha);
 								drawTexturedModalRectFloat(x - 2.0F, y - 2.0F, state.iconU, state.iconV, 4.0F, 4.0F);
 							}
@@ -1909,7 +1909,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		float loreScaleRel = loreScale / guiScale;
 		float loreScaleRelInv = 1.0f / loreScaleRel;
 		int loreFontHeight = MathHelper.ceiling_double_int(fontRendererObj.FONT_HEIGHT * loreScaleRel);
-		float[] pos = this.transformCoords(wpX, wpZ);
+		float[] pos = transformCoords(wpX, wpZ);
 		int rectX = Math.round(pos[0]);
 		int rectY = Math.round(pos[1]);
 		rectY += 5;
@@ -1943,10 +1943,10 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		int stringY = rectY + border;
 		GL11.glTranslatef(0.0f, 0.0f, 300.0f);
 		drawFancyRect(rectX, rectY, rectX + rectWidth, rectY + rectHeight);
-		this.drawCenteredString(name, stringX, stringY, 16777215);
+		drawCenteredString(name, stringX, stringY, 16777215);
 		stringY += fontRendererObj.FONT_HEIGHT + border;
 		if (selected) {
-			this.drawCenteredString(coords, stringX, stringY, 16777215);
+			drawCenteredString(coords, stringX, stringY, 16777215);
 			stringY += fontRendererObj.FONT_HEIGHT + border * 2;
 			if (loreText != null) {
 				GL11.glPushMatrix();
@@ -1954,7 +1954,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				List loreLines = fontRendererObj.listFormattedStringToWidth(loreText, (int) (innerRectWidth * loreScaleRelInv));
 				for (Object loreLine : loreLines) {
 					String line = (String) loreLine;
-					this.drawCenteredString(line, (int) (stringX * loreScaleRelInv), (int) (stringY * loreScaleRelInv), 16777215);
+					drawCenteredString(line, (int) (stringX * loreScaleRelInv), (int) (stringY * loreScaleRelInv), 16777215);
 					stringY += loreFontHeight;
 				}
 				GL11.glPopMatrix();
@@ -2143,7 +2143,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	}
 
 	public float[] transformCoords(double x, double z) {
-		return this.transformCoords((float) x, (float) z);
+		return transformCoords((float) x, (float) z);
 	}
 
 	public float[] transformCoords(float x, float z) {

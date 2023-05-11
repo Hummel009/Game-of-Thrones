@@ -23,7 +23,7 @@ public class GOTStructureEssosFarm extends GOTStructureEssosBase {
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 6);
+		setOriginAndRotation(world, i, j, k, rotation, 6);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -74,8 +74,8 @@ public class GOTStructureEssosFarm extends GOTStructureEssosBase {
 		associateBlockAlias("CROP1", crop1Block);
 		associateBlockAlias("CROP2", crop2Block);
 		generateStrScan(world, random, 0, 0, 0);
-		this.placeSkull(world, random, -4, 4, 0);
-		this.placeSkull(world, random, 4, 4, 0);
+		placeSkull(world, random, -4, 4, 0);
+		placeSkull(world, random, 4, 4, 0);
 		if (random.nextInt(4) == 0) {
 			GOTEntityNPC farmer = getFarmer(world);
 			spawnNPCAndSetHome(farmer, world, 0, 1, 1, 8);

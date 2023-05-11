@@ -65,7 +65,7 @@ public class GOTStructureTower extends GOTVillageGen {
 			int j12;
 			int k1;
 			int k12;
-			this.setOriginAndRotation(world, i, j, k, rotation, 6);
+			setOriginAndRotation(world, i, j, k, rotation, 6);
 			setupRandomBlocks(random);
 			int sections = 5 + random.nextInt(3);
 			if (restrictions) {
@@ -323,7 +323,7 @@ public class GOTStructureTower extends GOTVillageGen {
 					break;
 				case 2:
 					setBlockAndMetadata(world, i, j, k, plankSlabBlock, plankSlabMeta | 8);
-					this.placeChest(world, random, i, j + 1, k, flip ? 3 : 2, chestContents);
+					placeChest(world, random, i, j + 1, k, flip ? 3 : 2, chestContents);
 					break;
 				case 3:
 					setBlockAndMetadata(world, i, j, k, plankSlabBlock, plankSlabMeta | 8);
@@ -334,7 +334,7 @@ public class GOTStructureTower extends GOTVillageGen {
 				case 4:
 					setBlockAndMetadata(world, i, j, k, plankSlabBlock, plankSlabMeta | 8);
 					if (!ruined) {
-						this.placeBarrel(world, random, i, j + 1, k, flip ? 3 : 2, GOTFoods.WESTEROS_DRINK);
+						placeBarrel(world, random, i, j + 1, k, flip ? 3 : 2, GOTFoods.WESTEROS_DRINK);
 					}
 					break;
 				default:
@@ -384,7 +384,7 @@ public class GOTStructureTower extends GOTVillageGen {
 
 		@Override
 		public void addVillageStructures(Random random) {
-			this.addStructure(new GOTStructureTowerBase(false), 0, 10, 0, true);
+			addStructure(new GOTStructureTowerBase(false), 0, 10, 0, true);
 		}
 
 		@Override

@@ -14,7 +14,7 @@ public class GOTStructureMossovyWell extends GOTStructureMossovyBase {
 		int j1;
 		int i1;
 		int k1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 2);
+		setOriginAndRotation(world, i, j, k, rotation, 2);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			for (i1 = -1; i1 <= 2; ++i1) {

@@ -21,7 +21,7 @@ public class GOTStructureLhazarPyramid extends GOTStructureLhazarBase {
 		int j2;
 		int step;
 		int k1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 11);
+		setOriginAndRotation(world, i, j, k, rotation, 11);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			for (i1 = -11; i1 <= 11; ++i1) {
@@ -70,7 +70,7 @@ public class GOTStructureLhazarPyramid extends GOTStructureLhazarBase {
 				if (i2 <= 2 && k2 <= 2 || !isOpaque(world, i1, j13 - 1, k1) || !isAir(world, i1, j13, k1) || random.nextInt(12) != 0) {
 					continue;
 				}
-				this.placeChest(world, random, i1, j13, k1, GOTRegistry.chestBasket, MathHelper.getRandomIntegerInRange(random, 2, 5), GOTChestContents.TREASURE);
+				placeChest(world, random, i1, j13, k1, GOTRegistry.chestBasket, MathHelper.getRandomIntegerInRange(random, 2, 5), GOTChestContents.TREASURE);
 			}
 		}
 		int maxStep = 4;

@@ -315,7 +315,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 			drawTexturedModalRect(iconRejectX, y, 8, 16 + (reject ? 0 : iconWidth), iconWidth, iconWidth);
 		} else {
 			String memberCount = String.valueOf(fs.getPlayerCount());
-			String onlineMemberCount = String.valueOf(countOnlineMembers(fs)) + " | ";
+			String onlineMemberCount = countOnlineMembers(fs) + " | ";
 			fontRendererObj.drawString(memberCount, x + xSize - fontRendererObj.getStringWidth(memberCount), y, isMouseOver ? 12303291 : 7829367);
 			fontRendererObj.drawString(onlineMemberCount, x + xSize - fontRendererObj.getStringWidth(memberCount) - fontRendererObj.getStringWidth(onlineMemberCount), y, 16777215);
 		}
@@ -527,10 +527,10 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 			if (buttonCreate.func_146115_a()) {
 				if (!creationEnabled) {
 					s = StatCollector.translateToLocal("got.gui.fellowships.creationDisabled");
-					this.drawCenteredString(s, guiLeft + xSize / 2, buttonCreate.yPosition + buttonCreate.height + 4, 16777215);
+					drawCenteredString(s, guiLeft + xSize / 2, buttonCreate.yPosition + buttonCreate.height + 4, 16777215);
 				} else if (!canPlayerCreateNew) {
 					s = StatCollector.translateToLocal("got.gui.fellowships.createLimit");
-					this.drawCenteredString(s, guiLeft + xSize / 2, buttonCreate.yPosition + buttonCreate.height + 4, 16777215);
+					drawCenteredString(s, guiLeft + xSize / 2, buttonCreate.yPosition + buttonCreate.height + 4, 16777215);
 				}
 			}
 			if (scrollPaneLeading.hasScrollBar) {
@@ -1061,6 +1061,6 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 	}
 
 	public enum Page {
-		LIST, CREATE, FELLOWSHIP, INVITE, DISBAND, LEAVE, REMOVE, OP, DEOP, TRANSFER, RENAME, INVITATIONS, ACCEPT_INVITE_RESULT;
+		LIST, CREATE, FELLOWSHIP, INVITE, DISBAND, LEAVE, REMOVE, OP, DEOP, TRANSFER, RENAME, INVITATIONS, ACCEPT_INVITE_RESULT
 	}
 }

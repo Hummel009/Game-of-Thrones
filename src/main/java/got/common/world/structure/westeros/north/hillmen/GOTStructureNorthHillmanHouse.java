@@ -40,7 +40,7 @@ public class GOTStructureNorthHillmanHouse extends GOTStructureBase {
 		int i12;
 		int k1;
 		int j12;
-		this.setOriginAndRotation(world, i, j, k, rotation, 5);
+		setOriginAndRotation(world, i, j, k, rotation, 5);
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -183,7 +183,7 @@ public class GOTStructureNorthHillmanHouse extends GOTStructureBase {
 		setBlockAndMetadata(world, 0, 1, 3, GOTRegistry.strawBed, 0);
 		setBlockAndMetadata(world, 0, 1, 4, GOTRegistry.strawBed, 8);
 		setBlockAndMetadata(world, -1, 1, 4, Blocks.crafting_table, 0);
-		this.placeChest(world, random, 1, 1, 4, 2, GOTChestContents.BEYOND_WALL);
+		placeChest(world, random, 1, 1, 4, 2, GOTChestContents.BEYOND_WALL);
 		placeWallBanner(world, 0, 4, 5, GOTItemBanner.BannerType.EDDARD, 2);
 		setBlockAndMetadata(world, -1, 3, 4, Blocks.skull, 2);
 		setBlockAndMetadata(world, 1, 3, 4, Blocks.skull, 2);

@@ -22,7 +22,7 @@ public class GOTStructureIbbenSmithy extends GOTStructureIbbenBase {
 		int i1;
 		int j13;
 		int j14;
-		this.setOriginAndRotation(world, i, j, k, rotation, 4);
+		setOriginAndRotation(world, i, j, k, rotation, 4);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;

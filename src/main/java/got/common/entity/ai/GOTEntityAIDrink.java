@@ -31,7 +31,7 @@ public class GOTEntityAIDrink extends GOTEntityAIConsumeBase {
 
 					@Override
 					public boolean isEntityApplicable(Entity entity) {
-						return entity.isEntityAlive() && !GOT.getNPCFaction(entity).isBadRelation(GOTEntityAIDrink.this.theEntity.getFaction());
+						return entity.isEntityAlive() && !GOT.getNPCFaction(entity).isBadRelation(theEntity.getFaction());
 					}
 				};
 				List nearbyBartenders = theEntity.worldObj.selectEntitiesWithinAABB(GOTBartender.class, theEntity.boundingBox.expand(range, range, range), selectNonEnemyBartenders);

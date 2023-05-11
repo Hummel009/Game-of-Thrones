@@ -25,7 +25,7 @@ public class GOTStructureYiTiHouse extends GOTStructureYiTiBase {
 		int j1;
 		int i2;
 		int k14;
-		this.setOriginAndRotation(world, i, j, k, rotation, 5);
+		setOriginAndRotation(world, i, j, k, rotation, 5);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -228,7 +228,7 @@ public class GOTStructureYiTiHouse extends GOTStructureYiTiBase {
 				placePlate(world, random, i16, 2, -3, plateBlock, GOTFoods.YITI);
 				continue;
 			}
-			this.placeMug(world, random, i16, 2, -3, 2, GOTFoods.YITI_DRINK);
+			placeMug(world, random, i16, 2, -3, 2, GOTFoods.YITI_DRINK);
 		}
 		setBlockAndMetadata(world, -4, 1, -1, plankStairBlock, 2);
 		setBlockAndMetadata(world, -4, 1, 2, bedBlock, 0);
@@ -236,15 +236,15 @@ public class GOTStructureYiTiHouse extends GOTStructureYiTiBase {
 		setBlockAndMetadata(world, -5, 1, 3, plankBlock, plankMeta);
 		placePlateWithCertainty(world, random, -5, 2, 3, plateBlock, GOTFoods.YITI);
 		setBlockAndMetadata(world, 5, 1, -3, tableBlock, 0);
-		this.placeChest(world, random, 5, 1, -2, 5, GOTChestContents.YI_TI);
+		placeChest(world, random, 5, 1, -2, 5, GOTChestContents.YI_TI);
 		setBlockAndMetadata(world, 5, 1, -1, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, 5, 1, 0, plankSlabBlock, plankSlabMeta | 8);
 		setBlockAndMetadata(world, 5, 2, 0, GOTRegistry.ceramicPlateBlock, 0);
 		setBlockAndMetadata(world, 5, 1, 1, Blocks.cauldron, 3);
 		setBlockAndMetadata(world, 5, 1, 2, plankSlabBlock, plankSlabMeta | 8);
-		this.placeMug(world, random, 5, 2, 2, 1, GOTFoods.YITI_DRINK);
+		placeMug(world, random, 5, 2, 2, 1, GOTFoods.YITI_DRINK);
 		setBlockAndMetadata(world, 5, 1, 3, plankBlock, plankMeta);
-		this.placeBarrel(world, random, 5, 2, 3, 5, GOTFoods.YITI_DRINK);
+		placeBarrel(world, random, 5, 2, 3, 5, GOTFoods.YITI_DRINK);
 		setBlockAndMetadata(world, -2, 2, -3, Blocks.torch, 3);
 		setBlockAndMetadata(world, 2, 2, -3, Blocks.torch, 3);
 		setBlockAndMetadata(world, -2, 2, 3, Blocks.torch, 4);

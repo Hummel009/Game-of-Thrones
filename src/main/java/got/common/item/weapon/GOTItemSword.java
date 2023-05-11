@@ -139,6 +139,6 @@ public class GOTItemSword extends ItemSword implements GOTMaterialFinder {
 	}
 
 	public enum HitEffect {
-		NONE, FIRE, POISON;
+		NONE, FIRE, POISON
 	}
 }

@@ -32,7 +32,7 @@ public class GOTStructureLorathBazaar extends GOTStructureEssosBazaar {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 0, 1, 1, Blocks.furnace, 2);
 			setBlockAndMetadata(world, -1, 1, 1, GOTRegistry.planks2, 2);
 			setBlockAndMetadata(world, 1, 1, 1, GOTRegistry.planks2, 2);
@@ -52,7 +52,7 @@ public class GOTStructureLorathBazaar extends GOTStructureEssosBazaar {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, -1, 1, 1, Blocks.anvil, 3);
 			placeWeaponRack(world, -2, 2, 0, 1, new GOTStructureLorathBazaar(false).getRandomWeapon(random));
 			placeWeaponRack(world, 2, 2, 0, 3, new GOTStructureLorathBazaar(false).getRandomWeapon(random));
@@ -69,13 +69,13 @@ public class GOTStructureLorathBazaar extends GOTStructureEssosBazaar {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, -1, 1, 1, GOTRegistry.stairsCedar, 6);
 			setBlockAndMetadata(world, -1, 2, 1, GOTRegistry.barrel, 2);
 			setBlockAndMetadata(world, 1, 1, 1, GOTRegistry.stairsCedar, 6);
 			setBlockAndMetadata(world, 1, 2, 1, GOTRegistry.barrel, 2);
-			this.placeMug(world, random, -2, 2, 0, 1, GOTFoods.ESSOS_DRINK);
-			this.placeMug(world, random, 2, 2, 0, 1, GOTFoods.ESSOS_DRINK);
+			placeMug(world, random, -2, 2, 0, 1, GOTFoods.ESSOS_DRINK);
+			placeMug(world, random, 2, 2, 0, 1, GOTFoods.ESSOS_DRINK);
 			GOTEntityLorathBrewer trader = new GOTEntityLorathBrewer(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
@@ -89,7 +89,7 @@ public class GOTStructureLorathBazaar extends GOTStructureEssosBazaar {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 0, 1, 1, Blocks.furnace, 2);
 			placeKebabStand(world, random, 0, 2, 1, GOTRegistry.kebabStand, 3);
 			placePlateItem(world, random, -2, 2, 0, GOTRegistry.ceramicPlateBlock, new ItemStack(GOTRegistry.muttonRaw, 1 + random.nextInt(3), 0), true);
@@ -107,7 +107,7 @@ public class GOTStructureLorathBazaar extends GOTStructureEssosBazaar {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, -1, 1, 1, Blocks.cauldron, 3);
 			setBlockAndMetadata(world, 1, 1, 1, Blocks.hay_block, 0);
 			setBlockAndMetadata(world, -1, 1, -1, Blocks.hay_block, 0);
@@ -126,7 +126,7 @@ public class GOTStructureLorathBazaar extends GOTStructureEssosBazaar {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 1, 1, 1, Blocks.cauldron, 3);
 			setBlockAndMetadata(world, -1, 1, -1, Blocks.sponge, 0);
 			placePlateItem(world, random, -2, 2, 0, GOTRegistry.ceramicPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 0), true);
@@ -144,7 +144,7 @@ public class GOTStructureLorathBazaar extends GOTStructureEssosBazaar {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
 			placeFlowerPot(world, -2, 2, 0, getRandomFlower(world, random));
 			placeFlowerPot(world, 2, 2, 0, getRandomFlower(world, random));
 			setBlockAndMetadata(world, -1, 0, 1, Blocks.grass, 0);
@@ -167,7 +167,7 @@ public class GOTStructureLorathBazaar extends GOTStructureEssosBazaar {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, -1, 1, -1, GOTRegistry.goldBars, 0);
 			setBlockAndMetadata(world, 1, 1, -1, GOTRegistry.goldBars, 0);
 			setBlockAndMetadata(world, -1, 1, 1, GOTRegistry.goldBars, 0);
@@ -187,7 +187,7 @@ public class GOTStructureLorathBazaar extends GOTStructureEssosBazaar {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, -1, 1, 1, GOTRegistry.wood4, 10);
 			setBlockAndMetadata(world, 1, 1, 1, GOTRegistry.wood4, 2);
 			setBlockAndMetadata(world, 1, 2, 1, GOTRegistry.wood4, 2);
@@ -206,7 +206,7 @@ public class GOTStructureLorathBazaar extends GOTStructureEssosBazaar {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, -1, 1, 1, GOTRegistry.brick1, 1);
 			setBlockAndMetadata(world, -1, 2, 1, GOTRegistry.slabSingle1, 3);
 			setBlockAndMetadata(world, 1, 1, 1, GOTRegistry.brick1, 5);
@@ -224,7 +224,7 @@ public class GOTStructureLorathBazaar extends GOTStructureEssosBazaar {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, -1, 1, 1, GOTRegistry.oreTin, 0);
 			setBlockAndMetadata(world, -1, 2, 1, GOTRegistry.oreCopper, 0);
 			setBlockAndMetadata(world, 1, 1, 1, GOTRegistry.oreCopper, 0);

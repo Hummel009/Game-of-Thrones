@@ -23,7 +23,7 @@ public class GOTStructureIbbenWatchtower extends GOTStructureIbbenBase {
 		int k1;
 		int k12;
 		int i1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		setOriginAndRotation(world, i, j, k, rotation, 0);
 		setupRandomBlocks(random);
 		int height = 7 + random.nextInt(3);
 		originY += height;
@@ -126,7 +126,7 @@ public class GOTStructureIbbenWatchtower extends GOTStructureIbbenBase {
 			}
 			--j1;
 		}
-		this.placeChest(world, random, -2, 1, 2, 2, GOTChestContents.IBBEN);
+		placeChest(world, random, -2, 1, 2, 2, GOTChestContents.IBBEN);
 		setBlockAndMetadata(world, 2, 1, 2, GOTRegistry.tableIbben, 0);
 		for (k1 = -2; k1 <= 2; ++k1) {
 			int k2 = Math.abs(k1);
@@ -144,11 +144,11 @@ public class GOTStructureIbbenWatchtower extends GOTStructureIbbenBase {
 			}
 		}
 		int belowTop = getBelowTop(world, 2, -1, 2);
-		this.placeChest(world, random, 2, belowTop, 2, 5, GOTChestContents.IBBEN);
+		placeChest(world, random, 2, belowTop, 2, 5, GOTChestContents.IBBEN);
 		belowTop = getBelowTop(world, 2, -1, 0);
 		setBlockAndMetadata(world, 2, belowTop, 0, plankBlock, plankMeta);
 		setGrassToDirt(world, 2, belowTop - 1, 0);
-		this.placeBarrel(world, random, 2, belowTop + 1, 0, 5, GOTFoods.WILD_DRINK);
+		placeBarrel(world, random, 2, belowTop + 1, 0, 5, GOTFoods.WILD_DRINK);
 		belowTop = getBelowTop(world, -2, -1, 1);
 		setBlockAndMetadata(world, -2, belowTop, 1, Blocks.hay_block, 0);
 		setGrassToDirt(world, -2, belowTop - 1, 1);

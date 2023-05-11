@@ -36,7 +36,7 @@ public class GOTGuiMessage extends GOTGuiScreenBase {
 		drawDefaultBackground();
 		mc.getTextureManager().bindTexture(guiTexture);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		this.drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
+		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		String msg = type.getMessage();
 		int pageWidth = xSize - border * 2;
 		String[] splitNewline = msg.split(Pattern.quote("\\n"));
@@ -51,7 +51,7 @@ public class GOTGuiMessage extends GOTGuiScreenBase {
 			y += fontRendererObj.FONT_HEIGHT;
 		}
 		String s = StatCollector.translateToLocal("got.gui.message.notDisplayedAgain");
-		this.drawCenteredString(s, guiLeft + xSize / 2, guiTop + ySize - border / 2 - fontRendererObj.FONT_HEIGHT, 9666921);
+		drawCenteredString(s, guiLeft + xSize / 2, guiTop + ySize - border / 2 - fontRendererObj.FONT_HEIGHT, 9666921);
 
 		if (buttonTimer > 0) {
 			--buttonTimer;

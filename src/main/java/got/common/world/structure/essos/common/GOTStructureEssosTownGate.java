@@ -29,7 +29,7 @@ public class GOTStructureEssosTownGate extends GOTStructureEssosBase {
 		int j2;
 		int i1;
 		int k12;
-		this.setOriginAndRotation(world, i, j, k, rotation, 4);
+		setOriginAndRotation(world, i, j, k, rotation, 4);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			for (i1 = -8; i1 <= 8; ++i1) {

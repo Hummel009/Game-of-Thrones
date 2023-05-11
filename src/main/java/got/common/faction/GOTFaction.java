@@ -460,7 +460,7 @@ public enum GOTFaction {
 	public float getControlZoneAlignmentMultiplier(EntityPlayer entityplayer) {
 		int reducedRange;
 		double dist;
-		if (this.inControlZone(entityplayer)) {
+		if (inControlZone(entityplayer)) {
 			return 1.0f;
 		}
 		if (isFactionDimension(entityplayer.worldObj) && (dist = distanceToNearestControlZoneInRange(entityplayer.worldObj, entityplayer.posX, entityplayer.boundingBox.minY, entityplayer.posZ, reducedRange = getControlZoneReducedRange())) >= 0.0) {
@@ -555,7 +555,7 @@ public enum GOTFaction {
 	}
 
 	public GOTFactionRank getRank(EntityPlayer entityplayer) {
-		return this.getRank(GOTLevelData.getData(entityplayer));
+		return getRank(GOTLevelData.getData(entityplayer));
 	}
 
 	public GOTFactionRank getRank(float alignment) {
@@ -573,7 +573,7 @@ public enum GOTFaction {
 
 	public GOTFactionRank getRank(GOTPlayerData pd) {
 		float alignment = pd.getAlignment(this);
-		return this.getRank(alignment);
+		return getRank(alignment);
 	}
 
 	public GOTFactionRank getRankAbove(GOTFactionRank curRank) {
@@ -608,11 +608,11 @@ public enum GOTFaction {
 	}
 
 	public boolean inControlZone(EntityPlayer entityplayer) {
-		return this.inControlZone(entityplayer.worldObj, entityplayer.posX, entityplayer.boundingBox.minY, entityplayer.posZ);
+		return inControlZone(entityplayer.worldObj, entityplayer.posX, entityplayer.boundingBox.minY, entityplayer.posZ);
 	}
 
 	public boolean inControlZone(World world, double d, double d1, double d2) {
-		if (this.inDefinedControlZone(world, d, d1, d2)) {
+		if (inDefinedControlZone(world, d, d1, d2)) {
 			return true;
 		}
 		double nearbyRange = 24.0;
@@ -622,15 +622,15 @@ public enum GOTFaction {
 	}
 
 	public boolean inDefinedControlZone(EntityPlayer entityplayer) {
-		return this.inDefinedControlZone(entityplayer, 0);
+		return inDefinedControlZone(entityplayer, 0);
 	}
 
 	public boolean inDefinedControlZone(EntityPlayer entityplayer, int extraMapRange) {
-		return this.inDefinedControlZone(entityplayer.worldObj, entityplayer.posX, entityplayer.boundingBox.minY, entityplayer.posZ, extraMapRange);
+		return inDefinedControlZone(entityplayer.worldObj, entityplayer.posX, entityplayer.boundingBox.minY, entityplayer.posZ, extraMapRange);
 	}
 
 	public boolean inDefinedControlZone(World world, double d, double d1, double d2) {
-		return this.inDefinedControlZone(world, d, d1, d2, 0);
+		return inDefinedControlZone(world, d, d1, d2, 0);
 	}
 
 	public boolean inDefinedControlZone(World world, double d, double d1, double d2, int extraMapRange) {
@@ -702,7 +702,7 @@ public enum GOTFaction {
 	}
 
 	public boolean sharesControlZoneWith(GOTFaction other) {
-		return this.sharesControlZoneWith(other, 0);
+		return sharesControlZoneWith(other, 0);
 	}
 
 	public boolean sharesControlZoneWith(GOTFaction other, int extraMapRadius) {

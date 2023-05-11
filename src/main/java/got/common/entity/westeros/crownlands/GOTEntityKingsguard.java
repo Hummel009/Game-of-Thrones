@@ -11,7 +11,7 @@ public class GOTEntityKingsguard extends GOTEntityCrownlandsGuard {
 	public GOTEntityKingsguard(World world) {
 		super(world);
 		npcCape = GOTCapes.ROYALGUARD;
-		this.addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
+		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
 	}
 
 	@Override

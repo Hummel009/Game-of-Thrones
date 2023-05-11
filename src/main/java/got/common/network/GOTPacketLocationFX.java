@@ -45,7 +45,7 @@ public class GOTPacketLocationFX implements IMessage {
 	}
 
 	public enum Type {
-		SWORD_COMMAND;
+		SWORD_COMMAND
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketLocationFX, IMessage> {

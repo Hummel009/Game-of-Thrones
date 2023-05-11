@@ -41,7 +41,7 @@ public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature,
 
 		@Override
 		public boolean isEntityApplicable(Entity entity) {
-			return entity instanceof EntityLivingBase && entity.isEntityAlive() && GOTEntitySwan.this.getDistanceSqToEntity(entity) < 16.0;
+			return entity instanceof EntityLivingBase && entity.isEntityAlive() && getDistanceSqToEntity(entity) < 16.0;
 		}
 	};
 

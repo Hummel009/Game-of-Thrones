@@ -47,7 +47,7 @@ public class GOTStructureIbbenBarn extends GOTStructureIbbenBase {
 		int i15;
 		int k12;
 		int j12;
-		this.setOriginAndRotation(world, i, j, k, rotation, 1);
+		setOriginAndRotation(world, i, j, k, rotation, 1);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -385,8 +385,8 @@ public class GOTStructureIbbenBarn extends GOTStructureIbbenBase {
 				setBlockAndMetadata(world, i12, j16, 14, Blocks.hay_block, 0);
 			}
 		}
-		this.placeChest(world, random, -4, 1, 13, 4, GOTChestContents.IBBEN);
-		this.placeChest(world, random, -4, 1, 14, 4, GOTChestContents.IBBEN);
+		placeChest(world, random, -4, 1, 13, 4, GOTChestContents.IBBEN);
+		placeChest(world, random, -4, 1, 14, 4, GOTChestContents.IBBEN);
 		setBlockAndMetadata(world, 4, 1, 13, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, 4, 1, 14, GOTRegistry.tableIbben, 0);
 		setBlockAndMetadata(world, -2, 3, 1, Blocks.torch, 3);

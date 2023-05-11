@@ -95,18 +95,18 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 		int thefts = MathHelper.getRandomIntegerInRange(theBanditAsNPC.getRNG(), 1, theBandit.getMaxThefts());
 		boolean stolenSomething = false;
 		for (int i = 0; i < thefts; ++i) {
-			if (this.tryStealItem(inv, GOTItemCoin.class)) {
+			if (tryStealItem(inv, GOTItemCoin.class)) {
 				stolenSomething = true;
 			}
-			if (this.tryStealItem(inv, GOTItemGem.class) || this.tryStealItem(inv, GOTItemRing.class) || this.tryStealItem(inv, ItemArmor.class)) {
-				stolenSomething = true;
-				continue;
-			}
-			if (this.tryStealItem(inv, ItemSword.class) || this.tryStealItem(inv, ItemTool.class) || this.tryStealItem(inv, GOTItemPouch.class)) {
+			if (tryStealItem(inv, GOTItemGem.class) || tryStealItem(inv, GOTItemRing.class) || tryStealItem(inv, ItemArmor.class)) {
 				stolenSomething = true;
 				continue;
 			}
-			if (!this.tryStealItem(inv)) {
+			if (tryStealItem(inv, ItemSword.class) || tryStealItem(inv, ItemTool.class) || tryStealItem(inv, GOTItemPouch.class)) {
+				stolenSomething = true;
+				continue;
+			}
+			if (!tryStealItem(inv)) {
 				continue;
 			}
 			stolenSomething = true;

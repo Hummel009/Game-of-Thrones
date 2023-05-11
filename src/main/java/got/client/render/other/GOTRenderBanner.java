@@ -74,10 +74,10 @@ public class GOTRenderBanner extends Render {
 				OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, lx / 1.0f, ly / 1.0f);
 				GL11.glColor4f((protectColor >> 16 & 0xFF) / 255.0f, (protectColor >> 8 & 0xFF) / 255.0f, (protectColor >> 0 & 0xFF) / 255.0f, 1.0f);
 			}
-			bindTexture(this.getStandTexture(entity));
+			bindTexture(getStandTexture(entity));
 			model.renderStand(0.0625f);
 			model.renderPost(0.0625f);
-			bindTexture(this.getBannerTexture(entity));
+			bindTexture(getBannerTexture(entity));
 			model.renderBanner(0.0625f);
 			if (seeThroughWalls) {
 				GL11.glEnable(2929);
@@ -119,7 +119,7 @@ public class GOTRenderBanner extends Render {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return this.getStandTexture(entity);
+		return getStandTexture(entity);
 	}
 
 	public ResourceLocation getStandTexture(Entity entity) {

@@ -42,7 +42,7 @@ public class GOTStructureMossovyTrampHouse extends GOTStructureMossovyBase {
 		int i13;
 		int k12;
 		int randPath;
-		this.setOriginAndRotation(world, i, j, k, rotation, 9);
+		setOriginAndRotation(world, i, j, k, rotation, 9);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			for (i1 = -7; i1 <= 8; ++i1) {
@@ -205,16 +205,16 @@ public class GOTStructureMossovyTrampHouse extends GOTStructureMossovyBase {
 		setBlockAndMetadata(world, 0, 5, 0, bedBlock, 3);
 		setBlockAndMetadata(world, -1, 5, 0, bedBlock, 11);
 		placePlateWithCertainty(world, random, 1, -1, -4, GOTRegistry.ceramicPlateBlock, GOTFoods.WESTEROS);
-		this.placeMug(world, random, 0, -1, -4, 0, GOTFoods.WESTEROS_DRINK);
-		this.placeBarrel(world, random, 5, -2, -4, 5, GOTFoods.WESTEROS_DRINK);
-		this.placeBarrel(world, random, 4, -2, -3, 2, GOTFoods.WESTEROS_DRINK);
-		this.placeChest(world, random, 3, -2, -3, 2, GOTChestContents.MOSSOVY);
-		this.placeChest(world, random, -2, -2, 0, 4, GOTChestContents.TREASURE);
-		this.placeChest(world, random, 3, -2, 1, 2, GOTChestContents.TREASURE);
+		placeMug(world, random, 0, -1, -4, 0, GOTFoods.WESTEROS_DRINK);
+		placeBarrel(world, random, 5, -2, -4, 5, GOTFoods.WESTEROS_DRINK);
+		placeBarrel(world, random, 4, -2, -3, 2, GOTFoods.WESTEROS_DRINK);
+		placeChest(world, random, 3, -2, -3, 2, GOTChestContents.MOSSOVY);
+		placeChest(world, random, -2, -2, 0, 4, GOTChestContents.TREASURE);
+		placeChest(world, random, 3, -2, 1, 2, GOTChestContents.TREASURE);
 		placePlateWithCertainty(world, random, 3, 2, -3, GOTRegistry.plateBlock, GOTFoods.WESTEROS);
-		this.placeMug(world, random, 3, 2, -2, 3, GOTFoods.WESTEROS_DRINK);
-		this.placeChest(world, random, -1, 1, 1, 4, GOTChestContents.MOSSOVY);
-		this.placeChest(world, random, 1, 5, 1, 2, GOTChestContents.MOSSOVY);
+		placeMug(world, random, 3, 2, -2, 3, GOTFoods.WESTEROS_DRINK);
+		placeChest(world, random, -1, 1, 1, 4, GOTChestContents.MOSSOVY);
+		placeChest(world, random, 1, 5, 1, 2, GOTChestContents.MOSSOVY);
 		for (i13 = -6; i13 <= -3; ++i13) {
 			for (int k13 = -3; k13 <= 1; ++k13) {
 				j12 = 1;

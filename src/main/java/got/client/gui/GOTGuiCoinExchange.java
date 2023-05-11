@@ -57,7 +57,7 @@ public class GOTGuiCoinExchange extends GuiContainer {
 
 	@Override
 	public void drawGuiContainerForegroundLayer(int i, int j) {
-		this.drawCenteredString(StatCollector.translateToLocal("got.container.coinExchange"), 89, 11, 4210752);
+		drawCenteredString(StatCollector.translateToLocal("got.container.coinExchange"), 89, 11, 4210752);
 		fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 8, 94, 4210752);
 	}
 

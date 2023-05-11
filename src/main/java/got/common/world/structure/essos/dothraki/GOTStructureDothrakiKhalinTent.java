@@ -24,7 +24,7 @@ public class GOTStructureDothrakiKhalinTent extends GOTStructureDothrakiBase {
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 7);
+		setOriginAndRotation(world, i, j, k, rotation, 7);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -71,9 +71,9 @@ public class GOTStructureDothrakiKhalinTent extends GOTStructureDothrakiBase {
 		associateBlockMetaAlias("CARPET", carpetBlock, carpetMeta);
 		associateBlockMetaAlias("CARPET2", carpet2Block, carpet2Meta);
 		generateStrScan(world, random, 0, 1, 0);
-		this.placeSkull(world, random, -8, 2, -4);
-		this.placeBarrel(world, random, 7, 2, -4, 3, GOTFoods.NOMAD_DRINK);
-		this.placeBarrel(world, random, 8, 2, -4, 3, GOTFoods.NOMAD_DRINK);
+		placeSkull(world, random, -8, 2, -4);
+		placeBarrel(world, random, 7, 2, -4, 3, GOTFoods.NOMAD_DRINK);
+		placeBarrel(world, random, 8, 2, -4, 3, GOTFoods.NOMAD_DRINK);
 		placeAnimalJar(world, -7, 2, -4, GOTRegistry.butterflyJar, 0, new GOTEntityButterfly(world));
 		placeAnimalJar(world, 9, 1, 5, GOTRegistry.birdCageWood, 0, null);
 		placeAnimalJar(world, 4, 3, 2, GOTRegistry.birdCageWood, 0, new GOTEntityBird(world));
@@ -104,7 +104,7 @@ public class GOTStructureDothrakiKhalinTent extends GOTStructureDothrakiBase {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 1, 1, 1, Blocks.anvil, 1);
 			placeWeaponRack(world, -1, 2, -2, 2, new GOTStructureDothrakiKhalinTent(false).getRandomNomadWeapon(random));
 			GOTEntityDothrakiKhalin trader = new GOTEntityDothrakiKhalin(world);
@@ -120,14 +120,14 @@ public class GOTStructureDothrakiKhalinTent extends GOTStructureDothrakiBase {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, -1, 1, 1, GOTRegistry.stairsCedar, 6);
 			setBlockAndMetadata(world, -1, 2, 1, GOTRegistry.barrel, 2);
 			setBlockAndMetadata(world, 0, 1, 1, Blocks.cauldron, 3);
 			setBlockAndMetadata(world, 1, 1, 1, GOTRegistry.stairsCedar, 6);
 			setBlockAndMetadata(world, 1, 2, 1, GOTRegistry.barrel, 2);
-			this.placeMug(world, random, -1, 2, -2, 0, GOTFoods.NOMAD_DRINK);
-			this.placeMug(world, random, 1, 2, -2, 0, GOTFoods.NOMAD_DRINK);
+			placeMug(world, random, -1, 2, -2, 0, GOTFoods.NOMAD_DRINK);
+			placeMug(world, random, 1, 2, -2, 0, GOTFoods.NOMAD_DRINK);
 			GOTEntityDothrakiKhalin trader = new GOTEntityDothrakiKhalin(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
@@ -141,7 +141,7 @@ public class GOTStructureDothrakiKhalinTent extends GOTStructureDothrakiBase {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, -1, 1, 1, GOTRegistry.redSandstone, 0);
 			setBlockAndMetadata(world, -1, 2, 1, GOTRegistry.redSandstone, 0);
 			setBlockAndMetadata(world, -1, 3, 1, GOTRegistry.redSandstone, 0);
@@ -165,7 +165,7 @@ public class GOTStructureDothrakiKhalinTent extends GOTStructureDothrakiBase {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			this.setOriginAndRotation(world, i, j, k, rotation, 0);
+			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, -1, 1, 1, GOTRegistry.oreCopper, 0);
 			setBlockAndMetadata(world, -1, 2, 1, GOTRegistry.oreTin, 0);
 			setBlockAndMetadata(world, 0, 1, 1, GOTRegistry.oreCopper, 0);

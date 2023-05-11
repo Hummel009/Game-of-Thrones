@@ -18,7 +18,7 @@ public class GOTStructureEssosHouse extends GOTStructureEssosBase {
 		int k1;
 		int i1;
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 5);
+		setOriginAndRotation(world, i, j, k, rotation, 5);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -117,14 +117,14 @@ public class GOTStructureEssosHouse extends GOTStructureEssosBase {
 				placePlate(world, random, i13, j13, k12, GOTRegistry.woodPlateBlock, GOTFoods.ESSOS);
 				continue;
 			}
-			this.placeMug(world, random, i13, j13, k12, 1, GOTFoods.ESSOS_DRINK);
+			placeMug(world, random, i13, j13, k12, 1, GOTFoods.ESSOS_DRINK);
 		}
 		setBlockAndMetadata(world, -1, 5, -2, bedBlock, 2);
 		setBlockAndMetadata(world, -1, 5, -3, bedBlock, 10);
 		setBlockAndMetadata(world, 1, 5, -2, bedBlock, 2);
 		setBlockAndMetadata(world, 1, 5, -3, bedBlock, 10);
 		placeFlowerPot(world, 0, 6, -3, getRandomFlower(world, random));
-		this.placeChest(world, random, -1, 5, 3, GOTRegistry.chestBasket, 2, getChestContents());
+		placeChest(world, random, -1, 5, 3, GOTRegistry.chestBasket, 2, getChestContents());
 		GOTEntityNPC male = getMan(world);
 		male.familyInfo.setMale(true);
 		male.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));

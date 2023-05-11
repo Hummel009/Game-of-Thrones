@@ -17,7 +17,7 @@ public class GOTStructureLhazarHouse extends GOTStructureLhazarBase {
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 8);
+		setOriginAndRotation(world, i, j, k, rotation, 8);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -72,7 +72,7 @@ public class GOTStructureLhazarHouse extends GOTStructureLhazarBase {
 		generateStrScan(world, random, 0, 0, 0);
 		setBlockAndMetadata(world, 0, 1, 5, bedBlock, 0);
 		setBlockAndMetadata(world, 0, 1, 6, bedBlock, 8);
-		this.placeChest(world, random, 6, 1, 0, GOTRegistry.chestBasket, 5, GOTChestContents.LHAZAR);
+		placeChest(world, random, 6, 1, 0, GOTRegistry.chestBasket, 5, GOTChestContents.LHAZAR);
 		for (int k1 : new int[]{-2, 0, 2}) {
 			int i1 = -6;
 			int j12 = 2;
@@ -80,7 +80,7 @@ public class GOTStructureLhazarHouse extends GOTStructureLhazarBase {
 				placePlate(world, random, i1, j12, k1, GOTRegistry.woodPlateBlock, GOTFoods.NOMAD);
 				continue;
 			}
-			this.placeMug(world, random, i1, j12, k1, 3, GOTFoods.NOMAD_DRINK);
+			placeMug(world, random, i1, j12, k1, 3, GOTFoods.NOMAD_DRINK);
 		}
 		GOTEntityLhazarMan male = new GOTEntityLhazarMan(world);
 		male.familyInfo.setMale(true);

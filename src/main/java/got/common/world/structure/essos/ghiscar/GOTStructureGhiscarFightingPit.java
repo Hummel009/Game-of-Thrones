@@ -28,7 +28,7 @@ public class GOTStructureGhiscarFightingPit extends GOTStructureEssosBase {
 		int i1;
 		int i12;
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 8, -10);
+		setOriginAndRotation(world, i, j, k, rotation, 8, -10);
 		originY -= 4;
 		setupRandomBlocks(random);
 		if (restrictions) {
@@ -162,14 +162,14 @@ public class GOTStructureGhiscarFightingPit extends GOTStructureEssosBase {
 		placeBigTorch(world, -4, 8, 4);
 		placeBigTorch(world, -8, 10, -4);
 		placeBigTorch(world, -12, 10, -4);
-		this.placeChest(world, random, -7, 1, 0, 4, GOTChestContents.GHISCAR);
-		this.placeChest(world, random, 1, 7, 12, 2, GOTChestContents.GHISCAR);
+		placeChest(world, random, -7, 1, 0, 4, GOTChestContents.GHISCAR);
+		placeChest(world, random, 1, 7, 12, 2, GOTChestContents.GHISCAR);
 		setBlockAndMetadata(world, -2, 7, 9, bedBlock, 3);
 		setBlockAndMetadata(world, -3, 7, 9, bedBlock, 11);
 		setBlockAndMetadata(world, -2, 7, 11, bedBlock, 3);
 		setBlockAndMetadata(world, -3, 7, 11, bedBlock, 11);
-		this.placeBarrel(world, random, 3, 8, 11, 5, GOTFoods.ESSOS_DRINK);
-		this.placeMug(world, random, 3, 8, 10, 1, GOTFoods.ESSOS_DRINK);
+		placeBarrel(world, random, 3, 8, 11, 5, GOTFoods.ESSOS_DRINK);
+		placeMug(world, random, 3, 8, 10, 1, GOTFoods.ESSOS_DRINK);
 		placePlateWithCertainty(world, random, 3, 8, 9, GOTRegistry.woodPlateBlock, GOTFoods.ESSOS);
 		int maxStep = 12;
 		for (i12 = -1; i12 <= 1; ++i12) {

@@ -24,7 +24,7 @@ public class GOTStructureLhazarWarCamp extends GOTStructureLhazarBase {
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int i1;
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 15);
+		setOriginAndRotation(world, i, j, k, rotation, 15);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -113,11 +113,11 @@ public class GOTStructureLhazarWarCamp extends GOTStructureLhazarBase {
 			setBlockAndMetadata(world, i1, 1, 12, bedBlock, 0);
 			setBlockAndMetadata(world, i1, 1, 13, bedBlock, 8);
 		}
-		this.placeChest(world, random, -12, 1, 13, GOTRegistry.chestBasket, 2, GOTChestContents.LHAZAR);
-		this.placeChest(world, random, -10, 1, 13, GOTRegistry.chestBasket, 2, GOTChestContents.LHAZAR);
-		this.placeChest(world, random, 10, 1, 13, GOTRegistry.chestBasket, 2, GOTChestContents.LHAZAR);
-		this.placeChest(world, random, 12, 1, 13, GOTRegistry.chestBasket, 2, GOTChestContents.LHAZAR);
-		this.placeChest(world, random, -1, 1, 3, GOTRegistry.chestBasket, 2, GOTChestContents.LHAZAR);
+		placeChest(world, random, -12, 1, 13, GOTRegistry.chestBasket, 2, GOTChestContents.LHAZAR);
+		placeChest(world, random, -10, 1, 13, GOTRegistry.chestBasket, 2, GOTChestContents.LHAZAR);
+		placeChest(world, random, 10, 1, 13, GOTRegistry.chestBasket, 2, GOTChestContents.LHAZAR);
+		placeChest(world, random, 12, 1, 13, GOTRegistry.chestBasket, 2, GOTChestContents.LHAZAR);
+		placeChest(world, random, -1, 1, 3, GOTRegistry.chestBasket, 2, GOTChestContents.LHAZAR);
 		placelhazarArmor(world, random, -11, 1, -13, 2);
 		placelhazarArmor(world, random, -9, 1, -13, 2);
 		placelhazarArmor(world, random, -13, 1, -11, 3);
@@ -134,12 +134,12 @@ public class GOTStructureLhazarWarCamp extends GOTStructureLhazarBase {
 		placeWeaponRack(world, 7, 2, -8, 7, getRandomlhazarWeapon(random));
 		placeWeaponRack(world, 9, 2, -8, 5, getRandomlhazarWeapon(random));
 		placeWeaponRack(world, 8, 2, -7, 4, getRandomlhazarWeapon(random));
-		this.placeSkull(world, random, -12, 3, -2);
-		this.placeSkull(world, random, -12, 3, 2);
+		placeSkull(world, random, -12, 3, -2);
+		placeSkull(world, random, -12, 3, 2);
 		placeWeaponRack(world, 11, 2, -4, 7, new ItemStack(GOTRegistry.nomadBow));
 		placeWeaponRack(world, 11, 2, 4, 7, new ItemStack(GOTRegistry.nomadBow));
-		this.placeBarrel(world, random, -13, 2, 9, 3, GOTFoods.NOMAD_DRINK);
-		this.placeBarrel(world, random, 13, 2, 9, 3, GOTFoods.NOMAD_DRINK);
+		placeBarrel(world, random, -13, 2, 9, 3, GOTFoods.NOMAD_DRINK);
+		placeBarrel(world, random, 13, 2, 9, 3, GOTFoods.NOMAD_DRINK);
 		placeWallBanner(world, 0, 6, -15, GOTItemBanner.BannerType.LHAZAR, 2);
 		placeWallBanner(world, -2, 5, -15, GOTItemBanner.BannerType.LHAZAR, 2);
 		placeWallBanner(world, 2, 5, -15, GOTItemBanner.BannerType.LHAZAR, 2);

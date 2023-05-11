@@ -20,7 +20,7 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		boolean generateColumn;
-		this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		setOriginAndRotation(world, i, j, k, rotation, 0);
 		int width = MathHelper.getRandomIntegerInRange(random, minWidth, maxWidth);
 		generateColumn = random.nextInt(3) > 0;
 		if (generateColumn) {

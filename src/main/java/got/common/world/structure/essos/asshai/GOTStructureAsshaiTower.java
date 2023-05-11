@@ -32,7 +32,7 @@ public class GOTStructureAsshaiTower extends GOTStructureAsshaiBase {
 		int j13;
 		int radius = 6;
 		int radiusPlusOne = radius + 1;
-		this.setOriginAndRotation(world, i, j, k, rotation, radiusPlusOne);
+		setOriginAndRotation(world, i, j, k, rotation, radiusPlusOne);
 		int sections = 6;
 		int sectionHeight = 6;
 		int topHeight = sections * sectionHeight;
@@ -127,7 +127,7 @@ public class GOTStructureAsshaiTower extends GOTStructureAsshaiBase {
 							continue;
 						}
 						setBlockAndMetadata(world, i13, sectionBase + 2, k13, GOTRegistry.wallStone1, 1);
-						this.placeSkull(world, random, i13, sectionBase + 2, k13);
+						placeSkull(world, random, i13, sectionBase + 2, k13);
 					}
 				}
 			} else {
@@ -148,7 +148,7 @@ public class GOTStructureAsshaiTower extends GOTStructureAsshaiBase {
 				}
 				setBlockAndMetadata(world, 0, sectionBase + 1, 0, GOTRegistry.brick1, 0);
 				setBlockAndMetadata(world, 0, sectionBase + 2, 0, GOTRegistry.wallStone1, 1);
-				this.placeSkull(world, random, 0, sectionBase + 3, 0);
+				placeSkull(world, random, 0, sectionBase + 3, 0);
 			}
 			for (j1 = sectionBase + 1; j1 <= sectionBase + 5; ++j1) {
 				setBlockAndMetadata(world, -2, j1, -5, GOTRegistry.planks1, 3);
@@ -203,7 +203,7 @@ public class GOTStructureAsshaiTower extends GOTStructureAsshaiBase {
 			}
 			setBlockAndMetadata(world, 2, sectionBase + 5, 5, GOTRegistry.stairsBasaltBrick, 4);
 		}
-		this.placeChest(world, random, -1, 1, 5, GOTRegistry.chestStone, 0, GOTChestContents.ASSHAI);
+		placeChest(world, random, -1, 1, 5, GOTRegistry.chestStone, 0, GOTChestContents.ASSHAI);
 		for (k12 = -3; k12 <= 3; k12 += 6) {
 			for (step = 0; step <= 3; ++step) {
 				placeBrickSupports(world, random, -9 + step, k12);

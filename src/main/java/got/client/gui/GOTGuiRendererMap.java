@@ -20,7 +20,7 @@ public class GOTGuiRendererMap {
 	public boolean sepia;
 
 	public void renderMap(GuiScreen gui, GOTGuiMap mapGui, float f) {
-		this.renderMap(gui, mapGui, f, 0, 0, gui.width, gui.height);
+		renderMap(gui, mapGui, f, 0, 0, gui.width, gui.height);
 	}
 
 	public void renderMap(GuiScreen gui, GOTGuiMap mapGui, float f, int x0, int y0, int x1, int y1) {
@@ -40,7 +40,7 @@ public class GOTGuiRendererMap {
 	}
 
 	public void renderVignette(GuiScreen gui, double zLevel) {
-		this.renderVignette(gui, zLevel, 0, 0, gui.width, gui.height);
+		renderVignette(gui, zLevel, 0, 0, gui.width, gui.height);
 	}
 
 	public void renderVignette(GuiScreen gui, double zLevel, int x0, int y0, int x1, int y1) {
@@ -67,13 +67,13 @@ public class GOTGuiRendererMap {
 
 	public void renderVignettes(GuiScreen gui, double zLevel, int count) {
 		for (int l = 0; l < count; ++l) {
-			this.renderVignette(gui, zLevel);
+			renderVignette(gui, zLevel);
 		}
 	}
 
 	public void renderVignettes(GuiScreen gui, double zLevel, int count, int x0, int y0, int x1, int y1) {
 		for (int l = 0; l < count; ++l) {
-			this.renderVignette(gui, zLevel, x0, y0, x1, y1);
+			renderVignette(gui, zLevel, x0, y0, x1, y1);
 		}
 	}
 

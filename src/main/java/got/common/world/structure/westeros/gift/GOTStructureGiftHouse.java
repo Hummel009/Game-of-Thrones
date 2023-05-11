@@ -31,7 +31,7 @@ public class GOTStructureGiftHouse extends GOTStructureGiftBase {
 			int i13;
 			int k2;
 			int j1;
-			this.setOriginAndRotation(world, i, j, k, rotation, 4);
+			setOriginAndRotation(world, i, j, k, rotation, 4);
 			setupRandomBlocks(random);
 			if (restrictions) {
 				int minHeight = 0;
@@ -197,10 +197,10 @@ public class GOTStructureGiftHouse extends GOTStructureGiftBase {
 			placePlateWithCertainty(world, random, -1, 2, 0, plateBlock, GOTFoods.WESTEROS);
 			setBlockAndMetadata(world, -1, 1, 1, Blocks.crafting_table, 0);
 			setBlockAndMetadata(world, -1, 1, 2, plankBlock, plankMeta);
-			this.placeMug(world, random, -1, 2, 2, random.nextInt(3), GOTFoods.WESTEROS_DRINK);
-			this.placeChest(world, random, 0, 1, 2, 2, GOTChestContents.GIFT);
+			placeMug(world, random, -1, 2, 2, random.nextInt(3), GOTFoods.WESTEROS_DRINK);
+			placeChest(world, random, 0, 1, 2, 2, GOTChestContents.GIFT);
 			setBlockAndMetadata(world, 1, 1, 2, plankBlock, plankMeta);
-			this.placeBarrel(world, random, 1, 2, 2, 2, GOTFoods.WESTEROS_DRINK);
+			placeBarrel(world, random, 1, 2, 2, 2, GOTFoods.WESTEROS_DRINK);
 			for (int k151 : new int[]{-2, 2}) {
 				setBlockAndMetadata(world, 3, 1, k151, bedBlock, 1);
 				setBlockAndMetadata(world, 4, 1, k151, bedBlock, 9);

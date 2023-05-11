@@ -18,43 +18,43 @@ public class GOTItemStackMapImpl<V> implements GOTItemStackMap<V> {
 
 	@Override
 	public void clear() {
-		this.innerMap.clear();
+		innerMap.clear();
 	}
 
 	@Override
 	public boolean containsKey(Object key) {
-		return key instanceof ItemStack && this.innerMap.containsKey(new GOTItemStackWrapper((ItemStack) key, this.isNBTSensitive));
+		return key instanceof ItemStack && innerMap.containsKey(new GOTItemStackWrapper((ItemStack) key, isNBTSensitive));
 	}
 
 	@Override
 	public boolean containsValue(Object value) {
-		return value != null && this.innerMap.containsValue(value);
+		return value != null && innerMap.containsValue(value);
 	}
 
 	@Override
 	public Set<Map.Entry<ItemStack, V>> entrySet() {
 		Set<Map.Entry<ItemStack, V>> entrySet = new HashSet<>();
-		this.innerMap.forEach((key, value) -> entrySet.add(new AbstractMap.SimpleEntry<>(key.toItemStack(), value)));
+		innerMap.forEach((key, value) -> entrySet.add(new AbstractMap.SimpleEntry<>(key.toItemStack(), value)));
 		return entrySet;
 	}
 
 	@Override
 	public V get(Object key) {
 		if (key instanceof ItemStack) {
-			return this.innerMap.get(new GOTItemStackWrapper((ItemStack) key, this.isNBTSensitive));
+			return innerMap.get(new GOTItemStackWrapper((ItemStack) key, isNBTSensitive));
 		}
 		return null;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		return this.innerMap.isEmpty();
+		return innerMap.isEmpty();
 	}
 
 	@Override
 	public Set<ItemStack> keySet() {
 		HashSet<ItemStack> ret = new HashSet<>();
-		for (GOTItemStackWrapper key : this.innerMap.keySet()) {
+		for (GOTItemStackWrapper key : innerMap.keySet()) {
 			ret.add(key.toItemStack());
 		}
 		return ret;
@@ -65,7 +65,7 @@ public class GOTItemStackMapImpl<V> implements GOTItemStackMap<V> {
 		if (key == null || value == null) {
 			throw new NullPointerException("Key or value is null");
 		}
-		return this.innerMap.put(new GOTItemStackWrapper(key, this.isNBTSensitive), value);
+		return innerMap.put(new GOTItemStackWrapper(key, isNBTSensitive), value);
 	}
 
 	@Override
@@ -81,16 +81,16 @@ public class GOTItemStackMapImpl<V> implements GOTItemStackMap<V> {
 		if (!(key instanceof ItemStack)) {
 			throw new IllegalArgumentException("Key is not an instance of item stack");
 		}
-		return this.innerMap.remove(new GOTItemStackWrapper((ItemStack) key, this.isNBTSensitive));
+		return innerMap.remove(new GOTItemStackWrapper((ItemStack) key, isNBTSensitive));
 	}
 
 	@Override
 	public int size() {
-		return this.innerMap.size();
+		return innerMap.size();
 	}
 
 	@Override
 	public Collection<V> values() {
-		return new ArrayList<>(this.innerMap.values());
+		return new ArrayList<>(innerMap.values());
 	}
 }

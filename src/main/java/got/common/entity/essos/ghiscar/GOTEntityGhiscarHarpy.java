@@ -10,7 +10,7 @@ public class GOTEntityGhiscarHarpy extends GOTEntityGhiscarLevyman {
 	public GOTEntityGhiscarHarpy(World world) {
 		super(world);
 		spawnsInDarkness = true;
-		this.addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
+		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
 	}
 
 	@Override

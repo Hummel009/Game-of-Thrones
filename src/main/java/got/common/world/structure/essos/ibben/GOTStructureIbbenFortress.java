@@ -35,7 +35,7 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 		int k13;
 		int i15;
 		int k2;
-		this.setOriginAndRotation(world, i, j, k, rotation, 13);
+		setOriginAndRotation(world, i, j, k, rotation, 13);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			for (i12 = -12; i12 <= 12; ++i12) {
@@ -391,8 +391,8 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 		setBlockAndMetadata(world, -5, 2, 9, fenceBlock, fenceMeta);
 		setBlockAndMetadata(world, -6, 1, 9, plankBlock, plankMeta);
 		setBlockAndMetadata(world, -6, 2, 9, Blocks.torch, 4);
-		this.placeChest(world, random, -7, 1, 9, 2, GOTChestContents.IBBEN);
-		this.placeChest(world, random, -8, 1, 9, 2, GOTChestContents.IBBEN);
+		placeChest(world, random, -7, 1, 9, 2, GOTChestContents.IBBEN);
+		placeChest(world, random, -8, 1, 9, 2, GOTChestContents.IBBEN);
 		setBlockAndMetadata(world, -9, 1, 8, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, -9, 1, 7, GOTRegistry.tableIbben, 0);
 		setBlockAndMetadata(world, -9, 1, 6, plankBlock, plankMeta);
@@ -444,12 +444,12 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 			setBlockAndMetadata(world, 9, 1, k16, bedBlock, 1);
 			setBlockAndMetadata(world, 10, 1, k16, bedBlock, 9);
 		}
-		this.placeChest(world, random, 8, 1, 6, 3, GOTChestContents.IBBEN);
-		this.placeChest(world, random, 8, 1, 10, 2, GOTChestContents.IBBEN);
+		placeChest(world, random, 8, 1, 6, 3, GOTChestContents.IBBEN);
+		placeChest(world, random, 8, 1, 10, 2, GOTChestContents.IBBEN);
 		setBlockAndMetadata(world, 7, 1, 8, carpetBlock, carpetMeta);
 		setBlockAndMetadata(world, 8, 1, 8, carpetBlock, carpetMeta);
 		setBlockAndMetadata(world, 10, 1, 8, plankBlock, plankMeta);
-		this.placeBarrel(world, random, 10, 2, 8, 5, GOTFoods.WILD_DRINK);
+		placeBarrel(world, random, 10, 2, 8, 5, GOTFoods.WILD_DRINK);
 		for (int j18 = 1; j18 <= 4; ++j18) {
 			setBlockAndMetadata(world, 6, j18, -9, woodBeam2Block, woodBeam2Meta);
 			setBlockAndMetadata(world, 7, j18, -9, plank2Block, plank2Meta);

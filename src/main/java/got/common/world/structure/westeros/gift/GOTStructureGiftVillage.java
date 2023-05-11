@@ -60,7 +60,7 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 	}
 
 	public enum VillageType {
-		ABANDONED, CASTLE_BLACK, SHADOW_TOWER, EAST_WATCH, VILLAGE;
+		ABANDONED, CASTLE_BLACK, SHADOW_TOWER, EAST_WATCH, VILLAGE
 	}
 
 	public class Instance extends GOTVillageGen.AbstractInstance {
@@ -74,19 +74,19 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 		public void addVillageStructures(Random random) {
 			switch (villageType) {
 				case CASTLE_BLACK:
-					this.addStructure(new GOTStructureGiftGate(false), 0, 7, 0, true);
-					this.addStructure(new CastleBlack(false), -4, 25, 1, true);
+					addStructure(new GOTStructureGiftGate(false), 0, 7, 0, true);
+					addStructure(new CastleBlack(false), -4, 25, 1, true);
 					break;
 				case SHADOW_TOWER:
-					this.addStructure(new GOTStructureGiftGate(false), 0, 7, 0, true);
-					this.addStructure(new ShadowTower(false), 0, 20, 0, true);
+					addStructure(new GOTStructureGiftGate(false), 0, 7, 0, true);
+					addStructure(new ShadowTower(false), 0, 20, 0, true);
 					break;
 				case EAST_WATCH:
-					this.addStructure(new EastWatch(false), 0, 50, 0, true);
+					addStructure(new EastWatch(false), 0, 50, 0, true);
 					break;
 				case ABANDONED:
-					this.addStructure(new GOTStructureGiftGate(false).setIsAbandoned(), 0, 7, 0, true);
-					this.addStructure(new Abandoned(false), 0, 20, 0, true);
+					addStructure(new GOTStructureGiftGate(false).setIsAbandoned(), 0, 7, 0, true);
+					addStructure(new Abandoned(false), 0, 20, 0, true);
 					break;
 				case VILLAGE:
 					setupVillage(random);
@@ -134,7 +134,7 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 		}
 
 		public void setupVillage(Random random) {
-			this.addStructure(new GOTStructureNPCRespawner(false) {
+			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
 				public void setupRespawner(GOTEntityNPCRespawner spawner) {
@@ -143,7 +143,7 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 					spawner.setSpawnRanges(20, -6, 6, 64);
 				}
 			}, 0, 0, 0);
-			this.addStructure(new GOTStructureNPCRespawner(false) {
+			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
 				public void setupRespawner(GOTEntityNPCRespawner spawner) {
@@ -152,11 +152,11 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 					spawner.setSpawnRanges(20, -6, 6, 64);
 				}
 			}, 0, 0, 0);
-			this.addStructure(new GOTStructureGiftWell(false), 0, -2, 0, true);
+			addStructure(new GOTStructureGiftWell(false), 0, -2, 0, true);
 			int lampX = 8;
 			for (int i : new int[]{-lampX, lampX}) {
 				for (int k : new int[]{-lampX, lampX}) {
-					this.addStructure(new GOTStructureGiftVillageLight(false), i, k, 0);
+					addStructure(new GOTStructureGiftVillageLight(false), i, k, 0);
 				}
 			}
 			int houses = 20;
@@ -190,7 +190,7 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 					}
 					i = Math.round(l * cos);
 					k = Math.round(l * sin);
-					this.addStructure(getRandomHouse(random), i, k, r);
+					addStructure(getRandomHouse(random), i, k, r);
 					continue;
 				}
 				if (random.nextInt(4) != 0) {
@@ -202,7 +202,7 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 				}
 				i = Math.round(l * cos);
 				k = Math.round(l * sin);
-				this.addStructure(new GOTStructureHayBales(false), i, k, r);
+				addStructure(new GOTStructureHayBales(false), i, k, r);
 			}
 			if (true) {
 				int rPalisade = 19 + 12 + 16;
@@ -215,7 +215,7 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 						if (Math.abs(i) <= 5 && k < 0 || (dSq = i * i + k * k) < rSq || dSq >= rSqMax) {
 							continue;
 						}
-						this.addStructure(new GOTStructureGiftVillagePalisade(false), i, k, 0);
+						addStructure(new GOTStructureGiftVillagePalisade(false), i, k, 0);
 					}
 				}
 			}

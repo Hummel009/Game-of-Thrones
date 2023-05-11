@@ -225,7 +225,7 @@ public class GOTModelMossovyWerewolf extends ModelBase {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-		this.setRotationAngles(f, f1, f2, f3, f4, f5);
+		setRotationAngles(f, f1, f2, f3, f4, f5);
 		Head.render(f5);
 		Nose.render(f5);
 		Snout.render(f5);

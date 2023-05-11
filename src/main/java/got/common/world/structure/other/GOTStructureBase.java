@@ -187,7 +187,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 					}
 				}
 				if (step instanceof GOTStructureScan.ScanStepSkull) {
-					this.placeSkull(world, random, i1, j1, k1);
+					placeSkull(world, random, i1, j1, k1);
 					continue;
 				}
 				setBlockAndMetadata(world, i1, j1, k1, block, meta);
@@ -451,7 +451,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public void placeBanner(World world, int i, int j, int k, GOTItemBanner.BannerType bt, int direction) {
-		this.placeBanner(world, i, j, k, bt, direction, false, 0);
+		placeBanner(world, i, j, k, bt, direction, false, 0);
 	}
 
 	public void placeBanner(World world, int i, int j, int k, GOTItemBanner.BannerType bt, int direction, boolean protection, int r) {
@@ -483,7 +483,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public void placeBarrel(World world, Random random, int i, int j, int k, int meta, GOTFoods foodList) {
-		this.placeBarrel(world, random, i, j, k, meta, foodList.getRandomBrewableDrink(random));
+		placeBarrel(world, random, i, j, k, meta, foodList.getRandomBrewableDrink(random));
 	}
 
 	public void placeBarrel(World world, Random random, int i, int j, int k, int meta, ItemStack drink) {
@@ -506,7 +506,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public void placeChest(World world, Random random, int i, int j, int k, Block chest, int meta, GOTChestContents contents) {
-		this.placeChest(world, random, i, j, k, chest, meta, contents, -1);
+		placeChest(world, random, i, j, k, chest, meta, contents, -1);
 	}
 
 	public void placeChest(World world, Random random, int i, int j, int k, Block chest, int meta, GOTChestContents contents, int amount) {
@@ -515,11 +515,11 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public void placeChest(World world, Random random, int i, int j, int k, int meta, GOTChestContents contents) {
-		this.placeChest(world, random, i, j, k, meta, contents, -1);
+		placeChest(world, random, i, j, k, meta, contents, -1);
 	}
 
 	public void placeChest(World world, Random random, int i, int j, int k, int meta, GOTChestContents contents, int amount) {
-		this.placeChest(world, random, i, j, k, Blocks.chest, meta, contents, amount);
+		placeChest(world, random, i, j, k, Blocks.chest, meta, contents, amount);
 	}
 
 	public void placeFlowerPot(World world, int i, int j, int k, ItemStack itemstack) {
@@ -563,11 +563,11 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public void placeMug(World world, Random random, int i, int j, int k, int meta, GOTFoods foodList) {
-		this.placeMug(world, random, i, j, k, meta, foodList.getRandomPlaceableDrink(random), foodList);
+		placeMug(world, random, i, j, k, meta, foodList.getRandomPlaceableDrink(random), foodList);
 	}
 
 	public void placeMug(World world, Random random, int i, int j, int k, int meta, ItemStack drink, GOTFoods foodList) {
-		this.placeMug(world, random, i, j, k, meta, drink, foodList.getPlaceableDrinkVessels());
+		placeMug(world, random, i, j, k, meta, drink, foodList.getPlaceableDrinkVessels());
 	}
 
 	public void placeMug(World world, Random random, int i, int j, int k, int meta, ItemStack drink, GOTItemMug.Vessel[] vesselTypes) {
@@ -698,15 +698,15 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public void placeSkull(World world, Random random, int i, int j, int k) {
-		this.placeSkull(world, i, j, k, random.nextInt(16));
+		placeSkull(world, i, j, k, random.nextInt(16));
 	}
 
 	public void placeSpawnerChest(World world, int i, int j, int k, Block block, int meta, Class entityClass) {
-		this.placeSpawnerChest(world, null, i, j, k, block, meta, entityClass, null);
+		placeSpawnerChest(world, null, i, j, k, block, meta, entityClass, null);
 	}
 
 	public void placeSpawnerChest(World world, Random random, int i, int j, int k, Block block, int meta, Class entityClass, GOTChestContents contents) {
-		this.placeSpawnerChest(world, random, i, j, k, block, meta, entityClass, contents, -1);
+		placeSpawnerChest(world, random, i, j, k, block, meta, entityClass, contents, -1);
 	}
 
 	public void placeSpawnerChest(World world, Random random, int i, int j, int k, Block block, int meta, Class entityClass, GOTChestContents contents, int amount) {
@@ -1052,7 +1052,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 			return;
 		}
 		meta = rotateMeta(block, meta);
-		super.setBlockAndNotifyAdequately(world, i, j, k, block, meta);
+		setBlockAndNotifyAdequately(world, i, j, k, block, meta);
 		if (meta != 0 && (block instanceof BlockChest || block instanceof GOTBlockChest || block instanceof GOTBlockSpawnerChest || block instanceof BlockFurnace || block instanceof GOTBlockOven || block instanceof GOTBlockForgeBase)) {
 			world.setBlockMetadataWithNotify(i, j, k, meta, notifyChanges ? 3 : 2);
 		}
@@ -1071,7 +1071,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public void setOriginAndRotation(World world, int i, int j, int k, int rotation, int shift) {
-		this.setOriginAndRotation(world, i, j, k, rotation, shift, 0);
+		setOriginAndRotation(world, i, j, k, rotation, shift, 0);
 	}
 
 	public void setOriginAndRotation(World world, int i, int j, int k, int rotation, int shift, int shiftX) {

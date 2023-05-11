@@ -21,7 +21,7 @@ public class GOTStructureMossovySmithy extends GOTStructureMossovyBase {
 		int j1;
 		int k1;
 		int i1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 11);
+		setOriginAndRotation(world, i, j, k, rotation, 11);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			for (i1 = -5; i1 <= 5; ++i1) {
@@ -78,7 +78,7 @@ public class GOTStructureMossovySmithy extends GOTStructureMossovyBase {
 		generateStrScan(world, random, 0, 0, 0);
 		setBlockAndMetadata(world, -2, 1, 3, bedBlock, 3);
 		setBlockAndMetadata(world, -3, 1, 3, bedBlock, 11);
-		this.placeChest(world, random, 3, 1, 0, 5, GOTChestContents.MOSSOVY);
+		placeChest(world, random, 3, 1, 0, 5, GOTChestContents.MOSSOVY);
 		placeArmorStand(world, 3, 1, -8, 1, getDisplayArmorOrNull(world, random));
 		placeArmorStand(world, 3, 1, -6, 1, getDisplayArmorOrNull(world, random));
 		placeArmorStand(world, 1, 1, 1, 3, getDisplayArmorOrNull(world, random));
@@ -86,8 +86,8 @@ public class GOTStructureMossovySmithy extends GOTStructureMossovyBase {
 		placeWeaponRack(world, 3, 2, 3, 2, getDisplayWeaponOrNull(random));
 		placeWeaponRack(world, 0, 3, -5, 6, getRandomBreeWeapon(random));
 		placeWeaponRack(world, -2, 3, -2, 4, getDisplayWeaponOrNull(random));
-		this.placeMug(world, random, -2, 2, 1, 2, GOTFoods.WESTEROS_DRINK);
-		this.placeBarrel(world, random, -3, 2, 1, 3, GOTFoods.WESTEROS_DRINK);
+		placeMug(world, random, -2, 2, 1, 2, GOTFoods.WESTEROS_DRINK);
+		placeBarrel(world, random, -3, 2, 1, 3, GOTFoods.WESTEROS_DRINK);
 		placePlateWithCertainty(world, random, 0, 2, -3, GOTRegistry.ceramicPlateBlock, GOTFoods.WESTEROS);
 		GOTEntityMossovyBlacksmith blacksmith = new GOTEntityMossovyBlacksmith(world);
 		spawnNPCAndSetHome(blacksmith, world, 0, 1, -1, 8);

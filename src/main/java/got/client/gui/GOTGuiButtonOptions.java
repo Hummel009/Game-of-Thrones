@@ -56,7 +56,7 @@ public class GOTGuiButtonOptions extends GuiButton {
 	}
 
 	public void setState(boolean flag) {
-		this.setState(flag ? StatCollector.translateToLocal("got.gui.button.on") : StatCollector.translateToLocal("got.gui.button.off"));
+		setState(flag ? StatCollector.translateToLocal("got.gui.button.on") : StatCollector.translateToLocal("got.gui.button.off"));
 	}
 
 	public void setState(String s) {

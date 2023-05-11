@@ -90,8 +90,8 @@ public class GOTMiniQuestCollect extends GOTMiniQuestCollectBase {
 		@Override
 		public Q createQuest(GOTEntityNPC npc, Random rand) {
 			GOTMiniQuestCollect quest = super.createQuest(npc, rand);
-			quest.collectItem = this.collectItem.copy();
-			quest.collectTarget = MathHelper.getRandomIntegerInRange(rand, this.minTarget, this.maxTarget);
+			quest.collectItem = collectItem.copy();
+			quest.collectTarget = MathHelper.getRandomIntegerInRange(rand, minTarget, maxTarget);
 			return (Q) quest;
 		}
 
@@ -101,12 +101,12 @@ public class GOTMiniQuestCollect extends GOTMiniQuestCollectBase {
 		}
 
 		public QFCollect<Q> setCollectItem(ItemStack itemstack, int min, int max) {
-			this.collectItem = itemstack;
-			if (this.collectItem.isItemStackDamageable()) {
-				this.collectItem.setItemDamage(32767);
+			collectItem = itemstack;
+			if (collectItem.isItemStackDamageable()) {
+				collectItem.setItemDamage(32767);
 			}
-			this.minTarget = min;
-			this.maxTarget = max;
+			minTarget = min;
+			maxTarget = max;
 			return this;
 		}
 	}

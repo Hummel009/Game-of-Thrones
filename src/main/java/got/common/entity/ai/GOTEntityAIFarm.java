@@ -129,17 +129,17 @@ public class GOTEntityAIFarm extends EntityAIBase {
 		if (pathingTick < 200) {
 			switch (action) {
 				case BONEMEALING:
-					return canDoBonemealing() && this.isSuitableForBonemealing(actionTarget);
+					return canDoBonemealing() && isSuitableForBonemealing(actionTarget);
 				case COLLECTING:
-					return canDoCollecting() && this.isSuitableForCollecting(actionTarget);
+					return canDoCollecting() && isSuitableForCollecting(actionTarget);
 				case DEPOSITING:
-					return canDoDepositing() && this.isSuitableForDepositing(actionTarget);
+					return canDoDepositing() && isSuitableForDepositing(actionTarget);
 				case HARVESTING:
-					return canDoHarvesting() && this.isSuitableForHarvesting(actionTarget);
+					return canDoHarvesting() && isSuitableForHarvesting(actionTarget);
 				case HOEING:
-					return canDoHoeing() && this.isSuitableForHoeing(actionTarget);
+					return canDoHoeing() && isSuitableForHoeing(actionTarget);
 				case PLANTING:
-					return canDoPlanting() && this.isSuitableForPlanting(actionTarget);
+					return canDoPlanting() && isSuitableForPlanting(actionTarget);
 			}
 		}
 		return false;
@@ -166,10 +166,10 @@ public class GOTEntityAIFarm extends EntityAIBase {
 					k = chest.zCoord;
 					switch (targetAction) {
 						case COLLECTING:
-							suitable = this.isSuitableForCollecting(i, j, k);
+							suitable = isSuitableForCollecting(i, j, k);
 							break;
 						case DEPOSITING:
-							suitable = this.isSuitableForDepositing(i, j, k);
+							suitable = isSuitableForDepositing(i, j, k);
 							break;
 						default:
 							break;
@@ -183,16 +183,16 @@ public class GOTEntityAIFarm extends EntityAIBase {
 				k = MathHelper.floor_double(theEntity.posZ) + MathHelper.getRandomIntegerInRange(rand, -8, 8);
 				switch (targetAction) {
 					case BONEMEALING:
-						suitable = this.isSuitableForBonemealing(i, j, k);
+						suitable = isSuitableForBonemealing(i, j, k);
 						break;
 					case HARVESTING:
-						suitable = this.isSuitableForHarvesting(i, j, k);
+						suitable = isSuitableForHarvesting(i, j, k);
 						break;
 					case HOEING:
-						suitable = this.isSuitableForHoeing(i, j, k);
+						suitable = isSuitableForHoeing(i, j, k);
 						break;
 					case PLANTING:
-						suitable = this.isSuitableForPlanting(i, j, k);
+						suitable = isSuitableForPlanting(i, j, k);
 						break;
 					default:
 						break;
@@ -415,7 +415,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	}
 
 	public boolean isSuitableForBonemealing(ChunkCoordinates pos) {
-		return this.isSuitableForBonemealing(pos.posX, pos.posY, pos.posZ);
+		return isSuitableForBonemealing(pos.posX, pos.posY, pos.posZ);
 	}
 
 	public boolean isSuitableForBonemealing(int i, int j, int k) {
@@ -430,7 +430,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	}
 
 	public boolean isSuitableForCollecting(ChunkCoordinates pos) {
-		return this.isSuitableForCollecting(pos.posX, pos.posY, pos.posZ);
+		return isSuitableForCollecting(pos.posX, pos.posY, pos.posZ);
 	}
 
 	public boolean isSuitableForCollecting(int i, int j, int k) {
@@ -458,7 +458,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	}
 
 	public boolean isSuitableForDepositing(ChunkCoordinates pos) {
-		return this.isSuitableForDepositing(pos.posX, pos.posY, pos.posZ);
+		return isSuitableForDepositing(pos.posX, pos.posY, pos.posZ);
 	}
 
 	public boolean isSuitableForDepositing(int i, int j, int k) {
@@ -483,7 +483,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	}
 
 	public boolean isSuitableForHarvesting(ChunkCoordinates pos) {
-		return this.isSuitableForHarvesting(pos.posX, pos.posY, pos.posZ);
+		return isSuitableForHarvesting(pos.posX, pos.posY, pos.posZ);
 	}
 
 	public boolean isSuitableForHarvesting(int i, int j, int k) {
@@ -517,7 +517,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	}
 
 	public boolean isSuitableForHoeing(ChunkCoordinates pos) {
-		return this.isSuitableForHoeing(pos.posX, pos.posY, pos.posZ);
+		return isSuitableForHoeing(pos.posX, pos.posY, pos.posZ);
 	}
 
 	public boolean isSuitableForHoeing(int i, int j, int k) {
@@ -548,7 +548,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	}
 
 	public boolean isSuitableForPlanting(ChunkCoordinates pos) {
-		return this.isSuitableForPlanting(pos.posX, pos.posY, pos.posZ);
+		return isSuitableForPlanting(pos.posX, pos.posY, pos.posZ);
 	}
 
 	public boolean isSuitableForPlanting(int i, int j, int k) {
@@ -645,7 +645,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 		} else {
 			switch (action) {
 				case BONEMEALING:
-					boolean canBonemeal = this.isSuitableForBonemealing(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+					boolean canBonemeal = isSuitableForBonemealing(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
 					if (canBonemeal) {
 						theEntity.swingItem();
 						ItemStack bonemeal = getInventoryBonemeal();
@@ -659,7 +659,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 					}
 					break;
 				case COLLECTING:
-					canCollect = this.isSuitableForCollecting(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+					canCollect = isSuitableForCollecting(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
 					if (canCollect) {
 						theEntity.swingItem();
 						TileEntity te = theWorld.getTileEntity(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
@@ -699,7 +699,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 					}
 					break;
 				case DEPOSITING:
-					boolean canDeposit = this.isSuitableForDepositing(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+					boolean canDeposit = isSuitableForDepositing(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
 					if (canDeposit) {
 						theEntity.swingItem();
 						TileEntity te = theWorld.getTileEntity(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
@@ -737,7 +737,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 					}
 					break;
 				case HARVESTING:
-					boolean canHarvest = this.isSuitableForHarvesting(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+					boolean canHarvest = isSuitableForHarvesting(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
 					if (canHarvest) {
 						int meta;
 						theEntity.swingItem();
@@ -806,7 +806,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 					}
 					break;
 				case HOEING:
-					boolean canHoe = this.isSuitableForHoeing(actionTarget);
+					boolean canHoe = isSuitableForHoeing(actionTarget);
 					if (canHoe) {
 						theEntity.swingItem();
 						ItemStack proxyHoe = new ItemStack(Items.iron_hoe);
@@ -821,7 +821,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 								int z = actionTarget.posZ + k1;
 								int y = actionTarget.posY;
 								alreadyChecked = i1 == 0 && k1 == 0;
-								if (!alreadyChecked && !this.isSuitableForHoeing(x, y, z)) {
+								if (!alreadyChecked && !isSuitableForHoeing(x, y, z)) {
 									continue;
 								}
 								if (isReplaceable(x, y + 1, z)) {
@@ -833,7 +833,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 					}
 					break;
 				case PLANTING:
-					boolean canPlant = this.isSuitableForPlanting(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+					boolean canPlant = isSuitableForPlanting(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
 					if (canPlant) {
 						theEntity.swingItem();
 						IPlantable seed = getSeedsToPlant();
@@ -850,7 +850,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	}
 
 	public enum Action {
-		HOEING, PLANTING, HARVESTING, DEPOSITING, BONEMEALING, COLLECTING;
+		HOEING, PLANTING, HARVESTING, DEPOSITING, BONEMEALING, COLLECTING
 	}
 
 	public static class TargetPair {

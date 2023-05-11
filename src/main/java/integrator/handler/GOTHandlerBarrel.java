@@ -113,7 +113,7 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 		public boolean fixedResult;
 
 		public CachedBarrelRecipe(ShapelessRecipeHandler.CachedShapelessRecipe recipe) {
-			lastCycleR = GOTHandlerBarrel.this.cycleticks;
+			lastCycleR = cycleticks;
 			fixedResult = false;
 			recipeIngreds = new ArrayList<>();
 			for (int i = 0; i < recipe.getIngredients().size(); ++i) {
@@ -140,12 +140,12 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 
 		@Override
 		public List<PositionedStack> getIngredients() {
-			return getCycledIngredients(GOTHandlerBarrel.this.cycleticks / 20, recipeIngreds);
+			return getCycledIngredients(cycleticks / 20, recipeIngreds);
 		}
 
 		@Override
 		public PositionedStack getResult() {
-			return getCycledResult(GOTHandlerBarrel.this.cycleticks / 20, recipeResult);
+			return getCycledResult(cycleticks / 20, recipeResult);
 		}
 
 		public int getX(int i) {

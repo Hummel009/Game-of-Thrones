@@ -8,7 +8,7 @@ import java.util.UUID;
 public interface MiniQuestSelector {
 	boolean include(GOTMiniQuest var1);
 
-	public static class BountyActiveAnyFaction extends OptionalActive {
+	class BountyActiveAnyFaction extends OptionalActive {
 		public BountyActiveAnyFaction() {
 			setActiveOnly();
 		}
@@ -23,7 +23,7 @@ public interface MiniQuestSelector {
 		}
 	}
 
-	public static class BountyActiveFaction extends BountyActiveAnyFaction {
+	class BountyActiveFaction extends BountyActiveAnyFaction {
 		public Supplier<GOTFaction> factionGet;
 
 		public BountyActiveFaction(Supplier<GOTFaction> sup) {
@@ -36,7 +36,7 @@ public interface MiniQuestSelector {
 		}
 	}
 
-	public static class EntityId extends OptionalActive {
+	class EntityId extends OptionalActive {
 		public UUID entityID;
 
 		public EntityId(UUID id) {
@@ -49,7 +49,7 @@ public interface MiniQuestSelector {
 		}
 	}
 
-	public static class Faction extends OptionalActive {
+	class Faction extends OptionalActive {
 		public Supplier<GOTFaction> factionGet;
 
 		public Faction(Supplier<GOTFaction> sup) {
@@ -62,7 +62,7 @@ public interface MiniQuestSelector {
 		}
 	}
 
-	public static class OptionalActive implements MiniQuestSelector {
+	class OptionalActive implements MiniQuestSelector {
 		public boolean activeOnly;
 
 		@Override

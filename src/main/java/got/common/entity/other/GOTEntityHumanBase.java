@@ -18,7 +18,7 @@ public abstract class GOTEntityHumanBase extends GOTEntityNPC {
 		tasks.addTask(5, new GOTEntityAINPCMarry(this, 1.3));
 		tasks.addTask(6, new GOTEntityAINPCMate(this, 1.3));
 		tasks.addTask(7, new GOTEntityAINPCFollowParent(this, 1.4));
-		familyInfo.marriageEntityClass = this.getClass();
+		familyInfo.marriageEntityClass = getClass();
 	}
 
 	@Override
@@ -36,7 +36,7 @@ public abstract class GOTEntityHumanBase extends GOTEntityNPC {
 
 	@Override
 	public void onArtificalSpawn() {
-		if (canBeMarried && this.getClass() == familyInfo.marriageEntityClass && rand.nextInt(7) == 0) {
+		if (canBeMarried && getClass() == familyInfo.marriageEntityClass && rand.nextInt(7) == 0) {
 			familyInfo.setChild();
 		}
 	}

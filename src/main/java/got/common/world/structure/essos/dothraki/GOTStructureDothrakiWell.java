@@ -15,7 +15,7 @@ public class GOTStructureDothrakiWell extends GOTStructureDothrakiBase {
 		int i1;
 		int k1;
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		setOriginAndRotation(world, i, j, k, rotation, 0);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;

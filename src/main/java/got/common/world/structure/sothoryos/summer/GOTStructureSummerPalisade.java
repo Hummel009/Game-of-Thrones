@@ -16,7 +16,7 @@ public class GOTStructureSummerPalisade extends GOTStructureSummerBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		setOriginAndRotation(world, i, j, k, rotation, 0);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int i1 = 0;
@@ -39,7 +39,7 @@ public class GOTStructureSummerPalisade extends GOTStructureSummerBase {
 		}
 		if (isTall || random.nextInt(5) == 0) {
 			setBlockAndMetadata(world, 0, height + 1, 0, fenceBlock, fenceMeta);
-			this.placeSkull(world, random, 0, height + 2, 0);
+			placeSkull(world, random, 0, height + 2, 0);
 		}
 		if (!isRuined() && isTall) {
 			placeWallBanner(world, 0, height, 0, GOTItemBanner.BannerType.SUMMER, 2);

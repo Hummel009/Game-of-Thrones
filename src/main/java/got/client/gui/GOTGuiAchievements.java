@@ -80,7 +80,7 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 			int offset = 47 + 50 * (i - min);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			mc.getTextureManager().bindTexture(iconsTexture);
-			this.drawTexturedModalRect(guiLeft + 9, guiTop + offset, 0, hasAchievement ? 0 : 50, 190, 50);
+			drawTexturedModalRect(guiLeft + 9, guiTop + offset, 0, hasAchievement ? 0 : 50, 190, 50);
 			int iconLeft = guiLeft + 12;
 			int iconTop = guiTop + offset + 3;
 			GL11.glEnable(2896);
@@ -100,7 +100,7 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			if (hasAchievement) {
 				mc.getTextureManager().bindTexture(iconsTexture);
-				this.drawTexturedModalRect(guiLeft + 179, guiTop + offset + 2, 190, 17, 16, 16);
+				drawTexturedModalRect(guiLeft + 179, guiTop + offset + 2, 190, 17, 16, 16);
 			}
 		}
 		GL11.glDisable(2929);
@@ -147,10 +147,10 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 		drawDefaultBackground();
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		mc.getTextureManager().bindTexture(pageTexture);
-		this.drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
+		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		String categoryName = currentCategory.getDisplayName();
 		categoryName = StatCollector.translateToLocalFormatted("got.gui.achievements.category", categoryName, currentCategoryTakenCount, currentCategoryTakenCount + currentCategoryUntakenCount);
-		this.drawCenteredString(categoryName, guiLeft + xSize / 2, guiTop + 28, 8019267);
+		drawCenteredString(categoryName, guiLeft + xSize / 2, guiTop + 28, 8019267);
 		buttonCategoryPrev.buttonCategory = getCategoryAtRelativeIndex(-1);
 		buttonCategoryNext.buttonCategory = getCategoryAtRelativeIndex(1);
 		super.drawScreen(i, j, f);
@@ -158,7 +158,7 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 		int catScrollX = catScrollCentre - 76;
 		int catScrollY = guiTop + 13;
 		mc.getTextureManager().bindTexture(iconsTexture);
-		this.drawTexturedModalRect(catScrollX, catScrollY, 0, 100, 152, 10);
+		drawTexturedModalRect(catScrollX, catScrollY, 0, 100, 152, 10);
 		catScrollAreaX0 = catScrollX;
 		catScrollAreaX1 = catScrollX + 152;
 		catScrollAreaY0 = catScrollY;
@@ -188,17 +188,17 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 			float[] catColors = thisCategory.getCategoryRGB();
 			mc.getTextureManager().bindTexture(iconsTexture);
 			GL11.glColor4f(catColors[0], catColors[1], catColors[2], 1.0f);
-			this.drawTexturedModalRect(catX0, catY0, catX0 - catScrollAreaX0 + 0, 100, catX1 - catX0, catY1 - catY0);
+			drawTexturedModalRect(catX0, catY0, catX0 - catScrollAreaX0 + 0, 100, catX1 - catX0, catY1 - catY0);
 		}
 		mc.getTextureManager().bindTexture(iconsTexture);
-		this.drawTexturedModalRect(catScrollX, catScrollY, 0, 110, 152, 10);
+		drawTexturedModalRect(catScrollX, catScrollY, 0, 110, 152, 10);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		mc.getTextureManager().bindTexture(iconsTexture);
 		if (hasScrollBar()) {
 			int offset = (int) (currentScroll * 181.0f);
-			this.drawTexturedModalRect(scrollBarX0, scrollBarY0 + offset, 190, 0, 10, 17);
+			drawTexturedModalRect(scrollBarX0, scrollBarY0 + offset, 190, 0, 10, 17);
 		} else {
-			this.drawTexturedModalRect(scrollBarX0, scrollBarY0, 200, 0, 10, 17);
+			drawTexturedModalRect(scrollBarX0, scrollBarY0, 200, 0, 10, 17);
 		}
 		drawAchievements(i, j);
 	}

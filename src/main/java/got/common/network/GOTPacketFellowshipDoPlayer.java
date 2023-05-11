@@ -41,7 +41,7 @@ public class GOTPacketFellowshipDoPlayer extends GOTPacketFellowshipDo {
 	}
 
 	public enum PlayerFunction {
-		REMOVE, TRANSFER, OP, DEOP;
+		REMOVE, TRANSFER, OP, DEOP
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketFellowshipDoPlayer, IMessage> {

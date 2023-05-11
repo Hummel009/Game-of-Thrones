@@ -64,7 +64,7 @@ public class GOTBlockPlate extends BlockContainer {
 		ItemStack foodItem;
 		TileEntity tileentity = world.getTileEntity(i, j, k);
 		if (!world.isRemote && tileentity instanceof GOTTileEntityPlate && (foodItem = ((GOTTileEntityPlate) tileentity).getFoodItem()) != null) {
-			this.dropBlockAsItem(world, i, j, k, foodItem);
+			dropBlockAsItem(world, i, j, k, foodItem);
 		}
 		super.breakBlock(world, i, j, k, block, meta);
 	}
@@ -87,15 +87,15 @@ public class GOTBlockPlate extends BlockContainer {
 	public void dropOnePlateItem(GOTTileEntityPlate plate) {
 		ItemStack item = plate.getFoodItem().copy();
 		item.stackSize = 1;
-		this.dropPlateItem(plate, item);
+		dropPlateItem(plate, item);
 	}
 
 	public void dropPlateItem(GOTTileEntityPlate plate) {
-		this.dropPlateItem(plate, plate.getFoodItem());
+		dropPlateItem(plate, plate.getFoodItem());
 	}
 
 	public void dropPlateItem(GOTTileEntityPlate plate, ItemStack itemstack) {
-		this.dropBlockAsItem(plate.getWorldObj(), plate.xCoord, plate.yCoord, plate.zCoord, itemstack);
+		dropBlockAsItem(plate.getWorldObj(), plate.xCoord, plate.yCoord, plate.zCoord, itemstack);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -176,7 +176,7 @@ public class GOTBlockPlate extends BlockContainer {
 	@Override
 	public void onNeighborBlockChange(World world, int i, int j, int k, Block block) {
 		if (!canBlockStay(world, i, j, k)) {
-			this.dropBlockAsItem(world, i, j, k, world.getBlockMetadata(i, j, k), 0);
+			dropBlockAsItem(world, i, j, k, world.getBlockMetadata(i, j, k), 0);
 			world.setBlockToAir(i, j, k);
 		}
 	}

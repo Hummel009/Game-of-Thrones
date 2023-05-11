@@ -13,7 +13,7 @@ public class GOTStructureWesterosFortWallCorner extends GOTStructureWesterosBase
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		this.setOriginAndRotation(world, i, j, k, rotation, 0);
+		setOriginAndRotation(world, i, j, k, rotation, 0);
 		setupRandomBlocks(random);
 		for (int l = -8; l <= 8; ++l) {
 			int j1;

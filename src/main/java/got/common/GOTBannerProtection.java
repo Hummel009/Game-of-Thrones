@@ -303,7 +303,7 @@ public class GOTBannerProtection {
 	}
 
 	public enum ProtectType {
-		NONE, FACTION, PLAYER_SPECIFIC, STRUCTURE;
+		NONE, FACTION, PLAYER_SPECIFIC, STRUCTURE
 	}
 
 	public interface IFilter {

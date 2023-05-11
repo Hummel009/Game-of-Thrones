@@ -17,7 +17,7 @@ public class GOTStructureSummerHouse extends GOTStructureSummerBase {
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 6);
+		setOriginAndRotation(world, i, j, k, rotation, 6);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -76,10 +76,10 @@ public class GOTStructureSummerHouse extends GOTStructureSummerBase {
 			setBlockAndMetadata(world, 0, 1, 4, bedBlock, 8);
 			placeWeaponRack(world, 0, 3, -4, 4, getRandomWeapon(random));
 			placeWeaponRack(world, 0, 3, 4, 6, getRandomWeapon(random));
-			this.placeChest(world, random, -4, 1, 0, GOTRegistry.chestBasket, 4, GOTChestContents.SUMMER);
+			placeChest(world, random, -4, 1, 0, GOTRegistry.chestBasket, 4, GOTChestContents.SUMMER);
 			placePlate(world, random, 4, 2, 0, GOTRegistry.ceramicPlateBlock, GOTFoods.SOTHORYOS);
 			placePlate(world, random, -1, 2, 4, GOTRegistry.ceramicPlateBlock, GOTFoods.SOTHORYOS);
-			this.placeMug(world, random, 1, 2, 4, 0, GOTFoods.SOTHORYOS_DRINK);
+			placeMug(world, random, 1, 2, 4, 0, GOTFoods.SOTHORYOS_DRINK);
 			GOTEntitySummerMan male = new GOTEntitySummerMan(world);
 			male.familyInfo.setMale(true);
 			male.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));

@@ -39,7 +39,7 @@ public class GOTStructureMossovyInn extends GOTStructureMossovyBase {
 		int k1;
 		int i1;
 		int j1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 5, -2);
+		setOriginAndRotation(world, i, j, k, rotation, 5, -2);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			for (i1 = -9; i1 <= 9; ++i1) {
@@ -90,10 +90,10 @@ public class GOTStructureMossovyInn extends GOTStructureMossovyBase {
 		plantFlower(world, random, 8, 6, 0);
 		plantFlower(world, random, -8, 6, 1);
 		plantFlower(world, random, 8, 6, 1);
-		this.placeChest(world, random, -5, 1, -3, 3, GOTChestContents.MOSSOVY);
+		placeChest(world, random, -5, 1, -3, 3, GOTChestContents.MOSSOVY);
 		setBlockAndMetadata(world, -6, 2, -3, GOTStructureMossovyBase.getRandomPieBlock(random), 0);
-		this.placeBarrel(world, random, -6, 2, 1, 4, GOTFoods.WESTEROS_DRINK);
-		this.placeBarrel(world, random, -4, 2, 4, 2, GOTFoods.WESTEROS_DRINK);
+		placeBarrel(world, random, -6, 2, 1, 4, GOTFoods.WESTEROS_DRINK);
+		placeBarrel(world, random, -4, 2, 4, 2, GOTFoods.WESTEROS_DRINK);
 		placeFoodOrDrink(world, random, 6, 2, -3);
 		placeFoodOrDrink(world, random, 5, 2, -3);
 		placeFoodOrDrink(world, random, 1, 2, -3);
@@ -149,7 +149,7 @@ public class GOTStructureMossovyInn extends GOTStructureMossovyBase {
 	public void placeFoodOrDrink(World world, Random random, int i, int j, int k) {
 		if (random.nextBoolean()) {
 			if (random.nextBoolean()) {
-				this.placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.WESTEROS_DRINK);
+				placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.WESTEROS_DRINK);
 			} else {
 				Block[] plates = {GOTRegistry.plateBlock, GOTRegistry.ceramicPlateBlock, GOTRegistry.woodPlateBlock};
 				Block plateBlock = plates[random.nextInt(plates.length)];

@@ -25,7 +25,7 @@ public class GOTStructureEssosTavern extends GOTStructureEssosBase {
 		int j1;
 		int i1;
 		int k1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 16);
+		setOriginAndRotation(world, i, j, k, rotation, 16);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			int minHeight = 0;
@@ -115,9 +115,9 @@ public class GOTStructureEssosTavern extends GOTStructureEssosBase {
 		placeFoodOrDrink(world, random, -2, 2, 7);
 		placeFoodOrDrink(world, random, -1, 2, 7);
 		placeKebabStand(world, random, -4, 2, 9, GOTRegistry.kebabStand, 4);
-		this.placeChest(world, random, 3, 1, 14, GOTRegistry.chestBasket, 2, getChestContents());
-		this.placeBarrel(world, random, 4, 2, 11, 5, GOTFoods.ESSOS_DRINK);
-		this.placeBarrel(world, random, 4, 2, 12, 5, GOTFoods.ESSOS_DRINK);
+		placeChest(world, random, 3, 1, 14, GOTRegistry.chestBasket, 2, getChestContents());
+		placeBarrel(world, random, 4, 2, 11, 5, GOTFoods.ESSOS_DRINK);
+		placeBarrel(world, random, 4, 2, 12, 5, GOTFoods.ESSOS_DRINK);
 		setBlockAndMetadata(world, -3, 8, -13, bedBlock, 2);
 		setBlockAndMetadata(world, -3, 8, -14, bedBlock, 10);
 		setBlockAndMetadata(world, -4, 8, -13, bedBlock, 2);
@@ -203,7 +203,7 @@ public class GOTStructureEssosTavern extends GOTStructureEssosBase {
 	public void placeFoodOrDrink(World world, Random random, int i, int j, int k) {
 		if (random.nextBoolean()) {
 			if (random.nextBoolean()) {
-				this.placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.ESSOS_DRINK);
+				placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.ESSOS_DRINK);
 			} else {
 				Block plateBlock;
 				plateBlock = random.nextBoolean() ? GOTRegistry.woodPlateBlock : GOTRegistry.ceramicPlateBlock;

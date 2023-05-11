@@ -16,7 +16,7 @@ public class GOTStructureYiTiStatue extends GOTStructureYiTiBase {
 		int k1;
 		int k12;
 		int i1;
-		this.setOriginAndRotation(world, i, j, k, rotation, 6);
+		setOriginAndRotation(world, i, j, k, rotation, 6);
 		setupRandomBlocks(random);
 		if (restrictions) {
 			for (i1 = -6; i1 <= 6; ++i1) {
