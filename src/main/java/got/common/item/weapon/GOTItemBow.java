@@ -177,14 +177,14 @@ public class GOTItemBow extends ItemBow {
 			}
 			charge = (charge * charge + charge * 2.0f) / 3.0f;
 			charge = Math.min(charge, 1.0f);
-			EntityArrow arrow = arrowItem.getItem() == GOTRegistry.arrowFire ? new GOTEntityArrowFire(world, entityplayer, charge * 2.0f * GOTItemBow.getLaunchSpeedFactor(itemstack)) : arrowItem.getItem() == GOTRegistry.arrowPoisoned ? new GOTEntityArrowPoisoned(world, entityplayer, charge * 2.0f * GOTItemBow.getLaunchSpeedFactor(itemstack)) : new EntityArrow(world, entityplayer, charge * 2.0f * GOTItemBow.getLaunchSpeedFactor(itemstack));
+			EntityArrow arrow = arrowItem.getItem() == GOTRegistry.arrowFire ? new GOTEntityArrowFire(world, entityplayer, charge * 2.0f * getLaunchSpeedFactor(itemstack)) : arrowItem.getItem() == GOTRegistry.arrowPoisoned ? new GOTEntityArrowPoisoned(world, entityplayer, charge * 2.0f * getLaunchSpeedFactor(itemstack)) : new EntityArrow(world, entityplayer, charge * 2.0f * getLaunchSpeedFactor(itemstack));
 			if (arrow.getDamage() < 1.0) {
 				arrow.setDamage(1.0);
 			}
 			if (charge >= 1.0f) {
 				arrow.setIsCritical(true);
 			}
-			GOTItemBow.applyBowModifiers(arrow, itemstack);
+			applyBowModifiers(arrow, itemstack);
 			itemstack.damageItem(1, entityplayer);
 			world.playSoundAtEntity(entityplayer, "random.bow", 1.0f, 1.0f / (itemRand.nextFloat() * 0.4f + 1.2f) + charge * 0.5f);
 			if (!shouldConsume) {

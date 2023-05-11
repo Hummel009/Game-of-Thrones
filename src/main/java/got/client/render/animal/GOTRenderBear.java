@@ -31,7 +31,7 @@ public class GOTRenderBear extends RenderLiving {
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
 		GOTEntityBear bear = (GOTEntityBear) entity;
-		return GOTRenderBear.getBearSkin(bear.getBearType());
+		return getBearSkin(bear.getBearType());
 	}
 
 	@Override

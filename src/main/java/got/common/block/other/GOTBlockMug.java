@@ -77,7 +77,7 @@ public class GOTBlockMug extends BlockContainer {
 	public ArrayList<ItemStack> getDrops(World world, int i, int j, int k, int meta, int fortune) {
 		ArrayList<ItemStack> drops = new ArrayList<>();
 		if ((meta & 4) == 0) {
-			ItemStack itemstack = GOTBlockMug.getMugItem(world, i, j, k);
+			ItemStack itemstack = getMugItem(world, i, j, k);
 			GOTTileEntityMug mug = (GOTTileEntityMug) world.getTileEntity(i, j, k);
 			if (mug != null) {
 				drops.add(itemstack);
@@ -94,7 +94,7 @@ public class GOTBlockMug extends BlockContainer {
 
 	@Override
 	public ItemStack getPickBlock(MovingObjectPosition target, World world, int i, int j, int k) {
-		return GOTBlockMug.getMugItem(world, i, j, k);
+		return getMugItem(world, i, j, k);
 	}
 
 	@Override

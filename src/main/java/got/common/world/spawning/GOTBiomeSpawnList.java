@@ -31,7 +31,7 @@ public class GOTBiomeSpawnList {
 	}
 
 	public static SpawnListContainer entry(GOTSpawnList list) {
-		return GOTBiomeSpawnList.entry(list, 1);
+		return entry(list, 1);
 	}
 
 	public static SpawnListContainer entry(GOTSpawnList list, int weight) {

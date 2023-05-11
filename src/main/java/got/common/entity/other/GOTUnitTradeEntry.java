@@ -183,7 +183,7 @@ public class GOTUnitTradeEntry {
 		}
 
 		public static PledgeType forID(int i) {
-			for (PledgeType t : PledgeType.values()) {
+			for (PledgeType t : values()) {
 				if (t.typeID != i) {
 					continue;
 				}

@@ -59,6 +59,6 @@ public class GOTRenderHorse extends RenderHorse {
 	public ResourceLocation getEntityTexture(Entity entity) {
 		GOTEntityHorse horse = (GOTEntityHorse) entity;
 		ResourceLocation horseSkin = super.getEntityTexture(entity);
-		return GOTRenderHorse.getLayeredMountTexture(horse, horseSkin);
+		return getLayeredMountTexture(horse, horseSkin);
 	}
 }

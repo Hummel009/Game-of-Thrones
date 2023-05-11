@@ -30,7 +30,7 @@ public class GOTItemAnimalJar extends GOTItemBlockMetadata {
 				nbt = itemstack.getTagCompound().getCompoundTag("GOTButterfly");
 				if (!nbt.hasNoTags()) {
 					nbt.setString("id", GOTEntityRegistry.getStringFromClass(GOTEntityButterfly.class));
-					GOTItemAnimalJar.setEntityData(itemstack, (NBTTagCompound) nbt.copy());
+					setEntityData(itemstack, (NBTTagCompound) nbt.copy());
 				}
 				itemstack.getTagCompound().removeTag("GOTButterfly");
 			}
@@ -42,7 +42,7 @@ public class GOTItemAnimalJar extends GOTItemBlockMetadata {
 	}
 
 	public static Entity getItemJarEntity(ItemStack itemstack, World world) {
-		NBTTagCompound nbt = GOTItemAnimalJar.getEntityData(itemstack);
+		NBTTagCompound nbt = getEntityData(itemstack);
 		if (nbt != null) {
 			return EntityList.createEntityFromNBT(nbt, world);
 		}
@@ -65,10 +65,10 @@ public class GOTItemAnimalJar extends GOTItemBlockMetadata {
 		itemstack = entityplayer.getCurrentEquippedItem();
 		World world = entityplayer.worldObj;
 		GOTBlockAnimalJar jarBlock = (GOTBlockAnimalJar) field_150939_a;
-		if (jarBlock.canCapture(entity) && GOTItemAnimalJar.getEntityData(itemstack) == null) {
+		if (jarBlock.canCapture(entity) && getEntityData(itemstack) == null) {
 			NBTTagCompound nbt;
 			if (!world.isRemote && entity.writeToNBTOptional(nbt = new NBTTagCompound())) {
-				GOTItemAnimalJar.setEntityData(itemstack, nbt);
+				setEntityData(itemstack, nbt);
 				entity.playSound("random.pop", 0.5f, 0.5f + world.rand.nextFloat() * 0.5f);
 				entity.setDead();
 				if (entity instanceof GOTEntityButterfly) {
@@ -83,7 +83,7 @@ public class GOTItemAnimalJar extends GOTItemBlockMetadata {
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		Entity jarEntity;
-		if (!world.isRemote && (jarEntity = GOTItemAnimalJar.getItemJarEntity(itemstack, world)) != null) {
+		if (!world.isRemote && (jarEntity = getItemJarEntity(itemstack, world)) != null) {
 			double x = entityplayer.posX;
 			double y = entityplayer.boundingBox.minY + entityplayer.getEyeHeight();
 			double z = entityplayer.posZ;
@@ -92,7 +92,7 @@ public class GOTItemAnimalJar extends GOTItemBlockMetadata {
 			jarEntity.setLocationAndAngles(x += look.xCoord * length, y += look.yCoord * length, z += look.zCoord * length, world.rand.nextFloat(), 0.0f);
 			world.spawnEntityInWorld(jarEntity);
 			jarEntity.playSound("random.pop", 0.5f, 0.5f + world.rand.nextFloat() * 0.5f);
-			GOTItemAnimalJar.setEntityData(itemstack, null);
+			setEntityData(itemstack, null);
 		}
 		return itemstack;
 	}
@@ -103,7 +103,7 @@ public class GOTItemAnimalJar extends GOTItemBlockMetadata {
 			TileEntity tileentity = world.getTileEntity(i, j, k);
 			if (tileentity instanceof GOTTileEntityAnimalJar) {
 				GOTTileEntityAnimalJar jar = (GOTTileEntityAnimalJar) tileentity;
-				jar.setEntityData(GOTItemAnimalJar.getEntityData(itemstack));
+				jar.setEntityData(getEntityData(itemstack));
 			}
 			return true;
 		}

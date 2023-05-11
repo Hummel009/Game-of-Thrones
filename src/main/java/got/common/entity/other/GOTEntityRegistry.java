@@ -41,7 +41,7 @@ public class GOTEntityRegistry {
 	}
 
 	public static int getEntityID(Entity entity) {
-		return GOTEntityRegistry.getEntityIDFromClass(entity.getClass());
+		return getEntityIDFromClass(entity.getClass());
 	}
 
 	public static int getEntityIDFromClass(Class entityClass) {
@@ -103,7 +103,7 @@ public class GOTEntityRegistry {
 	}
 
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
-		for (GOTEntityRegistry.SpawnEggInfo info : GOTEntityRegistry.spawnEggs.values()) {
+		for (GOTEntityRegistry.SpawnEggInfo info : spawnEggs.values()) {
 			list.add(new ItemStack(item, 1, info.spawnedID));
 		}
 	}

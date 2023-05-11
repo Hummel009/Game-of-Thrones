@@ -141,7 +141,7 @@ public class GOTStructureMossovyBarn extends GOTStructureMossovyBase {
 	public void spawnAnimal(World world, Random random, int i, int j, int k) {
 		int animals = 2;
 		for (int l = 0; l < animals; ++l) {
-			EntityAnimal animal = GOTStructureMossovyBarn.getRandomAnimal(world, random);
+			EntityAnimal animal = getRandomAnimal(world, random);
 			spawnNPCAndSetHome(animal, world, i, j, k, 0);
 			animal.detachHome();
 		}

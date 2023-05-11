@@ -53,7 +53,7 @@ public class GOTMiniQuestRetrieve extends GOTMiniQuestCollect {
 	@Override
 	public boolean isQuestItem(ItemStack itemstack) {
 		if (super.isQuestItem(itemstack)) {
-			UUID retrieveQuestID = GOTMiniQuestRetrieve.getRetrieveQuestID(itemstack);
+			UUID retrieveQuestID = getRetrieveQuestID(itemstack);
 			return retrieveQuestID.equals(questUUID);
 		}
 		return false;
@@ -68,7 +68,7 @@ public class GOTMiniQuestRetrieve extends GOTMiniQuestCollect {
 	public void onKill(EntityPlayer entityplayer, EntityLivingBase entity) {
 		if (!hasDropped && killEntityType.isAssignableFrom(entity.getClass())) {
 			ItemStack itemstack = collectItem.copy();
-			GOTMiniQuestRetrieve.setRetrieveQuest(itemstack, this);
+			setRetrieveQuest(itemstack, this);
 			hasDropped = true;
 			updateQuest();
 		}

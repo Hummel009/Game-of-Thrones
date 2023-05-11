@@ -64,7 +64,7 @@ public abstract class GOTEntityVolantisTrader extends GOTEntityVolantisMan imple
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		setCurrentItemOrArmor(4, GOTEntityVolantisTrader.createTraderTurban(rand));
+		setCurrentItemOrArmor(4, createTraderTurban(rand));
 		return data;
 	}
 }

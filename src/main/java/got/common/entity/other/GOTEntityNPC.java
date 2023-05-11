@@ -150,7 +150,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		targetTasks.addTask(3, new GOTEntityAINPCHurtByTarget(this, false));
 		isTargetSeeker = seekTargets;
 		if (seekTargets) {
-			return GOTEntityNPC.addTargetTasks(this, 4, c);
+			return addTargetTasks(this, 4, c);
 		}
 		return 3;
 	}

@@ -36,9 +36,9 @@ public class GOTEventSpawner {
 		if (world.getTotalWorldTime() % 20L == 0L) {
 			GOTSpawnerNPCs.getSpawnableChunksWithPlayerInRange(world, eligibleSpawnChunks, 32);
 			List<ChunkCoordIntPair> shuffled = GOTSpawnerNPCs.shuffle(eligibleSpawnChunks);
-			GOTEventSpawner.spawnBandits(world, shuffled);
+			spawnBandits(world, shuffled);
 			if (GOTConfig.enableInvasions) {
-				GOTEventSpawner.spawnInvasions(world, shuffled);
+				spawnInvasions(world, shuffled);
 			}
 		}
 		GOTJaqenHgharTracker.performSpawning(world);
@@ -155,10 +155,10 @@ public class GOTEventSpawner {
 		public double[] chancesPerSecondPerChunk;
 
 		EventChance(float prob, int s) {
-			chancePerSecond = EventChance.getChance(prob, s);
+			chancePerSecond = getChance(prob, s);
 			chancesPerSecondPerChunk = new double[64];
 			for (int i = 0; i < chancesPerSecondPerChunk.length; ++i) {
-				chancesPerSecondPerChunk[i] = EventChance.getChance(chancePerSecond, i);
+				chancesPerSecondPerChunk[i] = getChance(chancePerSecond, i);
 			}
 		}
 

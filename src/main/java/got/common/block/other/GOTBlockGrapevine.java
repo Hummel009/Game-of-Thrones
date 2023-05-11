@@ -156,7 +156,7 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 	}
 
 	public float getGrowthFactor(World world, int i, int j, int k) {
-		if (!GOTBlockGrapevine.canPlantGrapesAt(world, i, j, k, this)) {
+		if (!canPlantGrapesAt(world, i, j, k, this)) {
 			return 0.0f;
 		}
 		int farmlandHeight = 0;

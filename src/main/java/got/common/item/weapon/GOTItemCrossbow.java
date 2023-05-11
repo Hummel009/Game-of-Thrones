@@ -86,13 +86,13 @@ public class GOTItemCrossbow extends ItemBow {
 	}
 
 	public static boolean isLoaded(ItemStack itemstack) {
-		return GOTItemCrossbow.getLoaded(itemstack) != null;
+		return getLoaded(itemstack) != null;
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
-		ItemStack ammo = GOTItemCrossbow.getLoaded(itemstack);
+		ItemStack ammo = getLoaded(itemstack);
 		if (ammo != null) {
 			String ammoName = ammo.getDisplayName();
 			list.add(StatCollector.translateToLocalFormatted("item.got.crossbow.loadedItem", ammoName));
@@ -111,7 +111,7 @@ public class GOTItemCrossbow extends ItemBow {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(ItemStack itemstack, int renderPass, EntityPlayer entityplayer, ItemStack usingItem, int useRemaining) {
-		if (GOTItemCrossbow.isLoaded(itemstack)) {
+		if (isLoaded(itemstack)) {
 			return crossbowPullIcons[2];
 		}
 		if (usingItem != null && usingItem.getItem() == this) {
@@ -133,7 +133,7 @@ public class GOTItemCrossbow extends ItemBow {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIconIndex(ItemStack itemstack) {
-		if (GOTItemCrossbow.isLoaded(itemstack)) {
+		if (isLoaded(itemstack)) {
 			return crossbowPullIcons[2];
 		}
 		return itemIcon;
@@ -166,7 +166,7 @@ public class GOTItemCrossbow extends ItemBow {
 	@Override
 	public String getItemStackDisplayName(ItemStack itemstack) {
 		String name = super.getItemStackDisplayName(itemstack);
-		if (GOTItemCrossbow.isLoaded(itemstack)) {
+		if (isLoaded(itemstack)) {
 			name = StatCollector.translateToLocalFormatted("item.got.crossbow.loaded", name);
 		}
 		return name;
@@ -183,20 +183,20 @@ public class GOTItemCrossbow extends ItemBow {
 
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
-		if (GOTItemCrossbow.isLoaded(itemstack)) {
-			ItemStack boltItem = GOTItemCrossbow.getLoaded(itemstack);
+		if (isLoaded(itemstack)) {
+			ItemStack boltItem = getLoaded(itemstack);
 			if (boltItem != null) {
 				float charge = 1.0f;
 				ItemStack shotBolt = boltItem.copy();
 				shotBolt.stackSize = 1;
-				GOTEntityCrossbowBolt bolt = new GOTEntityCrossbowBolt(world, entityplayer, shotBolt, charge * 2.0f * GOTItemCrossbow.getCrossbowLaunchSpeedFactor(itemstack));
+				GOTEntityCrossbowBolt bolt = new GOTEntityCrossbowBolt(world, entityplayer, shotBolt, charge * 2.0f * getCrossbowLaunchSpeedFactor(itemstack));
 				if (bolt.boltDamageFactor < 1.0) {
 					bolt.boltDamageFactor = 1.0;
 				}
 				if (charge >= 1.0f) {
 					bolt.setIsCritical(true);
 				}
-				GOTItemCrossbow.applyCrossbowModifiers(bolt, itemstack);
+				applyCrossbowModifiers(bolt, itemstack);
 				if (!shouldConsumeBolt(itemstack, entityplayer)) {
 					bolt.canBePickedUp = 2;
 				}
@@ -218,7 +218,7 @@ public class GOTItemCrossbow extends ItemBow {
 	@Override
 	public void onPlayerStoppedUsing(ItemStack itemstack, World world, EntityPlayer entityplayer, int useTick) {
 		int ticksInUse = getMaxItemUseDuration(itemstack) - useTick;
-		if (ticksInUse >= getMaxDrawTime() && !GOTItemCrossbow.isLoaded(itemstack)) {
+		if (ticksInUse >= getMaxDrawTime() && !isLoaded(itemstack)) {
 			ItemStack boltItem = null;
 			int boltSlot = getInvBoltSlot(entityplayer);
 			if (boltSlot >= 0) {
@@ -246,7 +246,7 @@ public class GOTItemCrossbow extends ItemBow {
 	@Override
 	public void onUsingTick(ItemStack itemstack, EntityPlayer entityplayer, int count) {
 		World world = entityplayer.worldObj;
-		if (!world.isRemote && !GOTItemCrossbow.isLoaded(itemstack) && getMaxItemUseDuration(itemstack) - count == getMaxDrawTime()) {
+		if (!world.isRemote && !isLoaded(itemstack) && getMaxItemUseDuration(itemstack) - count == getMaxDrawTime()) {
 			world.playSoundAtEntity(entityplayer, "got:item.crossbowLoad", 1.0f, 1.5f + world.rand.nextFloat() * 0.2f);
 		}
 	}

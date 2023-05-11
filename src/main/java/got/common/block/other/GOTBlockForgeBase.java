@@ -65,7 +65,7 @@ public abstract class GOTBlockForgeBase extends BlockContainer {
 			return forgeIcons[1];
 		}
 		int meta = world.getBlockMetadata(i, j, k) & 7;
-		return side != meta ? forgeIcons[0] : GOTBlockForgeBase.isForgeActive(world, i, j, k) ? forgeIcons[3] : forgeIcons[2];
+		return side != meta ? forgeIcons[0] : isForgeActive(world, i, j, k) ? forgeIcons[3] : forgeIcons[2];
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -76,7 +76,7 @@ public abstract class GOTBlockForgeBase extends BlockContainer {
 
 	@Override
 	public int getLightValue(IBlockAccess world, int i, int j, int k) {
-		return GOTBlockForgeBase.isForgeActive(world, i, j, k) ? 13 : 0;
+		return isForgeActive(world, i, j, k) ? 13 : 0;
 	}
 
 	@Override
@@ -113,7 +113,7 @@ public abstract class GOTBlockForgeBase extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
-		if (GOTBlockForgeBase.isForgeActive(world, i, j, k)) {
+		if (isForgeActive(world, i, j, k)) {
 			int meta = world.getBlockMetadata(i, j, k) & 7;
 			float f = i + 0.5f;
 			float f1 = j + 0.0f + random.nextFloat() * 6.0f / 16.0f;

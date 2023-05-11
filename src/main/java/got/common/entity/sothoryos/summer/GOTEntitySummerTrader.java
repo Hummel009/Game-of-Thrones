@@ -64,7 +64,7 @@ public abstract class GOTEntitySummerTrader extends GOTEntitySummerMan implement
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		setCurrentItemOrArmor(4, GOTEntitySummerTrader.createTraderTurban(rand));
+		setCurrentItemOrArmor(4, createTraderTurban(rand));
 		return data;
 	}
 }

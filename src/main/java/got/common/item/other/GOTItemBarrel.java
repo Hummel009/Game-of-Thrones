@@ -30,7 +30,7 @@ public class GOTItemBarrel extends ItemBlock {
 	}
 
 	public static void loadBarrelDataToTE(ItemStack itemstack, GOTTileEntityBarrel barrel) {
-		NBTTagCompound nbt = GOTItemBarrel.getBarrelData(itemstack);
+		NBTTagCompound nbt = getBarrelData(itemstack);
 		if (nbt != null) {
 			barrel.readBarrelFromNBT(nbt);
 		}
@@ -44,13 +44,13 @@ public class GOTItemBarrel extends ItemBlock {
 	public static void setBarrelDataFromTE(ItemStack itemstack, GOTTileEntityBarrel barrel) {
 		NBTTagCompound nbt = new NBTTagCompound();
 		barrel.writeBarrelToNBT(nbt);
-		GOTItemBarrel.setBarrelData(itemstack, nbt);
+		setBarrelData(itemstack, nbt);
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
-		NBTTagCompound barrelData = GOTItemBarrel.getBarrelData(itemstack);
+		NBTTagCompound barrelData = getBarrelData(itemstack);
 		if (barrelData != null) {
 			GOTTileEntityBarrel tileEntity = new GOTTileEntityBarrel();
 			tileEntity.readBarrelFromNBT(barrelData);
@@ -60,7 +60,7 @@ public class GOTItemBarrel extends ItemBlock {
 
 	@Override
 	public int getItemStackLimit(ItemStack itemstack) {
-		NBTTagCompound nbt = GOTItemBarrel.getBarrelData(itemstack);
+		NBTTagCompound nbt = getBarrelData(itemstack);
 		if (nbt != null) {
 			return 1;
 		}
@@ -86,7 +86,7 @@ public class GOTItemBarrel extends ItemBlock {
 				return itemstack;
 			}
 			if (!world.isRemote) {
-				barrel.barrelItemData = GOTItemBarrel.getBarrelData(itemstack);
+				barrel.barrelItemData = getBarrelData(itemstack);
 				world.spawnEntityInWorld(barrel);
 			}
 			if (!entityplayer.capabilities.isCreativeMode) {
@@ -102,7 +102,7 @@ public class GOTItemBarrel extends ItemBlock {
 			TileEntity tileentity = world.getTileEntity(i, j, k);
 			if (tileentity instanceof GOTTileEntityBarrel) {
 				GOTTileEntityBarrel barrel = (GOTTileEntityBarrel) tileentity;
-				GOTItemBarrel.loadBarrelDataToTE(itemstack, barrel);
+				loadBarrelDataToTE(itemstack, barrel);
 			}
 			return true;
 		}

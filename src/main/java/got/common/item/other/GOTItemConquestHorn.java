@@ -38,7 +38,7 @@ public class GOTItemConquestHorn extends Item {
 
 	public static ItemStack createHorn(GOTInvasions type) {
 		ItemStack itemstack = new ItemStack(GOTRegistry.conquestHorn);
-		GOTItemConquestHorn.setInvasionType(itemstack, type);
+		setInvasionType(itemstack, type);
 		return itemstack;
 	}
 
@@ -67,7 +67,7 @@ public class GOTItemConquestHorn extends Item {
 	}
 
 	public boolean canUseHorn(ItemStack itemstack, World world, EntityPlayer entityplayer, boolean sendMessage) {
-		GOTInvasions invasionType = GOTItemConquestHorn.getInvasionType(itemstack);
+		GOTInvasions invasionType = getInvasionType(itemstack);
 		GOTFaction invasionFaction = invasionType.invasionFaction;
 		float alignmentRequired = 1000.0f;
 		if (GOTLevelData.getData(entityplayer).getAlignment(invasionFaction) >= alignmentRequired) {
@@ -96,7 +96,7 @@ public class GOTItemConquestHorn extends Item {
 	@Override
 	public int getColorFromItemStack(ItemStack itemstack, int pass) {
 		if (pass == 0) {
-			GOTFaction faction = GOTItemConquestHorn.getInvasionType(itemstack).invasionFaction;
+			GOTFaction faction = getInvasionType(itemstack).invasionFaction;
 			return faction.getFactionColor();
 		}
 		return 16777215;
@@ -110,7 +110,7 @@ public class GOTItemConquestHorn extends Item {
 
 	@Override
 	public String getItemStackDisplayName(ItemStack itemstack) {
-		GOTInvasions type = GOTItemConquestHorn.getInvasionType(itemstack);
+		GOTInvasions type = getInvasionType(itemstack);
 		if (type != null) {
 			return StatCollector.translateToLocal(type.codeNameHorn());
 		}
@@ -132,14 +132,14 @@ public class GOTItemConquestHorn extends Item {
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (GOTInvasions type : GOTInvasions.values()) {
 			ItemStack itemstack = new ItemStack(item);
-			GOTItemConquestHorn.setInvasionType(itemstack, type);
+			setInvasionType(itemstack, type);
 			list.add(itemstack);
 		}
 	}
 
 	@Override
 	public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer entityplayer) {
-		GOTInvasions invasionType = GOTItemConquestHorn.getInvasionType(itemstack);
+		GOTInvasions invasionType = getInvasionType(itemstack);
 		if (canUseHorn(itemstack, world, entityplayer, true)) {
 			if (!world.isRemote) {
 				GOTEntityInvasionSpawner invasion = new GOTEntityInvasionSpawner(world);

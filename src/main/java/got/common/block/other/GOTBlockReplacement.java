@@ -37,16 +37,16 @@ public class GOTBlockReplacement {
 	}
 
 	public static void replaceBlockStats(int id, Block newBlock, ItemBlock itemblock) {
-		GOTBlockReplacement.replaceStat(id, StatList.mineBlockStatArray, new StatCrafting("stat.mineBlock." + id, new ChatComponentTranslation("stat.mineBlock", new ItemStack(newBlock).func_151000_E()), itemblock));
-		GOTBlockReplacement.replaceStat(id, StatList.objectUseStats, new StatCrafting("stat.useItem." + id, new ChatComponentTranslation("stat.useItem", new ItemStack(itemblock).func_151000_E()), itemblock));
-		GOTBlockReplacement.replaceStat(id, StatList.objectCraftStats, new StatCrafting("stat.craftItem." + id, new ChatComponentTranslation("stat.craftItem", new ItemStack(itemblock).func_151000_E()), itemblock));
+		replaceStat(id, StatList.mineBlockStatArray, new StatCrafting("stat.mineBlock." + id, new ChatComponentTranslation("stat.mineBlock", new ItemStack(newBlock).func_151000_E()), itemblock));
+		replaceStat(id, StatList.objectUseStats, new StatCrafting("stat.useItem." + id, new ChatComponentTranslation("stat.useItem", new ItemStack(itemblock).func_151000_E()), itemblock));
+		replaceStat(id, StatList.objectCraftStats, new StatCrafting("stat.craftItem." + id, new ChatComponentTranslation("stat.craftItem", new ItemStack(itemblock).func_151000_E()), itemblock));
 	}
 
 	public static void replaceItemStats(int id, Item newItem) {
-		GOTBlockReplacement.replaceStat(id, StatList.objectUseStats, new StatCrafting("stat.useItem." + id, new ChatComponentTranslation("stat.useItem", new ItemStack(newItem).func_151000_E()), newItem));
-		GOTBlockReplacement.replaceStat(id, StatList.objectCraftStats, new StatCrafting("stat.craftItem." + id, new ChatComponentTranslation("stat.craftItem", new ItemStack(newItem).func_151000_E()), newItem));
+		replaceStat(id, StatList.objectUseStats, new StatCrafting("stat.useItem." + id, new ChatComponentTranslation("stat.useItem", new ItemStack(newItem).func_151000_E()), newItem));
+		replaceStat(id, StatList.objectCraftStats, new StatCrafting("stat.craftItem." + id, new ChatComponentTranslation("stat.craftItem", new ItemStack(newItem).func_151000_E()), newItem));
 		if (newItem.isDamageable()) {
-			GOTBlockReplacement.replaceStat(id, StatList.objectBreakStats, new StatCrafting("stat.breakItem." + id, new ChatComponentTranslation("stat.breakItem", new ItemStack(newItem).func_151000_E()), newItem));
+			replaceStat(id, StatList.objectBreakStats, new StatCrafting("stat.breakItem." + id, new ChatComponentTranslation("stat.breakItem", new ItemStack(newItem).func_151000_E()), newItem));
 		}
 	}
 
@@ -56,18 +56,18 @@ public class GOTBlockReplacement {
 		for (Object obj : craftingRecipes) {
 			ItemStack output;
 			if (obj instanceof ShapedRecipes && (output = ((ShapedRecipes) obj).getRecipeOutput()) != null && output.getItem() != null && output.getItem().getUnlocalizedName().equals(newItemName)) {
-				GOTBlockReplacement.injectReplacementItem(output, newItem);
+				injectReplacementItem(output, newItem);
 			}
 			if (obj instanceof ShapelessRecipes && (output = ((ShapelessRecipes) obj).getRecipeOutput()) != null && output.getItem() != null && output.getItem().getUnlocalizedName().equals(newItemName)) {
-				GOTBlockReplacement.injectReplacementItem(output, newItem);
+				injectReplacementItem(output, newItem);
 			}
 			if (obj instanceof ShapedOreRecipe && (output = ((ShapedOreRecipe) obj).getRecipeOutput()) != null && output.getItem() != null && output.getItem().getUnlocalizedName().equals(newItemName)) {
-				GOTBlockReplacement.injectReplacementItem(output, newItem);
+				injectReplacementItem(output, newItem);
 			}
 			if (!(obj instanceof ShapelessOreRecipe) || (output = ((ShapelessOreRecipe) obj).getRecipeOutput()) == null || output.getItem() == null || !output.getItem().getUnlocalizedName().equals(newItemName)) {
 				continue;
 			}
-			GOTBlockReplacement.injectReplacementItem(output, newItem);
+			injectReplacementItem(output, newItem);
 		}
 		for (Object obj : AchievementList.achievementList) {
 			Achievement a = (Achievement) obj;
@@ -75,7 +75,7 @@ public class GOTBlockReplacement {
 			if (!icon.getItem().getUnlocalizedName().equals(newItem.getUnlocalizedName())) {
 				continue;
 			}
-			GOTBlockReplacement.injectReplacementItem(icon, newItem);
+			injectReplacementItem(icon, newItem);
 		}
 	}
 
@@ -132,8 +132,8 @@ public class GOTBlockReplacement {
 				ItemBlock itemblock = ((ItemBlock) itemCtor.newInstance(newBlock)).setUnlocalizedName(itemblockName);
 				Reflect.getUnderlyingIntMap(Item.itemRegistry).func_148746_a(itemblock, id);
 				Reflect.getUnderlyingObjMap(Item.itemRegistry).put(registryName, itemblock);
-				GOTBlockReplacement.replaceBlockStats(id, newBlock, itemblock);
-				GOTBlockReplacement.replaceRecipesEtc(itemblock);
+				replaceBlockStats(id, newBlock, itemblock);
+				replaceRecipesEtc(itemblock);
 			}
 		} catch (Exception e) {
 			FMLLog.severe("Failed to replace vanilla block %s", oldBlock.getUnlocalizedName());
@@ -150,8 +150,8 @@ public class GOTBlockReplacement {
 			Reflect.overwriteItemList(oldItem, newItem);
 			Reflect.getUnderlyingIntMap(Item.itemRegistry).func_148746_a(newItem, id);
 			Reflect.getUnderlyingObjMap(Item.itemRegistry).put(registryName, newItem);
-			GOTBlockReplacement.replaceItemStats(id, newItem);
-			GOTBlockReplacement.replaceRecipesEtc(newItem);
+			replaceItemStats(id, newItem);
+			replaceRecipesEtc(newItem);
 		} catch (Exception e) {
 			FMLLog.severe("Failed to replace vanilla item %s", oldItem.getUnlocalizedName());
 			throw new RuntimeException(e);

@@ -61,7 +61,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 
 	public static int getGateDirection(IBlockAccess world, int i, int j, int k) {
 		int meta = world.getBlockMetadata(i, j, k);
-		return GOTBlockGate.getGateDirection(meta);
+		return getGateDirection(meta);
 	}
 
 	public static int getGateDirection(int meta) {
@@ -70,7 +70,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 
 	public static boolean isGateOpen(IBlockAccess world, int i, int j, int k) {
 		int meta = world.getBlockMetadata(i, j, k);
-		return GOTBlockGate.isGateOpen(meta);
+		return isGateOpen(meta);
 	}
 
 	public static boolean isGateOpen(int meta) {
@@ -85,11 +85,11 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 
 	public void activateGate(World world, int i, int j, int k) {
 		boolean stone;
-		boolean wasOpen = GOTBlockGate.isGateOpen(world, i, j, k);
+		boolean wasOpen = isGateOpen(world, i, j, k);
 		boolean isOpen = !wasOpen;
 		List<ChunkCoordinates> gates = getConnectedGates(world, i, j, k);
 		for (ChunkCoordinates coords : gates) {
-			GOTBlockGate.setGateOpen(world, coords.posX, coords.posY, coords.posZ, isOpen);
+			setGateOpen(world, coords.posX, coords.posY, coords.posZ, isOpen);
 		}
 		String soundEffect;
 		stone = getMaterial() == Material.rock;
@@ -102,10 +102,10 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 		int meta = world.getBlockMetadata(i, j, k);
 		Block otherBlock = world.getBlock(i1, j1, k1);
 		int otherMeta = world.getBlockMetadata(i1, j1, k1);
-		int dir = GOTBlockGate.getGateDirection(meta);
-		boolean open = GOTBlockGate.isGateOpen(meta);
-		int otherDir = GOTBlockGate.getGateDirection(otherMeta);
-		boolean otherOpen = GOTBlockGate.isGateOpen(otherMeta);
+		int dir = getGateDirection(meta);
+		boolean open = isGateOpen(meta);
+		int otherDir = getGateDirection(otherMeta);
+		boolean otherOpen = isGateOpen(otherMeta);
 		if ((dir == 0 || dir == 1) && j1 != j) {
 			return false;
 		}
@@ -146,8 +146,8 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 		}
 		Block otherBlock = world.getBlock(i, j, k);
 		if (otherBlock instanceof GOTBlockGate) {
-			boolean otherOpen = GOTBlockGate.isGateOpen(world, i, j, k);
-			int otherDir = GOTBlockGate.getGateDirection(world, i, j, k);
+			boolean otherOpen = isGateOpen(world, i, j, k);
+			int otherDir = getGateDirection(world, i, j, k);
 			if (otherOpen == open && directionsMatch(dir, otherDir) && ((GOTBlockGate) otherBlock).directionsMatch(dir, otherDir)) {
 				allCoords.add(coords);
 				currentDepthCoords.add(coords);
@@ -172,12 +172,12 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 
 	@Override
 	public boolean getBlocksMovement(IBlockAccess world, int i, int j, int k) {
-		return GOTBlockGate.isGateOpen(world, i, j, k);
+		return isGateOpen(world, i, j, k);
 	}
 
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int i, int j, int k) {
-		if (GOTBlockGate.isGateOpen(world, i, j, k)) {
+		if (isGateOpen(world, i, j, k)) {
 			return null;
 		}
 		setBlockBoundsBasedOnState(world, i, j, k);
@@ -185,8 +185,8 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 	}
 
 	public List<ChunkCoordinates> getConnectedGates(World world, int i, int j, int k) {
-		boolean open = GOTBlockGate.isGateOpen(world, i, j, k);
-		int dir = GOTBlockGate.getGateDirection(world, i, j, k);
+		boolean open = isGateOpen(world, i, j, k);
+		int dir = getGateDirection(world, i, j, k);
 		HashSet<ChunkCoordinates> allCoords = new HashSet<>();
 		HashSet<ChunkCoordinates> lastDepthCoords = new HashSet<>();
 		HashSet<ChunkCoordinates> currentDepthCoords = new HashSet<>();
@@ -214,7 +214,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(IBlockAccess world, int i, int j, int k, int side) {
-		boolean open = GOTBlockGate.isGateOpen(world, i, j, k);
+		boolean open = isGateOpen(world, i, j, k);
 		if (hasConnectedTextures) {
 			return GOTConnectedTextures.getConnectedIconBlock(this, world, i, j, k, side, open);
 		}
@@ -256,7 +256,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 	@Override
 	public void onNeighborBlockChange(World world, int i, int j, int k, Block block) {
 		if (!world.isRemote && !(block instanceof GOTBlockGate)) {
-			boolean open = GOTBlockGate.isGateOpen(world, i, j, k);
+			boolean open = isGateOpen(world, i, j, k);
 			boolean powered = false;
 			List<ChunkCoordinates> gates = getConnectedGates(world, i, j, k);
 			for (ChunkCoordinates coords : gates) {
@@ -293,7 +293,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 
 	@Override
 	public void setBlockBoundsBasedOnState(IBlockAccess world, int i, int j, int k) {
-		int dir = GOTBlockGate.getGateDirection(world, i, j, k);
+		int dir = getGateDirection(world, i, j, k);
 		setBlockBoundsForDirection(dir);
 	}
 
@@ -346,10 +346,10 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 		if (otherBlock instanceof GOTBlockGate) {
 			int metaThis = world.getBlockMetadata(i1, j1, k1);
 			int metaOther = world.getBlockMetadata(i, j, k);
-			int dirThis = GOTBlockGate.getGateDirection(metaThis);
-			boolean openThis = GOTBlockGate.isGateOpen(metaThis);
-			int dirOther = GOTBlockGate.getGateDirection(metaOther);
-			boolean openOther = GOTBlockGate.isGateOpen(metaOther);
+			int dirThis = getGateDirection(metaThis);
+			boolean openThis = isGateOpen(metaThis);
+			int dirOther = getGateDirection(metaOther);
+			boolean openOther = isGateOpen(metaOther);
 			if (!fullBlockGate || openThis) {
 				boolean connect;
 				connect = !directionsMatch(dirThis, side);

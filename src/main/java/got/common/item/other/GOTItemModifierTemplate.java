@@ -46,7 +46,7 @@ public class GOTItemModifierTemplate extends Item {
 		GOTEnchantmentHelper.WeightedRandomEnchant chosenWre = (GOTEnchantmentHelper.WeightedRandomEnchant) WeightedRandom.getRandomItem(random, applicable);
 		GOTEnchantment chosenEnch = chosenWre.theEnchant;
 		ItemStack itemstack = new ItemStack(GOTRegistry.smithScroll);
-		GOTItemModifierTemplate.setModifier(itemstack, chosenEnch);
+		setModifier(itemstack, chosenEnch);
 		return itemstack;
 	}
 
@@ -59,7 +59,7 @@ public class GOTItemModifierTemplate extends Item {
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		super.addInformation(itemstack, entityplayer, list, flag);
-		GOTEnchantment mod = GOTItemModifierTemplate.getModifier(itemstack);
+		GOTEnchantment mod = getModifier(itemstack);
 		if (mod != null) {
 			String desc = mod.getNamedFormattedDescription(itemstack);
 			list.add(desc);
@@ -69,7 +69,7 @@ public class GOTItemModifierTemplate extends Item {
 	@Override
 	public String getItemStackDisplayName(ItemStack itemstack) {
 		String s = super.getItemStackDisplayName(itemstack);
-		GOTEnchantment mod = GOTItemModifierTemplate.getModifier(itemstack);
+		GOTEnchantment mod = getModifier(itemstack);
 		if (mod != null) {
 			s = String.format(s, mod.getDisplayName());
 		}
@@ -84,7 +84,7 @@ public class GOTItemModifierTemplate extends Item {
 				continue;
 			}
 			ItemStack itemstack = new ItemStack(this);
-			GOTItemModifierTemplate.setModifier(itemstack, ench);
+			setModifier(itemstack, ench);
 			list.add(itemstack);
 		}
 	}

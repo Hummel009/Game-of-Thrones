@@ -53,7 +53,7 @@ public class GOTRenderWeaponRack extends TileEntitySpecialRenderer {
 		GL11.glScalef(-1.0f, -1.0f, 1.0f);
 		float scale = 0.0625f;
 		bindTexture(rackTexture);
-		GOTRenderWeaponRack.rackModel.onWall = wall;
+		rackModel.onWall = wall;
 		rackModel.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, scale);
 		ItemStack weaponItem = weaponRack.getWeaponItem();
 		if (weaponItem != null) {

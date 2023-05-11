@@ -40,7 +40,7 @@ public class GOTItemCracker extends Item {
 	}
 
 	public static int getBaseCrackerMetadata(ItemStack itemstack) {
-		return GOTItemCracker.getBaseCrackerMetadata(itemstack.getItemDamage());
+		return getBaseCrackerMetadata(itemstack.getItemDamage());
 	}
 
 	public static String getSealingPlayerName(ItemStack itemstack) {
@@ -120,8 +120,8 @@ public class GOTItemCracker extends Item {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
-		if (!GOTItemCracker.isEmpty(itemstack)) {
-			String name = GOTItemCracker.getSealingPlayerName(itemstack);
+		if (!isEmpty(itemstack)) {
+			String name = getSealingPlayerName(itemstack);
 			if (name == null) {
 				name = StatCollector.translateToLocal("item.got.cracker.sealedByDale");
 			}
@@ -132,7 +132,7 @@ public class GOTItemCracker extends Item {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIconFromDamage(int i) {
-		i = GOTItemCracker.getBaseCrackerMetadata(i);
+		i = getBaseCrackerMetadata(i);
 		if (i >= crackerIcons.length) {
 			i = 0;
 		}
@@ -141,7 +141,7 @@ public class GOTItemCracker extends Item {
 
 	@Override
 	public String getItemStackDisplayName(ItemStack itemstack) {
-		if (GOTItemCracker.isEmpty(itemstack)) {
+		if (isEmpty(itemstack)) {
 			String name = super.getItemStackDisplayName(itemstack);
 			return StatCollector.translateToLocalFormatted("item.got.cracker.empty", name);
 		}
@@ -163,13 +163,13 @@ public class GOTItemCracker extends Item {
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < crackerNames.length; ++i) {
 			list.add(new ItemStack(item, 1, i));
-			list.add(GOTItemCracker.setEmpty(new ItemStack(item, 1, i), true));
+			list.add(setEmpty(new ItemStack(item, 1, i), true));
 		}
 	}
 
 	@Override
 	public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer entityplayer) {
-		if (!GOTItemCracker.isEmpty(itemstack)) {
+		if (!isEmpty(itemstack)) {
 			if (!entityplayer.capabilities.isCreativeMode) {
 				--itemstack.stackSize;
 				if (itemstack.stackSize <= 0) {
@@ -179,7 +179,7 @@ public class GOTItemCracker extends Item {
 			world.playSoundAtEntity(entityplayer, "fireworks.blast", 1.0f, 0.9f + world.rand.nextFloat() * 0.1f);
 			if (!world.isRemote) {
 				IInventory crackerItems = null;
-				IInventory customItems = GOTItemCracker.loadCustomCrackerContents(itemstack);
+				IInventory customItems = loadCustomCrackerContents(itemstack);
 				if (customItems != null) {
 					crackerItems = customItems;
 				} else {
@@ -205,7 +205,7 @@ public class GOTItemCracker extends Item {
 
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
-		if (!GOTItemCracker.isEmpty(itemstack)) {
+		if (!isEmpty(itemstack)) {
 			entityplayer.setItemInUse(itemstack, getMaxItemUseDuration(itemstack));
 		} else {
 			entityplayer.openGui(GOT.instance, 48, world, 0, 0, 0);

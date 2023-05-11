@@ -72,7 +72,7 @@ public class GOTBlockMillstone extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(IBlockAccess world, int i, int j, int k, int side) {
-		boolean active = GOTBlockMillstone.isMillstoneActive(world, i, j, k);
+		boolean active = isMillstoneActive(world, i, j, k);
 		if (side == 1 || side == 0) {
 			return active ? iconTopActive : iconTop;
 		}
@@ -108,7 +108,7 @@ public class GOTBlockMillstone extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
-		if (GOTBlockMillstone.isMillstoneActive(world, i, j, k)) {
+		if (isMillstoneActive(world, i, j, k)) {
 			for (int l = 0; l < 6; ++l) {
 				float f10 = 0.5f + MathHelper.randomFloatClamp(random, -0.2f, 0.2f);
 				float f11 = 0.5f + MathHelper.randomFloatClamp(random, -0.2f, 0.2f);

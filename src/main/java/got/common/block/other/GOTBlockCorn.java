@@ -41,7 +41,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 
 	public static boolean hasCorn(World world, int i, int j, int k) {
 		int meta = world.getBlockMetadata(i, j, k);
-		return GOTBlockCorn.metaHasCorn(meta);
+		return metaHasCorn(meta);
 	}
 
 	public static boolean metaHasCorn(int l) {
@@ -106,7 +106,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 
 	@Override
 	public boolean func_149851_a(World world, int i, int j, int k, boolean isRemote) {
-		return world.getBlock(i, j - 1, k) != this && world.isAirBlock(i, j + 1, k) || !GOTBlockCorn.hasCorn(world, i, j, k) && canGrowCorn(world, i, j, k);
+		return world.getBlock(i, j - 1, k) != this && world.isAirBlock(i, j + 1, k) || !hasCorn(world, i, j, k) && canGrowCorn(world, i, j, k);
 	}
 
 	@Override
@@ -118,8 +118,8 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 	public void func_149853_b(World world, Random random, int i, int j, int k) {
 		if (world.getBlock(i, j - 1, k) != this && world.isAirBlock(i, j + 1, k)) {
 			world.setBlock(i, j + 1, k, this, 0, 3);
-		} else if (!GOTBlockCorn.hasCorn(world, i, j, k) && canGrowCorn(world, i, j, k) && random.nextInt(2) == 0) {
-			GOTBlockCorn.setHasCorn(world, i, j, k, true);
+		} else if (!hasCorn(world, i, j, k) && canGrowCorn(world, i, j, k) && random.nextInt(2) == 0) {
+			setHasCorn(world, i, j, k, true);
 		}
 	}
 
@@ -130,7 +130,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 
 	public ArrayList<ItemStack> getCornDrops(World world, int i, int j, int k, int meta) {
 		ArrayList<ItemStack> drops = new ArrayList<>();
-		if (GOTBlockCorn.metaHasCorn(meta)) {
+		if (metaHasCorn(meta)) {
 			int corns = 1;
 			if (world.rand.nextInt(4) == 0) {
 				++corns;
@@ -167,7 +167,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		if (GOTBlockCorn.metaHasCorn(j)) {
+		if (metaHasCorn(j)) {
 			return cornIcon;
 		}
 		return super.getIcon(i, j);
@@ -211,10 +211,10 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 
 	@Override
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int l, float f, float f1, float f2) {
-		if (GOTBlockCorn.hasCorn(world, i, j, k)) {
+		if (hasCorn(world, i, j, k)) {
 			if (!world.isRemote) {
 				int preMeta = world.getBlockMetadata(i, j, k);
-				GOTBlockCorn.setHasCorn(world, i, j, k, false);
+				setHasCorn(world, i, j, k, false);
 				if (!world.isRemote) {
 					ArrayList<ItemStack> cornDrops = getCornDrops(world, i, j, k, preMeta);
 					for (ItemStack corn : cornDrops) {
@@ -265,8 +265,8 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 				meta = corn | grow;
 				world.setBlockMetadataWithNotify(i, j, k, meta, 4);
 			}
-			if (!GOTBlockCorn.hasCorn(world, i, j, k) && canGrowCorn(world, i, j, k) && world.rand.nextFloat() < growth) {
-				GOTBlockCorn.setHasCorn(world, i, j, k, true);
+			if (!hasCorn(world, i, j, k) && canGrowCorn(world, i, j, k) && world.rand.nextFloat() < growth) {
+				setHasCorn(world, i, j, k, true);
 			}
 		}
 	}

@@ -24,11 +24,11 @@ public class GOTItemRobes extends GOTItemArmor {
 	}
 
 	public static boolean areRobesDyed(ItemStack itemstack) {
-		return GOTItemRobes.getSavedDyeColor(itemstack) != -1;
+		return getSavedDyeColor(itemstack) != -1;
 	}
 
 	public static int getRobesColor(ItemStack itemstack) {
-		int dye = GOTItemRobes.getSavedDyeColor(itemstack);
+		int dye = getSavedDyeColor(itemstack);
 		if (dye != -1) {
 			return dye;
 		}
@@ -58,7 +58,7 @@ public class GOTItemRobes extends GOTItemArmor {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
-		if (GOTItemRobes.areRobesDyed(itemstack)) {
+		if (areRobesDyed(itemstack)) {
 			list.add(StatCollector.translateToLocal("item.got.robes.dyed"));
 		}
 	}
@@ -66,6 +66,6 @@ public class GOTItemRobes extends GOTItemArmor {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getColorFromItemStack(ItemStack itemstack, int pass) {
-		return GOTItemRobes.getRobesColor(itemstack);
+		return getRobesColor(itemstack);
 	}
 }

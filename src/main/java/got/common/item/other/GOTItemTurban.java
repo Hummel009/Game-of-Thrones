@@ -38,7 +38,7 @@ public class GOTItemTurban extends GOTItemRobes {
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		super.addInformation(itemstack, entityplayer, list, flag);
-		if (GOTItemTurban.hasOrnament(itemstack)) {
+		if (hasOrnament(itemstack)) {
 			list.add(StatCollector.translateToLocal("item.got.robes.ornament"));
 		}
 	}
@@ -51,7 +51,7 @@ public class GOTItemTurban extends GOTItemRobes {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getColorFromItemStack(ItemStack itemstack, int pass) {
-		if (pass == 1 && GOTItemTurban.hasOrnament(itemstack)) {
+		if (pass == 1 && hasOrnament(itemstack)) {
 			return 16777215;
 		}
 		return super.getColorFromItemStack(itemstack, pass);
@@ -60,7 +60,7 @@ public class GOTItemTurban extends GOTItemRobes {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(ItemStack itemstack, int pass) {
-		if (pass == 1 && GOTItemTurban.hasOrnament(itemstack)) {
+		if (pass == 1 && hasOrnament(itemstack)) {
 			return ornamentIcon;
 		}
 		return itemIcon;

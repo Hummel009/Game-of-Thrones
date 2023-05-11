@@ -39,6 +39,6 @@ public class GOTItemWaterPlant extends ItemBlock {
 
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
-		return GOTItemWaterPlant.tryPlaceWaterPlant(this, itemstack, world, entityplayer, getMovingObjectPositionFromPlayer(world, entityplayer, true));
+		return tryPlaceWaterPlant(this, itemstack, world, entityplayer, getMovingObjectPositionFromPlayer(world, entityplayer, true));
 	}
 }

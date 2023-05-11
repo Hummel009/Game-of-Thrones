@@ -102,7 +102,7 @@ public class GOTItemAsshaiShadowbinderStaff extends GOTItemSword {
 	@Override
 	public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		itemstack.damageItem(2, entityplayer);
-		return GOTItemAsshaiShadowbinderStaff.useStaff(itemstack, world, entityplayer);
+		return useStaff(itemstack, world, entityplayer);
 	}
 
 	@Override

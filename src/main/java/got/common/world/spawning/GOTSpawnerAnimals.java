@@ -55,7 +55,7 @@ public class GOTSpawnerAnimals {
 		for (EnumCreatureType creatureType : EnumCreatureType.values()) {
 			int count;
 			int maxCount;
-			TypeInfo typeInfo = GOTSpawnerAnimals.forDimAndType(world, creatureType);
+			TypeInfo typeInfo = forDimAndType(world, creatureType);
 			boolean canSpawnType;
 			canSpawnType = creatureType.getPeacefulCreature() ? peacefuls : hostiles;
 			if (creatureType.getAnimal()) {

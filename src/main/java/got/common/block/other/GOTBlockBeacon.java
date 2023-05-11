@@ -94,7 +94,7 @@ public class GOTBlockBeacon extends BlockContainer {
 
 	@Override
 	public int getLightValue(IBlockAccess world, int i, int j, int k) {
-		return GOTBlockBeacon.isFullyLit(world, i, j, k) ? 15 : 0;
+		return isFullyLit(world, i, j, k) ? 15 : 0;
 	}
 
 	@Override
@@ -110,24 +110,24 @@ public class GOTBlockBeacon extends BlockContainer {
 	@Override
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int side, float f, float f1, float f2) {
 		ItemStack itemstack = entityplayer.getCurrentEquippedItem();
-		if (canItemLightBeacon(itemstack) && !GOTBlockBeacon.isLit(world, i, j, k) && world.getBlock(i, j + 1, k).getMaterial() != Material.water) {
+		if (canItemLightBeacon(itemstack) && !isLit(world, i, j, k) && world.getBlock(i, j + 1, k).getMaterial() != Material.water) {
 			world.playSoundEffect(i + 0.5, j + 0.5, k + 0.5, "fire.ignite", 1.0f, world.rand.nextFloat() * 0.4f + 0.8f);
 			if (itemstack.getItem().isDamageable()) {
 				itemstack.damageItem(1, entityplayer);
 			}
 			if (!world.isRemote) {
-				GOTBlockBeacon.setLit(world, i, j, k, true);
+				setLit(world, i, j, k, true);
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.lightBeacon);
 			}
 			return true;
 		}
-		if (itemstack != null && itemstack.getItem() == Items.water_bucket && GOTBlockBeacon.isLit(world, i, j, k)) {
+		if (itemstack != null && itemstack.getItem() == Items.water_bucket && isLit(world, i, j, k)) {
 			world.playSoundEffect(i + 0.5, j + 0.5, k + 0.5, "random.fizz", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
 			if (!entityplayer.capabilities.isCreativeMode) {
 				entityplayer.inventory.setInventorySlotContents(entityplayer.inventory.currentItem, new ItemStack(Items.bucket));
 			}
 			if (!world.isRemote) {
-				GOTBlockBeacon.setLit(world, i, j, k, false);
+				setLit(world, i, j, k, false);
 			}
 			return true;
 		}
@@ -136,10 +136,10 @@ public class GOTBlockBeacon extends BlockContainer {
 
 	@Override
 	public void onEntityCollidedWithBlock(World world, int i, int j, int k, Entity entity) {
-		if (entity.isBurning() && !GOTBlockBeacon.isLit(world, i, j, k) && world.getBlock(i, j + 1, k).getMaterial() != Material.water) {
+		if (entity.isBurning() && !isLit(world, i, j, k) && world.getBlock(i, j + 1, k).getMaterial() != Material.water) {
 			world.playSoundEffect(i + 0.5, j + 0.5, k + 0.5, "fire.ignite", 1.0f, world.rand.nextFloat() * 0.4f + 0.8f);
 			if (!world.isRemote) {
-				GOTBlockBeacon.setLit(world, i, j, k, true);
+				setLit(world, i, j, k, true);
 				entity.setDead();
 			}
 		}
@@ -150,10 +150,10 @@ public class GOTBlockBeacon extends BlockContainer {
 		if (!canBlockStay(world, i, j, k)) {
 			this.dropBlockAsItem(world, i, j, k, world.getBlockMetadata(i, j, k), 0);
 			world.setBlockToAir(i, j, k);
-		} else if (GOTBlockBeacon.isLit(world, i, j, k) && world.getBlock(i, j + 1, k).getMaterial() == Material.water) {
+		} else if (isLit(world, i, j, k) && world.getBlock(i, j + 1, k).getMaterial() == Material.water) {
 			world.playSoundEffect(i + 0.5, j + 0.5, k + 0.5, "random.fizz", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
 			if (!world.isRemote) {
-				GOTBlockBeacon.setLit(world, i, j, k, false);
+				setLit(world, i, j, k, false);
 			}
 		}
 	}
@@ -161,7 +161,7 @@ public class GOTBlockBeacon extends BlockContainer {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
-		if (!GOTBlockBeacon.isLit(world, i, j, k)) {
+		if (!isLit(world, i, j, k)) {
 			return;
 		}
 		if (random.nextInt(24) == 0) {

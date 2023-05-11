@@ -94,7 +94,7 @@ public class GOTBiomeVariant {
 			throw new IllegalArgumentException("got Biome variant already exists at index " + i);
 		}
 		variantID = i;
-		GOTBiomeVariant.allVariants[i] = this;
+		allVariants[i] = this;
 		variantName = s;
 		variantScale = scale;
 	}

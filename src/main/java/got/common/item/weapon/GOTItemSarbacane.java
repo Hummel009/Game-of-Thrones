@@ -116,14 +116,14 @@ public class GOTItemSarbacane extends Item {
 			if (!world.isRemote) {
 				ItemStack shotDart = dartItem.copy();
 				shotDart.stackSize = 1;
-				GOTEntityDart dart = ((GOTItemDart) shotDart.getItem()).createDart(world, entityplayer, shotDart, charge * 2.0f * GOTItemSarbacane.getSarbacaneLaunchSpeedFactor(itemstack));
+				GOTEntityDart dart = ((GOTItemDart) shotDart.getItem()).createDart(world, entityplayer, shotDart, charge * 2.0f * getSarbacaneLaunchSpeedFactor(itemstack));
 				if (dart.dartDamageFactor < 1.0f) {
 					dart.dartDamageFactor = 1.0f;
 				}
 				if (charge >= 1.0f) {
 					dart.setIsCritical(true);
 				}
-				GOTItemSarbacane.applySarbacaneModifiers(dart, itemstack);
+				applySarbacaneModifiers(dart, itemstack);
 				if (entityplayer.capabilities.isCreativeMode) {
 					dart.canBePickedUp = 2;
 				}

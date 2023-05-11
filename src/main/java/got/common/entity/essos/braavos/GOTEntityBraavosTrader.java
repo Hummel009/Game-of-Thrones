@@ -64,7 +64,7 @@ public abstract class GOTEntityBraavosTrader extends GOTEntityBraavosMan impleme
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		setCurrentItemOrArmor(4, GOTEntityBraavosTrader.createTraderTurban(rand));
+		setCurrentItemOrArmor(4, createTraderTurban(rand));
 		return data;
 	}
 }

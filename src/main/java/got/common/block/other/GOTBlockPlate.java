@@ -111,7 +111,7 @@ public class GOTBlockPlate extends BlockContainer {
 
 	@Override
 	public ItemStack getPickBlock(MovingObjectPosition target, World world, int i, int j, int k, EntityPlayer entityplayer) {
-		ItemStack foodItem = GOTBlockPlate.getFoodItem(world, i, j, k);
+		ItemStack foodItem = getFoodItem(world, i, j, k);
 		if (foodItem != null) {
 			ItemStack copy = foodItem.copy();
 			copy.stackSize = 1;

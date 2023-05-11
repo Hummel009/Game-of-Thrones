@@ -33,12 +33,12 @@ public class GOTItemPipe extends Item {
 	}
 
 	public static boolean isPipeDyed(ItemStack itemstack) {
-		int color = GOTItemPipe.getSmokeColor(itemstack);
+		int color = getSmokeColor(itemstack);
 		return color != 0 && color != 16;
 	}
 
 	public static void removePipeDye(ItemStack itemstack) {
-		GOTItemPipe.setSmokeColor(itemstack, 0);
+		setSmokeColor(itemstack, 0);
 	}
 
 	public static void setSmokeColor(ItemStack itemstack, int i) {
@@ -51,7 +51,7 @@ public class GOTItemPipe extends Item {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
-		int color = GOTItemPipe.getSmokeColor(itemstack);
+		int color = getSmokeColor(itemstack);
 		list.add(StatCollector.translateToLocal("item.got.pipe.subtitle." + color));
 	}
 
@@ -70,7 +70,7 @@ public class GOTItemPipe extends Item {
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i <= 16; ++i) {
 			ItemStack itemstack = new ItemStack(this);
-			GOTItemPipe.setSmokeColor(itemstack, i);
+			setSmokeColor(itemstack, i);
 			list.add(itemstack);
 		}
 	}
@@ -87,7 +87,7 @@ public class GOTItemPipe extends Item {
 			}
 			if (!world.isRemote) {
 				GOTEntitySmokeRing smoke = new GOTEntitySmokeRing(world, entityplayer);
-				int color = GOTItemPipe.getSmokeColor(itemstack);
+				int color = getSmokeColor(itemstack);
 				smoke.setSmokeColour(color);
 				world.spawnEntityInWorld(smoke);
 			}

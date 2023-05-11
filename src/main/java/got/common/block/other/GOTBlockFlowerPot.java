@@ -66,7 +66,7 @@ public class GOTBlockFlowerPot extends BlockFlowerPot implements ITileEntityProv
 		ItemStack itemstack;
 		ArrayList<ItemStack> drops = new ArrayList<>();
 		drops.add(new ItemStack(Items.flower_pot));
-		if ((meta & 8) == 0 && (itemstack = GOTBlockFlowerPot.getPlant(world, i, j, k)) != null && (GOTTileEntityFlowerPot) world.getTileEntity(i, j, k) != null) {
+		if ((meta & 8) == 0 && (itemstack = getPlant(world, i, j, k)) != null && (GOTTileEntityFlowerPot) world.getTileEntity(i, j, k) != null) {
 			drops.add(itemstack);
 		}
 		return drops;
@@ -80,7 +80,7 @@ public class GOTBlockFlowerPot extends BlockFlowerPot implements ITileEntityProv
 
 	@Override
 	public ItemStack getPickBlock(MovingObjectPosition target, World world, int i, int j, int k) {
-		return GOTBlockFlowerPot.getPlant(world, i, j, k);
+		return getPlant(world, i, j, k);
 	}
 
 	@Override
@@ -104,7 +104,7 @@ public class GOTBlockFlowerPot extends BlockFlowerPot implements ITileEntityProv
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
-		if (GOTBlockFlowerPot.getPlant(world, i, j, k) != null && GOTBlockFlowerPot.getPlant(world, i, j, k).getItem() == Item.getItemFromBlock(GOTRegistry.pipeweedPlant)) {
+		if (getPlant(world, i, j, k) != null && getPlant(world, i, j, k).getItem() == Item.getItemFromBlock(GOTRegistry.pipeweedPlant)) {
 			double d = i + 0.2 + random.nextFloat() * 0.6f;
 			double d1 = j + 0.625 + random.nextFloat() * 0.1875f;
 			double d2 = k + 0.2 + random.nextFloat() * 0.6f;

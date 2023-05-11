@@ -22,11 +22,11 @@ public class GOTItemPartyHat extends GOTItemArmor {
 	}
 
 	public static ItemStack createDyedHat(int i) {
-		return GOTItemPartyHat.setHatColor(new ItemStack(GOTRegistry.partyHat), i);
+		return setHatColor(new ItemStack(GOTRegistry.partyHat), i);
 	}
 
 	public static int getHatColor(ItemStack itemstack) {
-		int dye = GOTItemPartyHat.getSavedDyeColor(itemstack);
+		int dye = getSavedDyeColor(itemstack);
 		if (dye != -1) {
 			return dye;
 		}
@@ -41,7 +41,7 @@ public class GOTItemPartyHat extends GOTItemArmor {
 	}
 
 	public static boolean isHatDyed(ItemStack itemstack) {
-		return GOTItemPartyHat.getSavedDyeColor(itemstack) != -1;
+		return getSavedDyeColor(itemstack) != -1;
 	}
 
 	public static void removeHatDye(ItemStack itemstack) {
@@ -61,7 +61,7 @@ public class GOTItemPartyHat extends GOTItemArmor {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
-		if (GOTItemPartyHat.isHatDyed(itemstack) && GOTItemPartyHat.getHatColor(itemstack) != 16777215) {
+		if (isHatDyed(itemstack) && getHatColor(itemstack) != 16777215) {
 			list.add(StatCollector.translateToLocal("item.got.hat.dyed"));
 		}
 	}
@@ -74,6 +74,6 @@ public class GOTItemPartyHat extends GOTItemArmor {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getColorFromItemStack(ItemStack itemstack, int pass) {
-		return GOTItemPartyHat.getHatColor(itemstack);
+		return getHatColor(itemstack);
 	}
 }

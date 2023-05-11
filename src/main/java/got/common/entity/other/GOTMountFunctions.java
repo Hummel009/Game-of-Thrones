@@ -44,8 +44,8 @@ public class GOTMountFunctions {
 	}
 
 	public static boolean isPlayerControlledMount(Entity mount) {
-		if (mount != null && mount.riddenByEntity instanceof EntityPlayer && GOTMountFunctions.isMountControllable(mount)) {
-			return GOTMountFunctions.canRiderControl(mount);
+		if (mount != null && mount.riddenByEntity instanceof EntityPlayer && isMountControllable(mount)) {
+			return canRiderControl(mount);
 		}
 		return false;
 	}
@@ -87,12 +87,12 @@ public class GOTMountFunctions {
 	}
 
 	public static boolean sendControlToServer(EntityPlayer clientPlayer) {
-		return GOTMountFunctions.sendControlToServer(clientPlayer, null);
+		return sendControlToServer(clientPlayer, null);
 	}
 
 	public static boolean sendControlToServer(EntityPlayer clientPlayer, GOTPacketMountControlServerEnforce pktSet) {
 		Entity mount = clientPlayer.ridingEntity;
-		if (GOTMountFunctions.isPlayerControlledMount(mount)) {
+		if (isPlayerControlledMount(mount)) {
 			if (pktSet != null) {
 				mount.setPositionAndRotation(pktSet.posX, pktSet.posY, pktSet.posZ, pktSet.rotationYaw, pktSet.rotationPitch);
 				mount.updateRiderPosition();

@@ -31,7 +31,7 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 
 	public GOTGenLayerWorld() {
 		super(0L);
-		if (!GOTGenLayerWorld.loadedBiomeImage()) {
+		if (!loadedBiomeImage()) {
 			try {
 				BufferedImage biomeImage = null;
 				imageName = "assets/got/textures/map/map.png";
@@ -62,11 +62,11 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 					int color = colors[i];
 					Integer biomeID = GOTDimension.GAME_OF_THRONES.colorsToBiomeIDs.get(color);
 					if (biomeID != null) {
-						GOTGenLayerWorld.biomeImageData[i] = biomeID.byteValue();
+						biomeImageData[i] = biomeID.byteValue();
 						continue;
 					}
 					FMLLog.log(Level.ERROR, "Found unknown biome on map " + Integer.toHexString(color));
-					GOTGenLayerWorld.biomeImageData[i] = (byte) GOTBiome.ocean.biomeID;
+					biomeImageData[i] = (byte) GOTBiome.ocean.biomeID;
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -131,7 +131,7 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 	}
 
 	public static GOTBiome getBiomeOrOcean(int mapX, int mapZ) {
-		int biomeID = mapX >= 0 && mapX < imageWidth && mapZ >= 0 && mapZ < imageHeight ? GOTGenLayerWorld.getBiomeImageID(mapX, mapZ) : GOTBiome.ocean.biomeID;
+		int biomeID = mapX >= 0 && mapX < imageWidth && mapZ >= 0 && mapZ < imageHeight ? getBiomeImageID(mapX, mapZ) : GOTBiome.ocean.biomeID;
 		return GOTDimension.GAME_OF_THRONES.biomeList[biomeID];
 	}
 
@@ -176,7 +176,7 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 			for (int i1 = 0; i1 < xSize; ++i1) {
 				int i2 = i + i1 + 810;
 				int k2 = k + k1 + 730;
-				intArray[i1 + k1 * xSize] = i2 < 0 || i2 >= imageWidth || k2 < 0 || k2 >= imageHeight ? GOTBiome.ocean.biomeID : GOTGenLayerWorld.getBiomeImageID(i2, k2);
+				intArray[i1 + k1 * xSize] = i2 < 0 || i2 >= imageWidth || k2 < 0 || k2 >= imageHeight ? GOTBiome.ocean.biomeID : getBiomeImageID(i2, k2);
 			}
 		}
 		return intArray;

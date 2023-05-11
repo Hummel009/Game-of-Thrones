@@ -51,7 +51,7 @@ public class GOTItemBanner extends Item {
 
 	public static BannerType getBannerType(ItemStack itemstack) {
 		if (itemstack.getItem() instanceof GOTItemBanner) {
-			return GOTItemBanner.getBannerType(itemstack.getItemDamage());
+			return getBannerType(itemstack.getItemDamage());
 		}
 		return null;
 	}
@@ -70,7 +70,7 @@ public class GOTItemBanner extends Item {
 	public static boolean isHoldingBannerWithExistingProtection(EntityPlayer entityplayer) {
 		ItemStack itemstack = entityplayer.getHeldItem();
 		if (itemstack != null && itemstack.getItem() instanceof GOTItemBanner) {
-			NBTTagCompound protectData = GOTItemBanner.getProtectionData(itemstack);
+			NBTTagCompound protectData = getProtectionData(itemstack);
 			return protectData != null && !protectData.hasNoTags();
 		}
 		return false;
@@ -90,13 +90,13 @@ public class GOTItemBanner extends Item {
 	}
 
 	public static boolean shouldKeepOriginalOwnerOnPlacement(EntityPlayer entityplayer, ItemStack bannerItem) {
-		return GOTItemBanner.hasChoiceToKeepOriginalOwner(entityplayer) && entityplayer.isSneaking();
+		return hasChoiceToKeepOriginalOwner(entityplayer) && entityplayer.isSneaking();
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
-		NBTTagCompound protectData = GOTItemBanner.getProtectionData(itemstack);
+		NBTTagCompound protectData = getProtectionData(itemstack);
 		if (protectData != null) {
 			list.add(StatCollector.translateToLocal("item.got.banner.protect"));
 		}
@@ -112,7 +112,7 @@ public class GOTItemBanner extends Item {
 		if (itemstack == entityplayer.getHeldItem()) {
 			return 0xffffff;
 		}
-		return GOTItemBanner.getBannerType(itemstack.getItemDamage()).faction.eggColor;
+		return getBannerType(itemstack.getItemDamage()).faction.eggColor;
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -134,13 +134,13 @@ public class GOTItemBanner extends Item {
 
 	@Override
 	public String getUnlocalizedName(ItemStack itemstack) {
-		return super.getUnlocalizedName() + "." + GOTItemBanner.getBannerType(itemstack).bannerName;
+		return super.getUnlocalizedName() + "." + getBannerType(itemstack).bannerName;
 	}
 
 	@Override
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int side, float f, float f1, float f2) {
-		BannerType bannerType = GOTItemBanner.getBannerType(itemstack);
-		NBTTagCompound protectData = GOTItemBanner.getProtectionData(itemstack);
+		BannerType bannerType = getBannerType(itemstack);
+		NBTTagCompound protectData = getProtectionData(itemstack);
 		if (world.getBlock(i, j, k).isReplaceable(world, i, j, k)) {
 			side = 1;
 		} else if (side == 1) {
@@ -178,7 +178,7 @@ public class GOTItemBanner extends Item {
 						if (protectData != null) {
 							banner.readProtectionFromNBT(protectData);
 						}
-						if (banner.getPlacingPlayer() == null || !GOTItemBanner.shouldKeepOriginalOwnerOnPlacement(entityplayer, itemstack)) {
+						if (banner.getPlacingPlayer() == null || !shouldKeepOriginalOwnerOnPlacement(entityplayer, itemstack)) {
 							banner.setPlacingPlayer(entityplayer);
 						}
 						world.spawnEntityInWorld(banner);
@@ -237,7 +237,7 @@ public class GOTItemBanner extends Item {
 		public static Map<Integer, BannerType> bannerForID = new HashMap<>();
 
 		static {
-			for (BannerType t : BannerType.values()) {
+			for (BannerType t : values()) {
 				bannerTypes.add(t);
 				bannerForID.put(t.bannerID, t);
 			}

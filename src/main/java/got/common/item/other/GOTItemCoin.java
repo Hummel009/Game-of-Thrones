@@ -32,12 +32,12 @@ public class GOTItemCoin extends Item {
 
 	public static int getContainerValue(IInventory inv, boolean allowStolen) {
 		if (inv instanceof InventoryPlayer) {
-			return GOTItemCoin.getInventoryValue(((InventoryPlayer) inv).player, allowStolen);
+			return getInventoryValue(((InventoryPlayer) inv).player, allowStolen);
 		}
 		int coins = 0;
 		for (int i = 0; i < inv.getSizeInventory(); ++i) {
 			ItemStack itemstack = inv.getStackInSlot(i);
-			coins += GOTItemCoin.getStackValue(itemstack, allowStolen);
+			coins += getStackValue(itemstack, allowStolen);
 		}
 		return coins;
 	}
@@ -45,9 +45,9 @@ public class GOTItemCoin extends Item {
 	public static int getInventoryValue(EntityPlayer entityplayer, boolean allowStolen) {
 		int coins = 0;
 		for (ItemStack itemstack : entityplayer.inventory.mainInventory) {
-			coins += GOTItemCoin.getStackValue(itemstack, allowStolen);
+			coins += getStackValue(itemstack, allowStolen);
 		}
-		return coins += GOTItemCoin.getStackValue(entityplayer.inventory.getItemStack(), allowStolen);
+		return coins += getStackValue(entityplayer.inventory.getItemStack(), allowStolen);
 	}
 
 	public static int getSingleItemValue(ItemStack itemstack, boolean allowStolen) {
@@ -68,7 +68,7 @@ public class GOTItemCoin extends Item {
 		if (itemstack == null) {
 			return 0;
 		}
-		return GOTItemCoin.getSingleItemValue(itemstack, allowStolen) * itemstack.stackSize;
+		return getSingleItemValue(itemstack, allowStolen) * itemstack.stackSize;
 	}
 
 	public static void giveCoins(int coins, EntityPlayer entityplayer) {
@@ -106,7 +106,7 @@ public class GOTItemCoin extends Item {
 		ItemStack itemstack;
 		int value;
 		InventoryPlayer inv = entityplayer.inventory;
-		int invValue = GOTItemCoin.getInventoryValue(entityplayer, false);
+		int invValue = getInventoryValue(entityplayer, false);
 		if (invValue < coins) {
 			FMLLog.warning("Attempted to take " + coins + " coins from player " + entityplayer.getCommandSenderName() + " who has only " + invValue);
 		}
@@ -173,7 +173,7 @@ public class GOTItemCoin extends Item {
 			}
 		}
 		if (coins < 0) {
-			GOTItemCoin.giveCoins(-coins, entityplayer);
+			giveCoins(-coins, entityplayer);
 		}
 	}
 

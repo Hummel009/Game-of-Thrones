@@ -58,7 +58,7 @@ public class GOTSpawnerNPCs {
 	public static ChunkPosition getRandomSpawningPointInChunk(World world, ChunkCoordIntPair chunkCoords) {
 		int i = chunkCoords.chunkXPos;
 		int k = chunkCoords.chunkZPos;
-		return GOTSpawnerNPCs.getRandomSpawningPointInChunk(world, i, k);
+		return getRandomSpawningPointInChunk(world, i, k);
 	}
 
 	public static ChunkPosition getRandomSpawningPointInChunk(World world, int i, int k) {
@@ -103,7 +103,7 @@ public class GOTSpawnerNPCs {
 	}
 
 	public static void getSpawnableChunksWithPlayerInRange(World world, Set<ChunkCoordIntPair> set, int range) {
-		GOTSpawnerNPCs.getSpawnableChunks(world, set);
+		getSpawnableChunks(world, set);
 		ArrayList<EntityPlayer> validPlayers = new ArrayList<>();
 		for (Object obj : world.playerEntities) {
 			EntityPlayer entityplayer = (EntityPlayer) obj;
@@ -150,20 +150,20 @@ public class GOTSpawnerNPCs {
 			ticks = interval;
 			ticksSinceCycle.put(dimID, ticks);
 		}
-		GOTSpawnerNPCs.getSpawnableChunks(world, eligibleSpawnChunks);
+		getSpawnableChunks(world, eligibleSpawnChunks);
 		ChunkCoordinates spawnPoint = world.getSpawnPoint();
-		int totalSpawnCount = GOTSpawnerNPCs.countNPCs(world);
+		int totalSpawnCount = countNPCs(world);
 		int maxSpawnCount = GOTSpawnDamping.getNPCSpawnCap(world) * eligibleSpawnChunks.size() / 196;
 		if (totalSpawnCount <= maxSpawnCount) {
 			int cycles = Math.max(1, interval);
 			block2:
 			for (int c = 0; c < cycles; ++c) {
-				List<ChunkCoordIntPair> shuffled = GOTSpawnerNPCs.shuffle(eligibleSpawnChunks);
+				List<ChunkCoordIntPair> shuffled = shuffle(eligibleSpawnChunks);
 				for (ChunkCoordIntPair chunkCoords : shuffled) {
 					int i;
 					int j;
 					int k;
-					ChunkPosition chunkposition = GOTSpawnerNPCs.getRandomSpawningPointInChunk(world, chunkCoords);
+					ChunkPosition chunkposition = getRandomSpawningPointInChunk(world, chunkCoords);
 					if (chunkposition == null || world.getBlock(i = chunkposition.chunkPosX, j = chunkposition.chunkPosY, k = chunkposition.chunkPosZ).isNormalCube() || world.getBlock(i, j, k).getMaterial() != Material.air) {
 						continue;
 					}
@@ -177,7 +177,7 @@ public class GOTSpawnerNPCs {
 						int yRange = 0;
 						int rangeP1 = range + 1;
 						int yRangeP1 = yRange + 1;
-						GOTSpawnEntry.Instance spawnEntryInstance = GOTSpawnerNPCs.getRandomSpawnListEntry(world, i1, j1, k1);
+						GOTSpawnEntry.Instance spawnEntryInstance = getRandomSpawnListEntry(world, i1, j1, k1);
 						if (spawnEntryInstance == null) {
 							continue;
 						}
@@ -200,7 +200,7 @@ public class GOTSpawnerNPCs {
 							float f;
 							Event.Result canSpawn;
 							EntityLiving entity;
-							if (!world.blockExists(i1 += world.rand.nextInt(rangeP1) - world.rand.nextInt(rangeP1), j1 += world.rand.nextInt(yRangeP1) - world.rand.nextInt(yRangeP1), k1 += world.rand.nextInt(rangeP1) - world.rand.nextInt(rangeP1)) || !GOTSpawnerNPCs.canNPCSpawnAtLocation(world, i1, j1, k1) || world.getClosestPlayer(f = i1 + 0.5f, f1 = j1, f2 = k1 + 0.5f, 24.0) != null || (f3 = f - spawnPoint.posX) * f3 + (f4 = f1 - spawnPoint.posY) * f4 + (f5 = f2 - spawnPoint.posZ) * f5 < 576.0f) {
+							if (!world.blockExists(i1 += world.rand.nextInt(rangeP1) - world.rand.nextInt(rangeP1), j1 += world.rand.nextInt(yRangeP1) - world.rand.nextInt(yRangeP1), k1 += world.rand.nextInt(rangeP1) - world.rand.nextInt(rangeP1)) || !canNPCSpawnAtLocation(world, i1, j1, k1) || world.getClosestPlayer(f = i1 + 0.5f, f1 = j1, f2 = k1 + 0.5f, 24.0) != null || (f3 = f - spawnPoint.posX) * f3 + (f4 = f1 - spawnPoint.posY) * f4 + (f5 = f2 - spawnPoint.posZ) * f5 < 576.0f) {
 								continue;
 							}
 							try {

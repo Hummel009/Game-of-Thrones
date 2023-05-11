@@ -43,9 +43,9 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 
 	public static int setHasBerries(int meta, boolean flag) {
 		if (flag) {
-			return GOTBlockBerryBush.getBerryType(meta) | 8;
+			return getBerryType(meta) | 8;
 		}
-		return GOTBlockBerryBush.getBerryType(meta);
+		return getBerryType(meta);
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 
 	@Override
 	public boolean func_149851_a(World world, int i, int j, int k, boolean isRemote) {
-		return !GOTBlockBerryBush.hasBerries(world.getBlockMetadata(i, j, k));
+		return !hasBerries(world.getBlockMetadata(i, j, k));
 	}
 
 	@Override
@@ -72,8 +72,8 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 
 	public ArrayList<ItemStack> getBerryDrops(World world, int i, int j, int k, int meta) {
 		ArrayList<ItemStack> drops = new ArrayList<>();
-		if (GOTBlockBerryBush.hasBerries(meta)) {
-			int berryType = GOTBlockBerryBush.getBerryType(meta);
+		if (hasBerries(meta)) {
+			int berryType = getBerryType(meta);
 			Item berry = null;
 			int berries = 1 + world.rand.nextInt(4);
 			switch (berryType) {
@@ -113,7 +113,7 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 	@Override
 	public ArrayList<ItemStack> getDrops(World world, int i, int j, int k, int meta, int fortune) {
 		ArrayList<ItemStack> drops = new ArrayList<>();
-		drops.add(new ItemStack(this, 1, GOTBlockBerryBush.setHasBerries(meta, false)));
+		drops.add(new ItemStack(this, 1, setHasBerries(meta, false)));
 		drops.addAll(getBerryDrops(world, i, j, k, meta));
 		return drops;
 	}
@@ -174,9 +174,9 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		int berryType = GOTBlockBerryBush.getBerryType(j);
+		int berryType = getBerryType(j);
 		BushType type = BushType.forMeta(berryType);
-		if (GOTBlockBerryBush.hasBerries(j)) {
+		if (hasBerries(j)) {
 			return type.iconGrown;
 		}
 		return type.iconBare;
@@ -202,14 +202,14 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (BushType type : BushType.values()) {
 			int meta = type.bushMeta;
-			list.add(new ItemStack(item, 1, GOTBlockBerryBush.setHasBerries(meta, true)));
-			list.add(new ItemStack(item, 1, GOTBlockBerryBush.setHasBerries(meta, false)));
+			list.add(new ItemStack(item, 1, setHasBerries(meta, true)));
+			list.add(new ItemStack(item, 1, setHasBerries(meta, false)));
 		}
 	}
 
 	public void growBerries(World world, int i, int j, int k) {
 		int meta = world.getBlockMetadata(i, j, k);
-		world.setBlockMetadataWithNotify(i, j, k, GOTBlockBerryBush.setHasBerries(meta, true), 3);
+		world.setBlockMetadataWithNotify(i, j, k, setHasBerries(meta, true), 3);
 	}
 
 	@Override
@@ -220,8 +220,8 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 	@Override
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int side, float f, float f1, float f2) {
 		int meta = world.getBlockMetadata(i, j, k);
-		if (GOTBlockBerryBush.hasBerries(meta)) {
-			world.setBlockMetadataWithNotify(i, j, k, GOTBlockBerryBush.setHasBerries(meta, false), 3);
+		if (hasBerries(meta)) {
+			world.setBlockMetadataWithNotify(i, j, k, setHasBerries(meta, false), 3);
 			if (!world.isRemote) {
 				ArrayList<ItemStack> drops = getBerryDrops(world, i, j, k, meta);
 				for (ItemStack berry : drops) {
@@ -245,7 +245,7 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 	@Override
 	public void updateTick(World world, int i, int j, int k, Random random) {
 		int meta = world.getBlockMetadata(i, j, k);
-		if (!world.isRemote && !GOTBlockBerryBush.hasBerries(meta)) {
+		if (!world.isRemote && !hasBerries(meta)) {
 			float growth = getGrowthFactor(world, i, j, k);
 			if (random.nextFloat() < growth) {
 				growBerries(world, i, j, k);
@@ -271,17 +271,17 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 		}
 
 		public static BushType forMeta(int i) {
-			for (BushType type : BushType.values()) {
+			for (BushType type : values()) {
 				if (type.bushMeta != i) {
 					continue;
 				}
 				return type;
 			}
-			return BushType.values()[0];
+			return values()[0];
 		}
 
 		public static BushType randomType(Random rand) {
-			return BushType.values()[rand.nextInt(BushType.values().length)];
+			return values()[rand.nextInt(values().length)];
 		}
 	}
 

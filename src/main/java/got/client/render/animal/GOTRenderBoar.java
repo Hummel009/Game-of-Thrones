@@ -27,7 +27,7 @@ public class GOTRenderBoar extends RenderLiving {
 	public void doRender(EntityLiving entity, double d, double d1, double d2, float f, float f1) {
 		GOTEntityBoar boar = (GOTEntityBoar) entity;
 		super.doRender(boar, d, d1, d2, f, f1);
-		if (Minecraft.isGuiEnabled() && GOTRenderBoar.isRobert(boar)) {
+		if (Minecraft.isGuiEnabled() && isRobert(boar)) {
 			func_147906_a(boar, boar.getCommandSenderName(), d, d1 + 1, d2, 64);
 		}
 	}
@@ -44,7 +44,7 @@ public class GOTRenderBoar extends RenderLiving {
 		GOTEntityBoar boar = (GOTEntityBoar) entity;
 		if (boar.isChild()) {
 			GL11.glScalef(0.5f, 0.5f, 0.5f);
-		} else if (GOTRenderBoar.isRobert(boar)) {
+		} else if (isRobert(boar)) {
 			GL11.glScalef(2.0f, 2.0f, 2.0f);
 		} else {
 			GL11.glScalef(1.0f, 1.0f, 1.0f);

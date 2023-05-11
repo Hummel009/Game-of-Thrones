@@ -72,7 +72,7 @@ public class GOTItemDye extends Item {
 	public boolean itemInteractionForEntity(ItemStack itemstack, EntityPlayer entityplayer, EntityLivingBase entityliving) {
 		if (entityliving instanceof EntitySheep) {
 			EntitySheep sheep = (EntitySheep) entityliving;
-			int dye = GOTItemDye.isItemDye(itemstack);
+			int dye = isItemDye(itemstack);
 			if (dye == -1) {
 				return false;
 			}

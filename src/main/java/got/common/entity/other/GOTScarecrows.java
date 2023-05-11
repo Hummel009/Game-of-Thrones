@@ -14,7 +14,7 @@ public class GOTScarecrows {
 		for (int i1 = i - RANGE; i1 <= i + RANGE; ++i1) {
 			for (int k1 = k - RANGE; k1 <= k + RANGE; ++k1) {
 				for (int j1 = j - Y_RANGE; j1 <= j + Y_RANGE; ++j1) {
-					if (!GOTScarecrows.isScarecrowBase(world, i1, j1, k1)) {
+					if (!isScarecrowBase(world, i1, j1, k1)) {
 						continue;
 					}
 					return true;

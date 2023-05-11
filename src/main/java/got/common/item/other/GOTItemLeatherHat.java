@@ -37,7 +37,7 @@ public class GOTItemLeatherHat extends GOTItemArmor {
 	}
 
 	public static int getHatColor(ItemStack itemstack) {
-		int dye = GOTItemLeatherHat.getSavedDyeColor(itemstack);
+		int dye = getSavedDyeColor(itemstack);
 		if (dye != -1) {
 			return dye;
 		}
@@ -52,23 +52,23 @@ public class GOTItemLeatherHat extends GOTItemArmor {
 	}
 
 	public static boolean hasFeather(ItemStack itemstack) {
-		return GOTItemLeatherHat.getFeatherColor(itemstack) != -1;
+		return getFeatherColor(itemstack) != -1;
 	}
 
 	public static boolean isFeatherDyed(ItemStack itemstack) {
-		return GOTItemLeatherHat.hasFeather(itemstack) && GOTItemLeatherHat.getFeatherColor(itemstack) != 16777215;
+		return hasFeather(itemstack) && getFeatherColor(itemstack) != 16777215;
 	}
 
 	public static boolean isHatDyed(ItemStack itemstack) {
-		return GOTItemLeatherHat.getSavedDyeColor(itemstack) != -1;
+		return getSavedDyeColor(itemstack) != -1;
 	}
 
 	public static void removeHatAndFeatherDye(ItemStack itemstack) {
 		if (itemstack.getTagCompound() != null) {
 			itemstack.getTagCompound().removeTag("HatColor");
 		}
-		if (GOTItemLeatherHat.hasFeather(itemstack) && GOTItemLeatherHat.isFeatherDyed(itemstack)) {
-			GOTItemLeatherHat.setFeatherColor(itemstack, 16777215);
+		if (hasFeather(itemstack) && isFeatherDyed(itemstack)) {
+			setFeatherColor(itemstack, 16777215);
 		}
 	}
 
@@ -91,10 +91,10 @@ public class GOTItemLeatherHat extends GOTItemArmor {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
-		if (GOTItemLeatherHat.isHatDyed(itemstack)) {
+		if (isHatDyed(itemstack)) {
 			list.add(StatCollector.translateToLocal("item.got.hat.dyed"));
 		}
-		if (GOTItemLeatherHat.hasFeather(itemstack)) {
+		if (hasFeather(itemstack)) {
 			list.add(StatCollector.translateToLocal("item.got.hat.feathered"));
 		}
 	}
@@ -107,16 +107,16 @@ public class GOTItemLeatherHat extends GOTItemArmor {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getColorFromItemStack(ItemStack itemstack, int pass) {
-		if (pass == 1 && GOTItemLeatherHat.hasFeather(itemstack)) {
-			return GOTItemLeatherHat.getFeatherColor(itemstack);
+		if (pass == 1 && hasFeather(itemstack)) {
+			return getFeatherColor(itemstack);
 		}
-		return GOTItemLeatherHat.getHatColor(itemstack);
+		return getHatColor(itemstack);
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(ItemStack itemstack, int pass) {
-		if (pass == 1 && GOTItemLeatherHat.hasFeather(itemstack)) {
+		if (pass == 1 && hasFeather(itemstack)) {
 			return featherIcon;
 		}
 		return itemIcon;

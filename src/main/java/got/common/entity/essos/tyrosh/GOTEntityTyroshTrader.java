@@ -64,7 +64,7 @@ public abstract class GOTEntityTyroshTrader extends GOTEntityTyroshMan implement
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		setCurrentItemOrArmor(4, GOTEntityTyroshTrader.createTraderTurban(rand));
+		setCurrentItemOrArmor(4, createTraderTurban(rand));
 		return data;
 	}
 }

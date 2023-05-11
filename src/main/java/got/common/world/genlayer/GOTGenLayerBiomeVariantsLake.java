@@ -33,14 +33,14 @@ public class GOTGenLayerBiomeVariantsLake extends GOTGenLayer {
 				int baseInt;
 				initChunkSeed(i + i1, k + k1);
 				baseInt = baseInts == null ? 0 : baseInts[i1 + k1 * xSize];
-				if (GOTGenLayerBiomeVariantsLake.getFlag(lakeFlags, 1) && nextInt(30 * zoomScale * zoomScale * zoomScale) == 2) {
-					baseInt = GOTGenLayerBiomeVariantsLake.setFlag(baseInt, 1);
+				if (getFlag(lakeFlags, 1) && nextInt(30 * zoomScale * zoomScale * zoomScale) == 2) {
+					baseInt = setFlag(baseInt, 1);
 				}
-				if (GOTGenLayerBiomeVariantsLake.getFlag(lakeFlags, 2) && nextInt(12) == 3) {
-					baseInt = GOTGenLayerBiomeVariantsLake.setFlag(baseInt, 2);
+				if (getFlag(lakeFlags, 2) && nextInt(12) == 3) {
+					baseInt = setFlag(baseInt, 2);
 				}
-				if (GOTGenLayerBiomeVariantsLake.getFlag(lakeFlags, 4) && nextInt(10) == 1) {
-					baseInt = GOTGenLayerBiomeVariantsLake.setFlag(baseInt, 4);
+				if (getFlag(lakeFlags, 4) && nextInt(10) == 1) {
+					baseInt = setFlag(baseInt, 4);
 				}
 				ints[i1 + k1 * xSize] = baseInt;
 			}
@@ -50,7 +50,7 @@ public class GOTGenLayerBiomeVariantsLake extends GOTGenLayer {
 
 	public GOTGenLayerBiomeVariantsLake setLakeFlags(int... flags) {
 		for (int f : flags) {
-			lakeFlags = GOTGenLayerBiomeVariantsLake.setFlag(lakeFlags, f);
+			lakeFlags = setFlag(lakeFlags, f);
 		}
 		return this;
 	}

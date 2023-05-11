@@ -25,7 +25,7 @@ public class GOTItemKebabStand extends ItemBlock {
 	}
 
 	public static void loadKebabData(ItemStack itemstack, GOTTileEntityKebabStand kebabStand) {
-		NBTTagCompound kebabData = GOTItemKebabStand.getKebabData(itemstack);
+		NBTTagCompound kebabData = getKebabData(itemstack);
 		if (kebabData != null) {
 			kebabStand.readKebabStandFromNBT(kebabData);
 		}
@@ -35,7 +35,7 @@ public class GOTItemKebabStand extends ItemBlock {
 		if (kebabStand.shouldSaveBlockData()) {
 			NBTTagCompound kebabData = new NBTTagCompound();
 			kebabStand.writeKebabStandToNBT(kebabData);
-			GOTItemKebabStand.setKebabData(itemstack, kebabData);
+			setKebabData(itemstack, kebabData);
 		}
 	}
 
@@ -49,7 +49,7 @@ public class GOTItemKebabStand extends ItemBlock {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
-		NBTTagCompound kebabData = GOTItemKebabStand.getKebabData(itemstack);
+		NBTTagCompound kebabData = getKebabData(itemstack);
 		if (kebabData != null) {
 			GOTTileEntityKebabStand kebabStand = new GOTTileEntityKebabStand();
 			kebabStand.readKebabStandFromNBT(kebabData);

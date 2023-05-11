@@ -76,7 +76,7 @@ public class GOTEntityNPCRespawner extends Entity {
 	}
 
 	public static boolean isSpawnBlocked(GOTEntityNPC npc) {
-		return GOTEntityNPCRespawner.isSpawnBlocked(npc, npc.getFaction());
+		return isSpawnBlocked(npc, npc.getFaction());
 	}
 
 	@Override
