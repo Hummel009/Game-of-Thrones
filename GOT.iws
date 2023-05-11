@@ -8,13 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8c8107d-f3ae-479d-9562-bcf68c392981" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/GOT.iws" beforeDir="false" afterPath="$PROJECT_DIR$/GOT.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/other/GOTEntityCargocart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/other/GOTEntityCargocart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/other/GOTEntityCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/other/GOTEntityCart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/other/GOTEntityPlowcart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/other/GOTEntityPlowcart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/changelog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/changelog.txt" afterDir="false" />
-    </list>
+    <list default="true" id="b8c8107d-f3ae-479d-9562-bcf68c392981" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -236,7 +230,7 @@
       <option name="presentableId" value="Default" />
       <updated>1682857332714</updated>
       <workItem from="1682857294118" duration="1246000" />
-      <workItem from="1683815837754" duration="3417000" />
+      <workItem from="1683815837754" duration="3462000" />
     </task>
     <servers />
   </component>

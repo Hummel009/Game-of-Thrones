@@ -11,7 +11,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityCrossbowBolt extends GOTEntityProjectileBase {
-	public static float BOLT_RELATIVE_TO_ARROW = 2.0f;
 	public double boltDamageFactor = 2.0;
 
 	public GOTEntityCrossbowBolt(World world) {
