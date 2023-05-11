@@ -2607,9 +2607,9 @@ got.gui.shields.select=Escolher Escudo
 got.gui.shields.selected=Selecionado!
 got.gui.shields.title=Escudos da Juego de Tronos
 got.gui.shields=Escudos
-got.gui.squadronitem.done≠Done
-got.gui.squadronitem.none≠None
-got.gui.squadronitem.squadron≠Assigned hired unit squadron:
+got.gui.squadronItem.done≠Finish
+got.gui.squadronItem.none≠Enter the name
+got.gui.squadronItem.squadron≠Assigned hired unit squadron:
 got.gui.time.format.hms=%s %s %s
 got.gui.time.format.ms=%s %s
 got.gui.time.format.s=%s

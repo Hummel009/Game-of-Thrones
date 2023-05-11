@@ -2607,9 +2607,9 @@ got.gui.shields.select=Wybierz tarczę
 got.gui.shields.selected=Wybrana!
 got.gui.shields.title=Tarcze Gry o tron
 got.gui.shields=Tarcze
-got.gui.squadronitem.done=Gotowe
-got.gui.squadronitem.none=Brak
-got.gui.squadronitem.squadron=Przydzielona kompania jednostek:
+got.gui.squadronItem.done≠Finish
+got.gui.squadronItem.none≠Enter the name
+got.gui.squadronItem.squadron=Przydzielona kompania jednostek:
 got.gui.time.format.hms=%s %s %s
 got.gui.time.format.ms=%s %s
 got.gui.time.format.s=%s

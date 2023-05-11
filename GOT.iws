@@ -8,7 +8,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8c8107d-f3ae-479d-9562-bcf68c392981" name="Changes" comment="" />
+    <list default="true" id="b8c8107d-f3ae-479d-9562-bcf68c392981" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/GOT.iws" beforeDir="false" afterPath="$PROJECT_DIR$/GOT.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/got/lang/de_DE.lang" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/got/lang/de_DE.lang" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/got/lang/en_US.lang" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/got/lang/en_US.lang" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/got/lang/es_ES.lang" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/got/lang/es_ES.lang" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/got/lang/fr_FR.lang" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/got/lang/fr_FR.lang" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/got/lang/it_IT.lang" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/got/lang/it_IT.lang" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/got/lang/nl_NL.lang" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/got/lang/nl_NL.lang" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/got/lang/pl_PL.lang" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/got/lang/pl_PL.lang" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/got/lang/pt_PT.lang" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/got/lang/pt_PT.lang" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/got/lang/ru_RU.lang" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/got/lang/ru_RU.lang" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/got/lang/tr_TR.lang" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/got/lang/tr_TR.lang" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/got/lang/uk_UA.lang" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/got/lang/uk_UA.lang" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/got/lang/zh_CN.lang" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/got/lang/zh_CN.lang" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/changelog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/changelog.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -230,6 +245,7 @@
       <option name="presentableId" value="Default" />
       <updated>1682857332714</updated>
       <workItem from="1682857294118" duration="1246000" />
+      <workItem from="1683815837754" duration="329000" />
     </task>
     <servers />
   </component>

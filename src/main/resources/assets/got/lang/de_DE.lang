@@ -2607,9 +2607,9 @@ got.gui.shields.select=Anlegen
 got.gui.shields.selected=Angelegt!
 got.gui.shields.title=Schilde von Spiel um Throne
 got.gui.shields=Schilde
-got.gui.squadronitem.done=Fertig
-got.gui.squadronitem.none=Kein Name
-got.gui.squadronitem.squadron=Schwadron
+got.gui.squadronItem.done≠Finish
+got.gui.squadronItem.none≠Enter the name
+got.gui.squadronItem.squadron=Schwadron
 got.gui.time.format.hms=%s %s %s
 got.gui.time.format.ms=%s %s
 got.gui.time.format.s=%s

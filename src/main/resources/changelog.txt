@@ -6,6 +6,7 @@ CHANGELOG
 * Improved crossbowers' AI
 * Impoved wetwood biome
 
+* Fixed potential bug caused by duplicated lines in translation files
 * Fixed bug with gui shift when using NEI + drinking potion
 * Fixeg bug with prostitute skins
 * Fixed bug with sword of command rendering
