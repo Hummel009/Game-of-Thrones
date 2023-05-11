@@ -3,6 +3,7 @@ package got.common.entity.essos.yiti;
 import got.common.database.GOTRegistry;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
 import got.common.entity.other.GOTEntityNPC;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.item.ItemStack;
@@ -15,6 +16,11 @@ public class GOTEntityYiTiLevymanCrossbower extends GOTEntityYiTiLevyman {
 	}
 
 	@Override
+	public void attackEntityWithRangedAttack(EntityLivingBase target, float f) {
+		npcCrossbowAttack(target, f);
+	}
+
+	@Override
 	public EntityAIBase createYiTiAttackAI() {
 		return new GOTEntityAIRangedAttack(this, 1.25, 30, 50, 16.0f);
 	}
@@ -22,7 +28,7 @@ public class GOTEntityYiTiLevymanCrossbower extends GOTEntityYiTiLevyman {
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		super.dropFewItems(flag, i);
-		dropNPCArrows(i);
+		dropNPCCrossbowBolts(i);
 	}
 
 	@Override

@@ -50,7 +50,7 @@ public class GOTEntityRiverlandsFarmer extends GOTEntityRiverlandsMan implements
 
 	@Override
 	public GOTUnitTradeEntries getUnits() {
-		return GOTUnitTradeEntries.REACH_FARMER;
+		return GOTUnitTradeEntries.RIVERLANDS_FARMER;
 	}
 
 	@Override

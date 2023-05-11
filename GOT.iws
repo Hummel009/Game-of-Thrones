@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8c8107d-f3ae-479d-9562-bcf68c392981" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/faction/GOTAlignmentValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/faction/GOTAlignmentValues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GOT.iws" beforeDir="false" afterPath="$PROJECT_DIR$/GOT.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/client/gui/GOTGuiMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/client/gui/GOTGuiMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/essos/ibben/GOTEntityIbbenBlacksmith.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/essos/ibben/GOTEntityIbbenBlacksmith.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/essos/mossovy/GOTEntityMossovyWitcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/essos/mossovy/GOTEntityMossovyWitcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/essos/myr/GOTEntityMyrLevymanArcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/essos/myr/GOTEntityMyrLevymanArcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/essos/myr/GOTEntityMyrSoldierArcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/essos/myr/GOTEntityMyrSoldierArcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/essos/tyrosh/GOTEntityTyroshLevymanArcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/essos/tyrosh/GOTEntityTyroshLevymanArcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/essos/tyrosh/GOTEntityTyroshSoldierArcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/essos/tyrosh/GOTEntityTyroshSoldierArcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/essos/yiti/GOTEntityYiTiFrontierCrossbower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/essos/yiti/GOTEntityYiTiFrontierCrossbower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/essos/yiti/GOTEntityYiTiLevymanCrossbower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/essos/yiti/GOTEntityYiTiLevymanCrossbower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/essos/yiti/GOTEntityYiTiSoldierCrossbower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/essos/yiti/GOTEntityYiTiSoldierCrossbower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/westeros/legendary/warrior/GOTEntityJoffreyBaratheon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/westeros/legendary/warrior/GOTEntityJoffreyBaratheon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/westeros/legendary/warrior/GOTEntityLotharFrey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/westeros/legendary/warrior/GOTEntityLotharFrey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/westeros/riverlands/GOTEntityRiverlandsFarmer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/westeros/riverlands/GOTEntityRiverlandsFarmer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/westeros/wildling/thenn/GOTEntityThennBerserker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/westeros/wildling/thenn/GOTEntityThennBerserker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

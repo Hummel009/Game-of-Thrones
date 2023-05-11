@@ -1805,9 +1805,10 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 								drawTexturedModalRectFloat(x / 0.33F - 8.0F, y / 0.33F - 8.0F, 0, 0, 15.0F, 15.0F);
 								GL11.glPopMatrix();
 							} else {
-								mc.getTextureManager().bindTexture(mapIconsTexture);
+								GOTAbstractWaypoint.WaypointLockState state = (this.mc.thePlayer != null) ? waypoint.getLockState(this.mc.thePlayer) : GOTAbstractWaypoint.WaypointLockState.STANDARD_UNLOCKED;
+								this.mc.getTextureManager().bindTexture(mapIconsTexture);
 								GL11.glColor4f(1.0F, 1.0F, 1.0F, wpAlpha);
-								drawTexturedModalRectFloat(x - 2.0F, y - 2.0F, 0 + (unlocked ? 4 : 0), 200 + (shared ? 8 : custom ? 4 : 0), 4.0F, 4.0F);
+								drawTexturedModalRectFloat(x - 2.0F, y - 2.0F, state.iconU, state.iconV, 4.0F, 4.0F);
 							}
 							GL11.glDisable(3042);
 							if (labels) {

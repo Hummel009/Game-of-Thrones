@@ -23,7 +23,7 @@ public class GOTEntityTyroshSoldierArcher extends GOTEntityTyroshSoldier {
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		super.dropFewItems(flag, i);
-		dropNPCCrossbowBolts(i);
+		dropNPCArrows(i);
 	}
 
 	@Override

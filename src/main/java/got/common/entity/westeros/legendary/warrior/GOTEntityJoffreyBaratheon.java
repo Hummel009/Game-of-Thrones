@@ -59,6 +59,12 @@ public class GOTEntityJoffreyBaratheon extends GOTEntityHumanBase {
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(GOTRegistry.joffreyCrossbow, 1);
+		dropNPCCrossbowBolts(i);
+	}
+
+	@Override
+	public void attackEntityWithRangedAttack(EntityLivingBase target, float f) {
+		npcCrossbowAttack(target, f);
 	}
 
 	@Override

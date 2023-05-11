@@ -47,7 +47,7 @@ public class GOTEntityIbbenBlacksmith extends GOTEntityIbbenMan implements GOTTr
 
 	@Override
 	public GOTTradeEntries getBuyPool() {
-		return GOTTradeEntries.ESSOS_BLACKSMITH_BUY;
+		return GOTTradeEntries.IBBEN_BLACKSMITH_BUY;
 	}
 
 	@Override

@@ -40,10 +40,10 @@ public class GOTEntityThennBerserker extends GOTEntityThenn {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(1);
-		if (i == 0) {
+		int i = rand.nextInt(4);
+		if (i == 0 || i == 1 || i == 2) {
 			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.wildlingSword));
-		} else if (i == 1) {
+		} else {
 			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.wildlingBattleaxe));
 		}
 		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.boneChestplate));
