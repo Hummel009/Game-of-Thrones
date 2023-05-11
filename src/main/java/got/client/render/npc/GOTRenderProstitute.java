@@ -10,13 +10,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTRenderProstitute extends GOTRenderBiped {
+	public static Map<String, ResourceLocation> prostituteSkins = new HashMap<>();
 	public GOTRenderProstitute() {
 		super(new GOTModelHuman(), 0.5f);
 	}
 
 	public static ResourceLocation getProstituteSkin(GOTEntityProstitute.ProstituteType type) {
 		String s = type.textureName();
-		Map prostituteSkins = new HashMap<>();
 		ResourceLocation skin = (ResourceLocation) prostituteSkins.get(s);
 		if (skin == null) {
 			skin = new ResourceLocation("got:textures/entity/prostitute/" + s + ".png");
