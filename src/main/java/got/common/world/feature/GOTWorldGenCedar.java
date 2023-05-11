@@ -122,13 +122,11 @@ public class GOTWorldGenCedar extends WorldGenAbstractTree {
 				if (Math.abs(i2) == Math.abs(k2)) {
 					continue;
 				}
-				int rootX = i1;
 				int rootY = j + random.nextInt(2);
-				int rootZ = k1;
 				int roots = 0;
-				while (world.getBlock(rootX, rootY, k1).isReplaceable(world, rootX, rootY, rootZ)) {
-					setBlockAndNotifyAdequately(world, rootX, rootY, rootZ, woodBlock, woodMeta | 0xC);
-					world.getBlock(rootX, rootY - 1, rootZ).onPlantGrow(world, rootX, rootY - 1, rootZ, rootX, rootY, rootZ);
+				while (world.getBlock(i1, rootY, k1).isReplaceable(world, i1, rootY, k1)) {
+					setBlockAndNotifyAdequately(world, i1, rootY, k1, woodBlock, woodMeta | 0xC);
+					world.getBlock(i1, rootY - 1, k1).onPlantGrow(world, i1, rootY - 1, k1, i1, rootY, k1);
 					--rootY;
 					roots++;
 					if (roots <= 4 + random.nextInt(3)) {

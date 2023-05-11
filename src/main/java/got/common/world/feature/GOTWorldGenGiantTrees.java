@@ -60,9 +60,8 @@ public class GOTWorldGenGiantTrees extends WorldGenAbstractTree {
 			for (int i1 = i - 1; i1 <= i + 1; ++i1) {
 				for (int k1 = k - 1; k1 <= k + 1; ++k1) {
 					for (int j1 = j; j1 <= j + height; ++j1) {
-						int width = trunkRadiusMax;
-						for (int i2 = i1 - width; i2 <= i1 + width && flag; ++i2) {
-							for (int k2 = k1 - width; k2 <= k1 + width && flag; ++k2) {
+						for (int i2 = i1 - trunkRadiusMax; i2 <= i1 + trunkRadiusMax && flag; ++i2) {
+							for (int k2 = k1 - trunkRadiusMax; k2 <= k1 + trunkRadiusMax && flag; ++k2) {
 								if (j1 >= 0 && j1 < 256 && isReplaceable(world, i2, j1, k2)) {
 									continue;
 								}

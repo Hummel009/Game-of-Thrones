@@ -362,11 +362,9 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 				return null;
 			}
 			GOTFactionBounties.PlayerData targetData = players.get(rand.nextInt(players.size()));
-			int kills = targetData.getNumKills();
-			float f = kills;
-			int alignment = (int) f;
+			int alignment = (int) (float) targetData.getNumKills();
 			alignment = MathHelper.clamp_int(alignment, 1, 50);
-			int coins = (int) (f * 10.0f * MathHelper.randomFloatClamp(rand, 0.75f, 1.25f));
+			int coins = (int) ((float) targetData.getNumKills() * 10.0f * MathHelper.randomFloatClamp(rand, 0.75f, 1.25f));
 			coins = MathHelper.clamp_int(coins, 1, 1000);
 			quest.targetID = targetData.playerID;
 			String username = targetData.findUsername();

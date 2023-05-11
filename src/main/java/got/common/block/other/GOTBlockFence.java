@@ -59,11 +59,10 @@ public class GOTBlockFence extends BlockFence {
 		ArrayList plankTypes = new ArrayList<>();
 		plankBlock.getSubBlocks(Item.getItemFromBlock(plankBlock), plankBlock.getCreativeTabToDisplayOn(), plankTypes);
 		for (Object plankType : plankTypes) {
-			Object obj = plankType;
-			if (!(obj instanceof ItemStack)) {
+			if (!(plankType instanceof ItemStack)) {
 				continue;
 			}
-			int meta = ((ItemStack) obj).getItemDamage();
+			int meta = ((ItemStack) plankType).getItemDamage();
 			list.add(new ItemStack(this, 1, meta));
 		}
 	}

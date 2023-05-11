@@ -507,9 +507,8 @@ public class GOTEventHandler implements IFuelHandler {
 		}
 		if (GOTModChecker.hasNEI()) {
 			for (IConfigureNEI element : NEIModContainer.plugins) {
-				IConfigureNEI iConfigNEI = element;
-				if (iConfigNEI.getClass().equals(NEIGOTIntegratorConfig.class)) {
-					NEIGOTIntegratorConfig configNEI = (NEIGOTIntegratorConfig) iConfigNEI;
+				if (element.getClass().equals(NEIGOTIntegratorConfig.class)) {
+					NEIGOTIntegratorConfig configNEI = (NEIGOTIntegratorConfig) element;
 					for (ItemStack element2 : configNEI.hiddenItems) {
 						if (ItemInfo.hiddenItems.contains(element2)) {
 							ItemInfo.hiddenItems.remove(element2);
@@ -897,8 +896,7 @@ public class GOTEventHandler implements IFuelHandler {
 			} else if (source.getEntity() instanceof GOTEntityNPC) {
 				GOTEntityNPC npc = (GOTEntityNPC) source.getEntity();
 				if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() != null) {
-					EntityPlayer hirer = npc.hiredNPCInfo.getHiringPlayer();
-					entityplayer = hirer;
+					entityplayer = npc.hiredNPCInfo.getHiringPlayer();
 					creditHiredUnit = true;
 					double nearbyDist = 64.0D;
 					byNearbyUnit = npc.getDistanceSqToEntity(entityplayer) <= nearbyDist * nearbyDist;
@@ -1576,8 +1574,7 @@ public class GOTEventHandler implements IFuelHandler {
 						}
 					}
 				}
-				ChatComponentTranslation newComponent = new ChatComponentTranslation(key, formatArgs);
-				chatComponent = newComponent;
+				chatComponent = new ChatComponentTranslation(key, formatArgs);
 			}
 		}
 		if (GOTConfig.enableTitles) {
@@ -1588,9 +1585,8 @@ public class GOTEventHandler implements IFuelHandler {
 					if (arg instanceof ChatComponentText) {
 						ChatComponentText componentText = (ChatComponentText) arg;
 						if (componentText.getUnformattedText().contains(username)) {
-							ChatComponentText chatComponentText = componentText;
 							IChatComponent titleComponent = playerTitle.getFullTitleComponent(entityplayer);
-							IChatComponent fullUsernameComponent = new ChatComponentText("").appendSibling(titleComponent).appendSibling(chatComponentText);
+							IChatComponent fullUsernameComponent = new ChatComponentText("").appendSibling(titleComponent).appendSibling(componentText);
 							newFormatArgs.add(fullUsernameComponent);
 						} else {
 							newFormatArgs.add(componentText);

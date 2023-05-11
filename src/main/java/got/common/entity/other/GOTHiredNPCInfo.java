@@ -335,8 +335,7 @@ public class GOTHiredNPCInfo {
 			explosionData.setBoolean("Trail", bigLvlUp);
 			int[] colors = {16733440, theEntity.getFaction().getFactionColor()};
 			explosionData.setIntArray("Colors", colors);
-			boolean effectType = bigLvlUp;
-			explosionData.setByte("Type", (byte) (effectType ? 1 : 0));
+			explosionData.setByte("Type", (byte) (bigLvlUp ? 1 : 0));
 			explosionsList.appendTag(explosionData);
 		}
 		fireworkData.setTag("Explosions", explosionsList);
@@ -539,8 +538,7 @@ public class GOTHiredNPCInfo {
 					double d = i1 + 0.5;
 					float halfWidth = theEntity.width / 2.0f;
 					int j1 = MathHelper.getRandomIntegerInRange(world.rand, j - 4, j + 4);
-					double d1 = j1;
-					AxisAlignedBB npcBB = AxisAlignedBB.getBoundingBox(d - halfWidth, d1 + (yExtra = -theEntity.yOffset + theEntity.ySize), (d2 = k1 + 0.5) - halfWidth, d + halfWidth, d1 + yExtra + theEntity.height, d2 + halfWidth);
+					AxisAlignedBB npcBB = AxisAlignedBB.getBoundingBox(d - halfWidth, (double) j1 + (yExtra = -theEntity.yOffset + theEntity.ySize), (d2 = k1 + 0.5) - halfWidth, d + halfWidth, (double) j1 + yExtra + theEntity.height, d2 + halfWidth);
 					if (!world.func_147461_a(npcBB).isEmpty() || !world.getBlock(i1, j1 - 1, k1).isSideSolid(world, i1, j1 - 1, k1, ForgeDirection.UP)) {
 						continue;
 					}
@@ -549,11 +547,11 @@ public class GOTHiredNPCInfo {
 						float mHalfWidth = mount.width / 2.0f;
 						float mYExtra = -mount.yOffset + mount.ySize;
 						float mHeight = mount.height;
-						AxisAlignedBB mountBB = AxisAlignedBB.getBoundingBox(d - mHalfWidth, d1 + mYExtra, d2 - mHalfWidth, d + mHalfWidth, d1 + mYExtra + mHeight, d2 + mHalfWidth);
+						AxisAlignedBB mountBB = AxisAlignedBB.getBoundingBox(d - mHalfWidth, (double) j1 + mYExtra, d2 - mHalfWidth, d + mHalfWidth, (double) j1 + mYExtra + mHeight, d2 + mHalfWidth);
 						if (!world.func_147461_a(mountBB).isEmpty()) {
 							continue;
 						}
-						mount.setLocationAndAngles(d, d1, d2, theEntity.rotationYaw, theEntity.rotationPitch);
+						mount.setLocationAndAngles(d, j1, d2, theEntity.rotationYaw, theEntity.rotationPitch);
 						mount.fallDistance = 0.0f;
 						mount.getNavigator().clearPathEntity();
 						mount.setAttackTarget(null);
@@ -562,7 +560,7 @@ public class GOTHiredNPCInfo {
 						theEntity.setAttackTarget(null);
 						return true;
 					}
-					theEntity.setLocationAndAngles(d, d1, d2, theEntity.rotationYaw, theEntity.rotationPitch);
+					theEntity.setLocationAndAngles(d, j1, d2, theEntity.rotationYaw, theEntity.rotationPitch);
 					theEntity.fallDistance = 0.0f;
 					theEntity.getNavigator().clearPathEntity();
 					theEntity.setAttackTarget(null);
@@ -570,12 +568,11 @@ public class GOTHiredNPCInfo {
 				}
 				if (failsafe) {
 					double d = i + 0.5;
-					double d1 = j;
 					double d2 = k + 0.5;
 					if (world.getBlock(i, j - 1, k).isSideSolid(world, i, j - 1, k, ForgeDirection.UP)) {
 						if (theEntity.ridingEntity instanceof EntityLiving) {
 							EntityLiving mount = (EntityLiving) theEntity.ridingEntity;
-							mount.setLocationAndAngles(d, d1, d2, theEntity.rotationYaw, theEntity.rotationPitch);
+							mount.setLocationAndAngles(d, j, d2, theEntity.rotationYaw, theEntity.rotationPitch);
 							mount.fallDistance = 0.0f;
 							mount.getNavigator().clearPathEntity();
 							mount.setAttackTarget(null);
@@ -584,7 +581,7 @@ public class GOTHiredNPCInfo {
 							theEntity.setAttackTarget(null);
 							return true;
 						}
-						theEntity.setLocationAndAngles(d, d1, d2, theEntity.rotationYaw, theEntity.rotationPitch);
+						theEntity.setLocationAndAngles(d, j, d2, theEntity.rotationYaw, theEntity.rotationPitch);
 						theEntity.fallDistance = 0.0f;
 						theEntity.getNavigator().clearPathEntity();
 						theEntity.setAttackTarget(null);

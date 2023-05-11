@@ -663,13 +663,11 @@ public class GOTTickHandlerClient {
 						if (biome instanceof GOTBiome) {
 							biomeHasSun = ((GOTBiome) biome).hasSky();
 						}
-						float celestialAngle = world.getCelestialAngle(renderTick) * 360.0F - 90.0F;
-						float sunPitch = celestialAngle;
 						float sunYaw = 90.0F;
 						float yc = MathHelper.cos((float) Math.toRadians(-sunYaw - 180.0F));
 						float ys = MathHelper.sin((float) Math.toRadians(-sunYaw - 180.0F));
-						float pc = -MathHelper.cos((float) Math.toRadians(-sunPitch));
-						float ps = MathHelper.sin((float) Math.toRadians(-sunPitch));
+						float pc = -MathHelper.cos((float) Math.toRadians(-(world.getCelestialAngle(renderTick) * 360.0F - 90.0F)));
+						float ps = MathHelper.sin((float) Math.toRadians(-(world.getCelestialAngle(renderTick) * 360.0F - 90.0F)));
 						Vec3 sunVec = Vec3.createVectorHelper(ys * pc, ps, yc * pc);
 						Vec3 lookVec = viewer.getLook(renderTick);
 						double cos = lookVec.dotProduct(sunVec) / lookVec.lengthVector() * sunVec.lengthVector();

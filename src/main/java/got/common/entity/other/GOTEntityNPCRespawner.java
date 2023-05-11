@@ -334,8 +334,7 @@ public class GOTEntityNPCRespawner extends Entity {
 
 	public void setSpawnIntervalMinutes(int m) {
 		int s = m * 60;
-		int t = s * 20;
-		spawnInterval = t;
+		spawnInterval = s * 20;
 	}
 
 	public void setSpawnRanges(int xz, int y, int y1, int h) {

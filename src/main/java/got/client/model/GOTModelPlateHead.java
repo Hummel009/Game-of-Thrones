@@ -28,13 +28,12 @@ public class GOTModelPlateHead extends GOTModelHuman {
 		ItemStack heldItem;
 		float tick = GOTTickHandlerClient.renderTick;
 		setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-		float headRotateY = f3;
 		GOTPlateFallingInfo fallingInfo = entity == null ? null : GOTPlateFallingInfo.getOrCreateFor(entity, false);
 		float fallOffset = fallingInfo == null ? 0.0f : fallingInfo.getPlateOffsetY(tick);
 		GL11.glEnable(32826);
 		GL11.glPushMatrix();
 		GL11.glScalef(1.0f, -1.0f, 1.0f);
-		GL11.glRotatef(headRotateY, 0.0f, 1.0f, 0.0f);
+		GL11.glRotatef(f3, 0.0f, 1.0f, 0.0f);
 		GL11.glTranslatef(0.0f, 1.0f - bipedHead.rotationPointY / 16.0f, 0.0f);
 		GL11.glTranslatef(0.0f, fallOffset * 0.5f, 0.0f);
 		Minecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.locationBlocksTexture);

@@ -204,21 +204,19 @@ public class GOTModelDragon extends ModelBase {
 		foot.addBox("main", footOfsX, footOfsY, footOfsZ, footWidth, footHeight, footLength);
 		crus.addChild(foot);
 
-		int toeWidth = footWidth;
-		int toeHeight = footHeight;
 		int toeLength = (int) (baseLength * (hind ? 0.27f : 0.33f));
 
 		float toePosX = 0;
 		float toePosY = 0;
 		float toePosZ = footOfsZ - footOfsY / 2.0f;
 
-		float toeOfsX = -(toeWidth / 2.0f);
-		float toeOfsY = -(toeHeight / 2.0f);
+		float toeOfsX = -(footWidth / 2.0f);
+		float toeOfsY = -(footHeight / 2.0f);
 		float toeOfsZ = -toeLength;
 
 		GOTModelDragonPart toe = new GOTModelDragonPart(this, baseName + "toe");
 		toe.setRotationPoint(toePosX, toePosY, toePosZ);
-		toe.addBox("main", toeOfsX, toeOfsY, toeOfsZ, toeWidth, toeHeight, toeLength);
+		toe.addBox("main", toeOfsX, toeOfsY, toeOfsZ, footWidth, footHeight, toeLength);
 		foot.addChild(toe);
 
 		if (hind) {
@@ -286,7 +284,6 @@ public class GOTModelDragon extends ModelBase {
 		float hornOfs = -(hornThick / 2.0f);
 
 		float hornPosX = 0;
-		float hornPosY = hornOfs;
 		float hornPosZ = TAIL_SIZE / 2.0f;
 
 		float hornRotX = GOTModelDragonAnimaton.toRadians(-15);
@@ -300,7 +297,7 @@ public class GOTModelDragon extends ModelBase {
 
 		tail.mirror = mirror;
 		GOTModelDragonPart horn = tail.addChildBox("horn", hornOfs, hornOfs, hornOfs, hornThick, hornThick, hornLength);
-		horn.setRotationPoint(hornPosX, hornPosY, hornPosZ);
+		horn.setRotationPoint(hornPosX, hornOfs, hornPosZ);
 		horn.setAngles(hornRotX, hornRotY, hornRotZ);
 		horn.isHidden = true;
 		horn.showModel = "water".equals(breed.getName());

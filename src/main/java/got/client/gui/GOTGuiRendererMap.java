@@ -53,13 +53,12 @@ public class GOTGuiRendererMap {
 		double u1 = (double) x1 / gui.width;
 		double v0 = (double) y0 / gui.height;
 		double v1 = (double) y1 / gui.height;
-		double z = zLevel;
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.startDrawingQuads();
-		tessellator.addVertexWithUV(x0, y1, z, u0, v1);
-		tessellator.addVertexWithUV(x1, y1, z, u1, v1);
-		tessellator.addVertexWithUV(x1, y0, z, u1, v0);
-		tessellator.addVertexWithUV(x0, y0, z, u0, v0);
+		tessellator.addVertexWithUV(x0, y1, zLevel, u0, v1);
+		tessellator.addVertexWithUV(x1, y1, zLevel, u1, v1);
+		tessellator.addVertexWithUV(x1, y0, zLevel, u1, v0);
+		tessellator.addVertexWithUV(x0, y0, zLevel, u0, v0);
 		tessellator.draw();
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		OpenGlHelper.glBlendFunc(770, 771, 1, 0);

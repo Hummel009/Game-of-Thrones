@@ -672,8 +672,7 @@ public enum GOTMiniQuestFactory {
 			FMLLog.warning("Hummel009: No quests registered for %s!", baseName);
 			return null;
 		}
-		int randomWeight = rand.nextInt(totalWeight);
-		int i = randomWeight;
+		int i = rand.nextInt(totalWeight);
 		List<QuestFactoryBase<? extends GOTMiniQuest>> chosenFactoryList = null;
 		for (Entry<Class<? extends GOTMiniQuest>, List<QuestFactoryBase<? extends GOTMiniQuest>>> next : questFactories.entrySet()) {
 			chosenFactoryList = next.getValue();

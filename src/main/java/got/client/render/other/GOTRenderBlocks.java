@@ -60,7 +60,6 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
 		renderblocks.setOverrideBlockTexture(GOTBlockClover.stemIcon);
 		double posX = i;
-		double posY = j;
 		double posZ = k;
 		if (randomTranslation) {
 			long seed = i * 3129871L ^ k * 116129781L ^ j;
@@ -68,7 +67,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			posX += ((seed >> 16 & 0xFL) / 15.0f - 0.5) * 0.5;
 			posZ += ((seed >> 24 & 0xFL) / 15.0f - 0.5) * 0.5;
 		}
-		renderblocks.drawCrossedSquares(block.getIcon(2, 0), posX, posY, posZ, (float) scale);
+		renderblocks.drawCrossedSquares(block.getIcon(2, 0), posX, j, posZ, (float) scale);
 		renderblocks.clearOverrideBlockTexture();
 		for (int petal = 0; petal < petalCount; ++petal) {
 			float rotation = (float) petal / petalCount * 3.1415927f * 2.0f;
@@ -78,7 +77,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			double d2 = icon.getMaxU();
 			double d3 = icon.getMaxV();
 			double d4 = posX + 0.5;
-			double d5 = posY + 0.5 * scale + petal * 0.0025;
+			double d5 = (double) j + 0.5 * scale + petal * 0.0025;
 			double d6 = posZ + 0.5;
 			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
 			for (Vec3 vec : vecs) {
@@ -270,7 +269,6 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
 		renderblocks.setOverrideBlockTexture(GOTBlockPlantain.stemIcon);
 		double posX = i;
-		double posY = j;
 		double posZ = k;
 		if (randomTranslation) {
 			long seed = i * 3129871L ^ k * 116129781L ^ j;
@@ -278,7 +276,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			posX += ((seed >> 16 & 0xFL) / 15.0f - 0.5) * 0.5;
 			posZ += ((seed >> 24 & 0xFL) / 15.0f - 0.5) * 0.5;
 		}
-		renderblocks.drawCrossedSquares(block.getIcon(2, 0), posX, posY, posZ, (float) scale);
+		renderblocks.drawCrossedSquares(block.getIcon(2, 0), posX, j, posZ, (float) scale);
 		renderblocks.clearOverrideBlockTexture();
 		for (int petal = 0; petal < petalCount; ++petal) {
 			float rotation = (float) petal / petalCount * 3.1415927f * 2.0f;
@@ -288,7 +286,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			double d2 = icon.getMaxU();
 			double d3 = icon.getMaxV();
 			double d4 = posX + 0.5;
-			double d5 = posY + 0.5 * scale + petal * 0.0025;
+			double d5 = (double) j + 0.5 * scale + petal * 0.0025;
 			double d6 = posZ + 0.5;
 			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
 			for (Vec3 vec : vecs) {
@@ -698,7 +696,6 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		}
 		tessellator.setColorOpaque_F(r, g, b);
 		double d = i;
-		double d1 = j;
 		double d2 = k;
 		long seed = i * 3129871L ^ k * 116129781L;
 		seed = seed * seed * 42317861L + seed * 11L;
@@ -715,7 +712,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			plantType = BlockDoublePlant.func_149890_d(meta);
 		}
 		IIcon icon = block.func_149888_a(isTop, plantType);
-		renderblocks.drawCrossedSquares(icon, d, d1, d2, 1.0f);
+		renderblocks.drawCrossedSquares(icon, d, j, d2, 1.0f);
 	}
 
 	public void renderDoubleTorch(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
@@ -765,11 +762,10 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			double z2 = zSizeD / 2.0;
 			Vec3[] vecs = {Vec3.createVectorHelper(-x2, 0.0, -z2), Vec3.createVectorHelper(-x2, 0.0, z2), Vec3.createVectorHelper(x2, 0.0, z2), Vec3.createVectorHelper(x2, 0.0, -z2)};
 			for (Vec3 vec2 : vecs) {
-				Vec3 vec = vec2;
-				vec.rotateAroundY(rotation);
-				vec.xCoord += posX;
-				vec.yCoord += posY;
-				vec.zCoord += posZ;
+				vec2.rotateAroundY(rotation);
+				vec2.xCoord += posX;
+				vec2.yCoord += posY;
+				vec2.zCoord += posZ;
 			}
 			tessellator.addVertexWithUV(vecs[0].xCoord, vecs[0].yCoord, vecs[0].zCoord, minU, minV);
 			tessellator.addVertexWithUV(vecs[1].xCoord, vecs[1].yCoord, vecs[1].zCoord, minU, maxV);
@@ -795,12 +791,11 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		}
 		tessellator.setColorOpaque_F(r, g, b);
 		double d = i;
-		double d1 = j;
 		double d2 = k;
 		long seed = i * 3129871L ^ k * 116129781L ^ j;
 		seed = seed * seed * 42317861L + seed * 11L;
 		IIcon iicon = renderblocks.getBlockIconFromSideAndMetadata(block, 0, world.getBlockMetadata(i, j, k));
-		renderblocks.drawCrossedSquares(iicon, d += ((seed >> 16 & 0xFL) / 15.0f - 0.5) * 0.3, d1, d2 += ((seed >> 24 & 0xFL) / 15.0f - 0.5) * 0.3, 1.0f);
+		renderblocks.drawCrossedSquares(iicon, d += ((seed >> 16 & 0xFL) / 15.0f - 0.5) * 0.3, j, d2 += ((seed >> 24 & 0xFL) / 15.0f - 0.5) * 0.3, 1.0f);
 	}
 
 	public void renderFlowerPot(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
@@ -1134,26 +1129,24 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			b = b1;
 		}
 		tessellator.setColorOpaque_F(r, g, b);
-		double d = i;
 		double d1 = j;
-		double d2 = k;
 		if (world.getBlock(i, j - 1, k) == block) {
 			IIcon iicon = renderblocks.getBlockIcon(block, world, i, j, k, 0);
-			renderblocks.drawCrossedSquares(iicon, d, d1, d2, 1.0f);
+			renderblocks.drawCrossedSquares(iicon, i, d1, k, 1.0f);
 		} else {
 			IIcon iicon = renderblocks.getBlockIcon(block, world, i, j, k, 0);
-			renderblocks.drawCrossedSquares(iicon, d, d1, d2, 1.0f);
+			renderblocks.drawCrossedSquares(iicon, i, d1, k, 1.0f);
 			for (int j1 = j - 1; j1 > 0; --j1) {
 				d1 -= 1.0;
 				tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j1, k));
 				boolean lower = world.getBlock(i, j1 - 1, k).isOpaqueCube();
 				if (lower) {
 					iicon = renderblocks.getBlockIcon(block, world, i, j, k, -2);
-					renderblocks.drawCrossedSquares(iicon, d, d1, d2, 1.0f);
+					renderblocks.drawCrossedSquares(iicon, i, d1, k, 1.0f);
 					break;
 				}
 				iicon = renderblocks.getBlockIcon(block, world, i, j, k, -1);
-				renderblocks.drawCrossedSquares(iicon, d, d1, d2, 1.0f);
+				renderblocks.drawCrossedSquares(iicon, i, d1, k, 1.0f);
 			}
 		}
 	}
@@ -1171,14 +1164,13 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		double knotWidth = 0.25;
 		double knotMinX = 0.5 - knotWidth / 2.0;
 		double knotMaxX = 1.0 - knotMinX;
-		double knotOffset = knotWidth;
 		ropeTop = top ? 1.0 - knotHeight : 1.0;
 		if (meta == 5) {
 			renderblocks.setRenderBounds(0.0, 0.0, ropeMinX, ropeOffset, ropeTop, ropeMaxX);
 			renderblocks.renderStandardBlock(block, i, j, k);
 			if (top) {
 				renderblocks.setRenderAllFaces(true);
-				renderblocks.setRenderBounds(0.0, knotBottom, knotMinX, knotOffset, 1.0, knotMaxX);
+				renderblocks.setRenderBounds(0.0, knotBottom, knotMinX, knotWidth, 1.0, knotMaxX);
 				renderblocks.renderStandardBlock(block, i, j, k);
 				renderblocks.setRenderAllFaces(false);
 			}
@@ -1188,7 +1180,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			renderblocks.renderStandardBlock(block, i, j, k);
 			if (top) {
 				renderblocks.setRenderAllFaces(true);
-				renderblocks.setRenderBounds(1.0 - knotOffset, knotBottom, knotMinX, 1.0, 1.0, knotMaxX);
+				renderblocks.setRenderBounds(1.0 - knotWidth, knotBottom, knotMinX, 1.0, 1.0, knotMaxX);
 				renderblocks.renderStandardBlock(block, i, j, k);
 				renderblocks.setRenderAllFaces(false);
 			}
@@ -1198,7 +1190,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			renderblocks.renderStandardBlock(block, i, j, k);
 			if (top) {
 				renderblocks.setRenderAllFaces(true);
-				renderblocks.setRenderBounds(knotMinX, knotBottom, 0.0, knotMaxX, 1.0, knotOffset);
+				renderblocks.setRenderBounds(knotMinX, knotBottom, 0.0, knotMaxX, 1.0, knotWidth);
 				renderblocks.renderStandardBlock(block, i, j, k);
 				renderblocks.setRenderAllFaces(false);
 			}
@@ -1208,7 +1200,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			renderblocks.renderStandardBlock(block, i, j, k);
 			if (top) {
 				renderblocks.setRenderAllFaces(true);
-				renderblocks.setRenderBounds(knotMinX, knotBottom, 1.0 - knotOffset, knotMaxX, 1.0, 1.0);
+				renderblocks.setRenderBounds(knotMinX, knotBottom, 1.0 - knotWidth, knotMaxX, 1.0, 1.0);
 				renderblocks.renderStandardBlock(block, i, j, k);
 				renderblocks.setRenderAllFaces(false);
 			}

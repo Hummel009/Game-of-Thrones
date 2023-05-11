@@ -62,9 +62,7 @@ public class GOTPacketWeaponFX implements IMessage {
 						break;
 					case CHILLING:
 						for (int i = 0; i < 40; i++) {
-							double d = x;
 							double d1 = y + entity.height * 0.7F;
-							double d2 = z;
 							float angleXZ = rand.nextFloat() * 3.1415927F * 2.0F;
 							float angleY = rand.nextFloat() * 3.1415927F * 2.0F;
 							float speed = MathHelper.randomFloatClamp(rand, 0.1F, 0.2F);
@@ -74,15 +72,13 @@ public class GOTPacketWeaponFX implements IMessage {
 							d3 += entity.posX - entity.lastTickPosX;
 							d4 += entity.posY - entity.lastTickPosY;
 							d5 += entity.posZ - entity.lastTickPosZ;
-							GOT.proxy.spawnParticle("chill", d, d1, d2, d3, d4, d5);
+							GOT.proxy.spawnParticle("chill", x, d1, z, d3, d4, d5);
 						}
 
 						break;
 					case INFERNAL:
 						for (int i = 0; i < 20; i++) {
-							double d = x;
 							double d1 = y + entity.height * 0.7F;
-							double d2 = z;
 							float angleXZ = rand.nextFloat() * 3.1415927F * 2.0F;
 							float angleY = rand.nextFloat() * 3.1415927F * 2.0F;
 							float speed = MathHelper.randomFloatClamp(rand, 0.1F, 0.15F);
@@ -93,7 +89,7 @@ public class GOTPacketWeaponFX implements IMessage {
 							d3 += entity.posX - entity.lastTickPosX;
 							d4 += entity.posY - entity.lastTickPosY;
 							d5 += entity.posZ - entity.lastTickPosZ;
-							world.spawnParticle("flame", d, d1, d2, d3, d4, d5);
+							world.spawnParticle("flame", x, d1, z, d3, d4, d5);
 						}
 						break;
 				}

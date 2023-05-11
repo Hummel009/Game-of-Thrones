@@ -77,14 +77,13 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 	public void loadUsageRecipes(ItemStack ingredient) {
 		for (CachedBarrelRecipe barrelRecipe : barrelRecipes) {
 
-			CachedBarrelRecipe recipe = barrelRecipe;
 			List<PositionedStack> ingreds;
-			if (recipe.contains(ingreds = recipe.getIngredients(), ingredient)) {
+			if (barrelRecipe.contains(ingreds = barrelRecipe.getIngredients(), ingredient)) {
 
-				recipe.setIngredientPermutation(ingreds, ingredient);
-				recipe.fixedResult = false;
-				recipe.getResult().setPermutationToRender(0);
-				arecipes.add(recipe);
+				barrelRecipe.setIngredientPermutation(ingreds, ingredient);
+				barrelRecipe.fixedResult = false;
+				barrelRecipe.getResult().setPermutationToRender(0);
+				arecipes.add(barrelRecipe);
 			}
 		}
 	}

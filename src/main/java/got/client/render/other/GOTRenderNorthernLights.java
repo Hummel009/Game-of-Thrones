@@ -232,7 +232,6 @@ public class GOTRenderNorthernLights {
 			double x1 = x0 + halfWidth * 2.0 / strips;
 			double yMin = -halfHeight;
 			double yMid = -halfHeight * 0.4;
-			double yMax = halfHeight;
 			double z0 = nlDistance;
 			double z1 = nlDistance;
 			double extra = halfHeight * 0.15;
@@ -252,8 +251,8 @@ public class GOTRenderNorthernLights {
 			tess.addVertex(x0, yMid, z0);
 			tess.addVertex(x1, yMid, z1);
 			tess.setColorRGBA_F(r1, g1, b1, a1_here *= randomFade);
-			tess.addVertex(x1, yMax, z1);
-			tess.addVertex(x0, yMax, z0);
+			tess.addVertex(x1, halfHeight, z1);
+			tess.addVertex(x0, halfHeight, z0);
 		}
 		world.theProfiler.endSection();
 		world.theProfiler.startSection("draw");

@@ -378,10 +378,9 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 				}
 			}
 		} else if (ruinType == RuinType.OBELISK) {
-			int width = radius;
 			int i1;
-			for (i1 = -width; i1 <= width; i1++) {
-				for (int k1 = -width; k1 <= width; k1++) {
+			for (i1 = -radius; i1 <= radius; i1++) {
+				for (int k1 = -radius; k1 <= radius; k1++) {
 					int m = getTopBlock(world, i1, k1) - 1;
 					if (isSuitableSpawnBlock(world, i1, k1)) {
 						if (random.nextInt(3) == 0) {

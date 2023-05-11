@@ -106,18 +106,16 @@ public class GOTCloudRenderer extends IRenderHandler {
 				int interval = cloudRange;
 				for (int i = -cloudRange; i < cloudRange; i += interval) {
 					for (int k = -cloudRange; k < cloudRange; k += interval) {
-						int xMin = i;
 						int xMax = i + interval;
-						int zMin = k;
 						int zMax = k + interval;
-						double uMin = (xMin + cloudX) * invScaleD;
+						double uMin = (i + cloudX) * invScaleD;
 						double uMax = (xMax + cloudX) * invScaleD;
-						double vMin = (zMin + cloudZ) * invScaleD;
+						double vMin = (k + cloudZ) * invScaleD;
 						double vMax = (zMax + cloudZ) * invScaleD;
-						tessellator.addVertexWithUV(xMin, cloudY, zMax, uMin, vMax);
+						tessellator.addVertexWithUV(i, cloudY, zMax, uMin, vMax);
 						tessellator.addVertexWithUV(xMax, cloudY, zMax, uMax, vMax);
-						tessellator.addVertexWithUV(xMax, cloudY, zMin, uMax, vMin);
-						tessellator.addVertexWithUV(xMin, cloudY, zMin, uMin, vMin);
+						tessellator.addVertexWithUV(xMax, cloudY, k, uMax, vMin);
+						tessellator.addVertexWithUV(i, cloudY, k, uMin, vMin);
 					}
 				}
 				tessellator.draw();

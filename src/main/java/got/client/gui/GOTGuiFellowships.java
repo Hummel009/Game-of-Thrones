@@ -210,9 +210,8 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 			}
 			int x = midX - allWidth / 2;
 			for (GuiButton activeOptionButton : activeOptionButtons) {
-				GuiButton button = activeOptionButton;
-				button.xPosition = x;
-				x += button.width;
+				activeOptionButton.xPosition = x;
+				x += activeOptionButton.width;
 				x += gap;
 			}
 		}

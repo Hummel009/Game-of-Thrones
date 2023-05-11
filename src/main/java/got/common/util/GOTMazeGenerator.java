@@ -130,12 +130,10 @@ public class GOTMazeGenerator {
 	public void setFlag(int x, int z, short flag, boolean val) {
 		if (val) {
 			short[] arrs = mazeFlags[x];
-			int n = z;
-			arrs[n] = (short) (arrs[n] | flag);
+			arrs[z] = (short) (arrs[z] | flag);
 		} else {
 			short[] arrs = mazeFlags[x];
-			int n = z;
-			arrs[n] = (short) (arrs[n] & ~flag);
+			arrs[z] = (short) (arrs[z] & ~flag);
 		}
 	}
 

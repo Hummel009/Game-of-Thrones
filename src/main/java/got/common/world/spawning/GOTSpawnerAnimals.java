@@ -170,7 +170,6 @@ public class GOTSpawnerAnimals {
 						if (SpawnerAnimals.canCreatureTypeSpawnAtLocation(EnumCreatureType.creature, world, i1, j1, k1)) {
 							EntityLiving entity;
 							float f = i1 + 0.5f;
-							float f1 = j1;
 							float f2 = k1 + 0.5f;
 							try {
 								entity = (EntityLiving) spawnEntry.entityClass.getConstructor(World.class).newInstance(world);
@@ -180,7 +179,7 @@ public class GOTSpawnerAnimals {
 							}
 							boolean canSpawn = !(entity instanceof GOTAnimalSpawnConditions) || ((GOTAnimalSpawnConditions) entity).canWorldGenSpawnAt(i1, j1, k1, biome, variant);
 							if (canSpawn) {
-								entity.setLocationAndAngles(f, f1, f2, rand.nextFloat() * 360.0f, 0.0f);
+								entity.setLocationAndAngles(f, (float) j1, f2, rand.nextFloat() * 360.0f, 0.0f);
 								world.spawnEntityInWorld(entity);
 								entityData = entity.onSpawnWithEgg(entityData);
 								spawned = true;

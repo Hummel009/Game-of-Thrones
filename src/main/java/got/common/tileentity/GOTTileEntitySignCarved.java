@@ -29,8 +29,7 @@ public class GOTTileEntitySignCarved extends GOTTileEntitySign {
 			int i = xCoord;
 			int j = yCoord;
 			int k = zCoord;
-			int onSide = meta;
-			return signBlock.getOnBlockIcon(world, i, j, k, onSide);
+			return signBlock.getOnBlockIcon(world, i, j, k, meta);
 		}
 		return Blocks.stone.getIcon(0, 0);
 	}

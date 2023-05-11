@@ -184,8 +184,7 @@ public class GOTReplacedMethods {
 		}
 
 		public static int getMaxFireProtectionLevel(int base, Entity entity) {
-			int i = base;
-			return Math.max(i, GOTEnchantmentHelper.getMaxFireProtectionLevel(entity.getLastActiveItems()));
+			return Math.max(base, GOTEnchantmentHelper.getMaxFireProtectionLevel(entity.getLastActiveItems()));
 		}
 
 		public static boolean getSilkTouchModifier(boolean base, EntityLivingBase entity) {

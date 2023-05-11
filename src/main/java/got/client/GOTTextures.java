@@ -257,10 +257,8 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		mc.getTextureManager().bindTexture(GOTGuiMap.mapIconsTexture);
 		int width = 32;
 		int height = 32;
-		double x0 = x;
 		double x1 = x + width * scale;
 		double y0 = y - height * scale;
-		double y1 = y;
 		int texU = 224;
 		int texV = 200;
 		float u0 = texU / 256.0f;
@@ -269,10 +267,10 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		float v1 = (texV + height) / 256.0f;
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.startDrawingQuads();
-		tessellator.addVertexWithUV(x0, y1, z, u0, v1);
-		tessellator.addVertexWithUV(x1, y1, z, u1, v1);
+		tessellator.addVertexWithUV(x, y, z, u0, v1);
+		tessellator.addVertexWithUV(x1, y, z, u1, v1);
 		tessellator.addVertexWithUV(x1, y0, z, u1, v0);
-		tessellator.addVertexWithUV(x0, y0, z, u0, v0);
+		tessellator.addVertexWithUV(x, y0, z, u0, v0);
 		tessellator.draw();
 	}
 

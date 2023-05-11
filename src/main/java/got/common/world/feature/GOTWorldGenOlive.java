@@ -119,13 +119,11 @@ public class GOTWorldGenOlive extends WorldGenAbstractTree {
 								}
 							}
 							if (random.nextInt(4) == 0) {
-								int rootX = i12;
 								int rootY = j + random.nextInt(2);
-								int rootZ = k1;
 								int roots = 0;
-								while (world.getBlock(rootX, rootY, k1).isReplaceable(world, rootX, rootY, rootZ)) {
-									setBlockAndNotifyAdequately(world, rootX, rootY, rootZ, woodBlock, woodMeta | 0xC);
-									world.getBlock(rootX, rootY - 1, rootZ).onPlantGrow(world, rootX, rootY - 1, rootZ, rootX, rootY, rootZ);
+								while (world.getBlock(i12, rootY, k1).isReplaceable(world, i12, rootY, k1)) {
+									setBlockAndNotifyAdequately(world, i12, rootY, k1, woodBlock, woodMeta | 0xC);
+									world.getBlock(i12, rootY - 1, k1).onPlantGrow(world, i12, rootY - 1, k1, i12, rootY, k1);
 									--rootY;
 									roots++;
 									if (roots <= 4 + random.nextInt(3)) {

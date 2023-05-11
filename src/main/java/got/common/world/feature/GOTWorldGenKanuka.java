@@ -85,8 +85,7 @@ public class GOTWorldGenKanuka extends WorldGenAbstractTree {
 				int trunkZ = k;
 				int trunkY = j;
 				ArrayList<int[]> trunkCoords = new ArrayList<>();
-				int trunkHeight = height;
-				for (int l = 0; l < trunkHeight; ++l) {
+				for (int l = 0; l < height; ++l) {
 					if (l > 0) {
 						if (Math.floor(trunkCos * l) != Math.floor(trunkCos * (l + 1))) {
 							trunkX = (int) (trunkX + Math.signum(trunkCos));

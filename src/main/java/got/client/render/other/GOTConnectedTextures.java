@@ -223,10 +223,9 @@ public class GOTConnectedTextures {
 	}
 
 	public static String getModID(String blockName) {
-		String s = blockName;
-		int pathIndex = s.indexOf(':');
+		int pathIndex = blockName.indexOf(':');
 		if (pathIndex >= 0) {
-			return s.substring(0, pathIndex);
+			return blockName.substring(0, pathIndex);
 		}
 		return "";
 	}

@@ -1832,7 +1832,6 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					int clip = 200;
 					if (x >= mapXMin - clip && x <= mapXMax + clip && y >= mapYMin - clip && y <= mapYMax + clip) {
 						if (pass == 0) {
-							float wpAlpha = wpZoomlerp;
 							GL11.glEnable(3042);
 							GL11.glBlendFunc(770, 771);
 							if (isOSRS()) {
@@ -1845,7 +1844,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 							} else {
 								GOTAbstractWaypoint.WaypointLockState state = (mc.thePlayer != null) ? waypoint.getLockState(mc.thePlayer) : GOTAbstractWaypoint.WaypointLockState.STANDARD_UNLOCKED;
 								mc.getTextureManager().bindTexture(mapIconsTexture);
-								GL11.glColor4f(1.0F, 1.0F, 1.0F, wpAlpha);
+								GL11.glColor4f(1.0F, 1.0F, 1.0F, wpZoomlerp);
 								drawTexturedModalRectFloat(x - 2.0F, y - 2.0F, state.iconU, state.iconV, 4.0F, 4.0F);
 							}
 							GL11.glDisable(3042);
@@ -1855,8 +1854,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 								if (zoomlerp > 0.0F) {
 									GL11.glPushMatrix();
 									GL11.glTranslatef(x, y, 0.0F);
-									float scale = zoomlerp;
-									GL11.glScalef(scale, scale, scale);
+									GL11.glScalef(zoomlerp, zoomlerp, zoomlerp);
 									float alpha = zoomlerp;
 									alpha *= 0.8F;
 									int alphaI = (int) (alpha * 255.0F);

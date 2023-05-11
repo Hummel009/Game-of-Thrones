@@ -236,15 +236,13 @@ public class GOTChunkProvider implements IChunkProvider {
 					float mountain;
 					float roadNear = GOTBeziers.isRoadNear(xPos, zPos, 32);
 					if (roadNear >= 0.0f) {
-						float interpFactor = roadNear;
-						avgBaseHeight = avgFlatBiomeHeight + (avgBaseHeight - avgFlatBiomeHeight) * interpFactor;
-						avgHeightVariation *= interpFactor;
+						avgBaseHeight = avgFlatBiomeHeight + (avgBaseHeight - avgFlatBiomeHeight) * roadNear;
+						avgHeightVariation *= roadNear;
 					}
 					float wallNear = GOTBeziers.isWallNear(xPos, zPos, 32);
 					if (wallNear >= 0.0f) {
-						float interpFactor = wallNear;
-						avgBaseHeight = avgFlatBiomeHeight + (avgBaseHeight - avgFlatBiomeHeight) * interpFactor;
-						avgHeightVariation *= interpFactor;
+						avgBaseHeight = avgFlatBiomeHeight + (avgBaseHeight - avgFlatBiomeHeight) * wallNear;
+						avgHeightVariation *= wallNear;
 					}
 					mountain = GOTMountains.getTotalHeightBoost(xPos, zPos);
 					if (mountain > 0.005f) {
@@ -279,12 +277,11 @@ public class GOTChunkProvider implements IChunkProvider {
 				++noiseIndexXZ;
 				for (int j1 = 0; j1 < ySize; ++j1) {
 					double baseHeight = avgBaseHeight;
-					double heightVariation = avgHeightVariation;
 					baseHeight += heightNoise * 0.2 * avgVariantHillFactor;
 					baseHeight = baseHeight * ySize / 16.0;
 					double var28 = ySize / 2.0 + baseHeight * 4.0;
 					double totalNoise;
-					double var32 = (j1 - var28) * heightStretch * 128.0 / 256.0 / heightVariation;
+					double var32 = (j1 - var28) * heightStretch * 128.0 / 256.0 / (double) avgHeightVariation;
 					if (var32 < 0.0) {
 						var32 *= 4.0;
 					}

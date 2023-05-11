@@ -83,8 +83,7 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 			int tentZ = MathHelper.getRandomIntegerInRange(random, 6, 12);
 			i14 = 0;
 			int k1 = 0;
-			int rot = l;
-			switch (rot) {
+			switch (l) {
 				case 0:
 					i14 = tentX;
 					k1 = tentZ;
@@ -105,7 +104,7 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 					break;
 			}
 			int j1 = getTopBlock(world, i14, k1);
-			generateSubstructure(createTent(notifyChanges, random), world, random, i14, j1, k1, rot);
+			generateSubstructure(createTent(notifyChanges, random), world, random, i14, j1, k1, l);
 		}
 		if (hasDoubleTorches) {
 			for (int i141 : new int[]{-2, 2}) {

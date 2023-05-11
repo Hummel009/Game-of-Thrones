@@ -181,10 +181,9 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 			int stableZ = 0;
 			addStructure(new GOTStructureYiTiStables(false), -stableX, stableZ, 1, true);
 			addStructure(new GOTStructureYiTiStables(false), stableX, stableZ, 3, true);
-			int wellX = stableX;
 			int wellZ = 18;
-			addStructure(new GOTStructureYiTiWell(false), -wellX, wellZ, 1, true);
-			addStructure(new GOTStructureYiTiWell(false), wellX, wellZ, 3, true);
+			addStructure(new GOTStructureYiTiWell(false), -stableX, wellZ, 1, true);
+			addStructure(new GOTStructureYiTiWell(false), stableX, wellZ, 3, true);
 			int farmZ = 27;
 			for (int l = -3; l <= 3; ++l) {
 				int farmX = l * 10;
@@ -204,20 +203,19 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 			addStructure(new GOTStructureYiTiTower(false).disableDoor().setBackLadder().setRightLadder(), towerX, -towerX - 3, 0, true);
 			addStructure(new GOTStructureYiTiTower(false).disableDoor().setBackLadder().setRightLadder(), -towerX, towerX + 3, 2, true);
 			addStructure(new GOTStructureYiTiTower(false).disableDoor().setBackLadder().setLeftLadder(), towerX, towerX + 3, 2, true);
-			int wallZ = towerX;
-			addStructure(GOTStructureYiTiTownWall.Centre(false), 0, -wallZ, 0);
-			addStructure(GOTStructureYiTiTownWall.Centre(false), wallZ, 0, 1);
-			addStructure(GOTStructureYiTiTownWall.Centre(false), -wallZ, 0, 3);
+			addStructure(GOTStructureYiTiTownWall.Centre(false), 0, -towerX, 0);
+			addStructure(GOTStructureYiTiTownWall.Centre(false), towerX, 0, 1);
+			addStructure(GOTStructureYiTiTownWall.Centre(false), -towerX, 0, 3);
 			for (int l = 0; l <= 5; ++l) {
 				int wallX = 11 + l * 8;
-				addStructure(GOTStructureYiTiTownWall.Left(false), wallX, -wallZ, 0);
-				addStructure(GOTStructureYiTiTownWall.Right(false), -wallX, -wallZ, 0);
-				addStructure(GOTStructureYiTiTownWall.Left(false), wallZ, wallX, 1);
-				addStructure(GOTStructureYiTiTownWall.Right(false), wallZ, -wallX, 1);
-				addStructure(GOTStructureYiTiTownWall.Left(false), -wallX, wallZ, 2);
-				addStructure(GOTStructureYiTiTownWall.Right(false), wallX, wallZ, 2);
-				addStructure(GOTStructureYiTiTownWall.Left(false), -wallZ, -wallX, 3);
-				addStructure(GOTStructureYiTiTownWall.Right(false), -wallZ, wallX, 3);
+				addStructure(GOTStructureYiTiTownWall.Left(false), wallX, -towerX, 0);
+				addStructure(GOTStructureYiTiTownWall.Right(false), -wallX, -towerX, 0);
+				addStructure(GOTStructureYiTiTownWall.Left(false), towerX, wallX, 1);
+				addStructure(GOTStructureYiTiTownWall.Right(false), towerX, -wallX, 1);
+				addStructure(GOTStructureYiTiTownWall.Left(false), -wallX, towerX, 2);
+				addStructure(GOTStructureYiTiTownWall.Right(false), wallX, towerX, 2);
+				addStructure(GOTStructureYiTiTownWall.Left(false), -towerX, -wallX, 3);
+				addStructure(GOTStructureYiTiTownWall.Right(false), -towerX, wallX, 3);
 			}
 			int lampX = 17;
 			addStructure(new GOTStructureYiTiLamp(false), -lampX, -lampX, 2, false);
@@ -359,20 +357,19 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 			addStructure(new GOTStructureYiTiTower(false).disableDoor().setBackLadder().setRightLadder(), towerX, -towerX - 3, 0, true);
 			addStructure(new GOTStructureYiTiTower(false).disableDoor().setBackLadder().setRightLadder(), -towerX, towerX + 3, 2, true);
 			addStructure(new GOTStructureYiTiTower(false).disableDoor().setBackLadder().setLeftLadder(), towerX, towerX + 3, 2, true);
-			int wallZ = towerX;
-			addStructure(GOTStructureYiTiTownWall.Centre(false), 0, -wallZ, 0);
-			addStructure(GOTStructureYiTiTownWall.Centre(false), wallZ, 0, 1);
-			addStructure(GOTStructureYiTiTownWall.Centre(false), -wallZ, 0, 3);
+			addStructure(GOTStructureYiTiTownWall.Centre(false), 0, -towerX, 0);
+			addStructure(GOTStructureYiTiTownWall.Centre(false), towerX, 0, 1);
+			addStructure(GOTStructureYiTiTownWall.Centre(false), -towerX, 0, 3);
 			for (int l = 0; l <= 9; ++l) {
 				int wallX = 11 + l * 8;
-				addStructure(GOTStructureYiTiTownWall.Left(false), wallX, -wallZ, 0);
-				addStructure(GOTStructureYiTiTownWall.Right(false), -wallX, -wallZ, 0);
-				addStructure(GOTStructureYiTiTownWall.Left(false), wallZ, wallX, 1);
-				addStructure(GOTStructureYiTiTownWall.Right(false), wallZ, -wallX, 1);
-				addStructure(GOTStructureYiTiTownWall.Left(false), -wallX, wallZ, 2);
-				addStructure(GOTStructureYiTiTownWall.Right(false), wallX, wallZ, 2);
-				addStructure(GOTStructureYiTiTownWall.Left(false), -wallZ, -wallX, 3);
-				addStructure(GOTStructureYiTiTownWall.Right(false), -wallZ, wallX, 3);
+				addStructure(GOTStructureYiTiTownWall.Left(false), wallX, -towerX, 0);
+				addStructure(GOTStructureYiTiTownWall.Right(false), -wallX, -towerX, 0);
+				addStructure(GOTStructureYiTiTownWall.Left(false), towerX, wallX, 1);
+				addStructure(GOTStructureYiTiTownWall.Right(false), towerX, -wallX, 1);
+				addStructure(GOTStructureYiTiTownWall.Left(false), -wallX, towerX, 2);
+				addStructure(GOTStructureYiTiTownWall.Right(false), wallX, towerX, 2);
+				addStructure(GOTStructureYiTiTownWall.Left(false), -towerX, -wallX, 3);
+				addStructure(GOTStructureYiTiTownWall.Right(false), -towerX, wallX, 3);
 			}
 			int lampX = 7;
 			int lampZ = 96;

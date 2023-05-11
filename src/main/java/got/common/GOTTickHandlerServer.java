@@ -123,7 +123,6 @@ public class GOTTickHandlerServer {
 			return;
 		}
 		if (event.phase == TickEvent.Phase.START && world == DimensionManager.getWorld(0)) {
-			World overworld = world;
 			if (GOTLevelData.needsLoad) {
 				GOTLevelData.load();
 			}
@@ -146,7 +145,7 @@ public class GOTTickHandlerServer {
 				if (dimWorld.provider instanceof GOTWorldProvider) {
 					WorldInfo prevWorldInfo = dimWorld.getWorldInfo();
 					if (prevWorldInfo.getClass() != GOTWorldInfo.class) {
-						GOTWorldInfo lOTRWorldInfo = new GOTWorldInfo(overworld.getWorldInfo());
+						GOTWorldInfo lOTRWorldInfo = new GOTWorldInfo(world.getWorldInfo());
 						lOTRWorldInfo.setWorldName(prevWorldInfo.getWorldName());
 						GOTReflection.setWorldInfo(dimWorld, lOTRWorldInfo);
 						FMLLog.info("Hummel009: Successfully replaced world info in %s", GOTDimension.getCurrentDimensionWithFallback(dimWorld).dimensionName);

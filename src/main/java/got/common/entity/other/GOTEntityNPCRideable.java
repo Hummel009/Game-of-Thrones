@@ -89,8 +89,7 @@ public abstract class GOTEntityNPCRideable extends GOTEntityNPC implements GOTNP
 	}
 
 	public int increaseNPCTemper(int i) {
-		int temper = MathHelper.clamp_int(npcTemper + i, 0, getMaxNPCTemper());
-		npcTemper = temper;
+		npcTemper = MathHelper.clamp_int(npcTemper + i, 0, getMaxNPCTemper());
 		return npcTemper;
 	}
 
