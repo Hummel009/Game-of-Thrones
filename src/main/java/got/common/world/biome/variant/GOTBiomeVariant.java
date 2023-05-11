@@ -1,11 +1,8 @@
 package got.common.world.biome.variant;
 
-import got.common.database.GOTRegistry;
 import got.common.world.biome.GOTBiome;
 import got.common.world.feature.GOTTreeType;
-import got.common.world.feature.GOTWorldGenBoulder;
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
