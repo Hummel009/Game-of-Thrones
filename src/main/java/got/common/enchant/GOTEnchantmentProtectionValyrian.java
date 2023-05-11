@@ -25,9 +25,7 @@ public class GOTEnchantmentProtectionValyrian extends GOTEnchantmentProtectionSp
 	public boolean canApply(ItemStack itemstack, boolean considering) {
 		if (super.canApply(itemstack, considering)) {
 			Item item = itemstack.getItem();
-			if (item instanceof ItemArmor && ((ItemArmor) item).getArmorMaterial() == GOTMaterial.VALYRIAN) {
-				return true;
-			}
+			return item instanceof ItemArmor && ((ItemArmor) item).getArmorMaterial() == GOTMaterial.VALYRIAN;
 		}
 		return false;
 	}
@@ -48,9 +46,7 @@ public class GOTEnchantmentProtectionValyrian extends GOTEnchantmentProtectionSp
 				GOTEnchantmentHelper.clearEnchants(weaponBase);
 
 				float range = GOTWeaponStats.getMeleeReachFactor(weaponBase);
-				if (range >= 1.3F) {
-					return true;
-				}
+				return range >= 1.3F;
 			}
 		}
 		return false;

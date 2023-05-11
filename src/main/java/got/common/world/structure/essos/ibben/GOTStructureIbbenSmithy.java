@@ -127,10 +127,7 @@ public class GOTStructureIbbenSmithy extends GOTStructureIbbenBase {
 				continue;
 			}
 			for (k1 = -2; k1 <= 2; ++k1) {
-				boolean slab = false;
-				if (i2 == 0 && k1 == -2) {
-					slab = true;
-				}
+				boolean slab = i2 == 0 && k1 == -2;
 				if (i2 == 1 && (k1 == -1 || k1 == 2)) {
 					slab = true;
 				}
@@ -140,20 +137,14 @@ public class GOTStructureIbbenSmithy extends GOTStructureIbbenBase {
 				if (slab) {
 					setBlockAndMetadata(world, i1, 6, k1, roofSlabBlock, roofSlabMeta);
 				}
-				boolean full = false;
-				if (i2 == 0 && k1 >= -1 && k1 <= 2) {
-					full = true;
-				}
+				boolean full = i2 == 0 && k1 >= -1 && k1 <= 2;
 				if (i2 == 1 && k1 >= 0 && k1 <= 1) {
 					full = true;
 				}
 				if (full) {
 					setBlockAndMetadata(world, i1, 6, k1, roofBlock, roofMeta);
 				}
-				slab = false;
-				if (i2 == 0 && k1 >= 0 && k1 <= 1) {
-					slab = true;
-				}
+				slab = i2 == 0 && k1 >= 0 && k1 <= 1;
 				if (!slab) {
 					continue;
 				}

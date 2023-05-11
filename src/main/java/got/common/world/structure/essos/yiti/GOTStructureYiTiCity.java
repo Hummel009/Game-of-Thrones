@@ -148,10 +148,7 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
 			Block block = world.getBlock(i, j, k);
 			int meta = world.getBlockMetadata(i, j, k);
-			if (block == GOTRegistry.slabSingleDirt && meta == 5 || block == GOTRegistry.dirtPath && meta == 2) {
-				return true;
-			}
-			return false;
+			return block == GOTRegistry.slabSingleDirt && meta == 5 || block == GOTRegistry.dirtPath && meta == 2;
 		}
 
 		public void setupFort(Random random) {

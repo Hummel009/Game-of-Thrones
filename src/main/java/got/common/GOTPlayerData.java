@@ -967,9 +967,7 @@ public class GOTPlayerData {
 	public GOTFellowship getChatBoundFellowship() {
 		if (chatBoundFellowshipID != null) {
 			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(chatBoundFellowshipID);
-			if (fs != null) {
-				return fs;
-			}
+			return fs;
 		}
 		return null;
 	}

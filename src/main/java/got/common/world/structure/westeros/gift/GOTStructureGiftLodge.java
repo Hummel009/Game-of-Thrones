@@ -63,10 +63,7 @@ public class GOTStructureGiftLodge extends GOTStructureGiftBase {
 				}
 				if (k2 == 4 || i2 == 5) {
 					int j14;
-					boolean beam = false;
-					if (k12 == -4 && (i2 == 1 || i2 == 4)) {
-						beam = true;
-					}
+					boolean beam = k12 == -4 && (i2 == 1 || i2 == 4);
 					if (k12 == 4 && (i2 == 0 || i2 == 4)) {
 						beam = true;
 					}

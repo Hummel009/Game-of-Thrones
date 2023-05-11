@@ -74,7 +74,7 @@ public class GOTHiredNPCInfo {
 	}
 
 	public void commandSwordAttack(EntityLivingBase target) {
-		if (target != null && GOT.canNPCAttackEntity(theEntity, target, true)) {
+		if (GOT.canNPCAttackEntity(theEntity, target, true)) {
 			theEntity.getNavigator().clearPathEntity();
 			theEntity.setRevengeTarget(target);
 			theEntity.setAttackTarget(target);
@@ -370,10 +370,7 @@ public class GOTHiredNPCInfo {
 			if (hasHiringRequirements() && isActive && (entityplayer = getHiringPlayer()) != null) {
 				GOTFaction fac = theEntity.getHiringFaction();
 				GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-				boolean canCommand = true;
-				if (pd.getAlignment(fac) < alignmentRequiredToCommand) {
-					canCommand = false;
-				}
+				boolean canCommand = !(pd.getAlignment(fac) < alignmentRequiredToCommand);
 				if (!pledgeType.canAcceptPlayer(entityplayer, fac)) {
 					canCommand = false;
 				}

@@ -136,10 +136,7 @@ public class GOTItemBrandingIron extends Item {
 			String brandName = getBrandName(itemstack);
 			if (entity instanceof EntityLiving) {
 				EntityLiving entityliving = (EntityLiving) entity;
-				boolean acceptableEntity = false;
-				if (entityliving instanceof EntityAnimal || entityliving instanceof GOTEntityNPC && ((GOTEntityNPC) entityliving).canRenameNPC()) {
-					acceptableEntity = true;
-				}
+				boolean acceptableEntity = entityliving instanceof EntityAnimal || entityliving instanceof GOTEntityNPC && ((GOTEntityNPC) entityliving).canRenameNPC();
 				if (acceptableEntity && !entityliving.getCustomNameTag().equals(brandName)) {
 					entityliving.setCustomNameTag(brandName);
 					entityliving.func_110163_bv();

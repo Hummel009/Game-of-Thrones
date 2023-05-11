@@ -30,10 +30,7 @@ public class GOTStructureSothoryosPyramidMapgen extends MapGenStructure {
 		if (spawnBiomes == null) {
 			spawnBiomes = new ArrayList<>();
 			for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.biomeList) {
-				boolean flag = false;
-				if (biome instanceof GOTBiomeSothoryosJungle) {
-					flag = true;
-				}
+				boolean flag = biome instanceof GOTBiomeSothoryosJungle;
 				if (!flag) {
 					continue;
 				}

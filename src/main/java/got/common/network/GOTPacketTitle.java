@@ -49,11 +49,7 @@ public class GOTPacketTitle implements IMessage {
 			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 			GOTTitle.PlayerTitle title = packet.playerTitle;
-			if (title == null) {
-				pd.setPlayerTitle(null);
-			} else {
-				pd.setPlayerTitle(title);
-			}
+			pd.setPlayerTitle(title);
 			return null;
 		}
 	}

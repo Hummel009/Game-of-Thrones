@@ -193,10 +193,7 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 					for (l = 0; l < modelParts.size(); ++l) {
 						part = (ModelRenderer) modelParts.get(l);
 						prevShowModels[l] = part.showModel;
-						boolean isHeadPart = false;
-						if (recursiveCheckForModel(model.bipedHead, part) || recursiveCheckForModel(model.bipedHeadwear, part)) {
-							isHeadPart = true;
-						}
+						boolean isHeadPart = recursiveCheckForModel(model.bipedHead, part) || recursiveCheckForModel(model.bipedHeadwear, part);
 						if (!isHeadPart) {
 							part.showModel = false;
 						}

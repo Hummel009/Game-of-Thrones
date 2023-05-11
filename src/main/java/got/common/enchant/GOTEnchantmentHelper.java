@@ -484,11 +484,7 @@ public class GOTEnchantmentHelper {
 			}
 		}
 
-		if (sourceEntity != null && hasProjectileEnchantment(sourceEntity, ench)) {
-			return true;
-		}
-
-		return false;
+		return sourceEntity != null && hasProjectileEnchantment(sourceEntity, ench);
 	}
 
 	public static boolean hasProjectileEnchantment(Entity entity, GOTEnchantment ench) {

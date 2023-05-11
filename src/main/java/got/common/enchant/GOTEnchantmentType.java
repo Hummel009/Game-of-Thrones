@@ -54,10 +54,6 @@ public enum GOTEnchantmentType {
 			return true;
 		}
 
-		if (this == THROWING_AXE && item instanceof GOTItemThrowingAxe || this == FISHING && item instanceof ItemFishingRod) {
-			return true;
-		}
-
-		return false;
+		return this == THROWING_AXE && item instanceof GOTItemThrowingAxe || this == FISHING && item instanceof ItemFishingRod;
 	}
 }

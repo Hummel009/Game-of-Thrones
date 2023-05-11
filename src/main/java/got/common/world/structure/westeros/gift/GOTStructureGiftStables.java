@@ -63,10 +63,7 @@ public class GOTStructureGiftStables extends GOTStructureGiftBase {
 				if (k1 > 4 || k1 != 0 && k1 != 4 && i2 != 4) {
 					continue;
 				}
-				boolean beam = false;
-				if ((k1 == 0 || k1 == 4) && (i2 == 0 || i2 == 4)) {
-					beam = true;
-				}
+				boolean beam = (k1 == 0 || k1 == 4) && (i2 == 0 || i2 == 4);
 				if (beam) {
 					for (j12 = 1; j12 <= 3; ++j12) {
 						setBlockAndMetadata(world, i15, j12, k1, woodBeamBlock, woodBeamMeta);

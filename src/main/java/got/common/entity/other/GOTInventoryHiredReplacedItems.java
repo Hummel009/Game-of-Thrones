@@ -34,10 +34,7 @@ public class GOTInventoryHiredReplacedItems extends GOTInventoryNPC {
 	public void equipReplacement(int i, ItemStack itemstack) {
 		switch (i) {
 			case 4:
-				boolean idleMelee = false;
-				if (ItemStack.areItemStacksEqual(theNPC.npcItemsInv.getMeleeWeapon(), theNPC.npcItemsInv.getIdleItem())) {
-					idleMelee = true;
-				}
+				boolean idleMelee = ItemStack.areItemStacksEqual(theNPC.npcItemsInv.getMeleeWeapon(), theNPC.npcItemsInv.getIdleItem());
 				theNPC.npcItemsInv.setMeleeWeapon(itemstack);
 				if (!replacedMeleeWeapons) {
 					theNPC.npcItemsInv.setReplacedIdleItem(theNPC.npcItemsInv.getIdleItem());

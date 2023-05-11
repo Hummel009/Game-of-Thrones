@@ -245,10 +245,7 @@ public class GOTModelGiant extends ModelBase {
 		leftArm.rotateAngleZ -= MathHelper.cos(f2 * 0.09f) * 0.05f + 0.05f;
 		rightArm.rotateAngleX += MathHelper.sin(f2 * 0.067f) * 0.05f;
 		leftArm.rotateAngleX -= MathHelper.sin(f2 * 0.067f) * 0.05f;
-		boolean throwing = false;
-		if (entity instanceof GOTEntityGiant && ((GOTEntityGiant) entity).isThrowingRocks()) {
-			throwing = true;
-		}
+		boolean throwing = entity instanceof GOTEntityGiant && ((GOTEntityGiant) entity).isThrowingRocks();
 		if (throwing) {
 			rightArm.rotateAngleX -= 0.5f;
 			rightArm.rotateAngleZ -= 0.4f;

@@ -30,10 +30,7 @@ public class GOTStructureGhiscarPyramidMapgen extends MapGenStructure {
 		if (spawnBiomes == null) {
 			spawnBiomes = new ArrayList<>();
 			for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.biomeList) {
-				boolean flag = false;
-				if (biome instanceof GOTBiomeGhiscar) {
-					flag = true;
-				}
+				boolean flag = biome instanceof GOTBiomeGhiscar;
 				if (!flag) {
 					continue;
 				}

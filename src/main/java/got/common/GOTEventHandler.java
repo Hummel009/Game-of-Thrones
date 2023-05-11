@@ -566,7 +566,7 @@ public class GOTEventHandler implements IFuelHandler {
 			event.setCanceled(true);
 			return;
 		}
-		if ((entity instanceof EntityCow || entity instanceof GOTEntityZebra) && itemstack != null && GOTItemMug.isItemEmptyDrink(itemstack)) {
+		if ((entity instanceof EntityCow || entity instanceof GOTEntityZebra) && GOTItemMug.isItemEmptyDrink(itemstack)) {
 			GOTItemMug.Vessel vessel = GOTItemMug.getVessel(itemstack);
 			ItemStack milkItem = new ItemStack(GOTRegistry.mugMilk);
 			GOTItemMug.setVessel(milkItem, vessel, true);
@@ -1108,7 +1108,7 @@ public class GOTEventHandler implements IFuelHandler {
 				EntityPlayerMP entityplayer = (EntityPlayerMP) entity;
 				if (entityplayer.isUsingItem()) {
 					ItemStack usingItem = entityplayer.getHeldItem();
-					if (usingItem != null && GOTWeaponStats.isRangedWeapon(usingItem)) {
+					if (GOTWeaponStats.isRangedWeapon(usingItem)) {
 						entityplayer.clearItemInUse();
 						GOTPacketStopItemUse packet = new GOTPacketStopItemUse();
 						GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
@@ -1179,10 +1179,7 @@ public class GOTEventHandler implements IFuelHandler {
 		}
 		boolean inWater = entity.isInWater();
 		if (!world.isRemote && GOT.canSpawnMobs(world) && entity.isEntityAlive() && inWater && entity.ridingEntity == null) {
-			boolean flag = true;
-			if (entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode) {
-				flag = false;
-			}
+			boolean flag = !(entity instanceof EntityPlayer) || !((EntityPlayer) entity).capabilities.isCreativeMode;
 			if (entity instanceof EntityWaterMob || entity instanceof GOTEntityMarshWraith) {
 				flag = false;
 			}
@@ -1278,10 +1275,7 @@ public class GOTEventHandler implements IFuelHandler {
 			}
 		}
 		if (!world.isRemote && entity.isEntityAlive() && inWater && entity.ridingEntity == null && entity.ticksExisted % 10 == 0) {
-			boolean flag = false;
-			if (entity instanceof EntityPlayer || entity instanceof GOTEntityHumanBase) {
-				flag = true;
-			}
+			boolean flag = entity instanceof EntityPlayer || entity instanceof GOTEntityHumanBase;
 			if (entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode) {
 				flag = false;
 			}
@@ -1303,10 +1297,7 @@ public class GOTEventHandler implements IFuelHandler {
 			}
 		}
 		if (!world.isRemote && entity.isEntityAlive() && entity.ticksExisted % 10 == 0) {
-			boolean flag = false;
-			if (entity instanceof EntityPlayer || entity instanceof GOTEntityHumanBase) {
-				flag = true;
-			}
+			boolean flag = entity instanceof EntityPlayer || entity instanceof GOTEntityHumanBase;
 			if (entity instanceof EntityPlayer) {
 				EntityPlayer entityplayer = (EntityPlayer) entity;
 				if (entityplayer.capabilities.isCreativeMode) {
@@ -1337,10 +1328,7 @@ public class GOTEventHandler implements IFuelHandler {
 			ItemStack weapon = entity.getHeldItem();
 			boolean lanceOnFoot = false;
 			if (weapon != null && weapon.getItem() instanceof GOTItemLance && entity.ridingEntity == null) {
-				lanceOnFoot = true;
-				if (entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode) {
-					lanceOnFoot = false;
-				}
+				lanceOnFoot = !(entity instanceof EntityPlayer) || !((EntityPlayer) entity).capabilities.isCreativeMode;
 			}
 			IAttributeInstance speedAttribute = entity.getEntityAttribute(SharedMonsterAttributes.movementSpeed);
 			if (speedAttribute.getModifier(GOTItemLance.lanceSpeedBoost_id) != null) {
@@ -1351,10 +1339,7 @@ public class GOTEventHandler implements IFuelHandler {
 			}
 		}
 		if (!world.isRemote && entity.isEntityAlive() && entity.ticksExisted % 20 == 0) {
-			boolean flag = true;
-			if (entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).isImmuneToFrost || entity instanceof GOTBiome.ImmuneToFrost) {
-				flag = false;
-			}
+			boolean flag = (!(entity instanceof GOTEntityNPC) || !((GOTEntityNPC) entity).isImmuneToFrost) && !(entity instanceof GOTBiome.ImmuneToFrost);
 			if (entity instanceof EntityPlayer) {
 				flag = !((EntityPlayer) entity).capabilities.isCreativeMode;
 			}
@@ -1394,10 +1379,7 @@ public class GOTEventHandler implements IFuelHandler {
 			}
 		}
 		if (!world.isRemote && entity.isEntityAlive() && entity.ticksExisted % 20 == 0) {
-			boolean flag = true;
-			if (entity instanceof GOTBiome.ImmuneToHeat || entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).isImmuneToFire()) {
-				flag = false;
-			}
+			boolean flag = !(entity instanceof GOTBiome.ImmuneToHeat) && (!(entity instanceof GOTEntityNPC) || !((GOTEntityNPC) entity).isImmuneToFire());
 			if (entity instanceof EntityPlayer) {
 				flag = !((EntityPlayer) entity).capabilities.isCreativeMode;
 			}

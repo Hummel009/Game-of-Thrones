@@ -110,10 +110,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 			}
 			npc.liftSpawnRestrictions = false;
 			npc.onSpawnWithEgg(null);
-			npc.isNPCPersistent = false;
-			if (spawnsPersistent) {
-				npc.isNPCPersistent = true;
-			}
+			npc.isNPCPersistent = spawnsPersistent;
 			npc.setInvasionID(getInvasionID());
 			npc.killBonusFactions.addAll(bonusFactions);
 			worldObj.spawnEntityInWorld(npc);

@@ -185,9 +185,7 @@ public class GOTItemMug extends Item {
 			if (item instanceof GOTItemMug) {
 				return !((GOTItemMug) item).isFullMug;
 			}
-			if (item == Items.glass_bottle) {
-				return true;
-			}
+			return item == Items.glass_bottle;
 		}
 		return false;
 	}
@@ -198,9 +196,7 @@ public class GOTItemMug extends Item {
 			if (item instanceof GOTItemMug) {
 				return ((GOTItemMug) item).isFullMug;
 			}
-			if (item == Items.potionitem && itemstack.getItemDamage() == 0) {
-				return true;
-			}
+			return item == Items.potionitem && itemstack.getItemDamage() == 0;
 		}
 		return false;
 	}

@@ -82,9 +82,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 				return true;
 			}
 			ItemStack bonemeal = getInventoryBonemeal();
-			if (bonemeal == null || bonemeal != null && bonemeal.stackSize <= 16) {
-				return true;
-			}
+			return bonemeal == null || bonemeal != null && bonemeal.stackSize <= 16;
 		}
 		return false;
 	}

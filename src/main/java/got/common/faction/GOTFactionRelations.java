@@ -233,9 +233,7 @@ public class GOTFactionRelations {
 			}
 			if (obj instanceof FactionPair) {
 				FactionPair pair = (FactionPair) obj;
-				if (fac1 == pair.fac1 && fac2 == pair.fac2 || fac1 == pair.fac2 && fac2 == pair.fac1) {
-					return true;
-				}
+				return fac1 == pair.fac1 && fac2 == pair.fac2 || fac1 == pair.fac2 && fac2 == pair.fac1;
 			}
 			return false;
 		}

@@ -206,9 +206,7 @@ public class GOTStructureAsshaiCity extends GOTVillageGen {
 			if (villageType == VillageType.TOWN) {
 				Block block = world.getBlock(i, j, k);
 				int meta = world.getBlockMetadata(i, j, k);
-				if (block == GOTRegistry.asshaiDirt || block == GOTRegistry.slabSingleDirt && meta == 3 || block == GOTRegistry.basaltGravel) {
-					return true;
-				}
+				return block == GOTRegistry.asshaiDirt || block == GOTRegistry.slabSingleDirt && meta == 3 || block == GOTRegistry.basaltGravel;
 			}
 			return false;
 		}

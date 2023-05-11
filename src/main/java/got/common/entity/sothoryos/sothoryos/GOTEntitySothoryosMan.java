@@ -109,9 +109,7 @@ public class GOTEntitySothoryosMan extends GOTEntityHumanBase implements IPickpo
 			int k = MathHelper.floor_double(posZ);
 			BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
 			Block block = worldObj.getBlock(i, j - 1, k);
-			if (j > 62 && block == biome.topBlock) {
-				return true;
-			}
+			return j > 62 && j < 140 && block == biome.topBlock;
 		}
 		return false;
 	}

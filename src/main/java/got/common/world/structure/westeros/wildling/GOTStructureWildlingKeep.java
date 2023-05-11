@@ -85,10 +85,7 @@ public class GOTStructureWildlingKeep extends GOTStructureWesterosBase {
 		}
 		for (i12 = -4; i12 <= 3; ++i12) {
 			for (k14 = -7; k14 <= 5; ++k14) {
-				boolean beam = false;
-				if (k14 == -7 && (i12 == -4 || i12 == -2 || i12 == 1 || i12 == 3) || Math.abs(k14) == 5 && (i12 == -4 || i12 == 3)) {
-					beam = true;
-				}
+				boolean beam = k14 == -7 && (i12 == -4 || i12 == -2 || i12 == 1 || i12 == 3) || Math.abs(k14) == 5 && (i12 == -4 || i12 == 3);
 				if (beam) {
 					for (j12 = 3; (j12 >= 1 || !isOpaque(world, i12, j12, k14)) && getY(j12) >= 0; --j12) {
 						setBlockAndMetadata(world, i12, j12, k14, woodBeamBlock, woodBeamMeta);

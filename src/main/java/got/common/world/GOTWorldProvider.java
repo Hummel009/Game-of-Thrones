@@ -102,9 +102,7 @@ public class GOTWorldProvider extends WorldProvider {
 			if (surroundWater && worldObj.getBlock(i, j, k + 1).getMaterial() != Material.water) {
 				surroundWater = false;
 			}
-			if (!surroundWater) {
-				return true;
-			}
+			return !surroundWater;
 		}
 		return false;
 	}

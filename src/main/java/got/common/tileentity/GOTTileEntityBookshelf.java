@@ -30,9 +30,7 @@ public class GOTTileEntityBookshelf extends TileEntity implements IInventory {
 			if (item instanceof GOTItemQuestBook || item == GOTRegistry.valyrianBook || item instanceof ItemEnchantedBook || item instanceof ItemMapBase) {
 				return true;
 			}
-			if (item == Items.paper || item instanceof GOTItemModifierTemplate) {
-				return true;
-			}
+			return item == Items.paper || item instanceof GOTItemModifierTemplate;
 		}
 		return false;
 	}

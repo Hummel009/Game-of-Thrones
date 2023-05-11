@@ -118,10 +118,7 @@ public class GOTEntityBannerWall extends EntityHanging {
 	@Override
 	public void onBroken(Entity entity) {
 		worldObj.playSoundAtEntity(this, Blocks.planks.stepSound.getBreakSound(), (Blocks.planks.stepSound.getVolume() + 1.0f) / 2.0f, Blocks.planks.stepSound.getPitch() * 0.8f);
-		boolean flag = true;
-		if (entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode) {
-			flag = false;
-		}
+		boolean flag = !(entity instanceof EntityPlayer) || !((EntityPlayer) entity).capabilities.isCreativeMode;
 		if (flag) {
 			entityDropItem(getBannerItem(), 0.0f);
 		}

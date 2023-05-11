@@ -71,10 +71,7 @@ public class GOTItemConquestHorn extends Item {
 		GOTFaction invasionFaction = invasionType.invasionFaction;
 		float alignmentRequired = 1000.0f;
 		if (GOTLevelData.getData(entityplayer).getAlignment(invasionFaction) >= alignmentRequired) {
-			boolean blocked = false;
-			if (GOTBannerProtection.isProtected(world, entityplayer, GOTBannerProtection.forFaction(invasionFaction), false)) {
-				blocked = true;
-			}
+			boolean blocked = GOTBannerProtection.isProtected(world, entityplayer, GOTBannerProtection.forFaction(invasionFaction), false);
 			if (GOTEntityNPCRespawner.isSpawnBlocked(entityplayer, invasionFaction)) {
 				blocked = true;
 			}

@@ -854,10 +854,7 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 			return false;
 		}
 		Block above = getBlock(world, i, j, k);
-		if (above.getMaterial().isLiquid()) {
-			return false;
-		}
-		return true;
+		return !above.getMaterial().isLiquid();
 	}
 
 	public void layFoundation(World world, int i, int j, int k, Block block, int meta) {

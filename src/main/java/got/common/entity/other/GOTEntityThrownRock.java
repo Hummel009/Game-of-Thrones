@@ -71,10 +71,7 @@ public class GOTEntityThrownRock extends EntityThrowable {
 	@Override
 	public void onImpact(MovingObjectPosition m) {
 		if (!worldObj.isRemote) {
-			boolean flag = false;
-			if (m.entityHit != null && m.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, getThrower()), damage)) {
-				flag = true;
-			}
+			boolean flag = m.entityHit != null && m.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, getThrower()), damage);
 			if (m.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK) {
 				flag = true;
 			}

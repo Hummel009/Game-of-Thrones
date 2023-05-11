@@ -79,10 +79,7 @@ public class GOTBlockTallGrass extends GOTBlockGrass {
 		int meta = world.getBlockMetadata(i, j, k);
 		if (meta == 3 && entity.isSprinting() || meta == 4 && entity instanceof EntityPlayer) {
 			EntityLivingBase living;
-			boolean bootsLegs = false;
-			if (entity instanceof EntityLivingBase && (living = (EntityLivingBase) entity).getEquipmentInSlot(1) != null && living.getEquipmentInSlot(2) != null) {
-				bootsLegs = true;
-			}
+			boolean bootsLegs = entity instanceof EntityLivingBase && (living = (EntityLivingBase) entity).getEquipmentInSlot(1) != null && living.getEquipmentInSlot(2) != null;
 			if (!bootsLegs) {
 				entity.attackEntityFrom(GOTDamage.plantHurt, 0.25f);
 			}

@@ -110,10 +110,7 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
 			Block block = world.getBlock(i, j, k);
 			int meta = world.getBlockMetadata(i, j, k);
-			if (block == GOTRegistry.slabSingleDirt && (meta == 1 || meta == 0) || block == GOTRegistry.slabSingleGravel && meta == 0 || block == GOTRegistry.dirtPath && meta == 0 || block == GOTRegistry.dirtPath && meta == 0 || block == Blocks.dirt && meta == 1 || block == Blocks.gravel && meta == 0) {
-				return true;
-			}
-			return false;
+			return block == GOTRegistry.slabSingleDirt && (meta == 1 || meta == 0) || block == GOTRegistry.slabSingleGravel && meta == 0 || block == GOTRegistry.dirtPath && meta == 0 || block == GOTRegistry.dirtPath && meta == 0 || block == Blocks.dirt && meta == 1 || block == Blocks.gravel && meta == 0;
 		}
 
 		public void setupFort(Random random) {

@@ -797,9 +797,7 @@ public class GOTAchievement {
 				}
 				anyAllies = true;
 			}
-			if (!anyAllies) {
-				return false;
-			}
+			return anyAllies;
 		}
 		return true;
 	}

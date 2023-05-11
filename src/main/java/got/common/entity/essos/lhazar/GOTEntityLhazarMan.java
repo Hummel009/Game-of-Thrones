@@ -109,9 +109,7 @@ public class GOTEntityLhazarMan extends GOTEntityHumanBase implements IPickpocke
 			int j = MathHelper.floor_double(boundingBox.minY);
 			int k = MathHelper.floor_double(posZ);
 			Block block = worldObj.getBlock(i, j - 1, k);
-			if (j > 62 && (block == Blocks.grass || block == Blocks.sand)) {
-				return true;
-			}
+			return j > 62 && j < 140 && (block == Blocks.grass || block == Blocks.sand);
 		}
 		return false;
 	}

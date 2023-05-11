@@ -123,10 +123,7 @@ public class GOTRenderShield {
 		boolean blocking = holdingSword && inUse != null && inUse.getItemUseAction() == EnumAction.block;
 		boolean wearingChestplate = chestplate != null && chestplate.getItem().isValidArmor(chestplate, ((GOTItemArmor) GOTRegistry.valyrianChestplate).armorType, entity);
 		boolean renderOnBack = (!holdingSword || heldLeft != null) && entity != null;
-		boolean doNotRender = false;
-		if (entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).npcCape != null && renderOnBack || entity instanceof EntityPlayer && GOTLevelData.getData((EntityPlayer) entity).getCape() != null && renderOnBack) {
-			doNotRender = true;
-		}
+		boolean doNotRender = entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).npcCape != null && renderOnBack || entity instanceof EntityPlayer && GOTLevelData.getData((EntityPlayer) entity).getCape() != null && renderOnBack;
 		if (!doNotRender) {
 			GL11.glPushMatrix();
 			if (renderOnBack) {

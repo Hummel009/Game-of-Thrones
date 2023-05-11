@@ -85,10 +85,7 @@ public class GOTEntityBanner extends Entity {
 			}
 			setBeenAttacked();
 			worldObj.playSoundAtEntity(this, Blocks.planks.stepSound.getBreakSound(), (Blocks.planks.stepSound.getVolume() + 1.0f) / 2.0f, Blocks.planks.stepSound.getPitch() * 0.8f);
-			boolean drop = true;
-			if (damagesource.getEntity() instanceof EntityPlayer && ((EntityPlayer) damagesource.getEntity()).capabilities.isCreativeMode) {
-				drop = false;
-			}
+			boolean drop = !(damagesource.getEntity() instanceof EntityPlayer) || !((EntityPlayer) damagesource.getEntity()).capabilities.isCreativeMode;
 			dropAsItem(drop);
 		}
 		return true;
@@ -251,9 +248,7 @@ public class GOTEntityBanner extends Entity {
 				return true;
 			}
 			float alignment = GOTLevelData.getData(entityplayer).getAlignment(getBannerType().faction);
-			if (alignment >= getAlignmentProtection()) {
-				return true;
-			}
+			return alignment >= getAlignmentProtection();
 		}
 		return false;
 	}

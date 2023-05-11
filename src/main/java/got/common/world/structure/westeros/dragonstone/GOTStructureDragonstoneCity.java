@@ -129,10 +129,7 @@ public class GOTStructureDragonstoneCity extends GOTVillageGen {
 		@Override
 		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
 			Block block = world.getBlock(i, j, k);
-			if (block == Blocks.stone || block == GOTRegistry.rock) {
-				return true;
-			}
-			return false;
+			return block == Blocks.stone || block == GOTRegistry.rock;
 		}
 
 		public void setupCastle(Random random) {

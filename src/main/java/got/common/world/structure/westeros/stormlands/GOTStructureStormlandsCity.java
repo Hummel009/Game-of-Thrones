@@ -131,9 +131,7 @@ public class GOTStructureStormlandsCity extends GOTVillageGen {
 			if (villageType == VillageType.FORT) {
 				Block block = world.getBlock(i, j, k);
 				int meta = world.getBlockMetadata(i, j, k);
-				if (block == Blocks.stone || block == GOTRegistry.rock && meta == 4) {
-					return true;
-				}
+				return block == Blocks.stone || block == GOTRegistry.rock && meta == 4;
 			}
 			return false;
 		}

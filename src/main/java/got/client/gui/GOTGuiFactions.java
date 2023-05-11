@@ -369,10 +369,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 								if (rank == GOTFactionRank.RANK_ENEMY) {
 									rankAlign = "-";
 								}
-								boolean hiddenRankName = false;
-								if (!clientPD.isPledgedTo(currentFaction) && rank.alignment > currentFaction.getPledgeAlignment() && rank.alignment > currentFaction.getRankAbove(curRank1).alignment) {
-									hiddenRankName = true;
-								}
+								boolean hiddenRankName = !clientPD.isPledgedTo(currentFaction) && rank.alignment > currentFaction.getPledgeAlignment() && rank.alignment > currentFaction.getRankAbove(curRank1).alignment;
 								if (hiddenRankName) {
 									rankName1 = StatCollector.translateToLocal("got.gui.factions.rank?");
 								}
