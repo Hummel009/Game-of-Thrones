@@ -101,10 +101,10 @@ public class GOTStructureYiTiStables extends GOTStructureYiTiBase {
 				if (i2 >= 5 && i2 <= 7) {
 					if (k1 == 0) {
 						setBlockAndMetadata(world, i12, 1, 0, plankStairBlock, 3);
-						setBlockAndMetadata(world, i12, 2, k1, plankStairBlock, 2);
+						setBlockAndMetadata(world, i12, 2, 0, plankStairBlock, 2);
 					} else if (k1 == 12) {
 						setBlockAndMetadata(world, i12, 1, 12, plankStairBlock, 2);
-						setBlockAndMetadata(world, i12, 2, k1, plankStairBlock, 3);
+						setBlockAndMetadata(world, i12, 2, 12, plankStairBlock, 3);
 					} else if (k2 == 0) {
 						setBlockAndMetadata(world, i12, 1, k1, plankBlock, plankMeta);
 						setBlockAndMetadata(world, i12, 2, k1, plankBlock, plankMeta);
@@ -119,7 +119,7 @@ public class GOTStructureYiTiStables extends GOTStructureYiTiBase {
 				}
 				if (i2 >= 1 && i2 <= 3 && k1 == 12) {
 					setBlockAndMetadata(world, i12, 1, 12, plankStairBlock, 2);
-					setBlockAndMetadata(world, i12, 2, k1, plankStairBlock, 3);
+					setBlockAndMetadata(world, i12, 2, 12, plankStairBlock, 3);
 					setBlockAndMetadata(world, i12, 3, k1, fenceBlock, fenceMeta);
 				}
 				if (i2 == 4 && k2 != 0) {

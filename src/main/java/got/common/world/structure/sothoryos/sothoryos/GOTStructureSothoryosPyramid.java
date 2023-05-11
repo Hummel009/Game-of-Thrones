@@ -149,16 +149,16 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 			int newY = stepY;
 			int newZ = stepZ;
 			if (stepX == -3 && stepZ == -3) {
-				placeRandomBrick(world, random, -3, stepY, stepZ);
+				placeRandomBrick(world, random, -3, stepY, -3);
 				++newZ;
 			} else if (stepX == -3 && stepZ == 3) {
-				placeRandomBrick(world, random, -3, stepY, stepZ);
+				placeRandomBrick(world, random, -3, stepY, 3);
 				++newX;
 			} else if (stepX == 3 && stepZ == 3) {
-				placeRandomBrick(world, random, 3, stepY, stepZ);
+				placeRandomBrick(world, random, 3, stepY, 3);
 				--newZ;
 			} else if (stepX == 3 && stepZ == -3) {
-				placeRandomBrick(world, random, 3, stepY, stepZ);
+				placeRandomBrick(world, random, 3, stepY, -3);
 				--newX;
 			} else if (stepZ == -3) {
 				placeRandomStairs(world, random, stepX, stepY, -3, 1);

@@ -80,7 +80,7 @@ public class GOTModelLion extends ModelBase {
 		leg2.rotateAngleX = MathHelper.cos(f * 0.6662f + 3.1415927f) * 1.0f * f1;
 		leg3.rotateAngleX = MathHelper.cos(f * 0.6662f + 3.1415927f) * 1.0f * f1;
 		leg4.rotateAngleX = MathHelper.cos(f * 0.6662f) * 1.0f * f1;
-		tail.rotateAngleX = (float) -1.0471975511965976;
+		tail.rotateAngleX = -1.0471975511965976f;
 		tail.rotateAngleX += MathHelper.cos(f * 0.3f) * 0.5f * f1;
 	}
 }

@@ -123,7 +123,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 		}
 		if (useCache && xSize == 16 && zSize == 16 && (i & 0xF) == 0 && (k & 0xF) == 0) {
 			BiomeGenBase[] cachedBiomes = biomeCache.getCachedBiomes(i, k);
-			System.arraycopy(cachedBiomes, 0, biomes, 0, 16 * zSize);
+			System.arraycopy(cachedBiomes, 0, biomes, 0, 16 * 16);
 			return biomes;
 		}
 		int[] ints = worldLayers[LAYER_BIOME].getInts(worldObj, i, k, xSize, zSize);

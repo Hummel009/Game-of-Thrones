@@ -120,11 +120,11 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 						for (j12 = 2; j12 <= 4; ++j12) {
 							setBlockAndMetadata(world, i13, j12, 3, plankBlock, plankMeta);
 						}
-						setBlockAndMetadata(world, i13, 5, k1, woodBeamBlock, woodBeamMeta | 4);
+						setBlockAndMetadata(world, i13, 5, 3, woodBeamBlock, woodBeamMeta | 4);
 					}
 					if (i22 <= 4 && k1 == 25) {
 						setBlockAndMetadata(world, i13, 2, 25, brickBlock, brickMeta);
-						setBlockAndMetadata(world, i13, 3, k1, plank2Block, plank2Meta);
+						setBlockAndMetadata(world, i13, 3, 25, plank2Block, plank2Meta);
 						setBlockAndMetadata(world, i13, 4, k1, plankBlock, plankMeta);
 						setBlockAndMetadata(world, i13, 5, k1, woodBeamBlock, woodBeamMeta | 4);
 					}
@@ -364,7 +364,7 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 						placeBarrel(world, random, 0, 3, k13, random.nextBoolean() ? 4 : 5, GOTFoods.WILD_DRINK);
 						continue;
 					}
-					setBlockAndMetadata(world, i16, 3, k13, getRandomCakeBlock(random), 0);
+					setBlockAndMetadata(world, 0, 3, k13, getRandomCakeBlock(random), 0);
 					continue;
 				}
 				if (random.nextInt(3) == 0) {

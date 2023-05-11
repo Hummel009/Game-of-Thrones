@@ -20,12 +20,12 @@ public class GOTModelKebabStand extends ModelBase {
 		ModelRenderer panelRight = new ModelRenderer(this, 18, 15);
 		panelRight.setRotationPoint(-4.0f, 0.0f, 6.0f);
 		panelRight.addBox(-4.0f, -16.0f, 0.0f, 4, 15, 1);
-		panelRight.rotateAngleY = (float) -0.7853981633974483;
+		panelRight.rotateAngleY = -0.7853981633974483f;
 		stand.addChild(panelRight);
 		ModelRenderer panelLeft = new ModelRenderer(this, 18, 15);
 		panelLeft.setRotationPoint(4.0f, 0.0f, 6.0f);
 		panelLeft.addBox(0.0f, -16.0f, 0.0f, 4, 15, 1);
-		panelLeft.rotateAngleY = (float) 0.7853981633974483;
+		panelLeft.rotateAngleY = 0.7853981633974483f;
 		stand.addChild(panelLeft);
 		textureWidth = 32;
 		textureHeight = 32;

@@ -67,11 +67,11 @@ public class GOTStructureSothoryosHouseStilts extends GOTStructureSothoryosHouse
 				}
 				if (i12 == -3 && k2 == 1) {
 					setBlockAndMetadata(world, -3, 4, k1, plankStairBlock, 1);
-					setBlockAndMetadata(world, i12, 5, k1, fenceBlock, fenceMeta);
+					setBlockAndMetadata(world, -3, 5, k1, fenceBlock, fenceMeta);
 				}
 				if (i12 == 3 && k2 == 1) {
 					setBlockAndMetadata(world, 3, 4, k1, plankStairBlock, 0);
-					setBlockAndMetadata(world, i12, 5, k1, fenceBlock, fenceMeta);
+					setBlockAndMetadata(world, 3, 5, k1, fenceBlock, fenceMeta);
 				}
 				if (k1 != 3 || i2 != 1) {
 					continue;

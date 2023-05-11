@@ -281,7 +281,7 @@ public class GOTChunkProvider implements IChunkProvider {
 					baseHeight = baseHeight * ySize / 16.0;
 					double var28 = ySize / 2.0 + baseHeight * 4.0;
 					double totalNoise;
-					double var32 = (j1 - var28) * heightStretch * 128.0 / 256.0 / (double) avgHeightVariation;
+					double var32 = (j1 - var28) * heightStretch * 128.0 / 256.0 / avgHeightVariation;
 					if (var32 < 0.0) {
 						var32 *= 4.0;
 					}

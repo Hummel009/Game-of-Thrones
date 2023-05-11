@@ -38,7 +38,7 @@ public class GOTUnitTradeEntry {
 		initialCost = cost;
 		alignmentRequired = alignment;
 		if (GOTBannerBearer.class.isAssignableFrom(entityClass)) {
-			setExtraInfo("Banner");
+			extraInfo = "Banner";
 		}
 	}
 

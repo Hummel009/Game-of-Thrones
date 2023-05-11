@@ -68,7 +68,7 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 								setBlockAndMetadata(world, i12, 0, k12, Blocks.grass, 0);
 								break;
 							case 1:
-								setBlockAndMetadata(world, i12, j14, k12, Blocks.dirt, 1);
+								setBlockAndMetadata(world, i12, 0, k12, Blocks.dirt, 1);
 								break;
 							case 2:
 								setBlockAndMetadata(world, i12, j14, k12, GOTRegistry.dirtPath, 0);
@@ -355,7 +355,7 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 		for (int j17 = 1; j17 <= 2; ++j17) {
 			if (j17 == 1) {
 				setBlockAndMetadata(world, -7, 1, -9, Blocks.furnace, 3);
-				setBlockAndMetadata(world, -9, j17, -7, Blocks.furnace, 4);
+				setBlockAndMetadata(world, -9, 1, -7, Blocks.furnace, 4);
 			} else {
 				setBlockAndMetadata(world, -7, j17, -9, GOTRegistry.alloyForge, 3);
 				setBlockAndMetadata(world, -9, j17, -7, GOTRegistry.alloyForge, 4);

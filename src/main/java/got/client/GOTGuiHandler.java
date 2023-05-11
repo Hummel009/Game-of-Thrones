@@ -63,7 +63,7 @@ public class GOTGuiHandler {
 	public static Set<String> coinCount_excludedContainers_clsNames = new HashSet<>();
 	public static Set<String> coinCount_excludedGUIs_clsNames = new HashSet<>();
 	public static Set<String> coinCount_excludedInvTypes_clsNames = new HashSet<>();
-	public static boolean coinCountLeftSide = false;
+	public static boolean coinCountLeftSide;
 	private int descScrollIndex;
 
 	static {

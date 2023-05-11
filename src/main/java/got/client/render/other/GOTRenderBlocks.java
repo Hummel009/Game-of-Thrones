@@ -77,7 +77,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			double d2 = icon.getMaxU();
 			double d3 = icon.getMaxV();
 			double d4 = posX + 0.5;
-			double d5 = (double) j + 0.5 * scale + petal * 0.0025;
+			double d5 = j + 0.5 * scale + petal * 0.0025;
 			double d6 = posZ + 0.5;
 			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
 			for (Vec3 vec : vecs) {
@@ -286,7 +286,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			double d2 = icon.getMaxU();
 			double d3 = icon.getMaxV();
 			double d4 = posX + 0.5;
-			double d5 = (double) j + 0.5 * scale + petal * 0.0025;
+			double d5 = j + 0.5 * scale + petal * 0.0025;
 			double d6 = posZ + 0.5;
 			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
 			for (Vec3 vec : vecs) {
@@ -788,7 +788,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		long seed = i * 3129871L ^ k * 116129781L ^ j;
 		seed = seed * seed * 42317861L + seed * 11L;
 		IIcon iicon = renderblocks.getBlockIconFromSideAndMetadata(block, 0, world.getBlockMetadata(i, j, k));
-		renderblocks.drawCrossedSquares(iicon, (double) i + ((seed >> 16 & 0xFL) / 15.0f - 0.5) * 0.3, j, (double) k + ((seed >> 24 & 0xFL) / 15.0f - 0.5) * 0.3, 1.0f);
+		renderblocks.drawCrossedSquares(iicon, i + ((seed >> 16 & 0xFL) / 15.0f - 0.5) * 0.3, j, k + ((seed >> 24 & 0xFL) / 15.0f - 0.5) * 0.3, 1.0f);
 	}
 
 	public void renderFlowerPot(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {

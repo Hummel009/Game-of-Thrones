@@ -165,7 +165,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		Vec3 targetEyes = Vec3.createVectorHelper(target.posX, target.boundingBox.minY + target.getEyeHeight(), target.posZ);
 		Vec3 disp = Vec3.createVectorHelper(targetEyes.xCoord - watcherEyes.xCoord, targetEyes.yCoord - watcherEyes.yCoord, targetEyes.zCoord - watcherEyes.zCoord);
 		double dot = disp.normalize().dotProduct(look.normalize());
-		if (dot >= MathHelper.cos((float) 2.2689280275926285 / 2.0f)) {
+		if (dot >= MathHelper.cos(2.2689280275926285f / 2.0f)) {
 			return watcher.getEntitySenses().canSee(target);
 		}
 		return false;

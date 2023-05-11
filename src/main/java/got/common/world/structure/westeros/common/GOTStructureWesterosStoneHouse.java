@@ -55,7 +55,7 @@ public class GOTStructureWesterosStoneHouse extends GOTStructureWesterosBase {
 					for (int j132 = 1; j132 <= 8; ++j132) {
 						setAir(world, -5, j132, k14);
 					}
-					setBlockAndMetadata(world, i1, 0, k14, Blocks.grass, 0);
+					setBlockAndMetadata(world, -5, 0, k14, Blocks.grass, 0);
 					j13 = -1;
 					while (!isOpaque(world, i1, j13, k14) && getY(j13) >= 0) {
 						setBlockAndMetadata(world, i1, j13, k14, Blocks.dirt, 0);
@@ -98,7 +98,7 @@ public class GOTStructureWesterosStoneHouse extends GOTStructureWesterosBase {
 						continue;
 					}
 					for (j13 = 1; j13 <= 3; ++j13) {
-						setAir(world, i1, j13, k14);
+						setAir(world, i1, j13, -7);
 					}
 					continue;
 				}

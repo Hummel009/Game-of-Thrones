@@ -36,13 +36,13 @@ public class GOTModelGiraffeRug extends ModelBase {
 	}
 
 	public void setRotationAngles() {
-		giraffeModel.leg1.rotateAngleX = (float) 0.5235987755982988;
-		giraffeModel.leg1.rotateAngleZ = (float) 1.5707963267948966;
-		giraffeModel.leg2.rotateAngleX = (float) 0.5235987755982988;
-		giraffeModel.leg2.rotateAngleZ = (float) -1.5707963267948966;
-		giraffeModel.leg3.rotateAngleX = (float) -0.3490658503988659;
-		giraffeModel.leg3.rotateAngleZ = (float) 1.5707963267948966;
-		giraffeModel.leg4.rotateAngleX = (float) -0.3490658503988659;
-		giraffeModel.leg4.rotateAngleZ = (float) -1.5707963267948966;
+		giraffeModel.leg1.rotateAngleX = 0.5235987755982988f;
+		giraffeModel.leg1.rotateAngleZ = 1.5707963267948966f;
+		giraffeModel.leg2.rotateAngleX = 0.5235987755982988f;
+		giraffeModel.leg2.rotateAngleZ = -1.5707963267948966f;
+		giraffeModel.leg3.rotateAngleX = -0.3490658503988659f;
+		giraffeModel.leg3.rotateAngleZ = 1.5707963267948966f;
+		giraffeModel.leg4.rotateAngleX = -0.3490658503988659f;
+		giraffeModel.leg4.rotateAngleZ = -1.5707963267948966f;
 	}
 }
