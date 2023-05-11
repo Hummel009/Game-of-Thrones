@@ -32,11 +32,6 @@ public class GOTBlockPlate extends BlockContainer {
 		}
 
 		@Override
-		public float getPitch() {
-			return super.getPitch();
-		}
-
-		@Override
 		public String getStepResourcePath() {
 			return Block.soundTypeStone.getStepResourcePath();
 		}

@@ -41,8 +41,6 @@ public class GOTEntityAINPCMarry extends EntityAIBase {
 		theNPC.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
 		theSpouse.setCurrentItemOrArmor(0, null);
 		theSpouse.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
-		theNPC.changeNPCNameForMarriage(theSpouse);
-		theSpouse.changeNPCNameForMarriage(theNPC);
 		theNPC.familyInfo.maxChildren = maxChildren = theNPC.familyInfo.getRandomMaxChildren();
 		theSpouse.familyInfo.maxChildren = maxChildren;
 		theNPC.familyInfo.setMaxBreedingDelay();

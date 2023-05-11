@@ -291,9 +291,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return false;
 	}
 
-	public void changeNPCNameForMarriage(GOTEntityNPC spouse) {
-	}
-
 	public boolean conquestSpawnIgnoresDarkness() {
 		return true;
 	}
@@ -304,9 +301,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	public GOTNPCMount createMountToRide() {
 		return new GOTEntityHorse(worldObj);
-	}
-
-	public void createNPCChildName(GOTEntityNPC maleParent, GOTEntityNPC femaleParent) {
 	}
 
 	public ItemStack createNPCPouchDrop() {

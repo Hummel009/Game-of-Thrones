@@ -48,7 +48,6 @@ public class GOTEntityAINPCMate extends EntityAIBase {
 		baby.familyInfo.setMale(baby.getRNG().nextBoolean());
 		baby.familyInfo.maleParentID = maleParent.getUniqueID();
 		baby.familyInfo.femaleParentID = femaleParent.getUniqueID();
-		baby.createNPCChildName(maleParent, femaleParent);
 		baby.onSpawnWithEgg(null);
 		baby.setLocationAndAngles(theNPC.posX, theNPC.posY, theNPC.posZ, 0.0f, 0.0f);
 		baby.isNPCPersistent = true;
