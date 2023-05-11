@@ -123,13 +123,7 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 			double d2;
 			double d1 = distanceMetricSq(e1);
 			d2 = distanceMetricSq(e2);
-			if (d1 < d2) {
-				return -1;
-			}
-			if (d1 > d2) {
-				return 1;
-			}
-			return 0;
+			return Double.compare(d1, d2);
 		}
 
 		public double distanceMetricSq(Entity target) {
