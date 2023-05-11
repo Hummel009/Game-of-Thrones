@@ -100,7 +100,7 @@ public class GOTModChecker {
 					isCauldron = 1;
 					return true;
 				}
-			} catch (ClassNotFoundException classNotFoundException) {
+			} catch (ClassNotFoundException ignored) {
 			}
 			try {
 				if (Class.forName("thermos.ThermosClassTransformer") != null) {
@@ -111,7 +111,7 @@ public class GOTModChecker {
 					isCauldron = 1;
 					return true;
 				}
-			} catch (ClassNotFoundException classNotFoundException) {
+			} catch (ClassNotFoundException ignored) {
 			}
 			isCauldron = 0;
 			return false;

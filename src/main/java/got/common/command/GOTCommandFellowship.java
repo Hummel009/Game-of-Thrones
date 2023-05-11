@@ -185,7 +185,7 @@ public class GOTCommandFellowship extends CommandBase {
 			if (entityplayer != null) {
 				return entityplayer.getUniqueID();
 			}
-		} catch (PlayerNotFoundException entityplayer) {
+		} catch (PlayerNotFoundException ignored) {
 		}
 		GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152655_a(username);
 		if (profile != null) {

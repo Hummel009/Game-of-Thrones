@@ -66,7 +66,7 @@ public class GOTRenderLargeItem implements IItemRenderer {
 				if (res != null) {
 					return new GOTRenderLargeItem(item, folder, iconScale);
 				}
-			} catch (IOException resLoc) {
+			} catch (IOException ignored) {
 			}
 		}
 		return null;
