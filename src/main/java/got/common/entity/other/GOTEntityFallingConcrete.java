@@ -22,13 +22,4 @@ public class GOTEntityFallingConcrete extends EntityFallingBlock {
 		fallTile = block;
 		this.meta = meta;
 	}
-
-	@Override
-	public void onUpdate() {
-		super.onUpdate();
-		if (worldObj.getBlock((int) posX, (int) posY, (int) posZ).getMaterial() == Material.water || worldObj.getBlock((int) posX + 1, (int) posY, (int) posZ).getMaterial() == Material.water || worldObj.getBlock((int) posX - 1, (int) posY, (int) posZ).getMaterial() == Material.water || worldObj.getBlock((int) posX, (int) posY, (int) posZ + 1).getMaterial() == Material.water || worldObj.getBlock((int) posX, (int) posY, (int) posZ - 1).getMaterial() == Material.water) {
-			worldObj.setBlock((int) posX, (int) posY, (int) posZ, fallTile, meta, 3);
-			setDead();
-		}
-	}
 }
