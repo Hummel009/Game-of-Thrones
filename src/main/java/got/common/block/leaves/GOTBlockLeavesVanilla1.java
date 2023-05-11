@@ -17,7 +17,7 @@ public class GOTBlockLeavesVanilla1 extends GOTBlockLeavesBase {
 		setSeasonal(true, false, true, false);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int colorMultiplier(IBlockAccess world, int i, int j, int k) {
 		int meta = world.getBlockMetadata(i, j, k) & 3;
@@ -37,7 +37,7 @@ public class GOTBlockLeavesVanilla1 extends GOTBlockLeavesBase {
 		return Item.getItemFromBlock(Blocks.sapling);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getRenderColor(int i) {
 		int meta = i & 3;

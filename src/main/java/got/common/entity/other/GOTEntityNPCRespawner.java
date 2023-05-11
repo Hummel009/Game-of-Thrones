@@ -119,7 +119,7 @@ public class GOTEntityNPCRespawner extends Entity {
 		return new ItemStack(GOTRegistry.npcRespawner);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void handleHealthUpdate(byte b) {
 		if (b == 16) {

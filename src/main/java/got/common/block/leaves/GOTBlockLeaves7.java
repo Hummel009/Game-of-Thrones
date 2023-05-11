@@ -28,7 +28,7 @@ public class GOTBlockLeaves7 extends GOTBlockLeavesBase {
 		return Item.getItemFromBlock(GOTRegistry.sapling7);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
 		super.randomDisplayTick(world, i, j, k, random);

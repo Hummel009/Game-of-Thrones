@@ -22,7 +22,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public abstract class GOTBlockForgeBase extends BlockContainer {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] forgeIcons;
 
 	public GOTBlockForgeBase() {
@@ -58,7 +58,7 @@ public abstract class GOTBlockForgeBase extends BlockContainer {
 		return Container.calcRedstoneFromInventory((IInventory) world.getTileEntity(i, j, k));
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(IBlockAccess world, int i, int j, int k, int side) {
 		if (side == 1 || side == 0) {
@@ -68,7 +68,7 @@ public abstract class GOTBlockForgeBase extends BlockContainer {
 		return side != meta ? forgeIcons[0] : GOTBlockForgeBase.isForgeActive(world, i, j, k) ? forgeIcons[3] : forgeIcons[2];
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		return i == 1 || i == 0 ? forgeIcons[1] : i == 3 ? forgeIcons[2] : forgeIcons[0];
@@ -110,7 +110,7 @@ public abstract class GOTBlockForgeBase extends BlockContainer {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
 		if (GOTBlockForgeBase.isForgeActive(world, i, j, k)) {
@@ -157,7 +157,7 @@ public abstract class GOTBlockForgeBase extends BlockContainer {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		forgeIcons = new IIcon[4];

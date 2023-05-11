@@ -91,7 +91,7 @@ public class GOTEntityCart extends Entity {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public float getWheelRotation() {
 		if (worldObj.isRemote && Minecraft.getMinecraft().isGamePaused()) {
 			factor = 0.0;
@@ -143,7 +143,7 @@ public class GOTEntityCart extends Entity {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void setPositionAndRotation2(double x, double y, double z, float yaw, float pitch, int posRotationIncrements) {
 		lerpX = x;
 		lerpY = y;

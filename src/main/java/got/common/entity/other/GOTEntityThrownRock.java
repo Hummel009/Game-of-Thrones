@@ -56,7 +56,7 @@ public class GOTEntityThrownRock extends EntityThrowable {
 		dataWatcher.updateObject(16, flag ? (byte) 1 : 0);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void handleHealthUpdate(byte b) {
 		if (b == 15) {

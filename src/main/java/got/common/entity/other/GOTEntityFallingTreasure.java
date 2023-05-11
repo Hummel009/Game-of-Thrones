@@ -51,7 +51,7 @@ public class GOTEntityFallingTreasure extends Entity implements IEntityAdditiona
 		return !isDead;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public boolean canRenderOnFire() {
 		return false;
@@ -66,7 +66,7 @@ public class GOTEntityFallingTreasure extends Entity implements IEntityAdditiona
 	public void entityInit() {
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public float getShadowSize() {
 		return 0.0f;

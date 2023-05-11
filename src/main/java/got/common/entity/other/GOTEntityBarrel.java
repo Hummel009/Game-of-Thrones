@@ -156,7 +156,7 @@ public class GOTEntityBarrel extends Entity {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public float getShadowSize() {
 		return 0.0f;
 	}
@@ -334,7 +334,7 @@ public class GOTEntityBarrel extends Entity {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void performHurtAnimation() {
 		setForwardDirection(-getForwardDirection());
 		setTimeSinceHit(10);
@@ -349,7 +349,7 @@ public class GOTEntityBarrel extends Entity {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void setPositionAndRotation2(double d, double d1, double d2, float f, float f1, int i) {
 		if (isBoatEmpty) {
 			boatPosRotationIncrements = i + 5;
@@ -374,7 +374,7 @@ public class GOTEntityBarrel extends Entity {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void setVelocity(double par1, double par3, double par5) {
 		velocityX = motionX = par1;
 		velocityY = motionY = par3;

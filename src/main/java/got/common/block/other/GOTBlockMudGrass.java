@@ -20,7 +20,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class GOTBlockMudGrass extends Block implements IGrowable {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon iconTop;
 
 	public GOTBlockMudGrass() {
@@ -36,7 +36,7 @@ public class GOTBlockMudGrass extends Block implements IGrowable {
 		return Blocks.grass.canSustainPlant(world, i, j, k, direction, plantable) || plantable instanceof BlockStem;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int colorMultiplier(IBlockAccess world, int i, int j, int k) {
 		return 16777215;
@@ -57,13 +57,13 @@ public class GOTBlockMudGrass extends Block implements IGrowable {
 		Blocks.grass.func_149853_b(world, random, i, j, k);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getBlockColor() {
 		return 16777215;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (i == 1) {
@@ -80,7 +80,7 @@ public class GOTBlockMudGrass extends Block implements IGrowable {
 		return GOTRegistry.mud.getItemDropped(0, random, j);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getRenderColor(int i) {
 		return 16777215;
@@ -91,7 +91,7 @@ public class GOTBlockMudGrass extends Block implements IGrowable {
 		world.setBlock(i, j, k, GOTRegistry.mud, 0, 2);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		blockIcon = iconregister.registerIcon(getTextureName() + "_side");

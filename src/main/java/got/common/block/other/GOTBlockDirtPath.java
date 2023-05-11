@@ -14,7 +14,7 @@ import net.minecraft.util.IIcon;
 import java.util.List;
 
 public class GOTBlockDirtPath extends Block {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] pathIcons;
 	public String[] pathNames = {"dirt", "mud", "brus"};
 
@@ -30,7 +30,7 @@ public class GOTBlockDirtPath extends Block {
 		return i;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (j >= pathNames.length) {
@@ -39,7 +39,7 @@ public class GOTBlockDirtPath extends Block {
 		return pathIcons[j];
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < pathNames.length; ++i) {
@@ -47,7 +47,7 @@ public class GOTBlockDirtPath extends Block {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		pathIcons = new IIcon[pathNames.length];

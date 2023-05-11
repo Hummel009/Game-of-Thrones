@@ -16,9 +16,9 @@ import net.minecraft.util.IIcon;
 import java.util.List;
 
 public abstract class GOTBlockWoodBeam extends BlockRotatedPillar {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] sideIcons;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] topIcons;
 	public String[] woodNames;
 
@@ -34,7 +34,7 @@ public abstract class GOTBlockWoodBeam extends BlockRotatedPillar {
 		return GOT.proxy.getBeamRenderID();
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getSideIcon(int i) {
 		if (i < 0 || i >= woodNames.length) {
@@ -43,7 +43,7 @@ public abstract class GOTBlockWoodBeam extends BlockRotatedPillar {
 		return sideIcons[i];
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int j = 0; j < woodNames.length; ++j) {
@@ -51,7 +51,7 @@ public abstract class GOTBlockWoodBeam extends BlockRotatedPillar {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getTopIcon(int i) {
 		if (i < 0 || i >= woodNames.length) {
@@ -60,7 +60,7 @@ public abstract class GOTBlockWoodBeam extends BlockRotatedPillar {
 		return topIcons[i];
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		sideIcons = new IIcon[woodNames.length];

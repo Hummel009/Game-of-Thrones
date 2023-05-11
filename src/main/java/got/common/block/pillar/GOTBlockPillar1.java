@@ -13,7 +13,7 @@ public class GOTBlockPillar1 extends GOTBlockPillarBase {
 		setPillarNames("diorite", "diorite", "diorite", "diorite", "granite", "sandstone", "andesite", "basalt", "rhyolite", "basalt_westeros", "diorite", "diorite", "diorite", "diorite", "sothoryos", "sandstone_red");
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		list.add(new ItemStack(item, 1, 3));

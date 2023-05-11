@@ -91,7 +91,7 @@ public class GOTEntityPortal extends Entity {
 		dataWatcher.updateObject(10, (short) i);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void handleHealthUpdate(byte b) {
 		if (b == 16) {

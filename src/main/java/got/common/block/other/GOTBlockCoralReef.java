@@ -40,7 +40,7 @@ public class GOTBlockCoralReef extends Block {
 		dropXpOnBlockBreak(world, i, j, k, amountXp);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		return super.getIcon(i, j);
@@ -86,7 +86,7 @@ public class GOTBlockCoralReef extends Block {
 		return drops;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		super.registerBlockIcons(iconregister);

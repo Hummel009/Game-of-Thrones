@@ -13,13 +13,13 @@ public class GOTBlockWoodSlab3 extends GOTBlockSlabBase {
 		super(flag, Material.wood, 8);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		return GOTRegistry.planks2.getIcon(i, j &= 7);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 	}
