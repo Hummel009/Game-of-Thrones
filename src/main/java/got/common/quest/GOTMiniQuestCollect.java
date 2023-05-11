@@ -89,10 +89,10 @@ public class GOTMiniQuestCollect extends GOTMiniQuestCollectBase {
 
 		@Override
 		public Q createQuest(GOTEntityNPC npc, Random rand) {
-			GOTMiniQuestCollect quest = super.createQuest(npc, rand);
+			Q quest = super.createQuest(npc, rand);
 			quest.collectItem = collectItem.copy();
 			quest.collectTarget = MathHelper.getRandomIntegerInRange(rand, minTarget, maxTarget);
-			return (Q) quest;
+			return quest;
 		}
 
 		@Override

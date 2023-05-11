@@ -1130,7 +1130,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 
 	@Override
 	public void mouseClicked(int i, int j, int k) {
-		Object packet;
+		IMessage packet;
 		GOTGuiMapWidget mouseWidget = null;
 		for (GOTGuiMapWidget widget : mapWidgets) {
 			if (widget.isMouseOver(i - mapXMin, j - mapYMin, mapWidth, mapHeight)) {
@@ -1144,7 +1144,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		if (hasOverlay && k == 0 && sharingWaypoint && mouseOverRemoveSharedFellowship != null) {
 			String fsName = mouseOverRemoveSharedFellowship.getName();
 			packet = new GOTPacketShareCWP((GOTCustomWaypoint) selectedWaypoint, fsName, false);
-			GOTPacketHandler.networkWrapper.sendToServer((IMessage) packet);
+			GOTPacketHandler.networkWrapper.sendToServer(packet);
 			return;
 		}
 		if (!hasOverlay && k == 0 && isGameOfThrones() && selectedWaypoint instanceof GOTCustomWaypoint) {
@@ -1165,13 +1165,13 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			} else {
 				if (mouseWidget == widgetHideSWP) {
 					packet = new GOTPacketCWPSharedHide(cwp, true);
-					GOTPacketHandler.networkWrapper.sendToServer((IMessage) packet);
+					GOTPacketHandler.networkWrapper.sendToServer(packet);
 					selectedWaypoint = null;
 					return;
 				}
 				if (mouseWidget == widgetUnhideSWP) {
 					packet = new GOTPacketCWPSharedHide(cwp, false);
-					GOTPacketHandler.networkWrapper.sendToServer((IMessage) packet);
+					GOTPacketHandler.networkWrapper.sendToServer(packet);
 					return;
 				}
 			}

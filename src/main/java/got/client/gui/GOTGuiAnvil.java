@@ -163,7 +163,7 @@ public class GOTGuiAnvil extends GuiContainer {
 	@Override
 	public void drawScreen(int i, int j, float f) {
 		float z;
-		Object tooltip;
+		String tooltip;
 		ItemStack inputItem = theAnvil.invInput.getStackInSlot(0);
 		boolean canReforge = inputItem != null && GOTEnchantmentHelper.isReforgeable(inputItem) && theAnvil.reforgeCost > 0;
 		boolean canEngrave = inputItem != null && GOTEnchantmentHelper.isReforgeable(inputItem) && theAnvil.engraveOwnerCost > 0;
@@ -174,7 +174,7 @@ public class GOTGuiAnvil extends GuiContainer {
 		if (buttonReforge.visible && buttonReforge.func_146115_a()) {
 			z = zLevel;
 			tooltip = StatCollector.translateToLocal("got.container.anvil.reforge");
-			drawCreativeTabHoveringText((String) tooltip, i - 12, j + 24);
+			drawCreativeTabHoveringText(tooltip, i - 12, j + 24);
 			GL11.glDisable(2896);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			zLevel = z;
@@ -182,7 +182,7 @@ public class GOTGuiAnvil extends GuiContainer {
 		if (buttonEngraveOwner.visible && buttonEngraveOwner.func_146115_a()) {
 			z = zLevel;
 			tooltip = StatCollector.translateToLocal("got.container.anvil.engraveOwner");
-			drawCreativeTabHoveringText((String) tooltip, i - fontRendererObj.getStringWidth((String) tooltip), j + 24);
+			drawCreativeTabHoveringText(tooltip, i - fontRendererObj.getStringWidth(tooltip), j + 24);
 			GL11.glDisable(2896);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			zLevel = z;

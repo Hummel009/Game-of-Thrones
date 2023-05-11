@@ -354,7 +354,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 			if (!GOTConfig.allowBountyQuests) {
 				return null;
 			}
-			GOTMiniQuestBounty quest = super.createQuest(npc, rand);
+			Q quest = super.createQuest(npc, rand);
 			GOTFaction faction = npc.getFaction();
 			GOTFactionBounties bounties = GOTFactionBounties.forFaction(faction);
 			List<GOTFactionBounties.PlayerData> players = bounties.findBountyTargets(25);
@@ -376,7 +376,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 			quest.targetName = username;
 			quest.alignmentBonus = alignment;
 			quest.coinBonus = coins;
-			return (Q) quest;
+			return quest;
 		}
 
 		@Override

@@ -44,18 +44,18 @@ public class GOTStructureScan {
 				while (entries.hasMoreElements()) {
 					String path;
 					ZipEntry entry = entries.nextElement();
-					Object s = entry.getName();
-					if (!((String) s).startsWith(path = "assets/got/strscan/") || !((String) s).endsWith(strscanFormat)) {
+					String s = entry.getName();
+					if (!s.startsWith(path = "assets/got/strscan/") || !s.endsWith(strscanFormat)) {
 						continue;
 					}
-					s = ((String) s).substring(path.length());
-					int i = ((String) s).indexOf(strscanFormat);
+					s = s.substring(path.length());
+					int i = s.indexOf(strscanFormat);
 					try {
-						s = ((String) s).substring(0, i);
+						s = s.substring(0, i);
 						BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(zip.getInputStream(entry)), Charsets.UTF_8));
-						scanNamesAndReaders.put((String) s, reader);
+						scanNamesAndReaders.put(s, reader);
 					} catch (Exception e) {
-						FMLLog.severe("Failed to load GOT structure scan " + (String) s + "from zip file");
+						FMLLog.severe("Failed to load GOT structure scan " + s + "from zip file");
 						e.printStackTrace();
 					}
 				}

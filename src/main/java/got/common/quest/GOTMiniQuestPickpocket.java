@@ -318,9 +318,9 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 
 		@Override
 		public Q createQuest(GOTEntityNPC npc, Random rand) {
-			GOTMiniQuestPickpocket quest = super.createQuest(npc, rand);
+			Q quest = super.createQuest(npc, rand);
 			quest.collectTarget = MathHelper.getRandomIntegerInRange(rand, minTarget, maxTarget);
-			return (Q) quest;
+			return quest;
 		}
 
 		@Override

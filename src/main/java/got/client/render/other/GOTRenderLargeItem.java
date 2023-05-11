@@ -52,9 +52,8 @@ public class GOTRenderLargeItem implements IItemRenderer {
 		String prefix = "got:";
 		String itemName = item.getUnlocalizedName();
 		itemName = itemName.substring(itemName.indexOf(prefix) + prefix.length());
-		StringBuilder s = new StringBuilder(prefix).append("textures/items/").append(folder).append("/").append(itemName);
-		s.append(".png");
-		return new ResourceLocation(s.toString());
+		String s = prefix + "textures/items/" + folder + "/" + itemName + ".png";
+		return new ResourceLocation(s);
 	}
 
 	public static GOTRenderLargeItem getRendererIfLarge(Item item) {

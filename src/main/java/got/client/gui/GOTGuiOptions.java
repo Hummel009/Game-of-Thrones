@@ -44,8 +44,8 @@ public class GOTGuiOptions extends GOTGuiMenuWBBase {
 		buttonConquest.setState(pd.getEnableConquestKills());
 		buttonFeminineRank.setState(pd.getFemRankOverride());
 		super.drawScreen(i, j, f);
-		for (Object element : buttonList) {
-			GuiButton button = (GuiButton) element;
+		for (GuiButton element : buttonList) {
+			GuiButton button = element;
 			if (button instanceof GOTGuiButtonOptions) {
 				((GOTGuiButtonOptions) button).drawTooltip(mc, i, j);
 			}

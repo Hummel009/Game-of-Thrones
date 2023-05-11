@@ -113,7 +113,7 @@ public class GOTLore {
 			String loreName = entry.getKey();
 			BufferedReader reader = entry.getValue();
 			try {
-				Object categoryString;
+				String categoryString;
 				String line;
 				String title = "";
 				String author = "";
@@ -133,12 +133,12 @@ public class GOTLore {
 						}
 						if (metadata.startsWith(codeCategory)) {
 							categoryString = metadata.substring(codeCategory.length());
-							while (((String) categoryString).length() > 0) {
+							while (categoryString.length() > 0) {
 								Object categoryName = null;
-								int indexOf = ((String) categoryString).indexOf(codeCategorySeparator);
+								int indexOf = categoryString.indexOf(codeCategorySeparator);
 								if (indexOf >= 0) {
-									categoryName = ((String) categoryString).substring(0, indexOf);
-									categoryString = ((String) categoryString).substring(indexOf + 1);
+									categoryName = categoryString.substring(0, indexOf);
+									categoryString = categoryString.substring(indexOf + 1);
 								} else {
 									categoryName = categoryString;
 									categoryString = "";

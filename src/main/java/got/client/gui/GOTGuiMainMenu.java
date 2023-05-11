@@ -146,8 +146,8 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 	public void initGui() {
 		super.initGui();
 		int lowerButtonMaxY = 0;
-		for (Object obj : buttonList) {
-			GuiButton button = (GuiButton) obj;
+		for (GuiButton obj : buttonList) {
+			GuiButton button = obj;
 			int buttonMaxY = button.yPosition + button.height;
 			if (buttonMaxY > lowerButtonMaxY) {
 				lowerButtonMaxY = buttonMaxY;

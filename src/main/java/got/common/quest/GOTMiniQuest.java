@@ -108,8 +108,8 @@ public abstract class GOTMiniQuest {
 
 	public static <Q extends GOTMiniQuest> Q newQuestInstance(Class<Q> questType, GOTPlayerData playerData) {
 		try {
-			GOTMiniQuest quest = questType.getConstructor(GOTPlayerData.class).newInstance(playerData);
-			return (Q) quest;
+			Q quest = questType.getConstructor(GOTPlayerData.class).newInstance(playerData);
+			return quest;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -565,7 +565,7 @@ public abstract class GOTMiniQuest {
 		}
 
 		public Q createQuest(GOTEntityNPC npc, Random rand) {
-			GOTMiniQuest quest = newQuestInstance(getQuestClass(), null);
+			Q quest = newQuestInstance(getQuestClass(), null);
 			if (quest != null) {
 				quest.questGroup = questFactoryGroup;
 				String pathName = "miniquest/" + questFactoryGroup.getBaseName() + "/";
@@ -585,7 +585,7 @@ public abstract class GOTMiniQuest {
 				if (rewardItems != null) {
 					quest.rewardItemTable.addAll(rewardItems);
 				}
-				return (Q) quest;
+				return quest;
 			}
 			return null;
 		}
