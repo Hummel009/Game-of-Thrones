@@ -298,7 +298,7 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 				if (i18 == -5 && k15 >= 2 && k15 <= 11) {
 					setBlockAndMetadata(world, -5, -1, k15, Blocks.dirt, 0);
 					setBlockAndMetadata(world, -5, 0, k15, Blocks.water, 0);
-					setBlockAndMetadata(world, i18, 1, k15, rockSlabBlock, rockSlabMeta);
+					setBlockAndMetadata(world, -5, 1, k15, rockSlabBlock, rockSlabMeta);
 					continue;
 				}
 				if (i18 >= -8 && k15 >= 2 && k15 <= 11) {

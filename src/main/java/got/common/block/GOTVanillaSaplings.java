@@ -41,7 +41,7 @@ public class GOTVanillaSaplings {
 		if (meta == 1) {
 			for (int i12 = 0; i12 >= -1; --i12) {
 				for (k1 = 0; k1 >= -1; --k1) {
-					if (!isSameSapling(world, i + i12, j, k + k1, 1) || !isSameSapling(world, i + i12 + 1, j, k + k1, 1) || !isSameSapling(world, i + i12, j, k + k1 + 1, meta) || !isSameSapling(world, i + i12 + 1, j, k + k1 + 1, meta)) {
+					if (!isSameSapling(world, i + i12, j, k + k1, 1) || !isSameSapling(world, i + i12 + 1, j, k + k1, 1) || !isSameSapling(world, i + i12, j, k + k1 + 1, 1) || !isSameSapling(world, i + i12 + 1, j, k + k1 + 1, meta)) {
 						continue;
 					}
 					treeGen = random.nextBoolean() ? GOTTreeType.SPRUCE_MEGA.create(true, random) : GOTTreeType.SPRUCE_MEGA_THIN.create(true, random);
@@ -83,7 +83,7 @@ public class GOTVanillaSaplings {
 		if (meta == 3) {
 			for (int i13 = 0; i13 >= -1; --i13) {
 				for (k1 = 0; k1 >= -1; --k1) {
-					if (!isSameSapling(world, i + i13, j, k + k1, 3) || !isSameSapling(world, i + i13 + 1, j, k + k1, 3) || !isSameSapling(world, i + i13, j, k + k1 + 1, meta) || !isSameSapling(world, i + i13 + 1, j, k + k1 + 1, meta)) {
+					if (!isSameSapling(world, i + i13, j, k + k1, 3) || !isSameSapling(world, i + i13 + 1, j, k + k1, 3) || !isSameSapling(world, i + i13, j, k + k1 + 1, 3) || !isSameSapling(world, i + i13 + 1, j, k + k1 + 1, meta)) {
 						continue;
 					}
 					treeGen = GOTTreeType.JUNGLE_LARGE.create(true, random);
@@ -120,7 +120,7 @@ public class GOTVanillaSaplings {
 			if (treeGen == null) {
 				for (int i14 = 0; i14 >= -1; --i14) {
 					for (int k12 = 0; k12 >= -1; --k12) {
-						if (!isSameSapling(world, i + i14, j, k + k12, 5) || !isSameSapling(world, i + i14 + 1, j, k + k12, meta) || !isSameSapling(world, i + i14, j, k + k12 + 1, meta) || !isSameSapling(world, i + i14 + 1, j, k + k12 + 1, meta)) {
+						if (!isSameSapling(world, i + i14, j, k + k12, 5) || !isSameSapling(world, i + i14 + 1, j, k + k12, 5) || !isSameSapling(world, i + i14, j, k + k12 + 1, meta) || !isSameSapling(world, i + i14 + 1, j, k + k12 + 1, meta)) {
 							continue;
 						}
 						treeGen = GOTTreeType.DARK_OAK.create(true, random);

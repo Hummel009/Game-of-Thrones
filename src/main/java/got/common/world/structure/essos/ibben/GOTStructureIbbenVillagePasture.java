@@ -56,7 +56,7 @@ public class GOTStructureIbbenVillagePasture extends GOTStructureIbbenBase {
 								setBlockAndMetadata(world, i1, 0, k1, Blocks.dirt, 1);
 								break;
 							case 2:
-								setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.dirtPath, 0);
+								setBlockAndMetadata(world, i1, 0, k1, GOTRegistry.dirtPath, 0);
 								break;
 							default:
 								break;

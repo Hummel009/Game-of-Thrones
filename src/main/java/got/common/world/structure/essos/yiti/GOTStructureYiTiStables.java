@@ -120,7 +120,7 @@ public class GOTStructureYiTiStables extends GOTStructureYiTiBase {
 				if (i2 >= 1 && i2 <= 3 && k1 == 12) {
 					setBlockAndMetadata(world, i12, 1, 12, plankStairBlock, 2);
 					setBlockAndMetadata(world, i12, 2, 12, plankStairBlock, 3);
-					setBlockAndMetadata(world, i12, 3, k1, fenceBlock, fenceMeta);
+					setBlockAndMetadata(world, i12, 3, 12, fenceBlock, fenceMeta);
 				}
 				if (i2 == 4 && k2 != 0) {
 					setBlockAndMetadata(world, i12, 1, k1, fenceGateBlock, i12 > 0 ? 1 : 3);
