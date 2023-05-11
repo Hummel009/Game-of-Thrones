@@ -582,7 +582,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 						int i = MathHelper.floor_double(posX);
 						j = MathHelper.floor_double(posY);
 						int k = MathHelper.floor_double(posZ);
-						currentFlightTarget = new ChunkCoordinates(i += rand.nextInt(16) - rand.nextInt(16), j += MathHelper.getRandomIntegerInRange(rand, -2, 3), k += rand.nextInt(16) - rand.nextInt(16));
+						currentFlightTarget = new ChunkCoordinates(i + (rand.nextInt(16) - rand.nextInt(16)), j + MathHelper.getRandomIntegerInRange(rand, -2, 3), k + (rand.nextInt(16) - rand.nextInt(16)));
 						newFlight();
 					}
 				}

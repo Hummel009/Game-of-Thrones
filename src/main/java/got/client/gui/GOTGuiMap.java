@@ -565,7 +565,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				tess.addVertexWithUV(mapXMax, mapYMin, 0.0, 1.0, 0.0);
 				tess.addVertexWithUV(mapXMin, mapYMin, 0.0, 0.0, 0.0);
 				tess.draw();
-				StringBuilder loadText = new StringBuilder();
+				StringBuilder loadText;
 				GOTConquestGrid.ConquestViewableQuery query = GOTConquestGrid.canPlayerViewConquest(mc.thePlayer, conquestViewingFaction);
 				if (query.result == GOTConquestGrid.ConquestViewable.CAN_VIEW) {
 					loadText = new StringBuilder(StatCollector.translateToLocal("got.gui.map.conquest.wait"));

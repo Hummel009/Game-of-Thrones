@@ -47,7 +47,7 @@ public class GOTItemCoin extends Item {
 		for (ItemStack itemstack : entityplayer.inventory.mainInventory) {
 			coins += getStackValue(itemstack, allowStolen);
 		}
-		return coins += getStackValue(entityplayer.inventory.getItemStack(), allowStolen);
+		return coins + getStackValue(entityplayer.inventory.getItemStack(), allowStolen);
 	}
 
 	public static int getSingleItemValue(ItemStack itemstack, boolean allowStolen) {

@@ -314,7 +314,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 						String alignmentInfo = StatCollector.translateToLocal("got.gui.factions.alignment");
 						fontRendererObj.drawString(alignmentInfo, x, y, 8019267);
 						String alignmentString = GOTAlignmentValues.formatAlignForDisplay(alignment);
-						GOTTickHandlerClient.drawAlignmentText(fontRendererObj, x += fontRendererObj.getStringWidth(alignmentInfo) + 5, y, alignmentString, 1.0f);
+						GOTTickHandlerClient.drawAlignmentText(fontRendererObj, x + (fontRendererObj.getStringWidth(alignmentInfo) + 5), y, alignmentString, 1.0f);
 
 						x = guiLeft + pageBorderLeft;
 						GOTFactionRank curRank = currentFaction.getRank(alignment);

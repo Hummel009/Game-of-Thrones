@@ -72,7 +72,7 @@ public class GOTCommandFellowshipMessage extends CommandBase {
 		GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 		if (args.length >= 1) {
 			if ("bind".equals(args[0]) && args.length >= 2) {
-				String fsName = (args = GOTCommandFellowship.fixArgsForFellowship(args, 1, false))[1];
+				String fsName = GOTCommandFellowship.fixArgsForFellowship(args, 1, false)[1];
 				GOTFellowship fellowship = playerData.getFellowshipByName(fsName);
 				if (fellowship != null && !fellowship.isDisbanded() && fellowship.containsPlayer(entityplayer.getUniqueID())) {
 					playerData.setChatBoundFellowship(fellowship);

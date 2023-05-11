@@ -336,7 +336,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			int coinChance = 8 - i * 2;
 			if (rand.nextInt(Math.max(coinChance, 1)) == 0) {
 				int coins = getRandomCoinDropAmount();
-				dropItem(GOTRegistry.coin, coins *= MathHelper.getRandomIntegerInRange(rand, 1, i + 1));
+				dropItem(GOTRegistry.coin, coins * MathHelper.getRandomIntegerInRange(rand, 1, i + 1));
 			}
 			int rareChance = 50 - i * 5;
 			if (rand.nextInt(Math.max(rareChance, 1)) == 0) {
@@ -797,7 +797,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		float accuracy = (float) getEntityAttribute(npcRangedAccuracy).getAttributeValue();
 		float poisonChance = getPoisonedArrowChance();
 		float fireChance = getFireArrowChance();
-		EntityArrow arrow = rand.nextFloat() < fireChance ? new GOTEntityArrowFire(worldObj, this, target, str, accuracy) : rand.nextFloat() < poisonChance ? new GOTEntityArrowPoisoned(worldObj, this, target, str, accuracy) : new EntityArrow(worldObj, this, target, str *= GOTItemBow.getLaunchSpeedFactor(heldItem), accuracy);
+		EntityArrow arrow = rand.nextFloat() < fireChance ? new GOTEntityArrowFire(worldObj, this, target, str, accuracy) : rand.nextFloat() < poisonChance ? new GOTEntityArrowPoisoned(worldObj, this, target, str, accuracy) : new EntityArrow(worldObj, this, target, str * GOTItemBow.getLaunchSpeedFactor(heldItem), accuracy);
 		if (heldItem != null) {
 			GOTItemBow.applyBowModifiers(arrow, heldItem);
 		}
@@ -810,7 +810,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		float str = 1.0f + getDistanceToEntity(target) / 16.0f * 0.015f;
 		boolean poison = rand.nextFloat() < getPoisonedArrowChance();
 		ItemStack boltItem = poison ? new ItemStack(GOTRegistry.crossbowBoltPoisoned) : new ItemStack(GOTRegistry.crossbowBolt);
-		GOTEntityCrossbowBolt bolt = new GOTEntityCrossbowBolt(worldObj, this, target, boltItem, str *= GOTItemCrossbow.getCrossbowLaunchSpeedFactor(heldItem), 1.0f);
+		GOTEntityCrossbowBolt bolt = new GOTEntityCrossbowBolt(worldObj, this, target, boltItem, str * GOTItemCrossbow.getCrossbowLaunchSpeedFactor(heldItem), 1.0f);
 		if (heldItem != null) {
 			GOTItemCrossbow.applyCrossbowModifiers(bolt, heldItem);
 		}

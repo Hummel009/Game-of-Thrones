@@ -55,7 +55,7 @@ public class GOTWeaponStats {
 		if (itemstack != null && (item = itemstack.getItem()) instanceof ItemArmor) {
 			ItemArmor armor = (ItemArmor) item;
 			int i = armor.damageReduceAmount;
-			return i += GOTEnchantmentHelper.calcCommonArmorProtection(itemstack);
+			return i + GOTEnchantmentHelper.calcCommonArmorProtection(itemstack);
 		}
 		return 0;
 	}
@@ -144,7 +144,7 @@ public class GOTWeaponStats {
 		if (factor != null) {
 			reach *= factor;
 		}
-		return reach *= GOTEnchantmentHelper.calcMeleeReachFactor(itemstack);
+		return reach * GOTEnchantmentHelper.calcMeleeReachFactor(itemstack);
 	}
 
 	public static float getMeleeSpeed(ItemStack itemstack) {

@@ -138,7 +138,7 @@ public class GOTStructureVolantisCity extends GOTVillageGen {
 					imx = imn + 5 + random.nextInt(3);
 					kmn = 14;
 					kmx = 45;
-					if (k1 >= kmn && k1 <= kmx && i1 >= (imn -= random.nextInt(3)) && i1 <= imx) {
+					if (k1 >= kmn && k1 <= kmx && i1 >= imn - random.nextInt(3) && i1 <= imx) {
 						return GOTBezierType.PATH_DIRTY;
 					}
 				}

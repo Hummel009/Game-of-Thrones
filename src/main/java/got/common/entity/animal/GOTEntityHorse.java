@@ -374,12 +374,12 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 			}
 			if (healthBoost > 0.0f) {
 				double maxHealth = getEntityAttribute(SharedMonsterAttributes.maxHealth).getAttributeValue();
-				getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(maxHealth *= 1.0f + rand.nextFloat() * healthBoost);
+				getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(maxHealth * (1.0f + rand.nextFloat() * healthBoost));
 				setHealth(getMaxHealth());
 			}
 			if (speedBoost > 0.0f) {
 				double movementSpeed = getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue();
-				getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(movementSpeed *= 1.0f + rand.nextFloat() * speedBoost);
+				getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(movementSpeed * (1.0f + rand.nextFloat() * speedBoost));
 			}
 			double jumpStrength = getEntityAttribute(GOTReflection.getHorseJumpStrength()).getAttributeValue();
 			double jumpLimit = Math.max(jumpStrength, 1.0);
@@ -476,7 +476,7 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 		if (nbt.hasKey("GOTMountArmorItem") && (armor = ItemStack.loadItemStackFromNBT(nbt.getCompoundTag("GOTMountArmorItem"))) != null && isMountArmorValid(armor)) {
 			inv.setInventorySlotContents(1, armor);
 		}
-		if (pre35 && (jumpStrength = getEntityAttribute(GOTReflection.getHorseJumpStrength()).getAttributeValue()) > 1.0) {
+		if (pre35 && getEntityAttribute(GOTReflection.getHorseJumpStrength()).getAttributeValue() > 1.0) {
 			jumpStrength = 1.0;
 			getEntityAttribute(GOTReflection.getHorseJumpStrength()).setBaseValue(jumpStrength);
 		}

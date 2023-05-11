@@ -569,7 +569,6 @@ public class GOTModelWyvern extends ModelBase {
 		tail4.rotateAngleY = A * MathHelper.sin(w * t - k * i);
 		i++;
 		tail5.rotateAngleY = A * MathHelper.sin(w * t - k * i);
-		i++;
 		leftlowarm.rotateAngleZ = 0.0f;
 		leftfing1a.rotateAngleZ = 0.0f;
 		leftfing2a.rotateAngleZ = 0.0f;

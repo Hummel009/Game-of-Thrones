@@ -332,7 +332,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 		if (itemstack.isItemStackDamageable()) {
 			items *= (float) (itemstack.getMaxDamage() - itemstack.getItemDamage()) / itemstack.getMaxDamage();
 		}
-		items_int = Math.round(items *= MathHelper.randomFloatClamp(unsmeltingRand, 0.7f, 1.0f));
+		items_int = Math.round(items * MathHelper.randomFloatClamp(unsmeltingRand, 0.7f, 1.0f));
 		if (items_int <= 0) {
 			return null;
 		}

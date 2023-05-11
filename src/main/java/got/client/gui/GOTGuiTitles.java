@@ -144,8 +144,6 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 		for (Map.Entry<GOTTitle, Pair<Boolean, Pair<Integer, Integer>>> entry : displayedTitleInfo.entrySet()) {
 			GOTTitle title = entry.getKey();
 			String desc = title.getDescription(mc.thePlayer);
-			titleX = (Integer) ((Pair) entry.getValue().getRight()).getLeft();
-			titleY = (Integer) ((Pair) entry.getValue().getRight()).getRight();
 			boolean mouseOver = entry.getValue().getLeft();
 			if (mouseOver) {
 				int stringWidth = 200;

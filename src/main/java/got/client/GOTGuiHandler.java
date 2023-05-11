@@ -91,7 +91,7 @@ public class GOTGuiHandler {
 			Minecraft mc = Minecraft.getMinecraft();
 			WorldProvider provider = mc.theWorld.provider;
 			if (provider instanceof GOTWorldProvider) {
-				event.gui = gui = new GOTGuiDownloadTerrain(mc.thePlayer.sendQueue);
+				event.gui = new GOTGuiDownloadTerrain(mc.thePlayer.sendQueue);
 			}
 		}
 	}

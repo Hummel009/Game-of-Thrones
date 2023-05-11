@@ -54,7 +54,7 @@ public class GOTStructureSothoryosPyramidMapgen extends MapGenStructure {
 		i2 *= separation;
 		k2 *= separation;
 		i2 += dRand.nextInt(separation - minDist + 1);
-		if (i == i2 && k == (k2 += dRand.nextInt(separation - minDist + 1))) {
+		if (i == i2 && k == k2 + dRand.nextInt(separation - minDist + 1)) {
 			int i1 = i * 16 + 8;
 			int k1 = k * 16 + 8;
 			if (worldObj.getWorldChunkManager().areBiomesViable(i1, k1, 0, spawnBiomes) && rand.nextInt(spawnChance) == 0) {

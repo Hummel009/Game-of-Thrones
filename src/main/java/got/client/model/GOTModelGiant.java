@@ -220,7 +220,6 @@ public class GOTModelGiant extends ModelBase {
 			rightArm.rotationPointX = -MathHelper.cos(body.rotateAngleY) * 12.0f;
 			leftArm.rotationPointZ = -MathHelper.sin(body.rotateAngleY) * 5.0f;
 			leftArm.rotationPointX = MathHelper.cos(body.rotateAngleY) * 12.0f;
-			rightArm.rotateAngleY += body.rotateAngleY;
 			leftArm.rotateAngleX += body.rotateAngleY;
 			f6 = 1.0f - onGround;
 			f6 *= f6;

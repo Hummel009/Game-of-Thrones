@@ -138,7 +138,7 @@ public class GOTEntityAIAttackOnCollide extends EntityAIBase {
 		if (theOwner.ridingEntity != null) {
 			weaponReach = GOTEntityNPC.MOUNT_RANGE_BONUS;
 		}
-		float meleeRange = (float) theOwner.boundingBox.getAverageEdgeLength() + (weaponReach *= GOTWeaponStats.getMeleeReachFactor(theOwner.getHeldItem()));
+		float meleeRange = (float) theOwner.boundingBox.getAverageEdgeLength() + weaponReach * GOTWeaponStats.getMeleeReachFactor(theOwner.getHeldItem());
 		if (theOwner.getDistanceSqToEntity(attackTarget) <= meleeRange * meleeRange && attackTick <= 0) {
 			attackTick = GOTWeaponStats.getAttackTimeMob(weapon);
 			theOwner.attackEntityAsMob(attackTarget);

@@ -31,7 +31,7 @@ public class GOTEntitySothoryosBlowgunner extends GOTEntitySothoryosMan {
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float f) {
 		ItemStack heldItem = getHeldItem();
 		float str = 1.0f + getDistanceToEntity(target) / 16.0f * 0.015f;
-		GOTEntityDart dart = ((GOTItemDart) GOTRegistry.dart).createDart(worldObj, this, target, new ItemStack(GOTRegistry.sarbacaneTrap), str *= GOTItemSarbacane.getSarbacaneLaunchSpeedFactor(heldItem), 1.0f);
+		GOTEntityDart dart = ((GOTItemDart) GOTRegistry.dart).createDart(worldObj, this, target, new ItemStack(GOTRegistry.sarbacaneTrap), str * GOTItemSarbacane.getSarbacaneLaunchSpeedFactor(heldItem), 1.0f);
 		if (heldItem != null) {
 			GOTItemSarbacane.applySarbacaneModifiers(dart, heldItem);
 		}

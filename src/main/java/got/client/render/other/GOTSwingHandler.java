@@ -58,7 +58,7 @@ public class GOTSwingHandler {
 		SwingTime swt;
 		EntityLivingBase entity = event.entityLiving;
 		World world = entity.worldObj;
-		if (world.isRemote && (swt = entitySwings.get(entity)) == null && entity.isSwingInProgress && entity.swingProgressInt == 0 && GOTWeaponStats.isMeleeWeapon(item = entity.getHeldItem())) {
+		if (world.isRemote && entitySwings.get(entity) == null && entity.isSwingInProgress && entity.swingProgressInt == 0 && GOTWeaponStats.isMeleeWeapon(item = entity.getHeldItem())) {
 			int time;
 			time = GOTWeaponStats.getAttackTimePlayer(item);
 			time = Math.round(time * swingFactor);

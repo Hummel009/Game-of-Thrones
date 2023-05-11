@@ -101,7 +101,6 @@ public class GOTCommandAlignment extends CommandBase {
 					newAlignments.put(f, newAlignment);
 				}
 				for (GOTFaction f : factions) {
-					newAlignment = newAlignments.get(f);
 					GOTLevelData.getData(entityplayer).addAlignmentFromCommand(f, alignment);
 					CommandBase.func_152373_a(sender, this, "got.command.alignment.add", alignment, entityplayer.getCommandSenderName(), f.factionName());
 				}

@@ -276,7 +276,7 @@ public class GOTFamilyInfo {
 
 	public void setMaxBreedingDelay() {
 		float f = 48000;
-		setAge((int) (f *= 0.5f + theEntity.getRNG().nextFloat() * 0.5f));
+		setAge((int) (f * (0.5f + theEntity.getRNG().nextFloat() * 0.5f)));
 	}
 
 	public void writeToNBT(NBTTagCompound nbt) {

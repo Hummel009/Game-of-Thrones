@@ -182,7 +182,7 @@ public class GOTNetHandlerPlayServer extends NetHandlerPlayServer {
 			defaultReach = playerEntity.theItemInWorldManager.getBlockReachDistance();
 		}
 		double reach = defaultReach;
-		playerEntity.theItemInWorldManager.setBlockReachDistance(reach *= GOTWeaponStats.getMeleeReachFactor(playerEntity.getHeldItem()));
+		playerEntity.theItemInWorldManager.setBlockReachDistance(reach * GOTWeaponStats.getMeleeReachFactor(playerEntity.getHeldItem()));
 	}
 
 	public void update() {

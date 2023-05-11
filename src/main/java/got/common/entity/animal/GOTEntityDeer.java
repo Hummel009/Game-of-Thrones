@@ -89,7 +89,7 @@ public class GOTEntityDeer extends GOTEntityHorse implements GOTRandomSkinEntity
 	@Override
 	public void onGOTHorseSpawn() {
 		double maxHealth = getEntityAttribute(SharedMonsterAttributes.maxHealth).getAttributeValue();
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(maxHealth *= 1.0f + rand.nextFloat() * 0.5f);
+		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(maxHealth * (1.0f + rand.nextFloat() * 0.5f));
 	}
 
 	@Override

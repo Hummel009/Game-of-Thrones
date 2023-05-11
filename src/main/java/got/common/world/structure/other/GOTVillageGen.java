@@ -261,7 +261,7 @@ public abstract class GOTVillageGen {
 		i2 *= gridScale;
 		k2 *= gridScale;
 		i2 += MathHelper.getRandomIntegerInRange(villageRand, -gridRandomDisplace, gridRandomDisplace);
-		if (chunkX == i2 && chunkZ == (k2 += MathHelper.getRandomIntegerInRange(villageRand, -gridRandomDisplace, gridRandomDisplace))) {
+		if (chunkX == i2 && chunkZ == k2 + MathHelper.getRandomIntegerInRange(villageRand, -gridRandomDisplace, gridRandomDisplace)) {
 			int i1 = chunkX * 16 + 8;
 			int k1 = chunkZ * 16 + 8;
 			int villageRange = villageChunkRadius * 16;

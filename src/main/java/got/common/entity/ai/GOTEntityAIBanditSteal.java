@@ -189,7 +189,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 		}
 		List<Integer> slotsAsList = Arrays.asList(inventorySlots);
 		Collections.shuffle(slotsAsList);
-		Integer[] arrinteger = inventorySlots = slotsAsList.toArray(inventorySlots);
+		Integer[] arrinteger = slotsAsList.toArray(inventorySlots);
 		int n = arrinteger.length;
 		for (Integer integer : arrinteger) {
 			ItemStack itemstack;
