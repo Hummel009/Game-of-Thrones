@@ -45,15 +45,15 @@ public class GOTWorldGenDeadTrees extends WorldGenAbstractTree {
 				switch (branch) {
 					case 0: {
 						setBlockAndNotifyAdequately(world, i - branchHorizontalPos, branchVerticalPos, k, woodBlock, woodMeta | 0xC);
-						continue block8;
+						continue;
 					}
 					case 1: {
 						setBlockAndNotifyAdequately(world, i, branchVerticalPos, k + branchHorizontalPos, woodBlock, woodMeta | 0xC);
-						continue block8;
+						continue;
 					}
 					case 2: {
 						setBlockAndNotifyAdequately(world, i + branchHorizontalPos, branchVerticalPos, k, woodBlock, woodMeta | 0xC);
-						continue block8;
+						continue;
 					}
 					case 3: {
 						setBlockAndNotifyAdequately(world, i, branchVerticalPos, k - branchHorizontalPos, woodBlock, woodMeta | 0xC);

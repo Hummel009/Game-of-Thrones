@@ -63,19 +63,19 @@ public class GOTEntityWyvern extends GOTEntityNPC implements GOTBiome.ImmuneToHe
 			switch (drop) {
 				case 0: {
 					dropItem(Items.bone, 1);
-					continue block7;
+					continue;
 				}
 				case 1: {
 					dropItem(Items.fish, 1);
-					continue block7;
+					continue;
 				}
 				case 2: {
 					dropItem(Items.leather, 1);
-					continue block7;
+					continue;
 				}
 				case 3: {
 					dropItem(GOTRegistry.zebraRaw, 1);
-					continue block7;
+					continue;
 				}
 				case 4: {
 					dropItem(GOTRegistry.gemsbokHide, 1);

@@ -88,14 +88,12 @@ public class GOTStructureWesterosBrewery extends GOTStructureWesterosBase {
 				setGrassToDirt(world, -6, 0, k12);
 				setBlockAndMetadata(world, 6, 1, k12, brickStairBlock, 0);
 				setGrassToDirt(world, 6, 0, k12);
-				continue;
 			}
 		}
 		for (i12 = -4; i12 <= 4; ++i12) {
 			if (Math.abs(i12) == 4) {
 				setBlockAndMetadata(world, i12, 1, 19, brickStairBlock, 3);
 				setGrassToDirt(world, i12, 0, 19);
-				continue;
 			}
 		}
 		for (i12 = -4; i12 <= 4; ++i12) {
@@ -105,7 +103,6 @@ public class GOTStructureWesterosBrewery extends GOTStructureWesterosBase {
 				continue;
 			}
 			if (Math.abs(i12) != 3) {
-				continue;
 			}
 		}
 		for (i12 = -5; i12 <= 5; ++i12) {

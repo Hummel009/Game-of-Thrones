@@ -147,7 +147,7 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 		ItemStack stack = new ItemStack(forgeItem, 1);
 		if (NEIServerUtils.areStacksSameType(alloyForgeDummy.getSmeltingResult(stack), result)) {
 			ArrayList<Object> list = new ArrayList<>();
-			stack.getItem().getSubItems(forgeItem, (CreativeTabs) null, list);
+			stack.getItem().getSubItems(forgeItem, null, list);
 			for (Object tmp : list) {
 				if (!(tmp instanceof ItemStack)) {
 					if (tmp instanceof Item) {
@@ -163,7 +163,7 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 			}
 
 			list.add(stack);
-			arecipes.add(new CachedForgeRecipe((ItemStack[]) null, list.toArray(new ItemStack[list.size()]), result));
+			arecipes.add(new CachedForgeRecipe(null, list.toArray(new ItemStack[list.size()]), result));
 		}
 	}
 
@@ -191,7 +191,7 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 	public void loadUsageRecipes(ItemStack ingredient) {
 		ItemStack tmp = alloyForgeDummy.getSmeltingResult(ingredient);
 		if (tmp != null) {
-			arecipes.add(new CachedForgeRecipe((ItemStack[]) null, new ItemStack[]{ingredient}, tmp));
+			arecipes.add(new CachedForgeRecipe(null, new ItemStack[]{ingredient}, tmp));
 		}
 		arecipes.addAll(getAlloySmeltingRecipesUsage(ingredient));
 	}

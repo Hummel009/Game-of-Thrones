@@ -1379,7 +1379,7 @@ public class GOTEventHandler implements IFuelHandler {
 			}
 		}
 		if (!world.isRemote && entity.isEntityAlive() && entity.ticksExisted % 20 == 0) {
-			boolean flag = !(entity instanceof GOTBiome.ImmuneToHeat) && (!(entity instanceof GOTEntityNPC) || !((GOTEntityNPC) entity).isImmuneToFire());
+			boolean flag = !(entity instanceof GOTBiome.ImmuneToHeat) && (!(entity instanceof GOTEntityNPC) || !entity.isImmuneToFire());
 			if (entity instanceof EntityPlayer) {
 				flag = !((EntityPlayer) entity).capabilities.isCreativeMode;
 			}
@@ -1628,11 +1628,11 @@ public class GOTEventHandler implements IFuelHandler {
 	public void onStartTracking(PlayerEvent.StartTracking event) {
 		GOTEntityCart target;
 		if (event.target instanceof GOTEntityCart && (target = (GOTEntityCart) event.target).getPulling() != null) {
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) new GOTPacketCargocartUpdate(target.getPulling().getEntityId(), target.getEntityId()), (EntityPlayerMP) event.entityPlayer);
+			GOTPacketHandler.networkWrapper.sendTo(new GOTPacketCargocartUpdate(target.getPulling().getEntityId(), target.getEntityId()), (EntityPlayerMP) event.entityPlayer);
 		}
 		if (event.target instanceof GOTEntityCargocart) {
 			target = (GOTEntityCargocart) event.target;
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) new GOTPacketCargocart(((GOTEntityCargocart) target).getLoad(), target.getEntityId()), (EntityPlayerMP) event.entityPlayer);
+			GOTPacketHandler.networkWrapper.sendTo(new GOTPacketCargocart(((GOTEntityCargocart) target).getLoad(), target.getEntityId()), (EntityPlayerMP) event.entityPlayer);
 		}
 	}
 
@@ -1647,7 +1647,7 @@ public class GOTEventHandler implements IFuelHandler {
 		}
 		if (!entity.worldObj.isRemote && entity instanceof GOTRandomSkinEntity) {
 			GOTPacketEntityUUID packet = new GOTPacketEntityUUID(entity.getEntityId(), entity.getUniqueID());
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 		if (!entity.worldObj.isRemote && entity instanceof GOTEntityBanner) {
 			((GOTEntityBanner) entity).sendBannerToPlayer(entityplayer, false, false);

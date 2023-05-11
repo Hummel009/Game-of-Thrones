@@ -162,7 +162,7 @@ public class GOTLore {
 									categories.add(category);
 									continue;
 								}
-								GOTLog.logger.warn("Hummel009: Loading lore {}, no category exists for name {}", loreName, (String) categoryName);
+								GOTLog.logger.warn("Hummel009: Loading lore {}, no category exists for name {}", loreName, categoryName);
 							}
 							continue;
 						}

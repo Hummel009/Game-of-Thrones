@@ -111,7 +111,7 @@ public class GOTBlockRope extends GOTBlockLadder {
 					world.playSoundEffect(i + 0.5f, j1 + 0.5f, k + 0.5f, stepSound.getBreakSound(), (stepSound.getVolume() + 1.0f) / 2.0f, stepSound.getPitch() * 0.8f);
 				}
 				if (invAdded) {
-					((EntityPlayerMP) entityplayer).openContainer.detectAndSendChanges();
+					entityplayer.openContainer.detectAndSendChanges();
 				}
 			}
 			return true;

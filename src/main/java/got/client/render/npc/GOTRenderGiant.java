@@ -61,7 +61,7 @@ public class GOTRenderGiant extends RenderLiving {
 	public void rendergiantWeapon(EntityLivingBase entity, float f) {
 		GOTEntityGiant giant = (GOTEntityGiant) entity;
 		if (giant.isThrowingRocks()) {
-			if (((GOTModelGiant) mainModel).onGround <= 0.0f) {
+			if (mainModel.onGround <= 0.0f) {
 				if (heldRock == null) {
 					heldRock = new GOTEntityThrownRock(giant.worldObj);
 				}

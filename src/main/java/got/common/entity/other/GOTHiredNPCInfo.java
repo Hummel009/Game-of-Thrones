@@ -492,7 +492,7 @@ public class GOTHiredNPCInfo {
 		packet.inCombat = inCombat;
 		packet.guardMode = guardMode;
 		packet.guardRange = guardRange;
-		GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) getHiringPlayer());
+		GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) getHiringPlayer());
 		if (shouldOpenGui) {
 			isGuiOpen = true;
 		}

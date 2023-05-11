@@ -534,7 +534,7 @@ public class GOTEntityBanner extends Entity {
 		packet.whitelistPerms = whitelistPerms;
 		packet.defaultPerms = getDefaultPermBitFlags();
 		packet.thisPlayerHasPermission = isPlayerPermittedInSurvival(entityplayer);
-		GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+		GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 	}
 
 	public void sendBannerToPlayer(EntityPlayer entityplayer, boolean sendWhitelist, boolean openGui) {

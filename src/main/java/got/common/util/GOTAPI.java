@@ -419,7 +419,7 @@ public class GOTAPI {
 	}
 
 	private static <T, E> T findAndInvokeMethod(Object[] args, Class<? super E> clazz, E instance, String[] methodNames, Class<?>... methodTypes) {
-		Method method = ReflectionHelper.findMethod(clazz, instance, methodNames, (Class[]) methodTypes);
+		Method method = ReflectionHelper.findMethod(clazz, instance, methodNames, methodTypes);
 		try {
 			return (T) method.invoke(instance, args);
 		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {

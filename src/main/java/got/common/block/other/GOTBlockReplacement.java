@@ -164,7 +164,7 @@ public class GOTBlockReplacement {
 
 		public static String getBlockName(Block block) {
 			try {
-				return (String) ObfuscationReflectionHelper.getPrivateValue(Block.class, block, "unlocalizedName", "field_149770_b");
+				return ObfuscationReflectionHelper.getPrivateValue(Block.class, block, "unlocalizedName", "field_149770_b");
 			} catch (Exception e) {
 				GOTReflection.logFailure(e);
 				return null;
@@ -173,7 +173,7 @@ public class GOTBlockReplacement {
 
 		public static String getItemName(Item item) {
 			try {
-				return (String) ObfuscationReflectionHelper.getPrivateValue(Item.class, item, "unlocalizedName", "field_77774_bZ");
+				return ObfuscationReflectionHelper.getPrivateValue(Item.class, item, "unlocalizedName", "field_77774_bZ");
 			} catch (Exception e) {
 				GOTReflection.logFailure(e);
 				return null;
@@ -182,7 +182,7 @@ public class GOTBlockReplacement {
 
 		public static Map getOneShotStats() {
 			try {
-				return (Map) ObfuscationReflectionHelper.getPrivateValue(StatList.class, null, "oneShotStats", "field_75942_a");
+				return ObfuscationReflectionHelper.getPrivateValue(StatList.class, null, "oneShotStats", "field_75942_a");
 			} catch (Exception e) {
 				GOTReflection.logFailure(e);
 				return null;
@@ -191,7 +191,7 @@ public class GOTBlockReplacement {
 
 		public static ObjectIntIdentityMap getUnderlyingIntMap(RegistryNamespaced registry) {
 			try {
-				return (ObjectIntIdentityMap) ObfuscationReflectionHelper.getPrivateValue(RegistryNamespaced.class, registry, "underlyingIntegerMap", "field_148759_a");
+				return ObfuscationReflectionHelper.getPrivateValue(RegistryNamespaced.class, registry, "underlyingIntegerMap", "field_148759_a");
 			} catch (Exception e) {
 				GOTReflection.logFailure(e);
 				return null;
@@ -200,7 +200,7 @@ public class GOTBlockReplacement {
 
 		public static Map getUnderlyingObjMap(RegistryNamespaced registry) {
 			try {
-				return (Map) ObfuscationReflectionHelper.getPrivateValue(RegistrySimple.class, registry, "registryObjects", "field_82596_a");
+				return ObfuscationReflectionHelper.getPrivateValue(RegistrySimple.class, registry, "registryObjects", "field_82596_a");
 			} catch (Exception e) {
 				GOTReflection.logFailure(e);
 				return null;

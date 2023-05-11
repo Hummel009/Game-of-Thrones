@@ -50,7 +50,7 @@ public class GOTEntityMarshWraith extends GOTEntityNPC {
 		ItemStack itemstack;
 		boolean vulnerable = false;
 		Entity entity = damagesource.getEntity();
-		if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && ((EntityLivingBase) entity).getHeldItem().getItem() instanceof GOTMaterialFinder && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.SILVER_TOOL || (GOTMaterialFinder) itemstack.getItem() == GOTRegistry.crowbar)) {
+		if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && ((EntityLivingBase) entity).getHeldItem().getItem() instanceof GOTMaterialFinder && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.SILVER_TOOL || itemstack.getItem() == GOTRegistry.crowbar)) {
 			vulnerable = true;
 		}
 		if (vulnerable && getDeathFadeTime() == 0) {

@@ -146,7 +146,7 @@ public class GOTClassTransformer implements IClassTransformer {
 						}
 					}
 				}
-				if (!((nodePrev = nodeFound.getPrevious()) instanceof VarInsnNode) || ((VarInsnNode) nodePrev).getOpcode() != 25 || ((VarInsnNode) nodePrev).var != 9) {
+				if (!((nodePrev = nodeFound.getPrevious()) instanceof VarInsnNode) || nodePrev.getOpcode() != 25 || ((VarInsnNode) nodePrev).var != 9) {
 					System.out.println("WARNING! Expected ALOAD 9! Instead got " + nodePrev);
 					System.out.println("WARNING! Things may break!");
 				}
@@ -823,7 +823,7 @@ public class GOTClassTransformer implements IClassTransformer {
 					method.instructions.remove(nodeStore.getPrevious());
 				}
 				AbstractInsnNode newPrev = nodeStore.getPrevious();
-				if (!(newPrev instanceof VarInsnNode) || ((VarInsnNode) newPrev).getOpcode() != 25 || ((VarInsnNode) newPrev).var != 5) {
+				if (!(newPrev instanceof VarInsnNode) || newPrev.getOpcode() != 25 || ((VarInsnNode) newPrev).var != 5) {
 					System.out.println("WARNING! Expected ALOAD 5! Instead got " + newPrev);
 					System.out.println("WARNING! Things may break!");
 				}

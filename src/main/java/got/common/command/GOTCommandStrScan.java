@@ -205,7 +205,7 @@ public class GOTCommandStrScan extends CommandBase {
 				}
 				if (GOTStructureScan.writeScanToFile(scan)) {
 					scanning = false;
-					CommandBase.func_152373_a(sender, (ICommand) this, "Scanned structure as %s", scanName);
+					CommandBase.func_152373_a(sender, this, "Scanned structure as %s", scanName);
 					return;
 				}
 				throw new WrongUsageException("Error scanning structure as %s", scanName);

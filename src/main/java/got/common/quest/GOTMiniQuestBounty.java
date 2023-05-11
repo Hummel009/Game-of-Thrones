@@ -198,7 +198,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 
 	@Override
 	public void onKill(EntityPlayer entityplayer, EntityLivingBase entity) {
-		if (!killed && !isFailed() && entity instanceof EntityPlayer && ((EntityPlayer) entity).getUniqueID().equals(targetID)) {
+		if (!killed && !isFailed() && entity instanceof EntityPlayer && entity.getUniqueID().equals(targetID)) {
 			EntityPlayer slainPlayer = (EntityPlayer) entity;
 			GOTPlayerData slainPlayerData = GOTLevelData.getData(slainPlayer);
 			killed = true;

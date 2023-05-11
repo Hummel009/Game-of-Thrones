@@ -57,7 +57,7 @@ public class GOTEntityWightGiant extends GOTEntityGiant {
 		ItemStack itemstack;
 		Entity entity = damagesource.getEntity();
 		Entity damageSource = damagesource.getSourceOfDamage();
-		if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && ((EntityLivingBase) entity).getHeldItem().getItem() instanceof GOTMaterialFinder && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.VALYRIAN_TOOL || ((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.OBSIDIAN_TOOL || (GOTMaterialFinder) itemstack.getItem() == GOTRegistry.crowbar)) {
+		if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && ((EntityLivingBase) entity).getHeldItem().getItem() instanceof GOTMaterialFinder && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.VALYRIAN_TOOL || ((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.OBSIDIAN_TOOL || itemstack.getItem() == GOTRegistry.crowbar)) {
 			return super.attackEntityFrom(damagesource, f);
 		}
 		if (damagesource.getEntity() instanceof GOTEntityGregorClegane || damagesource.getEntity() instanceof GOTEntityAsshaiArchmag || damagesource.isFireDamage()) {
@@ -106,10 +106,10 @@ public class GOTEntityWightGiant extends GOTEntityGiant {
 			wight.copyLocationAndAnglesFrom(entity);
 			wight.npcItemsInv.setMeleeWeapon(((GOTEntityHumanBase) entity).npcItemsInv.getMeleeWeapon());
 			wight.npcItemsInv.setIdleItem(((GOTEntityHumanBase) entity).npcItemsInv.getMeleeWeapon());
-			wight.setCurrentItemOrArmor(1, ((GOTEntityHumanBase) entity).getEquipmentInSlot(1));
-			wight.setCurrentItemOrArmor(2, ((GOTEntityHumanBase) entity).getEquipmentInSlot(2));
-			wight.setCurrentItemOrArmor(3, ((GOTEntityHumanBase) entity).getEquipmentInSlot(3));
-			wight.setCurrentItemOrArmor(4, ((GOTEntityHumanBase) entity).getEquipmentInSlot(4));
+			wight.setCurrentItemOrArmor(1, entity.getEquipmentInSlot(1));
+			wight.setCurrentItemOrArmor(2, entity.getEquipmentInSlot(2));
+			wight.setCurrentItemOrArmor(3, entity.getEquipmentInSlot(3));
+			wight.setCurrentItemOrArmor(4, entity.getEquipmentInSlot(4));
 			wight.familyInfo.setMale(((GOTEntityHumanBase) entity).familyInfo.male);
 			worldObj.removeEntity(entity);
 			worldObj.spawnEntityInWorld(wight);

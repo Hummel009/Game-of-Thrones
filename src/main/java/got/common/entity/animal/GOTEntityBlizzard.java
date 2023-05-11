@@ -46,7 +46,7 @@ public class GOTEntityBlizzard extends EntityCreature implements GOTBiome.Immune
 				}
 				if (firingState > 1) {
 					float f1 = MathHelper.sqrt_float(f) * 0.5F;
-					worldObj.playAuxSFXAtEntity((EntityPlayer) null, 1009, (int) posX, (int) posY, (int) posZ, 0);
+					worldObj.playAuxSFXAtEntity(null, 1009, (int) posX, (int) posY, (int) posZ, 0);
 					for (int i = 0; i < 1; ++i) {
 						GOTEntitySnowball entitysmallfireball = new GOTEntitySnowball(worldObj, this, d0 + rand.nextGaussian() * f1, d1, d2 + rand.nextGaussian() * f1);
 						entitysmallfireball.posY = posY + height / 2.0F + 0.5D;

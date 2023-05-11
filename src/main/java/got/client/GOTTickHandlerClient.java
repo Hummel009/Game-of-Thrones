@@ -509,13 +509,13 @@ public class GOTTickHandlerClient {
 			tooltip.set(0, EnumChatFormatting.RED + tooltip.get(0));
 		}
 		if (itemstack.getItem() instanceof GOTMaterialFinder) {
-			if ((GOTMaterialFinder) itemstack.getItem() != GOTRegistry.baelishDagger && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.VALYRIAN_TOOL || ((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.OBSIDIAN_TOOL)) {
+			if (itemstack.getItem() != GOTRegistry.baelishDagger && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.VALYRIAN_TOOL || ((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.OBSIDIAN_TOOL)) {
 				tooltip.add(EnumChatFormatting.GOLD + StatCollector.translateToLocal("item.got.antiwalker"));
 			}
-			if ((GOTMaterialFinder) itemstack.getItem() == GOTRegistry.bericSword) {
+			if (itemstack.getItem() == GOTRegistry.bericSword) {
 				tooltip.add(EnumChatFormatting.GOLD + StatCollector.translateToLocal("item.got.antiwight"));
 			}
-			if ((GOTMaterialFinder) itemstack.getItem() == GOTRegistry.baelishDagger) {
+			if (itemstack.getItem() == GOTRegistry.baelishDagger) {
 				tooltip.add(EnumChatFormatting.GOLD + StatCollector.translateToLocal("item.got.antiking"));
 			}
 			if (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.SILVER_TOOL) {
@@ -792,7 +792,7 @@ public class GOTTickHandlerClient {
 	public void onFogColors(EntityViewRenderEvent.FogColors event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		WorldClient worldClient = mc.theWorld;
-		WorldProvider provider = ((World) worldClient).provider;
+		WorldProvider provider = worldClient.provider;
 		if (provider instanceof GOTWorldProvider) {
 			float[] rgb = {event.red, event.green, event.blue};
 			rgb = ((GOTWorldProvider) provider).handleFinalFogColors(event.entity, event.renderPartialTicks, rgb);
@@ -971,7 +971,7 @@ public class GOTTickHandlerClient {
 				}
 				float mistTickF = prevMistTick + (mistTick - prevMistTick) * partialTicks;
 				mistTickF /= 80.0F;
-				float mistFactorY = (float) ((EntityPlayer) entityClientPlayerMP).posY / 256.0F;
+				float mistFactorY = (float) entityClientPlayerMP.posY / 256.0F;
 				mistFactor = mistTickF * mistFactorY;
 				if (mistFactor > 0.0F) {
 					renderOverlay(null, mistFactor * 0.75F, mc, mistOverlay);
@@ -994,8 +994,8 @@ public class GOTTickHandlerClient {
 				if (GOTConfig.meleeAttackMeter) {
 					GOTAttackTiming.renderAttackMeter(event.resolution, partialTicks);
 				}
-				if (((EntityPlayer) entityClientPlayerMP).ridingEntity instanceof GOTEntitySpiderBase) {
-					GOTEntitySpiderBase spider = (GOTEntitySpiderBase) ((EntityPlayer) entityClientPlayerMP).ridingEntity;
+				if (entityClientPlayerMP.ridingEntity instanceof GOTEntitySpiderBase) {
+					GOTEntitySpiderBase spider = (GOTEntitySpiderBase) entityClientPlayerMP.ridingEntity;
 					if (spider.shouldRenderClimbingMeter()) {
 						mc.getTextureManager().bindTexture(Gui.icons);
 						GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
@@ -1022,12 +1022,12 @@ public class GOTTickHandlerClient {
 				entityClientPlayerMP.addPotionEffect(new PotionEffect(Potion.poison.id, 20));
 				addedClientPoisonEffect = true;
 			}
-			boolean enchantingDisabled = !GOTLevelData.clientside_thisServer_enchanting && ((World) worldClient).provider instanceof GOTWorldProvider;
+			boolean enchantingDisabled = !GOTLevelData.clientside_thisServer_enchanting && worldClient.provider instanceof GOTWorldProvider;
 			if (event.type == RenderGameOverlayEvent.ElementType.EXPERIENCE && enchantingDisabled) {
 				event.setCanceled(true);
 				return;
 			}
-			if (event.type == RenderGameOverlayEvent.ElementType.ALL && enchantingDisabled && ((EntityPlayer) entityClientPlayerMP).ridingEntity == null) {
+			if (event.type == RenderGameOverlayEvent.ElementType.ALL && enchantingDisabled && entityClientPlayerMP.ridingEntity == null) {
 				GuiIngameForge.left_height -= 6;
 				GuiIngameForge.right_height -= 6;
 			}
@@ -1082,7 +1082,7 @@ public class GOTTickHandlerClient {
 		Minecraft mc = Minecraft.getMinecraft();
 		EntityLivingBase viewer = event.entity;
 		WorldClient worldClient = mc.theWorld;
-		WorldProvider provider = ((World) worldClient).provider;
+		WorldProvider provider = worldClient.provider;
 		int i = MathHelper.floor_double(viewer.posX);
 		MathHelper.floor_double(viewer.boundingBox.minY);
 		int k = MathHelper.floor_double(viewer.posZ);
@@ -1140,7 +1140,7 @@ public class GOTTickHandlerClient {
 		}
 		if (event.phase == TickEvent.Phase.END) {
 			if (entityplayer != null && worldClient != null) {
-				if ((((World) worldClient).provider instanceof GOTWorldProvider || GOTConfig.alwaysShowAlignment) && Minecraft.isGuiEnabled()) {
+				if ((worldClient.provider instanceof GOTWorldProvider || GOTConfig.alwaysShowAlignment) && Minecraft.isGuiEnabled()) {
 					alignmentXPrev = alignmentXCurrent;
 					alignmentYPrev = alignmentYCurrent;
 					alignmentXCurrent = alignmentXBase;

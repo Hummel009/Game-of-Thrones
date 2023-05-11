@@ -17,7 +17,7 @@ public class GOTRenderProstitute extends GOTRenderBiped {
 
 	public static ResourceLocation getProstituteSkin(GOTEntityProstitute.ProstituteType type) {
 		String s = type.textureName();
-		ResourceLocation skin = (ResourceLocation) prostituteSkins.get(s);
+		ResourceLocation skin = prostituteSkins.get(s);
 		if (skin == null) {
 			skin = new ResourceLocation("got:textures/entity/prostitute/" + s + ".png");
 			prostituteSkins.put(s, skin);

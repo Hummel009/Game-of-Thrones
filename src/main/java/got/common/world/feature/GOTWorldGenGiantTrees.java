@@ -37,7 +37,7 @@ public class GOTWorldGenGiantTrees extends WorldGenAbstractTree {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
-		if (restrictions && !world.getBlock(i, j - 1, k).canSustainPlant((IBlockAccess) world, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.sapling)) {
+		if (restrictions && !world.getBlock(i, j - 1, k).canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.sapling)) {
 			return false;
 		}
 		float f = 1.0f;

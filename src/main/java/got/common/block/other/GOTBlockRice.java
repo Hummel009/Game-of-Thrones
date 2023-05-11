@@ -49,7 +49,7 @@ public class GOTBlockRice extends BlockLilyPad implements IGrowable {
 		float f = 0.5f;
 		float f1 = 0.015625f;
 		setBlockBounds(0.5f - f, 0.0f, 0.5f - f, 0.5f + f, f1, 0.5f + f);
-		setCreativeTab((CreativeTabs) null);
+		setCreativeTab(null);
 		setHardness(0.0f);
 		setStepSound(soundTypeGrass);
 		disableStats();

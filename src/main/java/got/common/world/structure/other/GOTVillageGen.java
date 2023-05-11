@@ -301,7 +301,7 @@ public abstract class GOTVillageGen {
 		public List<StructureInfo> structures = new ArrayList<>();
 
 		protected AbstractInstance(V village, World world, int i, int k, Random random, LocationInfo loc) {
-			instanceVillageBiome = ((GOTVillageGen) village).villageBiome;
+			instanceVillageBiome = village.villageBiome;
 			theWorld = world;
 			instanceRand = new Random();
 			instanceRandSeed = random.nextLong();

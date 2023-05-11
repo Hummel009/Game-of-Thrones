@@ -183,7 +183,6 @@ public class GOTWorldGenRedwood extends WorldGenAbstractTree {
 							world.getBlock(rootX, rootY - 1, rootZ).onPlantGrow(world, rootX, rootY - 1, rootZ, rootX, rootY, rootZ);
 							rootY--;
 							if (rootY >= j - 3 - random.nextInt(3)) {
-								continue;
 							}
 						}
 					}

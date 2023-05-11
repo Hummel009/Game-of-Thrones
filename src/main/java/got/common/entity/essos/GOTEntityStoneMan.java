@@ -109,10 +109,10 @@ public class GOTEntityStoneMan extends GOTEntityNPC {
 			infected.copyLocationAndAnglesFrom(entity);
 			infected.npcItemsInv.setMeleeWeapon(((GOTEntityHumanBase) entity).npcItemsInv.getMeleeWeapon());
 			infected.npcItemsInv.setIdleItem(((GOTEntityHumanBase) entity).npcItemsInv.getMeleeWeapon());
-			infected.setCurrentItemOrArmor(1, ((GOTEntityHumanBase) entity).getEquipmentInSlot(1));
-			infected.setCurrentItemOrArmor(2, ((GOTEntityHumanBase) entity).getEquipmentInSlot(2));
-			infected.setCurrentItemOrArmor(3, ((GOTEntityHumanBase) entity).getEquipmentInSlot(3));
-			infected.setCurrentItemOrArmor(4, ((GOTEntityHumanBase) entity).getEquipmentInSlot(4));
+			infected.setCurrentItemOrArmor(1, entity.getEquipmentInSlot(1));
+			infected.setCurrentItemOrArmor(2, entity.getEquipmentInSlot(2));
+			infected.setCurrentItemOrArmor(3, entity.getEquipmentInSlot(3));
+			infected.setCurrentItemOrArmor(4, entity.getEquipmentInSlot(4));
 			infected.familyInfo.setMale(((GOTEntityHumanBase) entity).familyInfo.male);
 			worldObj.removeEntity(entity);
 			worldObj.spawnEntityInWorld(infected);

@@ -29,7 +29,7 @@ public class GOTRenderCrossbow implements IItemRenderer {
 		if (holder instanceof EntityPlayer) {
 			using = ((EntityPlayer) holder).getItemInUse() == itemstack;
 		} else if (holder instanceof EntityLiving) {
-			using = ((EntityLiving) holder).getHeldItem() == itemstack;
+			using = holder.getHeldItem() == itemstack;
 			if (using && holder instanceof GOTEntityNPC) {
 				using = ((GOTEntityNPC) holder).clientCombatStance;
 			}

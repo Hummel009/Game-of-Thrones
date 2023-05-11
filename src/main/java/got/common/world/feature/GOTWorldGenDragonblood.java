@@ -129,7 +129,6 @@ public class GOTWorldGenDragonblood extends WorldGenAbstractTree {
 						--rootY;
 						roots++;
 						if (roots <= 4 + random.nextInt(3)) {
-							continue;
 						}
 					}
 				}

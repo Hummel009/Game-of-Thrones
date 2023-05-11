@@ -93,7 +93,7 @@ public class GOTRecipe {
 			ItemStack wool = new ItemStack(Blocks.wool, 1, i);
 			for (int l = 0; l < paramsDyed.length; ++l) {
 				Object param = paramsDyed[l];
-				if (param instanceof Block && (Block) param == Block.getBlockFromItem(wool.getItem())) {
+				if (param instanceof Block && param == Block.getBlockFromItem(wool.getItem())) {
 					paramsDyed[l] = wool.copy();
 					continue;
 				}

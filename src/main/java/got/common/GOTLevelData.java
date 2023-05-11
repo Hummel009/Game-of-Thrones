@@ -434,7 +434,7 @@ public class GOTLevelData {
 		for (Object element : world.playerEntities) {
 			EntityPlayer worldPlayer = (EntityPlayer) element;
 			GOTPacketAlignment packet = new GOTPacketAlignment(entityplayer.getUniqueID());
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) worldPlayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) worldPlayer);
 		}
 	}
 
@@ -442,7 +442,7 @@ public class GOTLevelData {
 		for (Object element : world.playerEntities) {
 			EntityPlayer worldPlayer = (EntityPlayer) element;
 			GOTPacketAlignment packet = new GOTPacketAlignment(worldPlayer.getUniqueID());
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -451,7 +451,7 @@ public class GOTLevelData {
 			EntityPlayer worldPlayer = (EntityPlayer) element;
 			GOTPacketCape packet = new GOTPacketCape(worldPlayer.getUniqueID());
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -459,7 +459,7 @@ public class GOTLevelData {
 		for (Object element : world.playerEntities) {
 			EntityPlayer worldPlayer = (EntityPlayer) element;
 			GOTPacketShield packet = new GOTPacketShield(worldPlayer.getUniqueID());
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -468,7 +468,7 @@ public class GOTLevelData {
 			EntityPlayer worldPlayer = (EntityPlayer) element;
 			GOTPacketCape packet = new GOTPacketCape(entityplayer.getUniqueID());
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) worldPlayer);
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -540,14 +540,14 @@ public class GOTLevelData {
 				}
 			}
 		}
-		GOTPacketHandler.networkWrapper.sendTo((IMessage) packetLocations, (EntityPlayerMP) sendPlayer);
+		GOTPacketHandler.networkWrapper.sendTo(packetLocations, (EntityPlayerMP) sendPlayer);
 	}
 
 	public static void sendShieldToAllPlayersInWorld(Entity entityplayer, World world) {
 		for (Object element : world.playerEntities) {
 			EntityPlayer worldPlayer = (EntityPlayer) element;
 			GOTPacketShield packet = new GOTPacketShield(entityplayer.getUniqueID());
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) worldPlayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) worldPlayer);
 		}
 	}
 

@@ -64,11 +64,11 @@ public class GOTEntityCrocodile extends GOTEntityNPC implements GOTBiome.ImmuneT
 			switch (drop) {
 				case 0: {
 					dropItem(Items.bone, 1);
-					continue block7;
+					continue;
 				}
 				case 1: {
 					dropItem(Items.fish, 1);
-					continue block7;
+					continue;
 				}
 				case 2: {
 					dropItem(Items.leather, 1);
