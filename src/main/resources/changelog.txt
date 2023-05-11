@@ -10,6 +10,7 @@ CHANGELOG
 * Improved wetwood biome
 * Improved translations
 
+* Fixed bug with map
 * Fixed potential bug caused by duplicated lines in translation files
 * Fixed bug with concrete and concrete powder mechanics
 * Fixed bug with gui shift when using NEI + drinking potion
