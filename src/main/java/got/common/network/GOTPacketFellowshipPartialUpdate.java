@@ -127,7 +127,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 
 	}
 
-	public static abstract class Handler<P extends GOTPacketFellowshipPartialUpdate> implements IMessageHandler<P, IMessage> {
+	public abstract static class Handler<P extends GOTPacketFellowshipPartialUpdate> implements IMessageHandler<P, IMessage> {
 		@Override
 		public IMessage onMessage(P packet, MessageContext context) {
 			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
