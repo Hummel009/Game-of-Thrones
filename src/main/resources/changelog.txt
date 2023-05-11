@@ -1,6 +1,6 @@
 CHANGELOG
 
->>BUILD ??
+>>BUILD 23.05.11
 + Now conquested enemy waypoints are red on the map
 
 * Meereen wp, city and pyramid were moved to be easily found from point.
