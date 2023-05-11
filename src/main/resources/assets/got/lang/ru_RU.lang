@@ -2324,9 +2324,9 @@ got.gui.bannerEdit.selfProtection.off=Самозащита знамени: OFF
 got.gui.bannerEdit.selfProtection.on=Самозащита знамени: ON
 got.gui.bannerEdit.title=Защита знамени
 got.gui.brandingIron.done=Завершить
-got.gui.brandingIron.naming=Выгравировать
+got.gui.brandingIron.naming=Надпись
 got.gui.brandingIron.title=Клеймо
-got.gui.brandingIron.unnameHint=Перегравировать
+got.gui.brandingIron.unnameHint=Крафт с железом = очистка
 got.gui.button.off=ВЫКЛ
 got.gui.button.on=ВКЛ
 got.gui.capes.remove=Снять

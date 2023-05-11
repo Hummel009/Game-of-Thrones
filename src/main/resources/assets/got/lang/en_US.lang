@@ -2324,9 +2324,9 @@ got.gui.bannerEdit.selfProtection.off=Self-protection: OFF
 got.gui.bannerEdit.selfProtection.on=Self-protection: ON
 got.gui.bannerEdit.title=Banner Protection
 got.gui.brandingIron.done=Done
-got.gui.brandingIron.naming=Engrave
+got.gui.brandingIron.naming=Name
 got.gui.brandingIron.title=Branding Iron
-got.gui.brandingIron.unnameHint=Re-engrave
+got.gui.brandingIron.unnameHint=Craft with iron = clear
 got.gui.button.off=OFF
 got.gui.button.on=ON
 got.gui.capes.remove=Remove Cape

@@ -2324,9 +2324,9 @@ got.gui.bannerEdit.selfProtection.off=Самозахист прапора: OFF
 got.gui.bannerEdit.selfProtection.on=Самозахист прапора: ON
 got.gui.bannerEdit.title=Захист прапору
 got.gui.brandingIron.done=Скінчити
-got.gui.brandingIron.naming=Вигравірувати
+got.gui.brandingIron.naming=Напис
 got.gui.brandingIron.title=Тавро
-got.gui.brandingIron.unnameHint=Перегравірувати
+got.gui.brandingIron.unnameHint=Крафт із залізом = очищення
 got.gui.button.off=ВИМК
 got.gui.button.on=УВІМК
 got.gui.capes.remove=Зняти
