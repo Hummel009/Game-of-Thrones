@@ -4,7 +4,8 @@ CHANGELOG
 + Now conquested enemy waypoints are red on the map
 
 * Improved crossbowers' AI
-* Impoved wetwood biome
+* Improved wetwood biome
+* Improved translations
 
 * Fixed potential bug caused by duplicated lines in translation files
 * Fixed bug with gui shift when using NEI + drinking potion
