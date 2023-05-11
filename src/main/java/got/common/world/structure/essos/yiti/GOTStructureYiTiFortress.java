@@ -269,15 +269,15 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 				}
 				if (k15 == -12) {
 					setBlockAndMetadata(world, i17 + 1, 6, -12, brickStairBlock, 0);
-					setBlockAndMetadata(world, i17 + 2, 6, k15, brickStairBlock, 1);
+					setBlockAndMetadata(world, i17 + 2, 6, -12, brickStairBlock, 1);
 				}
 				if (k15 == 9) {
 					setBlockAndMetadata(world, i17 + 1, 6, 9 + 3, brickStairBlock, 0);
-					setBlockAndMetadata(world, i17 + 2, 6, k15 + 3, brickStairBlock, 1);
+					setBlockAndMetadata(world, i17 + 2, 6, 9 + 3, brickStairBlock, 1);
 				}
 				if (i17 == -12) {
 					setBlockAndMetadata(world, -12, 6, k15 + 1, brickStairBlock, 3);
-					setBlockAndMetadata(world, i17, 6, k15 + 2, brickStairBlock, 2);
+					setBlockAndMetadata(world, -12, 6, k15 + 2, brickStairBlock, 2);
 				}
 				if (i17 != 9) {
 					continue;

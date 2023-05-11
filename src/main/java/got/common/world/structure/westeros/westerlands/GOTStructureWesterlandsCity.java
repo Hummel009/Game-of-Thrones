@@ -493,8 +493,8 @@ public class GOTStructureWesterlandsCity extends GOTVillageGen {
 				k = Math.round(l * sin);
 				addStructure(new GOTStructureHayBales(false), i, k, r);
 			}
-			int signPos = Math.round(50.0f * MathHelper.cos((float) 0.7853981633974483));
-			int signDisp = Math.round(7.0f * MathHelper.cos((float) 0.7853981633974483));
+			int signPos = Math.round(50.0f * MathHelper.cos(0.7853981633974483f));
+			int signDisp = Math.round(7.0f * MathHelper.cos(0.7853981633974483f));
 			addStructure(new GOTStructureWesterosVillageSign(false), -signPos, -signPos + signDisp, 1);
 			addStructure(new GOTStructureWesterosVillageSign(false), signPos, -signPos + signDisp, 3);
 			addStructure(new GOTStructureWesterosVillageSign(false), -signPos, signPos - signDisp, 1);

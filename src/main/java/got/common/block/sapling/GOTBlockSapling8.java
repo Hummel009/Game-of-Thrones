@@ -36,7 +36,7 @@ public class GOTBlockSapling8 extends GOTBlockSaplingBase {
 				xOffset = tree5x5[0];
 				zOffset = tree5x5[1];
 			}
-			if (treeGen == null && (tree4x4 = GOTBlockSaplingBase.findSaplingSquare(world, i, j, k, this, meta, -1, 2, -2, 1)) != null) {
+			if (treeGen == null && (tree4x4 = GOTBlockSaplingBase.findSaplingSquare(world, i, j, k, this, 1, -1, 2, -2, 1)) != null) {
 				treeGen = GOTTreeType.REDWOOD_4.create(true, random);
 				trunkNeg = 1;
 				trunkPos = 2;

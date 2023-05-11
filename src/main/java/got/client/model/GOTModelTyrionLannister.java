@@ -31,11 +31,11 @@ public class GOTModelTyrionLannister extends GOTModelBiped {
 		if (!isArmor) {
 			ModelRenderer rightFoot = new ModelRenderer(this, 40, 32);
 			rightFoot.addBox(-2.0f, 10.0f, -5.0f, 4, 2, 3, f);
-			rightFoot.rotateAngleY = (float) 0.17453292519943295;
+			rightFoot.rotateAngleY = 0.17453292519943295f;
 			bipedRightLeg.addChild(rightFoot);
 			ModelRenderer leftFoot = new ModelRenderer(this, 40, 32);
 			leftFoot.addBox(-2.0f, 10.0f, -5.0f, 4, 2, 3, f);
-			leftFoot.rotateAngleY = (float) -0.17453292519943295;
+			leftFoot.rotateAngleY = -0.17453292519943295f;
 			bipedLeftLeg.addChild(leftFoot);
 		}
 		bipedHead.rotationPointY += 4.0f;

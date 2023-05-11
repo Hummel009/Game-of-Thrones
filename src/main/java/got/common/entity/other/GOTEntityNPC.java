@@ -1039,11 +1039,11 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 					}
 				}
 			}
-			if (traderNPCInfo.getBuyTrades() != null && this.rand.nextInt(10000) == 0) {
-				for (GOTTradeEntry trade : this.traderNPCInfo.getBuyTrades()) {
+			if (traderNPCInfo.getBuyTrades() != null && rand.nextInt(10000) == 0) {
+				for (GOTTradeEntry trade : traderNPCInfo.getBuyTrades()) {
 					trade.setCost(trade.getCost() * 100);
 				}
-				this.familyInfo.setName("\u041C\u043E\u0439\u0448\u0430 \u0420\u0430\u0431\u0438\u043D\u043E\u0432\u0438\u0447");
+				familyInfo.setName("\u041C\u043E\u0439\u0448\u0430 \u0420\u0430\u0431\u0438\u043D\u043E\u0432\u0438\u0447");
 			}
 		}
 		return data;

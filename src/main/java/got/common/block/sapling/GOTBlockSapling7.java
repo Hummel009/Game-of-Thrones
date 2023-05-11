@@ -26,7 +26,7 @@ public class GOTBlockSapling7 extends GOTBlockSaplingBase {
 			block0:
 			for (i1 = 0; i1 >= -1; --i1) {
 				for (k1 = 0; k1 >= -1; --k1) {
-					if (!isSameSapling(world, i + i1, j, k + k1, 0) || !isSameSapling(world, i + i1 + 1, j, k + k1, meta) || !isSameSapling(world, i + i1, j, k + k1 + 1, meta) || !isSameSapling(world, i + i1 + 1, j, k + k1 + 1, meta)) {
+					if (!isSameSapling(world, i + i1, j, k + k1, 0) || !isSameSapling(world, i + i1 + 1, j, k + k1, 0) || !isSameSapling(world, i + i1, j, k + k1 + 1, meta) || !isSameSapling(world, i + i1 + 1, j, k + k1 + 1, meta)) {
 						continue;
 					}
 					treeGen = GOTTreeType.ASPEN_LARGE.create(true, random);

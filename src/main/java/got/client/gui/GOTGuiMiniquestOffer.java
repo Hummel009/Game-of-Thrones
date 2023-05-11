@@ -268,31 +268,31 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 				switch (npcAction) {
 					case LOOKING:
 						float slow = actionSlow * 16.0f;
-						headYaw = MathHelper.sin(actionTick / slow) * (float) 1.0471975511965976;
-						headPitch = (MathHelper.sin(actionTick / slow * 2.0f) + 1.0f) / 2.0f * (float) -0.2617993877991494;
+						headYaw = MathHelper.sin(actionTick / slow) * 1.0471975511965976f;
+						headPitch = (MathHelper.sin(actionTick / slow * 2.0f) + 1.0f) / 2.0f * -0.2617993877991494f;
 						break;
 					case LOOKING_UP:
 						headYaw = 0.0f;
-						headPitch = (float) -0.3490658503988659;
+						headPitch = -0.3490658503988659f;
 						break;
 					case SHAKING:
 						actionSlow += 0.01f;
-						headYaw = MathHelper.sin(actionTick / actionSlow) * (float) 0.5235987755982988;
-						headPitch += (float) 0.006981317007977318;
+						headYaw = MathHelper.sin(actionTick / actionSlow) * 0.5235987755982988f;
+						headPitch += 0.006981317007977318f;
 						break;
 					case TALKING:
 						if (actionTick % 20 == 0) {
 							actionSlow = 0.7f + rand.nextFloat() * 1.5f;
 						}
 						float slow1 = actionSlow * 2.0f;
-						headYaw = MathHelper.sin(actionTick / slow1) * (float) 0.17453292519943295;
-						headPitch = (MathHelper.sin(actionTick / slow1 * 2.0f) + 1.0f) / 2.0f * (float) -0.3490658503988659;
+						headYaw = MathHelper.sin(actionTick / slow1) * 0.17453292519943295f;
+						headPitch = (MathHelper.sin(actionTick / slow1 * 2.0f) + 1.0f) / 2.0f * -0.3490658503988659f;
 						break;
 				}
 			}
 		} else {
 			headYaw = 0.0f;
-			headPitch = MathHelper.sin(openTick * 0.07f) * (float) 0.08726646259971647;
+			headPitch = MathHelper.sin(openTick * 0.07f) * 0.08726646259971647f;
 		}
 		++openTick;
 	}
