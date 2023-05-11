@@ -13,7 +13,7 @@ public enum GOTGuiMessageTypes {
 
 	public static GOTGuiMessageTypes forSaveName(String name) {
 		for (GOTGuiMessageTypes message : values()) {
-			if (message.getSaveName().equals(name)) {
+			if (message.messageName.equals(name)) {
 				return message;
 			}
 		}

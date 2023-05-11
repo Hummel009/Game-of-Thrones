@@ -312,8 +312,8 @@ public class GOTLore {
 			block16:
 			{
 				String s1;
-				int indexStart = text.indexOf("{", lastIndexStart + 1);
-				int indexEnd = text.indexOf("}");
+				int indexStart = text.indexOf('{', lastIndexStart + 1);
+				int indexEnd = text.indexOf('}');
 				lastIndexStart = indexStart;
 				if (indexStart < 0 || indexEnd <= indexStart) {
 					break;
@@ -352,7 +352,7 @@ public class GOTLore {
 						ArrayList<String> words = new ArrayList<>();
 						while (remaining.length() > 0) {
 							String word;
-							int indexOf = remaining.indexOf("/");
+							int indexOf = remaining.indexOf('/');
 							if (indexOf >= 0) {
 								word = remaining.substring(0, indexOf);
 								remaining = remaining.substring(indexOf + "/".length());

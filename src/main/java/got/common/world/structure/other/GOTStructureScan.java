@@ -117,14 +117,14 @@ public class GOTStructureScan {
 						continue;
 					}
 					int i = 0;
-					int j = line.indexOf(".");
+					int j = line.indexOf('.');
 					String s12 = line.substring(i, j);
 					int x = Integer.parseInt(s12);
 					ScanStepBase step = null;
 					boolean fillDown = false;
 					boolean findLowest = false;
 					i = j + 1;
-					j = line.indexOf(".", i);
+					j = line.indexOf('.', i);
 					s12 = line.substring(i, j);
 					if (s12.endsWith("v")) {
 						fillDown = true;
@@ -135,13 +135,13 @@ public class GOTStructureScan {
 					}
 					int y = Integer.parseInt(s12);
 					i = j + 1;
-					j = line.indexOf(".", i);
+					j = line.indexOf('.', i);
 					s12 = line.substring(i, j);
 					int z = Integer.parseInt(s12);
 					i = j + 1;
 					char c = line.charAt(i);
 					if (c == '\"') {
-						j = line.indexOf("\"", i + 1);
+						j = line.indexOf('"', i + 1);
 						s12 = line.substring(i, j + 1);
 						String blockID = s12 = s12.substring(1, s12.length() - 1);
 						Block block = Block.getBlockFromName(blockID);
@@ -169,7 +169,7 @@ public class GOTStructureScan {
 						alias = s12 = s12.substring(1, s12.length() - 1);
 						step = new ScanStepBlockMetaAlias(x, y, z, alias);
 					} else if (c == '/') {
-						j = line.indexOf("/", i + 1);
+						j = line.indexOf('/', i + 1);
 						s12 = line.substring(i, j + 1);
 						String code = s12 = s12.substring(1, s12.length() - 1);
 						if ("SKULL".equals(code)) {

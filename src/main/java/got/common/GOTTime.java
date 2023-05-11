@@ -24,7 +24,7 @@ public class GOTTime {
 
 	public static void advanceToMorning() {
 		long l = worldTime + DAY_LENGTH;
-		setWorldTime(l - l % DAY_LENGTH);
+		worldTime = l - l % DAY_LENGTH;
 	}
 
 	public static File getTimeDat() {

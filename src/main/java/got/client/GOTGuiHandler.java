@@ -127,7 +127,7 @@ public class GOTGuiHandler {
 			proxyGui.setWorldAndResolution(mc, gui.width, gui.height);
 			try {
 				String unformattedText = hoverevent.getValue().getUnformattedText();
-				int splitIndex = unformattedText.indexOf("$");
+				int splitIndex = unformattedText.indexOf('$');
 				String categoryName = unformattedText.substring(0, splitIndex);
 				GOTAchievement.Category category = GOTAchievement.categoryForName(categoryName);
 				int achievementID = Integer.parseInt(unformattedText.substring(splitIndex + 1));

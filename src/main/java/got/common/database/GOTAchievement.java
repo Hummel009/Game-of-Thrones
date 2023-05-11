@@ -403,7 +403,7 @@ public class GOTAchievement {
 	public static GOTAchievement findByName(String name) {
 		for (Category category : Category.values()) {
 			for (GOTAchievement achievement : category.list) {
-				if (achievement.getCodeName().equalsIgnoreCase(name)) {
+				if (achievement.name.equalsIgnoreCase(name)) {
 					return achievement;
 				}
 			}
@@ -808,7 +808,7 @@ public class GOTAchievement {
 
 	public GOTAchievement createTitle(String s) {
 		if (achievementTitle != null) {
-			throw new IllegalArgumentException("GOT achievement " + getCodeName() + " already has an associated title!");
+			throw new IllegalArgumentException("GOT achievement " + name + " already has an associated title!");
 		}
 		achievementTitle = new GOTTitle(s, this);
 		return this;

@@ -81,7 +81,7 @@ public class GOTConnectedTextures {
 
 	public static String getBaseIconName(String blockName) {
 		String s = blockName;
-		int pathIndex = s.indexOf(":");
+		int pathIndex = s.indexOf(':');
 		if (pathIndex >= 0) {
 			s = s.substring(pathIndex + 1);
 		}
@@ -224,7 +224,7 @@ public class GOTConnectedTextures {
 
 	public static String getModID(String blockName) {
 		String s = blockName;
-		int pathIndex = s.indexOf(":");
+		int pathIndex = s.indexOf(':');
 		if (pathIndex >= 0) {
 			return s.substring(0, pathIndex);
 		}

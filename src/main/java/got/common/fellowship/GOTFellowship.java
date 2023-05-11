@@ -83,7 +83,7 @@ public class GOTFellowship {
 					}
 					waypointSharerUUIDs.add(player);
 				}
-				GOTLog.logger.info("Fellowship {} did retroactive waypoint sharer check and found {} out of {} players", getName(), waypointSharerUUIDs.size(), allPlayersSafe.size());
+				GOTLog.logger.info("Fellowship {} did retroactive waypoint sharer check and found {} out of {} players", fellowshipName, waypointSharerUUIDs.size(), allPlayersSafe.size());
 			}
 			doneRetroactiveWaypointSharerCheck = true;
 			markDirty();
@@ -341,7 +341,7 @@ public class GOTFellowship {
 				sender.playerNetServerHandler.kickPlayerFromServer("Illegal characters in chat");
 				return;
 			}
-			ClickEvent fMsgClickEvent = new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/fmsg \"" + getName() + "\" ");
+			ClickEvent fMsgClickEvent = new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/fmsg \"" + fellowshipName + "\" ");
 			IChatComponent msgComponent = ForgeHooks.newChatWithLinks(message);
 			msgComponent.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 			IChatComponent senderComponent = sender.func_145748_c_();
@@ -352,7 +352,7 @@ public class GOTFellowship {
 				return;
 			}
 			chatComponent.appendSibling(msgComponent);
-			ChatComponentTranslation fsComponent = new ChatComponentTranslation("got.command.fmsg.fsPrefix", getName());
+			ChatComponentTranslation fsComponent = new ChatComponentTranslation("got.command.fmsg.fsPrefix", fellowshipName);
 			fsComponent.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 			fsComponent.getChatStyle().setChatClickEvent(fMsgClickEvent);
 			ChatComponentTranslation fullChatComponent = new ChatComponentTranslation("%s %s", fsComponent, chatComponent);

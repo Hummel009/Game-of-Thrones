@@ -171,7 +171,7 @@ public class GOTItemBow extends ItemBow {
 			arrowItem = new ItemStack(Items.arrow);
 		}
 		if (arrowItem != null) {
-			float charge = (float) useTick / getMaxDrawTime();
+			float charge = (float) useTick / bowPullTime;
 			if (charge < 0.65f) {
 				return;
 			}

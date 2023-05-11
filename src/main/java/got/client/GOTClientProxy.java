@@ -718,8 +718,8 @@ public class GOTClientProxy extends GOTCommonProxy {
 					}
 				}
 				if (texIndices != null) {
-					if (type.indexOf("_") > -1) {
-						int age = Integer.parseInt(type.substring(type.indexOf("_") + 1));
+					if (type.indexOf('_') > -1) {
+						int age = Integer.parseInt(type.substring(type.indexOf('_') + 1));
 						customEffectRenderer.addEffect(new GOTEntityLeafFX(worldClient, d, d1, d2, d3, d4, d5, texIndices, age));
 					} else {
 						customEffectRenderer.addEffect(new GOTEntityLeafFX(worldClient, d, d1, d2, d3, d4, d5, texIndices));

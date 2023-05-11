@@ -273,7 +273,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		spawnableCaveCreatureList.clear();
 		spawnableWaterCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityFish.class, 10, 4, 4));
 		spawnableCaveCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityBat.class, 10, 8, 8));
-		setUnreliableChance(GOTEventSpawner.EventChance.COMMON);
+		banditChance = GOTEventSpawner.EventChance.COMMON;
 		invasionSpawns = new GOTBiomeInvasionSpawns(this);
 		GOTFixer.affixWaypointLocations(this);
 	}
@@ -1376,11 +1376,11 @@ public abstract class GOTBiome extends BiomeGenBase {
 		}
 
 		public void resetHeightStretchFactor() {
-			setHeightStretchFactor(-1.0);
+			heightStretchFactor = -1.0;
 		}
 
 		public void resetXZScale() {
-			setXZScale(-1.0);
+			xzScale = -1.0;
 		}
 	}
 

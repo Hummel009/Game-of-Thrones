@@ -126,9 +126,7 @@ public class GOTModelDragonAnimaton {
 		float diff2 = internalKnots[internalKnots.length - 1] - internalKnots[internalKnots.length - 2];
 		result[0] = internalKnots[0] - diff1;
 		result[result.length - 1] = internalKnots[internalKnots.length - 1] + diff2;
-		for (int i = 1; i < result.length - 1; i++) {
-			result[i] = internalKnots[i - 1];
-		}
+		System.arraycopy(internalKnots, 0, result, 1, result.length - 1 - 1);
 		return result;
 	}
 

@@ -150,7 +150,7 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 
 		@Override
 		public String getDisplayName() {
-			return StatCollector.translateToLocal(getCodeName());
+			return StatCollector.translateToLocal(name);
 		}
 
 		@Override

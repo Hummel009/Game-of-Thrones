@@ -757,7 +757,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public boolean isInvasionSpawned() {
-		return getInvasionID() != null;
+		return invasionID != null;
 	}
 
 	public boolean isLegendaryNPC() {

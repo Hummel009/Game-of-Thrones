@@ -225,7 +225,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		str.restrictions = isRestrict;
 		str.usingPlayer = usingPlayer;
 		str.villageInstance = villageInstance;
-		str.setStructureBB(sbb);
+		str.sbb = sbb;
 		r %= 4;
 		return str.generate(world, random, i, j, k, r);
 	}
@@ -1077,7 +1077,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	public void setOriginAndRotation(World world, int i, int j, int k, int rotation, int shift, int shiftX) {
 		--j;
 		rotationMode = rotation;
-		switch (getRotationMode()) {
+		switch (rotationMode) {
 			case 0: {
 				k += shift;
 				i += shiftX;

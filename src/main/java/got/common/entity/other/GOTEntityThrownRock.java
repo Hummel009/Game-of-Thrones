@@ -117,7 +117,7 @@ public class GOTEntityThrownRock extends EntityThrowable {
 	@Override
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
-		setDamage(nbt.getFloat("RockDamage"));
+		damage = nbt.getFloat("RockDamage");
 		setSpawnsTroll(nbt.getBoolean("Troll"));
 	}
 

@@ -269,7 +269,7 @@ public abstract class GOTMiniQuest {
 	}
 
 	public float[] getQuestColorComponents() {
-		return new Color(getQuestColor()).getColorComponents(null);
+		return new Color(questColor).getColorComponents(null);
 	}
 
 	public String getQuestFailure() {
@@ -292,7 +292,7 @@ public abstract class GOTMiniQuest {
 	}
 
 	public boolean isActive() {
-		return !isCompleted() && !isFailed();
+		return !completed && !isFailed();
 	}
 
 	public boolean isCompleted() {
@@ -405,8 +405,8 @@ public abstract class GOTMiniQuest {
 		}
 		if (questGroup == null && (recovery = speechBankStart) != null) {
 			GOTMiniQuestFactory factory2;
-			int i1 = recovery.indexOf("/", 0);
-			int i2 = recovery.indexOf("/", i1 + 1);
+			int i1 = recovery.indexOf('/', 0);
+			int i2 = recovery.indexOf('/', i1 + 1);
 			if (i1 >= 0 && i2 >= 0 && (factory2 = GOTMiniQuestFactory.forName(recovery = recovery.substring(i1 + 1, i2))) != null) {
 				questGroup = factory2;
 			}
@@ -567,9 +567,9 @@ public abstract class GOTMiniQuest {
 		public Q createQuest(GOTEntityNPC npc, Random rand) {
 			GOTMiniQuest quest = newQuestInstance(getQuestClass(), null);
 			if (quest != null) {
-				quest.questGroup = getFactoryGroup();
-				String pathName = "miniquest/" + getFactoryGroup().getBaseName() + "/";
-				String pathNameBaseSpeech = "miniquest/" + getFactoryGroup().getBaseSpeechGroup().getBaseName() + "/";
+				quest.questGroup = questFactoryGroup;
+				String pathName = "miniquest/" + questFactoryGroup.getBaseName() + "/";
+				String pathNameBaseSpeech = "miniquest/" + questFactoryGroup.getBaseSpeechGroup().getBaseName() + "/";
 				String questPathName = pathName + questName + "_";
 				quest.speechBankStart = questPathName + "start";
 				quest.speechBankProgress = questPathName + "progress";

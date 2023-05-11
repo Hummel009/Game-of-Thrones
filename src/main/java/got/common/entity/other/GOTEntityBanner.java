@@ -101,7 +101,7 @@ public class GOTEntityBanner extends Entity {
 		if (owner != null && owner.getId() != null && entityplayer.getUniqueID().equals(owner.getId())) {
 			return true;
 		}
-		return !isStructureProtection() && MinecraftServer.getServer().getConfigurationManager().func_152596_g(entityplayer.getGameProfile()) && entityplayer.capabilities.isCreativeMode;
+		return !structureProtection && MinecraftServer.getServer().getConfigurationManager().func_152596_g(entityplayer.getGameProfile()) && entityplayer.capabilities.isCreativeMode;
 	}
 
 	public boolean clientside_playerHasPermissionInSurvival() {
@@ -248,7 +248,7 @@ public class GOTEntityBanner extends Entity {
 				return true;
 			}
 			float alignment = GOTLevelData.getData(entityplayer).getAlignment(getBannerType().faction);
-			return alignment >= getAlignmentProtection();
+			return alignment >= alignmentProtection;
 		}
 		return false;
 	}
@@ -489,7 +489,7 @@ public class GOTEntityBanner extends Entity {
 		packet.selfProtection = selfProtection;
 		packet.structureProtection = structureProtection;
 		packet.customRange = customRange;
-		packet.alignmentProtection = getAlignmentProtection();
+		packet.alignmentProtection = alignmentProtection;
 		packet.whitelistLength = getWhitelistLength();
 		int maxSendIndex = sendWhitelist ? allowedPlayers.length : 1;
 		String[] whitelistSlots = new String[maxSendIndex];

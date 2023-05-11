@@ -70,7 +70,7 @@ public class GOTMusicTrack extends PositionedSound {
 	public String[] getTrackInfo() {
 		ArrayList<String> list = new ArrayList<>();
 		list.add("Title: " + getTitle());
-		list.add("Filename: " + getFilename());
+		list.add("Filename: " + filename);
 		list.add("Regions:");
 		for (GOTBiomeMusic reg : getAllRegions()) {
 			List<GOTMusicCategory> categories;
@@ -92,7 +92,7 @@ public class GOTMusicTrack extends PositionedSound {
 			}
 		}
 		list.add("Authors:");
-		for (String auth : getAuthors()) {
+		for (String auth : authors) {
 			list.add(">" + auth);
 		}
 		return list.toArray(new String[0]);

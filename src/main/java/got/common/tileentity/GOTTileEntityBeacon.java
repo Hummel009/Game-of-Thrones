@@ -58,7 +58,7 @@ public class GOTTileEntityBeacon extends TileEntity {
 	}
 
 	public boolean isFullyLit() {
-		return isLit() && litCounter == 100;
+		return isLit && litCounter == 100;
 	}
 
 	public boolean isLit() {

@@ -89,7 +89,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 	}
 
 	public float getKilledAlignmentPenalty() {
-		return -getAlignmentBonus() * 2.0f;
+		return -alignmentBonus * 2.0f;
 	}
 
 	@Override
@@ -240,7 +240,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 			GOTPlayerData killerData = GOTLevelData.getData(killer);
 			GOTFaction killerHighestFaction = getPledgeOrHighestAlignmentFaction(killer, 0.0f);
 			if (killerHighestFaction != null) {
-				float killerBonus = getAlignmentBonus();
+				float killerBonus = alignmentBonus;
 				GOTAlignmentValues.AlignmentBonus source = new GOTAlignmentValues.AlignmentBonus(killerBonus, "got.alignment.killedHunter");
 				killerData.addAlignment(killer, source, killerHighestFaction, entityplayer);
 			}

@@ -198,7 +198,7 @@ public abstract class GOTEnchantment {
 	}
 
 	public boolean hasTemplateItem() {
-		return getEnchantWeight() > 0 && isBeneficial();
+		return enchantWeight > 0 && isBeneficial();
 	}
 
 	public abstract boolean isBeneficial();

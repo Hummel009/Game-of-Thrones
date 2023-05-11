@@ -41,10 +41,10 @@ public class GOTFamilyInfo {
 	}
 
 	public boolean canMarryNPC(GOTEntityNPC npc) {
-		if (npc.getClass() != theEntity.getClass() || npc.familyInfo.spouseUniqueID != null || npc.familyInfo.getAge() != 0 || npc.getEquipmentInSlot(4) != null) {
+		if (npc.getClass() != theEntity.getClass() || npc.familyInfo.spouseUniqueID != null || npc.familyInfo.age != 0 || npc.getEquipmentInSlot(4) != null) {
 			return false;
 		}
-		boolean lgbt = GOTConfig.lgbt || npc.familyInfo.isMale() == isMale();
+		boolean lgbt = GOTConfig.lgbt || npc.familyInfo.male == male;
 		if (lgbt || npc == theEntity || maleParentID != null && maleParentID == npc.familyInfo.maleParentID || femaleParentID != null && femaleParentID == npc.familyInfo.femaleParentID) {
 			return false;
 		}
@@ -71,7 +71,7 @@ public class GOTFamilyInfo {
 	}
 
 	public GOTEntityNPC getParentToFollow() {
-		UUID parentToFollowID = isMale() ? maleParentID : femaleParentID;
+		UUID parentToFollowID = male ? maleParentID : femaleParentID;
 		List list = theEntity.worldObj.getEntitiesWithinAABB(theEntity.getClass(), theEntity.boundingBox.expand(16.0, 8.0, 16.0));
 		for (Object element : list) {
 			Entity entity = (Entity) element;
@@ -124,7 +124,7 @@ public class GOTFamilyInfo {
 			return false;
 		}
 		ItemStack itemstack = entityplayer.inventory.getCurrentItem();
-		if (theEntity.canBeMarried && itemstack != null && itemstack.getItem() == GOTRegistry.goldRing && GOTLevelData.getData(entityplayer).getAlignment(theEntity.getFaction()) >= 100.0f && theEntity.getClass() == marriageEntityClass && getAge() == 0 && theEntity.getEquipmentInSlot(0) == null && theEntity.getEquipmentInSlot(4) == null && spouseUniqueID == null) {
+		if (theEntity.canBeMarried && itemstack != null && itemstack.getItem() == GOTRegistry.goldRing && GOTLevelData.getData(entityplayer).getAlignment(theEntity.getFaction()) >= 100.0f && theEntity.getClass() == marriageEntityClass && age == 0 && theEntity.getEquipmentInSlot(0) == null && theEntity.getEquipmentInSlot(4) == null && spouseUniqueID == null) {
 			if (!entityplayer.capabilities.isCreativeMode) {
 				--itemstack.stackSize;
 				if (itemstack.stackSize <= 0) {
@@ -177,10 +177,10 @@ public class GOTFamilyInfo {
 				sendDataToAllWatchers();
 				resendData = false;
 			}
-			if (getAge() < 0) {
-				setAge(getAge() + 1);
-			} else if (getAge() > 0) {
-				setAge(getAge() - 1);
+			if (age < 0) {
+				setAge(age + 1);
+			} else if (age > 0) {
+				setAge(age - 1);
 			}
 			if (drunkTime > 0) {
 				setDrunkTime(drunkTime - 1);
@@ -244,7 +244,7 @@ public class GOTFamilyInfo {
 	}
 
 	public void sendData(EntityPlayerMP entityplayer) {
-		GOTPacketFamilyInfo packet = new GOTPacketFamilyInfo(theEntity.getEntityId(), getAge(), isMale(), getName(), isDrunk());
+		GOTPacketFamilyInfo packet = new GOTPacketFamilyInfo(theEntity.getEntityId(), age, male, name, isDrunk());
 		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 	}
 
@@ -280,10 +280,10 @@ public class GOTFamilyInfo {
 	}
 
 	public void writeToNBT(NBTTagCompound nbt) {
-		nbt.setInteger("NPCAge", getAge());
-		nbt.setBoolean("NPCMale", isMale());
-		if (getName() != null) {
-			nbt.setString("NPCName", getName());
+		nbt.setInteger("NPCAge", age);
+		nbt.setBoolean("NPCMale", male);
+		if (name != null) {
+			nbt.setString("NPCName", name);
 		}
 		nbt.setInteger("NPCDrunkTime", drunkTime);
 		if (spouseUniqueID != null) {
