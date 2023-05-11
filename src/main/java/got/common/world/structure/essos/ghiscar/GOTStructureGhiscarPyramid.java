@@ -10,9 +10,7 @@ import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class GOTStructureGhiscarPyramid extends GOTStructureBase {
@@ -104,6 +102,10 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 				for (int i15 = -r; i15 <= r; ++i15) {
 					for (int k15 = -r; k15 <= r; ++k15) {
 						placeRandomBrick(world, random, i15, j12, k15);
+						if (Math.abs(i15) != r - 1 && Math.abs(k15) != r - 1 || random.nextInt(3) != 0) {
+							continue;
+						}
+						placeRandomBrick(world, random, i15, j12 + 1, k15);
 					}
 				}
 			}
@@ -126,7 +128,7 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 				setBlockAndMetadata(world, i15, topHeight + 4, k17, GOTRegistry.brick1, 15);
 			}
 		}
-		generateMaze(world, random, 0, topHeight - 13, 0, maze1, 5, 1, false);
+		generateMaze(world, random, 0, topHeight - 13, 0, maze1, 5, 1);
 		int stepX = 0;
 		int stepY = topHeight - 1;
 		int stepZ = 3;
@@ -174,7 +176,7 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 		for (int j16 = topHeight - 18 + 2; j16 < topHeight - 13; ++j16) {
 			setAir(world, maze1End[0] - (maze1.xSize - 1) / 2, j16, maze1End[1] - (maze1.zSize - 1) / 2);
 		}
-		generateMaze(world, random, 0, topHeight - 18, 0, maze2, 2, 1, false);
+		generateMaze(world, random, 0, topHeight - 18, 0, maze2, 2, 1);
 		int[] maze2End = maze2.getEnd();
 		for (int j17 = topHeight - 22; j17 < topHeight - 18; ++j17) {
 			setAir(world, maze2End[0] - (maze2.xSize - 1) / 2, j17, maze2End[1] - (maze2.zSize - 1) / 2);
@@ -200,18 +202,20 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 					setBlockAndMetadata(world, i17, topHeight - 25, k17, Blocks.fire, 0);
 				} else if (i2 >= chamberRMax - 1 && k2 >= chamberRMax - 1) {
 					setBlockAndMetadata(world, i17, topHeight - 26, k17, GOTRegistry.brick1, 15);
+				} else if (i2 >= chamberRMax - 2 && k2 >= chamberRMax - 2) {
+					setBlockAndMetadata(world, i17, topHeight - 26, k17, GOTRegistry.slabSingle4, 0);
 				}
 				if ((i2 != chamberRMax || k2 % 6 != 0 || k2 >= chamberRMax - 4) && (k2 != chamberRMax || i2 % 6 != 0 || i2 >= chamberRMax - 4)) {
 					continue;
 				}
-				Block pillarBlock = GOTRegistry.brick1;
-				int pillarMeta = 15;
+				Block pillarBlock = GOTRegistry.pillar1;
+				int pillarMeta = 5;
 				for (int j19 = topHeight - 26; j19 < topHeight - 22; ++j19) {
 					setBlockAndMetadata(world, i17, j19, k17, pillarBlock, pillarMeta);
 				}
 			}
 		}
-		generateMaze(world, random, 0, topHeight - 35, 0, maze3, 4, 3, true);
+		generateMaze(world, random, 0, topHeight - 35, 0, maze3, 4, 3);
 		int[] maze3End = maze3.getEnd();
 		int maze3EndX = maze3End[0] - (maze3.xSize - 1) / 2;
 		int maze3EndZ = maze3End[1] - (maze3.zSize - 1) / 2;
@@ -322,11 +326,50 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 					if (max <= 3 || i2 > 1 && k2 > 1) {
 						continue;
 					}
+					if (max % 2 == 0) {
+						setBlockAndMetadata(world, i12, lvlMax, k1, GOTRegistry.slabSingle4, 0);
+						continue;
+					}
 					setBlockAndMetadata(world, i12, lvlMax, k1, GOTRegistry.brick1, 15);
 					continue;
 				}
 				for (j112 = roomBottom + 1; j112 <= roomFloor; ++j112) {
-					setBlockAndMetadata(world, i12, j112, k1, Blocks.water, 0);
+					setBlockAndMetadata(world, i12, j112, k1, Blocks.lava, 0);
+				}
+				if (random.nextInt(300) == 0) {
+					setBlockAndMetadata(world, i12, actingRoomTop, k1, Blocks.flowing_lava, 0);
+				}
+				if (i2 == roomPillarEdge - 1 || k2 == roomPillarEdge - 1) {
+					if (random.nextInt(4) == 0) {
+						continue;
+					}
+					setBlockAndMetadata(world, i12, roomFloor, k1, GOTRegistry.scorchedStone, 0);
+					continue;
+				}
+				if (i2 == roomPillarEdge - 2 || k2 == roomPillarEdge - 2) {
+					if (random.nextInt(2) != 0) {
+						continue;
+					}
+					setBlockAndMetadata(world, i12, roomFloor, k1, GOTRegistry.scorchedStone, 0);
+					continue;
+				}
+				if (i2 == roomPillarEdge - 3 || k2 == roomPillarEdge - 3) {
+					if (random.nextInt(4) != 0) {
+						continue;
+					}
+					setBlockAndMetadata(world, i12, roomFloor, k1, GOTRegistry.scorchedStone, 0);
+					continue;
+				}
+				if (random.nextInt(16) == 0) {
+					placeRandomBrick(world, random, i12, roomFloor, k1);
+				}
+				if (random.nextInt(200) != 0) {
+					continue;
+				}
+				Block pillarBlock = GOTRegistry.pillar1;
+				int pillarMeta = 5;
+				for (j111 = roomBottom + 1; j111 < actingRoomTop; ++j111) {
+					setBlockAndMetadata(world, i12, j111, k1, pillarBlock, pillarMeta);
 				}
 			}
 		}
@@ -396,7 +439,7 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 		return true;
 	}
 
-	public void generateMaze(World world, Random random, int i, int j, int k, GOTMazeGenerator maze, int height, int scale, boolean traps) {
+	public void generateMaze(World world, Random random, int i, int j, int k, GOTMazeGenerator maze, int height, int scale) {
 		int xr = (maze.xSize - 1) / 2;
 		int zr = (maze.zSize - 1) / 2;
 		i -= xr;
@@ -420,26 +463,6 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 					if (maze.isDeadEnd(i1, k1) && random.nextInt(3) == 0) {
 						setBlockAndMetadata(world, (i + i1) * scale - scaleR, j + 1, (k + k1) * scale - scaleR, Blocks.torch, 0);
 					}
-					if (!traps || maze.isPath(i1, k1) || random.nextInt(4) != 0) {
-						continue;
-					}
-					ArrayList<ForgeDirection> validDirs = new ArrayList<>();
-					if (i1 - 1 >= 0 && maze.isPath(i1 - 1, k1)) {
-						validDirs.add(ForgeDirection.WEST);
-					}
-					if (i1 + 1 < maze.xSize && maze.isPath(i1 + 1, k1)) {
-						validDirs.add(ForgeDirection.EAST);
-					}
-					if (k1 - 1 >= 0 && maze.isPath(i1, k1 - 1)) {
-						validDirs.add(ForgeDirection.NORTH);
-					}
-					if (k1 + 1 < maze.zSize && maze.isPath(i1, k1 + 1)) {
-						validDirs.add(ForgeDirection.SOUTH);
-					}
-					if (validDirs.isEmpty()) {
-						continue;
-					}
-					setBlockAndMetadata(world, i, j, k, GOTRegistry.stairsSandstoneBrick, 0);
 				}
 			}
 		}
@@ -454,10 +477,19 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 	}
 
 	public void placeRandomBrick(World world, Random random, int i, int j, int k) {
-		setBlockAndMetadata(world, i, j, k, GOTRegistry.brick1, 15);
+		if (random.nextBoolean()) {
+			setBlockAndMetadata(world, i, j, k, GOTRegistry.brick3, 11);
+		} else {
+			setBlockAndMetadata(world, i, j, k, GOTRegistry.brick1, 15);
+		}
 	}
 
 	public void placeRandomStairs(World world, Random random, int i, int j, int k, int meta) {
-		setBlockAndMetadata(world, i, j, k, GOTRegistry.stairsSandstoneBrick, meta);
+		if (random.nextBoolean()) {
+			setBlockAndMetadata(world, i, j, k, GOTRegistry.stairsSandstoneBrickCracked, meta);
+		} else {
+			setBlockAndMetadata(world, i, j, k, GOTRegistry.stairsSandstoneBrick, meta);
+		}
 	}
+
 }

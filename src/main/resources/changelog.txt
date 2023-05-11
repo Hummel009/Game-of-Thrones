@@ -3,6 +3,9 @@ CHANGELOG
 >>BUILD ??
 + Now conquested enemy waypoints are red on the map
 
+* Meereen wp, city and pyramid were moved to be easily found from point.
+
+* Improved ghiscar pyramids (gameplay isn't broken now)
 * Improved crossbowers' AI
 * Improved wetwood biome
 * Improved translations

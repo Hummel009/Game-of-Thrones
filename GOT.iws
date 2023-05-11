@@ -8,7 +8,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8c8107d-f3ae-479d-9562-bcf68c392981" name="Changes" comment="" />
+    <list default="true" id="b8c8107d-f3ae-479d-9562-bcf68c392981" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/GOT.iws" beforeDir="false" afterPath="$PROJECT_DIR$/GOT.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/map/GOTFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/map/GOTFixer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/map/GOTWaypoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/map/GOTWaypoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/structure/essos/ghiscar/GOTStructureGhiscarPyramid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/structure/essos/ghiscar/GOTStructureGhiscarPyramid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/changelog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/changelog.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -230,7 +236,7 @@
       <option name="presentableId" value="Default" />
       <updated>1682857332714</updated>
       <workItem from="1682857294118" duration="1246000" />
-      <workItem from="1683815837754" duration="3462000" />
+      <workItem from="1683815837754" duration="6161000" />
     </task>
     <servers />
   </component>
