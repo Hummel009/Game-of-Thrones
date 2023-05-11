@@ -21,7 +21,7 @@ public class GOTBlockCraftingTable extends Block {
 	public static List<GOTBlockCraftingTable> allCraftingTables = new ArrayList<>();
 	public GOTFaction tableFaction;
 	public int tableGUIID;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] tableIcons;
 
 	public GOTBlockCraftingTable(Material material, GOTFaction faction, int guiID) {
@@ -33,7 +33,7 @@ public class GOTBlockCraftingTable extends Block {
 		allCraftingTables.add(this);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (i == 1) {
@@ -67,7 +67,7 @@ public class GOTBlockCraftingTable extends Block {
 		return true;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		tableIcons = new IIcon[2];

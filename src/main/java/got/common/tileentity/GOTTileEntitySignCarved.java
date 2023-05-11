@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 
 public class GOTTileEntitySignCarved extends GOTTileEntitySign {
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared() {
 		return 1600.0;
 	}

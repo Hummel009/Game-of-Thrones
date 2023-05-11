@@ -12,7 +12,7 @@ public class GOTBlockGlassBottle extends GOTBlockMug {
 		setStepSound(Block.soundTypeGlass);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		return Blocks.glass.getIcon(i, 0);

@@ -15,7 +15,7 @@ public class GOTBlockSlabV extends GOTBlockSlabBase {
 		setCreativeTab(CreativeTabs.tabBlock);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		j &= 7;
@@ -38,7 +38,7 @@ public class GOTBlockSlabV extends GOTBlockSlabBase {
 		return super.getIcon(i, j);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 	}

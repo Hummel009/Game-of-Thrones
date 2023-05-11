@@ -11,7 +11,7 @@ public class GOTBlockClayMug extends GOTBlockMug {
 		setStepSound(Block.soundTypeStone);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		return Blocks.hardened_clay.getIcon(i, 0);

@@ -13,7 +13,7 @@ import net.minecraft.util.IIcon;
 import java.util.List;
 
 public class GOTBlockClayTileDyed extends GOTBlockClayTile {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] clayIcons;
 
 	@Override
@@ -21,7 +21,7 @@ public class GOTBlockClayTileDyed extends GOTBlockClayTile {
 		return i;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (j >= 16) {
@@ -30,7 +30,7 @@ public class GOTBlockClayTileDyed extends GOTBlockClayTile {
 		return clayIcons[j];
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < 16; ++i) {
@@ -38,7 +38,7 @@ public class GOTBlockClayTileDyed extends GOTBlockClayTile {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		clayIcons = new IIcon[16];

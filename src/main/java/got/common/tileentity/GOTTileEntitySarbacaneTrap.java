@@ -23,7 +23,7 @@ public class GOTTileEntitySarbacaneTrap extends TileEntityDispenser {
 		return hasCustomInventoryName() ? field_146020_a : "got.container.dartTrap";
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		return getTriggerRange();

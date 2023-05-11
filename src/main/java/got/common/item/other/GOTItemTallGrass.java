@@ -13,7 +13,7 @@ public class GOTItemTallGrass extends GOTItemBlockMetadata {
 		super(block);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getColorFromItemStack(ItemStack itemstack, int pass) {
 		if (pass > 0) {
@@ -22,7 +22,7 @@ public class GOTItemTallGrass extends GOTItemBlockMetadata {
 		return super.getColorFromItemStack(itemstack, pass);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIconFromDamageForRenderPass(int meta, int pass) {
 		if (pass > 0) {

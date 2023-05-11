@@ -10,7 +10,7 @@ public class GOTBlockWallClayTile extends GOTBlockWallBase {
 		super(GOTRegistry.clayTile, 1);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		return GOTRegistry.clayTile.getIcon(i, j);

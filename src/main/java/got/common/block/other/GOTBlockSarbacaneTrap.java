@@ -21,7 +21,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class GOTBlockSarbacaneTrap extends BlockContainer {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon trapIcon;
 	public Block modelBlock;
 	public int modelBlockMeta;
@@ -55,7 +55,7 @@ public class GOTBlockSarbacaneTrap extends BlockContainer {
 		return Container.calcRedstoneFromInventory((IInventory) world.getTileEntity(i, j, k));
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(IBlockAccess world, int i, int j, int k, int side) {
 		int meta = world.getBlockMetadata(i, j, k);
@@ -65,7 +65,7 @@ public class GOTBlockSarbacaneTrap extends BlockContainer {
 		return modelBlock.getIcon(i, modelBlockMeta);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (i == 3) {
@@ -113,7 +113,7 @@ public class GOTBlockSarbacaneTrap extends BlockContainer {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		trapIcon = iconregister.registerIcon(getTextureName() + "_face");

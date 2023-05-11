@@ -29,7 +29,7 @@ public class GOTEntityAngryFX extends EntityFX {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public int getBrightnessForRender(float f) {
 		return 15728880;
 	}

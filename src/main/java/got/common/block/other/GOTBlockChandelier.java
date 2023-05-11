@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Random;
 
 public class GOTBlockChandelier extends Block {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] chandelierIcons;
 	public String[] chandelierNames = {"bronze", "iron", "silver", "gold", "valyrian", "bronze", "bronze", "bronze", "bronze", "bronze", "bronze", "bronze", "asshai", "bronze", "bronze", "bronze"};
 
@@ -77,7 +77,7 @@ public class GOTBlockChandelier extends Block {
 		return 1;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		list.add(new ItemStack(item, 1, 0));
@@ -101,7 +101,7 @@ public class GOTBlockChandelier extends Block {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
 		int meta = world.getBlockMetadata(i, j, k);
@@ -114,7 +114,7 @@ public class GOTBlockChandelier extends Block {
 		spawnChandelierParticles(world, i + d1, j + d2, k + d, random, meta);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		chandelierIcons = new IIcon[chandelierNames.length];

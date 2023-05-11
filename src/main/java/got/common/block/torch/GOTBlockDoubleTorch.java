@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTBlockDoubleTorch extends Block {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] torchIcons;
 	public Item torchItem;
 
@@ -45,13 +45,13 @@ public class GOTBlockDoubleTorch extends Block {
 		return null;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		return j == 1 ? torchIcons[1] : torchIcons[0];
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public Item getItem(World world, int i, int j, int k) {
 		return torchItem;
@@ -75,7 +75,7 @@ public class GOTBlockDoubleTorch extends Block {
 		return GOT.proxy.getDoubleTorchRenderID();
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int i, int j, int k) {
 		int meta = world.getBlockMetadata(i, j, k);
@@ -122,7 +122,7 @@ public class GOTBlockDoubleTorch extends Block {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
 		if (world.getBlockMetadata(i, j, k) == 1) {
@@ -134,7 +134,7 @@ public class GOTBlockDoubleTorch extends Block {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		torchIcons = new IIcon[2];

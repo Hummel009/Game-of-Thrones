@@ -39,7 +39,7 @@ public class GOTBlockFence extends BlockFence {
 		return i;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		return plankBlock.getIcon(i, j);
@@ -53,7 +53,7 @@ public class GOTBlockFence extends BlockFence {
 		return super.getRenderType();
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		ArrayList plankTypes = new ArrayList<>();
@@ -68,7 +68,7 @@ public class GOTBlockFence extends BlockFence {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 	}

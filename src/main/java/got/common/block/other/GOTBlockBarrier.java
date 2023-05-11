@@ -23,7 +23,7 @@ public class GOTBlockBarrier extends Block {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5) {
 		if (Minecraft.getMinecraft().thePlayer.capabilities.isCreativeMode) {
 			return true;

@@ -11,9 +11,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.IIcon;
 
 public class GOTBlockButterflyJar extends GOTBlockAnimalJar {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon glassIcon;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon lidIcon;
 
 	public GOTBlockButterflyJar() {
@@ -28,7 +28,7 @@ public class GOTBlockButterflyJar extends GOTBlockAnimalJar {
 		return entity instanceof GOTEntityButterfly;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (i == -1) {
@@ -42,7 +42,7 @@ public class GOTBlockButterflyJar extends GOTBlockAnimalJar {
 		return 0.25f;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getRenderBlockPass() {
 		return 1;
@@ -53,7 +53,7 @@ public class GOTBlockButterflyJar extends GOTBlockAnimalJar {
 		return GOT.proxy.getButterflyJarRenderID();
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		glassIcon = iconregister.registerIcon(getTextureName() + "_glass");

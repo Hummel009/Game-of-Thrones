@@ -17,7 +17,7 @@ public class GOTPotionPoisonKilling extends Potion {
 		setIconIndex(0, 0);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public boolean hasStatusIcon() {
 		return false;
@@ -34,7 +34,7 @@ public class GOTPotionPoisonKilling extends Potion {
 		entity.attackEntityFrom(GOTDamage.poisonDrink, 1.0f);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void renderInventoryEffect(int x, int y, PotionEffect effect, Minecraft mc) {
 		GOT.proxy.renderCustomPotionEffect(x, y, effect, mc);

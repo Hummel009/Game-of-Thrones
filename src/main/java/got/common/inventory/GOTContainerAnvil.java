@@ -437,7 +437,7 @@ public class GOTContainerAnvil extends Container {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void updateProgressBar(int i, int j) {
 		if (i == 0) {
 			materialCost = j;

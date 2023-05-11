@@ -17,7 +17,7 @@ public class GOTBlockSlab1 extends GOTBlockSlabBase {
 		super(flag, Material.rock, 8);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		j &= 7;
@@ -44,7 +44,7 @@ public class GOTBlockSlab1 extends GOTBlockSlabBase {
 		return super.getIcon(i, j);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		list.add(new ItemStack(item, 1, 0));
@@ -56,7 +56,7 @@ public class GOTBlockSlab1 extends GOTBlockSlabBase {
 		list.add(new ItemStack(item, 1, 6));
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 	}

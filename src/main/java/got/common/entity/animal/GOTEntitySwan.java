@@ -150,7 +150,7 @@ public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature,
 		return new ItemStack(GOTRegistry.spawnEgg, 1, GOTEntityRegistry.getEntityID(this));
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void handleHealthUpdate(byte b) {
 		if (b == 20) {

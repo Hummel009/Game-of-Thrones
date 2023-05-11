@@ -11,7 +11,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.EnumPlantType;
 
 public class GOTBlockCucumberCrop extends BlockCrops {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] cucumberIcons;
 
 	@Override
@@ -24,7 +24,7 @@ public class GOTBlockCucumberCrop extends BlockCrops {
 		return GOTRegistry.cucumberSeeds;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (j < 7) {
@@ -41,7 +41,7 @@ public class GOTBlockCucumberCrop extends BlockCrops {
 		return EnumPlantType.Crop;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		cucumberIcons = new IIcon[3];

@@ -31,9 +31,9 @@ import java.util.UUID;
 
 public class GOTItemBrandingIron extends Item {
 	public static int HEAT_USES = 5;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon iconCool;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon iconHot;
 
 	public GOTItemBrandingIron() {
@@ -107,7 +107,7 @@ public class GOTItemBrandingIron extends Item {
 		return iconCool;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIconIndex(ItemStack itemstack) {
 		return this.getIcon(itemstack, 0);
@@ -197,7 +197,7 @@ public class GOTItemBrandingIron extends Item {
 		return false;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IIconRegister iconregister) {
 		iconCool = iconregister.registerIcon(getIconString());

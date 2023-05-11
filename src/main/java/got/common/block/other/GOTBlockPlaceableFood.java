@@ -19,13 +19,13 @@ import java.util.Random;
 
 public class GOTBlockPlaceableFood extends Block {
 	public static int MAX_EATS = 6;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon iconBottom;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon iconTop;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon iconSide;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon iconEaten;
 	public Item foodItem;
 	public float foodHalfWidth;
@@ -92,7 +92,7 @@ public class GOTBlockPlaceableFood extends Block {
 		return drops;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (i == 0) {
@@ -107,7 +107,7 @@ public class GOTBlockPlaceableFood extends Block {
 		return iconSide;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public Item getItem(World world, int i, int j, int k) {
 		if (foodItem != null) {
@@ -121,7 +121,7 @@ public class GOTBlockPlaceableFood extends Block {
 		return null;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int i, int j, int k) {
 		return getCollisionBoundingBoxFromPool(world, i, j, k);
@@ -152,7 +152,7 @@ public class GOTBlockPlaceableFood extends Block {
 		return 0;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		iconBottom = iconregister.registerIcon(getTextureName() + "_bottom");

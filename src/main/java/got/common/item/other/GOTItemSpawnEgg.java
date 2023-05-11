@@ -50,14 +50,14 @@ public class GOTItemSpawnEgg extends Item {
 		return entity;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getColorFromItemStack(ItemStack itemstack, int i) {
 		GOTEntityRegistry.SpawnEggInfo info = GOTEntityRegistry.spawnEggs.get(itemstack.getItemDamage());
 		return info != null ? i == 0 ? info.primaryColor : info.secondaryColor : 16777215;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIconFromDamageForRenderPass(int i, int j) {
 		return Items.spawn_egg.getIconFromDamageForRenderPass(i, j);
@@ -73,7 +73,7 @@ public class GOTItemSpawnEgg extends Item {
 		return itemName.toString();
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (GOTEntityRegistry.SpawnEggInfo info : GOTEntityRegistry.spawnEggs.values()) {
@@ -111,12 +111,12 @@ public class GOTItemSpawnEgg extends Item {
 		return true;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IIconRegister iconregister) {
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public boolean requiresMultipleRenderPasses() {
 		return true;

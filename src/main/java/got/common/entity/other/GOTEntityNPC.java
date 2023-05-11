@@ -750,7 +750,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public boolean isInRangeToRenderDist(double dist) {
 		EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
 		if (entityplayer != null && !GOTLevelData.getData(entityplayer).getMiniQuestsForEntity(this, true).isEmpty()) {

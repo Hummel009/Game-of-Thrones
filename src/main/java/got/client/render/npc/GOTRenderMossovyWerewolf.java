@@ -7,7 +7,7 @@ import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
-@SideOnly(value = Side.CLIENT)
+@SideOnly(Side.CLIENT)
 public class GOTRenderMossovyWerewolf extends RenderLiving {
 
 	public GOTRenderMossovyWerewolf() {

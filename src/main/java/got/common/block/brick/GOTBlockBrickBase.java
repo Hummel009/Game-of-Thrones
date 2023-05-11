@@ -14,7 +14,7 @@ import net.minecraft.util.IIcon;
 import java.util.List;
 
 public abstract class GOTBlockBrickBase extends Block {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] brickIcons;
 	public String[] brickNames;
 
@@ -31,7 +31,7 @@ public abstract class GOTBlockBrickBase extends Block {
 		return i;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (j >= brickNames.length) {
@@ -40,7 +40,7 @@ public abstract class GOTBlockBrickBase extends Block {
 		return brickIcons[j];
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < brickNames.length; ++i) {
@@ -48,7 +48,7 @@ public abstract class GOTBlockBrickBase extends Block {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		brickIcons = new IIcon[brickNames.length];

@@ -26,7 +26,7 @@ public abstract class GOTBlockWallBase extends BlockWall {
 		return true;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int j = 0; j < subtypes; ++j) {

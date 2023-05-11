@@ -55,7 +55,7 @@ public class GOTItemRobes extends GOTItemArmor {
 		itemstack.getTagCompound().setInteger("RobesColor", i);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		if (GOTItemRobes.areRobesDyed(itemstack)) {
@@ -63,7 +63,7 @@ public class GOTItemRobes extends GOTItemArmor {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getColorFromItemStack(ItemStack itemstack, int pass) {
 		return GOTItemRobes.getRobesColor(itemstack);

@@ -76,7 +76,7 @@ public class GOTEntityBannerWall extends EntityHanging {
 		dataWatcher.updateObject(18, (short) i);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getBrightnessForRender(float f) {
 		int k;

@@ -10,7 +10,7 @@ public class GOTWorldType extends WorldType {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public boolean showWorldInfoNotice() {
 		return true;
 	}

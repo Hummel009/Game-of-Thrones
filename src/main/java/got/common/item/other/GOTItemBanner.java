@@ -30,12 +30,12 @@ import java.util.List;
 import java.util.Map;
 
 public class GOTItemBanner extends Item {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon iconBase;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon iconOverlay;
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 
 	public GOTItemBanner() {
 		setCreativeTab(GOTCreativeTabs.tabBanner);
@@ -94,7 +94,7 @@ public class GOTItemBanner extends Item {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		NBTTagCompound protectData = GOTItemBanner.getProtectionData(itemstack);
 		if (protectData != null) {
@@ -102,7 +102,7 @@ public class GOTItemBanner extends Item {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getColorFromItemStack(ItemStack itemstack, int pass) {
 		EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
@@ -115,7 +115,7 @@ public class GOTItemBanner extends Item {
 		return GOTItemBanner.getBannerType(itemstack.getItemDamage()).faction.eggColor;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIconFromDamageForRenderPass(int i, int pass) {
 		if (pass == 0) {
@@ -125,7 +125,7 @@ public class GOTItemBanner extends Item {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (BannerType type : BannerType.bannerTypes) {
 			list.add(new ItemStack(item, 1, type.bannerID));
@@ -215,14 +215,14 @@ public class GOTItemBanner extends Item {
 		return false;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IIconRegister iconregister) {
 		iconBase = iconregister.registerIcon(getIconString() + "_base");
 		iconOverlay = iconregister.registerIcon(getIconString() + "_overlay");
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public boolean requiresMultipleRenderPasses() {
 		return true;

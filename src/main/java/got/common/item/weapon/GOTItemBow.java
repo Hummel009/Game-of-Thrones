@@ -34,7 +34,7 @@ public class GOTItemBow extends ItemBow {
 	public Item.ToolMaterial bowMaterial;
 	public double arrowDamageFactor;
 	public int bowPullTime;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] bowPullIcons;
 
 	public GOTItemBow(Item.ToolMaterial material) {
@@ -98,7 +98,7 @@ public class GOTItemBow extends ItemBow {
 		return BowState.HELD;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(ItemStack itemstack, int renderPass, EntityPlayer entityplayer, ItemStack usingItem, int useRemaining) {
 		BowState bowState = getBowState(entityplayer, usingItem, useRemaining);
@@ -201,7 +201,7 @@ public class GOTItemBow extends ItemBow {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IIconRegister iconregister) {
 		itemIcon = iconregister.registerIcon(getIconString());

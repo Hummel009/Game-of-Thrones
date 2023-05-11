@@ -18,9 +18,9 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 public class GOTBlockCommandTable extends BlockContainer {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon topIcon;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon sideIcon;
 
 	public GOTBlockCommandTable() {
@@ -35,7 +35,7 @@ public class GOTBlockCommandTable extends BlockContainer {
 		return new GOTTileEntityCommandTable();
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (i == 1 || i == 0) {
@@ -81,7 +81,7 @@ public class GOTBlockCommandTable extends BlockContainer {
 		return false;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		sideIcon = iconregister.registerIcon(getTextureName() + "_side");

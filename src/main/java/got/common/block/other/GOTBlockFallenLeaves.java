@@ -78,7 +78,7 @@ public class GOTBlockFallenLeaves extends Block implements IShearable {
 		return canBlockStay(world, i, j, k);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int colorMultiplier(IBlockAccess world, int i, int j, int k) {
 		int meta = world.getBlockMetadata(i, j, k);
@@ -91,7 +91,7 @@ public class GOTBlockFallenLeaves extends Block implements IShearable {
 		return i;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		Object[] obj = leafBlockMetaFromFallenMeta(j);
@@ -107,7 +107,7 @@ public class GOTBlockFallenLeaves extends Block implements IShearable {
 		return leafBlocks;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getRenderColor(int i) {
 		Object[] obj = leafBlockMetaFromFallenMeta(i);
@@ -119,7 +119,7 @@ public class GOTBlockFallenLeaves extends Block implements IShearable {
 		return GOT.proxy.getFallenLeavesRenderID();
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < leafBlocks.length; ++i) {
@@ -164,7 +164,7 @@ public class GOTBlockFallenLeaves extends Block implements IShearable {
 		return drops;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 	}

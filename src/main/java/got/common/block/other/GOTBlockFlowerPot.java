@@ -72,7 +72,7 @@ public class GOTBlockFlowerPot extends BlockFlowerPot implements ITileEntityProv
 		return drops;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		return Blocks.flower_pot.getIcon(i, j);
@@ -101,7 +101,7 @@ public class GOTBlockFlowerPot extends BlockFlowerPot implements ITileEntityProv
 		super.onBlockHarvested(world, i, j, k, meta, entityplayer);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
 		if (GOTBlockFlowerPot.getPlant(world, i, j, k) != null && GOTBlockFlowerPot.getPlant(world, i, j, k).getItem() == Item.getItemFromBlock(GOTRegistry.pipeweedPlant)) {
@@ -112,7 +112,7 @@ public class GOTBlockFlowerPot extends BlockFlowerPot implements ITileEntityProv
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 	}

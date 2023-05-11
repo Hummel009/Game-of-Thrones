@@ -27,7 +27,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTBlockBarrel extends BlockContainer {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] barrelIcons;
 
 	public GOTBlockBarrel() {
@@ -71,7 +71,7 @@ public class GOTBlockBarrel extends BlockContainer {
 		return itemstack;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (i == -1) {
@@ -212,7 +212,7 @@ public class GOTBlockBarrel extends BlockContainer {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		barrelIcons = new IIcon[3];

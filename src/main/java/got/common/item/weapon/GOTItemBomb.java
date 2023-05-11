@@ -21,7 +21,7 @@ public class GOTItemBomb extends ItemBlock {
 		BlockDispenser.dispenseBehaviorRegistry.putObject(this, new GOTDispenseBomb());
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		int meta = itemstack.getItemDamage();

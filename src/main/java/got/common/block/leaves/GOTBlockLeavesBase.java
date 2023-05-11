@@ -20,7 +20,7 @@ import java.util.List;
 
 public class GOTBlockLeavesBase extends BlockLeaves {
 	public static List allLeafBlocks = new ArrayList<>();
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[][] leafIcons;
 	public String[] leafNames;
 	public boolean[] seasonal;
@@ -77,7 +77,7 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 		return chance;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int colorMultiplier(IBlockAccess world, int i, int j, int k) {
 		return 16777215;
@@ -104,7 +104,7 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 		return drops;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		int meta = j & 3;
@@ -114,7 +114,7 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 		return leafIcons[meta][field_150121_P ? 0 : 1];
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getRenderColor(int i) {
 		return 16777215;
@@ -129,7 +129,7 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 		return 20;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int j = 0; j < leafNames.length; ++j) {
@@ -145,7 +145,7 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 		return super.getTextureName();
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		leafIcons = new IIcon[leafNames.length][2];

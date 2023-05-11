@@ -125,7 +125,7 @@ public class GOTEntityTraderRespawn extends Entity {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void handleHealthUpdate(byte b) {
 		if (b == 16) {
 			for (int l = 0; l < 16; ++l) {

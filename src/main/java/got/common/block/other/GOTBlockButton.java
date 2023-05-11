@@ -15,7 +15,7 @@ public class GOTBlockButton extends BlockButton {
 		setCreativeTab(GOTCreativeTabs.tabMisc);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		blockIcon = iconregister.registerIcon(iconPath);

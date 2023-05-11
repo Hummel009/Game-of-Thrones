@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTBlockBomb extends Block {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] bombIcons;
 
 	public GOTBlockBomb() {
@@ -45,7 +45,7 @@ public class GOTBlockBomb extends Block {
 		return false;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int colorMultiplier(IBlockAccess world, int i, int j, int k) {
 		int meta = world.getBlockMetadata(i, j, k);
@@ -64,7 +64,7 @@ public class GOTBlockBomb extends Block {
 		return i;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		boolean isFire = GOTBlockBomb.isFireBomb(j);
@@ -77,7 +77,7 @@ public class GOTBlockBomb extends Block {
 		return isFire ? bombIcons[3] : bombIcons[0];
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getRenderColor(int i) {
 		int strength = GOTBlockBomb.getBombStrengthLevel(i);
@@ -95,7 +95,7 @@ public class GOTBlockBomb extends Block {
 		return GOT.proxy.getBombRenderID();
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i <= 1; ++i) {
@@ -162,7 +162,7 @@ public class GOTBlockBomb extends Block {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		bombIcons = new IIcon[5];

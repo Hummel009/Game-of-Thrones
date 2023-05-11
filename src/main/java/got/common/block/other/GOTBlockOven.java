@@ -24,7 +24,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTBlockOven extends BlockContainer {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] ovenIcons;
 
 	public GOTBlockOven() {
@@ -65,7 +65,7 @@ public class GOTBlockOven extends BlockContainer {
 		return Container.calcRedstoneFromInventory((IInventory) world.getTileEntity(i, j, k));
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(IBlockAccess world, int i, int j, int k, int side) {
 		if (side == 1 || side == 0) {
@@ -75,7 +75,7 @@ public class GOTBlockOven extends BlockContainer {
 		return side != meta ? ovenIcons[0] : GOTBlockOven.isOvenActive(world, i, j, k) ? ovenIcons[3] : ovenIcons[2];
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		return i == 1 || i == 0 ? ovenIcons[1] : i == 3 ? ovenIcons[2] : ovenIcons[0];
@@ -125,7 +125,7 @@ public class GOTBlockOven extends BlockContainer {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
 		if (GOTBlockOven.isOvenActive(world, i, j, k)) {
@@ -158,7 +158,7 @@ public class GOTBlockOven extends BlockContainer {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		ovenIcons = new IIcon[4];

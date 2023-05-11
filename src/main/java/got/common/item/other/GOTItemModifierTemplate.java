@@ -55,7 +55,7 @@ public class GOTItemModifierTemplate extends Item {
 		itemstack.setTagInfo("ScrollModifier", new NBTTagString(s));
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		super.addInformation(itemstack, entityplayer, list, flag);
@@ -76,7 +76,7 @@ public class GOTItemModifierTemplate extends Item {
 		return s;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (GOTEnchantment ench : GOTEnchantment.allEnchantments) {

@@ -18,7 +18,7 @@ public class GOTBlockTableAsshai extends GOTBlockCraftingTable {
 		setStepSound(Block.soundTypeWood);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (i == 1) {

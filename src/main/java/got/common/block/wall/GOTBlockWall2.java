@@ -15,7 +15,7 @@ public class GOTBlockWall2 extends GOTBlockWallBase {
 		super(GOTRegistry.brick1, 16);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		switch (j) {
@@ -57,7 +57,7 @@ public class GOTBlockWall2 extends GOTBlockWallBase {
 		return super.getIcon(i, j);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		list.add(new ItemStack(item, 1, 2));

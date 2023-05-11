@@ -33,7 +33,7 @@ public class GOTItemCommandHorn extends Item implements GOTSquadrons.SquadronIte
 		return 40;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (int j = 0; j <= 3; ++j) {

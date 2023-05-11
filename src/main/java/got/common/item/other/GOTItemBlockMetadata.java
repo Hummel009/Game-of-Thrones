@@ -14,13 +14,13 @@ public class GOTItemBlockMetadata extends ItemBlock {
 		setHasSubtypes(true);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getColorFromItemStack(ItemStack itemstack, int pass) {
 		return field_150939_a.getRenderColor(itemstack.getItemDamage());
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIconFromDamage(int i) {
 		return field_150939_a.getIcon(2, i);

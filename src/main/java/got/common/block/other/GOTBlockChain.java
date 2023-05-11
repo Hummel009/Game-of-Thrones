@@ -18,13 +18,13 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class GOTBlockChain extends Block {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon iconMiddle;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon iconTop;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon iconBottom;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon iconSingle;
 
 	public GOTBlockChain() {
@@ -63,7 +63,7 @@ public class GOTBlockChain extends Block {
 		return AxisAlignedBB.getBoundingBox(i + 0.5f - f, j, k + 0.5f - f, i + 0.5f + f, j + 1, k + 0.5f + f);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(IBlockAccess world, int i, int j, int k, int side) {
 		boolean chainBelow;
@@ -83,7 +83,7 @@ public class GOTBlockChain extends Block {
 		return iconSingle;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		return iconMiddle;
@@ -141,7 +141,7 @@ public class GOTBlockChain extends Block {
 		super.onNeighborBlockChange(world, i, j, k, block);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		iconMiddle = iconregister.registerIcon(getTextureName() + "_mid");

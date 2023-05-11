@@ -94,7 +94,7 @@ public class GOTTileEntityMillstone extends TileEntity implements ISidedInventor
 		return 64;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public int getMillProgressScaled(int i) {
 		return currentMillTime * i / 200;
 	}

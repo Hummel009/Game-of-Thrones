@@ -11,7 +11,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.EnumPlantType;
 
 public class GOTBlockLeekCrop extends BlockCrops {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] leekIcons;
 
 	@Override
@@ -24,7 +24,7 @@ public class GOTBlockLeekCrop extends BlockCrops {
 		return GOTRegistry.leek;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (j < 7) {
@@ -41,7 +41,7 @@ public class GOTBlockLeekCrop extends BlockCrops {
 		return EnumPlantType.Crop;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		leekIcons = new IIcon[4];

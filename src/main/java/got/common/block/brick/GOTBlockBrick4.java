@@ -13,7 +13,7 @@ public class GOTBlockBrick4 extends GOTBlockBrickBase {
 		setBrickNames("sothoryos", "sothoryos_mossy", "sothoryos_cracked", "sothoryos_gold", "sothoryos_obsidian", "sothoryos", "basalt_westeros_carved", "sandstone_lapis", "sothoryos", "sothoryos", "sothoryos", "sothoryos", "sothoryos", "sothoryos", "sothoryos", "chalk");
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		list.add(new ItemStack(item, 1, 0));

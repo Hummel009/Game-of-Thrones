@@ -13,7 +13,7 @@ public class GOTBlockBrick5 extends GOTBlockBrickBase {
 		setBrickNames("mud", "mud", "mud", "rhyolite_carved", "mud", "mud", "mud", "mud", "mud", "mud", "mud", "yiti", "yiti_carved", "yiti_mossy", "yiti_cracked", "yiti_flowers");
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		list.add(new ItemStack(item, 1, 0));

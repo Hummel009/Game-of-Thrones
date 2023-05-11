@@ -690,7 +690,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		this.banditEntityClass = banditEntityClass;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public int getBaseFoliageColor(int i, int j, int k) {
 		GOTBiomeVariant variant = ((GOTWorldChunkManager) GOT.proxy.getClientWorld().getWorldChunkManager()).getBiomeVariantAt(i, k);
 		float temp = getFloatTemperature(i, j, k) + variant.tempBoost;
@@ -700,7 +700,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return ColorizerFoliage.getFoliageColor(temp, rain);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public int getBaseGrassColor(int i, int j, int k) {
 		GOTBiomeVariant variant = ((GOTWorldChunkManager) GOT.proxy.getClientWorld().getWorldChunkManager()).getBiomeVariantAt(i, k);
 		float temp = getFloatTemperature(i, j, k) + variant.tempBoost;
@@ -710,7 +710,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return ColorizerGrass.getGrassColor(temp, rain);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public int getBaseSkyColorByTemp(int i, int j, int k) {
 		return super.getSkyColorByTemp(getFloatTemperature(i, j, k));
 	}
@@ -739,13 +739,13 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return StatCollector.translateToLocal("got.biome." + biomeName + ".name");
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getBiomeFoliageColor(int i, int j, int k) {
 		return biomeColors.foliage != null ? biomeColors.foliage.getRGB() : getBaseFoliageColor(i, j, k);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getBiomeGrassColor(int i, int j, int k) {
 		return biomeColors.grass != null ? biomeColors.grass.getRGB() : getBaseGrassColor(i, j, k);
@@ -929,7 +929,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return GOTBezierType.PATH_DIRTY;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getSkyColorByTemp(float f) {
 		if (biomeColors.sky != null) {

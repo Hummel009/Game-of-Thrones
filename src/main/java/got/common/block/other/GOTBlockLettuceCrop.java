@@ -11,7 +11,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.EnumPlantType;
 
 public class GOTBlockLettuceCrop extends BlockCrops {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] lettuceIcons;
 
 	@Override
@@ -24,7 +24,7 @@ public class GOTBlockLettuceCrop extends BlockCrops {
 		return GOTRegistry.lettuce;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (j < 7) {
@@ -46,7 +46,7 @@ public class GOTBlockLettuceCrop extends BlockCrops {
 		return 1;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		lettuceIcons = new IIcon[4];

@@ -286,7 +286,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public float getTemperatureAtHeight(float f, int height) {
 		if (worldObj.isRemote && GOT.isNewYear()) {
 			return 0.0f;

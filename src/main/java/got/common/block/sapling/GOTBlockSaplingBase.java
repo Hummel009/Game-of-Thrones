@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Random;
 
 public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] saplingIcons;
 	public String[] saplingNames;
 
@@ -95,7 +95,7 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 		return i & 7;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		j &= 7;
@@ -110,7 +110,7 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 		return 1;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < saplingNames.length; ++i) {
@@ -136,7 +136,7 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 		return GOTBlockSaplingBase.isSameSapling(world, i, j, k, this, meta);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		saplingIcons = new IIcon[saplingNames.length];

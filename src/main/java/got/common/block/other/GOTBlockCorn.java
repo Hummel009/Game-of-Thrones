@@ -26,7 +26,7 @@ import java.util.Random;
 public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 	public static int MAX_GROW_HEIGHT = 3;
 	public static int META_GROW_END = 7;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon cornIcon;
 
 	public GOTBlockCorn() {
@@ -164,7 +164,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 		return growth / 250.0f;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (GOTBlockCorn.metaHasCorn(j)) {
@@ -178,7 +178,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 		return Item.getItemFromBlock(this);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public String getItemIconName() {
 		return getTextureName();
@@ -232,7 +232,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 		checkCanStay(world, i, j, k);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		super.registerBlockIcons(iconregister);

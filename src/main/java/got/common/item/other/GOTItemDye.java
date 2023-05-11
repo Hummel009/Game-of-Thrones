@@ -19,7 +19,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import java.util.List;
 
 public class GOTItemDye extends Item {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] dyeIcons;
 	public String[] dyeNames = {"elanor", "niphredil", "bluebell", "green", "charcoal", "brown"};
 
@@ -46,7 +46,7 @@ public class GOTItemDye extends Item {
 		return -1;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIconFromDamage(int i) {
 		if (i >= dyeIcons.length) {
@@ -55,7 +55,7 @@ public class GOTItemDye extends Item {
 		return dyeIcons[i];
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < dyeNames.length; ++i) {
@@ -86,7 +86,7 @@ public class GOTItemDye extends Item {
 		return false;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IIconRegister iconregister) {
 		dyeIcons = new IIcon[dyeNames.length];

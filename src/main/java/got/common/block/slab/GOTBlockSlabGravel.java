@@ -16,7 +16,7 @@ public class GOTBlockSlabGravel extends GOTBlockSlabFalling {
 		setStepSound(Block.soundTypeGravel);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		j &= 7;
@@ -33,7 +33,7 @@ public class GOTBlockSlabGravel extends GOTBlockSlabFalling {
 		return super.getIcon(i, j);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 	}

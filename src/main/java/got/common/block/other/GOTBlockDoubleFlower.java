@@ -22,9 +22,9 @@ import java.util.Random;
 
 public class GOTBlockDoubleFlower extends BlockDoublePlant {
 	public static String[] flowerNames = {"black_iris", "yellow_iris", "pink", "red"};
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] doublePlantBottomIcons;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] doublePlantTopIcons;
 
 	public GOTBlockDoubleFlower() {
@@ -67,7 +67,7 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int colorMultiplier(IBlockAccess world, int i, int j, int k) {
 		return 16777215;
@@ -100,7 +100,7 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 		return !GOTBlockDoubleFlower.isTop(l) ? l & 7 : world.getBlockMetadata(i, j - 1, k) & 7;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon func_149888_a(boolean isTop, int i) {
 		if (isTop) {
@@ -121,7 +121,7 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 		return GOTBlockDoubleFlower.isTop(l) ? GOTBlockDoubleFlower.getFlowerMeta(world.getBlockMetadata(i, j - 1, k)) : GOTBlockDoubleFlower.getFlowerMeta(l);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (GOTBlockDoubleFlower.isTop(j)) {
@@ -147,7 +147,7 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 		return GOT.proxy.getDoublePlantRenderID();
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < doublePlantBottomIcons.length; ++i) {
@@ -177,7 +177,7 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 		world.setBlock(i, j + 1, k, this, 8 | l, 2);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		doublePlantBottomIcons = new IIcon[flowerNames.length];

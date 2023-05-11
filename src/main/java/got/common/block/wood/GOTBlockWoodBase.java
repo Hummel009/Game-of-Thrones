@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Random;
 
 public abstract class GOTBlockWoodBase extends BlockLog {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[][] woodIcons;
 	public String[] woodNames;
 
@@ -25,7 +25,7 @@ public abstract class GOTBlockWoodBase extends BlockLog {
 		setCreativeTab(GOTCreativeTabs.tabBlock);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		int j1 = j & 0xC;
@@ -44,7 +44,7 @@ public abstract class GOTBlockWoodBase extends BlockLog {
 		return Item.getItemFromBlock(this);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < woodNames.length; ++i) {
@@ -52,7 +52,7 @@ public abstract class GOTBlockWoodBase extends BlockLog {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		woodIcons = new IIcon[woodNames.length][2];

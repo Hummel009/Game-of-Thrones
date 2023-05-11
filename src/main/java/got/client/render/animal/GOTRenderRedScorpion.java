@@ -10,7 +10,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-@SideOnly(value = Side.CLIENT)
+@SideOnly(Side.CLIENT)
 public class GOTRenderRedScorpion extends RenderLiving {
 	public GOTRenderRedScorpion() {
 		super(new GOTModelScorpion(), 0.5f);

@@ -58,7 +58,7 @@ public class GOTItemPartyHat extends GOTItemArmor {
 		return itemstack;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		if (GOTItemPartyHat.isHatDyed(itemstack) && GOTItemPartyHat.getHatColor(itemstack) != 16777215) {
@@ -71,7 +71,7 @@ public class GOTItemPartyHat extends GOTItemArmor {
 		return "got:textures/armor/partyhat.png";
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getColorFromItemStack(ItemStack itemstack, int pass) {
 		return GOTItemPartyHat.getHatColor(itemstack);

@@ -149,12 +149,12 @@ public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 		return new int[]{fuelSlot};
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public int getCookProgressScaled(int i) {
 		return currentCookTime * i / 400;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public int getCookTimeRemainingScaled(int i) {
 		if (currentItemFuelValue == 0) {
 			currentItemFuelValue = 400;

@@ -11,7 +11,7 @@ public class GOTBlockScorchedWall extends GOTBlockWallBase {
 		super(GOTRegistry.scorchedStone, 1);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		return GOTRegistry.scorchedStone.getIcon(i, j);

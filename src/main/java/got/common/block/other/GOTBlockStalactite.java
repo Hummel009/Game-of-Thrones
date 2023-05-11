@@ -78,7 +78,7 @@ public class GOTBlockStalactite extends Block {
 		return modelBlock.getExplosionResistance(entity);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		return modelBlock.getIcon(i, modelMeta);
@@ -89,7 +89,7 @@ public class GOTBlockStalactite extends Block {
 		return GOT.proxy.getStalactiteRenderID();
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int j = 0; j <= 1; ++j) {
@@ -123,7 +123,7 @@ public class GOTBlockStalactite extends Block {
 		return modelBlock.quantityDropped(random);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
 		Block above;
@@ -132,7 +132,7 @@ public class GOTBlockStalactite extends Block {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 	}

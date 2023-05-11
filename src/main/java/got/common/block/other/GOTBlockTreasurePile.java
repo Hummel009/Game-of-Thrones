@@ -52,7 +52,7 @@ public class GOTBlockTreasurePile extends Block {
 		}
 	};
 	public static int MAX_META = 7;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon sideIcon;
 
 	public GOTBlockTreasurePile() {
@@ -104,7 +104,7 @@ public class GOTBlockTreasurePile extends Block {
 		return super.getCollisionBoundingBoxFromPool(world, i, j, k);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (i == 0 || i == 1) {
@@ -118,7 +118,7 @@ public class GOTBlockTreasurePile extends Block {
 		return GOT.proxy.getTreasureRenderID();
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		list.add(new ItemStack(item, 1, 0));
@@ -217,7 +217,7 @@ public class GOTBlockTreasurePile extends Block {
 		return 1;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		super.registerBlockIcons(iconregister);

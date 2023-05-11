@@ -16,7 +16,7 @@ public abstract class GOTBlockTorch extends BlockTorch {
 
 	public abstract TorchParticle createTorchParticle(Random var1);
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
 		int meta = world.getBlockMetadata(i, j, k);

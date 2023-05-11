@@ -41,7 +41,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class GOTBlockRice extends BlockLilyPad implements IGrowable {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] field_149867_a;
 
 	public GOTBlockRice() {
@@ -145,7 +145,7 @@ public class GOTBlockRice extends BlockLilyPad implements IGrowable {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int p_149691_1_, int p_149691_2_) {
 		if (p_149691_2_ < 0 || p_149691_2_ > 7) {
 			p_149691_2_ = 7;
@@ -154,7 +154,7 @@ public class GOTBlockRice extends BlockLilyPad implements IGrowable {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_) {
 		return func_149866_i();
 	}
@@ -175,7 +175,7 @@ public class GOTBlockRice extends BlockLilyPad implements IGrowable {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister p_149651_1_) {
 		field_149867_a = new IIcon[8];
 		for (int i = 0; i < field_149867_a.length; ++i) {

@@ -27,7 +27,7 @@ public class GOTBlockMudFarmland extends BlockFarmland {
 		return Blocks.farmland.canSustainPlant(world, i, j, k, direction, plantable);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (i == 1) {
@@ -36,7 +36,7 @@ public class GOTBlockMudFarmland extends BlockFarmland {
 		return GOTRegistry.mud.getBlockTextureFromSide(i);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public Item getItem(World world, int i, int j, int k) {
 		return Item.getItemFromBlock(GOTRegistry.mud);

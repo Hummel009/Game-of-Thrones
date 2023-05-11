@@ -20,13 +20,13 @@ import java.util.List;
 
 public class GOTItemStructureSpawner extends Item {
 	public static int lastStructureSpawnTick;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon iconBase;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon iconOverlay;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon iconVillageBase;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon iconVillageOverlay;
 
 	public GOTItemStructureSpawner() {
@@ -34,7 +34,7 @@ public class GOTItemStructureSpawner extends Item {
 		setCreativeTab(GOTCreativeTabs.tabSpawn);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getColorFromItemStack(ItemStack itemstack, int pass) {
 		GOTStructureRegistry.StructureColorInfo info = GOTStructureRegistry.structureItemSpawners.get(itemstack.getItemDamage());
@@ -47,7 +47,7 @@ public class GOTItemStructureSpawner extends Item {
 		return 16777215;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIconFromDamageForRenderPass(int i, int pass) {
 		GOTStructureRegistry.StructureColorInfo info = GOTStructureRegistry.structureItemSpawners.get(i);
@@ -76,7 +76,7 @@ public class GOTItemStructureSpawner extends Item {
 		return s.toString();
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (GOTStructureRegistry.StructureColorInfo info : GOTStructureRegistry.structureItemSpawners.values()) {
@@ -110,7 +110,7 @@ public class GOTItemStructureSpawner extends Item {
 		return true;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IIconRegister iconregister) {
 		iconBase = iconregister.registerIcon(getIconString() + "_base");
@@ -119,7 +119,7 @@ public class GOTItemStructureSpawner extends Item {
 		iconVillageOverlay = iconregister.registerIcon(getIconString() + "_village_overlay");
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public boolean requiresMultipleRenderPasses() {
 		return true;

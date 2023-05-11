@@ -78,7 +78,7 @@ public class GOTLore {
 						int i = s.indexOf(".txt");
 						try {
 							s = s.substring(0, i);
-							BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(zip.getInputStream(entry)), StandardCharsets.UTF_8.name()));
+							BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(zip.getInputStream(entry)), StandardCharsets.UTF_8));
 							loreReaders.put(s, reader);
 						} catch (Exception e) {
 							GOTLog.logger.error("Failed to load GOT lore " + s + "from zip file");
@@ -96,7 +96,7 @@ public class GOTLore {
 					} else {
 						try {
 							s = s.substring(0, i);
-							BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(new FileInputStream(file)), StandardCharsets.UTF_8.name()));
+							BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(new FileInputStream(file)), StandardCharsets.UTF_8));
 							loreReaders.put(s, reader);
 						} catch (Exception e) {
 							GOTLog.logger.error("Failed to load GOT lore " + s + " from MCP folder");

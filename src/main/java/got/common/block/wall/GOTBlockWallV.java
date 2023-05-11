@@ -13,7 +13,7 @@ public class GOTBlockWallV extends GOTBlockWallBase {
 		setCreativeTab(CreativeTabs.tabBlock);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		switch (j) {

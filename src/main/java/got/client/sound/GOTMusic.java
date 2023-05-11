@@ -65,7 +65,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 		PrintStream writer = new PrintStream(new FileOutputStream(readme));
 		ResourceLocation template = new ResourceLocation("got:music/readme.txt");
 		InputStream templateIn = Minecraft.getMinecraft().getResourceManager().getResource(template).getInputStream();
-		BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(templateIn), Charsets.UTF_8.name()));
+		BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(templateIn), Charsets.UTF_8));
 		String line = "";
 		while ((line = reader.readLine()) != null) {
 			if ("#REGIONS#".equals(line)) {
@@ -124,7 +124,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 		ZipEntry entry = zip.getEntry(jsonFilename);
 		if (entry != null) {
 			InputStream stream = zip.getInputStream(entry);
-			JsonReader reader = new JsonReader(new InputStreamReader(new BOMInputStream(stream), Charsets.UTF_8.name()));
+			JsonReader reader = new JsonReader(new InputStreamReader(new BOMInputStream(stream), Charsets.UTF_8));
 			JsonParser parser = new JsonParser();
 			ArrayList<GOTMusicTrack> packTracks = new ArrayList<>();
 			JsonObject root = parser.parse(reader).getAsJsonObject();

@@ -40,13 +40,13 @@ public abstract class GOTBlockPortal extends BlockContainer {
 	public void addCollisionBoxesToList(World world, int i, int j, int k, AxisAlignedBB aabb, List list, Entity entity) {
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		return Blocks.portal.getIcon(i, j);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public Item getItem(World world, int i, int j, int k) {
 		return Item.getItemById(0);
@@ -126,7 +126,7 @@ public abstract class GOTBlockPortal extends BlockContainer {
 		return 0;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
 		if (random.nextInt(100) == 0) {
@@ -134,7 +134,7 @@ public abstract class GOTBlockPortal extends BlockContainer {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 	}
@@ -152,7 +152,7 @@ public abstract class GOTBlockPortal extends BlockContainer {
 
 	public abstract void setPlayerInPortal(EntityPlayer var1);
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public boolean shouldSideBeRendered(IBlockAccess world, int i, int j, int k, int side) {
 		return side != 0 ? false : super.shouldSideBeRendered(world, i, j, k, side);

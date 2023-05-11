@@ -32,19 +32,19 @@ public class GOTBlockDaub extends Block implements GOTConnectedBlock {
 		return textureName;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(IBlockAccess world, int i, int j, int k, int side) {
 		return GOTConnectedTextures.getConnectedIconBlock(this, world, i, j, k, side, false);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		return GOTConnectedTextures.getConnectedIconItem(this, j);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		GOTConnectedTextures.registerConnectedIcons(iconregister, this, 0, false);

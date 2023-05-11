@@ -62,7 +62,7 @@ public class GOTBlockChest extends BlockContainer {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int i, int j) {
 		return baseBlock.getIcon(i, baseMeta);
 	}
@@ -126,7 +126,7 @@ public class GOTBlockChest extends BlockContainer {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconregister) {
 	}
 

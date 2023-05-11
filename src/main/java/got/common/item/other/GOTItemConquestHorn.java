@@ -26,9 +26,9 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTItemConquestHorn extends Item {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon baseIcon;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon overlayIcon;
 
 	public GOTItemConquestHorn() {
@@ -92,7 +92,7 @@ public class GOTItemConquestHorn extends Item {
 		return false;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getColorFromItemStack(ItemStack itemstack, int pass) {
 		if (pass == 0) {
@@ -102,7 +102,7 @@ public class GOTItemConquestHorn extends Item {
 		return 16777215;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIconFromDamageForRenderPass(int i, int pass) {
 		return pass > 0 ? overlayIcon : baseIcon;
@@ -127,7 +127,7 @@ public class GOTItemConquestHorn extends Item {
 		return 40;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (GOTInvasions type : GOTInvasions.values()) {
@@ -164,14 +164,14 @@ public class GOTItemConquestHorn extends Item {
 		return itemstack;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IIconRegister iconregister) {
 		baseIcon = iconregister.registerIcon(getIconString() + "_base");
 		overlayIcon = iconregister.registerIcon(getIconString() + "_overlay");
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public boolean requiresMultipleRenderPasses() {
 		return true;

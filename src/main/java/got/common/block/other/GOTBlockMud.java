@@ -40,7 +40,7 @@ public class GOTBlockMud extends Block {
 		return world.getBlockMetadata(i, j, k);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < 2; ++i) {

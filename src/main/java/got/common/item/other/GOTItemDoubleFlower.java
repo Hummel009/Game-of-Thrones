@@ -11,7 +11,7 @@ public class GOTItemDoubleFlower extends GOTItemBlockMetadata {
 		super(block);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIconFromDamage(int i) {
 		return ((GOTBlockDoubleFlower) field_150939_a).func_149888_a(true, i);

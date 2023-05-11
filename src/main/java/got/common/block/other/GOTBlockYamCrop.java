@@ -14,7 +14,7 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class GOTBlockYamCrop extends BlockCrops {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] yamIcons;
 
 	@Override
@@ -35,7 +35,7 @@ public class GOTBlockYamCrop extends BlockCrops {
 		return GOTRegistry.yam;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (j < 7) {
@@ -52,7 +52,7 @@ public class GOTBlockYamCrop extends BlockCrops {
 		return EnumPlantType.Crop;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		yamIcons = new IIcon[4];

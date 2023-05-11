@@ -15,7 +15,7 @@ import java.util.List;
 
 public class GOTBlockThatch extends Block {
 	public static String[] thatchNames = {"thatch", "reed"};
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] thatchIcons;
 
 	public GOTBlockThatch() {
@@ -30,7 +30,7 @@ public class GOTBlockThatch extends Block {
 		return i;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (j >= thatchNames.length) {
@@ -39,7 +39,7 @@ public class GOTBlockThatch extends Block {
 		return thatchIcons[j];
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < thatchNames.length; ++i) {
@@ -47,7 +47,7 @@ public class GOTBlockThatch extends Block {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		thatchIcons = new IIcon[thatchNames.length];

@@ -181,7 +181,7 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 		shootingEntity = entity;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public boolean isInRangeToRenderDist(double d) {
 		double d1 = boundingBox.getAverageEdgeLength() * 4.0;

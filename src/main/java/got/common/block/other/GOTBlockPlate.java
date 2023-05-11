@@ -41,7 +41,7 @@ public class GOTBlockPlate extends BlockContainer {
 			return Block.soundTypeStone.getStepResourcePath();
 		}
 	};
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] plateIcons;
 	public Item plateItem;
 
@@ -98,7 +98,7 @@ public class GOTBlockPlate extends BlockContainer {
 		this.dropBlockAsItem(plate.getWorldObj(), plate.xCoord, plate.yCoord, plate.zCoord, itemstack);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		return i == 1 ? plateIcons[0] : plateIcons[1];
@@ -181,7 +181,7 @@ public class GOTBlockPlate extends BlockContainer {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		plateIcons = new IIcon[2];

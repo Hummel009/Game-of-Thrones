@@ -13,7 +13,7 @@ public class GOTBlockSmoothStoneV extends GOTBlockSmoothStoneBase {
 		setCreativeTab(CreativeTabs.tabBlock);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (j == 0) {
@@ -22,7 +22,7 @@ public class GOTBlockSmoothStoneV extends GOTBlockSmoothStoneBase {
 		return super.getIcon(i, j);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 	}

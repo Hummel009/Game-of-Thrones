@@ -63,7 +63,7 @@ public class GOTItemMountArmor extends Item {
 		return damageReduceAmount;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIconFromDamage(int i) {
 		if (templateItem != null) {
@@ -72,7 +72,7 @@ public class GOTItemMountArmor extends Item {
 		return super.getIconFromDamage(i);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIconIndex(ItemStack itemstack) {
 		if (templateItem != null) {
@@ -116,7 +116,7 @@ public class GOTItemMountArmor extends Item {
 		return false;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IIconRegister iconregister) {
 		if (templateItem == null) {

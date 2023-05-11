@@ -59,7 +59,7 @@ public abstract class GOTBlockSlabBase extends BlockSlab {
 		return super.getUnlocalizedName() + "." + i;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public Item getItem(World world, int i, int j, int k) {
 		return Item.getItemFromBlock(singleSlab);
@@ -70,7 +70,7 @@ public abstract class GOTBlockSlabBase extends BlockSlab {
 		return Item.getItemFromBlock(singleSlab);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		if (item != Item.getItemFromBlock(doubleSlab)) {
@@ -85,7 +85,7 @@ public abstract class GOTBlockSlabBase extends BlockSlab {
 		return (world.getBlockMetadata(x, y, z) & 8) == 8 && side == 1 || isOpaqueCube();
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public boolean shouldSideBeRendered(IBlockAccess world, int i, int j, int k, int l) {
 		boolean flag;

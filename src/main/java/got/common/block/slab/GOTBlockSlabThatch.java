@@ -15,13 +15,13 @@ public class GOTBlockSlabThatch extends GOTBlockSlabBase {
 		setStepSound(Block.soundTypeGrass);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		return GOTRegistry.thatch.getIcon(i, j &= 7);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 	}

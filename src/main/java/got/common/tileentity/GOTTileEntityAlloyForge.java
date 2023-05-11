@@ -230,12 +230,12 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		return null;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public int getSmeltProgressScaled(int i) {
 		return currentSmeltTime * i / getSmeltingDuration();
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public int getSmeltTimeRemainingScaled(int i) {
 		if (currentItemFuelValue == 0) {
 			currentItemFuelValue = getSmeltingDuration();

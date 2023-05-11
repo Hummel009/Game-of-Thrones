@@ -34,13 +34,13 @@ public class GOTItemMug extends Item {
 	public static float[] strengths = {0.25f, 0.5f, 1.0f, 2.0f, 3.0f};
 	public static float[] foodStrengths = {0.5f, 0.75f, 1.0f, 1.25f, 1.5f};
 	public static int vesselMeta = 100;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public static IIcon barrelGui_emptyBucketSlotIcon;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public static IIcon barrelGui_emptyMugSlotIcon;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] drinkIcons;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon liquidIcon;
 	public boolean isFullMug;
 	public boolean isFoodDrink;
@@ -250,7 +250,7 @@ public class GOTItemMug extends Item {
 		return false;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		if (isBrewable) {
@@ -340,7 +340,7 @@ public class GOTItemMug extends Item {
 		return 32;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		if (isFullMug) {

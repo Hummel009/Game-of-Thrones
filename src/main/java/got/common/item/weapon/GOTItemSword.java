@@ -23,7 +23,7 @@ import net.minecraft.world.World;
 import java.util.UUID;
 
 public class GOTItemSword extends ItemSword implements GOTMaterialFinder {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon glowingIcon;
 	public boolean isGlowing;
 	public float gotWeaponDamage;
@@ -119,7 +119,7 @@ public class GOTItemSword extends ItemSword implements GOTMaterialFinder {
 		return super.onItemRightClick(itemstack, world, entityplayer);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IIconRegister iconregister) {
 		super.registerIcons(iconregister);

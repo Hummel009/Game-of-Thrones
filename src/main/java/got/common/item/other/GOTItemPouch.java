@@ -35,13 +35,13 @@ import java.util.Random;
 public class GOTItemPouch extends Item {
 	public static int POUCH_COLOR = 10841676;
 	public static String[] pouchTypes = {"small", "medium", "large"};
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] pouchIcons;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] pouchIconsOpen;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] overlayIcons;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] overlayIconsOpen;
 
 	public GOTItemPouch() {
@@ -201,7 +201,7 @@ public class GOTItemPouch extends Item {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		int slots = GOTItemPouch.getCapacity(itemstack);
 		int slotsFull = 0;
@@ -220,7 +220,7 @@ public class GOTItemPouch extends Item {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public int getColorFromItemStack(ItemStack itemstack, int pass) {
 		if (pass == 0) {
 			return GOTItemPouch.getPouchColor(itemstack);
@@ -253,7 +253,7 @@ public class GOTItemPouch extends Item {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < pouchTypes.length; ++i) {
 			list.add(new ItemStack(item, 1, i));
@@ -284,7 +284,7 @@ public class GOTItemPouch extends Item {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister iconregister) {
 		pouchIcons = new IIcon[pouchTypes.length];
 		pouchIconsOpen = new IIcon[pouchTypes.length];
@@ -299,7 +299,7 @@ public class GOTItemPouch extends Item {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public boolean requiresMultipleRenderPasses() {
 		return true;
 	}

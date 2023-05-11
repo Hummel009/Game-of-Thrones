@@ -19,11 +19,11 @@ public class GOTBlockBed extends BlockBed {
 	public Item bedItem;
 	public Block bedBottomBlock;
 	public int bedBottomMetadata;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] bedIconsEnd;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] bedIconsSide;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] bedIconsTop;
 
 	public GOTBlockBed(Block block, int k) {
@@ -33,7 +33,7 @@ public class GOTBlockBed extends BlockBed {
 		setStepSound(Block.soundTypeWood);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		int i1;
@@ -46,7 +46,7 @@ public class GOTBlockBed extends BlockBed {
 		return (i1 != 1 || l != 2) && (i1 != 0 || l != 3) ? l != 5 && l != 4 ? bedIconsTop[i1] : bedIconsSide[i1] : bedIconsEnd[i1];
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public Item getItem(World world, int i, int j, int k) {
 		return bedItem;
@@ -62,7 +62,7 @@ public class GOTBlockBed extends BlockBed {
 		return true;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		bedIconsTop = new IIcon[]{iconregister.registerIcon(getTextureName() + "_feet_top"), iconregister.registerIcon(getTextureName() + "_head_top")};

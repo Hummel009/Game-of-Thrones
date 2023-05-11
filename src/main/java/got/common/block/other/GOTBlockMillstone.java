@@ -23,13 +23,13 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTBlockMillstone extends BlockContainer {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon iconSide;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon iconTop;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon iconSideActive;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon iconTopActive;
 
 	public GOTBlockMillstone() {
@@ -69,7 +69,7 @@ public class GOTBlockMillstone extends BlockContainer {
 		return Container.calcRedstoneFromInventory((IInventory) world.getTileEntity(i, j, k));
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(IBlockAccess world, int i, int j, int k, int side) {
 		boolean active = GOTBlockMillstone.isMillstoneActive(world, i, j, k);
@@ -79,7 +79,7 @@ public class GOTBlockMillstone extends BlockContainer {
 		return active ? iconSideActive : iconSide;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		return i == 1 || i == 0 ? iconTop : iconSide;
@@ -105,7 +105,7 @@ public class GOTBlockMillstone extends BlockContainer {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
 		if (GOTBlockMillstone.isMillstoneActive(world, i, j, k)) {
@@ -118,7 +118,7 @@ public class GOTBlockMillstone extends BlockContainer {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		iconSide = iconregister.registerIcon(getTextureName() + "_side");

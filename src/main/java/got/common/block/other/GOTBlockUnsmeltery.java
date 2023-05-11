@@ -20,13 +20,13 @@ public class GOTBlockUnsmeltery extends GOTBlockForgeBase {
 		return new GOTTileEntityUnsmeltery();
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(IBlockAccess world, int i, int j, int k, int side) {
 		return this.getIcon(side, world.getBlockMetadata(i, j, k));
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		return Blocks.cobblestone.getIcon(i, j);
@@ -63,7 +63,7 @@ public class GOTBlockUnsmeltery extends GOTBlockForgeBase {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 	}

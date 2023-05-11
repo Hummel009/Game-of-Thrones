@@ -17,7 +17,7 @@ public class GOTBlockBrick1 extends GOTBlockBrickBase {
 		setBrickNames("basalt", "andesite", "andesite_mossy", "andesite_cracked", "rhyolite", "andesite_carved", "basalt", "basalt_cracked", "basalt", "basalt", "basalt", "basalt", "basalt", "basalt", "diorite", "sandstone");
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (j == 4 && i != 0 && i != 1) {
@@ -26,7 +26,7 @@ public class GOTBlockBrick1 extends GOTBlockBrickBase {
 		return super.getIcon(i, j);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		list.add(new ItemStack(item, 1, 0));
@@ -40,7 +40,7 @@ public class GOTBlockBrick1 extends GOTBlockBrickBase {
 		list.add(new ItemStack(item, 1, 15));
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		brickIcons = new IIcon[brickNames.length];

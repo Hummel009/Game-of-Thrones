@@ -31,11 +31,11 @@ import net.minecraftforge.common.ForgeModContainer;
 
 public class GOTWorldProvider extends WorldProvider {
 	public static int MOON_PHASES = 8;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IRenderHandler gotSkyRenderer;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IRenderHandler gotCloudRenderer;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IRenderHandler gotWeatherRenderer;
 	public boolean spawnHostiles = true;
 	public boolean spawnPeacefuls = true;
@@ -141,7 +141,7 @@ public class GOTWorldProvider extends WorldProvider {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public boolean doesXZShowFog(int i, int k) {
 		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
 		if (biome instanceof GOTBiome) {
@@ -151,7 +151,7 @@ public class GOTWorldProvider extends WorldProvider {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public Vec3 drawClouds(float f) {
 		Minecraft mc = Minecraft.getMinecraft();
 		int i = (int) mc.renderViewEntity.posX;
@@ -205,13 +205,13 @@ public class GOTWorldProvider extends WorldProvider {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public float getCloudHeight() {
 		return 192.0f;
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IRenderHandler getCloudRenderer() {
 		if (!GOTModChecker.hasShaders() && GOTConfig.cloudRange > 0) {
 			if (gotCloudRenderer == null) {
@@ -233,7 +233,7 @@ public class GOTWorldProvider extends WorldProvider {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public Vec3 getFogColor(float f, float f1) {
 		Minecraft mc = Minecraft.getMinecraft();
 		int i = (int) mc.renderViewEntity.posX;
@@ -283,7 +283,7 @@ public class GOTWorldProvider extends WorldProvider {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IRenderHandler getSkyRenderer() {
 		if (!GOTModChecker.hasShaders() && GOTConfig.enableGOTSky) {
 			if (gotSkyRenderer == null) {
@@ -300,7 +300,7 @@ public class GOTWorldProvider extends WorldProvider {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IRenderHandler getWeatherRenderer() {
 		if (gotWeatherRenderer == null) {
 			gotWeatherRenderer = new GOTRenderWeather();

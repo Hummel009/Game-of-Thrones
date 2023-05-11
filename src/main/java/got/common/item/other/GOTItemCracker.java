@@ -24,7 +24,7 @@ import java.util.List;
 public class GOTItemCracker extends Item {
 	public static int emptyMeta = 4096;
 	public static int CUSTOM_CAPACITY = 3;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] crackerIcons;
 	public String[] crackerNames = {"red", "blue", "green", "silver", "gold"};
 
@@ -117,7 +117,7 @@ public class GOTItemCracker extends Item {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		if (!GOTItemCracker.isEmpty(itemstack)) {
@@ -129,7 +129,7 @@ public class GOTItemCracker extends Item {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIconFromDamage(int i) {
 		i = GOTItemCracker.getBaseCrackerMetadata(i);
@@ -158,7 +158,7 @@ public class GOTItemCracker extends Item {
 		return 40;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < crackerNames.length; ++i) {
@@ -213,7 +213,7 @@ public class GOTItemCracker extends Item {
 		return itemstack;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IIconRegister iconregister) {
 		crackerIcons = new IIcon[crackerNames.length];

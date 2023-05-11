@@ -18,7 +18,7 @@ public class GOTSlotBarrel extends Slot {
 		theBarrel = inv;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getBackgroundIconIndex() {
 		IIcon iIcon;

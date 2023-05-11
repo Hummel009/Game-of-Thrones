@@ -56,13 +56,13 @@ public class GOTBlockSpawnerChest extends BlockChest {
 		return chestModel.getExplosionResistance(entity, world, i, j, k, explosionX, explosionY, explosionZ);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		return chestModel.getIcon(i, j);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public Item getItem(World world, int i, int j, int k) {
 		return Item.getItemFromBlock(chestModel);

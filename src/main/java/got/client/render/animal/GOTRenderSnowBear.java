@@ -10,7 +10,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-@SideOnly(value = Side.CLIENT)
+@SideOnly(Side.CLIENT)
 public class GOTRenderSnowBear extends RenderLiving {
 
 	public GOTRenderSnowBear() {

@@ -23,7 +23,7 @@ public class GOTEntityAsshaiTorchFX extends EntitySpellParticleFX {
 		return 1.0f;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getBrightnessForRender(float f) {
 		return 15728880;

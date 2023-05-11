@@ -498,7 +498,7 @@ public class GOTAPI {
 		return "/assets/" + res.getResourceDomain() + "/" + res.getResourcePath();
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	private static ResourceLocation getTextureResourceLocation(InputStream in, String textureName) {
 		BufferedImage img = getImage(in);
 		if (img != null) {
@@ -713,7 +713,7 @@ public class GOTAPI {
 	 * YourClientProxy.
 	 * @apiNote Use setClientMapImage void in the onResourceManagerReload.
 	 */
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public static void setClientMapImage(ResourceLocation mapTexture) {
 		ResourceLocation sepiaMapTexture;
 		GOTTextures.mapTexture = mapTexture;

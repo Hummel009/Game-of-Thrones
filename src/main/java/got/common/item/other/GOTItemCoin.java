@@ -21,7 +21,7 @@ import java.util.List;
 
 public class GOTItemCoin extends Item {
 	public static int[] values = {1, 4, 16, 64, 256, 1024, 4096, 16384};
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] coinIcons;
 
 	public GOTItemCoin() {
@@ -177,7 +177,7 @@ public class GOTItemCoin extends Item {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		super.addInformation(itemstack, entityplayer, list, flag);
@@ -189,7 +189,7 @@ public class GOTItemCoin extends Item {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon getIconFromDamage(int i) {
 		if (i >= coinIcons.length) {
 			i = 0;
@@ -198,7 +198,7 @@ public class GOTItemCoin extends Item {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (int j = 0; j < values.length; ++j) {
 			list.add(new ItemStack(item, 1, j));
@@ -215,7 +215,7 @@ public class GOTItemCoin extends Item {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister iconregister) {
 		coinIcons = new IIcon[values.length];
 		for (int i = 0; i < values.length; ++i) {

@@ -10,7 +10,7 @@ public class GOTBlockWallBone extends GOTBlockWallBase {
 		super(GOTRegistry.boneBlock, 1);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (j == 0) {

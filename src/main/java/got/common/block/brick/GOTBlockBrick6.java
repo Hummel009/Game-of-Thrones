@@ -13,7 +13,7 @@ public class GOTBlockBrick6 extends GOTBlockBrickBase {
 		setBrickNames("yiti_gold", "yiti_granite", "yiti_granite_carved", "swords", "labradorite", "labradorite_carved", "labradorite_cracked", "labradorite_mossy", "yiti_gold", "yiti_gold", "yiti_gold");
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		list.add(new ItemStack(item, 1, 0));

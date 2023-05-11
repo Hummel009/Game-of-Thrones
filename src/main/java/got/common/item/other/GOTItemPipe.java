@@ -48,7 +48,7 @@ public class GOTItemPipe extends Item {
 		itemstack.getTagCompound().setInteger("SmokeColour", i);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		int color = GOTItemPipe.getSmokeColor(itemstack);
@@ -65,7 +65,7 @@ public class GOTItemPipe extends Item {
 		return 40;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i <= 16; ++i) {

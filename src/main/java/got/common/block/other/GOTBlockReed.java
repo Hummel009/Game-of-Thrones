@@ -20,9 +20,9 @@ import java.util.Random;
 public class GOTBlockReed extends Block implements IPlantable {
 	public static int MAX_GROW_HEIGHT = 3;
 	public static int META_GROW_END = 15;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon iconUpper;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon iconLower;
 
 	public GOTBlockReed() {
@@ -74,7 +74,7 @@ public class GOTBlockReed extends Block implements IPlantable {
 		return null;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(IBlockAccess world, int i, int j, int k, int side) {
 		if (side == -2) {
@@ -91,7 +91,7 @@ public class GOTBlockReed extends Block implements IPlantable {
 		return blockIcon;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (i == -2) {
@@ -105,7 +105,7 @@ public class GOTBlockReed extends Block implements IPlantable {
 		return Item.getItemFromBlock(this);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public String getItemIconName() {
 		return getTextureName();
@@ -141,7 +141,7 @@ public class GOTBlockReed extends Block implements IPlantable {
 		checkCanStay(world, i, j, k);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		blockIcon = iconregister.registerIcon(getTextureName() + "_mid");

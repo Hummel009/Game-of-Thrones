@@ -12,7 +12,7 @@ import java.util.List;
 
 public class GOTBlockEssosFlower extends GOTBlockFlower {
 	public static String[] flowerNames = {"red", "yellow", "daisy", "pink"};
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] flowerIcons;
 
 	@Override
@@ -20,7 +20,7 @@ public class GOTBlockEssosFlower extends GOTBlockFlower {
 		return i;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (j >= flowerNames.length) {
@@ -29,7 +29,7 @@ public class GOTBlockEssosFlower extends GOTBlockFlower {
 		return flowerIcons[j];
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int j = 0; j < flowerNames.length; ++j) {
@@ -37,7 +37,7 @@ public class GOTBlockEssosFlower extends GOTBlockFlower {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		flowerIcons = new IIcon[flowerNames.length];

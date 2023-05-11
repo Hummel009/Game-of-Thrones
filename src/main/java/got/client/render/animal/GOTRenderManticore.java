@@ -10,7 +10,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-@SideOnly(value = Side.CLIENT)
+@SideOnly(Side.CLIENT)
 public class GOTRenderManticore extends RenderLiving {
 	public GOTRenderManticore() {
 		super(new GOTModelManticore(), 0.5f);

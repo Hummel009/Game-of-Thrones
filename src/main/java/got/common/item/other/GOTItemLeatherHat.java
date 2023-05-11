@@ -20,7 +20,7 @@ public class GOTItemLeatherHat extends GOTItemArmor {
 	public static int FEATHER_WHITE = 16777215;
 	public static int FEATHER_SHIRRIFF_CHIEF = 3381529;
 	public static int HAT_BLACK;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon featherIcon;
 
 	public GOTItemLeatherHat() {
@@ -88,7 +88,7 @@ public class GOTItemLeatherHat extends GOTItemArmor {
 		return itemstack;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		if (GOTItemLeatherHat.isHatDyed(itemstack)) {
@@ -104,7 +104,7 @@ public class GOTItemLeatherHat extends GOTItemArmor {
 		return "got:textures/armor/hat.png";
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getColorFromItemStack(ItemStack itemstack, int pass) {
 		if (pass == 1 && GOTItemLeatherHat.hasFeather(itemstack)) {
@@ -113,7 +113,7 @@ public class GOTItemLeatherHat extends GOTItemArmor {
 		return GOTItemLeatherHat.getHatColor(itemstack);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(ItemStack itemstack, int pass) {
 		if (pass == 1 && GOTItemLeatherHat.hasFeather(itemstack)) {
@@ -122,14 +122,14 @@ public class GOTItemLeatherHat extends GOTItemArmor {
 		return itemIcon;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IIconRegister iconregister) {
 		super.registerIcons(iconregister);
 		featherIcon = iconregister.registerIcon(getIconString() + "_feather");
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public boolean requiresMultipleRenderPasses() {
 		return true;

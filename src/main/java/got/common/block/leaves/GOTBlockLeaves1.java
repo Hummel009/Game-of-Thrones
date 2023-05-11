@@ -30,7 +30,7 @@ public class GOTBlockLeaves1 extends GOTBlockLeavesBase {
 		return super.getLightOpacity(world, i, j, k);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
 		super.randomDisplayTick(world, i, j, k, random);

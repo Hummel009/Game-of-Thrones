@@ -32,9 +32,9 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 	public static int MAX_HEIGHT = 3;
 	public static boolean hoeing;
 	public boolean hasGrapes;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon postIcon;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] vineIcons;
 
 	public GOTBlockGrapevine(boolean grapes) {
@@ -196,7 +196,7 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 		return growth;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (i == -1) {
@@ -208,7 +208,7 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 		return postIcon;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public Item getItem(World world, int i, int j, int k) {
 		if (hasGrapes) {
@@ -296,7 +296,7 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 		checkCanStay(world, i, j, k);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		postIcon = !hasGrapes ? iconregister.registerIcon(getTextureName()) : GOTRegistry.grapevine.getIcon(0, 0);
@@ -339,7 +339,7 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 		setBlockBounds(0.5f - f, 0.0f, 0.5f - f, 0.5f + f, 1.0f, 0.5f + f);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public boolean shouldSideBeRendered(IBlockAccess world, int i, int j, int k, int side) {
 		if (hasGrapes) {

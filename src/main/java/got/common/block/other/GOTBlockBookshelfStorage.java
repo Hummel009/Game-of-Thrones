@@ -68,7 +68,7 @@ public class GOTBlockBookshelfStorage extends BlockContainer {
 		return Blocks.bookshelf.getDrops(world, i, j, k, meta, fortune);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		return Blocks.bookshelf.getIcon(i, j);
@@ -90,7 +90,7 @@ public class GOTBlockBookshelfStorage extends BlockContainer {
 		return true;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 	}

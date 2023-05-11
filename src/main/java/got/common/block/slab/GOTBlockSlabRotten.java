@@ -12,14 +12,14 @@ public class GOTBlockSlabRotten extends GOTBlockSlabBase {
 		super(flag, Material.wood, 1);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		j &= 7;
 		return GOTRegistry.planksRotten.getIcon(i, j += 8);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 	}

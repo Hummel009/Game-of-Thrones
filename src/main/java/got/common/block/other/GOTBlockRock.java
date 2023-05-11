@@ -18,11 +18,11 @@ import java.util.List;
 import java.util.Random;
 
 public class GOTBlockRock extends Block {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] rockIcons;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon iconBasaltSide;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon iconBasaltMoss;
 	public String[] rockNames = {"basalt", "andesite", "rhyolite", "diorite", "granite", "chalk", "labradorite"};
 
@@ -40,7 +40,7 @@ public class GOTBlockRock extends Block {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(IBlockAccess world, int i, int j, int k, int side) {
 		int meta = world.getBlockMetadata(i, j, k);
 		if (meta == 0 && side != 1 && side != 0 && world.getBlock(i, j + 1, k) == GOTRegistry.asshaiMoss) {
@@ -50,7 +50,7 @@ public class GOTBlockRock extends Block {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta) {
 		if (meta >= rockNames.length) {
 			meta = 0;
@@ -62,7 +62,7 @@ public class GOTBlockRock extends Block {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < rockNames.length; ++i) {
 			list.add(new ItemStack(item, 1, i));
@@ -78,7 +78,7 @@ public class GOTBlockRock extends Block {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
 		if (world.getBlock(i, j, k) == this && world.getBlockMetadata(i, j, k) == 0 && random.nextInt(10) == 0) {
 			world.spawnParticle("smoke", i + random.nextFloat(), j + 1.1f, k + random.nextFloat(), 0.0, 0.0, 0.0);
@@ -86,7 +86,7 @@ public class GOTBlockRock extends Block {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconregister) {
 		rockIcons = new IIcon[rockNames.length];
 		for (int i = 0; i < rockNames.length; ++i) {

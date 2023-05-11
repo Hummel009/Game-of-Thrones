@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTBlockDate extends GOTBlockHangingFruit {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public Item getItem(World world, int i, int j, int k) {
 		return GOTRegistry.date;

@@ -46,7 +46,7 @@ public class GOTItemKebabStand extends ItemBlock {
 		itemstack.getTagCompound().setTag("GOTKebabData", kebabData);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		NBTTagCompound kebabData = GOTItemKebabStand.getKebabData(itemstack);

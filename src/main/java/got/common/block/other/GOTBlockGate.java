@@ -212,7 +212,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(IBlockAccess world, int i, int j, int k, int side) {
 		boolean open = GOTBlockGate.isGateOpen(world, i, j, k);
 		if (hasConnectedTextures) {
@@ -225,7 +225,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int i, int j) {
 		if (hasConnectedTextures) {
 			return GOTConnectedTextures.getConnectedIconItem(this, j);
@@ -276,7 +276,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconregister) {
 		if (hasConnectedTextures) {
 			GOTConnectedTextures.registerConnectedIcons(iconregister, this, 0, true);
@@ -337,7 +337,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public boolean shouldSideBeRendered(IBlockAccess world, int i, int j, int k, int side) {
 		int i1 = i - Facing.offsetsXForSide[side];
 		int j1 = j - Facing.offsetsYForSide[side];

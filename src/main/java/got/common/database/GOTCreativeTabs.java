@@ -45,13 +45,13 @@ public class GOTCreativeTabs extends CreativeTabs {
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public Item getTabIconItem() {
 		return theIcon.getItem();
 	}
 
 	@Override
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public String getTranslatedTabLabel() {
 		return StatCollector.translateToLocal("got.tab." + getTabLabel());
 	}

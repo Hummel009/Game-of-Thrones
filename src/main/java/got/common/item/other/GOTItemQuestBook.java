@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTItemQuestBook extends Item {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public static IIcon questOfferIcon;
 
 	public GOTItemQuestBook() {
@@ -26,7 +26,7 @@ public class GOTItemQuestBook extends Item {
 		setCreativeTab(GOTCreativeTabs.tabMisc);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
@@ -43,7 +43,7 @@ public class GOTItemQuestBook extends Item {
 		return itemstack;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IIconRegister iconregister) {
 		super.registerIcons(iconregister);

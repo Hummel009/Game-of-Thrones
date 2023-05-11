@@ -18,11 +18,11 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTBlockBirdCage extends GOTBlockAnimalJar {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] sideIcons;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] topIcons;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] baseIcons;
 	public String[] cageTypes;
 
@@ -52,7 +52,7 @@ public class GOTBlockBirdCage extends GOTBlockAnimalJar {
 		return entity instanceof GOTEntityBird;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (j >= cageTypes.length) {
@@ -77,7 +77,7 @@ public class GOTBlockBirdCage extends GOTBlockAnimalJar {
 		return GOT.proxy.getBirdCageRenderID();
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < cageTypes.length; ++i) {
@@ -85,7 +85,7 @@ public class GOTBlockBirdCage extends GOTBlockAnimalJar {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		sideIcons = new IIcon[cageTypes.length];

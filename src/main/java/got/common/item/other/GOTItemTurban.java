@@ -13,7 +13,7 @@ import net.minecraft.util.StatCollector;
 import java.util.List;
 
 public class GOTItemTurban extends GOTItemRobes {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon ornamentIcon;
 
 	public GOTItemTurban() {
@@ -34,7 +34,7 @@ public class GOTItemTurban extends GOTItemRobes {
 		itemstack.getTagCompound().setBoolean("TurbanOrnament", flag);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		super.addInformation(itemstack, entityplayer, list, flag);
@@ -48,7 +48,7 @@ public class GOTItemTurban extends GOTItemRobes {
 		return "got:textures/armor/robes_turban.png";
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getColorFromItemStack(ItemStack itemstack, int pass) {
 		if (pass == 1 && GOTItemTurban.hasOrnament(itemstack)) {
@@ -57,7 +57,7 @@ public class GOTItemTurban extends GOTItemRobes {
 		return super.getColorFromItemStack(itemstack, pass);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(ItemStack itemstack, int pass) {
 		if (pass == 1 && GOTItemTurban.hasOrnament(itemstack)) {
@@ -66,14 +66,14 @@ public class GOTItemTurban extends GOTItemRobes {
 		return itemIcon;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IIconRegister iconregister) {
 		super.registerIcons(iconregister);
 		ornamentIcon = iconregister.registerIcon(getIconString() + "_ornament");
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public boolean requiresMultipleRenderPasses() {
 		return true;

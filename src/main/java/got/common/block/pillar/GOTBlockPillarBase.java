@@ -15,15 +15,15 @@ import net.minecraft.world.IBlockAccess;
 import java.util.List;
 
 public abstract class GOTBlockPillarBase extends Block {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] pillarFaceIcons;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] pillarSideIcons;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] pillarSideTopIcons;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] pillarSideMiddleIcons;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] pillarSideBottomIcons;
 	public String[] pillarNames;
 
@@ -44,7 +44,7 @@ public abstract class GOTBlockPillarBase extends Block {
 		return i;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(IBlockAccess world, int i, int j, int k, int side) {
 		boolean pillarAbove = isPillarAt(world, i, j + 1, k);
@@ -68,7 +68,7 @@ public abstract class GOTBlockPillarBase extends Block {
 		return pillarSideIcons[meta];
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (j >= pillarNames.length) {
@@ -80,7 +80,7 @@ public abstract class GOTBlockPillarBase extends Block {
 		return pillarSideIcons[j];
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < pillarNames.length; ++i) {
@@ -93,7 +93,7 @@ public abstract class GOTBlockPillarBase extends Block {
 		return block instanceof GOTBlockPillarBase;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		pillarFaceIcons = new IIcon[pillarNames.length];

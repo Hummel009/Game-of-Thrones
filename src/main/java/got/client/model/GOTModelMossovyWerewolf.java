@@ -7,7 +7,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
-@SideOnly(value = Side.CLIENT)
+@SideOnly(Side.CLIENT)
 public class GOTModelMossovyWerewolf extends ModelBase {
 	public boolean hunched;
 	ModelRenderer Head;

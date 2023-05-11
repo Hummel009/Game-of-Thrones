@@ -14,7 +14,7 @@ import net.minecraftforge.common.EnumPlantType;
 import java.util.Random;
 
 public class GOTBlockPipeweedCrop extends BlockCrops {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] pipeweedIcons;
 
 	@Override
@@ -27,7 +27,7 @@ public class GOTBlockPipeweedCrop extends BlockCrops {
 		return GOTRegistry.pipeweedSeeds;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (j < 7) {
@@ -44,7 +44,7 @@ public class GOTBlockPipeweedCrop extends BlockCrops {
 		return EnumPlantType.Crop;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
 		if (world.getBlockMetadata(i, j, k) == 7) {
@@ -52,7 +52,7 @@ public class GOTBlockPipeweedCrop extends BlockCrops {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		pipeweedIcons = new IIcon[4];

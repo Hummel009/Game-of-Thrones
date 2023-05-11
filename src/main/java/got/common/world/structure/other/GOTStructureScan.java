@@ -52,7 +52,7 @@ public class GOTStructureScan {
 					int i = ((String) s).indexOf(strscanFormat);
 					try {
 						s = ((String) s).substring(0, i);
-						BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(zip.getInputStream(entry)), Charsets.UTF_8.name()));
+						BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(zip.getInputStream(entry)), Charsets.UTF_8));
 						scanNamesAndReaders.put((String) s, reader);
 					} catch (Exception e) {
 						FMLLog.severe("Failed to load GOT structure scan " + (String) s + "from zip file");
@@ -72,7 +72,7 @@ public class GOTStructureScan {
 					}
 					try {
 						s = s.substring(0, i);
-						BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(new FileInputStream(subfile)), Charsets.UTF_8.name()));
+						BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(new FileInputStream(subfile)), Charsets.UTF_8));
 						scanNamesAndReaders.put(s, reader);
 					} catch (Exception e) {
 						FMLLog.severe("Failed to load GOT structure scan " + s + " from MCP folder");

@@ -25,7 +25,7 @@ import java.util.List;
 public class GOTItemCrossbow extends ItemBow {
 	public double boltDamageFactor;
 	public Item.ToolMaterial crossbowMaterial;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] crossbowPullIcons;
 
 	public GOTItemCrossbow(Item.ToolMaterial material) {
@@ -89,7 +89,7 @@ public class GOTItemCrossbow extends ItemBow {
 		return GOTItemCrossbow.getLoaded(itemstack) != null;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		ItemStack ammo = GOTItemCrossbow.getLoaded(itemstack);
@@ -108,7 +108,7 @@ public class GOTItemCrossbow extends ItemBow {
 		return getIconIndex(itemstack);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(ItemStack itemstack, int renderPass, EntityPlayer entityplayer, ItemStack usingItem, int useRemaining) {
 		if (GOTItemCrossbow.isLoaded(itemstack)) {
@@ -130,7 +130,7 @@ public class GOTItemCrossbow extends ItemBow {
 		return itemIcon;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIconIndex(ItemStack itemstack) {
 		if (GOTItemCrossbow.isLoaded(itemstack)) {
@@ -251,7 +251,7 @@ public class GOTItemCrossbow extends ItemBow {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IIconRegister iconregister) {
 		itemIcon = iconregister.registerIcon(getIconString());

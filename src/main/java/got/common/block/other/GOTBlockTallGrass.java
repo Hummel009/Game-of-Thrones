@@ -21,18 +21,18 @@ import java.util.List;
 public class GOTBlockTallGrass extends GOTBlockGrass {
 	public static String[] grassNames = {"short", "flower", "wheat", "thistle", "nettle", "fernsprout"};
 	public static boolean[] grassOverlay = {false, true, true, true, false, false};
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] grassIcons;
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] overlayIcons;
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int colorMultiplier(IBlockAccess world, int i, int j, int k) {
 		return world.getBiomeGenForCoords(i, k).getBiomeGrassColor(i, j, k);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getBlockColor() {
 		return Blocks.tallgrass.getBlockColor();
@@ -48,7 +48,7 @@ public class GOTBlockTallGrass extends GOTBlockGrass {
 		return super.getDrops(world, i, j, k, meta, fortune);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (j >= grassNames.length) {
@@ -60,13 +60,13 @@ public class GOTBlockTallGrass extends GOTBlockGrass {
 		return grassIcons[j];
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getRenderColor(int meta) {
 		return getBlockColor();
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int j = 0; j < grassNames.length; ++j) {
@@ -89,7 +89,7 @@ public class GOTBlockTallGrass extends GOTBlockGrass {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		grassIcons = new IIcon[grassNames.length];

@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Random;
 
 public class GOTBlockOreGem extends Block {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] oreIcons;
 	public String[] oreNames = {"topaz", "amethyst", "sapphire", "ruby", "amber", "diamond", "opal", "emerald"};
 
@@ -44,7 +44,7 @@ public class GOTBlockOreGem extends Block {
 		return world.getBlockMetadata(i, j, k);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (j >= oreNames.length) {
@@ -78,7 +78,7 @@ public class GOTBlockOreGem extends Block {
 		return Item.getItemFromBlock(this);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < oreNames.length; ++i) {
@@ -100,7 +100,7 @@ public class GOTBlockOreGem extends Block {
 		return this.quantityDropped(random);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		oreIcons = new IIcon[oreNames.length];

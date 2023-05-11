@@ -13,7 +13,7 @@ public class GOTBlockPillar2 extends GOTBlockPillarBase {
 		setPillarNames("labradorite", "chalk", "stone", "brick", "stone", "stone", "stone", "stone", "yiti", "yiti_red", "stone", "sothoryos_gold", "sothoryos_obsidian", "stone", "stone");
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		list.add(new ItemStack(item, 1, 0));

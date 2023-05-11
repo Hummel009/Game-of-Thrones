@@ -52,7 +52,7 @@ public class GOTBlockRope extends GOTBlockLadder {
 		return world.getBlock(i, j + 1, k) == this || super.canPlaceBlockAt(world, i, j, k);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public String getItemIconName() {
 		return getTextureName();
@@ -135,7 +135,7 @@ public class GOTBlockRope extends GOTBlockLadder {
 		}
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public boolean shouldSideBeRendered(IBlockAccess world, int i, int j, int k, int side) {
 		if (side == 0 || side == 1) {

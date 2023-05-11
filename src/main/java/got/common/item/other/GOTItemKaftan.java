@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
 public class GOTItemKaftan extends GOTItemRobes {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon overlayIcon;
 
 	public GOTItemKaftan(int slot) {
@@ -20,7 +20,7 @@ public class GOTItemKaftan extends GOTItemRobes {
 		return GOTItemRobes.getRobesColor(itemstack);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getColorFromItemStack(ItemStack itemstack, int pass) {
 		if (pass >= 1) {
@@ -37,14 +37,14 @@ public class GOTItemKaftan extends GOTItemRobes {
 		return super.getIcon(itemstack, pass);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IIconRegister iconregister) {
 		super.registerIcons(iconregister);
 		overlayIcon = iconregister.registerIcon(getIconString() + "_overlay");
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public boolean requiresMultipleRenderPasses() {
 		return true;

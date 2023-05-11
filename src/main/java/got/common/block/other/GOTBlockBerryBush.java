@@ -171,7 +171,7 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 		return 0.0f;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		int berryType = GOTBlockBerryBush.getBerryType(j);
@@ -197,7 +197,7 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 		return EnumPlantType.Crop;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (BushType type : BushType.values()) {
@@ -233,7 +233,7 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 		return false;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		for (BushType type : BushType.values()) {
@@ -259,9 +259,9 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 		public int bushMeta;
 		public String bushName;
 		public boolean poisonous;
-		@SideOnly(value = Side.CLIENT)
+		@SideOnly(Side.CLIENT)
 		public IIcon iconBare;
-		@SideOnly(value = Side.CLIENT)
+		@SideOnly(Side.CLIENT)
 		public IIcon iconGrown;
 
 		BushType(int i, String s, boolean flag) {

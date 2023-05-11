@@ -18,7 +18,7 @@ import java.util.Random;
 
 public class GOTBlockWaste extends Block {
 	public static Random wasteRand = new Random();
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] randomIcons;
 
 	public GOTBlockWaste() {
@@ -34,7 +34,7 @@ public class GOTBlockWaste extends Block {
 		return AxisAlignedBB.getBoundingBox(i, j, k, i + 1, j + 1 - f, k + 1);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(IBlockAccess world, int i, int j, int k, int side) {
 		int hash = i * 25799626 ^ k * 6879038 ^ j;
@@ -43,7 +43,7 @@ public class GOTBlockWaste extends Block {
 		return randomIcons[wasteRand.nextInt(randomIcons.length)];
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
 		int hash = i * 334224425 ^ i;
@@ -70,7 +70,7 @@ public class GOTBlockWaste extends Block {
 		entity.motionZ *= slow;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		randomIcons = new IIcon[4];

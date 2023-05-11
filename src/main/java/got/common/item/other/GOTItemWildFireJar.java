@@ -18,7 +18,7 @@ public class GOTItemWildFireJar extends ItemBlock {
 		BlockDispenser.dispenseBehaviorRegistry.putObject(this, new GOTDispenseWildFireJar());
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		super.addInformation(itemstack, entityplayer, list, flag);

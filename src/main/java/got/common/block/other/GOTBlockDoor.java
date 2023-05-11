@@ -24,7 +24,7 @@ public class GOTBlockDoor extends BlockDoor {
 		setCreativeTab(GOTCreativeTabs.tabUtil);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public Item getItem(World world, int i, int j, int k) {
 		return Item.getItemFromBlock(this);
@@ -35,7 +35,7 @@ public class GOTBlockDoor extends BlockDoor {
 		return (i & 8) != 0 ? null : Item.getItemFromBlock(this);
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public String getItemIconName() {
 		return getTextureName();

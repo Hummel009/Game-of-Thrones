@@ -18,7 +18,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.List;
 
 public abstract class GOTItemRugBase extends Item {
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public IIcon[] rugIcons;
 	public String[] rugNames;
 
@@ -32,7 +32,7 @@ public abstract class GOTItemRugBase extends Item {
 
 	public abstract GOTEntityRugBase createRug(World var1, ItemStack var2);
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIconFromDamage(int i) {
 		if (i >= rugIcons.length) {
@@ -41,7 +41,7 @@ public abstract class GOTItemRugBase extends Item {
 		return rugIcons[i];
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < rugNames.length; ++i) {
@@ -91,7 +91,7 @@ public abstract class GOTItemRugBase extends Item {
 		return false;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IIconRegister iconregister) {
 		rugIcons = new IIcon[rugNames.length];

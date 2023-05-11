@@ -76,7 +76,7 @@ import java.util.*;
 public class GOT {
 	@SidedProxy(clientSide = "got.client.GOTClientProxy", serverSide = "got.common.GOTCommonProxy")
 	public static GOTCommonProxy proxy;
-	@Mod.Instance(value = "got")
+	@Mod.Instance("got")
 	public static GOT instance;
 	public static String VERSION = "23.03.25";
 	public static List<String> devs = new ArrayList<>();

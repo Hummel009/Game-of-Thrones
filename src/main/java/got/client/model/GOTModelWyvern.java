@@ -8,7 +8,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 import org.lwjgl.opengl.GL11;
 
-@SideOnly(value = Side.CLIENT)
+@SideOnly(Side.CLIENT)
 public class GOTModelWyvern extends ModelBase {
 	public float radianF = 57.29578f;
 	ModelRenderer back4;

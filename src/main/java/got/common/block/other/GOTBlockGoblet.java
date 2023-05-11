@@ -14,7 +14,7 @@ public class GOTBlockGoblet extends GOTBlockMug {
 	}
 
 	public static class Copper extends GOTBlockGoblet {
-		@SideOnly(value = Side.CLIENT)
+		@SideOnly(Side.CLIENT)
 		@Override
 		public IIcon getIcon(int i, int j) {
 			return GOTRegistry.blockMetal1.getIcon(i, 0);
@@ -22,7 +22,7 @@ public class GOTBlockGoblet extends GOTBlockMug {
 	}
 
 	public static class Gold extends GOTBlockGoblet {
-		@SideOnly(value = Side.CLIENT)
+		@SideOnly(Side.CLIENT)
 		@Override
 		public IIcon getIcon(int i, int j) {
 			return Blocks.gold_block.getIcon(i, 0);
@@ -30,7 +30,7 @@ public class GOTBlockGoblet extends GOTBlockMug {
 	}
 
 	public static class Silver extends GOTBlockGoblet {
-		@SideOnly(value = Side.CLIENT)
+		@SideOnly(Side.CLIENT)
 		@Override
 		public IIcon getIcon(int i, int j) {
 			return GOTRegistry.blockMetal1.getIcon(i, 3);
@@ -42,7 +42,7 @@ public class GOTBlockGoblet extends GOTBlockMug {
 			setStepSound(Block.soundTypeWood);
 		}
 
-		@SideOnly(value = Side.CLIENT)
+		@SideOnly(Side.CLIENT)
 		@Override
 		public IIcon getIcon(int i, int j) {
 			return Blocks.planks.getIcon(i, 0);
