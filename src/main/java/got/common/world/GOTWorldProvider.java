@@ -73,7 +73,7 @@ public class GOTWorldProvider extends WorldProvider {
 	public boolean canBlockFreeze(int i, int j, int k, boolean isBlockUpdate) {
 		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
 		if (biome instanceof GOTBiomeOcean) {
-			return GOTBiomeOcean.isFrozen(k) && canFreezeIgnoreTemp(i, j, k, isBlockUpdate);
+			return GOTBiomeOcean.isFrozen(i, k) && canFreezeIgnoreTemp(i, j, k, isBlockUpdate);
 		}
 		boolean standartColdBiome = biome instanceof GOTBiome && ((GOTBiome) biome).getClimateType() == GOTClimateType.WINTER;
 		boolean altitudeColdBiome = biome instanceof GOTBiome && ((GOTBiome) biome).getClimateType() != null && ((GOTBiome) biome).getClimateType().isAltitudeZone() && k >= 140;
@@ -111,7 +111,7 @@ public class GOTWorldProvider extends WorldProvider {
 	public boolean canSnowAt(int i, int j, int k, boolean checkLight) {
 		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
 		if (biome instanceof GOTBiomeOcean) {
-			return GOTBiomeOcean.isFrozen(k) && canSnowIgnoreTemp(i, j, k, checkLight);
+			return GOTBiomeOcean.isFrozen(i, k) && canSnowIgnoreTemp(i, j, k, checkLight);
 		}
 		boolean standartColdBiome = biome instanceof GOTBiome && ((GOTBiome) biome).getClimateType() == GOTClimateType.WINTER;
 		boolean altitudeColdBiome = biome instanceof GOTBiome && ((GOTBiome) biome).getClimateType() != null && ((GOTBiome) biome).getClimateType().isAltitudeZone() && k >= 140;

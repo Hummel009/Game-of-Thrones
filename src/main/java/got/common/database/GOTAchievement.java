@@ -824,7 +824,7 @@ public class GOTAchievement {
 		return name;
 	}
 
-	public String getDescription() {
+	public String getDescription(EntityPlayer entityplayer) {
 		return StatCollector.translateToLocal("got.achievement." + name + ".desc");
 	}
 
@@ -842,6 +842,15 @@ public class GOTAchievement {
 
 	public void setRequiresAlly(GOTFaction... f) {
 		allyFactions.addAll(Arrays.asList(f));
+	}
+
+	public GOTAchievement setRequiresAnyEnemy(List<GOTFaction> f) {
+		return setRequiresEnemy(f.toArray(new GOTFaction[0]));
+	}
+
+	public GOTAchievement setRequiresEnemy(GOTFaction... f) {
+		enemyFactions.addAll(Arrays.asList(f));
+		return this;
 	}
 
 	public void setSpecial() {

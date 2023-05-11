@@ -10,6 +10,9 @@ import java.util.Map;
 
 public class GOTAlignmentTicker {
 	public static Map<GOTFaction, GOTAlignmentTicker> allFactionTickers = new EnumMap<>(GOTFaction.class);
+	public static int moveTime = 20;
+	public static int flashTime = 30;
+	public static int numericalTime = 200;
 	public GOTFaction theFac;
 	public float oldAlign;
 	public float newAlign;

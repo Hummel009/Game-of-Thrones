@@ -140,7 +140,7 @@ public class GOTTitle {
 				return StatCollector.translateToLocal("got.titles.unlock.exclusive");
 			}
 			case ACHIEVEMENT: {
-				return titleAchievement.getDescription();
+				return titleAchievement.getDescription(entityplayer);
 			}
 			case ALIGNMENT: {
 				boolean requirePledge;

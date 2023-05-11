@@ -86,7 +86,7 @@ public class GOTBiomeDorneMesa extends GOTBiomeDorneDesert {
 									b0 = 16;
 									if (l1 >= 64 && l1 <= 127) {
 										if (!flag1) {
-											b0 = levelGenerator(i, l1);
+											b0 = levelGenerator(i, l1, k);
 										}
 									} else {
 										b0 = 1;
@@ -114,7 +114,7 @@ public class GOTBiomeDorneMesa extends GOTBiomeDorneDesert {
 								blocks[i2] = Blocks.stained_hardened_clay;
 								meta[i2] = 1;
 							} else {
-								b0 = levelGenerator(i, l1);
+								b0 = levelGenerator(i, l1, k);
 								if (b0 < 16) {
 									blocks[i2] = Blocks.stained_hardened_clay;
 									meta[i2] = b0;
@@ -199,7 +199,7 @@ public class GOTBiomeDorneMesa extends GOTBiomeDorneDesert {
 		return GOTBiomeMusic.WESTEROS.getSubregion("halfLife");
 	}
 
-	public byte levelGenerator(int a, int b) {
+	public byte levelGenerator(int a, int b, int c) {
 		int l = (int) Math.round(noise3.func_151601_a(a * 1.0D / 512.0D, a * 1.0D / 512.0D) * 2.0D);
 		return clayMeta[(b + l + 64) % 64];
 	}

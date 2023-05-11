@@ -142,7 +142,7 @@ public class GOTGuiHandler {
 				ChatComponentTranslation name = new ChatComponentTranslation("got.gui.achievements.hover.name", achievement.getAchievementChatComponent(entityplayer));
 				ChatComponentTranslation subtitle = new ChatComponentTranslation("got.gui.achievements.hover.subtitle", achievement.getDimension().getDimensionName(), category.getDisplayName());
 				subtitle.getChatStyle().setItalic(true);
-				String desc = achievement.getDescription();
+				String desc = achievement.getDescription(entityplayer);
 				ArrayList<String> list = Lists.newArrayList(name.getFormattedText(), subtitle.getFormattedText());
 				list.addAll(mc.fontRenderer.listFormattedStringToWidth(desc, 150));
 				proxyGui.func_146283_a(list, mouseX, mouseY);

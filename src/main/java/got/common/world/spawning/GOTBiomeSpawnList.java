@@ -18,6 +18,7 @@ public class GOTBiomeSpawnList {
 	public String biomeIdentifier;
 	public List<FactionContainer> factionContainers = new ArrayList<>();
 	public List<GOTFaction> presentFactions = new ArrayList<>();
+	public float conquestGainRate = 1.0f;
 
 	public GOTBiomeSpawnList(GOTBiome biome) {
 		this(biome.getClass().getName());
@@ -38,6 +39,7 @@ public class GOTBiomeSpawnList {
 	public void clear() {
 		factionContainers.clear();
 		presentFactions.clear();
+		conquestGainRate = 1.0f;
 	}
 
 	public void determineFactions(World world) {

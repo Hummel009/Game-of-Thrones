@@ -455,6 +455,7 @@ public class GOTBeziers {
 	}
 
 	public static class BezierPointDatabase {
+		public static int COORD_LOOKUP_SIZE = 1000;
 		public Map<Pair<Integer, Integer>, List<BezierPoint>> pointMap = new HashMap<>();
 
 		public void add(BezierPoint point) {
