@@ -160,7 +160,7 @@ public class GOTAmbience {
 			}
 			if (enableAmbience) {
 				if (playingSeaSounds.size() < 3) {
-					if (biome instanceof GOTBiomeOcean || biome instanceof GOTBiomeBeach) {
+					if (biome instanceof GOTBiomeOcean) {
 						xzRange = 64;
 						for (float fr : new float[]{0.25f, 0.5f, 0.75f, 1.0f}) {
 							int range = (int) (xzRange * fr);

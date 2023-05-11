@@ -311,8 +311,6 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 
 	@Override
 	public String getDeathSound() {
-		if (isEgg()) {
-		}
 		return "mob.zombie.woodbreak";
 	}
 

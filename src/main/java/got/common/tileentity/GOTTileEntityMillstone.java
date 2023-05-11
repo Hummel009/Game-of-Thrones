@@ -22,8 +22,6 @@ public class GOTTileEntityMillstone extends TileEntity implements ISidedInventor
 
 	@Override
 	public boolean canExtractItem(int slot, ItemStack itemstack, int side) {
-		if (side == 0) {
-		}
 		return true;
 	}
 
@@ -78,8 +76,6 @@ public class GOTTileEntityMillstone extends TileEntity implements ISidedInventor
 	public int[] getAccessibleSlotsFromSide(int side) {
 		if (side == 0) {
 			return new int[]{1};
-		}
-		if (side == 1) {
 		}
 		return new int[]{0};
 	}

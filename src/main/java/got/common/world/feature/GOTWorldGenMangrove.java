@@ -111,8 +111,6 @@ public class GOTWorldGenMangrove extends WorldGenAbstractTree {
 								rootZ += zWay;
 							}
 							roots++;
-							if (roots <= 4 + random.nextInt(3)) {
-							}
 						}
 					}
 				}

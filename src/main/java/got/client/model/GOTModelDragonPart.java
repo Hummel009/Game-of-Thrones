@@ -111,10 +111,6 @@ public class GOTModelDragonPart extends ModelRenderer {
 
 		postRender(scale);
 
-		if (renderAxes) {
-//            GLUtils.renderAxes(scale * 8);
-		}
-
 		glCallList(displayList);
 
 		if (childModels != null) {

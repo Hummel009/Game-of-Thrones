@@ -112,8 +112,6 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 			for (int k16 = -2; k16 <= 2; ++k16) {
 				setBlockAndMetadata(world, i16, topHeight, k16, GOTRegistry.brick1, 15);
 				for (int j13 = topHeight + 1; j13 <= topHeight + 6; ++j13) {
-					if (Math.abs(i16) == 2 && Math.abs(k16) == 2) {
-					}
 					setBlockAndMetadata(world, i16, j13, k16, GOTRegistry.brick1, 15);
 				}
 				setBlockAndMetadata(world, i16, topHeight + 7, k16, GOTRegistry.brick1, 15);

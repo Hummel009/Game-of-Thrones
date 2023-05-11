@@ -351,8 +351,6 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 				setBlockAndMetadata(world, -4, 4, k13, Blocks.torch, 2);
 				setBlockAndMetadata(world, 4, 4, k13, Blocks.torch, 1);
 			}
-			if (k13 % 6 != 1 && k13 % 6 != 3) {
-			}
 		}
 		for (k13 = 9; k13 <= 19; ++k13) {
 			for (int i16 = -1; i16 <= 1; ++i16) {

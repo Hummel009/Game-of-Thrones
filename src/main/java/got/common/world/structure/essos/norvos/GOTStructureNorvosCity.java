@@ -316,8 +316,6 @@ public class GOTStructureNorvosCity extends GOTVillageGen {
 				i = 8 + l * 4;
 				k = -46;
 				r = 0;
-				if (l % 2 == 0) {
-				}
 				addStructure(getFortWallLong(random), -i, k, r, true);
 				addStructure(getFortWallLong(random), i, k, r, true);
 			}
@@ -325,8 +323,6 @@ public class GOTStructureNorvosCity extends GOTVillageGen {
 				i = l * 4;
 				k = 46;
 				r = 2;
-				if (l % 2 == 0) {
-				}
 				addStructure(getFortWallLong(random), i, k, r, true);
 			}
 			for (l = -10; l <= 10; ++l) {
@@ -335,8 +331,6 @@ public class GOTStructureNorvosCity extends GOTVillageGen {
 				r = 3;
 				addStructure(getFortWallLong(random), i, k, r, true);
 				r = 1;
-				if (l % 2 == 0) {
-				}
 				addStructure(getFortWallLong(random), -i, k, r, true);
 			}
 			addStructure(getFortCorner(random), -50, -46, 0, true);

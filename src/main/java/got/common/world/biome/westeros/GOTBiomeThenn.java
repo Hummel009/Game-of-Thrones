@@ -49,12 +49,11 @@ public class GOTBiomeThenn extends GOTBiomeHauntedForest {
 			j1 = world.getHeightValue(i12, k13);
 			lavaGen.generate(world, random, i12, j1, k13);
 		}
-		if (random.nextInt(1) == 0) {
-			i1 = i + random.nextInt(16) + 8;
-			k1 = k + random.nextInt(16) + 8;
-			j1 = world.getHeightValue(i1, k1);
-			new GOTWorldGenVolcanoCrater().generate(world, random, i1, j1, k1);
-		}
+		random.nextInt(1);
+		i1 = i + random.nextInt(16) + 8;
+		k1 = k + random.nextInt(16) + 8;
+		j1 = world.getHeightValue(i1, k1);
+		new GOTWorldGenVolcanoCrater().generate(world, random, i1, j1, k1);
 	}
 
 	@Override

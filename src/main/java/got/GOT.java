@@ -176,7 +176,7 @@ public class GOT {
 			}
 		}
 		Entity targetNPC = null;
-		GOTFaction targetNPCFaction = null;
+		GOTFaction targetNPCFaction;
 		if (target instanceof GOTEntityGoldenMan && getNPCFaction(target) == GOTFaction.UNALIGNED || getNPCFaction(target) != GOTFaction.UNALIGNED) {
 			targetNPC = target;
 		} else if (getNPCFaction(target.riddenByEntity) != GOTFaction.UNALIGNED) {

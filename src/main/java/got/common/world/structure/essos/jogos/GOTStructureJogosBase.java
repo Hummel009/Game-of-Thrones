@@ -44,8 +44,6 @@ public abstract class GOTStructureJogosBase extends GOTStructureBase {
 		setBlockAndMetadata(world, i, j, k, Blocks.grass, 0);
 		int j1 = j - 1;
 		while (getY(j1) >= 0 && !isOpaque(world, i, j1, k)) {
-			if (isOpaque(world, i, j1 - 1, k)) {
-			}
 			setBlockAndMetadata(world, i, j1, k, Blocks.grass, 0);
 			setGrassToDirt(world, i, j1 - 1, k);
 			--j1;

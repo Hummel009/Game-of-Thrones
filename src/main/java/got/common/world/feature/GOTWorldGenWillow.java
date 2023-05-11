@@ -123,8 +123,6 @@ public class GOTWorldGenWillow extends WorldGenAbstractTree {
 					world.getBlock(i1, rootY - 1, k1).onPlantGrow(world, i1, rootY - 1, k1, i1, rootY, k1);
 					--rootY;
 					roots++;
-					if (roots <= 4 + random.nextInt(3)) {
-					}
 				}
 			}
 		}

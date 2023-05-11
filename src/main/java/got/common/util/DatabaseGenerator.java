@@ -481,7 +481,7 @@ public class DatabaseGenerator {
 				if (!file.exists()) {
 					file.createNewFile();
 				}
-				Set<String> sitemap = new HashSet<>();
+				Set<String> sitemap;
 				Set<String> neededPages = new HashSet<>();
 				try (Stream<String> lines = Files.lines(Paths.get("hummel/sitemap.txt"))) {
 					sitemap = lines.collect(Collectors.toSet());

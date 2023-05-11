@@ -741,15 +741,7 @@ public class GOTAchievement {
 				if (!ach2.isSpecial) {
 					return -1;
 				}
-				if (ach2.ID < ach1.ID) {
-					return 1;
-				}
-				if (ach2.ID == ach1.ID) {
-					return 0;
-				}
-				if (ach2.ID > ach1.ID) {
-					return -1;
-				}
+				return Integer.compare(ach1.ID, ach2.ID);
 			} else if (ach2.isSpecial) {
 				return 1;
 			}

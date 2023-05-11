@@ -21,8 +21,7 @@ public class GOTRenderPlateFood extends TileEntitySpecialRenderer {
 		GOTTileEntityPlate plate = (GOTTileEntityPlate) tileentity;
 		ItemStack plateItem = plate.getFoodItem();
 		GOTPlateFallingInfo fallInfo = plate.plateFallInfo;
-		if (fallInfo == null) {
-		} else {
+		if (fallInfo != null) {
 			fallInfo.getPlateOffsetY(f);
 		}
 		if (plateItem != null) {

@@ -125,8 +125,6 @@ public class GOTWorldGenDragonblood extends WorldGenAbstractTree {
 						world.getBlock(i1, rootY - 1, k15).onPlantGrow(world, i1, rootY - 1, k15, i1, rootY, k15);
 						--rootY;
 						roots++;
-						if (roots <= 4 + random.nextInt(3)) {
-						}
 					}
 				}
 			}

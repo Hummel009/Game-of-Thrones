@@ -28,7 +28,6 @@ public class GOTRenderDirewolf extends RenderLiving {
 		GOTEntityDirewolf animal = (GOTEntityDirewolf) entity;
 		if (animal.isChild()) {
 			GL11.glScalef(0.5f, 0.5f, 0.5f);
-		} else {
 		}
 	}
 }

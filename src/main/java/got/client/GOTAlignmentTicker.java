@@ -60,7 +60,6 @@ public class GOTAlignmentTicker {
 				oldAlign = newAlign;
 				newAlign = curAlign;
 				moveTick = 20;
-				prevMoveTick = 20;
 				flashTick = 30;
 				numericalTick = 200;
 			}
