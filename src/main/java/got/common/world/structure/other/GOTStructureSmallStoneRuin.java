@@ -294,7 +294,7 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 						int d = i1 * i1 + j2 * j2 + k1 * k1;
 						if (d < r * r) {
 							boolean grass = !isOpaque(world, i1, i2 + 1, k1);
-							setBlockAndMetadata(world, i1, i2, k1, grass ? (Block) Blocks.grass : Blocks.dirt, 0);
+							setBlockAndMetadata(world, i1, i2, k1, grass ? Blocks.grass : Blocks.dirt, 0);
 							setGrassToDirt(world, i1, i2 - 1, k1);
 							if (i2 == 1) {
 								layFoundation(world, i1, 0, k1, Blocks.dirt, 0);

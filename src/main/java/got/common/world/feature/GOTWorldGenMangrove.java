@@ -112,7 +112,6 @@ public class GOTWorldGenMangrove extends WorldGenAbstractTree {
 							}
 							roots++;
 							if (roots <= 4 + random.nextInt(3)) {
-								continue;
 							}
 						}
 					}

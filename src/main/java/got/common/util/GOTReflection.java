@@ -72,7 +72,7 @@ public class GOTReflection {
 
 	public static int getFishHookBobTime(EntityFishHook fishHook) {
 		try {
-			return (Integer) ObfuscationReflectionHelper.getPrivateValue(EntityFishHook.class, fishHook, "field_146045_ax");
+			return ObfuscationReflectionHelper.getPrivateValue(EntityFishHook.class, fishHook, "field_146045_ax");
 		} catch (Exception e) {
 			logFailure(e);
 			return 0;
@@ -81,7 +81,7 @@ public class GOTReflection {
 
 	public static String[] getHorseArmorTextures() {
 		try {
-			return (String[]) ObfuscationReflectionHelper.getPrivateValue(EntityHorse.class, null, "horseArmorTextures", "field_110270_bw");
+			return ObfuscationReflectionHelper.getPrivateValue(EntityHorse.class, null, "horseArmorTextures", "field_110270_bw");
 		} catch (Exception e) {
 			logFailure(e);
 			return new String[0];
@@ -90,7 +90,7 @@ public class GOTReflection {
 
 	public static AnimalChest getHorseInv(EntityHorse horse) {
 		try {
-			return (AnimalChest) ObfuscationReflectionHelper.getPrivateValue(EntityHorse.class, horse, "horseChest", "field_110296_bG");
+			return ObfuscationReflectionHelper.getPrivateValue(EntityHorse.class, horse, "horseChest", "field_110296_bG");
 		} catch (Exception e) {
 			logFailure(e);
 			return null;
@@ -99,7 +99,7 @@ public class GOTReflection {
 
 	public static IAttribute getHorseJumpStrength() {
 		try {
-			return (IAttribute) ObfuscationReflectionHelper.getPrivateValue(EntityHorse.class, null, "horseJumpStrength", "field_110271_bv");
+			return ObfuscationReflectionHelper.getPrivateValue(EntityHorse.class, null, "horseJumpStrength", "field_110271_bv");
 		} catch (Exception e) {
 			logFailure(e);
 			return null;
@@ -108,7 +108,7 @@ public class GOTReflection {
 
 	public static Map<String, Action> getHoverEventMappings() {
 		try {
-			return (Map) ObfuscationReflectionHelper.getPrivateValue(HoverEvent.Action.class, null, "nameMapping", "field_150690_d");
+			return ObfuscationReflectionHelper.getPrivateValue(Action.class, null, "nameMapping", "field_150690_d");
 		} catch (Exception e) {
 			logFailure(e);
 			return Collections.emptyMap();
@@ -170,7 +170,7 @@ public class GOTReflection {
 
 	public static Block getStemFruitBlock(BlockStem block) {
 		try {
-			return (Block) ObfuscationReflectionHelper.getPrivateValue(BlockStem.class, block, "field_149877_a");
+			return ObfuscationReflectionHelper.getPrivateValue(BlockStem.class, block, "field_149877_a");
 		} catch (Exception e) {
 			logFailure(e);
 			return null;
@@ -193,7 +193,7 @@ public class GOTReflection {
 
 	public static boolean isBadEffect(Potion potion) {
 		try {
-			return (Boolean) ObfuscationReflectionHelper.getPrivateValue(Potion.class, potion, "isBadEffect", "field_76418_K");
+			return ObfuscationReflectionHelper.getPrivateValue(Potion.class, potion, "isBadEffect", "field_76418_K");
 		} catch (Exception e) {
 			logFailure(e);
 			return false;
@@ -202,7 +202,7 @@ public class GOTReflection {
 
 	public static boolean isFishHookInGround(EntityFishHook fishHook) {
 		try {
-			return (Boolean) ObfuscationReflectionHelper.getPrivateValue(EntityFishHook.class, fishHook, "field_146051_au");
+			return ObfuscationReflectionHelper.getPrivateValue(EntityFishHook.class, fishHook, "field_146051_au");
 		} catch (Exception e) {
 			logFailure(e);
 			return false;
@@ -253,7 +253,7 @@ public class GOTReflection {
 		try {
 			CommandHandler handler = (CommandHandler) MinecraftServer.getServer().getCommandManager();
 			Map<String, ICommand> commandMap = handler.getCommands();
-			Set<ICommand> commandSet = (Set) ObfuscationReflectionHelper.getPrivateValue(CommandHandler.class, handler, "commandSet", "field_71561_b");
+			Set<ICommand> commandSet = ObfuscationReflectionHelper.getPrivateValue(CommandHandler.class, handler, "commandSet", "field_71561_b");
 			ArrayList<ICommand> mapremoves = new ArrayList<>();
 			for (ICommand command : commandMap.values()) {
 				if (command.getClass() == commandClass) {

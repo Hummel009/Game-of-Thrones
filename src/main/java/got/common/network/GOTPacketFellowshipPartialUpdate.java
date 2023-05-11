@@ -132,11 +132,11 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 		public IMessage onMessage(P packet, MessageContext context) {
 			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-			GOTFellowshipClient fellowship = pd.getClientFellowshipByID(((GOTPacketFellowshipPartialUpdate) packet).fellowshipID);
+			GOTFellowshipClient fellowship = pd.getClientFellowshipByID(packet.fellowshipID);
 			if (fellowship != null) {
-				((GOTPacketFellowshipPartialUpdate) packet).updateClient(fellowship);
+				packet.updateClient(fellowship);
 			} else {
-				GOTLog.logger.warn("Client couldn't find fellowship for ID {}", ((GOTPacketFellowshipPartialUpdate) packet).fellowshipID);
+				GOTLog.logger.warn("Client couldn't find fellowship for ID {}", packet.fellowshipID);
 			}
 			return null;
 		}

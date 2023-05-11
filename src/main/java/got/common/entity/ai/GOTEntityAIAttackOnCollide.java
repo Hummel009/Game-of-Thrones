@@ -90,7 +90,7 @@ public class GOTEntityAIAttackOnCollide extends EntityAIBase {
 	public void updateLookAndPathing() {
 		theOwner.getLookHelper().setLookPositionWithEntity(attackTarget, 30.0f, 30.0f);
 		if (theOwner.riddenByEntity instanceof EntityLiving) {
-			((EntityLiving) theOwner.riddenByEntity).rotationYaw = theOwner.rotationYaw;
+			theOwner.riddenByEntity.rotationYaw = theOwner.rotationYaw;
 			((EntityLiving) theOwner.riddenByEntity).rotationYawHead = theOwner.rotationYawHead;
 		}
 		if ((sightNotRequired || theOwner.getEntitySenses().canSee(attackTarget))) {

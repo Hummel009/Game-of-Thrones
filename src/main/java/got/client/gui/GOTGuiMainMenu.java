@@ -121,13 +121,13 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 			ForgeHooksClient.renderMainMenu(this, fontRendererObj, width, height);
 			String copyright = "Powered by Hummel009";
 			drawString(fontRendererObj, copyright, width - fontRendererObj.getStringWidth(copyright) - 2, height - 10, -1);
-			String field_92025_p = (String) ObfuscationReflectionHelper.getPrivateValue(GuiMainMenu.class, this, "field_92025_p");
-			String field_146972_A = (String) ObfuscationReflectionHelper.getPrivateValue(GuiMainMenu.class, this, "field_146972_A");
-			int field_92024_r = (Integer) ObfuscationReflectionHelper.getPrivateValue(GuiMainMenu.class, this, "field_92024_r");
-			int field_92022_t = (Integer) ObfuscationReflectionHelper.getPrivateValue(GuiMainMenu.class, this, "field_92022_t");
-			int field_92021_u = (Integer) ObfuscationReflectionHelper.getPrivateValue(GuiMainMenu.class, this, "field_92021_u");
-			int field_92020_v = (Integer) ObfuscationReflectionHelper.getPrivateValue(GuiMainMenu.class, this, "field_92020_v");
-			int field_92019_w = (Integer) ObfuscationReflectionHelper.getPrivateValue(GuiMainMenu.class, this, "field_92019_w");
+			String field_92025_p = ObfuscationReflectionHelper.getPrivateValue(GuiMainMenu.class, this, "field_92025_p");
+			String field_146972_A = ObfuscationReflectionHelper.getPrivateValue(GuiMainMenu.class, this, "field_146972_A");
+			int field_92024_r = ObfuscationReflectionHelper.getPrivateValue(GuiMainMenu.class, this, "field_92024_r");
+			int field_92022_t = ObfuscationReflectionHelper.getPrivateValue(GuiMainMenu.class, this, "field_92022_t");
+			int field_92021_u = ObfuscationReflectionHelper.getPrivateValue(GuiMainMenu.class, this, "field_92021_u");
+			int field_92020_v = ObfuscationReflectionHelper.getPrivateValue(GuiMainMenu.class, this, "field_92020_v");
+			int field_92019_w = ObfuscationReflectionHelper.getPrivateValue(GuiMainMenu.class, this, "field_92019_w");
 			if (field_92025_p != null && field_92025_p.length() > 0) {
 				Gui.drawRect(field_92022_t - 2, field_92021_u - 2, field_92020_v + 2, field_92019_w - 1, 1428160512);
 				drawString(fontRendererObj, field_92025_p, field_92022_t, field_92021_u, -1);

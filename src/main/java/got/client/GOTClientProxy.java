@@ -675,7 +675,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 		Minecraft mc = Minecraft.getMinecraft();
 		if (mc.renderViewEntity != null && mc.theWorld != null) {
 			WorldClient worldClient = mc.theWorld;
-			Random rand = ((World) worldClient).rand;
+			Random rand = worldClient.rand;
 			int i = mc.gameSettings.particleSetting;
 			if (i == 1 && rand.nextInt(3) == 0) {
 				i = 2;

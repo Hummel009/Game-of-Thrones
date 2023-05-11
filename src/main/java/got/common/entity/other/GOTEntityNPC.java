@@ -197,7 +197,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			int fireAspectModifier;
 			if (weapon != null && entity instanceof EntityLivingBase) {
 				int weaponItemDamage = weapon.getItemDamage();
-				weapon.getItem().hitEntity(weapon, (EntityLivingBase) entity, (EntityLivingBase) this);
+				weapon.getItem().hitEntity(weapon, (EntityLivingBase) entity, this);
 				weapon.setItemDamage(weaponItemDamage);
 			}
 			if (knockbackModifier > 0) {

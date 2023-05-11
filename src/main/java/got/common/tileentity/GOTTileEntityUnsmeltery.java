@@ -182,7 +182,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 	}
 
 	public int determineResourcesUsed(ItemStack itemstack, ItemStack material) {
-		return determineResourcesUsed(itemstack, material, (List<IRecipe>) null);
+		return determineResourcesUsed(itemstack, material, null);
 	}
 
 	public int determineResourcesUsed(ItemStack itemstack, ItemStack material, List<IRecipe> recursiveCheckedRecipes) {

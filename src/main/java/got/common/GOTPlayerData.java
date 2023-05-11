@@ -194,7 +194,7 @@ public class GOTPlayerData {
 				rejectFellowshipInvite(fs);
 				if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 					GOTPacketFellowshipAcceptInviteResult resultPacket = new GOTPacketFellowshipAcceptInviteResult(fs, GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.DISBANDED);
-					GOTPacketHandler.networkWrapper.sendTo((IMessage) resultPacket, (EntityPlayerMP) entityplayer);
+					GOTPacketHandler.networkWrapper.sendTo(resultPacket, (EntityPlayerMP) entityplayer);
 				}
 			} else {
 				int limit = GOTConfig.fellowshipMaxSize;
@@ -202,7 +202,7 @@ public class GOTPlayerData {
 					rejectFellowshipInvite(fs);
 					if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 						GOTPacketFellowshipAcceptInviteResult resultPacket = new GOTPacketFellowshipAcceptInviteResult(fs, GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.TOO_LARGE);
-						GOTPacketHandler.networkWrapper.sendTo((IMessage) resultPacket, (EntityPlayerMP) entityplayer);
+						GOTPacketHandler.networkWrapper.sendTo(resultPacket, (EntityPlayerMP) entityplayer);
 					}
 				} else {
 					fs.addMember(playerUUID);
@@ -211,7 +211,7 @@ public class GOTPlayerData {
 					sendFellowshipInviteRemovePacket(fs);
 					if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 						GOTPacketFellowshipAcceptInviteResult resultPacket = new GOTPacketFellowshipAcceptInviteResult(fs, GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.JOINED);
-						GOTPacketHandler.networkWrapper.sendTo((IMessage) resultPacket, (EntityPlayerMP) entityplayer);
+						GOTPacketHandler.networkWrapper.sendTo(resultPacket, (EntityPlayerMP) entityplayer);
 						UUID inviterID = existingInvite.inviterID;
 						if (inviterID == null) {
 							inviterID = fs.getOwner();
@@ -369,7 +369,7 @@ public class GOTPlayerData {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			GOTPacketCreateCWPClient packet = waypoint.getClientPacket();
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 			GOTCustomWaypointLogger.logCreate(entityplayer, waypoint);
 		}
 		GOTCustomWaypoint shareCopy = waypoint.createCopyOfShared(playerUUID);
@@ -488,7 +488,7 @@ public class GOTPlayerData {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			GOTPacketCreateCWPClient packet = waypoint.getClientPacketShared();
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -698,7 +698,7 @@ public class GOTPlayerData {
 			EntityPlayer entityplayer = getPlayer();
 			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 				GOTPacketMiniquestRemove packet = new GOTPacketMiniquestRemove(quest, false, true);
-				GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+				GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 			}
 		} else {
 			FMLLog.warning("Warning: Attempted to remove a miniquest which does not belong to the player data");
@@ -723,7 +723,7 @@ public class GOTPlayerData {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			GOTPacketShareCWPClient packet = waypoint.getClientAddFellowshipPacket(fsID);
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 		GOTCustomWaypoint shareCopy = waypoint.createCopyOfShared(playerUUID);
 		for (UUID player : fs.getAllPlayerUUIDs()) {
@@ -745,7 +745,7 @@ public class GOTPlayerData {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			GOTPacketShareCWPClient packet = waypoint.getClientRemoveFellowshipPacket(fsID);
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 		GOTCustomWaypoint shareCopy = waypoint.createCopyOfShared(playerUUID);
 		for (UUID player : fs.getAllPlayerUUIDs()) {
@@ -873,7 +873,7 @@ public class GOTPlayerData {
 				markDirty();
 			}
 			if (waypoint instanceof GOTCustomWaypoint) {
-				GOTCustomWaypointLogger.logTravel((EntityPlayer) entityplayer, (GOTCustomWaypoint) waypoint);
+				GOTCustomWaypointLogger.logTravel(entityplayer, (GOTCustomWaypoint) waypoint);
 			}
 		}
 	}
@@ -1266,7 +1266,7 @@ public class GOTPlayerData {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			GOTPacketTitle packet = new GOTPacketTitle(playerTitle);
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 		for (UUID fsID : fellowshipIDs) {
 			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
@@ -1306,7 +1306,7 @@ public class GOTPlayerData {
 			EntityPlayer entityplayer = getPlayer();
 			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 				GOTPacketBrokenPledge packet = new GOTPacketBrokenPledge(pledgeBreakCooldown, pledgeBreakCooldownStart, brokenPledgeFaction);
-				GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+				GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 			}
 		}
 		if (pledgeBreakCooldown == 0 && preCD != pledgeBreakCooldown) {
@@ -1356,7 +1356,7 @@ public class GOTPlayerData {
 				world.playSoundAtEntity(entityplayer, "got:event.pledge", 1.0F, 1.0F);
 			}
 			GOTPacketPledge packet = new GOTPacketPledge(fac);
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -1479,7 +1479,7 @@ public class GOTPlayerData {
 			EntityPlayer entityplayer = getPlayer();
 			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 				GOTPacketUpdateViewingFaction packet = new GOTPacketUpdateViewingFaction(viewingFaction);
-				GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+				GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 			}
 		}
 	}
@@ -1523,7 +1523,7 @@ public class GOTPlayerData {
 		if (conq != 0.0F) {
 			GOTAlignmentValues.AlignmentBonus source = new GOTAlignmentValues.AlignmentBonus(0.0F, title);
 			GOTPacketAlignmentBonus packet = new GOTPacketAlignmentBonus(bonusFac, getAlignment(bonusFac), new GOTAlignmentBonusMap(), conq, posX, posY, posZ, source);
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -1588,7 +1588,7 @@ public class GOTPlayerData {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			GOTPacketCWPSharedHideClient packet = waypoint.getClientSharedHidePacket(hide);
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -1987,7 +1987,7 @@ public class GOTPlayerData {
 			EntityPlayer entityplayer = getPlayer();
 			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 				GOTPacketWaypointRegion packet = new GOTPacketWaypointRegion(region, false);
-				GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+				GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 			}
 		}
 	}
@@ -2201,7 +2201,7 @@ public class GOTPlayerData {
 			EntityPlayer entityplayer = getPlayer();
 			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 				GOTPacketDeleteCWPClient packet = waypoint.getClientDeletePacket();
-				GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+				GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 				GOTCustomWaypointLogger.logDelete(entityplayer, waypoint);
 			}
 			GOTCustomWaypoint shareCopy = waypoint.createCopyOfShared(playerUUID);
@@ -2244,7 +2244,7 @@ public class GOTPlayerData {
 			EntityPlayer entityplayer = getPlayer();
 			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 				GOTPacketMiniquestRemove packet = new GOTPacketMiniquestRemove(quest, quest.isCompleted(), false);
-				GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+				GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 			}
 		} else {
 			FMLLog.warning("Warning: Attempted to remove a miniquest which does not belong to the player data");
@@ -2277,7 +2277,7 @@ public class GOTPlayerData {
 			EntityPlayer entityplayer = getPlayer();
 			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 				GOTPacketDeleteCWPClient packet = waypoint.getClientDeletePacketShared();
-				GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+				GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 			}
 		} else {
 			FMLLog.warning("Hummel009: Warning! Tried to remove a shared custom waypoint that does not exist!");
@@ -2290,7 +2290,7 @@ public class GOTPlayerData {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			GOTPacketRenameCWPClient packet = waypoint.getClientRenamePacket();
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 			GOTCustomWaypointLogger.logRename(entityplayer, waypoint);
 		}
 		GOTCustomWaypoint shareCopy = waypoint.createCopyOfShared(playerUUID);
@@ -2322,7 +2322,7 @@ public class GOTPlayerData {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			GOTPacketRenameCWPClient packet = waypoint.getClientRenamePacketShared();
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -2719,7 +2719,7 @@ public class GOTPlayerData {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null) {
 			GOTPacketAlignmentBonus packet = new GOTPacketAlignmentBonus(faction, prevMainAlignment, factionMap, conqBonus, posX, posY, posZ, source);
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -2727,7 +2727,7 @@ public class GOTPlayerData {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			GOTPacketFellowship packet = new GOTPacketFellowship(this, fs, true);
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -2735,7 +2735,7 @@ public class GOTPlayerData {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			GOTPacketFellowshipRemove packet = new GOTPacketFellowshipRemove(fs, true);
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -2743,7 +2743,7 @@ public class GOTPlayerData {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			GOTPacketFellowship packet = new GOTPacketFellowship(this, fs, false);
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -2751,7 +2751,7 @@ public class GOTPlayerData {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			GOTPacketFellowshipRemove packet = new GOTPacketFellowshipRemove(fs, false);
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -2773,7 +2773,7 @@ public class GOTPlayerData {
 				sentMessageTypes.put(message, true);
 				markDirty();
 				GOTPacketMessage packet = new GOTPacketMessage(message);
-				GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+				GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 			}
 		}
 	}
@@ -2789,7 +2789,7 @@ public class GOTPlayerData {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			GOTPacketOptions packet = new GOTPacketOptions(option, flag);
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -2938,7 +2938,7 @@ public class GOTPlayerData {
 			EntityPlayer entityplayer = getPlayer();
 			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 				GOTPacketFTTimer packet = new GOTPacketFTTimer(ftSinceTick);
-				GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+				GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 			}
 		}
 	}
@@ -2953,7 +2953,7 @@ public class GOTPlayerData {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			GOTPacketMiniquestTrackClient packet = new GOTPacketMiniquestTrackClient(trackingMiniQuestID);
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -2985,7 +2985,7 @@ public class GOTPlayerData {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			GOTPacketWaypointUseCount packet = new GOTPacketWaypointUseCount(wp, count);
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -3020,7 +3020,7 @@ public class GOTPlayerData {
 			EntityPlayer entityplayer = getPlayer();
 			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 				GOTPacketWaypointRegion packet = new GOTPacketWaypointRegion(region, true);
-				GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+				GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 			}
 		}
 	}
@@ -3037,7 +3037,7 @@ public class GOTPlayerData {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			GOTPacketCWPSharedUnlockClient packet = waypoint.getClientSharedUnlockPacket();
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -3070,7 +3070,7 @@ public class GOTPlayerData {
 			NBTTagCompound nbt = new NBTTagCompound();
 			factionData.save(nbt);
 			GOTPacketFactionData packet = new GOTPacketFactionData(faction, nbt);
-			GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 

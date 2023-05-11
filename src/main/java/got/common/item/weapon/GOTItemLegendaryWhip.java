@@ -83,7 +83,6 @@ public class GOTItemLegendaryWhip extends GOTItemSword {
 		}
 		for (EntityLivingBase entity : whipTargets) {
 			if (entity != hitEntity && !entity.attackEntityFrom(DamageSource.causeMobDamage(user), 1.0f)) {
-				continue;
 			}
 		}
 		Vec3 eyeHeight = position.addVector(0.0, user.getEyeHeight(), 0.0);

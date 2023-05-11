@@ -349,7 +349,7 @@ public class GOTEntityQuestInfo {
 		NBTTagCompound nbt = new NBTTagCompound();
 		quest.writeToNBT(nbt);
 		GOTPacketMiniquestOffer packet = new GOTPacketMiniquestOffer(theNPC.getEntityId(), nbt);
-		GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) entityplayer);
+		GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		addOpenOfferPlayer(entityplayer);
 	}
 

@@ -399,7 +399,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 
 	public boolean isSolidOpenWalkTarget(int i, int j, int k) {
 		Block below = theWorld.getBlock(i, j - 1, k);
-		if (below.isOpaqueCube() || below.canSustainPlant((IBlockAccess) theWorld, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.wheat)) {
+		if (below.isOpaqueCube() || below.canSustainPlant(theWorld, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.wheat)) {
 			ArrayList bounds = new ArrayList<>();
 			AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(i, j, k, i + 1, j + 2, k + 1);
 			for (int j1 = j; j1 <= j + 1; ++j1) {
@@ -522,7 +522,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 		harvestingSolidBlock = false;
 		Block block = theWorld.getBlock(i, j, k);
 		boolean isGrassDirt = block.canSustainPlant(theWorld, i, j, k, ForgeDirection.UP, Blocks.tallgrass);
-		boolean isFarmland = block.canSustainPlant((IBlockAccess) theWorld, i, j, k, ForgeDirection.UP, (IPlantable) Blocks.wheat);
+		boolean isFarmland = block.canSustainPlant(theWorld, i, j, k, ForgeDirection.UP, (IPlantable) Blocks.wheat);
 		if (isGrassDirt && !isFarmland && (isReplaceable(i, j + 1, k) || theWorld.getBlock(i, j + 1, k) == GOTRegistry.grapevine)) {
 			Block below = theWorld.getBlock(i, j - 1, k);
 			if (below == Blocks.sand) {

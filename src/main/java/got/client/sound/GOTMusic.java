@@ -294,7 +294,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 		public static SoundRegistry getSoundRegistry() {
 			SoundHandler handler = Minecraft.getMinecraft().getSoundHandler();
 			try {
-				return (SoundRegistry) ObfuscationReflectionHelper.getPrivateValue(SoundHandler.class, handler, "sndRegistry", "field_147697_e");
+				return ObfuscationReflectionHelper.getPrivateValue(SoundHandler.class, handler, "sndRegistry", "field_147697_e");
 			} catch (Exception e) {
 				GOTReflection.logFailure(e);
 				return null;
@@ -304,7 +304,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 		public static void putDomainResourceManager(String domain, IResourceManager manager) {
 			SimpleReloadableResourceManager masterManager = (SimpleReloadableResourceManager) Minecraft.getMinecraft().getResourceManager();
 			try {
-				Map map = (Map) ObfuscationReflectionHelper.getPrivateValue(SimpleReloadableResourceManager.class, masterManager, "domainResourceManagers", "field_110548_a");
+				Map map = ObfuscationReflectionHelper.getPrivateValue(SimpleReloadableResourceManager.class, masterManager, "domainResourceManagers", "field_110548_a");
 				map.put(domain, manager);
 			} catch (Exception e) {
 				GOTReflection.logFailure(e);
