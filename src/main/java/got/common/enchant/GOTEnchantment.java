@@ -92,11 +92,11 @@ public abstract class GOTEnchantment {
 	public boolean bypassAnvilLimit;
 	public boolean applyToProjectile;
 
-	public GOTEnchantment(String s, GOTEnchantmentType type) {
+	protected GOTEnchantment(String s, GOTEnchantmentType type) {
 		this(s, new GOTEnchantmentType[]{type});
 	}
 
-	public GOTEnchantment(String s, GOTEnchantmentType[] types) {
+	protected GOTEnchantment(String s, GOTEnchantmentType[] types) {
 		enchantName = s;
 		itemTypes = Arrays.asList(types);
 		allEnchantments.add(this);

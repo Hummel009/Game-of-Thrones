@@ -11,7 +11,7 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 	public int minWidth;
 	public int maxWidth;
 
-	public GOTStructureStoneRuin(int i, int j) {
+	protected GOTStructureStoneRuin(int i, int j) {
 		super(false);
 		minWidth = i;
 		maxWidth = j;

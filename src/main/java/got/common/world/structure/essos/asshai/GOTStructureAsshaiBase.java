@@ -60,7 +60,7 @@ public abstract class GOTStructureAsshaiBase extends GOTStructureBase {
 	public Block brick2SlabBlock;
 	public int brick2SlabMeta;
 
-	public GOTStructureAsshaiBase(boolean flag) {
+	protected GOTStructureAsshaiBase(boolean flag) {
 		super(flag);
 	}
 

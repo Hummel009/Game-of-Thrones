@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public abstract class GOTEntityReachMarketTrader extends GOTEntityReachMan implements GOTTradeable {
-	public GOTEntityReachMarketTrader(World world) {
+	protected GOTEntityReachMarketTrader(World world) {
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(false);

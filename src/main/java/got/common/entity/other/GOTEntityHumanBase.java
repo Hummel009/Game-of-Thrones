@@ -8,7 +8,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.world.World;
 
 public abstract class GOTEntityHumanBase extends GOTEntityNPC {
-	public GOTEntityHumanBase(World world) {
+	protected GOTEntityHumanBase(World world) {
 		super(world);
 		canBeMarried = false;
 		if (familyInfo.isMale() && familyInfo.age >= 0 && !isLegendaryNPC && !isNotHuman) {

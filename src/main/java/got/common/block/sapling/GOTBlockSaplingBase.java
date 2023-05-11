@@ -21,7 +21,7 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 	public IIcon[] saplingIcons;
 	public String[] saplingNames;
 
-	public GOTBlockSaplingBase() {
+	protected GOTBlockSaplingBase() {
 		float f = 0.4f;
 		setBlockBounds(0.5f - f, 0.0f, 0.5f - f, 0.5f + f, f * 2.0f, 0.5f + f);
 		setCreativeTab(GOTCreativeTabs.tabDeco);

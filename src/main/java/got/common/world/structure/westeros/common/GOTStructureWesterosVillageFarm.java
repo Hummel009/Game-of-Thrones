@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public abstract class GOTStructureWesterosVillageFarm extends GOTStructureWesterosBase {
-	public GOTStructureWesterosVillageFarm(boolean flag) {
+	protected GOTStructureWesterosVillageFarm(boolean flag) {
 		super(flag);
 	}
 

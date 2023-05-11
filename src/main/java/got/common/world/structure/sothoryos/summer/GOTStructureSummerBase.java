@@ -33,7 +33,7 @@ public abstract class GOTStructureSummerBase extends GOTStructureBase {
 	public int boneMeta;
 	public Block bedBlock;
 
-	public GOTStructureSummerBase(boolean flag) {
+	protected GOTStructureSummerBase(boolean flag) {
 		super(flag);
 	}
 

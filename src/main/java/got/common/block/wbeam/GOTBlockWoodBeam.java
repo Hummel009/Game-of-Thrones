@@ -22,7 +22,7 @@ public abstract class GOTBlockWoodBeam extends BlockRotatedPillar {
 	public IIcon[] topIcons;
 	public String[] woodNames;
 
-	public GOTBlockWoodBeam() {
+	protected GOTBlockWoodBeam() {
 		super(Material.wood);
 		setCreativeTab(GOTCreativeTabs.tabBlock);
 		setHardness(2.0f);

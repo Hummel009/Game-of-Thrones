@@ -38,7 +38,7 @@ public abstract class GOTStructureSothoryosHouse extends GOTStructureBase {
 	public Block bedBlock;
 	public Block plateBlock;
 
-	public GOTStructureSothoryosHouse(boolean flag) {
+	protected GOTStructureSothoryosHouse(boolean flag) {
 		super(flag);
 	}
 

@@ -25,7 +25,7 @@ public abstract class GOTBlockForgeBase extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	public IIcon[] forgeIcons;
 
-	public GOTBlockForgeBase() {
+	protected GOTBlockForgeBase() {
 		super(Material.rock);
 		setCreativeTab(GOTCreativeTabs.tabUtil);
 		setHardness(4.0f);

@@ -83,7 +83,7 @@ public abstract class GOTMiniQuest {
 
 	public List<String> quotesStages = new ArrayList<>();
 
-	public GOTMiniQuest(GOTPlayerData pd) {
+	protected GOTMiniQuest(GOTPlayerData pd) {
 		playerData = pd;
 		questUUID = UUID.randomUUID();
 	}
@@ -560,7 +560,7 @@ public abstract class GOTMiniQuest {
 		public boolean isLegendary;
 		public List<ItemStack> rewardItems;
 
-		public QuestFactoryBase(String name) {
+		protected QuestFactoryBase(String name) {
 			questName = name;
 		}
 

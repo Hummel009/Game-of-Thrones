@@ -122,7 +122,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	public int nearbyBannerFactor;
 	public int npcTalkTick;
 
-	public GOTEntityNPC(World world) {
+	protected GOTEntityNPC(World world) {
 		super(world);
 		canBeMarried = false;
 	}

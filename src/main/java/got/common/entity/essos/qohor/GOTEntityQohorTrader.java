@@ -18,7 +18,7 @@ import java.awt.*;
 import java.util.Random;
 
 public abstract class GOTEntityQohorTrader extends GOTEntityQohorMan implements GOTTradeable {
-	public GOTEntityQohorTrader(World world) {
+	protected GOTEntityQohorTrader(World world) {
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(false);

@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public abstract class GOTBlockTorch extends BlockTorch {
-	public GOTBlockTorch() {
+	protected GOTBlockTorch() {
 		setCreativeTab(GOTCreativeTabs.tabDeco);
 	}
 

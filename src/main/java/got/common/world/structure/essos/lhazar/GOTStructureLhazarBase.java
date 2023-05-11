@@ -52,7 +52,7 @@ public abstract class GOTStructureLhazarBase extends GOTStructureBase {
 	public int boneWallMeta;
 	public Block bedBlock;
 
-	public GOTStructureLhazarBase(boolean flag) {
+	protected GOTStructureLhazarBase(boolean flag) {
 		super(flag);
 	}
 

@@ -19,7 +19,7 @@ public abstract class GOTStructureTentBase extends GOTStructureBase {
 	public GOTChestContents chestContents;
 	public boolean isCaptain;
 
-	public GOTStructureTentBase(boolean flag) {
+	protected GOTStructureTentBase(boolean flag) {
 		super(flag);
 	}
 

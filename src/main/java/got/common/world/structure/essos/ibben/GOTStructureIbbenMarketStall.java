@@ -12,7 +12,7 @@ import java.util.Random;
 public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase {
 	public static Class[] allStallTypes = {Goldsmith.class, Miner.class, Blacksmith.class, Farmer.class, Lumber.class, Mason.class, Brewer.class, Butcher.class, Fish.class, Baker.class, Florist.class};
 
-	public GOTStructureIbbenMarketStall(boolean flag) {
+	protected GOTStructureIbbenMarketStall(boolean flag) {
 		super(flag);
 	}
 

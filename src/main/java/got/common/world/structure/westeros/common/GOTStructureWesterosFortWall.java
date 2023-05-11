@@ -8,7 +8,7 @@ import java.util.Random;
 public abstract class GOTStructureWesterosFortWall extends GOTStructureWesterosBase {
 	public boolean isRight;
 
-	public GOTStructureWesterosFortWall(boolean flag) {
+	protected GOTStructureWesterosFortWall(boolean flag) {
 		super(flag);
 	}
 

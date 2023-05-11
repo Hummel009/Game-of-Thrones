@@ -114,7 +114,7 @@ public class GOTGuiNotificationDisplay extends Gui {
 	public abstract static class Notification {
 		public Long notificationTime = Minecraft.getSystemTime();
 
-		public Notification() {
+		protected Notification() {
 		}
 
 		public abstract int getDurationMs();

@@ -55,12 +55,12 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	public List<EntityCreature> characters = new ArrayList<>();
 	public boolean disable;
 
-	public GOTStructureBase() {
+	protected GOTStructureBase() {
 		super(false);
 		notifyChanges = false;
 	}
 
-	public GOTStructureBase(boolean flag) {
+	protected GOTStructureBase(boolean flag) {
 		super(flag);
 		notifyChanges = flag;
 	}

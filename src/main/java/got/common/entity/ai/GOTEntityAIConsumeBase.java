@@ -14,7 +14,7 @@ public abstract class GOTEntityAIConsumeBase extends EntityAIBase {
 	public int chanceToConsume;
 	public int consumeTick;
 
-	public GOTEntityAIConsumeBase(GOTEntityNPC entity, GOTFoods foods, int chance) {
+	protected GOTEntityAIConsumeBase(GOTEntityNPC entity, GOTFoods foods, int chance) {
 		theEntity = entity;
 		rand = theEntity.getRNG();
 		foodPool = foods;

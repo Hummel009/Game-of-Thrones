@@ -27,7 +27,7 @@ public abstract class GOTContainerCraftingTable extends ContainerWorkbench {
 	public GOTBlockCraftingTable tableBlock;
 	public EntityPlayer entityplayer;
 
-	public GOTContainerCraftingTable(InventoryPlayer inv, World world, int i, int j, int k, List<IRecipe> list, Block block) {
+	protected GOTContainerCraftingTable(InventoryPlayer inv, World world, int i, int j, int k, List<IRecipe> list, Block block) {
 		super(inv, world, i, j, k);
 		theWorld = world;
 		tablePosX = i;

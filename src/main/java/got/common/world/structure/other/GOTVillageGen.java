@@ -30,7 +30,7 @@ public abstract class GOTVillageGen {
 	public int fixedVillageChunkRadius;
 	public List<LocationInfo> fixedLocations = new ArrayList<>();
 
-	public GOTVillageGen(GOTBiome biome) {
+	protected GOTVillageGen(GOTBiome biome) {
 		villageBiome = biome;
 		spawnBiomes = new ArrayList<>();
 		spawnBiomes.add(villageBiome);
@@ -300,7 +300,7 @@ public abstract class GOTVillageGen {
 		public int rotationMode;
 		public List<StructureInfo> structures = new ArrayList<>();
 
-		public AbstractInstance(V village, World world, int i, int k, Random random, LocationInfo loc) {
+		protected AbstractInstance(V village, World world, int i, int k, Random random, LocationInfo loc) {
 			instanceVillageBiome = ((GOTVillageGen) village).villageBiome;
 			theWorld = world;
 			instanceRand = new Random();

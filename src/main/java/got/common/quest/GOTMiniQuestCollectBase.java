@@ -14,7 +14,7 @@ public abstract class GOTMiniQuestCollectBase extends GOTMiniQuest {
 	public int collectTarget;
 	public int amountGiven;
 
-	public GOTMiniQuestCollectBase(GOTPlayerData pd) {
+	protected GOTMiniQuestCollectBase(GOTPlayerData pd) {
 		super(pd);
 	}
 

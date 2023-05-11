@@ -20,7 +20,7 @@ public abstract class GOTGuiCraftingTable extends GuiContainer {
 	public GOTContainerCraftingTable container;
 	public GuiButton tableSwitcher;
 
-	public GOTGuiCraftingTable(GOTContainerCraftingTable container, String s) {
+	protected GOTGuiCraftingTable(GOTContainerCraftingTable container, String s) {
 		super(container);
 		this.container = container;
 		unlocalizedName = s;

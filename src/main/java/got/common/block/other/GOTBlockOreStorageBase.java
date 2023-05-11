@@ -19,7 +19,7 @@ public abstract class GOTBlockOreStorageBase extends Block {
 	public IIcon[] oreStorageIcons;
 	public String[] oreStorageNames;
 
-	public GOTBlockOreStorageBase() {
+	protected GOTBlockOreStorageBase() {
 		super(Material.iron);
 		setCreativeTab(GOTCreativeTabs.tabBlock);
 		setHardness(5.0f);

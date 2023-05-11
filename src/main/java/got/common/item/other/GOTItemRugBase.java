@@ -22,7 +22,7 @@ public abstract class GOTItemRugBase extends Item {
 	public IIcon[] rugIcons;
 	public String[] rugNames;
 
-	public GOTItemRugBase(String... names) {
+	protected GOTItemRugBase(String... names) {
 		rugNames = names;
 		setCreativeTab(GOTCreativeTabs.tabDeco);
 		setMaxStackSize(1);

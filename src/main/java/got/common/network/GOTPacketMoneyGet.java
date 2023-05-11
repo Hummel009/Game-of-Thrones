@@ -17,7 +17,7 @@ import net.minecraft.util.StatCollector;
 
 import java.io.IOException;
 
-public class GOTPacketMoneyGet extends GOTPacketMoney implements IMessage {
+public class GOTPacketMoneyGet extends GOTPacketMoney {
 	public ItemStack item;
 
 	public GOTPacketMoneyGet() {

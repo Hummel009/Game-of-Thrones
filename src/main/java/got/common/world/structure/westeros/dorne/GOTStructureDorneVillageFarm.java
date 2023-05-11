@@ -3,7 +3,7 @@ package got.common.world.structure.westeros.dorne;
 import got.common.world.structure.westeros.common.GOTStructureWesterosVillageFarm;
 
 public abstract class GOTStructureDorneVillageFarm extends GOTStructureWesterosVillageFarm {
-	public GOTStructureDorneVillageFarm(boolean flag) {
+	protected GOTStructureDorneVillageFarm(boolean flag) {
 		super(flag);
 		kingdom = Kingdom.DORNE;
 	}

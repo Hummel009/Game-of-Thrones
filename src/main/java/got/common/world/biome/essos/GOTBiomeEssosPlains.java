@@ -4,7 +4,7 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.spawning.GOTEventSpawner;
 
 public abstract class GOTBiomeEssosPlains extends GOTBiomeEssos {
-	public GOTBiomeEssosPlains(int i, boolean major) {
+	protected GOTBiomeEssosPlains(int i, boolean major) {
 		super(i, major);
 		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.HILLS);

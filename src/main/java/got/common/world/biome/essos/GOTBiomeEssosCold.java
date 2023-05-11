@@ -6,7 +6,7 @@ import got.common.world.feature.GOTTreeType;
 import got.common.world.structure.other.*;
 
 public abstract class GOTBiomeEssosCold extends GOTBiome {
-	public GOTBiomeEssosCold(int i, boolean major) {
+	protected GOTBiomeEssosCold(int i, boolean major) {
 		super(i, major);
 		setupTaigaFauna();
 		clearBiomeVariants();

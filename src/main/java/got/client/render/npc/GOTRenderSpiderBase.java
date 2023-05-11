@@ -15,7 +15,7 @@ import org.lwjgl.opengl.GL11;
 public abstract class GOTRenderSpiderBase extends RenderLiving {
 	public GOTModelSpider eyesModel = new GOTModelSpider(0.55f);
 
-	public GOTRenderSpiderBase() {
+	protected GOTRenderSpiderBase() {
 		super(new GOTModelSpider(0.5f), 1.0f);
 		setRenderPassModel(new GOTModelSpider(0.5f));
 	}

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
-	public GOTStructureYiTiVillageFarm(boolean flag) {
+	protected GOTStructureYiTiVillageFarm(boolean flag) {
 		super(flag);
 	}
 

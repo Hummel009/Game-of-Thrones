@@ -82,7 +82,7 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 	public Item seedItem;
 	public GOTItemBanner.BannerType bannerType;
 
-	public GOTStructureIbbenBase(boolean flag) {
+	protected GOTStructureIbbenBase(boolean flag) {
 		super(flag);
 	}
 

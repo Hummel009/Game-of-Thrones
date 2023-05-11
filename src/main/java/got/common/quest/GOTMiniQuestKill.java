@@ -15,7 +15,7 @@ public abstract class GOTMiniQuestKill extends GOTMiniQuest {
 	public int killTarget;
 	public int killCount;
 
-	public GOTMiniQuestKill(GOTPlayerData pd) {
+	protected GOTMiniQuestKill(GOTPlayerData pd) {
 		super(pd);
 	}
 
@@ -98,7 +98,7 @@ public abstract class GOTMiniQuestKill extends GOTMiniQuest {
 		public int minTarget;
 		public int maxTarget;
 
-		public QFKill(String name) {
+		protected QFKill(String name) {
 			super(name);
 		}
 

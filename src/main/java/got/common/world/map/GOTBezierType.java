@@ -144,7 +144,7 @@ public abstract class GOTBezierType {
 		}
 	};
 
-	public GOTBezierType() {
+	protected GOTBezierType() {
 	}
 
 	public abstract BezierBlock getBlock(Random var1, BiomeGenBase var2, boolean var3, boolean var4);
@@ -251,7 +251,7 @@ public abstract class GOTBezierType {
 			}
 		};
 
-		public BridgeType() {
+		protected BridgeType() {
 		}
 
 		public abstract BezierBlock getBlock(Random var1, boolean var2);

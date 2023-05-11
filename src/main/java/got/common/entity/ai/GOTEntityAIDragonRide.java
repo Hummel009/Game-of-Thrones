@@ -11,7 +11,7 @@ public abstract class GOTEntityAIDragonRide extends EntityAIBase {
 	public GOTEntityDragon dragon;
 	public EntityPlayer rider;
 
-	public GOTEntityAIDragonRide(GOTEntityDragon dragon) {
+	protected GOTEntityAIDragonRide(GOTEntityDragon dragon) {
 		this.dragon = dragon;
 		setMutexBits(0xffffffff);
 	}

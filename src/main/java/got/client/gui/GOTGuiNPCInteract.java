@@ -5,7 +5,7 @@ import got.common.entity.other.GOTEntityNPC;
 public abstract class GOTGuiNPCInteract extends GOTGuiScreenBase {
 	public GOTEntityNPC theEntity;
 
-	public GOTGuiNPCInteract(GOTEntityNPC entity) {
+	protected GOTGuiNPCInteract(GOTEntityNPC entity) {
 		theEntity = entity;
 	}
 

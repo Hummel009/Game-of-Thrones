@@ -9,7 +9,7 @@ import org.lwjgl.opengl.GL11;
 public abstract class GOTRenderRugBase extends Render {
 	public ModelBase rugotel;
 
-	public GOTRenderRugBase(ModelBase m) {
+	protected GOTRenderRugBase(ModelBase m) {
 		rugotel = m;
 	}
 

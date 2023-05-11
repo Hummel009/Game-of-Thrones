@@ -77,7 +77,7 @@ public abstract class GOTStructureYiTiBase extends GOTStructureBase {
 	public GOTItemBanner.BannerType bannerType;
 	public GOTChestContents chestContents;
 
-	public GOTStructureYiTiBase(boolean flag) {
+	protected GOTStructureYiTiBase(boolean flag) {
 		super(flag);
 	}
 

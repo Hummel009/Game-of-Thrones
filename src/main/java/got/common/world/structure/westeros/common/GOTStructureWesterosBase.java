@@ -266,7 +266,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 	public BannerType bannerType;
 	public Kingdom kingdom;
 
-	public GOTStructureWesterosBase(boolean flag) {
+	protected GOTStructureWesterosBase(boolean flag) {
 		super(flag);
 	}
 

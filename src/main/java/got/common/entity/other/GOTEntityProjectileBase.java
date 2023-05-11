@@ -40,12 +40,12 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 	public int canBePickedUp;
 	public int knockbackStrength;
 
-	public GOTEntityProjectileBase(World world) {
+	protected GOTEntityProjectileBase(World world) {
 		super(world);
 		setSize(0.5f, 0.5f);
 	}
 
-	public GOTEntityProjectileBase(World world, EntityLivingBase entityliving, EntityLivingBase target, ItemStack item, float charge, float inaccuracy) {
+	protected GOTEntityProjectileBase(World world, EntityLivingBase entityliving, EntityLivingBase target, ItemStack item, float charge, float inaccuracy) {
 		super(world);
 		setProjectileItem(item);
 		shootingEntity = entityliving;
@@ -70,7 +70,7 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 		}
 	}
 
-	public GOTEntityProjectileBase(World world, EntityLivingBase entityliving, ItemStack item, float charge) {
+	protected GOTEntityProjectileBase(World world, EntityLivingBase entityliving, ItemStack item, float charge) {
 		super(world);
 		setProjectileItem(item);
 		shootingEntity = entityliving;
@@ -90,7 +90,7 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 		setThrowableHeading(motionX, motionY, motionZ, charge * 1.5f, 1.0f);
 	}
 
-	public GOTEntityProjectileBase(World world, ItemStack item, double d, double d1, double d2) {
+	protected GOTEntityProjectileBase(World world, ItemStack item, double d, double d1, double d2) {
 		super(world);
 		setProjectileItem(item);
 		setSize(0.5f, 0.5f);

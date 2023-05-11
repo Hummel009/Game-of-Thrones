@@ -10,7 +10,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityQarthWarlock extends GOTEntityQarthTrader implements GOTTradeable {
+public class GOTEntityQarthWarlock extends GOTEntityQarthTrader {
 	public GOTEntityQarthWarlock(World world) {
 		super(world);
 		canBeMarried = false;

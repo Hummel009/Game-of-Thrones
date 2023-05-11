@@ -21,7 +21,7 @@ public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 	public GOTEntityNPC theNPC;
 	public int page;
 
-	public GOTGuiHiredNPC(GOTEntityNPC npc) {
+	protected GOTGuiHiredNPC(GOTEntityNPC npc) {
 		theNPC = npc;
 	}
 

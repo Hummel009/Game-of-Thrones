@@ -15,7 +15,7 @@ public abstract class GOTEntityNPCRideable extends GOTEntityNPC implements GOTNP
 	public UUID tamingPlayer;
 	public int npcTemper;
 
-	public GOTEntityNPCRideable(World world) {
+	protected GOTEntityNPCRideable(World world) {
 		super(world);
 	}
 

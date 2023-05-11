@@ -20,7 +20,7 @@ public abstract class GOTTileEntitySign extends TileEntity {
 	public EntityPlayer editingPlayer;
 	public boolean isFakeGuiSign;
 
-	public GOTTileEntitySign() {
+	protected GOTTileEntitySign() {
 		Arrays.fill(signText, "");
 	}
 

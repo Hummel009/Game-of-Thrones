@@ -57,7 +57,7 @@ public abstract class GOTStructureGiftBase extends GOTStructureBase {
 	public GOTItemBanner.BannerType bannerType;
 	public boolean isAbandoned;
 
-	public GOTStructureGiftBase(boolean flag) {
+	protected GOTStructureGiftBase(boolean flag) {
 		super(flag);
 	}
 

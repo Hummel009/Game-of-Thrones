@@ -34,7 +34,7 @@ public abstract class GOTRenderBiped extends RenderBiped {
 	public ModelBiped npcRenderPassModel;
 	public Minecraft mc;
 
-	public GOTRenderBiped(ModelBiped model, float f) {
+	protected GOTRenderBiped(ModelBiped model, float f) {
 		super(model, f);
 	}
 

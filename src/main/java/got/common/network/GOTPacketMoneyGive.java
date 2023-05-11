@@ -18,7 +18,7 @@ import net.minecraft.util.StatCollector;
 import java.io.IOException;
 import java.util.UUID;
 
-public class GOTPacketMoneyGive extends GOTPacketMoney implements IMessage {
+public class GOTPacketMoneyGive extends GOTPacketMoney {
 	public UUID hummel = UUID.fromString("9aee5b32-8e19-4d4b-a2d6-1318af62733d");
 	public ItemStack item;
 

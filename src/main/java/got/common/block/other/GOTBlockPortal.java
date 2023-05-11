@@ -30,7 +30,7 @@ public abstract class GOTBlockPortal extends BlockContainer {
 	public GOTFaction[] portalFactions;
 	public Class teleporterClass;
 
-	public GOTBlockPortal(GOTFaction[] factions, Class c) {
+	protected GOTBlockPortal(GOTFaction[] factions, Class c) {
 		super(Material.portal);
 		portalFactions = factions;
 		teleporterClass = c;

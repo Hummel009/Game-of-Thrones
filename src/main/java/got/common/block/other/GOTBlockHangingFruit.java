@@ -17,7 +17,7 @@ public abstract class GOTBlockHangingFruit extends Block {
 	public IIcon[] fruitIcons;
 	public String[] fruitSides = {"top", "side", "bottom"};
 
-	public GOTBlockHangingFruit() {
+	protected GOTBlockHangingFruit() {
 		super(Material.plants);
 		setTickRandomly(true);
 	}

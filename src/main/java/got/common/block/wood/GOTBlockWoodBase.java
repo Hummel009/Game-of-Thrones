@@ -19,7 +19,7 @@ public abstract class GOTBlockWoodBase extends BlockLog {
 	public IIcon[][] woodIcons;
 	public String[] woodNames;
 
-	public GOTBlockWoodBase() {
+	protected GOTBlockWoodBase() {
 		setHardness(2.0f);
 		setStepSound(Block.soundTypeWood);
 		setCreativeTab(GOTCreativeTabs.tabBlock);

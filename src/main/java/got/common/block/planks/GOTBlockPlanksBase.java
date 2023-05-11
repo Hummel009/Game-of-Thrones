@@ -18,7 +18,7 @@ public abstract class GOTBlockPlanksBase extends Block {
 	public IIcon[] plankIcons;
 	public String[] plankTypes;
 
-	public GOTBlockPlanksBase() {
+	protected GOTBlockPlanksBase() {
 		super(Material.wood);
 		setHardness(2.0f);
 		setResistance(5.0f);

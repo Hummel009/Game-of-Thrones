@@ -24,7 +24,7 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class GOTBlockFlowerPot extends BlockFlowerPot implements ITileEntityProvider {
+public class GOTBlockFlowerPot extends BlockFlowerPot {
 	public static boolean canAcceptPlant(ItemStack itemstack) {
 		Item item = itemstack.getItem();
 		if (item instanceof ItemBlock) {

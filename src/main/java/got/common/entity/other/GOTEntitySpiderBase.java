@@ -29,7 +29,7 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
 	public static int VENOM_POISON = 2;
 	public static int CLIMB_TIME = 100;
 
-	public GOTEntitySpiderBase(World world) {
+	protected GOTEntitySpiderBase(World world) {
 		super(world);
 		canBeMarried = false;
 		setSize(1.4f, 0.8f);

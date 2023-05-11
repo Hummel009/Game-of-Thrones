@@ -46,7 +46,7 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 
 	public GuiTextField squadronNameField;
 
-	public GOTGuiHireBase(EntityPlayer entityplayer, GOTHireableBase trader, World world) {
+	protected GOTGuiHireBase(EntityPlayer entityplayer, GOTHireableBase trader, World world) {
 		super(new GOTContainerUnitTrade(entityplayer, trader, world));
 		xSize = 220;
 		ySize = 256;

@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 public abstract class GOTEntityRugBase extends Entity implements GOTBannerProtectable {
 	public int timeSinceLastGrowl = getTimeUntilGrowl();
 
-	public GOTEntityRugBase(World world) {
+	protected GOTEntityRugBase(World world) {
 		super(world);
 	}
 

@@ -6,7 +6,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public abstract class GOTStructureNPCRespawner extends GOTStructureBase {
-	public GOTStructureNPCRespawner(boolean flag) {
+	protected GOTStructureNPCRespawner(boolean flag) {
 		super(flag);
 	}
 

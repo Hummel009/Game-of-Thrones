@@ -50,7 +50,7 @@ public abstract class GOTStructureMossovyBase extends GOTStructureBase {
 	public Block bedBlock;
 	public Block tableBlock;
 
-	public GOTStructureMossovyBase(boolean flag) {
+	protected GOTStructureMossovyBase(boolean flag) {
 		super(flag);
 	}
 

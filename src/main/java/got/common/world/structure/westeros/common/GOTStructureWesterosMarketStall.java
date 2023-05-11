@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public abstract class GOTStructureWesterosMarketStall extends GOTStructureWesterosBase {
-	public GOTStructureWesterosMarketStall(boolean flag) {
+	protected GOTStructureWesterosMarketStall(boolean flag) {
 		super(flag);
 	}
 

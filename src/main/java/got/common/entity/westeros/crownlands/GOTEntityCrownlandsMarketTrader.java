@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public abstract class GOTEntityCrownlandsMarketTrader extends GOTEntityCrownlandsMan implements GOTTradeable {
-	public GOTEntityCrownlandsMarketTrader(World world) {
+	protected GOTEntityCrownlandsMarketTrader(World world) {
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(false);

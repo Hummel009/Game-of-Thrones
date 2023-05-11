@@ -8,7 +8,7 @@ import got.common.world.feature.GOTTreeType;
 import got.common.world.structure.other.*;
 
 public abstract class GOTBiomeWesteros extends GOTBiome {
-	public GOTBiomeWesteros(int i, boolean major) {
+	protected GOTBiomeWesteros(int i, boolean major) {
 		super(i, major);
 		setupStandartPlainsFauna();
 		addBiomeVariant(GOTBiomeVariant.FOREST);

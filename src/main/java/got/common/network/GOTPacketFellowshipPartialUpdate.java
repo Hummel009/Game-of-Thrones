@@ -25,10 +25,10 @@ import java.util.UUID;
 public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	public UUID fellowshipID;
 
-	public GOTPacketFellowshipPartialUpdate() {
+	protected GOTPacketFellowshipPartialUpdate() {
 	}
 
-	public GOTPacketFellowshipPartialUpdate(GOTFellowship fs) {
+	protected GOTPacketFellowshipPartialUpdate(GOTFellowship fs) {
 		fellowshipID = fs.getFellowshipID();
 	}
 
@@ -145,10 +145,10 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	public abstract static class OnePlayerUpdate extends GOTPacketFellowshipPartialUpdate {
 		public GameProfile playerProfile;
 
-		public OnePlayerUpdate() {
+		protected OnePlayerUpdate() {
 		}
 
-		public OnePlayerUpdate(GOTFellowship fs, UUID player) {
+		protected OnePlayerUpdate(GOTFellowship fs, UUID player) {
 			super(fs);
 			playerProfile = GOTPacketFellowship.getPlayerProfileWithUsername(player);
 		}

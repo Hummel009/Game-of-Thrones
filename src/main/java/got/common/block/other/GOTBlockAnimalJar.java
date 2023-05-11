@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public abstract class GOTBlockAnimalJar extends BlockContainer {
-	public GOTBlockAnimalJar(Material material) {
+	protected GOTBlockAnimalJar(Material material) {
 		super(material);
 		setCreativeTab(GOTCreativeTabs.tabDeco);
 	}

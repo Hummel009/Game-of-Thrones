@@ -18,7 +18,7 @@ import java.awt.*;
 import java.util.Random;
 
 public abstract class GOTEntityPentosTrader extends GOTEntityPentosMan implements GOTTradeable {
-	public GOTEntityPentosTrader(World world) {
+	protected GOTEntityPentosTrader(World world) {
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(false);

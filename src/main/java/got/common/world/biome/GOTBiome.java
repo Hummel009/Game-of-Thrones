@@ -251,11 +251,11 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public GOTClimateType climateType;
 	public GOTDimension biomeDimension;
 
-	public GOTBiome(int i, boolean major) {
+	protected GOTBiome(int i, boolean major) {
 		this(i, major, GOTDimension.GAME_OF_THRONES);
 	}
 
-	public GOTBiome(int i, boolean major, GOTDimension dim) {
+	protected GOTBiome(int i, boolean major, GOTDimension dim) {
 		super(i, false);
 		biomeDimension = dim;
 		if (biomeDimension.biomeList[i] != null) {

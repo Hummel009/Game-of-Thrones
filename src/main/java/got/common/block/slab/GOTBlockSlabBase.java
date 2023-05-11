@@ -24,7 +24,7 @@ public abstract class GOTBlockSlabBase extends BlockSlab {
 	public Block doubleSlab;
 	public int subtypes;
 
-	public GOTBlockSlabBase(boolean flag, Material material, int n) {
+	protected GOTBlockSlabBase(boolean flag, Material material, int n) {
 		super(flag, material);
 		subtypes = n;
 		setCreativeTab(GOTCreativeTabs.tabBlock);

@@ -32,6 +32,7 @@
   <component name="InspectionProjectProfileManager">
     <profile version="1.0">
       <option name="myName" value="Project Default" />
+      <inspection_tool class="AccessStaticViaInstance" enabled="false" level="WARNING" enabled_by_default="false" />
       <inspection_tool class="ArraysAsListWithZeroOrOneArgument" enabled="false" level="WARNING" enabled_by_default="false" />
       <inspection_tool class="BigDecimalLegacyMethod" enabled="false" level="WARNING" enabled_by_default="false" />
       <inspection_tool class="BooleanConstructor" enabled="false" level="WARNING" enabled_by_default="false" />
@@ -54,6 +55,7 @@
       <inspection_tool class="DeprecatedMavenDependency" enabled="false" level="WARNING" enabled_by_default="false" />
       <inspection_tool class="DoubleBraceInitialization" enabled="false" level="INFORMATION" enabled_by_default="false" />
       <inspection_tool class="DoubleNegation" enabled="false" level="WARNING" enabled_by_default="false" />
+      <inspection_tool class="DuplicateThrows" enabled="false" level="WARNING" enabled_by_default="false" />
       <inspection_tool class="DuplicatedCode" enabled="true" level="WEAK WARNING" enabled_by_default="true">
         <Languages>
           <language minSize="51" name="Java" />
@@ -65,6 +67,7 @@
       <inspection_tool class="EscapedSpace" enabled="false" level="WARNING" enabled_by_default="false" />
       <inspection_tool class="ExtendsObject" enabled="false" level="WARNING" enabled_by_default="false" />
       <inspection_tool class="FieldMayBeFinal" enabled="false" level="WARNING" enabled_by_default="false" />
+      <inspection_tool class="FinalMethodInFinalClass" enabled="false" level="WARNING" enabled_by_default="false" />
       <inspection_tool class="FinalizeNotProtected" enabled="false" level="WARNING" enabled_by_default="false" />
       <inspection_tool class="ForEachWithRecordPatternCanBeUsed" enabled="false" level="WARNING" enabled_by_default="false" />
       <inspection_tool class="ForLoopReplaceableByWhile" enabled="false" level="WARNING" enabled_by_default="false">
@@ -95,9 +98,8 @@
       <inspection_tool class="ManualArrayCopy" enabled="false" level="WARNING" enabled_by_default="false" />
       <inspection_tool class="ManualArrayToCollectionCopy" enabled="false" level="WARNING" enabled_by_default="false" />
       <inspection_tool class="MigrateDiagnosticSuppression" enabled="false" level="WARNING" enabled_by_default="false" />
-      <inspection_tool class="MissingOverrideAnnotation" enabled="false" level="INFORMATION" enabled_by_default="false">
-        <option name="ignoreObjectMethods" value="true" />
-        <option name="ignoreAnonymousClassMethods" value="false" />
+      <inspection_tool class="NonProtectedConstructorInAbstractClass" enabled="true" level="WARNING" enabled_by_default="true">
+        <option name="m_ignoreNonPublicClasses" value="false" />
       </inspection_tool>
       <inspection_tool class="NullableBooleanElvis" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
       <inspection_tool class="OnlyOneElementUsed" enabled="false" level="WARNING" enabled_by_default="false" />
@@ -109,6 +111,7 @@
         <option name="m_ignoreExpressionsContainingConstants" value="true" />
       </inspection_tool>
       <inspection_tool class="PointlessNullCheck" enabled="false" level="WARNING" enabled_by_default="false" />
+      <inspection_tool class="ProtectedMemberInFinalClass" enabled="false" level="WARNING" enabled_by_default="false" />
       <inspection_tool class="PsiElementConcatenation" enabled="false" level="WARNING" enabled_by_default="false" />
       <inspection_tool class="RedundantArrayCreation" enabled="false" level="WARNING" enabled_by_default="false" />
       <inspection_tool class="RedundantCast" enabled="false" level="WARNING" enabled_by_default="false" />
@@ -119,6 +122,10 @@
       <inspection_tool class="RedundantConstructorKeyword" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
       <inspection_tool class="RedundantGetter" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
       <inspection_tool class="RedundantIf" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+      <inspection_tool class="RedundantImplements" enabled="true" level="WARNING" enabled_by_default="true">
+        <option name="ignoreSerializable" value="false" />
+        <option name="ignoreCloneable" value="false" />
+      </inspection_tool>
       <inspection_tool class="RedundantLengthCheck" enabled="false" level="WARNING" enabled_by_default="false" />
       <inspection_tool class="RedundantModalityModifier" enabled="false" level="WARNING" enabled_by_default="false" />
       <inspection_tool class="RedundantNullableReturnType" enabled="false" level="WARNING" enabled_by_default="false" />
@@ -157,6 +164,7 @@
       <inspection_tool class="TailRecursion" enabled="false" level="INFORMATION" enabled_by_default="false" />
       <inspection_tool class="TrivialIf" enabled="false" level="WARNING" enabled_by_default="false" />
       <inspection_tool class="TrivialStringConcatenation" enabled="false" level="WARNING" enabled_by_default="false" />
+      <inspection_tool class="TypeParameterExtendsFinalClass" enabled="true" level="WARNING" enabled_by_default="true" />
       <inspection_tool class="TypeParameterFindViewById" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
       <inspection_tool class="TypeScriptExplicitMemberType" enabled="false" level="INFORMATION" enabled_by_default="false" />
       <inspection_tool class="UnclearBinaryExpression" enabled="false" level="INFORMATION" enabled_by_default="false" />
@@ -195,6 +203,7 @@
         <option name="ignoreReferences" value="true" />
         <option name="ignoreComplexLiterals" value="false" />
       </inspection_tool>
+      <inspection_tool class="UnusedLabel" enabled="false" level="WARNING" enabled_by_default="false" />
       <inspection_tool class="UseDPIAwareBorders" enabled="false" level="WARNING" enabled_by_default="false" />
       <inspection_tool class="UseDPIAwareInsets" enabled="false" level="WARNING" enabled_by_default="false" />
       <inspection_tool class="UseJBColor" enabled="false" level="WARNING" enabled_by_default="false" />

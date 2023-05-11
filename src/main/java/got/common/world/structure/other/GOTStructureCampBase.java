@@ -25,7 +25,7 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 	public boolean hasDoubleTorches;
 	public boolean hasSkulls;
 
-	public GOTStructureCampBase(boolean flag) {
+	protected GOTStructureCampBase(boolean flag) {
 		super(flag);
 	}
 

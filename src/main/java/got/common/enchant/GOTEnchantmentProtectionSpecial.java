@@ -5,13 +5,13 @@ import net.minecraft.util.DamageSource;
 public abstract class GOTEnchantmentProtectionSpecial extends GOTEnchantment {
 	public int protectLevel;
 
-	public GOTEnchantmentProtectionSpecial(String s, GOTEnchantmentType type, int level) {
+	protected GOTEnchantmentProtectionSpecial(String s, GOTEnchantmentType type, int level) {
 		super(s, type);
 		protectLevel = level;
 		setValueModifier((2.0F + protectLevel) / 2.0F);
 	}
 
-	public GOTEnchantmentProtectionSpecial(String s, int level) {
+	protected GOTEnchantmentProtectionSpecial(String s, int level) {
 		this(s, GOTEnchantmentType.ARMOR, level);
 	}
 

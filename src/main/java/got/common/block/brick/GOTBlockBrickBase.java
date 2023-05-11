@@ -18,7 +18,7 @@ public abstract class GOTBlockBrickBase extends Block {
 	public IIcon[] brickIcons;
 	public String[] brickNames;
 
-	public GOTBlockBrickBase() {
+	protected GOTBlockBrickBase() {
 		super(Material.rock);
 		setCreativeTab(GOTCreativeTabs.tabBlock);
 		setHardness(1.5f);

@@ -25,12 +25,12 @@ public abstract class GOTEntityFireball extends Entity {
 	public double accelerationY;
 	public double accelerationZ;
 
-	public GOTEntityFireball(World p_i1759_1_) {
+	protected GOTEntityFireball(World p_i1759_1_) {
 		super(p_i1759_1_);
 		setSize(1.0F, 1.0F);
 	}
 
-	public GOTEntityFireball(World p_i1760_1_, double p_i1760_2_, double p_i1760_4_, double p_i1760_6_, double p_i1760_8_, double p_i1760_10_, double p_i1760_12_) {
+	protected GOTEntityFireball(World p_i1760_1_, double p_i1760_2_, double p_i1760_4_, double p_i1760_6_, double p_i1760_8_, double p_i1760_10_, double p_i1760_12_) {
 		super(p_i1760_1_);
 		setSize(1.0F, 1.0F);
 		setLocationAndAngles(p_i1760_2_, p_i1760_4_, p_i1760_6_, rotationYaw, rotationPitch);
@@ -41,7 +41,7 @@ public abstract class GOTEntityFireball extends Entity {
 		accelerationZ = p_i1760_12_ / d6 * 0.1D;
 	}
 
-	public GOTEntityFireball(World p_i1761_1_, EntityLivingBase p_i1761_2_, double p_i1761_3_, double p_i1761_5_, double p_i1761_7_) {
+	protected GOTEntityFireball(World p_i1761_1_, EntityLivingBase p_i1761_2_, double p_i1761_3_, double p_i1761_5_, double p_i1761_7_) {
 		super(p_i1761_1_);
 		shootingEntity = p_i1761_2_;
 		setSize(1.0F, 1.0F);

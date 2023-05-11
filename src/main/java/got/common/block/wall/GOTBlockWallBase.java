@@ -15,7 +15,7 @@ import java.util.List;
 public abstract class GOTBlockWallBase extends BlockWall {
 	public int subtypes;
 
-	public GOTBlockWallBase(Block block, int i) {
+	protected GOTBlockWallBase(Block block, int i) {
 		super(block);
 		setCreativeTab(GOTCreativeTabs.tabBlock);
 		subtypes = i;

@@ -11,10 +11,10 @@ import java.util.UUID;
 public abstract class GOTPacketFellowshipDo implements IMessage {
 	public UUID fellowshipID;
 
-	public GOTPacketFellowshipDo() {
+	protected GOTPacketFellowshipDo() {
 	}
 
-	public GOTPacketFellowshipDo(GOTFellowshipClient fsClient) {
+	protected GOTPacketFellowshipDo(GOTFellowshipClient fsClient) {
 		fellowshipID = fsClient.getFellowshipID();
 	}
 

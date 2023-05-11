@@ -12,7 +12,7 @@ import java.util.Random;
 public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 	public static Class[] allStallTypes = {Miner.class, Florist.class, Blacksmith.class, Lumber.class, Mason.class, Butcher.class, Brewer.class, Fish.class, Baker.class, Farmer.class, Gold.class};
 
-	public GOTStructureYiTiMarketStall(boolean flag) {
+	protected GOTStructureYiTiMarketStall(boolean flag) {
 		super(flag);
 	}
 

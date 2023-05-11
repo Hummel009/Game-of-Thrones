@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public abstract class GOTBlockSlabFalling extends GOTBlockSlabBase {
-	public GOTBlockSlabFalling(boolean flag, Material material, int n) {
+	protected GOTBlockSlabFalling(boolean flag, Material material, int n) {
 		super(flag, material, n);
 	}
 
