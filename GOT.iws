@@ -9,8 +9,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8c8107d-f3ae-479d-9562-bcf68c392981" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/got/client/render/other/GOTRenderSwordCommandMarker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GOT.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/GOT.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GOT.iws" beforeDir="false" afterPath="$PROJECT_DIR$/GOT.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/client/model/GOTModelElephant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/client/model/GOTModelElephant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/client/render/GOTRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/client/render/GOTRender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/item/weapon/GOTItemCommandSword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/item/weapon/GOTItemCommandSword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/network/GOTPacketLocationFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/network/GOTPacketLocationFX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/changelog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/changelog.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -18,6 +18,8 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.SquadronItem {
@@ -33,7 +35,7 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 		if (hitTarget != null) {
 			Vec3 vec = hitTarget.hitVec;
 			AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(vec.xCoord, vec.yCoord, vec.zCoord, vec.xCoord, vec.yCoord, vec.zCoord);
-			aabb = aabb.expand(6.0, 6.0, 6.0);
+			aabb = aabb.expand(6.0D, 6.0D, 6.0D);
 			spreadTargets = world.selectEntitiesWithinAABB(EntityLivingBase.class, aabb, new IEntitySelector() {
 
 				@Override
@@ -43,37 +45,31 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 			});
 		}
 		boolean anyAttackCommanded = false;
-		List nearbyHiredUnits = world.getEntitiesWithinAABB(GOTEntityNPC.class, entityplayer.boundingBox.expand(12.0, 12.0, 12.0));
-		for (Object nearbyHiredUnit : nearbyHiredUnits) {
-			GOTEntityNPC npc = (GOTEntityNPC) nearbyHiredUnit;
-			if (!npc.hiredNPCInfo.isActive || npc.hiredNPCInfo.getHiringPlayer() != entityplayer || !npc.hiredNPCInfo.getObeyCommandSword() || !GOTSquadrons.areSquadronsCompatible(npc, itemstack)) {
-				continue;
-			}
-			ArrayList<EntityLivingBase> validTargets = new ArrayList<>();
-			if (!spreadTargets.isEmpty()) {
-				for (Object obj : spreadTargets) {
-					EntityLivingBase entity = (EntityLivingBase) obj;
-					if (!GOT.canNPCAttackEntity(npc, entity, true)) {
-						continue;
+		List<GOTEntityNPC> nearbyHiredUnits = world.getEntitiesWithinAABB(GOTEntityNPC.class, entityplayer.boundingBox.expand(12.0D, 12.0D, 12.0D));
+		for (GOTEntityNPC npc : nearbyHiredUnits) {
+			if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() == entityplayer && npc.hiredNPCInfo.getObeyCommandSword())
+				if (GOTSquadrons.areSquadronsCompatible(npc, itemstack)) {
+					List<EntityLivingBase> validTargets = new ArrayList();
+					if (!spreadTargets.isEmpty()) for (Object obj : spreadTargets) {
+						EntityLivingBase entity = (EntityLivingBase) obj;
+						if (GOT.canNPCAttackEntity(npc, entity, true)) validTargets.add(entity);
 					}
-					validTargets.add(entity);
+					if (!validTargets.isEmpty()) {
+						GOTEntityAINearestAttackableTargetBasic.TargetSorter targetSorter = new GOTEntityAINearestAttackableTargetBasic.TargetSorter((EntityLivingBase) npc);
+						validTargets.sort(targetSorter);
+						EntityLivingBase target = validTargets.get(0);
+						npc.hiredNPCInfo.commandSwordAttack(target);
+						npc.hiredNPCInfo.wasAttackCommanded = true;
+						anyAttackCommanded = true;
+					} else {
+						npc.hiredNPCInfo.commandSwordCancel();
+					}
 				}
-			}
-			if (!validTargets.isEmpty()) {
-				GOTEntityAINearestAttackableTargetBasic.TargetSorter sorter = new GOTEntityAINearestAttackableTargetBasic.TargetSorter(npc);
-				validTargets.sort(sorter);
-				EntityLivingBase target = validTargets.get(0);
-				npc.hiredNPCInfo.commandSwordAttack(target);
-				npc.hiredNPCInfo.wasAttackCommanded = true;
-				anyAttackCommanded = true;
-				continue;
-			}
-			npc.hiredNPCInfo.commandSwordCancel();
 		}
 		if (anyAttackCommanded && hitTarget != null) {
 			Vec3 vec = hitTarget.hitVec;
-			GOTPacketLocationFX packet = new GOTPacketLocationFX(GOTPacketLocationFX.Type.SWORD_COMMAND, vec.xCoord, vec.yCoord, vec.zCoord);
-			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
+			GOTPacketLocationFX lOTRPacketLocationFX = new GOTPacketLocationFX(GOTPacketLocationFX.Type.SWORD_COMMAND, vec.xCoord, vec.yCoord, vec.zCoord);
+			GOTPacketHandler.networkWrapper.sendTo(lOTRPacketLocationFX, (EntityPlayerMP) entityplayer);
 		}
 	}
 

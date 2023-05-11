@@ -10,11 +10,8 @@ import net.minecraft.world.World;
 
 public class GOTPacketLocationFX implements IMessage {
 	public Type type;
-
 	public double posX;
-
 	public double posY;
-
 	public double posZ;
 
 	public GOTPacketLocationFX() {

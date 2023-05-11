@@ -1,5 +1,19 @@
 CHANGELOG
 
+>>BUILD ??
++ Now conquested enemy waypoints are red on the map
+
+* Fixed bug with sword of command rendering
+* Impoved wetwood biome
+* Fixed bug with point rendering
+* Fixed bug with archer and crossbower drops
+* Improved crossbowers' AI
+* Fixed bug with Jaqen Quest
+* Fixed bug with ibben smith's entries
+* Fixed bug with berserker weapons
+* Fixed bug with wrong farmer units in riverlands
+* Fixed bug with capes view in multiplayer
+
 >>BUILD 23.03.25
 * Experimental: Multithreading in world decorator
 * Optimized Essos and Westeros structures
