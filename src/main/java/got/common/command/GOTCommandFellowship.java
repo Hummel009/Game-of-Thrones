@@ -72,11 +72,11 @@ public class GOTCommandFellowship extends CommandBase {
 			if (argsOriginal.length > argsFixed.length) {
 				int diff = argsOriginal.length - argsFixed.length;
 				for (int j = 0; j < diff; ++j) {
-					autocompFsName = autocompFsName.substring(autocompFsName.indexOf(" ") + 1);
+					autocompFsName = autocompFsName.substring(autocompFsName.indexOf(' ') + 1);
 				}
 			}
-			if (autocompFsName.indexOf(" ") >= 0) {
-				autocompFsName = autocompFsName.substring(0, autocompFsName.indexOf(" "));
+			if (autocompFsName.indexOf(' ') >= 0) {
+				autocompFsName = autocompFsName.substring(0, autocompFsName.indexOf(' '));
 			}
 			autocompletes.add(autocompFsName);
 		}

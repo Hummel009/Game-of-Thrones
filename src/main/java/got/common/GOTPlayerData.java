@@ -301,7 +301,7 @@ public class GOTPlayerData {
 							factionBonusMap.put(bonusFaction, Float.valueOf(factionBonus));
 						}
 					}
-					if (bonusFaction == getPledgeFaction()) {
+					if (bonusFaction == pledgeFaction) {
 						float conq = bonus;
 						if (source.killByHiredUnit) {
 							conq *= 0.25F;
@@ -522,7 +522,7 @@ public class GOTPlayerData {
 		}
 		for (UUID player : checkFellowPlayerIDs) {
 			GOTPlayerData pd = GOTLevelData.getData(player);
-			List<GOTCustomWaypoint> cwps = pd.getCustomWaypoints();
+			List<GOTCustomWaypoint> cwps = pd.customWaypoints;
 			for (GOTCustomWaypoint waypoint : cwps) {
 				boolean inSharedFellowship = false;
 				for (UUID fsID : checkFellowshipIDs) {
@@ -923,7 +923,7 @@ public class GOTPlayerData {
 
 	public List<GOTAbstractWaypoint> getAllAvailableWaypoints() {
 		List<GOTAbstractWaypoint> waypoints = new ArrayList<>(GOTWaypoint.listAllWaypoints());
-		waypoints.addAll(getCustomWaypoints());
+		waypoints.addAll(customWaypoints);
 		waypoints.addAll(customWaypointsShared);
 		return waypoints;
 	}
@@ -1537,8 +1537,8 @@ public class GOTPlayerData {
 	}
 
 	public boolean hasActiveOrCompleteMQType(Class<? extends GOTMiniQuest> type) {
-		List<GOTMiniQuest> quests = getMiniQuests();
-		List<GOTMiniQuest> questsComplete = getMiniQuestsCompleted();
+		List<GOTMiniQuest> quests = miniQuests;
+		List<GOTMiniQuest> questsComplete = miniQuestsCompleted;
 		List<GOTMiniQuest> allQuests = new ArrayList<>();
 		for (GOTMiniQuest q : quests) {
 			if (q.isActive()) {

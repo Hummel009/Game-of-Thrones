@@ -64,8 +64,8 @@ public class GOTTickFloat {
 
 	public GOTTickFloat setLimit(float min, float max) {
 		clamp = true;
-		setMin(min);
-		setMax(max);
+		this.min = min;
+		this.max = max;
 		set(current);
 		return this;
 	}

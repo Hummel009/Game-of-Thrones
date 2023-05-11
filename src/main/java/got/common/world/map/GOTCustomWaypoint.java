@@ -110,7 +110,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	public GOTCustomWaypoint createCopyOfShared(UUID sharer) {
 		GOTCustomWaypoint copy = new GOTCustomWaypoint(customName, mapX, mapY, xCoord, yCoord, zCoord, ID);
 		copy.setSharingPlayerID(sharer);
-		copy.setSharedFellowshipIDs(new ArrayList<>(sharedFellowshipIDs));
+		copy.sharedFellowshipIDs = new ArrayList<>(sharedFellowshipIDs);
 		return copy;
 	}
 
@@ -331,7 +331,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	@Override
 	public boolean hasPlayerUnlocked(EntityPlayer entityplayer) {
 		if (isShared()) {
-			return isSharedUnlocked();
+			return sharedUnlocked;
 		}
 		return true;
 	}

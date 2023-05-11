@@ -71,7 +71,7 @@ public class GOTTitle {
 
 	public static GOTTitle forName(String name) {
 		for (GOTTitle title : allTitles) {
-			if (!title.getTitleName().equals(name)) {
+			if (!title.name.equals(name)) {
 				continue;
 			}
 			return title;
@@ -326,8 +326,8 @@ public class GOTTitle {
 
 		public static void writeNullableTitle(ByteBuf data, PlayerTitle title) {
 			if (title != null) {
-				data.writeShort(title.getTitle().titleID);
-				data.writeByte(title.getColor().getFormattingCode());
+				data.writeShort(title.theTitle.titleID);
+				data.writeByte(title.theColor.getFormattingCode());
 			} else {
 				data.writeShort(-1);
 			}

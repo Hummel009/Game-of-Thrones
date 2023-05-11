@@ -48,7 +48,7 @@ public class GOTCommandFellowshipMessage extends CommandBase {
 
 	@Override
 	public List getCommandAliases() {
-		return Arrays.asList("fchat");
+		return Collections.singletonList("fchat");
 	}
 
 	@Override

@@ -286,7 +286,7 @@ public class GOTHiredNPCInfo {
 		if (!theEntity.worldObj.isRemote && isActive) {
 			++mobKills;
 			sendClientPacket(false);
-			if (getTask() == Task.WARRIOR) {
+			if (hiredTask == Task.WARRIOR) {
 				boolean wasEnemy = false;
 				int addXP = 0;
 				GOTFaction unitFaction = theEntity.getHiringFaction();
@@ -383,7 +383,7 @@ public class GOTHiredNPCInfo {
 				sendClientPacket(false);
 			}
 			prevInCombat = inCombat;
-			if (getTask() == Task.WARRIOR && !inCombat && shouldFollowPlayer() && theEntity.getRNG().nextInt(4000) == 0) {
+			if (hiredTask == Task.WARRIOR && !inCombat && shouldFollowPlayer() && theEntity.getRNG().nextInt(4000) == 0) {
 				String speechBank;
 				EntityPlayer hiringPlayer = getHiringPlayer();
 				double range = 16.0;
@@ -459,7 +459,7 @@ public class GOTHiredNPCInfo {
 	}
 
 	public void sendBasicData(EntityPlayerMP entityplayer) {
-		GOTPacketHiredInfo packet = new GOTPacketHiredInfo(theEntity.getEntityId(), hiringPlayerUUID, hiredTask, getSquadron(), xpLevel);
+		GOTPacketHiredInfo packet = new GOTPacketHiredInfo(theEntity.getEntityId(), hiringPlayerUUID, hiredTask, hiredSquadron, xpLevel);
 		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 	}
 

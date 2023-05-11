@@ -59,7 +59,7 @@ public enum GOTMiniQuestFactory {
 
 	public static GOTMiniQuestFactory forName(String name) {
 		for (GOTMiniQuestFactory group : values()) {
-			if (group.getBaseName().equals(name)) {
+			if (group.baseName.equals(name)) {
 				return group;
 			}
 		}
