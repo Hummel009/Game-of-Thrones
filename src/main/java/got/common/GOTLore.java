@@ -81,7 +81,7 @@ public class GOTLore {
 							BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(zip.getInputStream(entry)), StandardCharsets.UTF_8));
 							loreReaders.put(s, reader);
 						} catch (Exception e) {
-							GOTLog.logger.error("Failed to load GOT lore " + s + "from zip file");
+							GOTLog.logger.error("Failed to load GOT lore {}from zip file", s);
 							e.printStackTrace();
 						}
 					}
@@ -92,14 +92,14 @@ public class GOTLore {
 					String s = file.getName();
 					int i = s.indexOf(".txt");
 					if (i < 0) {
-						GOTLog.logger.error("Failed to load GOT lore " + s + " from MCP folder; name bank files must be in .txt format");
+						GOTLog.logger.error("Failed to load GOT lore {} from MCP folder; name bank files must be in .txt format", s);
 					} else {
 						try {
 							s = s.substring(0, i);
 							BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(new FileInputStream(file)), StandardCharsets.UTF_8));
 							loreReaders.put(s, reader);
 						} catch (Exception e) {
-							GOTLog.logger.error("Failed to load GOT lore " + s + " from MCP folder");
+							GOTLog.logger.error("Failed to load GOT lore {} from MCP folder", s);
 							e.printStackTrace();
 						}
 					}
@@ -162,7 +162,7 @@ public class GOTLore {
 									categories.add(category);
 									continue;
 								}
-								GOTLog.logger.warn("Hummel009: Loading lore " + loreName + ", no category exists for name " + (String) categoryName);
+								GOTLog.logger.warn("Hummel009: Loading lore {}, no category exists for name {}", loreName, (String) categoryName);
 							}
 							continue;
 						}
@@ -181,7 +181,7 @@ public class GOTLore {
 					category.addLore(lore);
 				}
 			} catch (Exception e) {
-				GOTLog.logger.error("Failed to load GOT lore: " + loreName);
+				GOTLog.logger.error("Failed to load GOT lore: {}", loreName);
 				e.printStackTrace();
 			}
 		}
@@ -193,7 +193,7 @@ public class GOTLore {
 					++numReward;
 				}
 			}
-			GOTLog.logger.info("Hummel009: Category " + category.categoryName + " has loaded " + num + " lore texts, of which " + numReward + " rewardable");
+			GOTLog.logger.info("Hummel009: Category {} has loaded {} lore texts, of which {} rewardable", category.categoryName, num, numReward);
 		}
 		if (zip != null) {
 			try {
@@ -331,19 +331,19 @@ public class GOTLore {
 						int number = MathHelper.getRandomIntegerInRange(random, min, max);
 						formatted = String.valueOf(number);
 					} catch (Exception e) {
-						GOTLog.logger.error("Hummel009: Error formatting number " + unformatted + " in text: " + loreName);
+						GOTLog.logger.error("Hummel009: Error formatting number {} in text: {}", unformatted, loreName);
 						e.printStackTrace();
 					}
 				} else if (formatted.startsWith("name:")) {
 					try {
 						String namebank = s1 = formatted.substring("name:".length());
 						if (!GOTNames.nameBankExists(namebank)) {
-							GOTLog.logger.error("Hummel009: No namebank exists for " + namebank + "!");
+							GOTLog.logger.error("Hummel009: No namebank exists for {}!", namebank);
 							break block16;
 						}
 						formatted = GOTNames.getRandomName(namebank, random);
 					} catch (Exception e) {
-						GOTLog.logger.error("Hummel009: Error formatting name " + unformatted + " in text: " + loreName);
+						GOTLog.logger.error("Hummel009: Error formatting name {} in text: {}", unformatted, loreName);
 						e.printStackTrace();
 					}
 				} else if (formatted.startsWith("choose:")) {
@@ -364,7 +364,7 @@ public class GOTLore {
 						}
 						formatted = words.get(random.nextInt(words.size()));
 					} catch (Exception e) {
-						GOTLog.logger.error("Hummel009: Error formatting choice " + unformatted + " in text: " + loreName);
+						GOTLog.logger.error("Hummel009: Error formatting choice {} in text: {}", unformatted, loreName);
 						e.printStackTrace();
 					}
 				}

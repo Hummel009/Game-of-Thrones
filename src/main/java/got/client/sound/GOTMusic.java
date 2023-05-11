@@ -104,7 +104,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 			GOTBiomeMusic.MusicRegion key = region.getSubregion(sub);
 			return regionTracks.computeIfAbsent(key, k -> new GOTRegionTrackPool(region, sub));
 		}
-		GOTLog.logger.warn("Hummel009: No subregion " + sub + " for region " + region.regionName + "!");
+		GOTLog.logger.warn("Hummel009: No subregion {} for region {}!", sub, region.regionName);
 		return null;
 	}
 
@@ -134,7 +134,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 				String filename = trackData.get("file").getAsString();
 				ZipEntry trackEntry = zip.getEntry("assets/gotmusic/" + filename);
 				if (trackEntry == null) {
-					GOTLog.logger.warn("Hummel009: Track " + filename + " in pack " + zip.getName() + " does not exist!");
+					GOTLog.logger.warn("Hummel009: Track {} in pack {} does not exist!", filename, zip.getName());
 				} else {
 					InputStream trackStream = zip.getInputStream(trackEntry);
 					GOTMusicTrack track = new GOTMusicTrack(filename);
@@ -154,7 +154,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 						} else {
 							region = GOTBiomeMusic.forName(regionName);
 							if (region == null) {
-								GOTLog.logger.warn("Hummel009: No region named " + regionName + "!");
+								GOTLog.logger.warn("Hummel009: No region named {}!", regionName);
 								continue;
 							}
 						}
@@ -166,7 +166,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 								if (region.hasSubregion(sub)) {
 									subregionNames.add(sub);
 								} else {
-									GOTLog.logger.warn("Hummel009: No subregion " + sub + " for region " + region.regionName + "!");
+									GOTLog.logger.warn("Hummel009: No subregion {} for region {}!", sub, region.regionName);
 								}
 							}
 						}
@@ -179,7 +179,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 								if (category != null) {
 									regionCategories.add(category);
 								} else {
-									GOTLog.logger.warn("Hummel009: No category named " + categoryName + "!");
+									GOTLog.logger.warn("Hummel009: No category named {}!", categoryName);
 								}
 							}
 						}
@@ -226,7 +226,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 				}
 			}
 			reader.close();
-			GOTLog.logger.info("Hummel009: Successfully loaded music pack " + zip.getName() + " with " + packTracks.size() + " tracks");
+			GOTLog.logger.info("Hummel009: Successfully loaded music pack {} with {} tracks", zip.getName(), packTracks.size());
 		}
 	}
 
@@ -255,7 +255,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 					ZipFile zipFile = new ZipFile(file);
 					loadMusicPack(zipFile, resourceMgr);
 				} catch (Exception e) {
-					GOTLog.logger.warn("Hummel009: Failed to load music pack " + file.getName() + "!");
+					GOTLog.logger.warn("Hummel009: Failed to load music pack {}!", file.getName());
 					e.printStackTrace();
 				}
 			}

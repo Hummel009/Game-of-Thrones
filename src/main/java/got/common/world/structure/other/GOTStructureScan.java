@@ -263,7 +263,7 @@ public class GOTStructureScan {
 			writer.close();
 			return true;
 		} catch (Exception e) {
-			GOTLog.logger.error("Error saving strscan file " + scan.scanName);
+			GOTLog.logger.error("Error saving strscan file {}", scan.scanName);
 			e.printStackTrace();
 			return false;
 		}

@@ -423,7 +423,7 @@ public class GOTAPI {
 		try {
 			return (T) method.invoke(instance, args);
 		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
-			GOTLog.logger.error("Error when getting method " + methodNames[0] + " from class " + clazz.getSimpleName());
+			GOTLog.logger.error("Error when getting method {} from class {}", methodNames[0], clazz.getSimpleName());
 			e.printStackTrace();
 			return null;
 		}
@@ -489,7 +489,7 @@ public class GOTAPI {
 				list.add(fieldObj);
 			}
 		} catch (IllegalAccessException | IllegalArgumentException e) {
-			GOTLog.logger.error("Errored when getting all field from: " + clazz.getName() + " of type: " + type.getName());
+			GOTLog.logger.error("Errored when getting all field from: {} of type: {}", clazz.getName(), type.getName());
 		}
 		return (HashSet<T>) list;
 	}
@@ -769,7 +769,7 @@ public class GOTAPI {
 					GOTGenLayerWorld.biomeImageData[i] = (byte) biomeID.intValue();
 					continue;
 				}
-				GOTLog.logger.error("Found unknown biome on map: " + Integer.toHexString(color) + " at location: " + i % GOTGenLayerWorld.imageWidth + ", " + i / GOTGenLayerWorld.imageWidth);
+				GOTLog.logger.error("Found unknown biome on map: {} at location: {}, {}", Integer.toHexString(color), i % GOTGenLayerWorld.imageWidth, i / GOTGenLayerWorld.imageWidth);
 				GOTGenLayerWorld.biomeImageData[i] = (byte) GOTBiome.ocean.biomeID;
 			}
 		}

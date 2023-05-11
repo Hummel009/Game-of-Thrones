@@ -3099,7 +3099,7 @@ public class GOTPlayerData {
 			if (updatePacket != null) {
 				GOTPacketHandler.networkWrapper.sendTo(updatePacket, (EntityPlayerMP) entityplayer);
 			} else {
-				GOTLog.logger.error("No associated packet for fellowship update type " + updateType.getClass().getName());
+				GOTLog.logger.error("No associated packet for fellowship update type {}", updateType.getClass().getName());
 			}
 		}
 		List<UUID> playersToCheckSharedWaypointsFrom = updateType.getPlayersToCheckSharedWaypointsFrom(fs);
