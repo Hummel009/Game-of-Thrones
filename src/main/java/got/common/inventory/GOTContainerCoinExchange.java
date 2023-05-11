@@ -17,40 +17,21 @@ public class GOTContainerCoinExchange extends Container {
 	public boolean exchanged = false;
 
 	public GOTContainerCoinExchange(EntityPlayer entityplayer, GOTEntityNPC npc) {
-		int i;
 		theTraderNPC = npc;
-		addSlotToContainer(new 		class SlotCoinResult extends Slot {
-			public SlotCoinResult(IInventory inv, int i, int j, int k) {
-				super(inv, i, j, k);
-			}
-
-			@Override
-			public boolean canTakeStack(EntityPlayer entityplayer) {
-				return exchanged;
-			}
-
-			@Override
+		addSlotToContainer(new Slot(coinInputInv, 0, 80, 46) {
 			public boolean isItemValid(ItemStack itemstack) {
-				return false;
+				return (super.isItemValid(itemstack) && itemstack != null && GOTContainerCoinExchange.isValidCoin(itemstack));
 			}
 		});
-Slot(coinInputInv, 0, 80, 46) {
-
-			@Override
-			public boolean isItemValid(ItemStack itemstack) {
-				return super.isItemValid(itemstack) && itemstack != null && GOTContainerCoinExchange.isValidCoin(itemstack);
-			}
-		}
 		addSlotToContainer(new SlotCoinResult(exchangeInv, 0, 26, 46));
 		addSlotToContainer(new SlotCoinResult(exchangeInv, 1, 134, 46));
-		for (i = 0; i < 3; ++i) {
-			for (int j = 0; j < 9; ++j) {
-				addSlotToContainer(new Slot(entityplayer.inventory, j + i * 9 + 9, 8 + j * 18, 106 + i * 18));
-			}
+		int i;
+		for (i = 0; i < 3; i++) {
+			for (int j = 0; j < 9; j++)
+				addSlotToContainer(new Slot((IInventory) entityplayer.inventory, j + i * 9 + 9, 8 + j * 18, 106 + i * 18));
 		}
-		for (i = 0; i < 9; ++i) {
-			addSlotToContainer(new Slot(entityplayer.inventory, i, 8 + i * 18, 164));
-		}
+		for (i = 0; i < 9; i++)
+			addSlotToContainer(new Slot((IInventory) entityplayer.inventory, i, 8 + i * 18, 164));
 		onCraftMatrixChanged(coinInputInv);
 	}
 
