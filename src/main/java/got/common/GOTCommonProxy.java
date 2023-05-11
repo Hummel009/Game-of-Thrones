@@ -766,10 +766,6 @@ public class GOTCommonProxy implements IGuiHandler {
 		return false;
 	}
 
-	public boolean isPaused() {
-		return false;
-	}
-
 	public boolean isSingleplayer() {
 		return false;
 	}

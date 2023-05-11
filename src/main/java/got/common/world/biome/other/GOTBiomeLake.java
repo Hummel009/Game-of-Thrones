@@ -26,9 +26,4 @@ public class GOTBiomeLake extends GOTBiome {
 		return false;
 	}
 
-	public GOTBiomeLake setLakeBlock(Block block) {
-		topBlock = block;
-		fillerBlock = block;
-		return this;
-	}
 }

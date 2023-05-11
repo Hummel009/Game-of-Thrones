@@ -232,12 +232,6 @@ public class GOTTitle {
 		return setMultiAlignment(alignment, faction);
 	}
 
-	public GOTTitle setAnyAlignment(float alignment) {
-		setMultiAlignment(alignment, GOTFaction.getPlayableAlignmentFactions());
-		anyAlignment = true;
-		return this;
-	}
-
 	public GOTTitle setMultiAlignment(float alignment, GOTFaction... factions) {
 		return setMultiAlignment(alignment, Arrays.asList(factions));
 	}
@@ -262,22 +256,6 @@ public class GOTTitle {
 		uuids = players;
 		isHidden = true;
 		return this;
-	}
-
-	public GOTTitle setPlayerExclusive(UUID[]... playersArrays) {
-		ArrayList<UUID> allPlayers = new ArrayList<>();
-		for (UUID[] players : playersArrays) {
-			allPlayers.addAll(Arrays.asList(players));
-		}
-		return setPlayerExclusive(allPlayers.toArray(new UUID[0]));
-	}
-
-	public GOTTitle setShieldExclusive(GOTShields... shields) {
-		ArrayList<UUID> allPlayers = new ArrayList<>();
-		for (GOTShields shield : shields) {
-			allPlayers.addAll(Arrays.asList(shield.exclusiveUUIDs));
-		}
-		return setPlayerExclusive(allPlayers.toArray(new UUID[0]));
 	}
 
 	public enum TitleType {

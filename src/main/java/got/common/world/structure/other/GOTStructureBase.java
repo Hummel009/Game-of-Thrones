@@ -107,11 +107,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		characters.clear();
 	}
 
-	public void clearScanAlias(String alias) {
-		scanAliases.remove(alias);
-		scanAliasChances.remove(alias);
-	}
-
 	public void disable() {
 		disable = true;
 	}
@@ -253,18 +248,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		return world.getBlock(i, j, k);
 	}
 
-	public int getMeta(World world, int i, int j, int k) {
-		int i1 = i;
-		int k1 = k;
-		i = getX(i1, k1);
-		k = getZ(i1, k1);
-		j = getY(j);
-		if (!isInSBB(i, j, k)) {
-			return 0;
-		}
-		return world.getBlockMetadata(i, j, k);
-	}
-
 	public ItemStack getRandomFlower(World world, Random random) {
 		BiomeGenBase biome = getBiome(world, 0, 0);
 		if (biome instanceof GOTBiome) {
@@ -353,10 +336,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 			default:
 				return originZ;
 		}
-	}
-
-	public boolean hasSBB() {
-		return sbb != null;
 	}
 
 	public boolean isAir(World world, int i, int j, int k) {
@@ -701,10 +680,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		placeSkull(world, i, j, k, random.nextInt(16));
 	}
 
-	public void placeSpawnerChest(World world, int i, int j, int k, Block block, int meta, Class entityClass) {
-		placeSpawnerChest(world, null, i, j, k, block, meta, entityClass, null);
-	}
-
 	public void placeSpawnerChest(World world, Random random, int i, int j, int k, Block block, int meta, Class entityClass, GOTChestContents contents) {
 		placeSpawnerChest(world, random, i, j, k, block, meta, entityClass, contents, -1);
 	}
@@ -756,16 +731,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	public void plantTallGrass(World world, Random random, int i, int j, int k) {
 		ItemStack itemstack = getRandomTallGrass(world, random);
 		setBlockAndMetadata(world, i, j, k, Block.getBlockFromItem(itemstack.getItem()), itemstack.getItemDamage());
-	}
-
-	public void putInventoryInChest(World world, int i, int j, int k, IInventory inv) {
-		TileEntity tileentity = getTileEntity(world, i, j, k);
-		if (tileentity instanceof IInventory) {
-			IInventory blockInv = (IInventory) tileentity;
-			for (int l = 0; l < blockInv.getSizeInventory() && l < inv.getSizeInventory(); ++l) {
-				blockInv.setInventorySlotContents(l, inv.getStackInSlot(l));
-			}
-		}
 	}
 
 	public int rotateMeta(Block block, int meta) {
@@ -1137,20 +1102,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		EntityItemFrame frame = new EntityItemFrame(world, i, j, k, direction);
 		frame.setDisplayedItem(itemstack);
 		world.spawnEntityInWorld(frame);
-	}
-
-	public void spawnLegendaryAnimal(EntityLiving entity, World world, int i, int j, int k) {
-		int i1 = i;
-		int k1 = k;
-		i = getX(i1, k1);
-		k = getZ(i1, k1);
-		j = getY(j);
-		if (!isInSBB(i, j, k)) {
-			return;
-		}
-		entity.setLocationAndAngles(i + 0.5, j, k + 0.5, 0.0f, 0.0f);
-		entity.onSpawnWithEgg(null);
-		world.spawnEntityInWorld(entity);
 	}
 
 	public void spawnLegendaryNPC(EntityCreature entity, World world, int i, int j, int k) {

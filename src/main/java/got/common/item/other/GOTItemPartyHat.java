@@ -21,10 +21,6 @@ public class GOTItemPartyHat extends GOTItemArmor {
 		setCreativeTab(GOTCreativeTabs.tabMisc);
 	}
 
-	public static ItemStack createDyedHat(int i) {
-		return setHatColor(new ItemStack(GOTRegistry.partyHat), i);
-	}
-
 	public static int getHatColor(ItemStack itemstack) {
 		int dye = getSavedDyeColor(itemstack);
 		if (dye != -1) {

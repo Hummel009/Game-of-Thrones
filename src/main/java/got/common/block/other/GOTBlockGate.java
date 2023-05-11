@@ -43,14 +43,6 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 		return block;
 	}
 
-	public static GOTBlockGate createStone(boolean ct) {
-		GOTBlockGate block = new GOTBlockGate(Material.rock, ct);
-		block.setHardness(4.0f);
-		block.setResistance(10.0f);
-		block.setStepSound(Block.soundTypeStone);
-		return block;
-	}
-
 	public static GOTBlockGate createWooden(boolean ct) {
 		GOTBlockGate block = new GOTBlockGate(Material.wood, ct);
 		block.setHardness(4.0f);
@@ -327,13 +319,6 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 	@Override
 	public void setBlockBoundsForItemRender() {
 		setBlockBoundsForDirection(4);
-	}
-
-	public GOTBlockGate setFullBlock() {
-		fullBlockGate = true;
-		lightOpacity = 255;
-		useNeighborBrightness = true;
-		return this;
 	}
 
 	@Override

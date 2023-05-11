@@ -14,10 +14,6 @@ public class GOTDragonScaleModifier extends AttributeModifier {
 		setSaved(false);
 	}
 
-	public double getScale() {
-		return size;
-	}
-
 	public void setScale(double size) {
 		this.size = size;
 	}

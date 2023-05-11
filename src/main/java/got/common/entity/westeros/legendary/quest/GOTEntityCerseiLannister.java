@@ -22,7 +22,6 @@ public class GOTEntityCerseiLannister extends GOTEntityHumanBase {
 	public GOTEntityCerseiLannister(World world) {
 		super(world);
 		canBeMarried = false;
-		isRoyalOrder = true;
 		addTargetTasks(false);
 		setIsLegendaryNPC();
 		setSize(0.6f, 1.8f);

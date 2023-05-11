@@ -75,17 +75,9 @@ public abstract class GOTEntityNPCRideable extends GOTEntityNPC implements GOTNP
 		return npcTemper;
 	}
 
-	public void setNPCTemper(int i) {
-		npcTemper = i;
-	}
-
 	@Override
 	public float getStepHeightWhileRiddenByPlayer() {
 		return 1.0f;
-	}
-
-	public EntityPlayer getTamingPlayer() {
-		return worldObj.func_152378_a(tamingPlayer);
 	}
 
 	public void increaseNPCTemper(int i) {

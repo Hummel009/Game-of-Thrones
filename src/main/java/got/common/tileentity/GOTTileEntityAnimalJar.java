@@ -29,11 +29,6 @@ public class GOTTileEntityAnimalJar extends TileEntity {
 	public float targetYaw;
 	public boolean hasTargetYaw;
 
-	public void clearEntityData() {
-		jarEntity = null;
-		setEntityData(null);
-	}
-
 	@Override
 	public Packet getDescriptionPacket() {
 		return getJarPacket(0);

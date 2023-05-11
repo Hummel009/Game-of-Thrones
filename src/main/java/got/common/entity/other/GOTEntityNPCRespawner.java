@@ -150,10 +150,6 @@ public class GOTEntityNPCRespawner extends Entity {
 		return false;
 	}
 
-	public boolean isEnemySpawnBlocked(GOTEntityNPC npc) {
-		return isEnemySpawnBlocked(npc.getFaction());
-	}
-
 	public boolean isEnemySpawnBlocked(GOTFaction spawnFaction) {
 		GOTFaction faction1;
 		GOTFaction faction2;
@@ -305,14 +301,6 @@ public class GOTEntityNPCRespawner extends Entity {
 		checkVerticalMin = y;
 		checkVerticalMax = y1;
 		spawnCap = l;
-	}
-
-	public void setHomePosFromSpawn() {
-		setHomePosFromSpawn = true;
-	}
-
-	public void setMountSetting(int i) {
-		mountSetting = i;
 	}
 
 	public void setNoPlayerRange(int i) {

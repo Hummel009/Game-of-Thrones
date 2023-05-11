@@ -163,7 +163,4 @@ public class GOTPacketHandler {
 		return new NetworkRegistry.TargetPoint(entity.dimension, entity.posX, entity.boundingBox.minY, entity.posZ, range);
 	}
 
-	public static void sendToServer(IMessage message) {
-		networkWrapper.sendToServer(message);
-	}
 }

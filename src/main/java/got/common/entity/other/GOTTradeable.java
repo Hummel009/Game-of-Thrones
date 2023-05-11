@@ -10,10 +10,6 @@ public interface GOTTradeable {
 
 	GOTTradeEntries getBuyPool();
 
-	GOTFaction getFaction();
-
-	String getNPCName();
-
 	GOTTradeEntries getSellPool();
 
 	void onPlayerTrade(EntityPlayer var1, GOTTradeEntries.TradeType var2, ItemStack var3);

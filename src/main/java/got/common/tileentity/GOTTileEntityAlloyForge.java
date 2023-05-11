@@ -263,10 +263,6 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		return specialForgeName != null && specialForgeName.length() > 0;
 	}
 
-	public boolean isCoal(ItemStack itemstack) {
-		return itemstack.getItem() == Items.coal;
-	}
-
 	public boolean isCobalt(ItemStack itemstack) {
 		return itemstack.getItem() == GOTRegistry.cobaltIngot;
 	}

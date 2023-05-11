@@ -25,7 +25,6 @@ import java.util.Random;
 
 public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature, ImmuneToFrost {
 	public static Random violenceRand = new Random();
-	public static boolean wreckBalrogs;
 	public float flapPhase;
 	public float flapPower;
 	public float prevFlapPower;

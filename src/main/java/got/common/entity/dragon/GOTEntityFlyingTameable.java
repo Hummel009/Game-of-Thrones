@@ -65,17 +65,9 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 		return posY - worldObj.getHeightValue(blockX, blockZ);
 	}
 
-	public double getMoveSpeedAirHoriz() {
-		return airSpeedHorizonal;
-	}
-
 	public void setMoveSpeedAirHoriz(double airSpeedHorizonal) {
 		L.trace("setMoveSpeedAirHoriz({})", airSpeedHorizonal);
 		this.airSpeedHorizonal = airSpeedHorizonal;
-	}
-
-	public double getMoveSpeedAirVert() {
-		return airSpeedVertical;
 	}
 
 	public void setMoveSpeedAirVert(double airSpeedVertical) {

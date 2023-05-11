@@ -262,10 +262,6 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 		return animator;
 	}
 
-	public double getAttackDamage() {
-		return getEntityAttribute(SharedMonsterAttributes.attackDamage).getAttributeValue();
-	}
-
 	public void setAttackDamage(double damage) {
 		L.trace("setAttackDamage({})", damage);
 		getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(damage);

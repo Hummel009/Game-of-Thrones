@@ -78,9 +78,4 @@ public class GOTWorldGenFir extends WorldGenAbstractTree {
 		return true;
 	}
 
-	public GOTWorldGenFir setMinMaxHeight(int min, int max) {
-		minHeight = min;
-		maxHeight = max;
-		return this;
-	}
 }

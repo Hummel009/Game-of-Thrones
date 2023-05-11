@@ -34,11 +34,4 @@ public class GOTEntityMoonGlowFX extends EntityFlameFX {
 		tessellator.addVertexWithUV(var13 + f1 * var12 - f4 * var12, var14 - f2 * var12, var15 + f3 * var12 - f5 * var12, minU, maxV);
 	}
 
-	public GOTEntityMoonGlowFX setMoonGlowColor(int color) {
-		float[] rgb = new Color(color).getColorComponents(null);
-		particleRed = rgb[0];
-		particleGreen = rgb[1];
-		particleBlue = rgb[2];
-		return this;
-	}
 }

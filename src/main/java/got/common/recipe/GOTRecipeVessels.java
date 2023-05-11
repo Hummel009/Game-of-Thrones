@@ -42,7 +42,4 @@ public class GOTRecipeVessels {
 		return recipes;
 	}
 
-	public static List<IRecipe> generateRecipes(ItemStack result, Object[] ingredients) {
-		return generateRecipes(result, null, ingredients);
-	}
 }

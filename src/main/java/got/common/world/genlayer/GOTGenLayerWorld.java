@@ -139,36 +139,6 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 		return biomeImageData != null;
 	}
 
-	public static void printRiverlessMap(World world, File file) {
-		if (!file.exists()) {
-			try {
-				file.createNewFile();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		GOTDimension dim = GOTDimension.GAME_OF_THRONES;
-		GOTGenLayer biomeSubtypes = new GOTGenLayerBiomeSubtypesInit(3000L);
-		biomeSubtypes = GOTGenLayerZoom.magnify(3000L, biomeSubtypes, 2);
-		GOTGenLayer biomes = new GOTGenLayerWorld();
-		biomes = new GOTGenLayerRemoveMapRivers(1000L, biomes, dim);
-		biomes = new GOTGenLayerBiomeSubtypes(1000L, biomes, biomeSubtypes);
-		BufferedImage buf = new BufferedImage(imageWidth, imageHeight, 2);
-		for (int i = 0; i < imageWidth; ++i) {
-			for (int k = 0; k < imageHeight; ++k) {
-				int[] b = biomes.getInts(world, i - 810, k - 730, 1, 1);
-				GOTBiome biome = dim.biomeList[b[0]];
-				buf.setRGB(i, k, biome.color | 0xFF000000);
-				GOTIntCache.get(world).resetIntCache();
-			}
-		}
-		try {
-			ImageIO.write(buf, "png", file);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
 	@Override
 	public int[] getInts(World world, int i, int k, int xSize, int zSize) {
 		int[] intArray = GOTIntCache.get(world).getIntArray(xSize * zSize);

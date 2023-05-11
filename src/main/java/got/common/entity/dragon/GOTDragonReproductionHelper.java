@@ -114,11 +114,6 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 		return nameNew;
 	}
 
-	public EntityPlayer getBreeder() {
-		String breederName = getBreederName();
-		return dragon.worldObj.getPlayerEntityByName(breederName);
-	}
-
 	public String getBreederName() {
 		return dataWatcher.getWatchableObjectString(dataIndexBreeder);
 	}

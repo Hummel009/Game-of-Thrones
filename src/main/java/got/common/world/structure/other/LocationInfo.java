@@ -26,10 +26,6 @@ public class LocationInfo {
 		name = s;
 	}
 
-	public GOTWaypoint getAssociatedWaypoint() {
-		return associatedWaypoint;
-	}
-
 	public boolean isFixedLocation() {
 		return isFixedLocation;
 	}

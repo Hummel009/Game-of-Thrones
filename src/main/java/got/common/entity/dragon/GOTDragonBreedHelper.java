@@ -71,10 +71,6 @@ public class GOTDragonBreedHelper extends GOTDragonHelper {
 		dataWatcher.updateObject(dataIndex, newBreed.getName());
 	}
 
-	public Map<GOTDragonBreed, AtomicInteger> getBreedPoints() {
-		return Collections.unmodifiableMap(breedPoints);
-	}
-
 	public void inheritBreed(GOTEntityDragon parent1, GOTEntityDragon parent2) {
 		breedPoints.get(parent1.getBreed()).addAndGet(1800 + rand.nextInt(1800));
 		breedPoints.get(parent2.getBreed()).addAndGet(1800 + rand.nextInt(1800));

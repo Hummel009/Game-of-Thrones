@@ -73,10 +73,6 @@ public class GOTFactionData {
 		return tradeCount;
 	}
 
-	public boolean hasConquestHorn() {
-		return hasConquestHorn;
-	}
-
 	public void load(NBTTagCompound nbt) {
 		npcsKilled = nbt.getInteger("NPCKill");
 		enemiesKilled = nbt.getInteger("EnemyKill");

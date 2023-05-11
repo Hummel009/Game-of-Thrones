@@ -195,10 +195,6 @@ public class GOTFellowship {
 		return ownerUUID.equals(player);
 	}
 
-	public boolean isWaypointSharer(UUID player) {
-		return waypointSharerUUIDs.contains(player);
-	}
-
 	public void load(NBTTagCompound fsData) {
 		disbanded = fsData.getBoolean("Disbanded");
 		if (fsData.hasKey("Owner")) {

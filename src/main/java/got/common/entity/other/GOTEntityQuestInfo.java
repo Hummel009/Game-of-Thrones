@@ -352,18 +352,6 @@ public class GOTEntityQuestInfo {
 		addOpenOfferPlayer(entityplayer);
 	}
 
-	public void setActiveBountySelector(MiniQuestSelector.BountyActiveAnyFaction sel) {
-		activeBountySelector = sel;
-	}
-
-	public void setBountyHelpConsumer(Predicate<EntityPlayer> predicate) {
-		bountyHelpConsumer = predicate;
-	}
-
-	public void setBountyHelpPredicate(Predicate<EntityPlayer> predicate) {
-		bountyHelpPredicate = predicate;
-	}
-
 	public void setIsLegendaryQuest() {
 		offerChance = 1;
 		minAlignment = 100;
@@ -376,10 +364,6 @@ public class GOTEntityQuestInfo {
 	public void setMiniQuestOffer(GOTMiniQuest quest, int time) {
 		miniquestOffer = quest;
 		offerTime = time;
-	}
-
-	public void setOfferChance(int i) {
-		offerChance = i;
 	}
 
 	public void setPlayerSpecificOffer(EntityPlayer entityplayer, GOTMiniQuest quest) {

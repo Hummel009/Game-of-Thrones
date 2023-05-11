@@ -81,12 +81,6 @@ public class GOTRecipe {
 	public static String[] dyeOreNames = {"dyeBlack", "dyeRed", "dyeGreen", "dyeBrown", "dyeBlue", "dyePurple", "dyeCyan", "dyeLightGray", "dyeGray", "dyePink", "dyeLime", "dyeYellow", "dyeLightBlue", "dyeMagenta", "dyeOrange", "dyeWhite"};
 	public static List<IRecipe> mossovy = new ArrayList<>();
 
-	public static void addDyeableWoolRobeRecipes(List[] recipeLists, ItemStack result, Object... params) {
-		for (List<IRecipe> list : recipeLists) {
-			addDyeableWoolRobeRecipes(list, result, params);
-		}
-	}
-
 	public static void addDyeableWoolRobeRecipes(List<IRecipe> recipeList, ItemStack result, Object... params) {
 		for (int i = 0; i <= 15; ++i) {
 			Object[] paramsDyed = Arrays.copyOf(params, params.length);
@@ -115,12 +109,6 @@ public class GOTRecipe {
 				GOTItemRobes.setRobesColor(resultDyed, rgb);
 			}
 			recipeList.add(new ShapedOreRecipe(resultDyed, paramsDyed));
-		}
-	}
-
-	public static void addRecipeTo(List[] recipeLists, IRecipe recipe) {
-		for (List<IRecipe> list : recipeLists) {
-			list.add(recipe);
 		}
 	}
 

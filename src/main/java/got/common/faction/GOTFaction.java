@@ -105,16 +105,6 @@ public enum GOTFaction {
 		return null;
 	}
 
-	public static List<GOTFaction> getAllRegional(GOTDimension.DimensionRegion region) {
-		ArrayList<GOTFaction> factions = new ArrayList<>();
-		for (GOTFaction f : values()) {
-			if (f.factionRegion == region) {
-				factions.add(f);
-			}
-		}
-		return factions;
-	}
-
 	public static List<String> getPlayableAlignmentFactionNames() {
 		List<GOTFaction> factions = getPlayableAlignmentFactions();
 		ArrayList<String> names = new ArrayList<>();
@@ -337,10 +327,6 @@ public enum GOTFaction {
 		controlZones.add(zone);
 	}
 
-	public void addLegacyAlias(String s) {
-		legacyAliases.add(s);
-	}
-
 	public GOTFactionRank addRank(float alignment, String name) {
 		GOTFactionRank rank = new GOTFactionRank(this, alignment, name);
 		ranksSortedDescending.add(rank);
@@ -425,10 +411,6 @@ public enum GOTFaction {
 
 	public String factionSubtitle() {
 		return StatCollector.translateToLocal("got.faction." + codeName() + ".subtitle");
-	}
-
-	public GOTAchievement.Category getAchieveCategory() {
-		return achieveCategory;
 	}
 
 	public void setAchieveCategory(GOTAchievement.Category cat) {
@@ -552,10 +534,6 @@ public enum GOTFaction {
 			throw new IllegalArgumentException("Faction already has a pledge rank!");
 		}
 		pledgeRank = rank;
-	}
-
-	public GOTFactionRank getRank(EntityPlayer entityplayer) {
-		return getRank(GOTLevelData.getData(entityplayer));
 	}
 
 	public GOTFactionRank getRank(float alignment) {

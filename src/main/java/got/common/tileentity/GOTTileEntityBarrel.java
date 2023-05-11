@@ -122,10 +122,6 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 		return inventory[9] == null ? 0 : inventory[9].stackSize * i / GOTRecipeBrewing.BARREL_CAPACITY;
 	}
 
-	public int getBrewAnimationProgressScaled(int i) {
-		return brewingAnim * i / 32;
-	}
-
 	public float getBrewAnimationProgressScaledF(int i, float f) {
 		float f1 = (float) brewingAnimPrev * i / 32.0f;
 		float f2 = (float) brewingAnim * i / 32.0f;

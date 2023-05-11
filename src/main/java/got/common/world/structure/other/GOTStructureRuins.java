@@ -134,13 +134,6 @@ public class GOTStructureRuins extends GOTVillageGen {
 			}
 		}
 
-		public void placeRandomStairs(World world, Random random, int i, int j, int k, int metadata) {
-			if (random.nextInt(4) == 0) {
-				setBlockAndNotifyAdequately(world, i, j, k, random.nextBoolean() ? GOTRegistry.stairsAndesiteBrickMossy : GOTRegistry.stairsAndesiteBrickCracked, metadata);
-			} else {
-				setBlockAndNotifyAdequately(world, i, j, k, GOTRegistry.stairsAndesiteBrick, metadata);
-			}
-		}
 	}
 
 	public static class GOTStructureRuinsTower extends GOTStructureBase {

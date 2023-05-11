@@ -178,10 +178,6 @@ public class GOTLevelData {
 		return null;
 	}
 
-	public static EnumDifficulty getSavedDifficulty() {
-		return difficulty;
-	}
-
 	public static void setSavedDifficulty(EnumDifficulty d) {
 		difficulty = d;
 		markDirty();
@@ -403,28 +399,6 @@ public class GOTLevelData {
 
 	public static void saveNBTToFile(File file, NBTTagCompound nbt) throws IOException {
 		CompressedStreamTools.writeCompressed(nbt, Files.newOutputStream(file.toPath()));
-	}
-
-	public static void selectDefaultCapeForPlayer(EntityPlayer entityplayer) {
-		if (getData(entityplayer).getCape() == null) {
-			for (GOTCapes cape : GOTCapes.values()) {
-				if (cape.canPlayerWear(entityplayer)) {
-					getData(entityplayer).setCape(cape);
-					return;
-				}
-			}
-		}
-	}
-
-	public static void selectDefaultShieldForPlayer(EntityPlayer entityplayer) {
-		if (getData(entityplayer).getShield() == null) {
-			for (GOTShields shield : GOTShields.values()) {
-				if (shield.canPlayerWear(entityplayer)) {
-					getData(entityplayer).setShield(shield);
-					return;
-				}
-			}
-		}
 	}
 
 	public static void sendAlignmentToAllPlayersInWorld(Entity entityplayer, World world) {

@@ -436,11 +436,6 @@ public class GOTClientProxy extends GOTCommonProxy {
 	}
 
 	@Override
-	public boolean isPaused() {
-		return Minecraft.getMinecraft().isGamePaused();
-	}
-
-	@Override
 	public boolean isSingleplayer() {
 		return Minecraft.getMinecraft().isSingleplayer();
 	}

@@ -29,11 +29,6 @@ public class GOTWorldGenGiantTrees extends WorldGenAbstractTree {
 		leafMeta = l;
 	}
 
-	public GOTWorldGenGiantTrees disableRestrictions() {
-		restrictions = false;
-		return this;
-	}
-
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
 		if (restrictions && !world.getBlock(i, j - 1, k).canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.sapling)) {
@@ -207,13 +202,4 @@ public class GOTWorldGenGiantTrees extends WorldGenAbstractTree {
 		}
 	}
 
-	public GOTWorldGenGiantTrees setHeightFactor(float f) {
-		heightFactor = f;
-		return this;
-	}
-
-	public GOTWorldGenGiantTrees setNoLeaves() {
-		generateLeaves = false;
-		return this;
-	}
 }

@@ -85,10 +85,6 @@ public class GOTBlockPlate extends BlockContainer {
 		dropPlateItem(plate, item);
 	}
 
-	public void dropPlateItem(GOTTileEntityPlate plate) {
-		dropPlateItem(plate, plate.getFoodItem());
-	}
-
 	public void dropPlateItem(GOTTileEntityPlate plate, ItemStack itemstack) {
 		dropBlockAsItem(plate.getWorldObj(), plate.xCoord, plate.yCoord, plate.zCoord, itemstack);
 	}

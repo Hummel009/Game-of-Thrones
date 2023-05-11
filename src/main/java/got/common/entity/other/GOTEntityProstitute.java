@@ -190,14 +190,6 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 			return LIGHT_1;
 		}
 
-		public static String[] typeNames() {
-			String[] names = new String[values().length];
-			for (int i = 0; i < names.length; ++i) {
-				names[i] = values()[i].textureName();
-			}
-			return names;
-		}
-
 		public String textureName() {
 			return name().toLowerCase();
 		}

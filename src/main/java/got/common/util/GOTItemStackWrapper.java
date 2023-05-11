@@ -40,18 +40,6 @@ public class GOTItemStackWrapper {
 		return !isNBTSensitive || Objects.equals(compound, other.compound);
 	}
 
-	public int getDamage() {
-		return damage;
-	}
-
-	public Item getItem() {
-		return item;
-	}
-
-	public NBTTagCompound getTagCompound() {
-		return compound;
-	}
-
 	@Override
 	public int hashCode() {
 		int result = 1;

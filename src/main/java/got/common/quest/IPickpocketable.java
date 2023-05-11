@@ -15,13 +15,6 @@ public interface IPickpocketable {
 			return null;
 		}
 
-		public static String getWanter(ItemStack itemstack) {
-			if (itemstack.hasTagCompound()) {
-				return itemstack.getTagCompound().getCompoundTag("GOTPickpocket").getString("Wanter");
-			}
-			return null;
-		}
-
 		public static UUID getWanterID(ItemStack itemstack) {
 			if (itemstack.hasTagCompound()) {
 				String id = itemstack.getTagCompound().getCompoundTag("GOTPickpocket").getString("WanterID");

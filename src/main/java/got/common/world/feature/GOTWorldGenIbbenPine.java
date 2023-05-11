@@ -121,9 +121,4 @@ public class GOTWorldGenIbbenPine extends WorldGenAbstractTree {
 		}
 	}
 
-	public GOTWorldGenIbbenPine setMinMaxHeight(int min, int max) {
-		minHeight = min;
-		maxHeight = max;
-		return this;
-	}
 }

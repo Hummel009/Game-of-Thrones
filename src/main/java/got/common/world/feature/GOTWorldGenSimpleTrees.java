@@ -113,8 +113,4 @@ public class GOTWorldGenSimpleTrees extends WorldGenAbstractTree {
 		return false;
 	}
 
-	public GOTWorldGenSimpleTrees setTrunkWidth(int i) {
-		extraTrunkWidth = i - 1;
-		return this;
-	}
 }

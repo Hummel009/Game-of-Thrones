@@ -119,16 +119,6 @@ public class GOTItemMug extends Item {
 		return 1.0f;
 	}
 
-	public static ItemStack getRealDrink(ItemStack itemstack) {
-		if (itemstack != null && itemstack.getItem() == GOTRegistry.mugWater && getVessel(itemstack) == Vessel.BOTTLE) {
-			ItemStack water = itemstack.copy();
-			water.func_150996_a(Items.potionitem);
-			water.setItemDamage(0);
-			return water;
-		}
-		return itemstack;
-	}
-
 	public static float getStrength(ItemStack itemstack) {
 		Item item = itemstack.getItem();
 		if (item instanceof GOTItemMug && ((GOTItemMug) item).isBrewable) {

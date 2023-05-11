@@ -123,10 +123,6 @@ public class GOTEntityBlizzard extends EntityCreature implements GOTBiome.Immune
 		return "mob.blaze.hit";
 	}
 
-	public boolean getInAttackMode() {
-		return (dataWatcher.getWatchableObjectByte(16) & 1) != 0;
-	}
-
 	public void setInAttackMode(boolean flag) {
 		byte b0 = dataWatcher.getWatchableObjectByte(16);
 		if (flag) {

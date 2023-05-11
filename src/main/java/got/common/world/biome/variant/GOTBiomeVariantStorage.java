@@ -25,10 +25,6 @@ public class GOTBiomeVariantStorage {
 		FMLLog.info("Unloading GOT biome variants in %s", GOTDimension.getCurrentDimension(world).dimensionName);
 	}
 
-	public static void clearChunkBiomeVariants(World world, Chunk chunk) {
-		clearChunkBiomeVariants(world, getChunkKey(chunk));
-	}
-
 	public static void clearChunkBiomeVariants(World world, ChunkCoordIntPair chunk) {
 		getDimensionChunkMap(world).remove(chunk);
 	}

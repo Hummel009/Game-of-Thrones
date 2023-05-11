@@ -44,10 +44,6 @@ public class GOTTradeEntry {
 		return tradeCost;
 	}
 
-	public void setCost(int cost) {
-		tradeCost = cost;
-	}
-
 	public float getLockedProgress() {
 		if (theTrader != null && theTrader.shouldLockTrades()) {
 			return (float) recentTradeValue / theTrader.getLockTradeAtValue();

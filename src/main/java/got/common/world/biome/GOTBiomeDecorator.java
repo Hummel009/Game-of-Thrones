@@ -144,22 +144,6 @@ public class GOTBiomeDecorator {
 		return false;
 	}
 
-	public void checkForVillages(World world, int i, int k, GOTChunkProvider.ChunkFlags chunkFlags) {
-		chunkFlags.isVillage = false;
-		for (GOTVillageGen village : villages) {
-			List<GOTVillageGen.AbstractInstance<?>> instances = village.getNearbyVillagesAtPosition(world, i, k);
-			if (!instances.isEmpty()) {
-				chunkFlags.isVillage = true;
-			}
-		}
-	}
-
-	public void clearOres() {
-		biomeSoils.clear();
-		biomeOres.clear();
-		biomeGems.clear();
-	}
-
 	public void clearRandomStructures() {
 		randomStructures.clear();
 	}

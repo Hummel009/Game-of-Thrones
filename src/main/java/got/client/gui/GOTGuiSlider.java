@@ -66,11 +66,6 @@ public class GOTGuiSlider extends GuiButton {
 		return minValueF + sliderValue * (maxValueF - minValueF);
 	}
 
-	public void setSliderValue_F(float value) {
-		value = MathHelper.clamp_float(value, minValueF, maxValueF);
-		sliderValue = (value - minValueF) / (maxValueF - minValueF);
-	}
-
 	@Override
 	public void mouseDragged(Minecraft mc, int i, int j) {
 		if (visible && enabled) {
@@ -110,22 +105,9 @@ public class GOTGuiSlider extends GuiButton {
 		dragging = false;
 	}
 
-	public void setFloat() {
-		isFloat = true;
-	}
-
 	public void setMinMaxValues(int min, int max) {
 		minValue = min;
 		maxValue = max;
-	}
-
-	public void setMinMaxValues_F(float min, float max) {
-		minValueF = min;
-		maxValueF = max;
-	}
-
-	public void setMinutesSecondsTime() {
-		isTime = true;
 	}
 
 	public void setNumberDigits(int i) {

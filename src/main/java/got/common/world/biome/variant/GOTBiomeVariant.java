@@ -187,12 +187,6 @@ public class GOTBiomeVariant {
 		return this;
 	}
 
-	public GOTBiomeVariant setTemperatureRainfall(float temp, float rain) {
-		tempBoost = temp;
-		rainBoost = rain;
-		return this;
-	}
-
 	public GOTBiomeVariant setTrees(float f) {
 		treeFactor = f;
 		return this;

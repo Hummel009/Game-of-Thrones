@@ -79,14 +79,6 @@ public class GOTEntityLingeringEffect extends Entity implements IEntityAdditiona
 		dataWatcher.addObject(HEIGHT_DATA_WATCHER, 0.5F);
 	}
 
-	public ItemStack getStack() {
-		return stack;
-	}
-
-	public EntityLivingBase getThrower() {
-		return thrower;
-	}
-
 	@Override
 	public void moveEntity(double x, double y, double z) {
 	}

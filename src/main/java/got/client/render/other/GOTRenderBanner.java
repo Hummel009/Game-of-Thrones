@@ -1,9 +1,7 @@
 package got.client.render.other;
 
 import got.GOT;
-import got.client.GOTClientProxy;
 import got.client.model.GOTModelBanner;
-import got.common.GOTBannerProtection;
 import got.common.entity.other.GOTEntityBanner;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.client.Minecraft;
@@ -43,42 +41,37 @@ public class GOTRenderBanner extends Render {
 		return standTexture;
 	}
 
-	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
-		int light;
-		int ly;
-		int lx;
 		GOTEntityBanner banner = (GOTEntityBanner) entity;
 		Minecraft mc = Minecraft.getMinecraft();
 		boolean debug = mc.gameSettings.showDebugInfo;
 		boolean protecting = banner.isProtectingTerritory();
-		GOTBannerProtection.forPlayer(mc.thePlayer).protects(banner);
-		boolean renderBox = debug && protecting;
-		boolean seeThroughWalls = renderBox && mc.thePlayer.capabilities.isCreativeMode;
+		boolean renderBox = (debug && protecting);
+		boolean seeThroughWalls = (renderBox && (mc.thePlayer.capabilities.isCreativeMode || banner.clientside_playerHasPermissionInSurvival()));
 		int protectColor = 65280;
 		bannerFrustum.setPosition(d + RenderManager.renderPosX, d1 + RenderManager.renderPosY, d2 + RenderManager.renderPosZ);
 		if (bannerFrustum.isBoundingBoxInFrustum(banner.boundingBox)) {
 			GL11.glPushMatrix();
 			GL11.glDisable(2884);
-			GL11.glTranslatef((float) d, (float) d1 + 1.5f, (float) d2);
-			GL11.glScalef(-1.0f, -1.0f, 1.0f);
-			GL11.glRotatef(180.0f - entity.rotationYaw, 0.0f, 1.0f, 0.0f);
-			GL11.glTranslatef(0.0f, 0.01f, 0.0f);
+			GL11.glTranslatef((float) d, (float) d1 + 1.5F, (float) d2);
+			GL11.glScalef(-1.0F, -1.0F, 1.0F);
+			GL11.glRotatef(180.0F - entity.rotationYaw, 0.0F, 1.0F, 0.0F);
+			GL11.glTranslatef(0.0F, 0.01F, 0.0F);
 			if (seeThroughWalls) {
 				GL11.glDisable(2929);
 				GL11.glDisable(3553);
 				GL11.glDisable(2896);
-				light = GOTClientProxy.TESSELLATOR_MAX_BRIGHTNESS;
-				lx = light % 65536;
-				ly = light / 65536;
+				int light = 15728880;
+				int lx = light % 65536;
+				int ly = light / 65536;
 				OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, lx, ly);
-				GL11.glColor4f((protectColor >> 16 & 0xFF) / 255.0f, (protectColor >> 8 & 0xFF) / 255.0f, (protectColor & 0xFF) / 255.0f, 1.0f);
+				GL11.glColor4f(0 / 255.0F, (protectColor >> 8 & 0xFF) / 255.0F, 0 / 255.0F, 1.0F);
 			}
 			bindTexture(getStandTexture(entity));
-			model.renderStand(0.0625f);
-			model.renderPost(0.0625f);
+			model.renderStand(0.0625F);
+			model.renderPost(0.0625F);
 			bindTexture(getBannerTexture(entity));
-			model.renderBanner(0.0625f);
+			model.renderBanner(0.0625F);
 			if (seeThroughWalls) {
 				GL11.glEnable(2929);
 				GL11.glEnable(3553);
@@ -93,16 +86,16 @@ public class GOTRenderBanner extends Render {
 			GL11.glDisable(3553);
 			GL11.glDisable(2884);
 			GL11.glDisable(3042);
-			light = GOTClientProxy.TESSELLATOR_MAX_BRIGHTNESS;
-			lx = light % 65536;
-			ly = light / 65536;
+			int light = 15728880;
+			int lx = light % 65536;
+			int ly = light / 65536;
 			OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, lx, ly);
-			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 			GL11.glDisable(2896);
 			AxisAlignedBB aabb = banner.createProtectionCube().offset(-RenderManager.renderPosX, -RenderManager.renderPosY, -RenderManager.renderPosZ);
-			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 			RenderGlobal.drawOutlinedBoundingBox(aabb, protectColor);
-			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 			GL11.glEnable(2896);
 			GL11.glEnable(3553);
 			GL11.glEnable(2884);

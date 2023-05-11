@@ -88,10 +88,4 @@ public enum GOTFixedStructures {
 		return dx * dx + dz * dz;
 	}
 
-	public boolean isAt(World world, int x, int z) {
-		if (!hasMapFeatures(world)) {
-			return false;
-		}
-		return xCoord == x && zCoord == z;
-	}
 }

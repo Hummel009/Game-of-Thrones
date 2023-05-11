@@ -188,20 +188,9 @@ public class GOTWorldGenTropical extends WorldGenAbstractTree {
 		return false;
 	}
 
-	public void growLeaves(World world, int i, int j, int k) {
-		Block block = world.getBlock(i, j, k);
-		if (block.isReplaceable(world, i, j, k) || block.isLeaves(world, i, j, k)) {
-			setBlockAndNotifyAdequately(world, i, j, k, leafBlock, leafMeta);
-		}
-	}
-
 	public GOTWorldGenTropical setExtraTrunkWidth(int i) {
 		extraTrunkWidth = i;
 		return this;
 	}
 
-	public GOTWorldGenTropical setTrunkWidth(int i) {
-		trunkWidth = i;
-		return this;
-	}
 }

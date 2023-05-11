@@ -25,26 +25,8 @@ public enum GOTEnumDyeColor {
 		this.unlocalizedName = unlocalizedName;
 	}
 
-	public static GOTEnumDyeColor byDyeDamage(int damage) {
-		if (damage < 0 || damage >= DYE_DMG_LOOKUP.length) {
-			damage = 0;
-		}
-		return DYE_DMG_LOOKUP[damage];
-	}
-
-	public static GOTEnumDyeColor byMetadata(int meta) {
-		if (meta < 0 || meta >= META_LOOKUP.length) {
-			meta = 0;
-		}
-		return META_LOOKUP[meta];
-	}
-
 	public int getDyeDamage() {
 		return dyeDamage;
-	}
-
-	public int getMetadata() {
-		return meta;
 	}
 
 	public String getName() {

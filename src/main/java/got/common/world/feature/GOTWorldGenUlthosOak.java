@@ -32,16 +32,6 @@ public class GOTWorldGenUlthosOak extends WorldGenAbstractTree {
 		isMirky = mirk;
 	}
 
-	public GOTWorldGenUlthosOak disableRestrictions() {
-		restrictions = false;
-		return this;
-	}
-
-	public GOTWorldGenUlthosOak disableRoots() {
-		hasRoots = false;
-		return this;
-	}
-
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
 		int height = MathHelper.getRandomIntegerInRange(random, minHeight, maxHeight);

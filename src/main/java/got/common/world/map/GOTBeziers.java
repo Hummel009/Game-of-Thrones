@@ -315,10 +315,6 @@ public class GOTBeziers {
 		allBeziers.addAll(Arrays.asList(beziers));
 	}
 
-	public String getDisplayName() {
-		return null;
-	}
-
 	public static class BezierCurves {
 		public static int bezierLengthFactor = 1;
 

@@ -53,10 +53,6 @@ public class GOTEntityPlowcart extends GOTEntityCart {
 		return plowing;
 	}
 
-	public void setPlowing(boolean plowingIn) {
-		plowing = plowingIn;
-	}
-
 	@Override
 	public boolean interactFirst(EntityPlayer player) {
 		plowing = !plowing;

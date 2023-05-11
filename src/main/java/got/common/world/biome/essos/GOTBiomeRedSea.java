@@ -21,9 +21,4 @@ public class GOTBiomeRedSea extends GOTBiomeJogosNhai {
 		return false;
 	}
 
-	public GOTBiomeRedSea setLakeBlock(Block block) {
-		topBlock = block;
-		fillerBlock = block;
-		return this;
-	}
 }

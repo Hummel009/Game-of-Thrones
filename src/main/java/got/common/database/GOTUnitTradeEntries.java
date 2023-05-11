@@ -111,7 +111,6 @@ public class GOTUnitTradeEntries {
 	public static List<GOTUnitTradeEntry> CROWNLANDS_L = new ArrayList<>();
 	public static List<GOTUnitTradeEntry> CROWNLANDS_GUARDIAN_L = new ArrayList<>();
 	public static List<GOTUnitTradeEntry> GHISCAR_UNSULLIED_L = new ArrayList<>();
-	public static List<GOTUnitTradeEntry> GHISCAR_CORSAIR_L = new ArrayList<>();
 	public static List<GOTUnitTradeEntry> WILDLING_L = new ArrayList<>();
 	public static List<GOTUnitTradeEntry> SUMMER_L = new ArrayList<>();
 	public static List<GOTUnitTradeEntry> THENN_L = new ArrayList<>();
@@ -309,7 +308,6 @@ public class GOTUnitTradeEntries {
 		CROWNLANDS_L.add(new GOTUnitTradeEntry(GOTEntityCrownlandsBannerBearer.class, GOTEntityHorse.class, "Rider", SOLDIERH, SOLDIERH_F).setMountArmor(GOTRegistry.westerosHorseArmor));
 		CROWNLANDS_GUARDIAN_L.add(new GOTUnitTradeEntry(GOTEntityCrownlandsGuard.class, SOLDIER, SOLDIER_F));
 		GHISCAR_UNSULLIED_L.add(new GOTUnitTradeEntry(GOTEntityGhiscarUnsullied.class, SOLDIER + 30, SOLDIER_F + 30.0f));
-		GHISCAR_CORSAIR_L.add(new GOTUnitTradeEntry(GOTEntityGhiscarCorsair.class, SOLDIER, SOLDIER_F));
 		WILDLING_L.add(new GOTUnitTradeEntry(GOTEntityWildling.class, LEVYMAN, LEVYMAN_F));
 		WILDLING_L.add(new GOTUnitTradeEntry(GOTEntityWildlingArcher.class, LEVYMANA, LEVYMANA_F));
 		WILDLING_L.add(new GOTUnitTradeEntry(GOTEntityWildlingAxeThrower.class, LEVYMANA, LEVYMANA_F));
@@ -408,7 +406,6 @@ public class GOTUnitTradeEntries {
 	public static GOTUnitTradeEntries CROWNLANDS = new GOTUnitTradeEntries(50.0f, CROWNLANDS_L);
 	public static GOTUnitTradeEntries CROWNLANDS_GUARDIAN = new GOTUnitTradeEntries(50.0f, CROWNLANDS_GUARDIAN_L);
 	public static GOTUnitTradeEntries GHISCAR_UNSULLIED = new GOTUnitTradeEntries(50.0f, GHISCAR_UNSULLIED_L);
-	public static GOTUnitTradeEntries GHISCAR_CORSAIR = new GOTUnitTradeEntries(50.0f, GHISCAR_CORSAIR_L);
 	public static GOTUnitTradeEntries WILDLING = new GOTUnitTradeEntries(50.0f, WILDLING_L);
 	public static GOTUnitTradeEntries SUMMER = new GOTUnitTradeEntries(50.0f, SUMMER_L);
 	public static GOTUnitTradeEntries THENN = new GOTUnitTradeEntries(50.0f, THENN_L);

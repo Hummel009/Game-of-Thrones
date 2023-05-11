@@ -35,10 +35,6 @@ public abstract class GOTTileEntitySign extends TileEntity {
 		return editingPlayer;
 	}
 
-	public void setEditingPlayer(EntityPlayer entityplayer) {
-		editingPlayer = entityplayer;
-	}
-
 	public abstract int getNumLines();
 
 	public boolean isEditable() {

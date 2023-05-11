@@ -24,12 +24,6 @@ public class GOTBlockConcretePowder extends BlockFalling {
 		setBlockTextureName("got:concrete_powder_" + this.color.getName());
 	}
 
-	public static boolean canFallThrough(World worldIn, int x, int y, int z) {
-		Block block = worldIn.getBlock(x, y, z);
-		Material material = block.getMaterial();
-		return block == Blocks.fire || material == Material.air || material == Material.water || material == Material.lava;
-	}
-
 	public static GOTBlockConcrete getConcreteFromColor(GOTEnumDyeColor dye) {
 		return GOTRegistry.concrete.get(dye);
 	}

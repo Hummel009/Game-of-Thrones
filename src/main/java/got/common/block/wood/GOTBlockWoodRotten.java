@@ -7,7 +7,4 @@ public class GOTBlockWoodRotten extends GOTBlockWoodBase {
 		setWoodNames("rotten");
 	}
 
-	public static boolean isRottenWood(Block block) {
-		return block instanceof GOTBlockWoodRotten;
-	}
 }

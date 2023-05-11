@@ -101,7 +101,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	public boolean isNPCPersistent;
 	public boolean isNotHuman;
 	public boolean isPassive;
-	public boolean isRoyalOrder;
 	public boolean isTargetSeeker;
 	public boolean isTraderEscort;
 	public boolean liftBannerRestrictions;
@@ -509,10 +508,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return getNPCFormattedName(npcName, entityName);
 	}
 
-	public AttackMode getCurrentAttackMode() {
-		return currentAttackMode;
-	}
-
 	public float getDrunkenSpeechFactor() {
 		if (rand.nextInt(3) == 0) {
 			return MathHelper.randomFloatClamp(rand, 0.0f, 0.3f);
@@ -582,10 +577,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public GOTFaction getHiringFaction() {
-		return getFaction();
-	}
-
-	public GOTFaction getInfluenceZoneFaction() {
 		return getFaction();
 	}
 
@@ -1160,11 +1151,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		markNPCSpoken();
 	}
 
-	public void sendSpeechBankLine(EntityPlayer entityplayer, String speechBank, int i) {
-		GOTSpeech.sendSpeech(entityplayer, this, GOTSpeech.getSpeechLineForPlayer(this, speechBank, i, entityplayer, null, null));
-		markNPCSpoken();
-	}
-
 	@Override
 	public void setAttackTarget(EntityLivingBase target) {
 		boolean speak = target != null && getEntitySenses().canSee(target) && rand.nextInt(3) == 0;
@@ -1230,10 +1216,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		isLegendaryNPC = true;
 		spawnRidingHorse = false;
 		questInfo.setIsLegendaryQuest();
-	}
-
-	public void setPersistentAndTraderShouldRespawn() {
-		isNPCPersistent = true;
 	}
 
 	public void setRidingHorse(boolean flag) {

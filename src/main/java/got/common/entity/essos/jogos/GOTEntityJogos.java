@@ -78,10 +78,10 @@ public class GOTEntityJogos extends GOTEntityHumanBase implements IPickpocketabl
 		for (int l = 0; l < bones; ++l) {
 			dropItem(Items.bone, 1);
 		}
-		dropRohanItems(flag, i);
+		dropJogosItems(flag, i);
 	}
 
-	public void dropRohanItems(boolean flag, int i) {
+	public void dropJogosItems(boolean flag, int i) {
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.JOGOS, 1, 2 + i);
 		}

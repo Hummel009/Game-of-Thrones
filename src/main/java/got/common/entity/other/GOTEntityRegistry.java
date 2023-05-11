@@ -63,10 +63,6 @@ public class GOTEntityRegistry {
 		return IDToStringMapping.get(id);
 	}
 
-	public static void preInit() {
-		GOTEntity.preInit();
-	}
-
 	public static void register(Class<? extends Entity> entityClass, int id, GOTFaction faction) {
 		registerHidden(entityClass, id, 80, 3, true);
 		entitySet.add(entityClass);

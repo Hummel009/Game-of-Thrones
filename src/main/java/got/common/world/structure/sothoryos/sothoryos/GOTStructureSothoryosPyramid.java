@@ -584,19 +584,4 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 		}
 	}
 
-	public void placeRandomWall(World world, Random random, int i, int j, int k) {
-		if (isGolden) {
-			setBlockAndMetadata(world, i, j, k, GOTRegistry.wallStone4, 3);
-			return;
-		}
-		if (random.nextBoolean()) {
-			if (random.nextBoolean()) {
-				setBlockAndMetadata(world, i, j, k, GOTRegistry.wallStone4, 1);
-			} else {
-				setBlockAndMetadata(world, i, j, k, GOTRegistry.wallStone4, 2);
-			}
-		} else {
-			setBlockAndMetadata(world, i, j, k, GOTRegistry.wallStone4, 0);
-		}
-	}
 }

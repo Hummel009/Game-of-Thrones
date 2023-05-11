@@ -45,10 +45,6 @@ public class GOTMusicTrack extends PositionedSound {
 		return authors;
 	}
 
-	public String getFilename() {
-		return filename;
-	}
-
 	public GOTTrackRegionInfo getRegionInfo(GOTBiomeMusic reg) {
 		if (regions.containsKey(reg)) {
 			return regions.get(reg);
@@ -65,37 +61,6 @@ public class GOTMusicTrack extends PositionedSound {
 
 	public void setTitle(String s) {
 		title = s;
-	}
-
-	public String[] getTrackInfo() {
-		ArrayList<String> list = new ArrayList<>();
-		list.add("Title: " + getTitle());
-		list.add("Filename: " + filename);
-		list.add("Regions:");
-		for (GOTBiomeMusic reg : getAllRegions()) {
-			List<GOTMusicCategory> categories;
-			GOTTrackRegionInfo info = getRegionInfo(reg);
-			list.add(">" + reg.regionName);
-			list.add(">Weight: " + info.getWeight());
-			List<String> subs = info.getSubregions();
-			if (!subs.isEmpty()) {
-				list.add(">Subregions:");
-				for (String s2 : subs) {
-					list.add(">>" + s2);
-				}
-			}
-			if (!(categories = info.getCategories()).isEmpty()) {
-				list.add(">Categories:");
-				for (GOTMusicCategory cat : categories) {
-					list.add(">>" + cat.categoryName);
-				}
-			}
-		}
-		list.add("Authors:");
-		for (String auth : authors) {
-			list.add(">" + auth);
-		}
-		return list.toArray(new String[0]);
 	}
 
 	public void loadSoundResource() {

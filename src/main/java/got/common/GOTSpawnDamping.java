@@ -126,14 +126,6 @@ public class GOTSpawnDamping {
 		}
 	}
 
-	public static void setNPCSpawnDamping(float damping) {
-		setSpawnDamping(TYPE_NPC, damping);
-	}
-
-	public static void setSpawnDamping(EnumCreatureType type, float damping) {
-		setSpawnDamping(type.name(), damping);
-	}
-
 	public static void setSpawnDamping(String type, float damping) {
 		spawnDamping.put(type, damping);
 		markDirty();

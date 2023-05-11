@@ -11,7 +11,6 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
-import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -75,27 +74,11 @@ public class GOTDate {
 		public String name;
 		public int seasonID;
 
-		public float[] grassRGB;
-
 		Season(String s, int i) {
 			name = s;
 			seasonID = i;
 		}
 
-		public String codeName() {
-			return name;
-		}
-
-		public int transformColor(int color) {
-			float[] rgb = new Color(color).getRGBColorComponents(null);
-			float r = rgb[0];
-			float g = rgb[1];
-			float b = rgb[2];
-			r = Math.min(r * grassRGB[0], 1.0f);
-			g = Math.min(g * grassRGB[1], 1.0f);
-			b = Math.min(b * grassRGB[2], 1.0f);
-			return new Color(r, g, b).getRGB();
-		}
 	}
 
 	public static class AegonCalendar {

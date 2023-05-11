@@ -28,8 +28,4 @@ public class GOTMusicResourceManager implements IResourceManager {
 		return resourceMap.entrySet();
 	}
 
-	public void registerMusicResources(ResourceLocation resource, InputStream in) {
-		SimpleResource ires = new SimpleResource(resource, in, null, null);
-		resourceMap.put(resource, ires);
-	}
 }

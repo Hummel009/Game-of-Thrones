@@ -126,40 +126,6 @@ public class GOTItemPouch extends Item {
 		}
 	}
 
-	public static boolean restockPouches(EntityPlayer player) {
-		InventoryPlayer inv = player.inventory;
-		List<Integer> pouchSlots = new ArrayList<>();
-		List<Integer> itemSlots = new ArrayList<>();
-		for (int i = 0; i < inv.mainInventory.length; i++) {
-			ItemStack itemstack = inv.getStackInSlot(i);
-			if (itemstack != null) {
-				if (itemstack.getItem() instanceof GOTItemPouch) {
-					pouchSlots.add(i);
-				} else {
-					itemSlots.add(i);
-				}
-			}
-		}
-		boolean movedAny = false;
-		for (Integer integer : itemSlots) {
-			int j = integer;
-			ItemStack itemstack = inv.getStackInSlot(j);
-			for (Integer integer2 : pouchSlots) {
-				int p = integer2;
-				ItemStack pouch = inv.getStackInSlot(p);
-				int stackSizeBefore = itemstack.stackSize;
-				tryAddItemToPouch(pouch, itemstack, true);
-				if (itemstack.stackSize != stackSizeBefore) {
-					movedAny = true;
-				}
-				if (itemstack.stackSize <= 0) {
-					inv.setInventorySlotContents(j, null);
-				}
-			}
-		}
-		return movedAny;
-	}
-
 	public static void setPouchColor(ItemStack itemstack, int i) {
 		if (itemstack.getTagCompound() == null) {
 			itemstack.setTagCompound(new NBTTagCompound());

@@ -66,11 +66,6 @@ public class GOTItemSword extends ItemSword implements GOTMaterialFinder {
 		entity.addPotionEffect(poison);
 	}
 
-	public GOTItemSword addWeaponDamage(float f) {
-		gotWeaponDamage += f;
-		return this;
-	}
-
 	public float getGOTWeaponDamage() {
 		return gotWeaponDamage;
 	}
@@ -130,11 +125,6 @@ public class GOTItemSword extends ItemSword implements GOTMaterialFinder {
 
 	public GOTItemSword setIsGlowing() {
 		isGlowing = true;
-		return this;
-	}
-
-	public GOTItemSword setWeaponDamage(float f) {
-		gotWeaponDamage = f;
 		return this;
 	}
 

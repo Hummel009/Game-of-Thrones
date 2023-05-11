@@ -30,31 +30,11 @@ public class GOTTileEntityBeacon extends TileEntity {
 	public UUID beaconFellowshipID;
 	public List<EntityPlayer> editingPlayers = new ArrayList<>();
 
-	public void addEditingPlayer(EntityPlayer entityplayer) {
-		if (!editingPlayers.contains(entityplayer)) {
-			editingPlayers.add(entityplayer);
-		}
-	}
-
-	public String getBeaconName() {
-		return beaconName;
-	}
-
-	public void setBeaconName(String name) {
-		beaconName = name;
-		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-		markDirty();
-	}
-
 	@Override
 	public Packet getDescriptionPacket() {
 		NBTTagCompound data = new NBTTagCompound();
 		writeToNBT(data);
 		return new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 0, data);
-	}
-
-	public UUID getFellowshipID() {
-		return beaconFellowshipID;
 	}
 
 	public boolean isFullyLit() {
@@ -80,10 +60,6 @@ public class GOTTileEntityBeacon extends TileEntity {
 		}
 	}
 
-	public boolean isPlayerEditing(EntityPlayer entityplayer) {
-		return editingPlayers.contains(entityplayer);
-	}
-
 	@Override
 	public void onDataPacket(NetworkManager manager, S35PacketUpdateTileEntity packet) {
 		NBTTagCompound data = packet.func_148857_g();
@@ -100,10 +76,6 @@ public class GOTTileEntityBeacon extends TileEntity {
 		stateChangeTime = nbt.getLong("StateChangeTime");
 		beaconName = nbt.hasKey("BeaconName") ? nbt.getString("BeaconName") : null;
 		beaconFellowshipID = nbt.hasKey("BeaconFellowship") ? UUID.fromString(nbt.getString("BeaconFellowship")) : null;
-	}
-
-	public void releaseEditingPlayer(EntityPlayer entityplayer) {
-		editingPlayers.remove(entityplayer);
 	}
 
 	public void sendFellowshipMessage(boolean lit) {
@@ -123,13 +95,6 @@ public class GOTTileEntityBeacon extends TileEntity {
 				entityplayer.addChatMessage(message);
 			}
 		}
-	}
-
-	public void setFellowship(GOTFellowship fs) {
-		beaconFellowshipID = fs != null ? fs.getFellowshipID() : null;
-		beaconFellowshipID = fs == null ? null : fs.getFellowshipID();
-		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-		markDirty();
 	}
 
 	@Override

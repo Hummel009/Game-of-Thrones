@@ -142,15 +142,6 @@ public class GOTVec3d {
 		return new GOTVec3d(xCoord / d0, yCoord / d0, zCoord / d0);
 	}
 
-	public GOTVec3d rotatePitch(float pitch) {
-		float f = MathHelper.cos(pitch);
-		float f1 = MathHelper.sin(pitch);
-		double d0 = xCoord;
-		double d1 = yCoord * f + zCoord * f1;
-		double d2 = zCoord * f - yCoord * f1;
-		return new GOTVec3d(d0, d1, d2);
-	}
-
 	public GOTVec3d rotateYaw(float yaw) {
 		float f = MathHelper.cos(yaw);
 		float f1 = MathHelper.sin(yaw);
@@ -164,30 +155,12 @@ public class GOTVec3d {
 		return new GOTVec3d(xCoord * p_186678_1_, yCoord * p_186678_1_, zCoord * p_186678_1_);
 	}
 
-	public double squareDistanceTo(double xIn, double yIn, double zIn) {
-		double d0 = xIn - xCoord;
-		double d1 = yIn - yCoord;
-		double d2 = zIn - zCoord;
-		return d0 * d0 + d1 * d1 + d2 * d2;
-	}
-
-	public double squareDistanceTo(GOTVec3d vec) {
-		double d0 = vec.xCoord - xCoord;
-		double d1 = vec.yCoord - yCoord;
-		double d2 = vec.zCoord - zCoord;
-		return d0 * d0 + d1 * d1 + d2 * d2;
-	}
-
 	public GOTVec3d subtract(double x, double y, double z) {
 		return addVector(-x, -y, -z);
 	}
 
 	public GOTVec3d subtract(GOTVec3d vec) {
 		return subtract(vec.xCoord, vec.yCoord, vec.zCoord);
-	}
-
-	public GOTVec3d subtractReverse(GOTVec3d vec) {
-		return new GOTVec3d(vec.xCoord - xCoord, vec.yCoord - yCoord, vec.zCoord - zCoord);
 	}
 
 	@Override

@@ -1,11 +1,9 @@
 package got.common;
 
-import cpw.mods.fml.client.config.IConfigElement;
 import cpw.mods.fml.common.FMLLog;
 import got.GOT;
 import got.common.util.GOTModChecker;
 import net.minecraft.world.World;
-import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;
 
 import java.io.File;
@@ -79,7 +77,6 @@ public class GOTConfig {
 	public static int cloudRange;
 	public static boolean checkUpdates;
 	public static boolean strTimelapse;
-	public static int strTimelapseInterval;
 	public static boolean fixMobSpawning;
 	public static int mobSpawnInterval;
 	public static int musicIntervalMin;
@@ -108,14 +105,6 @@ public class GOTConfig {
 	public static String getCategory(String category) {
 		allCategories.add(category);
 		return category;
-	}
-
-	public static List<IConfigElement> getConfigElements() {
-		ArrayList<IConfigElement> list = new ArrayList<>();
-		for (String category : allCategories) {
-			list.addAll(new ConfigElement(config.getCategory(category)).getChildElements());
-		}
-		return list;
 	}
 
 	public static int getCustomWaypointMinY(World world) {
@@ -235,18 +224,6 @@ public class GOTConfig {
 		if (config.hasChanged()) {
 			config.save();
 		}
-	}
-
-	public static void setStructureTimelapse(boolean flag) {
-		strTimelapse = flag;
-		config.getCategory(CATEGORY_MISC).get("Structure Timelapse").set(strTimelapse);
-		config.save();
-	}
-
-	public static void setStructureTimelapseInterval(int i) {
-		strTimelapseInterval = i;
-		config.getCategory(CATEGORY_MISC).get("Structure Timelapse Interval").set(strTimelapseInterval);
-		config.save();
 	}
 
 	public static void setupAndLoad() {

@@ -44,26 +44,6 @@ public class GOTBiomeSpawnList {
 		conquestGainRate = 1.0f;
 	}
 
-	public boolean containsEntityClassByDefault(Class<? extends EntityLivingBase> desiredClass, World world) {
-		determineFactions(world);
-		for (FactionContainer facCont : factionContainers) {
-			if (facCont.isEmpty() || facCont.isConquestFaction()) {
-				continue;
-			}
-			for (SpawnListContainer listCont : facCont.spawnLists) {
-				GOTSpawnList list = listCont.spawnList;
-				for (GOTSpawnEntry e : list.getReadOnlyList()) {
-					Class<? extends Entity> spawnClass = e.entityClass;
-					if (!desiredClass.isAssignableFrom(spawnClass)) {
-						continue;
-					}
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
 	public void determineFactions(World world) {
 		if (presentFactions.isEmpty() && !factionContainers.isEmpty()) {
 			for (FactionContainer facContainer : factionContainers) {
@@ -75,21 +55,6 @@ public class GOTBiomeSpawnList {
 				presentFactions.add(fac);
 			}
 		}
-	}
-
-	public List<GOTSpawnEntry> getAllSpawnEntries(World world) {
-		determineFactions(world);
-		ArrayList<GOTSpawnEntry> spawns = new ArrayList<>();
-		for (FactionContainer facCont : factionContainers) {
-			if (facCont.isEmpty()) {
-				continue;
-			}
-			for (SpawnListContainer listCont : facCont.spawnLists) {
-				GOTSpawnList list = listCont.spawnList;
-				spawns.addAll(list.getReadOnlyList());
-			}
-		}
-		return spawns;
 	}
 
 	public GOTSpawnEntry.Instance getRandomSpawnEntry(Random rand, World world, int i, int j, int k) {
@@ -258,10 +223,6 @@ public class GOTBiomeSpawnList {
 
 		public boolean canSpawnAtConquestLevel(float conq) {
 			return conq > conquestThreshold;
-		}
-
-		public boolean isConquestOnly() {
-			return conquestThreshold >= 0.0f;
 		}
 
 		public SpawnListContainer setConquestOnly() {

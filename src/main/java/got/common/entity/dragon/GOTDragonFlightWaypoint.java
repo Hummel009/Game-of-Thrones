@@ -60,12 +60,6 @@ public class GOTDragonFlightWaypoint {
 		posZ = nbt.getInteger(NBT_WAYPOINT_Z);
 	}
 
-	public void setChunkCoordinates(ChunkCoordinates cc) {
-		posX = cc.posX;
-		posY = cc.posY;
-		posZ = cc.posZ;
-	}
-
 	public void setEntity(Entity target) {
 		posX = (int) target.posX;
 		posY = (int) target.posY;
@@ -78,17 +72,9 @@ public class GOTDragonFlightWaypoint {
 		posZ = (int) vec.zCoord;
 	}
 
-	public ChunkCoordinates toChunkCoordinates() {
-		return new ChunkCoordinates(posX, posY, posZ);
-	}
-
 	@Override
 	public String toString() {
 		return posX + ", " + posY + ", " + posZ;
-	}
-
-	public Vec3 toVector() {
-		return Vec3.createVectorHelper(posX, posY, posZ);
 	}
 
 	public void writeToNBT(NBTTagCompound nbt) {

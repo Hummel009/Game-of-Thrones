@@ -68,10 +68,10 @@ public class GOTEntityIbbenMan extends GOTEntityHumanBase implements IPickpocket
 		for (int l = 0; l < bones; ++l) {
 			dropItem(Items.bone, 1);
 		}
-		dropRohanItems(flag, i);
+		dropIbbenItems(flag, i);
 	}
 
-	public void dropRohanItems(boolean flag, int i) {
+	public void dropIbbenItems(boolean flag, int i) {
 		if (rand.nextInt(6) == 0) {
 			dropChestContents(GOTChestContents.IBBEN, 1, 2 + i);
 		}

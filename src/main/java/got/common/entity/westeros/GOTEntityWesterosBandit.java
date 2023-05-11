@@ -61,16 +61,6 @@ public class GOTEntityWesterosBandit extends GOTEntityHumanBase implements IBand
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.3);
 	}
 
-	public boolean canStealFromPlayerInv(EntityPlayer entityplayer) {
-		for (int slot = 0; slot < entityplayer.inventory.mainInventory.length; ++slot) {
-			if (slot == entityplayer.inventory.currentItem || entityplayer.inventory.getStackInSlot(slot) == null) {
-				continue;
-			}
-			return true;
-		}
-		return false;
-	}
-
 	@Override
 	public boolean canTargetPlayerForTheft(EntityPlayer player) {
 		return true;

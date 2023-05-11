@@ -21,10 +21,6 @@ public class GOTIntCache {
 		return CLIENT;
 	}
 
-	public String getCacheSizes() {
-		return "cache: " + freeLargeArrays.size() + ", tcache: " + freeSmallArrays.size() + ", allocated: " + inUseLargeArrays.size() + ", tallocated: " + inUseSmallArrays.size();
-	}
-
 	public int[] getIntArray(int size) {
 		if (size <= 256) {
 			if (freeSmallArrays.isEmpty()) {

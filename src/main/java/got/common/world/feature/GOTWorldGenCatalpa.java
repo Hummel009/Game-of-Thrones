@@ -146,9 +146,4 @@ public class GOTWorldGenCatalpa extends WorldGenAbstractTree {
 		}
 	}
 
-	public GOTWorldGenCatalpa setMinMaxHeight(int min, int max) {
-		minHeight = min;
-		maxHeight = max;
-		return this;
-	}
 }

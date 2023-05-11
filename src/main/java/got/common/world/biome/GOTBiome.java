@@ -671,23 +671,11 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public void generateMountainTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, int xzIndex, int ySize, int height, int rockDepth, GOTBiomeVariant variant) {
 	}
 
-	public GOTEventSpawner.EventChance getBanditChance() {
-		return banditChance;
-	}
-
-	public void setBanditChance(GOTEventSpawner.EventChance banditChance) {
-		this.banditChance = banditChance;
-	}
-
 	public Class<? extends GOTEntityWesterosBandit> getBanditEntityClass() {
 		if (banditEntityClass == null) {
 			return GOTEntityWesterosBandit.class;
 		}
 		return banditEntityClass;
-	}
-
-	public void setBanditEntityClass(Class<? extends GOTEntityWesterosBandit> banditEntityClass) {
-		this.banditEntityClass = banditEntityClass;
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -710,29 +698,12 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return ColorizerGrass.getGrassColor(temp, rain);
 	}
 
-	@SideOnly(Side.CLIENT)
-	public int getBaseSkyColorByTemp(int i, int j, int k) {
-		return super.getSkyColorByTemp(getFloatTemperature(i, j, k));
-	}
-
 	public GOTAchievement getBiomeAchievement() {
 		return null;
 	}
 
-	public BiomeColors getBiomeColors() {
-		return biomeColors;
-	}
-
-	public void setBiomeColors(BiomeColors biomeColors) {
-		this.biomeColors = biomeColors;
-	}
-
 	public GOTDimension getBiomeDimension() {
 		return biomeDimension;
-	}
-
-	public void setBiomeDimension(GOTDimension biomeDimension) {
-		this.biomeDimension = biomeDimension;
 	}
 
 	public String getBiomeDisplayName() {
@@ -757,24 +728,12 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return biomeTerrain;
 	}
 
-	public void setBiomeTerrain(BiomeTerrain biomeTerrain) {
-		this.biomeTerrain = biomeTerrain;
-	}
-
 	public GOTBiomeVariantList getBiomeVariantsLarge() {
 		return biomeVariantsLarge;
 	}
 
-	public void setBiomeVariantsLarge(GOTBiomeVariantList biomeVariantsLarge) {
-		this.biomeVariantsLarge = biomeVariantsLarge;
-	}
-
 	public GOTBiomeVariantList getBiomeVariantsSmall() {
 		return biomeVariantsSmall;
-	}
-
-	public void setBiomeVariantsSmall(GOTBiomeVariantList biomeVariantsSmall) {
-		this.biomeVariantsSmall = biomeVariantsSmall;
 	}
 
 	public Region getBiomeWaypoints() {
@@ -820,10 +779,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return fillerBlockMeta;
 	}
 
-	public void setFillerBlockMeta(int fillerBlockMeta) {
-		this.fillerBlockMeta = fillerBlockMeta;
-	}
-
 	public void getFogColor(Vec3 fog) {
 		if (biomeColors.fog != null) {
 			float[] colors = biomeColors.fog.getColorComponents(null);
@@ -837,20 +792,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return heightBaseParameter;
 	}
 
-	public void setHeightBaseParameter(float heightBaseParameter) {
-		this.heightBaseParameter = heightBaseParameter;
-	}
-
 	public GOTBiomeInvasionSpawns getInvasionSpawns() {
 		return invasionSpawns;
-	}
-
-	public void setInvasionSpawns(GOTBiomeInvasionSpawns invasionSpawns) {
-		this.invasionSpawns = invasionSpawns;
-	}
-
-	public String getName() {
-		return StatCollector.translateToLocal("got.biome." + biomeName + ".name");
 	}
 
 	public GOTBiomeSpawnList getNPCSpawnList() {
@@ -936,16 +879,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return super.getSkyColorByTemp(f);
 	}
 
-	public int getSnowHeight() {
-		return 0;
-	}
-
 	public List<SpawnListEntry> getSpawnableGOTAmbientList() {
 		return spawnableGOTAmbientList;
-	}
-
-	public void setSpawnableGOTAmbientList(List<SpawnListEntry> spawnableGOTAmbientList) {
-		this.spawnableGOTAmbientList = spawnableGOTAmbientList;
 	}
 
 	@Override
@@ -958,10 +893,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	public int getTopBlockMeta() {
 		return topBlockMeta;
-	}
-
-	public void setTopBlockMeta(int topBlockMeta) {
-		this.topBlockMeta = topBlockMeta;
 	}
 
 	public WorldGenAbstractTree getTreeGen(World world, Random random, int i, int k) {
@@ -987,10 +918,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return variantChance;
 	}
 
-	public void setVariantChance(float variantChance) {
-		this.variantChance = variantChance;
-	}
-
 	public GOTBezierType getWallBlock() {
 		return GOTBezierType.WALL_ICE;
 	}
@@ -1005,22 +932,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	public boolean hasSky() {
 		return true;
-	}
-
-	public boolean isEnablePodzol() {
-		return enablePodzol;
-	}
-
-	public void setEnablePodzol(boolean enablePodzol) {
-		this.enablePodzol = enablePodzol;
-	}
-
-	public boolean isEnableRocky() {
-		return enableRocky;
-	}
-
-	public void setEnableRocky(boolean enableRocky) {
-		this.enableRocky = enableRocky;
 	}
 
 	public boolean isRiver() {
@@ -1040,10 +951,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return (GOTBiome) super.setBiomeName(s);
 	}
 
-	public void setClimate(GOTClimateType climate) {
-		climateType = climate;
-	}
-
 	@Override
 	public GOTBiome setColor(int color) {
 		color |= 0xFF000000;
@@ -1059,21 +966,12 @@ public abstract class GOTBiome extends BiomeGenBase {
 		banditEntityClass = GOTEntityEssosBandit.class;
 	}
 
-	public GOTBiome setDisableSnow() {
-		enableSnow = false;
-		return this;
-	}
-
 	public GOTBiome setMinMaxHeight(float f, float f1) {
 		heightBaseParameter = f;
 		f -= 2.0f;
 		rootHeight = f + 0.2f;
 		heightVariation = f1 / 2.0f;
 		return this;
-	}
-
-	public void setNpcSpawnList(GOTBiomeSpawnList npcSpawnList) {
-		this.npcSpawnList = npcSpawnList;
 	}
 
 	@Override

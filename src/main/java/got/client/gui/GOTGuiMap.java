@@ -1822,7 +1822,6 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				boolean unlocked = mc.thePlayer != null && waypoint.hasPlayerUnlocked(mc.thePlayer);
 				boolean hidden = waypoint.isHidden();
 				boolean custom = waypoint instanceof GOTCustomWaypoint;
-				boolean shared = waypoint instanceof GOTCustomWaypoint && ((GOTCustomWaypoint) waypoint).isShared();
 				if ((isWaypointVisible(waypoint) || overrideToggles) && (!hidden || unlocked)) {
 					float[] pos = transformCoords(waypoint.getXCoord(), waypoint.getZCoord());
 					float x = pos[0];

@@ -22,6 +22,7 @@ import got.common.inventory.GOTContainerCoinExchange;
 import got.common.item.other.GOTItemCoin;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketMountOpenInv;
+import got.common.util.GOTModChecker;
 import got.common.world.GOTWorldProvider;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
@@ -30,9 +31,11 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.gui.inventory.GuiContainerCreative;
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.client.multiplayer.WorldClient;
+import net.minecraft.client.renderer.InventoryEffectRenderer;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.settings.GameSettings;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.event.HoverEvent;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
@@ -57,6 +60,11 @@ public class GOTGuiHandler {
 	public static Set<Class<? extends Container>> coinCount_excludedContainers = new HashSet<>();
 	public static Set<Class<? extends GuiContainer>> coinCount_excludedGUIs = new HashSet<>();
 	public static Set<Class<? extends IInventory>> coinCount_excludedInvTypes = new HashSet<>();
+	public static Set<String> coinCount_excludedContainers_clsNames = new HashSet<>();
+	public static Set<String> coinCount_excludedGUIs_clsNames = new HashSet<>();
+	public static Set<String> coinCount_excludedInvTypes_clsNames = new HashSet<>();
+	public static boolean coinCountLeftSide = false;
+	private int descScrollIndex;
 
 	static {
 		coinCount_excludedGUIs.add(GuiContainerCreative.class);
@@ -64,9 +72,8 @@ public class GOTGuiHandler {
 		coinCount_excludedInvTypes.add(InventoryCraftResult.class);
 	}
 
-	public int descScrollIndex = -1;
-
 	public GOTGuiHandler() {
+		descScrollIndex = -1;
 		FMLCommonHandler.instance().bus().register(this);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
@@ -183,26 +190,34 @@ public class GOTGuiHandler {
 			mc.theWorld.theProfiler.startSection("invCoinCount");
 			GuiContainer guiContainer = (GuiContainer) gui;
 			Container container = guiContainer.inventorySlots;
-			if (!coinCount_excludedContainers.contains(container.getClass()) && !coinCount_excludedGUIs.contains(guiContainer.getClass())) {
+			Class<? extends Container> containerCls = container.getClass();
+			Class<? extends GuiContainer> guiCls = guiContainer.getClass();
+			boolean excludeContainer = (coinCount_excludedContainers.contains(containerCls) || coinCount_excludedContainers_clsNames.contains(containerCls.getName()));
+			boolean excludeGui = (coinCount_excludedGUIs.contains(guiCls) || coinCount_excludedGUIs_clsNames.contains(guiCls.getName()));
+			if (guiContainer instanceof GuiContainerCreative) {
+				int creativeTabIndex = GOTReflectionClient.getCreativeTabIndex((GuiContainerCreative) guiContainer);
+				if (creativeTabIndex != CreativeTabs.tabInventory.getTabIndex()) excludeGui = true;
+			}
+			if (!excludeContainer && !excludeGui) {
 				int guiLeft = -1;
 				int guiTop = -1;
 				int guiXSize = -1;
-				ArrayList<IInventory> differentInvs = new ArrayList<>();
-				HashMap<IInventory, Integer> invHighestY = new HashMap<>();
-				for (int i = 0; i < container.inventorySlots.size(); ++i) {
+				List<IInventory> differentInvs = new ArrayList<>();
+				Map<IInventory, Integer> invHighestY = new HashMap<>();
+				for (int i = 0; i < container.inventorySlots.size(); i++) {
 					Slot slot = container.getSlot(i);
 					IInventory inv = slot.inventory;
-					if (inv != null && !coinCount_excludedInvTypes.contains(inv.getClass())) {
-						if (!differentInvs.contains(inv)) {
-							differentInvs.add(inv);
-						}
-						int slotY = slot.yDisplayPosition;
-						if (!invHighestY.containsKey(inv)) {
-							invHighestY.put(inv, slotY);
-						} else {
-							int highestY = invHighestY.get(inv);
-							if (slotY < highestY) {
+					if (inv != null) {
+						Class<? extends IInventory> invClass = inv.getClass();
+						boolean excludeInv = (coinCount_excludedInvTypes.contains(invClass) || coinCount_excludedInvTypes_clsNames.contains(invClass.getName()));
+						if (!excludeInv) {
+							if (!differentInvs.contains(inv)) differentInvs.add(inv);
+							int slotY = slot.yDisplayPosition;
+							if (!invHighestY.containsKey(inv)) {
 								invHighestY.put(inv, slotY);
+							} else {
+								int highestY = invHighestY.get(inv);
+								if (slotY < highestY) invHighestY.put(inv, slotY);
 							}
 						}
 					}
@@ -210,45 +225,57 @@ public class GOTGuiHandler {
 				for (IInventory inv : differentInvs) {
 					int coins = GOTItemCoin.getContainerValue(inv, true);
 					if (coins > 0) {
+						String sCoins = String.valueOf(coins);
+						int sCoinsW = mc.fontRenderer.getStringWidth(sCoins);
+						int border = 2;
+						int rectWidth = 18 + sCoinsW + 1;
 						if (guiLeft == -1) {
-							guiLeft = GOTReflectionClient.getGuiLeft(guiContainer);
 							guiTop = GOTReflectionClient.getGuiTop(guiContainer);
 							guiXSize = GOTReflectionClient.getGuiXSize(guiContainer);
+							guiLeft = gui.width / 2 - guiXSize / 2;
+							if (guiContainer instanceof InventoryEffectRenderer && GOTReflectionClient.hasGuiPotionEffects((InventoryEffectRenderer) gui)) {
+								if (!GOTModChecker.hasNEI()) {
+									guiLeft += 60;
+								}
+							}
 						}
-						int x = gui.width / 2 + guiXSize / 2 + 8;
+						int guiGap = 8;
+						int x = guiLeft + guiXSize + guiGap;
+						if (coinCountLeftSide) {
+							x = guiLeft - guiGap;
+							x -= rectWidth;
+						}
 						int y = invHighestY.get(inv) + guiTop;
-						String sCoins = String.valueOf(coins);
-						int border = 2;
 						int rectX0 = x - border;
-						int rectX1 = x + 16 + 2 + mc.fontRenderer.getStringWidth(sCoins) + border + 1;
+						int rectX1 = x + rectWidth + border;
 						int rectY0 = y - border;
 						int rectY1 = y + 16 + border;
-						float a0 = 1.0f;
-						float a1 = 0.1f;
+						float a0 = 1.0F;
+						float a1 = 0.1F;
 						GL11.glDisable(3553);
 						GL11.glDisable(3008);
 						GL11.glShadeModel(7425);
 						GL11.glPushMatrix();
-						GL11.glTranslatef(0.0f, 0.0f, -500.0f);
+						GL11.glTranslatef(0.0F, 0.0F, -500.0F);
 						Tessellator tessellator = Tessellator.instance;
 						tessellator.startDrawingQuads();
-						tessellator.setColorRGBA_F(0.0f, 0.0f, 0.0f, a1);
-						tessellator.addVertex(rectX1, rectY0, 0.0);
-						tessellator.setColorRGBA_F(0.0f, 0.0f, 0.0f, a0);
-						tessellator.addVertex(rectX0, rectY0, 0.0);
-						tessellator.addVertex(rectX0, rectY1, 0.0);
-						tessellator.setColorRGBA_F(0.0f, 0.0f, 0.0f, a1);
-						tessellator.addVertex(rectX1, rectY1, 0.0);
+						tessellator.setColorRGBA_F(0.0F, 0.0F, 0.0F, a1);
+						tessellator.addVertex(rectX1, rectY0, 0.0D);
+						tessellator.setColorRGBA_F(0.0F, 0.0F, 0.0F, a0);
+						tessellator.addVertex(rectX0, rectY0, 0.0D);
+						tessellator.addVertex(rectX0, rectY1, 0.0D);
+						tessellator.setColorRGBA_F(0.0F, 0.0F, 0.0F, a1);
+						tessellator.addVertex(rectX1, rectY1, 0.0D);
 						tessellator.draw();
 						GL11.glPopMatrix();
 						GL11.glShadeModel(7424);
 						GL11.glEnable(3008);
 						GL11.glEnable(3553);
 						GL11.glPushMatrix();
-						GL11.glTranslatef(0.0f, 0.0f, 500.0f);
-						GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+						GL11.glTranslatef(0.0F, 0.0F, 500.0F);
+						GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 						itemRenderer.renderItemIntoGUI(mc.fontRenderer, mc.getTextureManager(), new ItemStack(GOTRegistry.coin), x, y);
-						GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+						GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 						GL11.glDisable(2896);
 						mc.fontRenderer.drawString(sCoins, x + 16 + 2, y + (16 - mc.fontRenderer.FONT_HEIGHT + 2) / 2, 16777215);
 						GL11.glPopMatrix();

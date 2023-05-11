@@ -121,9 +121,4 @@ public class GOTWorldGenFotinia extends WorldGenAbstractTree {
 		}
 	}
 
-	public GOTWorldGenFotinia setMinMaxHeight(int min, int max) {
-		minHeight = min;
-		maxHeight = max;
-		return this;
-	}
 }

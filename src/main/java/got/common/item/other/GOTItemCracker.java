@@ -39,10 +39,6 @@ public class GOTItemCracker extends Item {
 		return i & ~emptyMeta;
 	}
 
-	public static int getBaseCrackerMetadata(ItemStack itemstack) {
-		return getBaseCrackerMetadata(itemstack.getItemDamage());
-	}
-
 	public static String getSealingPlayerName(ItemStack itemstack) {
 		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("SealingPlayer")) {
 			return itemstack.getTagCompound().getString("SealingPlayer");

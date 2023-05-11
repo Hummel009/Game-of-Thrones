@@ -169,8 +169,4 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 		seasonal = b;
 	}
 
-	public boolean shouldOakUseBiomeColor() {
-		GOTDate.Season season = GOTDate.AegonCalendar.getSeason();
-		return season == GOTDate.Season.SPRING || season == GOTDate.Season.SUMMER || !(GOT.proxy.getClientWorld().provider instanceof GOTWorldProvider);
-	}
 }

@@ -22,11 +22,6 @@ public class GOTColorUtil {
 		return new float[]{r, g, b};
 	}
 
-	public static float[] lerpColors(int color0, int color1, float f) {
-		float[] rgb0 = new Color(color0).getColorComponents(null);
-		return lerpColors(rgb0, color1, f);
-	}
-
 	public static int lerpColors_I(float[] rgb0, int color1, float f) {
 		float[] rgb = lerpColors(rgb0, color1, f);
 		return new Color(rgb[0], rgb[1], rgb[2]).getRGB();

@@ -6,6 +6,7 @@ CHANGELOG
 * Improved crossbowers' AI
 * Impoved wetwood biome
 
+* Fixed bug with gui shift when using NEI + drinking potion
 * Fixeg bug with prostitute skins
 * Fixed bug with sword of command rendering
 * Fixed bug with point rendering

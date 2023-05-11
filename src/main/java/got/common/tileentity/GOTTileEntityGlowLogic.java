@@ -33,29 +33,6 @@ public class GOTTileEntityGlowLogic {
 		return glow * night * 2.0f * skylight;
 	}
 
-	public int getGlowTick() {
-		return glowTick;
-	}
-
-	public void setGlowTick(int i) {
-		glowTick = prevGlowTick = i;
-	}
-
-	public void resetGlowTick() {
-		prevGlowTick = 0;
-		glowTick = 0;
-	}
-
-	public GOTTileEntityGlowLogic setFullGlow(float f) {
-		fullGlow = f;
-		return this;
-	}
-
-	public GOTTileEntityGlowLogic setGlowTime(int i) {
-		maxGlowTick = i;
-		return this;
-	}
-
 	public GOTTileEntityGlowLogic setPlayerRange(int i) {
 		playerRange = i;
 		return this;

@@ -33,19 +33,6 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 		}
 	}
 
-	public static GOTRandomSkins getCombinatorialSkins(String path, String... layers) {
-		StringBuilder combinedPath = new StringBuilder(path);
-		for (String s : layers) {
-			combinedPath.append("_").append(s);
-		}
-		GOTRandomSkins skins = allRandomSkins.get(combinedPath.toString());
-		if (skins == null) {
-			skins = new GOTRandomSkinsCombinatorial(path, layers);
-			allRandomSkins.put(combinedPath.toString(), skins);
-		}
-		return skins;
-	}
-
 	public static GOTRandomSkins loadSkinsList(String path) {
 		GOTRandomSkins skins = allRandomSkins.get(path);
 		if (skins == null) {
@@ -53,15 +40,6 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 			allRandomSkins.put(path, skins);
 		}
 		return skins;
-	}
-
-	public static int nextInt(GOTRandomSkinEntity rsEntity, int n) {
-		Entity entity = (Entity) rsEntity;
-		long l = entity.getUniqueID().getLeastSignificantBits();
-		l = l * 29506206L * (l ^ 0x6429C58L) + 25859L;
-		l = l * l * 426430295004L + 25925025L * l;
-		rand.setSeed(l);
-		return rand.nextInt(n);
 	}
 
 	public List<ResourceLocation> getAllSkins() {

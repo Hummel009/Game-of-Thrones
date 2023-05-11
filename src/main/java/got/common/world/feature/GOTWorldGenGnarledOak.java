@@ -151,14 +151,6 @@ public class GOTWorldGenGnarledOak extends WorldGenAbstractTree {
 		}
 	}
 
-	public GOTWorldGenGnarledOak setBlocks(Block b1, int m1, Block b2, int m2) {
-		woodBlock = b1;
-		woodMeta = m1;
-		leafBlock = b2;
-		leafMeta = m2;
-		return this;
-	}
-
 	public GOTWorldGenGnarledOak setMinMaxHeight(int min, int max) {
 		minHeight = min;
 		maxHeight = max;

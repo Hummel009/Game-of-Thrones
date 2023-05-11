@@ -813,10 +813,6 @@ public class GOTAchievement {
 		return component;
 	}
 
-	public GOTTitle getAchievementTitle() {
-		return achievementTitle;
-	}
-
 	public IChatComponent getChatComponentForEarn(EntityPlayer entityplayer) {
 		IChatComponent base = getAchievementChatComponent(entityplayer);
 		IChatComponent component = new ChatComponentText("[").appendSibling(base).appendText("]");
@@ -844,18 +840,9 @@ public class GOTAchievement {
 		return "got.achievement." + name + ".title";
 	}
 
-	public GOTAchievement setBiomeAchievement() {
-		isBiomeAchievement = true;
-		return this;
-	}
-
 	public GOTAchievement setRequiresAlly(GOTFaction... f) {
 		allyFactions.addAll(Arrays.asList(f));
 		return this;
-	}
-
-	public GOTAchievement setRequiresAnyAlly(List<GOTFaction> f) {
-		return setRequiresAlly(f.toArray(new GOTFaction[0]));
 	}
 
 	public GOTAchievement setRequiresAnyEnemy(List<GOTFaction> f) {

@@ -927,15 +927,6 @@ public class GOTPlayerData {
 		return waypoints;
 	}
 
-	public boolean getAskedForJaqen() {
-		return askedForJaqen;
-	}
-
-	public void setAskedForJaqen(boolean flag) {
-		askedForJaqen = flag;
-		markDirty();
-	}
-
 	public int getBalance() {
 		return balance;
 	}
@@ -974,17 +965,9 @@ public class GOTPlayerData {
 		setChatBoundFellowshipID(fs.getFellowshipID());
 	}
 
-	public UUID getChatBoundFellowshipID() {
-		return chatBoundFellowshipID;
-	}
-
 	public void setChatBoundFellowshipID(UUID fsID) {
 		chatBoundFellowshipID = fsID;
 		markDirty();
-	}
-
-	public boolean getCheckedMenu() {
-		return checkedMenu;
 	}
 
 	public void setCheckedMenu(boolean flag) {
@@ -1407,10 +1390,6 @@ public class GOTPlayerData {
 		sendOptionsPacket(9, flag);
 	}
 
-	public GOTAbstractWaypoint getTargetFTWaypoint() {
-		return targetFTWaypoint;
-	}
-
 	public void setTargetFTWaypoint(GOTAbstractWaypoint wp) {
 		targetFTWaypoint = wp;
 		markDirty();
@@ -1428,10 +1407,6 @@ public class GOTPlayerData {
 	public void setTeleportedKW(boolean flag) {
 		teleportedKW = flag;
 		markDirty();
-	}
-
-	public int getTicksUntilFT() {
-		return ticksUntilFT;
 	}
 
 	public void setTicksUntilFT(int i) {

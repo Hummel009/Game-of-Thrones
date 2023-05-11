@@ -87,21 +87,6 @@ public class GOTSpeech {
 		return s;
 	}
 
-	public static void messageAllPlayers(IChatComponent message) {
-		if (MinecraftServer.getServer() == null) {
-			return;
-		}
-		for (EntityPlayer player : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
-			player.addChatMessage(message);
-		}
-	}
-
-	public static void messageAllPlayersInWorld(World world, IChatComponent message) {
-		for (Object player : world.playerEntities) {
-			((EntityPlayer) player).addChatMessage(message);
-		}
-	}
-
 	public static void onInit() {
 		HashMap<String, BufferedReader> speechBankNamesAndReaders = new HashMap<>();
 		ZipFile zip = null;
@@ -210,11 +195,6 @@ public class GOTSpeech {
 		ChatComponentText component = new ChatComponentText(message);
 		entityplayer.addChatMessage(component);
 		sendSpeech(entityplayer, entity, speech);
-	}
-
-	public static void sendSpeechBankWithChatMsg(EntityPlayer entityplayer, GOTEntityNPC entity, String speechBankName) {
-		String speech = getRandomSpeechForPlayer(entity, speechBankName, entityplayer, null, null);
-		sendSpeech(entityplayer, entity, speech, true);
 	}
 
 	public static class SpeechBank {

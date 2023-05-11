@@ -48,22 +48,6 @@ public class GOTAlignmentValues {
 		entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.insufficientAlignment", componentAlignReq, faction.factionName()));
 	}
 
-	public static void notifyAlignmentNotHighEnough(EntityPlayer entityplayer, float alignmentRequired, GOTFaction faction1, GOTFaction faction2) {
-		ChatComponentText componentAlignReq = new ChatComponentText(formatAlignForDisplay(alignmentRequired));
-		componentAlignReq.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-		entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.insufficientAlignment2", componentAlignReq, faction1.factionName(), faction2.factionName()));
-	}
-
-	public static void notifyAlignmentNotHighEnough(EntityPlayer entityplayer, float alignmentRequired, GOTFaction faction1, GOTFaction faction2, GOTFaction faction3) {
-		ChatComponentText componentAlignReq = new ChatComponentText(formatAlignForDisplay(alignmentRequired));
-		componentAlignReq.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-		entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.insufficientAlignment3", componentAlignReq, faction1.factionName(), faction2.factionName(), faction3.factionName()));
-	}
-
-	public static void notifyMiniQuestsNeeded(ICommandSender entityplayer, GOTFaction faction) {
-		entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.requireMiniQuest", faction.factionName()));
-	}
-
 	public static float parseDisplayedAlign(String alignmentText) {
 		DecimalFormat dFormat = alignFormat;
 		setupDecimalFormat(dFormat);

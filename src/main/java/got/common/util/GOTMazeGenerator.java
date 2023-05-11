@@ -146,10 +146,6 @@ public class GOTMazeGenerator {
 		mazeFlags = new short[xSize][zSize];
 	}
 
-	public void setWindyness(float f) {
-		windyness = f;
-	}
-
 	public enum Dir {
 		XNEG(-1, 0), XPOS(1, 0), ZNEG(0, -1), ZPOS(0, 1);
 

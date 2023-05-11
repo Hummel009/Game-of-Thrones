@@ -157,18 +157,6 @@ public abstract class GOTEnchantment {
 		return StatCollector.translateToLocal("got.enchant." + enchantName);
 	}
 
-	public IChatComponent getEarnMessage(ItemStack itemstack) {
-		ChatComponentTranslation chatComponentTranslation = new ChatComponentTranslation("got.enchant." + enchantName + ".earn", itemstack.getDisplayName());
-		chatComponentTranslation.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-		return chatComponentTranslation;
-	}
-
-	public IChatComponent getEarnMessageWithName(EntityPlayer entityplayer, ItemStack itemstack) {
-		ChatComponentTranslation chatComponentTranslation = new ChatComponentTranslation("got.enchant." + enchantName + ".earnName", entityplayer.getCommandSenderName(), itemstack.getDisplayName());
-		chatComponentTranslation.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-		return chatComponentTranslation;
-	}
-
 	public int getEnchantWeight() {
 		return enchantWeight;
 	}
@@ -221,11 +209,6 @@ public abstract class GOTEnchantment {
 
 	public void setBypassAnvilLimit() {
 		bypassAnvilLimit = true;
-	}
-
-	public GOTEnchantment setPersistsReforge() {
-		persistsReforge = true;
-		return this;
 	}
 
 	public GOTEnchantment setSkilful() {

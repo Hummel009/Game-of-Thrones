@@ -248,10 +248,6 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		}
 	}
 
-	public static void drawMap(EntityPlayer entityplayer, double x0, double x1, double y0, double y1, double z, double minU, double maxU, double minV, double maxV) {
-		drawMap(entityplayer, GOTConfig.enableSepiaMap, x0, x1, y0, y1, z, minU, maxU, minV, maxV, 1.0f);
-	}
-
 	public static void drawMapCompassBottomLeft(double x, double y, double z, double scale) {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		mc.getTextureManager().bindTexture(GOTGuiMap.mapIconsTexture);

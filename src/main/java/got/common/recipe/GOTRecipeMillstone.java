@@ -27,10 +27,6 @@ public class GOTRecipeMillstone {
 		addRecipe(Item.getItemFromBlock(block), result, chance);
 	}
 
-	public static void addRecipe(Item item, ItemStack result) {
-		addRecipe(new ItemStack(item, 1, 32767), result, 1.0f);
-	}
-
 	public static void addRecipe(Item item, ItemStack result, float chance) {
 		addRecipe(new ItemStack(item, 1, 32767), result, chance);
 	}
