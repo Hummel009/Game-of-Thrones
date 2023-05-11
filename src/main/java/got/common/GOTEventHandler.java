@@ -1397,6 +1397,8 @@ public class GOTEventHandler implements IFuelHandler {
 			GOTLevelData.sendAllAlignmentsInWorldToPlayer(entityplayer, entityplayer.worldObj);
 			GOTLevelData.sendShieldToAllPlayersInWorld(entityplayer, entityplayer.worldObj);
 			GOTLevelData.sendAllShieldsInWorldToPlayer(entityplayer, entityplayer.worldObj);
+			GOTLevelData.sendCapeToAllPlayersInWorld(entityplayer, entityplayer.worldObj);
+			GOTLevelData.sendAllCapesInWorldToPlayer(entityplayer, entityplayer.worldObj);
 		}
 	}
 
@@ -1438,6 +1440,8 @@ public class GOTEventHandler implements IFuelHandler {
 			GOTLevelData.sendAllAlignmentsInWorldToPlayer(entityplayer, world);
 			GOTLevelData.sendShieldToAllPlayersInWorld(entityplayermp, world);
 			GOTLevelData.sendAllShieldsInWorldToPlayer(entityplayermp, world);
+			GOTLevelData.sendCapeToAllPlayersInWorld(entityplayermp, world);
+			GOTLevelData.sendAllCapesInWorldToPlayer(entityplayermp, world);
 			GOTDate.sendUpdatePacket(entityplayermp, false);
 			GOTFactionRelations.sendAllRelationsTo(entityplayermp);
 			GOTPlayerData pd = GOTLevelData.getData(entityplayermp);
