@@ -95,6 +95,6 @@ public class GOTEntityBoar extends GOTEntityHorse implements GOTBiome.ImmuneToFr
 		maxHealth = Math.min(maxHealth, 25.0);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(maxHealth);
 		double speed = getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue();
-		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(speed * 1.0);
+		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(speed);
 	}
 }

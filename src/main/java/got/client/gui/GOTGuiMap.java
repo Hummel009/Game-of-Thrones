@@ -1390,8 +1390,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 									angle += 180.0f;
 								}
 								GL11.glRotatef(angle, 0.0f, 0.0f, 1.0f);
-								float alpha = zoomlerp;
-								int alphaI = GOTClientProxy.getAlphaInt(alpha * 0.8f);
+								int alphaI = GOTClientProxy.getAlphaInt(zoomlerp * 0.8f);
 								GL11.glEnable(3042);
 								GL11.glBlendFunc(770, 771);
 								int strX = -nameWidth / 2;

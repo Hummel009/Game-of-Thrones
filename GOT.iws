@@ -10,29 +10,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b8c8107d-f3ae-479d-9562-bcf68c392981" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/GOT.iws" beforeDir="false" afterPath="$PROJECT_DIR$/GOT.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/client/GOTGuiHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/client/GOTGuiHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/client/gui/GOTGuiFactions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/client/gui/GOTGuiFactions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/client/gui/GOTGuiMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/client/gui/GOTGuiMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/client/gui/GOTGuiTitles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/client/gui/GOTGuiTitles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/client/model/GOTModelGiant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/client/model/GOTModelGiant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/client/model/GOTModelWyvern.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/client/model/GOTModelWyvern.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/GOTNetHandlerPlayServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/GOTNetHandlerPlayServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/command/GOTCommandAlignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/command/GOTCommandAlignment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/command/GOTCommandFellowshipMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/command/GOTCommandFellowshipMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/ai/GOTEntityAIAttackOnCollide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/ai/GOTEntityAIAttackOnCollide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/ai/GOTEntityAIBanditSteal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/ai/GOTEntityAIBanditSteal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/animal/GOTEntityBird.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/animal/GOTEntityBird.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/animal/GOTEntityDeer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/animal/GOTEntityDeer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/animal/GOTEntityHorse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/animal/GOTEntityHorse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/other/GOTEntityNPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/other/GOTEntityNPC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/other/GOTEntityProjectileBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/other/GOTEntityProjectileBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/other/GOTFamilyInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/other/GOTFamilyInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/sothoryos/sothoryos/GOTEntitySothoryosBlowgunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/sothoryos/sothoryos/GOTEntitySothoryosBlowgunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/item/other/GOTItemCoin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/item/other/GOTItemCoin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/item/weapon/GOTItemSpear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/item/weapon/GOTItemSpear.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/item/weapon/GOTItemThrowingAxe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/item/weapon/GOTItemThrowingAxe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/spawning/GOTEventSpawner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/spawning/GOTEventSpawner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/coremod/GOTReplacedMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/coremod/GOTReplacedMethods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/client/model/GOTModelElephant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/client/model/GOTModelElephant.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

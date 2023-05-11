@@ -785,12 +785,10 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			b = f5;
 		}
 		tessellator.setColorOpaque_F(r, g, b);
-		double d = i;
-		double d2 = k;
 		long seed = i * 3129871L ^ k * 116129781L ^ j;
 		seed = seed * seed * 42317861L + seed * 11L;
 		IIcon iicon = renderblocks.getBlockIconFromSideAndMetadata(block, 0, world.getBlockMetadata(i, j, k));
-		renderblocks.drawCrossedSquares(iicon, d + ((seed >> 16 & 0xFL) / 15.0f - 0.5) * 0.3, j, d2 + ((seed >> 24 & 0xFL) / 15.0f - 0.5) * 0.3, 1.0f);
+		renderblocks.drawCrossedSquares(iicon, (double) i + ((seed >> 16 & 0xFL) / 15.0f - 0.5) * 0.3, j, (double) k + ((seed >> 24 & 0xFL) / 15.0f - 0.5) * 0.3, 1.0f);
 	}
 
 	public void renderFlowerPot(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {

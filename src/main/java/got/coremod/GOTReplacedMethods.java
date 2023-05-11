@@ -149,8 +149,7 @@ public class GOTReplacedMethods {
 		}
 
 		public static float func_152377_a(float base, ItemStack itemstack, EnumCreatureAttribute creatureAttribute) {
-			float f = base;
-			return f + GOTEnchantmentHelper.calcBaseMeleeDamageBoost(itemstack);
+			return base + GOTEnchantmentHelper.calcBaseMeleeDamageBoost(itemstack);
 		}
 
 		public static int getDamageReduceAmount(ItemStack itemstack) {
@@ -158,18 +157,15 @@ public class GOTReplacedMethods {
 		}
 
 		public static float getEnchantmentModifierLiving(float base, EntityLivingBase attacker, EntityLivingBase target) {
-			float f = base;
-			return f + GOTEnchantmentHelper.calcEntitySpecificDamage(attacker.getHeldItem(), target);
+			return base + GOTEnchantmentHelper.calcEntitySpecificDamage(attacker.getHeldItem(), target);
 		}
 
 		public static int getFireAspectModifier(int base, EntityLivingBase entity) {
-			int i = base;
-			return i + GOTEnchantmentHelper.calcFireAspectForMelee(entity.getHeldItem());
+			return base + GOTEnchantmentHelper.calcFireAspectForMelee(entity.getHeldItem());
 		}
 
 		public static int getFortuneModifier(int base, EntityLivingBase entity) {
-			int i = base;
-			return i + GOTEnchantmentHelper.calcLootingLevel(entity.getHeldItem());
+			return base + GOTEnchantmentHelper.calcLootingLevel(entity.getHeldItem());
 		}
 
 		public static int getKnockbackModifier(int base, EntityLivingBase attacker, EntityLivingBase target) {
@@ -179,8 +175,7 @@ public class GOTReplacedMethods {
 		}
 
 		public static int getLootingotifier(int base, EntityLivingBase entity) {
-			int i = base;
-			return i + GOTEnchantmentHelper.calcLootingLevel(entity.getHeldItem());
+			return base + GOTEnchantmentHelper.calcLootingLevel(entity.getHeldItem());
 		}
 
 		public static int getMaxFireProtectionLevel(int base, Entity entity) {
