@@ -15,6 +15,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.regex.Matcher;
@@ -96,7 +97,7 @@ public class GOTLore {
 					} else {
 						try {
 							s = s.substring(0, i);
-							BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(new FileInputStream(file)), StandardCharsets.UTF_8));
+							BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(Files.newInputStream(file.toPath())), StandardCharsets.UTF_8));
 							loreReaders.put(s, reader);
 						} catch (Exception e) {
 							GOTLog.logger.error("Failed to load GOT lore {} from MCP folder", s);
@@ -230,9 +231,9 @@ public class GOTLore {
 		}
 		while (!splitTxtWords.isEmpty()) {
 			int i;
-			String pageText = "";
+			StringBuilder pageText = new StringBuilder();
 			int numLines = 0;
-			String currentLine = "";
+			StringBuilder currentLine = new StringBuilder();
 			int usedWords = 0;
 			for (i = 0; i < splitTxtWords.size(); ++i) {
 				String word = splitTxtWords.get(i);
@@ -241,8 +242,8 @@ public class GOTLore {
 				}
 				if (word.equals(newline)) {
 					if (currentLine.length() > 0) {
-						pageText = pageText + currentLine;
-						currentLine = "";
+						pageText.append(currentLine);
+						currentLine = new StringBuilder();
 						numLines++;
 						if (numLines >= 13) {
 							break;
@@ -252,21 +253,21 @@ public class GOTLore {
 					if (pageText.length() == 0) {
 						continue;
 					}
-					pageText = pageText + word;
+					pageText.append(word);
 					numLines++;
 					if (numLines < 13) {
 						continue;
 					}
 					break;
 				}
-				currentLine = currentLine + word;
+				currentLine.append(word);
 				++usedWords;
 				if (i < splitTxtWords.size() - 1) {
-					currentLine = currentLine + " ";
+					currentLine.append(" ");
 				}
 				if (currentLine.length() >= 17) {
-					pageText = pageText + currentLine;
-					currentLine = "";
+					pageText.append(currentLine);
+					currentLine = new StringBuilder();
 					numLines++;
 					if (numLines >= 13) {
 						break;
@@ -274,14 +275,14 @@ public class GOTLore {
 				}
 			}
 			if (currentLine.length() > 0) {
-				pageText = pageText + currentLine;
-				currentLine = "";
+				pageText.append(currentLine);
+				currentLine = new StringBuilder();
 				++numLines;
 			}
 			for (i = 0; i < usedWords; ++i) {
 				splitTxtWords.remove(0);
 			}
-			loreTextPages.add(pageText);
+			loreTextPages.add(pageText.toString());
 		}
 		return loreTextPages;
 	}

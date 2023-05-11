@@ -37,20 +37,20 @@ public class GOTCommandFellowship extends CommandBase {
 				}
 				++endIndex;
 			}
-			String fsName = "";
+			StringBuilder fsName = new StringBuilder();
 			for (int i = startIndex; i <= endIndex; ++i) {
 				if (i > startIndex) {
-					fsName = fsName + " ";
+					fsName.append(" ");
 				}
-				fsName = fsName + args[i];
+				fsName.append(args[i]);
 			}
 			if (!autocompleting || foundEnd) {
-				fsName = fsName.replace("\"", "");
+				fsName = new StringBuilder(fsName.toString().replace("\"", ""));
 			}
 			int diff = endIndex - startIndex;
 			String[] argsNew = new String[args.length - diff];
 			for (int i = 0; i < argsNew.length; ++i) {
-				argsNew[i] = i < startIndex ? args[i] : i == startIndex ? fsName : args[i + diff];
+				argsNew[i] = i < startIndex ? args[i] : i == startIndex ? fsName.toString() : args[i + diff];
 			}
 			return argsNew;
 		}
@@ -257,7 +257,7 @@ public class GOTCommandFellowship extends CommandBase {
 			return;
 		}
 		if ("rename".equals(option)) {
-			String newName = "";
+			StringBuilder newName = new StringBuilder();
 			int startIndex = 4;
 			if (args[startIndex].startsWith("\"")) {
 				int endIndex = startIndex;
@@ -270,17 +270,17 @@ public class GOTCommandFellowship extends CommandBase {
 				}
 				for (int i = startIndex; i <= endIndex; ++i) {
 					if (i > startIndex) {
-						newName = newName + " ";
+						newName.append(" ");
 					}
-					newName = newName + args[i];
+					newName.append(args[i]);
 				}
-				newName = newName.replace("\"", "");
+				newName = new StringBuilder(newName.toString().replace("\"", ""));
 			}
-			if (StringUtils.isBlank(newName)) {
+			if (StringUtils.isBlank(newName.toString())) {
 				throw new WrongUsageException("got.command.fellowship.rename.error");
 			}
-			ownerData.renameFellowship(fellowship, newName);
-			CommandBase.func_152373_a(sender, this, "got.command.fellowship.rename", ownerName, fsName, newName);
+			ownerData.renameFellowship(fellowship, newName.toString());
+			CommandBase.func_152373_a(sender, this, "got.command.fellowship.rename", ownerName, fsName, newName.toString());
 			return;
 		}
 		if ("icon".equals(option)) {

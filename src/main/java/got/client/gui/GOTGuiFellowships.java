@@ -491,13 +491,13 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 		drawDefaultBackground();
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		super.drawScreen(i, j, f);
-		String s = StatCollector.translateToLocal("got.gui.fellowships.title");
-		drawCenteredString(s, guiLeft + xSize / 2, guiTop - 30, 16777215);
+		StringBuilder s = new StringBuilder(StatCollector.translateToLocal("got.gui.fellowships.title"));
+		drawCenteredString(s.toString(), guiLeft + xSize / 2, guiTop - 30, 16777215);
 		if (page == Page.LIST) {
 			int x = guiLeft;
 			int y = scrollPaneLeading.paneY0;
-			s = StatCollector.translateToLocal("got.gui.fellowships.leading");
-			drawCenteredString(s, guiLeft + xSize / 2, y, 16777215);
+			s = new StringBuilder(StatCollector.translateToLocal("got.gui.fellowships.leading"));
+			drawCenteredString(s.toString(), guiLeft + xSize / 2, y, 16777215);
 			y += fontRendererObj.FONT_HEIGHT + 10;
 			List<GOTFellowshipClient> sortedLeading = sortFellowshipsForDisplay(allFellowshipsLeading);
 			int[] leadingMinMax = scrollPaneLeading.getMinMaxIndices(sortedLeading, displayedFellowshipsLeading);
@@ -507,8 +507,8 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 				y += fontRendererObj.FONT_HEIGHT + 5;
 			}
 			y = scrollPaneOther.paneY0;
-			s = StatCollector.translateToLocal("got.gui.fellowships.member");
-			drawCenteredString(s, guiLeft + xSize / 2, y, 16777215);
+			s = new StringBuilder(StatCollector.translateToLocal("got.gui.fellowships.member"));
+			drawCenteredString(s.toString(), guiLeft + xSize / 2, y, 16777215);
 			y += fontRendererObj.FONT_HEIGHT + 10;
 			List<GOTFellowshipClient> sortedOther = sortFellowshipsForDisplay(allFellowshipsOther);
 			int[] otherMinMax = scrollPaneOther.getMinMaxIndices(sortedOther, displayedFellowshipsOther);
@@ -526,11 +526,11 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 			}
 			if (buttonCreate.func_146115_a()) {
 				if (!creationEnabled) {
-					s = StatCollector.translateToLocal("got.gui.fellowships.creationDisabled");
-					drawCenteredString(s, guiLeft + xSize / 2, buttonCreate.yPosition + buttonCreate.height + 4, 16777215);
+					s = new StringBuilder(StatCollector.translateToLocal("got.gui.fellowships.creationDisabled"));
+					drawCenteredString(s.toString(), guiLeft + xSize / 2, buttonCreate.yPosition + buttonCreate.height + 4, 16777215);
 				} else if (!canPlayerCreateNew) {
-					s = StatCollector.translateToLocal("got.gui.fellowships.createLimit");
-					drawCenteredString(s, guiLeft + xSize / 2, buttonCreate.yPosition + buttonCreate.height + 4, 16777215);
+					s = new StringBuilder(StatCollector.translateToLocal("got.gui.fellowships.createLimit"));
+					drawCenteredString(s.toString(), guiLeft + xSize / 2, buttonCreate.yPosition + buttonCreate.height + 4, 16777215);
 				}
 			}
 			if (scrollPaneLeading.hasScrollBar) {
@@ -540,8 +540,8 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 				scrollPaneOther.drawScrollBar();
 			}
 		} else if (page == Page.CREATE) {
-			s = StatCollector.translateToLocal("got.gui.fellowships.createName");
-			drawCenteredString(s, guiLeft + xSize / 2, textFieldName.yPosition - 4 - fontRendererObj.FONT_HEIGHT, 16777215);
+			s = new StringBuilder(StatCollector.translateToLocal("got.gui.fellowships.createName"));
+			drawCenteredString(s.toString(), guiLeft + xSize / 2, textFieldName.yPosition - 4 - fontRendererObj.FONT_HEIGHT, 16777215);
 			textFieldName.drawTextBox();
 			if (checkValidName != null) {
 				drawCenteredString(checkValidName, guiLeft + xSize / 2, textFieldName.yPosition + textFieldName.height + fontRendererObj.FONT_HEIGHT, 16711680);
@@ -549,8 +549,8 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 		} else if (page == Page.FELLOWSHIP) {
 			int x = guiLeft;
 			int y = guiTop + 10;
-			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.nameAndPlayers", viewingFellowship.getName(), viewingFellowship.getPlayerCount());
-			drawCenteredString(s, guiLeft + xSize / 2, y, 16777215);
+			s = new StringBuilder(StatCollector.translateToLocalFormatted("got.gui.fellowships.nameAndPlayers", viewingFellowship.getName(), viewingFellowship.getPlayerCount()));
+			drawCenteredString(s.toString(), guiLeft + xSize / 2, y, 16777215);
 			y += fontRendererObj.FONT_HEIGHT;
 			y += 5;
 			if (viewingFellowship.getIcon() != null) {
@@ -601,8 +601,8 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 			for (GuiButton bObj : buttonList) {
 				GuiButton button = bObj;
 				if (button instanceof GOTGuiButtonFsOption && button.visible && button.func_146115_a()) {
-					s = button.displayString;
-					drawCenteredString(s, guiLeft + xSize / 2, button.yPosition + button.height + 4, 16777215);
+					s = new StringBuilder(button.displayString);
+					drawCenteredString(s.toString(), guiLeft + xSize / 2, button.yPosition + button.height + 4, 16777215);
 				}
 			}
 			if (scrollPaneMembers.hasScrollBar) {
@@ -612,15 +612,15 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 			if (isFellowshipMaxSize(viewingFellowship)) {
 				int x = guiLeft + xSize / 2;
 				int y = guiTop + 30;
-				s = StatCollector.translateToLocalFormatted("got.gui.fellowships.invite.maxSize", viewingFellowship.getName(), GOTConfig.getFellowshipMaxSize(mc.theWorld));
-				List<String> lines = fontRendererObj.listFormattedStringToWidth(s, xSize);
+				s = new StringBuilder(StatCollector.translateToLocalFormatted("got.gui.fellowships.invite.maxSize", viewingFellowship.getName(), GOTConfig.getFellowshipMaxSize(mc.theWorld)));
+				List<String> lines = fontRendererObj.listFormattedStringToWidth(s.toString(), xSize);
 				for (String line : lines) {
 					drawCenteredString(line, x, y, 16777215);
 					y += fontRendererObj.FONT_HEIGHT;
 				}
 			} else {
-				s = StatCollector.translateToLocalFormatted("got.gui.fellowships.inviteName", viewingFellowship.getName());
-				drawCenteredString(s, guiLeft + xSize / 2, textFieldPlayer.yPosition - 4 - fontRendererObj.FONT_HEIGHT, 16777215);
+				s = new StringBuilder(StatCollector.translateToLocalFormatted("got.gui.fellowships.inviteName", viewingFellowship.getName()));
+				drawCenteredString(s.toString(), guiLeft + xSize / 2, textFieldPlayer.yPosition - 4 - fontRendererObj.FONT_HEIGHT, 16777215);
 				textFieldPlayer.drawTextBox();
 				if (checkValidPlayer != null) {
 					drawCenteredString(checkValidPlayer, guiLeft + xSize / 2, textFieldPlayer.yPosition + textFieldPlayer.height + fontRendererObj.FONT_HEIGHT, 16711680);
@@ -629,29 +629,29 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 		} else if (page == Page.DISBAND) {
 			int x = guiLeft + xSize / 2;
 			int y = guiTop + 30;
-			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.disbandCheck1", viewingFellowship.getName());
-			drawCenteredString(s, x, y, 16777215);
+			s = new StringBuilder(StatCollector.translateToLocalFormatted("got.gui.fellowships.disbandCheck1", viewingFellowship.getName()));
+			drawCenteredString(s.toString(), x, y, 16777215);
 			y += fontRendererObj.FONT_HEIGHT;
-			s = StatCollector.translateToLocal("got.gui.fellowships.disbandCheck2");
-			drawCenteredString(s, x, y, 16777215);
+			s = new StringBuilder(StatCollector.translateToLocal("got.gui.fellowships.disbandCheck2"));
+			drawCenteredString(s.toString(), x, y, 16777215);
 			y += fontRendererObj.FONT_HEIGHT * 2;
-			s = StatCollector.translateToLocal("got.gui.fellowships.disbandCheck3");
-			drawCenteredString(s, x, y, 16777215);
+			s = new StringBuilder(StatCollector.translateToLocal("got.gui.fellowships.disbandCheck3"));
+			drawCenteredString(s.toString(), x, y, 16777215);
 			y += fontRendererObj.FONT_HEIGHT;
 		} else if (page == Page.LEAVE) {
 			int x = guiLeft + xSize / 2;
 			int y = guiTop + 30;
-			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.leaveCheck1", viewingFellowship.getName());
-			drawCenteredString(s, x, y, 16777215);
+			s = new StringBuilder(StatCollector.translateToLocalFormatted("got.gui.fellowships.leaveCheck1", viewingFellowship.getName()));
+			drawCenteredString(s.toString(), x, y, 16777215);
 			y += fontRendererObj.FONT_HEIGHT;
-			s = StatCollector.translateToLocal("got.gui.fellowships.leaveCheck2");
-			drawCenteredString(s, x, y, 16777215);
+			s = new StringBuilder(StatCollector.translateToLocal("got.gui.fellowships.leaveCheck2"));
+			drawCenteredString(s.toString(), x, y, 16777215);
 			y += fontRendererObj.FONT_HEIGHT * 2;
 		} else if (page == Page.REMOVE) {
 			int x = guiLeft + xSize / 2;
 			int y = guiTop + 30;
-			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.removeCheck", viewingFellowship.getName(), viewingFellowship.getUsernameFor(removingPlayer));
-			List<String> lines = fontRendererObj.listFormattedStringToWidth(s, xSize);
+			s = new StringBuilder(StatCollector.translateToLocalFormatted("got.gui.fellowships.removeCheck", viewingFellowship.getName(), viewingFellowship.getUsernameFor(removingPlayer)));
+			List<String> lines = fontRendererObj.listFormattedStringToWidth(s.toString(), xSize);
 			for (String line : lines) {
 				drawCenteredString(line, x, y, 16777215);
 				y += fontRendererObj.FONT_HEIGHT;
@@ -659,15 +659,15 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 		} else if (page == Page.OP) {
 			int x = guiLeft + xSize / 2;
 			int y = guiTop + 30;
-			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.opCheck1", viewingFellowship.getName(), viewingFellowship.getUsernameFor(oppingPlayer));
-			List<String> lines = fontRendererObj.listFormattedStringToWidth(s, xSize);
+			s = new StringBuilder(StatCollector.translateToLocalFormatted("got.gui.fellowships.opCheck1", viewingFellowship.getName(), viewingFellowship.getUsernameFor(oppingPlayer)));
+			List<String> lines = fontRendererObj.listFormattedStringToWidth(s.toString(), xSize);
 			for (String line : lines) {
 				drawCenteredString(line, x, y, 16777215);
 				y += fontRendererObj.FONT_HEIGHT;
 			}
 			y += fontRendererObj.FONT_HEIGHT;
-			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.opCheck2", viewingFellowship.getName(), viewingFellowship.getUsernameFor(oppingPlayer));
-			lines = fontRendererObj.listFormattedStringToWidth(s, xSize);
+			s = new StringBuilder(StatCollector.translateToLocalFormatted("got.gui.fellowships.opCheck2", viewingFellowship.getName(), viewingFellowship.getUsernameFor(oppingPlayer)));
+			lines = fontRendererObj.listFormattedStringToWidth(s.toString(), xSize);
 			for (String line : lines) {
 				drawCenteredString(line, x, y, 16777215);
 				y += fontRendererObj.FONT_HEIGHT;
@@ -675,8 +675,8 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 		} else if (page == Page.DEOP) {
 			int x = guiLeft + xSize / 2;
 			int y = guiTop + 30;
-			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.deopCheck", viewingFellowship.getName(), viewingFellowship.getUsernameFor(deoppingPlayer));
-			List<String> lines = fontRendererObj.listFormattedStringToWidth(s, xSize);
+			s = new StringBuilder(StatCollector.translateToLocalFormatted("got.gui.fellowships.deopCheck", viewingFellowship.getName(), viewingFellowship.getUsernameFor(deoppingPlayer)));
+			List<String> lines = fontRendererObj.listFormattedStringToWidth(s.toString(), xSize);
 			for (String line : lines) {
 				drawCenteredString(line, x, y, 16777215);
 				y += fontRendererObj.FONT_HEIGHT;
@@ -684,19 +684,19 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 		} else if (page == Page.TRANSFER) {
 			int x = guiLeft + xSize / 2;
 			int y = guiTop + 30;
-			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.transferCheck1", viewingFellowship.getName(), viewingFellowship.getUsernameFor(transferringPlayer));
-			List<String> lines = fontRendererObj.listFormattedStringToWidth(s, xSize);
+			s = new StringBuilder(StatCollector.translateToLocalFormatted("got.gui.fellowships.transferCheck1", viewingFellowship.getName(), viewingFellowship.getUsernameFor(transferringPlayer)));
+			List<String> lines = fontRendererObj.listFormattedStringToWidth(s.toString(), xSize);
 			for (String line : lines) {
 				drawCenteredString(line, x, y, 16777215);
 				y += fontRendererObj.FONT_HEIGHT;
 			}
 			y += fontRendererObj.FONT_HEIGHT;
-			s = StatCollector.translateToLocal("got.gui.fellowships.transferCheck2");
-			drawCenteredString(s, x, y, 16777215);
+			s = new StringBuilder(StatCollector.translateToLocal("got.gui.fellowships.transferCheck2"));
+			drawCenteredString(s.toString(), x, y, 16777215);
 			y += fontRendererObj.FONT_HEIGHT;
 		} else if (page == Page.RENAME) {
-			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.renameName", viewingFellowship.getName());
-			drawCenteredString(s, guiLeft + xSize / 2, textFieldRename.yPosition - 4 - fontRendererObj.FONT_HEIGHT, 16777215);
+			s = new StringBuilder(StatCollector.translateToLocalFormatted("got.gui.fellowships.renameName", viewingFellowship.getName()));
+			drawCenteredString(s.toString(), guiLeft + xSize / 2, textFieldRename.yPosition - 4 - fontRendererObj.FONT_HEIGHT, 16777215);
 			textFieldRename.drawTextBox();
 			if (checkValidRename != null) {
 				drawCenteredString(checkValidRename, guiLeft + xSize / 2, textFieldRename.yPosition + textFieldRename.height + fontRendererObj.FONT_HEIGHT, 16711680);
@@ -704,13 +704,13 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 		} else if (page == Page.INVITATIONS) {
 			int x = guiLeft;
 			int y = guiTop + 10;
-			s = StatCollector.translateToLocal("got.gui.fellowships.invites");
-			drawCenteredString(s, guiLeft + xSize / 2, y, 16777215);
+			s = new StringBuilder(StatCollector.translateToLocal("got.gui.fellowships.invites"));
+			drawCenteredString(s.toString(), guiLeft + xSize / 2, y, 16777215);
 			y += fontRendererObj.FONT_HEIGHT + 10;
 			if (allFellowshipInvites.isEmpty()) {
 				y += fontRendererObj.FONT_HEIGHT;
-				s = StatCollector.translateToLocal("got.gui.fellowships.invitesNone");
-				drawCenteredString(s, guiLeft + xSize / 2, y, 16777215);
+				s = new StringBuilder(StatCollector.translateToLocal("got.gui.fellowships.invitesNone"));
+				drawCenteredString(s.toString(), guiLeft + xSize / 2, y, 16777215);
 			} else {
 				int[] invitesMinMax = scrollPaneInvites.getMinMaxIndices(allFellowshipInvites, displayedInvites);
 				for (int index = invitesMinMax[0]; index <= invitesMinMax[1]; index++) {
@@ -727,25 +727,25 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 			int y = guiTop + 30;
 			if (acceptInviteResult == null) {
 				int waitingDots = IntMath.mod(tickCounter / 10, 3);
-				s = "";
+				s = new StringBuilder();
 				for (int l = 0; l < waitingDots; l++) {
-					s = s + ".";
+					s.append(".");
 				}
-				drawCenteredString(s, guiLeft + xSize / 2, y, 16777215);
+				drawCenteredString(s.toString(), guiLeft + xSize / 2, y, 16777215);
 			} else if (acceptInviteResult == GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.JOINED) {
-				s = "Joining... (you shouldn't be able to see this message)";
-				drawCenteredString(s, guiLeft + xSize / 2, y, 16777215);
+				s = new StringBuilder("Joining... (you shouldn't be able to see this message)");
+				drawCenteredString(s.toString(), guiLeft + xSize / 2, y, 16777215);
 			} else {
 				if (acceptInviteResult == GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.DISBANDED) {
-					s = StatCollector.translateToLocalFormatted("got.gui.fellowships.invited.disbanded", acceptInviteResultFellowshipName);
+					s = new StringBuilder(StatCollector.translateToLocalFormatted("got.gui.fellowships.invited.disbanded", acceptInviteResultFellowshipName));
 				} else if (acceptInviteResult == GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.TOO_LARGE) {
-					s = StatCollector.translateToLocalFormatted("got.gui.fellowships.invited.maxSize", acceptInviteResultFellowshipName, GOTConfig.getFellowshipMaxSize(mc.theWorld));
+					s = new StringBuilder(StatCollector.translateToLocalFormatted("got.gui.fellowships.invited.maxSize", acceptInviteResultFellowshipName, GOTConfig.getFellowshipMaxSize(mc.theWorld)));
 				} else if (acceptInviteResult == GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.NONEXISTENT) {
-					s = StatCollector.translateToLocalFormatted("got.gui.fellowships.invited.notFound");
+					s = new StringBuilder(StatCollector.translateToLocalFormatted("got.gui.fellowships.invited.notFound"));
 				} else {
-					s = "If you can see this message, something has gone wrong!";
+					s = new StringBuilder("If you can see this message, something has gone wrong!");
 				}
-				List<String> lines = fontRendererObj.listFormattedStringToWidth(s, xSize);
+				List<String> lines = fontRendererObj.listFormattedStringToWidth(s.toString(), xSize);
 				for (String line : lines) {
 					drawCenteredString(line, x, y, 16777215);
 					y += fontRendererObj.FONT_HEIGHT;

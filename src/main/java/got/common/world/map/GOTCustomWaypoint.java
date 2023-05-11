@@ -199,19 +199,19 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 				fsNames.add(fs.getName());
 				++numShown;
 			}
-			String sharedFsNames = "";
+			StringBuilder sharedFsNames = new StringBuilder();
 			for (String s : fsNames) {
-				sharedFsNames = sharedFsNames + "\n" + s;
+				sharedFsNames.append("\n").append(s);
 			}
 			if (numShared > numShown) {
 				int numMore = numShared - numShown;
-				sharedFsNames = sharedFsNames + "\n" + StatCollector.translateToLocalFormatted("got.wp.custom.andMore", numMore);
+				sharedFsNames.append("\n").append(StatCollector.translateToLocalFormatted("got.wp.custom.andMore", numMore));
 			}
 			if (ownShared) {
-				return StatCollector.translateToLocalFormatted("got.wp.custom.info", sharedFsNames);
+				return StatCollector.translateToLocalFormatted("got.wp.custom.info", sharedFsNames.toString());
 			}
 			if (shared) {
-				return StatCollector.translateToLocalFormatted("got.waypoint.shared.info", sharingPlayerName, sharedFsNames);
+				return StatCollector.translateToLocalFormatted("got.waypoint.shared.info", sharingPlayerName, sharedFsNames.toString());
 			}
 		}
 		return null;

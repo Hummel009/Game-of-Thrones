@@ -34,14 +34,14 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 	}
 
 	public static GOTRandomSkins getCombinatorialSkins(String path, String... layers) {
-		String combinedPath = path;
+		StringBuilder combinedPath = new StringBuilder(path);
 		for (String s : layers) {
-			combinedPath = combinedPath + "_" + s;
+			combinedPath.append("_").append(s);
 		}
-		GOTRandomSkins skins = allRandomSkins.get(combinedPath);
+		GOTRandomSkins skins = allRandomSkins.get(combinedPath.toString());
 		if (skins == null) {
 			skins = new GOTRandomSkinsCombinatorial(path, layers);
-			allRandomSkins.put(combinedPath, skins);
+			allRandomSkins.put(combinedPath.toString(), skins);
 		}
 		return skins;
 	}

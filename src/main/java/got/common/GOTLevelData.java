@@ -29,6 +29,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.*;
 
 public class GOTLevelData {
@@ -405,7 +406,7 @@ public class GOTLevelData {
 	}
 
 	public static void saveNBTToFile(File file, NBTTagCompound nbt) throws IOException {
-		CompressedStreamTools.writeCompressed(nbt, new FileOutputStream(file));
+		CompressedStreamTools.writeCompressed(nbt, Files.newOutputStream(file.toPath()));
 	}
 
 	public static void selectDefaultCapeForPlayer(EntityPlayer entityplayer) {

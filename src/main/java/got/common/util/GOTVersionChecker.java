@@ -26,19 +26,19 @@ public class GOTVersionChecker {
 						String line;
 						URL url = new URL(versionURL);
 						BufferedReader updateReader = new BufferedReader(new InputStreamReader(url.openStream(), StandardCharsets.UTF_8));
-						String updateVersion = "";
+						StringBuilder updateVersion = new StringBuilder();
 						while ((line = updateReader.readLine()) != null) {
-							updateVersion = updateVersion + line;
+							updateVersion.append(line);
 						}
 						updateReader.close();
-						updateVersion = updateVersion.trim();
+						updateVersion = new StringBuilder(updateVersion.toString().trim());
 						String currentVersion = GOT.VERSION;
-						if (!updateVersion.equals(currentVersion)) {
+						if (!updateVersion.toString().equals(currentVersion)) {
 							ChatComponentText component = new ChatComponentText("Game of Thrones Mod:");
 							component.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 							EntityClientPlayerMP entityplayer = Minecraft.getMinecraft().thePlayer;
 							if (entityplayer != null) {
-								entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.update", component, updateVersion));
+								entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.update", component, updateVersion.toString()));
 							}
 						}
 					} catch (Exception e) {

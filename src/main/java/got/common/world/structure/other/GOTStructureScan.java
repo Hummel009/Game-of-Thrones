@@ -12,6 +12,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.input.BOMInputStream;
 
 import java.io.*;
+import java.nio.file.Files;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.zip.ZipEntry;
@@ -72,7 +73,7 @@ public class GOTStructureScan {
 					}
 					try {
 						s = s.substring(0, i);
-						BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(new FileInputStream(subfile)), Charsets.UTF_8));
+						BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(Files.newInputStream(subfile.toPath())), Charsets.UTF_8));
 						scanNamesAndReaders.put(s, reader);
 					} catch (Exception e) {
 						FMLLog.severe("Failed to load GOT structure scan " + s + " from MCP folder");
@@ -210,7 +211,7 @@ public class GOTStructureScan {
 			if (!scanFile.exists()) {
 				scanFile.createNewFile();
 			}
-			PrintStream writer = new PrintStream(new FileOutputStream(scanFile));
+			PrintStream writer = new PrintStream(Files.newOutputStream(scanFile.toPath()));
 			if (!scan.aliases.isEmpty()) {
 				for (GOTScanAlias alias : scan.aliases) {
 					writer.println(alias.getFullCode());

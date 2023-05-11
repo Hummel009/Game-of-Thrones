@@ -102,9 +102,11 @@ public class GOTContainerAnvil extends Container {
 	}
 
 	public static String applyFormattingCodes(String name, List<EnumChatFormatting> colors) {
+		StringBuilder nameBuilder = new StringBuilder(name);
 		for (EnumChatFormatting color : colors) {
-			name = color + name;
+			nameBuilder.insert(0, color);
 		}
+		name = nameBuilder.toString();
 		return name;
 	}
 

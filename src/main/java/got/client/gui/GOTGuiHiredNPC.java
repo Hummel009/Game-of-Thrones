@@ -42,12 +42,11 @@ public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 			fontRendererObj.drawString(s, x, y, 3618615);
 			y += fontRendererObj.FONT_HEIGHT;
 			x += 4;
-			ArrayList requirementLines = new ArrayList<>();
 			int maxWidth = xSize - 12 - 4;
 			GOTFaction fac = theNPC.getHiringFaction();
 			String alignS = GOTAlignmentValues.formatAlignForDisplay(theNPC.hiredNPCInfo.alignmentRequiredToCommand);
 			String alignReq = StatCollector.translateToLocalFormatted("got.hiredNPC.commandReq.align", alignS, fac.factionName());
-			requirementLines.addAll(fontRendererObj.listFormattedStringToWidth(alignReq, maxWidth));
+			ArrayList requirementLines = new ArrayList<>(fontRendererObj.listFormattedStringToWidth(alignReq, maxWidth));
 			GOTUnitTradeEntry.PledgeType pledge = theNPC.hiredNPCInfo.pledgeType;
 			String pledgeReq = pledge.getCommandReqText(fac);
 			if (pledgeReq != null) {

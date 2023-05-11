@@ -11,6 +11,7 @@ import net.minecraft.world.WorldServer;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.nio.file.Files;
 
 public class GOTTime {
 	public static int DAY_LENGTH = 48000;
@@ -48,7 +49,7 @@ public class GOTTime {
 		try {
 			File time_dat = getTimeDat();
 			if (!time_dat.exists()) {
-				CompressedStreamTools.writeCompressed(new NBTTagCompound(), new FileOutputStream(time_dat));
+				CompressedStreamTools.writeCompressed(new NBTTagCompound(), Files.newOutputStream(time_dat.toPath()));
 			}
 			NBTTagCompound timeData = new NBTTagCompound();
 			timeData.setLong("GOTTotalTime", totalTime);

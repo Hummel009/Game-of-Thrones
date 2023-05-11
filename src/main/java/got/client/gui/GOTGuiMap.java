@@ -565,16 +565,16 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				tess.addVertexWithUV(mapXMax, mapYMin, 0.0, 1.0, 0.0);
 				tess.addVertexWithUV(mapXMin, mapYMin, 0.0, 0.0, 0.0);
 				tess.draw();
-				String loadText = "";
+				StringBuilder loadText = new StringBuilder();
 				GOTConquestGrid.ConquestViewableQuery query = GOTConquestGrid.canPlayerViewConquest(mc.thePlayer, conquestViewingFaction);
 				if (query.result == GOTConquestGrid.ConquestViewable.CAN_VIEW) {
-					loadText = StatCollector.translateToLocal("got.gui.map.conquest.wait");
+					loadText = new StringBuilder(StatCollector.translateToLocal("got.gui.map.conquest.wait"));
 					int ellipsis = 1 + tickCounter / 10 % 3;
 					for (int l = 0; l < ellipsis; ++l) {
-						loadText = loadText + ".";
+						loadText.append(".");
 					}
 				} else if (query.result == GOTConquestGrid.ConquestViewable.UNPLEDGED) {
-					loadText = StatCollector.translateToLocal("got.gui.map.conquest.noPledge");
+					loadText = new StringBuilder(StatCollector.translateToLocal("got.gui.map.conquest.noPledge"));
 				} else {
 					GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
 					GOTFaction pledgeFac = pd.getPledgeFaction();
@@ -584,11 +584,11 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					if (query.result == GOTConquestGrid.ConquestViewable.NEED_RANK) {
 						format = "got.gui.map.conquest.needRank";
 					}
-					loadText = StatCollector.translateToLocalFormatted(format, pledgeFac.factionName(), needRank.getFullNameWithGender(pd), needAlign);
+					loadText = new StringBuilder(StatCollector.translateToLocalFormatted(format, pledgeFac.factionName(), needRank.getFullNameWithGender(pd), needAlign));
 				}
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				int stringWidth = 250;
-				String[] splitNewline = loadText.split(Pattern.quote("\\n"));
+				String[] splitNewline = loadText.toString().split(Pattern.quote("\\n"));
 				ArrayList<String> loadLines = new ArrayList<>();
 				for (String line : splitNewline) {
 					loadLines.addAll(fontRendererObj.listFormattedStringToWidth(line, stringWidth));

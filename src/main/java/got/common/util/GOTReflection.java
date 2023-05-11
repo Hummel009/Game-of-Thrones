@@ -267,7 +267,7 @@ public class GOTReflection {
 					setremoves.add(obj);
 				}
 			}
-			commandSet.removeAll(setremoves);
+			setremoves.forEach(commandSet::remove);
 		} catch (Exception e) {
 			logFailure(e);
 		}

@@ -27,6 +27,7 @@ import net.minecraftforge.common.MinecraftForge;
 import org.apache.commons.io.input.BOMInputStream;
 
 import java.io.*;
+import java.nio.file.Files;
 import java.util.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
@@ -62,7 +63,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 	public static void generateReadme() throws IOException {
 		File readme = new File(musicDir, "readme.txt");
 		readme.createNewFile();
-		PrintStream writer = new PrintStream(new FileOutputStream(readme));
+		PrintStream writer = new PrintStream(Files.newOutputStream(readme.toPath()));
 		ResourceLocation template = new ResourceLocation("got:music/readme.txt");
 		InputStream templateIn = Minecraft.getMinecraft().getResourceManager().getResource(template).getInputStream();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(templateIn), Charsets.UTF_8));
@@ -75,12 +76,12 @@ public class GOTMusic implements IResourceManagerReloadListener {
 					regionString.append(region.regionName);
 					List<String> subregions = region.getAllSubregions();
 					if (!subregions.isEmpty()) {
-						String subs = "";
+						StringBuilder subs = new StringBuilder();
 						for (String s : subregions) {
 							if (subs.length() > 0) {
-								subs = subs + ", ";
+								subs.append(", ");
 							}
-							subs = subs + s;
+							subs.append(s);
 						}
 						regionString.append(": {").append(subs).append("}");
 					}

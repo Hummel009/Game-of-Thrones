@@ -73,21 +73,21 @@ public class GOTTextBody {
 			int color = getColor(i);
 			List<String> lineList = fr.listFormattedStringToWidth(part, textWidth);
 			for (int l = lineList.size() - 1; l >= 0; --l) {
-				String line = lineList.get(l);
+				StringBuilder line = new StringBuilder(lineList.get(l));
 				if (d1 > 0) {
 					--d1;
 				} else {
 					if (y < yTop) {
 						break block0;
 					}
-					if (line.equals(LINEBREAK)) {
-						line = "";
+					if (line.toString().equals(LINEBREAK)) {
+						line = new StringBuilder();
 						char br = '-';
-						while (fr.getStringWidth(line + br) < textWidth) {
-							line = line + br;
+						while (fr.getStringWidth(line.toString() + br) < textWidth) {
+							line.append(br);
 						}
 					}
-					fr.drawString(line, x, y, color);
+					fr.drawString(line.toString(), x, y, color);
 					y -= lineHeight;
 				}
 			}

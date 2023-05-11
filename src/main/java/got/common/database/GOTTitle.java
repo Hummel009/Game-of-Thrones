@@ -148,24 +148,24 @@ public class GOTTitle {
 				if (anyAlignment) {
 					return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment.any", alignLevel);
 				}
-				String s = "";
+				StringBuilder s = new StringBuilder();
 				if (alignmentFactions.size() > 1) {
 					for (int i = 0; i < alignmentFactions.size(); ++i) {
 						GOTFaction f = alignmentFactions.get(i);
 						if (i > 0) {
-							s = s + " / ";
+							s.append(" / ");
 						}
-						s = s + f.factionName();
+						s.append(f.factionName());
 					}
 				} else {
 					GOTFaction f = alignmentFactions.get(0);
-					s = f.factionName();
+					s = new StringBuilder(f.factionName());
 				}
 				requirePledge = isAlignmentGreaterThanOrEqualToAllFactionPledges() && GOTConfig.areStrictFactionTitleRequirementsEnabled(entityplayer.worldObj);
 				if (requirePledge) {
-					return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment.pledge", s, alignLevel);
+					return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment.pledge", s.toString(), alignLevel);
 				}
-				return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment", s, alignLevel);
+				return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment", s.toString(), alignLevel);
 			}
 			case RANK: {
 				boolean requirePledge;
