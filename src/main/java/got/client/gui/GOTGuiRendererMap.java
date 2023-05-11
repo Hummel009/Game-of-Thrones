@@ -49,10 +49,10 @@ public class GOTGuiRendererMap {
 		float alpha = 1.0f;
 		GL11.glColor4f(alpha, alpha, alpha, 1.0f);
 		gui.mc.getTextureManager().bindTexture(vignetteTexture);
-		double u0 = (double) x0 / (double) gui.width;
-		double u1 = (double) x1 / (double) gui.width;
-		double v0 = (double) y0 / (double) gui.height;
-		double v1 = (double) y1 / (double) gui.height;
+		double u0 = (double) x0 / gui.width;
+		double u1 = (double) x1 / gui.width;
+		double v0 = (double) y0 / gui.height;
+		double v1 = (double) y1 / gui.height;
 		double z = zLevel;
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.startDrawingQuads();

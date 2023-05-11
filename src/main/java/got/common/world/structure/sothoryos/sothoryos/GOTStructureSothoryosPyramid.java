@@ -40,7 +40,7 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 		int maze1R = 19;
 		int maze1W = maze1R * 2 + 1;
 		GOTMazeGenerator maze1 = new GOTMazeGenerator(maze1W, maze1W);
-		maze1.setStart(maze1R + 0, maze1R + 4);
+		maze1.setStart(maze1R, maze1R + 4);
 		int maze1CentreW = 3;
 		for (int i13 = -maze1CentreW - 1; i13 <= maze1CentreW + 1; ++i13) {
 			for (int k13 = -maze1CentreW - 1; k13 <= maze1CentreW + 1; ++k13) {
@@ -65,7 +65,7 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 		int maze3R = 13;
 		int maze3W = maze3R * 2 + 1;
 		GOTMazeGenerator maze3 = new GOTMazeGenerator(maze3W, maze3W);
-		maze3.setStart(maze3R + 0, maze3R + 2);
+		maze3.setStart(maze3R, maze3R + 2);
 		int maze3CentreW = 1;
 		for (int i14 = -maze3CentreW - 1; i14 <= maze3CentreW + 1; ++i14) {
 			for (int k14 = -maze3CentreW - 1; k14 <= maze3CentreW + 1; ++k14) {
@@ -515,7 +515,7 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 						continue;
 					}
 					ForgeDirection dir = validDirs.get(random.nextInt(validDirs.size()));
-					placeDartTrap(world, random, (i + i1) * scale + dir.offsetX * scaleR, j + 0, (k + k1) * scale + dir.offsetZ * scaleR, dir.ordinal());
+					placeDartTrap(world, random, (i + i1) * scale + dir.offsetX * scaleR, j, (k + k1) * scale + dir.offsetZ * scaleR, dir.ordinal());
 				}
 			}
 		}

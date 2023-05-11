@@ -112,7 +112,7 @@ public class GOTRenderWeather extends IRenderHandler {
 						if (l1 == i2) {
 							continue;
 						}
-						rand.setSeed(i1 * i1 * 3121 + i1 * 45238971 ^ l * l * 418711 + l * 13761);
+						rand.setSeed((long) i1 * i1 * 3121 + i1 * 45238971L ^ (long) l * l * 418711 + l * 13761L);
 						float f9 = biomegenbase.getFloatTemperature(i1, l1, l);
 						if (ashy) {
 							if (b1 != 1) {
@@ -132,10 +132,10 @@ public class GOTRenderWeather extends IRenderHandler {
 							f15 = 1.0f;
 							tessellator.setBrightness((world.getLightBrightnessForSkyBlocks(i1, j2, l, 0) * 3 + 15728880) / 4);
 							tessellator.setColorRGBA_F(f15, f15, f15, ((1.0f - f14 * f14) * 0.3f + 0.5f) * rainStrength);
-							tessellator.setTranslation(-d0 * 1.0, -d1 * 1.0, -d2 * 1.0);
+							tessellator.setTranslation(-d0, -d1, -d2);
 							tessellator.addVertexWithUV(i1 - f6 + 0.5, l1, l - f7 + 0.5, 0.0f * f8 + f16, l1 * f8 / 4.0f + f10 * f8 + f11);
-							tessellator.addVertexWithUV(i1 + f6 + 0.5, l1, l + f7 + 0.5, 1.0f * f8 + f16, l1 * f8 / 4.0f + f10 * f8 + f11);
-							tessellator.addVertexWithUV(i1 + f6 + 0.5, i2, l + f7 + 0.5, 1.0f * f8 + f16, i2 * f8 / 4.0f + f10 * f8 + f11);
+							tessellator.addVertexWithUV(i1 + f6 + 0.5, l1, l + f7 + 0.5, f8 + f16, l1 * f8 / 4.0f + f10 * f8 + f11);
+							tessellator.addVertexWithUV(i1 + f6 + 0.5, i2, l + f7 + 0.5, f8 + f16, i2 * f8 / 4.0f + f10 * f8 + f11);
 							tessellator.addVertexWithUV(i1 - f6 + 0.5, i2, l - f7 + 0.5, 0.0f * f8 + f16, i2 * f8 / 4.0f + f10 * f8 + f11);
 							tessellator.setTranslation(0.0, 0.0, 0.0);
 							continue;
@@ -158,10 +158,10 @@ public class GOTRenderWeather extends IRenderHandler {
 							f15 = 1.0f;
 							tessellator.setBrightness((world.getLightBrightnessForSkyBlocks(i1, j2, l, 0) * 3 + 15728880) / 4);
 							tessellator.setColorRGBA_F(f15, f15, f15, ((1.0f - f14 * f14) * 0.3f + 0.5f) * rainStrength);
-							tessellator.setTranslation(-d0 * 1.0, -d1 * 1.0, -d2 * 1.0);
+							tessellator.setTranslation(-d0, -d1, -d2);
 							tessellator.addVertexWithUV(i1 - f6 + 0.5, l1, l - f7 + 0.5, 0.0f * f8 + f16, l1 * f8 / 4.0f + f10 * f8 + f11);
-							tessellator.addVertexWithUV(i1 + f6 + 0.5, l1, l + f7 + 0.5, 1.0f * f8 + f16, l1 * f8 / 4.0f + f10 * f8 + f11);
-							tessellator.addVertexWithUV(i1 + f6 + 0.5, i2, l + f7 + 0.5, 1.0f * f8 + f16, i2 * f8 / 4.0f + f10 * f8 + f11);
+							tessellator.addVertexWithUV(i1 + f6 + 0.5, l1, l + f7 + 0.5, f8 + f16, l1 * f8 / 4.0f + f10 * f8 + f11);
+							tessellator.addVertexWithUV(i1 + f6 + 0.5, i2, l + f7 + 0.5, f8 + f16, i2 * f8 / 4.0f + f10 * f8 + f11);
 							tessellator.addVertexWithUV(i1 - f6 + 0.5, i2, l - f7 + 0.5, 0.0f * f8 + f16, i2 * f8 / 4.0f + f10 * f8 + f11);
 							tessellator.setTranslation(0.0, 0.0, 0.0);
 							continue;
@@ -182,10 +182,10 @@ public class GOTRenderWeather extends IRenderHandler {
 							float f13 = 1.0f;
 							tessellator.setBrightness(world.getLightBrightnessForSkyBlocks(i1, j2, l, 0));
 							tessellator.setColorRGBA_F(f13, f13, f13, ((1.0f - f12 * f12) * 0.5f + 0.5f) * rainStrength);
-							tessellator.setTranslation(-d0 * 1.0, -d1 * 1.0, -d2 * 1.0);
+							tessellator.setTranslation(-d0, -d1, -d2);
 							tessellator.addVertexWithUV(i1 - f6 + 0.5, l1, l - f7 + 0.5, 0.0f * f8, l1 * f8 / 4.0f + f10 * f8);
-							tessellator.addVertexWithUV(i1 + f6 + 0.5, l1, l + f7 + 0.5, 1.0f * f8, l1 * f8 / 4.0f + f10 * f8);
-							tessellator.addVertexWithUV(i1 + f6 + 0.5, i2, l + f7 + 0.5, 1.0f * f8, i2 * f8 / 4.0f + f10 * f8);
+							tessellator.addVertexWithUV(i1 + f6 + 0.5, l1, l + f7 + 0.5, f8, l1 * f8 / 4.0f + f10 * f8);
+							tessellator.addVertexWithUV(i1 + f6 + 0.5, i2, l + f7 + 0.5, f8, i2 * f8 / 4.0f + f10 * f8);
 							tessellator.addVertexWithUV(i1 - f6 + 0.5, i2, l - f7 + 0.5, 0.0f * f8, i2 * f8 / 4.0f + f10 * f8);
 							tessellator.setTranslation(0.0, 0.0, 0.0);
 							continue;
@@ -207,10 +207,10 @@ public class GOTRenderWeather extends IRenderHandler {
 						f15 = 1.0f;
 						tessellator.setBrightness((world.getLightBrightnessForSkyBlocks(i1, j2, l, 0) * 3 + 15728880) / 4);
 						tessellator.setColorRGBA_F(f15, f15, f15, ((1.0f - f14 * f14) * 0.3f + 0.5f) * rainStrength);
-						tessellator.setTranslation(-d0 * 1.0, -d1 * 1.0, -d2 * 1.0);
+						tessellator.setTranslation(-d0, -d1, -d2);
 						tessellator.addVertexWithUV(i1 - f6 + 0.5, l1, l - f7 + 0.5, 0.0f * f8 + f16, l1 * f8 / 4.0f + f10 * f8 + f11);
-						tessellator.addVertexWithUV(i1 + f6 + 0.5, l1, l + f7 + 0.5, 1.0f * f8 + f16, l1 * f8 / 4.0f + f10 * f8 + f11);
-						tessellator.addVertexWithUV(i1 + f6 + 0.5, i2, l + f7 + 0.5, 1.0f * f8 + f16, i2 * f8 / 4.0f + f10 * f8 + f11);
+						tessellator.addVertexWithUV(i1 + f6 + 0.5, l1, l + f7 + 0.5, f8 + f16, l1 * f8 / 4.0f + f10 * f8 + f11);
+						tessellator.addVertexWithUV(i1 + f6 + 0.5, i2, l + f7 + 0.5, f8 + f16, i2 * f8 / 4.0f + f10 * f8 + f11);
 						tessellator.addVertexWithUV(i1 - f6 + 0.5, i2, l - f7 + 0.5, 0.0f * f8 + f16, i2 * f8 / 4.0f + f10 * f8 + f11);
 						tessellator.setTranslation(0.0, 0.0, 0.0);
 					}

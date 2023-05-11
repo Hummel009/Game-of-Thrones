@@ -384,7 +384,7 @@ public class GOTBeziers {
 				bezier.bezierPoints = new BezierPoint[points];
 				for (int l = 0; l < points; ++l) {
 					BezierPoint point;
-					double t = (double) l / (double) points;
+					double t = (double) l / points;
 					bezier.bezierPoints[l] = point = new BezierPoint(p1.x + dx * t, p1.z + dz * t, false, wall);
 					if (wall) {
 						wallPointDatabase.add(point);
@@ -427,7 +427,7 @@ public class GOTBeziers {
 				bezier.bezierPoints = new BezierPoint[points];
 				for (int l = 0; l < points; ++l) {
 					BezierPoint point;
-					double t = (double) l / (double) points;
+					double t = (double) l / points;
 					bezier.bezierPoints[l] = point = bezier(p1, cp1, cp2, p2, t, wall);
 					if (wall) {
 						wallPointDatabase.add(point);

@@ -136,7 +136,7 @@ public class GOTStructureIbbenWatchtower extends GOTStructureIbbenBase {
 					if (k2 == 2 && IntMath.mod(j14, 4) == 1 || k2 == 1 && IntMath.mod(j14, 2) == 0 || k2 == 0 && IntMath.mod(j14, 4) == 3) {
 						setBlockAndMetadata(world, i14, j14, k1, logBlock, logMeta);
 						if (k2 == 0) {
-							setBlockAndMetadata(world, i14 - 1 * Integer.signum(i14), j14, k1, Blocks.torch, i14 > 0 ? 1 : 2);
+							setBlockAndMetadata(world, i14 - Integer.signum(i14), j14, k1, Blocks.torch, i14 > 0 ? 1 : 2);
 						}
 					}
 					--j14;

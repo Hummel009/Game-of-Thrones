@@ -49,8 +49,8 @@ public class GOTModelBiped extends ModelBiped {
 		bipedRightLeg.rotateAngleX = MathHelper.cos(f * 0.6662f) * 1.4f * f1;
 		bipedLeftLeg.rotateAngleX = MathHelper.cos(f * 0.6662f + 3.1415927f) * 1.4f * f1;
 		if (entity instanceof GOTEntityNPC) {
-			bipedRightLeg.rotateAngleY = (float) Math.toRadians(5.0);
-			bipedLeftLeg.rotateAngleY = (float) Math.toRadians(-5.0);
+			bipedRightLeg.rotateAngleY = (float) 0.08726646259971647;
+			bipedLeftLeg.rotateAngleY = (float) -0.08726646259971647;
 		}
 		if (isRiding) {
 			bipedRightArm.rotateAngleX += -0.62831855f;

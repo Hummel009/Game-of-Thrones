@@ -59,7 +59,7 @@ public class GOTGuiSlider extends GuiButton {
 
 	public void setSliderValue(int value) {
 		value = MathHelper.clamp_int(value, minValue, maxValue);
-		sliderValue = (float) (value - minValue) / (float) (maxValue - minValue);
+		sliderValue = (float) (value - minValue) / (maxValue - minValue);
 	}
 
 	public float getSliderValue_F() {
@@ -75,7 +75,7 @@ public class GOTGuiSlider extends GuiButton {
 	public void mouseDragged(Minecraft mc, int i, int j) {
 		if (visible && enabled) {
 			if (dragging) {
-				sliderValue = (float) (i - (xPosition + 4)) / (float) (width - 8);
+				sliderValue = (float) (i - (xPosition + 4)) / (width - 8);
 				if (sliderValue < 0.0f) {
 					sliderValue = 0.0f;
 				}
@@ -92,7 +92,7 @@ public class GOTGuiSlider extends GuiButton {
 	@Override
 	public boolean mousePressed(Minecraft mc, int i, int j) {
 		if (super.mousePressed(mc, i, j)) {
-			sliderValue = (float) (i - (xPosition + 4)) / (float) (width - 8);
+			sliderValue = (float) (i - (xPosition + 4)) / (width - 8);
 			if (sliderValue < 0.0f) {
 				sliderValue = 0.0f;
 			}

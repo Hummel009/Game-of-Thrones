@@ -55,9 +55,9 @@ public class GOTModelBird extends ModelBase {
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
 		GOTEntityBird bird = (GOTEntityBird) entity;
 		if (bird.isBirdStill()) {
-			body.rotateAngleX = (float) Math.toRadians(-10.0);
-			head.rotateAngleX = (float) Math.toRadians(20.0);
-			wingRight.rotateAngleZ = bird.flapTime > 0 ? (float) Math.toRadians(90.0) + MathHelper.cos(f2 * 1.5f) * (float) Math.toRadians(30.0) : (float) Math.toRadians(30.0);
+			body.rotateAngleX = (float) -0.17453292519943295;
+			head.rotateAngleX = (float) 0.3490658503988659;
+			wingRight.rotateAngleZ = bird.flapTime > 0 ? (float) 1.5707963267948966 + MathHelper.cos(f2 * 1.5f) * (float) 0.5235987755982988 : (float) 0.5235987755982988;
 			wingLeft.rotateAngleZ = -wingRight.rotateAngleZ;
 			legRight.rotateAngleX = legLeft.rotateAngleX = -body.rotateAngleX;
 			legRight.rotateAngleX += MathHelper.cos(f * 0.6662f) * f1;
@@ -67,7 +67,7 @@ public class GOTModelBird extends ModelBase {
 		} else {
 			body.rotateAngleX = 0.0f;
 			head.rotateAngleX = 0.0f;
-			wingRight.rotateAngleZ = (float) Math.toRadians(90.0) + MathHelper.cos(f2 * 1.5f) * (float) Math.toRadians(30.0);
+			wingRight.rotateAngleZ = (float) 1.5707963267948966 + MathHelper.cos(f2 * 1.5f) * (float) 0.5235987755982988;
 			wingLeft.rotateAngleZ = -wingRight.rotateAngleZ;
 			legLeft.rotateAngleX = 0.0f;
 			legRight.rotateAngleX = 0.0f;

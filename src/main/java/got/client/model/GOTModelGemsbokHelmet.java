@@ -20,7 +20,7 @@ public class GOTModelGemsbokHelmet extends GOTModelBiped {
 		hornLeft = new ModelRenderer(this, 32, 0);
 		hornLeft.mirror = true;
 		hornLeft.addBox(3.9f, -7.0f, 7.5f, 1, 1, 13);
-		hornRight.rotateAngleX = hornLeft.rotateAngleX = (float) Math.toRadians(20.0);
+		hornRight.rotateAngleX = hornLeft.rotateAngleX = (float) 0.3490658503988659;
 		bipedHead.addChild(hornRight);
 		bipedHead.addChild(hornLeft);
 		bipedHeadwear.cubeList.clear();

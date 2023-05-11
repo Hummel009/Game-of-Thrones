@@ -16,7 +16,7 @@ public class GOTModelAsshaiHelmet extends GOTModelBiped {
 		bipedHead.setRotationPoint(0.0f, 0.0f, 0.0f);
 		crest = new ModelRenderer(this, 32, 0);
 		crest.addBox(-8.0f, -16.0f, -3.0f, 16, 10, 0, 0.0f);
-		crest.rotateAngleX = (float) Math.toRadians(-20.0);
+		crest.rotateAngleX = (float) -0.3490658503988659;
 		bipedHead.addChild(crest);
 		bipedHeadwear.cubeList.clear();
 		bipedBody.cubeList.clear();

@@ -93,8 +93,8 @@ public class GOTWorldGenPartyTrees extends WorldGenAbstractTree {
 			for (int l = 0; l < boughLength; ++l) {
 				int i14 = i + Math.round(sin * l);
 				int k14 = k + Math.round(cos * l);
-				int j12 = boughBaseHeight + Math.round((float) l / (float) boughLength * boughHeight);
-				int range = boughThickness - Math.round((float) l / (float) boughLength * boughThickness * 0.5f);
+				int j12 = boughBaseHeight + Math.round((float) l / boughLength * boughHeight);
+				int range = boughThickness - Math.round((float) l / boughLength * boughThickness * 0.5f);
 				for (int i2 = i14 - range; i2 <= i14 + range; ++i2) {
 					for (int j2 = j12 - range; j2 <= j12 + range; ++j2) {
 						for (int k2 = k14 - range; k2 <= k14 + range; ++k2) {
@@ -117,7 +117,7 @@ public class GOTWorldGenPartyTrees extends WorldGenAbstractTree {
 					int j2;
 					int i2 = i14 + Math.round(branch_sin * l1);
 					int k2 = k14 + Math.round(branch_cos * l1);
-					for (int j3 = j2 = j12 + Math.round((float) l1 / (float) branchLength * branchHeight); j3 >= j2 - 1; --j3) {
+					for (int j3 = j2 = j12 + Math.round((float) l1 / branchLength * branchHeight); j3 >= j2 - 1; --j3) {
 						Block block = world.getBlock(i2, j3, k2);
 						if (!block.isReplaceable(world, i2, j3, k2) && !block.isLeaves(world, i2, j3, k2)) {
 							continue;

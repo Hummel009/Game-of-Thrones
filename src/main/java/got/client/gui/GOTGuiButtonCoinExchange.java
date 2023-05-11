@@ -17,7 +17,7 @@ public class GOTGuiButtonCoinExchange extends GuiButton {
 			field_146123_n = i >= xPosition && j >= yPosition && i < xPosition + width && j < yPosition + height;
 			int k = getHoverState(field_146123_n);
 			int u = 176 + id * width;
-			int v = 0 + k * height;
+			int v = k * height;
 			drawTexturedModalRect(xPosition, yPosition, u, v, width, height);
 			mouseDragged(mc, i, j);
 		}

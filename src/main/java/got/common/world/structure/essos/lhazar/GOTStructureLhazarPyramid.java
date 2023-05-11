@@ -76,7 +76,7 @@ public class GOTStructureLhazarPyramid extends GOTStructureLhazarBase {
 		int maxStep = 4;
 		for (int k12 : new int[]{-11, 11}) {
 			int i12;
-			for (step = 0; step < maxStep && !isOpaque(world, i12 = -7 - step, j12 = 0 - step, k12); ++step) {
+			for (step = 0; step < maxStep && !isOpaque(world, i12 = -7 - step, j12 = -step, k12); ++step) {
 				setBlockAndMetadata(world, i12, j12, k12, Blocks.sandstone_stairs, 1);
 				setGrassToDirt(world, i12, j12 - 1, k12);
 				j2 = j12 - 1;
@@ -86,7 +86,7 @@ public class GOTStructureLhazarPyramid extends GOTStructureLhazarBase {
 					--j2;
 				}
 			}
-			for (step = 0; step < maxStep && !isOpaque(world, i12 = 7 + step, j12 = 0 - step, k12); ++step) {
+			for (step = 0; step < maxStep && !isOpaque(world, i12 = 7 + step, j12 = -step, k12); ++step) {
 				setBlockAndMetadata(world, i12, j12, k12, Blocks.sandstone_stairs, 0);
 				setGrassToDirt(world, i12, j12 - 1, k12);
 				j2 = j12 - 1;
@@ -99,7 +99,7 @@ public class GOTStructureLhazarPyramid extends GOTStructureLhazarBase {
 		}
 		for (int i13 : new int[]{-11, 11}) {
 			int k13;
-			for (step = 0; step < maxStep && !isOpaque(world, i13, j12 = 0 - step, k13 = -7 - step); ++step) {
+			for (step = 0; step < maxStep && !isOpaque(world, i13, j12 = -step, k13 = -7 - step); ++step) {
 				setBlockAndMetadata(world, i13, j12, k13, Blocks.sandstone_stairs, 2);
 				setGrassToDirt(world, i13, j12 - 1, k13);
 				j2 = j12 - 1;
@@ -109,7 +109,7 @@ public class GOTStructureLhazarPyramid extends GOTStructureLhazarBase {
 					--j2;
 				}
 			}
-			for (step = 0; step < maxStep && !isOpaque(world, i13, j12 = 0 - step, k13 = 7 + step); ++step) {
+			for (step = 0; step < maxStep && !isOpaque(world, i13, j12 = -step, k13 = 7 + step); ++step) {
 				setBlockAndMetadata(world, i13, j12, k13, Blocks.sandstone_stairs, 3);
 				setGrassToDirt(world, i13, j12 - 1, k13);
 				j2 = j12 - 1;

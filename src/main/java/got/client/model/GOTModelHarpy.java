@@ -15,12 +15,12 @@ public class GOTModelHarpy extends GOTModelBiped {
 		ModelRenderer hornRight = new ModelRenderer(this, 32, 0);
 		hornRight.setRotationPoint(-f, -f, -f);
 		hornRight.addBox(-7.0f, -12.0f, 0.5f, 3, 8, 0, 0.0f);
-		hornRight.rotateAngleZ = (float) Math.toRadians(6.0);
+		hornRight.rotateAngleZ = (float) 0.10471975511965978;
 		ModelRenderer hornLeft = new ModelRenderer(this, 32, 0);
 		hornLeft.setRotationPoint(f, -f, -f);
 		hornLeft.mirror = true;
 		hornLeft.addBox(4.0f, -12.0f, 0.5f, 3, 8, 0, 0.0f);
-		hornLeft.rotateAngleZ = (float) Math.toRadians(-6.0);
+		hornLeft.rotateAngleZ = (float) -0.10471975511965978;
 		bipedHead.addChild(hornRight);
 		bipedHead.addChild(hornLeft);
 		bipedHeadwear.cubeList.clear();

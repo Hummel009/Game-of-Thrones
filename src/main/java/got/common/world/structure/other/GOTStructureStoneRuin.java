@@ -26,8 +26,8 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 		if (generateColumn) {
 			int minHeight = 0;
 			int maxHeight = 0;
-			int columnX = 0 - width / 2;
-			int columnZ = 0 - width / 2;
+			int columnX = -width / 2;
+			int columnZ = -width / 2;
 			if (restrictions) {
 				block0:
 				for (int i1 = columnX; i1 < columnX + width; ++i1) {

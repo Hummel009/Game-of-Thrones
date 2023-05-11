@@ -248,7 +248,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 						Collections.sort(miniquests, new GOTMiniQuest.SorterAlphabetical());
 					}
 					int size = miniquests.size();
-					int min = 0 + Math.round(currentScroll * (size - maxDisplayedMiniQuests));
+					int min = Math.round(currentScroll * (size - maxDisplayedMiniQuests));
 					int max = maxDisplayedMiniQuests - 1 + Math.round(currentScroll * (size - maxDisplayedMiniQuests));
 					min = Math.max(min, 0);
 					max = Math.min(max, size - 1);
@@ -331,7 +331,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 				diaryScroll += i;
 			} else {
 				int j = getMiniQuests().size() - maxDisplayedMiniQuests;
-				currentScroll -= (float) i / (float) j;
+				currentScroll -= (float) i / j;
 				currentScroll = Math.max(currentScroll, 0.0f);
 				currentScroll = Math.min(currentScroll, 1.0f);
 			}
@@ -542,11 +542,11 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 		}
 		wasMouseDown = isMouseDown;
 		if (isScrolling) {
-			currentScroll = (j - (guiTop + scrollBarY) - scrollWidgetHeight / 2.0f) / ((float) scrollBarHeight - (float) scrollWidgetHeight);
+			currentScroll = (j - (guiTop + scrollBarY) - scrollWidgetHeight / 2.0f) / ((float) scrollBarHeight - scrollWidgetHeight);
 			currentScroll = Math.max(currentScroll, 0.0f);
 			currentScroll = Math.min(currentScroll, 1.0f);
 		} else if (isDiaryScrolling) {
-			float d = (float) (lastMouseY - j) / (float) fontRendererObj.FONT_HEIGHT;
+			float d = (float) (lastMouseY - j) / fontRendererObj.FONT_HEIGHT;
 			diaryScroll -= d;
 		}
 		lastMouseX = i;

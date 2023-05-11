@@ -16,7 +16,7 @@ public class GOTModelDeerHelmet extends GOTModelBiped {
 		ModelRenderer crest = new ModelRenderer(this, 0, 16);
 		crest.setRotationPoint(0.0f, -f, 0.0f);
 		crest.addBox(-8.0f, -23.0f, 0.0f, 16, 14, 0, 0.0f);
-		crest.rotateAngleX = (float) Math.toRadians(-10.0);
+		crest.rotateAngleX = (float) -0.17453292519943295;
 		bipedHead.addChild(crest);
 		bipedHeadwear.cubeList.clear();
 		bipedBody.cubeList.clear();

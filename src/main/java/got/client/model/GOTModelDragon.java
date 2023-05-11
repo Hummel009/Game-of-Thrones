@@ -122,7 +122,7 @@ public class GOTModelDragon extends ModelBase {
 		int hornThick = 3;
 		int hornLength = 12;
 
-		float hornOfs = -(hornThick / 2f);
+		float hornOfs = -(hornThick / 2.0f);
 
 		float hornPosX = -5;
 		float hornPosY = -8;
@@ -162,7 +162,7 @@ public class GOTModelDragon extends ModelBase {
 			thighPosY -= 5;
 		}
 
-		float thighOfs = -(thighThick / 2f);
+		float thighOfs = -(thighThick / 2.0f);
 
 		GOTModelDragonPart thigh = new GOTModelDragonPart(this, baseName + "thigh");
 		thigh.setRotationPoint(thighPosX, thighPosY, thighPosZ);
@@ -180,7 +180,7 @@ public class GOTModelDragon extends ModelBase {
 			crusLength -= 2;
 		}
 
-		float crusOfs = -(crusThick / 2f);
+		float crusOfs = -(crusThick / 2.0f);
 
 		GOTModelDragonPart crus = new GOTModelDragonPart(this, baseName + "crus");
 		crus.setRotationPoint(crusPosX, crusPosY, crusPosZ);
@@ -188,15 +188,15 @@ public class GOTModelDragon extends ModelBase {
 		thigh.addChild(crus);
 
 		float footPosX = 0;
-		float footPosY = crusLength + crusOfs / 2f;
+		float footPosY = crusLength + crusOfs / 2.0f;
 		float footPosZ = 0;
 
 		int footWidth = crusThick + 2 + (skeleton ? 2 : 0);
 		int footHeight = 4;
 		int footLength = (int) (baseLength * (hind ? 0.67f : 0.34f));
 
-		float footOfsX = -(footWidth / 2f);
-		float footOfsY = -(footHeight / 2f);
+		float footOfsX = -(footWidth / 2.0f);
+		float footOfsY = -(footHeight / 2.0f);
 		float footOfsZ = footLength * -0.75f;
 
 		GOTModelDragonPart foot = new GOTModelDragonPart(this, baseName + "foot");
@@ -210,10 +210,10 @@ public class GOTModelDragon extends ModelBase {
 
 		float toePosX = 0;
 		float toePosY = 0;
-		float toePosZ = footOfsZ - footOfsY / 2f;
+		float toePosZ = footOfsZ - footOfsY / 2.0f;
 
-		float toeOfsX = -(toeWidth / 2f);
-		float toeOfsY = -(toeHeight / 2f);
+		float toeOfsX = -(toeWidth / 2.0f);
+		float toeOfsY = -(toeHeight / 2.0f);
 		float toeOfsZ = -toeLength;
 
 		GOTModelDragonPart toe = new GOTModelDragonPart(this, baseName + "toe");
@@ -283,11 +283,11 @@ public class GOTModelDragon extends ModelBase {
 		int hornThick = 3;
 		int hornLength = 32;
 
-		float hornOfs = -(hornThick / 2f);
+		float hornOfs = -(hornThick / 2.0f);
 
 		float hornPosX = 0;
 		float hornPosY = hornOfs;
-		float hornPosZ = TAIL_SIZE / 2f;
+		float hornPosZ = TAIL_SIZE / 2.0f;
 
 		float hornRotX = GOTModelDragonAnimaton.toRadians(-15);
 		float hornRotY = GOTModelDragonAnimaton.toRadians(-145);

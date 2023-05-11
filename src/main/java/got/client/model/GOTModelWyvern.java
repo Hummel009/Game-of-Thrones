@@ -543,11 +543,11 @@ public class GOTModelWyvern extends ModelBase {
 		if (f3 < -f10) {
 			f3 = -f10;
 		}
-		neck2.rotateAngleX = -66.0f / radianF + f4 * 1.0f / 3.0f / radianF;
+		neck2.rotateAngleX = -66.0f / radianF + f4 / 3.0f / radianF;
 		neck1.rotateAngleX = 30.0f / radianF + f4 * 2.0f / 3.0f / radianF;
 		head.rotateAngleX = 45.0f / radianF;
 		neck2.rotateAngleY = f3 * 2.0f / 3.0f / radianF;
-		neck1.rotateAngleY = f3 * 1.0f / 3.0f / radianF;
+		neck1.rotateAngleY = f3 / 3.0f / radianF;
 		head.rotateAngleY = 0.0f;
 		head.rotateAngleZ = 0.0f;
 		MathHelper.cos(f * 0.4f);

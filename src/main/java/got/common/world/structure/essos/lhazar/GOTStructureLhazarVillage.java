@@ -188,7 +188,7 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 				addStructure(new GOTStructureLhazarSmithy(false), -k - 6, -i, 2, true);
 				addStructure(new GOTStructureLhazarTavern(false), -k - 6, i, 0, true);
 			}
-			int xzTownTower = (int) (rTownTower / Math.sqrt(2.0));
+			int xzTownTower = (int) (rTownTower / 1.4142135623730951);
 			addStructure(new GOTStructureLhazarTower(false), -xzTownTower, -xzTownTower + 4, 2, true);
 			addStructure(new GOTStructureLhazarTower(false), xzTownTower, -xzTownTower + 4, 2, true);
 			addStructure(new GOTStructureLhazarTower(false), -xzTownTower, xzTownTower - 4, 0, true);
@@ -200,7 +200,7 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 				if (turn % 3 == 0) {
 					continue;
 				}
-				float turnF = (float) turn / (float) numTurns;
+				float turnF = (float) turn / numTurns;
 				float turnR = (float) Math.toRadians(turnF * 360.0f);
 				float sin = MathHelper.sin(turnR);
 				float cos = MathHelper.cos(turnR);
@@ -269,7 +269,7 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 			addStructure(new GOTStructureLhazarTotem(false), 0, -2, 0, true);
 			addStructure(new GOTStructureLhazarTavern(false), 0, 24, 0, true);
 			for (int h = 0; h < numOuterHouses; ++h) {
-				float turn = (float) h / (float) (numOuterHouses - 1);
+				float turn = (float) h / (numOuterHouses - 1);
 				float turnMin = 0.15f;
 				float turnMax = 1.0f - turnMin;
 				float turnInRange = turnMin + (turnMax - turnMin) * turn;

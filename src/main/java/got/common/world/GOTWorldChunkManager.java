@@ -230,7 +230,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 								}
 								int[] sourceInts = pass == 0 ? variantsLargeInts : variantsSmallInts;
 								int variantCode = sourceInts[index];
-								float variantF = (float) variantCode / (float) GOTGenLayerBiomeVariants.RANDOM_MAX;
+								float variantF = (float) variantCode / GOTGenLayerBiomeVariants.RANDOM_MAX;
 								if (variantF < variantChance) {
 									float variantFNormalised = variantF / variantChance;
 									variant = variantList.get(variantFNormalised);

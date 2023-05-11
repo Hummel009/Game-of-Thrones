@@ -191,7 +191,7 @@ public class GOTStructureIbbenStables extends GOTStructureIbbenBase {
 				if (random.nextInt(3) == 0) {
 					plantTallGrass(world, random, i13, 1, k1);
 				}
-				dx = i13 - 0;
+				dx = i13;
 				dz = k1 - 20;
 				hayDist = 1 + random.nextInt(3);
 				if (dx * dx + dz * dz < hayDist * hayDist && random.nextInt(3) != 0) {

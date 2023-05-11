@@ -159,7 +159,7 @@ public class GOTStructureSummerTavern extends GOTStructureSummerBase {
 			}
 		}
 		for (i1 = -5; i1 <= -1; ++i1) {
-			for (step = 0; step < 12 && !isOpaque(world, i1, j1 = 0 - step, k1 = -7 - step); ++step) {
+			for (step = 0; step < 12 && !isOpaque(world, i1, j1 = -step, k1 = -7 - step); ++step) {
 				setBlockAndMetadata(world, i1, j1, k1, plank2StairBlock, 2);
 				setGrassToDirt(world, i1, j1 - 1, k1);
 				j2 = j1 - 1;
@@ -171,7 +171,7 @@ public class GOTStructureSummerTavern extends GOTStructureSummerBase {
 			}
 		}
 		for (i1 = 1; i1 <= 5; ++i1) {
-			for (step = 0; step < 12 && !isOpaque(world, i1, j1 = 0 - step, k1 = -7 - step); ++step) {
+			for (step = 0; step < 12 && !isOpaque(world, i1, j1 = -step, k1 = -7 - step); ++step) {
 				setBlockAndMetadata(world, i1, j1, k1, plank2StairBlock, 2);
 				setGrassToDirt(world, i1, j1 - 1, k1);
 				j2 = j1 - 1;
@@ -183,7 +183,7 @@ public class GOTStructureSummerTavern extends GOTStructureSummerBase {
 			}
 		}
 		for (i1 = -5; i1 <= -1; ++i1) {
-			for (step = 0; step < 12 && !isOpaque(world, i1, j1 = 0 - step, k1 = 7 + step); ++step) {
+			for (step = 0; step < 12 && !isOpaque(world, i1, j1 = -step, k1 = 7 + step); ++step) {
 				setBlockAndMetadata(world, i1, j1, k1, plank2StairBlock, 3);
 				setGrassToDirt(world, i1, j1 - 1, k1);
 				j2 = j1 - 1;
@@ -195,7 +195,7 @@ public class GOTStructureSummerTavern extends GOTStructureSummerBase {
 			}
 		}
 		for (i1 = 1; i1 <= 5; ++i1) {
-			for (step = 0; step < 12 && !isOpaque(world, i1, j1 = 0 - step, k1 = 7 + step); ++step) {
+			for (step = 0; step < 12 && !isOpaque(world, i1, j1 = -step, k1 = 7 + step); ++step) {
 				setBlockAndMetadata(world, i1, j1, k1, plank2StairBlock, 3);
 				setGrassToDirt(world, i1, j1 - 1, k1);
 				j2 = j1 - 1;

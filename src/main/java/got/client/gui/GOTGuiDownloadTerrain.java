@@ -33,7 +33,7 @@ public class GOTGuiDownloadTerrain extends GuiDownloadTerrain {
 			int x0 = 0;
 			int x1 = width;
 			int y0 = 0;
-			int y1 = height - 0;
+			int y1 = height;
 			mapRenderer.renderMap(this, mapGui, f, x0, y0, x1, y1);
 			mapRenderer.renderVignettes(this, zLevel, 1, x0, y0, x1, y1);
 			GL11.glDisable(3042);

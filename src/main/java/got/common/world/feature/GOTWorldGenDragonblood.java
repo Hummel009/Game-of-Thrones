@@ -84,7 +84,7 @@ public class GOTWorldGenDragonblood extends WorldGenAbstractTree {
 					float angle = (float) Math.toRadians(deg += (40 + random.nextInt(30)) / trunkWidth);
 					float cos = MathHelper.cos(angle);
 					float sin = MathHelper.sin(angle);
-					float angleY = random.nextFloat() * (float) Math.toRadians(40.0);
+					float angleY = random.nextFloat() * (float) 0.6981317007977318;
 					MathHelper.cos(angleY);
 					float sinY = MathHelper.sin(angleY);
 					int length = 3 + random.nextInt(6);

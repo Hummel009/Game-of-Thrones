@@ -98,7 +98,7 @@ public class GOTStructureLhazarAltar extends GOTStructureLhazarBase {
 		int maxSteps = 12;
 		for (int i1 = -1; i1 <= 1; ++i1) {
 			int k14;
-			for (step = 0; step < maxSteps && !isOpaque(world, i1, j1 = 0 - step / 2, k14 = -13 - step); ++step) {
+			for (step = 0; step < maxSteps && !isOpaque(world, i1, j1 = -step / 2, k14 = -13 - step); ++step) {
 				if (step % 2 == 0) {
 					setBlockAndMetadata(world, i1, j1, k14, plankBlock, plankMeta);
 					setGrassToDirt(world, i1, j1 - 1, k14);
@@ -110,7 +110,7 @@ public class GOTStructureLhazarAltar extends GOTStructureLhazarBase {
 		}
 		for (k1 = -1; k1 <= 1; ++k1) {
 			int i1;
-			for (step = 0; step < maxSteps && !isOpaque(world, i1 = -13 - step, j1 = 0 - step / 2, k1); ++step) {
+			for (step = 0; step < maxSteps && !isOpaque(world, i1 = -13 - step, j1 = -step / 2, k1); ++step) {
 				if (step % 2 == 0) {
 					setBlockAndMetadata(world, i1, j1, k1, plankBlock, plankMeta);
 					setGrassToDirt(world, i1, j1 - 1, k1);
@@ -119,7 +119,7 @@ public class GOTStructureLhazarAltar extends GOTStructureLhazarBase {
 				setBlockAndMetadata(world, i1, j1, k1, plankSlabBlock, plankSlabMeta);
 				setBlockAndMetadata(world, i1, j1 - 1, k1, plankSlabBlock, plankSlabMeta | 8);
 			}
-			for (step = 0; step < maxSteps && !isOpaque(world, i1 = 13 + step, j1 = 0 - step / 2, k1); ++step) {
+			for (step = 0; step < maxSteps && !isOpaque(world, i1 = 13 + step, j1 = -step / 2, k1); ++step) {
 				if (step % 2 == 0) {
 					setBlockAndMetadata(world, i1, j1, k1, plankBlock, plankMeta);
 					setGrassToDirt(world, i1, j1 - 1, k1);

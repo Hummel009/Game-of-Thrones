@@ -259,7 +259,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 					int yMax = yMin + pageMapSize;
 					int mapBorder = 1;
 					Gui.drawRect(xMin - mapBorder, yMin - mapBorder, xMax + mapBorder, yMax + mapBorder, -16777216);
-					float zoom = (float) pageMapSize / (float) (mapR * 2);
+					float zoom = (float) pageMapSize / (mapR * 2);
 					float zoomExp = (float) Math.log(zoom) / (float) Math.log(2.0);
 					mapDrawGui.setFakeMapProperties(mapX, mapY, zoom, zoomExp, zoom);
 					int[] statics = GOTGuiMap.setFakeStaticProperties(pageMapSize, pageMapSize, xMin, xMax, yMin, yMax);
@@ -408,7 +408,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 						GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 						mc.getTextureManager().bindTexture(factionsTexture);
 						drawTexturedModalRect(guiLeft + pageWidth / 2 - 97, guiTop + pageY + 56, 0, 240, 194, 16);
-						float cdFrac = (float) clientPD.getPledgeBreakCooldown() / (float) clientPD.getPledgeBreakCooldownStart();
+						float cdFrac = (float) clientPD.getPledgeBreakCooldown() / clientPD.getPledgeBreakCooldownStart();
 						drawTexturedModalRect(guiLeft + pageWidth / 2 - 75, guiTop + pageY + 60, 22, 232, MathHelper.ceiling_float_int(cdFrac * 150.0f), 8);
 					}
 				} else if (isUnpledging) {
@@ -434,14 +434,14 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 				float[] factionColors = faction.getFactionRGB();
 				float shade = 0.6f;
 				GL11.glColor4f(factionColors[0] * shade, factionColors[1] * shade, factionColors[2] * shade, 1.0f);
-				float xMin = (float) index / (float) factions;
-				float xMax = (float) (index + 1) / (float) factions;
+				float xMin = (float) index / factions;
+				float xMax = (float) (index + 1) / factions;
 				xMin = guiLeft + scrollBarX + scrollBarBorder + xMin * (scrollBarWidth - scrollBarBorder * 2);
 				xMax = guiLeft + scrollBarX + scrollBarBorder + xMax * (scrollBarWidth - scrollBarBorder * 2);
 				float yMin = guiTop + scrollBarY + scrollBarBorder;
 				float yMax = guiTop + scrollBarY + scrollBarHeight - scrollBarBorder;
-				float minU = (0 + scrollBarBorder) / 256.0f;
-				float maxU = (0 + scrollBarWidth - scrollBarBorder) / 256.0f;
+				float minU = (scrollBarBorder) / 256.0f;
+				float maxU = (scrollBarWidth - scrollBarBorder) / 256.0f;
 				float minV = (128 + scrollBarBorder) / 256.0f;
 				float maxV = (128 + scrollBarHeight - scrollBarBorder) / 256.0f;
 				Tessellator tessellator = Tessellator.instance;
@@ -565,7 +565,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 	}
 
 	public void setCurrentScrollFromFaction() {
-		currentScroll = (float) currentFactionIndex / (float) (currentFactionList.size() - 1);
+		currentScroll = (float) currentFactionIndex / (currentFactionList.size() - 1);
 	}
 
 	public void setOtherPlayer(String name, Map<GOTFaction, Float> alignments) {
@@ -588,7 +588,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		}
 		wasMouseDown = isMouseDown;
 		if (isScrolling) {
-			currentScroll = (i - i1 - scrollWidgetWidth / 2.0f) / ((float) (i2 - i1) - (float) scrollWidgetWidth);
+			currentScroll = (i - i1 - scrollWidgetWidth / 2.0f) / ((float) (i2 - i1) - scrollWidgetWidth);
 			currentScroll = MathHelper.clamp_float(currentScroll, 0.0f, 1.0f);
 			currentFactionIndex = Math.round(currentScroll * (currentFactionList.size() - 1));
 			scrollPaneAlliesEnemies.resetScroll();

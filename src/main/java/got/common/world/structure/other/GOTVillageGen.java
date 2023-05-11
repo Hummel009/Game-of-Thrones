@@ -20,7 +20,7 @@ import java.util.Random;
 
 public abstract class GOTVillageGen {
 	public static Random villageRand = new Random();
-	public static double SQRT2 = Math.sqrt(2.0);
+	public static double SQRT2 = 1.4142135623730951;
 	public GOTBiome villageBiome;
 	public List<BiomeGenBase> spawnBiomes;
 	public int gridScale;
@@ -256,8 +256,8 @@ public abstract class GOTVillageGen {
 				return cache.markResult(chunkX, chunkZ, LocationInfo.NONE_HERE);
 			}
 		}
-		int i2 = MathHelper.floor_double((double) chunkX / (double) gridScale);
-		int k2 = MathHelper.floor_double((double) chunkZ / (double) gridScale);
+		int i2 = MathHelper.floor_double((double) chunkX / gridScale);
+		int k2 = MathHelper.floor_double((double) chunkZ / gridScale);
 		seedVillageRand(world, i2, k2);
 		i2 *= gridScale;
 		k2 *= gridScale;

@@ -498,7 +498,7 @@ public class GOTStructurePentosCity extends GOTVillageGen {
 				addStructure(getTownWallLong(random), -i, -k, 3, true);
 			}
 			for (l = -17; l <= 17; ++l) {
-				i = 0 + l * 4;
+				i = l * 4;
 				k = 44;
 				r = 2;
 				if (IntMath.mod(l, 2) == 1) {

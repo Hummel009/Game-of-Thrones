@@ -81,14 +81,14 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 		int fh = fontRendererObj.FONT_HEIGHT;
 		int border = fh * 2;
 		if (chunkLoaded) {
-			Gui.drawRect(0, 0, width, 0 + border + fh * 3 + border, boxColor);
+			Gui.drawRect(0, 0, width, border + fh * 3 + border, boxColor);
 		} else {
-			Gui.drawRect(0, 0, width, 0 + border + fh + border, boxColor);
+			Gui.drawRect(0, 0, width, border + fh + border, boxColor);
 		}
 		int messageY = height - border - messageLines.size() * fh;
 		Gui.drawRect(0, messageY - border, width, height, boxColor);
 		GL11.glDisable(3042);
-		fontRendererObj.drawStringWithShadow(title + titleExtra, width / 2 - fontRendererObj.getStringWidth(title) / 2, 0 + border, 16777215);
+		fontRendererObj.drawStringWithShadow(title + titleExtra, width / 2 - fontRendererObj.getStringWidth(title) / 2, border, 16777215);
 		for (Object obj : messageLines) {
 			String s1 = (String) obj;
 			drawCenteredString(fontRendererObj, s1, width / 2, messageY, 16777215);
@@ -98,7 +98,7 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 			float skipAlpha = GOTFunctions.triangleWave(tickCounter + f, 0.3f, 1.0f, 80.0f);
 			int skipColor = 0xFFFFFF | GOTClientProxy.getAlphaInt(skipAlpha) << 24;
 			GL11.glEnable(3042);
-			fontRendererObj.drawString(skipText, width / 2 - fontRendererObj.getStringWidth(skipText) / 2, 0 + border + fh * 2, skipColor);
+			fontRendererObj.drawString(skipText, width / 2 - fontRendererObj.getStringWidth(skipText) / 2, border + fh * 2, skipColor);
 		}
 		GL11.glDisable(3042);
 		super.drawScreen(i, j, f);
@@ -134,7 +134,7 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 			float dx = theWaypoint.getX() - mapRenderer.mapX;
 			float distSq = dx * dx + (dy = theWaypoint.getY() - mapRenderer.mapY) * dy;
 			float dist = (float) Math.sqrt(distSq);
-			if (dist <= 1.0f * mapScaleFactor) {
+			if (dist <= mapScaleFactor) {
 				reachedWP = true;
 				mapSpeed = 0.0f;
 				mapVelX = 0.0f;

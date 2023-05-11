@@ -56,8 +56,8 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 		byte b2 = otherCoordPairs[b1];
 		byte b3 = otherCoordPairs[b1 + 3];
 		int b4 = aint2[b1] > 0 ? 1 : -1;
-		double d0 = (double) aint2[b2] / (double) aint2[b1];
-		double d1 = (double) aint2[b3] / (double) aint2[b1];
+		double d0 = (double) aint2[b2] / aint2[b1];
+		double d1 = (double) aint2[b3] / aint2[b1];
 		int[] aint3 = {0, 0, 0};
 		int j = aint2[b1] + b4;
 		for (i = 0; i != j; i += b4) {
@@ -256,8 +256,8 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 			byte b2 = otherCoordPairs[b1];
 			byte b3 = otherCoordPairs[b1 + 3];
 			int b4 = aint2[b1] > 0 ? 1 : -1;
-			double d0 = (double) aint2[b2] / (double) aint2[b1];
-			double d1 = (double) aint2[b3] / (double) aint2[b1];
+			double d0 = (double) aint2[b2] / aint2[b1];
+			double d1 = (double) aint2[b3] / aint2[b1];
 			int[] aint3 = {0, 0, 0};
 			int k = aint2[b1] + b4;
 			for (int j = 0; j != k; j += b4) {

@@ -72,7 +72,7 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 		drawVerticalLine(titleX - 70, titleY - 1, titleY + yIncrement * 12, -1711276033);
 		drawVerticalLine(titleX + 70 - 1, titleY - 1, titleY + yIncrement * 12, -1711276033);
 		int size = displayedTitles.size();
-		int min = 0 + Math.round(currentScroll * (size - 12));
+		int min = Math.round(currentScroll * (size - 12));
 		int max = 11 + Math.round(currentScroll * (size - 12));
 		min = Math.max(min, 0);
 		max = Math.min(max, size - 1);
@@ -167,7 +167,7 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 		if (i != 0) {
 			i = Integer.signum(i);
 			int j = displayedTitles.size() - 12;
-			currentScroll -= (float) i / (float) j;
+			currentScroll -= (float) i / j;
 			currentScroll = MathHelper.clamp_float(currentScroll, 0.0f, 1.0f);
 		}
 	}
@@ -228,7 +228,7 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 		}
 		wasMouseDown = isMouseDown;
 		if (isScrolling) {
-			currentScroll = (j - j1 - scrollWidgetHeight / 2.0f) / ((float) (j2 - j1) - (float) scrollWidgetHeight);
+			currentScroll = (j - j1 - scrollWidgetHeight / 2.0f) / ((float) (j2 - j1) - scrollWidgetHeight);
 			currentScroll = MathHelper.clamp_float(currentScroll, 0.0f, 1.0f);
 		}
 	}

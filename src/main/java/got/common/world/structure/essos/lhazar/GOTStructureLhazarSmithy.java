@@ -98,7 +98,7 @@ public class GOTStructureLhazarSmithy extends GOTStructureLhazarBase {
 		GOTEntityLhazarBlacksmith smith = new GOTEntityLhazarBlacksmith(world);
 		spawnNPCAndSetHome(smith, world, -6, 1, 0, 8);
 		int maxSteps = 12;
-		for (int step = 0; step < maxSteps && !isOpaque(world, i1 = -9, j1 = 0 - step, k1 = -5 - step); ++step) {
+		for (int step = 0; step < maxSteps && !isOpaque(world, i1 = -9, j1 = -step, k1 = -5 - step); ++step) {
 			setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.stairsRedSandstone, 2);
 			setGrassToDirt(world, i1, j1 - 1, k1);
 			int j2 = j1 - 1;

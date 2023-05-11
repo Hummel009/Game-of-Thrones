@@ -79,10 +79,10 @@ public class GOTModelTermite extends ModelBase {
 		float f8 = 0.3926991f;
 		leg1.rotateAngleY = f8 * 2.0f + f7;
 		leg2.rotateAngleY = -f8 * 2.0f - f7;
-		leg3.rotateAngleY = f8 * 1.0f + f7;
-		leg4.rotateAngleY = -f8 * 1.0f - f7;
-		leg5.rotateAngleY = -f8 * 1.0f + f7;
-		leg6.rotateAngleY = f8 * 1.0f - f7;
+		leg3.rotateAngleY = f8 + f7;
+		leg4.rotateAngleY = -f8 - f7;
+		leg5.rotateAngleY = -f8 + f7;
+		leg6.rotateAngleY = f8 - f7;
 		float f9 = -(MathHelper.cos(f * 0.6662f * 2.0f + 0.0f) * 0.4f) * f1;
 		float f10 = -(MathHelper.cos(f * 0.6662f * 2.0f + 3.1415927f) * 0.4f) * f1;
 		float f11 = -(MathHelper.cos(f * 0.6662f * 2.0f + 1.5707964f) * 0.4f) * f1;

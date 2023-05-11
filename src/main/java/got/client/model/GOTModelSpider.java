@@ -110,10 +110,10 @@ public class GOTModelSpider extends ModelBase implements GOTGlowingEyes.Model {
 		float f8 = 0.3926991f;
 		leg1.rotateAngleY = f8 * 2.0f + f7;
 		leg2.rotateAngleY = -f8 * 2.0f - f7;
-		leg3.rotateAngleY = f8 * 1.0f + f7;
-		leg4.rotateAngleY = -f8 * 1.0f - f7;
-		leg5.rotateAngleY = -f8 * 1.0f + f7;
-		leg6.rotateAngleY = f8 * 1.0f - f7;
+		leg3.rotateAngleY = f8 + f7;
+		leg4.rotateAngleY = -f8 - f7;
+		leg5.rotateAngleY = -f8 + f7;
+		leg6.rotateAngleY = f8 - f7;
 		leg7.rotateAngleY = -f8 * 2.0f + f7;
 		leg8.rotateAngleY = f8 * 2.0f - f7;
 		float f9 = -(MathHelper.cos(f * 0.6662f * 2.0f + 0.0f) * 0.4f) * f1;

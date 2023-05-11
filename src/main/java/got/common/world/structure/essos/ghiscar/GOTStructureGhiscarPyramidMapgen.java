@@ -48,8 +48,8 @@ public class GOTStructureGhiscarPyramidMapgen extends MapGenStructure {
 			return cacheLocation.isPresent();
 		}
 		setupSpawnBiomes();
-		int i2 = MathHelper.floor_double((double) i / (double) separation);
-		int k2 = MathHelper.floor_double((double) k / (double) separation);
+		int i2 = MathHelper.floor_double((double) i / separation);
+		int k2 = MathHelper.floor_double((double) k / separation);
 		Random dRand = worldObj.setRandomSeed(i2, k2, 190169976);
 		i2 *= separation;
 		k2 *= separation;

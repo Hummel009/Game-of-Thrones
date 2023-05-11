@@ -211,7 +211,7 @@ public class GOTConquestGrid {
 	}
 
 	public static GOTConquestZone getZoneByGridCoords(int i, int k) {
-		if (i < 0 || i >= MathHelper.ceiling_float_int((float) GOTGenLayerWorld.imageWidth / (float) MAP_GRID_SCALE) || k < 0 || k >= MathHelper.ceiling_float_int((float) GOTGenLayerWorld.imageHeight / (float) MAP_GRID_SCALE)) {
+		if (i < 0 || i >= MathHelper.ceiling_float_int((float) GOTGenLayerWorld.imageWidth / MAP_GRID_SCALE) || k < 0 || k >= MathHelper.ceiling_float_int((float) GOTGenLayerWorld.imageHeight / MAP_GRID_SCALE)) {
 			return dummyZone;
 		}
 		GridCoordPair key = new GridCoordPair(i, k);

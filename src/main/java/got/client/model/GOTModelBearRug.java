@@ -33,13 +33,13 @@ public class GOTModelBearRug extends ModelBase {
 	}
 
 	public void setRotationAngles() {
-		bearModel.leg1.rotateAngleX = (float) Math.toRadians(30.0);
-		bearModel.leg1.rotateAngleZ = (float) Math.toRadians(90.0);
-		bearModel.leg2.rotateAngleX = (float) Math.toRadians(30.0);
-		bearModel.leg2.rotateAngleZ = (float) Math.toRadians(-90.0);
-		bearModel.leg3.rotateAngleX = (float) Math.toRadians(-20.0);
-		bearModel.leg3.rotateAngleZ = (float) Math.toRadians(90.0);
-		bearModel.leg4.rotateAngleX = (float) Math.toRadians(-20.0);
-		bearModel.leg4.rotateAngleZ = (float) Math.toRadians(-90.0);
+		bearModel.leg1.rotateAngleX = (float) 0.5235987755982988;
+		bearModel.leg1.rotateAngleZ = (float) 1.5707963267948966;
+		bearModel.leg2.rotateAngleX = (float) 0.5235987755982988;
+		bearModel.leg2.rotateAngleZ = (float) -1.5707963267948966;
+		bearModel.leg3.rotateAngleX = (float) -0.3490658503988659;
+		bearModel.leg3.rotateAngleZ = (float) 1.5707963267948966;
+		bearModel.leg4.rotateAngleX = (float) -0.3490658503988659;
+		bearModel.leg4.rotateAngleZ = (float) -1.5707963267948966;
 	}
 }

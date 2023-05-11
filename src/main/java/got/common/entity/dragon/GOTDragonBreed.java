@@ -43,15 +43,15 @@ public class GOTDragonBreed {
 	}
 
 	public float getColorB() {
-		return (color & 0xFF) / 255f;
+		return (color & 0xFF) / 255.0f;
 	}
 
 	public float getColorG() {
-		return (color >> 8 & 0xFF) / 255f;
+		return (color >> 8 & 0xFF) / 255.0f;
 	}
 
 	public float getColorR() {
-		return (color >> 16 & 0xFF) / 255f;
+		return (color >> 16 & 0xFF) / 255.0f;
 	}
 
 	public EnumCreatureAttribute getCreatureAttribute() {

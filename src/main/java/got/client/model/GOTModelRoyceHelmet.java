@@ -21,29 +21,29 @@ public class GOTModelRoyceHelmet extends GOTModelBiped {
 			spikes[i].setRotationPoint(0.0f, 0.0f, 0.0f);
 		}
 		spikes[0].addBox(-1.0f, -5.5f, -10.0f, 1, 1, 4);
-		spikes[0].rotateAngleX = (float) Math.toRadians(-20.0);
-		spikes[0].rotateAngleY = (float) Math.toRadians(20.0);
+		spikes[0].rotateAngleX = (float) -0.3490658503988659;
+		spikes[0].rotateAngleY = (float) 0.3490658503988659;
 		spikes[1].addBox(0.0f, -5.5f, -10.0f, 1, 1, 4);
-		spikes[1].rotateAngleX = (float) Math.toRadians(-20.0);
-		spikes[1].rotateAngleY = (float) Math.toRadians(-20.0);
+		spikes[1].rotateAngleX = (float) -0.3490658503988659;
+		spikes[1].rotateAngleY = (float) -0.3490658503988659;
 		spikes[2].addBox(6.0f, -5.5f, -1.0f, 4, 1, 1);
-		spikes[2].rotateAngleZ = (float) Math.toRadians(-20.0);
-		spikes[2].rotateAngleY = (float) Math.toRadians(20.0);
+		spikes[2].rotateAngleZ = (float) -0.3490658503988659;
+		spikes[2].rotateAngleY = (float) 0.3490658503988659;
 		spikes[3].addBox(6.0f, -5.5f, 0.0f, 4, 1, 1);
-		spikes[3].rotateAngleZ = (float) Math.toRadians(-20.0);
-		spikes[3].rotateAngleY = (float) Math.toRadians(-20.0);
+		spikes[3].rotateAngleZ = (float) -0.3490658503988659;
+		spikes[3].rotateAngleY = (float) -0.3490658503988659;
 		spikes[4].addBox(0.0f, -5.5f, 6.0f, 1, 1, 4);
-		spikes[4].rotateAngleX = (float) Math.toRadians(20.0);
-		spikes[4].rotateAngleY = (float) Math.toRadians(20.0);
+		spikes[4].rotateAngleX = (float) 0.3490658503988659;
+		spikes[4].rotateAngleY = (float) 0.3490658503988659;
 		spikes[5].addBox(-1.0f, -5.5f, 6.0f, 1, 1, 4);
-		spikes[5].rotateAngleX = (float) Math.toRadians(20.0);
-		spikes[5].rotateAngleY = (float) Math.toRadians(-20.0);
+		spikes[5].rotateAngleX = (float) 0.3490658503988659;
+		spikes[5].rotateAngleY = (float) -0.3490658503988659;
 		spikes[6].addBox(-10.0f, -5.5f, 0.0f, 4, 1, 1);
-		spikes[6].rotateAngleZ = (float) Math.toRadians(20.0);
-		spikes[6].rotateAngleY = (float) Math.toRadians(20.0);
+		spikes[6].rotateAngleZ = (float) 0.3490658503988659;
+		spikes[6].rotateAngleY = (float) 0.3490658503988659;
 		spikes[7].addBox(-10.0f, -5.5f, -1.0f, 4, 1, 1);
-		spikes[7].rotateAngleZ = (float) Math.toRadians(20.0);
-		spikes[7].rotateAngleY = (float) Math.toRadians(-20.0);
+		spikes[7].rotateAngleZ = (float) 0.3490658503988659;
+		spikes[7].rotateAngleY = (float) -0.3490658503988659;
 		for (i = 0; i < spikes.length; ++i) {
 			bipedHead.addChild(spikes[i]);
 		}

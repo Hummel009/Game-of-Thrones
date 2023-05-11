@@ -29,13 +29,13 @@ public class GOTModelBear extends ModelBase {
 		ModelRenderer earRight = new ModelRenderer(this, 23, 17);
 		earRight.setRotationPoint(0.0f, 0.0f, 0.0f);
 		earRight.addBox(-4.0f, -8.0f, -6.0f, 3, 3, 1);
-		earRight.rotateAngleZ = (float) Math.toRadians(-15.0);
+		earRight.rotateAngleZ = (float) -0.2617993877991494;
 		head.addChild(earRight);
 		ModelRenderer earLeft = new ModelRenderer(this, 23, 17);
 		earLeft.mirror = true;
 		earLeft.setRotationPoint(0.0f, 0.0f, 0.0f);
 		earLeft.addBox(1.0f, -8.0f, -6.0f, 3, 3, 1);
-		earLeft.rotateAngleZ = (float) Math.toRadians(15.0);
+		earLeft.rotateAngleZ = (float) 0.2617993877991494;
 		head.addChild(earLeft);
 		body = new ModelRenderer(this, 40, 0);
 		body.setRotationPoint(0.0f, 10.0f, -2.0f);
@@ -74,7 +74,7 @@ public class GOTModelBear extends ModelBase {
 
 	@Override
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
-		head.rotateAngleX = (float) Math.toRadians(10.0);
+		head.rotateAngleX = (float) 0.17453292519943295;
 		head.rotateAngleY = 0.0f;
 		head.rotateAngleX += (float) Math.toRadians(f4);
 		head.rotateAngleY += (float) Math.toRadians(f3);

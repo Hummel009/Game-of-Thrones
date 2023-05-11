@@ -267,7 +267,7 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 				if (i17 > -7 + step2 && i17 < 11 - step2) {
 					continue;
 				}
-				setBlockAndMetadata(world, i17, 8 + step2, 0 + step2, roofStairBlock, 2);
+				setBlockAndMetadata(world, i17, 8 + step2, step2, roofStairBlock, 2);
 				setBlockAndMetadata(world, i17, 8 + step2, 14 - step2, roofStairBlock, 3);
 			}
 			setBlockAndMetadata(world, -7 + step2, 8 + step2, -1 + step2, roofStairBlock, 1);

@@ -51,7 +51,7 @@ public class GOTGuiNotificationDisplay extends Gui {
 			int index = 0;
 			for (Notification notif : notifications) {
 				long notifTime = notif.getNotificationTime();
-				double d0 = (double) (Minecraft.getSystemTime() - notifTime) / (double) notif.getDurationMs();
+				double d0 = (double) (Minecraft.getSystemTime() - notifTime) / notif.getDurationMs();
 				if (d0 < 0.0 || d0 > 1.0) {
 					notificationsToRemove.add(notif);
 				} else {
@@ -72,7 +72,7 @@ public class GOTGuiNotificationDisplay extends Gui {
 						d1 *= d1;
 						d1 *= d1;
 						int i = windowWidth - guiXSize;
-						int j = 0 - (int) (d1 * 36.0);
+						int j = -(int) (d1 * 36.0);
 						GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 						GL11.glEnable(3553);
 						mc.getTextureManager().bindTexture(GOTGuiAchievements.iconsTexture);

@@ -117,7 +117,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 		for (i1 = -1; i1 <= 1; ++i1) {
 			int j12;
-			for (int step = 0; step < 12 && !isOpaque(world, i1, j12 = 0 - step, k12 = -9 - step); ++step) {
+			for (int step = 0; step < 12 && !isOpaque(world, i1, j12 = -step, k12 = -9 - step); ++step) {
 				setBlockAndMetadata(world, i1, j12, k12, plank2StairBlock, 2);
 				setGrassToDirt(world, i1, j12 - 1, k12);
 				j2 = j12 - 1;
@@ -130,7 +130,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 		for (i1 = -1; i1 <= 1; ++i1) {
 			int j13;
-			for (int step = 0; step < 12 && !isOpaque(world, i1, j13 = 0 - step, k12 = 9 + step); ++step) {
+			for (int step = 0; step < 12 && !isOpaque(world, i1, j13 = -step, k12 = 9 + step); ++step) {
 				setBlockAndMetadata(world, i1, j13, k12, plank2StairBlock, 3);
 				setGrassToDirt(world, i1, j13 - 1, k12);
 				j2 = j13 - 1;
@@ -143,7 +143,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 		for (k1 = -1; k1 <= 1; ++k1) {
 			int j14;
-			for (int step = 0; step < 12 && !isOpaque(world, i12 = -9 - step, j14 = 0 - step, k1); ++step) {
+			for (int step = 0; step < 12 && !isOpaque(world, i12 = -9 - step, j14 = -step, k1); ++step) {
 				setBlockAndMetadata(world, i12, j14, k1, plank2StairBlock, 1);
 				setGrassToDirt(world, i12, j14 - 1, k1);
 				j2 = j14 - 1;
@@ -156,7 +156,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 		for (k1 = -1; k1 <= 1; ++k1) {
 			int j15;
-			for (int step = 0; step < 12 && !isOpaque(world, i12 = 9 + step, j15 = 0 - step, k1); ++step) {
+			for (int step = 0; step < 12 && !isOpaque(world, i12 = 9 + step, j15 = -step, k1); ++step) {
 				setBlockAndMetadata(world, i12, j15, k1, plank2StairBlock, 0);
 				setGrassToDirt(world, i12, j15 - 1, k1);
 				j2 = j15 - 1;

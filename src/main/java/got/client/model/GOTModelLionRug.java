@@ -38,13 +38,13 @@ public class GOTModelLionRug extends ModelBase {
 	}
 
 	public void setRotationAngles() {
-		lionModel.leg1.rotateAngleX = (float) Math.toRadians(30.0);
-		lionModel.leg1.rotateAngleZ = (float) Math.toRadians(90.0);
-		lionModel.leg2.rotateAngleX = (float) Math.toRadians(30.0);
-		lionModel.leg2.rotateAngleZ = (float) Math.toRadians(-90.0);
-		lionModel.leg3.rotateAngleX = (float) Math.toRadians(-20.0);
-		lionModel.leg3.rotateAngleZ = (float) Math.toRadians(90.0);
-		lionModel.leg4.rotateAngleX = (float) Math.toRadians(-20.0);
-		lionModel.leg4.rotateAngleZ = (float) Math.toRadians(-90.0);
+		lionModel.leg1.rotateAngleX = (float) 0.5235987755982988;
+		lionModel.leg1.rotateAngleZ = (float) 1.5707963267948966;
+		lionModel.leg2.rotateAngleX = (float) 0.5235987755982988;
+		lionModel.leg2.rotateAngleZ = (float) -1.5707963267948966;
+		lionModel.leg3.rotateAngleX = (float) -0.3490658503988659;
+		lionModel.leg3.rotateAngleZ = (float) 1.5707963267948966;
+		lionModel.leg4.rotateAngleX = (float) -0.3490658503988659;
+		lionModel.leg4.rotateAngleZ = (float) -1.5707963267948966;
 	}
 }

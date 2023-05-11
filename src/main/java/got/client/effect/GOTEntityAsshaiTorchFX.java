@@ -32,7 +32,7 @@ public class GOTEntityAsshaiTorchFX extends EntitySpellParticleFX {
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		particleAlpha = 0.5f + 0.5f * ((float) particleAge / (float) particleMaxAge);
+		particleAlpha = 0.5f + 0.5f * ((float) particleAge / particleMaxAge);
 		motionX *= 1.1;
 		motionZ *= 1.1;
 	}

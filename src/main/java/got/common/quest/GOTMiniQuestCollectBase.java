@@ -31,7 +31,7 @@ public abstract class GOTMiniQuestCollectBase extends GOTMiniQuest {
 
 	@Override
 	public float getCompletionFactor() {
-		return (float) amountGiven / (float) collectTarget;
+		return (float) amountGiven / collectTarget;
 	}
 
 	@Override

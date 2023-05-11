@@ -85,7 +85,7 @@ public class GOTStructureWesterosWell extends GOTStructureWesterosBase {
 		int waterDepth = 1 + random.nextInt(4);
 		int depth = waterDepth + 1 + random.nextInt(3);
 		for (j1 = 0; j1 < depth; ++j1) {
-			int j2 = 0 - j1;
+			int j2 = -j1;
 			boolean watery = j1 >= depth - waterDepth;
 			for (int i1 = -1; i1 <= 1; ++i1) {
 				for (int k1 = -1; k1 <= 1; ++k1) {

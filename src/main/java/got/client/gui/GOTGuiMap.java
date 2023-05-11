@@ -766,14 +766,14 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					float[] factionColors = faction.getFactionRGB();
 					float shade = 0.6f;
 					GL11.glColor4f(factionColors[0] * shade, factionColors[1] * shade, factionColors[2] * shade, 1.0f);
-					float xMin = (float) index / (float) factions;
-					float xMax = (float) (index + 1) / (float) factions;
+					float xMin = (float) index / factions;
+					float xMax = (float) (index + 1) / factions;
 					xMin = facScrollX + facScrollBorder + xMin * (facScrollWidth - facScrollBorder * 2);
 					xMax = facScrollX + facScrollBorder + xMax * (facScrollWidth - facScrollBorder * 2);
 					float yMin = facScrollY + facScrollBorder;
 					float yMax = facScrollY + facScrollHeight - facScrollBorder;
-					float minU = (0 + facScrollBorder) / 256.0f;
-					float maxU = (0 + facScrollWidth - facScrollBorder) / 256.0f;
+					float minU = (facScrollBorder) / 256.0f;
+					float maxU = (facScrollWidth - facScrollBorder) / 256.0f;
 					float minV = (128 + facScrollBorder) / 256.0f;
 					float maxV = (128 + facScrollHeight - facScrollBorder) / 256.0f;
 					tess.startDrawingQuads();
@@ -1024,8 +1024,8 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			posY = z / GOTGenLayerWorld.scale + 730.0f;
 			int zoneWidth = xMax - xMin;
 			int zoneHeight = zMax - zMin;
-			double mapZoneWidth = (double) zoneWidth / (double) GOTGenLayerWorld.scale;
-			double mapZoneHeight = (double) zoneHeight / (double) GOTGenLayerWorld.scale;
+			double mapZoneWidth = (double) zoneWidth / GOTGenLayerWorld.scale;
+			double mapZoneHeight = (double) zoneHeight / GOTGenLayerWorld.scale;
 			int zoomPowerWidth = MathHelper.floor_double(Math.log(mapWidth / mapZoneWidth) / Math.log(2.0));
 			int zoomPowerHeight = MathHelper.floor_double(Math.log(mapHeight / mapZoneHeight) / Math.log(2.0));
 			prevZoomPower = zoomPower = Math.min(zoomPowerWidth, zoomPowerHeight);
@@ -1396,7 +1396,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 								GL11.glBlendFunc(770, 771);
 								int strX = -nameWidth / 2;
 								int strY = -15;
-								fontRendererObj.drawString(name, strX + 1, strY + 1, 0 + (alphaI << 24));
+								fontRendererObj.drawString(name, strX + 1, strY + 1, (alphaI << 24));
 								fontRendererObj.drawString(name, strX, strY, 16777215 + (alphaI << 24));
 								GL11.glDisable(3042);
 								GL11.glPopMatrix();
@@ -1443,7 +1443,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					tessellator.setColorOpaque_I(color);
 					int sides = 100;
 					for (int l = sides - 1; l >= 0; --l) {
-						float angle = (float) l / (float) sides * 2.0f * 3.1415927f;
+						float angle = (float) l / sides * 2.0f * 3.1415927f;
 						double x = zone.xCoord;
 						double z = zone.zCoord;
 						float[] trans2 = transformCoords(x += MathHelper.cos(angle) * radiusWorld, z += MathHelper.sin(angle) * radiusWorld);
@@ -1484,7 +1484,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		float[] rgb1 = new Color(c1).getColorComponents(null);
 		float[] rgb2 = new Color(c2).getColorComponents(null);
 		for (int l = w - 1; l >= 0; --l) {
-			float f = (float) l / (float) (w - 1);
+			float f = (float) l / (w - 1);
 			float r = rgb1[0] + (rgb2[0] - rgb1[0]) * f;
 			float g = rgb1[1] + (rgb2[1] - rgb1[1]) * f;
 			float b = rgb1[2] + (rgb2[2] - rgb1[2]) * f;
@@ -1530,10 +1530,10 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				int strY = -fontRendererObj.FONT_HEIGHT / 2;
 				if (isOSRS()) {
 					if (label.scale > 2.5f) {
-						fontRendererObj.drawString(s, strX + 1, strY + 1, 0 + (alphaI << 24));
+						fontRendererObj.drawString(s, strX + 1, strY + 1, (alphaI << 24));
 						fontRendererObj.drawString(s, strX, strY, 16755200 + (alphaI << 24));
 					} else {
-						fontRendererObj.drawString(s, strX + 1, strY + 1, 0 + (alphaI << 24));
+						fontRendererObj.drawString(s, strX + 1, strY + 1, (alphaI << 24));
 						fontRendererObj.drawString(s, strX, strY, 16777215 + (alphaI << 24));
 					}
 				} else {
@@ -1554,10 +1554,10 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		mapYMax_W = mapYMax;
 		float mapScaleX = mapWidth / zoomScale;
 		float mapScaleY = mapHeight / zoomScale;
-		double minU = (double) (posX - mapScaleX / 2.0f) / (double) GOTGenLayerWorld.imageWidth;
-		double maxU = (double) (posX + mapScaleX / 2.0f) / (double) GOTGenLayerWorld.imageWidth;
-		double minV = (double) (posY - mapScaleY / 2.0f) / (double) GOTGenLayerWorld.imageHeight;
-		double maxV = (double) (posY + mapScaleY / 2.0f) / (double) GOTGenLayerWorld.imageHeight;
+		double minU = (double) (posX - mapScaleX / 2.0f) / GOTGenLayerWorld.imageWidth;
+		double maxU = (double) (posX + mapScaleX / 2.0f) / GOTGenLayerWorld.imageWidth;
+		double minV = (double) (posY - mapScaleY / 2.0f) / GOTGenLayerWorld.imageHeight;
+		double maxV = (double) (posY + mapScaleY / 2.0f) / GOTGenLayerWorld.imageHeight;
 		if (minU < 0.0) {
 			mapXMin_W = mapXMin + (int) Math.round((0.0 - minU) * GOTGenLayerWorld.imageWidth * zoomScale);
 			minU = 0.0;
@@ -1866,7 +1866,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 									String s = waypoint.getDisplayName();
 									int strX = -fontRendererObj.getStringWidth(s) / 2;
 									int strY = -15;
-									fontRendererObj.drawString(s, strX + 1, strY + 1, 0 + (alphaI << 24));
+									fontRendererObj.drawString(s, strX + 1, strY + 1, (alphaI << 24));
 									fontRendererObj.drawString(s, strX, strY, 16777215 + (alphaI << 24));
 									GL11.glDisable(3042);
 									GL11.glPopMatrix();
@@ -1992,7 +1992,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	}
 
 	public void setCurrentScrollFromFaction() {
-		currentFacScroll = (float) currentFactionIndex / (float) (currentFactionList.size() - 1);
+		currentFacScroll = (float) currentFactionIndex / (currentFactionList.size() - 1);
 	}
 
 	public void setCWPProtectionMessage(IChatComponent message) {
@@ -2028,7 +2028,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 		wasMouseDown = isMouseDown;
 		if (isFacScrolling) {
-			currentFacScroll = (i - i1 - facScrollWidgetWidth / 2.0f) / ((float) (i2 - i1) - (float) facScrollWidgetWidth);
+			currentFacScroll = (i - i1 - facScrollWidgetWidth / 2.0f) / ((float) (i2 - i1) - facScrollWidgetWidth);
 			currentFacScroll = MathHelper.clamp_float(currentFacScroll, 0.0f, 1.0f);
 			currentFactionIndex = Math.round(currentFacScroll * (currentFactionList.size() - 1));
 		}

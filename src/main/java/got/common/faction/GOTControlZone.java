@@ -22,7 +22,7 @@ public class GOTControlZone {
 		xCoord = GOTWaypoint.mapToWorldX(mapX);
 		zCoord = GOTWaypoint.mapToWorldZ(mapY);
 		radiusCoord = GOTWaypoint.mapToWorldR(radius);
-		radiusCoordSq = (long) radiusCoord * (long) radiusCoord;
+		radiusCoordSq = (long) radiusCoord * radiusCoord;
 	}
 
 	public boolean intersectsWith(GOTControlZone other, int extraMapRadius) {
@@ -42,7 +42,7 @@ public class GOTControlZone {
 			return distSq <= radiusCoordSq;
 		}
 		int checkRadius = GOTWaypoint.mapToWorldR(radius + extraMapRange);
-		long checkRadiusSq = (long) checkRadius * (long) checkRadius;
+		long checkRadiusSq = (long) checkRadius * checkRadius;
 		return distSq <= checkRadiusSq;
 	}
 }

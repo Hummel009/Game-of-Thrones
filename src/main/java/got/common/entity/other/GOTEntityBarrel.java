@@ -200,7 +200,7 @@ public class GOTEntityBarrel extends Entity {
 		int b0 = 5;
 		double d0 = 0.0;
 		for (int i2 = 0; i2 < b0; ++i2) {
-			double d1 = boundingBox.minY + (boundingBox.maxY - boundingBox.minY) * (i2 + 0) / b0 - 0.125;
+			double d1 = boundingBox.minY + (boundingBox.maxY - boundingBox.minY) * (i2) / b0 - 0.125;
 			double d2 = boundingBox.minY + (boundingBox.maxY - boundingBox.minY) * (i2 + 1) / b0 - 0.125;
 			AxisAlignedBB axisalignedbb = AxisAlignedBB.getBoundingBox(boundingBox.minX, d1, boundingBox.minZ, boundingBox.maxX, d2, boundingBox.maxZ);
 			if (!worldObj.isAABBInMaterial(axisalignedbb, Material.water)) {

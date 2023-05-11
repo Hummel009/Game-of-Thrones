@@ -209,7 +209,7 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 				setBlockAndMetadata(world, i14, 4, k13, plank2Block, plank2Meta);
 				setBlockAndMetadata(world, i14, 5, k13, woodBeam2Block, woodBeam2Meta | 4);
 				setBlockAndMetadata(world, i14, 6, k13, fenceBlock, fenceMeta);
-				setBlockAndMetadata(world, i14, 5, k13 - 1 * Integer.signum(k13), plankSlabBlock, plankSlabMeta);
+				setBlockAndMetadata(world, i14, 5, k13 - Integer.signum(k13), plankSlabBlock, plankSlabMeta);
 			}
 			setBlockAndMetadata(world, -2, 7, k13, plankSlabBlock, plankSlabMeta);
 			setBlockAndMetadata(world, 2, 7, k13, plankSlabBlock, plankSlabMeta);
@@ -242,7 +242,7 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 				setBlockAndMetadata(world, i1, 4, k1, plank2Block, plank2Meta);
 				setBlockAndMetadata(world, i1, 5, k1, woodBeam2Block, woodBeam2Meta | 8);
 				setBlockAndMetadata(world, i1, 6, k1, fenceBlock, fenceMeta);
-				setBlockAndMetadata(world, i1 - 1 * Integer.signum(i1), 5, k1, plankSlabBlock, plankSlabMeta);
+				setBlockAndMetadata(world, i1 - Integer.signum(i1), 5, k1, plankSlabBlock, plankSlabMeta);
 			}
 			setBlockAndMetadata(world, i1, 7, -2, plankSlabBlock, plankSlabMeta);
 			setBlockAndMetadata(world, i1, 7, 2, plankSlabBlock, plankSlabMeta);

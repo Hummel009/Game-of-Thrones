@@ -524,7 +524,7 @@ public class GOTModelDragonAnimaton {
 		for (int i = 0; i < model.tailProxy.length; i++) {
 			float vertMulti = (i + 1) / (float) model.tailProxy.length;
 
-			float amp = 0.1f + i / (model.tailProxy.length * 2f);
+			float amp = 0.1f + i / (model.tailProxy.length * 2.0f);
 
 			rotXStand = (i - model.tailProxy.length * 0.6f) * -amp * 0.4f;
 			rotXStand += (sin(animBase * 0.2f) * sin(animBase * 0.37f) * 0.4f * amp - 0.1f) * (1 - sit);

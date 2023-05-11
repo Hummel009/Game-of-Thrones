@@ -107,8 +107,8 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 			int b0 = 30;
 			mc.getTextureManager().bindTexture(titleTexture);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, fadeAlpha);
-			drawTexturedModalRect(k + 0, b0 + 0, 0, 0, 155, 44);
-			drawTexturedModalRect(k + 155, b0 + 0, 0, 45, 155, 44);
+			drawTexturedModalRect(k, b0, 0, 0, 155, 44);
+			drawTexturedModalRect(k + 155, b0, 0, 45, 155, 44);
 			String modSubtitle = StatCollector.translateToLocal("got.menu.title");
 			drawString(fontRendererObj, modSubtitle, width / 2 - fontRendererObj.getStringWidth(modSubtitle) / 2, 80, -1);
 			List brandings = Lists.reverse((List) FMLCommonHandler.instance().getBrandings(true));

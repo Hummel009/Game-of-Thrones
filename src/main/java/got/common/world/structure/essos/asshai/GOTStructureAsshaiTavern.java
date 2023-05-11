@@ -259,7 +259,7 @@ public class GOTStructureAsshaiTavern extends GOTStructureAsshaiBase {
 				if (i17 > -7 + step2 && i17 < 11 - step2) {
 					continue;
 				}
-				setBlockAndMetadata(world, i17, 8 + step2, 0 + step2, plankStairBlock, 2);
+				setBlockAndMetadata(world, i17, 8 + step2, step2, plankStairBlock, 2);
 				setBlockAndMetadata(world, i17, 8 + step2, 14 - step2, plankStairBlock, 3);
 			}
 			setBlockAndMetadata(world, -7 + step2, 8 + step2, -1 + step2, plankStairBlock, 1);

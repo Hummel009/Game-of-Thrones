@@ -44,7 +44,7 @@ public class GOTGuiScrollPane {
 
 	public int[] getMinMaxIndices(List list, int displayed) {
 		int size = list.size();
-		int min = 0 + Math.round(currentScroll * (size - displayed));
+		int min = Math.round(currentScroll * (size - displayed));
 		int max = displayed - 1 + Math.round(currentScroll * (size - displayed));
 		min = Math.max(min, 0);
 		max = Math.min(max, size - 1);
@@ -70,7 +70,7 @@ public class GOTGuiScrollPane {
 				isScrolling = false;
 			}
 			if (isScrolling) {
-				currentScroll = (j - y0 - scrollWidgetHeight / 2.0f) / ((float) (y1 - y0) - (float) scrollWidgetHeight);
+				currentScroll = (j - y0 - scrollWidgetHeight / 2.0f) / ((float) (y1 - y0) - scrollWidgetHeight);
 				currentScroll = MathHelper.clamp_float(currentScroll, 0.0f, 1.0f);
 			}
 		}
@@ -78,7 +78,7 @@ public class GOTGuiScrollPane {
 	}
 
 	public void mouseWheelScroll(int delta, int size) {
-		currentScroll -= (float) delta / (float) size;
+		currentScroll -= (float) delta / size;
 		currentScroll = MathHelper.clamp_float(currentScroll, 0.0f, 1.0f);
 	}
 

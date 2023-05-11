@@ -230,7 +230,7 @@ public class GOTBiomeDecorator {
 			surfaceGravelGen.generate(worldObj, rand, i4, 0, k6);
 		}
 		if (!biomeVariant.disableStructures && Math.abs(chunkX) > 32 && Math.abs(chunkZ) > 32) {
-			long seed = chunkX * 1879267 ^ chunkZ * 67209689L;
+			long seed = chunkX * 1879267L ^ chunkZ * 67209689L;
 			seed = seed * seed * 5829687L + seed * 2876L;
 			structureRand.setSeed(seed);
 			boolean roadNear = GOTBeziers.isRoadNear(chunkX + 8, chunkZ + 8, 16) >= 0.0f;

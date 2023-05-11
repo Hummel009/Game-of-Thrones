@@ -18,7 +18,7 @@ public class GOTModelScorpion extends GOTModelSpider {
 		clawRight.addBox(-13.0f, -2.0f, -16.0f, 4, 3, 5);
 		clawRight.addBox(-13.0f, -1.0f, -20.0f, 1, 1, 4);
 		clawRight.addBox(-10.0f, -1.0f, -20.0f, 1, 1, 4);
-		clawRight.rotateAngleY = (float) Math.toRadians(50.0);
+		clawRight.rotateAngleY = (float) 0.8726646259971648;
 		armRight.addChild(clawRight);
 		armLeft = new ModelRenderer(this, 36, 16);
 		armLeft.mirror = true;
@@ -29,7 +29,7 @@ public class GOTModelScorpion extends GOTModelSpider {
 		clawLeft.addBox(9.0f, -2.0f, -16.0f, 4, 3, 5);
 		clawLeft.addBox(12.0f, -1.0f, -20.0f, 1, 1, 4);
 		clawLeft.addBox(9.0f, -1.0f, -20.0f, 1, 1, 4);
-		clawLeft.rotateAngleY = (float) Math.toRadians(-50.0);
+		clawLeft.rotateAngleY = (float) -0.8726646259971648;
 		armLeft.addChild(clawLeft);
 		tail = new ModelRenderer(this, 0, 12);
 		tail.addBox(-2.5f, -3.0f, 0.0f, 5, 5, 11);
@@ -37,18 +37,18 @@ public class GOTModelScorpion extends GOTModelSpider {
 		ModelRenderer tail1 = new ModelRenderer(this, 0, 12);
 		tail1.addBox(-2.0f, -2.0f, 0.0f, 4, 4, 10);
 		tail1.setRotationPoint(0.0f, -0.5f, 11.0f);
-		tail1.rotateAngleX = (float) Math.toRadians(40.0);
+		tail1.rotateAngleX = (float) 0.6981317007977318;
 		tail.addChild(tail1);
 		ModelRenderer tail2 = new ModelRenderer(this, 0, 12);
 		tail2.addBox(-1.5f, -2.0f, 0.0f, 3, 4, 10);
 		tail2.setRotationPoint(0.0f, 0.0f, 11.0f);
-		tail2.rotateAngleX = (float) Math.toRadians(40.0);
+		tail2.rotateAngleX = (float) 0.6981317007977318;
 		tail1.addChild(tail2);
 		ModelRenderer sting = new ModelRenderer(this, 0, 12);
 		sting.addBox(-1.0f, -0.5f, 0.0f, 2, 3, 5);
 		sting.addBox(-0.5f, 0.0f, 5.0f, 1, 1, 3);
 		sting.setRotationPoint(0.0f, 0.0f, 9.0f);
-		sting.rotateAngleX = (float) Math.toRadians(90.0);
+		sting.rotateAngleX = (float) 1.5707963267948966;
 		tail2.addChild(sting);
 	}
 
@@ -63,10 +63,10 @@ public class GOTModelScorpion extends GOTModelSpider {
 	@Override
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
 		super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-		armRight.rotateAngleY = (float) Math.toRadians(-50.0) + MathHelper.cos(f * 0.4f) * f1 * 0.4f;
-		armRight.rotateAngleY += f2 * (float) Math.toRadians(-40.0);
+		armRight.rotateAngleY = (float) -0.8726646259971648 + MathHelper.cos(f * 0.4f) * f1 * 0.4f;
+		armRight.rotateAngleY += f2 * (float) -0.6981317007977318;
 		armLeft.rotateAngleY = -armRight.rotateAngleY;
-		tail.rotateAngleX = (float) Math.toRadians(30.0) + MathHelper.cos(f * 0.4f) * f1 * 0.15f;
-		tail.rotateAngleX += f2 * (float) Math.toRadians(90.0);
+		tail.rotateAngleX = (float) 0.5235987755982988 + MathHelper.cos(f * 0.4f) * f1 * 0.15f;
+		tail.rotateAngleX += f2 * (float) 1.5707963267948966;
 	}
 }
