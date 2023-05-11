@@ -8,7 +8,6 @@ import java.util.List;
 public enum GOTBiomeMusic {
 	MENU("menu"), ESSOS("essos"), WESTEROS("westeros"), ULTHOS("ulthos"), SOTHORYOS("sothoryos"), OCEAN("ocean");
 
-	public static String allRegionCode = "all";
 	public String regionName;
 	public List<String> subregions = new ArrayList<>();
 

@@ -455,7 +455,7 @@ public class GOTChunkProvider implements IChunkProvider {
 				if (!GOTFixedStructures.hasMapFeatures(worldObj)) {
 					continue;
 				}
-				chunkFlags.bezierFlags[xzIndex] = GOTBezierGenerator.generateBezier(worldObj, rand, x, z, biome, blocks, metadata, blockHeightNoiseArray);
+				chunkFlags.bezierFlags[xzIndex] = GOTBezierGenerator.generateBezier(rand, x, z, biome, blocks, metadata, blockHeightNoiseArray);
 				int lavaHeight = GOTMountains.getLavaHeight(x, z);
 				if (lavaHeight <= 0) {
 					continue;

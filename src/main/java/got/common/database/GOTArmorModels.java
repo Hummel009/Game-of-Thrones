@@ -56,7 +56,7 @@ public class GOTArmorModels {
 	}
 
 	public int getEntityArmorModel(RendererLivingEntity renderer, ModelBiped mainModel, EntityLivingBase entity, ItemStack armor, int slot) {
-		ModelBiped armorModel = getSpecialArmorModel(armor, slot, entity, mainModel);
+		ModelBiped armorModel = getSpecialArmorModel(armor, slot, mainModel);
 		if (armorModel != null) {
 			int color;
 			Item armorItem;
@@ -102,7 +102,7 @@ public class GOTArmorModels {
 		}
 	}
 
-	public ModelBiped getSpecialArmorModel(ItemStack itemstack, int slot, EntityLivingBase entity, ModelBiped mainModel) {
+	public ModelBiped getSpecialArmorModel(ItemStack itemstack, int slot, ModelBiped mainModel) {
 		if (itemstack == null) {
 			return null;
 		}

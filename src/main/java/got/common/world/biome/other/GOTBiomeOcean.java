@@ -20,10 +20,8 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import java.util.Random;
 
 public class GOTBiomeOcean extends GOTBiome {
-	public static Random iceRand = new Random();
 	public WorldGenerator spongeGen = new GOTWorldGenSeaBlock(Blocks.sponge, 0, 24);
 	public WorldGenerator coralGen = new GOTWorldGenSeaBlock(GOTRegistry.coralReef, 0, 64);
-	public NoiseGeneratorPerlin noiseIceGravel = new NoiseGeneratorPerlin(new Random(12480634985056L), 1);
 
 	public GOTBiomeOcean(int i, boolean major) {
 		super(i, major);
@@ -36,7 +34,7 @@ public class GOTBiomeOcean extends GOTBiome {
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
-	public static boolean isFrozen(int i, int k) {
+	public static boolean isFrozen(int k) {
 		return k <= -23000 || k >= 490000;
 	}
 
@@ -62,7 +60,7 @@ public class GOTBiomeOcean extends GOTBiome {
 				}
 			}
 		}
-		if (!isFrozen(i, k)) {
+		if (!isFrozen(k)) {
 			if (random.nextInt(12) == 0 && ((j1 = world.getTopSolidOrLiquidBlock(i1, k1)) < 60 || random.nextBoolean())) {
 				spongeGen.generate(world, random, i1, j1, k1);
 			}

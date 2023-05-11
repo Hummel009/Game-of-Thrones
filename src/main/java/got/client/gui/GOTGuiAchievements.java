@@ -95,7 +95,7 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			int textColour = hasAchievement ? 8019267 : 5652783;
 			mc.fontRenderer.drawString(achievement.getTitle(mc.thePlayer), guiLeft + 33, guiTop + offset + 5, textColour);
-			mc.fontRenderer.drawSplitString(achievement.getDescription(mc.thePlayer), guiLeft + 12, guiTop + offset + 24, 184, textColour);
+			mc.fontRenderer.drawSplitString(achievement.getDescription(), guiLeft + 12, guiTop + offset + 24, 184, textColour);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			if (hasAchievement) {
 				mc.getTextureManager().bindTexture(iconsTexture);

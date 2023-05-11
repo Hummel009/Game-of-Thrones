@@ -1178,16 +1178,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 			return hasCustomWater;
 		}
 
-		public void resetClouds() {
-			clouds = null;
-		}
-
 		public void resetFog() {
 			fog = null;
-		}
-
-		public void resetFoliage() {
-			foliage = null;
 		}
 
 		public void resetGrass() {
@@ -1251,10 +1243,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 			return heightStretchFactor;
 		}
 
-		public void setHeightStretchFactor(double d) {
-			heightStretchFactor = d;
-		}
-
 		public double getXZScale() {
 			return xzScale;
 		}
@@ -1271,13 +1259,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 			return xzScale != -1.0;
 		}
 
-		public void resetHeightStretchFactor() {
-			heightStretchFactor = -1.0;
-		}
-
-		public void resetXZScale() {
-			xzScale = -1.0;
-		}
 	}
 
 	public static class GrassBlockAndMeta {

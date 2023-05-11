@@ -209,35 +209,15 @@ public abstract class GOTBezierType {
 				return new BezierBlock(Blocks.fence, 0);
 			}
 		};
-		public static BridgeType CHARRED = new BridgeType() {
-
-			@Override
-			public BezierBlock getBlock(Random rand, boolean slab) {
-				if (slab) {
-					return new BezierBlock(GOTRegistry.woodSlabSingle1, 3);
-				}
-				return new BezierBlock(GOTRegistry.planks1, 3);
-			}
-
-			@Override
-			public BezierBlock getEdge(Random rand) {
-				return new BezierBlock(GOTRegistry.woodBeam1, 3);
-			}
-
-			@Override
-			public BezierBlock getFence(Random rand) {
-				return new BezierBlock(GOTRegistry.fence, 3);
-			}
-		};
 
 		protected BridgeType() {
 		}
 
-		public abstract BezierBlock getBlock(Random var1, boolean var2);
+		public abstract BezierBlock getBlock(boolean var2);
 
-		public abstract BezierBlock getEdge(Random var1);
+		public abstract BezierBlock getEdge();
 
-		public abstract BezierBlock getFence(Random var1);
+		public abstract BezierBlock getFence();
 
 	}
 
