@@ -1,18 +1,23 @@
 package got.common.entity.other;
 
-import got.common.*;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.faction.GOTFaction;
 import got.common.item.other.GOTItemCoin;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 public class GOTUnitTradeEntry {
-	public Class entityClass;
-	public Class mountClass;
+	public Class<? extends Entity> entityClass;
+	public Class<? extends Entity> mountClass;
 	public Item mountArmor;
 	public float mountArmorChance;
 	public String name;
@@ -22,13 +27,13 @@ public class GOTUnitTradeEntry {
 	public GOTHiredNPCInfo.Task task = GOTHiredNPCInfo.Task.WARRIOR;
 	public String extraInfo;
 
-	public GOTUnitTradeEntry(Class c, Class c1, String s, int cost, float alignment) {
+	public GOTUnitTradeEntry(Class<? extends Entity> c, Class<? extends Entity> c1, String s, int cost, float alignment) {
 		this(c, cost, alignment);
 		mountClass = c1;
 		name = s;
 	}
 
-	public GOTUnitTradeEntry(Class c, int cost, float alignment) {
+	public GOTUnitTradeEntry(Class<? extends Entity> c, int cost, float alignment) {
 		entityClass = c;
 		initialCost = cost;
 		alignmentRequired = alignment;
@@ -179,7 +184,6 @@ public class GOTUnitTradeEntry {
 
 		public boolean canAcceptPlayer(EntityPlayer entityplayer, GOTFaction fac) {
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-			pd.getPledgeFaction();
 			if (this == NONE) {
 				return true;
 			}
