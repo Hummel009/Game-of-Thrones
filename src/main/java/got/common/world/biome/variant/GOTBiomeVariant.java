@@ -126,9 +126,8 @@ public class GOTBiomeVariant {
 		return this;
 	}
 
-	public GOTBiomeVariant disableVillages() {
+	public void disableVillages() {
 		disableVillages = true;
-		return this;
 	}
 
 	public void generateVariantTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, int height, GOTBiome biome) {

@@ -28,11 +28,10 @@ public class GOTBiomeRedBeach extends GOTBiomeOcean {
 		return 90;
 	}
 
-	public GOTBiomeRedBeach setBeachBlock(Block block, int meta) {
+	public void setBeachBlock(Block block, int meta) {
 		topBlock = block;
 		topBlockMeta = meta;
 		fillerBlock = block;
 		fillerBlockMeta = meta;
-		return this;
 	}
 }

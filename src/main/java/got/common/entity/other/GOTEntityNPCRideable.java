@@ -88,9 +88,8 @@ public abstract class GOTEntityNPCRideable extends GOTEntityNPC implements GOTNP
 		return worldObj.func_152378_a(tamingPlayer);
 	}
 
-	public int increaseNPCTemper(int i) {
+	public void increaseNPCTemper(int i) {
 		npcTemper = MathHelper.clamp_int(npcTemper + i, 0, getMaxNPCTemper());
-		return npcTemper;
 	}
 
 	@Override

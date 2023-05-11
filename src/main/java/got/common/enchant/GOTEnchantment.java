@@ -192,9 +192,8 @@ public abstract class GOTEnchantment {
 		return valueModifier;
 	}
 
-	public GOTEnchantment setValueModifier(float f) {
+	public void setValueModifier(float f) {
 		valueModifier = f;
-		return this;
 	}
 
 	public boolean hasTemplateItem() {
@@ -220,9 +219,8 @@ public abstract class GOTEnchantment {
 		return this;
 	}
 
-	public GOTEnchantment setBypassAnvilLimit() {
+	public void setBypassAnvilLimit() {
 		bypassAnvilLimit = true;
-		return this;
 	}
 
 	public GOTEnchantment setPersistsReforge() {

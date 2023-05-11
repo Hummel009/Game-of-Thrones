@@ -48,7 +48,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		ID = id;
 	}
 
-	public static GOTCustomWaypoint createForPlayer(String name, EntityPlayer entityplayer) {
+	public static void createForPlayer(String name, EntityPlayer entityplayer) {
 		GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 		int cwpID = playerData.getNextCwpID();
 		int i = MathHelper.floor_double(entityplayer.posX);
@@ -59,7 +59,6 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		GOTCustomWaypoint cwp = new GOTCustomWaypoint(name, mapX, mapY, i, j, k, cwpID);
 		playerData.addCustomWaypoint(cwp);
 		playerData.incrementNextCwpID();
-		return cwp;
 	}
 
 	public static GOTCustomWaypoint readFromNBT(NBTTagCompound nbt, GOTPlayerData pd) {

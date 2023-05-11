@@ -2,7 +2,6 @@ package got.common;
 
 import com.mojang.authlib.GameProfile;
 import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
 import got.common.database.GOTCapes;
 import got.common.database.GOTShields;
@@ -27,7 +26,6 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.*;
@@ -358,7 +356,7 @@ public class GOTLevelData {
 		}
 	}
 
-	public static boolean saveAndClearData(UUID player) {
+	public static void saveAndClearData(UUID player) {
 		GOTPlayerData pd = playerDataMap.get(player);
 		if (pd != null) {
 			boolean saved = false;
@@ -368,10 +366,9 @@ public class GOTLevelData {
 			}
 			playerTitleOfflineCacheMap.put(player, Optional.ofNullable(pd.getPlayerTitle()));
 			playerDataMap.remove(player);
-			return saved;
+			return;
 		}
 		FMLLog.severe("Attempted to clear GOT player data for %s; no data found", player);
-		return false;
 	}
 
 	public static void saveAndClearUnusedPlayerData() {

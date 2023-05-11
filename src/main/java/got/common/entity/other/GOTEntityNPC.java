@@ -695,9 +695,9 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return 200;
 	}
 
-	public IEntityLivingData initCreatureForHire(IEntityLivingData data) {
+	public void initCreatureForHire(IEntityLivingData data) {
 		spawnRidingHorse = false;
-		return onSpawnWithEgg(data);
+		onSpawnWithEgg(data);
 	}
 
 	@Override

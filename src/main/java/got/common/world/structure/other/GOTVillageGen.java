@@ -48,13 +48,12 @@ public abstract class GOTVillageGen {
 		villageRand.setSeed(seed);
 	}
 
-	public LocationInfo affix(GOTWaypoint... wps) {
+	public void affix(GOTWaypoint... wps) {
 		LocationInfo loc = null;
 		for (GOTWaypoint wp : wps) {
 			loc = new LocationInfo(wp.getXCoord() + wp.getAddX(), wp.getZCoord() + wp.getAddZ(), wp.getRotation(), wp.getCodeName()).setFixedLocation(wp);
 			fixedLocations.add(loc);
 		}
-		return loc;
 	}
 
 	public boolean anyFixedVillagesAt(World world, int i, int k) {

@@ -10,7 +10,6 @@ import cpw.mods.fml.common.IFuelHandler;
 import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent.*;
-import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import got.GOT;
@@ -125,15 +124,13 @@ public class GOTEventHandler implements IFuelHandler {
 		GameRegistry.registerFuelHandler(this);
 	}
 
-	public static boolean dechant(ItemStack itemstack, EntityPlayer entityplayer) {
+	public static void dechant(ItemStack itemstack, EntityPlayer entityplayer) {
 		if (!entityplayer.capabilities.isCreativeMode && itemstack != null && itemstack.isItemEnchanted()) {
 			Item item = itemstack.getItem();
 			if (!(item instanceof ItemFishingRod)) {
 				itemstack.getTagCompound().removeTag("ench");
-				return true;
 			}
 		}
-		return false;
 	}
 
 	public static String getUsernameWithoutWebservice(UUID player) {

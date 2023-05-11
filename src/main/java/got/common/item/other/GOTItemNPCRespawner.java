@@ -48,7 +48,7 @@ public class GOTItemNPCRespawner extends Item {
 		return false;
 	}
 
-	public boolean placeSpawnerAt(World world, int i, int j, int k) {
+	public void placeSpawnerAt(World world, int i, int j, int k) {
 		GOTEntityNPCRespawner spawner = new GOTEntityNPCRespawner(world);
 		double f = 0.1;
 		double f1 = 1.0 - f;
@@ -58,9 +58,7 @@ public class GOTItemNPCRespawner extends Item {
 			double c = 0.01;
 			if (world.getCollidingBoundingBoxes(spawner, spawner.boundingBox.contract(c, c, c)).isEmpty()) {
 				world.spawnEntityInWorld(spawner);
-				return true;
 			}
 		}
-		return false;
 	}
 }

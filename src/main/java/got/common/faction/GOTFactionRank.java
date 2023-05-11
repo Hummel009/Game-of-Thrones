@@ -117,9 +117,8 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 		return this == fac.getPledgeRank();
 	}
 
-	public GOTFactionRank makeAchievement() {
+	public void makeAchievement() {
 		rankAchievement = new GOTAchievementRank(this);
-		return this;
 	}
 
 	public GOTFactionRank makeTitle() {

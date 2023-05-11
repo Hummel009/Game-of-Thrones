@@ -347,7 +347,7 @@ public class DatabaseGenerator {
 		DatabaseGenerator.display = display;
 	}
 
-	public boolean generate(World world, EntityPlayer player, Random random) {
+	public void generate(World world, EntityPlayer player, Random random) {
 		long time = System.nanoTime();
 		try {
 			searchForEntities(world);
@@ -1710,7 +1710,6 @@ public class DatabaseGenerator {
 		long newTime = System.nanoTime();
 		ChatComponentText chatComponentTranslation = new ChatComponentText("Generated databases in " + (newTime - time) / 1.0E9 + "s");
 		player.addChatMessage(chatComponentTranslation);
-		return true;
 	}
 
 	public enum Database {

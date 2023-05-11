@@ -86,8 +86,8 @@ public class GOTMountFunctions {
 		}
 	}
 
-	public static boolean sendControlToServer(EntityPlayer clientPlayer) {
-		return sendControlToServer(clientPlayer, null);
+	public static void sendControlToServer(EntityPlayer clientPlayer) {
+		sendControlToServer(clientPlayer, null);
 	}
 
 	public static boolean sendControlToServer(EntityPlayer clientPlayer, GOTPacketMountControlServerEnforce pktSet) {

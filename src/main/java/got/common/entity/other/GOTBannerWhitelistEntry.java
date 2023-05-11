@@ -68,10 +68,9 @@ public class GOTBannerWhitelistEntry {
 		perms.remove(p);
 	}
 
-	public GOTBannerWhitelistEntry setFullPerms() {
+	public void setFullPerms() {
 		clearPermissions();
 		addPermission(GOTBannerProtection.Permission.FULL);
-		return this;
 	}
 
 	public void setPermissions(List<GOTBannerProtection.Permission> perms) {

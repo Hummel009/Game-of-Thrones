@@ -799,14 +799,13 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return this;
 	}
 
-	public Vec3 getCloudColor(Vec3 clouds) {
+	public void getCloudColor(Vec3 clouds) {
 		if (biomeColors.clouds != null) {
 			float[] colors = biomeColors.clouds.getColorComponents(null);
 			clouds.xCoord *= colors[0];
 			clouds.yCoord *= colors[1];
 			clouds.zCoord *= colors[2];
 		}
-		return clouds;
 	}
 
 	public boolean getEnableRain() {
@@ -825,14 +824,13 @@ public abstract class GOTBiome extends BiomeGenBase {
 		this.fillerBlockMeta = fillerBlockMeta;
 	}
 
-	public Vec3 getFogColor(Vec3 fog) {
+	public void getFogColor(Vec3 fog) {
 		if (biomeColors.fog != null) {
 			float[] colors = biomeColors.fog.getColorComponents(null);
 			fog.xCoord *= colors[0];
 			fog.yCoord *= colors[1];
 			fog.zCoord *= colors[2];
 		}
-		return fog;
 	}
 
 	public float getHeightBaseParameter() {

@@ -131,9 +131,8 @@ public class GOTConquestZone {
 		}
 	}
 
-	public GOTConquestZone setClientSide() {
+	public void setClientSide() {
 		clientSide = true;
-		return this;
 	}
 
 	public void setConquestStrength(GOTFaction fac, float str, World world) {

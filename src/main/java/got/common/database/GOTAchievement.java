@@ -875,9 +875,8 @@ public class GOTAchievement {
 		return this;
 	}
 
-	public GOTAchievement setSpecial() {
+	public void setSpecial() {
 		isSpecial = true;
-		return this;
 	}
 
 	public enum Category {

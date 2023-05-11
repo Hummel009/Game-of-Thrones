@@ -79,7 +79,7 @@ public class GOTAlignmentValues {
 		}
 	}
 
-	public static DecimalFormat setupDecimalFormat(DecimalFormat dFormat) {
+	public static void setupDecimalFormat(DecimalFormat dFormat) {
 		String groupSeparator;
 		char decimalSeparatorChar = '.';
 		char groupSeparatorChar = ',';
@@ -93,7 +93,6 @@ public class GOTAlignmentValues {
 		alignFormatSymbols.setDecimalSeparator(decimalSeparatorChar);
 		alignFormatSymbols.setGroupingSeparator(groupSeparatorChar);
 		dFormat.setDecimalFormatSymbols(alignFormatSymbols);
-		return dFormat;
 	}
 
 	public static class AlignmentBonus {

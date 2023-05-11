@@ -1,6 +1,5 @@
 package got.common.entity.other;
 
-import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
@@ -509,7 +508,7 @@ public class GOTHiredNPCInfo {
 		return MathHelper.floor_double(d);
 	}
 
-	public boolean tryTeleportToHiringPlayer(boolean failsafe) {
+	public void tryTeleportToHiringPlayer(boolean failsafe) {
 		World world = theEntity.worldObj;
 		if (!world.isRemote) {
 			EntityPlayer entityplayer = getHiringPlayer();
@@ -558,13 +557,13 @@ public class GOTHiredNPCInfo {
 						theEntity.fallDistance = 0.0f;
 						theEntity.getNavigator().clearPathEntity();
 						theEntity.setAttackTarget(null);
-						return true;
+						return;
 					}
 					theEntity.setLocationAndAngles(d, j1, d2, theEntity.rotationYaw, theEntity.rotationPitch);
 					theEntity.fallDistance = 0.0f;
 					theEntity.getNavigator().clearPathEntity();
 					theEntity.setAttackTarget(null);
-					return true;
+					return;
 				}
 				if (failsafe) {
 					double d = i + 0.5;
@@ -579,18 +578,16 @@ public class GOTHiredNPCInfo {
 							theEntity.fallDistance = 0.0f;
 							theEntity.getNavigator().clearPathEntity();
 							theEntity.setAttackTarget(null);
-							return true;
+							return;
 						}
 						theEntity.setLocationAndAngles(d, j, d2, theEntity.rotationYaw, theEntity.rotationPitch);
 						theEntity.fallDistance = 0.0f;
 						theEntity.getNavigator().clearPathEntity();
 						theEntity.setAttackTarget(null);
-						return true;
 					}
 				}
 			}
 		}
-		return false;
 	}
 
 	public void writeToNBT(NBTTagCompound nbt) {

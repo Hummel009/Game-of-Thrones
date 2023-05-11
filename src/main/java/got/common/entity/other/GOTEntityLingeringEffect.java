@@ -141,15 +141,14 @@ public class GOTEntityLingeringEffect extends Entity implements IEntityAdditiona
 		dataWatcher.updateObject(HEIGHT_DATA_WATCHER, this.height);
 	}
 
-	public boolean setTickCount(int ticks) {
+	public void setTickCount(int ticks) {
 		dataWatcher.updateObject(TICKS_DATA_WATCHER, ticks);
 		if (ticks >= MAX_TICKS) {
 			setDead();
-			return true;
+			return;
 		}
 		double radius = 3 * ((double) (MAX_TICKS - ticks) / MAX_TICKS);
 		setSize((float) radius * 2, 0.5F);
-		return false;
 	}
 
 	@Override

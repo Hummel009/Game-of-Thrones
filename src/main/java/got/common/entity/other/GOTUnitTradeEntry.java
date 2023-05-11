@@ -149,9 +149,8 @@ public class GOTUnitTradeEntry {
 		}
 	}
 
-	public GOTUnitTradeEntry setExtraInfo(String s) {
+	public void setExtraInfo(String s) {
 		extraInfo = s;
-		return this;
 	}
 
 	public GOTUnitTradeEntry setMountArmor(Item item) {

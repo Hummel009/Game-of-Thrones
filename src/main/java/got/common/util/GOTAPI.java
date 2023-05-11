@@ -418,14 +418,13 @@ public class GOTAPI {
 		GOTVersionChecker.checkedUpdate = true;
 	}
 
-	private static <T, E> T findAndInvokeMethod(Object[] args, Class<? super E> clazz, E instance, String[] methodNames, Class<?>... methodTypes) {
+	private static <T, E> void findAndInvokeMethod(Object[] args, Class<? super E> clazz, E instance, String[] methodNames, Class<?>... methodTypes) {
 		Method method = ReflectionHelper.findMethod(clazz, instance, methodNames, methodTypes);
 		try {
-			return (T) method.invoke(instance, args);
+			method.invoke(instance, args);
 		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 			GOTLog.logger.error("Error when getting method {} from class {}", methodNames[0], clazz.getSimpleName());
 			e.printStackTrace();
-			return null;
 		}
 	}
 

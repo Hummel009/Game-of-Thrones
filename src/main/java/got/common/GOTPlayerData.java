@@ -264,8 +264,8 @@ public class GOTPlayerData {
 		}
 	}
 
-	public GOTAlignmentBonusMap addAlignment(EntityPlayer entityplayer, GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, double posX, double posY, double posZ) {
-		return addAlignment(entityplayer, source, faction, null, posX, posY, posZ);
+	public void addAlignment(EntityPlayer entityplayer, GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, double posX, double posY, double posZ) {
+		addAlignment(entityplayer, source, faction, null, posX, posY, posZ);
 	}
 
 	public GOTAlignmentBonusMap addAlignment(EntityPlayer entityplayer, GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, Entity entity) {
@@ -492,7 +492,7 @@ public class GOTPlayerData {
 		}
 	}
 
-	public int addSharedCustomWaypointsFrom(UUID onlyOneFellowshipID, List<UUID> checkSpecificPlayers) {
+	public void addSharedCustomWaypointsFrom(UUID onlyOneFellowshipID, List<UUID> checkSpecificPlayers) {
 		List<UUID> checkFellowshipIDs;
 		if (onlyOneFellowshipID != null) {
 			checkFellowshipIDs = new ArrayList<>();
@@ -536,7 +536,6 @@ public class GOTPlayerData {
 				}
 			}
 		}
-		return checkFellowPlayerIDs.size();
 	}
 
 	public void addSharedCustomWaypointsFromAllFellowships() {

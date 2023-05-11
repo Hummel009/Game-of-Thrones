@@ -109,10 +109,9 @@ public abstract class GOTMiniQuestKill extends GOTMiniQuest {
 			return quest;
 		}
 
-		public QFKill<Q> setKillTarget(int min, int max) {
+		public void setKillTarget(int min, int max) {
 			minTarget = min;
 			maxTarget = max;
-			return this;
 		}
 	}
 
